@@ -92,4 +92,4 @@ Pour plus d'informations sur les rubriques Mobile Services suivantes, consultez�
 [Ajout de Mobile Services à une application existante]: mobile-services-html-get-started-data.md
 [Stockage des scripts serveur dans le contrôle du code source ]: mobile-services-store-scripts-source-control.md
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/14/2015" 
+	ms.date="07/31/2015" 
 	ms.author="stefsh"/>
 
 # Présentation de l'environnement App Service
@@ -79,4 +79,4 @@ Pour plus d’informations sur l’utilisation d’un environnement App Service 
 
 <!-- IMAGES -->
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

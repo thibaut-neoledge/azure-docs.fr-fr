@@ -7,6 +7,7 @@
 	manager="jeffreyg"
 	editor=""/>
 
+
 <tags
 	ms.service="virtual-machines"
 	ms.devlang="na"
@@ -15,6 +16,7 @@
 	ms.workload="infrastructure-services"
 	ms.date="06/02/2015"
 	ms.author="jroth"/>
+
 
 # Utilisation du stockage Premium Azure avec SQL Server sur des machines virtuelles
 
@@ -83,7 +85,7 @@ Pour convertir cette configuration en un réseau virtuel régional en Europe de 
 
 Vous devrez créer un nouveau compte de stockage configuré pour le stockage Premium. Notez que l'utilisation du stockage Premium est définie au niveau du compte de stockage et non des disques durs virtuels individuels ; mais lorsque vous utilisez une machine virtuelle de série DS*, vous pouvez connecter des disques durs virtuels à partir de comptes de stockage Premium et Standard. Cette méthode est recommandée si vous ne souhaitez pas placer le disque dur virtuel du système d'exploitation sur le compte de stockage Premium.
 
-La commande **New-AzureStorageAccountPowerShell** suivante avec le **Type** « Premium_LRS » crée un compte de stockage Premium :
+La commande **New-AzureStorageAccountPowerShell** suivante avec le **Type** « Premium\_LRS » crée un compte de stockage Premium :
 
     $newstorageaccountname = "danpremstor" 
     New-AzureStorageAccount -StorageAccountName $newstorageaccountname -Location "West Europe" -Type "Premium_LRS"   
@@ -145,7 +147,7 @@ Les performances de stockage dépendent de la taille de la machine virtuelle DS*
 
 Les disques de plus grande taille augmentent le nombre d'opérations d'E/S par seconde. Vous devez en tenir compte lorsque vous étudiez votre chemin de migration. Pour plus d'informations, [consultez le tableau des opérations d'E/S et des types de disque](../storage-premium-storage-preview-portal.md#scalability-and-performance-targets-whfr-fring-premium-storage).
 
-Enfin, notez que les machines virtuelles prennent en charge différentes bandes passantes maximales pour tous les disques connectés. Sous une charge élevée, vous risquez de saturer la bande passante de disque maximale disponible pour cette taille de rôle de machine virtuelle. Par exemple un disque Standard_DS14 prendra en charge jusqu'à 512 Mo/s ; par conséquent, avec trois disques P30, vous pourriez saturer la bande passante de disque de la machine virtuelle. Mais dans cet exemple, la limite de débit peut être dépassée selon la combinaison d'opérations d'E/S en lecture et écriture.
+Enfin, notez que les machines virtuelles prennent en charge différentes bandes passantes maximales pour tous les disques connectés. Sous une charge élevée, vous risquez de saturer la bande passante de disque maximale disponible pour cette taille de rôle de machine virtuelle. Par exemple un disque Standard\_DS14 prendra en charge jusqu'à 512 Mo/s ; par conséquent, avec trois disques P30, vous pourriez saturer la bande passante de disque de la machine virtuelle. Mais dans cet exemple, la limite de débit peut être dépassée selon la combinaison d'opérations d'E/S en lecture et écriture.
 
 ## Nouveaux déploiements
 
@@ -374,7 +376,7 @@ Il existe deux stratégies de migration de déploiements AlwaysOn qui autorisent
 1. **Ajouter plusieurs réplicas secondaires à un cluster AlwaysOn existant**
 1. **Migrer vers un nouveau cluster AlwaysOn**
 
-#### 1. Ajout de plusieurs réplicas secondaires à un cluster AlwaysOn existant
+#### 1\. Ajout de plusieurs réplicas secondaires à un cluster AlwaysOn existant
 
 Une stratégie consiste à ajouter plusieurs serveurs secondaires au groupe de disponibilité AlwaysOn. Vous devez ajouter ces réplicas à un nouveau service cloud et mettre à jour l'écouteur avec la nouvelle adresse IP de l'équilibreur de charge.
 
@@ -396,7 +398,7 @@ Vous devez prévoir suffisamment de temps pour effectuer un basculement manuel e
 1. Copiez les sauvegardes complètes et effectuez une restauration avec **NORECOVERY**.
 1. Copiez les objets dépendants 'out of user DB', notamment que les connexions.
 1. Créez un nouvel équilibreur de charge interne (ILB) ou utilisez un équilibreur de charge externe (ELB), puis configurez ensuite les points de terminaison d'équilibrage de charge sur les deux nouveaux nœuds.
-> [AZURE.NOTE] Vérifiez que la configuration du point de terminaison est correcte pour tous les nœuds avant de continuer
+> [AZURE.NOTE]Vérifiez que la configuration du point de terminaison est correcte pour tous les nœuds avant de continuer.
 
 1. Arrêtez l'accès de l'utilisateur/application à SQL Server (si vous utilisez des pools de stockage).
 1. Arrêtez les services du moteur SQL Server sur tous les nœuds (si vous utilisez des pools de stockage).
@@ -421,7 +423,7 @@ Vous devez prévoir suffisamment de temps pour effectuer un basculement manuel e
 - Le transfert des données SQL peut prendre du temps lors de la configuration des réplicas secondaires.
 - Pendant la migration, les nouvelles machines sont exécutées en parallèle, ce qui entraîne un coût supplémentaire.
 
-#### 2. Migration vers un nouveau cluster AlwaysOn
+#### 2\. Migration vers un nouveau cluster AlwaysOn
 
 Une autre stratégie consiste à créer un tout nouveau cluster AlwaysOn avec de nouveaux nœuds dans le nouveau service cloud en incitant les clients à l'utiliser.
 
@@ -452,7 +454,7 @@ Il existe deux stratégies pour migrer des déploiements AlwaysOn avec un temps 
 1. **Utiliser un service secondaire existant : site unique**
 1. **Utiliser des réplicas secondaires existants : multi-sites**
 
-#### 1. Utilisation d'un service secondaire existant : site unique
+#### 1\. Utilisation d'un service secondaire existant : site unique
 
 Une stratégie limitant les temps d'arrêt consiste à prendre un service cloud existant secondaire et à supprimer le service cloud actuel. Copiez les disques durs virtuels vers le nouveau compte de stockage Premium et créez la machine virtuelle dans le nouveau service cloud. Puis mettez à jour l'écouteur dans le clustering et effectuez le basculement.
 
@@ -498,7 +500,7 @@ Ce document ne présente pas un exemple complet de bout en bout, toutefois, l'[a
 - Si vous utilisez les étapes 5ii, ajoutez SQL1 comme propriétaire possible pour la ressource d'adresse IP ajoutée
 - Testez les basculements.
 
-#### 2. Utilisation de réplicas secondaires existants : multi-sites
+#### 2\. Utilisation de réplicas secondaires existants : multi-sites
 
 Si vous avez des nœuds dans plusieurs centres de données (DC) Azure ou si vous évoluez dans un environnement hybride, vous pouvez utiliser une configuration AlwaysOn dans cet environnement pour réduire les temps d'arrêt.
 
@@ -665,7 +667,7 @@ Veuillez noter que la diminution de la valeur 'HostRecordTTL' augmente le trafic
 
 Si votre application cliente SQL prend en charge .Net 4.5 SQLClient, vous pouvez utiliser le mot clé 'MULTISUBNETFAILOVER = TRUE' ; il est recommandé de l'appliquer car il accélère la connexion au groupe de disponibilité AlwaysOn SQL pendant le basculement. Il énumère toutes les adresses IP associées à l'écouteur AlwaysOn en parallèle et effectue une tentative de reconnexion TCP plus rapide lors d'un basculement.
 
-Pour plus d'informations sur les paramètres ci-dessus, consultez la rubrique[Mot clé MultiSubnetFailover et fonctionnalités associées](https://msdn.microsoft.com/library/hh213080.aspx#MultiSubnetFailover). Consultez également la rubrique [Prise en charge SqlClient pour la haute disponibilité et récupération d’urgence](https://msdn.microsoft.com/library/hh205662(v=vs.110).aspx).
+Pour plus d'informations sur les paramètres ci-dessus, consultez la rubrique[Mot clé MultiSubnetFailover et fonctionnalités associées](https://msdn.microsoft.com/library/hh213080.aspx#MultiSubnetFailover). Consultez également la rubrique [Prise en charge SqlClient pour la haute disponibilité et récupération d’urgence\](https://msdn.microsoft.com/library/hh205662(v=vs.110).aspx).
 
 #### Étape 5 : paramètres de quorum de cluster
 
@@ -1143,4 +1145,4 @@ Pour ajouter l'adresse IP, consultez l'étape 14 de l'[annexe](#appendix-migrati
 [25]: ./media/virtual-machines-sql-server-use-premium-storage/10_Appendix_15.png
  
 
-<!-------HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

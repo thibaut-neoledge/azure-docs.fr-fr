@@ -147,4 +147,4 @@ Si les paramètres du proxy web ont été configurés correctement, les messages
 ## Étapes suivantes
 Si vous rencontrez des problèmes lors du déploiement de votre appareil ou de configuration des paramètres de proxy web, reportez-vous à [Dépannage de votre appareil StorSimple](storsimple-troubleshoot-deployment.md).
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

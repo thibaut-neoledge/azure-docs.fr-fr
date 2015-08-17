@@ -39,4 +39,4 @@ NodeProperty : mappage défini par l'utilisateur ou le système d'une chaîne �
 Pour plus d'informations, consultez [Scénarios d'application](../service-fabric-application-scenarios).
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

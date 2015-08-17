@@ -135,4 +135,4 @@ Azure Notification Hubs permet d'afficher des données de télémétrie dans le 
 
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

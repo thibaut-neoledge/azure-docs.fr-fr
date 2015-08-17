@@ -956,4 +956,4 @@ Les informations suivantes s’affichent :
 
 [Installation et configuration d’Azure PowerShell](install-configure-powershell.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

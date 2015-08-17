@@ -17,10 +17,12 @@
 	ms.author="yuaxu"/>
 
 # Utilisation de Notification Hubs à partir de Python
-<div class="dev-center-tutorial-selector sublanding"> 
-    	<a href="/documentation/articles/notification-hubs-java-backend-how-to/" title="Java">Java</a><a href="/documentation/articles/notification-hubs-php-backend-how-to/" title="PHP">PHP</a><a href="/documentation/articles/notification-hubs-python-backend-how-to/" title="Python" class="current">Python</a><a href="/documentation/articles/notification-hubs-nodejs-how-to-use-notification-hubs/" title="Node.js">Node.js</a>
-</div>
-
+> [AZURE.SELECTOR] 
+- [Java](notification-hubs-php-backend-how-to.md)
+- [PHP](notification-hubs-python-backend-how-to.md)
+- [Python](notification-hubs-nodejs-how-to-use-notification-hubs.md)
+- [Node.js](notification-hubs-nodejs-how-to-use-notification-hubs.md)
+		
 Vous pouvez accéder à toutes les fonctionnalités de Notification Hubs à partir d'un serveur principal Java/PHP/Python/Ruby en utilisant l'interface REST des concentrateurs de notifications, comme décrit dans la rubrique MSDN [API REST de Notification Hubs](http://msdn.microsoft.com/library/dn223264.aspx).
 
 > [AZURE.NOTE]Ceci est un exemple d’implémentation de référence pour l’implémentation des envois de notifications dans Python et ce n’est pas le Kit de développement logiciel (SDK) Python de concentrateur de notification officiellement pris en charge.
@@ -222,7 +224,7 @@ Initialisez votre client Notification Hubs (remplacez la chaîne de connexion et
 
 	hub = NotificationHub("myConnectionString", "myNotificationHubName")
 
-Ajoutez ensuite le code d’envoi en fonction de la plateforme mobile cible. Cet exemple ajoute également des méthodes de plus haut niveau pour activer l’envoi de notifications basées sur la plateforme, par exemple send_windows_notification pour Windows, send_apple_notification (pour Apple), etc.
+Ajoutez ensuite le code d’envoi en fonction de la plateforme mobile cible. Cet exemple ajoute également des méthodes de plus haut niveau pour activer l’envoi de notifications basées sur la plateforme, par exemple send\_windows\_notification pour Windows, send\_apple\_notification (pour Apple), etc.
 
 ### Windows Store et Windows Phone 8.1 (non-Silverlight)
 
@@ -350,4 +352,4 @@ Dans cette rubrique, nous vous avons montré comment créer un client REST Pytho
 [5]: ./media/notification-hubs-python-backend-how-to/TemplatedNotification.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

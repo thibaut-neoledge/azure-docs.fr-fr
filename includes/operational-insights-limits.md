@@ -11,4 +11,4 @@ Les limites suivantes s’appliquent aux abonnements Operational Insights.
 
 <sup>1</sup>Lorsque les clients atteignent leur limite quotidienne de transfert de données de 500 Mo, l’analyse des données s’interrompt et reprend au début de la journée suivante. Les journées sont basées sur l’heure UTC.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

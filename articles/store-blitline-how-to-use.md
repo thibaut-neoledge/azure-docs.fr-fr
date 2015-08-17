@@ -7,6 +7,7 @@
 	manager="jason@blitline.com" 
 	editor="jason@blitline.com"/>
 
+
 <tags 
 	ms.service="multiple" 
 	ms.workload="na" 
@@ -15,6 +16,7 @@
 	ms.topic="article" 
 	ms.date="12/09/2014" 
 	ms.author="support@blitline.com"/>
+
 
 
 
@@ -95,11 +97,11 @@ Le JSON renvoyé ressemblera à ceci :
     }
 
 
-Ceci vous indique que Blitline a reçu votre requête et qu’il l’a placée dans une file d’attente de traitement. Une fois l’image terminée, elle est disponible à l’adresse suivante : **https://s3.amazonaws.com/dev.blitline/2011110722/YOUR_APP_ID/CK3f0xBF_2bV6wf7gEZE8w.jpg**
+Ceci vous indique que Blitline a reçu votre requête et qu’il l’a placée dans une file d’attente de traitement. Une fois l’image terminée, elle est disponible à l’adresse suivante : ****https://s3.amazonaws.com/dev.blitline/2011110722/YOUR\_APP\_ID/CK3f0xBF_2bV6wf7gEZE8w.jpg**
 
 ## <a id="saveazure"></a>Enregistrement d’une image sur votre compte Azure Storage
 
-Si vous possédez un compte Azure Storage, vous pouvez facilement demander à Blitline d'envoyer les images traitées sur votre conteneur Azure. En ajoutant un paramètre « azure_destination », vous définissez l'emplacement et les autorisations pour l'envoi par Blitline.
+Si vous possédez un compte Azure Storage, vous pouvez facilement demander à Blitline d'envoyer les images traitées sur votre conteneur Azure. En ajoutant un paramètre « azure\_destination », vous définissez l'emplacement et les autorisations pour l'envoi par Blitline.
 
 Voici un exemple :
 
@@ -150,4 +152,4 @@ Rendez-vous sur blitline.com pour découvrir toutes nos autres fonctions :
   [Création d'une tâche Blitline]: #createjob
   [Enregistrement d'une image sur Azure Storage]: #saveazure
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -29,4 +29,4 @@ En savoir plus sur les [Machines virtuelles](https://msdn.microsoft.com/library/
 [Virtual Machines]: #tellmevm
 [Cloud Services]: cloud-services-choose-me.md
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

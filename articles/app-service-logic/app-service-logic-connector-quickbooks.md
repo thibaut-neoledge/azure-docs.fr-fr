@@ -7,6 +7,7 @@
    manager="dwrede"
    editor=""/>
 
+
 <tags
    ms.service="app-service-logic"
    ms.devlang="multiple"
@@ -17,16 +18,32 @@
    ms.author="sameerch"/>
 
 
+
 #Utilisation du connecteur QuickBooks dans votre application logique#
 
 Les applications logiques peuvent se déclencher selon diverses sources de données et proposent des connecteurs pour obtenir et traiter les données dans le cadre du flux. Le connecteur QuickBooks vous permet de créer et de modifier différentes entités QuickBooks. Voici la liste des entités QuickBooks que le connecteur QuickBooks prend en charge.
 
-<Table>
-<TR><TD><B>Entités</TD><TD><B>Description</TR> <TR> <TD> Account </TD> <TD> Un compte est un composant d'un plan de comptes et fait partie d'un livre. Il permet d'enregistrer un montant monétaire alloué à une utilisation spécifique </TD> </TR> <TR> <TD> CreditMemo </TD> <TD> L'avoir est une transaction financière qui représente un remboursement, un crédit de paiement ou un acompte pour des biens ou des services vendus. </TD> </TR> <TR> <TD> Customer </TD> <TD> Un client est un consommateur du service ou du produit proposé par votre entreprise. </TD> </TR> <TR> <TD> Estimate </TD> <TD> L'estimation représente une proposition de transaction financière entre une entreprise et un client, concernant des biens ou des services en vue d'une vente ou de l'établissement d'un devis. </TD> </TR> <TR> <TD> Invoice </TD> <TD> Une facture formalise une vente dans laquelle le client règle un produit ou un service ultérieurement. D’autres informations sur l’utilisation du modèle de données Facture sont disponibles ici. </TD> </TR> <TR> <TD> Item </TD> <TD> Un élément est une chose que votre entreprise achète, vend ou revend, comme des produits, des frais d'expédition et de manutention, des remises et des taxes (le cas échéant). Un élément figure sur une ligne d’une facture ou d’un autre document de vente. </TD> </TR> <TR> <TD> SalesReceipt </TD> <TD> Cette entité représente le ticket remis au client. </TD> </TR> </Table>
+Entités|Description
+---|---
+Compte|Un compte est un composant d’un plan de comptes et fait partie d’un livre. Il permet d’enregistrer un montant monétaire alloué à une utilisation spécifique.
+Avoir|L’avoir est une transaction financière qui représente un remboursement, un crédit de paiement ou un acompte pour des biens ou des services vendus.
+Client|Un client est un consommateur du service ou du produit proposé par votre entreprise.
+Estimation|L’estimation représente une proposition de transaction financière entre une entreprise et un client, concernant des biens ou des services en vue d’une vente ou de l’établissement d’un devis.
+Facture|Une facture formalise une vente dans laquelle le client règle un produit ou un service ultérieurement. D’autres informations sur l’utilisation du modèle de données Facture sont disponibles ici.
+Élément|Un élément est une chose que votre entreprise achète, vend ou revend, comme des produits, des frais d’expédition et de manutention, des remises et des taxes (le cas échéant). Un élément figure sur une ligne d’une facture ou d’un autre document de vente.
+Ticket|Cette entité représente le ticket remis au client.
+
 
 
 ##Actions QuickBooks ##
-Voici les différentes actions disponibles dans le connecteur QuickBooks. <table> <tbody> <tr><td> <strong>Action</strong> </td> <td> <strong>Description</strong> </td> </tr> <tr> <td> Lire l'entité </td> <td> Lire l'objet de l'entité. </td> </tr> <tr> <td> Créer ou mettre à jour une entité </td> <td> Créer ou mettre à jour l'objet de l'entité. L’objet est mis à jour. S’il existe déjà, un autre objet est créé. </td> </tr> <tr> <td> Supprimer </td> <td> Cette action supprime l'objet spécifié de l'entité sélectionnée. </td> </tr> <tr> <td> Interroger </td> <td> L'opération d'interrogation permet de créer une requête concernant une entité. </td> </tr> </tbody> </table>
+Voici les différentes actions disponibles dans le connecteur QuickBooks.
+
+Action|Description
+---|---
+Lire l’entité|Lecture de l’objet entité
+Créer ou mettre à jour l’entité|Cette action crée ou met à jour l’objet entité. L’objet est mis à jour. S’il existe déjà, un autre objet est créé.
+Supprimer|Cette action supprime l’objet spécifié de l’entité sélectionnée.
+Interroger|L’opération d’interrogation permet de créer une requête concernant une entité.
 
 ##Créer une application API du connecteur QuickBooks##
 1.	Ouvrez Azure Marketplace à l’aide de l’option « + NOUVEAU » en bas à droite du portail Azure.
@@ -119,4 +136,4 @@ Créons une application logique simple qui crée un compte dans QuickBooks et me
 [12]: ./media/app-service-logic-connector-quickbooks/12_Update_Account_Address.png
 [13]: ./media/app-service-logic-connector-quickbooks/13_Create_new_quickbooks_connector.png
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

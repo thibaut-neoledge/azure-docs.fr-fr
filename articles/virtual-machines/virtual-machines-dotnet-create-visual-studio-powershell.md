@@ -7,6 +7,7 @@
 	manager="douge"
 	editor=""/>
 
+
 <tags
 	ms.service="virtual-machines"
 	ms.workload="infrastructure-services"
@@ -15,6 +16,7 @@
 	ms.topic="article"
 	ms.date="06/10/2015"
 	ms.author="kempb"/>
+
 
 # Création d’une machine virtuelle pour un site web avec Visual Studio
 
@@ -38,7 +40,8 @@ Pour créer une machine virtuelle lorsque vous créez un site web, suivez les é
 8. Dans la liste **Taille**, sélectionnez la taille de la machine virtuelle.
 9. Spécifiez les identifiants de connexion de cette machine virtuelle. Notez-les, car vous en aurez besoin pour accéder à la machine avec le Bureau à distance.
 10. Dans la liste **Emplacement**, choisissez la région dans laquelle vous allez héberger la machine virtuelle.
-11. Choisissez le bouton **OK** pour commencer à créer la machine virtuelle. Vous pouvez suivre l’état de l’opération dans la **fenêtre Sortie **. 
+11. Choisissez le bouton **OK** pour commencer à créer la machine virtuelle. Vous pouvez suivre l’état de l’opération dans la fenêtre **Sortie **.
+
 	![][3]
 
 12. Lorsque la machine virtuelle est approvisionnée, des scripts de publication sont créés dans un nœud **PublishScripts** de votre solution. Le script de publication exécute et approvisionne une machine virtuelle dans Azure. La fenêtre **Sortie** affiche le statut. Le script effectue les opérations ci-après pour configurer la machine virtuelle :
@@ -51,7 +54,8 @@ Pour créer une machine virtuelle lorsque vous créez un site web, suivez les é
 
 	![][4]
 
-<br/> 13. (Facultatif) Vous pouvez vous connecter à la nouvelle machine virtuelle. Dans l’**Explorateur de serveurs**, développez le nœud **Machines virtuelles**. Choisissez le nœud de la machine virtuelle que vous avez créée, puis dans le menu contextuel, sélectionnez **Se connecter avec le Bureau à distance**.
+<br/>
+ 13. (Facultatif) Vous pouvez vous connecter à la nouvelle machine virtuelle. Dans l’**Explorateur de serveurs**, développez le nœud **Machines virtuelles**. Choisissez le nœud de la machine virtuelle que vous avez créée, puis dans le menu contextuel, sélectionnez **Se connecter avec le Bureau à distance**.
 
  ![][5]
 
@@ -67,4 +71,4 @@ Si vous voulez personnaliser les scripts de publication créés, consultez des i
 [4]: ./media/virtual-machines-dotnet-create-visual-studio-powershell/CreateVM_SolutionExplorer.png
 [5]: ./media/virtual-machines-dotnet-create-visual-studio-powershell/VS_Create_VM_Connect.png
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

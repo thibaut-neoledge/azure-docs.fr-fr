@@ -91,4 +91,4 @@ Découvrez comment [restaurer un volume StorSimple à partir d’un jeu de sauve
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -17,6 +17,6 @@
 </tr>
 </table>
 
-<sup>1</sup>\*Entrantes\* désigne toutes les données (demandes) envoyées à un compte de stockage. *Sortantes* désigne toutes les données (réponses) reçues d’un compte de stockage.
+<sup>1</sup>*Entrantes* désigne toutes les données (demandes) envoyées à un compte de stockage. *Sortantes* désigne toutes les données (réponses) reçues d’un compte de stockage.
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

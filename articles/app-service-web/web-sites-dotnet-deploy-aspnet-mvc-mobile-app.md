@@ -5,7 +5,7 @@
 	documentationCenter=".net" 
 	authors="cephalin" 
 	manager="wpickett" 
-	editor="mollybos"/>
+	editor=""/>
 
 <tags 
 	ms.service="app-service-web" 
@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="04/29/2015" 
+	ms.date="08/01/2015" 
 	ms.author="cephalin;riande"/>
 
 
 # Déployer une application web mobile ASP.NET MVC 5 dans Azure App Service
 
-Ce didacticiel aborde les bases de la conception d’une application web ASP.NET MVC 5 adaptée aux appareils mobiles et de son déploiement dans Azure App Service. Pour ce didacticiel, vous avez besoin de [Visual Studio Express 2013 pour le Web][Visual Studio Express 2013] ou de l’édition professionnelle de Visual Studio si vous l’avez déjà.
+Ce didacticiel aborde les bases de la conception d’une application web ASP.NET MVC 5 adaptée aux appareils mobiles et de son déploiement dans Azure App Service. Pour ce didacticiel, vous avez besoin de [Visual Studio Express 2013 pour le Web][Visual Studio Express 2013] ou de l’édition professionnelle de Visual Studio si vous l’avez déjà. Vous pouvez utiliser[Visual Studio 2015], mais les captures d'écran seront différentes et vous devrez utiliser les modèles ASP.NET 4.x.
 
 [AZURE.INCLUDE [create-account-and-websites-note](../../includes/create-account-and-websites-note.md)]
 
@@ -560,6 +560,7 @@ Ce didacticiel vous a guidé dans l’utilisation d’ASP.NET MVC 5 pour déve
 
 <!-- External Links -->
 [Visual Studio Express 2013]: http://www.visualstudio.com/downloads/download-visual-studio-vs#d-express-web
+[Visual Studio 2015]: https://www.visualstudio.com/downloads/download-visual-studio-vs
 [AzureSDKVs2013]: http://go.microsoft.com/fwlink/p/?linkid=323510&clcid=0x409
 [Fiddler]: http://www.fiddler2.com/fiddler2/
 [EmulatorIE11]: http://msdn.microsoft.com/library/ie/dn255001.aspx
@@ -616,4 +617,4 @@ Ce didacticiel vous a guidé dans l’utilisation d’ASP.NET MVC 5 pour déve
 [SessionByCodeFixed3-644]: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/SessionByCode-Fixed-3-644.png
  
 
-<!----HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -86,7 +86,7 @@ Pour exposer la fonction `CustomAddRows` en tant que module Azure Machine Learni
 	</Module>
 
  
-Notez que la valeur des attributs **id** des éléments **Input** et **Arg** dans le fichier XML doit correspondre exactement aux noms des paramètres de la fonction du code R (\*dataset1\*, *dataset2* et *swap* dans l’exemple). De même, la valeur de l’attribut **entryPoint** de l’élément **Langage** doit correspondre exactement au nom de la fonction dans le script R (\*CustomAddRows\* dans l’exemple). En revanche, l’attribut **id** des éléments **Output** ne correspond à aucune variable du script R. Lorsque plusieurs sorties sont requises, il suffit de renvoyer une liste à partir de la fonction R avec les résultats placés dans le même ordre que celui dans lequel les sorties sont déclarées dans le fichier XML.
+Notez que la valeur des attributs **id** des éléments **Input** et **Arg** dans le fichier XML doit correspondre exactement aux noms des paramètres de la fonction du code R (*dataset1*, *dataset2* et *swap* dans l’exemple). De même, la valeur de l’attribut **entryPoint** de l’élément **Langage** doit correspondre exactement au nom de la fonction dans le script R (*CustomAddRows* dans l’exemple). En revanche, l’attribut **id** des éléments **Output** ne correspond à aucune variable du script R. Lorsque plusieurs sorties sont requises, il suffit de renvoyer une liste à partir de la fonction R avec les résultats placés dans le même ordre que celui dans lequel les sorties sont déclarées dans le fichier XML.
 
 Enregistrez ces deux fichiers sous *CustomAddRows.R* et *CustomAddRows.xml*, puis compressez-les ensemble dans un fichier *CustomAddRows.zip*.
 
@@ -94,7 +94,7 @@ Pour les enregistrer dans votre espace de travail Machine Learning, accédez à
 
 ![](http://i.imgur.com/RFJhCls.png)
 
-Le module **Custom Add Rows** peut désormais être ouvert par les expériences Machine Learning.
+Le module **Custom Add Rows** peut désormais être ouvert par vos expériences Machine Learning.
 
 ## Éléments du fichier de définition XML
 
@@ -108,17 +108,17 @@ L’élément **Module** est utilisé pour définir un module personnalisé dans
 
 Dans l’élément **Module**, vous pouvez spécifier un élément **Owner**, qui est incorporé dans le module, ainsi qu’un élément **Description**, qui est le texte affiché dans l’aide rapide pour le module et lorsque vous passez la souris sur le module dans l’interface utilisateur de Machine Learning.
 
-**Règles pour les limites de caractères dans les éléments Module** :
+**Règles relatives aux limites de caractères dans les éléments Module** :
 
 * La valeur de l’attribut **name** dans l’élément **Module** ne doit pas dépasser 64 caractères. 
 * Le contenu de l’élément **Description** ne doit pas dépasser 128 caractères.
 * Le contenu de l’élément **Owner** ne doit pas dépasser 32 caractères.
 
-\*\* Indiquant si les résultats d’un module sont déterministes ou non déterministes
+** Indiquant si les résultats d’un module sont déterministes ou non déterministes
 
 Par défaut, tous les modules sont considérés comme déterministes. Autrement dit, en présence d’un jeu de paramètres qui ne change pas, le module doit retourner les mêmes résultats chaque fois qu’il est exécuté. Étant donné ce comportement, Microsoft Azure Machine Learning Studio ne réexécute pas les modules marqués comme étant déterministes, sauf si un paramètre ou les données d’entrée ont été modifiés. Les résultats mis en cache sont retournés, ce qui permet d’exécuter l’expérience plus rapidement.
 
-Toutefois, si votre module utilise une fonction qui retourne des résultats différents chaque fois qu’il est exécuté (par exemple, RAND ou une fonction qui retourne la date actuelle ou l’heure), vous pouvez spécifier le module comme étant non déterministe en définissant l’attribut facultatif **isDeterministic** sur **false**. Le module sera réexécuté à chaque exécution de l’expérience, même si le module d’entrée et les paramètres n’ont pas changé.
+Toutefois, si votre module utilise une fonction qui renvoie des résultats différents chaque fois qu’il est exécuté (par exemple, RAND ou une fonction qui renvoie la date actuelle ou l’heure), vous pouvez spécifier le module comme étant non déterministe en définissant l’attribut facultatif **isDeterministic** sur **false**. Le module sera réexécuté à chaque exécution de l’expérience, même si le module d’entrée et les paramètres n’ont pas changé.
 
 ### Définition de l’élément Language
 L’élément **Language** dans votre fichier de définition XML est utilisé pour spécifier la langue du module personnalisé. Actuellement, R est le seul langage pris en charge. La valeur de l’attribut **sourceFile** doit être le nom du fichier R qui contient la fonction à appeler lorsque le module est exécuté. Ce fichier doit faire partie du package zip. La valeur de l’attribut **entryPoint** est le nom de la fonction appelée et doit correspondre à une fonction valide définie dans le fichier source.
@@ -127,16 +127,16 @@ L’élément **Language** dans votre fichier de définition XML est utilisé po
 
 
 ### Ports
-Les entrées et sorties d’un module personnalisé sont spécifiées dans les éléments enfants de la section **Ports** du fichier de définition XML. L’ordre de ces éléments détermine la disposition rencontrée par les utilisateurs (expérience utilisateur). Le premier enfant **input** ou **output** répertorié dans l’élément **Ports** du fichier XML sera le port d’entrée le plus à gauche dans l’expérience utilisateur Machine Learning. Chaque port d’entrée et de sortie peut avoir un élément enfant **Description** facultatif qui spécifie le texte affiché lorsqu’un utilisateur passe le curseur de la souris sur le port dans l’interface utilisateur de Machine Learning.
+Les ports d’entrée et de sortie d’un module personnalisé sont spécifiés dans les éléments enfants de la section **Ports** du fichier de définition XML. L’ordre de ces éléments détermine la disposition rencontrée par les utilisateurs (expérience utilisateur). Le premier enfant **input** ou **output** répertorié dans l’élément **Ports** du fichier XML sera le port d’entrée le plus à gauche dans l’expérience utilisateur Machine Learning. Chaque port d’entrée et de sortie peut avoir un élément enfant **Description** facultatif qui spécifie le texte affiché lorsqu’un utilisateur passe le curseur de la souris sur le port dans l’interface utilisateur de Machine Learning.
 
-**Règles des ports** :
+**Règles relatives aux ports** :
 
-* Le nombre maximum de **ports d'entrée et de sortie** est de 8 pour chacun.
+* Le nombre maximum de **ports d’entrée et de sortie** est de 8 pour chacun.
 
 ### Éléments d'entrée
-Les ports d'entrée permettent aux utilisateurs de transmettre des données à votre fonction R et à votre espace de travail. Les **types de données** pris en charge pour les ports d’entrée et de sortie sont les suivants :
+Les ports d'entrée permettent aux utilisateurs de transmettre des données à votre fonction R et à votre espace de travail. Les **types de données** pris en charge pour les ports d’entrée sont les suivants :
 
-**DataTable :** ce type est transmis à votre fonction R sous la forme suivante : data.frame. En fait, tous les types (par exemple, des fichiers CSV ou des fichiers ARFF) pris en charge par Machine Learning et compatibles avec **DataTable** sont automatiquement convertis en data.frame.
+**DataTable :** ce type est transmis à votre fonction R sous la forme suivante : data.frame. En réalité, tous les types (par exemple, des fichiers CSV ou des fichiers ARFF) pris en charge par Machine Learning et compatibles avec **DataTable** sont automatiquement convertis en data.frame.
 
 		<Input id="dataset1" name="Input 1" type="DataTable" isOptional="false">
         	<Description>Input Dataset 1</Description>
@@ -163,17 +163,17 @@ Pour les modules R personnalisés, l’ID d'un port Zip ne doit pas forcément 
 
 ### Éléments d’entrée
 
-**Ports de sortie standard :** les ports de sortie sont mappées aux valeurs de retour à partir de votre fonction R, qui peut ensuite être utilisée par les modules suivants. *DataTable* est le seul type de port de sortie standard pris en charge actuellement. (Les types *Learners* et *Transformers* seront prochainement pris en charge.) Une sortie *DataTable* est définie comme suit :
+**Ports de sortie standard :** les ports de sortie sont mappés aux valeurs de retour à partir de votre fonction R, qui peut ensuite être utilisée par les modules suivants. *DataTable* est le seul type de port de sortie standard pris en charge actuellement. (Les types *Learners* et *Transformers* seront prochainement pris en charge.) Une sortie *DataTable* est définie comme suit :
 
 	<Output id="dataset" name="Dataset" type="DataTable">
 		<Description>Combined dataset</Description>
 	</Output>
 
-Pour les sorties dans des modules personnalisés R, la valeur de l’attribut **id** ne doit pas forcément correspondre à quelque chose dans le script R, mais elle doit être unique. Pour une sortie de module unique, la valeur de retour de la fonction R doit être un *data.frame*. Pour créer une sortie portant sur plusieurs objets qui présentent un type de données pris en charge, vous devez spécifier les ports de sortie appropriés dans le fichier de définition XML et les objets doivent être renvoyés dans une liste. Les objets de la sortie seront attribués à des ports de sortie, de gauche à droite, selon l’ordre dans lequel les objets sont placés dans la liste renvoyée.
+Pour les sorties dans des modules personnalisés R, la valeur de l’attribut **id** ne doit pas forcément correspondre à un élément du script R, mais elle doit être unique. Pour une sortie de module unique, la valeur de retour de la fonction R doit être un *data.frame*. Pour créer une sortie portant sur plusieurs objets qui présentent un type de données pris en charge, vous devez spécifier les ports de sortie appropriés dans le fichier de définition XML et les objets doivent être renvoyés dans une liste. Les objets de la sortie seront attribués à des ports de sortie, de gauche à droite, selon l’ordre dans lequel les objets sont placés dans la liste renvoyée.
  
 Par exemple, si vous souhaitez générer les éléments dataset, Dataset1 et Dataset2 aux ports de sortie dataset, dataset1 et dataset2 de gauche à droite, respectivement, définissez les ports de sortie dans le fichier « myAddRows.xml », comme suit :
 
-Par exemple, si vous souhaitez modifier le module **Custom Add Rows** pour sortir les deux jeux de données d’origine, *dataset1* et *dataset2*, en plus du nouveau jeu de données joint *dataset* (dans l’ordre suivant, de gauche à droite : *dataset*, *dataset1*, *dataset2*), puis définir les ports de sortie dans le fichier CustomAddRows.xml comme suit :
+Par exemple, si vous souhaitez modifier le module **Custom Add Rows** pour sortir les deux jeux de données d’origine, *dataset1* et *dataset2*, en plus du nouveau jeu de données joint *dataset* (dans l’ordre suivant, de gauche à droite : *dataset*, *dataset1*, *dataset2*), vous devez définir les ports de sortie dans le fichier CustomAddRows.xml comme suit :
 
 	<Ports> 
 		<Output id="dataset" name="Dataset Out" type="DataTable"> 
@@ -217,7 +217,7 @@ Ensuite, renvoyez la liste des objets dans une liste respectant l’ordre adéqu
 * La valeur de l’attribut **type** de l’élément **Output** doit être *Visualization*.
 
 ### Arguments
-Des données supplémentaires peuvent être transmises à la fonction R via les paramètres de module qui sont définis dans l’élément **Arguments**. Ces paramètres apparaissent dans le volet des propriétés de l’interface utilisateur de Machine Learning le plus à droite lorsque le module est sélectionné. Les arguments peuvent être de n’importe quel type pris en charge, ou vous pouvez créer une énumération personnalisée lorsque cela s’avère nécessaire. Semblables aux éléments **Ports**, les éléments **Arguments** peuvent avoir un élément **Description** facultatif spécifiant le texte qui apparaît lorsque vous passez la souris sur le nom du paramètre. Les propriétés facultatives pour un module, telles que defaultValue, minValue et maxValue, peuvent être ajoutées à n’importe quel argument en tant qu’attributs d’un élément **Properties**. Les propriétés valides pour l’élément **Properties** dépendent du type d’argument et sont décrites avec les types d’arguments pris en charge ci-dessous. Comme dans le cas des entrées et sorties, il est essentiel que chaque paramètre soit associé à une valeur d’ID unique. En outre, les valeurs d’ID doivent correspondre aux paramètres nommés dans votre fonction R. Dans notre exemple de démarrage rapide, l’ID/paramètre associé était *swap*.
+Des données supplémentaires peuvent être transmises à la fonction R via les paramètres de module qui sont définis dans l’élément **Arguments**. Ces paramètres apparaissent dans le volet des propriétés de l’interface utilisateur de Machine Learning le plus à droite lorsque le module est sélectionné. Les arguments peuvent être de n’importe quel type pris en charge, ou vous pouvez créer une énumération personnalisée lorsque cela s’avère nécessaire. Comme pour les éléments **Ports**, les éléments **Arguments** peuvent avoir un élément **Description** facultatif spécifiant le texte qui apparaît lorsque vous passez la souris sur le nom du paramètre. Les propriétés facultatives pour un module, telles que defaultValue, minValue et maxValue, peuvent être ajoutées à n’importe quel argument en tant qu’attributs d’un élément **Properties**. Les propriétés valides pour l’élément **Properties** dépendent du type d’argument et sont décrites avec les types d’arguments pris en charge ci-dessous. Comme dans le cas des entrées et sorties, il est essentiel que chaque paramètre soit associé à une valeur d’ID unique. En outre, les valeurs d’ID doivent correspondre aux paramètres nommés dans votre fonction R. Dans notre exemple de démarrage rapide, l’ID/paramètre associé était *swap*.
 
 ### Élément Arg
 Un paramètre de module est défini à l’aide de l’élément enfant **Arg** de la section **Arguments** du fichier de définition XML. Comme dans le cas des éléments enfants de la section **Ports**, l’ordre des paramètres de la section **Arguments** définit la disposition rencontrée dans l’expérience utilisateur. Les paramètres apparaissent de haut en bas dans l’interface utilisateur dans le même ordre que celui dans lequel ils sont définis dans le fichier XML. Les types pris en charge par ML pour les paramètres sont répertoriés ci-dessous.
@@ -262,7 +262,7 @@ Un paramètre de module est défini à l’aide de l’élément enfant **Arg** 
         </Arg>
 
 
-* *Propriétés facultatives*: **default** et **isOptional** – une chaîne facultative sans valeur par défaut est transmise avec la valeur null à la fonction R si aucune valeur n’est fournie autrement par un utilisateur.
+* *Propriétés facultatives*: **default** et **isOptional** – une chaîne facultative sans valeur par défaut est transmise avec la valeur null à la fonction R si aucune valeur n’est fournie par un utilisateur.
 
 **ColumnPicker** : paramètre de sélection de colonne. Ce type est représenté sous la forme d’un sélecteur de colonne dans l’interface utilisateur. L’élément **Property** est utilisé ici pour spécifier l’ID du port à partir duquel les colonnes seront sélectionnées, où le type de port cible doit être *DataTable*. Le résultat de la sélection des colonnes est transmis à la fonction R sous forme d’une liste de chaînes contenant les noms des colonnes sélectionnées.
 
@@ -274,7 +274,7 @@ Un paramètre de module est défini à l’aide de l’élément enfant **Arg** 
 
 * *Propriétés obligatoires* : **portId**. Correspond à l’ID d’un élément Input de type *DataTable*.
 * *Propriétés facultatives* :
-	* **allowedTypes** : permet de filtrer les types de colonne que l’utilisateur peut choisir. Les valeurs valides incluent : 
+	* **allowedTypes** : permet de filtrer les types de colonnes que l’utilisateur peut choisir. Les valeurs valides incluent : 
 		* 	Chiffre
 		* 	Boolean
 		* 	Par catégorie
@@ -308,7 +308,7 @@ Un paramètre de module est défini à l’aide de l’élément enfant **Arg** 
 		* Tout
 
                             							
-**DropDown** : liste (déroulante) énumérée spécifiée par l’utilisateur. Les éléments de liste déroulante sont spécifiés dans l’élément **Properties** à l’aide de l’élément **Item**. L’**ID** de chaque élément **Item** doit être unique, et une variable R valide avec le nom de l’élément est à la fois le texte qui apparaît aux utilisateurs et la valeur transmise à la fonction R.
+**DropDown** : liste (déroulante) énumérée spécifiée par l’utilisateur. Les éléments de liste déroulante sont spécifiés dans l’élément **Properties** à l’aide de l’élément **Item**. L’**ID** de chaque élément **Item** doit être unique et une variable R valide avec le nom de l’élément est à la fois le texte qui apparaît aux utilisateurs et la valeur transmise à la fonction R.
 
 	<Arg id="color" name="Color" type="DropDown">
       <Properties default="red">
@@ -363,4 +363,4 @@ Les **limitations de l’environnement d’exécution** sont les suivantes :
 
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

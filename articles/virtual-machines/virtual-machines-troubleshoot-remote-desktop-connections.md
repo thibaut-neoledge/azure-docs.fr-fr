@@ -3,7 +3,7 @@
 	description="Si vous ne pouvez pas connecter votre machine virtuelle Azure Windows, utilisez les tests de diagnostic et les étapes qui suivent pour isoler la source du problème."
 	services="virtual-machines"
 	documentationCenter=""
-	authors="JoeDavies-MSFT"
+	authors="dsk-2015"
 	manager="timlt"
 	editor=""
 	tags="azure-service-management,azure-resource-manager"/>
@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="07/07/2015"
-	ms.author="josephd"/>
+	ms.author="dkshir"/>
 
 # Résolution des problèmes de connexion Bureau à distance avec une machine virtuelle Azure Windows
 
@@ -72,7 +72,7 @@ Solutions possibles à ce problème :
 
 Cause : la machine virtuelle à laquelle vous vous connectez ne peut pas localiser l’autorité de sécurité indiquée dans la partie nom d’utilisateur de vos informations d’identification.
 
-Lorsque votre nom d’utilisateur est au format *SecurityAuthority*\*UserName* (par exemple : CORP\User1), la partie *SecurityAuthority* est soit le nom d’ordinateur de la machine virtuelle (pour l’autorité de sécurité locale), soit un nom de domaine Active Directory.
+Quand votre nom d’utilisateur est au format *SecurityAuthority*\*UserName* (par exemple : CORP\\User1), la partie *SecurityAuthority* est soit le nom d’ordinateur de la machine virtuelle (pour l’autorité de sécurité locale), soit un nom de domaine Active Directory.
 
 Solutions possibles à ce problème :
 
@@ -86,10 +86,10 @@ Cause : Le nom de compte et le mot de passe que vous avez indiqués ne peuvent 
 
 Un ordinateur Windows peut valider les informations d’identification d’un compte local ou d’un compte de domaine.
 
-- Pour les comptes locaux, utilisez la syntaxe *ComputerName*\*UserName* (par exemple : SQL1\Admin4798).
-- Pour les comptes de domaine, utilisez la syntaxe *DomainName*\*UserName* (par exemple : CONTOSO\johndoe).
+- Pour les comptes locaux, utilisez la syntaxe *ComputerName*\*UserName* (par exemple : SQL1\\Admin4798).
+- Pour les comptes de domaine, utilisez la syntaxe *DomainName*\*UserName* (par exemple : CONTOSO\\johndoe).
 
-Pour les ordinateurs que vous promouvez vers les contrôleurs de domaine d’une nouvelle forêt Active Directory, le compte administrateur local auquel vous êtes connecté lorsque vous effectuez la promotion se transforme en un compte équivalent avec le même mot de passe dans la nouvelle forêt et le nouveau domaine. Le compte administrateur local précédent est supprimé. Par exemple, si vous vous connectez au compte administrateur local DC1\DCAdmin et promouvez la machine virtuelle en tant que contrôleur de domaine dans une nouvelle forêt du domaine corp.contoso.com, le compte local DC1\DCAdmin est supprimé et un compte de domaine (CORP\DCAdmin) est créé avec le même mot de passe.
+Pour les ordinateurs que vous promouvez vers les contrôleurs de domaine d’une nouvelle forêt Active Directory, le compte administrateur local auquel vous êtes connecté lorsque vous effectuez la promotion se transforme en un compte équivalent avec le même mot de passe dans la nouvelle forêt et le nouveau domaine. Le compte administrateur local précédent est supprimé. Par exemple, si vous vous connectez au compte administrateur local DC1\\DCAdmin et promouvez la machine virtuelle en tant que contrôleur de domaine dans une nouvelle forêt du domaine corp.contoso.com, le compte local DC1\\DCAdmin est supprimé et un compte de domaine (CORP\\DCAdmin) est créé avec le même mot de passe.
 
 Vérifiez bien que le nom du compte peut être considéré comme valide par la machine virtuelle. Vérifiez bien l’exactitude du mot de passe.
 
@@ -184,13 +184,13 @@ Si vous pouvez créer une connexion Bureau à distance avec une machine virtuell
 - La configuration du point de terminaison pour le trafic de Bureau à distance sur la machine virtuelle cible. Le port TCP privé du point de terminaison doit correspondre au port TCP sur lequel le service Services Bureau à distance de la machine virtuelle procède à l’écoute. Par défaut, il s’agit du port 3389.
 - La liste de contrôle d’accès du point de terminaison du trafic de Bureau à distance sur la machine virtuelle cible. Les listes de contrôle d’accès vous permettent de spécifier le trafic Internet entrant autorisé et interdit en fonction de l’adresse IP source. Une mauvaise configuration des listes de contrôle d’accès peut empêcher le trafic du Bureau à distance d’accéder au point de terminaison. Examinez vos listes de contrôle d’accès pour vous assurer que le trafic entrant provenant des adresses IP publiques de votre proxy ou d’un autre serveur Edge est autorisé. Pour plus d’informations, consultez [Qu’est-ce qu’une liste de contrôle d’accès (ACL) réseau ?](https://msdn.microsoft.com/library/azure/dn376541.aspx).
 
-Pour vérifier que le point de terminaison n’est pas la source du problème, supprimez le point de terminaison actuel et créez un autre point de terminaison en choisissant un port aléatoire dont le numéro externe se situe entre 49152 et 65535. Pour plus d’informations, voir l’article [Configuration des points de terminaison sur une machine virtuelle](virtual-machines-set-up-endpoints.md).
+Pour vérifier que le point de terminaison n’est pas la source du problème, supprimez le point de terminaison actuel et créez un autre point de terminaison en choisissant un port aléatoire dont le numéro externe se situe entre 49152 et 65535. Pour plus d’informations, consultez [Configuration des points de terminaison sur une machine virtuelle](virtual-machines-set-up-endpoints.md).
 
 ### <a id="nsgs"></a>Source 4 : groupes de sécurité réseau
 
 Les groupes de sécurité réseau vous permettent de mieux contrôler le trafic entrant et sortant autorisé. Vous pouvez créer des règles qui s’étendent aux sous-réseaux et aux services cloud d’un réseau virtuel Azure. Examinez les règles de votre groupe de sécurité réseau pour vous assurer que le trafic de Bureau à distance provenant d’Internet est autorisé.
 
-Pour plus d’informations, consultez la page [Présentation du groupe de sécurité réseau](../virtual-network/virtual-networks-nsg.md).
+Pour plus d’informations, consultez [Présentation du groupe de sécurité réseau](../virtual-network/virtual-networks-nsg.md).
 
 ### Source 5 : Machine virtuelle Azure Windows
 
@@ -201,7 +201,7 @@ La machine virtuelle Azure elle-même représente la dernière source possible d
 Tout d’abord, si vous ne parvenez pas à exécuter le [package de diagnostic Azure IaaS (Windows)](https://home.diagnostics.support.microsoft.com/SelfHelp?knowledgebaseArticleFilter=2976864) pour résoudre le problème de **connectivité RDP à une machine virtuelle Azure (redémarrage requis)**, suivez les instructions décrites dans [Réinitialisation d’un mot de passe ou du Service Bureau à distance pour les machines virtuelles Windows](virtual-machines-windows-reset-password.md) afin de réinitialiser le service Services de Bureau à distance sur la machine virtuelle. Avec cette opération, vous pouvez :
 
 - activer la règle par défaut du pare-feu Windows Bureau à distance (port TCP 3389) ;
-- activer les connexions Bureau à distance en définissant la valeur de registre HKLM\System\CurrentControlSet\Control\Terminal Server\fDenyTSConnections sur 0.
+- activer les connexions Bureau à distance en définissant la valeur de registre HKLM\\System\\CurrentControlSet\\Control\\Terminal Server\\fDenyTSConnections sur 0.
 
 Essayez une nouvelle fois de vous connecter à partir de votre ordinateur. Si vous ne réussissez toujours pas à vous connecter, cela peut être dû à l’une des raisons suivantes :
 
@@ -225,7 +225,7 @@ Indiquez le nom de votre abonnement Azure, le nom du service cloud et le nom de 
 
 Le nom de l’abonnement apparaît dans la propriété SubscriptionName de la commande **Get-AzureSubscription**. Le nom du service cloud de la machine virtuelle apparaît dans la colonne ServiceName de la commande **Get-AzureVM**.
 
-Pour prouver que vous disposez de ce nouveau certificat, ouvrez un composant logiciel enfichable Certificats axé sur l’utilisateur actuel et accédez au dossier **Autorités de certification racines de confiance\Certificats**. Vous devriez voir un certificat portant le nom DNS de votre service cloud doit apparaître dans la colonne Issued To (exemple : cloudservice4testing.cloudapp.net).
+Pour prouver que vous disposez de ce nouveau certificat, ouvrez un composant logiciel enfichable Certificats axé sur l’utilisateur actuel et accédez au dossier **Autorités de certification racines de confiance\\Certificats**. Vous devriez voir un certificat portant le nom DNS de votre service cloud doit apparaître dans la colonne Issued To (exemple : cloudservice4testing.cloudapp.net).
 
 Lancez ensuite une session Azure PowerShell distante à l’aide de ces commandes.
 
@@ -287,4 +287,4 @@ Pour plus d’informations sur l’utilisation du support Azure, consultez le [F
 
 [Résolution des problèmes d’accès à une application exécutée sur une machine virtuelle Azure](virtual-machines-troubleshoot-access-application.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

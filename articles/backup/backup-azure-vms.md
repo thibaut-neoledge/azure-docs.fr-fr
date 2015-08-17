@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Sauvegarde des machines virtuelles Azure : Backup"
+	pageTitle="Sauvegarde des ordinateurs virtuels Azure : Backup | Microsoft Azure"
 	description="En savoir plus sur la sauvegarde d’une machine virtuelle Azure après inscription"
 	services="backup"
 	documentationCenter=""
@@ -7,14 +7,7 @@
 	manager="shreeshd"
 	editor=""/>
 
-<tags
-	ms.service="backup"
-	ms.workload="storage-backup-recovery"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="hero-article"
-	ms.date="07/06/2015"
-	ms.author="aashishr"/>
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="hero-article" ms.date="07/30/2015" ms.author="aashishr"; "jimpark"/>
 
 
 # Sauvegarde des machines virtuelles Azure
@@ -33,13 +26,19 @@ Le processus de découverte interroge Azure pour obtenir la liste des machines v
 
 1. Accédez à l’archivage de sauvegarde qui se trouve sous **Recovery Services** dans le portail Azure, puis cliquez sur l’onglet **Éléments inscrits**.
 
-2. Choisissez le type de charge de travail dans le menu déroulant en tant que **Machine virtuelle Azure**, puis cliquez sur le bouton **Sélectionner**. ![sélectionner la charge de travail](./media/backup-azure-vms/discovery-select-workload.png)
+2. Choisissez le type de charge de travail dans le menu déroulant en tant que **Ordinateur virtuel Azure**, puis cliquez sur le bouton **Sélectionner**.
+
+    ![sélectionner la charge de travail](./media/backup-azure-vms/discovery-select-workload.png)
 
 3. Cliquez sur le bouton **DÉCOUVRIR** en bas de la page. ![bouton découverte](./media/backup-azure-vms/discover-button-only.png)
 
-4. Le processus de découverte peut s’exécuter pendant quelques minutes tandis que les machines virtuelles sont affichées sous forme de tableau. Une notification toast s’affiche en bas de l’écran pendant l’exécution du processus de découverte. ![découvrir des machines virtuelles](./media/backup-azure-vms/discovering-vms.png)
+4. Le processus de découverte peut s’exécuter pendant quelques minutes tandis que les machines virtuelles sont affichées sous forme de tableau. Une notification toast s’affiche en bas de l’écran pendant l’exécution du processus de découverte.
 
-5. Une fois le processus de découverte terminé, une autre notification toast s’affiche. ![découverte terminée](./media/backup-azure-vms/discovery-complete.png)
+    ![découvrir des machines virtuelles](./media/backup-azure-vms/discovering-vms.png)
+
+5. Une fois le processus de découverte terminé, une autre notification toast s’affiche.
+
+    ![découverte terminée](./media/backup-azure-vms/discovery-complete.png)
 
 ##  2\. Inscription des machines virtuelles Azure
 Pour protéger une machine virtuelle, cette dernière doit être inscrite auprès du service Azure Backup. Le processus d’inscription a deux objectifs principaux :
@@ -52,9 +51,11 @@ L’inscription est généralement une activité unique. Le service Azure Backup
 
 ### Pour inscrire des machines virtuelles
 
-1. Accédez à l’archivage de sauvegarde qui se trouve sous **Services de récupération** dans le portail Azure, puis cliquez sur l’onglet **Éléments inscrits**.
+1. Accédez à l’archivage de sauvegarde qui se trouve sous **Recovery Services** dans le portail Azure, puis cliquez sur l’onglet **Éléments inscrits**
 
-2. Choisissez le type de charge de travail dans le menu déroulant en tant que **Machine virtuelle Azure**, puis cliquez sur le bouton Sélectionner. ![sélectionner la charge de travail](./media/backup-azure-vms/discovery-select-workload.png)
+2. Choisissez le type de charge de travail dans le menu déroulant en tant que **Ordinateur virtuel Azure**, puis cliquez sur le bouton Sélectionner.
+
+    ![sélectionner la charge de travail](./media/backup-azure-vms/discovery-select-workload.png)
 
 3. Cliquez sur le bouton **INSCRIRE** en bas de la page. ![bouton inscription](./media/backup-azure-vms/register-button-only.png)
 
@@ -64,18 +65,26 @@ L’inscription est généralement une activité unique. Le service Azure Backup
 
     >[AZURE.NOTE]Seules les machines virtuelles qui ne sont pas inscrites et se trouvent dans la même région que l’archivage de sauvegarde sont affichées.
 
-5. Un travail est créé pour chaque machine virtuelle à inscrire. La notification toast indique l’état de cette activité. Cliquez sur **Afficher le travail** pour accéder à la page **Travaux**. ![inscrire le travail](./media/backup-azure-vms/register-create-job.png)
+5. Un travail est créé pour chaque machine virtuelle à inscrire. La notification toast indique l’état de cette activité. Cliquez sur **Afficher le travail** pour accéder à la page **Travaux**.
 
-6. La machine virtuelle est également affichée dans la liste des éléments inscrits et l’état de l’opération d’inscription s’affiche ![État de l’inscription 1](./media/backup-azure-vms/register-status01.png)
+    ![inscrire le travail](./media/backup-azure-vms/register-create-job.png)
 
-7. Une fois l’opération terminée, l’état affiché dans le portail change pour refléter l’état inscrit. ![État de l’inscription 2](./media/backup-azure-vms/register-status02.png)
+6. L’ordinateur virtuel est également affiché dans la liste des éléments inscrits et l’état de l’opération d’inscription s’affiche
+
+    ![État de l’inscription 1](./media/backup-azure-vms/register-status01.png)
+
+7. Une fois l’opération terminée, l’état affiché dans le portail change pour refléter l’état inscrit.
+
+    ![État de l’inscription 2](./media/backup-azure-vms/register-status02.png)
 
 ## 3\. Protéger : Sauvegarde des machines virtuelles Azure
 Cette étape implique la configuration d’une stratégie de sauvegarde et de rétention pour la machine virtuelle. Pour protéger une machine virtuelle, procédez comme suit :
 
 ### Sauvegarde des machines virtuelles Azure
 1. Accédez à l’archivage de sauvegarde qui se trouve sous **Recovery Services** dans le portail Azure, puis cliquez sur l’onglet **Éléments inscrits**.
-2. Choisissez le type de charge de travail dans le menu déroulant en tant que **Machine virtuelle Azure**, puis cliquez sur le bouton **Sélectionner**. ![Sélectionner la charge de travail dans le portail](./media/backup-azure-vms/select-workload.png)
+2. Choisissez le type de charge de travail dans le menu déroulant en tant que **Ordinateur virtuel Azure**, puis cliquez sur le bouton **Sélectionner**.
+
+    ![Sélectionner la charge de travail dans le portail](./media/backup-azure-vms/select-workload.png)
 
 3. Cliquez sur le bouton **PROTÉGER** en bas de la page.
 
@@ -93,17 +102,25 @@ Cette étape implique la configuration d’une stratégie de sauvegarde et de r�
 
     Vous pouvez associer plusieurs machines virtuelles à chaque stratégie de sauvegarde. Vous ne pouvez associer votre machine virtuelle qu’à une seule stratégie à un moment donné.
 
-6. Un travail est créé pour chaque machine virtuelle afin de configurer la stratégie de protection et d’associer les machines virtuelles à la stratégie. Cliquez sur l’onglet **Travaux** et sélectionnez le filtre approprié pour afficher la liste des travaux **Configurer la protection**. ![Configurer le travail de protection](./media/backup-azure-vms/protect-configureprotection.png)
+6. Un travail est créé pour chaque machine virtuelle afin de configurer la stratégie de protection et d’associer les machines virtuelles à la stratégie. Cliquez sur l’onglet **Travaux** et sélectionnez le filtre approprié pour afficher la liste des travaux **Configurer la protection**.
+
+    ![Configurer le travail de protection](./media/backup-azure-vms/protect-configureprotection.png)
 
 7. Lorsque vous avez terminé, les machines virtuelles sont protégées par une stratégie et doivent attendre jusqu’à ce que le délai de sauvegarde prévu pour la sauvegarde initiale se termine. La machine virtuelle apparaît désormais sous l’onglet **Éléments protégés**, tandis que leur état est défini sur *Protégée* (en attente de la sauvegarde initiale).
     >[AZURE.NOTE]Le démarrage de la sauvegarde initiale immédiatement après la configuration de la protection n’est pas disponible pour le moment.
 
-8. À l’heure planifiée, le service Azure Backup crée un travail de sauvegarde pour chaque machine virtuelle à sauvegarder. Cliquez sur l’onglet **Travaux** pour afficher la liste des travaux **Backup**. Dans le cadre de l’opération de sauvegarde, le service Azure Backup émet une commande vers l’extension de sauvegarde de chaque machine virtuelle pour vider toutes les écritures et prendre un instantané cohérent. ![Sauvegarde en cours](./media/backup-azure-vms/protect-inprogress.png)
+8. À l’heure planifiée, le service Azure Backup crée un travail de sauvegarde pour chaque machine virtuelle à sauvegarder. Cliquez sur l’onglet **Travaux** pour afficher la liste des travaux **Backup**. Dans le cadre de l’opération de sauvegarde, le service Azure Backup émet une commande vers l’extension de sauvegarde de chaque ordinateur virtuel pour vider toutes les écritures et prendre un instantané cohérent.
 
-9. Une fois la commande exécutée, l’état de protection de la machine virtuelle sous l’onglet **Éléments protégés** s’affiche en tant que *protégé*. ![La machine virtuelle est sauvegardée avec un point de récupération](./media/backup-azure-vms/protect-backedupvm.png)
+    ![Sauvegarde en cours](./media/backup-azure-vms/protect-inprogress.png)
+
+9. Une fois la commande exécutée, l’état de protection de l’ordinateur virtuel sous l’onglet **Éléments protégés** s’affiche en tant que *protégé*.
+
+    ![La machine virtuelle est sauvegardée avec un point de récupération](./media/backup-azure-vms/protect-backedupvm.png)
 
 ## Affichage des détails et de l’état de sauvegarde
-Une fois la protection appliquée, le nombre de machines virtuelles augmente également sur la page de synthèse nommée **Tableau de bord**. Cette page affiche également le nombre de travaux à partir des dernières 24 heures ayant réussi, échoué et toujours en cours. Cliquez sur n’importe quelle catégorie pour l’examiner plus en détail dans la page **Travaux**. ![État de la sauvegarde sur la page Tableau de bord](./media/backup-azure-vms/dashboard-protectedvms.png)
+Une fois la protection appliquée, le nombre de machines virtuelles augmente également sur la page de synthèse nommée **Tableau de bord**. Cette page affiche également le nombre de travaux à partir des dernières 24 heures ayant réussi, échoué et toujours en cours. Cliquez sur n’importe quelle catégorie pour l’examiner plus en détail dans la page **Travaux**.
+
+![État de la sauvegarde sur la page Tableau de bord](./media/backup-azure-vms/dashboard-protectedvms.png)
 
 ## Résolution des erreurs
 Vous pouvez résoudre les erreurs rencontrées pendant l’utilisation d’Azure Backup à l’aide des informations figurant dans le tableau ci-dessous.
@@ -142,7 +159,7 @@ La mise à jour de l’agent de machine virtuelle est aussi simple que la réins
 #### Validation de l’installation de l’agent de machine virtuelle
 Pour vérifier la version de l’agent de machine virtuelle sur les machines virtuelles Windows :
 
-1. Connectez-vous à la machine virtuelle Azure et accédez au dossier *C:\\WindowsAzure\\Packages*. Le fichier WaAppAgent.exe doit être présent.
+1. Connectez-vous à l’ordinateur virtuel Azure et accédez au dossier *C:\\WindowsAzure\\Packages*. Le fichier WaAppAgent.exe doit être présent.
 2. Cliquez avec le bouton droit sur le fichier, accédez à **Propriétés**, puis sélectionnez l’onglet **Détails**. Le champ Version du produit doit être défini sur 2.6.1198.718 ou une version ultérieure
 
 ### Résolution des problèmes de mise en réseau
@@ -180,6 +197,6 @@ Le tableau ci-dessous décrit les types de cohérence rencontrés pendant la res
 Pour plus d’informations sur la prise en main de Microsoft Azure Backup, consultez :
 
 - [Restauration des machines virtuelles](backup-azure-restore-vms.md)
-- [Gestion des machines virtuelles](backup-azure-manage-vms)
+- [Gestion des machines virtuelles](backup-azure-manage-vms.md)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

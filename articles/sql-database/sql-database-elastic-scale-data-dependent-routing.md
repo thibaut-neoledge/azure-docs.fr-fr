@@ -117,4 +117,4 @@ Les propriétés transactionnelles sont garanties pour toutes les opérations lo
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

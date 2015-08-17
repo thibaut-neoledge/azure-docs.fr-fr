@@ -562,7 +562,7 @@ La mise en page est définie par plusieurs éléments de code XML. En nous basan
     </ListView>
 	
 
-Dans ce code, l'attribut *listitem* spécifie l'ID de la mise en page de chaque ligne dans la liste. Voici ce code, qui spécifie une case à cocher et le texte associé. Ce contenu est créé pour chaque élément de la liste. Pour une mise en page plus complexe, d'autres champs doivent être définis dans l'affichage. Le code se trouve dans le fichier *row_list_to_do.xml*.
+Dans ce code, l'attribut *listitem* spécifie l'ID de la mise en page de chaque ligne dans la liste. Voici ce code, qui spécifie une case à cocher et le texte associé. Ce contenu est créé pour chaque élément de la liste. Pour une mise en page plus complexe, d'autres champs doivent être définis dans l'affichage. Le code se trouve dans le fichier *row\_list\_to\_do.xml*.
 
 	<?xml version="1.0" encoding="utf-8"?>
 	<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -579,7 +579,7 @@ Dans ce code, l'attribut *listitem* spécifie l'ID de la mise en page de chaque 
 
 ### <a name="adapter"></a>Procédure de définition de l’adaptateur
 	
-Comme la source de données de notre vue est un tableau de *ToDoItem*, nous créons une sous-classe de notre adaptateur à partir de la classe *ArrayAdapter&lt;ToDoItem&gt;*. Cette sous-classe produit une vue pour chaque élément *ToDoItem* utilisant la mise en page *row_list_to_do*.
+Comme la source de données de notre vue est un tableau de *ToDoItem*, nous créons une sous-classe de notre adaptateur à partir de la classe *ArrayAdapter&lt;ToDoItem&gt;*. Cette sous-classe produit une vue pour chaque élément *ToDoItem* utilisant la mise en page *row\_list\_to\_do*.
 
 Dans notre code, nous définissons la classe suivante, qui est une extension de la classe *ArrayAdapter&lt;E&gt;* :
 
@@ -928,4 +928,4 @@ Cette méthode générale peut être utilisée dès lors que nous sommes en pré
 [Codes de contrôle ASCII C0 et C1]: http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

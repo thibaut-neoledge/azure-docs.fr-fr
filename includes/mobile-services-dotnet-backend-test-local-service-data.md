@@ -14,8 +14,8 @@ Dans cette section, vous allez utiliser Visual Studio pour héberger le service 
 
     ![](./media/mobile-services-dotnet-backend-test-local-service-data/local-item-checked.png)
 
-5. Dans Visual Studio, vous pouvez examiner les modifications dans la base de données créée pour le service principal en ouvrant l’Explorateur de serveurs et en développant les Connexions de données. Cliquez avec le bouton droit sur la table TodoItems située sous **MS_TableConnectionString** et cliquez sur **Afficher les données de la table.**
+5. Dans Visual Studio, vous pouvez examiner les modifications dans la base de données créée pour le service principal en ouvrant l’Explorateur de serveurs et en développant les Connexions de données. Cliquez avec le bouton droit sur la table TodoItems située sous **MS\_TableConnectionString** et cliquez sur **Afficher les données de la table.**
 
     ![](./media/mobile-services-dotnet-backend-test-local-service-data/vs-show-local-table-data.png)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

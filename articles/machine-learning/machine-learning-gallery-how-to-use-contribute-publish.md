@@ -113,4 +113,4 @@ Le rendu de la description complète n'est pas disponible de façon étendue à 
 **[ALLER À LA GALERIE >>](http://gallery.azureml.net)**
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

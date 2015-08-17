@@ -7,6 +7,7 @@
 	services="app-service\web" 
 	documentationCenter=""/>
 
+
 <tags 
 	ms.service="app-service-web" 
 	ms.workload="web" 
@@ -15,6 +16,7 @@
 	ms.topic="article" 
 	ms.date="07/06/2015" 
 	ms.author="cephalin"/>
+
 
 
 # Créer une présence sur le web à l’international sur Azure App Service Web Apps
@@ -33,7 +35,7 @@ Voici un exemple de site web .COM exécutant App Service Web Apps. Il indique l
 
 Vous pouvez créer rapidement des sites à partir d’un système de gestion de contenu (CMS) bien connu de la galerie, ou exploiter les ressources web existantes dans App Service Web Apps, qui utilisent différents langages et structures.
 
-Microsoft Azure Marketplace fournit des modèles proposés par des systèmes CMS bien connus, tel que [Orchard], [Umbraco], [Drupal] et [WordPress]. Vous pouvez créer une application web en utilisant votre version de CMS préférée. Différents systèmes de bases de données principaux permettent de répondre à vos besoins, y compris la [base de données SQL Azure] et [MySQL].
+Microsoft Azure Marketplace fournit des modèles proposés par des systèmes CMS bien connus, tel que [Orchard], [Umbraco], Drupal et [WordPress]. Vous pouvez créer une application web en utilisant votre version de CMS préférée. Différents systèmes de bases de données principaux permettent de répondre à vos besoins, y compris la [base de données SQL Azure] et [MySQL].
 
 Vos ressources web existantes peuvent s’exécuter sur App Service Web Apps, qu’il s’agisse de ressources .NET, PHP, Java, Node.js ou Python. Vous pouvez les déplacer vers Web Apps à l’aide de vos outils [FTP] habituels ou de votre système de gestion de contrôle de code source. Web Apps prend en charge la publication directe depuis des systèmes de contrôle de code source répandus, tels que [Visual Studio], [Visual Studio Online] et [Git] : local, GitHub, BitBucket, DropBox, Mercurial, etc.
 
@@ -49,9 +51,9 @@ De plus, lorsque vous envisagez d’apporter des modifications à un site web e
 
 Vous pouvez utiliser gratuitement le domaine App Service Web Apps, ou effectuer un mappage vers le nom de domaine enregistrer, puis sécuriser votre marque au moyen du certificat SSL signé par une autorité de certification.
 
-Le domaine **\*.azurewebsites.net** est gratuit lorsque vous exécutez votre site web sur Web Apps. Vous pouvez également mapper votre site web sur un [domaine personnalisé] (par exemple : contoso.com), obtenu à partir d’un registre DNS tel que GoDaddy.
+Le domaine ***.azurewebsites.net** est gratuit lorsque vous exécutez votre site web sur Web Apps. Vous pouvez également mapper votre site web sur un [domaine personnalisé] (par exemple : contoso.com), obtenu à partir d’un registre DNS tel que GoDaddy.
 
-Si vous collectez des informations sur les utilisateurs, effectuez des transactions de type e-commerce ou gérez des données sensibles, vous pouvez protéger la réputation de votre marque et vos clients avec le protocole [HTTPS]. Le nom de domaine **\*.azurewebsites.net** propose déjà un certificat SSL. Si vous utilisez votre domaine personnalisé, vous pouvez intégrer le certificat SSL qui lui est associé dans Web Apps. Une facturation mensuelle (au prorata des heures) est associée à chaque certificat SSL. Pour en savoir plus, consultez [Détails de la tarification d’App Service].
+Si vous collectez des informations sur les utilisateurs, effectuez des transactions de type e-commerce ou gérez des données sensibles, vous pouvez protéger la réputation de votre marque et vos clients avec le protocole [HTTPS]. Le nom de domaine ***.azurewebsites.net** propose déjà un certificat SSL. Si vous utilisez votre domaine personnalisé, vous pouvez intégrer le certificat SSL qui lui est associé dans Web Apps. Une facturation mensuelle (au prorata des heures) est associée à chaque certificat SSL. Pour en savoir plus, consultez [Détails de la tarification d’App Service].
 
 ## Optez pour l’international !
 
@@ -99,7 +101,6 @@ Rendez votre site .COM attrayant grâce à des contenus multimédia enrichis, co
 
 [Orchard]: web-sites-dotnet-orchard-cms-gallery.md
 [Umbraco]: web-sites-gallery-umbraco.md
-[Drupal]: web-sites-php-migrate-drupal.md
 [WordPress]: web-sites-php-web-site-gallery.md
 [MySQL]: web-sites-php-mysql-deploy-use-git.md
 [base de données SQL Azure]: web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md
@@ -141,4 +142,4 @@ Rendez votre site .COM attrayant grâce à des contenus multimédia enrichis, co
 
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

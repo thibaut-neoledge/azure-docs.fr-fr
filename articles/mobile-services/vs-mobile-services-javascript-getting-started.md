@@ -92,4 +92,4 @@ Supprimez une ligne dans une table de données. Appelez la méthode [done]() sur
 
 [En savoir plus sur Mobile Services](http://azure.microsoft.com/documentation/services/mobile-services/)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

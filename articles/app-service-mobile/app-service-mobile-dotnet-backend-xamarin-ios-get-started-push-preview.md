@@ -7,6 +7,7 @@
 	manager="dwrede" 
 	editor=""/>
 
+
 <tags 
 	ms.service="app-service-mobile" 
 	ms.workload="mobile" 
@@ -15,6 +16,7 @@
 	ms.topic="article"
 	ms.date="06/18/2015" 
 	ms.author="yuaxu"/>
+
 
 # Ajout de notifications push à votre application Xamarin iOS
 
@@ -266,7 +268,7 @@ L'application est mise à jour et prend en charge les notifications Push.
 	
 	> [AZURE.NOTE]Vous devez accepter explicitement les notifications Push de votre application. Cette demande s'effectue uniquement lors du premier démarrage de l'application.
 
-2. Dans l’application, tapez une tâche, puis cliquez sur l’icône plus (\*\*+\*\*).
+2. Dans l’application, tapez une tâche, puis cliquez sur l’icône plus (**+**).
 
 3. Vérifiez que vous avez reçu une notification, puis cliquez sur **OK** pour fermer celle-ci.
 
@@ -340,4 +342,4 @@ Vous avez terminé ce didacticiel.
 
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

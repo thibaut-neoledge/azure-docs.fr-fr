@@ -20,7 +20,7 @@ Nom de l'application API à créer. Le nom doit contenir entre 8 et 50 caract�
 
 ### apiAppSecret
 
-Secret de l'application API. Cette valeur doit être une chaîne codée en base 64.
+Secret de l'application API. Cette valeur doit être une chaîne codée en base 64. Elle doit correspondre à une chaîne aléatoire de 64 caractères et comprendre uniquement des entiers et des caractères minuscules.
 
     "apiAppSecret": {
       "type": "securestring"
@@ -28,10 +28,10 @@ Secret de l'application API. Cette valeur doit être une chaîne codée en base
 
 ### location
 
-Emplacement de la nouvelle application API.
+Emplacement de la nouvelle application API. Vous pouvez obtenir les emplacements valides en exécutant la commande PowerShell `Get-AzureLocation` ou la commande `azure location list` de la CLI Azure.
 
     "location": {
       "type": "string"
     }
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

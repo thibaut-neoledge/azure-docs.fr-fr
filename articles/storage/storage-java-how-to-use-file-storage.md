@@ -50,7 +50,7 @@ Pour pouvoir utiliser le stockage de fichiers, vous devez vous connecter à votr
 	    "AccountName=your_storage_account_name;" + 
 	    "AccountKey=your_storage_account_key";
 
-> [AZURE.NOTE]Remplacez your_storage_account_name (nom de votre compte de stockage) et your_storage_account_key (clé de votre compte de stockage) par les valeurs réelles de votre compte de stockage.
+> [AZURE.NOTE]Remplacez your\_storage\_account\_name (nom de votre compte de stockage) et your\_storage\_account\_key (clé de votre compte de stockage) par les valeurs réelles de votre compte de stockage.
 
 ## Connexion à un compte de stockage Azure
 
@@ -97,7 +97,7 @@ La première étape du téléchargement d’un fichier consiste à obtenir une r
 Maintenant que vous avez une référence au répertoire racine du partage, vous pouvez télécharger un fichier vers ce répertoire à l’aide du code ci-après.
 
 	// Define the path to a local file.
-	final String filePath = "C:\temp\Readme.txt";
+	final String filePath = "C:\\temp\\Readme.txt";
 
 	CloudFile cloudFile = rootDir.getFileReference("Readme.txt");
 	cloudFile.uploadFromFile(filePath);
@@ -222,4 +222,4 @@ Pour en savoir plus sur les autres API de stockage Azure, suivez ces liens.
 [Blog de l'équipe Azure Storage]: http://blogs.msdn.com/b/windowsazurestorage/
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -151,4 +151,4 @@ Dans le didacticiel suivant, [Autorisation des utilisateurs avec des scripts], v
 [Xamarin.iOS]: http://xamarin.com/download
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

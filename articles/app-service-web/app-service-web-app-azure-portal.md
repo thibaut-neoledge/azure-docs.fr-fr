@@ -7,6 +7,7 @@
 	manager="wpickett"
 	editor="jimbe"/>
 
+
 <tags
 	ms.service="app-service-web"
 	ms.workload="web"
@@ -15,6 +16,7 @@
 	ms.topic="article"
 	ms.date="03/24/2015"
 	ms.author="jaime-espinosa"/>
+
 
 # Références sur la navigation dans le portail Azure
 
@@ -68,7 +70,7 @@ Pour configurer les paramètres de l’application, cliquez sur **Paramètres de
 
 ![](./media/app-service-web-app-azure-portal/AppSettingsPreview.png)
 
-Outre le nom de la marque, quelques autres éléments du portail ont été renommés ou regroupés différemment pour faciliter leur recherche. Par exemple, voici une capture d’écran de la page correspondante des paramètres de l’application (**Configurer**) dans l’ancien portail.
+Outre le nom de la marque, quelques autres éléments du portail ont été renommés ou regroupés différemment pour faciliter leur recherche. Par exemple, voici une capture d’écran de la page correspondante des paramètres de l’application (**Configure**) dans l’ancien portail.
 
 ![](./media/app-service-web-app-azure-portal/AppSettings.png)
 
@@ -86,4 +88,4 @@ Outre le nom de la marque, quelques autres éléments du portail ont été renom
 * Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre l’ancien et le nouveau portail, consultez : [Références sur la navigation dans le portail Azure](http://go.microsoft.com/fwlink/?LinkId=529715)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

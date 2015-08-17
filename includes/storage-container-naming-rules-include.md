@@ -5,4 +5,4 @@ Chaque objet blob du stockage Azure doit résider dans un conteneur. Le conteneu
  
 > [AZURE.IMPORTANT]Notez que le nom d'un conteneur doit toujours être en minuscules. Si vous incluez une majuscule dans un nom de conteneur ou si vous ne respectez pas les règles d'affectation de noms, vous pouvez recevoir une erreur 400 (demande incorrecte). Pour connaître les règles d’affectation de noms aux conteneurs, consultez [Affectation de noms et références aux conteneurs, objets BLOB et métadonnées](https://msdn.microsoft.com/library/azure/dd135715.aspx).
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

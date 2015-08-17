@@ -7,14 +7,16 @@
 	manager="wpickett"
 	editor="mollybos"/>
 
+
 <tags
 	ms.service="app-service-web"
 	ms.workload="web"
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
-	ms.topic="get-started-article" 
+	ms.topic="hero-article" 
 	ms.date="06/26/2015"
 	ms.author="tdykstra"/>
+
 
 # Création d’une application web ASP.NET dans Azure App Service
 
@@ -316,4 +318,4 @@ Dans ce didacticiel, vous avez appris à créer une application web simple et à
 * Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre l’ancien et le nouveau portail, consultez la page [Références sur la navigation dans le portail Azure](http://go.microsoft.com/fwlink/?LinkId=529715).
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

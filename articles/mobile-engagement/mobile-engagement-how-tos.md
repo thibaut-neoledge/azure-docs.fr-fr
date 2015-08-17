@@ -75,7 +75,7 @@ Une fois que le Kit de développement logiciel (SDK) est totalement intégré à
  
 ![Personnalisé 1][11]
 
-La personnalisation consiste à remplacer un marqueur d'une balise d'informations de l'application. Vous devez donc d'abord vous assurer que les informations d'application appropriées sont définies pour l'utilisateur. Dans cet exemple, la balise d'informations de l'application rebate_code est définie pour les utilisateurs ciblés. Comme vous pouvez le constater ci-dessus, le contenu de la notification push inclut le marqueur ${rebate_code}, qui indique qu'il doit être remplacé par le contenu réel de la balise d'informations de l'application.
+La personnalisation consiste à remplacer un marqueur d'une balise d'informations de l'application. Vous devez donc d'abord vous assurer que les informations d'application appropriées sont définies pour l'utilisateur. Dans cet exemple, la balise d'informations de l'application rebate\_code est définie pour les utilisateurs ciblés. Comme vous pouvez le constater ci-dessus, le contenu de la notification push inclut le marqueur ${rebate\_code}, qui indique qu'il doit être remplacé par le contenu réel de la balise d'informations de l'application.
 
 > Avertissement : si la balise d’informations de l’application n’est pas définie pour l’utilisateur, celui-ci ne recevra pas la notification push.
 
@@ -293,4 +293,4 @@ Une vue web est une fenêtre contextuelle avec du contenu web. Cette fenêtre co
 [Link 33]: ../mobile-engagement-how-tos-web-view.md
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

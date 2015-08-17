@@ -97,8 +97,8 @@ Vous pouvez utiliser les tâches web Microsoft Azure pour exécuter des tâch
 
 Lorsque vous configurez une tâche web, tenez compte de ce qui suit :
 
-- Si vous souhaitez que le travail réponde à un déclencheur piloté par un événement, affectez-lui la valeur **Exécuter en continu**. Le script ou programme est stocké dans le dossier nommé site/wwwroot/app_data/jobs/continuous.
-- Si vous souhaitez que le travail réponde à un déclencheur piloté par une planification, affectez-lui la valeur **Exécuter selon une planification**. Le script ou programme est stocké dans le dossier nommé site/wwwroot/app_data/jobs/triggered.
+- Si vous souhaitez que le travail réponde à un déclencheur piloté par un événement, affectez-lui la valeur **Exécuter en continu**. Le script ou programme est stocké dans le dossier nommé site/wwwroot/app\_data/jobs/continuous.
+- Si vous souhaitez que le travail réponde à un déclencheur piloté par une planification, affectez-lui la valeur **Exécuter selon une planification**. Le script ou programme est stocké dans le dossier nommé site/wwwroot/app\_data/jobs/triggered.
 - Si vous choisissez l’option **Exécuter à la demande** lorsque vous configurez un travail, ce dernier exécute le même code qu’avec l’option **Exécuter selon une planification**.
 
 Les tâches web Azure s’exécutent dans le bac à sable (sandbox) du site web, ce qui signifie qu’elles peuvent accéder aux variables d’environnement et partager des informations telles que les chaînes de connexion avec le site web. Le travail peut accéder à l’identificateur unique de l’ordinateur qui exécute le travail. La chaîne de connexion **AzureJobsStorage** fournit l’accès aux files d’attente de stockage Microsoft Azure, aux objets blob et aux tables de données des applications, ainsi qu’au bus des services pour la messagerie et les communications. La chaîne de connexion **AzureJobsDashboard** fournit l’accès aux fichiers journaux d’actions des travaux.
@@ -108,18 +108,18 @@ Les tâches web Azure présentent les caractéristiques suivantes :
 - **Sécurité** : les tâches web sont protégées par les informations d’identification sur le déploiement du site web.
 - **Types de fichiers pris en charge** : les tâches web peuvent être définies au moyen de scripts de commande (.cmd), de fichiers de commandes (.bat), de scripts PowerShell (.ps1), de scripts Shell bash (.sh), de scripts PHP (.php), de scripts Python (.py), de code JavaScript (.js) et de programmes exécutables (.exe, .jar, etc.).
 - **Déploiement** : les scripts et exécutables peuvent être déployés à l’aide du portail Microsoft Azure, créés et déployés à l’aide du complément [WebJobsVs](https://visualstudiogallery.msdn.microsoft.com/f4824551-2660-4afa-aba1-1fcc1673c3d0) pour Visual Studio, ou [Visual Studio 2013 Update 4](http://www.visualstudio.com/news/vs2013-update4-rc-vs), via le [Kit de développement logiciel (SDK) des tâches web Microsoft Azure](websites-dotnet-webjobs-sdk-get-started.md), ou via une opération de copie directe aux emplacements suivants :
-  - Pour une exécution déclenchée : site/wwwroot/app_data/jobs/triggered/{nom_travail}
-  - Pour une exécution en continu : site/wwwroot/app_data/jobs/continuous/{nom_travail}
+  - Pour une exécution déclenchée : site/wwwroot/app\_data/jobs/triggered/{nom\_travail}
+  - Pour une exécution en continu : site/wwwroot/app\_data/jobs/continuous/{nom\_travail}
 - **Journalisation** : la commande Console.Out est traitée (marquée) comme étant de type « INFO », alors que la commande « Console.Error » présente le type « ERROR ». Les informations de surveillance et de diagnostic sont accessibles via le portail Azure. Quant aux fichiers journaux, ils peuvent être téléchargés à partir du site. Ces éléments sont sauvegardés aux emplacements suivants :
   - Pour une exécution déclenchée : Vfs/data/jobs/continuous/jobName
   - Pour une exécution en continu : Vfs/data/jobs/triggered/jobName
 - **Configuration** : vous pouvez configurer des tâches web au moyen du portail, de l’API REST et de PowerShell. Un fichier de configuration nommé settings.job, situé dans le même répertoire racine que le script de travail, peut être utilisé pour fournir des informations sur la configuration d’un travail. Par exemple :
-  - { "stopping_wait_time": 60 }
-  - { "is_singleton": true }
+  - { "stopping\_wait\_time": 60 }
+  - { "is\_singleton": true }
 
 ### Considérations
 
-- Par défaut, les tâches web ne sont pas mises à l’échelle par rapport au site web. Toutefois, vous pouvez configurer les travaux afin qu’ils s’exécutent sur une instance unique, en définissant la propriété de configuration **is_singleton** sur la valeur true. Les tâches web d’une instance unique sont utiles pour les tâches que vous ne voulez pas mettre à l’échelle ou exécuter en tant qu’instances multiples simultanées (réindexation, analyse des données et tâches similaires).
+- Par défaut, les tâches web ne sont pas mises à l’échelle par rapport au site web. Toutefois, vous pouvez configurer les travaux afin qu’ils s’exécutent sur une instance unique, en définissant la propriété de configuration **is\_singleton** sur la valeur true. Les tâches web d’une instance unique sont utiles pour les tâches que vous ne voulez pas mettre à l’échelle ou exécuter en tant qu’instances multiples simultanées (réindexation, analyse des données et tâches similaires).
 - Pour réduire l’impact des travaux sur les performances du site web, envisagez la création d’une instance de site web Microsoft Azure vide dans un nouveau plan de service d’application, afin d’héberger les tâches web qui s’exécutent depuis longtemps ou utilisent un grand nombre de ressources.
 
 ### Plus d’informations
@@ -236,9 +236,9 @@ Les rôles web et de travail passent par un ensemble de phases distinctes lorsq
 
 - Azure charge l’assembly de rôle et effectue une recherche portant sur une classe dérivée de la classe **RoleEntryPoint** dans cet assembly.
 - S’il la trouve, il appelle la méthode **RoleEntryPoint.OnStart()**. Vous substituez cette méthode pour initialiser vos tâches en arrière-plan.
-- Une fois la méthode **OnStart** exécutée, Azure appelle la méthode **Application_Start()** dans le fichier global de l’application, s’il est présent (par exemple : le fichier Global.asax dans un rôle web exécutant ASP.NET).
+- Une fois la méthode **OnStart** exécutée, Azure appelle la méthode **Application\_Start()** dans le fichier global de l’application, s’il est présent (par exemple : le fichier Global.asax dans un rôle web exécutant ASP.NET).
 - Microsoft Azure appelle la méthode **RoleEntryPoint.Run()** sur un nouveau thread au premier plan qui s’exécute en parallèle avec la méthode **OnStart()**. Vous substituez cette méthode pour démarrer vos tâches en arrière-plan.
-- Lorsque la méthode Run termine son exécution, Azure commence par appeler la méthode **Application_End()** dans le fichier global de l’application (s’il est présent), puis appelle la méthode **RoleEntryPoint.OnStop()**. Vous substituez la méthode **OnStop** pour arrêter vos tâches en arrière-plan, nettoyer les ressources, supprimer les objets et fermer les connexions que les tâches sont susceptibles d’avoir utilisées.
+- Lorsque la méthode Run termine son exécution, Azure commence par appeler la méthode **Application\_End()** dans le fichier global de l’application (s’il est présent), puis appelle la méthode **RoleEntryPoint.OnStop()**. Vous substituez la méthode **OnStop** pour arrêter vos tâches en arrière-plan, nettoyer les ressources, supprimer les objets et fermer les connexions que les tâches sont susceptibles d’avoir utilisées.
 - Le processus hôte du rôle de travail Azure est arrêté. À ce stade, ce rôle est recyclé et redémarre.
 
 Pour en savoir plus et consulter un exemple d’utilisation des méthodes de la classe **RoleEntryPoint**, voir [Modèle de consolidation des ressources de calcul](http://msdn.microsoft.com/library/dn589778.aspx).
@@ -290,7 +290,7 @@ Les tâches en arrière-plan doivent offrir des performances suffisantes pour é
 - Si les tâches en arrière-plan présentent des performances différentes de celles d’autres éléments de l’application Cloud Services (par exemple, l’interface utilisateur ou des composants comme la couche d’accès aux données), l’hébergement des tâches en arrière-plan dans un rôle de travail distinct permet aux rôles des tâches en arrière-plan et de l’interface utilisateur d’être mis à l’échelle de manière indépendante, afin de gérer la charge. Si plusieurs tâches en arrière-plan présentent des performances entièrement différentes les unes des autres, vous pouvez envisager de les répartir dans des rôles de travail distincts et de mettre chaque type de rôle à l’échelle de manière indépendante. Notez toutefois que cette opération peut s’avérer plus coûteuse que la combinaison de l’ensemble des tâches dans un nombre moins important de rôles.
 - Une simple mise à l’échelle des rôles peut s’avérer insuffisante pour empêcher une baisse des performances en cas de charge élevée. Peut-être devrez-vous également mettre les files d’attente de stockage et d’autres ressources à l’échelle, afin de vous assurer qu’un point unique de la chaîne de traitement dans son ensemble ne deviendra pas un goulot d’étranglement. Tenez également compte d’autres limitations comme le débit maximal du stockage et d’autres services sur lesquels reposent l’application et les tâches en arrière-plan.
 - La conception des tâches en arrière-plan doit prévoir une mise à l’échelle. Ainsi, elles doivent être en mesure de détecter, de manière dynamique, le nombre de files d’attente de stockage utilisées, afin de pouvoir écouter ou envoyer les messages à la file d’attente appropriée.
-- Par défaut, les tâches web sont mises à l’échelle en fonction de l’instance de site web Azure associée. Cependant, si vous souhaitez qu’une tâche web s’exécute uniquement en tant qu’instance unique, vous pouvez créer un fichier Settings.job contenant les données JSON : **{ "is_singleton": true }**. Cela oblige Microsoft Azure à exécuter une seule instance de la tâche web, même s’il existe plusieurs instances du site web associé. Cela peut être utile pour les travaux planifiés qui doivent s’exécuter en tant qu’instances uniques.
+- Par défaut, les tâches web sont mises à l’échelle en fonction de l’instance de site web Azure associée. Cependant, si vous souhaitez qu’une tâche web s’exécute uniquement en tant qu’instance unique, vous pouvez créer un fichier Settings.job contenant les données JSON : **{ "is\_singleton": true }**. Cela oblige Microsoft Azure à exécuter une seule instance de la tâche web, même s’il existe plusieurs instances du site web associé. Cela peut être utile pour les travaux planifiés qui doivent s’exécuter en tant qu’instances uniques.
 
 ## Modèles associés
 
@@ -317,4 +317,4 @@ Les tâches en arrière-plan doivent offrir des performances suffisantes pour é
 - [Files d’attente Azure et files d’attente Service Bus - comparaison et différences](http://msdn.microsoft.com/library/hh767287.aspx)
 - [Procédure : activer les diagnostics dans un service cloud](http://msdn.microsoft.com/library/dn482131.aspx)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

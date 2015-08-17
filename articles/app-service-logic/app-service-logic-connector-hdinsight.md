@@ -122,4 +122,4 @@ Vous pouvez cliquer sur « Exécuter maintenant » pour démarrer l'applicatio
 [10]: ./media/app-service-logic-connector-hdinsight/LogicApp6.jpg
 [11]: ./media/app-service-logic-connector-hdinsight/LogicApp7.jpg
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

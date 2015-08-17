@@ -47,4 +47,4 @@ Utilisez les liens suivants pour accéder à la documentation qui vous intéress
 - [Création ou modification des utilisateurs dans Azure AD](active-directory-create-users.md)
 - [Gestion des groupes dans Azure AD](active-directory-manage-groups.md)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

@@ -76,4 +76,4 @@ Pour en savoir plus sur la prise en charge du sous-titrage et des publicités da
 [Référentiel dash.js GitHub](https://github.com/Dash-Industry-Forum/dash.js)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

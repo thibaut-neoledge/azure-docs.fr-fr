@@ -79,7 +79,7 @@ Tout d’abord, créez un réseau virtuel appelé TestVNET.
 
 Ensuite, suivez les instructions de la page [Installation et configuration d’Azure PowerShell pour installer Azure PowerShell sur votre ordinateur local](../install-configure-powershell.md).
 
-Ensuite, créez un service cloud pour le réseau virtuel TestVNET. Vous devez choisir un nom unique. Par exemple, vous pouvez le nommer **TestVNET**-\*UniqueSequence\*, où *UniqueSequence* est l’abréviation de votre organisation. Par exemple, si le nom de votre organisation est Tailspin Toys, vous pouvez nommer le service cloud **TestVNET-Tailspin**.
+Ensuite, créez un service cloud pour le réseau virtuel TestVNET. Vous devez choisir un nom unique. Par exemple, vous pouvez le nommer **TestVNET-***UniqueSequence*, où *UniqueSequence* est l’abréviation de votre entreprise. Par exemple, si le nom de votre entreprise est Tailspin Toys, vous pouvez nommer le service cloud **TestVNET-Tailspin**.
 
 Vous pouvez vérifier si le nom est unique avec cette commande Azure PowerShell sur votre ordinateur local.
 
@@ -97,13 +97,13 @@ Ceci est votre configuration actuelle.
 
 Tout d’abord, vous créez des réseaux locaux qui représentent l’espace d’adressage de chaque réseau virtuel.
 
-1.	Dans le portail de gestion Azure sur votre ordinateur local, cliquez sur **Nouveau > Services de réseau > Réseau virtuel > Ajouter un réseau local**.
+1.	Dans le portail de gestion Azure sur votre ordinateur local, cliquez sur **Nouveau > Services de réseau > Réseau virtuel > Ajouter un réseau local**.
 2.	Dans la page Spécifier les détails de votre réseau local, tapez **TestLabLNet** dans **Nom**, tapez **131.107.0.1** dans **Adresse IP du périphérique VPN**, puis cliquez sur la flèche droite.
-3.	Dans la page Spécifier l’espace d’adresses, dans **Adresse IP de départ**, tapez **10.0.0.0**.
+3.	Dans la page Spécifier l’espace d’adresses, dans **Adresse IP de départ**, tapez **10.0.0.0**.
 4.	Dans **CIDR (Nombre d’adresses)**, sélectionnez **/24 (256)**, puis cliquez sur la coche.
-5.	Cliquez sur **Nouveau > Services réseau > Réseau virtuel > Ajouter un réseau local**.
+5.	Cliquez sur **Nouveau > Services réseau > Réseau virtuel > Ajouter un réseau local**.
 6.	Dans la page Spécifier les détails de votre réseau local, tapez **TestVNETLNet** dans **Nom**, tapez **131.107.0.2** dans **Adresse IP du périphérique VPN**, puis cliquez sur la flèche droite.
-7.	Dans la page Spécifier l’espace d’adresses, dans **Adresse IP de départ**, tapez **192.168.0.0**.
+7.	Dans la page Spécifier l’espace d’adresses, dans **Adresse IP de départ**, tapez **192.168.0.0**.
 8.	Dans **CIDR (Nombre d’adresses)**, sélectionnez **/24 (256)**, puis cliquez sur la coche.
 
 Notez que les adresses IP du périphérique VPN 131.107.0.1 et 131.107.0.2 sont des valeurs temporaires, jusqu’à ce que vous configuriez des passerelles pour les deux réseaux virtuels.
@@ -113,11 +113,11 @@ Ensuite, vous configurez chaque réseau virtuel pour qu’il utilise une connexi
 1.	Dans le portail de gestion Azure sur votre ordinateur local, cliquez sur **Réseaux** dans le volet gauche, puis vérifiez que la colonne **Statut** de **TestLab** contient bien **Créé**.
 2.	Cliquez sur **TestLab**, puis sur **Configurer**. Dans la page TestLab, dans la section **Connectivité de site à site**, cliquez sur **Se connecter au réseau local**. 
 3.	Dans **Réseau local**, sélectionnez **TestVNETLNet**.
-4.	Cliquez sur **Enregistrer** dans la barre des tâches. Dans certains cas, vous devrez peut-être cliquer sur **Ajouter un sous-réseau de passerelle** pour créer un sous-réseau destiné à la passerelle VPN Azure.
+4.	Cliquez sur **Enregistrer** dans la barre des tâches. Dans certains cas, vous devrez peut-être cliquer sur **Ajouter un sous-réseau de passerelle** pour créer un sous-réseau destiné à la passerelle VPN Azure.
 5.	Cliquez sur **Réseaux** dans le volet gauche, puis vérifiez que la colonne **Statut** de TestVNET contient bien **Créé**.
 6.	Cliquez sur **TestVNET**, puis sur **Configurer**. Dans la page TestVNET, dans la section **Connectivité de site à site**, cliquez sur **Se connecter au réseau local**. 
 7.	Dans **Réseau local**, sélectionnez **TestLabNet**.
-8.	Cliquez sur **Enregistrer** dans la barre des tâches. Dans certains cas, vous devrez peut-être cliquer sur **Ajouter un sous-réseau de passerelle** pour créer un sous-réseau destiné à la passerelle VPN Azure.
+8.	Cliquez sur **Enregistrer** dans la barre des tâches. Dans certains cas, vous devrez peut-être cliquer sur **Ajouter un sous-réseau de passerelle** pour créer un sous-réseau destiné à la passerelle VPN Azure.
 
 Vous créez ensuite des passerelles de réseau virtuel pour les deux réseaux virtuels.
 
@@ -133,10 +133,10 @@ Ensuite, configurez les réseaux locaux TestLabLNet TestVNETLNet avec les adress
 
 1.	Dans le portail de gestion Azure, dans la page Réseaux, cliquez sur **Réseaux locaux**. 
 2.	Cliquez sur **TestLabLNet**, puis sur **Modifier** dans la barre des tâches.
-3.	Dans la page Spécifier les détails de votre réseau local, tapez l’adresse IP de la passerelle de réseau virtuel du réseau virtuel TestLab (étape 3 de la procédure précédente) dans **Adresse IP du périphérique VPN (Facultatif)**, puis cliquez sur la flèche droite.
+3.	Dans la page Spécifier les détails de votre réseau local, tapez l’adresse IP de la passerelle du réseau virtuel TestLab (étape 3 de la procédure précédente) dans **Adresse IP du périphérique VPN (Facultatif)**, puis cliquez sur la flèche droite.
 4.	Dans la page Spécifier l’espace d’adresses, cliquez sur la coche.
 5.	Dans la page Réseaux locaux, cliquez sur **TestVNETLNet**, puis sur **Modifier** dans la barre des tâches.
-6.	Dans la page Spécifier les détails de votre réseau local, tapez l’adresse IP de la passerelle de réseau virtuel du réseau virtuel TestVNET (étape 7 de la procédure précédente) dans **Adresse IP du périphérique VPN (Facultatif)**, puis cliquez sur la flèche droite.
+6.	Dans la page Spécifier les détails de votre réseau local, tapez l’adresse IP de la passerelle du réseau virtuel TestVNET (étape 7 de la procédure précédente) dans **Adresse IP du périphérique VPN (Facultatif)**, puis cliquez sur la flèche droite.
 7.	Dans la page Spécifier l’espace d’adresses, cliquez sur la coche.
 
 Ensuite, vous allez configurer la clé prépartagée pour que les deux passerelles utilisent la même valeur, qui est la valeur de clé déterminée par le portail de gestion Azure pour le réseau virtuel TestLab. Exécutez ces commandes à partir d’une invite de commandes PowerShell Azure sur votre ordinateur local, en utilisant la valeur de la clé prépartagée de TestLab.
@@ -171,7 +171,7 @@ Ensuite, connectez-vous à la machine virtuelle DC2.
 3.	Lorsque vous êtes invité à ouvrir DC2.rdp, cliquez sur **Ouvrir**.
 4.	Lorsque le message Connexion Bureau à distance s’affiche, cliquez sur **Connecter**.
 5.	Si des informations d’identification vous sont demandées, utilisez celles-ci :
-- Nom : **DC2\\**[Nom de compte d’administrateur local]
+- Nom : **DC2\**[Nom de compte d’administrateur local]
 - Mot de passe : [Mot de passe de compte d’administrateur local]
 6.	Lorsqu’une zone de message de connexion Bureau à distance faisant référence aux certificats s’ouvre, cliquez sur **Oui**.
 
@@ -206,9 +206,9 @@ Maintenant que le réseau virtuel TestVNET possède son propre serveur DNS (DC2
 
 1.	Dans le volet gauche du Portail de gestion Azure, cliquez sur **Réseaux**, puis sur **TestVNET**.
 2.	Cliquez sur **Configurer**.
-3.	Dans **Serveurs DNS**, supprimez l’entrée 10.0.0.4.
+3.	Dans **Serveurs DNS**, supprimez l’entrée 10.0.0.4.
 4.	Dans **Serveurs DNS**, ajoutez une entrée avec le nom **DC2** et l’adresse IP **192.168.0.4**. 
-5.	Dans la barre de commandes en bas, cliquez sur **Enregistrer**, puis sur **Oui** lorsque vous y êtes invité. Attendez que la mise à jour sur le réseau TestVNet soit terminée.
+5.	Dans la barre de commandes en bas, cliquez sur **Enregistrer**, puis sur **Oui** quand vous y êtes invité. Attendez que la mise à jour sur le réseau TestVNet soit terminée.
 
 Ceci est votre configuration actuelle.
 
@@ -259,10 +259,10 @@ Ensuite, vous configurez les réseaux locaux TestLabLNet et TestVNETLNet avec le
 
 1.	Dans le portail de gestion Azure, dans la page Réseaux, cliquez sur **Réseaux locaux**. 
 2.	Cliquez sur **TestLabLNet**, puis sur **Modifier** dans la barre des tâches.
-3.	Dans la page Spécifier les détails de votre réseau local, tapez l’adresse IP de la passerelle de réseau virtuel du réseau virtuel TestLab (étape 3 de la procédure précédente) dans **Adresse IP du périphérique VPN (Facultatif)**, puis cliquez sur la flèche droite.
+3.	Dans la page Spécifier les détails de votre réseau local, tapez l’adresse IP de la passerelle du réseau virtuel TestLab (étape 3 de la procédure précédente) dans **Adresse IP du périphérique VPN (Facultatif)**, puis cliquez sur la flèche droite.
 4.	Dans la page Spécifier l’espace d’adresses, cliquez sur la coche.
 5.	Dans la page Réseaux locaux, cliquez sur **TestVNETLNet**, puis sur **Modifier** dans la barre des tâches.
-6.	Dans la page Spécifier les détails de votre réseau local, tapez l’adresse IP de la passerelle de réseau virtuel du réseau virtuel TestVNET (étape 7 de la procédure précédente) dans **Adresse IP du périphérique VPN (Facultatif)**, puis cliquez sur la flèche droite.
+6.	Dans la page Spécifier les détails de votre réseau local, tapez l’adresse IP de la passerelle du réseau virtuel TestVNET (étape 7 de la procédure précédente) dans **Adresse IP du périphérique VPN (Facultatif)**, puis cliquez sur la flèche droite.
 7.	Dans la page Spécifier l’espace d’adresses, cliquez sur la coche.
 
 Ensuite, vous configurez la clé prépartagée pour que les deux passerelles utilisent la même valeur, qui est la valeur de clé déterminée par le portail de gestion Azure pour le réseau virtuel TestLab. Exécutez ces commandes à partir d’une invite de commandes PowerShell Azure sur votre ordinateur local, en utilisant la valeur de la clé prépartagée de TestLab.
@@ -273,4 +273,4 @@ Ensuite, vous configurez la clé prépartagée pour que les deux passerelles uti
 Ensuite, dans la page Réseau du portail de gestion Azure, cliquez sur le réseau virtuel **TestLab**, puis cliquez sur **Connexion** dans la barre des tâches. Attendez que le réseau virtuel TestLab soit connecté au réseau local TestVNET.
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

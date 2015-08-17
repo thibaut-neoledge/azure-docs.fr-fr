@@ -7,6 +7,7 @@
 	manager="jwhit" 
 	editor="tysonn"/>
 
+
 <tags 
 	ms.service="site-recovery" 
 	ms.workload="backup-recovery" 
@@ -15,6 +16,7 @@
 	ms.topic="article" 
 	ms.date="05/07/2015" 
 	ms.author="raynew"/>
+
 
 # Configurer la protection entre des sites VMM locaux avec la réplication SAN
 
@@ -217,7 +219,12 @@ Une fois le fournisseur installé, poursuivez l'installation afin d'enregistrer 
 
 	- Si vous souhaitez utiliser un serveur proxy personnalisé, configurez-le avant d’installer le fournisseur.
 	- Les URL suivantes doivent être accessibles à partir du serveur VMM.
-		- *.hypervrecoverymanager.windowsazure.com - *.accesscontrol.windows.net - *.backup.windowsazure.com - *.blob.core.windows.net - *.store.core.windows.net- Autorisez les adresses IP décrites dans la zone [Étendues d’adresses IP du centre de données Azure](http://go.microsoft.com/fwlink/?LinkId=511094) et le protocole HTTPS (443). Vous devez autoriser les plages IP de la région Azure que vous prévoyez d'utiliser et de l'ouest des États-Unis. 
+		- **.hypervrecoverymanager.windowsazure.com
+- **.accesscontrol.windows.net
+- **.backup.windowsazure.com
+- **.blob.core.windows.net
+- **.store.core.windows.net
+- Autorisez les adresses IP décrites dans la zone [Étendues d’adresses IP du centre de données Azure](http://go.microsoft.com/fwlink/?LinkId=511094) et le protocole HTTPS (443). Vous devez autoriser les plages IP de la région Azure que vous prévoyez d'utiliser et de l'ouest des États-Unis. 
 	
 	- Si vous choisissez d’utiliser un proxy personnalisé, un compte d’identification VMM (DRAProxyAccount) est créé automatiquement avec les informations d'identification du proxy spécifiées. Configurez le serveur proxy pour que ce compte puisse s'authentifier correctement.
 	- Vous pouvez modifier les paramètres du compte RunAs VMM dans la console VMM. Pour cela, ouvrez l'espace de travail Paramètres, développez Sécurité, cliquez sur Comptes d'identification, puis modifiez le mot de passe de DRAProxyAccount. Vous devez redémarrer le service VMM pour que ce paramètre prenne effet.
@@ -356,4 +363,4 @@ Pour plus d'informations sur les interactions avec les tâches et le tableau de 
 	
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

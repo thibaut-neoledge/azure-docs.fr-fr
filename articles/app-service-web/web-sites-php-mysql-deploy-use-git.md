@@ -8,14 +8,16 @@
 	editor="mollybos"
 	tags="mysql"/>
 
+
 <tags
 	ms.service="app-service-web"
 	ms.workload="web"
 	ms.tgt_pltfrm="na"
 	ms.devlang="PHP"
 	ms.topic="article"
-	ms.date="04/29/2015"
+	ms.date="08/03/2015"
 	ms.author="tomfitz"/>
+
 
 #Création d’une application web PHP-MySQL dans Azure App Service et déploiement à l’aide de Git.
 
@@ -41,17 +43,11 @@ Ce didacticiel part du principe que [PHP][install-php], l’outil en ligne de co
 Pour créer une application web et une base de données MySQL, suivez la procédure ci-après :
 
 1. Connectez-vous au [portail Azure][management-portal].
-2. Cliquez sur l'icône **New** dans le coin inférieur gauche du portail.
-
-	![Créer une application web Azure][new-website]
+2. Cliquez sur l’icône **Nouveau**.
 
 3. Cliquez sur **Web et mobilité** puis sur **Azure Marketplace**.
 
-	![Créer une application web personnalisée][custom-create]
-
 4. Cliquez sur **Web Apps** puis sur **Application web et MySQL**. Cliquez sur **Créer**.
-
-	![](./media/web-sites-php-mysql-deploy-use-git/create_marketplace.png)
 
 4. Entrez un nom valide pour votre groupe de ressources.
 
@@ -67,11 +63,9 @@ Pour créer une application web et une base de données MySQL, suivez la procéd
 
 7. Une fois que l’application web a été créée, vous voyez apparaître le nouveau groupe de ressources. Cliquez sur le nom de l’application web pour en configurer les paramètres.
 
-	![Ouvrir l’application web][go-to-webapp]
-
 7. Cliquez sur **Configurer le déploiement continu**.
 
-	![Configurer la publication Git][setup-publishing]
+	![Configuration de la publication Git][setup-publishing]
 
 8. Sélectionnez **Référentiel Git local** comme source.
 
@@ -147,9 +141,12 @@ Pour générer et exécuter l'application en local, procédez comme suit : note
 		<h1>Register here!</h1>
 		<p>Fill in your name and email address, then click <strong>Submit</strong> to register.</p>
 		<form method="post" action="index.php" enctype="multipart/form-data" >
-		      Name  <input type="text" name="name" id="name"/></br>
-		      Email <input type="text" name="email" id="email"/></br>
+		      Name  <input type="text" name="name" id="name"/>
+</br>
+		      Email <input type="text" name="email" id="email"/>
+</br>
 		      <input type="submit" name="submit" value="Submit" />
+
 		</form>
 		<?php
 			// DB connection info
@@ -210,7 +207,7 @@ Pour générer et exécuter l'application en local, procédez comme suit : note
 		</body>
 		</html>
 
-Vous pouvez à présent accéder à **http://localhost/registration/index.php** pour tester l’application.
+Vous pouvez à présent accéder à ****http://localhost/registration/index.php** pour tester l’application.
 
 
 ##Publier votre application
@@ -233,7 +230,7 @@ Après avoir testé votre application localement, vous pouvez la publier dans We
 
 	![Transmission initiale vers Azure via Git][git-initial-push]
 
-2. Accédez à **http://[sitenom du site].azurewebsites.net/index.php** pour commencer à utiliser l’application (ces informations seront stockées dans le tableau de bord de votre compte) :
+2. Accédez à **http://[sitenom du site\].azurewebsites.net/index.php** pour commencer à utiliser l’application (ces informations seront stockées dans le tableau de bord de votre compte) :
 
 	![Site Web PHP Azure][running-app]
 
@@ -254,7 +251,7 @@ Pour publier les modifications apportées à votre application, procédez comme 
 
 	![Publication des modifications apportées au site dans Azure via Git][git-change-push]
 
-3. Accédez à **http://[sitenom du site].azurewebsites.net/index.php** pour voir votre application et toutes les modifications que vous avez pu apporter :
+3. Accédez à **http://[sitenom du site\].azurewebsites.net/index.php** pour voir votre application et toutes les modifications que vous avez pu apporter :
 
 	![Site Web PHP Azure][running-app]
 
@@ -296,4 +293,4 @@ Pour publier les modifications apportées à votre application, procédez comme 
 [sql-database-editions]: http://msdn.microsoft.com/library/windowsazure/ee621788.aspx
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

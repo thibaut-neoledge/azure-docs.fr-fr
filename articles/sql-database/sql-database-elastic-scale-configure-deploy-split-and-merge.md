@@ -1,9 +1,12 @@
 <properties
+	title="Elastic database Split-Merge tool tutorial"
 	pageTitle="Didacticiel d’outil de fusion et de fractionnement de bases de données élastiques | Microsoft Azure"
 	description="Fractionnement et fusion avec les outils de bases de données élastiques"
+	metaKeywords="elastic database tools, split and merge, Azure SQL Database sharding, elastic scale, splitting and merging elastic databases"
 	services="sql-database" documentationCenter=""  
 	manager="jeffreyg"
 	authors="sidneyh"/>
+
 
 <tags
 	ms.service="sql-database"
@@ -13,6 +16,7 @@
 	ms.topic="article"
 	ms.date="07/14/2015"
 	ms.author="sidneyh" />
+
 
 # Didacticiel d’outil de fusion et de fractionnement de bases de données élastiques
 
@@ -99,16 +103,24 @@ Accédez au [portail Azure en version préliminaire](https://portal.azure.com).
 Collez l’empreinte de certificat copiée précédemment dans l’attribut d’empreinte/de valeur des paramètres suivants. Pour le rôle web :
 
     <Setting name="DataEncryptionPrimaryCertificateThumbprint" value="" />
+
     <Certificate name="DataEncryptionPrimary" thumbprint="" thumbprintAlgorithm="sha1" />
+
 
 Pour le rôle de travail :
 
     <Setting name="AdditionalTrustedRootCertificationAuthorities" value="" />
+
     <Setting name="AllowedClientCertificateThumbprints" value="" />
+
     <Setting name="DataEncryptionPrimaryCertificateThumbprint" value="" />
+
     <Certificate name="SSL" thumbprint="" thumbprintAlgorithm="sha1" />
+
     <Certificate name="CA" thumbprint="" thumbprintAlgorithm="sha1" />
+
     <Certificate name="DataEncryptionPrimary" thumbprint="" thumbprintAlgorithm="sha1" />
+
 
 
 Veuillez noter que pour les déploiements de production, des certificats distincts doivent être utilisés pour l’autorité de certification, le chiffrement, le certificat de serveur et les certificats clients. Pour plus d’informations, consultez la rubrique [Configuration de la sécurité](sql-database-elastic-scale-split-merge-security-configuration.md).
@@ -141,14 +153,14 @@ Si votre rôle de travail ne parvient pas à être en ligne, mais que votre rôl
 
         "Server=myservername.database.windows.net; Database=mydatabasename;User ID=myuserID; Password=mypassword; Encrypt=True; Connection Timeout=30" .
 
-* Assurez-vous que le nom du serveur ne commence pas par **https://**.
+* Assurez-vous que le nom du serveur ne commence pas par ****https://**.
 * Vérifiez que votre serveur Azure SQL DB autorise les services Azure à s’y connecter. Pour ce faire, ouvrez https://manage.windowsazure.com, cliquez sur « Bases de données SQL » à gauche, puis sur « Serveurs » en haut, et sélectionnez votre serveur. Cliquez sur **Configurer** en haut et assurez-vous que le paramètre **Services Azure** est défini sur « Oui ». (voir la section « Configuration requise » en haut de cet article).
 
 ## Test du déploiement du service de fractionnement/fusion
 
 ### Connexion avec un navigateur web
 
-Déterminez le point de terminaison web de votre service de fractionnement/fusion. Vous pouvez le trouver dans le portail de gestion Azure en accédant au **Tableau de bord** de votre service cloud et en effectuant une recherche dans la zone **URL du site** sur le côté droit. Remplacez **http://** par **https://**, car les paramètres de sécurité par défaut désactivent le point de terminaison HTTP. Chargez la page correspondant à cette URL dans votre navigateur.
+Déterminez le point de terminaison web de votre service de fractionnement/fusion. Vous pouvez le trouver dans le portail de gestion Azure en accédant au **Tableau de bord** de votre service cloud et en effectuant une recherche dans la zone **URL du site** sur le côté droit. Remplacez ****http://** par ****https://**, car les paramètres de sécurité par défaut désactivent le point de terminaison HTTP. Chargez la page correspondant à cette URL dans votre navigateur.
 
 ### Test des scripts PowerShell
 
@@ -314,7 +326,7 @@ Cette erreur signifie que votre certificat SSL n’est pas correctement configu
 
 Si vous ne pouvez pas soumettre les demandes, vous pouvez voir ceci :
 
- [Exception] System.Data.SqlClient.SqlException (0x80131904): Impossible de trouver la procédure stockée « dbo. InsertRequest ».
+ [Exception\] System.Data.SqlClient.SqlException (0x80131904): Impossible de trouver la procédure stockée « dbo. InsertRequest ».
 
 Dans ce cas, vérifiez votre fichier de configuration, notamment le paramètre pour **WorkerRoleSynchronizationStorageAccountConnectionString**. Cette erreur indique généralement que le rôle de travail n’a pas pu initialiser avec succès la base de données de métadonnées à la première utilisation.
 
@@ -328,4 +340,4 @@ Dans ce cas, vérifiez votre fichier de configuration, notamment le paramètre p
 [5]: ./media/sql-database-elastic-scale-configure-deploy-split-and-merge/storage.png
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

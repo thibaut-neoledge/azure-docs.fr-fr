@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Solution prédictive des risques de crédit avec Machine Learning| Microsoft Azure"
-	description="Guide pas à pas détaillé indiquant comment créer une solution d'analyse prédictive pour l'évaluation des risques de crédit dans Azure Machine Learning Studio."
+	description="Guide pas à pas détaillé indiquant comment créer une solution d'analyse prédictive pour l'évaluation des risques de crédit dans Azure Machine Learning Studio."	
 	services="machine-learning"
 	documentationCenter=""
 	authors="garyericson"
@@ -41,4 +41,4 @@ Pour créer une solution d'évaluation des risques de crédit, nous allons suivr
 Cette procédure pas à pas est basée sur une version simplifiée de l'[Exemple d'expérience de prédiction du risque de crédit](../machine-learning-sample-credit-risk-prediction.md) inclus dans Machine Learning Studio.
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -7,6 +7,7 @@
    manager="paulettm"
    editor="cgronlun"/>
 
+
 <tags
    ms.service="hdinsight"
    ms.devlang="na"
@@ -15,6 +16,7 @@
    ms.workload="big-data"
    ms.date="07/06/2015"
    ms.author="larryfr"/>
+
 
 # Utilisation de MapReduce avec Hadoop sur HDInsight avec SSH
 
@@ -48,7 +50,7 @@ Pour plus d’informations sur l’utilisation de SSH avec HDInsight, consultez 
 
 ###PuTTY (clients Windows)
 
-Windows ne fournit pas de client SSH intégré. Nous vous recommandons d’utiliser **PuTTY**, qui peut être téléchargé à partir de [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
+Windows ne fournit pas de client SSH intégré. Nous vous recommandons d’utiliser **PuTTY**, qui peut être téléchargé à partir de [http://www.chiark.greenend.org.uk/\~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
 
 Pour plus d’informations sur l’utilisation de PuTTY, consultez la rubrique [Utilisation de SSH avec Hadoop Linux dans HDInsight à partir de Windows](hdinsight-hadoop-linux-use-ssh-windows.md).
 
@@ -58,9 +60,9 @@ Pour plus d’informations sur l’utilisation de PuTTY, consultez la rubrique [
 
 		hadoop jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar wordcount wasb:///example/data/gutenberg/davinci.txt wasb:///example/data/WordCountOutput
 
-	Cela lance la classe **wordcount**, contenue dans le fichier **hadoop-mapreduce-examples.jar**. Comme entrée, elle utilise le document **wasb://example/data/gutenberg/davinci.txt** et la sortie est stockée dans : **wasb:///example/data/WordCountOutput**.
+	Cela lance la classe **wordcount**, contenue dans le fichier **hadoop-mapreduce-examples.jar**. Comme entrée, elle utilise le document ****wasb://example/data/gutenberg/davinci.txt** et la sortie est stockée dans ****wasb:///example/data/WordCountOutput**.
 
-	> [AZURE.NOTE]Pour plus d’informations sur cette tâche MapReduce et sur les exemples de données, consultez la rubrique [Utilisation de MapReduce sur Hadoop sur HDInsight](hdinsight-use-mapreduce.md).
+	> [AZURE.NOTE]Pour plus d’informations sur cette tâche MapReduce et sur les exemples de données, consultez la rubrique [Utilisation de MapReduce dans Hadoop sur HDInsight](hdinsight-use-mapreduce.md).
 
 2. La tâche émet des informations lors de son traitement, avant de renvoyer des informations semblables aux suivantes lorsqu’elle est terminée.
 
@@ -69,11 +71,11 @@ Pour plus d’informations sur l’utilisation de PuTTY, consultez la rubrique [
 		File Output Format Counters
         Bytes Written=337623
 
-3. Lorsque la tâche est terminée, utilisez la commande suivante pour répertorier les fichiers de sortie stockés sur **wasb://example/data/WordCountOutput** :
+3. Lorsque la tâche est terminée, utilisez la commande suivante pour répertorier les fichiers de sortie stockés sur ****wasb://example/data/WordCountOutput** :
 
 		hadoop fs -ls wasb:///example/data/WordCountOutput
 
-	Cela devrait afficher deux fichiers, **_SUCCESS** et **part-r-00000**. Le fichier **part-r-00000** contient la sortie de cette tâche.
+	Cela devrait afficher deux fichiers, **\_SUCCESS** et **part-r-00000**. Le fichier **part-r-00000** contient la sortie de cette tâche.
 
 	> [AZURE.NOTE]Certaines tâches MapReduce peuvent fractionner les résultats sur plusieurs fichiers **part-r-#####**. Dans ce cas, utilisez le suffixe ##### pour indiquer l’ordre des fichiers.
 
@@ -81,7 +83,7 @@ Pour plus d’informations sur l’utilisation de PuTTY, consultez la rubrique [
 
 		hadoop fs -cat wasb:///example/data/WordCountOutput/part-r-00000
 
-	Cela affiche une liste des mots contenus dans le fichier **wasb://example/data/gutenberg/davinci.txt**, ainsi que le nombre d'occurrences de chaque mot. Voici un exemple des données contenues dans le fichier :
+	Cela affiche une liste des mots contenus dans le fichier ****wasb://example/data/gutenberg/davinci.txt**, ainsi que le nombre d'occurrences de chaque mot. Voici un exemple des données contenues dans le fichier :
 
 		wreathed        3
 		wreathing       1
@@ -107,4 +109,4 @@ Pour plus d’informations sur d’autres méthodes de travail avec Hadoop sur H
 
 * [Utilisation de Pig avec Hadoop sur HDInsight](hdinsight-use-pig.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -7,6 +7,7 @@
    manager="paulettm"
    editor="cgronlun"/>
 
+
 <tags
    ms.service="hdinsight"
    ms.devlang="na"
@@ -15,6 +16,7 @@
    ms.workload="big-data"
    ms.date="07/06/2015"
    ms.author="larryfr"/>
+
 
 # Utilisation de Pig avec Hadoop sur HDInsight
 
@@ -62,7 +64,7 @@ L’exemple de données est stocké dans le module de stockage d'objets blob Azu
 
 Étant donné que WASB est le stockage par défaut pour HDInsight, vous pouvez également accéder au fichier en utilisant **/example/data/sample.log** depuis Pig Latin.
 
-> [AZURE.NOTE]La syntaxe, **wasb:///**, permet d'accéder à des fichiers stockés dans le conteneur de stockage par défaut de votre cluster HDInsight. Si vous avez indiqué d'autres comptes de stockage lors de l'approvisionnement du cluster et que vous souhaitez accéder aux fichiers qui y sont stockés, vous pouvez accéder aux données en indiquant le nom du conteneur et l'adresse du compte de stockage, par exemple : **wasb://mycontainer@mystorage.blob.core.windows.net/example/data/sample.log**.
+> [AZURE.NOTE]La syntaxe, ****wasb:///**, permet d'accéder à des fichiers stockés dans le conteneur de stockage par défaut de votre cluster HDInsight. Si vous avez indiqué d'autres comptes de stockage lors de l'approvisionnement du cluster et que vous souhaitez accéder aux fichiers qui y sont stockés, vous pouvez accéder aux données en indiquant le nom du conteneur et l'adresse du compte de stockage, par exemple : ****wasb://mycontainer@mystorage.blob.core.windows.net/example/data/sample.log**.
 
 
 ##<a id="job"></a>À propos de l'exemple de tâche
@@ -127,4 +129,4 @@ Maintenant que vous avez vu comment utiliser Pig avec HDInsight, utilisez les li
 [image-hdi-pig-powershell]: ./media/hdinsight-use-pig/hdi.pig.powershell.png
 [image-hdi-pig-architecture]: ./media/hdinsight-use-pig/HDI.Pig.Architecture.png
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

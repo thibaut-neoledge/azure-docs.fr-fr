@@ -7,6 +7,7 @@
 	editor="" 
 	services="notification-hubs"/>
 
+
 <tags 
 	ms.service="notification-hubs" 
 	ms.workload="mobile" 
@@ -15,6 +16,7 @@
 	ms.topic="article" 
 	ms.date="05/31/2015" 
 	ms.author="wesmc"/>
+
 
 #Notification des utilisateurs via Azure Notification Hubs
 
@@ -69,7 +71,7 @@ La prise en charge des notifications Push dans Azure vous permet d’accéder à
 
 		- (IBAction)LogInAction:(id)sender;		
 
-4. Dans ViewController.h, ajoutez le code `#define` suivant juste en dessous de vos instructions d'importation. Remplacez l'espace réservé *<Enter Your Backend Endpoint>* par l'URL de destination que vous avez utilisée pour déployer votre serveur principal d'application dans la section précédente. Par exemple, *http://you_backend.azurewebsites.net*.
+4. Dans ViewController.h, ajoutez le code `#define` suivant juste en dessous de vos instructions d'importation. Remplacez l'espace réservé *<Enter Your Backend Endpoint>* par l'URL de destination que vous avez utilisée pour déployer votre serveur principal d'application dans la section précédente. Par exemple, **http://you_backend.azurewebsites.net*.
 
 		#define BACKEND_ENDPOINT @"<Enter Your Backend Endpoint>"
 
@@ -466,4 +468,4 @@ La prise en charge des notifications Push dans Azure vous permet d’accéder à
 [4]: ./media/notification-hubs-aspnet-backend-ios-notify-users/notification-hubs-ios-notify-users-enter-msg.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

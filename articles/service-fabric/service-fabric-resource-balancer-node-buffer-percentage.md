@@ -47,4 +47,4 @@ Si la valeur n'est pas spécifiée dans cette section, 0 sera utilisé comme val
 Pour plus d'informations : [Architecture de l'équilibreur de ressources](service-fabric-resource-balancer-architecture.md)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

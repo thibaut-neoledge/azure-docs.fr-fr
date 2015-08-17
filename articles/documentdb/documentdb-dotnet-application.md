@@ -1,11 +1,12 @@
 <properties 
-	pageTitle="Création d'une application web avec ASP.NET MVC et DocumentDB | Azure" 
+	pageTitle="Création d'une application web avec ASP.NET MVC et DocumentDB | Microsoft Azure" 
 	description="Découvrez comment utiliser DocumentDB avec .NET pour créer une application web de liste To Do. Vous allez stocker les données et y accéder à partir d'une application web ASP.NET MVC hébergée sur Azure Websites." 
 	services="documentdb" 
 	documentationCenter=".net" 
 	authors="ryancrawcour" 
 	manager="jhubbard" 
 	editor="cgronlun"/>
+
 
 
 <tags 
@@ -16,6 +17,7 @@
 	ms.topic="hero-article" 
 	ms.date="07/24/2015" 
 	ms.author="ryancraw"/>
+
 
 #<a name="_Toc395809351"></a>Création d'une application web avec ASP.NET MVC et DocumentDB
 
@@ -45,7 +47,8 @@ Commençons par créer un compte DocumentDB. Si vous possédez déjà un compte,
 
 [AZURE.INCLUDE [documentdb-keys](../../includes/documentdb-keys.md)]
 
-<br/>Voyons à présent comment créer une application ASP.NET MVC de A à Z.
+<br/>
+Voyons à présent comment créer une application ASP.NET MVC de A à Z.
 
 ## <a name="_Toc395637762"></a>Étape 2 : création d'une application ASP.NET MVC
 
@@ -395,9 +398,13 @@ La première chose à faire ici est d'ajouter une classe qui contient toute la l
 3. Nous allons lire certaines valeurs de la configuration. Pour cela, ouvrez le fichier **Web.config** de votre application et ajoutez les lignes suivantes sous la section `<AppSettings>`.
 	
     	<add key="endpoint" value="enter the URI from the Keys blade of the Azure Preview portal"/>
+
     	<add key="authKey" value="enter the PRIMARY KEY, or the SECONDARY KEY, from the Keys blade of the Azure  Preview portal"/>
+
     	<add key="database" value="ToDoList"/>
+
     	<add key="collection" value="Items"/>
+
 	
 4. À présent, mettez à jour les valeurs des paramètres *endpoint* et *authKey* via le panneau Clés du portail Azure en version préliminaire. Utilisez l'**URI** du panneau Clés comme valeur du paramètre endpoint et utilisez la valeur de **CLÉ PRIMAIRE** ou de **CLÉ SECONDAIRE** du panneau Clés comme valeur du paramètre authKey.
 
@@ -447,7 +454,7 @@ Ouvrez ***App\_Start\\RouteConfig.cs***. Recherchez la ligne commençant par «�
 
 Ce code indique maintenant à ASP.NET MVC que vous n'avez pas spécifié de valeur dans l'URL pour contrôler le comportement de routage qui, au lieu de **Home**, utilise **Item** comme contrôleur et **Index** comme vue.
 
-Maintenant, si vous exécutez l'application, elle appellera votre **ItemController**, qui appellera la classe de référentiel et utilisera la méthode GetItems pour retourner tous les éléments non terminés à la vue **Views**\\\*\*Item\*\*\\\*\*Index\*\*.
+Maintenant, si vous exécutez l'application, elle appellera votre **ItemController**, qui appellera la classe de référentiel et utilisera la méthode GetItems pour retourner tous les éléments non terminés à la vue **Views**\**Item**\**Index**.
 
 Si vous créez et exécutez ce projet maintenant, vous devriez voir ce qui suit :
 
@@ -639,8 +646,10 @@ Si vous voulez gagner du temps et souhaitez simplement générer la solution tod
 
 5. Dans le fichier Web.config, mettez à jour les valeurs par défaut pour les clés **endpoint** et **authKey**.
 
-    	<add key="endpoint" value="~enter URI for your DocumentDB Account, from Azure Preview portal~" /> 
-		<add key="authKey" value="~enter either Primary or Secondary key for your DocumentDB Account, from Azure Preview portal~" /> 
+    	<add key="endpoint" value="~enter URI for your DocumentDB Account, from Azure Preview portal~" />
+ 
+		<add key="authKey" value="~enter either Primary or Secondary key for your DocumentDB Account, from Azure Preview portal~" />
+ 
 
 	- Copiez la valeur d'**URI** du panneau Clés et collez-la dans la valeur de la propriété **endpoint**. 
 	- Copiez la valeur de **CLÉ PRIMAIRE** ou de **CLÉ SECONDAIRE** dans le panneau **Clés** et collez-la dans la valeur de la propriété **authKey**.
@@ -650,7 +659,7 @@ Si vous voulez gagner du temps et souhaitez simplement générer la solution tod
 7. Vous pouvez maintenant [exécuter l'application en local](#_Toc395637773), puis la [déployer sur des sites web Azure](#_Toc395637774).
 
 
-[\*]: https://microsoft.sharepoint.com/teams/DocDB/Shared%20Documents/Documentation/Docs.LatestVersions/PicExportError
+[*]: https://microsoft.sharepoint.com/teams/DocDB/Shared%20Documents/Documentation/Docs.LatestVersions/PicExportError
 [Visual Studio Express]: http://www.visualstudio.com/products/visual-studio-express-vs.aspx
 [Microsoft Web Platform Installer]: http://www.microsoft.com/web/downloads/platform.aspx
 [GitHub]: http://go.microsoft.com/fwlink/?LinkID=509838&clcid=0x409
@@ -658,4 +667,4 @@ Si vous voulez gagner du temps et souhaitez simplement générer la solution tod
 [Opérations CRUD de base dans ASP.NET MVC.]: http://go.microsoft.com/fwlink/?LinkId=317598
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

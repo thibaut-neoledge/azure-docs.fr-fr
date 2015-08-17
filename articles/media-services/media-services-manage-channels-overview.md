@@ -125,12 +125,12 @@ Lorsque vous utilisez un encodeur dynamique local pour générer un flux à déb
 
 Le tableau suivant montre le mode de calcul de la durée du segment :
 
-<table border="1">
-<tr><th>Intervalle d’image clé</th><th>Coefficient d’empaquetage de segment HLS (FragmentsPerSegment)</th><th>Exemple</th></tr>
-<tr><td>Inférieur ou égal à 3&#160;secondes</td><td>3</td><td>Si la valeur de KeyFrameInterval (ou groupe d’images) est de 2&#160;secondes, le coefficient d’empaquetage de segment HLS est égal à 3, ce qui a pour effet de créer un segment HLS de 6&#160;secondes.</td></tr>
-<tr><td>3 à 5&#160;secondes</td><td>2:1</td><td>Si la valeur de KeyFrameInterval (ou groupe d’images) est de 4&#160;secondes, le coefficient d’empaquetage de segment HLS est égal à 2&#160;pour&#160;1, ce qui a pour effet de créer un segment HLS de 8&#160;secondes.</td></tr>
-<tr><td>Supérieur à 5&#160;secondes</td><td>1:1</td><td>Si la valeur de KeyFrameInterval (ou groupe d’images) est de 6&#160;secondes, le coefficient d’empaquetage de segment HLS est égal à 1, ce qui a pour effet de créer un segment HLS de 6&#160;secondes.</td></tr>
-</table>
+Intervalle d’image clé|Coefficient d’empaquetage de segment HLS (FragmentsPerSegment)|Exemple
+---|---|---
+Inférieur ou égal à 3 secondes|3|Si la valeur de KeyFrameInterval (ou groupe d’images) est de 2 secondes, le coefficient d’empaquetage de segment HLS est égal à 3, ce qui a pour effet de créer un segment HLS de 6 secondes.
+3 à 5 secondes|2:1|Si la valeur de KeyFrameInterval (ou groupe d’images) est de 4 secondes, le coefficient d’empaquetage de segment HLS est égal à 2 pour 1, ce qui a pour effet de créer un segment HLS de 8 secondes.
+Supérieur à 5 secondes|1:1|Si la valeur de KeyFrameInterval (ou groupe d’images) est de 6 secondes, le coefficient d’empaquetage de segment HLS est égal à 1, ce qui a pour effet de créer un segment HLS de 6 secondes.
+
 
 Vous pouvez modifier le coefficient de fragments par segment en configurant la sortie du canal et le paramètre FragmentsPerSegment sur ChannelOutputHls.
 
@@ -201,24 +201,23 @@ Si vous souhaitez conserver le contenu archivé sans qu’il soit disponible pou
 
 Le tableau suivant montre comment les états du canal sont mappés au mode de facturation.
  
-<table border="1">
-<tr><th>État du canal</th><th>Indicateurs de l’interface utilisateur du portail</th><th>Facturation&#160;?</th></tr>
-<tr><td>Démarrage en cours</td><td>Démarrage en cours</td><td>Aucun (état transitoire)</td></tr>
-<tr><td>Exécution en cours</td><td>Prêt (pas de programmes en cours d’exécution)<br/>ou<br/>Diffusion en continu (au moins un programme en cours d’exécution)</td><td>Oui</td></tr>
-<tr><td>En cours d’arrêt</td><td>En cours d’arrêt</td><td>Aucun (état transitoire)</td></tr>
-<tr><td>Arrêté</td><td>Arrêté</td><td>Non</td></tr>
-</table>
+État du canal|Indicateurs de l’interface utilisateur du portail|Facturation ?
+---|---|---|---
+Démarrage en cours|Démarrage en cours|Aucun (état transitoire)
+Exécution|Prêt (aucun programme en cours d'exécution)<p>ou<p> Diffusion en continu (au moins un programme en cours d'exécution)|Oui
+En cours d’arrêt|En cours d’arrêt|Aucun (état transitoire)
+Arrêté|Arrêté|Non
 
 ###Sous-titrage et insertion de publicités 
 
 Le tableau suivant présente les normes de sous-titrage et d’insertion de publicités prises en charge.
 
-<table border="1">
-<tr><th>Standard</th><th>Remarques</th></tr>
-<tr><td>CEA-708 et EIA-608 (708/608)</td><td>CEA-708 et EIA-608 sont des normes de sous-titrage pour les États-Unis et le Canada.<br/>Actuellement, le sous-titrage est uniquement pris en charge s’il est inclus dans le flux d’entrée encodé. Vous devez utiliser un encodeur multimédia dynamique capable d’insérer des sous-titres 608 ou 708 dans le flux encodé qui est envoyé à Media Services. Media Services distribuera le contenu avec les sous-titres insérés à vos utilisateurs.</td></tr>
-<tr><td>TTML dans ismt (pistes textuelles Smooth Streaming)</td><td>L’empaquetage dynamique de Media Services permet à vos clients de diffuser en continu du contenu dans un des formats suivants&#160;: MPEG DASH, HLS ou Smooth Streaming. Toutefois, si votre flux est au format MP4 fragmenté (Smooth Streaming) avec des sous-titres dans un fichier .ismt (pistes textuelles Smooth Streaming), vous serez seulement en mesure de distribuer le flux aux clients Smooth Streaming.</td></tr>
-<tr><td>SCTE-35</td><td>Système de signalisation numérique utilisé pour signaler l’insertion de publicités. Les récepteurs en aval utilisent le signal pour ajouter les publicités au flux pendant le temps alloué. La signalisation SCTE-35 doit être envoyée sous forme de piste fragmentée dans le flux d’entrée.<br/>Notez qu’actuellement, le seul format de flux d’entrée pris en charge transmettant les signaux publicitaires est le format MP4 fragmenté (Smooth Streaming), qui est aussi le seul format de sortie compatible.</td></tr>
-</table>
+Standard|Remarques
+---|---
+CEA-708 et EIA-608 (708/608)|ACE-708 et EIA-608 sont des normes de sous-titrage fermées pour les États-Unis et le Canada.<p><p>Actuellement, le sous-titrage est uniquement pris en charge s’il est inclus dans le flux d'entrée encodé. Vous devez utiliser un encodeur multimédia dynamique capable d’insérer des sous-titres 608 ou 708 dans le flux encodé qui est envoyé à Media Services. Media Services distribuera le contenu avec les sous-titres insérés à vos utilisateurs.
+TTML dans ismt (pistes textuelles Smooth Streaming)|L’empaquetage dynamique de Media Services permet à vos clients de diffuser en continu du contenu dans un des formats suivants : MPEG DASH, HLS ou Smooth Streaming. Toutefois, si votre flux est au format MP4 fragmenté (Smooth Streaming) avec des sous-titres dans un fichier .ismt (pistes textuelles Smooth Streaming), vous serez seulement en mesure de distribuer le flux aux clients Smooth Streaming.
+SCTE-35|Système de signalisation numérique utilisé pour signaler l’insertion de publicités. Les récepteurs en aval utilisent le signal pour ajouter les publicités au flux pendant le temps alloué. SCTE-35 doit être envoyé comme piste partiellement allouée dans le flux d’entrée.<p><p>Notez qu’actuellement, le seul format de flux d’entrée pris en charge transmettant les signaux publicitaires est le format MP4 fragmenté (Smooth Streaming), qui est aussi le seul format de sortie compatible.
+
 
 ##<a id="Considerations"></a>Considérations
 
@@ -331,4 +330,4 @@ Pour plus d’informations sur la mise à l’échelle des unités de diffusion 
 [live-overview]: ./media/media-services-manage-channels-overview/media-services-live-streaming-current.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

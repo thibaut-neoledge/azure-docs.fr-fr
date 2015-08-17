@@ -13,4 +13,4 @@
 
     Les deux contrôleurs redémarrent. Une fois le redémarrage terminé, un autre message s’affiche pour indiquer que l’appareil est en mode Maintenance.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

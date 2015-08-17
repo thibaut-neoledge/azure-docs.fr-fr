@@ -44,4 +44,4 @@ Vous pouvez utiliser des outils en ligne de commande tels que PowerShell pour g�
 Pour en savoir plus sur la gestion de vos bases de données SQL Azure avec les outils en ligne de commande, [cliquez ici](sql-database-command-line-tools.md).
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

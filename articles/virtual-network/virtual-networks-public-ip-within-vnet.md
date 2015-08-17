@@ -33,15 +33,15 @@ Vous ajoutez une plage d'adresses IP publique de la même façon que lorsque vou
 
 Certaines plages d'adresses IP ne sont pas autorisées :
 
-- 224.0.0.0/4 (multidiffusion)
+- 224\.0.0.0/4 (multidiffusion)
 
-- 255.255.255.255/32 (diffusion)
+- 255\.255.255.255/32 (diffusion)
 
-- 127.0.0.0/8 (bouclage)
+- 127\.0.0.0/8 (bouclage)
 
-- 169.254.0.0/16 (lien-local)
+- 169\.254.0.0/16 (lien-local)
 
-- 68.63.129.16/32 (DNS interne)
+- 68\.63.129.16/32 (DNS interne)
 
 ## Étapes suivantes
 
@@ -51,4 +51,4 @@ Certaines plages d'adresses IP ne sont pas autorisées :
 
 [Suppression d'un réseau virtuelle](../virtual-networks-delete-vnet)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

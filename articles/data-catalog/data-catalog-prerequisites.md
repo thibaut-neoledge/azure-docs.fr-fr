@@ -29,4 +29,4 @@ Azure Active Directory (Azure AD) permet à votre entreprise de gérer facileme
 ##Abonnement Azure
 Les abonnements Azure vous permettent d’organiser l'accès aux ressources du service cloud telles qu’Azure Data Catalog. Ils vous permettent également de contrôler le signalement, la facturation et le paiement des ressources utilisées. Chaque abonnement peut disposer d’une configuration de facturation et de paiement différente. Vous pouvez donc posséder différents abonnements et différents plans par département, projet, bureau régional, etc. Chaque service cloud appartient à un abonnement, et vous devez posséder un abonnement avant de configurer Azure Data Catalog. Pour plus d'informations, consultez la rubrique [Gestion des comptes, des abonnements et des rôles d’administrateur](https://msdn.microsoft.com/library/azure/hh531793.aspx).
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

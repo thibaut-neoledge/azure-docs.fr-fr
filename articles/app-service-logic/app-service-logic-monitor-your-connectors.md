@@ -133,4 +133,4 @@ Vous pouvez facilement ajouter des utilisateurs et leur attribuer des r√¥les sp√
 [hostsettings]: ./media/app-service-logic-monitor-your-connectors/hostsettings.png
 [apiapphost]: ./media/app-service-logic-monitor-your-connectors/apiapphost.png
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

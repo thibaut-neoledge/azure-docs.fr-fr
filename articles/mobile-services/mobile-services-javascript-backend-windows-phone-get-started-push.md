@@ -66,7 +66,7 @@ Pour permettre à votre application de recevoir les notifications Push, vous dev
 
 	>[AZURE.NOTE]Dans ce didacticiel, le service mobile envoie une notification toast à l'appareil. Lorsque vous envoyez une notification par vignette, vous devez appeler la méthode **BindToShellTile** sur le canal.
 
-4. En haut du gestionnaire d'événements **Application_Launching** dans App.xaml.cs, ajoutez l'appel suivant à la nouvelle méthode **AcquirePushChannel** :
+4. En haut du gestionnaire d'événements **Application\_Launching** dans App.xaml.cs, ajoutez l'appel suivant à la nouvelle méthode **AcquirePushChannel** :
 
         AcquirePushChannel();
 
@@ -74,7 +74,7 @@ Pour permettre à votre application de recevoir les notifications Push, vous dev
 
 5. Appuyez sur la touche **F5** pour exécuter l'application. Une boîte de dialogue s'affiche avec la clé d'inscription.
   
-6.	Dans l'Explorateur de solutions, développez **Propriétés**, ouvrez le fichier WMAppManifest.xml, cliquez sur l'onglet **Fonctionnalités** et veillez à ce que la fonctionnalité **ID___CAP___PUSH_NOTIFICATION** soit activée.
+6.	Dans l'Explorateur de solutions, développez **Propriétés**, ouvrez le fichier WMAppManifest.xml, cliquez sur l'onglet **Fonctionnalités** et veillez à ce que la fonctionnalité **ID\_\_\_CAP\_\_\_PUSH\_NOTIFICATION** soit activée.
 
    	![Activer les notifications dans VS](./media/mobile-services-javascript-backend-windows-phone-get-started-push/mobile-app-enable-push-wp8.png)
 
@@ -180,4 +180,4 @@ Découvrez Mobile Services et Notification Hubs dans les rubriques suivantes :
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

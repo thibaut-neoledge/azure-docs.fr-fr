@@ -89,4 +89,4 @@ Si vous souhaitez en lire plus sur les niveaux de cohérence et les différents 
 -	Werner Vogels. Niveau de cohérence Éventuel repensé. [http://allthingsdistributed.com/2008/12/eventually\_consistent.html](http://allthingsdistributed.com/2008/12/eventually_consistent.html)
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

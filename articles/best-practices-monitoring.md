@@ -612,4 +612,4 @@ Dans de nombreux cas, les rapports peuvent être générés par les processus de
 - La page [Présentation de la surveillance des alertes et des notifications dans Azure](https://msdn.microsoft.com/library/azure/dn306639.aspx) sur le site web Microsoft.
 - La page [Application Insights](app-insights-get-started/) sur le site web Microsoft.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

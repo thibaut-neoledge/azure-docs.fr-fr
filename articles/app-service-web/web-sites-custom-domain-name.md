@@ -7,6 +7,7 @@
 	manager="wpickett"
 	editor=""/>
 
+
 <tags
 	ms.service="app-service-web"
 	ms.workload="web"
@@ -15,6 +16,7 @@
 	ms.topic="article"
 	ms.date="07/13/2015"
 	ms.author="mwasson"/>
+
 
 # Configurer un nom de domaine personnalisé dans Azure App Service
 
@@ -44,7 +46,7 @@ Au-delà de ces fondamentaux, il faut prendre en compte des cas spécifiques :
 
 - Mappage de votre domaine racine. Le domaine racine est le domaine que vous avez réservé auprès du bureau d'enregistrement de domaines. Par exemple, **contoso.com**.
 - Mappage d'un sous-domaine. Par exemple, **blogs.contoso.com**. Vous pouvez mapper différents sous-domaines vers différentes applications web.
-- Mappage d’un caractère générique. Par exemple, **\*.contoso.com**. Une entrée à caractère générique s’applique à tous les sous-domaines de votre domaine.
+- Mappage d’un caractère générique. Par exemple, ***.contoso.com**. Une entrée à caractère générique s’applique à tous les sous-domaines de votre domaine.
 
 [AZURE.INCLUDE [modes](../../includes/custom-dns-web-site-modes.md)]
 
@@ -112,6 +114,7 @@ Dans le cas où le nom de domaine personnalisé est « contoso.com », cela cré
 >[AZURE.NOTE]Vous pouvez utiliser Azure DNS pour héberger les enregistrements de domaine nécessaires pour votre application web. Pour configurer votre domaine personnalisé et créer vos enregistrements, dans le système Azure DNS, consultez [Création d’enregistrements DNS personnalisés pour une application web](../dns-web-sites-custom-domain).
 
 <a name="awverify" />
+
 ## Création d’un enregistrement awverify (enregistrements A uniquement)
 
 Si vous créez un enregistrement A, l’application web requiert également un enregistrement CNAME spécial, utilisé pour vérifier que vous possédez le domaine que vous souhaitez utiliser. Cet enregistrement CNAME doit avoir la forme suivante.
@@ -147,4 +150,4 @@ Pour plus d'informations, consultez [Prise en main d’Azure DNS](../dns/dns-get
 [subdomain]: media/web-sites-custom-domain-name/azurewebsites-subdomain.png
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

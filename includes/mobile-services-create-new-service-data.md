@@ -33,4 +33,4 @@ Ensuite, vous créez un service mobile pour remplacer la liste en mémoire pour 
 
 Vous avez créé un service mobile pouvant être utilisé par vos applications mobiles. Ensuite, vous allez ajouter une nouvelle table dans laquelle stocker les données d’application. Cette table sera utilisée par l’application au lieu de la collection en mémoire.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

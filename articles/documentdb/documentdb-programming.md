@@ -1,11 +1,12 @@
 <properties 
-	pageTitle="Programmation DocumentDB : Procédures stockées, déclencheurs et fonctions définies par l’utilisateur | Azure" 
+	pageTitle="Programmation DocumentDB : procédures stockées, déclencheurs et fonctions définies par l’utilisateur | Microsoft Azure" 
 	description="Découvrez comment utiliser Microsoft Azure DocumentDB pour écrire des procédures stockées, des déclencheurs et des fonctions définies par l'utilisateur en mode natif dans JavaScript." 
 	services="documentdb" 
 	documentationCenter="" 
 	authors="mimig1" 
 	manager="jhubbard" 
 	editor="cgronlun"/>
+
 
 <tags 
 	ms.service="documentdb" 
@@ -15,6 +16,7 @@
 	ms.topic="article" 
 	ms.date="06/10/2015" 
 	ms.author="mimig"/>
+
 
 # Programmation DocumentDB côté serveur : Procédures stockées, déclencheurs et fonctions définies par l’utilisateur
 
@@ -641,4 +643,4 @@ Pour en savoir plus sur la programmation DocumentDB côté serveur, vous pouvez 
 -	[Architecture de base de données orientée services](http://dl.acm.org/citation.cfm?id=1066267&coll=Portal&dl=GUIDE) 
 -	[Hébergement du Runtime .NET dans Microsoft SQL Server](http://dl.acm.org/citation.cfm?id=1007669)  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

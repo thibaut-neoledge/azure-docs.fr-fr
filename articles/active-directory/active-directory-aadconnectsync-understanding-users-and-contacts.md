@@ -63,7 +63,7 @@ L’hypothèse est que si un compte d’utilisateur désactivé est détecté, n
 
 ## Chaînage de sourceAnchor
 
-Quand un objet a été exporté vers Azure AD, il n’est plus autorisé à modifier l’attribut sourceAnchor. Quand l’objet a été exporté, l’attribut de métaverse **cloudSourceAnchor** est défini avec la valeur **sourceAnchor** acceptée par Azure AD. Si **sourceAnchor** est modifié et ne correspond pas à **cloudSourceAnchor**, la règle \*\* Out to AAD – User Join\*\* génère l’erreur **L’attribut sourceAnchor a changé**. Dans ce cas, la configuration ou les données doivent être corrigées pour que le même sourceAnchor soit présent dans le métaverse et que l’objet puisse être de nouveau synchronisé.
+Quand un objet a été exporté vers Azure AD, il n’est plus autorisé à modifier l’attribut sourceAnchor. Quand l’objet a été exporté, l’attribut de métaverse **cloudSourceAnchor** est défini avec la valeur **sourceAnchor** acceptée par Azure AD. Si **sourceAnchor** est modifié et ne correspond pas à **cloudSourceAnchor**, la règle ** Out to AAD – User Join** génère l’erreur **L’attribut sourceAnchor a changé**. Dans ce cas, la configuration ou les données doivent être corrigées pour que le même sourceAnchor soit présent dans le métaverse et que l’objet puisse être de nouveau synchronisé.
 
 
 
@@ -75,4 +75,4 @@ Quand un objet a été exporté vers Azure AD, il n’est plus autorisé à modi
  
 <!--Image references-->
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

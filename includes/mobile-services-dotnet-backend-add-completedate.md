@@ -1,6 +1,6 @@
 Dans cette section, nous allons modifier le modèle de notre base de données en ajoutant un nouveau champ d'horodatage appelé **CompleteDate**. Ce champ enregistre la dernière heure à laquelle la tâche (élément Todo) a été terminée. Entity Framework met à jour la base de données par rapport à la modification de notre modèle à l'aide de la classe d'initialiseur de base de données par défaut issue de [DropCreateDatabaseIfModelChanges](http://go.microsoft.com/fwlink/?LinkId=394621).
 
-1. Dans l'Explorateur de solutions de Visual Studio, développez le dossier **App_Start** dans le projet de service todolist. Ouvrez le fichier WebApiConfig.cs.
+1. Dans l'Explorateur de solutions de Visual Studio, développez le dossier **App\_Start** dans le projet de service todolist. Ouvrez le fichier WebApiConfig.cs.
 
 2. Dans le fichier WebApiConfig.cs, notez que votre classe d'initialiseur de base de données par défaut est issue de la classe `DropCreateDatabaseIfModelChanges`. Cela signifie qu'à chaque modification apportée au modèle, la table sera supprimée et recréée pour s'adapter au nouveau modèle. Par conséquent, les données dans la table seront perdues et la table sera réamorcée. Modifiez la méthode d’amorçage de l’initialiseur de base de données de manière à ce que les données amorcées se présentent comme suit lors de l’enregistrement du fichier WebApiConfig.cs.
 
@@ -40,4 +40,4 @@ Dans cette section, nous allons modifier le modèle de notre base de données en
 
 Mettez ensuite à jour l'application client pour afficher les nouvelles données **CompleteDate**.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

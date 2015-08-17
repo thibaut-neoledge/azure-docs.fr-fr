@@ -9,7 +9,7 @@
 <tags 
    ms.service="service-bus"
    ms.devlang="na"
-   ms.topic="article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="tbd"
    ms.date="07/07/2015"
@@ -298,7 +298,7 @@ Comme pour les étapes précédentes, il y a très peu de différences entre l'i
   
 	Cette étape configure un service qui utilise la valeur par défaut **webHttpRelayBinding** définie précédemment. Il utilise également la valeur par défaut **sbTokenProvider**, définie dans l'étape suivante.
 
-6. Après l’élément `<services>`, créez un élément `<behaviors>` avec le contenu suivant, en remplaçant « SAS_KEY » par la clé avec *signature d'accès partagé* (SAP) obtenue à partir du portail de gestion Azure à l'étape 1.
+6. Après l’élément `<services>`, créez un élément `<behaviors>` avec le contenu suivant, en remplaçant « SAS\_KEY » par la clé avec *signature d'accès partagé* (SAP) obtenue à partir du portail de gestion Azure à l'étape 1.
   
 	```xml
 	<behaviors>
@@ -568,7 +568,7 @@ namespace Microsoft.ServiceBus.Samples
 
 Après avoir créé la solution, procédez comme suit pour exécuter l'application :
 
-1. À partir d'une invite de commande, exécutez le service (ImageListener\bin\Debug\ImageListener.exe).
+1. À partir d'une invite de commande, exécutez le service (ImageListener\\bin\\Debug\\ImageListener.exe).
 
 2. Copiez et collez l'adresse à partir de l'invite de commande dans un navigateur pour afficher l'image.
 
@@ -580,4 +580,4 @@ Maintenant que vous avez créé une application qui utilise le service de relais
 
 - [Utilisation du service Service Bus Relay](service-bus-dotnet-how-to-use-relay.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

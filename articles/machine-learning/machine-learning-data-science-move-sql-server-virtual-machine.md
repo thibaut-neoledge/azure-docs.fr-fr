@@ -234,4 +234,4 @@ Voici une copie d’écran des options de sauvegarde/restauration de base de don
 
  
 
-<!----HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

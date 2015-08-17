@@ -19,4 +19,4 @@ Par défaut, les points de terminaison définis dans votre application mobile so
 
 4. Republiez votre projet d’application mobile.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

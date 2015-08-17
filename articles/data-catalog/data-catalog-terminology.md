@@ -3,18 +3,20 @@
    description="Terminologie d’Azure Data Catalog"
    services="data-catalog"
    documentationCenter=""
-   authors="dvana"
-   manager="mblythe"
+   authors="steelanddata"
+   manager="NA"
    editor=""
    tags=""/>
+
 <tags
    ms.service="data-catalog"
    ms.devlang="NA"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="07/13/2015"
-   ms.author="derrickv"/>
+   ms.date="07/31/2015"
+   ms.author="maroche"/>
+
 
 # Terminologie d’Azure Data Catalog
 
@@ -42,6 +44,15 @@ Les métadonnées structurelles sont des métadonnées extraites d'une source de
 
 Les métadonnées descriptives sont des métadonnées qui décrivent l'objectif d'une ressource de données. En règle générale, les métadonnées descriptives sont ajoutées par les utilisateurs du catalogue à l'aide du portail Azure Data Catalog, mais elles peuvent être également extraites de la source de données pendant l'inscription. L'outil d'inscription d’Azure Data Catalog extraira les descriptions de la propriété Description dans SQL Server Analysis Services et SQL Server Reporting Services, et de la [propriété étendue ms\_description](https://technet.microsoft.com/library/ms190243.aspx) dans les bases de données SQL Server, si ces propriétés ont été remplies avec des valeurs.
 
+## Demander l'accès
+
+Des métadonnées descriptives d'une ressource de données peuvent inclure des informations sur la façon de demander l'accès à la ressource de données ou à la source de données. Ces informations sont présentées à l'emplacement des ressources de données et peuvent inclure une ou plusieurs des options suivantes :
+
+- L'adresse électronique de l'utilisateur ou de l'équipe responsable de l'octroi de l’accès à la source de données.
+- L'URL du processus documenté que les utilisateurs doivent suivre pour accéder à la source de données.
+- L'URL d'un outil de gestion des identités et des accès (comme Microsoft Identity Manager) qui peut être utilisé pour accéder à la source de données.
+- Une entrée de texte libre qui décrit la façon dont les utilisateurs peuvent accéder à la source de données.
+
 ## Versions préliminaires
 
 Une version préliminaire d’Azure Data Catalog est un instantané de maximum 20 enregistrements qui peuvent être extraits de la source de données pendant l'inscription et stockés dans le catalogue avec les métadonnées de ressources de données. La version préliminaire peut permettre aux utilisateurs, qui découvrent une ressource de données, de mieux comprendre son fonctionnement et son rôle. En d'autres termes, les exemples de données peuvent être plus utiles que les noms de colonnes et les types de données. Les versions préliminaires sont uniquement prises en charge par les tables et les vues et doivent être explicitement sélectionnées par l'utilisateur pendant l'inscription.
@@ -60,7 +71,7 @@ Un expert est un utilisateur qui a été identifié comme une personne pouvant a
 
 Un propriétaire est un utilisateur qui dispose de privilèges supplémentaires pour assurer la gestion d'une ressource de données d’Azure Data Catalog. Les utilisateurs peuvent s’approprier des ressources de données inscrites et les propriétaires peuvent ajouter d'autres utilisateurs en tant que copropriétaires.
 > [AZURE.NOTE]La propriété et la gestion sont uniquement disponibles dans l'édition Standard d’Azure Data Catalog.
- 
+
 ## Inscription
 
 L'inscription représente le fait d’extraire des métadonnées de ressources de données à partir d'une source de données et de les copier dans le service Azure Data Catalog. Les ressources de données qui ont été inscrites peuvent ensuite être annotées et découvertes.
@@ -68,7 +79,7 @@ L'inscription représente le fait d’extraire des métadonnées de ressources d
 ## Voir aussi
 
 - [Présentation d’Azure Data Catalog](data-catalog-what-is-data-catalog.md) : cet article fournit une vue d'ensemble du service Azure Data Catalog, de sa valeur ajoutée et des scénarios pris en charge.
-
+  
 - [Prise en main d’Azure Data Catalog](data-catalog-get-started.md) : cet article fournit un didacticiel de bout en bout qui vous indique comment utiliser Azure Data Catalog pour découvrir des sources de données.
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

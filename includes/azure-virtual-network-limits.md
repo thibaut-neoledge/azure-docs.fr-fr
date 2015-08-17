@@ -1,40 +1,30 @@
-<table cellspacing="0" border="1">
-<tr>
-   <th align="left" valign="middle">Ressource</th>
-   <th align="left" valign="middle">Limite par défaut</th>
-   <th align="left" valign="middle">Limite maximale</th>
-</tr>
-<tr>
-   <td valign="middle"><p><a href="http://msdn.microsoft.com/library/azure/jj156007.aspx">Réseaux virtuels</a><sup>1</sup> par abonnement</p></td>
-   <td valign="middle"><p>10</p></td>
-   <td valign="middle"><p>100</p></td>
-</tr>
-<tr>
-   <td valign="middle"><p>Nombre total de machines<sup>2</sup> par réseau virtuel</p></td>
-   <td valign="middle"><p>2&#160;048</p></td>
-   <td valign="middle"><p>2&#160;048</p></td>
-</tr>
-<tr>
-   <td valign="middle"><p>Connexions TCP simultanées pour une machine virtuelle ou une instance de rôle</p></td>
-   <td valign="middle"><p>500K</p></td>
-   <td valign="middle"><p>500K</p></td>
-</tr>
-<tr>
-   <td valign="middle"><p>Listes de contrôle d'accès par point de terminaison<sup>3</sup></p></td>
-   <td valign="middle"><p>50</p></td>
-   <td valign="middle"><p>50</p></td>
-</tr>
-<tr>
-   <td valign="middle"><p>Sites de réseau local par réseau virtuel</p></td>
-   <td valign="middle"><p>10</p></td>
-   <td valign="middle"><p>10</p></td>
-</tr>
-</table>
 
-<sup>1</sup>Chaque réseau virtuel prend en charge une [passerelle de réseau virtuel](http://msdn.microsoft.com/library/azure/jj156210.aspx) unique.
+| Ressource | Limite par défaut
+--- | ---
+| Réseaux virtuels par abonnement | 10
+| Machines virtuelles et instances de rôles par réseau virtuel | 2 048
+| Connexions TCP simultanées pour une machine virtuelle ou une instance de rôle | 500K
+| Listes de contrôle d'accès (ACL) par point de terminaison | 50
+| Sites de réseau local par réseau virtuel | 10
 
-<sup>2</sup>Le nombre total de machines comprend les machines virtuelles et les instances de rôle de travail/web.
+### Limites de réseau – Azure Resource Manager
 
-<sup>3</sup>La liste de contrôle d'accès est prise en charge sur les points de terminaison d'entrée pour les machines virtuelles. Pour les rôles de travail/web, elle est prise en charge sur les points de terminaison d'entrée et d'entrée d'instance.
+Les limites suivantes s’appliquent uniquement aux ressources de réseau gérées par le biais d’Azure Resource Manager.
 
-<!---HONumber=July15_HO4-->
+| Ressource | Limite par défaut
+--- | ---
+| Réseaux virtuels par abonnement | 50 par région
+| Serveurs DNS par réseau virtuel | 9
+| Équilibreurs de charge internes par groupe à haute disponibilité | 1
+| Équilibreurs de charge accessibles sur Internet par groupe à haute disponibilité | 1
+| Équilibreurs de charge (internes et accessibles sur Internet) par abonnement | 100 par région
+| Règles d’équilibrage de charge par équilibreur de charge | 150
+| Adresses IP publiques (dynamiques) par abonnement | 60 par région
+| Adresses IP publiques (statiques) par abonnement | 20 par région
+| Groupes de sécurité réseau par abonnement | 100 par région
+| Règles de groupe de sécurité réseau par groupe de sécurité réseau | 100
+| Interfaces réseau par abonnement | 300 par région
+
+Pour accroître ces limites, contactez le support technique.
+
+<!---HONumber=August15_HO6-->

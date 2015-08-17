@@ -18,9 +18,11 @@
 
 #Notifications Push sécurisées avec Azure Notification Hubs
 
-<div class="dev-center-tutorial-selector sublanding">
-    	<a href="/documentation/articles/notification-hubs-aspnet-backend-windows-dotnet-secure-push/" title="Windows Universal">Windows Universal</a><a href="/documentation/articles/notification-hubs-aspnet-backend-ios-secure-push/" title="iOS" class="current">iOS</a> <a href="/documentation/articles/notification-hubs-aspnet-backend-android-secure-push/" title="Android">Android</a>
-</div>
+> [AZURE.SELECTOR]
+- [Windows Universal](notification-hubs-aspnet-backend-windows-dotnet-secure-push.md)
+- [iOS](notification-hubs-aspnet-backend-ios-secure-push.md)
+- [Android](notification-hubs-aspnet-backend-android-secure-push.md)
+
 
 ##Vue d'ensemble
 
@@ -63,6 +65,7 @@ Pour cela, nous devons écrire la logique permettant de récupérer le contenu s
 
 3. Ensuite, ajoutez le code qui suit dans la section d’implémentation, en remplaçant l’espace réservé `{back-end endpoint}` par le point de terminaison de votre serveur principal que vous avez obtenu précédemment :
 
+```
 		NSString *const GetNotificationEndpoint = @"{back-end endpoint}/api/notifications";
 
 		- (void) retrieveSecurePayloadWithId:(int)payloadId completion: (void(^)(NSString*, NSError*)) completion;
@@ -107,8 +110,9 @@ Pour cela, nous devons écrire la logique permettant de récupérer le contenu s
 		    }];
 		    [dataTask resume];
 		}
+```
 
-	Cette méthode appelle le serveur principal de votre application pour récupérer le contenu de la notification avec les informations d'identification stockées dans les préférences partagées.
+	This method calls your app back-end to retrieve the notification content using the credentials stored in the shared preferences.
 
 4. Maintenant, nous devons gérer la notification entrante et utiliser la méthode ci-dessus pour récupérer le contenu à afficher. Nous devons tout d'abord permettre à l'application iOS de s'exécuter en arrière-plan lorsqu'elle reçoit une notification Push. Dans **XCode**, sélectionnez votre projet d'application dans le volet gauche, puis cliquez sur votre cible d'application principale dans la section **Cibles** du volet central.
 
@@ -155,4 +159,4 @@ Pour exécuter l'application, procédez comme suit :
 [IOS1]: ./media/notification-hubs-aspnet-backend-ios-secure-push/secure-push-ios-1.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

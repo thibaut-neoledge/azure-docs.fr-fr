@@ -153,7 +153,7 @@ Dans cette section, nous allons configurer les variables d’environnement de l�
 
   	<!-- ![Top Menu](./media/web-sites-python-ptvs-flask-table-storage/PollsCommonWebSiteTopMenu.png) -->
 
-1.  Accédez à la section **Paramètres de l’application** et définissez les valeurs **REPOSITORY_NAME**, **STORAGE_NAME** et **STORAGE_KEY** comme décrit dans la section ci-dessus.
+1.  Accédez à la section **Paramètres de l’application** et définissez les valeurs **REPOSITORY\_NAME**, **STORAGE\_NAME** et **STORAGE\_KEY** comme décrit dans la section ci-dessus.
 
   	<!-- ![App Settings](./media/web-sites-python-ptvs-flask-table-storage/PollsCommonWebSiteConfigureSettingsTableStorage.png) -->
 
@@ -210,4 +210,4 @@ Suivez ces liens pour en savoir plus sur Python Tools for Visual Studio, Flask e
 [Kit de développement logiciel (SDK) Azure pour Python]: https://github.com/Azure/azure-sdk-for-python
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

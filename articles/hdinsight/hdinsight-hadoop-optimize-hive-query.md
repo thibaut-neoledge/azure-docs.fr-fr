@@ -27,8 +27,8 @@ L’augmentation du nombre de nœuds de travail d’un cluster permet d’exploi
 
 - Au moment de l’approvisionnement, vous pouvez spécifier le nombre de nœuds de travail à l’aide du portail Azure, d’Azure PowerShell ou d’une interface de ligne de commande multiplateforme. Pour plus d’informations, consultez la rubrique [Configuration de clusters HDInsight](hdinsight-provision-clusters.md). La capture d’écran suivante montre la configuration du nœud de travail sur le portail Azure :
 
-	![scaleout_1][image-hdi-optimize-hive-scaleout_1]
-- Au moment de l’exécution, vous pouvez également monter en charge un cluster sans en recréer un autre. Cette méthode est illustrée ci-dessous. ![scaleout_1][image-hdi-optimize-hive-scaleout_2]
+	![scaleout\_1][image-hdi-optimize-hive-scaleout_1]
+- Au moment de l’exécution, vous pouvez également monter en charge un cluster sans en recréer un autre. Cette méthode est illustrée ci-dessous. ![scaleout\_1][image-hdi-optimize-hive-scaleout_2]
 
 Pour plus d’informations sur les différentes machines virtuelles prises en charge par HDInsight, consultez la [tarification HDInsight](http://azure.microsoft.com/pricing/details/hdinsight/).
 
@@ -36,7 +36,7 @@ Pour plus d’informations sur les différentes machines virtuelles prises en ch
 
 [Apache Tez](http://hortonworks.com/hadoop/tez/) est un moteur d’exécution représentant une alternative au moteur MapReduce :
 
-![tez_1][image-hdi-optimize-hive-tez_1]
+![tez\_1][image-hdi-optimize-hive-tez_1]
 
 
 Tez est plus rapide pour les raisons suivantes :
@@ -215,4 +215,4 @@ Dans cet article, vous avez appris plusieurs méthodes d’optimisation courante
 [image-hdi-optimize-hive-partitioning_1]: ./media/hdinsight-hadoop-optimize-hive-query/partitioning_1.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

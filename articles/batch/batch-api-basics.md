@@ -106,7 +106,7 @@ Lorsque vous créez un pool, vous pouvez spécifier les attributs suivants :
 - Famille de système d’exploitation et version qui s’exécute sur les nœuds.
 	- Comme avec les rôles de travail, la famille de système d’exploitation et la version de système d’exploitation peuvent être configurées.
 	- La famille de système d’exploitation détermine également les versions de .NET qui sont installées avec le système d'exploitation.
-	- Comme avec les rôles de travail, il est recommandé d’utiliser « \* » pour la version du système d’exploitation afin que les nœuds soient automatiquement mis à niveau et qu’aucune tâche supplémentaire ne soit requise pour gérer ces nouvelles versions. Une version spécifique de système d'exploitation est généralement utilisée pour assurer la compatibilité des applications, et permettre aux tests de compatibilité descendante d’être réalisés avant d'autoriser la mise à jour de la version. Une fois validée, la version du système d'exploitation du pool peut être mise à jour et la nouvelle image du système d'exploitation peut également être installée – toutes les tâches en cours d'exécution seront interrompues et remises en file d'attente.
+	- Comme avec les rôles de travail, il est recommandé d’utiliser « * » pour la version du système d’exploitation afin que les nœuds soient automatiquement mis à niveau et qu’aucune tâche supplémentaire ne soit requise pour gérer ces nouvelles versions. Une version spécifique de système d'exploitation est généralement utilisée pour assurer la compatibilité des applications, et permettre aux tests de compatibilité descendante d’être réalisés avant d'autoriser la mise à jour de la version. Une fois validée, la version du système d'exploitation du pool peut être mise à jour et la nouvelle image du système d'exploitation peut également être installée – toutes les tâches en cours d'exécution seront interrompues et remises en file d'attente.
 
 - Nombre cible de nœuds qui doivent être disponibles pour le pool.
 
@@ -385,4 +385,4 @@ Chaque nœud d’un pool se voit attribuer un nom unique et le nœud sur lequel 
 
 [vue d'ensemble d’Azure Batch]: batch-technical-overview.md
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

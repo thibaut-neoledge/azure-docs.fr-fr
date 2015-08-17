@@ -7,14 +7,16 @@
 	manager="dwrede" 
 	editor=""/>
 
+
 <tags 
 	ms.service="api-management" 
 	ms.workload="mobile" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/10/2015" 
+	ms.date="08/05/2015" 
 	ms.author="sdanie"/>
+
 
 # Comment autoriser des comptes de développeurs à l'aide de OAuth 2.0 dans Gestion des API Azure
 
@@ -70,7 +72,7 @@ Pour un serveur OAuth 2.0 Azure Active Directory, l’**URL de point de termina
 
 Le paramètre par défaut pour **Méthodes d’authentification du client** est **De base**, et le paramètre par défaut pour **Méthode d'envoi des jetons d'accès** est **En-tête d'autorisation**. Ces valeurs sont configurées dans cette section du formulaire, ainsi que le paramètre **Étendue par défaut**.
 
-La section **Informations d'identification du client** inclut les paramètres **ID client** et **Clé secrète client**, qui sont obtenus lors du processus de création et de configuration de votre serveur OAuth 2.0. Une fois que les paramètres **ID client** et **Clé secrète client** ont été spécifiés, le **redirect_uri** pour le **code d'autorisation** est généré. Cette URI est utilisée pour configurer l'URL de réponse dans la configuration de votre serveur OAuth 2.0.
+La section **Informations d'identification du client** inclut les paramètres **ID client** et **Clé secrète client**, qui sont obtenus lors du processus de création et de configuration de votre serveur OAuth 2.0. Une fois que les paramètres **ID client** et **Clé secrète client** ont été spécifiés, le **redirect\_uri** pour le **code d'autorisation** est généré. Cette URI est utilisée pour configurer l'URL de réponse dans la configuration de votre serveur OAuth 2.0.
 
 ![Nouveau serveur][api-management-oauth2-server-4]
 
@@ -120,7 +122,7 @@ Une fois que vous êtes connecté, les **En-têtes de demandes** sont renseigné
 
 ## Étapes suivantes
 
-Pour plus d’informations sur l’utilisation de OAuth 2.0 et la gestion des API, regardez la vidéo suivante.
+Pour plus d’informations sur l’utilisation d’OAuth 2.0 et la gestion des API, regardez la vidéo suivante et l’article qui l’[accompagne](api-management-howto-protect-backend-with-aad.md).
 
 > [AZURE.VIDEO protecting-web-api-backend-with-azure-active-directory-and-api-management]
 
@@ -160,4 +162,4 @@ Pour plus d’informations sur l’utilisation de OAuth 2.0 et la gestion des A
 [Test the OAuth 2.0 user authorization in the Developer Portal]: #step3
 [Next steps]: #next-steps
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

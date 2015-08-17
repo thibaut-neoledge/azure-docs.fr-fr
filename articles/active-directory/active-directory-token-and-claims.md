@@ -97,7 +97,7 @@ Dans un jeton SAML, le prénom s'affiche dans une revendication dans l'élément
     <Attribute Name=” http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname”>
     <AttributeValue>Frank<AttributeValue>
 
-Dans un jeton JWT, le prénom apparaît dans la revendication given_name.
+Dans un jeton JWT, le prénom apparaît dans la revendication given\_name.
 
     "given_name": "Frank"
 
@@ -156,7 +156,7 @@ La revendication du nom fournit le nom de famille de l'utilisateur tel que défi
     <Attribute Name=” http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname”>
     <AttributeValue>Miller<AttributeValue>
 
-Dans un jeton JWT, le nom de famille apparaît dans la revendication family_name.
+Dans un jeton JWT, le nom de famille apparaît dans la revendication family\_name.
 
     "family_name": "Miller"
 
@@ -167,7 +167,7 @@ La revendication du nom fournit une valeur humaine lisible qui identifie le suje
     <Attribute Name=”http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name”>
     <AttributeValue>frankm@contoso.com<AttributeValue>
 
-Dans une revendication JWT, le nom apparaît dans la revendication unique_name.
+Dans une revendication JWT, le nom apparaît dans la revendication unique\_name.
 
     "unique_name": "frankm@contoso.com"
 
@@ -195,7 +195,7 @@ Dans un jeton JWT, la revendication des rôles s'affiche dans l'attribut des rô
 
 ### Scope
 
-L'étendue du jeton indique les autorisations d’emprunt d’identité accordées à l’application cliente. L'autorisation par défaut est user_impersonation. Le propriétaire de la ressource sécurisée peut enregistrer des valeurs supplémentaires dans Azure AD.
+L'étendue du jeton indique les autorisations d’emprunt d’identité accordées à l’application cliente. L'autorisation par défaut est user\_impersonation. Le propriétaire de la ressource sécurisée peut enregistrer des valeurs supplémentaires dans Azure AD.
 
 Dans un jeton JWT, l'étendue du jeton est spécifiée dans une revendication scp.
 
@@ -413,4 +413,4 @@ Il s'agit d'un exemple de jeton web JSON (JWT) classique utilisé dans un flux w
 [Protocoles d’authentification d’Azure Active Directory](https://msdn.microsoft.com/library/azure/dn151124.aspx)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

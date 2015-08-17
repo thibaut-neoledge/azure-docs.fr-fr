@@ -242,4 +242,4 @@ Pour afficher des informations détaillées sur les applets de commande de Micro
 [Set-AzureSqlDatabase](http://go.microsoft.com/fwlink/?LinkId=391412)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -166,4 +166,4 @@ Pour en savoir plus sur la gestion du traitement de tables déclenché par un me
 Cet article a fourni des exemples de code qui montrent comment gérer des scénarios courants pour l’utilisation des tables Azure. Pour plus d’informations sur l’utilisation d’Azure Webjobs et du Kit de développement logiciel (SDK) WebJobs Azure, consultez la rubrique [Azure Webjobs - Ressources recommandées](http://go.microsoft.com/fwlink/?linkid=390226).
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

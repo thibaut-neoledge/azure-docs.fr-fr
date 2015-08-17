@@ -7,14 +7,16 @@
 	manager="timlt" 
 	editor=""/>
 
+
 <tags 
 	ms.service="virtual-machines" 
 	ms.workload="infrastructure-services" 
 	ms.tgt_pltfrm="vm-linux" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/16/2015" 
+	ms.date="07/29/2015" 
 	ms.author="szark"/>
+
 
 
 
@@ -42,7 +44,7 @@ Vous pouvez également activer la méthode sudo sans mot de passe en modifiant l
 	#/etc/sudoers.d/waagent
 	azureuser ALL = (ALL) NOPASSWD: ALL
 
-Cette modification permet à l'utilisateur azureuser de poursuivre sans entrer de mot de passe.
+Cette modification permet à l’utilisateur « azureuser » de poursuivre sans entrer de mot de passe.
 
 ## Clé SSH uniquement
 
@@ -54,4 +56,4 @@ Dans ce cas, l'utilisateur **n'est pas** invité à fournir un mot de passe. Une
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

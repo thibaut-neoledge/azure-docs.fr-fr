@@ -67,7 +67,7 @@ Pour voir à quoi ressemblent ces données, cliquez sur le port de sortie situé
 
 ![Dataset visualization][screen1b]
 
-Fermez la fenêtre de visualisation en cliquant sur la croix « \*\*x\*\* » située dans l’angle supérieur droit de la fenêtre.
+Fermez la fenêtre de visualisation en cliquant sur le symbole « **x** » dans le coin supérieur droit.
 
 ## Étape 2 : traitement préalable des données
 
@@ -232,4 +232,4 @@ Pour obtenir un guide pas à pas plus complet et détaillé des techniques de mo
 [train-model]: https://msdn.microsoft.com/library/azure/5cc7053e-aa30-450d-96c0-dae4be720977/
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

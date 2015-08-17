@@ -163,7 +163,7 @@ Outre la prise en charge d'annonces, LiveBackoff peut servir à ajuster la posit
 
 
 
-![livebackoff_filter][livebackoff_filter]
+![livebackoff\_filter][livebackoff_filter]
 
 
 ###Combinaison de plusieurs règles dans un seul filtre
@@ -209,4 +209,4 @@ La rubrique suivante décrit les entités Media Services liées aux filtres. La 
 [skiing]: ./media/media-services-dynamic-manifest-overview/media-services-skiing.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

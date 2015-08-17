@@ -233,4 +233,4 @@ Pour créer Azure BizTalk Services dans le portail de gestion Azure, accédez à
 [RestoreBizTalkService]: ./media/biztalk-backup-restore/RestoreBizTalkServiceWindow.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

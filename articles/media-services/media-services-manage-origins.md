@@ -4,7 +4,6 @@
 	services="media-services" 
 	documentationCenter="" 
 	authors="Juliako" 
-	writer="juliako" 
 	manager="dwrede" 
 	editor=""/>
 
@@ -140,4 +139,4 @@ Pour plus d’informations, consultez la page [Annonce de l’intégration d’A
 [configure-origin-configure-custom-host-names]: ./media/media-services-manage-origins/media-services-configure-custom-host-names.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

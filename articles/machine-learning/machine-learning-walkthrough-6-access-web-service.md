@@ -42,4 +42,4 @@ La page d'aide sur l'API contient des exemples en langages R, C# et Python.
 
 Pour plus d’informations sur l’accès au service web et son utilisation, consultez [Utilisation d’un service web Azure Machine Learning publié à partir d’une expérience Machine Learning](machine-learning-consume-web-services.md).
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

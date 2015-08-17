@@ -39,7 +39,7 @@ Dans ce guide, vous allez utiliser des fonctionnalités de service qui peuvent �
 
 Utilisation des API Service Bus :
 
-1. référencer le fichier de chargeur automatique à l'aide de l'instruction [require_once][require-once].
+1. référencer le fichier de chargeur automatique à l'aide de l'instruction [require\_once][require-once].
 2. référencer toute classe que vous êtes susceptible d'utiliser.
 
 L'exemple suivant montre comment inclure le fichier du chargeur automatique et référencer la classe **ServiceBusService**.
@@ -332,4 +332,4 @@ Maintenant que vous avez appris les principes de base des files d'attente Servic
 [require-once]: http://php.net/require_once
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

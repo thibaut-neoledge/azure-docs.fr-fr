@@ -30,7 +30,6 @@ Vous pouvez également créer des machines virtuelles à l'aide de vos propres i
 
 [AZURE.INCLUDE [free-trial-note](../../includes/free-trial-note.md)]
 
-
 ## Sélectionnez l'image
 
 Accédez à Azure Marketplace dans le portail en version préliminaire pour rechercher l’image de machine virtuelle Windows Server souhaitée.
@@ -55,7 +54,7 @@ Après avoir sélectionné l'image, vous pouvez utiliser les paramètres par dé
 
 	![Configurer les éléments de base de la machine virtuelle](./media/virtual-machines-windows-tutorial/create_vm_basics.PNG)
 
-	>[AZURE.NOTE]\*\*Nom d’utilisateur\*\* fait référence au compte administratif que vous utilisez pour gérer le serveur. Créez un mot de passe difficile à deviner, mais dont vous vous souviendrez. **Vous aurez besoin du nom d'utilisateur et du mot de passe pour vous connecter à la machine virtuelle**.
+	>[AZURE.NOTE]**Nom d’utilisateur** fait référence au compte administratif que vous utilisez pour gérer le serveur. Créez un mot de passe difficile à deviner, mais dont vous vous souviendrez. **Vous aurez besoin du nom d'utilisateur et du mot de passe pour vous connecter à la machine virtuelle**.
 
 2. Cliquez sur **Taille** et sélectionnez une taille de machine virtuelle adaptée à vos besoins. Chaque taille spécifie la quantité de cœurs de calcul, de mémoire et d'autres fonctionnalités, telles que la prise en charge du stockage Premium, ce qui aura un impact sur le prix. Azure recommande automatiquement certaines tailles en fonction de l'image que vous choisissez.
 
@@ -102,4 +101,4 @@ Une fois que vous avez créé la machine virtuelle, vous pouvez vous y connecter
 * Utiliser Azure PowerShell et la CLI Azure pour [rechercher et sélectionner des images de machine virtuelle](resource-groups-vm-searching.md).
 * Automatiser le déploiement et la gestion de machine virtuelle et de charge de travail à l’aide d’[Azure Resource Manager](virtual-machines-how-to-automate-azure-resource-manager.md) et des [modèles Azure Resource Manager](http://azure.microsoft.com/documentation/templates/).
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

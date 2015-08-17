@@ -94,4 +94,4 @@ PowerShell fournit d’autres commandes d’utilisation des verrous, comme **Set
 - [Organisation des ressources Azure à l’aide de balises](resource-group-using-tags.md)
 - [Déplacez des ressources vers un nouveau groupe de ressources](resource-group-move-resources.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

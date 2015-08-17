@@ -104,4 +104,4 @@ Plusieurs méthodes permettent de réduire la taille des données pour en facili
 >_Data Mining : Concepts et Techniques_, 3e édition, Morgan Kaufmann, 2011, Jiawei Han, Micheline Kamber et Jian Pei
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

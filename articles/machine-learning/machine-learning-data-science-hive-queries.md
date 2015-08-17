@@ -2,7 +2,6 @@
 	pageTitle="Envoyer des requêtes Hive à des clusters Hadoop dans le processus d'analyse avancée | Microsoft Azure" 
 	description="Traiter les données de tables Hive" 
 	services="machine-learning" 
-	solutions="" 
 	documentationCenter="" 
 	authors="hangzh-msft" 
 	manager="paulettm" 
@@ -257,7 +256,7 @@ En supposant que la table Hive a un champ de texte qui contient plusieurs mots s
 
 La requête fournie dans cette section peut être directement appliquée aux données du jeu NYC Taxi Trips. Cette requête montre comment appliquer les fonctions mathématiques intégrées dans Hive pour générer des fonctionnalités.
 
-Les champs utilisés dans cette requête sont des coordonnées GPS des emplacements de départ et d'arrivée, intitulés pickup_longitude, pickup_latitude, dropoff_longitude et dropoff_latitude. Les requêtes permettant de calculer la distance directe entre les coordonnées de départ et d’arrivée sont :
+Les champs utilisés dans cette requête sont des coordonnées GPS des emplacements de départ et d'arrivée, intitulés pickup\_longitude, pickup\_latitude, dropoff\_longitude et dropoff\_latitude. Les requêtes permettant de calculer la distance directe entre les coordonnées de départ et d’arrivée sont :
 
 		set R=3959;
 		set pi=radians(180);
@@ -326,4 +325,4 @@ Les paramètres par défaut du cluster Hive peuvent ne pas convenir aux requête
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

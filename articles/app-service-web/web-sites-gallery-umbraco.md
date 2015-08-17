@@ -8,14 +8,16 @@
 	manager="wpickett" 
 	editor="mollybos"/>
 
+
 <tags 
 	ms.service="app-service-web" 
 	ms.workload="web" 
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/21/2015" 
+	ms.date="08/03/2015" 
 	ms.author="tomfitz"/>
+
 
 #Créer une application web Umbraco à partir de MarketPlace dans Microsoft Azure#
 
@@ -34,15 +36,9 @@ Ce didacticiel vous apprendra à effectuer les opérations suivantes :
 
 2. Cliquez sur l’icône **Marketplace**.
 	
-	![Choose Web Gallery][01Startboard]
-	
-3. Dans **Marketplace** , cliquez sur l’onglet **Web Apps** puis sélectionnez **Umbraco CMS**.
-	
-	![Select Umbraco in the Web Gallery][02WebGallery]
+3. Dans **Marketplace**, cliquez sur l’onglet **Web + Mobile**, puis sélectionnez **Umbraco CMS**.
 	
 4. Pour créer une application web Umbraco CMS, cliquez sur **Créer**.
-	
-	![Click Create][03UmbracoCMS]
 	
 5. La prochaine étape consiste à configurer toutes les ressources associées à Umbraco CMS. Dans ce cas, les ressources sont une application web et une base de données SQL Server. D’abord, sélectionnez **Application web** pour configurer les paramètres de l’application web, comme l’**URL**, le **plan App Service**, les **paramètres de l’application web** et l’**emplacement**.
 	
@@ -57,8 +53,6 @@ Ce didacticiel vous apprendra à effectuer les opérations suivantes :
 	![Click Create][06UmbracoCMSGroup]
 	
 Une fois le déploiement terminé, le portail affiche le panneau du groupe de ressources de votre application web Umbraco CMS. Dans la section **Résumé**, cliquez sur le nom de l’application web pour afficher les propriétés de celle-ci. Dans la section **Résumé**, vous pouvez également sélectionner les ressources de la base de données pour voir les propriétés de la base de données correspondante.
-	
-![][07UmbracoCMSGroupBlade]
 
 ## Lancer et configurer votre application web Umbraco CMS ##
 
@@ -135,4 +129,4 @@ Et voilà ! Vous avez créé un blog à l’aide d’Umbraco CMS en quelques mi
 [17MyPage]: ./media/web-sites-gallery-umbraco/17MyPage.PNG
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -139,4 +139,4 @@ Les applications API App Service sont des applications web App Service qui pr�
 L’application API que vous avez créée dans cette série est disponible publiquement pour tous les appelants. Pour en savoir plus sur la protection des applications API de manière à ce que seuls les utilisateurs authentifiés puissent les appeler, consultez la page [Authentification pour les applications API et les applications mobiles dans Azure App Service](../app-service/app-service-authentication-overview.md).
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

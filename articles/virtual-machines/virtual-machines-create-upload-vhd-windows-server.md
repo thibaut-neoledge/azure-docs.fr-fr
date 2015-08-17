@@ -35,7 +35,13 @@ Cet article part du principe que vous disposez des éléments suivants :
 
 > [AZURE.NOTE]Microsoft Azure ne prend pas en charge le format VHDX. Vous pouvez convertir le disque au format VHD à l'aide de Hyper-V Manager ou de la [cmdlet Convert-VHD](http://technet.microsoft.com/library/hh848454.aspx). Vous trouverez un didacticiel à ce sujet [ici](http://blogs.msdn.com/b/virtual_pc_guy/archive/2012/10/03/using-powershell-to-convert-a-vhd-to-a-vhdx.aspx).
  
- Voici les versions de Windows Server prises en charge : <P> <TABLE BORDER="1" WIDTH="600"> <TR BGCOLOR="#E9E7E7"> <TH>SE</TH> <TH>SKU</TH> <TH>Service Pack</TH> <TH>Architecture</TH> </TR> <TR> <TD>Windows Server 2012 R2</TD> <TD>Toutes les éditions</TD> <TD>N/A</TD> <TD>x64</TD> </TR> <TR> <TD>Windows Server 2012</TD> <TD>Toutes les éditions</TD> <TD>N/A</TD> <TD>x64</TD> </TR> <TR> <TD>Windows Server 2008 R2</TD> <TD>Toutes les éditions</TD> <TD>SP1</TD> <TD>x64</TD> </TR> </TABLE> </P>
+ Voici les versions de Windows Server prises en charge :
+
+SE|SKU|Service Pack|Architecture
+---|---|---|---
+Windows Server 2012 R2|Toutes les éditions|N/A|x64
+Windows Server 2012|Toutes les éditions|N/A|x64
+Windows Server 2008 R2|Toutes les éditions|SP1|x64
 
 
 Cette procédure comprend les étapes suivantes :
@@ -53,7 +59,7 @@ Depuis la machine virtuelle sur laquelle le système d’exploitation a été in
 
 1. Connectez-vous au système d'exploitation.
 
-2. Ouvrez une fenêtre d'invite de commandes en tant qu'administrateur. Remplacez le répertoire par **%windir%\system32\sysprep**, puis exécutez `sysprep.exe`.
+2. Ouvrez une fenêtre d'invite de commandes en tant qu'administrateur. Remplacez le répertoire par **%windir%\\system32\\sysprep**, puis exécutez `sysprep.exe`.
 
 	![Ouvrir une fenêtre d'invite de commandes](./media/virtual-machines-create-upload-vhd-windows-server/sysprep_commandprompt.png)
 
@@ -211,4 +217,4 @@ Maintenant que vous avez créé une machine virtuelle, tentez de créer une mach
 [Étape 4 : téléchargement du fichier .vhd]: #upload
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

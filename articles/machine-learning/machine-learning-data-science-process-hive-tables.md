@@ -106,7 +106,7 @@ Les utilisateurs peuvent également enregistrer les résultats d’une requête 
 
 	insert overwrite directory wasb:///<directory within the default container> <select clause from ...>
 
-Dans l'exemple suivant, la sortie de la requête Hive est consignée dans le répertoire de blob `queryoutputdir` situé dans le conteneur par défaut du cluster Hadoop. Ici, il suffit d’indiquer le nom du répertoire, sans celui du blob. Le fait de déclarer le nom du répertoire et celui du blob, comme dans *wasb:///queryoutputdir/queryoutput.txt*, déclenche une erreur.
+Dans l'exemple suivant, la sortie de la requête Hive est consignée dans le répertoire de blob `queryoutputdir` situé dans le conteneur par défaut du cluster Hadoop. Ici, il suffit d’indiquer le nom du répertoire, sans celui du blob. Le fait de déclarer le nom du répertoire et celui du blob, comme dans **wasb:///queryoutputdir/queryoutput.txt*, déclenche une erreur.
 
 ![Create workspace][13]
 
@@ -128,7 +128,7 @@ Voici quelques exemples de scripts Hive qui vous permettent d’explorer les don
 
 1. Obtenir le nombre d'observations par partition `SELECT <partitionfieldname>, count(*) from <databasename>.<tablename> group by <partitionfieldname>;`
 
-2. Obtenir le nombre d'observations par jour `SELECT to_date(<date_columnname>), count(*) from <databasename>.<tablename> group by to_date(<date_columnname>);`
+2. Obtenir le nombre d’observations par jour `SELECT to_date(<date_columnname>), count(*) from <databasename>.<tablename> group by to_date(<date_columnname>);`
 
 3. Obtenir les niveaux dans une colonne catégorielle `SELECT  distinct <column_name> from <databasename>.<tablename>`
 
@@ -167,7 +167,7 @@ Voici quelques exemples de scripts Hive qui vous permettent d’explorer les don
 
 Cette section décrit les méthodes permettant de générer des fonctionnalités à l’aide de requêtes Hive.
 
-> [AZURE.NOTE]Les exemples de requêtes Hive présentées supposent que les données ont été chargées dans les tables Hive des clusters Hadoop Azure HDInsight. Si tel n'est pas le cas, commencez par suivre la procédure décrite dans la rubrique [Créer et charger des données dans les tables Hive](machine-learning-data-science-hive-tables.md).
+> [AZURE.NOTE]Les exemples de requêtes Hive présentées supposent que les données ont été chargées dans les tables Hive des clusters Hadoop Azure HDInsight. Si tel n'est pas le cas, commencez par suivre la procédure [Créer et charger des données dans les tables Hive](machine-learning-data-science-hive-tables.md).
 
 Lorsque vous avez généré des fonctionnalités supplémentaires, vous pouvez soit les ajouter sous la forme de colonnes à la table existante, soit créer une table avec les fonctionnalités supplémentaires et la clé principale, sur lesquelles vous pouvez créer une jointure à la table d’origine.
 
@@ -233,7 +233,7 @@ Si un champ d’horodatage n’est pas au format par défaut, il faut d’abord 
 		select from_unixtime(unix_timestamp(<datetime field>,'<pattern of the datetime field>'))
 		from <databasename>.<tablename>;
 
-Dans cette requête, si le *champ &#60;datetime>* présente le modèle *03/26/2015 12:04:39*, la valeur *'&#60;pattern of the datetime field>'* doit être `'MM/dd/yyyy HH:mm:ss'`. Pour le tester, les utilisateurs peuvent exécuter :
+Dans cette requête, si le *&#60;champ DateHeure>* présente le modèle *03/26/2015 12:04:39*, le *'&#60;modèle du champ DateTime>'* doit être `'MM/dd/yyyy HH:mm:ss'`. Pour le tester, les utilisateurs peuvent exécuter :
 
 		select from_unixtime(unix_timestamp('05/15/2015 09:32:10','MM/dd/yyyy HH:mm:ss'))
 		from hivesampletable limit 1;
@@ -270,7 +270,7 @@ Les champs utilisés dans cette requête sont des coordonnées GPS des emplacem
 		and dropoff_latitude between 30 and 90
 		limit 10;
 
-Les équations mathématiques calculant la distance entre deux coordonnées GPS sont disponibles sur le site <a href="http://www.movable-type.co.uk/scripts/latlong.html" target="_blank">Movable Type Scripts</a> de Peter Lapisu. Dans ce code Javascript, la fonction `toRad()` est simplement *lat\_or\_lon\*pi/180*, qui convertit les degrés en radians. Ici, *lat\_or\_lon* est la latitude ou la longitude. Comme Hive ne fournit pas la fonction `atan2`, mais fournit la fonction `atan`, la fonction `atan2` est implémentée par la fonction `atan` dans la requête Hive ci-dessus, selon sa définition dans <a href="http://en.wikipedia.org/wiki/Atan2" target="_blank">Wikipédia</a>.
+Les équations mathématiques calculant la distance entre deux coordonnées GPS sont disponibles sur le site <a href="http://www.movable-type.co.uk/scripts/latlong.html" target="_blank">Movable Type Scripts</a> de Peter Lapisu. Dans ce code Javascript, la fonction `toRad()` est simplement *lat\_or\_lon*pi/180*, qui convertit les degrés en radians. Ici, *lat\_or\_lon* est la latitude ou la longitude. Comme Hive ne fournit pas la fonction `atan2`, mais fournit la fonction `atan`, la fonction `atan2` est implémentée par la fonction `atan` dans la requête Hive ci-dessus, selon sa définition dans <a href="http://en.wikipedia.org/wiki/Atan2" target="_blank">Wikipédia</a>.
 
 ![Create workspace][1]
 
@@ -319,4 +319,4 @@ Les paramètres par défaut du cluster Hive peuvent ne pas convenir aux requête
 [15]: ./media/machine-learning-data-science-process-hive-tables/run-hive-queries-3.png
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

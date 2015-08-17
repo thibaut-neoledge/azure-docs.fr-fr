@@ -13,7 +13,7 @@
 	ms.workload="data-management"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article"
+	ms.topic="get-started-article"
 	ms.date="07/09/2015"
 	ms.author="joseidz"/>
 
@@ -23,7 +23,7 @@ Connectez Excel à une base de données SQL Azure et créez un rapport sur les 
 
 ## Composants requis
 - Une base de données SQL Azure configurée et en cours d'exécution. Pour créer une base de données SQL, consultez [Prise en main de Base de données SQL Microsoft Azure](sql-database-get-started.md).
-- [Microsoft Excel 2013](https://products.office.com/fr-fr/) (ou Microsoft Excel 2010)
+- [Microsoft Excel 2013](https://products.office.com/en-US/) (ou Microsoft Excel 2010)
 
 ## Se connecter à une base de données SQL et créer un rapport
 1.	Ouvrez Excel.
@@ -63,4 +63,4 @@ Si vous êtes développeur de SaaS (Software as a Service), découvrez les [poo
 [4]: ./media/sql-database-connect-excel/power-pivot-results.png
 [5]: ./media/sql-database-connect-excel/select-database-and-table.png
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

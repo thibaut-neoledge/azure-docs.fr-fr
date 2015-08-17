@@ -35,7 +35,7 @@ Dans la configuration par défaut fournie par Azure AD Connect Sync, on part du 
 L’objectif de cette rubrique est de décrire certains scénarios courants et comment ils sont représentés dans le service de synchronisation d’Azure AD Connect Sync :
 
 1. technologies distinctes ; 
-2. maillage complet avec solution GALSync facultative ; 
+2. Maillage complet avec solution GALSync facultative 
 3. forêt de ressources de comptes ; 
 
 
@@ -83,4 +83,4 @@ Le schéma ci-dessous décrit ce scénario avec un seul compte.
 [2]: ./media/active-directory-aadsync-scenario-overview/ic750600.png
 [3]: ./media/active-directory-aadsync-scenario-overview/ic750601.png
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

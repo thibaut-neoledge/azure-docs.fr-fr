@@ -13,7 +13,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="06/17/2015" 
+	ms.date="08/04/2015" 
 	ms.author="jeffstok"/>
 
 
@@ -258,7 +258,7 @@ Teste la capacité de Stream Analytics à se connecter à une sortie spécifiée
 Cette commande PowerShell teste l’état de la connexion de la sortie Output dans StreamingJob.
 
 ## Obtenir de l'aide
-Pour obtenir une assistance, consultez le [forum Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/fr-fr/home?forum=AzureStreamAnalytics)
+Pour obtenir une assistance, consultez le [forum Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
 
 
 ## Étapes suivantes
@@ -287,4 +287,4 @@ Pour obtenir une assistance, consultez le [forum Azure Stream Analytics](https:/
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

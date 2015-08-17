@@ -7,6 +7,7 @@
 	manager="jwhit"
 	editor=""/>
 
+
 <tags
 	ms.service="backup"
 	ms.workload="storage-backup-recovery"
@@ -15,6 +16,7 @@
 	ms.topic="article"
 	ms.date="06/23/2015"
 	ms.author="jimpark"/>
+
 
 
 # Déploiement et gestion d’une sauvegarde vers Azure pour des serveurs DPM (Data Protection Manager) à l’aide d’Azure PowerShell
@@ -33,7 +35,7 @@ Full list of cmdlets: Get-Command Only DPM cmdlets: Get-DPMCommand Get general h
 
 ## Installation et inscription
 ### Installation de l'agent Azure Backup sur un serveur DPM
-Avant d’installer l'agent Azure Backup, vous devez avoir téléchargé le programme d’installation sur le serveur Windows. Vous pouvez obtenir la dernière version du programme d’installation sur le [Centre de téléchargement de Microsoft](http://aka.ms/azurebackup_agent). Enregistrez le programme d’installation dans un emplacement auquel vous pouvez accéder facilement, par exemple *C:\Téléchargements*.
+Avant d’installer l'agent Azure Backup, vous devez avoir téléchargé le programme d’installation sur le serveur Windows. Vous pouvez obtenir la dernière version du programme d’installation sur le [Centre de téléchargement de Microsoft](http://aka.ms/azurebackup_agent). Enregistrez le programme d’installation dans un emplacement auquel vous pouvez accéder facilement, par exemple *C:\\Téléchargements*.
 
 Pour installer l’agent, exécutez la commande suivante dans une console Azure PowerShell avec des privilèges élevés **sur le serveur DPM** :
 
@@ -58,22 +60,15 @@ Les options disponibles incluent :
 
 | Option | Détails | Default |
 | ---- | ----- | ----- |
-| /q | Installation silencieuse | - |
-| /p:"emplacement" | Chemin du dossier d’installation de l’agent Azure Backup. | C:\Program Files\Microsoft Azure Recovery Services Agent |
-| /s:"emplacement" | Chemin du dossier du cache de l’agent Azure Backup. | C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch |
-| /m | Abonnement à Microsoft Update | - |
-| /nu | Ne pas rechercher les mises à jour après l’installation | - |
-| /d | Désinstalle Microsoft Azure Recovery Services Agent | - | | /ph | Adresse de l’hôte proxy | - |
-| /po | Numéro de port de l’hôte proxy | - |
-| /pu | Nom d’utilisateur de l’hôte proxy | - |
-| /pw | Mot de passe du proxy | - |
+| /q | Installation silencieuse | - | | /p:"emplacement" | Chemin du dossier d’installation de l’agent Azure Backup. | C:\\Program Files\\Microsoft Azure Recovery Services Agent | | /s:"emplacement" | Chemin du dossier du cache de l’agent Azure Backup. | C:\\Program Files\\Microsoft Azure Recovery Services Agent\\Scratch | | /m | Abonnement à Microsoft Update | - | | /nu | Ne pas rechercher les mises à jour après l’installation | - | | /d | Désinstalle Microsoft Azure Recovery Services Agent | - | | /ph | Adresse de l’hôte proxy | - | | /po | Numéro de port de l’hôte proxy | - | | /pu | Nom d’utilisateur de l’hôte proxy | - | | /pw | Mot de passe du proxy | - |
 
 ### Inscription auprès du service Azure Backup
 Avant de pouvoir vous inscrire auprès du service Azure Backup, vous devez vous assurer que les [conditions préalables](backup-azure-dpm-introduction.md) sont remplies. Vous devez respecter les consignes suivantes :
 
 - Avoir un abonnement Azure valide
 - Créer un coffre de sauvegarde
-- Télécharger les informations d'identification de coffre et les stocker dans un emplacement pratique (comme *C:\Téléchargements*) Les informations d’identification du coffre peuvent également être renommées à votre convenance. 
+- Télécharger les informations d'identification de coffre et les stocker dans un emplacement pratique (comme *C:\\Téléchargements*). Les informations d’identification du coffre peuvent également être renommées à votre convenance.
+
 L’inscription de l’ordinateur auprès du coffre s’effectue l’aide de la cmdlet [Start-DPMCloudRegistration](https://technet.microsoft.com/library/jj612787) :
 
 ```
@@ -117,7 +112,7 @@ L’agent Azure Backup en cours d’exécution sur le serveur DPM a besoin d’u
 PS C:\> Set-DPMCloudSubscriptionSetting -DPMServerName "TestingServer" -SubscriptionSetting $setting -StagingAreaPath "C:\StagingArea"
 ```
 
-Dans l'exemple ci-dessus, la zone intermédiaire est définie sur *C:\StagingArea* dans l'objet Azure PowerShell ```$setting```. Assurez-vous que le dossier spécifié existe déjà, sinon la validation finale des paramètres d'abonnement échouera.
+Dans l'exemple ci-dessus, la zone intermédiaire est définie sur *C:\\StagingArea* dans l'objet Azure PowerShell ```$setting```. Assurez-vous que le dossier spécifié existe déjà, sinon la validation finale des paramètres d'abonnement échouera.
 
 
 ### Paramètres de chiffrement
@@ -188,7 +183,7 @@ Répétez cette étape autant de fois que nécessaire, jusqu'à ce que vous ayez
 Une fois que les sources de données ont été ajoutées au groupe de protection, l'étape suivante consiste à spécifier la méthode de protection à l'aide de l’applet de commande [Set-DPMProtectionType](https://technet.microsoft.com/library/hh881725). Dans cet exemple, le groupe de protection est configuré pour une sauvegarde sur le disque local et dans le cloud.
 
 ```
-PS C:\> Set-DPMProtectionType -ProtectionGroup $PG -ShortTerm Disk –LongTerm Online
+PS C:\> Set-DPMProtectionType -ProtectionGroup $MPG -ShortTerm Disk –LongTerm Online
 ```
 
 ### Définition de la plage de rétention
@@ -215,7 +210,7 @@ PS C:\> Set-DPMPolicyObjective –ProtectionGroup $MPG -OnlineRetentionRangeList
 DPM définit automatiquement la planification de sauvegarde par défaut si vous spécifiez l'objectif de protection à l'aide de l’applet de commande ```Set-DPMPolicyObjective```. Pour modifier les planifications par défaut, utilisez la cmdlet [Get-DPMPolicySchedule](https://technet.microsoft.com/library/hh881749) suivie de la cmdlet [Set-DPMPolicySchedule](https://technet.microsoft.com/library/hh881723).
 
 ```
-PS C:\> $onlineSch = Get-DPMPolicySchedule -ProtectionGroup $mpg -LongTermOnline
+PS C:\> $onlineSch = Get-DPMPolicySchedule -ProtectionGroup $mpg -LongTerm Online
 PS C:\> Set-DPMPolicySchedule -ProtectionGroup $MPG -Schedule $onlineSch[0] -TimesOfDay 02:00
 PS C:\> Set-DPMPolicySchedule -ProtectionGroup $MPG -Schedule $onlineSch[1] -TimesOfDay 02:00 -DaysOfWeek Sa,Su –Interval 1
 PS C:\> Set-DPMPolicySchedule -ProtectionGroup $MPG -Schedule $onlineSch[2] -TimesOfDay 02:00 -RelativeIntervals First,Third –DaysOfWeek Sa
@@ -279,4 +274,4 @@ Les commandes peuvent facilement être étendues à n'importe quel type de sourc
 ## Étapes suivantes
 Pour en savoir plus sur Azure Backup pour DPM, consultez la rubrique [Présentation d’Azure DPM Backup](backup-azure-dpm-introduction.md)
 
-<!----HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

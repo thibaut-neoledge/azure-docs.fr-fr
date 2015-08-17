@@ -8,4 +8,4 @@
 
 	Cela permet de télécharger le projet Visual Studio qui implémente votre service mobile. Enregistrez le fichier projet compressé sur votre ordinateur local et notez l'emplacement où vous l'avez enregistré.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

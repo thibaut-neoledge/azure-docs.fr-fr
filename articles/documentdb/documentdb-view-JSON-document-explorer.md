@@ -3,7 +3,7 @@
 	description="Découvrez l'Explorateur de documents DocumentDB, un outil du portail Azure Preview qui permet d'afficher, de modifier, de créer et de télécharger des documents JSON avec DocumentDB."
 	services="documentdb"
 	authors="stephbaron"
-	manager="johnmac"
+	manager="jhubbard"
 	editor="monicar"
 	documentationCenter=""/>
 
@@ -113,7 +113,7 @@ L'Explorateur de documents vous permet de créer, modifier et supprimer facileme
 
 	![Capture d’écran de la vue des propriétés de document dans l’Explorateur de documents](./media/documentdb-view-JSON-document-explorer/documentproperties.png)
 
-	> [AZURE.NOTE]La propriété timestamp (_ts) est représentée en interne comme heure d'époque, mais l'Explorateur de documents affiche la valeur dans un format GMT lisible.
+	> [AZURE.NOTE]La propriété timestamp (\_ts) est représentée en interne comme heure d'époque, mais l'Explorateur de documents affiche la valeur dans un format GMT lisible.
 
 ##<a id="BulkAdd"></a>Ajouter des documents en bloc à l’aide de l’Explorateur de documents##
 
@@ -140,4 +140,4 @@ L'Explorateur de documents prend en charge l'ingestion en bloc d'un ou plusieurs
 Pour en savoir plus sur DocumentDB, cliquez [ici](http://azure.com/docdb).
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

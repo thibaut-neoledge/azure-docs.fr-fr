@@ -20,4 +20,4 @@ Ce didacticiel est basé sur l’application **GetStartedWithData** (Android). L
 <!-- URLs. -->
 [GitHub]: http://go.microsoft.com/fwlink/p/?LinkID=282122
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

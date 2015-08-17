@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="04/29/2015" 
+	ms.date="08/03/2015" 
 	ms.author="tomfitz"/>
 
 # Création d’une application Web avec système de gestion de contenu Orchard à partir d’Azure Marketplace
@@ -71,7 +71,7 @@ Vous allez configurer une application Web Orchard CMS avec un modèle par défau
 
 3. Consultez les détails de la [documentation Orchard](http://docs.orchardproject.net/) pour en savoir plus sur Orchard et configurer votre nouvelle application Web.
 
-## Étape suivante
+## Étapes suivantes
 
 * [Développement et déploiement d’une application Web avec Microsoft WebMatrix](web-sites-dotnet-using-webmatrix.md) : apprenez à modifier une application Web App Service dans WebMatrix. 
 * [Création d’une application ASP.NET MVC avec authentification et base de données SQL et déploiement dans Azure App Service](web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md) : apprenez à créer une application Web dans Azure App Service à partir de Visual Studio.
@@ -92,4 +92,4 @@ Vous allez configurer une application Web Orchard CMS avec un modèle par défau
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

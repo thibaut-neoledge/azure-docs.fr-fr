@@ -7,14 +7,16 @@
 	manager="timlt" 
 	editor=""/>
 
+
 <tags 
 	ms.service="service-bus" 
 	ms.workload="tbd" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
-	ms.topic="article" 
+	ms.topic="get-started-article" 
 	ms.date="07/02/2015" 
 	ms.author="sethm"/>
+
 
 
 # Utilisation du service Service Bus Relay
@@ -155,7 +157,7 @@ Maintenant que le contrat et l'implémentation sont en place, vous pouvez héber
 
     sh.Close();
 
-Dans l'exemple, vous créez deux points de terminaison dans le cadre de l'implémentation du même contrat. L’un est local et l’autre projeté via Service Bus. Les principales différences sont les liaisons : [`NetTcpBinding`](https://msdn.microsoft.com/library/azure/system.servicemodel.nettcpbinding.aspx) pour le point de terminaison local et [NetTcpRelayBinding](https://msdn.microsoft.com/library/azure/microsoft.servicebus.nettcprelaybinding.aspx) pour le point de terminaison et les adresses Service Bus. Le point de terminaison local possède une adresse réseau locale avec un port distinct. Le point de terminaison Service Bus possède une adresse de point de terminaison constituée de la chaîne « sb », du nom de votre espace de noms et du chemin d'accès « solver ». L'URI obtenu est le suivant : « sb://[serviceNamespace].servicebus.windows.net/solver », lequel identifie le point de terminaison du service comme un point de terminaison TCP Service Bus associé à un nom DNS externe complet. Si vous insérez le code en remplaçant les espaces réservés comme indiqué plus haut dans la fonction `Main` de l’application « Service », vous obtiendrez un service fonctionnel. Si vous voulez que votre service écoute exclusivement sur Service Bus, supprimez la déclaration du point de terminaison local.
+Dans l'exemple, vous créez deux points de terminaison dans le cadre de l'implémentation du même contrat. L’un est local et l’autre projeté via Service Bus. Les principales différences sont les liaisons : [`NetTcpBinding`](https://msdn.microsoft.com/library/azure/system.servicemodel.nettcpbinding.aspx) pour le point de terminaison local et [NetTcpRelayBinding](https://msdn.microsoft.com/library/azure/microsoft.servicebus.nettcprelaybinding.aspx) pour le point de terminaison et les adresses Service Bus. Le point de terminaison local possède une adresse réseau locale avec un port distinct. Le point de terminaison Service Bus possède une adresse de point de terminaison constituée de la chaîne « sb », du nom de votre espace de noms et du chemin d'accès « solver ». L'URI obtenu est le suivant : « sb://[serviceNamespace\].servicebus.windows.net/solver », lequel identifie le point de terminaison du service comme un point de terminaison TCP Service Bus associé à un nom DNS externe complet. Si vous insérez le code en remplaçant les espaces réservés comme indiqué plus haut dans la fonction `Main` de l’application « Service », vous obtiendrez un service fonctionnel. Si vous voulez que votre service écoute exclusivement sur Service Bus, supprimez la déclaration du point de terminaison local.
 
 ### Configuration d’un hôte de service dans le fichier App.config
 
@@ -174,10 +176,12 @@ Les définitions de point de terminaison se déplacent dans le fichier App.confi
             <endpoint contract="Service.IProblemSolver"
                       binding="netTcpBinding"
                       address="net.tcp://localhost:9358/solver"/>
+
             <endpoint contract="Service.IProblemSolver"
                       binding="netTcpRelayBinding"
                       address="sb://namespace.servicebus.windows.net/solver"
                       behaviorConfiguration="sbTokenProvider"/>
+
         </service>
     </services>
     <behaviors>
@@ -186,6 +190,7 @@ Les définitions de point de terminaison se déplacent dans le fichier App.confi
                 <transportClientEndpointBehavior>
                     <tokenProvider>
                         <sharedAccessSignature keyName="RootManageSharedAccessKey" key="yourKey" />
+
                     </tokenProvider>
                 </transportClientEndpointBehavior>
             </behavior>
@@ -235,6 +240,7 @@ Les définitions de point de terminaison se déplacent dans le fichier App.confi
                   binding="netTcpRelayBinding"
                   address="sb://namespace.servicebus.windows.net/solver"
                   behaviorConfiguration="sbTokenProvider"/>
+
     </client>
     <behaviors>
         <endpointBehaviors>
@@ -242,6 +248,7 @@ Les définitions de point de terminaison se déplacent dans le fichier App.confi
                 <transportClientEndpointBehavior>
                     <tokenProvider>
                         <sharedAccessSignature keyName="RootManageSharedAccessKey" key="yourKey" />
+
                     </tokenProvider>
                 </transportClientEndpointBehavior>
             </behavior>
@@ -268,4 +275,4 @@ Maintenant que vous avez appris les principes de base du service Service Bus **R
   [MSDN]: https://msdn.microsoft.com/fr-fr/library/azure/dn194201.aspx
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -82,7 +82,7 @@ Pour utiliser Azure Service Bus, vous devez télécharger et utiliser le package
 
 ## Configuration d'une connexion Azure Service Bus
 
-Le module Azure lit les variables d'environnement **AZURE_SERVICEBUS_NAMESPACE** et **AZURE_SERVICEBUS_ACCESS_KEY** pour obtenir les informations nécessaires à la connexion à votre espace de noms Azure Service Bus. Si ces variables d'environnement ne sont pas définies, vous devez spécifier les informations d'espace de noms avant d'utiliser **Azure::ServiceBusService** grâce au code suivant :
+Le module Azure lit les variables d'environnement **AZURE\_SERVICEBUS\_NAMESPACE** et **AZURE\_SERVICEBUS\_ACCESS\_KEY** pour obtenir les informations nécessaires à la connexion à votre espace de noms Azure Service Bus. Si ces variables d'environnement ne sont pas définies, vous devez spécifier les informations d'espace de noms avant d'utiliser **Azure::ServiceBusService** grâce au code suivant :
 
     Azure.config.sb_namespace = "<your azure service bus namespace>"
     Azure.config.sb_access_key = "<your azure service bus access key>"
@@ -91,7 +91,7 @@ Attribuez à l'espace de noms Service Bus la valeur que vous avez créée plutô
 
 ## Création d’une rubrique
 
-L'objet **Azure::ServiceBusService** permet d'utiliser des rubriques. Le code suivant crée un objet **Azure::ServiceBusService**. Pour créer une rubrique, utilisez la méthode **create_topic()**. L'exemple suivant crée une rubrique ou imprime l'erreur s'il en existe une.
+L'objet **Azure::ServiceBusService** permet d'utiliser des rubriques. Le code suivant crée un objet **Azure::ServiceBusService**. Pour créer une rubrique, utilisez la méthode **create\_topic()**. L'exemple suivant crée une rubrique ou imprime l'erreur s'il en existe une.
 
 	azure_service_bus_service = Azure::ServiceBusService.new
 	begin
@@ -127,11 +127,11 @@ Vous pouvez également configurer des filtres pour spécifier quels sont les mes
 
 Parmi les types de filtres pris en charge par les abonnements, **Azure::ServiceBus::SqlFilter** est le plus flexible ; il implémente un sous-ensemble de SQL92. Les filtres SQL opèrent au niveau des propriétés des messages publiés dans la rubrique. Pour plus de détails sur les expressions utilisables avec un filtre SQL, examinez la syntaxe[SqlFilter.SqlExpression](http://msdn.microsoft.com/library/windowsazure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx).
 
-Il est possible d'ajouter des filtres à un abonnement en utilisant la méthode **create_rule()** de l'objet **Azure::ServiceBusService**. Cette méthode vous permet d'ajouter de nouveaux filtres à un abonnement existant.
+Il est possible d'ajouter des filtres à un abonnement en utilisant la méthode **create\_rule()** de l'objet **Azure::ServiceBusService**. Cette méthode vous permet d'ajouter de nouveaux filtres à un abonnement existant.
 
-Étant donné que le filtre par défaut est appliqué automatiquement à tous les nouveaux abonnements, vous devez d'abord supprimer le filtre par défaut ou le filtre **MatchAll** remplacera tous les autres filtres spécifiés. Vous pouvez supprimer la règle par défaut en utilisant la méthode **delete_rule()** de l'objet **Azure::ServiceBusService**.
+Étant donné que le filtre par défaut est appliqué automatiquement à tous les nouveaux abonnements, vous devez d'abord supprimer le filtre par défaut ou le filtre **MatchAll** remplacera tous les autres filtres spécifiés. Vous pouvez supprimer la règle par défaut en utilisant la méthode **delete\_rule()** de l'objet **Azure::ServiceBusService**.
 
-Dans les exemples ci-dessous, l'abonnement « high-messages » est créé avec un filtre **Azure::ServiceBus::SqlFilter** qui sélectionne uniquement les messages dont la propriété personnalisée **message_number** a une valeur supérieure à 3 :
+Dans les exemples ci-dessous, l'abonnement « high-messages » est créé avec un filtre **Azure::ServiceBus::SqlFilter** qui sélectionne uniquement les messages dont la propriété personnalisée **message\_number** a une valeur supérieure à 3 :
 
 	subscription = azure_service_bus_service.create_subscription("test-topic",
 	  "high-messages")
@@ -145,7 +145,7 @@ Dans les exemples ci-dessous, l'abonnement « high-messages » est créé avec
 	  :sql_expression => "message_number > 3" })
 	rule = azure_service_bus_service.create_rule(rule)
 
-De la même manière, l'exemple suivant créé l'abonnement « low-messages » avec un filtre **Azure::ServiceBus::SqlFilter** qui sélectionne uniquement les messages dont la propriété **message_number** a une valeur inférieure ou égale à 3 :
+De la même manière, l'exemple suivant créé l'abonnement « low-messages » avec un filtre **Azure::ServiceBus::SqlFilter** qui sélectionne uniquement les messages dont la propriété **message\_number** a une valeur inférieure ou égale à 3 :
 
 	subscription = azure_service_bus_service.create_subscription("test-topic",
 	  "low-messages")
@@ -163,9 +163,9 @@ De la même manière, l'exemple suivant créé l'abonnement « low-messages »
 
 ## Envoi de messages à une rubrique
 
-Pour envoyer un message à une rubrique Service Bus, votre application doit utiliser la méthode **send_topic_message** de l'objet **Azure::ServiceBusService**. Les messages envoyés aux rubriques Service Bus sont des objets **Azure::ServiceBus::BrokeredMessage**. Les objets **Azure::ServiceBus::BrokeredMessage** possèdent un ensemble de propriétés standard (telles que **label** et **time_to_live**), un dictionnaire servant à conserver les propriétés personnalisées propres à une application, ainsi qu'un corps de données de chaîne. Une application peut définir le corps du message en transmettant une valeur de chaîne à la méthode **send_topic_message()** pour remplir toutes les propriétés standard requises avec les valeurs par défaut.
+Pour envoyer un message à une rubrique Service Bus, votre application doit utiliser la méthode **send\_topic\_message** de l'objet **Azure::ServiceBusService**. Les messages envoyés aux rubriques Service Bus sont des objets **Azure::ServiceBus::BrokeredMessage**. Les objets **Azure::ServiceBus::BrokeredMessage** possèdent un ensemble de propriétés standard (telles que **label** et **time\_to\_live**), un dictionnaire servant à conserver les propriétés personnalisées propres à une application, ainsi qu'un corps de données de chaîne. Une application peut définir le corps du message en transmettant une valeur de chaîne à la méthode **send\_topic\_message()** pour remplir toutes les propriétés standard requises avec les valeurs par défaut.
 
-L'exemple suivant montre comment envoyer cinq messages de test à la rubrique « test-topic ». Notez que la valeur de la propriété **message_number** de chaque message varie au niveau de l'itération de la boucle (détermine l'abonnement qui le reçoit) :
+L'exemple suivant montre comment envoyer cinq messages de test à la rubrique « test-topic ». Notez que la valeur de la propriété **message\_number** de chaque message varie au niveau de l'itération de la boucle (détermine l'abonnement qui le reçoit) :
 
 	5.times do |i|
 	  message = Azure::ServiceBus::BrokeredMessage.new("test message " + i,
@@ -177,13 +177,13 @@ Les rubriques Service Bus prennent en charge une taille de message maximale de 2
 
 ## Réception des messages d’un abonnement
 
-La méthode **receive_subscription_message()** de l'objet **Azure::ServiceBusService** permet de recevoir les messages d'un abonnement : Par défaut, les messages sont lus et verrouillés sans être supprimés de l'abonnement. Il est possible de lire et de supprimer le message de l'abonnement en définissant l'option **peek_lock** sur **false**.
+La méthode **receive\_subscription\_message()** de l'objet **Azure::ServiceBusService** permet de recevoir les messages d'un abonnement : Par défaut, les messages sont lus et verrouillés sans être supprimés de l'abonnement. Il est possible de lire et de supprimer le message de l'abonnement en définissant l'option **peek\_lock** sur **false**.
 
-Avec le comportement par défaut, la lecture et la suppression sont une opération en deux étapes, ce qui permet de prendre en charge des applications ne pouvant pas fonctionner avec des messages manquants. Lorsque Service Bus reçoit une demande, il recherche le prochain message à consommer, le verrouille pour empêcher d'autres consommateurs de le recevoir, puis le renvoie à l'application. Dès lors que l'application a terminé le traitement du message (ou qu'elle l'a stocké de manière fiable pour un traitement ultérieur), elle accomplit la deuxième étape du processus de réception en appelant la méthode **delete_subscription_message()** et en fournissant le message à supprimer sous la forme d'un paramètre. La méthode **delete_subscription_message()** marque le message comme étant consommé et le supprime de l'abonnement.
+Avec le comportement par défaut, la lecture et la suppression sont une opération en deux étapes, ce qui permet de prendre en charge des applications ne pouvant pas fonctionner avec des messages manquants. Lorsque Service Bus reçoit une demande, il recherche le prochain message à consommer, le verrouille pour empêcher d'autres consommateurs de le recevoir, puis le renvoie à l'application. Dès lors que l'application a terminé le traitement du message (ou qu'elle l'a stocké de manière fiable pour un traitement ultérieur), elle accomplit la deuxième étape du processus de réception en appelant la méthode **delete\_subscription\_message()** et en fournissant le message à supprimer sous la forme d'un paramètre. La méthode **delete\_subscription\_message()** marque le message comme étant consommé et le supprime de l'abonnement.
 
-Si le paramètre **:peek_lock** est défini sur **false**, la lecture et la suppression des messages suivent un modèle plus simple qui fonctionne mieux pour les scénarios dans lesquels une application peut ne pas traiter un message en cas d'échec. Pour mieux comprendre, imaginez un scénario dans lequel le consommateur émet la demande de réception et subit un incident avant de la traiter. Comme Service Bus a marqué le message comme étant consommé, lorsque l'application redémarre et recommence à consommer des messages, elle manque le message consommé avant l'incident.
+Si le paramètre **:peek\_lock** est défini sur **false**, la lecture et la suppression des messages suivent un modèle plus simple qui fonctionne mieux pour les scénarios dans lesquels une application peut ne pas traiter un message en cas d'échec. Pour mieux comprendre, imaginez un scénario dans lequel le consommateur émet la demande de réception et subit un incident avant de la traiter. Comme Service Bus a marqué le message comme étant consommé, lorsque l'application redémarre et recommence à consommer des messages, elle manque le message consommé avant l'incident.
 
-L'exemple ci-dessous montre comment les messages peuvent être reçus et traités à l'aide de **receive_subscription_message()**. Dans l'exemple, un message est d'abord reçu, puis supprimé de l'abonnement « low-messages » par le biais de **:peek_lock** défini sur **false**. Un autre message de « high-messages » est ensuite reçu, puis supprimé via **delete_subscription_message()** :
+L'exemple ci-dessous montre comment les messages peuvent être reçus et traités à l'aide de **receive\_subscription\_message()**. Dans l'exemple, un message est d'abord reçu, puis supprimé de l'abonnement « low-messages » par le biais de **:peek\_lock** défini sur **false**. Un autre message de « high-messages » est ensuite reçu, puis supprimé via **delete\_subscription\_message()** :
 
     message = azure_service_bus_service.receive_subscription_message(
 	  "test-topic", "low-messages", { :peek_lock => false })
@@ -193,11 +193,11 @@ L'exemple ci-dessous montre comment les messages peuvent être reçus et traité
 
 ## Gestion des blocages d'application et des messages illisibles
 
-Service Bus intègre des fonctionnalités destinées à faciliter la récupération à la suite d'erreurs survenues dans votre application ou de difficultés à traiter un message. Si une application réceptrice ne parvient pas à traiter le message pour une raison quelconque, elle appelle la méthode **unlock_subscription_message()** pour l'objet **Azure::ServiceBusService**. Cela amène Service Bus à déverrouiller le message dans l'abonnement et à le rendre à nouveau disponible en réception, pour la même application consommatrice ou pour une autre.
+Service Bus intègre des fonctionnalités destinées à faciliter la récupération à la suite d'erreurs survenues dans votre application ou de difficultés à traiter un message. Si une application réceptrice ne parvient pas à traiter le message pour une raison quelconque, elle appelle la méthode **unlock\_subscription\_message()** pour l'objet **Azure::ServiceBusService**. Cela amène Service Bus à déverrouiller le message dans l'abonnement et à le rendre à nouveau disponible en réception, pour la même application consommatrice ou pour une autre.
 
 De même, il faut savoir qu'un message verrouillé dans un abonnement est assorti d'un délai d'expiration et que si l'application ne parvient pas à traiter le message dans le temps imparti (par exemple, si l'application subit un incident), Service Bus déverrouille le message automatiquement et le rend à nouveau disponible en réception.
 
-Si l'application subit un incident après le traitement du message, mais avant l'émission de la méthode **delete_subscription_message()**, le message est à nouveau remis à l'application lorsqu'elle redémarre. Dans ce type de traitement, souvent appelé **Au moins une fois**, chaque message est traité au moins une fois. Toutefois, dans certaines circonstances, un même message peut être remis une nouvelle fois. Si le scénario ne peut pas tolérer le traitement en double, les développeurs d'application doivent ajouter une logique supplémentaire à leur application pour traiter la remise de messages en double, ce qui est souvent obtenu grâce à la propriété **message_id** du message, qui reste constante pendant les tentatives de remise.
+Si l'application subit un incident après le traitement du message, mais avant l'émission de la méthode **delete\_subscription\_message()**, le message est à nouveau remis à l'application lorsqu'elle redémarre. Dans ce type de traitement, souvent appelé **Au moins une fois**, chaque message est traité au moins une fois. Toutefois, dans certaines circonstances, un même message peut être remis une nouvelle fois. Si le scénario ne peut pas tolérer le traitement en double, les développeurs d'application doivent ajouter une logique supplémentaire à leur application pour traiter la remise de messages en double, ce qui est souvent obtenu grâce à la propriété **message\_id** du message, qui reste constante pendant les tentatives de remise.
 
 ## Suppression des rubriques et des abonnements
 
@@ -218,4 +218,4 @@ Maintenant que vous avez appris les principes de base des rubriques Service Bus,
 -	Accédez au référentiel du [Kit de développement logiciel (SDK) Azure pour Ruby](https://github.com/WindowsAzure/azure-sdk-for-ruby) sur GitHub.
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

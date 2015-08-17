@@ -103,7 +103,7 @@ Au moment de la rédaction de ce document (5 février 2014), la procédure à 
 -   Sélectionnez Server key.
 -   Sur l'écran suivant, laissez le champ vide **(aucune restriction IP)**, puis cliquez sur Créer.
 -   Copiez la **clé d'API** générée.
--   Accédez à $/#application/VOTRE_ID D'APPLICATION_ENGAGEMENT/native-push.
+-   Accédez à $/#application/VOTRE\_ID D'APPLICATION\_ENGAGEMENT/native-push.
 -   Dans la section GCM, remplacez la clé d'API par celle que vous venez de générer et de copier.
 
 Vous pouvez maintenant sélectionner l'option À tout moment lors de la création d'annonces et de sondages dans le module de couverture.
@@ -124,4 +124,4 @@ Maintenant, vérifiez votre intégration en lisant « Comment tester l'intégra
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

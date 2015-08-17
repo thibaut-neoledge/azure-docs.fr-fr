@@ -4,4 +4,4 @@
 >
 > **Les noms de domaines personnalisés ne peuvent pas être utilisés avec les applications web en mode Gratuit**. Vous devez configurer votre application web pour le mode **Partagé**, **De base** ou **Standard**, ce qui peut changer le prix facturé pour votre abonnement. Consultez la rubrique <a href=/pricing/details/web-sites/">Tarification Web Apps</a> pour en savoir plus.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

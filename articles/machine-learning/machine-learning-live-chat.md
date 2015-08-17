@@ -31,4 +31,4 @@ Les membres de l’équipe sont en fait en train de répondre à votre question.
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

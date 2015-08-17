@@ -12,7 +12,7 @@
 	ms.workload="core"
 	ms.tgt_pltfrm="c"
 	ms.devlang="csharp"
-	ms.topic="get-started-article"
+	ms.topic="article"
 	ms.date="07/21/2015"
 	ms.author="sethm"/>
 
@@ -116,4 +116,4 @@ Vous avez conçu une application opérationnelle qui crée un concentrateur d’
 [montée en puissance du traitement des événements avec Event Hubs]: https://code.msdn.microsoft.com/windowsazure/Service-Bus-Event-Hub-45f43fc3
 [solution de messages de file d'attente]: ../service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

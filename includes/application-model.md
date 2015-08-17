@@ -168,7 +168,7 @@ Pour chaque rôle, indiquez la taille de la machine virtuelle que les instances 
 
 </td>
 <td>
-~5&#160;Mbits/s
+\~5&#160;Mbits/s
 
 </td>
 </tr>
@@ -190,7 +190,7 @@ Pour chaque rôle, indiquez la taille de la machine virtuelle que les instances 
 
 </td>
 <td>
-~100&#160;Mbits/s
+\~100&#160;Mbits/s
 
 </td>
 </tr>
@@ -212,7 +212,7 @@ Pour chaque rôle, indiquez la taille de la machine virtuelle que les instances 
 
 </td>
 <td>
-~200&#160;Mbits/s
+\~200&#160;Mbits/s
 
 </td>
 </tr>
@@ -234,7 +234,7 @@ Pour chaque rôle, indiquez la taille de la machine virtuelle que les instances 
 
 </td>
 <td>
-~400&#160;Mbits/s
+\~400&#160;Mbits/s
 
 </td>
 </tr>
@@ -256,7 +256,7 @@ Pour chaque rôle, indiquez la taille de la machine virtuelle que les instances 
 
 </td>
 <td>
-~800&#160;Mbits/s
+\~800&#160;Mbits/s
 
 </td>
 </tr>
@@ -284,7 +284,7 @@ Le fichier de définition de service (CSDEF) permet également de spécifier les
 
 Le fichier de configuration de service (CSCFG) est un fichier XML qui décrit les paramètres que vous pouvez modifier sans redéployer votre application. Le schéma complet pour le fichier XML se trouve ici : [http://msdn.microsoft.com/library/windowsazure/ee758710.aspx][]. Le fichier CSCFG contient un élément Rôle pour chaque rôle de votre application. Voici certains des éléments que vous pouvez spécifier dans le fichier CSCFG :
 
--   **Version du système d’exploitation** : cet attribut vous permet de sélectionner la version du système d’exploitation à utiliser pour toutes les instances de rôle exécutant le code de votre application. Ce système d’exploitation est nommé *SE invité* et chaque nouvelle version inclut les correctifs et mises à jour de sécurité les plus récents, disponibles au moment de la publication du SE invité. Si vous définissez la valeur de l’attribut osVersion sur « * », Azure met automatiquement à jour le SE invité sur chacune de vos instances de rôle, dès que de nouvelles versions de SE invité sont disponibles. Cependant, vous pouvez désactiver les mises à jour automatiques en sélectionnant une version de SE invité spécifique. Par exemple, en configurant l'attribut osVersion avec la valeur « WA-GUEST-OS-2.8_201109-01 », toutes vos instances de rôle obtiennent ce qui est décrit sur cette page web : [http://msdn.microsoft.com/library/hh560567.aspx][]. Pour plus d’informations sur les versions de SE invité, consultez la page [Gestion des mises à niveau vers les SE invités d’Azure].
+-   **Version du système d’exploitation** : cet attribut vous permet de sélectionner la version du système d’exploitation à utiliser pour toutes les instances de rôle exécutant le code de votre application. Ce système d’exploitation est nommé *SE invité* et chaque nouvelle version inclut les correctifs et mises à jour de sécurité les plus récents, disponibles au moment de la publication du SE invité. Si vous définissez la valeur de l’attribut osVersion sur « * », Azure met automatiquement à jour le SE invité sur chacune de vos instances de rôle, dès que de nouvelles versions de SE invité sont disponibles. Cependant, vous pouvez désactiver les mises à jour automatiques en sélectionnant une version de SE invité spécifique. Par exemple, en configurant l'attribut osVersion avec la valeur « WA-GUEST-OS-2.8\_201109-01 », toutes vos instances de rôle obtiennent ce qui est décrit sur cette page web : [http://msdn.microsoft.com/library/hh560567.aspx][]. Pour plus d’informations sur les versions de SE invité, consultez la page [Gestion des mises à niveau vers les SE invités d’Azure].
 
 -   **Instances** : la valeur de cet élément indique le nombre d’instances de rôle que vous voulez configurer en exécutant le code pour un rôle particulier. Comme vous pouvez télécharger un nouveau fichier CSCFG vers Azure (sans redéployer votre application), il est relativement simple de modifier la valeur de cet élément et de télécharger un nouveau fichier CSCFG pour augmenter ou diminuer de façon dynamique le nombre d’instances de rôle exécutant le code de votre application. Ceci vous permet de faire évoluer rapidement votre application pour répondre aux demandes de charges de travail réelles tout en contrôlant vos frais d’exécution d’instances de rôle.
 
@@ -346,4 +346,4 @@ Pour plus d'informations sur le déploiement, la mise à niveau et la reconfigur
   [Migration des applications vers Azure]: http://msdn.microsoft.com/library/gg186051.aspx
   [Configuration d'une application Azure]: http://msdn.microsoft.com/library/windowsazure/ee405486.aspx
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

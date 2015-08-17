@@ -35,7 +35,7 @@ Cliquez pour voir le [contenu du Kit de développement logiciel](mobile-engageme
 
 ##Notes de publication
 
-###4.0.0 (06/07/2015)
+###4\.0.0 (06/07/2015)
 
 -   Modifications de protocole interne pour rendre les analyses et la diffusion plus fiables.
 -   Native Push (GCM/ADM) est désormais également utilisé pour les notifications dans l’application. Vous devez donc configurer les informations d’identification Native Push pour tout type de campagne push.
@@ -118,4 +118,4 @@ Il se peut désormais qu’un écran de chargement s’affiche lorsque vous cliq
 
 Incorporez le nouveau fichier `res/layout/engagement_loading.xml` dans votre projet.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

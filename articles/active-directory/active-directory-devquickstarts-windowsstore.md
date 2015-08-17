@@ -90,7 +90,7 @@ public MainPage()
 }
 ```
 
-- Recherchez maintenant la méthode `Search(...)` qui est appelée lorsque l’utilisateur clique sur le bouton Rechercher dans l’interface utilisateur de l’application. Cette méthode effectue une demande GET auprès de l’API Graph Azure AD pour l’interroger à propos d’utilisateurs dont l’UPN commence par le terme de recherche donné. Cependant, pour interroger l’API Graph, vous devez inclure un jeton d’accès (access_token) dans l’en-tête `Authorization` de la demande ; c’est à ce moment qu’intervient la bibliothèque ADAL.
+- Recherchez maintenant la méthode `Search(...)` qui est appelée lorsque l’utilisateur clique sur le bouton Rechercher dans l’interface utilisateur de l’application. Cette méthode effectue une demande GET auprès de l’API Graph Azure AD pour l’interroger à propos d’utilisateurs dont l’UPN commence par le terme de recherche donné. Cependant, pour interroger l’API Graph, vous devez inclure un jeton d’accès (access\_token) dans l’en-tête `Authorization` de la demande ; c’est à ce moment qu’intervient la bibliothèque ADAL.
 
 ```C#
 private async void Search(object sender, RoutedEventArgs e)
@@ -111,7 +111,7 @@ private async void Search(object sender, RoutedEventArgs e)
 ```
 - Lorsque votre application demande un jeton en appelant `AcquireTokenAsync(...)`, la bibliothèque ADAL tente de renvoyer un jeton sans demander à l’utilisateur ses informations d’identification. Si la bibliothèque ADAL détermine que l’utilisateur doit se connecter pour obtenir un jeton, elle affiche une boîte de dialogue de connexion, récupère les informations d’identification de l’utilisateur et renvoie un jeton après une authentification réussie. Si la bibliothèque ADAL ne peut pas renvoyer un jeton pour une raison quelconque, l’état de `AuthenticationResult` affiche une erreur.
 
-- Il est à présent temps d’utiliser le jeton d’accès (access_token) que vous venez d’acquérir. Également dans la méthode `Search(...)`, joignez le jeton à la demande GET de l’API Graph, dans l’en-tête d’autorisation :
+- Il est à présent temps d’utiliser le jeton d’accès (access\_token) que vous venez d’acquérir. Également dans la méthode `Search(...)`, joignez le jeton à la demande GET de l’API Graph, dans l’en-tête d’autorisation :
 
 ```C#
 // Add the access token to the Authorization Header of the call to the Graph API
@@ -147,4 +147,4 @@ Pour référence, l’exemple terminé (sans vos valeurs de configuration) est f
 [AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/22/2015"
+   ms.date="08/05/2015"
    ms.author="jesseb"/>
 
 # Gestion de vos applications Service Fabric dans Visual Studio
@@ -68,10 +68,10 @@ Vous pouvez supprimer une application de votre cluster local à l'aide de l'Expl
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Étapes suivantes
 
-- [Modèle d'application Service Fabric](../service-fabric-application-model)
-- [Déploiement d'applications Service Fabric](../service-fabric-deploy-remove-applications)
-- [Débogage de votre application Service Fabric](../service-fabric-debugging-your-application)
-- [Visualisation de votre cluster à l'aide de l'outil Service Fabric Explorer](../service-fabric-visualizing-your-cluster)
+- [Modèle d'application Service Fabric](service-fabric-application-model.md)
+- [Déploiement d'applications Service Fabric](service-fabric-deploy-remove-applications.md)
+- [Débogage de votre application Service Fabric](service-fabric-debugging-your-application.md)
+- [Visualisation de votre cluster à l'aide de l'outil Service Fabric Explorer](service-fabric-visualizing-your-cluster.md)
 
 <!--Image references-->
 [addserviceproject]: ./media/service-fabric-manage-application-in-visual-studio/addserviceproject.png
@@ -79,4 +79,4 @@ Vous pouvez supprimer une application de votre cluster local à l'aide de l'Expl
 [newservice]: ./media/service-fabric-manage-application-in-visual-studio/newservice.png
 [newserviceapplicationmanifest]: ./media/service-fabric-manage-application-in-visual-studio/newserviceapplicationmanifest.png
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

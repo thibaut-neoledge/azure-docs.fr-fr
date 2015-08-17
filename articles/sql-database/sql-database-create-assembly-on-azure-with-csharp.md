@@ -50,7 +50,7 @@ Pour comprendre cette rubrique, vous devez posséder des connaissances de base s
 5. Utilisez l’instruction T-SQL SELECT pour appeler et tester votre fonction.
 
 
-La liste précédente ne fait pas mention de...<br/> **execute sp_configure ’clr enabled’, 1;**<br/> .. .car cela n’est pas nécessaire pour la base de données SQL Azure, même si cela est nécessaire pour Microsoft SQL Server.
+La liste précédente ne fait pas mention de...<br/> **execute sp\_configure ’clr enabled’, 1;**<br/> .. .car cela n’est pas nécessaire pour la base de données SQL Azure, même si cela est nécessaire pour Microsoft SQL Server.
 
 
 Si besoin pour les nouvelles exécutions, le code T-SQL permettant de supprimer la fonction et l’assembly est le suivant :
@@ -328,4 +328,4 @@ Le bloc de code Transact-SQL précédent se termine par une instruction SELECT q
 
 <!-- EndOfFile -->
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -7,6 +7,7 @@
 	manager="dwrede" 
 	editor=""/>
 
+
 <tags 
 	ms.service="media-services" 
 	ms.workload="media" 
@@ -15,6 +16,7 @@
 	ms.topic="article" 
 	ms.date="07/20/2015" 
 	ms.author="juliako"/>
+
 
 
 # Notes de publication d'Azure Media Services
@@ -54,11 +56,19 @@ Ces notes de publication récapitulent les modifications par rapport aux précé
 
 ### <a id="general_issues"></a>Problèmes généraux concernant Media Services
 
-<table border="1"> <tr><th>Problème</th><th>Description</yt></tr> <tr><td>Plusieurs en-têtes HTTP courants ne sont pas fournis dans l’API REST.</td><td>Si vous développez des applications Media Services à l’aide de l’API REST, vous constaterez que certains champs d’en-tête HTTP courants (notamment CLIENT-REQUEST-ID, REQUEST-ID et RETURN-CLIENT-REQUEST-ID) ne sont pas pris en charge. Les en-têtes seront ajoutés dans une prochaine mise à jour.</td></tr> <tr><td>L’encodage d’un élément multimédia avec un nom de fichier contenant un caractère d’échappement (par exemple, %20) échoue avec le message « MediaProcessor : fichier introuvable ».</td><td>Les noms des fichiers qui vont être ajoutés à un élément multimédia puis encodés ne doivent contenir que des caractères alphanumériques et des espaces. Le problème sera résolu dans une prochaine mise à jour.</td></tr> <tr><td>La méthode ListBlobs intégrée à la version 3.x du Kit de développement logiciel (SDK) d’Azure Storage échoue.</td><td>Media Services génère des URL SAS basées sur la version <a href="http://msdn.microsoft.com/library/azure/dn592123.aspx">2012-02-12</a>. Si vous voulez utiliser le Kit de développement logiciel (SDK) d’Azure Storage pour répertorier les objets blob dans un conteneur d’objets blob, utilisez la méthode <a href="http://msdn.microsoft.com/library/microsoft.windowsazure.storage.blob.cloudblobcontainer.listblobs.aspx">CloudBlobContainer.ListBlobs</a> intégrée à la version 2.x de ce kit. La méthode ListBlobs intégrée à la version 3.x du Kit de développement logiciel (SDK) d’Azure Storage échouera.</td></tr> <tr><td>Le mécanisme de limitation de Media Services restreint l’utilisation des ressources pour les applications qui recourent de manière excessive au service. Le service peut renvoyer le code d’état HTTP Service indisponible (503).</td><td>Pour plus d’informations, reportez-vous à la description du code d’état HTTP 503 dans la rubrique <a href="http://msdn.microsoft.com/library/azure/dn168949.aspx">Codes d’erreur d’Azure Media Services</a>.</td></tr> </table><br/>
- 
+Problème|Description
+---|---
+Plusieurs en-têtes HTTP courants ne sont pas fournis dans l'API REST.|Si vous développez des applications Media Services à l'aide de l'API REST, vous constaterez que certains champs d'en-tête HTTP courants (notamment CLIENT-REQUEST-ID, REQUEST-ID et RETURN-CLIENT-REQUEST-ID) ne sont pas pris en charge. Les en-têtes seront ajoutés dans une prochaine mise à jour.
+Le codage d'un élément multimédia avec un nom de fichier contenant un caractère d'échappement (par exemple, %20) échoue avec le message « MediaProcessor : fichier introuvable ».|Les noms des fichiers qui vont être ajoutés à un élément multimédia puis codés ne doivent contenir que des caractères alphanumérique et des espaces. Le problème sera résolu dans une prochaine mise à jour.
+La méthode ListBlobs intégrée à la version 3.x du Kit de développement logiciel (SDK) d'Azure Storage échoue.|Media Services génère des URL SAS basées sur la version du [02/12/2012](http://msdn.microsoft.com/library/azure/dn592123.aspx). Si vous voulez utiliser le Kit de développement logiciel (SDK) d'Azure Storage pour répertorier les objets blob dans un conteneur d'objets blob, utilisez la méthode [CloudBlobContainer.ListBlobs](http://msdn.microsoft.com/library/microsoft.windowsazure.storage.blob.cloudblobcontainer.listblobs.aspx) intégrée à la version 2.x de ce kit. La méthode ListBlobs intégrée à la version 3.x du Kit de développement logiciel (SDK) d'Azure Storage échouera.
+Le mécanisme de limitation de Media Services restreint l'utilisation des ressources pour les applications qui recourent de manière excessive au service. Le service peut renvoyer le code d'état HTTP Service indisponible (503).|Pour plus d'informations, reportez-vous à la description du code d'état HTTP 503 dans la rubrique [Codes d'erreur d'Azure Media Services](http://msdn.microsoft.com/library/azure/dn168949.aspx).
+
+
 ### <a id="dotnet_issues"></a>Problèmes concernant le Kit de développement logiciel (SDK) de Media Services pour .NET
 
-<table border="1"> <tr><th>Problème</th><th>Description</yt></tr> <tr><td>Les objets Media Services dans le Kit de développement logiciel (SDK) ne peuvent pas être sérialisés et, par conséquent, ne fonctionnent pas avec Azure Caching.</td><td>Si vous essayez de sérialiser l’objet AssetCollection du Kit de développement logiciel (SDK) pour l’ajouter à Azure Caching, une exception est levée.</td></tr> </table><br/>
+Problème|Description
+---|---
+Les objets Media Services dans le Kit de développement logiciel (SDK) ne peuvent pas être sérialisés et, par conséquent, ne fonctionnent pas avec Azure Caching.|Si vous essayez de sérialiser l'objet AssetCollection du Kit de développement logiciel (SDK) pour l'ajouter à Azure Caching, une exception est levée.
 
 ##<a id="rest_version_history"></a>Historique des versions de l’API REST
 
@@ -66,9 +76,9 @@ Pour des informations sur l'historique des versions de l'API REST, consultez la 
 
 ##<a id="july_changes_15"></a>Version de juillet 2015
 
-Annonce de la disponibilité générale de Media Encoder Standard. Pour plus d'informations, consultez [ce blog](http://azure.microsoft.com/blog/2015/07/16/announcing-the-general-availability-of-media-encoder-standard/).
+Annonce de la disponibilité générale de Media Encoder Standard. Pour plus d’informations, voir [ce blog](http://azure.microsoft.com/blog/2015/07/16/announcing-the-general-availability-of-media-encoder-standard/).
 
-Media Encoder Standard utilise les présélections décrites dans [cette](http://go.microsoft.com/fwlink/?LinkId=618336) section. Notez que lorsque vous utilisez une présélection pour les encodages 4 Ko, vous devez obtenir le type d'unité réservée **Premium \*\*. Pour plus d'informations, consultez la page [Mise à l'échelle de l'encodage](media-services-portal-encoding-units).
+Media Encoder Standard utilise les présélections décrites dans [cette](http://go.microsoft.com/fwlink/?LinkId=618336) section. Notez que lorsque vous utilisez une présélection pour les encodages 4 Ko, vous devez obtenir le type d'unité réservée **Premium**. Pour plus d'informations, consultez la page [Mise à l'échelle de l'encodage](media-services-portal-encoding-units).
 
 
 ###Mises à jour du Kit de développement logiciel (SDK) .NET de Media Services
@@ -282,7 +292,7 @@ Plusieurs bogues ont été résolus pour le gestionnaire de package et le chiffr
 
 ### <a id="may_14_changes"></a>Mises à jour générales de Media Services
 
-Vous pouvez maintenant utiliser la [mise en package dynamique] pour la diffusion en continu HTTP (HLS) v3. Pour la diffusion en continu HLS v3, ajoutez le format suivant au chemin d'accès du localisateur d’origine : *.ism/manifest(format=m3u8-aapl-v3). Pour plus d’informations, consultez le [blog de Nick Drouin].
+Vous pouvez maintenant utiliser la [mise en package dynamique] pour la diffusion en continu HTTP (HLS) v3. Pour la diffusion en continu HLS v3, ajoutez le format suivant au chemin d'accès du localisateur d’origine : *.ism/manifest(format=m3u8-aapl-v3). Pour plus d'informations, consultez le [blog de Nick Drouin].
 
 Désormais, la mise en package dynamique prend également en charge la transmission du format HLS (v3 et v4) chiffré avec PlayReady sur la base de la diffusion en continu lisse statiquement chiffrée avec PlayReady. Pour des informations sur la façon de chiffrer la diffusion en continu lisse avec PlayReady, consultez la page [Protection de la diffusion en continu lisse avec PlayReady].
 
@@ -331,7 +341,7 @@ Les modifications suivantes ont été apportées à la version 3.0.0.3 :
 
 * Dépendances du stockage Azure mises à niveau pour utiliser la version 3.0.3.0. 
 
-* Problème de compatibilité descendante résolu pour les versions 3.0.\*.\*.
+* Problème de compatibilité descendante résolu pour les versions 3.0*.*.
 
 
 ##<a id="december_changes_13"></a>Version de décembre 2013
@@ -555,4 +565,4 @@ La fonctionnalité suivante est une nouveauté de la version de novembre du Kit 
 [Gestion des notifications de travaux de Media Services]: http://msdn.microsoft.com/library/azure/dn261241.aspx
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

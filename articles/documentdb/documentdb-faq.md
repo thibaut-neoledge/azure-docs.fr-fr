@@ -7,6 +7,7 @@
 	editor="monicar" 
 	documentationCenter=""/>
 
+
 <tags 
 	ms.service="documentdb" 
 	ms.workload="data-services" 
@@ -15,6 +16,7 @@
 	ms.topic="article" 
 	ms.date="07/29/2015" 
 	ms.author="mimig"/>
+
 
 
 #Forum Aux Questions (FAQ) sur DocumentDB
@@ -59,7 +61,7 @@ Si vous avez besoin d'aide, contactez-nous sur [Stack Overflow](http://stackove
 Microsoft Azure DocumentDB est disponible dans le [portail Azure en version préliminaire][azure-portal]. Vous devez d'abord disposer d'un abonnement à Microsoft Azure. Une fois inscrit à Microsoft Azure, vous pouvez ajouter un compte DocumentDB à votre abonnement Azure. Pour obtenir des instructions sur l'ajout d'un compte DocumentDB, consultez la page [Création d’un compte de base de données DocumentDB](documentdb-create-account.md).
 
 ### Qu'est-ce que la clé principale ?
-Une clé principale est un jeton de sécurité permettant d'accéder à toutes les ressources d'un compte. Les personnes disposant de cette clé ont un accès en lecture et en écriture à toutes les ressources du compte de la base de données. Faites preuve de précaution lorsque vous distribuez des clés principales. La clé principale primaire et la clé principale secondaire sont disponibles dans le panneau **Clés **du [portail Azure en version préliminaire][azure-portal]. Pour plus d'informations sur les clés, consultez la rubrique [Affichage, copie et régénération de clés d'accès](documentdb-manage-account.md#keys).
+Une clé principale est un jeton de sécurité permettant d'accéder à toutes les ressources d'un compte. Les personnes disposant de cette clé ont un accès en lecture et en écriture à toutes les ressources du compte de la base de données. Faites preuve de précaution lorsque vous distribuez des clés principales. La clé principale primaire et la clé principale secondaire sont disponibles dans le panneau **Keys **du [portail Azure en version préliminaire][azure-portal]. Pour plus d'informations sur les clés, consultez la rubrique [Affichage, copie et régénération de clés d'accès](documentdb-manage-account.md#keys).
 
 ### Comment créer une base de données ?
 Vous pouvez créer des bases de données à l'aide du [portail Azure en version préliminaire](), comme décrit dans la rubrique [Création d’une base de données DocumentDB](documentdb-create-database.md), à l’aide d’un des [Kits de développement logiciel (SDK) DocumentDB](https://msdn.microsoft.com/library/azure/dn781482.aspx) ou via les [API REST](https://msdn.microsoft.com/library/azure/dn781481.aspx).
@@ -86,7 +88,7 @@ Des exemples de Kits de développement logiciel (SDK) DocumentDB [.NET](https://
 Le langage de requête SQL de DocumentDB fournit des opérateurs relationnels et hiérarchiques enrichis, ainsi qu'une extensibilité, via des fonctions JavaScript définies par l'utilisateur. La syntaxe JSON permet la modélisation de documents JSON en tant qu'arborescences avec des étiquettes en tant que nœuds d'arborescence. Cette capacité est exploitée par les techniques d'indexation automatique de DocumentDB et le langage de requête SQL de ce dernier. Pour plus d’informations sur l’utilisation de la syntaxe SQL, consultez l’article [Interrogation de DocumentDB][query].
 
 ### Quels sont les types de données pris en charge par DocumentDB ?
-Les types de données primitifs pris en charge dans DocumentDB sont identiques à ceux pris en charge dans JSON. JSON dispose d'un système de type simple constitué de chaînes, de chiffres (double précision IEEE754), ainsi que de valeurs booléennes (true, false et null). Des types de données plus complexes, tels que DateTime, Guid, Int64 et Geometry peuvent être représentés dans JSON et DocumentDB en créant des objets imbriqués à l'aide de l'opérateur { } et des tableaux à l'aide de l'opérateur [ ].
+Les types de données primitifs pris en charge dans DocumentDB sont identiques à ceux pris en charge dans JSON. JSON dispose d'un système de type simple constitué de chaînes, de chiffres (double précision IEEE754), ainsi que de valeurs booléennes (true, false et null). Des types de données plus complexes, tels que DateTime, Guid, Int64 et Geometry peuvent être représentés dans JSON et DocumentDB en créant des objets imbriqués à l'aide de l'opérateur { } et des tableaux à l'aide de l'opérateur [ \].
 
 ### Quels sont les avantages concurrentiels de DocumentDB ?
 DocumentDB prend en charge le contrôle d'accès concurrentiel optimiste via les balises d'entité HTTP ou ETags. Chaque ressource DocumentDB dispose d'un ETag et les clients DocumentDB incluent leur dernière version lue dans les requêtes en écriture. Si l'ETag est actuel, la modification est effectuée. Si la valeur a été modifiée en externe, le serveur rejette l'écriture avec un code de réponse « HTTP 412 Échec de la condition préalable ». Les clients doivent lire la dernière version de la ressource et relancer la requête.
@@ -111,4 +113,4 @@ Oui. DocumentDB étant un service RESTful, les liens de ressource sont immuables
 [query]: documentdb-sql-query.md
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

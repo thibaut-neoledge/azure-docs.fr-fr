@@ -1,0 +1,147 @@
+<properties 
+   pageTitle="Remplacement des composants matériels StorSimple | Microsoft Azure"
+   description="Décrit comment remplacer de façon sécurisée les PCM, la batterie, les modules de contrôleur, les contrôleurs du boîtier, les lecteurs de disques et le châssis d’un appareil StorSimple."
+   services="storsimple"
+   documentationCenter=""
+   authors="alkohli"
+   manager="carolz"
+   editor="" />
+
+<tags 
+   ms.service="storsimple"
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="TBD"
+   ms.date="08/05/2015"
+   ms.author="alkohli" />
+
+
+# Remplacement des composants matériels StorSimple
+
+## Vue d'ensemble
+
+Les didacticiels de remplacement des composants matériels décrivent les composants matériels de votre appareil Microsoft Azure StorSimple et les étapes nécessaires pour retirer et remplacer les composants. Dans ces didacticiels, vous apprendrez quels composants sont remplaçables et comment les remplacer.
+
+Avant de tenter de retirer ou remplacer un composant StorSimple, passez en revue les [conventions des icônes de sécurité](#safety-icon-conventions) et les autres[précautions de sécurité](storsimple-safety.md).
+ 
+### Conventions des icônes de sécurité
+
+Le tableau suivant décrit les icônes de sécurité utilisées dans ce guide. Prêtez une attention particulière à ces icônes de sécurité quand vous effectuez les étapes nécessaires pour retirer et remplacer les composants de l’appareil.
+
+| Icône | Texte | Informations supplémentaires |
+|:---- |:---- |:-----------|
+|![Icône Avertissement](./media/storsimple-hardware-component-replacement/Warning.png)| **DANGER !** | Signale une situation dangereuse qui, si elle n’est pas évitée, entraînera la mort ou des blessures graves. Cette indication est réservée aux situations les plus extrêmes.|
+|![Icône Avertissement](./media/storsimple-hardware-component-replacement/Warning.png)| **AVERTISSEMENT !** | Signale une situation dangereuse qui, si elle n’est pas évitée, risque d’entraîner la mort ou des blessures graves.|
+|![Icône Attention](./media/storsimple-hardware-component-replacement/Caution.png)| **ATTENTION !** |Signale une situation dangereuse qui, si elle n’est pas évitée, risque d’entraîner des blessures légères ou moyennement graves.|
+|![Icône Information](./media/storsimple-hardware-component-replacement/NoticeIcon.png)| **INFORMATION :** | Signale des informations considérées comme importantes, mais non associées à un danger.|
+|![Icône Risque d’électrocution](./media/storsimple-hardware-component-replacement/Electric.png) | **Risque d’électrocution** | Indique un voltage élevé.|
+|![Icône Poids élevé](./media/storsimple-hardware-component-replacement/Weight.png)| **Poids élevé**| |
+|![Icône Aucune pièce remplaçable par l’utilisateur](./media/storsimple-hardware-component-replacement/NoUserServiceableParts.png)| **Aucune pièce remplaçable par l’utilisateur** | Accès réservé au personnel formé à cet effet.|
+|![Icône Lire les instructions](./media/storsimple-hardware-component-replacement/ReadInstructions.png)|**Lire toutes les instructions avant de commencer**| |
+|![Icône Risque de basculement](./media/storsimple-hardware-component-replacement/TipHazard.png)|**Risque de basculement**| |
+
+### Avant de commencer
+
+Familiarisez-vous avec les informations de sécurité sur votre appareil et avec les icônes de sécurité utilisées dans ce didacticiel. Accédez à [Sécurité de votre appareil](storsimple-safety.md) pour obtenir des informations complètes. Consultez les [précautions de sécurité](storsimple-safety.md#handling-precautions) avant de manipuler votre appareil StorSimple.
+
+Avant d’essayer de remplacer un composant, tenez compte des informations suivantes.
+
+![Icône Avertissement](./media/storsimple-hardware-component-replacement/Warning.png) ![Icône Risque d’électrocution](./media/storsimple-hardware-component-replacement/Electric.png) **AVERTISSEMENT !**
+
+- Raccordez-vous à la terre correctement en utilisant une décharge électrostatique ou un tapis antistatique lors de la manipulation des modules et des composants de votre appareil StorSimple.
+
+- Ne touchez pas les circuits. Utilisez les poignées et les guides fournis lors de la manipulation des composants dont les circuits sont apparents.
+
+![Icône Avertissement](./media/storsimple-hardware-component-replacement/Warning.png) ![Icône Avis](./media/storsimple-hardware-component-replacement/NoticeIcon.png) **INFORMATION :**
+
+Quand vous remplacez un module, **ne laissez JAMAIS une baie vide à l’arrière du boîtier**. Procurez-vous un module de remplacement ou un module vide avant de retirer le composant qui pose problème.
+
+## Composants matériels de votre appareil
+
+Votre appareil Microsoft Azure StorSimple est constitué de plusieurs modules enfichables dans les boîtiers principal et/ou EBOD. Le 8100 a un seul boîtier principal, tandis que le 8600 est un appareil à deux boîtiers : un boîtier principal et un boîtier EBOD.
+
+Les principaux composants matériels de votre appareil sont résumés dans les tableaux suivants. Cliquez sur le lien dans la colonne Procédure de remplacement pour accéder au didacticiel associé.
+
+|Composants|Nombre de composants présents|Module enfichable ?|Procédure de remplacement
+|:---------|:--------|:--------------|:---------------------|
+| Châssis|1|Non|[Remplacer le châssis sur votre appareil StorSimple](storsimple-chassis-replacement.md) |
+|Contrôleurs principaux|2|Oui| [Remplacer un module de contrôleur sur votre appareil StorSimple](storsimple-controller-replacement.md) |
+|PCM (Module d’alimentation et de refroidissement) 764 W|2|Oui| [Remplacer un module d’alimentation et de refroidissement (PCM, Power and Cooling Module) sur votre appareil StorSimple](storsimple-power-cooling-module-replacement.md) |
+|Batterie de secours|2|Oui| [Remplacer le module de batterie de secours sur votre appareil StorSimple](storsimple-battery-replacement.md) |
+|Lecteurs de disque|12|Oui| [Remplacer un lecteur de disque sur votre appareil StorSimple](storsimple-disk-drive-replacement.md) |
+
+**Table 1** : Composants matériels dans le boîtier principal
+
+Le boîtier principal et le boîtier EBOD diffèrent quant à leurs modules d’E-S. En outre, les PCM ont des consommations en watts différentes. Les PCM du boîtier principal consomment 764 W, tandis que ceux du boîtier EBOD consomment 580 W. Les PCM du boîtier principal contiennent également un module de batterie de secours.
+
+|Composants|Nombre de composants présents|Module enfichable ?| Procédure de remplacement
+|:---------|:--------|:--------------|:---------------------|
+|Châssis|1|Non| [Remplacer le châssis sur votre appareil StorSimple](storsimple-chassis-replacement.md) |
+|Contrôleurs EBOD|2|Oui| [Remplacer un contrôleur EBOD sur votre appareil StorSimple](storsimple-EBOD-controller-replacement.md) |
+|PCM (Module d’alimentation et de refroidissement) 580 W|2|Oui| [Remplacer un module d’alimentation et de refroidissement (PCM, Power and Cooling Module) sur votre appareil StorSimple](storsimple-power-cooling-module-replacement.md) |
+|Lecteurs de disque|12|Oui| [Remplacer un lecteur de disque sur votre appareil StorSimple](storsimple-disk-drive-replacement.md) |
+
+**Table 2** : Composants matériels dans le boîtier EBOD
+
+Les modules enfichables sur l’appareil sont mis en surbrillance dans les diagrammes suivants représentant l’avant et l’arrière. Vous pouvez utiliser ces diagrammes pour déterminer l’emplacement des différents modules enfichables si un remplacement est nécessaire. Le diagramme de l’avant montre les lecteurs de disque, et les diagrammes de l’arrière du boîtier EBOD et du boîtier principal montrent les modules enfichables.
+
+![Face avant de l’appareil avec les lecteurs de disque](./media/storsimple-hardware-component-replacement/IC741028.png)
+
+**Figure 1** : Avant de l’appareil
+
+|Étiquette|Description|
+|:----|:----------|
+|0 - 11|Lecteurs de disques (12 au total)|
+
+Le boîtier principal et le boîtier EBOD ont tous deux des modules de support de lecteur. Le châssis hébergeant 12 disques 3,5 pouces organisés selon un format de 3 par 4.
+
+![Fond du panier des modules du boîtier principal de l’appareil](./media/storsimple-hardware-component-replacement/IC740994.png)
+
+**Figure 2** : Arrière du boîtier principal
+
+|Étiquette|Description|
+|:----|:----------|
+|1|PCM 0|
+|2|PCM 1|
+|3|Contrôleur 0|
+|4|Contrôleur 1|
+
+![Fond de panier des modules enfichables du boîtier EBOD de l’appareil](./media/storsimple-hardware-component-replacement/IC769599.png)
+
+**Figure 3** : Arrière du boîtier EBOD
+
+|Étiquette|Description|
+|:----|:----------|
+|1|PCM 0|
+|2|PCM 1|
+|3|Contrôleur 0 du boîtier EBOD|
+|4|Contrôleur 1 du boîtier EBOD|
+
+## Unités remplaçables sur site
+
+Les unités remplaçables sur site suivantes sont disponibles pour votre appareil StorSimple :
+
+- Châssis (y compris le panneau de commande intégré)
+
+- Module d’alimentation et de refroidissement (PCM) en courant alternatif 764 W
+
+- Module d’alimentation et de refroidissement (PCM) en courant alternatif 580 W
+
+- Lecteur de disque dur avec module de support de lecteur
+
+- Module de contrôleur
+
+- Module de contrôleur du boîtier EBOD
+
+- Module de batterie de secours
+
+- Kit de rail de montage en rack
+
+[Contactez le Support Microsoft](storsimple-contact-microsoft-support.md) pour commander une de ces unités de remplacement.
+
+## Étapes suivantes
+
+Passez en revue toutes les [informations de sécurité](storsimple-safety.md) avant d’essayer de remplacer un composant matériel StorSimple.
+
+<!---HONumber=August15_HO6-->

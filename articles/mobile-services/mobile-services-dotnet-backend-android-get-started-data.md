@@ -133,4 +133,4 @@ Ensuite, essayez l'un de ces autres didacticiels :
 [Developer Code Samples site]: http://go.microsoft.com/fwlink/p/?LinkId=328660
    
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

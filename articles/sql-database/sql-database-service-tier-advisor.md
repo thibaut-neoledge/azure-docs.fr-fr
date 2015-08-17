@@ -77,7 +77,7 @@ Les recommandations relatives aux niveaux de tarification sont le fruit d’une 
 
 ## Étapes suivantes
 
-Selon les informations de votre base de données spécifique, l’exécution d’une mise à niveau vers un niveau inférieur ou supérieur ne se produit pas de manière instantanée, en général. Le portail de gestion affiche des notifications au moment où la base de données passe au nouveau niveau choisi. Vous pouvez également surveiller l’état de la mise à niveau en affichant la vue [sys.dm_operation_status (base de données SQL Microsoft Azure)](https://msdn.microsoft.com/library/dn270022.aspx) dans la base de données principale du serveur de base de données SQL.
+Selon les informations de votre base de données spécifique, l’exécution d’une mise à niveau vers un niveau inférieur ou supérieur ne se produit pas de manière instantanée, en général. Le portail de gestion affiche des notifications au moment où la base de données passe au nouveau niveau choisi. Vous pouvez également surveiller l’état de la mise à niveau en affichant la vue [sys.dm\_operation\_status (base de données SQL Microsoft Azure)](https://msdn.microsoft.com/library/dn270022.aspx) dans la base de données principale du serveur de base de données SQL.
 
 
 <!--Image references-->
@@ -90,4 +90,4 @@ Selon les informations de votre base de données spécifique, l’exécution d�
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

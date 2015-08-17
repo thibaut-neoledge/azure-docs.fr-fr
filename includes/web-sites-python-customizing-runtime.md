@@ -15,4 +15,4 @@ sont :
 
 Si la version micro (le troisième chiffre) est spécifiée, elle est ignorée.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

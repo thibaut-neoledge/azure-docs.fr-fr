@@ -83,7 +83,7 @@ Téléchargez le lien Non-Thread Safe (NTS) x86 pour la version de PHP activée 
 
 ### Activer l’extension php\_memcache
 
-Après avoir téléchargé le fichier, décompressez le fichier **php\\\_memcache.dll** et chargez-le dans le répertoire **d:\\\\home\\\\site\\\\wwwroot\\\\bin\\\\ext\\\\**. Une fois le fichier php\_memcache.dll chargé dans l’application web, l’extension doit être activée au niveau du runtime PHP. Pour activer l’extension Memcache dans le portail Azure, ouvrez le panneau **Paramètres d’application** pour l’application web, puis ajoutez un nouveau paramètre d’application avec la clé de **PHP\\\_EXTENSIONS** et la valeur **bin\\\\ext\\\\php\_memcache.dll**.
+Après avoir téléchargé le fichier, décompressez le fichier **php\\\_memcache.dll** et chargez-le dans le répertoire **d:\\\\home\\\\site\\\\wwwroot\\\\bin\\\\ext\\\**. Une fois le fichier php\_memcache.dll chargé dans l’application web, l’extension doit être activée au niveau du runtime PHP. Pour activer l’extension Memcache dans le portail Azure, ouvrez le panneau **Paramètres d’application** pour l’application web, puis ajoutez un nouveau paramètre d’application avec la clé de **PHP\\\_EXTENSIONS** et la valeur **bin\\\\ext\\\\php\_memcache.dll**.
 
 
 > Si l’application web doit charger plusieurs extensions PHP, la valeur de PHP\_EXTENSIONS doit être une liste de chemins d’accès relatifs aux fichiers DLL séparés par des virgules.
@@ -197,4 +197,4 @@ Félicitations ! L’application WordPress dispose maintenant d’un cache en m
 [13]: http://memcached.org
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

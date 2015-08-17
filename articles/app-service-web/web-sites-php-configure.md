@@ -69,7 +69,7 @@ L’interface de ligne de commande Azure nécessite l’installation de **Node.j
 
 Quel que soit le runtime PHP intégré, vous pouvez modifier toute option de configuration en procédant comme indiqué ci-dessous. (Pour plus d’informations sur les directives de php.ini, consultez la page [Liste des directives de php.ini].)
 
-### Modification des paramètres de configuration PHP_INI_USER, PHP_INI_PERDIR et PHP_INI_ALL
+### Modification des paramètres de configuration PHP\_INI\_USER, PHP\_INI\_PERDIR et PHP\_INI\_ALL
 
 1. Ajoutez un fichier [.user.ini] à votre répertoire racine.
 2. Ajoutez des paramètres de configuration au fichier `.user.ini` en utilisant la même syntaxe que pour le fichier `php.ini`. Par exemple, si vous souhaitez activer le paramètre `display_errors` et régler le paramètre `upload_max_filesize` sur 10M, votre fichier `.user.ini` doit contenir le texte suivant :
@@ -81,9 +81,9 @@ Quel que soit le runtime PHP intégré, vous pouvez modifier toute option de con
 3. Déployez votre application web.
 4. Redémarrez l’application web. (Le redémarrage est nécessaire, car la fréquence à laquelle PHP lit les fichiers `.user.ini` est régie par le paramètre `user_ini.cache_ttl`, un paramètre système réglé sur 300 secondes (5 minutes) par défaut. Le redémarrage de l’application web force PHP à lire les nouveaux paramètres dans le fichier `.user.ini`.)
 
-Au lieu d’utiliser un fichier `.user.ini`, vous pouvez utiliser la fonction [ini_set()] dans des scripts afin de définir des options de configuration qui ne sont pas des directives de niveau système.
+Au lieu d’utiliser un fichier `.user.ini`, vous pouvez utiliser la fonction [ini\_set()] dans des scripts afin de définir des options de configuration qui ne sont pas des directives de niveau système.
 
-### Modification des paramètres de configuration PHP_INI_SYSTEM
+### Modification des paramètres de configuration PHP\_INI\_SYSTEM
 
 1. Ajoutez un paramètre d’application à votre application web avec la clé `PHP_INI_SCAN_DIR` et valeur `d:\home\site\ini`.
 2. Créez un fichier `settings.ini` à l’aide de la console Kudu (http://&lt;site-name&gt;.scm.azurewebsite.net) dans le répertoire `d:\home\site\ini`.
@@ -120,7 +120,7 @@ Comme indiqué dans la section précédente, la méthode idéale pour afficher l
 	![Paramètres d’application web][settings-button]
 
 5. Dans le panneau **Paramètres**, sélectionnez **Paramètres de l’application**, puis accédez à la section **Paramètres de l’application**.
-6. Dans la section **Paramètres de l’application**, créez une clé **PHP_EXTENSIONS**. La valeur de cette clé est un chemin d’accès relatif à la racine du site web : **bin\your-ext-file**.
+6. Dans la section **Paramètres de l’application**, créez une clé **PHP\_EXTENSIONS**. La valeur de cette clé est un chemin d’accès relatif à la racine du site web : **bin\\your-ext-file**.
 
 	![Activer une extension dans les paramètres d'application][php-extensions]
 
@@ -128,7 +128,7 @@ Comme indiqué dans la section précédente, la méthode idéale pour afficher l
 
 	![Enregistrer les paramètres de configuration][save-button]
 
-Les extensions Zend sont également prises en charge par la clé **PHP_ZENDEXTENSIONS**. Pour activer plusieurs extensions, insérez une liste de fichiers `.dll` séparés par des virgules pour la valeur de paramètre d’application.
+Les extensions Zend sont également prises en charge par la clé **PHP\_ZENDEXTENSIONS**. Pour activer plusieurs extensions, insérez une liste de fichiers `.dll` séparés par des virgules pour la valeur de paramètre d’application.
 
 
 ## Utilisation d’un runtime PHP personnalisé
@@ -163,7 +163,7 @@ Au lieu du runtime PHP par défaut, App Service Web Apps peut utiliser un runti
 [Liste des directives de php.ini]: http://www.php.net/manual/en/ini.list.php
 [Liste des directives du php.ini]: http://www.php.net/manual/en/ini.list.php
 [.user.ini]: http://www.php.net/manual/en/configuration.file.per-user.php
-[ini_set()]: http://www.php.net/manual/en/function.ini-set.php
+[ini\_set()]: http://www.php.net/manual/en/function.ini-set.php
 [application-settings]: ./media/web-sites-php-configure/application-settings.png
 [settings-button]: ./media/web-sites-php-configure/settings-button.png
 [save-button]: ./media/web-sites-php-configure/save-button.png
@@ -177,4 +177,4 @@ Au lieu du runtime PHP par défaut, App Service Web Apps peut utiliser un runti
 [GETPHPVERPS]: ./media/web-sites-php-configure/ShowPHPVersion-PS.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

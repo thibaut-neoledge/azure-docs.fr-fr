@@ -2,7 +2,7 @@
 <properties 
     pageTitle="Données de profil utilisateur dans Azure RemoteApp"
 	description="En savoir plus sur le stockage et l’accès des données utilisateur dans Azure RemoteApp"
-	services="remoteapp" 
+	services="remoteapp"
 	documentationCenter="" 
 	authors="lizap" 
 	manager="mbaldwin" />
@@ -39,11 +39,11 @@ Oui, nous enregistrons une sauvegarde des données utilisateur par emplacement g
 
 ## Comment les utilisateurs voient-ils l’UPD côté serveur ?
 
-Chaque utilisateur disposera de son propre répertoire sur le serveur, pointant vers leur UPD : c:\Users\username.
+Chaque utilisateur disposera de son propre répertoire sur le serveur, pointant vers leur UPD : c:\\Users\\username.
 
 ## Quelle est la meilleure façon d'utiliser Outlook et UPD ?
 
-Azure RemoteApp enregistre l'état d'Outlook (boîtes aux lettres, PST) entre les sessions. Pour cela, le fichier PST doit être stocké dans les données du profil utilisateur (c:\users<username>). Il s’agit de l'emplacement par défaut des données, par conséquent, tant que vous ne modifiez pas cet emplacement, les données seront conservées entre les sessions.
+Azure RemoteApp enregistre l'état d'Outlook (boîtes aux lettres, PST) entre les sessions. Pour cela, le fichier PST doit être stocké dans les données du profil utilisateur (c:\\users<username>). Il s’agit de l'emplacement par défaut des données, par conséquent, tant que vous ne modifiez pas cet emplacement, les données seront conservées entre les sessions.
 
 Nous vous recommandons également d'utiliser le mode « mise en cache » dans Outlook et d'utiliser le mode « serveur/en ligne » pour la recherche.
 
@@ -115,7 +115,7 @@ Vous pouvez également utiliser [des scripts de démarrage basés sur une strat�
 
 ## Qu’en est-il du placement d’un script de démarrage dans le menu Démarrer ? Cette méthode fonctionne-t-elle ?
 
-En d'autres termes, puis-je créer un fichier .bat qui exécute un script de fenêtre de configuration et l’enregistre dans le dossier c:\ProgramData\Microsoft\Windows\Start Menu\Programs\StartUp, puis exécuter ce script chaque fois qu'un utilisateur démarre une session RemoteApp ?
+En d'autres termes, puis-je créer un fichier .bat qui exécute un script de fenêtre de configuration et l’enregistre dans le dossier c:\\ProgramData\\Microsoft\\Windows\\Start Menu\\Programs\\StartUp, puis exécuter ce script chaque fois qu'un utilisateur démarre une session RemoteApp ?
 
 Non, cette opération n'est pas prise en charge dans Azure RemoteApp, qui utilise RDSH, qui ne prend pas en charge non plus les scripts de démarrage dans le menu Démarrer.
 
@@ -123,4 +123,4 @@ Non, cette opération n'est pas prise en charge dans Azure RemoteApp, qui utilis
 
 Non, cette fonctionnalité n’est pas prise en charge dans Azure RemoteApp.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

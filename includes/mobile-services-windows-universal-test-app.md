@@ -13,4 +13,4 @@
 	
 	Notez que les données enregistrées à l'étape précédente sont chargées à partir du service mobile après le démarrage de l'application.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

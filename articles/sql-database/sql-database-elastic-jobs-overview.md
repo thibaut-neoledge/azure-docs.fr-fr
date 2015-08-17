@@ -1,7 +1,8 @@
 <properties 
 	pageTitle="Vue d'ensemble des tâches de base de données élastiques" 
 	description="Illustre le service de tâche de base de données élastique" 
-	services="sql-database" documentationCenter=""  
+	services="sql-database" 
+	documentationCenter=""  
 	manager="jeffreyg" 
 	authors="sidneyh"/>
 
@@ -57,4 +58,4 @@ Les composants suivants fonctionnent en synergie pour créer un service Cloud Az
 [1]: ./media/sql-database-elastic-jobs-overview/elastic-jobs.png
 <!--anchors-->
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

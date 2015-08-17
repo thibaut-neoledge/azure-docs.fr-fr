@@ -7,6 +7,7 @@
 	manager="dwrede" 
 	editor=""/>
 
+
 <tags 
 	ms.service="api-management" 
 	ms.workload="mobile" 
@@ -15,6 +16,7 @@
 	ms.topic="article" 
 	ms.date="06/18/2015" 
 	ms.author="antonba"/>
+
 
 # Délégation de l'inscription des utilisateurs et des abonnements aux produits
 
@@ -51,7 +53,7 @@ Pour commencer, configurons Gestion des API pour que les demandes soient achemin
 2. Vérifiez si la demande émane bien de Gestion des API Azure (facultatif, mais fortement recommandé pour assurer la sécurité).
 
 	* Calculez un code de hachage HMAC-SHA512 d’une chaîne basée sur les paramètres de requête **returnUrl** et **salt** ([exemple de code ci-dessous]) :
-        > **returnUrl**
+        > HMAC(**salt** + '\\n' + **returnUrl**)
 		 
 	* Comparez le code de hachage calculé plus haut avec la valeur du paramètre de requête **sig**. Si les deux codes de hachage correspondent, passez à l'étape suivante. Sinon, rejetez la demande.
 
@@ -107,7 +109,7 @@ Assurez-vous ensuite que le point de terminaison de délégation effectue bien l
 2. Vérifiez si la demande émane bien de Gestion des API Azure (facultatif, mais fortement recommandé pour assurer la sécurité).
 
 	* Calculez un code de hachage HMAC-SHA512 d'une chaîne basée sur les paramètres de requête **ProductId**, **userId** et **salt** :
-		> **productId****userId**
+		> HMAC(**salt** + '\\n' + **productId** + '\\n' + **userId**)
 		 
 	* Comparez le code de hachage calculé plus haut avec la valeur du paramètre de requête **sig**. Si les deux codes de hachage correspondent, passez à l'étape suivante. Sinon, rejetez la demande.
 	
@@ -168,4 +170,4 @@ Pour plus d’informations sur la délégation, regardez la vidéo suivante.
 
 [api-management-delegation-signin-up]: ./media/api-management-howto-setup-delegation/api-management-delegation-signin-up.png
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

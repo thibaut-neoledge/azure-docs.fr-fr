@@ -1,11 +1,12 @@
 <properties 
-	pageTitle="Création d'une application web Node.js avec DocumentDB | Azure" 
+	pageTitle="Créer une application web Node.js à l’aide de DocumentDB | Microsoft Azure" 
 	description="Apprenez à utiliser Microsoft Azure DocumentDB pour stocker des données et y accéder à partir d'une application web Node.js Express hébergée sur Azure Websites." 
 	services="documentdb" 
 	documentationCenter="nodejs" 
 	authors="ryancrawcour" 
 	manager="jhubbard" 
 	editor="cgronlun"/>
+
 
 <tags 
 	ms.service="documentdb" 
@@ -15,6 +16,7 @@
 	ms.topic="hero-article" 
 	ms.date="07/24/2015" 
 	ms.author="ryancraw"/>
+
 
 # <a name="_Toc395783175"></a>Création d'une application web Node.js avec DocumentDB
 
@@ -559,4 +561,4 @@ Vous pouvez télécharger le code source de l'application de référence complè
   [Git]: http://git-scm.com/
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

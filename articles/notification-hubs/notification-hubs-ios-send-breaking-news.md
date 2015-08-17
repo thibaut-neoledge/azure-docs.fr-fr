@@ -36,7 +36,7 @@ Cette rubrique s'appuie sur l'application que vous avez créée dans [Prise en m
 
 La première étape consiste à ajouter à votre storyboard existant les éléments d’interface utilisateur qui permettent à l’utilisateur de sélectionner les catégories à inscrire. Les catégories sélectionnées par un utilisateur sont stockées sur l'appareil. Lorsque l'application démarre, une inscription d'appareil est créée dans votre concentrateur de notification avec les catégories sélectionnées sous forme de balises.
 
-1. Dans MainStoryboard_iPhone.storyboard, ajoutez les composants suivants de la bibliothèque d'objets :
+1. Dans MainStoryboard\_iPhone.storyboard, ajoutez les composants suivants de la bibliothèque d'objets :
 	+ une étiquette intitulée « Dernières nouvelles » ;
 	+ des étiquettes portant les intitulés de catégories « Monde », « Politiques », « Entreprise », « Technologies », « Science », « Sports » ;
 	+ six commutateurs, un par catégorie, chacun défini sur l’**État** **Désactivé** par défaut ;
@@ -346,8 +346,7 @@ Normalement, les notifications doivent être envoyées par un service principal 
 
 3. Chaque appareil abonné aux dernières nouvelles reçoit les notifications de dernières nouvelles que vous venez d’envoyer.
 
-	![][4]
-	![][5]
+	![][4] ![][5]
 
 
 ## Étapes suivantes
@@ -388,4 +387,4 @@ Dans ce didacticiel, nous avons appris à diffuser les dernières nouvelles par 
 [get-started]: /manage/services/notification-hubs/get-started-notification-hubs-ios/
  
 
-<!----HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

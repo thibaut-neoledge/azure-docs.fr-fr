@@ -7,6 +7,7 @@
    manager="mblythe"
    editor=""
    tags=""/>
+
 <tags
    ms.service="data-catalog"
    ms.devlang="NA"
@@ -15,6 +16,7 @@
    ms.workload="data-catalog"
    ms.date="07/13/2015"
    ms.author="derrickv"/>
+
 
 # Prise en main d’Azure Data Catalog
 
@@ -38,7 +40,7 @@ Dans cet exercice, vous installez l’exemple Adventure Works pour le moteur de
 
 La base de données Adventure Works OLTP prend en charge les scénarios de traitement des transactions en ligne standard pour un fabricant fictif de bicyclettes (Adventure Works Cycles), y compris la fabrication, les ventes et les achats. La base de données Adventure Works DW montre comment construire un entrepôt de données.
 
-Les bases de données se trouvent dans http://msftdbprodsamples.codeplex.com/ et peuvent être installées en suivant les étapes décrites dans [Installation des exemples de bases de données Adventure Works 2014].
+Les bases de données se trouvent dans http://msftdbprodsamples.codeplex.com/ et peuvent être installées en suivant les étapes décrites dans [Installation des exemples de bases de données Adventure Works 2014\].
 
 Dans cet exercice, vous avez installé les exemples de bases de données Adventure Works qui sont utilisés dans les exercices restants. Si vous avez choisi d’ignorer cet exercice et d’utiliser vos propres sources de données d’entreprise, préparez-vous à mémoriser des noms, des balises et d’autres métadonnées.
 
@@ -69,7 +71,7 @@ Dans cet exercice, vous allez utiliser l’outil d’enregistrement d’Azure Da
 
     ![register4][4]
 
-    c. Cliquez sur la flèche de déplacement des objets sélectionnés (\*\*>\*\*). Tous les objets Product sont alors déplacés dans la liste **À enregistrer**.
+    c. Cliquez sur la flèche de déplacement des objets sélectionnés (**>**). Tous les objets Product sont alors déplacés dans la liste **À enregistrer**.
 
     ![register5][5]
 
@@ -109,13 +111,13 @@ Vous pouvez également affiner les ressources de données à afficher. **Azure D
 
 Dans cet exemple, vous allez utiliser une recherche par mot clé. Dans **Azure Data Catalog**, plusieurs techniques de requête permettent de réaliser une recherche. Cet exemple utilise une requête de recherche de type **Regroupement**.
 
-**Techniques de requête**<table><tr><td><b>Technique</b></td><td><b>Utilisation</b></td><td><b>Exemple</b></td></tr><tr><td>Étendue de propriété</td><td>Renvoie uniquement les sources de données pour lesquelles le terme de recherche correspond à la propriété spécifiée</td><td>name:product</td></tr><tr><td>Opérateurs logiques</td><td>Élargit ou restreint une recherche à l’aide d’opérations booléennes, comme décrit sur cette même page dans la section Opérateurs booléens</td><td>finance NOT corporate</td></tr><tr><td>Regroupement avec parenthèses</td><td>Permet de regrouper des éléments de la requête entre parenthèses pour les isoler de manière logique, notamment avec les opérateurs booléens</td><td>namem:product AND (tags:illustration OR tags:photo)</td></tr><tr><td>Opérateurs de comparaison</td><td>Utilisent des comparaisons autres que l’égalité pour les propriétés associées à des données de type numérique et date</td><td>creationTime:&gt;11/05/14</td></tr></table>
+**Techniques de requête**<table><tr><td><b>Technique</b></td><td><b>Utilisation</b></td><td><b>Exemple</b></td></tr><tr><td>Étendue de propriété</td><td>Renvoie uniquement les sources de données pour lesquelles le terme de recherche correspond à la propriété spécifiée</td><td>name:product</td></tr><tr><td>Opérateurs logiques</td><td>Élargit ou restreint une recherche à l’aide d’opérations booléennes, comme décrit sur cette même page dans la section Opérateurs booléens</td><td>finance NOT corporate</td></tr><tr><td>Regroupement avec parenthèses</td><td>Permet de regrouper des éléments de la requête entre parenthèses pour les isoler de manière logique, notamment avec les opérateurs booléens</td><td>name:product AND (tags:illustration OR tags:photo)</td></tr><tr><td>Opérateurs de comparaison</td><td>Utilisent des comparaisons autres que l’égalité pour les propriétés associées à des données de type numérique et date</td><td>creationTime:&gt;11/05/14</td></tr></table>
 
 Dans cet exemple, vous effectuez un **regroupement** pour rechercher des ressources de données pour lesquelles le nom correspond à « product » et les balises correspondent à « illustration » ou les balises correspondent à « photo ».
 
 1.	Connectez-vous au portail **Azure Data Catalog**.
 2.	Cliquez sur **Découvrir**.
-3.	Dans la zone **Recherche**, entrez une requête de type **Regroupement** : (balises:description OR balises:photo). 
+3.	Dans la zone **Recherche**, entrez une requête de type **Regroupement** : (tags:description OR tags:photo). 
 4.	Cliquez sur l’icône de recherche ou appuyez sur Entrée. **Azure Data Catalog** affichera les ressources de données correspondant à cette requête de recherche.
     
     ![recherche][8]
@@ -124,13 +126,13 @@ Dans cet exercice, vous avez utilisé le portail **Azure Data Catalog** pour d�
 
 ## Exercice 4 : annotation des sources de données enregistrées
 
-Dans cet exercice, vous utiliserez le portail **Azure Data Catalog** pour annoter des ressources de données préalablement enregistrées dans le catalogue. Les annotations que vous ajouterez compléteront et amélioreront les métadonnées structurelles extraites de la source de données au cours de l’enregistrement et faciliteront la découverte et la compréhension des ressources de données. Comme chaque utilisateur du **catalogue de données** peut ajouter ses propres annotations. Ces données sont faciles à partager par tous les utilisateurs ayant un point de vue sur celles-ci.
+Dans cet exercice, vous utiliserez le portail **Azure Data Catalog** pour annoter des ressources de données préalablement enregistrées dans le catalogue. Les annotations que vous ajouterez compléteront et amélioreront les métadonnées structurelles extraites de la source de données au cours de l’enregistrement et faciliteront la découverte et la compréhension des ressources de données. Comme chaque utilisateur du **catalogue de données** peut ajouter ses propres annotations, ces données sont faciles à partager par tous les utilisateurs ayant un point de vue sur celles-ci.
 
 ### Voici comment annoter les ressources de données
 
 1.	Connectez-vous au portail **Azure Data Catalog**.
 2.	Cliquez sur **Découvrir**.
-3.	Choisissez une ou plusieurs **Ressources de données**. Dans cet exemple, choisissez **ProductPhoto** puis entrez « Photos de produit pour documents de marketing ».
+3.	Choisissez une ou plusieurs **ressources de données**. Dans cet exemple, choisissez **ProductPhoto** puis entrez « Photos de produit pour documents de marketing ».
 4.	Entrez une **Description** qui aidera les autres utilisateurs à découvrir et comprendre pourquoi et comment utiliser la ressource de données sélectionnée. Par exemple, entrez « Images du produit ». Vous pouvez également ajouter des balises supplémentaires et afficher les colonnes.
 5.	Maintenant, vous pouvez essayer de rechercher et de filtrer pour découvrir les ressources de données à l’aide des métadonnées descriptives que vous avez ajoutées au catalogue.
 
@@ -148,7 +150,7 @@ Dans cet exercice, vous allez travailler avec un autre utilisateur pour ajouter 
 
 Demandez à un collègue de répéter l’exercice **Annotation des sources de données enregistrées** ci-dessus. Une fois que votre collègue aura ajouté une description à une ressource de données, par exemple ProductPhoto, vous pourrez voir plusieurs annotations.
 
-Dans cet exercice, vous avez exploré l’approche des métadonnées basée sur le crowdsourcing d’Azure Data Catalog, par laquelle chaque utilisateur du catalogue peut annoter les ressources de données qu’il découvre. Exercice : connexion à des sources de données. Dans cet exercice, vous allez utiliser le portail **Azure Data Catalog** pour vous connecter aux sources de données à l’aide de Microsoft Excel.
+Dans cet exercice, vous avez exploré l’approche des métadonnées basée sur le crowdsourcing d’Azure Data Catalog, par laquelle chaque utilisateur du catalogue peut annoter les ressources de données qu’il découvre. Exercice : connexion à des sources de données. Dans cet exercice, vous allez utiliser le portail **Azure Data Catalog** pour vous connecter aux sources de données à l’aide de Microsoft Excel.
 
 > [AZURE.NOTE]Il est important de rappeler qu’**Azure Data Catalog** ne donne pas aux utilisateurs accès à la source de données elle-même : il leur permet simplement de découvrir et de comprendre plus facilement cette source de données. Lorsqu’un utilisateur se connecte à une source de données, l’application cliente qu’il choisit utilisera ses informations d’identification Windows ou l’invitera à saisir des informations d’identification, le cas échéant. Si l’accès à la source de données n’a pas été préalablement accordé à l’utilisateur, il devra obtenir cet accès avant de pouvoir se connecter.
 
@@ -166,13 +168,13 @@ Dans cet exercice, vous avez exploré l’approche des métadonnées basée sur 
 
     ![connect2][11]
 
-Dans cet exercice, vous vous êtes connecté aux sources de données découvertes à l’aide d’Azure Data Catalog. Le portail **Azure Data Catalog** permet aux utilisateurs de se connecter directement à l’aide d’applications clientes intégrées à son menu **Ouvrir dans...** et de se connecter à l’aide de n’importe quelle application de leur choix en utilisant les informations relatives à l’emplacement de la connexion incluses dans les métadonnées des ressources.
+Dans cet exercice, vous vous êtes connecté aux sources de données découvertes à l’aide d’Azure Data Catalog. Le portail **Azure Data Catalog** permet aux utilisateurs de se connecter directement à l’aide d’applications clientes intégrées à son menu **Ouvrir dans...** et de se connecter à l’aide de n’importe quelle application de leur choix, en utilisant les informations relatives à l’emplacement de la connexion incluses dans les métadonnées des ressources.
 
 ## Exercice 6 : suppression des métadonnées des sources de données
 
 Dans cet exercice, vous utiliserez le portail **Azure Data Catalog** pour supprimer les aperçus de données des ressources de données enregistrées et pour supprimer les ressources de données du catalogue.
 
-> [AZURE.NOTE]Par défaut, le catalogue permet aux utilisateurs d’enregistrer n’importe quelle source de données et de supprimer toutes les ressources de données préalablement enregistrées. Les fonctionnalités de gestion incluses dans l’**édition Standard d’Azure Data Catalog** fournissent des options supplémentaires permettant de vous approprier des ressources et de restreindre les fonctions de découverte et de suppression des ressources à certains utilisateurs.
+> [AZURE.NOTE]Par défaut, le catalogue permet aux utilisateurs d’enregistrer n’importe quelle source de données et de supprimer toutes les ressources de données préalablement enregistrées. Les fonctionnalités de gestion incluses dans l’**édition Standard d’Azure Data Catalog** fournissent des options supplémentaires permettant de vous approprier des ressources, et de restreindre les fonctions de découverte ainsi que de suppression des ressources à certains utilisateurs.
 
 Dans **Azure Data Catalog**, vous pouvez supprimer l’aperçu de la suppression d’une ressource individuelle ou de plusieurs ressources de données.
 
@@ -222,4 +224,4 @@ Dans ce didacticiel, vous avez exploré les fonctionnalités essentielles de la 
 [11]: ./media/data-catalog-get-started/connect2.png
 [12]: ./media/data-catalog-get-started/ownership.png
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

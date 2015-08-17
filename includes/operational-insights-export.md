@@ -8,4 +8,4 @@ Vous pouvez exporter les résultats de recherche vers Excel en enregistrant un f
 2. Dans votre navigateur, vous êtes invité à enregistrer le fichier .csv. Ouvrez ou enregistrez le fichier.
 3. Ouvrez le fichier dans Excel ou une autre application. Passez en revue et personnalisez vos données comme vous le souhaitez. ![Résultats Excel](./media/operational-insights-export/export-excel.png)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -2,7 +2,7 @@ En raison des développements en cours, la version du Kit de développement logi
 
 Deux symptômes permettent d'identifier des versions différentes :
 
-1. Lorsque vous générez ou régénérez le projet, vous pouvez obtenir des messages d'erreur Gradle comme « **Impossible de trouver la cible Google Inc.:Google APIs:n** ».
+1. Quand vous générez ou régénérez le projet, vous pouvez obtenir des messages d’erreur Gradle comme « **Impossible de trouver la cible Google Inc.:Google APIs:n** ».
 
 2. Les objets Android standard du code dont la résolution doit reposer sur les instructions `import` peuvent générer des messages d'erreur.
 
@@ -20,4 +20,4 @@ Dans ce cas, la version du Kit de développement logiciel (SDK) Android install�
 
 4. Dans Android Studio, le fichier manifeste ne permet plus de spécifier le Kit de développement (SDK) cible et la version minimale du Kit de développement logiciel (SDK), contrairement à Eclipse.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

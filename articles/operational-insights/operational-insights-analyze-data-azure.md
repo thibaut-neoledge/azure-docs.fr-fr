@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/02/2015"
+   ms.date="08/05/2015"
    ms.author="banders"/>
 # Analyse des données des serveurs dans Microsoft Azure
 
@@ -21,9 +21,9 @@
 
 Operational Insights utilise des données des serveurs dans votre infrastructure locale ou dans le cloud. Vous pouvez collecter des données de la machine à partir du stockage Azure lorsqu’elles sont générées par les diagnostics Azure.
 
-En utilisant les données que vous collectez depuis le stockage Azure, vous pouvez rechercher rapidement les journaux des événements et les journaux IIS pour les services cloud et les machines virtuelles en activant les [diagnostics Azure](operational-insights-log-collection.md) Vous pouvez également obtenir plus d’informations relatives à vos machines virtuelles en installant Microsoft Monitoring Agent.
+En utilisant les données que vous collectez depuis le stockage Azure, vous pouvez rechercher rapidement les journaux des événements et les journaux IIS pour les services cloud et les machines virtuelles. Vous pouvez également obtenir plus d’informations relatives à vos machines virtuelles en installant Microsoft Monitoring Agent.
 
-Les solutions d’évaluation des mises à jour, de suivi des modifications et d’évaluation SQL sont toutes compatibles avec Microsoft Monitoring Agent pour fournir des informations plus détaillées sur vos machines virtuelles. Si vous ne l’avez pas encore fait, vous pouvez [ajouter des solutions](operational-insights-add-solution.md) lorsque vous êtes connecté au [portail Operational Insights](https://preview.opinsights.azure.com/).
+Les solutions d’évaluation des mises à jour, de suivi des modifications et d’évaluation SQL sont toutes compatibles avec Microsoft Monitoring Agent pour fournir des informations plus détaillées sur vos machines virtuelles. Si vous ne l’avez pas encore fait, vous pouvez [ajouter des solutions](operational-insights-setup-workspace.md) lorsque vous êtes connecté au [portail Operational Insights](https://www.microsoft.com/oms/).
 
 Pour les machines virtuelles Azure, il existe deux moyens simples d’activer la collecte de données basée sur les agents :
 
@@ -31,7 +31,7 @@ Pour les machines virtuelles Azure, il existe deux moyens simples d’activer la
 
 - Utiliser PowerShell
 
-Lorsque vous utilisez la collecte basée sur les agents pour les données de journal, vous devez configurer les journaux à collecter dans la page de configuration de gestion des journaux du [portail Operational Insights](https://preview.opinsights.azure.com/)
+Lorsque vous utilisez la collecte basée sur les agents pour les données de journal, vous devez configurer les journaux à collecter dans la page de configuration de gestion des journaux du [portail Operational Insights](https://www.microsoft.com/oms/)
 
  >[AZURE.NOTE]Si vous avez configuré Operational Insights pour indexer les données de journal à l’aide des diagnostics Azure et que vous configurez l’agent pour collecter des journaux, les mêmes journaux seront indexés deux fois. Vous serez facturé à un tarif de données normal pour les deux sources de données. Si vous avez installé l’agent, vous pouvez recueillir des données de journal à l’aide de l’agent et ne pas indexer les journaux collectés par les diagnostics Azure.
 
@@ -88,7 +88,7 @@ Les diagnostics Azure sont des extensions vous permettant de collecter des donn�
 Azure Diagnostics peut collecter les types de données télémétriques suivants :
 
 Source de données|Description
- ---|--- 
+ ---|---
 Journaux IIS|Informations au sujet des sites Web IIS.
 Journaux d'infrastructure Azure Diagnostic|Informations au sujet de Diagnostics lui-même.
 Journaux d'échecs de requête IIS |Informations au sujet des échecs de requête à un site ou à une application IIS.
@@ -249,4 +249,4 @@ Après environ une heure, les données du compte de stockage sont disponibles po
 
 [Configuration des paramètres de pare-feu et de proxy (facultatif)](../operational-insights-proxy-filewall.md)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

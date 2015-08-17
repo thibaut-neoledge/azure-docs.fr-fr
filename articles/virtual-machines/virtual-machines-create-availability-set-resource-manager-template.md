@@ -33,7 +33,7 @@ Procédez comme suit pour créer un groupe à haute disponibilité pour une mach
 
 ### Étape 1 : téléchargement du fichier JSON
 
-Définissez un dossier local comme emplacement pour les fichiers du modèle JSON puis créez-le (par exemple, C:\Azure\Templates\availability).
+Définissez un dossier local comme emplacement pour les fichiers du modèle JSON puis créez-le (par exemple, C:\\Azure\\Templates\\availability).
 
 Remplacez le nom du dossier, puis copiez et exécutez ces commandes.
 
@@ -103,4 +103,4 @@ Procédez comme suit pour créer le groupe à haute disponibilité en utilisant 
 
 	azure group deployment create <my-resource-group> <my-deployment-name> --template-uri https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-2-vms-2-FDs-no-resource-loops/azuredeploy.json
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

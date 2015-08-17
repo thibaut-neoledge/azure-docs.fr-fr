@@ -7,6 +7,7 @@
    manager="mbaldwin"
    editor=""/>
 
+
 <tags
    ms.service="active-directory"
    ms.devlang="na"
@@ -15,6 +16,7 @@
    ms.workload="identity"
    ms.date="05/30/2015"
    ms.author="mbaldwin"/>
+
 
 # Métadonnées de fédération
 Azure Active Directory (Azure AD) publie un document de métadonnées de fédération pour les services qui sont configurés pour accepter les jetons de sécurité émis par Azure Active Directory. Le format de document des métadonnées de fédération est décrit en [langage WS-Federation (Web Services Federation Language) version 1.2](http://docs.oasis-open.org/wsfed/federation/v1.2/os/ws-federation-1.2-spec-os.html), qui étend les [métadonnées pour la spécification SAML (Security Assertion Markup Language) OASIS V2.0](http://docs.oasis-open.org/security/saml/v2.0/saml-metadata-2.0-os.pdf).
@@ -39,7 +41,7 @@ Pour les **points de terminaison spécifiques du client**, le <TenantDomainName>
 
 Pour les **points de terminaison indépendants du client**, le <TenantDomainName> est **commun**. Ce nom indique que seuls les éléments de métadonnées de fédération communs à tous les clients Azure AD sont hébergés à l’adresse login.windows.net.
 
-Par exemple, un point de terminaison spécifique d’un client peut être *https://login.windows.net/contoso.onmicrosoft.comFederationMetadata/2007-06/FederationMetadata.xml*. Le point de terminaison indépendant du client est *https://login.windows.net/common/FederationMetadata/2007-06/FederationMetadata.xml*.
+Par exemple, un système d’extrémité spécifique d’un client peut être **https://login.windows.net/contoso.onmicrosoft.comFederationMetadata/2007-06/FederationMetadata.xml*. Le système d’extrémité indépendant du client est **https://login.windows.net/common/FederationMetadata/2007-06/FederationMetadata.xml*.
 
 ## Contenu des métadonnées de fédération
 
@@ -133,7 +135,9 @@ Les URL de connexion et de déconnexion s’affichent dans les éléments **Sing
     <IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
     …
     <SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://login.windows.net/contoso.onmicrosoft.com/saml2" />
+
     <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https:// login.windows.net/contoso.onmicrosoft.com /saml2" />
+
     </IDPSSODescriptor>
 
 De la même façon, les points de terminaison communs du protocole SAML 2.0 sont publiés dans les métadonnées de fédération indépendantes du client, comme illustré dans l’exemple suivant.
@@ -141,7 +145,9 @@ De la même façon, les points de terminaison communs du protocole SAML 2.0 son
     <IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
     …
     <SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://login.windows.net/common/saml2" />
+
     <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://login.windows.net/common/saml2" />
+
     </IDPSSODescriptor>
 
 ## Voir aussi
@@ -149,4 +155,4 @@ De la même façon, les points de terminaison communs du protocole SAML 2.0 son
 
 [Guide du développeur Azure Active Directory](active-directory-developers-guide.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

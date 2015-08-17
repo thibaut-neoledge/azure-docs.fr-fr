@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/07/2015" 
+	ms.date="08/04/2015" 
 	ms.author="awills"/>
  
 # Exemple de code : exporter vers SQL à partir d’Application Insights à l’aide d’un rôle de travail
@@ -134,7 +134,7 @@ Dans l’Explorateur de solutions, cliquez avec le bouton droit sur votre projet
  * EntityFramework 6.1.2 ou version ultérieure : nous utiliserons cet outil pour générer le schéma de table de base de données à la volée, en fonction du contenu du JSON de l’objet blob.
  * JsonFx : nous utiliserons cet outil pour aplatir le JSON sur les propriétés de classe C#.
 
-Utilisez cet outil pour générer la classe C# à partir de notre document JSON unique. Il nécessite des modifications mineures, telles que l’aplatissage des tableaux JSON en propriété C# unique, puis à son tour en colonne unique dans la table de base de données (par exemple, urlData_port)
+Utilisez cet outil pour générer la classe C# à partir de notre document JSON unique. Il nécessite des modifications mineures, telles que l’aplatissage des tableaux JSON en propriété C# unique, puis à son tour en colonne unique dans la table de base de données (par exemple, urlData\_port)
 
  * [Générateur de classes C# JSON](http://jsonclassgenerator.codeplex.com/)
 
@@ -519,6 +519,7 @@ Pour voir cet exemple en action, [téléchargez](https://sesitai.codeplex.com/) 
 * [Exportation vers SQL à l’aide d’un rôle de travail](app-insights-code-sample-export-telemetry-sql-database.md)
 * [Exportation continue dans Application Insights](app-insights-export-telemetry.md)
 * [Application Insights](https://azure.microsoft.com/services/application-insights/)
+* [Plus d'exemples et de procédures pas à pas](app-insights-code-samples.md)
 
 <!--Link references-->
 
@@ -530,4 +531,4 @@ Pour voir cet exemple en action, [téléchargez](https://sesitai.codeplex.com/) 
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

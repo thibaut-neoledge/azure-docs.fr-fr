@@ -7,14 +7,16 @@
 	manager="wpickett" 
 	editor=""/>
 
+
 <tags 
 	ms.service="app-service-api" 
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/08/2015" 
+	ms.date="08/04/2015" 
 	ms.author="tomfitz"/>
+
 
 # Provisionner une application API avec une passerelle existante
 
@@ -40,7 +42,7 @@ Pour exécuter automatiquement le déploiement, cliquez sur le bouton ci-dessous
 
 ### hostingPlanId
 
-Identificateur du plan d’hébergement existant.
+Identificateur du plan d’hébergement App Service existant.
 
     "hostingPlanId": {
       "type": "string"
@@ -65,7 +67,7 @@ Ce modèle définit une variable, utilisée lors du déploiement des ressources.
       "packageId": "Microsoft.ApiApp"
     }
     
-Cette valeur est utilisée ci-dessous, en tant que **variables('IdPackage')**.
+Cette valeur est utilisée ci-dessous, en tant que **variables('IdPackage')**. Il contient l'Id de package NuGet pour les applications API.
 
 ## Ressources à déployer
 
@@ -73,7 +75,7 @@ Cette valeur est utilisée ci-dessous, en tant que **variables('IdPackage')**.
 
 Crée une application web qui héberge l’application API.
 
-Vous pouvez voir que le paramètre **kind** est défini sur **apiApp**, ce qui indique au portail Microsoft Azure que cette application web héberge une passerelle. Le portail masque l’application web du panneau de navigation de l’application web. L’application comprend une extension pour installer le package d’application API vide par défaut. Un lien est défini entre l’application API et l’application d’hébergement web. La section Paramètres de l’application inclut les valeurs requises pour l’hébergement de l’application API.
+Vous pouvez voir que le paramètre **kind** est défini sur **apiApp**, ce qui indique au portail Microsoft Azure que cette application Web héberge une application API. Le portail masque l’application web du panneau de navigation des applications web. L’application comprend une extension pour installer le package d’application API vide par défaut. Un lien est défini entre l’application API et l’application d’hébergement web. La section Paramètres de l’application inclut les valeurs requises pour l’hébergement de l’application API. La propriété **serverFarmId** est définie sur la valeur fournie dans le paramètre **hostingPlanId**.
 
     {
       "type": "Microsoft.Web/sites",
@@ -191,4 +193,4 @@ Notez que les noms de la passerelle et de l’application web d’hébergement 
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

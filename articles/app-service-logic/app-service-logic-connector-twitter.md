@@ -7,14 +7,16 @@
    manager="dwrede"
    editor=""/>
 
+
 <tags
    ms.service="app-service-logic"
    ms.devlang="multiple"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="07/14/2015"
+   ms.date="07/28/2015"
    ms.author="sameerch"/>
+
 
 
 # Connecteur Twitter
@@ -23,6 +25,7 @@ Connectez-vous à votre flux Twitter pour publier des tweets, lire ceux publiés
 
 - Lire les nouveaux tweets associés à un mot-clé ou à un texte donné. Lorsqu’un nouveau tweet est récupéré, il déclenche une nouvelle instance de votre flux de travail et transfère les données vers le connecteur suivant dans votre flux de travail. Par exemple, vous créez un connecteur Twitter et utilisez le déclencheur « Nouveau tweet après recherche » pour surveiller #peanutbutterandjelly. Chaque fois qu’un nouveau tweet contenant #peanutbutterandjelly est publié, votre flux de travail (c’est-à-dire l’application logique) démarre automatiquement.
 - À l’aide de différentes actions, telles que « Rechercher des tweets », vous récupérez la réponse et l’utilisez dans votre flux de travail. Par exemple, vous pouvez rechercher des tweets contenant le nom de votre société. Si des tweets sont détectés, vous pouvez utiliser une application logique afin d’écrire ces données dans une base de données SQL Server. Utilisez ensuite les données de SQL Server pour déterminer ce qui est tweeté à propos de votre société. 
+- Utilisez tous les opérateurs sur [Recherche Twitter](https://twitter.com/search). Sélectionnez le lien **opérateurs**. Le connecteur Twitter prend en charge tous les opérateurs répertoriés.
 
 
 ## Déclencheurs et actions
@@ -56,7 +59,7 @@ Une fois votre application API créée, vous pouvez utiliser le connecteur Twitt
 1.	Créez une application logique ou ouvrez une application logique existante :
 
 	![][2]
-2.	Ouvrez **Déclencheurs et actions** pour ouvrir le concepteur d’applications logiques :
+2.	Ouvrez **Déclencheurs et actions** pour ouvrir le concepteur Logic Apps :
 
 	![][3]
 3.	Le connecteur Twitter est répertorié sur le côté droit. Sélectionnez-le pour l’ajouter automatiquement à votre application logique :
@@ -73,17 +76,16 @@ Vous pouvez maintenant configurer le connecteur Twitter pour créer votre flux d
 
 De la même façon, vous pouvez utiliser les actions Twitter dans votre flux. Sélectionnez une action Twitter et configurez les entrées de cette action :
 
-![][7]
-![][8]
+![][7] ![][8]
 
 ## En faire plus avec votre connecteur
 Maintenant que le connecteur est créé, vous pouvez l'ajouter à un flux d'entreprise à l'aide d'une application logique. Voir [Que sont les applications logiques ?](app-service-logic-what-are-logic-apps.md).
 
-Créez les applications API à l’aide des API REST. Consultez la page [Référence de connecteurs et d’applications API](http://go.microsoft.com/fwlink/p/?LinkId=529766).
+Créez les applications API à l’aide des API REST. Pour plus d’informations, voir l’article [Référence de connecteurs et d’applications API](http://go.microsoft.com/fwlink/p/?LinkId=529766).
 
-Vous pouvez également consulter les statistiques de performances et contrôler la sécurité du connecteur. Consultez la page [Gestion et contrôle de vos connecteurs et applications API intégrés](app-service-logic-monitor-your-connectors.md).
+Vous pouvez également consulter les statistiques de performances et contrôler la sécurité du connecteur. Pour plus d’informations, voir l’article [Gestion et contrôle de vos connecteurs et applications API intégrés](app-service-logic-monitor-your-connectors.md).
 
-	<!--Image references-->
+<!--Image references-->
 [1]: ./media/app-service-logic-connector-twitter/img1.png
 [2]: ./media/app-service-logic-connector-twitter/img2.png
 [3]: ./media/app-service-logic-connector-twitter/img3.png
@@ -93,4 +95,4 @@ Vous pouvez également consulter les statistiques de performances et contrôler 
 [7]: ./media/app-service-logic-connector-twitter/img7.png
 [8]: ./media/app-service-logic-connector-twitter/actions.png
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

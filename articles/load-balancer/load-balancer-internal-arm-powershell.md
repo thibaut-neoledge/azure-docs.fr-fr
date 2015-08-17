@@ -9,7 +9,7 @@
 <tags
    ms.service="load-balancer"
    ms.devlang="na"
-   ms.topic="get-started-article"
+   ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="07/22/2015"
@@ -245,4 +245,4 @@ Pour la procédure détaillée à suivre pour créer une machine virtuelle et d�
 [Configuration des paramètres de délai d’expiration TCP inactif pour votre équilibrage de charge](load-balancer-tcp-idle-timeout.md)
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

@@ -96,4 +96,4 @@ Dans la requête, incluez un objet JSON qui définit le groupe de ressources ci
 - [Utilisation du portail Azure en version préliminaire pour gérer les ressources Azure](azure-portal/resource-group-portal.md)
 - [Organisation des ressources Azure à l’aide de balises](./resource-group-using-tags.md)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

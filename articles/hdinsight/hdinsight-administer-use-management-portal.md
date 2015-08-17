@@ -7,6 +7,7 @@
 	manager="paulettm"
 	editor="cgronlun"/>
 
+
 <tags
 	ms.service="hdinsight"
 	ms.workload="big-data"
@@ -15,6 +16,7 @@
 	ms.topic="article"
 	ms.date="06/02/2015"
 	ms.author="jgao"/>
+
 
 # Gestion des clusters Hadoop dans HDInsight au moyen du portail Azure
 
@@ -202,4 +204,4 @@ Cet article vous a appris à créer un cluster HDInsight à l’aide du portail 
 [image-hdiclustercreate-uploadcert]: ./media/hdinsight-administer-use-management-portal/HDI.ClusterCreate.UploadCert.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -7,4 +7,4 @@
 
 3. Réglez **Mises à jour automatiques** sur **Oui**. Cette option recherche automatiquement les mises à jour à 3 h 00, heure du périphérique, et les installe à 4 h 00.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

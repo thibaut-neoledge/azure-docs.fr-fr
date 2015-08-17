@@ -565,7 +565,7 @@ L’erreur peut provenir des éléments suivants :
 
 7. Vérifiez les interférences avec le pare-feu. Si vous avez vérifié que les paramètres d’adresse IP virtuelle, de sous-réseau, de passerelle et DNS sont tous corrects et que vous rencontrez encore des problèmes de connectivité, il est possible que votre pare-feu bloque les communications entre votre appareil et le réseau externe. Vérifiez que les ports 80 et 443 sont disponibles pour la communication sortante sur l’appareil StorSimple. Pour plus d’informations, consultez la page [Configuration réseau requise pour un appareil StorSimple](https://msdn.microsoft.com/library/azure/dn772371.aspx).
 
-8. Examinez les journaux. Consultez la page [Packages de prise en charge et journaux d’appareil disponibles pour la résolution des problèmes](#support-packages-and-device-logs-available-for-troubleshooting).
+8. Examinez les journaux. Consultez la page [Packages de support et journaux des appareils disponibles pour la résolution des problèmes](#support-packages-and-device-logs-available-for-troubleshooting).
 
 9. Si les étapes précédentes ne permettent pas de résoudre le problème, [contactez le support technique Microsoft](https://msdn.microsoft.com/library/azure/dn757750.aspx) pour obtenir une assistance.
 
@@ -577,4 +577,4 @@ L’erreur peut provenir des éléments suivants :
 [1]: https://technet.microsoft.com/library/dd379547(v=ws.10).aspx
 [2]: https://technet.microsoft.com/library/dd392266(v=ws.10).aspx
 
-<!--------HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

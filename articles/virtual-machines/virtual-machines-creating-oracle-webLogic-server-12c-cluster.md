@@ -1,17 +1,5 @@
-<properties 
-	pageTitle="Création d’un cluster Oracle WebLogic Server 12c dans Microsoft Azure" 
-	description="Découvrez un exemple de création de cluster Oracle WebLogic Server 12c dans Microsoft Azure."
-	services="virtual-machines" 
-	authors="bbenz" 
-	documentationCenter=""/>
-<tags 
-	ms.service="virtual-machines" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.tgt_pltfrm="na" 
-	ms.workload="infrastructure-services" 
-	ms.date="06/22/2015" 
-	ms.author="bbenz" />
+<properties title="Creating an Oracle WebLogic Server 12c cluster in Azure" pageTitle="Création d’un cluster Oracle WebLogic Server 12c dans Microsoft Azure" description="Découvrez un exemple de création de cluster Oracle WebLogic Server 12c dans Microsoft Azure." services="virtual-machines" authors="bbenz" documentationCenter=""/>
+<tags ms.service="virtual-machines" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="infrastructure-services" ms.date="06/22/2015" ms.author="bbenz" />
 #Création d’un cluster Oracle WebLogic Server 12c dans Microsoft Azure
 L’exemple suivant indique de quelle manière créer un cluster Oracle WebLogic Server 12c dans Microsoft Azure, sur la base d’une image Oracle WebLogic Server 12c fournie par Microsoft et exécutée sur un système Windows Server 2012.
 
@@ -111,7 +99,7 @@ Créez des machines virtuelles supplémentaires, qui seront gérées par le serv
 
 	2. Dans la boîte de dialogue **Create a New Server**, procédez comme suit :
 
-		1. Dans le champ **Server Name**, saisissez le nom de votre premier serveur géré. Par exemple :\*\*MYVM2-MANAGED.\*\*
+		1. Dans le champ **Server Name**, saisissez le nom de votre premier serveur géré. Par exemple :**MYVM2-MANAGED.**
 
 		2. Dans le champ **Server Listen Address**, saisissez à nouveau le nom.
 
@@ -189,7 +177,7 @@ Créez des machines virtuelles supplémentaires, qui seront gérées par le serv
 
 	6. Remplacez le répertoire actuel de l’invite de commandes par le répertoire **C:\\Oracle\\Middleware\\Oracle\_Home\\user\_projects\\domains\\base\_domain\\bin.**
 
-	7. Exécutez la commande suivante : start<<\*NOM\_MACHINE\*>>.cmd, la valeur <<\*NOM\_MACHINE\*>> correspondant au nom de l’ordinateur géré. Exemple : **startMYVM2-MANAGED.**
+	7. Exécutez la commande suivante : start<<*NOM\_MACHINE*>>.cmd, la valeur <<*NOM\_MACHINE*>> correspondant au nom de l’ordinateur géré. Exemple : **startMYVM2-MANAGED**.
 
 	8. À l’invite, saisissez les nom d’utilisateur et mot de passe WebLogic Server.
 
@@ -201,14 +189,15 @@ Créez des machines virtuelles supplémentaires, qui seront gérées par le serv
 
 16. Créez un point de terminaison avec équilibrage de charge défini pour vos machines virtuelles gérées :
 
-	1. Dans le [portail Azure](https://ms.portal.azure.com/), accédez à la section **Machines virtuelles**, choisissez la première machine virtuelle gérée (par exemple, **MYVM2-MANAGED)**. 
+	1. Dans le [portail Azure](https://ms.portal.azure.com/), accédez à la section **Machines virtuelles**, choisissez la première machine virtuelle gérée (par exemple, **MYVM2-MANAGED**).
+
 	2. Cliquez sur **Paramètres**, sur **Points de terminaison**, puis sur **Ajouter.**
 
 	3. Indiquez un nom pour le point de terminaison, spécifiez le protocole **TCP**, ainsi que le port public **80** et le port privé **7008.** Ne modifiez aucune des options restantes.
 
 	4. Sélectionnez **Créer un jeu d’équilibrage de la charge**, puis cliquez sur **Terminer.**
 
-	5. Spécifiez un nom pour le jeu d’équilibrage de la charge, acceptez les valeurs par défaut des autres paramètres, puis cliquez sur **Terminer.\*\*
+	5. Spécifiez un nom pour le jeu d’équilibrage de la charge, acceptez les valeurs par défaut des autres paramètres, puis cliquez sur **Terminer.**
 
 17. Créez un point de terminaison pour votre machine virtuelle :
 
@@ -216,7 +205,7 @@ Créez des machines virtuelles supplémentaires, qui seront gérées par le serv
 
 	2. Cliquez sur **Parcourir**.
 
-	3. Cliquez sur **Machines virtuelles**.
+	3. Cliquez sur **Machines virtuelles**.
 
 	4. Sélectionnez la machine virtuelle.
 
@@ -230,9 +219,9 @@ Créez des machines virtuelles supplémentaires, qui seront gérées par le serv
 
 	9. Saisissez le nom du point de terminaison.
 
-		1. Spécifiez le protocole **TCP**.
+		1. Indiquez **TCP** pour le protocole.
 
-		2. Spécifiez le port public **80**.
+		2. Indiquez **80** pour le port public.
 
 		3. Pour le port de sonde, utilisez la valeur **7008**.
 
@@ -250,11 +239,11 @@ Créez des machines virtuelles supplémentaires, qui seront gérées par le serv
 
 1. Connectez-vous à votre machine virtuelle, qui joue le rôle d’administrateur pour le cluster WebLogic Server (par exemple, **MYVM1-ADMIN**). 
 
-2. Copiez l’élément shoppingcart.war en local. Par exemple, créez un dossier nommé **c:\\mywar** et enregistrez le fichier WAR à l’emplacement <http://www.oracle.com/webfolder/technetwork/tutorials/obe/fmw/wls/12c/12-ManageSessions--4478/files/shoppingcart.war> sur **c:\\mywar**.
+2. Copiez l’élément shoppingcart.war en local. Par exemple, créez un dossier nommé **c:\\mywar**, puis enregistrez le fichier WAR à l’emplacement <http://www.oracle.com/webfolder/technetwork/tutorials/obe/fmw/wls/12c/12-ManageSessions--4478/files/shoppingcart.war> sur **c:\\mywar**.
 
 3. Ouvrez la **Console Administration de WebLogic Server**, <http://localhost:7001/console>. À l’invite, saisissez vos nom d’utilisateur et mot de passe WebLogic.
 
-4. Dans la **Console Administration de WebLogic Server**, cliquez sur **Lock & Edit**, sur **Deployments**, puis sur **Install**.
+4. Dans la console **WebLogic Server Administration Console**, cliquez sur **Lock & Edit**, sur **Deployments**, puis sur **Install**.
 
 5. Dans la zone **Path**, saisissez **c:\\myway\\shoppingcart.war**.
 
@@ -262,7 +251,7 @@ Créez des machines virtuelles supplémentaires, qui seront gérées par le serv
 
 	Cliquez sur **Next**.
 
-6. Sélectionnez **Install this deployment as an application** et cliquez sur **Next**.
+6. Sélectionnez **Install this deployment as an application**, puis cliquez sur **Next**.
 
 7. Cliquez sur **Terminer**.
 
@@ -274,7 +263,7 @@ Créez des machines virtuelles supplémentaires, qui seront gérées par le serv
 
 11.  Cliquez sur **Deployments**, choisissez **shoppingcart**, puis cliquez sur **Start** et sur **Service All Requests**. À l’invite de confirmation, cliquez sur **Yes**.
 
-12.  Pour voir l’application shoppingcart en cours d’exécution sur Internet, ouvrez un navigateur et accédez à l’URL, sous la forme `http://<<unique_domain_name>>/shoppingcart`. (Vous pouvez déterminer la valeur de `<<unique_domain_name>>` dans le [portail Azure](https://ms.portal.azure.com/), en cliquant sur Machines Virtuelles, puis en sélectionnant la machine virtuelle que vous utilisez pour exécuter Oracle WebLogic Server).
+12.  Pour observer l’application shoppingcart s’exécuter sur Internet, ouvrez un navigateur et accédez à l’URL, sous la forme `http://<<unique_domain_name>>/shoppingcart`. (Vous pouvez déterminer la valeur de `<<unique_domain_name>>` dans le [portail Azure](https://ms.portal.azure.com/), en cliquant sur Machines Virtuelles, puis en sélectionnant la machine virtuelle que vous utilisez pour exécuter Oracle WebLogic Server).
 
 ## Étapes suivantes
 
@@ -317,4 +306,4 @@ Maintenant que vous avez configuré votre cluster exécutant Oracle WebLogic S
 
 - [Oracle WebLogic Server 12c using Linux on Microsoft Azure](http://www.oracle.com/technetwork/middleware/weblogic/learnmore/oracle-weblogic-on-azure-wp-2020930.pdf)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

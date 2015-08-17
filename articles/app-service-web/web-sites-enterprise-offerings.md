@@ -4,8 +4,10 @@
 	services="app-service\web" 
 	documentationCenter="" 
 	authors="apwestgarth" 
+	writer="cephalin" 
 	manager="wpickett" 
 	editor=""/>
+
 
 <tags 
 	ms.service="app-service-web" 
@@ -13,8 +15,9 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/21/2015" 
+	ms.date="08/04/2015" 
 	ms.author="apwestgarth"/>
+
 
 # Livre blanc sur les offres Azure App Service Web Apps pour les entreprises #
 
@@ -32,13 +35,14 @@ App Service Web Apps est une plateforme idéale pour héberger des applications 
 
 ## Définition du problème ##
 
-Le paysage informatique évolue rapidement, avec l’abandon de l’hébergement sur des serveurs traditionnels qui exigent des coûts d’immobilisation importants sur de longues périodes, au profit d’un hébergement fondé sur l’utilisation à la demande de services dimensionnés automatiquement en fonction de la charge. Les services informatiques sont tenus de réduire le coût et l’encombrement de l’infrastructure, ainsi que les dépenses de maintenance, en mettant l’accent sur la réduction de l’investissement et l’accroissement de l’agilité. La fin de vie imminente de plateformes plus anciennes, comme Windows Server 2003, conduit les services informatiques à considérer la migration vers le cloud comme un moyen permettant d’éviter de nouveaux coûts d’investissement à long terme. Auparavant, les directeurs informatiques décidaient des achats pour d’autres services, mais les directeurs marketing et autres responsables de départements suivent maintenant de plus près leur budget et le retour sur investissement. Le personnel des entreprises devient de plus en plus mobile, travaille à distance, passe davantage de temps en clientèle et nécessite un accès fluide aux systèmes.
+Le paysage informatique évolue rapidement, avec l’abandon de l’hébergement sur des serveurs traditionnels qui exigent des coûts d’immobilisation importants sur de longues périodes, au profit d’un hébergement fondé sur l’utilisation à la demande de services dimensionnés automatiquement en fonction de la charge. Les services informatiques sont tenus de réduire le coût et l’encombrement de l’infrastructure, ainsi que les dépenses de maintenance, en mettant l’accent sur la réduction de l’investissement et l’accroissement de l’agilité. La fin de vie de plateformes plus anciennes, comme Windows Server 2003, conduit les services informatiques à considérer la migration vers le cloud comme un moyen permettant d'éviter de nouveaux coûts en termes d'investissement à long terme. Auparavant, les directeurs informatiques décidaient des achats pour d’autres services, mais les directeurs marketing et autres responsables de départements suivent maintenant de plus près leur budget et le retour sur investissement. Le personnel des entreprises devient de plus en plus mobile, travaille à distance, passe davantage de temps en clientèle et nécessite un accès fluide aux systèmes.
 
 Les besoins évoluent chaque mois, chaque semaine, chaque jour. Les entreprises veulent un déploiement mondial instantané, avec des services mis à jour régulièrement à l’aide de nouvelles fonctionnalités fournies par un tiers ou en interne. Les utilisateurs ont davantage d’attentes et beaucoup utilisent des services tels que Office 365 dans leur vie privée. Ils souhaitent avoir accès à des services similaires, actualisés et riches en fonctionnalités, dans leur vie professionnelle. Pour répondre à cette demande, le service informatique doit faciliter l’implémentation via la sélection et l’intégration de services tiers, choisir avec soin les plateformes qui peuvent s’adapter aux besoins de l’entreprise, et concilier fiabilité et un coût total de possession réduit.
 
 Les équipes de développement cherchent à apporter des avantages métier immédiats, en fournissant régulièrement de nouvelles fonctionnalités. Elles veulent une plateforme économique et fiable, qui intègre leurs outils et pratiques : développement, test, commercialisation. Elles collaborent avec les services informatiques pour automatiser le déploiement, la gestion et les alertes, avec comme principal objectif l’absence d’interruption.
 
 <a href="highlevel" />
+
 ## Solution de haut niveau ##
 
 Les infrastructures et les plateformes web sont de plus en plus utilisées pour développer, tester et héberger des applications métier. Prenons le cas d’une application métier classique, telle qu’un système interne de notes de frais des employés, souvent constitué d’une application web avec une base de données de sauvegarde pour stocker les données connectées à l’application.
@@ -80,7 +84,7 @@ App Service Web Apps fournit une plateforme fiable et stable, capable de gérer 
 
 La plateforme Microsoft Azure autorise les contrôles d’autorisation basés sur des rôles, qui assurent un contrôle professionnel des ressources dans Web Apps. Avec RBAC, les entreprises peuvent implémenter leurs propres stratégies de gestion des accès pour l’ensemble de leurs actifs dans l’environnement Azure, en affectant des utilisateurs aux groupes et en attribuant les autorisations nécessaires à ces groupes en fonction des actifs, tels qu’une application web. Pour plus d’informations sur RBAC dans Azure, consultez la page [http://aka.ms/azurerbac](../role-based-access-control-configure/). Avec Web Apps, vous avez l’assurance que vos applications web sont déployées dans un environnement sécurisé et vous avez un contrôle total sur le territoire où vos actifs sont déployés.
 
-De plus, Web Apps peut également tirer pleinement parti de vos investissements locaux en vous permettant de vous reconnecter à vos ressources internes, telles que votre entrepôt de données ou votre environnement SharePoint. Comme indiqué dans [Solution de niveau élevé], vous utilisez des connexions hybrides et la connectivité au réseau virtuel pour établir des connexions à l’infrastructure et aux services locaux.
+De plus, Web Apps peut également tirer pleinement parti de vos investissements locaux en vous permettant de vous reconnecter à vos ressources internes, telles que votre entrepôt de données ou votre environnement SharePoint. Comme indiqué dans [Solution de niveau élevé\], vous utilisez des connexions hybrides et la connectivité au réseau virtuel pour établir des connexions à l’infrastructure et aux services locaux.
 
 ### Portée mondiale ###
 
@@ -153,4 +157,4 @@ Pour plus d’informations sur le service Azure App Service Web Apps, visitez le
  
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

@@ -9,17 +9,17 @@
 <tags
    ms.service="load-balancer"
    ms.devlang="na"
-   ms.topic="get-started-article"
+   ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="07/22/2015"
+   ms.date="08/03/2015"
    ms.author="joaoma" />
 
 # Prise en main de la configuration d’un équilibrage de charge accessible sur Internet à l’aide d’Azure Resource Manager
 
 
 > [AZURE.SELECTOR]
-- [Service Manager steps](load-balancer-internet-getstarted.md)
+- [Azure Classic steps](load-balancer-internet-getstarted.md)
 - [Resource Manager Powershell steps](load-balancer-arm-powershell.md)
 
 
@@ -251,4 +251,4 @@ Pour la procédure détaillée à suivre pour créer une machine virtuelle et d�
 [Configuration des paramètres de délai d’expiration TCP inactif pour votre équilibrage de charge](load-balancer-tcp-idle-timeout.md)
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

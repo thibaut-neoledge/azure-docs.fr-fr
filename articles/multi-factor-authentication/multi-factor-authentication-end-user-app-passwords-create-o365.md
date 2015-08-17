@@ -43,4 +43,4 @@ Si vous utilisez l’authentification multifacteur avec Office 365, vous souhai
 <li>Saisissez un nom pour le mot de passe d’application et cliquez sur **Suivant**.</li>
 <li>Copiez le mot de passe d’application dans le Presse-papiers et collez-le dans votre application.</li>
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

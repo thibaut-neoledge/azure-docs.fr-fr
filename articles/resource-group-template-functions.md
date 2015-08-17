@@ -388,4 +388,4 @@ Retourne la valeur de la variable. Le nom de variable spécifié doit être déf
 - Pour itérer un nombre de fois spécifié lors de la création d'un type de ressource, consultez [Création de plusieurs instances de ressources dans Azure Resource Manager](resource-group-create-multiple.md).
 - Pour savoir comment déployer le modèle que vous avez créé, consultez [Déploiement d'une application avec un modèle Azure Resource Manager](azure-portal/resource-group-template-deploy.md).
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

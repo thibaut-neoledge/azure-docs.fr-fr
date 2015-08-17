@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/17/2015" 
+	ms.date="07/24/2015" 
 	ms.author="sidneyh"/>
 
 # FAQ sur les outils de bases de données élastiques 
@@ -28,7 +28,7 @@ Consultez **[Ajout d’une partition à une application à l’aide de la biblio
 L’utilisation de la bibliothèque cliente des bases de données élastiques est gratuite. Les coûts sont uniquement liés à l’utilisation des bases de données Azure SQL pour les partitions et le gestionnaire des mappages de partition, ainsi qu’aux rôles web/de travail configurés pour le service de fractionnement/fusion.
 
 #### Pourquoi mes informations d’identification ne fonctionnent pas quand j’ajoute une partition d’un autre serveur ?
-N’utilisez pas les informations d’identification de type « ID d’utilisateur = nom_utilisateur@nom_serveur », à la place utilisez simplement « ID d’utilisateur = nom_utilisateur ». Par ailleurs, assurez-vous que l’ID de connexion « nom_utilisateur » dispose d’autorisations sur la partition.
+N’utilisez pas les informations d’identification de type « ID d’utilisateur = nom\_utilisateur@nom\_serveur », à la place utilisez simplement « ID d’utilisateur = nom\_utilisateur ». Par ailleurs, assurez-vous que l’ID de connexion « nom\_utilisateur » dispose d’autorisations sur la partition.
 
 #### Dois-je créer un gestionnaire de cartes de partition et remplir les partitions chaque fois que je démarre mes applications ?
 Non, la création du gestionnaire de mappages de partitions (par exemple, **[ShardMapManagerFactory.CreateSqlShardMapManager](http://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.createsqlshardmapmanager.aspx)**) est une opération unique. Votre application doit appeler **[ShardMapManagerFactory.TryGetSqlShardMapManager()](http://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.trygetsqlshardmapmanager.aspx)** au démarrage de l’application. Un seul appel de ce type n’est possible par domaine d’application.
@@ -48,4 +48,4 @@ Non. Pour les opérations de **fractionnement**, la base de données cible doit 
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

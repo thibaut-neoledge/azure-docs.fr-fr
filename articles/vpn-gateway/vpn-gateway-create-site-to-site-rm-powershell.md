@@ -123,7 +123,7 @@ La configuration de la passerelle définit le sous-réseau et l’adresse IP pub
 Dans cette étape, vous allez créer la passerelle de réseau virtuel. Utilisez les valeurs suivantes :
 
 - Le type de passerelle est *Vpn*.
-- Le type Vpn peut être Basé sur des routes\* (appelé passerelle dynamique dans certaines documentations) ou *Basé sur des stratégies* (appelé passerelle statique dans certaines documentations). Pour plus d’informations sur les types de passerelles VPN, consultez [À propos des passerelles VPN](vpn-gateway-about-vpngateways.md). 	
+- Le type Vpn peut être Basé sur des routes* (appelé passerelle dynamique dans certaines documentations) ou *Basé sur des stratégies* (appelé passerelle statique dans certaines documentations). Pour plus d’informations sur les types de passerelles VPN, consultez [À propos des passerelles VPN](vpn-gateway-about-vpngateways.md). 	
 
 		New-AzureVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg -Location 'West US' -IpConfigurations $gwipconfig -GatewayType Vpn -VpnType RouteBased
 
@@ -152,4 +152,4 @@ Après quelques minutes, la connexion doit être établie. À ce stade, les conn
 
 Ajoutez une machine virtuelle à votre réseau virtuel. [Créez une machine virtuelle](../virtual-machines/virtual-machines-windows-tutorial.md).
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

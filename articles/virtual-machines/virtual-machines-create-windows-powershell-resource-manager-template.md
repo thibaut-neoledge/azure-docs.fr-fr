@@ -333,4 +333,4 @@ Le résultat suivant doit s'afficher :
 
 [Installation et configuration d’Azure PowerShell](install-configure-powershell.md)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

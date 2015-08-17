@@ -48,4 +48,4 @@ L'activation de votre compte concerne toutes les collections RemoteApp de votre 
 Si vous ne passez pas en mode de production à l'expiration de votre version d'évaluation, vos collections RemoteApp sont désactivées. Ne vous inquiétez pas, vos paramètres et données utilisateur sont enregistrés pendant 90 jours supplémentaires, vous pouvez donc toujours activer votre service et passer en mode de production sans perte de données.
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

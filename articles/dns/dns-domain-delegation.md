@@ -10,7 +10,7 @@
 <tags
    ms.service="dns"
    ms.devlang="na"
-   ms.topic="get-started-article"
+   ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="04/28/2015"
@@ -72,7 +72,7 @@ Pour configurer la délégation, vous devez connaître les noms de serveur de no
 
 À l’aide d’Azure PowerShell, les enregistrements NS faisant autorité peuvent être récupérés comme suit (le nom d’enregistrement « @ » fait référence à des enregistrements au sommet de la zone) :
 
-	PS C:\> $zone = New-AzureDnsZone –Name contoso.com –ResourceGroupName MyAzureResourceGroup
+	PS C:\> $zone = Get-AzureDnsZone –Name contoso.com –ResourceGroupName MyAzureResourceGroup
 	PS C:\> Get-AzureDnsRecordSet –Name “@” –RecordType NS –Zone $zone
 
 	Name              : @
@@ -161,4 +161,4 @@ De la même façon que pour la délégation à l'aide d'un bureau d'enregistreme
 [Référence de l’API REST d’Azure DNS](https://msdn.microsoft.com/library/azure/mt163862.aspx)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

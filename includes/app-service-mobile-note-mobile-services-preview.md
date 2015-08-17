@@ -1,3 +1,3 @@
 >[AZURE.NOTE]Il s’agit d’une rubrique **Azure Mobile Apps**. Pour le contenu relatif à Mobile Services, consultez le [Centre de documentation Mobile Services](/documentation/services/mobile-services/). <br/><br/> Mobile Apps est actuellement en version préliminaire et n’est pas encore recommandé pour la production. Les contrats SDK et API sont susceptibles de changer, même dans les versions mineures. Pour les applications de production, préférez Mobile Services.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

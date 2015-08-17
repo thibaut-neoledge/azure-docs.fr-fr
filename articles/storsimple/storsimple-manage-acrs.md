@@ -6,6 +6,7 @@
    authors="alkohli"
    manager="carolz"
    editor="tysonn" />
+
 <tags 
    ms.service="storsimple"
    ms.devlang="na"
@@ -15,9 +16,10 @@
    ms.date="06/10/2015"
    ms.author="alkohli" />
 
+
 # Gérer les enregistrements de contrôle d’accès dans StorSimple
 
-## Vue d’ensemble
+## Vue d'ensemble
 
 Les enregistrements de contrôle d’accès vous permettent de spécifier les hôtes qui peuvent se connecter à un volume sur l’appareil StorSimple. Les enregistrements de contrôle d’accès sont définis pour un volume spécifique et contiennent les noms complets iSCSI (IQN) des ordinateurs hôtes. Lorsqu’un hôte essaie de se connecter à un volume, l’appareil vérifie l’enregistrement de contrôle d’accès associé à ce volume pour le nom complet iSCSI (IQN) et s’il existe une correspondance, la connexion est établie. La section des enregistrements de contrôle d’accès de la page **Configurer** affiche tous les enregistrements de contrôle d’accès avec les noms complets iSCSI (IQN) des hôtes correspondants.
 
@@ -84,7 +86,7 @@ Pour supprimer un enregistrement de contrôle d’accès, procédez comme suit.
 
 2. Dans la liste de la table des enregistrements de contrôle d’accès, pointez sur l’enregistrement que vous souhaitez supprimer.
 
-3. Une icône de suppression (**x**) apparaît dans la colonne la plus à droite pour l’enregistrement de contrôle d’accès que vous sélectionnez. Cliquez sur l’icône **x** pour supprimer l’enregistrement de contrôle d’accès.
+3. Une icône de suppression (**x**) apparaît dans la colonne la plus à droite, en regard de l’enregistrement de contrôle d’accès que vous sélectionnez. Cliquez sur l’icône **x** pour supprimer l’enregistrement de contrôle d’accès.
 
 4. Lorsque vous êtes invité à confirmer la suppression, cliquez sur **Oui** pour continuer. La liste de la table est mise à jour pour refléter la suppression.
 
@@ -94,4 +96,4 @@ Pour supprimer un enregistrement de contrôle d’accès, procédez comme suit.
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

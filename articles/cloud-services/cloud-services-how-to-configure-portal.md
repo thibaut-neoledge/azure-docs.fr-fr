@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Configuration d'un service cloud - Azure";" 
+	pageTitle="Configuration d'un service cloud - Azure&quot;" 
 	description="Découvrez comment configurer des services cloud dans Azure. Apprenez à mettre à jour la configuration d'un service cloud et à configurer l'accès distant aux instances de rôle." 
 	services="cloud-services" 
 	documentationCenter="" 
@@ -89,4 +89,4 @@ L’accès à distance ne peut pas être configuré à l'aide du **portail Azure
 			
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

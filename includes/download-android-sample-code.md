@@ -5,7 +5,7 @@ Ce didacticiel est basé sur l’application **GetStartedWithData** (Android). L
 
 2. Décompressez le fichier téléchargé et notez son emplacement ou déplacez-le vers votre répertoire de projets Android Studio.
 
-3. Ouvrez Android Studio. Si vous travaillez avec un autre projet et qu’il s’affiche, fermez le projet (**Fichier => Fermer le projet**).
+3. Ouvrez Android Studio. Si vous travaillez sur un autre projet et que celui-ci s’ouvre, fermez-le (**Fichier => Fermer le projet**).
 
 4. Sélectionnez **Ouvrir un projet Android Studio**, accédez à l’emplacement du projet dans le dossier *AndroidStudio* de *GettingStartedWithData*, puis cliquez sur **OK**.
 
@@ -15,4 +15,4 @@ Ce didacticiel est basé sur l’application **GetStartedWithData** (Android). L
 	Le projet est maintenant prêt à être utilisé.
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -346,4 +346,4 @@ Les langues prises en charge pour le moment sont l’anglais et l’espagnol. Po
 
 <!-- URLs. -->
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

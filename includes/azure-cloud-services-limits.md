@@ -28,4 +28,4 @@
 
 <sup>1</sup>Chaque service cloud avec des rôles de travail/web peut posséder deux déploiements, un pour la production et un autre pour le développement intermédiaire. Notez aussi que cette limite s'applique au nombre de rôles distincts (configuration) et non au nombre d'instances par rôle (extensibilité).
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

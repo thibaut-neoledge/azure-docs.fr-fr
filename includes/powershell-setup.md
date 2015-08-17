@@ -68,4 +68,4 @@ Vous pouvez configurer l'abonnement Azure actuel en exécutant ces commandes à 
 
 Pour plus d’informations sur les comptes et les abonnements Azure, consultez [Procédure : Connexion à votre abonnement](powershell-install-configure.md#Connect).
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

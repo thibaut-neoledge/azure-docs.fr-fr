@@ -61,4 +61,4 @@ Pour plus d’informations, consultez la page [Équilibrage de charge interne](h
 
 <!-- LINKS -->
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

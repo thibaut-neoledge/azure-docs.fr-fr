@@ -75,4 +75,4 @@ Pour organiser votre tableau de bord, accédez à la vue Mon tableau de bord et 
 ## Suppression d'une vignette
 Pour supprimer une vignette, accédez à la vue Mon tableau de bord et cliquez sur l'icône d'engrenage **Personnaliser** située en bas de la page pour passer en mode de personnalisation. Sélectionnez la vignette à supprimer, puis dans le volet droit, sélectionnez **Supprimer une vignette**. ![Suppression d'une vignette](./media/operational-insights-use-dashboards/remove-tile.png)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

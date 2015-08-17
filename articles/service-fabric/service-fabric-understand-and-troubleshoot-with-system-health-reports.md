@@ -74,7 +74,7 @@ HealthEvents          :
 
 
 ### Expiration du certificat
-System.FabricNode consigne la valeur Warning lorsque les certificats utilisés par le nœud sont sur le point d’expirer. Chaque nœud comporte trois certificats associés : Certificate_cluster, Certificate_server et Certificate_default_client. Lorsque la date d’expiration est distante d’au moins deux semaines, le type du rapport est OK. Si elle survient dans les deux semaines suivantes, le rapport présente le type Warning. La durée de vie de ces événements est infinie. Ils sont supprimés lorsqu’un nœud quitte un cluster.
+System.FabricNode consigne la valeur Warning lorsque les certificats utilisés par le nœud sont sur le point d’expirer. Chaque nœud comporte trois certificats associés : Certificate\_cluster, Certificate\_server et Certificate\_default\_client. Lorsque la date d’expiration est distante d’au moins deux semaines, le type du rapport est OK. Si elle survient dans les deux semaines suivantes, le rapport présente le type Warning. La durée de vie de ces événements est infinie. Ils sont supprimés lorsqu’un nœud quitte un cluster.
 
 - SourceId : System.FabricNode
 - Property : démarre par Certificate et contient des informations supplémentaires sur le type de certificat.
@@ -530,4 +530,4 @@ System.Hosting consigne la valeur Error si la validation de la mise à niveau é
 [Mise à niveau des applications Service Fabric](service-fabric-application-upgrade.md)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

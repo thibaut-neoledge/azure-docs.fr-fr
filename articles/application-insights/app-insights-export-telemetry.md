@@ -194,4 +194,4 @@ Nous disposons d’exemples illustrant deux autres méthodes de déplacement des
 
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

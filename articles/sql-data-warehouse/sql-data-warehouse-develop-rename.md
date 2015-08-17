@@ -17,7 +17,7 @@
    ms.author="JRJ@BigBangData.co.uk;barbkess"/>
 
 # Changements de noms dans SQL Data Warehouse
-SQL Server prend en charge les changements de noms d’objets et de bases de données via les procédures stockées « sp_rename » et « sp_renamedb », respectivement.
+SQL Server prend en charge les changements de noms d’objets et de bases de données via les procédures stockées « sp\_rename » et « sp\_renamedb », respectivement.
 
 Pour atteindre cet objectif, le logiciel SQL Data Warehouse utilise quant à lui la syntaxe DDL. Les commandes DDL sont RENAME OBJECT et RENAME DATABASE.
 
@@ -80,4 +80,4 @@ Pour obtenir des conseils supplémentaires en matière de développement, voir l
 <!--Other Web references-->
 [Azure management portal]: http://portal.azure.com/
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

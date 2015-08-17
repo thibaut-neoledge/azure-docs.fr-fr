@@ -20,7 +20,13 @@ Le service d’objets blob contient les composants suivants :
 
 -   **Conteneur :** un conteneur regroupe un ensemble d'objets blob. Tous les objets blob doivent figurer dans un conteneur. Un compte peut contenir un nombre illimité de conteneurs. Un conteneur peut stocker un nombre illimité d’objets blob.
 
--   **Objet blob :** fichier de tout type et de toute taille. Il existe deux types d’objets blob qui peuvent être enregistrés dans un stockage Azure : les objets blob de blocs et les objets blob de pages. La plupart des fichiers sont des objets blob de blocs. Un objet blob de blocs peut avoir une taille maximale de 200 Go. Ce didacticiel utilise des objets blob de blocs. Les objets blob de pages, autre type d'objet blob, peuvent avoir une taille maximale de 1 To et sont plus efficaces lorsque les plages d'octets d'un fichier sont fréquemment modifiées. Pour plus d’informations sur les blobs, consultez la page [Présentation des objets BLOB de blocs et des objets BLOB de pages](https://msdn.microsoft.com/library/azure/ee691964.aspx).
+-   **Objet blob :** fichier de tout type et de toute taille. Azure Storage propose trois types d’objets blob : les objets blob de blocs, les objets blob d’ajouts et les objets blob de pages.
+    
+	Les *objets blob de blocs* sont parfaits pour le stockage des fichiers texte ou binaires, tels que les documents et les fichiers multimédias. Les *objets blob d’ajout* sont similaires aux objets blob de blocs dans la mesure où ils sont composés de blocs. Cependant, ils sont optimisés pour les opérations d’ajouts et sont donc utiles pour les scénarios de journalisation. Un objet blob de blocs ou d’ajouts peut contenir jusqu’à 50 000 blocs de 4 Mo chacun, soit une taille totale légèrement supérieure à 195 Go (4 Mo X 50 000).
+    
+	La taille maximale des *objets blob de pages* peut atteindre 1 To. Ces objets sont plus efficaces pour les opérations fréquentes de lecture/écriture. Azure Virtual Machines utilise des objets blob de pages comme disques de données et disques du système d’exploitation.
+
+	Pour plus d’informations sur les objets blob, consultez [Présentation des objets blob de blocs, des objets blob d’ajout et des objets blob de pages](https://msdn.microsoft.com/library/azure/ee691964.aspx).
 
 ## Désignation et référencement des conteneurs et des objets BLOB
 
@@ -49,7 +55,7 @@ Les noms des objets BLOB doivent être conformes aux règles suivantes :
 - Les noms des objets BLOB doivent comporter entre 1 et 1 024 caractères.
 - Les noms des objets BLOB sont sensibles à la casse.
 - Les caractères réservés d’URL doivent être placés dans des séquences d’échappement appropriées.
-- Les noms des objets BLOB ne peuvent pas comporter plus de 254 segments de tracé. Un segment de tracé est la chaîne positionnée entre deux caractères consécutifs de délimitation (par exemple, la barre oblique), qui correspond au nom d’un répertoire virtuel.
+- Les noms des objets BLOB ne peuvent pas comporter plus de 254 segments de tracé. Un segment de tracé est la chaîne positionnée entre deux caractères consécutifs de délimitation (*par exemple*, la barre oblique), qui correspond au nom d’un répertoire virtuel.
 
 Le service BLOB est basé sur un schéma de stockage plat. Vous pouvez créer une hiérarchie virtuelle en définissant un caractère ou un délimiteur de chaîne dans le nom d’objet BLOB. Par exemple, la liste suivante représente quelques noms d’objets BLOB valides et uniques :
 
@@ -63,4 +69,4 @@ Vous pouvez utiliser le caractère de délimitation pour hiérarchiser les objet
 
 [Blob1]: ./media/storage-blob-concepts-include/blob1.jpg
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

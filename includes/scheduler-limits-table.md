@@ -16,4 +16,4 @@ Le tableau suivant décrit chaque quota, limite, valeur par défaut et limitatio
 |**Conservation des travaux terminés et ayant généré une erreur**|Les travaux terminés et ayant généré une erreur sont conservés pendant 60 jours.|
 |**Délai d'expiration**|Il existe un délai d'expiration de requête (non modifiable) statique de 30 secondes pour les actions HTTP. Pour les opérations en cours d'exécution plus longues, suivez les protocoles HTTP asynchrones ; par exemple, retourner un 202 immédiatement, mais continuer de travailler en arrière-plan.|
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

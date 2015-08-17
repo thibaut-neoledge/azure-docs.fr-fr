@@ -51,9 +51,9 @@ ALTER ROLE db_datareader ADD MEMBER ApplicationUser; -- allows ApplicationUser t
 ALTER ROLE db_datawriter ADD MEMBER ApplicationUser; -- allows ApplicationUser to write data
 ```
 
-Le compte d’administrateur du serveur avec lequel vous vous connectez appartient au groupe « db_owner », qui est autorisé à effectuer tout type d’opérations dans la base de données. Enregistrez ce compte pour l’utiliser lors du déploiement des mises à niveau de schéma et d’autres opérations de gestion. Utilisez le compte « ApplicationUser », doté d’autorisations plus limitées, pour vous connecter à la base de données à partir de votre application, en bénéficiant du niveau de privilèges le moins élevé requis par cette dernière.
+Le compte d’administrateur du serveur avec lequel vous vous connectez appartient au groupe « db\_owner », qui est autorisé à effectuer tout type d’opérations dans la base de données. Enregistrez ce compte pour l’utiliser lors du déploiement des mises à niveau de schéma et d’autres opérations de gestion. Utilisez le compte « ApplicationUser », doté d’autorisations plus limitées, pour vous connecter à la base de données à partir de votre application, en bénéficiant du niveau de privilèges le moins élevé requis par cette dernière.
 
-Il existe des moyens supplémentaires permettant de limiter les actions de l’utilisateur dans une base de données SQL Microsoft Azure : - Les [rôles de base de données][] différents de db_datareader et de db_datawriter peuvent être utilisés pour créer des comptes plus puissants d’utilisateur de l’application ou des comptes de gestion moins puissants. - Les [autorisations][] granulaires sont utilisées pour contrôler les opérations pouvant être exécutées sur les différentes colonnes, tables, vues, procédures et les autres objets de la base de données. - Les [procédures stockées][] servent à restreindre les actions pouvant être exécutées sur la base de données.
+Il existe des moyens supplémentaires permettant de limiter les actions de l’utilisateur dans une base de données SQL Microsoft Azure : - Les [rôles de base de données][] différents de db\_datareader et de db\_datawriter peuvent être utilisés pour créer des comptes plus puissants d’utilisateur de l’application ou des comptes de gestion moins puissants. - Les [autorisations][] granulaires sont utilisées pour contrôler les opérations pouvant être exécutées sur les différentes colonnes, tables, vues, procédures et les autres objets de la base de données. - Les [procédures stockées][] servent à restreindre les actions pouvant être exécutées sur la base de données.
 
 La gestion des bases de données et serveurs logiques à partir du portail de gestion Microsoft Azure et l’utilisation de l’API Azure Resource Manager sont contrôlées par les affectations associées au rôle de votre compte d’utilisateur sur le portail. Pour en savoir plus à ce sujet, voir [Contrôle d’accès en fonction du rôle dans la version préliminaire du portail Azure][].
 
@@ -78,4 +78,4 @@ Pour obtenir des conseils supplémentaires en matière de développement, voir l
 <!--Other Web references-->
 [Contrôle d’accès en fonction du rôle dans la version préliminaire du portail Azure]: http://azure.microsoft.com/documentation/articles/role-based-access-control-configure.aspx
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

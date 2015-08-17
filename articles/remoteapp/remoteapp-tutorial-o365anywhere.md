@@ -64,4 +64,4 @@ Lorsque vous cliquez sur l’une de ces applications, celle-ci démarre sur la m
 ![PowerPoint](https://raw.githubusercontent.com/guscatalano/azure-content/master/articles/media/remoteapp-tutorial-o365anywhere/11-pp.PNG)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

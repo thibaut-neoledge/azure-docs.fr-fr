@@ -119,23 +119,23 @@ Utilisez la procédure suivante à deux reprises, une fois pour chaque machine S
 3.	Dans le volet gauche, cliquez avec le bouton droit sur le nœud supérieur, qui constitue l’instance par défaut nommée en fonction de la machine, puis cliquez sur **Propriétés**.
 4.	Dans **Propriétés du serveur**, cliquez sur **Paramètres de base de données**.
 5.	Dans **Emplacements de la base de données par défaut**, définissez les valeurs suivantes :
-- Pour **Données**, définissez le chemin d’accès **f:\Data**.
-- Pour **Journal**, définissez le chemin d’accès **f:\Log**.
-- Pour **Sauvegarde**, définissez le chemin d’accès **f:\Backup**.
+- Pour **Données**, définissez le chemin d’accès **f:\\Data**.
+- Pour **Journal**, définissez le chemin d’accès **f:\\Log**.
+- Pour **Sauvegarde**, définissez le chemin d’accès **f:\\Backup**.
 - Seules les nouvelles bases de données utilisent ces emplacements.
 6.	Cliquez sur **OK** pour fermer la fenêtre.
 7.	Dans le volet gauche, développez le **dossier Sécurité**.
 8.	Cliquez avec le bouton droit sur **Connexions** et sélectionnez **Nouvelle connexion**.
-9.	Dans **Nom de connexion**, entrez *domain*\sp_farm_db, où *domain* désigne le nom du domaine dans lequel le compte sp_farm_db a été créé.
+9.	Dans **Nom de connexion**, entrez *domain*\\sp\_farm\_db, où *domain* désigne le nom du domaine dans lequel le compte sp\_farm\_db a été créé.
 10.	Sous **Sélectionner une page**, cliquez sur **Rôles de serveur**, puis sur **sysadmin** et sur **OK**.
 11.	Fermez SQL Server 2014 Management Studio.
 
-Utilisez la procédure suivante à deux reprises, une fois pour chaque machine SQL Server, afin d’autoriser les connexions Bureau à distance par le biais du compte sp_farm_db.
+Utilisez la procédure suivante à deux reprises, une fois pour chaque machine SQL Server, afin d’autoriser les connexions Bureau à distance par le biais du compte sp\_farm\_db.
 
 1.	Sur l’écran d’accueil, cliquez avec le bouton droit sur **Ce PC**, puis cliquez sur **Propriétés**.
 2.	Dans la fenêtre **Système**, cliquez sur **Paramètres d’utilisation à distance**.
 3.	Dans **Bureau à distance** cliquez sur **Sélectionner les utilisateurs**, puis sur **Ajouter**.
-4.	Dans **Entrez les noms des objets à sélectionner**, entrez domain**\sp_farm_db**, puis cliquez sur **OK** trois fois.
+4.	Dans **Entrez les noms des objets à sélectionner**, entrez domain**\\sp\_farm\_db**, puis cliquez sur **OK** trois fois.
 
 SQL Server nécessite un port permettant d’accéder au serveur de base de données. Il requiert également des ports pour la connexion à SQL Server Management Studio et la gestion du groupe à haute disponibilité. Exécutez ensuite la commande ci-après à partir d’une invite de commandes Windows PowerShell au niveau administrateur à deux reprises (une fois pour chaque machine SQL Server) afin d’ajouter une règle de pare-feu autorisant le trafic entrant vers la machine SQL Server.
 
@@ -167,7 +167,7 @@ Pour les deux ordinateurs SQL Server et le nœud majoritaire du cluster, exécu
 
 En raison du comportement actuel de DHCP dans Azure, qui n’est pas conforme au document RFC, il est possible que la création d’un cluster WSFC échoue. Pour plus d’informations, recherchez « Comportement du cluster WSFC sur le réseau Azure » sur la page Haute disponibilité et récupération d’urgence pour SQL Server sur des machines virtuelles Azure. Une solution de contournement existe malgré tout. Pour créer le cluster, procédez comme suit :
 
-1.	Connectez-vous à la machine virtuelle SQL Server principale en vous servant du compte **sp_install**.
+1.	Connectez-vous à la machine virtuelle SQL Server principale en vous servant du compte **sp\_install**.
 2.	Sur l’écran d’accueil, entrez **Basculement**, puis cliquez sur **Gestionnaire du cluster de basculement**.
 3.	Dans le volet gauche, cliquez sur **Gestionnaire du cluster de basculement**, puis cliquez sur **Créer le cluster**.
 4.	Sur la page Avant de commencer, cliquez sur **Suivant**.
@@ -197,12 +197,12 @@ L’étape suivante consiste à activer les groupes de disponibilité AlwaysOn �
 
 Suivez cette procédure pour activer les groupes de disponibilité AlwaysOn sur SQL Server.
 
-1.	Connectez-vous à la machine SQL Server principale par le biais du compte **sp_farm_db** ou d’un autre compte disposant d’un rôle de serveur sysadmin sur la machine SQL Server.
+1.	Connectez-vous à la machine SQL Server principale par le biais du compte **sp\_farm\_db** ou d’un autre compte disposant d’un rôle de serveur sysadmin sur la machine SQL Server.
 2.	Sur l’écran d’accueil, entrez **Configuration de SQL Server**, puis cliquez sur **Gestionnaire de configuration SQL Server**.
 3.	Dans le volet gauche, cliquez sur **Services SQL Server**.
 4.	Dans le volet de contenu, double-cliquez sur **SQL Server (MSSQLSERVER)**.
 5.	Dans **Propriétés de SQL Server (MSSQLSERVER)**, cliquez sur l’onglet **Haute disponibilité AlwaysOn**, sélectionnez **Activer les groupes de disponibilité AlwaysOn**, cliquez sur **Appliquer**, puis cliquez sur **OK** lorsque vous y êtes invité. Ne fermez pas encore la fenêtre Propriétés.
-6.	Cliquez sur l’onglet virtual-machines-manage-availability, puis entrez Domain**\sqlservice** dans **Nom du compte**. Saisissez le mot de passe du compte sqlservice dans **Mot de passe** et **Confirmer le mot de passe**, puis cliquez sur **OK**.
+6.	Cliquez sur l’onglet virtual-machines-manage-availability, puis entrez Domain**\\sqlservice** dans **Nom du compte**. Saisissez le mot de passe du compte sqlservice dans **Mot de passe** et **Confirmer le mot de passe**, puis cliquez sur **OK**.
 7.	Dans la fenêtre du message, cliquez sur **Oui** pour redémarrer le service SQL Server.
 8.	Connectez-vous à la machine SQL Server secondaire et répétez la procédure.
 
@@ -226,4 +226,4 @@ Pour poursuivre la configuration de cette charge de travail, passez à la [Phase
 
 [Instructions d’implémentation des services d’infrastructure Azure](virtual-machines-infrastructure-services-implementation-guidelines.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -25,26 +25,26 @@ Le [portail de gestion Microsoft Azure][Management Portal] vous permet de crée
 
 ![Vue d’ensemble des bases de données](./media/sql-database-manage-portal/sqldatabase_annotated.png)
 
-## 1. Actions de gestion des bases de données
+## 1\. Actions de gestion des bases de données
 ![Actions de gestion des bases de données](./media/sql-database-manage-portal/sqldatabase_actions.png)
 
 Le portail de gestion Microsoft Azure fournit un ensemble d’actions communes à exécuter sur les bases de données, accessibles sur la partie supérieure du volet d’une base de données. Vous pouvez restaurer une base de données à un moment donné, l’ouvrir dans Visual Studio, la copier vers un nouveau serveur et l’exporter vers un compte Microsoft Azure Storage.
 
-## 2. Surveillance des bases de données
+## 2\. Surveillance des bases de données
 ![Surveillance des bases de données](./media/sql-database-manage-portal/sqldatabase_monitoring.png)
 
 Par défaut, les bases de données SQL Microsoft Azure proposent des graphiques de surveillance des unités de débit de base de données (DTU), de la taille des bases de données et de l’intégrité des connexions. Ces graphiques de surveillance peuvent être personnalisés et étendus afin d’inclure le pourcentage de CPU, le pourcentage d’E/S des données, les blocages, le pourcentage d’E/S des fichiers journaux, voire le pourcentage des demandes bloquées par le pare-feu. Pour en savoir plus sur la personnalisation des graphiques de surveillance, cliquez [ici][Azure part monitoring].
 
 En outre, des règles d’alerte peuvent être configurées pour surveiller une métrique spécifique et signaler à un administrateur ou à coadministrateur désigné qu’un seuil prédéfini a été atteint. Pour en savoir plus sur la configuration des règles d’alertes dans le portail de gestion Microsoft Azure, cliquez [ici][Azure part monitoring].
 
-## 3. Audit et sécurité des bases de données
+## 3\. Audit et sécurité des bases de données
 ![Sécurité des bases de données](./media/sql-database-manage-portal/sqldatabase_security.png)
 
 Vous pouvez configurer les bases de données SQL Microsoft Azure pour effectuer le suivi de l’ensemble des événements des bases de données et les écrire dans un fichier journal d’audit, dans votre compte Microsoft Azure Storage. Cette fonction peut vous aider à assurer la conformité réglementaire des bases de données, à identifier leurs activités et à obtenir des informations sur les écarts susceptibles de signaler des problèmes liés à l’activité ou des violations de sécurité éventuelles. Pour en savoir plus sur les audits de bases de données SQL Microsoft Azure, cliquez [ici][AzureDb Auditing].
 
 Il est également possible de configurer les bases de données SQL Microsoft Azure de manière à masquer les données sensibles aux utilisateurs non autorisés. Pour en savoir plus sur la fonction de masquage des données dynamiques des bases de données SQL Microsoft Azure, cliquez [ici][AzureDb datamasking].
 
-## 4. Géo-réplication
+## 4\. Géo-réplication
 ![Géo-réplication](./media/sql-database-manage-portal/sqldatabase_georeplication.png)
 
 Vous pouvez configurer les bases de données SQL Microsoft Azure pour répliquer de manière asynchrone les transactions validées vers une base de données secondaire. La fonction de géo-réplication du portail de gestion vous permet de sélectionner la région Microsoft Azure sur laquelle vous voulez que la base de données secondaire réside. Pour en savoir plus sur la géo-réplication des bases de données dans Microsoft Azure, cliquez [ici][Database geo-replication].
@@ -70,4 +70,4 @@ Vous pouvez configurer les bases de données SQL Microsoft Azure pour répliqu
  
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

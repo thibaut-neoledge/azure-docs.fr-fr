@@ -263,27 +263,27 @@ Pour exécuter l'une des requêtes ci-dessous, collez-la dans la fenêtre et sé
 
 #### Mesures avancées
 
-Le portail de gestion met certaines mesures à disposition avec les niveaux Basic, Standard et Premium. Cependant, avec les niveaux Web et Business, seule la mesure de stockage est disponible via le portail. Heureusement, ces mesures, comme d'autres, sont faciles à obtenir avec la vue de gestion **[sys.resource_stats](http://msdn.microsoft.com/library/dn269979.aspx)**, indépendamment du niveau que vous utilisez. Examinez la requête suivante :
+Le portail de gestion met certaines mesures à disposition avec les niveaux Basic, Standard et Premium. Cependant, avec les niveaux Web et Business, seule la mesure de stockage est disponible via le portail. Heureusement, ces mesures, comme d'autres, sont faciles à obtenir avec la vue de gestion **[sys.resource\_stats](http://msdn.microsoft.com/library/dn269979.aspx)**, indépendamment du niveau que vous utilisez. Examinez la requête suivante :
 
     SELECT TOP 10 * 
     FROM sys.resource_stats 
     WHERE database_name = 'todoitem_db' 
     ORDER BY start_time DESC
 
-> [AZURE.NOTE]Exécutez cette requête sur la base de données **master** de votre serveur, car la vue **sys.resource_stats** est présente uniquement sur cette base de données.
+> [AZURE.NOTE]Exécutez cette requête sur la base de données **master** de votre serveur, car la vue **sys.resource\_stats** est présente uniquement sur cette base de données.
 
 Le résultat contient les mesures utiles suivantes : UC (% de limite de niveau), Stockage (Mo), Lectures de données physiques (% de limite de niveau), Écritures dans les journaux (% de limite de niveau), Mémoire (% de limite de niveau), Nombre de traitements, Nombre de sessions, etc.
 
 #### Événements de connectivité SQL
 
-La vue **[sys.event_log](http://msdn.microsoft.com/library/azure/jj819229.aspx)** contient les détails des événements de connectivité.
+La vue **[sys.event\_log](http://msdn.microsoft.com/library/azure/jj819229.aspx)** contient les détails des événements de connectivité.
 
     select * from sys.event_log 
     where database_name = 'todoitem_db'
     and event_type like 'throttling%'
     order by start_time desc
 
-> [AZURE.NOTE]Exécutez cette requête sur la base de données **master** de votre serveur, car la vue **sys.event_log** est présente uniquement sur cette base de données.
+> [AZURE.NOTE]Exécutez cette requête sur la base de données **master** de votre serveur, car la vue **sys.event\_log** est présente uniquement sur cette base de données.
 
 <a name="AdvancedIndexing" />
 ### Indexation avancée
@@ -296,7 +296,7 @@ Une table ou une vue peut contenir les types d'index suivants :
 
 Pour fournir une analogie concrète : pensez à un livre ou à un guide technique. Le contenu de chaque page est un enregistrement, le numéro de page est l'index cluster et l'index de rubrique à l'arrière du livre est un index non cluster. Chaque entrée de l'index de rubrique pointe vers l'index cluster, le numéro de page.
 
-> [AZURE.NOTE]Par défaut, le backend JavaScript d'Azure Mobile Services définit **_createdAt** comme index cluster. Si vous supprimez cette colonne, ou si vous souhaitez un autre index cluster, suivez les [instructions sur la conception des index](#ClusteredIndexes) ci-dessous. Dans le backend .NET, la classe `EntityData` définit `CreatedAt` comme index cluster à l'aide de l'annotation `[Index(IsClustered = true)]`.
+> [AZURE.NOTE]Par défaut, le backend JavaScript d'Azure Mobile Services définit **\_createdAt** comme index cluster. Si vous supprimez cette colonne, ou si vous souhaitez un autre index cluster, suivez les [instructions sur la conception des index](#ClusteredIndexes) ci-dessous. Dans le backend .NET, la classe `EntityData` définit `CreatedAt` comme index cluster à l'aide de l'annotation `[Index(IsClustered = true)]`.
 
 <a name="ClusteredIndexes"></a>
 #### Instructions sur la conception des index cluster
@@ -476,4 +476,4 @@ Pour analyser le plan de requête dans le **portail de gestion de base de donné
 [Combien coûte cette clé ?]: http://www.sqlskills.com/blogs/kimberly/how-much-does-that-key-cost-plus-sp_helpindex9/
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -4,8 +4,10 @@
 	services="azure-portal" 
 	documentationCenter="" 
 	authors="" 
+	writer="tfitzmac" 
 	manager="wpickett" 
 	editor=""/>
+
 
 <tags 
 	ms.service="azure-portal" 
@@ -15,6 +17,7 @@
 	ms.topic="article" 
 	ms.date="06/22/2015" 
 	ms.author="tomfitz"/>
+
 
 
 # Utilisation du portail Azure en version préliminaire pour gérer vos ressources Azure
@@ -30,6 +33,7 @@ Voici une présentation succincte de la façon dont vous pouvez utiliser les gro
 ## Création de groupes de ressources
 
 Lorsqu’une ressource est créée dans le portail, elle est toujours intégrée à un groupe de ressources. Vous avez le choix entre créer un groupe de ressources et utiliser un groupe qui existe déjà dans le flux de création. <br><br />
+
 
 ![Créer un groupe de ressources](./media/resource-group-portal/1_createWebsite.png)
 
@@ -66,32 +70,13 @@ Comme les groupes de ressources permettent de gérer le cycle de vie de l’ense
 ## Étapes suivantes
 Mise en route
 
-- [Présentation d’Azure Resource Manager](../resource-group-overview.md)  
-- [Utilisation d’Azure PowerShell avec Azure Resource Manager](../powershell-azure-resource-manager.md)
-- [Utilisation de l’interface de ligne de commande Azure pour Mac, Linux et Windows avec le Gestionnaire des ressources Azure](../xplat-cli-azure-resource-manager.md)  
-  
-Création et déploiement d’applications
-  
-- [Création de modèles Azure Resource Manager](../resource-group-authoring-templates.md)  
-- [Déploiement d’une application avec un modèle Azure Resource Manager](resource-group-template-deploy.md)
-- [Déployer une application complexe de manière prévisible dans Microsoft Azure](../app-service-web/app-service-deploy-complex-application-predictably.md)
-- [Résolution des problèmes liés aux déploiements de groupes de ressources dans Azure](../resource-group-deploy-debug.md)  
-- [Fonctions des modèles Azure Resource Manager](../resource-group-template-functions.md)  
-- [Opérations de modèle avancées](../resource-group-advanced-template.md)  
-- [Déploiement de ressources Azure à l’aide de bibliothèques .NET et d’un modèle](../arm-template-deployment.md)
-  
-Organisation des ressources
-  
-- [Organisation des ressources Azure à l’aide de balises](../resource-group-using-tags.md)  
-  
-Gestion et audit de l’accès
-  
-- [Gestion et audit d’accès aux ressources](resource-group-rbac.md)  
-- [Authentification d’un principal du service à l’aide d’Azure Resource Manager](../resource-group-authenticate-service-principal.md)  
-- [Création d’un nouveau principal du service Azure à l’aide du portail Azure classique](../resource-group-create-service-principal-portal.md)  
+- Pour une introduction aux concepts de Resource Manager, consultez[Vue d'ensemble d’Azure Resource Manager](../resource-group-overview.md).  
+- Pour plus d'informations sur l'utilisation d’Azure PowerShell lors du déploiement de ressources, consultez la rubrique [Utilisation d’Azure PowerShell avec Azure Resource Manager](../powershell-azure-resource-manager.md).
+- Si vous n’avez jamais utilisé Azure CLI pour le déploiement de ressources, consultez [Utilisation d’Azure CLI pour Mac, Linux et Windows avec Azure Resource Management](../xplat-cli-azure-resource-manager.md). 
+- Pour en savoir plus sur le classement logique de vos ressources, consultez la page [Organisation des ressources Azure à l’aide de balises](../resource-group-using-tags.md).
   
 
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

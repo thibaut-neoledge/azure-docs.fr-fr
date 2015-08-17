@@ -12,7 +12,7 @@
 	ms.workload="backup-recovery"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article"
+	ms.topic="get-started-article"
 	ms.date="07/09/2015"
 	ms.author="raynew"/>
 
@@ -111,8 +111,11 @@ Le fournisseur s'exécute sur vos serveurs VMM, sur les serveurs hôtes Hyper-V 
 - Si vous voulez connecter le serveur sur lequel le fournisseur s'exécute à internet à l'aide d'un serveur proxy, vous pouvez utiliser les paramètres de proxy existants ou spécifier un proxy personnalisé.
 - Le serveur proxy doit laisser passer ces adresses à travers le pare-feu :
 
-	-  *.accesscontrol.windows.net -  .backup.windowsazure.com
-	-  *.blob.core.windows.net -  *.store.core.windows.net	
+	-  **.accesscontrol.windows.net
+-  .backup.windowsazure.com
+	-  **.blob.core.windows.net
+-  **.store.core.windows.net
+	
 - Si votre pare-feu a des règles basées sur l’adresse IP, assurez-vous qu'elles autorisent la communication à partir du serveur de configuration vers les adresses IP décrites dans la section [Plages d’adresses IP des centres de données Azure](https://www.microsoft.com/download/details.aspx?id=41653) et pour le protocole HTTPS (443). Vous devrez autoriser les plages IP de la région Azure que vous prévoyez d'utiliser, ainsi que celles de la région ouest des États-Unis.
 - Si vous déployez Site Recovery avec VMM et utilisez un proxy personnalisé, un compte RunAs VMM (DRAProxyAccount) sera créé automatiquement à l’aide des informations d’identification du proxy spécifiées dans les paramètres personnalisés du proxy dans le portail Site Recovery. Pour permettre l’authentification du compte, vous devez configurer le serveur proxy.
 - Si vous utilisez un proxy, le trafic envoyé à partir du fournisseur installé sur un serveur hôte Hyper-V vers le proxy doit être envoyé via HTTP.
@@ -149,8 +152,8 @@ Installé sur des machines virtuelles VMware ou des serveurs physiques. Les serv
 
 - **Serveurs Windows** :
 	-  Système d’exploitation 64 bits : Windows Server 2012 R2, Windows Server 2012 ou Windows Server 2008 R2 avec au moins SP1.
-	-  Nom d'hôte, points de montage, noms de périphériques, chemin d'accès système Windows (par exemple : C:\Windows) en anglais uniquement.
-	-  Système d'exploitation sur C:\ drive.
+	-  Nom d'hôte, points de montage, noms de périphériques, chemin d'accès système Windows (par exemple : C:\\Windows) en anglais uniquement.
+	-  Système d'exploitation sur C:\\ drive.
 	-  Seuls les disques de base sont pris en charge. Les disques dynamiques ne sont pas pris en charge.
 
 - **Serveurs Linux** :
@@ -169,10 +172,10 @@ Pour plus d’informations sur la planification de ces composants, consultez la 
 --- | --- 
 <p>**Fournisseur Azure Site Recovery pour VMM**</p><p>**Agent Azure Recovery Services**</p> | <p></p>**Première installation** : téléchargez la dernière version sur la page de démarrage rapide<p></p>**Mise à jour** : vous pouvez télécharger les dernières versions (ainsi que les versions antérieures) sur le tableau de bord de Site Recovery. Si vous optez pour les mises à jour Microsoft Update, la dernière version du fournisseur et de l'agent sera installée automatiquement sur le serveur.
 <p>**Serveur de traitement**</p><p>**Serveur de configuration**</p><p>**Serveur cible maître**</p> | Consultez les mises à jour sur le tableau de bord de Site Recovery. 
-**Service de mobilité** | <p>Assurez-vous d’avoir les dernières mises à jour du service de mobilité sur chacune des machines que vous souhaitez protéger :<p><p>Vous pouvez télécharger les dernières mises à jour :</p><p>[Windows](http://download.microsoft.com/download/7/C/7/7C70CA53-2D8E-4FE0-BD85-8F7A7A8FA163/Microsoft-ASR_UA_8.3.0.0_Windows_GA_03Jul2015_release.exe)</p><p>[RHELP6-64](http://download.microsoft.com/download/B/4/5/B45D1C8A-C287-4339-B60A-70F2C7EB6CFE/Microsoft-ASR_UA_8.3.0.0_RHEL6-64_GA_03Jul2015_release.tar.gz)</p><p>[OL6-64](http://download.microsoft.com/download/9/4/8/948A2D75-FC47-4DED-B2D7-DA4E28B9E339/Microsoft-ASR_UA_8.3.0.0_OL6-64_GA_03Jul2015_release.tar.gz)</p><p>[SLES11-SP3-64](http://download.microsoft.com/download/6/A/2/6A22BFCD-E978-41C5-957E-DACEBD43B353/Microsoft-ASR_UA_8.3.0.0_SLES11-SP3-64_GA_03Jul2015_release.tar.gz)</p><p>Une fois assuré que le serveur de traitement est à jour, vous pouvez également télécharger la dernière version du service de mobilité à partir du dossier C:\pushinstallsvc\repository sur le serveur de traitement</p>  
+**Service de mobilité** | <p>Assurez-vous d’avoir les dernières mises à jour du service de mobilité sur chacune des machines que vous souhaitez protéger :<p><p>Vous pouvez télécharger les dernières mises à jour :</p><p>[Windows](http://download.microsoft.com/download/7/C/7/7C70CA53-2D8E-4FE0-BD85-8F7A7A8FA163/Microsoft-ASR_UA_8.3.0.0_Windows_GA_03Jul2015_release.exe)</p><p>[RHELP6-64](http://download.microsoft.com/download/B/4/5/B45D1C8A-C287-4339-B60A-70F2C7EB6CFE/Microsoft-ASR_UA_8.3.0.0_RHEL6-64_GA_03Jul2015_release.tar.gz)</p><p>[OL6-64](http://download.microsoft.com/download/9/4/8/948A2D75-FC47-4DED-B2D7-DA4E28B9E339/Microsoft-ASR_UA_8.3.0.0_OL6-64_GA_03Jul2015_release.tar.gz)</p><p>[SLES11-SP3-64](http://download.microsoft.com/download/6/A/2/6A22BFCD-E978-41C5-957E-DACEBD43B353/Microsoft-ASR_UA_8.3.0.0_SLES11-SP3-64_GA_03Jul2015_release.tar.gz)</p><p>Une fois assuré que le serveur de traitement est à jour, vous pouvez également télécharger la dernière version du service de mobilité à partir du dossier C:\\pushinstallsvc\\repository sur le serveur de traitement</p>  
 
 ## Étapes suivantes
 
 Commencez à configurer les composants pour votre scénario de déploiement. [En savoir plus](site-recovery-overview.md).
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

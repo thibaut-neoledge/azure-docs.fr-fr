@@ -40,7 +40,7 @@ Installez [pymssql](http://www.lfd.uci.edu/~gohlke/pythonlibs/#pymssql).
 
 Veillez choisir le fichier whl correct.
 
-Par exemple : si vous utilisez Python 2.7 sur un ordinateur 64 bits, choisissez : pymssql‑2.1.1‑cp27‑none‑win_amd64.whl. Une fois le fichier .whl téléchargé, placez-le dans le dossier C:/Python27.
+Par exemple : si vous utilisez Python 2.7 sur un ordinateur 64 bits, choisissez : pymssql‑2.1.1‑cp27‑none‑win\_amd64.whl. Une fois le fichier .whl téléchargé, placez-le dans le dossier C:/Python27.
 
 À présent, installez le pilote pymssql à l'aide de pip à partir de la ligne de commande. cd dans C:/Python27 et exécutez ce qui suit
 	
@@ -100,11 +100,11 @@ Dans la base de données SQL, la propriété [IDENTITY](https://msdn.microsoft.
 Cet exemple de code illustre l'utilisation de transactions dans lesquelles vous :
 
 
--Commencez une transaction
+\-Commencez une transaction
 
--Insérez une ligne de données
+\-Insérez une ligne de données
 
--Restaurez la transaction pour annuler l'insertion
+\-Restaurez la transaction pour annuler l'insertion
 
 
 	import pymssql
@@ -116,4 +116,4 @@ Cet exemple de code illustre l'utilisation de transactions dans lesquelles vous�
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

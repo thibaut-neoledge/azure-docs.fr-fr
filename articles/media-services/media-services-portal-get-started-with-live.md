@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="ne"
 	ms.topic="get-started-article" 
-	ms.date="04/16/2015"
+	ms.date="08/03/2015"
 	ms.author="juliako"/>
 
 
@@ -22,7 +22,7 @@
 [AZURE.INCLUDE [media-services-selector-manage-channels](../../includes/media-services-selector-manage-channels.md)]
 
 
-Ce didacticiel vous guide dans les étapes d’implémentation d’une application de diffusion en continu dynamique Media Services de base où un **canal** reçoit un flux dynamique à débit binaire multiple provenant d’un encodeur dynamique local. Pour une vue d’ensemble plus détaillée de l’utilisation des canaux et des composants associés, consultez [Utilisation des canaux qui reçoivent un flux dynamique à débit binaire multiple provenant d’encodeurs locaux](../media-services-channels-overview.md).
+Ce didacticiel vous guide dans les étapes d’implémentation d’une application de diffusion en continu dynamique Media Services de base où un **canal** reçoit un flux dynamique à débit binaire multiple provenant d’un encodeur dynamique local. Pour une vue d’ensemble plus détaillée de l’utilisation des canaux et des composants associés, consultez [Utilisation des canaux qui reçoivent un flux dynamique à débit binaire multiple provenant d’encodeurs locaux](media-services-manage-channels-overview.md).
 
 Dans ce didacticiel, le portail de gestion Azure est utilisé pour effectuer les tâches suivantes :
 
@@ -210,4 +210,4 @@ En savoir plus sur la création d’applications de diffusion en continu dynamiq
 
 <!-- Images -->
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -6,6 +6,7 @@
    authors="alkohli"
    manager="carolz"
    editor=""/>
+
 <tags 
    ms.service="storsimple"
    ms.devlang="NA"
@@ -14,6 +15,7 @@
    ms.workload="TBD"
    ms.date="07/20/2015"
    ms.author="alkohli" />
+
 
 # Affichage et gestion des tâches StorSimple
 
@@ -27,11 +29,11 @@ Vous pouvez rechercher rapidement les tâches qui vous intéressent en filtrant 
 
 - **État** : les tâches peuvent être en cours d’exécution, planifiées, en échec, terminées, en cours d’annulation ou annulées.
 
-- **Type** : les tâches peuvent être créées à la suite d'une sauvegarde planifiée ou à la demande (**Exécuter la sauvegarde**), d’un clonage, d’une restauration d’appareil ou d’une opération de mise à jour.
+- **Type** : les tâches peuvent être créées suite à une sauvegarde planifiée ou à la demande (**Exécuter la sauvegarde**), un clonage, une restauration d’appareil ou une mise à jour.
 
 - **Appareils** : les tâches sont initiées sur un certain appareil connecté à votre service.
 
-- **De et À** : les tâches peuvent être filtrées en fonction de l’intervalle de temps.
+- **De et À** : les tâches peuvent être filtrées selon la date et l’heure.
 
 Les tâches filtrées sont ensuite affichées sous forme de tableau sur la base des attributs suivants :
 
@@ -45,7 +47,7 @@ Les tâches filtrées sont ensuite affichées sous forme de tableau sur la base 
 
 - **Démarré le** : heure à laquelle la tâche a été lancée.
 
-- **Progression** : pourcentage de réalisation d'une tâche en cours d'exécution. Pour une tâche terminée, le pourcentage doit toujours être de 100 %.
+- **Progression** : pourcentage d’achèvement d’une tâche en cours d’exécution. Pour une tâche terminée, le pourcentage doit toujours être de 100 %.
 
 La liste des tâches est actualisée toutes les 30 secondes.
 
@@ -65,9 +67,9 @@ Pour afficher les détails d’une tâche, procédez comme suit.
 
 2. Sélectionnez une tâche.
 
-3. Au bas de la page, cliquez sur **Détails**.
+3. En bas de la page, cliquez sur **Détails**.
 
-4. Dans la boîte de dialogue **Détails de la tâche**, vous pouvez consulter l’état, les détails, les statistiques temporelles et les statistiques de données.
+4. Dans la boîte de dialogue **Détails de la tâche de sauvegarde**, vous pouvez consulter l’état, les détails, les statistiques temporelles et les statistiques de données.
 
 ## Annulation d’une tâche
 
@@ -79,7 +81,7 @@ Pour annuler une tâche en cours d’exécution, procédez comme suit.
 
 1. Sélectionnez la tâche.
 
-1. Au bas de la page, cliquez sur **Annuler**.
+1. En bas de la page, cliquez sur **Annuler**.
 
 1. Cliquez sur **Oui** lorsque vous êtes invité à confirmer l’opération.
 
@@ -89,4 +91,4 @@ Cette tâche est à présent annulée.
 
 [En savoir plus sur la gestion de vos stratégies de sauvegarde StorSimple](storsimple-manage-backup-policies.md).
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

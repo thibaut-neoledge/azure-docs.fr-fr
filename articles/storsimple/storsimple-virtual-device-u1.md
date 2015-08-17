@@ -387,4 +387,4 @@ Si vous supprimez ou arrêtez l’appareil virtuel, il apparaît comme **Hors co
 
 Apprendre à [restaurer à partir d’un jeu de sauvegardes](../storsimple-restore-from-backupset.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -6,14 +6,16 @@
 	authors="csilauraa"
 	manager="jwhit"
 	editor="tysonn" />
+
 <tags
 	ms.service="site-recovery"
 	ms.devlang="na"
-	ms.topic="article"
+	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="infrastructure-services"
 	ms.date="06/01/2015"
 	ms.author="lauraa" />
+
 
 # Planification de capacité pour un réplica Hyper-V
 
@@ -120,11 +122,11 @@ Si vous avez déjà préparé un hôte Hyper-V autonome pour un serveur de récu
 
 	g. Dans la section **Autorisation et stockage**, indiquez si vous autorisez **n’importe quel** serveur authentifié (principal) à envoyer des données de réplication vers ce serveur de réplication ou si vous limitez l’autorisation aux données provenant de serveurs principaux spécifiques. Vous pouvez utiliser des caractères génériques pour limiter l’autorisation aux serveurs d’un domaine spécifique sans avoir à tous les spécifier individuellement (par exemple, *.contoso.com).
 
-	h. Ouvrez les ports de pare-feu sur tous les hôtes de récupération Hyper-V : Port 443 (Certificate auth): Get-ClusterNode | ForEach-Object {Invoke-command -computername \$_.name -scriptblock {Enable-Netfirewallrule -displayname "Hyper-V Replica HTTPS Listener (TCP-In)"}}
+	h. Ouvrez les ports de pare-feu sur tous les hôtes de récupération Hyper-V : Port 443 (Certificate auth): Get-ClusterNode | ForEach-Object {Invoke-command -computername \\$\_.name -scriptblock {Enable-Netfirewallrule -displayname "Hyper-V Replica HTTPS Listener (TCP-In)"}}
 
 
           Port 80 (Kerberos auth):
-              Get-ClusterNode | ForEach-Object {Invoke-command -computername \$_.name -scriptblock {Enable-Netfirewallrule -displayname "Hyper-V Replica HTTP Listener (TCP-In)"}}
+              Get-ClusterNode | ForEach-Object {Invoke-command -computername \$\_.name -scriptblock {Enable-Netfirewallrule -displayname "Hyper-V Replica HTTP Listener (TCP-In)"}}
 
 
 ## Étape 3 : exécuter l’outil de planification de la capacité
@@ -193,11 +195,11 @@ Spécifiez les informations réseau demandées, puis cliquez sur **Suivant**.
 
     Emplacement par défaut du rapport :
 
-    %lecteur_système%\Users\Public\Documents\Capacity Planner
+    %lecteur\_système%\\Users\\Public\\Documents\\Capacity Planner
 
     Emplacement des journaux :
 
-    %lecteur_système%\Users\Public\Documents\CapacityPlanner
+    %lecteur\_système%\\Users\\Public\\Documents\\CapacityPlanner
 
 ## Étape 4 : interpréter les résultats
 Vous pouvez ignorer les mesures qui ne sont pas répertoriées dans l’un des deux scénarios suivants, car elles ne sont pas pertinentes pour ce scénario.
@@ -239,4 +241,4 @@ Pour commencer à déployer ASR, effectuez les opérations suivantes :
 - [Configuration de la protection avec un seul serveur VMM](site-recovery-single-vmm)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -116,4 +116,4 @@ Une fois le mappage créé et testé, il est prêt pour la consommation.
 
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

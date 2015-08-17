@@ -44,7 +44,7 @@ Procédez comme suit pour créer un cluster Redis en utilisant un modèle Resour
 
 ### Étape 1-a : télécharger les fichiers de modèle en utilisant Azure PowerShell
 
-Créez un dossier local pour le modèle JSON et les fichiers associés (par exemple, C:\Azure\Templates\RedisCluster).
+Créez un dossier local pour le modèle JSON et les fichiers associés (par exemple, C:\\Azure\\Templates\\RedisCluster).
 
 Incluez le nom de votre dossier local et exécutez les commandes suivantes :
 
@@ -96,7 +96,7 @@ Clonez le référentiel de modèles entier en utilisant un client Git de votre c
 git clone https://github.com/Azure/azure-quickstart-templates C:\Azure\Templates
 ```
 
-Lorsque vous avez terminé le clonage, recherchez le dossier **redis-high-availability** dans votre répertoire C:\Azure\Templates.
+Lorsque vous avez terminé le clonage, recherchez le dossier **redis-high-availability** dans votre répertoire C:\\Azure\\Templates.
 
 ### Étape 2 : (facultatif) comprendre les paramètres du modèle
 
@@ -387,7 +387,7 @@ Ce schéma décrit les relations entre tous les fichiers téléchargés à parti
 
 Cette section vous guide dans la structure du modèle azuredeploy.json pour le cluster Redis.
 
-Si vous n'avez pas téléchargé une copie du fichier de modèle, spécifiez un dossier local comme emplacement de fichier et créez-le (par exemple, C:\Azure\Templates\RedisCluster). Indiquez le nom du dossier, puis exécutez ces commandes :
+Si vous n'avez pas téléchargé une copie du fichier de modèle, spécifiez un dossier local comme emplacement de fichier et créez-le (par exemple, C:\\Azure\\Templates\\RedisCluster). Indiquez le nom du dossier, puis exécutez ces commandes :
 
 ```powershell
 $folderName="<folder name, such as C:\Azure\Templates\RedisCluster>"
@@ -666,4 +666,4 @@ Pour résumer, cette approche suggère de :
 
 Pour plus d’informations, consultez [Langage du modèle Azure Resource Manager](https://msdn.microsoft.com/library/azure/dn835138.aspx).
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

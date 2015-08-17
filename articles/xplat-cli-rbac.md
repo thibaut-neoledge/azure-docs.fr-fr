@@ -18,30 +18,20 @@
 
 # Gestion du contrôle d’accès en fonction du rôle avec l’interface de ligne de commande Azure (Azure CLI)#
 
-<div class="dev-center-tutorial-selector sublanding"><a href="/documentation/articles/powershell-rbac.md" title="Windows PowerShell" class="current">Windows PowerShell</a><a href="/documentation/articles/xplat-cli-rbac.md" title="Azure CLI">Azure CLI</a></div>
-
 Le contrôle d’accès en fonction du rôle (RBAC) dans le portail Azure et dans l’API Azure Resource Manager permet une gestion très fine de l’accès à votre abonnement. Cette fonctionnalité vous permet d'accorder l'accès aux utilisateurs, groupes et principaux du service Active Directory en leur affectant certains rôles avec une étendue spécifique.
 
 Dans ce didacticiel, vous allez apprendre à utiliser l’interface de ligne de commande Azure pour gérer RBAC. Il vous explique les diverses étapes du processus de création et de contrôle des affectations de rôles.
 
 **Durée estimée :** 15 minutes
 
-## Composants requis ##
+## Composants requis
 
 Avant d’utiliser l’interface de ligne de commande Azure pour gérer le contrôle d’accès en fonction du rôle, vous devez disposer des composants suivants :
 
 - Interface de ligne de commande version 0.8.8 ou ultérieure. Pour installer la dernière version et l’associer à votre abonnement Azure, consultez la procédure d’[installation](xplat-cli-install.md).
 - Pour vous familiariser avec la configuration et l’utilisation d’Azure Resource Manager dans l’interface de ligne de commande Azure, consultez également le didacticiel suivant : [Utilisation de l’interface de ligne de commande Azure avec Azure Resource Manager](xplat-cli-azure-resource-manager.md).
 
-## Dans ce didacticiel ##
-
-* [Se connecter à vos abonnements](#connect)
-* [Vérifier les affectations de rôles existantes](#check)
-* [Créer une affectation de rôle](#create)
-* [Vérifier les autorisations](#verify)
-* [Étapes suivantes](#next)
-
-## <a id="connect"></a>Connexion à vos abonnements ##
+## Connexion à vos abonnements 
 
 Comme le RBAC ne fonctionne qu'avec le gestionnaire de ressources Azure, la première chose à faire est de passer en mode Gestionnaire de ressources Azure ; entrez :
 
@@ -86,7 +76,7 @@ Cela renverra toutes les affectations de rôles pour un utilisateur spécifique 
 
 Tous les paramètres de cet applet de commande sont facultatifs. Vous pouvez les combiner pour contrôler des affectations de rôles avec différents filtres.
 
-## <a id="create"></a>Créer une affectation de rôle ##
+## Création d'une affectation de rôle 
 
 Pour créer une affectation de rôle, vous devez réfléchir aux éléments suivants
 
@@ -124,7 +114,7 @@ Ensuite, utilisez `azure role assignment create` pour créer une affectation de 
 
     `azure role assignment create --mail <user's email> -o Owner -g group1 -r Microsoft.Web/sites -u site1`
 
-## <a id="verify"></a>Vérifier les autorisations ##
+## Vérification des autorisations 
 
 Après avoir contrôlé que votre abonnement inclut des affectations de rôles, vous pouvez afficher les autorisations que ces affectations de rôles vous octroient en exécutant
 
@@ -135,12 +125,12 @@ Ces deux applets de commande renverront uniquement les groupes de ressources ou 
 
 Et donc, quand vous tentez d'exécuter une autre applet de commande telle que `azure group create`, vous recevez une erreur d'accès refusé si vous ne disposez pas de l'autorisation requise.
 
-## <a id="next"></a>Étapes suivantes ##
+## Étapes suivantes 
 
-Pour plus d’informations sur la gestion du contrôle d’accès en fonction du rôle à l’aide de l’interface de ligne de commande Azure, voir les rubriques associées :
+Pour en savoir plus sur le contrôle d’accès en fonction du rôle à l’aide d’Azure CLI, ainsi que sur les rubriques associées :
 
 - [Installer et configurer l’interface de ligne de commande Azure](xplat-cli-install.md)
 - [Utilisation de l’interface de ligne de commande Azure avec Azure Resource Manager](xplat-cli-azure-resource-manager.md)
 - [Utilisation de groupes de ressources pour gérer vos ressources Azure](resource-groups-overview.md) : découvrez comment créer et gérer des groupes de ressources dans le portail de gestion Azure.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

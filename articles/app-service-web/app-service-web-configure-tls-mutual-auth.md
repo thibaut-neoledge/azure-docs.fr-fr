@@ -177,4 +177,4 @@ Le certificat client qui est envoyé à l'application n'est soumis à aucune val
         }
     }
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

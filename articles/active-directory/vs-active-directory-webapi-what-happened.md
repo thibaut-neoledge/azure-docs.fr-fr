@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="07/22/2015"
-	ms.author="patshea123"/>
+	ms.author="patshea"/>
 
 # Qu'est-il arrivé à mon projet ?
 
@@ -59,11 +59,13 @@ Si vous disposiez déjà d’une classe de démarrage dans votre projet, la mét
 
 ###Votre fichier app.config ou web.config comporte de nouvelles valeurs de configuration.
 
-Les entrées de configuration suivantes ont été ajoutées. <pre> `<appSettings>
+Les entrées de configuration suivantes ont été ajoutées. ```
+	`<appSettings>
     		<add key="ida:ClientId" value="ClientId from the new Azure AD App" />
     		<add key="ida:Tenant" value="Your selected Azure AD Tenant" />
     		<add key="ida:Audience" value="The App ID Uri from the wizard" />
-	</appSettings>` </pre>
+	</appSettings>` 
+```
 
 ###Une application Azure AD App a été créée
 
@@ -101,13 +103,17 @@ Chacun des fichiers suivants a été sauvegardé avant d’être remplacé. Les 
 
 ###Des modifications supplémentaires ont été apportées à votre fichier app.config ou web.config
 
-Les entrées de configuration ci-dessous ont été ajoutées. <pre> `<appSettings>
+Les entrées de configuration ci-dessous ont été ajoutées.
+
+```
+	`<appSettings>
 	    <add key="ida:Password" value="Your Azure AD App's new password" />
-	</appSettings>` </pre>
+	</appSettings>` 
+```
 
 ###Votre application Azure Active Directory a été mise à jour
 Votre application Azure Active Directory a été mise à jour pour inclure l’autorisation *Lire les données de l’annuaire*, et une clé supplémentaire a été créée pour être ensuite utilisée comme *ida:Password* dans le fichier `web.config`.
 
 [En savoir plus sur Azure Active Directory](http://azure.microsoft.com/services/active-directory/)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

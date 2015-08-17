@@ -1,11 +1,12 @@
 <properties
-    pageTitle="Création d'une application web avec Python et Flask à l'aide de DocumentDB | Azure"
+    pageTitle="Créer une application web avec Python et Flask à l’aide de DocumentDB | Microsoft Azure"
     description="Découvrez comment utiliser DocumentDB pour stocker des données et y accéder à partir d'une application web Python et Flask (MVC) hébergée sur Azure."
     services="documentdb"
     documentationCenter="python"
     authors="ryancrawcour"
     manager="jhubbard"
     editor="cgronlun"/>
+
 
 <tags
     ms.service="documentdb"
@@ -15,6 +16,7 @@
     ms.topic="hero-article" 
     ms.date="07/07/2015"
     ms.author="ryancraw"/>
+
 
 # Création d'une application web avec Python et Flask (MVC) à l'aide de DocumentDB
 
@@ -52,7 +54,8 @@ Commençons par créer un compte DocumentDB. Si vous possédez déjà un compte,
 
 [AZURE.INCLUDE [documentdb-keys](../../includes/documentdb-keys.md)]
 
-<br/> Voyons à présent comment créer une application web Python Flask de A à Z.
+<br/>
+ Voyons à présent comment créer une application web Python Flask de A à Z.
 
 ## Étape 2 : Création d’une application web Python Flask
 
@@ -232,6 +235,7 @@ Sous le dossier Modèles, ajoutez les fichiers html suivants : create.html, res
     	<h2>Results of the vote</h2>
    	 	<br />
 
+
     	{% for choice in vote_object.choices %}
     	<div class="row">
         	<div class="col-sm-5">{{choice}}</div>
@@ -247,6 +251,7 @@ Sous le dossier Modèles, ajoutez les fichiers html suivants : create.html, res
     	{% endfor %}
 
     	<br />
+
     	<a class="btn btn-primary" href="{{ url_for('vote') }}">Vote again?</a>
     	{% endblock %}
 
@@ -350,4 +355,4 @@ Pour ajouter des fonctionnalités supplémentaires à votre application, passez 
   [Azure Management Portal]: http://portal.azure.com
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

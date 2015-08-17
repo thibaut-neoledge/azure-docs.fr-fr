@@ -73,4 +73,4 @@ Comme avec les mesures, vous pouvez utiliser l’[API REST](https://msdn.micros
 * [Surveillance de la disponibilité et de la réactivité des pages Web](../app-insights-monitor-web-app-availability.md) avec Application Insights pour déterminer si vos pages sont inactives.
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -7,6 +7,7 @@
 	manager="jhubbard"
 	editor="monicar"/>
 
+
 <tags
 	ms.service="data-factory"
 	ms.workload="data-services"
@@ -15,6 +16,7 @@
 	ms.topic="hero-article" 
 	ms.date="07/27/2015"
 	ms.author="spelluru"/>
+
 
 # Concevez votre premier pipeline en utilisant Azure Data Factory
 > [AZURE.SELECTOR]
@@ -45,7 +47,7 @@ Cet article ne fournit pas une vue d'ensemble conceptuelle du service Azure Dat
 
 	![Panneau Nouvelle fabrique de données](./media/data-factory-build-your-first-pipeline-using-editor/new-data-factory-blade.png)
 
-	> [AZURE.IMPORTANT] 
+	> [AZURE.IMPORTANT]Les noms Azure Data Factory sont globalement uniques. Vous devez faire précéder le nom de la fabrique de données par votre nom, pour activer la création de la fabrique. 
 3.	Si vous n’avez pas créé de groupe de ressources, vous devez en créer un. Pour ce faire :
 	1.	Cliquez sur **NOM DU GROUPE DE RESSOURCES**.
 	2.	Sélectionnez **Créer un groupe de ressources** dans le panneau **Groupe de ressources**.
@@ -68,7 +70,7 @@ Dans les étapes suivantes, vous apprendrez à créer les services liés, les je
 Dans cette étape, vous lierez votre compte de stockage Azure et un cluster Azure HDInsight à la demande à votre fabrique de données. Vous créerez également un jeu de données pour représenter les données de sortie issues d’un traitement Hive.
 
 ### Création du service lié Azure Storage
-1.	Cliquez sur **Créer et déployer** sur le panneau **DATA FACTORY** pour **DataFactoryFirstPipeline**. Cette action lance l'éditeur Data Factory Editor. 
+1.	Cliquez sur **Créer et déployer** dans le panneau **DATA FACTORY** pour **DataFactoryFirstPipeline**. Cette action lance l'éditeur Data Factory Editor. 
 	 
 	![Vignette Créer et déployer](./media/data-factory-build-your-first-pipeline-using-editor/data-factory-author-deploy.png)
 2.	Cliquez sur **Nouveau magasin de données** et choisissez **Stockage Azure**
@@ -76,7 +78,7 @@ Dans cette étape, vous lierez votre compte de stockage Azure et un cluster Azur
 	![Service lié Azure Storage](./media/data-factory-build-your-first-pipeline-using-editor/azure-storage-linked-service.png)
 
 	Le script JSON de création d’un service lié Microsoft Azure Storage doit apparaître dans l’éditeur. 
-4. Remplacez **account name** par le nom de votre compte de stockage Azure et **account key** par sa clé d’accès. Pour découvrir comment obtenir votre clé d'accès, consultez la rubrique [Affichage, copie et régénération de clés d’accès de stockage](../storage/storage-create-storage-account.md/#view-copy-and-regenerate-storage-access-keys)
+4. Remplacez **account name** par le nom de votre compte de stockage Azure et **account key** par sa clé d'accès. Pour découvrir comment obtenir votre clé d'accès, consultez la rubrique [Affichage, copie et régénération de clés d’accès de stockage](../storage/storage-create-storage-account.md/#view-copy-and-regenerate-storage-access-keys)
 5. Cliquez sur l’option **Déployer** de la barre de commandes pour déployer le service lié.
 
 	![Bouton déployer](./media/data-factory-build-your-first-pipeline-using-editor/deploy-button.png)
@@ -123,7 +125,7 @@ Vous allez maintenant créer le jeu de données de sortie pour représenter les 
 1. Dans **Data Factory Editor**, cliquez sur **Nouveau jeu de données** dans la barre de commandes, puis sélectionnez **Stockage d’objets Blob Azure**.  
 
 	![Nouveau jeu de données](./media/data-factory-build-your-first-pipeline-using-editor/new-data-set.png)
-2. Copiez et collez l'extrait ci-dessous dans la fenêtre Draft-1. Dans l’extrait de code JSON, vous créez un jeu de données appelé **AzureBlobOutput** et vous spécifiez la structure de données qui sera générée par le script Hive. En outre, vous précisez que les résultats sont stockés dans le conteneur d'objets blob appelé **data** et dans le dossier appelé **partitioneddata**. La section **disponibilité** précise que le jeu de données de sortie est généré sur une base mensuelle.
+2. Copiez et collez l'extrait ci-dessous dans la fenêtre Draft-1. Dans l’extrait de code JSON, vous créez un jeu de données appelé **AzureBlobOutput** et vous spécifiez la structure de données qui sera générée par le script Hive. En outre, vous spécifiez que les résultats sont stockés dans le conteneur d'objets blob appelé **données** et dans le dossier appelé **partitioneddata**. La section **disponibilité** spécifie que le jeu de données de sortie est généré sur une base mensuelle.
 	
 		{
 		  "name": "AzureBlobOutput",
@@ -178,6 +180,10 @@ Dans cette étape, vous allez créer votre premier pipeline.
 		            "name": "AzureBlobOutput"
 		          }
 		        ],
+                "scheduler": {
+                    "frequency": "Month",
+                    "interval": 1
+                },
 		        "policy": {
 		          "concurrency": 1,
 		          "retry": 3
@@ -199,7 +205,7 @@ Dans cette étape, vous allez créer votre premier pipeline.
 
 	Les propriétés **start** et **end** du pipeline spécifient la période active du pipeline.
 
-	Dans l'activité JSON, vous spécifiez que le script Hive s'exécute sur le calcul indiqué par le service lié **HDInsightOnDemandLinkedService**.
+	Dans l'activité JSON, vous spécifiez que le script Hive s'exécute sur le calcul spécifié par le service lié **HDInsightOnDemandLinkedService**.
 3. Cliquez sur **Déployer** dans la barre de commandes pour déployer le pipeline.
 4. Vérifiez que le pipeline apparaît dans l'arborescence.
 
@@ -211,19 +217,19 @@ Dans cette étape, vous allez créer votre premier pipeline.
 7. Dans la vue schématique, une vue d'ensemble des pipelines et des jeux de données utilisés dans ce didacticiel s’affiche.
 	
 	![Vue schématique](./media/data-factory-build-your-first-pipeline-using-editor/diagram-view-2.png) 
-8. Dans la vue schématique, double-cliquez sur le jeu de données **AzureBlobOutput**. La tranche est en cours de traitement.
+8. Dans la vue schématique, double-cliquez sur le jeu de données **AzureBlobOutput**. Le segment est en cours de traitement.
 
 	![Dataset](./media/data-factory-build-your-first-pipeline-using-editor/dataset-blade.png)
-9. Lorsque le traitement est terminé, l’état de la tranche devient **Ready**. Notez que la création d'un cluster HDInsight à la demande prend généralement un certain temps. 
+9. Lorsque le traitement est terminé, l’état du segment devient **Ready**. Notez que la création d'un cluster HDInsight à la demande prend généralement un certain temps. 
 
 	![Dataset](./media/data-factory-build-your-first-pipeline-using-editor/dataset-slice-ready.png)	
-10. Lorsque la tranche indique l’état **Ready**, vérifiez le dossier **partitioneddata** du conteneur de **données** de votre stockage d'objets blob pour les données de sortie.  
+10. Lorsque le segment indique l’état **Prêt**, vérifiez le dossier **partitioneddata** du conteneur de **données** de votre stockage d'objets blob pour les données de sortie.  
  
 
  
 
 ## Étapes suivantes
-Dans cet article, vous avez créé un pipeline avec une activité de transformation (Activité HDInsight) qui exécute un script Hive sur un cluster HDInsight à la demande. Pour apprendre à utiliser une activité de copie afin de copier des données à partir d'un objet Blob Azure dans SQL Azure, consultez le [didacticiel suivant : Copie de données d’un objet Blob Azure dans SQL Azure](./data-factory-get-started.md).
+Dans cet article, vous avez créé un pipeline avec une activité de transformation (Activité HDInsight) qui exécute un script Hive sur un cluster HDInsight à la demande. Pour apprendre à utiliser une activité de copie pour copier des données à partir d'un objet blob Azure dans Azure SQL, consultez le [didacticiel : copie de données depuis un objet blob Azure vers Azure SQL](./data-factory-get-started.md).
   
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

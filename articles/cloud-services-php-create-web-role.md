@@ -12,7 +12,7 @@
 	ms.workload="tbd"
 	ms.tgt_pltfrm="na"
 	ms.devlang="PHP"
-	ms.topic="get-started-article"
+	ms.topic="article"
 	ms.date="06/09/2015"
 	ms.author="tomfitz"/>
 
@@ -212,4 +212,4 @@ Pour publier votre application, vous devez d'abord importer vos paramètres de p
 [Importation de paramètres de publication]: /develop/php/how-to-guides/powershell-cmdlets/#ImportPubSettings
 [Déploiement d'un service cloud sur Azure]: /develop/php/how-to-guides/powershell-cmdlets/#Deploy
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

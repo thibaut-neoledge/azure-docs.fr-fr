@@ -21,7 +21,7 @@
 
 Vous pouvez attacher des disques, qu’ils soient vides ou non. Dans les deux cas, les disques sont en fait des fichiers .vhd conservés dans un compte de stockage Azure. Après avoir attaché le disque, vous devrez également l'initialiser pour le rendre opérationnel.
 
-> [AZURE.NOTE]Il est recommandé d'utiliser un ou plusieurs disques distincts pour stocker les données d'une machine virtuelle. Lorsque vous créez une machine virtuelle Azure, elle comporte un disque pour le système d’exploitation mappé au lecteur C et un disque temporaire mappé au lecteur D. **Ne stockez pas de données dans le lecteur D.** Comme son nom l’indique, il ne permet qu’un stockage temporaire. Il n'offre aucune possibilité de redondance ou de sauvegarde, car il ne réside pas dans le stockage Azure.
+> [AZURE.NOTE]Il est recommandé d'utiliser un ou plusieurs disques distincts pour stocker les données d'une machine virtuelle. Quand vous créez une machine virtuelle Azure, celle-ci comporte un disque pour le système d’exploitation mappé au lecteur C et un disque temporaire mappé au lecteur D. **N’utilisez pas le lecteur D pour stocker des données.** Comme son nom l’indique, le lecteur D ne permet qu’un stockage temporaire. Il n’offre aucune possibilité de redondance ou de sauvegarde, car il ne réside pas dans Azure Storage.
 
 [AZURE.INCLUDE [howto-attach-disk-windows-linux](../../includes/howto-attach-disk-windows-linux.md)]
 
@@ -43,14 +43,14 @@ Vous pouvez attacher des disques, qu’ils soient vides ou non. Dans les deux ca
 
 	![Volume correctement initialisé](./media/storage-windows-attach-disk/newvolumecreated.png)
 
-> [AZURE.NOTE]La taille de la machine virtuelle détermine le nombre de disques que vous pouvez attacher à celle-ci. Pour en savoir plus, consultez la rubrique [Tailles de machines virtuelles](virtual-machines-size-specs.md).
+> [AZURE.NOTE]La taille de la machine virtuelle détermine le nombre de disques que vous pouvez attacher à celle-ci. Pour plus d’informations, consultez [Tailles de machines virtuelles](virtual-machines-size-specs.md).
 
 ## Ressources supplémentaires
 
-[Détachement d’un disque d’une machine virtuelle Windows](storage-windows-detach-disk.md)
+[Comment détacher un disque d’une machine virtuelle Windows](storage-windows-detach-disk.md)
 
 [À propos des disques et VHD pour machines virtuelles](virtual-machines-disks-vhds.md)
 
 [logon]: virtual-machines-log-on-windows-server.md
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

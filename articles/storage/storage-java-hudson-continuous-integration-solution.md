@@ -110,16 +110,16 @@ Pour les besoins de la formation, nous devons d’abord créer une tâche qui cr
  
 5. Dans la section **Actions post-build** de la configuration de la tâche, cliquez sur **Télécharger les artefacts vers le stockage d'objets blob Microsoft Azure**.
 6. Pour **Storage Account Name**, sélectionnez le compte de stockage à utiliser.
-7. Pour **Container Name**, spécifiez le nom du conteneur. Le conteneur est créé s’il n’existe pas déjà au téléchargement des artefacts de build. Vous pouvez utiliser des variables d'environnement : pour cet exemple, entrez **${JOB_NAME}** comme nom de conteneur.
+7. Pour **Container Name**, spécifiez le nom du conteneur. Le conteneur est créé s’il n’existe pas déjà au téléchargement des artefacts de build. Vous pouvez utiliser des variables d'environnement : pour cet exemple, entrez **${JOB\_NAME}** comme nom de conteneur.
 
     **Conseil**
     
-    Sous la section **Command** où vous avez entré un script pour **Execute Windows batch command**, un lien permet d'accéder aux variables d'environnement reconnues par Hudson. Cliquez sur ce lien pour découvrir les noms des variables d’environnement avec leurs descriptions. Notez que les variables d'environnement qui contiennent des caractères spéciaux, telle la variable d'environnement **BUILD_URL**, ne sont pas autorisées comme nom de conteneur ou chemin virtuel commun.
+    Sous la section **Command** où vous avez entré un script pour **Execute Windows batch command**, un lien permet d'accéder aux variables d'environnement reconnues par Hudson. Cliquez sur ce lien pour découvrir les noms des variables d’environnement avec leurs descriptions. Notez que les variables d'environnement qui contiennent des caractères spéciaux, telle la variable d'environnement **BUILD\_URL**, ne sont pas autorisées comme nom de conteneur ou chemin virtuel commun.
 
 8. Cliquez sur **Rendre le nouveau conteneur public par défaut** pour cet exemple. Si vous voulez utiliser un conteneur privé, vous devez créer une signature d'accès partagé pour autoriser l'accès. La procédure n’entre pas dans le cadre de cette rubrique. Pour en savoir plus sur les signatures d'accès partagé, consultez la page [Créer et utiliser une signature d'accès partagé](http://go.microsoft.com/fwlink/?LinkId=279889).
 9. [Facultatif] Cliquez sur **Nettoyer le conteneur avant le téléchargement** si vous souhaitez que le contenu du conteneur soit effacé avant le téléchargement des artefacts de build (ne sélectionnez pas cette option si vous ne souhaitez pas effacer le contenu du conteneur).
 10. Pour **List of Artifacts to upload**, entrez **text/*.txt**.
-11. Pour **Common virtual path for uploaded artifacts**, entrez **${BUILD_ID}/${BUILD_NUMBER}**.
+11. Pour **Common virtual path for uploaded artifacts**, entrez **${BUILD\_ID}/${BUILD\_NUMBER}**.
 12. Cliquez sur **Save** pour enregistrer vos paramètres.
 13. Dans le tableau de bord Hudson, cliquez sur **Build Now** pour exécuter **MyJob**. Examinez l'état dans la sortie de la console. Les messages d'état du stockage Azure sont inclus dans la sortie de la console lorsque l'action post-build commence à télécharger les artefacts de build.
 14. Une fois la tâche terminée correctement, vous pouvez examiner les artefacts de build en ouvrant l’objet blob public.
@@ -158,7 +158,7 @@ La section suivante présente les composants du service BLOB.
     
     Le format ci-dessus s’applique au cloud public Azure. Si vous utilisez un autre cloud Azure, utilisez le point de terminaison dans le portail de gestion Azure pour déterminer votre URL de point de terminaison.
 
-    Dans le format ci-dessus, `storageaccount` représente le nom de votre compte de stockage, `container_name` représente le nom de votre conteneur et `blob_name` représente le nom de votre objet blob, respectivement. Le nom du conteneur contient plusieurs chemins d'accès, séparés par une barre oblique (**/**). Dans ce didacticiel, nous avons utilisé **MyJob** comme exemple de nom de conteneur et **${BUILD_ID}/${BUILD_NUMBER}** comme chemin virtuel commun. L'URL de l'objet blob a donc la forme suivante :
+    Dans le format ci-dessus, `storageaccount` représente le nom de votre compte de stockage, `container_name` représente le nom de votre conteneur et `blob_name` représente le nom de votre objet blob, respectivement. Le nom du conteneur contient plusieurs chemins d'accès, séparés par une barre oblique (**/**). Dans ce didacticiel, nous avons utilisé **MyJob** comme exemple de nom de conteneur et **${BUILD\_ID}/${BUILD\_NUMBER}** comme chemin virtuel commun. L'URL de l'objet blob a donc la forme suivante :
 
     `http://example.blob.core.windows.net/myjob/2014-05-01_11-56-22/1/hello.txt`
 
@@ -168,4 +168,4 @@ La section suivante présente les composants du service BLOB.
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

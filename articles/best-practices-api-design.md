@@ -8,6 +8,7 @@
    editor=""
    tags=""/>
 
+
 <tags
    ms.service="best-practice"
    ms.devlang="rest-api"
@@ -16,6 +17,7 @@
    ms.workload="na"
    ms.date="04/28/2015"
    ms.author="masashin"/>
+
 
 # Guide de conception d’API
 
@@ -38,7 +40,7 @@ L’objectif de ce guide est de décrire les problèmes à prendre en compte lor
 
 Dans son étude de 2000, Roy Fielding propose une approche architecturale alternative à la structuration des opérations exposées par les services web : REST. REST est un style d’architecture pour la création de systèmes distribués basés sur l’hypermédia. L’un des principaux avantages du modèle REST est qu’il est basé sur des normes ouvertes et qu’il ne lie pas l’implémentation du modèle ou les applications clientes qui accèdent au modèle à une implémentation spécifique. Par exemple, un service web REST peut être implémenté à l’aide de l’API web Microsoft ASP.NET, et les applications clientes peuvent être développées à l’aide de n’importe quel langage et n’importe quel ensemble d’outils pouvant générer des requêtes HTTP et analyser les réponses HTTP.
 
-> [AZURE.NOTE]: REST est indépendant de tout protocole sous-jacent et n’est pas nécessairement lié à HTTP. Toutefois, la plupart des implémentations courantes de systèmes basés sur REST utilisent HTTP comme protocole d’application pour l’envoi et la réception de requêtes. Ce document est axé sur le mappage des principes REST aux systèmes conçus pour fonctionner à l’aide de HTTP.
+> [AZURE.NOTE]\: REST est indépendant de tout protocole sous-jacent et n’est pas nécessairement lié à HTTP. Toutefois, la plupart des implémentations courantes de systèmes basés sur REST utilisent HTTP comme protocole d’application pour l’envoi et la réception de requêtes. Ce document est axé sur le mappage des principes REST aux systèmes conçus pour fonctionner à l’aide de HTTP.
 
 Le modèle REST utilise un schéma de navigation pour représenter les objets et les services sur un réseau (les _ressources_). De nombreux systèmes qui implémentent REST utilisent généralement le protocole HTTP pour transmettre les demandes d’accès à ces ressources. Dans ces systèmes, une application cliente envoie une requête sous la forme d’un URI qui identifie une ressource, avec une méthode HTTP (les plus courantes étant GET, POST, PUT et DELETE) qui indique l’opération à effectuer sur cette ressource. Le corps de la requête HTTP contient les données requises pour effectuer l’opération. Il est essentiel de bien comprendre que REST définit un modèle de requête sans état. Les requêtes HTTP doivent être indépendantes et peuvent être générées dans n’importe quel ordre. Par conséquent, les informations d’état temporaires entre les requêtes ne peuvent pas être conservées. Les ressources elles-mêmes représentent l’unique emplacement de stockage de ces informations. Chaque requête doit être une opération atomique. En effet, un modèle REST implémente une machine à états finis où une requête fait passer une ressource d’un état non temporaire bien défini à un autre.
 
@@ -272,7 +274,7 @@ Vous devez vous efforcer de garder les URI simples et intuitifs. L’exposition 
 
 Par exemple, si les commandes contiennent le prix d’achat de la commande, une application cliente qui a besoin de récupérer toutes les commandes dont le coût est supérieur à une valeur spécifique devra peut-être récupérer toutes les commandes à partir de l’URI _/orders_, puis filtrer ces commandes localement. Ce processus est très peu efficace. Il gaspille la bande passante réseau et la puissance de traitement du serveur hébergeant l’API web.
 
-Une solution consiste à fournir un modèle d’URI tel que _/orders/ordervalue_greater_than_n_ où _n_ est le prix de la commande. Cependant, hormis pour un nombre limité de prix, une telle approche présente des inconvénients. En outre, si vous devez interroger des commandes selon d’autres critères, vous pouvez être tenu de fournir une longue liste d’URI contenant des noms potentiellement non intuitifs.
+Une solution consiste à fournir un modèle d’URI tel que _/orders/ordervalue\_greater\_than\_n_ où _n_ est le prix de la commande. Cependant, hormis pour un nombre limité de prix, une telle approche présente des inconvénients. En outre, si vous devez interroger des commandes selon d’autres critères, vous pouvez être tenu de fournir une longue liste d’URI contenant des noms potentiellement non intuitifs.
 
 Pour le filtrage des données, une meilleure stratégie consiste à fournir des critères de filtre dans la chaîne de requête qui est passée à l’API web, par exemple _/orders?ordervaluethreshold=n_. Dans cet exemple, l’opération correspondante dans l’API web est responsable de l’analyse et de la gestion du paramètre `ordervaluethreshold` dans la chaîne de requête et du renvoi des résultats filtrés dans la réponse HTTP.
 
@@ -359,7 +361,7 @@ Accept: application/json
 ...
 ```
 
-Le corps du message de réponse contient un tableau `Links` (mis en évidence dans l’exemple de code) qui spécifie la nature de la relation (_Customer_), l’URI du client (_http://adventure-works.com/customers/3_), le mode de récupération des détails de ce client (_GET_) et les types MIME que le serveur web prend en charge pour la récupération de ces informations (_text/xml_ et _application/json_). Il s’agit de toutes les informations nécessaires à une application cliente pour être en mesure d’extraire les détails du client. En outre, le tableau Links inclut également des liens pour les autres opérations qui peuvent être effectuées, telles que PUT (pour modifier le client, ainsi que le format que le serveur web attend du client) et DELETE.
+Le corps du message de réponse contient un tableau `Links` (mis en évidence dans l’exemple de code) qui spécifie la nature de la relation (_Customer_), l’URI du client (\__http://adventure-works.com/customers/3_), le mode de récupération des détails de ce client (_GET_) et les types MIME que le serveur Web prend en charge pour la récupération de ces informations (_text/xml_ et _application/json_). Il s’agit de toutes les informations nécessaires à une application cliente pour être en mesure d’extraire les détails du client. En outre, le tableau Links inclut également des liens pour les autres opérations qui peuvent être effectuées, telles que PUT (pour modifier le client, ainsi que le format que le serveur web attend du client) et DELETE.
 
 ```HTTP
 HTTP/1.1 200 OK
@@ -395,7 +397,7 @@ Le contrôle de version permet à une API web d’indiquer les fonctionnalités 
 
 Il s’agit de l’approche la plus simple. Elle peut être acceptable pour certaines API internes. De nouvelles ressources ou de nouveaux liens peuvent représenter des changements importants. L’ajout de contenu à des ressources existantes ne représente pas nécessairement une modification avec rupture, dans la mesure où les applications clientes qui n’attendent pas ce contenu l’ignoreront simplement.
 
-Par exemple, une requête à l’URI _http://adventure-works.com/customers/3_ doit renvoyer les détails d’un client unique contenant les champs `Id`, `Name` et `Address` attendus par l’application cliente :
+Par exemple, une requête à l’URI \__http://adventure-works.com/customers/3_ doit renvoyer les détails d’un client unique contenant les champs `Id`, `Name` et `Address` attendus par l’application cliente :
 
 ```HTTP
 HTTP/1.1 200 OK
@@ -440,7 +442,7 @@ Ce mécanisme de contrôle de version est très simple, mais dépend du routage 
 
 ### Contrôle de version de chaîne de requête
 
-Plutôt que de fournir plusieurs URI, vous pouvez spécifier la version de la ressource en utilisant un paramètre dans la chaîne de requête ajoutée à la requête HTTP, par exemple _http://adventure-works.com/customers/3?version=2_. La valeur par défaut du paramètre de version doit être significative, par exemple 1, s’il est omis par des applications clientes plus anciennes.
+Plutôt que de fournir plusieurs URI, vous pouvez spécifier la version de la ressource en utilisant un paramètre dans la chaîne de requête ajoutée à la requête HTTP, par exemple \__http://adventure-works.com/customers/3?version=2_. La valeur par défaut du paramètre de version doit être significative, par exemple 1, s’il est omis par des applications clientes plus anciennes.
 
 D’un point de vue sémantique, cette approche présente l’avantage suivant : la même ressource est toujours extraite du même URI, mais cela dépend du code qui gère la demande d’analyse de la chaîne de requête et de renvoi de la réponse HTTP appropriée. D’autre part, cette approche présente les mêmes inconvénients que le mécanisme de contrôle de version d’URI concernant l’implémentation de HATEOAS.
 
@@ -523,4 +525,4 @@ Cette approche représente sans doute le mécanisme de contrôle de version le p
 - Le site [RESTful Cookbook](http://restcookbook.com/) (en anglais) offre une introduction à la création d’API RESTful.
 - Le site [API Checklist](https://mathieu.fenniak.net/the-api-checklist/) (en anglais) présente une liste d’éléments à prendre en compte lors de la conception et de l’implémentation d’une API web.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

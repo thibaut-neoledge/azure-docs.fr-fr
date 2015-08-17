@@ -157,4 +157,4 @@ Le code suivant appelle les méthodes des extensions du Kit de développement lo
 
 [Télécharger des éléments multimédias](media-services-deliver-asset-download.md)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

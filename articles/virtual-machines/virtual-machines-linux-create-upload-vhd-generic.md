@@ -91,7 +91,7 @@ Si vous n'utilisez pas un environnement Windows, il est recommandé d'utiliser 
 		rounded_size=$((($size/$MB + 1)*$MB))
 		echo "Rounded Size = $rounded_size"
 
- 3. Redimensionnez le disque brut à l'aide de $rounded_size défini dans le script ci-dessus :
+ 3. Redimensionnez le disque brut à l'aide de $rounded\_size défini dans le script ci-dessus :
 
 		# qemu-img resize MyLinuxVM.raw $rounded_size
 
@@ -123,10 +123,10 @@ Si un noyau personnalisé est requis, il est recommandé d’utiliser une versio
 
 Au minimum, l'absence des correctifs suivants a été reconnue pour poser des problèmes sur Azure : ils doivent donc être inclus dans le noyau. Cette liste n’est pas exhaustive ni complète pour toutes les distributions :
 
-- [ata_piix : reporter des disques dans les pilotes Hyper-V par défaut](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/drivers/ata/ata_piix.c?id=cd006086fa5d91414d8ff9ff2b78fbb593878e3c)
+- [ata\_piix : reporter des disques dans les pilotes Hyper-V par défaut](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/drivers/ata/ata_piix.c?id=cd006086fa5d91414d8ff9ff2b78fbb593878e3c)
 - [storvsc : compte des paquets en transit dans le chemin RESET](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/drivers/scsi/storvsc_drv.c?id=5c1b10ab7f93d24f29b5630286e323d1c5802d5c)
-- [storvsc : éviter l’utilisation de WRITE_SAME](https://git.kernel.org/cgit/linux/kernel/git/next/linux-next.git/commit/drivers/scsi/storvsc_drv.c?id=3e8f4f4065901c8dfc51407e1984495e1748c090)
-- [storvsc :désactiver WRITE_SAME pour RAID et les pilotes adaptateurs de l’hôte virtuel](https://git.kernel.org/cgit/linux/kernel/git/next/linux-next.git/commit/drivers/scsi/storvsc_drv.c?id=54b2b50c20a61b51199bedb6e5d2f8ec2568fb43)
+- [storvsc : éviter l’utilisation de WRITE\_SAME](https://git.kernel.org/cgit/linux/kernel/git/next/linux-next.git/commit/drivers/scsi/storvsc_drv.c?id=3e8f4f4065901c8dfc51407e1984495e1748c090)
+- [storvsc :désactiver WRITE\_SAME pour RAID et les pilotes adaptateurs de l’hôte virtuel](https://git.kernel.org/cgit/linux/kernel/git/next/linux-next.git/commit/drivers/scsi/storvsc_drv.c?id=54b2b50c20a61b51199bedb6e5d2f8ec2568fb43)
 - [storvsc : correctif de déréférence du pointeur NULL](https://git.kernel.org/cgit/linux/kernel/git/next/linux-next.git/commit/drivers/scsi/storvsc_drv.c?id=b12bb60d6c350b348a4e1460cd68f97ccae9822e)
 - [storvsc : des défaillances de la mémoire tampon de l’anneau peuvent entraîner un gel des E/S](https://git.kernel.org/cgit/linux/kernel/git/next/linux-next.git/commit/drivers/scsi/storvsc_drv.c?id=e86fb5e8ab95f10ec5f2e9430119d5d35020c951)
 
@@ -189,4 +189,4 @@ L'[Agent Linux Azure](virtual-machines-linux-agent-user-guide.md) (waagent) es
 
 - Vous devez ensuite arrêter la machine virtuelle et télécharger le disque dur virtuel dans Azure.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

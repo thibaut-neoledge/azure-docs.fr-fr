@@ -153,4 +153,4 @@ Vous avez terminé l’installation. Vous pouvez à présent [vous connecter à 
 [cliasm]: virtual-machines/virtual-machines-command-line-tools.md
 [cliarm]: virtual-machines/xplat-cli-azure-resource-manager.md
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

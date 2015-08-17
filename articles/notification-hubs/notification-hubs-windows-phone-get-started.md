@@ -12,9 +12,10 @@
 	ms.workload="mobile"
 	ms.tgt_pltfrm="mobile-windows-phone"
 	ms.devlang="dotnet"
-	ms.topic="get-started-article" 
+	ms.topic="hero-article" 
 	ms.date="06/16/2015"
 	ms.author="wesmc"/>
+	
 # Prise en main de Notification Hubs
 
 [AZURE.INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
@@ -94,7 +95,7 @@ Vous disposez maintenant des chaînes de connexion requises pour inscrire votre 
         using Microsoft.Phone.Notification;
         using Microsoft.WindowsAzure.Messaging;
 
-5. Au niveau du code suivant en haut de la méthode **Application_Launching** dans App.xaml.cs :
+5. Au niveau du code suivant en haut de la méthode **Application\_Launching** dans App.xaml.cs :
 
 	    var channel = HttpNotificationChannel.Find("MyPushChannel");
         if (channel == null)
@@ -114,7 +115,7 @@ Vous disposez maintenant des chaînes de connexion requises pour inscrire votre 
 
 	>[AZURE.NOTE]Ce didacticiel permet d'envoyer une notification toast à l'appareil. Lorsque vous envoyez une notification par vignette, vous devez appeler la méthode **BindToShellTile** sur le canal. Pour la prise en charge des notifications toast ainsi que des notifications par vignette, appelez **BindToShellTile** et **BindToShellToast**.
 
-6. Dans l’Explorateur de solutions, développez **Propriétés**, ouvrez le fichier WMAppManifest.xml, cliquez sur l’onglet **Fonctionnalités** et veillez à ce que la fonctionnalité **ID_CAP_PUSH_NOTIFICATION** soit activée.
+6. Dans l’Explorateur de solutions, développez **Propriétés**, ouvrez le fichier WMAppManifest.xml, cliquez sur l’onglet **Fonctionnalités** et veillez à ce que la fonctionnalité **ID\_CAP\_PUSH\_NOTIFICATION** soit activée.
 
    	![][14]
 
@@ -215,4 +216,4 @@ Dans cet exemple simple, vous diffusez des notifications à tous vos appareils W
 [Notification Hubs - Didacticiel WP Silverlight]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/PushToSLPhoneApp
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

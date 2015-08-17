@@ -2,7 +2,7 @@
     pageTitle="Vue d’ensemble de la requête de base de données élastique Azure SQL Database"
     description="Vue d’ensemble de la fonctionnalité de requête élastique"
     services="sql-database"
-    documentationCenter=""
+    documentationCenter=""  
     manager="jeffreyg"
     authors="sidneyh"/>
 
@@ -92,7 +92,7 @@ Les informations d’identification sont constituées de l’ID utilisateur et d
     WITH IDENTITY = '<shard_map_username>',
     SECRET = '<shard_map_password>'
      [;]
-Veillez à ce que &lt;shard_map_username> ne contienne pas le suffixe « @servername ».
+Veillez à ce que &lt;shard\_map\_username> ne contienne pas le suffixe « @servername ».
 
 Vous pouvez utiliser la syntaxe suivante pour supprimer la clé principale et les informations d’identification :
 
@@ -204,9 +204,9 @@ Après avoir défini votre source de données externe et vos tables externes, vo
     where w_id > 100 and w_id < 200
     group by w_id, o_c_id
 
-### Procédure stockée SP_ EXECUTE_FANOUT
+### Procédure stockée SP\_ EXECUTE\_FANOUT
 
-SP_EXECUTE_FANOUT est une procédure stockée qui fournit l’accès aux bases de données représentées par une carte de partitions. La procédure stockée accepte les paramètres suivants :
+SP\_EXECUTE\_FANOUT est une procédure stockée qui fournit l’accès aux bases de données représentées par une carte de partitions. La procédure stockée accepte les paramètres suivants :
 
 -    **Nom du serveur** (nvarchar) : nom qualifié complet du serveur logique hébergeant la carte de partitions.
 -    **Nom de la base de données de la carte de partitions** (nvarchar) : nom de la base de données de la carte de partitions.
@@ -240,7 +240,7 @@ La requête de base de données élastique est incluse dans le coût des bases d
 La version préliminaire nécessite de tenir compte de certains éléments :
 
 *    La fonctionnalité de requête de base de données élastique n’est initialement disponible que pour le niveau de performances SQL DB v12 Premium. Cependant, les bases de données distantes accessibles via une requête de base de données élastique peuvent être de n’importe quel niveau.
-* Les tables externes référencées par la source de données externe ne prennent en charge que les opérations de lecture sur les bases de données distantes. Vous pouvez toutefois pointer les fonctionnalités Transact-SQL complètes au niveau de la base de données de la requête de base de données élastique où réside la définition de la table externe. Cela peut être utile, par exemple, pour conserver les résultats temporaires à l’aide de SELECT column_list INTO local_table ou pour définir des procédures stockées dans la base de données de requête de la base de données élastique qui font référence à des tables externes.
+* Les tables externes référencées par la source de données externe ne prennent en charge que les opérations de lecture sur les bases de données distantes. Vous pouvez toutefois pointer les fonctionnalités Transact-SQL complètes au niveau de la base de données de la requête de base de données élastique où réside la définition de la table externe. Cela peut être utile, par exemple, pour conserver les résultats temporaires à l’aide de SELECT column\_list INTO local\_table ou pour définir des procédures stockées dans la base de données de requête de la base de données élastique qui font référence à des tables externes.
 *    À l’heure actuelle, les paramètres dans les requêtes ne peuvent pas être distribués aux bases de données distantes. Les requêtes paramétrables doivent placer toutes les données dans le nœud de tête et peuvent pâtir de mauvaises performances en fonction de la taille des données. Une solution temporaire consiste à éviter les paramètres dans vos requêtes ou à utiliser l’option RECOMPILE pour remplacer automatiquement les paramètres par leurs valeurs actuelles.
 * À l’heure actuelle, les statistiques des colonnes via les tables externes ne sont pas prises en charge.
 * Actuellement, la requête de base de données élastique n’effectue pas d’élimination de partition lorsque les prédicats de clé de partitionnement permettent d’exclure en toute sécurité certaines bases de données distantes du traitement. Par conséquent, les requêtes concerneront toujours toutes les bases de données distantes représentées par les sources de données externes de la requête.
@@ -263,4 +263,4 @@ Pour commencer à explorer une requête élastique, essayez notre didacticiel pa
 
 <!--anchors-->
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

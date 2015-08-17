@@ -12,7 +12,7 @@
 	ms.workload="identity"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="hero-article"
+	ms.topic="article"
 	ms.date="06/02/2015"
 	ms.author="rkarlin"/>
 
@@ -79,4 +79,4 @@ Une fois que vous avez publié des applications qui utilisent le Proxy d’appli
 
 * [À propos de la délégation Kerberos contrainte](http://technet.microsoft.com/library/cc995228.aspx)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

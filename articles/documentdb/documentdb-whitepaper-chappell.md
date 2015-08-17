@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/13/2015" 
+	ms.date="08/06/2015" 
 	ms.author="mimig"/>
 
 # Présentation de DocumentDB - Une base de données NoSQL pour Microsoft Azure 
@@ -31,4 +31,4 @@ Ce livre blanc vous familiarise également avec les concepts suivants :
 **Téléchargement PDF :** [Présentation de DocumentDB - Une base de données NoSQL pour Microsoft Azure](http://go.microsoft.com/fwlink/?LinkId=511318)
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

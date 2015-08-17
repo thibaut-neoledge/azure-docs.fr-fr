@@ -24,7 +24,7 @@ Pour utiliser des objets blob, commencez par créer un *compte de stockage* Azur
 
 http://&lt;*StorageAccount*&gt;.blob.core.windows.net/&lt;*Container*&gt;/&lt;*BlobName*&gt ;
 
-&lt;\*CompteStockage\*&gt; correspond à un identificateur unique attribué lors de la création d'un compte de stockage, tandis que &lt;\*Conteneur\*&gt; et &lt;\*NomObjetBlob\*&gt; correspondent aux noms d'un conteneur spécifique et d'un objet blob dans ce conteneur.
+&lt;*CompteStockage*&gt; correspond à un identificateur unique attribué lors de la création d’un compte de stockage, tandis que &lt;*Conteneur*&gt; et &lt;*NomObjetBlob*&gt; correspondent aux noms d’un conteneur spécifique et d’un objet blob dans ce conteneur.
 
 Azure fournit deux types d’objet blob. Les choix sont les suivants :
 
@@ -181,4 +181,4 @@ Plus généralement, les données de toutes sortes sont importantes. C’est pou
 [SQL-tblstor]: ./media/cloud-storage/Data_06_TblStorage.png
 [hadoop]: ./media/cloud-storage/Data_07_Hadoop.png
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

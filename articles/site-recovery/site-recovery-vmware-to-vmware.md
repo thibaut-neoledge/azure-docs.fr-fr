@@ -62,17 +62,17 @@ Effectuez l’installation suivante :
 
 1. Téléchargez le fichier zip [update](http://download.microsoft.com/download/9/F/D/9FDC6001-1DD0-4C10-BDDD-8A9EBFC57FDF/ASR Scout 8.0.1 Update1.zip). Ce fichier zip contient les fichiers suivants :
 
-	-  RX_8.0.1.0_GA_Update_1_3279231_23Jun15.tar.gz
-	-  CX_Windows_8.0.1.0_GA_Update_1_3259146_23Jun15.exe
-	-  UA_Windows_8.0.1.0_GA_Update_1_3259401_23Jun15.exe
-	-  UA_RHEL6-64_8.0.1.0_GA_Update_1_3259401_23Jun15.tar.gz
-	-  vCon_Windows_8.0.1.0_GA_Update_1_3259523_23Jun15.exe
+	-  RX\_8.0.1.0\_GA\_Update\_1\_3279231\_23Jun15.tar.gz
+	-  CX\_Windows\_8.0.1.0\_GA\_Update\_1\_3259146\_23Jun15.exe
+	-  UA\_Windows\_8.0.1.0\_GA\_Update\_1\_3259401\_23Jun15.exe
+	-  UA\_RHEL6-64\_8.0.1.0\_GA\_Update\_1\_3259401\_23Jun15.tar.gz
+	-  vCon\_Windows\_8.0.1.0\_GA\_Update\_1\_3259523\_23Jun15.exe
 2. Extrayez les fichiers zip.
-2. **Serveur RX** : copiez **RX_8.0.1.0_GA_Update_1_3279231_23Jun15.tar.gz** sur le serveur RX et extrayez-le. Dans le dossier extrait, exécutez **/Install**.
-2. **Serveur de configuration/serveur de traitement** : copiez **CX_Windows_8.0.1.0_GA_Update_1_3259146_23Jun15.exe** sur le serveur de configuration et le serveur de traitement. Double-cliquez pour l'exécuter.
-3. **Serveur cible maître Windows** : pour mettre à jour l’agent unifié, copiez **UA_Windows_8.0.1.0_GA_Update_1_3259401_23Jun15.exe** sur le serveur cible maître. Double-cliquez dessus pour l'exécuter. Notez que l'agent unifié pour Windows ne s’applique pas au serveur source. Il doit être installé uniquement sur le serveur cible maître Windows.
-4. **Serveur cible maître Linux** : pour mettre à jour l’agent unifié, copiez **UA_RHEL6-64_8.0.1.0_GA_Update_1_3259401_23Jun15.tar.gz** sur le serveur cible maître et extrayez-le. Dans le dossier extrait, exécutez **/Install**.
-5. **Serveur vContinuum** : copiez **vCon_Windows_8.0.1.0_GA_Update_1_3259523_23Jun15.exe** sur le serveur vContinuum. Assurez-vous que vous avez fermé l'Assistant vContinuum. Double-cliquez sur le fichier pour l'exécuter.
+2. **Serveur RX** : copiez **RX\_8.0.1.0\_GA\_Update\_1\_3279231\_23Jun15.tar.gz** sur le serveur RX et extrayez-le. Dans le dossier extrait, exécutez **/Install**.
+2. **Serveur de configuration/serveur de traitement** : copiez **CX\_Windows\_8.0.1.0\_GA\_Update\_1\_3259146\_23Jun15.exe** sur le serveur de configuration et le serveur de traitement. Double-cliquez pour l'exécuter.
+3. **Serveur cible maître Windows** : pour mettre à jour l’agent unifié, copiez **UA\_Windows\_8.0.1.0\_GA\_Update\_1\_3259401\_23Jun15.exe** sur le serveur cible maître. Double-cliquez dessus pour l'exécuter. Notez que l'agent unifié pour Windows ne s’applique pas au serveur source. Il doit être installé uniquement sur le serveur cible maître Windows.
+4. **Serveur cible maître Linux** : pour mettre à jour l’agent unifié, copiez **UA\_RHEL6-64\_8.0.1.0\_GA\_Update\_1\_3259401\_23Jun15.tar.gz** sur le serveur cible maître et extrayez-le. Dans le dossier extrait, exécutez **/Install**.
+5. **Serveur vContinuum** : copiez **vCon\_Windows\_8.0.1.0\_GA\_Update\_1\_3259523\_23Jun15.exe** sur le serveur vContinuum. Assurez-vous que vous avez fermé l'Assistant vContinuum. Double-cliquez sur le fichier pour l'exécuter.
 
 ## Étape 4 : Configurer la réplication
 5. Configurez la réplication entre les sites VMware sources et cibles.
@@ -117,4 +117,4 @@ Cette dernière mise à jour comprend des correctifs de bogues et de nouvelles f
 
 Posez vos questions sur le [Forum Azure Recovery Services](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).<
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

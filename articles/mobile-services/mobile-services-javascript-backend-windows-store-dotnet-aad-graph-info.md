@@ -180,4 +180,4 @@ Dans le prochain didacticiel, [Contrôle d'accès en fonction du rôle avec AAD 
 [Contrôle d'accès en fonction du rôle avec AAD dans Mobile Services]: mobile-services-javascript-backend-windows-store-dotnet-aad-rbac.md
 [blog de l'équipe Azure Active Directory Graph]: http://go.microsoft.com/fwlink/?LinkId=510536
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

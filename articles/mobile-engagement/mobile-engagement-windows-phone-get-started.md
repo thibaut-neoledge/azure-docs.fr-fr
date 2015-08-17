@@ -7,14 +7,16 @@
 	manager="dwrede"
 	editor="" />
 
+
 <tags
 	ms.service="mobile-engagement"
 	ms.workload="mobile"
 	ms.tgt_pltfrm="mobile-windows-phone"
 	ms.devlang="dotnet"
-	ms.topic="get-started-article" 
+	ms.topic="hero-article" 
 	ms.date="04/30/2015"
 	ms.author="piyushjo" />
+
 
 # Prise en main d'Azure Mobile Engagement pour les applications Windows Phone Silverlight
 
@@ -50,8 +52,8 @@ Ce didacticiel requiert les éléments suivants :
    	![][8]
 
 	- **Nom de l'application** : tapez ici le nom de votre application. Tous les caractères sont autorisés.
-	- **Plateforme** : sélectionnez la plateforme cible (\*\*Windows Phone Silverlight\*\*) de l'application (si l'application cible plusieurs plateformes, répétez ce didacticiel pour chacune des plateformes).
-	- **Nom de la ressource d'application** : nom utilisé dans les API et les URL pour faire référence à l'application. Vous devez utiliser uniquement des caractères d'URL conventionnels. Le nom généré automatiquement vous fournit un point de départ solide. Il est également recommandé d'ajouter le nom de la plateforme pour éviter tout conflit de noms, puisque ce nom doit être unique.
+	- **Plateforme** : sélectionnez la plateforme cible (**Windows Phone Silverlight**) de l'application (si l'application cible plusieurs plateformes, répétez ce didacticiel pour chacune des plateformes).
+	- **Nom de la ressource d’application** : nom utilisé dans les API et les URL pour faire référence à l’application. Vous devez utiliser uniquement des caractères d'URL conventionnels. Le nom généré automatiquement vous fournit un point de départ solide. Il est également recommandé d'ajouter le nom de la plateforme pour éviter tout conflit de noms, puisque ce nom doit être unique.
 	- **Emplacement** : sélectionnez le centre de données qui hébergera l'application (et surtout sa collection).
 	- **Collection** : si vous avez déjà créé une application, sélectionnez une collection créée précédemment, sinon sélectionnez Nouvelle collection.
 	- **Nom de collection** : correspond à votre groupe d'applications. Cela permet également de garantir que toutes vos applications font partie d'un groupe qui autorise les calculs agrégés de statistiques. Vous devez utiliser ici le nom de votre société ou service le cas échéant.
@@ -88,10 +90,13 @@ Vous avez maintenant créé une nouvelle application Windows Phone Silverlight 
 
 1. Installez le package nuget du[Kit de développement logiciel Mobile Engagement Windows Phone] dans votre projet.
 
-2. Ouvrez `WMAppManifest.xml` (dans le dossier Propriétés) et assurez-vous que les éléments suivants sont déclarés (ajoutez-les dans le cas contraire) dans la balise `<Capabilities />`  :
+2. Ouvrez `WMAppManifest.xml` (dans le dossier Propriétés) et assurez-vous que les éléments suivants sont déclarés (ajoutez-les dans le cas contraire) dans la balise `<Capabilities />
+`  :
 
 		<Capability Name="ID_CAP_NETWORKING" />
+
 		<Capability Name="ID_CAP_IDENTITY_DEVICE" />
+
 
 	![][20]
 
@@ -238,4 +243,4 @@ Nous allons à présent créer une campagne simple qui enverra une notification 
 [40]: ./media/mobile-engagement-windows-phone-get-started/push-screenshot.png
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

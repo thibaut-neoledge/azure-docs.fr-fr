@@ -592,17 +592,17 @@ Chaque attribut est décrit dans les sections suivantes.
 Cet attribut détermine le mode de mesure du niveau sonore. Les valeurs autorisées sont les suivantes :
 
  
-**ITU_R_BS_1770_2_DI** (par défaut) : indique ITU-R BS.1770-2 plus Dialogue Intelligence
+**ITU\_R\_BS\_1770\_2\_DI** (par défaut) : indique ITU-R BS.1770-2 plus Dialogue Intelligence
 
-**ITU_R_BS_1770_1_DI** : indique ITU-R BS.1770-1 plus Dialogue Intelligence
+**ITU\_R\_BS\_1770\_1\_DI** : indique ITU-R BS.1770-1 plus Dialogue Intelligence
 
-**ITU_R_BS_1770_2** : indique ITU-R BS.1770-2
+**ITU\_R\_BS\_1770\_2** : indique ITU-R BS.1770-2
 
-**LEQA_DI** : indique Leq(A) plus Dialogue Intelligence
+**LEQA\_DI** : indique Leq(A) plus Dialogue Intelligence
 
 **Remarque :**
 
-Le mode **EBU R128** peut être obtenu avec **ITU_R_BS_1770_2_DI**
+Le mode **EBU R128** peut être obtenu avec **ITU\_R\_BS\_1770\_2\_DI**
 
 **Leq(A)** est inclus uniquement pour des raisons liées au système antérieur et ne doit être utilisé que dans des flux de travail hérités spécifiques.
 
@@ -610,7 +610,7 @@ L’**UIT** a récemment proposé une mise à jour intitulée BS.1770-3, équiva
 
 ###Attribut SpeechThreshold
 
-Spécifie un seuil vocal utilisé par DPLM pour produire un résultat de niveau sonore intégré (sélection entre régulation vocale, régulation de niveau et pas de régulation, par exemple). La plage des valeurs de seuil vocal est comprise entre 0 % et 100 %, par incréments de 1 %. Ce paramètre produit un effet uniquement quand DPLM est configuré dans un mode qui utilise Dialogue Intelligence, ce qui signifie qu’il peut uniquement être spécifié si Mode est défini selon ITU_R_BS_1770_2_DI ou ITU_R_BS_1770_1_DI. Quand Mode correspond à ITU_R_BS_1770_2_DI ou ITU_R_BS_1770_1_DI, la valeur par défaut est 20 %. Les valeurs de cet attribut doivent se situer dans la plage 0, 1 – 100.
+Spécifie un seuil vocal utilisé par DPLM pour produire un résultat de niveau sonore intégré (sélection entre régulation vocale, régulation de niveau et pas de régulation, par exemple). La plage des valeurs de seuil vocal est comprise entre 0 % et 100 %, par incréments de 1 %. Ce paramètre produit un effet uniquement quand DPLM est configuré dans un mode qui utilise Dialogue Intelligence, ce qui signifie qu’il peut uniquement être spécifié si Mode est défini selon ITU\_R\_BS\_1770\_2\_DI ou ITU\_R\_BS\_1770\_1\_DI. Quand Mode correspond à ITU\_R\_BS\_1770\_2\_DI ou ITU\_R\_BS\_1770\_1\_DI, la valeur par défaut est 20 %. Les valeurs de cet attribut doivent se situer dans la plage 0, 1 – 100.
 
 ###Attribut TruePeakDCBlock
 
@@ -640,7 +640,7 @@ Chaque attribut est décrit ci-dessous.
 
 **DialogNormalization** : valeur de DialNorm mesurée, en décibels, à partir de l’entrée audio est incorporée dans le flux DD+ de sortie, dans la plage {-31, -30, …, -1} dB.
 
-**IntegratedLoudness** : volume intégré tel que mesuré par DPLM, dans la plage -70 à +10 LKFS/dBFS (dBFS est utilisé uniquement quand Mode est défini sur LEQA_DI).
+**IntegratedLoudness** : volume intégré tel que mesuré par DPLM, dans la plage -70 à +10 LKFS/dBFS (dBFS est utilisé uniquement quand Mode est défini sur LEQA\_DI).
 
 **IntegratedLoudnessGatingMethod** - Les valeurs valides sont : 0 – Aucun/Pas de fenêtre de mesure (None/Ungated) ; 1 – Signaux vocaux sur intervalle (Speech Gated) ; 2 – Niveau mesuré sur l’intervalle (Level Gated).
 
@@ -651,4 +651,4 @@ Chaque attribut est décrit ci-dessous.
 **TruePeak** : ce résultat contient la valeur true‐peak absolue la plus élevée dans tout canal depuis la réinitialisation de la mesure. Pour obtenir la description du niveau true peak, consultez ITU‐R BS.1770‐2. La plage de valeurs est comprise entre -70 et 12,04 dBTP.
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -112,4 +112,4 @@ Le tableau suivant répertorie les commutateurs pris en charge par Mellanox. Ils
 
 En savoir plus sur les [composants matériels StorSimple](https://msdn.microsoft.com/library/azure/dn757755.aspx)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

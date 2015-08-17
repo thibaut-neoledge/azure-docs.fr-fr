@@ -60,4 +60,4 @@ Il est impossible de récupérer la valeur des variables chiffrées ou du champ 
 
 Vous ne pouvez pas exporter de certificats depuis Azure Automation. Vous devez vous assurer que tous les certificats sont disponibles en dehors d'Azure.
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

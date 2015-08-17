@@ -7,14 +7,16 @@
 	manager="timlt"
 	editor=""/>
 
+
 <tags
 	ms.service="service-bus"
 	ms.workload="tbd"
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
-	ms.topic="get-started-article"
+	ms.topic="hero-article"
 	ms.date="07/02/2015"
 	ms.author="sethm"/>
+
 
 # Application multiniveau .NET avec les files d'attente Service Bus
 
@@ -154,7 +156,7 @@ Dans cette section, vous allez générer le composant frontal de votre applicati
 
 6.  Dans **Explorateur de solutions**, cliquez avec le bouton droit sur **Références**, puis cliquez sur **Gérer les packages NuGet...** ou **Ajouter une référence au package de bibliothèques**.
 
-7.  Sélectionnez **En ligne** dans la partie gauche de la boîte de dialogue. Recherchez « **Service Bus** », puis sélectionnez l'élément **Microsoft Azure Service Bus**. Ensuite, terminez l'installation et fermez cette boîte de dialogue.
+7.  Sélectionnez **En ligne** dans la partie gauche de la boîte de dialogue. Recherchez « **Service Bus** » et sélectionnez l’élément **Microsoft Azure Service Bus**. Ensuite, terminez l'installation et fermez cette boîte de dialogue.
 
     ![][13]
 
@@ -177,7 +179,7 @@ Dans cette section, vous allez créer les différentes pages affichées par votr
             }
         }
 
-2.  Dans **Explorateur de solutions**, double-cliquez sur **Controllers\HomeController.cs**. Ajoutez les instructions **using** suivantes au début du fichier pour inclure les espaces de noms au modèle que vous venez de créer, ainsi que Service Bus :
+2.  Dans **Explorateur de solutions**, double-cliquez sur **Controllers\\HomeController.cs**. Ajoutez les instructions **using** suivantes au début du fichier pour inclure les espaces de noms au modèle que vous venez de créer, ainsi que Service Bus :
 
         using FrontendWebRole.Models;
         using Microsoft.ServiceBus.Messaging;
@@ -246,7 +248,7 @@ Dans cette section, vous allez créer les différentes pages affichées par votr
 
 7.  Cliquez sur **Ajouter**.
 
-8.  À présent, modifiez le nom affiché de votre application. Dans l'**Explorateur de solutions**, double-cliquez sur le fichier **Views\Shared\\_Layout.cshtml** pour l'ouvrir dans l'éditeur de Visual Studio.
+8.  À présent, modifiez le nom affiché de votre application. Dans l'**Explorateur de solutions**, double-cliquez sur le fichier **Views\\Shared\\\\\_Layout.cshtml** pour l'ouvrir dans l'éditeur de Visual Studio.
 
 9.  Remplacez toutes les occurrences d'**Application ASP.NET** par **LITWARE'S Products**.
 
@@ -254,7 +256,7 @@ Dans cette section, vous allez créer les différentes pages affichées par votr
 
 	![][28]
 
-11. Enfin, modifiez la page d'envoi pour inclure des informations sur la file d'attente. Dans **Explorateur de solutions**, double-cliquez sur le fichier **Views\Home\Submit.cshtml** pour l'ouvrir dans l'éditeur de Visual Studio. Ajoutez la ligne suivante après **&lt;h2>Submit&lt;/h2>**. Pour le moment, **ViewBag.MessageCount** est vide. Vous le remplirez plus tard.
+11. Enfin, modifiez la page d'envoi pour inclure des informations sur la file d'attente. Dans **Explorateur de solutions**, double-cliquez sur le fichier **Views\\Home\\Submit.cshtml** pour l'ouvrir dans l'éditeur de Visual Studio. Ajoutez la ligne suivante après **&lt;h2>Submit&lt;/h2>**. Pour le moment, **ViewBag.MessageCount** est vide. Vous le remplirez plus tard.
 
         <p>Current number of orders in queue waiting to be processed: @ViewBag.MessageCount</p>
 
@@ -333,13 +335,13 @@ Maintenant, vous allez ajouter le code pour envoyer des éléments dans une file
 
     Remarque : plus tard dans ce didacticiel, vous verrez comment stocker le **nom de votre espace de noms** et la valeur de votre clé SAP dans un fichier de configuration.
 
-4.  Maintenant, assurez-vous que votre méthode **Initialize** est bien appelée. Dans **Explorateur de solutions**, double-cliquez sur **Global.asax\Global.asax.cs**.
+4.  Maintenant, assurez-vous que votre méthode **Initialize** est bien appelée. Dans **Explorateur de solutions**, double-cliquez sur **Global.asax\\Global.asax.cs**.
 
-5.  Ajoutez la ligne suivante en bas de la méthode **Application_Start** :
+5.  Ajoutez la ligne suivante en bas de la méthode **Application\_Start** :
 
         FrontendWebRole.QueueConnector.Initialize();
 
-6.  Enfin, mettez à jour le code web que vous avez créé précédemment, pour envoyer des éléments dans la file d'attente. Dans **Explorateur de solutions**, double-cliquez sur **Controllers\HomeController.cs**.
+6.  Enfin, mettez à jour le code web que vous avez créé précédemment, pour envoyer des éléments dans la file d'attente. Dans **Explorateur de solutions**, double-cliquez sur **Controllers\\HomeController.cs**.
 
 7.  Mettez à jour la méthode **Submit()** comme suit pour obtenir le nombre de messages de la file d'attente :
 
@@ -392,6 +394,7 @@ Pour instancier un client (par exemple, un client Service Bus **QueueClient**), 
 	<ConfigurationSettings>
     ...
     	<Setting name="Microsoft.ServiceBus.ConnectionString" value="Endpoint=sb://[yourServiceNamespace].servicebus.windows.net/;SharedSecretIssuer=RootManageSharedAccessKey;SharedSecretValue=[yourKey]" />
+
 	</ConfigurationSettings>
 
 Le code qui suit récupère la chaîne de connexion, crée une file d'attente et initialise la connexion à la file d'attente :
@@ -444,7 +447,7 @@ Vous allez maintenant créer le rôle de travail qui traite les commandes envoy�
 
 9.  Créez une classe **OnlineOrder** pour représenter les commandes à mesure que vous les traitez dans la file d'attente. Vous pouvez réutiliser une classe que vous avez déjà créée. Dans Explorateur de solutions, cliquez avec le bouton droit sur **OrderProcessingRole** (sur le projet, et non sur le rôle). Cliquez sur **Ajouter**, puis sur **Élément existant**.
 
-10. Accédez au sous-dossier **FrontendWebRole\Models**, puis double-cliquez sur **OnlineOrder.cs** pour l'ajouter au projet.
+10. Accédez au sous-dossier **FrontendWebRole\\Models**, puis double-cliquez sur **OnlineOrder.cs** pour l'ajouter au projet.
 
 11. Dans WorkerRole.cs, remplacez la valeur `"ProcessingQueue"` de la variable **QueueName** dans **WorkerRole.cs** par la valeur `"OrdersQueue"`, comme dans le code suivant :
 
@@ -539,4 +542,4 @@ Pour plus d'informations sur le déploiement du composant frontal sur un site We
   [executionmodels]: http://azure.microsoft.com/develop/net/fundamentals/compute/
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

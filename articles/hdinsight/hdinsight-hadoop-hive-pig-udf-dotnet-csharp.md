@@ -122,7 +122,7 @@ La diffusion en continu exige que Hive et Pig transmettent des données à une a
 
 6. Double-cliquez sur **Conteneur par défaut** pour le cluster. Cette opération permet d’ouvrir une nouvelle fenêtre qui affiche le contenu du conteneur par défaut.
 
-7. Cliquez sur l’icône de téléchargement, puis accédez au dossier **bin\debug** du projet **HiveCSharp**. Enfin, sélectionnez le fichier **HiveCSharp.exe** et cliquez sur **Ok**.
+7. Cliquez sur l’icône de téléchargement, puis accédez au dossier **bin\\debug** du projet **HiveCSharp**. Enfin, sélectionnez le fichier **HiveCSharp.exe** et cliquez sur **Ok**.
 
 	![icône télécharger](./media/hdinsight-hadoop-hive-pig-udf-dotnet-csharp/upload.png)
 
@@ -195,7 +195,7 @@ La diffusion en continu exige que Hive et Pig transmettent des données à une a
 
 1. La diffusion en continu Pig s’attend à ce que l’application soit locale sur le système de fichiers de cluster. Activez le Bureau à distance pour le cluster HDInsight, puis connectez-vous à lui en suivant les instructions fournies dans [Connexion à des clusters HDInsight avec RDP](hdinsight-administer-use-management-portal.md#rdp).
 
-2. Une fois connecté, copiez **PigUDF.exe** du répertoire **bin/debug** vers le projet PigUDF sur votre ordinateur local, puis collez-le dans le répertoire **PIG_HOME %** sur le cluster.
+2. Une fois connecté, copiez **PigUDF.exe** du répertoire **bin/debug** vers le projet PigUDF sur votre ordinateur local, puis collez-le dans le répertoire **PIG\_HOME %** sur le cluster.
 
 ###Utilisation de l’application à partir de Pig Latin
 
@@ -240,4 +240,4 @@ Pour d’autres façons d’utiliser Pig et Hive et pour en savoir plus sur l’
 
 * [Utilisation de MapReduce avec HDInsight](hdinsight-use-mapreduce.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -32,7 +32,7 @@ Vous devez disposer des éléments suivants :
 
 Avant de créer l’application, nous devons comprendre la structure des données et le type d’analyse que nous allons effectuer sur ces données.
 
-Dans cet article, nous utilisons le fichier exemple de données **HVAC.csv**, qui est disponible par défaut sur tous les clusters HDInsight dans **\HdiSamples\SensorSampleData\hvac**. Téléchargez et ouvrez le fichier CSV pour obtenir un instantané des données.
+Dans cet article, nous utilisons le fichier exemple de données **HVAC.csv**, qui est disponible par défaut sur tous les clusters HDInsight dans **\\HdiSamples\\SensorSampleData\\hvac**. Téléchargez et ouvrez le fichier CSV pour obtenir un instantané des données.
 
 ![HVAC, instantané des données](./media/hdinsight-apache-spark-ipython-notebook-machine-learning/HDI.Spark.ML.Show.Data.png "Instantané des données HVAC")
 
@@ -213,7 +213,7 @@ Nous utilisons ces données pour prédire si un bâtiment sera plus chaud ou plu
 
 ##<a name="anaconda"></a>Utiliser la bibliothèque scikit-learn Anaconda pour Machine Learning
 
-Les clusters Apache Spark sur HDInsight incluent des bibliothèques Anaconda, notamment la bibliothèque **scikit-learn** pour l’apprentissage automatique. Cette bibliothèque contient également différents jeux de données qui vous permettent de créer des exemples d’application directement à partir d’un bloc-notes Jupyter. Pour obtenir des exemples d’utilisation de la bibliothèque scikit-learn, reportez-vous à [http://scikit-learn.org/stable/auto_examples/index.html](http://scikit-learn.org/stable/auto_examples/index.html).
+Les clusters Apache Spark sur HDInsight incluent des bibliothèques Anaconda, notamment la bibliothèque **scikit-learn** pour l’apprentissage automatique. Cette bibliothèque contient également différents jeux de données qui vous permettent de créer des exemples d’application directement à partir d’un bloc-notes Jupyter. Pour obtenir des exemples d’utilisation de la bibliothèque scikit-learn, reportez-vous à [http://scikit-learn.org/stable/auto\_examples/index.html](http://scikit-learn.org/stable/auto_examples/index.html).
 
 ##<a name="seealso"></a>Voir aussi
 
@@ -240,4 +240,4 @@ Les clusters Apache Spark sur HDInsight incluent des bibliothèques Anaconda, 
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

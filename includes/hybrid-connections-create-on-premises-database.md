@@ -5,7 +5,7 @@ Cette section explique comment installer SQL Server Express, activer TCP/IP, dé
 
 Pour utiliser une base de données SQL Server ou SQL Server Express locale avec une connexion hybride, TCP/IP doit être activé sur un port statique. Les instances par défaut dans SQL Server utilisent le port statique 1433, mais pas les instances nommées. Pour cette raison, nous allons installer l’instance par défaut. Si vous avez déjà installé l’instance par défaut de SQL Server Express, vous pouvez ignorer cette section.
 
-1. Pour installer SQL Server Express, exécutez le fichier **SQLEXPRWT_x64_ENU.exe** ou **SQLEXPR_x86_ENU.exe** que vous avez téléchargé. Le Centre d'installation SQL Server s'affiche.
+1. Pour installer SQL Server Express, exécutez le fichier **SQLEXPRWT\_x64\_ENU.exe** ou **SQLEXPR\_x86\_ENU.exe** que vous avez téléchargé. Le Centre d'installation SQL Server s'affiche.
 	
 2. Sélectionnez **Nouvelle installation autonome SQL Server ou ajout de fonctionnalités à une installation existante** et suivez les instructions en acceptant les valeurs et paramètres par défaut, jusqu’à ce que la page **Configuration de l’instance** s’affiche.
 	
@@ -78,4 +78,4 @@ Pour terminer, vous allez créer un compte de connexion SQL Server avec des aut
 
 4. **Exécutez** la requête pour créer un compte de connexion et accorder les autorisations requises dans la base de données locale.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

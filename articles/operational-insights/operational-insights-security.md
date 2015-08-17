@@ -107,4 +107,4 @@ Le service OMS traite les données brutes, puis les données traitées agrégée
 
 Vous pouvez vous connecter à OMS en utilisant le compte que vous avez défini précédemment. Tout le trafic entre OMS et le service OMS est envoyé via un canal HTTPS sécurisé.
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

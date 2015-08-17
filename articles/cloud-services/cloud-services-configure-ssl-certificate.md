@@ -7,6 +7,7 @@
 	manager="timlt" 
 	editor=""/>
 
+
 <tags 
 	ms.service="cloud-services" 
 	ms.workload="tbd" 
@@ -15,6 +16,7 @@
 	ms.topic="article" 
 	ms.date="06/28/2015"
 	ms.author="adegeo"/>
+
 
 
 
@@ -44,10 +46,10 @@ Le certificat SSL doit répondre aux prérequis suivants dans Azure :
 
 -   Le certificat doit contenir une clé privée.
 -   Le certificat doit être créé pour l'échange de clés et pouvoir faire l'objet d'un export au format Personal Information Exchange (.pfx).
--   Le nom d'objet du certificat doit correspondre au domaine servant à accéder au service cloud. Vous ne pouvez pas obtenir de certificat SSL d'une autorité de certification pour le domaine cloudapp.net. Vous devez acquérir un nom de domaine personnalisé à utiliser pour accéder à votre service. Lorsque vous demandez un certificat auprès d'une autorité de certification, le nom d'objet du certificat doit correspondre au nom de domaine personnalisé que vous utilisez pour accéder à votre application. Par exemple, si votre nom de domaine personnalisé est **contoso.com**, demandez un certificat auprès de votre autorité de certification pour ***.contoso.com** ou **www.contoso.com**.
+-   Le nom d'objet du certificat doit correspondre au domaine servant à accéder au service cloud. Vous ne pouvez pas obtenir de certificat SSL d'une autorité de certification pour le domaine cloudapp.net. Vous devez acquérir un nom de domaine personnalisé à utiliser pour accéder à votre service. Lorsque vous demandez un certificat auprès d'une autorité de certification, le nom d'objet du certificat doit correspondre au nom de domaine personnalisé que vous utilisez pour accéder à votre application. Par exemple, si votre nom de domaine personnalisé est **contoso.com**, vous demandez un certificat auprès de votre autorité de certification pour ****.contoso.com** ou **www.contoso.com**.
 -   Le certificat doit utiliser au minimum un chiffrement à 2048 bits.
 
-Dans le cadre d’un test, vous pouvez [créer](cloud-services-certs-create.md) et utiliser un certificat auto-signé. Un certificat auto-signé n'est pas authentifié par une autorité de certification et peut utiliser le domaine cloudapp.net comme URL de site Web. Par exemple, la tâche ci-dessous utilise un certificat auto-signé dans lequel le nom commun utilisé dans le certificat est **sslexample.cloudapp.net**. Pour plus d’informations sur la création d’un certificat auto-signé avec le Gestionnaire des services Internet, consultez [Création d’un certificat pour un rôle][].
+Dans le cadre d’un test, vous pouvez [créer](cloud-services-certs-create.md) et utiliser un certificat auto-signé. Un certificat auto-signé n'est pas authentifié par une autorité de certification et peut utiliser le domaine cloudapp.net comme URL de site Web. Par exemple, la tâche ci-dessous utilise un certificat auto-signé dans lequel le nom commun utilisé dans le certificat est **sslexample.cloudapp.net**.
 
 Ensuite, vous devez ajouter des informations sur le certificat dans votre définition de service et dans les fichiers de configuration de service.
 
@@ -63,11 +65,12 @@ Votre application doit être configurée pour utiliser le certificat, et un poin
                 <Certificate name="SampleCertificate" 
 							 storeLocation="LocalMachine" 
                     		 storeName="CA" />
+
             </Certificates>
         ...
         </WebRole>
 
-    La section **Certificates** définit le nom du certificat, son emplacement et le nom du magasin dans lequel il se trouve. Nous avons choisi de stocker le certificat dans le magasin d'autorité de certification, mais vous pouvez aussi choisir d'autres options. Pour plus d’informations, consultez [Association d’un certificat à un service].
+    La section **Certificates** définit le nom du certificat, son emplacement et le nom du magasin dans lequel il se trouve. Nous avons choisi de stocker le certificat dans le magasin d'autorité de certification, mais vous pouvez aussi choisir d'autres options. Pour plus d’informations, consultez [Association d’un certificat à un service\].
 
 2.  Dans votre fichier de définition du service, ajoutez un élément **InputEndpoint** dans la section **Endpoints** pour activer HTTPS :
 
@@ -76,6 +79,7 @@ Votre application doit être configurée pour utiliser le certificat, et un poin
             <Endpoints>
                 <InputEndpoint name="HttpsIn" protocol="https" port="443" 
                     certificate="SampleCertificate" />
+
             </Endpoints>
         ...
         </WebRole>
@@ -88,6 +92,7 @@ Votre application doit être configurée pour utiliser le certificat, et un poin
                 <Site name="Web">
                     <Bindings>
                         <Binding name="HttpsIn" endpointName="HttpsIn" />
+
                     </Bindings>
                 </Site>
             </Sites>
@@ -104,6 +109,7 @@ Votre application doit être configurée pour utiliser le certificat, et un poin
                 <Certificate name="SampleCertificate" 
                     thumbprint="9427befa18ec6865a9ebdc79d4c38de50e6316ff" 
                     thumbprintAlgorithm="sha1" />
+
             </Certificates>
         ...
         </Role>
@@ -117,7 +123,7 @@ Maintenant que les fichiers de définition du service et de configuration de ser
 Votre package de déploiement a été mis à jour pour utiliser le certificat, et un point de terminaison HTTPS a été ajouté. Vous pouvez maintenant télécharger le package et le certificat dans Azure via le portail de gestion.
 
 1. Connectez-vous au [portail de gestion Azure][]. 
-2. Dans le volet de navigation gauche, cliquez sur **Cloud Services**.
+2. Cliquez sur **Cloud Services** dans le volet de navigation de gauche.
 3. Cliquez sur le service cloud de votre choix.
 4. Cliquez sur l’onglet **Certificats**.
 
@@ -152,4 +158,4 @@ Si vous voulez utiliser SSL pour un déploiement intermédiaire au lieu d'un dé
   [3]: ./media/cloud-services-configure-ssl-certificate/SSLCloudService.png
   [4]: ./media/cloud-services-configure-ssl-certificate/AddCertificateComplete.png
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

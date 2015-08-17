@@ -191,7 +191,7 @@ Une règle spécifie les éléments suivants :
 -	Plage de ports source : entier ou plage comprise entre 0 et 65536
 -	Plage d’adresses IP de destination : CIDR de la plage d’adresses IP de destination
 -	Plage de Port de destination : un entier ou une plage comprise entre 0 et 65536
--	Protocole : TCP, UDP ou « \* »
+-	Protocole : TCP, UDP ou « * »
 -	Accès : Autoriser/Refuser
 
 ### Règles par défaut
@@ -206,17 +206,17 @@ Les règles par défaut sont indiquées dans les tableaux ci-dessous.
 
 Nom |	Priorité |	IP Source |	Port source |	IP de destination |	Port de destination |	Protocole |	Access
 --- | --- | --- | --- | --- | --- | --- | ---
-AUTORISER LE TRAFIC ENTRANT DU RÉSEAU VIRTUEL | 65 000 | VIRTUAL\_NETWORK |	\* |	VIRTUAL\_NETWORK | \* |	\* | AUTORISER
-AUTORISER LE TRAFIC ENTRANT DE L'ÉQUILIBRAGE DE CHARGE AZURE | 65 001 | AZURE\_LOADBALANCER | \* | \* | \* | \* | AUTORISER
-REFUSER TOUT TRAFIC ENTRANT | 65 500 | \* | \* | \* | \* | \* | REFUSER
+AUTORISER LE TRAFIC ENTRANT DU RÉSEAU VIRTUEL | 65 000 | VIRTUAL\_NETWORK |	* |	VIRTUAL\_NETWORK | * |	* | AUTORISER
+AUTORISER LE TRAFIC ENTRANT DE L'ÉQUILIBRAGE DE CHARGE AZURE | 65 001 | AZURE\_LOADBALANCER | * | * | * | * | AUTORISER
+REFUSER TOUT TRAFIC ENTRANT | 65 500 | * | * | * | * | * | REFUSER
 
 **Les règles sortantes par défaut sont :**
 
 Nom |	Priorité |	IP Source |	Port source |	IP de destination |	Port de destination |	Protocole |	Access
 --- | --- | --- | --- | --- | --- | --- | ---
-AUTORISER LE TRAFIC SORTANT DU RÉSEAU VIRTUEL | 65 000 | VIRTUAL\_NETWORK | \* | VIRTUAL\_NETWORK | \* | \* | AUTORISER
-AUTORISER LE TRAFIC SORTANT D’INTERNET | 65 001 | \* | \* | INTERNET | \* | \* | AUTORISER
-REFUSER TOUT TRAFIC SORTANT | 65 500 | \* | \* | \* | \* | \* | REFUSER
+AUTORISER LE TRAFIC SORTANT DU RÉSEAU VIRTUEL | 65 000 | VIRTUAL\_NETWORK | * | VIRTUAL\_NETWORK | * | * | AUTORISER
+AUTORISER LE TRAFIC SORTANT D’INTERNET | 65 001 | * | * | INTERNET | * | * | AUTORISER
+REFUSER TOUT TRAFIC SORTANT | 65 500 | * | * | * | * | * | REFUSER
 
 ### Règles d’infrastructure spéciales
 
@@ -243,7 +243,7 @@ Les règles de groupe de sécurité réseau peuvent être spécifiées sur un po
 
 ### Trafic ICMP
 
-Grâce aux règles NSG actuelles, vous pouvez spécifier les protocoles TCP ou UDP, mais pas ICMP. Toutefois, le trafic ICMP est autorisé dans un réseau virtuel par défaut via les règles de trafic entrant du réseau virtuel qui autorisent le trafic de/vers n’importe quels port et protocole « \* » dans le réseau virtuel.
+Grâce aux règles NSG actuelles, vous pouvez spécifier les protocoles TCP ou UDP, mais pas ICMP. Toutefois, le trafic ICMP est autorisé dans un réseau virtuel par défaut via les règles de trafic entrant du réseau virtuel qui autorisent le trafic de/vers n’importe quels port et protocole « * » dans le réseau virtuel.
 
 ### Association d’un groupe de sécurité réseau à une machine virtuelle
 
@@ -267,7 +267,7 @@ Par exemple, vous pouvez créer une nouvelle machine virtuelle et un nouveau NSG
 
 Nom |	Priorité |	IP Source |	Port source |	IP de destination |	Port de destination |	Protocole |	Access
 --- | --- | --- | --- | --- | --- | --- | ---
-WEB | 100 | INTERNET | \* | \* | 80 | TCP | AUTORISER
+WEB | 100 | INTERNET | * | * | 80 | TCP | AUTORISER
 
 ## Itinéraires définis par l’utilisateur
 
@@ -335,4 +335,4 @@ La machine virtuelle d’appliance virtuelle doit être capable de recevoir le t
 - Pour configurer le routage et le transfert IP pour une machine virtuelle dans Microsoft Azure, consultez la section [Création d’itinéraires et activation du transfert IP dans Azure](virtual-network/virtual-networks-udr-how-to.md). 
 - Pour obtenir une présentation du contrôle d’accès basé sur les rôles, consultez [Contrôle d’accès basé sur les rôles dans le portail Microsoft Azure](role-based-access-control-configure.md)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

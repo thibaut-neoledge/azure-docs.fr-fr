@@ -7,6 +7,7 @@
    manager="mbaldwin"
    editor=""/>
 
+
 <tags
    ms.service="active-directory"
    ms.devlang="na"
@@ -15,6 +16,7 @@
    ms.workload="identity"
    ms.date="07/17/2015"
    ms.author="kenhoff;yossib"/>
+
 
 
 # Prise en main de l'API de création de rapports Azure AD
@@ -56,7 +58,7 @@ L'API de création de rapports utilise [OAuth](https://msdn.microsoft.com/librar
 
 ### Obtention de votre ID de répertoire, d'un ID client et d'une clé client secrète
 
-Les étapes ci-dessous vous guideront pour l'obtention de l'ID de client de votre application et d'une clé client secrète. Vous devez également connaître le nom de votre client, il peut s'agir votre *.onmicrosoft.com ou d'un nom de domaine personnalisé. Copiez-les dans un emplacement distinct ; vous les utiliserez pour modifier le script.
+Les étapes ci-dessous vous guideront pour l'obtention de l'ID de client de votre application et d'une clé client secrète. Vous devez également connaître le nom de votre client, il peut s'agir de votre *.onmicrosoft.com ou d'un nom de domaine personnalisé. Copiez-les dans un emplacement distinct ; vous les utiliserez pour modifier le script.
 
 #### ID client d'application
 - Accédez à l'onglet Applications.
@@ -137,4 +139,4 @@ Le script renvoie des listes qui répertorient tous les rapports disponibles et 
 - Consultez [Événements de rapport d'audit d'Azure AD](active-directory-reporting-audit-events.md) pour plus d'informations sur le rapport d'audit
 - Consultez [Rapports et événements Azure AD (aperçu)](https://msdn.microsoft.com/library/azure/mt126081.aspx) pour plus d'informations sur le service REST d'API Graph
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

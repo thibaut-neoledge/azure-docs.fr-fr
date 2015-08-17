@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="storage-backup-recovery" 
-   ms.date="03/17/2015"
+   ms.date="07/24/2015"
    ms.author="elfish; v-romcal"/>
 
 # Récupération d’une base de données SQL Azure à l’aide de la géo-restauration utilisant l’API REST
@@ -57,4 +57,4 @@ Pour plus d’informations, consultez les liens suivants :
 [Service Management REST API Reference](https://msdn.microsoft.com/library/azure/ee460799.aspx)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

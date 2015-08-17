@@ -7,6 +7,7 @@
    manager="timlt"
    editor=""/>
 
+
 <tags
    ms.service="service-fabric"
    ms.devlang="dotnet"
@@ -15,6 +16,7 @@
    ms.workload="na"
    ms.date="06/16/2015"
    ms.author="oanapl"/>
+
 
 # Présentation du contrôle d'intégrité de Service Fabric
 Service Fabric introduit un modèle d'intégrité qui fournit une évaluation et des rapports d'intégrité riches, flexibles et extensibles. Il s'agit d'un contrôle quasiment en temps réel de l'état du cluster et des services qu'il exécute. Vous pouvez facilement obtenir les informations d'intégrité et prendre des mesures pour corriger les problèmes potentiels avant qu'ils ne s'enchaînent et provoquent des pannes massives. Le modèle standard implique que les services envoient des rapports en fonction de leur vue locale et les informations sont agrégées pour fournir une vue globale du cluster.
@@ -98,8 +100,11 @@ Voici un extrait de manifeste de cluster :
 <FabricSettings>
   <Section Name="HealthManager/ClusterHealthPolicy">
     <Parameter Name="ConsiderWarningAsError" Value="False" />
+
     <Parameter Name="MaxPercentUnhealthyApplications" Value="0" />
+
     <Parameter Name="MaxPercentUnhealthyNodes" Value="20" />
+
   </Section>
 </FabricSettings>
 ```
@@ -133,10 +138,12 @@ Voici un extrait de manifeste d'application :
                    MaxPercentUnhealthyServices="0"
                    MaxPercentUnhealthyPartitionsPerService="10"
                    MaxPercentUnhealthyReplicasPerPartition="0"/>
+
             <ServiceTypeHealthPolicy ServiceTypeName="FrontEndServiceType"
                    MaxPercentUnhealthyServices="0"
                    MaxPercentUnhealthyPartitionsPerService="20"
                    MaxPercentUnhealthyReplicasPerPartition="0"/>
+
             <ServiceTypeHealthPolicy ServiceTypeName="BackEndServiceType"
                    MaxPercentUnhealthyServices="20"
                    MaxPercentUnhealthyPartitionsPerService="0"
@@ -245,7 +252,7 @@ Les métadonnées ajoutées sont notamment :
 Les champs de transition d'état peuvent être utilisés pour un niveau d'alerte plus intelligent ou pour des informations sur les événements d'intégrité « historiques ». Ils permettent les scénarios suivants :
 
 - Alerte quand une propriété a eu la valeur Error/Warning pendant plus de X minutes. Cela évite les alertes sur les conditions temporaires. Par exemple : une alerte indiquant que l'état d'intégrité a eu la valeur Warning pendant plus de 5 minutes peut être traduite en (HealthState == Warning et Now - LastWarningTransitionTime)
-> 
+> 5 minutes).
 
 - Alerte uniquement sur les conditions modifiées au cours des X dernières minutes. Si un rapport indiquait déjà l'état Error avant cette période, il peut être ignoré (car il a déjà été signalé précédemment).
 
@@ -336,4 +343,4 @@ Le modèle d'intégrité est très utilisé pour la surveillance et le diagnosti
 [Mise à niveau des applications Service Fabric](service-fabric-application-upgrade.md)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

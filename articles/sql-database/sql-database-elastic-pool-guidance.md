@@ -7,6 +7,7 @@
 	manager="jeffreyg" 
 	editor=""/>
 
+
 <tags 
 	ms.service="sql-database"
 	ms.devlang="NA"
@@ -15,6 +16,7 @@
 	ms.workload="data-management" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="NA"/>
+
 
 
 # Considérations sur les prix et performances pour un pool de bases de données élastique
@@ -110,7 +112,7 @@ L'heuristique suivante peut aider à estimer si un pool élastique est plus éco
 
 1. Estimez les DTU nécessaires pour le pool comme suit :
     
-    MAX (*nombre total de BD* **utilisation moyenne en DTU par BD*, *nombre de BD connaissant un pic simultané***pic d’utilisation en DTU par BD*)
+    MAX (*nombre total de BD* * *utilisation moyenne en DTU par BD*, *nombre de BD connaissant un pic simultané* * *pic d’utilisation en DTU par BD*)
 
 2. Sélectionnez la valeur DTU la plus petite disponible pour le pool qui est supérieure à l'estimation de l'étape 1. Pour les choix de DTU disponibles, consultez les valeurs valides pour les DTU répertoriées ici : [Limites relatives aux DTU et au stockage pour les pools et bases de données élastiques](sql-database-elastic-pool-reference.md#dtu-and-storage-limits-for-elastic-pools-and-elastic-databases).
 
@@ -119,9 +121,9 @@ L'heuristique suivante peut aider à estimer si un pool élastique est plus éco
 
 3. Calculez le prix du pool comme suit :
 
-    prix du pool = (*DTU du pool* * *prix unitaire de DTU de pool*) + (*nombre total de BD** *prix unitaire de BD de pool*)
+    prix du pool = (*DTU du pool* * *prix unitaire de DTU de pool*) + (*nombre total de BD* * *prix unitaire de BD de pool*)
 
-    Pour plus d’informations sur la tarification, consultez [Tarification - Base de données SQL](http://azure.microsoft.com/pricing/details/sql-database/).
+    Pour plus d’informations sur la tarification, voir [Tarification - Base de données SQL](http://azure.microsoft.com/pricing/details/sql-database/).
 
 
 4. Comparez le prix du pool trouvé à l'étape 3 avec celui de l'utilisation des niveaux de performance appropriés pour les bases de données uniques.
@@ -143,7 +145,7 @@ STA et DMV fournissent diverses options et fonctionnalités pour le redimensionn
 
 **STA**<br>STA est un outil intégré au portail Azure qui évalue automatiquement l’historique d’utilisation en ressources des bases de données dans un serveur de base de données SQL existant et recommande une configuration de pool élastique approprié.
 
-**Outil de dimensionnement DMV**<br>L’outil de dimensionnement DMV est fourni en tant que script PowerShell et permet de personnaliser les estimations de dimensionnement d'un pool élastique pour les bases de données existantes dans un serveur.
+**Outil de dimensionnement DMV**<br>L’outil de dimensionnement DMV est fourni en tant que script PowerShell et permet de personnaliser les estimations de dimensionnement d’un pool élastique pour les bases de données existantes dans un serveur.
 
 ### Choix entre l’outil STA et l’outil DMV 
 
@@ -165,7 +167,7 @@ STA est disponible dans le portail Azure lorsque vous ajoutez un pool élastique
 
 ### Estimation de la taille du pool élastique à l'aide des DMV (Dynamic Management Views) 
 
-La DMV [sys.dm_db_resource_stats](https://msdn.microsoft.com/library/dn800981.aspx) mesure l'utilisation en ressources d'une base de données unique. Cette DMV indique l’UC, les E/S, le journal et l'utilisation du journal d'une base de données sous la forme d’un pourcentage de la limite de niveau de performances de la base de données. Ces données peuvent être utilisées pour calculer l'utilisation en DTU d'une base de données dans un intervalle de 15 secondes donné.
+La DMV [sys.dm\_db\_resource\_stats](https://msdn.microsoft.com/library/dn800981.aspx) mesure l’utilisation en ressources d’une base de données unique. Cette DMV indique l’UC, les E/S, le journal et l'utilisation du journal d'une base de données sous la forme d’un pourcentage de la limite de niveau de performances de la base de données. Ces données peuvent être utilisées pour calculer l'utilisation en DTU d'une base de données dans un intervalle de 15 secondes donné.
 
 L'utilisation globale en DTU d’un pool élastique dans un intervalle de 15 secondes peut être estimée en additionnant l'utilisation en DTU de toutes les bases de données candidates pendant cette période. Selon les objectifs de performances spécifiques, il peut être judicieux d'ignorer un faible pourcentage des exemples de données. Par exemple, une valeur de 99e centile du nombre global de DTU sur tous les intervalles de temps peut être appliquée pour exclure les observations aberrantes et fournir un nombre de DTU de pool élastique pour convenir à 99 % des intervalles montrés en exemple.
 
@@ -181,7 +183,7 @@ Le script collecte uniquement les données en cours d'exécution. Pour une charg
 
 Installez les éléments suivants avant d'exécuter le script :
 
-- les derniers [outils de ligne de commande Powershell](http://go.microsoft.com/?linkid=9811175&clcid=0x409).
+- les derniers [outils de ligne de commande Powershell](http://go.microsoft.com/?linkid=9811175&clcid=0x409) ;
 - le [pack de fonctionnalités SQL Server 2014](https://www.microsoft.com/download/details.aspx?id=42295).
 
 
@@ -402,4 +404,4 @@ Toutes les bases de données uniques ne sont pas de parfaits candidats à un poo
 [2]: ./media/sql-database-elastic-pool-guidance/four-databases.png
 [3]: ./media/sql-database-elastic-pool-guidance/twenty-databases.png
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

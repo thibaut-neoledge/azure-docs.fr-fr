@@ -1,11 +1,12 @@
 <properties
-   pageTitle="Vue d'ensemble d'Azure Service Fabric Actors"
-   description="Présentation du modèle de programmation Azure Service Fabric Actors"
+   pageTitle="Vue d'ensemble des Acteurs fiables Service Fabric"
+   description="Présentation du modèle de programmation Acteurs fiables Service Fabric"
    services="service-fabric"
    documentationCenter=".net"
    authors="jessebenson"
    manager="timlt"
    editor=""/>
+
 
 <tags
    ms.service="service-fabric"
@@ -13,10 +14,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="07/10/2015"
+   ms.date="08/05/2015"
    ms.author="claudioc"/>
 
-# Présentation d'Azure Service Fabric Actors
+
+# Présentation des Acteurs fiables Service Fabric
 L’API avec acteurs fiables constitue l’une des deux infrastructures générales fournies par [Service Fabric](service-fabric-technical-overview.md), en plus de l’[API avec services fiables](service-fabric-reliable-services-introduction.md).
 
 Selon le modèle d'acteur, l'API avec acteurs fiables fournit un modèle de programmation monothread asynchrone qui simplifie votre code tout en bénéficiant des garanties de fiabilité et d’évolutivité offertes par Service Fabric.
@@ -191,11 +193,11 @@ Les rappels de minuterie peuvent être marqués avec l'attribut `Readonly` de la
 
 [Comment Fabric Actors utilise la plateforme Service Fabric](service-fabric-reliable-actors-platform.md)
 
-[Configuration de l'acteur KVSActorStateProvider](../Service-Fabric/service-fabric-reliable-actors-KVSActorstateprovider-configuration.md)
+[Configuration de l'acteur KVSActorStateProvider](service-fabric-reliable-actors-KVSActorstateprovider-configuration.md)
 
 [Diagnostics et surveillance des performances d'acteur](service-fabric-reliable-actors-diagnostics.md)
 
 <!--Image references-->
 [1]: ./media/service-fabric-reliable-actors-introduction/concurrency.png
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

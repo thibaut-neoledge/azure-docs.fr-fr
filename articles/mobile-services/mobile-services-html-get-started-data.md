@@ -88,9 +88,9 @@ Pour pouvoir stocker des données d'application dans le nouveau service mobile, 
 
   	Une nouvelle table de stockage **TodoItem** est créée avec les autorisations par défaut. Cela signifie que quiconque possédant la clé de l’application, qui est distribuée avec l’application, peut accéder aux données de la table et les modifier. La table est créée dans un schéma spécifique pour un service mobile donné. Cela vise à éviter les collisions de données lorsque plusieurs services mobiles utilisent la même base de données.
 
-4. Cliquez sur la nouvelle table **TodoItem** et vérifiez qu’aucune ligne de données n’est présente.
+4. Cliquez sur la nouvelle table **TodoItem** et vérifiez qu'aucune ligne de données n'est présente.
 
-	>[AZURE.NOTE]Des tables sont créées avec les colonnes Id, __createdAt, __updatedAt et __version. Lorsqu'un schéma dynamique est activé, Mobile Services génère automatiquement de nouvelles colonnes basées sur l'objet JSON dans la requête d'insertion ou de mise à jour. Pour plus d'informations, consultez la page [Schéma dynamique](http://msdn.microsoft.com/library/windowsazure/jj193175.aspx).
+	>[AZURE.NOTE]Des tables sont créées avec les colonnes Id, \_\_createdAt, \_\_updatedAt et \_\_version. Lorsqu'un schéma dynamique est activé, Mobile Services génère automatiquement de nouvelles colonnes basées sur l'objet JSON dans la requête d'insertion ou de mise à jour. Pour plus d'informations, consultez la page [Schéma dynamique](http://msdn.microsoft.com/library/windowsazure/jj193175.aspx).
 
 6. Sous l'onglet **Configurer** vérifiez que `localhost` figure déjà dans la liste **Autoriser les demandes à partir des noms d'hôte** sous **Partage des ressources cross-origin (CORS)**. Si cela n'est pas le cas, entrez `localhost` dans le champ **Nom d'hôte**, puis cliquez sur **Enregistrer**.
 
@@ -257,4 +257,4 @@ Ce didacticiel a présenté les bases de l'activation d'une application HTML pou
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

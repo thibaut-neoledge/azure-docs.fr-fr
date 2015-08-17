@@ -7,6 +7,7 @@
 	manager="wpickett" 
 	editor=""/>
 
+
 <tags 
 	ms.service="app-service" 
 	ms.workload="web" 
@@ -16,9 +17,10 @@
 	ms.date="03/24/2015" 
 	ms.author="byvinyal"/>
 
+
 #Présentation détaillée des plans Azure App Service#
 
-Un **plan App Service** représente un ensemble de fonctionnalités et de capacités que vous pouvez partager entre plusieurs applications dans [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714), y compris Web Apps, Mobile Apps, Logic Apps et API Apps. Ces plans prennent en charge 5 niveaux de tarification (**Gratuit**, **Partagé**, **De base**, **Standard** et **Premium**) qui possèdent chacun leurs propres fonctionnalités et capacités. Les applications comprises dans un même abonnement et situées au même emplacement peuvent partager un plan. Toutes les applications qui partagent un plan peuvent tirer profit de l'ensemble des fonctionnalités définies par ce plan. Toutes les applications web associées à un plan donné utilisent les ressources définies par ce plan. Par exemple, si votre plan est configuré pour utiliser deux « petites » instances d'un niveau de service standard, toutes les applications associées à ce plan seront exécutées sur ces deux instances et auront accès aux fonctionnalités du niveau de service standard. Les instances de plans sur lesquelles sont exécutées des applications sont entièrement gérées et hautement disponibles.
+Un **plan App Service** représente un ensemble de fonctionnalités et de capacités que vous pouvez partager entre plusieurs applications dans [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714), y compris Web Apps, Mobile Apps, Logic Apps et API Apps. Ces plans prennent en charge 5 niveaux de tarification (**Gratuit**, **Partagé**, **De base**, **Standard** et**Premium**) qui possèdent chacun leurs propres fonctionnalités et capacités. Les applications comprises dans un même abonnement et situées au même emplacement peuvent partager un plan. Toutes les applications qui partagent un plan peuvent tirer profit de l'ensemble des fonctionnalités définies par ce plan. Toutes les applications web associées à un plan donné utilisent les ressources définies par ce plan. Par exemple, si votre plan est configuré pour utiliser deux « petites » instances d'un niveau de service standard, toutes les applications associées à ce plan seront exécutées sur ces deux instances et auront accès aux fonctionnalités du niveau de service standard. Les instances de plans sur lesquelles sont exécutées des applications sont entièrement gérées et hautement disponibles.
 
 Dans cet article, nous allons explorer les principales caractéristiques telles que le niveau et l'échelle d'un plan App  Service, et comment elles entrent en jeu lors de la gestion de vos applications.
 
@@ -96,4 +98,4 @@ Les plans App Service représentent un ensemble de fonctionnalités et de capac
 * Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre l’ancien et le nouveau portail, consultez la page [Références sur la navigation dans le portail Azure](http://go.microsoft.com/fwlink/?LinkId=529715)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

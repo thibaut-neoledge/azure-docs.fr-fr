@@ -7,14 +7,16 @@
 	manager="dwrede" 
 	editor=""/>
 
+
 <tags 
 	ms.service="app-service-mobile" 
 	ms.workload="mobile" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
-	ms.topic="article" 
-	ms.date="06/04/2015" 
+	ms.topic="get-started-article" 
+	ms.date="07/30/2015" 
 	ms.author="glenga"/>
+
 
   
 # Connexion à un serveur SQL Server local à partir d'applications mobiles au moyen de connexions hybrides 
@@ -27,7 +29,8 @@ Au cours de ce didacticiel, vous allez apprendre à modifier un serveur principa
 
 Ce didacticiel requiert les éléments suivants :
 
-- **Un serveur principal d'application mobile existant** <br/>Suivez le [didacticiel de démarrage rapide](app-service-mobile-dotnet-backend-windows-store-dotnet-get-started-preview.md) pour créer et télécharger un serveur principal .NET d'application mobile à partir du [portail Azure].
+- **Un serveur principal d'application mobile existant** <br/>
+Suivez le [didacticiel de démarrage rapide](app-service-mobile-dotnet-backend-windows-store-dotnet-get-started-preview.md) pour créer et télécharger un serveur principal .NET d'application mobile à partir du [portail Azure].
 
 [AZURE.INCLUDE [hybrid-connections-prerequisites](../../includes/hybrid-connections-prerequisites.md)]
 
@@ -87,6 +90,7 @@ Dans cette étape, vous définissez une chaîne de connexion pour la base de don
          MultipleActiveResultSets=True"
          providerName="System.Data.SqlClient" />
 
+
 	N'oubliez pas de remplacer `<**secure_password**>` dans cette chaîne par le mot de passe que vous avez créé pour *HbyridConnectionLogin*.
 	
 3. Cliquez sur **Enregistrer** dans Visual Studio pour enregistrer le fichier Web.config.
@@ -107,15 +111,9 @@ Dans cette étape, vous définissez une chaîne de connexion pour la base de don
 
 	Le service utilise désormais la nouvelle connexion à la base de données SQL Server.
  
-##Test de la connexion à la base de données localement
-
-Avant la publication dans Azure et l'utilisation de la connexion hybride, il est judicieux de vous assurer que la connexion à la base de données fonctionne lorsqu'elle est exécutée localement. De cette façon, vous pouvez plus facilement diagnostiquer et corriger les problèmes de connexion avant de republier et de commencer à utiliser la connexion hybride.
-
-[AZURE.INCLUDE [app-service-mobile-dotnet-backend-test-local-service-api-documentation](../../includes/app-service-mobile-dotnet-backend-test-local-service-api-documentation.md)]
-
 ## Mise à jour d'Azure pour utiliser la chaîne de connexion locale
 
-À présent que vous avez vérifié la connexion à la base de données, vous devez ajouter un paramètre d'application pour cette nouvelle chaîne de connexion afin qu'elle puisse être utilisée à partir d'Azure.
+À présent, vous devez ajouter un paramètre d'application pour cette nouvelle chaîne de connexion afin qu'elle puisse être utilisée à partir d'Azure.
 
 1. Dans le [portail Azure] dans le code principal d'application Web pour votre application mobile, cliquez sur **Tous les paramètres**, puis **Paramètres de l'application**. 
 
@@ -168,4 +166,4 @@ Enfin, vous devez publier le serveur principal d'application mobile sur Azure et
 [Get started with Mobile Services]: ../mobile-services-dotnet-backend-windows-store-dotnet-get-started.md
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

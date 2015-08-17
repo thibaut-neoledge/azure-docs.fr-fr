@@ -1,28 +1,30 @@
-<properties 
-	pageTitle="Prise en main d'Azure Storage" 
-	description="Décrit ce qui s'est produit lors de la création d'un stockage Azure dans un projet de service cloud Visual Studio" 
-	services="storage" 
-	documentationCenter="" 
-	authors="patshea123" 
-	manager="douge" 
+<properties
+	pageTitle="Prise en main d’Azure Storage"
+	description="Décrit ce qui se passe lors de l’utilisation du stockage Azure dans un projet de service cloud Visual Studio."
+	services="storage"
+	documentationCenter=""
+	authors="patshea123"
+	manager="douge"
 	editor="tglee"/>
 
-<tags 
-	ms.service="storage" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="vs-what-happened" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/22/2015" 
+
+<tags
+	ms.service="storage"
+	ms.workload="web"
+	ms.tgt_pltfrm="vs-what-happened"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/22/2015"
 	ms.author="patshea123"/>
+
 
 # Qu'est-il arrivé à mon projet ?
 
 > [AZURE.SELECTOR]
-> - [Getting Started](vs-storage-cloud-services-getting-started-blobs.md)
-> - [What Happened](vs-storage-cloud-services-what-happened.md)
+> - [Getting started](vs-storage-cloud-services-getting-started-blobs.md)
+> - [What happened](vs-storage-cloud-services-what-happened.md)
 
-###Qu'est-il arrivé à mon projet ?</span>
+###Qu'est-il arrivé à mon projet ?
 
 ###### Références ajoutées
 
@@ -37,13 +39,11 @@ Le package NuGet Azure Storage a été ajouté à votre projet Visual Studio. Ce
 - `System.Data`
 - `System.Spatial`
 
-######Chaîne de connexion pour Azure Storage ajoutée 
+######Chaîne de connexion pour Azure Storage ajoutée
 Les éléments ont été créés avec la clé et la chaîne de connexion du compte de stockage sélectionné. Des modifications ont été apportées aux fichiers suivants :
 
 - `ServiceDefinition.csdef`
 - `ServiceConfiguration.Cloud.cscfg`
 - `ServiceConfiguration.Local.cscfg`
 
- 
-
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

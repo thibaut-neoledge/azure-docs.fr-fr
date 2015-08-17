@@ -8,16 +8,16 @@ Même s’il est possible de coller un URI MongoLab dans votre code, il est reco
 
 1. Faites défiler jusqu'à la section Connection Strings. ![WebAppConnectionStrings][focus-mongolab-websiteconnectionstring]
 
-1. Dans **Name**, entrez MONGOLAB_URI.
+1. Dans **Name**, entrez MONGOLAB\_URI.
 1. Dans **Value**, collez la chaîne de connexion obtenue dans la section précédente.
 1. Sélectionnez **Custom** dans la liste déroulante **Type** (à la place de la valeur par défaut **SQLAzure**).
 1. Cliquez sur **Save** dans la barre d'outils. ![SaveWebApp][button-website-save]
 
-**Remarque :** Azure ajoute le préfixe **CUSTOMCONNSTR_** à cette variable, ce qui explique que le code ci-dessus référence **CUSTOMCONNSTR_MONGOLAB_URI.**
+**Remarque :** Azure ajoute le préfixe **CUSTOMCONNSTR\_** à cette variable, ce qui explique que le code ci-dessus référence **CUSTOMCONNSTR\_MONGOLAB\_URI.**
 
 [entry-website]: ./media/howto-save-connectioninfo-mongolab/entry-website.png
 [focus-mongolab-websitedashboard-config]: ./media/howto-save-connectioninfo-mongolab/focus-mongolab-websitedashboard-config.png
 [focus-mongolab-websiteconnectionstring]: ./media/howto-save-connectioninfo-mongolab/focus-mongolab-websiteconnectionstring.png
 [button-website-save]: ./media/howto-save-connectioninfo-mongolab/button-website-save.png
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

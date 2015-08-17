@@ -93,4 +93,4 @@ Maintenant que les revendications sont en place, nous pouvons configurer des adr
 
 Et voilà ! À ce stade, les utilisateurs fédérés d'Office 365 doivent pouvoir utiliser uniquement MFA lorsqu'une revendication provient de l'extérieur de l'intranet de l'entreprise.
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

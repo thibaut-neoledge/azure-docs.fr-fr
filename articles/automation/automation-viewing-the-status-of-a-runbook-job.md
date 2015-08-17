@@ -86,4 +86,4 @@ Les exemples de commandes suivants récupèrent la dernière tâche d'un exemple
 
 - [Démarrage d'un Runbook dans Azure Automation](automation-starting-a-runbook.md) 
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -7,6 +7,7 @@
    manager="timlt"
    editor="jessebenson; mani-ramaswamy"/>
 
+
 <tags
    ms.service="Service-Fabric"
    ms.devlang="dotnet"
@@ -15,6 +16,7 @@
    ms.workload="NA"
    ms.date="07/17/2015"
    ms.author="masnider;jesseb"/>
+
 
 # Présentation des services fiables
 Service Fabric simplifie l'écriture et la gestion des services fiables avec et sans état. Ce document abordera les thèmes suivants :
@@ -130,4 +132,4 @@ Si l'un des éléments suivants correspond aux besoins de votre service d'applic
 + [Lire le modèle de programmation Acteurs fiables](../service-fabric/service-fabric-reliable-actors-introduction.md)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

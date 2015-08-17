@@ -6,6 +6,7 @@
    authors="cherylmc"
    manager="adinah"
    editor="tysonn"/>
+
 <tags 
    ms.service="expressroute"
    ms.devlang="na"
@@ -14,6 +15,7 @@
    ms.workload="infrastructure-services" 
    ms.date="06/15/2015"
    ms.author="cherylmc"/>
+
 
 # Présentation technique d’ExpressRoute
 
@@ -92,13 +94,7 @@ Pour plus d’informations sur les services pris en charge, les coûts et les d�
 
 Le tableau ci-dessous compare les trois domaines de routage.
 
-||**Homologation privée**|**Homologation publique**|**Homologation Microsoft**|
-|---|---|---|---|
-|**Nombre maximal de préfixes pris en charge par homologation**|4 000 par défaut, 10 000 avec ExpressRoute Premium|4 000 par défaut, 10 000 avec ExpressRoute Premium|200|
-|**Plages d’adresses IP prises en charge**|Toute adresse IPv4 valide de votre réseau étendu|Adresses IPv4 publiques qui sont votre propriété ou celle de votre fournisseur de connectivité|Adresses IPv4 publiques qui sont votre propriété ou celle de votre fournisseur de connectivité|
-|**Numéros d’AS**|Numéros d’AS privés et publics. Le client doit posséder un numéro d’AS public. | Numéros d’AS privés et publics. Le client doit posséder un numéro d’AS public. | Numéros d’AS publics uniquement. Le numéro d’AS doit être validé par rapport aux registres de routage pour confirmer sa propriété.|
-|**Adresses IP d’interface de routage**|RFC1918 et adresses IP publiques|Adresses IP publiques inscrites auprès de clients / Fournisseur de services réseau dans les registres de routage.| Adresses IP publiques inscrites auprès de clients / Fournisseur de services réseau dans les registres de routage.|
-|**Prise en charge du hachage MD5**| Oui|Oui|Oui|
+||**Homologation privée**|**Homologation publique**|**Homologation Microsoft**| |---|---|---|---| |**Nombre maximal de préfixes pris en charge par homologation**|4 000 par défaut, 10 000 avec ExpressRoute Premium|4 000 par défaut, 10 000 avec ExpressRoute Premium|200| |**Plages d’adresses IP prises en charge**|Toute adresse IPv4 valide de votre réseau étendu|Adresses IPv4 publiques qui sont votre propriété ou celle de votre fournisseur de connectivité|Adresses IPv4 publiques qui sont votre propriété ou celle de votre fournisseur de connectivité| |**Numéros d’AS**|Numéros d’AS privés et publics. Le client doit posséder un numéro d’AS public. | Numéros d’AS privés et publics. Le client doit posséder un numéro d’AS public. | Numéros d’AS publics uniquement. Le numéro d’AS doit être validé par rapport aux registres de routage pour confirmer sa propriété.| |**Adresses IP d’interface de routage**|RFC1918 et adresses IP publiques|Adresses IP publiques inscrites auprès de clients / Fournisseur de services réseau dans les registres de routage.| Adresses IP publiques inscrites auprès de clients / Fournisseur de services réseau dans les registres de routage.| |**Prise en charge du hachage MD5**| Oui|Oui|Oui|
 
 Vous pouvez choisir d’activer un ou plusieurs domaines de routage dans le cadre de leur circuit dédié. Vous pouvez choisir de placer tous les domaines de routage sur le même VPN (c’est le cas des fournisseurs de services réseau) s’ils souhaitent les recevoir dans un domaine de routage unique. Vous pouvez également les placer dans différents domaines de routage comme indiqué dans le schéma ci-dessus. Nous vous recommandons de connecter l’homologation privée directement à votre réseau principal, et les homologations publiques et Microsoft à votre extranet.
  
@@ -110,4 +106,4 @@ Si vous choisissez d’avoir les trois sessions d’homologation, vous devez di
 - Recherchez un fournisseur de services. Consultez la rubrique [Emplacements et fournisseurs de services ExpressRoute](expressroute-locations.md).
 - Configurez votre connexion ExpressRoute. Pour connaître les instructions, consultez la rubrique [Configuration d’une connexion ExpressRoute via un fournisseur de services réseau](expressroute-configuring-nsps.md) ou [Configuration d’une connexion ExpressRoute via un fournisseur Exchange](expressroute-configuring-exps.md). 
 
-<!----HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

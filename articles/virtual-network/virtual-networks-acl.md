@@ -47,7 +47,7 @@ Quand une machine virtuelle est créée, une liste ACL par défaut est mise en p
 
 | **N° de règle** | **Sous-réseau distant** | **Point de terminaison** | **Permit/Deny** |
 |--------|---------------|----------|-------------|
-| 100 | 0.0.0.0/0 | 3389 | Permit |
+| 100 | 0\.0.0.0/0 | 3389 | Permit |
 
 ## Permit et Deny
 
@@ -75,8 +75,8 @@ Dans l’exemple ci-dessous, si vous souhaitez autoriser l’accès au point de 
 
 | **N° de règle** | **Sous-réseau distant** | **Point de terminaison** | **Permit/Deny** |
 |--------|---------------|----------|-------------|
-| 100 | 65.0.0.0/8 | 3389 | Permit |
-| 200 | 159.0.0.0/8 | 3389 | Permit |
+| 100 | 65\.0.0.0/8 | 3389 | Permit |
+| 200 | 159\.0.0.0/8 | 3389 | Permit |
 
 ### Ordre des règles
 
@@ -86,8 +86,8 @@ Comme plusieurs règles peuvent être spécifiées pour un point de terminaison,
 
 | **N° de règle** | **Sous-réseau distant** | **Point de terminaison** | **Permit/Deny** |
 |--------|---------------|----------|-------------|
-| 100 | 175.1.0.1/24 | 80 | Deny |
-| 200 | 175.0.0.0/8 | 80 | Permit |
+| 100 | 175\.1.0.1/24 | 80 | Deny |
+| 200 | 175\.0.0.0/8 | 80 | Permit |
 
 ## Listes de contrôle d’accès réseau et jeux d’équilibrage de la charge
 
@@ -99,4 +99,4 @@ Les liste de contrôle d’accès réseau peuvent être spécifiées sur un poin
 
 [Comment gérer les listes de contrôle d’accès (ACL) pour les points de terminaison à l’aide de PowerShell](../virtual-networks-acl-powershell)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

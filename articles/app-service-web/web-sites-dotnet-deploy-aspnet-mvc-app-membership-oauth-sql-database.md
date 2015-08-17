@@ -4,8 +4,10 @@
 	services="app-service\web" 
 	documentationCenter=".net" 
 	authors="Rick-Anderson" 
+	writer="Rick-Anderson" 
 	manager="wpickett" 
 	editor=""/>
+
 
 <tags 
 	ms.service="app-service-web" 
@@ -15,6 +17,7 @@
 	ms.topic="article" 
 	ms.date="06/16/2015" 
 	ms.author="riande"/>
+
 
 
 
@@ -36,7 +39,7 @@ Vous développerez une application web de liste de contacts simple basée sur AS
 
 ![page de connexion][rxb]
 
->[AZURE.NOTE]Pour effectuer ce didacticiel, vous avez besoin d’un compte Microsoft Azure. Si vous n’avez pas de compte, vous pouvez <a href="/fr-fr/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F" target="_blank">activer les avantages de votre abonnement MSDN</a> ou <a href="/fr-fr/pricing/free-trial/?WT.mc_id=A261C142F" target="_blank">demander une évaluation gratuite</a>.
+>[AZURE.NOTE]Pour effectuer ce didacticiel, vous avez besoin d’un compte Microsoft Azure. Si vous ne possédez pas de compte, vous pouvez [activer les avantages de votre abonnement MSDN](../fr-fr/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F) ou [obtenir une évaluation gratuite](../fr-fr/pricing/free-trial/?WT.mc_id=A261C142F).
 
 >Si vous voulez vous familiariser avec Azure App Service avant d’ouvrir un compte Azure, accédez à la page [Essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751). Vous pourrez créer immédiatement et gratuitement une application de départ temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
 
@@ -77,58 +80,58 @@ Pour configurer votre environnement de développement, vous devez installer [Vis
 ### Définition de l'en-tête et du pied de page de la page
 
 
-1. Dans l’**Explorateur de solutions**, ouvrez le fichier *Layout.cshtml* dans le dossier *Views\Shared*.
+1. Dans l’**Explorateur de solutions**, ouvrez le fichier *Layout.cshtml* dans le dossier *Views\\Shared*.
 
-	![_Layout.cshtml in Solution Explorer][newapp004]
+	![\_Layout.cshtml in Solution Explorer\][newapp004]
 
-1. Remplacez le balisage du fichier *_Layout.cshtml* par le code suivant : Les modifications sont mises en surbrillance ci-dessous.
+1. Remplacez le balisage du fichier *\_Layout.cshtml* par le code suivant : Les modifications sont mises en surbrillance ci-dessous.
 
-<pre>
-			&lt;!DOCTYPE html>
-			&lt;html>
-			&lt;head>
-			    &lt;meta charset="utf-8" />
-			    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0">
-			    &lt;title>@ViewBag.Title - <mark>Contact Manager</mark>&lt;/title>
+```
+			&lt;!DOCTYPE html&gt;
+			&lt;html&gt;
+			&lt;head&gt;
+			    &lt;meta charset="utf-8" /&gt;
+			    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+			    &lt;title&gt;@ViewBag.Title - <mark>Contact Manager</mark>&lt;/title&gt;
 			    @Styles.Render("~/Content/css")
 			    @Scripts.Render("~/bundles/modernizr")
 			
-			&lt;/head>
-			&lt;body>
-			    &lt;div class="navbar navbar-inverse navbar-fixed-top">
-			        &lt;div class="container">
-			            &lt;div class="navbar-header">
-			                &lt;button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-			                    &lt;span class="icon-bar">&lt;/span>
-			                    &lt;span class="icon-bar">&lt;/span>
-			                    &lt;span class="icon-bar">&lt;/span>
-			                &lt;/button>
-			                @Html.ActionLink("<mark>Démo GC</mark>", "Index", "<mark>Gc</mark>", new { area = "" }, new { @class = "navbar-brand" })
-			            &lt;/div>
-			            &lt;div class="navbar-collapse collapse">
-			                &lt;ul class="nav navbar-nav">
-			                    &lt;li>@Html.ActionLink("Home", "Index", "Home")&lt;/li>
-			                    &lt;li>@Html.ActionLink("About", "About", "Home")&lt;/li>
-			                    &lt;li>@Html.ActionLink("Contact", "Contact", "Home")&lt;/li>
-			                &lt;/ul>
+			&lt;/head&gt;
+			&lt;body&gt;
+			    &lt;div class="navbar navbar-inverse navbar-fixed-top"&gt;
+			        &lt;div class="container"&gt;
+			            &lt;div class="navbar-header"&gt;
+			                &lt;button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"&gt;
+			                    &lt;span class="icon-bar"&gt;&lt;/span&gt;
+			                    &lt;span class="icon-bar"&gt;&lt;/span&gt;
+			                    &lt;span class="icon-bar"&gt;&lt;/span&gt;
+			                &lt;/button&gt;
+			                @Html.ActionLink("<mark>CM Demo</mark>", "Index", "<mark>Cm</mark>", new { area = "" }, new { @class = "navbar-brand" })
+			            &lt;/div&gt;
+			            &lt;div class="navbar-collapse collapse"&gt;
+			                &lt;ul class="nav navbar-nav"&gt;
+			                    &lt;li&gt;@Html.ActionLink("Home", "Index", "Home")&lt;/li&gt;
+			                    &lt;li&gt;@Html.ActionLink("About", "About", "Home")&lt;/li&gt;
+			                    &lt;li&gt;@Html.ActionLink("Contact", "Contact", "Home")&lt;/li&gt;
+			                &lt;/ul&gt;
 			                @Html.Partial("_LoginPartial")
-			            &lt;/div>
-			        &lt;/div>
-			    &lt;/div>
-			    &lt;div class="container body-content">
+			            &lt;/div&gt;
+			        &lt;/div&gt;
+			    &lt;/div&gt;
+			    &lt;div class="container body-content"&gt;
 			        @RenderBody()
-			        &lt;hr />
-			        &lt;footer>
-			            &lt;p>&amp;copy; @DateTime.Now.Year - <mark>Contact Manager</mark>&lt;/p>
-			        &lt;/footer>
-			    &lt;/div>
+			        &lt;hr /&gt;
+			        &lt;footer&gt;
+			            &lt;p&gt;&amp;copy; @DateTime.Now.Year - <mark>Contact Manager</mark>&lt;/p&gt;
+			        &lt;/footer&gt;
+			    &lt;/div&gt;
 			
 			    @Scripts.Render("~/bundles/jquery")
 			    @Scripts.Render("~/bundles/bootstrap")
 			    @RenderSection("scripts", required: false)
-			&lt;/body>
-			&lt;/html>
-</pre>
+			&lt;/body&gt;
+			&lt;/html&gt;
+```
 
 ### Exécution locale de l'application
 
@@ -273,8 +276,8 @@ L'étape suivante consiste à activer la fonctionnalité [Migrations Code First]
 		add-migration Initial
 
 
-	La commande **add-migration Initial** génère un fichier nommé **&lt;date_stamp&gt;Initial** dans le dossier *Migrations* qui crée la base de données. Le premier paramètre (**Initial**) est arbitraire et permet de créer le nom du fichier. Les nouveaux fichiers de classe sont affichés dans l'**Explorateur de solutions**. Dans la classe **Initial**, la méthode **Up** crée la table des contacts et la méthode **Down** (utilisée lorsque vous voulez revenir à l'état précédent) annule cette table.
-3. Ouvrez le fichier *Migrations\Configuration.cs*. 
+	La commande **add-migration Initial** génère un fichier nommé **&lt;date\_stamp&gt;Initial** dans le dossier *Migrations* qui crée la base de données. Le premier paramètre (**Initial**) est arbitraire et permet de créer le nom du fichier. Les nouveaux fichiers de classe sont affichés dans l'**Explorateur de solutions**. Dans la classe **Initial**, la méthode **Up** crée la table des contacts et la méthode **Down** (utilisée lorsque vous voulez revenir à l'état précédent) annule cette table.
+3. Ouvrez le fichier *Migrations\\Configuration.cs*. 
 4. Ajoutez l’espace de noms suivant. 
 
     	 using ContactManager.Models;
@@ -364,7 +367,7 @@ Suivez les instructions du didacticiel [Application MVC 5 avec Facebook, Twitte
 ## Utilisation de l’API d’appartenance
 Dans cette section, vous allez ajouter un utilisateur local, ainsi que le rôle *peutModifier* à la base de données d’appartenance. Seuls les utilisateurs du rôle *peutModifier* pourront modifier les données. Il est recommandé de nommer les rôles en fonction des actions qu’ils peuvent effectuer, c’est pourquoi *peutModifier* est un meilleur nom que *admin*. Lorsque votre application évolue, vous pouvez ajouter de nouveaux rôles tels que *peutSupprimerMembres*, plus parlant que le nom *superAdmin*.
 
-1. Ouvrez le fichier *migrations\configuration.cs* et ajoutez les instructions `using` suivantes :
+1. Ouvrez le fichier *migrations\\configuration.cs* et ajoutez les instructions `using` suivantes :
 
         using Microsoft.AspNet.Identity;
         using Microsoft.AspNet.Identity.EntityFramework;
@@ -404,18 +407,17 @@ Dans cette section, vous allez ajouter un utilisateur local, ainsi que le rôle 
 
 	![image du code](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/ss24.PNG)
 
-   Ce code crée un rôle nommé *canEdit*, créé un utilisateur local nommé *user1@contoso.com* et ajoute *user1@contoso.com* au rôle *canEdit*. Pour plus d’informations, consultez les [didacticiels ASP.NET Identity](http://www.asp.net/identity/overview/features-api) (en anglais).
+   Ce code crée un rôle nommé *canEdit*, créé un utilisateur local nommé **user1@contoso.com* et ajoute **user1@contoso.com* au rôle *canEdit*. Pour plus d’informations, consultez les didacticiels [ASP.NET Identity](http://www.asp.net/identity/overview/features-api) (en anglais).
 
 ## Utilisation de code temporaire pour ajouter de nouveaux utilisateurs de réseaux sociaux au rôle peutModifier  ##
 Dans cette section, vous allez modifier temporairement la méthode **ExternalLoginConfirmation** dans le contrôleur Account afin d’ajouter des utilisateurs se connectant avec un fournisseur OAuth au rôle *canEdit*. Nous allons modifier temporairement la méthode **ExternalLoginConfirmation** pour ajouter automatiquement de nouveaux utilisateurs à un rôle d’administration. Tant que nous n’avons pas fourni un outil pour ajouter et gérer des rôles, nous allons utiliser le code d’inscription automatique. Nous espérons fournir un outil similaire à [WSAT](http://msdn.microsoft.com/library/ms228053.aspx) à l’avenir pour vous permettre de créer et de modifier les comptes et les rôles des utilisateurs.
 
-1. Ouvrez le fichier **Controllers\AccountController.cs** et accédez à la méthode **ExternalLoginConfirmation**.
+1. Ouvrez le fichier **Controllers\\AccountController.cs** et accédez à la méthode **ExternalLoginConfirmation**.
 1. Ajoutez l’appel suivant vers **AddToRoleAsync** juste avant l’appel **SignInAsync**.
 
                 await UserManager.AddToRoleAsync(user.Id, "canEdit");
 
-   Le code ci-dessus ajoute les utilisateurs récemment enregistrés au rôle « canEdit », ce qui leur permet d’accéder aux méthodes d’action pour modifier les données. 
-	<pre>
+   Le code ci-dessus ajoute les utilisateurs récemment enregistrés au rôle « canEdit », qui leur permet d’accéder aux méthodes d’action pour modifier les données. ```
 	      // POST: /Account/ExternalLoginConfirmation
 	      [HttpPost]
 	      [AllowAnonymous]
@@ -451,7 +453,7 @@ Dans cette section, vous allez modifier temporairement la méthode **ExternalLog
 	         ViewBag.ReturnUrl = returnUrl;
 	         return View(model);
 	      }
-	</pre>
+```
 
 Plus loin dans ce didacticiel, vous allez déployer l’application sur Azure, en vous connectant avec Google ou un autre fournisseur d’authentification tiers. Ceci vous permettra d’ajouter votre compte récemment inscrit au rôle *peutModifier*. Les utilisateurs trouvant l’URL de votre application web et possédant un ID Google peuvent ensuite s’inscrire et mettre à jour votre base de données. Pour empêcher que cela se produise, vous pouvez arrêter le site. Vous pouvez vérifier quels utilisateurs sont rattachés au rôle *peutModifier* en examinant la base de données.
 
@@ -459,14 +461,15 @@ Dans la **Console du Gestionnaire de package**, actionnez la touche Haut pour af
 
 		Update-Database
 
-Exécutez la commande **Update-Database** qui exécutera la méthode **Seed**, qui exécutera la méthode **AddUserAndRole** que vous venez d’ajouter. **AddUserAndRole** crée l’utilisateur *user1@contoso.com* et l’ajoute au rôle *canEdit*.
+Exécutez la commande **Update-Database** qui exécutera la méthode **Seed**, qui exécutera la méthode **AddUserAndRole** que vous venez d’ajouter. **AddUserAndRole** crée l’utilisateur **user1@contoso.com* et l’ajoute au rôle *canEdit*.
 
 ## Protection de l’application à l’aide du protocole SSL et de l’attribut Authorize ##
 
 Dans cette section, vous allez appliquer l’attribut [Authorize](http://msdn.microsoft.com/library/system.web.mvc.authorizeattribute.aspx) pour limiter l’accès aux méthodes d’action. Les utilisateurs anonymes pourront uniquement afficher la méthode d’action **Index** du contrôleur d’accueil. Les utilisateurs inscrits pourront afficher les données de contact (pages **Index** et **Détails** du contrôleur Cm), les pages « À propos de » et « Contact ». Seuls les utilisateurs du rôle *peutModifier* pourront accéder aux méthodes d’action qui modifient les données.
 
-1. Ajoutez les filtres [Authorize](http://msdn.microsoft.com/library/system.web.mvc.authorizeattribute.aspx) et [RequireHttps](http://msdn.microsoft.com/library/system.web.mvc.requirehttpsattribute.aspx) à l’application. Une autre approche consiste à ajouter les attributs [Authorize](http://msdn.microsoft.com/library/system.web.mvc.authorizeattribute.aspx) et [RequireHttps](http://msdn.microsoft.com/library/system.web.mvc.requirehttpsattribute.aspx) à chaque contrôleur, mais il est recommandé de les appliquer à l’ensemble de l’application. En les ajoutant de manière globale, les nouveaux contrôleurs et les nouvelles méthodes d’action que vous ajouterez seront automatiquement protégés, vous n’aurez pas à vous rappeler qu’il faut leur appliquer ces attributs à chaque fois. Pour plus d’informations, consultez la page [Sécurisation de votre application ASP.NET MVC et nouvel attribut AllowAnonymous](http://blogs.msdn.com/b/rickandy/archive/2012/03/23/securing-your-asp-net-mvc-4-app-and-the-new-allowanonymous-attribute.aspx). Ouvrez le fichier *App_Start\FilterConfig.cs* et remplacez la méthode *RegisterGlobalFilters* par le code suivant (qui ajoute les deux filtres) : 
-		<pre>
+1. Ajoutez les filtres [Authorize](http://msdn.microsoft.com/library/system.web.mvc.authorizeattribute.aspx) et [RequireHttps](http://msdn.microsoft.com/library/system.web.mvc.requirehttpsattribute.aspx) à l’application. Une autre approche consiste à ajouter les attributs [Authorize](http://msdn.microsoft.com/library/system.web.mvc.authorizeattribute.aspx) et [RequireHttps](http://msdn.microsoft.com/library/system.web.mvc.requirehttpsattribute.aspx) à chaque contrôleur, mais il est recommandé de les appliquer à l’ensemble de l’application. En les ajoutant de manière globale, les nouveaux contrôleurs et les nouvelles méthodes d’action que vous ajouterez seront automatiquement protégés, vous n’aurez pas à vous rappeler qu’il faut leur appliquer ces attributs à chaque fois. Pour plus d’informations, consultez la page [Sécurisation de votre application ASP.NET MVC et nouvel attribut AllowAnonymous](http://blogs.msdn.com/b/rickandy/archive/2012/03/23/securing-your-asp-net-mvc-4-app-and-the-new-allowanonymous-attribute.aspx). Ouvrez le fichier *App\_Start\\FilterConfig.cs* et remplacez la méthode *RegisterGlobalFilters* par le code suivant (qui ajoute les deux filtres) :
+
+```
         public static void
         RegisterGlobalFilters(GlobalFilterCollection filters)
         {
@@ -474,18 +477,27 @@ Dans cette section, vous allez appliquer l’attribut [Authorize](http://msdn.mi
             <mark>filters.Add(new System.Web.Mvc.AuthorizeAttribute());
             filters.Add(new RequireHttpsAttribute());</mark>
         }
-		</pre>
+```
 
 
 
 
-	Le filtre [Authorize](http://msdn.microsoft.com/library/system.web.mvc.authorizeattribute.aspx) appliqué dans le code ci-dessus empêchera les utilisateurs anonymes d’accéder aux méthodes de l’application. Vous allez utiliser l’attribut [AllowAnonymous](http://blogs.msdn.com/b/rickandy/archive/2012/03/23/securing-your-asp-net-mvc-4-app-and-the-new-allowanonymous-attribute.aspx) pour désactiver les contraintes d’autorisation dans quelques méthodes, pour que les utilisateurs anonymes puissent se connecter et afficher la page d’accueil. [RequireHttps](http://msdn.microsoft.com/library/system.web.mvc.requirehttpsattribute.aspx) nécessite que tous les accès à l’application Web se fassent via HTTPS.
+	The [Authorize](http://msdn.microsoft.com/library/system.web.mvc.authorizeattribute.aspx) filter applied in the code above will prevent anonymous users from accessing any methods in the application. You will use the [AllowAnonymous](http://blogs.msdn.com/b/rickandy/archive/2012/03/23/securing-your-asp-net-mvc-4-app-and-the-new-allowanonymous-attribute.aspx) attribute to opt out of the authorization requirement in a couple methods, so anonymous users can log in and can view the home page. The  [RequireHttps](http://msdn.microsoft.com/library/system.web.mvc.requirehttpsattribute.aspx) will require all access to the web app be through HTTPS.
 
-1. Ajoutez l’attribut [AllowAnonymous](http://blogs.msdn.com/b/rickandy/archive/2012/03/23/securing-your-asp-net-mvc-4-app-and-the-new-allowanonymous-attribute.aspx) à la méthode **Index** du contrôleur d’accueil. L’attribut [AllowAnonymous](http://blogs.msdn.com/b/rickandy/archive/2012/03/23/securing-your-asp-net-mvc-4-app-and-the-new-allowanonymous-attribute.aspx) vous permet de créer une liste des méthodes pour lesquelles vous voulez désactiver l’autorisation. <pre> public class HomeController : Controller { <mark>[AllowAnonymous]</mark> public ActionResult Index() { return View(); } </pre>
+1. Ajoutez l’attribut [AllowAnonymous](http://blogs.msdn.com/b/rickandy/archive/2012/03/23/securing-your-asp-net-mvc-4-app-and-the-new-allowanonymous-attribute.aspx) à la méthode **Index** du contrôleur d’accueil. L’attribut [AllowAnonymous](http://blogs.msdn.com/b/rickandy/archive/2012/03/23/securing-your-asp-net-mvc-4-app-and-the-new-allowanonymous-attribute.aspx) vous permet de créer une liste des méthodes pour lesquelles vous voulez désactiver l’autorisation. 
+
+```
+	public class HomeController : Controller
+   {
+      <mark>[AllowAnonymous]</mark>
+      public ActionResult Index()
+      {
+         return View();
+      }
+```
 
 2. Effectuez une recherche globale pour *AllowAnonymous* : vous pouvez voir qu’il est utilisé dans les méthodes de connexion et d’inscription du contrôleur Compte.
-1. Dans *CmController.cs*, ajoutez `[Authorize(Roles = "canEdit")]` aux méthodes HttpGet et HttpPost qui modifient les données (Create, Edit, Delete, toutes les méthodes d’action à l’exception d’Index et Details) dans le contrôleur *Cm*. Une partie du code terminé est illustrée ci-dessous : 
-		<pre>
+1. Dans *CmController.cs*, ajoutez `[Authorize(Roles = "canEdit")]` aux méthodes HttpGet et HttpPost qui modifient les données (Create, Edit, Delete, toutes les méthodes d’action à l’exception d’Index et Details) dans le contrôleur *Cm*. Une partie du code terminé est affichée ci-dessous :```
 	// GET: Cm/Create
        <mark>[Authorize(Roles = "canEdit")]</mark>
         public ActionResult Create()
@@ -525,16 +537,19 @@ Dans cette section, vous allez appliquer l’attribut [Authorize](http://msdn.mi
             }
             return View(contact);
         }
-		</pre>
+```
 
 1. Si vous êtes toujours connecté depuis une session précédente, cliquez sur le lien **Se déconnecter**.
 1. Cliquez sur le lien **À propos de** ou **Contact**. Vous serez redirigé vers la page de connexion, car les utilisateurs anonymes ne peuvent pas afficher ces pages. 
-1. Cliquez sur le lien **Enregistrer comme nouvel utilisateur** et ajoutez un utilisateur local avec l’adresse de messagerie *joe@contoso.com*. Vérifiez que *Joe* peut afficher les pages Accueil, Contact et À propos de. 
+1. Cliquez sur le lien **Enregistrer comme nouvel utilisateur** et ajoutez un utilisateur local avec l’adresse de messagerie **joe@contoso.com*. Vérifiez que *Jerome* peut afficher les pages Accueil, Contact et À propos de.
+
 	![se connecter](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/ss14.PNG)
 
 1. Cliquez sur le lien *Démo de GC* et vérifiez que les données s’affichent correctement.
 1. Cliquez sur le lien Modifier de la page. Vous serez redirigé vers la page de connexion (car un nouvel utilisateur local n’est pas ajouté au rôle *peutModifier*).
-1. Connectez-vous en tant que *user1@contoso.com* avec le mot de passe « P_assw0rd1 » (le « 0 » de « word » est un zéro). Vous serez redirigé vers la page de modification que vous aviez sélectionnée. <br/> Si vous ne pouvez pas vous connecter avec ce compte et ce mot de passe, essayez de copier le mot de passe à partir du code source, puis de le coller ici. Si vous ne pouvez toujours pas vous connecter, vérifiez la colonne **UserName** de la table **AspNetUsers** pour être sûr que *user1@contoso.com* a été ajoutée. 
+1. Connectez-vous en tant que **user1@contoso.com* avec le mot de passe « P\_assw0rd1 » (le « 0 » de « word » est un zéro). Vous serez redirigé vers la page de modification que vous aviez sélectionnée. <br/>
+ Si vous ne pouvez pas vous connecter avec ce compte et ce mot de passe, essayez de copier le mot de passe à partir du code source, puis de le coller ici. Si vous ne pouvez toujours pas vous connecter, vérifiez la colonne **UserName** de la table **AspNetUsers** pour être sûr que **user1@contoso.com* a été ajoutée.
+
 1. Vérifiez que vous pouvez effectuer des modifications.
 
 ## Déploiement de l’application dans Azure
@@ -545,7 +560,7 @@ Dans cette section, vous allez appliquer l’attribut [Authorize](http://msdn.mi
 
 	L'Assistant **Publier le site Web** s'ouvre.
 
-1. Cliquez sur l’onglet **Paramètres** sur le côté gauche de la boîte de dialogue **Publier le site Web**. Cliquez sur l’icône **v** afin de sélectionner la **Chaîne de connexion distante** pour **ApplicationDbContext**, puis sélectionnez **ContactManagerNN_db**.
+1. Cliquez sur l’onglet **Paramètres** sur le côté gauche de la boîte de dialogue **Publier le site Web**. Cliquez sur l’icône **v** afin de sélectionner la **Chaîne de connexion distante** pour **ApplicationDbContext**, puis sélectionnez **ContactManagerNN\_db**.
 
    
 	![paramètres](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/rrc2.png)
@@ -555,7 +570,8 @@ Dans cette section, vous allez appliquer l’attribut [Authorize](http://msdn.mi
 	![paramètres](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/rrc3.png)
 
 1. Cliquez sur **Publier**.
-1. Connectez-vous en tant que *user1@contoso.com* (avec le mot de passe « P_assw0rd1 ») et vérifiez que vous pouvez modifier les données. 1. Déconnectez-vous.
+1. Connectez-vous en tant que **user1@contoso.com* (avec le mot de passe « P\_assw0rd1 ») et vérifiez que vous pouvez modifier les données.
+1. Déconnectez-vous.
 1. Accédez à la [Google Developers Console](https://console.developers.google.com/) et, sur l’onglet, **Informations d’identification**, mettez à jour les URI de redirection et les origines JavaScript pour utiliser l’URL Azure.
 1. Connectez-vous en utilisant votre compte Google ou Facebook. Cela ajoutera votre compte Google ou Facebook au rôle **peutModifier**. Si vous obtenez une erreur HTTP 400 avec le message *L’URI de redirection dans la demande : https://contactmanager{my version}.azurewebsites.net/signin-google ne correspond pas à une URI de redirection enregistrée.*, vous devrez patienter jusqu’à ce que les modifications apportées soient répercutées. Si vous obtenez cette erreur après plus de quelques minutes, vérifiez que les URI sont corrects.
 
@@ -621,7 +637,7 @@ Si vous n'avez pas indiqué le prénom et le nom de vos informations de compte G
 
 	![Page CM](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/rrr8.png)
  
-1. Notez l’ID du compte Google utilisé pour votre inscription afin de lui attribuer le rôle **canEdit**, ainsi que l’ID de *user1@contoso.com*. Ces ID doivent être les seuls à avoir le rôle **peutModifier**. Nous allons vérifier cela à l'étape suivante.
+1. Notez l’ID du compte Google utilisé pour votre inscription afin de lui attribuer le rôle **canEdit**, ainsi que l’ID de **user1@contoso.com*. Ces ID doivent être les seuls à avoir le rôle **peutModifier**. Nous allons vérifier cela à l’étape suivante.
 
 	![Page CM](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/s2.png)
  
@@ -629,7 +645,7 @@ Si vous n'avez pas indiqué le prénom et le nom de vos informations de compte G
 
 	![Page CM](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/rs1.png)
  
-Vérifiez que les **UserId** sont ceux de *user1@contoso.com* et du compte Google de votre inscription. 
+Vérifiez que les **UserId** sont ceux de **user1@contoso.com* et du compte Google de votre inscription.
 
 
 ## Étapes suivantes
@@ -713,4 +729,4 @@ Ce didacticiel et son exemple d'application ont été écrits par [Rick Anderson
 [ImportPublishSettings]: ./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/ImportPublishSettings.png
  
 
-<!----HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

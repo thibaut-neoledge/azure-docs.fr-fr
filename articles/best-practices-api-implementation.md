@@ -8,6 +8,7 @@
    editor=""
    tags=""/>
 
+
 <tags
    ms.service="best-practice"
    ms.devlang="rest-api"
@@ -16,6 +17,7 @@
    ms.workload="na"
    ms.date="05/13/2015"
    ms.author="masashin"/>
+
 
 # Recommandations relatives à l’implémentation de l’API
 
@@ -46,11 +48,11 @@ Dans un service implémenté à l’aide de l’API Web ASP.NET, chaque requê
 	);
 	```
 
-	Les itinéraires peuvent être génériques et comporter des littéraux comme _api_ et des variables comme _{controller}_ et _{id}_. Avec le routage basé sur des conventions, certains éléments de l’itinéraire peuvent être facultatifs. L’infrastructure d’API Web détermine la méthode à appeler dans le contrôleur en faisant correspondre la méthode HTTP de la requête à la portion initiale du nom de méthode dans l’API, puis aux éventuels paramètres facultatifs. Par exemple, si un contrôleur nommé _orders_ comporte les méthodes _GetAllOrders()_ ou _GetOrderByInt(int id)_, la requête GET _http://www.adventure-works.com/api/orders/_ sera dirigée vers la méthode _GetAlllOrders()_ et la requête GET _http://www.adventure-works.com/api/orders/99_ sera dirigée vers la méthode _GetOrderByInt(int id)_. S’il n’existe aucune méthode correspondante disponible qui présente le préfixe Get dans le contrôleur, l’infrastructure d’API Web répond avec un message HTTP 405 (méthode non autorisée). Par ailleurs, le nom du paramètre (id) spécifié dans la table de routage doit être identique au nom du paramètre de la méthode _GetOrderById_. Si ce n’est pas le cas, l’infrastructure d’API Web répond avec un message HTTP 404 (Non trouvé).
+	Les itinéraires peuvent être génériques et comporter des littéraux comme _api_ et des variables comme _{controller}_ et _{id}_. Avec le routage basé sur des conventions, certains éléments de l’itinéraire peuvent être facultatifs. L’infrastructure d’API Web détermine la méthode à appeler dans le contrôleur en faisant correspondre la méthode HTTP de la requête à la portion initiale du nom de méthode dans l’API, puis aux éventuels paramètres facultatifs. Par exemple, si un contrôleur nommé _orders_ comporte les méthodes _GetAllOrders()_ ou _GetOrderByInt(int id)_, la requête GET \__http://www.adventure-works.com/api/orders/_ sera dirigée vers la méthode _GetAlllOrders()_ et la requête GET \__http://www.adventure-works.com/api/orders/99_ sera dirigée vers la méthode _GetOrderByInt(int id)_. S’il n’existe aucune méthode correspondante disponible qui présente le préfixe Get dans le contrôleur, l’infrastructure d’API Web répond avec un message HTTP 405 (méthode non autorisée). Par ailleurs, le nom du paramètre (id) spécifié dans la table de routage doit être identique au nom du paramètre de la méthode _GetOrderById_. Si ce n’est pas le cas, l’infrastructure d’API Web répond avec un message HTTP 404 (Non trouvé).
 
-	Les mêmes règles s’appliquent aux requêtes POST, PUT et DELETE HTTP. Une requête PUT qui met à jour les détails d’une commande 101 sera dirigée vers l’URI _http://www.adventure-works.com/api/orders/101_, le corps du message comprendra les nouveaux détails de la commande et ces informations seront transmises en tant que paramètre à une méthode du contrôleur des commandes sous un nom commençant par le préfixe_Put_, comme _PutOrder_.
+	Les mêmes règles s’appliquent aux requêtes POST, PUT et DELETE HTTP. Une requête PUT qui met à jour les détails d’une commande 101 sera dirigée vers l’URI \__http://www.adventure-works.com/api/orders/101_, le corps du message comprendra les nouveaux détails de la commande et ces informations seront transmises en tant que paramètre à une méthode du contrôleur des commandes sous un nom commençant par le préfixe _Put_, comme _PutOrder_.
 
-	La table de routage par défaut ne fera pas correspondre une requête qui référence les ressources enfants dans une API Web RESTful, comme _http://www.adventure-works.com/api/customers/1/orders_ (recherchez les détails de l’ensemble des commandes transmises par le client 1). Pour traiter ces cas, vous pouvez ajouter des itinéraires personnalisés à la table de routage :
+	La table de routage par défaut ne fera pas correspondre une requête qui référence les ressources enfants dans une API Web RESTful, comme \__http://www.adventure-works.com/api/customers/1/orders_ (recherchez les détails de l’ensemble des commandes transmises par le client 1). Pour traiter ces cas, vous pouvez ajouter des itinéraires personnalisés à la table de routage :
 
 	```C#
 	config.Routes.MapHttpRoute(
@@ -145,7 +147,7 @@ Dans un service implémenté à l’aide de l’API Web ASP.NET, chaque requê
 
 - **Évaluez les avantages et les inconvénients du placement de l’API dans un sous-domaine**.
 
-	Par défaut, l’API Web ASP.NET organise les API dans le répertoire _/api_ d’un domaine, comme _http://www.adventure-works.com/api/orders_. Ce répertoire se trouve dans le domaine qui héberge les services exposés par le même hôte. Il peut être avantageux de répartir l’API Web dans son propre sous-domaine exécuté sur un hôte séparé, avec des URI comme _http://api.adventure-works.com/orders_. Cette séparation vous permet de partitionner et de mettre à l’échelle plus efficacement l’API Web sans affecter d’autres applications Web ou services exécutés dans le même domaine _www.adventure-works.com_.
+	Par défaut, l’API Web ASP.NET organise les API dans le répertoire _/api_ d’un domaine, comme \__http://www.adventure-works.com/api/orders_. Ce répertoire se trouve dans le domaine qui héberge les services exposés par le même hôte. Il peut être avantageux de répartir l’API Web dans son propre sous-domaine exécuté sur un hôte séparé, avec des URI comme \__http://api.adventure-works.com/orders_. Cette séparation vous permet de partitionner et de mettre à l’échelle plus efficacement l’API Web sans affecter d’autres applications Web ou services exécutés dans le même domaine _www.adventure-works.com_.
 
 	Toutefois, en plaçant l’API Web dans un sous-domaine différent, vous vous exposez également à des problèmes de sécurité. Toute application Web ou service hébergé(e) dans le domaine _www.adventure-works.com_ qui invoque une API Web exécutée à un autre emplacement peut enfreindre la restriction de sécurité same-origin de nombreux navigateurs Web. Dans ce cas, il peut être nécessaire d’activer le partage des ressources cross-origin (CORS, cross-origin resource sharing) entre les hôtes. Pour plus d’informations, consultez le document sur les recommandations en matière de sécurité de l’API.
 
@@ -302,14 +304,15 @@ Une fois qu’une requête d’une application cliente a été routée vers une 
 
 	Les liens HATEOAS représentés dans l’exemple de réponse HTTP indiquent qu’une application cliente peut exécuter les opérations suivantes :
 
-	- Une requête HTTP GET dirigée vers l’URI _http://adventure-works.com/customers/2_ afin de récupérer (de nouveau) les détails du client. Les données peuvent être renvoyées sous format XML ou JSON. 
-	- Une requête HTTP PUT dirigée vers l’URI _http://adventure-works.com/customers/2_ afin de modifier les détails du client. Les nouvelles données doivent être fournies dans le message de la requête au format x-www-form-urlencoded.
+	- Une requête HTTP GET dirigée vers l’URI \__http://adventure-works.com/customers/2_ afin de récupérer (de nouveau) les détails du client. Les données peuvent être renvoyées au format XML ou JSON.
 
-	- Une requête HTTP DELETE dirigée vers l’URI _http://adventure-works.com/customers/2_ afin de supprimer le client. La requête n’attend aucune information supplémentaire ni données renvoyées dans le corps du message de réponse.
+	- Une requête HTTP PUT dirigée vers l’URI \__http://adventure-works.com/customers/2_ afin de modifier les détails du client. Les nouvelles données doivent être fournies dans le message de la requête au format x-www-form-urlencoded.
 
-	- Une requête HTTP GET dirigée vers l’URI _http://adventure-works.com/customers/2/orders_ afin de rechercher l’ensemble des commandes destinées au client. Les données peuvent être renvoyées sous format XML ou JSON.
+	- Une requête HTTP DELETE dirigée vers l’URI \__http://adventure-works.com/customers/2_ afin de supprimer le client. La requête n’attend aucune information supplémentaire ni données renvoyées dans le corps du message de réponse.
 
-	- Une requête HTTP PUT dirigée vers l’URI _http://adventure-works.com/customers/2/orders_ afin de créer une nouvelle commande pour ce client. Les données doivent être fournies dans le message de requête, sous le format x-www-form-urlencoded.
+	- Une requête HTTP GET dirigée vers l’URI \__http://adventure-works.com/customers/2/orders_ afin de rechercher l’ensemble des commandes destinées au client. Les données peuvent être renvoyées au format XML ou JSON.
+
+	- Une requête HTTP PUT dirigée vers l’URI \__http://adventure-works.com/customers/2/orders_ afin de créer une nouvelle commande pour ce client. Les données doivent être fournies dans le message de requête, sous le format x-www-form-urlencoded.
 
 ## Considérations relatives au traitement des exceptions
 Par défaut, dans l’infrastructure d’API Web ASP.NET, si une opération lance une exception non interceptée, l’infrastructure renvoie un message de réponse indiquant l’erreur HTTP 500 (Erreur de serveur interne). Dans de nombreux cas, cette approche simpliste ne s’avère pas utile isolément et complique la tâche d’identification de la cause de l’exception. Par conséquent, vous devez adopter une approche plus complète pour le traitement des exceptions, en tenant compte des points suivants :
@@ -923,7 +926,7 @@ Il peut arriver qu’une application cliente doive émettre des requêtes qui en
 	}
 	```
 
-	Une application cliente peut émettre une requête afin de récupérer 30 commandes à partir de la référence 50, à l’aide de l’URI _http://www.adventure-works.com/api/orders?limit=30&offset=50_.
+	Une application cliente peut émettre une requête afin de récupérer 30 commandes à partir de la référence 50, à l’aide de l’URI \__http://www.adventure-works.com/api/orders?limit=30&offset=50_.
 
 	> [AZURE.TIP]Évitez de configurer les applications clientes pour qu’elles définissent des chaînes de recherche résultant en une URI qui présente plus de 2 000 caractères. De nombreux clients et serveurs Web ne peuvent pas prendre en charge les URI de cette longueur.
 
@@ -1151,4 +1154,4 @@ Ces informations peuvent être mises à profit pour déterminer si une API Web 
 - La page [Vérification du code à l’aide de tests unitaires](https://msdn.microsoft.com/library/dd264975.aspx) du site Web Microsoft fournit des informations détaillées sur la création et la gestion de tests unitaires à l’aide de Visual Studio.
 - La page [Exécuter des tests de performances sur votre application](https://msdn.microsoft.com/library/dn250793.aspx) du site Web Microsoft explique comment utiliser Visual Studio Ultimate pour créer un projet de test de performances Web et de chargement.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

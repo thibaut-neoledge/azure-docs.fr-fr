@@ -21,4 +21,4 @@
 Le conteneur de volumes est enregistré et le nouveau conteneur de volumes apparaît sur la page **Conteneur de volumes**.
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

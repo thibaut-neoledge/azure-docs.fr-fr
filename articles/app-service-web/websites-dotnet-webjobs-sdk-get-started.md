@@ -12,7 +12,7 @@
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
-	ms.topic="article" 
+	ms.topic="get-started-article" 
 	ms.date="06/29/2015" 
 	ms.author="tdykstra"/>
 
@@ -314,7 +314,9 @@ Après avoir créé quelques publicités dans le cloud, vous afficherez le table
 
 ### Configurez l’application pour l’utilisation de votre base de données SQL et de votre compte de stockage Azure.
 
-Par sécurité, il est conseillé [d'éviter de placer des informations sensibles (par exemple, des chaînes de connexion) dans des fichiers stockés dans des référentiels de code source](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control#secrets). Vous pouvez définir une chaîne de connexion et d’autres paramètres dans l’environnement Azure. Les API de configuration ASP.NET sélectionnent automatiquement ces valeurs lorsque l’application s’exécute dans Azure. Dans cette section, vous allez définir les valeurs des chaînes de connexion dans Azure.
+Par sécurité, il est conseillé [d'éviter de placer des informations sensibles (par exemple, des chaînes de connexion) dans des fichiers stockés dans des référentiels de code source](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control#secrets). Vous pouvez définir une chaîne de connexion et d’autres paramètres dans l’environnement Azure. Les API de configuration ASP.NET sélectionnent automatiquement ces valeurs quand l’application s’exécute dans Azure. Vous pouvez définir ces valeurs dans Azure à l’aide de l’**Explorateur de serveurs**, du portail, de Windows PowerShell ou de l’interface de ligne de commande interplateforme. Pour plus d’informations, consultez [Fonctionnement des chaînes d’application et des chaînes de connexion](/blog/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work/).
+
+Dans cette section, vous utilisez l’**Explorateur de serveurs** pour définir des valeurs de chaînes de connexion dans Azure.
 
 7. Dans l’**Explorateur de serveurs**, cliquez avec le bouton droit sur votre application web sous le nœud **Web Apps**, puis cliquez sur **Afficher les paramètres**.
 
@@ -626,7 +628,7 @@ Du code similaire obtient une référence à la file d'attente *blobnamerequest*
 
 ### ContosoAdsWeb - _Layout.cshtml
 
-Le fichier *_Layout.cshtml* définit le nom de l’application dans l’en-tête et le pied de page, et crée une entrée de menu « Ads ».
+Le fichier *_Layout.cshtml* définit le nom d'application dans l'en-tête et le pied de page, et crée une entrée de menu « Ads ».
 
 ### ContosoAdsWeb - Views\Home\Index.cshtml
 
@@ -799,10 +801,13 @@ Pour plus d’informations sur l’écriture de fonctions utilisant des attribut
 * [Utilisation du stockage de tables Microsoft Azure avec le Kit de développement logiciel (SDK) WebJobs](websites-dotnet-webjobs-sdk-storage-tables-how-to.md)
 * [Utilisation de Microsoft Azure Service Bus avec le Kit de développement logiciel (SDK) WebJobs](websites-dotnet-webjobs-sdk-service-bus.md)
 
->[AZURE.NOTE]
->* Si votre application web s’exécute sur plusieurs machines virtuelles, ce programme s’exécute sur chaque machine, qui attend des déclencheurs et essaie d’exécuter les fonctions. Dans certains scénarios, cela peut conduire des fonctions à traiter deux fois les mêmes données. Les fonctions doivent donc être idempotentes (écrites de sorte que des appels successifs avec les mêmes données d’entrée ne produisent pas des résultats dupliqués). 
->* Pour plus d’informations sur l’implémentation de l’arrêt progressif, consultez la page [Arrêt progressif](websites-dotnet-webjobs-sdk-storage-queues-how-to.md#graceful). 
->* Le code de la méthode `ConvertImageToThumbnailJPG` (non illustré) utilise des classes dans l’espace de noms `System.Drawing` pour plus de simplicité. Cependant, les classes de cet espace de noms ont été conçues pour être utilisées avec Windows Forms. Elles ne sont pas prises en charge dans un service Windows ou ASP.NET. Pour plus d’informations sur les options de traitement d’images, consultez les rubriques [Génération d’images dynamiques](http://www.hanselman.com/blog/BackToBasicsDynamicImageGenerationASPNETControllersRoutingIHttpHandlersAndRunAllManagedModulesForAllRequests.aspx) et [Redimensionnement d’images approfondi ](http://www.hanselminutes.com/313/deep-inside-image-resizing-and-scaling-with-aspnet-and-iis-with-imageresizingnet-author-na).
+> [AZURE.NOTE]
+>
+> * Si votre application web s'exécute sur plusieurs machines virtuelles, plusieurs WebJobs seront exécutés simultanément et, dans certains cas, cela peut entraîner le traitement multiple des mêmes données. Cela n'est pas un problème si vous utilisez la file d'attente, le blob et les déclencheurs Service Bus intégrés. Le Kit de développement logiciel (SDK) garantit que vos fonctions ne seront traitées qu'une seule fois pour chaque message ou objet blob.
+>
+> * Pour plus d'informations sur la façon d'implémenter l'arrêt progressif, consultez la rubrique [Arrêt progressif](websites-dotnet-webjobs-sdk-storage-queues-how-to.md#graceful).
+>
+> * Le code de la méthode `ConvertImageToThumbnailJPG` (non représenté) utilise des classes dans l'espace de noms `System.Drawing` pour plus de simplicité. Cependant, les classes de cet espace de noms ont été conçues pour être utilisées avec Windows Forms. Elles ne sont pas prises en charge dans un service Windows ou ASP.NET. Pour plus d’informations sur les options de traitement d’images, consultez les rubriques [Génération d’images dynamiques](http://www.hanselman.com/blog/BackToBasicsDynamicImageGenerationASPNETControllersRoutingIHttpHandlersAndRunAllManagedModulesForAllRequests.aspx) et [Redimensionnement d’images approfondi ](http://www.hanselminutes.com/313/deep-inside-image-resizing-and-scaling-with-aspnet-and-iis-with-imageresizingnet-author-na).
 
 ### Kit de développement logiciel (SDK) WebJobs et rôle de travail de service cloud sans Kit de développement logiciel (SDK) WebJobs
 
@@ -828,4 +833,4 @@ Pour plus d'informations, consultez la page [Ressources recommandées pour les t
 * Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre Sites Web et App Service, consultez la page : [Azure App Service et les services Azure existants](http://go.microsoft.com/fwlink/?LinkId=529714)
 * Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre le portail Azure et le portail Azure en version préliminaire, consultez la page [Références sur la navigation dans le portail Azure](http://go.microsoft.com/fwlink/?LinkId=529715).
 
-<!----HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

@@ -106,4 +106,4 @@ Pour lire une vidéo, pointez votre navigateur sur le fichier basicPlayback.html
 
 [Référentiel dash.js GitHub](https://github.com/Dash-Industry-Forum/dash.js)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

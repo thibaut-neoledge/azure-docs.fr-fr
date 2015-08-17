@@ -236,4 +236,4 @@ Les liens suivants fournissent des informations supplémentaires pour une approc
 [5]: ./media/search-fiddler/AzureSearch_Fiddler5_QueryStats.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -58,4 +58,4 @@ Essayez l’exemple suivant : [Analyse des données de capteur au moyen de Hive
 [img-hdi-weblogs-sample]: ./media/hdinsight-hive-analyze-website-log/hdinsight-weblogs-sample.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

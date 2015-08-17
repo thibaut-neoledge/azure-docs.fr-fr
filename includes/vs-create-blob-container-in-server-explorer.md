@@ -12,4 +12,4 @@ Le nouveau conteneur est privé par défaut et vous devez indiquer votre clé d�
 
 [Image1]: ./media/vs-create-blob-container-in-server-explorer/vs-storage-create-blob-containers-in-Server-Explorer.png
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

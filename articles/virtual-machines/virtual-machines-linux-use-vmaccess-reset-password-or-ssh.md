@@ -111,9 +111,9 @@ Vous pouvez également utiliser [Réinitialisation du mot de passe et de la clé
 
 ### <a name="sshconfigresetcli"></a>Réinitialisation de la configuration SSH
 
-Si la configuration SSH se trouve dans un état non souhaité, vous pouvez également perdre l’accès à la machine virtuelle. Pour redéfinir l’état par défaut de la configuration, utilisez l’extension VMAccess. Pour ce faire, réinitialisez la clé reset_ssh sur la valeur True. L’extension redémarre le serveur SSH, ouvre le port SSH sur votre machine virtuelle et rétablit la configuration SSH par défaut. Le compte d’utilisateur (nom, mot de passe ou clés SSH) ne sera pas modifié.
+Si la configuration SSH se trouve dans un état non souhaité, vous pouvez également perdre l’accès à la machine virtuelle. Pour redéfinir l’état par défaut de la configuration, utilisez l’extension VMAccess. Pour ce faire, réinitialisez la clé reset\_ssh sur la valeur True. L’extension redémarre le serveur SSH, ouvre le port SSH sur votre machine virtuelle et rétablit la configuration SSH par défaut. Le compte d’utilisateur (nom, mot de passe ou clés SSH) ne sera pas modifié.
 
-> [AZURE.NOTE]Le fichier de configuration SSH réinitialisé se trouve dans /etc/ssh/sshd_config.
+> [AZURE.NOTE]Le fichier de configuration SSH réinitialisé se trouve dans /etc/ssh/sshd\_config.
 
 Étape 1 : Créez un fichier appelé PrivateConf.json avec ces éléments.
 
@@ -228,7 +228,7 @@ Exécutez ces commandes.
 	$Version = "1.*"
 	Set-AzureVMExtension -ExtensionName $ExtensionName -VM  $vm -Publisher $Publisher -Version $Version -PrivateConfiguration $PrivateConfig | Update-AzureVM
 
-> [AZURE.NOTE]Le fichier de configuration SSH se trouve dans /etc/ssh/sshd_config.
+> [AZURE.NOTE]Le fichier de configuration SSH se trouve dans /etc/ssh/sshd\_config.
 
 ### <a name="delete"></a> Suppression d’un utilisateur
 
@@ -263,4 +263,4 @@ Pour afficher l’état de l’extension VMAccess, exécutez cette commande.
 [Connexion à une machine virtuelle Microsoft Azure avec RDP ou SSH]: http://msdn.microsoft.com/library/azure/dn535788.aspx
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

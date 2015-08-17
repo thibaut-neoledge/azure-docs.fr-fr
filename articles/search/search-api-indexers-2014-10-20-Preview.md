@@ -1,4 +1,4 @@
-<properties pageTitle="Opérations de l'indexeur (API REST du service Azure Search : 2014-10-20-Preview)" description="Opérations de l'indexeur (API REST du service Azure Search : 2014-10-20-Preview)" services="search" solutions="" documentationCenter="" authors="HeidiSteen" manager="mblythe"  />
+<properties pageTitle="Opérations de l'indexeur (API REST du service Azure Search : 2014-10-20-Preview)" description="Opérations de l'indexeur (API REST du service Azure Search : 2014-10-20-Preview)" services="search" documentationCenter="" authors="HeidiSteen" manager="mblythe" />
 
 <tags ms.service="search" ms.devlang="rest-api" ms.workload="search" ms.topic="article"  ms.tgt_pltfrm="na" ms.date="07/08/2015" ms.author="heidist" />
 
@@ -657,4 +657,4 @@ Code d'état : 204 Pas de contenu en cas de réponse correcte.
 </tr>
 </table>
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

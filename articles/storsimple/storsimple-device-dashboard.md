@@ -96,4 +96,4 @@ Vous aurez peut-être besoin de l'IQN cible au moment de configurer le protocole
 
 [En savoir plus sur le tableau de bord du service StorSimple Manager](storsimple-service-dashboard.md).
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -138,4 +138,4 @@ Dans le didacticiel suivant, [Autorisation des utilisateurs avec des scripts], v
 [projet d'exemple terminé]: http://go.microsoft.com/fwlink/p/?LinkId=331328
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

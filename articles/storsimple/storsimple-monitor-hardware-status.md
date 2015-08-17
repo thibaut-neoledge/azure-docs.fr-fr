@@ -6,14 +6,16 @@
    authors="alkohli"
    manager="carolz"
    editor="tysonn" />
+
 <tags 
    ms.service="storsimple"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/28/2015"
+   ms.date="07/31/2015"
    ms.author="alkohli" />
+
 
 # Composants matériels de StorSimple et leur état
 
@@ -57,13 +59,13 @@ Procédez comme suit pour afficher l'état du matériel d'un composant d’appar
 
 ## Liste des composants de l'appareil StorSimple
 
-Le tableau suivant présente les composants physiques et logiques contenus dans votre appareil StorSimple local. Le périphérique a deux boîtiers : le boîtier principal et le boîtier EBOD. Les listes des deux boîtiers figurent dans deux tableaux distincts.
+Le tableau suivant présente les composants physiques et logiques contenus dans votre appareil StorSimple local. L’appareil a deux boîtiers : le boîtier principal et le boîtier EBOD. Les listes des deux boîtiers figurent dans deux tableaux distincts.
 
 ### Liste des composants du boîtier principal
 
 |Composant|Module|Type|Emplacement|Unité remplaçable sur site (FRU) ?|Description|
 |---|---|---|---|---|---|
-|Lecteur *n*|Lecteurs de disque|Physique|Partagé|Oui|Les disques SSD et HDD sont représentés par une ligne dans le boîtier principal.|
+|Lecteur à l’emplacement [0-11\]|Lecteurs de disque|Physique|Partagé|Oui|Les disques SSD et HDD sont représentés par une ligne dans le boîtier principal.|
 |Capteur de température ambiante|Boîtier|Physique|Partagé|Non|Mesure de la température à l’intérieur du châssis.|
 |Capteur de température du plan médian|Boîtier|Physique|Partagé|Non|Mesure la température du plan médian.|
 |Alarme sonore|Boîtier|Physique|Partagé|Non|Indique si le sous-système d'alarme sonore du châssis est fonctionnel.|
@@ -72,9 +74,9 @@ Le tableau suivant présente les composants physiques et logiques contenus dans 
 |Capteurs de tension de ligne|PCM|Physique|Partagé|Non|L’état de plusieurs capteurs de tension de ligne s’affiche et indique si la tension mesurée se trouve dans la plage de tolérance.|
 |Capteurs de courant de ligne|PCM|Physique|Partagé|Non|L’état de plusieurs capteurs de courant de ligne s’affiche et indique si l’intensité mesurée se trouve dans la plage de tolérance.|
 |Capteurs de température dans PCM|PCM|Physique|Partagé|Non|L’état de plusieurs capteurs de température tels que les capteurs Inlet et Hotspot s’affiche et indique si la température mesurée se trouve dans la plage de tolérance.|
-|Alimentation électrique n|PCM|Physique|Partagé|Oui|Une ligne représente chacun des blocs d'alimentation dans les deux PCM situés à l'arrière de l’appareil.|
-|Refroidissement *n*|PCM|Physique|Partagé|Oui|Une ligne représente chacun des quatre ventilateurs résidant dans les deux PCM.|
-|Batterie *n*|PCM|Physique|Partagé|Oui|Une ligne représente chaque module de batterie de secours inséré dans le PCM.|
+|Alimentation électrique [0-1\]|PCM|Physique|Partagé|Oui|Une ligne représente chacun des blocs d'alimentation dans les deux PCM situés à l'arrière de l’appareil.|
+|Refroidissement [0-1\]|PCM|Physique|Partagé|Oui|Une ligne représente chacun des quatre ventilateurs résidant dans les deux PCM.|
+|Batterie [0-1\]|PCM|Physique|Partagé|Oui|Une ligne représente chaque module de batterie de secours inséré dans le PCM.|
 |Metis|N/A|Opérateurs logiques|Partagé|N/A|Affiche l'état de la batterie : si elles doivent être rechargées ou arrivent en fin de vie.|
 |Cluster|N/A|Opérateurs logiques|Partagé|N/A|Affiche l'état du cluster créé entre les deux modules de contrôleur intégrés.|
 |Nœud de cluster|N/A|Opérateurs logiques|Partagé|N/A|Indique l'état du contrôleur en tant que partie du cluster.|
@@ -87,10 +89,10 @@ Le tableau suivant présente les composants physiques et logiques contenus dans 
 |Espace NVRAM SSD|N/A|Opérateurs logiques|Partagé|N/A|Espace de stockage dans le pool de stockage SSD dédié à la logique de la mémoire NVRAM.|
 |Pool de stockage du disque dur|N/A|Opérateurs logiques|Partagé|N/A|Affiche l'état du pool de stockage logique créé à partir de disques durs de périphérique.|
 |Pool de stockage SSD|N/A|Opérateurs logiques|Partagé|N/A|Affiche l'état du pool de stockage logique créé à partir de SSD de périphérique.|
-|Contrôleur *n* [state]|E/S|Physique|Controller|Oui|Affiche l'état du contrôleur, et s'il est en mode actif ou attente au sein du châssis.|
+|Contrôleur [0-1\] [état\]|E/S|Physique|Controller|Oui|Affiche l'état du contrôleur, et s'il est en mode actif ou attente au sein du châssis.|
 |Capteurs de température du contrôleur|E/S|Physique|Controller|Non|L’état de plusieurs capteurs de température, tels que les capteurs du module E/S, de température du processeur, ainsi que les capteurs DIMM et PCIe, est affiché et indique si la température se situe dans la plage de tolérance.|
 |Expander SAS|E/S|Physique|Controller|Non|Indique l'état de l'expandeur SAS (serial attached SCSI), qui est utilisé pour connecter le stockage intégré au contrôleur.|
-|Connecteur SAS *n*|E/S|Physique|Controller|Non|Indique l'état de chaque connecteur SAS utilisé pour connecter le stockage intégré à l’expander SAS.|
+|Connecteur SAS [0-1\]|E/S|Physique|Controller|Non|Indique l'état de chaque connecteur SAS utilisé pour connecter le stockage intégré à l’expander SAS.|
 |Interconnexion de plan médian SBB|E/S|Physique|Controller|Non|Indique l'état du connecteur de plan médian, qui est utilisé pour connecter chaque contrôleur au plan médian.|
 |Cœur de processeur|E/S|Physique|Controller|Non|Indique l'état des cœurs de processeurs dans chaque contrôleur.|
 |Puissance électronique du boîtier|E/S|Physique|Controller|Non|Indique l'état du système d'alimentation utilisé par le boîtier.|
@@ -103,7 +105,7 @@ Le tableau suivant présente les composants physiques et logiques contenus dans 
 
 |Composant|Module|Type|Emplacement|FRU ?|Description|
 |---|---|---|---|---|---|
-|Lecteur *n*|Lecteurs de disque|Physique|Partagé|Oui|Une ligne représente chacun des disques HDD à l’avant du boîtier EBOD.|
+|Lecteur à l’emplacement [0-11\]|Lecteurs de disque|Physique|Partagé|Oui|Une ligne représente chacun des disques HDD à l’avant du boîtier EBOD.|
 |Capteur de température ambiante|Boîtier|Physique|Partagé|Non|Mesure de la température à l’intérieur du châssis.|
 |Capteur de température du plan médian|Boîtier|Physique|Partagé|Non|Mesure la température du plan médian.|
 |Alarme sonore|Boîtier|Physique|Partagé|Non|Indique si le sous-système d'alarme sonore du châssis est fonctionnel.|
@@ -112,23 +114,23 @@ Le tableau suivant présente les composants physiques et logiques contenus dans 
 |Capteurs de tension de ligne|PCM|Physique|Partagé|Non|L’état de plusieurs capteurs de tension de ligne s’affiche et indique si la tension mesurée se trouve dans la plage de tolérance.|
 |Capteurs de courant de ligne|PCM|Physique|Partagé|Non|L’état de plusieurs capteurs de courant de ligne s’affiche et indique si l’intensité mesurée se trouve dans la plage de tolérance.|
 |Capteurs de température dans PCM|PCM|Physique|Partagé|Non|L’état de plusieurs capteurs de température tels que les capteurs Inlet et Hotspot s’affiche et indique si la température mesurée se trouve dans la plage de tolérance.|
-|Alimentation électrique *n*|PCM|Physique|Partagé|Oui|Une ligne représente chacun des blocs d'alimentation dans les deux PCM situés à l'arrière de l’appareil.|
-|Refroidissement *n*|PCM|Physique|Partagé|Oui|Une ligne représente chacun des quatre ventilateurs résidant dans les deux PCM.|
-|Stockage local [HDD]|N/A|Opérateurs logiques|Partagé|N/A|Affiche l'état du pool de stockage logique créé à partir de disques durs de périphérique.|
-|Contrôleur *n* [state]|E/S|Physique|Controller|Oui|Affiche l'état des contrôleurs du module EBOD.|
+|Alimentation électrique [0-1\]|PCM|Physique|Partagé|Oui|Une ligne représente chacun des blocs d'alimentation dans les deux PCM situés à l'arrière de l’appareil.|
+|Refroidissement [0-1\]|PCM|Physique|Partagé|Oui|Une ligne représente chacun des quatre ventilateurs résidant dans les deux PCM.|
+|Stockage local [HDD\]|N/A|Opérateurs logiques|Partagé|N/A|Affiche l'état du pool de stockage logique créé à partir de disques durs de périphérique.|
+|Contrôleur [0-1\] [état\]|E/S|Physique|Controller|Oui|Affiche l'état des contrôleurs du module EBOD.|
 |Capteurs de température dans EBOD|E/S|Physique|Controller|Non|L’état de plusieurs capteurs de température de chaque contrôleur s’affiche et indique si la température mesurée se trouve dans la plage de tolérance.|
 |Expander SAS|E/S|Physique|Controller|Non|Indique l'état de l'expandeur SAS, qui est utilisé pour connecter le stockage intégré au contrôleur.|
-|Connecteur SAS *n*|E/S|Physique|Controller|Non|Indique l'état de chaque connecteur SAS utilisé pour connecter le stockage intégré à l’expander SAS.|
+|Connecteur SAS [0-2\]|E/S|Physique|Controller|Non|Indique l'état de chaque connecteur SAS utilisé pour connecter le stockage intégré à l’expander SAS.|
 |Interconnexion de plan médian SBB|E/S|Physique|Controller|Non|Indique l'état du connecteur de plan médian, qui est utilisé pour connecter chaque contrôleur au plan médian.|
 |Puissance électronique du boîtier|E/S|Physique|Controller|Non|Indique l'état du système d'alimentation utilisé par le boîtier.|
 |Diagnostic électronique du boîtier|E/S|Physique|Controller|Non|Indique l'état des sous-systèmes de diagnostic fournis par le contrôleur.|
 |Connexion au contrôleur de périphérique|E/S|Physique|Controller|Non|Indique l'état de la connexion entre le module E/S du module EBOD et le contrôleur de périphérique.|
 
 ## Étape suivante
-Si vous devez dépanner un composant de périphérique dont l'état est détérioré ou en échec, reportez-vous à[Résolution des problèmes à l’aide des indicateurs d’analyse](storsimple-monitoring-indicators).
+Si vous devez résoudre les problèmes d’un composant de l’appareil dont l’état est détérioré ou en échec, reportez-vous à[Résolution des problèmes à l’aide des indicateurs de surveillance](storsimple-monitoring-indicators).
 
-[Pour remplacer un composant matériel défaillant, consultez le Guide de remplacement de composants matériels](https://msdn.microsoft.com/library/azure/dn757736.aspx).
+Pour remplacer un composant matériel défectueux, consultez le [Guide de remplacement de composants matériels](https://msdn.microsoft.com/library/azure/dn757736.aspx).
 
-Si vous les problèmes persistent,[contactez le Support technique Microsoft](storsimple-contact-microsoft-support.md).
+Si les problèmes persistent, [contactez le Support technique Microsoft](storsimple-contact-microsoft-support.md).
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

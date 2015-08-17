@@ -39,4 +39,4 @@ Ce service contient les API permettant de créer des modèles Frequently Bought 
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

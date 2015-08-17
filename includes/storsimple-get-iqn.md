@@ -9,4 +9,4 @@
 
 3. Enregistrez cette chaîne.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -72,9 +72,9 @@ Vous devrez spécifier l'emplacement d’un centre de données Azure au moment d
 	Set-AzureStorageAccount -StorageAccountName $stAccount
 	Set-AzureSubscription -SubscriptionName $subscrName -CurrentStorageAccountName $stAccount
 
-Ensuite, vous avez besoin d’un service cloud. Si vous n'avez pas déjà un service cloud, vous devez en créer un. Vous devez choisir un nom unique qui contient uniquement des lettres, des chiffres et des tirets. Le premier et le dernier caractère du champ doit être une lettre ou un chiffre.
+Ensuite, vous avez besoin d’un service cloud. Si vous n'avez pas déjà un service cloud, vous devez en créer un. Vous devez choisir un nom unique qui contient uniquement des lettres, des chiffres et des tirets. Le premier et le dernier caractère du champ doivent être une lettre ou un chiffre.
 
-Par exemple, vous pouvez le nommer TestCS-*UniqueSequence*, où est *UniqueSequence* est l’abréviation de votre organisation. Par exemple, si le nom de votre organisation est Tailspin Toys, vous pouvez nommer le service cloud TestCS-Tailspin.
+Par exemple, vous pouvez le nommer TestCS-*UniqueSequence*, où est *UniqueSequence* est l’abréviation de votre entreprise. Par exemple, si le nom de votre organisation est Tailspin Toys, vous pouvez nommer le service cloud TestCS-Tailspin.
 
 Vous pouvez vérifier si le nom est unique en utilisant cette commande Azure PowerShell :
 
@@ -180,7 +180,7 @@ Exécutez cette commande :
     Start-AzureVM -ServiceName "<cloud service name>" -Name "<virtual machine name>"
 
 ## Association d’un disque de données
-Cette tâche nécessite de réaliser quelques étapes. Tout d'abord, utilisez l’applet de commande **Add-AzureDataDisk** pour ajouter le disque à l'objet $vm. Utilisez ensuite l’applet de commande Update-AzureVM pour mettre à jour la configuration de la machine virtuelle.
+Cette tâche nécessite de réaliser quelques étapes. Tout d’abord, utilisez l’applet de commande **Add-AzureDataDisk** pour ajouter le disque à l’objet $vm. Utilisez ensuite l’applet de commande Update-AzureVM pour mettre à jour la configuration de la machine virtuelle.
 
 Vous devez également décider d’associer un nouveau disque ou un disque existant, qui contient des données. Dans le cas d’un nouveau disque, cette même commande entraîne la création du fichier .vhd et son association.
 
@@ -209,4 +209,4 @@ Pour attacher des disques de données à partir d’un fichier .vhd existant dan
 
 [Utilisation d'Azure PowerShell pour créer et préconfigurer des machines virtuelles Windows](virtual-machines-ps-create-preconfigure-windows-vms.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

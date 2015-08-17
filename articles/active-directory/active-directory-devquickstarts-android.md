@@ -454,4 +454,4 @@ Adal version 1.1.0 prend en charge la boîte de dialogue NTLM qui est traitée 
 [AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
  
 
-<!----HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

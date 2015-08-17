@@ -7,7 +7,9 @@
 	manager="shreeshd"
 	editor=""/>
 
+
 <tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="07/17/2015" ms.author="aashishr"; "jimpark"/>
+
 
 
 # Déploiement et gestion d’une sauvegarde vers Azure pour un serveur/client Windows à l’aide d’Azure PowerShell
@@ -23,7 +25,7 @@ Les tâches de configuration et d'inscription suivantes peuvent être automatis�
 - Mise en réseau
 
 ### Installation de l'agent Azure Backup
-Avant d’installer l'agent Azure Backup, vous devez avoir téléchargé le programme d’installation sur le serveur Windows. Vous pouvez obtenir la dernière version du programme d’installation sur le [Centre de téléchargement de Microsoft](http://aka.ms/azurebackup_agent). Enregistrez le programme d’installation dans un emplacement auquel vous pouvez accéder facilement, par exemple *C:\Téléchargements*.
+Avant d’installer l'agent Azure Backup, vous devez avoir téléchargé le programme d’installation sur le serveur Windows. Vous pouvez obtenir la dernière version du programme d’installation sur le [Centre de téléchargement de Microsoft](http://aka.ms/azurebackup_agent). Enregistrez le programme d’installation dans un emplacement auquel vous pouvez accéder facilement, par exemple *C:\\Téléchargements*.
 
 Pour installer l’agent, exécutez la commande suivante dans une console Azure PowerShell avec des privilèges élevés :
 
@@ -49,16 +51,7 @@ Les options disponibles incluent :
 
 | Option | Détails | Default |
 | ---- | ----- | ----- |
-| /q | Installation silencieuse | - |
-| /p:"emplacement" | Chemin du dossier d’installation de l’agent Azure Backup. | C:\Program Files\Microsoft Azure Recovery Services Agent |
-| /s:"emplacement" | Chemin du dossier du cache de l’agent Azure Backup. | C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch | 
-| /m | Abonnement à Microsoft Update | - |
-| /nu | Ne pas rechercher les mises à jour après l’installation | - |
-| /d | Désinstalle Microsoft Azure Recovery Services Agent | - |
-| /ph | Adresse de l’hôte proxy | - |
-| /po | Numéro de port de l’hôte proxy | - |
-| /pu | Nom d’utilisateur de l’hôte proxy | - |
-| /pw | Mot de passe du proxy | - |
+| /q | Installation silencieuse | - | | /p:"emplacement" | Chemin du dossier d’installation de l’agent Azure Backup. | C:\\Program Files\\Microsoft Azure Recovery Services Agent | | /s:"emplacement" | Chemin du dossier du cache de l’agent Azure Backup. | C:\\Program Files\\Microsoft Azure Recovery Services Agent\\Scratch | | /m | Abonnement à Microsoft Update | - | | /nu | Ne pas rechercher les mises à jour après l’installation | - | | /d | Désinstalle Microsoft Azure Recovery Services Agent | - | | /ph | Adresse de l’hôte proxy | - | | /po | Numéro de port de l’hôte proxy | - | | /pu | Nom d’utilisateur de l’hôte proxy | - | | /pw | Mot de passe du proxy | - |
 
 
 ### Inscription auprès du service Azure Backup
@@ -66,7 +59,8 @@ Avant de pouvoir vous inscrire auprès du service Azure Backup, vous devez vous 
 
 - Avoir un abonnement Azure valide
 - Créer un coffre de sauvegarde
-- Télécharger les informations d'identification de coffre et les stocker dans un emplacement pratique (comme *C:\Téléchargements*). Les informations d’identification du coffre peuvent également être renommées à votre convenance. 
+- Télécharger les informations d'identification de coffre et les stocker dans un emplacement pratique (comme *C:\\Téléchargements*). Les informations d’identification du coffre peuvent également être renommées à votre convenance.
+
 L’inscription de la machine auprès du coffre s’effectue l’aide de la cmdlet [Start-OBRegistration](https://technet.microsoft.com/library/hh770398%28v=wps.630%29.aspx) :
 
 ```
@@ -377,7 +371,7 @@ PS C:\> $item = Get-OBRecoverableItem -RecoveryPoint $rps[0] -Location "D:\MyDat
 ```
 
 ### Déclenchement du processus de restauration
-Pour déclencher le processus de restauration, nous devons d'abord spécifier les options de récupération. Pour ce faire, utilisez l’applet de commande [New-OBRecoveryOption](https://technet.microsoft.com/library/hh770417.aspx) . Dans le cadre de cet exemple, supposons que vous souhaitez restaurer les fichiers dans *C:\temp*. Supposons également que vous souhaitez ignorer les fichiers qui existent déjà dans le dossier de destination *C:\temp*. Pour créer une telle option de récupération, utilisez la commande suivante :
+Pour déclencher le processus de restauration, nous devons d'abord spécifier les options de récupération. Pour ce faire, utilisez l’applet de commande [New-OBRecoveryOption](https://technet.microsoft.com/library/hh770417.aspx) . Dans le cadre de cet exemple, supposons que vous souhaitez restaurer les fichiers dans *C:\\temp*. Supposons également que vous souhaitez ignorer les fichiers qui existent déjà dans le dossier de destination *C:\\temp*. Pour créer une telle option de récupération, utilisez la commande suivante :
 
 ```
 PS C:\> $recovery_option = New-OBRecoveryOption -DestinationPath "C:\temp" -OverwriteType Skip
@@ -432,8 +426,8 @@ PS C:\> Set-ExecutionPolicy unrestricted -force
 L’ordinateur peut maintenant être géré à distance, en commençant par l’installation de l’agent. Par exemple, le script suivant copie et installe l’agent sur l’ordinateur distant.
 
 ```
-PS C:\> $dloc = "\REMOTESERVER01\c$\Windows\Temp"
-PS C:\> $agent = "\REMOTESERVER01\c$\Windows\Temp\MARSAgentInstaller.exe"
+PS C:\> $dloc = "\\REMOTESERVER01\c$\Windows\Temp"
+PS C:\> $agent = "\\REMOTESERVER01\c$\Windows\Temp\MARSAgentInstaller.exe"
 PS C:\> $args = "/q"
 PS C:\> Copy-Item "C:\Downloads\MARSAgentInstaller.exe" -Destination $dloc - force
 
@@ -444,4 +438,4 @@ PS C:\> Invoke-Command -Session $s -Script { param($d, $a) Start-Process -FilePa
 ## Étapes suivantes
 Pour en savoir plus sur Azure Backup pour client/serveur Windows, consultez la rubrique [Présentation d’Azure Backup](backup-introduction-to-azure-backup.md)
 
-<!----HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

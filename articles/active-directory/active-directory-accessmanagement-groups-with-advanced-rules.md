@@ -59,7 +59,7 @@ Le tableau suivant répertorie tous les opérateurs de règle d’expression pri
 |----------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Erreur : attribut non pris en charge. | (user.invalidProperty -eq "Value") | (user.department -eq "value")La propriété doit correspondre à l’une de celles figurant dans la liste des propriétés prises en charge ci-dessus. |
 | Erreur : l’opérateur n’est pas pris en charge sur l’attribut. | (user.accountEnabled -contains true) | (user.accountEnabled - eq true)La propriété est de type booléen. Utilisez les opérateurs pris en charge (-eq ou -ne) sur un type booléen dans la liste ci-dessus. |
-| Erreur : erreur de compilation de la requête. | (user.department -eq "Sales") -and (user.department -eq "Marketing")(user.userPrincipalName -match "\*@domain.ext") | (user.department -eq "Sales") -and (user.department -eq "Marketing")L’opérateur logique doit correspondre à l’un de ceux figurant dans la liste des propriétés prises en charge ci-dessus.(user.userPrincipalName -match ".\*@domain.ext")or(user.userPrincipalName -match "@domain.ext$")Erreur dans l’expression régulière. |
+| Erreur : erreur de compilation de la requête. | (user.department -eq "Sales") -and (user.department -eq "Marketing")(user.userPrincipalName -match "*@domain.ext") | (user.department -eq "Sales") -and (user.department -eq "Marketing")L’opérateur logique doit correspondre à l’un de ceux figurant dans la liste des propriétés prises en charge ci-dessus.(user.userPrincipalName -match ".*@domain.ext")or(user.userPrincipalName -match "@domain.ext$")Erreur dans l’expression régulière. |
 | Erreur : l’expression binaire n’est pas au format correct. | (user.department –eq “Sales”) (user.department -eq "Sales")(user.department-eq"Sales") | (user.accountEnabled -eq true) -and (user.userPrincipalName -contains "alias@domain")La requête comporte plusieurs erreurs. Une parenthèse n’est pas au bon endroit. |
 | Erreur : une erreur inconnue s’est produite lors de la configuration des appartenances dynamiques. | (user.accountEnabled -eq "True" AND user.userPrincipalName -contains "alias@domain") | (user.accountEnabled -eq true) -and (user.userPrincipalName -contains "alias@domain")La requête comporte plusieurs erreurs. Une parenthèse n’est pas au bon endroit. |
 
@@ -168,4 +168,4 @@ Voici des rubriques qui fournissent des informations supplémentaires sur Azure 
 
 * [Intégration de vos identités locales avec Azure Active Directory](active-directory-aadconnect.md)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

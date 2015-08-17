@@ -165,4 +165,4 @@ Pour en savoir plus sur le contrôle d'accès en fonction du rôle à l'aide de 
 - [Résolution des problèmes de contrôle d'accès basé sur les rôles](role-based-access-control-troubleshooting.md)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

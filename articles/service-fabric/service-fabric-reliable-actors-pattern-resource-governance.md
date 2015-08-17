@@ -1,11 +1,12 @@
 <properties
-   pageTitle="Modèle de conception de gestion des ressources Azure Service Fabric Actors"
-   description="Modèle de conception montrant comment utiliser Service Fabric Actors pour modéliser une application à mettre à l'échelle mais avec des ressources limitées"
+   pageTitle="Modèle de conception de gestion des ressources pour les Acteurs fiables"
+   description="Modèle de conception montrant comment utiliser les Acteurs fiables pour modéliser une application à mettre à l'échelle mais avec des ressources limitées"
    services="service-fabric"
    documentationCenter=".net"
    authors="jessebenson"
    manager="timlt"
    editor=""/>
+
 
 <tags
    ms.service="service-fabric"
@@ -13,10 +14,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/17/2015"
+   ms.date="08/05/2015"
    ms.author="claudioc"/>
 
-# Azure Service Fabric Actors : gestion des ressources
+
+# Modèle de conception Acteurs fiables : gestion des ressources
 Ce modèle et les scénarios associés sont facilement identifiables par les développeurs (entreprises ou autres) qui disposent de ressources limitées sur site ou dans le cloud qu'ils ne peuvent pas mettre immédiatement à l'échelle, ou qui souhaitent transférer des applications et des données volumineuses vers le cloud.
 
 Dans l'entreprise, ces ressources limitées, telles que des bases de données, s'exécutent sur du matériel avec une augmentation d'échelle. Toute personne disposant d'une longue expérience en entreprise sait qu'il s'agit d'une situation courante sur site. Même à l'échelle du cloud, nous avons vu cette situation se produire lorsqu'un service cloud a tenté de dépasser la limite de connexions 64K TCP entre un tuple adresse/port, ou lorsque vous tentez de vous connecter à une base de données en cloud qui limite le nombre de connexions simultanées.
@@ -48,7 +50,7 @@ private static string ResolveConnectionString(long userId, int region)
 }
 ```
 
-Simple mais pas très flexible. Examinons maintenant une approche plus avancée et plus utile. Tout d'abord, nous modélisons l'affinité entre des ressources physiques et des acteurs. Cette opération s'effectue via un acteur appelé Résolveur qui comprend le mappage entre les utilisateurs, les partitions logiques et les ressources physiques. Le résolveur conserve ses données dans un magasin persistant, mais elles sont mises en cache pour simplifier la recherche. Comme nous l'avons vu dans l'exemple du taux de change plus tôt dans le modèle Smart Cache, le résolveur peut récupérer de façon proactive les toutes dernières informations à l'aide d'un minuteur. Une fois que l'acteur utilisateur résout la ressource qu'il doit utiliser, il la met en cache dans une variable locale appelée _resolution et l'utilise pendant sa durée de vie. Nous avons choisi une résolution basée sur la recherche (illustrée ci-dessous) plutôt qu'un hachage simple ou un hachage par plage en raison de la flexibilité qu'elle offre pour des opérations comme la montée/descente en charge ou le déplacement d'un utilisateur d'une ressource à une autre.
+Simple mais pas très flexible. Examinons maintenant une approche plus avancée et plus utile. Tout d'abord, nous modélisons l'affinité entre des ressources physiques et des acteurs. Cette opération s'effectue via un acteur appelé Résolveur qui comprend le mappage entre les utilisateurs, les partitions logiques et les ressources physiques. Le résolveur conserve ses données dans un magasin persistant, mais elles sont mises en cache pour simplifier la recherche. Comme nous l'avons vu dans l'exemple du taux de change plus tôt dans le modèle Smart Cache, le résolveur peut récupérer de façon proactive les toutes dernières informations à l'aide d'un minuteur. Une fois que l'acteur utilisateur résout la ressource qu'il doit utiliser, il la met en cache dans une variable locale appelée \_resolution et l'utilise pendant sa durée de vie. Nous avons choisi une résolution basée sur la recherche (illustrée ci-dessous) plutôt qu'un hachage simple ou un hachage par plage en raison de la flexibilité qu'elle offre pour des opérations comme la montée/descente en charge ou le déplacement d'un utilisateur d'une ressource à une autre.
 
 ![][2]
 
@@ -416,6 +418,5 @@ Ce modèle est très courant dans les scénarios où des développeurs doivent t
 [1]: ./media/service-fabric-reliable-actors-pattern-resource-governance/resourcegovernance_arch1.png
 [2]: ./media/service-fabric-reliable-actors-pattern-resource-governance/resourcegovernance_arch2.png
 [3]: ./media/service-fabric-reliable-actors-pattern-resource-governance/resourcegovernance_arch3.png
- 
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

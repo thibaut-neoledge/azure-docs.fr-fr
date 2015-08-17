@@ -52,7 +52,7 @@ Vous devez disposer des éléments suivants :
 <tr><th>Nom</th><th>Autorisations</th></tr>
 <tr><td>mysendpolicy</td><td>Envoyer</td></tr>
 <tr><td>myreceivepolicy</td><td>Écouter</td></tr>
-</table>Après avoir créé les autorisations, sélectionnez l’icône **Enregistrer** située en bas de page. Cela crée des stratégies d'accès partagé qui seront utilisées pour envoyer vers (\*\*mysendpolicy\*\*) et écouter (\*\*myreceivepolicy\*\*) ce concentrateur d'événements.
+</table>Après avoir créé les autorisations, sélectionnez l’icône **Enregistrer** située en bas de page. Cela crée des stratégies d'accès partagé qui seront utilisées pour envoyer vers (**mysendpolicy**) et écouter (**myreceivepolicy**) ce concentrateur d'événements.
 
 	![stratégies](./media/hdinsight-apache-spark-csharp-apache-zeppelin-eventhub-streaming/HDI.Spark.Streaming.Event.Hub.Policies.png "Créer des stratégies de concentrateur d'événements")
 
@@ -77,9 +77,9 @@ Dans cette section, vous allez créer un bloc-notes [Zeppelin](https://zeppelin.
 
 	![Créer un nouveau bloc-notes Zeppelin](./media/hdinsight-apache-spark-csharp-apache-zeppelin-eventhub-streaming/HDI.Spark.CreateNewNote.png "Créer un nouveau bloc-notes Zeppelin")
 
-	Sur la même page, sous l’en-tête du **Bloc-notes**, vous devez voir un nouveau bloc-notes dont le nom commence par **Note XXXXXXXXX**. Cliquez sur le nouveau bloc-notes.
+	Dans la même page, sous le titre **Bloc-notes**, un nouveau bloc-notes dont le nom commence par **Note XXXXXXXXX** doit s’afficher. Cliquez sur le nouveau bloc-notes.
 
-3. Sur la page web du nouveau bloc-notes, cliquez sur l'en-tête et modifiez le nom du bloc-notes si vous le souhaitez. Appuyez sur ENTRÉE pour enregistrer la modification de nom. Vérifiez également que l'en-tête du bloc-notes indique un statut **Connecté** en haut à droite.
+3. Sur la page web du nouveau bloc-notes, cliquez sur l'en-tête et modifiez le nom du bloc-notes si vous le souhaitez. Appuyez sur ENTRÉE pour enregistrer la modification de nom. Vérifiez également que l’en-tête du bloc-notes indique l’état **Connecté** dans le coin supérieur droit.
 
 	![État du bloc-notes Zeppelin](./media/hdinsight-apache-spark-csharp-apache-zeppelin-eventhub-streaming/HDI.Spark.NewNote.Connected.png "État du bloc-notes Zeppelin")
 
@@ -128,7 +128,7 @@ Dans cette section, vous allez créer un bloc-notes [Zeppelin](https://zeppelin.
 
 	![Recevoir les messages dans Zeppelin](./media/hdinsight-apache-spark-csharp-apache-zeppelin-eventhub-streaming/HDI.Spark.Streaming.Event.Hub.Zeppelin.Output.png "Recevoir des messages dans le bloc-notes Zeppelin")
 
-4. Redémarrez l'interpréteur SQL de Spark pour quitter l'application. Cliquez sur l’onglet **Interpréteur** en haut et, pour l'interpréteur Spark, cliquez sur **Redémarrer**.
+4. Redémarrez l'interpréteur SQL de Spark pour quitter l'application. Cliquez sur l’onglet **Interpreter** en haut et, pour l’interpréteur Spark, cliquez sur **Restart**.
 
 	![Redémarrez l'interpréteur Zeppelin](./media/hdinsight-apache-spark-csharp-apache-zeppelin-eventhub-streaming/HDI.Spark.Zeppelin.Restart.Interpreter.png "Redémarrez l'interpréteur Zeppelin")
 
@@ -164,4 +164,4 @@ Les instructions sur la procédure de réalisation de ces étapes et un exemple 
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

@@ -92,4 +92,4 @@ Pour vous familiariser avec la console, commencez par les commandes élémentair
 [ConsoleScreenshot]: ./media/web-sites-streaming-logs-and-console/console.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

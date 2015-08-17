@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Interactions RESTful avec les ressources DocumentDB | Azure" 
+	pageTitle="Interactions RESTful avec les ressources DocumentDB | Microsoft Azure" 
 	description="Apprenez à effectuer des interactions RESTful avec les ressources Microsoft Azure DocumentDB à l'aide de verbes HTTP." 
 	services="documentdb" 
 	authors="h0n" 
@@ -7,14 +7,16 @@
 	editor="monicar" 
 	documentationCenter=""/>
 
+
 <tags 
 	ms.service="documentdb" 
 	ms.workload="data-services" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/08/2015" 
+	ms.date="08/03/2015" 
 	ms.author="h0n"/>
+
 
 # Interactions RESTful avec les ressources DocumentDB 
 
@@ -48,7 +50,7 @@ Comme indiqué dans le schéma ci-dessous, POST ne peut être émis que sur une 
 ## Création d'une ressource à l'aide de POST 
 Pour mieux comprendre le modèle d'interaction, prenons l'exemple de la création d'une ressource (INSERT). Pour créer une ressource, vous devez émettre une demande HTTP POST dont le corps contient la représentation de la ressource par rapport à l'URI du flux de conteneurs auquel la ressource appartient. La seule propriété requise pour la demande est l'ID de la ressource.
 
-Par exemple, pour créer une base de données, vous VALIDEZ une ressource de base de données (en définissant la propriété ID avec un nom unique) dans /dbs. De même, pour créer une collection, vous VALIDEZ une ressource de collection dans /dbs/\_rid/colls/et ainsi de suite. La réponse contient la ressource entièrement validée avec les propriétés générées par le système, notamment l’élément _self link de la ressource qui permet d’accéder à d’autres ressources. Voici un exemple de modèle d’interaction HTTP simple : un client émet une requête HTTP pour créer une base de données dans un compte. 
+Par exemple, pour créer une base de données, vous VALIDEZ une ressource de base de données (en définissant la propriété ID avec un nom unique) dans /dbs. De même, pour créer une collection, vous VALIDEZ une ressource de collection dans /dbs/\_rid/colls/et ainsi de suite. La réponse contient la ressource entièrement validée avec les propriétés générées par le système, y compris le lien \_self de la ressource et qui permet d'accéder à d'autres ressources. Voici un exemple de modèle d'interaction HTTP simple : un client émet une demande HTTP pour créer une base de données dans un compte.
 
 	POST https://fabrikam.documents.azure.com/dbs
 	{
@@ -153,18 +155,18 @@ Le service répond avec les résultats de la requête SQL.
 
 
 ## Utilisation d'une instruction PUT, GET et DELETE
-Le remplacement ou la lecture d’une ressource revient à émettre des verbes PUT (avec un corps de requête valide) et GET dans l’élément _self link de la ressource. De même, la suppression d’une ressource revient à émettre un verbe DELETE dans l’élément _self link de la ressource. Il est important de noter que l'organisation hiérarchique des ressources dans le modèle de ressource DocumentDB nécessite la prise en charge des suppressions en cascade où la suppression de la ressource de propriétaire entraîne la suppression des ressources dépendantes. Ces dernières peuvent être distribuées parmi des nœuds autres que les ressources de propriétaire, ce qui peut provoquer une suppression différée. Indépendamment des mécanismes du garbage collection, à la suppression d'une ressource, le quota est libéré et disponible instantanément pour utilisation. L'intégrité référentielle est conservée par le système. Par exemple, vous ne pouvez pas insérer une collection dans une base de données qui est supprimée, ni remplacer ou interroger un document d’une collection qui n’existe plus. 
+Le remplacement ou la lecture d'une ressource revient à émettre des verbes PUT (avec un corps de demande valide) et GET vers le lien \_self de la ressource, respectivement. De même, la suppression d'une ressource revient à émettre un verbe DELETE vers le lien \_self de la ressource. Il est important de noter que l'organisation hiérarchique des ressources dans le modèle de ressource DocumentDB nécessite la prise en charge des suppressions en cascade où la suppression de la ressource de propriétaire entraîne la suppression des ressources dépendantes. Ces dernières peuvent être distribuées parmi des nœuds autres que les ressources de propriétaire, ce qui peut provoquer une suppression différée. Indépendamment des mécanismes du garbage collection, à la suppression d'une ressource, le quota est libéré et disponible instantanément pour utilisation. L'intégrité référentielle est conservée par le système. Par exemple, vous ne pouvez pas insérer une collection dans une base de données qui est supprimée, ni remplacer ou interroger un document d'une collection qui n'existe plus.
  
-L'émission d'une instruction GET vers un flux de ressources ou l'interrogation d'une collection peut résulter en des millions d'éléments potentiels, rendant impossible pour le serveur de les matérialiser et pour les clients de les utiliser dans le cadre d'un seul échange de demande/réponse. Pour résoudre ce problème, DocumentDB permet aux clients de paginer les flux volumineux une page à la fois. Les clients peuvent utiliser l’en-tête de réponse [x-ms-continuation] en tant que curseur pour accéder à la page suivante.
+L'émission d'une instruction GET vers un flux de ressources ou l'interrogation d'une collection peut résulter en des millions d'éléments potentiels, rendant impossible pour le serveur de les matérialiser et pour les clients de les utiliser dans le cadre d'un seul échange de demande/réponse. Pour résoudre ce problème, DocumentDB permet aux clients de paginer les flux volumineux une page à la fois. Les clients peuvent utiliser l’en-tête de réponse [x-ms-continuation\] en tant que curseur pour accéder à la page suivante.
 
 ## Contrôle d'accès concurrentiel optimiste
 La plupart des applications web reposent sur une balise d'entité basée sur le contrôle d'accès concurrentiel optimiste pour éviter les problèmes de perte de mise à jour ou de suppression. La balise d'entité est un horodatage HTTP convivial et logique associé à une ressource. DocumentDB prend en charge de manière native le contrôle d'accès concurrentiel optimiste en s'assurant que chaque réponse HTTP contient la version (durablement) associée à la ressource spécifique. Les conflits du contrôle d'accès concurrentiel sont correctement détectés dans les cas suivants :
 
-1.	Si deux clients émettent simultanément des demandes en mutation (via les verbes PUT/ DELETE) sur une ressource avec la dernière version de celle-ci (spécifiée par l'en-tête de demande [if-match]), le moteur de base de données DocumentDB les soumet au contrôle d'accès concurrentiel transactionnel.
-2.	Si un client présente une ancienne version de la ressource (spécifiée via l'en-tête de demande [if-match]), sa demande est rejetée.  
+1.	Si deux clients émettent simultanément des demandes en mutation (via les verbes PUT/ DELETE) sur une ressource avec la dernière version de celle-ci (spécifiée par l'en-tête de demande [if-match\]), le moteur de base de données DocumentDB les soumet au contrôle d'accès concurrentiel transactionnel.
+2.	Si un client présente une ancienne version de la ressource (spécifiée via l'en-tête de demande [if-match\]), sa demande est rejetée.  
 
 ## Options de connectivité
-DocumentDB expose un modèle d’adressage logique où chaque ressource a un URI stable et logique identifié par son élément _self link. En tant que système de stockage distribué entre les régions, les ressources sous divers comptes de base de données dans DocumentDB sont partitionnées entre de nombreux ordinateurs et chaque partition est répliquée à des fins de haute disponibilité. Les réplicas qui gèrent les ressources d'une partition donnée enregistrent des adresses physiques. Alors que les adresses physiques changent au fil du temps suite aux défaillances, leurs adresses logiques restent stables et constantes. La logique de conversion des adresses physiques est conservée dans une table de routage qui est également disponible en interne en tant que ressource. DocumentDB expose deux modes de connectivité : 
+DocumentDB expose un modèle d'adressage logique où chaque ressource a un URI stable et logique identifié par son lien \_self. En tant que système de stockage distribué entre les régions, les ressources sous divers comptes de base de données dans DocumentDB sont partitionnées entre de nombreux ordinateurs et chaque partition est répliquée à des fins de haute disponibilité. Les réplicas qui gèrent les ressources d'une partition donnée enregistrent des adresses physiques. Alors que les adresses physiques changent au fil du temps suite aux défaillances, leurs adresses logiques restent stables et constantes. La logique de conversion des adresses physiques est conservée dans une table de routage qui est également disponible en interne en tant que ressource. DocumentDB expose deux modes de connectivité :
 
 1.	**Mode passerelle :** Les clients sont protégés de la conversion des adresses logiques en adresses physiques ou des détails du routage ; ils s’occupent simplement des URI logiques et accèdent via RESTful au modèle de ressource. Les clients émettent les demandes à l'aide de l'URI logique qui est converti par les ordinateurs du périmètre en adresse physique du réplica qui gère la ressource et transfère la demande. Avec les ordinateurs du périmètre qui mettent en cache (et actualisent régulièrement) la table de routage, le routage est véritablement efficace. 
 2.	**Mode connectivité directe :** Les clients gèrent directement la table de routage dans leur espace de traitement et l’actualisent régulièrement. Ils peuvent se connecter directement aux réplicas et ignorer les ordinateurs du périmètre.   
@@ -262,4 +264,4 @@ Explorez la page [Référence de l’API REST d’Azure DocumentDB](https://msd
 [1]: ./media/documentdb-interactions-with-resources/interactions-with-resources2.png
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

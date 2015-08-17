@@ -7,6 +7,7 @@
 	manager="timlt" 
 	editor="tysonn"/>
 
+
 <tags 
 	ms.service="virtual-machines" 
 	ms.workload="infrastructure-services" 
@@ -15,6 +16,7 @@
 	ms.topic="article" 
 	ms.date="06/03/2015" 
 	ms.author="szark"/>
+
 
 
 
@@ -31,61 +33,14 @@ Les pilotes LIS (Linux Integration Services) pour Hyper-V et Azure sont des m
 
 L’agent Azure Linux, qui est pré-installé sur les images de la galerie Azure, est généralement disponible à partir du référentiel du package de distribution. Le code source est disponible sur [GitHub](https://github.com/azure/walinuxagent).
 
-<table border="1" width="600">
-  <tr bgcolor="#E9E7E7">
-		<th>Distribution</th>		
-	    <th>Version</th>
-	    <th>Pilotes</th>
-		<th>Agent</th>
-			</tr>
-	<tr>
-		<th>  Ubuntu de Canonical </th>
-		<td> Ubuntu&#160;12.04, 14.04, 14.10 et 15.04 </td>
-		<td>Dans le noyau</td>
-		<td>Package&#160;: dans le référentiel de packages sous walinuxagent <br />
-			Source&#160;: <a href="http://go.microsoft.com/fwlink/p/?LinkID=250998">GitHub</a></td>
-			</tr>
-	<tr>
-		<th> CentOS par OpenLogic </th>
-		<td> CentOS&#160;6.3+, 7.0+</td>
-	    <td> CentOS 6.3&#160;: <a href="http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409">téléchargement LIS</a><br/>
-	        CentOS 6.4 +&#160;: dans le noyau</td>
-		<td>Package&#160;: dans le <a href="http://olcentgbl.trafficmanager.net/openlogic/6/openlogic/x86_64/RPMS/">référentiel de packages&#160;Open Logic</a> sous WALinuxAgent<br />
-			Source&#160;: <a href="http://go.microsoft.com/fwlink/p/?LinkID=250998">GitHub</a></td>
- 		
-	</tr>
-	<tr>
-		<th> <a href="https://coreos.com/docs/running-coreos/cloud-providers/azure/">CoreOS</a> </th>
-		<td> 494.4.0+ </td>
-        <td> Dans le noyau </td>
-		<td> Source&#160;: <a href="https://github.com/coreos/coreos-overlay/tree/master/app-emulation/wa-linux-agent">GitHub</a></td>
-		
-	</tr>
-	<tr>
-		<th> Oracle&#160;Linux </th>
-		<td> 6.4+, 7.0+ </td>
-        <td>Dans le noyau</td>
-		<td>Package&#160;: dans le référentiel de packages sous WALinuxAgent<br />
-			Source&#160;: <a href="http://go.microsoft.com/fwlink/p/?LinkID=250998">GitHub</a></td>
-		
-	</tr>
-	<tr>
-		<th> SUSE Linux Enterprise </th>
-		<td> SLES 11 SP3+, SLES 12+ et <br /> SLES pour SAP 11.3+ </td>
-        <td>Dans le noyau</td>
-		<td>Package&#160;: dans le référentiel <a href="https://build.opensuse.org/project/show/Cloud:Tools">Cloud:Tools</a>, sous WALinuxAgent<br />
-			Source&#160;: <a href="http://go.microsoft.com/fwlink/p/?LinkID=250998">GitHub</a></td>
-		
-	</tr>
-	<tr>
-		<th> openSUSE </th>
-		<td> openSUSE&#160;13.1+</td>
-		<td>Dans le noyau</td>
-		<td>Package&#160;: dans le référentiel <a href="https://build.opensuse.org/project/show/Cloud:Tools" >Cloud:Tools</a>, sous WALinuxAgent<br />
-			Code source&#160;: <a href="http://go.microsoft.com/fwlink/p/?LinkID=250998">GitHub</a></td>
-		
-	</tr>
-</table>
+Distribution|Version|Pilotes|Agent
+---|---|---|---
+Ubuntu de Canonical|Ubuntu 12.04, 14.04, 14.10 et 15.04|Dans le noyau|Package : dans le référentiel sous "walinuxagent" <p><p>Source : [GitHub](http://go.microsoft.com/fwlink/p/?LinkID=250998)
+CentOS par OpenLogic |CentOS 6.3+, 7.0+| CentOS 6.3 : [Téléchargement LIS](http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409)<p>CentOS 6.4+ : Dans le noyau|Package : dans le référentiel <a href="http://olcentgbl.trafficmanager.net/openlogic/6/openlogic/x86_64/RPMS/">OpenLogic sous "WALinuxAgent"<p><p>Source : [GitHub](http://go.microsoft.com/fwlink/p/?LinkID=250998)
+|494\.4.0+ |Dans le noyau|Source : [GitHub](https://github.com/coreos/coreos-overlay/tree/master/app-emulation/wa-linux-agent)
+Oracle Linux| 6\.4+, 7.0+|Dans le noyau|Package : dans le référentiel sous "walinuxagent" <p><p>Source : [GitHub](http://go.microsoft.com/fwlink/p/?LinkID=250998)
+SUSE Linux Enterprise |SLES 11 SP3+, SLES 12+ et <p><p> SLES pour SAP 11.3+ |Dans le noyau|Package : dans le référentiel [Cloud:Tools](https://build.opensuse.org/project/show/Cloud:Tools), sous "WALinuxAgent"<p><p>Source : [GitHub](http://go.microsoft.com/fwlink/p/?LinkID=250998)
+openSUSE |openSUSE 13.1+|Dans le noyau|Package : dans le référentiel [Cloud:Tools](https://build.opensuse.org/project/show/Cloud:Tools), sous "WALinuxAgent"<p><p>Code source : [GitHub](http://go.microsoft.com/fwlink/p/?LinkID=250998)
 
 ## Partenaires
 
@@ -124,4 +79,4 @@ SUSE Linux Enterprise Server sur Azure est une plateforme éprouvée qui offre u
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

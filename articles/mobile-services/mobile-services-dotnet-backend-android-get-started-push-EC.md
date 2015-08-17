@@ -237,4 +237,4 @@ Découvrez Mobile Services et Notification Hubs dans les rubriques suivantes :
 [portail de gestion Azure]: https://manage.windowsazure.com/
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

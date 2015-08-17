@@ -7,6 +7,7 @@
    manager="timlt"
    editor=""/>
 
+
 <tags
    ms.service="service-fabric"
    ms.devlang="dotnet"
@@ -15,6 +16,7 @@
    ms.workload="required"
    ms.date="07/23/2015"
    ms.author="vturecek"/>
+
 
 # Prise en main des services d'API Web de Microsoft Azure Service Fabric avec l'auto-hébergement OWIN
 
@@ -343,6 +345,7 @@ Configurer un point de terminaison HTTP dans PackageRoot\\ServiceManifest.xml :
 <Resources>
     <Endpoints>
         <Endpoint Name="ServiceEndpoint" Type="Input" Protocol="http" Port="80" />
+
     </Endpoints>
 </Resources>
 
@@ -449,7 +452,7 @@ protected override ICommunicationListener CreateCommunicationListener()
 
 ```
 
-C'est ici que finissent par se rencontrer l'*application* de l'API Web et l'*hôte* OWIN : l'*hôte* (\*\*OwinCommunicationListener \*\*) reçoit une instance de l'*application* (API Web via **Startup**), et Service Fabric gère son cycle de vie. Ce même modèle peut généralement être suivi d'une pile de communication.
+C'est ici que finissent par se rencontrer l'*application* de l'API Web et l'*hôte* OWIN : l'*hôte* (**OwinCommunicationListener**) reçoit une instance de l'*application* (API Web via **Startup**), et Service Fabric gère son cycle de vie. Ce même modèle peut généralement être suivi d'une pile de communication.
 
 ## Exemple complet
 
@@ -570,7 +573,7 @@ Tous les composants sont en place, votre projet devrait maintenant ressembler à
 Si ce n'est déjà fait, [configurez votre environnement de développement](service-fabric-get-started.md).
 
 
-Vous pouvez désormais générer et déployer votre service. Appuyez sur **F5** dans Visual Studio pour générer et déployer l'application. Dans la fenêtre des événements de diagnostic, vous devriez voir un message indiquant que le serveur web est ouvert sur **http://localhost:80/api**
+Vous pouvez désormais générer et déployer votre service. Appuyez sur **F5** dans Visual Studio pour générer et déployer l'application. Dans la fenêtre des événements de diagnostic, vous devriez voir un message indiquant que le serveur web est ouvert sur ****http://localhost:80/api**
 
 
 ![](media/service-fabric-reliable-services-communication-webapi/webapi-diagnostics.png)
@@ -598,6 +601,7 @@ Ou lors de la définition d'un service par défaut dans un projet de service san
   <Service Name="WebService">
     <StatelessService ServiceTypeName="WebServiceType" InstanceCount="-1">
       <SingletonPartition />
+
     </StatelessService>
   </Service>
 </DefaultServices>
@@ -614,4 +618,4 @@ Dans ASP.NET 5, le concept et le modèle de programmation liés à la séparatio
 
 [Débogage de votre application Service Fabric dans Visual Studio](service-fabric-debugging-your-application.md)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

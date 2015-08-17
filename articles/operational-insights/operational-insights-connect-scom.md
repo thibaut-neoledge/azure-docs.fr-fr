@@ -46,4 +46,4 @@ Si vous utilisez Operations Manager pour surveiller les charges de travail suiva
 
 [Configuration des paramètres de pare-feu et de proxy (facultatif)](operational-insights-proxy-firewall.md)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

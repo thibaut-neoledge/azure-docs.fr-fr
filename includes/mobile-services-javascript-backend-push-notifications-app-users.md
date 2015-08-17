@@ -42,4 +42,4 @@
 
 4. Cliquez sur la flèche Précédent, cliquez sur l'onglet **Données**, cliquez sur **TodoItem**, cliquez sur **Script** et sélectionnez **Insérer**.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -12,7 +12,7 @@
 	ms.workload="identity"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="hero-article"
+	ms.topic="article"
 	ms.date="07/07/2015"
 	ms.author="rkarlin"/>
 
@@ -61,4 +61,4 @@ Vous pouvez faire bien d’autres choses encore avec le Proxy d’application :
 * [Inscription à Azure en tant qu’organisation](../sign-up-organization.md)
 * [Identité Azure](../fundamentals-identity.md)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

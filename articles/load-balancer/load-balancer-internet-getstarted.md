@@ -13,10 +13,14 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/01/2015"
+   ms.date="08/03/2015"
    ms.author="joaoma" />
 
 # Prise en main de la configuration de votre équilibrage de charge accessible sur Internet
+
+> [AZURE.SELECTOR]
+- [Azure classic steps](load-balancer-internet-getstarted.md)
+- [Resource Manager Powershell steps](load-balancer-arm-powershell.md)
 
 Les services d’équilibrage de charge de Microsoft Azure fonctionnent avec tous les types de client (IaaS ou PaaS) et toutes les versions de système d’exploitation (systèmes d’exploitation Windows ou Linux).
 
@@ -135,4 +139,4 @@ Dans l'exemple ci-dessous, vous allez ajouter un équilibrage de charge appelé 
 [Configuration des paramètres de délai d’expiration TCP inactif pour votre équilibrage de charge](load-balancer-tcp-idle-timeout.md)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

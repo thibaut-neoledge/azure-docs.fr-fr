@@ -161,9 +161,9 @@ Les étapes suivantes permettent l’inscription auprès du concentrateur de not
 
 	Ainsi, les catégories définies dans la classe sont renvoyées.
 
-1. Ouvrez le fichier App.xaml.cs et ajoutez le modificateur **async** à la méthode **Application_Launching**.
+1. Ouvrez le fichier App.xaml.cs et ajoutez le modificateur **async** à la méthode **Application\_Launching**.
 
-2. Dans la méthode **Application_Launching**, localisez et remplacez le code d'inscription Notification Hubs que vous avez ajouté dans le cadre du didacticiel [Prise en main de Notification Hubs] par la ligne de code suivante :
+2. Dans la méthode **Application\_Launching**, localisez et remplacez le code d'inscription Notification Hubs que vous avez ajouté dans le cadre du didacticiel [Prise en main de Notification Hubs] par la ligne de code suivante :
 
 		await notifications.SubscribeToCategories(notifications.RetrieveCategories());
 
@@ -259,4 +259,4 @@ In this tutorial we learned how to broadcast breaking news by category. Consider
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

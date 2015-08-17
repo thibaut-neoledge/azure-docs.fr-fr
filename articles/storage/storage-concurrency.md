@@ -93,10 +93,7 @@ Get Container Properties|	Oui|	Non|
 Get Container Metadata|	Oui|	Non|
 Set Container Metadata|	Oui|	Oui|
 Get Container ACL|	Oui|	Non|
-Set Container ACL|	Oui|	Oui (*)|
-Delete Container|	Non|	Oui|
-Lease Container|	Oui|	Oui|
-List Blobs|	Non|	Non  
+Set Container ACL|	Oui|	Oui (*)| Delete Container| Non| Oui| Lease Container| Oui| Oui| List Blobs| Non| Non 
 
 (*) Les autorisations définies par SetContainerACL sont mises en cache et les mises à jour apportées à ces autorisations sont diffusées dans un délai de 30 secondes, période pendant laquelle la cohérence des mises à jour n’est pas garantie.
 
@@ -110,16 +107,7 @@ Get Blob Properties|	Oui|	Oui|
 Set Blob Properties|	Oui|	Oui|
 Get Blob Metadata|	Oui|	Oui|
 Set Blob Metadata|	Oui|	Oui|
-Lease Blob (*)|	Oui|	Oui|
-Snapshot Blob|	Oui|	Oui|
-Copie d'un objet blob|	Oui|	Oui (pour les objets blob source et de destination)|
-Abort Copy Blob|	Non|	Non|
-Delete Blob|	Non|	Oui|
-Put Block|	Non|	Non|
-Put Block List|	Oui|	Oui|
-Get Block List|	Oui|	Non|
-Put Page|	Oui|	Oui|
-Get Page Ranges|	Oui|	Oui
+Lease Blob (*)| Oui| Oui| Snapshot Blob| Oui| Oui| Copy Blob| Oui| Oui (pour les objets blob sources et de destination)| Abort Copy Blob| Non| Non| Delete Blob| Non| Oui| Put Block| Non| Non| Put Block List| Oui| Oui| Get Block List| Oui| Non| Put Page| Oui| Oui| Get Page Ranges| Oui| Oui
 
 (*) L'opération Lease Blob n'entraîne pas la modification de la balise ETag d'un objet blob.
 
@@ -205,7 +193,7 @@ Pour utiliser l'accès concurrentiel optimiste et pour déterminer si un autre p
 2.	Lorsque vous mettez l'entité à jour, incluez la valeur ETag reçue à l'étape 1 dans l'en-tête obligatoire **If-Match** de la demande que vous envoyez au service.
 3.	Le service compare la valeur ETag de la demande à la valeur ETag de l'entité.
 4.	Si la valeur ETag de l'entité est différente de la balise ETag dans l'en-tête obligatoire **If-Match** de la demande, le service renvoie une erreur 412 au client. Cela indique au client que l'entité a été mise à jour par un autre processus depuis la récupération par le client.
-5.	Si la valeur ETag de l'entité est la même que la balise ETag dans l'en-tête obligatoire **If-Match** de la demande ou si l'en-tête **If-Match** contient le caractère générique (*), le service effectue l'opération demandée et met la valeur ETag de l'entité à jour pour indiquer qu'elle a été mise à jour.  
+5.	Si la valeur ETag de l'entité est la même que la balise ETag dans l'en-tête obligatoire **If-Match** de la demande ou si l'en-tête **If-Match** contient le caractère générique (*), le service effectue l'opération demandée et met la valeur ETag de l'entité à jour pour indiquer qu'elle a été mise à jour.
 
 Notez que, contrairement au service BLOB, le client doit inclure un en-tête **If-Match** dans les demandes de mise à jour dans le cadre du service de Table. Il est cependant possible de procéder de force à une mise à jour inconditionnelle (règle de Thomas) et de contourner les vérifications d'accès concurrentiel en ajoutant le caractère générique (*) dans l'en-tête **If-Match** de la demande.
 
@@ -281,8 +269,8 @@ Pour plus d’informations concernant Azure Storage, consultez la page :
 - [Page d’accueil de Microsoft Azure Storage](http://azure.microsoft.com/services/storage/)
 - [Introduction à Azure Storage](storage-introduction.md)
 - Prise en main du stockage d'[objets blob](storage-dotnet-how-to-use-blobs.md), de [tables](storage-dotnet-how-to-use-tables.md) et de [files d'attente](storage-dotnet-how-to-use-queues.md)
-- Architecture de stockage - [Microsoft Azure Storage : service de stockage sur le cloud à haute disponibilité et à cohérence forte](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)
+- Architecture de stockage - [Microsoft Azure Storage : service de stockage dans le cloud à haute disponibilité et à forte cohérence](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -101,7 +101,7 @@ Dans cette section, vous allez créer une classe de gestionnaire de messages nom
 
 	> [AZURE.NOTE]**Note de sécurité** : la classe `AuthenticationTestHandler` n’offre pas de véritable authentification. Elle sert uniquement à simuler l’authentification de base et n’est pas sécurisée. Vous devez mettre en œuvre un mécanisme d’authentification sécurisé dans vos applications de production et vos services.
 
-4. Ajoutez le code suivant à la fin de la méthode `Register` dans la classe **App_Start/WebApiConfig.cs** pour inscrire le gestionnaire de messages :
+4. Ajoutez le code suivant à la fin de la méthode `Register` dans la classe **App\_Start/WebApiConfig.cs** pour inscrire le gestionnaire de messages :
 
 		config.MessageHandlers.Add(new AuthenticationTestHandler());
 
@@ -359,4 +359,4 @@ Dans cette section, vous ajoutez un nouveau contrôleur qui permet aux appareils
 [B16]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-notify-users16.PNG
 [B18]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-notify-users18.PNG
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

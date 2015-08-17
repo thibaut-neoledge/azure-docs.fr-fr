@@ -8,6 +8,7 @@
 	manager="paulettm"
 	editor="cgronlun"/>
 
+
 <tags
    ms.service="hdinsight"
    ms.devlang="java"
@@ -16,6 +17,7 @@
    ms.workload="big-data"
    ms.date="07/06/2015"
    ms.author="larryfr"/>
+
 
 
 # Didacticiel Apache Storm : prise en main d'exemples Storm Starter pour l'analyse de données volumineuses (« Big Data ») sur HDInsight
@@ -82,7 +84,7 @@ Le tableau de bord se trouve dans **https://&lt;clustername>.azurehdinsight.net/
 
 ![Portail Azure avec un lien vers le tableau de bord Storm](./media/hdinsight-apache-storm-tutorial-get-started/dashboard-link.png)
 
-> [AZURE.NOTE]Lorsque vous vous connectez au tableau de bord, vous devrez entrer un nom d’utilisateur et un mot de passe. Il s’agit du nom de l’administrateur (** admin **) et du mot de passe utilisé lors de la création du cluster.
+> [AZURE.NOTE]Lorsque vous vous connectez au tableau de bord, vous devrez entrer un nom d’utilisateur et un mot de passe. Il s’agit du nom de l’administrateur (**admin**) et du mot de passe utilisé lors de la création du cluster.
 
 Une fois le tableau de bord Storm chargé, le formulaire **Envoi de la topologie** s’affichera.
 
@@ -192,7 +194,7 @@ Dans ce didacticiel sur Storm Apache, vous avez appris à créer un cluster Sto
 
 	Pour plus d’informations, consultez la rubrique [Prise en main des outils HDInsight pour Visual Studio](hdinsight-hadoop-visual-studio-tools-get-started.md).
 
-* **Exemples de fichiers** : le cluster Storm HDInsight contient plusieurs exemples dans le répertoire **%STORM_HOME%\contrib**. Chaque exemple doit contenir les éléments suivants :
+* **Exemples de fichiers** : le cluster Storm HDInsight contient plusieurs exemples dans le répertoire **%STORM\_HOME%\\contrib**. Chaque exemple doit contenir les éléments suivants :
 
 	* Le code source : par exemple, storm-starter-0.9.1.2.1.5.0-2057-sources.jar
 
@@ -204,7 +206,7 @@ Dans ce didacticiel sur Storm Apache, vous avez appris à créer un cluster Sto
 
 	> [AZURE.NOTE]Les documents Java sont composés de pages Web. Lorsque vous les avez extraits, utilisez un navigateur pour afficher le fichier **index.html**.
 
-	Pour accéder à ces exemples, vous devez activer le bureau à distance pour le cluster Storm sur HDInsight, puis copier les fichiers à partir de **%STORM_HOME%\contrib**.
+	Pour accéder à ces exemples, vous devez activer le bureau à distance pour le cluster Storm sur HDInsight, puis copier les fichiers à partir de **%STORM\_HOME%\\contrib**.
 
 * Le document suivant contient une liste d’autres exemples pouvant être utilisés avec Storm sur HDInsight :
 
@@ -217,4 +219,4 @@ Dans ce didacticiel sur Storm Apache, vous avez appris à créer un cluster Sto
 [azureportal]: https://manage.windowsazure.com/
 [hdinsight-provision]: hdinsight-provision-clusters.md
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

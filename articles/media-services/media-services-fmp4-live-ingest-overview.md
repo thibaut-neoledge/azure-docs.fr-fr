@@ -49,7 +49,7 @@ Ci-dessous figure la liste des définitions de formats spéciaux qui s'appliquen
 5. La section 3.3.6 dans [1] définit la zone appelée MovieFragmentRandomAccessBox (’mfra’) qui PEUT être envoyée à la fin de l’ingestion en direct pour indiquer la fin du flux (EOS, End-of-Stream) au canal. En raison de la logique d'ingestion d'Azure Media Services, l'utilisation de la fin du flux (EOS) est déconseillée et la zone 'mfra' pour l'ingestion en direct ne DOIT PAS être envoyée. Si elle l'est, Azure Media Services l'ignore en mode silencieux. Il est recommandé d'utiliser la [réinitialisation du canal](https://msdn.microsoft.com/library/azure/dn783458.aspx#reset_channels) pour réinitialiser l'état du point d'ingestion et également d'utiliser l'[arrêt du programme](https://msdn.microsoft.com/library/azure/dn783463.aspx#stop_programs) pour mettre fin à une présentation et à un flux.
 6. La durée du fragment MP4 DOIT être une constante, afin de réduire la taille des manifestes du client et d'améliorer les heuristiques de téléchargement client via l'utilisation de balises de répétition. La durée PEUT varier pour compenser les fréquences d'images non entières.
 7. La durée du fragment MP4 DOIT être comprise entre environ 2 et 6 secondes.
-8. Les horodatages et index du fragment MP4 (TrackFragmentExtendedHeaderBox fragment_absolute_time et fragment_index) DOIVENT normalement arriver dans l'ordre croissant. Bien qu'Azure Media Services ne duplique pas les fragments, il est capable, de façon très limitée, de réorganiser les fragments en fonction de la chronologie du média.
+8. Les horodatages et index du fragment MP4 (TrackFragmentExtendedHeaderBox fragment\_absolute\_time et fragment\_index) DOIVENT normalement arriver dans l'ordre croissant. Bien qu'Azure Media Services ne duplique pas les fragments, il est capable, de façon très limitée, de réorganiser les fragments en fonction de la chronologie du média.
 
 ##Format de protocole – HTTP
 
@@ -139,7 +139,7 @@ Voici les attentes du point de terminaison d'ingestion en direct en cas de bascu
 3. La requête POST du nouvel encodeur DOIT inclure les mêmes zones d'en-tête MP4 fragmenté que l'instance défaillante.
 4. Le nouvel encodeur DOIT être correctement synchronisée avec tous les autres encodeurs en cours d'exécution pour la même présentation en direct pour générer des échantillons audio/vidéo synchronisés avec des limites de fragments alignées.
 5. Le nouveau flux DOIT être sémantiquement équivalent au flux précédent et interchangeables au niveau de l'en-tête et du fragment.
-6. Le nouvel encodeur DOIT tenter de minimiser les pertes de données. Les valeurs fragment_absolute_time et fragment_index des fragments multimédias DOIVENT augmenter à partir du point où l'encodeur s'est arrêté la dernière fois. Les valeurs fragment_absolute_time et fragment_index DOIVENT augmenter de façon continue, mais il est possible d'introduire une discontinuité si besoin. Azure Media Services ignore les fragments déjà reçus et traités. Une erreur du côté du renvoi des fragments est donc préférable à l'introduction de discontinuités dans la chronologie du média. 
+6. Le nouvel encodeur DOIT tenter de minimiser les pertes de données. Les valeurs fragment\_absolute\_time et fragment\_index des fragments multimédias DOIVENT augmenter à partir du point où l'encodeur s'est arrêté la dernière fois. Les valeurs fragment\_absolute\_time et fragment\_index DOIVENT augmenter de façon continue, mais il est possible d'introduire une discontinuité si besoin. Azure Media Services ignore les fragments déjà reçus et traités. Une erreur du côté du renvoi des fragments est donc préférable à l'introduction de discontinuités dans la chronologie du média. 
 
 ##Redondance de l'encodeur 
 
@@ -206,4 +206,4 @@ Voici une implémentation recommandée pour les pistes audio redondantes :
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

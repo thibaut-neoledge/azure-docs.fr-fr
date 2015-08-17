@@ -55,7 +55,7 @@ La chaîne de connexion de votre application est affichée sur le portail Azure.
 			<uses-permission android:name="android.permission.INTERNET"/>
 			<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
 
--   Sur certains modèles, il n'est pas possible de générer un identificateur d'appareil Engagement à partir de ANDROID_ID (il peut être incorrect ou non disponible). Dans ce cas, le Kit de développement logiciel (SDK) génère un identificateur d'appareil aléatoire et tente de l'enregistrer sur le dispositif de stockage externe de l'appareil pour que les autres applications Engagement puissent partager le même identificateur (il est également enregistré comme une préférence partagée pour garantir que l'application utilisera toujours le même identificateur d'appareil, quoi qu'il arrive au stockage externe). Pour que ce mécanisme fonctionne correctement, vous devez ajouter l'autorisation suivante si elle n’est pas présente (avant la balise `<application>`) :
+-   Sur certains modèles, il n'est pas possible de générer un identificateur d'appareil Engagement à partir de ANDROID\_ID (il peut être incorrect ou non disponible). Dans ce cas, le Kit de développement logiciel (SDK) génère un identificateur d'appareil aléatoire et tente de l'enregistrer sur le dispositif de stockage externe de l'appareil pour que les autres applications Engagement puissent partager le même identificateur (il est également enregistré comme une préférence partagée pour garantir que l'application utilisera toujours le même identificateur d'appareil, quoi qu'il arrive au stockage externe). Pour que ce mécanisme fonctionne correctement, vous devez ajouter l'autorisation suivante si elle n’est pas présente (avant la balise `<application>`) :
 
 			<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
 
@@ -311,4 +311,4 @@ Vous pouvez ensuite ajouter un `CheckBoxPreference` dans votre disposition préf
 [API de l'appareil]: http://go.microsoft.com/?linkid=9876094
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

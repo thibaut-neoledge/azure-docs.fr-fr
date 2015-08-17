@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Connexion à une base de données SQL à l'aide de Python avec pymssql sous Ubuntu" 
-	description="Cette rubrique présente un exemple de code Python que vous pouvez utiliser pour vous connecter à la base de données SQL Azure. L'exemple s'exécute sur un ordinateur client Ubuntu Linux."
+	description="Cette rubrique présente un exemple de code Python que vous pouvez utiliser pour vous connecter à une base de données SQL Azure. L'exemple s'exécute sur un ordinateur client Ubuntu Linux."
 	services="sql-database" 
 	documentationCenter="" 
 	authors="meet-bhagdev" 
@@ -61,7 +61,7 @@ La fonction [pymssql.connect](http://pymssql.org/en/latest/ref/pymssql.html) est
 
 ## Exécuter une instruction SQL SELECT
 
-La fonction [cursor.execute](http://pymssql.org/en/latest/ref/pymssql.html#pymssql.Cursor.execute) peut être utilisée pour récupérer un jeu de résultats d'une requête à partir d'une base de données SQL. Cette fonction accepte n'importe quelle requête et renvoie un jeu de résultats qui peut être itéré à l'aide de [cursor.fetchone()](http://pymssql.org/en/latest/ref/pymssql.html#pymssql.Cursor.fetchone).
+La fonction [cursor.execute](http://pymssql.org/en/latest/ref/pymssql.html#pymssql.Cursor.execute) peut être utilisée pour récupérer un jeu de résultats d'une requête effectuée dans la base de données SQL. Cette fonction accepte n'importe quelle requête et renvoie un jeu de résultats qui peut être itéré à l'aide de [cursor.fetchone()](http://pymssql.org/en/latest/ref/pymssql.html#pymssql.Cursor.fetchone).
 
 
 	import pymssql
@@ -95,11 +95,11 @@ Dans la base de données SQL, la propriété [IDENTITY](https://msdn.microsoft.c
 Cet exemple de code illustre l'utilisation de transactions dans lesquelles vous :
 
 
--Commencez une transaction
+\-Commencez une transaction
 
--Insérez une ligne de données
+\-Insérez une ligne de données
 
--Restaurez la transaction pour annuler l'insertion
+\-Restaurez la transaction pour annuler l'insertion
 
 
 	import pymssql
@@ -112,4 +112,4 @@ Cet exemple de code illustre l'utilisation de transactions dans lesquelles vous�
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

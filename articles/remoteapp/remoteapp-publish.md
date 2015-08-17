@@ -22,9 +22,9 @@ Après avoir créé votre collection RemoteApp, vous devez publier les applicati
 
 > [AZURE.NOTE]Vous devez mettre à jour une application ? Il vous faut d’abord [mettre à jour l’image](remoteapp-update.md).
 
-Sous l'onglet **Publication ** du portail, cliquez sur **Publier**. Vous pouvez ajouter une application à partir du menu **Démarrer** de votre image de modèle ou indiquer le chemin d'accès de son répertoire d'installation dans l'image de modèle. Si vous choisissez la première option, sélectionnez dans la liste l'application à publier. Si vous choisissez d'indiquer le chemin d'accès à l'application, entrez un nom pour l'application et son chemin d'accès. Utilisez des variables dans le chemin d'accès, par exemple, « %lecteur_système% » au lieu de « c: ».
+Sous l'onglet **Publication ** du portail, cliquez sur **Publier**. Vous pouvez ajouter une application à partir du menu **Démarrer** de votre image de modèle ou indiquer le chemin d'accès de son répertoire d'installation dans l'image de modèle. Si vous choisissez la première option, sélectionnez dans la liste l'application à publier. Si vous choisissez d'indiquer le chemin d'accès à l'application, entrez un nom pour l'application et son chemin d'accès. Utilisez des variables dans le chemin d'accès, par exemple, « %lecteur\_système% » au lieu de « c: ».
 
 > [AZURE.NOTE]Si vous voulez ajouter votre application à partir du menu Démarrer, vous devez avoir *ajouté cette application au menu Démarrer sur votre image de modèle.* Sinon, RemoteApp ne voit que ce qui *figure* dans le menu Démarrer et cela peut prêter à confusion. Si vous avez oublié d'ajouter l'application au menu **Démarrer** au moment de la création du modèle, choisissez d'ajouter le chemin d'accès à l'application. (Ou recréez votre image de modèle, mais c'est un peu plus de travail.)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

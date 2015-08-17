@@ -67,4 +67,4 @@ Vous devez répéter ces lignes après tout [point de contrôle](automation-runb
 - [Azure Automation : authentification auprès d’Azure à l’aide d’Azure Active Directory](http://azure.microsoft.com/blog/2014/08/27/azure-automation-authenticating-to-azure-using-azure-active-directory/)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

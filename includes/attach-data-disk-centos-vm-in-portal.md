@@ -1,4 +1,4 @@
-1. Dans le [portail de gestion](http://manage.windowsazure.com) Azure, cliquez sur **Machines virtuelles**, puis sélectionnez la machine virtuelle créée précédemment (**testlinuxvm**).
+1. Dans le [portail de gestion](http://manage.windowsazure.com) Azure, cliquez sur **Virtual Machines**, puis sélectionnez la machine virtuelle créée précédemment (**testlinuxvm**).
 
 2. Dans la barre de commandes, cliquez sur **Attach**, puis sur **Attach Empty Disk**.
 
@@ -114,4 +114,4 @@ Connectez-vous à la machine virtuelle pour terminer l'installation du disque et
 [Image8]: ./media/attach-data-disk-centos-vm-in-portal/fdisk4.png
 [Image9]: ./media/attach-data-disk-centos-vm-in-portal/mkfs.png
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

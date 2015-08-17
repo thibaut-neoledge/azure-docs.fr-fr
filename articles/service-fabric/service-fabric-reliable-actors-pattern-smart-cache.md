@@ -1,11 +1,12 @@
 <properties
-   pageTitle="Modèle de conception Smart Cache d'Azure Service Fabric Actors"
-   description="Modèle de conception sur l'utilisation de Service Fabric Actors comme infrastructure de mise en cache dans les applications Web"
+   pageTitle="Modèle de conception Smart Cache pour les Acteurs fiables"
+   description="Modèle de conception sur l'utilisation des Acteurs fiables comme infrastructure de mise en cache dans les applications Web"
    services="service-fabric"
    documentationCenter=".net"
    authors="jessebenson"
    manager="timlt"
    editor=""/>
+
 
 <tags
    ms.service="service-fabric"
@@ -13,10 +14,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="07/06/2015"
+   ms.date="08/05/2015"
    ms.author="claudioc"/>
 
-# Modèle de conception Service Fabric Actors : Smart Cache
+
+# Modèle de conception Acteurs fiables : Smart Cache
 La combinaison d'un niveau web, d'un niveau de mise en cache, d'un niveau de stockage et parfois d'un niveau travailleur constitue les éléments standard des applications actuelles. Le niveau de mise en cache est généralement essentiel pour les performances et peut, en fait, être lui-même composé de plusieurs niveaux. De nombreux caches sont de simples paires clé-valeur tandis que d'autres systèmes comme [Redis](http://redis.io) utilisés comme caches offrent une sémantique plus riche. Cependant, tout niveau particulier de mise en cache sera limité en termes de sémantique et plus important encore, il constituera un autre niveau à gérer. Que se passe-t-il si au lieu de cela, les objets conservaient simplement l'état dans des variables locales et qu'on puisse en faire des instantanés ou les conserver automatiquement dans un magasin durable ? En outre, de collections riches, telles que des listes, des ensembles triés, des files d'attente et tout autre type personnalisé sont simplement modélisés comme des variables et des méthodes membres.
 
 ![][1]
@@ -301,6 +303,5 @@ Essentiellement, Smart Cache fournit :
 
 <!--Image references-->
 [1]: ./media/service-fabric-reliable-actors-pattern-smart-cache/smartcache-arch.png
- 
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

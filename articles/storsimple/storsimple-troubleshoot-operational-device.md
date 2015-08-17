@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="07/28/2015"
+   ms.date="07/30/2015"
    ms.author="v-sharos" />
 
 # Résolution des problèmes d'un appareil StorSimple opérationnel
@@ -63,4 +63,4 @@ Les erreurs sont répertoriées dans l'ordre numérique.
 
 Si vous ne pouvez pas résoudre le problème, [contactez le support technique Microsoft](https://msdn.microsoft.com/library/azure/dn757750.aspx) pour obtenir de l’aide.
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

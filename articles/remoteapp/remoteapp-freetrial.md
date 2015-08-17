@@ -30,4 +30,4 @@ Vous êtes impatient ? Regardez une courte vidéo sur la [Création d’un dép
 
 Vous avez des commentaires ? Posez des questions sur les [forums de discussion](http://feedback.azure.com/forums/247748-azure-remoteapp). Si vous avez une [formule d’assistance Azure](http://azure.microsoft.com/support/plans/), vous pouvez envoyer un dossier de support. Tous les utilisateurs peuvent envoyer des commentaires sur nos [Forums de commentaires](http://feedback.azure.com/forums/247748-azure-remoteapp).
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

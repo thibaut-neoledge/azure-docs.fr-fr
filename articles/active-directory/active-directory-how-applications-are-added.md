@@ -7,14 +7,16 @@
    manager="kbrint"
    editor=""/>
 
+
    <tags
       ms.service="active-directory"
       ms.devlang="na"
       ms.topic="article"
       ms.tgt_pltfrm="na"
       ms.workload="identity"
-      ms.date="03/23/2015"
+      ms.date="07/30/2015"
       ms.author="shoatman"/>
+
 
 # Comment et pourquoi les applications sont ajoutées à Azure AD
 
@@ -36,7 +38,7 @@ Les applications sont ajoutées à Azure AD pour exploiter un ou plusieurs des 
 
 Les applications sont représentées dans Azure AD à l'aide de deux objets : un objet d'application et un objet de principal du service. Il existe un objet d'application, enregistré dans un répertoire « accueil »/« propriétaire » ou « publication », et un ou plusieurs objets de principal du service qui représentent l'application dans chaque répertoire dans lequel il agit.
 
-L'objet d'application décrit l'application à Azure AD (service mutualisé) et peut inclure les éléments suivants: (*Remarque* : il ne s'agit pas d'une liste exhaustive.)
+L'objet d'application décrit l'application à Azure AD (service mutualisé) et peut inclure les éléments suivants : (*Remarque* : il ne s'agit pas d'une liste exhaustive.)
 
 * Nom, logo et publication
 * Secrets (clés symétriques et/ou asymétriques utilisées pour authentifier l'application)
@@ -65,7 +67,7 @@ Le principal du service est un enregistrement de l'application dans chaque répe
 ![Diagramme illustrant la façon dont les objets d'application et les principaux du service existent dans les instances d'Azure AD.][apps_service_principals_directory]
 
 Comme vous pouvez le voir dans le diagramme ci-dessus, Microsoft gère deux répertoires en interne (à gauche), qu'il utilise pour publier des applications.
- 
+
 * Une pour Microsoft Apps (répertoire de services Microsoft)
 * Une pour des applications tierces pré-intégrées (répertoire de la galerie d'applications)
 
@@ -145,6 +147,5 @@ En savoir plus sur les procédures d'ajout d'applications à Azure AD et de con
 <!--Image references-->
 [apps_service_principals_directory]: media/active-directory-how-applications-are-added/HowAppsAreAddedToAAD.jpg
 [app_settings]: media/active-directory-how-applications-are-added/IntegratedAppSettings.jpg
- 
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

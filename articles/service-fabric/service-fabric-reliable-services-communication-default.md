@@ -107,4 +107,4 @@ Console.WriteLine("Greeting is {0}", message.Content);
 >[AZURE.NOTE]L'infrastructure de communication gère la propagation des exceptions survenues au niveau du service au client. Par conséquent, la logique de gestion des exceptions au niveau du client à l'aide de ServiceProxy peut directement traiter les exceptions susceptibles d'être générées par le service.
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

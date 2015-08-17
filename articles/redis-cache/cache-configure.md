@@ -154,4 +154,4 @@ Pour obtenir la liste des commandes Redis désactivées pour le Cache Redis Azur
 ## Étapes suivantes
 -	Pour plus d'informations sur l'utilisation des commandes Redis, voir [Exécution des commandes Redis](cache-faq.md#how-can-i-run-redis-commands).
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

@@ -36,7 +36,7 @@ Cette rubrique s'appuie sur l'application que vous avez créée dans [Prise en m
 
 La première étape consiste à ajouter des éléments de l’interface utilisateur à l’activité principale existante qui permettent à l’utilisateur de sélectionner des catégories auxquelles s’inscrire. Les catégories sélectionnées par un utilisateur sont stockées sur l'appareil. Lorsque l'application démarre, une inscription d'appareil est créée dans votre Notification Hub avec les catégories sélectionnées sous forme de balises.
 
-1. Ouvrez votre fichier res/layout/activity_main.xml et remplacez le contenu par ce qui suit :
+1. Ouvrez votre fichier res/layout/activity\_main.xml et remplacez le contenu par ce qui suit :
 			
 		<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
 		    xmlns:tools="http://schemas.android.com/tools"
@@ -86,7 +86,7 @@ La première étape consiste à ajouter des éléments de l’interface utilisat
 			        android:text="@string/button_subscribe" />
 		</LinearLayout>
 
-2. Ouvrez votre fichier res\values\string.xml et ajoutez les lignes suivantes :
+2. Ouvrez votre fichier res\\values\\string.xml et ajoutez les lignes suivantes :
 
 	    <string name="button_subscribe">Subscribe</string>
 	    <string name="label_world">World</string>
@@ -96,7 +96,7 @@ La première étape consiste à ajouter des éléments de l’interface utilisat
 	    <string name="label_science">Science</string>
 	    <string name="label_sports">Sports</string>
 
-	La présentation graphique de votre fichier main_activity.xml doit ressembler à ceci :
+	La présentation graphique de votre fichier main\_activity.xml doit ressembler à ceci :
 
 	![][A1]
 
@@ -319,4 +319,4 @@ Dans ce didacticiel, nous avons appris à diffuser les dernières nouvelles par 
 [wns object]: http://go.microsoft.com/fwlink/p/?LinkId=260591
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

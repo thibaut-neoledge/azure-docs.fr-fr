@@ -65,68 +65,19 @@ Vous pouvez utiliser le connecteur Edifact comme un déclencheur ou une action.
 
 	![Codage configuré][10]
 
-<table>
-	<tr>
-		<th>Paramètre</th>
-		<th>Type</th>
-		<th>Description du paramètre</th>
-	</tr>
-	<tr>
-		<td>Contenu</td>
-		<td>string</td>
-		<td>Message XML</td>
-	</tr>
-	<tr>
-		<td>ID de l'accord</td>
-		<td>integer</td>
-		<td>ID de l'accord</td>
-	</tr>
-	<tr>
-		<td>Est un message par lot</td>
-		<td>booléenne</td>
-		<td>Est un message par lot</td>
-	</tr>
-	<tr>
-		<td>Séparateur d'éléments de données</td>
-		<td>string</td>
-		<td>Séparateur d'éléments de données</td>
-	</tr>
-	<tr>
-		<td>Séparateur de composants</td>
-		<td>string</td>
-		<td>Séparateur de composants</td>
-	</tr>
-	<tr>
-		<td>Terminateur de segment</td>
-		<td>string</td>
-		<td>Terminateur de segment</td>
-	</tr>
-	<tr>
-		<td>Indicateur de la virgule décimale</td>
-		<td>string</td>
-		<td>Indicateur de la virgule décimale</td>
-	</tr>
-	<tr>
-		<td>Séparateur de répétition</td>
-		<td>string</td>
-		<td>Séparateur de répétition</td>
-	</tr>
-	<tr>
-		<td>Caractère d'échappement</td>
-		<td>string</td>
-		<td>Caractère d'échappement</td>
-	</tr>
-	<tr>
-		<td>Caractère de remplacement</td>
-		<td>string</td>
-		<td>Caractère de remplacement</td>
-	</tr>
-	<tr>
-		<td>Suffixe du terminateur de segment</td>
-		<td>string</td>
-		<td>Suffixe du terminateur de segment</td>
-	</tr>
-</table>
+Paramètre|Type|Description du paramètre
+---|---|---
+Contenu|string|Message XML
+ID de l'accord|integer|ID de l'accord
+Est un message par lot|booléenne|Est un message par lot
+Séparateur d'éléments de données|string|Séparateur d'éléments de données
+Séparateur de composants|string|Séparateur de composants
+Terminateur de segment|string|Terminateur de segment
+Indicateur de la virgule décimale|string|Indicateur de la virgule décimale
+Séparateur de répétition|string|Séparateur de répétition
+Caractère d'échappement|string|Caractère d'échappement
+Caractère de remplacement|string|Caractère de remplacement
+Suffixe du terminateur de segment|string|Suffixe du terminateur de segment
 
 L'action retourne un objet contenant la charge utile EDIFACT en cas de traitement réussi.
 
@@ -148,4 +99,4 @@ Vous pouvez également consulter les statistiques de performances et contrôler 
 [9]: ./media/app-service-logic-connector-edifact/EncodeInput.PNG
 [10]: ./media/app-service-logic-connector-edifact/EncodeConfigured.PNG
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -7,14 +7,16 @@
    manager="barbkess"
    editor=""/>
 
+
 <tags
    ms.service="sql-data-warehouse"
    ms.devlang="NA"
-   ms.topic="article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
    ms.date="06/23/2015"
    ms.author="JRJ@BigBangData.co.uk;barbkess"/>
+
    
 # Prise en main : connexion à SQL Data Warehouse
 Cet article vous présente rapidement le processus de connexion et d’interrogation d’une instance provisionnée de SQL Data Warehouse, via deux outils :
@@ -31,7 +33,7 @@ Après la fin de cet article, vous aurez effectué les opérations suivantes :
 2. création d’une connexion à SQL Data Warehouse dans SSDT ;
 3. exécution de requêtes sur la base de données SQL Data Warehouse.
 
->[AZURE.NOTE]Nous partons du principe que vous avez suivi les directives du guide d’approvisionnement, ou que le logiciel SQL Data Warehouse est disponible. Si ce dernier n’est pas approvisionné, reportez-vous au [guide de démarrage rapide sur l’approvisionnement].
+>[AZURE.NOTE]Nous partons du principe que vous avez suivi les directives du guide d’approvisionnement, ou que le logiciel SQL Data Warehouse est disponible. Si ce dernier n’est pas approvisionné, reportez-vous au [guide de démarrage rapide sur l’approvisionnement\].
 
 ## Configuration de Visual Studio à des fins de développement##
 Pour le développement, l’équipe SQL Data Warehouse recommande l’utilisation de Visual Studio 2013 ou plus, en parallèle avec SSDT. Cette section explique comment télécharger et mettre à jour Visual Studio 2013 lorsqu’aucune version utilisable de ce logiciel n’est installée.
@@ -105,13 +107,11 @@ Vous pouvez maintenant voir apparaître l’Explorateur d’objets SQL Server :
 
 3. Dans cet Explorateur, cliquez sur le bouton Ajouter un serveur. Ce dernier a été mis en surbrillance dans l’image ci-dessous.
 
-4. Renseignez la boîte de dialogue Se connecter au serveur.
-
-Utilisez les valeurs que vous avez sélectionnées lors de la création du serveur logique.
+4. Renseignez la boîte de dialogue Se connecter au serveur avec les valeurs que vous avez choisies au moment de créer le serveur logique. En outre, cliquez sur le bouton des options et spécifiez la base de données à laquelle vous vous connectez (votre instance SQL Data Warehouse) avant de vous connecter.
 
 Vous pouvez cocher la case Mémoriser le mot de passe, si vous le souhaitez. Cela peut vous permettre de gagner de temps. Toutefois, n’oubliez pas que, si vous cochez cette case, vous permettez à n’importe quel utilisateur ayant physiquement accès à votre profil d’exécuter des requêtes via ce compte.
 
-> [AZURE.NOTE]Par ailleurs, rappelez-vous que le nom du serveur doit être complet. Par conséquent, le nom de votre serveur doit respecter la convention suivante : ***nom_serveur***. database.windows.net, où ***nom_serveur*** correspond au nom attribué à votre serveur logique.
+> [AZURE.NOTE]Par ailleurs, rappelez-vous que le nom du serveur doit être complet. Par conséquent, le nom de votre serveur doit respecter la convention suivante : ***nom\_serveur***. database.windows.net, où ***nom\_serveur*** correspond au nom attribué à votre serveur logique.
 
 Cliquez sur Se connecter une fois que vous avez saisi toutes les informations d’identification.
 
@@ -136,9 +136,9 @@ Vous pouvez également vous connecter à SQLDW en utilisant l’utilitaire d’i
 
 Pour vous connecter à une instance spécifique de SQLDW en utilisant sqlcmd, vous devez ouvrir la fenêtre d’invite de commandes et saisir la chaîne *sqlcmd*, suivie de la chaîne de connexion de votre base de données SQLDW. La chaîne de connexion doit contenir les paramètres suivants :
 
-+ **Utilisateur (-U) :** utilisateur du serveur, sous la forme `<`Utilisateur`>`@`<`Nom_serveur`>`.database.windows.net.
++ **Utilisateur (-U) :** utilisateur du serveur, sous la forme `<`Utilisateur`>`@`<`Nom\_serveur`>`.database.windows.net.
 + **Mot de passe (-P) :** mot de passe associé à l’utilisateur.
-+ **Serveur (-S) :** nom du serveur, sous la forme `<`Nom_serveur`>`.database.windows.net.
++ **Serveur (-S) :** nom du serveur, sous la forme `<`Nom\_serveur`>`.database.windows.net.
 + **Base de données (-D) :** nom de la base de données. 
 + **Activer les identificateurs marqués (-I) :** les identificateurs marqués doivent être activés pour que la connexion à une instance SQLDW soit possible. 
 
@@ -185,6 +185,7 @@ Maintenant que nous avons enregistré notre serveur, passons à l’écriture de
 	Pour exécuter la requête, cliquez sur la flèche verte ci-dessous, ou utilisez le raccourci `CTRL`+`SHIFT`+`F5` :
 
 ## Étapes suivantes ##
+[Load sample data.]: ./sql-data-warehouse-get-started-load-samples.md
 [Start developing code]: ./articles/sql-data-warehouse-overview-develop/
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

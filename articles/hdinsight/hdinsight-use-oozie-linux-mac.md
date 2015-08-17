@@ -61,7 +61,7 @@ Le flux de travail que vous allez implémenter en suivant les instructions de ce
 
 ##Création du répertoire de travail
 
-Oozie s’attend à ce que les ressources requises pour un travail soient stockées dans le même répertoire. Cet exemple utilise **wasb:///tutorials/useoozie**. Utilisez la commande suivante pour créer ce répertoire et le répertoire de données qui contiendra la nouvelle table Hive créée par ce flux de travail :
+Oozie s’attend à ce que les ressources requises pour un travail soient stockées dans le même répertoire. Cet exemple utilise ****wasb:///tutorials/useoozie**. Utilisez la commande suivante pour créer ce répertoire et le répertoire de données qui contiendra la nouvelle table Hive créée par ce flux de travail :
 
 	hadoop fs -mkdir -p /tutorials/useoozie/data
 
@@ -109,9 +109,9 @@ Utilisez les étapes suivantes pour créer un script HiveQL qui définit une req
 
 	Le fichier de définition du workflow (workflow.xml dans ce didacticiel) transmet ces valeurs à ce script HiveQL au moment de l'exécution.
 
-2. Appuyez sur Ctrl+X pour quitter l’éditeur. Lorsque vous y êtes invité, sélectionnez **Y** pour enregistrer le fichier, puis utilisez **Entrée** pour utiliser le nom de fichier **useooziewf.hql**.
+2. Appuyez sur Ctrl+X pour quitter l’éditeur. Lorsque vous y êtes invité, sélectionnez **Y** pour enregistrer le fichier, puis sélectionnez **Entrée** pour utiliser le nom de fichier **useooziewf.hql**.
 
-3. Exécutez les commandes suivantes pour copier **useooziewf.hql** dans **wasb:///tutorials/useoozie/useooziewf.hql** :  :
+3. Exécutez les commandes suivantes pour copier **useooziewf.hql** dans ****wasb:///tutorials/useoozie/useooziewf.hql** :
 
 		hadoop fs -copyFromLocal useooziewf.hql /tutorials/useoozie/useooziewf.hql
 
@@ -192,7 +192,7 @@ Les définitions des workflows Oozie sont écrites en hPDL (un langage de défin
 
 2. Utilisez Ctrl-X, puis **Y** et **Entrée** pour enregistrer le fichier.
 
-3. Utilisez la commande suivante pour copier le fichier **workflow.xml** dans **wasb:///tutorials/useoozie/workflow.xml**:
+3. Utilisez la commande suivante pour copier le fichier **workflow.xml** dans ****wasb:///tutorials/useoozie/workflow.xml** :
 
 		hadoop fs -copyFromLocal workflow.xml wasb:///tutorials/useoozie/workflow.xml
 
@@ -215,7 +215,7 @@ Les étapes suivantes créent la base de données SQL Azure vers laquelle les do
         data:    Server Name i1qwc540ts
         info:    sql server create command OK
 
-    > [AZURE.IMPORTANT]Notez le nom de serveur retourné par cette commande (\*\*i1qwc540ts\*\* dans l’exemple ci-dessus.) Voici le nom court du serveur de base de données SQL qui a été créé. Le nom de domaine complet (FQDN) est **&lt;nomcourt&gt;.database.windows.net**. Dans l’exemple ci-dessus, le nom de domaine complet serait **i1qwc540ts.database.windows.net**.
+    > [AZURE.IMPORTANT]Notez le nom de serveur retourné par cette commande (**i1qwc540ts** dans l’exemple ci-dessus.) Voici le nom court du serveur de base de données SQL qui a été créé. Le nom de domaine complet (FQDN) est **&lt;nomcourt&gt;.database.windows.net**. Dans l’exemple ci-dessus, le nom de domaine complet serait **i1qwc540ts.database.windows.net**.
 
 2. Utilisez la commande suivante pour créer une base de données nommée **oozietest** sur le serveur de base de données SQL :
 
@@ -283,7 +283,7 @@ La définition du travail explique où trouver workflow.xml, ainsi que les autre
 		<name>fs.defaultFS</name>
 		<value>wasb://mycontainer@mystorageaccount.blob.core.windows.net</value>
 
-	Enregistrez la valeur **wasb://mycontainer@mystorageaccount.blob.core.windows.net**, car elle sera utilisée dans les prochaines étapes.
+	Enregistrez la valeur ****wasb://mycontainer@mystorageaccount.blob.core.windows.net**, car elle sera utilisée dans les prochaines étapes.
 
 2. Utilisez la commande suivante pour obtenir le nom de domaine complet du nœud principal du cluster. Il sera utilisé comme adresse du JobTracker pour le cluster. Nous nous en servirons dans le fichier de configuration dans un moment :
 
@@ -360,7 +360,7 @@ La définition du travail explique où trouver workflow.xml, ainsi que les autre
 		  </property>
 		</configuration>
 
-	* Remplacez toutes les instances de **wasb://mycontainer@mystorageaccount.blob.core.windows.net** par la valeur que vous avez reçue précédemment.
+	* Remplacez toutes les instances de ****wasb://mycontainer@mystorageaccount.blob.core.windows.net** par la valeur que vous avez reçue précédemment.
 
 	> [AZURE.WARNING]Vous devez utiliser le chemin d’accès WASB complet, avec le conteneur et le compte de stockage inclus dans le chemin d’accès. L’utilisation du format court (wasb:///) provoque l’échec de l’action RunHiveScript lorsque le travail est démarré.
 
@@ -391,7 +391,7 @@ Les étapes suivantes utilisent la commande Oozie pour soumettre et gérer des f
 		<name>oozie.base.url</name>
 		<value>http://headnode0.CLUSTERNAME-ssh.j7.internal.cloudapp.net:11000/oozie</value>
 
-	La partie **http://headnode0.CLUSTERNAME-ssh.j7.internal.cloudapp.net:11000/oozie** est l’URL à utiliser avec la commande Oozie.
+	La partie ****http://headnode0.CLUSTERNAME-ssh.j7.internal.cloudapp.net:11000/oozie** est l’URL à utiliser avec la commande Oozie.
 
 2. Pour créer une variable d’environnement pour l’URL de manière à ne pas être obligé de la taper pour chaque commande :
 
@@ -482,7 +482,7 @@ Pour accéder à l'interface utilisateur web Oozie, procédez comme suit :
 
 	* [Utilisation de SSH avec Hadoop Linux sur HDInsight à partir de Windows](hdinsight-hadoop-linux-use-ssh-windows.md#tunnel)
 
-2. Une fois qu’un tunnel a été créé, ouvrez l’interface utilisateur web Ambari dans votre navigateur web. L’URI du site Ambari est **https://CLUSTERNAME.azurehdinsight.net**. Remplacez **CLUSTERNAME** par le nom de votre cluster HDInsight basé sur Linux.
+2. Une fois qu’un tunnel a été créé, ouvrez l’interface utilisateur web Ambari dans votre navigateur web. L’URI du site Ambari est ****https://CLUSTERNAME.azurehdinsight.net**. Remplacez **CLUSTERNAME** par le nom de votre cluster HDInsight basé sur Linux.
 
 3. Sur le côté gauche de la page, sélectionnez **Oozie**, puis **Liens rapides**, et enfin **Interface utilisateur web Oozie**.
 
@@ -498,11 +498,11 @@ Pour accéder à l'interface utilisateur web Oozie, procédez comme suit :
 
 6. Sous l’onglet Job Info, vous pouvez voir les informations de base sur le travail, ainsi que les actions individuelles au sein du travail. Les onglets visibles en haut de la page vous permettent d’afficher la définition du travail et la configuration du travail, d’accéder au journal du travail ou d’afficher un graphique non cyclique dirigé du travail.
 
-	* **Job Log** : cliquez sur le bouton **GetLogs** pour obtenir tous les journaux du travail ou utilisez le champ **Enter Search Filter** pour filtrer les journaux
+	* **Job Log** : cliquez sur le bouton **GetLogs** pour obtenir tous les journaux du travail ou utilisez le champ **Enter Search Filter** pour filtrer les journaux.
 
 		![Journal du travail](./media/hdinsight-use-oozie-linux-mac/joblog.png)
 
-	* **JobDAG** : le graphique non cyclique dirigé est une représentation graphique des chemins de données utilisés à travers le flux de travail
+	* **JobDAG** : le graphique non cyclique dirigé est une représentation graphique des chemins de données utilisés à travers le flux de travail.
 
 		![Graphique non cyclique dirigé du travail](./media/hdinsight-use-oozie-linux-mac/jobdag.png)
 
@@ -615,7 +615,7 @@ Lors de la résolution des problèmes avec les travaux Oozie, l’interface util
 
 1. Afficher le travail dans l’interface utilisateur web Oozie.
 
-2. En cas d’erreur ou d’échec d’une action spécifique, sélectionner l’action pour voir si le champ **Message d’erreur** fournit plus d’informations sur l’échec.
+2. En cas d’erreur ou d’échec d’une action spécifique, sélectionnez l’action pour voir si le champ **Message d’erreur** fournit plus d’informations sur l’échec.
 
 3. Si elle est disponible, utilisez l’URL de l’action pour afficher des détails supplémentaires (tels que les journaux JobTracker) pour l’action.
 
@@ -629,7 +629,7 @@ Voici des erreurs spécifiques que vous pouvez rencontrer avec une description d
 
 **Cause** : les adresses WASB utilisées dans le fichier **job.xml** ne contiennent pas le conteneur de stockage ou le nom du compte de stockage. Le format d’adresse WASB doit être `wasb://containername@storageaccountname.blob.core.windows.net`.
 
-**Résolution** : modifiez les adresses WASB utilisés par le travail.
+**Résolution** : modifiez les adresses WASB utilisées par le travail.
 
 ###JA002 : Oozie is not allowed to impersonate &lt;USER> (Oozie ne peut pas emprunter l’identité &lt;USER>)
 
@@ -637,7 +637,7 @@ Voici des erreurs spécifiques que vous pouvez rencontrer avec une description d
 
 	JA002: User: oozie is not allowed to impersonate <USER>
 
-**Cause**: les paramètres d’autorisation actuels n’autorisent pas Oozie à emprunter l’identité du compte d’utilisateur spécifié.
+**Cause**: les paramètres d’autorisation actuels ne permettent pas à Oozie d’emprunter l’identité du compte d’utilisateur spécifié.
 
 **Résolution** : Oozie est autorisé à emprunter l’identité des utilisateurs dans le groupe **users**. Utilisez le `groups USERNAME` pour voir les groupes dont le compte d’utilisateur est membre. Si l’utilisateur n’est pas membre du groupe **users**, utilisez la commande suivante pour ajouter l’utilisateur au groupe :
 
@@ -724,4 +724,4 @@ Dans ce didacticiel, vous avez appris comment définir un flux de travail Oozie 
 
 [technetwiki-hive-error]: http://social.technet.microsoft.com/wiki/contents/articles/23047.hdinsight-hive-error-unable-to-rename.aspx
 
-<!--------HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

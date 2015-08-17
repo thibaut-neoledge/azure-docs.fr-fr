@@ -1,11 +1,12 @@
 <properties
-   pageTitle="Modèle de conception de réseaux distribués et graphiques Service Fabric Actors"
-   description="Modèle de conception décrivant comment utiliser Service Fabric Actors pour modéliser une application sous forme de réseaux distribués et de graphiques"
+   pageTitle="Modèle de conception de réseaux distribués et graphiques Acteurs fiables"
+   description="Modèle de conception décrivant comment utiliser les Acteurs fiables Service Fabric pour modéliser une application sous forme de réseaux distribués et de graphiques"
    services="service-fabric"
    documentationCenter=".net"
    authors="jessebenson"
    manager="timlt"
    editor=""/>
+
 
 <tags
    ms.service="service-fabric"
@@ -13,11 +14,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/17/2015"
+   ms.date="08/05/2015"
    ms.author="claudioc"/>
 
-# Modèle de conception Service Fabric Actors : réseaux distribués et graphiques
-Azure Fabric Service Actors est une solution naturelle pour la modélisation de solutions complexes impliquant des relations et la modélisation de ces relations sous forme d'objets.
+
+# Modèle de conception Acteurs fiables : réseaux distribués et graphiques
+Les Acteurs fiables Service Fabric constituent une solution naturelle pour la modélisation de solutions complexes impliquant des relations et la modélisation de ces relations sous forme d'objets.
 
 ![][1]
 
@@ -223,6 +225,5 @@ Ce code ne fait qu'exploiter la capacité Reliable Actors pour permettre à n'im
 <!--Image references-->
 [1]: ./media/service-fabric-reliable-actors-pattern-distributed-networks-and-graphs/distributedNetworks_arch1.png
 [2]: ./media/service-fabric-reliable-actors-pattern-distributed-networks-and-graphs/distributedNetworks_arch2.png
- 
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

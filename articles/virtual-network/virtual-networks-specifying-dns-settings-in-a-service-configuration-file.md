@@ -41,4 +41,4 @@ Un fichier de configuration de service peut contenir un élément DnsServers av
 
 [À propos des paramètres de réseau virtuel dans le Portail de gestion](http://go.microsoft.com/fwlink/?LinkId=248092)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

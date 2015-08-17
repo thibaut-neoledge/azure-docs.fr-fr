@@ -1,5 +1,5 @@
 
-1. Dans l'Explorateur de solutions de Visual Studio, développez le dossier App_Start et ouvrez le fichier de projet WebApiConfig.cs.
+1. Dans l'Explorateur de solutions de Visual Studio, développez le dossier App\_Start et ouvrez le fichier de projet WebApiConfig.cs.
 
 2. Ajoutez la ligne de code suivante à la méthode Register après la définition de **ConfigOptions** :
 
@@ -92,4 +92,4 @@
 Le service utilise maintenant la balise de l'identifiant utilisateur pour envoyer une notification Push (avec le texte de l'élément inséré) à toutes les inscriptions créées par l'utilisateur connecté.
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

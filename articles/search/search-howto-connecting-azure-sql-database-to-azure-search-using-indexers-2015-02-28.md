@@ -277,4 +277,4 @@ R. : Oui. L’indexeur s'exécute sur un des nœuds de votre service de recherc
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -532,7 +532,7 @@ Dans le tableau de bord du Kit de développement logiciel (SDK) WebJobs, les 100
  
 ![Cliquez sur Activer/désactiver la sortie](./media/vs-storage-webjobs-getting-started-queues/dashboardapplogs.png)
 
-Dans une tâche web continue, les journaux des applications apparaissent dans /data/jobs/continuous/\*{nomdelatâcheweb}\*/job\_log.txt dans le système de fichiers du site web.
+Dans une tâche web continue, les journaux des applications apparaissent dans /data/jobs/continuous/*{nomdelatâcheweb}*/job\_log.txt dans le système de fichiers du site web.
 
 		[09/26/2014 21:01:13 > 491e54: INFO] Console.Write - Hello world!
 		[09/26/2014 21:01:13 > 491e54: ERR ] Console.Error - Hello world!
@@ -551,4 +551,4 @@ Dans une table Azure, les journaux `Console.Out` et `Console.Error` ressemblent 
 Cet article fournit des exemples de code qui montrent comment gérer des scénarios courants pour l’utilisation des files d’attente Azure. Pour plus d’informations sur l’utilisation d’Azure Webjobs et du Kit de développement logiciel (SDK) WebJobs Azure, consultez la rubrique [Azure Webjobs - Ressources recommandées](http://go.microsoft.com/fwlink/?linkid=390226).
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

@@ -19,7 +19,7 @@
 
 # Utilisation de l’interface de ligne de commande Microsoft Azure pour Mac, Linux et Windows avec Microsoft Azure Service Management.
 
-Cette rubrique décrit comment utiliser l’interface de ligne de commande Microsoft Azure dans le mode **asm** pour créer, gérer et supprimer des services sur la ligne de commande des ordinateurs Mac, Linux et Windows. Elles sont comparables à celles fournies par les cmdlets Windows PowerShell Service Management installées avec les Kits de développement logiciel (SDK) Azure pour .NET, Node.JS et PHP.
+Cette rubrique décrit comment utiliser l’interface de ligne de commande Microsoft Azure dans le mode **asm** pour créer, gérer et supprimer des services sur la ligne de commande des ordinateurs Mac, Linux et Windows. Elles sont comparables à celles fournies par les applets de commande Windows PowerShell Service Management installées avec les Kits de développement logiciel (SDK) Azure pour .NET, Node.JS et PHP.
 
 > [AZURE.NOTE]L’utilisation des services Microsoft Azure avec le mode **asm** revient, dans les grandes lignes, à la valorisation des services et concepts isolés Microsoft Azure comme Websites, Virtual Machines, Virtual Network, Storage, etc. Des fonctionnalités plus riches associées à un modèle hiérarchique de ressources, groupé de façon logique sont disponibles sur la ligne de commande, dans le mode **arm**. Pour passer sur ce mode, consultez la section [Utilisation de l’interface de ligne de commande Microsoft Azure avec Microsoft Azure Resource Manager](xplat-cli-azure-resource-manager.md).
 
@@ -65,7 +65,7 @@ Cette commande permet d'importer un fichier publishsettings ou un certificat pou
 	warn:   Remember to delete it now that it has been imported.
 	info:   Account publish settings imported successfully
 
-> [AZURE.NOTE]Le fichier publishsettings peut contenir les détails (c'est-à-dire, le nom et l'ID d'abonnement) concernant plusieurs abonnements. Lorsque vous importez le fichier publishsettings, le premier abonnement est utilisé comme description par défaut. Pour utiliser un abonnement différent, exécuter la commande suivante. <code>~$ azure config set subscription &lt;id-autre-abonnement&gt;</code>
+> [AZURE.NOTE]Le fichier publishsettings peut contenir les détails (c'est-à-dire, le nom et l'ID d'abonnement) concernant plusieurs abonnements. Lorsque vous importez le fichier publishsettings, le premier abonnement est utilisé comme description par défaut. Pour utiliser un abonnement différent, exécuter la commande suivante. <code>\~$ azure config set subscription &lt;id-autre-abonnement&gt;</code>
 
 **account clear [options]**
 
@@ -188,7 +188,7 @@ Le schéma suivant montre comment les machines virtuelles Azure sont hébergées
 
 ![Schéma technique Azure](./media/virtual-machines-command-line-tools/architecturediagram.jpg)
 
-**create-new** crée le lecteur dans le stockage d'objets blob (en l'occurrence, e:\ dans le schéma) ; **attach** attache un disque déjà créé mais non attaché à une machine virtuelle.
+**create-new** crée le lecteur dans le stockage d'objets blob (en l'occurrence, e:\\ dans le schéma) ; **attach** attache un disque déjà créé mais non attaché à une machine virtuelle.
 
 **vm create [options] &lt;nom-dns> &lt;image> &lt;nomUtilisateur> [motdepasse]**
 
@@ -206,9 +206,9 @@ Sur les machines virtuelles Windows, il est possible d'activer RDP ultérieureme
 
 Les paramètres facultatifs pris en charge pour cette commande sont les suivants :
 
-**-c, --connect** crée la machine virtuelle dans un déploiement déjà créé dans un service d'hébergement. Si la commande -vmname n’est pas utilisée avec cette option, le nom de la nouvelle machine virtuelle sera généré automatiquement.<br /> **-n, --vm-name** Spécifie le nom de la machine virtuelle. Ce paramètre prend le nom du service d'hébergement par défaut. Si -vmname n’est pas spécifié, le nom de la nouvelle machine virtuelle est généré sous la forme &lt;nom-service>&lt;id>, où &lt;id> correspond au nombre de machines virtuelles existant dans le service plus 1. Par exemple, si vous utilisez cette commande pour ajouter une machine virtuelle à un service d’hébergement MyService qui comporte une machine virtuelle existante, la nouvelle machine virtuelle est nommée MyService2.<br /> **-u, --blob-url** Spécifie l’URL cible du stockage d’objets blob à partir duquel le disque système de la machine virtuelle est créé. <br /> **-z, --vm-size** Spécifie la taille de la machine virtuelle. Les valeurs valides sont : ExtraSmall, Small, Medium, Large, ExtraLarge, A5, A6, A7, A8, A9, A10, A11, Basic_A0, Basic_A1, Basic_A2, Basic_A3, Basic_A4, Standard_D1, Standard_D2, Standard_D3, Standard_D4, Standard_D11, Standard_D12, Standard_D13, Standard_D14, Standard_DS1, Standard_DS2, Standard_DS3, Standard_DS4, Standard_DS11, Standard_DS12, Standard_DS13, Standard_DS14, Standard_G1, Standard_G2, Standard_G3, Standard_G4, Standard_G55. La valeur par défaut est Small. <br /> **-r** Ajoute une connectivité RDP à une machine virtuelle Windows. <br /> **-e, --ssh** Ajoute une connectivité SSH à une machine virtuelle Windows. <br /> **-t, --ssh-cert** Spécifie le certificat SSH. <br /> **-s** L’abonnement <br /> **-o, --community** L’image communiquée est une image de communauté. <br /> **-w** Le nom du réseau virtuel <br/> **-l, --location** Spécifie le lieu (par exemple « Nord du centre des États-Unis »). <br /> **-a, --affinity-group** Spécifie le groupe d’affinité.<br /> **-w, --virtual-network-name** Spécifie le réseau virtuel auquel ajouter la nouvelle machine virtuelle. Les réseaux virtuels peuvent être configurés et gérés à partir du portail Microsoft Azure.<br /> **-b, --subnet-names** Spécifie les noms de sous-réseau à attribuer à la machine virtuelle.
+**-c, --connect** crée la machine virtuelle dans un déploiement déjà créé dans un service d'hébergement. Si la commande -vmname n’est pas utilisée avec cette option, le nom de la nouvelle machine virtuelle sera généré automatiquement.<br /> **-n, --vm-name** Spécifie le nom de la machine virtuelle. Ce paramètre prend le nom du service d'hébergement par défaut. Si -vmname n’est pas spécifié, le nom de la nouvelle machine virtuelle est généré sous la forme &lt;nom-service>&lt;id>, où &lt;id> correspond au nombre de machines virtuelles existant dans le service plus 1. Par exemple, si vous utilisez cette commande pour ajouter une machine virtuelle à un service d’hébergement MyService qui comporte une machine virtuelle existante, la nouvelle machine virtuelle est nommée MyService2.<br /> **-u, --blob-url** Spécifie l’URL cible du stockage d’objets blob à partir duquel le disque système de la machine virtuelle est créé. <br /> **-z, --vm-size** Spécifie la taille de la machine virtuelle. Les valeurs valides sont : ExtraSmall, Small, Medium, Large, ExtraLarge, A5, A6, A7, A8, A9, A10, A11, Basic\_A0, Basic\_A1, Basic\_A2, Basic\_A3, Basic\_A4, Standard\_D1, Standard\_D2, Standard\_D3, Standard\_D4, Standard\_D11, Standard\_D12, Standard\_D13, Standard\_D14, Standard\_DS1, Standard\_DS2, Standard\_DS3, Standard\_DS4, Standard\_DS11, Standard\_DS12, Standard\_DS13, Standard\_DS14, Standard\_G1, Standard\_G2, Standard\_G3, Standard\_G4, Standard\_G55. La valeur par défaut est Small. <br /> **-r** Ajoute une connectivité RDP à une machine virtuelle Windows. <br /> **-e, --ssh** Ajoute une connectivité SSH à une machine virtuelle Windows. <br /> **-t, --ssh-cert** Spécifie le certificat SSH. <br /> **-s** L’abonnement <br /> **-o, --community** L’image communiquée est une image de communauté. <br /> **-w** Le nom du réseau virtuel <br/> **-l, --location** Spécifie le lieu (par exemple « Nord du centre des États-Unis »). <br /> **-a, --affinity-group** Spécifie le groupe d’affinité.<br /> **-w, --virtual-network-name** Spécifie le réseau virtuel auquel ajouter la nouvelle machine virtuelle. Les réseaux virtuels peuvent être configurés et gérés à partir du portail Microsoft Azure.<br /> **-b, --subnet-names** Spécifie les noms de sous-réseau à attribuer à la machine virtuelle.
 
-Dans cet exemple, MSFT__Win2K8R2SP1-120514-1520-141205-01-fr-fr-30GB est une image fournie par la plateforme. Pour plus d'informations sur les images de système d'exploitation, consultez la commande vm image list.
+Dans cet exemple, MSFT\_\_Win2K8R2SP1-120514-1520-141205-01-fr-fr-30GB est une image fournie par la plateforme. Pour plus d'informations sur les images de système d'exploitation, consultez la commande vm image list.
 
 	~$ azure vm create my-vm-name MSFT__Windows-Server-2008-R2-SP1.11-29-2011 username --location "West US" -r
 	info:   Executing command vm create
@@ -584,7 +584,7 @@ Cette commande permet de détacher un disque de données attaché à une machine
 
 Les services cloud Azure sont des applications et des services hébergés sur des rôles web et de travail. Les commandes suivantes peuvent être utilisées pour gérer les services cloud Azure.
 
-**service create [options] &lt;nom_service>**
+**service create [options] &lt;nom\_service>**
 
 Cette commande permet de créer un service cloud.
 
@@ -603,7 +603,7 @@ Cette commande permet de créer un service cloud.
 	data:    Cloud service name newservicemsopentech
 	info:    service create command OK
 
-**service show [options] &lt;nom_service>**
+**service show [options] &lt;nom\_service>**
 
 Cette commande permet d'afficher les détails concernant un service cloud Azure.
 
@@ -787,7 +787,7 @@ Cette commande échange deux connecteurs d’applications Web.
 
 Cette commande prend en charge l'option supplémentaire suivante :
 
-**-q ou **--quiet** : ne demande pas de confirmation. Utilisez cette option dans les scripts automatisés.
+****-q ou **--quiet** : ne demande pas de confirmation. Utilisez cette option dans les scripts automatisés.
 
 
 **site start [options] [nom]**
@@ -810,7 +810,7 @@ Cette commande permet d’arrêter une application Web.
 	info:   Site mysite has been stopped
 	info:   site stop command OK
 
-**site restart [options] [nom]
+****site restart [options] [name]
 
 Cette commande arrête puis démarre une application Web spécifique.
 
@@ -933,11 +933,11 @@ Cette commande permet d'afficher des détails concernant les certificats.
 
 **site connectionstring list [options] [nom]**
 
-**site connectionstring add [options] &lt;nom_connexion> &lt;valeur> &lt;type> [nom]**
+**site connectionstring add [options] &lt;nom\_connexion> &lt;valeur> &lt;type> [nom]**
 
 **site connectionstring delete [options] &lt;nomconnexion> [name]**
 
-**site connectionstring show [options] &lt;nom_connexion> [nom]**
+**site connectionstring show [options] &lt;nom\_connexion> [nom]**
 
 ###Commandes pour gérer les documents par défaut de vos applications Web
 
@@ -957,7 +957,7 @@ Cette commande permet d'afficher des détails concernant les certificats.
 
 **site deployment github [options] [nom]**
 
-**site deployment user set [options] [nom_utilisateur] [pass]**
+**site deployment user set [options] [nom\_utilisateur] [pass]**
 
 ###Commandes pour gérer vos domaines d’applications Web
 
@@ -986,7 +986,7 @@ Cette commande prend en charge les options supplémentaires suivantes :
 + **--job-type** &lt;type-tâche> : facultative. Type de tâche Web. Les valeurs valides sont « triggered » et « continuous ». Renvoie par défaut tous les types de tâches Web.
 + **--slot** &lt;connecteur> : nom du connecteur à redémarrer.
 
-**site job show [options] &lt;nom-tâche> &lt;type_tâche> [nom]**
+**site job show [options] &lt;nom-tâche> &lt;type\_tâche> [nom]**
 
 Cette commande permet d'afficher les détails d'une tâche Web spécifique.
 
@@ -996,7 +996,7 @@ Cette commande prend en charge les options supplémentaires suivantes :
 + **--job-type** &lt;type-tâche> : requise. Type de tâche Web. Les valeurs valides sont « triggered » et « continuous ».
 + **--slot** &lt;connecteur> : nom du connecteur à redémarrer.
 
-**site job delete [options] &lt;nom_tâche> &lt;type_tâche> [nom]**
+**site job delete [options] &lt;nom\_tâche> &lt;type\_tâche> [nom]**
 
 Cette commande permet de supprimer la tâche Web spécifiée.
 
@@ -1007,7 +1007,7 @@ Cette commande prend en charge les options supplémentaires suivantes :
 + **-q** ou **--quiet** : ne demande pas de confirmation. Utilisez cette option dans les scripts automatisés.
 + **--slot** &lt;connecteur> : nom du connecteur à redémarrer.
 
-**site job upload [options] &lt;nom_tâche> &lt;type_tâche> <jobFile> [nom]**
+**site job upload [options] &lt;nom\_tâche> &lt;type\_tâche> <jobFile> [nom]**
 
 Cette commande permet de supprimer la tâche Web spécifiée.
 
@@ -1018,7 +1018,7 @@ Cette commande prend en charge les options supplémentaires suivantes :
 + **--job-file** &lt;fichier-tâche> : requise. Fichier de tâche.
 + **--slot** &lt;connecteur> : nom du connecteur à redémarrer.
 
-**site job start [options] &lt;nom_tâche> &lt;type_tâche> [nom]**
+**site job start [options] &lt;nom\_tâche> &lt;type\_tâche> [nom]**
 
 Cette commande permet de démarrer la tâche Web spécifiée.
 
@@ -1028,7 +1028,7 @@ Cette commande prend en charge les options supplémentaires suivantes :
 + **--job-type** &lt;type-tâche> : requise. Type de tâche Web. Les valeurs valides sont « triggered » et « continuous ».
 + **--slot** &lt;connecteur> : nom du connecteur à redémarrer.
 
-**site job stop [options] &lt;nomTâche> &lt;type_tâche> [nom]**
+**site job stop [options] &lt;nomTâche> &lt;type\_tâche> [nom]**
 
 Cette commande permet d'arrêter la tâche web spécifiée. Seules les tâches continues peuvent être arrêtées.
 
@@ -1039,7 +1039,7 @@ Cette commande prend en charge les options supplémentaires suivantes :
 
 ###Commandes pour gérer l’historique de vos tâches Web
 
-**site job history list [options] [nom_tâche] [nom]**
+**site job history list [options] [nom\_tâche] [nom]**
 
 Cette commande permet d'afficher l'historique des exécutions de la tâche Web spécifiée.
 
@@ -1048,7 +1048,7 @@ Cette commande prend en charge les options supplémentaires suivantes :
 + **--job-name** &lt;nom-tâche> : requise. Nom de la tâche Web.
 + **--slot** &lt;connecteur> : nom du connecteur à redémarrer.
 
-**site job history show [options] [nom_tâche] [ID_exécution] [nom]**
+**site job history show [options] [nom\_tâche] [ID\_exécution] [nom]**
 
 Cette commande permet d'obtenir les détails relatifs à l'exécution de la tâche pour la tâche Web spécifiée.
 
@@ -1147,7 +1147,7 @@ Cette commande permet de répertorier les emplacements géographiques pris en ch
 	info:    West US
 	info:    North Europe
 
-**mobile create [options] [nom_service] [sqlAdminUsername] [sqlAdminPassword]**
+**mobile create [options] [nom\_service] [sqlAdminUsername] [sqlAdminPassword]**
 
 Cette commande permet de créer un service mobile avec une base de données et un serveur SQL.
 
@@ -1167,7 +1167,7 @@ Cette commande prend en charge les options supplémentaires suivantes :
 + **-l `<location>`** ou **--location `<location>`** : crée le service à un emplacement particulier, spécifié sous la forme `<location>`. Exécutez azure mobile locations pour obtenir les emplacements disponibles.
 + **--sqlLocation `<location>`** : crée le serveur SQL dans un emplacement spécifique `<location>`; par défaut, il s’agit de l’emplacement du service mobile.
 
-**mobile delete [options] [nom_service]**
+**mobile delete [options] [nom\_service]**
 
 Cette commande permet de supprimer un service mobile en même temps que la base de données et le serveur SQL qui lui sont associés.
 
@@ -1202,7 +1202,7 @@ Cette commande permet de répertorier vos services mobiles.
 	data:    mymobileapp   Ready  https://mymobileapp.azure-mobile.net/
 	info:    mobile list command OK
 
-**mobile show [options] [nom_service]**
+**mobile show [options] [nom\_service]**
 
 Cette commande permet d'afficher les détails concernant un service mobile.
 
@@ -1228,7 +1228,7 @@ Cette commande permet d'afficher les détails concernant un service mobile.
 	data:    tables TodoItem
 	info:    mobile show command OK
 
-**mobile restart [options] [nom_service]**
+**mobile restart [options] [nom\_service]**
 
 Cette commande permet de redémarrer une instance de service mobile.
 
@@ -1238,7 +1238,7 @@ Cette commande permet de redémarrer une instance de service mobile.
 	info:    Service was restarted.
 	info:    mobile restart command OK
 
-**mobile log [options] [nom_service]**
+**mobile log [options] [nom\_service]**
 
 Cette commande renvoie les journaux du service mobile, en filtrant tous les types de journaux sauf `error`.
 
@@ -1261,7 +1261,7 @@ Cette commande prend en charge les options supplémentaires suivantes :
 
 > [AZURE.NOTE]Le paramètre **--query** a la priorité sur **--type**, **--skip** et **--top**.
 
-**mobile recover [options] [nom_service_non_sain] [nom_service_sain]**
+**mobile recover [options] [nom\_service\_non\_sain] [nom\_service\_sain]**
 
 Cette commande permet de récupérer un service mobile défectueux en le déplaçant vers un service mobile sain dans une autre région.
 
@@ -1269,7 +1269,7 @@ Cette commande prend en charge l'option supplémentaire suivante :
 
 **-q** ou **--quiet** : supprime l’invite de confirmation de la récupération.
 
-**mobile key regenerate [options] [nom_service] [type]**
+**mobile key regenerate [options] [nom\_service] [type]**
 
 Cette commande permet de régénérer la clé d'application du service mobile.
 
@@ -1282,14 +1282,14 @@ Les types de clés sont `master` et `application`.
 
 > [AZURE.NOTE]Lorsque vous régénérez une clé, les clients qui utilisent l'ancienne clé risquent de ne pas pouvoir accéder à votre service mobile. Lorsque vous régénérez la clé d'application, vous devez mettre à jour votre application avec la nouvelle valeur de clé.
 
-**mobile key set [options] [nom_service] [type] [valeur]**
+**mobile key set [options] [nom\_service] [type] [valeur]**
 
 Cette commande permet de définir la clé du service mobile sur une valeur spécifique.
 
 
 ### <a name="Mobile_Configuration"></a>Commandes pour gérer la configuration des services mobiles
 
-**mobile config list [options] [nom_service]**
+**mobile config list [options] [nom\_service]**
 
 Cette commande permet de répertorier les options de configuration d'un service mobile.
 
@@ -1311,7 +1311,7 @@ Cette commande permet de répertorier les options de configuration d'un service 
 	data:    apnsCertifcate Not configured
 	info:    mobile config list command OK
 
-**mobile config get [options] [nom_service] [clé]**
+**mobile config get [options] [nom\_service] [clé]**
 
 Cette commande permet d'obtenir une option de configuration spécifique pour un service mobile, dans ce cas, le schéma dynamique.
 
@@ -1320,7 +1320,7 @@ Cette commande permet d'obtenir une option de configuration spécifique pour un 
 	data:    dynamicSchemaEnabled true
 	info:    mobile config get command OK
 
-**mobile config set [options] [nom_service] [clé] [valeur]**
+**mobile config set [options] [nom\_service] [clé] [valeur]**
 
 Cette commande permet de définir une option de configuration spécifique pour un service mobile, dans ce cas, le schéma dynamique.
 
@@ -1331,7 +1331,7 @@ Cette commande permet de définir une option de configuration spécifique pour u
 
 ### <a name="Mobile_Tables"></a>Commandes pour gérer les tables des services mobiles
 
-**mobile table list [options] [nom_service]**
+**mobile table list [options] [nom\_service]**
 
 Cette commande permet de répertorier toutes les tables de votre service mobile.
 
@@ -1343,7 +1343,7 @@ Cette commande permet de répertorier toutes les tables de votre service mobile.
 	data:    TodoItem  1        0
 	info:    mobile table list command OK
 
-**mobile table show [options] [nom_service] [nom_table]**
+**mobile table show [options] [nom\_service] [nom\_table]**
 
 Cette commande permet d'afficher les détails concernant une table spécifique.
 
@@ -1367,7 +1367,7 @@ Cette commande permet d'afficher les détails concernant une table spécifique.
 	data:    complete  boolean
 	info:    mobile table show command OK
 
-**mobile table create [options] [nom_service] [nom_table]**
+**mobile table create [options] [nom\_service] [nom\_table]**
 
 Cette commande permet de créer une table.
 
@@ -1380,7 +1380,7 @@ Cette commande prend en charge l'option supplémentaire suivante :
 
 + **-p `&lt;permissions>`** ou **--permissions `&lt;permissions>`** : liste de paires `<operation>`=`<permission>` séparées par des virgules, où `<operation>` est `insert`, `read`, `update` ou `delete` et `&lt;permissions>` est `public`, `application` (valeur par défaut), `user` ou `admin`.
 
-**mobile data read [options] [nom_service] [nom_table] [requête]**
+**mobile data read [options] [nom\_service] [nom\_table] [requête]**
 
 Cette commande permet de lire les données d'une table.
 
@@ -1400,7 +1400,7 @@ Cette commande prend en charge les options supplémentaires suivantes :
 + **-t `<top>`** ou **--top `<top>`** : renvoie un nombre spécifique de lignes, spécifié par `<top>`.
 + **-l** ou **--list** : renvoie les données sous forme de liste.
 
-**mobile table update [options] [nom_service] [nom_table]**
+**mobile table update [options] [nom\_service] [nom\_table]**
 
 Cette commande permet de modifier les autorisations de suppression d'une table, qui deviennent exclusives aux administrateurs
 
@@ -1418,7 +1418,7 @@ Cette commande prend en charge les options supplémentaires suivantes :
 + **--addIndex `<columns>`** : liste de colonnes séparées par des virgules, à inclure dans l’index.
 + **--deleteIndex `<columns>`** : liste de colonnes séparées par des virgules, à exclure de l’index.
 
-**mobile table delete [options] [nom_service] [nom_table]**
+**mobile table delete [options] [nom\_service] [nom\_table]**
 
 Cette commande permet de supprimer une table.
 
@@ -1430,7 +1430,7 @@ Cette commande permet de supprimer une table.
 
 Spécifiez le paramètre -q pour supprimer la table sans confirmation. Cela empêche le blocage des scripts d'automatisation.
 
-**mobile data truncate [options] [nom_service] [nom_table]**
+**mobile data truncate [options] [nom\_service] [nom\_table]**
 
 Cette commande permet de supprimer toutes les lignes de données de la table.
 
@@ -1446,7 +1446,7 @@ Cette commande permet de supprimer toutes les lignes de données de la table.
 
 Les commandes de cette section permettent de gérer les scripts de serveur qui appartiennent à un service mobile. Pour plus d'informations, consultez la page [Utilisation des scripts serveur dans Mobile Services](../mobile-services/mobile-services-how-to-use-server-scripts.md).
 
-**mobile script list [options] [nom_service]**
+**mobile script list [options] [nom\_service]**
 
 Cette commande permet de répertorier les scripts inscrits, y compris les scripts de table et de planificateur.
 
@@ -1466,7 +1466,7 @@ Cette commande permet de répertorier les scripts inscrits, y compris les script
 	data:    scheduler/undefined  undefined  undefined  undefined  undefined
 	info:    mobile script list command OK
 
-**mobile script download [options] [nom_service] [nom_script]**
+**mobile script download [options] [nom\_service] [nom\_script]**
 
 Cette commande permet de télécharger le script d’insertion de la table Todoltem vers un fichier nommé `todoitem.insert.js` dans le sous-dossier `table`.
 
@@ -1482,7 +1482,7 @@ Cette commande prend en charge les options supplémentaires suivantes :
 + **-o** ou **--override** : permet de remplacer un fichier existant.
 + **-c** ou **--console** : écrit le script dans la console et non dans un fichier.
 
-**mobile script upload [options] [nom_service] [nom_script]**
+**mobile script upload [options] [nom\_service] [nom\_script]**
 
 Cette commande permet de télécharger un nouveau script nommé `todoitem.insert.js` à partir du sous-dossier `table`.
 
@@ -1493,7 +1493,7 @@ Cette commande permet de télécharger un nouveau script nommé `todoitem.insert
 Le nom du fichier doit se composer des noms d'une table et d'une opération et doit être situé dans le sous-dossier table par rapport à l'emplacement où est exécutée la commande. Vous pouvez également utiliser le paramètre **-f `<file>`** ou **--file `<file>`** pour spécifier un nom et un chemin d’accès de fichier différents, contenant le script à inscrire.
 
 
-**mobile script delete [options] [nom_service] [nom_script]**
+**mobile script delete [options] [nom\_service] [nom\_script]**
 
 Cette commande permet de supprimer le script d'insertion existant de la table TodoItem.
 
@@ -1505,7 +1505,7 @@ Cette commande permet de supprimer le script d'insertion existant de la table To
 
 Les commandes de cette section permettent de gérer les travaux planifiés qui appartiennent à un service mobile. Pour plus d'informations, consultez la page [Planifier les travaux](http://msdn.microsoft.com/library/windowsazure/jj860528.aspx).
 
-**mobile job list [options] [nom_service]**
+**mobile job list [options] [nom\_service]**
 
 Cette commande permet de répertorier les travaux planifiés.
 
@@ -1518,7 +1518,7 @@ Cette commande permet de répertorier les travaux planifiés.
 	info:    You can manipulate scheduled job scripts using the 'azure mobile script' command.
 	info:    mobile job list command OK
 
-**mobile job create [options] [nom_service] [nom_tâche]**
+**mobile job create [options] [nom\_service] [nom\_tâche]**
 
 Cette commande permet de créer une tâche nommée `getUpdates`, dont l’exécution est prévue toutes les heures.
 
@@ -1541,7 +1541,7 @@ Cette commande prend en charge les options supplémentaires suivantes :
 
 > [AZURE.NOTE]Les nouveaux travaux créés sont désactivés, car il reste encore à télécharger un script. Utilisez la commande **mobile script upload** pour télécharger un script et la commande **mobile job update** pour activer le travail.
 
-**mobile job update [options] [nom_service] [nom_tâche]**
+**mobile job update [options] [nom\_service] [nom\_tâche]**
 
 La commande suivante active la tâche `getUpdates` désactivée.
 
@@ -1561,7 +1561,7 @@ Cette commande prend en charge les options supplémentaires suivantes :
 + **-t `<time>`** **--startTime `<time>`** : heure de début de la première exécution du script, au format ISO ; la valeur par défaut est `now`.
 + **-a `<status>`** ou **--status `<status>`** : statut de la tâche, qui peut être `enabled` ou `disabled`.
 
-**mobile job delete [options] [nom_service] [nom_tâche]**
+**mobile job delete [options] [nom\_service] [nom\_tâche]**
 
 Cette commande permet de supprimer le travail planifié getUpdates du serveur TodoList.
 
@@ -1575,7 +1575,7 @@ Cette commande permet de supprimer le travail planifié getUpdates du serveur To
 
 Les commandes de cette section permettent de mettre à l'échelle un service mobile. Pour plus d'informations, consultez la page [Augmenter l'extensibilité d'un service mobile](http://msdn.microsoft.com/library/windowsazure/jj193178.aspx).
 
-**mobile scale show [options] [nom_service]**
+**mobile scale show [options] [nom\_service]**
 
 Cette commande permet d'afficher des informations de mise à l'échelle, notamment le mode de calcul et le nombre d'instances actuels.
 
@@ -1586,7 +1586,7 @@ Cette commande permet d'afficher des informations de mise à l'échelle, notamme
 	data:    numberOfInstances 1
 	info:    mobile scale show command OK
 
-**mobile scale change [options] [nom_service]**
+**mobile scale change [options] [nom\_service]**
 
 Cette commande permet de modifier l'échelle du service mobile, la faisant passer du mode gratuit (free) au mode premium.
 
@@ -1605,7 +1605,7 @@ Cette commande prend en charge les options supplémentaires suivantes :
 
 ###Commandes pour activer les fonctionnalités préliminaires pour votre service mobile
 
-**mobile preview list [options] [nom_service]**
+**mobile preview list [options] [nom\_service]**
 
 Cette commande permet d'afficher les fonctionnalités préliminaires disponibles dans le service spécifié et si elles sont activées.
 
@@ -1619,7 +1619,7 @@ Cette commande permet d'afficher les fonctionnalités préliminaires disponibles
 	info:    You can enable preview features using the 'azure mobile preview enable' command.
 	info:    mobile preview list command OK
 
-**mobile preview enable [options] [nom_service] [nom_fonctionnalité]**
+**mobile preview enable [options] [nom\_service] [nom\_fonctionnalité]**
 
 Cette commande permet d'activer la fonctionnalité préliminaire spécifiée pour un service mobile. Notez que les fonctionnalités préliminaires qui ont été activées pour un service mobile ne peuvent plus être désactivées.
 
@@ -1639,7 +1639,7 @@ Cette commande permet d'afficher la liste des API personnalisées que vous avez 
 	info:    You can manipulate API scripts using the 'azure mobile script' command.
 	info:    mobile api list command OK
 
-**mobile api create [options] [nom_service] [nom_API]**
+**mobile api create [options] [nom\_service] [nom\_API]**
 
 Crée une API personnalisée de service mobile.
 
@@ -1653,7 +1653,7 @@ Cette commande prend en charge l'option supplémentaire suivante :
 
 **-p** ou **--permissions** &lt;autorisations> : liste délimitée par des virgules de paires &lt;méthode>=&lt;autorisation>.
 
-**mobile api update [options] [nom_service] [nom_API]**
+**mobile api update [options] [nom\_service] [nom\_API]**
 
 Cette commande permet de mettre à jour l'API personnalisée de service mobile spécifiée.
 
@@ -1664,7 +1664,7 @@ Cette commande prend en charge les options supplémentaires suivantes :
 + **-p** ou **--permissions** &lt;autorisations> : liste délimitée par des virgules de paires &lt;méthode>=&lt;autorisation>.
 + **-f** ou **--force** : écrase les modifications personnalisées apportées au fichier de métadonnées des autorisations.
 
-**mobile api delete [options] [nom_service] [nom_API]**
+**mobile api delete [options] [nom\_service] [nom\_API]**
 
 	~$ azure mobile api delete mysite myCustomRetrieveAPI
 	info:    Executing command mobile api delete
@@ -1675,7 +1675,7 @@ Cette commande permet de supprimer l'API personnalisée de service mobile spéci
 
 ###Commandes pour gérer vos paramètres d'application mobile
 
-**mobile appsetting list [options] [nom_service]**
+**mobile appsetting list [options] [nom\_service]**
 
 Cette commande permet d'afficher les paramètres d'application mobile pour le service spécifié.
 
@@ -1687,7 +1687,7 @@ Cette commande permet d'afficher les paramètres d'application mobile pour le se
 	data:    enablebetacontent  true
 	info:    mobile appsetting list command OK
 
-**mobile appsetting add [options] [nom_service] [nom] [valeur]**
+**mobile appsetting add [options] [nom\_service] [nom] [valeur]**
 
 Cette commande permet d'ajouter un paramètre d'application personnalisé pour votre service mobile.
 
@@ -1697,7 +1697,7 @@ Cette commande permet d'ajouter un paramètre d'application personnalisé pour v
 	+ Adding app setting
 	info:    mobile appsetting add command OK
 
-**mobile appsetting delete [options] [nom_service] [nom]**
+**mobile appsetting delete [options] [nom\_service] [nom]**
 
 Cette commande permet de supprimer le paramètre d'application spécifié pour votre service mobile.
 
@@ -1707,7 +1707,7 @@ Cette commande permet de supprimer le paramètre d'application spécifié pour v
 	+ Removing app setting 'enablebetacontent'
 	info:    mobile appsetting delete command OK
 
-**mobile appsetting show [options] [nom_service] [nom]**
+**mobile appsetting show [options] [nom\_service] [nom]**
 
 Cette commande permet de supprimer le paramètre d'application spécifié pour votre service mobile.
 
@@ -2095,7 +2095,7 @@ Supprime un serveur.
 
 Utilisez ces commandes pour gérer vos bases de données SQL.
 
-**sql db create [options] &lt;nom_serveur> &lt;nom_base_de_données> &lt;mot_de_passe_Administrateur>**
+**sql db create [options] &lt;nom\_serveur> &lt;nom\_base\_de\_données> &lt;mot\_de\_passe\_Administrateur>**
 
 Crée une instance de base de données.
 
@@ -2105,7 +2105,7 @@ Crée une instance de base de données.
 	+ Creating SQL Server Database
 	info:    sql db create command OK
 
-**sql db show [options] &lt;nomServeur> &lt;nom_base_de_données> &lt;mot_de_passe_Administrateur>**
+**sql db show [options] &lt;nomServeur> &lt;nom\_base\_de\_données> &lt;mot\_de\_passe\_Administrateur>**
 
 Affiche des détails sur la base de données.
 
@@ -2171,7 +2171,7 @@ Répertorie les bases de données.
 	data:    master  Web      SQL_Latin1_General_CP1_CI_AS  5
 	info:    sql db list command OK
 
-**sql db delete [options] &lt;nomServeur> &lt;nom_base_de_données> &mot_de_passe_Administrateur>**
+**sql db delete [options] &lt;nomServeur> &lt;nom\_base\_de\_données> &mot\_de\_passe\_Administrateur>**
 
 Supprime une base de données.
 
@@ -2187,7 +2187,7 @@ Supprime une base de données.
 
 Utilisez ces commandes pour gérer les règles de pare-feu SQL Server.
 
-**sql firewallrule create [options] &lt;nom_serveur> &lt;nom_règle> &lt;Adresse_IP_Début> &lt;Adresse_IP_Fin>**
+**sql firewallrule create [options] &lt;nom\_serveur> &lt;nom\_règle> &lt;Adresse\_IP\_Début> &lt;Adresse\_IP\_Fin>**
 
 Crée une règle de pare-feu pour un serveur SQL.
 
@@ -2196,7 +2196,7 @@ Crée une règle de pare-feu pour un serveur SQL.
 	+ Creating Firewall Rule
 	info:    sql firewallrule create command OK
 
-**sql firewallrule show [options] &lt;nom_serveur> &lt;nom_règle>**
+**sql firewallrule show [options] &lt;nom\_serveur> &lt;nom\_règle>**
 
 Affiche les détails sur les règles de pare-feu.
 
@@ -2214,7 +2214,7 @@ Affiche les détails sur les règles de pare-feu.
 	data:    Firewall rule EndIPAddress 131.107.255.255
 	info:    sql firewallrule show command OK
 
-**sql firewallrule list [options] &lt;nom_serveur>**
+**sql firewallrule list [options] &lt;nom\_serveur>**
 
 Répertorie les règles de pare-feu.
 
@@ -2226,7 +2226,7 @@ Répertorie les règles de pare-feu.
 	+
 	info:    sql firewallrule list command OK
 
-**sql firewallrule delete [options] &lt;nom_serveur> &lt;nom_règle>**
+**sql firewallrule delete [options] &lt;nom\_serveur> &lt;nom\_règle>**
 
 Cette commande permet de supprimer une règle de pare-feu.
 
@@ -2346,4 +2346,4 @@ Supprime une entrée de serveur DNS de la configuration réseau.
 	+ Deleting the DNS server entry dns-4 ( 77.88.99.11 )
 	info:    network dnsserver unregister command OK
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

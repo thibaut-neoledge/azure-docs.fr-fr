@@ -61,18 +61,18 @@ Si les classifications sont correctement configurées dans VMM lorsque vous sél
 
 **Emplacement** | **Serveur VMM** | **Partage de fichiers (source)** | **Classification (source)** | **Mappé à** | **Partage de fichiers (cible)**
 ---|---|--- |---|---|---
-New York | VMM_Source| SourceShare1 | GOLD | GOLD_TARGET | TargetShare1
- | | SourceShare2 | SILVER | SILVER_TARGET | TargetShare2
- | | SourceShare3 | BRONZE | BRONZE_TARGET | TargetShare3
-Chicago | VMM_Target | | GOLD_TARGET | Non mappé |
-| | | SILVER_TARGET | Non mappé |
- | | | BRONZE_TARGET | Non mappé
+New York | VMM\_Source| SourceShare1 | GOLD | GOLD\_TARGET | TargetShare1
+ | | SourceShare2 | SILVER | SILVER\_TARGET | TargetShare2
+ | | SourceShare3 | BRONZE | BRONZE\_TARGET | TargetShare3
+Chicago | VMM\_Target | | GOLD\_TARGET | Non mappé |
+| | | SILVER\_TARGET | Non mappé |
+ | | | BRONZE\_TARGET | Non mappé
 
 Vous pouvez les configurer dans l’onglet **Serveur de stockage** de la page **Ressources** du portail Site Recovery.
 
 ![configurer le mappage de stockage](./media/site-recovery-storage-mapping/StorageMapping1.png)
 
-Dans cet exemple : - Lorsqu'un ordinateur virtuel de réplica est créé pour un ordinateur virtuel sur le stockage GOLD (SourceShare1), il est répliqué sur un stockage GOLD_TARGET (TargetShare1). -Lorsqu'un ordinateur virtuel de réplica est créé pour un ordinateur virtuel sur un stockage SILVER (SourceShare2), il est répliqué sur un stockage SILVER_TARGET (TargetShare2), et ainsi de suite.
+Dans cet exemple : - Lorsqu'un ordinateur virtuel de réplica est créé pour un ordinateur virtuel sur le stockage GOLD (SourceShare1), il est répliqué sur un stockage GOLD\_TARGET (TargetShare1). -Lorsqu'un ordinateur virtuel de réplica est créé pour un ordinateur virtuel sur un stockage SILVER (SourceShare2), il est répliqué sur un stockage SILVER\_TARGET (TargetShare2), et ainsi de suite.
 
 Les partages de fichiers et leurs classifications affectées dans VMM sont les suivants.
 
@@ -86,24 +86,24 @@ Le tableau suivant affiche la classification de stockage et les volumes partagé
 
 **Emplacement** | **Classification** | **Stockage associé**
 ---|---|---
-New York | GOLD | <p>C:\ClusterStorage\SourceVolume1</p><p>\FileServer\SourceShare1</p>
- | SILVER | <p>C:\ClusterStorage\SourceVolume2</p><p>\FileServer\SourceShare2</p>
-Chicago | GOLD_TARGET | <p>C:\ClusterStorage\TargetVolume1</p><p>\FileServer\TargetShare1</p>
- | SILVER_TARGET| <p>C:\ClusterStorage\TargetVolume2</p><p>\FileServer\TargetShare2</p>
+New York | GOLD | <p>C:\\ClusterStorage\\SourceVolume1</p><p>\\FileServer\\SourceShare1</p>
+ | SILVER | <p>C:\\ClusterStorage\\SourceVolume2</p><p>\\FileServer\\SourceShare2</p>
+Chicago | GOLD\_TARGET | <p>C:\\ClusterStorage\\TargetVolume1</p><p>\\FileServer\\TargetShare1</p>
+ | SILVER\_TARGET| <p>C:\\ClusterStorage\\TargetVolume2</p><p>\\FileServer\\TargetShare2</p>
 
 Ce tableau récapitule le comportement lorsque vous activez la protection des ordinateurs virtuels (VM1 à VM5) dans cet exemple d'environnement.
 
 **Ordinateur virtuel** | **Stockage source** | **Classification source** | **Stockage cible mappé**
 ---|---|---|---
-MV1 | C:\ClusterStorage\SourceVolume1 | GOLD | <p>C:\ClusterStorage\SourceVolume1</p><p>\\FileServer\SourceShare1</p><p>Both GOLD_TARGET</p>
-MV2 | \FileServer\SourceShare1 | GOLD | <p>C:\ClusterStorage\SourceVolume1</p><p>\FileServer\SourceShare1</p> <p>Both GOLD_TARGET</p>
-MV3 | C:\ClusterStorage\SourceVolume2 | SILVER | <p>C:\ClusterStorage\SourceVolume2</p><p>\FileServer\SourceShare2</p>
-MV4 | \FileServer\SourceShare2 | SILVER |<p>C:\ClusterStorage\SourceVolume2</p><p>\FileServer\SourceShare2</p><p>Both SILVER_TARGET</p>
-MV5 | C:\ClusterStorage\SourceVolume3 | N/A | Aucun mappage. Donc l’emplacement de stockage par défaut de l'hôte Hyper-V est utilisé.
+MV1 | C:\\ClusterStorage\\SourceVolume1 | GOLD | <p>C:\\ClusterStorage\\SourceVolume1</p><p>\\\\FileServer\\SourceShare1</p><p>Both GOLD\_TARGET</p>
+MV2 | \\FileServer\\SourceShare1 | GOLD | <p>C:\\ClusterStorage\\SourceVolume1</p><p>\\FileServer\\SourceShare1</p> <p>Both GOLD\_TARGET</p>
+MV3 | C:\\ClusterStorage\\SourceVolume2 | SILVER | <p>C:\\ClusterStorage\\SourceVolume2</p><p>\\FileServer\\SourceShare2</p>
+MV4 | \\FileServer\\SourceShare2 | SILVER |<p>C:\\ClusterStorage\\SourceVolume2</p><p>\\FileServer\\SourceShare2</p><p>Both SILVER\_TARGET</p>
+MV5 | C:\\ClusterStorage\\SourceVolume3 | N/A | Aucun mappage. Donc l’emplacement de stockage par défaut de l'hôte Hyper-V est utilisé.
 
 ## Étapes suivantes
 
 Maintenant que vous avez une meilleure compréhension du mappage de stockage, lisez les [bonnes pratiques](site-recovery-best-practices.md) de préparation du déploiement.
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

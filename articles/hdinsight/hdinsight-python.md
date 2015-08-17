@@ -109,13 +109,13 @@ Un script Python peut être utilisé comme une fonction définie par l'utilisate
 
 Cet exemple fonctionne de la manière suivante :
 
-1. Il enregistre le fichier contenant le script Python (**jython.py**) avec **Jython** et l’expose dans Pig en tant que **myfuncs**. Jython est une implémentation de Python en Java et s'exécute dans la même machine virtuelle Java que Pig. Cela nous permet de traiter le script Python comme un appel de fonction classique, alors que Hive utilise une approche basée sur la diffusion en continu.
+1. Il enregistre le fichier contenant le script Python (**jython.py**) avec **Jython** et l'expose dans Pig en tant que **myfuncs**. Jython est une implémentation de Python en Java et s'exécute dans la même machine virtuelle Java que Pig. Cela nous permet de traiter le script Python comme un appel de fonction classique, alors que Hive utilise une approche basée sur la diffusion en continu.
 
-2. La ligne suivante charge l'exemple de fichier de données **sample.log** dans **LOGS**. Comme ce fichier journal n’a pas de schéma cohérent, il définit également chaque enregistrement (**LINE** dans le cas présent) comme un tableau de caractères (**chararray**), qui correspond essentiellement à une chaîne.
+2. La ligne suivante charge l'exemple de fichier de données **sample.log** dans **LOGS**. Comme ce fichier journal n'a pas de schéma cohérent, il définit également chaque enregistrement (**LINE** dans le cas présent) comme un tableau de caractères (**chararray**), qui correspond essentiellement à une chaîne.
 
 3. La troisième ligne élimine par filtrage les valeurs null et stocke le résultat de l'opération dans **LOG**.
 
-4. La ligne suivante itère sur les enregistrements dans **LOG** et utilise **GENERATE** pour appeler la méthode **create_structure** contenue dans le script **jython.py** chargé en tant que **myfuncs**. **LINE** est utilisé pour transmettre l'enregistrement actuel à la fonction.
+4. La ligne suivante itère sur les enregistrements dans **LOG** et utilise **GENERATE** pour appeler la méthode **create\_structure** contenue dans le script **jython.py** chargé en tant que **myfuncs**. **LINE** est utilisé pour transmettre l'enregistrement actuel à la fonction.
 
 5. Enfin, les sorties sont vidées dans STDOUT avec la commande **DUMP**. Il s'agit simplement d'afficher immédiatement les résultats une fois l'opération terminée ; dans un script réel, vous stockeriez normalement les données dans un nouveau fichier avec **STORE**.
 
@@ -138,9 +138,9 @@ Souvenez-vous : auparavant, nous avons simplement défini l'entrée **LINE** co
 	* level : niveau du journal
 	* detail : détails pour l'entrée du journal
 
-2. Ensuite, **def create_structure(input)** définit la fonction à laquelle Pig transmettra les lignes.
+2. Ensuite, **def create\_structure(input)** définit la fonction à laquelle Pig transmettra les lignes.
 
-3. L'exemple de données **sample.log** respecte pour l'essentiel le schéma basé sur les champs date, time, classname, level et detail que nous voulons renvoyer. Mais il contient également quelques lignes commençant par la chaîne « *java.lang.Exception* » qui doivent être modifiées pour correspondre au schéma. L’instruction **if** recherche ces dernières, puis manipule les données d’entrée pour déplacer la chaîne « *java.lang.Exception* » à la fin, harmonisant les données avec notre schéma de sortie prévu.
+3. L'exemple de données **sample.log** respecte pour l'essentiel le schéma basé sur les champs date, time, classname, level et detail que nous voulons renvoyer. Mais il contient également quelques lignes commençant par la chaîne *java.lang.Exception* qui doivent être modifiées pour correspondre au schéma. L'instruction **if** recherche ces dernières, puis manipule les données d'entrée pour déplacer la chaîne *java.lang.Exception* à la fin, harmonisant les données avec notre schéma de sortie prévu.
 
 4. La commande **split** est ensuite utilisée pour fractionner les données aux quatre premiers caractères d'espacement. Il en résulte cinq valeurs qui sont affectées aux champs **date**, **time**, **classname**, **level** et **detail**.
 
@@ -330,4 +330,4 @@ Pour connaître d’autres façons d’utiliser Pig et Hive et en savoir plus su
 
 * [Utilisation de MapReduce avec HDInsight](hdinsight-use-mapreduce.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

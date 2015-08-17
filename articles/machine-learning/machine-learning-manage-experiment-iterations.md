@@ -40,10 +40,10 @@ Supposons par exemple que vous créez une expérience à l'aide du module [Régr
 
 | Valeur du taux d'apprentissage | Heure de début de l'exécution |
 | ------------------- | -------------- |
-| 0.1 | 11/9/2014 16:18:58
-| 0.2 | 11/9/2014 16:24:33
-| 0.4 | 11/9/2014 16:28:36
-| 0.5 | 11/9/2014 16:33:31
+| 0\.1 | 11/9/2014 16:18:58
+| 0\.2 | 11/9/2014 16:24:33
+| 0\.4 | 11/9/2014 16:28:36
+| 0\.5 | 11/9/2014 16:33:31
 
 Si vous cliquez sur **AFFICHER L'HISTORIQUE D'EXÉCUTION**, une liste de toutes ces exécutions apparaîtra :
 
@@ -85,4 +85,4 @@ Vous pouvez maintenant continuer à modifier et exécuter cette version de votre
 [linear-regression]: https://msdn.microsoft.com/library/azure/31960a6f-789b-4cf7-88d6-2e1152c0bd1a/
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

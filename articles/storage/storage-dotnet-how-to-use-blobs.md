@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article" 
-	ms.date="07/06/2015"
+	ms.date="08/04/2015"
 	ms.author="tamram"/>
 
 
@@ -21,11 +21,11 @@
 
 [AZURE.INCLUDE [storage-selector-blob-include](../../includes/storage-selector-blob-include.md)]
 
-## Vue d’ensemble
+## Vue d'ensemble
 
 Ce guide explique le déroulement des scénarios courants dans le cadre de l’utilisation du service de stockage d’objets blob Azure. Les exemples ont été écrits en C# et utilisent la bibliothèque du client de stockage Azure pour .NET. Les scénarios traités incluent le **chargement (vers une cible)**, la **création de listes**, le **téléchargement (à partir d’une source)** et la **suppression** d’objets blob.
 
-> [AZURE.NOTE]Ce guide cible la bibliothèque cliente de stockage Azure .NET 2.x et les versions ultérieures. Nous vous recommandons d’utiliser la version 4.x disponible via [NuGet](https://www.nuget.org/packages/WindowsAzure.Storage/) ou dans le [Kit de développement logiciel (SDK) Azure pour .NET](/downloads/). Consultez [Accès au stockage d’objets blob par programme](#programmatically-access-blob-storage) ci-dessous pour plus d’informations sur l’obtention de la bibliothèque cliente de stockage.
+[AZURE.INCLUDE [storage-dotnet-client-library-version-include](../../includes/storage-dotnet-client-library-version-include.md)]
 
 [AZURE.INCLUDE [storage-blob-concepts-include](../../includes/storage-blob-concepts-include.md)]
 
@@ -84,7 +84,9 @@ Tous les utilisateurs d’Internet peuvent afficher les objets blob d’un conte
 
 Le service de stockage d’objets blob Azure prend en charge les objets blob de blocs et de page. Dans la plupart des cas, il est recommandé d’utiliser le type d’objet blob de blocs.
 
-Pour télécharger un fichier vers un objet blob de blocs, obtenez une référence de conteneur et utilisez-la pour obtenir une référence d’objet blob de blocs. Lorsque vous disposez d’une référence d’objet blob, vous pouvez télécharger un flux de données vers cet objet en appelant la méthode **UploadFromStream**. Si l’objet blob n’existe pas, cette opération entraîne sa création. S’il existe, il est remplacé. L’exemple suivant illustre le chargement d’un objet blob dans un conteneur en partant du principe que le conteneur existe déjà.
+Pour télécharger un fichier vers un objet blob de blocs, obtenez une référence de conteneur et utilisez-la pour obtenir une référence d’objet blob de blocs. Lorsque vous disposez d’une référence d’objet blob, vous pouvez télécharger un flux de données vers cet objet en appelant la méthode **UploadFromStream**. Si l’objet blob n’existe pas, cette opération entraîne sa création. S’il existe, il est remplacé.
+
+L’exemple suivant illustre le chargement d’un objet blob dans un conteneur en partant du principe que le conteneur existe déjà.
 
     // Retrieve storage account from connection string.
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -287,6 +289,53 @@ Comme l’exemple de méthode appelle une méthode asynchrone, il doit être pr�
         while (continuationToken != null);
     }
 
+## Écriture dans un objet blob d’ajout
+
+Un objet blob d’ajout est un nouveau type d’objet blob, introduit avec la version 5.x de la bibliothèque cliente de stockage Windows Azure pour .NET. Il est optimisé pour les opérations d’ajout, telles que la journalisation. Comme un objet blob de blocs, un objet blob d’ajout est composé de blocs. Mais lorsqu’il est ajouté à un objet blob d’ajout, un nouveau bloc l’est toujours à la fin. Vous ne pouvez pas mettre à jour ou supprimer un bloc dans un objet blob d’ajout. Les ID de bloc dans un objet blob d’ajout ne sont pas visibles, comme pour un objet blob de blocs.
+ 
+Chaque bloc d’un objet blob d’ajout peut avoir une taille différente (jusqu’à 4 Mo), et un objet blob d’ajout peut contenir au maximum 50 000 blocs. La taille maximale d’un objet blob d’ajout est donc légèrement supérieure à 195 Go (4 Mo x 50 000 blocs).
+
+L’exemple ci-dessous crée un objet blob d’ajout et y ajoute des données pour simuler une opération de journalisation simple.
+
+    //Parse the connection string for the storage account.
+    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
+        Microsoft.Azure.CloudConfigurationManager.GetSetting("StorageConnectionString"));
+
+    //Create service client for credentialed access to the Blob service.
+    CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
+
+    //Get a reference to a container.
+    CloudBlobContainer container = blobClient.GetContainerReference("my-append-blobs");
+
+    //Create the container if it does not already exist. 
+    container.CreateIfNotExists();
+
+    //Get a reference to an append blob.
+    CloudAppendBlob appendBlob = container.GetAppendBlobReference("append-blob.log");
+
+    //Create the append blob. Note that if the blob already exists, the CreateOrReplace() method will overwrite it.
+    //You can check whether the blob exists to avoid overwriting it by using CloudAppendBlob.Exists().
+    appendBlob.CreateOrReplace();
+
+    int numBlocks = 10;
+
+    //Generate an array of random bytes.
+    Random rnd = new Random();
+    byte[] bytes = new byte[numBlocks];
+    rnd.NextBytes(bytes);
+        
+    //Simulate a logging operation by writing text data and byte data to the end of the append blob.
+    for (int i = 0; i < numBlocks; i++)
+    {
+        appendBlob.AppendText(String.Format("Timestamp: {0} \tLog Entry: {1}{2}",
+            DateTime.Now.ToUniversalTime().ToString(), bytes[i], Environment.NewLine));
+    }
+
+    //Read the append blob to the console window.
+    Console.WriteLine(appendBlob.DownloadText());
+
+Pour plus d’informations sur les différences entre les trois types d’objets blob, consultez la page [Présentation des objets blob de blocs, des objets blob d’ajout et des objets blob de pages](https://msdn.microsoft.com/library/azure/ee691964.aspx).
+
 ## Étapes suivantes
 
 Maintenant que vous connaissez les bases du stockage d’objets blob, consultez les liens suivants pour apprendre à exécuter les tâches de stockage plus complexes. <ul> <li>Pour plus d’informations sur les API disponibles, consultez la documentation de référence des services d’objets blob : <ul> <li><a href="http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409">Référence de la bibliothèque cliente de stockage pour .NET</a> </li> <li><a href="http://msdn.microsoft.com/library/azure/dd179355">Référence d’API REST</a></li> </ul> </li> <li>Pour plus d’informations sur les tâches avancées que vous pouvez effectuer avec le stockage Azure, consultez la page <a href="http://msdn.microsoft.com/library/azure/gg433040.aspx">Stockage et accessibilité des données dans Azure</a>.</li> <li>Découvrez comment simplifier le code que vous écrivez pour travailler avec Azure Storage à l’aide du <a href="../websites-dotnet-webjobs-sdk/">￼Kit de développement logiciel (SDK) Azure WebJobs</li>. <li>Pour plus d’informations sur les autres options de stockage de données dans Azure, consultez d’autres guides de fonctionnalités. <ul> <li>Utilisez le <a href="/documentation/articles/storage-dotnet-how-to-use-tables/">stockage de table</a> pour stocker des données structurées.</li> <li>Utilisez le <a href="/documentation/articles/storage-dotnet-how-to-use-queues/">stockage de files d’attente</a> pour stocker des données non structurées.</li> <li>Utilisez une <a href="/documentation/articles/sql-database-dotnet-how-to-use/">base de données SQL</a> pour stocker des données relationnelles.</li> </ul> </li> </ul>
@@ -297,11 +346,11 @@ Maintenant que vous connaissez les bases du stockage d’objets blob, consultez 
   [Blob8]: ./media/storage-dotnet-how-to-use-blobs/blob8.png
   [Blob9]: ./media/storage-dotnet-how-to-use-blobs/blob9.png
 
-  [Storing and Accessing Data in Azure]: http://msdn.microsoft.com/library/azure/gg433040.aspx
+  [Azure Storage]: http://msdn.microsoft.com/library/azure/gg433040.aspx
   [Azure Storage Team Blog]: http://blogs.msdn.com/b/windowsazurestorage/
   [Configuring Connection Strings]: http://msdn.microsoft.com/library/azure/ee758697.aspx
   [.NET client library reference]: http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409
   [REST API reference]: http://msdn.microsoft.com/library/azure/dd179355
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

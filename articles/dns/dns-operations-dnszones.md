@@ -103,4 +103,4 @@ L’objet de zone peut également être redirigé au lieu d’être transmis en 
 
 [Automatisation des opérations à l’aide du Kit de développement (SDK) .NET](../dns-sdk)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

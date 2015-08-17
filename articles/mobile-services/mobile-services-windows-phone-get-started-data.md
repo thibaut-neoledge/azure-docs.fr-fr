@@ -119,9 +119,9 @@ Votre service mobile étant prêt, vous pouvez mettre à jour l’application po
         private IMobileServiceTable<TodoItem> todoTable = 
 			App.MobileService.GetTable<TodoItem>();
 
-   	Ce code crée une collection de liaisons (\*\*éléments\*\*) prenant en charge les services mobiles et une classe proxy pour la table de la base de données SQL **TodoItem** (\*\*todoTable\*\*).
+   	Ce code crée une collection de liaisons (**éléments**) prenant en charge les services mobiles et une classe proxy pour la table de la base de données SQL **TodoItem** (**todoTable**).
 
-7. Dans la méthode **InsertTodoItem**, supprimez la ligne de code définissant la propriété **TodoItem**.\*\*Id\*\*, ajoutez le modificateur **async** à la méthode, puis annulez les marques de commentaire dans la ligne de code suivante :
+7. Dans la méthode **InsertTodoItem**, supprimez la ligne de code qui définit la propriété **TodoItem**.**Id**, ajoutez le modificateur **async** à la méthode, puis annulez les marques de commentaire dans la ligne de code suivante :
 
         await todoTable.InsertAsync(todoItem);
 
@@ -193,4 +193,4 @@ Ce didacticiel a présenté les bases de l'activation d'une application Windows 
 [site d'exemples de code développeur]: http://go.microsoft.com/fwlink/p/?LinkId=271146
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

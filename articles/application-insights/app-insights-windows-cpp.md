@@ -46,11 +46,11 @@ La clé identifie la ressource. Vous allez bientôt l’installer dans le Kit de
     ![Sélectionnez **Inclure la version préliminaire**, puis recherchez « Application Insights »](./media/app-insights-windows-cpp/04-nuget.png)
 
 3. Dans les paramètres de vos projets relatifs à la publication et au débogage, procédez comme suit :
-  - Ajoutez la chaîne « $(RepSolution)packages\ApplicationInsights-CPP.1.0.0-Beta\src\inc » dans les propriétés du projet -> Répertoires VC++ -> Répertoires Include.
-  - Ajoutez la chaîne « $(RepSolution)packages\ApplicationInsights.1.0.0-Beta\lib\native<TYPE_PLATEFORME>\release\AppInsights_Win10-UAP » dans les propriétés du projet -> Répertoires VC++ -> Répertoires de bibliothèques.
+  - Ajoutez la chaîne « $(RepSolution)packages\\ApplicationInsights-CPP.1.0.0-Beta\\src\\inc » dans les propriétés du projet -> Répertoires VC++ -> Répertoires Include.
+  - Ajoutez la chaîne « $(RepSolution)packages\\ApplicationInsights.1.0.0-Beta\\lib\\native<TYPE\_PLATEFORME>\\release\\AppInsights\_Win10-UAP » dans les propriétés du projet -> Répertoires VC++ -> Répertoires de bibliothèques.
 
-4. Ajoutez le fichier « ApplicationInsights.winmd » en tant que référence à votre projet à partir du chemin suivant : $(RepSolution)packages\ApplicationInsights.1.0.0-Beta\lib\native<TYPE_PLATEFORME>\release\ApplicationInsights.
-5. Ajoutez le fichier « AppInsights_Win10-UAP.dll » à partir du chemin suivant : $(RepSolution)packages\ApplicationInsights.1.0.0-Beta\lib\native<TYPE_PLATEFORME>\release\AppInsights_Win10-UAP. Accédez aux propriétés et définissez le contenu sur la valeur Oui. Cette opération copie le fichier dll dans votre répertoire de build.
+4. Ajoutez le fichier « ApplicationInsights.winmd » en tant que référence à votre projet à partir du chemin suivant : $(RepSolution)packages\\ApplicationInsights.1.0.0-Beta\\lib\\native<TYPE\_PLATEFORME>\\release\\ApplicationInsights.
+5. Ajoutez le fichier « AppInsights\_Win10-UAP.dll » à partir du chemin suivant : $(RepSolution)packages\\ApplicationInsights.1.0.0-Beta\\lib\\native<TYPE\_PLATEFORME>\\release\\AppInsights\_Win10-UAP. Accédez aux propriétés et définissez le contenu sur la valeur Oui. Cette opération copie le fichier dll dans votre répertoire de build.
 
 
 #### Pour mettre à jour le Kit de développement logiciel avec les versions ultérieures
@@ -73,7 +73,7 @@ Initialisez le Kit de développement logiciel et lancez le suivi télémétrique
 	
      `// this will do automatic session tracking and automatic page view collection` `m_session = ref new ApplicationInsights::CX::SessionTracking();`
 
-  - Une fois la trame racine créée (généralement à la fin de l’élément App::OnLaunched), initialisez l’élément m_session :
+  - Une fois la trame racine créée (généralement à la fin de l’élément App::OnLaunched), initialisez l’élément m\_session :
 	
     ```
     String^ iKey = L"<YOUR INSTRUMENTATION KEY>";
@@ -139,4 +139,4 @@ Cliquez sur n’importe quel graphique pour obtenir plus de détails. Par exempl
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -42,4 +42,4 @@ Maintenant que vous connaissez les bases d'Azure Automation et que vous savez l'
 * Consultez le [Guide de prise en main](http://go.microsoft.com/fwlink/?LinkId=390560) d'Azure Automation.
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

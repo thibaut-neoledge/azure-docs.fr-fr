@@ -155,4 +155,4 @@ Pour faciliter l’implémentation réelle des scénarios de mise à l’échell
 [Action]: #action
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

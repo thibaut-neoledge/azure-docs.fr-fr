@@ -7,6 +7,7 @@
 	manager="dwrede" 
 	editor=""/>
 
+
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
@@ -15,6 +16,7 @@
 	ms.topic="article" 
 	ms.date="04/24/2015" 
 	ms.author="ggailey777"/>
+
 
 # Stockage du code de projet dans le contrôle de code source
 
@@ -36,8 +38,7 @@ Pour suivre ce didacticiel, vous devez avoir créé un service mobile en suivant
 
 	La procédure requise pour installer Git diffère selon les systèmes d'exploitation. Consultez la rubrique [Installation de Git] pour accéder aux distributions et consignes d'installation propres aux différents systèmes d'exploitation.
 
-	> [AZURE.NOTE]
-	> Sur certains systèmes d'exploitation, une version en ligne de commande et une version avec interface utilisateur graphique sont toutes deux disponibles. Les instructions fournies dans cet article utilisent la version en ligne de commande.
+	> [AZURE.NOTE]Sur certains systèmes d'exploitation, une version en ligne de commande et une version avec interface utilisateur graphique sont toutes deux disponibles. Les instructions fournies dans cet article utilisent la version en ligne de commande.
 
 2. Ouvrez une ligne de commande, telle que **GitBash** (Windows) ou **Bash** (Unix Shell). Sur les systèmes OS X, la ligne de commande est accessible depuis l'application **Terminal**.
 
@@ -60,7 +61,7 @@ Pour suivre ce didacticiel, vous devez avoir créé un service mobile en suivant
 
 	En l'occurrence, un nouveau répertoire est créé avec le nom du service mobile, qui correspond au référentiel local du service de données.
 
-7. Ouvrez le sous-dossier .\service\table et remarquez qu'il contient un fichier TodoItem.json, qui est une représentation JSON des autorisations d'opération sur la table TodoItem.
+7. Ouvrez le sous-dossier .\\service\\table et remarquez qu'il contient un fichier TodoItem.json, qui est une représentation JSON des autorisations d'opération sur la table TodoItem.
 
 	Lorsque des scripts serveur ont été définis sur cette table, vous avez également un ou plusieurs fichiers nommés <code>TodoItem._&lt;operation&gt;_.js</code> contenant les scripts pour l'opération de table donnée. Les scripts de Scheduler et de l'API personnalisée sont conservés dans des dossiers séparés avec ces noms respectifs. Pour plus d'informations, consultez la page [Contrôle du code source].
 
@@ -68,7 +69,7 @@ Pour suivre ce didacticiel, vous devez avoir créé un service mobile en suivant
 
 ##<a name="deploy-scripts"></a>Déployer les fichiers de script mis à jour sur votre service mobile
 
-1. Accédez au sous-dossier .\service\table et si le fichier todoitem.insert.js n'existe pas, créez-le maintenant.
+1. Accédez au sous-dossier .\\service\\table et si le fichier todoitem.insert.js n'existe pas, créez-le maintenant.
 
 2. Ouvrez le nouveau fichier todoitem.insert.js dans un éditeur de texte, collez le code suivant et enregistrez vos modifications :
 
@@ -110,7 +111,7 @@ Pour ajouter des modules Node.js à votre service mobile, il est recommandé d'a
 
 	>[AZURE.NOTE]Cette mise à jour du fichier package.json provoque un redémarrage dans votre service mobile après que la validation est envoyée.
 
-4. Maintenant, accédez au sous-dossier .\service\table, ouvrez le fichier todoitem.insert.js et modifiez-le comme suit :
+4. Maintenant, accédez au sous-dossier .\\service\\table, ouvrez le fichier todoitem.insert.js et modifiez-le comme suit :
 
 		function insert(item, user, request) {
 		    var uuid = require('node-uuid');
@@ -133,11 +134,11 @@ Pour ajouter des modules Node.js à votre service mobile, il est recommandé d'a
 
 Maintenant que vous avez terminé ce didacticiel, vous savez comment stocker vos scripts dans un contrôle de code source. Pour plus d'informations sur l'utilisation de scripts serveur et d'API personnalisées :
 
-+ [Utilisation des scripts serveur dans Mobile Services] 
-	<br/>Explique comment utiliser les scripts serveur, le planificateur de travaux et les API personnalisées.
++ [Utilisation des scripts serveur dans Mobile Services] <br/>
+Explique comment utiliser les scripts serveur, le planificateur de travaux et les API personnalisées.
 
-+ [Appel d'une API personnalisée à partir du client] 
-	<br/> Explique comment créer des API personnalisées pouvant être appelées à partir du client.
++ [Appel d'une API personnalisée à partir du client] <br/>
+ Explique comment créer des API personnalisées pouvant être appelées à partir du client.
 
 <!-- Anchors. -->
 [Enable source control in your mobile service]: #enable-source-control
@@ -158,10 +159,9 @@ Maintenant que vous avez terminé ce didacticiel, vous savez comment stocker vos
 [Ajout de Mobile Services à une application existante]: mobile-services-ios-get-started-data.md
 [Utilisation des scripts serveur dans Mobile Services]: mobile-services-how-to-use-server-scripts.md
 [Azure Management Portal]: https://manage.windowsazure.com/
-[portail de gestion Azure]: https://manage.windowsazure.com/
 [Appel d'une API personnalisée à partir du client]: mobile-services-ios-call-custom-api.md
 [Modules]: http://nodejs.org/api/modules.html
 [node-uuid]: https://npmjs.org/package/node-uuid
  
 
-<!----HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

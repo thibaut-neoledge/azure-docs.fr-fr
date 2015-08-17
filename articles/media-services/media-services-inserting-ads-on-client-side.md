@@ -7,6 +7,7 @@
 	manager="dwrede" 
 	editor=""/>
 
+
 <tags 
 	ms.service="media-services" 
 	ms.workload="media" 
@@ -15,6 +16,7 @@
 	ms.topic="article" 
 	ms.date="06/29/2015" 
 	ms.author="juliako"/>
+
 
 
 #Insertion de publicités du côté client
@@ -151,15 +153,15 @@ Les publicités non linéaires sont également spécifiées dans un élément <C
 	</Creative>
 
  
-L’élément **<NonLinearAds>** peut contenir un ou plusieurs éléments **<NonLinear>**, chacun d’eux pouvant décrire une publicité non linéaire. L’élément **<NonLinear>** spécifie la ressource de la publicité non linéaire. La ressource peut être de type **<StaticResouce>**, **<IFrameResource>** ou **<HTMLResouce>**. \*\*<StaticResource>\*\* décrit une ressource non-HTML et définit un attribut creativeType qui indique le mode d’affichage de la ressource :
+L’élément **<NonLinearAds>** peut contenir un ou plusieurs éléments **<NonLinear>**, chacun d’eux pouvant décrire une publicité non linéaire. L’élément **<NonLinear>** spécifie la ressource de la publicité non linéaire. La ressource peut être de type **<StaticResouce>**, **<IFrameResource>** ou **<HTMLResouce>**. **<StaticResource>** décrit une ressource non-HTML et définit un attribut creativeType qui indique le mode d’affichage de la ressource :
 
 Image/gif, image/jpeg, image/png : la ressource est affichée dans une balise HTML **<img>**.
 
-Application/x-javascript : la ressource est affichée dans une balise HTML <\*\*script\*\*>.
+Application/x-javascript : la ressource est affichée dans une balise HTML <**script**>.
 
 Application/x-shockwave-flash : la ressource est affichée dans un lecteur Flash.
 
-**<IFrameResource>** décrit une ressource HTML qui peut être affichée dans un IFrame. **<HTMLResource>** décrit un fragment de code HTML qui peut être inséré dans une page web. **<TrackingEvents>** spécifient les événements de suivi et l’URI à demander lorsque l’événement se produit. Dans cet exemple, les événements acceptInvitation et de réduction (collapse) font l’objet d’un suivi. Pour plus d'informations sur l’élément **<NonLinearAds>** et ses enfants, consultez IAB.NET/VAST. Notez que l’élément **<TrackingEvents>** est situé au sein de l’élément\*\* <NonLinearAds>\*\* plutôt que dans l’élément **<NonLinear>**.
+**<IFrameResource>** décrit une ressource HTML qui peut être affichée dans un IFrame. **<HTMLResource>** décrit un fragment de code HTML qui peut être inséré dans une page web. **<TrackingEvents>** spécifient les événements de suivi et l’URI à demander lorsque l’événement se produit. Dans cet exemple, les événements acceptInvitation et de réduction (collapse) font l’objet d’un suivi. Pour plus d'informations sur l’élément **<NonLinearAds>** et ses enfants, consultez IAB.NET/VAST. Notez que l’élément **<TrackingEvents>** est situé au sein de l’élément **<NonLinearAds>** plutôt que dans l’élément **<NonLinear>**.
 
 Les publicités d'accompagnement sont définies dans un élément <CompanionAds>. L’élément <CompanionAds> peut contenir un ou plusieurs éléments <Companion>. Chaque élément <Companion> décrit une publicité d'accompagnement et peut contenir un <StaticResource>, <IFrameResource> ou <HTMLResource>, lesquels sont spécifiés de la même manière que dans une publicité non linéaire. Un fichier VAST peut contenir plusieurs publicités d’accompagnement ; il revient alors à l’application de type lecteur de choisir la publicité la plus appropriée à afficher. Pour plus d'informations sur VAST, consultez [VAST 3.0](http://www.iab.net/media/file/VASTv3.0.pdf).
 
@@ -214,20 +216,20 @@ Un fichier VMAP vous permet de spécifier le moment où des coupures publicitair
 	  </vmap:AdBreak>
 	</vmap:VMAP>
 	 
-Un fichier VMAP commence par un élément <VMAP> qui contient un ou plusieurs éléments <AdBreak>, chacun définissant une coupure publicitaire Chaque coupure publicitaire spécifie un type de coupure, un identificateur et une durée de décalage. L’attribut breakType spécifie le type de publicité pouvant être diffusée pendant la coupure : linéaire, non linéaire ou d’affichage. Les publicités d’affichage correspondent à des publicités VAST d’accompagnement. Plusieurs types de publicités peuvent être spécifiés dans une liste séparée par des virgules (sans espaces). L’attribut breakID est un identificateur facultatif pour la publicité. L’attribut timeOffset indique quand la publicité doit être affichée. Il peut être spécifié de l’une des manières suivantes :
+Un fichier VMAP commence par un élément <VMAP> qui contient un ou plusieurs éléments <AdBreak>, chacun définissant une coupure publicitaire. Chaque coupure publicitaire spécifie un type de coupure, un identificateur et une durée de décalage. L’attribut breakType spécifie le type de publicité pouvant être diffusée pendant la coupure : linéaire, non linéaire ou d’affichage. Les publicités d’affichage correspondent à des publicités VAST d’accompagnement. Plusieurs types de publicités peuvent être spécifiés dans une liste séparée par des virgules (sans espaces). L’attribut breakID est un identificateur facultatif pour la publicité. L’attribut timeOffset indique quand la publicité doit être affichée. Il peut être spécifié de l’une des manières suivantes :
 
 1. Durée : au format hh:mm:ss ou hh:mm:ss.mmm, où .mmm représente des millisecondes. La valeur de cet attribut indique la durée depuis le début de la chronologie vidéo jusqu’au début de la coupure publicitaire.
 1. Pourcentage : au format n%, où n correspond au pourcentage de la chronologie vidéo à lire avant de diffuser la publicité.
 1. Début/Fin : spécifie qu’une publicité doit être diffusée avant ou après l’affichage de la vidéo.
 1. Position : spécifie l’ordre des coupures publicitaires, lorsque le délai des coupures publicitaires est inconnu, comme lors d’une diffusion en direct. L’ordre de chaque coupure publicitaire est spécifié au format #n, où n représente un entier supérieur ou égal à 1. 1 signifie que la publicité doit être diffusée à la première occasion, 2 qu’elle doit l’être à la deuxième occasion, et ainsi de suite.
 
-L’élément <\*\*AdBreak\*\*> peut renfermer un élément <\*\*AdSource\*\*>. L’élément <\*\*AdSource\*\*> contient les attributs suivants :
+L’élément <**AdBreak**> peut renfermer un élément <**AdSource**>. L’élément <**AdSource**> contient les attributs suivants :
 
 1. Id : spécifie l’identificateur de la source publicitaire.
 1. allowMultipleAds : valeur booléenne qui spécifie si plusieurs publicités peuvent être affichées au cours de la coupure publicitaire.
 1. followRedirects : valeur booléenne facultative qui spécifie si le lecteur vidéo doit procéder aux redirections dans une réponse publicitaire.
 
-L’élément <\*\*AdSource\*\*> fournit au lecteur une réponse publicitaire insérée ou une référence à une réponse publicitaire. Il peut contenir l’un des éléments suivants :
+L’élément <**AdSource**> fournit au lecteur une réponse publicitaire insérée ou une référence à une réponse publicitaire. Il peut contenir l’un des éléments suivants :
 
 - <VASTAdData> : indique qu’une réponse publicitaire VAST est incorporée au sein du fichier VMAP.
 - <AdTagURI> : URI qui fait référence à une réponse publicitaire émanant d’un autre système.
@@ -235,7 +237,7 @@ L’élément <\*\*AdSource\*\*> fournit au lecteur une réponse publicitaire in
 
 Dans cet exemple, une réponse publicitaire insérée est spécifiée avec un élément <VASTAdData> qui contient une réponse publicitaire VAST. Pour plus d’informations sur les autres éléments, consultez [VMAP](http://www.iab.net/guidelines/508676/digitalvideo/vsuite/vmap).
 
-L’élément <\*\*AdBreak\*\*> peut également contenir un élément <\*\*TrackingEvents\*\*>. L’élément <\*\*TrackingEvents\*\*> vous permet de suivre le début ou la fin d’une coupure publicitaire ou de déterminer si une erreur s’est produite pendant la coupure. L’élément <\*\*TrackingEvents\*\*> contient un ou plusieurs éléments <\*\*Tracking\*\*>, chacun d’eux spécifiant un événement et un URI de suivi. Les événements de suivi possibles sont les suivants :
+L’élément <**AdBreak**> peut également contenir un élément <**TrackingEvents**>. L’élément <**TrackingEvents**> vous permet de suivre le début ou la fin d’une coupure publicitaire ou de déterminer si une erreur s’est produite pendant la coupure. L’élément <**TrackingEvents**> contient un ou plusieurs éléments <**Tracking**>, chacun d’eux spécifiant un événement et un URI de suivi. Les événements de suivi possibles sont les suivants :
 
 1. breakStart : effectue le suivi du début d’une coupure publicitaire.
 1. breakEnd : effectue le suivi de la fin d’une coupure publicitaire.
@@ -264,7 +266,7 @@ L’exemple suivant illustre un fichier VMAP qui spécifie des événements de s
 	  </vmap:AdBreak>
 	</vmap:VMAP>
 
-Pour plus d'informations sur l’élément <\*\*TrackingEvents\*\*> et ses enfants, consultez http://iab.org/VMAP.pdf.
+Pour plus d'informations sur l’élément <**TrackingEvents**> et ses enfants, consultez http://iab.org/VMAP.pdf.
 
 ###Utilisation d’un fichier MAST (Media Abstract Sequencing Template)
 
@@ -275,10 +277,12 @@ Un fichier MAST vous permet de spécifier les déclencheurs qui définissent le 
 	    <trigger id="preroll" description="preroll every item"  >
 	      <startConditions>
 	        <condition type="event" name="OnItemStart" />
+
 	      </startConditions>
 	      <sources>
 	        <source uri="http://smf.blob.core.windows.net/samples/win8/ads/vast_linear.xml" format="vast">
 	          <sources />
+
 	        </source>
 	      </sources>
 	    </trigger>
@@ -286,14 +290,17 @@ Un fichier MAST vous permet de spécifier les déclencheurs qui définissent le 
 	    <trigger id="midroll" description="midroll at 15 sec."  >
 	      <startConditions>
 	        <condition type="property" name="Position" value="00:00:15.0" operator="GEQ" />
+
 	      </startConditions>
 	      <endConditions>
 	        <condition type="event" name="OnItemEnd"/>
+
 	        <!--This 'resets' the trigger for the next clip-->
 	      </endConditions>
 	      <sources>
 	        <source uri="http://smf.blob.core.windows.net/samples/win8/ads/vast_linear.xml" format="vast">
 	          <sources />
+
 	        </source>
 	      </sources>
 	    </trigger>
@@ -301,10 +308,12 @@ Un fichier MAST vous permet de spécifier les déclencheurs qui définissent le 
 	    <trigger id="postroll" description="postroll"  >
 	      <startConditions>
 	        <condition type="event" name="OnItemEnd"/>
+
 	      </startConditions>
 	      <sources>
 	        <source uri="http://smf.blob.core.windows.net/samples/win8/ads/vast_linear.xml" format="vast">
 	          <sources />
+
 	        </source>
 	      </sources>
 	    </trigger>
@@ -328,10 +337,12 @@ L’élément **<trigger>** contient un élément **<startConditions>** qui spé
 	<trigger id="postroll" description="postroll"  >
       <startConditions>
         <condition/>
+
       </startConditions>
       <sources>
         <source uri="http://smf.blob.core.windows.net/samples/win8/ads/vast_linear.xml" format="vast">
           <sources />
+
         </source>
       </sources>
     </trigger>
@@ -387,12 +398,14 @@ Cet exemple utilise AdSchedulerPlugin pour définir quand afficher une publicit�
 	                <ads:MidrollAdvertisement Time="00:00:05">
 	                    <ads:MidrollAdvertisement.Source>
 	                        <ads:RemoteAdSource Uri="http://smf.blob.core.windows.net/samples/win8/ads/vast_adpod.xml" Type="vast"/>
+
 	                    </ads:MidrollAdvertisement.Source>
 	                </ads:MidrollAdvertisement>
 	
 	            </ads:AdSchedulerPlugin.Advertisements>
 	        </ads:AdSchedulerPlugin>
 	        <ads:AdHandlerPlugin/>
+
 	    </mmppf:MediaPlayer.Plugins>
 	</mmppf:MediaPlayer>
 
@@ -410,24 +423,28 @@ Cet exemple utilise également AdSchedulerPlugin. Il planifie trois publicités,
 	                        <ads:PrerollAdvertisement>
 	                            <ads:PrerollAdvertisement.Source>
 	                                <ads:RemoteAdSource Uri="http://smf.blob.core.windows.net/samples/win8/ads/vast_linear.xml" Type="vast"/>
+
 	                            </ads:PrerollAdvertisement.Source>
 	                        </ads:PrerollAdvertisement>
 	
 	                        <ads:MidrollAdvertisement Time="00:00:15">
 	                            <ads:MidrollAdvertisement.Source>
 	                                <ads:RemoteAdSource Uri="http://smf.blob.core.windows.net/samples/win8/ads/vast_linear.xml" Type="vast"/>
+
 	                            </ads:MidrollAdvertisement.Source>
 	                        </ads:MidrollAdvertisement>
 	
 	                        <ads:PostrollAdvertisement>
 	                            <ads:PostrollAdvertisement.Source>
 	                                <ads:RemoteAdSource Uri="http://smf.blob.core.windows.net/samples/win8/ads/vast_linear.xml" Type="vast"/>
+
 	                            </ads:PostrollAdvertisement.Source>
 	                        </ads:PostrollAdvertisement>
 	
 	                    </ads:AdSchedulerPlugin.Advertisements>
 	                </ads:AdSchedulerPlugin>
 	                <ads:AdHandlerPlugin/>
+
 	            </mmppf:MediaPlayer.Plugins>
 	        </mmppf:MediaPlayer>
 
@@ -439,7 +456,9 @@ Cet exemple utilise FreeWheelPlugin qui spécifie un attribut Source, lequel ind
 	<mmppf:MediaPlayer x:Name="player" Source="http://smf.blob.core.windows.net/samples/videos/bigbuck.mp4">
 	            <mmppf:MediaPlayer.Plugins>
 	                <ads:FreeWheelPlugin Source="http://smf.blob.core.windows.net/samples/win8/ads/freewheel.xml"/>
+
 	                <ads:AdHandlerPlugin/>
+
 	            </mmppf:MediaPlayer.Plugins>
 	        </mmppf:MediaPlayer>
 
@@ -450,7 +469,9 @@ Cet exemple utilise MastSchedulerPlugin qui vous permet d’employer un fichier 
 	<mmppf:MediaPlayer x:Name="player" Source="http://smf.blob.core.windows.net/samples/videos/bigbuck.mp4">
 	            <mmppf:MediaPlayer.Plugins>
 	                <ads:MastSchedulerPlugin Source="http://smf.blob.core.windows.net/samples/win8/ads/mast.xml" />
+
 	                <ads:AdHandlerPlugin/>
+
 	            </mmppf:MediaPlayer.Plugins>
 	        </mmppf:MediaPlayer>
 
@@ -459,6 +480,7 @@ Cet exemple utilise MastSchedulerPlugin qui vous permet d’employer un fichier 
 Cet exemple interagit par programmation avec MediaPlayer. Le fichier ProgrammaticAdPage.xaml instancie MediaPlayer :
 
 	<mmppf:MediaPlayer x:Name="player" Source="http://smf.blob.core.windows.net/samples/videos/bigbuck.mp4"/>
+
 
 Le fichier ProgrammaticAdPage.xaml.cs crée un AdHandlerPlugin, ajoute un TimelineMarker pour indiquer le moment où la publicité doit être affichée, puis ajoute un gestionnaire pour l’événement MarkerReached qui charge un RemoteAdSource spécifiant un URI vers un fichier VAST. Enfin, il diffuse la publicité.
 	
@@ -504,6 +526,7 @@ Cet exemple utilise AdSchedulerPlugin pour planifier une publicité mi-bande en 
 	                                <ads:AdSource Type="clip">
 	                                    <ads:AdSource.Payload>
 	                                        <ads:ClipAdPayload MediaSource="http://smf.blob.core.windows.net/samples/ads/media/XBOX_HD_DEMO_700_2_000_700_4x3.wmv" MimeType="video/x-ms-wmv" />
+
 	                                    </ads:AdSource.Payload>
 	                                </ads:AdSource>
 	                            </ads:MidrollAdvertisement.Source>
@@ -512,6 +535,7 @@ Cet exemple utilise AdSchedulerPlugin pour planifier une publicité mi-bande en 
 	                    </ads:AdSchedulerPlugin.Advertisements>
 	                </ads:AdSchedulerPlugin>
 	                <ads:AdHandlerPlugin/>
+
 	            </mmppf:MediaPlayer.Plugins>
 	        </mmppf:MediaPlayer>
 
@@ -527,12 +551,14 @@ Cet exemple montre comment utiliser AdSchedulerPlugin pour planifier une publici
 	                        <ads:MidrollAdvertisement Time="00:00:05">
 	                            <ads:MidrollAdvertisement.Source>
 	                                <ads:RemoteAdSource Uri="http://smf.blob.core.windows.net/samples/win8/ads/vast_linear_companions.xml" Type="vast"/>
+
 	                            </ads:MidrollAdvertisement.Source>
 	                        </ads:MidrollAdvertisement>
 	
 	                    </ads:AdSchedulerPlugin.Advertisements>
 	                </ads:AdSchedulerPlugin>
 	                <ads:AdHandlerPlugin/>
+
 	            </mmppf:MediaPlayer.Plugins>
 	        </mmppf:MediaPlayer>
 
@@ -548,12 +574,14 @@ Cet exemple utilise AdSchedulerPlugin pour planifier une publicité linéaire et
 	                        <ads:MidrollAdvertisement Time="00:00:05">
 	                            <ads:MidrollAdvertisement.Source>
 	                                <ads:RemoteAdSource Uri="http://smf.blob.core.windows.net/samples/win8/ads/vast_linear_nonlinear.xml" Type="vast"/>
+
 	                            </ads:MidrollAdvertisement.Source>
 	                        </ads:MidrollAdvertisement>
 	                        
 	                    </ads:AdSchedulerPlugin.Advertisements>
 	                </ads:AdSchedulerPlugin>
 	                <ads:AdHandlerPlugin/>
+
 	            </mmppf:MediaPlayer.Plugins>
 	        </mmppf:MediaPlayer>
 
@@ -564,7 +592,9 @@ Cet exemple utilise VmapSchedulerPlugin pour planifier des publicités à l’ai
 	<mmppf:MediaPlayer x:Name="player" Source="http://smf.blob.core.windows.net/samples/videos/bigbuck.mp4">
 	            <mmppf:MediaPlayer.Plugins>
 	                <ads:VmapSchedulerPlugin Source="http://smf.blob.core.windows.net/samples/win8/ads/vmap.xml"/>
+
 	                <ads:AdHandlerPlugin/>
+
 	            </mmppf:MediaPlayer.Plugins>
 	        </mmppf:MediaPlayer>
 
@@ -624,7 +654,7 @@ L’exemple ci-dessous montre comment planifier une publicité VAST à liaison t
         [self logFrameworkError];
     }
          
-   L’exemple ci-dessous montre comment planifier une publicité VAST à liaison anticipée. //Example:4 Schedule an early binding VAST ad //Download the VAST file if (![framework.adResolver downloadManifest:&manifest withURL:[NSURL URLWithString:@"http://portalvhdsq3m25bf47d15c.blob.core.windows.net/vast/PlayerTestVAST.xml"]]) { [self logFrameworkError]; } else { adLinearTime.startTime = 7; adLinearTime.duration = 0;
+   L’exemple ci-dessous montre comment planifier une publicité VAST à liaison anticipée. //Example:4 Schedule an early binding VAST ad //Download the VAST file if (![framework.adResolver downloadManifest:&manifest withURL:[NSURL URLWithString:@"http://portalvhdsq3m25bf47d15c.blob.core.windows.net/vast/PlayerTestVAST.xml"\]\]) { [self logFrameworkError\]; } else { adLinearTime.startTime = 7; adLinearTime.duration = 0;
         
 		// Create AdInfo instance
 	    AdInfo *vastAdInfo2 = [[[AdInfo alloc] init] autorelease];
@@ -804,4 +834,4 @@ L’exemple ci-dessous montre comment planifier une publicité mi-bande de recou
 
 [Développer des applications de lecteur vidéo](media-services-develop-video-players.md) [Présentation de l’infrastructure de lecteur Azure Media Player Framework pour iOS](https://channel9.msdn.com/Series/Windows-Azure-Media-Services-Tutorials/An-introduction-to-Azure-Media-Player-Framework-for-IOS)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Contenu du Kit de développement logiciel (SDK) Azure Mobile Engagement pour iOS" 
+<properties
+	pageTitle="Contenu du Kit de développement logiciel (SDK) Azure Mobile Engagement pour iOS"
 	description="Dernières mises à jour et procédures du Kit de développement logiciel (SDK) iOS pour Azure Mobile Engagement"
-	services="mobile-engagement" 
-	documentationCenter="mobile" 
-	authors="kpiteira" 
-	manager="dwrede" 
+	services="mobile-engagement"
+	documentationCenter="mobile"
+	authors="MehrdadMzfr"
+	manager="dwrede"
 	editor="" />
 
-<tags 
-	ms.service="mobile-engagement" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-ios" 
-	ms.devlang="objective-c" 
-	ms.topic="article" 
-	ms.date="02/12/2015" 
+<tags
+	ms.service="mobile-engagement"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-ios"
+	ms.devlang="objective-c"
+	ms.topic="article"
+	ms.date="08/05/2015"
 	ms.author="kapiteir" />
 
 #Contenu du Kit de développement logiciel (SDK)
@@ -41,6 +41,5 @@ Ce document répertorie et décrit le contenu de l'archive du SDK.
 Dossier `src`
 
 > Contrôleurs d'affichage Engagement et code source du Kit de développement logiciel (SDK) Reach (pour les utilisateurs avec pouvoir qui veulent adapter les classes Engagement à leurs besoins).
- 
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

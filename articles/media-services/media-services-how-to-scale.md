@@ -47,4 +47,4 @@ Pour plus d’informations, consultez les pages [Gestion des éléments multimé
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

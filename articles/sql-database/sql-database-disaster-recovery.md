@@ -101,4 +101,4 @@ Utilisez REST pour exécuter la récupération de base de données par programma
 Une fois la base de données récupérée, vous pouvez la configurer pour l'utiliser en suivant le guide [Finaliser une base de données récupérée](sql-database-recovered-finalize.md).
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

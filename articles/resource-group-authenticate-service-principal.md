@@ -158,4 +158,4 @@ Si Azure CLI pour Mac, Linux et Windows n’est pas installé sur votre système
 <!-- Images. -->
 [1]: ./media/resource-group-authenticate-service-principal/arm-get-credential.png
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

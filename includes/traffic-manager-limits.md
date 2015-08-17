@@ -1,4 +1,6 @@
-Resource| Default limit
----|---
-Profiles per subscription | 100
-Endpoints per profile| 200
+| Ressource | Limite par défaut
+--- | ---
+| Profils par abonnement | 100
+| Points de terminaison par profil| 200
+
+<!---HONumber=August15_HO6-->

@@ -7,6 +7,7 @@
 	manager="dwrede" 
 	editor=""/>
 
+
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
@@ -15,6 +16,7 @@
 	ms.topic="article" 
 	ms.date="06/27/2015" 
 	ms.author="glenga"/>
+
 
 # Inscription des applications pour l'authentification Facebook avec Mobile Services
 
@@ -73,4 +75,4 @@ Vous pouvez désormais utiliser une connexion Facebook pour l'authentification d
 [Azure Mobile Services]: http://azure.microsoft.com/services/mobile-services/
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

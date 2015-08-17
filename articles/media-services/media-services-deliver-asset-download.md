@@ -76,4 +76,4 @@ Cet exemple montre comment télécharger des éléments multimédias depuis Medi
 
 [de diffusion de contenu en continu](media-services-deliver-streaming-content.md)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

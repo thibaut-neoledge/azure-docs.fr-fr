@@ -1,11 +1,12 @@
 <properties
-   pageTitle="Réentrance Azure Service Fabric Actors"
-   description="Introduction à la réentrance pour Azure Service Fabric Actors"
+   pageTitle="Réentrance des Acteurs fiables"
+   description="Présentation de la réentrance pour les Acteurs fiables Service Fabric"
    services="service-fabric"
    documentationCenter=".net"
    authors="jessebenson"
    manager="timlt"
    editor=""/>
+
 
 <tags
    ms.service="service-fabric"
@@ -13,11 +14,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="07/09/2015"
+   ms.date="08/05/2015"
    ms.author="amanbha"/>
 
 
-# Réentrance des acteurs
+
+# Réentrance des Acteurs fiables
 Par défaut, Fabric Actors autorise une réentrance des appels logiques selon le contexte. Cela permet de réentrer des acteurs s'ils se trouvent dans la même chaîne de contexte d'appel. Par exemple, si un acteur A envoie un message à un acteur B qui envoie le message à un acteur C. Dans le cadre du traitement du message, si l'acteur C appelle l'acteur A, le message est réentrant et donc autorisé. Tout autre message faisant partie d'un contexte d'appel différent sera bloqué au niveau de l'acteur A jusqu'à ce qu'il termine le traitement.
 
 Les acteurs qui souhaitent désactiver la réentrance des appels logiques selon le contexte peuvent le faire en affectant l'attribut `ReentrantAttribute(ReentrancyMode.Disallowed)` à la classe d'acteur.
@@ -39,6 +41,5 @@ class VoicemailBoxActor : Actor<VoicemailBox>, IVoicemailBoxActor
     ...
 }
 ```
- 
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -7,6 +7,7 @@
 	editor="" 
 	services="mobile-services"/>
 
+
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
@@ -15,6 +16,7 @@
 	ms.topic="article" 
 	ms.date="04/16/2015" 
 	ms.author="wesmc;donnam"/>
+
 
 # Utilisation de la synchronisation des données hors connexion dans Mobile Services
 
@@ -294,4 +296,4 @@ Dans cette section, vous allez tester les opérations Push et Pull pour synchron
 [SQLite store nuget]: http://www.nuget.org/packages/WindowsAzure.MobileServices.SQLiteStore/1.0.0
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

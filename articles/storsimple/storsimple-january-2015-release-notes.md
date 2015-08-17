@@ -78,4 +78,4 @@ Cette version contient une image mise à jour pour l’appareil virtuel. Tous le
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

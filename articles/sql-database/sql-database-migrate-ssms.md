@@ -71,4 +71,4 @@ Le processus de déploiement peut être divisé en deux étapes : l’exportati
 ##Autres solutions
 Vous pouvez également utiliser l’utilitaire de ligne de commande appelé sqlpackage.exe pour déployer la base de données, ou exporter et importer un fichier BACPAC. L’utilitaire sqlpackage.exe utilise la même technologie DAC que le logiciel SSMS ; le résultat est donc le même. Pour plus d’informations, consultez [SqlPackage.exe sur MSDN](https://msdn.microsoft.com/library/hh550080.aspx).
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

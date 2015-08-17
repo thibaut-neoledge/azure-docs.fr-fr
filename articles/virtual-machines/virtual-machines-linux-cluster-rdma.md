@@ -339,4 +339,4 @@ Vous devez voir une sortie similaire à ce qui suit sur un cluster opérationnel
 
 * Consultez la [documentation de la bibliothèque Intel MPI](https://software.intel.com/fr-fr/articles/intel-mpi-library-documentation/) pour obtenir des conseils sur Intel MPI.
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

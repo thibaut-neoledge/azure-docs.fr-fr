@@ -1,11 +1,12 @@
 <properties
-   pageTitle="Cycle de vie d'Azure Service Fabric Actors"
-   description="Explique le cycle de vie et le Garbage Collection d'Azure Service Fabric Actors"
+   pageTitle="Cycle de vie des Acteurs fiables"
+   description="Explique le cycle de vie et le Garbage Collection pour les Acteurs fiables Service Fabric"
    services="service-fabric"
    documentationCenter=".net"
    authors="jessebenson"
    manager="timlt"
    editor=""/>
+
 
 <tags
    ms.service="service-fabric"
@@ -13,11 +14,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="07/09/2015"
+   ms.date="08/05/2015"
    ms.author="amanbha"/>
 
 
-#Cycle de vie des acteurs et Garbage Collection
+
+# Cycle de vie des acteurs et Garbage Collection
 Un acteur est activé quand il est appelé pour la première fois et il est désactivé (fait l'objet d'un Garbage Collection par le runtime Actors) s'il n'est pas utilisé pendant un certain temps. Pour configurer cette période de temps, consultez la section Garbage Collection des acteurs ci-dessous.
 
 Que se passe-t-il lors de l'activation d'un acteur ?
@@ -89,6 +91,5 @@ Notez qu'un acteur ne peut jamais faire l'objet d'un Garbage Collection quand il
 
 <!--Image references-->
 [1]: ./media/service-fabric-reliable-actors-lifecycle/garbage-collection.png
- 
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

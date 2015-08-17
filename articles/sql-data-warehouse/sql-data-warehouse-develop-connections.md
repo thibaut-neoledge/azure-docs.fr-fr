@@ -83,12 +83,12 @@ SQL Data Warehouse standardise quelques paramètres pendant la connexion et la c
 
 | Paramètre de base de données | Valeur |
 | :----------------- | :--------------------------- |
-| ANSI_NULLS | ACTIVÉ |
-| QUOTED_IDENTIFIERS | ACTIVÉ |
-| NO_COUNT | DÉSACTIVÉ |
+| ANSI\_NULLS | ACTIVÉ |
+| QUOTED\_IDENTIFIERS | ACTIVÉ |
+| NO\_COUNT | DÉSACTIVÉ |
 | DATEFORMAT | mdy |
 | DATEFIRST | 7 |
-| Classement de base de données | SQL_Latin1_General_CP1_CI_AS |
+| Classement de base de données | SQL\_Latin1\_General\_CP1\_CI\_AS |
 
 ## Sessions et demandes
 Une fois qu’une connexion et qu’une session ont été établies, vous êtes prêt à écrire et à soumettre des requêtes à SQL Data Warehouse.
@@ -158,4 +158,4 @@ Une fois connecté, vous pouvez commencer à concevoir vos tables. Pour plus d�
 
 <!--Other references-->
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

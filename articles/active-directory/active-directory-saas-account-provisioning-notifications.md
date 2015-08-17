@@ -7,6 +7,7 @@
 	manager="swadhwa"
 	editor=""/>
 
+
 <tags
 	ms.service="active-directory"
 	ms.workload="identity"
@@ -15,6 +16,7 @@
 	ms.topic="article"
 	ms.date="07/27/2015"
 	ms.author="markusvi"/>
+
 
 
 # Notifications d’approvisionnement de comptes
@@ -40,15 +42,10 @@ Vous pouvez entrer une liste de distribution comme destinataire ; toutefois, il
 Si vous avez activé les notifications d’approvisionnement de comptes, vous recevrez des messages électroniques à propos des problèmes critiques liés à l’approvisionnement des utilisateurs. Cependant, pour éviter une surcharge de courrier électronique, vous recevrez un seul message de notification par jour pour chaque application SaaS pour laquelle la notification par courrier électronique est activée.
 
 
-
-
-## Ressources supplémentaires
-
-* [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md)
-
+[AZURE.INCLUDE [saas-toc](../../includes/active-directory-saas-toc.md)]
 
 <!--Image references-->
 [1]: ./media/active-directory-saas-account-provisioning-notifications/ic766307.png
 [2]: ./media/active-directory-saas-account-provisioning-notifications/ic766308.png
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

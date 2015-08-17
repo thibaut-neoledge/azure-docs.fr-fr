@@ -217,4 +217,4 @@ Votre service mobile est maintenant configuré dans AAD de manière à accepter 
 [Prise en main de Mobile Services]: mobile-services-dotnet-backend-windows-store-dotnet-get-started.md
 [Tableau de bord du centre de développement Windows]: http://go.microsoft.com/fwlink/p/?LinkID=266734
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

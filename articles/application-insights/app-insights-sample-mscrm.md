@@ -3,8 +3,8 @@
 	description="Obtenez des données de télémétrie à partir de Microsoft CRM Online à l’aide d’Application Insights. Procédure pas à pas de configuration, obtention de données, visualisation et exportation." 
 	services="application-insights" 
     documentationCenter=""
-	authors="alancameronwills" 
-	manager="douge"/>
+	authors="mazharmicrosoft" 
+	manager="klin"/>
 
 <tags 
 	ms.service="application-insights" 
@@ -12,16 +12,18 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/23/2015" 
+	ms.date="08/04/2015" 
 	ms.author="awills"/>
  
 # Procédure pas à pas : activation de télémétrie pour Microsoft CRM Online à l’aide d’Application Insights
 
 Cet article montre comment obtenir des données de télémétrie à partir de [Microsoft CRM Online](https://www.dynamics.com/) à l’aide de [Visual Studio Application Insights](https://azure.microsoft.com/services/application-insights/). Nous explorerons le processus complet d’ajout de script Application Insights à votre application, de capture de données et de visualisation des données.
 
+>[AZURE.NOTE] [Browse the sample code](https://dynamicsandappinsights.codeplex.com/).
+
 ## Ajouter Application Insights à une instance de CRM Online nouvelle ou existante 
 
-Pour analyser votre application, vous devez y ajouter un Kit de développement logiciel (SDK) Application Insights. Le Kit SDK envoie les données de télémétrie au [portail Application Insights](https://portal.azure.com), où vous pouvez utiliser nos puissants outils de diagnostic et d’analyse ou exporter les données vers un emplacement de stockage.
+Pour analyser votre application, vous devez y ajouter un Kit de développement logiciel (SDK) Application Insights. Le kit de développement logiciel (SDK) envoie les données de télémétrie au [portail Application Insights](https://portal.azure.com), où vous pouvez utiliser nos puissants outils de diagnostic et d’analyse ou exporter les données vers un emplacement de stockage.
 
 ### Créer une ressource Application Insights dans Azure
 
@@ -139,15 +141,24 @@ Cliquez sur le graphique pour obtenir plus de détails :
 
 ![](./media/app-insights-sample-mscrm/30.png)
 
+## Exemple de code
+
+[Parcourez l'exemple de code](https://dynamicsandappinsights.codeplex.com/).
+
 ## Power BI
 
 Vous pouvez effectuer une analyse encore plus approfondie si vous [exportez les données vers Microsoft Power BI](app-insights-export-power-bi.md).
+
+## Exemple de solution CRM
+
+Voici l’exemple de solution implémentée dans le CRM pour commencer à capturer Telemetry.https://dynamicsandappinsights.codeplex.com/
 
 ## En savoir plus
 
 * [Présentation d’Application Insights](app-insights-overview.md)
 * [Application Insights pour les pages web](app-insights-javascript.md)
+* [Plus d'exemples et de procédures pas à pas](app-insights-code-samples.md)
 
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

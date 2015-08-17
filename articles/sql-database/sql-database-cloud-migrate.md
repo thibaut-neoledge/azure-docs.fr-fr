@@ -82,4 +82,4 @@ Utilisez la [dernière version de SQL Server Data Tools pour Visual Studio](http
 
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

@@ -2,7 +2,6 @@
 	pageTitle="Utilisation d’un service web Microsoft Azure Machine Learning | Microsoft Azure" 
 	description="Lorsqu’un service Machine Learning (ML) est publié, le service web RESTful qui est mis à disposition peut être exploité en temps que service requête-réponse ou d’exécution de lot." 
 	services="machine-learning" 
-	solutions="big-data" 
 	documentationCenter="" 
 	authors="bradsev" 
 	manager="paulettm" 
@@ -434,4 +433,4 @@ L'exemple de code ci-dessous montre comment vous pouvez soumettre et surveiller 
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -1,22 +1,22 @@
-## Column mapping with translator rules
-Column mapping can be used to specify how columns specified in the “structure” of source table map to columns specified in the “structure” of sink table. The **columnMapping** property is available in the **typeProperties** section of the Copy activity.
+## Mappage de colonnes avec règles de conversion
+Le mappage de colonnes peut être utilisé pour spécifier la façon dont les colonnes spécifiées dans la « structure » de la table source sont mappées vers les colonnes spécifiées dans la « structure » de la table du récepteur. La propriété **columnMapping** est disponible dans la section **typeProperties** de l’activité de copie.
 
-Column mapping supports the following scenarios:
+Le mappage de colonnes prend en charge les scénarios suivants :
 
-1.	All columns in the source table “structure” are mapped to all columns in the sink table “structure”.
-2.	A subset of the columns in the source table “structure” are mapped to all columns in the sink table “structure”.
+1.	Toutes les colonnes de la « structure » de la table source sont mappées vers toutes les colonnes de la « structure » de la table du récepteur.
+2.	Un sous-ensemble des colonnes de la « structure » de la table source sont mappées vers toutes les colonnes de la « structure » de la table du récepteur.
 
-The following are error conditions and will result in an exception:
+Voici une liste de conditions d’erreur qui entraîneront la levée d’une exception :
 
-1.	Either fewer columns or more columns in the “structure” of sink table than specified in the mapping.
-2.	Duplicate mapping.
-3.	SQL query result does not have a column name that is specified in the mapping.
+1.	La « structure » de la table du récepteur contient un nombre de colonnes inférieur ou supérieur à celui spécifié par le mappage de colonnes.
+2.	Mappage en double.
+3.	Le résultat de la requête SQL ne comprend pas de nom de colonne qui soit spécifié dans le mappage.
 
-## Column mapping samples
-> [AZURE.NOTE] The samples below are for Azure SQL and Azure Blob but are applicable in the same way for any data store that supports rectangular tables. You will have to adjust dataset and linked service definitions in examples below to point to data in the relevant data source.
+## Exemples de mappages de colonnes
+> [AZURE.NOTE]Les exemples ci-dessous concernent SQL Azure et les objets blob Azure, mais sont applicables à tout autre magasin de données prenant en charge les tables de données rectangulaires. Vous devrez ajuster les définitions du jeu de données et du service lié dans les exemples ci-dessous pour pointer vers les données de la source de requise.
 
-### Sample 1 – column mapping from Azure SQL to Azure blob
-In this sample, the input table has a structure and it points to a SQL table in an Azure SQL database.
+### Exemple 1 : mappage de colonnes depuis SQL Azure vers un objet blob Azure
+Dans cet exemple, la table d’entrée possède une structure et pointe vers une table SQL comprise dans une base de données SQL Azure.
 
 	{
 	    "name": "AzureSQLInput",
@@ -47,7 +47,7 @@ In this sample, the input table has a structure and it points to a SQL table in 
 	    }
 	}
 
-In this sample, the output table has a structure and it points to a blob in an Azure blob storage.
+Dans cet exemple, la table de sortie possède une structure et pointe vers un objet blob compris dans un stockage d’objets blob Azure.
 
 	{
 	    "name": " AzureBlobOutput",
@@ -78,7 +78,7 @@ In this sample, the output table has a structure and it points to a blob in an A
 	    }
 	}
 
-The JSON for the activity is shown below. The columns from source mapped to columns in sink (**columnMappings**) by using **Translator** property.
+Le code JSON de cette activité est fourni ci-dessous. Colonnes de la source mappées vers les colonnes du récepteur (**columnMappings**) en utilisant la propriété **Translator**.
 
 	{
 	    "name": "CopyActivity",
@@ -107,12 +107,12 @@ The JSON for the activity is shown below. The columns from source mapped to colu
 	        }
 	}
 
-**Column mapping flow:**
+**Flux du mappage de colonnes** :
 
-![Column mapping flow](./media/data-factory-data-stores-with-rectangular-tables/column-mapping-flow.png)
+![Flux du mappage de colonnes](./media/data-factory-data-stores-with-rectangular-tables/column-mapping-flow.png)
 
-### Sample 2 – column mapping with SQL query from Azure SQL to Azure blob
-In this sample, a SQL query is used to extract data from Azure SQL instead of simply specifying the table name and the column names in “structure” section. 
+### Exemple 2 : mappage de colonnes à l’aide d’une requête SQL depuis SQL Azure vers un objet blob Azure
+Dans cet exemple, une requête SQL est utilisée pour extraire des données de SQL Azure au lieu de simplement spécifier le nom de la table et le nom des colonnes dans la section « structure ».
 
 	{
 	    "name": "CopyActivity",
@@ -143,15 +143,10 @@ In this sample, a SQL query is used to extract data from Azure SQL instead of si
 	        }
 	}
 
-In this case, the query results are first mapped to columns specified in “structure” of source. Next, the columns from source “structure” are mapped to columns in sink “structure” with rules specified in columnMappings.  Suppose the query returns 5 columns, two additional columns then those specified in the “structure” of source.
+Dans ce cas, les résultats de la requête sont d’abord mappés vers les colonnes spécifiées dans la « structure » de la source. Ensuite, les colonnes de la « structure » de la source sont mappées vers les colonnes de la « structure » du récepteur avec les règles spécifiées dans columnMappings. Supposons que la requête retourne cinq colonnes, c’est-à-dire deux colonnes de plus que celles spécifiées dans la « structure » de la source.
 
-**Column mapping flow**
+**Flux du mappage de colonnes**
 
-![Column mapping flow-2](./media/data-factory-data-stores-with-rectangular-tables/column-mapping-flow-2.png)
+![Flux du mappage de colonnes 2](./media/data-factory-data-stores-with-rectangular-tables/column-mapping-flow-2.png)
 
-
-
-
-
-
-
+<!---HONumber=August15_HO6-->

@@ -246,4 +246,4 @@ Utilisez l’analyse de données volumineuses sur les données de votre organisa
 [zookeeper]: http://zookeeper.apache.org/
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -7,6 +7,7 @@
    manager="jeffreyg" 
    editor="monicar"/>
 
+
 <tags
    ms.service="sql-database"
    ms.devlang="na"
@@ -15,6 +16,7 @@
    ms.workload="data-management" 
    ms.date="06/30/2015"
    ms.author="sstein"/>
+
 
 # Assistant Index de base de données SQL
 
@@ -37,7 +39,7 @@ L’assistant Index est actuellement disponible en version préliminaire. Il pr�
 - Les recommandations d’index ne peuvent être créées et validées que pour des serveurs V12 (les recommandations et les scripts de création d’index sont fournis pour les serveurs V12).
 - Les recommandations et les outils de gestion sont disponibles pour les index non cluster uniquement.
 
-## Conditions préalables
+## Composants requis
 
 Pour afficher et créer des recommandations d’index, vous devez disposer des autorisations de [contrôle d’accès basé sur les rôles](role-based-access-control-configure.md) adéquates dans Azure.
 
@@ -122,9 +124,9 @@ Sélectionnez un index recommandé dans le portail, puis cliquez sur **Afficher 
 
 ### Annulation de la création d’index
 
-Vous pouvez annuler les index dont l’état est **En attente**. Vous ne pouvez pas annuler les index qui sont en cours de création (état **En cours d’exécution**).
+Vous pouvez annuler les index dont l’état est **En attente**. Vous ne pouvez pas annuler les index en cours de création (état **En cours d’exécution**).
 
-1. Sélectionnez un index **En attente** dans la zone **Opérations d’index** pour ouvrir le volet **Détails sur l’Index**.
+1. Sélectionnez un index **En attente** dans la zone **Opérations d’index** pour ouvrir le volet **Détails sur l’index**.
 1. Cliquez sur **Annuler** pour abandonner le processus de création d’index.
 
 ## Surveillance des opérations d’index après la création d’index
@@ -171,4 +173,4 @@ Surveillez vos recommandations d’index et continuez à les appliquer pour affi
 [3]: ./media/sql-database-index-advisor/recommended-indexes.png
 [4]: ./media/sql-database-index-advisor/index-operations.png
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

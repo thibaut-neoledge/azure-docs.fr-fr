@@ -210,13 +210,13 @@ Pour optimiser les paramètres du serveur MySQL, vous pouvez mettre à jour le f
 
 Les éléments de configuration suivants sont les principaux facteurs qui ont une incidence sur les performances de MySQL :
 
--	**innodb_buffer_pool_size** : le pool de mémoires tampons contient les données mises en mémoire tampon et l’index. Il est généralement défini sur 70 % de la mémoire physique.
--	**innodb_log_file_size** : il s’agit de la taille du journal de rétablissement. Vous utilisez des journaux de rétablissement pour vous assurer que les opérations d’écriture sont rapides, fiables et récupérables après une panne. Il est défini sur 512 Mo, afin de vous donner suffisamment d’espace disque pour la journalisation des opérations d’écriture.
--	**max_connections** : parfois, les applications ne ferment pas les connexions correctement. Une valeur supérieure accordera au serveur davantage de temps pour recycler les connexions inactives. Le nombre maximal de connexions est de 10 000, mais le maximum recommandé est de 5000.
--	**Innodb_file_per_table** : ce paramètre active ou désactive la capacité de InnoDB de stocker des tables dans des fichiers distincts. Activer l’option garantit que plusieurs opérations d’administration avancées peuvent être appliquées efficacement. Du point de vue des performances, elle peut accélérer la transmission d’espace de table et optimiser les performances de gestion de débris. Par conséquent, le paramètre recommandé est ON.</br> À partir de MySQL 5.6, le paramètre par défaut est ON. Par conséquent, aucune action n’est requise. Pour les versions antérieures à 5.6, le paramètre par défaut est OFF. Il convient de le définir sur ON, et ce avant le chargement des données, étant donné que seules les tables nouvellement créées sont affectées.
--	**innodb_flush_log_at_trx_commit** : la valeur par défaut est 1 et l’étendue 0~2. La valeur par défaut est l’option la plus adaptée pour une base de données MySQL autonome. Choisir 2 offre la meilleure intégrité des données et convient à Master dans le cluster MySQL. Choisir 0 autorise la perte de données, ce qui peut avoir une incidence sur la fiabilité, dans certains cas avec de meilleures performances et convient à Slave dans le cluster MySQL.
--	**Innodb_log_buffer_size** : le tampon journal autorise les transactions à s’exécuter, sans avoir à vider le journal sur le disque avant la validation des transactions. Toutefois, s’il existe des objets binaires ou un champ de texte volumineux, le cache est consommé très rapidement et des E/S disque fréquentes seront déclenchées. Il est préférable d’augmenter la taille de la mémoire tampon si la variable d’état Innodb_log_waits n’est pas 0.
--	**query_cache_size** : le meilleur choix consiste à la désactiver dès le départ. Définissez query_cache_size sur 0 (ce qui est maintenant le paramètre par défaut dans MySQL 5.6) et utilisez d’autres méthodes pour accélérer les requêtes.  
+-	**innodb\_buffer\_pool\_size** : le pool de mémoires tampons contient les données mises en mémoire tampon et l’index. Il est généralement défini sur 70 % de la mémoire physique.
+-	**innodb\_log\_file\_size** : il s’agit de la taille du journal de rétablissement. Vous utilisez des journaux de rétablissement pour vous assurer que les opérations d’écriture sont rapides, fiables et récupérables après une panne. Il est défini sur 512 Mo, afin de vous donner suffisamment d’espace disque pour la journalisation des opérations d’écriture.
+-	**max\_connections** : parfois, les applications ne ferment pas les connexions correctement. Une valeur supérieure accordera au serveur davantage de temps pour recycler les connexions inactives. Le nombre maximal de connexions est de 10 000, mais le maximum recommandé est de 5000.
+-	**Innodb\_file\_per\_table** : ce paramètre active ou désactive la capacité de InnoDB de stocker des tables dans des fichiers distincts. Activer l’option garantit que plusieurs opérations d’administration avancées peuvent être appliquées efficacement. Du point de vue des performances, elle peut accélérer la transmission d’espace de table et optimiser les performances de gestion de débris. Par conséquent, le paramètre recommandé est ON.</br> À partir de MySQL 5.6, le paramètre par défaut est ON. Par conséquent, aucune action n’est requise. Pour les versions antérieures à 5.6, le paramètre par défaut est OFF. Il convient de le définir sur ON, et ce avant le chargement des données, étant donné que seules les tables nouvellement créées sont affectées.
+-	**innodb\_flush\_log\_at\_trx\_commit** : la valeur par défaut est 1 et l’étendue 0\~2. La valeur par défaut est l’option la plus adaptée pour une base de données MySQL autonome. Choisir 2 offre la meilleure intégrité des données et convient à Master dans le cluster MySQL. Choisir 0 autorise la perte de données, ce qui peut avoir une incidence sur la fiabilité, dans certains cas avec de meilleures performances et convient à Slave dans le cluster MySQL.
+-	**Innodb\_log\_buffer\_size** : le tampon journal autorise les transactions à s’exécuter, sans avoir à vider le journal sur le disque avant la validation des transactions. Toutefois, s’il existe des objets binaires ou un champ de texte volumineux, le cache est consommé très rapidement et des E/S disque fréquentes seront déclenchées. Il est préférable d’augmenter la taille de la mémoire tampon si la variable d’état Innodb\_log\_waits n’est pas 0.
+-	**query\_cache\_size** : le meilleur choix consiste à la désactiver dès le départ. Définissez query\_cache\_size sur 0 (ce qui est maintenant le paramètre par défaut dans MySQL 5.6) et utilisez d’autres méthodes pour accélérer les requêtes.  
   
 Voir l’[annexe D](#AppendixD) pour une comparaison de performances après l’optimisation.
 
@@ -303,20 +303,20 @@ La taille des fichiers utilisés pour ce test est de 30 Go et 1 Go respectivem
 
 |Paramètres |Default |Optimisation
 |-----------|-----------|-----------
-|**innodb_buffer_pool_size** |Aucun |7 Go
-|**innodb_log_file_size** |5 Mo |512 Mo
-|**max_connections** |100 |5 000
-|**innodb_file_per_table** |0 |1
-|**innodb_flush_log_at_trx_commit** |1 |2
-|**innodb_log_buffer_size** |8 Mo |128 Mo
-|**query_cache_size** |16 Mo |0
+|**innodb\_buffer\_pool\_size** |Aucun |7 Go
+|**innodb\_log\_file\_size** |5 Mo |512 Mo
+|**max\_connections** |100 |5 000
+|**innodb\_file\_per\_table** |0 |1
+|**innodb\_flush\_log\_at\_trx\_commit** |1 |2
+|**innodb\_log\_buffer\_size** |8 Mo |128 Mo
+|**query\_cache\_size** |16 Mo |0
 
 
 Pour obtenir plus de détails sur les paramètres de configuration d’optimisation, consultez les instructions officielles de mysql.
 
 [http://dev.mysql.com/doc/refman/5.6/en/innodb-configuration.html](http://dev.mysql.com/doc/refman/5.6/en/innodb-configuration.html)
 
-[http://dev.mysql.com/doc/refman/5.6/en/innodb-parameters.html#sysvar_innodb_flush_method](http://dev.mysql.com/doc/refman/5.6/en/innodb-parameters.html#sysvar_innodb_flush_method)
+[http://dev.mysql.com/doc/refman/5.6/en/innodb-parameters.html#sysvar\_innodb\_flush\_method](http://dev.mysql.com/doc/refman/5.6/en/innodb-parameters.html#sysvar_innodb_flush_method)
 
 **Environnement de test**
 
@@ -345,4 +345,4 @@ Pour obtenir plus de détails sur les paramètres de configuration d’optimisat
 [14]: ./media/virtual-machines-linux-optimize-mysql-perf/virtual-machines-linux-optimize-mysql-perf-14.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

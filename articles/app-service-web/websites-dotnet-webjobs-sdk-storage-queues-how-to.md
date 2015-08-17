@@ -371,7 +371,7 @@ Les messages dont le contenu provoque l'échec d'une fonction sont appelés *mes
 
 Le Kit de développement logiciel (SDK) appelle une fonction jusqu’à cinq fois pour traiter un message de file d’attente. Si la cinquième tentative échoue, le message est déplacé vers une file d’attente de messages incohérents. [Vous pouvez configurer le nombre maximal de tentatives](#config).
 
-La file d'attente de messages incohérents se nomme *{nom_file_d'attente_d'origine}*-poison. Vous pouvez écrire une fonction pour traiter les messages de la file d’attente de messages incohérents en les consignant dans un journal ou en envoyant une notification signalant qu’une attention manuelle est nécessaire.
+La file d'attente de messages incohérents se nomme *{nom\_file\_d'attente\_d'origine}*-poison. Vous pouvez écrire une fonction pour traiter les messages de la file d’attente de messages incohérents en les consignant dans un journal ou en envoyant une notification signalant qu’une attention manuelle est nécessaire.
 
 Dans l’exemple suivant, la fonction `CopyBlob` échoue lorsqu’un message en file d’attente contient le nom d’un objet blob qui n’existe pas. Quand cela se produit, le message est déplacé de la file d’attente copyblobqueue vers la file d’attente copyblobqueue-poison. L’élément `ProcessPoisonMessage` consigne ensuite le message incohérent.
 
@@ -562,7 +562,7 @@ Dans le tableau de bord du Kit de développement logiciel (SDK) WebJobs, les 100
  
 ![Cliquez sur Activer/désactiver la sortie](./media/websites-dotnet-webjobs-sdk-storage-queues-how-to/dashboardapplogs.png)
 
-Dans une tâche web continue, les journaux des applications apparaissent dans /data/jobs/continuous/*{nomdelatâcheweb}*/job_log.txt dans le système de fichiers du site web.
+Dans une tâche web continue, les journaux des applications apparaissent dans /data/jobs/continuous/*{nomdelatâcheweb}*/job\_log.txt dans le système de fichiers du site web.
 
 		[09/26/2014 21:01:13 > 491e54: INFO] Console.Write - Hello world!
 		[09/26/2014 21:01:13 > 491e54: ERR ] Console.Error - Hello world!
@@ -581,4 +581,4 @@ Dans une table Azure, les journaux `Console.Out` et `Console.Error` ressemblent 
 Ce guide fournit des exemples de code qui indiquent comment gérer des scénarios courants pour l’utilisation des files d’attente Microsoft Azure. Pour plus d’informations sur l’utilisation d’Azure Webjobs et du Kit de développement logiciel (SDK) WebJobs Azure, consultez la rubrique [Azure Webjobs - Ressources recommandées](http://go.microsoft.com/fwlink/?linkid=390226).
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

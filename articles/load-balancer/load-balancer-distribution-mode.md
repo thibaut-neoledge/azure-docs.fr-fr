@@ -6,17 +6,19 @@
    authors="joaoma"
    manager="adinah"
    editor="tysonn" />
+
 <tags 
    ms.service="load-balancer"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/01/2015"
+   ms.date="08/02/2015"
    ms.author="joaoma" />
 
 
-# Vue d'ensemble
+
+# Mode de distribution d'équilibrage de charge (affinité d'IP source)
 
 Nous vous avons présenté un nouveau mode de distribution appelé « affinité d’IP source » (également connu sous le nom d’« affinité de session » ou d’« affinité d’IP client »). L’équilibrage de charge Azure peut être configuré pour utiliser 2 tuples (IP source, IP de destination) ou 3 tuples (IP Source, adresse de destination, protocole) pour mapper le trafic vers les serveurs disponibles. En utilisant l'affinité d’IP Source, les connexions établies à partir du même ordinateur client vont au même point de terminaison DIP.
 
@@ -83,14 +85,17 @@ Vous pouvez exploiter le Kit de développement logiciel (SDK) Azure pour .NET 2
 	<WorkerRole name="worker-role-name" vmsize="worker-role-size" enableNativeCodeExecution="[true|false]">
   	<Endpoints>
     <InputEndpoint name="input-endpoint-name" protocol="[http|https|tcp|udp]" localPort="local-port-number" port="port-number" certificate="certificate-name" loadBalancerProbe="load-balancer-probe-name" loadBalancerDistribution="sourceIP" />
+
   	</Endpoints>
 	</WorkerRole>
 	<NetworkConfiguration>
   	<VirtualNetworkSite name="VNet"/>
+
   	<AddressAssignments>
     <InstanceAddress roleName="VMRolePersisted">
       <PublicIPs>
         <PublicIP name="public-ip-name" idleTimeoutInMinutes="timeout-in-minutes"/>
+
       </PublicIPs>
     </InstanceAddress>
   	</AddressAssignments>
@@ -149,4 +154,4 @@ La valeur de LoadBalancerDistribution peut être sourceIP pour une affinité à 
 
 [Configuration des paramètres du délai d’expiration TCP inactif pour votre équilibrage de charge](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

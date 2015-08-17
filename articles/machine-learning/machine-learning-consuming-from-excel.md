@@ -70,4 +70,4 @@ Un appel RRS est initié dans les deux cas suivants :
 [4]: ./media/machine-learning-consuming-from-excel/sampletable.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

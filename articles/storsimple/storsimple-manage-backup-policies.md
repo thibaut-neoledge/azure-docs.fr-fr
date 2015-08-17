@@ -28,7 +28,7 @@ Sur la page **Stratégies de sauvegarde**, vous pouvez filtrer les stratégies e
 - **Nom de la stratégie** : nom associé à la stratégie. Les différents types de stratégies sont les suivants :
 
    - stratégies planifiées, qui sont explicitement créées par l'utilisateur ;
-   - stratégies automatiques, qui sont créées lorsque la sauvegarde par défaut associée à cette option de volume a été activée lors de la création du volume. Ces stratégies portent le nom NomVolume_Default, où « NomVolume » désigne le nom du volume StorSimple configuré par l’utilisateur dans le portail de gestion. Ces stratégies automatiques entraînent la génération quotidienne d’instantanés cloud, commençant à 22 h 30 (heure de l’appareil) ;
+   - stratégies automatiques, qui sont créées lorsque la sauvegarde par défaut associée à cette option de volume a été activée lors de la création du volume. Ces stratégies portent le nom NomVolume\_Default, où « NomVolume » désigne le nom du volume StorSimple configuré par l’utilisateur dans le portail de gestion. Ces stratégies automatiques entraînent la génération quotidienne d’instantanés cloud, commençant à 22 h 30 (heure de l’appareil) ;
    - stratégies importées, qui ont été créées dans le gestionnaire d'instantanés StorSimple. Ces éléments présentent une balise décrivant l’hôte du gestionnaire d’instantanés StorSimple depuis lequel les stratégies ont été importées.
 
 - **Volumes** : les volumes associés à la stratégie. Tous les volumes associés à une stratégie de sauvegarde sont regroupés lors de la création des sauvegardes.
@@ -84,4 +84,4 @@ Pour créer une stratégie de sauvegarde personnalisée présentant plusieurs vo
 
 Découvrez comment gérer les sauvegardes StorSimple avec le [Gestionnaire d’instantanés StorSimple](https://msdn.microsoft.com/library/azure/dn772365.aspx).
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

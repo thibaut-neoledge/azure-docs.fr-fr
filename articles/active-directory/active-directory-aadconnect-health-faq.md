@@ -43,8 +43,7 @@ Les valeurs ci-dessous sont des approximations.
 - Consommation du processeur : environ 1 % d’augmentation
 - Consommation de la mémoire : jusqu’à 10 % de la mémoire totale du système
 - Utilisation de la bande passante réseau : environ 1 Mo/1 000 requêtes AD FS
->[AZURE.NOTE]Si un agent est dans l’impossibilité de communiquer à Azure, l’agent va stocker localement les données, jusqu’à une limite maximale de 10 % de la mémoire totale du système. Une fois que l’agent atteint 10 % de la mémoire physique totale, si l’agent n’a pas pu télécharger les données vers le service, les nouvelles transactions AD FS remplaceront toute transaction mise en cache, en commençant par celle qui a été traitée le moins récemment.
-
+>[AZURE.NOTE]Si l'agent ne peut pas communiquer sur Azure, il stocke les données localement, dans la limite maximale de 10 % de la mémoire système totale. Une fois que l'agent atteint 10 % de la mémoire physique totale, et si l'agent n'a pas été en mesure de télécharger les données vers le service, de nouvelles transactions ADFS remplacent toutes les transactions « mises en cache » sur la base « derniers éléments mis en service ».
 
 - Stockage de mémoire tampon locale pour l’agent AD Health : environ 20 Mo
 - Stockage de données requis pour le canal d’audit
@@ -129,4 +128,4 @@ Les alertes Azure AD Connect Health sont résolues en cas de condition de succ�
 
 Les ports TCP/UDP 80 et 443 doivent être ouverts pour permettre à l’agent Azure AD Connect Health de communiquer avec les points de terminaison de service Azure AD Health.
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

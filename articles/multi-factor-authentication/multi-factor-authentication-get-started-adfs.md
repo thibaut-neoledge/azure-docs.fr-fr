@@ -55,4 +55,4 @@ Pour plus d'informations sur la configuration d’Azure Multi-Factor Authenticat
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -19,4 +19,4 @@
 
 Le contenu de cet article a été déplacé vers [Apprentissage du workflow PowerShell](automation-powershell-workflow.md).
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

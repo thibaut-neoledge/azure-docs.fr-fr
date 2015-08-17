@@ -277,4 +277,4 @@ Pour en savoir plus sur la surveillance du point de terminaison d’une applicat
 [vmsizes]: http://go.microsoft.com/fwlink/?LinkID=309169
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

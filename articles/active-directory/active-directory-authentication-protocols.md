@@ -56,4 +56,4 @@ Azure Active Directory (Azure AD) prend en charge plusieurs protocoles d’au
 [Exemples de code Azure Active Directory](active-directory-code-samples.md)
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

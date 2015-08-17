@@ -6,14 +6,16 @@
 	authors="wesmc7777" 
 	manager="dwrede" 
 	editor=""/>
+
 <tags 
 	ms.service="notification-hubs" 
 	ms.workload="mobile" 
 	ms.tgt_pltfrm="mobile-android" 
 	ms.devlang="java" 
-	ms.topic="article" 
+	ms.topic="hero-article" 
 	ms.date="05/27/2015" 
 	ms.author="wesmc"/>
+
 
 # Prise en main de Notification Hubs
 
@@ -66,7 +68,7 @@ Vous devez suivre ce didacticiel avant de pouvoir suivre tous les autres didacti
 
 ###Ajout de code
 
-1. Téléchargez le Kit de développement logiciel (SDK) Android Notification Hubs <a href="https://go.microsoft.com/fwLink/?LinkID=280126&clcid=0x409">ici</a>. Décompressez le fichier .zip et copiez **notificationhubs\notification-hubs-0.4.jar** et **notifications\notifications-1.0.1.jar** dans le répertoire **app\libs** de votre projet. Vous pouvez effectuer cette opération en faisant glisser les fichiers directement dans le dossier **libs** dans la fenêtre Project View d'Android Studio. Actualisez le dossier libs.
+1. Téléchargez le Kit de développement logiciel (SDK) Android Notification Hubs <a href="https://go.microsoft.com/fwLink/?LinkID=280126&clcid=0x409">ici</a>. Décompressez le fichier .zip et copiez **notificationhubs\\notification-hubs-0.4.jar** et **notifications\\notifications-1.0.1.jar** dans le répertoire **app\\libs** de votre projet. Vous pouvez effectuer cette opération en faisant glisser les fichiers directement dans le dossier **libs** dans la fenêtre Project View d'Android Studio. Actualisez le dossier libs.
 
 
 
@@ -80,12 +82,18 @@ Vous devez suivre ce didacticiel avant de pouvoir suivre tous les autres didacti
 	Dans le fichier AndroidManifest.xml, ajoutez les autorisations suivantes juste sous la balise `</application>`. Veillez à remplacer `<your package>` par le nom du package qui apparaît en haut du fichier AndroidManifest.xml (`com.example.testnotificationhubs` dans cet exemple).
 
 		<uses-permission android:name="android.permission.INTERNET"/>
+
 		<uses-permission android:name="android.permission.GET_ACCOUNTS"/>
+
 		<uses-permission android:name="android.permission.WAKE_LOCK"/>
+
 		<uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
 
+
 		<permission android:name="<your package>.permission.C2D_MESSAGE" android:protectionLevel="signature" />
+
 		<uses-permission android:name="<your package>.permission.C2D_MESSAGE"/>
+
 
 3. Dans la classe **MainActivity**, ajoutez les instructions `import` suivantes au-dessus de la déclaration de la classe.
 
@@ -106,7 +114,7 @@ Vous devez suivre ce didacticiel avant de pouvoir suivre tous les autres didacti
 		private String HubListenConnectionString = "<Your default listen connection string>";
 
 
-	Veillez à mettre à jour les trois espaces réservés: * **SENDER_ID** : définissez `SENDER_ID` sur le numéro de projet obtenu précédemment du projet que vous avez créé dans [Google Cloud Console](http://cloud.google.com/console). * **HubListenConnectionString** : définissez `HubListenConnectionString` sur la chaîne de connexion **DefaultListenAccessSignature** pour votre concentrateur. Vous pouvez copier cette chaîne de connexion en cliquant sur **Afficher la chaîne de connexion** sous l'onglet **Tableau de bord** de votre concentrateur sur le [portail de gestion Azure]. * **HubName** : nom de votre concentrateur de notification qui s'affiche en haut de la page dans Azure pour votre concentrateur (**pas** l'URL complète). Par exemple : `"myhub"`.
+	Veillez à mettre à jour les trois espaces réservés: * **SENDER\_ID** : définissez `SENDER_ID` sur le numéro de projet obtenu précédemment du projet que vous avez créé dans [Google Cloud Console](http://cloud.google.com/console). * **HubListenConnectionString** : définissez `HubListenConnectionString` sur la chaîne de connexion **DefaultListenAccessSignature** pour votre concentrateur. Vous pouvez copier cette chaîne de connexion en cliquant sur **Afficher la chaîne de connexion** sous l'onglet **Tableau de bord** de votre concentrateur sur le [portail de gestion Azure]. * **HubName** : nom de votre concentrateur de notification qui s'affiche en haut de la page dans Azure pour votre concentrateur (**pas** l'URL complète). Par exemple, `"myhub"`.
 
 
 
@@ -178,7 +186,9 @@ Vous devez suivre ce didacticiel avant de pouvoir suivre tous les autres didacti
             android:permission="com.google.android.c2dm.permission.SEND">
             <intent-filter>
                 <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+
                 <category android:name="<your package name>" />
+
             </intent-filter>
         </receiver>
 
@@ -259,7 +269,7 @@ Vous pouvez tester la réception de notifications dans votre application en envo
 
 ![][31]
 
-1. Dans la vue de projet Android Studio, développez **App**->**src**->**main**->**res**->**layout**. Ouvrez le fichier de disposition **activity_main.xml** et cliquez sur l'onglet **Texte** pour mettre à jour le texte du fichier. Mettez-le à jour avec le code suivant, qui ajoute deux nouveaux contrôles `Button` et `EditText` pour l'envoi des messages de notification au concentrateur de notification. Ajoutez ce code en bas juste avant `</RelativeLayout>`.
+1. Dans la vue de projet Android Studio, développez **App**->**src**->**main**->**res**->**layout**. Ouvrez le fichier de disposition **activity\_main.xml** et cliquez sur l'onglet **Texte** pour mettre à jour le texte du fichier. Mettez-le à jour avec le code suivant, qui ajoute deux nouveaux contrôles `Button` et `EditText` pour l'envoi des messages de notification au concentrateur de notification. Ajoutez ce code en bas juste avant `</RelativeLayout>`.
 
 	    <Button
         android:layout_width="wrap_content"
@@ -270,6 +280,7 @@ Vous pouvez tester la réception de notifications dans votre application en envo
         android:layout_centerHorizontal="true"
         android:onClick="sendNotificationButtonOnClick" />
 
+
 	    <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -278,6 +289,7 @@ Vous pouvez tester la réception de notifications dans votre application en envo
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="42dp"
         android:hint="@string/notification_message_hint" />
+
 
 2. Dans la vue de projet Android Studio, développez **App** -> **src** -> **main** -> **res** -> **values**. Ouvrez le fichier **strings.xml** et ajoutez les valeurs de chaîne référencées par les nouveaux contrôles `Button` et `EditText`. Ajoutez-les en bas du fichier juste avant `</resources>`.
 
@@ -448,9 +460,9 @@ Vous pouvez tester la réception de notifications dans votre application en envo
 ##Test de votre application
 
 ####Test sur un émulateur
-Si vous souhaitez effectuer les tests sur un émulateur, vérifiez que votre image d'émulateur prend en charge le niveau d'API Google que vous choisissez pour votre application. Si votre image ne prend pas en charge les API Google, l'exception **SERVICE_NOT_AVAILABLE** est levée.
+Si vous souhaitez effectuer les tests sur un émulateur, vérifiez que votre image d'émulateur prend en charge le niveau d'API Google que vous choisissez pour votre application. Si votre image ne prend pas en charge les API Google, l'exception **SERVICE\_NOT\_AVAILABLE** est levée.
 
-Assurez-vous également que vous avez ajouté votre compte Google à l'émulateur en cours d'exécution sous **Paramètres**-> **Comptes**. Sinon, vos tentatives d'inscription auprès de GCM peuvent entraîner la levée de l'exception **AUTHENTICATION_FAILED**.
+Assurez-vous également que vous avez ajouté votre compte Google à l'émulateur en cours d'exécution sous **Paramètres**->**Comptes**. Sinon, vos tentatives d'inscription auprès de GCM peuvent entraîner la levée de l'exception **AUTHENTICATION\_FAILED**.
 
 ####Test de l'application     
 
@@ -511,4 +523,4 @@ Dans cet exemple simple, vous avez envoyé des notifications à tous vos apparei
 [Utilisation de Notification Hubs pour envoyer les dernières nouvelles]: notification-hubs-aspnet-backend-android-breaking-news.md
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

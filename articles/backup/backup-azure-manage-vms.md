@@ -152,4 +152,4 @@ Dans la page **Tableau de bord**, vous pouvez consulter les informations des mac
 
   ![Tableau de bord](./media/backup-azure-manage-vms/dashboard-protectedvms.png)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -4,7 +4,7 @@
 
 # API de gestion : version 2014-07-31-Preview
 
-Ce document décrit la version **2014-07-31-Preview** de l'API REST de gestion Azure Search. Elle a depuis été remplacée par la version disponible sur le marché, [API REST de gestion Azure Search 2015-02-28](https://msdn.microsoft.com/library/dn832684.aspx) sur MSDN. ________________________________________
+Ce document décrit la version **2014-07-31-Preview** de l'API REST de gestion Azure Search. Elle a depuis été remplacée par la version disponible sur le marché, [API REST de gestion Azure Search 2015-02-28](https://msdn.microsoft.com/library/dn832684.aspx) sur MSDN. \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
 
 ## Opérations de gestion de service
 
@@ -815,4 +815,4 @@ Aucun.
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

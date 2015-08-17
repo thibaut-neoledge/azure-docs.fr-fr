@@ -7,28 +7,29 @@
 	manager="wpickett" 
 	editor=""/>
 
+
 <tags 
 	ms.service="azure-resource-manager" 
 	ms.workload="multiple" 
 	ms.tgt_pltfrm="AzurePortal" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/15/2015" 
+	ms.date="08/05/2015" 
 	ms.author="tomfitz"/>
+
 
 
 # Organisation des ressources Azure à l'aide de balises
 
-Le portail Azure et le Gestionnaire de ressources sous-jacentes vont organiser vos ressources et personnaliser votre expérience exactement selon vos besoins.
+Resource Manager vous permet d'organiser logiquement les ressources en appliquant des balises. Les balises sont constituées de paires clé/valeur qui identifient les ressources avec les propriétés que vous définissez. Pour marquer des ressources comme appartenant à la même catégorie, appliquez la même balise à ces ressources.
 
-Dans le portail Azure classique, les abonnements sont le seul moyen de classer et regrouper vos ressources. Avec le portail Azure, [nous avons introduit des groupes de ressources](./resource-group-portal.md) qui vous permettent de regrouper les entités associées. Cet avantage s'est accentué lorsque [nous avons introduit l'accès basé sur les rôles](./role-based-access-control-configure.md). À présent, dans cette même optique, vous pouvez baliser vos ressources avec des paires de clé/valeur pour classer et afficher plus précisément vos ressources entre les différents groupes de ressources et, dans le portail, entre les différents abonnements.
+Lorsque vous affichez des ressources avec une balise particulière, vous voyez les ressources de tous vos groupes de ressources. Vous n'êtes pas limité aux seules ressources d’un même groupe de ressources, ce qui vous permet d'organiser vos ressources de manière indépendante des relations de déploiement. Les balises peuvent être particulièrement utiles si vous devez organiser les ressources à des fins de facturation ou de gestion.
 
-Regroupez vos ressources en fonction de vos équipes, de vos projets ou même de vos environnements, pour vous concentrer sur ce que vous voulez afficher, lorsque vous en avez besoin.
+> [AZURE.NOTE]Vous ne pouvez appliquer des balises qu’à des ressources qui prennent en charge les opérations de Resource Manager. Si vous avez créé une machine virtuelle, un réseau virtuel ou un stockage par le biais du modèle de déploiement classique (telles que via le portail Azure ou l’[API Service Management](https://msdn.microsoft.com/library/azure/dn948465.aspx)), vous ne pouvez pas appliquer de balise à cette ressource. Vous devez redéployer ces ressources via Resource Manager pour prendre en charge le balisage. Toutes les autres ressources prennent en charge le balisage.
 
+## Balises de la version préliminaire du portail
 
-## Balises dans le portail Azure
-
-Il est facile de baliser des ressources et des groupes de ressources dans le portail. Utilisez le concentrateur Parcourir pour accéder à la ressource ou au groupe de ressources que vous souhaitez baliser, puis cliquez sur la partie Balises de la section Vue d'ensemble, située en haut du volet.
+Il est facile de baliser des ressources et des groupes de ressources dans la version préliminaire du portail. Utilisez le concentrateur Parcourir pour accéder à la ressource ou au groupe de ressources que vous souhaitez baliser, puis cliquez sur la partie Balises de la section Vue d'ensemble, située en haut du volet.
 
 ![Balises des panneaux de ressources et de groupe de ressources](./media/resource-group-using-tags/rgblade.png)
 
@@ -62,7 +63,7 @@ Le processus est le même pour les ressources, sauf que vous allez utiliser les 
 ![Obtention de ressources et de groupes de ressources balisés avec Get-AzureResource et Get-AzureResourceGroup dans PowerShell](./media/resource-group-using-tags/Get-AzureResourceGroup-with-tags-in-PowerShell.png)
 
 
-## Balisage avec le Gestionnaire de ressources
+## Balisage avec une API REST
 
 Le portail et PowerShell utilisent tous deux l'[API REST du Gestionnaire de ressources](http://msdn.microsoft.com/library/azure/dn790568.aspx) en arrière-plan. Si vous avez besoin intégrer le balisage dans un autre environnement, vous pouvez récupérer des balises avec une commande GET sur l'ID de ressource et mettre à jour l'ensemble des balises avec un appel PATCH.
 
@@ -99,26 +100,12 @@ Lorsque vous téléchargez le fichier CSV d’utilisation pour les services qui 
 ![Voir les balises dans la facturation](./media/resource-group-using-tags/billing_csv.png)
 
 ## Étapes suivantes
-Mise en route
 
-- [Présentation d’Azure Resource Manager](./resource-group-overview.md)  
-- [Utilisation d’Azure PowerShell avec Azure Resource Manager](./powershell-azure-resource-manager.md)
-- [Utilisation de l’interface de ligne de commande Azure pour Mac, Linux et Windows avec le Gestionnaire des ressources Azure](./xplat-cli-azure-resource-manager.md)  
-- [Utilisation du portail Azure pour gérer vos ressources Azure](./resource-group-portal.md)  
-  
-Création et déploiement d’applications
-  
-- [Création de modèles Azure Resource Manager](./resource-group-authoring-templates.md)  
-- [Déploiement d’une application avec un modèle Azure Resource Manager](./resource-group-template-deploy.md)  
-- [Résolution des problèmes liés aux déploiements de groupes de ressources dans Azure](./resource-group-deploy-debug.md)  
-- [Fonctions des modèles Azure Resource Manager](./resource-group-template-functions.md)  
-- [Opérations de modèle avancées](./resource-group-advanced-template.md)  
-  
-Gestion et audit de l’accès
-  
-- [Gestion et audit d’accès aux ressources](./resource-group-rbac.md)  
-- [Authentification d’un principal du service à l’aide d’Azure Resource Manager](./resource-group-authenticate-service-principal.md)  
-- [Création d'un nouveau principal du service Azure à l’aide du portail Azure classique](./resource-group-create-service-principal-portal.md)  
+- Pour plus d'informations sur l'utilisation d’Azure PowerShell lors du déploiement de ressources, consultez la rubrique [Utilisation d’Azure PowerShell avec Azure Resource Manager](./powershell-azure-resource-manager.md).
+- Si vous n’avez jamais utilisé Azure CLI pour le déploiement de ressources, consultez [Utilisation d’Azure CLI pour Mac, Linux et Windows avec Azure Resource Management](./xplat-cli-azure-resource-manager.md).
+- Pour plus d'informations sur l'utilisation du portail en version préliminaire, consultez [Utilisation du portail Azure en version préliminaire pour gérer vos ressources Azure](./resource-group-portal.md).  
   
 
-<!---HONumber=July15_HO5-->
+  
+
+<!---HONumber=August15_HO6-->

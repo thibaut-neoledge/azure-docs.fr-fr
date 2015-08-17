@@ -6,6 +6,7 @@
    authors="bwren"
    manager="stevenka"
    editor="tysonn" />
+
 <tags 
    ms.service="automation"
    ms.devlang="na"
@@ -14,6 +15,7 @@
    ms.workload="infrastructure-services"
    ms.date="06/14/2015"
    ms.author="bwren" />
+
 
 # Ressources de certificats dans Azure Automation
 
@@ -98,7 +100,7 @@ Vous ajoutez un **Get-AutomationCerticiate** à un Runbook graphique en cliquant
 
 L’image suivante montre un exemple d’utilisation d’un certificat dans un Runbook graphique. Il s’agit du même exemple que celui affiché plus haut pour ajouter un certificat à un service cloud à partir d’un Runbook textuel.
 
-Cet exemple utilise le paramètre **UseConnectionObject** défini pour l’activité Send-**TwilioSMS**, qui utilise un objet de connexion pour l’authentification auprès du service. Un [lien pipeline](automation-graphical-authoring-intro.md#links-and-workflow) doit être utilisé ici dans la mesure où un lien de séquence retournerait une collection contenant un seul objet que le paramètre Connexion n’attend pas.
+Cet exemple utilise le paramètre **UseConnectionObject** défini pour l’activité **Send-TwilioSMS**, qui utilise un objet de connexion pour l’authentification auprès du service. Un [lien pipeline](automation-graphical-authoring-intro.md#links-and-workflow) doit être utilisé ici dans la mesure où un lien de séquence retournerait une collection contenant un seul objet que le paramètre Connexion n’attend pas.
 
 ![](media/automation-certificates/add-certificate.png)
 
@@ -107,4 +109,4 @@ Cet exemple utilise le paramètre **UseConnectionObject** défini pour l’activ
 
 - [Liens de création graphique](automation-graphical-authoring-intro.md#links-and-workflow) 
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

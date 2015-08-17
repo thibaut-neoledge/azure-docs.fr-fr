@@ -7,6 +7,7 @@
    manager="TerryLanfear"
    editor=""/>
 
+
 <tags
    ms.service="active-directory"
    ms.devlang="na"
@@ -15,6 +16,7 @@
    ms.workload="identity"
    ms.date="07/15/2015"
    ms.author="liviodlc"/>
+
 
 #Didacticiel : intégration de Google Apps avec Azure Active Directory
 
@@ -64,7 +66,7 @@ Ce didacticiel explique comment connecter votre environnement Google Apps à Azu
 
 	![Sélectionner l’authentification unique Azure AD][7]
 
-	> [AZURE.NOTE]Pour en savoir plus sur les différentes options d’authentification unique, [cliquez ici](https://msdn.microsoft.com/library/azure/dn308588.aspx).
+	> [AZURE.NOTE]Pour en savoir plus sur les différentes options d’authentification unique, [cliquez ici](../active-directory-appssoaccess-whatis/#how-does-single-sign-on-with-azure-active-directory-work).
 
 3. Sur la page **Configurer les paramètres de l’application**, entrez votre URL de client Google Apps dans le champ **URL de connexion** en respectant le format suivant : `https://mail.google.com/a/<yourdomain>`
 
@@ -212,11 +214,7 @@ Ce didacticiel explique comment connecter votre environnement Google Apps à Azu
 
 4. Pour tester vos paramètres d’authentification unique, ouvrez le volet d’accès à l’adresse [https://myapps.microsoft.com](https://myapps.microsoft.com/), puis connectez-vous au compte de test et cliquez sur **Google Apps**.
 
-##Voir aussi
-
-- [Liste des didacticiels d’intégration d’applications SaaS](active-directory-saas-tutorial-list.md)
-- [Accès aux applications dans Azure AD](https://msdn.microsoft.com/library/azure/dn308590.aspx)
-- [Présentation du volet d’accès](https://msdn.microsoft.com/library/azure/dn308586.aspx)
+[AZURE.INCLUDE [saas-toc](../../includes/active-directory-saas-toc.md)]
 
 [0]: ./media/active-directory-saas-google-apps-tutorial/azure-active-directory.png
 [1]: ./media/active-directory-saas-google-apps-tutorial/applications-tab.png
@@ -250,4 +248,4 @@ Ce didacticiel explique comment connecter votre environnement Google Apps à Azu
 [29]: ./media/active-directory-saas-google-apps-tutorial/assign-users.png
 [30]: ./media/active-directory-saas-google-apps-tutorial/assign-confirm.png
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

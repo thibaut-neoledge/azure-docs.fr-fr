@@ -61,18 +61,18 @@ Pour démarrer l'émulateur de stockage Azure, sélectionnez le bouton **Démarr
 Les exemples ci-dessous partent du principe que vous avez utilisé l'une de ces deux méthodes pour obtenir la chaîne de connexion de stockage.
 
 ## Récupération de votre chaîne de connexion  
-Vous pouvez utiliser la classe **cloud_storage_account** pour représenter vos informations de compte de stockage. Pour extraire les informations de votre compte de stockage de la chaîne de connexion de stockage, vous pouvez utiliser la méthode parse.
+Vous pouvez utiliser la classe **cloud\_storage\_account** pour représenter vos informations de compte de stockage. Pour extraire les informations de votre compte de stockage de la chaîne de connexion de stockage, vous pouvez utiliser la méthode parse.
 
 	// Retrieve the storage account from the connection string. 
 	azure::storage::cloud_storage_account storage_account = azure::storage::cloud_storage_account::parse(storage_connection_string);
 
-Ensuite, récupérez une référence à une classe **cloud_table_client**, car elle vous permet d'obtenir des objets de référence pour les tables et entités stockées dans le service de stockage de Table. Le code suivant crée un objet **cloud_table_client** en utilisant l’objet de compte de stockage récupéré ci-dessus :
+Ensuite, récupérez une référence à une classe **cloud\_table\_client**, car elle vous permet d'obtenir des objets de référence pour les tables et entités stockées dans le service de stockage de Table. Le code suivant crée un objet **cloud\_table\_client** en utilisant l’objet de compte de stockage récupéré ci-dessus :
 
 	// Create the table client.
 	azure::storage::cloud_table_client table_client = storage_account.create_cloud_table_client();
 
 ## Création d'une table
-Un objet **cloud_table_client** vous permet d'obtenir les objets de référence pour les tables et entités. Le code suivant crée un objet **cloud_table_client** et l'utilise pour créer une table.
+Un objet **cloud\_table\_client** vous permet d'obtenir les objets de référence pour les tables et entités. Le code suivant crée un objet **cloud\_table\_client** et l'utilise pour créer une table.
 
 	// Retrieve the storage account from the connection string.
 	azure::storage::cloud_storage_account storage_account = azure::storage::cloud_storage_account::parse(storage_connection_string);  
@@ -87,9 +87,9 @@ Un objet **cloud_table_client** vous permet d'obtenir les objets de référence 
 	table.create_if_not_exists();  
 
 ## Ajout d'une entité à une table
-Pour ajouter une entité à une table, créez un objet **table_entity** et transmettez-le à **table_operation::insert_entity**. Le code suivant utilise le prénom du client en tant que clé de ligne et son nom de famille en tant que clé de partition. Ensemble, les clés de partition et de ligne d'une entité identifient l'entité de façon unique dans la table. Les requêtes d’entités dont les clés de partition sont identiques sont plus rapides que celles d’entités dont les clés de partition sont différentes, mais le fait d’utiliser différentes clés de partition améliore l’extensibilité des opérations parallèles. Pour en savoir plus, consultez la rubrique [Liste de contrôle des performances et de l'évolutivité de Microsoft Azure Storage](storage-performance-checklist.md/).
+Pour ajouter une entité à une table, créez un objet **table\_entity** et transmettez-le à **table\_operation::insert\_entity**. Le code suivant utilise le prénom du client en tant que clé de ligne et son nom de famille en tant que clé de partition. Ensemble, les clés de partition et de ligne d'une entité identifient l'entité de façon unique dans la table. Les requêtes d’entités dont les clés de partition sont identiques sont plus rapides que celles d’entités dont les clés de partition sont différentes, mais le fait d’utiliser différentes clés de partition améliore l’extensibilité des opérations parallèles. Pour en savoir plus, consultez la rubrique [Liste de contrôle des performances et de l'évolutivité de Microsoft Azure Storage](storage-performance-checklist.md/).
 
-Le code suivant crée une instance de la classe **table_entity** avec des données client à stocker. Le code appelle ensuite **table_operation::insert_entity** pour créer un objet **table_operation** pour insérer une entité dans une table et y associer la nouvelle entité de table. Enfin, le code appelle la méthode execute sur l’objet **cloud_table**. Puis le nouvel objet **table_operation** envoie une demande au service de stockage pour insérer la nouvelle entité de client dans la table « people ».
+Le code suivant crée une instance de la classe **table\_entity** avec des données client à stocker. Le code appelle ensuite **table\_operation::insert\_entity** pour créer un objet **table\_operation** pour insérer une entité dans une table et y associer la nouvelle entité de table. Enfin, le code appelle la méthode execute sur l’objet **cloud\_table**. Puis le nouvel objet **table\_operation** envoie une demande au service de stockage pour insérer la nouvelle entité de client dans la table « people ».
 
 	// Retrieve the storage account from the connection string.
 	azure::storage::cloud_storage_account storage_account = azure::storage::cloud_storage_account::parse(storage_connection_string);
@@ -119,7 +119,7 @@ Le code suivant crée une instance de la classe **table_entity** avec des donné
 	azure::storage::table_result insert_result = table.execute(insert_operation);
 
 ## Insertion d’un lot d’entités
-Vous pouvez insérer un lot d'entités dans le service de Table en une seule opération d'écriture. Le code suivant crée un objet **table_batch_operation**, puis y ajoute trois opérations d'insertion. Chaque opération d'insertion est ajoutée en créant un objet d'entité, en définissant ses valeurs, puis en appelant la méthode insert sur l'objet **table_batch_operation** pour associer l’entité avec une nouvelle opération d'insertion. La méthode **cloud_table.execute** est ensuite appelée pour exécuter l’opération.
+Vous pouvez insérer un lot d'entités dans le service de Table en une seule opération d'écriture. Le code suivant crée un objet **table\_batch\_operation**, puis y ajoute trois opérations d'insertion. Chaque opération d'insertion est ajoutée en créant un objet d'entité, en définissant ses valeurs, puis en appelant la méthode insert sur l'objet **table\_batch\_operation** pour associer l’entité avec une nouvelle opération d'insertion. La méthode **cloud\_table.execute** est ensuite appelée pour exécuter l’opération.
 
 	// Retrieve the storage account from the connection string.
 	azure::storage::cloud_storage_account storage_account = azure::storage::cloud_storage_account::parse(storage_connection_string);
@@ -173,7 +173,7 @@ Quelques remarques sur les opérations par lots :
 -	Une opération par lot est limitée à une charge utile de données de 4 Mo.  
 
 ## Extraction de toutes les entités dans une partition
-Pour exécuter une requête de table pour toutes les entités d’une partition, utilisez un objet **table_query**. L’exemple de code suivant indique un filtre pour les entités où ’Smith’ est la clé de partition. Il imprime les champs de chaque entité dans les résultats de requête vers la console.
+Pour exécuter une requête de table pour toutes les entités d’une partition, utilisez un objet **table\_query**. L’exemple de code suivant indique un filtre pour les entités où ’Smith’ est la clé de partition. Il imprime les champs de chaque entité dans les résultats de requête vers la console.
 
 	// Retrieve the storage account from the connection string.
 	azure::storage::cloud_storage_account storage_account = azure::storage::cloud_storage_account::parse(storage_connection_string);
@@ -241,7 +241,7 @@ Si vous ne voulez pas exécuter une requête pour toutes les entités d’une pa
 	}  
 
 ## Extraction d'une seule entité
-Vous pouvez écrire une requête pour extraire une seule entité. Le code suivant utilise un **table_operation::retrive_entity** pour spécifier le client 'Jeff Smith'. Cette méthode renvoie une seule entité, au lieu d’une collection. De plus, la valeur renvoyée est dans **table_result**. La méthode la plus rapide pour extraire une seule entité dans le service de table consiste à spécifier une clé de partition et une clé de ligne.
+Vous pouvez écrire une requête pour extraire une seule entité. Le code suivant utilise un **table\_operation::retrive\_entity** pour spécifier le client 'Jeff Smith'. Cette méthode renvoie une seule entité, au lieu d’une collection. De plus, la valeur renvoyée est dans **table\_result**. La méthode la plus rapide pour extraire une seule entité dans le service de table consiste à spécifier une clé de partition et une clé de ligne.
 
 	azure::storage::cloud_storage_account storage_account = azure::storage::cloud_storage_account::parse(storage_connection_string);
 
@@ -264,7 +264,7 @@ Vous pouvez écrire une requête pour extraire une seule entité. Le code suivan
 		<< U(", Property2: ") << properties.at(U("Phone")).string_value() << std::endl;
 
 ## Remplacement d’une entité
-Pour remplacer une entité, récupérez-la dans le service de table, modifiez l’objet d’entité, puis enregistrez les modifications dans la table de service. Le code suivant modifie le numéro de téléphone et l’adresse de messagerie électronique d'un client existant. Au lieu d'appeler **table_operation::insert_entity**, ce code utilise **table_operation::replace_entity**. Ceci entraîne le remplacement complet de l’entité sur le serveur, sauf si cette dernière a été modifiée depuis sa récupération, auquel cas l’opération échoue. Cet échec survient pour empêcher votre application de remplacer par erreur une modification apportée entre la récupération et la mise à jour par un autre composant de votre application. Pour gérer correctement cet échec, vous devez récupérer de nouveau l’entité, apporter vos modifications (si elles sont toujours valides), puis effectuer une autre opération **table_operation::replace_entity**. La prochaine section vous apprendra à remplacer ce comportement.
+Pour remplacer une entité, récupérez-la dans le service de table, modifiez l’objet d’entité, puis enregistrez les modifications dans la table de service. Le code suivant modifie le numéro de téléphone et l’adresse de messagerie électronique d'un client existant. Au lieu d'appeler **table\_operation::insert\_entity**, ce code utilise **table\_operation::replace\_entity**. Ceci entraîne le remplacement complet de l’entité sur le serveur, sauf si cette dernière a été modifiée depuis sa récupération, auquel cas l’opération échoue. Cet échec survient pour empêcher votre application de remplacer par erreur une modification apportée entre la récupération et la mise à jour par un autre composant de votre application. Pour gérer correctement cet échec, vous devez récupérer de nouveau l’entité, apporter vos modifications (si elles sont toujours valides), puis effectuer une autre opération **table\_operation::replace\_entity**. La prochaine section vous apprendra à remplacer ce comportement.
 
 	// Retrieve the storage account from the connection string.
 	azure::storage::cloud_storage_account storage_account = azure::storage::cloud_storage_account::parse(storage_connection_string);
@@ -293,7 +293,7 @@ Pour remplacer une entité, récupérez-la dans le service de table, modifiez l�
 	azure::storage::table_result replace_result = table.execute(replace_operation);
 
 ## Insertion ou remplacement d’une entité
-Les opérations **table_operation::replace_entity** échouent si l’entité est modifiée depuis sa récupération à partir du serveur. De plus, vous devez d’abord récupérer l’entité à partir du serveur pour que l’opération **table_operation::replace_entity** réussisse. Cependant, il se peut parfois que vous ne sachiez pas si l’entité existe sur le serveur et si les valeurs stockées sont inadaptées. Votre mise à jour doit donc toutes les remplacer. Pour ce faire, utilisez une opération **table_operation::insert_or_replace_entity**. Cette opération insère l’entité (s’il n’y en a pas déjà une) ou la remplace (s’il y en a une), indépendamment du moment de la dernière mise à jour. Dans l’exemple de code suivant, l’entité de client pour Jeff Smith est toujours récupérée, mais elle est ensuite enregistrée sur le serveur en utilisant **table_operation::insert_or_replace_entity**. Les mises à jour apportées à l’entité entre les opérations de récupération et de mise à jour sont remplacées.
+Les opérations **table\_operation::replace\_entity** échouent si l’entité est modifiée depuis sa récupération à partir du serveur. De plus, vous devez d’abord récupérer l’entité à partir du serveur pour que l’opération **table\_operation::replace\_entity** réussisse. Cependant, il se peut parfois que vous ne sachiez pas si l’entité existe sur le serveur et si les valeurs stockées sont inadaptées. Votre mise à jour doit donc toutes les remplacer. Pour ce faire, utilisez une opération **table\_operation::insert\_or\_replace\_entity**. Cette opération insère l’entité (s’il n’y en a pas déjà une) ou la remplace (s’il y en a une), indépendamment du moment de la dernière mise à jour. Dans l’exemple de code suivant, l’entité de client pour Jeff Smith est toujours récupérée, mais elle est ensuite enregistrée sur le serveur en utilisant **table\_operation::insert\_or\_replace\_entity**. Les mises à jour apportées à l’entité entre les opérations de récupération et de mise à jour sont remplacées.
 
 	// Retrieve the storage account from the connection string.
 	azure::storage::cloud_storage_account storage_account = azure::storage::cloud_storage_account::parse(storage_connection_string);
@@ -323,7 +323,7 @@ Les opérations **table_operation::replace_entity** échouent si l’entité est
 	azure::storage::table_result insert_or_replace_result = table.execute(insert_or_replace_operation);
  
 ## Envoi d’une requête de sous-ensemble de propriétés d’entité  
-Vous pouvez utiliser une requête de table pour extraire uniquement quelques propriétés d'une entité. La requête contenue dans le code suivant utilise la méthode **table_query::set_select_columns** pour renvoyer uniquement les adresses de messagerie des entités dans la table.
+Vous pouvez utiliser une requête de table pour extraire uniquement quelques propriétés d'une entité. La requête contenue dans le code suivant utilise la méthode **table\_query::set\_select\_columns** pour renvoyer uniquement les adresses de messagerie des entités dans la table.
 
 	// Retrieve the storage account from the connection string.
 	azure::storage::cloud_storage_account storage_account = azure::storage::cloud_storage_account::parse(storage_connection_string);
@@ -362,7 +362,7 @@ Vous pouvez utiliser une requête de table pour extraire uniquement quelques pro
 **Remarque :** l’interrogation d’un petit nombre de propriétés d'une entité est une opération plus efficace que l'extraction de toutes les propriétés.
 
 ## Suppression d'une entité
-Il est facile de supprimer une entité après l'avoir extraite. Une fois que l'entité est extraite, appelez **table_operation::delete_entity** avec l'entité à supprimer. Puis appelez la commande execute sur la méthode **cloud_table.execute**. Le code suivant récupère et supprime une entité dont la clé de partition est « Smith » et la clé de ligne « Jeff ».
+Il est facile de supprimer une entité après l'avoir extraite. Une fois que l'entité est extraite, appelez **table\_operation::delete\_entity** avec l'entité à supprimer. Puis appelez la commande execute sur la méthode **cloud\_table.execute**. Le code suivant récupère et supprime une entité dont la clé de partition est « Smith » et la clé de ligne « Jeff ».
 
 	// Retrieve the storage account from the connection string.
 	azure::storage::cloud_storage_account storage_account = azure::storage::cloud_storage_account::parse(storage_connection_string);
@@ -416,4 +416,4 @@ Maintenant que vous connaissez les bases du stockage des tables, consultez les l
 -	[Documentation d'Azure Storage](http://azure.microsoft.com/documentation/services/storage/)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

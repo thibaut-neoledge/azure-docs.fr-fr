@@ -1,7 +1,6 @@
 <properties
    pageTitle="Didacticiel Hadoop : prise en main de Hadoop sur Windows | Microsoft Azure"
    description="Prise en main de Hadoop dans HDInsight. Apprenez à approvisionner des clusters Hadoop sur Windows, à exécuter une requête Hive sur des données et à en analyser les résultats dans Excel."
-   keywords="hadoop tutorial,hadoop on windows,hadoop cluster,learn hadoop, hive query"
    services="hdinsight"
    documentationCenter=""
    authors="nitinme"
@@ -163,7 +162,7 @@ Exemple | Fonction
 
     ![Heure de début du travail répertoriée sous l'onglet Historique des travaux du tableau de bord du cluster HDInsight.][img-hdi-dashboard-query-select-result-output]
 
-    La page indique également le **Résultat de la tâche** et le **Journal de la tâche**. Vous avez également la possibilité de télécharger le fichier de sortie (_stdout) et le fichier journal (_stderr).
+    La page indique également le **Résultat de la tâche** et le **Journal de la tâche**. Vous avez également la possibilité de télécharger le fichier de sortie (\_stdout) et le fichier journal (\_stderr).
 
 
 **Accès au fichier de sortie**
@@ -276,4 +275,4 @@ Dans ce didacticiel Hadoop, vous avez appris à approvisionner un cluster Hadoop
 [image-hdi-gettingstarted-powerquery-importdata2]: ./media/hdinsight-hadoop-tutorial-get-started-windows/HDI.GettingStarted.PowerQuery.ImportData2.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -53,7 +53,7 @@ Vous pouvez utiliser ces technologies de façon séparée ou les combiner en fon
 
 ### Azure Virtual Machines
 
-![Machines virtuelles ROBBCSIART_TEST](./media/fundamentals-introduction-to-azure/mscsiart_VirtualMachinesIntroNew_12345.png) *Figure : Azure Virtual Machines offre un contrôle total des instances de machine virtuelle dans le cloud.*
+![Machines virtuelles ROBBCSIART\_TEST](./media/fundamentals-introduction-to-azure/mscsiart_VirtualMachinesIntroNew_12345.png) *Figure : Azure Virtual Machines offre un contrôle total des instances de machine virtuelle dans le cloud.*
 
 Il peut s’avérer très utile de créer une machine virtuelle à la demande, à partir d’une image standard comme depuis une image que vous fournissez. Cette approche, communément appelée « Infrastructure as a Service » (IaaS) est celle adoptée par les machines virtuelles Azure. La figure 2 présente le fonctionnement d'une machine virtuelle ainsi que la création d'une machine virtuelle depuis un disque dur virtuel.
 
@@ -75,7 +75,7 @@ Cette approche générique du cloud computing peut être utilisée pour gérer d
 
 ### Web Apps
 
-![ROBBCSIART_TEST d’applications Web Azure](./media/fundamentals-introduction-to-azure/mscsiart_AzureWebsitesIntroNew_12345.png) *Figure : Azure Web Apps exécute une application de site web dans le cloud sans gestion du serveur web sous-jacent.*
+![ROBBCSIART\_TEST d’applications Web Azure](./media/fundamentals-introduction-to-azure/mscsiart_AzureWebsitesIntroNew_12345.png) *Figure : Azure Web Apps exécute une application de site web dans le cloud sans gestion du serveur web sous-jacent.*
 
 Dans bien des cas, le cloud est utilisé pour exécuter les sites et applications web. Azure Virtual Machines permet ceci, mais vous conservez la charge d'administrer une ou plusieurs machines virtuelles et les systèmes d'exploitation sous-jacents. Les rôles web Cloud Services peuvent s'en charger, mais leur déploiement et leur gestion nécessitent malgré tout des tâches d'administration. Pourquoi ne pas simplement opter pour un site web où vous n'avez pas à vous soucier des tâches d'administration ?
 
@@ -179,9 +179,9 @@ Vous serez peut-être amené à transférer de gros volumes de données dans Azu
 
 
 ### Service de fichiers
-![Azure File Services](./media/fundamentals-introduction-to-azure/FileServiceIntroNew.png) *Figure : Azure File Services fournit des chemins SMB \\serveur\partage aux applications exécutées dans le cloud.*
+![Azure File Services](./media/fundamentals-introduction-to-azure/FileServiceIntroNew.png) *Figure : Azure File Services fournit des chemins SMB \\\\serveur\\partage aux applications exécutées dans le cloud.*
 
-Localement, les gros volumes de stockage de fichiers sont généralement accessibles grâce au protocole Server Message Block (SMB) via un format \\Serveur\partage. Azure propose désormais un service qui vous permet d'utiliser ce protocole dans le cloud. Les applications exécutées sous Azure peuvent utiliser ce service pour partager des fichiers entre les machines virtuelles à l'aide d'API de systèmes de fichiers connus, comme ReadFile et WriteFile. En outre, les fichiers sont accessibles simultanément via une interface REST, ce qui vous permet d'accéder aux partages en local lorsque vous configurez un réseau virtuel. Azure Files se trouve au sommet du service d'objets blob, ce qui lui permet d'hériter des mêmes caractéristiques de disponibilité, de durabilité, d'extensibilité et de géo-redondance qu'Azure Storage.
+Localement, les gros volumes de stockage de fichiers sont généralement accessibles grâce au protocole Server Message Block (SMB) via un format \\\\Serveur\\partage. Azure propose désormais un service qui vous permet d'utiliser ce protocole dans le cloud. Les applications exécutées sous Azure peuvent utiliser ce service pour partager des fichiers entre les machines virtuelles à l'aide d'API de systèmes de fichiers connus, comme ReadFile et WriteFile. En outre, les fichiers sont accessibles simultanément via une interface REST, ce qui vous permet d'accéder aux partages en local lorsque vous configurez un réseau virtuel. Azure Files se trouve au sommet du service d'objets blob, ce qui lui permet d'hériter des mêmes caractéristiques de disponibilité, de durabilité, d'extensibilité et de géo-redondance qu'Azure Storage.
 
 **Scénarios relatifs à Azure Files Services**
 
@@ -592,4 +592,4 @@ Maintenant que vous connaissez les grandes lignes, la prochaine étape est de cr
 
 [Azure Media Services Poster]: http://azure.microsoft.com/documentation/infographics/media-services/
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

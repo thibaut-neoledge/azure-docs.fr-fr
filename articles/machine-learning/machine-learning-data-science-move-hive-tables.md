@@ -153,4 +153,4 @@ Les utilisateurs ne peuvent pas charger directement des données au format ORC d
 
 À l’issue de cette procédure, vous devez obtenir une table immédiatement exploitable et contenant des données au format ORC.
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="storage-backup-recovery" 
-   ms.date="03/18/2015"
+   ms.date="07/24/2015"
    ms.author="elfish; v-romcal"/>
 
 # Récupérer une base de données SQL Azure à l’aide de la géo-restauration dans le portail Azure
@@ -80,4 +80,4 @@ Pour plus d’informations, consultez les liens suivants :
 
 [Géo-restauration de base de données SQL Azure (blog)](http://azure.microsoft.com/blog/2014/09/13/azure-sql-database-geo-restore/)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

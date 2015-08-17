@@ -12,7 +12,7 @@
     ms.workload="operational-insights"
     ms.tgt_pltfrm="na"
     ms.devlang="na"
-    ms.topic="get-started-article"
+    ms.topic="hero-article"
     ms.date="07/09/2015"
     ms.author="banders"/>
 
@@ -97,4 +97,4 @@ Avec Operations Management Suite, vous pouvez rechercher rapidement les journa
 - Se familiariser avec la [recherche](operational-insights-search.md)
 - Utiliser les [tableaux de bord](operational-insights-use-dashboards.md) pour enregistrer et afficher les recherches personnalisées
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

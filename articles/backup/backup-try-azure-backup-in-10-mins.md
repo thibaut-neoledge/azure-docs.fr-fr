@@ -7,14 +7,7 @@
    manager="shreeshd"
    editor=""/>
 
-<tags
-   ms.service="backup"
-   ms.workload="storage-backup-recovery"
-	 ms.tgt_pltfrm="na"
-	 ms.devlang="na"
-	 ms.topic="get-started-article"
-	 ms.date="07/06/2015"
-	 ms.author="aashishr"; "jimpark"/>
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="get-started-article" ms.date="07/06/2015" ms.author="aashishr"; "jimpark"/>
 
 # Essayer Azure Backup en 10 minutes
 Il est très facile de configurer Azure Backup et les vidéos pratiques suivantes vous aideront à le prendre en main.
@@ -52,4 +45,4 @@ Passez en revue les étapes présentées dans la vidéo [Prise en main d’Azure
 - Pour en savoir plus sur Azure Backup, consultez la page [Présentation de la Sauvegarde Windows Azure](backup-introduction-to-azure-backup.md).
 - Consultez le [forum Azure Backup](http://go.microsoft.com/fwlink/p/?LinkId=290933).
 
-<!------HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

@@ -7,14 +7,16 @@
 	manager="wpickett"
 	editor="jimbe"/>
 
+
 <tags
 	ms.service="app-service-web"
 	ms.workload="web"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="get-started-article" 
+	ms.topic="article" 
 	ms.date="04/29/2015"
 	ms.author="tdykstra"/>
+
 
 # Comparaison entre Azure App Service, Azure Cloud Services et Azure Virtual Machines
 
@@ -79,7 +81,7 @@ Azure App Service permet d’éviter facilement les coûts d’infrastructure li
 
 ### <a id="smallbusiness"></a> Je dirige une PME et je recherche une méthode peu onéreuse pour héberger mon site web, tout en gardant à l’esprit la future croissance de mon entreprise.
 
-Azure App Service est une solution idéale dans ce scénario, car vous pouvez démarrer gratuitement, puis ajouter gratuitement des fonctionnalités supplémentaires en fonction de vos besoins. Chaque site web gratuit est fourni avec un domaine Azure (*votre_société*.azurewebsites.net). La plateforme comprend des outils de déploiement et de gestion intégrés, ainsi qu’une galerie d’applications pour une mise en route rapide. De nombreux autres services et options de mise à l'échelle permettent de faire évoluer le site en fonction de l'augmentation de la demande utilisateur. Avec Azure App Service, vous pouvez effectuer les tâches suivantes :
+Azure App Service est une solution idéale dans ce scénario, car vous pouvez démarrer gratuitement, puis ajouter gratuitement des fonctionnalités supplémentaires en fonction de vos besoins. Chaque application web gratuite est fourni avec un domaine Azure (*votre\_société*.azurewebsites.net). La plateforme comprend des outils de déploiement et de gestion intégrés, ainsi qu’une galerie d’applications pour une mise en route rapide. De nombreux autres services et options de mise à l'échelle permettent de faire évoluer le site en fonction de l'augmentation de la demande utilisateur. Avec Azure App Service, vous pouvez effectuer les tâches suivantes :
 
 - Commencez gratuitement, puis passez au niveau supérieur en fonction de vos besoins.
 - Utilisez la galerie d'applications pour configurer rapidement des applications web reconnues, telles que WordPress.
@@ -140,197 +142,34 @@ En outre, Azure App Service dispose d’une nouvelle fonctionnalité en version 
 
 Le tableau suivant compare les fonctionnalités d’Azure App Service, Azure Cloud Services et Azure Virtual Machines afin de vous aider dans votre choix. Pour obtenir des informations à jour sur le contrat SLA de chaque option, consultez la page des [contrats de niveau de service Azure](/support/legal/sla/).
 
-<table cellspacing="0" border="1">
-<tr>
-   <th align="left" valign="middle">Fonctionnalité</th>
-   <th align="left" valign="middle">Azure App Service (applications web)</th>
-   <th align="left" valign="middle">Azure Cloud Services (rôles Web)</th>
-   <th align="left" valign="middle">Machines virtuelles</th>
-   <th align="left" valign="middle">Remarques</th>
-</tr>
-<tr>
-   <td valign="middle"><p>Déploiement presque instantané</p></td>
-   <td valign="middle">X</td>
-   <td valign="middle"></td>
-   <td valign="middle"></td>
-   <td valign="middle">Le déploiement d’une application ou de la mise à jour d’une application sur un service cloud, ou la création d’une machine virtuelle prend au moins quelques minutes. Le déploiement d’une application vers une application web se fait en quelques secondes.</td>
-</tr>
-<tr>
-   <td valign="middle"><p>Évolution vers des machines plus volumineuses sans redéploiement</p></td>
-   <td valign="middle">X</td>
-   <td valign="middle"></td>
-   <td valign="middle"></td>
-   <td valign="middle"></td>
-</tr>
-<tr>
-   <td valign="middle"><p>Les instances de serveur web partagent le contenu et la configuration, ce qui fait que vous n'avez pas à refaire le déploiement ou la configuration en cas d'extension.</p></td>
-   <td valign="middle">X</td>
-   <td valign="middle"></td>
-   <td valign="middle"></td>
-   <td valign="middle"></td>
-</tr>
-<tr>
-   <td valign="middle"><p>Plusieurs environnements de déploiement (de production et intermédiaire)</p></td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle"></td>
-   <td valign="middle"></td>
-</tr>
-<tr>
-   <td valign="middle"><p>Gestion automatique des mises à jour du système d'exploitation</p></td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle"></td>
-   <td valign="middle"></td>
-</tr>
-<tr>
-   <td valign="middle"><p>Migration transparente entre les plateformes (de 32 à 64&#160;bits)</p></td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle"></td>
-   <td valign="middle"></td>
-</tr>
-<tr>
-   <td valign="middle"><p>Déploiement de code avec GIT, FTP</p></td>
-   <td valign="middle">X</td>
-   <td valign="middle"></td>
-   <td valign="middle">X</td>
-   <td valign="middle"></td>
-</tr>
-<tr>
-   <td valign="middle"><p>Déploiement de code avec Web Deploy</p></td>
-   <td valign="middle">X</td>
-   <td valign="middle"></td>
-   <td valign="middle">X</td>
-   <td valign="middle">Cloud Services prend en charge l'utilisation de Web Deploy pour déployer des mises à jour sur des instances de rôle. Cependant, vous ne pouvez pas l'utiliser pour le déploiement initial du rôle, et si vous utilisez Web Deploy pour une mise à jour, vous devez effectuer le déploiement séparément pour chaque instance du rôle. Plusieurs instances sont nécessaires afin de répondre aux exigences du contrat SLA Cloud Services pour les environnements de production.</td>
-</tr>
-<tr>
-   <td valign="middle"><p>Prise en charge de WebMatrix</p></td>
-   <td valign="middle">X</td>
-   <td valign="middle"></td>
-   <td valign="middle">X</td>
-   <td valign="middle"></td>
-</tr>
-<tr>
-   <td valign="middle"><p>Accès aux services tels que Service Bus, Storage et Base de données SQL</p></td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle"></td>
-</tr>
-<tr>
-   <td valign="middle"><p>Hébergement des services Web ou niveaux d'une architecture multiniveau</p></td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle"></td>
-</tr>
-<tr>
-   <td valign="middle"><p>Hébergement du niveau intermédiaire d'une architecture multiniveau</p></td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle">Les applications web App Service peuvent facilement héberger un niveau intermédiaire d’API REST et la fonctionnalité <a href="http://go.microsoft.com/fwlink/?linkid=390226">WebJobs</a> peut héberger des tâches de traitement en arrière-plan. Vous pouvez exécuter WebJobs sur un site web dédié pour obtenir une flexibilité indépendante pour cette couche. La version préliminaire de la fonctionnalité [apps API](../app-service-api/app-service-api-apps-why-best-platform.md) offre encore plus de fonctionnalités pour l’hébergement de services REST.</td>
-</tr>
-<tr>
-   <td valign="middle"><p>Prise en charge intégrée de MySQL-as-a-service</p></td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle">Cloud Services peut intégrer MySQL en tant que service via les offres ClearDB, mais pas dans le cadre du workflow du portail de gestion.</td>
-</tr>
-<tr>
-   <td valign="middle"><p>Prise en charge d'ASP.NET, d'ASP, de Node.js, de PHP et de Python</p></td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle"></td>
-</tr>
-<tr>
-   <td valign="middle"><p>Montée en charge vers plusieurs instances sans redéploiement</p></td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle">Bien que les machines virtuelles puissent évoluer vers plusieurs instances, les services exécutés sur celles-ci doivent être écrits de manière à prendre en charge cette montée en charge. Vous devez configurer un programme d'équilibrage de la charge pour acheminer les demandes entre les machines et créer un groupe d'affinités afin d'empêcher les redémarrages simultanés de toutes les instances en cas de maintenance ou de panne matérielle.</td>
-</tr>
-<tr>
-   <td valign="middle"><p>Prise en charge de SSL</p></td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle">Pour les applications web App Service, le protocole SSL pour les noms de domaine personnalisés est pris en charge uniquement en mode De base et Standard. Pour plus d’informations sur l’utilisation de SSL avec les applications web, consultez la page <a href="../web-sites-configure-ssl-certificate/">Configuration d’un certificat SSL pour un site web Azure</a>.</td>
-</tr>
-<tr>
-   <td valign="middle"><p>Intégration de Visual Studio</p></td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle"></td>
-</tr>
-<tr>
-   <td valign="middle"><p>Débogage à distance</p></td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle"></td>
-</tr>
-<tr>
-   <td valign="middle"><p>Déploiement de code avec TFS</p></td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle"></td>
-</tr>
-<tr>
-   <td valign="middle"><p>Isolation du réseau avec <a href="/services/virtual-network/">Azure Virtual Network</a></p></td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle">Voir aussi <a href="/blog/2014/09/15/azure-websites-virtual-network-integration/">Intégration au réseau virtuel de Sites Web Azure</a></td>
-</tr>
-<tr>
-   <td valign="middle"><p>Prise en charge d'<a href="/services/traffic-manager/">Azure Traffic Manager</a></p></td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle"></td>
-</tr>
-<tr>
-   <td valign="middle"><p>Surveillance intégrée des points de terminaison</p></td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle"></td>
-</tr>
-<tr>
-   <td valign="middle"><p>Accès aux serveurs via le Bureau à distance</p></td>
-   <td valign="middle"></td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle"></td>
-</tr>
-<tr>
-   <td valign="middle"><p>Installez n'importe quel MSI personnalisé</p></td>
-   <td valign="middle"></td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle"></td>
-</tr>
-<tr>
-   <td valign="middle"><p>Possibilité de définir et d'exécuter des tâches de démarrage</p></td>
-   <td valign="middle"></td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle"></td>
-</tr>
-<tr>
-   <td valign="middle"><p>Possibilité d'écouter des événements ETW</p></td>
-   <td valign="middle"></td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle"></td>
-</tr>
-</table>
+Fonctionnalité|Azure App Service (applications web)|Azure Cloud Services (rôles Web)|Machines virtuelles|Remarques
+---|---|---|---|---
+Déploiement presque instantané|X|||Le déploiement d’une application ou de la mise à jour d’une application sur un service cloud, ou la création d’une machine virtuelle prend au moins quelques minutes. Le déploiement d’une application vers une application web se fait en quelques secondes.
+Évolution vers des machines plus volumineuses sans redéploiement|X|||
+Les instances de serveur web partagent le contenu et la configuration, ce qui fait que vous n'avez pas à refaire le déploiement ou la configuration en cas d'extension.|X|||
+Plusieurs environnements de déploiement (de production et intermédiaire)|X|X||
+Gestion automatique des mises à jour du système d'exploitation|X|X||
+Migration transparente entre les plateformes (de 32 à 64 bits)|X|X||
+Déploiement de code avec GIT, FTP|X||X|
+Déploiement de code avec Web Deploy|X||X|Cloud Services prend en charge l'utilisation de Web Deploy pour déployer des mises à jour sur des instances de rôle. Cependant, vous ne pouvez pas l'utiliser pour le déploiement initial du rôle, et si vous utilisez Web Deploy pour une mise à jour, vous devez effectuer le déploiement séparément pour chaque instance du rôle. Plusieurs instances sont nécessaires afin de répondre aux exigences du contrat SLA Cloud Services pour les environnements de production.
+Prise en charge de WebMatrix|X||X|
+Accès aux services tels que Service Bus, Storage et Base de données SQL|X|X|X|
+Hébergement des services Web ou niveaux d'une architecture multiniveau|X|X|X|
+Hébergement du niveau intermédiaire d'une architecture multiniveau|X|X|X|Les applications web App Service peuvent facilement héberger un niveau intermédiaire d’API REST et la fonctionnalité [WebJobs](http://go.microsoft.com/fwlink/?linkid=390226) peut héberger des tâches de traitement en arrière-plan. Vous pouvez exécuter WebJobs sur un site web dédié pour obtenir une flexibilité indépendante pour cette couche. La version préliminaire de la fonctionnalité [API apps](../app-service-api/app-service-api-apps-why-best-platform/) offre encore plus de fonctionnalités pour l’hébergement de services REST.
+Prise en charge intégrée de MySQL-as-a-service|X|X|X|Cloud Services peut intégrer MySQL en tant que service via les offres ClearDB, mais pas dans le cadre du workflow du portail de gestion.
+Prise en charge d'ASP.NET, d'ASP, de Node.js, de PHP et de Python|X|X|X|
+Montée en charge vers plusieurs instances sans redéploiement|X|X|X|Bien que les machines virtuelles puissent évoluer vers plusieurs instances, les services exécutés sur celles-ci doivent être écrits de manière à prendre en charge cette montée en charge. Vous devez configurer un programme d'équilibrage de la charge pour acheminer les demandes entre les machines et créer un groupe d'affinités afin d'empêcher les redémarrages simultanés de toutes les instances en cas de maintenance ou de panne matérielle.
+Prise en charge de SSL|X|X|X|Pour les applications web App Service, le protocole SSL pour les noms de domaine personnalisés est pris en charge uniquement en mode De base et Standard. Pour plus d’informations sur l’utilisation de SSL avec les applications web, consultez la page [Configuration d’un certificat SSL pour un site web Azure](../app-service-web/web-sites-configure-ssl-certificate/).
+Intégration de Visual Studio|X|X|X|
+Débogage à distance|X|X|X|
+Déploiement de code avec TFS|X|X|X|
+Isolation du réseau avec [Azure Virtual Network](../services/virtual-network/)|X|X|X|Voir aussi [Intégration au réseau virtuel de Sites Web Azure](../blog/2014/09/15/azure-websites-virtual-network-integration/)
+Prise en charge d'[Azure Traffic Manager](../services/traffic-manager/)|X|X|X|
+Surveillance intégrée des points de terminaison|X|X|X|
+Accès aux serveurs via le Bureau à distance||X|X|
+Installez n'importe quel MSI personnalisé||X|X|
+Possibilité de définir et d'exécuter des tâches de démarrage||X|X|
+Possibilité d'écouter des événements ETW||X|X|
 
 
 > [AZURE.NOTE]Si vous souhaitez commencer à utiliser Azure App Service avant d’ouvrir un compte, accédez au site <a href="https://trywebsites.azurewebsites.net/">https://trywebsites.azurewebsites.net</a>, où vous pouvez créer immédiatement un site de départ de courte durée gratuit dans Azure App Service. Aucune carte de crédit n’est requise, vous ne prenez aucun engagement.
@@ -367,4 +206,4 @@ Pour choisir une ou plusieurs de ces options pour votre application, consultez l
   [Azure Storage]: http://www.windowsazure.com/documentation/services/storage/
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

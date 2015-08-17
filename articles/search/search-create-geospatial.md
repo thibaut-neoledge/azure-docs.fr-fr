@@ -7,6 +7,7 @@
 	manager="mblythe" 
 	editor=""/>
 
+
 <tags 
 	ms.service="search" 
 	ms.devlang="rest-api" 
@@ -15,6 +16,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.date="07/08/2015" 
 	ms.author="heidist"/>
+
 
 # Création d'une application de recherche géospatiale à l'aide de Azure Search
 
@@ -67,7 +69,7 @@ Nous allons utiliser l'API Bing Maps pour réaliser deux opérations.
 
 Lors de cette étape, nous utiliserons l'API de flux de données Bing Maps pour géocoder certaines des adresses de divers magasins de vélos aux quatre coins du monde.
 
-Ces données proviennent d'un fichier CSV appelé store_locations.csv et situé dans la source que vous avez téléchargée précédemment. Si vous ouvrez ce fichier dans un éditeur de texte ou Excel, vous verrez qu'il inclut une colonne avec l'ID de chaque magasin, son nom et son adresse.
+Ces données proviennent d'un fichier CSV appelé store\_locations.csv et situé dans la source que vous avez téléchargée précédemment. Si vous ouvrez ce fichier dans un éditeur de texte ou Excel, vous verrez qu'il inclut une colonne avec l'ID de chaque magasin, son nom et son adresse.
 
 Examinons le code afin de comprendre comment cela fonctionne.
 
@@ -75,13 +77,13 @@ Examinons le code afin de comprendre comment cela fonctionne.
 
 2. Accédez à la fonction **Main** et notez qu'elle appelle **ApplyStoreData**. Accédez à cette fonction et examinez le code.
 
-3. **ApplyStoreData** charge les données d'un fichier CSV appelé « store_locations.csv » dans une System.Data.DataTable.
+3. **ApplyStoreData** charge les données d'un fichier CSV appelé « store\_locations.csv » dans une System.Data.DataTable.
 
     Ce fichier inclut tous les magasins, avec leurs adresses que nous souhaitons charger dans Azure Search. En parcourant chaque ligne de ce fichier, nous pouvons créer un ensemble de **indexOperations**, qui sont ensuite insérées dans l'index Azure Search (précédemment créé dans la fonction **CreateStoresIndex()**).
 
     Si vous examinez alors l'index avec attention, vous noterez que le champ **GeoPt**, qui contiendra la longitude et la latitude de chaque magasin, est vide. Cela nous amène à l'étape suivante de la fonction **Main**.
 
-5. Accédez à la fonction **ExtractAddressInfoToXML()**. Cette fonction extrait les informations d'adresses du fichier store_locations.csv et les charge dans un fichier XML au format compatible avec Bing Maps pour le géocodage. Une fois le fichier créé, il est envoyé pour traitement au flux de données Bing Maps en appelant la fonction **GeoCoding.CreateJob**.
+5. Accédez à la fonction **ExtractAddressInfoToXML()**. Cette fonction extrait les informations d'adresses du fichier store\_locations.csv et les charge dans un fichier XML au format compatible avec Bing Maps pour le géocodage. Une fois le fichier créé, il est envoyé pour traitement au flux de données Bing Maps en appelant la fonction **GeoCoding.CreateJob**.
 
 6. Le processus de géocodage pouvant être assez long, une boucle appelle **GeoCoding.CheckStatus** toutes les 10 secondes afin de vérifier si l'opération est terminée. Une fois l'opération terminée, les résultats sont téléchargés en appelant **GeoCoding.DownloadResults** dans la classe d'adresses.
 
@@ -127,7 +129,8 @@ Le projet **AdventureWorksWebGeo** nous montre comment ASP.NET MVC 4 peut être
 
 +	La fonction **Search** récupère les emplacements des magasins, qui sont ensuite reçus et ajoutés en tant que repères sur la carte Bing.
 
-4.	Ouvrez HomeController.cs sous **Contrôleurs** et observez la fonction **Search**. Notez l'appel de _storeSearch.Search(lat, lon, 10000). Cela génère l'exécution d'une requête afin de trouver tous les magasins dans un rayon de 10 000 km de la latitude (lat) et la longitude (lon) spécifiées. Les résultats de cette requête sont traités, puis renvoyés à la vue Index afin d'être traités en tant que repères superposés sur la carte Bing. 
+4.	Ouvrez HomeController.cs sous **Contrôleurs** et observez la fonction **Search**. Notez l'appel de \_storeSearch.Search(lat, lon, 10000). Cela génère l'exécution d'une requête afin de trouver tous les magasins dans un rayon de 10 000 km de la latitude (lat) et la longitude (lon) spécifiées. Les résultats de cette requête sont traités, puis renvoyés à la vue Index afin d'être traités en tant que repères superposés sur la carte Bing.
+
 La démo est terminée. Nous venons de parcourir l'ensemble des principales opérations qu'il vous faut connaître avant de créer une application ASP.NET MVC 4 basée sur une carte à l'aide d'Azure Search.
 
 
@@ -166,4 +169,4 @@ Pour votre apprentissage personnel, essayez d'ajouter d'autres fonctionnalités 
 [7]: ./media/search-create-geospatial/AzureSearch-geo1-App.PNG
 [12]: ./media/search-create-geospatial/AzureSearch_Create2_CodeplexDownload.PNG
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

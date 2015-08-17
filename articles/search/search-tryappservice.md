@@ -83,7 +83,7 @@ Si vous n’avez pas encore démarré votre session d’une heure, procédez com
 
 
 ##Premières étapes
-Étant donné que l’index de recherche est totalement opérationnel, la première étape consiste à essayer quelques requêtes. Azure Search prend en charge tous les opérateurs de recherche standard (+, -, |), les guillemets pour les correspondances littérales, les caractères génériques (\*) et les opérateurs de priorité. Vous pouvez examiner la référence de syntaxe de requête pour la liste complète des opérateurs.
+Étant donné que l’index de recherche est totalement opérationnel, la première étape consiste à essayer quelques requêtes. Azure Search prend en charge tous les opérateurs de recherche standard (+, -, |), les guillemets pour les correspondances littérales, les caractères génériques (*) et les opérateurs de priorité. Vous pouvez examiner la référence de syntaxe de requête pour la liste complète des opérateurs.
 
 - Commencez par une recherche générique en ajoutant un astérisque (`*`). Cela vous indique le nombre de documents se trouvant dans l’index : 2 262 578.
 - Ensuite, entrez « Yellowstone », puis ajoutez « +centre », « +bâtiment » et « -ND » pour affiner progressivement les résultats de la recherche aux centres d’informations de Yellowstone, en excluant ceux situés dans le Dakota du Nord :`Yellowstone +center +building -ND`.  
@@ -157,7 +157,7 @@ Les filtres sont spécifiés à l’aide de la syntaxe OData et sont fréquemmen
 
 3. Ouvrez l’application.
 
-4. Tapez le caractère générique (\*) pour renvoyer un nombre. Notez que les résultats sont désormais limités à 42 411 éléments, qui correspondent à tous les documents pour toutes les fonctionnalités géographiques dans l’État de Washington.
+4. Tapez le caractère générique (*) pour renvoyer un nombre. Notez que les résultats sont désormais limités à 42 411 éléments, qui correspondent à tous les documents pour toutes les fonctionnalités géographiques dans l’État de Washington.
 
    ![][12]
 
@@ -529,4 +529,4 @@ La capture d’écran suivante montre le schéma utilisé pour créer l’index 
 [13]: ./media/search-tryappservice/AzSearch-TryAppService-Schema.png
 [14]: ./media/search-tryappservice/AzSearch-TryAppService-HitHighlight.png
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

@@ -1,20 +1,6 @@
-<properties
-   pageTitle="Azure Backup - Sauvegarde et restauration à partir d’un serveur/client Windows | Microsoft Azure"
-   description="Découvrez comment sauvegarder et restaurer des fichiers à partir d’un serveur/client Windows.. Cet article décrit également la récupération sur un autre serveur"
-   services="backup"
-   documentationCenter=""
-   authors="Jim-Parker"
-   manager="jwhit"
-   editor=""/>
+<properties pageTitle="Azure Backup - Sauvegarde et restauration à partir d’un serveur/client Windows" | Description Microsoft Azure="Découvrez comment sauvegarder et restaurer des fichiers à partir d’un serveur/client Windows.. Cet article décrit également la récupération sur un autre serveur.="backup" documentationCenter="" authors="Jim-Parker" manager="jwhit" editor=""/>
 
-<tags
-   ms.service="backup"
-   ms.workload="storage-backup-recovery"
-	 ms.tgt_pltfrm="na"
-	 ms.devlang="na"
-	 ms.topic="article"
-	 ms.date="07/01/2015"
-	 ms.author="jimpark"; "aashishr"/>
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="07/01/2015" ms.author="jimpark"; "aashishr"/>
 
 # Sauvegarde et restauration à partir d’un serveur Windows ou d’un ordinateur client Windows
 Cet article décrit les étapes requises pour effectuer une sauvegarde à partir d’un serveur Windows ou d’un ordinateur client Windows. Il décrit également les étapes requises pour restaurer les fichiers sauvegardés sur le même ordinateur et pour restaurer les fichiers sauvegardés sur un autre ordinateur.
@@ -56,7 +42,7 @@ Si vous avez supprimé accidentellement un fichier et que vous voulez restaurer 
 
     ![Récupérer des données](./media/backup-azure-backup-and-recover/recover.png)
 
-3. Sélectionnez l’option **Ce serveur (\*nomdevotremachine\*)** pour restaurer le fichier sauvegardé sur le même ordinateur.
+3. Sélectionnez l’option **Ce serveur (*nomdevotremachine*)** pour restaurer le fichier sauvegardé sur le même ordinateur.
 
     ![Même ordinateur](./media/backup-azure-backup-and-recover/samemachine.png)
 
@@ -85,7 +71,7 @@ Si vous avez supprimé accidentellement un fichier et que vous voulez restaurer 
 ## Récupération sur un autre ordinateur
 Si votre serveur entier est perdu, vous pouvez toujours récupérer le fichier/volume sur un autre ordinateur. Les étapes suivantes illustrent le flux de travail.
 
-La nomenclature utilisée dans les étapes est la suivante : - *Ordinateur source* : ordinateur d’origine à partir duquel la sauvegarde a été effectuée et qui est actuellement indisponible. - *Ordinateur cible* : ordinateur sur lequel les données sont récupérées. - *Exemple d’archivage* – archivage de sauvegarde dans lequel l’*ordinateur source* et l’*ordinateur cible* sont enregistrés. <br/>
+La nomenclature utilisée dans les étapes est la suivante : - *Ordinateur source* : ordinateur d’origine à partir duquel la sauvegarde a été effectuée et qui est actuellement indisponible. - *Ordinateur cible* : ordinateur sur lequel les données sont récupérées. - *Exemple d’archivage* – archivage de sauvegarde dans lequel l’*ordinateur source* et l’*ordinateur cible* sont enregistrés. <br/>
 
 > [AZURE.NOTE]Les sauvegardes effectuées à partir d’un ordinateur ne peuvent pas être restaurées sur un ordinateur qui exécute une version antérieure du système d’exploitation. Par exemple, si les sauvegardes sont effectuées à partir d’un ordinateur Windows 7, elles peuvent être restaurées sur un ordinateur Windows 8 ou supérieur. Toutefois l’inverse n’est pas vrai.
 
@@ -128,4 +114,4 @@ La nomenclature utilisée dans les étapes est la suivante : - *Ordinateur sourc
 ## Étapes suivantes
 - [Azure Backup - Forum Aux Questions](backup-azure-backup-faq.md)
 
-<!------HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

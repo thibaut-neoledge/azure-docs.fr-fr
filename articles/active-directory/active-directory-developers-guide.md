@@ -10,7 +10,7 @@
 <tags
    ms.service="active-directory"
    ms.devlang="na"
-   ms.topic="article"
+   ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
    ms.date="06/10/2015"
@@ -132,4 +132,4 @@ Ces vues d’ensemble sur le développement d’applications avec Azure Active D
 
 - **[Azure AD sur Twitter](https://twitter.com/azuread)** : annonces Azure AD limitées à 140 caractères.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

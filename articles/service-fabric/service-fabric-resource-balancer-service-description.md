@@ -78,7 +78,7 @@ L'affinité de service présente actuellement les limites suivantes :
 - Elle ne peut pas être utilisée pour les services sans et avec état.
 - Elle ne peut pas être utilisée pour les services sans état avec des nombres d'instances différents. Par exemple, les deux services sans état doivent avoir la même propriété InstanceCount lorsqu'ils sont créés.
 - Elle ne peut pas être utilisée pour les services volatiles ou persistants avec état avec des nombres différents de réplicas. Par exemple, les deux services doivent avoir les mêmes valeurs ReplicaSetSizes Target et Min.
-- Elle ne peut pas être utilisée avec les services partitionnés. Chaque service doit avoir un schéma de partition FABRIC_PARTITION_SCHEME_SINGLETON.
+- Elle ne peut pas être utilisée avec les services partitionnés. Chaque service doit avoir un schéma de partition FABRIC\_PARTITION\_SCHEME\_SINGLETON.
 - Les relations d'affinité, comme d'autres propriétés de la description du service, sont définies lorsque le service est créé et ne peuvent pas être modifiées.
 - Les chaînes de services ne sont pas autorisées. Si plusieurs services doivent être introduits dans une relation d'affinité, ils doivent utiliser un modèle « en étoile ».
 
@@ -229,4 +229,4 @@ Pour plus d'informations : [Architecture de l'équilibreur de ressources](servi
 [Image3]: media/service-fabric-resource-balancer-service-description/MW.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

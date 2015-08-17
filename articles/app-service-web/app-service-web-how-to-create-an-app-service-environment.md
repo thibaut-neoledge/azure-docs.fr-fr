@@ -7,14 +7,16 @@
 	manager="stefsch" 
 	editor=""/>
 
+
 <tags 
 	ms.service="app-service-web" 
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
-	ms.topic="article" 
+	ms.topic="get-started-article" 
 	ms.date="04/27/2015" 
 	ms.author="ccompy"/>
+
 
 # Comment créer un environnement App Service #
 
@@ -39,7 +41,7 @@ Il existe deux façons d'accéder à l'interface utilisateur de création d'un A
 ### Création rapide ###
 Après avoir accédé à l'interface utilisateur de création, vous pouvez rapidement créer un ASE en entrant simplement un nom pour le déploiement. Cela crée ensuite un réseau virtuel comportant 512 adresses, un sous-réseau comportant 256 adresses sur ce réseau virtuel et un environnement ASE comportant 2 serveurs frontaux et 2 travaux dans le pool de travaux 1. Veillez à sélectionner l'emplacement où placer le système et l'abonnement dans lequel vous voulez qu'il soit. Les seuls comptes qui peuvent utiliser l'ASE pour héberger le contenu doivent être dans l'abonnement utilisé pour le créer.
 
-Le nom spécifié pour l'ASE sera utilisé pour les applications web créées dans l'ASE. Si le nom de l'ASE est appsvcenvdemo, le nom de domaine serait .\*appsvcenvdemo.p.azurewebsites.net\*. Par conséquent, si vous avez créé une application web nommée mytestapp, elle serait adressable à l'adresse *mytestapp.appsvcenvdemo.p.azurewebsites.net*. Vous ne pouvez pas utiliser d'espace blanc dans le nom. Si vous utilisez des caractères en majuscules dans le nom, le nom de domaine sera la version complète de ce nom en minuscules.
+Le nom spécifié pour l'ASE sera utilisé pour les applications web créées dans l'ASE. Si le nom de l'ASE est appsvcenvdemo, le nom de domaine serait .*appsvcenvdemo.p.azurewebsites.net*. Par conséquent, si vous avez créé une application web nommée mytestapp, elle serait adressable à l'adresse *mytestapp.appsvcenvdemo.p.azurewebsites.net*. Vous ne pouvez pas utiliser d'espace blanc dans le nom. Si vous utilisez des caractères en majuscules dans le nom, le nom de domaine sera la version complète de ce nom en minuscules.
 
 
 ![][1]
@@ -143,4 +145,4 @@ Pour plus d’informations sur la plateforme Azure App Service, consultez la rub
 [AppServicePricing]: http://azure.microsoft.com/pricing/details/app-service/
 [AzureAppService]: http://azure.microsoft.com/documentation/articles/app-service-value-prop-what-is/
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

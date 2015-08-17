@@ -310,15 +310,15 @@ Après quelques secondes, à l’aide de `sudo crm_mon –L`, vérifiez que l�
 
 La capture d’écran suivante montre `crm_mon` avec un seul nœud arrêté (quittez avec Ctrl-C).
 
-![crm_mon node stopped](media/virtual-machines-linux-mysql-cluster/image002.png)
+![crm\_mon node stopped](media/virtual-machines-linux-mysql-cluster/image002.png)
 
 Cette capture d'écran montre les deux nœuds, avec un maître et un esclave :
 
-![crm_mon operational master/slave](media/virtual-machines-linux-mysql-cluster/image003.png)
+![crm\_mon operational master/slave](media/virtual-machines-linux-mysql-cluster/image003.png)
 
 ## Test
 
-Nous sommes prêts pour une simulation de basculement automatique. Il existe deux façons de procéder : de manière douce et de manière dure. La méthode douce consiste à utiliser la fonction d’arrêt du cluster : ``crm_standby -U `uname -n` -v on``. Si on utilise cette fonction sur le maître, l'esclave prend le relais. N'oubliez pas de redésactiver cette fonction (sinon, crm_mon vous indiquera qu'un nœud est en veille).
+Nous sommes prêts pour une simulation de basculement automatique. Il existe deux façons de procéder : de manière douce et de manière dure. La méthode douce consiste à utiliser la fonction d’arrêt du cluster : ``crm_standby -U `uname -n` -v on``. Si on utilise cette fonction sur le maître, l'esclave prend le relais. N'oubliez pas de redésactiver cette fonction (sinon, crm\_mon vous indiquera qu'un nœud est en veille).
 
 La méthode dure consiste à arrêter la machine virtuelle principale (hadb01) via le portail ou à changer le niveau d'exécution de la machine virtuelle (halt, shutdown) afin d'aider Corosync et Pacemaker en signalant que le maître va s'arrêter. Il est possible de tester ceci (c'est utile pour la maintenance), mais aussi de forcer le scénario en se contentant de geler la machine virtuelle.
 
@@ -348,4 +348,4 @@ Les limites suivantes s'appliquent :
 - Les performances d'écriture dépendront de l'interconnexion des machines virtuelles dans le commutateur virtuel, car il s'agit du mécanisme utilisé par DRBD pour répliquer le périphérique.
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

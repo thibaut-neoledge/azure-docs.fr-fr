@@ -103,4 +103,4 @@ Vous disposez maintenant d'une nouvelle machine virtuelle Windows nommée MyWind
 
 [Installation et configuration d’Azure PowerShell](install-configure-powershell.md)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

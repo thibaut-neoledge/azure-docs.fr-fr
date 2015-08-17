@@ -73,7 +73,7 @@ Dans la section PHP de la fenêtre qui s’ouvre, notez les valeurs des champs *
 
 ##<a id="Connect"></a>Connexion à une instance de base de données SQL
 
-Les exemples suivants montrent comment utiliser les extensions **SQLSRV** et **PDO_SQLSRV** pour se connecter à une base de données SQL appelée `testdb`. Pour plus d’informations sur les API **SQLSRV** et **PDO_SQLSRV**, consultez la [documentation relative aux pilotes Microsoft SQL Server pour PHP][driver-docs]. Vous aurez besoin des informations obtenues à la section précédente. Remplacez `SERVER_ID` par votre ID de serveur à 10 chiffres (c’est-à-dire, les 10 premiers caractères de la valeur SERVER obtenue à la section précédente), puis affectez les valeurs correctes (votre nom d’utilisateur et votre mot de passe) aux variables `$user` et `$pwd`.
+Les exemples suivants montrent comment utiliser les extensions **SQLSRV** et **PDO\_SQLSRV** pour se connecter à une base de données SQL appelée `testdb`. Pour plus d’informations sur les API **SQLSRV** et **PDO\_SQLSRV**, consultez la [documentation relative aux pilotes Microsoft SQL Server pour PHP][driver-docs]. Vous aurez besoin des informations obtenues à la section précédente. Remplacez `SERVER_ID` par votre ID de serveur à 10 chiffres (c’est-à-dire, les 10 premiers caractères de la valeur SERVER obtenue à la section précédente), puis affectez les valeurs correctes (votre nom d’utilisateur et votre mot de passe) aux variables `$user` et `$pwd`.
 
 #####SQLSRV
 
@@ -88,7 +88,7 @@ Les exemples suivants montrent comment utiliser les extensions **SQLSRV** et **P
 		die(print_r(sqlsrv_errors()));
 	}
 
-#####PDO_SQLSRV
+#####PDO\_SQLSRV
 
 	$server = "tcp:<value of SERVER from section above>";
 	$user = "<value of USERNAME from section above>"@SERVER_ID;
@@ -105,7 +105,7 @@ Les exemples suivants montrent comment utiliser les extensions **SQLSRV** et **P
 
 
 ##<a id="NextSteps"></a>Étapes suivantes
-Comme indiqué précédemment, l’utilisation de la base de données SQL est semblable à celle de SQL Server. Une fois que vous avez établi une connexion avec une base de données SQL (comme indiqué plus haut), vous pouvez utiliser les API **SQLSRV** ou **PDO_SQLSRV** pour insérer, récupérer, mettre à jour et supprimer des données. Toutefois, les quelques différences qui existent entre la base de données SQL et SQL Server peuvent avoir une incidence sur votre application. Pour plus d’informations, consultez la page [Instructions et limitations (Base de données SQL)][limitations].
+Comme indiqué précédemment, l’utilisation de la base de données SQL est semblable à celle de SQL Server. Une fois que vous avez établi une connexion avec une base de données SQL (comme indiqué plus haut), vous pouvez utiliser les API **SQLSRV** ou **PDO\_SQLSRV** pour insérer, récupérer, mettre à jour et supprimer des données. Toutefois, les quelques différences qui existent entre la base de données SQL et SQL Server peuvent avoir une incidence sur votre application. Pour plus d’informations, consultez la page [Instructions et limitations (Base de données SQL)][limitations].
 
 Un exemple montrant comment utiliser la base de données SQL avec PHP sur Azure est disponible à l’adresse <https://github.com/WindowsAzure/azure-sdk-for-php-samples/tree/master/tasklist-sqlazure>.
 
@@ -130,4 +130,4 @@ Un exemple montrant comment utiliser la base de données SQL avec PHP sur Azure 
 [quick-create]: ./media/sql-database-php-how-to-use/create-new-sql.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

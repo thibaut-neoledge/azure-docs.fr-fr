@@ -24,9 +24,9 @@ Comme vous le savez, SQL Data Warehouse propose la prise en charge de l’ense
 SQL Data Warehouse implémente les transactions ACID. Toutefois, l’isolation de la prise en charge des transactions se limite à `READ UNCOMMITTED`. Ce paramètre ne peut pas être modifié. Vous pouvez implémenter un certain nombre de méthodes de codage pour éviter les lectures erronées des données, si le problème se pose. Les méthodes les plus populaires reposent sur la commande CTAS et le basculement des partitions de table (souvent appelé « modèle de fenêtre glissante ») afin d’empêcher les utilisateurs d’interroger les données en cours de préparation. On utilise également des vues qui appliquent un filtre préliminaire aux données.
 
 ## État des transactions
-SQL Data Warehouse utilise la fonction XACT_STATE() pour signaler l’échec d’une transaction, en utilisant la valeur -2. Cette valeur signifie que la transaction a échoué et est marquée pour une restauration uniquement.
+SQL Data Warehouse utilise la fonction XACT\_STATE() pour signaler l’échec d’une transaction, en utilisant la valeur -2. Cette valeur signifie que la transaction a échoué et est marquée pour une restauration uniquement.
 
-> [AZURE.NOTE]L’association de la valeur -2 à la fonction XACT_STATE afin de signaler l’échec d’une transaction constitue un comportement différent par rapport à SQL Server. En effet, SQL Server utilise la valeur -1 pour indiquer qu’une transaction ne peut pas être validée. De plus, il peut tolérer la présence de certaines erreurs au sein d’une transaction sans pour autant signaler que cette dernière ne peut pas être validée. Par exemple, la valeur SELECT 1/0 entraîne une erreur, mais n’oblige pas la transaction à passer à l’état non validable. Par ailleurs, SQL Server autorise également les lectures dans une transaction non validable, ce que ne fait pas SQLDW. Si une erreur se produit dans une transaction SQLDW, cette dernière passe automatiquement à l’état -2, y compris les erreurs SELECT 1/0. Vous devez donc impérativement vérifier le code de votre application, afin de vous assurer qu’il utilise la fonction XACT_STATE().
+> [AZURE.NOTE]L’association de la valeur -2 à la fonction XACT\_STATE afin de signaler l’échec d’une transaction constitue un comportement différent par rapport à SQL Server. En effet, SQL Server utilise la valeur -1 pour indiquer qu’une transaction ne peut pas être validée. De plus, il peut tolérer la présence de certaines erreurs au sein d’une transaction sans pour autant signaler que cette dernière ne peut pas être validée. Par exemple, la valeur SELECT 1/0 entraîne une erreur, mais n’oblige pas la transaction à passer à l’état non validable. Par ailleurs, SQL Server autorise également les lectures dans une transaction non validable, ce que ne fait pas SQLDW. Si une erreur se produit dans une transaction SQLDW, cette dernière passe automatiquement à l’état -2, y compris les erreurs SELECT 1/0. Vous devez donc impérativement vérifier le code de votre application, afin de vous assurer qu’il utilise la fonction XACT\_STATE().
 
 Dans SQL Server, vous pouvez voir apparaître un fragment de code ressemblant à ce qui suit :
 
@@ -81,8 +81,8 @@ SELECT @xact;
 
 Vous pouvez constater que la restauration de la transaction doit se produire avant la lecture des informations sur l’erreur, dans le bloc `CATCH`.
 
-## Fonction Error_Line()
-Il est également important de signaler que SQL Data Warehouse n’implémente pas et ne prend pas en charge la fonction ERROR_LINE(). Si cette fonction est incluse dans votre code, vous devez la supprimer pour respecter les exigences de SQL Data Warehouse. Placez plutôt des libellés de requête dans votre code pour implémenter les fonctionnalités équivalentes. Consultez l’article relatif aux [libellés de requête] pour en savoir plus.
+## Fonction Error\_Line()
+Il est également important de signaler que SQL Data Warehouse n’implémente pas et ne prend pas en charge la fonction ERROR\_LINE(). Si cette fonction est incluse dans votre code, vous devez la supprimer pour respecter les exigences de SQL Data Warehouse. Placez plutôt des libellés de requête dans votre code pour implémenter les fonctionnalités équivalentes. Consultez l’article relatif aux [libellés de requête] pour en savoir plus.
 
 ## Utilisation des paramètres THROW et RAISERROR
 Le paramètre THROW est l’implémentation la plus moderne du déclenchement d’exceptions dans SQL Data Warehouse. Toutefois, le paramètre RAISERROR est également pris en charge. Il existe cependant quelques différences, qu’il est préférable de prendre en compte.
@@ -112,4 +112,4 @@ Pour obtenir des conseils supplémentaires en matière de développement, voir l
 
 <!--Other Web references-->
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -7,6 +7,7 @@
 	manager="wpickett" 
 	editor="mollybos"/>
 
+
 <tags 
 	ms.service="active-directory" 
 	ms.workload="identity" 
@@ -15,6 +16,7 @@
 	ms.topic="article" 
 	ms.date="07/17/2015" 
 	ms.author="tomfitz"/>
+
 
 # Authentification unique web avec PHP et Azure Active Directory
 
@@ -125,13 +127,13 @@ Dans cette étape, vous allez ajouter la prise en charge de la connexion fédér
 		federation.reply=https://localhost/phpSample/index.php 
 
 
-> [AZURE.NOTE]Les valeurs **audienceuris** et **realm** doivent être précédées de « spn: ».
+	> [AZURE.NOTE]Les valeurs **audienceuris** et **realm** doivent être précédées de « spn: ».
 
 4. Dans Eclipse, cliquez avec le bouton droit sur le projet **phpSample**, cliquez sur **New**, puis sur **PHP File**.
 
 5. Dans la boîte de dialogue **New PHP File**, nommez le projet **secureResource.php**, puis cliquez sur **Finish**.
 
-6. Dans le nouveau fichier **secureResource.php**, entrez le code suivant, en remplaçant le chemin d'accès **c:\phpLibraries** par celui de l'emplacement racine dans lequel vous avez téléchargé l'exemple de code. L'emplacement racine doit inclure le fichier **simpleSAML.php** et le dossier **federation** :
+6. Dans le nouveau fichier **secureResource.php**, entrez le code suivant, en remplaçant le chemin d'accès **c:\\phpLibraries** par celui de l'emplacement racine dans lequel vous avez téléchargé l'exemple de code. L'emplacement racine doit inclure le fichier **simpleSAML.php** et le dossier **federation** :
 
 		<?php
 		ini_set('include_path', ini_get('include_path').';c:\phpLibraries\;');
@@ -181,7 +183,7 @@ Dans cette étape, vous allez ajouter la prise en charge de la connexion fédér
 		</body>
 		</html> 
 
-8. Dans le menu **Run**, cliquez sur **Run**. Vous êtes automatiquement redirigé vers la page du fournisseur d'identité Office 365, où vous pouvez vous connecter en utilisant vos informations d'identification de client d'annuaire. Par exemple, *john.doe@fabrikam.onmicrosoft.com*.
+8. Dans le menu **Run**, cliquez sur **Run**. Vous êtes automatiquement redirigé vers la page du fournisseur d'identité Office 365, où vous pouvez vous connecter en utilisant vos informations d'identification de client d'annuaire. Par exemple, **john.doe@fabrikam.onmicrosoft.com*.
 
 ## Résumé
 Ce didacticiel vous a montré comment créer et configurer une unique application PHP cliente utilisant les capacités d'authentification unique d'Azure Active Directory.
@@ -203,4 +205,4 @@ Un exemple illustrant l'utilisation d'Azure Active Directory et de l'authentific
 [Exemple de code PHP pour Azure Active Directory]: https://github.com/WindowsAzure/azure-sdk-for-php-samples/tree/master/WAAD.WebSSO.PHP
  
 
-<!---------HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

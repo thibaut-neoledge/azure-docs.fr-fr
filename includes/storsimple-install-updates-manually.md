@@ -11,4 +11,4 @@
 
     Un message s’affiche lorsque la mise à jour est correctement installée.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

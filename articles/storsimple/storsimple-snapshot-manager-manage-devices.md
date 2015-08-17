@@ -262,4 +262,4 @@ Si un appareil StorSimple défaillant est remplacé par un appareil de secours 
 
 [Utiliser le Gestionnaire d’instantanés StorSimple pour afficher et gérer les volumes](storsimple-snapshot-manager-manage-volumes.md).
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

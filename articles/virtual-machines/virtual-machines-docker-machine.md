@@ -7,6 +7,7 @@
    manager="timlt"
    editor="tysonn"/>
 
+
 <tags
    ms.service="virtual-machines"
    ms.devlang="na"
@@ -15,6 +16,7 @@
    ms.workload="infrastructure"
    ms.date="05/25/2015"
    ms.author="rasquill"/>
+
 
 # Comment utiliser docker-machine avec Azure
 
@@ -30,7 +32,7 @@ Si vous installez ces éléments dans cet ordre, votre ordinateur Ubuntu sera pr
 
 ## Obtenir docker-machine ou le générer
 
-La façon la plus rapide de commencer à utiliser **docker-machine** consiste à télécharger la version appropriée directement à partir du [partage de versions](https://github.com/docker/machine/releases). L’ordinateur client utilisé pour l’élaboration de ce didacticiel était un ordinateur x64 exécutant Ubuntu ; c’est donc l’image **docker-machine_linux-amd64** qui est utilisée.
+La façon la plus rapide de commencer à utiliser **docker-machine** consiste à télécharger la version appropriée directement à partir du [partage de versions](https://github.com/docker/machine/releases). L’ordinateur client utilisé pour l’élaboration de ce didacticiel était un ordinateur x64 exécutant Ubuntu ; c’est donc l’image **docker-machine\_linux-amd64** qui est utilisée.
 
 Vous pouvez également créer votre **docker-machine** vous-même en suivant les étapes pour [contribuer à Machine](https://github.com/docker/machine#contributing). Vous devrez peut-être télécharger 1 Go de matériau, si ce n'est plus, pour effectuer la génération, mais en procédant ainsi, vous pouvez personnaliser votre expérience comme vous le souhaitez.
 
@@ -38,7 +40,8 @@ Vous pouvez également créer votre **docker-machine** vous-même en suivant les
 
 <br />
 
->  Quelle que soit la méthode choisie, vous devez appeler le fichier binaire directement sur la ligne de commande ou l'intégrer au chemin d'accès, par exemple **/usr/local/bin**. Assurez-vous qu’il est marqué comme exécutable en tapant `chmod +x` &lt;*`binaryName`*&gt; où &lt;*`binaryName`*&gt; est le nom de votre exécutable Docker Machine. Ce didacticiel utilise **docker-machine_linux-amd64**.
+
+>  Quelle que soit la méthode choisie, vous devez appeler le fichier binaire directement sur la ligne de commande ou l'intégrer au chemin d'accès, par exemple **/usr/local/bin**. Assurez-vous qu’il est marqué comme exécutable en tapant `chmod +x` &lt;*`binaryName`*&gt; où &lt;*`binaryName`*&gt; est le nom de votre exécutable Docker Machine. Ce didacticiel utilise **docker-machine\_linux-amd64**.
 
 ## Créer les fichiers de certificat et de clé pour docker, machine et Azure
 
@@ -196,7 +199,7 @@ Ouvrez votre navigateur préféré et jetez un coup d'œil.
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Étapes suivantes
-Accédez au [guide de l’utilisateur Docker](https://docs.docker.com/userguide/) et créez des applications sur Microsoft Azure. Sinon, expérimentez [**docker** et swarm](https://github.com/docker/swarm) sur Microsoft Azure](virtual-machines-docker-swarm) et découvrez comment swarm peut être utilisé avec docker et Microsoft Azure.
+Accédez au [guide de l’utilisateur Docker](https://docs.docker.com/userguide/) et créez des applications sur Microsoft Azure. Sinon, expérimentez [**docker** et swarm](https://github.com/docker/swarm) sur Microsoft Azure\](virtual-machines-docker-swarm) et découvrez comment swarm peut être utilisé avec docker et Microsoft Azure.
 
 <!--Image references-->
 [nginx]: ./media/virtual-machines-docker-machine/nginxondocker.png
@@ -210,4 +213,4 @@ Accédez au [guide de l’utilisateur Docker](https://docs.docker.com/userguide/
 [Link 3 to another azure.microsoft.com documentation topic]: ../storage-whatis-account.md
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

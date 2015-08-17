@@ -6,14 +6,16 @@
    authors="bandersmsft"
    manager="jwhit"
    editor="tysonn" />
+
 <tags
    ms.service="operational-insights"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/21/2015"
+   ms.date="08/05/2015"
    ms.author="banders" />
+
 
 # Gestion des serveurs et des données d'utilisation
 
@@ -27,7 +29,7 @@ Vous pouvez consulter votre utilisation à l’aide de la vignette **Serveurs et
 
 ![image de la vignette Serveurs et utilisation](./media/operational-insights-usage/overview-servers-usage.png)
 
-Si vous avez dépassé votre limite d’utilisation quotidienne ou si vous en êtes proche, vous pouvez éventuellement supprimer une solution pour réduire la quantité de données que vous envoyez au service Operational Insights. Pour plus d'informations sur la suppression de solutions, consultez [Utiliser la galerie de solutions pour ajouter ou supprimer des solutions](operational-insights-add-solution.md).
+Si vous avez dépassé votre limite d’utilisation quotidienne ou si vous en êtes proche, vous pouvez éventuellement supprimer une solution pour réduire la quantité de données que vous envoyez au service Operational Insights. Pour plus d'informations sur la suppression de solutions, consultez [Utiliser la galerie de solutions pour ajouter ou supprimer des solutions](operational-insights-setup-workspace.md).
 
 Si un groupe d’administration Operations Manager rencontre des problèmes d’envoi de données au service Operational Insights, vous pouvez résoudre le problème ou supprimer le groupe d’Operational Insights, si nécessaire.
 
@@ -59,4 +61,4 @@ Le tableau de bord **Utilisation** affiche les informations suivantes :
 
 [AZURE.INCLUDE [operational-insights-export](../../includes/operational-insights-export.md)]
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

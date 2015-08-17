@@ -7,14 +7,16 @@
 	manager="TerryLan" 
 	editor="LisaToft"/>
 
+
 <tags 
 	ms.service="active-directory" 
 	ms.workload="infrastructure-services" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
-	ms.topic="article" 
+	ms.topic="get-started-article" 
 	ms.date="05/12/2015" 
 	ms.author="Justinha"/>
+
 
 # Ajout de votre propre domaine à Azure AD
 
@@ -58,7 +60,8 @@ Pour utiliser l’authentification unique avec le service cloud, nous vous recom
 ### Ajouter et vérifier un domaine à l’aide du portail de gestion Azure
 
 1. Dans le portail, cliquez sur **Active Directory**, puis sur le nom de l’annuaire de votre organisation. Vous pouvez effectuer l’une des opérations suivantes :
-    1. Dans la page d’annuaire par défaut, cliquez sur **Ajouter un domaine** dans la section **Améliorer l’expérience de connexion utilisateur**. 2. Cliquez sur **Domaines**, puis sur **Ajouter un domaine client** ou sur le bouton **Ajouter**.
+    1. Dans la page de répertoire par défaut, cliquez sur **Ajouter un domaine** dans la section **Améliorer l’expérience de connexion utilisateur**.
+2. Cliquez sur **Domaines**, puis sur **Ajouter un domaine client** ou sur le bouton **Ajouter**.
 2. Sur la page **Ajouter un domaine**, tapez le nom de domaine que vous souhaitez ajouter et effectuez l’une des opérations suivantes :
     1. Si vous ne souhaitez pas intégrer votre Active Directory local à Azure AD, procédez comme suit :
         1. Laissez la case **Je prévois de configurer ce domaine pour la connexion unique à mon annuaire Active Directory local** décochée, puis cliquez sur le bouton **Ajouter**.
@@ -211,4 +214,4 @@ Si vous ajoutez votre nom de domaine personnalisé au service cloud après avoir
 - [Inscription à Azure en tant qu’organisation](sign-up-organization.md)
 - [Gestion de domaines dans Azure AD](https://msdn.microsoft.com/library/azure/dn919677.aspx) 
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

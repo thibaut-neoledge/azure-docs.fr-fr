@@ -11,7 +11,7 @@
 	ms.workload="tbd" 
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
-	ms.topic="article" 
+	ms.topic="get-started-article" 
 	ms.date="06/30/2015" 
 	ms.author="awills"/>
  
@@ -35,7 +35,7 @@ Vous devez avoir :
 *Si vous disposez d’une application web déjà active, vous pouvez suivre la procédure alternative destinée à [ajouter le Kit de développement logiciel (SDK) au moment de l’exécution dans le serveur web](app-insights-java-live.md). Cette alternative évite la régénération du code, mais ne vous permet pas d’écrire du code pour effectuer le suivi de l’activité des utilisateurs.*
 
 
-## 1. Obtenir une clé d'instrumentation Application Insights
+## 1\. Obtenir une clé d'instrumentation Application Insights
 
 1. Connectez-vous au [portail Microsoft Azure](https://portal.azure.com).
 2. Créer une ressource Application Insights dans Azure
@@ -48,7 +48,7 @@ Vous devez avoir :
 
     ![Dans la nouvelle vue d'ensemble des ressources, cliquez sur Propriétés et copiez la clé d'instrumentation.](./media/app-insights-java-get-started/03-key.png)
 
-## 2. Ajoutez le Kit de développement logiciel (SDK) Application Insights pour Java à votre projet
+## 2\. Ajoutez le Kit de développement logiciel (SDK) Application Insights pour Java à votre projet
 
 *Choisissez la méthode adaptée à votre projet.*
 
@@ -123,7 +123,7 @@ Ajouter manuellement le Kit de développement logiciel :
 
 
 
-## 3. Ajouter un fichier xml Application Insights
+## 3\. Ajouter un fichier xml Application Insights
 
 Ajoutez ApplicationInsights.xml dans le dossier de ressources de votre projet, ou vérifiez qu’il est ajouté au chemin de la classe du déploiement de votre projet. Copiez-y le code XML suivant.
 
@@ -164,7 +164,7 @@ Remplacez la clé d'instrumentation que avez obtenue sur le portail Azure.
 * Le composant de demande HTTP est facultatif. Il envoie automatiquement la télémétrie concernant les demandes et les temps de réponse au portail.
 * La corrélation des événements est un complément au composant de demande HTTP. Il assigne un identificateur à chaque demande reçue par le serveur et l'ajoute comme propriété de chaque élément de télémétrie en tant que propriété « Operation.Id ». Il vous permet de mettre en corrélation la télémétrie associée à chaque demande en définissant un filtre dans [recherche de diagnostic][diagnostic].
 
-## 4. Ajouter un filtre HTTP
+## 4\. Ajouter un filtre HTTP
 
 La dernière étape de la configuration permet au composant de demande HTTP de consigner toutes les demandes web. (Non requis si vous voulez juste l'API seule.)
 
@@ -207,7 +207,7 @@ Ajoutez cet élément au fichier de configuration Struts (généralement struts.
 
 (Si vous avez défini des intercepteurs dans une pile par défaut, l'intercepteur peut simplement être ajouté à cette pile).
 
-## 5. Installer sur le serveur
+## 5\. Installer sur le serveur
 
 Sur les serveurs Windows, installez :
 
@@ -215,11 +215,11 @@ Sur les serveurs Windows, installez :
 
 (Cette opération active les compteurs de performances.)
 
-## 6. Exécuter votre application
+## 6\. Exécuter votre application
 
 Exécutez-le en mode débogage sur votre ordinateur de développement, ou publiez-le sur votre serveur.
 
-## 7. Voir votre télémétrie dans Application Insights
+## 7\. Voir votre télémétrie dans Application Insights
 
 Revenez à votre ressource Application Insights sur le [portail Microsoft Azure](https://portal.azure.com).
 
@@ -373,4 +373,4 @@ Maintenant que vous avez installé le Kit de développement logiciel (SDK), vous
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -7,6 +7,7 @@
    manager="dwrede" 
    editor=""/>
 
+
 <tags
    ms.service="mobile-engagement"
    ms.devlang="na"
@@ -15,6 +16,7 @@
    ms.workload="mobile" 
    ms.date="06/18/2015"
    ms.author="piyushjo"/>
+
 
 # Guide de dépannage pour les problèmes liés à Push et Reach
 
@@ -30,7 +32,7 @@ Voici des problèmes potentiels liés à la façon dont Azure Mobile Engagement 
 - Testez simplement un push dans l'application et un push hors de l'application pour déterminer si le problème se situe dans l'application ou hors de l'application.
 - Dans le cadre du dépannage, effectuez des tests à partir de l'interface utilisateur et à partir de l'API pour voir les informations d'erreur supplémentaires disponibles aux deux emplacements.
 - Les push en dehors de l'application ne fonctionneront pas si Azure Mobile Engagement et Reach sont intégrés dans le Kit de développement logiciel (SDK).
-- Les transmissions de type push ne fonctionneront pas si les certificats ne sont pas valides, ou s’ils utilisent PROD au lieu de DEV (iOS uniquement). (** Remarque : ** les notifications Push « en dehors de l’application » ne sont pas remises à iOS, si les versions de développement (DEV) et de production (PROD) de votre application sont installées sur le même périphérique, dans la mesure où le jeton de sécurité associé à votre certificat peut être invalidé par Apple. Pour résoudre ce problème, désinstallez les versions PROD et DEV de votre application et ré-installez uniquement une version sur votre périphérique.)
+- Les transmissions de type push ne fonctionneront pas si les certificats ne sont pas valides, ou s’ils utilisent PROD DEV correctement (iOS uniquement). (**Remarque :** les notifications Push « en dehors de l’application » ne sont pas remises à iOS, si les versions de développement (DEV) et de production (PROD) de votre application sont installées sur le même périphérique, dans la mesure où le jeton de sécurité associé à votre certificat peut être invalidé par Apple. Pour résoudre ce problème, désinstallez les versions PROD et DEV de votre application et ré-installez uniquement une version sur votre périphérique.)
 - Les décomptes de push en dehors de l'application sont gérés différemment sur des plates-formes différentes (iOS affiche moins d'informations qu'Android si les push natifs sont désactivés sur un périphérique, l'API peut fournir davantage d'informations que l'interface utilisateur dans les statistiques de push).
 - Les push en dehors de l'application peuvent être bloqués par les clients au niveau du système d'exploitation (iOS et Android).
 - Les push en dehors de l'application apparaissent comme désactivés dans l'interface utilisateur d'Azure Mobile Engagement s'ils ne sont pas correctement intégrés, mais peuvent échouer en mode silencieux à partir de l'API.
@@ -67,7 +69,7 @@ Voici des problèmes potentiels liés à la façon dont Azure Mobile Engagement 
 ### Causes
 
 - Pour créer un lien vers un emplacement spécifique dans l'application requiert "categories" (Android uniquement).
-- Des schémas de lien profond pour rediriger les utilisateurs vers un autre emplacement après avoir cliqué sur une notification Push doivent être créés dans votre application et le système d’exploitation du périphérique et gérés par ces derniers, et non par Mobile Engagement directement. (** Remarque : ** les notifications en dehors de l’application ne peuvent pas lier directement à des emplacements au sein de l’application avec iOS, contrairement à Android.)
+- Des schémas de lien profond pour rediriger les utilisateurs vers un autre emplacement après avoir cliqué sur une notification Push doivent être créés dans votre application et le système d’exploitation du périphérique et gérés par ces derniers, et non par Mobile Engagement directement. (** Remarque : ** les notifications en dehors de l’application ne peuvent pas lier directement à des emplacements au sein de l’application avec iOS, contrairement à Android.)
 - Les serveurs d'images externes doivent être en mesure d'utiliser HTTP « GET » et « HEAD » pour que les push de grandes images fonctionnent (Android uniquement).
 - Dans votre code, vous pouvez désactiver l'agent Azure Mobile Engagement lorsque le clavier est ouvert et que votre code réactive l'agent Azure Mobile Engagement une fois que le clavier est fermé afin que le clavier n'affecte pas l'apparence de votre notification (iOS uniquement).
 - Certains éléments ne fonctionnent pas dans les simulations de test, mais uniquement les campagnes réelles (badge, sonnerie, vibration, image, etc.).
@@ -110,4 +112,4 @@ Voici des problèmes potentiels liés à la façon dont Azure Mobile Engagement 
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

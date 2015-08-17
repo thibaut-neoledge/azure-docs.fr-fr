@@ -1,11 +1,14 @@
 <properties
-	pageTitle="Connexion à une base de données SQL Azure avec SSMS"
+	urlDisplayName="How to connect to an Azure SQL database using SSMS"
+	pageTitle="Connexion à une base de données SQL Azure avec SSMS" metaKeywords=""
 	description="Découvrez comment vous connecter à une base de données SQL Azure à l'aide de SSMS"
+	metaCanonical=""
 	services="sql-database"
 	documentationCenter=""
-	authors="sidneyh" 
-	manager="jhubbard" 
-	editor="" />
+	title="How to connect to an Azure SQL database using SSMS"
+	authors="sidneyh" solutions=""
+	manager="jhubbard" editor="" />
+
 
 <tags
 	ms.service="sql-database"
@@ -15,6 +18,7 @@
 	ms.topic="get-started-article" 
 	ms.date="07/15/2015"
 	ms.author="sidneyh" />
+
 
 # Se connecter avec SQL Server Management Studio
 
@@ -33,7 +37,7 @@ Voici les étapes pour installer SQL Server Management Studio (SSMS) et l’util
 
 ## Se connecter à la base de données SQL
 1. Ouvrez SSMS.
-2. Dans la fenêtre **Connexion au serveur**, dans la zone **Nom du serveur**, entrez le nom du serveur au format *&lt;nomserveur>*.**database.windows.net**
+2. Dans la fenêtre **Connexion au serveur**, dans la zone **Nom du serveur**, entrez le nom du serveur au format *&lt;nomserveur>*.**database.windows.net**.
 3. Dans la liste déroulante **Authentification**, sélectionnez **Authentification SQL Server**.
 4. Entrez les identifiants de **connexion** et le **mot de passe** que vous avez spécifiés lors de la création de votre serveur de base de données SQL.
 
@@ -62,11 +66,11 @@ Assurez-vous que le pare-feu du serveur logique que vous avez créé autorise le
 		,CompanyName
 		FROM SalesLT.Customer;
 
-4. Puis, cliquez sur le bouton **Exécuter**. Une opération réussie se présente comme suit : ![Succès][5]
+4. Cliquez ensuite sur le bouton **Exécuter**. Une opération réussie se présente comme suit : ![Succès][5]
 
 
 ## Étapes suivantes
-Vous pouvez utiliser les instructions Transact-SQL pour créer ou gérer les bases de données. Consultez [CREATE DATABASE (Azure SQL Database)](https://msdn.microsoft.com/library/dn268335.aspx) et [Gestion d’Azure SQL Database au moyen de SQL Server Management Studio](sql-database-manage-azure-ssms.md). Vous pouvez également enregistrer les événements dans le stockage Azure. Consultez [Prise en main de l'audit de base de données SQL](sql-database-auditing-get-started.md).
+Vous pouvez utiliser les instructions Transact-SQL pour créer ou gérer les bases de données. Consultez [CREATE DATABASE (base de données SQL Azure)](https://msdn.microsoft.com/library/dn268335.aspx) et [Gestion de la base de données SQL Azure au moyen de SQL Server Management Studio](sql-database-manage-azure-ssms.md). Vous pouvez également enregistrer les événements dans le stockage Azure. Consultez [Prise en main de l'audit de base de données SQL](sql-database-auditing-get-started.md).
 
 <!--Image references-->
 
@@ -77,4 +81,4 @@ Vous pouvez utiliser les instructions Transact-SQL pour créer ou gérer les bas
 [5]: ./media/sql-database-connect-to-database/5-success.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

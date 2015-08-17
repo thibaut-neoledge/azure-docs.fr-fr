@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="Création ou modification d’utilisateurs dans Azure AD" 
-	description="Rubrique qui explique comment créer ou modifier des comptes d’utilisateurs dans Azure AD." 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="Justinha" 
-	manager="TerryLan" 
-	editor="LisaToft"/>
+<properties
+	pageTitle="Création ou modification d’utilisateurs dans Azure AD"
+	description="Rubrique qui explique comment créer ou modifier des comptes d’utilisateurs dans Azure AD."
+	services="active-directory"
+	documentationCenter=""
+	authors="curtand"
+	manager="stevepo"
+	editor=""/>
 
-<tags 
-	ms.service="active-directory" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/05/2015" 
-	ms.author="Justinha"/>
+<tags
+	ms.service="active-directory"
+	ms.workload="identity" 
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/31/2015"
+	ms.author="curtand"/>
 
 # Création ou modification d’utilisateurs dans Azure AD
 
@@ -24,10 +24,10 @@ Vous devez créer un compte pour chaque utilisateur ayant besoin d’accéder à
 
 1. Cliquez sur **Active Directory**, puis sur le nom de l’annuaire de votre organisation.
 2. Dans la page **Utilisateurs**, cliquez sur **Ajouter un utilisateur**.
-3. Dans la page **Dites-nous en plus sur cet utilisateur**, pour **Type d’utilisateur**, sélectionnez l’une des options suivantes : 
+3. Dans la page **Dites-nous en plus sur cet utilisateur**, pour **Type d’utilisateur**, sélectionnez l’une des options suivantes :
 	1. **Nouvel utilisateur dans votre organisation** : indique que vous souhaitez créer et gérer un compte d’utilisateur dans votre annuaire.
-	2. **Utilisateur avec un compte Microsoft existant** : indique que vous souhaitez ajouter un compte Microsoft existant à votre client d’annuaire afin de collaborer sur des ressources Microsoft Azure avec un co-administrateur qui accède à Microsoft Azure avec un compte Microsoft.	
-	3. **Utilisateur dans un autre annuaire Azure AD** : indique que vous souhaitez ajouter un compte d’utilisateur à votre annuaire à partir d’un autre annuaire Azure AD. Pour sélectionner un utilisateur appartenant à un autre annuaire, vous devez être membre de celui-ci. 
+	2. **Utilisateur avec un compte Microsoft existant** : indique que vous souhaitez ajouter un compte Microsoft existant à votre client d’annuaire afin de collaborer sur des ressources Microsoft Azure avec un co-administrateur qui accède à Microsoft Azure avec un compte Microsoft.
+	3. **Utilisateur dans un autre annuaire Azure AD** : indique que vous souhaitez ajouter un compte d’utilisateur à votre annuaire à partir d’un autre annuaire Azure AD. Pour sélectionner un utilisateur appartenant à un autre annuaire, vous devez être membre de celui-ci.
 4. Selon l’option sélectionnée, tapez un nom d’utilisateur ou un nom de compte Microsoft à l’aide duquel cet utilisateur se connectera.
 5. Dans la page **Profil** d’utilisateur, entrez les nom et prénom de l’utilisateur, un nom convivial et un rôle d’utilisateur à partir du menu déroulant Rôles. Pour plus d’informations sur les utilisateurs et les rôles d’administrateur, consultez la page [Attribution de rôles d’administrateur dans Azure AD](active-directory-assign-admin-roles.md). Spécifiez si vous voulez **Activer l’authentification multifacteur**.
 6. Dans la page **Obtenir un mot de passe temporaire**, cliquez sur **Créer**.
@@ -40,7 +40,7 @@ Si votre organisation utilise plusieurs domaines, vous devez avoir connaissance 
 ## Modifier un utilisateur
 
 Si l’utilisateur que vous essayez de modifier est synchronisé avec votre service Active Directory, un message d’erreur s’affiche et vous ne pouvez pas modifier l’utilisateur à l’aide de cette procédure. Pour modifier l’utilisateur, utilisez vos outils de gestion Active Directory locaux.
- 
+
 Pour modifier un utilisateur dans le portail de gestion Azure :
 
 1. Cliquez sur **Active Directory**, puis sur le nom de l’annuaire de votre organisation.
@@ -110,6 +110,5 @@ La capacité des invités à n'accéder qu'à certaines informations limitées d
 <!--Image references-->
 [1]: ./media/active-directory-create-users/RBACDirConfigTab.png
 [2]: ./media/active-directory-create-users/RBACGuestAccessControls.png
- 
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

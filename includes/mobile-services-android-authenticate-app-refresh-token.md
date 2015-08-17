@@ -204,7 +204,55 @@ Dans cette section, vous allez définir un ServiceFilter qui détecte un code d'
 
     Ce filtre de service recherche dans chaque réponse le code d'état HTTP 401 Non autorisé. S'il rencontre ce code, une nouvelle demande de connexion pour obtenir un nouveau jeton est configurée dans le thread d'interface utilisateur. Les autres appels seront bloqués jusqu'à ce que la connexion soit terminée ou jusqu'à ce que 5 tentatives aient échoué. Si le nouveau jeton est obtenu, la demande qui a déclenché le code 401 et les appels bloqués fait l'objet d'une nouvelle tentative avec le nouveau jeton.
 
-7. Dans le fichier ToDoActivity.java, mettez à jour la méthode `onCreate` comme suit :
+7. Dans le fichier ToDoActivity.java, ajoutez le code pour une nouvelle classe `ProgressFilter` au sein de la classe ToDoActivity :
+		
+		/**
+		* The ProgressFilter class renders a progress bar on the screen during the time the App is waiting for the response of a previous request.
+		* the filter shows the progress bar on the beginning of the request, and hides it when the response arrived.
+		*/
+		private class ProgressFilter implements ServiceFilter {
+			@Override
+			public ListenableFuture<ServiceFilterResponse> handleRequest(ServiceFilterRequest request, NextServiceFilterCallback nextServiceFilterCallback) {
+
+				final SettableFuture<ServiceFilterResponse> resultFuture = SettableFuture.create();
+
+				runOnUiThread(new Runnable() {
+
+					@Override
+					public void run() {
+						if (mProgressBar != null) mProgressBar.setVisibility(ProgressBar.VISIBLE);
+					}
+				});
+
+				ListenableFuture<ServiceFilterResponse> future = nextServiceFilterCallback.onNext(request);
+
+				Futures.addCallback(future, new FutureCallback<ServiceFilterResponse>() {
+					@Override
+					public void onFailure(Throwable e) {
+						resultFuture.setException(e);
+					}
+
+					@Override
+					public void onSuccess(ServiceFilterResponse response) {
+						runOnUiThread(new Runnable() {
+
+							@Override
+							public void run() {
+								if (mProgressBar != null) mProgressBar.setVisibility(ProgressBar.GONE);
+							}
+						});
+
+						resultFuture.set(response);
+					}
+				});
+
+				return resultFuture;
+			}
+		}
+		
+	Ce filtre affichera la barre de progression au début de la demande et masquera la barre une fois la réponse arrivée.
+
+8. Dans le fichier ToDoActivity.java, mettez à jour la méthode `onCreate` comme suit :
 
 		@Override
 	    public void onCreate(Bundle savedInstanceState) {
@@ -237,4 +285,4 @@ Dans cette section, vous allez définir un ServiceFilter qui détecte un code d'
 
        Dans ce code, `RefreshTokenCacheFilter` est utilisé en plus de `ProgressFilter`. En outre, lors de l'application de la méthode `onCreate`, nous voulons charger le cache de jeton. Ainsi, `false` est transmis à la méthode `authenticate`.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

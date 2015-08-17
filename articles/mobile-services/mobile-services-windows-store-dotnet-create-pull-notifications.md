@@ -81,7 +81,7 @@ Ce didacticiel est basé sur le démarrage rapide de Mobile Services. Avant de c
 		    }
 		};
 
-	Ce code renvoie les 3 premiers éléments non terminés de la table TodoItem, puis les charge dans un objet JSON transmis à la fonction **wns**.**createTileSquareText01**. Cette fonction renvoie le code XML de modèle de vignette suivant :
+	Ce code renvoie les trois premiers éléments non terminés de la table TodoItem, puis les charge dans un objet JSON transmis à la fonction **wns**.**createTileSquareText01**. Cette fonction renvoie le code XML de modèle de vignette suivant :
 
 		<tile>
 			<visual>
@@ -167,4 +167,4 @@ Maintenant que vous avez créé une notification périodique, vous pouvez consul
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

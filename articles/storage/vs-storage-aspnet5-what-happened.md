@@ -7,6 +7,7 @@
 	manager="douge" 
 	editor="tglee"/>
 
+
 <tags 
 	ms.service="storage" 
 	ms.workload="web" 
@@ -14,7 +15,8 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="07/22/2015" 
-	ms.author="patshea123"/>
+	ms.author="patshea"/>
+
 
 # Qu'est-il arrivé à mon projet ?
 
@@ -27,7 +29,7 @@
 > - [Queues](vs-storage-aspnet5-getting-started-queues.md)
 > - [Tables](vs-storage-aspnet5-getting-started-tables.md)
 
-###Qu'est-il arrivé à mon projet ?</span>
+###Qu'est-il arrivé à mon projet ?
 
 ##### Références ajoutées
 
@@ -47,7 +49,7 @@ De plus, le package NuGet nommé **Microsoft.Framework.Configuration.Json** a é
 #####Chaîne de connexion pour Azure Storage ajoutée 
 Dans le fichier config.json de votre projet, un élément a été créé avec la clé et la chaîne de connexion du compte de stockage sélectionné.
 
-Pour plus d’informations, consultez [ASP.NET 5](http://www.asp.net/vnext).
+Pour plus d’informations, consultez la page [ASP.NET 5](http://www.asp.net/vnext).
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

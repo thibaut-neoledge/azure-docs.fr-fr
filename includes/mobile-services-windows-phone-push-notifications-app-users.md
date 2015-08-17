@@ -1,7 +1,7 @@
 
 Vous devez ensuite modifier la méthode d'enregistrement des notifications Push afin de vous assurer que l'utilisateur est bien authentifié avant toute tentative d'inscription.
 
-1. Dans l'Explorateur de solutions de Visual Studio, ouvrez le fichier projet app.xaml.cs et supprimez (ou placez en commentaires) l'appel de la méthode **AcquirePushChannel** dans le gestionnaire d'événements **Application_Launching**. 
+1. Dans l'Explorateur de solutions de Visual Studio, ouvrez le fichier projet app.xaml.cs et supprimez (ou placez en commentaires) l'appel de la méthode **AcquirePushChannel** dans le gestionnaire d'événements **Application\_Launching**. 
  
 2. Modifiez l'accessibilité de la méthode **AcquirePushChannel** de `private` en `public` et ajoutez le modificateur `static`.
 
@@ -14,4 +14,4 @@ Vous devez ensuite modifier la méthode d'enregistrement des notifications Push 
             RefreshTodoItems();
         }
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

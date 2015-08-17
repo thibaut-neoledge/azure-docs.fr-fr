@@ -7,6 +7,7 @@
 	services="app-service\web" 
 	documentationCenter=""/>
 
+
 <tags 
 	ms.service="app-service-web" 
 	ms.workload="web" 
@@ -15,6 +16,7 @@
 	ms.topic="article" 
 	ms.date="07/06/2015" 
 	ms.author="cephalin"/>
+
 
 # Créer une campagne marketing numérique sur Azure App Service Web Apps
 [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) Web Apps est l’outil de prédilection des campagnes marketing numériques. Les campagnes marketing numériques sont des entités à durée de vie limitée, conçues pour promouvoir des objectifs marketing à court terme. Il y a deux scénarios principaux à envisager. Dans le premier scénario, une agence de marketing crée et gère une campagne pour un client pendant toute la durée de la promotion. Dans le second scénario, l’agence de marketing crée une campagne marketing numérique, puis transfère les droits de propriété sur les ressources associées au client. Ce dernier lance et gère ensuite seul la campagne. est approprié dans les deux cas.
@@ -31,7 +33,7 @@ Vous trouverez ci-dessous un exemple de campagne marketing numérique multi-cana
 
 Créez rapidement de nouvelles applications web à partir d’un CMS populaire dans la galerie ou intégrez vos ressources web existantes à App Service Web Apps à partir d’une variété de langues et d’infrastructures.
 
-Microsoft Azure Marketplace fournit des modèles proposés par des systèmes CMS bien connus, tel que [Orchard], [Umbraco], [Drupal] et [WordPress]. Vous pouvez créer une application web en utilisant votre version de CMS préférée. Différents systèmes de bases de données principaux permettent de répondre à vos besoins, y compris la [base de données SQL Azure] et [MySQL].
+Microsoft Azure Marketplace fournit des modèles proposés par des systèmes CMS bien connus, tel que [Orchard], [Umbraco], Drupal et [WordPress]. Vous pouvez créer une application web en utilisant votre version de CMS préférée. Différents systèmes de bases de données principaux permettent de répondre à vos besoins, y compris la [base de données SQL Azure] et [MySQL].
 
 Vos ressources web existantes peuvent s’exécuter sur des applications web, même s’il s’agit d’applications .NET, PHP, Java, Node.js ou Python. Vous pouvez les déplacer vers Web Apps à l’aide des outils [FTP] avec lesquels vous êtes familiarisé. Si vous créez souvent des campagnes marketing numériques, il se peut que vous disposiez de ressources web existantes au sein d’un système de gestion de contrôle de code source. Vous pouvez effectuer un déploiement vers Web Apps directement à partir d’options de contrôle de code source populaires, telles que [Visual Studio], [Visual Studio Online] et [Git] : local, GitHub, BitBucket, DropBox, Mercurial, etc.
 
@@ -97,7 +99,6 @@ Au niveau **Standard**, surveillez la réactivité de l’application et recevez
 
 [Orchard]: web-sites-dotnet-orchard-cms-gallery.md
 [Umbraco]: web-sites-gallery-umbraco.md
-[Drupal]: web-sites-php-migrate-drupal.md
 [WordPress]: web-sites-php-web-site-gallery.md
   
 [MySQL]: web-sites-php-mysql-deploy-use-git.md
@@ -142,4 +143,4 @@ Au niveau **Standard**, surveillez la réactivité de l’application et recevez
   [gitstaging]: http://www.bradygaster.com/post/multiple-environments-with-windows-azure-web-sites
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

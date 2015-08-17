@@ -1,19 +1,5 @@
-<properties 
-	pageTitle="Remarques diverses concernant les images de machines virtuelles Oracle" 
-	description="Consultez des remarques supplémentaires avant de déployer une machine virtuelle Oracle dans Microsoft Azure." 
-	services="virtual-machines" 
-	authors="bbenz" 
-	documentationCenter=""/>
-
-<tags 
-	ms.service="virtual-machines" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.tgt_pltfrm="na" 
-	ms.workload="infrastructure-services" 
-	ms.date="06/22/2015" 
-	ms.author="bbenz" />
-
+<properties title="Miscellaneous Considerations for Oracle Virtual Machine Images" pageTitle="Remarques diverses concernant les images de machines virtuelles Oracle" description="Consultez des remarques supplémentaires avant de déployer une machine virtuelle Oracle dans Microsoft Azure." services="virtual-machines" authors="bbenz" documentationCenter=""/>
+<tags ms.service="virtual-machines" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="infrastructure-services" ms.date="06/22/2015" ms.author="bbenz" />
 #Remarques diverses concernant les images de machines virtuelles Oracle
 Cet article aborde différentes considérations relatives aux machines virtuelles Oracle sur Azure, qui reposent sur les images logicielles Oracle fournies par Microsoft et utilisent le système d’exploitation Windows Server.
 
@@ -101,4 +87,4 @@ Pour en savoir plus, consultez l’article **860340.1**, à l’adresse <http://
 ##Ressources supplémentaires
 [Liste des images de machine virtuelle Oracle](virtual-machines-oracle-list-oracle-virtual-machine-images.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

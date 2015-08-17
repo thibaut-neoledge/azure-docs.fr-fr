@@ -165,4 +165,4 @@ Maintenant, vous pouvez continuer à suivre les étapes dans [Configuration d'un
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

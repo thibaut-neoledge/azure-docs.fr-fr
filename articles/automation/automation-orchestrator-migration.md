@@ -9,7 +9,7 @@
 <tags
    ms.service="automation"
    ms.devlang="na"
-   ms.topic="get-started-article"
+   ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="05/22/2015"
@@ -81,4 +81,4 @@ Cet outil convertira les Runbooks Orchestrator en Runbooks graphiques qui peuven
 - [Activités standard d'Orchestrator](http://technet.microsoft.com/library/hh403832.aspx)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

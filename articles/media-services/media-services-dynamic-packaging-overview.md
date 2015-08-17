@@ -97,4 +97,4 @@ Les formats de fichiers sources suivants ne sont pas pris en charge par l'empaqu
 - Fichiers MP4 Dolby Digital Plus
 - Fichiers Smooth Streaming Dolby Digital Plus. 
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -94,4 +94,4 @@ Vous pouvez également publier le service web sur le Marketplace de données Azu
 
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

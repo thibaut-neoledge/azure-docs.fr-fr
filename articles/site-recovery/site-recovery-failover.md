@@ -7,6 +7,7 @@
 	manager="jwhit" 
 	editor=""/>
 
+
 <tags 
 	ms.service="site-recovery" 
 	ms.devlang="na"
@@ -15,6 +16,7 @@
 	ms.workload="storage-backup-recovery" 
 	ms.date="05/29/2015" 
 	ms.author="raynew"/>
+
 
 # Basculement via Microsoft Azure Site Recovery
 
@@ -108,7 +110,7 @@ Notez les points suivants :
 
 Cette procédure explique comment exécuter un test de basculement pour un plan de récupération. Vous pouvez également exécuter le basculement d’une machine virtuelle unique, via l’onglet **Machines virtuelles**.
 
-1. Sélectionnez **Plans de récupération** > *nom_planrécupération*. Cliquez sur **Basculement** > **Test de basculement**.
+1. Sélectionnez **Plans de récupération** > *nom\_planrécupération*. Cliquez sur **Basculement** > **Test de basculement**.
 2. Sur la page **Confirmer le test de basculement**, indiquez le mode de connexion des ordinateurs virtuels de réplication au réseau Microsoft Azure après le basculement.
 3. Si vous effectuez le basculement vers Microsoft Azure et que la fonction de chiffrement des données est activée pour le cloud, accédez à la zone **Clé de chiffrement** et sélectionnez le certificat émis lorsque vous avez activé le chiffrement des données pendant l’installation du fournisseur. 
 4. Effectuez un suivi de l’opération sur l’onglet **Tâches**. Vous devriez voir apparaître l’ordinateur virtuel de réplication de test sur le portail Microsoft Azure.
@@ -193,7 +195,7 @@ Préparer un serveur DNS pour le test de basculement en procédant comme suit 
 
 Cette procédure explique comment exécuter un test de basculement non planifié pour un plan de récupération. Vous pouvez également exécuter le basculement d’une machine virtuelle ou d’un serveur physique unique, via l’onglet **Machines virtuelles**.
 
-1. Sélectionnez **Plans de récupération** > *nom_planrécupération*. Cliquez sur **Basculement** > **Test de basculement**.
+1. Sélectionnez **Plans de récupération** > *nom\_planrécupération*. Cliquez sur **Basculement** > **Test de basculement**.
 2. Sur la page **Confirmer le test de basculement**, indiquez le mode de connexion des machines virtuelles aux réseaux, après le test de basculement.
 3. Effectuez un suivi de l’opération sur l’onglet **Tâches**. Lorsque le basculement atteint la phase **Terminer le test**, cliquez sur **Terminer le test** pour finir l’opération.
 4. Cliquez sur **Notes** pour consigner et enregistrer les éventuelles observations associées au test de basculement.
@@ -207,8 +209,9 @@ Remarque : si un test de basculement s’étend sur plus de deux semaines, le s
  Cette procédure explique comment exécuter un test de basculement planifié pour un plan de récupération. Vous pouvez également exécuter le basculement d’une machine virtuelle unique, via l’onglet **Machines virtuelles**.
 
 1. Avant de commencer, assurez-vous que toutes les machines virtuelles dont vous voulez effectuer le basculement ont terminé la réplication initiale.
-2. Sélectionnez **Plans de récupération** > *nom_planrécupération*. Cliquez sur **Basculement** > **Basculement planifié**. 
-3. Sur la page **Confirmer le basculement planifié**, choisissez les emplacements source et cible. Notez le sens du basculement. 
+2. Sélectionnez **Plans de récupération** > *nom\_planrécupération*. Cliquez sur **Basculement** > **Basculement planifié**. 
+3. Sur la page **Confirmer le basculement planifié **, choisissez les emplacements source et cible. Notez le sens du basculement.
+
 	- Si les basculements précédents se sont exécutés comme prévu, et si l’ensemble des serveurs de machines virtuelles sont situés à l’emplacement source ou cible, les détails du sens de basculement sont indiqués à titre informatif uniquement. 
 	- Si les machines virtuelles sont actives sur les emplacements source et cible, le bouton **Modifier le sens** s’affiche. Ce bouton permet de modifier et de spécifier le sens dans lequel le basculement doit s’exécuter.
 
@@ -221,8 +224,9 @@ Remarque : si un test de basculement s’étend sur plus de deux semaines, le s
 
 Cette procédure explique comment exécuter un test de basculement non planifié pour un plan de récupération. Vous pouvez également exécuter le basculement d’une machine virtuelle ou d’un serveur physique unique, via l’onglet **Machines virtuelles**.
 
-1. Sélectionnez **Plans de récupération** > *nom_planrécupération*. Cliquez sur **Basculement** > **Basculement non planifié**. 
-3. Sur la page **Confirmer le basculement non planifié**, choisissez les emplacements source et cible. Notez le sens du basculement. 
+1. Sélectionnez **Plans de récupération** > *nom\_planrécupération*. Cliquez sur **Basculement** > **Basculement non planifié**. 
+3. Sur la page **Confirmer le basculement non planifié **, choisissez les emplacements source et cible. Notez le sens du basculement.
+
 	- Si les basculements précédents se sont exécutés comme prévu, et si l’ensemble des serveurs de machines virtuelles sont situés à l’emplacement source ou cible, les détails du sens de basculement sont indiqués à titre informatif uniquement. 
 	- Si les machines virtuelles sont actives sur les emplacements source et cible, le bouton **Modifier le sens** s’affiche. Ce bouton permet de modifier et de spécifier le sens dans lequel le basculement doit s’exécuter.
 
@@ -237,8 +241,9 @@ Cette procédure explique comment exécuter un test de basculement non planifié
 
  Après le basculement du site principal vers l’emplacement secondaire, les machines virtuelles répliquées ne sont pas protégées par le logiciel Site Recovery et l’emplacement secondaire joue le rôle de serveur principal. Suivez ces procédures pour effectuer la restauration automatique vers le site principal d’origine. Cette procédure explique comment exécuter un test de basculement planifié pour un plan de récupération. Vous pouvez également exécuter le basculement d’une machine virtuelle unique, via l’onglet **Machines virtuelles**.
 
-1. Sélectionnez **Plans de récupération** > *nom_planrécupération*. Cliquez sur **Basculement** > **Basculement planifié**.
-2. Sur la page **Confirmer le basculement planifié**, choisissez les emplacements source et cible. Notez le sens du basculement. Si le basculement depuis le site principal a fonctionné comme prévu, et si toutes les machines virtuelles se trouvent à l’emplacement secondaire, ces éléments sont fournis à titre informatif uniquement. 3. Si vous effectuez la restauration à partir de Microsoft Azure, sélectionnez différents paramètres dans la zone **Synchronisation des données** :
+1. Sélectionnez **Plans de récupération** > *nom\_planrécupération*. Cliquez sur **Basculement** > **Basculement planifié**.
+2. Sur la page **Confirmer le basculement planifié **, choisissez les emplacements source et cible. Notez le sens du basculement. Si le basculement depuis le site principal a fonctionné comme prévu, et si toutes les machines virtuelles se trouvent à l’emplacement secondaire, ces éléments sont fournis à titre informatif uniquement.
+3. Si vous effectuez la restauration à partir de Microsoft Azure, sélectionnez différents paramètres dans la zone **Synchronisation des données** :
 
 	- **Synchroniser les données avant le basculement** : cette option réduit le temps d’arrêt des machines virtuelles, car elles sont synchronisées sans être arrêtées. Elle effectue les opérations suivantes :
 		- Phase 1 : Un instantané de la machine virtuelle est créé dans Microsoft Azure, puis copié sur l’hôte Hyper-V local. La machine continue de s’exécuter dans Microsoft Azure.
@@ -279,4 +284,4 @@ Si vous avez déployé la fonction de protection entre un [site Hyper-V et Micro
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

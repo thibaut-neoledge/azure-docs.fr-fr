@@ -166,4 +166,4 @@ Une fois votre application API créée, vous pouvez utiliser le connecteur Box c
 [4]: ./media/app-service-logic-connector-box/image_3.jpg
 [5]: ./media/app-service-logic-connector-box/image_4.jpg
 
-<!----HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

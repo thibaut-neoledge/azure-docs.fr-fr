@@ -7,6 +7,7 @@
 	manager="wpickett" 
 	editor="mollybos"/>
 
+
 <tags 
 	ms.service="app-service-web" 
 	ms.workload="web" 
@@ -15,6 +16,7 @@
 	ms.topic="article" 
 	ms.date="06/02/2015" 
 	ms.author="cephalin"/>
+
 
 # Connexion à un serveur SQL Server local à partir d’une application web dans Azure App Service au moyen de connexions hybrides
 
@@ -49,26 +51,12 @@ L'ordinateur sur lequel vous installez l'agent Gestionnaire de connexion hybride
 
 - doit disposer d'une connectivité à Azure via :
 
-> <table border="1">
-    <tr>
-       <th><strong>Port</strong></th>
-        <th>Pourquoi</th>
-    </tr>
-    <tr>
-        <td>80</td>
-        <td><strong>Obligatoire</strong> pour le port HTTP pour la validation du certificat et éventuellement la connectivité des données.</td>
-    </tr>
-    <tr>
-        <td>443</td>
-        <td><strong>Facultatif</strong> pour la connectivité des données. Si la connectivité sortante à&#160;443 n'est pas disponible, le port TCP&#160;80 est utilisé.</td>
-    </tr>
-	<tr>
-        <td>5671 et 9352</td>
-        <td><strong>Recommandé</strong> mais facultatif pour la connectivité des données. Notez que ce mode entraîne habituellement un débit plus élevé. Si la connectivité sortante à ces ports n'est pas disponible, le port TCP&#160;443 est utilisé.</td>
-	</tr>
-</table>
-
-- Doit être capable d’accéder au *nom_d’hôte*: *numéro_de_port* de votre ressource locale. 
+Port|Pourquoi
+---|---
+80|**Obligatoire** pour le port HTTP pour la validation du certificat et éventuellement la connectivité des données.
+443|**Facultatif** pour la connectivité des données. Si la connectivité sortante à 443 n'est pas disponible, le port TCP 80 est utilisé.
+5671 et 9352|**Recommandé** mais facultatif pour la connectivité des données. Notez que ce mode entraîne habituellement un débit plus élevé. Si la connectivité sortante à ces ports n'est pas disponible, le port TCP 443 est utilisé.
+- doit être capable d'accéder au *nom\_d'hôte*:*numéro\_de\_port* de votre ressource locale. 
 
 Les étapes décrites dans cet article partent du principe que vous utilisez le navigateur à partir de l'ordinateur qui hébergera l'agent de connexion hybride local.
 
@@ -81,7 +69,7 @@ Cette section explique comment installer SQL Server Express, activer TCP/IP et
 
 ### Installation de SQL Server Express ###
 
-1. Pour installer SQL Server Express, exécutez le fichier **SQLEXPRWT_x64_ENU.exe** ou **SQLEXPR_x86_ENU.exe** que vous avez téléchargé. Le Centre d'installation SQL Server s'affiche.
+1. Pour installer SQL Server Express, exécutez le fichier **SQLEXPRWT\_x64\_ENU.exe** ou **SQLEXPR\_x86\_ENU.exe** que vous avez téléchargé. Le Centre d'installation SQL Server s'affiche.
 	
 	![SQL Server Install][SQLServerInstall]
 	
@@ -218,7 +206,7 @@ Au cours de cette étape, vous allez modifier la chaîne de connexion qui indiqu
 	
 	Lors de la composition de la chaîne de connexion, gardez à l'esprit ce qui suit :
 	
-	- Si vous vous connectez à une instance nommée plutôt qu'à une instance par défaut (par exemple, VotreServeur\SQLEXPRESS), vous devez configurer votre instance SQL Server de manière à ce qu'elle utilise des ports statiques. Pour des informations sur la configuration des ports statiques, consultez la page [Configuration de SQL Server pour qu'il écoute sur un port spécifique](http://support.microsoft.com/kb/823938). Par défaut, les instances nommées utilisent UDP et des ports dynamiques, qui ne sont pas pris en charge par Connexions hybrides. 
+	- Si vous vous connectez à une instance nommée plutôt qu'à une instance par défaut (par exemple, VotreServeur\\SQLEXPRESS), vous devez configurer votre instance SQL Server de manière à ce qu'elle utilise des ports statiques. Pour des informations sur la configuration des ports statiques, consultez la page [Configuration de SQL Server pour qu'il écoute sur un port spécifique](http://support.microsoft.com/kb/823938). Par défaut, les instances nommées utilisent UDP et des ports dynamiques, qui ne sont pas pris en charge par Connexions hybrides. 
 	
 	- Il est recommandé de spécifier le port (1433 par défaut, comme indiqué dans l'exemple) dans la chaîne de connexion pour pouvoir être sûr que TCP est activé sur votre instance SQL Server locale et que cette dernière utilise le port correct.
 	
@@ -378,4 +366,4 @@ Vous venez de créer et déployer une application web ASP.NET qui utilise une co
 [HCTestShowMemberDb]: ./media/web-sites-hybrid-connection-connect-on-premises-sql-server/F11HCTestShowMemberDb.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

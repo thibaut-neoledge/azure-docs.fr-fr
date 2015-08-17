@@ -7,14 +7,16 @@
    manager="timlt"
    editor=""/>
 
+
 <tags
    ms.service="service-fabric"
    ms.devlang="dotnet"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/22/2015"
+   ms.date="08/05/2015"
    ms.author="jesseb"/>
+
 
 
 # Mise à niveau d'une application Service Fabric : sérialisation des données
@@ -64,6 +66,5 @@ Le contrat de données est la solution recommandée pour s'assurer de la compati
 [Paramètres de mise à niveau](service-fabric-application-upgrade-parameters.md)
 
 [Rubriques avancées](service-fabric-application-upgrade-advanced.md)
- 
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

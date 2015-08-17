@@ -7,6 +7,7 @@
 	manager="dwrede" 
 	editor=""/>
 
+
 <tags 
 	ms.service="media-services" 
 	ms.workload="media" 
@@ -15,6 +16,7 @@
 	ms.topic="article" 
 	ms.date="04/14/2015" 
 	ms.author="juliako"/>
+
 
 #Prise en main de la diffusion de contenus vidéo à la demande (VoD) à l’aide des API REST 
 
@@ -113,9 +115,9 @@ L’exemple suivant montre l’en-tête et le corps de demande HTTP qui permet d
 	
 **Corps** :
 
-Il convient de vérifier les valeurs client_id et client_secret dans le corps de cette demande ; client_id et client_secret correspondent aux valeurs AccountName et AccountKey, respectivement. Ces valeurs sont fournies par Media Services pour vous lorsque vous configurez votre compte.
+Il convient de vérifier les valeurs client\_id et client\_secret dans le corps de cette demande ; client\_id et client\_secret correspondent aux valeurs AccountName et AccountKey, respectivement. Ces valeurs sont fournies par Media Services pour vous lorsque vous configurez votre compte.
 
-Notez que la valeur AccountKey de votre compte Media Services doit être encodée dans l’URL quand vous l’utilisez comme valeur client_secret dans votre demande de jeton d’accès.
+Notez que la valeur AccountKey de votre compte Media Services doit être encodée dans l’URL quand vous l’utilisez comme valeur client\_secret dans votre demande de jeton d’accès.
 
 	grant_type=client_credentials&client_id=ams_account_name&client_secret=URL_encoded_ams_account_key&scope=urn%3aWindowsAzureMediaServices
 
@@ -146,9 +148,9 @@ L’exemple suivant montre la réponse HTTP qui contient le jeton d’accès dan
 	}
 	
 
->[AZURE.NOTE]Il est recommandé de mettre en cache les valeurs « access_token » et « expires_in » sur un stockage externe. Les données du jeton peuvent être récupérées ultérieurement à partir du stockage et réutilisées dans vos appels d’API REST Media Services. Ceci est particulièrement utile pour les scénarios où le jeton peut être partagé en toute sécurité entre plusieurs processus ou ordinateurs.
+>[AZURE.NOTE]Il est recommandé de mettre en cache les valeurs « access\_token » et « expires\_in » sur un stockage externe. Les données du jeton peuvent être récupérées ultérieurement à partir du stockage et réutilisées dans vos appels d’API REST Media Services. Ceci est particulièrement utile pour les scénarios où le jeton peut être partagé en toute sécurité entre plusieurs processus ou ordinateurs.
 
-Veillez à analyser la valeur « expires_in » du jeton d’accès et à mettre à jour vos appels d’API REST avec de nouveaux jetons le cas échéant.
+Veillez à analyser la valeur « expires\_in » du jeton d’accès et à mettre à jour vos appels d’API REST avec de nouveaux jetons le cas échéant.
 
 ###Connexion à l’URI Media Services
 
@@ -497,8 +499,7 @@ Maintenant que vous avez téléchargé votre fichier, mettez à jour les informa
 
 **Réponse HTTP**
 
-Si l’opération réussit, l’élément suivant est retourné : 
-	HTTP/1.1 204 No Content
+Si l’opération réussit, l’élément suivant est retourné : HTTP/1.1 204 No Content
 
 ## Suppression du localisateur et d’AcessPolicy 
 
@@ -549,7 +550,7 @@ Media Services fournit l’empaquetage dynamique qui permet de distribuer un con
 
 Pour tirer parti de l’empaquetage dynamique, vous devez effectuer les opérations suivantes :
 
-- Obtenir au moins une unité de diffusion pour le **point de terminaison de diffusion **à partir duquel vous envisagez de distribuer votre contenu (décrit dans cette section). 
+- Obtenir au moins une unité de diffusion pour le **point de terminaison de diffusion** à partir duquel vous envisagez de distribuer votre contenu (décrit dans cette section).
 - Coder ou transcoder vos fichiers votre fichier mezzanine (source) en un ensemble de fichiers mp4 à débit adaptatif ou de fichiers Smooth Streaming à débit adaptatif (les étapes de codage sont décrites plus loin dans ce didacticiel).  
 
 Avec l’empaquetage dynamique, vous devez stocker et payer les fichiers dans un seul format de stockage. Ensuite, Media Services crée et fournit la réponse appropriée en fonction des demandes des clients.
@@ -829,10 +830,10 @@ Il convient de noter quelques points importants concernant les demandes de trava
 - Les tâches ne doivent pas former un cycle.
 - Le paramètre de valeur que vous transmettez à JobInputAsset ou à JobOutputAsset représente la valeur d’index pour une ressource. Les ressources réelles sont définies dans les propriétés de navigation InputMediaAssets et OutputMediaAssets de la définition d’entité de travail. 
 
->[AZURE.NOTE]Étant donné que Media Services est basé sur OData v3, les ressources dans les collections de propriétés de navigation InputMediaAssets et OutputMediaAssets sont référencées par une paire nom de valeur « __metadata : uri ».
+>[AZURE.NOTE]Étant donné que Media Services est basé sur OData v3, les ressources dans les collections de propriétés de navigation InputMediaAssets et OutputMediaAssets sont référencées par une paire nom de valeur « \_\_metadata : uri ».
 
 - InputMediaAssets mappe vers une ou plusieurs ressources que vous avez créées dans Media Services. Les OutputMediaAssets sont créés par le système. Ils ne font pas référence à une ressource existante.
-- OutputMediaAssets peut être nommé à l’aide de l’attribut assetName. Si cet attribut n’est pas présent, le nom d’OutputMediaAsset sera la valeur de texte interne de l’élément <outputAsset> avec le suffixe de la valeur du nom du travail ou de l’ID de travail (dans le cas où la propriété Name n’est pas définie). Par exemple, si vous affectez à assetName la valeur « Sample », la propriété de Nom d’OutputMediaAsset est définie sur « Sample ». Toutefois, si vous n’avez pas défini de valeur pour assetName, mais avez défini le nom du travail comme « NewJob », le nom d’OutputMediaAsset est « JobOutputAsset(value)_NewJob ». 
+- OutputMediaAssets peut être nommé à l’aide de l’attribut assetName. Si cet attribut n’est pas présent, le nom d’OutputMediaAsset sera la valeur de texte interne de l’élément <outputAsset> avec le suffixe de la valeur du nom du travail ou de l’ID de travail (dans le cas où la propriété Name n’est pas définie). Par exemple, si vous affectez à assetName la valeur « Sample », la propriété de Nom d’OutputMediaAsset est définie sur « Sample ». Toutefois, si vous n’avez pas défini de valeur pour assetName, mais avez défini le nom du travail comme « NewJob », le nom d’OutputMediaAsset est « JobOutputAsset(value)\_NewJob ».
 
 	L’exemple suivant montre comment définir l’attribut assetName :
 	
@@ -1089,8 +1090,7 @@ L’exemple suivant montre comment spécifier AccessPolicy pour les autorisation
 
 Si l’opération réussit, un code de succès 201 est renvoyé et décrit l’entité AccessPolicy que vous avez créée. Vous utiliserez ensuite l’ID de l’AccessPolicy et l’ID de la ressource contenant le fichier que vous souhaitez remettre (par exemple, une ressource de sortie) pour créer l’entité de localisateur.
 
->[AZURE.NOTE]
->Ce flux de travail de base est le même que pour le téléchargement d’un fichier lors de la réception d’une ressource (comme expliqué précédemment dans cette rubrique). En outre, comme pour le téléchargement de fichiers, si vous (ou vos clients) devez accéder à vos fichiers immédiatement, définissez la valeur StartTime cinq minutes avant l’heure actuelle. Cela vient du fait qu’il peut exister un décalage horaire entre le client et Media Services. La valeur de StartTime doit être au format DateTime suivant : AAAA-MM-JJTHH:mm:ssZ (par exemple, « 2014-05-23T17:53:50Z »).
+>[AZURE.NOTE]Ce flux de travail de base est le même que pour le téléchargement d’un fichier lors de la réception d’une ressource (comme expliqué précédemment dans cette rubrique). En outre, comme pour le téléchargement de fichiers, si vous (ou vos clients) devez accéder à vos fichiers immédiatement, définissez la valeur StartTime cinq minutes avant l’heure actuelle. Cela vient du fait qu’il peut exister un décalage horaire entre le client et Media Services. La valeur de StartTime doit être au format DateTime suivant : AAAA-MM-JJTHH:mm:ssZ (par exemple, « 2014-05-23T17:53:50Z »).
 
 
 ###Création d’une URL SAS pour le téléchargement de contenu 
@@ -1144,20 +1144,19 @@ Si l’opération réussit, la réponse suivante est retournée :
 	         }
 	      },
 	      "Id":"nb:lid:UUID:8e5a821d-2194-4d00-8884-adf979856874",
-	      "ExpirationDateTime":"/Date(1337049393000)/",
+	      "ExpirationDateTime":"\/Date(1337049393000)\/",
 	      "Type":1,
 	      "Path":"https://storagetestaccount001.blob.core.windows.net/asset-71d2dd33-efdf-ec43-8ea1-136a110bd42c?st=2012-05-14T21%3A36%3A33Z&se=2012-05-15T02%3A36%3A33Z&sr=c&si=8e5a821d-2194-4d00-8884-adf979856874&sig=y75dViDpC5V8WutrXM%2B%2FGpR3uOtqmlISiNlHU1YUBOg%3D",
 	      "AccessPolicyId":"nb:pid:UUID:38c71dd0-44c5-4c5f-8418-08bb6fbf7bf8",
 	      "AssetId":"nb:cid:UUID:71d2dd33-efdf-ec43-8ea1-136a110bd42c",
-	      "StartTime":"/Date(1337031393000)/"
+	      "StartTime":"\/Date(1337031393000)\/"
 	   }
 	}
 
 
 La propriété **Path** retournée contient l’URL SAS.
 
->[AZURE.NOTE]
->Si vous téléchargez du contenu avec chiffrement de stockage, vous devez le déchiffrer manuellement avant de le restituer ou utiliser le processeur multimédia de déchiffrement de stockage dans une tâche de traitement pour obtenir une sortie de fichiers traités en clair vers un OutputAsset et le télécharger à partir de cette ressource. Pour plus d’informations sur le traitement, consultez la page Création d’une tâche d’encodage avec l’API REST Media Services En outre, les localisateurs d’URL SAS ne peuvent pas être mis à jour après leur création. Par exemple, vous ne pouvez pas réutiliser le même localisateur avec une valeur StartTime mise à jour. Cela est dû au mode de création des URL SAS. Si vous souhaitez accéder à une ressource pour la télécharger après l’expiration d’un localisateur, vous devez en créer un nouveau, avec une nouvelle valeur StartTime.
+>[AZURE.NOTE]Si vous téléchargez du contenu avec chiffrement de stockage, vous devez le déchiffrer manuellement avant de le restituer ou utiliser le processeur multimédia de déchiffrement de stockage dans une tâche de traitement pour obtenir une sortie de fichiers traités en clair vers un OutputAsset et le télécharger à partir de cette ressource. Pour plus d’informations sur le traitement, consultez la page Création d’une tâche d’encodage avec l’API REST Media Services En outre, les localisateurs d’URL SAS ne peuvent pas être mis à jour après leur création. Par exemple, vous ne pouvez pas réutiliser le même localisateur avec une valeur StartTime mise à jour. Cela est dû au mode de création des URL SAS. Si vous souhaitez accéder à une ressource pour la télécharger après l’expiration d’un localisateur, vous devez en créer un nouveau, avec une nouvelle valeur StartTime.
 
 ###Téléchargement de fichiers
 
@@ -1237,12 +1236,12 @@ Si l’opération réussit, la réponse suivante est retournée :
 	         }
 	      },
 	      "Id":"nb:lid:UUID:52034bf6-dfae-4d83-aad3-3bd87dcb1a5d",
-	      "ExpirationDateTime":"/Date(1337049395000)/",
+	      "ExpirationDateTime":"\/Date(1337049395000)\/",
 	      "Type":2,
 	      "Path":"http://wamsbayclus001rest-hs.net/52034bf6-dfae-4d83-aad3-3bd87dcb1a5d/",
 	      "AccessPolicyId":"nb:pid:UUID:38c71dd0-44c5-4c5f-8418-08bb6fbf7bf8",
 	      "AssetId":"nb:cid:UUID:eb5540a2-116e-4d36-b084-7e9958f7f3c3",
-	      "StartTime":"/Date(1337031395000)/"
+	      "StartTime":"\/Date(1337031395000)\/"
 	   }
 	}
 
@@ -1285,4 +1284,4 @@ Pour en savoir plus sur la création d’applications de vidéo à la demande, c
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -26,7 +26,7 @@ Ce didacticiel présente l'ajout d'un service backend cloud à une application A
 
 Voici une capture d'écran de l'application terminée :
 
-![][88]
+![][0]
 
 Pour suivre ce didacticiel, vous avez besoin des [Outils de développement Android][Android Studio], qui incluent l'environnement de développement intégré Android Studio et la dernière plateforme Android. Android 4.2 ou une version ultérieure est nécessaire.
 
@@ -100,7 +100,7 @@ Vous avez terminé les étapes de démarrage rapide. Découvrez ensuite comment 
 [Next Steps]: #next-steps
 
 <!-- Images. -->
-[88]: ./media/mobile-services-dotnet-backend-android-get-started/mobile-quickstart-completed-android.png
+[0]: ./media/mobile-services-dotnet-backend-android-get-started/mobile-quickstart-completed-android.png
 [1]: ./media/mobile-services-dotnet-backend-android-get-started/mobile-quickstart-steps-vs-AS.png
 [2]: ./media/mobile-services-dotnet-backend-android-get-started/mobile-quickstart-steps-android-AS.png
 
@@ -129,4 +129,4 @@ Vous avez terminé les étapes de démarrage rapide. Découvrez ensuite comment 
 [portail de gestion]: https://manage.windowsazure.com/
  
 
-<!------HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -167,7 +167,7 @@ Dans cette étape, vous allez créer deux services liés : **StorageLinkedServi
 	1.	Pour la propriété **gatewayName**, saisissez **adftutorialgateway** afin de remplacer l’ensemble du texte à l’intérieur des guillemets doubles.  
 	2.	Si vous utilisez l’**authentification SQL**, procédez comme suit : 
 		1.	Pour la propriété **connectionString**, remplacez **<nom\_serveur>**, **<nom\_BD>**, **<utilisateur>** et **<mot\_de\_passe>** par le nom de votre système SQL Server local, le nom de la base de données, le nom du compte d’utilisateur et le mot de passe. Pour spécifier un nom d'instance, utilisez le caractère d'échappement : . Par exemple :**server\\instancename**. 	
-		2.	Supprimez les deux dernières propriétés (\*\*username\*\* et **password**) du fichier JSON et supprimez la **virgule (,)** à la fin de la dernière ligne du script JSON restant.
+		2.	Supprimez les deux dernières propriétés (**username** et **password**) du fichier JSON et supprimez la **virgule (,)** à la fin de la dernière ligne du script JSON restant.
 		
 				{
 				  "name": "SqlServerLinkedService",
@@ -227,7 +227,7 @@ Dans cette étape, vous allez créer des jeux de données d’entrée et de sort
 
 ### Préparation du serveur SQL Server local pour le didacticiel
 
-1. Dans la base de données que vous avez spécifiée pour le service lié SQL Server local (\*\*SqlServerLinkedService\*\*), utilisez le script SQL suivant pour créer la table **emp** dans la base de données.
+1. Dans la base de données que vous avez spécifiée pour le service lié SQL Server local (**SqlServerLinkedService**), utilisez le script SQL suivant pour créer la table **emp** dans la base de données.
 
 
         CREATE TABLE dbo.emp
@@ -317,9 +317,9 @@ Dans cette étape, vous allez créer des jeux de données d’entrée et de sort
 	- Le **type** est défini sur **AzureBlob**.
 	- Le paramètre **linkedServiceName** est défini sur **StorageLinkedService** (vous avez créé ce service lié à l’étape 2).
 	- Le paramètre **folderPath** est défini sur **adftutorial/outfromonpremdf**, où « outfromonpremdf » est le dossier dans le conteneur adftutorial. Vous devez simplement créer le conteneur **adftutorial**.
-	- Le paramètre de **disponibilité** est défini sur **Toutes les heures** (l’élément \*\*frequency\*\* est défini sur **hour** et l’élément **intervalle** a la valeur **1**). Le service Data Factory génère une tranche de données de sortie toutes les heures dans la table **emp** de la base de données SQL Microsoft Azure. 
+	- **availability** est défini sur **hourly** (**frequency** a la valeur **hour** et **interval** a la valeur **1**). Le service Data Factory génère une tranche de données de sortie toutes les heures dans la table **emp** de la base de données SQL Microsoft Azure. 
 
-	Si vous ne spécifiez pas de nom (**fileName**) pour une **table d’entrée**, tous les fichiers/objets blob du dossier d’entrée (\*\*folderPath\*\*) sont considérés comme des entrées. Si vous spécifiez un fileName dans le JSON, seul le fichier/objet blob spécifié est considéré comme une entrée. Consultez les exemples de fichiers dans le [didacticiel][adf-tutorial] pour en savoir plus.
+	Si vous ne spécifiez pas de nom (**fileName**) pour une **table d'entrée**, tous les fichiers/objets blob du dossier d'entrée (**folderPath**) sont considérés comme des entrées. Si vous spécifiez un fileName dans le JSON, seul le fichier/objet blob spécifié est considéré comme une entrée. Consultez les exemples de fichiers dans le [didacticiel][adf-tutorial] pour plus d'informations.
  
 	Si vous ne spécifiez pas de **fileName** pour une **table de sortie**, les fichiers générés dans le **folderPath** sont nommés selon le format suivant : Data.<Guid>.txt (par exemple : Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt).
 
@@ -395,11 +395,12 @@ Dans cette étape, vous créez un **pipeline** avec une **activité Copier l’a
  
 	- Dans la section des activités, toutes les activités ont le **type** **Copy**.
 	- L’**entrée** de l’activité est définie sur **EmpOnPremSQLTable** et la **sortie** de l’activité, sur **OutputBlobTable**.
-	- Dans la section **Transformation**, le paramètre **SqlSource** est spécifié comme **type de source**, et **BlobSink** comme **type sink**. - La requête SQL **select \* from emp** est spécifiée pour la propriété **sqlReaderQuery** de **SqlSource**.
+	- Dans la section **Transformation**, le paramètre **SqlSource** est spécifié comme **type de source**, et **BlobSink** comme **type sink**.
+- La requête SQL **select * from emp** est spécifiée pour la propriété **sqlReaderQuery** de **SqlSource**.
 
-	Remplacez la valeur de la propriété **start** par le jour actuel et la valeur **end**, par le jour suivant. Les dates/heures de début et de fin doivent toutes deux être au [format ISO](http://fr.wikipedia.org/wiki/ISO_8601). Par exemple : 2014-10-14T16:32:41Z. L’heure de fin (**end**) est facultative, mais nous allons l’utiliser dans ce didacticiel.
+	Remplacez la valeur de la propriété **start** par le jour actuel et la valeur **end**, par le jour suivant. Les dates/heures de début et de fin doivent toutes deux être au [format ISO](http://en.wikipedia.org/wiki/ISO_8601). Par exemple : 2014-10-14T16:32:41Z. L’heure de fin (**end**) est facultative, mais nous allons l’utiliser dans ce didacticiel.
 	
-	Si vous ne spécifiez aucune valeur pour la propriété **end**, cette dernière est calculée comme suit : « \*\*start + 48 heures\*\* ». Pour exécuter le pipeline indéfiniment, spécifiez **9/9/9999** comme valeur pour la propriété **end**.
+	Si vous ne spécifiez aucune valeur pour la propriété **end**, cette dernière est calculée comme suit : « **start + 48 hours** ». Pour exécuter le pipeline indéfiniment, spécifiez **9/9/9999** comme valeur pour la propriété **end**.
 	
 	En spécifiant la période active pour un pipeline, vous définissez la durée pendant laquelle les tranches de données seront traitées, selon les propriétés de **disponibilité** qui ont été définies pour chaque table Azure Data Factory.
 	
@@ -463,7 +464,7 @@ Dans cette étape, vous allez utiliser le portail Azure pour surveiller ce qui s
 	![Panneau Détails sur l’exécution d’activité][image-data-factory-activity-run-details]
 
 11. Cliquez sur **X** pour fermer tous les panneaux jusqu’à ce que vous reveniez au panneau d’accueil de l’élément **ADFTutorialOnPremDF**.
-14. (facultatif) Cliquez sur **Pipelines**, puis sur **ADFTutorialOnPremDF**, et accédez aux tables d’entrée (\*\*Consommé\*\*) ou aux tables de sortie (\*\*Produit\*\*).
+14. (facultatif) Cliquez sur **Pipelines**, puis sur **ADFTutorialOnPremDF**, et accédez aux tables d’entrée (**Consommé**) ou aux tables de sortie (**Produit**).
 15. Utilisez des outils tels que l’**Explorateur de stockage Azure** pour contrôler la sortie.
 
 	![Azure Storage Explorer][image-data-factory-stroage-explorer]
@@ -510,7 +511,7 @@ Cette section décrit comment créer et enregistrer une passerelle à l’aide d
 		PS C:\> $Key = New-AzureDataFactoryGatewayKey -GatewayName MyGateway -ResourceGroupName ADF -DataFactoryName $df 
 
 	
-4. Dans Azure PowerShell, accédez au dossier suivant : **C:\\Program Files\\Microsoft Data Management Gateway\\1.0\\PowerShellScrip\*\* et exécutez le script **RegisterGateway.ps1** associé à la variable locale **$Key**, comme indiqué dans la commande suivante pour enregistrer l’agent client installé sur votre ordinateur avec la passerelle logique que vous avez créée précédemment.
+4. Dans Azure PowerShell, accédez au dossier suivant : **C:\\Program Files\\Microsoft Data Management Gateway\\1.0\\PowerShellScript** et exécutez le script **RegisterGateway.ps1** associé à la variable locale **$Key**, comme indiqué dans la commande suivante pour enregistrer l’agent client installé sur votre ordinateur avec la passerelle logique que vous avez créée précédemment.
 
 		PS C:\> .\RegisterGateway.ps1 $Key.GatewayKey
 		
@@ -625,4 +626,4 @@ Vous pouvez supprimer une passerelle à l’aide de l’applet de commande **Rem
 
 [image-data-factory-preview-portal-storage-key]: ./media/data-factory-get-started/PreviewPortalStorageKey.png
 
-<!------HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

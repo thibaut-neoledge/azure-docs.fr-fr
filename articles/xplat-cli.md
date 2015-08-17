@@ -281,4 +281,4 @@ Si vous écrivez un script qui dépend de l'état de sortie, vérifiez que les c
 [signuporg]: http://www.windowsazure.com/documentation/articles/sign-up-organization/
 [Using the Azure CLI]: virtual-machines-command-line-tools.md
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

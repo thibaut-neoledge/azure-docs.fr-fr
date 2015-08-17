@@ -46,15 +46,15 @@ Les concepts de « Livres de recettes » et de « Recettes » existent aussi
 
 Tout d’abord, préparons la station de travail. J’utilise une station de travail Windows standard. Nous devons créer un répertoire pour stocker nos fichiers de configuration et nos livres de recettes.
 
-Commencez par créer un répertoire appelé **C:\chef**.
+Commencez par créer un répertoire appelé **C:\\chef**.
 
-Créez ensuite un second répertoire **c:\chef\cookbooks**.
+Créez ensuite un second répertoire **c:\\chef\\cookbooks**.
 
 Nous devons maintenant télécharger notre fichier de paramètres Azure pour que Chef puisse communiquer avec notre abonnement Azure.
 
 Téléchargez vos paramètres de publications ici : <a href="https://manage.windowsazure.com/publishsettings/" target="_blank">https://manage.windowsazure.com/publishsettings/</a>
 
-Enregistrez le fichier de paramètres de publications dans **C:\chef**.
+Enregistrez le fichier de paramètres de publications dans **C:\\chef**.
 
 ##Création d’un compte Chef géré
 
@@ -74,19 +74,19 @@ Le fichier zip du starter kit comprend vos clés et fichiers de configuration d�
 
 ##Configuration de la station de travail Chef
 
-Extrayez le contenu du fichier chef-starter.zip vers **C:\chef**.
+Extrayez le contenu du fichier chef-starter.zip vers **C:\\chef**.
 
-Copiez tous les fichiers sous **chef-starter\chef-repo.chef** vers votre **c:\chef**.
+Copiez tous les fichiers sous **chef-starter\\chef-repo.chef** vers votre **c:\\chef**.
 
 Votre répertoire doit ressembler à ceci :
 
 ![][5]
 
-Vous devez maintenant avoir quatre fichiers, y compris le fichier de publication Azure dans la racine de c:\chef
+Vous devez maintenant avoir quatre fichiers, y compris le fichier de publication Azure dans la racine de c:\\chef
 
 Les fichiers PEM contiennent votre organisation et les clés privées d’administration pour la communication, tandis que le fichier **knife.rb** contient votre configuration de couteau. Il convient de modifier le fichier **knife.rb**.
 
-Ouvrez le fichier dans l’éditeur de votre choix et modifiez « cookbook_path » en supprimant /.../ du chemin d’accès afin qu’il apparaisse comme ci-dessous :
+Ouvrez le fichier dans l’éditeur de votre choix et modifiez « cookbook\_path » en supprimant /.../ du chemin d’accès afin qu’il apparaisse comme ci-dessous :
 
 	cookbook_path  ["#{current_dir}/cookbooks"]
 
@@ -98,7 +98,7 @@ Votre fichier knife.rb doit maintenant ressembler à ceci :
 
 ![][6]
 
-Ces lignes garantissent que le couteau effectue ses références dans notre répertoire de livres de recettes dans c:\chef\cookbooks et utilise également notre fichier de paramètres de publication Azure pendant les opérations d’Azure.
+Ces lignes garantissent que le couteau effectue ses références dans notre répertoire de livres de recettes dans c:\\chef\\cookbooks et utilise également notre fichier de paramètres de publication Azure pendant les opérations d’Azure.
 
 ## Installation du kit de développement Chef
 
@@ -108,9 +108,9 @@ Puis, téléchargez et installez le ChefDK (Kit de développement Chef) pour con
 
 ![][7]
 
-C’est très simple. Laissez-le s’installer dans son emplacement par défaut c:\opscode. Cette opération prendra environ 10 minutes.
+C’est très simple. Laissez-le s’installer dans son emplacement par défaut c:\\opscode. Cette opération prendra environ 10 minutes.
 
-Vérifiez que votre variable PATH comprend les entrées pour C:\opscode\chefdk\bin;C:\opscode\chefdk\embedded\bin;c:\users\yourusername.chefdk\gem\ruby\2.0.0\bin
+Vérifiez que votre variable PATH comprend les entrées pour C:\\opscode\\chefdk\\bin;C:\\opscode\\chefdk\\embedded\\bin;c:\\users\\yourusername.chefdk\\gem\\ruby\\2.0.0\\bin
 
 S’ils sont absents, assurez-vous de les ajouter !
 
@@ -143,15 +143,15 @@ Félicitations ! La station de travail a été configurée.
 
 Dans Chef, un livre de recettes permet de définir un ensemble de commandes que vous souhaitez exécuter sur votre client managé. La création d’un livre de recettes est très simple et nous utilisons la commande Générer un livre de recettes Chef pour générer notre modèle de livre de recettes. Nous appellerons notre livre de recettes webserver, étant donné que je souhaite disposer d’une stratégie qui déploie IIS automatiquement.
 
-Dans le répertoire C:\Chef, exécutez la commande suivante :
+Dans le répertoire C:\\Chef, exécutez la commande suivante :
 
 	chef generate cookbook webserver
 
-Cela génère un ensemble de fichiers dans le répertoire **C:\Chef\cookbooks\webserver.** Nous devons maintenant définir le jeu de commandes que notre client Chef doit exécuter sur nos ordinateurs virtuels gérés.
+Cela génère un ensemble de fichiers dans le répertoire **C:\\Chef\\cookbooks\\webserver.** Nous devons maintenant définir le jeu de commandes que notre client Chef doit exécuter sur nos ordinateurs virtuels gérés.
 
 Les commandes sont stockées dans le fichier **default.rb.** Dans ce fichier, je vais définir un ensemble de commandes qui installe les services IIS, démarre IIS et copie un fichier de modèle dans le dossier wwwroot.
 
-Modifiez le fichier **C:\chef\cookbooks\webserver\recipes\default.rb** et ajoutez les lignes suivantes :
+Modifiez le fichier **C:\\chef\\cookbooks\\webserver\\recipes\\default.rb** et ajoutez les lignes suivantes :
 
 	powershell_script 'Install IIS' do
  		action :run
@@ -177,7 +177,7 @@ Exécutez la commande suivante pour générer le modèle.
 
 	chef generate template webserver Default.htm
 
-Maintenant, accédez au fichier **C:\chef\cookbooks\webserver\templates\default\Default.htm.erb** et modifiez-le.
+Maintenant, accédez au fichier **C:\\chef\\cookbooks\\webserver\\templates\\default\\Default.htm.erb** et modifiez-le.
 
 Ajoutez le code html simple « Hello World » et enregistrez le fichier.
 
@@ -238,4 +238,4 @@ Nous espérons que cela a été utile ! Démarrez votre voyage en matière d’
 
 <!--Link references-->
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

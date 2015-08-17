@@ -1,5 +1,5 @@
 <properties pageTitle="Configurer le tunneling forcé pour les passerelles VPN Microsoft Azure" description="Si vous disposez d’un réseau virtuel avec une passerelle VPN entre sites, vous pouvez rediriger ou « forcer » tout le trafic Internet vers votre emplacement local. " services="vpn-gateway" documentationCenter="na" authors="cherylmc" manager="jdial" editor="tysonn" />
-<tags 
+<tags
    ms.service="vpn-gateway"
    ms.devlang="na"
    ms.topic="article"
@@ -145,4 +145,4 @@ Utilisez la procédure suivante pour configurer le tunneling forcé.
 
 Vous pouvez ajouter des machines virtuelles à votre réseau virtuel. Pour plus d’informations, consultez la rubrique [Création d’une machine virtuelle personnalisée](../virtual-machines/virtual-machines-create-custom.md).
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

@@ -127,7 +127,7 @@ Dans le panneau des chaînes de connexion de la base de données, vous pouvez tr
 ## Étape 4 : remplacer les informations de connexion réelles
 
 
-- Dans le code source que vous avez collé, remplacez l'espace réservé *[Your_Connection_String]* par la chaîne de connexion et veillez à remplacer *your_password_here* dans cette chaîne par votre mot de passe réel.
+- Dans le code source que vous avez collé, remplacez l'espace réservé *[Your\_Connection\_String]* par la chaîne de connexion et veillez à remplacer *your\_password\_here* dans cette chaîne par votre mot de passe réel.
 
 
 ## Étape 5 : exécution de l'application
@@ -137,4 +137,4 @@ Dans le panneau des chaînes de connexion de la base de données, vous pouvez tr
 2. Le programme imprime les résultats de la requête dans la fenêtre de la console.
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

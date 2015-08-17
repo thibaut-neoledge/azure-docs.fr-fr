@@ -9,7 +9,7 @@
 <tags
    ms.service="operational-insights"
    ms.devlang="na"
-   ms.topic="article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
    ms.date="07/21/2015"
@@ -102,13 +102,13 @@ Les tableaux suivants répertorient les ports associés à ces tâches.
 |*.ods.opinsights.azure.com|Port 443| |service.systemcenteradvisor.com|Port 443| |scadvisor.accesscontrol.windows.net|Port 443| |scadvisorservice.accesscontrol.windows.net|Port 443| |*.blob.core.windows.net/*|Port 443|
 |data.systemcenteradvisor.com|Port 443|
 |ods.systemcenteradvisor.com|Port 443|
-|*.systemcenteradvisor.com|Port 443|
+|**.systemcenteradvisor.com|Port 443|
 
 
 |**Ressource de console Operations Manager et Operational Insights**|**Ports**|
 |---|---|
 |*.systemcenteradvisor.com|Port 80 et 443| |*.live.com|Ports 80 et 443|
-|*.microsoftonline.com|Port 80 et 443| |login.windows.net|Port 80 et 443|
+|**.microsoftonline.com|Port 80 et 443| |login.windows.net|Port 80 et 443|
 
 
 Utilisez les procédures suivantes pour inscrire votre groupe d'administration Operations Manager auprès du service Operational Insights. Si vous rencontrez des problèmes de communication entre le groupe d'administration et le service Operational Insights, utilisez les procédures de validation pour résoudre les problèmes de transmission de données au service Operational Insights.
@@ -129,7 +129,7 @@ Utilisez les procédures suivantes pour inscrire votre groupe d'administration O
 
 3. Dans la vue Connexion à Operational Insights, cliquez sur **Configurer le serveur proxy**. ![Connexion à Operations Manager Operational Insights, Configurer le serveur proxy](./media/operational-insights-proxy-firewall/proxy-om02.png)
 
-4. Dans l'Assistant Paramètres Operational Insights : serveur proxy, sélectionnez **Utiliser un serveur proxy pour accéder au service web Operational Insights**, puis tapez l'URL avec le numéro de port, par exemple, **http://myproxy:80**. ![Adresse du proxy Operations Manager Operational Insights](./media/operational-insights-proxy-firewall/proxy-om03.png)
+4. Dans l'Assistant Paramètres Operational Insights : serveur proxy, sélectionnez **Utiliser un serveur proxy pour accéder au service web Operational Insights**, puis tapez l'URL avec le numéro de port, par exemple, ****http://myproxy:80**. ![Adresse du proxy Operations Manager Operational Insights](./media/operational-insights-proxy-firewall/proxy-om03.png)
 
 
 ### Pour spécifier les informations d'identification si le serveur proxy nécessite une authentification
@@ -166,4 +166,4 @@ Utilisez les procédures suivantes pour inscrire votre groupe d'administration O
 3. Ajoutez tous les compteurs commençant par **HTTP**. ![ajouter des compteurs](./media/operational-insights-proxy-firewall/sendingdata1.png)
 4. Si votre configuration Operations Manager est correcte, vous verrez une activité pour les compteurs d'administration du service de contrôle d'intégrité liés à des événements et autres éléments de données, en fonction des packs d'administration que vous avez ajoutés dans Operational Insights et de la stratégie de collecte de journaux configurée. ![Analyseur de performances indiquant une activité](./media/operational-insights-proxy-firewall/sendingdata2.png)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

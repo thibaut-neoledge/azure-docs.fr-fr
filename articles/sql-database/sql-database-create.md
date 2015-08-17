@@ -30,20 +30,20 @@ True author is: authors="sonalmm" , ms.author="sonalm".
 
 | Création d’une base de données | Capture d’écran |
 | :--- | :--- |
-| 1. Connectez-vous au site [http://portal.azure.com/](http://portal.azure.com/). | ![Nouveau portail Azure][1] |
-| 2. En bas à gauche de la page, cliquez sur **Nouveau**. | ![Initier un nouveau service][2]|
-| 3. Cliquez sur **Base de données SQL**.| ![Différents services à sélectionner][3] |
-| 4. Un volet **Base de données SQL** s'ouvre. Dans le champ **Nom**, spécifiez un nom de base de données. | ![Nommer la base de données][4] |
-| 5. Dans le **volet Base de données SQL**, cliquez sur **SERVEUR**. Dans le volet **Serveur** qui s'ouvre, vous pouvez choisir entre la création d'un serveur ou l'utilisation d'un serveur existant.| ![sélectionner le type de serveur][4] |
+| 1\. Connectez-vous au site [http://portal.azure.com/](http://portal.azure.com/). | ![Nouveau portail Azure][1] |
+| 2\. En bas à gauche de la page, cliquez sur **Nouveau**. | ![Initier un nouveau service][2]|
+| 3\. Cliquez sur **Base de données SQL**.| ![Différents services à sélectionner][3] |
+| 4\. Un volet **Base de données SQL** s'ouvre. Dans le champ **Nom**, spécifiez un nom de base de données. | ![Nommer la base de données][4] |
+| 5\. Dans le **volet Base de données SQL**, cliquez sur **SERVEUR**. Dans le volet **Serveur** qui s'ouvre, vous pouvez choisir entre la création d'un serveur ou l'utilisation d'un serveur existant.| ![sélectionner le type de serveur][4] |
 |5a. Si vous sélectionnez l'option **Utiliser un serveur existant**, sélectionnez le serveur de votre choix, puis cliquez sur **Sélectionner**. Ensuite, effectuez toutes les actions à partir de l’étape 6.| ![sélectionner un serveur dans la liste][5]| 
 |5b. Si vous sélectionnez **Créer un nouveau serveur**, le volet **Nouveau serveur** s'ouvre. Spécifiez le nom du serveur, le nom de connexion d’administrateur de serveur et le mot de passe. Cliquez sur **Emplacement** pour sélectionner l'emplacement du serveur. | ![Création complète de nouvelles options de serveur][9]| 
 |5c.Le volet **Nouveau serveur** vous donne la possibilité de créer le nouveau serveur avec les mises à jour V12. Pour en savoir plus sur les fonctionnalités des serveurs V12, consultez [Nouveautés de la base de données SQL V12](sql-database-v12-whats-new.md).| ![Sélectionner le serveur V12][6]|
 |5d. Effectuez vos sélections dans le volet **Nouveau serveur** et cliquez sur **OK**. Ce lien vous amènera au volet **Base de données SQL** pour effectuer le reste des actions de création de base de données. | ![Nouvelles actions complètes du volet Serveur][8]|
-|6. Cliquez sur **Sélectionner la source**. Les différents types de sources vous permettant de créer une base de données sont : une base de données vide, une base de données d’exemple ou à partir d’une sauvegarde de base de données.| ![Sélectionner la source de la base de données][10]|
-|7. Puis, dans le volet **Base de données SQL**, cliquez sur **NIVEAU DE TARIFICATION**. Vous pouvez sélectionner le niveau de tarification recommandé ou **afficher tous** les niveaux de tarification disponibles. Effectuez votre choix, puis cliquez sur **Sélectionner**. <p> Pour plus d'informations sur les niveaux de tarification, consultez [Mise à jour des bases de données SQL des éditions Web et Business vers les nouveaux niveaux de service](./sql-database-upgrade-new-service-tiers/) et [Niveaux de service et niveaux de performances de la base de données SQL Azure](http://msdn.microsoft.com/library/azure/dn741336.aspx). |![Sélectionner un niveau de tarification][7]
-| 8. Puis, dans le volet **Base de données SQL**, cliquez sur **Configuration facultative**, effectuez vos choix, puis cliquez sur **OK**. 
-| 9. Lorsque vous sélectionnez un serveur existant, le **groupe de ressources** et l'**abonnement** sont déjà sélectionnés pour vous. Dans le volet **Base de données SQL** lame, une icône de verrou s'affiche à côté des valeurs **Groupe de ressources** et **Abonnement**. Si vous créez un nouveau serveur, vous devez sélectionner ou créer un groupe de ressources. Pour plus d'informations, consultez [Utilisation des groupes de ressources pour gérer vos ressources Azure](resource-group-overview.md).|![Spécifier un groupe de ressources][11]
-| 10. Cliquez sur **Create**. Une base de données avec les fonctionnalités de la base de données SQL V12 est créée. |![Crée une base de données][12]
+|6\. Cliquez sur **Sélectionner la source**. Les différents types de sources vous permettant de créer une base de données sont : une base de données vide, une base de données d’exemple ou à partir d’une sauvegarde de base de données.| ![Sélectionner la source de la base de données][10]|
+|7\. Puis, dans le volet **Base de données SQL**, cliquez sur **NIVEAU DE TARIFICATION**. Vous pouvez sélectionner le niveau de tarification recommandé ou **afficher tous** les niveaux de tarification disponibles. Effectuez votre choix, puis cliquez sur **Sélectionner**. <p> Pour plus d'informations sur les niveaux de tarification, consultez [Mise à jour des bases de données SQL des éditions Web et Business vers les nouveaux niveaux de service](./sql-database-upgrade-new-service-tiers/) et [Niveaux de service et niveaux de performances de la base de données SQL Azure](http://msdn.microsoft.com/library/azure/dn741336.aspx). |![Sélectionner un niveau de tarification][7]
+| 8\. Puis, dans le volet **Base de données SQL**, cliquez sur **Configuration facultative**, effectuez vos choix, puis cliquez sur **OK**. 
+| 9\. Lorsque vous sélectionnez un serveur existant, le **groupe de ressources** et l'**abonnement** sont déjà sélectionnés pour vous. Dans le volet **Base de données SQL** lame, une icône de verrou s'affiche à côté des valeurs **Groupe de ressources** et **Abonnement**. Si vous créez un nouveau serveur, vous devez sélectionner ou créer un groupe de ressources. Pour plus d'informations, consultez [Utilisation des groupes de ressources pour gérer vos ressources Azure](resource-group-overview.md).|![Spécifier un groupe de ressources][11]
+| 10\. Cliquez sur **Create**. Une base de données avec les fonctionnalités de la base de données SQL V12 est créée. |![Crée une base de données][12]
 
 ## Liens connexes
 
@@ -66,4 +66,4 @@ True author is: authors="sonalmm" , ms.author="sonalm".
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -203,4 +203,4 @@ Pour référence, l’exemple terminé (sans vos valeurs de configuration) est f
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

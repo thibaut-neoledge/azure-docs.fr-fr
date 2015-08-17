@@ -7,6 +7,7 @@
 	manager="timlt"
 	editor="tysonn"/>
 
+
 <tags
 	ms.service="multiple"
 	ms.workload="multiple"
@@ -16,6 +17,7 @@
 	ms.date="06/09/2015"
 	ms.author="danlep"/>
 
+
 # Utilisation de l'interface de ligne de commande Azure pour Mac, Linux et Windows avec Azure Resource Management
 
 Cette rubrique décrit comment utiliser l'interface de ligne de commande Azure (interface CLI Azure) dans le mode **arm** pour créer, gérer et supprimer des services sur la ligne de commande des ordinateurs Mac, Linux et Windows. Vous pouvez effectuer les mêmes tâches à l'aide des différentes bibliothèques des Kits de développement logiciel (SDK) Azure, avec PowerShell, et dans le portail Azure.
@@ -24,7 +26,7 @@ La gestion des ressources Azure vous permet de créer un groupe de ressources (m
 
 ## Approches impératives et déclaratives
 
-Comme avec le [mode Azure Service Management (**asm**)](../virtual-machines-command-line-tools.md), le mode **arm** de l'interface CLI Azure fournit des commandes qui créent des ressources de manière impérative sur la ligne de commande. Par exemple, si vous tapez `azure group create <groupname> <location>`, vous demandez à Azure de créer un groupe de ressources et si vous tapez `azure group deployment create <resourcegroup> <deploymentname>`, vous indiquez à Azure de créer un déploiement d'un nombre quelconque d'éléments et de les placer dans un groupe. Chaque type de ressource étant associé à des commandes impératives, vous pouvez les chaîner pour créer des déploiements assez complexes.
+Comme avec le [mode Azure Service Management (**asm**)](../virtual-machines-command-line-tools.md), le mode **arm** de l’interface CLI Azure fournit des commandes qui créent des ressources de manière impérative sur la ligne de commande. Par exemple, si vous tapez `azure group create <groupname> <location>`, vous demandez à Azure de créer un groupe de ressources et si vous tapez `azure group deployment create <resourcegroup> <deploymentname>`, vous indiquez à Azure de créer un déploiement d'un nombre quelconque d'éléments et de les placer dans un groupe. Chaque type de ressource étant associé à des commandes impératives, vous pouvez les chaîner pour créer des déploiements assez complexes.
 
 Toutefois, l'utilisation de _modèles_ de groupe de ressources, qui décrivent un groupe de ressources, est une approche déclarative beaucoup plus puissante, car elle vous permet d'automatiser des déploiements complexes de (presque) n'importe quel nombre de ressources à (presque) toutes les fins. Quand vous utilisez des modèles, la seule commande impérative est d'en déployer un. Pour obtenir une vue d'ensemble des modèles, ressources et groupes de ressources, consultez [Vue d'ensemble des groupes de ressources Azure](resource-groups-overview).
 
@@ -940,7 +942,7 @@ Options de paramètre :
  	-l, --lb-name <lb-name>                the name of the load balancer
  	-s, --subscription <subscription>      the subscription identifier
 
-<BR> network lb address-pool delete [options] <resource-group> <lb-name> <name>
+<BR> network lb address-pool delete [options\] <resource-group> <lb-name> <name>
 
 Supprime la ressource de la plage du pool d'adresses IP principales dans l'équilibrage de charge.
 
@@ -1245,7 +1247,7 @@ Crée une ressource IP publique. Vous créez la ressource IP publique et l'assoc
 	info:    network public-ip create command OK
 
 
-Options de paramètre : -h, --help output usage information -v, --verbose use verbose output --json use json output -g, --resource-group <resource-group> the name of the resource group -n, --name <name> the name of the public ip -l, --location <location> the location -d, --domain-name-label <domain-name-label> the domain name label. This set DNS to <domain-name-label>.<location>.cloudapp.azure.com -a, --allocation-method <allocation-method> the allocation method [Static][Dynamic] -i, --idletimeout <idletimeout> the idle timeout in minutes -f, --reverse-fqdn <reverse-fqdn> the reverse fqdn -t, --tags <tags> the list of tags. Can be multiple. In the format of "name=value". Name is required and value is optional. For example, -t tag1=value1;tag2 -s, --subscription <subscription> the subscription identifier <br>
+Options de paramètre : -h, --help output usage information -v, --verbose use verbose output --json use json output -g, --resource-group <resource-group> the name of the resource group -n, --name <name> the name of the public ip -l, --location <location> the location -d, --domain-name-label <domain-name-label> the domain name label. This set DNS to <domain-name-label>.<location>.cloudapp.azure.com -a, --allocation-method <allocation-method> the allocation method [Static\][Dynamic\] -i, --idletimeout <idletimeout> the idle timeout in minutes -f, --reverse-fqdn <reverse-fqdn> the reverse fqdn -t, --tags <tags> the list of tags. Can be multiple. In the format of "name=value". Name is required and value is optional. For example, -t tag1=value1;tag2 -s, --subscription <subscription> the subscription identifier <br>
 
 	network public-ip set [options] <resource-group> <name>
 Met à jour les propriétés d'une ressource IP publique existante. Dans l'exemple suivant, nous avons remplacé l'adresse IP publique dynamique en adresse IP statique.
@@ -1286,7 +1288,7 @@ Options de paramètre :
 	--no-tags                                    remove all existing tags
 	-s, --subscription <subscription>            the subscription identifier
 
-<br> network public-ip list [options] <resource-group> Répertorie toutes les ressources IP publiques au sein d'un groupe de ressources.
+<br> network public-ip list [options\] <resource-group> Répertorie toutes les ressources IP publiques au sein d'un groupe de ressources.
 
 	azure network public-ip list -g myresourcegroup
 
@@ -1306,7 +1308,7 @@ Options de paramètre :
 	--json                                 use json output
 	-g, --resource-group <resource-group>  the name of the resource group
 	-s, --subscription <subscription>      the subscription identifier
-<BR> network public-ip show [options] <resource-group> <name> Affiche les propriétés d'adresse IP publique pour une ressource IP publique au sein d'un groupe de ressources.
+<BR> network public-ip show [options\] <resource-group> <name> Affiche les propriétés d'adresse IP publique pour une ressource IP publique au sein d'un groupe de ressources.
 
 	azure network public-ip show -g myresourcegroup -n mytestpublicip
 
@@ -1737,4 +1739,4 @@ Options de paramètre :
 	vm image list [options] <location> <publisher> [offer] [sku]
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

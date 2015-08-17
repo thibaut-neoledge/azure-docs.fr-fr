@@ -8,6 +8,7 @@
    editor=""
    tags=""/>
 
+
 <tags
    ms.service="best-practice"
    ms.devlang="na"
@@ -16,6 +17,7 @@
    ms.workload="na"
    ms.date="04/28/2015"
    ms.author="masashin"/>
+
 
 # Liste de contrôle de l’extensibilité
 
@@ -56,7 +58,7 @@
 - **Réduisez le temps d’utilisation des connexions et des ressources**. Maintenez les connexions et les ressources uniquement le temps de les utiliser. Par exemple, ouvrez les connexions le plus tard possible et permettez leur retour dans le pool de connexions le plus tôt possible. Faites l’acquisition des ressources le plus tard possible et défaites-vous en le plus tôt possible.
 - **Réduisez le nombre de connexions requises**. Les connexions au service absorbent les ressources. Si possible, limitez le nombre de connexions requises et assurez-vous que les connexions existantes sont réutilisées chaque fois que possible. Par exemple, après l’exécution de l’authentification, utilisez l’emprunt d’identité là où cela est nécessaire pour exécuter du code sous une identité spécifique. Cela peut contribuer à optimiser l’utilisation du pool de connexions en réutilisant les connexions. 
 
-	> [AZURE.NOTE]
+	> [AZURE.NOTE]\: ** les API de certains services réutilisent automatiquement les connexions à condition que les directives spécifiques aux services soient suivies. Il est important de comprendre les conditions qui permettent la réutilisation de la connexion pour chaque service que votre application utilise.
 - **Envoyez des demandes par lots pour optimiser l’utilisation du réseau**. Par exemple, envoyez et lisez des messages par lots lorsque vous accédez à une file d’attente et effectuez plusieurs lectures ou écritures par lot lors de l’accès au stockage ou à un cache. Cela peut contribuer à optimiser l’efficacité des services et des magasins de données en réduisant le nombre d’appels sur le réseau.
 - **Éliminez si possible la nécessité de stocker l’état de session côté serveur**. La gestion de l’état de session côté serveur requiert généralement l’affinité du client (en d’autres termes, le routage de chaque demande vers la même instance de serveur), ce qui affecte la capacité de mise à l’échelle du système. Dans l’idéal, vous devez concevoir les clients de sorte qu’ils soient sans état par rapport aux serveurs utilisés. Cependant, si l’application doit tenir à jour l’état de session, stockez les données sensibles ou les volumes importants de données par client dans un cache distribué côté serveur auquel toutes les instances de l’application peuvent accéder.
 - **Optimisez les schémas de stockage de tables**. Lorsque vous utilisez des magasins de tables, tels que le stockage de tables Azure, qui nécessitent que les noms de tables et de colonnes soient transmis et traités avec chaque requête, envisagez d’utiliser des noms plus courts pour réduire cette surcharge. Cependant, ne sacrifiez pas la lisibilité ou la facilité de gestion en utilisant des noms excessivement compacts.
@@ -66,4 +68,4 @@
 - **Envisagez de réduire le nombre de comptes de service**. Par exemple, utilisez un compte spécifique pour accéder aux ressources ou services qui imposent un nombre limite de connexions ou offrent de meilleures performances avec un nombre réduit de connexions simultanées. Cette approche est courante pour les services tels que les bases de données, mais elle peut affecter la capacité à vérifier avec précision les opérations en raison de l’emprunt d’identité de l’utilisateur d’origine.
 - **Procédez au profilage des performances et au test de charge** pendant le développement, dans le cadre des routines de test et avant la publication de la version finale pour vous assurer que l’application fonctionne et est mise à l’échelle en fonction des besoins. Ce test doit être exécuté sur le même type de matériel que la plateforme de production et avec les mêmes types et quantités de données et de charge utilisateur que l’application rencontrera en production. Pour plus d’informations, consultez la page [Test des performances d’un service cloud](https://msdn.microsoft.com/library/azure/hh369930.aspx) du site web de Microsoft.
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

@@ -191,4 +191,4 @@ N’oubliez pas que seul le niveau de tarification standard peut être augmenté
 [1]: ./media/search-workflow/AzSearch-Workflow.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

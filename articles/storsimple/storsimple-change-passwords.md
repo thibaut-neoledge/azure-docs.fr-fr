@@ -66,4 +66,4 @@ Le mot de passe Administrateur d’appareil doit maintenant être à jour. Vous 
 
 [En savoir plus sur la modification de la configuration de votre appareil](storsimple-modify-device-config.md).
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

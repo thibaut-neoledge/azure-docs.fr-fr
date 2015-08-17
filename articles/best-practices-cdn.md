@@ -49,7 +49,20 @@ Le CDN est généralement utilisé dans les cas suivants :
 
 - Le tableau suivant montre des exemples du temps médian du premier téléchargement dans différentes zones géographiques. Le rôle web cible est déployé sur Azure dans l’ouest des États-Unis. Il existe un lien étroit entre la forte stimulation due au CDN et la proximité d’un nœud du CDN. Pour obtenir la liste des emplacements de tous les nœuds CDN, consultez la page [Emplacements des nœuds du réseau de distribution de contenu (CDN) Azure](http://msdn.microsoft.com/library/azure/gg680302.aspx).
 
-<table xmlns:xlink="http://www.w3.org/1999/xlink"><tr><th><a name="_MailEndCompose" href="#"><span /></a><br /></th><th><p>Heure du premier téléchargement (Origine)</p></th><th><p>Heure du premier téléchargement (CDN)</p></th><th><p>% de rapidité du CDN</p></th></tr><tr><td><p>* San José, CA</p></td><td><p>47.5</p></td><td><p>46.5</p></td><td><p>2 %</p></td></tr><tr><td><p>** Dulles, VA</p></td><td><p>109</p></td><td><p>40.5</p></td><td><p>169 %</p></td></tr><tr><td><p>Buenos Aires, AR</p></td><td><p>210</p></td><td><p>151</p></td><td><p>39 %</p></td></tr><tr><td><p>* Londres, UK</p></td><td><p>195</p></td><td><p>44</p></td><td><p>343 %</p></td></tr><tr><td><p>Shanghai, CN</p></td><td><p>242</p></td><td><p>206</p></td><td><p>17 %</p></td></tr><tr><td><p>* Singapore</p></td><td><p>214</p></td><td><p>74</p></td><td><p>189 %</p></td></tr><tr><td><p>* Tokyo, JP</p></td><td><p>163</p></td><td><p>48</p></td><td><p>240 %</p></td></tr><tr><td><p>Séoul, KR</p></td><td><p>190</p></td><td><p>190</p></td><td><p>0 %</p></td></tr></table>* Possède un nœud CDN Azure dans la même ville. * Possède un nœud CDN dans une ville voisine.
+
+
+|City |Temps jusqu’au premier octet (origine) |Temps jusqu’au premier octet (CDN) | % plus rapide pour le CDN|
+|---|---|---|---|
+|San Jose, CA<sub>1</sub> |47,5 |46,5 |2 %|
+|Dulles, VA<sub>2</sub> |109 |40,5 |169 %|
+|Buenos Aires,AR |210 |151 |39 %|
+|Londres, Royaume-Uni<sub>1</sub> |195 |44 |343 %|
+|Shanghai, CN |242 |206 |17 %|
+|Singapour<sub>1</sub> |214 |74 |189 %|
+|Tokyo, JP<sub>1</sub> |163 |48 |240 %|
+|Séoul, KR |190 |190 |0 %|
+
+A un nœud Azure CDN dans la même ville.<sub>1</sub>a un nœud Azure CDN dans une ville voisine.<sub>2</sub>
 
 
 ## Défis  
@@ -85,7 +98,8 @@ Les scénarios où le CDN peut s’avérer moins utile sont :
 
 L’utilisation du CDN est une bonne façon de réduire la charge sur votre application et d’optimiser la disponibilité et les performances. Vous devez prendre cela en compte pour tout le contenu et les ressources appropriées utilisées par votre application. Lors de l’élaboration de votre stratégie, prenez en considération les points suivants pour utiliser le CDN :
 
-- **Origine ** Le déploiement de contenu via le CDN nécessite simplement que vous indiquiez un point de terminaison HTTP (port 80) que le service CDN utilisera pour accéder et mettre en cache le contenu. + Le point de terminaison peut spécifier un conteneur de stockage d'objets blob Azure dans lequel se trouve le contenu statique que vous voulez distribuer via le CDN. Le conteneur doit être marqué comme étant public. Seuls les objets blob dans un conteneur public disposant d’un accès en lecture public seront disponibles sur le CDN. 
+- **Origine** Le déploiement de contenu via le CDN nécessite simplement que vous indiquiez un système d’extrémité HTTP (port 80) que le service CDN utilisera pour accéder et mettre en cache le contenu. + Le système d’extrémité peut spécifier un conteneur de stockage d'objets blob Azure dans lequel se trouve le contenu statique que vous voulez distribuer via le CDN. Le conteneur doit être marqué comme étant public. Seuls les objets blob dans un conteneur public disposant d’un accès en lecture public seront disponibles sur le CDN.
+
 - Le point de terminaison peut spécifier un dossier nommé **cdn** dans la racine de l'une des couches de calcul de l'application (par exemple, un rôle web ou une machine virtuelle). Les résultats des demandes de ressources, y compris des ressources dynamiques telles que des pages ASPX, sont mis en cache sur le CDN. La période de mise en cache minimale est de 300 secondes. Une période plus courte empêchera le contenu d’être déployé sur le CDN (consultez la section « <a href=»#cachecontrol» xmlns:dt=»uuid:C2F41010-65B3-11d1-A29F-00AA00C14882» xmlns:xlink=»http://www.w3.org/1999/xlink» xmlns:MSHelp=»http://msdn.microsoft.com/mshelp»>Contrôle de cache</a> » pour plus d'informations).
 
 - Si vous utilisez des Sites Web Azure, le point de terminaison est défini dans le dossier racine du site en sélectionnant le site lors de la création de l'instance du CDN. Tout le contenu du site est accessible via le CDN.
@@ -176,7 +190,7 @@ Cette section contient des exemples de code et des techniques permettant de trav
   <rewrite>
     <rules>
       <rule name="VersionedResource" stopProcessing="false">
-        <match url="(.*)_v(.*).(.*)" ignoreCase="true" />
+        <match url="(.*)_v(.*)\.(.*)" ignoreCase="true" />
         <action type="Rewrite" url="{R:1}.{R:3}" appendQueryString="true" />
       </rule>
       <rule name="CdnImages" stopProcessing="true">
@@ -203,7 +217,8 @@ Cette section contient des exemples de code et des techniques permettant de trav
 
 L'ajout de règles de réécriture effectue les redirections suivantes :
 
-- La première règle vous permet d'incorporer une version dans le nom de fichier d'une ressource, qui est alors ignorée. Par exemple, **Filename_v123.jpg **est réécrite sous la forme **Filename.jpg**. 
+- La première règle vous permet d'incorporer une version dans le nom de fichier d'une ressource, qui est alors ignorée. Par exemple, **Filename\_v123.jpg** est réécrite sous la forme **Filename.jpg**.
+
 - Les quatre règles suivantes indiquent comment rediriger les demandes si vous ne souhaitez pas stocker les ressources dans un dossier nommé **cdn** à la racine du rôle web. Les règles mappent les URL **cdn/Images**, **cdn/Content**, **cdn/Scripts** et **cdn/bundles** vers leurs dossiers racines respectifs dans le rôle web. L’utilisation de la réécriture d'URL vous permet d’apporter quelques modifications pour le regroupement des ressources.
 
 
@@ -219,4 +234,4 @@ Le regroupement et la minimisation peuvent être gérés par ASP.NET. Dans un pr
 + [Intégration d’un service cloud à Azure CDN](cdn-cloud-service-with-cdn.md)
 + [Meilleures pratiques pour le réseau de distribution de contenu Azure](http://azure.microsoft.com/blog/2011/03/18/best-practices-for-the-windows-azure-content-delivery-network/)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

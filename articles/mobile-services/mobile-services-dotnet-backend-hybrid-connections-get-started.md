@@ -133,4 +133,4 @@ Avant la publication dans Azure et l'utilisation de la connexion hybride, il est
 [portail de gestion Azure]: http://manage.windowsazure.com
 [Prise en main de Mobile Services]: mobile-services-dotnet-backend-windows-store-dotnet-get-started.md
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -1,14 +1,14 @@
-## Invoking stored procedure for SQL Sink
+## Appel d’une procédure stockée pour un récepteur SQL
 
-When copying data into SQL Server or Azure SQL/SQL Server Database, a user specified stored procedure could be configured and invoked with additional parameters. 
+Quand vous copiez des données dans SQL Server ou dans une base de données SQL Azure ou SQL Server, une procédure stockée spécifiée par l’utilisateur peut être configurée et appelée avec des paramètres supplémentaires.
 
-A stored procedure can be leveraged when built-in copy mechanisms do not serve the purpose. This is typically leveraged when extra processing (merging columns, looking up additional values, insertion into multiple tables…) needs to be done before the final insertion of source data in the destination table. 
+Une procédure stockée peut être utilisée à la place des mécanismes de copie intégrée. C’est généralement le cas quand un traitement supplémentaire (fusion de colonnes, recherche de valeurs supplémentaires, insertion dans plusieurs tables, etc.) doit être effectué avant l’insertion finale des données sources vers la table de destination.
 
-You may invoke a stored procedure of choice. The following sample shows how to use a stored procedure to do a simple insertion into a table in the database. 
+Vous pouvez appeler la procédure stockée de votre choix. L’exemple suivant montre comment utiliser une procédure stockée pour effectuer une insertion simple dans une table de la base de données.
 
-**Output dataset**
+**Jeu de données de sortie**
 
-In this example, type is set to: SqlServerTable. Set it to AzureSqlTable to use with an Azure SQL database. 
+Dans cet exemple, le type est défini sur SqlServerTable. Affectez-lui la valeur AzureSqlTable pour l’utiliser avec une base de données SQL Azure.
 
 	{
 	  "name": "SqlOutput",
@@ -25,7 +25,7 @@ In this example, type is set to: SqlServerTable. Set it to AzureSqlTable to use 
 	  }
 	}
 	
-Define the SqlSink section in copy activity JSON as follows. To call a stored procedure while insert data, both SqlWriterStoredProcedureName and SqlWriterTableType properties are needed.
+Définissez la section SqlSink dans l’activité de copie JSON comme suit. Pour appeler une procédure stockée lors de l’insertion des données, les deux propriétés SqlWriterStoredProcedureName et SqlWriterTableType sont requises.
 
 	"sink":
 	{
@@ -41,7 +41,7 @@ Define the SqlSink section in copy activity JSON as follows. To call a stored pr
 	            }
 	}
 
-In your database, define the stored procedure with the same name as SqlWriterStoredProcedureName. It handles input data from your specified source, and insert into the output table. Notice that the parameter name of the stored procedure should be the same as the tableName defined in Table JSON file.
+Dans votre base de données, définissez la procédure stockée portant le même nom que SqlWriterStoredProcedureName. Elle gère les données d'entrée à partir de la source que vous avez spécifiée et les insère dans la table de sortie. Notez que le nom du paramètre de la procédure stockée doit être le même que le tableName défini dans le fichier de Table JSON.
 
 	CREATE PROCEDURE spOverwriteMarketing @Marketing [dbo].[MarketingType] READONLY, @stringData varchar(256)
 	AS
@@ -51,11 +51,13 @@ In your database, define the stored procedure with the same name as SqlWriterSto
 	    SELECT * FROM @Marketing
 	END
 
-In your database, define the table type with the same name as SqlWriterTableType. Notice that the schema of the table type should be same as the schema returned by your input data.
+Dans votre base de données, définissez le type de table portant le même nom que SqlWriterTableType. Notez que le schéma du type de table doit être identique au schéma retourné par vos données d'entrée.
 
 	CREATE TYPE [dbo].[MarketingType] AS TABLE(
 	    [ProfileID] [varchar](256) NOT NULL,
 	    [State] [varchar](256) NOT NULL,
 	)
 
-The stored procedure feature takes advantage of [Table-Valued Parameters](https://msdn.microsoft.com/library/bb675163.aspx).
+La fonction de procédure stockée tire parti des [paramètres Table-Valued](https://msdn.microsoft.com/library/bb675163.aspx).
+
+<!---HONumber=August15_HO6-->

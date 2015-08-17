@@ -12,7 +12,7 @@
 	ms.workload="big-data" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
-	ms.topic="article" 
+	ms.topic="get-started-article" 
 	ms.date="07/19/2015" 
 	ms.author="nitinme"/>
 
@@ -78,7 +78,7 @@ Après avoir approvisionné un cluster, vous pouvez utiliser un bloc-notes Zeppe
 
 	![État du bloc-notes Zeppelin](./media/hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql/HDI.Spark.NewNote.Connected.png "État du bloc-notes Zeppelin")
 
-4. Chargez un exemple de données dans une table temporaire. Lorsque vous approvisionnez un cluster Spark dans HDInsight, le fichier exemple de données, **hvac.csv**, est copié vers le compte de stockage associé dans **\HdiSamples\SensorSampleData\hvac**.
+4. Chargez un exemple de données dans une table temporaire. Lorsque vous approvisionnez un cluster Spark dans HDInsight, le fichier exemple de données, **hvac.csv**, est copié vers le compte de stockage associé dans **\\HdiSamples\\SensorSampleData\\hvac**.
 
 	Collez l’extrait suivant dans le paragraphe vide créé par défaut dans le nouveau bloc-notes.
 
@@ -120,7 +120,7 @@ Après avoir approvisionné un cluster, vous pouvez utiliser un bloc-notes Zeppe
 
 	![Exécuter une instruction Spark SQL à l’aide du bloc-notes](./media/hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql/HDI.Spark.Note.SparkSQLQuery1.png "Exécuter une instruction Spark SQL à l’aide du bloc-notes")
 
-	 Cliquez sur les options d’affichage (mis en exergue dans un rectangle) pour basculer entre les différentes représentations du même résultat. Cliquez sur **Settings** pour choisir ce qui constitue la clé et les valeurs dans le résultat. La capture d’écran ci-dessus utilise la clé **buildingID** et la moyenne **temp_diff** comme valeur.
+	 Cliquez sur les options d’affichage (mis en exergue dans un rectangle) pour basculer entre les différentes représentations du même résultat. Cliquez sur **Settings** pour choisir ce qui constitue la clé et les valeurs dans le résultat. La capture d’écran ci-dessus utilise la clé **buildingID** et la moyenne **temp\_diff** comme valeur.
 
 	
 6. Vous pouvez également exécuter des instructions Spark SQL à l’aide de variables dans la requête. L’extrait suivant montre comment définir la variable **Temp** dans la requête avec les valeurs possibles d’interrogation. Lors de la première exécution de la requête, une liste déroulante est automatiquement renseignée avec les valeurs que vous avez spécifiées pour la variable.
@@ -134,7 +134,7 @@ Après avoir approvisionné un cluster, vous pouvez utiliser un bloc-notes Zeppe
 
 	![Exécuter une instruction Spark SQL à l’aide du bloc-notes](./media/hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql/HDI.Spark.Note.SparkSQLQuery2.png "Exécuter une instruction Spark SQL à l’aide du bloc-notes")
 
-	Pour les requêtes suivantes, vous pouvez sélectionner une nouvelle valeur dans la liste déroulante et réexécuter la requête. Cliquez sur **Settings** pour choisir ce qui constitue la clé et les valeurs dans le résultat. La capture d’écran ci-dessus utilise la clé **buildingID**, la moyenne **temp_diff** comme valeur, et le groupe **targettemp**.
+	Pour les requêtes suivantes, vous pouvez sélectionner une nouvelle valeur dans la liste déroulante et réexécuter la requête. Cliquez sur **Settings** pour choisir ce qui constitue la clé et les valeurs dans le résultat. La capture d’écran ci-dessus utilise la clé **buildingID**, la moyenne **temp\_diff** comme valeur, et le groupe **targettemp**.
 
 7. Redémarrez l’interpréteur Spark SQL pour quitter l’application. Cliquez sur l’onglet **Interpreter** en haut et, pour l’interpréteur Spark, cliquez sur **Restart**.
 
@@ -169,7 +169,7 @@ Dans cette section, vous allez utiliser un bloc-notes Jupyter pour exécuter des
 
 	 ![État d’un travail de bloc-notes Jupyter](./media/hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql/HDI.Spark.Jupyter.Job.Status.png "État d’un travail de bloc-notes Jupyter")
 
-4. Chargez un exemple de données dans une table temporaire. Lorsque vous approvisionnez un cluster Spark dans HDInsight, le fichier exemple de données, **hvac.csv**, est copié vers le compte de stockage associé dans **\HdiSamples\SensorSampleData\hvac**.
+4. Chargez un exemple de données dans une table temporaire. Lorsque vous approvisionnez un cluster Spark dans HDInsight, le fichier exemple de données, **hvac.csv**, est copié vers le compte de stockage associé dans **\\HdiSamples\\SensorSampleData\\hvac**.
 
 	Collez l’extrait suivant dans une cellule vide, puis appuyez sur **MAJ + ENTRÉE**. Cet extrait enregistre les données dans une table temporaire appelée **hvac**.
 
@@ -243,4 +243,4 @@ Dans cette section, vous allez utiliser un bloc-notes Jupyter pour exécuter des
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

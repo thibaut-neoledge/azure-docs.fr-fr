@@ -12,7 +12,7 @@
 	ms.workload="data-services"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="hero-article" 
+	ms.topic="get-started-article" 
 	ms.date="07/27/2015"
 	ms.author="spelluru"/>
 
@@ -30,7 +30,7 @@ Dans cet article, vous apprendrez à utiliser Azure PowerShell pour créer votr
 2.	Création des services liés (magasins de données, calculs) et des jeux de données
 3.	Création du pipeline
 
-Cet article ne fournit pas une vue d'ensemble conceptuelle du service Azure Data Factory. Pour obtenir une présentation détaillée de ce service, consultez l'article [Présentation du service Azure Data Factory](data-factory-introduction.md).
+Cet article ne fournit pas une vue d'ensemble conceptuelle du service Azure Data Factory. Pour obtenir une présentation détaillée de ce service, consultez l'article [Présentation d’Azure Data Factory](data-factory-introduction.md).
 
 ## Étape 1 : création de la fabrique de données
 
@@ -264,4 +264,4 @@ Consultez la [référence des applets de commande Data Factory](https://msdn.mic
 Dans cet article, vous avez créé un pipeline avec une activité de transformation (Activité HDInsight) qui exécute un script Hive sur un cluster HDInsight à la demande. Pour apprendre à utiliser une activité de copie pour copier des données à partir d'un objet blob Azure dans Azure SQL, consultez le [didacticiel : copie de données depuis un objet blob Azure vers Azure SQL](./data-factory-get-started.md).
   
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

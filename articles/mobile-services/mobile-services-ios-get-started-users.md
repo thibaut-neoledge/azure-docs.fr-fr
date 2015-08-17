@@ -84,4 +84,4 @@ Ensuite, découvrez [comment utiliser la valeur d’ID d’utilisateur pour filt
 
 [Azure Management Portal]: https://manage.windowsazure.com/
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

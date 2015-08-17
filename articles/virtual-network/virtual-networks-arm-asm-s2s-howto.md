@@ -130,4 +130,4 @@ Pour créer une passerelle VPN pour le réseau virtuel ARM, suivez les instructi
 - En savoir plus sur [le fournisseur de ressources réseau (NRP) pour ARM](../resource-groups-networking.md).
 - Créer une [solution de bout en bout pour connecter un réseau virtuel classique à un réseau virtuel ARM à l’aide d’un VPN S2S](../virtual-networks-arm-asm-s2s.md).
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

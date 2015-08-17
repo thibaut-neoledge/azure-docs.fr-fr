@@ -106,4 +106,4 @@ Lorsque l’exécution du modèle est terminée, vous disposez d’une nouvelle 
 
 [Installation et configuration d’Azure PowerShell](../install-configure-powershell.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

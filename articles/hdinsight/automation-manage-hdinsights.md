@@ -7,6 +7,7 @@
 	manager="eamono"
 	editor=""/>
 
+
 <tags
 	ms.service="HDInsight"
 	ms.workload="identity"
@@ -15,6 +16,7 @@
 	ms.topic="article"
 	ms.date="04/13/2015"
 	ms.author="elcooper"/>
+
 
 
 
@@ -40,7 +42,8 @@ Avec les applets de commande Azure HDInsight, vous pouvez automatiser différent
 Maintenant que vous connaissez les bases d'Azure Automation et que vous savez l'utiliser pour gérer Azure HDInsight, cliquez sur ce lien pour en savoir plus sur Azure Automation.
 
 * Consultez le [didacticiel de mise en route](../automation-create-runbook-from-samples.md) d'Azure Automation.
+* Découvrez des exemples dans le [centre de scripts](http://aka.ms/scriptcentergallery).  
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

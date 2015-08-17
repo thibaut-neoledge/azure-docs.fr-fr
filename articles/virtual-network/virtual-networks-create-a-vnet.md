@@ -10,7 +10,7 @@
 <tags
    ms.service="virtual-network"
    ms.devlang="na"
-   ms.topic="hero-article"
+   ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="07/06/2015"
@@ -52,4 +52,4 @@ Une fois que vous avez créé un réseau virtuel, vous pouvez lui ajouter de nou
 
 -  [Ajouter une machine virtuelle](../virtual-machines/virtual-machines-create-custom.md) à un réseau virtuel.
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

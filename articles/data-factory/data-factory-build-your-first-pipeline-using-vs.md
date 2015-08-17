@@ -7,14 +7,16 @@
 	manager="jhubbard"
 	editor="monicar"/>
 
+
 <tags
 	ms.service="data-factory"
 	ms.workload="data-services"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="hero-article" 
+	ms.topic="get-started-article" 
 	ms.date="07/27/2015"
 	ms.author="spelluru"/>
+
 
 # Concevez votre premier pipeline en utilisant Azure Data Factory
 > [AZURE.SELECTOR]
@@ -30,7 +32,7 @@ Dans cet article, vous apprendrez à utiliser Visual Studio pour créer votre pr
 2.	Création des services liés (magasins de données, calculs) et des jeux de données
 3.	Création du pipeline
 
-Cet article ne fournit pas une vue d'ensemble conceptuelle du service Azure Data Factory. Pour obtenir une présentation détaillée de ce service, consultez l'article [Présentation d’Azure Data Factory](data-factory-introduction.md).
+Cet article ne fournit pas une vue d'ensemble conceptuelle du service Azure Data Factory. Pour obtenir une présentation détaillée de ce service, consultez l'article [Présentation d’Azure Data Factory](data-factory-introduction.md).
 
 ## Étape 1 : création de la fabrique de données
 
@@ -45,7 +47,7 @@ Cet article ne fournit pas une vue d'ensemble conceptuelle du service Azure Data
 
 	![Panneau Nouvelle fabrique de données](./media/data-factory-build-your-first-pipeline-using-vs/new-data-factory-blade.png)
 
-	> [AZURE.IMPORTANT] 
+	> [AZURE.IMPORTANT]Les noms Azure Data Factory sont globalement uniques. Vous devez faire précéder le nom de la fabrique de données par votre nom, pour activer la création de la fabrique. 
 3.	Si vous n’avez pas créé de groupe de ressources, vous devez en créer un. Pour ce faire :
 	1.	Cliquez sur **NOM DU GROUPE DE RESSOURCES**.
 	2.	Sélectionnez **Créer un groupe de ressources** dans le panneau **Groupe de ressources**.
@@ -73,11 +75,11 @@ Vous devez avoir installé le logiciel suivant sur votre ordinateur : - Visual�
 
 ### Créer le projet Visual Studio 
 1. Lancez **Visual Studio 2013**. Cliquez sur **Fichier**, pointez le curseur de la souris sur **Nouveau**, puis cliquez sur **Projet**. La boîte de dialogue **Nouveau projet** doit s’afficher.  
-2. Dans la boîte de dialogue **Nouveau projet**, sélectionnez le modèle **DataFactory** puis cliquez sur **Projet Data Factory vide**. Si le modèle DataFactory n’est pas affiché, fermez Visual Studio, installez le Kit de développement logiciel (SDK) Azure pour Visual Studio 2013, puis rouvrez Visual Studio.  
+2. Dans la boîte de dialogue **Nouveau projet**, sélectionnez le modèle **DataFactory**, puis cliquez sur **Projet Data Factory vide**. Si le modèle DataFactory n’est pas affiché, fermez Visual Studio, installez le Kit de développement logiciel (SDK) Azure pour Visual Studio 2013, puis rouvrez Visual Studio.  
 
 	![Boîte de dialogue Nouveau projet](./media/data-factory-build-your-first-pipeline-using-vs/new-project-dialog.png)
 
-3. Saisissez le **nom** du projet, son **emplacement** et le nom de la **solution**, puis cliquez sur **OK**.
+3. Entrez le **nom** du projet, son **emplacement** et le nom de la **solution**, puis cliquez sur **OK**.
 
 	![Explorateur de solutions](./media/data-factory-build-your-first-pipeline-using-vs/solution-explorer.png)
 
@@ -88,7 +90,7 @@ Dans cette étape, vous lierez votre compte de stockage Azure et un cluster Azur
 #### Créer le service lié Azure Storage
 
 
-4. Dans l’Explorateur de solutions, cliquez avec le bouton droit sur **Services liés**, pointez sur **Ajouter** puis cliquez sur **Nouvel élément**.      
+4. Dans l’Explorateur de solutions, cliquez avec le bouton droit sur **Services liés**, pointez sur **Ajouter**, puis cliquez sur **Nouvel élément**.      
 5. Dans la boîte de dialogue **Ajouter un nouvel élément**, sélectionnez **Service lié Azure Storage** dans la liste, puis cliquez sur **Ajouter**. 
 
 	![Nouveau service lié](./media/data-factory-build-your-first-pipeline-using-vs/new-linked-service-dialog.png)
@@ -134,8 +136,8 @@ Vous allez maintenant créer un service lié pour le cluster HDInsight à la dem
 Vous allez maintenant créer le jeu de données de sortie pour représenter les données stockées dans le stockage Azure Blob.
 
 1. Dans l’**Explorateur de solutions**, cliquez avec le bouton droit sur **Ajouter**, puis cliquez sur **Nouvel élément**. 
-2. Sélectionnez **Azure Blob**dans la liste et cliquez sur**Ajouter**. 
-3. Remplacez le code **JSON** dans l'éditeur comme suit : dans l’extrait de code JSON, vous créez un jeu de données appelé **AzureBlobOutput** et vous spécifiez la structure de données qui sera générée par le script Hive. En outre, vous précisez que les résultats sont stockés dans le conteneur d'objets blob appelé **données** et dans le dossier appelé **partitioneddata**. La section **disponibilité** précise que le jeu de données de sortie est généré sur une base mensuelle.
+2. Sélectionnez **Azure Blob**dans la liste et cliquez sur **Ajouter**. 
+3. Remplacez le code **JSON** dans l'éditeur comme suit : dans l’extrait de code JSON, vous créez un jeu de données appelé **AzureBlobOutput** et vous spécifiez la structure de données qui sera générée par le script Hive. En outre, vous spécifiez que les résultats sont stockés dans le conteneur d'objets blob appelé **données** et dans le dossier appelé **partitioneddata**. La section **disponibilité** spécifie que le jeu de données de sortie est généré sur une base mensuelle.
 	
 		{
 		    "name": "AzureBlobOutput",
@@ -156,7 +158,7 @@ Vous allez maintenant créer le jeu de données de sortie pour représenter les 
 		    }
 		}
 
-4. Enregistrez fichier **AzureBlobLocation1.json**.
+4. Enregistrez le fichier **AzureBlobLocation1.json**.
 
 
 ### Création de votre premier pipeline
@@ -203,14 +205,14 @@ Dans cette étape, vous allez créer votre premier pipeline.
 
 	Les propriétés **start** et **end** du pipeline spécifient la période active du pipeline.
 
-	Dans l'activité JSON, vous spécifiez que le script Hive s'exécute sur le calcul indiqué par le service lié **HDInsightOnDemandLinkedService**.
+	Dans l'activité JSON, vous spécifiez que le script Hive s'exécute sur le calcul spécifié par le service lié **HDInsightOnDemandLinkedService**.
 3. Enregistrez le fichier **HiveActivity1.json**. 
 
 ### Publier/Déployer des entités Data Factory
   
 1. Dans la zone des barres d’outils, cliquez avec le bouton droit sur **Data Factory** et sélectionnez cet élément pour activer la barre d’outils Data Factory, si ce n’est déjà fait. 
 19. Dans la **barre d’outils Data Factory**, cliquez sur la **zone de liste déroulante** pour voir toutes les fabriques de données de votre abonnement Azure. Si la boîte de dialogue **Se connecter à Visual Studio** s’affiche : 
-	20. Saisissez le **compte de messagerie** associé à l’abonnement Azure dans lequel vous souhaitez créer la fabrique de données, saisissez le **mot de passe** puis cliquez sur **Connexion**.
+	20. Entrez le **compte de messagerie** associé à l’abonnement Azure dans lequel vous souhaitez créer la fabrique de données, entrez le **mot de passe**, puis cliquez sur **Connexion**.
 	21. Une fois la connexion établie, vous devez voir toutes les fabriques de données dans l’abonnement Azure. Dans ce didacticiel, vous allez créer une fabrique de données.       
 22. Dans la liste déroulante, sélectionnez **DataFactoryMyFirstPipeline**, puis cliquez sur le bouton **Publier** pour déployer/publier les services liés, les jeux de données et le pipeline.    
 
@@ -222,7 +224,7 @@ Dans cette étape, vous allez créer votre premier pipeline.
 ## Utiliser l’Explorateur de serveurs pour passer en revue les entités Data Factory
 
 1. Dans **Visual Studio**, cliquez sur **Affichage** dans le menu, puis sur **Explorateur de serveurs**.
-2. Dans la fenêtre Explorateur de serveurs, développez **Azure** et **Data Factory**. Si la boîte de dialogue **Se connecter à Visual Studio** est affichée, saisissez le **compte** associé à votre abonnement Azure puis cliquez sur **Continuer**. Saisissez le **mot de passe**, puis cliquez sur **Se connecter**. Visual Studio essaie d’obtenir des informations sur toutes les fabriques de données Azure contenues dans votre abonnement. L’état de cette opération s’affiche dans la fenêtre **Liste des tâches de Data Factory**.
+2. Dans la fenêtre Explorateur de serveurs, développez **Azure** et **Data Factory**. Si la boîte de dialogue **Se connecter à Visual Studio** est affichée, entrez le **compte** associé à votre abonnement Azure, puis cliquez sur **Continuer**. Entrez le **mot de passe**, puis cliquez sur **Se connecter**. Visual Studio essaie d’obtenir des informations sur toutes les fabriques de données Azure contenues dans votre abonnement. L’état de cette opération s’affiche dans la fenêtre **Liste des tâches de Data Factory**.
 
 	![Explorateur de serveurs](./media/data-factory-build-your-first-pipeline-using-vs/server-explorer.png)
 3. Vous pouvez cliquer avec le bouton droit sur une fabrique de données et sélectionner **Exporter la fabrique de données vers le nouveau projet** pour créer un projet Visual Studio basé sur une fabrique de données existante.
@@ -241,7 +243,7 @@ Consultez [Surveiller les jeux de données et le pipeline](data-factory-monitor-
  
 
 ## Étapes suivantes
-Dans cet article, vous avez créé un pipeline avec une activité de transformation (Activité HDInsight) qui exécute un script Hive sur un cluster HDInsight à la demande. Pour apprendre à utiliser une activité de copie afin de copier des données à partir d'un objet Blob Azure dans SQL Azure, consultez le [didacticiel suivant : copie de données d’un objet Blob Azure dans SQL Azure](data-factory-get-started.md).
+Dans cet article, vous avez créé un pipeline avec une activité de transformation (Activité HDInsight) qui exécute un script Hive sur un cluster HDInsight à la demande. Pour apprendre à utiliser une activité de copie pour copier des données à partir d'un objet blob Azure dans Azure SQL, consultez le [didacticiel : copie de données depuis un objet blob Azure vers Azure SQL](data-factory-get-started.md).
   
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

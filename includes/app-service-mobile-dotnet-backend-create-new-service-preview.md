@@ -41,4 +41,4 @@ Vous avez créé un serveur principal d'applications mobiles, qui peut être uti
 <!-- URLs. -->
 [portail Azure]: https://portal.azure.com/
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

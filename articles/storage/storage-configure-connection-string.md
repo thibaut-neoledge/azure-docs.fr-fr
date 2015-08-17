@@ -122,4 +122,4 @@ Par exemple, votre chaîne de connexion doit ressembler à l’exemple de chaîn
 
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

@@ -23,8 +23,8 @@
 7. Sous **Cible de génération du projet**, veillez à ce que `Google APIs x86` (ou `Google APIs` selon votre plateforme de développement) soit sélectionné pour le niveau de Kit de développement logiciel approprié.
 
  
-8. Dans la section **Bibliothèque**, choisissez **Ajouter**, sélectionnez le projet des services Google Play (google-play-services-lib), puis cliquez sur **OK**.
+8. Dans la section **Bibliothèque**, choisissez **Ajouter**, sélectionnez le projet des services Google Play (*google-play-services-lib*), puis cliquez sur **OK**.
 
 9. Cliquez sur **Appliquer**, puis sur **OK**.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

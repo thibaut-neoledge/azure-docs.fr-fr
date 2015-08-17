@@ -128,10 +128,10 @@ Voici l'essentiel de l'exemple de code Java. L'exemple inclut la fonction `main`
 Bien entendu, pour réellement exécuter l'exemple de code Java précédent, vous devez placer les valeurs réelles dans la chaîne de connexion pour remplacer les espaces réservés :
 
 
-- your_server
-- your_database
-- your_user
-- your_password
+- your\_server
+- your\_database
+- your\_user
+- your\_password
 
 
 ## INSERT two rows into the table
@@ -144,7 +144,7 @@ Ce segment Java émet une instruction INSERT Transact-SQL pour insérer deux lig
  - Nous incluons le paramètre `Statement.RETURN_GENERATED_KEYS` afin de pouvoir obtenir ultérieurement la valeur qui a été générée automatiquement pour la valeur de clé **id**.
 2. Appelez la méthode `execute` sur l'objet `PreparedStatement`.
 3. Obtenez la valeur numérique qui a été générée automatiquement pour la clé primaire, à l'aide de l'objet `PreparedStatement`.
- - Ceci est lié à la spécification AUTO_INCREMENT de la colonne **id** du tableau Person
+ - Ceci est lié à la spécification AUTO\_INCREMENT de la colonne **id** du tableau Person
 
 
 Copiez et collez ce court segment Java dans l'exemple de code principal où vous voyez le commentaire `// INSERT two rows into the table.`.
@@ -225,4 +225,4 @@ Copiez et collez ce court segment Java dans l'exemple de code principal où vous
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

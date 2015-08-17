@@ -8,6 +8,7 @@
 	manager="paulettm" 
 	editor="cgronlun"  />
 
+
 <tags 
 	ms.service="machine-learning" 
 	ms.workload="data-services" 
@@ -16,6 +17,7 @@
 	ms.topic="article" 
 	ms.date="05/29/2015" 
 	ms.author="hangzh;bradsev" />
+
 
 # Personnaliser des clusters Hadoop Azure HDInsight pour le processus et la technologie d'analyse avancée
 
@@ -52,7 +54,8 @@ Sur la dernière page de configuration, **Actions de script**, cliquez sur le bo
  
 * **NOM** : vous pouvez indiquer n'importe quelle chaîne en tant que nom de l'action de script. 
 * **TYPE DE NŒUD** : sélectionnez **Tous les nœuds**. 
-* **URI du script** : *http://getgoing.blob.core.windows.net/publicscripts/Azure_HDI_Setup_Windows.ps1* 	* *publicscripts* est un conteneur public dans le compte de stockage 
+* ** URI du script** - **http://getgoing.blob.core.windows.net/publicscripts/Azure_HDI_Setup_Windows.ps1*
+	* *publicscripts* est un conteneur public dans le compte de stockage 
 	* *getgoing* permet de partager les fichiers de scripts PowerShell afin d'aider les utilisateurs à travailler dans Azure. 
 * **PARAMÈTRES** : (laisser cette zone vide)
 
@@ -98,4 +101,4 @@ Consultez la section [Envoyer des requêtes Hive à des clusters Hadoop HDInsigh
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

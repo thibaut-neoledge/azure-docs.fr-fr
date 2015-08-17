@@ -134,4 +134,4 @@ Expérimentez votre essaim. Si vous êtes en manque d’inspiration, consultez l
 [docker-machine-azure]: virtual-machines-docker-machine.md
  
 
-<!----HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

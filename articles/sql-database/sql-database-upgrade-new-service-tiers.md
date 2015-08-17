@@ -7,6 +7,7 @@
 	manager="jeffreyg" 
 	editor=""/>
 
+
 <tags 
 	ms.service="sql-database"
 	ms.devlang="NA"
@@ -17,6 +18,7 @@
 	ms.tgt_pltfrm="NA"/>
 
 
+
 # Mise à jour des bases de données SQL des éditions Web ou Business vers les nouveaux niveaux de service
 
 Les bases de données Web et Business Azure SQL sont déconseillées et seront [retirées en septembre 2015](http://msdn.microsoft.com/library/azure/dn741330.aspx). Il est donc temps de commencer à planifier la mise à niveau des bases de données Web ou Business vers les niveaux de service de base, Standard ou Premium.
@@ -25,7 +27,7 @@ Téléchargez le [Guide de la Migration des base de données Web et Business](ht
 
 > [AZURE.NOTE] [Pricing tier recommendations](sql-database-service-tier-advisor.md) pour les bases de données Web et Business sont désormais disponibles.
 
-## Vue d’ensemble
+## Vue d'ensemble
 
 <p>Les bases de données SQL Azure Web et Business s’exécutent dans un environnement mutualisé partagé sans aucune capacité de ressources réservée pour la base de données. L’activité des autres bases de données dans cet environnement de ressources partagées peut affecter vos performances. La disponibilité des ressources à un moment donné dépend essentiellement des autres charges de travail simultanées exécutées dans le système. Cela peut entraîner des performances d’application de base de données très fluctuantes et imprévisibles. D’après les commentaires des clients, ces performances imprévisibles sont difficiles à gérer et ils préfèrent des performances plus prévisibles.
 
@@ -57,7 +59,7 @@ La mise à jour d’une base de données Web ou Business vers un nouveau niveau 
 
 
 
-## 1. Déterminer le niveau de service en fonction de la capacité des fonctionnalités
+## 1\. Déterminer le niveau de service en fonction de la capacité des fonctionnalités
 
 Les niveaux de service De base, Standard et Premium proposent des fonctions différentes. La première étape de la sélection d’un niveau approprié consiste à déterminer le niveau de service qui fournit le niveau minimal de fonctionnalités requis pour votre entreprise et application.
 
@@ -86,7 +88,7 @@ Après avoir sélectionné un niveau de service approprié qui répond aux exige
 
 
 
-## 2. Déterminer un niveau de performances acceptable en fonction de l’utilisation historique des ressources
+## 2\. Déterminer un niveau de performances acceptable en fonction de l’utilisation historique des ressources
 
 Le service de base de données SQL Azure présente des informations dans le portail de gestion et dans les vues système, afin de vous suggérer le nouveau niveau de service et le niveau de performances comparables à votre base de données Web ou Business existante.
 
@@ -127,7 +129,7 @@ Il convient également de noter que ces données sont la moyenne d’échantillo
 
 ![Données de pourcentage DTU][2]
 
-Notez que les données dans l’exemple ci-dessus montrent une utilisation moyenne d’environ 10 DTU (19,23 % de 50) et un pourcentage DTU maximal de ~28 DTU (55,83 % x 50). En supposant que ces données représentent ma charge de travail typique, il conviendrait probablement de sélectionner le niveau Standard(S1) pour ma mise à niveau initiale. Le niveau Standard(S0) fournit 10 DTU, ce qui correspond à mon utilisation moyenne, mais cela signifie que ma base de données s’exécuterait en moyenne à 100 %, ce qui n’est pas une bonne idée. Si le niveau S1 est probablement un bon choix pour mon utilisation moyenne, qu’en est-il des moments où j’atteins le niveau maximal ? Je sais peut-être que les pics viennent d’un processus de maintenance nocturne, n’ayant aucun effet sur l’utilisation des clients, des performances réduites pendant ce laps de temps peuvent être acceptables. Toutefois, il est possible que je ne sache pas quand le maximum est atteint. Ma consommation de pourcentage DTU peut alors demander une analyse plus poussée.
+Notez que les données dans l’exemple ci-dessus montrent une utilisation moyenne d’environ 10 DTU (19,23 % de 50) et un pourcentage DTU maximal de \~28 DTU (55,83 % x 50). En supposant que ces données représentent ma charge de travail typique, il conviendrait probablement de sélectionner le niveau Standard(S1) pour ma mise à niveau initiale. Le niveau Standard(S0) fournit 10 DTU, ce qui correspond à mon utilisation moyenne, mais cela signifie que ma base de données s’exécuterait en moyenne à 100 %, ce qui n’est pas une bonne idée. Si le niveau S1 est probablement un bon choix pour mon utilisation moyenne, qu’en est-il des moments où j’atteins le niveau maximal ? Je sais peut-être que les pics viennent d’un processus de maintenance nocturne, n’ayant aucun effet sur l’utilisation des clients, des performances réduites pendant ce laps de temps peuvent être acceptables. Toutefois, il est possible que je ne sache pas quand le maximum est atteint. Ma consommation de pourcentage DTU peut alors demander une analyse plus poussée.
 
 Pour explorer les détails de la consommation des ressources par la base de données, vous pouvez utiliser les vues système fournies.
 
@@ -135,9 +137,9 @@ Pour explorer les détails de la consommation des ressources par la base de donn
 ### Vues système
 
 
-Les données relatives à la consommation de ressources par les bases de données Web et Business sont accessibles via la vue [sys.resource_stats](http://msdn.microsoft.com/library/azure/dn269979.aspx) dans la base de données master du serveur logique sur lequel se trouve votre base de données actuelle. Il affiche les données de consommation des ressources en pourcentage de la limite du niveau de performances. Cette vue affiche les données des 14 derniers jours, par intervalles de 5 minutes.
+Les données relatives à la consommation de ressources par les bases de données Web et Business sont accessibles via la vue [sys.resource\_stats](http://msdn.microsoft.com/library/azure/dn269979.aspx) dans la base de données master du serveur logique sur lequel se trouve votre base de données actuelle. Il affiche les données de consommation des ressources en pourcentage de la limite du niveau de performances. Cette vue affiche les données des 14 derniers jours, par intervalles de 5 minutes.
 
-> [AZURE.NOTE]Vous pouvez maintenant utiliser la vue [sys.dm_db_resource_stats](https://msdn.microsoft.com/library/dn800981.aspx) des bases de données Web et Business pour obtenir une vue de granularité plus élevée (toutes les 15 secondes) des données de consommation des ressources. Comme sys.dm_db_resource_stats conserve uniquement les données historiques pour une heure, vous pouvez interroger cette vue de gestion dynamique toutes les heures et stocker les données pour une analyse supplémentaire.
+> [AZURE.NOTE]Vous pouvez maintenant utiliser la vue [sys.dm\_db\_resource\_stats](https://msdn.microsoft.com/library/dn800981.aspx) des bases de données Web et Business pour obtenir une vue de granularité plus élevée (toutes les 15 secondes) des données de consommation des ressources. Comme sys.dm\_db\_resource\_stats conserve uniquement les données historiques pour une heure, vous pouvez interroger cette vue de gestion dynamique toutes les heures et stocker les données pour une analyse supplémentaire.
 
 Exécutez la requête suivante sur la base de données master pour récupérer la consommation DTU moyenne :
 
@@ -153,16 +155,15 @@ Exécutez la requête suivante sur la base de données master pour récupérer l
     WHERE database_name = '<your db name>'
     ORDER BY end_time DESC;
 
-Les données retournées par [sys.resource_stats](https://msdn.microsoft.com/library/dn269979.aspx) et [sys.dm_db_resource_stats](https://msdn.microsoft.com/library/dn800981.aspx) pour les niveaux Web et Business indiquent les pourcentages en fonction du niveau de performance Standard S2. Par exemple, lors de l’exécution sur une base de données Web ou Business, si les valeurs retournent 70 %, ce pourcentage correspond aux 70 % de la limite de niveau S2. En outre, pour les bases de données Web et Business, les pourcentages peuvent refléter les nombres supérieurs à 100 %, également à partir de la limite de niveau S2.
+Les données retournées par [sys.resource\_stats](https://msdn.microsoft.com/library/dn269979.aspx) et [sys.dm\_db\_resource\_stats](https://msdn.microsoft.com/library/dn800981.aspx) pour les niveaux Web et Business indiquent les pourcentages en fonction du niveau de performance Standard S2. Par exemple, lors de l’exécution sur une base de données Web ou Business, si les valeurs retournent 70 %, ce pourcentage correspond aux 70 % de la limite de niveau S2. En outre, pour les bases de données Web et Business, les pourcentages peuvent refléter les nombres supérieurs à 100 %, également à partir de la limite de niveau S2.
 
-Les informations sur la consommation DTU en termes de niveau de base de données S2 vous permettent de normaliser la consommation actuelle de vos bases de données Web et Business en termes de bases de données du nouveau service et de déterminer le niveau qui leur convient le mieux. Par exemple, si le pourcentage moyen de consommation DTU indique une valeur de 80 %, cela signifie que la base de données consomme des DTU à 80 % de la limite d’une base de données au niveau de performances S2. Si des valeurs sont supérieures à 100 % dans la vue **sys.resource_stats**, vous avez besoin d’un niveau de performances supérieur à S2. Par exemple, supposons que vous observez une valeur de pourcentage DTU maximale de 300 %. Cela vous indique que vous utilisez trois fois plus de ressources que la quantité disponible dans un niveau S2. Pour déterminer une taille de départ raisonnable, comparez les DTU disponibles dans un niveau S2 (50 DTU) à celles des niveaux de taille supérieure (S3P1 = 100 DTU ou 200 % de S2, P2 = 200 DTU ou 400 % de S2). Avec une valeur de 300 % de S2, il est souhaitable de commencer par un niveau P2 et de recommencer les tests.
+Les informations sur la consommation DTU en termes de niveau de base de données S2 vous permettent de normaliser la consommation actuelle de vos bases de données Web et Business en termes de bases de données du nouveau service et de déterminer le niveau qui leur convient le mieux. Par exemple, si le pourcentage moyen de consommation DTU indique une valeur de 80 %, cela signifie que la base de données consomme des DTU à 80 % de la limite d’une base de données au niveau de performances S2. Si des valeurs sont supérieures à 100 % dans la vue **sys.resource\_stats**, vous avez besoin d’un niveau de performances supérieur à S2. Par exemple, supposons que vous observez une valeur de pourcentage DTU maximale de 300 %. Cela vous indique que vous utilisez trois fois plus de ressources que la quantité disponible dans un niveau S2. Pour déterminer une taille de départ raisonnable, comparez les DTU disponibles dans un niveau S2 (50 DTU) à celles des niveaux de taille supérieure (S3P1 = 100 DTU ou 200 % de S2, P2 = 200 DTU ou 400 % de S2). Avec une valeur de 300 % de S2, il est souhaitable de commencer par un niveau P2 et de recommencer les tests.
 
 En fonction du pourcentage d’utilisation DTU et de l’édition la plus grande correspondant à votre charge de travail, vous pouvez déterminer le niveau de service et le niveau de performances les mieux adaptés à la charge de travail de votre base de données (comme indiqué par le pourcentage DTU et la puissance DTU relative de divers [niveaux de performances)](http://msdn.microsoft.com/library/azure/dn741336.aspx). Le tableau suivant indique la correspondance entre le pourcentage de consommation des ressources Web/Business et les niveaux de performances des nouveaux niveaux de service :
 
 ![Consommation des ressources][4]
 
-> **Remarque :**
-> les nombres DTU relatif des différents niveaux de performances sont basés sur la charge de travail de [référence d’Azure SQL Database Benchmark](http://msdn.microsoft.com/library/azure/dn741327.aspx). Dans la mesure où la charge de travail de votre base de données est susceptible de ne pas être égale à celle de référence, vous devez utiliser les calculs ci-dessus pour trouver le nouveau niveau de service adapté à votre base de données Web/Business. Une fois que vous avez déplacé la base de données vers le nouveau niveau, utilisez la procédure décrite dans la section précédente pour valider/ajuster le niveau de service par rapport aux besoins de votre charge de travail.
+> **Remarque :** les nombres DTU relatif des différents niveaux de performances sont basés sur la charge de travail de [référence d’Azure SQL Database Benchmark](http://msdn.microsoft.com/library/azure/dn741327.aspx). Dans la mesure où la charge de travail de votre base de données est susceptible de ne pas être égale à celle de référence, vous devez utiliser les calculs ci-dessus pour trouver le nouveau niveau de service adapté à votre base de données Web/Business. Une fois que vous avez déplacé la base de données vers le nouveau niveau, utilisez la procédure décrite dans la section précédente pour valider/ajuster le niveau de service par rapport aux besoins de votre charge de travail.
 > 
 > bien que le nouveau niveau d’édition/niveau de performances suggéré tienne compte de l’activité de votre base de données pendant les 14 derniers jours, ces données sont basées sur des échantillons de données de consommation de ressources mesurés toutes les 5 minutes. Par conséquent, les pics d’activité à court terme inférieurs à 5 minutes peuvent ne pas apparaître. Ce guide sert donc de point de départ pour mettre à jour votre base de données. Une fois la base de données mise à jour vers le niveau suggéré, vous devez effectuer des contrôles, tests et validations supplémentaires pour déterminer si la base de données doit être élevée ou abaissée à un autre niveau de service/niveau de performances.
 
@@ -200,11 +201,11 @@ Sous forme de graphique : vous pouvez consulter la tendance du pourcentage moye
 
 ![Utilisation d’DTU](media/sql-database-upgrade-new-service-tiers/DTU_usage.png)
 
-**Impact de la mémoire sur les performances :** même si la mémoire est l’une des dimensions de ressources qui contribue à la notation DTU, la base de données SQL est conçue pour utiliser toute la mémoire disponible pour les opérations de base de données. Pour cette mémoire raison, la consommation n’est pas incluse dans la consommation DTU moyenne de la requête ci-dessus. En revanche, si vous rétrogradez vers un niveau de performance inférieur, la mémoire disponible pour la base de données est réduite. Il peut en résulter une consommation d’E/S supérieure affectant les DTU consommées. Par conséquent, lors de la baisse vers un niveau de performance inférieur, assurez-vous que vous disposez d’une marge suffisante dans le pourcentage d’E/S. Utilisez la vue de gestion dynamique [sys.dm_ db_ resource_stats](http://msdn.microsoft.com/library/azure/dn800981.aspx) mentionnée ci-dessus pour surveiller ce point.
+**Impact de la mémoire sur les performances :** même si la mémoire est l’une des dimensions de ressources qui contribue à la notation DTU, la base de données SQL est conçue pour utiliser toute la mémoire disponible pour les opérations de base de données. Pour cette mémoire raison, la consommation n’est pas incluse dans la consommation DTU moyenne de la requête ci-dessus. En revanche, si vous rétrogradez vers un niveau de performance inférieur, la mémoire disponible pour la base de données est réduite. Il peut en résulter une consommation d’E/S supérieure affectant les DTU consommées. Par conséquent, lors de la baisse vers un niveau de performance inférieur, assurez-vous que vous disposez d’une marge suffisante dans le pourcentage d’E/S. Utilisez la vue de gestion dynamique [sys.dm\_ db\_ resource\_stats](http://msdn.microsoft.com/library/azure/dn800981.aspx) mentionnée ci-dessus pour surveiller ce point.
 
 
 
-## 3. Pourquoi les performances existantes de ma base de données Web ou Business correspondent-elles aux niveaux Premium supérieurs ?
+## 3\. Pourquoi les performances existantes de ma base de données Web ou Business correspondent-elles aux niveaux Premium supérieurs ?
 
 Les bases de données Web et Business n’ont aucune quantité spécifique de capacité de ressources réservée pour une base de données. En outre, il n’existe aucun mécanisme permettant aux clients d’augmenter ou de réduire les performances d’une base de données Web ou Business. De ce fait, les performances des bases de données Web et Business vont d’un niveau d’extrême lenteur à Premium. L’éventail variable des performances est *injustement* dépendant du niveau global de consommation de ressources à tout instant par d’autres bases de données au sein de l’environnement mutualisé partageant les ressources.
 
@@ -217,7 +218,7 @@ Afin de mieux comprendre les différences entre les niveaux de service Web/Busin
 Si votre pourcentage DTU global est très élevé, il convient de vous pencher sur les métriques détaillées qu’incluent les DTU, en particulier l’utilisation des E/S du journal et de la mémoire de la base de données. Vous pourrez peut-être y trouver des domaines dans lesquels optimiser et réduire votre consommation d’DTU.
 
 
-## 4. Réglage de la charge de travail de votre base de données pour s’ajuster à un niveau inférieur
+## 4\. Réglage de la charge de travail de votre base de données pour s’ajuster à un niveau inférieur
 Si l’analyse de l’utilisation historique des ressources de votre base de données indique que vous devez mettre à niveau vers un niveau de performances plus coûteux que ce que vous envisagez, vous pouvez rechercher les domaines dans lesquels un réglage des performances plus fin peut être utile.
 
 Compte tenu de votre connaissance des détails de votre application, si l’utilisation des ressources semble très élevée par rapport à ce que vous attendez de la charge de travail standard, vous disposez peut-être de possibilités de réglage des performances bénéfiques à votre utilisation.
@@ -236,7 +237,7 @@ En plus des réglages de maintenance standard comme l’analyse des index, les p
 
 
 
-## 5. Effectuer la mise à jour vers le nouveau niveau de service/niveau de performances
+## 5\. Effectuer la mise à jour vers le nouveau niveau de service/niveau de performances
 Après avoir déterminé le niveau de service et le niveau de performances appropriés pour votre base de données Web ou Business, vous avez le choix entre plusieurs méthodes pour mettre à jour la base de données vers le nouveau service :
 
 | Outil de gestion | Modification du niveau de performances et du niveau de service d’une base de données|
@@ -249,8 +250,8 @@ Après avoir déterminé le niveau de service et le niveau de performances appro
 Pour plus d’informations, consultez la page [Modification des niveaux de service et des niveaux de performance de base de données](http://msdn.microsoft.com/library/dn369872.aspx)
 
 
-## 6. Contrôle de la mise à jour du nouveau niveau de service/niveau de performances
-La base de données SQL Azure fournit des informations sur la progression des opérations de gestion (telles que CREATE, ALTER, DROP) effectuées sur une base de données dans la vue de gestion dynamique sys.dm_operation_status de la base de données master du serveur logique où se trouve votre base de données active. Consultez la documentation relative à sys.dm _operation _status.](http://msdn.microsoft.com/library/azure/dn270022.aspx) Utilisez la vue de gestion dynalaique du statut de l’opération pour déterminer l’avancement de la mise à niveau d’une base de données. Cet exemple de requête affiche toutes les opérations de gestion effectuées sur une base de données :
+## 6\. Contrôle de la mise à jour du nouveau niveau de service/niveau de performances
+La base de données SQL Azure fournit des informations sur la progression des opérations de gestion (telles que CREATE, ALTER, DROP) effectuées sur une base de données dans la vue de gestion dynamique sys.dm\_operation\_status de la base de données master du serveur logique où se trouve votre base de données active. Consultez la documentation relative à sys.dm \_operation \_status (http://msdn.microsoft.com/library/azure/dn270022.aspx). Utilisez la vue de gestion dynamique du statut de l’opération pour déterminer l’avancement de la mise à niveau d’une base de données. Cet exemple de requête affiche toutes les opérations de gestion effectuées sur une base de données :
 
     SELECT o.operation, o.state_desc, o.percent_complete
     , o.error_code, o.error_desc, o.error_severity, o.error_state
@@ -266,11 +267,11 @@ Si vous avez utilisé le portail de gestion pour la mise à jour, une notificati
 Les niveaux de performances sont étalonnés et régis pour fournir les ressources nécessaires permettant d’exécuter la charge de travail de votre base de données dans les limites maximales autorisées pour le niveau de service/niveau de performances sélectionné (c’est-à-dire que la consommation de ressources atteint 100 %). Si votre charge de travail atteint les limites d’utilisation du processeur, d’E/S des données ou d’E/S du journal, vous continuerez à recevoir les ressources au niveau maximum autorisé, mais la latence de vos requêtes sera augmentée. L’atteinte de l’une de ces limites ne génère pas d’erreur, seulement un ralentissement de votre charge de travail, sauf si le ralentissement s’accentue au point que les requêtes arrivent à expiration. Si vous atteignez les limites maximales autorisées de sessions/demandes utilisateur simultanées (threads de travail), l’[erreur 10928 ou 10929](http://msdn.microsoft.com/library/azure/dn338078.aspx) s’affiche.
 
 
-## 7. Contrôle de la base de données après la mise à niveau
+## 7\. Contrôle de la base de données après la mise à niveau
 Après la mise à jour de la base de données Web/Business vers le nouveau niveau de service, nous vous recommandons de surveiller activement la base de données pour vous assurer que les applications s’exécutent au niveau de performances souhaité et optimiser l’utilisation en fonction des besoins. Les étapes supplémentaires suivantes sont recommandées pour la surveillance de la base de données.
 
 
-**Données sur la consommation de ressources :** pour les bases de données de base, Standard et Premium, des données plus granulaires sur la consommation des ressources sont disponibles via une nouvelle vue de gestion dynamique appelée [sys.dm_ db_ resource_stats](http://msdn.microsoft.com/library/azure/dn800981.aspx) dans la base de données utilisateur. Cette vue offre presque en temps réel les informations de consommation des ressources avec un niveau de granularité de 15 secondes pour l’heure précédente de l’opération. La consommation de pourcentage DTU pour un intervalle est calculée comme la consommation de pourcentage maximal des dimensions UC, E/S et journal. Voici une requête pour calculer la moyenne de pourcentage DTU sur la dernière heure :
+**Données sur la consommation de ressources :** pour les bases de données de base, Standard et Premium, des données plus granulaires sur la consommation des ressources sont disponibles via une nouvelle vue de gestion dynamique appelée [sys.dm\_ db\_ resource\_stats](http://msdn.microsoft.com/library/azure/dn800981.aspx) dans la base de données utilisateur. Cette vue offre presque en temps réel les informations de consommation des ressources avec un niveau de granularité de 15 secondes pour l’heure précédente de l’opération. La consommation de pourcentage DTU pour un intervalle est calculée comme la consommation de pourcentage maximal des dimensions UC, E/S et journal. Voici une requête pour calculer la moyenne de pourcentage DTU sur la dernière heure :
 
     SELECT end_time
     	 , (SELECT Max(v)
@@ -310,4 +311,4 @@ Le service Azure SQL Database fournit des données et des outils de télémétri
 
  
 
-<!----HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

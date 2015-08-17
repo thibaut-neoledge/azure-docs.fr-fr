@@ -146,7 +146,7 @@ Nom | Valeur | Description
 ---- | ----- | -----------
 location | Chaîne obtenue à partir d’une liste contrainte des régions Azure | Il s’agit de l’emplacement de déploiement des ressources.
 storageAccountNamePrefix | Chaîne | Il s’agit du nom DNS unique du compte de stockage où sont placés les disques de la machine virtuelle.
-domainName | Chaîne | Il s’agit du nom de domaine de la machine virtuelle jumpbox publique, dont le format est : **{Nom_de_domaine}.{emplacement}.cloudapp.com**. Par exemple : **monnomdedomaine.westus.cloudapp.azure.com**
+domainName | Chaîne | Il s’agit du nom de domaine de la machine virtuelle jumpbox publique, dont le format est : **{Nom\_de\_domaine}.{emplacement}.cloudapp.com**. Par exemple : **monnomdedomaine.westus.cloudapp.azure.com**
 adminUsername | Chaîne | Il s’agit du nom d’utilisateur des machines virtuelles
 adminPassword | Chaîne | Il s’agit du mot de passe des machines virtuelles
 tshirtSize | Chaîne obtenue à partir d’une liste contrainte des propositions de tailles de t-shirt | Il s’agit de la taille d’unité d’échelle nommée à approvisionner. Par exemple, « Petit », « Moyen », « Grand »
@@ -294,7 +294,7 @@ Si vous avez besoin de plusieurs groupes à haute disponibilité (par exemple, u
 
 ##### storageSettings
 
-Les détails du stockage sont souvent partagés avec les modèles liés. Dans l’exemple ci-dessous, un objet *storageSettings* fournit des détails sur les noms du compte et du conteneur de stockage.
+Les détails du stockage sont souvent partagés avec les modèles liés. Dans l’exemple ci-dessous, un objet *storageSettings* fournit des détails sur les noms du compte de stockage et du conteneur de stockage.
 
     "storageSettings": {
         "vhdStorageAccountName": "[parameters('storageAccountName')]",
@@ -319,7 +319,7 @@ L’exemple suivant montre un objet pour *osSettings* :
 
 ##### machineSettings
 
-Une variable générée, *machineSettings* correspond à un objet complexe contenant des variables de base pour la création d’une nouvelle machine virtuelle : le nom et le mot de passe d’utilisateur de l’administrateur, un préfixe pour les noms de machine virtuelle et une référence de l’image du système d’exploitation, comme indiqué ci-dessous :
+Une variable générée, *machineSettings* correspond à un objet complexe contenant des variables de base pour la création d’un nouvel ordinateur virtuel : le nom et le mot de passe d’utilisateur de l’administrateur, un préfixe pour les noms d’ordinateur virtuel et une référence de l’image du système d’exploitation, comme indiqué ci-dessous :
 
     "machineSettings": {
         "adminUsername": "[parameters('adminUsername')]",
@@ -337,9 +337,9 @@ Notez que *osImageReference* récupère les valeurs à partir de la variable *os
 
 ##### vmScripts
 
-L’objet *vmScripts* contient des détails sur les scripts à télécharger et exécuter sur une instance de machine virtuelle, comme les références extérieures et intérieures. Les références extérieures incluent l’infrastructure. Les références intérieures incluent le logiciel installé et la configuration.
+L’objet *vmScripts* contient des détails sur les scripts à télécharger et exécuter sur une instance d’ordinateur virtuel, comme les références extérieures et intérieures. Les références extérieures incluent l’infrastructure. Les références intérieures incluent le logiciel installé et la configuration.
 
-La propriété *scriptsToDownload* permet de répertorier les scripts à télécharger vers la machine virtuelle.
+La propriété *scriptsToDownload* permet de répertorier les scripts à télécharger vers l’ordinateur virtuel.
 
 Comme l’indique l’exemple ci-dessous, cet objet contient également des références pointant vers des arguments de ligne de commande pour différents types d’actions. Ces actions incluent l’exécution de l’installation par défaut pour chaque nœud, une installation qui s’exécute après le déploiement de tous les nœuds et l’exécution de tous les scripts pouvant être spécifiques à un modèle donné.
 
@@ -381,4 +381,4 @@ Dans le modèle principal, vous pouvez utiliser ces données avec la syntaxe sui
 - [Création de modèles Azure Resource Manager](resource-group-authoring-templates.md)
 - [Fonctions des modèles Azure Resource Manager](resource-group-template-functions.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -7,6 +7,7 @@
    manager="TerryLanfear"
    editor=""/>
 
+
 <tags
    ms.service="active-directory"
    ms.devlang="na"
@@ -15,6 +16,7 @@
    ms.workload="identity"
    ms.date="07/10/2015"
    ms.author="liviodlc"/>
+
 
 #Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory
 
@@ -151,8 +153,7 @@ Logo | Nom de l'application
 ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Zscaler.jpg) | [Zscaler One](https://go.microsoft.com/fwLink/?LinkID=512737&clcid=0x409)
 ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Zscaler.jpg) | [Zscaler Two](https://go.microsoft.com/fwLink/?LinkID=512734&clcid=0x409)
 
-##Voir aussi
 
-- [Accès à l’application](https://msdn.microsoft.com/library/azure/dn308590.aspx)
+[AZURE.INCLUDE [saas-toc](../../includes/active-directory-saas-toc.md)]
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

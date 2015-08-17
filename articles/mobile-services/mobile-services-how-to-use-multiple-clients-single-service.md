@@ -208,4 +208,4 @@ La bibliothèque cliente .NET de Mobile Services prend en charge les application
 [Projet d'application Windows universelle pour Azure Mobile Services à l'aide du modèle MVVM]: http://code.msdn.microsoft.com/Universal-Windows-app-for-db3564de
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

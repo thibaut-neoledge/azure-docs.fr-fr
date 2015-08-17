@@ -34,7 +34,7 @@ Voici les icônes utilisées dans les précautions de sécurité à observer lor
 |![Icône Risque d’électrocution](./media/storsimple-safety/IC740882.png)**Risque d’électrocution** |Haute tension|
 |![Icône Objet lourd](./media/storsimple-safety/IC740883.png)**Objet lourd**| |
 |![Icône Aucune pièce remplaçable par l’utilisateur](./media/storsimple-safety/IC740879.png)**Aucune pièce remplaçable par l’utilisateur**|Accès réservé au personnel formé à cet effet.|
-|![Icône Lire l’avis de sécurité](./media/storsimple-safety/IC740885.png)\*\*Lire toutes les instructions avant de commencer\*\*| |
+|![Icône Lire l’avis de sécurité](./media/storsimple-safety/IC740885.png)**Lire toutes les instructions avant de commencer**| |
 |![Icône Risque de basculement](./media/storsimple-safety/IC740886.png)**Risque de basculement**| |
 
 
@@ -179,4 +179,4 @@ Une fois que vous avez lu attentivement ces consignes de sécurité, les étapes
 
 - Pour un appareil 8600, accédez à la page [Déballage, montage en rack et branchement des câbles de votre appareil 8600](storsimple-8600-hardware-installation)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

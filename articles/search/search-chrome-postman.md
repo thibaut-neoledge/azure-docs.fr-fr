@@ -119,4 +119,4 @@ Vous pouvez également obtenir d'autres exemples grâce aux [vidéos et didactic
 [6]: ./media/search-chrome-postman/query.png
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

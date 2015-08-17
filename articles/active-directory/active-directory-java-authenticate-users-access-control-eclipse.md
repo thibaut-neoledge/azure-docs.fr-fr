@@ -7,6 +7,7 @@
     manager="wpickett"
     editor="jimbe" />
 
+
 <tags
     ms.service="active-directory"
     ms.workload="identity"
@@ -15,6 +16,7 @@
     ms.topic="article"
     ms.date="06/03/2015"
     ms.author="robmcm" />
+
 
 # Authentification des utilisateurs web auprès d'Azure Access Control Service à l'aide d'Eclipse
 
@@ -73,7 +75,8 @@ La figure suivante présente le fonctionnement de l'authentification ACS avec un
 Pour réaliser les tâches présentées dans ce guide, vous avez besoin des éléments suivants :
 
 - Kit de développement logiciel (SDK) Java version 1.6 ou ultérieure
-- IDE (environnement de développement intégré) Eclipse pour développeurs Java EE, Indigo ou ultérieur, Vous pouvez le télécharger à partir de <http://www.eclipse.org/downloads/>. 
+- IDE (environnement de développement intégré) Eclipse pour développeurs Java EE, Indigo ou ultérieur, Vous pouvez le télécharger à partir de <http://www.eclipse.org/downloads/>
+. 
 - Une distribution d'un serveur web ou d'un serveur d'applications basé sur Java, tel que Apache Tomcat, GlassFish, JBoss Application Server ou Jetty.
 - Un abonnement à Azure, pouvant être souscrit à l'adresse suivante : http://www.microsoft.com/windowsazure/offers/.
 - Le plug-in Azure pour Eclipse avec Java (par Microsoft Open Technologies), version avril 2014. Pour plus d'informations, consultez la page [Installation du plug-in Azure pour Eclipse avec Java (par Microsoft Open Technologies)](http://msdn.microsoft.com/library/windowsazure/hh690946.aspx).
@@ -114,7 +117,9 @@ Cette tâche vise à configurer ACS afin que votre application Web Java soit rec
 3.  Effectuez les actions suivantes sur la page **Add Relying Party Application** :
     1.  Dans **Name**, entrez le nom de la partie de confiance. Pour suivre l'exemple de ce didacticiel, entrez **Azure Web App**.
     2.  Dans **Mode**, sélectionnez **Enter settings manually**.
-    3.  Sous **Realm**, entrez l'URI auquel s'applique le jeton de sécurité émis par ACS. Pour cette tâche, tapez **http://localhost:8080/**. ![Domaine de partie de confiance à utiliser dans l'émulateur de calcul][relying_party_realm_emulator] 4.  Sous **Return URL**, entrez l'adresse URL vers laquelle ACS renvoie le jeton de sécurité. Pour cette tâche, tapez **http://localhost:8080/MyACSHelloWorld/index.jsp** ![URL de retour de partie de confiance à utiliser dans l’émulateur de calcul][relying_party_return_url_emulator] 5.  Acceptez les valeurs par défaut dans les autres champs.
+    3.  Sous **Realm**, entrez l'URI auquel s'applique le jeton de sécurité émis par ACS. Pour cette tâche, tapez ****http://localhost:8080/**. ![Domaine de partie de confiance à utiliser dans l'émulateur de calcul][relying_party_realm_emulator]
+4.  Sous **Return URL**, entrez l'adresse URL vers laquelle ACS renvoie le jeton de sécurité. Pour cette tâche, tapez ****http://localhost:8080/MyACSHelloWorld/index.jsp** ![URL de retour de partie de confiance à utiliser dans l’émulateur de calcul][relying_party_return_url_emulator]
+5.  Acceptez les valeurs par défaut dans les autres champs.
 
 4.  Cliquez sur **Save**.
 
@@ -190,7 +195,7 @@ Dans la page **Login Page Integration : Azure Web App**, l'URL répertoriée da
 6. En utilisant un navigateur ouvert sur la page **Edit Relying Party Application** du portail de gestion, copiez l'URL indiquée dans le champ **Realm**, puis collez-la dans le champ **Relying Party Realm** de la boîte de dialogue Eclipse.
 7. Dans la section **Security** de la boîte de dialogue Eclipse, si vous souhaitez utiliser un certificat existant, cliquez sur **Browse**, accédez au certificat souhaité, sélectionnez-le, puis cliquez sur **Open**. Si vous préférez créer un certificat, cliquez sur **New** pour afficher la boîte de dialogue **New Certificate**, puis indiquez le mot de passe, le nom du fichier.cer et celui du fichier .pfx pour le nouveau certificat.
 8. Activez la case à cocher **Embed the certificate in the WAR file**. Intégrer le certificat de cette façon permet de l'inclure dans votre déploiement sans avoir besoin de l'ajouter manuellement comme composant. Si vous devez stocker votre certificat en externe depuis votre fichier WAR, vous pouvez ajouter le certificat en tant que rôle et désactiver la case à cocher **Embed the certificate in the WAR file**.
-9. [Facultatif] Laissez la case à cocher **Require HTTPS connections** activée. Si vous activez cette option, vous devrez accéder à votre application via le protocole HTTPS. Si vous ne souhaitez pas utiliser de connexions HTTPS, désélectionnez cette option.
+9. [Facultatif\] Laissez la case à cocher **Require HTTPS connections** activée. Si vous activez cette option, vous devrez accéder à votre application via le protocole HTTPS. Si vous ne souhaitez pas utiliser de connexions HTTPS, désélectionnez cette option.
 10. Pour un déploiement vers l'émulateur de calcul, vos paramètres **Azure ACS Filter** doivent être similaires à l'exemple ci-dessous.
 
     ![Paramètres de filtre ACS Azure pour un déploiement sur l'émulateur de calcul][add_acs_filter_lib_emulator]
@@ -207,7 +212,9 @@ Dans la page **Login Page Integration : Azure Web App**, l'URL répertoriée da
 4. Cliquez sur **Terminer**.
 5. Cliquez sur le bouton **Run in Azure Emulator**.
 6. Lorsque votre application web Java est lancée dans l'émulateur de calcul, fermez toutes les instances de votre navigateur (afin qu'aucune session de navigateur ne puisse perturber votre test de connexion à ACS).
-7. Exécutez votre application en ouvrant <http://localhost:8080/MyACSHelloWorld/> dans votre navigateur (ou<https://localhost:8080/MyACSHelloWorld/> si vous avez activé la case **Require HTTPS connections**). Un identifiant Windows Live ID vous est normalement demandé, puis vous êtes transféré vers l'URL de renvoi spécifiée dans votre application par partie de confiance.
+7. Exécutez votre application en ouvrant <http://localhost:8080/MyACSHelloWorld/>
+ dans votre navigateur (ou<https://localhost:8080/MyACSHelloWorld/>
+ si vous avez activé la case **Require HTTPS connections**). Un identifiant Windows Live ID vous est normalement demandé, puis vous êtes transféré vers l'URL de renvoi spécifiée dans votre application par partie de confiance.
 99.  Lorsque vous avez terminé d'afficher votre application, cliquez sur le bouton **Reset Azure Emulator**.
 
 ## Déployer dans Azure
@@ -230,7 +237,7 @@ Pour effectuer un déploiement sur Azure, vous devez changer le domaine de parti
 8. En utilisant un navigateur ouvert sur la page **Edit Relying Party Application** du portail de gestion, copiez l'URL indiquée dans le champ **Realm**, puis collez-la dans le champ **Relying Party Realm** de la boîte de dialogue Eclipse.
 9. Dans la section **Security** de la boîte de dialogue Eclipse, si vous souhaitez utiliser un certificat existant, cliquez sur **Browse**, accédez au certificat souhaité, sélectionnez-le, puis cliquez sur **Open**. Si vous préférez créer un certificat, cliquez sur **New** pour afficher la boîte de dialogue **New Certificate**, puis indiquez le mot de passe, le nom du fichier.cer et celui du fichier .pfx pour le nouveau certificat.
 10. Laissez l'option **Embed the certificate in the WAR file** activée si vous souhaitez intégrer le certificat dans le fichier WAR.
-11. [Facultatif] Laissez la case à cocher **Require HTTPS connections** activée. Si vous activez cette option, vous devrez accéder à votre application via le protocole HTTPS. Si vous ne souhaitez pas utiliser de connexions HTTPS, désélectionnez cette option.
+11. [Facultatif\] Laissez la case à cocher **Require HTTPS connections** activée. Si vous activez cette option, vous devrez accéder à votre application via le protocole HTTPS. Si vous ne souhaitez pas utiliser de connexions HTTPS, désélectionnez cette option.
 12. Pour un déploiement vers Azure, vos paramètres de filtre ACS Azure doivent être similaires à l'exemple ci-dessous.
 
     ![Paramètres de filtre ACS Azure pour un déploiement de production][add_acs_filter_lib_production]
@@ -250,7 +257,7 @@ Pour étudier les données SAML (Security Assertion Markup Language) renvoyées 
 
 Cet exemple utilisait l'option **Embed the certificate in the WAR file** qui simplifie le déploiement du certificat. Si vous préférez maintenir le certificat de signature séparé du fichier WAR, vous pouvez utiliser la technique suivante :
 
-1. Dans la section **Security** de la boîte de dialogue **Azure Access Control Services Filter**, entrez **${env.JAVA_HOME}/mycert.cer**, puis désactivez l'option **Embed the certificate in the WAR file** Modifiez mycert.cer si le nom de fichier du certificat est différent. Cliquez sur **Terminer** pour fermer la boîte de dialogue.
+1. Dans la section **Security** de la boîte de dialogue **Azure Access Control Services Filter**, entrez **${env.JAVA\_HOME}/mycert.cer**, puis désactivez l'option **Embed the certificate in the WAR file** Modifiez mycert.cer si le nom de fichier du certificat est différent. Cliquez sur **Terminer** pour fermer la boîte de dialogue.
 2. Copiez le certificat en tant que composant dans votre déploiement : dans l'Explorateur de projets Eclipse, développez **MyAzureACSProject**, cliquez avec le bouton droit sur **WorkerRole1**, cliquez sur **Properties**, développez **Azure Role** et cliquez sur **Components**.
 3. Cliquez sur **Ajouter**.
 4. Dans la boîte de dialogue **Add Component** :
@@ -260,7 +267,7 @@ Cet exemple utilisait l'option **Embed the certificate in the WAR file** qui sim
     2. Dans la section **As Name**, cliquez sur la zone de texte et acceptez le nom par défaut.
     3. Dans la section **Deploy** :
         1. Sous **Method**, sélectionnez **copy**.
-        2. Dans la zone **To directory**, entrez **%JAVA_HOME%**.
+        2. Dans la zone **To directory**, entrez **%JAVA\_HOME%**.
     4. La boîte de dialogue **Add Component** doit être similaire à la suivante :
 
         ![Ajouter un composant de certificat][add_cert_component]
@@ -307,4 +314,4 @@ Votre certificat doit maintenant être inclus dans votre déploiement. Que le ce
 [add_token_signing_cert]: ./media/active-directory-java-authenticate-users-access-control-eclipse/AddTokenSigningCertificate.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

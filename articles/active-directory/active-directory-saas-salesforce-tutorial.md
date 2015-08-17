@@ -7,6 +7,7 @@
    manager="TerryLanfear"
    editor=""/>
 
+
 <tags
    ms.service="active-directory"
    ms.devlang="na"
@@ -15,6 +16,7 @@
    ms.workload="identity"
    ms.date="07/15/2015"
    ms.author="liviodlc"/>
+
 
 #Didacticiel : intégration de Salesforce avec Azure Active Directory
 
@@ -84,7 +86,7 @@ Ce didacticiel est aussi disponible sous forme de vidéos, ci-dessous.
 
 	![Sélectionner l’authentification unique Azure AD][7]
 
-	> [AZURE.NOTE]Pour en savoir plus sur les différentes options d’authentification unique, [cliquez ici](https://msdn.microsoft.com/library/azure/dn308588.aspx).
+	> [AZURE.NOTE]Pour en savoir plus sur les différentes options d’authentification unique, [cliquez ici](../active-directory-appssoaccess-whatis/#how-does-single-sign-on-with-azure-active-directory-work).
 
 4. Sur la page **Configurer les paramètres de l’application**, remplissez le champ **URL de connexion** en entrant l’URL de votre domaine Salesforce au format suivant :
  - Compte d’entreprise : `https://<domain>.my.salesforce.com`
@@ -216,15 +218,11 @@ Ce didacticiel est aussi disponible sous forme de vidéos, ci-dessous.
 
 		![Confirm the assignment.][29]
 
-		> [AZURE.IMPORTANT] Si vous configurez un environnement **développeur** Salesforce, vous ne disposerez que d'un nombre de licences limité pour chaque profil. Pour cette raison, il vaut mieux proposer aux utilisateurs un profil **Utilisateur Chatter Free**, pour lequel 4 999 licences sont disponibles.
+		> [AZURE.IMPORTANT] If you are provisioning to a Salesforce **developer** environment, you will have a very limited number of licenses available for each profile. Therefore, it's best to provision users to the **Chatter Free User** profile, which has 4,999 licenses available.
 
 4. Pour tester vos paramètres d’authentification unique, ouvrez le volet d’accès à l’adresse [https://myapps.microsoft.com](https://myapps.microsoft.com/), puis connectez-vous au compte de test et cliquez sur **Salesforce**.
 
-##Voir aussi
-
-- [Liste des didacticiels d’intégration d’applications SaaS](active-directory-saas-tutorial-list.md)
-- [Accès aux applications dans Azure AD](https://msdn.microsoft.com/library/azure/dn308590.aspx)
-- [Présentation du volet d’accès](https://msdn.microsoft.com/library/azure/dn308586.aspx)
+[AZURE.INCLUDE [saas-toc](../../includes/active-directory-saas-toc.md)]
 
 [0]: ./media/active-directory-saas-salesforce-tutorial/azure-active-directory.png
 [1]: ./media/active-directory-saas-salesforce-tutorial/applications-tab.png
@@ -257,4 +255,4 @@ Ce didacticiel est aussi disponible sous forme de vidéos, ci-dessous.
 [28]: ./media/active-directory-saas-salesforce-tutorial/assign-confirm.png
 [29]: ./media/active-directory-saas-salesforce-tutorial/assign-sf-profile.png
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

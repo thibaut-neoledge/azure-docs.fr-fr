@@ -167,7 +167,7 @@ Par exemple :
 
 3. Exécutez ensuite l'applet de commande Get-MsolDomainVerificationDns pour créer un test :
 
-	Get-MsolDomainVerificationDns –DomainName *votre_nom_de_domaine* – Mode DnsTxtRecord
+	Get-MsolDomainVerificationDns –DomainName *votre\_nom\_de\_domaine* – Mode DnsTxtRecord
 
 	Par exemple :
 
@@ -185,7 +185,7 @@ Par exemple :
 
 6. Exécutez l'applet de commande Confirm-MsolDomain pour vérifier le test :
 
-	Confirm-MsolEmailVerifiedDomain -DomainName*votre_nom_de_domaine*
+	Confirm-MsolEmailVerifiedDomain -DomainName*votre\_nom\_de\_domaine*
 
 	Par exemple,
 
@@ -236,4 +236,4 @@ Pour en savoir plus et obtenir des exemples d'utilisation de ces paramètres, co
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

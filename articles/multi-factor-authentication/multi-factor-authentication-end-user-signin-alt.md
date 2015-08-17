@@ -33,4 +33,4 @@ La section suivante vous montre comment vous connecter avec une autre méthode q
 
 <li>Choisissez une autre méthode et connectez-vous.</li>
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

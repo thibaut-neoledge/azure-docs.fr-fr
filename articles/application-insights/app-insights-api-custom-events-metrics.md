@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/11/2015" 
+	ms.date="08/04/2015" 
 	ms.author="awills"/>
 
 # API Application Insights pour les événements et les mesures personnalisés 
@@ -112,7 +112,7 @@ Cliquez sur la vignette Événements personnalisés dans le panneau Vue d’ense
 
 Cliquez pour afficher un graphique de vue d’ensemble et une liste complète.
 
-Sélectionnez le graphique et segmentez-le par nom d'événement pour voir les contributions correspondantes des événements les plus importants.
+Sélectionnez le graphique et faites des groupes par nom d'événement pour voir les contributions correspondantes des événements les plus importants.
 
 ![Sélectionnez le graphique et définissez le groupe](./media/app-insights-api-custom-events-metrics/02-segment.png)
 
@@ -402,9 +402,7 @@ La limite de taille sur `message` est plus importante que la limite des proprié
 
 ## Suivi des dépendances
 
-Le module de suivi des dépendances standard utilise cette API pour consigner les appels vers des dépendances externes, telles que des bases de données ou des API REST. Le module détecte automatiquement des dépendances externes, mais vous souhaiterez peut-être traiter d’autres composants de la même façon.
-
-Par exemple, si vous générez votre code avec un assembly que vous n'avez pas écrit vous-même, vous pouvez diriger tous les appels vers cet assembly afin de déterminer sa contribution dans votre temps de réponse. Pour afficher ces données dans les graphiques de dépendance d’Application Insights, envoyez-les en utilisant `TrackDependency`.
+Utilisez cet appel pour suivre les temps de réponse et les taux de réussite des appels vers un bloc de code externe. Les résultats s'affichent dans les graphiques de dépendance sur le portail.
 
 ```C#
 
@@ -421,6 +419,8 @@ Par exemple, si vous générez votre code avec un assembly que vous n'avez pas �
                 telemetry.TrackDependency("myDependency", "myCall", startTime, timer.Elapsed, success);
             }
 ```
+
+N'oubliez pas que les kits de développement logiciel de serveur incluent un [module de dépendance](app-insights-dependencies.md) qui détecte et effectue le suivi de certains appels de dépendance automatiquement. C’est le cas, par exemple, des bases de données et des API REST. Vous devez installer un agent sur votre serveur pour que le module fonctionne. Vous utiliserez cet appel si vous souhaitez effectuer le suivi des appels qui ne sont pas interceptés par le système de suivi automatisé, ou si vous ne souhaitez pas installer l'agent.
 
 Pour désactiver le module de suivi des dépendances standard, modifiez [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md) et supprimez la référence à `DependencyCollector.DependencyTrackingTelemetryModule`.
 
@@ -561,7 +561,7 @@ Utilisez des initialiseurs de télémétrie pour remplacer le comportement séle
 
 Par exemple, le package Application Insights pour le Web collecte la télémétrie sur les requêtes HTTP. Il indique par défaut l’échec de toute requête à l’aide d’un code de réponse supérieur ou égal à 400. Toutefois, si 400 vous convient, vous pouvez fournir un initialiseur de télémétrie qui définit la propriété Success.
 
-Si vous fournissez un initialiseur de télémétrie, celui-ci est appelé chaque fois qu'une des méthodes Track\*() est appelée. Cela inclut les méthodes appelées par les modules de télémétrie standard. Par convention, ces modules ne définissent aucune propriété déjà définie par un initialiseur.
+Si vous fournissez un initialiseur de télémétrie, celui-ci est appelé chaque fois qu'une des méthodes Track*() est appelée. Cela inclut les méthodes appelées par les modules de télémétrie standard. Par convention, ces modules ne définissent aucune propriété déjà définie par un initialiseur.
 
 **Définir votre initialiseur**
 
@@ -715,7 +715,7 @@ Si vous définissez une de ces valeurs vous-même, supprimez la ligne approprié
  * **ID** : une valeur générée qui met en relation différents événements de manière à ce que vous trouviez les « Éléments associés » lorsque vous inspectez un événement dans la Recherche de diagnostic.
  * **Nom** : l'URL de la requête HTTP
  * **SyntheticSource** : si elle est non nulle ou vide, cette chaîne indique que la source de la requête a été identifiée en tant que robot ou test web. Par défaut, celle-ci sera exclue des calculs dans Metrics Explorer.
-* **Propriétés** : ce sont les propriétés qui sont envoyées avec toutes les données de télémétrie. Elles peuvent être remplacées dans les appels Track\* individuels.
+* **Propriétés** : ce sont les propriétés qui sont envoyées avec toutes les données de télémétrie. Elles peuvent être remplacées dans les appels Track* individuels.
 * **Session** : identifie la session de l’utilisateur. L'ID est définie sur une valeur générée qui est modifiée lorsque l'utilisateur n'a pas été actif pendant un certain temps.
 * **Utilisateur** : permet aux utilisateurs d'être comptés. Dans une application web, s'il existe un cookie, l'ID d'utilisateur est supprimé de celui-ci. S'il n'en existe pas, un nouveau est généré. Si vos utilisateurs doivent se connecter à votre application, vous pouvez définir l’ID depuis leur ID d’authentification, afin de fournir un nombre plus fiable qui est juste même si l'utilisateur se connecte à partir d'une autre machine. 
 
@@ -744,7 +744,7 @@ Il existe certaines limites au nombre de mesures et d’événements par applica
 
 ## Questions
 
-* *Quelles exceptions peuvent être lancées par les appels Track\* ?*
+* *Quelles exceptions peuvent être lancées par les appels Track* ?*
     
     Aucun. Vous n’aurez pas besoin de les inclure dans des clauses catch.
 
@@ -758,6 +758,8 @@ Il existe certaines limites au nombre de mesures et d’événements par applica
 
 
 [Recherche d'événements et de journaux][diagnostic]
+
+[Exemples et procédures pas à pas](app-insights-code-samples.md)
 
 [Résolution des problèmes][qna]
 
@@ -779,4 +781,4 @@ Il existe certaines limites au nombre de mesures et d’événements par applica
 
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

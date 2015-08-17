@@ -99,4 +99,4 @@ Cette version applique également une mise à jour de microprogramme cumulative,
 Cette version ne contient aucune mise à jour pour l’appareil virtuel. L’installation de cette mise à jour ne modifie pas la version logicielle de l’appareil virtuel.
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

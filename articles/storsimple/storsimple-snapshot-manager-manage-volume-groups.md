@@ -6,6 +6,7 @@
    authors="SharS"
    manager="adinah"
    editor="" />
+
 <tags 
    ms.service="storsimple"
    ms.devlang="NA"
@@ -14,6 +15,7 @@
    ms.workload="TBD"
    ms.date="07/09/2015"
    ms.author="v-sharos" />
+
 
 # Utiliser le Gestionnaire d’instantanés StorSimple pour créer et gérer des groupes de volumes
 
@@ -118,7 +120,7 @@ Exécutez la procédure suivante pour modifier un groupe de volumes.
 
 2. Dans le volet **Étendue**, développez le nœud **Groupes de volumes**, cliquez avec le bouton droit sur un nom de groupe de volumes, puis cliquez sur **Modifier**.
 
-3. La boîte de dialogue **Créer un groupe de volumes **apparaît. Vous pouvez modifier les entrées **Nom**, **Applications** et **Volumes**. 
+3. La boîte de dialogue **Créer un groupe de volumes** apparaît. Vous pouvez modifier les entrées **Nom**, **Applications** et **Volumes**.
 
 4. Cliquez sur **OK** pour enregistrer vos modifications.
 
@@ -134,12 +136,12 @@ Exécutez la procédure suivante pour supprimer un groupe de volumes.
 
 2. Dans le volet **Étendue**, développez le nœud **Groupes de volumes**, cliquez avec le bouton droit sur un nom de groupe de volumes, puis cliquez sur **Supprimer**.
 
-3. La boîte de dialogue **Supprimer le groupe de volumes** apparaît. Saisissez **Confirmer** dans la zone de texte, puis cliquez sur **OK**.
+3. La boîte de dialogue **Supprimer le groupe de volumes** apparaît. Tapez **Confirmer** dans la zone de texte, puis cliquez sur **OK**.
 
-    Le groupe supprimé disparaît de la liste du volet **Résultats** et l’ensemble des sauvegardes qui sont associées à ce groupe de volumes sont supprimées du catalogue de sauvegarde.
+    Le groupe de volumes supprimé disparaît de la liste du volet **Résultats** et toutes les sauvegardes associées à ce groupe de volumes sont supprimées du catalogue des sauvegardes.
 
 ## Étapes suivantes
 
-[Utiliser le Gestionnaire d’instantanés StorSimple pour créer et gérer des stratégies de sauvegarde](storsimple-snapshot-manager-manage-backup-policies.md).
+[Utiliser le Gestionnaire d’instantanés StorSimple pour créer et gérer des stratégies de sauvegarde](storsimple-snapshot-manager-manage-backup-policies.md)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

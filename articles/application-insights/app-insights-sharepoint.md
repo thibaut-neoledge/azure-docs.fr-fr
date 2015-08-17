@@ -108,4 +108,4 @@ Cliquez sur Utilisateurs pour accéder aux informations concernant les nouveaux 
 
 <!--Link references-->
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

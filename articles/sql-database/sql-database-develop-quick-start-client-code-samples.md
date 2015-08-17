@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Exemples de code de démarrage rapide sur SQL Database | Microsoft Azure" 
-	description="Fournit des exemples de code et des pilotes pour Node.js sur Linux, Python sur Mac OS, Java et Windows et bien d’autres clients Azure SQL Database."
+	description="Fournit des exemples de code et des pilotes pour Node.js sur Linux, Python sur Mac OS, Java et Windows et bien d’autres clients de base de données SQL Azure."
 	services="sql-database" 
 	documentationCenter="" 
 	authors="MightyPen" 
@@ -14,11 +14,11 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/24/2015" 
+	ms.date="08/04/2015" 
 	ms.author="genemi"/>
 
 
-# Exemples de code de démarrage rapide pour SQL Database
+# Exemples de code de démarrage rapide client pour SQL Database
 
 
 Cette rubrique fournit des liens vers des échantillons de code de démarrage rapide que vous pouvez utiliser pour vous connecter à SQL Azure Database.
@@ -75,7 +75,7 @@ Cette section fournit des liens vers des rubriques d'échantillons de code pour 
 
 | Langage | Exemple court | Exemple de nouvelle tentative | Relationnel à l'objet |
 | :-- | :-- | :-- | :-- |
-| C# | [ADO.NET](sql-database-develop-dotnet-simple.md) | [ADO.NET personnalisé](sql-database-develop-csharp-retry-windows.md)<br/><br/>[ADO.NET avec Enterprise Library](http://msdn.microsoft.com/library/azure/dn961167.aspx) | [ADO.NET Entity Framework](http://msdn.microsoft.com/library/azure/ff951633.aspx) |
+| C# | [ADO.NET](sql-database-develop-dotnet-simple.md) | [ADO.NET personnalisé](sql-database-develop-csharp-retry-windows.md)<br/><br/>[Enterprise Library](sql-database-develop-entlib-csharp-retry-windows.md) | (Entity Framework) |
 | C++ | [Pilote ODBC](http://msdn.microsoft.com/library/azure/hh974312.aspx) | . | . |
 | Java | [Java. JDBC, JDK. Insert, Transaction, Select.](sql-database-develop-java-simple-windows.md)<br/><br/>[Java. Eclipse](sql-data-java-how-to-use-sql-database.md)<br/><br/>[Java. JDBC](http://msdn.microsoft.com/library/azure/gg715284.aspx) | . | . |
 | Node.js | [msnodesql](sql-database-develop-nodejs-simple-windows.md) | . | . |
@@ -87,10 +87,11 @@ Cette section fournit des liens vers des rubriques d'échantillons de code pour 
 
 
 - [Téléchargements pour les Kits de développement logiciel (SDK) et les outils, pour de nombreux langages et plateformes](http://azure.microsoft.com/downloads/#cmd-line-tools)
-- [Bibliothèques de connexions pour SQL Database et SQL Server](sql-database-libraries.md)
+- [Bibliothèques de connexions de la base de données SQL et de SQL Server](sql-database-libraries.md)
 - [Liste de codes numériques des erreurs temporaires](sql-database-develop-error-messages.md#bkmk_connection_errors)<br/>&nbsp;
-- [Développement avec Azure SQL Database : rubriques Procédures](http://msdn.microsoft.com/library/azure/ee621787.aspx)
+- [Développement de base de données SQL Azure : rubriques Procédures](http://msdn.microsoft.com/library/azure/ee621787.aspx)
 - [Connexion à SQL Database : liens, meilleures pratiques et règles de conception](sql-database-connect-central-recommendations.md)
 - [Créer votre première base de données SQL Azure](sql-database-get-started.md)
+- [Entity Framework 6 ici, EF 7 sur GitHub](http://entityframework.codeplex.com/)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

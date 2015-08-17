@@ -105,7 +105,7 @@ Pour utiliser la bibliothèque Twilio node.js dans votre service mobile, vous de
 		  "keywords":[]
 		}
 
-	>[AZURE.NOTE]La dépendance de Twilio doit être ajoutée en tant que `"twilio": "~1.7.0"`, avec un (~). Les références avec accent circonflexe (^) ne sont pas prises en charge.
+	>[AZURE.NOTE]La dépendance de Twilio doit être ajoutée en tant que `"twilio": "~1.7.0"`, avec un (\~). Les références avec accent circonflexe (^) ne sont pas prises en charge.
 
 4. Validez cette mise à jour du fichier, puis remettez à jour le service mobile.
 
@@ -170,7 +170,7 @@ Le code qui suit montre comment envoyer un SMS à l'aide de la fonction **sendSm
 
 Lorsque votre application démarre un appel à l'API Twilio, par exemple via la méthode client.InitiateOutboundCall, Twilio envoie votre demande à une URL qui est censée renvoyer une réponse TwiML. L'exemple de Procédure : passer un appel sortant utilise l'URL fournie par Twilio http://twimlets.com/message pour retourner la réponse.
 
-> [AZURE.NOTE]TwiML est conçu pour être utilisé par des services Web, vous pouvez donc afficher TwiML dans votre navigateur. Par exemple, cliquez sur [twimlet_message_url](http://twimlets.com/message) pour afficher un élément &lt;Response&gt; vide ; autre exemple, cliquez sur [twimlet_message_url_hello_world](http://twimlets.com/message?Message%5B0%5D=Hello%20World) pour afficher un élément &lt;Response&gt; contenant un élément &lt;Say&gt;.
+> [AZURE.NOTE]TwiML est conçu pour être utilisé par des services Web, vous pouvez donc afficher TwiML dans votre navigateur. Par exemple, cliquez sur [twimlet\_message\_url](http://twimlets.com/message) pour afficher un élément &lt;Response&gt; vide ; autre exemple, cliquez sur [twimlet\_message\_url\_hello\_world](http://twimlets.com/message?Message%5B0%5D=Hello%20World) pour afficher un élément &lt;Response&gt; contenant un élément &lt;Say&gt;.
 
 Au lieu de compter sur l'URL Twilio, vous pouvez créer votre propre site d'URL qui renvoie des réponses HTTP. Vous pouvez créer le site dans tout langage qui renvoie des réponses HTTP. Cette rubrique part du principe que vous hébergerez l'URL à partir d'un gestionnaire générique ASP.NET.
 
@@ -207,7 +207,7 @@ Une fois que vous avez défini une façon de fournir des réponses TwiML, vous p
         });
     };
 
-[AZURE.INCLUDE [twilio_additional_services_and_next_steps](../../includes/twilio_additional_services_and_next_steps.md)]
+[AZURE.INCLUDE [twilio\_additional\_services\_and\_next\_steps](../../includes/twilio_additional_services_and_next_steps.md)]
 
 
 [twilio_rest_making_calls]: http://www.twilio.com/docs/api/rest/making-calls
@@ -230,4 +230,4 @@ Une fois que vous avez défini une façon de fournir des réponses TwiML, vous p
 [azure_twilio_howto_php]: /develop/php/how-to-guides/twilio-voice-and-sms-service/
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -123,7 +123,7 @@ public void SignOut()
 }
 ```
 
--	À présent, ouvrez `Views\Shared_LoginPartial.cshtml`. Voici où vous allez afficher les liens de connexion et de déconnexion de votre application pour l’utilisateur et où vous allez afficher le nom de l’utilisateur.
+-	À présent, ouvrez `Views\Shared\_LoginPartial.cshtml`. Voici où vous allez afficher les liens de connexion et de déconnexion de votre application pour l’utilisateur et où vous allez afficher le nom de l’utilisateur.
 
 ```HTML
 @if (Request.IsAuthenticated)
@@ -148,7 +148,7 @@ else
 ```
 
 ## *4. Affichage des informations utilisateur*
-Lors de l’authentification des utilisateurs avec OpenID Connect, Azure AD renvoie un id_token à l’application qui contient des « revendications » ou des assertions concernant l’utilisateur. Vous pouvez utiliser ces revendications pour personnaliser votre application :
+Lors de l’authentification des utilisateurs avec OpenID Connect, Azure AD renvoie un id\_token à l’application qui contient des « revendications » ou des assertions concernant l’utilisateur. Vous pouvez utiliser ces revendications pour personnaliser votre application :
 
 - Ouvrez le fichier `Controllers\HomeController.cs`. Vous pouvez accéder aux revendications de l’utilisateur dans vos contrôleurs via l’objet principal de sécurité `ClaimsPrincipal.Current`.
 
@@ -176,4 +176,4 @@ Vous pouvez maintenant aborder des rubriques plus sophistiquées. Par exemple :
 [AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -57,7 +57,7 @@ Vous pouvez envoyer un courrier électronique à l'aide de l'API SMTP ou de l'A
 
 ### API SMTP
 
-Pour envoyer un courrier électronique à l'aide de l'API SMTP SendGrid, utilisez *Swift Mailer*, une bibliothèque à base de composants destinée à l'envoi de courriers à partir d'applications PHP. Vous pouvez télécharger la bibliothèque *Swift Mailer* à partir de [http://swiftmailer.org/download][] v5.3.0 (utilisez [Composer] pour installer Swift Mailer). L'envoi d'un courrier électronique avec la bibliothèque suppose la création d'instances des classes <span class="auto-style2">Swift_SmtpTransport</span>, <span class="auto-style2">Swift_Mailer</span> et <span class="auto-style2">Swift_Message</span>, la définition des propriétés appropriées, et l'appel de la méthode <span class="auto-style2">Swift_Mailer::send</span>.
+Pour envoyer un courrier électronique à l'aide de l'API SMTP SendGrid, utilisez *Swift Mailer*, une bibliothèque à base de composants destinée à l'envoi de courriers à partir d'applications PHP. Vous pouvez télécharger la bibliothèque *Swift Mailer* à partir de [http://swiftmailer.org/download][] v5.3.0 (utilisez [Composer] pour installer Swift Mailer). L'envoi d'un courrier électronique avec la bibliothèque suppose la création d'instances des classes <span class="auto-style2">Swift\_SmtpTransport</span>, <span class="auto-style2">Swift\_Mailer</span> et <span class="auto-style2">Swift\_Message</span>, la définition des propriétés appropriées, et l'appel de la méthode <span class="auto-style2">Swift\_Mailer::send</span>.
 
     <?php
      include_once "vendor/autoload.php";
@@ -236,7 +236,7 @@ Cette ligne de code supplémentaire est la suivante :
 
      $message->attach(Swift_Attachment::fromPath("path\to\file")->setFileName('file_name'));
 
-Cette ligne de code appelle la méthode d'attachement sur l'objet <span class="auto-style2">Swift_Message</span> et utilise la méthode statique <span class="auto-style2">fromPath</span> sur la classe <span class="auto-style2">Swift_Attachment</span> pour obtenir et joindre un fichier à un message.
+Cette ligne de code appelle la méthode d'attachement sur l'objet <span class="auto-style2">Swift\_Message</span> et utilise la méthode statique <span class="auto-style2">fromPath</span> sur la classe <span class="auto-style2">Swift\_Attachment</span> pour obtenir et joindre un fichier à un message.
 
 ### API Web
 
@@ -420,4 +420,4 @@ Maintenant que vous avez appris les bases du service de messagerie SendGrid, con
   [sendgrid-php]: https://github.com/sendgrid/sendgrid-php/tree/v2.1.1
   [Composer]: https://getcomposer.org/download/
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

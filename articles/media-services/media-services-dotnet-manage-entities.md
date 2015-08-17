@@ -324,4 +324,4 @@ L’exemple de code suivant montre comment obtenir une référence pointant vers
 	}
 	
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

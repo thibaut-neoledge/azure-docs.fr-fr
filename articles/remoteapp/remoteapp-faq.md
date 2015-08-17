@@ -82,4 +82,4 @@ Les questions suivantes sont celles qui nous ont été posées sur Azure RemoteA
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

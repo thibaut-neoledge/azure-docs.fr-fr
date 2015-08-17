@@ -50,10 +50,10 @@ En créant un cluster HDInsight sous Linux, vous pouvez utiliser un mot de passe
 
 	Recherchez les fichiers suivants dans la liste des répertoires. Ces noms sont ceux couramment utilisés pour les clés SSH publiques.
 
-	* id_dsa.pub
-	* id_ecdsa.pub
-	* id_ed25519.pub
-	* id_rsa.pub
+	* id\_dsa.pub
+	* id\_ecdsa.pub
+	* id\_ed25519.pub
+	* id\_rsa.pub
 
 2. Si vous ne souhaitez pas utiliser un fichier existant ou si vous ne disposez pas de clés SSH existantes, utilisez les instructions suivantes pour générer un nouveau fichier :
 
@@ -61,12 +61,12 @@ En créant un cluster HDInsight sous Linux, vous pouvez utiliser un mot de passe
 
 	Les informations suivantes vous seront demandées :
 
-	* l’emplacement du fichier : par défaut dans ~/.ssh/id_rsa ;
+	* l’emplacement du fichier : par défaut dans \~/.ssh/id\_rsa ;
 	* une phrase secrète : il vous sera demander de la saisir à nouveau.
 
 		> [AZURE.NOTE]Nous vous recommandons vivement d'utiliser une phrase secrète sûre pour cette clé. Toutefois, si vous oubliez cette phrase secrète, il sera impossible de la récupérer.
 
-	Une fois la commande exécutée, vous obtenez deux nouveaux fichiers, la clé privée (par exemple, **id_rsa**) et la clé publique (par exemple, **id_rsa.pub**).
+	Une fois la commande exécutée, vous obtenez deux nouveaux fichiers, la clé privée (par exemple, **id\_rsa**) et la clé publique (par exemple, **id\_rsa.pub**).
 
 ##Création d'un cluster HDInsight sous Linux
 
@@ -295,4 +295,4 @@ Maintenant que vous savez comment vous authentifier avec une clé SSH, apprenez 
 
 * [Utilisation des tâches MapReduce avec HDInsight](hdinsight-use-mapreduce.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

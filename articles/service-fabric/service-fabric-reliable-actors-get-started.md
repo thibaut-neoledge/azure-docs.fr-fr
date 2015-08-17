@@ -7,14 +7,16 @@
    manager="timlt"
    editor=""/>
 
+
 <tags
    ms.service="service-fabric"
    ms.devlang="dotnet"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="07/23/2015"
+   ms.date="08/05/2015"
    ms.author="claudioc"/>
+
 
 # Acteurs fiables : scénario canonique HelloWorld étape par étape
 Cet article explique les notions de base des acteurs fiables Service Fabric et vous présente la création, le débogage et le déploiement d'une application HelloWorld simple dans Visual Studio.
@@ -146,7 +148,7 @@ Service Fabric Tools pour Visual Studio prend en charge le débogage sur l'ordin
 
 ## Étapes suivantes
 
-[Présentation des acteurs Service Fabric](service-fabric-reliable-actors-introduction.md) [Documentation de référence sur les API avec acteurs](https://msdn.microsoft.com/library/azure/dn971626.aspx) [Exemple de code](https://github.com/Azure/servicefabric-samples)
+[Présentation des Acteurs fiables Service Fabric](service-fabric-reliable-actors-introduction.md) [Documentation de référence sur les API avec acteurs](https://msdn.microsoft.com/library/azure/dn971626.aspx) [Exemple de code](https://github.com/Azure/servicefabric-samples)
 
 
 <!--Image references-->
@@ -156,4 +158,4 @@ Service Fabric Tools pour Visual Studio prend en charge le débogage sur l'ordin
 [4]: ./media/service-fabric-reliable-actors-get-started/vs-context-menu.png
 [5]: ./media/service-fabric-reliable-actors-get-started/reliable-actors-newproject1.PNG
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

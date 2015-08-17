@@ -7,6 +7,7 @@
 	manager="dwrede" 
 	editor=""/>
 
+
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
@@ -15,6 +16,7 @@
 	ms.topic="article" 
 	ms.date="06/14/2015" 
 	ms.author="glenga"/>
+
 
 # Inscrire votre application pour utiliser un compte Microsoft pour l'authentification
 
@@ -107,4 +109,4 @@ Votre service mobile et votre application sont désormais configurés pour utili
 [portail de gestion Azure]: https://manage.windowsazure.com/
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

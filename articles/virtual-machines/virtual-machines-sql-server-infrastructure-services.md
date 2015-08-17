@@ -78,4 +78,4 @@ Pour les bases de données sur site, Azure peut agir comme un centre de données
   [sqlsecurity]: https://msdn.microsoft.com/library/azure/dn133147.aspx
   [technicalarticles]: https://msdn.microsoft.com/library/azure/dn248435.aspx
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

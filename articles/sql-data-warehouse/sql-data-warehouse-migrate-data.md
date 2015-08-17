@@ -89,7 +89,7 @@ PolyBase nécessite d’utiliser des fichiers de données au format UTF-8. Ains
 L’ensemble des fichiers encodés au format UTF-16 doivent faire l’objet d’une réécriture ***préalablement*** au transfert de données.
 
 ### Formatage des fichiers de données
-PolyBase requiert un terminateur de ligne fixe \n ou un renvoi à la ligne. Vos fichiers de données doivent être conformes à cette directive. Il n’existe aucune restriction relative aux terminateurs de chaînes ou de colonnes.
+PolyBase requiert un terminateur de ligne fixe \\n ou un renvoi à la ligne. Vos fichiers de données doivent être conformes à cette directive. Il n’existe aucune restriction relative aux terminateurs de chaînes ou de colonnes.
 
 Vous devrez définir chacune des colonnes du fichier en tant que composante de table externe dans PolyBase. Vérifiez que l’ensemble des colonnes exportées sont requises et que les types définis sont conformes aux normes requises.
 
@@ -193,4 +193,4 @@ Pour en savoir plus sur la migration, consultez la section [Migration de votre s
 [version préliminaire]: http://aka.ms/downloadazcopypr/
 [documentation relative à SSIS]: https://msdn.microsoft.com/fr-fr/library/ms141026.aspx
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -3,4 +3,4 @@
 
 * Dans le portail Azure en version préliminaire, cliquez sur **Parcourir** > **Mobile Apps** > votre application > **Services de notifications Push** > **Services de notification Push Apple** > **Télécharger le certificat**. Téléchargez le fichier .p12, en vous assurant que le bon **Mode** est sélectionné (Bac à sable ou Production, selon que le certificat client SSL que vous avez généré était de type Développement ou Distribution.) Votre service est désormais configuré et prêt à fonctionner avec les notifications Push sur iOS !
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

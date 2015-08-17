@@ -178,4 +178,4 @@ Voici quelques conseils pour identifier et diagnostiquer les problèmes de perfo
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

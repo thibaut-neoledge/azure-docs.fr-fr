@@ -7,4 +7,4 @@
 
     > [AZURE.IMPORTANT]Vérifiez que vous avez défini le bon URI de redirection sur le site du développeur de votre fournisseur d’identité. Comme décrit dans les instructions pour chaque fournisseur ci-dessus, l'URI de redirection peut être différent pour un backend .NET et pour un backend JavaScript. Un URI de redirection mal configuré peut faire que l’écran de connexion ne s’affiche pas correctement et que l’application fonctionne mal, de façon inattendue.
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

@@ -205,4 +205,4 @@ Pour d'autres exemples de code appelant une application API à partir de clients
 Pour plus d’informations sur l’utilisation de l’authentification dans les applications API, consultez la page [Authentification pour les applications d’API et les applications mobiles dans Azure App Service](../app-service/app-service-authentication-overview.md).
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

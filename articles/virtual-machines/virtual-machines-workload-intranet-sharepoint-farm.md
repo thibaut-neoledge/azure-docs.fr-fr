@@ -122,4 +122,4 @@ Une fois la configuration terminée, vous pouvez développer cette batterie de s
 
 [Instructions pour l’implémentation des services d’infrastructure Azure](virtual-machines-infrastructure-services-implementation-guidelines.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

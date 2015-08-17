@@ -115,7 +115,7 @@ Figure 6. matrice de confusion d’une classification binaire
 
 Revenons au problème de classification du revenu et posons-nous plusieurs questions d’évaluation qui nous aideront à comprendre les performances du classifieur utilisé. Nous pouvons tout naturellement nous poser la question suivante : sur le nombre d’employés pour lesquels le modèle a prédit un revenu > 50 K (VP+FP), combien ont été classés correctement (VP) ? Nous pouvons répondre à cette question en examinant la métrique **Precision** (Précision) du modèle, qui détermine le taux de positifs qui ont été classés correctement : VP/(VP+FP). Une autre question courante est la suivante : sur le nombre total d’employés avec un revenu > 50 K (VP+FN), combien ont été classés correctement par le classifieur (VP) ? La réponse nous est donnée par la métrique **Recall** (Rappel), correspondant au taux de vrais positifs : VP/(VP+FN) du classifieur. Vous pouvez remarquer qu’il existe un compromis évident entre la précision et le rappel. Par exemple, si l’on considère un jeu de données relativement équilibré, un classifieur capable de prédire la plupart des instances positives présente un rappel fort, mais une précision relativement faible, car de nombreuses instances négatives ne seront pas classées correctement, ce qui entraînera un grand nombre de faux positifs. Pour visualiser un diagramme représentant la variation de ces deux métriques, vous pouvez cliquer sur la courbe « PRECISION/RECALL » (PRÉCISION/RAPPEL) de la page de sortie des résultats de l’évaluation (partie supérieure gauche de la Figure 7).
 
-![Résultats de l’évaluation de la classification binaire](media/machine-learning-evaluate-model-performance/7.png) Figure 7 : résultats de l’évaluation de la classification binaire
+![Résultats de l’évaluation de la classification binaire](media/machine-learning-evaluate-model-performance/7.png) Figure 7. résultats de l’évaluation de la classification binaire
 
 Un autre métrique connexe fréquemment utilisé est la métrique **F1 Score** (F-mesure), qui prend en compte à la fois la précision et le rappel. Il s’agit de la moyenne harmonique de ces 2 métriques, calculée comme suit : F1 = 2 (précision x rappel) / (précision + rappel). La mesure F1 offre un bon moyen de résumer l’évaluation en une seule valeur ; toutefois, il est recommandé d’examiner systématiquement la précision et le rappel simultanément afin de mieux comprendre le comportement d’un classifieur.
 
@@ -149,7 +149,7 @@ Connectez les ports comme illustré ci-après à la Figure 10.
 
 Définissez l’index de la colonne Étiquette du module [Former le modèle][train-model] sur 5. Le jeu de données ne comporte pas de ligne d’en-tête, mais nous savons que les étiquettes de classe figurent dans la cinquième colonne.
 
-Cliquez sur le module [Lecteur][reader] et définissez la propriété *Source de données* sur *URL Web via HTTP* et l’*URL* sur http://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data.
+Cliquez sur le module [Lecteur][reader] et définissez la propriété *Source de données* sur *URL web via HTTP* et l’*URL* sur http://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data.
 
 Définissez la fraction d’instances à utiliser pour l’apprentissage dans le module [Fractionner][split] (0,7 par exemple).
  
@@ -189,4 +189,4 @@ Figure 13 : résultats de la validation croisée d’un modèle de classificat
 [two-class-logistic-regression]: https://msdn.microsoft.com/library/azure/b0fd7660-eeed-43c5-9487-20d9cc79ed5d/
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

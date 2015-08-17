@@ -146,7 +146,7 @@ Pour changer le nombre d’unités réservées de diffusion en continu, procéde
 		using Microsoft.WindowsAzure.MediaServices.Client;
 		using Microsoft.WindowsAzure.MediaServices.Client.DynamicEncryption;
 
-6. Créez un dossier sous le répertoire de projets et copiez-y le fichier .mp4 ou .wmv à encoder et à diffuser en continu ou télécharger. Dans cet exemple, le chemin d'accès « C:\VideoFiles » est utilisé.
+6. Créez un dossier sous le répertoire de projets et copiez-y le fichier .mp4 ou .wmv à encoder et à diffuser en continu ou télécharger. Dans cet exemple, le chemin d'accès « C:\\VideoFiles » est utilisé.
 
 ##Se connecter au compte Media Services
 
@@ -462,4 +462,4 @@ Pour en savoir plus sur la création d’applications de vidéo à la demande, c
   [portail de gestion]: http://manage.windowsazure.com/
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

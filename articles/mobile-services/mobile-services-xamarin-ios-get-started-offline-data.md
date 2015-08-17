@@ -183,4 +183,4 @@ Dans cette section, vous allez reconnecter l'application au service mobile. Cett
 [extension Xamarin]: http://xamarin.com/visual-studio
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

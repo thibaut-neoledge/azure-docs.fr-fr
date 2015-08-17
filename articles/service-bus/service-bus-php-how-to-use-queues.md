@@ -38,7 +38,7 @@ Dans ce guide, vous allez utiliser les fonctionnalités du service qui peuvent �
 
 Pour utiliser des API de file d’attente Azure Service Bus, procédez comme suit :
 
-1. référencer le fichier de chargeur automatique à l'aide de l'instruction [require_once][require_once].
+1. référencer le fichier de chargeur automatique à l'aide de l'instruction [require\_once][require_once].
 2. référencer toute classe que vous êtes susceptible d'utiliser.
 
 L'exemple suivant montre comment inclure le fichier du chargeur automatique et référencer la classe **ServicesBuilder**.
@@ -213,4 +213,4 @@ Maintenant que vous avez appris les principes de base des files d'attente Servic
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -7,6 +7,7 @@
 	manager="wpickett" 
 	editor=""/>
 
+
 <tags 
 	ms.service="azure-resource-manager" 
 	ms.workload="multiple" 
@@ -15,6 +16,7 @@
 	ms.topic="article" 
 	ms.date="07/15/2015" 
 	ms.author="tomfitz"/>
+
 
 # Utilisation d’Azure PowerShell avec Azure Resource Manager
 
@@ -185,7 +187,7 @@ Notez que le paramètre **administratorLoginPassword** utilise une chaîne sécu
 
 La section **resources** du modèle répertorie les ressources que le modèle crée. Ce modèle crée un serveur de base de données SQL et une base de données SQL, une batterie de serveurs et un site web, ainsi que plusieurs paramètres de gestion.
   
-La définition de chaque ressource inclut les propriétés correspondantes, telles que le nom, le type et l'emplacement, ainsi que les paramètres pour les valeurs définies par l'utilisateur. Par exemple, cette section du modèle définit la base de données SQL. Elle inclut les paramètres associés au nom de la base de données ([parameters('databaseName')]), l'emplacement du serveur de base de données [parameters('serverLocation')] et la propriété collation [parameters('collation')].
+La définition de chaque ressource inclut les propriétés correspondantes, telles que le nom, le type et l'emplacement, ainsi que les paramètres pour les valeurs définies par l'utilisateur. Par exemple, cette section du modèle définit la base de données SQL. Elle inclut les paramètres associés au nom de la base de données ([parameters('databaseName')\]), l'emplacement du serveur de base de données [parameters('serverLocation')\] et la propriété collation [parameters('collation')\].
 
     {
         "name": "[parameters('databaseName')]",
@@ -372,29 +374,9 @@ Le module AzureResourceManager inclut des cmdlets vous permettant d'éviter les 
 
 
 ## Étapes suivantes
-Mise en route
 
-- [Présentation du gestionnaire des ressources Azure](./resource-group-overview.md)
-- [Utilisation de l’interface de ligne de commande Azure pour Mac, Linux et Windows avec le Gestionnaire des ressources Azure](./xplat-cli-azure-resource-manager.md)
-- [Utilisation du portail Azure pour gérer vos ressources Azure](./resource-group-portal.md)
+- Pour en savoir plus sur la création de modèles Resource Manager, consultez la section [Création de modèles Azure Resource Manager](./resource-group-authoring-templates.md).
+- Pour savoir comment déployer des modèles, consultez [Déploiement d'une application avec un modèle Azure Resource Manager](./resource-group-template-deploy.md).
+- Pour obtenir un exemple détaillé de déploiement d'un projet, consultez [Déploiement prévisible de microservices dans Azure](app-service-web/app-service-deploy-complex-application-predictably.md).
 
-Création et déploiement d’applications
-
-- [Création de modèles Azure Resource Manager](./resource-group-authoring-templates.md)
-- [Déploiement d’une application avec un modèle Azure Resource Manager](./resource-group-template-deploy.md)
-- [Déployer une application complexe de manière prévisible dans Microsoft Azure](app-service-web/app-service-deploy-complex-application-predictably.md)
-- [Résolution des problèmes liés aux déploiements de groupes de ressources dans Azure](./resource-group-deploy-debug.md)
-- [Fonctions des modèles Azure Resource Manager](./resource-group-template-functions.md)
-- [Opérations de modèle avancées](./resource-group-advanced-template.md)
-
-Organisation des ressources
-
-- [Organisation des ressources Azure à l’aide de balises](./resource-group-using-tags.md)
-
-Gestion et audit de l’accès
-
-- [Gestion et audit d’accès aux ressources](./resource-group-rbac.md)
-- [Authentification d’un principal du service à l’aide d’Azure Resource Manager](./resource-group-authenticate-service-principal.md)
-- [Création d'un nouveau principal du service Azure à l’aide du portail Azure classique](./resource-group-create-service-principal-portal.md)
-
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

@@ -29,4 +29,4 @@ Le fichier d’informations d’identification de coffre est téléchargé via u
 - Le fichier d’informations d’identification de coffre expire au bout de 48 heures et peut être téléchargé à partir du portail.
 - Reportez-vous au [Forum Aux Questions](backup-azure-backup-faq.md) Azure Backup pour toute question sur le flux de travail.
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

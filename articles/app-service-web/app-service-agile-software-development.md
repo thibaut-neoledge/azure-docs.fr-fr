@@ -105,7 +105,7 @@ Dans un scénario classique d’opérations de développement, vous disposez d�
 
 	![](./media/app-service-agile-software-development/production-4-swap.png)
 
-7.	Lorsque le script se termine, revenez en arrière pour accéder à l’adresse du serveur frontal (http://ToDoApp*&lt;unique_string> \* master.azurewebsites.net/) afin d’afficher l’application qui s’exécute en production.
+7.	Lorsque le script se termine, revenez en arrière pour accéder à l’adresse du serveur frontal (http://ToDoApp*&lt;unique_string> * master.azurewebsites.net/) afin d’afficher l’application qui s’exécute en production.
  
 5.	Connectez-vous à la [version préliminaire du portail Azure](https://portal.azure.com) et observez ce qui est créé.
 
@@ -279,4 +279,4 @@ Le développement logiciel agile est indispensable pour de nombreuses entreprise
 -	[Création ou modification des utilisateurs dans Azure AD](https://msdn.microsoft.com/library/azure/hh967632.aspx#BKMK_1)
 -	[Projet Wiki Kudu](https://github.com/projectkudu/kudu/wiki)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

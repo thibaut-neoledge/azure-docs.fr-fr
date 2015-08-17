@@ -199,4 +199,4 @@ Vous trouverez ci-dessous un exemple illustrant comment déchiffrer, modifier et
 
 Découvrez comment [utiliser les packages de support et les journaux de l'appareil pour dépanner votre déploiement](storsimple-troubleshoot-deployment.md#support-packages-and-device-logs-available-for-troubleshooting).
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

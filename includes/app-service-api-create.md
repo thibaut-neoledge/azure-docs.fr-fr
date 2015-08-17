@@ -20,4 +20,4 @@
 
 Visual Studio crée un projet d’API web configuré pour le déploiement sous forme d’application API.
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

@@ -7,6 +7,7 @@
 	manager="dwrede"
 	editor=""/>
 
+
 <tags
 	ms.service="media-services"
 	ms.workload="media"
@@ -15,6 +16,7 @@
 	ms.topic="get-started-article" 
 	ms.date="04/20/2015"
 	ms.author="juliako"/>
+
 
 
 #Création d’un compte Media Services
@@ -35,7 +37,7 @@ L'accès à Media Services requiert deux comptes associés :
 
 -   **Un compte Media Services**. Votre compte vous donne accès à un ensemble de services Media Services sur le cloud, disponibles dans Azure. Un compte Media Services ne stocke pas de contenu multimédia à proprement parler. Il stocke des métadonnées relatives au contenu multimédia et aux travaux de traitement multimédia dans votre compte. Lorsque vous créez le compte, vous sélectionnez une région Media Services disponible. Cette dernière est un centre de données qui stocke les enregistrements de métadonnées pour votre compte.
 
-    > [AZURE.NOTE]**Europe du Nord****Europe de l’Ouest****Ouest des États-Unis****Est des États-Unis****Asie du Sud-Est****Est de l’Asie****Ouest du Japon****Est du Japon**
+    > [AZURE.NOTE]Les régions de disponibilité des Media Services sont les suivantes : **Europe du Nord**, **Europe de l'Ouest**, **Ouest des États-Unis**, **Est des États-Unis**, **Sud-Est de l'Asie**, **Est de l'Asie**, **Ouest du Japon**, **Est du Japon**. Media Services n'utilise pas de groupes d'affinités.
 -   **Un compte de stockage associé**. Il s'agit d'un compte de stockage Azure associé à votre compte Media Services. Il permet de stocker des objets blob pour les fichiers multimédia et doit se trouver dans la même zone géographique que le compte Media Services. Lorsque vous créez un compte Media Services, vous pouvez choisir un compte de stockage existant dans la même région ou en créer un. Si vous supprimez un compte Media Services, les objets blob de votre compte de stockage associé ne seront pas supprimés.
 
 ##<a id="quick"></a>Création d’un compte Media Services grâce à la méthode Création rapide
@@ -81,4 +83,4 @@ L'accès à Media Services requiert deux comptes associés :
   [portail de gestion]: http://manage.windowsazure.com/
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

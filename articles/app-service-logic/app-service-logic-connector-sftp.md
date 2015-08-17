@@ -7,6 +7,7 @@
 	services="app-service\logic"
 	documentationCenter=""/>
 
+
 <tags
 	ms.service="app-service-logic"
 	ms.workload="integration"
@@ -15,6 +16,7 @@
 	ms.topic="article"
 	ms.date="07/02/2015"
 	ms.author="sameerch"/>
+
 
 # Utilisation du connecteur SFTP dans votre application logique #
 
@@ -25,11 +27,11 @@ Le connecteur SFTP vous permet de déplacer des données vers ou depuis un serve
 ## Création d’un connecteur SFTP pour votre application logique ##
 Pour utiliser le connecteur SFTP, vous devez d’abord créer une instance de l’application API de ce connecteur. Pour cela, procédez comme suit :
 
-1.	Ouvrez Azure Marketplace à l’aide de l’option + NOUVEAU en bas à gauche du portail Azure.
-2.	Accédez à « Web et mobilité > API Apps » et recherchez « Connecteur SFTP ».
+1.	Ouvrez Azure Marketplace à l’aide de l’option + NOUVEAU en haut à gauche du portail Azure.
+2.	Accédez à « Web + mobilité » et recherchez « Connecteur SFTP ».
 3.	Configurez le connecteur SFTP comme suit :
 
-	![][1] - **Emplacement** : choisissez l'emplacement géographique dans lequel vous voulez déployer le connecteur - **Abonnement** : choisissez un abonnement dans lequel vous souhaitez créer ce connecteur - **Groupe de ressources** : sélectionnez ou créez un groupe de ressources où le connecteur doit résider - **Plan d'hébergement Web** : sélectionnez ou créez un plan d'hébergement Web - **Niveau de tarification** : choisissez un niveau de tarification pour le connecteur - **Nom** : donnez un nom à votre connecteur SFTP - **Paramètres du package** - **Adresse du serveur** : indiquez le nom ou l'adresse IP du serveur SFTP - **Accepter toute clé d'hôte de serveur SSH** : détermine si n'importe quelle clé d'hôte publique SSH émanant du serveur doit être acceptée. Si ce paramètre est désactivé, la clé d'hôte est comparée à la clé spécifiée dans la propriété « Empreinte de la clé d'hôte du serveur SSH » - **Clé d'hôte du serveur SSH** : spécifiez l'empreinte de la clé hôte publique du serveur SSH - **Dossier racine** : spécifiez le chemin d'accès au dossier racine - **Chiffrement** : spécifiez le chiffrement - **Port serveur** : spécifiez le numéro de port du serveur SFTP
+	![][1] - **Emplacement** : choisissez l'emplacement géographique dans lequel vous voulez déployer le connecteur - **Abonnement** : choisissez un abonnement dans lequel vous souhaitez créer ce connecteur - **Groupe de ressources** : sélectionnez ou créez un groupe de ressources où le connecteur doit résider - **Plan d'hébergement Web** : sélectionnez ou créez un plan d'hébergement Web - **Niveau de tarification** : choisissez un niveau de tarification pour le connecteur - **Nom** : donnez un nom à votre connecteur SFTP - **Paramètres du package** - **Adresse du serveur** : indiquez le nom ou l'adresse IP du serveur SFTP - **Accepter toute clé d'hôte de serveur SSH** : détermine si n'importe quelle clé d'hôte publique SSH émanant du serveur doit être acceptée. Si ce paramètre est désactivé, la clé d'hôte est comparée à la clé spécifiée dans la propriété « Empreinte de la clé d'hôte du serveur SSH » - **Clé d'hôte du serveur SSH** : spécifiez l'empreinte de la clé hôte publique du serveur SSH - *facultatif*. **Dossier racine** : spécifiez le chemin d'accès au dossier racine. Si vide, la racine par défaut est utilisée. -**Chiffrement** : spécifiez le chiffrement - *facultatif*. **Port du serveur** : spécifiez le numéro de port du serveur SFTP
 4. Cliquez sur Créer. Un connecteur SFTP est créé.
 
 5. Accédez à l’application API tout juste créée en sélectionnant Parcourir -> API Apps -> <Name of the API App just created>. Le composant « Sécurité » apparaît comme non configuré.
@@ -64,7 +66,7 @@ Une fois votre application API créée, vous pouvez utiliser le connecteur SFTP 
 	- **Chemin du dossier** : spécifiez le chemin du dossier dans lequel récupérer les fichiers.
 	- **Type du fichier : texte ou binaire** : sélectionnez le type du fichier.
 	- **Masque de fichiers** : spécifiez le masque à appliquer pour récupérer les fichiers. '*' récupère tous les fichiers dans le dossier spécifié.
-	- **Masque de fichiers à exclure** : spécifiez le masque à appliquer pour exclure des fichiers. Si la propriété « Masque de fichiers » est également définie, la propriété « Masque de fichiers à exclure » est appliquée en premier.
+- **Masque de fichiers à exclure** : spécifiez le masque à appliquer pour exclure des fichiers. Si la propriété « Masque de fichiers » est également définie, la propriété « Masque de fichiers à exclure » est appliquée en premier.
 
 
 	![][9] ![][10]
@@ -75,7 +77,8 @@ Une fois votre application API créée, vous pouvez utiliser le connecteur SFTP 
 	- **Encodage de transfert de contenu** : spécifiez none ou base64.
 	- **Chemin du fichier** : spécifiez le chemin du fichier à charger.
 	- **Remplacer** : spécifiez « true » pour remplacer le fichier existant.
-	- **Ajouter à la fin si existant** : spécifiez « true » ou « false ». Lorsque vous spécifiez « true », les données sont ajoutées à la fin du fichier (s’il existe). Lorsque vous spécifiez « false », le fichier est remplacé (s’il existe). - **Dossier temporaire** : si cette propriété est définie, l’adaptateur charge le fichier dans le « Chemin du dossier temporaire ». Une fois le chargement terminé, le fichier est déplacé vers le dossier spécifié dans « Chemin du dossier ». Le Chemin du dossier temporaire doit résider sur le même disque physique que le Chemin du dossier pour que l’opération de déplacement soit rapide. Le dossier temporaire n’est utilisable que lorsque la propriété Ajouter à la fin si existant est désactivée.
+	- ****Ajouter à la fin si existant ** : spécifiez « true » ou « false ». Lorsque vous spécifiez « true », les données sont ajoutées à la fin du fichier (s’il existe). Lorsque vous spécifiez « false », le fichier est remplacé (s’il existe).
+- **Dossier temporaire** : si cette propriété est définie, l’adaptateur charge le fichier dans le « Chemin du dossier temporaire ». Une fois le chargement terminé, le fichier est déplacé vers le dossier spécifié dans « Chemin du dossier ». Le Chemin du dossier temporaire doit résider sur le même disque physique que le Chemin du dossier pour que l’opération de déplacement soit rapide. Le dossier temporaire n’est utilisable que lorsque la propriété Ajouter à la fin si existant est désactivée.
 
 	![][11] ![][12]
 
@@ -97,4 +100,4 @@ Une fois votre application API créée, vous pouvez utiliser le connecteur SFTP 
 [11]: ./media/app-service-logic-connector-sftp/img11.PNG
 [12]: ./media/app-service-logic-connector-sftp/img12.PNG
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

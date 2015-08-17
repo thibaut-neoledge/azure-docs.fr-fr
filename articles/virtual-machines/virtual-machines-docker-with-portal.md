@@ -144,4 +144,4 @@ Vous êtes prêt à consulter le [Guide d'utilisation Docker] et à utiliser vo
 [Guide d'utilisation Docker]: https://docs.docker.com/userguide/
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

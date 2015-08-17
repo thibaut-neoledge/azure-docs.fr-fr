@@ -181,7 +181,7 @@ One thing which is important to point out: if there are pending changes in the l
 3. Affichez le contenu de la table Azure *TodoItem*. Vérifiez que les nouveaux éléments n’ont _pas_ été synchronisés avec le serveur :
 
    - Pour le backend JavaScript, accédez au portail de gestion et cliquez sur l'onglet Données pour afficher le contenu de la table `TodoItem`.
-   - Pour le serveur principal .NET, affichez le contenu de la table avec un outil SQL tel que *SQL Server Management Studio*, ou un client REST tel que *Fiddler* ou *Postman*.
+   - Pour le backend .NET, affichez le contenu de la table avec un outil SQL, par exemple *SQL Server Management Studio* ou un client REST, comme *Fiddler* ou *Postman*.
 
 4. Activez le Wi-Fi sur le simulateur ou l’appareil. Appuyez ensuite sur le bouton **Actualiser**.
 
@@ -221,4 +221,4 @@ One thing which is important to point out: if there are pending changes in the l
 
 [didacticiel Démarrage rapide de Mobile Services]: mobile-services-android-get-started.md
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

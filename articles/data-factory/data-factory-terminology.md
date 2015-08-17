@@ -113,4 +113,4 @@ Un pipeline s'exécute sur un concentrateur unique ce qui constitue une caracté
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

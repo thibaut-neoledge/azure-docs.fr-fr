@@ -41,4 +41,4 @@ Si vous utilisez l’authentification multifacteur avec Office 365, vous souhai
 
 <center>![Cloud](./media/multi-factor-authentication-end-user-manage-o365/addsec.png)</center>
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

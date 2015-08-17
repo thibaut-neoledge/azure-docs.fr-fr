@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Exécution d'une tâche Hadoop avec DocumentDB et HDInsight | Azure" 
+	pageTitle="Exécution d'une tâche Hadoop avec DocumentDB et HDInsight | Microsoft Azure" 
 	description="Découvrez comment exécuter une tâche Hive, Pig ou MapReduce simple avec DocumentDB et Azure HDInsight."
 	services="documentdb" 
 	authors="AndrewHoh" 
@@ -489,4 +489,4 @@ Pour en savoir plus, consultez les articles suivants :
 [powershell-install-configure]: ../install-configure-powershell.md
  
 
-<!-------HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

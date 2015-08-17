@@ -3,9 +3,11 @@
     pageTitle="Configuration d'Active Directory pour Azure RemoteApp" 
     description="Découvrez comment configurer Active Directory pour l'utiliser avec Azure RemoteApp." 
     services="remoteapp" 
+    solutions="" 
 	documentationCenter="" 
     authors="lizap" 
     manager="mbaldwin" />
+
 
 <tags 
     ms.service="remoteapp" 
@@ -13,15 +15,16 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="04/28/2015" 
+    ms.date="08/03/2015" 
     ms.author="elizapo" />
+
 
 
 
 # Configuration d'Active Directory pour Azure RemoteApp
 
 
-Pour une collection hybride de RemoteApp, vous devez configurer une infrastructure de domaine Active Directory locale et un locataire Azure Active Directory avec intégration d'annuaire (et éventuellement l'authentification unique). Par ailleurs, vous devez créer des objets Active Directory dans l'annuaire local. Utilisez les informations suivantes pour configurer des domaines Active Directory et Azure AD locaux, puis intégrer les deux.
+Pour une collection hybride d'Azure RemoteApp, vous devez configurer une infrastructure de domaine Active Directory locale et un locataire Azure Active Directory avec intégration d'annuaire (et éventuellement l'authentification unique). Par ailleurs, vous devez créer des objets Active Directory dans l'annuaire local. Utilisez les informations suivantes pour configurer des domaines Active Directory et Azure AD locaux, puis intégrer les deux.
 
 ## Configuration de votre domaine Active Directory local
 Commencez par configurer votre domaine Active Directory local. Vous devez identifier le suffixe de domaine UPN à utiliser, puis créer des objets Active Directory pour RemoteApp.
@@ -105,7 +108,7 @@ Dans ce cas, vérifiez les points suivants :
 -	Sous **Active Directory -> Annuaire par défaut -> Utilisateurs**, vous avez ajouté un nouvel utilisateur sous ce domaine (par exemple, myAzureSyncUser@mydomain.com).
 -	Dans votre domaine dans Active Directory, vous avez ajouté un nouvel utilisateur de domaine et l'avez défini en tant que membre des administrateurs de l'entreprise (par exemple, myDomainSyncUser@mydomain.com).
 
-Démarrez maintenant l'outil de synchronisation d'annuaires Azure et utilisez les informations d'identification **myAzureSyncUser@mydomain.com** pour la première invite (Informations d'identification d'administrateur Microsoft Azure Active Directory), puis **myDomainSyncUser@mydomain.com** pour la seconde invite.
+Démarrez maintenant l'outil de synchronisation d'annuaires Azure et utilisez les informations d'identification ****myAzureSyncUser@mydomain.com** pour la première invite (Informations d'identification d'administrateur Microsoft Azure Active Directory), puis ****myDomainSyncUser@mydomain.com** pour la seconde invite.
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -4,17 +4,20 @@
 	services="active-directory" 
 	documentationCenter="" 
 	authors="Justinha" 
+	writer="Justinha" 
 	manager="TerryLan" 
 	editor="LisaToft"/>
+
 
 <tags 
 	ms.service="active-directory" 
 	ms.workload="infrastructure-services" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
-	ms.topic="article" 
+	ms.topic="get-started-article" 
 	ms.date="05/05/2015" 
 	ms.author="Justinha"/>
+
 
 # Administration de votre annuaire Azure AD
 
@@ -71,7 +74,7 @@ Ce processus a été instauré en octobre 2013 dans le cadre d’une améliorat
 
 L’utilisation d’Azure AD est gratuite. L’annuaire est une ressource gratuite. Il existe un niveau Azure Active Directory Premium supplémentaire qui fait l’objet d’une licence séparée, et fournit des fonctionnalités supplémentaires telles que la marque de société et la réinitialisation de mot de passe libre-service.
 
-Pour modifier le nom complet de votre annuaire, cliquez sur celui-ci dans le portail de gestion, puis cliquez sur **Configurer**. Comme expliqué plus loin dans cette rubrique, vous pouvez ajouter ou supprimer un annuaire. Pour associer votre abonnement à un autre annuaire, cliquez sur l’extension **Paramètres** dans le volet gauche de navigation, et au bas de la page **Abonnements**, cliquez sur **Modifier l’annuaire**. Vous pouvez également créer un domaine personnalisé à l’aide d’un nom DNS que vous avez enregistré à la place du domaine par défaut *.onmicrosoft.com, ce qui peut être préférable avec un service tel que SharePoint Online. 
+Pour modifier le nom complet de votre annuaire, cliquez sur celui-ci dans le portail de gestion, puis cliquez sur **Configurer**. Comme expliqué plus loin dans cette rubrique, vous pouvez ajouter ou supprimer un annuaire. Pour associer votre abonnement à un autre annuaire, cliquez sur l’extension **Paramètres** dans le volet gauche de navigation, et au bas de la page **Abonnements**, cliquez sur **Modifier l’annuaire**. Vous pouvez également créer un domaine personnalisé à l’aide d’un nom DNS que vous avez enregistré à la place du domaine par défaut *.onmicrosoft.com, ce qui peut être préférable avec un service tel que SharePoint Online.
 
 ## Comment puis-je gérer les données d’un annuaire ?
 
@@ -147,4 +150,4 @@ Les conditions à remplir sont les suivantes :
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

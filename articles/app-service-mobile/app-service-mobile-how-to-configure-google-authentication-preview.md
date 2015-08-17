@@ -73,4 +73,4 @@ Vous êtes maintenant prêt à utiliser Google pour l'authentification dans votr
 [portail de gestion Azure]: https://portal.azure.com/
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

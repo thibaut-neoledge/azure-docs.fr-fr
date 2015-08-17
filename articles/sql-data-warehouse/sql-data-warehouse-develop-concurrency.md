@@ -39,13 +39,13 @@ Chaque requête concurrente consomme un ou plusieurs emplacements de concurrence
 | Concurrency Slot Consumption | DW100 | DW200 | DW300 | DW400 | DW500 | DW600 | DW1000 | DW1200 | DW1500 | DW2000 | DW3000 | DW6000 |
 | :--------------------------- | :---- | :---- | :---- | :---- | :---- | :---- | :----- | :----- | :----- | :----- | :----- | :----- |
 | Max Concurrent Queries       | 32    | 32    | 32    | 32    | 32    | 32    | 32     | 32     | 32     | 32     | 32     | 32     |
-| Max Concurrency Slots        | 4     | 8     | 12    | 16    | 20    | 24    | 40     | 48     | 60     | 80     | 120    | 240    |
+| Max Concurrency Slots        | 4     | 8     | 12    | 16    | 20    | 24    | 32     | 32     | 32     | 32     | 32    | 32     |
 -->
 
 | Consommation des emplacements de concurrence | DW100 | DW200 | DW300 | DW400 | DW500 | DW600 | DW1000 | DW1200 | DW1500 | DW2000 |
 | :--------------------------- | :---- | :---- | :---- | :---- | :---- | :---- | :----- | :----- | :----- | :----- | 
 | Nombre maximal de requêtes concurrentes | 32 | 32 | 32 | 32 | 32 | 32 | 32 | 32 | 32 | 32 | 
-| Nombre maximal d’emplacements de concurrence | 4 | 8 | 12 | 16 | 20 | 24 | 40 | 48 | 60 | 80 | 
+| Nombre maximal d’emplacements de concurrence | 4 | 8 | 12 | 16 | 20 | 24 | 32 | 32 | 32 | 32 | 
 
 Les classes de ressource constituent un élément essentiel de la gestion des charges de travail SQL Data Warehouse, car elles régissent également les ressources de calcul allouées à la requête. Ces classes sont abordées dans la section ci-dessous consacrée à la gestion des charges de travail.
 
@@ -223,7 +223,7 @@ Ouvrez une connexion à la base de données SQL Data Warehouse et exécutez l
 CREATE USER newperson FOR LOGIN newperson
 ```
 
-Lorsque vous avez terminé, vous devez accorder des autorisations à l’utilisateur. L’exemple indiqué ci-dessous accorde `CONTROL` dans la base de données SQL Data Warehouse. Au niveau de la base de données, `CONTROL` est l’équivalent de db_owner dans SQL Server.
+Lorsque vous avez terminé, vous devez accorder des autorisations à l’utilisateur. L’exemple indiqué ci-dessous accorde `CONTROL` dans la base de données SQL Data Warehouse. Au niveau de la base de données, `CONTROL` est l’équivalent de db\_owner dans SQL Server.
 
 ```
 GRANT CONTROL ON DATABASE::MySQLDW to newperson
@@ -377,4 +377,4 @@ Pour obtenir des conseils supplémentaires en matière de développement, voir l
 
 <!--Other Web references-->
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

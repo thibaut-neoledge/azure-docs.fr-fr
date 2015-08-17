@@ -12,25 +12,29 @@
       ms.tgt_pltfrm="na"
       ms.devlang="dotnet"
       ms.topic="hero-article"
-      ms.date="07/06/2015"
+      ms.date="08/04/2015"
       ms.author="tamram" />
 
 # Comment utiliser le stockage de fichiers Azure avec PowerShell et .NET
 
 ## Vue d'ensemble
 
-Le service de fichiers Azure expose les partages de fichiers à l’aide du protocole SMB 2.1 standard. Les applications exécutées dans Azure peuvent désormais facilement partager des fichiers entre des machines virtuelles à l’aide d’API de système de fichiers standard et connues, comme ReadFile et WriteFile. En outre, les fichiers sont également accessibles en même temps via une interface REST, qui ouvre une variété de scénarios hybrides. Pour finir, Azure Files repose sur la même technologie que les services BLOB, de Table et de File d’attente, ce qui signifie qu’Azure Files est en mesure de tirer parti de la redondance géographique intégrée à notre plateforme, de la durabilité, de l’évolutivité et de la disponibilité existantes.
+Le service de fichiers Azure expose les partages de fichiers à l’aide du protocole SMB 2.1 standard. Les applications exécutées dans Azure peuvent désormais facilement partager des fichiers entre des machines virtuelles à l’aide d’API de système de fichiers standard et connues, comme ReadFile et WriteFile. En outre, les fichiers sont également accessibles en même temps via une interface REST, qui ouvre une variété de scénarios hybrides. Pour finir, Azure Files repose sur la même technologie que les services BLOB, de Table et de File d’attente, ce qui signifie qu’Azure Files est en mesure de tirer parti de la redondance géographique intégrée à notre plateforme de stockage Azure, de la durabilité, de l’évolutivité et de la disponibilité existantes.
 
 ## À propos de ce didacticiel
 
 Ce didacticiel de prise en main présente les bases de l’utilisation du stockage de fichiers Microsoft Azure. Dans ce didacticiel, nous allons :
 
-- utiliser PowerShell pour créer un partage de fichiers Azure, ajouter un répertoire, charger un fichier local vers le partage et afficher la liste des fichiers du répertoire ;
-- monter le partage de fichiers à partir d’une machine virtuelle Azure, comme tout partage SMB.
+- utiliser Azure PowerShell pour créer un partage de fichiers Azure, ajouter un répertoire, charger un fichier local vers le partage et afficher la liste des fichiers du répertoire ;
+- monter le partage de fichiers à partir d’une machine virtuelle Azure, comme tout partage SMB ;
+- utiliser la bibliothèque cliente de stockage Azure pour .NET pour accéder au partage de fichiers à partir d’une application locale. Créez une application console et exécutez ces actions avec le partage de fichiers :
+	- Écrire le contenu d’un fichier du partage dans la fenêtre de la console
+	- Définir le quota (taille maximale) pour le partage de fichiers
+	- Créer une signature d’accès partagé pour un fichier qui utilise une stratégie d’accès partagé définie sur le partage
+	- Copier un fichier dans un autre fichier au sein du même compte de stockage
+	- Copier un fichier dans un objet blob au sein du même compte de stockage
 
-Pour les utilisateurs qui souhaiteraient accéder aux fichiers d’un partage à partir d’une application locale, d’une machine virtuelle Azure ou d’un service cloud, nous verrons comment utiliser la bibliothèque cliente de stockage .NET Azure afin de travailler avec le partage de fichiers à partir d’une application de bureau.
-
-> [AZURE.NOTE]Pour exécuter les exemples de code .NET de ce guide, la bibliothèque cliente de stockage .NET Azure 4.x ou une version ultérieure est nécessaire. Celle-ci est disponible via [NuGet](https://www.nuget.org/packages/WindowsAzure.Storage/).
+[AZURE.INCLUDE [storage-dotnet-client-library-version-include](../../includes/storage-dotnet-client-library-version-include.md)]
 
 [AZURE.INCLUDE [storage-file-concepts-include](../../includes/storage-file-concepts-include.md)]
 
@@ -123,14 +127,14 @@ Une fois une connexion à distance établie avec la machine virtuelle, vous pouv
 	example :
 	net use z: \\samples.file.core.windows.net\logs
 
-> [AZURE.NOTE]Comme vous avez conservé les informations d’identification de votre compte de stockage à l’étape précédente, vous n’avez pas besoin de les préciser avec la commande `net use`. Si vous n’avez pas conservé vos informations d’identification, incluez-les en les transmettant comme paramètres dans la commande `net use`.
+Comme vous avez conservé les informations d’identification de votre compte de stockage à l’étape précédente, vous n’avez pas besoin de les préciser avec la commande `net use`. Si vous n’avez pas conservé vos informations d’identification, incluez-les en les transmettant comme paramètres dans la commande `net use`, comme illustré dans cet exemple :
 
     net use <drive-letter>: \<storage-account-name>.file.core.windows.net<share-name> /u:<storage-account-name> <storage-account-key>
 
 	example :
 	net use z: \\samples.file.core.windows.net\logs /u:samples <storage-account-key>
 
-Vous pouvez maintenant utiliser le partage de stockage de fichiers à partir de la machine virtuelle, comme vous le feriez à partir de n’importe quel autre lecteur. Vous pouvez émettre des commandes de fichier standard à partir de l’invite de commandes ou afficher le partage monté et son contenu à partir de l’Explorateur de fichiers. Vous pouvez également exécuter du code au sein de la machine virtuelle qui accède au partage de fichiers à l’aide d’API d’E/S de fichiers Windows standard, telles que celles fournies par les [espaces de noms System.IO](http://msdn.microsoft.com/library/gg145019(v=vs.110).aspx) dans le .NET Framework.
+Vous pouvez maintenant utiliser le partage de stockage de fichiers à partir de la machine virtuelle, comme vous le feriez à partir de n’importe quel autre lecteur. Vous pouvez émettre des commandes de fichier standard à partir de l’invite de commandes ou afficher le partage monté et son contenu à partir de l’Explorateur de fichiers. Vous pouvez également exécuter du code au sein de la machine virtuelle qui accède au partage de fichiers à l'aide d'API d'E/S de fichiers Windows standard, telles que celles fournies par les [espaces de noms System.IO](http://msdn.microsoft.com/library/gg145019.aspx) dans .NET Framework.
 
 Vous pouvez également monter le partage de fichiers à partir d’un rôle exécuté dans un service cloud Azure en vous connectant à distance à ce rôle.
 
@@ -171,16 +175,19 @@ Ouvrez le fichier program.cs à partir de l'Explorateur de solutions et ajoutez 
 
 	using Microsoft.WindowsAzure;
 	using Microsoft.WindowsAzure.Storage;
+	using Microsoft.WindowsAzure.Storage.Blob;
 	using Microsoft.WindowsAzure.Storage.File;
 
 ### Extraction de votre chaîne de connexion par programme
 
-Vous pouvez extraire vos informations d’identification enregistrées dans le fichier app.config en utilisant la classe `Microsoft.WindowsAzure.CloudConfigurationManager` ou `System.Configuration.ConfigurationManager `. L’exemple présenté ici montre comment récupérer vos informations d’identification à l’aide de la classe `CloudConfigurationManager` et les encapsuler avec la classe `CloudStorageAccount`. Ajoutez le code suivant à la méthode `Main()` dans program.cs :
+Vous pouvez extraire vos informations d’identification enregistrées dans le fichier app.config en utilisant la classe `Microsoft.WindowsAzure.CloudConfigurationManager` ou `System.Configuration.ConfigurationManager `. Le package Microsoft Azure Configuration Manager, qui inclut la classe `Microsoft.WindowsAzure.CloudConfigurationManager`, est disponible sur [Nuget](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager).
+
+L’exemple présenté ici montre comment récupérer vos informations d’identification à l’aide de la classe `CloudConfigurationManager` et les encapsuler avec la classe `CloudStorageAccount`. Ajoutez le code suivant à la méthode `Main()` dans program.cs :
 
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-    	CloudConfigurationManager.GetSetting("StorageConnectionString"));
+    	CloudConfigurationManager.GetSetting("StorageConnectionString")); 
 
-### Accès au partage de stockage de fichiers par programme
+### Accès au partage de fichiers par programmation
 
 Ajoutez ensuite le code suivant à la méthode `Main()` après le code affiché ci-dessus afin d’extraire la chaîne de connexion. Ce code obtient une référence vers le fichier créé plus tôt et renvoie son contenu dans la fenêtre de console.
 
@@ -216,20 +223,204 @@ Ajoutez ensuite le code suivant à la méthode `Main()` après le code affiché 
 
 Exécutez l’application console pour voir le résultat.
 
-## Montage du partage à partir d’une machine virtuelle Azure exécutant Linux
+## Définition de la taille maximale d’un partage de fichiers
 
-Lorsque vous créez une machine virtuelle Azure, vous pouvez spécifier une image Ubuntu à partir de la galerie d’images de disque pour garantir la prise en charge de SMB 2.1. Toutefois, une distribution Linux prenant en charge SMB 2.1 peut monter un partage de fichiers Azure.
+Depuis la version 5.x de la bibliothèque cliente de stockage Azure, vous pouvez définir le quota (ou la taille maximale) pour un partage, en gigaoctets. En définissant le quota pour un partage, vous pouvez limiter la taille totale des fichiers stockés sur ce partage.
 
-Pour obtenir une démonstration du montage d’un partage de fichiers Azure sous Linux, consultez la vidéo relative au [stockage partagé sous Linux via l’aperçu de fichiers Azure - Partie 1](http://channel9.msdn.com/Blogs/Open/Shared-storage-on-Linux-via-Azure-Files-Preview-Part-1) sur Channel 9.
+Si la taille totale des fichiers sur le partage dépasse le quota défini sur celui-ci, les clients ne peuvent pas augmenter la taille des fichiers existants ou créer des fichiers, sauf s’ils sont vides.
+
+L’exemple ci-dessous montre comment définir le quota pour un partage de fichiers existant.
+
+    //Parse the connection string for the storage account.
+    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
+        Microsoft.Azure.CloudConfigurationManager.GetSetting("StorageConnectionString"));
+
+    //Create a CloudFileClient object for credentialed access to File storage.
+    CloudFileClient fileClient = storageAccount.CreateCloudFileClient();
+
+    //Get a reference to the file share we created previously.
+    CloudFileShare share = fileClient.GetShareReference("logs");
+
+    //Ensure that the share exists.
+    if (share.Exists())
+    {
+		//Specify the maximum size of the share, in GB.
+	    share.Properties.Quota = 100;
+	    share.SetProperties();
+	}
+
+Pour obtenir la valeur d’un quota existant pour le partage, appelez la méthode **FetchAttributes()** pour récupérer les propriétés du partage.
+
+## Génération d’une signature d’accès partagé pour un fichier ou partage de fichiers
+
+Depuis la version 5.x de la bibliothèque cliente de stockage Azure, vous pouvez générer une signature d’accès partagé (SAP) pour un partage de fichiers ou un fichier individuel. Vous pouvez également créer une stratégie d’accès partagé sur un partage de fichiers pour gérer les signatures d’accès partagé. Créer une stratégie d’accès partagé est recommandé, car cette opération permet de révoquer la SAP si elle doit être compromise.
+
+L’exemple ci-dessous crée une stratégie d’accès partagé sur un partage, puis utilise cette stratégie pour fournir les contraintes pour une SAP sur un fichier dans le partage.
+
+    //Parse the connection string for the storage account.
+    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
+        Microsoft.Azure.CloudConfigurationManager.GetSetting("StorageConnectionString"));
+
+    //Create a CloudFileClient object for credentialed access to File storage.
+    CloudFileClient fileClient = storageAccount.CreateCloudFileClient();
+
+    //Get a reference to the file share we created previously.
+    CloudFileShare share = fileClient.GetShareReference("logs");
+
+    //Ensure that the share exists.
+    if (share.Exists())
+    {
+        string policyName = "sampleSharePolicy" + DateTime.UtcNow.Ticks;
+
+        //Create a new shared access policy and define its constraints.
+        SharedAccessFilePolicy sharedPolicy = new SharedAccessFilePolicy()
+            {
+                SharedAccessExpiryTime = DateTime.UtcNow.AddHours(24),
+                Permissions = SharedAccessFilePermissions.Read | SharedAccessFilePermissions.Write
+            };
+
+        //Get existing permissions for the share.
+        FileSharePermissions permissions = share.GetPermissions();
+
+        //Add the shared access policy to the share's policies. Note that each policy must have a unique name.
+        permissions.SharedAccessPolicies.Add(policyName, sharedPolicy);
+        share.SetPermissions(permissions);
+
+        //Generate a SAS for a file in the share and associate this access policy with it.
+        CloudFileDirectory rootDir = share.GetRootDirectoryReference();
+        CloudFileDirectory sampleDir = rootDir.GetDirectoryReference("CustomLogs");
+        CloudFile file = sampleDir.GetFileReference("Log1.txt");
+        string sasToken = file.GetSharedAccessSignature(null, policyName);
+        Uri fileSasUri = new Uri(file.StorageUri.PrimaryUri.ToString() + sasToken);
+
+        //Create a new CloudFile object from the SAS, and write some text to the file. 
+        CloudFile fileSas = new CloudFile(fileSasUri);
+        fileSas.UploadText("This write operation is authenticated via SAS.");
+        Console.WriteLine(fileSas.DownloadText());
+    }
+
+Pour plus d’informations sur la création et l’utilisation de signatures d’accès partagé, consultez [Signatures d’accès partagé : présentation du modèle SAP](storage-dotnet-shared-access-signature-part-1.md) et [Créer et utiliser une SAP avec le service BLOB](storage-dotnet-shared-access-signature-part-2.md).
+
+## Copie des fichiers
+
+Depuis la version 5.x de la bibliothèque cliente de stockage Azure, vous pouvez copier un fichier dans un autre, un fichier dans un objet blob ou un objet blob dans un fichier. Ci-dessous, nous montrons comment effectuer ces opérations de copie par programmation.
+
+Vous pouvez également utiliser AzCopy pour copier un fichier dans un autre ou pour copier un objet blob dans un fichier ou vice versa. Pour plus d’informations sur la copie de fichiers avec AzCopy, consultez [Comment utiliser AzCopy avec Microsoft Azure Storage](storage-use-azcopy.md#copy-files-in-azure-file-storage-with-azcopy-preview-version-only).
+
+> [AZURE.NOTE]Si vous copiez un objet blob dans un fichier ou un fichier dans un objet blob, vous devez utiliser une signature d’accès partagé (SAP) pour authentifier l’objet source, même si vous effectuez la copie dans le même compte de stockage.
+
+### Copie d’un fichier dans un autre
+
+L’exemple suivant copie un fichier dans un autre au sein du même partage. Étant donné que cette opération de copie a lieu entre des fichiers du même compte de stockage, vous pouvez utiliser l’authentification Clé partagée pour l’effectuer.
+
+    //Parse the connection string for the storage account.
+    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
+        Microsoft.Azure.CloudConfigurationManager.GetSetting("StorageConnectionString"));
+
+    //Create a CloudFileClient object for credentialed access to File storage.
+    CloudFileClient fileClient = storageAccount.CreateCloudFileClient();
+
+    //Get a reference to the file share we created previously.
+    CloudFileShare share = fileClient.GetShareReference("logs");
+
+    //Ensure that the share exists.
+    if (share.Exists())
+    {
+        //Get a reference to the root directory for the share.
+        CloudFileDirectory rootDir = share.GetRootDirectoryReference();
+
+        //Get a reference to the directory we created previously.
+        CloudFileDirectory sampleDir = rootDir.GetDirectoryReference("CustomLogs");
+
+        //Ensure that the directory exists.
+        if (sampleDir.Exists())
+        {
+            //Get a reference to the file we created previously.
+            CloudFile sourceFile = sampleDir.GetFileReference("Log1.txt");
+
+            //Ensure that the source file exists.
+            if (sourceFile.Exists())
+            {
+                //Get a reference to the destination file.
+                CloudFile destFile = sampleDir.GetFileReference("Log1Copy.txt");
+
+                //Start the copy operation.
+                destFile.StartCopy(sourceFile);
+
+                //Write the contents of the destination file to the console window.
+                Console.WriteLine(destFile.DownloadText());
+            }
+        }
+    }
+
+
+### Copie d’un fichier dans un objet blob
+
+L’exemple ci-dessous crée un fichier et le copie dans un objet blob au sein du même compte de stockage. L’exemple crée une SAP pour le fichier source, que le service utilise pour authentifier l’accès au fichier source pendant l’opération de copie.
+
+    //Parse the connection string for the storage account.
+    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
+        Microsoft.Azure.CloudConfigurationManager.GetSetting("StorageConnectionString"));
+
+    //Create a CloudFileClient object for credentialed access to File storage.
+    CloudFileClient fileClient = storageAccount.CreateCloudFileClient();
+
+    //Create a new file share, if it does not already exist.
+    CloudFileShare share = fileClient.GetShareReference("sample-share");
+    share.CreateIfNotExists();
+
+    //Create a new file in the root directory.
+    CloudFile sourceFile = share.GetRootDirectoryReference().GetFileReference("sample-file.txt");
+    sourceFile.UploadText("A sample file in the root directory.");
+
+    //Get a reference to the blob to which the file will be copied.
+    CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
+    CloudBlobContainer container = blobClient.GetContainerReference("sample-container");
+    container.CreateIfNotExists();
+    CloudBlockBlob destBlob = container.GetBlockBlobReference("sample-blob.txt");
+
+    //Create a SAS for the file that's valid for 24 hours.
+    //Note that when you are copying a file to a blob, or a blob to a file, you must use a SAS
+    //to authenticate access to the source object, even if you are copying within the same 
+    //storage account.
+    string fileSas = sourceFile.GetSharedAccessSignature(new SharedAccessFilePolicy()
+    {
+        //Only read permissions are required for the source file.
+        Permissions = SharedAccessFilePermissions.Read,
+        SharedAccessExpiryTime = DateTime.UtcNow.AddHours(24)
+    });
+
+    //Construct the URI to the source file, including the SAS token. 
+    Uri fileSasUri = new Uri(sourceFile.StorageUri.PrimaryUri.ToString() + fileSas);
+
+    //Copy the file to the blob.
+    destBlob.StartCopy(fileSasUri);
+
+    //Write the contents of the file to the console window.
+    Console.WriteLine("Source file contents: {0}", sourceFile.DownloadText());
+    Console.WriteLine("Destination blob contents: {0}", destBlob.DownloadText());
+
+Vous pouvez copier un objet blob dans un fichier de la même façon. Si l’objet source est un objet blob, créez une SAP pour authentifier l’accès à cet objet blob pendant l’opération de copie.
+
+## Utilisation du stockage de fichiers avec Linux
+
+Pour créer et gérer un partage de fichiers à partir de Linux, utilisez l’interface de ligne de commande Azure. Pour plus d’informations sur l’utilisation de l’interface de ligne de commande Azure avec le stockage de fichiers, consultez [Utilisation de la CLI Microsoft Azure avec Microsoft Azure Storage](storage-azure-cli.md#create-and-manage-file-shares).
+
+Vous pouvez monter un partage de fichiers Azure à partir d’une machine virtuelle exécutant Linux. Quand vous créez votre machine virtuelle Azure, vous pouvez spécifier une image Linux qui prend en charge SMB 2.1 à partir de la galerie d’images Azure, telle que la dernière version d’Ubuntu. Toutefois, une distribution Linux prenant en charge SMB 2.1 peut monter le partage de fichiers Azure.
+
+Pour plus d’informations sur le montage d’un partage de fichiers Azure sous Linux, consultez la vidéo relative au [stockage partagé sous Linux via l’aperçu de fichiers Azure - Partie 1](http://channel9.msdn.com/Blogs/Open/Shared-storage-on-Linux-via-Azure-Files-Preview-Part-1) sur Channel 9.
 
 ## Étapes suivantes
 
 Pour plus d’informations sur le stockage de fichiers Azure, consultez ces liens.
 
-### Référence
+### Didacticiels et référence
 
 - [Référence de la bibliothèque cliente de stockage pour .NET](https://msdn.microsoft.com/library/azure/dn261237.aspx)
 - [Référence de l’API REST du service de fichiers](http://msdn.microsoft.com/library/azure/dn167006.aspx)
+- [Utiliser AzCopy avec Microsoft Azure Storage](storage-use-azcopy.md)
+- [Utilisation d'Azure PowerShell avec Azure Storage](storage-powershell-guide-full.md)
+- [Utilisation de la CLI Microsoft Azure avec Microsoft Azure Storage](storage-azure-cli.md)
 
 ### Billets de blog :
 
@@ -237,4 +428,4 @@ Pour plus d’informations sur le stockage de fichiers Azure, consultez ces lien
 - [Conservation des connexions vers les fichiers Microsoft Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx)
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

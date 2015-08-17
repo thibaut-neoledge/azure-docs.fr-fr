@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="05/29/2015"
+   ms.date="07/24/2015"
    ms.author="larryfr"/>
 
 # Traitement des événements Azure Event Hubs avec Storm sur HDInsight (C#)
@@ -532,17 +532,17 @@ EventHubSpout contrôle régulièrement son état au nœud Zookeeper, qui enregi
 
 * Arrêt et redémarrage de la topologie **sous le même nom**.
 
-Vous pouvez également exporter et importer les points de contrôle persistants vers le WASB (le stockage Azure utilisé par votre cluster HDInsight.) Les scripts qui permettent de le faire sont situés sur le cluster Storm sur HDInsight, dans **c:\apps\dist\storm-0.9.3.2.2.1.0-2340\zkdatatool-1.0\bin**.
+Vous pouvez également exporter et importer les points de contrôle persistants vers le WASB (le stockage Azure utilisé par votre cluster HDInsight.) Les scripts qui permettent de le faire sont situés sur le cluster Storm sur HDInsight, dans **c:\\apps\\dist\\storm-0.9.3.2.2.1.0-2340\\zkdatatool-1.0\\bin**.
 
 >[AZURE.NOTE]Le numéro de version dans le chemin d’accès peut être différent, car la version de Storm installée sur le cluster peut changer dans le futur.
 
 Les scripts présents dans ce répertoire sont :
 
-* **stormmeta_import.cmd** : pour importer toutes les métadonnées Storm du conteneur de stockage de clusters par défaut dans Zookeeper.
+* **stormmeta\_import.cmd** : pour importer toutes les métadonnées Storm du conteneur de stockage de clusters par défaut dans Zookeeper.
 
-* **stormmeta_export.cmd** : pour exporter toutes les métadonnées Storm de Zookeeper vers le conteneur de stockage de clusters par défaut.
+* **stormmeta\_export.cmd** : pour exporter toutes les métadonnées Storm de Zookeeper vers le conteneur de stockage de clusters par défaut.
 
-* **stormmeta_delete.cmd** : pour supprimer toutes les métadonnées Storm de Zookeeper.
+* **stormmeta\_delete.cmd** : pour supprimer toutes les métadonnées Storm de Zookeeper.
 
 L’exportation d’une importation vous permet de conserver les données du point de contrôle lorsque vous devez supprimer le cluster, mais que vous souhaitez reprendre le traitement à partir de l’offset actuel dans le concentrateur lorsque vous remettez un nouveau cluster en ligne.
 
@@ -557,4 +557,4 @@ Dans ce document, vous avez découvert comment utiliser le spout et le bolt du h
 * [Exemples de topologies pour Storm dans HDInsight](hdinsight-storm-example-topology.md)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

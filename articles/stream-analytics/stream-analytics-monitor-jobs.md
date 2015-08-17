@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Surveiller par programme les tâches Stream Analytics | Microsoft Azure" 
+	pageTitle="Surveiller par programmation les tâches Stream Analytics | Microsoft Azure" 
 	description="Découvrez comment surveiller par programme les tâches Stream Analytics créées via des API REST, le kit de développement logiciel Microsoft Azure SDK ou Powershell." 
 	services="stream-analytics" 
 	documentationCenter="" 
@@ -13,11 +13,11 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="07/16/2015" 
+	ms.date="08/05/2015" 
 	ms.author="jeffstok"/>
 
 
-# Surveiller par programme des tâches Stream Analytics 
+# Surveiller par programmation les tâches Stream Analytics 
 Cet article explique comment activer la surveillance d'une tâche Stream Analytics. Par défaut, la surveillance n'est pas activée pour les travaux Stream Analytics créés par le biais des API REST, du kit de développement logiciel (SDK) Azure ou de PowerShell. Vous pouvez l'activer manuellement sur le portail Azure. Pour cela, accédez à la page de surveillance du travail et cliquez sur le bouton Activer. Vous pouvez également automatiser ce processus en suivant les étapes décrites dans cet article. Les données de surveillance seront affichées dans l'onglet « Surveiller » du portail Azure pour le travail Stream Analytics.
 
 ![Onglet Surveiller les travaux](./media/stream-analytics-monitor-jobs/stream-analytics-monitor-jobs-tab.png)
@@ -175,7 +175,7 @@ Pour obtenir une assistance, consultez le [forum Azure Stream Analytics](https:/
 - [Prise en main d'Azure Stream Analytics](stream-analytics-get-started.md)
 - [Mise à l'échelle des travaux Azure Stream Analytics](stream-analytics-scale-jobs.md)
 - [Références sur le langage des requêtes d'Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx)
-- [Références sur l'API REST de gestion d'Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+- [Références sur l’API REST de gestion d’Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

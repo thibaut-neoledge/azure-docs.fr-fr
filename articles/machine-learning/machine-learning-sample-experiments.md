@@ -40,4 +40,4 @@ Lorsque vous souhaitez créer une expérience, recherchez des exemples d'expéri
 - [Parcourez des applications prêtes à l'emploi](https://datamarket.azure.com/browse?query=machine+learning)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

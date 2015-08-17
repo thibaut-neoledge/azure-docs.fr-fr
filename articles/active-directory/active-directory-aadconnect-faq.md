@@ -27,9 +27,9 @@
 
 - Recherchez dans la Base de connaissances Microsoft (KB) des solutions techniques aux problèmes courants couverts par la garantie de réparation et d’assistance, relatifs à la prise en charge d’Azure AD Connect.
 
-[Forums Microsoft Azure Active Directory](https://social.msdn.microsoft.com/Forums/azure/fr-fr/home?forum=WindowsAzureAD)
+[Forums Microsoft Azure Active Directory](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=WindowsAzureAD)
 
-- Vous pouvez rechercher et parcourir des questions et des réponses techniques de la communauté ou poser votre question en cliquant [ici](https://social.msdn.microsoft.com/Forums/azure/fr-fr/newthread?category=windowsazureplatform&forum=WindowsAzureAD&prof=required).
+- Vous pouvez rechercher et parcourir des questions et des réponses techniques de la communauté ou poser votre question en cliquant [ici](https://social.msdn.microsoft.com/Forums/azure/en-US/newthread?category=windowsazureplatform&forum=WindowsAzureAD&prof=required).
 
 
 [Service clientèle Azure AD Connect](https://manage.windowsazure.com/?getsupport=true)
@@ -40,4 +40,4 @@
 
 Utilisez les instructions décrites [ici](active-directory-aadconnect-o365-certs.md) pour renouveler le certificat.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

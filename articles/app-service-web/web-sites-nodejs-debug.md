@@ -54,7 +54,7 @@ Si les outils en ligne de commande Azure sont installés dans votre environnemen
 
 	azure site restart [sitename]
 
-> [AZURE.NOTE]Bien que loggingEnabled et devErrorsEnabled soient les options de configuration IISNode.yml les plus fréquemment utilisées pour la capture des informations de diagnostic, IISNode.yml peut être utilisé pour configurer diverses options pour votre environnement d'hébergement. Pour une liste complète des options de configuration, consultez le fichier [iisnode_schema.xml](https://github.com/tjanczuk/iisnode/blob/master/src/config/iisnode_schema.xml).
+> [AZURE.NOTE]Bien que loggingEnabled et devErrorsEnabled soient les options de configuration IISNode.yml les plus fréquemment utilisées pour la capture des informations de diagnostic, IISNode.yml peut être utilisé pour configurer diverses options pour votre environnement d'hébergement. Pour une liste complète des options de configuration, consultez le fichier [iisnode\_schema.xml](https://github.com/tjanczuk/iisnode/blob/master/src/config/iisnode_schema.xml).
 
 <a id="viewlogs"></a>
 ## Accès aux journaux
@@ -125,4 +125,4 @@ Pour plus d'informations sur la spécification d'une version Node.js de votre ap
 [restart-button]: ./media/web-sites-nodejs-debug/restartbutton.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

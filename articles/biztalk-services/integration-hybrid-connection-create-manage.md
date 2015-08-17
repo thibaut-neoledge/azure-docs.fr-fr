@@ -7,6 +7,7 @@
 	manager="dwrede" 
 	editor="cgronlun"/>
 
+
 <tags 
 	ms.service="biztalk-services" 
 	ms.workload="integration" 
@@ -15,6 +16,7 @@
 	ms.topic="article" 
 	ms.date="07/14/2015" 
 	ms.author="mandia"/>
+
 
 
 # Création et gestion des connexions hybrides
@@ -38,15 +40,27 @@ Vous pouvez créer une connexion hybride dans le portail de gestion Azure avec W
 **Pour créer des connexions hybrides dans BizTalk Services** :
 
 1. Connectez-vous au [portail de gestion Azure](http://go.microsoft.com/fwlink/p/?LinkID=213885).
-2. Dans le volet de navigation sur la gauche, sélectionnez **BizTalk Services**, puis sélectionnez votre service BizTalk. <br/>Si vous n’avez pas de service BizTalk, vous pouvez en [créer un](biztalk-provision-services.md).
-3. Sélectionnez l’onglet Connexions hybrides : <br/> ![Onglet Connexions hybrides][HybridConnectionTab]
+2. Dans le volet de navigation sur la gauche, sélectionnez **BizTalk Services**, puis sélectionnez votre service BizTalk. <br/>
+Si vous n’avez pas de service BizTalk, vous pouvez en [créer un](biztalk-provision-services.md).
+3. Sélectionnez l’onglet Connexions hybrides : <br/>
+ ![Onglet Connexions hybrides][HybridConnectionTab]
 
 4. Sélectionnez **Créer une connexion hybride** ou cliquez sur le bouton **AJOUTER** dans la barre des tâches. Entrez les informations suivantes :
 
 	Propriété | Description
 --- | ---
-Nom | Le nom de la connexion hybride doit être unique et ne doit pas être le même que celui du service BizTalk. Vous pouvez entrer n’importe quel nom, mais soyez précis quant à son objet. Voici quelques exemples :<br/><br/>Paie\*SQLServer\*<br/>ListeFournisseurs\*SharepointServer\*<br/>Clients \*OracleServer\*
-Nom d’hôte | Entrez le nom complet de l’hôte, uniquement le nom d’hôte ou l’adresse IPv4 de la ressource locale. Voici quelques exemples :<br/><br/>mySQLServer<br/>\*mySQLServer\*.\*domaine\*.corp.\*votresociété\*.com<br/>\*myHTTPSharePointServer\*<br/>\*myHTTPSharePointServer\*.\*votresociété\*.com<br/>10.100.10.10
+Nom | Le nom de la connexion hybride doit être unique et ne doit pas être le même que celui du service BizTalk. Vous pouvez entrer n’importe quel nom, mais soyez précis quant à son objet. Voici quelques exemples :<br/>
+<br/>
+Paie*SQLServer*<br/>
+ListeFournisseurs*SharepointServer*<br/>
+Clients *OracleServer*
+Nom d’hôte | Entrez le nom complet de l’hôte, uniquement le nom d’hôte ou l’adresse IPv4 de la ressource locale. Par exemple :<br/>
+<br/>
+mySQLServer<br/>
+*mySQLServer*.*Domain*.corp.*yourCompany*.com<br/>
+*myHTTPSharePointServer*<br/>
+*myHTTPSharePointServer*.*yourCompany*.com<br/>
+10.100.10.10
 Port | Entrez le numéro de port de la ressource locale. Par exemple, si vous utilisez des applications web, entrez le port 80 ou 443. Si vous utilisez SQL Server, entrez le port 1433.
 
 5. Cliquez sur la coche pour terminer la configuration.
@@ -70,8 +84,10 @@ Après la création d’une connexion hybride, installez le Gestionnaire de conn
 
 1. Connectez-vous au [portail de gestion Azure](http://go.microsoft.com/fwlink/p/?LinkID=213885).
 2. Dans le volet de navigation sur la gauche, sélectionnez **BizTalk Services**, puis sélectionnez votre service BizTalk. 
-3. Sélectionnez l’onglet **Connexions hybrides** : <br/> ![Onglet Connexions hybrides][HybridConnectionTab]
-4. Dans la barre des tâches, sélectionnez **Installation locale** : <br/> ![On-Premises Setup][HCOnPremSetup]
+3. Sélectionnez l’onglet **Connexions hybrides** : <br/>
+ ![Onglet Connexions hybrides][HybridConnectionTab]
+4. Dans la barre des tâches, sélectionnez **Installation locale** : <br/>
+ ![On-Premises Setup][HCOnPremSetup]
 5. Sélectionnez **Installer et configurer** pour exécuter ou télécharger le Gestionnaire de connexions hybrides sur le système local. 
 6. Cliquez sur la coche pour démarrer l’installation. 
 
@@ -112,8 +128,13 @@ Pour gérer vos connexions hybrides, vous pouvez :
 
 1. Connectez-vous au [portail de gestion Azure](http://go.microsoft.com/fwlink/p/?LinkID=213885).
 2. Dans le volet de navigation sur la gauche, sélectionnez **BizTalk Services**, puis sélectionnez votre service BizTalk. 
-3. Sélectionnez l’onglet **Connexions hybrides** : <br/> ![Onglet Connexions hybrides][HybridConnectionTab]
-4. Sélectionnez la connexion hybride. Dans la barre des tâches, sélectionnez **Gérer les connexions** : <br/> ![Gérer les options][HCManageConnection] <br/> L’option **Gérer les connexions** répertorie les chaînes de connexion d’application et locales. Vous pouvez copier les chaînes de connexion ou régénérer la clé d’accès utilisée dans la chaîne de connexion. <br/> <br/> **Si vous sélectionnez Régénérer**, la clé d’accès partagé utilisée dans la chaîne de connexion est modifiée. Effectuez les actions suivantes :
+3. Sélectionnez l’onglet **Connexions hybrides** : <br/>
+ ![Onglet Connexions hybrides][HybridConnectionTab]
+4. Sélectionnez la connexion hybride. Dans la barre des tâches, sélectionnez **Gérer les connexions** : <br/>
+ ![Gérer les options][HCManageConnection] <br/>
+ L’option **Gérer les connexions** répertorie les chaînes de connexion d’application et locales. Vous pouvez copier les chaînes de connexion ou régénérer la clé d’accès utilisée dans la chaîne de connexion. <br/>
+ <br/>
+ **Si vous sélectionnez Régénérer**, la clé d’accès partagé utilisée dans la chaîne de connexion est modifiée. Effectuez les actions suivantes :
 - Dans le portail de gestion Azure, sélectionnez **Clés de synchronisation** dans l’application Azure.
 - Réexécutez l’**Installation locale**. Lorsque vous réexécutez l'installation locale, la ressource locale est automatiquement configurée pour utiliser la chaîne de connexion principale mise à jour.
 
@@ -134,16 +155,23 @@ Une fois les fichiers copiés, vous pouvez utiliser l'Éditeur de stratégie de 
 
 ## Suivant
 
-[Connexion d’applications web Azure à une ressource locale](../web-sites-hybrid-connection-get-started.md)<br/> [Connexion à un serveur SQL Server local à partir d’Azure Web Apps](../web-sites-hybrid-connection-connect-on-premises-sql-server.md)<br/> [Azure Mobile Services et connexions hybrides](../mobile-services-dotnet-backend-hybrid-connections-get-started.md)<br/> [Aperçu des connexions hybrides](integration-hybrid-connection-overview.md)
+[Connexion d’applications web Azure à une ressource locale](../web-sites-hybrid-connection-get-started.md)<br/>
+ [Connexion à un serveur SQL Server local à partir d’Azure Web Apps](../web-sites-hybrid-connection-connect-on-premises-sql-server.md)<br/>
+ [Azure Mobile Services et connexions hybrides](../mobile-services-dotnet-backend-hybrid-connections-get-started.md)<br/>
+ [Aperçu des connexions hybrides](integration-hybrid-connection-overview.md)
 
 
 ## Voir aussi
 
-[API REST pour la gestion des services BizTalk sur Microsoft Azure](http://msdn.microsoft.com/library/azure/dn232347.aspx)<br/> [Tableau comparatif des éditions de BizTalk Services](biztalk-editions-feature-chart.md)<br/> [Créer un service BizTalk à l’aide du portail de gestion Azure](biztalk-provision-services.md)<br/> [Onglets Tableau de bord, Surveiller et Mettre à l’échelle dans BizTalk Services](biztalk-dashboard-monitor-scale-tabs.md)<br/>
+[API REST pour la gestion des services BizTalk sur Microsoft Azure](http://msdn.microsoft.com/library/azure/dn232347.aspx)<br/>
+ [Tableau comparatif des éditions de BizTalk Services](biztalk-editions-feature-chart.md)<br/>
+ [Créer un service BizTalk à l’aide du portail de gestion Azure](biztalk-provision-services.md)<br/>
+ [Onglets Tableau de bord, Surveiller et Mettre à l’échelle dans BizTalk Services](biztalk-dashboard-monitor-scale-tabs.md)<br/>
+
 
 
 [HybridConnectionTab]: ./media/integration-hybrid-connection-create-manage/WABS_HybridConnectionTab.png
 [HCOnPremSetup]: ./media/integration-hybrid-connection-create-manage/WABS_HybridConnectionOnPremSetup.png
 [HCManageConnection]: ./media/integration-hybrid-connection-create-manage/WABS_HybridConnectionManageConn.png
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

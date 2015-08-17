@@ -98,9 +98,9 @@ Les clusters HDInsight sur Linux fournissent un ensemble d’exemples MapReduce 
 
     	hadoop jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar wordcount /example/data/gutenberg/davinci.txt /example/data/davinciwordcount
 
-    L’entrée de cette tâche est lue dans **wasb:///example/data/gutenberg/davinci.txt**.
+    L’entrée de cette tâche est lue dans ****wasb:///example/data/gutenberg/davinci.txt**.
 
-    La sortie de cet exemple est stockée dans **wasb:///example/data/davinciwordcount**.
+    La sortie de cet exemple est stockée dans ****wasb:///example/data/davinciwordcount**.
 
     > [AZURE.NOTE]Comme indiqué dans l’aide de l’exemple wordcount, vous pouvez également spécifier plusieurs fichiers d’entrée. Par exemple, `hadoop jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar wordcount /example/data/gutenberg/davinci.txt /example/data/gutenberg/ulysses.txt /example/data/twowordcount` compte les mots figurant dans les fichiers davinci.txt et ulysses.txt.
 
@@ -185,7 +185,7 @@ Cet exemple utilise trois ensembles de programmes MapReduce :
 
 - **TeraGen** : programme MapReduce qui génère des lignes de données à trier
 
-- **TeraSort** : échantillonne les données d’entrée et utilise MapReduce pour trier les données dans un ordre complet
+- **TeraSort** : échantillonne les données d'entrée et utilise MapReduce pour trier les données en une commande totale.
 
     TeraSort est un tri standard de fonctions MapReduce, sauf pour un partitionneur personnalisé qui utilise une liste triée de clés échantillonnées N-1 définissant le groupe de clés pour chaque réduction. Plus particulièrement, toutes les clés semblables à cet échantillon [i-1] <= key < sample[i] sont envoyées pour réduire i. Cela garantit que les sorties de réduction i sont toutes inférieures aux sorties de réduction i+1.
 
@@ -195,10 +195,11 @@ Cet exemple utilise trois ensembles de programmes MapReduce :
 
 Utilisez les étapes suivantes pour générer des données, trier, puis valider la sortie :
 
-1. Générer 10 Go de données, qui seront stockées dans le stockage du cluster HDInsight par défaut sous **wasb:///example/data/10GB-sort-input** : 
+1. Générer 10 Go de données, qui seront stockées dans le stockage du cluster HDInsight par défaut sous ****wasb:///example/data/10GB-sort-input** :
+
         hadoop jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar teragen -Dmapred.map.tasks=50 100000000 /example/data/10GB-sort-input
 
-	`-Dmapred.map.tasks` indique à Hadoop le nombre de tâches de mappage à utiliser pour cette tâche. Les deux derniers paramètres indiquent la tâche pour créer 10 Go de données et pour les stocker sur **wasb:///example/data/10GB-sort-input**.
+	`-Dmapred.map.tasks` indique à Hadoop le nombre de tâches de mappage à utiliser pour cette tâche. Les deux derniers paramètres indiquent la tâche pour créer 10 Go de données et pour les stocker sur ****wasb:///example/data/10GB-sort-input**.
 
 2. Exécutez la commande suivante pour trier les données :
 
@@ -241,4 +242,4 @@ Dans cet article, vous avez appris à exécuter les exemples inclus avec les clu
 [hdinsight-use-hive]: hdinsight-use-hive.md
 [hdinsight-use-pig]: hdinsight-use-pig.md
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

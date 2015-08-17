@@ -142,7 +142,7 @@ Pour déclencher un ticket de support pour ASR, accédez au support Azure en uti
 ## Articles de la Base de connaissances
 
 -   [Comment conserver la lettre de lecteur pour les machines virtuelles protégées
-    > http://support.microsoft.com/kb/3031135
+    > qui sont basculées ou migrées vers Azure](http://support.microsoft.com/kb/3031135)
 
 -   [Comment résoudre les problèmes Azure Recovery
     > Services](http://support.microsoft.com/kb/3005185)
@@ -164,9 +164,9 @@ Vous trouverez ci-dessous les erreurs courantes qui peuvent être testées et le
 
 ### Paramétrage
 
--   [Impossible d'inscrire le serveur VMM en raison d'une erreur interne. Reportez-vous à la vue tâches dans le portail Site Recovery pour plus d'informations sur l'erreur. Exécutez de nouveau le programme d'installation pour inscrire le serveur.](http://social.technet.microsoft.com/wiki/contents/articles/25570.the-vmm-server-cannot-be-registered-due-to-an-internal-error-please-refer-to-the-jobs-view-in-the-site-recovery-portal-for-more-details-on-the-error-run-setup-again-to-register-the-server.aspx)
+-   [Impossible d’inscrire le serveur VMM en raison d’une erreur interne. Reportez-vous à la vue tâches dans le portail Site Recovery pour plus d'informations sur l'erreur. Exécutez de nouveau le programme d'installation pour inscrire le serveur.](http://social.technet.microsoft.com/wiki/contents/articles/25570.the-vmm-server-cannot-be-registered-due-to-an-internal-error-please-refer-to-the-jobs-view-in-the-site-recovery-portal-for-more-details-on-the-error-run-setup-again-to-register-the-server.aspx)
 
--   [Impossible d'établir une connexion au coffre Hyper-V Recovery Manager. Vérifiez les paramètres de proxy ou réessayez ultérieurement.](http://social.technet.microsoft.com/wiki/contents/articles/25571.a-connection-cant-be-established-to-the-hyper-v-recovery-manager-vault-verify-the-proxy-settings-or-try-again-later.aspx)
+-   [Impossible d’établir une connexion au coffre Hyper-V Recovery Manager. Vérifiez les paramètres de proxy ou réessayez ultérieurement.](http://social.technet.microsoft.com/wiki/contents/articles/25571.a-connection-cant-be-established-to-the-hyper-v-recovery-manager-vault-verify-the-proxy-settings-or-try-again-later.aspx)
 
 ### Configuration
 
@@ -190,7 +190,7 @@ Vous trouverez ci-dessous les erreurs courantes qui peuvent être testées et le
 
     -   [Basculement vers le point de récupération sélectionné pour la machine virtuelle : accès général refusé.](http://social.technet.microsoft.com/wiki/contents/articles/25504.fail-over-to-the-selected-recovery-point-for-virtual-machine-general-access-denied-error.aspx)
 
-    -   [Échec du basculement d'Hyper-V vers le point de récupération sélectionné pour la machine virtuelle : opération abandonnée, essayez un point de récupération plus récent. (0x80004004)](http://social.technet.microsoft.com/wiki/contents/articles/25503.hyper-v-failed-to-fail-over-to-the-selected-recovery-point-for-virtual-machine-operation-aborted-try-a-more-recent-recovery-point-0x80004004.aspx)
+    -   [Échec du basculement d’Hyper-V vers le point de récupération sélectionné pour la machine virtuelle : opération abandonnée, essayez un point de récupération plus récent. (0x80004004)](http://social.technet.microsoft.com/wiki/contents/articles/25503.hyper-v-failed-to-fail-over-to-the-selected-recovery-point-for-virtual-machine-operation-aborted-try-a-more-recent-recovery-point-0x80004004.aspx)
 
     -   Impossible d’établir une connexion avec le serveur (0x00002EFD)
 
@@ -206,7 +206,7 @@ Vous trouverez ci-dessous les erreurs courantes qui peuvent être testées et le
 
 -   [La machine virtuelle ne fonctionne pas et n'est pas hors tension](http://social.technet.microsoft.com/wiki/contents/articles/25510.virtual-machine-is-not-running-and-is-not-powered-off.aspx)
 
--   [Une opération hors bande s'est produite sur une machine virtuelle et ](http://social.technet.microsoft.com/wiki/contents/articles/25507.the-virtual-machine-isn-t-ready-for-planned-failover.aspx)la validation du basculement a échoué
+-   [Une opération hors bande s’est produite sur une machine virtuelle et ](http://social.technet.microsoft.com/wiki/contents/articles/25507.the-virtual-machine-isn-t-ready-for-planned-failover.aspx)la validation du basculement a échoué
 
 -   Test Failover
 
@@ -222,4 +222,4 @@ Serveur de configuration, Serveur de traitement, Serveur maître
 ### Résolution des problèmes après un basculement de bureau à distance
 Suite à un basculement, de nombreux clients ont été confrontés à des problèmes de connexion à la machine virtuelle dans Azure. Utilisez le document de dépannage pour exécuter la résolution des problèmes de bureau à distance sur la machine virtuelle. [Lien vers le document](http://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

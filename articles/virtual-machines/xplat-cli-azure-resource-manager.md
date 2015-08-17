@@ -1,20 +1,15 @@
 <properties
 	pageTitle="Utilisation de l’interface de ligne de commande Microsoft Azure pour Mac, Linux et Windows avec Azure Resource Management"
-	description="Utilisation de l’interface de ligne de commande Microsoft Azure pour Mac, Linux et Windows avec Azure Resource Manager."
+	description="Utilisation de l’interface de ligne de commande Microsoft Azure pour Mac, Linux et Windows avec Azure Resource Manager"
 	editor="tysonn"
 	manager="timlt"
 	documentationCenter=""
 	authors="dlepow"
 	services="virtual-machines"/>
 
-<tags
-	ms.service="virtual-machines"
-	ms.workload="infrastructure-services""
-	ms.tgt_pltfrm="command-line-interface"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="06/09/2015"
-	ms.author="danlep"/>
+
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services"" ms.tgt_pltfrm="command-line-interface" ms.devlang="na" ms.topic="article" ms.date="06/09/2015" ms.author="danlep"/>
+
 
 # Utiliser l’interface de ligne de commande Azure pour Mac, Linux et Windows avec Azure Resource Manager
 
@@ -161,7 +156,7 @@ Connectez-vous ensuite avec SSH à l’aide de la commande **ssh username@ipaddr
 
 	azure network public-ip show "testrg" "testip"
 
-La gestion de cette machine virtuelle est facile avec les commandes **vm**. Pour plus d’informations, consultez [Utilisation de l’interface de ligne de commande Azure avec Azure Resource Manager](azure-cli-arm-commands.md)
+La gestion de cette machine virtuelle est facile avec les commandes **vm**. Pour plus d’informations, consultez [Utilisation de l’interface de ligne de commande Azure avec Azure Resource Management](azure-cli-arm-commands.md).
 
 ### Raccourci vm quick-create
 
@@ -184,7 +179,7 @@ L’interface de ligne de commande Azure créera une machine virtuelle avec une 
 
 #### Recherche et configuration d’un modèle de groupe de ressources
 
-1. Quand vous utilisez des modèles, vous pouvez créer vos propres modèles, utiliser les modèles de la galerie, ou utiliser les modèles disponibles sur [GitHub](https://github.com/azurermtemplates/azurermtemplates). Pour commencer, nous allons utiliser un modèle nommé CoreOS.CoreOSStable.0.2.40-preview provenant de la galerie. Pour répertorier les modèles disponibles dans la galerie, utilisez la commande suivante. Étant donné qu’il existe des milliers de modèles disponibles, vous pouvez faire défiler les résultats ou utiliser **grep** ou **findstr** (sur Windows), ou votre commande de recherche de chaîne préférée pour trouver des modèles intéressants. Vous pouvez également utiliser l'option **--json** et télécharger la liste complète au format JSON pour faciliter la recherche.
+1. Quand vous utilisez des modèles, vous pouvez créer vos propres modèles, utiliser les modèles de la galerie ou utiliser les modèles disponibles sur [GitHub](https://github.com/azurermtemplates/azurermtemplates). Pour commencer, nous allons utiliser un modèle nommé CoreOS.CoreOSStable.0.2.40-preview provenant de la galerie. Pour répertorier les modèles disponibles dans la galerie, utilisez la commande suivante. Étant donné qu’il existe des milliers de modèles disponibles, vous pouvez faire défiler les résultats ou utiliser **grep** ou **findstr** (sur Windows) ou votre commande de recherche de chaîne préférée pour trouver des modèles intéressants. Vous pouvez également utiliser l'option **--json** et télécharger la liste complète au format JSON pour faciliter la recherche.
 
 		azure group template list
 
@@ -338,7 +333,7 @@ Pour afficher les informations de journalisation sur les opérations effectuées
 
 * Pour plus d’informations sur l’utilisation de l’interface de ligne de commande Azure, consultez [Installer et configurer l’interface de ligne de commande Azure][clisetup].
 * Pour plus d’informations sur l’utilisation d’Azure Resource Manager avec Azure PowerShell, consultez [Utilisation d’Azure PowerShell avec Azure Resource Manager](../powershell-azure-resource-manager.md).
-* Pour plus d’informations sur l’utilisation d’Azure Resource Manager à partir du portail Azure, consultez [Utilisation de groupes de ressources pour gérer vos ressources Azure][psrm].
+* Pour plus d’informations sur l’utilisation d’Azure Resource Manager à partir du portail Azure, consultez [Utilisation des groupes de ressources pour gérer vos ressources Azure][psrm].
 
 [signuporg]: http://www.windowsazure.com/documentation/articles/sign-up-organization/
 [adtenant]: http://technet.microsoft.com/library/jj573650#createAzureTenant
@@ -346,4 +341,4 @@ Pour afficher les informations de journalisation sur les opérations effectuées
 [clisetup]: ../xplat-cli.md
 [psrm]: http://go.microsoft.com/fwlink/?LinkId=394760
 
-<!-----HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

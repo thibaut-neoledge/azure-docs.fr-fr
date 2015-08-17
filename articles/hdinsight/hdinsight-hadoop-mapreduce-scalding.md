@@ -138,7 +138,7 @@ Dans ce document, découvrez comment utiliser Maven pour créer une tâche de co
 
     * **repositories** : référentiels contenant les fichiers de dépendance utilisés par le projet
 
-    * **scalding-core_2.11** et **hadoop-core** : ce projet dépend des packages principaux Scalding et Hadoop
+    * **scalding-core\_2.11** et **hadoop-core** : ce projet dépend des packages principaux Scalding et Hadoop
 
     * **maven-scala-plug-in** : plug-in pour compiler des applications scala
 
@@ -168,7 +168,7 @@ Dans ce document, découvrez comment utiliser Maven pour créer une tâche de co
 
           //Tokenizer to split sentance into words
           def tokenize(text : String) : Array[String] = {
-            text.toLowerCase.replaceAll("[^a-zA-Z0-9\s]", "").split("\s+")
+            text.toLowerCase.replaceAll("[^a-zA-Z0-9\\s]", "").split("\\s+")
           }
         }
 
@@ -289,4 +289,4 @@ Maintenant que vous avez vu comment utiliser Scalding pour créer des tâches Ma
 
 * [Utilisation des tâches MapReduce avec HDInsight](hdinsight-use-mapreduce.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

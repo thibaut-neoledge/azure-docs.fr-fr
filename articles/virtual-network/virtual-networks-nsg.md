@@ -65,15 +65,15 @@ Les règles par défaut sont :
 
 | Nom | Priorité | IP Source | Port source | IP de destination | Port de destination | Protocole | Access |
 |-----------------------------------|----------|--------------------|-------------|-----------------|------------------|----------|--------|
-| AUTORISER LE TRAFIC ENTRANT DU RÉSEAU VIRTUEL | 65 000 | VIRTUAL_NETWORK | * | VIRTUAL_NETWORK | * | * | AUTORISER |
-| AUTORISER LE TRAFIC ENTRANT DE L'ÉQUILIBRAGE DE CHARGE AZURE | 65 001 | AZURE_LOADBALANCER | * | * | * | * | AUTORISER |
+| AUTORISER LE TRAFIC ENTRANT DU RÉSEAU VIRTUEL | 65 000 | VIRTUAL\_NETWORK | * | VIRTUAL\_NETWORK | * | * | AUTORISER |
+| AUTORISER LE TRAFIC ENTRANT DE L'ÉQUILIBRAGE DE CHARGE AZURE | 65 001 | AZURE\_LOADBALANCER | * | * | * | * | AUTORISER |
 | REFUSER TOUT TRAFIC ENTRANT | 65 500 | * | * | * | * | * | REFUSER |
 
 **Trafic sortant**
 
 | Nom | Priorité | IP Source | Port source | IP de destination | Port de destination | Protocole | Access |
 |-------------------------|----------|-----------------|-------------|-----------------|------------------|----------|--------|
-| AUTORISER LE TRAFIC SORTANT DU RÉSEAU VIRTUEL | 65 000 | VIRTUAL_NETWORK | * | VIRTUAL_NETWORK | * | * | AUTORISER |
+| AUTORISER LE TRAFIC SORTANT DU RÉSEAU VIRTUEL | 65 000 | VIRTUAL\_NETWORK | * | VIRTUAL\_NETWORK | * | * | AUTORISER |
 | AUTORISER LE TRAFIC SORTANT D’INTERNET | 65 001 | * | * | INTERNET | * | * | AUTORISER |
 | REFUSER TOUT TRAFIC SORTANT | 65 500 | * | * | * | * | * | REFUSER |
 
@@ -89,9 +89,9 @@ Les règles du groupe de sécurité réseau sont explicites. Aucun trafic n'est 
 
 Les balises par défaut sont des identificateurs fournis par le système pour adresser une catégorie d'adresses IP. Les balises par défaut peuvent être spécifiées dans les règles définies par le client. Les balises par défaut sont les suivantes :
 
-- **VIRTUAL_NETWORK :** cette balise par défaut indique tous les espaces d'adressage de votre réseau. Il inclut l'espace d'adressage du réseau virtuel (IP CIDR dans Azure), ainsi que tout espace d'adressage local connecté (réseaux locaux). Cela inclut également réseau virtuel pour les espaces d'adressage de réseau virtuel.
+- **VIRTUAL\_NETWORK :** cette balise par défaut indique tous les espaces d'adressage de votre réseau. Il inclut l'espace d'adressage du réseau virtuel (IP CIDR dans Azure), ainsi que tout espace d'adressage local connecté (réseaux locaux). Cela inclut également réseau virtuel pour les espaces d'adressage de réseau virtuel.
 
-- **AZURE_LOADBALANCER :** cette balise par défaut indique l'équilibrage de charge de l'infrastructure d'Azure. Il convertit en une adresse IP de centre de données Azure l’emplacement d’où proviennent les sondes d’intégrité d'Azure. Cela est nécessaire uniquement si la machine virtuelle ou un ensemble de machines virtuelles associées au groupe de sécurité réseau fait partie d'un jeu d'équilibrage de charge.
+- **AZURE\_LOADBALANCER :** cette balise par défaut indique l'équilibrage de charge de l'infrastructure d'Azure. Il convertit en une adresse IP de centre de données Azure l’emplacement d’où proviennent les sondes d’intégrité d'Azure. Cela est nécessaire uniquement si la machine virtuelle ou un ensemble de machines virtuelles associées au groupe de sécurité réseau fait partie d'un jeu d'équilibrage de charge.
 
 - **INTERNET :** cette balise par défaut indique l'espace d'adresse IP qui se trouve en dehors du réseau virtuel et est accessible par l'Internet public. Cette plage inclut espace IP public d’Azure.
 
@@ -138,7 +138,7 @@ Imaginez la règle de groupe de sécurité réseau suivante pour un tel scénari
 
 | Nom | Priorité | IP Source | Port source | IP de destination | Port de destination | Protocole | Access |
 |------|----------|-----------|-------------|----------------|------------------|----------|--------|
-|PAS D’INTERNET|100| VIRTUAL_NETWORK|&#42;|INTERNET|&#42;|TCP|REFUSER| 
+|PAS D’INTERNET|100| VIRTUAL\_NETWORK|&#42;|INTERNET|&#42;|TCP|REFUSER| 
 
 Étant donné que la règle bloque tout accès de ce réseau virtuel à Internet , les machines virtuelles ne pourront pas accéder aux services PaaS Azure qui nécessitent un point de terminaison Internet public, comme les bases de données SQL.
 
@@ -146,8 +146,8 @@ Au lieu d’utiliser une règle de refus, envisagez d’utiliser une règle auto
 
 | Nom | Priorité | IP Source | Port source | IP de destination | Port de destination | Protocole | Access |
 |------|----------|-----------|-------------|----------------|------------------|----------|--------|
-|VERS INTERNET|100| VIRTUAL_NETWORK|&#42;|INTERNET|&#42;|TCP|AUTORISER|
-|À PARTIR D’INTERNET|110| INTERNET|&#42;|VIRTUAL_NETWORK|&#42;|TCP|REFUSER| 
+|VERS INTERNET|100| VIRTUAL\_NETWORK|&#42;|INTERNET|&#42;|TCP|AUTORISER|
+|À PARTIR D’INTERNET|110| INTERNET|&#42;|VIRTUAL\_NETWORK|&#42;|TCP|REFUSER| 
 
 
 ## Planification : flux de travail du groupe de sécurité réseau
@@ -248,4 +248,4 @@ Voici les étapes de flux de travail de base pour l'utilisation de groupes de s�
 
 	Get-Command *azurenetworksecuritygroup*
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

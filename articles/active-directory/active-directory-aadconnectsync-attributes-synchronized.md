@@ -378,4 +378,4 @@ Cette rubrique répertorie les attributs synchronisés par Azure AD Connect Sync
  
 <!--Image references-->
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

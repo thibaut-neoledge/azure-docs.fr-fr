@@ -6,14 +6,16 @@
    authors="bandersmsft"
    manager="jwhit"
    editor="" />
+
 <tags
    ms.service="operational-insights"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/21/2015"
+   ms.date="08/05/2015"
    ms.author="banders" />
+
 
 
 
@@ -21,7 +23,7 @@
 
 [AZURE.INCLUDE [operational-insights-note-moms](../../includes/operational-insights-note-moms.md)]
 
-Avant de pouvoir utiliser la gestion des alertes dans Microsoft Azure Operational Insights, vous devez avoir installé la solution. Pour plus d'informations sur l'installation de solutions, consultez [Utilisation de la galerie de solutions pour ajouter ou supprimer des solutions](operational-insights-add-solution.md). La solution ne fonctionne que lorsque vos serveurs sont analysés par des agents d'Operations Manager. Pour plus d’informations sur l’utilisation d’Operations Manager avec Operational Insights, consultez [Connexion à Operational Insights à partir de System Center Operations Manager](operational-insights-connect-scom.md).
+Avant de pouvoir utiliser la gestion des alertes dans Microsoft Azure Operational Insights, vous devez avoir installé la solution. Pour plus d'informations sur l'installation des solutions, consultez [Configuration de votre espace de travail](operational-insights-setup-workspace.md). La solution ne fonctionne que lorsque vos serveurs sont analysés par des agents d'Operations Manager. Pour plus d’informations sur l’utilisation d’Operations Manager avec Operational Insights, consultez [Connexion à Operational Insights à partir de System Center Operations Manager](operational-insights-connect-scom.md).
 
 Une fois la solution installée, les alertes concernant vos serveurs analysés peuvent être visualisées à l'aide de la vignette **Gestion des alertes** présente sur le tableau de bord **Aperçu** dans Operational Insights.
 
@@ -58,4 +60,4 @@ Sur le tableau de bord **Gestion des alertes**, vous pouvez prendre connaissance
 
 [AZURE.INCLUDE [operational-insights-export](../../includes/operational-insights-export.md)]
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

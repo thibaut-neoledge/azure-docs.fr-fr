@@ -44,25 +44,24 @@ AMS et castLabs prennent en charge le format de jeton JWT (jeton web JSON) utili
 
 Le tableau suivant décrit le jeton JWT dans AMS.
 
-<table border="1">
-<tr><td>Émetteur</td><td>Chaîne d'émetteur issue du service de jeton sécurisé (STS) choisi</td></tr>
-<tr><td>Public ciblé</td><td>Chaîne de public issue du STS utilisé</td></tr>
-<tr><td>Revendications</td><td>Ensemble de revendications</td></tr>
-<tr><td>NotBefore</td><td>Début de validité du jeton</td></tr>
-<tr><td>Expires</td><td>Fin de validité du jeton</td></tr>
-<tr><td>SigningCredentials</td><td>Clé partagée entre le serveur de licences PlayReady, le serveur de licences castLabs et le STS. Elle peut être symétrique ou asymétrique.</td></tr>
-</table>
+Émetteur|Chaîne d'émetteur issue du service de jeton sécurisé (STS) choisi
+---|---
+Public ciblé|Chaîne de public issue du STS utilisé
+Revendications|Ensemble de revendications
+NotBefore|Début de validité du jeton
+Expires|Fin de validité du jeton
+SigningCredentials|Clé partagée entre le serveur de licences PlayReady, le serveur de licences castLabs et le STS. Elle peut être symétrique ou asymétrique.
 
 ###Jeton JWT dans castLabs
 
 Le tableau suivant décrit le jeton JWT dans castLabs.
 
-<table border="1">
-<tr><td>optData</td><td>Chaîne JSON contenant des informations sur vous. </td></tr>
-<tr><td>crt</td><td>Chaîne JSON contenant des informations sur l'élément multimédia, ses informations de licence et ses droits de lecture.</td></tr>
-<tr><td>iat</td><td>Date/heure actuelle de l'époque.</td></tr>
-<tr><td>jti</td><td>Identificateur unique relatif à ce jeton (chaque jeton peut être utilisé une seule fois dans le système castLabs).</td></tr>
-</table>
+Nom|Description
+---|---
+optData|Chaîne JSON contenant des informations sur vous. 
+crt|Chaîne JSON contenant des informations sur l'élément multimédia, ses informations de licence et ses droits de lecture.
+iat|Date/heure actuelle de l'époque.
+jti|Identificateur unique relatif à ce jeton (chaque jeton peut être utilisé une seule fois dans le système castLabs).
 
 ##Exemple de configuration de solution 
 
@@ -114,4 +113,4 @@ Pour lire la vidéo protégée en HTML5 avec Chrome et le lecteur castLabs, cont
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

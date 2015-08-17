@@ -134,58 +134,30 @@ L'exemple suivant illustre un corps de demande partiel pour une opération visan
 
 Ensuite, tenez compte des demandes CORS suivantes :
 
-<table>
-<tr>
-<td colspan=3><b>Requête</b></td>
-<td colspan=2><b>Réponse</b></td>
-</tr>
-<tr>
-<td><b>Méthode</b></td>
-<td><b>Origine</b></td>
-<td><b>En-têtes de requête</b></td>
-<td><b>Correspondance de règle</b></td>
-<td><b>Résultat</b></td>
-</tr>
-<tr>
-<td><b>PUT</b></td>
-<td>http://www.contoso.com</td>
-<td>x-ms-blob-content-type</td>
-<td>Première règle</td>
-<td>Succès</td>
-</tr>
-<tr>
-<td><b>GET</b></td>
-<td>http://www.contoso.com</td>
-<td>x-ms-blob-content-type</td>
-<td>Deuxième règle</td>
-<td>Succès</td>
-</tr>
-<tr>
-<td><b>GET</b></td>
-<td>http://www.contoso.com</td>
-<td>x-ms-blob-content-type</td>
-<td>Deuxième règle</td>
-<td>Échec</td>
-</tr>
-</table>
+Demande||| Réponse||
+---|---|---|---|---
+**Méthode** |**Origine** |**En-têtes de requête** |**Correspondance de règle** |**Résultat**
+**PUT** | http://www.contoso.com |x-ms-blob-content-type | Première règle |Succès
+**GET** | http://www.contoso.com| x-ms-blob-content-type | Deuxième règle |Succès
+**GET** | http://www.contoso.com| x-ms-blob-content-type | Deuxième règle | Échec
 
 La première demande correspond à la première règle (le domaine d'origine correspond aux origines autorisées, la méthode correspond aux méthodes autorisées et l'en-tête correspond aux en-têtes autorisés). Par conséquent, elle réussit.
 
 La deuxième demande ne correspond pas à la première règle, car la méthode ne correspond pas aux méthodes autorisées. Toutefois, elle correspond à la deuxième règle, donc elle réussit.
 
-La troisième demande correspond à la deuxième règle en ce qui concerne le domaine d'origine et la méthode, donc aucune autre règle n'est évaluée. Toutefois, l’*en-tête x-ms-client-request-id* n’est pas autorisé par la deuxième règle, donc la demande échoue, en dépit du fait que la sémantique de la troisième règle lui aurait permis de réussir.
+La troisième demande correspond à la deuxième règle en ce qui concerne le domaine d'origine et la méthode, donc aucune autre règle n'est évaluée. Toutefois, l’*en-tête x-ms-client-request-id* n’étant pas autorisé par la deuxième règle, la demande échoue en dépit du fait que la sémantique de la troisième règle lui aurait permis de réussir.
 
 >[AZURE.NOTE]Bien que cet exemple illustre une règle moins restrictive avant une règle plus restrictive, il est généralement recommandé de répertorier les règles les plus restrictives en premier.
 
 ## Présentation de la définition de l'en-tête Vary
 
-L’en-tête *Vary* est un en-tête HTTP/1.1 standard composé d’un ensemble de champs d’en-tête de demande qui indiquent au navigateur ou à l’agent utilisateur les critères qui ont été sélectionnés par le serveur pour traiter la demande. L’en-tête *Vary* est principalement utilisé pour la mise en cache par les proxys, les navigateurs et les réseaux de distribution de contenu, qui s’en servent pour déterminer comment la réponse doit être mise en cache. Pour plus d’informations, consultez la spécification de [l’en-tête Vary](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html).
+L’en-tête *Vary* est un en-tête HTTP/1.1 standard composé d’un ensemble de champs d’en-tête de demande qui indiquent au navigateur ou à l’agent utilisateur les critères sélectionnés par le serveur pour traiter la demande. L’en-tête *Vary* est principalement utilisé pour la mise en cache par les proxys, les navigateurs et les réseaux de distribution de contenu, qui s’en servent pour déterminer comment la réponse doit être mise en cache. Pour plus d’informations, consultez la spécification de l’[en-tête Vary](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html).
 
 Lorsque le navigateur ou un autre agent utilisateur met en cache la réponse d'une demande CORS, le domaine d'origine est mis en cache comme origine autorisée. Quand un deuxième domaine émet la même demande pour une ressource de stockage pendant que le cache est actif, l'agent utilisateur récupère le domaine d'origine mis en cache. Comme le deuxième domaine ne correspond pas au domaine mis en cache, la demande échoue (alors qu'elle devrait réussir en d'autres circonstances). Dans certains cas, le stockage Azure affecte à l’en-tête Vary la valeur **Origin** pour indiquer à l’agent utilisateur qu’il doit envoyer la demande CORS suivante au service lorsque le domaine demandeur diffère de l’origine mise en cache.
 
 Le stockage Azure affecte à l’en-tête *Vary* la valeur **Origin** pour les demandes GET/HEAD réelles dans les cas suivants :
 
-- Lorsque l'origine de la demande correspond exactement à l'origine autorisée définie par une règle CORS. Pour qu'il s'agisse d'une correspondance exacte, la règle CORS ne doit pas inclure de caractère générique « * ».
+- Lorsque l'origine de la demande correspond exactement à l'origine autorisée définie par une règle CORS. Pour qu’il s’agisse d’une correspondance exacte, la règle CORS ne doit pas inclure le caractère générique « * ».
 
 - Il n'y a aucune règle correspondant à l'origine de la demande, mais CORS est activé pour le service de stockage.
 
@@ -195,89 +167,21 @@ Notez qu'en ce qui concerne les demandes à l'aide de méthodes autres que GET/H
 
 Le tableau suivant indique comment le stockage Azure répond aux demandes GET/HEAD en fonction des cas mentionnés précédemment :
 
-<table>
-<tr>
-<td><b>Requête</b></td>
-<td colspan=3><b>Paramètre de compte et résultat de l’évaluation de la règle</b></td>
-<td colspan=3><b>Réponse</b></td>
-</tr>
-<tr>
-<td><b>En-tête d’origine présent dans la demande</b></td>
-<td><b>Règle(s) CORS spécifiée(s) pour ce service</b></td>
-<td><b>Règle de correspondance existante qui autorise toutes les origines (*)</b></td>
-<td><b>Règle de correspondance existante pour la correspondance exacte d’origine</b></td>
-<td><b>La réponse inclut l’en-tête Vary avec la valeur Origin</b></td>
-<td><b>La réponse inclut l’en-tête Access-Control-Allowed-Origin&#160;:  "*"</b></td>
-<td><b>La réponse inclut l’en-têteAccess-Control-Exposed-Headers</b></td>
-</tr>
-<tr>
-<td>Non</td>
-<td>Non</td>
-<td>Non</td>
-<td>Non</td>
-<td>Non</td>
-<td>Non</td>
-<td>Non</td>
-</tr>
-<tr>
-<td>Non</td>
-<td>Oui</td>
-<td>Non</td>
-<td>Non</td>
-<td>Oui</td>
-<td>Non</td>
-<td>Non</td>
-</tr>
-<tr>
-<td>Non</td>
-<td>Oui</td>
-<td>Oui</td>
-<td>Non</td>
-<td>Non</td>
-<td>Oui</td>
-<td>Oui</td>
-</tr>
-<tr>
-<td>Oui</td>
-<td>Non</td>
-<td>Non</td>
-<td>Non</td>
-<td>Non</td>
-<td>Non</td>
-<td>Non</td>
-</tr>
-<tr>
-<td>Oui</td>
-<td>Oui</td>
-<td>Non</td>
-<td>Oui</td>
-<td>Oui</td>
-<td>Non</td>
-<td>Oui</td>
-</tr>
-<tr>
-<td>Oui</td>
-<td>Oui</td>
-<td>Non</td>
-<td>Non</td>
-<td>Oui</td>
-<td>Non</td>
-<td>Non</td>
-</tr>
-<tr>
-<td>Oui</td>
-<td>Oui</td>
-<td>Oui</td>
-<td>Non</td>
-<td>Non</td>
-<td>Oui</td>
-<td>Oui</td>
-</tr>
-</table>
+Demande|Paramètre de compte et résultat de l'évaluation de la règle|||Réponse|||
+---|---|---|---|---|---|---|---|---
+**En-tête d’origine présent dans la demande** | **Règle(s) CORS spécifiée(s) pour ce service** | **Règle de correspondance existante qui autorise toutes les origines (*)** | **Règle de correspondance existante pour la correspondance exacte d’origine** | **La réponse inclut l’en-tête Vary avec la valeur Origin** | **La réponse inclut l’en-tête Access-Control-Allowed-Origin : "*"** | **La réponse inclut l’en-têteAccess-Control-Exposed-Headers**
+Non|Non|Non|Non|Non|Non|Non
+Non|Oui|Non|Non|Oui|Non|Non
+Non|Oui|Oui|Non|Non|Oui|Oui
+Oui|Non|Non|Non|Non|Non|Non
+Oui|Oui|Non|Oui|Oui|Non|Oui
+Oui|Oui|Non|Non|Oui|Non|Non
+Oui|Oui|Oui|Non|Non|Oui|Oui
+
 
 ## Facturation des demandes CORS
 
-Les demandes préliminaires ayant réussi sont facturées si vous avez activé CORS pour l’un des services de stockage de votre compte (en appelant [Set Blob Service Properties](https://msdn.microsoft.com/library/hh452235.aspx), [Set Queue Service Properties](https://msdn.microsoft.com/library/hh452232.aspx) ou [Set Table Service Properties](https://msdn.microsoft.com/library/hh452240.aspx)). Pour réduire les frais, affectez une valeur plus élevée à l’élément **MaxAgeInSeconds** dans vos règles CORS, de façon que l’agent utilisateur mette en cache la demande.
+Les demandes préliminaires ayant abouti sont facturées si vous avez activé CORS pour l’un des services de stockage de votre compte (en appelant [Set Blob Service Properties](https://msdn.microsoft.com/library/hh452235.aspx), [Set Queue Service Properties](https://msdn.microsoft.com/library/hh452232.aspx) ou [Set Table Service Properties](https://msdn.microsoft.com/library/hh452240.aspx)). Pour réduire les coûts, attribuez une valeur plus élevée à l’élément **MaxAgeInSeconds** dans vos règles CORS, de façon que l’agent utilisateur mette en cache la demande.
 
 Les demandes préliminaires infructueuses ne seront pas facturés.
 
@@ -292,4 +196,4 @@ Les demandes préliminaires infructueuses ne seront pas facturés.
 [Spécification du Partage des ressources cross-origin (W3C)](http://www.w3.org/TR/cors/)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -6,14 +6,16 @@
 	authors="alancameronwills" 
 	manager="douge"/>
 
+
 <tags 
 	ms.service="application-insights" 
 	ms.workload="tbd" 
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/23/2015" 
+	ms.date="08/04/2015" 
 	ms.author="awills"/>
+
  
 # Vues Power BI des données Application Insights
 
@@ -152,7 +154,7 @@ Collez cette requête :
 ```SQL
 
     SELECT
-      flat.ArrayValue.name
+      flat.ArrayValue.name,
       count(*)
     INTO
       [pbi-output]
@@ -195,5 +197,6 @@ Noam Ben Zeev montre comment exporter vers Power BI.
 
 * [Exportation continue](app-insights-export-telemetry.md)
 * [Application Insights](app-insights-overview.md)
+* [Plus d'exemples et de procédures pas à pas](app-insights-code-samples.md)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

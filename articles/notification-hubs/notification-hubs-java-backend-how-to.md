@@ -17,10 +17,12 @@
 	ms.author="yuaxu"/>
 
 # Utilisation de Notification Hubs à partir de Java
-<div class="dev-center-tutorial-selector sublanding"> 
-    	<a href="/documentation/articles/notification-hubs-java-backend-how-to/" title="Java" class="current">Java</a><a href="/documentation/articles/notification-hubs-php-backend-how-to/" title="PHP">PHP</a><a href="/documentation/articles/notification-hubs-python-backend-how-to/" title="Python">Python</a><a href="/documentation/articles/notification-hubs-nodejs-how-to-use-notification-hubs/" title="Node.js">Node.js</a>
-</div>
-
+> [AZURE.SELECTOR] 
+- [Java](notification-hubs-php-backend-how-to.md)
+- [PHP](notification-hubs-python-backend-how-to.md)
+- [Python](notification-hubs-nodejs-how-to-use-notification-hubs.md)
+- [Node.js](notification-hubs-nodejs-how-to-use-notification-hubs.md)
+		
 Cette rubrique décrit les principales fonctionnalités du nouveau kit de développement logiciel (SDK) Java officiel pour Azure Notification Hub, entièrement pris en charge. Il s’agit d’un projet open source et vous pouvez afficher tout le code du Kit de développement logiciel (SDK) sur [Kit de développement logiciel (SDK) Java].
 
 Vous pouvez accéder à toutes les fonctionnalités de Notification Hubs à partir d’un serveur principal Java/PHP/Python/Ruby en utilisant l’interface REST de Notification Hub, comme décrit dans la rubrique MSDN [API REST de Notification Hub](http://msdn.microsoft.com/library/dn223264.aspx). Ce kit de développement logiciel Java fournit un wrapper fin par rapport aux interfaces REST dans Java.
@@ -104,7 +106,7 @@ De même, vous pouvez créer des inscriptions pour Android (GCM), Windows Phone 
 	reg.getHeaders().put("X-WNS-Type", "wns/toast");
 	hub.createRegistration(reg);
 
-**Création d’inscriptions à l’aide du modèle registrationid + upsert**
+**Création d’inscriptions à l’aide du moèle registrationid + upsert**
 
 Supprime les doublons dus à des réponses perdues, si les ID d’inscription sont stockées sur le périphérique :
 
@@ -305,4 +307,4 @@ Dans cette rubrique, nous vous avons montré comment créer un client REST Java 
 [Maven]: http://maven.apache.org/
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

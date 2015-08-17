@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Tri de données DocumentDB à l'aide de la clause Order By | Azure" 
+	pageTitle="Tri de données DocumentDB à l'aide de la clause Order By | Microsoft Azure" 
 	description="Découvrez comment utiliser ORDER BY dans des requêtes DocumentDB dans LINQ et SQL, et comment spécifier une stratégie d'indexation pour les requêtes ORDER BY." 
 	services="documentdb" 
 	authors="arramac" 
@@ -86,7 +86,7 @@ Rappelez-vous que DocumentDB prend en charge deux types d'index (le hachage et l
 Pour plus d'informations, consultez [Stratégies d'indexation de DocumentDB](documentdb-indexing-policies.md).
 
 ### Indexation pour la clause Order By sur toutes les propriétés numériques
-Voici comment vous pouvez créer une collection avec l’indexation « Toutes les plages » pour Order By sur toutes les propriétés numériques ou de chaîne qui apparaissent dans les documents JSON. Ici, « /\* » représente toutes les propriétés ou tous les chemins dans la collection, et -1 représente la précision maximale.
+Voici comment vous pouvez créer une collection avec l’indexation « Toutes les plages » pour Order By sur toutes les propriétés numériques ou de chaîne qui apparaissent dans les documents JSON. Ici, « /* » représente toutes les propriétés ou tous les chemins dans la collection, et -1 représente la précision maximale.
                    
     booksCollection.IndexingPolicy.IncludedPaths.Add(
         new IncludedPath { 
@@ -160,7 +160,8 @@ La clause Order By peut être spécifiée uniquement pour une propriété numér
 
 Vous ne pouvez pas effectuer les opérations suivantes :
  
-- Order By avec des propriétés de chaîne internes comme id, _rid et _self (disponible prochainement). - Order By avec des propriétés dérivées du résultat d'une jointure à l'intérieur du document (disponible prochainement).
+- Order By avec des propriétés de chaîne internes comme id, \_rid et \_self (disponible prochainement).
+- Order By avec des propriétés dérivées du résultat d'une jointure à l'intérieur du document (disponible prochainement).
 - Order By sur plusieurs propriétés (disponible prochainement).
 - La clause Order By avec des requêtes sur les bases de données, les collections, les utilisateurs, les autorisations ou les pièces jointes (prochainement disponible).
 - Order By avec des propriétés calculées, par exemple : le résultat d'une expression ou une fonction UDF/intégrée.
@@ -176,4 +177,4 @@ Répliquez le [projet d'exemples Github](https://github.com/Azure/azure-document
 * [Exemples Order By de DocumentDB](https://github.com/Azure/azure-documentdb-net/tree/master/samples/orderby)
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

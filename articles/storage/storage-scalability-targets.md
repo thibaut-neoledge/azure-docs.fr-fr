@@ -74,4 +74,4 @@ Les partitions affectent l’extensibilité et l’équilibrage de charge de cha
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

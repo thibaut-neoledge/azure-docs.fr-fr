@@ -8,11 +8,11 @@ Pour récupérer cet URI à partir du portail Azure, procédez comme suit :
 1. Recherchez le service MongoLab dans la liste de modules. ![EntréeMongoLab][entry-mongolabaddon]
 1. Pour accéder à la page du module, cliquez sur son nom.
 1. Cliquez sur **Connection Info**. ![ConnectionInfoButton][button-connectioninfo] Votre URI MongoLab s’affiche : ![ÉcranInformationsDeConnexion][screen-connectioninfo]  
-1.  Cliquez sur le bouton Presse-papiers à droite de la valeur MONGOLAB_URI pour la copier entièrement vers le Presse-papiers.
+1.  Cliquez sur le bouton Presse-papiers à droite de la valeur MONGOLAB\_URI pour la copier entièrement vers le Presse-papiers.
 
 [entry-mongolabaddon]: ./media/howto-get-connectioninfo-mongolab/entry-mongolabaddon.png
 [button-connectioninfo]: ./media/howto-get-connectioninfo-mongolab/button-connectioninfo.png
 [screen-connectioninfo]: ./media/howto-get-connectioninfo-mongolab/dialog-mongolab_connectioninfo.png
 [button-addons]: ./media/howto-get-connectioninfo-mongolab/button-addons.png
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

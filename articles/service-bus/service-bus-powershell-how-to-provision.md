@@ -184,4 +184,4 @@ Vous pouvez également télécharger des scripts prêts à l'emploi : - [Scripts
 [API .NET pour Service Bus]: https://msdn.microsoft.com/library/microsoft.servicebus.aspx
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -151,4 +151,4 @@ Pour référence, l’exemple terminé (sans vos valeurs de configuration) est f
 
 [AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

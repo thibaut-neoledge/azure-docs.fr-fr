@@ -16,10 +16,10 @@ Grâce à Mobile Services, vous pouvez effectuer les opérations suivantes :
 Voici les fonctionnalités et les concepts importants de Mobile Services :
 
 + **Clé d'application :** valeur unique qui permet de limiter l'accès à votre service mobile à partir de clients aléatoires ; cette « clé » n'est pas un jeton de sécurité et ne permet pas d'authentifier les utilisateurs de votre application.    
-+ **Serveur principal :** instance de service mobile qui prend en charge votre application. Un service mobile est implémenté sous la forme d'un projet d'API web ASP.NET (*serveur principal .NET*) ou d'un projet Node.js (*serveur principal JavaScript*).
++ **Serveur principal :** instance de service mobile qui prend en charge votre application. Un service mobile est implémenté sous la forme d’un projet d’API web ASP.NET (*serveur principal .NET*) ou d’un projet Node.js (*serveur principal JavaScript*).
 + **Fournisseur d'identité :** service externe, approuvé par Mobile Services, qui authentifie les utilisateurs de votre application. Les fournisseurs pris en charge incluent Facebook, Twitter, Google, Microsoft Account et Azure Active Directory. 
 + **Notification Push** : message initié par le service qui est envoyé à un appareil ou à un utilisateur enregistré via Azure Notification Hubs.
 + **Mise à l’échelle** : possibilité d’ajouter, moyennant un coût supplémentaire, davantage de puissance de traitement, de performance et de stockage avec le gain de popularité de votre application.
 + **Tâche planifiée** : code personnalisé exécuté en fonction d’une planification prédéfinie ou à la demande.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

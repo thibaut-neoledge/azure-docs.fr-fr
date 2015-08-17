@@ -18,10 +18,6 @@
 
 # Prise en main de Mobile Analytics (Capptain)
 
-<div class="dev-center-tutorial-selector sublanding">
-<a href="/documentation/articles/mobile-services-ios-get-started-mobile-analytics" title="iOS" class="current">iOS</a>
-</div>
-
 Dans ce didacticiel, vous allez ajouter des capacités analytiques à votre application avec [Capptain]. Mobile Analytics vous permet de déterminer comment les utilisateurs interagissent avec votre application et quelles sont les sections qui génèrent le plus d'activité. Pour commencer à obtenir ces données, vous allez associer à votre application le Kit de développement logiciel (SDK) Capptain.
 
 
@@ -102,4 +98,4 @@ Si vous voulez en savoir plus les possibilités offertes par Capptain pour votre
 [Mobile Services niveau Standard]: /pricing/details/mobile-services/
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

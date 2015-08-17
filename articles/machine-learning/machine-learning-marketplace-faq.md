@@ -77,4 +77,4 @@ Veuillez contacter l’équipe Azure Marketplace à l’adresse <datamarketbd@mi
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -255,4 +255,4 @@ Pour en savoir plus sur le Gestionnaire d’instantanés StorSimple, accédez à
 
 Pour en savoir plus sur l’interface utilisateur du Gestionnaire d’instantanés StorSimple, accédez à la page [Interface utilisateur du Gestionnaire d’instantanés StorSimple](storsimple-use-snapshot-manager.md).
 
-<!-------HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

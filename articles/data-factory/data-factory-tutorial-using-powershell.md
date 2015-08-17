@@ -7,6 +7,7 @@
 	manager="jhubbard" 
 	editor="monicar"/>
 
+
 <tags 
 	ms.service="data-factory" 
 	ms.workload="data-services" 
@@ -16,7 +17,8 @@
 	ms.date="06/04/2015" 
 	ms.author="spelluru"/>
 
-# Didacticiel : déplacer et traiter des fichiers journaux à l’aide de Data Factory [PowerShell]
+
+# Didacticiel : déplacer et traiter des fichiers journaux à l’aide de Data Factory [PowerShell\]
 Cet article fournit une procédure pas à pas pour un scénario de traitement de journaux à l’aide d’Azure Data Factory pour transformer les données des fichiers journaux en informations.
 
 ## Scénario
@@ -30,7 +32,7 @@ Dans cette procédure pas à pas, nous allons collecter des exemples de journaux
 3.	Vous devez télécharger et installer [Azure PowerShell][download-azure-powershell] sur votre ordinateur. 
 2.	**(recommandé)** Consultez et effectuez le didacticiel de l’article [Prise en main d’Azure Data Factory][adfgetstarted], car ce didacticiel simple vous permettra de vous familiariser avec le portail et les applets de commande.
 3.	**(recommandé)** Consultez et effectuez la procédure pas à pas de l’article [Utilisation de Pig et Hive avec Azure Data Factory][usepigandhive] pour en savoir plus sur la création d’un pipeline servant à déplacer les données d’une source de données locale vers un magasin d’objets blob Microsoft Azure.
-4.	Téléchargez les fichiers [ADFWalkthrough][adfwalkthrough-download] dans le dossier **C:\ADFWalkthrough** **sans modifier la structure du dossier** :
+4.	Téléchargez les fichiers [ADFWalkthrough][adfwalkthrough-download] dans le dossier **C:\\ADFWalkthrough** **sans modifier la structure du dossier** :
 	- **Pipelines :** inclut des fichiers JSON contenant la définition des pipelines.
 	- **Tables :** inclut des fichiers JSON contenant la définition des tables.
 	- **LinkedServices :** inclut des fichiers JSON contenant la définition de votre cluster de stockage et de calcul (HDInsight). 
@@ -104,7 +106,7 @@ Dans cette étape, vous allez télécharger tous les exemples de données (y com
 
 Les tables, les types définis par l’utilisateur et les procédures stockées sont utilisés lors du déplacement des résultats de l’efficacité de la campagne marketing depuis le stockage d’objets blob Azure vers la base de données SQL Azure.
 
-1. Ouvrez le fichier **uploadSampleDataAndScripts.ps1** figurant dans le dossier **C:\ADFWalkthrough** (ou dans celui qui contient les fichiers extraits) dans votre éditeur favori, remplacez l’élément en surbrillance par vos informations de cluster et enregistrez le fichier.
+1. Ouvrez le fichier **uploadSampleDataAndScripts.ps1** figurant dans le dossier **C:\\ADFWalkthrough** (ou dans celui qui contient les fichiers extraits) dans votre éditeur favori, remplacez l’élément en surbrillance par vos informations de cluster et enregistrez le fichier.
 
 
 		$storageAccount = <storage account name>
@@ -116,10 +118,10 @@ Les tables, les types définis par l’utilisateur et les procédures stockées 
  
 	Pour ce script, l'utilitaire sqlcmd doit être installé sur votre ordinateur. Si SQL Server est installé, l'utilitaire l'est également. Sinon, [téléchargez][sqlcmd-install] et installez l'utilitaire.
 	
-	Vous pouvez également utiliser les fichiers du dossier : C:\ADFWalkthrough\Scripts pour télécharger les scripts pig/hive et des exemples de fichiers dans le conteneur adfwalkthrough du stockage d’objets blob, et créer la table MarketingCampaignEffectiveness dans la base de données SQL Azure MarketingCampaigns.
+	Vous pouvez également utiliser les fichiers du dossier : C:\\ADFWalkthrough\\Scripts pour télécharger les scripts pig/hive et des exemples de fichiers dans le conteneur adfwalkthrough du stockage d’objets blob, et créer la table MarketingCampaignEffectiveness dans la base de données SQL Azure MarketingCampaigns.
    
-2. Vérifiez que votre ordinateur local est autorisé à accéder à la base de données SQL Azure. Pour activer l’accès, utilisez le **portail de gestion Microsoft Azure** ou l’élément **sp_set_firewall_rule** sur la base de données MASTER pour créer une règle de pare-feu pour l’adresse IP de votre ordinateur. Cela peut prendre jusqu’à cinq minutes pour que cette modification prenne effet. Voir [Définition des règles de pare-feu pour Azure SQL][azure-sql-firewall].
-4. Dans Azure PowerShell, accédez à l’emplacement auquel vous avez extrait les exemples (par exemple, **C:\ADFWalkthrough**).
+2. Vérifiez que votre ordinateur local est autorisé à accéder à la base de données SQL Azure. Pour activer l’accès, utilisez le **portail de gestion Microsoft Azure** ou l’élément **sp\_set\_firewall\_rule** sur la base de données MASTER pour créer une règle de pare-feu pour l’adresse IP de votre ordinateur. Cela peut prendre jusqu’à cinq minutes pour que cette modification prenne effet. Voir [Définition des règles de pare-feu pour Azure SQL][azure-sql-firewall].
+4. Dans Azure PowerShell, accédez à l’emplacement auquel vous avez extrait les exemples (par exemple, **C:\\ADFWalkthrough**).
 5. Exécutez le fichier **uploadSampleDataAndScripts.ps1**. 
 6. Une fois que le script s’exécute correctement, vous verrez les éléments suivants :
 
@@ -246,7 +248,7 @@ Dans cette étape, vous allez créer les services liés suivants : StorageLinke
 
 		Switch-AzureMode AzureResourceManager
 
-16. Accédez au sous-dossier **LinkedServices** dans **C:\ADFWalkthrough** ou dans le dossier de l’emplacement auquel vous avez extrait les fichiers.
+16. Accédez au sous-dossier **LinkedServices** dans **C:\\ADFWalkthrough** ou dans le dossier de l’emplacement auquel vous avez extrait les fichiers.
 17. Ouvrez l’élément **HDInsightLinkedService.json** dans votre éditeur favori et notez que le type est défini sur **HDInsightOnDemandLinkedService**.
 
 
@@ -296,7 +298,7 @@ Le portail Azure n’autorise pas encore la création de jeux de données/tables
 
 ### Créer des tables
 
-1.	Dans Azure PowerShell, accédez au dossier **Tables** (**C:\ADFWalkthrough\Tables**) depuis l’emplacement auquel vous avez extrait les exemples. 
+1.	Dans Azure PowerShell, accédez au dossier **Tables** (**C:\\ADFWalkthrough\\Tables**) depuis l’emplacement auquel vous avez extrait les exemples.
 2.	Utilisez l’applet de commande **New-AzureDataFactoryTable** pour créer les tables pour **RawGameEventsTable.json**, comme suit.	
 
 
@@ -334,7 +336,7 @@ Le portail Azure n’autorise pas encore la création de jeux de données/tables
 ## <a name="MainStep5"></a> Étape 5 : Créer et planifier des pipelines
 Dans cette étape, vous allez créer les pipelines suivants : PartitionGameLogsPipeline, EnrichGameLogsPipeline et AnalyzeMarketingCampaignPipeline.
 
-1. Dans l’**Explorateur Windows**, accédez au sous-dossier **Pipelines** dans le dossier **C:\ADFWalkthrough** (ou à partir de l’emplacement auquel vous avez extrait les exemples).
+1. Dans l’**Explorateur Windows**, accédez au sous-dossier **Pipelines** dans le dossier **C:\\ADFWalkthrough** (ou à partir de l’emplacement auquel vous avez extrait les exemples).
 2.	Ouvrez l’élément **PartitionGameLogsPipeline.json** dans votre éditeur favori, remplacez l’élément en surbrillance par vos informations de compte de stockage pour le compte de stockage de données et enregistrez le fichier.
 			
 		"RAWINPUT": "wasb://adfwalkthrough@<storageaccountname>.blob.core.windows.net/logs/rawgameevents/",
@@ -346,7 +348,7 @@ Dans cette étape, vous allez créer les pipelines suivants : PartitionGameLogs
 
 	**IMPORTANT : ** vérifiez que vous avez remplacé toutes les valeurs <storageaccountname> par le nom de votre compte de stockage.
  
-4.  Dans **Azure PowerShell**, accédez au sous-dossier **Pipelines** dans le dossier **C:\ADFWalkthrough** (ou à partir de l’emplacement auquel vous avez extrait les exemples).
+4.  Dans **Azure PowerShell**, accédez au sous-dossier **Pipelines** dans le dossier **C:\\ADFWalkthrough** (ou à partir de l’emplacement auquel vous avez extrait les exemples).
 5.  Utilisez l’applet de commande **New-AzureDataFactoryPipeline** pour créer les pipelines pour **PartitionGameLogspeline.json**, comme suit.	 
 			
 		New-AzureDataFactoryPipeline -ResourceGroupName ADF -DataFactoryName $df –File .\PartitionGameLogsPipeline.json
@@ -434,7 +436,7 @@ Pour spécifier la période active pour le pipeline, vous pouvez utiliser la cmd
 
 	![Panneau TRANCHE DE DONNÉES RawGameEventsTable][image-data-factory-monitoring-raw-game-events-table-dataslice-blade]
 
-	En cas d’erreur, vous voyez l’état **Échec** ici. Vous pouvez aussi voir les deux tranches à l’état **Prêt** ou à l’état **PendingValidation**, en fonction de la vitesse de traitement des tranches.
+	En cas d’erreur, vous voyez l’état **Échec **ici. Vous pouvez aussi voir les deux tranches à l’état **Prêt** ou à l’état **PendingValidation**, en fonction de la vitesse de traitement des tranches.
  
 	Pour comprendre tous les états possibles des tranches, reportez-vous à la rubrique [Référence du développeur Azure Data Factory][developer-reference].
 
@@ -559,4 +561,4 @@ Suivez la [procédure pas à pas sur l’utilisation d’une source de données 
 
 [image-data-factory-new-datafactory-create-button]: ./media/data-factory-tutorial-using-powershell/DataFactoryCreateButton.png
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -7,6 +7,7 @@
 	manager="jwhit" 
 	editor=""/>
 
+
 <tags 
 	ms.service="site-recovery" 
 	ms.devlang="na"
@@ -15,6 +16,7 @@
 	ms.workload="storage-backup-recovery" 
 	ms.date="05/14/2015" 
 	ms.author="raynew"/>
+
 
 # Création de plans de récupération
 
@@ -53,16 +55,18 @@ Pour créer un plan de récupération, procédez comme suit :
 	- Si vous exécutez une réplication de VMM à VMM, sélectionnez VMM dans le champ **Type de source**, puis les serveurs VMM source et cible. Cliquez sur **Hyper-V** afin d’afficher les clouds qui sont configurés pour l’utilisation de Réplica Hyper-V. 
 	- Si vous exécutez une réplication de VMM à VMM à l’aide de SAN, sélectionnez VMM dans le champ **Type de source**, puis les serveurs VMM source et cible. Pour afficher les clouds configurés pour la réplication SAN, cliquez sur **SAN**.
 	- Si vous exécutez une réplication de VMM vers Microsoft Azure, sélectionnez VMM dans le champ **Type de source**. Sélectionnez le serveur VMM source et **Azure** en tant que cible.
-	- Si vous effectuez une réplication à partir d’un site Hyper-V, sélectionnez Site Hyper-V dans le champ Type de source. Sélectionnez le site en tant que source et **Azure **en tant que cible. - Si vous exécutez une réplication de VMware ou d’un serveur physique local vers Microsoft Azure, sélectionnez un serveur de configuration en tant que source et **Azure** en tant que cible.
+	- Si vous effectuez une réplication à partir d’un site Hyper-V, sélectionnez Site Hyper-V dans le champ Type de source. Sélectionnez le site en tant que source et **Azure **en tant que cible.
+- Si vous exécutez une réplication de VMware ou d’un serveur physique local vers Microsoft Azure, sélectionnez un serveur de configuration en tant que source et **Azure** en tant que cible.
 
-2. Dans **Sélectionner les machines virtuelles**, sélectionnez les machines virtuelles (ou le groupe de réplication) que vous souhaitez ajouter au groupe par défaut (Groupe 1) dans le plan de récupération.
+2\. Dans **Sélectionner les machines virtuelles**, sélectionnez les machines virtuelles (ou le groupe de réplication) que vous souhaitez ajouter au groupe par défaut (Groupe 1) dans le plan de récupération.
 
 ## Personnaliser des plans de récupération
 
 Une fois que vous avez ajouté les machines virtuelles protégées ou les groupes de réplication au groupe par défaut du plan de récupération et créé le plan, vous pouvez le personnaliser :
 
 - **Ajouter des groupes** : il est possible d’ajouter des groupes supplémentaires au plan de récupération. Les groupes sont numérotés dans l’ordre dans lequel vous les ajouter. Vous pouvez ajouter jusqu’à sept groupes. Une fois que vous les avez ajoutés, vous pouvez y intégrer davantage de machines ou de groupes de réplication. Notez que les machines virtuelles et les groupes de réplication peuvent être incorporés au sein d’un seul plan de récupération.
-- **Ajouter un script **: ajoutez des scripts avant ou après un groupe de plan de récupération. Lorsque vous ajoutez un script, vous associez un nouvel ensemble d’actions au groupe. Par exemple, un ensemble d’étapes préliminaires au sein du Groupe 1 sera créé avec le nom : Groupe 1 : Étapes préliminaires. L’ensemble des étapes préliminaires seront répertoriées dans cet ensemble. Notez que pour ajouter un script sur le site principal, vous devez disposer d’un serveur VMM déployé. - **Ajouter une action manuelle** : il est possible d’ajouter des actions manuelles qui s’exécutent avant ou après un groupe de plan de récupération. Lorsque le plan de récupération s’exécute, il est arrêté au point d’insertion de l’action manuelle, et une boîte de dialogue vous invite à confirmer la bonne réalisation de l’action manuelle.
+- ****Ajouter un script **: ajoutez des scripts avant ou après un groupe de plan de récupération. Lorsque vous ajoutez un script, vous associez un nouvel ensemble d’actions au groupe. Par exemple, un ensemble d’étapes préliminaires au sein du Groupe 1 sera créé avec le nom : Groupe 1 : Étapes préliminaires. L’ensemble des étapes préliminaires seront répertoriées dans cet ensemble. Notez que pour ajouter un script sur le site principal, vous devez disposer d’un serveur VMM déployé.
+- **Ajouter une action manuelle** : il est possible d’ajouter des actions manuelles qui s’exécutent avant ou après un groupe de plan de récupération. Lorsque le plan de récupération s’exécute, il est arrêté au point d’insertion de l’action manuelle, et une boîte de dialogue vous invite à confirmer la bonne réalisation de l’action manuelle.
 
 ### Étendre des plans de récupération avec des scripts
 
@@ -77,11 +81,11 @@ Avant de commencer, tenez compte des points suivants :
 - Écrivez des scripts à l’aide de Windows PowerShell.
 - Les applets de commande VMM sont fournies dans un module Windows PowerShell. Le module VMM Windows PowerShell est installé lors du montage de la console VMM. Pour charger le module VMM dans votre script, exécutez la commande suivante dans le script : Import-Module -Name virtualmachinemanager. [Obtenir des détails](hhttps://technet.microsoft.com/library/hh875013.aspx).
 - Vérifiez que vous disposez d’au moins un serveur de bibliothèque au sein de votre déploiement VMM. Par défaut, le chemin d’accès de partage de bibliothèque d’un serveur VMM est disponible localement sur le serveur VMM, sous le nom de dossier MSCVMMLibrary.
-- Si votre chemin d’accès de partage de bibliothèque est distant (ou local mais non partagé avec MSCVMMLibrary, configurez le partage comme suit (en utilisant \libserver2.contoso.com\share\ comme exemple) :
+- Si votre chemin d’accès de partage de bibliothèque est distant (ou local mais non partagé avec MSCVMMLibrary, configurez le partage comme suit (en utilisant \\libserver2.contoso.com\\share\\ comme exemple) :
 	- Ouvrez l'Éditeur du Registre.
-	- Accédez à HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Microsoft System Center Virtual Machine Manager Server\DRAdapter\Registration.
+	- Accédez à HKEY\_LOCAL\_MACHINE\\SOFTWARE\\Microsoft\\Microsoft System Center Virtual Machine Manager Server\\DRAdapter\\Registration.
 	- Modifiez la valeur ScriptLibraryPath.
-	- Affectez la valeur \libserver2.contoso.com\share. Spécifiez le nom de domaine complet.
+	- Affectez la valeur \\libserver2.contoso.com\\share. Spécifiez le nom de domaine complet.
 	- Fournissez des autorisations d’accès à l’emplacement de partage.
 
 - Les scripts d’un plan de récupération s’exécutent dans le contexte d’un compte de service VMM. Assurez-vous que ce compte dispose des autorisations en lecture sur le partage distant sur lequel se trouve le script, et testez l’exécution du script au niveau de privilège du compte de service VMM.
@@ -96,9 +100,9 @@ Avant de commencer, tenez compte des points suivants :
 
 Créez le script comme suit :
 
-1. Créez un dossier dans le partage de bibliothèque, par exemple <VMMServerName>\MSSCVMMLibrary\RPScripts. Placez-le dans les serveurs VMM source et cibles.
+1. Créez un dossier dans le partage de bibliothèque, par exemple <VMMServerName>\\MSSCVMMLibrary\\RPScripts. Placez-le dans les serveurs VMM source et cibles.
 2. Créez le script (par exemple RPScript), et vérifiez son bon fonctionnement.
-3. Placez le script à l’emplacement <VMMServerName>\MSSCVMMLibrary sur les serveurs VMM source et cible.
+3. Placez le script à l’emplacement <VMMServerName>\\MSSCVMMLibrary sur les serveurs VMM source et cible.
 
 #### Créer un Runbook Azure Automation
 
@@ -110,7 +114,7 @@ Pour étendre votre plan de récupération, exécutez un Runbook Automation Pl
 1. Ouvrez le plan de récupération que vous souhaitez personnaliser.
 2. Cliquez pour ajouter une machine virtuelle ou un groupe.
 3. Pour ajouter un script ou une action manuelle, cliquez sur un élément de la liste **Étape,** puis cliquez sur **Script** ou sur **Action manuelle**. Indiquez si vous souhaitez ajouter le script ou l’action avant ou après l’élément sélectionné. Utilisez les boutons de commande de **Déplacement vers le haut** et de **Déplacement vers le bas** pour faire monter ou descendre le script.
-4. Si vous ajoutez un script VMM, sélectionnez **Basculement vers script VMM**, puis dans **Chemin du script**, entrez le chemin d’accès relatif au partage. Ainsi, dans le cadre de notre exemple où le partage est situé à l’emplacement \<VMMServerName>\MSSCVMMLibrary\RPScripts, définissez le chemin d’accès : \RPScripts\RPScript.PS1.
+4. Si vous ajoutez un script VMM, sélectionnez **Basculement vers script VMM**, puis dans **Chemin du script**, entrez le chemin d’accès relatif au partage. Ainsi, dans le cadre de notre exemple où le partage est situé à l’emplacement \<VMMServerName>\\MSSCVMMLibrary\\RPScripts, définissez le chemin d’accès : \\RPScripts\\RPScript.PS1.
 5. Si vous ajoutez un Runbook Azure Automation, spécifiez le **Compte Azure Automation** dans lequel se trouve le Runbook, puis sélectionnez le **Script Runbook Azure** approprié.
 5. Exécutez un basculement du plan de récupération, afin de vous assurer du bon fonctionnement du script.
 
@@ -122,4 +126,4 @@ Vous pouvez exécuter différents types de basculement de plan de récupération
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

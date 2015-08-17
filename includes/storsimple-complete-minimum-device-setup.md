@@ -23,4 +23,4 @@
 
  >[AZURE.NOTE]Vous pouvez modifier tous les autres paramètres de l’appareil à tout moment en accédant à la page **Configurer**.
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

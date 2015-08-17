@@ -26,9 +26,9 @@ Cet article met en évidence quelques exemples indiquant comment enrichir votre 
 ## Abstraction architecturale
 Un des modèles d’application les plus courants consiste à recréer des tables au moyen de la commande CREATE TABLE AS SELECT (CTAS), suivie d’un modèle de changement de nom d’un objet, lors du chargement des données.
 
-L’exemple ci-dessous permet d’ajouter de nouveaux enregistrements de date à une dimension de date. Vous pouvez voir que l’objet « DimDate_New » est créé pour la première fois, puis renommé, de façon à remplacer la version d’origine de cet objet. ``` CREATE TABLE dbo.DimDate_New WITH (DISTRIBUTION = REPLICATE , CLUSTERED INDEX (DateKey ASC) ) AS SELECT * FROM dbo.DimDate AS prod UNION ALL SELECT * FROM dbo.DimDate_stg AS stg ;
+L’exemple ci-dessous permet d’ajouter de nouveaux enregistrements de date à une dimension de date. Vous pouvez voir que l’objet « DimDate\_New » est créé pour la première fois, puis renommé, de façon à remplacer la version d’origine de cet objet. ``` CREATE TABLE dbo.DimDate\_New WITH (DISTRIBUTION = REPLICATE , CLUSTERED INDEX (DateKey ASC) ) AS SELECT * FROM dbo.DimDate AS prod UNION ALL SELECT * FROM dbo.DimDate\_stg AS stg ;
 
-RENAME OBJECT DimDate TO DimDate_Old; RENAME OBJECT DimDate_New TO DimDate;
+RENAME OBJECT DimDate TO DimDate\_Old; RENAME OBJECT DimDate\_New TO DimDate;
 
 ``` Toutefois, cela peut entraîner l’apparition ou la disparition d’objets de la vue d’un utilisateur dans l’Explorateur d’objets SQL Server de SSDT. Vous pouvez utiliser des vues pour fournir aux consommateurs d’entrepôts de données une couche de présentation cohérente alors que les objets sous-jacents sont renommés. Grâce à la mise à disposition d’un accès aux données via une vue, les utilisateurs n’ont pas besoin d’afficher les tables sous-jacentes. Ainsi, l’expérience utilisateur est plus cohérente ; les concepteurs d’entrepôts de données peuvent faire évoluer le modèle de données tout en optimisant les performances, en exécutant la commande CTAS lors du processus de chargement des données.
 
@@ -53,4 +53,4 @@ Pour obtenir des conseils supplémentaires en matière de développement, consul
 
 <!--Other Web references-->
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

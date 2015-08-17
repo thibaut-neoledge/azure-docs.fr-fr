@@ -18,7 +18,9 @@
 
 # Gestion du contrôle d’accès en fonction du rôle avec l’interface de ligne de commande Azure (Azure CLI) #
 
-<div class="dev-center-tutorial-selector sublanding"><a href="/documentation/articles/role-based-access-control-powershell.md" title="Windows PowerShell" class="current">Windows PowerShell</a><a href="/documentation/articles/role-based-access-control-../xplat-cli.md" title="Azure CLI">Azure CLI</a></div>
+> [AZURE.SELECTOR]
+- [Windows PowerShell](role-based-access-control-powershell.md)
+- [Azure CLI](/role-based-access-control-xplat-cli.md)
 
 Le contrôle d’accès en fonction du rôle dans le portail Azure et l’API Azure Resource Manager permet une gestion très fine de l’accès à votre abonnement et à vos ressources. Cette fonctionnalité vous permet d’accorder l’accès aux utilisateurs, groupes et principaux du service Active Directory en leur affectant certains rôles avec une étendue spécifique.
 
@@ -148,4 +150,4 @@ Pour en savoir plus sur le contrôle d’accès en fonction du rôle à l’aide
 - [Résolution des problèmes de contrôle d’accès en fonction du rôle](role-based-access-control-troubleshooting.md)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

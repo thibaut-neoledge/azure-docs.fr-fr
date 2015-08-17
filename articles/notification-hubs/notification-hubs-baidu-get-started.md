@@ -264,7 +264,7 @@ Le message **保存成功 !(Enregistrement réussi !)** apparaîtra.
 				public static String NotificationHubConnectionString = "...";
 			}
 
-	Définissez *API_KEY* sur la valeur que vous avez récupérée précédemment du projet cloud Baidu, *NotificationHubName* sur le nom de votre concentrateur de notification provenant du portail Azure et *NotificationHubConnectionString* sur la valeur DefaultListenSharedAccessSignature issue du portail Azure.
+	Définissez *API\_KEY* sur la valeur que vous avez récupérée précédemment du projet cloud Baidu, *NotificationHubName* sur le nom de votre concentrateur de notification provenant du portail Azure et *NotificationHubConnectionString* sur la valeur DefaultListenSharedAccessSignature issue du portail Azure.
 
 11. Ajoutez une nouvelle classe appelée **DemoApplication.java** et ajoutez-lui le code suivant :
 
@@ -481,4 +481,4 @@ Pour tester cette application avec l'émulateur :
 [portail Baidu]: http://www.baidu.com/
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

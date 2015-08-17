@@ -265,7 +265,7 @@ Créez un certificat auto-signé, installez-le sur votre poste de travail et té
 
 ### <a name="runApp"></a>Pour exécuter l’application
 
-Ouvrez la console Azure PowerShell, naviguez jusqu’à l’emplacement dans lequel vous avez enregistré le projet, accédez au répertoire \bin\debug du projet, puis exécutez la commande suivante :
+Ouvrez la console Azure PowerShell, naviguez jusqu’à l’emplacement dans lequel vous avez enregistré le projet, accédez au répertoire \\bin\\debug du projet, puis exécutez la commande suivante :
 
 	.\CreateRCluster <cluster-name>
 
@@ -283,4 +283,4 @@ Entrez un nom de cluster, puis appuyez sur Entrée pour approvisionner un cluste
 [hdinsight-install-spark]: ../hdinsight-hadoop-spark-install/
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

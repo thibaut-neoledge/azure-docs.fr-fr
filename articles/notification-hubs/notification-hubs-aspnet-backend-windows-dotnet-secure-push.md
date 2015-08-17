@@ -18,9 +18,11 @@
 
 #Notifications Push sécurisées avec Azure Notification Hubs
 
-<div class="dev-center-tutorial-selector sublanding"> 
-    	<a href="/documentation/articles/notification-hubs-windows-dotnet-secure-push/" title="Windows Universal" class="current">Windows Universal</a><a href="/documentation/articles/notification-hubs-aspnet-backend-ios-secure-push/" title="iOS">iOS</a> <a href="/documentation/articles/notification-hubs-aspnet-backend-android-secure-push/" title="Android">Android</a>
-</div>
+> [AZURE.SELECTOR]
+- [Windows Universal](notification-hubs-windows-dotnet-secure-push.md)
+- [iOS](notification-hubs-aspnet-backend-ios-secure-push.md)
+- [Android](notification-hubs-aspnet-backend-android-secure-push.md)
+
 
 ##Vue d'ensemble
 
@@ -76,9 +78,9 @@ Ce didacticiel sur les notifications Push sécurisées montre comment envoyer un
 		
 ## Création du composant en arrière-plan pour les notifications Push
 
-L’étape suivante consiste à créer le composant en arrière-plan pour les notifications Push.
+L'étape suivante consiste à créer le composant en arrière-plan pour les notifications Push.
 
-1. Dans l'Explorateur de solutions, cliquez avec le bouton droit sur le nœud de niveau supérieur de la solution (Solution SecurePush dans le cas présent). Cliquez ensuite sur **Ajouter**, puis sur **Nouveau projet**.
+1. Dans l'Explorateur de solutions, cliquez avec le bouton droit sur le nœud de niveau supérieur de la solution (**Solution SecurePush** dans le cas présent). Cliquez ensuite sur **Ajouter**, puis sur **Nouveau projet**.
 
 2. Développez **Applications du Windows Store** et cliquez sur **Applications Windows Phone**, puis sur **Composant Windows Runtime (Windows Phone)**. Nommez le projet **PushBackgroundComponent**, puis cliquez sur **OK** pour créer le projet.
 
@@ -185,4 +187,4 @@ Pour exécuter l'application, procédez comme suit :
 [13]: ./media/notification-hubs-aspnet-backend-windows-dotnet-secure-push/notification-hubs-secure-push13.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

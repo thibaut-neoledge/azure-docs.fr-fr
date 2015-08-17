@@ -11,7 +11,7 @@
 	ms.workload="tbd" 
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
-	ms.topic="article" 
+	ms.topic="get-started-article" 
 	ms.date="06/16/2015" 
 	ms.author="awills"/>
 
@@ -196,7 +196,7 @@ Ajoutez Application Insights à partir de l'Explorateur de solutions.
 
 ## Pour mettre à niveau avec une nouvelle version du Kit de développement logiciel
 
-Lorsqu'une [nouvelle version du Kit de développement logiciel est publiée](app-insights-release-notes-windows.md) : \* cliquez avec le bouton droit de la souris sur votre projet et choisissez Gérer les packages NuGet. \* Sélectionnez les packages Application Insights installés et choisissez Action : Mettre à niveau.
+Lorsqu'une [nouvelle version du Kit de développement logiciel est publiée](app-insights-release-notes-windows.md) : * cliquez avec le bouton droit de la souris sur votre projet et choisissez Gérer les packages NuGet. * Sélectionnez les packages Application Insights installés et choisissez Action : Mettre à niveau.
 
 
 ## <a name="usage"></a>Étapes suivantes
@@ -229,4 +229,4 @@ Lorsqu'une [nouvelle version du Kit de développement logiciel est publiée](app
 
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

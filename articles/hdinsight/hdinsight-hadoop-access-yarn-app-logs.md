@@ -115,7 +115,7 @@ Celles-ci font référence aux API nouvellement définies dans le code ci-dessou
 Vous pouvez à présent utiliser le client de l’historique des applications pour répertorier les applications terminées, filtrer les applications en fonction de vos propres critères et télécharger les journaux d’applications appropriés. L’extrait de code suivant montre comment procéder par programmation :
 
 	// Local download folder location where the logs will be placed
-	string downloadLocation = "E:\YarnApplicationLogs";
+	string downloadLocation = "E:\\YarnApplicationLogs";
 	
 	// List completed applications on your cluster that were submitted in the last 24 hours but failed
 	// Search for applications based on application name
@@ -137,7 +137,7 @@ Vous pouvez à présent utiliser le client de l’historique des applications po
 
 Le code ci-dessus répertorie/trouve les applications qui vous intéressent à l’aide du client de l’historique des applications, puis télécharge les journaux de ces applications dans un dossier local.
 
-L’extrait de code ci-dessous télécharge également les journaux d’une application dont l’ID d’application est connu. L’ID d’application est l’identificateur global unique d’une application qui est assigné par le gestionnaire de ressources. Il est construit à l’aide de l’heure de début du gestionnaire de ressources et d’un compteur croissant monotone pour les applications envoyées au gestionnaire de ressources. L’ID d’application se présente sous la forme suivante : "application_&lt;Heure-de-début-du-gestionnaire-de-ressource&gt;_&lt;Compteur&gt;". Notez que l’ID d’application et l’ID de travail sont distincts. L’ID de travail est un concept propre à l’infrastructure MapReduce, tandis que l’ID d’application est un concept YARN indépendant de l’infrastructure. Dans YARN, un ID de travail identifie un travail MapReduce spécifique comme étant géré par le maître d’application d’une application MapReduce envoyée au gestionnaire de ressources.
+L’extrait de code ci-dessous télécharge également les journaux d’une application dont l’ID d’application est connu. L’ID d’application est l’identificateur global unique d’une application qui est assigné par le gestionnaire de ressources. Il est construit à l’aide de l’heure de début du gestionnaire de ressources et d’un compteur croissant monotone pour les applications envoyées au gestionnaire de ressources. L’ID d’application se présente sous la forme suivante : "application\_&lt;Heure-de-début-du-gestionnaire-de-ressource&gt;\_&lt;Compteur&gt;". Notez que l’ID d’application et l’ID de travail sont distincts. L’ID de travail est un concept propre à l’infrastructure MapReduce, tandis que l’ID d’application est un concept YARN indépendant de l’infrastructure. Dans YARN, un ID de travail identifie un travail MapReduce spécifique comme étant géré par le maître d’application d’une application MapReduce envoyée au gestionnaire de ressources.
 
 	// Download application logs for an application whose application ID is known
 	string applicationId = "application_1416017767088_0028";
@@ -173,4 +173,4 @@ Si nécessaire, vous pouvez également télécharger des journaux pour chaque co
 [YARN-concepts]: http://hortonworks.com/blog/apache-hadoop-yarn-concepts-and-applications/
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

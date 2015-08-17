@@ -9,6 +9,6 @@ Si vous créez une application sans référence pointant vers Microsoft.WindowsA
 	using System.Configuration;
 	...
 	CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-		ConfigurationManager.ConnectionStrings["StorageConnectionString"]);
+		ConfigurationManager.ConnectionStrings["StorageConnectionString"].ConnectionString);
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

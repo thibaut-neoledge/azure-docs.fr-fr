@@ -12,7 +12,7 @@
 	ms.workload="identity" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
-	ms.topic="article" 
+	ms.topic="hero-article" 
 	ms.date="07/02/2015" 
 	ms.author="billmath"/>
 
@@ -61,4 +61,4 @@ Pour plus d'informations sur la raison pour laquelle vous devez utiliser Azure M
 * [Quelles sont les implications de l’application Multi-Factor Authentication pour moi ?](multi-factor-authentication-end-user.md)
 * [Azure Multi-Factor Authentication sur MSDN](https://msdn.microsoft.com/library/azure/dn249471.aspx) 
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

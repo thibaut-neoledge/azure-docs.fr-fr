@@ -7,14 +7,16 @@
    manager="carolz" 
    editor=""/>
 
+
 <tags
    ms.service="storsimple"
    ms.devlang="NA"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD" 
-   ms.date="07/24/2015"
+   ms.date="07/30/2015"
    ms.author="v-sharos@microsoft.com"/>
+
 
 # Utilisation du service StorSimple Manager pour modifier la configuration de votre appareil StorSimple
 
@@ -83,10 +85,7 @@ Pour chaque interface réseau, les paramètres suivants sont affichés :
 
 - **Vitesse** : paramètre non configurable par l'utilisateur. DATA 0, DATA 1, DATA 4 et DATA 5 sont toujours des interfaces réseau 1 Gigabit Ethernet, tandis que DATA 2 et DATA 3 sont des interfaces 10 Gigabit Ethernet.
 
-     >[AZURE.NOTE]
-     >
-     >- La vitesse et le mode duplex sont toujours négociés automatiquement.
-     >- Les trames Jumbo ne sont pas prises en charge.
+     >[AZURE.NOTE]>>- La vitesse et le mode duplex sont toujours négociés automatiquement . >- Les trames Jumbo ne sont pas prises en charge.
  
 - **État de l'interface** : une interface peut être activée ou désactivée. Si elle est activée, l’appareil essaie de l'utiliser. Nous vous recommandons d'activer uniquement les interfaces qui sont connectées au réseau et utilisées. Désactivez celles que vous n'utilisez pas.
 
@@ -99,11 +98,11 @@ Pour chaque interface réseau, les paramètres suivants sont affichés :
 
 - **Adresse IP** : il peut s'agir d’une adresse IPv4 ou IPv6 ou les deux à la fois. Les familles d'adresses IPv4 et IPv6 sont prises en charge pour les interfaces réseau de l’appareil. Quand vous utilisez IPv4, spécifiez une adresse IP 32 bits (*xxx.xxx.xxx.xxx*) en notation décimale à point. Quand vous utilisez IPv6, indiquez simplement un préfixe à 4 chiffres. Une adresse 128 bits sera alors générée automatiquement pour l’interface réseau de votre appareil à partir de ce préfixe.
 
-- **Sous-réseau** : ce paramètre fait référence au masque de sous-réseau et est configuré via l'interface Windows PowerShell.
+- **Sous-réseau** : ce paramètre fait référence au masque de sous-réseau et est configuré via l’interface Windows PowerShell.
 
-- **Passerelle** : il s’agit de la passerelle par défaut que cette interface doit utiliser quand elle tente de communiquer avec les nœuds qui se situent dans le même espace d'adressage IP (sous-réseau). La passerelle par défaut doit se trouver dans le même espace d'adressage (sous-réseau) que l’adresse IP de l’interface, ce qui est détermine par le masque de sous-réseau.
+- **Passerelle** : il s’agit de la passerelle par défaut que cette interface doit utiliser quand elle tente de communiquer avec les nœuds situés dans le même espace d’adressage IP (sous-réseau). La passerelle par défaut doit se trouver dans le même espace d'adressage (sous-réseau) que l’adresse IP de l’interface, ce qui est détermine par le masque de sous-réseau.
 
-- **Adresse IP fixe** : ce champ est seulement disponible pendant la configuration de l’interface DATA 0. Pour certaines opérations telles que les mises à jour ou le dépannage de l'appareil, vous serez peut-être amené à vous connecter directement au contrôleur de l’appareil. L'adresse IP fixe permet d’accéder à la fois au contrôleur actif et au contrôleur passif de votre appareil.
+- **Adresse IP fixe** : ce champ n’est disponible que pendant la configuration de l’interface DATA 0. Pour certaines opérations telles que les mises à jour ou le dépannage de l'appareil, vous serez peut-être amené à vous connecter directement au contrôleur de l’appareil. L'adresse IP fixe permet d’accéder à la fois au contrôleur actif et au contrôleur passif de votre appareil.
 
 Vous pouvez reconfigurer le contrôleur 0 et le contrôleur 1 via le portail de gestion.
 
@@ -127,8 +126,8 @@ Pour échanger ou réaffecter les adresses IP virtuelles d’interfaces réseau,
 
 ## Étapes suivantes
 
-[Configuration de MPIO pour votre appareil StorSimple](storsimple-configure-mpio-windows-server.md).
+[Configuration de MPIO pour votre appareil StorSimple](storsimple-configure-mpio-windows-server.md)
  
      
 
-<!----HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

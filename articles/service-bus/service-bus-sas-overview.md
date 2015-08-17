@@ -7,6 +7,7 @@
    manager="timlt"
    editor=""/>
 
+
 <tags
    ms.service="service-bus"
    ms.devlang="na"
@@ -15,6 +16,7 @@
    ms.workload="tbd"
    ms.date="07/24/2015"
    ms.author="darosa"/>
+
 
 # Les signatures d'accès partagé
 
@@ -48,7 +50,7 @@ La stratégie elle-même n'est pas le jeton d'accès pour Service Bus. C'est l'o
 SharedAccessSignature sig=<signature-string>&se=<expiry>&skn=<keyName>&sr=<URL-encoded-resourceURI>
 ```
 
-Où `signature-string` correspond au hachage SHA-256 de l'étendue du jeton (\*\*étendue\*\* telle que décrite dans la section précédente) avec un CRLF ajouté et un délai d'expiration (en secondes depuis le début de l'époque : `00:00:00 UTC` le 1er janvier 1970).
+Où `signature-string` correspond au hachage SHA-256 de l’étendue du jeton (**étendue** telle que décrite dans la section précédente) avec un CRLF ajouté et un délai d’expiration (en secondes depuis le début de l’époque : `00:00:00 UTC` le 1er janvier 1970).
 
 Le hachage est similaire au pseudo-code suivant et retourne 32 octets.
 
@@ -56,7 +58,7 @@ Le hachage est similaire au pseudo-code suivant et retourne 32 octets.
 SHA-256('https://<yournamespace>.servicebus.windows.net/'+'\n'+ 1438205742)
 ```
 
-Les valeurs non hachées se trouvent dans la chaîne **SharedAccessSignature**, afin que le destinataire puisse calculer le hachage avec les mêmes paramètres, pour s'assurer qu'il retourne le même résultat. L'URI spécifie l'étendue et le nom de la clé identifie la stratégie à utiliser pour calculer le hachage. Ceci est important du point de vue de la sécurité. Si la signature ne correspond pas à celle calculée par le destinataire (Service Bus), l'accès est refusé. À ce stade, nous pouvons être sûrs que l'expéditeur avait accès à la clé et doit bénéficier des droits spécifiés dans la stratégie.
+Les valeurs non hachées se trouvent dans la chaîne **SharedAccessSignature**, afin que le destinataire puisse calculer le hachage avec les mêmes paramètres, pour s’assurer qu’il retourne le même résultat. L'URI spécifie l'étendue et le nom de la clé identifie la stratégie à utiliser pour calculer le hachage. Ceci est important du point de vue de la sécurité. Si la signature ne correspond pas à celle calculée par le destinataire (Service Bus), l'accès est refusé. À ce stade, nous pouvons être sûrs que l'expéditeur avait accès à la clé et doit bénéficier des droits spécifiés dans la stratégie.
 
 ## Génération d'une signature à partir d'une stratégie
 
@@ -165,7 +167,7 @@ private static string createToken(string resourceUri, string keyName, string key
 }
 ```
 
-## Utilisation de la signature d'accès partagé
+## Utilisation de la signature d’accès partagé (au niveau HTTP)
  
 Maintenant que vous savez comment créer des signatures d'accès partagé pour les entités dans Service Bus, vous êtes prêt à effectuer une requête HTTP POST :
 
@@ -176,14 +178,81 @@ Authorization: SharedAccessSignature sr=https%3A%2F%2F<yournamespace>.servicebus
 ContentType: application/atom+xml;type=entry;charset=utf-8
 ``` 
 	
-N'oubliez pas que cela fonctionne pour tout. Vous pouvez créer des signatures d'accès partagé pour une file d'attente, une rubrique, un abonnement, un concentrateur d'événements ou un relais. Si vous utilisez l'identité par serveur de publication pour les concentrateurs d'événements, ajoutez simplement `/publishers/< publisherid>`.
+N'oubliez pas que cela fonctionne pour tout. Vous pouvez créer des signatures d'accès partagé pour une file d'attente, une rubrique, un abonnement, un concentrateur d'événements ou un relais. Si vous utilisez l’identité par serveur de publication pour Event Hubs, ajoutez simplement `/publishers/< publisherid>`.
 
 Si vous donnez un jeton SAS à un expéditeur ou un client, celui-ci ne dispose pas directement de la clé et il ne peut pas inverser le hachage pour l'obtenir. Ainsi, vous contrôlez le contenu auquel il peut accéder et pour quelle durée. Il est important de ne pas oublier que si vous modifiez la clé primaire dans la stratégie, les signatures d'accès partagé créées à partir de celle-ci ne seront plus valides.
 
+## Utilisation de la signature d’accès partagé (au niveau AMQP)
+
+Dans la section précédente, vous avez vu comment utiliser le jeton SAS avec une requête HTTP POST pour envoyer des données au Service Bus. Comme vous le savez, vous pouvez accéder au Service Bus à l’aide du protocole AMQP (Advanced Message File Protocol) qui est le protocole principal et privilégié pour des raisons de performances dans de nombreux scénarios. L’utilisation de jetons SAS avec AMQP est décrite dans le document suivant [AMQP Claim-Based Security Version 1.0](https://www.oasis-open.org/committees/download.php/50506/amqp-cbs-v1%200-wd02%202013-08-12.doc) qui est en ébauche depuis 2013, mais qui est bien pris en charge par Azure aujourd’hui.
+
+Avant de commencer à envoyer des données vers le Service Bus, le serveur de publication doit envoyer le jeton SAS dans un message AMQP vers un nœud AMQP bien défini nommé **« $cbs »** (vous pouvez le voir comme une file d’attente « spéciale » utilisée par le service pour acquérir et valider les jetons SAS). Le serveur de publication doit spécifier le champ **« ReplyTo »** dans le message AMQP ; il s’agit du nœud sur lequel le service répond au serveur de publication avec le résultat de la validation du jeton (un système demande/réponse simple entre le serveur de publication et le service). Ce nœud de réponse est créé « sur le vif » concernant la « création dynamique du nœud à distance », comme le décrit la spécification AMQP 1.0. Après avoir vérifié que le jeton SAS est valide, le serveur de publication peut continuer et commencer à envoyer des données au service.
+
+La procédure suivante explique comment envoyer le jeton SAS avec le protocole AMQP à l’aide de la bibliothèque [AMQP.Net Lite](http://amqpnetlite.codeplex.com). Cela peut être utile si vous ne pouvez pas utiliser le Service Bus SDK officiel (par exemple sur WinRT, .Net Compact Framework, .Net Micro Framework et Mono) développé dans C&#35;. Bien évidemment, cette bibliothèque est utile pour comprendre comment la sécurité basée sur les revendications fonctionne au niveau AMQP, tout comme vous avez pu voir comment cela fonctionne au niveau HTTP (avec une demande HTTP POST et le jeton SAS envoyé dans l’en-tête « Autorisation »). Mais ne vous inquiétez pas ! Si vous n’avez pas besoin de ces connaissances approfondies concernant AMQP, vous pouvez utiliser Service Bus SDK officiel avec les applications .Net Framework qui s’en occuperont pour vous ou la bibliothèque [Azure SB Lite](http://azuresblite.codeplex.com) pour toutes les autres plateformes (voir ci-dessus).
+
+### C&#35;
+
+```
+/// <summary>
+/// Send Claim Based Security (CBS) token
+/// </summary>
+/// <param name="shareAccessSignature">Shared access signature (token) to send</param>
+private bool PutCbsToken(Connection connection, string sasToken)
+{
+    bool result = true;
+    Session session = new Session(connection);
+
+    string cbsClientAddress = "cbs-client-reply-to";
+    var cbsSender = new SenderLink(session, "cbs-sender", "$cbs");
+    var cbsReceiver = new ReceiverLink(session, cbsClientAddress, "$cbs");
+
+    // construct the put-token message
+    var request = new Message(sasToken);
+    request.Properties = new Properties();
+    request.Properties.MessageId = "1";
+    request.Properties.ReplyTo = cbsClientAddress;
+    request.ApplicationProperties = new ApplicationProperties();
+    request.ApplicationProperties["operation"] = "put-token";
+    request.ApplicationProperties["type"] = "servicebus.windows.net:sastoken";
+    request.ApplicationProperties["name"] = Fx.Format("amqp://{0}/{1}", sbNamespace, entity);
+    cbsSender.Send(request);
+
+    // receive the response
+    var response = cbsReceiver.Receive();
+    if (response == null || response.Properties == null || response.ApplicationProperties == null)
+    {
+        result = false;
+    }
+    else
+    {
+        int statusCode = (int)response.ApplicationProperties["status-code"];
+        if (statusCode != (int)HttpStatusCode.Accepted && statusCode != (int)HttpStatusCode.OK)
+        {
+            result = false;
+        }
+    }
+
+    // the sender/receiver may be kept open for refreshing tokens
+    cbsSender.Close();
+    cbsReceiver.Close();
+    session.Close();
+
+    return result;
+}
+```
+
+La méthode *PutCbsToken()* ci-dessus reçoit la *connexion* (instance de classe de connexion AMQP telle que fournie par la bibliothèque AMQP .Net Lite) qui représente la connexion TCP au service et le paramètre *sasToken* correspondant au jeton SAS à envoyer. REMARQUE : il est important que la connexion soit créée avec le **mécanisme d’authentification SASL défini sur EXTERNAL** (et non sur le paramètre par défaut PLAIN avec le nom d’utilisateur et le mot de passe utilisés lorsque vous n’avez pas besoin d’envoyer le jeton SAS).
+
+L’éditeur crée ensuite deux liens AMQP pour envoyer le jeton SAS et recevoir la réponse (résultat de validation du jeton) depuis le service.
+
+Le message AMQP est un peu complexe et inclut de nombreuses propriétés et plus d’informations qu’un simple message. Le jeton SAS est placé dans le corps du message (à l’aide de son constructeur). La propriété **« ReplyTo »** est définie sur le nom du nœud permettant de recevoir le résultat de validation sur le lien du récepteur (vous pouvez modifier son nom à votre guise et il sera créé dynamiquement par le service). Les trois dernières propriétés personnalisées / application sont utilisées par le service pour comprendre le type d’opération à exécuter. Comme indiqué dans la spécification du brouillon CBS, il doit s’agir du **nom de l’opération** (à savoir « put-token »), du **type de jeton** placé (à savoir, « servicebus.windows.net:sastoken ») et enfin du **« nom » de l’audience** concernée par le jeton (l’entité entière).
+
+Après avoir envoyé le jeton SAS sur le lien de l’expéditeur, le serveur de publication doit lire la réponse sur le lien du récepteur. La réponse est un simple message AMQP avec les propriétés d’une application nommées **« status-code »** qui peut contenir les mêmes valeurs que le code d’état HTTP.
+
 ## Étapes suivantes
 
-Consultez la [référence API REST Service Bus](https://msdn.microsoft.com/library/azure/hh780717.aspx) pour plus d'informations sur ce que vous pouvez faire avec ces jetons SAS.
+Consultez la [référence API REST Service Bus](https://msdn.microsoft.com/library/azure/hh780717.aspx) pour plus d’informations sur ce que vous pouvez faire avec ces jetons SAS.
 
-Pour plus d'informations sur les signatures d'accès partagé, consultez le nœud [Authentification Service Bus](https://msdn.microsoft.com/library/azure/dn155925.aspx) sur MSDN.
+Pour plus d’informations sur les SAS, consultez le nœud [Authentification Service Bus](https://msdn.microsoft.com/library/azure/dn155925.aspx) sur MSDN.
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

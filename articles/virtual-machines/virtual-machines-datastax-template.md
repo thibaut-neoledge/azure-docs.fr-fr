@@ -7,6 +7,7 @@
 	manager="timlt"
 	editor="tysonn"/>
 
+
 <tags
 	ms.service="virtual-machines"
 	ms.workload="multiple"
@@ -15,6 +16,7 @@
 	ms.topic="article"
 	ms.date="04/29/2015"
 	ms.author="karthmut"/>
+
 
 # DataStax sous Ubuntu avec un modèle Microsoft Azure Resource Manager
 
@@ -44,7 +46,7 @@ Procédez comme suit pour créer un cluster Apache Cassandra basé sur DataStax,
 
 ### Étape 1-a : télécharger les fichiers de modèle à l'aide de PowerShell
 
-Créez un dossier local pour le modèle JSON et autres fichiers associés (par exemple, C:\Azure\Templates\DataStax).
+Créez un dossier local pour le modèle JSON et autres fichiers associés (par exemple, C:\\Azure\\Templates\\DataStax).
 
 Incluez le nom de votre dossier local et exécutez les commandes suivantes :
 
@@ -84,7 +86,7 @@ Clonez le référentiel de modèles entier à l'aide d'un client git de votre ch
 
 	git clone https://github.com/Azure/azure-quickstart-templates C:\Azure\Templates
 
-Lorsque vous avez terminé, recherchez le dossier **datastax-on-ubuntu** dans le répertoire C:\Azure\Templates.
+Lorsque vous avez terminé, recherchez le dossier **datastax-on-ubuntu** dans le répertoire C:\\Azure\\Templates.
 
 ### Étape 2 : (facultatif) comprendre les paramètres du modèle
 
@@ -367,8 +369,8 @@ Vous pouvez notamment remarquer les modèles liés suivants qui sont utilisés p
 
 -	**shared-resource.json** : contient la définition de toutes les ressources partagées lors du déploiement. Par exemple, c'est le cas des comptes de stockage utilisés pour stocker des disques de système d'exploitation et des réseaux virtuels de machines virtuelles.
 -	**opscenter-resources.json** : déploie une machine virtuelle OpsCenter et toutes les ressources qui lui sont associées, y compris une interface réseau et une adresse IP publique.
--	**opscenter-install-resources.json** : déploie l'extension de machine virtuelle OpsCenter (script personnalisé pour Linux) qui appelle le fichier de script d'interpréteur de commandes spécifique (**opscenter.sh**) requis pour configurer le service OpsCenter au sein de cette machine virtuelle.
--	**ephemeral-nodes-resources.json** : déploie tous les nœuds de cluster de machines virtuelles et les ressources connectées (par exemple, des cartes réseau, des adresses IP privées, etc.). Ce modèle déploie également des extensions de machine virtuelle (scripts personnalisés pour Linux) et appelle un script d'interpréteur de commandes (**dsenode.sh**) pour installer physiquement les bits Apache Cassandra sur chaque nœud.
+-	**opscenter-install-resources.json** : déploie l’extension de machine virtuelle OpsCenter (script personnalisé pour Linux) qui appelle le fichier de script d’interpréteur de commandes spécifique (**opscenter.sh**) requis pour configurer le service OpsCenter au sein de cette machine virtuelle.
+-	**ephemeral-nodes-resources.json** : déploie tous les nœuds de cluster de machines virtuelles et les ressources connectées (par exemple, des cartes réseau, des adresses IP privées, etc.). Ce modèle déploie également des extensions de machine virtuelle (scripts personnalisés pour Linux) et appelle un script d’interpréteur de commandes (**dsenode.sh**) pour installer physiquement les bits Apache Cassandra sur chaque nœud.
 
 Penchons-nous sur l'utilisation de ce dernier modèle, car il s'agit d'un des plus intéressants, du point de vue du développement d'un modèle. Un concept important à retenir est la façon dont un fichier de modèle unique peut déployer plusieurs copies d'un type de ressource unique et, pour chaque instance, définir des valeurs uniques pour les paramètres requis. Ce concept est appelé **itération de ressource**.
 
@@ -439,7 +441,7 @@ Les disques liés sont formatés durant les activités de préparation du nœud 
 
 	bash vm-disk-utils-0.1.sh
 
-vm-disk-utils-0.1.sh appartient au dossier **shared_scripts\ubuntu**, dans le référentiel github azure-quickstart-tempates et contient des fonctions très utiles pour le montage, la mise en forme et la troncation de disque. Ces fonctions peuvent être utilisées dans tous les modèles du référentiel.
+vm-disk-utils-0.1.sh appartient au dossier **shared\_scripts\\ubuntu**, dans le référentiel github azure-quickstart-tempates et contient des fonctions très utiles pour le montage, la mise en forme et la troncation de disque. Ces fonctions peuvent être utilisées dans tous les modèles du référentiel.
 
 Le fragment associé aux extensions de machines virtuelles CustomScriptForLinux est également intéressant à étudier. Celles-ci sont installées en tant que type distinct de ressources, avec une dépendance sur chaque nœud du cluster (et l'instance OpsCenter). Elles tirent parti du même mécanisme de bouclage de ressource que celui décrit pour les machines virtuelles :
 
@@ -482,4 +484,4 @@ Pour résumer, cette approche suggère de :
 Pour plus d'informations, consultez [Langage des modèles du gestionnaire de ressources Azure](https://msdn.microsoft.com/library/azure/dn835138.aspx).
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

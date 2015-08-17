@@ -67,7 +67,7 @@ Quand vous activez la synchronisation de mot de passe, les stratégies de comple
  
 ### la stratégie d’expiration de mot de passe.
 
-Si un utilisateur est dans la portée de la synchronisation de mot de passe, le mot de passe de compte cloud a la valeur « \*Ne jamais expirer\* ». Cela signifie que le mot de passe d’un utilisateur peut expirer dans l’environnement local, mais que l’utilisateur peut continuer à se connecter aux services cloud à l’aide de ce mot de passe expiré.
+Si un utilisateur est dans la portée de la synchronisation de mot de passe, le mot de passe de compte cloud a la valeur « *Ne jamais expirer* ». Cela signifie que le mot de passe d’un utilisateur peut expirer dans l’environnement local, mais que l’utilisateur peut continuer à se connecter aux services cloud à l’aide de ce mot de passe expiré.
 
 Le mot de passe cloud sera mis à jour la prochaine fois que l’utilisateur modifiera le mot de passe dans l’environnement local.
 
@@ -90,7 +90,7 @@ Pour que votre client Azure Active Directory puisse être activé pour la synchr
 
 Vous activez la synchronisation de mot de passe lors de l’exécution de l’Assistant Configuration Azure AD Connect.
 
-Dans la page de boîte de dialogue **Fonctionnalités facultatives**, sélectionnez « \*\*Synchronisation de mot de passe\*\* ».
+Dans la boîte de dialogue **Fonctionnalités facultatives**, sélectionnez « **Synchronisation de mot de passe** ».
  
 ![Fonctionnalités facultatives][1]
 
@@ -122,7 +122,7 @@ Les événements correspondants avec l’ID 657 indiquent les résultats de ces 
 
 Dans les événements, les objets affectés sont identifiés par leur ancre et la valeur de nom de domaine. La valeur d’ancre correspond à la valeur **ImmutableId** retournée pour un utilisateur par l’applet de commande Get-MsoUser.
 
-Outre les identificateurs d’objets, l’**ID d’événement 656** fournit la date de modification du mot de passe dans l’annuaire Active Directory local :
+Outre les identificateurs d’objets, l’**ID d’événement 656** fournit la date de modification du mot de passe de l’utilisateur dans l’annuaire Active Directory local :
 
 ![Demande de modification de mot de passe][4]
 
@@ -156,4 +156,4 @@ Une fois l’Assistant Configuration exécuté, votre client ne synchronisera pl
 [4]: ./media/active-directory-aadsync-implement-password-synchronization/IC662506.png
 [5]: ./media/active-directory-aadsync-implement-password-synchronization/IC662507.png
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

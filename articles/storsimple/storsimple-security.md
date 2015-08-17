@@ -246,4 +246,4 @@ Voici quelques questions et réponses relatives à la sécurité et à Microsoft
 [Prise en main de l’appareil physique](https://msdn.microsoft.com/library/azure/dn772410.aspx)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

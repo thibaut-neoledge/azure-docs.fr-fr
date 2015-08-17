@@ -129,4 +129,4 @@
 <!-- URLs. -->
 [Kit de développement logiciel (SDK) Mobile Services pour Android]: http://aka.ms/Iajk6q
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

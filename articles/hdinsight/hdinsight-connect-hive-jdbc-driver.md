@@ -71,4 +71,4 @@ Maintenant que vous avez vu comment utiliser JDBC avec Hive, utilisez les liens
 * [Utilisation de Pig avec HDInsight](hdinsight-use-pig.md)
 * [Utilisation des tâches MapReduce avec HDInsight](hdinsight-use-mapreduce.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

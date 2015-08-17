@@ -6,6 +6,7 @@
    authors="SharS"
    manager="carolz"
    editor="" />
+
 <tags 
    ms.service="storsimple"
    ms.devlang="NA"
@@ -14,6 +15,7 @@
    ms.workload="TBD"
    ms.date="06/25/2015"
    ms.author="v-sharos" />
+
 
 # Gestion du compte de stockage StorSimple
 
@@ -97,7 +99,7 @@ Vous pouvez modifier un compte de stockage utilisé par un conteneur de volumes.
 
 2. Dans le tableau de comptes de stockage, placez le pointeur sur le compte à supprimer.
 
-3. Une icône de suppression (**x**) s’affiche pour ce compte de stockage dans la colonne de droite. Cliquez sur l’icône **x** pour supprimer les informations d’identification.
+3. Une icône de suppression (**x**) s’affiche dans la colonne de droite en regard de ce compte de stockage. Cliquez sur l’icône **x** pour supprimer les informations d’identification.
 
 4. Lorsque vous êtes invité à confirmer la suppression, cliquez sur **Oui**. La liste du tableau est mise à jour pour refléter les modifications.
 
@@ -145,11 +147,11 @@ Pour informer le service StorSimple Manager de la modification, vous devez accé
 3. Dans la boîte de dialogue qui s’affiche, procédez comme suit :
 
   1. Sélectionnez le compte de stockage associé à la clé que vous souhaitez mettre à jour.
-  2. Vous devrez mettre la clé d’accès de stockage à jour dans le service StorSimple Manager. Dans ce cas, vous pouvez voir la clé d’accès de stockage. Entrez la nouvelle clé dans la zone **Clé d’accès au compte de stockage**. 
+  2. Vous devrez mettre la clé d’accès de stockage à jour dans le service StorSimple Manager. Dans ce cas, vous pouvez voir la clé d’accès de stockage. Entrez la nouvelle clé dans le champ **Clé d’accès au compte de stockage**. 
   3. Enregistrez vos modifications. La clé d’accès de votre compte de stockage doit maintenant être à jour.
 
 ## Étapes suivantes
 
 En savoir plus sur la [sécurité StorSimple](storsimple-security.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

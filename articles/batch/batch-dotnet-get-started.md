@@ -164,10 +164,10 @@ Pour plus d’informations, voir l’article [Utilisation du stockage d’objets
 	  	CloudBlockBlob dataprocessor = container.GetBlockBlobReference("ProcessTaskData.exe");
 	  	CloudBlockBlob storageassembly =
 			container.GetBlockBlobReference("Microsoft.WindowsAzure.Storage.dll");
-		  taskData1.UploadFromFile("..\..\taskdata1.txt", FileMode.Open);
-		  taskData2.UploadFromFile("..\..\taskdata2.txt", FileMode.Open);
-	  	taskData3.UploadFromFile("..\..\taskdata3.txt", FileMode.Open);
-		  dataprocessor.UploadFromFile("..\..\..\ProcessTaskData\bin\debug\ProcessTaskData.exe", FileMode.Open);
+		  taskData1.UploadFromFile("..\\..\\taskdata1.txt", FileMode.Open);
+		  taskData2.UploadFromFile("..\\..\\taskdata2.txt", FileMode.Open);
+	  	taskData3.UploadFromFile("..\\..\\taskdata3.txt", FileMode.Open);
+		  dataprocessor.UploadFromFile("..\\..\\..\\ProcessTaskData\\bin\\debug\\ProcessTaskData.exe", FileMode.Open);
 		  storageassembly.UploadFromFile("Microsoft.WindowsAzure.Storage.dll", FileMode.Open);
 		  Console.WriteLine("Uploaded the files. Press Enter to continue.");
 		  Console.ReadLine();
@@ -208,7 +208,7 @@ Un pool de nœuds de calcul est le premier jeu de ressources que vous devez cré
 			  newPool.Commit();
 			  Console.WriteLine("Created the pool. Press Enter to continue.");
 			  Console.ReadLine();
-		  }
+		  	}
 
 4. Ajoutez à la section Main le code ci-après qui appelle la méthode que vous venez d’ajouter :
 
@@ -266,7 +266,7 @@ Créez un travail permettant de gérer les tâches qui s’exécutent dans le po
 				Console.WriteLine("Job id: " + job.Id);
 				Console.WriteLine("   Job status: " + job.State);
 			}
-			Console.WriteLine("Press Enter to continue.")
+			Console.WriteLine("Press Enter to continue.");
 			Console.ReadLine();
 		}
 
@@ -316,7 +316,7 @@ Une fois le travail créé, vous pouvez y ajouter des tâches. Chaque tâche s�
 			{
 				Console.WriteLine("Task " + task.Id + " says:\n" + task.GetNodeFile(Constants.StandardOutFileName).ReadAsString());
 			}
-			Console.WriteLine("Press Enter to continue.")
+			Console.WriteLine("Press Enter to continue.");
 			Console.ReadLine();
 		}
 
@@ -377,7 +377,7 @@ Une fois le travail créé, vous pouvez y ajouter des tâches. Chaque tâche s�
 
 			static void DeleteJob(BatchClient client)
 			{
-				client.JobOperations.DeleteJob("davidmujob1");
+				client.JobOperations.DeleteJob("testjob1");
 				Console.WriteLine("Job was deleted.");
 				Console.ReadLine();
 			}
@@ -394,7 +394,7 @@ Une fois le travail créé, vous pouvez y ajouter des tâches. Chaque tâche s�
 
 		static void DeletePool (BatchClient client)
 		{
-			client.PoolOperations.DeletePool("davidmupl1");
+			client.PoolOperations.DeletePool("testpool1");
 			Console.WriteLine("Pool was deleted.");
 			Console.ReadLine();
 		}
@@ -475,4 +475,4 @@ Une fois le travail créé, vous pouvez y ajouter des tâches. Chaque tâche s�
 
 2. Certaines applications génèrent de grandes quantités de données qui peuvent se révéler difficiles à traiter. L’un des moyens de contourner ce problème consiste à utiliser des [requêtes de liste efficaces](batch-efficient-list-queries.md).
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -1,12 +1,13 @@
 <properties
 	pageTitle="Injection de données personnalisées dans des machines virtuelles Azure"
-	description="Cette rubrique explique comment injecter des données personnalisées dans une machine virtuelle Azure lorsque l’instance est créée et comment localiser les données personnalisées dans Windows ou Linux."
+	description="Cette rubrique explique comment injecter des données personnalisées dans une machine virtuelle Azure quand l’instance est créée, et comment localiser les données personnalisées dans Windows ou Linux."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="squillace"
 	manager="timlt"
 	editor="tysonn"
 	tags="azure-service-management" />
+
 
 <tags
 	ms.service="virtual-machines"
@@ -18,9 +19,10 @@
 	ms.author="rasquill"/>
 
 
+
 #Injection de données personnalisées dans une machine virtuelle Azure
 
-L'injection d'un script ou d'autres données dans une machine virtuelle Azure lors de son approvisionnement est un scénario très commun, que le système d'exploitation soit Microsoft Windows ou une distribution Linux. Cette rubrique montre comment :
+L’injection d’un script ou d’autres données dans une machine virtuelle Azure lors de son approvisionnement est un scénario très commun, que le système d’exploitation soit Windows ou une distribution Linux. Cette rubrique montre comment :
 
 - injecter des données dans une machine virtuelle Azure lors de son approvisionnement ;
 
@@ -28,11 +30,11 @@ L'injection d'un script ou d'autres données dans une machine virtuelle Azure lo
 
 - utiliser les outils spéciaux disponibles sur certains systèmes pour détecter et gérer les données personnalisées automatiquement.
 
-> [AZURE.NOTE]Cet article explique comment des données personnalisées peuvent être injectées à l’aide d’une machine virtuelle créée avec la pile de calcul Azure Service Management. Pour savoir comment utiliser la pile de calcul de gestion des ressources Azure, consultez [l'exemple de modèle ici](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-customdata).
+> [AZURE.NOTE]Cet article explique comment des données personnalisées peuvent être injectées à l’aide d’une machine virtuelle créée avec l’API Azure Service Management. Pour savoir comment utiliser l’API Azure Service Management, consultez cet [exemple de modèle](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-customdata).
 
-## Injection de données personnalisées dans votre machine virtuelle Microsoft Azure
+## Injection de données personnalisées dans votre machine virtuelle Azure
 
-À ce jour, cette fonction est prise en charge uniquement dans l’[interface de ligne de commande Microsoft Azure](https://github.com/Azure/azure-xplat-cli). Bien qu’il soit possible d’utiliser n’importe laquelle des options de la commande `azure vm create`, la méthode ci-après est un exemple d’approche très basique.
+À ce jour, cette fonction est prise en charge uniquement dans l’[interface de ligne de commande Microsoft Azure](https://github.com/Azure/azure-xplat-cli). Vous pouvez utiliser toutes les options pour la commande `azure vm create`. L’exemple ci-dessous montre une approche très basique.
 
 ```
     PASSWORD='AcceptablePassword -- more than 8 chars, a cap, a num, a special'
@@ -45,28 +47,27 @@ L'injection d'un script ou d'autres données dans une machine virtuelle Azure lo
 
 ## Utilisation de données personnalisées dans la machine virtuelle
 
-+ Si votre machine virtuelle Microsoft Azure est une machine virtuelle Windows, le fichier de données personnalisées est enregistré dans `%SYSTEMDRIVE%\AzureData\CustomData.bin`. Bien qu’il ait été encodé en Base64 pour le transfert entre l’ordinateur local et la nouvelle machine virtuelle, il est automatiquement décodé afin de pouvoir être ouvert ou utilisé immédiatement.
++ Si votre machine virtuelle Azure est une machine virtuelle Windows, le fichier de données personnalisées est enregistré à l’emplacement `%SYSTEMDRIVE%\AzureData\CustomData.bin`. Même s’il a été encodé en base 64 pour son transfert depuis l’ordinateur local vers la nouvelle machine virtuelle, il est décodé automatiquement et peut être ouvert et utilisé immédiatement.
 
    >[AZURE.NOTE]Si le fichier existe, il est remplacé. La sécurité du répertoire est définie sur **Système : Contrôle total** et **Administrateurs : Contrôle total**.
 
-+ Si votre machine virtuelle Azure est une machine virtuelle Linux, le fichier de données personnalisées se trouve à l’un des deux emplacements ci-après, mais est encodé en Base64. Il est donc nécessaire de d’abord décoder les données.
++ Si votre machine virtuelle Azure est une machine virtuelle Linux, le fichier de données personnalisées se trouvera aux deux emplacements suivants. Les données seront encodées en base 64. Vous devrez donc d’abord les décoder.
 
     + Dans `/var/lib/waagent/ovf-env.xml`
     + Dans `/var/lib/waagent/CustomData`
 
 
 
-## Cloud-init sur Microsoft Azure
+## Cloud-init sur Azure
 
-Si votre machine virtuelle Microsoft Azure est issue d’une image Ubuntu ou CoreOS, vous pouvez utiliser le fichier CustomData afin d’envoyer un fichier cloud-config à Cloud-init. Sinon, si votre fichier de données personnalisées est un script, Cloud-init peut l’exécuter.
+Si votre machine virtuelle Azure est issue d’une image Ubuntu ou CoreOS, vous pouvez utiliser le fichier CustomData afin d’envoyer un fichier cloud-config à Cloud-init. Sinon, si votre fichier de données personnalisées est un script, Cloud-init peut l’exécuter.
 
 ### Images cloud Ubuntu
 
-Dans la plupart des images Microsoft Azure Linux, il vous faut modifier « /etc/waagent.conf » pour configurer le disque de ressources temporaire et le fichier d’échange. Pour plus d’information, consultez le [Guide d’utilisation de l’agent Linux Azure](virtual-machines-linux-agent-user-guide.md).
+Dans la plupart des images Azure Linux, il vous faut modifier « /etc/waagent.conf » pour configurer le disque de ressources temporaire et le fichier d’échange. Pour plus d’information, consultez le [Guide d’utilisation de l’agent Linux Azure](virtual-machines-linux-agent-user-guide.md).
 
-Néanmoins, nous devons utiliser Cloud-init sur les images cloud Ubuntu pour configurer le disque de ressources (en d’autres termes, le disque « éphémère ») et la partition d’échange. Consultez la page suivante du wiki Ubuntu pour en savoir plus :
+Néanmoins, nous devons utiliser Cloud-init sur les images cloud Ubuntu pour configurer le disque de ressources (en d’autres termes, le disque « éphémère ») et la partition d’échange. Consultez la page suivante du wiki Ubuntu pour en savoir plus : [AzureSwapPartitions](https://wiki.ubuntu.com/AzureSwapPartitions).
 
- - [Wiki Ubuntu : Configurer les partitions d’échange](http://go.microsoft.com/fwlink/?LinkID=532955&clcid=0x409)
 
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
@@ -78,6 +79,5 @@ Pour plus d'informations, consultez la [documentation cloud-init pour Ubuntu](ht
 [Référence sur l’opération Ajouter un rôle de l’API REST de gestion des services](http://msdn.microsoft.com/library/azure/jj157186.aspx)
 
 [Interface de ligne de commande Azure](https://github.com/Azure/azure-sdk-tools-xplat)
- 
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

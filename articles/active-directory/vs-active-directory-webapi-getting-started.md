@@ -29,4 +29,4 @@ Tous les contrôleurs de votre projet ont été dotés de l'attribut **Authorize
 [En savoir plus sur Azure Active Directory](http://azure.microsoft.com/services/active-directory/)
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

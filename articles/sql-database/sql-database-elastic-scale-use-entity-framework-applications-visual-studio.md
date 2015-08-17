@@ -7,6 +7,7 @@
 	authors="sidneyh" 
 	editor=""/>
 
+
 <tags 
 	ms.service="sql-database" 
 	ms.workload="sql-database" 
@@ -15,6 +16,7 @@
 	ms.topic="article" 
 	ms.date="07/24/2015" 
 	ms.author="sidneyh"/>
+
 
 # Bibliothèque cliente de la base de données élastique avec Entity Framework 
  
@@ -238,7 +240,7 @@ Avec ces conditions préalables en place, nous pouvons créer une **SqlConnectio
         } 
  
 
-Cet exemple illustre la méthode **RegisterNewShard** qui enregistre la partition dans la carte de partitions, déploie le schéma via des migrations Entity Framework et stocke le mappage d’une clé de partitionnement pour la partition. Elle s’appuie sur un constructeur de la sous-classe **DbContext** (ElasticScaleContext dans l’exemple) qui récupère une chaîne de connexion SQL en tant qu’entrée. Le code de ce constructeur est simple, comme le montre l'exemple suivant :
+Cet exemple illustre la méthode **RegisterNewShard** qui enregistre la partition dans la carte de partitions, déploie le schéma via des migrations Entity Framework et stocke le mappage d’une clé de partitionnement pour la partition. Elle s’appuie sur un constructeur de la sous-classe **DbContext** (**ElasticScaleContext** dans l’exemple) qui récupère une chaîne de connexion SQL en tant qu’entrée. Le code de ce constructeur est simple, comme le montre l'exemple suivant :
 
 
         // C'tor to deploy schema and migrations to a new shard 
@@ -264,11 +266,11 @@ Vous avez peut-être utilisé la version du constructeur héritée de la classe 
 
 Les approches décrites dans ce document entraînent quelques limitations :
 
-* Les applications EF utilisant **LocalDb** en premier doivent migrer vers une base de données SQL Server standard avant d’utiliser la bibliothèque cliente de base de données élastique. La montée en charge d’une application via le partitionnement avec l’infrastructure élastique n’est pas possible avec **LocalDb**. Notez que le développement peut toujours utiliser **LocalDb**. 
+* Les applications Entity Framework utilisant **LocalDb** en premier doivent migrer vers une base de données SQL Server standard avant d’utiliser la bibliothèque cliente de base de données élastique. La montée en charge d’une application via le partitionnement avec l’infrastructure élastique n’est pas possible avec **LocalDb**. Notez que le développement peut toujours utiliser **LocalDb**. 
 
 * Toutes les modifications apportées à l’application qui impliquent les modifications de schéma de base de données doivent passer par des migrations Entity Framework sur toutes les partitions. L'exemple de code pour ce document ne montre pas comment procéder. Envisagez d'utiliser la commande Update-Database avec un paramètre ConnectionString pour effectuer une itération sur toutes les partitions. Vous pouvez également extraire le script T-SQL pour la migration en attente à l'aide d'une commande Update-Database avec l'option –Script, puis appliquer le script T-SQL à vos partitions.
 
-* Nous partons du principe que tous les traitements de base de données d’une demande donnée sont contenus dans une seule partition, identifiée par la clé de partitionnement fournie par la demande. Cependant, cette hypothèse n'est pas toujours vraie. Par exemple, lorsqu'il n'est pas possible de proposer une clé de partitionnement. Pour résoudre ce problème, les bibliothèques clientes fournissent la classe **MultiShardQuery** qui implémente une abstraction de connexion pour l’interrogation sur plusieurs partitions. Ce document ne permet pas d’apprendre à utiliser la **MultiShardQuery** conjointement à Entity Framework
+* Nous partons du principe que tous les traitements de base de données d’une demande donnée sont contenus dans une seule partition, identifiée par la clé de partitionnement fournie par la demande. Cependant, cette hypothèse n'est pas toujours vraie. Par exemple, lorsqu'il n'est pas possible de proposer une clé de partitionnement. Pour résoudre ce problème, les bibliothèques clientes fournissent la classe **MultiShardQuery** qui implémente une abstraction de connexion pour l’interrogation sur plusieurs partitions. Ce document ne permet pas d’apprendre à utiliser la **MultiShardQuery** conjointement à Entity Framework.
 
 ## Conclusions 
 
@@ -281,4 +283,4 @@ Les applications Entity Framework peuvent facilement tirer parti des outils de b
 [1]: ./media/sql-database-elastic-scale-use-entity-framework-applications-visual-studio/sample.png
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

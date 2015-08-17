@@ -41,4 +41,4 @@ Dossier `src`
 Les autres fichiers sont une copie des licences logicielles.
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

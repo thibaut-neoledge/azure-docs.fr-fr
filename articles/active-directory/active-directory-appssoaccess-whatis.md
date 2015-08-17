@@ -78,7 +78,9 @@ Dans les deux cas, les informations d’identification sont stockées sous forme
 
 L’authentification unique avec mot de passe s’appuie sur une extension de navigateur pour récupérer de façon sécurisée les informations sur l’application et sur l’utilisateur à partir d’Azure AD et les appliquer au service. La plupart des applications SaaS tierces prises en charge par Azure AD prennent en charge cette fonctionnalité.
 
-Pour l’authentification unique avec mot de passe, le navigateur de l’utilisateur final peut être : \* Internet Explorer 8, Internet Explorer 9 et Internet Explorer 10 sur Windows 7 ou version ultérieure \* Chrome sur Windows 7 ou version ultérieure ou MacOS X ou version ultérieure
+Pour l’authentification unique avec mot de passe, le navigateur de l’utilisateur final peut être : - Internet Explorer 8, Internet Explorer 9 et Internet Explorer 10 sur Windows 7 ou version ultérieure - Chrome sur Windows 7 ou version ultérieure ou MacOS X ou version ultérieure
+
+**Remarque :** l'extension de l'authentification unique par mot de passe sera disponible pour Edge dans Windows 10 quand les extensions de navigateur seront prises en charge pour Edge.
 
 ###Authentification unique existante
 
@@ -120,10 +122,10 @@ Si l’application est introuvable dans la galerie d’applications Azure AD, v
 
 
 *	**Ajouter une application que vous développez** : si vous avez développé l’application vous-même, suivez les instructions de la documentation développeur pour Azure AD pour implémenter l’authentification unique fédérée ou l’approvisionnement à l’aide de l’API Graph d’Azure AD. Pour plus d’informations, consultez ces ressources :
-  * https://msdn.microsoft.com/library/azure/dn499820.aspx
-  * https://github.com/AzureADSamples/WebApp-MultiTenant-OpenIdConnect-DotNet
-  * https://github.com/AzureADSamples/WebApp-WebAPI-MultiTenant-OpenIdConnect-DotNet
-  * https://github.com/AzureADSamples/NativeClient-WebAPI-MultiTenant-WindowsStore
+  * [Scénarios d’authentification pour Azure AD](active-directory-authentication-scenarios.md)
+  * [https://github.com/AzureADSamples/WebApp-MultiTenant-OpenIdConnect-DotNet](https://github.com/AzureADSamples/WebApp-MultiTenant-OpenIdConnect-DotNet)
+  * [https://github.com/AzureADSamples/WebApp-WebAPI-MultiTenant-OpenIdConnect-DotNet](https://github.com/AzureADSamples/WebApp-WebAPI-MultiTenant-OpenIdConnect-DotNet)
+  * [https://github.com/AzureADSamples/NativeClient-WebAPI-MultiTenant-WindowsStore](https://github.com/AzureADSamples/NativeClient-WebAPI-MultiTenant-WindowsStore)
 
 *	**Demander l’intégration d’une application** : demandez à ce que l’application dont vous avez besoin soit prise en charge via le [forum Azure AD](http://feedback.azure.com/forums/169401-azure-active-directory).
 
@@ -162,13 +164,13 @@ Les méthodes que vous choisissez de déployer dans votre organisation sont à v
 
 ###Panneau d’accès Azure AD
 
-Le panneau d’accès https://myapps.microsoft.com est un portail web qui permet aux utilisateurs disposant d’un compte professionnel dans Azure Active Directory de voir et de lancer les applications cloud auxquelles ils ont été autorisés à accéder par l’administrateur Azure AD. Si vous êtes un utilisateur final avec [Azure Active Directory Premium](https://msdn.microsoft.com/library/azure/dn532272.aspx), vous pouvez également utiliser les fonctionnalités de gestion de groupes en libre-service via le panneau d’accès.
+Le panneau d’accès https://myapps.microsoft.com est un portail Web qui permet aux utilisateurs disposant d’un compte professionnel dans Azure Active Directory de voir et de lancer les applications cloud auxquelles ils ont été autorisés à accéder par l’administrateur Azure AD. Si vous êtes un utilisateur final avec [Azure Active Directory Premium](http://azure.microsoft.com/pricing/details/active-directory/), vous pouvez également utiliser les fonctionnalités de gestion de groupes en libre-service via le panneau d’accès.
 
 ![][3]
 
 Le panneau d’accès est séparé du portail de gestion Azure et ne requiert pas que les utilisateurs aient un abonnement Azure ou Office 365.
 
-Pour plus d’informations sur le panneau d’accès Azure AD, consultez la [Présentation du panneau d’accès](https://msdn.microsoft.com/library/azure/dn308586.aspx).
+Pour plus d’informations sur le panneau d’accès Azure AD, consultez la [Présentation du panneau d’accès](active-directory-saas-access-panel-introduction.md).
 
 ###Lanceur d’applications Office 365
 
@@ -194,15 +196,17 @@ Ces liens sont des URL spécifiquement conçues qui font passer l’utilisateur 
 
 Ces liens peuvent être copiés et collés partout où vous souhaitez fournir un lien de connexion à l’application sélectionnée. Cela peut être dans un message électronique ou dans n’importe quel portail web personnalisé que vous avez configuré pour l’accès. Voici un exemple d’URL d’authentification unique Azure AD pour Twitter :
 
-https://myapps.microsoft.com/signin/Twitter/230848d52c8745d4b05a60d29a40fced
+`https://myapps.microsoft.com/signin/Twitter/230848d52c8745d4b05a60d29a40fced`
 
 Comme pour les URL propres à l’entreprise pour le panneau d’accès, vous pouvez personnaliser cette URL en ajoutant un des domaines actifs ou vérifiés de votre annuaire après le domaine myapps.microsoft.com. Cela garantit que le logo est immédiatement chargé sur la page de connexion sans que l’utilisateur n’ait à entrer d’abord son ID utilisateur :
 
-https://myapps.microsoft.com/contosobuild.com/signin/Twitter/230848d52c8745d4b05a60d29a40fced
+`https://myapps.microsoft.com/contosobuild.com/signin/Twitter/230848d52c8745d4b05a60d29a40fced`
 
 Lorsqu’un utilisateur autorisé clique sur un de ces liens spécifiques de l’application, il voit tout d’abord la page de connexion de son organisation (en supposant qu’il n’est pas déjà connecté). Après la connexion, il est redirigé vers l’application sans s’arrêter au panneau d’accès. Si l’utilisateur ne dispose pas des éléments requis pour accéder à l’application, par exemple l’extension de navigateur d’authentification unique basée sur mot de passe, le lien l’invite à installer l’extension manquante. L’URL du lien reste constante en cas de modification de la configuration de l’authentification unique de l’application.
 
 Ces liens utilisent les mêmes mécanismes de contrôle d’accès que le panneau d’accès et qu’Office 365 et seuls les utilisateurs ou les groupes qui ont été affectés à l’application dans le portail de gestion Azure sont en mesure de s’authentifier. Toutefois, tout utilisateur qui n’est pas autorisé voit un message qui explique qu’il n’a pas reçu l’accès. Lui est présenté un lien permettant de charger le panneau d’accès pour afficher les applications disponibles auxquelles il a accès.
+
+[AZURE.INCLUDE [saas-toc](../../includes/active-directory-saas-toc.md)]
 
 <!--Image references-->
 [1]: ./media/active-directory-appssoaccess-whatis/onlineappgallery.png
@@ -212,4 +216,4 @@ Ces liens utilisent les mêmes mécanismes de contrôle d’accès que le pannea
 [5]: ./media/active-directory-appssoaccess-whatis/workdaymobile.png
 [6]: ./media/active-directory-appssoaccess-whatis/deeplink.png
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

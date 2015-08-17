@@ -158,4 +158,4 @@ Dans cet article, vous avez appris comment effectuer différentes tâches d'admi
 [image-cli-clusterlisting]: ./media/hdinsight-administer-use-command-line/HDI.CLIListClusters.png "Énumération et affichage des clusters"
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

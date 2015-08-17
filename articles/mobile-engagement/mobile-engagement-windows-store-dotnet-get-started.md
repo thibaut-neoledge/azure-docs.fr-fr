@@ -7,14 +7,16 @@
 	manager="dwrede"
 	editor="" />
 
+
 <tags
 	ms.service="mobile-engagement"
 	ms.workload="mobile"
 	ms.tgt_pltfrm="mobile-windows-store"
 	ms.devlang="dotnet"
-	ms.topic="get-started-article" 
+	ms.topic="hero-article" 
 	ms.date="04/30/2015"
 	ms.author="piyushjo" />
+
 
 # Prise en main d’Azure Mobile Engagement pour les applications universelles Windows
 
@@ -48,7 +50,7 @@ Ce didacticiel requiert les éléments suivants :
    	![][8]
 
 	- **Nom de l'application** : tapez ici le nom de votre application. Tous les caractères sont autorisés.
-	- **Plateforme** : sélectionnez la plateforme cible (\*\*Windows Universal\*\*) de l’application (si l’application cible plusieurs plateformes, répétez ce didacticiel pour chacune des plateformes).
+	- **Plateforme** : sélectionnez la plateforme cible (**Windows Universal**) de l’application (si l’application cible plusieurs plateformes, répétez ce didacticiel pour chacune des plateformes).
 	- **Nom de la ressource d’application** : nom utilisé dans les API et les URL pour faire référence à l’application. Vous devez utiliser uniquement des caractères d'URL conventionnels. Le nom généré automatiquement vous fournit un point de départ solide. Il est également recommandé d'ajouter le nom de la plateforme pour éviter tout conflit de noms, puisque ce nom doit être unique.
 	- **Emplacement** : sélectionnez le centre de données qui hébergera l'application (et surtout sa collection).
 	- **Collection** : si vous avez déjà créé une application, sélectionnez une collection créée précédemment, sinon sélectionnez Nouvelle collection.
@@ -260,4 +262,4 @@ Vous devez maintenant voir une notification toast à partir de votre campagne su
 [41]: ./media/mobile-engagement-windows-store-dotnet-get-started/campaign-activate.png
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

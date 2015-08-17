@@ -7,6 +7,7 @@
    manager="jeffreyg" 
    editor=""/>
 
+
 <tags
    ms.service="sql-database"
    ms.devlang="NA"
@@ -15,6 +16,7 @@
    ms.workload="data-management" 
    ms.date="07/28/2015"
    ms.author="adamkr; sstein"/>
+
 
 # Créer et gérer un pool de base de données SQL élastique à l’aide de PowerShell
 
@@ -59,7 +61,7 @@ Après vous être connecté, des informations s'affichent sur l'écran, notammen
 
 ### Sélectionner votre abonnement Azure
 
-Pour sélectionner l'abonnement, vous avez besoin de votre ID ou de votre nom d'abonnement (\*\*-SubscriptionName \*\*). Vous pouvez le copier à partir de l'étape précédente, ou, si vous avez plusieurs abonnements, vous pouvez exécuter l'applet de commande **Get-AzureSubscription** et copier les informations d'abonnement souhaitées affichées dans les résultats. Une fois votre abonnement sélectionné, exécutez l'applet de commande suivante :
+Pour sélectionner l’abonnement, vous avez besoin de votre identifiant ou de votre nom d’abonnement (**-SubscriptionName**). Vous pouvez le copier à partir de l'étape précédente, ou, si vous avez plusieurs abonnements, vous pouvez exécuter l'applet de commande **Get-AzureSubscription** et copier les informations d'abonnement souhaitées affichées dans les résultats. Une fois votre abonnement sélectionné, exécutez l'applet de commande suivante :
 
 	Select-AzureSubscription -SubscriptionId 4cac86b0-1e56-bbbb-aaaa-000000000000
 
@@ -107,7 +109,7 @@ Le pool créé à l'étape précédente est vide. Il ne comporte aucune base de 
 
 ### Créer une base de données élastique dans un pool élastique de bases de données
 
-Pour créer une base de données directement dans un pool, utilisez l'applet de commande **New-AzureSqlDatabase** et définissez le paramètre **ElasticPoolName**.
+Pour créer une base de données directement dans un pool, utilisez la cmdlet **New-AzureSqlDatabase** et définissez le paramètre **ElasticPoolName**.
 
 
 	New-AzureSqlDatabase -ResourceGroupName "resourcegroup1" -ServerName "server1" -DatabaseName "database1" -ElasticPoolName "elasticpool1"
@@ -116,7 +118,7 @@ Pour créer une base de données directement dans un pool, utilisez l'applet de 
 
 ### Déplacer une base de données existante vers un pool élastique de bases de données
 
-Pour déplacer une base de données existante vers un pool, utilisez l'applet de commande **Set-AzurSqlDatabase** et définissez le paramètre **ElasticPoolName**.
+Pour déplacer une base de données existante dans un pool, utilisez la cmdlet **Set-AzurSqlDatabase** et définissez le paramètre **ElasticPoolName**.
 
 
 À des fins d'exemple, créez une base de données qui ne se trouve pas dans un pool élastique de bases de données.
@@ -185,7 +187,7 @@ Ces API sont les mêmes que les API actuelles (V12) utilisées pour surveiller l
 
 * dans ce cas, les mesures d'API sont obtenues sous forme de pourcentage de DTU MAX par base de données (databaseDtuMax) (ou le nombre maximal équivalent pour la mesure sous-jacente telle que le processeur, les E/S, etc.) défini pour ce pool. Par exemple, une utilisation de 50 % de l'une de ces mesures indique que la consommation des ressources spécifiques est de 50 % de la limite supérieure par base de données définie pour cette ressource dans le pool parent. 
 
-Obtenez les mesures : $metrics = (Get-Metrics -ResourceId /subscriptions/d7c1d29a-ad13-4033-877e-8cc11d27ebfd/resourceGroups/FabrikamData01/providers/Microsoft.Sql/servers/fabrikamsqldb02/databases/myDB -TimeGrain ([TimeSpan]::FromMinutes(5)) -StartTime "4/18/2015" -EndTime "4/21/2015")
+Obtenez les mesures : $metrics = (Get-Metrics -ResourceId /subscriptions/d7c1d29a-ad13-4033-877e-8cc11d27ebfd/resourceGroups/FabrikamData01/providers/Microsoft.Sql/servers/fabrikamsqldb02/databases/myDB -TimeGrain ([TimeSpan\]::FromMinutes(5)) -StartTime "4/18/2015" -EndTime "4/21/2015")
 
 Le cas échéant, obtenez des jours supplémentaires en répétant l'appel et en ajoutant les données :
 
@@ -234,4 +236,4 @@ Pour en savoir plus, consultez [Vue d'ensemble des tâches de base de données �
 
 Pour en savoir plus sur les bases de données et les pools de bases de données élastiques, y compris les détails des API et des erreurs, consultez [Référence du pool de bases de données élastique](sql-database-elastic-pool-reference.md).
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

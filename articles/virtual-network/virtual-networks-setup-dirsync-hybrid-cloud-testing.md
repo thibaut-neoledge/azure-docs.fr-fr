@@ -58,18 +58,19 @@ Ceci est votre configuration actuelle.
 
 Pour démarrer votre version d'évaluation d'Office 365 FastTrack, vous avez besoin d'un nom de société fictif et d'un compte Microsoft. Nous vous recommandons d'utiliser une variante du nom de société Contoso pour le nom de votre société, qui est une société fictive utilisée dans l'exemple de contenu de Microsoft, mais ce n'est pas requis.
 
-Ensuite, inscrivez-vous à un compte Microsoft. Accédez à **http://outlook.com** et créez un compte avec une adresse de messagerie comme user123@outlook.com. Vous vous inscrirez à une version d’évaluation d’Office 365 FastTrack à l’aide de ce compte.
+Ensuite, inscrivez-vous à un compte Microsoft. Accédez à ****http://outlook.com**, puis créez un compte avec une adresse de messagerie comme user123@outlook.com. Vous vous inscrirez à une version d'évaluation d'Office 365 FastTrack à l'aide de ce compte.
 
 Ensuite, inscrivez-vous à une nouvelle version d'évaluation d'Office 365 FastTrack.
 
 1.	Connectez-vous à CLIENT1 avec les informations d'identification du compte CORP\\User1.
-2.	Ouvrez Internet Explorer et accédez à **http://fasttrack.office.com**. 3.	Cliquez sur **Mise en route de FastTrack**.
-4.	Sur la page de mise en route de FastTrack, sous **Tout d’abord, inscrivez-vous pour une version d’évaluation d’Office 365**, cliquez sur **Pour les entreprises, inscrivez-vous ici**.
-5.	Sur la page de l’étape 1, renseignez la page, en spécifiant votre nouveau compte Microsoft dans **Adresse de messagerie professionnelle**, puis cliquez sur **Suivant**.
+2.	Ouvrez Internet Explorer et accédez à ****http://fasttrack.office.com**.
+3.	Cliquez sur **Mise en route de FastTrack**.
+4.	Dans la page de mise en route de FastTrack, sous **Tout d’abord, inscrivez-vous pour une version d’évaluation d’Office 365**, cliquez sur **Pour les entreprises, inscrivez-vous ici**.
+5.	Dans la page de l’étape 1, renseignez la page, en spécifiant votre nouveau compte Microsoft dans **Adresse de messagerie professionnelle**, puis cliquez sur **Suivant**.
 6.	Sur la page de l'étape 2, tapez le nom d'un compte Office 365 initial dans le premier champ, le nom de votre société fictive, puis un mot de passe. Enregistrez l’adresse de messagerie obtenue (par exemple, user123@contoso123.onmicrosoft.com) et le mot de passe dans un emplacement sécurisé. Vous aurez besoin de ces informations pour terminer l'Assistant de configuration de l'outil de synchronisation Active Directory à la phase 3. Cliquez sur **Next**.
 7.	Dans la page de l’étape 3, tapez le numéro de votre téléphone mobile ou de votre smartphone doté de la fonction de message texte, puis cliquez sur **Me texter**.
 8.	Après avoir reçu le message texte sur votre téléphone, tapez le code de vérification, puis cliquez sur **Créer mon compte**. 
-9.	Lorsqu’Office 365 a terminé la création de votre compte, cliquez sur **Vous êtes prêt**.
+9.	Quand Office 365 a terminé la création de votre compte, cliquez sur **Vous êtes prêt**.
 10.	Vous devez maintenant voir la page principale du portail Office 365. Dans le ruban supérieur, cliquez sur **Admin**, puis cliquez sur **Office 365**. La page Centre d'administration Office 365 s'affiche. Gardez cette page ouverte sur CLIENT1.
 
 Ceci est votre configuration actuelle.
@@ -91,9 +92,9 @@ Commencez par créer une machine virtuelle Azure pour DS1 avec les commandes sui
 
 Ensuite, connectez-vous à la machine virtuelle DS1.
 
-1.	Sur la page des machines virtuelles du portail de gestion Azure, cliquez sur **En cours d’exécution** dans la colonne État de la machine virtuelle DS1.
+1.	Dans la page des machines virtuelles du portail de gestion Azure, cliquez sur **En cours d’exécution** dans la colonne État de la machine virtuelle DS1.
 2.	Dans la barre des tâches, cliquez sur **Se connecter**. 
-3.	Lorsque vous êtes invité à ouvrir DS1.rdp, cliquez sur **Ouvrir**.
+3.	Quand vous êtes invité à ouvrir DS1.rdp, cliquez sur **Ouvrir**.
 4.	Lorsque le message Connexion Bureau à distance s’affiche, cliquez sur **Connecter**.
 5.	Si des informations d’identification vous sont demandées, utilisez celles-ci :
 	- Nom : **CORP\\User1**
@@ -113,19 +114,20 @@ Ensuite, installez .NET 3.5 sur DS1 avec cette commande à l'invite de commande
 
 Ensuite, installez la synchronisation d'annuaires sur DS1.
 
-1.	Exécutez Internet Explorer, tapez **http://go.microsoft.com/fwlink/?LinkID=278924** dans la barre d’adresses, puis appuyez sur ENTRÉE. Lorsque vous êtes invité à exécuter dirsync.exe, cliquez sur la flèche en regard de **Enregistrer**, cliquez sur **Enregistrer sous**, puis cliquez sur **Enregistrer** pour enregistrer le fichier dans le dossier Téléchargements. Pour plus d’informations sur l’installation de l’outil, consultez la page [Installation ou mise à niveau de l’outil de synchronisation d’annuaires](http://technet.microsoft.com/library/jj151800). 2.	Ouvrez le dossier **Téléchargements**, cliquez avec le bouton droit sur le fichier **dirsync**, puis cliquez sur **Exécuter en tant qu’administrateur**.
+1.	Exécutez Internet Explorer, tapez ****http://go.microsoft.com/fwlink/?LinkID=278924** dans la barre d’adresses, puis appuyez sur Entrée. Quand vous êtes invité à exécuter dirsync.exe, cliquez sur la flèche en regard de **Enregistrer**, cliquez sur **Enregistrer sous**, puis cliquez sur **Enregistrer** pour enregistrer le fichier dans le dossier Téléchargements. Pour plus d’informations sur l’installation de l’outil, consultez [Installation ou mise à niveau de l’outil de synchronisation d’annuaires](http://technet.microsoft.com/library/jj151800).
+2.	Ouvrez le dossier **Téléchargements**, cliquez avec le bouton droit sur le fichier **dirsync**, puis cliquez sur **Exécuter en tant qu’administrateur**.
 3.	Dans la page Bienvenue de l’Assistant Installation de la synchronisation Active Directory, cliquez sur **Suivant**. 
-4.	Sur la page Termes du contrat de licence, cliquez sur **J’accepte**, puis cliquez sur **Suivant**.
+4.	Dans la page Termes du contrat de licence, cliquez sur **J’accepte**, puis cliquez sur **Suivant**.
 5.	Dans la page Sélectionner une installation de dossier, cliquez sur **Suivant**. Cela peut prendre plusieurs minutes pour que l'installation se termine.
-6.	Dans la page Terminé, désactivez **Démarrer l’Assistant Configuration maintenant**, puis cliquez sur **Terminer**.
+6.	Dans la page Terminé, désactivez l’option **Démarrer l’Assistant Configuration maintenant**, puis cliquez sur **Terminer**.
 7.	Dans l’écran d’accueil, cliquez sur **user1**, puis cliquez sur **Se déconnecter**.
 
 Ensuite, activez la synchronisation d'annuaires pour votre version d'évaluation d'Office 365 FastTrack.
 
-1.	Sur CLIENT1, sur la page **Centre d’administration Office 365**, dans le volet gauche, cliquez sur **Utilisateurs**, puis cliquez sur **Utilisateurs actifs**.
+1.	Dans CLIENT1, dans la page **Centre d’administration Office 365**, dans le volet gauche, cliquez sur **Utilisateurs**, puis sur **Utilisateurs actifs**.
 2.	Pour **Synchronisation Active Directory**, cliquez sur **Configurer**.
-3.	Sur la page Configurer et gérer la synchronisation Active Directory, à l’étape 3, cliquez sur **Activer**.
-4.	Lorsque l’invite **Voulez-vous activer la synchronisation Active Directory ?** s’ouvre, cliquez sur **Activer**. Après cela, **La synchronisation Active Directory est activée** s’affiche à l’étape 3.
+3.	Dans la page Configurer et gérer la synchronisation Active Directory, à l’étape 3, cliquez sur **Activer**.
+4.	Quand l’invite **Voulez-vous activer la synchronisation Active Directory ?** s’affiche, cliquez sur **Activer**. Après cela, **La synchronisation Active Directory est activée** s’affiche à l’étape 3.
 5.	Laissez la page **Configurer et gérer la synchronisation Active Directory** ouverte sur CLIENT1.
 
 Ensuite, ouvrez une session DC1 avec le compte CORP\\User1 et ouvrez une invite de commandes Windows PowerShell au niveau administrateur. Exécutez ces commandes une par une pour créer une nouvelle unité d’organisation appelée contoso\_users et ajouter deux nouveaux comptes d’utilisateur pour Camille Brunelle et Denise Bourgeois.
@@ -139,19 +141,19 @@ Lorsque vous exécutez chaque commande Windows PowerShell, le nouveau mot de pas
 Ensuite, installez la synchronisation d'annuaires sur DS1.
 
 1.	Connectez-vous à DS1 avec le compte CORP\\User1.
-2.	Sur l’écran d’**accueil**, tapez **Synchronisation d’annuaires**.
+2.	Dans l’écran d’**accueil**, tapez **Synchronisation d’annuaires**.
 3.	Cliquez avec le bouton droit sur **Configuration de la synchronisation d’annuaires**, puis cliquez sur **Exécuter en tant qu’administrateur**. Ainsi, l'Assistant de configuration démarre.
 4.	Sur la page d'accueil, cliquez sur **Suivant**.
 5.	Dans la page Informations d’identification Microsoft Azure Active Directory, tapez l’adresse de messagerie et le mot de passe du compte initial que vous avez créé lorsque vous avez installé la version d’évaluation d’Office 365 FastTrack à la phase 2. Cliquez sur Suivant. 
 6.	Dans la page Informations d’identification Active Directory, tapez **CORP\\User1** dans **Nom d’utilisateur** et le mot de passe du compte User1 dans **Mot de passe**. Cliquez sur **Next**.
-7.	Sur la page Déploiement hybride, sélectionnez **Activer le déploiement hybride**, puis cliquez sur **Suivant**.
-8.	Sur la page Synchronisation de mot de passe, sélectionnez **Activer la synchronisation des mots de passe**, puis cliquez sur **Suivant**.
-9.	La page Configuration s'affiche. Lorsque la configuration est terminée, cliquez sur **Suivant**.
+7.	Dans la page Déploiement hybride, sélectionnez **Activer le déploiement hybride**, puis cliquez sur **Suivant**.
+8.	Dans la page Synchronisation de mot de passe, sélectionnez **Activer la synchronisation des mots de passe**, puis cliquez sur **Suivant**.
+9.	La page Configuration s'affiche. Quand la configuration est terminée, cliquez sur **Suivant**.
 10.	Dans la page Terminé, cliquez sur **Terminer**. À l’invite, cliquez sur **OK**.
 
 Ensuite, vérifiez que les comptes d'utilisateur dans le domaine CORP sont synchronisés avec Office 365. Notez que la synchronisation peut prendre plusieurs heures.
 
-Sur CLIENT1, sur la page **Configurer et gérer la synchronisation Active Directory**, cliquez sur le lien **utilisateurs** à l’étape 6 de cette page. Si la synchronisation d'annuaires s'est déroulée correctement, vous devez voir quelque chose de similaire à ce qui suit.
+Dans CLIENT1, dans la page **Configurer et gérer la synchronisation Active Directory**, cliquez sur le lien **utilisateurs** à l’étape 6 de cette page. Si la synchronisation d'annuaires s'est déroulée correctement, vous devez voir quelque chose de similaire à ce qui suit.
 
 ![](./media/virtual-networks-setup-dirsync-hybrid-cloud-testing/CreateDirSyncHybridCloud_4.png)
 
@@ -159,13 +161,14 @@ La colonne **État** indique que le compte a été obtenu via la synchronisation
 
 Montrez ensuite la synchronisation de mot de passe d'Office 365 avec le compte Active Directory de Denise Bourgeois.
 
-1.	Sur CLIENT1, sur la page **Utilisateurs actifs**, sélectionnez le compte **Denise Bourgeois**.
+1.	Dans CLIENT1, dans la page **Utilisateurs actifs**, sélectionnez le compte **Denise Bourgeois**.
 2.	Dans les propriétés du compte Denise Bourgeois, sous **Licence attribuée**, cliquez sur **Modifier**.
 3.	Sous l’onglet **Affecter une licence**, sélectionnez un emplacement dans **Définir l’emplacement de l’utilisateur** (tel que les États-Unis).
 4.	Sélectionnez **Microsoft Office 365 - Plan E3**, puis cliquez sur **Enregistrer**.
 5.	Fermez Internet Explorer.
-6.	Exécutez Internet Explorer et accédez à **http://portal.microsoftonline.com**. 7.	Ouvrez une session avec les informations d'identification Office 365 de Denise Bourgeois. Son nom d’utilisateur sera denise@<\*Votre nom fictif\*>.onmicrosoft.com. Le mot de passe est le mot de passe du compte d'utilisateur Active Directory de Denise Bourgeois.
-8.	Après l’ouverture de session réussie, vous voyez la page principale du portail d’Office 365 avec la mention **Faisons la différence aujourd’hui**.
+6.	Ouvrez Internet Explorer et accédez à ****http://portal.microsoftonline.com**.
+7.	Ouvrez une session avec les informations d'identification Office 365 de Denise Bourgeois. Son nom d’utilisateur sera denise@<*Votre nom fictif*>.onmicrosoft.com. Le mot de passe est le mot de passe du compte d'utilisateur Active Directory de Denise Bourgeois.
+8.	Une fois la session ouverte, vous voyez la page principale du portail d’Office 365 avec la mention **Faisons la différence aujourd’hui**.
 
 Ceci est votre configuration actuelle.
 
@@ -194,4 +197,4 @@ Cet environnement est maintenant prêt à exécuter le test des applications Off
 
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

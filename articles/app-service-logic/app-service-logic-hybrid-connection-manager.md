@@ -84,7 +84,7 @@ Port du système local | Sur le système local, ouvrez le port utilisé par le s
  - Dans le Gestionnaire des services Internet (inetmgr), le site Web ***MicrosoftAzureBizTalkHybridListener*** doit être répertorié et en cours d'exécution. 
  - Ce site Web utilise ***HybridListenerAppPool*** qui s'exécute comme compte utilisateur prédéfini local de *NetworkService*. Ce pool d'applications doit également être démarré.
 3. Sur le serveur IIS, vérifiez que le connecteur est installé et en cours d'exécution : 
- - Un site Web est créé pour le connecteur App Service. Par exemple, si vous avez créé un connecteur SQL, il existe un site Web ***MicrosoftSqlConnector_nnn***. Dans le Gestionnaire des services Internet (inetmgr), confirmez que ce site Web est répertorié et démarré. 
+ - Un site Web est créé pour le connecteur App Service. Par exemple, si vous avez créé un connecteur SQL, il existe un site Web ***MicrosoftSqlConnector\_nnn***. Dans le Gestionnaire des services Internet (inetmgr), confirmez que ce site Web est répertorié et démarré. 
  - Ce site Web utilise son propre pool d'applications IIS nommé ***HybridAppPoolnnn***. Ce pool d'applications s'exécute en tant que compte utilisateur prédéfini local de *NetworkService*. Ce site Web et le pool d'applications doivent tous deux être démarrés. 
  - Parcourez le connecteur local. Par exemple, si le site Web du connecteur utilise le port 6569, accédez à http://localhost:6569. Un document par défaut n'est pas configuré, donc une `HTTP Error 403.14 - Forbidden error` est attendue.
 4. Dans le pare-feu, vérifiez que les ports TCP répertoriés dans cette rubrique sont ouverts.
@@ -133,4 +133,4 @@ Si votre API personnalisée utilise un port TCP ou HTTP, vous pouvez utiliser le
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

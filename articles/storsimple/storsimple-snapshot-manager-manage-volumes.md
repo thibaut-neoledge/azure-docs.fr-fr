@@ -6,6 +6,7 @@
    authors="SharS"
    manager="adinah"
    editor="" />
+
 <tags 
    ms.service="storsimple"
    ms.devlang="NA"
@@ -14,6 +15,7 @@
    ms.workload="TBD"
    ms.date="07/09/2015"
    ms.author="v-sharos" />
+
 
 # Utiliser le Gestionnaire d’instantanés StorSimple pour afficher et gérer les volumes
 
@@ -217,11 +219,11 @@ Gestion des disques est un utilitaire système dédié à la gestion des disques
 
 2. Assurez-vous de disposer de deux volumes disponibles sur l’appareil StorSimple. (Dans l’exemple, les volumes disponibles sont **Disque 1** et **Disque 2**.) 
 
-3. Dans la fenêtre gestion des disques, dans la colonne de droite du volet inférieur, cliquez avec le bouton droit sur **Disque 1**, puis sélectionnez **Nouveau volume en miroir**.
+3. Dans la fenêtre Gestion des disques, dans la colonne de droite du volet inférieur, cliquez avec le bouton droit sur **Disque 1**, puis sélectionnez **Nouveau volume en miroir**.
 
     ![Nouveau volume en miroir](./media/storsimple-snapshot-manager-manage-volumes/HCS_SSM_New_mirrored_volume.png)
 
-4. Sur la page de l’assistant **Nouveau volume en miroir**, cliquez sur **Suivant**.
+4. Sur la page de l’Assistant **Nouveau volume en miroir**, cliquez sur **Suivant**.
 
 5. Sur la page **Sélectionner les disques**, choisissez **Disque 2** dans le volet **Sélectionné**, cliquez sur **Ajouter**, puis cliquez sur **Suivant**.
 
@@ -235,7 +237,7 @@ Gestion des disques est un utilitaire système dédié à la gestion des disques
 
     ![Message de conversion de disque dynamique](./media/storsimple-snapshot-manager-manage-volumes/HCS_SSM_Disk_management_msg.png)
 
-10. Dans le composant Gestion des disques, vérifiez que Disque 1 et Disque 2 sont représentés en tant que volumes dynamiques mis en miroir. (\*\*Dynamique\*\* doit apparaître dans la colonne de statut et la barre de capacité doit devenir rouge pour indiquer un volume mis en miroir.)
+10. Dans Gestion des disques, vérifiez que Disque 1 et Disque 2 sont affichés comme des volumes en miroir dynamiques. (**Dynamique** doit apparaître dans la colonne d’état et la couleur de barre de capacité doit passer au rouge, indiquant un volume en miroir.)
 
     ![Disques dynamiques mis en miroir du composant Gestion des disques](./media/storsimple-snapshot-manager-manage-volumes/HCS_SSM_Verify_dynamic_disks_2.png)
  
@@ -249,17 +251,17 @@ Appliquez la procédure suivante pour configurer un volume dynamique mis en miro
 
 2. Dans le volet **Étendue** cliquez avec le bouton droit sur le nœud **Volumes**, puis sélectionnez **Relancer l’analyse des volumes**. À l’issue de l’analyse, une liste de volumes doit apparaître dans le volet **Résultats**. Le volume dynamique mis en miroir est répertorié en tant que volume unique.
 
-3. Dans le volet **Résultats**, cliquez avec le bouton droit sur un volume dynamique mis en miroir, puis cliquez sur **Créer un groupe de volumes**.
+3. Dans le volet **Résultats**, cliquez avec le bouton droit sur le volume dynamique en miroir, puis cliquez sur **Créer un groupe de volumes**.
 
-4. Dans la boîte de dialogue **Créer un groupe de volumes**, saisissez un nom pour le groupe de volumes, attribuez le volume dynamique en miroir à ce groupe, puis cliquez sur **OK**.
+4. Dans la boîte de dialogue **Créer un groupe de volumes**, tapez un nom pour le groupe de volumes, affectez le volume dynamique en miroir à ce groupe, puis cliquez sur **OK**.
 
-5. Dans le volet **Étendue**, développez le nœud **Groupes de volumes**. Le nouveau groupe de volumes doit apparaître dans le nœud **Groupes de volumes**.
+5. Dans le volet **Étendue**, développez le nœud **Groupes de volumes**. Le nouveau groupe de volumes doit apparaître sous le nœud **Groupes de volumes**.
 
 6. Cliquez avec le bouton droit sur le nom du groupe de volumes.
 
-    - Pour démarrer une tâche de sauvegarde interactive (à la demande), cliquez sur **Démarrer la sauvegarde**. 
+    - Pour démarrer une tâche de sauvegarde interactive (à la demande), cliquez sur **Exécuter la sauvegarde**. 
 
-    - Pour programmer une sauvegarde automatique, cliquez sur **Créer une stratégie de sauvegarde**. Sur la page **Général**, sélectionnez le groupe de volumes dans la liste. Sur la page **Planifier**, saisissez les détails de la planification. Lorsque vous avez terminé, cliquez sur **OK**.
+    - Pour planifier une sauvegarde automatique, cliquez sur **Créer une stratégie de sauvegarde**. Sur la page **Général**, sélectionnez le groupe de volumes dans la liste. Sur la page **Planifier**, entrez les détails de la planification. Quand vous avez terminé, cliquez sur **OK**.
 
 7. Vous pouvez surveiller la tâche de sauvegarde en cours d’exécution. Dans le volet **Étendue**, développez le nœud **Tâches**, puis cliquez sur **En cours d’exécution** ; les détails de la tâche apparaissent dans le volet **Résultats**. À l’issue de la tâche de sauvegarde, les détails sont transférés vers la liste des tâches **Dernières 24 heures**.
 
@@ -270,4 +272,4 @@ Appliquez la procédure suivante pour configurer un volume dynamique mis en miro
 <!--Reference links-->
 [1]: https://msdn.microsoft.com/library/ee338480(v=ws.10).aspx
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

@@ -31,4 +31,4 @@ Après avoir trouvé le nom du disque, vous êtes prêt à le détacher :
 
 Le disque reste dans le stockage, mais il n’est plus attaché à une machine virtuelle.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

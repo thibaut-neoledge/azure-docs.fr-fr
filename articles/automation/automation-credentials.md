@@ -103,4 +103,4 @@ L’image suivante montre un exemple d’utilisation d’informations d’identi
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

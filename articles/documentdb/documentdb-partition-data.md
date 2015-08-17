@@ -1,11 +1,12 @@
 <properties      
-    pageTitle="Partitionnement des données dans DocumentDB | Azure"      
+    pageTitle="Partitionnement des données dans DocumentDB | Microsoft Azure"      
     description="Découvrez comment partitionner les données dans DocumentDB et quand utiliser le partitionnement par hachage, par plage et par recherche."          
     services="documentdb"      
     authors="arramac"      
-    manager="johnmac"      
+    manager="jhubbard"      
     editor="monicar"      
-    documentationCenter=""/> <tags      
+    documentationCenter=""/>
+ <tags      
     ms.service="documentdb"      
     ms.workload="data-services"      
     ms.tgt_pltfrm="na"      
@@ -13,6 +14,7 @@
     ms.topic="article"      
     ms.date="05/28/2015"      
     ms.author="arramac"/>
+
 
 # Partitionnement des données dans DocumentDB
 
@@ -113,4 +115,4 @@ Dans cet article, nous avons introduit certaines techniques courantes pour le pa
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

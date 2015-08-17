@@ -7,14 +7,16 @@
 	manager="jhubbard" 
 	editor="monicar"/>
 
+
 <tags 
 	ms.service="data-factory" 
 	ms.workload="data-services" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/16/2015" 
+	ms.date="07/27/2015" 
 	ms.author="spelluru"/>
+
 
 # Notes de publication sur Azure Data Factory
 
@@ -115,7 +117,7 @@ Notez les points suivants :
 	        },
 	        "availability": {
 	            "frequency": "Hour",
-	            "interval": "1"
+	            "interval": 1
 	        }
 	    }
 	}
@@ -355,4 +357,4 @@ Consultez le billet de blog : [Mise à jour d’Azure Data Factory - nouveaux m
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

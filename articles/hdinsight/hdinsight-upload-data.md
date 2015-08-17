@@ -95,9 +95,9 @@ L'interface CLI Azure est un outil interplateforme qui vous permet de gérer les
 
 > [AZURE.NOTE]Si vous utilisez toujours le même compte de stockage, vous pouvez définir les variables d'environnement suivantes au lieu de spécifier le compte et la clé de chaque commande :
 >
-> * **AZURE_STORAGE_ACCOUNT**  le nom du compte de stockage
+> * **AZURE\_STORAGE\_ACCOUNT**  le nom du compte de stockage
 >
-> * **AZURE_STORAGE_ACCESS_KEY** : la clé du compte de stockage
+> * **AZURE\_STORAGE\_ACCESS\_KEY** : la clé du compte de stockage
 
 ###<a id="powershell"></a>Azure PowerShell
 
@@ -279,4 +279,4 @@ Maintenant que vous savez comment obtenir des données avec HDInsight, consultez
 [image-ase-blob]: ./media/hdinsight-upload-data/HDI.ASEBlob.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

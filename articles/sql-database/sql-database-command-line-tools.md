@@ -22,7 +22,7 @@
 Cette rubrique fournit des commandes PowerShell pour effectuer de nombreuses tâches de Base de données SQL Azure à l’aide des applets de commande Azure Resource Manager.
 
 
-## Conditions préalables
+## Composants requis
 
 Pour exécuter des applets de commande PowerShell, Azure PowerShell doit être installé et exécuté. Selon la version, vous devrez peut-être passer en mode gestionnaire de ressources pour accéder aux applets de commande PowerShell Azure Resource Manager.
 
@@ -49,7 +49,7 @@ Après vous être connecté, des informations s'affichent sur l'écran, notammen
 
 ## Sélectionner votre abonnement Azure
 
-Pour sélectionner l’abonnement que vous souhaitez utiliser, vous avez besoin de votre identifiant (\*\*-SubscriptionId\*\*) ou de votre nom d’abonnement (\*\*-SubscriptionName\*\*). Vous pouvez le copier à partir de l'étape précédente, ou, si vous avez plusieurs abonnements, vous pouvez exécuter l'applet de commande **Get-AzureSubscription** et copier les informations d'abonnement souhaitées affichées dans les résultats.
+Pour sélectionner l’abonnement que vous souhaitez utiliser, vous avez besoin de votre identifiant (**-SubscriptionId**) ou de votre nom d’abonnement (**-SubscriptionName**). Vous pouvez le copier à partir de l'étape précédente, ou, si vous avez plusieurs abonnements, vous pouvez exécuter l'applet de commande **Get-AzureSubscription** et copier les informations d'abonnement souhaitées affichées dans les résultats.
 
 Exécuter l’applet de commande suivant avec vos informations d’abonnement pour définir votre abonnement actuel :
 
@@ -80,7 +80,7 @@ Lorsque vous exécutez cette commande, une fenêtre s'ouvre dans laquelle vous d
 
 ## Créer une règle de pare-feu du serveur
 
-Pour créer une règle de pare-feu pour accéder au serveur, utilisez la commande [New-AzureSqlServerFirewallRule](https://msdn.microsoft.com/library/mt125953.aspx). Exécutez la commande suivante en remplaçant les adresses IP de début et de fin par des valeurs valides pour votre client.
+Pour créer une règle de pare-feu et accéder au serveur, utilisez la commande [New-AzureSqlServerFirewallRule](https://msdn.microsoft.com/library/mt125953.aspx). Exécutez la commande suivante en remplaçant les adresses IP de début et de fin par des valeurs valides pour votre client.
 
 Si votre serveur doit autoriser l'accès à d'autres services Azure, ajoutez le commutateur **-AllowAllAzureIPs** qui insère une règle de pare-feu spéciale et autorise le trafic Azure complet à accéder au serveur.
 
@@ -118,12 +118,12 @@ Vous pouvez également supprimer un serveur grâce à la commande [Remove-AzureS
 
 Si vous comptez recréer ces ressources SQL Azure ou des ressources similaires, vous pouvez :
 
-- Enregistrer ceci en tant que fichier de script PowerShell (\*.ps1)
+- Enregistrer ceci en tant que fichier de script PowerShell (*.ps1)
 - Enregistrer ceci en tant runbook d'automation Azure dans la section Automation du portail de gestion Azure 
 
 ## Étapes suivantes
 
-Combiner des commandes et l’automatisation. Par exemple, remplacez tous les éléments entre guillemets, y compris les caractères < and > par vos valeurs pour créer un serveur, une règle de pare-feu et une base de données :
+Combiner des commandes et l’automatisation. Par exemple, remplacez tous les éléments entre guillemets, y compris les caractères < and > par vos valeurs pour créer un serveur, une règle de pare-feu et une base de données :
 
 
     New-AzureResourceGroup -Name "<resourceGroupName>" -Location "<Location>"
@@ -137,4 +137,4 @@ Combiner des commandes et l’automatisation. Par exemple, remplacez tous les é
 - [Applets de commande de gestion de Service Base de données SQL Azure](https://msdn.microsoft.com/library/dn546726.aspx)
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

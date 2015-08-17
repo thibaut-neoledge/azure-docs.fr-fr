@@ -82,4 +82,4 @@ Le tableau suivant affiche les bibliothèques publiées par des tiers, tels que 
 https://en.wikipedia.org/wiki/Draft:Microsoft_SQL_Server_Libraries/Drivers
 -->
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

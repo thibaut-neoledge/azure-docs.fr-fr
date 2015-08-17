@@ -2,4 +2,4 @@ Seuls les sites web en mode **Standard** peuvent avoir un nom de domaine personn
 
 Pour plus d’informations sur les modes de plan App Service, notamment sur la modification du mode de votre site, consultez la rubrique [Mise à l’échelle des sites web](../article/app-service-web/web-sites-scale.md).
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

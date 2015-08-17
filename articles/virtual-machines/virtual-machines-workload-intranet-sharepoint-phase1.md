@@ -35,13 +35,13 @@ Pour les paramètres du réseau virtuel (VNet), remplissez la table V.
 
 Élément | Élément de configuration | Description | Valeur
 --- | --- | --- | ---
-1. | Nom du réseau virtuel | Le nom à attribuer au réseau virtuel Azure (par exemple, SPFarmNet). | __________________
-2. | Emplacement du réseau virtuel | Le centre de données Azure qui contiendra le réseau virtuel. | __________________
-3. | Nom du réseau local | Un nom à attribuer au réseau de votre organisation. | __________________
-4. | Adresse IP du périphérique VPN | L'adresse IPv4 publique de l'interface de votre périphérique VPN sur Internet. Consultez votre service informatique pour la déterminer. | __________________
-5. | Espace d'adressage du réseau virtuel | L'espace d'adressage (défini dans un préfixe d'adresse privé unique) pour le réseau virtuel. Consultez votre service informatique pour le déterminer. | __________________
-6. | Premier serveur DNS final | La quatrième adresse IP possible pour l'espace d'adressage du sous-réseau du réseau virtuel (voir la table S). Consultez votre service informatique pour déterminer ces adresses. | __________________
-7. | Second serveur DNS final | La cinquième adresse IP possible pour l'espace d'adressage du sous-réseau du réseau virtuel (voir la table S). Consultez votre service informatique pour déterminer ces adresses. | __________________
+1\. | Nom du réseau virtuel | Le nom à attribuer au réseau virtuel Azure (par exemple, SPFarmNet). | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+2\. | Emplacement du réseau virtuel | Le centre de données Azure qui contiendra le réseau virtuel. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+3\. | Nom du réseau local | Un nom à attribuer au réseau de votre organisation. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+4\. | Adresse IP du périphérique VPN | L'adresse IPv4 publique de l'interface de votre périphérique VPN sur Internet. Consultez votre service informatique pour la déterminer. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+5\. | Espace d'adressage du réseau virtuel | L'espace d'adressage (défini dans un préfixe d'adresse privé unique) pour le réseau virtuel. Consultez votre service informatique pour le déterminer. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+6\. | Premier serveur DNS final | La quatrième adresse IP possible pour l'espace d'adressage du sous-réseau du réseau virtuel (voir la table S). Consultez votre service informatique pour déterminer ces adresses. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+7\. | Second serveur DNS final | La cinquième adresse IP possible pour l'espace d'adressage du sous-réseau du réseau virtuel (voir la table S). Consultez votre service informatique pour déterminer ces adresses. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
 
 **Table V : configuration de réseaux virtuels intersite**
 
@@ -49,7 +49,7 @@ Remplissez la Table S pour le sous-réseau de cette solution. Donnez au sous-ré
 
 Élément | Nom du sous-réseau | Espace d'adressage du sous-réseau | Objectif
 --- | --- | --- | ---
-1. | _______________ | _____________________________ | _________________________
+1\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_ | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_ | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
 
 **Table S : sous-réseaux du réseau virtuel**
 
@@ -59,8 +59,8 @@ Pour les deux serveurs DNS locaux que vous souhaitez utiliser lors de la configu
 
 Élément | Nom convivial du serveur DNS | Adresse IP du serveur DNS
 --- | --- | ---
-1. | ___________________________ | ___________________________
-2. | ___________________________ | ___________________________
+1\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_ | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+2\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_ | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
 
 **Table D : serveurs DNS locaux**
 
@@ -70,9 +70,9 @@ Pour l'ensemble des espaces d'adressage du réseau local, remplissez la table L.
 
 Élément | Espace d'adressage du réseau local
 --- | ---
-1. | ___________________________________
-2. | ___________________________________
-3. | ___________________________________
+1\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+2\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+3\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
 
 **Table L : préfixes d'adresses pour le réseau local**
 
@@ -106,15 +106,15 @@ Créez ensuite les trois services cloud nécessaires pour cette batterie de serv
 
 Élément | Objectif | Nom du service cloud
 --- | --- | ---
-1. | Contrôleurs de domaine | ___________________________
-2. | Serveurs SQL | ___________________________
-3. | Serveurs SharePoint | ___________________________
+1\. | Contrôleurs de domaine | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+2\. | Serveurs SQL | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+3\. | Serveurs SharePoint | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
 
 **Table C : noms de service Cloud**
 
 Vous devez choisir un nom unique pour chaque service cloud. *Le nom de service cloud ne peut contenir que des lettres, des chiffres et des traits d'union. Le premier et le dernier caractère du champ doivent être une lettre ou un chiffre.*
 
-Par exemple, vous pouvez nommer le premier service cloud DCs-*UniqueSequence*, où *UniqueSequence* est l'abréviation de votre organisation. Par exemple, si le nom de votre organisation est Tailspin Toys, vous pouvez nommer le service cloud DCs-Tailspin.
+Par exemple, vous pouvez nommer le premier service cloud DCs-*UniqueSequence*, où *UniqueSequence* est l’abréviation de votre entreprise. Par exemple, si le nom de votre organisation est Tailspin Toys, vous pouvez nommer le service cloud DCs-Tailspin.
 
 Vous pouvez tester l'unicité du nom avec la commande Azure PowerShell suivante sur votre ordinateur local.
 
@@ -140,10 +140,10 @@ Définissez enfin les noms des quatre groupes à haute disponibilité. Remplisse
 
 Élément | Objectif | Nom du groupe à haute disponibilité
 --- | --- | ---
-1. | Contrôleurs de domaine | ___________________________
-2. | Serveurs SQL | ___________________________
-3. | Serveurs d'applications SharePoint | ___________________________
-4. | Serveurs web frontaux SharePoint | ___________________________
+1\. | Contrôleurs de domaine | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+2\. | Serveurs SQL | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+3\. | Serveurs d'applications SharePoint | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+4\. | Serveurs web frontaux SharePoint | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
 
 **Nom du groupe à haute disponibilité**
 
@@ -169,4 +169,4 @@ Pour poursuivre la configuration de cette charge de travail, passez à la [Phase
 
 [Instructions d’implémentation des services d’infrastructure Azure](virtual-machines-infrastructure-services-implementation-guidelines.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -102,7 +102,7 @@ Vous pouvez utiliser l’applet de commande [Get-AzureRemoteDesktopFile](https:/
 ### Utiliser Visual Studio pour télécharger le fichier RDP
 Dans Visual Studio, vous pouvez utiliser l’Explorateur de serveurs pour créer une connexion Bureau à distance.
 
-1.  Dans l’Explorateur de serveurs, développez le nœud **Azure\Cloud Services\[nom du service cloud]**.
+1.  Dans l’Explorateur de serveurs, développez le nœud **Azure\\Cloud Services\\[nom du service cloud]**.
 2.  Développez **Intermédiaire** ou **Production**.
 3.  Développez le rôle individuel.
 4.  Cliquez avec le bouton droit sur l’une des instances de rôle, cliquez sur **Connexion à l’aide de Bureau à distance…**, puis entrez le nom d’utilisateur et le mot de passe.
@@ -113,4 +113,4 @@ Vous pouvez utiliser l’opération REST [Télécharger le fichier RDP](https:
 ## Étapes suivantes
 Vous devrez peut-être [créer un package](cloud-services-model-and-package.md) de l’application ou la [charger (déployer)](cloud-services-how-to-create-deploy-portal.md).
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -79,4 +79,4 @@ Si vous souhaitez en savoir plus sur les clients qui utilisent DocumentDB, consu
 - [XOMNI](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18667). Le magasin du futur fonctionne grâce à la recherche rapide et au flux de données simplifié.
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

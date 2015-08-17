@@ -68,4 +68,4 @@ Pour plus d’informations sur l’utilisation des clés et des secrets avec Azu
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

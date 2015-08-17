@@ -7,7 +7,7 @@ La dernière étape de ce didacticiel consiste à générer et à exécuter votr
 
 2. Appuyez sur le bouton **Exécuter** pour créer le projet et démarrer l’application dans l’émulateur iPhone.
 
-3. Dans l'application, tapez un texte explicite, comme _Suivre le didacticiel_, puis cliquez sur l'icône plus (**+**).
+3. Dans l'application, tapez un texte explicite, comme _Suivre le didacticiel_, puis cliquez sur l'icône plus (**+**).
 
    	![](./media/mobile-services-ios-run-app/mobile-quickstart-startup-ios.png)
 
@@ -15,4 +15,4 @@ La dernière étape de ce didacticiel consiste à générer et à exécuter votr
 
  	</div>
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

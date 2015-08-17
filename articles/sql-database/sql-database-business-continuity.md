@@ -88,4 +88,4 @@ La géo-réplication active est disponible pour les bases de données Premium. E
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -39,24 +39,10 @@ Suivez les étapes de [Création d’une application logique]. L'encodeur JSON B
 
 	![Encoder et envoyer configuré][6]
 
-<table>
-	<tr>
-		<th>Paramètre</th>
-		<th>Type</th>
-		<th>Description du paramètre</th>
-	</tr>
-	<tr>
-		<td>XML d'entrée</td>
-		<td>objet</td>
-		<td>Contenu du XML d’entrée</td>
-	</tr>
-	<tr>
-		<td>Supprimer l'enveloppe extérieure</td>
-		<td>string</td>
-		<td>Indicateur pour supprimer le nœud racine du contenu Xml</td>
-	</tr>
-</table>
-
+Paramètre|Type|Description du paramètre
+---|---|---
+XML d'entrée|objet|Contenu du XML d’entrée
+Supprimer l'enveloppe extérieure|string|Indicateur pour supprimer le nœud racine du contenu Xml
 
 L'action retourne une représentation JSON du contenu d'entrée.
 
@@ -76,4 +62,4 @@ Vous pouvez également consulter les statistiques de performances et contrôler 
 <!--Links -->
 [Création d’une application logique]: app-service-logic-create-a-logic-app.md
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

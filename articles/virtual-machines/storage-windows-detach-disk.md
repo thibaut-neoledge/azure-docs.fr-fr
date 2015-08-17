@@ -8,6 +8,7 @@
 	editor=""
 	tags="azure-service-management"/>
 
+
 <tags
 	ms.service="virtual-machines"
 	ms.workload="infrastructure-services"
@@ -19,6 +20,7 @@
 
 
 
+
 # Comment détacher un disque d’une machine virtuelle Windows
 
 [AZURE.INCLUDE [howto-detach-disk-windows-linux](../../includes/howto-detach-disk-windows-linux.md)]
@@ -27,6 +29,6 @@
 
 [À propos des disques et VHD pour machines virtuelles](virtual-machines-disks-vhds.md)
 
-[Attachement d'un disque de données à une machine virtuelle Windows](storage-windows-attach-disk.md)
+[Comment attacher un disque de données à une machine virtuelle Windows](storage-windows-attach-disk.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -393,4 +393,4 @@ Maintenant que vous connaissez les bases du stockage des files d'attente, consul
 [Blog de l'équipe Azure Storage]: http://blogs.msdn.com/b/windowsazurestorage/
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

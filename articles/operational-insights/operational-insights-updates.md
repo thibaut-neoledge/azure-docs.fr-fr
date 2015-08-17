@@ -6,14 +6,16 @@
    authors="bandersmsft"
    manager="jwhit"
    editor="tysonn" />
+
 <tags
    ms.service="operational-insights"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/21/2015"
+   ms.date="08/05/2015"
    ms.author="banders" />
+
 
 # Mise à jour des serveurs avec des mises à jour du système
 
@@ -23,7 +25,7 @@ Vous pouvez utiliser la solution des mises à jour du système dans Microsoft Az
 
 ## Utilisation des mises à jour du système pour mettre à jour des serveurs
 
-Avant de pouvoir utiliser les mises à jour du système dans Microsoft Azure Operational Insights, vous devez avoir installé la solution. Pour plus d'informations sur l'installation de solutions, consultez [Utilisation de la galerie de solutions pour ajouter ou supprimer des solutions](operational-insights-add-solution.md). Après son installation, vous pouvez afficher les mises à jour manquantes sur vos serveurs surveillés à l’aide de la vignette **Évaluation des mises à jour du système** sur la page **Vue d’ensemble** d’Operational Insights.
+Avant de pouvoir utiliser les mises à jour du système dans Microsoft Azure Operational Insights, vous devez avoir installé la solution. Pour plus d'informations sur l'installation de solutions, consultez [Utilisation de la galerie de solutions pour ajouter ou supprimer des solutions](operational-insights-setup-workspace.md). Après son installation, vous pouvez afficher les mises à jour manquantes sur vos serveurs surveillés à l’aide de la vignette **Évaluation des mises à jour du système** sur la page **Vue d’ensemble** d’Operational Insights.
 
 ### Utilisation des mises à jour
 
@@ -36,4 +38,4 @@ Avant de pouvoir utiliser les mises à jour du système dans Microsoft Azure Ope
 
 [AZURE.INCLUDE [operational-insights-export](../../includes/operational-insights-export.md)]
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -87,4 +87,4 @@ Lorsque vous supprimez une instance de service, tenez compte des éléments suiv
 1. Pour valider le nom du service, saisissez-le dans la zone de confirmation (par exemple : sts.contoso.com). 
 1. Cliquez sur le bouton Supprimer.
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

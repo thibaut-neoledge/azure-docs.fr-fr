@@ -265,4 +265,4 @@ L’exemple ci-dessous est complet. Pour plus d’informations sur la configurat
 
 Si votre vidéo d’entrée ne contient pas de sous-titres, l’élément multimédia de sortie actif comportera toujours un fichier TTML vide.
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

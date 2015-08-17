@@ -71,4 +71,4 @@ Vous pouvez désormais utiliser une connexion Twitter pour l'authentification da
 [Azure Management Portal]: https://manage.windowsazure.com/
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

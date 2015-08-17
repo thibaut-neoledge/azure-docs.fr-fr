@@ -164,4 +164,4 @@ Lorsqu'une opération Push est annulée, `PushAsync` génère une `MobileService
 [Exemple TODO hors connexion Mobile Services]: http://go.microsoft.com/fwlink/?LinkId=512866
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

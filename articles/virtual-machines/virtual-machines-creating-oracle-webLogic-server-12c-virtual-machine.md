@@ -1,17 +1,5 @@
-<properties
-	pageTitle="Création d’une machine virtuelle Oracle WebLogic Server 12c dans Azure" 
-	description="Parcourez un exemple vous indiquant comment créer une machine virtuelle Oracle WebLogic Server 12c exécutant Windows Server 2012 dans Microsoft Azure." 
-	services="virtual-machines" 
-	authors="bbenz" 
-	documentationCenter=""/>
-<tags 
-	ms.service="virtual-machines" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.tgt_pltfrm="na" 
-	ms.workload="infrastructure-services" 
-	ms.date="06/22/2015" 
-	ms.author="bbenz" />
+<properties title="Creating an Oracle WebLogic Server 12c Virtual Machine in Azure" pageTitle="Création d’une machine virtuelle Oracle WebLogic Server 12c dans Azure" description="Parcourez un exemple vous indiquant comment créer une machine virtuelle Oracle WebLogic Server 12c exécutant Windows Server 2012 dans Microsoft Azure." services="virtual-machines" authors="bbenz" documentationCenter=""/>
+<tags ms.service="virtual-machines" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="infrastructure-services" ms.date="06/22/2015" ms.author="bbenz" />
 #Création d’une machine virtuelle Oracle WebLogic Server 12c dans Azure
 L’exemple suivant vous indique comment créer une machine virtuelle sur la base d’une image Oracle WebLogic Server 12c fournie par Microsoft et exécutée sur Windows Server 2012 dans Azure.
 
@@ -110,7 +98,7 @@ L’exemple suivant vous indique comment créer une machine virtuelle sur la bas
 
 	Cliquez sur **Next**.
 
-5.	Sélectionnez \*\*Install this deployment as an application\*\*, puis cliquez sur **Next**.
+5.	Sélectionnez **Install this deployment as an application**, puis cliquez sur **Next**.
 
 6.	Cliquez sur **Finish**.
 
@@ -166,7 +154,7 @@ L’exemple suivant vous indique comment créer une machine virtuelle sur la bas
 
 	8.	Spécifiez un nom pour la règle, ainsi qu’une description, le cas échéant, puis cliquez sur **Terminer**.
 
-12.	Pour voir l’application shoppingcart en cours d’exécution sur Internet, ouvrez un navigateur et accédez à l’URL, sous la forme `http://<<unique_domain_name>>/shoppingcart`. (Vous pouvez déterminer la valeur de l’élément <<\*unique\_domain\_name\*>> dans le [portail Azure](https://ms.portal.azure.com/), en cliquant sur **Machines virtuelles**, puis en sélectionnant la machine virtuelle que vous utilisez pour exécuter Oracle WebLogic Server).
+12.	Pour voir l’application shoppingcart en cours d’exécution sur Internet, ouvrez un navigateur et accédez à l’URL, sous la forme `http://<<unique_domain_name>>/shoppingcart`. (Vous pouvez déterminer la valeur de l’élément <<*unique\_domain\_name*>> dans le [portail Azure](https://ms.portal.azure.com/), en cliquant sur **Machines virtuelles**, puis en sélectionnant la machine virtuelle que vous utilisez pour exécuter Oracle WebLogic Server).
 
 
 ##Ressources supplémentaires
@@ -180,4 +168,4 @@ Maintenant que vous avez configuré votre machine virtuelle exécutant Oracle W
 
 -	[Liste des images de machine virtuelle Oracle](virtual-machines-oracle-list-oracle-virtual-machine-images.md)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

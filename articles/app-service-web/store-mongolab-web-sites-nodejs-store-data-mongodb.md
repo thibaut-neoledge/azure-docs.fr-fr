@@ -575,4 +575,4 @@ Félicitations ! Vous venez de lancer une application Node.js utilisant une bas
 [mongolab-view]: ./media/store-mongolab-web-sites-nodejs-store-data-mongodb/mongolab-view.png
  
 
-<!-----HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

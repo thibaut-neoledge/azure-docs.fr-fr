@@ -36,7 +36,7 @@ Pour vous connecter à la base de données SQL, vous devez connaître le nom du 
 
 1.  Dans la barre des tâches, cliquez sur **Démarrer**, pointez sur **Tous les programmes** puis sur **Microsoft SQL Server 2014**, et cliquez sur **SQL Server Management Studio**.
 
-2.  Dans **Se connecter au serveur**, spécifiez le nom complet du serveur au format *nom_serveur*.database.windows.net. Sur Azure, le nom du serveur est une chaîne générée automatiquement composée de caractères alphanumériques.
+2.  Dans **Se connecter au serveur**, spécifiez le nom complet du serveur au format *nom\_serveur*.database.windows.net. Sur Azure, le nom du serveur est une chaîne générée automatiquement composée de caractères alphanumériques.
 
 3.  Sélectionnez **Authentification SQL Server**.
 
@@ -99,11 +99,11 @@ La base de données **master** effectue le suivi des connexions et indique celle
 
  2. Cliquez avec le bouton droit sur **maBDTest** et sélectionnez **Nouvelle requête**.
 
-    3.  Appliquez l’instruction suivante à la base de données maBDTest pour créer un utilisateur de base de données nommé **utilisateur_connexion1** correspondant à la connexion de niveau serveur **connexion1**.
+    3.  Appliquez l’instruction suivante à la base de données maBDTest pour créer un utilisateur de base de données nommé **utilisateur\_connexion1** correspondant à la connexion de niveau serveur **connexion1**.
 
             CREATE USER login1User FROM LOGIN login1;
 
--   Utilisez la procédure stockée **sp_addrolemember** pour fournir au compte d’utilisateur le niveau approprié d’autorisations dans la base de données. Pour plus d’informations, consultez [sp_addrolemember (Transact-SQL)](http://msdn.microsoft.com/library/ms187750.aspx). L’instruction ci-dessous fournit à **utilisateur_connexion1** des autorisations d’accès en lecture seule à la base de données en ajoutant **utilisateur_connexion1** au rôle **db_datareader**.
+-   Utilisez la procédure stockée **sp\_addrolemember** pour fournir au compte d’utilisateur le niveau approprié d’autorisations dans la base de données. Pour plus d’informations, consultez [sp\_addrolemember (Transact-SQL)](http://msdn.microsoft.com/library/ms187750.aspx). L’instruction ci-dessous fournit à **utilisateur\_connexion1** des autorisations d’accès en lecture seule à la base de données en ajoutant **utilisateur\_connexion1** au rôle **db\_datareader**.
 
         exec sp_addrolemember 'db_datareader', 'login1User';    
 
@@ -119,7 +119,7 @@ La base de données **master** effectue le suivi des connexions et indique celle
 
         DROP LOGIN login1;
 
--   La base de données principale dispose d’une vue **sys.sql_logins** vous permettant d’afficher les connexions. Pour afficher toutes les connexions existantes, exécutez l’instruction suivante :
+-   La base de données principale dispose d’une vue **sys.sql\_logins** vous permettant d’afficher les connexions. Pour afficher toutes les connexions existantes, exécutez l’instruction suivante :
 
         SELECT * FROM sys.sql_logins;
 
@@ -131,12 +131,12 @@ La base de données SQL prend en charge plusieurs vues de gestion dynamique vous
 
         GRANT VIEW DATABASE STATE TO login1User;
 
--   Calculez la taille de la base de données au moyen de la vue **sys.dm_db_partition_stats**. La vue **sys.dm_db_partition_stats** renvoie les informations de page et de nombre de lignes pour chaque partition de la base de données, vous permettant de calculer la taille de la base de données. La requête suivante renvoie la taille de votre base de données en mégaoctets :
+-   Calculez la taille de la base de données au moyen de la vue **sys.dm\_db\_partition\_stats**. La vue **sys.dm\_db\_partition\_stats** renvoie les informations de page et de nombre de lignes pour chaque partition de la base de données, vous permettant de calculer la taille de la base de données. La requête suivante renvoie la taille de votre base de données en mégaoctets :
 
         SELECT SUM(reserved_page_count)*8.0/1024
         FROM sys.dm_db_partition_stats;   
 
--   Utilisez les vues **sys.dm_exec_connections** et **sys.dm_exec_sessions** pour extraire les informations concernant les connexions utilisateur actuelles et les tâches internes associées à la base de données. La requête suivante renvoie des informations sur la connexion actuelle :
+-   Utilisez les vues **sys.dm\_exec\_connections** et **sys.dm\_exec\_sessions** pour extraire les informations concernant les connexions utilisateur actuelles et les tâches internes associées à la base de données. La requête suivante renvoie des informations sur la connexion actuelle :
 
         SELECT
             e.connection_id,
@@ -149,7 +149,7 @@ La base de données SQL prend en charge plusieurs vues de gestion dynamique vous
             INNER JOIN sys.dm_exec_connections e
               ON s.session_id = e.session_id;
 
--   Utilisez la vue **sys.dm_exec_query_stats** pour extraire les statistiques de performance consolidées pour les plans de requête mise en cache. La requête suivante renvoie des informations relatives aux cinq requêtes principales classées sur la base du temps processeur moyen.
+-   Utilisez la vue **sys.dm\_exec\_query\_stats** pour extraire les statistiques de performance consolidées pour les plans de requête mise en cache. La requête suivante renvoie des informations relatives aux cinq requêtes principales classées sur la base du temps processeur moyen.
 
         SELECT TOP 5 query_stats.query_hash AS "Query Hash",
             SUM(query_stats.total_worker_time), SUM(query_stats.execution_count) AS "Avg CPU Time",
@@ -166,4 +166,4 @@ La base de données SQL prend en charge plusieurs vues de gestion dynamique vous
         GROUP BY query_stats.query_hash
         ORDER BY 2 DESC;
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -198,4 +198,4 @@ Ce Forum Aux Questions est organisé de la manière suivante :
 [002]: ./media/active-directory-passwords-faq/002.jpg "Image_002.jpg"
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

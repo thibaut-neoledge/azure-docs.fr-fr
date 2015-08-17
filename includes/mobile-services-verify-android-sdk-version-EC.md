@@ -2,7 +2,7 @@ En raison des développements en cours, la version du Kit de développement logi
 
 Deux symptômes permettent d'identifier des versions différentes :
 
-1. Consultez le volet inférieur de la console Eclipse. Des messages d'erreur de type « **Impossible de résoudre la cible 'android-n'** » peuvent apparaître.
+1. Consultez le volet inférieur de la console Eclipse. Des messages d'erreur de type «**Impossible de résoudre la cible 'android-n’** » peuvent apparaître.
 
 2. Les objets Android standard du code dont la résolution doit reposer sur les instructions `import` peuvent générer des messages d'erreur.
 
@@ -19,4 +19,4 @@ Dans ce cas, la version du Kit de développement logiciel (SDK) Android install�
 	
 3. Dans l'Explorateur de package d'Eclipse, cliquez avec le bouton droit sur le nœud de projet, choisissez **Properties**, puis dans la colonne de gauche choisissez **Android**. Vérifiez que la version du Kit de développement logiciel (SDK) définie pour **Project Build Target** est identique à celle de **targetSdkVersion**.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

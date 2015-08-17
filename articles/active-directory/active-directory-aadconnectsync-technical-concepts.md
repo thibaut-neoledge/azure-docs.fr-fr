@@ -91,4 +91,4 @@ Chaque fois qu’une règle détermine qu’un nouvel objet d’espace de connec
 <!--Image references-->
 [1]: ./media/active-directory-aadsync-technical-concepts/ic750598.png
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

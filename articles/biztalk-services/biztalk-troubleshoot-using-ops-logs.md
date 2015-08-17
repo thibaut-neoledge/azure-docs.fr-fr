@@ -67,4 +67,4 @@ PurgeBackupBizTalkService | Opération de vidage des sauvegardes du service BizT
 [ViewLogs]: ./media/biztalk-troubleshoot-using-ops-logs/Operation-Logs.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -7,6 +7,7 @@
 	manager="dwrede" 
 	editor=""/>
 
+
 <tags 
 	ms.service="media-services" 
 	ms.workload="media" 
@@ -15,6 +16,7 @@
 	ms.topic="article" 
 	ms.date="07/23/2015" 
 	ms.author="juliako"/>
+
 
 
 
@@ -41,7 +43,7 @@ Si votre élément multimédia est chiffré avec l'option **CommonEncrypted** ou
 
 Si votre élément multimédia est chiffré avec l'option **StorageEncrypted**, le Kit de développement logiciel (SDK) Media Services pour .NET crée une **ContentKey** **StorateEncrypted** pour votre élément multimédia.
 
->[AZURE.NOTE]Media Services utilise la valeur de la propriété IAssetFile.Name au moment de la génération des URL pour le contenu de diffusion en continu (par exemple, http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters.). Pour cette raison, l'encodage par pourcentage n'est pas autorisé. La valeur de la propriété **Name** ne peut pas comprendre un des [caractères réservés à l’encodage par pourcentage](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters) suivants : !\*'();:@&=+$,/?%#". En outre, il ne peut exister qu’un « . » pour l’extension de nom de fichier.
+>[AZURE.NOTE]Media Services utilise la valeur de la propriété IAssetFile.Name au moment de la génération des URL pour le contenu de diffusion en continu (par exemple, http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters.). Pour cette raison, l'encodage par pourcentage n'est pas autorisé. La valeur de la propriété **Name** ne peut pas comprendre un des [caractères réservés à l’encodage par pourcentage](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters) suivants : !*'();:@&=+$,/?%#". En outre, il ne peut exister qu’un « . » pour l’extension de nom de fichier.
 
 Cette rubrique montre comment utiliser le Kit de développement logiciel (SDK) Media Services pour .NET, ainsi que les extensions du Kit de développement logiciel (SDK) Media Services pour .NET pour télécharger des fichiers vers un élément multimédia Media Services.
 
@@ -275,7 +277,7 @@ L'exemple suivant illustre l'interrogation d'un IngestManifest par son **Id**.
 
 ##Téléchargement de fichiers à l’aide des extensions du Kit de développement logiciel (SDK) .NET 
 
-L’exemple ci-dessous montre comment télécharger un fichier unique à l’aide des extensions du Kit de développement logiciel (SDK) .NET. Dans ce cas, on utilise la méthode **CreateFromFile**, mais la version asynchrone est également disponible (\*\*CreateFromFileAsync\*\*). La méthode **CreateFromFile** vous permet de spécifier le nom de fichier, l'option de chiffrement et un rappel pour signaler la progression du téléchargement du fichier.
+L’exemple ci-dessous montre comment télécharger un fichier unique à l’aide des extensions du Kit de développement logiciel (SDK) .NET. Dans ce cas, on utilise la méthode **CreateFromFile**, mais la version asynchrone est également disponible (**CreateFromFileAsync**). La méthode **CreateFromFile** vous permet de spécifier le nom de fichier, l'option de chiffrement et un rappel pour signaler la progression du téléchargement du fichier.
 
 
 	static public IAsset UploadFile(string fileName, AssetCreationOptions options)
@@ -305,4 +307,4 @@ Maintenant que vous avez chargé un élément multimédia dans Media Services, c
 [Obtention d'un processeur multimédia]: media-services-get-media-processor.md
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

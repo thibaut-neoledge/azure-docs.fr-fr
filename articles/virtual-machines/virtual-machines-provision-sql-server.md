@@ -40,7 +40,7 @@ Ce didacticiel présente les procédures suivantes :
 Pour obtenir les informations les plus récentes sur les images SQL Server prises en charge sur Azure, consultez la page [Mise en route de SQL Server sur les machines virtuelles Windows Azure](http://go.microsoft.com/fwlink/p/?LinkId=294720) dans l'ensemble de documentation [SQL Server dans les machines virtuelles Azure](http://go.microsoft.com/fwlink/p/?LinkId=294719).
 
    
->[AZURE.NOTE] Si vous avez créé une machine virtuelle à l’aide de l’image de plateforme de la version d’évaluation de SQL Server, vous ne pouvez pas la mettre à jour vers une image de la version payante à la minute dans la galerie. Deux options s’offrent à vous : vous pouvez créer une machine virtuelle à l’aide de la version payante à la minute de SQL Server à partir de la galerie et faire migrer les fichiers de votre base de données vers cette nouvelle machine virtuelle en suivant les instructions de l’article [Procédure de migration des fichiers et du schéma de base de données SQL Server entre des ordinateurs virtuels dans Azure en utilisant les disques de données](http://go.microsoft.com/fwlink/p/?LinkId=294738) ; **ou bien** vous pouvez mettre à niveau une instance existante de la version d’évaluation de SQL Server vers une autre version de SQL Server dans le cadre de l’accord [License Mobility via Software Assurance sur Azure](http://azure.microsoft.com/pricing/license-mobility/) en suivant la procédure de l’article [Mettre à niveau vers une autre édition de SQL Server 2014](http://go.microsoft.com/fwlink/?LinkId=396915). Pour plus d'informations sur l'achat d'une copie sous licence de SQL Server, consultez la page [Comment acheter SQL Server ?](http://www.microsoft.com/sqlserver/get-sql-server/how-to-buy.aspx).
+>[AZURE.NOTE]Si vous avez créé une machine virtuelle à l’aide de l’image de plateforme de la version d’évaluation de SQL Server, vous ne pouvez pas la mettre à jour vers une image de la version payante à la minute dans la galerie. Deux options s’offrent à vous : vous pouvez créer une machine virtuelle à l’aide de la version payante à la minute de SQL Server à partir de la galerie et faire migrer les fichiers de votre base de données vers cette nouvelle machine virtuelle en suivant les instructions de l’article [Procédure de migration des fichiers et du schéma de base de données SQL Server entre des ordinateurs virtuels dans Azure en utilisant les disques de données](http://go.microsoft.com/fwlink/p/?LinkId=294738) ; **ou bien** vous pouvez mettre à niveau une instance existante de la version d’évaluation de SQL Server vers une autre version de SQL Server dans le cadre de l’accord [License Mobility via Software Assurance sur Azure](http://azure.microsoft.com/pricing/license-mobility/) en suivant la procédure de l’article [Mettre à niveau vers une autre édition de SQL Server 2014](http://go.microsoft.com/fwlink/?LinkId=396915). Pour plus d'informations sur l'achat d'une copie sous licence de SQL Server, consultez la page [Comment acheter SQL Server ?](http://www.microsoft.com/sqlserver/get-sql-server/how-to-buy.aspx).
 
 
 4. Dans la première page **Configuration de la machine virtuelle**, entrez les informations suivantes :
@@ -66,7 +66,8 @@ Pour obtenir les informations les plus récentes sur les images SQL Server prise
 5. Dans la deuxième page **Configuration de la machine virtuelle**, configurez les ressources pour la mise en réseau, le stockage et la disponibilité :
 	- Dans la zone **Service cloud**, sélectionnez **Créer un nouveau service de cloud computing**.
 	- Dans la zone **Nom du cloud Service DNS**, entrez la première partie d'un nom DNS de votre choix, pour qu'il complète un nom au format **TESTNAME.cloudapp.net** 
-	- Sélectionnez un **ABONNEMENT** s’il en existe plusieurs. Ce choix détermine les **comptes de stockage** disponibles. - Dans la zone **REGION/AFFINITY GROUP/VIRTUAL NETWORK**, sélectionnez une région d'hébergement pour cette image virtuelle.
+	- Sélectionnez un **ABONNEMENT** s’il en existe plusieurs. Ce choix détermine les **comptes de stockage **disponibles.
+- Dans la zone **REGION/AFFINITY GROUP/VIRTUAL NETWORK**, sélectionnez une région d'hébergement pour cette image virtuelle.
 	- Dans la zone **Compte de stockage**, générez automatiquement un compte ou sélectionnez-en un dans la liste. Modifiez l’**ABONNEMENT** pour voir plus de comptes. 
 	- Dans la zone **AVAILABILITY SET**, sélectionnez **(none)**.
 	- Lisez et acceptez les conditions juridiques.
@@ -121,7 +122,7 @@ Le chemin de connexion est résumé dans le schéma suivant :
 
 Pour accéder à SQL Server depuis Internet, la machine virtuelle doit avoir un point de terminaison pour écouter les communications TCP entrantes. Dans cette étape de configuration Azure, le trafic du port TCP entrant est dirigé vers un port TCP accessible à la machine virtuelle.
 
->[AZURE.NOTE] Si vous vous connectez dans le même service cloud ou réseau virtuel, vous n’avez pas besoin de créer un point de terminaison accessible publiquement. Dans ce cas, vous pouvez passer à l’étape suivante. Pour plus d’informations, consultez la page [Considérations relatives à la connectivité de SQL Server sur les machines virtuelles Azure](https://msdn.microsoft.com/library/azure/dn133152.aspx).
+>[AZURE.NOTE] Si vous vous connectez dans le même service cloud ou réseau virtuel, vous n’avez pas besoin de créer un point de terminaison accessible publiquement. Dans ce cas, vous pouvez passer à l’étape suivante. Pour plus d’informations, consultez [Considérations relatives à la connectivité de SQL Server sur les machines virtuelles Azure](https://msdn.microsoft.com/library/azure/dn133152.aspx).
 
 1. Dans le portail de gestion Azure, cliquez sur **VIRTUAL MACHINES**.
 	
@@ -186,7 +187,7 @@ Le cas échéant, ouvrez des ports supplémentaires pour les autres composants. 
 
 	![Activer TCP][Image10]
 
-5. Dans le volet de la console, cliquez sur **Services SQL Server** Dans le volet d’informations, cliquez avec le bouton droit sur **SQL Server (_nom de l’instance_)** (l’instance par défaut est **SQL Server (MSSQLSERVER)**), puis cliquez sur **Redémarrer** pour arrêter et redémarrer l’instance de SQL Server.
+5. Dans le volet de la console, cliquez sur **Services SQL Server** Dans le volet d'informations, cliquez avec le bouton droit sur **SQL Server (_nom de l'instance_)** (l'instance par défaut est **SQL Server (MSSQLSERVER)**), puis cliquez sur **Redémarrer**, pour arrêter et redémarrer l'instance de SQL Server.
 
 	![Redémarrer le moteur de base de données][Image11]
 
@@ -370,4 +371,4 @@ En plus de ces ressources, nous vous recommandons de suivre l’aide détaillée
 [Image38]: ./media/virtual-machines-provision-sql-server/credentials.png
  
 
-<!----HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

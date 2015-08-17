@@ -12,4 +12,4 @@ Vous pouvez créer des tables de stockage Azure à l’aide de l'**Explorateur d
 
 [Image1]: ./media/vs-storage-getting-started-tables-include/vs-storage-create-tables-in-Server-Explorer.png
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

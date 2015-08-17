@@ -11,7 +11,7 @@
 	ms.workload="tbd" 
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
-	ms.topic="article" 
+	ms.topic="get-started-article" 
 	ms.date="07/10/2015" 
 	ms.author="awills"/>
  
@@ -137,7 +137,7 @@ Dans le volet Recherche de diagnostic, définissez Filtres sur Affichage de page
 
 Sélectionnez n'importe quel événement pour afficher plus de détails. Dans la page des détails, cliquez sur «... » pour voir davantage de détails.
 
-> [AZURE.NOTE]Si vous utilisez [Rechercher][diagnostic], notez que vous devez faire correspondre les mots entiers : « à propo » et « propos » ne correspondent pas à « À propos », contrairement à « À propo\* ». En outre, un terme de recherche ne peut pas commencer par un caractère générique. Par exemple, effectuer une recherche sur « \*oncernan » ne correspondra pas à « Concernant ».
+> [AZURE.NOTE]Si vous utilisez [Rechercher][diagnostic], notez que vous devez faire correspondre les mots entiers : « à propo » et « propos » ne correspondent pas à « À propos », contrairement à « À propo* ». En outre, un terme de recherche ne peut pas commencer par un caractère générique. Par exemple, effectuer une recherche sur « *oncernan » ne correspondra pas à « Concernant ».
 
 > [En savoir plus sur la recherche de diagnostic][diagnostic]
 
@@ -182,4 +182,4 @@ Si vous n’avez pas effectué cette opération, vous pouvez obtenir des informa
 
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

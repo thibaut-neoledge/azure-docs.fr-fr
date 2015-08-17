@@ -7,6 +7,7 @@
 	manager="swadhwa"
 	editor=""/>
 
+
 <tags
 	ms.service="active-directory"
 	ms.workload="identity"
@@ -15,6 +16,7 @@
 	ms.topic="article"
 	ms.date="07/27/2015"
 	ms.author="markusvi"/>
+
 
 
 # Personnalisation des mappages d’attributs
@@ -69,7 +71,7 @@ Avec les mappages d’attributs, vous contrôlez la façon dont les attributs so
 - **Constant** : l’attribut cible est renseigné avec une chaîne spécifique que vous avez spécifiée.
 
 
-- **Expression** : l’attribut cible est renseigné en fonction du résultat d’une expression semblable à un script. Pour plus d’informations, consultez Écriture d’expressions pour les mappages d’attributs dans Azure Active Directory.
+- **Expression** : l’attribut cible est renseigné en fonction du résultat d’une expression semblable à un script. Pour plus d’informations, consultez [Écriture d’expressions pour les mappages d’attributs dans Azure Active Directory](active-directory-saas-writing-expressions-for-attribute-mappings.md).
 
 
 - **Aucun** : l’attribut cible reste inchangé. Toutefois, si l’attribut cible est vide, il sera renseigné avec la valeur par défaut que vous spécifiez.
@@ -82,16 +84,12 @@ Microsoft Azure AD fournit une implémentation très efficace d’un processus d
 
 
 
-
-## Ressources supplémentaires
-
-* [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md)
+[AZURE.INCLUDE [saas-toc](../../includes/active-directory-saas-toc.md)]
 
 <!--Image references-->
 [1]: ./media/active-directory-saas-customizing-attribute-mappings/ic765497.png
 [2]: ./media/active-directory-saas-customizing-attribute-mappings/ic775419.png
 [3]: ./media/active-directory-saas-customizing-attribute-mappings/ic775420.png
 [4]: ./media/active-directory-saas-customizing-attribute-mappings/ic775421.png
- 
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

@@ -1,11 +1,12 @@
 <properties 
-    pageTitle="Connexion de DocumentDB à Azure Search à l'aide d'indexeurs | Azure" 
+    pageTitle="Connexion de DocumentDB à Azure Search à l'aide d'indexeurs | Microsoft Azure" 
     description="Cet article vous indique comment utiliser l'indexeur Azure Search avec DocumentDB en tant que source de données."
     services="documentdb" 
     documentationCenter="" 
     authors="aliuy" 
     manager="jhubbard" 
     editor="mimig"/>
+
 
 <tags 
     ms.service="documentdb" 
@@ -15,6 +16,7 @@
     ms.workload="data-services" 
     ms.date="06/16/2015" 
     ms.author="andrl"/>
+
 
 #Connexion de DocumentDB à Azure Search à l'aide d'indexeurs
 
@@ -132,50 +134,16 @@ Assurez-vous que le schéma de votre index cible est compatible avec le schéma 
 
 ###Figure A : Mappage entre les types de données JSON et les types de données Azure Search
 
-<table style="font-size:12">
-    <tr>
-        <th>Type de données JSON</th>
-        <th>Types de champs d'index cible compatibles</th>
-    </tr>
-    <tr>
-        <td>Bool</td>
-        <td>Edm.Boolean, Edm.String</td>
-    </tr>
-    <tr>
-        <td>Nombres qui ressemblent à des nombres entiers</td>
-        <td>Edm.Int32, Edm.Int64, Edm.String</td>
-    </tr>
-    <tr>
-        <td>Nombres qui ressemblent à des nombres avec points flottants</td>
-        <td>Edm.Double, Edm.String</td>
-    </tr>
-    <tr>
-        <td>String</td>
-        <td>Edm.String</td>
-    </tr>
-    <tr>
-        <td>
-            Tableaux de types primitifs<br/>
-            par exemple [ "a", "b", "c" ]
-        </td>
-        <td>Collection(Edm.String)</td>
-    </tr>
-    <tr>
-        <td>Chaînes qui ressemblent à des dates</td>
-        <td>Edm.DateTimeOffset, Edm.String</td>
-    </tr>
-    <tr>
-        <td>
-            Objets GeoJSON<br/>
-            par exemple { "type": "Point", "coordinates": [ long, lat ] }
-        </td>
-        <td>Edm.GeographyPoint</td>
-    </tr>
-    <tr>
-        <td>Autres objets JSON</td>
-        <td>N/A</td>
-    </tr>
-</table>
+| TYPE DE DONNÉES JSON|	TYPES DE CHAMPS D’INDEX CIBLE COMPATIBLES|
+|---|---|
+|Bool|Edm.Boolean, Edm.String|
+|Nombres qui ressemblent à des nombres entiers|Edm.Int32, Edm.Int64, Edm.String|
+|Nombres qui ressemblent à des nombres avec points flottants|Edm.Double, Edm.String|
+|String|Edm.String|
+|Tableaux de types primitifs, par exemple « a », « b », « c » |Collection(Edm.String)|
+|Chaînes qui ressemblent à des dates| Edm.DateTimeOffset, Edm.String|
+|Objets GeoJSON, par exemple { "type": "Point", "coordinates": [ long, lat \] } | Edm.GeographyPoint |
+|Autres objets JSON|N/A|
 
 ###<a id="CreateIndexExample"></a>Exemple de corps de requête
 
@@ -304,4 +272,4 @@ Félicitations ! Vous venez d'apprendre comment intégrer Azure Search à Azure
  - Pour en savoir plus sur Azure Search, cliquez [ici](/services/search/).
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Signatures d’accès partagé : Présentation du modèle SAP | Microsoft Azure" 
-	description="Découvrez la délégation d’accès aux ressources d’Azure Storage, notamment les objets blob, les files d’attente et les tables, à l’aide des signatures d’accès partagé. Ces signatures vous permettent de protéger la clé de votre compte de stockage tout en octroyant un accès aux ressources de votre compte à d’autres utilisateurs. Vous pouvez contrôler les autorisations accordées et l’intervalle pendant lequel la signature d’accès partagé est valide. Si vous établissez également une stratégie d’accès stockée, vous pouvez révoquer la signature d’accès partagé si vous craignez que la sécurité de votre compte ne soit compromise." 
+	description="Découvrez comment déléguer l’accès aux ressources de stockage Azure, notamment les objets blob, les files d’attente, les tables et les fichiers, à l’aide de signatures d’accès partagé (SAP). Ces signatures vous permettent de protéger la clé de votre compte de stockage tout en octroyant un accès aux ressources de votre compte à d’autres utilisateurs. Vous pouvez contrôler les autorisations accordées et l’intervalle pendant lequel la signature d’accès partagé est valide. Si vous établissez également une stratégie d’accès stockée, vous pouvez révoquer la signature d’accès partagé si vous craignez que la sécurité de votre compte ne soit compromise." 
 	services="storage" 
 	documentationCenter="" 
 	authors="tamram" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="07/07/2015" 
+	ms.date="08/04/2015" 
 	ms.author="tamram"/>
 
 
@@ -22,11 +22,11 @@
 
 ## Vue d'ensemble
 
-L’utilisation d’une signature d’accès partagé (SAP) offre un moyen efficace pour octroyer aux autres clients un accès limité aux objets blobs, tables et files d’attente dans votre compte de stockage, sans être obligé d’exposer votre clé de compte. Dans la première partie de ce didacticiel consacré aux signatures d'accès partagé, nous allons vous présenter un aperçu du modèle SAP et examiner les meilleures pratiques concernant les signatures d'accès partagé. La [partie 2](storage-dotnet-shared-access-signature-part-2.md) du didacticiel décrit étape par étape la procédure de création de signatures d'accès partagé avec le service BLOB.
+Une signature d’accès partagé (SAP) constitue un moyen efficace pour octroyer aux autres clients un accès limité aux objets blob dans votre compte de stockage, sans exposer votre clé de compte. Dans la première partie de ce didacticiel consacré aux signatures d'accès partagé, nous allons vous présenter un aperçu du modèle SAP et examiner les meilleures pratiques concernant les signatures d'accès partagé. La [partie 2](storage-dotnet-shared-access-signature-part-2.md) du didacticiel décrit étape par étape la procédure de création de signatures d'accès partagé avec le service BLOB.
 
 ## Présentation de la signature d'accès partagé ##
 
-Une signature d'accès partagé fournit un accès délégué aux ressources de votre compte de stockage. Cela vous permet d'octroyer à un client des autorisations d'accès limitées à vos objets blob, files d'attente ou tables pendant une période donnée, et avec un ensemble défini d'autorisations, sans avoir à partager les clés d'accès de votre compte. La signature d'accès partagé est un URI qui englobe dans ses paramètres de requête toutes les informations nécessaires pour un accès authentifié à une ressource de stockage. Pour accéder aux ressources de stockage avec la signature d'accès partagé, il suffit au client de transmettre cette dernière à la méthode ou au constructeur approprié.
+Une signature d'accès partagé fournit un accès délégué aux ressources de votre compte de stockage. Cela vous permet d’octroyer à un client des autorisations d’accès limité à des objets de votre compte de stockage pendant une période donnée et avec un ensemble défini d’autorisations, sans partager les clés d’accès de votre compte. La signature d'accès partagé est un URI qui englobe dans ses paramètres de requête toutes les informations nécessaires pour un accès authentifié à une ressource de stockage. Pour accéder aux ressources de stockage avec la signature d'accès partagé, il suffit au client de transmettre cette dernière à la méthode ou au constructeur approprié.
 
 ## Quand devez-vous utiliser une signature d'accès partagé ? ##
 
@@ -45,152 +45,47 @@ Un service où les utilisateurs lisent et écrivent leurs propres données dans 
 
 De nombreux services dans le monde réel peuvent utiliser un mélange de ces deux approches, suivant le scénario concerné, certaines données étant traitées et validées par l'intermédiaire du proxy frontal, tandis que les autres sont enregistrées et/ou lues directement avec la signature d'accès partagé.
 
+En outre, vous devez utiliser une SAP pour authentifier l’objet source d’une opération de copie, dans certains cas de figure :
+
+- Lorsque vous copiez un objet blob dans un autre objet blob qui réside dans un autre compte de stockage, vous devez utiliser une SAP pour authentifier l’objet blob source. Vous pouvez éventuellement utiliser une SAP pour authentifier l’objet blob de destination, si vous utilisez la version 2013-08-15 ou une version ultérieure des services de stockage.
+- Lorsque vous copiez un objet blob dans un autre fichier qui réside dans un autre compte de stockage, vous devez utiliser une SAP pour authentifier le fichier source. Vous pouvez éventuellement utiliser une SAP pour authentifier le fichier de destination.
+- Lorsque vous copiez un objet blob dans un fichier ou un fichier dans un objet blob, vous devez utiliser une SAP pour authentifier l’objet source, même si les objets source et de destination résident dans le même compte de stockage.
+
 ## Fonctionnement d'une signature d'accès partagé ##
 
 Une signature d'accès partagé est un URI qui désigne une ressource de stockage et inclut un ensemble spécial de paramètres de requête indiquant comment le client peut accéder à la ressource. L'un de ces paramètres, la signature, est construit à partir des paramètres de signature d'accès partagé et signé avec la clé du compte. Cette signature est utilisée par Azure Storage pour authentifier la signature d'accès partagé.
 
 Une signature d’accès partagé est définie par les contraintes suivantes, chacune représentée par un paramètre sur l’URI :
 
-- **Ressource de stockage.** Les ressources de stockage pour lesquelles vous pouvez déléguer l'accès incluent les conteneurs, les objets blob, les files d'attente, les tables et les plages d'entités de table.
+- **Ressource de stockage.** Les ressources de stockage dont vous pouvez déléguer l’accès incluent :
+	- Conteneurs et objets blob
+	- Partages de fichiers et fichiers
+	- Files d’attente
+	- Tables et plages d’entités de table.
 - **Heure de début.** Il s'agit de l'heure à laquelle la signature d'accès partagé devient valide. L'heure de début pour une signature d'accès partagé est facultative ; si elle est omise, la signature d'accès partagé prend effet immédiatement. 
 - **Heure d’expiration.** Il s'agit de l'heure à laquelle la signature d'accès partagé cesse d'être valide. Les meilleures pratiques recommandent soit de spécifier une heure d'expiration pour une signature d'accès partagé, soit de l'associer à une stratégie d'accès stockée (voir plus loin).
 - **Autorisations.** Les autorisations spécifiées sur la signature d'accès partagé indiquent quelles opérations le client peut exécuter avec cette dernière sur la ressource de stockage. 
 
 Voici un exemple d’URI de signature d’accès partagé qui fournit des autorisations de lecture et d’écriture sur un objet blob. La table décompose chaque partie de l’URI pour comprendre comment elle contribue à la signature d’accès partagé :
 
-https://myaccount.blob.core.windows.net/sascontainer/sasblob.txt?sv=2012-02-12&st=2013-04-29T22%3A18%3A26Z&se=2013-04-30T02%3A23%3A26Z&sr=b&sp=rw&sig=Z%2FRHIX5Xcg0Mq2rqI3OlWTjEg2tYkboXr1P9ZUXDtkk%3D
+	https://myaccount.blob.core.windows.net/sascontainer/sasblob.txt?sv=2012-02-12&st=2013-04-29T22%3A18%3A26Z&se=2013-04-30T02%3A23%3A26Z&sr=b&sp=rw&sig=Z%2FRHIX5Xcg0Mq2rqI3OlWTjEg2tYkboXr1P9ZUXDtkk%3D
 
-<table border="1" cellpadding="0" cellspacing="0">
-    <tbody>
-        <tr>
-            <td valign="top" width="213">
-                <p>
-                    URI de l’objet blob
-                </p>
-            </td>
-            <td valign="top" width="213">
-                <p>
-                    https://myaccount.blob.core.windows.net/sascontainer/sasblob.txt
-                </p>
-            </td>
-            <td valign="top" width="213">
-                <p>
-                    Adresse de l'objet blob. Notez que l'utilisation de HTTPS est fortement recommandée.
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td valign="top" width="213">
-                <p>
-                    Version des services de stockage
-                </p>
-            </td>
-            <td valign="top" width="213">
-                <p>
-                    sv=2012-02-12
-                </p>
-            </td>
-            <td valign="top" width="213">
-                <p>
-                    Pour la version 2012-02-12 des services de stockage et les versions ultérieures, ce paramètre indique la version à utiliser.
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td valign="top" width="213">
-                <p>
-                    Heure de début
-                </p>
-            </td>
-            <td valign="top" width="213">
-                <p>
-                    st=2013-04-29T22%3A18%3A26Z
-                </p>
-            </td>
-            <td valign="top" width="213">
-                <p>
-                    Spécifiée au format ISO&#160;8061. Si vous voulez que la signature d'accès partagé soit valide immédiatement, omettez l'heure de début.
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td valign="top" width="213">
-                <p>
-                    Heure d'expiration
-                </p>
-            </td>
-            <td valign="top" width="213">
-                <p>
-                    se=2013-04-30T02%3A23%3A26Z
-                </p>
-            </td>
-            <td valign="top" width="213">
-                <p>
-                    Spécifiée au format ISO&#160;8061.
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td valign="top" width="213">
-                <p>
-                    Ressource
-                </p>
-            </td>
-            <td valign="top" width="213">
-                <p>
-                    sr=b
-                </p>
-            </td>
-            <td valign="top" width="213">
-                <p>
-                    La ressource est un objet blob.
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td valign="top" width="213">
-                <p>
-                    Autorisations
-                </p>
-            </td>
-            <td valign="top" width="213">
-                <p>
-                    sp=rw
-                </p>
-            </td>
-            <td valign="top" width="213">
-                <p>
-                    Les autorisations octroyées par la signature d'accès partagé incluent les opérations de lecture (r) et d'écriture (w).
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td valign="top" width="213">
-                <p>
-                    Signature
-                </p>
-            </td>
-            <td valign="top" width="213">
-                <p>
-                    sig=Z%2FRHIX5Xcg0Mq2rqI3OlWTjEg2tYkboXr1P9ZUXDtkk%3D
-                </p>
-            </td>
-            <td valign="top" width="213">
-                <p>
-                    Utilisée pour authentifier l'accès à l'objet blob. La signature est un HMAC calculé sur une chaîne de signature et une clé à l'aide de l'algorithme SHA256, puis codé en Base64.
-                </p>
-            </td>
-        </tr>
-    </tbody>
-</table>
-
+Nom|Section de lien|Description
+---|---|---
+URI de l’objet blob|https://myaccount.blob.core.windows.net/sascontainer/sasblob.txt | Adresse de l'objet blob. Notez que l'utilisation de HTTPS est fortement recommandée.
+Version des services de stockage|sv=2012-02-12|Pour la version 2012-02-12 des services de stockage et les versions ultérieures, ce paramètre indique la version à utiliser.
+Heure de début|st=2013-04-29T22%3A18%3A26Z|Spécifiée au format ISO 8061. Si vous voulez que la signature d'accès partagé soit valide immédiatement, omettez l'heure de début.
+Heure d'expiration|se=2013-04-30T02%3A23%3A26Z|Spécifiée au format ISO 8061.
+Ressource|sr=b|La ressource est un objet blob.
+Autorisations|sp=rw|Les autorisations octroyées par la signature d'accès partagé incluent les opérations de lecture (r) et d'écriture (w).
+Signature|sig=Z%2FRHIX5Xcg0Mq2rqI3OlWTjEg2tYkboXr1P9ZUXDtkk%3D|Utilisée pour authentifier l'accès à l'objet blob. La signature est un HMAC calculé sur une chaîne de signature et une clé à l'aide de l'algorithme SHA256, puis codé en Base64.
 
 ## Contrôle des signatures d'accès partagé avec une stratégie d'accès stockée ##
 
 Une signature d’accès partagé peut prendre deux formes :
 
-- **Signature d'accès partagé ad hoc :** lorsque vous créez une signature d'accès partagé ad hoc, l'heure de début, l'heure d'expiration et les autorisations associées à cette signature sont spécifiées sur l'URI de signature d'accès partagé (ou sont implicites, dans le cas où l'heure de début est omise). Ce type de signature d'accès partagé peut être créé sur un conteneur, un objet blob, une table ou une file d'attente.
-- **Signature d'accès partagé avec stratégie d'accès stockée :** une stratégie d'accès stockée est définie sur un conteneur de ressource (un conteneur d'objets blob, une table ou une file d'attente) et permet de gérer les contraintes pour une ou plusieurs signatures d'accès partagé. Lorsque vous associez une signature d'accès partagé à une stratégie d'accès stockée, la signature hérite des contraintes (heure de début, heure d'expiration et autorisations) définies pour la stratégie.
+- **Signature d'accès partagé ad hoc :** lorsque vous créez une signature d'accès partagé ad hoc, l'heure de début, l'heure d'expiration et les autorisations associées à cette signature sont spécifiées sur l'URI de signature d'accès partagé (ou sont implicites, dans le cas où l'heure de début est omise). Ce type de SAP peut être créé sur un conteneur, un objet blob, un partage de fichiers, un fichier, une table ou une file d’attente.
+- **Signature d’accès partagé avec stratégie d’accès stockée :** une stratégie d’accès stockée est définie sur un conteneur de ressources (conteneur d’objets blob, table, file d’attente ou partage de fichiers) et permet de gérer les contraintes d’une ou de plusieurs signatures d’accès partagé. Lorsque vous associez une signature d'accès partagé à une stratégie d'accès stockée, la signature hérite des contraintes (heure de début, heure d'expiration et autorisations) définies pour la stratégie.
 
 La différence entre les deux formes est importante pour un scénario clé : la révocation. Une signature d’accès partagé est une URL. Par conséquent, toute personne qui obtient la signature peut s’en servir, quel que soit celui qui l’a demandée initialement. Si une clé d'accès partagé est publiée publiquement, elle peut être utilisée par n'importe qui. Une clé d'accès partagé qui est distribuée est valide jusqu'à ce que l'un des quatre événements suivants ait lieu :
 
@@ -225,17 +120,13 @@ Les signatures d'accès partagé sont utiles pour fournir des autorisations d'ac
 
 ## Étapes suivantes ##
 
-[Signatures d’accès partagé, partie 2 : création et utilisation d’une signature d’accès partagé avec le service BLOB](../storage-dotnet-shared-access-signature-part-2/)
-
-[Gestion de l’accès aux ressources d’Azure Storage](http://msdn.microsoft.com/library/azure/ee393343.aspx)
-
-[Délégation de l’accès avec une signature d’accès partagé (API REST)](http://msdn.microsoft.com/library/azure/ee395415.aspx)
-
-[Présentation des signatures d'accès partagé des tables et des files d'attente](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-table-sas-shared-access-signature-queue-sas-and-update-to-blob-sas.aspx)
-[sas-storage-fe-proxy-service]: ./media/storage-dotnet-shared-access-signature-part-1/sas-storage-fe-proxy-service.png
-[sas-storage-provider-service]: ./media/storage-dotnet-shared-access-signature-part-1/sas-storage-provider-service.png
+- [Signatures d’accès partagé, partie 2 : création et utilisation d’une signature d’accès partagé avec le service BLOB](storage-dotnet-shared-access-signature-part-2.md)
+- [Comment utiliser le stockage de fichiers Azure avec PowerShell et .NET](storage-dotnet-how-to-use-files.md)
+- [Gestion de l’accès aux ressources d’Azure Storage](storage-manage-access-to-resources.md)
+- [Délégation de l’accès avec une signature d’accès partagé (API REST)](http://msdn.microsoft.com/library/azure/ee395415.aspx)
+- [Présentation des signatures d'accès partagé des tables et des files d'attente](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-table-sas-shared-access-signature-queue-sas-and-update-to-blob-sas.aspx) [sas-storage-fe-proxy-service] : ./media/storage-dotnet-shared-access-signature-part-1/sas-storage-fe-proxy-service.png [sas-storage-provider-service]: ./media/storage-dotnet-shared-access-signature-part-1/sas-storage-provider-service.png
 
 
  
 
-<!---------HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

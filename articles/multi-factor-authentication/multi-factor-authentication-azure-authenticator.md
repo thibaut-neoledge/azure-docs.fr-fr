@@ -66,4 +66,4 @@ Vous voulez savoir comment supprimer des comptes individuels de l’ancienne app
 * [Azure Multi-Factor Authentication sur MSDN](https://msdn.microsoft.com/library/azure/dn249471.aspx) 
 * Application Azure Authenticator pour [Windows Phone](http://www.windowsphone.com/fr-fr/store/app/azure-authenticator/03a5b2bf-6066-418f-b569-e8aecbc06e50), [Android](https://play.google.com/store/apps/details?id=com.azure.authenticator) et [IOS](https://itunes.apple.com/us/app/azure-authenticator/id983156458).
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

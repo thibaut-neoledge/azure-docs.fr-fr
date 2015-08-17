@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Interrogation avec le langage SQL de DocumentDB | Azure" 
+	pageTitle="Interrogation avec le langage SQL de DocumentDB | Microsoft Azure" 
 	description="DocumentDB, service de base de données NoSQL orienté documents, prend en charge l'interrogation de documents JSON hiérarchiques à l'aide du langage SQL sans nécessiter un schéma explicite ou la création d'index secondaires." 
 	services="documentdb" 
 	documentationCenter="" 
@@ -296,7 +296,7 @@ Examinons certaines requêtes utilisant des opérateurs binaires.
 	WHERE c.grade >= 5     -- matching grades == 5
 
 
-Les opérateurs unaires +,-, ~ et NOT sont également pris en charge et peuvent être utilisés dans des requêtes comme illustré dans l'exemple suivant :
+Les opérateurs unaires +,-, \~ et NOT sont également pris en charge et peuvent être utilisés dans des requêtes comme illustré dans l'exemple suivant :
 
 	SELECT *
 	FROM Families.children[0] c
@@ -881,7 +881,7 @@ L'opérateur spécial (*) est pris en charge pour projeter le document tel quel.
 	}]
 
 ##Clause ORDER BY
-Comme dans ANSI-SQL, vous pouvez désormais inclure une clause Order By facultative lors d’une interrogation. La clause peut inclure un argument ASC/DESC facultatif pour spécifier l'ordre dans lequel les résultats doivent être récupérés. Pour plus d’informations sur Trier par, consultez la [Procédure pas à pas relative à Trier par de DocumentDB ](documentdb-orderby.md).
+Comme dans ANSI-SQL, vous pouvez désormais inclure une clause Order By facultative lors d’une interrogation. La clause peut inclure un argument ASC/DESC facultatif pour spécifier l'ordre dans lequel les résultats doivent être récupérés. Pour plus d’informations sur Trier par, consultez la [Procédure pas à pas relative à Order By de DocumentDB ](documentdb-orderby.md).
 
 Par exemple, voici une requête qui récupère les familles dans l'ordre de la ville de résidence.
 
@@ -1185,7 +1185,7 @@ L’exemple ci-dessus crée une fonction définie par l’utilisateur dont le no
 
 Nous pouvons maintenant utiliser cette fonction définie par l'utilisateur dans une requête, dans une projection. Les fonctions définies par l'utilisateur doivent être qualifiées par le préfixe respectant la casse « udf.» quand elles sont appelées à partir de requêtes.
 
->[AZURE.NOTE]Jusqu’au 17 mars 2015, DocumentDB prenait en charge les appels de fonctions définies par l’utilisateur sans préfixe « udf. », comme SELECT REGEX_MATCH(). Ce modèle d'appel est maintenant déconseillé.
+>[AZURE.NOTE]Jusqu’au 17 mars 2015, DocumentDB prenait en charge les appels de fonctions définies par l’utilisateur sans préfixe « udf. », comme SELECT REGEX\_MATCH(). Ce modèle d'appel est maintenant déconseillé.
 
 **Requête**
 
@@ -1651,7 +1651,7 @@ Les fonctions de tableau permettent de manipuler des tableaux dans JSON. Par ex
       "id": "WakefieldFamily"
     }]
 
-Voici un autre exemple dans lequel la fonction ARRAY_LENGTH est utilisée pour obtenir le nombre d’enfants par famille.
+Voici un autre exemple dans lequel la fonction ARRAY\_LENGTH est utilisée pour obtenir le nombre d’enfants par famille.
 
 **Requête**
 
@@ -2056,9 +2056,9 @@ Les exemples suivants illustrent l'utilisation d'une action POST pour une requê
 	         },
 	         "_rid":"u1NXANcKogEcAAAAAAAAAA==",
 	         "_ts":1407691744,
-	         "_self":"dbs/u1NXAA==/colls/u1NXANcKogE=/docs/u1NXANcKogEcAAAAAAAAAA==/",
+	         "_self":"dbs\/u1NXAA==\/colls\/u1NXANcKogE=\/docs\/u1NXANcKogEcAAAAAAAAAA==\/",
 	         "_etag":"00002b00-0000-0000-0000-53e7abe00000",
-	         "_attachments":"_attachments/"
+	         "_attachments":"_attachments\/"
 	      }
 	   ],
 	   "count":1
@@ -2261,7 +2261,7 @@ L'exemple suivant illustre l'utilisation de queryDocuments dans l'API JavaScript
 2.	[Spécification du langage SQL de DocumentDB](http://go.microsoft.com/fwlink/p/?LinkID=510612)
 3.	[Exemples .NET DocumentDB](https://github.com/Azure/azure-documentdb-net)
 4.	[Niveaux de cohérence dans DocumentDB][consistency-levels]
-5.	ANSI SQL 2011 [http://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=53681](http://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=53681)
+5.	ANSI SQL 2011 [http://www.iso.org/iso/iso\_catalogue/catalogue\_tc/catalogue\_detail.htm?csnumber=53681](http://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=53681)
 6.	JSON [http://json.org/](http://json.org/)
 7.	Spécification Javascript [http://www.ecma-international.org/publications/standards/Ecma-262.htm](http://www.ecma-international.org/publications/standards/Ecma-262.htm) 
 8.	LINQ [http://msdn.microsoft.com/library/bb308959.aspx](http://msdn.microsoft.com/library/bb308959.aspx) 
@@ -2277,4 +2277,4 @@ L'exemple suivant illustre l'utilisation de queryDocuments dans l'API JavaScript
 [consistency-levels]: documentdb-consistency-levels.md
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

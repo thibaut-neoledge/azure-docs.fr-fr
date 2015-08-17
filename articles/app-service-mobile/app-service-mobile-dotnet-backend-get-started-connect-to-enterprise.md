@@ -47,11 +47,11 @@ Pour appeler SharePoint, vous devez spécifier les points de terminaison avec le
 
 3. Dans la section Code de l'application mobile du portail de gestion, accédez à l'onglet Configurer puis à la section Paramètres de l’application. Vous pouvez fournir ici une paire clé/valeur qui vous aidera à référencer les informations d'identification nécessaires.
 
-* Définissez SP_Authority sur le point de terminaison d'autorité pour votre client AAD. Cette valeur doit être identique à la valeur d'autorité utilisée pour votre application cliente. Elle aura la forme suivante : `https://login.windows.net/contoso.onmicrosoft.com`
+* Définissez SP\_Authority sur le point de terminaison d'autorité pour votre client AAD. Cette valeur doit être identique à la valeur d'autorité utilisée pour votre application cliente. Elle aura la forme suivante : `https://login.windows.net/contoso.onmicrosoft.com`
 
-* Définissez SP_ClientSecret sur la valeur de la clé secrète client que vous avez obtenue précédemment.
+* Définissez SP\_ClientSecret sur la valeur de la clé secrète client que vous avez obtenue précédemment.
 
-* Définissez SP_SharePointURL sur l'URL de votre site SharePoint. Il doit être de la forme `https://contoso-my.sharepoint.com`
+* Définissez SP\_SharePointURL sur l'URL de votre site SharePoint. Il doit être de la forme `https://contoso-my.sharepoint.com`
 
 Vous pouvez obtenir de nouveau ces valeurs dans votre code avec ApiServices.Settings.
 
@@ -188,4 +188,4 @@ Pour créer un document Word, vous allez utiliser le package NuGet OpenXML. Inst
 [Mobile Apps .NET Backend App Service Extension]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.AppService/
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

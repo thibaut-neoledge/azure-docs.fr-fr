@@ -20,9 +20,9 @@
 
 ##Vue d'ensemble
 
-La suppression réversible peut être activée pour les tables créées avec un backend JavaScript ou .NET. Lors de l'utilisation de la suppression réversible, une nouvelle colonne nommée *__deleted* de [type de bit SQL] est ajoutée à la base de données. Lorsque la suppression réversible est activée, une opération de suppression ne supprime pas physiquement des lignes d'une base de données, mais définit la valeur de la colonne supprimée sur TRUE.
+La suppression réversible peut être activée pour les tables créées avec un backend JavaScript ou .NET. Lors de l'utilisation de la suppression réversible, une nouvelle colonne nommée *\_\_deleted* de [type de bit SQL] est ajoutée à la base de données. Lorsque la suppression réversible est activée, une opération de suppression ne supprime pas physiquement des lignes d'une base de données, mais définit la valeur de la colonne supprimée sur TRUE.
 
-Lors de l'interrogation des enregistrements d'une table avec la suppression réversible activée, les lignes supprimées ne sont pas renvoyées dans la requête par défaut. Pour demander ces lignes, vous devez transmettre un paramètre de requête *__includeDeleted=true* dans votre [opération de requête REST](http://msdn.microsoft.com/library/azure/jj677199.aspx). Dans le Kit de développement logiciel (SDK) .NET, vous pouvez également utiliser la méthode d'assistance `IMobileServiceTable.IncludeDeleted()`.
+Lors de l'interrogation des enregistrements d'une table avec la suppression réversible activée, les lignes supprimées ne sont pas renvoyées dans la requête par défaut. Pour demander ces lignes, vous devez transmettre un paramètre de requête *\_\_includeDeleted=true* dans votre [opération de requête REST](http://msdn.microsoft.com/library/azure/jj677199.aspx). Dans le Kit de développement logiciel (SDK) .NET, vous pouvez également utiliser la méthode d'assistance `IMobileServiceTable.IncludeDeleted()`.
 
 La suppression réversible pour le backend .NET a été prise en charge pour la première fois avec la version 1.0.402 du backend .NET de Microsoft Azure Mobile Services. Les packages NuGet les plus récents sont disponibles ici : [Serveur principal .NET de Microsoft Azure Mobile Services](http://go.microsoft.com/fwlink/?LinkId=513165).
 
@@ -66,11 +66,11 @@ Si vous créez une table pour votre service mobile, vous pouvez activer la suppr
 Pour activer la suppression réversible sur une table existante du backend JavaScript :
 
 1. Dans le [portail de gestion], cliquez sur votre service mobile. Cliquez ensuite sur l'onglet Données.
-2. Dans la page des données, cliquez pour sélectionner la table souhaitée. Cliquez ensuite sur le bouton **Activer la suppression réversible** dans la barre de commande. Si la suppression réversible est déjà activée pour la table, ce bouton n'apparaît pas, mais vous pourrez voir la colonne *__deleted* en cliquant sur l'onglet **Parcourir** ou **Colonnes** de la table.
+2. Dans la page des données, cliquez pour sélectionner la table souhaitée. Cliquez ensuite sur le bouton **Activer la suppression réversible** dans la barre de commande. Si la suppression réversible est déjà activée pour la table, ce bouton n'apparaît pas, mais vous pourrez voir la colonne *\_\_deleted* en cliquant sur l'onglet **Parcourir** ou **Colonnes** de la table.
 
     ![][0]
 
-    Pour désactiver la suppression réversible pour votre table, cliquez sur l'onglet **Colonnes**, puis sur la colonne *__deleted* et le bouton **Supprimer**.
+    Pour désactiver la suppression réversible pour votre table, cliquez sur l'onglet **Colonnes**, puis sur la colonne *\_\_deleted* et le bouton **Supprimer**.
 
     ![][1]
 
@@ -126,7 +126,7 @@ Pour inclure les enregistrements supprimés dans les résultats de requête d'un
         }
     });
 
-Pour récupérer les enregistrements supprimés via une demande HTTP, ajoutez le paramètre de requête « __includedeleted=true » :
+Pour récupérer les enregistrements supprimés via une demande HTTP, ajoutez le paramètre de requête « \_\_includedeleted=true » :
 
     http://youservice.azure-mobile.net/tables/todoitem?__includedeleted=true
 
@@ -163,4 +163,4 @@ Pour en savoir plus sur les tâches planifiées avec Mobile Services du backend 
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

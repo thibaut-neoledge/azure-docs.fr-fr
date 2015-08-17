@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/16/2015"
+	ms.date="07/30/2015"
 	ms.author="csand"/>
 
 
@@ -46,4 +46,4 @@ Maintenant que vous connaissez les bases d’Azure Automation et que vous savez 
 * Consultez les [scripts PowerShell pour Azure Key Vault](https://gallery.technet.microsoft.com/scriptcenter/Azure-Key-Vault-Powershell-1349b091).
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

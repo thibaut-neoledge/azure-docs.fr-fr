@@ -63,4 +63,4 @@ Dans l'exemple suivant, nous allons configurer un réseau virtuel qui contient u
 [Configuration des paramètres du délai d’expiration TCP inactif pour votre équilibrage de charge](load-balancer-tcp-idle-timeout.md)
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

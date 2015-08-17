@@ -1,11 +1,12 @@
 <properties
-   pageTitle="Modèle de calcul distribué Azure Service Fabric Actors"
-   description="Azure Service Fabric est une solution parfaitement adaptée grâce à sa messagerie asynchrone parallèle, son état distribué facile à gérer et son calcul parallèle."
+   pageTitle="Modèle de calcul distribué Acteurs fiables"
+   description="Les Acteurs fiables Service Fabric constituent une solution parfaitement adaptée grâce à la messagerie asynchrone parallèle, l'état distribué facile à gérer et le calcul parallèle."
    services="service-fabric"
    documentationCenter=".net"
    authors="jessebenson"
    manager="timlt"
    editor=""/>
+
 
 <tags
    ms.service="service-fabric"
@@ -13,11 +14,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/01/2015"
+   ms.date="08/05/2015"
    ms.author="claudioc"/>
 
-# Modèle de conception Service Fabric Actors : calcul distribué
-Ce modèle nous a été inspiré en partie par une situation réelle dans laquelle un client avait réussi à effectuer un calcul financier dans Azure Service Fabric Actors en un temps record. Pour être plus précis, il s'agissait d'une simulation de calcul de risque de type Monte Carlo.
+
+# Modèle de conception Acteurs fiables : calcul distribué
+Ce modèle nous a été inspiré en partie par une situation réelle dans laquelle un client avait réussi à effectuer un calcul financier dans Acteurs fiables Service Fabric en un temps record. Pour être plus précis, il s'agissait d'une simulation de calcul de risque de type Monte Carlo.
 
 Au premier abord, en particulier pour ceux qui ne maîtrisent pas ce domaine spécifique, la gestion de ce type de charge de travail par Azure Service Fabric peut ne pas sembler évidente par rapport à des approches plus traditionnelles comme Map/Reduce ou MPI.
 
@@ -202,6 +204,5 @@ Nous n'affirmons aucunement qu'Azure Service Fabric est la solution de remplacem
 
 <!--Image references-->
 [1]: ./media/service-fabric-reliable-actors-pattern-distributed-computation/distributed-computation-1.png
- 
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

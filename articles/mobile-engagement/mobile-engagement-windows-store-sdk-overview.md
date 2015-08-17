@@ -32,7 +32,7 @@ Cliquez pour voir le [contenu du Kit de développement logiciel (SDK)](mobile-en
 
 ##Notes de publication
 
-###3.1.0 (21/05/2015)
+###3\.1.0 (21/05/2015)
 
 -   L’ID d’appareil Mobile Engagement est désormais basé sur un GUID généré au moment de l’installation.
 
@@ -53,4 +53,4 @@ Cette étape concerne uniquement les ressources personnalisées. Si vous avez pe
 
 Consultez la rubrique [Procédures de mise à niveau](mobile-engagement-windows-store-upgrade-procedure/)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

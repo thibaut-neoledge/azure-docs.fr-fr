@@ -53,7 +53,7 @@ Pour utiliser le stockage Azure, vous avez besoin du Kit de développement logic
 		├── xml2js@0.2.7 (sax@0.5.2)
 		└── request@2.27.0 (json-stringify-safe@5.0.0, tunnel-agent@0.3.0, aws-sign@0.3.0, forever-agent@0.5.2, qs@0.6.6, oauth-sign@0.3.0, cookie-jar@0.3.0, hawk@1.0.0, form-data@0.1.3, http-signature@0.10.0)
 
-3.  Vous pouvez exécuter manuellement la commande **ls** pour vérifier que le dossier **node_modules** a été créé. Dans ce dossier, recherchez le dossier **azure-storage**, qui contient les bibliothèques dont vous avez besoin pour accéder au stockage.
+3.  Vous pouvez exécuter manuellement la commande **ls** pour vérifier que le dossier **node\_modules** a été créé. Dans ce dossier, recherchez le dossier **azure-storage**, qui contient les bibliothèques dont vous avez besoin pour accéder au stockage.
 
 ### Importation du package
 
@@ -63,7 +63,7 @@ Pour utiliser le stockage Azure, vous avez besoin du Kit de développement logic
 
 ## Configuration d'une connexion Azure Storage
 
-Le module Azure lit les variables d'environnement AZURE_STORAGE_ACCOUNT et AZURE_STORAGE_ACCESS_KEY, ou AZURE_STORAGE_CONNECTION_STRING pour obtenir les informations obligatoires pour se connecter à votre compte de stockage Azure. Si ces variables d'environnement ne sont pas définies, vous devez spécifier les informations de compte lors de l'appel de **createQueueService**.
+Le module Azure lit les variables d'environnement AZURE\_STORAGE\_ACCOUNT et AZURE\_STORAGE\_ACCESS\_KEY, ou AZURE\_STORAGE\_CONNECTION\_STRING pour obtenir les informations obligatoires pour se connecter à votre compte de stockage Azure. Si ces variables d'environnement ne sont pas définies, vous devez spécifier les informations de compte lors de l'appel de **createQueueService**.
 
 Pour obtenir un exemple de configuration des variables d'environnement dans le portail de gestion pour un site web Azure, consultez la rubrique [Application web Node.js avec stockage]
 
@@ -332,4 +332,4 @@ Maintenant que vous connaissez les bases du stockage des files d'attente, consul
  [Site Web avec WebMatrix]: ../web-sites-nodejs-use-webmatrix.md
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

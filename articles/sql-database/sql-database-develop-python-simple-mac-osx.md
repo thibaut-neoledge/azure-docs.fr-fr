@@ -102,11 +102,11 @@ Dans la base de données SQL, la propriété [IDENTITY](https://msdn.microsoft.c
 Cet exemple de code illustre l'utilisation de transactions dans lesquelles vous :
 
 
--Commencez une transaction
+\-Commencez une transaction
 
--Insérez une ligne de données
+\-Insérez une ligne de données
 
--Restaurez la transaction pour annuler l'insertion
+\-Restaurez la transaction pour annuler l'insertion
 
 
 	import pymssql
@@ -118,4 +118,4 @@ Cet exemple de code illustre l'utilisation de transactions dans lesquelles vous�
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

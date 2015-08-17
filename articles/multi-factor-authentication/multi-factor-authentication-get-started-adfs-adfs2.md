@@ -93,4 +93,4 @@ Les adresses IP approuvées permettent aux utilisateurs de contourner l'authenti
 
 <center>![Setup](./media/multi-factor-authentication-get-started-adfs-adfs2/trusted.png)</center>
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

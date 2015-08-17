@@ -5,4 +5,4 @@
 > 
 > Si vous n'êtes pas connecté à votre abonnement Azure, vous serez invité à vous connecter lorsque vous consulterez la [version préliminaire du portail](https://portal.azure.com/).
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

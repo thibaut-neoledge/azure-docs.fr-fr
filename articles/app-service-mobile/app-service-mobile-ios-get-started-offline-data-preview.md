@@ -7,6 +7,7 @@
 	editor=""
 	services="app-service\mobile"/>
 
+
 <tags
 	ms.service="app-service-mobile"
 	ms.workload="mobile"
@@ -15,6 +16,7 @@
 	ms.topic="article"
 	ms.date="07/01/2015"
 	ms.author="donnam"/>
+
 
 # Activation de la synchronisation hors connexion pour votre application mobile iOS
 
@@ -114,10 +116,10 @@ Cette section décrit le code lié à la synchronisation hors connexion dans l'e
 Lorsque vous utilisez un magasin de données de base hors connexion, vous devez définir certaines tables et certains champs dans le modèle de données. L'exemple d'application comprend déjà un modèle de données avec le format correct. Dans cette section, nous allons découvrir ces tables et comment elles sont utilisées.
 
 - Ouvrez **QSDataModel.xcdatamodeld**. Quatre tables sont définies : trois sont utilisées par le Kit de développement logiciel (SDK) et la dernière par les éléments de la tâche :
-      * MS_TableOperations : pour le suivi des éléments qui doivent être synchronisés avec le serveur
-      * MS_TableOperationErrors : pour le suivi des erreurs qui se produisent pendant la synchronisation hors connexion
-      * MS_TableConfig : pour le suivi de la dernière mise à jour de la dernière opération de synchronisation pour toutes les opérations d’extraction.
-      * TodoItem : pour le stockage des actions. Les colonnes système **ms_createdAt**, **ms_updatedAt** et **ms_version** sont des propriétés système facultatives.
+      * MS\_TableOperations : pour le suivi des éléments qui doivent être synchronisés avec le serveur
+      * MS\_TableOperationErrors : pour le suivi des erreurs qui se produisent pendant la synchronisation hors connexion
+      * MS\_TableConfig : pour le suivi de la dernière mise à jour de la dernière opération de synchronisation pour toutes les opérations d’extraction.
+      * TodoItem : pour le stockage des actions. Les colonnes système **ms\_createdAt**, **ms\_updatedAt** et **ms\_version** sont des propriétés système facultatives.
 
 >[AZURE.NOTE]Le Kit de développement logiciel (SDK) Mobile App réserve les noms de colonnes commençant par « **`ms_`** ». Vous ne devez pas utiliser ce préfixe sur autre chose que les colonnes système. Dans le cas contraire, vos noms de colonnes seront modifiés lors de l'utilisation du backend distant.
 
@@ -125,7 +127,7 @@ Lorsque vous utilisez un magasin de données de base hors connexion, vous devez 
 
     ### Tables système
 
-    **MS_TableOperations**
+    **MS\_TableOperations**
 
     ![][defining-core-data-tableoperations-entity]
 
@@ -137,7 +139,7 @@ Lorsque vous utilisez un magasin de données de base hors connexion, vous devez 
     | table | String |
     | tableKind | Integer 16 |
 
-    <br>**MS_TableOperationErrors**
+    <br>**MS\_TableOperationErrors**
 
     ![][defining-core-data-tableoperationerrors-entity]
 
@@ -148,7 +150,7 @@ Lorsque vous utilisez un magasin de données de base hors connexion, vous devez 
     | properties | Binary Data |
     | tableKind | Integer 16 |
 
-    <br>**MS_TableConfig**
+    <br>**MS\_TableConfig**
 
     ![][defining-core-data-tableconfig-entity]
 
@@ -172,7 +174,7 @@ Lorsque vous utilisez un magasin de données de base hors connexion, vous devez 
     | id | String | clé primaire dans le magasin distant |
     | terminé | Boolean | champ d'élément todo |
     | texte | String | champ d'élément todo |
-    | ms_createdAt | Date | (facultatif) mappe vers __createdAt system property | | ms_updatedAt | Date | (facultatif) mappe vers __updatedAt system property | | ms_version | String | (facultatif) permet de détecter les conflits, mappe vers __version |
+    | ms\_createdAt | Date | (facultatif) mappe vers \_\_createdAt system property | | ms\_updatedAt | Date | (facultatif) mappe vers \_\_updatedAt system property | | ms\_version | String | (facultatif) permet de détecter les conflits, mappe vers \_\_version |
 
 
 ## <a name="setup-sync"></a>Modification du comportement de synchronisation de l’application
@@ -282,4 +284,4 @@ Lorsque nous avons voulu synchroniser le magasin local avec le serveur, nous avo
 [Azure Friday : applications prenant en charge le mode hors connexion dans Azure Mobile Services]: http://azure.microsoft.com/documentation/videos/azure-mobile-services-offline-enabled-apps-with-donna-malayeri/
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

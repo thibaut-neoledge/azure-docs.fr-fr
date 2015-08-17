@@ -445,4 +445,4 @@ Vous connaissez désormais les principes de base de la gestion des services. Vou
 [Virtual Machines]: http://msdn.microsoft.com/library/windowsazure/jj156003.aspx
  
 
-<!----HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

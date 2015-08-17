@@ -200,4 +200,4 @@ Pour commencer à déployer ASR, effectuez les opérations suivantes :
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

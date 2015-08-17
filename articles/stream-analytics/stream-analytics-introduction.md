@@ -13,7 +13,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="06/17/2015" 
+	ms.date="08/04/2015" 
 	ms.author="jeffstok"/>
 
 
@@ -107,7 +107,7 @@ les données de plusieurs appareils et plateformes répartis dans le monde sont 
 ![Archivage d’événement d’Azure Stream Analytics en vue d’un traitement de flux ultérieur.][img.stream.analytics.scenario3]
  
 ## Obtenir de l'aide
-Pour obtenir une assistance, essayez notre [forum Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/fr-fr/home?forum=AzureStreamAnalytics)
+Pour obtenir une assistance, essayez notre [forum Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
 
 ## Étapes suivantes
 Stream Analytics, un service géré d’analyse de diffusion en continu des données à partir de l’Internet des objets vous a été présenté. Pour en savoir plus sur ce service, consultez les rubriques suivantes :
@@ -133,4 +133,4 @@ Stream Analytics, un service géré d’analyse de diffusion en continu des donn
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

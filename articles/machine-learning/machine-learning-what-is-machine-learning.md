@@ -1,7 +1,6 @@
 <properties
     pageTitle="Qu’est-ce que Machine Learning sur Azure ? | Microsoft Azure"
     description="Explique les concepts de base du service d’apprentissage automatique entièrement géré, une technologie sur le cloud qui vous permet de créer, de mettre en service et de commercialiser des solutions."
-	keywords="what is machine learning,cloud technology,predictive,what is predictive analytics,operationalize"
 	services="machine-learning"
     documentationCenter=""
     authors="cjgronlund"
@@ -116,4 +115,4 @@ Vous pouvez apprendre les principes fondamentaux de l’analyse prédictive et d
 <!-- Module References -->
 [learning-with-counts]: https://msdn.microsoft.com/library/azure/81c457af-f5c0-4b2d-922c-fdef2274413c/
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

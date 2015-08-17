@@ -83,4 +83,4 @@ Pour plus d’informations sur l’équilibrage de charge, voir l’article [Éq
 
 <!-- LINKS -->
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

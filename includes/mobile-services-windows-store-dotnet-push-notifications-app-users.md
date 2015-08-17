@@ -29,7 +29,7 @@ Dans cette méthode, l'Assistant a généré un nouveau fichier push.register.cs
 
 	Ceci garantit que l'inscription est effectuée à l'aide de la même instance du client que celle qui a les informations d'identification de l'utilisateur authentifié. Si ce n’est pas le cas, l’inscription échouera avec une erreur Non autorisé (401).
 
-3. Ouvrez le fichier de projet MainPage.cs partagé, puis remplacez le gestionnaire **ButtonLogin_Click** par l’élément suivant :
+3. Ouvrez le fichier de projet MainPage.cs partagé, puis remplacez le gestionnaire **ButtonLogin\_Click** par l’élément suivant :
 
         private async void ButtonLogin_Click(object sender, RoutedEventArgs e)
         {
@@ -44,7 +44,7 @@ Dans cette méthode, l'Assistant a généré un nouveau fichier push.register.cs
 
 	Cela vous garantit que l’authentification se produit avant la tentative d’enregistrement de la notification push.
 
-4. 	Dans le code précédent, remplacez le nom de classe push généré (`todolistPush`) par le nom de classe généré par l’assistant, généralement dans le format <code><em>mobile_service</em>Push</code>.
+4. 	Dans le code précédent, remplacez le nom de classe push généré (`todolistPush`) par le nom de classe généré par l’assistant, généralement dans le format <code><em>mobile\_service</em>Push</code>.
 
 ###Notifications Push activées manuellement		
 
@@ -54,7 +54,7 @@ Dans cette méthode, vous avez ajouté du code pour l'inscription provenant du d
  
 2. Changez l'accessibilité de la méthode **InitNotificationsAsync** de `private` en `public` et ajoutez le modificateur `static`.
 
-3. Ouvrez le fichier de projet MainPage.cs partagé, puis remplacez le gestionnaire **ButtonLogin_Click** par l’élément suivant :
+3. Ouvrez le fichier de projet MainPage.cs partagé, puis remplacez le gestionnaire **ButtonLogin\_Click** par l’élément suivant :
 
         private async void ButtonLogin_Click(object sender, RoutedEventArgs e)
         {
@@ -69,4 +69,4 @@ Dans cette méthode, vous avez ajouté du code pour l'inscription provenant du d
 	
 	Cela vous garantit que l’authentification se produit avant la tentative d’enregistrement de la notification push.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

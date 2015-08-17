@@ -85,4 +85,4 @@ L'image est prête à être utilisée pour créer des machines virtuelles. Pour 
 [Image capture successful]: ./media/virtual-machines-capture-image-windows-server/CaptureSuccess.png
 [Use the captured image]: ./media/virtual-machines-capture-image-windows-server/MyImagesWindows.png
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

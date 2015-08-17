@@ -7,6 +7,7 @@
 	manager="paulettm" 
 	editor="cgronlun"/>
 
+
 <tags 
 	ms.service="hdinsight" 
 	ms.workload="big-data" 
@@ -15,6 +16,7 @@
 	ms.topic="article" 
 	ms.date="07/16/2015" 
 	ms.author="jgao"/>
+
 
 # Développer des scripts d’action de script pour HDInsight 
 
@@ -304,4 +306,4 @@ En cas d'échec de l'exécution, la sortie décrivant cet échec est également 
 [1]: https://msdn.microsoft.com/library/96xafkes(v=vs.110).aspx
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

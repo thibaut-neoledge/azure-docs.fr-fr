@@ -14,15 +14,15 @@ Vous pouvez contrôler certains aspects de la procédure de déploiement par dé
 
 Si vous souhaitez ignorer toutes les étapes de déploiement spécifiques à Python, vous pouvez créer ce fichier vide :
 
-    .skipPythonDeployment
+    \.skipPythonDeployment
 
 Si vous souhaitez ignorer les fichiers statiques pour votre application Django :
 
-    .skipDjango 
+    \.skipDjango 
 
 Pour mieux contrôler le déploiement, vous pouvez remplacer le script de déploiement par défaut en créant les fichiers suivants :
 
-    .deployment
+    \.deployment
     \deploy.cmd
 
 Vous pouvez utiliser l’[interface de ligne de commande Azure][] pour créer les fichiers. Utilisez cette commande à partir de votre dossier de projet :
@@ -33,4 +33,4 @@ Lorsque ces fichiers n’existent pas, Azure crée un script de déploiement tem
 
 [interface de ligne de commande Azure]: http://azure.microsoft.com/downloads/
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

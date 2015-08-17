@@ -7,6 +7,7 @@
 	manager="jhubbard" 
 	editor="monicar"/>
 
+
 <tags 
 	ms.service="data-factory" 
 	ms.workload="data-services" 
@@ -15,6 +16,7 @@
 	ms.topic="article" 
 	ms.date="07/21/2015" 
 	ms.author="spelluru"/>
+
 
 # Copie de données avec Azure Data Factory (activité de copie)
 ## Vue d'ensemble
@@ -162,7 +164,7 @@ Le script JSON suivant définit une table d'entrée qui fait référence à la 
  		}
 	}
 
-L'exemple de commande Azure PowerShell suivant utilise **New-AzureDataFactoryTable** qui utilise un fichier JSON contenant le script précédent pour créer une table (**MyOnPremTable**) dans une fabrique de données Azure : **CopyFactory**.
+L'exemple de commande Azure PowerShell suivant utilise **New-AzureDataFactoryTable**, qui utilise un fichier JSON contenant le script précédent pour créer une table (**MyOnPremTable**) dans une fabrique de données Azure : **CopyFactory**.
          
 	New-AzureDataFactoryTable -ResourceGroupName ADF –Name MyOnPremTable –DataFactoryName CopyFactory –File <Filepath>\MyOnPremTable.json.
 
@@ -198,7 +200,7 @@ Le script JSON suivant définit la table de sortie **MyDemoBlob**, qui fait ré
    		}
 	}
 
-L'exemple de commande Azure PowerShell suivant utilise **New-AzureDataFactoryTable** qui utilise un fichier JSON contenant le script précédent pour créer une table (**MyDemoBlob**) dans une fabrique de données Azure : **CopyFactory**.
+L'exemple de commande Azure PowerShell suivant utilise **New-AzureDataFactoryTable**, qui utilise un fichier JSON contenant le script précédent pour créer une table (**MyDemoBlob**) dans une fabrique de données Azure : **CopyFactory**.
          
 	New-AzureDataFactoryTable -ResourceGroupName ADF -DataFactoryName CopyFactory –File <Filepath>
 
@@ -207,8 +209,8 @@ L'exemple de commande Azure PowerShell suivant utilise **New-AzureDataFactoryTab
 Dans cet exemple, le pipeline **CopyActivityPipeline** est défini à l'aide des propriétés suivantes :
 
 - La propriété **type** est définie sur **CopyActivity**.
-- **MyOnPremTable** est spécifié en tant que balise d'entrée (**inputs**).
-- **MyAzureBlob** est spécifié en tant que balise de sortie (**outputs**)
+- **MyOnPremTable** est spécifié en tant qu’entrée (balise **inputs**).
+- **MyAzureBlob** est spécifié en tant que sortie (balise **outputs**)
 - La section **Transformation** contient deux sections secondaires : **source** et **récepteur**. Le type de la source est défini sur **SqlSource**, tandis que celui du récepteur est défini sur **BlobSink**. **sqlReaderQuery** définit la transformation (projection) qui doit être effectuée sur la source. Pour plus d'informations sur toutes les propriétés, consultez [Référence de script JSON][json-script-reference].
 
          
@@ -243,7 +245,7 @@ Dans cet exemple, le pipeline **CopyActivityPipeline** est défini à l'aide des
 		}
 
 
- L'exemple de commande Azure PowerShell suivant utilise **New-AzureDataFactoryPipeline** qui utilise un fichier JSON contenant le script précédent pour créer un pipeline (**CopyActivityPipeline**) dans une fabrique de données Azure : **CopyFactory**.
+ L'exemple de commande Azure PowerShell suivant utilise **New-AzureDataFactoryPipeline**, qui utilise un fichier JSON contenant le script précédent pour créer un pipeline (**CopyActivityPipeline**) dans une fabrique de données Azure : **CopyFactory**.
          
 		New-AzureDataFactoryPipeline -ResourceGroupName ADF –DataFactoryName CopyFactory –File <Filepath>
 
@@ -256,7 +258,7 @@ Pour les magasins de données qui autorisent les connexions HTTPS, choisissez l
 
 Pour **Azure SQL Database**, demandez explicitement une connexion chiffrée et ne faites pas confiance aux certificats de serveur pour éviter une attaque de l'intercepteur (« man in the middle »). Pour ce faire, utilisez **Encrypt=True** et **TrustServerCertificate=False** dans la chaîne de connexion. Pour plus d'informations, consultez [Instructions de sécurité et limitations d'Azure SQL Database](https://msdn.microsoft.com/library/azure/ff394108.aspx).
 
-Pour les bases de données classiques telles que **SQL Server**, en particulier quand les instances se trouvent sur une machine virtuelle Azure, activez l'option de connexion chiffrée en configurant un certificat signé, avec **Encrypt=True** et **TrustServerCertificate=False** dans la chaîne de connexion. Pour plus d'informations, consultez [Activation des connexions chiffrées dans le moteur de base de données] (https://msdn.microsoft.com/library/ms191192(v=sql.110)) et [Syntaxe de chaîne de connexion](https://msdn.microsoft.com/library/ms254500.aspx).
+Pour les bases de données classiques telles que **SQL Server**, en particulier quand les instances se trouvent sur une machine virtuelle Azure, activez l'option de connexion chiffrée en configurant un certificat signé, avec **Encrypt=True** et **TrustServerCertificate=False** dans la chaîne de connexion. Pour plus d'informations, consultez [Activation des connexions chiffrées dans le moteur de base de données\] (https://msdn.microsoft.com/library/ms191192(v=sql.110)) et [Syntaxe de chaîne de connexion](https://msdn.microsoft.com/library/ms254500.aspx).
 
 ## Scénarios avancés
 - **Filtrage de colonne à l'aide de la définition de structure**. En fonction du type de table, il est possible de spécifier un sous-ensemble de colonnes à partir de la source en indiquant un nombre de colonnes dans la définition de **Structure** de la définition de table inférieur à celles qui se trouvent dans la source de données sous-jacente.
@@ -299,4 +301,4 @@ Consultez [Utilisation des pipelines avec des données locales][use-onpremises-d
 [image-data-factory-column-mapping-2]: ./media/data-factory-copy-activity/ColumnMappingSample2.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

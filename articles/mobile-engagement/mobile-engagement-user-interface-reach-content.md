@@ -7,6 +7,7 @@
    manager="dwrede" 
    editor=""/>
 
+
 <tags
    ms.service="mobile-engagement"
    ms.devlang="na"
@@ -15,6 +16,7 @@
    ms.workload="mobile" 
    ms.date="02/17/2015"
    ms.author="piyushjo"/>
+
 
 # Gestion du contenu unique des différents types de campagnes de notifications Push
  
@@ -50,52 +52,52 @@ Toute URL qui peut être interprétée par le système d'exploitation d'un appar
 
 - **Actions Android et iOS**
     - Ouvrir une page Web
-    - http://[web-site-domain] 
+    - http://[web-site-domain\\] 
     - Exemple :http://www.azure.com
     - Envoyer un courrier électronique
-    - mailto:[destinataire-e-mail]?subject=[objet]&body=[message] 
+    - mailto:[destinataire-e-mail\]?subject=[objet\]&body=[message\] 
     - Exemple : mailto:foo@example.com?subject=Greetings%20from%20Azure%20Mobile%20Engagement!&body=Good%20stuff!
     - Envoyer un SMS
-    - sms:[numéro de téléphone] 
+    - sms:[numéro de téléphone\] 
     - Exemple :sms:2125551212
     - Composer un numéro de téléphone
-    - tel:[numéro de téléphone] 
+    - tel:[numéro de téléphone\] 
     - Exemple :tel:2125551212
 - **Actions Android uniquement**
     - Télécharger une application du Play Store
-    - market://details?id=[app package] 
+    - market://details?id=[app package\] 
     - Exemple :market://details?id=com.microsoft.office.word
     - Démarrer une recherche géolocalisée
-    - geo:0,0?q=[requête de recherche] 
+    - geo:0,0?q=[requête de recherche\] 
     - Exemple :geo:0,0?q=starbucks,paris
 - **Actions iOS uniquement**
     - Télécharger une application depuis le Magasin d'applications
-    - http://itunes.apple.com/[country]/app/[app name]/id[app id]?mt=8 
+    - http://itunes.apple.com/[country]/app/[app name\]/id[app id\]?mt=8 
     - Exemple :http://itunes.apple.com/fr/app/briquet-virtuel/id430154748?mt=8
     - Actions Windows
     - Ouvrir une page Web
-    - http://[web-site-domain] 
+    - http://[web-site-domain\\] 
     - Exemple :http://www.azure.com
     - Envoyer un courrier électronique
-    - mailto:[destinataire-e-mail]?subject=[objet]&body=[message] 
+    - mailto:[destinataire-e-mail\]?subject=[objet\]&body=[message\] 
     - Exemple : mailto:foo@example.com?subject=Greetings%20from%20Azure%20Mobile%20Engagement!&body=Good%20stuff!
     - Envoyer un SMS (application Skype du Store requise)
-    - sms:[numéro de téléphone] 
+    - sms:[numéro de téléphone\] 
     - Exemple :sms:2125551212
     - Composer un numéro de téléphone (application Skype du Store requise)
-    - tel:[numéro de téléphone] 
+    - tel:[numéro de téléphone\] 
     - Exemple :tel:2125551212
     - Télécharger une application du Play Store
-    - ms-windows-store:PDP?PFN=[ID de package d’application] 
+    - ms-windows-store:PDP?PFN=[ID de package d’application\] 
     - Exemple :ms-windows-store:PDP?PFN=4d91298a-07cb-40fb-aecc-4cb5615d53c1
     - Démarrer une recherche Bing Cartes
-    - bingmaps:?q=[requête de recherche] 
+    - bingmaps:?q=[requête de recherche\] 
     - Exemple :bingmaps:?q=starbucks,paris
     - Utiliser un modèle personnalisé
-    - [schéma personnalisé]://[paramètres du schéma personnalisé] 
+    - [schéma personnalisé\]://[paramètres du schéma personnalisé\] 
     - Exemple :myCustomProtocol://myCustomParams
     - Utiliser un package de données (application du Store pour la lecture d'extension requise)
-    - [dossier][données].[extension] 
+    - [dossier\][données\].[extension\] 
     - Exemple :myfolderdata.txt
  
 ### Génération d'une URL de suivi :
@@ -230,4 +232,4 @@ La charge utile de la vignette correspond au texte qui s'affichera dans la vigne
 [Link 29]: mobile-engagement-user-interface-reach-content.md
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

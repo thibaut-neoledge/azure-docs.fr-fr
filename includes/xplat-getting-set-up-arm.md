@@ -54,4 +54,4 @@ Pour utiliser le mode ARM (Azure Resource Management) avec l’interface de lign
 
 > [AZURE.NOTE]Vous pouvez revenir en arrière pour utiliser les commandes de gestion des services Azure en tapant `azure config mode asm`.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

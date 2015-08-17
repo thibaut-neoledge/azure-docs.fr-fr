@@ -7,6 +7,7 @@
 	manager="wpickett" 
 	editor=""/>
 
+
 <tags 
 	ms.service="app-service-web" 
 	ms.workload="web" 
@@ -15,6 +16,7 @@
 	ms.topic="article" 
 	ms.date="05/12/2015" 
 	ms.author="mwasson"/>
+
 
 #Configuration d’un nom de domaine personnalisé pour une application web dans Azure App Service utilisant Traffic Manager
 
@@ -51,11 +53,11 @@ Pour associer votre domaine personnalisé à une application web dans Azure App
 
 4. Lorsque vous avez trouvé la page de gestion de votre nom de domaine, recherchez un lien vous permettant de modifier les enregistrements DNS. Il est probablement répertorié en tant que lien de configuration de **fichier de zone**, d'**enregistrements DNS**, ou **avancé**.
 
-	* Il est possible que plusieurs enregistrements soient déjà créés pour cette page, par exemple une entrée associant « **@** » ou « * » à une page de parc de domaine. Cette page peut également contenir des enregistrements pour des sous-domaines courants, tels que **www**.
+	* Il est possible que plusieurs enregistrements soient déjà créés pour cette page, par exemple, une entrée associant « **@** » ou « * » à une page de parc de domaine. Cette page peut également contenir des enregistrements pour des sous-domaines courants, tels que **www**.
 	* La page mentionnera les **enregistrements CNAME** ou fournira une liste déroulante permettant de sélectionner un type d'enregistrement. Elle peut également mentionner d'autres enregistrements, tels que des **enregistrements A** et des **enregistrements MX**. Dans certains cas, les enregistrements CNAME sont appelés différemment, par exemple **Enregistrement d'alias**.
 	* Cette page comprend également des champs permettant de **mapper** à partir d'un **nom d'hôte** ou d'un **nom de domaine** vers un autre nom de domaine.
 
-5. Bien que les spécificités de chaque bureau d'enregistrement varient, vous mappez généralement *à partir de* votre nom de domaine personnalisé (par exemple, **contoso.com**,) *vers* le nom de domaine Traffic Manager (**contoso.trafficmanager.net**) qui est utilisé pour votre application Web.
+5. Bien que les spécificités de chaque bureau d'enregistrement varient, vous mappez généralement *à partir de* votre nom de domaine personnalisé (par exemple, **contoso.com**,) *vers* le nom de domaine Traffic Manager (**contoso.trafficmanager.net**) qui est utilisé pour votre application web.
 
 6. Lorsque vous avez fini d'ajouter ou de modifier des enregistrements DNS auprès de votre bureau d'enregistrement, enregistrez les modifications.
 
@@ -70,4 +72,4 @@ Pour associer votre domaine personnalisé à une application web dans Azure App
  
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

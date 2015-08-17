@@ -61,4 +61,4 @@ La page [Configuration d’Oracle Data Guard pour Azure](virtual-machines-config
 
 La page [Configuration d’Oracle GoldenGate pour Azure](virtual-machines-configuring-oracle-goldengate.md) vous guide à travers l’installation des bases de données et des réplications.
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

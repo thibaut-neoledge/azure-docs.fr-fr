@@ -6,6 +6,7 @@
 	authors="alancameronwills" 
 	manager="douge"/>
 
+
 <tags 
 	ms.service="application-insights" 
 	ms.workload="tbd" 
@@ -14,6 +15,7 @@
 	ms.topic="article" 
 	ms.date="07/11/2015" 
 	ms.author="awills"/>
+
  
 # Diagnostic des défaillances et des exceptions dans les applications ASP.NET avec Application Insights  
 
@@ -441,4 +443,4 @@ Ajoutez l'attribut aux implémentations de service :
 
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

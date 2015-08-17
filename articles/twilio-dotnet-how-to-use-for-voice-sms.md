@@ -252,7 +252,7 @@ Une fois que vous avez défini une façon de fournir des réponses TwiML, vous p
 
 Pour plus d'informations sur l'utilisation de Twilio sur Azure avec ASP.NET, consultez la page [Appel téléphonique à l'aide de Twilio dans un rôle Web sur Azure][howto_phonecall_dotnet].
 
-[AZURE.INCLUDE [twilio_additional_services_and_next_steps](../includes/twilio_additional_services_and_next_steps.md)]
+[AZURE.INCLUDE [twilio\_additional\_services\_and\_next\_steps](../includes/twilio_additional_services_and_next_steps.md)]
 
 
 
@@ -279,4 +279,4 @@ Pour plus d'informations sur l'utilisation de Twilio sur Azure avec ASP.NET, con
 [twilio_account]: https://www.twilio.com/user/account
 [verify_phone]: https://www.twilio.com/user/account/phone-numbers/verified#
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -4,8 +4,10 @@
 	services="virtual-machines" 
 	documentationCenter="" 
 	authors="szarkos" 
+	writer="szark" 
 	manager="timlt" 
 	editor=""/>
+
 
 <tags 
 	ms.service="virtual-machines" 
@@ -13,8 +15,9 @@
 	ms.tgt_pltfrm="vm-linux" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/13/2015" 
+	ms.date="07/29/2015" 
 	ms.author="szark"/>
+
 
 
 
@@ -23,7 +26,7 @@ L'utilisation d'un RAID logiciel pour les machines virtuelles Linux sur Azure es
 
 
 ## Disques de données attachés
-En règle générale, au moins deux disques de données sont nécessaires pour configurer un périphérique RAID. Cet article n'abordera pas en détail la marche à suivre pour attacher des disques de données sur une machine virtuelle Linux. Veuillez consulter l'article Windows Azure [attacher un disque](storage-windows-attach-disk.md#attachempty) pour obtenir des instructions détaillées sur la marche à suivre pour attacher un disque de données vide à une machine virtuelle Linux sur Azure.
+En règle générale, au moins deux disques de données sont nécessaires pour configurer un périphérique RAID. Cet article n'abordera pas en détail la marche à suivre pour attacher des disques de données sur une machine virtuelle Linux. Consultez l’article Microsoft Azure [Attacher un disque](storage-windows-attach-disk.md#attachempty) pour obtenir des instructions détaillées sur la marche à suivre pour attacher un disque de données vide à une machine virtuelle Linux Azure.
 
 >[AZURE.NOTE]La taille de machine virtuelle ExtraSmall ne prend pas en charge plus d'un disque de données attaché à la machine virtuelle. Consultez les [Tailles de machines virtuelles et services cloud pour Windows Azure](https://msdn.microsoft.com/library/azure/dn197896.aspx) pour plus d'informations concernant les tailles de machines virtuelles et le nombre de disques de données pris en charge.
 
@@ -108,20 +111,20 @@ Dans cet exemple, après l'exécution de cette commande, un nouveau périphériq
 
 2. Créez le système de fichiers sur le nouveau périphérique RAID.
 
-	**CentOS, Oracle Linux, openSUSE et Ubuntu**
+	**CentOS, Oracle Linux, SLES 12, openSUSE et Ubuntu**
 
 		# sudo mkfs -t ext4 /dev/md127
 
-	**SLES**
+	**SLES 11**
 
 		# sudo mkfs -t ext3 /dev/md127
 
-3. **SLES & openSUSE** : activez boot.md et créez mdadm.conf
+3. **SLES 11 et openSUSE** : activez boot.md et créez mdadm.conf
 
 		# sudo -i chkconfig --add boot.md
 		# sudo echo 'DEVICE /dev/sd*[0-9]' >> /etc/mdadm.conf
 
-	>[AZURE.NOTE]Un redémarrage peut être nécessaire après avoir apporté ces modifications sur des systèmes SUSE.
+	>[AZURE.NOTE]Un redémarrage peut être nécessaire après avoir apporté ces modifications sur des systèmes SUSE. Cette étape n’est *pas* requise pour SLES 12.
 
 
 ## Ajout du nouveau système de fichiers à /etc/fstab
@@ -142,7 +145,7 @@ Dans cet exemple, après l'exécution de cette commande, un nouveau périphériq
 
 		UUID=aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee  /data  ext4  defaults  0  2
 
-	Ou sur **SLES & openSUSE** :
+	Sur **SLES 11 et openSUSE** :
 
 		/dev/disk/by-uuid/aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee  /data  ext3  defaults  0  2
 
@@ -178,4 +181,4 @@ Dans cet exemple, après l'exécution de cette commande, un nouveau périphériq
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

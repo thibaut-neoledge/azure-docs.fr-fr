@@ -87,4 +87,4 @@ Le [support Azure](http://azure.microsoft.com/support/options/) propose des opti
 [overview]: ./media/media-services-overview/media-services-overview.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

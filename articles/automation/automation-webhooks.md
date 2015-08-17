@@ -6,14 +6,16 @@
    authors="bwren"
    manager="stevenka"
    editor="tysonn" />
+
 <tags 
    ms.service="automation"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="07/05/2015"
+   ms.date="08/04/2015"
    ms.author="bwren" />
+
 
 # Webhooks Azure Automation
 
@@ -38,9 +40,7 @@ Le tableau suivant décrit les propriétés que vous devez configurer pour un we
 ### Paramètres
 Un webhook peut définir les valeurs des paramètres du Runbook qui sont utilisées lorsque le Runbook est démarré par ce webhook. Le webhook doit inclure les valeurs de tous les paramètres obligatoires du Runbook et peut inclure les valeurs des paramètres optionnels. Plusieurs webhooks liés à un même Runbook peuvent utiliser différentes valeurs de paramètres.
 
->[AZURE.NOTE]Les valeurs de paramètres définies par un webhook ne peuvent pas être modifiées après sa création. Vous devez créer un autre webhook qui utilise des valeurs de paramètres différentes.
-
-Lorsqu'un client démarre un Runbook à l'aide d'un webhook, il ne peut pas remplacer les valeurs de paramètres définies dans le webhook. Pour recevoir les données du client, le Runbook peut accepter un paramètre unique appelé **$WebhookData** de type [object] qui contient les données que le client inclut dans la requête POST.
+Lorsqu'un client démarre un Runbook à l'aide d'un webhook, il ne peut pas remplacer les valeurs de paramètres définies dans le webhook. Pour recevoir les données du client, le Runbook peut accepter un paramètre unique appelé **$WebhookData** de type [object\] qui contient les données que le client inclut dans la requête POST.
 
 ![Données du webhook](media/automation-webhooks/webhookdata.png)
 
@@ -92,7 +92,7 @@ Le client reçoit l'un des codes de réponse suivants à la requête POST.
 |:---|:----|:---|
 | 202 | Acceptée | La requête a été acceptée et le Runbook a été mis en file d'attente avec succès. |
 | 400 | Demande incorrecte | La demande a été refusée pour l'une des raisons suivantes. <ul> <li>Le webhook a expiré.</li> <li>Le webhook est désactivé.</li> <li>Le jeton de l'URL n'est pas valide.</li> </ul>|
-| 404 | Introuvable | La demande a été refusée pour l'une des raisons suivantes. <ul><li>Le webhook est introuvable.</li> <li>Le Runbook est introuvable.</li> <li>Le compte est introuvable.</li></ul> |
+| 404 | Introuvable | La demande a été refusée pour l'une des raisons suivantes. <ul> <li>Le webhook est introuvable.</li> <li>Le Runbook est introuvable.</li> <li>Le compte est introuvable.</li></ul> |
 | 500 | Erreur interne du serveur | L'URL est valide, mais une erreur s'est produite. Soumettez à nouveau la demande. |
 
 En supposant que la requête aboutisse, la réponse webhook contient l'ID de travail au format JSON comme suit. Elle contient un ID de tâche unique, mais le format JSON permet des améliorations ultérieures potentielles.
@@ -174,4 +174,4 @@ L'exemple suivant de Runbook accepte la requête de l'exemple précédent et dé
 - [Démarrage d'un Runbook](automation-starting-a-runbook.md)
 - [Affichage de l'état d'une tâche du Runbook](automation-viewing-the-status-of-a-runbook-job.md) 
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

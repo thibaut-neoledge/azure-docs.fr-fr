@@ -74,13 +74,13 @@ L'outil Microsoft Azure Import/Export génère un fichier *journal de lecteur* l
 
 ### Création de la tâche d'importation
 
-1.	Après avoir préparé votre lecteur, accédez à votre compte de stockage dans le portail de gestion, puis affichez le tableau de bord. Sous <strong>Aperçu rapide</strong>, cliquez sur <strong>Créer une tâche d'importation</strong>. 
+1.	Après avoir préparé votre lecteur, accédez à votre compte de stockage dans le portail de gestion, puis affichez le tableau de bord. Sous **Quick Glance**, cliquez sur **Create an Import Job**. 
  
-2.	À l’étape 1 de l’Assistant, précisez que vous avez préparé votre lecteur et que le fichier journal du lecteur est disponible.
+2.	À l'étape 1 de l'Assistant, précisez que vous avez préparé votre lecteur et que le fichier journal du lecteur est disponible.
  
-3.	À l’étape 2, fournissez les coordonnées de la personne responsable de cette tâche d’importation. Pour enregistrer des données de journal détaillées pour la tâche d'importation, activez l'option <strong>Enregistrer le journal détaillé dans le conteneur d'objets blob 'waimportexport'</strong>.
+3.	À l'étape 2, fournissez les coordonnées de la personne responsable de cette tâche d'importation. Pour enregistrer des données de journal détaillées pour la tâche d'importation, activez l'option **Enregistrer le journal détaillé dans le conteneur d'objets blob 'waimportexport'**.
 
-4.	À l’étape 3, téléchargez les fichiers journaux de lecteur que vous avez obtenus à l’étape de préparation de lecteur. Vous devez télécharger un fichier pour chaque lecteur préparé.
+4.	À l'étape 3, téléchargez les fichiers journaux de lecteur que vous avez obtenus à l'étape de préparation de lecteur. Vous devez télécharger un fichier pour chaque lecteur préparé.
 
 	![Créer une tâche d'importation - Étape 3][import-job-03]
 
@@ -104,9 +104,9 @@ L'outil Microsoft Azure Import/Export génère un fichier *journal de lecteur* l
 
 Créez une tâche d'exportation pour avertir le service Import/Export que vous allez expédier un ou plusieurs lecteurs vides au centre de données, de sorte que les données puissent être exportées de votre compte de stockage vers les lecteurs, qui vous seront ensuite renvoyés.
 
-1. 	Pour créer une tâche d’exportation, accédez à votre compte de stockage dans le portail de gestion, puis affichez le tableau de bord. Sous <strong>Aperçu rapide</strong>, cliquez sur <strong>Créer une tâche d’exportation</strong>, puis parcourez les étapes de l’Assistant.
+1. 	Pour créer une tâche d'exportation, accédez à votre compte de stockage dans le portail de gestion, puis affichez le tableau de bord. Sous **Aperçu rapide**, cliquez sur **Créer un travail d'exportation**, puis parcourez les étapes de l'Assistant.
 
-2. 	À l’étape 2, fournissez les coordonnées de la personne responsable de cette tâche d’exportation. Pour enregistrer des données de journal détaillées pour la tâche d'exportation, activez l'option <strong>Enregistrer le journal détaillé dans le conteneur d'objets blob 'waimportexport'</strong>.
+2. 	À l'étape 2, fournissez les coordonnées de la personne responsable de cette tâche d'exportation. Pour enregistrer des données de journal détaillées pour la tâche d'exportation, activez l'option **Enregistrer le journal détaillé dans le conteneur d'objets blob 'waimportexport'**.
 
 3.	À l'étape 3, indiquez les données d'objets blob que vous souhaitez exporter de votre compte de stockage vers le ou les lecteurs vides. Vous pouvez choisir d’exporter toutes les données d’objets blob contenues dans le compte de stockage ou indiquer les objets blob ou ensembles d’objets blob à exporter.
 
@@ -115,52 +115,17 @@ Créez une tâche d'exportation pour avertir le service Import/Export que vous a
 	- Pour spécifier un objet blob à exporter, utilisez le sélecteur **Equal To**, puis indiquez le chemin d'accès relatif de l'objet blob en le faisant précéder du nom du conteneur. Utilisez *$root* pour spécifier le conteneur racine.
 	- Pour spécifier tous les objets blob commençant par un préfixe, utilisez le sélecteur **Starts With**, puis spécifiez le préfixe en le faisant précéder d'une barre oblique (« / »). Il peut s'agir du préfixe du nom de conteneur, du nom de conteneur complet, ou du nom de conteneur complet suivi du préfixe du nom d'objet blob.
 
-	Le tableau suivant présente des exemples de chemins d’accès d’objet blob valides :
+	Le tableau suivant présente des exemples de chemins d'accès d'objet blob valides :
 
-	<table border="1" cellspacing="0" cellpadding="5" style="border: 1px solid #000000;">
-	<tbody>
-		<tr>
-			<td><strong>Sélecteur</strong></td>
-			<td><strong>Chemin d’accès d’objet blob</strong></td>
-			<td><strong>Description</strong></td>
-		</tr>
-		<tr>
-			<td>Commence par</td>
-			<td>/</td>
-			<td>Exporte tous les objets blob présents dans le compte de stockage.</td>
-		</tr>
-		<tr>
-			<td>Starts With</td>
-			<td>/$root/</td>
-			<td>Exporte tous les objets blob présents dans le conteneur racine.</td>
-		</tr>
-		<tr>
-			<td>Starts With</td>
-			<td>/book</td>
-			<td>Exporte tous les objets blob présents dans un conteneur commençant par le préfixe <strong>book</strong>.</td>
-		</tr>
-		<tr>
-			<td>Starts With</td>
-			<td>/music/</td>
-			<td>Exporte tous les objets blob présents dans le conteneur <strong>music</strong>.</td>
-		</tr>
-		<tr>
-			<td>Starts With</td>
-			<td>/music/love</td>
-			<td>Exporte tous les objets blob présents dans le conteneur <strong>music</strong> qui commence par le préfixe <strong>love</strong>.</td>
-		</tr>
-		<tr>
-			<td>Equal To</td>
-			<td>$root/logo.bmp</td>
-			<td>Exporte l'objet blob <strong>logo.bmp</strong> présent dans le conteneur racine.</td>
-		</tr>
-		<tr>
-			<td>Equal To</td>
-			<td>videos/story.mp4</td>
-			<td>Exporte l'objet blob <strong>story.mp4</strong> présent dans le conteneur <strong>videos</strong>.</td>
-		</tr>
-	</tbody>
-</table>
+	Sélecteur|Chemin d'accès d'objet blob|Description
+	---|---|---
+	Starts With|/|Exporte tous les objets blob présents dans le compte de stockage.
+	Starts With|/$root/|Exporte tous les objets blob présents dans le conteneur racine.
+	Starts With|/book|Exporte tous les objets blob présents dans un conteneur commençant par le préfixe **book**.
+	Starts With|/music/|Exporte tous les objets blob présents dans le conteneur **music**.
+	Starts With|/music/love|Exporte tous les objets blob présents dans le conteneur **music** qui commence par le préfixe **love**.
+	Equal To|$root/logo.bmp|Exporte l'objet blob **logo.bmp** présent dans le conteneur racine.
+	Equal To|videos/story.mp4|Exporte l'objet blob **story.mp4** présent dans le conteneur **videos**.
 
 
 4.	À l'étape 4, attribuez un nom descriptif à la tâche d'exportation. Le nom que vous entrez ne peut contenir que des minuscules, des chiffres, des tirets et des traits de soulignement, il doit commencer par une lettre et ne peut pas contenir d'espaces.
@@ -171,7 +136,7 @@ Créez une tâche d'exportation pour avertir le service Import/Export que vous a
 
 	Si vous avez un numéro de suivi, entrez-le après avoir sélectionné le transporteur dans la liste.
 
-	Si vous n’avez pas encore de numéro de suivi, choisissez <strong>Je fournirai mes informations d’expédition pour ce travail d’exportation après envoi de mon colis</strong>, puis terminez le processus d’exportation.
+	Si vous n'avez pas encore de numéro de suivi, choisissez **Je fournirai mes informations d'expédition pour ce travail d'exportation après envoi de mon colis**, puis terminez le processus d'exportation.
 
 6. Pour entrer le numéro de suivi après avoir expédié votre colis, revenez à la page **Importer/Exporter** de votre compte de stockage dans le portail de gestion, sélectionnez votre tâche dans la liste, puis choisissez **Informations d'expédition**. Parcourez l’Assistant, puis entrez votre numéro de suivi à l’étape 2.
 	
@@ -187,34 +152,14 @@ Vous pouvez suivre le statut de vos tâches d'importation ou d'exportation dans 
 
 Le tableau ci-dessous indique la signification de chaque désignation de statut de tâche :
 
-<table border="1" cellspacing="0" cellpadding="5" style="border: 1px solid #000000;">
-	<tbody>
-		<tr>
-			<td><strong>Statut de tâche</strong></td>
-			<td><strong>Description</strong></td>
-		</tr>
-		<tr>
-			<td>Creating</td>
-			<td>Votre tâche a été créée, mais vous n'avez pas encore fourni vos détails d'expédition.</td>
-		</tr>
-		<tr>
-			<td>Shipping</td>
-			<td>Votre tâche a été créée et vous avez fourni vos détails d'expédition.</td>
-		</tr>
-		<tr>
-			<td>Transferring</td>
-			<td>Vos données sont en cours de transfert de votre disque dur (pour une tâche d'importation) ou vers ce dernier (pour une tâche d'exportation).</td>
-		</tr>
-		<tr>
-			<td>Packaging</td>
-			<td>Le transfert de vos données est terminé et votre disque dur est en cours de préparation pour vous être renvoyé.</td>
-		</tr>
-		<tr>
-			<td>Complete</td>
-			<td>Votre disque dur vous a été renvoyé.</td>
-		</tr>
-	</tbody>
-</table>
+Statut de tâche|Description
+---|---
+Creating|Votre tâche a été créée, mais vous n'avez pas encore fourni vos détails d'expédition.
+Shipping|Votre tâche a été créée et vous avez fourni vos détails d'expédition.
+Transferring|Vos données sont en cours de transfert de votre disque dur (pour une tâche d'importation) ou vers ce dernier (pour une tâche d'exportation).
+Packaging|Le transfert de vos données est terminé et votre disque dur est en cours de préparation pour vous être renvoyé.
+Complete|Votre disque dur vous a été renvoyé.
+
 
 ## Affichage des clés BitLocker pour une tâche d'exportation ##
 
@@ -324,4 +269,4 @@ Dans le cas des tâches d'exportation, vous pouvez afficher et copier les clés 
 [export-job-bitlocker-keys]: ./media/storage-import-export-service/export-job-bitlocker-keys.png
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

@@ -53,4 +53,4 @@ Vous pouvez désormais utiliser la machine virtuelle tout comme vous le feriez a
 <!-- LINKS -->
 [Réinitialisation d’un mot de passe ou SSH pour les machines virtuelles Linux]: http://go.microsoft.com/fwlink/p/?LinkId=512138
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -76,4 +76,4 @@ Vous pouvez afficher les journaux des opérations en cliquant sur le lien des jo
 
 Découvrez la procédure de [Résolution des problèmes d’un périphérique StorSimple](storsimple-troubleshoot-operational-device.md).
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

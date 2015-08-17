@@ -77,7 +77,7 @@ La taille *réelle* de la machine virtuelle est dans ce cas 17 Go + 30 Go + 
 La facturation ne commence pas avant la fin de la première sauvegarde réussie. À partir de ce moment, la facturation du stockage et des instances protégées commence. La facturation continue tant que des *données de sauvegarde sont stockées avec Azure Backup* pour la machine virtuelle. L’opération Arrêter la protection n’arrête pas la facturation si les données de sauvegarde sont conservées. La facturation pour une machine virtuelle spécifiée est interrompue uniquement si la protection est arrêtée *et* que les données de sauvegarde sont supprimées. Si aucun travail de sauvegarde n’est actif (et que la protection a été arrêtée), la taille de la machine virtuelle au moment de la dernière sauvegarde réussie devient la taille d’instance protégée sur laquelle est basée la facture mensuelle.
 
 ## Composants requis
-### 1. Archivage de sauvegarde
+### 1\. Archivage de sauvegarde
 Pour démarrer la sauvegarde de vos machines virtuelles Azure, vous devez d’abord créer un archivage de sauvegarde. L’archivage est une entité qui stocke les sauvegardes et les points de récupération créés au fil du temps. L’archivage contient également les stratégies de sauvegarde qui seront appliquées aux machines virtuelles en cours de sauvegarde.
 
 L’image ci-dessous illustre les relations entre les différentes entités d’Azure Backup : ![Entités et relation d’Azure Backup](./media/backup-azure-vms-introduction/vault-policy-vm.png)
@@ -102,7 +102,7 @@ L’image ci-dessous illustre les relations entre les différentes entités d’
 
     >[AZURE.NOTE]Assurez-vous que l’option de redondance de stockage appropriée est choisie juste après la création de l’archivage. En savoir plus sur la [définition de l'option de redondance de stockage dans l'archivage de sauvegarde][vault-storage-redundancy].
 
-### 2. Agent VM
+### 2\. Agent VM
 Avant de commencer à sauvegarder la machine virtuelle Azure, assurez-vous que l’agent de machine virtuelle Azure est correctement installé sur la machine virtuelle. Pour sauvegarder la machine virtuelle, le service Azure Backup installe une extension vers l’agent de machine virtuelle. L’agent de machine virtuelle étant un composant facultatif au moment de la création de la machine virtuelle, vous devez vous assurer que la case de l’agent de machine virtuelle est cochée avant de configurer la machine virtuelle.
 
 En savoir plus sur l’[agent de machine virtuelle](https://go.microsoft.com/fwLink/?LinkID=390493&clcid=0x409) et [comment l’installer](http://azure.microsoft.com/blog/2014/04/15/vm-agent-and-extensions-part-2/).
@@ -136,4 +136,4 @@ Pour bien démarrer avec la sauvegarde des machines virtuelles, découvrez comme
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

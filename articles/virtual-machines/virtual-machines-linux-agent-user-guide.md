@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vm-linux" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/07/2015" 
+	ms.date="07/30/2015" 
 	ms.author="szark"/>
 
 
@@ -211,7 +211,7 @@ Type : Boolean Valeur par défaut : y
 
 L'utilisateur peut activer ou désactiver la fonctionnalité d'approvisionnement dans l'agent. Les valeurs valides sont « y » ou « n ». Si l'approvisionnement est désactivé, les clés d'utilisateur et d'hôte SSH dans l'image sont conservées et toute configuration spécifiée dans l'API d'approvisionnement Azure est ignorée.
 
-	Note that this parameter defaults to "n" on Ubuntu Cloud Images that use cloud-init for provisioning.
+**Remarque** : La valeur par défaut de ce paramètre est « n » dans les images Cloud Ubuntu qui utilisent cloud-init pour l’approvisionnement.
 
 **Provisioning.DeleteRootPassword :**
 
@@ -317,4 +317,4 @@ Notez que les images cloud Ubuntu utilisent [Cloud-init](https://launchpad.net/u
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

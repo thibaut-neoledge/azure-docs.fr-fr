@@ -49,7 +49,7 @@ Pour utiliser Service Bus, téléchargez le package azure Node.js. Ce dernier in
 		├── xml2js@0.2.7 (sax@0.5.2)
 		└── request@2.21.0 (json-stringify-safe@4.0.0, forever-agent@0.5.0, aws-sign@0.3.0, tunnel-agent@0.3.0, oauth-sign@0.3.0, qs@0.6.5, cookie-jar@0.3.0, node-uuid@1.4.0, http-signature@0.9.11, form-data@0.0.8, hawk@0.13.1)
 
-3.  Vous pouvez exécuter manuellement la commande **ls** pour vérifier que le dossier **node_modules** a été créé. Dans ce dossier, recherchez le package **azure**, qui contient les bibliothèques nécessaires pour accéder aux rubriques de Service Bus.
+3.  Vous pouvez exécuter manuellement la commande **ls** pour vérifier que le dossier **node\_modules** a été créé. Dans ce dossier, recherchez le package **azure**, qui contient les bibliothèques nécessaires pour accéder aux rubriques de Service Bus.
 
 ### Importation du module
 
@@ -59,7 +59,7 @@ Pour utiliser Service Bus, téléchargez le package azure Node.js. Ce dernier in
 
 ### Configuration d’une connexion Service Bus
 
-Le module Azure lit les variables d'environnement AZURE_SERVICEBUS_NAMESPACE et AZURE_SERVICEBUS_ACCESS_KEY pour obtenir les informations nécessaires à la connexion à votre Azure Service Bus. Si ces variables d'environnement ne sont pas définies, vous devez spécifier les informations de compte lors de l'appel de **createServiceBusService**.
+Le module Azure lit les variables d'environnement AZURE\_SERVICEBUS\_NAMESPACE et AZURE\_SERVICEBUS\_ACCESS\_KEY pour obtenir les informations nécessaires à la connexion à votre Azure Service Bus. Si ces variables d'environnement ne sont pas définies, vous devez spécifier les informations de compte lors de l'appel de **createServiceBusService**.
 
 Pour consulter un exemple de paramétrage de variables d'environnement dans un fichier de configuration pour un service cloud Azure, consultez la page [Service cloud Node.js avec stockage].
 
@@ -305,4 +305,4 @@ Maintenant que vous avez appris les principes de base des rubriques Service Bus,
   [Application web Node.js avec stockage]: /develop/nodejs/tutorials/web-site-with-storage/
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

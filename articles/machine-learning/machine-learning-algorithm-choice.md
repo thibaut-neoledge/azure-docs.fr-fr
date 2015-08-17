@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Comment choisir les algorithmes d'apprentissage automatique | Microsoft Azure" 
-	description="Comment choisir les algorithmes Azure Machine Learning pour l'apprentissage supervisé et non supervisé dans les expériences de clustering, classification ou régression." 
+	description="Comment choisir les algorithmes Azure Machine Learning pour l'apprentissage supervisé et non supervisé dans les expériences de clustering, classification ou régression." 	
 	services="machine-learning"
 	documentationCenter="" 
 	authors="garyericson" 
@@ -73,7 +73,7 @@ Dans le domaine de l'apprentissage automatique, le problème de l'apprentissage 
 
 Dans Azure Machine Learning, nous pouvons effectuer à la fois un apprentissage supervisé et non supervisé via le **Clustering**, la **Classification** et la **Régression**.
 
-   ![screenshot_of_experiment](./media/machine-learning-algorithm-choice/help2.png)
+   ![screenshot\_of\_experiment](./media/machine-learning-algorithm-choice/help2.png)
 
 <a name="anchor-4"></a>
 ##Clustering
@@ -89,7 +89,7 @@ K-means est l'un des algorithmes d'apprentissage non supervisés les plus simple
 
 Le module d'algorithme [K-Means Clustering][k-means-clustering] retourne un modèle de clustering K-means non formé qui peut être transmis au module [Train Clustering Model][train-clustering-model] à des fins de formation.
 
-![screenshot_of_experiment](./media/machine-learning-algorithm-choice/k4.png)
+![screenshot\_of\_experiment](./media/machine-learning-algorithm-choice/k4.png)
 
 Cette illustration indique les options à configurer pour l'utilisation du module K-Means Clustering. La méthode K-means recherche un certain nombre de clusters pour un ensemble de points de données présentant d dimensions. En commençant par un *ensemble initial de centroïdes K*, la méthode utilise l'algorithme de Lloyd pour affiner les emplacements des centroïdes, de manière itérative. L'algorithme se termine quand les centroïdes sont stabilisés ou quand un *nombre spécifié d'itérations* est effectué. Le module initialise un tableau K-par-D avec les centroïdes finals, qui définissent les K clusters trouvées dans les N points de données. Cet algorithme utilise également un vecteur de longueur N, avec l’assignation de chaque point de données à l’un des K clusters. En cas de spécification d’un nombre précis de clusters à rechercher (K), le module affecte les premiers K points de données aux K clusters, dans l’ordre.
 
@@ -100,7 +100,7 @@ De plus, ce module accepte ou génère des points initiaux pour définir la conf
 ##Classification 
 Dans l'analyse de classification, nous divisons les exemples en différentes classes et utilisons un ensemble formé de données précédemment étiquetées. Cette technique est utilisée pour prédire l’appartenance à un groupe des instances de données. Microsoft Azure Machine Learning propose les algorithmes de classification suivants.
 
-![screenshot_of_experiment](./media/machine-learning-algorithm-choice/help3.png)
+![screenshot\_of\_experiment](./media/machine-learning-algorithm-choice/help3.png)
 
 Les *algorithmes à deux classes* sont utilisés pour les variables de réponse binaires (de type oui ou non, 0 ou 1, true ou false, etc.), alors que les *algorithmes multiclasses* sont utilisés pour toute variable de réponse nominale qui classifie les instances dans plus de deux classes.
 
@@ -174,7 +174,7 @@ Contrairement aux forêts, les SVM étaient à l’origine des classifieurs à d
  
 L’analyse de régression nous permet de prédire de nouvelles valeurs en fonction de l’inférence passée. Les nouvelles valeurs d’une variable dépendante sont calculées en fonction de la valeur d’un ou de plusieurs attributs mesurés. Les différents algorithmes de régression disponibles dans Microsoft Azure Machine Learning sont les suivants :
 
-![screenshot_of_experiment](./media/machine-learning-algorithm-choice/help4.png)
+![screenshot\_of\_experiment](./media/machine-learning-algorithm-choice/help4.png)
 
 Selon le cas d'usage et les données à portée de main, nous sélectionnons un algorithme plutôt qu'un autre. À présent, nous allons décrire certains algorithmes de régression et leurs cas d’usage principaux.
 
@@ -262,4 +262,4 @@ Voir aussi :
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

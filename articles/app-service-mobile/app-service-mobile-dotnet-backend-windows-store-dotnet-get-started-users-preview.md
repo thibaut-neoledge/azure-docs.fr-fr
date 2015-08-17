@@ -7,14 +7,16 @@
 	manager="dwrede"
 	editor=""/>
 
+
 <tags
 	ms.service="app-service"
 	ms.workload="mobile"
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="06/19/2015"
+	ms.date="06/22/2015"
 	ms.author="mahender"/>
+
 
 # Ajout de l'authentification à votre application Windows
 
@@ -52,7 +54,7 @@ Ensuite, vous allez mettre à jour l'application pour authentifier les utilisate
 [AZURE.INCLUDE [app-service-mobile-windows-universal-dotnet-authenticate-app](../../includes/app-service-mobile-windows-universal-dotnet-authenticate-app.md)]
 
 
->[AZURE.NOTE]Quand vous avez inscrit les informations de package d'application du Windows Store avec App Service, vous devez appeler la méthode <a href="http://go.microsoft.com/fwlink/p/?LinkId=311594" target="_blank">LoginAsync</a> en fournissant la valeur <strong>true</strong> pour le paramètre <em>useSingleSignOn</em>. Si vous ne le faites pas, vos utilisateurs seront toujours invités à se connecter à chaque appel de la méthode de connexion.
+>[AZURE.NOTE]Quand vous avez inscrit les informations de package d'application du Windows Store avec App Service, vous devez appeler la méthode <a href="http://go.microsoft.com/fwlink/p/?LinkId=311594" target="_blank">LoginAsync</a> en fournissant la valeur **true** pour le paramètre <em>useSingleSignOn</em>. Si vous ne le faites pas, vos utilisateurs seront toujours invités à se connecter à chaque appel de la méthode de connexion.
 
 
 ##<a name="tokens"></a>Stockage du jeton d’authentification sur le client
@@ -75,4 +77,4 @@ Ensuite, vous allez mettre à jour l'application pour authentifier les utilisate
 [Prise en main de votre application mobile]: app-service-mobile-dotnet-backend-windows-store-dotnet-get-started-preview.md
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

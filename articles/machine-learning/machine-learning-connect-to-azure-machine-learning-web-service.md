@@ -106,4 +106,4 @@ Pour vous connecter à un service web Azure ML, utilisez la bibliothèque **url
 	
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

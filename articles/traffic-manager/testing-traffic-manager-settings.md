@@ -6,6 +6,7 @@
    authors="joaoma"
    manager="adinah"
    editor="tysonn" />
+
 <tags 
    ms.service="traffic-manager"
    ms.devlang="na"
@@ -15,17 +16,18 @@
    ms.date="05/27/2015"
    ms.author="joaoma;cherylmc" />
 
+
 # Test des paramètres de Traffic Manager
 
 La meilleure façon de tester les paramètres de Traffic Manager consiste à configurer des clients, puis à mettre hors fonction un à un les services cloud et sites web de votre profil. Voici quelques conseils relatifs au test de votre profil Traffic Manager :
 
 ## Étapes de test de base
 
--**Définissez une durée de vie DNS très courte** pour que les modifications se répercutent rapidement, en 30 secondes, par exemple.
+\- **Définissez une durée de vie DNS très courte**, afin que les modifications se répercutent rapidement, en 30 secondes, par exemple.
 
--**Veillez à connaître l’adresse IP de tous vos services cloud et sites web Azure** contenus dans le profil que vous testez.
+\- **Veillez à connaître l’adresse IP de tous vos services cloud et sites web Azure** contenus dans le profil que vous testez.
 
--**Utilisez des outils permettant de résoudre un nom DNS en adresse IP** et d’afficher cette adresse. Vous devez vérifier que votre nom de domaine d’entreprise est résolu en adresses IP des points de terminaison de votre profil. Ils doivent être résolus de manière cohérente avec la méthode d’équilibrage de charge utilisée pour votre profil Traffic Manager. Si vous possédez un ordinateur exécutant Windows, vous pouvez utiliser l’outil Nslookup.exe à partir d’une commande ou d’une invite de commandes Windows PowerShell. D’autres outils publics permettant d’obtenir les adresses IP sont également disponibles sur Internet.
+\- **Utilisez des outils permettant de résoudre un nom DNS en adresse IP** et d’afficher cette adresse. Vous devez vérifier que votre nom de domaine d’entreprise est résolu en adresses IP des points de terminaison de votre profil. Ils doivent être résolus de manière cohérente avec la méthode d’équilibrage de charge utilisée pour votre profil Traffic Manager. Si vous possédez un ordinateur exécutant Windows, vous pouvez utiliser l’outil Nslookup.exe à partir d’une commande ou d’une invite de commandes Windows PowerShell. D’autres outils publics permettant d’obtenir les adresses IP sont également disponibles sur Internet.
 
 ### Contrôle d’un profil Traffic Manager à l’aide de nslookup
 
@@ -57,4 +59,4 @@ Vous trouverez différents services de recherche et d’obtention de DNS gratuit
 [À propos des méthodes d’équilibrage de charge de Traffic Manager](../about-traffic-manager-balancing-methods.md) [Tâches de configuration de Traffic Manager](https://msdn.microsoft.com/library/azure/hh744830.aspx) [Traffic Manager](../traffic-manager.md)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

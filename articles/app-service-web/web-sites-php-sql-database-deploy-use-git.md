@@ -7,14 +7,16 @@
 	manager="wpickett" 
 	editor="mollybos"/>
 
+
 <tags 
 	ms.service="app-service-web" 
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="PHP" 
 	ms.topic="article" 
-	ms.date="04/29/2015" 
+	ms.date="08/03/2015" 
 	ms.author="tomfitz"/>
+
 
 # Création d’une application web PHP-SQL dans Azure App Service et déploiement à l’aide de Git
 
@@ -132,7 +134,7 @@ Pour exécuter l'application en local, procédez comme suit : notez que ces ét
 
 	Vous devrez mettre à jour les valeurs de <code>$user</code> et de <code>$pwd</code> avec votre nom d’utilisateur et votre mot de passe SQL Server locaux.
 
-4. Ouvrez un navigateur web et accédez à **http://localhost/registration/createtable.php**. Cette opération crée la table `registration_tbl` dans la base de données.
+4. Ouvrez un navigateur web et accédez à ****http://localhost/registration/createtable.php**. La table `registration_tbl` est créée dans la base de données.
 
 5. Ouvrez le fichier **index.php** dans un éditeur de texte ou un IDE et ajoutez les codes HTML et CSS de base pour la page (le code PHP sera ajouté plus tard).
 
@@ -157,9 +159,12 @@ Pour exécuter l'application en local, procédez comme suit : notez que ces ét
 		<h1>Register here!</h1>
 		<p>Fill in your name and email address, then click <strong>Submit</strong> to register.</p>
 		<form method="post" action="index.php" enctype="multipart/form-data" >
-		      Name  <input type="text" name="name" id="name"/></br>
-		      Email <input type="text" name="email" id="email"/></br>
+		      Name  <input type="text" name="name" id="name"/>
+</br>
+		      Email <input type="text" name="email" id="email"/>
+</br>
 		      <input type="submit" name="submit" value="Submit" />
+
 		</form>
 		<?php
 
@@ -228,7 +233,7 @@ Pour exécuter l'application en local, procédez comme suit : notez que ces ét
 			echo "<h3>No one is currently registered.</h3>";
 		}
 
-Vous pouvez à présent accéder à **http://localhost/registration/index.php** pour tester l’application.
+Vous pouvez à présent accéder à ****http://localhost/registration/index.php** pour tester l’application.
 
 ##Publication de votre application
 
@@ -258,8 +263,8 @@ Tout est prêt pour configurer la publication Git et publier l’application.
 
 	Vous êtes invité à entrer le mot de passe que vous avez créé précédemment.
 
-2. Accédez à **http://[web app name].azurewebsites.net/createtable.php** pour créer la table de la base de données SQL de l’application.
-3. Accédez à **http://[web app name].azurewebsites.net/index.php** pour commencer à utiliser l’application.
+2. Accédez à **http://[web app name\].azurewebsites.net/createtable.php** pour créer la table de la base de données SQL de l’application.
+3. Accédez à **http://[web app name\].azurewebsites.net/index.php** pour commencer à utiliser l’application.
 
 Après la publication de votre application, vous pouvez y apporter des modifications, puis utiliser Git pour les publier.
 
@@ -276,7 +281,7 @@ Pour publier des modifications apportées à votre application, procédez comme 
 
 	Vous êtes invité à entrer le mot de passe que vous avez créé précédemment.
 
-3. Accédez à **http://[web app name].azurewebsites.net/index.php** pour voir vos modifications.
+3. Accédez à **http://[web app name\].azurewebsites.net/index.php** pour voir vos modifications.
 
 ## Changements apportés
 * Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre Sites Web et App Service, consultez la page [Azure App Service et les services Azure existants](http://go.microsoft.com/fwlink/?LinkId=529714).
@@ -292,4 +297,4 @@ Pour publier des modifications apportées à votre application, procédez comme 
 [pdo-sqlsrv]: http://php.net/pdo_sqlsrv
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -67,16 +67,16 @@ Les informations de l'application (ou `app info`) sont utilisées pour baliser l
 
 Une information de l'application peut être enregistrée à l'aide de l'API du SDK Mobile Engagement ou de l'API d'appareil de la plateforme Mobile Engagement.
 
-Une information de l'application est une paire clé/valeur associée à un appareil. La clé est le nom de l'information de l'application (limité à 64 lettres ASCII [a-zA-Z], chiffres [0-9] et traits de soulignement [_]). La valeur (limitée à 1 024 caractères) peut être une chaîne, un entier, une date (aaaa-MM-jj) ou une valeur booléenne (true ou false).
+Une information de l'application est une paire clé/valeur associée à un appareil. La clé est le nom de l'information de l'application (limité à 64 lettres ASCII [a-zA-Z], chiffres [0-9] et traits de soulignement [\_]). La valeur (limitée à 1 024 caractères) peut être une chaîne, un entier, une date (aaaa-MM-jj) ou une valeur booléenne (true ou false).
 
 N'importe quelle quantité d'informations de l'application peut être associée à un appareil, dans les limites définies par les conditions de tarification de Mobile Engagement. Pour une clé donnée, Mobile Engagement effectue le suivi uniquement de la dernière valeur définie (aucun historique). La définition ou la modification de la valeur d'une information de l'application oblige Mobile Engagement à réévaluer les critères d'audience définis sur cette information de l'application (le cas échéant), ce qui signifie que les informations de l'application peuvent être utilisées pour déclencher des opérations push en temps réel.
 
 ##Données supplémentaires
 Les données supplémentaires (ou extras) sont des données arbitraires qui peuvent être associées à des événements, des erreurs, des activités et des tâches.
 
-Les extras sont structurés de la même façon que les objets JSON : ils sont constitués d'une arborescence de paires clé/valeur. Les clés sont limitées à 64 lettres ASCII [a-zA-Z], chiffres [0-9] et traits de soulignement [_]) et la taille totale des extras est limitée à 1 024 caractères (une fois encodés au format JSON par le SDK Mobile Engagement).
+Les extras sont structurés de la même façon que les objets JSON : ils sont constitués d'une arborescence de paires clé/valeur. Les clés sont limitées à 64 lettres ASCII [a-zA-Z], chiffres [0-9] et traits de soulignement [\_]) et la taille totale des extras est limitée à 1 024 caractères (une fois encodés au format JSON par le SDK Mobile Engagement).
 
-L'intégralité de l'arborescence de paires clé/valeur est stockée en tant qu'objet JSON. Toutefois, seul le premier niveau de clés/valeurs est décomposé pour être directement accessible à certaines fonctions avancées, telles que les segments (par exemple, vous pouvez facilement définir un segment « Fans SciFi » constitué de tous les utilisateurs ayant envoyé au moins 10 fois l'événement « content_viewed » avec la clé extra « content_type » défini sur la valeur « scifi » le mois dernier). Il est donc fortement recommandé de n'envoyer que des extras constitués de listes simples de paires clé/valeur utilisant des valeurs scalaires (par ex., chaînes, dates, entiers ou valeurs booléennes).
+L'intégralité de l'arborescence de paires clé/valeur est stockée en tant qu'objet JSON. Toutefois, seul le premier niveau de clés/valeurs est décomposé pour être directement accessible à certaines fonctions avancées, telles que les segments (par exemple, vous pouvez facilement définir un segment « Fans SciFi » constitué de tous les utilisateurs ayant envoyé au moins 10 fois l'événement « content\_viewed » avec la clé extra « content\_type » défini sur la valeur « scifi » le mois dernier). Il est donc fortement recommandé de n'envoyer que des extras constitués de listes simples de paires clé/valeur utilisant des valeurs scalaires (par ex., chaînes, dates, entiers ou valeurs booléennes).
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

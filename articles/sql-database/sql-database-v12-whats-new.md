@@ -8,14 +8,16 @@
 	editor=""/>
 
 
+
 <tags 
 	ms.service="sql-database" 
 	ms.workload="data-management" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="07/21/2015" 
+	ms.date="08/05/2015" 
 	ms.author="genemi"/>
+
 
 
 # Nouveautés de SQL Database V12
@@ -90,9 +92,15 @@ La version 12 (V12) offre des valeurs sensiblement améliorées pour les object
 
 | Fonctionnalité de continuité des activités | Version antérieure | Version 12 (V12) |
 | :-- | :-- | :-- |
-| Géo-restauration | • RPO < 24 heures.<br/>• ERT < 12 heures. | • RPO < 1 heure.<br/>• ERT < 12 heures. |
-| Géo-réplication standard | • RPO < 30 minutes.<br/>• ERT < 2 heures. | • RPO < 5 secondes.<br/>• ERT < 30 secondes. |
-| Géo-réplication active | • RPO < 5 minutes.<br/>• ERT < 1 heure. | • RPO < 5 secondes.<br/>• ERT < 30 secondes. |
+| Géo-restauration | • RPO < 24 heures.<br/>
+• ERT < 12 heures. | • RPO < 1 heure.<br/>
+• ERT < 12 heures. |
+| Géo-réplication standard | • RPO < 30 minutes.<br/>
+• ERT < 2 heures. | • RPO < 5 secondes.<br/>
+• ERT < 30 secondes. |
+| Géo-réplication active | • RPO < 5 minutes.<br/>
+• ERT < 1 heure. | • RPO < 5 secondes.<br/>
+• ERT < 30 secondes. |
 
 
 Pour plus d’informations, consultez la rubrique [Continuité de l’activité SQL Database](https://msdn.microsoft.com/library/azure/hh852669.aspx).
@@ -150,17 +158,14 @@ Si vous n’utilisez pas encore la version 12 (V12), vous pouvez mettre à nive
 ## <a name="V12AzureSqlDbPreviewGaTable"></a>Régions en version préliminaire
 
 
-La version 12 (V12) a été publiée en décembre 2014, mais uniquement à l’état de [version préliminaire](http://azure.microsoft.com/support/legal/preview-supplemental-terms/). En avril 2015, la version 12 (V12) a été mise en disponibilité générale dans presque toutes les régions géographiques.
+La version 12 (V12) a été publiée en décembre 2014, mais uniquement à l’état de version préliminaire.
 
 
-La version 12 (V12) est disponible en version préliminaire dans les régions suivantes :
+- Voir les [Conditions d’utilisation supplémentaires des versions préliminaires de Microsoft Azure](http://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 
-| Région Azure | État de lancement actuel<br/>pour la version 12 | Date de la promotion de <br/> vers l’état de disponibilité générale, estimation |
-| :--- | :--- | :--- |
-| Est de l’Australie | **Version préliminaire** | Troisième trimestre du calendrier 2015, estimation |
-| Sud-est de l’Australie | **Version préliminaire** | Troisième trimestre du calendrier 2015, estimation |
+Le 31 juillet 2015, toutes les régions avaient été promues en disponibilité générale.
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

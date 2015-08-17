@@ -4,15 +4,15 @@
    services="expressroute"
    documentationCenter="na"
    authors="cherylmc"
-   manager="adinah"
+   manager="carolz"
    editor="tysonn" />
 <tags 
    ms.service="expressroute"
    ms.devlang="na"
-   ms.topic="article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="07/07/2015"
+   ms.date="08/04/2015"
    ms.author="cherylmc" />
 
 # Partenaires ExpressRoute et emplacements d’homologation
@@ -28,6 +28,7 @@ Vous aurez accès aux services Azure dans toutes les régions au sein d’une un
 |**Région géopolitique**|**Régions Azure**|**Emplacements ExpressRoute**|
 |---|---|---|
 |**États-Unis**|Toutes les régions des États-Unis : Est des États-Unis, Ouest des États-Unis, Est des États-Unis 2, Centre des États-Unis, Centre-Sud des États-Unis, Centre-Nord des États-Unis|Atlanta, Chicago, Dallas, Los Angeles, New York, Seattle, Silicon Valley, Washington DC|
+|**Gouvernement des États-Unis**|Iowa, Virginie|Ashburn, Chicago|
 |**Amérique du Sud**|Sud du Brésil|São Paulo|
 |**Europe**|Europe du Nord, Europe de l’Ouest|Amsterdam, Londres|
 |**Asie**|Asie orientale, Asie du Sud-Est|Hong Kong, Singapour|
@@ -55,7 +56,7 @@ La connectivité entre les régions géopolitiques n’est pas prise en charge. 
 | **[Telstra Corporation](http://www.telstra.com.au/business-enterprise/network-services/networks/cloud-direct-connect/)** | Pris en charge | Non pris en charge | Melbourne+, Sydney |
 | **[Zayo Group](http://www.zayo.com/)** | Pris en charge | Non pris en charge | Washington DC |
 
- **+** = bientôt disponible
+ **+** = bientôt disponible
 
 Consultez la rubrique [Configurer votre connexion au fournisseur Exchange](expressroute-configuring-exps.md) pour savoir comment configurer votre connexion.
 
@@ -76,9 +77,9 @@ Consultez la rubrique [Configurer votre connexion au fournisseur Exchange](expre
 | **[SingTel](http://info.singtel.com/about-us/news-releases/singtel-provide-secure-private-access-microsoft-azure-public-cloud)** | Pris en charge | Non pris en charge | Singapour |
 | **[Tata Communications](http://www.tatacommunications.com/lp/izo/azure/azure_index.html)** | Pris en charge | Bientôt disponible | Amsterdam, Chennai+, Hong Kong, Londres, Mumbai+, Singapour |
 | **[Telstra Corporation](http://www.telstra.com.au/business-enterprise/network-services/networks/cloud-direct-connect/)** | Pris en charge | Non pris en charge | Melbourne+, Sydney |
-| **[Verizon](http://news.verizonenterprise.com/2014/04/secure-cloud-interconnect-solutions-enterprise/)** | Pris en charge | Non pris en charge | Londres, Hong Kong, Silicon Valley, Washington DC |
+| **[Verizon](http://news.verizonenterprise.com/2014/04/secure-cloud-interconnect-solutions-enterprise/)** | Pris en charge | Non pris en charge | Londres, Hong Kong, Silicon Valley, Washington DC, Iowa gouvernement des États-Unis, Virginie gouvernement des États-Unis |
 
- **+** = bientôt disponible
+ **+** = bientôt disponible
 
 Consultez la rubrique [Configurer votre connexion au fournisseur de services réseau](expressroute-configuring-nsps.md) pour savoir comment configurer votre connexion.
 
@@ -115,4 +116,4 @@ L’activation de la connectivité privée pour l’adapter à vos besoins peut 
 - Si vous souhaitez configurer une connexion VPN de site à site et ExpressRoute pour le même réseau virtuel, consultez la rubrique [Configurer des connexions ExpressRoute et VPN de site à site coexistantes](expressroute-coexist.md).
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

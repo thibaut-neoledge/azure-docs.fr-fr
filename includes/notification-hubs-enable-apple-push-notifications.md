@@ -80,9 +80,9 @@ Pour pouvoir envoyer des notifications Push vers une application iOS, vous deve
 
   	![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-cert-downloaded.png)
 
-    > [AZURE.NOTE]Par défaut, le fichier téléchargé est un certificat de développement nommé **aps_development.cer**.
+    > [AZURE.NOTE]Par défaut, le fichier téléchargé est un certificat de développement nommé **aps\_development.cer**.
 
-7. Double-cliquez sur le certificat Push téléchargé **aps_development.cer**.
+7. Double-cliquez sur le certificat Push téléchargé **aps\_development.cer**.
 
    	Ceci installe le nouveau certificat dans le Trousseau d'accès, comme indiqué ci-dessous :
 
@@ -125,4 +125,4 @@ Plus tard, vous utiliserez ce certificat pour générer un fichier .p12 pour ac
 
    	![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-provisioning-profile-ready.png)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

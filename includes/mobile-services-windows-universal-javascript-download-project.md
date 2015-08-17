@@ -21,4 +21,4 @@ Ce didacticiel est basé sur l'application [GetStartedWithMobileServices app](ht
 
 7. Répétez les étapes 3 et 4 pour vérifier que l'exemple se comporte de la même manière.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -6,14 +6,16 @@
 	authors="alancameronwills" 
 	manager="douge"/>
 
+
 <tags 
 	ms.service="application-insights" 
 	ms.workload="tbd" 
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
-	ms.topic="article" 
+	ms.topic="get-started-article" 
 	ms.date="07/22/2015" 
 	ms.author="awills"/>
+
  
 # Application Insights : plateformes
 
@@ -58,6 +60,7 @@
 +	[Log4Net, NLog ou System.Diagnostics.Trace](app-insights-diagnostic-search.md)
 +	[Java, Log4J ou Logback](app-insights-java-trace-logs.md)
 +   [Journalisation sémantique](https://github.com/fidmor89/SLAB_AppInsights) : s’intègre au [bloc applicatif de journalisation sémantique](https://msdn.microsoft.com/library/dn440729.aspx)
++   [Tests de charge basés sur le cloud](http://blogs.msdn.com/b/visualstudioalm/archive/2015/07/30/getting-application-insights-counters-with-cloud-based-load-testing.aspx)
 
 ## <a name="projects"></a> Génération de votre propre kit de développement logiciel (SDK)
 
@@ -72,4 +75,4 @@ S’il n’existe pas encore de kit de développement logiciel (SDK) pour votre 
 
 <!--Link references-->
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

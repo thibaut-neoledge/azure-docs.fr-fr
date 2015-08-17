@@ -8,14 +8,16 @@
 	manager="wpickett"
 	editor=""/>
 
+
 <tags
 	ms.service="app-service-web"
 	ms.workload="web"
 	ms.tgt_pltfrm="na"
 	ms.devlang="nodejs"
 	ms.topic="article"
-	ms.date="04/23/2015"
+	ms.date="08/03/2015"
 	ms.author="mwasson"/>
+
 
 
 # Créer une application web Node.js sur Azure avec MongoDB dans une machine virtuelle
@@ -55,8 +57,7 @@ After you have created the virtual machine in Azure and installed MongoDB, be su
 
 Bien qu’il soit possible de créer une machine virtuelle puis d’y installer MongoDB selon les [guides d’installation MongoDB][installguides], une machine virtuelle préinstallée avec MongoDB est disponible dans Azure Marketplace. Les étapes suivantes montrent comment utiliser un de ces nombreux modèles de machine virtuelle.
 
-> [AZURE.NOTE]L'image de communauté utilisée par ce didacticiel stocke les données MongoDB sur le disque du système d'exploitation. Bien que cela soit suffisant pour les besoins du didacticiel, le stockage de données MongoDB sur un disque de données offrira de meilleures performances. Pour obtenir les étapes nécessaires à la création d'une nouvelle machine virtuelle, y compris un disque de données, et au stockage de données MongoDB sur le disque de données, consultez
->  [Installer MongoDB sur Linux sur Azure][mongodbonazure].
+> [AZURE.NOTE]L'image de communauté utilisée par ce didacticiel stocke les données MongoDB sur le disque du système d'exploitation. Bien que cela soit suffisant pour les besoins du didacticiel, le stockage de données MongoDB sur un disque de données offrira de meilleures performances. Pour obtenir les étapes nécessaires à la création d'une nouvelle machine virtuelle, y compris un disque de données, et au stockage de données MongoDB sur le disque de données, consultez [Installer MongoDB sur Linux sur Azure][mongodbonazure].
 
 1. Connectez-vous au [portail Azure][azureportal].
 
@@ -92,7 +93,7 @@ Bien qu’il soit possible de créer une machine virtuelle puis d’y installer 
 
 9. Cliquez sur **OK** deux fois, puis sur **Créer** pour créer la machine virtuelle.
 
-	La machine virtuelle créée s’affiche dans votre tableau d’accueil. Cliquez dessus pour ouvrir son panneau. Vous devez pouvoir ouvrir un navigateur web et accéder à **http://&lt;YourVMDNSName&gt;.cloudapp.net:28017/** pour vérifier que MongoDB est en cours d’exécution. En bas de la page, un journal contient des informations sur le service, qui ressemblent à celles-ci :
+	La machine virtuelle créée s’affiche dans votre tableau d’accueil. Cliquez dessus pour ouvrir son panneau. Vous devez pouvoir ouvrir un navigateur web et accéder à ****http://&lt;YourVMDNSName&gt;.cloudapp.net:28017/** pour vérifier que MongoDB est en cours d’exécution. En bas de la page, un journal contient des informations sur le service, qui ressemblent à celles-ci :
 
 		Fri Mar  7 18:57:16 [initandlisten] MongoDB starting : pid=1019 port=27017 dbpath=/var/lib/mongodb 64-bit host=localhost.localdomain
            18:57:16 [initandlisten] db version v2.2.3, pdfile version 4.5
@@ -114,13 +115,13 @@ Dans cette section, vous allez créer une nouvelle application Node dans votre e
 
 1. Dans la ligne de commande, accédez au répertoire **tasklist**. Si le répertoire **tasklist** n'existe pas, créez-le.
 
-> [AZURE.NOTE]Ce didacticiel fait référence au dossier **tasklist**. Le chemin complet de ce dossier n'est pas mentionné, en raison des différences entre les systèmes d'exploitation. Créez ce dossier dans un emplacement facilement accessible dans votre système de fichiers local, par exemple **~/node/tasklist** ou **c:\node\tasklist**
+	> [AZURE.NOTE]Ce didacticiel fait référence au dossier **tasklist**. Le chemin complet de ce dossier n'est pas mentionné, en raison des différences entre les systèmes d'exploitation. Créez ce dossier dans un emplacement facilement accessible dans votre système de fichiers local, par exemple **\~/node/tasklist** ou **c:\\node\\tasklist**
 
 2. Entrez la commande suivante pour installer la commande express.
 
 	npm install express-generator -g
 
-> [AZURE.NOTE]Lorsque vous utilisez le paramètre ’-g’ sur certains systèmes d’exploitation, vous pouvez recevoir une erreur de type ___Error: EPERM, chmod ’/usr/local/bin/express’___ et une demande d’exécution du compte en tant qu’administrateur. Dans ce cas, utilisez la commande `sudo` pour exécuter npm avec des privilèges plus élevés.
+	> [AZURE.NOTE]Lorsque vous utilisez le paramètre ’-g’ sur certains systèmes d’exploitation, vous pouvez recevoir une erreur de type ___Error: EPERM, chmod ’/usr/local/bin/express’___ et une demande d’exécution du compte en tant qu’administrateur. Dans ce cas, utilisez la commande `sudo` pour exécuter npm avec des privilèges plus élevés.
 
     Le résultat de cette commande doit ressembler à ceci :
 
@@ -128,7 +129,7 @@ Dans cette section, vous allez créer une nouvelle application Node dans votre e
 		├── mkdirp@0.3.5
 		└── commander@1.3.2 (keypress@0.1.0)
 
-> [AZURE.NOTE]Avec le paramètre '-g', le module express est installé dans sa globalité. Ceci nous permet d’accéder à la commande ___express___ pour générer la structure de l’application web sans avoir à saisir d’informations supplémentaires dans le chemin d’accès.
+	> [AZURE.NOTE]Avec le paramètre '-g', le module express est installé dans sa globalité. Ceci nous permet d’accéder à la commande ___express___ pour générer la structure de l’application web sans avoir à saisir d’informations supplémentaires dans le chemin d’accès.
 
 4. Pour créer la structure qui sera utilisée pour cette application, utilisez la commande **express** :
 
@@ -340,7 +341,7 @@ Dans cette section, vous allez étendre l'application de base créée par la com
         var TaskList = require('./routes/tasklist');
 		var taskList = new TaskList(process.env.MONGODB_URI);
 
-	Notez la deuxième ligne. Vous accédez à une variable d'environnement que vous configurerez ultérieurement qui contient les informations de connexion de votre instance Mongo. Si vous disposez d'une instance Mongo locale pour le développement, vous pouvez définir cette valeur de façon temporaire sur « localhost » au lieu de process.env.MONGODB_URI.
+	Notez la deuxième ligne. Vous accédez à une variable d'environnement que vous configurerez ultérieurement qui contient les informations de connexion de votre instance Mongo. Si vous disposez d'une instance Mongo locale pour le développement, vous pouvez définir cette valeur de façon temporaire sur « localhost » au lieu de process.env.MONGODB\_URI.
 
 3. Recherchez les lignes suivantes :
 
@@ -479,13 +480,13 @@ L’interface de ligne de commande Azure vous permet d'effectuer des opérations
 
 	> [AZURE.NOTE> S’il s’agit de la première application web App Service dans votre abonnement, vous devez utiliser le portail pour la créer. Pour plus d’informations, consultez la page [Créer et déployer une application web Node.js dans Azure App Service](web-sites-nodejs-develop-deploy-mac.md).
 
-###Définir la variable d'environnement MONGODB_URI
+###Définir la variable d'environnement MONGODB\_URI
 
-L'application s'attend à ce que la chaîne de connexion de l'instance MongoDB soit disponible dans la variable d'environnement MONGODB_URI. Pour définir cette valeur pour l’application web, utilisez la commande suivante :
+L'application s'attend à ce que la chaîne de connexion de l'instance MongoDB soit disponible dans la variable d'environnement MONGODB\_URI. Pour définir cette valeur pour l’application web, utilisez la commande suivante :
 
 	azure site config add MONGODB_URI=mongodb://mymongodb.cloudapp.net/tasks
 
-Ceci crée un paramètre d’application pour l’application web, qui sera intégré dans la variable d’environnement MONGODB_URI lue par l’application web. Remplacez la valeur de « mymongodb.cloudapp.net » par le nom de la machine virtuelle sur laquelle MongoDB a été installé.
+Ceci crée un paramètre d’application pour l’application web, qui sera intégré dans la variable d’environnement MONGODB\_URI lue par l’application web. Remplacez la valeur de « mymongodb.cloudapp.net » par le nom de la machine virtuelle sur laquelle MongoDB a été installé.
 
 ###Publication de l'application
 
@@ -572,4 +573,4 @@ Pour plus d'informations sur la sécurisation de MongoDB, consultez la page [Sé
 [mongodbonazure]: http://docs.mongodb.org/ecosystem/tutorial/install-mongodb-on-linux-in-azure/
  
 
-<!-------HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

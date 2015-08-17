@@ -2,10 +2,11 @@
 	pageTitle="Configurer une machine virtuelle SQL Server comme serveur IPython Notebook pour des analyses avancées | Microsoft Azure"
 	description="Configurez une machine virtuelle pour la science des données avec SQL Server et un serveur IPython."
 	services="machine-learning"
-	documentationCenter=""
+	solutions="" documentationCenter=""
 	authors="msolhab" 
 	manager="paulettm"
 	editor="cgronlun" />
+
 
 <tags
 	ms.service="machine-learning"
@@ -15,6 +16,7 @@
 	ms.topic="article"
 	ms.date="05/29/2015"
 	ms.author="mohabib;xibingao;bradsev" />
+
 
 # Configurer une machine virtuelle Azure SQL Server comme serveur IPython Notebook pour des analyses avancées
 
@@ -61,7 +63,7 @@ La galerie de machines virtuelles Azure inclut différentes images contenant Mic
     -   Dans la zone **AVAILABILITY SET**, sélectionnez **(none)**.
     -   Lisez et acceptez les informations de tarification.
 
-6.	Dans la section **POINTS DE TERMINAISON**, cliquez dans la liste déroulante vide sous **NOM**, sélectionnez **MSSQL**, puis tapez le numéro de port de l’instance du moteur de base de données (\*\*1433\*\* pour l’instance par défaut).
+6.	Dans la section **POINTS DE TERMINAISON**, cliquez dans la liste déroulante vide sous **NOM**, sélectionnez **MSSQL**, puis tapez le numéro de port de l’instance du moteur de base de données (**1433** pour l’instance par défaut).
 
 7.  Votre machine virtuelle SQL Server peut également faire office de serveur Notebook IPython, que nous configurerons ultérieurement. Ajoutez un point de terminaison pour spécifier le port à utiliser pour votre serveur Notebook IPython. Entrez un nom dans la colonne **NOM**, puis sélectionnez le numéro de port de votre choix pour le port public et le numéro 9999 pour le port privé.
 
@@ -225,7 +227,7 @@ Pour vous connecter au moteur de base de données SQL Server à partir d’un au
 
 1.  Dans le portail de gestion Azure (ou à partir de l’étape précédente), sélectionnez **VIRTUAL MACHINES**.
 
-2.  Dans la page **INSTANCES D’UNE MACHINE VIRTUELLE**, au niveau de la colonne **NOM DNS**, recherchez et copiez le nom DNS de la machine virtuelle qui apparaît, précédé de la chaîne **http://**. (Si l’interface utilisateur n’affiche pas l’intégralité du nom, cliquez dessus avec le bouton droit, puis sélectionnez Copier)
+2.  Dans la page **INSTANCES D’UNE MACHINE VIRTUELLE**, au niveau de la colonne **NOM DNS**, recherchez et copiez le nom DNS de la machine virtuelle qui apparaît, précédé de la chaîne ****http://**. (si l'interface utilisateur n'affiche pas l'intégralité du nom, cliquez dessus avec le bouton droit, puis sélectionnez Copier).
 
 ##<a name="cde"></a>Se connecter au moteur de base de données à partir d’un autre ordinateur
 
@@ -298,4 +300,4 @@ Les étapes suivantes du traitement de données avancé dans Azure sont présent
 [15]: ./media/machine-learning-data-science-setup-sql-server-virtual-machine/vmshutdown.png
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

@@ -1,11 +1,12 @@
 <properties
-   pageTitle="manage-vms-azure-powershell"
-   description="Gérer vos machines virtuelles à l'aide d'Azure PowerShell"
+   pageTitle="Gérer vos machines virtuelles à l’aide d’Azure PowerShell | Microsoft Azure"
+   description="Découvrez les commandes que vous pouvez utiliser pour automatiser les tâches de gestion des machines virtuelles."
    services="virtual-machines"
    documentationCenter="windows"
    authors="singhkay"
    manager="timlt"
    editor=""/>
+
 
    <tags
    ms.service="virtual-machines"
@@ -16,11 +17,12 @@
    ms.date="06/24/2015"
    ms.author="kasing"/>
 
-# Gérer vos machines virtuelles à l'aide d'Azure PowerShell
+
+# Gérer vos machines virtuelles à l’aide d’Azure PowerShell
 
 Il est possible d’automatiser les nombreuses tâches quotidiennes liées à la gestion de vos machines virtuelles en utilisant les applets de commande Azure PowerShell. Cet article donne des exemples de commandes pour réaliser des tâches simples et contient des liens vers des articles indiquant les commandes à utiliser pour des tâches plus complexes.
 
->[AZURE.NOTE]Si vous n’avez pas encore installé ni configuré Azure PowerShell, cliquez [ici](../install-configure-powershell.md) pour obtenir les instructions.
+>[AZURE.NOTE]Si vous n’avez pas installé et configuré Azure PowerShell, vous pouvez obtenir des instructions dans l’article [Installation et configuration d’Azure PowerShell](../install-configure-powershell.md).
 
 ## Utilisation des exemples de commandes
 Vous devrez remplacer une partie du texte des commandes par un texte approprié à votre environnement. Les symboles < and > indiquent le texte à remplacer. Lorsque vous remplacez le texte, supprimez les symboles, mais laissez les guillemets en place.
@@ -36,7 +38,7 @@ Pour stocker le résultat dans une variable $vm, exécutez :
 
     $vm = Get-AzureVM -ServiceName "<cloud service name>" -Name "<virtual machine name>"
 
-## Connectez-vous à une machine virtuelle Windows
+## Ouvrir une session sur une machine virtuelle Windows
 
 Exécutez ces commandes :
 
@@ -62,10 +64,10 @@ Exécutez cette commande :
 
     Start-AzureVM -ServiceName "<cloud service name>" -Name "<virtual machine name>"
 
-## Associer un disque de données
-Cette tâche nécessite de réaliser quelques étapes. Commencez par utiliser l’applet de commande ****Add-AzureDataDisk**** pour ajouter le disque à l’objet $vm, puis utilisez Update-AzureVM pour mettre à jour la configuration de la machine virtuelle.
+## Association d’un disque de données
+Cette tâche nécessite de réaliser quelques étapes. Tout d’abord, utilisez l’applet de commande ****Add-AzureDataDisk**** pour ajouter le disque à l’objet $vm. Utilisez ensuite l’applet de commande **Update-AzureVM** pour mettre à jour la configuration de la machine virtuelle.
 
-Vous devez également décider d’associer un nouveau disque ou un disque existant, qui contient des données. Dans le cas d’un nouveau disque, cette même commande entraîne la création du fichier .vhd et son association.
+Vous devez également décider d’associer un nouveau disque ou un disque existant, qui contient des données. Dans le cas d’un nouveau disque, la commande entraîne la création du fichier .vhd et son association.
 
 Pour associer un nouveau disque, exécutez cette commande :
 
@@ -86,11 +88,11 @@ Pour attacher des disques de données à partir d’un fichier .vhd existant dan
 
 ## Créer une machine virtuelle Windows
 
-Pour créer une nouvelle machine virtuelle Windows dans Azure, consultez [Utilisation d’Azure PowerShell pour créer et préconfigurer des machines virtuelles Windows](virtual-machines-ps-create-preconfigure-windows-vms.md). Cette rubrique vous guide lors de la création d’un jeu de commandes PowerShell permettant de créer une machine virtuelle Windows qui peut être préconfigurée avec :
+Pour créer une nouvelle machine virtuelle Windows dans Azure, consultez [Utilisation d’Azure PowerShell pour créer et préconfigurer des machines virtuelles Windows](virtual-machines-ps-create-preconfigure-windows-vms.md). Cette rubrique vous guide lors de la création d’un jeu de commandes Azure PowerShell permettant de créer une machine virtuelle Windows pouvant être préconfigurée avec :
 
 - une appartenance au domaine Active Directory ;
 - des disques supplémentaires ;
 - une appartenance à un jeu d’équilibrage de la charge ;
 - une adresse IP statique.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -2,9 +2,11 @@
     pageTitle="Utilisation de la redirection dans Azure RemoteApp" 
     description="En savoir plus sur la configuration et l'utilisation de la redirection dans RemoteApp" 
     services="remoteapp" 
+    solutions="" 
 	documentationCenter="" 
     authors="lizap" 
     manager="mbaldwin" />
+
 
 <tags 
     ms.service="remoteapp" 
@@ -15,6 +17,7 @@
     ms.date="05/29/2015" 
     ms.author="elizapo" />
 
+
 # Utilisation de la redirection dans Azure RemoteApp
 
 La redirection de périphériques permet à vos utilisateurs d'interagir avec des applications distantes à l'aide des périphériques connectés à leur ordinateur local, téléphone ou tablette. Par exemple, si vous avez fourni Skype via Azure RemoteApp, une caméra doit être installée sur l'ordinateur de votre utilisateur pour qu'il puisse utiliser Skype. Cela est également vrai pour les imprimantes, les haut-parleurs, les écrans et divers périphériques connectés à un port USB.
@@ -24,7 +27,7 @@ RemoteApp utilise le protocole RDP (Remote Desktop Protocol) et RemoteFX pour fo
 ## Quelle redirection est activée par défaut ?
 Lorsque vous utilisez RemoteApp, les redirections suivantes sont activées par défaut. Les informations entre parenthèses indiquent le paramètre RDP.
 
-- Lire des sons sur la machine locale (**Lire sur cet ordinateur**) (audiomode:i:0)
+- Lire des sons sur la machine locale (**Lire sur cet ordinateur**). (audiomode:i:0)
 - Capturer des données audio à partir de la machine locale et les envoyer à l'ordinateur distant (**Enregistrer à partir de cet ordinateur**). (audiocapturemode:i:1)
 - Imprimer sur des imprimantes locales (redirectprinters:i:1)
 - Ports COM (redirectcomports:i:1)
@@ -83,7 +86,7 @@ Utilisez l'applet de commande suivante pour activer la redirection USB au niveau
 Pour configurer les paramètres de redirection USB sur votre ordinateur :
 
 1. Ouvrez l'éditeur d'objets de stratégie de groupe (GPEDIT.MSC). (Exécutez gpedit.msc à partir d'une invite de commandes.)
-2. Ouvrez **Configuration ordinateur\Stratégies\Modèles d'administration\Composants Windows\Services Bureau à distance\Client Connexion Bureau à distance\Redirection des périphériques USB RemoteFX**.
+2. Ouvrez **Configuration ordinateur\\Stratégies\\Modèles d'administration\\Composants Windows\\Services Bureau à distance\\Client Connexion Bureau à distance\\Redirection des périphériques USB RemoteFX**.
 3. Double-cliquez sur **Autoriser la redirection RDP d'autres périphériques USB RemoteFX pris en charge à partir de cet ordinateur**.
 4. Sélectionnez **Activé**, puis sélectionnez **Administrateurs et utilisateurs dans les droits d'accès à la redirection USB RemoteFX**.
 5. Ouvrez une invite de commandes avec des privilèges d'administrateur et exécutez la commande suivante : 
@@ -97,9 +100,9 @@ Vous pouvez également utiliser l'outil de gestion des stratégie de groupe pour
 2. Ouvrez la Console de gestion des stratégies de groupe. (Cliquez sur **Démarrer > Outils d'administration > Gestion des stratégies de groupe**.)
 3. Accédez au domaine ou à l'unité d'organisation pour lesquels vous voulez créer la stratégie.
 4. Cliquez avec le bouton droit sur **Stratégie de domaine par défaut**, puis cliquez sur **Modifier**.
-5. Ouvrez **Configuration ordinateur\Stratégies\Modèles d'administration\Composants Windows\Services Bureau à distance\Client Connexion Bureau à distance\Redirection des périphériques USB RemoteFX**.
+5. Ouvrez **Configuration ordinateur\\Stratégies\\Modèles d'administration\\Composants Windows\\Services Bureau à distance\\Client Connexion Bureau à distance\\Redirection des périphériques USB RemoteFX**.
 6. Double-cliquez sur **Autoriser la redirection RDP d'autres périphériques USB RemoteFX pris en charge à partir de cet ordinateur**.
 7. Sélectionnez **Activé**, puis sélectionnez **Administrateurs et utilisateurs dans les droits d'accès à la redirection USB RemoteFX**.
 8. Cliquez sur **OK**.  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

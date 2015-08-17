@@ -172,4 +172,4 @@ Dans cette section, vous allez reconnecter l'application au service mobile. Cett
 [NuGet Addin for Xamarin]: https://github.com/mrward/monodevelop-nuget-addin
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

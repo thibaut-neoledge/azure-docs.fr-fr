@@ -4,8 +4,10 @@
 	services="app-service\web"
 	documentationCenter=""
 	authors="cephalin"
+	writer="cephalin"
 	manager="wpickett"
 	editor="mollybos"/>
+
 
 <tags
 	ms.service="app-service-web"
@@ -13,8 +15,9 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/29/2015"
+	ms.date="08/03/2015"
 	ms.author="cephalin"/>
+
 
 # Configurer des environnements intermédiaires pour les applications web dans Azure App Service
 <a name="Overview"></a>
@@ -59,7 +62,7 @@ Pour que vous puissiez activer plusieurs emplacements de déploiement, l’appli
 
 	![Sources de configuration][MultipleConfigurationSources]
 
-5. Dans le panneau **Emplacements de déploiement**, cliquez sur l’emplacement de déploiement pour ouvrir son panneau avec des métriques et une configuration comme n’importe quelle application web. <strong><i>nom-votre-application-web</i>-<i>nom-emplacement-déploiement</i></strong> apparaît en haut du panneau pour vous rappeler que vous affichez l’emplacement de déploiement.
+5. Dans le panneau **Emplacements de déploiement**, cliquez sur l’emplacement de déploiement pour ouvrir son panneau avec des métriques et une configuration comme n’importe quelle application web. **nom-votre-application-web-nom-emplacement-déploiement** apparaît en haut du panneau pour vous rappeler que vous affichez l’emplacement de déploiement.
 
 	![Titre de l'emplacement de déploiement][StagingTitle]
 
@@ -259,4 +262,4 @@ Pour supprimer un emplacement de déploiement dont vous n'avez plus besoin, util
 [SlotSettings]: ./media/web-sites-staged-publishing/SlotSetting.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

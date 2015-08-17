@@ -150,4 +150,4 @@ Vous pouvez passer de l'affichage des informations à l'affichage des statistiqu
 [Link 29]: mobile-engagement-user-interface-reach-content.md
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

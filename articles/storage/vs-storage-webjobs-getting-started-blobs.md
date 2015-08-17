@@ -7,6 +7,7 @@
 	manager="douge" 
 	editor="tglee"/>
 
+
 <tags 
 	ms.service="storage" 
 	ms.workload="web" 
@@ -15,6 +16,7 @@
 	ms.topic="article" 
 	ms.date="07/13/2015" 
 	ms.author="patshea123"/>
+
 
 # Prise en main d’Azure Storage (projets de tâche web Azure)
 
@@ -159,7 +161,7 @@ Vous pouvez configurer le nombre maximal de tentatives. Le paramètre [MaxDequeu
 
 Le message en file d’attente associé aux objets blob incohérents correspond à un objet JSON, qui contient les propriétés suivantes :
 
-* FunctionId (au format *{nom\_tâche\_Web}*.Functions.\*{nom\_fonction}\*, par exemple : WebJob1.Functions.CopyBlob)
+* FunctionId (au format *{nom\_tâche\_Web}*.Functions.*{nom\_fonction}*, par exemple : WebJob1.Functions.CopyBlob)
 * BlobType (« BlockBlob » ou « PageBlob »)
 * ContainerName
 * BlobName
@@ -210,7 +212,7 @@ Le Kit de développement logiciel (SDK) Webjobs s’assure qu’aucune fonction 
 
 Les reçus d’objets blob sont stockés dans un conteneur appelé *azure-webjobs-hosts* associé au compte de stockage Microsoft Azure indiqué par la chaîne de connexion AzureWebJobsStorage. Un reçu d’objet blob contient les informations suivantes :
 
-* Fonction appelée pour l’objet blob ("\*{nom\_tâche\_Web}\*.Functions.\*{nom\_fonction}\*", par exemple : « WebJob1.Functions.CopyBlob »)
+* Fonction appelée pour l’objet blob ("*{nom\_tâche\_Web}*.Functions.*{nom\_fonction}*", par exemple : « WebJob1.Functions.CopyBlob »)
 * Nom du conteneur
 * Type d’objet blob (« BlockBlob » ou « PageBlob »)
 * Nom de l’objet blob
@@ -239,4 +241,4 @@ Les sujets associés abordés dans cet article sont les suivants :
 Ce guide fournit des exemples de code qui indiquent comment gérer des scénarios courants pour l’utilisation des objets blob Microsoft Azure. Pour plus d’informations sur l’utilisation d’Azure Webjobs et du Kit de développement logiciel (SDK) WebJobs Azure, consultez la rubrique [Azure Webjobs - Ressources recommandées](http://go.microsoft.com/fwlink/?linkid=390226).
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

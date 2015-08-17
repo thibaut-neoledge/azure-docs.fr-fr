@@ -1,12 +1,13 @@
 
 <properties
-   pageTitle="Azure Service Fabric Actors pour l'Internet des Objets (IoT)"
-   description="Azure Service Fabric Actors est la clé de voûte (comme une couche intermédiaire) d'une solution qui combine un système de messagerie frontal prenant en charge plusieurs transports tels que HTTPS, MQTT ou AMQP, puis qui communique avec les acteurs représentant des appareils individuels."
+   pageTitle="Acteurs fiables pour l'Internet des objets (IoT)"
+   description="Les Acteurs fiables Service Fabric constituent la clé de voûte (comme une couche intermédiaire) d'une solution qui combine un système de messagerie frontal prenant en charge plusieurs transports tels que HTTPS, MQTT ou AMQP, puis qui communique avec les acteurs représentant des appareils individuels."
    services="service-fabric"
    documentationCenter=".net"
    authors="jessebenson"
    manager="timlt"
    editor=""/>
+
 
 <tags
    ms.service="service-fabric"
@@ -14,15 +15,16 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/01/2015"
+   ms.date="08/05/2015"
    ms.author="claudioc"/>
 
-# Modèle de conception Service Fabric Actors : Internet des Objets (IoT)
-L'environnement IoT étant devenu la nouvelle tendance accompagnant les avancées technologiques à la fois dans les appareils et les services cloud, les développeurs ont commencé à examiner les principaux blocs de construction sur lesquels bâtir leurs systèmes. Le diagramme suivant montre les principaux scénarios obtenus à l'aide d'Azure Service Fabric Actors :
+
+# Modèle de conception Acteurs fiables : Internet des Objets (IoT)
+L'environnement IoT étant devenu la nouvelle tendance accompagnant les avancées technologiques à la fois dans les appareils et les services cloud, les développeurs ont commencé à examiner les principaux blocs de construction sur lesquels bâtir leurs systèmes. Le diagramme suivant montre les principaux scénarios obtenus à l'aide des Acteurs fiables Service Fabric :
 
 ![][1]
 
-Azure Service Fabric Actors est la clé de voûte (comme une couche intermédiaire) d'une solution qui combine un système de messagerie frontal prenant en charge plusieurs transports tels que HTTPS, MQTT ou AMQP, puis qui communique avec les acteurs représentant des appareils individuels. Comme les acteurs peuvent conserver leur état, la modélisation des flux — en particulier le traitement de flux avec état — et l'agrégation par appareil est simple. Si les données doivent être conservées, alors nous pouvons également facilement vider le cache à la demande ou selon un minuteur tout en conservant facilement les N bits de données les plus récents dans une autre variable pour accélérer l'interrogation. Notez que dans nos exemples, nous avons délibérément omis les détails au niveau de l'événement/de la messagerie, ce qui permettra aux acteurs de communiquer avec les appareils et de se concentrer sur le modèle d'acteur. Il existe principalement deux scénarios combinés :
+Les Acteurs fiables Service Fabric constituent la clé de voûte (comme une couche intermédiaire) d'une solution qui combine un système de messagerie frontal prenant en charge plusieurs transports tels que HTTPS, MQTT ou AMQP, puis qui communique avec les acteurs représentant des appareils individuels. Comme les acteurs peuvent conserver leur état, la modélisation des flux — en particulier le traitement de flux avec état — et l'agrégation par appareil est simple. Si les données doivent être conservées, alors nous pouvons également facilement vider le cache à la demande ou selon un minuteur tout en conservant facilement les N bits de données les plus récents dans une autre variable pour accélérer l'interrogation. Notez que dans nos exemples, nous avons délibérément omis les détails au niveau de l'événement/de la messagerie, ce qui permettra aux acteurs de communiquer avec les appareils et de se concentrer sur le modèle d'acteur. Il existe principalement deux scénarios combinés :
 
 * *Collecter les données de télémétrie et d'état d'un seul appareil ou d'un groupe d'appareils et conserver leur état*. Imaginez des dizaines de milliers de pièces à souris (oui, il s'agit d'un scénario client réel) qui transmettent des données, indiquant tout simplement si l'appareil a capturé ou non un rongeur. Les données sont agrégées par région, et lorsque suffisamment de souris sont capturées dans une région, un ingénieur est envoyé sur place pour nettoyer les appareils. Un piège à souris comme acteur ? Absolument. Un acteur de groupe par région comme agrégation ? Bien sûr.
 
@@ -216,6 +218,5 @@ Nous pouvons en conclure que de plus en plus de clients considéreront Azure Ser
 <!--Image references-->
 [1]: ./media/service-fabric-reliable-actors-pattern-internet-of-things/internet-of-things-1.png
 [2]: ./media/service-fabric-reliable-actors-pattern-internet-of-things/internet-of-things-2.png
- 
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

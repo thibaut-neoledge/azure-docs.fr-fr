@@ -127,4 +127,4 @@ Le fichier de configuration de service est créé pour chaque service cloud que 
 
 [Schéma de configuration de service Microsoft Azure](https://msdn.microsoft.com/library/azure/ee758710) [Schéma de configuration Virtual Network](https://msdn.microsoft.com/library/azure/jj157100) [À propos de la configuration des paramètres Virtual Network dans le portail de gestion](https://msdn.microsoft.com/library/azure/jj156074.aspx) [Configurer un réseau virtuel à l’aide d’un fichier de configuration de réseau](https://msdn.microsoft.com/library/azure/jj156097.aspx) [Tâches de configuration Microsoft Azure Virtual Network](https://msdn.microsoft.com/library/azure/jj156206.aspx)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

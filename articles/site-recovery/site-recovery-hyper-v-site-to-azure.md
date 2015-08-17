@@ -7,6 +7,7 @@
 	manager="jwhit" 
 	editor=""/>
 
+
 <tags 
 	ms.service="site-recovery" 
 	ms.devlang="na"
@@ -17,10 +18,11 @@
 	ms.author="raynew"/>
 
 
+
 # Configurer la protection entre un site local Hyper-V et Microsoft Azure
 
 
-## Vue d’ensemble
+## Vue d'ensemble
 
 Azure Site Recovery contribue à mettre en œuvre la stratégie de continuité des activités et de récupération d’urgence de votre entreprise en coordonnant la réplication, le basculement et la récupération de machines virtuelles et de serveurs physiques. Pour obtenir des instructions sur les différents scénarios de déploiement possibles, voir [Présentation d’Azure Site Recovery](site-recovery-overview.md).
 
@@ -61,7 +63,12 @@ Dans le cadre du déploiement de Microsoft Azure Site Recovery, vous allez inst
 - Vous devez exécuter la dernière version de ce fournisseur et de cet agent.
 - Tous les serveurs Hyper-V d’un coffre doivent présenter la même version.
 - Le fournisseur devra se connecter à Microsoft Azure Site Recovery via Internet. Vous pouvez décider d’effectuer cette action sans proxy, au moyen des paramètres de proxy actuellement configurés sur le serveur VMM, ou via les paramètres de proxy personnalisés que vous avez configurés lors de l’installation du fournisseur. Pour utiliser un serveur proxy existant, vérifiez que les URL de connexion à Microsoft Azure sont autorisées à traverser le pare-feu :
-	- *.hypervrecoverymanager.windowsazure.com - *.accesscontrol.windows.net - *.backup.windowsazure.com - *.blob.core.windows.net - *.store.core.windows.net 
+	- **.hypervrecoverymanager.windowsazure.com
+- **.accesscontrol.windows.net
+- **.backup.windowsazure.com
+- **.blob.core.windows.net
+- **.store.core.windows.net
+
 - Pour utiliser un proxy personnalisé, configurez le serveur proxy avant l’installation du fournisseur. Lors de la configuration du fournisseur, vous devez indiquer l’adresse et le port du serveur proxy et saisir les informations d’identification utilisées pour l’accès.
 
 L'illustration ci-dessous montre les différents canaux et ports de communication utilisés par Azure Site Recovery pour l'orchestration et la réplication.
@@ -139,7 +146,12 @@ Installez le fournisseur et l’agent. Si vous les installez sur un cluster Hype
 	- Si le proxy par défaut se trouvant sur le serveur Hyper-V nécessite une authentification, vous devez opter pour l’utilisation d’un serveur proxy personnalisé. Saisissez les informations de proxy par défaut et spécifiez les informations d’identification.
 	- Si vous souhaitez utiliser un serveur proxy personnalisé, configurez-le avant d’installer le fournisseur. 
 	- Les URL suivantes doivent être accessibles à partir de l'hôte Hyper-V.
-		- *.hypervrecoverymanager.windowsazure.com - *.accesscontrol.windows.net - *.backup.windowsazure.com - *.blob.core.windows.net - *.store.core.windows.net
+		- **.hypervrecoverymanager.windowsazure.com
+- **.accesscontrol.windows.net
+- **.backup.windowsazure.com
+- **.blob.core.windows.net
+- **.store.core.windows.net
+
 	- Autorisez les adresses IP décrites dans la zone [Étendues d’adresses IP du centre de données Azure](http://go.microsoft.com/fwlink/?LinkId=511094) et le protocole HTTPS (443). Vous devez autoriser les plages IP de la région Microsoft Azure que vous prévoyez d’utiliser, ainsi que celles de la région ouest des États-Unis.
 
 9. Sur la page **Paramètres du coffre**, cliquez sur **Parcourir** pour sélectionner le fichier de clé. Spécifiez l’abonnement Azure Site Recovery, le nom du coffre et le site Hyper-V auquel appartient le serveur Hyper-V.
@@ -157,7 +169,7 @@ Installez le fournisseur et l’agent. Si vous les installez sur un cluster Hype
 
 Remarque : si vous souhaitez installer le fournisseur sur Server Core pour Windows Server 2012 R2 ou la version autonome du logiciel Hyper-V Server 2012 R2, procédez comme décrit ci-après.
 
-1. Téléchargez le fichier d’installation du fournisseur et la clé d’inscription associée vers un dossier, par exemple C:\ASR.
+1. Téléchargez le fichier d’installation du fournisseur et la clé d’inscription associée vers un dossier, par exemple C:\\ASR.
 2. Extrayez le programme d’installation du fournisseur en saisissant la chaîne suivante :
 
 	    C:\Windows\System32> CD C:\ASR
@@ -218,13 +230,13 @@ Ajoutez des machines virtuelles à un groupe de protection pour activer leur pro
 	Les tâches d’activation de la protection démarrent. Effectuez un suivi de la progression sur l’onglet **Tâches**. Lorsque la tâche de finalisation de la protection s’exécute, la machine virtuelle est prête à être basculée. 
 3. Une fois la protection activée, vous pouvez effectuer les opérations suivantes :
 
-	- afficher les machines virtuelles dans le champ **Éléments protégés** > **Groupes de protection** > *nom_groupeprotection* > **Machines virtuelles**. Vous pouvez accéder aux détails de la machine dans l’onglet **Propriétés** ;
-	- configurer les propriétés du basculement des machines virtuelles dans **Éléments protégés** > **Groupes de protection** > *nom_groupeprotection* > **Machines virtuelles** *nom_machine_virtuelle* > **Configurer**. Vous pouvez configurer les éléments suivants :
+	- afficher les machines virtuelles dans le champ **Éléments protégés** > **Groupes de protection** > *nom\_groupeprotection* > **Machines virtuelles**. Vous pouvez accéder aux détails de la machine dans l’onglet **Propriétés** ;
+	- configurer les propriétés du basculement des machines virtuelles dans **Éléments protégés** > **Groupes de protection** > *nom\_groupeprotection* > **Machines virtuelles** *nom\_machine\_virtuelle* > **Configurer**. Vous pouvez configurer les éléments suivants :
 		- **Nom** : nom de la machine virtuelle dans Microsoft Azure.
 		- **Taille** : taille cible de la machine virtuelle ayant basculé.
 
 		![Configurer les propriétés des machines virtuelles](./media/site-recovery-hyper-v-site-to-azure/VMProperties.png)
-	- Configurez les paramètres supplémentaires des machines virtuelles dans le champ *Éléments protégés** > **Groupes de protection** > *nom_groupeprotection* > **Machines virtuelles** *nom_machine_virtuelle* > **Configurer**. Cela inclut :
+	- Configurez les paramètres supplémentaires des machines virtuelles dans le champ *Éléments protégés** > **Groupes de protection** > *nom\_groupeprotection* > **Machines virtuelles** *nom\_machine\_virtuelle* > **Configurer**. Cela inclut :
 
 		- **Cartes réseau** : le nombre de cartes réseau est défini par la taille spécifiée pour la machine virtuelle cible. 
 			- Grande taille (A3) et A6 : 2
@@ -296,4 +308,4 @@ Pour exécuter le test de basculement, procédez comme suit :
 
 Une fois votre déploiement configuré et en cours d'exécution, découvrez [plus d'informations](site-recovery-failover.md) sur le basculement.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -1,7 +1,8 @@
 <properties 
 	pageTitle="Applications multi-locataires avec des outils de base de données élastique et la sécurité au niveau des lignes" 
 	description="Découvrez comment utiliser les outils de base de données élastique avec la fonction de sécurité au niveau des lignes (RLS) pour générer une application présentant une couche Données hautement évolutive sur la base de données SQL Microsoft Azure qui prend en charge les partitions multi-locataires." 
-	services="sql-database" documentationCenter=""  
+	services="sql-database" 
+	documentationCenter=""  
 	manager="jeffreyg" 
 	authors="tmullaney"/>
 
@@ -46,17 +47,17 @@ Générez et exécutez l’application. Cette opération démarre le gestionnair
 
 Comme la fonction RLS n’a pas encore été activée sur les bases de données de la partition, vous pouvez voir que chacun de ces tests met en lumière un problème : les locataires peuvent afficher des blogs qui ne leur appartiennent pas et l’application est autorisée à insérer un blog associé à un locataire incorrect. Le reste de cet article explique comment résoudre ces problèmes en appliquant l’isolation des locataires avec la fonction RLS. La procédure à suivre implique deux étapes :
 
-1. **Couche application** : modifiez le code de l’application en définissant toujours l’élément CONTEXT_INFO sur l’ID de locataire actuel après l’ouverture d’une connexion. Cet exemple de projet a déjà effectué cette opération. 
-2. **Couche Données** : créez une stratégie de sécurité RLS dans chaque base de données de partition, afin de filtrer les lignes selon la valeur de l’élément CONTEXT_INFO. Vous devez procéder ainsi pour chaque base de données de partition. Dans le cas contraire, les lignes de partitions multi-locataires ne seront pas filtrées. 
+1. **Couche application** : modifiez le code de l’application en définissant toujours l’élément CONTEXT\_INFO sur l’ID de locataire actuel après l’ouverture d’une connexion. Cet exemple de projet a déjà effectué cette opération. 
+2. **Couche Données** : créez une stratégie de sécurité RLS dans chaque base de données de partition, afin de filtrer les lignes selon la valeur de l’élément CONTEXT\_INFO. Vous devez procéder ainsi pour chaque base de données de partition. Dans le cas contraire, les lignes de partitions multi-locataires ne seront pas filtrées. 
 
 
-## Étape 1) Couche Application : définition de l’élément CONTEXT_INFO sur l’ID de locataire
+## Étape 1) Couche Application : définition de l’élément CONTEXT\_INFO sur l’ID de locataire
 
-Une fois la connexion à la base de données de partition établie, via les API de routage dépendant des données de la bibliothèque de base de données élastique, vous devez faire en sorte que l’application indique à la base de données quel ID de locataire utilise cette connexion, afin que la stratégie de sécurité RLS puisse filtrer les lignes appartenant aux autres locataires. Pour transmettre ces informations, la méthode recommandée consiste à définir l’élément [CONTEXT_INFO](https://msdn.microsoft.com/library/ms180125) sur l’ID de locataire en cours pour cette connexion. Notez que sur la base de données SQL Azure, CONTEXT_INFO est prérempli avec un GUID spécifique à la session. Vous *devez* donc définir CONTEXT_INFO sur l’ID de locataire correct avant d’exécuter des requêtes sur une nouvelle connexion afin d’éviter la perte accidentelle de lignes.
+Une fois la connexion à la base de données de partition établie, via les API de routage dépendant des données de la bibliothèque de base de données élastique, vous devez faire en sorte que l’application indique à la base de données quel ID de locataire utilise cette connexion, afin que la stratégie de sécurité RLS puisse filtrer les lignes appartenant aux autres locataires. Pour transmettre ces informations, la méthode recommandée consiste à définir l’élément [CONTEXT\_INFO](https://msdn.microsoft.com/library/ms180125) sur l’ID de locataire en cours pour cette connexion. Notez que sur la base de données SQL Azure, CONTEXT\_INFO est prérempli avec un GUID spécifique à la session. Vous *devez* donc définir CONTEXT\_INFO sur l’ID de locataire correct avant d’exécuter des requêtes sur une nouvelle connexion afin d’éviter la perte accidentelle de lignes.
 
 ### Entity Framework
 
-Pour les applications utilisant Entity Framework, l’approche la plus simple consiste à définir l’élément CONTEXT_INFO dans la substitution ElasticScaleContext décrite dans la section [Routage dépendant des données utilisant EF DbContext](sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md/#data-dependent-routing-using-ef-dbcontext). Avant de retourner la connexion répartie via le routage dépendant des données, vous devez simplement créer et exécuter une commande SqlCommand qui définit l’élément CONTEXT_INFO sur la valeur shardingKey (ID de locataire) spécifiée pour cette connexion. De cette façon, il vous suffit d’écrire le code une seule fois pour définir l’élément CONTEXT_INFO.
+Pour les applications utilisant Entity Framework, l’approche la plus simple consiste à définir l’élément CONTEXT\_INFO dans la substitution ElasticScaleContext décrite dans la section [Routage dépendant des données utilisant EF DbContext](sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md/#data-dependent-routing-using-ef-dbcontext). Avant de retourner la connexion répartie via le routage dépendant des données, vous devez simplement créer et exécuter une commande SqlCommand qui définit l’élément CONTEXT\_INFO sur la valeur shardingKey (ID de locataire) spécifiée pour cette connexion. De cette façon, il vous suffit d’écrire le code une seule fois pour définir l’élément CONTEXT\_INFO.
 
 ```
 // ElasticScaleContext.cs 
@@ -102,7 +103,7 @@ public static SqlConnection OpenDDRConnection(ShardMap shardMap, T shardingKey, 
 // ... 
 ```
 
-Désormais, l’élément CONTEXT_INFO est automatiquement défini sur l’ID de locataire spécifié chaque fois que le paramètre ElasticScaleContext est appelé :
+Désormais, l’élément CONTEXT\_INFO est automatiquement défini sur l’ID de locataire spécifié chaque fois que le paramètre ElasticScaleContext est appelé :
 
 ```
 // Program.cs 
@@ -125,7 +126,7 @@ SqlDatabaseUtils.SqlRetryPolicy.ExecuteAction(() =>
 
 ### SqlClient ADO.NET 
 
-Pour les applications utilisant SqlClient ADO.NET, il est recommandé d’opter pour la création d’une fonction wrapper autour de ShardMap.OpenConnectionForKey() qui définit automatiquement CONTEXT_INFO sur l’ID de locataire correct avant de renvoyer une connexion. Pour garantir que CONTEXT_INFO est toujours correctement défini, vous ne devez ouvrir des connexions qu’à l’aide de cette fonction wrapper.
+Pour les applications utilisant SqlClient ADO.NET, il est recommandé d’opter pour la création d’une fonction wrapper autour de ShardMap.OpenConnectionForKey() qui définit automatiquement CONTEXT\_INFO sur l’ID de locataire correct avant de renvoyer une connexion. Pour garantir que CONTEXT\_INFO est toujours correctement défini, vous ne devez ouvrir des connexions qu’à l’aide de cette fonction wrapper.
 
 ```
 // Program.cs
@@ -187,9 +188,9 @@ SqlDatabaseUtils.SqlRetryPolicy.ExecuteAction(() =>
 
 ### Créez une stratégie de sécurité pour filtrer les requêtes SELECT, UPDATE et DELETE. 
 
-Comme l’application définit désormais l’élément CONTEXT_INFO sur l’ID de locataire en cours avant d’envoyer des requêtes, une stratégie de sécurité RLS peut filtrer les requêtes et exclure les lignes associées à un ID de locataire différent.
+Comme l’application définit désormais l’élément CONTEXT\_INFO sur l’ID de locataire en cours avant d’envoyer des requêtes, une stratégie de sécurité RLS peut filtrer les requêtes et exclure les lignes associées à un ID de locataire différent.
 
-La fonction RLS est implémentée dans T-SQL : une fonction de prédicat définie par l’utilisateur détermine la logique de filtrage, et une stratégie de sécurité lie cette fonction à un nombre de tables quelconque. Pour les besoins de ce projet, la fonction de prédicat vérifie simplement que l’application (plutôt qu’un autre utilisateur SQL) est connectée à la base de données, et que la valeur de l’élément CONTEXT_INFO correspond à l’ID de locataire d’une ligne donnée. Les lignes qui répondent à ces conditions seront sélectionnées par le filtre pour les requêtes SELECT, UPDATE et DELETE. Si l’élément CONTEXT_INFO n’est pas défini, aucune ligne n’est renvoyée.
+La fonction RLS est implémentée dans T-SQL : une fonction de prédicat définie par l’utilisateur détermine la logique de filtrage, et une stratégie de sécurité lie cette fonction à un nombre de tables quelconque. Pour les besoins de ce projet, la fonction de prédicat vérifie simplement que l’application (plutôt qu’un autre utilisateur SQL) est connectée à la base de données, et que la valeur de l’élément CONTEXT\_INFO correspond à l’ID de locataire d’une ligne donnée. Les lignes qui répondent à ces conditions seront sélectionnées par le filtre pour les requêtes SELECT, UPDATE et DELETE. Si l’élément CONTEXT\_INFO n’est pas défini, aucune ligne n’est renvoyée.
 
 Pour activer la fonction RLS, exécutez la commande T-SQL suivante sur toutes les partitions, à l’aide de Visual Studio (SSDT), de SSMS ou du script PowerShell inclus dans le projet (le cas échéant, si vous avez recours aux [tâches de la base de données élastique](sql-database-elastic-jobs-overview.md), vous pouvez les utiliser pour automatiser l’exécution de cette commande T-SQL sur toutes les partitions) :
 
@@ -261,7 +262,7 @@ GO
 
 ### Ajouter des contraintes par défaut afin d’indiquer automatiquement les ID de locataire pour les opérations INSERT 
 
-En plus de bloquer les insertions de locataires incorrects à l’aide de contraintes check, vous pouvez placer une contrainte par défaut sur chaque table, afin de renseigner automatiquement l’ID de locataire en indiquant la valeur actuelle de l’élément CONTEXT_INFO lors de l’insertion de lignes. Par exemple :
+En plus de bloquer les insertions de locataires incorrects à l’aide de contraintes check, vous pouvez placer une contrainte par défaut sur chaque table, afin de renseigner automatiquement l’ID de locataire en indiquant la valeur actuelle de l’élément CONTEXT\_INFO lors de l’insertion de lignes. Par exemple :
 
 ```
 -- Create default constraints to auto-populate TenantId with the value of CONTEXT_INFO for inserts 
@@ -290,7 +291,7 @@ SqlDatabaseUtils.SqlRetryPolicy.ExecuteAction(() =>
 }); 
 ```
 
-> [AZURE.NOTE]Si vous utilisez des contraintes par défaut pour un projet Entity Framework, il est recommandé de ne PAS inclure la colonne « ID de locataire » dans votre modèle de données Entity Framework. En effet, les requêtes Entity Framework fournissent automatiquement des valeurs par défaut, qui remplacent les contraintes par défaut créées dans T-SQL et qui utilisent l’élément CONTEXT_INFO. Pour utiliser les contraintes par défaut dans l’exemple de projet, par exemple, vous devez supprimer l’ID de locataire dans le fichier DataClasses.cs (et exécuter l’élément Add-Migration dans la Console du gestionnaire de package), puis utiliser T-SQL pour vérifier que le champ existe uniquement dans les tables de base de données. De cette façon, vous vous assurez qu’Entity Framework ne fournit pas automatiquement des valeurs par défaut incorrectes lors de l’insertion de données.
+> [AZURE.NOTE]Si vous utilisez des contraintes par défaut pour un projet Entity Framework, il est recommandé de ne PAS inclure la colonne « ID de locataire » dans votre modèle de données Entity Framework. En effet, les requêtes Entity Framework fournissent automatiquement des valeurs par défaut, qui remplacent les contraintes par défaut créées dans T-SQL et qui utilisent l’élément CONTEXT\_INFO. Pour utiliser les contraintes par défaut dans l’exemple de projet, par exemple, vous devez supprimer l’ID de locataire dans le fichier DataClasses.cs (et exécuter l’élément Add-Migration dans la Console du gestionnaire de package), puis utiliser T-SQL pour vérifier que le champ existe uniquement dans les tables de base de données. De cette façon, vous vous assurez qu’Entity Framework ne fournit pas automatiquement des valeurs par défaut incorrectes lors de l’insertion de données.
 
 ### (Facultatif) Activer un « superutilisateur » pour accéder à toutes les lignes
 Certaines applications peuvent nécessiter la création d’un « superutilisateur » pouvant accéder à toutes les lignes. Cela permet par exemple d’activer la création de rapports pour tous les locataires de toutes les partitions, ou d’exécuter des opérations de fractionnement et de fusion sur des partitions impliquant le déplacement de lignes de locataires entre les bases de données. Pour ce faire, vous devez créer un nouvel utilisateur SQL (un « superutilisateur » dans cet exemple) dans chaque base de données de partition. Vous devez ensuite modifier la stratégie de sécurité en ajoutant une nouvelle fonction de prédicat permettant à cet utilisateur d’accéder à toutes les lignes :
@@ -339,4 +340,4 @@ Les outils de base de données élastique et la fonction de sécurité au niveau
 [1]: ./media/sql-database-elastic-tools-multi-tenant-row-level-security/blogging-app.png
 <!--anchors-->
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

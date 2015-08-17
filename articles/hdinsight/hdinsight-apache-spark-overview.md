@@ -99,4 +99,4 @@ Spark dans HDInsight fournit également un [pilote ODBC](http://go.microsoft.co
 
 [hdinsight-storage]: ../hdinsight-use-blob-storage/
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

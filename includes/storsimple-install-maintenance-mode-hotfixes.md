@@ -17,4 +17,4 @@
 
 6. Une fois les correctifs logiciels appliqués, quittez le mode Maintenance. Pour obtenir des instructions, consultez [Quitter le mode Maintenance](#exit-maintenance-mode).
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

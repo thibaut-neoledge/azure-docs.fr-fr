@@ -86,4 +86,4 @@ Dans cet article, vous avez appris à utiliser Power Query pour extraire des don
 [powerquery-download]: http://go.microsoft.com/fwlink/?LinkID=286689
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

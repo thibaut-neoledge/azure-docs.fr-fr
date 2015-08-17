@@ -89,4 +89,4 @@ Dans cet article et les articles liés à chacun des exemples, vous avez appris 
 [hdinsight-use-hive]: hdinsight-use-hive.md
 [hdinsight-use-pig]: hdinsight-use-pig.md
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

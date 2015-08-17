@@ -8,6 +8,7 @@
 	manager="paulettm"
 	editor="cgronlun"/>
 
+
 <tags
 	ms.service="hdinsight"
 	ms.workload="big-data"
@@ -16,6 +17,7 @@
 	ms.topic="get-started-article"
 	ms.date="05/21/2015"
 	ms.author="jgao"/>
+
 
 
 
@@ -44,7 +46,7 @@ Avant de commencer ce didacticiel sur HBase, vous devez disposer des éléments 
 1. Connectez-vous au [portail Azure][azure-management-portal].
 2. Cliquez sur **Nouveau** dans le coin inférieur gauche, puis sur **Services de données** > **HDInsight** > **HBase**.
 
-	>[AZURE.NOTE]**Création personnalisée**
+	>[AZURE.NOTE]Vous pouvez également utiliser l’option **Création personnalisée**.
 3. Renseignez les champs **Nom du cluster**, **Taille du cluster**, Mot de passe utilisateur HTTP et **Compte de stockage**.
 
 	![Approvisionnement d’un cluster HBase dans HDInsight][img-hdinsight-hbase-cluster-quick-create]
@@ -357,4 +359,4 @@ Pour plus d'informations, consultez les rubriques suivantes :
 [img-hbase-sample-data-bigtable]: ./media/hdinsight-hbase-tutorial-get-started/hdinsight-hbase-contacts-bigtable.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

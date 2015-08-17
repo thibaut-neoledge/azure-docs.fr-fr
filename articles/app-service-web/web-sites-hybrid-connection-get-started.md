@@ -30,7 +30,7 @@ Vous pouvez connecter une application web d’Azure App Service à n’importe q
 - L'ordinateur sur lequel vous installez l'agent Gestionnaire de connexions hybrides local décrit plus loin dans cet article :
 
 	- doit être capable de se connecter à Azure sur le port 5671 ;
-	- doit être capable d’accéder au *nom_d’hôte*:*numéro_de_port* de votre ressource locale. 
+	- doit être capable d'accéder au *nom\_d'hôte*:*numéro\_de\_port* de votre ressource locale. 
 
 > [AZURE.NOTE]Les étapes décrites dans cet article partent du principe que vous utilisez le navigateur à partir de l'ordinateur qui hébergera l'agent de connexion hybride local.
 
@@ -207,4 +207,4 @@ Maintenant que l'infrastructure de connexion hybride est terminée, vous pouvez 
 [HCStatusConnected]: ./media/web-sites-hybrid-connection-get-started/D10HCStatusConnected.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

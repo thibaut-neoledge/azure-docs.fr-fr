@@ -12,7 +12,7 @@
 	ms.workload="tbd"
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
-	ms.topic="article" 
+	ms.topic="get-started-article" 
 	ms.date="06/02/2015"
 	ms.author="sethm"/>
 
@@ -340,11 +340,11 @@ Dans cette section, vous allez générer une application ASP.NET simple qui affi
             }
         }
 
-3.  Dans l'**Explorateur de solutions**, développez Views\Shared :
+3.  Dans l'**Explorateur de solutions**, développez Views\\Shared :
 
     ![][18]
 
-4.  Double-cliquez ensuite sur _Layout.cshtml pour l'ouvrir dans l'éditeur de Visual Studio.
+4.  Double-cliquez ensuite sur \_Layout.cshtml pour l'ouvrir dans l'éditeur de Visual Studio.
 
 5.  Remplacez toutes les occurrences de **Mon application ASP.NET** par **LITWARE's Products**.
 
@@ -352,7 +352,7 @@ Dans cette section, vous allez générer une application ASP.NET simple qui affi
 
 	![][41]
 
-7.  Dans l'**Explorateur de solutions**, développez Views\Home :
+7.  Dans l'**Explorateur de solutions**, développez Views\\Home :
 
     ![][20]
 
@@ -620,4 +620,4 @@ Pour en savoir plus sur Service Bus, consultez les ressources suivantes :
   [executionmodels]: http://azure.microsoft.com/develop/net/fundamentals/compute/
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

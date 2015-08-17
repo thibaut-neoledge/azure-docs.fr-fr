@@ -7,6 +7,7 @@
    manager="jeffreyg" 
    editor="monicar"/>
 
+
 <tags
    ms.service="sql-database"
    ms.devlang="NA"
@@ -15,6 +16,7 @@
    ms.workload="data-management" 
    ms.date="07/14/2015"
    ms.author="elfish"/>
+
 
 #Conception pour la continuité des activités
 
@@ -64,7 +66,7 @@ Vous pouvez activer la géo-réplication à l'aide du portail Azure ou en appela
 3. Accédez à votre panneau de base de données, sélectionnez la **carte de géo-réplication** et cliquez sur **Configurer la géo-réplication**.
 4. Accédez au panneau de géo-réplication. Sélectionnez la région cible. 
 5. Accédez au panneau Créer une base de données secondaire. Sélectionnez un serveur existant dans la région cible ou créez-en un.
-6. Sélectionnez le type secondaire (*Lisible* ou *Illisible*)
+6. Sélectionnez le type secondaire (*Lisible* ou *Illisible*).
 7. Cliquez sur **Créer** pour terminer la configuration
 
 > [AZURE.NOTE]La région associée à la récupération d'urgence dans le panneau de géo-réplication sera marquée comme étant *recommandée*. Si vous utilisez une base de données Premium, vous pouvez choisir une autre région. Si vous utilisez une base de données standard, vous ne pouvez pas la modifier. La base de données Premium aura le choix en termes de type secondaire (*Lisible* ou *Illisible*). La base de données standard peut uniquement sélectionner un type secondaire *Illisible*.
@@ -80,7 +82,7 @@ Pour créer la géo-réplication avec une base de données secondaire lisible po
 
 		Start-AzureSqlDatabaseCopy -ServerName "SecondaryServerName" -DatabaseName "SecondaryDatabaseName" -PartnerServer "PartnerServerName" –ContinuousCopy
 		 
-Cette commande est asynchrone. Après son retour, utilisez l'applet de commande [Get-AzureSqlDatabaseCopy](https://msdn.microsoft.com/library/dn720235.aspx) pour vérifier l'état de cette opération. Le champ ReplicationState de l'objet retourné aura la valeur CATCH_UP une fois l'opération terminée.
+Cette commande est asynchrone. Après son retour, utilisez l'applet de commande [Get-AzureSqlDatabaseCopy](https://msdn.microsoft.com/library/dn720235.aspx) pour vérifier l'état de cette opération. Le champ ReplicationState de l'objet retourné aura la valeur CATCH\_UP une fois l'opération terminée.
 
 		Get-AzureSqlDatabaseCopy -ServerName "PrimaryServerName" -DatabaseName "PrimaryDatabaseName" -PartnerServer "SecondaryServerName"
 
@@ -89,7 +91,7 @@ Cette commande est asynchrone. Après son retour, utilisez l'applet de commande 
 
 Utilisez l'API [Démarrer la copie de la base de données](https://msdn.microsoft.com/library/azure/dn509576.aspx) pour créer par programme une configuration de la géo-réplication.
 
-Cette API est asynchrone. Après son retour, utilisez l'API [Obtenir la copie de la base de données](https://msdn.microsoft.com/library/azure/dn509570.aspx) pour vérifier l'état de cette opération. Le champ ReplicationState du corps de la réponse aura la valeur CATCH_UP une fois l'opération terminée.
+Cette API est asynchrone. Après son retour, utilisez l'API [Obtenir la copie de la base de données](https://msdn.microsoft.com/library/azure/dn509570.aspx) pour vérifier l'état de cette opération. Le champ ReplicationState du corps de la réponse aura la valeur CATCH\_UP une fois l'opération terminée.
 
 
 ##Comment choisir la configuration de basculement ? 
@@ -99,4 +101,4 @@ Lorsque vous concevez votre application pour la continuité des activités, vous
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

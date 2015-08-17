@@ -5,15 +5,16 @@
 	services="virtual-machines"
 	authors="JoeDavies-MSFT"
 	manager="timlt"
-	editor=""/>
+	editor=""
+	tags="azure-service-management"/>
 
 <tags
 	ms.service="virtual-machines"
 	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="na"
+	ms.tgt_pltfrm="vm-windows-sharepoint"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/05/2015"
+	ms.date="07/22/2015"
 	ms.author="josephd"/>
 
 # Phase 4 de la charge de travail de la batterie de serveurs SharePoint intranet : Configuration de serveurs SharePoint
@@ -95,7 +96,7 @@ Une fois que vous avez fourni toutes les valeurs requises, exécutez le bloc ré
 
 	New-AzureVM –ServiceName $serviceName -VMs $vm1 -VNetName $vnetName
 
-Utilisez [Connexion à une machine virtuelle avec la connexion Bureau à distance](virtual-machines-workload-intranet-sharepoint-phase2.md#logon) quatre fois, une fois pour chaque serveur SharePoint, afin de vous connecter à l’aide des informations d’identification [Domain]\sp_farm_db. Vous avez créé ces informations d’identification au cours de la [Phase 2 : Configuration de contrôleurs de domaine](virtual-machines-workload-intranet-sharepoint-phase2.md).
+Utilisez [Connexion à une machine virtuelle avec la connexion Bureau à distance](virtual-machines-workload-intranet-sharepoint-phase2.md#logon) quatre fois, une fois pour chaque serveur SharePoint, afin de vous connecter à l’aide des informations d’identification [Domain]\\sp\_farm\_db. Vous avez créé ces informations d’identification au cours de la [Phase 2 : Configuration de contrôleurs de domaine](virtual-machines-workload-intranet-sharepoint-phase2.md).
 
 Suivez la procédure décrite dans [Test de la connectivité](virtual-machines-workload-intranet-sharepoint-phase2.md#testconn) quatre fois, soit une fois pour chaque serveur SharePoint, afin de tester la connectivité à différents emplacements du réseau de votre organisation.
 
@@ -109,8 +110,8 @@ Suivez ces étapes pour configurer le premier serveur SharePoint dans la batter
 4.	Sur la page **Se connecter à une batterie de serveurs**, sélectionnez **Créer une batterie de serveurs**, puis cliquez sur **Suivant**.
 5.	Sur la page **Spécifier les paramètres de la base de données de configuration** :
  - Dans **Serveur de base de données**, entrez le nom du serveur de base de données primaire.
- - Dans **Nom d’utilisateur**, entrez [Domain]**\sp_farm_db** (créé lors de la [Phase 2 : Configuration de contrôleurs de domaine](virtual-machines-workload-intranet-sharepoint-phase2.md)). N’oubliez pas que le compte sp_farm_db dispose de privilèges sysadmin sur le serveur de base de données.
- - Dans **Mot de passe**, saisissez le mot de passe associé au compte sp_farm_db.
+ - Dans **Nom d’utilisateur**, entrez [Domain]**\\sp\_farm\_db** (créé lors de la [Phase 2 : Configuration de contrôleurs de domaine](virtual-machines-workload-intranet-sharepoint-phase2.md)). N’oubliez pas que le compte sp\_farm\_db dispose de privilèges sysadmin sur le serveur de base de données.
+ - Dans **Mot de passe**, saisissez le mot de passe associé au compte sp\_farm\_db.
 6.	Cliquez sur **Next**.
 7.	Sur la page **Spécifier les paramètres de sécurité de la batterie de serveurs**, entrez votre phrase secrète deux fois. Consignez cette phrase secrète et conservez-la dans un emplacement sécurisé pour vous y reporter ultérieurement. Cliquez sur **Next**.
 8.	Sur la page **Configurer l’application Web de l’Administration centrale de SharePoint**, cliquez sur **Suivant**.
@@ -126,7 +127,7 @@ Effectuez la procédure suivante sur le deuxième serveur d’applications Shar
 3.	Une boîte de dialogue **Assistant Configuration des produits SharePoint** s’affiche et indique que les services (tels qu’IIS) seront redémarrés ou réinitialisés. Cliquez sur **Oui**.
 4.	Sur la page **Se connecter à une batterie de serveurs**, cliquez sur **Se connecter à une batterie de serveurs existante**, puis sur **Suivant**.
 5.	Sur la page **Spécifier les paramètres de la base de données de configuration**, entrez le nom du serveur de base de données primaire dans **Serveur de base de données**, puis cliquez sur **Récupérer les noms de bases de données**.
-6.	Cliquez sur **SharePoint_Config** dans la liste de noms de bases de données, puis cliquez sur **Suivant**.
+6.	Cliquez sur **SharePoint\_Config** dans la liste de noms de bases de données, puis cliquez sur **Suivant**.
 7.	Sur la page **Spécifier les paramètres de sécurité de la batterie de serveurs**, entrez la phrase secrète définie au cours de la procédure précédente. Cliquez sur **Next**.
 8.	La page **Fin de l’Assistant Configuration des produits SharePoint** s’affiche. Cliquez sur **Next**.
 9.	Sur la page **Configuration réussie**, cliquez sur **Terminer**.
@@ -190,4 +191,4 @@ Pour poursuivre la configuration de cette charge de travail, passez à la [Phase
 
 [Instructions d’implémentation des services d’infrastructure Azure](virtual-machines-infrastructure-services-implementation-guidelines.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

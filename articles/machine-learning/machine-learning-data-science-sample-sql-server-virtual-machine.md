@@ -26,7 +26,7 @@ Ce document traite des données d’échantillonnage stockées dans SQL Server s
 
 Cette section décrit différentes méthodes permettant d’effectuer un échantillonnage aléatoire simple des données de la base de données via SQL. Choisissez une méthode en fonction de la taille de vos données et de leur distribution.
 
-Les deux options ci-après indiquent comment utiliser l’élément newid dans SQL Server pour procéder à l’échantillonnage. La méthode que vous choisissez dépend du degré aléatoire qui doit caractériser l’échantillon (dans l’exemple de code ci-après, l’élément pk_id est supposé correspondre à une clé primaire générée automatiquement).
+Les deux options ci-après indiquent comment utiliser l’élément newid dans SQL Server pour procéder à l’échantillonnage. La méthode que vous choisissez dépend du degré aléatoire qui doit caractériser l’échantillon (dans l’exemple de code ci-après, l’élément pk\_id est supposé correspondre à une clé primaire générée automatiquement).
 
 1. Échantillon aléatoire moins strict
 
@@ -114,4 +114,4 @@ Pour obtenir un exemple de procédure pas à pas de bout en bout à l’aide du 
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

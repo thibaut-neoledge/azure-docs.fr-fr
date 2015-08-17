@@ -77,4 +77,4 @@ Notre objectif est de vous offrir une expérience de Machine Learning qui soit a
 [screen6]: media/machine-learning-troubleshooting-creating-ml-workspace/screen6.png
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

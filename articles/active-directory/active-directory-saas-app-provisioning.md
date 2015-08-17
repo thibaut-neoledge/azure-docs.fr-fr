@@ -7,6 +7,7 @@
    manager="TerryLanfear"
    editor=""/>
 
+
 <tags
    ms.service="active-directory"
    ms.devlang="na"
@@ -15,6 +16,7 @@
    ms.workload="identity"
    ms.date="07/14/2015"
    ms.author="liviodlc"/>
+
 
 #Automatisation de l’approvisionnement et de la l’annulation de l’approvisionnement des utilisateurs pour les applications SaaS avec Azure Active Directory
 
@@ -84,7 +86,7 @@ Azure AD approvisionne des utilisateurs pour les applications SaaS en se connect
  - Si un utilisateur a été récemment affecté à une application SaaS dans laquelle il a déjà un compte, ce compte est marqué comme activé et certaines propriétés de l’utilisateur sont mises à jour si elles sont obsolètes par rapport à l’annuaire.
  - Si les informations d’un utilisateur (comme son numéro de téléphone, le lieu où se trouve son bureau, etc.) ont été modifiées dans l’annuaire, elles sont également mises à jour dans l’application SaaS.
 
-Pour plus d’informations sur la façon dont les attributs sont mappés entre Azure AD et votre application SaaS, consultez l’article [Personnalisation des mappages d’attributs](https://msdn.microsoft.com/library/azure/dn872469.aspx).
+Pour plus d’informations sur la façon dont les attributs sont mappés entre Azure AD et votre application SaaS, consultez l’article [Personnalisation des mappages d’attributs](active-directory-saas-customizing-attribute-mappings.md).
 
 ##Liste des applications prenant en charge l’approvisionnement automatique des utilisateurs
 
@@ -106,4 +108,6 @@ Pour qu’une application puisse prendre en charge l’approvisionnement automat
 
 Pour contacter l’équipe d’ingénierie d’Azure AD afin de demander une prise en charge de l’approvisionnement pour des applications supplémentaires, veuillez écrire un message sur le [forum des commentaires sur Azure Active Directory](http://feedback.azure.com/forums/169401-azure-active-directory).
 
-<!---HONumber=July15_HO5-->
+[AZURE.INCLUDE [saas-toc](../../includes/active-directory-saas-toc.md)]
+
+<!---HONumber=August15_HO6-->

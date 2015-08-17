@@ -74,4 +74,4 @@ Pour obtenir d’autres exemples d’utilisation de l’interface de ligne de co
 <!--Image references-->
 [5]: ./media/markdown-template-for-new-articles/octocats.png
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

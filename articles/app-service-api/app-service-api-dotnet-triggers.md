@@ -341,4 +341,4 @@ Voici un exemple de la façon dont cette classe peut être implémentée pour fa
     }
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

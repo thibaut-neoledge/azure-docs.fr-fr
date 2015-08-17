@@ -73,4 +73,4 @@ Si vous utilisez un compte tiers avec l'application mobile, entrez le nom du com
 >[AZURE.NOTE]Si la mention « Ajouter un compte professionnel » s'affiche, elle s'applique à la jonction d'espace de travail et non à l'authentification multifacteur. Vous pouvez l'ignorer.
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

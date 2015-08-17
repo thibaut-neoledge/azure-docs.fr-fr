@@ -72,7 +72,7 @@ Si vous voyez uniquement un ou deux d'entre eux, mais pas les trois, supprimez-l
 ### Procédure 2 : vérification du téléchargement des solutions appropriées sur votre agent direct
 >[AZURE.NOTE]Si vous utilisez uniquement Operations Manager, vous pouvez ignorer cette procédure.
 
-Dans l'agent direct, vous devez voir la stratégie de collecte de la solution, mise en cache sous **C:\Program Files\Microsoft Monitoring Agent\Agent\Health Service State\Management Packs**
+Dans l'agent direct, vous devez voir la stratégie de collecte de la solution, mise en cache sous **C:\\Program Files\\Microsoft Monitoring Agent\\Agent\\Health Service State\\Management Packs**
 
 
 ### Procédure 3 : vérification de l'envoi des données au service Advisor (ou de tentatives d'envoi)
@@ -145,4 +145,4 @@ Les détails vous présentent la recherche de journaux et affichent l'horodateur
 
 Cette page comporte également des informations de mesure (cela n'utilise pas l'index de recherche, mais le système de facturation, actualisé toutes les deux heures) concernant les quantités de données envoyées au service par solution.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

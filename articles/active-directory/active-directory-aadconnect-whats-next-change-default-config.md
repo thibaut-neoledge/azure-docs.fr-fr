@@ -27,4 +27,4 @@ Lorsque vous devez modifier la configuration par défaut, procédez comme suit 
 - Exportez vos règles de synchronisation personnalisées à l’aide de l’éditeur de règles de synchronisation. Cela vous donne un script PowerShell que vous pouvez utiliser pour facilement les recréer dans le cadre d’une récupération d’urgence.
 - Si vous devez modifier la portée ou le paramètre de jointure dans une règle de synchronisation de base, documentez l’opération et appliquez la modification après la mise à niveau vers une version plus récente d’Azure AD Connect. 
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

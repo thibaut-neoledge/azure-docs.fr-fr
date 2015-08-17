@@ -49,4 +49,4 @@ La section Authentification Windows permet à l'administrateur d’activer et de
 10. Sélectionnez Sous-réseau si vous souhaitez spécifier une plage d'adresses IP à l'aide de la notation de sous-réseau. Entrez l'adresse IP de début du sous-réseau et choisissez le masque de réseau approprié dans la liste déroulante. 
 11. Cliquez sur le bouton OK.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

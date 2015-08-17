@@ -3,7 +3,7 @@
 	description="Réinitialisez rapidement un mot de passe d’administrateur local ou le service Bureau à distance pour les machines virtuelles Windows à l’aide du portail Azure en version préliminaire ou de commandes PowerShell."
 	services="virtual-machines"
 	documentationCenter=""
-	authors="JoeDavies-MSFT"
+	authors="dsk-2015"
 	manager="timlt"
 	editor=""
 	tags="azure-service-management"/>
@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="07/21/2015"
-	ms.author="josephd"/>
+	ms.author="dkshir"/>
 
 # Réinitialisation d’un mot de passe ou du service Bureau à distance pour les machines virtuelles Windows
 
@@ -113,4 +113,4 @@ Si vous ne parvenez pas à exécuter le package de diagnostic Azure IaaS (Window
 
 [Résolution des problèmes de connexion Bureau à distance avec une machine virtuelle Azure Windows](virtual-machines-troubleshoot-remote-desktop-connections.md)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

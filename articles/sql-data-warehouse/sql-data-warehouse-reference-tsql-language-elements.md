@@ -51,7 +51,7 @@
 - [\+ (Concaténation de chaîne)](https://msdn.microsoft.com/library/ms177561.aspx)
 - [\- (Négatif)](https://msdn.microsoft.com/library/ms189480.aspx)
 - [\- (Soustraction)](https://msdn.microsoft.com/library/ms189518.aspx)
-- [\* (Multiplication)](https://msdn.microsoft.com/library/ms176019.aspx)
+- [* (Multiplication)](https://msdn.microsoft.com/library/ms176019.aspx)
 - [/ (Division)](https://msdn.microsoft.com/library/ms175009.aspx)
 - [Modulo](https://msdn.microsoft.com/library/ms190279.aspx)
 
@@ -290,4 +290,4 @@ Pour plus d’informations, consultez la [vue d’ensemble de référence de SQL
 
 <!--MSDN references-->
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

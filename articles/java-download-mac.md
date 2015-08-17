@@ -18,6 +18,6 @@
 
 #Téléchargement du Kit de développement logiciel (SDK) Azure pour Java
 
-[AZURE.INCLUDE [download_libraries](../includes/download_libraries.md)]
+[AZURE.INCLUDE [download\_libraries](../includes/download_libraries.md)]
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

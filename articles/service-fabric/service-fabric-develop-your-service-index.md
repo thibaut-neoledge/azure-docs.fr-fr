@@ -88,4 +88,4 @@ Les services fiables émettent des événements et des compteurs de performance,
 - [Diagnostics de service fiable avec état](service-fabric-reliable-services-diagnostics.md)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -63,4 +63,4 @@ Consultez ces ressources pour des informations SharePoint supplémentaires relat
 
 - [Déploiement de la synchronisation d’annuaires (DirSync) d’Office 365 dans Microsoft Azure](https://technet.microsoft.com/library/dn635310.aspx)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

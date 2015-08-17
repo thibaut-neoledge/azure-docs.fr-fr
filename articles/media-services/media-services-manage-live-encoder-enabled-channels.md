@@ -278,16 +278,16 @@ Spécifie la présélection à utiliser par l’encodeur dynamique dans ce canal
 
 ####Flux vidéo de sortie
 
-<table border="1">
-<tr><th>Débit binaire</th><th>Largeur</th><th>Hauteur</th><th>IPS max.</th><th>Profil</th><th>Nom du flux de sortie</th></tr>
-<tr><td>3&#160;500</td><td>1&#160;280</td><td>720</td><td>30</td><td>Élevé</td><td>Video_1280x720_30fps_3500kbps</td></tr>
-<tr><td>2&#160;200</td><td>960</td><td>540</td><td>30</td><td>Principal</td><td>Video_960x540_30fps_2200kbps</td></tr>
-<tr><td>1&#160;350</td><td>704</td><td>396</td><td>30</td><td>Principal</td><td>Video_704x396_30fps_1350kbps</td></tr>
-<tr><td>850</td><td>512</td><td>288</td><td>30</td><td>Principal</td><td>Video_512x288_30fps_850kbps</td></tr>
-<tr><td>550</td><td>384</td><td>216</td><td>30</td><td>Principal</td><td>Video_384x216_30fps_550kbps</td></tr>
-<tr><td>350</td><td>340</td><td>192</td><td>30</td><td>Ligne de base</td><td>Video_340x192_30fps_350kbps</td></tr>
-<tr><td>200</td><td>340</td><td>192</td><td>30</td><td>Ligne de base</td><td>Video_340x192_30fps_200kbps</td></tr>
-</table>
+Débit binaire|Largeur|Hauteur|IPS max.|Profil|Nom du flux de sortie
+---|---|---|---|---|---
+3 500|1 280|720|30|Élevé|Video\_1280x720\_30fps\_3500kbps
+2 200|960|540|30|Principal|Video\_960x540\_30fps\_2200kbps
+1 350|704|396|30|Principal|Video\_704x396\_30fps\_1350kbps
+850|512|288|30|Principal|Video\_512x288\_30fps\_850kbps
+550|384|216|30|Principal|Video\_384x216\_30fps\_550kbps
+350|340|192|30|Ligne de base|Video\_340x192\_30fps\_350kbps
+200|340|192|30|Ligne de base|Video\_340x192\_30fps\_200kbps
+
 
 ####Flux audio de sortie
 
@@ -341,7 +341,8 @@ facultatif. Spécifie l’ID de la ressource Media Services qui contient l’ima
 
 - Résolution maximale de 1920 x 1080
 - Taille maximale de 3 Mo.
-- Le nom de fichier doit avoir une *extension .jpg. - L'image doit être téléchargée dans une ressource en tant que seul AssetFile de cette ressource et cet AssetFile doit être marqué comme fichier principal. La ressource ne peut pas être de type stockage chiffré.
+- Le nom de fichier doit avoir une extension *.jpg.
+- L'image doit être téléchargée dans une ressource en tant que seul AssetFile de cette ressource et cet AssetFile doit être marqué comme fichier principal. La ressource ne peut pas être de type stockage chiffré.
 
 Si l’**ID de ressource d’ardoise par défaut** n’est pas spécifié, et que le paramètre **Insérer une ardoise dans le marqueur de publicité** est défini sur **true**, une image d’Azure Media Services par défaut est utilisée pour masquer le flux vidéo d’entrée. Le son est également désactivé pendant l’affichage de l’ardoise.
 
@@ -383,13 +384,12 @@ Si le paramètre Encodage en temps réel est activé, vous pouvez désormais obt
 
 Le tableau suivant montre comment les états du canal sont mappés au mode de facturation.
  
-<table border="1">
-<tr><th>État du canal</th><th>Indicateurs de l’interface utilisateur du portail</th><th>Facturation&#160;?</th></tr>
-<tr><td>Démarrage en cours</td><td>Démarrage en cours</td><td>Aucun (état transitoire)</td></tr>
-<tr><td>Exécution en cours</td><td>Prêt (pas de programmes en cours d’exécution)<br/>ou<br/>Diffusion en continu (au moins un programme en cours d’exécution)</td><td>Oui</td></tr>
-<tr><td>En cours d’arrêt</td><td>En cours d’arrêt</td><td>Aucun (état transitoire)</td></tr>
-<tr><td>Arrêté</td><td>Arrêté</td><td>Non</td></tr>
-</table>
+État du canal|Indicateurs de l’interface utilisateur du portail|Facturation ?
+---|---|---
+Démarrage en cours|Démarrage en cours|Aucun (état transitoire)
+Exécution|Prêt (aucun programme en cours d'exécution)<br/>ou<br/> Diffusion en continu (au moins un programme en cours d'exécution)|Oui
+En cours d’arrêt|En cours d’arrêt|Aucun (état transitoire)
+Arrêté|Arrêté|Non
 
 
 >[AZURE.NOTE]Actuellement en version préliminaire, le démarrage du canal peut prendre jusqu’à plus de 20 minutes. La réinitialisation du canal peut prendre jusqu’à 5 minutes.
@@ -407,7 +407,7 @@ Le tableau suivant montre comment les états du canal sont mappés au mode de fa
 ##Problèmes connus
 
 - Le démarrage du canal peut prendre plus de 20 minutes.
-- La prise en charge RTP est adaptée aux diffuseurs professionnels. Veuillez consulter les notes relative à RTP dans [ce blog](http://azure.microsoft.com/blog/2015/04/13/an-introduction-to-live-encoding-with-azure-media-services/).
+- La prise en charge RTP est adaptée aux diffuseurs professionnels. Veuillez consulter les notes relatives à RTP dans [ce blog](http://azure.microsoft.com/blog/2015/04/13/an-introduction-to-live-encoding-with-azure-media-services/).
 - Les images d’ardoise doivent être conformes aux restrictions décrites [ici](media-services-manage-live-encoder-enabled-channels.md#default_slate). Si vous essayez de créer un canal à partir d’une ardoise par défaut d’une résolution supérieure à 1920 x 1080, la requête se termine par une erreur.
 
 
@@ -505,4 +505,4 @@ Pour plus d’informations sur la mise à l’échelle des unités de diffusion 
 [live-overview]: ./media/media-services-manage-live-encoder-enabled-channels/media-services-live-streaming-new.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

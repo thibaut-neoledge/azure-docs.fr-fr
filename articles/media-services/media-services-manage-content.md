@@ -7,6 +7,7 @@
 	manager="dwrede" 
 	editor=""/>
 
+
 <tags 
 	ms.service="media-services" 
 	ms.workload="media" 
@@ -15,6 +16,7 @@
 	ms.topic="article" 
 	ms.date="07/23/2015" 
 	ms.author="juliako"/>
+
 
 
 # Gestion de contenu avec Azure Media Services à l’aide du portail de gestion Azure
@@ -51,7 +53,7 @@ Cette rubrique explique comment effectuer les opérations suivantes directement 
 
 	![JobStatus][status]
 
-Une fois le téléchargement terminé, le nouvel élément multimédia est répertorié dans la liste Contenu. Par convention, la mention « \*\*-Source\*\* » est ajoutée à la fin du nom afin de faciliter le suivi des nouveaux contenus sources pour les tâches d’encodage.
+Une fois le téléchargement terminé, le nouvel élément multimédia est répertorié dans la liste Contenu. Par convention, la mention « **-Source** » est ajoutée à la fin du nom afin de faciliter le suivi des nouveaux contenus sources pour les tâches d'encodage.
 
 ![ContentPage][contentpage]
 
@@ -99,7 +101,8 @@ Notez qu’en plus d’utiliser les fonctionnalités d’empaquetage dynamique, 
 Cette section décrit les étapes à suivre pour encoder votre contenu avec l’Encodeur multimédia Azure à l’aide du portail de gestion.
 
 1.  Sélectionnez le fichier que vous souhaitez encoder. Si l’encodage est pris en charge pour ce type de fichier, le bouton de traitement sera activé en bas de la page de contenu.
-4. Dans la boîte de dialogue de **traitement**, choisissez le **processeur \*\*Encodeur multimédia Azure.5. Choisissez une des **configurations d’encodage**.
+4. Dans la boîte de dialogue de **traitement**, choisissez le processeur **Azure Media Encoder**.
+5. Choisissez une des **configurations d’encodage**.
 
 	![Process2][process2]
 
@@ -214,4 +217,4 @@ Certaines considérations s’appliquent :
 [encrypt]: ./media/media-services-manage-content/media-services-encrypt-content.png
 [AMSPlayer]: ./media/media-services-manage-content/media-services-portal-player.png
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

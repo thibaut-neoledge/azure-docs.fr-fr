@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/30/2015" 
+	ms.date="08/03/2015" 
 	ms.author="tamram"/>
 
 # Introduction à Microsoft Azure Storage
@@ -93,7 +93,9 @@ Pour les utilisateurs qui doivent stocker de grandes quantités de données non 
 
 Chaque objet blob est organisé dans un conteneur. Les conteneurs fournissent également un moyen utile d'affecter des stratégies de sécurité à des groupes d'objets. Un compte de stockage peut contenir un nombre quelconque de conteneurs, et un conteneur peut contenir un nombre quelconque d'objets blobs, jusqu'à la limite de capacité de 500 To du compte de stockage.
 
-Le stockage d’objets blob propose deux types d’objets blob : les objets blob de bloc et les objets blob de page (disques). Les objets blob de bloc sont optimisés pour la diffusion en continu et le stockage d’objets cloud. Ils constituent une solution de choix pour stocker des documents, des fichiers multimédias, des sauvegardes, etc. La taille maximale d’un objet blob de bloc est de 200 Go. Les objets blob de page sont optimisés pour représenter les disques IaaS et prendre en charge les écritures aléatoires. Leur taille maximale est de 1 To. Un disque IaaS rattaché à un réseau de machines virtuelles Azure est un disque dur virtuel stocké en tant qu'objet blob de page.
+Le stockage d’objets blob propose trois types d’objets : les objets blob de bloc, les objets blob d’ajout et les objets blob de page (disques). Les objets blob de bloc sont optimisés pour la diffusion en continu et le stockage d’objets cloud. Ils constituent une solution de choix pour stocker des documents, des fichiers multimédias, des sauvegardes, etc. Les objets blob d’ajout sont similaires aux objets blob de blocs, mais ils sont optimisés pour les opérations d’ajout. Un objet blob d’ajout ne peut être mis à jour qu’en lui ajoutant un nouveau bloc à la fin. Les objets blob d’ajout sont idéaux pour des opérations telles que la journalisation, où les nouvelles données ne doivent être écrites qu’à la fin de l’objet blob.
+
+Les objets blob de page sont optimisés pour représenter les disques IaaS et prendre en charge les écritures aléatoires. Leur taille maximale est de 1 To. Un disque IaaS rattaché à un réseau de machines virtuelles Azure est un disque dur virtuel stocké en tant qu'objet blob de page.
 
 Pour les jeux de données très volumineux où les contraintes du réseau rendent le téléchargement de données vers/depuis le stockage d'objets blob via le réseau irréaliste, vous pouvez expédier un disque dur à Microsoft pour importer ou exporter les données directement à partir du centre de données avec le [service d'importation/exportation Azure](storage-import-export-service.md). Vous pouvez également copier des données d'objets blob dans votre compte de stockage ou à travers des comptes de stockage.
 
@@ -171,6 +173,7 @@ Pour la prise en main d’Azure Storage, explorez les ressources suivantes :
 - [Package NuGet d’Azure Storage - Bibliothèques clientes pour .NET, Windows Phone et Windows Runtime](https://www.nuget.org/packages/WindowsAzure.Storage/)
 - [Outils et Kit de développement logiciel (SDK) d’Azure](http://azure.microsoft.com/downloads/)
 - [Émulateur de stockage Azure](http://www.microsoft.com/en-in/download/details.aspx?id=43709)
+- [Azure PowerShell](http://go.microsoft.com/?linkid=9811175&clcid=0x409)
 
 ### Code source
 
@@ -183,7 +186,9 @@ Pour la prise en main d’Azure Storage, explorez les ressources suivantes :
 - [Référence de l’outil en ligne de commande AzCopy](storage-use-azcopy.md)
 
 ### Pour les utilisateurs de PowerShell
-- [Applets de commande Azure Storage](http://msdn.microsoft.com/library/azure/dn806401.aspx)
+- [Utilisation d'Azure PowerShell avec Azure Storage](storage-powershell-guide-full.md)
+- [Applets de commande Azure Storage pour la gestion des services](http://msdn.microsoft.com/library/azure/dn806401.aspx)
+- [Applets de commande Azure Storage pour Azure Resource Manager](https://msdn.microsoft.com/library/azure/mt269418.aspx)
 
 ### Pour les développeurs .NET
 
@@ -191,6 +196,7 @@ Pour la prise en main d’Azure Storage, explorez les ressources suivantes :
 - [Utilisation du stockage d’objets blob à partir de .NET](storage-dotnet-how-to-use-blobs.md)
 - [Utilisation du stockage de tables à partir de .NET](storage-dotnet-how-to-use-tables.md)
 - [Utilisation du service de stockage de files d’attente à partir de .NET](storage-dotnet-how-to-use-queues.md)
+- [Utilisation du stockage de fichiers avec PowerShell et .NET](storage-dotnet-how-to-use-files.md)
 
 ### Pour les développeurs Java/Android
 
@@ -224,4 +230,4 @@ Pour la prise en main d’Azure Storage, explorez les ressources suivantes :
 - [Utilisation du stockage de files d'attente à partir de Python](storage-python-how-to-use-queue-storage.md)
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

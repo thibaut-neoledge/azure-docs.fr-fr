@@ -7,14 +7,16 @@
 	manager="wpickett"
 	editor=""/>
 
+
 <tags
 	ms.service="cloud-services"
 	ms.workload="tbd"
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs"
-	ms.topic="get-started-article"
+	ms.topic="article"
 	ms.date="06/01/2015"
 	ms.author="mwasson"/>
+
 
 
 # Création et déploiement d'une application Node.js dans Azure Cloud Services
@@ -192,4 +194,4 @@ Après avoir déployé votre application, vous pouvez la désactiver afin de vou
 [powershell-menu]: ./media/cloud-services-nodejs-develop-deploy-app/azure-powershell-start.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

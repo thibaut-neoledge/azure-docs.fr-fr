@@ -204,7 +204,7 @@ La session utilisateur expire lorsque la durée de vie du jeton émis par Azure�
 ### Application à page unique (SPA)
 
 
-Cette section décrit l’authentification pour une application à page unique utilisant Azure AD afin de sécuriser les composants principaux de son API web. Les applications à page unique sont généralement structurées comme une couche présentation (frontale) JavaScript qui s’exécute dans le navigateur et comme les composants principaux d’une API web qui s’exécute sur un serveur et implémente la logique métier de l’application. Dans ce scénario, quand l’utilisateur se connecte, le JavaScript frontal utilise la version préliminaire d’[Active Directory Authentication Library pour JavaScript (ADAL.JS)](https://github.com/AzureAD/azure-activedirectory-library-for-js/tree/dev) et le protocole d’octroi implicite OAuth 2.0 pour obtenir un jeton d’ID (id_token) d’Azure AD. Le jeton est mis en cache, et le client l’attache à la demande en tant que jeton porteur lors de l’appel des composants principaux de son API web, qui sont sécurisés à l’aide de l’intergiciel OWIN.
+Cette section décrit l’authentification pour une application à page unique utilisant Azure AD afin de sécuriser les composants principaux de son API web. Les applications à page unique sont généralement structurées comme une couche présentation (frontale) JavaScript qui s’exécute dans le navigateur et comme les composants principaux d’une API web qui s’exécute sur un serveur et implémente la logique métier de l’application. Dans ce scénario, quand l’utilisateur se connecte, le JavaScript frontal utilise la version préliminaire d’[Active Directory Authentication Library pour JavaScript (ADAL.JS)](https://github.com/AzureAD/azure-activedirectory-library-for-js/tree/dev) et le protocole d’octroi implicite OAuth 2.0 pour obtenir un jeton d’ID (id\_token) d’Azure AD. Le jeton est mis en cache, et le client l’attache à la demande en tant que jeton porteur lors de l’appel des composants principaux de son API web, qui sont sécurisés à l’aide de l’intergiciel OWIN.
 
 
 #### Diagramme
@@ -434,7 +434,7 @@ Le flux présenté ci-après part du principe qu’un utilisateur a été authen
 1. L’application native envoie le jeton d’accès à l’API web de premier niveau.
 
 
-2. L’API web de premier niveau envoie une demande au point de terminaison de jeton d’Azure AD, en fournissant son ID client et ses informations d’identification, ainsi que le jeton d’accès de l’utilisateur. La demande est également envoyée avec un paramètre on_behalf_of, qui indique que l’API web demande de nouveaux jetons pour appeler une API web en aval au nom de l’utilisateur d’origine.
+2. L’API web de premier niveau envoie une demande au point de terminaison de jeton d’Azure AD, en fournissant son ID client et ses informations d’identification, ainsi que le jeton d’accès de l’utilisateur. La demande est également envoyée avec un paramètre on\_behalf\_of, qui indique que l’API web demande de nouveaux jetons pour appeler une API web en aval au nom de l’utilisateur d’origine.
 
 
 3. Azure AD vérifie que l’API web de premier niveau est autorisée à accéder à l’API web de deuxième niveau et valide la demande en renvoyant un jeton d’accès JWT et un jeton d’actualisation JWT à l’API web de premier niveau.
@@ -466,4 +466,4 @@ Quand la première application utilise son code d’autorisation pour obtenir un
 [OAuth 2.0 dans Azure AD](https://msdn.microsoft.com/library/azure/dn645545.aspx)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

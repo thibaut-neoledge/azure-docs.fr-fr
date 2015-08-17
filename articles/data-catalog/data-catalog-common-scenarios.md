@@ -3,18 +3,20 @@
    description="Étudiez les scénarios courants avec Azure Data Catalog : l’enregistrement, l’enrichissement, l’exploration, la compréhension et l’utilisation de sources de données, ainsi que la suppression des métadonnées des sources de données."
    services="data-catalog"
    documentationCenter=""
-   authors="dvana"
-   manager="mblythe"
+   authors="steelanddata"
+   manager="NA"
    editor=""
    tags=""/>
+
 <tags
    ms.service="data-catalog"
    ms.devlang="NA"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="07/13/2015"
-   ms.author="derrickv"/>
+   ms.date="07/31/2015"
+   ms.author="maroche"/>
+
 
 
 # Scénarios courants avec Azure Data Catalog
@@ -33,6 +35,8 @@ Il est souvent difficile pour les utilisateurs de savoir où rechercher les donn
 - Je ne sais pas si ces chiffres sont corrects ; qui pourrait m’expliquer comment ces données sont censées être utilisées avant de partager ce tableau de bord avec mon équipe ?
 
 Dans ce scénario, Azure Data Catalog peut vous aider. Les sources de données centrales, de grande valeur, gérées par informatique et utilisées dans l’ensemble de l’organisation sont souvent le point de départ logique pour remplir le catalogue. Bien que n’importe quel utilisateur puisse inscrire une source de données, il sera plus facile d’encourager l’adoption et l’utilisation du système si vous commencez par remplir le catalogue avec les sources de données qui sont susceptibles d’être utiles au plus grand nombre d’utilisateurs. Pour les clients n’ayant jamais utilisé Azure Data Catalog auparavant, l’identification et l’enregistrement des principales sources de données utilisées par de nombreuses équipes consommatrices de données peuvent représenter un premier pas vers la réussite.
+
+Ce scénario permet également d’annoter les sources de données à valeur élevée pour les rendre plus faciles à comprendre et plus faciles d’accès. Un aspect clé de cet effort consiste à inclure des informations sur la façon dont les utilisateurs peuvent demander l'accès à la source de données. L’Azure Data Catalog permet à des utilisateurs de fournir l'adresse électronique de l'équipe ou de l'utilisateur chargé de contrôler l'accès aux sources de données, les liens vers des outils existants ou une documentation, ou du texte libre qui décrit le processus de demande d'accès. Avec ces informations incluses dans le catalogue, les utilisateurs qui découvrent des sources de données enregistrées, mais qui n'ont pas encore les autorisations pour accéder aux données, peuvent facilement demander l'accès à l'aide de processus définis et contrôlés par les propriétaires des sources de données.
 
 ## Scénario no2 : décisionnel libre-service
 
@@ -64,4 +68,4 @@ Parfois ces experts en données font l’effort de documenter leurs connaissance
 
 Azure Data Catalog agit comme une plateforme permettant de partager ces connaissances tribales et de les rendre facilement identifiables. Les experts en données peuvent annoter directement les ressources de données et même inclure des liens vers la documentation existante. Cela permet non seulement de capturer les connaissances, mais également d’inscrire l’accès aux connaissances dans le même processus que celui utilisé pour découvrir les sources de données. Ainsi, lorsqu’une personne utilise le catalogue pour découvrir une source de données, elle trouvera non seulement la source elle-même, mais également les connaissances de l’expert qui auparavant existaient uniquement dans la tête de ce dernier.
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

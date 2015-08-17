@@ -76,7 +76,7 @@ L’entrée est la suivante : « Aujourd’hui est une belle journée. ». Le
 >Ce service web a été créé à l’aide d’Azure Machine Learning. Pour un essai gratuit, ainsi que des vidéos de présentation relatives à la création d’expériences et à la [publication de services web](machine-learning-publish-a-machine-learning-web-service.md), consultez la page [azure.com/ml](http://azure.com/ml). Voici une capture d'écran de l'expérience qui a créé le service web et l'exemple de code pour chacun des modules dans l'expérience.
 
 
-Dans Azure Machine Learning, une nouvelle expérience vide a été créée. La figure ci-dessous illustre le flux d’expérience pour l’analyse de sentiments basée sur un lexique. Le fichier « sent_dict.csv » correspond au lexique de subjectivité MPQA ; il est défini en tant que l’une des entrées du module [Exécuter le script R][execute-r-script]. Une autre entrée correspond à une critique partielle provenant du jeu de données des critiques Amazon à des fins de test, dans laquelle nous avons effectué des opérations de sélection, de modification des noms de colonne et de fractionnement. Nous utilisons un package de hachage pour stocker le lexique de subjectivité en mémoire et accélérer le processus de calcul du score. L'ensemble du texte sera converti en jetons par le package « tm » et comparé au mot dans le dictionnaire de sentiments. Enfin, un score sera calculé en ajoutant le poids de chaque mot subjectif dans le texte.
+Dans Azure Machine Learning, une nouvelle expérience vide a été créée. La figure ci-dessous illustre le flux d’expérience pour l’analyse de sentiments basée sur un lexique. Le fichier « sent\_dict.csv » correspond au lexique de subjectivité MPQA ; il est défini en tant que l’une des entrées du module [Exécuter le script R][execute-r-script]. Une autre entrée correspond à une critique partielle provenant du jeu de données des critiques Amazon à des fins de test, dans laquelle nous avons effectué des opérations de sélection, de modification des noms de colonne et de fractionnement. Nous utilisons un package de hachage pour stocker le lexique de subjectivité en mémoire et accélérer le processus de calcul du score. L'ensemble du texte sera converti en jetons par le package « tm » et comparé au mot dans le dictionnaire de sentiments. Enfin, un score sera calculé en ajoutant le poids de chaque mot subjectif dans le texte.
 
 ###Flux de l’expérience :
 
@@ -89,7 +89,7 @@ Dans Azure Machine Learning, une nouvelle expérience vide a été créée. La f
     sent_dict_data<- maml.mapInputPort(1) # class: data.frame
     dataset2 <- maml.mapInputPort(2) # class: data.frame
  
-   # Installez le package de hachage install.packages("src/hash_2.2.6.zip", lib = ".", repos = NULL, verbose = TRUE) success <- library("hash", lib.loc = ".", logical.return = TRUE, verbose = TRUE) library(tm) library(stringr)
+   # Installez le package de hachage install.packages("src/hash\_2.2.6.zip", lib = ".", repos = NULL, verbose = TRUE) success <- library("hash", lib.loc = ".", logical.return = TRUE, verbose = TRUE) library(tm) library(stringr)
 
     #create sentiment dictionary
     negation_word <- c("not","nor", "no")
@@ -153,4 +153,4 @@ Pour les questions fréquemment posées relatives à l’utilisation du service 
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

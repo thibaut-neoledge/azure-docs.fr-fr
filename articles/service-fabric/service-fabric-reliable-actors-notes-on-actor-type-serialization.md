@@ -1,11 +1,12 @@
 <properties
-   pageTitle="Remarques sur la sérialisation des types d'acteur dans Azure Service Fabric Actors"
-   description="exigences de base pour la définition des classes sérialisables pouvant servir à définir les interfaces et l'état des acteurs fiables Azure Fabric"
+   pageTitle="Remarques sur les Acteurs fiables pour la sérialisation de type d'acteur"
+   description="Traite des exigences de base pour la définition des classes sérialisables pouvant servir à définir les interfaces et l'état des Acteurs fiables Service Fabric"
    services="service-fabric"
    documentationCenter=".net"
    authors="clca"
    manager="timlt"
    editor=""/>
+
 
 <tags
    ms.service="service-fabric"
@@ -13,11 +14,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/02/2015"
+   ms.date="08/05/2015"
    ms.author="claudioc"/>
 
 
-# Remarques sur la sérialisation de type dans Azure Service Fabric Actors
+
+# Remarques sur la sérialisation de type des Acteurs fiables Service Fabric
 
 Certains aspects importants doivent être pris en compte lors de la définition des interfaces et de l'état de l'acteur : les types doivent être sérialisables en contrat de données. Pour plus d'informations sur les contrats de données, consultez [MSDN](https://msdn.microsoft.com/library/ms731923.aspx).
 
@@ -82,6 +84,5 @@ public class VoicemailBox
 }
 
 ```
- 
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

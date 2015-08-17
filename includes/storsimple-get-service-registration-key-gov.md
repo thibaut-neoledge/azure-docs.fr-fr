@@ -1,5 +1,4 @@
 
-
 #### Pour obtenir la clé d’inscription au service StorSimple
 
 1. À la page **Service StorSimple Manager**, cliquez sur le service que vous avez créé. La page **Démarrage rapide** s’affiche. (Vous pouvez cliquer sur l’icône de démarrage rapide à tout moment ![Icône Démarrage rapide de StorSimple](./media/storsimple-get-service-registration-key-gov/HCS_QuickStartIcon-include.png) pour accéder à la page **Démarrage rapide**.)
@@ -20,4 +19,4 @@
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

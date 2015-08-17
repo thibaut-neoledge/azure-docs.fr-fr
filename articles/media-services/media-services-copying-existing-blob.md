@@ -7,6 +7,7 @@
 	manager="dwrede" 
 	editor=""/>
 
+
 <tags 
 	ms.service="media-services" 
 	ms.workload="media" 
@@ -15,6 +16,7 @@
 	ms.topic="article" 
 	ms.date="05/26/2015" 
 	ms.author="juliako"/>
+
 
 #Copie d'un objet blob existant dans un élément multimédia Media Services
 
@@ -60,11 +62,17 @@ Dans cette section, vous aller créer et configurer un projet d'application cons
 
 		<appSettings>
 		  <add key="MediaServicesAccountName" value="Media-Services-Account-Name"/>
+
 		  <add key="MediaServicesAccountKey" value="Media-Services-Account-Key"/>
+
 		  <add key="MediaServicesStorageAccountName" value="Media-Services-Storage-Account-Name"/>
+
 		  <add key="MediaServicesStorageAccountKey" value="Media-Services-Storage-Account-Key"/>
+
 		  <add key="ExternalStorageAccountName" value="External-Storage-Account-Name"/>
+
 		  <add key="ExternalStorageAccountKey" value="External-Storage-Account-Key"/>
+
 		</appSettings>
 
 
@@ -73,7 +81,10 @@ Dans cette section, vous aller créer et configurer un projet d'application cons
 L'exemple de code ci-dessous effectue les tâches suivantes :
 
 1. Crée l'instance CloudMediaContext. 
-1. Crée des instances CloudStorageAccount : _sourceStorageAccount et _destinationStorageAccount. 1. Télécharge des fichiers Smooth Streaming depuis un répertoire local vers un conteneur d'objets blob qui se trouve dans _sourceStorageAccount. 1. Crée un nouvel élément multimédia. Le conteneur d'objets blob qui est créé pour cet élément multimédia se trouve dans _destinationStorageAccount. 1. Utilise le Kit de développement logiciel (SDK) Azure Storage pour copier les objets blob spécifiés dans le conteneur associé à l'élément multimédia.
+1. Crée des instances CloudStorageAccount : \_sourceStorageAccount et \_destinationStorageAccount.
+1. Télécharge des fichiers Smooth Streaming depuis un répertoire local vers un conteneur d'objets blob qui se trouve dans \_sourceStorageAccount.\_
+1. Crée un nouvel élément multimédia. Le conteneur d'objets blob qui est créé pour cet élément multimédia se trouve dans \_destinationStorageAccount.
+1. Utilise le Kit de développement logiciel (SDK) Azure Storage pour copier les objets blob spécifiés dans le conteneur associé à l'élément multimédia.
 
 >[AZURE.NOTE]L'opération de copie ne lève pas d'exception si le localisateur a expiré.
 
@@ -283,4 +294,4 @@ L'exemple de code ci-dessous effectue les tâches suivantes :
 		}
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

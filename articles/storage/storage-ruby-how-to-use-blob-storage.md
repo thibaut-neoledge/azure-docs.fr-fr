@@ -51,7 +51,7 @@ Pour utiliser Azure Storage, vous devez télécharger et utiliser le package Azu
 
 ## Configuration d'une connexion Azure Storage
 
-Le module Azure lit les variables d'environnement **AZURE_STORAGE_ACCOUNT** et **AZURE_STORAGE_ACCESS_KEY** pour obtenir les informations nécessaires à la connexion à votre compte Azure Storage. Si ces variables d'environnement ne sont pas définies, vous devez spécifier les informations de compte avant d'utiliser **Azure::BlobService** avec le code suivant :
+Le module Azure lit les variables d'environnement **AZURE\_STORAGE\_ACCOUNT** et **AZURE\_STORAGE\_ACCESS\_KEY** pour obtenir les informations nécessaires à la connexion à votre compte Azure Storage. Si ces variables d'environnement ne sont pas définies, vous devez spécifier les informations de compte avant d'utiliser **Azure::BlobService** avec le code suivant :
 
 	Azure.config.storage_account_name = "<your azure storage account>"
 	Azure.config.storage_access_key = "<your azure storage access key>"
@@ -68,7 +68,7 @@ Pour obtenir ces valeurs :
 
 [AZURE.INCLUDE [storage-container-naming-rules-include](../../includes/storage-container-naming-rules-include.md)]
 
-L'objet **Azure::BlobService** permet d'utiliser des conteneurs et des objets blob. Pour créer un conteneur, utilisez la méthode **create_container()**.
+L'objet **Azure::BlobService** permet d'utiliser des conteneurs et des objets blob. Pour créer un conteneur, utilisez la méthode **create\_container()**.
 
 L'exemple suivant crée un conteneur ou imprime l'erreur le cas échéant.
 
@@ -81,19 +81,19 @@ L'exemple suivant crée un conteneur ou imprime l'erreur le cas échéant.
 
 Si vous souhaitez que les fichiers du conteneur soient publics, vous pouvez définir le niveau d'accès du conteneur.
 
-Vous pouvez simplement modifier l’appel à <strong>create_container()</strong> pour passer l’option **:public_access_level** :
+Vous pouvez simplement modifier l’appel à <strong>create\_container()</strong> pour passer l’option **:public\_access\_level** :
 
 	container = azure_blob_service.create_container("test-container", 
 	  :public_access_level => "<public access level>")
 
 
-Les valeurs valides pour l'option **:public_access_level** sont les suivantes :
+Les valeurs valides pour l'option **:public\_access\_level** sont les suivantes :
 
 * **blob** : spécifie un accès public total en lecture pour le conteneur et les données d’objets blob. Les clients peuvent énumérer les objets blob à l’intérieur du conteneur via une demande anonyme, mais ne peuvent pas énumérer les conteneurs dans le compte de stockage.
 
 * **container** : spécifie un accès public en lecture pour les objets blob. les données d’objets blob à l’intérieur de ce conteneur peuvent être lues via une demande anonyme, mais les données du conteneur ne sont pas disponibles. Les clients ne peuvent pas énumérer les objets blob à l'intérieur du conteneur via une demande anonyme.
 
-Vous pouvez également modifier le niveau d'accès public d'un conteneur en utilisant la méthode **set_container_acl()** afin de spécifier le niveau d'accès public.
+Vous pouvez également modifier le niveau d'accès public d'un conteneur en utilisant la méthode **set\_container\_acl()** afin de spécifier le niveau d'accès public.
  
 Dans l'exemple suivant, le niveau d'accès public du **conteneur** est modifié :
 
@@ -101,7 +101,7 @@ Dans l'exemple suivant, le niveau d'accès public du **conteneur** est modifié�
 
 ## Procédure : chargement d’un objet blob dans un conteneur
 
-Pour télécharger du contenu dans un objet blob, utilisez la méthode **create_block_blob()** pour créer l'objet blob, utiliser un fichier ou une chaîne en tant que contenu de l'objet blob.
+Pour télécharger du contenu dans un objet blob, utilisez la méthode **create\_block\_blob()** pour créer l'objet blob, utiliser un fichier ou une chaîne en tant que contenu de l'objet blob.
 
 Le code suivant télécharge le fichier **test.png** en tant que nouvel objet blob nommé « image-blob » dans le conteneur.
 
@@ -112,7 +112,7 @@ Le code suivant télécharge le fichier **test.png** en tant que nouvel objet bl
 
 ## Procédure : création d’une liste d’objets blob dans un conteneur
 
-Pour énumérer les conteneurs, utilisez la méthode **list_containers()**. Pour énumérer les objets blob à l'intérieur d'un conteneur, utilisez la méthode **list_blobs()**.
+Pour énumérer les conteneurs, utilisez la méthode **list\_containers()**. Pour énumérer les objets blob à l'intérieur d'un conteneur, utilisez la méthode **list\_blobs()**.
 
 Cette action génère les URL de tous les objets blob de tous les conteneurs pour le compte.
 
@@ -126,15 +126,15 @@ Cette action génère les URL de tous les objets blob de tous les conteneurs pou
 
 ## Procédure : téléchargement d’objets blob
 
-Pour télécharger des objets blob, utilisez la méthode **get_blob()** afin d'extraire le contenu.
+Pour télécharger des objets blob, utilisez la méthode **get\_blob()** afin d'extraire le contenu.
 
-L'exemple suivant illustre l'utilisation de **get_blob()** pour télécharger le contenu d'« image-blob » et l'écrire dans un fichier local.
+L'exemple suivant illustre l'utilisation de **get\_blob()** pour télécharger le contenu d'« image-blob » et l'écrire dans un fichier local.
 
 	blob, content = azure_blob_service.get_blob(container.name,"image-blob")
 	File.open("download.png","wb") {|f| f.write(content)}
 
 ## Procédure : suppression d’un objet blob
-Pour supprimer un objet blob, utilisez la méthode **delete_blob()**. L'exemple suivant illustre la suppression d'un objet blob.
+Pour supprimer un objet blob, utilisez la méthode **delete\_blob()**. L'exemple suivant illustre la suppression d'un objet blob.
 
 	azure_blob_service.delete_blob(container.name, "image-blob")
 
@@ -147,4 +147,4 @@ Maintenant que vous connaissez les bases du stockage des objets blob, consultez 
 - Accédez au référentiel du [Kit de développement logiciel (SDK) Azure pour Ruby](https://github.com/WindowsAzure/azure-sdk-for-ruby) sur GitHub.
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

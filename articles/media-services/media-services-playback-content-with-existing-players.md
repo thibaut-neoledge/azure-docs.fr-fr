@@ -81,4 +81,4 @@ Pour plus d’informations sur le développement de vos propres lecteurs, consul
  
 [AMSPlayer]: ./media/media-services-playback-content-with-existing-players/media-services-portal-player.png
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

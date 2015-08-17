@@ -7,6 +7,7 @@
    manager="wpickett"
    editor=""/>
 
+
 <tags
    ms.service="azure-resource-manager"
    ms.devlang="na"
@@ -16,11 +17,16 @@
    ms.date="07/24/2015"
    ms.author="tomfitz"/>
 
+
 # Présentation d’Azure Resource Manager
 
 Les applications sont généralement constituées de nombreux composants, par exemple application web, base de données, serveur de base de données, stockage et services tiers. Vous ne voyez pas ces composants comme des entités distinctes, mais plutôt comme des parties associées et interdépendantes d’une seule et même entité. Vous avez alors besoin de regrouper le déploiement, la gestion et la surveillance de ces différentes parties. Azure Resource Manager vous permet de manipuler les ressources de votre application sous la forme d’un groupe. Vous pouvez déployer, mettre à jour ou supprimer toutes les ressources de votre application dans le cadre d’une opération unique et coordonnée. Vous utilisez un modèle de déploiement pouvant fonctionner avec différents environnements (environnements de test, intermédiaire et de production). Vous pouvez clarifier la facturation pour votre organisation en visualisant les coûts cumulés pour l’ensemble du groupe.
 
 Azure Resource Manager intègre en mode natif un contrôle d’accès à la plate-forme de gestion pour vous permettre de spécifier les actions qu’un utilisateur de votre organisation est autorisé à effectuer sur un groupe de ressources.
+
+Voici une illustration de cette vue d'ensemble.
+
+[AZURE.VIDEO azure-resource-manager-overview]
 
 > [AZURE.NOTE]Cette rubrique décrit les ressources, les groupes et les modèles en utilisant le portail en version préliminaire pour illustrer ces concepts. Toutefois, vous pouvez également créer, gérer et supprimer des ressources Azure à l’aide de l’[interface de ligne de commande Azure pour Mac, Linux et Windows](virtual-machines/xplat-cli-azure-resource-manager.md), ainsi qu’avec [PowerShell](powershell-azure-resource-manager.md).
 
@@ -120,9 +126,9 @@ Pour plus d'informations sur l'utilisation du portail en version préliminaire, 
 
 ## Étapes suivantes
 
-- Pour en savoir plus sur la création de modèles, consultez [Création de modèles](./resource-group-authoring-templates.md)
+- Pour en savoir plus sur la création de modèles, consultez[Création de modèles](./resource-group-authoring-templates.md).
 - Pour déployer le modèle créé, consultez [Déploiement de modèles](azure-portal/resource-group-template-deploy.md)
 - Pour comprendre les fonctions que vous pouvez utiliser dans un modèle, consultez [Fonctions de modèle](./resource-group-template-functions.md)
 - Pour obtenir des instructions sur la conception de vos modèles, consultez [Meilleures pratiques relatives à la conception des modèles Azure Resource Manager](best-practices-resource-manager-design-templates.md).
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

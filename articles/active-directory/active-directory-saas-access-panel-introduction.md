@@ -38,7 +38,7 @@ Le volet d’accès permet aux utilisateurs de modifier certains paramètres de 
 
 - afficher et lancer des applications cloud auxquelles l’accès vous a été accordé par l’administrateur Azure AD. Pour plus d’informations sur le volet d’accès du point de vue de l’utilisateur final, consultez [Utilisation du volet d’accès](https://msdn.microsoft.com/library/azure/dn756411.aspx) ;
 
-- gérer les groupes en libre-service. Plus précisément, vous pouvez créer et gérer des groupes de sécurité et demander l’appartenance à des groupes de sécurité dans Azure AD. Pour plus d’informations, consultez la rubrique [Gestion de groupe libre-service pour les utilisateurs dans Azure AD](https://msdn.microsoft.com/library/azure/dn641267.aspx) et [Gérer vos groupes](https://msdn.microsoft.com/library/azure/dn641268.aspx).
+- gérer les groupes en libre-service. Plus précisément, vous pouvez créer et gérer des groupes de sécurité et demander l’appartenance à des groupes de sécurité dans Azure AD. Pour plus d’informations, consultez [Gestion de groupe libre-service pour les utilisateurs dans Azure AD](active-directory-accessmanagement-self-service-group-management.md) et [Gérer vos groupes](active-directory-manage-groups.md).
 
 
 
@@ -46,9 +46,9 @@ Le volet d’accès permet aux utilisateurs de modifier certains paramètres de 
 ## Accès au volet d’accès
 
 
-Les utilisateurs accèdent au volet d’accès en visitant l’URL suivante dans un navigateur web :<br> **http://myapps.microsoft.com**
+Les utilisateurs accèdent au volet d’accès en visitant l’URL suivante dans un navigateur web : <br> ****http://myapps.microsoft.com**
 
-Si vous avez configuré la personnalisation de votre page de connexion, vous pouvez charger cette personnalisation par défaut en ajoutant le domaine de votre organisation à la fin de l’URL :<br> **http://myapps.microsoft.com/contosobuild.com**
+Si vous avez configuré la personnalisation de votre page de connexion, vous pouvez charger cette personnalisation par défaut en ajoutant le domaine de votre organisation à la fin de l’URL : <br> ****http://myapps.microsoft.com/contosobuild.com**
 
 Dans ce cas, tout nom de domaine actif ou vérifié ayant été configuré sous l’onglet Domaines de votre annuaire dans le portail de gestion Azure peut être utilisé, comme illustré dans la capture d’écran ci-dessous.
 
@@ -64,7 +64,7 @@ Cette URL doit être distribuée à tous les utilisateurs qui se connecteront au
 
 ## Authentification
 
-Pour accéder au volet d’accès, un utilisateur doit être authentifié à l’aide d’un compte professionnel dans Azure AD. <br> Un utilisateur peut être authentifié dans Azure AD directement. <br> En guise d’alternative, si une organisation a configuré la fédération à l’aide des services ADFS ou autres technologies, les utilisateurs peuvent être authentifiés par Windows Server Active Directory.
+Pour accéder au volet d’accès, un utilisateur doit être authentifié à l’aide d’un compte professionnel dans Azure AD. <br> Un utilisateur peut être authentifié dans Azure AD directement. <br> En guise d’alternative, si une organisation a configuré la fédération à l’aide des services ADFS ou d’autres technologies, les utilisateurs peuvent être authentifiés par Windows Server Active Directory.
 
 Si un utilisateur dispose d’un abonnement Azure ou Office 365 et qu’il utilise le portail de gestion Azure ou une application Office 365, la liste des applications lui est présentée sans qu’il ait à se connecter à nouveau. Les utilisateurs qui ne sont pas authentifiés sont invités à se connecter à l’aide du nom d’utilisateur et du mot de passe correspondant à leur compte dans Azure AD. Si l’organisation a configuré la fédération, la saisie du nom d’utilisateur suffit.
 
@@ -95,7 +95,7 @@ Pour pouvoir se connecter à des applications activées pour l’authentificatio
 ### My Apps pour Android
 
 
-My Apps pour Android est prise en charge sur tout appareil Android exécutant Android version 4.1 et ultérieures. Elle est disponible dans le [Google Play Store](https://play.google.com/store/apps/details?id=com.microsoft.myapps).
+My Apps pour Android est prise en charge sur tout appareil Android exécutant Android 4.1 et versions ultérieures. Elle est disponible dans le [Google Play Store](https://play.google.com/store/apps/details?id=com.microsoft.myapps).
 
 
 ![My apps][3]
@@ -116,7 +116,7 @@ My Apps pour iOS est prise en charge sur tout iPhone ou iPad exécutant iOS vers
 
 
 
-> [AZURE.NOTE]Vous pouvez vous connecter aux applications qui prennent en charge la fédération avec Azure AD (y compris Salesforce, Google Apps, Dropbox, Box, Concur, Workday, Office 365 et plus de 70 autres) sur presque n’importe quel navigateur web sur n’importe quel appareil sans nécessiter de plug-in ou d’application mobile. Le reste de l’expérience de volet d’accès accessible à [https://myapps.microsoft.com](https://myapps.microsoft.com/) ne nécessite pas non plus l’utilisation de l’application mobile My Apps sur un appareil mobile.
+> [AZURE.NOTE]Vous pouvez vous connecter aux applications qui prennent en charge la fédération avec Azure AD (y compris Salesforce, Google Apps, Dropbox, Box, Concur, Workday, Office 365 et plus de 70 autres) sur presque n’importe quel navigateur web sur n’importe quel appareil sans nécessiter de plug-in ou d’application mobile. Le reste de l’expérience de volet d’accès accessible à la page [https://myapps.microsoft.com](https://myapps.microsoft.com/) ne nécessite pas non plus l’utilisation de l’application mobile My Apps sur un appareil mobile.
  
 
 
@@ -128,52 +128,41 @@ Si vous êtes administrateur Azure et que vous êtes connecté au portail de ges
 
 **Pour tester sous un compte d’utilisateur différent**
 
-1. Cliquez sur le menu utilisateur dans le coin supérieur droit du portail Azure ou du volet d’accès, puis sélectionnez « \*\*Déconnexion\*\* ». Vous êtes alors déconnecté d’Azure AD.
+1. Cliquez sur le menu utilisateur dans le coin supérieur droit du portail Azure ou du volet d’accès, puis sélectionnez « **Déconnexion** ». Vous êtes alors déconnecté d’Azure AD.
 
-2. Accédez au volet d’accès à **http://myapps.microsoft.com**.
+2. Accédez au volet d’accès à la page ****http://myapps.microsoft.com**.
 
 3. Dans la page de connexion, entrez le nom d’utilisateur et le mot de passe du compte dans l’annuaire que vous souhaitez tester.
-
-
-
  
 ## Lancement d’applications
 
 Plusieurs types d’applications peuvent apparaître dans le volet d’accès.
  
-
 ### Applications Office 365
 
 Si une organisation utilise des applications Office 365 et que l’utilisateur dispose d’une licence pour celles-ci, les applications Office 365 apparaissent dans le volet d’accès de l’utilisateur.
 
 Quand un utilisateur clique sur la vignette d’une application Office 365, il est redirigé vers cette application et connecté automatiquement.
- 
-
 
 ### Applications Microsoft et tierces configurées avec l’authentification unique basée sur la fédération
 
-Il s’agit d’applications que l’administrateur a ajoutées à la section Active Directory du portail de gestion Azure avec le mode d’authentification unique défini sur « \* Authentification unique avec Microsoft Azure AD \* ». Un utilisateur voit ces applications uniquement si l’accès lui a été accordé explicitement par l’administrateur.
+Il s’agit d’applications que l’administrateur a ajoutées à la section Active Directory du portail de gestion Azure avec le mode d’authentification unique défini sur « * Authentification unique avec Microsoft Azure AD * ». Un utilisateur voit ces applications uniquement si l’accès lui a été accordé explicitement par l’administrateur.
 
 Quand un utilisateur clique sur la vignette de l’une de ces applications, il est redirigé vers cette application et connecté automatiquement.
- 
 
 ### Authentification unique avec mot de passe sans approvisionnement d’identité
 
-Il s’agit d’applications que l’administrateur a ajoutées à la section Active Directory du portail de gestion Azure avec le mode d’authentification unique défini sur « \* Authentification unique avec mot de passe \* ». <br> Tous les utilisateurs de l’annuaire voient toutes les applications qui ont été configurées dans ce mode.
+Il s’agit d’applications que l’administrateur a ajoutées à la section Active Directory du portail de gestion Azure avec le mode d’authentification unique défini sur « * Authentification unique avec mot de passe * ». <br> Tous les utilisateurs de l’annuaire voient toutes les applications qui ont été configurées dans ce mode.
 
 La première fois qu’un utilisateur clique sur une vignette de l’une de ces applications, il est invité à installer le plug-in d’authentification par mot de passe pour Internet Explorer ou Chrome, ce qui peut nécessiter le redémarrage de son navigateur web. Quand il est renvoyé au volet d’accès et qu’il clique de nouveau sur la vignette de l’application, il est invité à fournir un nom d’utilisateur et un mot de passe pour l’application. Une fois le nom d’utilisateur et le mot de passe entrés, ces informations d’identification sont stockées de manière sécurisée dans Azure AD et liées à son compte dans Azure AD, et le volet d’accès connecte automatiquement l’utilisateur à l’application à l’aide de ces informations d’identification.
 
 La prochaine fois qu’un utilisateur clique sur la vignette de l’application, il est automatiquement connecté à l’application sans avoir à réentrer les informations d’identification et sans avoir à réinstaller le plug-in d’authentification unique avec mot de passe.
 
 Si les informations d’identification d’un utilisateur ont changé dans l’application tierce cible, l’utilisateur doit aussi mettre à jour ses informations d’identification stockées dans Azure AD. Pour cela, l’utilisateur doit choisir l’icône dans l’angle inférieur droit de la vignette de l’application et sélectionner « Mettre à jour les informations d’identification » pour réentrer le nom d’utilisateur et le mot de passe correspondant à cette application.
- 
-
-
-
 
 ### Authentification unique avec mot de passe avec approvisionnement d’identité
 
-Il s’agit d’applications que l’administrateur a ajoutées à la section Active Directory du portail de gestion Azure avec le mode d’authentification unique défini sur « \* Authentification unique avec mot de passe \* » ainsi que l’approvisionnement d’identité.
+Il s’agit d’applications que l’administrateur a ajoutées à la section Active Directory du portail de gestion Azure avec le mode d’authentification unique défini sur « * Authentification unique avec mot de passe * » ainsi que l’approvisionnement d’identité.
 
 La première fois qu’un utilisateur clique sur une vignette de l’une de ces applications, il est invité à installer le plug-in d’authentification par mot de passe pour Internet Explorer ou Chrome, ce qui peut nécessiter le redémarrage de son navigateur web. Quand il est renvoyé au volet d’accès et qu’il clique de nouveau sur la vignette de l’application, il est connecté automatiquement à l’application.
 
@@ -184,18 +173,12 @@ Certaines applications peuvent exiger de l’utilisateur qu’il modifie son mot
 Lors de la configuration de l’authentification unique pour une application, le portail de gestion Azure propose une troisième option, l’authentification unique existante. Cette option permet simplement à l’administrateur de créer un lien vers une application et de le placer dans le panneau d’accès pour les utilisateurs sélectionnés. Par exemple, s’il existe une application qui est configurée pour authentifier les utilisateurs avec Active Directory Federation Services 2.0, l’administrateur peut utiliser l’option d’authentification unique existante pour créer un lien vers cette application dans le panneau d’accès. Lorsque les utilisateurs accèdent au lien, ils sont authentifiés via Active Directory Federation Services 2.0 ou toute autre solution d’authentification unique fournie par l’application.
 
 
-
-
-
-## Ressources supplémentaires
-
-* [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md)
+[AZURE.INCLUDE [saas-toc](../../includes/active-directory-saas-toc.md)]
 
 <!--Image references-->
 [1]: ./media/active-directory-saas-access-panel-introduction/ic767166.png
 [2]: ./media/active-directory-saas-access-panel-introduction/ic767167.png
 [3]: ./media/active-directory-saas-access-panel-introduction/ic767168.png
 [4]: ./media/active-directory-saas-access-panel-introduction/ic767169.png
- 
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

@@ -95,4 +95,4 @@ Pour consulter une présentation sur les performances, accédez à la [vue d’e
 
 [portail Azure]: http://portal.azure.com/
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

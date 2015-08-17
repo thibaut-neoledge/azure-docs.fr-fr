@@ -129,8 +129,8 @@ Une fois ces étapes terminées, il vous suffit de remplacer les anciennes réf�
 
 Sur Package.appxmanifest, `File Type Associations` a été mis à jour à partir de :
 
- -   capptain_reach_content vers engagement_reach_content
- -   capptain_log_file vers engagement_log_file
+ -   capptain\_reach\_content vers engagement\_reach\_content
+ -   capptain\_log\_file vers engagement\_log\_file
 
 ### ID de l'application / clé SDK
 
@@ -169,4 +169,4 @@ Notez que ce changement affecte également les méthodes substituées.
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

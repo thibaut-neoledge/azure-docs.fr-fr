@@ -63,4 +63,4 @@ Pour plus d’informations sur la gestion de votre espace de travail, consultez 
 
 <!--Link references-->
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

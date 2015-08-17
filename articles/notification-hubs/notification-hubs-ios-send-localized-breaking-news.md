@@ -17,9 +17,10 @@
 	ms.author="wesmc"/>
 # Utilisation de Notification Hubs pour envoyer les dernières nouvelles localisées vers des appareils iOS
 
-<div class="dev-center-tutorial-selector sublanding">
-    	<a href="/documentation/articles/notification-hubs-windows-store-dotnet-send-localized-breaking-news/" title="Windows Store C#">Windows Store C#</a><a href="/documentation/articles/notification-hubs-ios-send-localized-breaking-news/" title="iOS" class="current">iOS</a>
-</div>
+> [AZURE.SELECTOR]
+- [Windows Store C#](notification-hubs-windows-store-dotnet-send-localized-breaking-news)
+- [iOS](notification-hubs-ios-send-localized-breaking-news)
+
 
 ##Vue d'ensemble
 
@@ -46,7 +47,7 @@ Vous avez également besoin de Visual Studio 2012.
 
 Dans le didacticiel [Utilisation de Notification Hubs pour envoyer les dernières nouvelles], vous avez créé une application qui se sert de **balises** pour s'abonner aux notifications relatives à différentes catégories de nouvelles. Cependant, de nombreuses applications sont destinées à plusieurs marchés et doivent donc être localisées. Cela signifie que le contenu des notifications proprement dites doit lui aussi être localisé et envoyé au bon ensemble d’appareils. Dans cette rubrique, nous allons vous montrer comment utiliser la fonctionnalité de **modèle** de Notification Hubs pour facilement envoyer des notifications de dernières nouvelles localisées.
 
-Remarque : pour envoyer des notifications localisées, vous pouvez notamment créer plusieurs versions de chaque balise. Par exemple, pour prendre en charge l'anglais, le français et le mandarin, nous aurions besoin de trois balises différentes pour les nouvelles internationales : « world_en », « world_fr » et « world_ch ». Il faudrait ensuite que nous envoyions une version localisée des nouvelles internationales à chacune de ces balises. Dans cette rubrique, nous utilisons des modèles afin d'éviter la prolifération de balises et d'éliminer la nécessité d'envoyer plusieurs messages.
+Remarque : pour envoyer des notifications localisées, vous pouvez notamment créer plusieurs versions de chaque balise. Par exemple, pour prendre en charge l'anglais, le français et le mandarin, nous aurions besoin de trois balises différentes pour les nouvelles internationales : « world\_en », « world\_fr » et « world\_ch ». Il faudrait ensuite que nous envoyions une version localisée des nouvelles internationales à chacune de ces balises. Dans cette rubrique, nous utilisons des modèles afin d'éviter la prolifération de balises et d'éliminer la nécessité d'envoyer plusieurs messages.
 
 À un haut niveau, les modèles permettent de spécifier comment un appareil particulier reçoit une notification. Le modèle spécifie le format de charge utile exact en se référant aux propriétés qui font partie du message envoyé par le serveur principal de votre application. Aux fins de notre exemple, nous allons envoyer un message de paramètres régionaux contenant toutes les langues prises en charge :
 
@@ -71,7 +72,7 @@ Les modèles sont une fonctionnalité très puissante sur laquelle vous pouvez o
 Nous allons maintenant modifier l'application de dernières nouvelles que vous avez créée à la rubrique [Utilisation de Notification Hubs pour envoyer les dernières nouvelles] pour envoyer les dernières nouvelles localisées à l'aide de modèles.
 
 
-Dans votre MainStoryboard_iPhone.storyboard, ajoutez un contrôle segmenté avec les trois langues que nous prenons en charge : anglais, français et mandarin.
+Dans votre MainStoryboard\_iPhone.storyboard, ajoutez un contrôle segmenté avec les trois langues que nous prenons en charge : anglais, français et mandarin.
 
 ![][13]
 
@@ -221,4 +222,4 @@ Une référence relative à la langue d'expression du modèle se trouve dans [No
 [Notification Hubs, procédure pour iOS]: http://msdn.microsoft.com/library/jj927168.aspx
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

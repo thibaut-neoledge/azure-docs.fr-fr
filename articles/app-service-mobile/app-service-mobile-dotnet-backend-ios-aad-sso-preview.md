@@ -20,9 +20,9 @@ ms.author="mahender" />
 
 [AZURE.INCLUDE [app-service-mobile-note-mobile-services-preview](../../includes/app-service-mobile-note-mobile-services-preview.md)]
 
-Dans ce didacticiel, vous allez ajouter le processus d'authentification au projet de démarrage rapide à l'aide de la bibliothèque d'authentification Active Directory.
+Dans ce didacticiel, vous allez ajouter le processus d'authentification au projet de démarrage rapide à l'aide de la bibliothèque d'authentification Active Directory (ADAL). Vous pouvez également activer l'authentification avec moins de configuration en utilisant le kit de développement logiciel (SDK) Mobile Apps, comme indiqué dans le didacticiel [Ajout d’une authentification à votre application]. L’utilisation de cette rubrique sur ADAL fournit une expérience d'authentification plus intégrée pour les utilisateurs finaux. De plus, ADAL offre des capacités plus riches pour l'accès à d'autres ressources protégées AAD.
 
-Pour qu'il soit possible d'authentifier les utilisateurs, vous devez inscrire votre application auprès de votre client Azure Active Directory (AAD). Cela se déroule en deux étapes : Vous devez d'abord inscrire votre service App Service et exposer les autorisations sur celui-ci. Vous devez ensuite inscrire votre application iOS et lui accorder l'accès à ces autorisations.
+Pour qu'il soit possible d'authentifier les utilisateurs avec ADAL, vous devez inscrire votre application auprès de votre client Azure Active Directory (AAD). Cela se déroule en deux étapes : Vous devez d'abord inscrire votre service App Service et exposer les autorisations sur celui-ci. Vous devez ensuite inscrire votre application iOS et lui accorder l'accès à ces autorisations.
 
 Ce didacticiel requiert les éléments suivants :
 
@@ -124,4 +124,4 @@ Vous pourrez désormais faire référence à la bibliothèque d'authentification
  [Prise en main des applications mobiles]: app-service-mobile-dotnet-backend-ios-get-started-preview.md
  
 
-<!----HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

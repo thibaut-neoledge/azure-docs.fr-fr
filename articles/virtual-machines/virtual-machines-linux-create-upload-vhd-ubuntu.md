@@ -91,9 +91,9 @@ Cet article suppose que vous avez déjà installé un système d'exploitation L
 
 5.	(Facultatif) Si le système Ubuntu rencontre une erreur et redémarre, il attend souvent la saisie de l'utilisateur à l'invite de démarrage grub, ce qui empêche le système de démarrer correctement. Pour éviter ceci, procédez comme suit :
 
-	a) Ouvrez le fichier /etc/grub.d/00_header.
+	a) Ouvrez le fichier /etc/grub.d/00\_header.
 
-	b) Dans la fonction **make_timeout()**, recherchez **if ["\${recordfail}" = 1 ]; then**
+	b) Dans la fonction **make\_timeout()**, recherchez **if ["\\${recordfail}" = 1 ]; then**
 
 	c) Modifiez le texte sous cette ligne comme suit : **set timeout=5**.
 
@@ -125,4 +125,4 @@ Cet article suppose que vous avez déjà installé un système d'exploitation L
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

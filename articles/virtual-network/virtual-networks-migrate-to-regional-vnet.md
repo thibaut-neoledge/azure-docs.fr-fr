@@ -64,4 +64,4 @@ Les machines virtuelles qui sont actuellement dans un groupe d’affinités n’
 Une fois qu’une machine virtuelle est déployée, elle l’est sur une seule unité d’échelle. Les groupes d’affinités peuvent restreindre la taille disponible de l’ensemble des machines virtuelles pour un nouveau déploiement de machines virtuelles, mais les machines virtuelles existantes déployées sont déjà limitées à la taille disponible de l’ensemble des machines virtuelles dans l’unité d’échelle où elles sont déployées. Pour cette raison, la suppression d’une machine virtuelle du groupe d’affinités n’a aucun effet.
  
 
-<!----HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

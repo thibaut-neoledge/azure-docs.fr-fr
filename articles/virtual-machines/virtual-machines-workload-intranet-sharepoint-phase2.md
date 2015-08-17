@@ -29,15 +29,15 @@ Tout d'abord, vous devez remplir la colonne **Nom de la machine virtuelle** de l
 
 Élément | Nom de la machine virtuelle | Image de galerie | Taille minimale
 --- | --- | --- | ---
-1. | ______________ (premier contrôleur de domaine, par exemple DC1) | Windows Server 2012 R2 Datacenter | A2 (Medium)
-2. | ______________ (second contrôleur de domaine, par exemple DC2) | Windows Server 2012 R2 Datacenter | A2 (Medium)
-3. | ______________ (premier ordinateur SQL Server, par exemple SQL1) | Microsoft SQL Server 2014 Enterprise – Windows Server 2012 R2 | 	A7
-4. | ______________ (second ordinateur SQL Server, par exemple SQL2) | Microsoft SQL Server 2014 Enterprise – Windows Server 2012 R2 | 	A7
-5. | ______________ (nœud majoritaire de cluster, par exemple MN1) | Windows Server 2012 R2 Datacenter | A1 (Small)
-6. | ______________ (premier serveur d'applications SharePoint, par exemple APP1) | Microsoft SharePoint Server 2013, version d'évaluation – Windows Server 2012 R2 | A4 (ExtraLarge)
-7. | ______________ (second serveur d'applications SharePoint, par exemple APP2) | Microsoft SharePoint Server 2013, version d'évaluation – Windows Server 2012 R2 | A4 (ExtraLarge)
-8. | ______________ (premier serveur Web SharePoint, par exemple WEB1) | Microsoft SharePoint Server 2013, version d'évaluation – Windows Server 2012 R2 | A4 (ExtraLarge)
-9. | ______________ (second serveur Web SharePoint, par exemple WEB2) | Microsoft SharePoint Server 2013, version d'évaluation – Windows Server 2012 R2 | A4 (ExtraLarge)
+1\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_ (premier contrôleur de domaine, par exemple DC1) | Windows Server 2012 R2 Datacenter | A2 (Medium)
+2\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_ (second contrôleur de domaine, par exemple DC2) | Windows Server 2012 R2 Datacenter | A2 (Medium)
+3\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_ (premier ordinateur SQL Server, par exemple SQL1) | Microsoft SQL Server 2014 Enterprise – Windows Server 2012 R2 | 	A7
+4\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_ (second ordinateur SQL Server, par exemple SQL2) | Microsoft SQL Server 2014 Enterprise – Windows Server 2012 R2 | 	A7
+5\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_ (nœud majoritaire de cluster, par exemple MN1) | Windows Server 2012 R2 Datacenter | A1 (Small)
+6\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_ (premier serveur d'applications SharePoint, par exemple APP1) | Microsoft SharePoint Server 2013, version d'évaluation – Windows Server 2012 R2 | A4 (ExtraLarge)
+7\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_ (second serveur d'applications SharePoint, par exemple APP2) | Microsoft SharePoint Server 2013, version d'évaluation – Windows Server 2012 R2 | A4 (ExtraLarge)
+8\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_ (premier serveur Web SharePoint, par exemple WEB1) | Microsoft SharePoint Server 2013, version d'évaluation – Windows Server 2012 R2 | A4 (ExtraLarge)
+9\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_ (second serveur Web SharePoint, par exemple WEB2) | Microsoft SharePoint Server 2013, version d'évaluation – Windows Server 2012 R2 | A4 (ExtraLarge)
 
 **Table M – machines virtuelles pour la batterie de serveurs SharePoint 2013 intranet dans Azure**
 
@@ -128,17 +128,17 @@ Ensuite, vous devez ajouter le disque de données supplémentaire au premier con
 4.	Dans la page **Avant de commencer** de l’Assistant Nouveau volume, cliquez sur **Suivant**.
 5.	Dans la page **Sélectionner le serveur et le disque**, cliquez sur **Disque 2**, puis sur **Suivant**. À l’invite, cliquez sur **OK**.
 6.	Dans la page **Spécifier la taille du volume**, cliquez sur **Suivant**.
-7.	À la page **Affecter à la lettre d'un lecteur ou à un dossier**, cliquez sur **Suivant**.
-8.	À la page **Sélectionner les paramètres du système de fichiers**, cliquez sur **Suivant**.
-9.	À la page **Confirmer les sélections**, cliquez sur **Créer**.
-10.	Lorsque l'initialisation est terminée, cliquez sur **Fermer**.
+7.	Dans la page **Affecter à la lettre d’un lecteur ou à un dossier**, cliquez sur **Suivant**.
+8.	Dans la page **Sélectionner les paramètres du système de fichiers**, cliquez sur **Suivant**.
+9.	Dans la page **Confirmer les sélections**, cliquez sur **Créer**.
+10.	Quand l’initialisation est terminée, cliquez sur **Fermer**.
 
 Ensuite, testez la connectivité du premier contrôleur de domaine aux emplacements sur le réseau de votre organisation.
 
 ### <a id="testconn"></a>Test de la connectivité
 
 1.	Ouvrez une invite de commandes Windows PowerShell à partir du bureau.
-2.	Utilisez la commande **ping** pour effectuer un test Ping des noms et des adresses des ressources sur le réseau de votre organisation.
+2.	Utilisez la commande **ping** pour effectuer un test Ping des noms et des adresses des ressources sur le réseau de votre entreprise.
 
 Cette procédure garantit que la résolution de noms DNS fonctionne correctement (autrement dit, que la machine virtuelle est configurée correctement avec des serveurs DNS locaux) et que les paquets peuvent être transmis à destination et en provenance du réseau virtuel intersite.
 
@@ -170,9 +170,9 @@ L'ordinateur redémarre.
 
 La batterie de serveurs SharePoint aura besoin des comptes d'utilisateur suivants :
 
-- sp_farm : un compte d'utilisateur pour la gestion de batteries de serveurs SharePoint.
-- sp_farm_db : un compte d'utilisateur disposant de droits d'administrateur système sur des instances SQL Server.
-- sp_install: un compte d'utilisateur disposant des droits d'administration nécessaires pour installer des rôles et des fonctionnalités.
+- sp\_farm : un compte d'utilisateur pour la gestion de batteries de serveurs SharePoint.
+- sp\_farm\_db : un compte d'utilisateur disposant de droits d'administrateur système sur des instances SQL Server.
+- sp\_install: un compte d'utilisateur disposant des droits d'administration nécessaires pour installer des rôles et des fonctionnalités.
 - sqlservice : un compte d'utilisateur pour l'exécution d'instances SQL Server.
 
 Ensuite, connectez-vous à n'importe quel ordinateur avec un compte d'administrateur de domaine pour le domaine dont les contrôleurs de domaine sont membres, ouvrez une invite de commandes de niveau administrateur Windows PowerShell, puis exécutez les commandes suivantes *l'une après l'autre* :
@@ -191,14 +191,14 @@ Ensuite, procédez comme suit pour ajouter des propriétés de compte aux nouvea
 
 1.	À partir de l'écran d'accueil, saisissez **Utilisateurs Active Directory**, puis cliquez sur **Utilisateurs et ordinateurs Active Directory**.
 2.	Dans le volet d'arborescence, ouvrez votre domaine, puis cliquez sur **Utilisateurs**.
-3.	Dans le volet de contenu, cliquez avec le bouton droit sur **sp_install**, puis cliquez sur **Ajouter à un groupe**.
+3.	Dans le volet de contenu, cliquez avec le bouton droit sur **sp\_install**, puis cliquez sur **Ajouter à un groupe**.
 4.	Dans la boîte de dialogue **Sélectionner des groupes**, saisissez **Admins du domaine**, puis cliquez deux fois sur **OK**.
 5.	Dans la boîte de dialogue, cliquez sur **Affichage et sur Fonctionnalités avancées**. Cette option vous permet de voir tous les conteneurs et les onglets masqués dans les fenêtres de propriétés des objets Active Directory.
 6.	Cliquez avec le bouton droit sur votre nom de domaine, puis cliquez sur **Propriétés**.
 7.	Dans la boîte de dialogue **Propriétés**, cliquez sur l'onglet **Sécurité**, puis cliquez sur le bouton **Avancé**.
 8.	Dans la fenêtre **Paramètres de sécurité avancés pour <YourDomain>**, cliquez sur **Ajouter**.
 9.	Dans la fenêtre **Entrée d’autorisation pour <YourDomain>**, cliquez sur **Sélectionnez un principal**.
-10.	Dans la zone de texte, saisissez **<YourDomain>\sp_install**, puis cliquez sur **OK**.
+10.	Dans la zone de texte, saisissez **<YourDomain>\\sp\_install**, puis cliquez sur **OK**.
 11.	Sélectionner **Autoriser** pour la **création des objets ordinateur**, puis cliquez trois fois sur **OK**.
 
 Ensuite, mettez à jour les serveurs DNS de votre réseau virtuel afin qu'Azure affecte aux machines virtuelles les adresses IP des deux nouveaux contrôleurs de domaine à utiliser en tant que serveurs DNS. Notez que cette procédure utilise les valeurs de la table V (pour vos paramètres de réseau virtuel).
@@ -217,7 +217,7 @@ Ensuite, mettez à jour les serveurs DNS de votre réseau virtuel afin qu'Azure 
 
 Notez que vous redémarrez les deux contrôleurs de domaine afin qu'ils ne soient pas configurés avec les serveurs DNS locaux en tant que serveurs DNS. Les deux étant eux-mêmes des serveurs DNS, ils sont automatiquement configurés avec les serveurs DNS locaux en tant que redirecteurs DNS lorsqu'ils sont promus contrôleurs de domaine.
 
-Ensuite, vous devez créer un site de réplication Active Directory pour garantir que les serveurs dans le réseau virtuel Azure utilisent les contrôleurs de domaine locaux. Ouvrez une session sur le contrôleur de domaine principal avec le compte sp_install, puis exécutez les commandes suivantes à partir d'une invite de commandes de niveau administrateur Windows PowerShell :
+Ensuite, vous devez créer un site de réplication Active Directory pour garantir que les serveurs dans le réseau virtuel Azure utilisent les contrôleurs de domaine locaux. Ouvrez une session sur le contrôleur de domaine principal avec le compte sp\_install, puis exécutez les commandes suivantes à partir d'une invite de commandes de niveau administrateur Windows PowerShell :
 
 	$vnet="<Table V – Item 1 – Value column>"
 	$vnetSpace="<Table V – Item 5 – Value column>"
@@ -230,7 +230,7 @@ Ce schéma illustre la configuration résultant de la réussite de cette phase, 
 
 ## Étape suivante
 
-Pour poursuivre la configuration de cette charge de travail, passez à la [Phase 3 : configuration de l'infrastructure SQL Server](virtual-machines-workload-intranet-sharepoint-phase3.md).
+Pour poursuivre la configuration de cette charge de travail, passez à la [Phase 3 : configuration de l’infrastructure SQL Server](virtual-machines-workload-intranet-sharepoint-phase3.md).
 
 ## Ressources supplémentaires
 
@@ -244,4 +244,4 @@ Pour poursuivre la configuration de cette charge de travail, passez à la [Phase
 
 [Instructions d’implémentation des services d’infrastructure Azure](virtual-machines-infrastructure-services-implementation-guidelines.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

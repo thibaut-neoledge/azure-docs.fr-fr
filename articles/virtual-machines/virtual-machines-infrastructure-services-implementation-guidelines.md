@@ -441,4 +441,4 @@ Cette configuration comprend :
 [Fournisseurs de calcul, de réseau et de stockage Azure dans Azure Resource Manager](../articles/virtual-machines/virtual-machines-azurerm-versus-azuresm.md)
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

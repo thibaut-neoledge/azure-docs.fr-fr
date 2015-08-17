@@ -230,4 +230,4 @@ Ce didacticiel utilise une installation [HDInsight Storm], fournie avec la comma
 [13]: ./media/service-bus-event-hubs-getstarted/create-eph-csharp1.png
 [14]: ./media/service-bus-event-hubs-getstarted/create-sender-csharp1.png
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

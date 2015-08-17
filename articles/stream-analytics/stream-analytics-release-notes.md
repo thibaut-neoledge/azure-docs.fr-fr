@@ -7,14 +7,16 @@
 	manager="paulettm" 
 	editor="cgronlun"/>
 
+
 <tags 
 	ms.service="stream-analytics" 
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="07/30/2015" 
+	ms.date="08/05/2015" 
 	ms.author="jeffstok"/>
+
 
 #Notes de publication sur Microsoft Stream Analytics
 
@@ -29,23 +31,23 @@ Cette version contient les mises à jour suivantes.
 </tr>
 <tr>
 <td>ID d'organisation Power BI dissocié de l'ID&#160;Azure</td>
-<td>Cette fonctionnalité permet la sortie Power BI pour les travaux ASA sous tout type de compte Azure (Live ID ou ID d'organisation). En outre, vous pouvez avoir un ID d'organisation pour votre compte Azure et en utiliser un autre pour autoriser la sortie de Power BI.</td>
+<td>Cette fonctionnalité permet la <a href="https://azure.microsoft.com/documentation/articles/stream-analytics-power-bi-dashboard/">sortie Power&#160;BI</a> pour les travaux&#160;ASA sous tout type de compte Azure (Live&#160;ID ou ID&#160;d’entreprise). En outre, vous pouvez avoir un ID d'organisation pour votre compte Azure et en utiliser un autre pour autoriser la sortie de Power BI.</td>
 </tr>
 <tr>
 <td>Prise en charge de la sortie de files d'attente de Service Bus</td>
-<td>Les sorties de files d'attente de Service Bus sont maintenant disponibles dans les travaux Stream&#160;Analytics.</td>
+<td>Les sorties de <a href="https://azure.microsoft.com/documentation/articles/stream-analytics-connect-data-event-outputs/#service-bus-queues">files d’attente Service Bus</a> sont maintenant disponibles dans les tâches Stream&#160;Analytics.</td>
 </tr>
 <tr>
 <td>Prise en charge de la sortie de rubriques de Service&#160;Bus</td>
-<td>Les sorties de rubriques de Service&#160;Bus sont maintenant disponibles dans les travaux Stream&#160;Analytics.</td>
+<td>Les sorties de <a href="https://azure.microsoft.com/documentation/articles/stream-analytics-connect-data-event-outputs/#service-bus-topics">rubriques Service&#160;Bus</a> sont maintenant disponibles dans les tâches Stream&#160;Analytics.</td>
 </tr>
 <tr>
 <td>Nouvelles fonctions de tableau</td>
-<td>Ajout des fonctions de tableau GetArrayElement, GetArrayElements, GetArrayLength</td>
+<td>Ajout des fonctions de tableau <a href="https://msdn.microsoft.com/library/azure/mt270218.aspx">GetArrayElement</a>, <a href="https://msdn.microsoft.com/library/azure/mt298451.aspx">GetArrayElements</a>, <a href="https://msdn.microsoft.com/library/azure/mt270226.aspx">GetArrayLength</a></td>
 </tr>
 <tr>
 <td>Nouvelles fonctions d'enregistrement</td>
-<td>Ajout des fonctions d'enregistrement GetRecordProperties et GetRecordPropertyValue</td>
+<td>Ajout des fonctions d’enregistrement <a href="https://msdn.microsoft.com/library/azure/mt270221.aspx">GetRecordProperties</a> et <a href="https://msdn.microsoft.com/library/azure/mt270220.aspx">GetRecordPropertyValue</a></td>
 </tr>
 </table>
 
@@ -82,7 +84,7 @@ Cette version contient les mises à jour suivantes.
 
 <tr>
 <td>Format de sortie&#160;JSON&#160;: Séparé par une ligne ou tableau</td>
-<td>Il existe désormais une option lors de la sortie vers le stockage d’objets blob ou le concentrateur Event Hub sous la forme d’un tableau d’objets&#160;JSON ou en séparant les objets&#160;JSON par une nouvelle ligne. </td>
+<td>Il existe désormais une option lors de la sortie vers le stockage d’objets blob ou le hub d’événements sous la forme d’un tableau d’objets&#160;JSON ou en séparant les objets&#160;JSON par une nouvelle ligne. </td>
 </tr>
 </table>
 
@@ -141,7 +143,7 @@ Cette version contient les mises à jour suivantes.
 </table>
 
 ## Obtenir de l'aide
-Pour obtenir une assistance, essayez notre [forum Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/fr-fr/home?forum=AzureStreamAnalytics)
+Pour obtenir une assistance, essayez notre [forum Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
 
 ## Étapes suivantes
 
@@ -152,4 +154,4 @@ Pour obtenir une assistance, essayez notre [forum Azure Stream Analytics](https:
 - [Références sur l’API REST de gestion d’Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

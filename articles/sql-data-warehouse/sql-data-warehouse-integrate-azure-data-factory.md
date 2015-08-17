@@ -43,7 +43,7 @@ Pour consulter une vue d’ensemble de l’intégration, accédez à la rubrique
 
 <!--Article references-->
 
-[Copie de données avec Azure Data Factory (activité de copie)]: ./data-factory-copy-activity/
+[Copy data with Azure Data Factory]: ./data-factory-copy-activity/
 [Vue d’ensemble sur le développement SQL Data Warehouse]: ./sql-data-warehouse-overview-develop/
 [Vue d’ensemble sur l’intégration de SQL Data Warehouse]: ./sql-data-warehouse-overview-integration/
 
@@ -51,5 +51,6 @@ Pour consulter une vue d’ensemble de l’intégration, accédez à la rubrique
 
 <!--Other Web references-->
 [documentation relative à ce logiciel]: https://azure.microsoft.com/documentation/services/data-factory/
+[Copie de données avec Azure Data Factory (activité de copie)]: https://azure.microsoft.com/fr-fr/documentation/articles/data-factory-data-movement-activities/
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

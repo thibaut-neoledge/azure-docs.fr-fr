@@ -57,11 +57,11 @@ ALTER ROLE db_datareader ADD MEMBER ApplicationUser; -- allows ApplicationUser t
 ALTER ROLE db_datawriter ADD MEMBER ApplicationUser; -- allows ApplicationUser to write data
 ```
 
-Le compte d’administrateur du serveur avec lequel vous vous connectez appartient au groupe « db_owner », qui est autorisé à effectuer tout type d’opérations dans la base de données. Enregistrez ce compte pour l’utiliser lors du déploiement des mises à niveau de schéma et d’autres opérations de gestion. Utilisez le compte « ApplicationUser », doté d’autorisations plus limitées, pour vous connecter à la base de données à partir de votre application, en bénéficiant du niveau de privilèges le moins élevé requis par cette dernière.
+Le compte d’administrateur du serveur avec lequel vous vous connectez appartient au groupe « db\_owner », qui est autorisé à effectuer tout type d’opérations dans la base de données. Enregistrez ce compte pour l’utiliser lors du déploiement des mises à niveau de schéma et d’autres opérations de gestion. Utilisez le compte « ApplicationUser », doté d’autorisations plus limitées, pour vous connecter à la base de données à partir de votre application, en bénéficiant du niveau de privilèges le moins élevé requis par cette dernière.
 
 Il existe d’autres méthodes pour limiter le nombre d’actions que peut réaliser un utilisateur avec la base de données SQL Microsoft Azure :
 
-* [Des rôles de base de données](https://msdn.microsoft.com/library/ms189121) autres que « db_datareader » et « db_datawriter » peuvent être utilisés afin de créer des comptes d’utilisateur plus puissants ou des comptes de gestion moins puissants pour votre application.
+* [Des rôles de base de données](https://msdn.microsoft.com/library/ms189121) autres que « db\_datareader » et « db\_datawriter » peuvent être utilisés afin de créer des comptes d’utilisateur plus puissants ou des comptes de gestion moins puissants pour votre application.
 * Des [autorisations](https://msdn.microsoft.com/library/ms191291) granulaires vous permettent de contrôler les opérations que vous pouvez exécuter sur des colonnes, des tables, des vues, des procédures et d’autres objets individuels dans la base de données.
 * Vous pouvez recourir à l’[emprunt d’identité](https://msdn.microsoft.com/library/vstudio/bb669087) et à la [signature de module](https://msdn.microsoft.com/library/bb669102) pour élever le niveau des autorisations temporairement, en toute sécurité.
 * La fonction de [sécurité au niveau des lignes](https://msdn.microsoft.com/library/dn765131) (RLS) vous permet de filtrer les lignes qu’un utilisateur peut voir.
@@ -98,4 +98,4 @@ Les fonctions d’audit et de suivi des événements de la base de données peuv
 Non seulement la base de données SQL Microsoft Azure propose les fonctions décrites ci-dessus ainsi que des fonctionnalités permettant à votre application à répondre à différentes exigences en matière de conformité de la sécurité, mais elle participe également à des audits réguliers. Elle est certifiée conforme avec de nombreuses normes actuelles. Pour en savoir plus, accédez au [Centre de gestion de la confidentialité Microsoft Azure](http://azure.microsoft.com/support/trust-center/), qui inclut la liste la plus à jour des [certifications de conformité de la base de données SQL](http://azure.microsoft.com/support/trust-center/services/).
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

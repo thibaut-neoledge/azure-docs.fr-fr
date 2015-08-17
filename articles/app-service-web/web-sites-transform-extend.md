@@ -41,7 +41,7 @@ L’exemple applicationHost.xdt suivant montre comment ajouter une nouvelle vari
 	</configuration>
 
 
-Un fichier journal avec le statut et les détails de transformation est disponible à la racine FTP sous LogFiles\Transform.
+Un fichier journal avec le statut et les détails de transformation est disponible à la racine FTP sous LogFiles\\Transform.
 
 Pour d'autres exemples, consultez la page [https://github.com/projectkudu/kudu/wiki/Azure-Site-Extensions](https://github.com/projectkudu/kudu/wiki/Azure-Site-Extensions).
 
@@ -80,7 +80,7 @@ L'extension PHP Manager a été créée au moyen du modèle d'application Web AS
 
 ![TransformSiteSolEx][TransformSiteSolEx]
 
-La seule logique spéciale requise pour l’E/S de fichier consiste à indiquer où se trouve le répertoire wwwroot de l’application web. Comme illustré dans l’exemple de code suivant, la variable d’environnement « HOME » indique le chemin d’accès de la racine de l’application web, et le chemin d’accès wwwroot peut être construit en ajoutant « site\wwwroot » :
+La seule logique spéciale requise pour l’E/S de fichier consiste à indiquer où se trouve le répertoire wwwroot de l’application web. Comme illustré dans l’exemple de code suivant, la variable d’environnement « HOME » indique le chemin d’accès de la racine de l’application web, et le chemin d’accès wwwroot peut être construit en ajoutant « site\\wwwroot » :
 
 	/// <summary>
 	/// Gives the location of the .user.ini file, even if one doesn't exist yet
@@ -92,7 +92,7 @@ La seule logique spéciale requise pour l’E/S de fichier consiste à indiquer 
     		{
         		rootPath = System.IO.Path.GetTempPath(); // For testing purposes
     		};
-    		var userSettingsFile = Path.Combine(rootPath, @"site\wwwroot.user.ini");
+    		var userSettingsFile = Path.Combine(rootPath, @"site\wwwroot\.user.ini");
     		return userSettingsFile;
 	}
 
@@ -111,7 +111,7 @@ Vous pouvez contourner cette obligation en n’utilisant que des chemins d’acc
 
 ####<a id="XDT"></a> Fichier applicationHost.xdt
 
-Le code de votre extension d’application web figure sous %HOME%\SiteExtensions\[nom-votre-extension]. Nous appellerons cela la racine d'extension.
+Le code de votre extension d’application web figure sous %HOME%\\SiteExtensions\\[nom-votre-extension]. Nous appellerons cela la racine d'extension.
 
 Pour inscrire votre extension d’application web dans le fichier applicationHost.config, vous devez placer un fichier intitulé ApplicationHost.xdt à la racine de l’extension. Le contenu du fichier ApplicationHost.xdt doit se présenter comme suit :
 
@@ -179,4 +179,4 @@ Il est possible de désactiver toutes les extensions privées (non préinstallé
 [TransformSiteSolEx]: ./media/web-sites-transform-extend/TransformSiteSolEx.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

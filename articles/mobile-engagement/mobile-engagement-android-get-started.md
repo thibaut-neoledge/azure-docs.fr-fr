@@ -12,7 +12,7 @@
 	ms.workload="mobile"
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="Java"
-	ms.topic="get-started-article" 
+	ms.topic="hero-article" 
 	ms.date="05/01/2015"
 	ms.author="piyushjo" />
 
@@ -285,7 +285,7 @@ N’utilisez pas l'icône du Lanceur. Elle a une résolution différente et se t
 
 ###Activer votre application pour recevoir des notifications Push GCM
 
-1. Entrez vos métadonnées gcm:sender en copiant-collant le code suivant dans votre fichier Manifest.xml entre les balises `<application>`et`</application>`. La valeur masquée ci-dessous (avec des étoiles) est le `project number` obtenu à partir de votre console Google Play. Le \n est intentionnel alors assurez-vous que le numéro de projet se termine avec ce dernier.
+1. Entrez vos métadonnées gcm:sender en copiant-collant le code suivant dans votre fichier Manifest.xml entre les balises `<application>`et`</application>`. La valeur masquée ci-dessous (avec des étoiles) est le `project number` obtenu à partir de votre console Google Play. Le \\n est intentionnel alors assurez-vous que le numéro de projet se termine avec ce dernier.
 
 		<meta-data android:name="engagement:gcm:sender" android:value="************\n" />
 
@@ -395,4 +395,4 @@ Nous allons à présent créer une campagne simple qui enverra une notification 
 [38]: ./media/mobile-engagement-android-get-started/campaign-create.png
 [39]: ./media/mobile-engagement-android-get-started/campaign-activate.png
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

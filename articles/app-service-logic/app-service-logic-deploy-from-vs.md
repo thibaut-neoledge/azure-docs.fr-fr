@@ -7,14 +7,16 @@
 	services="app-service\logic" 
 	documentationCenter=""/>
 
+
 <tags
 	ms.service="app-service-logic"
 	ms.workload="integration"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/26/2015"
+	ms.date="07/30/2015"
 	ms.author="stepsic"/>
+
 	
 # Déploiement depuis Visual Studio
 
@@ -23,7 +25,7 @@ Bien que le [portail Azure](https://portal.azure.com) vous offre un excellent mo
 - Stocker votre application logique en même temps que d’autres ressources dans votre solution, pour contenir tous les aspects de votre application
 - Garder la définition de votre application logique archivée dans le contrôle de code source pour que vous puissiez utiliser TFS ou Git pour suivre les versions 
 
-Vous devez avoir installé la version 2.6 du Kit de développement logiciel (SDK) Azure pour pouvoir suivre les étapes ci-dessous. Recherchez [la dernière version du Kit de développement logiciel (SDK) de Visual Studio](http://azure.microsoft.com/downloads/) ici.
+Vous devez avoir installé la version 2.7 du kit de développement logiciel (SDK) Azure ou une version supérieure pour pouvoir suivre les étapes ci-dessous. Recherchez [la dernière version du Kit de développement logiciel (SDK) de Visual Studio](http://azure.microsoft.com/downloads/) ici.
 
 ## Création d’un projet
 
@@ -45,7 +47,7 @@ Il est recommandé d'utiliser des **paramètres** tout au long de votre définit
 
 Actuellement, Visual Studio n'a pas de concepteur intégré, donc si vous souhaitez utiliser une interface graphique (au lieu de l'écriture JSON), vous devez utiliser le portail Azure.
 
-Si vous avez déjà créé une application logique dans le portail Azure et que vous souhaitez l’archiver dans le contrôle de code source, vous pouvez accéder au **mode Code** dans le portail et copier la définition, utiliser des applications logiques [API REST](https://msdn.microsoft.com/library/azure/dn948510.aspx) pour obtenir la définition et utiliser [Windows PowerShell avec le gestionnaire des ressources](../powershell-azure-resource-manager.md), tout particulièrement la commande [`Get-AzureResource`](https://msdn.microsoft.com/library/dn654579.aspx) pour télécharger la définition.
+Si vous avez déjà créé une application logique dans le portail Azure et que vous souhaitez l’archiver dans le contrôle de code source, 3 choix s’offrent à vous : - Accéder au **mode Code** dans le portail et copier la définition ; - Utiliser des Logic Apps [API REST](https://msdn.microsoft.com/library/azure/dn948510.aspx) pour obtenir la définition - Utiliser [Azure Resource manager powershell](../powershell-azure-resource-manager.md), tout particulièrement la commande [`Get-AzureResource`](https://msdn.microsoft.com/library/dn654579.aspx) pour télécharger la définition.
 
 ## Déploiement de votre application logique
 
@@ -65,4 +67,4 @@ Enfin, après avoir configuré votre application, vous pouvez procéder directem
 
 Si vous ne souhaitez pas utiliser Visual Studio tout en ayant des outils pour déployer votre application logique à partir du contrôle de code source, vous pouvez toujours utiliser l’[API](https://msdn.microsoft.com/library/azure/dn948510.aspx) ou [Powershell](../powershell-azure-resource-manager.md) directement pour automatiser vos déploiements.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

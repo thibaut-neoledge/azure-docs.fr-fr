@@ -251,7 +251,7 @@ Dans la mesure où vous utilisez l'authentification personnalisée et ne dépend
 
 	Cette méthode traduit un objet [ClaimsIdentity] en un objet [ProviderCredentials] utilisé dans la phase d'émission du jeton d'authentification. Vous pouvez, ici aussi, capturer toutes les revendications supplémentaires dans cette méthode.
 	
-6. Ouvrez le fichier de projet WebApiConfig.cs dans le dossier App_Start et la ligne de code suivante une fois que **ConfigOptions** est créé :
+6. Ouvrez le fichier de projet WebApiConfig.cs dans le dossier App\_Start et la ligne de code suivante une fois que **ConfigOptions** est créé :
 		
 		options.LoginProviders.Add(typeof(CustomLoginProvider));
 
@@ -346,7 +346,7 @@ Dans votre application cliente, vous devez développer un écran de connexion pe
 
 	Cette opération démarre une nouvelle instance de débogage de votre projet de backend du service mobile. Une fois le service correctement démarré, une page de démarrage apparaît, indiquant que **ce service mobile est désormais opérationnel**.
 
-2. Dans la page de démarrage du service, cliquez sur **Essayer**, puis tapez le mot de passe que vous avez défini pour le paramètre d'application **MS_ApplicationKey** dans le fichier web.config avec un nom d'utilisateur vide dans la boîte de dialogue d'authentification.
+2. Dans la page de démarrage du service, cliquez sur **Essayer**, puis tapez le mot de passe que vous avez défini pour le paramètre d'application **MS\_ApplicationKey** dans le fichier web.config avec un nom d'utilisateur vide dans la boîte de dialogue d'authentification.
 
 3. Dans la page d'aide, cliquez sur le point de terminaison **CustomRegistration**, puis cliquez sur **Essayer**.
 
@@ -420,4 +420,4 @@ C'est ici que s'achève ce didacticiel.
 [ProviderCredentials]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobile.service.security.providercredentials.aspx
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

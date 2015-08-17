@@ -7,6 +7,7 @@
 	manager="jeffreyg" 
 	editor=""/>
 
+
 <tags 
 	ms.service="sql-database" 
 	ms.workload="data-management" 
@@ -15,6 +16,7 @@
 	ms.topic="article" 
 	ms.date="06/01/2015" 
 	ms.author="nadavhelfman"/>
+
  
 # Base de données SQL : prise en charge des clients de niveau inférieur pour l’audit et le masquage des données dynamiques 
 
@@ -40,4 +42,4 @@ Voici une liste non exhaustive de « clients de niveau inférieur » :
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

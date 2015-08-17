@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Application Insights pour les applications Microsoft Azure" 
-	description="Analysez l’utilisation et les performances de votre application Azure avec Application Insights." 
+	pageTitle="Application Insights :exemples de code et procédures pas à pas" 
+	description="Des exemples que vous pouvez adapter pour vos propres applications." 
 	services="application-insights" 
     documentationCenter="windows"
 	authors="alancameronwills" 
@@ -12,10 +12,10 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/13/2015" 
+	ms.date="08/04/2015" 
 	ms.author="awills"/>
 
-#  Application Insights :exemples de code
+#  Application Insights :exemples de code et procédures pas à pas
 
 *Application Insights est à l'état de version préliminaire.*
 
@@ -24,13 +24,16 @@ Il s’agit d’une compilation d’exemples de code qui vous montrent comment u
 ## Services web
 
 * [Ajoutez la télémétrie aux rôles de travail et web Azure](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/AzureEmailService).
+* [Application universelle Windows 8.1](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/Windows%208.1%20Universal/)
 
 ## Exportation continue
 
 Pour analyser les données de télémétrie avec vos propres outils, [exportez-les](app-insights-export-telemetry.md) vers un emplacement de stockage, où vous pouvez les analyser et les traiter.
 
+* [Exporter vers Power BI](app-insights-export-power-bi.md) 
 * [Exportation vers SQL à l’aide d’un rôle de travail](app-insights-code-sample-export-telemetry-sql-database.md)
 * [Exporter vers SQL à l’aide de Stream Analytics](app-insights-code-sample-export-sql-stream-analytics.md)
+* [Activation de la télémétrie pour Microsoft CRM](app-insights-sample-mscrm.md)
 
 
 ## Automatiser des tâches
@@ -46,4 +49,4 @@ Pour analyser les données de télémétrie avec vos propres outils, [exportez-l
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

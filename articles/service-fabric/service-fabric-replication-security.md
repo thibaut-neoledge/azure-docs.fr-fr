@@ -95,4 +95,4 @@ Cet extrait de code illustre un exemple lorsque tous les processus hôtes servic
 ```
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

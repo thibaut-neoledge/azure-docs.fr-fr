@@ -280,4 +280,4 @@ Les données créées par toute activité qui ne dispose pas d'un lien sortant s
 - [Ressources Automation](http://msdn.microsoft.com/library/azure/dn939988.aspx)
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

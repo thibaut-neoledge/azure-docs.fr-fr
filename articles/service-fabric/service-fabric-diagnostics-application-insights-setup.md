@@ -41,7 +41,7 @@ Pour recevoir automatiquement les événements Service Fabric dans Application I
     Microsoft.ServiceFabric.Telemetry.ApplicationInsights.Listener.Enable(EventLevel.Verbose);
 ```
  
-### Exemple pour StatefulActor\Program.cs :
+### Exemple pour StatefulActor\\Program.cs :
 
 ```csharp
     public static void Main(string[] args)
@@ -89,4 +89,4 @@ Découvrez comment utiliser Application Insights pour instrumenter vos applicati
 - [En savoir plus sur la création de vos propres événements et mesures personnalisés](../app-insights-custom-events-metrics-api.md)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

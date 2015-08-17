@@ -7,6 +7,7 @@
 	editor="cgronlun"
 	manager="paulettm"/>
 
+
 <tags
 	ms.service="hdinsight"
 	ms.workload="big-data"
@@ -15,6 +16,7 @@
 	ms.topic="article"
 	ms.date="06/08/2015"
 	ms.author="jgao"/>
+
 
 # Surveillance des clusters Hadoop dans HDInsight à l'aide des API Ambari
 
@@ -44,13 +46,11 @@ Avant de commencer ce didacticiel, vous devez disposer des éléments suivants 
 - Un **cluster Azure HDInsight**. Pour obtenir des instructions sur l’approvisionnement des clusters, consultez la rubrique [Prise en main de HDInsight][hdinsight-get-started] ou [Approvisionnement de clusters HDInsight][hdinsight-provision]. Vous aurez besoin des données suivantes pour suivre ce didacticiel :
 
 	<table border="1">
-	<tr><th>Propriété du cluster</th><th>Nom de la variable Azure&#160;PowerShell</th><th>Valeur</th><th>Description</th></tr>
-	<tr><td>Nom du cluster HDInsight</td><td>$clusterName</td><td></td><td>Nom de votre cluster HDInsight</td></tr>
-	<tr><td>Nom d'utilisateur du cluster</td><td>$clusterUsername</td><td></td><td>Nom d’utilisateur du cluster spécifié lors de l’approvisionnement</td></tr>
-	<tr><td>Mot de passe du cluster</td><td>$clusterPassword</td><td></td><td>Mot de passe utilisateur du cluster</td></tr>
-	</table>
-
-	> [AZURE.NOTE] Renseignez les valeurs dans le tableau. Cela vous sera utile pour ce didacticiel.
+<tr><th>Propriété du cluster</th><th>Nom de la variable Azure&#160;PowerShell</th><th>Valeur</th><th>Description</th></tr>
+<tr><td>Nom du cluster HDInsight</td><td>$clusterName</td><td></td><td>Nom de votre cluster HDInsight</td></tr>
+<tr><td>Nom d'utilisateur du cluster</td><td>$clusterUsername</td><td></td><td>Nom d’utilisateur du cluster spécifié lors de l’approvisionnement</td></tr>
+<tr><td>Mot de passe du cluster</td><td>$clusterPassword</td><td></td><td>Mot de passe utilisateur du cluster</td></tr>
+</table>> [AZURE.NOTE]Renseignez les valeurs dans le tableau. Cela vous sera utile pour ce didacticiel.
 
 
 
@@ -121,7 +121,7 @@ La sortie est la suivante :
 
 **Pour la version du 8/10/2014** :
 
-Lors de l’utilisation du point de terminaison Ambari, « https://{clusterDns}.azurehdinsight.net/ambari/api/v1/clusters/{clusterDns}.azurehdinsight.net/services/{servicename}/components/{componentname} », le champ *host_name* renvoie le nom de domaine complet du nœud au lieu du nom d’hôte. Avant la version du 8/10/2014, cet exemple renvoyait simplement « **headnode0** ». Après la version du 8/10/2014, vous obtenez le nom de domaine complet « **headnode0.{ClusterDNS}.azurehdinsight.net** », comme illustré dans l’exemple précédent. Cette modification était nécessaire pour permettre les scénarios dans lesquels plusieurs types de cluster tels que HBase et Hadoop sont déployés dans un réseau virtuel (VNET). Cela se produit, par exemple, lors de l'utilisation de HBase en tant que plateforme principale pour Hadoop.
+Lors de l’utilisation du point de terminaison Ambari, « https://{clusterDns}.azurehdinsight.net/ambari/api/v1/clusters/{clusterDns}.azurehdinsight.net/services/{servicename}/components/{componentname} », le champ *host\_name* renvoie le nom de domaine complet du nœud au lieu du nom d’hôte. Avant la version du 10/8/2014, cet exemple renvoyait simplement « **headnode0** ». Après la version du 10/8/2014, vous obtenez le nom de domaine complet « **headnode0.{ClusterDNS}.azurehdinsight.net** », comme illustré dans l’exemple précédent. Cette modification était nécessaire pour permettre les scénarios dans lesquels plusieurs types de cluster tels que HBase et Hadoop sont déployés dans un réseau virtuel (VNET). Cela se produit, par exemple, lors de l'utilisation de HBase en tant que plateforme principale pour Hadoop.
 
 ##<a id="monitor"></a>API de surveillance Ambari
 
@@ -133,7 +133,8 @@ Le tableau suivant répertorie certains des appels d'API de surveillance Ambari 
 <tr><td>Obtenir des infos sur les clusters</td><td><tt>/api/v1/clusters/&lt;Nom_cluster>.azurehdinsight.net</tt></td><td>clusters, services, hôtes</td></tr>
 <tr><td>Obtenir des services</td><td><tt>/api/v1/clusters/&lt;Nom_cluster>.azurehdinsight.net/services</tt></td><td>Les services incluent&#160;: hdfs, mapreduce</td></tr>
 <tr><td>Obtenir des infos sur les services</td><td><tt>/api/v1/clusters/&lt;Nom_cluster>.azurehdinsight.net/services/&lt;Nom_service></tt></td><td></td></tr>
-<tr><td>Obtenir des composants de service</td><td><tt>/api/v1/clusters/&lt;Nom_cluster>.azurehdinsight.net/services/&lt;Nom_service>/components</tt></td><td>HDFS&#160;: namenode, datanode<br/>MapReduce&#160;: jobtracker&#160;; tasktracker</td></tr>
+<tr><td>Obtenir des composants de service</td><td><tt>/api/v1/clusters/&lt;Nom_cluster>.azurehdinsight.net/services/&lt;Nom_service>/components</tt></td><td>HDFS&#160;: namenode, datanode<br/>
+MapReduce&#160;: jobtracker&#160;; tasktracker</td></tr>
 <tr><td>Obtenir des infos sur les composants</td><td><tt>/api/v1/clusters/&lt;Nom_cluster>.azurehdinsight.net/services/&lt;Nom_service>/components/&lt;Nom_composant></tt></td><td>ServiceComponentInfo, host-components, mesures</td></tr>
 <tr><td>Obtenir des hôtes</td><td><tt>/api/v1/clusters/&lt;Nom_cluster>.azurehdinsight.net/hosts</tt></td><td>headnode0, workernode0</td></tr>
 <tr><td>Obtenir des infos sur les hôtes</td><td><tt>/api/v1/clusters/&lt;ClusterName>.azurehdinsight.net/hosts/&lt;HostName>
@@ -178,4 +179,4 @@ Vous avez appris à utiliser les appels d'API de surveillance Ambari. Pour plus 
 [img-jobtracker-output]: ./media/hdinsight-monitor-use-ambari-api/hdi.ambari.monitor.jobtracker.output.png
  
 
-<!----HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

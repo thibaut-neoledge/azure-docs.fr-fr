@@ -141,4 +141,4 @@ Configurez la stratégie de remise de ressources à l’aide de **.NET** ou de l
 [content-protection]: ./media/media-services-content-protection-overview/media-services-content-protection.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

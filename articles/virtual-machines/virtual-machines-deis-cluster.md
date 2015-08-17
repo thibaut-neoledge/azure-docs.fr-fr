@@ -7,6 +7,7 @@
    manager="larar"
    editor=""/>
 
+
 <tags
    ms.service="virtual-machines"
    ms.devlang="multiple"
@@ -15,6 +16,7 @@
    ms.workload="infrastructure-services"
    ms.date="06/24/2015"
    ms.author="hbai"/>
+
 
 # Déployer un cluster Deis à 3 nœuds
 
@@ -57,7 +59,8 @@ Dans cette section, vous allez utiliser un modèle [Azure Resource Manager](../r
 5. Accédez à l’élément [https://discovery.etcd.io/new](https://discovery.etcd.io/new) pour générer un nouveau token de cluster, qui ressemblera à ce qui suit :
 
         https://discovery.etcd.io/6a28e078895c5ec737174db2419bb2f3
-<br /> Chaque cluster CoreOS doit bénéficier d’un token unique, fourni par ce service gratuit. Pour en savoir plus, consultez la [documentation CoreOS](https://coreos.com/docs/cluster-management/setup/cluster-discovery/).
+<br />
+ Chaque cluster CoreOS doit bénéficier d’un token unique, fourni par ce service gratuit. Pour en savoir plus, consultez la [documentation CoreOS](https://coreos.com/docs/cluster-management/setup/cluster-discovery/).
 
 6. Modifiez le fichier **cloud-config.yaml** afin de remplacer le token **discovery** existant par le nouveau token :
 
@@ -74,7 +77,7 @@ Dans cette section, vous allez utiliser un modèle [Azure Resource Manager](../r
 
 8. Modifiez le paramètre **newStorageAccountName**. Il s’agit du compte de stockage associé aux disques du système d’exploitation de la machine virtuelle. Le nom de ce compte doit être unique au niveau global.
 
-9. Modifiez le paramètre **publicDomainName**. Il fera partie du nom DNS associé à l’adresse IP publique de l’équilibreur de charge. Le FQDN présentera la valeur suivante : _[valeur de ce paramètre]_._[région]_.cloudapp.azure.com. Par exemple, si vous spécifiez le nom « deishbai32 » et que le groupe de ressources est déployé dans la région ouest des États-Unis, le FQDN final de votre équilibreur de charge sera le suivant : deishbai32.westus.cloudapp.azure.com.
+9. Modifiez le paramètre **publicDomainName**. Il fera partie du nom DNS associé à l’adresse IP publique de l’équilibreur de charge. Le FQDN présentera la valeur suivante : _[valeur de ce paramètre\]_._[région\]_.cloudapp.azure.com. Par exemple, si vous spécifiez le nom « deishbai32 » et que le groupe de ressources est déployé dans la région ouest des États-Unis, le FQDN final de votre équilibreur de charge sera le suivant : deishbai32.westus.cloudapp.azure.com.
 
 10. Enregistrez le fichier de paramètres. Ensuite, vous pouvez approvisionner le cluster au moyen de Microsoft Azure PowerShell :
 
@@ -168,6 +171,7 @@ Les étapes suivantes indiquent comment déployer une application Go « Hellow
 
     ![Enregistrement « A Record » GoDaddy](media/virtual-machines-deis-cluster/go-daddy.png)
 <p />
+
 2. Installez l’outil deis :
 
         mkdir deis
@@ -180,16 +184,19 @@ Les étapes suivantes indiquent comment déployer une application Go « Hellow
         cd ~/.ssh
         ssh-keygen (press [Enter]s to use default file names and empty passcode)
 
-4. Ajoute l’élément id_rsa.pub, ou la clé publique de votre choix, à GitHub. Pour cela, utilisez le bouton permettant d’ajouter une clé SSH sur l’écran de configuration des clés SSH :
+4. Ajoute l’élément id\_rsa.pub, ou la clé publique de votre choix, à GitHub. Pour cela, utilisez le bouton permettant d’ajouter une clé SSH sur l’écran de configuration des clés SSH :
 
-  ![Clé Github](media/virtual-machines-deis-cluster/github-key.png) <p /> 5. Enregistrez un nouvel utilisateur :
+  ![Clé Github](media/virtual-machines-deis-cluster/github-key.png) <p />
+ 5. Enregistrez un nouvel utilisateur :
 
         deis register http://deis.[your domain]
 <p />
+
 6. Ajoutez la clé SSH :
 
         deis keys:add [path to your SSH public key]
   <p />
+
 7. Créez une application.
 
         git clone https://github.com/deis/helloworld.git
@@ -197,6 +204,7 @@ Les étapes suivantes indiquent comment déployer une application Go « Hellow
         deis create
         git push deis master
 <p />
+
 8. L’action Git de type push déclenche la création et le déploiement d’images Docker, qui peuvent prendre quelques minutes. D’après mon expérience, il arrive parfois que l’étape 10 (insertion d’images dans le référentiel privé) se bloque. Dans ce cas, vous pouvez arrêter le processus, saisir la commande `deis apps:destroy –a <application name>` pour supprimer l’application et essayer à nouveau. La commande `deis apps:list` peut vous aider à rechercher le nom de votre application. Si tout fonctionne, des éléments similaires à ce qui suit doivent figurer à la fin des sorties de commandes :
 
         -----> Launching...
@@ -206,6 +214,7 @@ Les étapes suivantes indiquent comment déployer une application Go « Hellow
         To ssh://git@deis.artitrack.com:2222/lambda-underdog.git
          * [new branch]      master -> master
 <p />
+
 9. Vérifiez que l’application fonctionne :
 
         curl -S http://[your application name].[your domain]
@@ -215,10 +224,12 @@ Les étapes suivantes indiquent comment déployer une application Go « Hellow
         See the documentation at http://docs.deis.io/ for more information.
         (you can use geis apps:list to get the name of your application).
 <p />
+
 10. Mettez l’application à l’échelle pour 3 instances :
 
         deis scale cmd=3
 <p />
+
 11. Si vous le souhaitez, vous pouvez utiliser la commande « deis info » pour examiner les détails de votre application. Les sorties suivantes proviennent du déploiement de mon application :
 
         deis info
@@ -254,4 +265,4 @@ Cet article vous a présenté toutes les étapes d’approvisionnement d’un no
 [resource-group-overview]: ../resource-group-overview.md
 [powershell-azure-resource-manager]: ../powershell-azure-resource-manager.md
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -46,28 +46,11 @@ Une fois celui-ci configuré, les utilisateurs peuvent cliquer sur *->* et chois
 
 ![Liste d’actions de l’encodeur de fichier plat BizTalk][5]
 
-<table>
-	<tr>
-		<th>Paramètre</th>
-		<th>Type</th>
-		<th>Description du paramètre</th>
-	</tr>
-	<tr>
-		<td>Fichiers plats</td>
-		<td>string</td>
-		<td>Contenu du fichier plat d'entrée</td>
-	</tr>
-	<tr>
-		<td>Nom du schéma</td>
-		<td>string</td>
-		<td>Nom du schéma qui représente le fichier plat d'entrée</td>
-	</tr>
-	<tr>
-		<td>Nom de la racine</td>
-		<td>string</td>
-		<td>Nom du nœud racine du schéma de fichier plat</td>
-	</tr>
-</table>
+Paramètre|Type|Description du paramètre
+---|---|---
+Fichiers plats|string|Contenu du fichier plat d'entrée
+Nom du schéma|string|Nom du schéma qui représente le fichier plat d'entrée
+Nom de la racine|string|Nom du nœud racine du schéma de fichier plat
 
 
 L'action retourne le résultat sous forme de chaîne - XML de sortie. Le XML de sortie contient la représentation XML du contenu du fichier plat d'entrée.
@@ -76,18 +59,9 @@ L'action retourne le résultat sous forme de chaîne - XML de sortie. Le XML de 
 
 ![Liste d’actions de l’encodeur de fichier plat BizTalk][6]
 
-<table>
-	<tr>
-		<th>Paramètre</th>
-		<th>Type</th>
-		<th>Description du paramètre</th>
-	</tr>
-	<tr>
-		<td>XML d'entrée</td>
-		<td>string</td>
-		<td>Contenu du XML d’entrée</td>
-	</tr>
-</table>
+Paramètre|Type|Description du paramètre
+---|---|---
+XML d'entrée|string|Contenu du XML d’entrée
 
 L'action retourne le résultat sous forme de chaîne - fichier plat. La sortie contient la représentation du fichier plat du contenu du fichier XML d'entrée.
 
@@ -100,4 +74,4 @@ L'action retourne le résultat sous forme de chaîne - fichier plat. La sortie c
 [6]: ./media/app-service-logic-flatfile-encoder/FlatFileEncoder.XmlToFlatFile.PNG
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

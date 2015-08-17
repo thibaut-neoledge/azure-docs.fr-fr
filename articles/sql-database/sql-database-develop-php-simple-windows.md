@@ -62,7 +62,7 @@ La fonction **OpenConnection** est appelée presque en premier dans toutes les f
 
 ## Exécution d'une requête et récupération du jeu de résultats
 
-La fonction [sqlsrv_query()](http://php.net/manual/en/function.sqlsrv-query.php) peut être utilisée pour récupérer un jeu de résultats d'une requête effectuée dans la base de données SQL. Cette fonction accepte toutes les requêtes et l'objet de connexion, et retourne un jeu de résultats qui peut faire l'objet d'une itération à l'aide de [sqlsrv_fetch_array()](http://php.net/manual/en/function.sqlsrv-fetch-array.php).
+La fonction [sqlsrv\_query()](http://php.net/manual/en/function.sqlsrv-query.php) peut être utilisée pour récupérer un jeu de résultats d'une requête effectuée dans la base de données SQL. Cette fonction accepte toutes les requêtes et l'objet de connexion, et retourne un jeu de résultats qui peut faire l'objet d'une itération à l'aide de [sqlsrv\_fetch\_array()](http://php.net/manual/en/function.sqlsrv-fetch-array.php).
 
 	function ReadData()
 	{
@@ -126,11 +126,11 @@ Dans la base de données SQL, la propriété [IDENTITY](https://msdn.microsoft.c
 
 Cet exemple de code illustre l'utilisation de transactions dans lesquelles vous :
 
--Commencez une transaction
+\-Commencez une transaction
 
--Insérez une ligne de données, mettez à jour une autre ligne de données
+\-Insérez une ligne de données, mettez à jour une autre ligne de données
 
--Validez votre transaction si l'insertion et la mise à jour ont réussi et restaurez la transaction si l'une des deux a échoué
+\-Validez votre transaction si l'insertion et la mise à jour ont réussi et restaurez la transaction si l'une des deux a échoué
 
 
 	function Transactions()
@@ -180,4 +180,4 @@ Pour plus d'informations sur l'installation et l'utilisation de PHP, consultez [
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

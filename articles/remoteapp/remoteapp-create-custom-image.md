@@ -120,11 +120,11 @@ La procédure détaillée de création d'une image se présente comme suit :
 	Une autre solution consiste à définir ou à ajouter la valeur DWORD suivante dans le Registre :
 
 		HKLM\System\CurrentControlSet\Control\FileSystem\NtfsDisableEncryption = 1
-9.	Si vous créez une image dans une machine virtuelle Azure, renommez le fichier **\%windir%\Panther\Unattend.xml**, car cela bloquera le script de téléchargement utilisé plus tard pour travailler. Remplacez le nom de ce fichier par Unattend.old de façon à conserver le fichier et pouvoir inverser votre déploiement, si nécessaire.
+9.	Si vous créez une image dans une machine virtuelle Azure, renommez le fichier **\\%windir%\\Panther\\Unattend.xml**, car cela bloquera le script de téléchargement utilisé plus tard pour travailler. Remplacez le nom de ce fichier par Unattend.old de façon à conserver le fichier et pouvoir inverser votre déploiement, si nécessaire.
 10.	Accédez à Windows Update et installez toutes les mises à jour importantes. Vous devrez peut-être exécuter plusieurs fois Windows Update pour obtenir toutes les mises à jour. (Parfois, vous installez une mise à jour et celle-ci requiert elle-même une mise à jour.)
 10.	Préparez l'image avec SYSPREP. Exécutez la commande suivante dans une invite de commandes avec élévation de privilèges :
 
-	**C:\Windows\System32\sysprep\sysprep.exe /generalize /oobe /shutdown**
+	**C:\\Windows\\System32\\sysprep\\sysprep.exe /generalize /oobe /shutdown**
 
 	**Remarque :** n'utilisez pas le commutateur **/mode:vm** de la commande SYSPREP, bien qu'il s'agisse d'une machine virtuelle.
 
@@ -137,4 +137,4 @@ Maintenant que vous avez votre image de modèle personnalisée, vous devez la t�
 - [Création d'une collection cloud de RemoteApp](remoteapp-create-cloud-deployment.md)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

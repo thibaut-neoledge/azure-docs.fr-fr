@@ -83,7 +83,7 @@ La dernière étape de ce didacticiel consiste à générer et à exécuter votr
 
 2. Appuyez sur le bouton **Exécuter** pour générer le projet client et démarrer l'application dans l'émulateur iPhone.
 
-3. Dans l'application, tapez un texte explicite, comme _Suivre le didacticiel_, puis cliquez sur l'icône plus (**+**).
+3. Dans l'application, tapez un texte explicite, comme _Suivre le didacticiel_, puis cliquez sur l'icône plus (**+**).
 
 	![][10]
 
@@ -136,4 +136,4 @@ Vous avez terminé les étapes de démarrage rapide. Découvrez ensuite comment 
 [Xamarin for Windows]: https://go.microsoft.com/fwLink/?LinkID=330242&clcid=0x409
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -6,6 +6,7 @@
 	authors="alancameronwills" 
 	manager="ronmart"/>
 
+
 <tags 
 	ms.service="application-insights" 
 	ms.workload="tbd" 
@@ -14,6 +15,7 @@
 	ms.topic="article" 
 	ms.date="05/27/2015" 
 	ms.author="awills"/>
+
 
 # Application Insights pour ASP.NET 5
 
@@ -118,7 +120,7 @@ Dans la méthode `Configure` :
 
 ## Ajout de l’instrumentation de client JavaScript
 
-Si vous avez un fichier _Layout.cshtml, insérez le code suivant ici. Dans le cas contraire, placez le code dans une page que vous souhaitez analyser.
+Si vous avez un fichier \_Layout.cshtml, insérez le code suivant ici. Dans le cas contraire, placez le code dans une page que vous souhaitez analyser.
 
 Définissez l’injection dans la partie supérieure du fichier :
 
@@ -171,4 +173,4 @@ Revenez au [portail Azure][portal] et accédez à votre ressource Application In
 [start]: app-insights-get-started.md
 [usage]: app-insights-web-track-usage.md
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

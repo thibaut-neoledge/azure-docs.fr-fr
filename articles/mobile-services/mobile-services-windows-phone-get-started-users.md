@@ -80,4 +80,4 @@ Dans le didacticiel suivant, [Autorisation côté service des utilisateurs Mobil
 [Authentification unique pour les applications Windows Phone à l'aide de Live Connect]: mobile-services-windows-phone-single-sign-on.md
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

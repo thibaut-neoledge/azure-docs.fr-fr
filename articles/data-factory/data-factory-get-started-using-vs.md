@@ -7,6 +7,7 @@
 	manager="jhubbard" 
 	editor="monicar"/>
 
+
 <tags 
 	ms.service="data-factory" 
 	ms.workload="data-services" 
@@ -15,6 +16,7 @@
 	ms.topic="article" 
 	ms.date="07/27/2015" 
 	ms.author="spelluru"/>
+
 
 # Didacticiel : Créer et surveiller une fabrique de données à l’aide de Visual Studio
 > [AZURE.SELECTOR]
@@ -53,7 +55,7 @@ Dans cette étape, vous utilisez le portail Azure en version préliminaire pour 
 7. Dans le panneau **Nouvelle fabrique de données**, notez que l'option **Ajouter au tableau d'accueil** est sélectionnée.
 8. Cliquez sur **Créer** dans le panneau **Nouvelle fabrique de données**.
 
-	Le nom de la fabrique de données Azure doit être un nom global unique. Si le message d’erreur **Le nom de la fabrique de données « ADFTutorialDataFactoryVS » n’est pas disponible** s’affiche, modifiez le nom de la fabrique de données (par exemple, votrenomADFTutorialDataFactoryVS), puis réessayez de la créer. Utilisez ce nom à la place d'ADFTutorialFactory quand vous effectuez les étapes restantes de ce didacticiel. Consultez la rubrique [Data Factory - Règles d’affectation de noms][règles-affectation de noms-fabrique-données] pour savoir comment nommer les artefacts Data Factory.
+	Le nom de la fabrique de données Azure doit être un nom global unique. Si le message d’erreur **Le nom de la fabrique de données « ADFTutorialDataFactoryVS » n’est pas disponible** s’affiche, modifiez le nom de la fabrique de données (par exemple, votrenomADFTutorialDataFactoryVS), puis réessayez de la créer. Utilisez ce nom à la place d'ADFTutorialFactory quand vous effectuez les étapes restantes de ce didacticiel. Consultez la rubrique [Data Factory - Règles d’affectation de noms\][règles-affectation de noms-fabrique-données\] pour savoir comment nommer les artefacts Data Factory.
 	 
 	![Nom de la fabrique de données indisponible](./media/data-factory-get-started-using-vs/getstarted-data-factory-not-available.png)
 
@@ -101,7 +103,8 @@ Dans cette étape, vous allez créer deux services liés : **AzureStorageLinke
 
 5. Cliquez avec le bouton droit sur le nœud **Services liés** de nouveau dans l’**Explorateur de solutions**, pointez sur **Ajouter**, puis cliquez sur **Nouvel élément**. 
 6. Cette fois, sélectionnez **Service lié SQL Azure**, puis cliquez sur **Ajouter**. 
-7. Dans le **fichier AzureSqlLinkedService1.json**, remplacez **servername**, **databasename**, **username@servername** et **password** par les noms du serveur SQL Azure, de la base de données et du compte d’utilisateur, et par le mot de passe. 8.  Enregistrez le fichier **AzureSqlLinkedService1.json**. 
+7. Dans le **fichier AzureSqlLinkedService1.json**, remplacez **servername**, **databasename**, ****username@servername** et **password** par les noms du serveur SQL Azure, de la base de données et du compte d’utilisateur, et par le mot de passe.
+8.  Enregistrez le fichier **AzureSqlLinkedService1.json**. 
 
 
 ### créer des tables d'entrée et de sortie
@@ -237,7 +240,7 @@ Jusqu’à présent, vous avez créé des services liés et des tables d’entr�
 ## Utiliser l’Explorateur de serveurs pour passer en revue les entités Data Factory
 
 1. Dans **Visual Studio**, cliquez sur **Affichage** dans le menu, puis sur **Explorateur de serveurs**.
-2. Dans la fenêtre Explorateur de serveurs, développez **Azure** et **Data Factory**. Si la boîte de dialogue **Se connecter à Visual Studio** est affichée, entrez le **compte** associé à votre abonnement Azure, puis cliquez sur **Continuer**. Entrez le **mot de passe**, puis cliquez sur **Se connecter**. Visual Studio essaie d’obtenir des informations sur toutes les fabriques de données Azure contenues dans votre abonnement. L’état de cette opération s’affiche dans la fenêtre **Liste des tâches de Data Factory**. ![Explorateur de serveurs](./media/data-factory-get-started-using-vs/server-explorer.png)
+2. Dans la fenêtre Explorateur de serveurs, développez **Azure** et **Data Factory**. Si la boîte de dialogue **Se connecter à Visual Studio** est affichée, saisissez le **compte** associé à votre abonnement Azure puis cliquez sur **Continuer**. Saisissez le **mot de passe**, puis cliquez sur **Se connecter**. Visual Studio essaie d’obtenir des informations sur toutes les fabriques de données Azure contenues dans votre abonnement. L’état de cette opération s’affiche dans la fenêtre **Liste des tâches de Data Factory**. ![Explorateur de serveurs](./media/data-factory-get-started-using-vs/server-explorer.png)
 3. Vous pouvez cliquer avec le bouton droit sur une fabrique de données et sélectionner Exporter la fabrique de données vers le nouveau projet pour créer un projet Visual Studio basé sur une fabrique de données existante. ![Exporter la fabrique de données vers un projet Visual Studio](./media/data-factory-get-started-using-vs/export-data-factory-menu.png)  
 
 ## Mettre à jour des outils Data Factory pour Visual Studio
@@ -249,4 +252,4 @@ Pour mettre à jour des outils Azure Data Factory pour Visual Studio, procéd
 
 Consultez [Surveiller les jeux de données et le pipeline](data-factory-get-started-using-editor.md/#MonitorDataSetsAndPipeline) pour obtenir des instructions sur l’utilisation du portail Azure en version préliminaire afin de surveiller le pipeline et les jeux de données que vous avez créés dans ce didacticiel.
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

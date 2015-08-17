@@ -7,6 +7,7 @@
 	manager="swadhwa"
 	editor=""/>
 
+
 <tags
 	ms.service="active-directory"
 	ms.workload="identity"
@@ -15,6 +16,7 @@
 	ms.topic="article"
 	ms.date="07/27/2015"
 	ms.author="markusvi"/>
+
 
 
 # Approvisionnement d’applications basé sur les attributs avec filtres d’étendue
@@ -70,15 +72,11 @@ D’après de ce filtre d’étendue, les utilisateurs doivent satisfaire aux cr
 3. Ils doivent travailler à San Francisco ou au Canada.
 
 
-## Ressources supplémentaires
-
-* [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md)
+[AZURE.INCLUDE [saas-toc](../../includes/active-directory-saas-toc.md)]
 
 <!--Image references-->
 [1]: ./media/active-directory-saas-scoping-filters/ic782811.png
 [2]: ./media/active-directory-saas-scoping-filters/ic782812.png
 [3]: ./active-directory-saas-scoping-filters/ic782813.png
 
- 
-
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

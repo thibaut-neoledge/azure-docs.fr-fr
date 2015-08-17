@@ -7,6 +7,7 @@
 	manager="dwrede" 
 	editor=""/>
 
+
 <tags 
 	ms.service="cache" 
 	ms.workload="tbd" 
@@ -15,6 +16,7 @@
 	ms.topic="article" 
 	ms.date="07/24/2015" 
 	ms.author="sdanie"/>
+
 
 # Forum aux questions sur le Cache Redis Azure
 
@@ -38,56 +40,15 @@ Si votre cache présente un débit élevé, choisissez la taille de 1 Go ou plu
 
 Le tableau suivant présente les valeurs de bande passante maximale observées lors du test de différentes tailles de Cache Redis Azure à l’aide de `redis-benchmark.exe` à partir d’une machine virtuelle IaaS sur le point de terminaison du Cache Redis Azure. Notez que ces valeurs ne sont pas garanties et qu’il n’y a pas de contrat SLA pour ces chiffres, mais ils sont à peu près normaux. Vous devez tester la charge de votre application pour déterminer la taille de cache adaptée.
 
-<table>
-  <tr>
-    <th>Nom du cache</th>
-    <th>Taille du cache</th>
-    <th>Get/s (appels GET simples d’une valeur de 1&#160;Ko)</th>
-    <th>Bande passante (Mbits/s)</th>
-  </tr>
-  <tr>
-    <td>C0</td>
-    <td>250&#160;Mo</td>
-    <td>610</td>
-    <td>5</td>
-  </tr>
-  <tr>
-    <td>C1</td>
-    <td>1 Go</td>
-    <td>12&#160;200</td>
-    <td>100</td>
-  </tr>
-  <tr>
-    <td>C2</td>
-    <td>2,5&#160;Go</td>
-    <td>24&#160;300</td>
-    <td>200</td>
-  </tr>
-  <tr>
-    <td>C3</td>
-    <td>6&#160;Go</td>
-    <td>48&#160;875</td>
-    <td>400</td>
-  </tr>
-  <tr>
-    <td>C4</td>
-    <td>13&#160;Go</td>
-    <td>61&#160;350</td>
-    <td>500</td>
-  </tr>
-  <tr>
-    <td>C5</td>
-    <td>26&#160;Go</td>
-    <td>112&#160;275</td>
-    <td>1&#160;000</td>
-  </tr>
-  <tr>
-    <td>C6</td>
-    <td>53&#160;Go</td>
-    <td>153&#160;219</td>
-    <td>Plus de 1&#160;000</td>
-  </tr>
-</table>
+Nom du cache|Taille du cache|Get/s (appels GET simples d’une valeur de 1 Ko)|Bande passante (Mbits/s)
+---|---|---|---
+C0|250 Mo|610|5
+C1|1 Go|12 200|100
+C2|2,5 Go|24 300|200
+C3|6 Go|48 875|400
+C4|13 Go|61 350|500
+C5|26 Go|112 275|1 000
+C6|53 Go|153 219|Plus de 1 000
 
 Pour obtenir des instructions sur le téléchargement des outils Redis comme `redis-benchmark.exe`, consultez la section [Comment exécuter des commandes Redis ?](#cache-commands).
 
@@ -134,28 +95,11 @@ Voici quelques raisons pour lesquelles la déconnexion du cache peut se produire
 
 StackExchange.Redis présente de nombreuses options. Cette section présente certains des paramètres les plus courants. Pour plus d’informations sur les options de StackExchange.Redis, consultez la page [Configuration StackExchange.Redis](https://github.com/StackExchange/StackExchange.Redis/blob/master/Docs/Configuration.md).
 
-<table>
-  <tr>
-    <th>ConfigurationOptions</th>
-    <th>Description</th>
-    <th>Recommandation</th>
-  </tr>
-  <tr>
-    <td>AbortOnConnectFail</td>
-    <td>Lorsque la valeur est True, la connexion n’est pas rétablie après une panne réseau.</td>
-    <td>La valeur False laisse StackExchange.Redis se reconnecter automatiquement .</td>
-  </tr>
-  <tr>
-    <td>ConnectRetry</td>
-    <td>Nombre de tentatives de connexion pendant la connexion initiale.</td>
-    <td></td>
-  </tr>
-  <tr>
-    <td>ConnectTimeout</td>
-    <td>Délai d’expiration en millisecondes pour les opérations de connexion.</td>
-    <td></td>
-  </tr>
-</table>
+ConfigurationOptions|Description|Recommandation
+---|---|---
+AbortOnConnectFail|Lorsque la valeur est True, la connexion n’est pas rétablie après une panne réseau.|La valeur False laisse StackExchange.Redis se reconnecter automatiquement .
+ConnectRetry|Nombre de tentatives de connexion pendant la connexion initiale.||
+ConnectTimeout|Délai d’expiration en millisecondes pour les opérations de connexion.|
 
 Dans la plupart des cas, les valeurs par défaut du client sont suffisantes. Vous pouvez affiner les options en fonction de votre charge de travail.
 
@@ -233,4 +177,4 @@ Le Cache Redis Microsoft Azure est basé sur le logiciel open source Cache Redis
 
 Étant donné que chaque client est différent, il n’y a pas de référence centralisée au sujet des classes sur MSDN. Chaque client a sa propre documentation de référence. En plus de la documentation de référence, il existe plusieurs didacticiels sur Azure.com qui montrent comment débuter avec le Cache Redis Azure avec plusieurs langages et clients de cache sur la page [Documentation Cache Redis](http://azure.microsoft.com/documentatgion/services/redis-cache/).
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

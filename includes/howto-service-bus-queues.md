@@ -22,17 +22,15 @@ Pour créer un espace de noms de service :
 
 2.  Dans le volet de navigation gauche du portail de gestion, cliquez sur **Service Bus**.
 
-3.  Dans le volet inférieur du portail de gestion, cliquez sur **Créer**. 
-	![](./media/howto-service-bus-queues/sb-queues-03.png)
+3.  Dans le volet inférieur du portail de gestion, cliquez sur **Créer**. ![](./media/howto-service-bus-queues/sb-queues-03.png)
 
-4.  Dans la boîte de dialogue **Add a new namespace**, entrez un nom d’espace de noms. Le système vérifie immédiatement si le nom est disponible.   
-	![](./media/howto-service-bus-queues/sb-queues-04.png)
+4.  Dans la boîte de dialogue **Add a new namespace**, entrez un nom d’espace de noms. Le système vérifie immédiatement si le nom est disponible. ![](./media/howto-service-bus-queues/sb-queues-04.png)
 
 5.  Après vous être assuré que le nom de l'espace de noms est disponible, choisissez le pays ou la région où votre espace de noms doit être hébergé (veillez à utiliser le même pays ou la même région que celui ou celle où vous déployez vos ressources de calcul).
 
 	IMPORTANT : choisissez la **même région** que celle que vous prévoyez de sélectionner pour le déploiement de votre application. Vous bénéficiez ainsi des meilleures performances.
 
-6. 	Laissez les autres champs de la boîte de dialogue avec leurs valeurs par défaut (**Messaging** et **Niveau Standard**), puis cliquez sur la coche. Le système crée l'espace de noms de service et l'active. Vous devrez peut-être attendre plusieurs minutes afin que le système approvisionne des ressources pour votre compte.
+6. 	Gardez les valeurs par défaut des autres champs de la boîte de dialogue (**Messaging** et **Niveau Standard**), puis cliquez sur la coche. Le système crée l'espace de noms de service et l'active. Vous devrez peut-être attendre plusieurs minutes afin que le système approvisionne des ressources pour votre compte.
 
 	![](./media/howto-service-bus-queues/getting-started-multi-tier-27.png)
 
@@ -44,16 +42,13 @@ Afin d’effectuer des opérations de gestion, comme la création d’une file d
 
 ###Pour obtenir les informations de gestion du portail
 
-1.  Dans le volet de navigation gauche, cliquez sur le nœud **Service Bus** pour afficher la liste des espaces de noms disponibles :   
-	![](./media/howto-service-bus-queues/sb-queues-13.png)
+1.  Dans le volet de navigation gauche, cliquez sur le nœud **Service Bus** pour afficher la liste des espaces de noms disponibles : ![](./media/howto-service-bus-queues/sb-queues-13.png)
 
-2.  Sélectionnez l’espace de noms que vous venez de créer dans la liste affichée :   
-	![](./media/howto-service-bus-queues/sb-queues-09.png)
+2.  Sélectionnez l’espace de noms que vous venez de créer dans la liste affichée : ![](./media/howto-service-bus-queues/sb-queues-09.png)
 
-3.  Cliquez sur **Informations de connexion**.   
-	![](./media/howto-service-bus-queues/sb-queues-06.png)
+3.  Cliquez sur **Informations de connexion**. ![](./media/howto-service-bus-queues/sb-queues-06.png)
 
-4.  Dans le volet **Accès aux informations de connexion**, recherchez la chaîne de connexion contenant la clé SAP et le nom de clé.   
+4.  Dans le volet **Accès aux informations de connexion**, recherchez la chaîne de connexion contenant la clé SAP et le nom de clé.
 
 	![](./media/howto-service-bus-queues/multi-web-45.png)
     
@@ -61,7 +56,7 @@ Afin d’effectuer des opérations de gestion, comme la création d’une file d
 
 ### Pour obtenir les informations de gestion de l’Explorateur de serveurs
 
-Pour obtenir les informations de connexion en utilisant Visual Studio plutôt que le portail de gestion, suivez la procédure décrite [ici](http://msdn.microsoft.com/library/ff687127.aspx), dans la section intitulée **Connexion à Azure à partir de Visual Studio**. Lorsque vous vous connectez à Azure, le nœud **Service Bus** sous l’arborescence **Azure** dans l’Explorateur de serveurs est automatiquement rempli par les espaces de noms que vous avez déjà créés. Cliquez avec le bouton droit sur un espace de noms, puis cliquez sur **Propriétés** pour que la chaîne de connexion et les autres métadonnées associées à cet espace de noms s'affichent dans le volet **Propriétés** de Visual Studio. 
+Pour obtenir les informations de connexion en utilisant Visual Studio plutôt que le portail de gestion, suivez la procédure décrite [ici](http://msdn.microsoft.com/library/ff687127.aspx), dans la section intitulée **Connexion à Azure à partir de Visual Studio**. Lorsque vous vous connectez à Azure, le nœud **Service Bus** sous l’arborescence **Azure** dans l’Explorateur de serveurs est automatiquement rempli par les espaces de noms que vous avez déjà créés. Cliquez avec le bouton droit sur un espace de noms, puis cliquez sur **Propriétés** pour que la chaîne de connexion et les autres métadonnées associées à cet espace de noms s'affichent dans le volet **Propriétés** de Visual Studio.
 
 Notez la valeur **SharedAccessKey** ou copiez-la dans le Presse-papiers :
 
@@ -72,4 +67,4 @@ Notez la valeur **SharedAccessKey** ou copiez-la dans le Presse-papiers :
 
   [34]: ./media/howto-service-bus-queues/VSProperties.png
 
-<!----HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

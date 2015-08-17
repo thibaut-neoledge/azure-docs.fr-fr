@@ -28,7 +28,7 @@ Un enregistrement CNAME associe un domaine *spécifique*, tel que **contoso.com*
 
 ###Enregistrement A
 
-Un enregistrement A associe un domaine, tel que **contoso.com** ou **www.contoso.com**, *ou un nom de domaine générique* (par exemple : **\*.contoso.com**) à une adresse IP. Dans le cas d'un site web Azure, il s'agit de l'adresse IP virtuelle du service ou d'une adresse IP spécifique achetée pour votre site web. Le principal avantage d'un enregistrement A par rapport à un enregistrement CNAME est que vous pouvez disposer d'une entrée utilisant un caractère générique (par exemple, ***.contoso.com**), ce qui permet de gérer les demandes pour plusieurs sous-domaines, tels que **mail.contoso.com**, **login.contoso.com** ou **www.contso.com**.
+Un enregistrement A associe un domaine, tel que **contoso.com** ou **www.contoso.com**, *ou un nom de domaine générique* (par exemple : ***.contoso.com**) à une adresse IP. Dans le cas d'un site web Azure, il s'agit de l'adresse IP virtuelle du service ou d'une adresse IP spécifique achetée pour votre site web. Le principal avantage d’un enregistrement A par rapport à un enregistrement CNAME est que vous pouvez disposer d’une entrée utilisant un caractère générique (par exemple, ****.contoso.com**), ce qui permet de gérer les demandes pour plusieurs sous-domaines, tels que **mail.contoso.com**, **login.contoso.com** ou **www.contso.com**.
 
 > [AZURE.NOTE]L'enregistrement A étant associé à une adresse IP statique, les changements d'adresse IP de votre site web ne sont donc pas pris en compte automatiquement. Une adresse IP à utiliser avec les enregistrements A est fournie lorsque vous configurez les paramètres de nom de domaine personnalisé pour votre site web. Cette valeur est toutefois susceptible d'être modifiée si vous supprimez et recréez votre site web ou que vous faites de nouveau passer votre site web en mode Gratuit.
 
@@ -57,7 +57,8 @@ Seuls les modes Partagé et Standard autorisent la définition d'un nom de domai
 5. Cliquez sur **Save**.
 6. Un message vous informe de l'augmentation des coûts en mode Partagé (ou en mode Standard si vous avez sélectionné cette option). Cliquez sur **Yes** si vous acceptez.
 
-	<!--![][standardmode4]-->**Remarque**<br /> Si un message d'erreur indiquant l'échec de la mise à l'échelle du site web choisi s'affiche, vous pouvez cliquer sur le bouton des détails pour obtenir plus d'informations.
+	<!--![][standardmode4]-->**Remarque**<br />
+ Si un message d'erreur indiquant l'échec de la mise à l'échelle du site web choisi s'affiche, vous pouvez cliquer sur le bouton des détails pour obtenir plus d'informations.
 
 <a name="trafficmanager"></a><h2>(Facultatif) Ajouter vos sites web à Traffic Manager</h2>
 
@@ -92,7 +93,7 @@ Par exemple, l'enregistrement CNAME suivant renvoie tout le trafic de **www.cont
 
 Un utilisateur consultant le site **www.contoso.com** ne verra jamais l’adresse de l’hôte réel (contoso.azurewebsite.net). Le processus de transfert est donc invisible pour l’utilisateur final.
 
-> [AZURE.NOTE]Si vous utilisez Traffic Manager avec un site web, vous ne devez pas suivre les étapes des sections suivantes, « Ajout d'un enregistrement CNAME pour votre nom de domaine personnalisé » et « Ajout d'un enregistrement A pour votre domaine personnalisé ». L'enregistrement CNAME créé dans les étapes précédentes acheminera le trafic entrant vers Traffic Manager, qui l'acheminera vers le ou les points de terminaison du site web.
+> [AZURE.NOTE]Si vous utilisez Traffic Manager avec un site web, vous ne devez pas suivre les étapes des sections suivantes, « **Ajout d’un enregistrement CNAME pour votre nom de domaine personnalisé** » et « **Ajout d’un enregistrement A pour votre domaine personnalisé** ». L'enregistrement CNAME créé dans les étapes précédentes acheminera le trafic entrant vers Traffic Manager, qui l'acheminera vers le ou les points de terminaison du site web.
 
 <a name="bkmk_configurecname"></a><h2>Ajout d'un enregistrement CNAME pour votre nom de domaine personnalisé</h2>
 
@@ -116,7 +117,7 @@ Pour créer un enregistrement CNAME, vous devez ajouter une nouvelle entrée dan
 
 4. Maintenant, cherchez où vous pouvez sélectionner ou saisir vos enregistrements CNAME. Il se peut que vous deviez sélectionner le type d’enregistrement dans une liste déroulante ou accéder à une page de paramètres avancés. La section recherchée doit normalement comporter les mots **CNAME**, **Alias** ou **Subdomains**.
 
-5. Vous devez également fournir l’alias de domaine ou de sous-domaine pour l’enregistrement CNAME. Par exemple, **www** si vous souhaitez créer un alias pour **www.domainepersonnalisé.com**. Si vous voulez créer un alias pour le domaine racine, l'entrée correspondante peut être répertoriée avec le symbole '\*\*@\*\* dans les outils DNS de votre bureau d'enregistrement.
+5. Vous devez également fournir l’alias de domaine ou de sous-domaine pour l’enregistrement CNAME. Par exemple, **www** si vous souhaitez créer un alias pour **www.domainepersonnalisé.com**. Si vous voulez créer un alias pour le domaine racine, l’entrée correspondante devrait être répertoriée avec le symbole « **@** » dans les outils DNS de votre bureau d’enregistrement.
 
 5. Vous devez également fournir un nom d'hôte correspondant au nom de domaine canonique pour cet alias CNAME. Il s'agit du nom **.azurewebsite.net** pour votre site web.
 
@@ -195,9 +196,9 @@ Pour créer un enregistrement A, vous devez tout d'abord connaître l'adresse 
 
 7. Procédez comme suit pour créer l’enregistrement A :
 
-	1. Sélectionnez ou entrez le domaine ou sous-domaine qui utilisera l’enregistrement A. Par exemple, sélectionnez **www** si vous souhaitez créer un alias pour **www.domainepersonnalisé.com**. Pour créer une entrée avec des caractères génériques pour l'ensemble des sous-domaines, entrez « \_\_\*\_\_ ». Ceci permet de couvrir tous les sous-domaines tels que **mail.customdomain.com**, **login.customdomain.com** ou **www.domainepersonnalisé.com**.
+	1. Sélectionnez ou entrez le domaine ou sous-domaine qui utilisera l’enregistrement A. Par exemple, sélectionnez **www** si vous souhaitez créer un alias pour **www.domainepersonnalisé.com**. Pour créer une entrée avec des caractères génériques pour l'ensemble des sous-domaines, entrez « \_\_*\_\_ ». Ceci permet de couvrir tous les sous-domaines tels que **mail.customdomain.com**, **login.customdomain.com** ou **www.domainepersonnalisé.com**.
 
-		Si vous voulez créer un enregistrement A pour le domaine racine, l'entrée correspondante devrait être répertoriée avec le symbole '\*\*@\*\* dans les outils DNS de votre bureau d'enregistrement.
+		Si vous voulez créer un enregistrement A pour le domaine racine, l’entrée correspondante devrait être répertoriée avec le symbole « **@** » dans les outils DNS de votre bureau d’enregistrement.
 
 	2. Entrez l’adresse IP de votre service cloud dans le champ prévu à cet effet. Cette opération permet d’associer le domaine de l’enregistrement A avec l’adresse IP de votre déploiement de service cloud.
 
@@ -212,7 +213,7 @@ Pour créer un enregistrement A, vous devez tout d'abord connaître l'adresse 
 <td>@</td>
 <td>137.135.70.239</td>
 </tr>
-</table>Cet exemple montre comment créer un enregistrement A pour le domaine racine. Pour créer une entrée avec des caractères génériques qui couvre l'ensemble des sous-domaines, entrez « \_\_\*\_\_ » comme sous-domaine.
+</table>Cet exemple montre comment créer un enregistrement A pour le domaine racine. Pour créer une entrée avec des caractères génériques qui couvre l'ensemble des sous-domaines, entrez « \_\_*\_\_ » comme sous-domaine.
 
 7. Créez ensuite un enregistrement CNAME, avec **awverify** comme alias et **awverify.monsite.azurewebsites.net** comme domaine canonique (obtenu plus tôt).
 
@@ -311,4 +312,4 @@ Une fois la configuration terminée, le nom de domaine personnalisé est répert
 [setcname2]: ./media/custom-dns-web-site/dncmntask-cname-6.png
 [setcname3]: ./media/custom-dns-web-site/dncmntask-cname-7.png
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

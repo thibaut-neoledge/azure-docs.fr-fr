@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="ios" 
 	ms.devlang="objective-c" 
 	ms.topic="article" 
-	ms.date="04/24/2015" 
+	ms.date="07/28/2015" 
 	ms.author="yuaxu"/>
 
 # Inscription de l'utilisateur actif aux notifications Push à l'aide d'un service mobile
 
-<div class="dev-center-tutorial-selector sublanding">
-    <a href="/documentation/articles/notification-hubs-windows-store-mobile-services-register-user-push-notifications/" title="Windows Store C#">Windows Store C#</a><a href="/documentation/articles/notification-hubs-ios-mobile-services-register-user-push-notifications/" title="iOS" class="current">iOS</a>
-</div>
+> [AZURE.SELECTOR]
+[Windows Store C#](notification-hubs-windows-store-mobile-services-register-user-push-notifications.md)
+[Windows Store C#](notification-hubs-ios-mobile-services-register-user-push-notifications.md)
 
 Cette rubrique vous montre comment demander une inscription aux notifications Push avec Azure Notification Hubs lorsque l'inscription est réalisée par Azure Mobile Services. Cette rubrique s'inscrit dans le prolongement du didacticiel [Notification des utilisateurs avec Notification Hubs]. Vous devez avoir suivi les étapes de ce didacticiel permettant de créer le service mobile authentifié. Pour plus d'informations sur les scénarios de notification des utilisateurs, consultez la rubrique [Notification des utilisateurs avec Notification Hubs].
 
@@ -122,4 +122,4 @@ Maintenant que l'application cliente est à jour, retournez au didacticiel [Noti
 [Get Started with Notification Hubs]: /manage/services/notification-hubs/get-started-notification-hubs-ios/
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

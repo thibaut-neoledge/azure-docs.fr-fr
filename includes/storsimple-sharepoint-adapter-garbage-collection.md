@@ -1,3 +1,21 @@
+<properties 
+   pageTitle="Installation de l’adaptateur StorSimple pour SharePoint - garbage collection | Microsoft Azure"
+   description="Décrit comment supprimer les objets blob immédiatement lorsque vous utilisez l'adaptateur StorSimple pour SharePoint."
+   services="storsimple"
+   documentationCenter="NA"
+   authors="SharS"
+   manager="carolz"
+   editor="" />
+
+<tags 
+   ms.service="storsimple"
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="TBD"
+   ms.date="07/10/2015"
+   ms.author="v-sharos" />
+
 
 Dans cette procédure, vous allez :
 
@@ -7,7 +25,7 @@ Dans cette procédure, vous allez :
 
 3. [exécuter Maintainer.exe](#to-run-the-maintainer) ;
 
-4. [rétablir la base de données de contenu et les paramètres de la corbeille](to-revert-the-content-database-and-recycle-bin-settings).
+4. [rétablir la base de données de contenu et les paramètres de la corbeille](#to-revert-the-content-database-and-recycle-bin-settings).
 
 #### Pour préparer l'exécution du chargé de maintenance
 
@@ -21,7 +39,8 @@ Dans cette procédure, vous allez :
 
 5. Dans le fichier web.config déchiffré, sous le nœud **<connectionStrings>**, ajoutez la chaîne de connexion pour votre instance de SQL server et le nom de base de données de contenu. Consultez l’exemple qui suit.
 
-    `<add name=”RBSMaintainerConnectionWSSContent” connectionString="Data Source=SHRPT13-SQL12\SHRPT13;Initial Catalog=WSS_Content;Integrated Security=True;Application Name=";Remote Blob Storage Maintainer for WSS_Content";" providerName="System.Data.SqlClient" />`
+    `<add name=”RBSMaintainerConnectionWSSContent” connectionString="Data Source=SHRPT13-SQL12\SHRPT13;Initial Catalog=WSS_Content;Integrated Security=True;Application Name=";Remote Blob Storage Maintainer for WSS_Content";" providerName="System.Data.SqlClient" />
+`
 
 6. Utilisez `aspnet_regiis –pef connectionStrings` pour chiffrer à nouveau le fichier web.config.
 
@@ -63,4 +82,4 @@ Dans cette procédure, vous allez :
 
 2. Sur le serveur Web frontal, sous **Administration centrale**, modifiez les **Paramètres généraux de l'application Web** pour la base de données de contenu souhaitée afin d’activer à nouveau la Corbeille. Pour ce faire, cliquez sur **Administration centrale** -> **Gestion des applications** -> **Applications Web (gérer les applications Web)** -> **SharePoint - 80** -> **Paramètres généraux de l'application**. Définissez l’état de la Corbeille sur **ON**.
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

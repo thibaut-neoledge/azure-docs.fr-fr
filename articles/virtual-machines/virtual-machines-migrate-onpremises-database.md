@@ -161,4 +161,4 @@ Cette méthode permet de migrer toutes les bases de données système et utilisa
 
 Vous pouvez utiliser la [méthode de service Import/Export Azure](../storage-import-export-service/) pour transférer de grandes quantités de données de fichiers vers le stockage d’objets blob Azure lorsque le coût de l’opération de téléchargement via le réseau est prohibitif, voire irréalisable. Avec ce service, vous envoyez un ou plusieurs disques durs contenant ces données à un centre de données Azure, où vos données seront téléchargées sur votre compte de stockage.
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

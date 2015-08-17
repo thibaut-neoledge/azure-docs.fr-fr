@@ -24,4 +24,4 @@ Une fois que vous avez connecté votre interface de ligne de commande Azure au c
 
 > [AZURE.NOTE]Si vous ne disposez pas d'un compte Azure, mais d'un abonnement MSDN, vous pouvez obtenir des crédits Azure gratuits en activant vos [avantages d'abonné MSDN ici](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) ; ou vous pouvez utiliser le compte gratuit. Les deux possibilités permettent d’accéder à Azure.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -1,11 +1,12 @@
 <properties 
-	pageTitle="Sécurisation de l'accès aux données dans DocumentDB | Azure" 
+	pageTitle="Apprenez à sécuriser l’accès aux données dans DocumentDB | Microsoft Azure" 
 	description="Découvrez les concepts de contrôle d'accès dans DocumentDB, dont les clés principales, les clés en lecture seule, les utilisateurs et les autorisations." 
 	services="documentdb" 
 	authors="stephbaron" 
-	manager="johnmac" 
+	manager="jhubbard" 
 	editor="monicar" 
 	documentationCenter=""/>
+
 
 <tags 
 	ms.service="documentdb" 
@@ -15,6 +16,7 @@
 	ms.topic="article" 
 	ms.date="05/22/2015" 
 	ms.author="stbaro"/>
+
 
 # Sécurisation de l'accès aux données DocumentDB #
 
@@ -163,4 +165,4 @@ Pour obtenir facilement toutes les ressources d'autorisation associées à un ut
 - Pour en savoir plus sur la construction des jetons d’autorisation DocumentDB, cliquez [ici](https://msdn.microsoft.com/library/azure/dn783368.aspx).
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

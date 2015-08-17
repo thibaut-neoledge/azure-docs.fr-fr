@@ -52,7 +52,7 @@ Une connexion de point à site nécessite un réseau virtuel avec une passerelle
 ### Créer une passerelle de routage dynamique
 
 1. Dans le **Portail de gestion**, au niveau de la page **Réseaux**, cliquez sur le réseau virtuel que vous venez de créer, puis accédez à la page **Tableau de bord**.
-1. Au bas de la page Tableau de bord, cliquez sur **Créer une passerelle**. Vous voyez apparaître le message suivant : **Souhaitez-vous créer une passerelle pour réseau virtuel « votre_réseau » ?**. Cliquez sur **Oui** pour initialiser la création de la passerelle. Cette opération peut prendre environ 15 minutes.
+1. Au bas de la page Tableau de bord, cliquez sur **Créer une passerelle**. Vous voyez apparaître le message suivant : **Souhaitez-vous créer une passerelle pour réseau virtuel « votre\_réseau » ?**. Cliquez sur **Oui** pour initialiser la création de la passerelle. Cette opération peut prendre environ 15 minutes.
 
 ## Créer vos certificats
 
@@ -158,4 +158,4 @@ Vous pouvez ajouter des machines virtuelles à votre réseau virtuel. Pour plus 
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

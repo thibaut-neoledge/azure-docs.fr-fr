@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/14/2015" 
+	ms.date="08/04/2015" 
 	ms.author="awills"/>
  
 # Présentation d’Application Insights
@@ -103,6 +103,11 @@ L'impact sur les performances est très faible. Le suivi des appels n’entraîn
 
 Pour plus de détails, choisissez votre type d'application sous Prise en main dans la barre de navigation située à gauche de cette page.
 
+## Exemples
+
+
+[Exemples et procédures pas à pas](app-insights-code-samples.md)
+
 
 ## Support et commentaires
 
@@ -145,4 +150,4 @@ Pour plus de détails, choisissez votre type d'application sous Prise en main da
 
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

@@ -7,6 +7,7 @@
    manager="jhubbard"
    editor=""/>
 
+
 <tags
    ms.service="sql-data-warehouse"
    ms.devlang="NA"
@@ -15,6 +16,7 @@
    ms.workload="data-services"
    ms.date="05/23/2015"
    ms.author="barbkess;JRJ@BigBangData.co.uk;"/>
+
 
 # En quoi consiste la solution SQL Data Warehouse ?
 
@@ -63,15 +65,17 @@ SQL Data Warehouse se déploie facilement, en quelques secondes. Ce service est 
 
 
 ## Étapes suivantes
-En savoir plus sur la [charge de travail de l’entrepôt de données].
+En savoir plus sur la [charge de travail de l’entrepôt de données]. Pour commencer, [approvisionnez] et chargez les [exemples de données].
 
 <!--Image references-->
 
 <!--Article references-->
 [charge de travail de l’entrepôt de données]: ./sql-data-warehouse-overview-workload.md
+[exemples de données]: ./sql-data-warehouse-get-started-load-samples.md
+[approvisionnez]: ./sql-data-warehouse-get-started-provision.md
 
 <!--MSDN references-->
 
 <!--Other Web references-->
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

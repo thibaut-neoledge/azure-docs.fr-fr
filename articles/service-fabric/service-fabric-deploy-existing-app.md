@@ -80,7 +80,7 @@ Voici un exemple de manifeste de service
 ## Structure de fichiers d’un package d’application
 Pour déployer une application à l'aide, par exemple, des applets de commande powershell, l'application doit respecter une structure de répertoires prédéfinie.
 
-\applicationmanifest.xml \MyServicePkg \servicemanifest.xml \code \config \data
+\\applicationmanifest.xml \\MyServicePkg \\servicemanifest.xml \\code \\config \\data
 
 La racine contient le fichier applicationmanifest.xml qui définit l'application. Un sous-répertoire pour chaque service inclus dans l'application est utilisé pour contenir tous les artefacts nécessaires au service : le fichier servicemanifest.xml et généralement 3 répertoires :
 
@@ -198,7 +198,7 @@ L’élément `Entrypoint` dans le fichier de manifeste de service sert à spéc
 				  \ ...
 			\config
 			\data
-			...
+			\...
 
 ```
 
@@ -311,4 +311,4 @@ Nous travaillons actuellement sur un outil capable d’empaqueter une applicatio
 
 	
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

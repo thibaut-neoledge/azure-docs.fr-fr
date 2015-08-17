@@ -7,6 +7,7 @@
 	documentationCenter="" 
 	authors="mumian"/>
 
+
 <tags 
 	ms.service="hdinsight" 
 	ms.workload="big-data" 
@@ -15,6 +16,7 @@
 	ms.topic="article" 
 	ms.date="06/15/2015" 
 	ms.author="jgao"/>
+
 
 # Envoi de tâches Hadoop dans HDInsight
 
@@ -38,7 +40,7 @@ Avant de commencer cet article, vous devez disposer des éléments suivants :
 ##Envoi de tâches MapReduce avec Azure PowerShell
 Azure PowerShell est un environnement de création de scripts vous permettant de contrôler et d'automatiser le déploiement et la gestion de vos charges de travail dans Azure. Pour plus d'informations sur l'utilisation d’Azure PowerShell avec HDInsight, consultez [Gestion de HDInsight avec PowerShell][hdinsight-admin-powershell].
 
-Hadoop MapReduce est une infrastructure logicielle qui permet d'écrire des applications traitant d'importantes quantités de données. Les clusters HDInsight sont fournis avec un fichier JAR (situé sous *\example\jars\hadoop-examples.jar*), qui contient différents exemples MapReduce.
+Hadoop MapReduce est une infrastructure logicielle qui permet d'écrire des applications traitant d'importantes quantités de données. Les clusters HDInsight sont fournis avec un fichier JAR (situé sous *\\example\\jars\\hadoop-examples.jar*), qui contient différents exemples MapReduce.
 
 L'un des exemples suivants permet de compter les fréquences des mots dans les fichiers source. Dans cette session, vous apprendrez à utiliser Azure PowerShell à partir d'un poste de travail pour exécuter l'exemple de comptage des mots. Pour plus d'informations sur le développement et l'exécution des tâches MapReduce, consultez [Utilisation de MapReduce avec HDInsight][hdinsight-use-mapreduce].
 
@@ -111,7 +113,7 @@ L'un des exemples suivants permet de compter les fréquences des mots dans les f
 
 	Le dossier *example/data/WordCountOutput* est le dossier de sortie spécifié lors de l'exécution de la tâche MapReduce. *part-r-00000* est le nom de fichier par défaut pour la sortie de la tâche MapReduce. Le fichier est téléchargé dans la même structure de dossiers que le dossier local. Par exemple, dans la capture d'écran suivante, le dossier actuel est le dossier racine C:. Le fichier est téléchargé dans :
 
-*C:\example\data\WordCountOutput* 
+**C:\\example\\data\\WordCountOutput*
 
 5. Exécutez la commande suivante pour imprimer le fichier de sortie de la tâche MapReduce :
 
@@ -300,7 +302,7 @@ Consultez [Prise en main des outils HDInsight Hadoop pour Visual Studio][hdinsi
 Consultez l'article [Utilisation de Sqoop avec HDInsight][hdinsight-use-sqoop].
 
 ##Envoi de tâches MapReduce avec le Kit de développement logiciel (SDK) .NET HDInsight
-Le Kit de développement logiciel (SDK) HDInsight .NET fournit des bibliothèques clientes .NET, ce qui facilite l'utilisation des clusters HDInsight à partir de .NET. Les clusters HDInsight sont fournis avec un fichier JAR (situé sous *\example\jars\hadoop-examples.jar*), qui contient différents exemples MapReduce. L'un des exemples suivants permet de compter les fréquences des mots dans les fichiers source. Dans cette session, vous apprendrez à créer une application .NET pour exécuter l'exemple de comptage des mots. Pour plus d'informations sur le développement et l'exécution de tâches MapReduce, consultez [Utilisation de MapReduce avec HDInsight][hdinsight-use-mapreduce].
+Le Kit de développement logiciel (SDK) HDInsight .NET fournit des bibliothèques clientes .NET, ce qui facilite l'utilisation des clusters HDInsight à partir de .NET. Les clusters HDInsight sont fournis avec un fichier JAR (situé sous *\\example\\jars\\hadoop-examples.jar*), qui contient différents exemples MapReduce. L'un des exemples suivants permet de compter les fréquences des mots dans les fichiers source. Dans cette session, vous apprendrez à créer une application .NET pour exécuter l'exemple de comptage des mots. Pour plus d'informations sur le développement et l'exécution de tâches MapReduce, consultez [Utilisation de MapReduce avec HDInsight][hdinsight-use-mapreduce].
 
 
 Les procédures suivantes sont nécessaires pour approvisionner un cluster HDInsight en utilisant le Kit de développement logiciel (SDK) :
@@ -729,4 +731,4 @@ Cet article vous a présenté différentes méthodes pour configurer un cluster 
 [apache-hive]: http://hive.apache.org/
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

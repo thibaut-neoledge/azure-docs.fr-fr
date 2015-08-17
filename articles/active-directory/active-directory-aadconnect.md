@@ -12,7 +12,7 @@
 	ms.workload="identity" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
-	ms.topic="article" 
+	ms.topic="get-started-article" 
 	ms.date="07/13/2015" 
 	ms.author="billmath"/>
 
@@ -142,14 +142,15 @@ La sélection des paramètres Express est l’option par défaut et s’applique
 8. Sur l’écran Connexion à AD DS, entrez le nom d'utilisateur et le mot de passe d’un compte d'administrateur d’entreprise. Cliquez sur **Next**.
 <center>![Bienvenu dans Azure AD Connect](./media/active-directory-aadconnect-get-started/install4.png)</center>
 9. Sur l’écran Prêt à configurer, cliquez sur **Installer**.
-	- Sur la page Prêt à configurer, vous pouvez éventuellement la case à cocher « \*\*Démarrer le processus de synchronisation dès que la configuration est terminée\*\* ». Si vous faites cela, l'assistant configurera la synchronisation, mais laissera la tâche désactivée afin qu'elle ne s’exécute pas avant que vous ne l'activiez manuellement dans le Planificateur de tâches. Une fois que la tâche est activée, la synchronisation s'exécute toutes les trois heures.
+	- Sur la page Prêt à configurer, vous pouvez éventuellement la case à cocher « **Démarrer le processus de synchronisation dès que la configuration est terminée** ». Si vous faites cela, l'assistant configurera la synchronisation, mais laissera la tâche désactivée afin qu'elle ne s’exécute pas avant que vous ne l'activiez manuellement dans le Planificateur de tâches. Une fois que la tâche est activée, la synchronisation s'exécute toutes les trois heures.
 	- Éventuellement, vous pouvez également choisir de configurer les services de synchronisation pour le **déploiement hybride Exchange** en cochant la case à cocher correspondante. Si vous n'envisagez pas d'avoir des boîtes aux lettres Exchange dans le cloud et en local, vous n’avez pas besoin de cela.
 
 <center>![Bienvenue dans Azure AD Connect](./media/active-directory-aadconnect-get-started/readyinstall.png)</center>
 8. Une fois l'installation terminée, cliquez sur **Quitter**.
 
 
-<br> <br>
+
+
 
 Suivez ce lien pour une vidéo sur l’utilisation de l'installation rapide :
 
@@ -184,7 +185,7 @@ Maintenant que vos utilisateurs ont été synchronisés dans le cloud, vous deve
 2. Sélectionnez **Active Directory** à gauche.
 3. Sur la page Active Directory, double-cliquez sur le répertoire qui contient les utilisateurs que vous souhaitez activer.
 4. En haut de la page du répertoire, sélectionnez **Licences**.
-5. Sur la page des licences, sélectionnez Active Directory Premium ou Enterprise Mobility Suite, puis cliquez sur **Assign**.
+5. Sur la page des licences, sélectionnez Active Directory Premium ou Enterprise Mobility Suite, puis cliquez sur **Attribuer**.
 6. Dans la boîte de dialogue, sélectionnez les utilisateurs auxquels vous souhaitez attribuer des licences, puis cliquez sur l’icône de coche pour enregistrer les modifications.
 
 
@@ -256,4 +257,4 @@ Présentation d’Ignite 2015 sur l'extension de vos répertoires locaux dans l
 
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

@@ -7,6 +7,7 @@
 	manager="dwrede" 
 	editor="mollybos"/>
 
+
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
@@ -15,6 +16,7 @@
 	ms.topic="article" 
 	ms.date="05/20/2015" 
 	ms.author="glenga"/>
+
 
 
 # Création d'un service à l'aide d'une base de données SQL existante avec le serveur principal Mobile Services .NET
@@ -615,4 +617,4 @@ Veuillez noter que les deux implémentations de contrôleur exercent une utilisa
 
 Vous pouvez ensuite créer l'application cliente pour accéder au service. Pour plus d’informations, consultez la rubrique [Ajout de Mobile Services à une application existante](mobile-services-dotnet-backend-windows-universal-dotnet-get-started-data.md#update-the-app-to-use-the-mobile-service).
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

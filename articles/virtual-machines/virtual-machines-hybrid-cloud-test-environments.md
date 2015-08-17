@@ -58,4 +58,4 @@ Pour les organisations et les personnes ne disposant pas d’une connexion direc
 
 [Instructions d’implémentation des services d’infrastructure Azure](virtual-machines-infrastructure-services-implementation-guidelines.md)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

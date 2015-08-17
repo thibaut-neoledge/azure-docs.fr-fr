@@ -6,6 +6,7 @@
 	authors="msmbaldwin"
 	manager="mbaldwin"tags="azure-resource-manager"/>
 
+
 <tags
 	ms.service="key-vault"
 	ms.workload="identity"
@@ -14,6 +15,7 @@
 	ms.topic="article"
 	ms.date="06/25/2015"
 	ms.author="bruceper"/>
+
 
 # Gestion de Key Vault à l’aide de l’interface de ligne de commande (CLI) #
 Azure Key Vault est disponible dans la plupart des régions. Pour plus d’informations, consultez la [page de tarification de Key Vault](../../../../pricing/details/key-vault/).
@@ -41,7 +43,7 @@ Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
 
 Ce didacticiel suppose que vous êtes familiarisé avec l’interface de ligne de commande (Bash, Terminal, invite de commandes)
 
-Le paramètre --help ou -h peut être utilisé pour afficher l'aide relative à des commandes particulières. Le format azure help [commande] [options] permet également de renvoyer les mêmes informations. Les commandes suivantes, par exemple, renvoient les mêmes informations :
+Le paramètre --help ou -h peut être utilisé pour afficher l'aide relative à des commandes particulières. Le format azure help [commande\] [options\] permet également de renvoyer les mêmes informations. Les commandes suivantes, par exemple, renvoient les mêmes informations :
 
     azure account set --help
 
@@ -49,7 +51,7 @@ Le paramètre --help ou -h peut être utilisé pour afficher l'aide relative à 
 
     azure help account set
 
-Si vous avez des doutes sur les paramètres exigés par une commande, reportez-vous à l'aide en utilisant --help, -h ou azure help [commande].
+Si vous avez des doutes sur les paramètres exigés par une commande, reportez-vous à l'aide en utilisant --help, -h ou azure help [commande\].
 
 Consultez également les didacticiels suivants afin de vous familiariser avec Azure Resource Manager dans l’interface de ligne de commande interplateforme Azure :
 
@@ -133,13 +135,13 @@ Toutefois, si vous avez une clé existante dans un fichier .pem enregistré sous
 
     azure keyvault key import --vaultName 'ContosoKeyVault' --key-name 'ContosoFirstKey' --pem-file './softkey.pem' –-password 'PaSSWORD' --destination software
 
-Vous pouvez maintenant référencer la clé que vous avez créée ou téléchargée dans Azure Key Vault à l’aide de son URI. Utilisez **https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey** pour toujours obtenir la version actuelle, utilisez **https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey/cgacf4f763ar42ffb0a1gca546aygd87** pour obtenir cette version spécifique.
+Vous pouvez maintenant référencer la clé que vous avez créée ou téléchargée dans Azure Key Vault à l’aide de son URI. Utilisez ****https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey**pour toujours obtenir la version actuelle, utilisez ****https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey/cgacf4f763ar42ffb0a1gca546aygd87** pour obtenir cette version spécifique.
 
 Pour ajouter un secret dans le coffre, c’est-à-dire un mot de passe nommé SQLPassword avec la valeur Pa$$w0rd dans Azure Key Vault, tapez le code suivant :
 
     azure keyvault secret set --vault-name 'ContosoKeyVault' --secret-name 'SQLPassword' --value 'Pa$$w0rd'
 
-Vous pouvez maintenant référencer ce mot de passe que vous avez ajouté dans Azure Key Vault à l’aide de son URI. Utilisez **https://ContosoVault.vault.azure.net/secrets/SQLPassword** pour toujours obtenir la version actuelle, utilisez **https://ContosoVault.vault.azure.net/secrets/SQLPassword/90018dbb96a84117a0d2847ef8e7189d** pour obtenir cette version spécifique.
+Vous pouvez maintenant référencer ce mot de passe que vous avez ajouté dans Azure Key Vault à l’aide de son URI. Utilisez ****https://ContosoVault.vault.azure.net/secrets/SQLPassword**pour toujours obtenir la version actuelle, utilisez ****https://ContosoVault.vault.azure.net/secrets/SQLPassword/90018dbb96a84117a0d2847ef8e7189d** pour obtenir cette version spécifique.
 
 Examinons la clé ou le secret que vous venez de créer :
 
@@ -252,4 +254,4 @@ Voici un exemple montrant comment supprimer un secret spécifique :
 
 Pour les références de programmation, consultez les pages [API REST de coffre de clés](https://msdn.microsoft.com/library/azure/dn903609.aspx) et [Référence de l’API cliente C# du coffre de clés](https://msdn.microsoft.com/library/azure/dn903628.aspx).
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -65,4 +65,4 @@ Machines virtuelles Windows :
 -  [Capture d’une machine virtuelle Windows](virtual-machines-capture-image-windows-server.md)
 -  [Détachement d’un disque](storage-windows-detach-disk.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

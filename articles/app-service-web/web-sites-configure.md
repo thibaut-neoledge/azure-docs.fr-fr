@@ -7,6 +7,7 @@
 	manager="wpickett" 
 	editor="mollybos"/>
 
+
 <tags 
 	ms.service="app-service-web" 
 	ms.workload="web" 
@@ -15,6 +16,7 @@
 	ms.topic="article" 
 	ms.date="05/28/2015" 
 	ms.author="mwasson"/>
+
 
 
 # Configurer des applications web dans Azure App Service #
@@ -64,7 +66,7 @@ Cette section contient des paires nom/valeur qui seront chargées par votre appl
 
 - Dans le cas des applications .NET, ces paramètres sont inclus dans les `AppSettings` de votre configuration .NET au moment de l’exécution, en remplacement des paramètres existants. 
 
-- Les applications PHP, Python, Java et Node peuvent accéder à ces paramètres sous forme de variables d'environnement au moment de l'exécution. Pour chaque paramètre d'application, deux variables d'environnement sont créées : l'une avec le nom spécifié par l'entrée du paramètre d'application, et l'autre avec le préfixe APPSETTING_. Elles contiennent toutes les deux la même valeur.
+- Les applications PHP, Python, Java et Node peuvent accéder à ces paramètres sous forme de variables d'environnement au moment de l'exécution. Pour chaque paramètre d'application, deux variables d'environnement sont créées : l'une avec le nom spécifié par l'entrée du paramètre d'application, et l'autre avec le préfixe APPSETTING\_. Elles contiennent toutes les deux la même valeur.
 
 ### Chaînes de connexion
 
@@ -74,10 +76,10 @@ Pour les applications .NET, ces chaînes de connexion sont incluses dans les pa
 
 Pour les applications PHP, Python, Java et Node, ces paramètres sont disponibles en tant que variables d'environnement au moment de l'exécution, avec le type de connexion comme préfixe. Les préfixes de la variable d'environnement sont les suivants :
 
-- SQL Server : SQLCONNSTR_
-- MySQL : MYSQLCONNSTR_
-- Base de données SQL : SQLAZURECONNSTR_
-- Personnalisé : CUSTOMCONNSTR_
+- SQL Server : SQLCONNSTR\_
+- MySQL : MYSQLCONNSTR\_
+- Base de données SQL : SQLAZURECONNSTR\_
+- Personnalisé : CUSTOMCONNSTR\_
 
 Par exemple, si une chaîne de connexion MySql se nomme `connectionstring1`, elle est accessible par le biais de la variable d’environnement `MYSQLCONNSTR_connectionString1`.
 
@@ -91,7 +93,8 @@ Les applications web peuvent utiliser des modules qui effectuent un routage en f
 
 Utilisez cette zone pour ajouter des processeurs de script personnalisés et gérer les requêtes portant sur des extensions de fichiers spécifiques.
 
-- **Extension**. Extension de fichier à gérer, par exemple *.php ou handler.fcgi. - **Chemin d'accès du processeur de script**. Chemin d'accès absolu du processeur de script. Les requêtes de fichiers qui correspondent à l'extension de fichier sont traitées par le processeur de script. Utilisez le chemin `D:\home\site\wwwroot` pour faire référence au répertoire racine de votre application Web.
+- **Extension**. Extension de fichier à gérer, par exemple *.php ou handler.fcgi.
+- **Chemin d'accès du processeur de script**. Chemin d'accès absolu du processeur de script. Les requêtes de fichiers qui correspondent à l'extension de fichier sont traitées par le processeur de script. Utilisez le chemin `D:\home\site\wwwroot` pour faire référence au répertoire racine de votre application Web.
 - **Arguments supplémentaires**. Arguments de ligne de commande facultatifs pour le processeur de script. 
 
 
@@ -129,7 +132,7 @@ Pour afficher les fichiers journaux, vous devez créer des informations d’iden
 ![](./media/web-sites-configure/configure03.png)
 
 
-Le nom d’utilisateur FTP complet est « app\username », où *app* représente le nom de votre application Web. Le nom d’utilisateur est répertorié dans le panneau Application Web, sous **Essentials**.
+Le nom d’utilisateur FTP complet est « app\\username », où *app* représente le nom de votre application Web. Le nom d’utilisateur est répertorié dans le panneau Application Web, sous **Essentials**.
 
 ![](./media/web-sites-configure/configure02.png)
 
@@ -175,4 +178,4 @@ Pour plus d’informations, consultez [Surveillance de l’état d’un point de
 * Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre l'ancien et le nouveau portail, consultez : [Références sur la navigation dans le portail Azure](http://go.microsoft.com/fwlink/?LinkId=529715)
  
 
-<!----HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

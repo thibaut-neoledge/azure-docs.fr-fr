@@ -48,4 +48,4 @@ Après avoir créé l’archivage de sauvegarde Azure, un agent doit être insta
 
     ![Configurer la sauvegarde Azure](./media/backup-install-agent/configure.png)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

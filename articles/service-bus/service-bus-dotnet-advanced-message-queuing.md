@@ -308,4 +308,4 @@ Vous pouvez également utiliser AMQP 1.0 de Service Bus avec d’autres langage
 * [Utilisation des files d'attente Service Bus](service-bus-dotnet-how-to-use-queues.md)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

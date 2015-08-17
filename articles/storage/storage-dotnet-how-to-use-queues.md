@@ -13,18 +13,18 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article" 
-	ms.date="06/15/2015"
+	ms.date="08/04/2015"
 	ms.author="tamram"/>
 
 # Utilisation du stockage de files d’attente à partir de .NET
 
 [AZURE.INCLUDE [storage-selector-queue-include](../../includes/storage-selector-queue-include.md)]
 
-## Vue d’ensemble
+## Vue d'ensemble
 
 Ce guide décrit le déroulement de scénarios courants dans le cadre de l’utilisation du service de stockage des files d’attente Azure. Les exemples ont été écrits en code C# et utilisent le client de stockage Azure pour .NET. Les scénarios traités incluent l’**insertion**, la **lecture furtive**, la **récupération** et la **suppression** des messages de file d’attente, ainsi que la **création et suppression des files d’attente**.
 
-> [AZURE.NOTE]Ce guide cible la bibliothèque cliente de stockage Azure .NET 2.x et les versions ultérieures. Nous vous recommandons d’utiliser la version 4.x disponible via [NuGet](https://www.nuget.org/packages/WindowsAzure.Storage/) ou dans le [Kit de développement logiciel (SDK) Azure pour .NET](/downloads/). Consultez [Accès au stockage de files d’attente par programme](#programmatically-access-queue-storage) ci-dessous pour plus d’informations sur l’obtention de la bibliothèque cliente de stockage.
+[AZURE.INCLUDE [storage-dotnet-client-library-version-include](../../includes/storage-dotnet-client-library-version-include.md)]
 
 [AZURE.INCLUDE [storage-queue-concepts-include](../../includes/storage-queue-concepts-include.md)]
 
@@ -241,24 +241,15 @@ Pour supprimer une file d'attente et tous les messages qu'elle contient, appelez
 
 Maintenant que vous connaissez les bases du stockage des files d'attente, consultez les liens suivants pour apprendre à exécuter les tâches de stockage plus complexes.
 
-<ul>
-<li>Pour plus d'informations sur les API disponibles, consultez la documentation de référence des services de files d'attente&#160;:
-  <ul>
-    <li><a href="http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409">Référence de la bibliothèque cliente de stockage pour&#160;.NET</a>
-    </li>
-    <li><a href="http://msdn.microsoft.com/library/azure/dd179355">Référence d’API REST</a></li>
-  </ul>
-</li>
-<li>Pour plus d’informations sur les tâches avancées que vous pouvez effectuer avec le stockage Azure, consultez la page <a href="http://msdn.microsoft.com/library/azure/gg433040.aspx">Stockage et accessibilité des données dans Windows Azure</a>.</li>
-<li>Découvrez comment simplifier le code que vous écrivez pour travailler avec Azure Storage à l’aide du <a href="../websites-dotnet-webjobs-sdk/">Kit de développement logiciel (SDK) Azure WebJobs.</li>
-<li>Pour plus d'informations sur les autres options de stockage de données dans Azure, consultez d'autres guides de fonctionnalités.
-  <ul>
-    <li>Utilisez le <a href="/documentation/articles/storage-dotnet-how-to-use-tables/">stockage de table</a> pour stocker des données structurées.</li>
-    <li>Utilisez le <a href="/documentation/articles/storage-dotnet-how-to-use-blobs/">stockage d'objets blob</a> pour stocker des données non structurées.</li>
-    <li>Utilisez une <a href="/documentation/articles/sql-database-dotnet-how-to-use/">base de données SQL</a> pour stocker des données relationnelles.</li>
-  </ul>
-</li>
-</ul>
+- Pour plus d'informations sur les API disponibles, consultez la documentation de référence des services de files d'attente :
+    - [Référence de la bibliothèque cliente de stockage pour .NET](http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409)
+    - [Référence d’API REST](http://msdn.microsoft.com/library/azure/dd179355)
+- Pour plus d’informations sur les tâches avancées que vous pouvez effectuer avec le stockage Azure, consultez la page [Stockage et accessibilité des données dans Windows Azure](http://msdn.microsoft.com/library/azure/gg433040.aspx).
+- Découvrez comment simplifier le code que vous écrivez pour le stockage Azure, à l’aide du [Kit de développement logiciel (SDK) Azure WebJobs](../websites-dotnet-webjobs-sdk/)
+- Pour plus d'informations sur les autres options de stockage de données dans Azure, consultez d'autres guides de fonctionnalités.
+    - Utilisez le [stockage de table](storage-dotnet-how-to-use-tables.md) pour stocker des données structurées. 
+    - Utilisez le [stockage d'objets blob](storage-dotnet-how-to-use-blobs.md) pour stocker des données non structurées.
+    - Utilisez une [base de données SQL](sql-database-dotnet-how-to-use.md) pour stocker des données relationnelles.
 
   [Download and install the Azure SDK for .NET]: /develop/net/
   [.NET client library reference]: http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409
@@ -272,4 +263,4 @@ Maintenant que vous connaissez les bases du stockage des files d'attente, consul
   [Spatial]: http://nuget.org/packages/System.Spatial/5.0.2
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

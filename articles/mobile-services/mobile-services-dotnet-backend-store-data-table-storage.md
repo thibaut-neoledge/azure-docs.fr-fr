@@ -7,6 +7,7 @@
 	manager="dwrede" 
 	editor=""/>
 
+
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
@@ -15,6 +16,7 @@
 	ms.topic="article" 
 	ms.date="06/09/2015" 
 	ms.author="glenga"/>
+
 
 # Créer un service mobile principal .NET qui utilise le stockage de tables au lieu d’une base de données SQL
 
@@ -54,6 +56,7 @@ Tout d’abord, vous devez configurer votre service mobile et le projet de code 
 
 		<add name="StorageConnectionString" connectionString="<STORAGE_CONNECTION_STRING>" />
 
+
 9. Remplacez l’espace réservé `<STORAGE_CONNECTION_STRING>` par la chaîne de connexion évoquée à l’étape 6.
 
 	Le service mobile utilise cette chaîne de connexion quand il est exécuté sur votre ordinateur local, ce qui vous permet de tester le code avant de le publier. Au cours de l’exécution dans Azure, le service mobile utilise la valeur de la chaîne de connexion définie dans le portail et ignore la chaîne de connexion dans le projet.
@@ -77,7 +80,7 @@ Le projet de démarrage rapide TodoList étant conçu pour fonctionner avec une 
 		using System.Web.Http.OData.Query;
 		using System.Collections.Generic;
 
-3. Remplacez la méthode **Initialize** de **TodoItemController** par les éléments suivants :
+3. Remplacez la méthode **Initialize** de **TodoItemController** par les éléments suivants.
 
         protected override void Initialize(HttpControllerContext controllerContext)
         {
@@ -117,7 +120,7 @@ Vous devez apporter une modification côté client pour que l’application de d
 
 Vous êtes maintenant prêt à tester l’application.
 
-## <a name="test-application"></a>Test de l’application
+## <a name="test-application"></a>Testez l’application
 
 1. (Facultatif) Publiez à nouveau votre projet principal .NET de service mobile. 
 	
@@ -158,4 +161,4 @@ Vous savez désormais qu’il est facile d’utiliser le stockage de table avec 
 [MongoLab Add-on Page]: /gallery/store/mongolab/mongolab
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

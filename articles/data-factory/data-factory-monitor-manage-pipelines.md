@@ -31,7 +31,7 @@ Dans cet article, vous apprendrez à surveiller, gérer et déboguer vos pipelin
 	![Parcourir tout -> Fabriques de données](./media/data-factory-monitor-manage-pipelines/browseall-data-factories.png)
 
 	Vous devez voir toutes les fabriques de données dans le panneau **Fabriques de données**. 
-4. Dans le panneau Fabriques de données, sélectionnez la fabrique de données qui vous intéresse. La page d’accueil associée devrait apparaître (panneau \*\*Fabrique de données\*\*).
+4. Dans le panneau Fabriques de données, sélectionnez la fabrique de données qui vous intéresse. La page d’accueil associée devrait apparaître (panneau **Fabrique de données**).
 
 	![Panneau Data Factory](./media/data-factory-monitor-manage-pipelines/data-factory-blade.png)
 
@@ -87,7 +87,7 @@ Vous pouvez afficher des détails sur une exécution d’activité en cliquant s
 
 ![Détails de l'exécution d'activité](./media/data-factory-monitor-manage-pipelines/activity-run-details.png)
 
-Si la tranche ne présente pas l’état **Ready**, vous pouvez afficher les tranches en amont qui ne sont pas prêtes et qui empêchent l’exécution de la tranche actuelle dans la liste **Tranches en amont qui ne sont pas prêtes**. Cette action est utile lorsque votre tranche présente l’état **Waiting** et que vous voulez connaître les dépendances en amont à l’origine de cette attente.
+Si la tranche n'a pas l'état **Prêt**, vous pouvez voir les tranches en amont qui ne sont pas prêtes et qui empêchent l'exécution de la tranche actuelle dans la liste **Tranches en amont qui ne sont pas prêtes**. Cette action est utile lorsque votre tranche présente l’état **Waiting** et que vous voulez connaître les dépendances en amont à l’origine de cette attente.
 
 ![Tranches en amont qui ne sont pas prêtes](./media/data-factory-monitor-manage-pipelines/upstream-slices-not-ready.png)
 
@@ -467,4 +467,4 @@ Le message suivant devrait s’afficher après la réussite du déploiement :
 	Parameters        :
 	Outputs           
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

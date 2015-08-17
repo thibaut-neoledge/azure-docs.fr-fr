@@ -56,4 +56,4 @@ Utilisez les instructions suivantes pour développer des applications pour Remot
 - Pour optimiser les performances, il est recommandé que les applications [détectent](https://msdn.microsoft.com/library/aa380798.aspx) si elles s’exécutent dans une session client. 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -69,4 +69,4 @@ Les fonctionnalités clés de cette solution sont les suivantes :
 + Le Forum Aux Questions sur le service Azure Backup se trouve [ici](backup-azure-backup-faq.md).
 + Consultez le [forum Azure Backup](http://go.microsoft.com/fwlink/p/?LinkId=290933).
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

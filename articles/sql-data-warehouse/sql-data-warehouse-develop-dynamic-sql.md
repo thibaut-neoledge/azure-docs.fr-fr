@@ -31,7 +31,7 @@ DECLARE @sql_fragment1 VARCHAR(8000)=' SELECT name '
 EXEC( @sql_fragment1 + @sql_fragment2 + @sql_fragment3);
 ```
 
-Si la chaîne n’est pas particulièrement longue, vous pouvez utiliser [sp_executesql][] comme d’habitude.
+Si la chaîne n’est pas particulièrement longue, vous pouvez utiliser [sp\_executesql][] comme d’habitude.
 
 
 ## Étapes suivantes
@@ -43,8 +43,8 @@ Pour obtenir des conseils supplémentaires en matière de développement, voir l
 [vue d’ensemble sur le développement]: sql-data-warehouse-overview-develop.md
 
 <!--MSDN references-->
-[sp_executesql]: https://msdn.microsoft.com/fr-fr/library/ms188001.aspx
+[sp\_executesql]: https://msdn.microsoft.com/fr-fr/library/ms188001.aspx
 
 <!--Other Web references-->
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -73,8 +73,8 @@
 
 Vous pouvez calculer approximativement le nombre de disques fortement sollicités pris en charge par un seul compte de stockage en vous basant sur la limite de transaction. Par exemple, pour une machine virtuelle de niveau de base, le nombre maximal de disques fortement sollicités est d’environ 66 (20 000/300 E/S par disque) et pour une machine virtuelle de niveau Standard, il est d’environ 40 (20 000/500 E/S par disque). Toutefois, le compte de stockage peut prendre en charge un plus grand nombre de disques s’ils ne sont pas tous fortement sollicités en même temps.
 
-<sup>2</sup>\*Entrantes\* désigne toutes les données (demandes) envoyées à un compte de stockage. *Sortantes* désigne toutes les données (réponses) reçues d’un compte de stockage.
+<sup>2</sup>*Entrantes* désigne toutes les données (demandes) envoyées à un compte de stockage. *Sortantes* désigne toutes les données (réponses) reçues d’un compte de stockage.
 
 <sup>3</sup>GRS désigne un stockage géo-redondant, tandis que LRS désigne un stockage localement redondant.
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

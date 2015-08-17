@@ -7,6 +7,7 @@
 	documentationCenter=""
 	authors="Blackmist"/>
 
+
 <tags
 	ms.service="hdinsight"
 	ms.workload="big-data"
@@ -15,6 +16,7 @@
 	ms.topic="article"
 	ms.date="06/15/2015"
 	ms.author="larryfr"/>
+
 
 #Utilisation de Sqoop avec Hadoop dans HDInsight (SSH)
 
@@ -49,7 +51,7 @@ Avant de commencer ce didacticiel, vous devez disposer des éléments suivants 
 
 ##Présentation du scénario
 
-Le cluster HDInsight inclut des exemples de données. Vous utilisez une table Hive appelée **hivesampletable**, qui référence le fichier de données situé sous **wasb:///hive/warehouse/hivesampletable**. Cette table contient des données relatives aux appareils mobiles. Le schéma de la table Hive est le suivant :
+Le cluster HDInsight inclut des exemples de données. Vous utilisez une table Hive appelée **hivesampletable**, qui référence le fichier de données situé sous ****wasb:///hive/warehouse/hivesampletable**. Cette table contient des données relatives aux appareils mobiles. Le schéma de la table Hive est le suivant :
 
 | Champ | Type de données |
 | ----- | --------- |
@@ -65,7 +67,7 @@ Le cluster HDInsight inclut des exemples de données. Vous utilisez une table Hi
 | sessionid | bigint |
 | sessionpagevieworder | bigint |
 
-Vous allez tout d’abord exporter **hivesampletable**, dans une table nommée **mobiledata**, dans la base de données SQL Azure ou SQL Server, puis réimporter la table dans HDInsight à l’adresse **wasb:///tutorials/usesqoop/importeddata**.
+Vous allez tout d’abord exporter **hivesampletable**, dans une table nommée **mobiledata**, dans la base de données SQL Azure ou SQL Server, puis réimporter la table dans HDInsight à l’adresse ****wasb:///tutorials/usesqoop/importeddata**.
 
 ##Créer une base de données
 
@@ -170,7 +172,7 @@ Vous allez tout d’abord exporter **hivesampletable**, dans une table nommée *
 
         sqoop export --connect 'jdbc:sqlserver://<serverName>.database.windows.net:1433;database=sqooptest' --username <adminLogin> --password <adminPassword> --table 'mobiledata' --export-dir 'wasb:///hive/warehouse/hivesampletable' --fields-terminated-by '\t' -m 1
 
-    Sqoop doit se connecter à la base de données SQL, à la base de données **sqooptest**, puis exporter des données à partir de **wasb:///hive/warehouse/hivesampletable** (fichiers physiques de *hivesampletable*,) vers la table **mobiledata**.
+    Sqoop doit se connecter à la base de données SQL, à la base de données **sqooptest**, puis exporter des données à partir de ****wasb:///hive/warehouse/hivesampletable** (fichiers physiques de *hivesampletable*,) vers la table **mobiledata**.
 
 5. Une fois la commande terminée, utilisez les éléments suivants pour vous connecter à la base de données à l’aide de TSQL :
 
@@ -185,7 +187,7 @@ Vous allez tout d’abord exporter **hivesampletable**, dans une table nommée *
 
 ##Importation de Sqoop
 
-1. Utilisez la commande suivante pour importer des données à partir de la table **mobiledata** de la base de données SQL dans le répertoire **wasb:///tutorials/usesqoop/importeddata** sur HDInsight :
+1. Utilisez la commande suivante pour importer des données à partir de la table **mobiledata** de la base de données SQL dans le répertoire ****wasb:///tutorials/usesqoop/importeddata** sur HDInsight :
 
         sqoop import --connect 'jdbc:sqlserver://<serverName>.database.windows.net:1433;database=sqooptest' --username <adminLogin> --password <adminPassword> --table 'mobiledata' --target-dir 'wasb:///tutorials/usesqoop/importeddata' --fields-terminated-by '\t' --lines-terminated-by '\n' -m 1
 
@@ -262,4 +264,4 @@ Vous maîtrisez à présent l'utilisation de Sqoop. Pour plus d'informations, co
 
 [sqoop-user-guide-1.4.4]: https://sqoop.apache.org/docs/1.4.4/SqoopUserGuide.html
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

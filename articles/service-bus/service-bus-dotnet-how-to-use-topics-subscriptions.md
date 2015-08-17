@@ -7,6 +7,7 @@
     manager="timlt"
     editor=""/>
 
+
 <tags
     ms.service="service-bus"
     ms.workload="tbd"
@@ -15,6 +16,7 @@
     ms.topic="get-started-article" 
     ms.date="07/02/2015"
     ms.author="sethm"/>
+
 
 # Utilisation des rubriques et abonnements Service Bus
 
@@ -45,26 +47,27 @@ Vous êtes maintenant en mesure d’écrire du code pour Service Bus.
 
 Service Bus utilise une chaîne de connexion pour stocker les points de terminaison et les informations d’identification. Vous pouvez placer votre chaîne de connexion dans un fichier de configuration, au lieu de la coder en dur :
 
-- Quand vous utilisez Azure Cloud Services, il est recommandé de stocker votre chaîne de connexion en utilisant le système de configuration de service Azure (fichiers ***.csdef** et ***.cscfg**).
+- Quand vous utilisez Azure Cloud Services, il est recommandé de stocker votre chaîne de connexion en utilisant le système de configuration de service Azure (fichiers ****.csdef** et ****.cscfg**).
 - Quand vous utilisez Sites Web Azure ou Azure Virtual Machines, il est recommandé de stocker votre chaîne de connexion en utilisant le système de configuration .NET (par exemple, le fichier **Web.config**).
 
 Dans les deux cas, vous pouvez récupérer votre chaîne de connexion en utilisant la méthode `CloudConfigurationManager.GetSetting`, tel qu’indiqué plus loin dans ce guide.
 
 ### Configuration de votre chaîne de connexion lors de l'utilisation des services cloud
 
-Le mécanisme de configuration de service est propre aux projets de services cloud Azure et vous permet de modifier les paramètres de configuration de façon dynamique à partir du portail de gestion Azure sans avoir à redéployer votre application. Par exemple, ajoutez une étiquette `Setting` à votre fichier de définition de service (***.csdef**), comme indiqué ici :
+Le mécanisme de configuration de service est propre aux projets de services cloud Azure et vous permet de modifier les paramètres de configuration de façon dynamique à partir du portail de gestion Azure sans avoir à redéployer votre application. Par exemple, ajoutez une étiquette `Setting` à votre fichier de définition de service (****.csdef**), comme indiqué ici :
 
     <ServiceDefinition name="Azure1">
     ...
         <WebRole name="MyRole" vmsize="Small">
             <ConfigurationSettings>
                 <Setting name="Microsoft.ServiceBus.ConnectionString" />
+
             </ConfigurationSettings>
         </WebRole>
     ...
     </ServiceDefinition>
 
-Vous devez ensuite spécifier des valeurs dans le fichier de configuration de service (***.cscfg**) :
+Vous devez ensuite spécifier des valeurs dans le fichier de configuration de service (****.cscfg**) :
 
     <ServiceConfiguration serviceName="Azure1">
     ...
@@ -72,6 +75,7 @@ Vous devez ensuite spécifier des valeurs dans le fichier de configuration de se
             <ConfigurationSettings>
                 <Setting name="Microsoft.ServiceBus.ConnectionString"
                          value="Endpoint=sb://yourServiceNamespace.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=yourKey" />
+
             </ConfigurationSettings>
         </Role>
     ...
@@ -87,6 +91,7 @@ Quand vous utilisez Sites Web Azure ou Azure Virtual Machines, il est recommand�
         <appSettings>
             <add key="Microsoft.ServiceBus.ConnectionString"
                  value="Endpoint=sb://yourServiceNamespace.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=yourKey" />
+
         </appSettings>
     </configuration>
 
@@ -158,7 +163,7 @@ Le filtre **MatchAll** est le filtre utilisé par défaut si aucun filtre n'est 
 
 Vous pouvez également configurer des filtres pour spécifier quels sont les messages, parmi ceux envoyés à une rubrique, qui doivent apparaître dans un abonnement de rubrique spécifique.
 
-Le type de filtre le plus flexible pris en charge par les abonnements est la classe [SqlFilter], qui implémente un sous-ensemble de SQL92. Les filtres SQL opèrent au niveau des propriétés des messages publiés dans la rubrique. Pour plus d’informations sur les expressions utilisables avec un filtre SQL, examinez la syntaxe[SqlFilter.SqlExpression][].
+Le type de filtre le plus flexible pris en charge par les abonnements est la classe [SqlFilter], qui implémente un sous-ensemble de SQL92. Les filtres SQL opèrent au niveau des propriétés des messages publiés dans la rubrique. Pour plus d’informations sur les expressions utilisables avec un filtre SQL, examinez la syntaxe [SqlFilter.SqlExpression][].
 
 Dans l’exemple suivant, l’abonnement **HighMessages** est créé avec un objet [SqlFilter] qui sélectionne uniquement les messages dont la propriété personnalisée **MessageNumber** a une valeur supérieure à 3 :
 
@@ -170,7 +175,7 @@ Dans l’exemple suivant, l’abonnement **HighMessages** est créé avec un obj
         "HighMessages",
         highMessagesFilter);
 
-De même, l'exemple suivant crée l'abonnement **LowMessages** avec un objet [SqlFilter] qui sélectionne uniquement les messages dont la propriété **MessageNumber** a une valeur inférieure ou égale à 3 :
+De même, l'exemple suivant crée l'abonnement **LowMessages** avec un filtre [SqlFilter] qui sélectionne uniquement les messages dont la propriété **MessageNumber** a une valeur inférieure ou égale à 3 :
 
      // Create a "LowMessages" filtered subscription
      SqlFilter lowMessagesFilter =
@@ -301,4 +306,4 @@ Maintenant que vous avez appris les principes de base des rubriques et des abonn
   [MSDN]: https://msdn.microsoft.com/library/azure/dn194201.aspx
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

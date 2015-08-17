@@ -7,6 +7,7 @@
 	manager="paulettm" 
 	editor="cgronlun"/>
 
+
 <tags 
 	ms.service="hdinsight" 
 	ms.workload="big-data" 
@@ -15,6 +16,7 @@
 	ms.topic="article" 
 	ms.date="07/16/2015" 
 	ms.author="nitinme"/>
+
 
 # Personnaliser des clusters HDInsight à l'aide d'une action de script
 
@@ -172,4 +174,4 @@ Consultez [Développer des scripts d’action de script pour HDInsight][hdinsigh
 [img-hdi-cluster-states]: ./media/hdinsight-hadoop-customize-cluster/HDI-Cluster-state.png "Procédure d’approvisionnement d’un cluster"
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

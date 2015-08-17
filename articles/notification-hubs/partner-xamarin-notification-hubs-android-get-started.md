@@ -12,7 +12,7 @@
 	ms.workload="mobile"
 	ms.tgt_pltfrm="mobile-xamarin-android"
 	ms.devlang="dotnet"
-	ms.topic="get-started-article"
+	ms.topic="hero-article"
 	ms.date="06/09/2015"
 	ms.author="yuaxu;wesmc"/>
 
@@ -498,4 +498,4 @@ Dans cet exemple simple, vous avez envoyé des notifications à tous vos apparei
 [Composant Azure Messaging]: http://components.xamarin.com/view/azure-messaging
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

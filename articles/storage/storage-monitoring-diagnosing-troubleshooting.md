@@ -129,7 +129,7 @@ Le portail collecte les informations d’état d’intégrité à l’intérieur
 
 ### <a name="monitoring-capacity"></a>Analyse de la capacité
 
-Les métriques de stockage enregistrent uniquement les métriques de capacité pour le service d’objet blob, car les objets blob constituent généralement la majeure partie des données stockées (lors de l’écriture, il n’est pas possible d’utiliser les métriques de stockage pour analyser la capacité de vos tables et files d’attente). Ces données sont accessibles dans la table **$MetricsCapacityBlob** si vous avez activé l'analyse pour le service d'objet blob. Les métriques de stockage enregistrent ces données une fois par jour, et vous pouvez utiliser la valeur de la **RowKey** pour déterminer si la ligne contient une entité associée à des données utilisateur (valeur **data**) ou des données d'analyse (valeur **analytics**). Chaque entité stockée contient des informations sur la quantité de stockage utilisée (**Capacity** mesurée en octets) et le nombre actuel de conteneurs (**ContainerCount**) et d’objets blob (**ObjectCount**) utilisés dans le compte de stockage. Pour plus d’informations sur les métriques de capacité stockées dans la table **$MetricsCapacityBlob**, consultez <a href="http://msdn.microsoft.com/library/azure/hh343264.aspx" target="_blank">Schéma de table de métriques Storage Analytics</a> sur MSDN.
+Les métriques de stockage enregistrent uniquement les métriques de capacité pour le service d’objet blob, car les objets blob constituent généralement la majeure partie des données stockées (lors de l’écriture, il n’est pas possible d’utiliser les métriques de stockage pour analyser la capacité de vos tables et files d’attente). Ces données sont accessibles dans la table **$MetricsCapacityBlob** si vous avez activé l'analyse pour le service d'objet blob. Les métriques de stockage enregistrent ces données une fois par jour, et vous pouvez utiliser la valeur de la **RowKey** pour déterminer si la ligne contient une entité associée à des données utilisateur (valeur **data**) ou des données d'analyse (valeur **analytics**). Chaque entité stockée contient des informations sur la quantité de stockage utilisée (**Capacity** mesurée en octets) et le nombre actuel de conteneurs (**ContainerCount**) et d'objets blob (**ObjectCount**) utilisés dans le compte de stockage. Pour plus d’informations sur les métriques de capacité stockées dans la table **$MetricsCapacityBlob**, consultez <a href="http://msdn.microsoft.com/library/azure/hh343264.aspx" target="_blank">Schéma de table de métriques Storage Analytics</a> sur MSDN.
 
 > [AZURE.NOTE]Ces valeurs doivent être analysées en guise de préavertissement lorsque vous approchez des limites de capacité de votre compte de stockage. Dans le portail Azure, sur la page **Monitor** de votre compte de stockage, vous pouvez ajouter des règles d'alerte afin d'être averti lorsque l'utilisation agrégée du stockage dépasse les seuils que vous définissez ou chute en dessous de ces seuils.
 
@@ -199,9 +199,9 @@ Les utilisateurs de votre application peuvent vous signaler des erreurs identifi
 Les ressources suivantes sur MSDN sont utiles pour comprendre les codes d’état et d’erreur liés au stockage :
 
 - <a href="http://msdn.microsoft.com/library/azure/dd179357.aspx" target="_blank">Codes d’erreur API REST courants</a>
-- <a href="http://msdn.microsoft.com/library/azure/dd179439.aspx" target="_blank">Codes d’erreur de service d’objet blob</a>
-- <a href="http://msdn.microsoft.com/library/azure/dd179446.aspx" target="_blank">Codes d’erreur de service de file d’attente</a>
-- <a href="http://msdn.microsoft.com/library/azure/dd179438.aspx" target="_blank">Codes d’erreur de service de table</a>
+- <a href="http://msdn.microsoft.com/library/azure/dd179439.aspx" target="_blank">Codes d’erreur de service BLOB</a>
+- <a href="http://msdn.microsoft.com/library/azure/dd179446.aspx" target="_blank">Codes d’erreur de service de File d’attente</a>
+- <a href="http://msdn.microsoft.com/library/azure/dd179438.aspx" target="_blank">Codes d’erreur de service de Table</a>
 
 ### <a name="storage-emulator-issues"></a>Problèmes d’émulateur de stockage
 
@@ -365,7 +365,7 @@ Notez que le service de stockage calcule uniquement la métrique **AverageE2ELat
 
 Les raisons possibles à une réponse lente du client incluent un nombre limité de connexions ou threads disponibles. Il se peut que le problème puisse être résolu en modifiant le code client afin de le rendre plus efficace (par exemple, en utilisant des appels asynchrones vers le service de stockage), ou en utilisant une machine virtuelle plus puissante (avec davantage de cœurs et de mémoire).
 
-Pour les services de table et de la file d’attente, l’algorithme Nagle peut également provoquer de hautes **AverageE2ELatency** par rapport à **AverageServerLatency** : pour plus d’informations, consultez le billet <a href="http://blogs.msdn.com/b/windowsazurestorage/archive/2010/06/25/nagle-s-algorithm-is-not-friendly-towards-small-requests.aspx" target="_blank">Nagle’s Algorithm is Not Friendly towards Small Requests</a> sur le blog de l’équipe de Microsoft Azure Storage. Vous pouvez désactiver l'algorithme Nagle dans le code en utilisant la classe **ServicePointManager** dans l'espace de noms **System.Net**. Cette opération doit être effectuée avant de réaliser des appels vers les services de table et de file d’attente dans votre application, car elle n’affecte pas les connexions déjà ouvertes. L'exemple suivant provient de la méthode **Application_Start** dans un rôle de travail.
+Pour les services de Table et de File d’attente, l’algorithme Nagle peut également provoquer de hautes valeurs **AverageE2ELatency** par rapport à **AverageServerLatency** : pour plus d’informations, consultez le billet <a href="http://blogs.msdn.com/b/windowsazurestorage/archive/2010/06/25/nagle-s-algorithm-is-not-friendly-towards-small-requests.aspx" target="_blank">Nagle’s Algorithm is Not Friendly towards Small Requests</a> sur le blog de l’équipe de Microsoft Azure Storage. Vous pouvez désactiver l'algorithme Nagle dans le code en utilisant la classe **ServicePointManager** dans l'espace de noms **System.Net**. Cette opération doit être effectuée avant de réaliser des appels vers les services de table et de file d’attente dans votre application, car elle n’affecte pas les connexions déjà ouvertes. L'exemple suivant provient de la méthode **Application\_Start** dans un rôle de travail.
 
     var storageAccount = CloudStorageAccount.Parse(connStr);
     ServicePoint tableServicePoint = ServicePointManager.FindServicePoint(storageAccount.TableEndpoint);
@@ -465,142 +465,17 @@ La cause la plus fréquente de cette erreur est une déconnexion du client avant
 
 Si votre application client génère des erreurs HTTP 403 (Forbidden), l’une des causes probables est l’utilisation par le client d’une signature d’accès partagé (SAS) arrivée à expiration lors de l’envoi d’une demande de stockage (d’autres causes possibles incluent les variations d’horloges, les clés non valides et les en-têtes vides). Si une clé SAS arrivée à expiration est la cause, aucune entrée ne s'affiche dans les données de journalisation du stockage côté serveur. Le tableau suivant inclut un exemple de journal côté client généré par la bibliothèque cliente de stockage, qui illustre ce type de problème :
 
-<table>
- <tr>
-    <td><b>Source</b></td>
-    <td><b>Niveau de détail</b></td>
-    <td><b>Niveau de détail</b></td>
-    <td><b>Id de la demande client</b></td>
-    <td><b>Texte de l’opération</b></td>
- </tr>
- <tr>
-    <td>Microsoft.WindowsAzure.Storage</td>
-    <td>Information</td>
-    <td>3</td>
-    <td>85d077ab-…</td>
-    <td>Démarrage de l'opération avec l'emplacement Primary par mode d'emplacement PrimaryOnly.</td>
- </tr>
- <tr>
-    <td>Microsoft.WindowsAzure.Storage</td>
-    <td>Information</td>
-    <td>3</td>
-    <td>85d077ab-…</td>
-    <td>Démarrage d’une demande synchrone vers https://domemaildist.blob.core.windows.netazure<br>imblobcontainer/blobCreatedViaSAS.txt?
-	    <br>sv=2014-02-14&amp;sr=c&amp;si=mypolicy
-	    <br>&amp;sig=OFnd4Rd7z01fIvh%
-	    <br>2BmcR6zbudIH2F5Ikm%
-	    <br>2FyhNYZEmJNQ%3D&amp;api-version=2014-02-14.</td>
- </tr>
- <tr>
-    <td>Microsoft.WindowsAzure.Storage</td>
-    <td>Information</td>
-    <td>3</td>
-    <td>85d077ab-…</td>
-    <td>Attente de la réponse.</td>
- </tr>
- <tr>
-  <td>
-  Microsoft.WindowsAzure.Storage 
-  </td>
-  <td>
-  Avertissement 
-  </td>
-  <td>
-  2 
-  </td>
-  <td>
-  85d077ab-… 
-  </td>
-  <td>
-  Exception levée pendant l’attente de la réponse&#160;: Le serveur distant a renvoyé une erreur&#160;: (403) Forbidden. 
-  </td>
- </tr>
- <tr>
-  <td>
-  Microsoft.WindowsAzure.Storage 
-  </td>
-  <td>
-  Information 
-  </td>
-  <td>
-  3 
-  </td>
-  <td>
-  85d077ab-… 
-  </td>
-  <td>
-  Réponse reçue. Code d'état = 403, ID de la demande = 9d67c64a-64ed-4b0d-9515-3b14bbcdc63d, Content-MD5 = , ETag = . 
-  </td>
- </tr>
- <tr>
-  <td>
-  Microsoft.WindowsAzure.Storage 
-  </td>
-  <td>
-  Avertissement 
-  </td>
-  <td>
-  2 
-  </td>
-  <td>
-  85d077ab-… 
-  </td>
-  <td>
-  Exception levée pendant l’opération&#160;: Le serveur distant a renvoyé une erreur&#160;: (403) Forbidden. 
-  </td>
- </tr>
- <tr>
-  <td>
-  Microsoft.WindowsAzure.Storage 
-  </td>
-  <td>
-  Information 
-  </td>
-  <td>
-  3 
-  </td>
-  <td>
-  85d077ab-… 
-  </td>
-  <td>
-  Vérification si l’opération doit être tentée à nouveau. Nombre de nouvelles tentatives = 0, Code d’état HTTP = 403, Exception = Le serveur distant a renvoyé une erreur&#160;: (403) Forbidden. 
-  </td>
- </tr>
- <tr>
-  <td>
-  Microsoft.WindowsAzure.Storage 
-  </td>
-  <td>
-  Information 
-  </td>
-  <td>
-  3 
-  </td>
-  <td>
-  85d077ab-… 
-  </td>
-  <td>
-  L'emplacement suivant a été défini sur Primary, sur base du mode d'emplacement. 
-  </td>
- </tr>
- <tr>
-  <td>
-  Microsoft.WindowsAzure.Storage 
-  </td>
-  <td>
-  Erreur 
-  </td>
-  <td>
-  1 
-  </td>
-  <td>
-  85d077ab-… 
-  </td>
-  <td>
-  La stratégie de nouvelle tentative n’a pas autorisé de nouvelle tentative. Échec avec Le serveur distant a renvoyé une erreur&#160;: (403) Forbidden. 
-  </td>
- </tr>
-</table>
+Source|Commentaires|Commentaires|ID de la demande client|Texte de l'opération
+---|---|---|---|---
+Microsoft.WindowsAzure.Storage|Information|3|85d077ab-…|Démarrage de l'opération avec l'emplacement Primary par mode d'emplacement PrimaryOnly.
+Microsoft.WindowsAzure.Storage|Information|3|85d077ab-…|Démarrage d’une requête synchrone vers https://domemaildist.blob.core.windows.netazureimblobcontainer/blobCreatedViaSAS.txt?sv=2014-02-14&amp;sr=c&amp;si=mypolicy&amp;sig=OFnd4Rd7z01fIvh%2BmcR6zbudIH2F5Ikm%2FyhNYZEmJNQ%3D&amp;api-version=2014-02-14.
+Microsoft.WindowsAzure.Storage|Information|3|85d077ab-…|Attente de la réponse.
+Microsoft.WindowsAzure.Storage|Avertissement|2|85d077ab-…|Exception levée pendant l’attente de la réponse : Le serveur distant a renvoyé une erreur : (403) Forbidden.
+Microsoft.WindowsAzure.Storage|Information|3|85d077ab-…|Réponse reçue. Code d'état = 403, ID de la demande = 9d67c64a-64ed-4b0d-9515-3b14bbcdc63d, Content-MD5 = , ETag = .
+Microsoft.WindowsAzure.Storage|Avertissement|2|85d077ab-…|Exception levée pendant l’opération : Le serveur distant a renvoyé une erreur : (403) Forbidden.
+Microsoft.WindowsAzure.Storage|Information|3 |85d077ab-…|Vérification si l’opération doit être tentée à nouveau. Nombre de nouvelles tentatives = 0, Code d’état HTTP = 403, Exception = Le serveur distant a renvoyé une erreur : (403) Forbidden. 
+Microsoft.WindowsAzure.Storage|Information|3|85d077ab-…|L'emplacement suivant a été défini sur Primary, sur base du mode d'emplacement.
+Microsoft.WindowsAzure.Storage|Erreur|1|85d077ab-…|La stratégie de nouvelle tentative n’a pas autorisé de nouvelle tentative. Échec avec Le serveur distant a renvoyé une erreur : (403) Forbidden.
 
 Dans ce scénario, vous devez rechercher pourquoi le jeton SAS expire avant que le client n’envoie le jeton au serveur :
 
@@ -628,196 +503,54 @@ Vous pouvez utiliser le journal côté client de la bibliothèque cliente de sto
 
 Le journal côté client suivant, généré par la bibliothèque cliente de stockage, illustre le problème d'un client incapable de trouver le conteneur de l'objet blob qu'il est en train de créer. Ce journal inclut les détails des opérations de stockage suivantes :
 
-<table>
-  <tr>
-    <td>
-      <b>ID de la demande</b>
-    </td>
-    <td>
-      <b>Opération</b>
-    </td>
-  </tr>
-  <tr>
-    <td>07b26a5d-...</td>
-    <td>
-    Méthode <b>DeleteIfExists</b> pour supprimer le conteneur de l'objet blob. Notez que cette opération inclut une requête <b>HEAD</b> pour vérifier l’existence du conteneur.</td>
-  </tr>
-  <tr>
-    <td>e2d06d78…</td>
-    <td>
-    Méthode <b>CreateIfNotExists</b> pour créer le conteneur de l'objet blob. Notez que cette opération inclut une requête <b>HEAD</b> qui vérifie l’existence du conteneur. La requête <b>HEAD</b> renvoie un message&#160;404, mais continue.</td>
-  </tr>
-  <tr>
-    <td>de8b1c3c-...</td>
-    <td>
-    Méthode <b>UploadFromStream</b> pour créer l'objet blob. La requête <b>PUT</b> échoue avec un message&#160;404</td>
-  </tr>
-</table>
+ID de la demande|Opération
+---|---
+07b26a5d-...|Méthode **DeleteIfExists** pour supprimer le conteneur de l'objet blob. Notez que cette opération inclut une requête **HEAD** pour vérifier l’existence du conteneur.
+e2d06d78…|Méthode **CreateIfNotExists** pour créer le conteneur de l'objet blob. Notez que cette opération inclut une requête **HEAD** qui vérifie l’existence du conteneur. La requête **HEAD** renvoie un message 404, mais continue.
+de8b1c3c-...|Méthode **UploadFromStream** pour créer l'objet blob. La requête **PUT** échoue avec un message 404
 
 Entrées du journal :
 
-<table>
-  <tr>
-    <td>
-      <b>ID de la demande</b>
-    </td>
-    <td>
-      <b>Texte de l’opération</b>
-    </td>
-  </tr>
-  <tr>
-    <td>07b26a5d-...</td>
-    <td> Démarrage d'une demande synchrone vers https://domemaildist.blob.core.windows.net/azuremmblobcontainer.</td>
-  </tr>
-  <tr>
-    <td>07b26a5d-...</td>
-    <td> StringToSign = HEAD............x-ms-client-request-id:07b26a5d-....x-ms-date:Tue, 03 Jun 2014 10:33:11 GMT.x-ms-version:2014-02-14./domemaildist/azuremmblobcontainer.restype:container.</td>
-  </tr>
-  <tr>
-    <td>07b26a5d-...</td>
-    <td> Attente de la réponse.</td>
-  </tr>
-  <tr>
-    <td>07b26a5d-...</td>
-    <td> Réponse reçue. Code d’état = 200, ID de la demande = eeead849-...Content-MD5 = , ETag = "0x8D14D2DC63D059B".</td>
-  </tr>
-  <tr>
-    <td>07b26a5d-...</td>
-    <td> Les en-têtes de réponse ont été traités avec succès&#160;; passage à la suite de l'opération.</td>
-  </tr>
-  <tr>
-    <td>07b26a5d-...</td>
-    <td> Téléchargement du corps de la réponse.</td>
-  </tr>
-  <tr>
-    <td>07b26a5d-...</td>
-    <td> Opération exécutée avec succès.</td>
-  </tr>
-  <tr>
-    <td>07b26a5d-...</td>
-    <td> Démarrage d'une demande synchrone vers https://domemaildist.blob.core.windows.net/azuremmblobcontainer.</td>
-  </tr>
-  <tr>
-    <td>07b26a5d-...</td>
-    <td> StringToSign = DELETE............x-ms-client-request-id:07b26a5d-....x-ms-date:Tue, 03 Jun 2014 10:33:12 GMT.x-ms-version:2014-02-14./domemaildist/azuremmblobcontainer.restype:container.</td>
-  </tr>
-  <tr>
-    <td>07b26a5d-...</td>
-    <td> Attente de la réponse.</td>
-  </tr>
-  <tr>
-    <td>07b26a5d-...</td>
-    <td> Réponse reçue. Code d’état = 202, ID de la demande = 6ab2a4cf-..., Content-MD5 = , ETag = .</td>
-  </tr>
-  <tr>
-    <td>07b26a5d-...</td>
-    <td> Les en-têtes de réponse ont été traités avec succès&#160;; passage à la suite de l'opération.</td>
-  </tr>
-  <tr>
-    <td>07b26a5d-...</td>
-    <td> Téléchargement du corps de la réponse.</td>
-  </tr>
-  <tr>
-    <td>07b26a5d-...</td>
-    <td> Opération exécutée avec succès.</td>
-  </tr>
-  <tr>
-    <td>e2d06d78-...</td>
-    <td> Démarrage d'une demande synchrone vers https://domemaildist.blob.core.windows.net/azuremmblobcontainer.</td>
-  </tr>
-  <tr>
-    <td>e2d06d78-...</td>
-    <td> StringToSign = HEAD............x-ms-client-request-id:e2d06d78-....x-ms-date:Tue, 03 Jun 2014 10:33:12 GMT.x-ms-version:2014-02-14./domemaildist/azuremmblobcontainer.restype:container.</td>
-  </tr>
-  <tr>
-    <td>e2d06d78-...</td>
-    <td> Attente de la réponse.</td>
-  </tr>
-  <tr>
-    <td>de8b1c3c-...</td>
-    <td> Démarrage d'une demande synchrone vers https://domemaildist.blob.core.windows.net/azuremmblobcontainer/blobCreated.txt.</td>
-  </tr>
-  <tr>
-    <td>de8b1c3c-...</td>
-    <td> StringToSign = PUT...64.qCmF+TQLPhq/YYK50mP9ZQ==........x-ms-blob-type:BlockBlob.x-ms-client-request-id:de8b1c3c-....x-ms-date:Tue, 03 Jun 2014 10:33:12 GMT.x-ms-version:2014-02-14./domemaildist/azuremmblobcontainer/blobCreated.txt.</td>
-  </tr>
-  <tr>
-    <td>de8b1c3c-...</td>
-    <td> Préparation de l'écriture des données de la demande.</td>
-  </tr>
-  <tr>
-    <td>e2d06d78-...</td>
-    <td> Exception levée pendant l’attente de la réponse&#160;: Le serveur distant a renvoyé une erreur&#160;: (404) Not Found.</td>
-  </tr>
-  <tr>
-    <td>e2d06d78-...</td>
-    <td> Réponse reçue. Code d’état = 404, ID de la demande = 353ae3bc-..., Content-MD5 = , ETag = .</td>
-  </tr>
-  <tr>
-    <td>e2d06d78-...</td>
-    <td> Les en-têtes de réponse ont été traités avec succès&#160;; passage à la suite de l'opération.</td>
-  </tr>
-  <tr>
-    <td>e2d06d78-...</td>
-    <td> Téléchargement du corps de la réponse.</td>
-  </tr>
-  <tr>
-    <td>e2d06d78-...</td>
-    <td> Opération exécutée avec succès.</td>
-  </tr>
-  <tr>
-    <td>e2d06d78-...</td>
-    <td> Démarrage d'une demande synchrone vers https://domemaildist.blob.core.windows.net/azuremmblobcontainer.</td>
-  </tr>
-  <tr>
-    <td>e2d06d78-...</td>
-    <td> StringToSign = PUT...0.........x-ms-client-request-id:e2d06d78-....x-ms-date:Tue, 03 Jun 2014 10:33:12 GMT.x-ms-version:2014-02-14./domemaildist/azuremmblobcontainer.restype:container.</td>
-  </tr>
-  <tr>
-    <td>e2d06d78-...</td>
-    <td> Attente de la réponse.</td>
-  </tr>
-  <tr>
-    <td>de8b1c3c-...</td>
-    <td> Écriture des données de la demande.</td>
-  </tr>
-  <tr>
-    <td>de8b1c3c-...</td>
-    <td> Attente de la réponse.</td>
-  </tr>
-  <tr>
-    <td>e2d06d78-...</td>
-    <td> Exception levée pendant l’attente de la réponse&#160;: Le serveur distant a renvoyé une erreur&#160;: (409) Conflict.</td>
-  </tr>
-  <tr>
-    <td>e2d06d78-...</td>
-    <td> Réponse reçue. Code d’état = 409, ID de la demande = c27da20e-..., Content-MD5 = , ETag = .</td>
-  </tr>
-  <tr>
-    <td>e2d06d78-...</td>
-    <td> Erreur de téléchargement du corps de la réponse.</td>
-  </tr>
-  <tr>
-    <td>de8b1c3c-...</td>
-    <td> Exception levée pendant l’attente de la réponse&#160;: Le serveur distant a renvoyé une erreur&#160;: (404) Not Found.</td>
-  </tr>
-  <tr>
-    <td>de8b1c3c-...</td>
-    <td> Réponse reçue. Code d’état = 404, ID de la demande = 0eaeab3e-..., Content-MD5 = , ETag = .</td>
-  </tr>
-  <tr>
-    <td>de8b1c3c-...</td>
-    <td> Exception levée pendant l’opération&#160;: Le serveur distant a renvoyé une erreur&#160;: (404) Not Found.</td>
-  </tr>
-  <tr>
-    <td>de8b1c3c-...</td>
-    <td> La stratégie de nouvelle tentative n’a pas autorisé de nouvelle tentative. Échec avec Le serveur distant a renvoyé une erreur&#160;: (404) Not Found.</td>
-  </tr>
-  <tr>
-    <td>e2d06d78-...</td>
-    <td> La stratégie de nouvelle tentative n’a pas autorisé de nouvelle tentative. Échec avec Le serveur distant a renvoyé une erreur&#160;: (409) Conflict.</td>
-  </tr>
-</table>
+ID de la demande | Texte de l'opération
+---|---
+07b26a5d-...|Démarrage d’une requête synchrone vers https://domemaildist.blob.core.windows.net/azuremmblobcontainer.
+07b26a5d-...|StringToSign = HEAD............x-ms-client-request-id:07b26a5d-....x-ms-date:Tue, 03 Jun 2014 10:33:11 GMT.x-ms-version:2014-02-14./domemaildist/azuremmblobcontainer.restype:container.
+07b26a5d-...|Attente de la réponse.
+07b26a5d-... | Réponse reçue. Code d’état = 200, ID de la demande = eeead849-...Content-MD5 = , ETag = ";0x8D14D2DC63D059B";.
+07b26a5d-... | Les en-têtes de réponse ont été traités avec succès ; passage à la suite de l'opération.
+07b26a5d-... | Téléchargement du corps de la réponse.
+07b26a5d-... | Opération exécutée avec succès.
+07b26a5d-... | Démarrage d’une requête synchrone vers https://domemaildist.blob.core.windows.net/azuremmblobcontainer.
+07b26a5d-... | StringToSign = DELETE............x-ms-client-request-id:07b26a5d-....x-ms-date:Tue, 03 Jun 2014 10:33:12 GMT.x-ms-version:2014-02-14./domemaildist/azuremmblobcontainer.restype:container.
+07b26a5d-... | Attente de la réponse.
+07b26a5d-... | Réponse reçue. Code d’état = 202, ID de la demande = 6ab2a4cf-..., Content-MD5 = , ETag = .
+07b26a5d-... | Les en-têtes de réponse ont été traités avec succès ; passage à la suite de l'opération.
+07b26a5d-... | Téléchargement du corps de la réponse.
+07b26a5d-... | Opération exécutée avec succès.
+e2d06d78-... | Démarrage d’une requête asynchrone vers https://domemaildist.blob.core.windows.net/azuremmblobcontainer.</td>
+e2d06d78-... | StringToSign = HEAD............x-ms-client-request-id:e2d06d78-....x-ms-date:Tue, 03 Jun 2014 10:33:12 GMT.x-ms-version:2014-02-14./domemaildist/azuremmblobcontainer.restype:container.
+e2d06d78-...| Attente de la réponse.
+de8b1c3c-... | Démarrage d’une requête synchrone vers https://domemaildist.blob.core.windows.net/azuremmblobcontainer/blobCreated.txt.
+de8b1c3c-... | StringToSign = PUT...64.qCmF+TQLPhq/YYK50mP9ZQ==........x-ms-blob-type:BlockBlob.x-ms-client-request-id:de8b1c3c-....x-ms-date:Tue, 03 Jun 2014 10:33:12 GMT.x-ms-version:2014-02-14./domemaildist/azuremmblobcontainer/blobCreated.txt.
+de8b1c3c-... | Préparation de l'écriture des données de la demande.
+e2d06d78-... | Exception levée pendant l’attente de la réponse : Le serveur distant a renvoyé une erreur : (404) Not Found.
+e2d06d78-... | Réponse reçue. Code d’état = 404, ID de la demande = 353ae3bc-..., Content-MD5 = , ETag = .
+e2d06d78-... | Les en-têtes de réponse ont été traités avec succès ; passage à la suite de l'opération.
+e2d06d78-... | Téléchargement du corps de la réponse.
+e2d06d78-... | Opération exécutée avec succès.
+e2d06d78-... | Démarrage d’une requête asynchrone vers https://domemaildist.blob.core.windows.net/azuremmblobcontainer.
+e2d06d78-...|StringToSign = PUT...0.........x-ms-client-request-id:e2d06d78-....x-ms-date:Tue, 03 Jun 2014 10:33:12 GMT.x-ms-version:2014-02-14./domemaildist/azuremmblobcontainer.restype:container.
+e2d06d78-... | Attente de la réponse.
+de8b1c3c-... | Écriture des données de la demande.
+de8b1c3c-... | Attente de la réponse. 
+e2d06d78-... | Exception levée pendant l’attente de la réponse : Le serveur distant a renvoyé une erreur : (409) Conflict.
+e2d06d78-... | Réponse reçue. Code d’état = 409, ID de la demande = c27da20e-..., Content-MD5 = , ETag = .
+e2d06d78-... | Erreur de téléchargement du corps de la réponse.
+de8b1c3c-... | Exception levée pendant l’attente de la réponse : Le serveur distant a renvoyé une erreur : (404) Not Found.
+de8b1c3c-... | Réponse reçue. Code d’état = 404, ID de la demande = 0eaeab3e-..., Content-MD5 = , ETag = .
+de8b1c3c-...| Exception levée pendant l’opération : Le serveur distant a renvoyé une erreur : (404) Not Found.
+de8b1c3c-... | La stratégie de nouvelle tentative n’a pas autorisé de nouvelle tentative. Échec avec Le serveur distant a renvoyé une erreur : (404) Not Found.
+e2d06d78-... | La stratégie de nouvelle tentative n’a pas autorisé de nouvelle tentative. Échec avec Le serveur distant a renvoyé une erreur : (409) Conflict.
 
 Dans cet exemple, le journal indique que le client entrelace les demandes de la méthode **CreateIfNotExists** (ID de demande e2d06d78…) avec les demandes de la méthode **UploadFromStream** (de8b1c3c-...) ; cela est dû au fait que l'application cliente appelle ces méthodes de façon asynchrone. Vous devez modifier le code asynchrone dans le client de façon à ce qu'il crée le conteneur avant de tenter de charger des données dans un objet blob de ce conteneur. Idéalement, vous devriez créer tous vos conteneurs à l’avance.
 
@@ -902,7 +635,7 @@ L’exemple de code suivant montre comment configurer votre service d’objet bl
 
 Dans certaines circonstances, la perte de paquets réseau peut amener le service de stockage à renvoyer des messages HTTP 404 au client. Par exemple, lorsque l'application cliente supprime une entité du service de table, le client génère une exception de stockage avec un message d'état « HTTP 404 (Not Found) » du service de table. Lorsque vous recherchez la table dans le service de stockage de table, vous constatez que le service a supprimé l’entité comme prévu.
 
-Les détails de l’exception dans le client incluent l’ID de demande (7e84f12d...) attribué par le service de table pour la demande : vous pouvez utiliser ces informations pour rechercher les détails de la demande dans les journaux de stockage côté serveur en effectuant une recherche dans la colonne **request-id-header** dans le fichier journal. Vous pouvez également utiliser les métriques pour savoir quand ce type d’erreurs se produit, puis effectuer une recherche dans les fichiers journaux sur base de l’heure à laquelle les métriques ont enregistré cette erreur. L’entrée du journal indique que la suppression a échoué avec un message d’état « HTTP (404) Client Other Error ». La même entrée du journal inclut l'ID de la demande généré par le client dans la colonne **client-request-id** (813ea74f…).
+Les détails de l’exception dans le client incluent l’ID de demande (7e84f12d...) affecté par le service de Table pour la demande : vous pouvez utiliser ces informations pour rechercher les détails de la demande dans les journaux de stockage côté serveur en effectuant une recherche dans la colonne **request-id-header** dans le fichier journal. Vous pouvez également utiliser les métriques pour savoir quand ce type d’erreurs se produit, puis effectuer une recherche dans les fichiers journaux sur base de l’heure à laquelle les métriques ont enregistré cette erreur. L’entrée du journal indique que la suppression a échoué avec un message d’état « HTTP (404) Client Other Error ». La même entrée du journal inclut l'ID de la demande généré par le client dans la colonne **client-request-id** (813ea74f…).
 
 Le journal côté serveur inclut également une autre entrée avec la même valeur **client-request-id** (813ea74f…) pour une opération de suppression réussie de la même entité, et provenant du même client. Cette opération de suppression réussie s'est produite peu avant l'échec de la demande de suppression.
 
@@ -914,61 +647,20 @@ Si ce problème se produit fréquemment, vous devez rechercher pourquoi le clien
 
 Le tableau suivant inclut un extrait du journal côté serveur pour deux opérations client : **DeleteIfExists** suivie de **CreateIfNotExists** en utilisant le même nom de conteneur d’objet blob. Notez que chaque opération cliente génère l'envoi de deux demandes au serveur : d'abord une demande **GetContainerProperties** afin de vérifier l'existence du conteneur, puis la demande **DeleteContainer** ou **CreateContainer**.
 
-<table>
-  <tr>
-    <td>
-      <b>Timestamp</b>
-    </td>
-    <td>
-      <b>Opération</b>
-    </td>
-    <td>
-      <b>Résultat</b>
-    </td>
-    <td>
-      <b>Nom du conteneur</b>
-    </td>
-    <td>
-      <b>Id de la demande client</b>
-    </td>
-  </tr>
-  <tr>
-    <td>05:10:13.7167225</td>
-    <td>GetContainerProperties</td>
-    <td>200</td>
-    <td>mmcont</td>
-    <td>c9f52c89-…</td>
-  </tr>
-  <tr>
-    <td>05:10:13.8167325</td>
-    <td>DeleteContainer</td>
-    <td>202</td>
-    <td>mmcont</td>
-    <td>c9f52c89-…</td>
-  </tr>
-  <tr>
-    <td>05:10:13.8987407</td>
-    <td>GetContainerProperties</td>
-    <td>404</td>
-    <td>mmcont</td>
-    <td>bc881924-…</td>
-  </tr>
-  <tr>
-    <td>05:10:14.2147723</td>
-    <td>CreateContainer</td>
-    <td>409</td>
-    <td>mmcont</td>
-    <td>bc881924-…</td>
-  </tr>
-</table>
+Timestamp|Opération|Résultat|Nom du conteneur|ID de la demande client
+---|---|---|---|---
+05:10:13.7167225|GetContainerProperties|200|mmcont|c9f52c89-…
+05:10:13.8167325|DeleteContainer|202|mmcont|c9f52c89-…
+05:10:13.8987407|GetContainerProperties|404|mmcont|bc881924-…
+05:10:14.2147723|CreateContainer|409|mmcont|bc881924-…
 
-Le code de l’application cliente supprime et recrée ensuite immédiatement un conteneur d’objets blob en utilisant le même nom : la méthode **CreateIfNotExists** (ID de demande client bc881924-...) échoue avec l’erreur HTTP 409 (Conflict). Lorsqu’un client supprime des conteneurs d’objet blob, des tables ou des files d’attente, le nom devient à nouveau disponible après une courte période.
+Le code de l’application cliente supprime et recrée ensuite immédiatement un conteneur d’objets blob en utilisant le même nom : la méthode **CreateIfNotExists** (ID de demande client bc881924-...) échoue avec l’erreur HTTP 409 (Conflict). Lorsqu’un client supprime des conteneurs d’objet blob, des tables ou des files d’attente, le nom devient à nouveau disponible après une courte période.
 
 Chaque fois qu’elle crée des conteneurs, l’application cliente utilise des noms de conteneur uniques si le modèle de suppression/recréation est commun.
 
 ### <a name="metrics-show-low-percent-success"></a>Les métriques indiquent une valeur PercentSuccess faible ou les entrées du journal d’analyse incluent des opérations avec un statut de transaction ClientOtherErrors
 
-La métrique **PercentSuccess** capture le pourcentage d'opérations réussies sur base de leur code d'état HTTP. Les opérations avec des codes d'état 2XX sont considérées comme réussies ; celles avec des codes d'état dans les plages 3XX, 4XX et 5XX sont considérées comme un échec et réduisent la valeur métrique **PercentSucess**. Dans les fichiers journaux de stockage côté serveur, ces opérations sont enregistrées avec un statut de transaction **ClientOtherErrors**.
+La métrique **PercentSuccess** capture le pourcentage d'opérations réussies sur base de leur code d'état HTTP. Les opérations avec des codes d’état 2XX sont considérées comme réussies ; celles avec des codes d’état dans les plages 3XX, 4XX et 5XX sont considérées comme un échec et réduisent la valeur métrique **PercentSucess**. Dans les fichiers journaux de stockage côté serveur, ces opérations sont enregistrées avec un statut de transaction **ClientOtherErrors**.
 
 Il est important de noter que ces opérations ont été réalisées avec succès et n’affectent donc pas d’autres métriques telles que la disponibilité. Voici quelques exemples d’opérations qui s’exécutent avec succès, mais qui génèrent des codes d’état HTTP d’échec : - **ResourceNotFound** (Not Found 404), par exemple, à partir d’une demande GET vers un objet blob qui n’existe pas. - **ResouceAlreadyExists** (Conflict 409), par exemple, à partir d’une opération **CreateIfNotExist** où la ressource existe déjà. - **ConditionNotMet** (Not Modified 304), par exemple, à partir d’une opération conditionnelle, comme quand un client envoie une valeur **ETag** et un en-tête HTTP **If-None-Match** pour demander une image uniquement si elle a été mise à jour depuis la dernière opération.
 
@@ -1220,4 +912,4 @@ Au moment de la rédaction du présent document, Application Insights était à 
 [10]: ./media/storage-monitoring-diagnosing-troubleshooting/mma-screenshot-2.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

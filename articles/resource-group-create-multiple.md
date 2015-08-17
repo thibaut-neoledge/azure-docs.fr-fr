@@ -114,4 +114,4 @@ Utilisez le modèle suivant :
 - [Fonctions des modèles Azure Resource Manager](./resource-group-template-functions.md)
 - [Déploiement d’une application avec un modèle Azure Resource Manager](azure-portal/resource-group-template-deploy.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

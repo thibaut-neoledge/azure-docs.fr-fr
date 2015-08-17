@@ -7,6 +7,7 @@
    manager="wpickett"
    editor=""/>
 
+
 <tags
    ms.service="azure-resource-manager"
    ms.devlang="na"
@@ -15,6 +16,7 @@
    ms.workload="na"
    ms.date="07/24/2015"
    ms.author="tomfitz"/>
+
 
 # Création de modèles Azure Resource Manager
 
@@ -48,9 +50,9 @@ Nous allons examiner les sections du modèle de manière plus approfondie plus l
 
 ## Expressions et fonctions
 
-La syntaxe de base du modèle est JSON. Toutefois, des expressions et fonctions étendent la syntaxe JSON disponible dans le modèle et vous permettent de créer des valeurs qui ne sont pas des valeurs littérales strictes. Les expressions sont placées entre crochets ([ et ]) et sont évaluées au moment où le modèle est déployé. Les expressions peuvent apparaître n'importe où dans une valeur de chaîne JSON et retournent toujours une autre valeur JSON. Si vous avez besoin d'utiliser une chaîne littérale qui commence par un crochet [, vous devez utiliser deux crochets [[.
+La syntaxe de base du modèle est JSON. Toutefois, des expressions et fonctions étendent la syntaxe JSON disponible dans le modèle et vous permettent de créer des valeurs qui ne sont pas des valeurs littérales strictes. Les expressions sont placées entre crochets ([ et \]) et sont évaluées au moment où le modèle est déployé. Les expressions peuvent apparaître n'importe où dans une valeur de chaîne JSON et retournent toujours une autre valeur JSON. Si vous avez besoin d'utiliser une chaîne littérale qui commence par un crochet [, vous devez utiliser deux crochets [[.
 
-En général, vous utilisez des expressions avec des fonctions pour effectuer des opérations de configuration du déploiement. Comme en JavaScript, les appels de fonctions sont formatés ainsi : **functionName(arg1,arg2,arg3)**. Pour référencer des propriétés, vous utilisez les opérateurs point et [index].
+En général, vous utilisez des expressions avec des fonctions pour effectuer des opérations de configuration du déploiement. Comme en JavaScript, les appels de fonctions sont formatés ainsi : **functionName(arg1,arg2,arg3)**. Pour référencer des propriétés, vous utilisez les opérateurs point et [index\].
 
 La liste suivante vous indique les fonctions courantes.
 
@@ -74,7 +76,7 @@ La liste suivante vous indique les fonctions courantes.
 
     Retourne un objet structuré (avec ID, nom et propriétés de l’emplacement) qui représente le groupe de ressources actuel.
 
-- **resourceId([nom\_groupe\_ressources], type\_ressource, nom\_ressource1, [nom\_ressource2]...)**
+- **resourceId([nom\_groupe\_ressources\], type\_ressource, nom\_ressource1, [nom\_ressource2\]...)**
 
     Retourne l'identificateur unique d'une ressource. Peut être utilisé pour récupérer une ressource d'un autre groupe de ressources.
 
@@ -117,7 +119,7 @@ Les valeurs et types autorisés sont :
 - string ou secureString - n'importe quelle chaîne JSON valide
 - int - n’importe quel integer JSON valide
 - bool - n’importe quel booléen JSON valide
-- object - n'importe quel objet JSON valide
+- object ou secureObject - n'importe quel objet JSON valide
 - array - n'importe quel tableau JSON valide
 
 
@@ -405,4 +407,4 @@ Le modèle suivant déploie une application web et l'approvisionne avec le code 
 - Pour obtenir un exemple détaillé de déploiement d'une application, consultez [Mise en service et déploiement de microservices de manière prévisible dans Azure](app-service-web/app-service-deploy-complex-application-predictably.md)
 - Pour voir les schémas disponibles, consultez [Schémas Azure Resource Manager](https://github.com/Azure/azure-resource-manager-schemas).
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

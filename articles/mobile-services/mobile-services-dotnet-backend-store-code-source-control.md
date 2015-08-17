@@ -99,9 +99,8 @@ Pour suivre ce didacticiel, vous devez avoir créé un service mobile en suivant
 [Prise en main de Mobile Services]: mobile-services-dotnet-backend-ios-get-started.md
 [Ajout de Mobile Services à une application existante]: mobile-services-dotnet-backend-ios-get-started-data.md
 [Azure Management Portal]: https://manage.windowsazure.com/
-[portail de gestion Azure]: https://manage.windowsazure.com/
 [Call a custom API from the client]: mobile-services-dotnet-backend-ios-call-custom-api.md
 [Modifications des modèles de données pour un service mobile de backend .NET]: mobile-services-dotnet-backend-how-to-use-code-first-migrations.md
  
 
-<!----HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

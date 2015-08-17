@@ -99,4 +99,4 @@ Vous pouvez obtenir plusieurs adresses IP publiques à équilibrage de charge at
 [Prise en main de l’équilibrage de charge accessible sur Internet](load-balancer-internet-getstarted.md)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

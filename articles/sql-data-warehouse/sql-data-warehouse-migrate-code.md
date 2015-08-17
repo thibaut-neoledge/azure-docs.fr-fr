@@ -60,8 +60,8 @@ Certaines fonctions système ne sont pas prises en charge. Voici les principales
 - @@NESTLEVEL()
 - @@IDENTITY()
 - @@ROWCOUNT()
-- ROWCOUNT_BIG
-- ERROR_LINE()
+- ROWCOUNT\_BIG
+- ERROR\_LINE()
 
 Là encore, nombre de ces problèmes peuvent être contournés.
 
@@ -100,4 +100,4 @@ Pour bénéficier de recommandation sur le développement de votre code, consult
 
 <!--Other Web references-->
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

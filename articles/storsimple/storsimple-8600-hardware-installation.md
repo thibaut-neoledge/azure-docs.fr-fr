@@ -382,4 +382,4 @@ Vous avez terminé le branchement des câbles d’alimentation, d’accès rése
 Vous êtes maintenant prêt à procéder au [Déploiement de votre appareil StorSimple local](storsimple-deployment-walkthrough.md).
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

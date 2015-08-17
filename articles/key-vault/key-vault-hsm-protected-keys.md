@@ -7,6 +7,7 @@
 	manager="mbaldwin"
 	tags="azure-resource-manager"/>
 
+
 <tags
 	ms.service="key-vault"
 	ms.workload="identity"
@@ -15,6 +16,7 @@
 	ms.topic="article" 
 	ms.date="07/22/2015"
 	ms.author="cabailey"/>
+
 #Génération et transfert de clés HSM protégées pour Azure clé de coffre
 
 ##Introduction
@@ -61,7 +63,15 @@ Consultez le tableau qui suit pour connaître les conditions requises pour appor
 |Abonnement à Azure|Pour créer un coffre de clés Azure, vous avez besoin d’un abonnement Azure : [Inscrivez-vous pour la version d’évaluation gratuite](http://azure.microsoft.com/pricing/free-trial/)|
 |Un coffre de clés Azure qui prend en charge des modules de sécurité matériels|Pour plus d’informations sur les niveaux de service et les capacités d’Azure Key Vault, consultez le site Web [Tarifs Azure Key Vault](http://azure.microsoft.com/pricing/details/key-vault/).|
 |Modules de sécurité matérielle, cartes à puces et logiciel d’assistance de Thales|Vous devez disposer d’un accès au module de sécurité matérielle Thales et quelques notions sur les modules de sécurité matérielle d’HSM. Voir [Modules de sécurité matérielle Thales](https://www.thales-esecurity.com/msrms/buy) pour obtenir une liste des modèles compatibles ou acheter un module de sécurité matérielle si vous n’en n’avez pas encore.|
-|Les matériels et le logiciel suivants :<ol><li> une station de travail x64 hors ligne avec système d’exploitation Windows 7 minimum et un logiciel Thales nShield version 11.50 minimum.<br/><br/>Si la station de travail exécute Windows 7, vous devez installer [install Microsoft .NET Framework 4.5](http://download.microsoft.com/download/b/a/4/ba4a7e71-2906-4b2d-a0e1-80cf16844f5f/dotnetfx45_full_x86_x64.exe).</li><li>Une station de travail connectée à Internet avec système d’exploitation Windows 7 minimum.</li><li>Une clé USB ou un autre support de stockage amovible avec au moins 16 Mo d’espace libre.</li></ol>|Pour des raisons sécurité, nous conseillons de faire en sorte que la première station de travail ne soit pas connectée à un réseau. Cependant, cette modification n’est pas appliquée par programmation.<br/><br/>Notez que dans la procédure qui suit, cette station de travail est désignée comme une station de travail déconnectée.</p></blockquote><br/>En outre, si votre clé locataire est destinée à un réseau de production, nous vous recommandons d’utiliser un poste de travail distinct pour télécharger les outils et télécharger la clé locataire. À des fins de test, vous pouvez utiliser la même station de travail que la précédente.<br/><br/>Notez que dans la procédure qui suit, la station de travail est désignée comme une station de travail connectée à Internet.</p></blockquote><br/>|
+|Les matériels et le logiciel suivants :<ol><li> une station de travail x64 hors ligne avec système d’exploitation Windows 7 minimum et un logiciel Thales nShield version 11.50 minimum.<br/>
+<br/>
+Si la station de travail exécute Windows 7, vous devez installer [install Microsoft .NET Framework 4.5](http://download.microsoft.com/download/b/a/4/ba4a7e71-2906-4b2d-a0e1-80cf16844f5f/dotnetfx45_full_x86_x64.exe).</li><li>Une station de travail connectée à Internet avec système d’exploitation Windows 7 minimum.</li><li>Une clé USB ou un autre support de stockage amovible avec au moins 16 Mo d’espace libre.</li></ol>|Pour des raisons sécurité, nous conseillons de faire en sorte que la première station de travail ne soit pas connectée à un réseau. Cependant, cette modification n’est pas appliquée par programmation.<br/>
+<br/>
+Notez que dans la procédure qui suit, cette station de travail est désignée comme une station de travail déconnectée.</p></blockquote><br/>
+En outre, si votre clé locataire est destinée à un réseau de production, nous vous recommandons d’utiliser un poste de travail distinct pour télécharger les outils et télécharger la clé locataire. À des fins de test, vous pouvez utiliser la même station de travail que la précédente.<br/>
+<br/>
+Notez que dans la procédure qui suit, la station de travail est désignée comme une station de travail connectée à Internet.</p></blockquote><br/>
+|
 
 ##Générez et transférez votre clé sur le module de sécurité matérielle Azure Key Vault
 
@@ -116,7 +126,7 @@ Le jeux d’outils contient les éléments suivants :
 - Un package Security World dont le nom commence par **BYOK-SecurityWorld - pkg-.**
 - Un script python nommé v**erifykeypackage.py.**
 - Un fichier exécutable sur ligne de commande nommé **KeyTransferRemote.exe** et les DLL associées.
-- Un Package redistribuable Visual C++, nommé **vcredist_x64.exe.**
+- Un Package redistribuable Visual C++, nommé **vcredist\_x64.exe.**
 
 Copiez le package sur un lecteur USB ou autre support de stockage portable.
 
@@ -129,7 +139,7 @@ Pour cette deuxième étape, procédez comme suit sur la station de travail non 
 
 Installer le logiciel de support nCipher (Thales) sur un ordinateur Windows, puis rattachez un module de sécurité matériel Thales à cet ordinateur.
 
-Assurez-vous que les outils Thales se trouvent dans votre chemin d’accès (**%nfast_home%\bin** et **%nfast_home%\python\bin**). Tapez ensuite la commande suivante :
+Assurez-vous que les outils Thales se trouvent dans votre chemin d’accès (**%nfast\_home%\\bin** et **%nfast\_home%\\python\\bin**). Tapez ensuite la commande suivante :
 
 		set PATH=%PATH%;”%nfast_home%\bin”;”%nfast_home%\python\bin”
 
@@ -140,7 +150,7 @@ Pour plus d’informations, consultez le guide de l’utilisateur inclus dans le
 Copiez le package d’outils BYOK de la clé USB ou de l’autre support de stockage portable, puis procédez comme suit :
 
 1. Extrayez les fichiers du package téléchargé dans un dossier.
-2. Depuis ce dossier, exécutez vcredist_x64.exe.
+2. Depuis ce dossier, exécutez vcredist\_x64.exe.
 3. Suivez les instructions pour installer les composants d’exécution Visual C++ pour Visual Studio 2012.
 
 ##Étape 3: Générez votre clé
@@ -153,7 +163,7 @@ Démarrez une invite de commande et exécutez le programme de nouveau monde Thal
 
 	new-world.exe --initialize --cipher-suite=DLf1024s160mRijndael --module=1 --acs-quorum=2/3
 
-Ce programme crée un fichier **Security World** au dossier %NFAST_KMDATA%\local\world, which corresponds to the C:\ProgramData\nCipher\Key Management Data\local. Vous pouvez utiliser des valeurs différentes pour le quorum, mais dans notre exemple, vous êtes invité à entrer trois cartes vierges et codes confidentiels pour chacune d’elles. Par la suite, chacune des deux cartes procure un accès total au monde de sécurité. Ces cartes constituent l’**ensemble de cartes administrateur** pour le nouveau monde de sécurité.
+Ce programme crée un fichier **Security World** au dossier %NFAST\_KMDATA%\\local\\world, qui correspond au dossier C:\\ProgramData\\nCipher\\Key Management Data\\local. Vous pouvez utiliser des valeurs différentes pour le quorum, mais dans notre exemple, vous êtes invité à entrer trois cartes vierges et codes confidentiels pour chacune d’elles. Par la suite, chacune des deux cartes procure un accès total au monde de sécurité. Ces cartes constituent l’**ensemble de cartes administrateur** pour le nouveau monde de sécurité.
 
 Faites ensuite ce qui suit :
 
@@ -188,11 +198,11 @@ Pour valider le package téléchargé :
 
 			python verifykeypackage.py -k BYOK-KEK-pkg-JPN-1 -w BYOK-SecurityWorld-pkg-JPN-1
 
-	>[AZURE.TIP]Le logiciel Thales inclut un python dans %NFAST_HOME%\python\bin
+	>[AZURE.TIP]Le logiciel Thales inclut un python dans %NFAST\_HOME%\\python\\bin
 	
-2.	Vérifiez que vous voyez bien ce qui suit, ce qui indique que la validation est réussie :**Résultat : RÉUSSI**
+2.	Vérifiez que vous voyez bien ce qui suit, ce qui indique que la validation est réussie :**Résultat : RÉUSSI**
 
-Ce script valide la chaîne de signataire jusqu’à la clé racine Thales. Le hachage de cette clé racine est incorporé dans le script et sa valeur doit être **59178a47 de508c3f 291277ee 184f46c4 f1d9c639**. Vous pouvez également confirmer cette valeur séparément en vous rendant sur le [site Web de Thales](http://www.thalesesec.com/).
+Ce script valide la chaîne de signataire jusqu’à la clé racine Thales. Le hachage de cette clé racine est incorporé dans le script et sa valeur doit être **59178a47 de508c3f 291277ee 184f46c4 f1d9c639**. Vous pouvez également confirmer cette valeur séparément en vous rendant sur le [site web de Thales](http://www.thalesesec.com/).
 
 Vous êtes maintenant prêt à créer une nouvelle clé.
 
@@ -210,7 +220,7 @@ Lorsque vous exécutez cette commande, utilisez ces instructions :
 
 - Le pubexp est laissé vide (par défaut) dans cet exemple, mais vous pouvez définir des valeurs spécifiques. Pour plus d’informations, consultez la Thales
 
-Cette commande crée un fichier de clé à jeton dans le dossier %NFAST_KMDATA%\local avec un nom commençant par **key_simple_** suivi de l’ident spécifié dans la commande. Par exemple :**key_simple_contosokey**. Ce fichier contient une clé chiffrée.
+Cette commande crée un fichier de clé à jeton dans le dossier %NFAST\_KMDATA%\\local avec un nom commençant par **key\_simple\_** suivi de l’ident spécifié dans la commande. Par exemple :**key\_simple\_contosokey**. Ce fichier contient une clé chiffrée.
 
 Sauvegardez ce fichier de clé à jeton dans un emplacement sûr.
 
@@ -242,11 +252,11 @@ Pour limiter les autorisations sur votre clé, dans l’invite de commande, exé
 
 		KeyTransferRemote.exe -ModifyAcls -KeyAppName simple -KeyIdentifier contosokey -ExchangeKeyPackage BYOK-KEK-pkg-JPN-1 -NewSecurityWorldPackage BYOK-SecurityWorld-pkg-JPN-1
 
-Lorsque vous exécutez cette commande, remplacez *contosokey* par la valeur spécifiée à l’**étape 3.3 : créez une nouvelle clé **à partir de l’opération [Générez votre clé](#step-3-generate-your-key).
+Lorsque vous exécutez cette commande, remplacez *contosokey* par la valeur spécifiée à l’**étape 3.3 : créez une nouvelle clé **à partir de l’opération [Générez votre clé](#step-3-generate-your-key).
 
 Vous devrez incorporer les cartes administrateur du monde sécurité.
 
-Lorsque la commande est terminée, vous verrez **Résultat : RÉUSSITE** et la copie de votre clé avec autorisations réduites sera placée dans le fichier nommé key_xferacId_<contosokey>.
+Lorsque la commande est terminée, vous verrez **Résultat : RÉUSSITE** et la copie de votre clé avec autorisations réduites sera placée dans le fichier nommé key\_xferacId\_<contosokey>.
 
 ###Étape 4.2 : Inspectez la nouvelle copie de la clé
 
@@ -284,11 +294,11 @@ Lorsque vous exécutez cette commande, utilisez ces instructions :
 
 - Remplacez *contosokey* par l’identificateur que vous avez utilisé pour générer la clé à l’**étape 3.3 : créer une nouvelle clé** à partir de l’étape [Générez votre clé](#step-3-generate-your-key).
 
-- Remplacezv*SubscriptionID* par l’ID d’abonnement Azure qui contient votre coffre de clés. Vous avez extrait cette valeur auparavant, au cours de l’**étape 1.2 : obtenir votre ID d’abonnement Azure** à partir de l’étape [préparer votre poste de travail connecté à Internet](#step-1-prepare-your-internet-connected-workstation).
+- Remplacez *SubscriptionID* par l’ID d’abonnement Azure qui contient votre coffre de clés. Vous avez extrait cette valeur auparavant, au cours de l’**étape 1.2 : obtenir votre ID d’abonnement Azure** à partir de l’étape [Préparer votre poste de travail connecté à Internet](#step-1-prepare-your-internet-connected-workstation).
 
 - Remplacez *ContosoFirstHSMKey* par une étiquette qui sera utilisée pour votre nom de fichier en sortie.
 
-Lorsque cette opération est teminée, il affiche **Résultat : RÉUSSITE** et un nouveau fichier est ajouté au dossier en cours. Il porte le nom qui suit : TransferPackage-*ContosoFirstHSMkey*.byok
+Lorsque cette opération est terminée, il affiche **Résultat : RÉUSSITE** et un nouveau fichier est ajouté au dossier en cours. Il porte le nom qui suit : TransferPackage-*ContosoFirstHSMkey*.byok
 
 ###Étape 4.4 : copiez votre package de transfert de clé vers la station de travail connectée à Internet 
 
@@ -296,7 +306,7 @@ Utilisez une clé USB ou un autre dispositif de stockage portable pour copier le
 
 ##Étape 5 : transférez votre clé vers Azure Key Vault
 
-Pour l’opération finale, sur le poste de travail connecté par Internet, utilisez l’applet de commande [Add-AzureKeyVaultKey](https://msdn.microsoft.com/library/azure/dn868048.aspx) pour télécharger le packagede transfert de cl copié dans la station de travail de la station de travail non connectée vers le module de sécurité matérielle Azure Key Vault :
+Pour l’opération finale, sur le poste de travail connecté par Internet, utilisez l’applet de commande [Add-AzureKeyVaultKey](https://msdn.microsoft.com/library/azure/dn868048.aspx) pour télécharger le package de transfert de clé copié dans la station de travail de la station de travail non connectée vers le module de sécurité matérielle Azure Key Vault :
 
 	Add-AzureKeyVaultKey -VaultName 'ContosoKeyVaultHSM' -Name 'ContosoFirstHSMkey' -KeyFilePath 'c:\TransferPackage-ContosoFirstHSMkey.byok' -Destination 'HSM'
 
@@ -306,4 +316,4 @@ Si le téléchargement réussit, les propriétés de la clé que vous venez de c
 
 Vous pouvez maintenant utiliser cette clé protégée HSM dans votre coffre de clés. Pour plus d’informations, consultez la section **Utiliser un module de sécurité matériel (HSM)** du didacticiel [Prise en main d’Azure Key Vault](key-vault-get-started.md).
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

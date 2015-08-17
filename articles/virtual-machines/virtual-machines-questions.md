@@ -148,4 +148,4 @@ Pour assurer la redondance, placez au moins deux machines virtuelles configurée
 
 [Les différentes façons de créer une machine virtuelle Windows](virtual-machines-windows-choices-create-vm.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

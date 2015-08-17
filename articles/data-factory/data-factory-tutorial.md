@@ -7,6 +7,7 @@
 	manager="jhubbard" 
 	editor="monicar"/>
 
+
 <tags 
 	ms.service="data-factory" 
 	ms.workload="data-services" 
@@ -15,6 +16,7 @@
 	ms.topic="article" 
 	ms.date="06/04/2015" 
 	ms.author="spelluru"/>
+
 
 # Didacticiel : Mesure de l’efficacité d’une campagne marketing  
 Contoso est une société qui crée des jeux pour plusieurs plateformes : des consoles de jeux, des appareils portatifs et des ordinateurs personnels (PC). Ces jeux génèrent beaucoup de journaux. L’objectif de Contoso est de collecter et d’analyser ces journaux pour connaître les préférences des clients, des données démographiques, des comportements d’utilisation, etc., afin d’identifier des opportunités de vente incitative et de vente croisée et de développer de nouvelles fonctionnalités intéressantes visant à optimiser la croissance et à fournir une meilleure expérience aux clients.
@@ -31,7 +33,7 @@ Dans ce didacticiel, vous allez créer des pipelines Data Factory afin d’éval
 3.	Vous devez télécharger et installer [Azure PowerShell][download-azure-powershell] sur votre ordinateur. Vous allez exécuter les applets de commande Data Factory pour charger des exemples de données et des scripts pig/hive sur votre stockage d’objets blob. 
 2.	**(recommandé)** Consultez et effectuez le didacticiel de l’article [Prise en main d’Azure Data Factory][adfgetstarted], car ce didacticiel simple vous permettra de vous familiariser avec le portail et les applets de commande.
 3.	**(recommandé)** Consultez et effectuez la procédure pas à pas de l’article [Utilisation de Pig et Hive avec Azure Data Factory][usepigandhive] pour en savoir plus sur la création d’un pipeline servant à déplacer les données d’une source de données locale vers un magasin d’objets blob Microsoft Azure.
-4.	Téléchargez les fichiers [ADFWalkthrough][adfwalkthrough-download] dans le dossier **C:\ADFWalkthrough** **sans modifier la structure du dossier** :
+4.	Téléchargez les fichiers [ADFWalkthrough][adfwalkthrough-download] dans le dossier **C:\\ADFWalkthrough** **sans modifier la structure du dossier** :
 	- **Pipelines :** inclut des fichiers JSON contenant la définition des pipelines.
 	- **Tables :** inclut des fichiers JSON contenant la définition des tables.
 	- **LinkedServices :** inclut des fichiers JSON contenant la définition de votre cluster de stockage et de calcul (HDInsight). 
@@ -106,7 +108,7 @@ Dans cette étape, vous allez télécharger tous les exemples de données (y com
 
 Les tables, les types définis par l’utilisateur et les procédures stockées sont utilisés lors du déplacement des résultats de l’efficacité de la campagne marketing depuis le stockage d’objets blob Azure vers la base de données SQL Azure.
 
-1. Ouvrez le fichier **uploadSampleDataAndScripts.ps1** figurant dans le dossier **C:\ADFWalkthrough** (ou dans celui qui contient les fichiers extraits) dans votre éditeur favori, remplacez l’élément en surbrillance par vos informations de cluster et enregistrez le fichier.
+1. Ouvrez le fichier **uploadSampleDataAndScripts.ps1** figurant dans le dossier **C:\\ADFWalkthrough** (ou dans celui qui contient les fichiers extraits) dans votre éditeur favori, remplacez l’élément en surbrillance par vos informations de cluster et enregistrez le fichier.
 
 
 		$storageAccount = <storage account name>
@@ -118,10 +120,10 @@ Les tables, les types définis par l’utilisateur et les procédures stockées 
  
 	Pour ce script, l'utilitaire sqlcmd doit être installé sur votre ordinateur. Si SQL Server est installé, l'utilitaire l'est également. Sinon, [téléchargez][sqlcmd-install] et installez l'utilitaire.
 	
-	Vous pouvez également utiliser les fichiers du dossier : C:\ADFWalkthrough\Scripts pour télécharger les scripts pig/hive et des exemples de fichiers dans le conteneur adfwalkthrough du stockage d’objets blob, et créer la table MarketingCampaignEffectiveness dans la base de données SQL Azure MarketingCampaigns.
+	Vous pouvez également utiliser les fichiers du dossier : C:\\ADFWalkthrough\\Scripts pour télécharger les scripts pig/hive et des exemples de fichiers dans le conteneur adfwalkthrough du stockage d’objets blob, et créer la table MarketingCampaignEffectiveness dans la base de données SQL Azure MarketingCampaigns.
    
-2. Vérifiez que votre ordinateur local est autorisé à accéder à la base de données SQL Azure. Pour activer l’accès, utilisez le **portail de gestion Microsoft Azure** ou l’élément **sp_set_firewall_rule** sur la base de données MASTER pour créer une règle de pare-feu pour l’adresse IP de votre ordinateur. Cela peut prendre jusqu’à cinq minutes pour que cette modification prenne effet. Voir [Définition des règles de pare-feu pour Azure SQL][azure-sql-firewall].
-4. Dans Azure PowerShell, accédez à l’emplacement auquel vous avez extrait les exemples (par exemple, **C:\ADFWalkthrough**).
+2. Vérifiez que votre ordinateur local est autorisé à accéder à la base de données SQL Azure. Pour activer l’accès, utilisez le **portail de gestion Microsoft Azure** ou l’élément **sp\_set\_firewall\_rule** sur la base de données MASTER pour créer une règle de pare-feu pour l’adresse IP de votre ordinateur. Cela peut prendre jusqu’à cinq minutes pour que cette modification prenne effet. Voir [Définition des règles de pare-feu pour Azure SQL][azure-sql-firewall].
+4. Dans Azure PowerShell, accédez à l’emplacement auquel vous avez extrait les exemples (par exemple, **C:\\ADFWalkthrough**).
 5. Exécutez le fichier **uploadSampleDataAndScripts.ps1**. 
 6. Une fois que le script s’exécute correctement, vous verrez les éléments suivants :
 
@@ -213,7 +215,7 @@ Dans cette étape, vous allez créer les services liés suivants :
 	
 	![Éditeur - Bouton Nouveau magasin de données][image-editor-newdatastore-button]
 
-3. Remplacez les éléments **nom_compte** et **clé_compte** par le nom du compte et les valeurs de clé de compte de votre compte Microsoft Azure Storage.
+3. Remplacez les éléments **nom\_compte** et **clé\_compte** par le nom du compte et les valeurs de clé de compte de votre compte Microsoft Azure Storage.
 
 	![Éditeur - Stockage d’objets blob - JSON][image-editor-blob-storage-json]
 	
@@ -226,8 +228,9 @@ Dans cette étape, vous allez créer les services liés suivants :
 5. Répétez ces étapes pour créer un autre service lié Microsoft Azure Storage, nommé **HDInsightStorageLinkedService**, pour le stockage associé à votre cluster HDInsight. Dans le script JSON du service lié, remplacez la valeur de la propriété **name** par **HDInsightStorageLinkedService**.
 
 ### Création du service AzureSqlLinkedService
-1. Dans **Data Factory Editor**, cliquez sur le bouton **Nouveau magasin de données** de la barre d’outils, puis sélectionnez **Base de données SQL Azure** dans le menu déroulant. Le modèle JSON de création du service lié SQL Azure doit apparaître dans le volet droit.
-2. Remplacez les éléments **nom_serveur**, **username@servername** et **mot_de_passe** par le nom de votre serveur SQL Azure, le nom du compte d’utilisateur et le mot de passe associé.3. Remplacez l’élément **nom_BD** par **MarketingCampaigns**. Il s’agit de la base de données SQL Microsoft Azure créée par les scripts que vous avez exécutés à l’étape 1. Vous devez confirmer que cette base de données a bien été créée par les scripts (en cas d’erreurs). 
+1. Dans **Data Factory Editor**, cliquez sur le bouton **Nouveau magasin de données** de la barre d’outils, puis sélectionnez **Base de données SQL Azure** dans le menu déroulant. Le modèle JSON pour la création du service lié SQL Azure doit apparaître dans le volet droit.
+2. Remplacez les éléments **nom\_serveur**, ****username@servername** et **password** par le nom de votre serveur SQL Azure, le nom du compte d’utilisateur et le mot de passe associé.
+3. Remplacez l’élément **nom\_BD** par **MarketingCampaigns**. Il s’agit de la base de données SQL Microsoft Azure créée par les scripts que vous avez exécutés à l’étape 1. Vous devez confirmer que cette base de données a bien été créée par les scripts (en cas d’erreurs). 
 3. Cliquez sur l’option **Déployer** de la barre d’outils pour créer et déployer le service AzureSqlLinkedService.
 
 ### Création du service HDInsightLinkedService
@@ -292,7 +295,7 @@ L’image ci-dessus présente les pipelines sur la ligne du milieu et les tables
 ### Créer des tables
 	
 1. Dans l’**éditeur** de Data Factory, cliquez sur le bouton **Nouveau jeu de données** de la barre d’outils et sélectionnez **Stockage d’objets blob Azure** dans le menu déroulant. 
-2. Remplacez le script JSON du volet de droite par le script JSON du fichier **RawGameEventsTable.json**, dans le dossier **C:\ADFWalkthrough\Tables**.
+2. Remplacez le script JSON du volet de droite par le script JSON du fichier **RawGameEventsTable.json**, dans le dossier **C:\\ADFWalkthrough\\Tables**.
 3. Cliquez sur l’option **Déployer** de la barre d’outils pour créer et déployer la table. Vérifiez que le message **TABLE CORRECTEMENT CRÉÉE** s’affiche sur la barre de titre de l’éditeur.
 4. Répétez les étapes 1 à 3 pour le contenu provenant des fichiers suivants : 
 	1. PartitionedGameEventsTable.json
@@ -314,8 +317,8 @@ Dans cette étape, vous allez créer les pipelines suivants :
 ### Pour créer des pipelines
 
 1. Dans **Data Factory Editor**, cliquez sur **Nouveau pipeline** dans la barre d’outils. Si ce bouton n’est pas affiché dans la barre d’outils, cliquez sur **... (points de suspension)**. Vous pouvez également cliquer sur **Pipelines** dans l’arborescence, puis sur **Nouveau pipeline**.
-2. Remplacez le script JSON du volet de droite par le script JSON du fichier **PartitionGameLogsPipeline.json** dans le dossier **C:\ADFWalkthrough\Pipelines**.
-3. Ajoutez une **virgule (« , »)** à la fin du **crochet fermant (« ] »)** dans le script JSON puis ajoutez les trois lignes suivantes après le crochet fermant. 
+2. Remplacez le script JSON du volet de droite par le script JSON du fichier **PartitionGameLogsPipeline.json** dans le dossier **C:\\ADFWalkthrough\\Pipelines**.
+3. Ajoutez une **virgule (« , »)** à la fin du **crochet fermant (« \] »)** dans le script JSON puis ajoutez les trois lignes suivantes après le crochet fermant. 
 
         "start": "2014-05-01T00:00:00Z",
         "end": "2014-05-05T00:00:00Z",
@@ -327,7 +330,8 @@ Dans cette étape, vous allez créer les pipelines suivants :
 4. Répétez les étapes 1 à 3 pour le contenu provenant des fichiers suivants : 
 	1. EnrichGameLogsPipeline.json
 	2. AnalyzeMarketingCampaignPipeline.json
-4. Fermez les panneaux Data Factory en appuyant sur **X** (en haut à droite) pour afficher la page d’accueil (panneau **DATA FACTORY**) de votre fabrique de données. 
+4. Fermez les panneaux Data Factory en appuyant sur **X** (en haut à droite) pour afficher la page d’accueil (panneau **DATA FACTORY **) de votre fabrique de données.
+
 ### Vue schématique
 
 1. Dans le panneau **DATA FACTORY** de **LogProcessingFactory**, cliquez sur **Diagramme**. 
@@ -392,9 +396,9 @@ Dans cette étape, vous allez créer les pipelines suivants :
 
 	![Panneau TRANCHE DE DONNÉES RawGameEventsTable][image-data-factory-monitoring-raw-game-events-table-dataslice-blade]
 
-	En cas d’erreur, vous voyez l’état **Échec** ici. Vous pouvez aussi voir les deux tranches à l’état **Prêt** ou à l’état **PendingValidation**, en fonction de la vitesse de traitement des tranches.
+	En cas d’erreur, vous voyez l’état **Échec **ici. Vous pouvez aussi voir les deux tranches à l’état **Prêt** ou à l’état **PendingValidation**, en fonction de la vitesse de traitement des tranches.
 
-	Si la tranche n’a pas l’état **Prêt**, vous pouvez voir les tranches en amont qui ne sont pas prêtes et qui empêchent l’exécution de la tranche actuelle dans la liste **Tranches en amont qui ne sont pas prêtes**.
+	Si la tranche n’a pas l’état **Prêt**, vous pouvez afficher les tranches en amont qui ne sont pas prêtes et qui empêchent l’exécution de la tranche actuelle dans la liste **Tranches en amont qui ne sont pas prêtes**.
  
 	Pour comprendre tous les états possibles des tranches, reportez-vous à la rubrique [Référence du développeur Azure Data Factory][developer-reference].
 
@@ -525,4 +529,4 @@ Suivez la [procédure pas à pas sur l’utilisation d’une source de données 
 
 [image-data-factory-new-datafactory-create-button]: ./media/data-factory-tutorial/DataFactoryCreateButton.png
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

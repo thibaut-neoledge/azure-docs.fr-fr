@@ -262,7 +262,7 @@ Vous pouvez à présent publier votre application à l’aide de FTP.
 
 Une fois connecté, vous pouvez télécharger les fichiers. Veillez à charger les fichiers dans le répertoire racine `/site/wwwroot`.
 
-Après avoir chargé les fichiers `index.php` et `createtable.php`, accédez à **http://[site[nom_site].azurewebsites.net/createtable.php** pour créer la table MySQL de l’application, puis accédez à **http://[site[nom_site].azurewebsites.net/index.php** pour commencer à utiliser l’application.
+Après avoir chargé les fichiers `index.php` et `createtable.php`, accédez à **http://[site[nom\_site].azurewebsites.net/createtable.php** pour créer la table MySQL de l’application, puis accédez à **http://[site[nom\_site].azurewebsites.net/index.php** pour commencer à utiliser l’application.
  
 
 [install-php]: http://www.php.net/manual/en/install.php
@@ -289,4 +289,4 @@ Après avoir chargé les fichiers `index.php` et `createtable.php`, accédez à 
 [download-publish-profile]: ./media/web-sites-php-mysql-deploy-use-ftp/download_publish_profile_3.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

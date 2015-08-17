@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="04/20/2015" 
+	ms.date="08/03/2015" 
 	ms.author="chris@mongolab.com"/>
 
 
@@ -70,7 +70,7 @@ Si vous disposez déjà d'une application web dans Azure App Service que vous vo
         MongoUrl url = new MongoUrl(connectionString);
         MongoClient client = new MongoClient(url);
 
-> **Remarque :** Azure ajoute le préfixe **CUSTOMCONNSTR_** à la chaîne de connexion déclarée à l'origine, ce qui explique pourquoi le code indique **CUSTOMCONNSTR_MONGOLAB_URI.** au lieu de **MONGOLAB_URI**.
+> **Remarque :** Azure ajoute le préfixe **CUSTOMCONNSTR\_** à la chaîne de connexion déclarée à l'origine, ce qui explique pourquoi le code indique **CUSTOMCONNSTR\_MONGOLAB\_URI.** au lieu de **MONGOLAB\_URI**.
 
 Passons maintenant au didacticiel complet...
 
@@ -496,4 +496,4 @@ Félicitations ! Vous venez de lancer une application C# ASP.NET utilisant une
 
  
 
-<!----HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

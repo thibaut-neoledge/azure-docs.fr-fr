@@ -1,20 +1,22 @@
-<properties 
-	pageTitle="Vue d'ensemble du Kit de développement logiciel (SDK) Azure Engagement Mobile pour iOS" 
+<properties
+	pageTitle="Vue d'ensemble du Kit de développement logiciel (SDK) Azure Engagement Mobile pour iOS"
 	description="Dernières mises à jour et procédures du Kit de développement logiciel (SDK) iOS pour Azure Mobile Engagement"
-	services="mobile-engagement" 
-	documentationCenter="mobile" 
-	authors="piyushjo" 
-	manager="dwrede" 
+	services="mobile-engagement"
+	documentationCenter="mobile"
+	authors="piyushjo"
+	manager="dwrede"
 	editor="" />
 
-<tags 
-	ms.service="mobile-engagement" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-ios" 
-	ms.devlang="objective-c" 
-	ms.topic="article" 
-	ms.date="07/28/2015" 
-	ms.author="piyushjo" />
+
+<tags
+	ms.service="mobile-engagement"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-ios"
+	ms.devlang="objective-c"
+	ms.topic="article"
+	ms.date="08/05/2015"
+	ms.author="MehrdadMzfr" />
+
 
 #Kit de développement logiciel (SDK) iOS pour Azure Mobile Engagement
 
@@ -32,9 +34,9 @@ Cliquez pour voir le [contenu du Kit de développement logiciel (SDK)](mobile-en
 
 ##Notes de publication
 
-###2\.2.0 (21/05/2015)
+##3\.0.0 (05/08/2015)
 
--   L’ID d’appareil Mobile Engagement pour les appareils iOS version 6 et inférieure est désormais basé sur un GUID généré au moment de l’installation.
+-   Mobile Engagement utilise des notifications Push Silent.
 
 Pour les versions antérieures, consultez les [notes de publication complètes](mobile-engagement-ios-release-notes.md)
 
@@ -48,6 +50,5 @@ Pour chaque nouvelle version du Kit de développement logiciel, vous devez d'abo
 
 ###Migration de 2.0.0 vers 2.1.0
 Aucun.
- 
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

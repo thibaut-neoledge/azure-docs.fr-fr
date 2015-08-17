@@ -7,6 +7,7 @@
 	manager="dwrede"
 	editor=""/>
 
+
 <tags
 	ms.service="mobile-services"
 	ms.workload="mobile"
@@ -15,6 +16,7 @@
 	ms.topic="article"
 	ms.date="07/09/2015"
 	ms.author="craig.dunn@xamarin.com"/>
+
 
 # <a name="getting-started"> </a>Prise en main de Mobile Services
 
@@ -78,7 +80,7 @@ La dernière étape de ce didacticiel consiste à générer et à exécuter votr
 
 2. Appuyez sur le bouton **Exécuter** pour générer le projet, et démarrez l'application dans l'émulateur iPhone (configuration par défaut pour ce projet).
 
-3. Dans l'application, tapez un texte explicite, comme _Suivre le didacticiel_, puis cliquez sur l'icône plus (\*\*+\*\*).
+3. Dans l'application, tapez un texte explicite, comme _Suivre le didacticiel_, puis cliquez sur l'icône plus (**+**).
 
 	![][10]
 
@@ -98,13 +100,17 @@ La dernière étape de ce didacticiel consiste à générer et à exécuter votr
 ## Étapes suivantes
 Vous avez terminé les étapes de démarrage rapide. Découvrez ensuite comment effectuer d’autres tâches importantes dans Mobile Services :
 
-* [Prise en main des données] <br/>Découvrez comment ajouter une nouvelle table à un service mobile, puis lire cette table et y écrire.
+* [Prise en main des données] <br/>
+Découvrez comment ajouter une nouvelle table à un service mobile, puis lire cette table et y écrire.
 
-* [Prise en main de la synchronisation des données hors connexion] <br/>Découvrez comment le démarrage rapide utilise la synchronisation des données hors connexion afin de rendre l'application réactive et robuste.
+* [Prise en main de la synchronisation des données hors connexion] <br/>
+Découvrez comment le démarrage rapide utilise la synchronisation des données hors connexion afin de rendre l'application réactive et robuste.
 
-* [Prise en main de l'authentification] <br/>En savoir plus sur l'authentification des utilisateurs de votre application avec un fournisseur d'identité.
+* [Prise en main de l'authentification] <br/>
+En savoir plus sur l'authentification des utilisateurs de votre application avec un fournisseur d'identité.
 
-* [Prise en main des notifications Push] <br/>En savoir plus sur l'envoi d'une notification Push très basique sur votre application.
+* [Prise en main des notifications Push] <br/>
+En savoir plus sur l'envoi d'une notification Push très basique sur votre application.
 
 <!-- Anchors. -->
 [Getting started with Mobile Services]: #getting-started
@@ -134,4 +140,4 @@ Vous avez terminé les étapes de démarrage rapide. Découvrez ensuite comment 
 
 [Management Portal]: https://manage.windowsazure.com/
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

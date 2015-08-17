@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-services"
-	ms.date="07/13/2015"
+	ms.date="08/04/2015"
 	ms.author="jeffstok"/>
 
 # Mise à l’échelle des travaux Azure Stream Analytics pour augmenter le débit #
@@ -228,7 +228,7 @@ Voici les résultats avec l'augmentation du nombre d'unités de diffusion en con
 ![img.stream.analytics.perfgraph][img.stream.analytics.perfgraph]
 
 ## Obtenir de l'aide ##
-Pour obtenir une assistance, consultez le [forum Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/fr-fr/home?forum=AzureStreamAnalytics)
+Pour obtenir une assistance, consultez le [forum Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
 
 
 ## Étapes suivantes ##
@@ -260,4 +260,4 @@ Pour obtenir une assistance, consultez le [forum Azure Stream Analytics](https:/
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

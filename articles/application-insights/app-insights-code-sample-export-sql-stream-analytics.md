@@ -305,4 +305,4 @@ Après quelques minutes, revenez aux Outils d’administration SQL Server et obs
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

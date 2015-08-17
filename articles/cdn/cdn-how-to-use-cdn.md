@@ -7,19 +7,21 @@
 	manager="dwrede" 
 	editor=""/>
 
+
 <tags 
 	ms.service="cdn" 
 	ms.workload="tbd" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
-	ms.topic="article" 
+	ms.topic="get-started-article" 
 	ms.date="05/19/2015" 
 	ms.author="mazha"/>
 
 
+
 # Utilisation du réseau de distribution de contenu (CDN) Azure
 
-Le réseau de distribution de contenu (CDN) Azure est le bloc de construction de base pour mettre à l’échelle toute application HTTP dans Azure. Il offre aux clients Azure une solution globale qui met en cache le contenu et le place à proximité des utilisateurs. Par conséquent, au lieu de contacter systématiquement le point d’origine, les demandes des utilisateurs sont acheminées intelligemment au point de présence de périphérie du CDN qui présente les meilleures performances. Cela améliore considérablement les performances et l’expérience utilisateur. Pour obtenir la liste actuelle des emplacements de nœuds CDN, consultez la page [Emplacements des nœuds CDN Azure].
+Le réseau de distribution de contenu (CDN) Azure est le bloc de construction de base pour mettre à l’échelle toute application HTTP dans Azure. Il offre aux clients Azure une solution globale qui met en cache le contenu et le place à proximité des utilisateurs. Par conséquent, au lieu de contacter systématiquement le point d’origine, les demandes des utilisateurs sont acheminées intelligemment au point de présence de périphérie du CDN qui présente les meilleures performances. Cela améliore considérablement les performances et l’expérience utilisateur. Pour obtenir la liste actuelle des emplacements de nœuds CDN, consultez la page [Emplacements des nœuds CDN Azure\].
 
 Les avantages de l’utilisation du CDN pour mettre en cache des données Azure sont notamment les suivants :
 
@@ -27,7 +29,7 @@ Les avantages de l’utilisation du CDN pour mettre en cache des données Azure 
 -   une diffusion à grande échelle pour améliorer la gestion instantanée des charges importantes, par exemple au début d’un événement comme le lancement d’un produit.
 -   En répartissant les requêtes utilisateur et la diffusion du contenu sur les points de présence de la périphérie globale, le trafic envoyé à l’origine est moins important, réduisant ainsi la charge de travail.
 
-Les clients du CDN existants peuvent désormais utiliser le CDN Azure dans le [portail de gestion Azure]. Le CDN est une fonctionnalité sous forme de module, ajoutée à votre abonnement et qui présente un [profil de facturation] distinct.
+Les clients du CDN existants peuvent désormais utiliser le CDN Azure dans le [portail de gestion Azure\]. Le CDN est une fonctionnalité sous forme de module, ajoutée à votre abonnement et qui présente un [profil de facturation\] distinct.
 
 ##Étape 1 : création d’une origine de CDN dans Azure
 
@@ -45,7 +47,7 @@ Vous pouvez activer un certain nombre de fonctionnalités pour votre point de te
 
 ## Étape 4 : accès au contenu du CDN
 
-Pour accéder au contenu mis en cache sur le CDN, utilisez l’URL CDN fournie dans le portail. Par exemple, l’adresse d’un objet blob mis en cache est au format suivant : http://<*espace_noms_CDN*>.vo.msecnd.net/<*monConteneurPublic*>/<*NomBlob*&gt ;
+Pour accéder au contenu mis en cache sur le CDN, utilisez l’URL CDN fournie dans le portail. Par exemple, l’adresse d’un objet blob mis en cache est au format suivant : http://<*espace\_noms\_CDN*>.vo.msecnd.net/<*monConteneurPublic*>/<*NomBlob*>
 
 
 
@@ -54,4 +56,4 @@ Pour accéder au contenu mis en cache sur le CDN, utilisez l’URL CDN fournie d
 [Vue d’ensemble du réseau de distribution de contenu (CDN) Azure](cdn-overview.md)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

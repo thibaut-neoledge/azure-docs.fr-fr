@@ -26,4 +26,4 @@ Les applications web Azure prennent actuellement en charge les scénarios de dé
 	* Remarque : le groupe de ressources de destination ne peut pas contenir de ressources Microsoft.Web dans ce scénario
 * Déplacement des applications web individuelles vers un groupe de ressources différent, tout en les hébergeant toujours dans leur service d’application actuel (le service d’application reste dans l’ancien groupe de ressources)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

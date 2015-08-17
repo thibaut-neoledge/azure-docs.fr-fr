@@ -1,11 +1,12 @@
 <properties
-   pageTitle="Minuteries et rappels Azure Service Fabric Actors"
-   description="Introduction aux minuteries et rappels Azure Service Fabric Actors."
+   pageTitle="Minuteries et rappels pour les Acteurs fiables"
+   description="Présentation des minuteries et rappels pour les Acteurs fiables Service Fabric."
    services="service-fabric"
    documentationCenter=".net"
    authors="jessebenson"
    manager="timlt"
    editor=""/>
+
 
 <tags
    ms.service="service-fabric"
@@ -13,8 +14,9 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="07/09/2015"
+   ms.date="08/05/2015"
    ms.author="amanbha"/>
+
 
 
 # Minuteries des acteurs
@@ -114,4 +116,4 @@ Task reminderUnregistration = UnregisterReminder(reminder);
 
 Comme indiqué ci-dessus, la méthode `UnregisterReminder` accepte une interface `IActorReminder`. La classe de base de l'acteur prend en charge une méthode `GetReminder` qui peut être utilisée pour récupérer l'interface `IActorReminder` en passant le nom du rappel. C'est pratique car l'acteur n'a pas besoin de conserver l'interface `IActorReminder` renvoyée par l'appel de la méthode `RegisterReminder`.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

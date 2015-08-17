@@ -85,4 +85,4 @@ Pour plus d’informations, consultez [Utilisation des canaux recevant un flux d
 [live-overview2]: ./media/media-services-live-streaming-workflow/media-services-live-streaming-current.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

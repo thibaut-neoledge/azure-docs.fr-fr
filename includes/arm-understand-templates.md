@@ -8,4 +8,4 @@ Les ressources que vous créez à l’aide de modèles Azure Resource Manager 
 
 Les exemples d’automatisation suivants montrent comment utiliser les modèles Azure Resource Manager et déployer des groupes de ressources en utilisant PowerShell ou une interface en ligne de commande.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

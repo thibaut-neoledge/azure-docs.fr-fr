@@ -40,18 +40,9 @@ Le connecteur Wait peut être utilisé en tant qu’action. Il ne possède aucun
 
 	![Action configurée][3]
 
-<table>
-	<tr>
-		<th>Paramètre</th>
-		<th>Type</th>
-		<th>Description du paramètre</th>
-	</tr>
-	<tr>
-		<td>Durée en minutes</td>
-		<td>integer</td>
-		<td>Durée du retard en minutes</td>
-	</tr>
-</table>
+Paramètre|Type|Description du paramètre
+---|---|---
+Durée en minutes|integer|Durée du retard en minutes
 
 
 ## En faire plus avec votre connecteur
@@ -64,4 +55,4 @@ Vous pouvez également consulter les statistiques de performances et contrôler 
 [2]: ./media/app-service-logic-wait/DelayInput.PNG
 [3]: ./media/app-service-logic-wait/ActionConfigured.PNG
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

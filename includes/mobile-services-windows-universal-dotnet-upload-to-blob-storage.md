@@ -298,4 +298,4 @@ La dernière étape consiste à tester les deux versions de l’application et �
 
 Vous avez terminé le didacticiel sur le téléchargement des images.
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

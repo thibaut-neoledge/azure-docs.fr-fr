@@ -7,6 +7,7 @@
 	manager="jhubbard" 
 	editor="monicar"/>
 
+
 <tags 
 	ms.service="data-factory" 
 	ms.workload="data-services" 
@@ -15,6 +16,7 @@
 	ms.topic="article" 
 	ms.date="07/21/2015" 
 	ms.author="spelluru"/>
+
 
 # Scénarios avancés pour l'utilisation de l'activité de copie avec Azure Data Factory 
 ## Vue d'ensemble
@@ -128,7 +130,7 @@ Pour affecter une valeur à **folderPath** et **fileName** de manière dynamique
     ],
 
 #### Exemple : définition du mappage de colonnes
-Dans cet exemple, l'activité d'un pipeline est définie comme suit. Colonnes de la source mappées vers les colonnes du récepteur (columnMappings) en utilisant la propriété **Translator**.
+Dans cet exemple, l'activité d'un pipeline est définie comme suit. Colonnes de la source mappées vers les colonnes du récepteur (**columnMappings**) en utilisant la propriété **Translator**.
 
 	{
 		"name": "CopyActivity",
@@ -146,10 +148,10 @@ Dans cet exemple, l'activité d'un pipeline est définie comme suit. Colonnes de
 			{
             	"type": "BlobSink"
 			},
-			"Translator": 
+			"translator": 
 			{
       			"type": "TabularTranslator",
-      			"ColumnMappings": "UserId: MyUserId, Group: MyGroup, Name: MyName"
+      			"columnMappings": "UserId: MyUserId, Group: MyGroup, Name: MyName"
     		}
 		}
 	}
@@ -170,16 +172,16 @@ Dans cet exemple, une requête SQL (par opposition à la table dans l'exemple pr
 			"source":
 			{
 				"type": "SqlSource",
-				"SqlReaderQuery": "$$Text.Format('SELECT * FROM MyTable WHERE StartDateTime = \'{0:yyyyMMdd-HH}\'', SliceStart)"
+				"SqlReaderQuery": "$$Text.Format('SELECT * FROM MyTable WHERE StartDateTime = \\'{0:yyyyMMdd-HH}\\'', WindowStart)"
 			},
 			"sink":
 			{
             	"type": "BlobSink"
 			},
-			"Translator": 
+			"translator": 
 			{
       			"type": "TabularTranslator",
-      			"ColumnMappings": "UserId: MyUserId, Group: MyGroup,Name: MyName"
+      			"columnMappings": "UserId: MyUserId, Group: MyGroup,Name: MyName"
     		}
 		}
 	}
@@ -194,7 +196,7 @@ Les types de données spécifiés dans la section Structure de la définition de
 | ----------- | ------------------------ |
 | SqlSource | Les types de données définis dans la section Structure de la définition de la table sont ignorés. Les types de données définis dans la base de données SQL sous-jacente sont utilisés pour l'extraction de données durant l'activité de copie. |
 | SqlSink | Les types de données définis dans la section Structure de la définition de la table sont ignorés. Les types de données de la source et de la destination sous-jacentes sont comparés. Par ailleurs, une conversion de type implicite est effectuée s'il existe des incompatibilités de types. |
-| BlobSource | Lors du transfert de BlobSource vers BlobSink, il n’existe aucune transformation de type ; les types de données définis dans la section Structure de la définition de la table sont ignorés. Pour les destinations autres que BlobSink, les types de données définis dans la section Structure de la définition de la table sont respectés. Si la Structure n’est pas spécifiée dans la définition de la table, la gestion du type dépend de la propriété format de la table BlobSource, TextFormat : tous les types de colonne sont traités en tant que chaîne, et tous les noms de colonne sont définis en tant que « Prop_<0-N> ». AvroFormat : permet d’utiliser les types et les noms de colonne prédéfinis dans le fichier Avro.
+| BlobSource | Lors du transfert de BlobSource vers BlobSink, il n’existe aucune transformation de type ; les types de données définis dans la section Structure de la définition de la table sont ignorés. Pour les destinations autres que BlobSink, les types de données définis dans la section Structure de la définition de la table sont respectés. Si la Structure n’est pas spécifiée dans la définition de la table, la gestion du type dépend de la propriété format de la table BlobSource, TextFormat : tous les types de colonne sont traités en tant que chaîne, et tous les noms de colonne sont définis en tant que « Prop\_<0-N> ». AvroFormat : permet d’utiliser les types et les noms de colonne prédéfinis dans le fichier Avro.
 | BlobSink | Les types de données définis dans la section Structure de la définition de la table sont ignorés. Les types de données définis dans le magasin de données d'entrée sous-jacent sont utilisés. Les colonnes sont spécifiées en tant que colonnes de type Nullable pour la sérialisation Avro. |
 | AzureTableSource | Les types de données définis dans la section Structure de la définition de la table sont ignorés. Les types de données définis dans la table Azure sous-jacente sont utilisés. |
 | AzureTableSink | Les types de données définis dans la section Structure de la définition de la table sont ignorés. Les types de données définis dans le magasin de données d'entrée sous-jacent sont utilisés. |
@@ -261,7 +263,7 @@ Quand vous copiez des données dans SQL Server ou Azure SQL Database, une procé
 La fonction de procédure stockée tire parti des [paramètres Table-Valued][table-valued-parameters].
 
 ## Spécifiez l’encodage pour les fichiers texte.
-Même si l'encodage UTF-8 est très populaire, les fichiers texte d’objet blob Azure utilisent souvent d’autres encodages pour des raisons historiques. La propriété **encodingName** vous permet de spécifier le l’encodage par nom de page de code pour les tables de type TextFormat. Pour obtenir une liste des noms de d’encodage valides, consultez : Propriété Encoding.EncodingName. Par exemple : windows-1250 ou shift_jis. La valeur par défaut est : UTF-8. Consultez [Classe d’encodage](https://msdn.microsoft.com/library/system.text.encoding.aspx) pour des noms d’encodage valides.
+Même si l'encodage UTF-8 est très populaire, les fichiers texte d’objet blob Azure utilisent souvent d’autres encodages pour des raisons historiques. La propriété **encodingName** vous permet de spécifier le l’encodage par nom de page de code pour les tables de type TextFormat. Pour obtenir une liste des noms de d’encodage valides, consultez : Propriété Encoding.EncodingName. Par exemple : windows-1250 ou shift\_jis. La valeur par défaut est : UTF-8. Consultez [Classe d’encodage](https://msdn.microsoft.com/library/system.text.encoding.aspx) pour des noms d’encodage valides.
 
 ## Voir aussi
 
@@ -289,4 +291,4 @@ Même si l'encodage UTF-8 est très populaire, les fichiers texte d’objet blob
 [image-data-factory-column-mapping-2]: ./media/data-factory-copy-activity-advanced/ColumnMappingSample2.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

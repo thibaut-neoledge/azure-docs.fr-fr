@@ -6,6 +6,7 @@
 	authors="alancameronwills" 
 	manager="douge"/>
 
+
 <tags 
 	ms.service="application-insights" 
 	ms.workload="tbd" 
@@ -14,6 +15,7 @@
 	ms.topic="article" 
 	ms.date="07/14/2015" 
 	ms.author="awills"/>
+
  
 # collectd : métriques de performances Unix dans Application Insights
 
@@ -143,4 +145,4 @@ Séparez les directives par un saut de ligne.
 
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

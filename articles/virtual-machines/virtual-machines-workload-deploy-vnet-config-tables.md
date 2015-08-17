@@ -67,4 +67,4 @@ La procédure suivante référencie les informations contenues dans ces tables p
 
 [Configurer une connexion de site à site intersite sur un réseau virtuel Azure](../vpn-gateway/vpn-gateway-site-to-site-create.md)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

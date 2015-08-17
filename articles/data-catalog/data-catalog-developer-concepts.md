@@ -7,7 +7,7 @@
    manager="mblythe"
    editor=""
    tags=""/>
-<tags
+ <tags
    ms.service="data-catalog"
    ms.devlang="NA"
    ms.topic="article"
@@ -15,6 +15,7 @@
    ms.workload="data-catalog"
    ms.date="07/13/2015"
    ms.author="derrickv"/>
+
 
 # Concepts de développeur Azure Data Catalog
 
@@ -163,15 +164,15 @@ Par défaut, tout utilisateur authentifié a un droit de **lecture** sur tout é
 
 ## API REST
 
-Les demandes d’éléments d’affichage **PUT** et **POST** peuvent être utilisées pour contrôler les rôles et les autorisations : en plus de la charge utile de l’élément, deux propriétés système peuvent être spécifiées : **__rôles\*\* et **__autorisations\*\*.
+Les demandes d’éléments d’affichage **PUT** et **POST** peuvent être utilisées pour contrôler les rôles et les autorisations : en plus de la charge utile de l’élément, deux propriétés système peuvent être spécifiées : **\_\_rôles** et **\_\_autorisations**.
 
 > [AZURE.NOTE]
 >
-> Les **__autorisations \*\* sont uniquement applicables à un élément racine.
+> **__Les **\_\_autorisations** sont uniquement applicables à un élément racine.
 >
 > Le rôle **Propriétaire** est uniquement applicable à un élément racine.
 >
-> Par défaut, lorsqu'un élément est créé dans le catalogue, son **collaborateur** est défini sur l'utilisateur actuellement authentifié. Si l'élément doit pouvoir être mis à jour par tout le monde, le **collaborateur** doit être défini sur le principal de sécurité spécial <Everyone> dans la propriété de rôles\*\* **__ lors de la première publication de l’élément (reportez-vous à l'exemple ci-dessous). **Collaborateur** ne peut pas être modifié et reste identique pendant la durée de vie d'un élément (cela signifie que même l’**administrateur** ou le **propriétaire** n'a pas le droit de modifier le **collaborateur**). La seule valeur prise en charge pour l'affectation explicite de **collaborateur** est <Everyone> : cela signifie que le **collaborateur** peut uniquement être un utilisateur qui a créé un élément ou <Everyone>.
+> Par défaut, lorsqu'un élément est créé dans le catalogue, son **collaborateur** est défini sur l'utilisateur actuellement authentifié. Si l'élément doit pouvoir être mis à jour par tout le monde, le **collaborateur** doit être défini sur le principal de sécurité spécial <Everyone> dans la propriété de **\_\_rôles** lors de la première publication de l’élément (reportez-vous à l'exemple ci-dessous). Le **collaborateur** ne peut pas être modifié et reste identique pendant la durée de vie d'un élément (cela signifie que même l’**administrateur** ou le **propriétaire** n'a pas le droit de modifier le **collaborateur**). La seule valeur prise en charge pour l'affectation explicite de **collaborateur** est <Everyone> : cela signifie que le **collaborateur** peut uniquement être un utilisateur qui a créé un élément ou <Everyone>.
 
 ###Exemples
 **Définissez collaborateur comme <Everyone> lors de la publication d'un élément.** Le principal de sécurité spécial <Everyone> a l’objectId « 00000000-0000-0000-0000-000000000201 ». **Corps** **POST** https://123154bb...6aad6370ee14.datacatalog.azure.com/default/views/tables/?api-version=2015-07.1.0-Preview
@@ -190,7 +191,7 @@ Les demandes d’éléments d’affichage **PUT** et **POST** peuvent être util
 	    … other table properties
 	}
 
-**Attribution de propriétaires et restriction de la visibilité pour un élément racine existant ****PUT**https://123154bb...6aad6370ee14.datacatalog.azure.com/default/views/tables/042297b0...1be45ecd462a?api-version=2015-07.1.0-Preview
+**Attribution de propriétaires et restriction de la visibilité pour un élément racine existant** **PUT** https://123154bb...6aad6370ee14.datacatalog.azure.com/default/views/tables/042297b0...1be45ecd462a?api-version=2015-07.1.0-Preview
 
 	{
 	    "__roles": [
@@ -239,4 +240,4 @@ Les demandes d’éléments d’affichage **PUT** et **POST** peuvent être util
 <!--Image references-->
 [1]: ./media/data-catalog-developer-concepts/concept.png
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

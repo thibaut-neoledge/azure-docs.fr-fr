@@ -7,6 +7,7 @@
 	manager="jwhit"
 	editor="tysonn"/>
 
+
 <tags
 	ms.service="site-recovery"
 	ms.workload="backup-recovery"
@@ -15,6 +16,7 @@
 	ms.topic="hero-article"
 	ms.date="05/07/2015"
 	ms.author="raynew"/>
+
 
 #  Configuration de la protection entre un site local VMM et Azure
 
@@ -82,7 +84,7 @@ Si vous souhaitez déployer le mappage réseau, les conditions suivantes doivent
 
 
 2. Développez
-3. *Services de données*, développez *Recovery Services*, puis cliquez sur *Coffre Site Recovery*. \*
+3. *Services de données*, développez *Recovery Services*, puis cliquez sur *Coffre Site Recovery*. *
 3. Cliquez sur *Create New*, puis sur *Quick Create*.
 
 
@@ -100,14 +102,14 @@ Si vous souhaitez déployer le mappage réseau, les conditions suivantes doivent
 
 Générez une clé d'inscription dans le coffre. Une fois que vous aurez téléchargé et installé le fournisseur Azure Site Recovery sur le serveur VMM, vous utiliserez cette clé pour inscrire le serveur VMM dans le coffre.
 
-1. Sur la page *Recovery Services*, cliquez sur le coffre pour ouvrir la page Démarrage rapide. Vous pouvez aussi ouvrir cette page à tout moment au moyen de l'icône.
+1. Sur la page *Recovery Services*, cliquez sur le coffre pour ouvrir la page Démarrage rapide. Vous pouvez aussi ouvrir cette page à tout moment au moyen de l’icône.
 
 	![Icône Quick Start](./media/site-recovery-vmm-to-azure/ASRE2AVMM_QuickStartIcon.png)
 
 2. Dans la liste déroulante, sélectionnez **Entre un site Hyper-V local et Microsoft Azure**.
 3. Dans **Prepare VMM Servers**, cliquez sur le fichier **Generate registration key**. Le fichier de clé est généré automatiquement et est valide pendant cinq jours après sa création. Si vous n'accédez pas au portail Azure à partir du serveur VMM, vous devez copier ce fichier sur le serveur.
 
-	![Clé d'enregistrement](./media/site-recovery-vmm-to-azure/ASRE2AVMM_RegisterKey.png)
+	![Clé d’enregistrement](./media/site-recovery-vmm-to-azure/ASRE2AVMM_RegisterKey.png)
 
 ## Étape 3 : Installation du fournisseur Azure Site Recovery
 
@@ -128,7 +130,7 @@ Une fois le fournisseur installé, poursuivez l'installation afin d'enregistrer 
 
 5. Sur la page **Connexion Internet**, indiquez la façon dont le fournisseur exécuté sur le serveur VMM se connecte à Internet. Sélectionnez *Utiliser les paramètres proxy par défaut du système* pour utiliser les paramètres de connexion Internet par défaut configurés sur le serveur.
 
-	![Paramètres Internet](./media/site-recovery-vmm-to-azure/ASRE2AVMM_ProviderProxy.png) - Si vous souhaitez utiliser un proxy personnalisé, vous devez le configurer avant d'installer le fournisseur. Quand vous configurez les paramètres de proxy personnalisé, un test s'exécute pour vérifier la connexion proxy. - Si vous n'utilisez pas de proxy personnalisé ou si votre proxy par défaut nécessite une authentification, vous devez saisir les détails du proxy, y compris l'adresse du proxy et le port. - Les URL suivantes doivent être accessibles à partir du serveur VMM et des hôtes Hyper-V - *.hypervrecoverymanager.windowsazure.com - *.accesscontrol.windows.net - *.backup.windowsazure.com - *.blob.core.windows.net - *.store.core.windows.net - Autorisez les adresses IP décrites dans la zone [Étendues d’adresses IP du centre de données Azure](http://go.microsoft.com/fwlink/?LinkId=511094) et le protocole HTTPS (443). Vous devez autoriser les plages IP de la région Azure que vous prévoyez d'utiliser et de l'ouest des États-Unis.
+	![Paramètres Internet](./media/site-recovery-vmm-to-azure/ASRE2AVMM_ProviderProxy.png) - Si vous souhaitez utiliser un proxy personnalisé, vous devez le configurer avant d'installer le fournisseur. Quand vous configurez les paramètres de proxy personnalisé, un test s’exécute pour vérifier la connexion proxy. - Si vous n’utilisez pas de proxy personnalisé ou si votre proxy par défaut nécessite une authentification, vous devez saisir les détails du proxy, y compris l’adresse du proxy et le port. - Les URL suivantes doivent être accessibles à partir du serveur VMM et des hôtes Hyper-V. - *.hypervrecoverymanager.windowsazure.com - *.accesscontrol.windows.net - *.backup.windowsazure.com - *.blob.core.windows.net - *.store.core.windows.net - Autorisez les adresses IP décrites dans [Étendues d’adresses IP du centre de données Azure](http://go.microsoft.com/fwlink/?LinkId=511094) et le protocole HTTPS (443). Vous devez autoriser les plages IP de la région Microsoft Azure que vous prévoyez d’utiliser, ainsi que celles de la région ouest des États-Unis.
 
 	- Si vous utilisez un proxy personnalisé, un compte RunAs VMM (DRAProxyAccount) est créé automatiquement avec les informations d'identification du proxy spécifiées. Configurez le serveur proxy pour que ce compte puisse s'authentifier correctement. Vous pouvez modifier les paramètres du compte RunAs VMM dans la console VMM. Pour cela, ouvrez l'espace de travail Paramètres, développez Sécurité, cliquez sur Comptes d'identification, puis modifiez le mot de passe de DRAProxyAccount. Vous devez redémarrer le service VMM pour que ce paramètre prenne effet.
 
@@ -159,7 +161,7 @@ Si vous ne possédez pas de compte de stockage Azure, cliquez sur **Ajouter un c
 
 Installez l'agent Azure Recovery Services sur chaque serveur hôte Hyper-V situé dans les clouds VMM que vous souhaitez protéger.
 
-1. Sur la page Démarrage rapide, cliquez sur <b>Télécharger l'agent Azure Site Recovery Services et l'installer sur les hôtes</b> afin d'obtenir la dernière version du fichier d'installation de l'agent.
+1. Sur la page Démarrage rapide, cliquez sur <b>Télécharger l’agent Azure Site Recovery Services et l’installer sur les hôtes</b> afin d’obtenir la dernière version du fichier d’installation de l’agent.
 
 	![Install Recovery Services Agent](./media/site-recovery-vmm-to-azure/ASRE2AVMM_InstallHyperVAgent.png)
 
@@ -183,23 +185,23 @@ Une fois le serveur VMM inscrit, vous pouvez configurer les paramètres de prote
 4. Dans la zone <b>Compte de stockage</b>, sélectionnez le compte de stockage Azure vers lequel vous voulez répliquer vos machines virtuelles.
 5. En regard de <b>Chiffrer les données stockées</b>, cliquez sur <b>Désactivé</b>. Ce paramètre indique que les données doivent être répliquées avec chiffrement entre le site local et Azure.
 6. Dans <b>Copier la fréquence</b>, laissez le paramètre par défaut. Cette valeur indique la fréquence de synchronisation des données entre les emplacements source et cible.
-7. Dans la zone <b>Conserver les points de récupération pour</b>, conservez le paramètre par défaut. Avec une valeur par défaut de zéro, seul le dernier point de récupération d'une machine virtuelle principale est stocké sur un serveur hôte de réplication.
+7. Dans la zone <b>Conserver les points de récupération pour</b>, laissez le paramètre par défaut. Avec une valeur par défaut de zéro, seul le dernier point de récupération d'une machine virtuelle principale est stocké sur un serveur hôte de réplication.
 8. Dans <b>Fréquence des instantanés cohérents au niveau applicatif</b>, laissez le paramètre par défaut. Cette valeur indique la fréquence de création de captures instantanées. Ces dernières utilisent le service VSS (Volume Shadow Copy Service) pour s'assurer que les applications sont dans un état cohérent lors de la prise des captures instantanées. Si vous définissez une valeur, assurez-vous qu'elle est inférieure au nombre de points de récupération supplémentaires que vous configurez.
-9. Dans la zone <b>Heure de démarrage de la réplication</b>, indiquez l'heure à laquelle la réplication initiale des données dans Azure doit démarrer. Le fuseau horaire du serveur hôte Hyper-V est utilisé à cet effet. Nous vous recommandons de planifier la réplication initiale sur des heures creuses.
+9. Dans la zone <b>Heure de démarrage de la réplication</b>, indiquez l’heure à laquelle la réplication initiale des données dans Azure doit démarrer. Le fuseau horaire du serveur hôte Hyper-V est utilisé à cet effet. Nous vous recommandons de planifier la réplication initiale sur des heures creuses.
 
 	![Cloud replication settings](./media/site-recovery-vmm-to-azure/ASRE2AVMM_CloudSettings.png)
 
-Suite à l'enregistrement des paramètres, une tâche est créée et peut être surveillée sous l'onglet <b>Jobs</b>. Tous les serveurs hôte Hyper-V du cloud VMM source sont configurés pour la réplication.
+Suite à l’enregistrement des paramètres, une tâche est créée et peut être surveillée sous l’onglet <b>Jobs</b>. Tous les serveurs hôte Hyper-V du cloud VMM source sont configurés pour la réplication.
 
-Après l'enregistrement, les paramètres du cloud peuvent être modifiés sous l'onglet <b>Configurer</b>. Pour modifier l'emplacement ou le compte de stockage cible, vous devez supprimer la configuration du cloud, puis reconfigurer ce dernier. Notez que si vous modifiez le compte de stockage, la modification n'est appliquée que pour les machines virtuelles qui sont activées pour la protection après la modification du compte. Les machines virtuelles existantes ne sont pas migrées vers le nouveau compte de stockage.</p>
+Après l’enregistrement, les paramètres du cloud peuvent être modifiés sous l’onglet <b>Configurer</b>. Pour modifier l'emplacement ou le compte de stockage cible, vous devez supprimer la configuration du cloud, puis reconfigurer ce dernier. Notez que si vous modifiez le compte de stockage, la modification n'est appliquée que pour les machines virtuelles qui sont activées pour la protection après la modification du compte. Les machines virtuelles existantes ne sont pas migrées vers le nouveau compte de stockage.</p>
 
 ## Étape 7 : Configuration du mappage réseau
 Avant de commencer le mappage réseau, vérifiez que les machines virtuelles sur le serveur VMM source sont connectées à un réseau de machines virtuelles. En outre, vous devez créer un ou plusieurs réseaux virtuels Azure. Notez que plusieurs réseaux de machines virtuelles peuvent être mappés à un seul réseau Azure.
 
 1. Dans la page Démarrage rapide, cliquez sur **Mapper les réseaux**.
-2. Sous l'onglet **Réseaux**, dans **Emplacement source**, sélectionnez le serveur VMM source. Dans **Emplacement cible**, sélectionnez Azure.
-3. Dans **Source**, une liste de réseaux de machines virtuelles associées au serveur VMM est affichée. Dans **Cible**, les réseaux Azure associés à l'abonnement sont affichés.
-4. Sélectionnez le réseau de machines virtuelles source et cliquez sur **Mapper**.
+2. Sous l’onglet **Réseaux**, dans **Emplacement source**, sélectionnez le serveur VMM source. Dans **Emplacement cible**, sélectionnez Azure.
+3. Dans **Source**, une liste de réseaux de machines virtuelles associées au serveur VMM est affichée. Dans **Cible**, les réseaux Azure associés à l’abonnement sont affichés.
+4. Sélectionnez le réseau de machines virtuelles sources et cliquez sur **Mapper**.
 5. Dans la page **Sélectionner un réseau cible**, sélectionnez le réseau Azure cible que vous souhaitez utiliser.
 6. Cliquez sur la coche pour terminer le processus de mappage.
 
@@ -221,7 +223,7 @@ Dès lors que les serveurs, les clouds et les réseaux ont été configurés cor
 ![Modify virtual machine properties](./media/site-recovery-vmm-to-azure/ASRE2AVMM_EnableExisting.png)
 
 
-1. Pour activer la protection, sous l'onglet <b>Machines virtuelles</b> dans le cloud où se trouve la machine virtuelle, cliquez sur <b>Activer la protection</b>, puis sélectionnez <b>Ajouter des machines virtuelles</b>
+1. Pour activer la protection, sous l’onglet <b>Machines virtuelles</b> dans le cloud où se trouve la machine virtuelle, cliquez sur <b>Activer la protection</b>, puis sélectionnez <b>Ajouter des machines virtuelles</b>.
 2. Dans la liste des machines virtuelles du cloud, sélectionnez celle que vous voulez protéger.
 
 	![activer la protection des machines virtuelles](./media/site-recovery-vmm-to-azure/ASRE2AVMM_SelectVM.png)
@@ -255,7 +257,7 @@ Pour tester votre déploiement, vous pouvez exécuter un test de basculement pou
 
 ### Créer un plan de récupération
 
-1. Sous l'onglet **Plans de récupération**, ajoutez un nouveau plan. Spécifiez un nom, **VMM** dans **Type de Source**, puis le serveur VMM source dans **Source**. La cible est Azure.
+1. Sous l’onglet **Plans de récupération**, ajoutez un nouveau plan. Spécifiez un nom, **VMM** dans **Type de source**, puis le serveur VMM source dans **Source**. La cible est Azure.
 
 	![Créer un plan de récupération](./media/site-recovery-vmm-to-azure/ASRE2AVMM_RP1.png)
 
@@ -267,7 +269,7 @@ Pour tester votre déploiement, vous pouvez exécuter un test de basculement pou
 
 	![Créer un plan de récupération](./media/site-recovery-vmm-to-azure/ASRE2AVMM_SelectVMRP.png)
 
-Une fois qu'un plan de récupération a été créé, il apparaît dans la liste sous l'onglet **Plans de récupération**. Vous pouvez également ajouter des [Runbooks Azure Automation](site-recovery-runbook-automation.md) au plan de récupération pour automatiser les actions de temps de basculement.
+Une fois qu’un plan de récupération a été créé, il apparaît dans la liste sous l’onglet **Plans de récupération**. Vous pouvez également ajouter des [Runbooks Azure Automation](site-recovery-runbook-automation.md) au plan de récupération pour automatiser les actions de temps de basculement.
 
 ### Exécution d’un test de basculement
 
@@ -291,7 +293,7 @@ Pour exécuter un test de basculement, procédez comme suit :
 
 	![Pas de réseau](./media/site-recovery-vmm-to-azure/ASRE2AVMM_TestFailoverNoNetwork.png)
 
-1. Si le chiffrement des données est activé pour le cloud, dans **Clé de chiffrement**, sélectionnez le certificat qui a été émis lors de l'installation du fournisseur sur le serveur VMM, quand vous avez activé l'option d'activation du chiffrement des données pour un cloud.
+1. Si le chiffrement des données est activé pour le cloud, dans **Clé de chiffrement**, sélectionnez le certificat qui a été émis lors de l’installation du fournisseur sur le serveur VMM, quand vous avez activé l’option d’activation du chiffrement des données pour un cloud.
 1. Sur l’onglet **Tâches**, vous pouvez suivre la progression du basculement. Vous devriez aussi pouvoir voir le réplica de test de la machine virtuelle dans le portail Azure. Si vous êtes autorisé à accéder aux machines virtuelles à partir de votre réseau local, vous pouvez initier une connexion Bureau à distance à la machine virtuelle.
 1. Lorsque le basculement atteint la phase **Terminer le test**, cliquez sur **Terminer le test** pour finir l’opération. Sous l’onglet **Tâches**, vous pouvez suivre la progression et l’état du basculement et effectuer toutes les actions nécessaires.
 1. Après le basculement, vous pouvez voir le réplica de test de la machine virtuelle dans le portail Azure. Si vous êtes autorisé à accéder aux machines virtuelles à partir de votre réseau local, vous pouvez initier une connexion Bureau à distance à la machine virtuelle. Notez les points suivants :
@@ -304,7 +306,7 @@ Pour exécuter un test de basculement, procédez comme suit :
 	- Cliquez sur **Le test de basculement est terminé**. Nettoyez l’environnement de test afin qu’il mette hors tension et supprime automatiquement les machines virtuelles de test.
 	- Cliquez sur **Notes** pour consigner et enregistrer les éventuelles observations associées au test de basculement.
 
-## <a id="runtest" name="runtest" href="#runtest"></a>Suivi de l'activité
+## <a id="runtest" name="runtest" href="#runtest"></a>Suivi de l’activité
 <p>Vous pouvez utiliser l'onglet *Jobs* et le *tableau de bord* pour afficher et surveiller les tâches principales effectuées par le coffre Azure&#160;Site&#160;Recovery, telles que la configuration de la protection d'un cloud, l'activation et la désactivation de la protection d'une machine virtuelle, l'exécution d'un basculement (planifié, non planifié ou test) et la validation d'un basculement non planifié.</p>
 
 <p>Depuis l'onglet *Jobs*, vous pouvez afficher les tâches, accéder aux détails de l'une d'entre elles ainsi qu'aux erreurs précédemment rencontrées lors de l'exécution de celle-ci, exécuter des requêtes de tâches pour récupérer les tâches qui correspondent à des critères spécifiques, exporter des tâches sur Excel et redémarrer celles qui ont échoué.</p>
@@ -315,10 +317,10 @@ Pour exécuter un test de basculement, procédez comme suit :
 
 ##<a id="next" name="next" href="#next"></a>Étapes suivantes
 <UL>
-<LI>Pour planifier et déployer Azure Site Recovery dans un environnement de production complet, consultez le <a href="http://go.microsoft.com/fwlink/?LinkId=321294">Guide de planification d'Azure Site Recovery</a> et le <a href="http://go.microsoft.com/fwlink/?LinkId=321295">Guide de déploiement d'Azure Site Recovery</a>.</LI>
+<LI>Pour planifier et déployer Azure Site Recovery dans un environnement de production complet, consultez le <a href="http://go.microsoft.com/fwlink/?LinkId=321294">Guide de planification d’Azure Site Recovery</a> et le <a href="http://go.microsoft.com/fwlink/?LinkId=321295">Guide de déploiement d’Azure Site Recovery</a>.</LI>
 
 
 <LI>Pour toute question, visitez le <a href="http://go.microsoft.com/fwlink/?LinkId=313628">Forum Azure Recovery Services</a>.</LI></UL>
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

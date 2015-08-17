@@ -7,6 +7,7 @@
    manager="paulettm"
    editor="cgronlun"/>
 
+
 <tags
    ms.service="hdinsight"
    ms.devlang="na"
@@ -15,6 +16,7 @@
    ms.workload="big-data"
    ms.date="07/06/2015"
    ms.author="larryfr"/>
+
 
 # Utilisation de MapReduce dans Hadoop sur HDInsight avec le Bureau à distance
 
@@ -38,15 +40,15 @@ Activez le Bureau à distance pour le cluster HDInsight, puis connectez-vous à 
 
 Une fois connecté au bureau pour le cluster HDInsight, procédez comme suit pour exécuter une tâche MapReduce à l’aide de la commande Hadoop :
 
-1. À partir du bureau HDInsight, démarrez la **ligne de commande Hadoop**. Cela ouvre une nouvelle invite de commandes dans le répertoire **c:\apps\dist\hadoop-&lt;numéro de version>**.
+1. À partir du bureau HDInsight, démarrez la **ligne de commande Hadoop**. Cela ouvre une nouvelle invite de commandes dans le répertoire **c:\\apps\\dist\\hadoop-&lt;numéro de version>**.
 
-	> [AZURE.NOTE]Le numéro de version change à mesure que Hadoop est mis à jour. La variable d’environnement **HADOOP_HOME** peut être utilisée pour rechercher le chemin d’accès. Par exemple, `cd %HADOOP_HOME%` permet de basculer vers le répertoire Hadoop sans qu'il soit nécessaire de connaître le numéro de version.
+	> [AZURE.NOTE]Le numéro de version change à mesure que Hadoop est mis à jour. La variable d’environnement **HADOOP\_HOME** peut être utilisée pour rechercher le chemin d’accès. Par exemple, `cd %HADOOP_HOME%` permet de basculer vers le répertoire Hadoop sans qu'il soit nécessaire de connaître le numéro de version.
 
 2. Pour utiliser la commande **Hadoop** pour exécuter une tâche MapReduce d’exemple, utilisez la commande suivante :
 
 		hadoop jar hadoop-mapreduce-examples.jar wordcount wasb:///example/data/gutenberg/davinci.txt wasb:///example/data/WordCountOutput
 
-	Cela lance la classe **wordcount**, contenue dans le fichier **hadoop-mapreduce-examples.jar** du répertoire actif. Comme entrée, elle utilise le document **wasb://example/data/gutenberg/davinci.txt** et la sortie est stockée dans : **wasb:///example/data/WordCountOutput**.
+	Cela lance la classe **wordcount**, contenue dans le fichier **hadoop-mapreduce-examples.jar** du répertoire actif. Comme entrée, elle utilise le document ****wasb://example/data/gutenberg/davinci.txt** et la sortie est stockée dans : ****wasb:///example/data/WordCountOutput**.
 
 	> [AZURE.NOTE]Pour plus d'informations sur cette tâche MapReduce et sur les exemples de données, consultez <a href="hdinsight-use-mapreduce.md">Utilisation de MapReduce dans HDInsight Hadoop</a>.
 
@@ -57,11 +59,11 @@ Une fois connecté au bureau pour le cluster HDInsight, procédez comme suit pou
 		File Output Format Counters
         Bytes Written=337623
 
-3. Lorsque la tâche est terminée, utilisez la commande suivante pour répertorier les fichiers de sortie stockés sur **wasb://example/data/WordCountOutput** :
+3. Lorsque la tâche est terminée, utilisez la commande suivante pour répertorier les fichiers de sortie stockés sur ****wasb://example/data/WordCountOutput** :
 
 		hadoop fs -ls wasb:///example/data/WordCountOutput
 
-	Cela devrait afficher deux fichiers, **_SUCCESS** et **part-r-00000**. Le fichier **part-r-00000** contient la sortie de cette tâche.
+	Cela devrait afficher deux fichiers, **\_SUCCESS** et **part-r-00000**. Le fichier **part-r-00000** contient la sortie de cette tâche.
 
 	> [AZURE.NOTE]Certaines tâches MapReduce peuvent fractionner les résultats sur plusieurs fichiers **part-r-#####**. Dans ce cas, utilisez le suffixe ##### pour indiquer l’ordre des fichiers.
 
@@ -69,7 +71,7 @@ Une fois connecté au bureau pour le cluster HDInsight, procédez comme suit pou
 
 		hadoop fs -cat wasb:///example/data/WordCountOutput/part-r-00000
 
-	Cela affiche une liste des mots contenus dans le fichier **wasb://example/data/gutenberg/davinci.txt**, ainsi que le nombre d'occurrences de chaque mot. Voici un exemple des données contenues dans le fichier :
+	Cela affiche une liste des mots contenus dans le fichier ****wasb://example/data/gutenberg/davinci.txt**, ainsi que le nombre d'occurrences de chaque mot. Voici un exemple des données contenues dans le fichier :
 
 		wreathed        3
 		wreathing       1
@@ -95,4 +97,4 @@ Pour plus d’informations sur d’autres méthodes de travail avec Hadoop sur H
 
 * [Utilisation de Pig avec Hadoop sur HDInsight](hdinsight-use-pig.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

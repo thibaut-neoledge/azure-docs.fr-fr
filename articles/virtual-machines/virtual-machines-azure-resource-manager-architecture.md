@@ -79,4 +79,4 @@ Vous pouvez également observer la modularité et les relations dépendantes ent
 
 [Présentation d’Azure Resource Manager](resource-group-overview.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

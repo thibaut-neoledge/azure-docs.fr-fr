@@ -206,7 +206,7 @@ Voici les erreurs ou les problèmes rencontrés couramment lors de l’utilisati
 
 ****
 
-**Symptôme** : Impossible d'accéder à '[URL_du_site]' : Impossible de se connecter à [Adresse_scm]
+**Symptôme** : Impossible d'accéder à '[URL\_du\_site]' : Impossible de se connecter à [Adresse\_scm]
 
 **Cause** : Cette erreur peut se produire si l'application web n'est pas opérationnelle.
 
@@ -215,7 +215,7 @@ Voici les erreurs ou les problèmes rencontrés couramment lors de l’utilisati
 
 ****
 
-**Symptôme** : Impossible de résoudre l'hôte « nom_hôte »
+**Symptôme** : Impossible de résoudre l'hôte « nom\_hôte »
 
 **Cause** : Cette erreur peut se produire si les informations d'adresse entrées au moment de la création du référentiel distant « azure » sont incorrectes.
 
@@ -233,7 +233,7 @@ Voici les erreurs ou les problèmes rencontrés couramment lors de l’utilisati
 
 ****
 
-**Symptôme** : src refspec [nom_branche] ne correspond à aucun élément.
+**Symptôme** : src refspec [nom\_branche] ne correspond à aucun élément.
 
 **Cause** : Cette erreur peut se produire si vous tentez d'effectuer une opération Push sur une autre branche que la branche principale sur le référentiel distant « azure ».
 
@@ -300,4 +300,4 @@ Voici les erreurs ou les problèmes rencontrés couramment lors de l’utilisati
 [Utilisation de Dropbox pour partager des référentiels Git]: https://gist.github.com/trey/2722927
 [Livraison continue sur Azure au moyen de Visual Studio Online]: ../articles/cloud-services/cloud-services-continuous-delivery-use-vso.md
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

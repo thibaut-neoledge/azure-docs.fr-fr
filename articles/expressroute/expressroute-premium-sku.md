@@ -41,7 +41,7 @@ Avant de commencer la configuration, vérifiez que les conditions préalables su
 - Un abonnement Azure
 - La version la plus récente d’Azure PowerShell
 
-###  1. Importer le module PowerShell pour ExpressRoute
+###  1\. Importer le module PowerShell pour ExpressRoute
 
 Windows PowerShell est un environnement de création de scripts vous permettant de contrôler et d'automatiser le déploiement et la gestion de vos charges de travail dans Azure. Pour plus d'informations, veuillez consulter la documentation de PowerShell dans [MSDN](https://msdn.microsoft.com/library/windowsazure/jj156055.aspx).
 
@@ -52,7 +52,7 @@ Utilisez les cmdlets ci-dessous afin d’importer le module PowerShell pour Expr
 	    Import-Module 'C:\Program Files (x86)\Microsoft SDKs\Azure\PowerShell\ServiceManagement\Azure\ExpressRoute\ExpressRoute.psd1'
 
 
-### 2. Configurer un nouveau circuit ExpressRoute en activant les fonctionnalités du module complémentaire Premium
+### 2\. Configurer un nouveau circuit ExpressRoute en activant les fonctionnalités du module complémentaire Premium
 
 Vous pouvez créer un circuit ExpressRoute avec le module complémentaire Premium activé au moment de la création. Suivez les instructions pour créer des circuits ExpressRoute avec des réseaux [NSP](expressroute-configuring-nsps.md) ou [EXP](expressroute-configuring-exps.md). Nous disposons d’un nouveau paramètre optionnel dans la cmdlet New-AzureDedicatedCircuit qui vous permet de spécifier le SKU. Le SKU peut être Standard ou Premium. La valeur par défaut est Standard. Choisir un SKU Premium activera les fonctionnalités du module complémentaire Premium sur le circuit.
 
@@ -60,7 +60,7 @@ Vous pouvez créer un circuit ExpressRoute avec le module complémentaire Premiu
 		New-AzureDedicatedCircuit -CircuitName $CircuitName -ServiceProviderName $ServiceProvider -Bandwidth $Bandwidth -Location $Location -Sku Premium
 
 
-### 3. Vérifier que le module complémentaire ExpressRoute Premium est activé
+### 3\. Vérifier que le module complémentaire ExpressRoute Premium est activé
 Vous pouvez vérifier si le module complémentaire ExpressRoute Premium est activé pour votre circuit. Dans l'exemple ci-dessous, les fonctionnalités du module complémentaire ExpressRoute Premium n’ont pas été activées sur le circuit ExpressRoute. Le SKU apparaîtra comme ***Premium*** si le module complémentaire est activé.
 
 		PS C:\> Get-AzureDedicatedCircuit -ServiceKey *********************************
@@ -177,4 +177,4 @@ Vous pouvez désactiver le module complémentaire ExpressRoute Premium pour un c
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

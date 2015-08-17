@@ -6,6 +6,7 @@
    authors="sethmanheim"
    manager="timlt"
    editor="tysonn" />
+
 <tags 
    ms.service="service-bus"
    ms.devlang="na"
@@ -14,6 +15,7 @@
    ms.workload="tbd"
    ms.date="05/21/2015"
    ms.author="sethm" />
+
 
 # Files d'attente Azure et files d'attente Service Bus : comparaison et différences
 
@@ -87,17 +89,49 @@ Cette section compare certaines des fonctionnalités de base fournies par les fi
 
 |Critères de comparaison|Files d'attente Azure|Files d'attente Service Bus|
 |---|---|---|
-|Garantie de classement|**Non** <br/><br>Pour plus d'informations, consultez la première remarque dans la section "Informations supplémentaires".</br>|**Oui - Méthode Premier entré, premier sorti (FIFO)**<br/><br>(par le biais de l'utilisation de sessions de messagerie)|
-|Garantie de livraison|**Au moins une fois**|**Au moins une fois**<br/><br/>**Une fois au maximum**|
-|Prise en charge des transactions|**Non**|**Oui**<br/><br/>(par le biais de l'utilisation de transactions locales)|
-|Comportement de réception|**Non bloquant**<br/><br/>(se termine immédiatement si aucun nouveau message n'est trouvé)|**Blocage avec ou sans délai d'attente**<br/><br/>(offre une interrogation longue ou la ["technique Comet"](http://go.microsoft.com/fwlink/?LinkId=613759))<br/><br/>** Non bloquant**<br/><br/>(par le biais d'une API gérée par .NET uniquement)|
-|API style Push|**Non**|**Oui**<br/><br/> API .NET [OnMessage](https://msdn.microsoft.com/library/jj908682.aspx) et [sessions OnMessage](https://msdn.microsoft.com/library/dn790528.aspx).|
-|Mode de réception|**Aperçu et attribution**|**Aperçu et verrouillage**<br/><br/>**Réception et suppression**|
+|Garantie de classement|**Non** <br/>
+<br>Pour plus d'informations, consultez la première remarque dans la section "Informations supplémentaires".</br>|**Oui - Méthode Premier entré, premier sorti (FIFO)**<br/>
+<br>(par le biais de l'utilisation de sessions de messagerie)|
+|Garantie de livraison|**Au moins une fois**|**Au moins une fois**<br/>
+<br/>
+**Une fois au maximum**|
+|Prise en charge des transactions|**Non**|**Oui**<br/>
+<br/>
+(par le biais de l'utilisation de transactions locales)|
+|Comportement de réception|**Non bloquant**<br/>
+<br/>
+(se termine immédiatement si aucun nouveau message n'est trouvé)|**Blocage avec ou sans délai d'attente**<br/>
+<br/>
+(offre une interrogation longue ou la ["technique Comet"](http://go.microsoft.com/fwlink/?LinkId=613759))<br/>
+<br/>
+** Non bloquant**<br/>
+<br/>
+(par le biais d'une API gérée par .NET uniquement)|
+|API style Push|**Non**|**Oui**<br/>
+<br/>
+ API .NET [OnMessage](https://msdn.microsoft.com/library/jj908682.aspx) et [sessions OnMessage](https://msdn.microsoft.com/library/dn790528.aspx).|
+|Mode de réception|**Aperçu et attribution**|**Aperçu et verrouillage**<br/>
+<br/>
+**Réception et suppression**|
 |Mode d'accès exclusif|**Basé sur attribution**|**Basé sur verrouillage**|
-|Durée attribution/verrouillage|**30 secondes (valeur par défaut)**<br/><br/>**7 jours (maximum)** (Vous pouvez renouveler ou libérer l'attribution d'un message à l'aide de l'API [UpdateMessage](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.queue.cloudqueue.updatemessage.aspx).)|**60 secondes (valeur par défaut)**<br/><br/>Vous pouvez renouveler le verrouillage d'un message à l'aide de l'API [RenewLock](https://msdn.microsoft.com/library/microsoft.servicebus.messaging.brokeredmessage.renewlock.aspx).|
-|Précision attribution/verrouillage|**Au niveau du message**<br/><br/>(chaque message peut avoir une valeur de délai d'attente différente, que vous pouvez ensuite mettre à jour en fonction des besoins lors du traitement du message, à l'aide de l'API [UpdateMessage](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.queue.cloudqueue.updatemessage.aspx))|**Au niveau de la file d'attente**<br/><br/>(pour chaque file d'attente, une précision de verrouillage est appliquée à tous les messages, mais vous pouvez renouveler le verrouillage à l'aide de l'API [RenewLock](https://msdn.microsoft.com/library/microsoft.servicebus.messaging.brokeredmessage.renewlock.aspx).)|
-|Réception par lots|**Oui**<br/><br/>(spécifiant explicitement le nombre de messages lors de la récupération des messages, avec un maximum de 32 messages)|**Oui**<br/><br/>(activant implicitement une propriété de pré-récupération ou explicitement par le biais de l'utilisation de transactions)|
-|Envoi par lots|**Non**|**Oui**<br/><br/>(par le biais de l'utilisation de transactions ou du traitement par lots côté client)|
+|Durée attribution/verrouillage|**30 secondes (valeur par défaut)**<br/>
+<br/>
+**7 jours (maximum)** (Vous pouvez renouveler ou libérer l'attribution d'un message à l'aide de l'API [UpdateMessage](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.queue.cloudqueue.updatemessage.aspx).)|**60 secondes (valeur par défaut)**<br/>
+<br/>
+Vous pouvez renouveler le verrouillage d'un message à l'aide de l'API [RenewLock](https://msdn.microsoft.com/library/microsoft.servicebus.messaging.brokeredmessage.renewlock.aspx).|
+|Précision attribution/verrouillage|**Au niveau du message**<br/>
+<br/>
+(chaque message peut avoir une valeur de délai d'attente différente, que vous pouvez ensuite mettre à jour en fonction des besoins lors du traitement du message, à l'aide de l'API [UpdateMessage](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.queue.cloudqueue.updatemessage.aspx))|**Au niveau de la file d'attente**<br/>
+<br/>
+(pour chaque file d'attente, une précision de verrouillage est appliquée à tous les messages, mais vous pouvez renouveler le verrouillage à l'aide de l'API [RenewLock](https://msdn.microsoft.com/library/microsoft.servicebus.messaging.brokeredmessage.renewlock.aspx).)|
+|Réception par lots|**Oui**<br/>
+<br/>
+(spécifiant explicitement le nombre de messages lors de la récupération des messages, avec un maximum de 32 messages)|**Oui**<br/>
+<br/>
+(activant implicitement une propriété de pré-récupération ou explicitement par le biais de l'utilisation de transactions)|
+|Envoi par lots|**Non**|**Oui**<br/>
+<br/>
+(par le biais de l'utilisation de transactions ou du traitement par lots côté client)|
 
 ### informations supplémentaires
 
@@ -137,19 +171,39 @@ Cette section compare les fonctionnalités avancées fournies par les files d'at
 |---|---|---|
 |Remise planifiée|**Oui**|**Oui**|
 |Lettre morte automatique|**Non**|**Oui**|
-|Augmenter la valeur de durée de vie de la file d'attente|**Oui**<br/><br/>(par le biais de la mise à jour sur place du délai de visibilité)|**Oui**<br/><br/>(par le biais d'une fonction API dédiée)|
+|Augmenter la valeur de durée de vie de la file d'attente|**Oui**<br/>
+<br/>
+(par le biais de la mise à jour sur place du délai de visibilité)|**Oui**<br/>
+<br/>
+(par le biais d'une fonction API dédiée)|
 |Prise en charge des messages incohérents|**Oui**|**Oui**|
 |Mise à jour sur place|**Oui**|**Oui**|
 |Journal des transactions côté serveur|**Oui**|**Non**|
-|Métriques de stockage|**Oui**<br/><br/>**Métriques par minute** : fournit des métriques en temps réel pour la disponibilité, TPS, nombre d'appels API, nombre d'erreurs, etc., le tout en temps réel (métriques agrégées par minute et consignées en l'espace de quelques minutes à partir de ce qui vient de se passer en production). Pour plus d'informations, consultez la page [À propos des mesures Storage Analytics](https://msdn.microsoft.com/library/hh343258.aspx).|**Oui**<br/><br/>(requêtes en bloc en appelant [GetQueues](https://msdn.microsoft.com/library/hh293128.aspx))|
-|Gestion de l'état|**Non**|**Oui**<br/><br/>[Microsoft.ServiceBus.Messaging.EntityStatus.Active](https://msdn.microsoft.com/library/microsoft.servicebus.messaging.entitystatus.aspx), [Microsoft.ServiceBus.Messaging.EntityStatus.Disabled](https://msdn.microsoft.com/library/microsoft.servicebus.messaging.entitystatus.aspx), [Microsoft.ServiceBus.Messaging.EntityStatus.SendDisabled](https://msdn.microsoft.com/library/microsoft.servicebus.messaging.entitystatus.aspx), [Microsoft.ServiceBus.Messaging.EntityStatus.ReceiveDisabled](https://msdn.microsoft.com/library/microsoft.servicebus.messaging.entitystatus.aspx)|
+|Métriques de stockage|**Oui**<br/>
+<br/>
+**Métriques par minute** : fournit des métriques en temps réel pour la disponibilité, TPS, nombre d'appels API, nombre d'erreurs, etc., le tout en temps réel (métriques agrégées par minute et consignées en l'espace de quelques minutes à partir de ce qui vient de se passer en production). Pour plus d'informations, consultez la page [À propos des mesures Storage Analytics](https://msdn.microsoft.com/library/hh343258.aspx).|**Oui**<br/>
+<br/>
+(requêtes en bloc en appelant [GetQueues](https://msdn.microsoft.com/library/hh293128.aspx))|
+|Gestion de l'état|**Non**|**Oui**<br/>
+<br/>
+[Microsoft.ServiceBus.Messaging.EntityStatus.Active](https://msdn.microsoft.com/library/microsoft.servicebus.messaging.entitystatus.aspx), [Microsoft.ServiceBus.Messaging.EntityStatus.Disabled](https://msdn.microsoft.com/library/microsoft.servicebus.messaging.entitystatus.aspx), [Microsoft.ServiceBus.Messaging.EntityStatus.SendDisabled](https://msdn.microsoft.com/library/microsoft.servicebus.messaging.entitystatus.aspx), [Microsoft.ServiceBus.Messaging.EntityStatus.ReceiveDisabled](https://msdn.microsoft.com/library/microsoft.servicebus.messaging.entitystatus.aspx)|
 |Transfert automatique des messages|**Non**|**Oui**|
 |Fonction de purge de la file d'attente|**Oui**|**Non**|
-|Groupes de messages|**Non**|**Oui**<br/><br/>(par le biais de l'utilisation de sessions de messagerie)|
+|Groupes de messages|**Non**|**Oui**<br/>
+<br/>
+(par le biais de l'utilisation de sessions de messagerie)|
 |État de l'application par groupe de messages|**Non**|**Oui**|
-|Détection des doublons|**Non**|**Oui**<br/><br/>(configurable du côté expéditeur)|
-|Intégration WCF|**Non**|**Oui**<br/><br/>(offre des liaisons WCF prêtes à l'emploi)|
-|Intégration WF|**Personnalisée**<br/><br/>(nécessite la création d'une activité WF personnalisée)|**Native**<br/><br/>(offre des activités WF prêtes à l'emploi)|
+|Détection des doublons|**Non**|**Oui**<br/>
+<br/>
+(configurable du côté expéditeur)|
+|Intégration WCF|**Non**|**Oui**<br/>
+<br/>
+(offre des liaisons WCF prêtes à l'emploi)|
+|Intégration WF|**Personnalisée**<br/>
+<br/>
+(nécessite la création d'une activité WF personnalisée)|**Native**<br/>
+<br/>
+(offre des activités WF prêtes à l'emploi)|
 |Consultation des groupes de messages|**Non**|**Oui**|
 |Récupération des sessions de messagerie par ID|**Non**|**Oui**|
 
@@ -177,11 +231,25 @@ Cette section compare les files d'attente Azure et les files d'attente Service 
 
 |Critères de comparaison|Files d'attente Azure|Files d'attente Service Bus|
 |---|---|---|
-|Taille de file d'attente maximale|**200 To**<br/><br/>(limitée à une capacité de compte de stockage unique)|**1 Go à 80 Go**<br/><br/>(définie lors de la création d'une file d'attente et [activation du partitionnement](https://msdn.microsoft.com/library/dn520246.aspx) – consultez la section « Informations supplémentaires »)|
-|Taille de message maximale|**64 Ko**<br/><br/>(48 Ko lors de l'utilisation du codage **Base64**)<br/><br/>Azure prend en charge les messages volumineux en combinant des files d'attente et des objets BLOB. Dans ce cas, vous pouvez placer jusqu'à 200 Go en file d'attente pour un seul élément.|**256 Ko**<br/><br/>(y compris l'en-tête et le corps, taille maximale d'en-tête : 64 Ko)|
+|Taille de file d'attente maximale|**200 To**<br/>
+<br/>
+(limitée à une capacité de compte de stockage unique)|**1 Go à 80 Go**<br/>
+<br/>
+(définie lors de la création d'une file d'attente et [activation du partitionnement](https://msdn.microsoft.com/library/dn520246.aspx) – consultez la section « Informations supplémentaires »)|
+|Taille de message maximale|**64 Ko**<br/>
+<br/>
+(48 Ko lors de l'utilisation du codage **Base64**)<br/>
+<br/>
+Azure prend en charge les messages volumineux en combinant des files d'attente et des objets BLOB. Dans ce cas, vous pouvez placer jusqu'à 200 Go en file d'attente pour un seul élément.|**256 Ko**<br/>
+<br/>
+(y compris l'en-tête et le corps, taille maximale d'en-tête : 64 Ko)|
 |Durée de vie maximale des messages|**7 jours**|**Illimitée**|
-|Nombre maximal de files d'attente|**Illimité**|**10 000**<br/><br/>(par espace de noms de service, peut être augmenté)|
-|Nombre maximal de clients simultanés|**Illimité**|**Illimité**<br/><br/>(la limite de 100 connexions simultanées s'applique uniquement à la communication basée sur le protocole TCP)|
+|Nombre maximal de files d'attente|**Illimité**|**10 000**<br/>
+<br/>
+(par espace de noms de service, peut être augmenté)|
+|Nombre maximal de clients simultanés|**Illimité**|**Illimité**<br/>
+<br/>
+(la limite de 100 connexions simultanées s'applique uniquement à la communication basée sur le protocole TCP)|
 
 ### Informations supplémentaires
 
@@ -204,15 +272,28 @@ Cette section compare les fonctionnalités de gestion fournies par les files d'a
 |Critères de comparaison|Files d'attente Azure|Files d'attente Service Bus|
 |---|---|---|
 |Protocole de gestion|**REST sur HTTP/HTTPS**|**REST sur HTTPS**|
-|Protocole d'exécution|**REST sur HTTP/HTTPS**|**REST sur HTTPS**<br/><br/>**Norme AMQP 1.0 (TCP avec TLS)**|
-|API gérée par .NET|**Oui**<br/><br/>(API de client de stockage gérée par .NET)|**Oui**<br/><br/>(API de messagerie répartie gérée par .NET)|
+|Protocole d'exécution|**REST sur HTTP/HTTPS**|**REST sur HTTPS**<br/>
+<br/>
+**Norme AMQP 1.0 (TCP avec TLS)**| |API gérée par .NET|**Oui**<br/>
+<br/>
+(API de client de stockage gérée par .NET)|**Oui**<br/>
+<br/>
+(API de messagerie répartie gérée par .NET)|
 |C++ natif|**Oui**|**Non**|
 |API Java|**Oui**|**Oui**|
 |API PHP|**Oui**|**Oui**|
 |API Node.js|**Oui**|**Oui**|
 |Prise en charge des métadonnées arbitraires|**Oui**|**Non**|
-|Règles d'affectation des noms aux files d'attente|**Jusqu'à 63 caractères**<br/><br/>(les lettres dans un nom de file d'attente doivent être en minuscules)|**Jusqu'à 260 caractères**<br/><br/>(les noms des files d'attente ne respectent pas la casse)|
-|Fonction d'obtention de la longueur de la file d'attente|**Oui**<br/><br/>(valeur approximative si les messages expirent au-delà de la durée de vie sans être supprimés)|**Oui**<br/><br/>(valeur exacte, à un moment donné)|
+|Règles d'affectation des noms aux files d'attente|**Jusqu'à 63 caractères**<br/>
+<br/>
+(les lettres dans un nom de file d'attente doivent être en minuscules)|**Jusqu'à 260 caractères**<br/>
+<br/>
+(les noms des files d'attente ne respectent pas la casse)|
+|Fonction d'obtention de la longueur de la file d'attente|**Oui**<br/>
+<br/>
+(valeur approximative si les messages expirent au-delà de la durée de vie sans être supprimés)|**Oui**<br/>
+<br/>
+(valeur exacte, à un moment donné)|
 |Fonction Peek (aperçu)|**Oui**|**Oui**|
 
 ### Informations supplémentaires
@@ -225,7 +306,7 @@ Cette section compare les fonctionnalités de gestion fournies par les files d'a
 
 - Les noms des files d'attente Azure peuvent compter entre 3 et 63 caractères, ils peuvent contenir des lettres minuscules, des nombres et des traits d'union. Pour plus d'informations, consultez [Affectation de noms pour les files d'attente et les métadonnées](https://msdn.microsoft.com/library/dd179349.aspx).
 
-- Les noms des files d'attente Service Bus peuvent compter jusqu'à 260 caractères. Les règles d'affectation de noms sont moins restrictives. Les noms des files d'attente Service Bus peuvent contenir des lettres, des nombres, des points (.), des traits d'union (-) et des traits de soulignement (_).
+- Les noms des files d'attente Service Bus peuvent compter jusqu'à 260 caractères. Les règles d'affectation de noms sont moins restrictives. Les noms des files d'attente Service Bus peuvent contenir des lettres, des nombres, des points (.), des traits d'union (-) et des traits de soulignement (\_).
 
 ## Performances
 
@@ -233,9 +314,19 @@ Cette section compare les files d'attente Azure et les files d'attente Service 
 
 |Critères de comparaison|Files d'attente Azure|Files d'attente Service Bus|
 |---|---|---|
-|Débit maximal|**Jusqu'à 2 000 messages par seconde**<br/><br/>(en fonction du test d'évaluation avec des messages de 1 Ko)|**Jusqu'à 2 000 messages par seconde**<br/><br/>(en fonction du test d'évaluation avec des messages de 1 Ko)|
-|Latence moyenne|**10 ms**<br/><br/>(avec [TCP Nagle](http://blogs.msdn.com/b/windowsazurestorage/archive/2010/06/25/nagle-s-algorithm-is-not-friendly-towards-small-requests.aspx) désactivé)|**20-25 ms**|
-|Comportement de limitation|**Rejet avec code HTTP 503**<br/><br/>(les requêtes limitées ne sont pas traitées comme facturables)|**Rejet avec exception/HTTP 503**<br/><br/>(les requêtes limitées ne sont pas traitées comme facturables)|
+|Débit maximal|**Jusqu'à 2 000 messages par seconde**<br/>
+<br/>
+(en fonction du test d'évaluation avec des messages de 1 Ko)|**Jusqu'à 2 000 messages par seconde**<br/>
+<br/>
+(en fonction du test d'évaluation avec des messages de 1 Ko)|
+|Latence moyenne|**10 ms**<br/>
+<br/>
+(avec [TCP Nagle](http://blogs.msdn.com/b/windowsazurestorage/archive/2010/06/25/nagle-s-algorithm-is-not-friendly-towards-small-requests.aspx) désactivé)|**20-25 ms**|
+|Comportement de limitation|**Rejet avec code HTTP 503**<br/>
+<br/>
+(les requêtes limitées ne sont pas traitées comme facturables)|**Rejet avec exception/HTTP 503**<br/>
+<br/>
+(les requêtes limitées ne sont pas traitées comme facturables)|
 
 ### Informations supplémentaires
 
@@ -277,11 +368,27 @@ Cette section compare les files d'attente Azure et les files d'attente Service 
 
 |Critères de comparaison|Files d'attente Azure|Files d'attente Service Bus|
 |---|---|---|
-|Coût de transaction de file d'attente|**0,0005 $**<br/><br/>(pour 10 000 transactions)|**Niveau de base** : **0,05 $**<br/><br/>(par million d'opérations)|
-|Opérations facturables|**Toutes**|**Envoi/réception uniquement**<br/><br/>(aucun frais pour les autres opérations)|
-|Transactions inactives|**Facturables**<br/><br/>(l'interrogation d'une file d'attente vide est comptabilisée comme une transaction facturable)|**Facturables**<br/><br/>(une réception sur une file d'attente vide est considérée comme un message facturable)|
-|Coût de stockage|**0,07 $**<br/><br/>(par Go/mois)|**0,00 $**|
-|Coûts de transfert de données sortantes|**0,12 $ - 0,19 $**<br/><br/>(selon la géographie)|**0,12 $ - 0,19 $**<br/><br/>(selon la géographie)|
+|Coût de transaction de file d'attente|**0,0005 $**<br/>
+<br/>
+(pour 10 000 transactions)|**Niveau de base** : **0,05 $**<br/>
+<br/>
+(par million d'opérations)|
+|Opérations facturables|**Toutes**|**Envoi/réception uniquement**<br/>
+<br/>
+(aucun frais pour les autres opérations)|
+|Transactions inactives|**Facturables**<br/>
+<br/>
+(l'interrogation d'une file d'attente vide est comptabilisée comme une transaction facturable)|**Facturables**<br/>
+<br/>
+(une réception sur une file d'attente vide est considérée comme un message facturable)|
+|Coût de stockage|**0,07 $**<br/>
+<br/>
+(par Go/mois)|**0,00 $**|
+|Coûts de transfert de données sortantes|**0,12 $ - 0,19 $**<br/>
+<br/>
+(selon la géographie)|**0,12 $ - 0,19 $**<br/>
+<br/>
+(selon la géographie)|
 
 ### Informations supplémentaires
 
@@ -295,7 +402,7 @@ Cette section compare les files d'attente Azure et les files d'attente Service 
 
 - Étant donné la prise en charge de l'interrogation longue, l'utilisation de files d'attente Service Bus peut être rentable dans les situations où une remise à latence faible est requise.
 
->[AZURE.NOTE]Tous les coûts sont susceptibles d'être modifiés. Ce tableau reflète la tarification actuelle au moment de la rédaction de cet article et n'inclut pas les offres promotionnelles qui peuvent être actuellement disponibles. Pour obtenir des informations récentes sur la tarification Azure, consultez la page de [tarification Azure](http://azure.microsoft.com/pricing/). Pour plus d'informations sur la tarification Service Bus, consultez [Tarification Service Bus]((http://azure.microsoft.com/pricing/details/service-bus/).
+>[AZURE.NOTE]Tous les coûts sont susceptibles d'être modifiés. Ce tableau reflète la tarification actuelle au moment de la rédaction de cet article et n'inclut pas les offres promotionnelles qui peuvent être actuellement disponibles. Pour obtenir des informations récentes sur la tarification Azure, consultez la page de [tarification Azure](http://azure.microsoft.com/pricing/). Pour plus d'informations sur la tarification Service Bus, consultez [Tarification Service Bus\]((http://azure.microsoft.com/pricing/details/service-bus/).
 
 ## Conclusion
 
@@ -318,4 +425,4 @@ Les articles suivants fournissent davantage de conseils et d'informations sur l'
 - [Présentation de la facturation du stockage Azure - bande passante, transactions et capacité](http://blogs.msdn.com/b/windowsazurestorage/archive/2010/07/09/understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity.aspx)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

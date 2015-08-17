@@ -137,4 +137,4 @@ Il est possible de configurer des serveurs MFA supplémentaires en tant que prox
 
 ![Serveurs MFA](./media/multi-factor-authentication-get-started-server-dirint/dirint6.png)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

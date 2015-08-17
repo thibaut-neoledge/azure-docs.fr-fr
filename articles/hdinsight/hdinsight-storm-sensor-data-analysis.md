@@ -7,6 +7,7 @@
    manager="paulettm"
    editor="cgronlun"/>
 
+
 <tags
    ms.service="hdinsight"
    ms.devlang="java"
@@ -15,6 +16,7 @@
    ms.workload="big-data"
    ms.date="07/06/2015"
    ms.author="larryfr"/>
+
 
 # Analyser les données de capteur avec Apache Storm, Event Hub, et HBase dans HDInsight (Hadoop)
 
@@ -192,7 +194,7 @@ Avant de tester, vous devez lancer le tableau de bord pour afficher la sortie de
 
 		Server listening at port 3000
 
-2. Ouvrez un navigateur Web et entrez **http://localhost:3000/** comme adresse. Une page similaire à celle ci-dessous doit s'afficher :
+2. Ouvrez un navigateur web et entrez ****http://localhost:3000/** comme adresse. Une page similaire à celle ci-dessous doit s'afficher :
 
 	![tableau de bord web](./media/hdinsight-storm-sensor-data-analysis/emptydashboard.png)
 
@@ -258,7 +260,7 @@ Dans votre environnement de développement, procédez comme suit pour exécuter 
 
 2. Une fois le site Web créé, accédez au site via le portail Azure et sélectionnez l’onglet **Configurer**. Activez les **ports Web**, puis cliquez sur **Enregistrer** en bas de la page.
 
-2. Ouvrez **hdinsight-eventhub-example\TemperatureMonitor\src\main\java\com\microsoft\examples\bolts\DashboardBolt.java** et modifiez la ligne suivante pour pointer vers l'URL du tableau de bord publié :
+2. Ouvrez **hdinsight-eventhub-example\\TemperatureMonitor\\src\\main\\java\\com\\microsoft\\examples\\bolts\\DashboardBolt.java** et modifiez la ligne suivante pour pointer vers l'URL du tableau de bord publié :
 
 		socket = IO.socket("http://mywebsite.azurewebsites.net");
 
@@ -352,7 +354,7 @@ Pour écrire sur HBase à partir du cluster Storm, vous devez utiliser le nom de
 
 	curl -u <username>:<password> -k https://<clustername>.azurehdinsight.net/ambari/api/v1/clusters/<clustername>.azurehdinsight.net/services/hbase/components/hbrest
 
-Dans les données JSON renvoyées, recherchez l’entrée **« host_name »**. Elle contient le nom de domaine qualifié complet des nœuds du cluster, par exemple :
+Dans les données JSON renvoyées, recherchez l’entrée **« host\_name »**. Elle contient le nom de domaine qualifié complet des nœuds du cluster, par exemple :
 
 	...
 	"host_name": "wordkernode0.<clustername>.b1.cloudapp.net
@@ -362,13 +364,13 @@ La partie du nom de domaine commençant par le nom de cluster est le suffixe DNS
 
 ### Activation du bolt HBase
 
-1. Ouvrez **hdinsight-eventhub-example\TemperatureMonitor\conf\hbase-site.xml** et remplacez les entrées `suffix` dans la ligne suivante par le suffixe DNS obtenu précédemment pour le cluster HBase. Enregistrez le fichier après avoir apporté ces modifications.
+1. Ouvrez **hdinsight-eventhub-example\\TemperatureMonitor\\conf\\hbase-site.xml** et remplacez les entrées `suffix` dans la ligne suivante par le suffixe DNS obtenu précédemment pour le cluster HBase. Enregistrez le fichier après avoir apporté ces modifications.
 
 		<value>zookeeper0.suffix,zookeeper1.suffix,zookeeper2.suffix</value>
 
 	Cela sera utilisé par le bolt HBase pour communiquer avec le cluster HBase.
 
-1. Ouvrez **hdinsight-eventhub-example\TemperatureMonitor\src\main\java\com\microsoft\examples\bolts ** dans un éditeur de texte et annulez les marques de commentaires dans les lignes suivantes en supprimant le `//` du début. Enregistrez le fichier après avoir apporté ces modifications.
+1. Ouvrez **hdinsight-eventhub-example\\TemperatureMonitor\\src\\main\\java\\com\\microsoft\\examples\\bolts ** dans un éditeur de texte et annulez les marques de commentaires dans les lignes suivantes en supprimant le `//` du début. Enregistrez le fichier après avoir apporté ces modifications.
 
 		topologyBuilder.setBolt("HBase", new HBaseBolt("SensorData", mapper).withConfigKey("hbase.conf"), spoutConfig.getPartitionCount())
     	  .fieldsGrouping("Parser", "hbasestream", new Fields("deviceid")).setNumTasks(spoutConfig.getPartitionCount());
@@ -385,7 +387,7 @@ Avant d'exécuter la topologie, vous devez préparer HBase pour accepter les don
 
 2. À partir du bureau, démarrez la ligne de commande HDInsight, puis entrez les commandes suivantes :
 
-    cd %HBASE_HOME% bin\hbase shell
+    cd %HBASE\_HOME% bin\\hbase shell
 
 3. À partir de l'environnement de ligne de commande HBase, entrez la commande suivante pour créer une table dans laquelle seront stockées les données du capteur :
 
@@ -420,4 +422,4 @@ Vous avez à présent appris à utiliser Storm pour lire des données à partir 
 
 [azure-portal]: https://manage.windowsazure.com/
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

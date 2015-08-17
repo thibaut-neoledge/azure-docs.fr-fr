@@ -7,6 +7,7 @@
 	editor=""
 	services="mobile-services"/>
 
+
 <tags
 	ms.service="mobile-services"
 	ms.workload="mobile"
@@ -15,6 +16,7 @@
 	ms.topic="article"
 	ms.date="07/01/2015"
 	ms.author="krisragh;donnam"/>
+
 
 # Prise en main de la synchronisation des données hors connexion dans Mobile Services
 
@@ -30,7 +32,7 @@ La synchronisation hors connexion présente plusieurs avantages :
 * Elle synchronise les données sur plusieurs appareils.
 * Elle détecte les conflits quand un même enregistrement est modifié par deux appareils.
 
-> [AZURE.NOTE]Pour suivre ce didacticiel, vous avez besoin d'un compte Azure. Si vous n'avez pas de compte, vous pouvez vous inscrire pour une évaluation d'Azure et obtenir des [services mobiles gratuits que vous pourrez conserver après l'expiration de votre période d'évaluation](http://azure.microsoft.com/pricing/details/mobile-services/). Pour plus d’informations, consultez la page d’[essai gratuit d’Azure](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AE564AB28 target="_blank").
+> [AZURE.NOTE]Pour suivre ce didacticiel, vous avez besoin d'un compte Azure. Si vous n'avez pas de compte, vous pouvez vous inscrire pour une évaluation d'Azure et obtenir des [services mobiles gratuits que vous pourrez conserver après l'expiration de votre période d'évaluation](http://azure.microsoft.com/pricing/details/mobile-services/). Pour plus d’informations, consultez la page d’[essai gratuit d’Azure\](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AE564AB28 target="\_blank").
 
 Ce didacticiel est basé sur le didacticiel [Démarrage rapide de Mobile Services], que vous devez effectuer en premier. Examinons d'abord le code lié à la synchronisation hors connexion présent dans le Démarrage rapide.
 
@@ -110,10 +112,10 @@ Lorsque vous utilisez un magasin de données de base hors connexion, vous devez 
 
 - Ouvrez **QSDataModel.xcdatamodeld**. Quatre tables sont définies, trois étant utilisées par le Kit de développement logiciel (SDK) et la dernière par les éléments de la tâche :
 
-      * MS_TableOperations : pour le suivi des éléments à synchroniser avec le serveur
-      * MS_TableOperationErrors : pour le suivi des erreurs qui se produisent pendant la synchronisation hors connexion
-      * MS_TableConfig : pour le suivi de la dernière mise à jour de la dernière opération de synchronisation de toutes les opérations d'extraction
-      * TodoItem : pour le stockage des éléments de la tâche. Les colonnes système **ms_createdAt**, **ms_updatedAt** et **ms_version** sont des propriétés système facultatives.
+      * MS\_TableOperations : pour le suivi des éléments à synchroniser avec le serveur
+      * MS\_TableOperationErrors : pour le suivi des erreurs qui se produisent pendant la synchronisation hors connexion
+      * MS\_TableConfig : pour le suivi de la dernière mise à jour de la dernière opération de synchronisation de toutes les opérations d'extraction
+      * TodoItem : pour le stockage des éléments de la tâche. Les colonnes système **ms\_createdAt**, **ms\_updatedAt** et **ms\_version** sont des propriétés système facultatives.
 
 >[AZURE.NOTE]Le Kit de développement logiciel (SDK) Mobile Services réserve les noms de colonnes qui commencent par « **`ms_`** ». N'utilisez ce préfixe que sur les colonnes système. Sinon, vos noms de colonnes seront modifiés pendant l'utilisation du service distant.
 
@@ -121,7 +123,7 @@ Lorsque vous utilisez un magasin de données de base hors connexion, vous devez 
 
     ### Tables système
 
-    #### MS_TableOperations
+    #### MS\_TableOperations
 
     | Attribut | Type |
     |-------------- |   ------    |
@@ -131,7 +133,7 @@ Lorsque vous utilisez un magasin de données de base hors connexion, vous devez 
     | table | String |
     | tableKind | Integer 16 |
 
-    #### MS_TableOperationErrors
+    #### MS\_TableOperationErrors
 
     | Attribut | Type |
     |-------------- | ----------  |
@@ -140,7 +142,7 @@ Lorsque vous utilisez un magasin de données de base hors connexion, vous devez 
     | properties | Binary Data |
     | tableKind | Integer 16 |
 
-    #### MS_TableConfig
+    #### MS\_TableConfig
 
 
     | Attribut | Type |
@@ -160,7 +162,7 @@ Lorsque vous utilisez un magasin de données de base hors connexion, vous devez 
     | ID (obligatoire) | Chaîne | clé primaire dans le magasin distant (obligatoire) |
     | terminé | Boolean | champ d'élément todo |
     | texte | String | champ d'élément todo |
-    | ms_createdAt | Date | (facultatif) mappe vers __createdAt system property | | ms_updatedAt | Date | (facultatif) mappe vers __updatedAt system property | | ms_version | String | (facultatif) permet de détecter les conflits, mappe vers __version |
+    | ms\_createdAt | Date | (facultatif) mappe vers \_\_createdAt system property | | ms\_updatedAt | Date | (facultatif) mappe vers \_\_updatedAt system property | | ms\_version | String | (facultatif) permet de détecter les conflits, mappe vers \_\_version |
 
 
 
@@ -271,4 +273,4 @@ Pour synchroniser le magasin local avec le serveur, vous avez utilisé `MSSyncTa
 
 [Démarrage rapide de Mobile Services]: mobile-services-ios-get-started.md
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -75,7 +75,7 @@ où :
 
 +  *&lt;username&gt;* est le nom d’utilisateur racine par défaut de la machine virtuelle
 
-+ *&lt;password&gt;* est le mot de passe du compte *nom_utilisateur* remplissant les conditions de complexité Microsoft Azure
++ *&lt;password&gt;* est le mot de passe du compte *nom\_utilisateur* remplissant les conditions de complexité Microsoft Azure
 
 > [AZURE.NOTE]Un mot de passe doit comporter au moins 8 caractères, dont une lettre minuscule et une lettre majuscule, un chiffre et un caractère spécial parmi les suivants : `!@#$%^&+=`. Le point à la fin de la phrase précédente N'EST PAS un caractère spécial.
 
@@ -139,4 +139,4 @@ Vous êtes prêt à consulter le [Guide d'utilisation Docker] et à utiliser vo
 [Guide d'utilisation Docker]: https://docs.docker.com/userguide/
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

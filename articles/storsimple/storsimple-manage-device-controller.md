@@ -222,4 +222,4 @@ Dans cette section, vous trouverez des réponses à certaines questions fréquem
 
 Si vous rencontrez des problèmes avec vos contrôleurs d’appareil StorSimple que vous ne pouvez pas résoudre en suivant les procédures décrites dans ce didacticiel, [contactez le support technique Microsoft](https://msdn.microsoft.com/library/azure/dn757750.aspx).
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

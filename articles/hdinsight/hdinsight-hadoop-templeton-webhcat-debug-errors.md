@@ -85,4 +85,4 @@ Voici les valeurs de configuration par défaut qui peuvent affecter les performa
 [max-age-ms]: http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.0.6.0/ds_Hadoop/hadoop-mapreduce-client/hadoop-mapreduce-client-core/mapred-default.xml
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

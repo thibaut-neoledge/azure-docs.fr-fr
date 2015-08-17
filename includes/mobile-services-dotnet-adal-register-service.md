@@ -39,4 +39,4 @@ Dans cette section, vous allez inscrire votre service mobile auprès d'Azure Act
 [Inscription auprès d'Azure Active Directory]: ../articles/mobile-services/mobile-services-how-to-register-active-directory-authentication.md
 [portail de gestion Azure]: https://manage.windowsazure.com/
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

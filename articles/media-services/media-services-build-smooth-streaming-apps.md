@@ -56,36 +56,14 @@ Pour plus d'informations sur le développement d'une application Windows Store, 
 2.	Dans le menu **Fichier**, cliquez sur **Nouveau**, puis sur **Projet**.
 3.	Dans la boîte de dialogue Nouveau projet, entrez ou sélectionnez les valeurs suivantes :
 
-	<table border="1">
-<tr>
-	<th>Nom</th>
-	<th>Valeur</th>
-</tr>
-<tr>
-	<td>Groupe de modèles</td>
-	<td>Installed/Templates/Visual C#/Windows Store</td>
-</tr>
-<tr>
-	<td>Modèle</td>
-	<td>Application vide (XAML)</td>
-</tr>
-<tr>
-	<td>Nom</td>
-	<td>SSPlayer</td>
-</tr>
-<tr>
-	<td>Emplacement</td>
-	<td>C:\SSTutorials</td>
-</tr>
-<tr>
-	<td>Nom de la solution</td>
-	<td>SSPlayer</td>
-</tr>
-<tr>
-	<td>Créer un répertoire pour la solution</td>
-	<td>(sélectionné)</td>
-</tr>
-</table>
+Nom|Valeur
+---|---
+Groupe de modèles|Installed/Templates/Visual C#/Windows Store
+Modèle|Application vide (XAML)
+Nom|SSPlayer
+Emplacement|C:\\SSTutorials
+Nom de la solution|SSPlayer
+Créer un répertoire pour la solution|(sélectionné)
 
 4.	Cliquez sur **OK**.
 
@@ -94,23 +72,12 @@ Pour plus d'informations sur le développement d'une application Windows Store, 
 1.	Dans l'Explorateur de solutions, cliquez avec le bouton droit sur **SSPlayer**, puis cliquez sur **Ajouter une référence**.
 2.	Tapez ou sélectionnez les valeurs suivantes :
 
-	<table border="1">
-<tr>
-	<th>Nom</th>
-	<th>Valeur</th>
-</tr>
-<tr>
-	<td>Groupe de référence</td>
-	<td>Windows/Extensions</td>
-</tr>
-<tr>
-	<td>Référence</td>
-	<td>Sélectionnez le Kit de développement logiciel (SDK) du client de diffusion en continu lisse pour Windows&#160;8 et le package Runtime Microsoft Visual C++ 
-	</td>
-</tr>
-</table>
+Nom|Valeur
+---|---
+Groupe de référence|Windows/Extensions
+Référence|Sélectionnez le Kit de développement logiciel (SDK) du client de diffusion en continu lisse pour Windows 8 et le package Runtime Microsoft Visual C++
 	
-3.	Cliquez sur **OK**.
+3.	Cliquez sur **OK**. 
 
 Après l'ajout des références, vous devez sélectionner la plateforme ciblée (x64 ou x86). L'ajout de références ne fonctionne pas pour les configurations de plateforme CPU. Dans l'Explorateur de solutions, un symbole d'avertissement jaune s'affiche pour indiquer les références ajoutées.
 
@@ -228,7 +195,7 @@ Dans le fichier XAML, certains gestionnaires d'événements sont associés aux c
 		}
 		#endregion
 
-	Le gestionnaire d'événements sliderProgress_PointerPressed est défini ici. Pour qu'il fonctionne, il est nécessaire d'effectuer d'autres procédures qui seront décrites dans la leçon suivante de ce didacticiel.
+	Le gestionnaire d'événements sliderProgress\_PointerPressed est défini ici. Pour qu'il fonctionne, il est nécessaire d'effectuer d'autres procédures qui seront décrites dans la leçon suivante de ce didacticiel.
 6.	Appuyez sur **Ctrl+S** pour enregistrer le fichier.
 
 Le fichier code-behind terminé doit ressembler à ceci :
@@ -320,7 +287,7 @@ Cette leçon aborde les procédures suivantes :
 
 4.	À la fin du constructeur **MainPage**, ajoutez la ligne suivante pour vous inscrire à l'événement ouvert de la source adaptative :
 	
-	adaptiveSourceManager.AdaptiveSourceOpenedEvent += new AdaptiveSourceOpenedEventHandler(mediaElement_AdaptiveSourceOpened);
+	adaptiveSourceManager.AdaptiveSourceOpenedEvent += new AdaptiveSourceOpenedEventHandler(mediaElement\_AdaptiveSourceOpened);
 
 5.	Appuyez sur **Ctrl+S** pour enregistrer le fichier.
 
@@ -352,7 +319,7 @@ Cette leçon aborde les procédures suivantes :
 		}
 		#endregion Adaptive Source Level Events
 
-4.	À la fin de la méthode <strong>mediaElement AdaptiveSourceOpened</strong>, ajoutez le code suivant pour vous inscrire aux événements :
+4.	À la fin de la méthode **mediaElement AdaptiveSourceOpened**, ajoutez le code suivant pour vous inscrire aux événements :
 	
 		adaptiveSource.ManifestReadyEvent +=
 	                mediaElement_ManifestReady;
@@ -498,7 +465,7 @@ Les mêmes événements sont également disponibles sur AdaptiveSourceManager, q
 		  sliderProgress.Maximum = absvalue; }); 
 		
 
-6.	À la fin de la méthode **mediaElement_AdaptiveSourceStatusUpdated**, ajoutez le code suivant :
+6.	À la fin de la méthode **mediaElement\_AdaptiveSourceStatusUpdated**, ajoutez le code suivant :
 	
 		setSliderStartTime(args.StartTime);
 		setSliderEndTime(args.EndTime);
@@ -762,7 +729,7 @@ La diffusion en continu lisse permet de diffuser du contenu en continu proposant
 		}
 		#endregion stream selection
 
-5. Recherchez la méthode mediaElement_ManifestReady, puis ajoutez le code suivant à la fin de la fonction :
+5. Recherchez la méthode mediaElement\_ManifestReady, puis ajoutez le code suivant à la fin de la fonction :
 	
 		getStreams(manifestObject);
         refreshAvailableStreamsListBoxItemSource();
@@ -788,7 +755,7 @@ La diffusion en continu lisse permet de diffuser du contenu en continu proposant
 2.	Appuyez sur **F5** pour exécuter l'application.
 3.	Au début de l'application, vous pouvez utiliser l'URL de diffusion en continu lisse par défaut ou entrer une URL différente. 
 4.	Cliquez sur **Définir la source**. 
-5.	La langue par défaut est audio_eng. Essayez de basculer entre audio_eng et audio_es. Vous devez cliquer sur le bouton Envoyer chaque fois que vous sélectionnez un nouveau flux.
+5.	La langue par défaut est audio\_eng. Essayez de basculer entre audio\_eng et audio\_es. Vous devez cliquer sur le bouton Envoyer chaque fois que vous sélectionnez un nouveau flux.
 
 Vous avez terminé la leçon 3. Dans cette leçon, vous avez ajouté la fonctionnalité permettant de choisir des flux.
 
@@ -967,7 +934,7 @@ Une présentation de diffusion en continu lisse peut contenir plusieurs fichiers
         }
         #endregion track selection
 
-5. Recherchez la méthode mediaElement_ManifestReady, puis ajoutez le code suivant à la fin de la fonction :
+5. Recherchez la méthode mediaElement\_ManifestReady, puis ajoutez le code suivant à la fin de la fonction :
 
 		getTracks(manifestObject);
 		refreshAvailableTracksListBoxItemSource();
@@ -1004,4 +971,4 @@ Vous avez terminé la leçon 4. Dans cette leçon, vous avez ajouté la fonctio
 [CodeViewPic]: ./media/media-services-build-smooth-streaming-apps/SSClientWin8-2.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

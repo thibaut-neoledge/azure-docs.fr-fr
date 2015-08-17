@@ -4,7 +4,8 @@
 	services="virtual-machines" 
 	documentationCenter="virtual-machines" 
 	authors="squillace" 
-	manager="timlt" />
+	manager="timlt" 
+/>
 	
 
 <tags 
@@ -14,7 +15,8 @@
 	ms.tgt_pltfrm="infrastructure" 
 	ms.workload="infrastructure" 
 	ms.date="07/02/2015" 
-	ms.author="rasquill" />
+	ms.author="rasquill" 
+/>
 
 <!--The next line, with one pound sign at the beginning, is the page title-->
 # Machines virtuelles et conteneurs dans Azure
@@ -234,4 +236,4 @@ Découvrez [Docker](https://www.docker.com) et les [conteneurs Windows Server](h
 [microservices]: http://martinfowler.com/articles/microservices.html
 <!--Image references-->
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

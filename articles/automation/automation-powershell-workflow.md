@@ -249,4 +249,4 @@ Pour plus d'informations sur les points de contrôle, consultez [Ajout de points
 
 - [Mise en route d'un workflow Windows PowerShell](http://technet.microsoft.com/library/jj134242.aspx) 
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

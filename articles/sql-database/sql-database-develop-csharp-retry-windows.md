@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/24/2015" 
+	ms.date="08/04/2015" 
 	ms.author="genemi"/>
 
 
@@ -395,8 +395,7 @@ La méthode `Main` se trouve dans `Program.cs`. La pile d'appels s'exécute comm
 	        static Custom_SqlDatabaseTransientErrorDetectionStrategy()
 	        {
 	            int[] arrayOfTransientErrorNumbers =
-	                {4060, 10928, 10929, 40197, 40501, 40613
-	};
+	                {4060, 10928, 10929, 40197, 40501, 40613 };
 	
 	            M_listTransientErrorNumbers = new G.List<int>(arrayOfTransientErrorNumbers);
 	        }
@@ -413,10 +412,10 @@ La méthode `Main` se trouve dans `Program.cs`. La pile d'appels s'exécute comm
 ## Version abrégée du fichier Program.cs
 
 
-Le code source dans cette section est une répétition abrégée du fichier `Program.cs` plus long présenté précédemment. Toute la logique de nouvelle tentative et de gestion `Exception` a été supprimée.
+Le code source dans cette section est une répétition abrégée du fichier `Program.cs` plus long présenté précédemment. Tout ce qui concerne la logique de nouvelle tentative et la gestion des exceptions a été supprimé.
 
 
-La version abrégée permet d’afficher facilement les appels ADO.NET, sachant que ceux-ci fonctionnent généralement. Normalement, aucune erreur temporaire ne se produit et aucune `Exception` n’est renvoyée. Et un parachutiste n'a pas besoin d’un parachute de secours.
+La version abrégée permet d’afficher facilement les appels ADO.NET, sachant que ceux-ci fonctionnent généralement. Normalement, aucune erreur temporaire ne se produit et aucune n’est renvoyée. Et un parachutiste n'a pas besoin d’un parachute de secours.
 
 
 	using     System;  // C#, pure ADO.NET, no retry logic, no Exception handling.
@@ -497,4 +496,4 @@ La version abrégée permet d’afficher facilement les appels ADO.NET, sachant 
 
 - [Exemples de code de démarrage rapide pour SQL Database](sql-database-develop-quick-start-client-code-samples.md)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

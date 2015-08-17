@@ -56,4 +56,4 @@ Pour configurer le client RADIUS, suivez ces indications :
 - Utilisez le même secret partagé configuré ci-dessus. 
 - Configurez le délai d'expiration RADIUS sur 30 à 60 secondes pour pouvoir valider les informations d'identification de l'utilisateur, effectuez l'authentification multifacteur, recevez leur réponse et répondez à la demande d'accès RADIUS.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

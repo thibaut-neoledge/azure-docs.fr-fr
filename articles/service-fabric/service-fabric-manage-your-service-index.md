@@ -50,4 +50,4 @@ Les articles suivants décrivent la mise à l'échelle et le partitionnement :
 - [Mise à l'échelle des applications Service Fabric](service-fabric-concepts-scalability.md)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

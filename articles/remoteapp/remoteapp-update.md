@@ -36,4 +36,4 @@ Comment mettre à jour votre collection ? C’est simple :
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

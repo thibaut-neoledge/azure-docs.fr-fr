@@ -100,4 +100,4 @@ Pour SQL Server, les éditions 32 bits et 64 bits suivantes sont prises en ch
 
 En outre, l’édition 32 bits de SQL Server est prise en charge lors de l’exécution dans l’implémentation WOW64.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -8,4 +8,4 @@ Cliquez sur **Afficher le journal** pour afficher la sortie du script de déploi
 
 ![](./media/web-sites-python-troubleshoot-deployment/portal-deployment-log.png)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

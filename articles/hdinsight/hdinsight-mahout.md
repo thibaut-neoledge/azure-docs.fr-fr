@@ -7,6 +7,7 @@
 	manager="paulettm"
 	editor=""/>
 
+
 <tags
 	ms.service="hdinsight"
 	ms.workload="big-data"
@@ -15,6 +16,7 @@
 	ms.topic="article"
 	ms.date="07/24/2015"
 	ms.author="larryfr"/>
+
 
 #Génération de recommandations de films à l’aide d’Apache Mahout avec Hadoop dans HDInsight
 
@@ -80,7 +82,7 @@ De façon pratique, [GroupLens Research][movielens] fournit des données d’év
 
     	PS C:\> Add-HDInsightFile -LocalPath "path\to\u.data" -DestinationPath "example/data/u.data" -ClusterName "your cluster name"
 
-    Cela télécharge le fichier __u.data__ vers __example/data/u.data__ sur le stockage par défaut de votre cluster. Vous pouvez ensuite accéder à ces données à l’aide de l’__wasb:///example/data/u.data__ URI des tâches HDInsight.
+    Cela télécharge le fichier __u.data__ vers __example/data/u.data__ sur le stockage par défaut de votre cluster. Vous pouvez ensuite accéder à ces données à l’aide de l’URI \_\___wasb:///example/data/u.data__ des tâches HDInsight.
 
 ###Exécution de la tâche
 
@@ -92,7 +94,7 @@ Utilisez le script Windows PowerShell suivant pour exécuter une tâche à l’a
 	# NOTE: The version number portion of the file path
 	# may change in future versions of HDInsight.
 	# So dynamically grab it using Hive.
-	$mahoutPath = Invoke-Hive -Query '!${env:COMSPEC} /c dir /b /s ${env:MAHOUT_HOME}\examples\target\*-job.jar' | where {$_.startswith("C:\apps\dist")}
+	$mahoutPath = Invoke-Hive -Query '!${env:COMSPEC} /c dir /b /s ${env:MAHOUT_HOME}\examples\target*-job.jar' | where {$_.startswith("C:\apps\dist")}
 	$noCRLF = $mahoutPath -replace "`r`n", ""
 	$cleanedPath = $noCRLF -replace "\", "/"
 	$jarFile = "file:///$cleanedPath"
@@ -144,7 +146,7 @@ Voici un exemple de contenu du fichier :
 	3	[284:5.0,285:4.828125,508:4.7543354,845:4.75,319:4.705128,124:4.7045455,150:4.6938777,311:4.6769233,248:4.65625,272:4.649266]
 	4	[690:5.0,12:5.0,234:5.0,275:5.0,121:5.0,255:5.0,237:5.0,895:5.0,282:5.0,117:5.0]
 
-La première colonne est `userID`. Les valeurs contenues entre « [ » et « ] » sont `movieId`:`recommendationScore`.
+La première colonne est `userID`. Les valeurs contenues entre « [ » et « \] » sont `movieId`:`recommendationScore`.
 
 ###Affichage du résultat
 
@@ -285,13 +287,13 @@ L'une des méthodes de classification disponibles avec Mahout est la constructio
 
 ###Exécution de la tâche
 
-1. Cette tâche requiert la ligne de commande Hadoop. Activez le Bureau à distance pour le cluster HDInsight, puis connectez-vous à lui en suivant les instructions fournies dans la rubrique [Connexion à des clusters HDInsight à l’aide de RDP](hdinsight-administer-use-management-portal.md#rdp).
+1. Cette tâche requiert la ligne de commande Hadoop. Activez le Bureau à distance pour le cluster HDInsight, puis connectez-vous à lui en suivant les instructions fournies dans [Connexion à des clusters HDInsight à l’aide de RDP](hdinsight-administer-use-management-portal.md#rdp).
 
 3. Une fois la connexion établie, utilisez l’icône de __ligne de commande Hadoop__ pour ouvrir la ligne de commande Hadoop :
 
 	![hadoop cli][hadoopcli]
 
-3. Utilisez la commande suivante pour générer le descripteur de fichier (\_\_KDDTrain+.info\_\_), qui utilise Mahout.
+3. Utilisez la commande suivante pour générer le descripteur de fichier (__KDDTrain+.info__), qui utilise Mahout.
 
 		hadoop jar "c:/apps/dist/mahout-0.9.0.2.1.3.0-1887/examples/target/mahout-examples-0.9.0.2.1.3.0-1887-job.jar" org.apache.mahout.classifier.df.tools.Describe -p "wasb:///example/data/KDDTrain+.arff" -f "wasb:///example/data/KDDTrain+.info" -d N 3 C 2 N C 4 N C 8 N 2 C 19 N L
 
@@ -301,7 +303,7 @@ L'une des méthodes de classification disponibles avec Mahout est la constructio
 
 		hadoop jar c:/apps/dist/mahout-0.9.0.2.1.3.0-1887/examples/target/mahout-examples-0.9.0.2.1.3.0-1887-job.jar org.apache.mahout.classifier.df.mapreduce.BuildForest -Dmapred.max.split.size=1874231 -d wasb:///example/data/KDDTrain+.arff -ds wasb:///example/data/KDDTrain+.info -sl 5 -p -t 100 -o nsl-forest
 
-    Le résultat de cette opération est stocké dans le répertoire __nsl-forest__, situé dans le stockage de votre cluster HDInsight à l’adresse __wasb://user/&lt;username>/nsl-forest/nsl-forest.seq. &lt;nom\_utilisateur> est le nom d’utilisateur utilisé pour votre session Bureau à distance. Ce fichier n’est pas lisible par les humains.
+    Le résultat de cette opération est stocké dans le répertoire __nsl-forest__, situé dans le stockage de votre cluster HDInsight à l’adresse \_\___wasb://user/&lt;username>/nsl-forest/nsl-forest.seq. &lt;nom\_utilisateur> est le nom d’utilisateur utilisé pour votre session Bureau à distance. Ce fichier n’est pas lisible par les humains.
 
 5. Testez la forêt en classant l’ensemble de données __KDDTest+.arff__. Utilisez la commande suivante :
 
@@ -333,7 +335,7 @@ L'une des méthodes de classification disponibles avec Mahout est la constructio
 	    Reliability                                53.4921%
 	    Reliability (standard deviation)            0.4933
 
-  Cette tâche génère également un fichier situé dans __wasb:///example/data/predictions/KDDTest+.arff.out__. Toutefois, ce fichier n’est pas lisible par les humains.
+  Cette tâche génère également un fichier situé dans \_\___wasb:///example/data/predictions/KDDTest+.arff.out__. Toutefois, ce fichier n’est pas lisible par les humains.
 
 > [AZURE.NOTE]Les tâches Mahout ne remplacent pas les fichiers. Si vous souhaitez réexécuter ces tâches, vous devez supprimer les fichiers créés par les tâches précédentes.
 
@@ -373,7 +375,7 @@ Pour éviter les erreurs lors de l’exécution des tâches Mahout, supprimez le
 Les clusters HDInsight 3.1 incluent Mahout. Le chemin d’accès et le nom de fichier comprennent le numéro de version de l’installation de Mahout sur le cluster. L’exemple de script Windows PowerShell dans ce didacticiel utilise un chemin d’accès valide en juillet 2014, mais le numéro de version changera lors des futures mises à jour de HDInsight. Pour déterminer le chemin d’accès actuel du fichier jar Mahout pour votre cluster, utilisez les commandes Windows PowerShell ci-après, puis modifiez le script pour référencer le chemin de fichier renvoyé :
 
 	Use-AzureHDInsightCluster -Name $clusterName
-	$jarFile = Invoke-Hive -Query '!${env:COMSPEC} /c dir /b /s ${env:MAHOUT_HOME}\examples\target\*-job.jar'
+	$jarFile = Invoke-Hive -Query '!${env:COMSPEC} /c dir /b /s ${env:MAHOUT_HOME}\examples\target*-job.jar'
 
 ###<a name="nopowershell"></a>Classes ne fonctionnant pas avec Windows PowerShell
 
@@ -421,4 +423,4 @@ Maintenant que vous avez appris à utiliser Mahout, découvrez d’autres façon
 [tools]: https://github.com/Blackmist/hdinsight-tools
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

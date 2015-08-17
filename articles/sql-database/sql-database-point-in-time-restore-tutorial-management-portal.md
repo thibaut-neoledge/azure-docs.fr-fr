@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="storage-backup-recovery" 
-   ms.date="03/18/2015"
+   ms.date="07/24/2015"
    ms.author="elfish; v-romcal"/>
 
 # Restaurer une base de données SQL Azure à l’aide d’une limite de restauration dans le temps dans le portail Azure
@@ -74,4 +74,4 @@ Pour plus d’informations, consultez les liens suivants :
 
 [Limite de restauration dans le temps d’une base de données SQL Azure (blog)](http://azure.microsoft.com/blog/2014/10/01/azure-sql-database-point-in-time-restore/)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

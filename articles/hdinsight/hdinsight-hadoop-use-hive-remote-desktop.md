@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="07/06/2015"
+   ms.date="07/23/2015"
    ms.author="larryfr"/>
 
 # Utilisation de Hive avec Hadoop sur HDInsight via le Bureau à distance
@@ -145,4 +145,4 @@ Pour plus d’informations sur d’autres méthodes de travail avec Hadoop sur H
 [img-hdi-hive-powershell-output]: ./media/hdinsight-use-hive/HDI.Hive.PowerShell.Output.png
 [image-hdi-hive-architecture]: ./media/hdinsight-use-hive/HDI.Hive.Architecture.png
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

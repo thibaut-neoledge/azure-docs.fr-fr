@@ -65,28 +65,11 @@ Vous pouvez utiliser le connecteur X12 comme un déclencheur ou une action.
 
 	![Codage configuré][10]
 
-<table>
-	<tr>
-		<th>Paramètre</th>
-		<th>Type</th>
-		<th>Description du paramètre</th>
-	</tr>
-	<tr>
-		<td>Contenu</td>
-		<td>string</td>
-		<td>Message XML</td>
-	</tr>
-	<tr>
-		<td>ID de l'accord</td>
-		<td>string</td>
-		<td>ID de l'accord</td>
-	</tr>
-	<tr>
-		<td>Est un message par lot</td>
-		<td>string</td>
-		<td>Est un message par lot</td>
-	</tr>
-</table>
+Paramètre|Type|Description du paramètre
+---|---|---
+Contenu|string|Message XML
+ID de l'accord|string|ID de l'accord
+Est un message par lot|string|Est un message par lot
 
 L'action retourne un objet contenant la charge utile X12.
 
@@ -109,4 +92,4 @@ Vous pouvez également consulter les statistiques de performances et contrôler 
 [10]: ./media/app-service-logic-connector-x12/EncodeConfigured.PNG
 [11]: ./media/app-service-logic-connector-x12/TriggerSettings.PNG
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

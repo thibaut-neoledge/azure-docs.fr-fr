@@ -2307,4 +2307,4 @@ Récupérer 5 suggestions pour lesquelles l'entrée de recherche partielle est 
       "suggesterName": "sg"
     }
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

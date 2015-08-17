@@ -91,7 +91,7 @@ public MainPage()
 }
 ```
 
-- Recherchez maintenant la méthode `Search(...)` qui est appelée lorsque l’utilisateur clique sur le bouton Rechercher dans l’interface utilisateur de l’application. Cette méthode effectue une demande GET auprès de l’API Graph Azure AD pour l’interroger à propos d’utilisateurs dont l’UPN commence par le terme de recherche donné. Cependant, pour interroger l’API Graph, vous devez inclure un jeton d’accès (access_token) dans l’en-tête `Authorization` de la demande ; c’est à ce moment qu’intervient la bibliothèque ADAL.
+- Recherchez maintenant la méthode `Search(...)` qui est appelée lorsque l’utilisateur clique sur le bouton Rechercher dans l’interface utilisateur de l’application. Cette méthode effectue une demande GET auprès de l’API Graph Azure AD pour l’interroger à propos d’utilisateurs dont l’UPN commence par le terme de recherche donné. Cependant, pour interroger l’API Graph, vous devez inclure un jeton d’accès (access\_token) dans l’en-tête `Authorization` de la demande ; c’est à ce moment qu’intervient la bibliothèque ADAL.
 
 ```C#
 private async void Search(object sender, RoutedEventArgs e)
@@ -127,7 +127,7 @@ public async void ContinueWebAuthentication(WebAuthenticationBrokerContinuationE
 }
 ```
 
-- Il est temps d’utiliser le `AuthenticationResult` qu’ADAL renvoie à votre application. Dans le rappel `QueryGraph(...)`, joignez à la demande GET, dans l’en-tête d’autorisation, le jeton d’accès (access_token) que vous avez acquis :
+- Il est temps d’utiliser le `AuthenticationResult` qu’ADAL renvoie à votre application. Dans le rappel `QueryGraph(...)`, joignez à la demande GET, dans l’en-tête d’autorisation, le jeton d’accès (access\_token) que vous avez acquis :
 
 ```C#
 private async void QueryGraph(AuthenticationResult result)
@@ -173,4 +173,4 @@ Pour référence, l’exemple terminé (sans vos valeurs de configuration) est f
 [AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

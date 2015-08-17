@@ -7,6 +7,7 @@
 	manager="timlt" 
 	editor=""/>
 
+
 <tags 
 	ms.service="virtual-machines" 
 	ms.workload="infrastructure-services" 
@@ -15,6 +16,7 @@
 	ms.topic="article" 
 	ms.date="05/11/2015" 
 	ms.author="rasquill"/>
+
 
 # Déploiement et gestion de machines virtuelles à l’aide des modèles du Gestionnaire de ressources Azure et de l’interface de ligne de commande Azure
 
@@ -125,23 +127,23 @@ Ensuite, vous aurez besoin d’une image. Pour rechercher une image à l’aide 
 
 | PublisherName | Offer | Sku | Version |
 |:---------------------------------|:-------------------------------------------|:---------------------------------|:--------------------|
-| OpenLogic | CentOS | 7 | 7.0.201503 |
-| OpenLogic | CentOS | 7.1 | 7.1.201504 |
-| CoreOS | CoreOS | Bêta | 647.0.0 |
-| CoreOS | CoreOS | Stable | 633.1.0 |
-| MicrosoftDynamicsNAV | DynamicsNAV | 2015 | 8.0.40459 |
-| MicrosoftSharePoint | MicrosoftSharePointServer | 2013 | 1.0.0 |
-| msopentech | Oracle-Database-12c-Weblogic-Server-12c | Standard | 1.0.0 |
-| msopentech | Oracle-Database-12c-Weblogic-Server-12c | Entreprise | 1.0.0 |
-| MicrosoftSQLServer | SQL2014-WS2012R2 | Entreprise, optimisé pour l’entrepôt de données | 12.0.2430 |
-| MicrosoftSQLServer | SQL2014-WS2012R2 | Entreprise, optimisé pour le traitement transactionnel en ligne | 12.0.2430 |
-| Canonical | UbuntuServer | 12.04.5-LTS | 12.04.201504230 |
-| Canonical | UbuntuServer | 14.04.2-LTS | 14.04.201503090 |
-| MicrosoftWindowsServer | WindowsServer | 2012-Datacenter | 3.0.201503 |
-| MicrosoftWindowsServer | WindowsServer | 2012-R2-Datacenter | 4.0.201503 |
-| MicrosoftWindowsServer | WindowsServer | Windows Server Technical Preview | 5.0.201504 |
-| MicrosoftWindowsServerEssentials | WindowsServerEssentials | WindowsServerEssentials | 1.0.141204 |
-| MicrosoftWindowsServerHPCPack | WindowsServerHPCPack | 2012R2 | 4.3.4665 |
+| OpenLogic | CentOS | 7 | 7\.0.201503 |
+| OpenLogic | CentOS | 7\.1 | 7\.1.201504 |
+| CoreOS | CoreOS | Bêta | 647\.0.0 |
+| CoreOS | CoreOS | Stable | 633\.1.0 |
+| MicrosoftDynamicsNAV | DynamicsNAV | 2015 | 8\.0.40459 |
+| MicrosoftSharePoint | MicrosoftSharePointServer | 2013 | 1\.0.0 |
+| msopentech | Oracle-Database-12c-Weblogic-Server-12c | Standard | 1\.0.0 |
+| msopentech | Oracle-Database-12c-Weblogic-Server-12c | Entreprise | 1\.0.0 |
+| MicrosoftSQLServer | SQL2014-WS2012R2 | Entreprise, optimisé pour l’entrepôt de données | 12\.0.2430 |
+| MicrosoftSQLServer | SQL2014-WS2012R2 | Entreprise, optimisé pour le traitement transactionnel en ligne | 12\.0.2430 |
+| Canonical | UbuntuServer | 12\.04.5-LTS | 12\.04.201504230 |
+| Canonical | UbuntuServer | 14\.04.2-LTS | 14\.04.201503090 |
+| MicrosoftWindowsServer | WindowsServer | 2012-Datacenter | 3\.0.201503 |
+| MicrosoftWindowsServer | WindowsServer | 2012-R2-Datacenter | 4\.0.201503 |
+| MicrosoftWindowsServer | WindowsServer | Windows Server Technical Preview | 5\.0.201504 |
+| MicrosoftWindowsServerEssentials | WindowsServerEssentials | WindowsServerEssentials | 1\.0.141204 |
+| MicrosoftWindowsServerHPCPack | WindowsServerHPCPack | 2012R2 | 4\.3.4665 |
 
 Créez simplement votre machine virtuelle en entrant la commande `azure vm quick-create command` et préparez-vous à remplir les invites. Le résultat suivant doit s’afficher :
 
@@ -1315,4 +1317,4 @@ Pour connaître les modèles supplémentaires utilisables, consultez les pages [
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

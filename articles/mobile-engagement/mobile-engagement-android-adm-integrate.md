@@ -102,7 +102,7 @@ Assurez-vous de disposer des autorisations suivantes dans votre `AndroidManifest
 
 ##Accorder à Engagement des informations d'identification OAuth
 
-Envoyez vos informations d'identification OAuth (ID client et question secrète du client) ici : $/#application/YOUR_APPID/native-push.
+Envoyez vos informations d'identification OAuth (ID client et question secrète du client) ici : $/#application/YOUR\_APPID/native-push.
 
 Vous pouvez maintenant sélectionner l'option À tout moment lors de la création d'annonces et de sondages dans le module de couverture.
 
@@ -113,4 +113,4 @@ Vous pouvez maintenant sélectionner l'option À tout moment lors de la créatio
 [cette procédure]: https://developer.amazon.com/sdk/adm/integrating-app.html#Asset
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

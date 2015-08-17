@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="cache-redis"
    ms.workload="required"
-   ms.date="04/30/2015"
+   ms.date="08/04/2015"
    ms.author="mwasson"/>
 
 # Utilisation du Cache Redis Azure avec Python
@@ -59,4 +59,4 @@ Remplacez *&lt;name&gt;* par le nom de votre cache, et *&lt;key&gt;* par votre c
 [1]: ./media/cache-python-get-started/cache01.png
 [2]: ./media/cache-python-get-started/cache02.png
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

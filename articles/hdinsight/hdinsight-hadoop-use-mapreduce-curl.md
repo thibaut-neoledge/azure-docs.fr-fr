@@ -7,6 +7,7 @@
    manager="paulettm"
    editor="cgronlun"/>
 
+
 <tags
    ms.service="hdinsight"
    ms.devlang="na"
@@ -15,6 +16,7 @@
    ms.workload="big-data"
    ms.date="07/06/2015"
    ms.author="larryfr"/>
+
 
 #Exécution à distance des tâches MapReduce avec Hadoop sur HDInsight à l’aide de Curl
 
@@ -57,7 +59,7 @@ Pour effectuer les étapes présentées dans cet article, vous avez besoin des �
     * **-u** : indique le nom d’utilisateur et le mot de passe utilisés pour authentifier la demande.
     * **-G** : indique qu’il s’agit d’une requête GET.
 
-    Le début de l’URL, **https://CLUSTERNAME.azurehdinsight.net/templeton/v1**, est le même pour toutes les demandes.
+    Le début de l’URL, ****https://CLUSTERNAME.azurehdinsight.net/templeton/v1**, est le même pour toutes les demandes.
 
 2. Pour envoyer une tâche MapReduce, utilisez la commande suivante :
 
@@ -84,7 +86,7 @@ Pour effectuer les étapes présentées dans cet article, vous avez besoin des �
 
     > [AZURE.NOTE]Cette demande Curl renvoie un document JSON avec des informations sur la tâche ; jq est utilisé pour récupérer la valeur de statut.
 
-4. Une fois que le statut de la tâche est passé à **TERMINÉ**, vous pouvez récupérer les résultats depuis le stockage d’objets blob Azure. Le paramètre `statusdir` transmis avec la requête contient l’emplacement du fichier de sortie ; dans notre cas, **wasb:///example/curl**. Cette adresse stocke la sortie de la tâche dans le répertoire **example/curl** sur le conteneur de stockage par défaut utilisé par votre cluster HDInsight.
+4. Une fois que le statut de la tâche est passé à **TERMINÉ**, vous pouvez récupérer les résultats depuis le stockage d’objets blob Azure. Le paramètre `statusdir` transmis avec la requête contient l’emplacement du fichier de sortie ; dans notre cas, ****wasb:///example/curl**. Cette adresse stocke la sortie de la tâche dans le répertoire **example/curl** sur le conteneur de stockage par défaut utilisé par votre cluster HDInsight.
 
 Vous pouvez répertorier et télécharger ces fichiers à l'aide de la [CLI Azure pour Mac, Linux et Windows](../xplat-cli.md). Par exemple, pour répertorier les fichiers dans **example/curl**, utilisez la commande suivante :
 
@@ -94,7 +96,7 @@ Pour télécharger un fichier, utilisez ce qui suit :
 
 	azure storage blob download <container-name> <blob-name> <destination-file>
 
-> [AZURE.NOTE]Vous devez spécifier le nom du compte de stockage qui contient l’objet blob à l’aide des paramètres `-a` et `-k` ou définir les variables d’environnement **AZURE_STORAGE_ACCOUNT** et **AZURE_STORAGE_ACCESS_KEY**. Voir [Téléchargement des données vers HDInsight](hdinsight-upload-data.md) pour plus d'informations.
+> [AZURE.NOTE]Vous devez spécifier le nom du compte de stockage qui contient l’objet blob à l’aide des paramètres `-a` et `-k` ou définir les variables d’environnement **AZURE\_STORAGE\_ACCOUNT** et **AZURE\_STORAGE\_ACCESS\_KEY**. Voir [Téléchargement des données vers HDInsight](hdinsight-upload-data.md) pour plus d'informations.
 
 ##<a id="summary"></a>Résumé
 
@@ -114,4 +116,4 @@ Pour plus d’informations sur d’autres méthodes de travail avec Hadoop sur H
 
 * [Utilisation de Pig avec Hadoop sur HDInsight](hdinsight-use-pig.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

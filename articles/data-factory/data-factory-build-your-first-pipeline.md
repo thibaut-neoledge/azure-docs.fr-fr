@@ -7,6 +7,7 @@
 	manager="jhubbard"
 	editor="monicar"/>
 
+
 <tags
 	ms.service="data-factory"
 	ms.workload="data-services"
@@ -15,6 +16,7 @@
 	ms.topic="hero-article" 
 	ms.date="07/27/2015"
 	ms.author="spelluru"/>
+
 
 # Concevez votre premier pipeline en utilisant Azure Data Factory
 > [AZURE.SELECTOR]
@@ -37,7 +39,7 @@ Avant de commencer ce didacticiel, vous devez disposer des éléments suivants 
 
 1.	**Un abonnement Azure** : si vous n’en possédez pas, vous pouvez créer un compte d’essai Azure gratuit en quelques minutes. Consultez l’article [Essai gratuit](http://azure.microsoft.com/pricing/free-trial/) sur la façon d’obtenir un compte d'essai gratuit.
 
-2.	**Stockage Azure** : dans ce didacticiel, vous allez utiliser un compte de stockage Azure pour stocker des données. Si vous ne possédez pas de compte de stockage Azure, consultez l’article [Créer un compte de stockage](../storage/storage-create-storage-account.md/#create-a-storage-account). Après avoir créé le compte de stockage, vous devrez obtenir la clé du compte utilisée pour accéder au stockage. Voir [Affichage, copie et régénération de clés d’accès de stockage](../storage/storage-create-storage-account.md/#view-copy-and-regenerate-storage-access-keys).
+2.	**Stockage Azure** : dans ce didacticiel, vous allez utiliser un compte de stockage Azure pour stocker des données. Si vous ne possédez pas de compte de stockage Azure, consultez l’article [Créer un compte de stockage](../storage-create-storage-account/#create-a-storage-account). Après avoir créé le compte de stockage, vous devrez obtenir la clé du compte utilisée pour accéder au stockage. Voir [Affichage, copie et régénération de clés d’accès de stockage](../storage-create-storage-account/#view-copy-and-regenerate-storage-access-keys).
 
 ## Sujets traités dans ce didacticiel	
 Azure Data Factory permet de composer des tâches de déplacement et de traitement de données dans le cadre d’un flux de travail orienté données. Vous allez apprendre à créer votre premier pipeline qui s’appuie sur HDInsight pour transformer et analyser des journaux Web sur une base mensuelle.
@@ -118,7 +120,7 @@ En premier lieu, vous devez préparer le compte de stockage Azure et ses fichier
 		partitioned by ( year int, month int)
 		ROW FORMAT DELIMITED FIELDS TERMINATED BY ',' 
 		STORED AS TEXTFILE 
-		LOCATION 'wasb://data@<storageaccountname>.blob.core.windows.net/partitioneddata';
+		LOCATION '${hiveconf:partitionedtable}';
 
 		INSERT INTO TABLE WebLogsPartitioned  PARTITION( year , month) 
 		SELECT
@@ -147,7 +149,7 @@ En premier lieu, vous devez préparer le compte de stockage Azure et ses fichier
 	 
  
 2. Pour préparer le stockage Azure en vue du didacticiel, procédez comme suit :
-	1. Téléchargez la [dernière version d'**AzCopy**](http://aka.ms/downloadazcopy) ou la [version préliminaire la plus récente](http://aka.ms/downloadazcopypr). Voir [AzCopy](../storage/storage-use-azcopy.md) sur l’utilisation d’AzCopy
+	1. Téléchargez la [dernière version d'**AzCopy**](http://aka.ms/downloadazcopy) ou la [version préliminaire la plus récente](http://aka.ms/downloadazcopypr). Consultez l’article [Utilisation d’AzCopy](../storage/storage-use-azcopy.md) pour obtenir des instructions sur l'utilisation de l'utilitaire.
 	2. Après l'installation d'AzCopy, vous pouvez l'ajouter au chemin d'accès système en exécutant la commande suivante à une invite de commandes. 
 	
 			set path=%path%;C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy
@@ -173,4 +175,4 @@ Effectuez les actions suivantes :
 - Cliquez sur le lien [Utilisation de PowerShell](data-factory-build-your-first-pipeline-using-powershell.md) situé dans la partie supérieure pour effectuer le didacticiel à l'aide d'Azure PowerShell.
 - Cliquez sur le lien [Utilisation de Visual Studio](data-factory-build-your-first-pipeline-using-vs.md) situé dans la partie supérieure pour suivre le didacticiel à l’aide de Visual Studio. 
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

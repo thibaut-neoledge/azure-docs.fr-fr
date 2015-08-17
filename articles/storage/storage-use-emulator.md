@@ -6,6 +6,7 @@
 	authors="tamram" 
 	manager="adinah" 
 	editor=""/>
+
 <tags 
 	ms.service="storage" 
 	ms.workload="storage" 
@@ -14,6 +15,7 @@
 	ms.topic="article" 
 	ms.date="07/08/2015" 
 	ms.author="tamram"/>
+
 
 # Utilisation de l'émulateur de stockage Azure pour le développement et le test
 
@@ -49,7 +51,7 @@ Certaines bibliothèques clientes de stockage Azure, telles que la bibliothèque
 
 1. Installez Azure PowerShell si ce n’est pas déjà fait. Il est recommandé d’utiliser la dernière version des applets de commande Azure PowerShell. Pour connaître la procédure d’installation, consultez l’article [Installation et configuration d’Azure PowerShell](../articles/powershell-install-configure.md#Install).
 
-2. Ouvrez Azure PowerShell et exécutez les commandes suivantes. N’oubliez pas de remplacer *ACCOUNT_NAME* et *ACCOUNT_KEY==* par vos propres informations d’identification. Remplacez *￼CONTAINER_NAME￼* par le nom de votre choix.
+2. Ouvrez Azure PowerShell et exécutez les commandes suivantes. N’oubliez pas de remplacer *ACCOUNT\_NAME* et *ACCOUNT\_KEY==* par vos propres informations d’identification. Remplacez *￼CONTAINER\_NAME￼* par le nom de votre choix.
 
 		$context = New-AzureStorageContext -StorageAccountName "ACCOUNT_NAME" -StorageAccountKey "ACCOUNT_KEY=="
 		
@@ -80,7 +82,7 @@ Lorsque la fenêtre de ligne de commande est fermée, l'émulateur de stockage c
 
 La première fois que vous exécutez l'émulateur de stockage, l'environnement de stockage local est initialisé pour vous. Le processus d'initialisation crée une base de données dans LocalDB et réserve des ports HTTP pour chaque service de stockage local.
 
-L’émulateur de stockage est installé par défaut dans le répertoire C:\Program Files(x86)\Microsoft SDKs\Windows Azure\Storage Emulator\.
+L’émulateur de stockage est installé par défaut dans le répertoire C:\\Program Files(x86)\\Microsoft SDKs\\Windows Azure\\Storage Emulator\\.
 
 ### Initialiser l’émulateur de stockage de manière à utiliser une autre base de données SQL
 
@@ -89,11 +91,11 @@ Vous pouvez utiliser l’outil en ligne de commande de l’émulateur de stockag
 1. Cliquez sur le bouton **Démarrer** ou appuyez sur la touche **Windows**. Commencez à taper `Azure Storage Emulator` et sélectionnez le résultat correspondant lorsqu’il apparaît pour afficher l’outil en ligne de commande de l’émulateur de stockage.
 2. Dans la fenêtre d’invites de commandes, tapez la commande suivante, où `<SQLServerInstance>` est le nom de l’instance SQL Server. Pour utiliser LocalDb, spécifiez `(localdb)\v11.0` comme instance SQL Server.
 
-		AzureStorageEmulator init /sqlInstance <SQLServerInstance> 
+		AzureStorageEmulator init /server <SQLServerInstance> 
     
 	Vous pouvez également exécuter la commande suivante, qui indique à l'émulateur d'utiliser l'instance SQL Server par défaut :
 
-    	AzureStorageEmulator init /server .\ 
+    	AzureStorageEmulator init /server .\\ 
 
 	En guise d’alternative, vous pouvez exécuter la commande suivante, qui réinitialise la base de données en rétablissant l’instance LocalDB par défaut :
 
@@ -143,7 +145,7 @@ Les points de terminaison de service de l’émulateur de stockage sont :
 
 ### Syntaxe de la ligne de commande
 
-	AzureStorageEmulator [/start] [/stop] [/status] [/clear] [/init] [/help]
+	AzureStorageEmulator [start] [stop] [status] [clear] [init] [help]
 
 ### Options
 
@@ -154,8 +156,14 @@ Pour afficher la liste des options, tapez `/help` dans l’invite de commandes.
 | **Start** | Permet de démarrer l’émulateur de stockage. | `AzureStorageEmulator start [-inprocess]` | *-inprocess* : démarrez l’émulateur dans le processus actuel au lieu de créer un nouveau processus. |
 | **Stop** | Permet d’arrêter l’émulateur de stockage. | `AzureStorageEmulator stop` | |
 | **Status** | Permet d’imprimer l’état de l’émulateur de stockage. | `AzureStorageEmulator status` | |
-| **Clear** | Permet d’effacer les données de tous les services spécifiés sur la ligne de commande. | `AzureStorageEmulator clear [blob] [table] [queue] [all]                                                    `| *blob* : efface les données d’objet blob. <br/>*queue* : efface les données de file d’attente. <br/>*table* : efface les données de table. <br/>*all* : efface toutes les données de tous les services. |
-| **Init** | Permet d’effectuer une initialisation ponctuelle pour configurer l’émulateur. | `AzureStorageEmulator.exe init [-server serverName] [-sqlinstance instanceName] [-forcecreate] [-inprocess]` | *-server serverName* : spécifie le serveur hébergeant l’instance SQL. <br/>*-sqlinstance instanceName* : spécifie le nom de l’instance SQL à utiliser. <br/>*-forcecreate* : force la création de la base de données SQL, même si celle-ci existe déjà. <br/>*-inprocess* : effectue l’initialisation dans le processus actuel au lieu de générer un nouveau processus. Pour permettre l’utilisation de cette commande, le processus actuel doit avoir été lancé avec des autorisations élevées. |
+| **Clear** | Permet d’effacer les données de tous les services spécifiés sur la ligne de commande. | `AzureStorageEmulator clear [blob] [table] [queue] [all]                                                    `| *blob* : efface les données d’objet blob. <br/>
+*queue* : efface les données de file d’attente. <br/>
+*table* : efface les données de table. <br/>
+*all* : efface toutes les données de tous les services. |
+| **Init** | Permet d’effectuer une initialisation ponctuelle pour configurer l’émulateur. | `AzureStorageEmulator.exe init [-server serverName] [-sqlinstance instanceName] [-forcecreate] [-inprocess]` | *-server serverName\\instanceName* : spécifie le serveur hébergeant l’instance SQL. <br/>
+*-sqlinstance instanceName* : spécifie le nom de l’instance SQL à utiliser dans l’instance de serveur par défaut. <br/>
+*-forcecreate* : force la création de la base de données SQL, même si celle-ci existe déjà. <br/>
+*-inprocess* : effectue l’initialisation dans le processus actuel au lieu de générer un nouveau processus. Vous devez lancer le processus en cours avec des autorisations élevées pour exécuter l’initialisation. |
                                                                                                                   
 ## Différences entre l’émulateur de stockage et Azure Storage
 
@@ -173,6 +181,8 @@ L’émulateur de stockage étant un environnement émulé exécuté dans une in
 
 - Les points de terminaison du service de fichiers et de protocole SMB ne sont pas pris en charge dans l’émulateur de stockage pour le moment.
 
+- L’émulateur de stockage renvoie une erreur VersionNotSupportedByEmulator (code d’état HTTP 400 – demande incorrecte) si votre version des services de stockage n’est pas encore prise en charge par la version de l’émulateur que vous utilisez.
+
 ### Différences pour le stockage d’objets blob 
 
 Les différences suivantes s’appliquent au stockage d’objets blob dans l’émulateur :
@@ -181,17 +191,19 @@ Les différences suivantes s’appliquent au stockage d’objets blob dans l’�
 
 - Une opération Put Blob peut réussir sur un objet blob qui existe dans l’émulateur de stockage et présente un bail actif, même si l’ID du bail n’a pas été spécifié dans le cadre de la demande.
 
+- L’émulateur ne prend pas en charge les opérations des objets blob d’ajout. Toute tentative d’exécution d’une opération sur un objet blob d’ajout renvoie une erreur FeatureNotSupportedByEmulator (code d’état HTTP 400 – demande incorrecte).
+
 ### Différences pour le stockage de tables 
 
 Les différences suivantes s’appliquent au stockage de tables dans l’émulateur :
 
-- Les propriétés de date du service de Table dans l’émulateur de stockage prennent uniquement en charge la plage prise en charge par SQL Server 2005 (c’est-à-dire que les dates doivent être postérieures au 1er janvier 1753). Toutes les dates antérieures au 1er janvier 1753 sont remplacées par cette valeur. La précision des dates est limitée à la précision de SQL Server 2005, ce qui signifie que les dates sont précises au 1/300e de seconde.
+- Les propriétés de date du service de Table dans l’émulateur de stockage ne prennent en charge que la plage autorisée par SQL Server 2005 (*c’est-à-dire* les dates postérieures au 1er janvier 1753). Toutes les dates antérieures au 1er janvier 1753 sont remplacées par cette valeur. La précision des dates est limitée à la précision de SQL Server 2005, ce qui signifie que les dates sont précises au 1/300e de seconde.
 
 - L’émulateur de stockage prend en charge des valeurs de propriétés de clé de partition et de clé de ligne de moins de 512 octets chacune. De plus, la taille totale du nom du compte, du nom de table et de l’ensemble des noms de propriétés de clé ne peut pas dépasser 900 octets.
 
 - La taille totale d’une ligne de table dans l’émulateur de stockage est limitée à moins de 1 Mo.
 
-- Dans l’émulateur de stockage, les propriétés du type de données `Edm.Guid` ou `Edm.Binary` prennent uniquement en charge les opérateurs de comparaison `Equal (eq)` et `NotEqual (ne)` dans les chaînes de filtre de requête.
+- Dans l’émulateur de stockage, les propriétés du type de données `Edm.Guid` ou `Edm.Binary` ne prennent en charge que les opérateurs de comparaison `Equal (eq)` et `NotEqual (ne)` dans les chaînes de filtre de requête.
 
 ### Différences pour le stockage de files d’attente
 
@@ -199,9 +211,17 @@ Le stockage de files d’attente dans l’émulateur ne présente aucune différ
 
 ## Notes de publication de l’émulateur de stockage
 
+### Version 4.1
+
+- L’émulateur de stockage prend maintenant en charge la version 2015-02-21 des services de stockage sur les points de terminaison des services de Blob, de File d’attente et de Table, à l’exception des nouvelles fonctionnalités des objets blob d’ajout. 
+
+- L’émulateur de stockage renvoie désormais un message d’erreur explicite si vous utilisez une version des services de stockage qui n’est pas encore prise en charge par cette version de l’émulateur. Nous vous recommandons d’utiliser la dernière version de l’émulateur. Si vous rencontrez une erreur VersionNotSupportedByEmulator (code d’état HTTP 400 – demande incorrecte), téléchargez la dernière version de l’émulateur de stockage.
+
+- Correction d’un bogue dans lequel une condition de course a généré des données d’entité de table incorrectes lors d’opérations de fusion simultanées.
+
 ### Version 4.0
 
-L’exécutable de l’émulateur de stockage a été renommé *AzureStorageEmulator.exe*.
+- L’exécutable de l’émulateur de stockage est renommé en *AzureStorageEmulator.exe*.
 
 ### Version 3.2
 - L’émulateur de stockage prend maintenant en charge la version 2014-02-14 des services de stockage sur les points de terminaison des services BLOB, de File d’attente et de Table. Notez que les points de terminaison du service de fichiers ne sont pas pris en charge dans l’émulateur de stockage pour le moment. Pour plus d’informations sur la version 2014-02-14, consultez la page [Contrôle de version pour les services Azure Storage](https://msdn.microsoft.com/library/azure/dd894041.aspx).
@@ -216,8 +236,4 @@ L’exécutable de l’émulateur de stockage a été renommé *AzureStorageEmul
 
 - La version 2013-08-15 des services de stockage Azure est maintenant entièrement prise en charge. (Auparavant, cette version était uniquement prise en charge par la version préliminaire de l’émulateur de stockage version 2.2.1.)
 
-
-
- 
-
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

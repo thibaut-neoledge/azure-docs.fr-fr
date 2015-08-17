@@ -279,4 +279,4 @@ Consultez la section [Envoi de tâches MapReduce](#mapreduce) de cet article.
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

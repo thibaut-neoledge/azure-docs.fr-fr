@@ -43,7 +43,7 @@ Azure HDInsight prend en charge plusieurs versions de cluster Hadoop qui peuvent
 
 **Obtention d’informations sur les versions actuelles des composants**
 
-Les versions de composant associées aux versions de cluster HDInsight sont susceptibles de changer dans les futures mises à jour de HDInsight. Pour déterminer quels sont les composants disponibles et vérifier quelles versions sont utilisées pour un cluster, vous pouvez utiliser l’API REST Ambari. La commande **GetComponentInformation** permet de récupérer des informations sur un composant du service. Pour des détails, consultez la [documentation Ambari][ambari-docs]. Vous pouvez également obtenir ces informations en vous connectant à un cluster à l’aide du Bureau à distance et en examinant directement le contenu du répertoire « C:\apps\dist ».
+Les versions de composant associées aux versions de cluster HDInsight sont susceptibles de changer dans les futures mises à jour de HDInsight. Pour déterminer quels sont les composants disponibles et vérifier quelles versions sont utilisées pour un cluster, vous pouvez utiliser l’API REST Ambari. La commande **GetComponentInformation** permet de récupérer des informations sur un composant du service. Pour des détails, consultez la [documentation Ambari][ambari-docs]. Vous pouvez également obtenir ces informations en vous connectant à un cluster à l’aide du Bureau à distance et en examinant directement le contenu du répertoire « C:\\apps\\dist ».
 
 
 **Notes de publication**
@@ -80,7 +80,7 @@ Les caractéristiques principales de la plateforme HDInsight sont notamment les 
 
 - **Apache Phoenix** - Apache Phoenix est une couche de requête SQL sur HBase. Il prend en charge un sous-ensemble limité de spécifications de langage de requête SQL, y compris les index secondaires. Il est fourni en tant que pilote JDBC (Java Database Connectivity) intégré au client ciblant les requêtes à faible latence sur les données HBase. Apache Phoenix prend votre requête SQL, la compile en une série d’analyses HBase et d’appels de coprocesseurs, et produit des jeux de résultats JDBC standard. Apache Phoenix est une couche de base de données relationnelle sur HBase. Il est fourni en tant que pilote JDBC intégré au client ciblant les requêtes à faible latence sur les données HBase. Apache Phoenix prend votre requête SQL, la compile en une série d'analyses HBase, et orchestre l'exécution de ces analyses pour produire des jeux de résultats JDBC standard.
 
-- **Tableau de bord de cluster** - Cette nouvelle application web est déployée vers votre cluster HDInsight. Utilisez-la pour exécuter des requêtes Hive, vérifier les journaux des tâches et parcourir le stockage d’objets blob Azure. L’URL utilisée pour accéder à l’application web est <*Nom_cluster*>.azurehdinsight.net.
+- **Tableau de bord de cluster** - Cette nouvelle application web est déployée vers votre cluster HDInsight. Utilisez-la pour exécuter des requêtes Hive, vérifier les journaux des tâches et parcourir le stockage d’objets blob Azure. L'URL utilisée pour accéder à l'application web est <*Nom\_cluster*>.azurehdinsight.net.
 
 - **Microsoft Avro Library** - Cette bibliothèque met en œuvre le système de sérialisation des données Apache Avro pour l’environnement Microsoft.NET. Apache Avro fournit un format compact d'échange des données binaires pour la sérialisation. Elle utilise le format JSON (JavaScript Object Notation) pour définir un schéma sans langage spécifié qui assure l’interopérabilité des langages. Les données sérialisées dans un langage peuvent être lues dans un autre langage. Les langages C, C++, C#, Java, PHP, Python et Ruby sont actuellement pris en charge. Le format de sérialisation Apache Avro est largement utilisé dans Azure HDInsight pour représenter des structures de données complexes dans une tâche Hadoop MapReduce.
 
@@ -161,4 +161,4 @@ La **Date d’obsolescence** est la date après laquelle la version du cluster n
 [zookeeper]: http://zookeeper.apache.org/
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

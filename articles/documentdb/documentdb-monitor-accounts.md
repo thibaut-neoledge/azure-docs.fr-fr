@@ -90,4 +90,4 @@ Vous pouvez maintenant considérer cette partie comme n'importe quelle mesure en
 Pour en savoir plus sur la capacité de DocumentDB, consultez [Gestion de la capacité de DocumentDB](documentdb-manage.md).
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

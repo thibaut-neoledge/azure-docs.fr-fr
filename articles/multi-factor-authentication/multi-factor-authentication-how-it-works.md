@@ -62,23 +62,23 @@ Le tableau suivant fournit la liste des fonctionnalités qui sont disponibles da
 
 Fonctionnalité | Multi-Factor Authentication pour Office 365 (fourni dans les SKU Office 365)|Multi-Factor Authentication pour les administrateurs Azure (fourni avec un abonnement Azure) | Azure Multi-Factor Authentication (fourni dans Azure AD Premium et Enterprise Mobility Suite) 
 ------------- | :-------------: |:-------------: |:-------------: |
-Les administrateurs peuvent protéger les comptes avec MFA| \* | \* (Disponible uniquement pour les comptes d'administrateur Azure)|\*
-Application mobile comme second facteur|\* | \* | \*
-Appel téléphonique comme second facteur|\* | \* | \*
-SMS comme second facteur|\* | \* | \*
-Mots de passe d'application pour les clients qui ne prennent pas en charge MFA|\* | \* | \*
-Contrôle d'administration sur les méthodes d'authentification| | | \*
-Mode du code PIN| | | \*
-Alerte de fraude| | | \*
-Rapports MFA| | | \*
-Contournement à usage unique| | | \*
-Messages de bienvenue personnalisés pour les appels téléphoniques| | | \*
-Personnalisation de l'ID d'appelant pour les appels téléphoniques| | | \*
-Confirmation d’événement| | | \*
-Adresses IP approuvées| | | \*
-Suspendre MFA pour les appareils mémorisés (aperçu public)| | | \*
-SDK MFA| | | \*
-MFA pour des applications locales utilisant le serveur MFA| | | \*
+Les administrateurs peuvent protéger les comptes avec MFA| * | * (Disponible uniquement pour les comptes d'administrateur Azure)|*
+Application mobile comme second facteur|* | * | *
+Appel téléphonique comme second facteur|* | * | *
+SMS comme second facteur|* | * | *
+Mots de passe d'application pour les clients qui ne prennent pas en charge MFA|* | * | *
+Contrôle d'administration sur les méthodes d'authentification| | | *
+Mode du code PIN| | | *
+Alerte de fraude| | | *
+Rapports MFA| | | *
+Contournement à usage unique| | | *
+Messages de bienvenue personnalisés pour les appels téléphoniques| | | *
+Personnalisation de l'ID d'appelant pour les appels téléphoniques| | | *
+Confirmation d’événement| | | *
+Adresses IP approuvées| | | *
+Suspendre MFA pour les appareils mémorisés (aperçu public)| | | *
+SDK MFA| | | *
+MFA pour des applications locales utilisant le serveur MFA| | | *
 
 
 ##Comment obtenir Azure Multi-Factor Authentication ?
@@ -102,4 +102,4 @@ Choisissez le modèle qui convient le mieux à votre organisation. Puis, pour la
 
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

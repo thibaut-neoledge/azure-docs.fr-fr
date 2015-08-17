@@ -81,7 +81,7 @@ Les méthodes répertoriées dans la section suivante nécessitent que le docume
 	
 	SELECT * FROM StudentsOneLine
 
-Le fichier JSON brut se trouve à l’emplacement suivant : **wasb://processjson@hditutorialdata.blob.core.windows.net/**. La table Hive *StudentsRaw* pointe vers le document JSON brut non aplati.
+Le fichier JSON brut se trouve à l’emplacement suivant : ****wasb://processjson@hditutorialdata.blob.core.windows.net/**. La table Hive *StudentsRaw* pointe vers le document JSON brut non aplati.
 
 La table Hive *StudentsOneLine* stocke les données dans le système de fichiers HDInsight par défaut sous le chemin d’accès */json/étudiants/*.
 
@@ -126,7 +126,7 @@ C’est pourquoi le wiki Hive recommande l’utilisation de json\_tuple.
 
 ### Utiliser la fonction UDF JSON\_TUPLE
 
-L’autre fonction UDF fournie par Hive, intitulée [json\_tuple](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF#LanguageManualUDF-json_tuple), est plus performante que [get\_ json _object](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF#LanguageManualUDF-get_json_object). Cette méthode, qui accepte un ensemble de clés et une chaîne JSON, retourne un tuple de valeurs en utilisant une seule fonction. La requête suivante renvoie l’ID de l'étudiant et la qualité du document JSON :
+L’autre fonction UDF fournie par Hive, intitulée [json\_tuple](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF#LanguageManualUDF-json_tuple), est plus performante que [get\_ json object](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF#LanguageManualUDF-get_json_object). Cette méthode, qui accepte un ensemble de clés et une chaîne JSON, retourne un tuple de valeurs en utilisant une seule fonction. La requête suivante renvoie l’ID de l'étudiant et la qualité du document JSON :
 
     SELECT q1.StudentId, q1.Grade 
       FROM StudentsOneLine jt
@@ -146,7 +146,7 @@ SerDe est le meilleur choix pour l’analyse des documents JSON imbriqués ; il
 
 **Pour utiliser le SerDe personnalisé :**
 
-1. Installez le [JDK 1.7.0\_55 du Kit de développement SE Java 7u55](http://www.oracle.com/technetwork/java/javase/downloads/java-archive-downloads-javase7-521261.html#jdk-7u55-oth-JPR). Si vous envisagez d’utiliser le déploiement Windows de HDInsight, choisissez la version Windows X64 du JDK.
+1. Installez le [JDK 1.7.0\_55 du Kit de développement SE Java 7u55](http://www.oracle.com/technetwork/java/javase/downloads/java-archive-downloads-javase7-521261.html#jdk-7u55-oth-JPR). Si vous envisagez d’utiliser le déploiement Windows de HDInsight, choisissez la version Windows X64 du JDK.
 
 	>[AZURE.WARNING]Le JDK 1.8 ne fonctionne pas avec ce SerDe.
 
@@ -158,7 +158,7 @@ SerDe est le meilleur choix pour l’analyse des documents JSON imbriqués ; il
 
 	![Définition de valeurs de configuration correctes pour JDK][image-hdi-hivejson-jdk]
 
-2. Installer [Maven 3.3.1](http://mirror.olnevhost.net/pub/apache/maven/maven-3/3.3.1/binaries/apache-maven-3.3.1-bin.zip)
+2. Installer [Maven 3.3.1](http://mirror.olnevhost.net/pub/apache/maven/maven-3/3.3.1/binaries/apache-maven-3.3.1-bin.zip)
 
 	Ajoutez le dossier bin à votre chemin d'accès. Pour cela, accédez à Panneau de configuration --> Modifier les variables d'environnement système --> Variables d'environnement. La capture d'écran ci-dessous montre comment effectuer cette opération.
 
@@ -261,4 +261,4 @@ Autres articles associés :
 [image-hdi-hivejson-serde_result]: ./media/hdinsight-using-json-in-hive/serde_result.png
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

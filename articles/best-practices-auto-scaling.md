@@ -133,4 +133,4 @@ Les modèles et les conseils suivants peuvent également être pertinents lors d
 - [Espace de noms Microsoft.WindowsAzure.Management.Monitoring.Autoscale](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.management.monitoring.autoscale.aspx)
 - La documentation relative au [bloc applicatif de mise à l’échelle automatique](http://msdn.microsoft.com/library/hh680892%28v=pandp.50%29.aspx) et les scénarios clés sur MSDN.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

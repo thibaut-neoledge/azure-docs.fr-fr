@@ -3,7 +3,7 @@
 	description="Découvrez l'Explorateur de scripts de DocumentDB, un outil du portail Azure en version préliminaire qui permet d'afficher les artefacts de programmation côté serveur de DocumentDB, notamment les procédures stockées, les déclencheurs et les fonctions définies par l'utilisateur."
 	services="documentdb"
 	authors="stephbaron"
-	manager="johnmac"
+	manager="jhubbard"
 	editor="monicar"
 	documentationCenter=""/>
 
@@ -12,7 +12,7 @@
 	ms.workload="data-services"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="get-started-article" 
+	ms.topic="article" 
 	ms.date="06/10/2015"
 	ms.author="stbaro"/>
 
@@ -75,11 +75,11 @@ L'Explorateur de scripts vous permet d'afficher facilement les artefacts de prog
 
 	![Capture d'écran de l'affichage des propriétés du script de l'Explorateur de scripts](./media/documentdb-view-scripts/scriptproperties.png)
 
-	> [AZURE.NOTE]La propriété timestamp (_ts) est représentée en interne comme heure d'époque, mais l'Explorateur de scripts affiche la valeur dans un format GMT lisible.
+	> [AZURE.NOTE]La propriété timestamp (\_ts) est représentée en interne comme heure d'époque, mais l'Explorateur de scripts affiche la valeur dans un format GMT lisible.
 
 ## Étapes suivantes
 
 Pour en savoir plus sur DocumentDB, cliquez [ici](http://azure.com/docdb).
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -135,7 +135,7 @@ Lors du développement d’une application, il est utile de visualiser des infor
 
 > [AZURE.NOTE]Certains types de mémoire tampon de journalisation sont écrits dans le fichier journal. Dès lors, il se peut que les événements apparaissent de manière désordonnée dans le flux. Ainsi, il est possible qu'une entrée du journal d'application qui se produit lorsqu'un utilisateur visite une page soit affichée dans le flux avant l'entrée de journal HTTP correspondante pour la demande de page.
 
-> [AZURE.NOTE]Lors de la diffusion de journaux en continu, les informations écrites dans tout fichier texte stocké dans le dossier **D:\\home\\LogFiles\\** sont également diffusées.
+> [AZURE.NOTE]Lors de la diffusion de journaux en continu, les informations écrites dans tout fichier texte stocké dans le dossier **D:\\home\\LogFiles\** sont également diffusées.
 
 ### Diffusion d'informations en continu avec Azure PowerShell
 
@@ -197,107 +197,35 @@ __Stockage de tables__
 
 Lorsque vous consignez des informations dans le stockage de tables, des propriétés supplémentaires sont utilisées pour faciliter la recherche des données stockées dans la table, ainsi que des informations plus précises sur l'événement. Les propriétés suivantes (colonnes) sont utilisées pour chaque entité (ligne) stockée dans la table.
 
-<table style="width:100%;border-collapse:collapse">
-<thead>
-<tr>
-<th style="width:45%;border:1px solid black;background-color:#0099dd">Nom de la propriété</th>
-<th style="border:1px solid black;vertical-align:top;background-color:#0099dd">Valeur/format</th>
-</tr>
-<tr>
-<td style="border:1px solid black;vertical-align:top">PartitionKey</td>
-<td style="border:1px solid black;vertical-align:top">Date/heure de l'événement au format aaaaMMjjHH</td>
-</tr>
-</thead>
-<tr>
-<td style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">RowKey</td>
-<td style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">Valeur GUID qui identifie cette entité de façon unique</td>
-</tr>
-<tr>
-<td style="border:1px solid black;vertical-align:top">Timestamp</td>
-<td style="border:1px solid black;vertical-align:top">Date et heure auxquelles l'événement s'est produit</td>
-</tr>
-<tr>
-<td style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">EventTickCount</td>
-<td style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">Date et heure auxquelles l'événement s'est produit, au format Tick (précision accrue)</td>
-</tr>
-<tr>
-<td style="border:1px solid black;vertical-align:top">ApplicationName</td>
-<td style="border:1px solid black;vertical-align:top">Nom de l’application web</td>
-</tr>
-<tr>
-<td style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">Niveau</td>
-<td style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">Niveau d'événement (erreur, avertissement ou information, par exemple)</td>
-</tr>
-<tr>
-<td style="border:1px solid black;vertical-align:top">EventId</td>
-<td style="border:1px solid black;vertical-align:top">ID de l’événement<br>Défini par défaut sur 0 si aucun ID n’est spécifié</td>
-</tr>
-<tr>
-<td style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">InstanceId</td>
-<td style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">Instance de l’application web sur laquelle l’événement s’est produit</td>
-</tr>
-<tr>
-<td style="border:1px solid black;vertical-align:top">Pid</td>
-<td style="border:1px solid black;vertical-align:top">ID du processus</td>
-</tr>
-<tr>
-<td style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">Tid</td>
-<td style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">ID de thread qui a généré l'événement</td>
-</tr>
-<tr>
-<td style="border:1px solid black;vertical-align:top">Message</td>
-<td style="border:1px solid black;vertical-align:top">Message détaillé sur l'événement</td>
-</tr>
-</table>
+Nom de la propriété|Valeur/format
+---|---
+PartitionKey|Date/heure de l'événement au format aaaaMMjjHH
+RowKey|Valeur GUID qui identifie cette entité de façon unique
+Timestamp|Date et heure auxquelles l'événement s'est produit
+EventTickCount|Date et heure auxquelles l'événement s'est produit, au format Tick (précision accrue)
+ApplicationName|Nom de l’application web
+Niveau|Niveau d'événement (erreur, avertissement ou information, par exemple)
+EventId|ID de cet événement<p><p>Il est, par défaut, défini sur 0
+InstanceId|Instance de l’application web sur laquelle l’événement s’est produit
+Pid|ID du processus
+Tid|ID de thread qui a généré l'événement
+Message|Message détaillé sur l'événement
 
 __Stockage d’objets blob__
 
 Lorsque vous consignez des données dans un stockage d'objets blob, elles sont stockées au format CSV (valeurs séparées par des virgules). Comme c'est le cas avec le stockage de tables, des champs supplémentaires sont consignés afin de fournir des informations plus précises sur l'événement. Les propriétés suivantes sont utilisées pour chaque ligne du fichier CSV :
 
-<table style="width:100%;border-collapse:collapse">
-<thead>
-<tr>
-<th style="width:45%;border:1px solid black;background-color:#0099dd">Nom de la propriété</th>
-<th style="border:1px solid black;vertical-align:top;background-color:#0099dd">Valeur/format</th>
-</tr>
-</thead>
-<tr>
-<td style="border:1px solid black;vertical-align:top">Date</td>
-<td style="border:1px solid black;vertical-align:top">Date et heure auxquelles l'événement s'est produit</td>
-</tr>
-<tr>
-<td style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">Level</td>
-<td style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">Niveau d'événement (erreur, avertissement ou information, par exemple)</td>
-</tr>
-<tr>
-<td style="border:1px solid black;vertical-align:top">ApplicationName</td>
-<td style="border:1px solid black;vertical-align:top">Nom de l’application web</td>
-</tr>
-<tr>
-<td style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">InstanceId</td>
-<td style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">Instance de l’application web sur laquelle l’événement s’est produit</td>
-</tr>
-<tr>
-<td style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">EventTickCount</td>
-<td style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">Date et heure auxquelles l'événement s'est produit, au format Tick (précision accrue)</td>
-</tr>
-<tr>
-<td style="border:1px solid black;vertical-align:top">EventId</td>
-<td style="border:1px solid black;vertical-align:top">ID de l’événement<br>Défini par défaut sur 0 si aucun ID n’est spécifié</td>
-</tr>
-<tr>
-<td style="border:1px solid black;vertical-align:top">Pid</td>
-<td style="border:1px solid black;vertical-align:top">ID du processus</td>
-</tr>
-<tr>
-<td style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">Tid</td>
-<td style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">ID de thread qui a généré l'événement</td>
-</tr>
-<tr>
-<td style="border:1px solid black;vertical-align:top">Message</td>
-<td style="border:1px solid black;vertical-align:top">Message détaillé sur l'événement</td>
-</tr>
-</table>
+Nom de la propriété|Valeur/format
+---|---
+Date|Date et heure auxquelles l'événement s'est produit
+Level|Niveau d'événement (erreur, avertissement ou information, par exemple)
+ApplicationName|Nom de l’application web
+InstanceId|Instance de l’application web sur laquelle l’événement s’est produit
+EventTickCount|Date et heure auxquelles l'événement s'est produit, au format Tick (précision accrue)
+EventId|ID de cet événement<p><p>Il est, par défaut, défini sur 0
+Pid|ID du processus
+Tid|ID de thread qui a généré l'événement
+Message|Message détaillé sur l'événement
 
 Les données stockées dans un objet blob se présentent comme suit :
 
@@ -335,4 +263,4 @@ Les journaux de serveur Web utilisent le [format de fichier journal étendu W3C]
 * Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre l'ancien et le nouveau portail, consultez : [Références sur la navigation dans le portail Azure](http://go.microsoft.com/fwlink/?LinkId=529715)
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

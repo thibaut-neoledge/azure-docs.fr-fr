@@ -7,6 +7,7 @@
    manager="terrylan"
    editor=""/>
 
+
 <tags
    ms.service="multiple"
    ms.devlang="NA"
@@ -15,6 +16,7 @@
    ms.workload="na"
    ms.date="05/28/2015"
    ms.author="curtand"/>
+
 
 # Raccourcis clavier du portail Azure
 
@@ -45,4 +47,4 @@
 Découvrez plus en détail le portail Azure : http://azure.microsoft.com.
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

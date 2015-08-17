@@ -40,7 +40,7 @@ Dans votre ressource sur le [portail Azure][portal], ouvrez Quick Start afin d�
 
 ![](./media/app-insights-web-track-usage/02-monitor-web-page.png)
 
-Placez le code dans une page maître comme (dans .NET) _Layout.cshtml, ou dans un fichier include, pour vous assurer qu'il est inclus dans toutes vos pages.
+Placez le code dans une page maître comme (dans .NET) \_Layout.cshtml, ou dans un fichier include, pour vous assurer qu'il est inclus dans toutes vos pages.
 
 L'extrait de code inclut la clé d'instrumentation (iKey) qui identifie la ressource. Pour envoyer des données vers une autre ressource, par exemple pendant le test, il vous suffit de remplacer l'iKey.
 
@@ -54,7 +54,7 @@ Connectez-vous au [portail Azure][portal] et accédez à votre ressource d’app
 ![](./media/app-insights-web-track-usage/14-usage.png)
 
 * **Utilisateurs :** nombre d’utilisateurs actifs distincts dans la plage de temps du graphique. 
-* **Sessions :** nombre de sessions actives
+* **Sessions :** nombre de sessions actives
 * **Affichages de pages** compte le nombre d’appels à trackPageView(), généralement appelé une seule fois dans chaque page web.
 
 Cliquez sur les graphiques pour plus de détails. Notez que vous pouvez modifier la plage horaire des graphiques.
@@ -371,4 +371,4 @@ Lorsque vous utilisez l'analyse, elle devient partie intégrante de votre cycle 
 
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

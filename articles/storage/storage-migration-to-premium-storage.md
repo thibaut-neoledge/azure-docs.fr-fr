@@ -315,4 +315,4 @@ Consultez également les ressources suivantes pour en savoir plus sur Azure Stor
 [2]: ./media/storage-migration-to-premium-storage/migration-to-premium-storage-1.png
 [3]: ./media/storage-migration-to-premium-storage/migration-to-premium-storage-3.png
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

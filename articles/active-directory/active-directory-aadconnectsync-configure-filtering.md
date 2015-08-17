@@ -162,29 +162,29 @@ Dans l’exemple qui suit, nous excluons avec un filtre tous les utilisateurs do
 1. Ouvrez une session sur l’ordinateur qui exécute Azure AD Connect Sync en utilisant un compte membre du groupe de sécurité ADSyncAdmins.
 2. Ouvrez l’**Éditeur de règles de synchronisation** dans le **Menu Démarrer**.
 3. Assurez-vous que l’option **Entrants** est sélectionnée, cliquez sur **Ajouter une nouvelle règle**.
-4. Donnez à la règle un nom descriptif, par exemple « \*Entré d’Active Directory – Utilisateur DoNotSyncFilter\* », sélectionnez la forêt appropriée, **Utilisateur** en tant que **Type d’objet CS** et **Personne** comme **Type d’objet MV**. En tant que **Type de lien**, sélectionnez **Join** et pour la priorité, tapez une valeur non utilisée actuellement par une autre règle de synchronisation (par exemple, 50), puis cliquez sur **Suivant**.
+4. Donnez à la règle un nom descriptif, par exemple « *Entrée d’Active Directory – Utilisateur DoNotSyncFilter* », sélectionnez la forêt appropriée, **Utilisateur** en tant que **Type d’objet CS** et **Personne** comme **Type d’objet MV**. Dans **Type de lien**, sélectionnez **Jointure** et pour la priorité, tapez une valeur non utilisée actuellement par une autre règle de synchronisation (par exemple, 50), puis cliquez sur **Suivant**.
 5. Dans **Filtre d’étendue**, cliquez sur **Ajouter un groupe**, cliquez sur **Ajouter une clause** et dans attribut, sélectionnez **ExtensionAttribute15**. Assurez-vous que l’opérateur est défini sur **Égal à** et **entrez** la valeur NoSync dans la zone Valeur. Cliquez sur **Suivant**.
-6. Laissez les règles de **Jointure**, puis cliquez sur**Suivant**.
-7. Cliquez sur **Ajouter une transformation**, sélectionnez le **Type de flux** sur **Constante**, sélectionnez l’attribut cible cloudFiltered et dans la zone de texte Source, saisissez la valeur True. Cliquez sur Ajouter pour enregistrer la règle.
-8. Effectuez une synchronisation complète : sur l’onglet **connecteurs**, cliquez avec le bouton droit sur **SourceAD**, cliquez sur **Exécuter**, cliquez sur **Synchronisation complète**, puis cliquez sur **OK**. 
+6. Laissez les règles de **Jointure** vides, puis cliquez sur **Suivant**.
+7. Cliquez sur **Ajouter une transformation**, définissez le **Type de flux** sur **Constante**, sélectionnez l’attribut cible cloudFiltered et dans la zone de texte Source, saisissez la valeur True. Cliquez sur Ajouter pour enregistrer la règle.
+8. Effectuez une synchronisation complète : dans l’onglet **Connecteurs**, cliquez avec le bouton droit sur **SourceAD**, cliquez sur **Exécuter**, sur **Synchronisation complète**, puis sur **OK**. 
 
 
-L’attribut **sourceObjectType** fournira un **Utilisateur** ou un **Contact** sur Azure AD si cet attribut a la valeur **Utilisateur** ou **Contact** respectivement. En créant une règle de synchronisation avec une priorité supérieure à ceux de la zone, vous pouvez remplacer le comportement par défaut. Cette méthode vous donne également la possibilité d’exprimer des règles à la fois positives et négatives.
+L’attribut **sourceObjectType** fournira un **Utilisateur** ou un **Contact** à Azure AD si cet attribut a la valeur **Utilisateur** ou **Contact**, respectivement. En créant une règle de synchronisation avec une priorité supérieure à ceux de la zone, vous pouvez remplacer le comportement par défaut. Cette méthode vous donne également la possibilité d’exprimer des règles à la fois positives et négatives.
 
-Dans l’exemple suivant, vous allez synchroniser uniquement les utilisateurs avec l’attribut service « \* Ventes\* » ou est vide :
+Dans l’exemple suivant, vous allez synchroniser uniquement les utilisateurs avec l’attribut service « * Ventes* » ou est vide :
 
 1. Ouvrez une session sur l’ordinateur qui exécute Azure AD Connect Sync en utilisant un compte membre du groupe de sécurité ADSyncAdmins.
-2. Ouvrez l’**Éditeur de règles de synchronisation** dans le **Menu Démarrer**.
+2. Ouvrez l’**Éditeur de règles de synchronisation** dans le **menu Démarrer**.
 3. Assurez-vous que l’option **Entrants** est sélectionnée, puis cliquez sur **Ajouter une nouvelle règle**.
-4. Donnez à la règle un nom descriptif, par exemple « \*Entré depuis Active Directory – Utilisateur DoNotSyncFilter\* », sélectionnez la forêt appropriée, **Utilisateur** en tant que **Type d’objet CS** et **Personne** comme **Type d’objet MV**. En tant que **Type de lien**, sélectionnez **Join** et pour le **type de priorité**, tapez une valeur non utilisée actuellement par une autre règle de synchronisation (par exemple, 60). Cliquez sur **Suivant**.
-5. Laissez les champs **Filtre d’étendue** et **Règles de jointure** vides et cliquez deux fois sur**Suivant**.
-6. Cliquez sur **Ajouter une transformation**, définissez **FlowType** sur **Expression** et définissez l’**attribut cible** sur **TypeObjectSource**. Dans **Source**, saisissez l’expression suivante :<br>`IIF(IsNullOrEmpty([department]),NULL,IIF([department]<>”Sales”,”DoNotSync”,NULL))`
+4. Donnez à la règle un nom descriptif, par exemple « *Entrée d’Active Directory – Utilisateur DoNotSyncFilter* », sélectionnez la forêt appropriée, **Utilisateur** en tant que **Type d’objet CS** et **Personne** comme **Type d’objet MV**. Dans **Type de lien**, sélectionnez **Jointure** et pour le **type de priorité**, tapez une valeur non utilisée actuellement par une autre règle de synchronisation (par exemple, 60). Cliquez sur **Suivant**.
+5. Laissez les champs **Filtre d’étendue** et **Règles de jointure** vides et cliquez deux fois sur **Suivant**.
+6. Cliquez sur **Ajouter une transformation**, définissez **FlowType** sur **Expression** et l’**attribut cible** sur **sourceObjectType**. Dans **Source**, saisissez l’expression suivante :<br>`IIF(IsNullOrEmpty([department]),NULL,IIF([department]<>”Sales”,”DoNotSync”,NULL))`
 7. Cliquez sur Ajouter pour enregistrer la règle.
-8. Effectuez une synchronisation complète : sur l’onglet **connecteurs**, cliquez avec le bouton droit sur **SourceAD**, cliquez sur **Exécuter**, cliquez sur **Synchronisation complète**, puis cliquez sur **OK**. Voici comment se présenterait le résultat :<br>
+8. Effectuez une synchronisation complète : dans l’onglet **Connecteurs**, cliquez avec le bouton droit sur **SourceAD**, cliquez sur **Exécuter**, sur **Synchronisation complète**, puis sur **OK**. Voici comment se présenterait le résultat :<br>
 
 > [AZURE.NOTE]Notez que nous utilisons un mélange de cloudFiltered et sourceObjectType pour déterminer quels objets nous souhaitons synchroniser avec AAD.
  
-Grâce aux expressions, vous disposez d’options de filtrage très puissantes. Dans l’expression ci-dessus, notez que nous avons fourni le littéral NULL lorsque le service n’est pas présent et le service Ventes. Cela indique que cet attribut n’a pas renvoyé de valeur et les règles par défaut seront évaluées. Nous voulons pour cela afin de déterminer si l’option c’est un **Utilisateur** ou un **Contact** que nous devons créer dans Azure AD.
+Grâce aux expressions, vous disposez d’options de filtrage très puissantes. Dans l’expression ci-dessus, notez que nous avons fourni le littéral NULL lorsque le service n’est pas présent et le service Ventes. Cela indique que cet attribut n’a pas renvoyé de valeur et les règles par défaut seront évaluées. Nous voulons cela afin de déterminer si c’est un **Utilisateur** ou un **Contact** que nous devons créer dans Azure AD.
 
 
 ## Filtrage basé sur la sortie
@@ -213,4 +213,4 @@ Dans cet exemple, nous modifierons le filtrage de sorte que seuls les utilisateu
 
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

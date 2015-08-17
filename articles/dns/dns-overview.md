@@ -40,4 +40,4 @@ Le service est basé sur Azure Resource Manager (ARM). Vos domaines et vos enreg
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

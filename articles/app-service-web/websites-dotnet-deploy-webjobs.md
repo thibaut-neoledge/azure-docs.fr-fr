@@ -7,6 +7,7 @@
 	manager="wpickett" 
 	editor="jimbe"/>
 
+
 <tags 
 	ms.service="app-service-web" 
 	ms.devlang="dotnet" 
@@ -16,6 +17,7 @@
 	ms.date="06/29/2015" 
 	ms.author="tdykstra"/>
 
+
 # Déployer des tâches web à l’aide de Visual Studio
 
 ## Vue d'ensemble
@@ -24,7 +26,7 @@ Cette rubrique explique comment utiliser Visual Studio pour déployer un projet
 
 Lorsque Visual Studio déploie un projet d'application console compatible avec des tâches web, il exécute deux tâches :
 
-* Il copie des fichiers exécutables dans le dossier approprié de l’application web (\*App\_Data/jobs/continuous\* pour les tâches web continues, *App\_Data/jobs/triggered* pour les tâches web planifiées et à la demande).
+* Il copie des fichiers exécutables dans le dossier approprié de l’application web (*App\_Data/jobs/continuous* pour les tâches web continues, *App\_Data/jobs/triggered* pour les tâches web planifiées et à la demande).
 * Il configure des [tâches Azure Scheduler](#scheduler) pour les tâches web dont l'exécution est prévue à des horaires précis (inutile pour les tâches web continues).
 
 Un projet compatible avec les tâches web se voit ajouter les éléments suivants :
@@ -200,4 +202,4 @@ Cet article vous a expliqué comment déployer des WebJobs à l'aide de Visual S
 * Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre le portail Azure et le portail Azure en version préliminaire, consultez la page [Références sur la navigation dans le portail Azure](http://go.microsoft.com/fwlink/?LinkId=529715).
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

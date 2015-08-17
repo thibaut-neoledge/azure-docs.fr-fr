@@ -6,6 +6,7 @@
    authors="SharS"
    manager="adinah"
    editor="" />
+
 <tags 
    ms.service="storsimple"
    ms.devlang="NA"
@@ -14,6 +15,7 @@
    ms.workload="TBD"
    ms.date="07/09/2015"
    ms.author="v-sharos" />
+
 
 # Interface utilisateur du gestionnaire d’instantanés StorSimple
 
@@ -332,7 +334,7 @@ Les stratégies de sauvegarde sont des planifications de tâches liées à des i
 
 ### Nœud Catalogue de sauvegarde
 
-Le nœud **Catalogue de sauvegarde** contient des listes de sauvegardes sur site et hors site des volumes StorSimple Azure. Ce nœud est organisé par groupes de volumes, et chaque conteneur de groupe de volumes contient des structures séparées pour les instantanés locaux (nœud Instantanés locaux) et les instantanés cloud (nœud Instantanés cloud). Une fois développé, chaque conteneur de groupe de volumes répertorie toutes les sauvegardes réussies effectuées de façon interactive ou via une politique configurée.
+Le nœud **Catalogue de sauvegarde** contient des listes de sauvegardes sur site et hors site des volumes Azure StorSimple. Ce nœud est organisé par groupes de volumes, et chaque conteneur de groupe de volumes contient des structures séparées pour les instantanés locaux (nœud Instantanés locaux) et les instantanés cloud (nœud Instantanés cloud). Une fois développé, chaque conteneur de groupe de volumes répertorie toutes les sauvegardes réussies effectuées de façon interactive ou via une politique configurée.
 
 - Pour développer le nœud, cliquez sur l’icône de flèche en regard de **Catalogue de sauvegarde**.
 
@@ -516,13 +518,13 @@ Les tableaux suivants montrent les combinaisons de touches de raccourci de chaqu
 | V | Ouvre le menu **Affichage**. |
 | W | Ouvre une nouvelle console de gestionnaire d’instantanés StorSimple axée sur le nœud **Groupes de volumes**.|
 | F | Met à jour la console du Gestionnaire d’instantanés StorSimple.|
-| L | Ouvre la page **Exporter la liste**. | H | Ouvre l’aide en ligne. |
+| L | Ouvre la page **Exporter la liste**. | H | Ouvre l’aide en ligne.|
  
 #### Touches de raccourci du nœud Catalogue de sauvegarde
 
 | Raccourci du menu | Résultat |
 |:----------------|:------------------------------------|
-| W | Ouvre une nouvelle console de gestionnaire d’instantanés StorSimple axée sur le nœud **Groupes de volumes**. |
+| W | Ouvre une nouvelle console Gestionnaire d’instantanés StorSimple centrée sur le nœud **Groupes de volumes**. |
 | F | Met à jour la console du Gestionnaire d’instantanés StorSimple. |
 | H | Ouvre l’aide en ligne.|
  
@@ -531,13 +533,13 @@ Les tableaux suivants montrent les combinaisons de touches de raccourci de chaqu
 | Raccourci du menu | Résultat |
 |:----------------|:------------------------------------|
 | V | Ouvre le menu **Affichage**. |
-| W | Ouvre une nouvelle console de gestionnaire d’instantanés StorSimple axée sur le nœud **Tâches**.|
+| W | Ouvre une nouvelle console Gestionnaire d’instantanés StorSimple centrée sur le nœud **Tâches**.|
 | F | Met à jour la console du Gestionnaire d’instantanés StorSimple.|
 | L | Ouvre la page **Exporter la liste**. |
 | H | Ouvre l’Aide en ligne |
  
 ## Étapes suivantes
 
-Découvrez comment [utiliser le Gestionnaire d’instantanés StorSimple pour se connecter aux appareils et les gérer](storsimple-snapshot-manager-manage-devices.md).
+Découvrez comment [utiliser le Gestionnaire d’instantanés StorSimple pour se connecter à des appareils et les gérer](storsimple-snapshot-manager-manage-devices.md).
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

@@ -88,4 +88,4 @@ La sortie de l'action HTTP correspond aux en-tÃªtes et corps, lesquels peuvent Ã
 [9]: ./media/app-service-logic-connector-http/9.png
 [10]: ./media/app-service-logic-connector-http/10.png
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -149,4 +149,4 @@ Si vous souhaitez configurer une connexion VPN de point à site, consultez la ru
 
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

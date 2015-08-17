@@ -1,4 +1,4 @@
 
 > [AZURE.NOTE]Pour suivre ce didacticiel, vous avez besoin d’un compte Azure. Vous pouvez créer un compte d’essai gratuit en quelques minutes. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](http://www.windowsazure.com/pricing/free-trial).
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -1,20 +1,22 @@
 <properties 
 	pageTitle="Intégration de vos identités locales avec Azure Active Directory" 
 	description="Cette page décrit Azure AD Connect et vous explique pourquoi l’utiliser." 
-	services="active-directory" 
+	services="multi-factor-authentication" 
 	documentationCenter="" 
 	authors="billmath" 
-	manager="swadhwa" 
+	manager="stevenpo" 
 	editor="curtand"/>
 
+
 <tags 
-	ms.service="active-directory" 
+	ms.service="multi-factor-authentication" 
 	ms.workload="identity" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="07/21/2015" 
 	ms.author="billmath"/>
+
 
 # Création de Multi-Factor Authentication dans des applications personnalisées (SDK)
 
@@ -114,15 +116,22 @@ Voici le code du client Web d’une page de démonstration.
 	
 	<div style="width:auto; float:left">
 	Username:&nbsp;<br />
+
 	Password:&nbsp;<br />
+
 	</div>
 	
 	<div">
-	<asp:TextBox id="username" runat="server" width="100px"/><br />
-	<asp:Textbox id="password" runat="server" width="100px" TextMode="password" /><br />
+	<asp:TextBox id="username" runat="server" width="100px"/>
+<br />
+
+	<asp:Textbox id="password" runat="server" width="100px" TextMode="password" />
+<br />
+
 	</div>
 	
 	<asp:Button id="btnSubmit" runat="server" Text="Log in" onClick="btnSubmit_Click"/>
+
 	
 	<p><asp:Label ID="lblResult" runat="server"></asp:Label></p>
 	
@@ -191,4 +200,4 @@ Dans le code côté serveur suivant, l'authentification multifacteur est configu
 	    }
 	}
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

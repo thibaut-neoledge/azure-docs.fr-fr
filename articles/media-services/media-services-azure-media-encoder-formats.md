@@ -7,6 +7,7 @@
 	manager="dwrede" 
 	editor=""/>
 
+
 <tags 
 	ms.service="media-services" 
 	ms.workload="media" 
@@ -15,6 +16,7 @@
 	ms.topic="article" 
 	ms.date="06/29/2015" 
 	ms.author="juliako"/>
+
 
 #Codecs et formats Azure Media Encoder
 
@@ -56,50 +58,48 @@ La section suivante répertorie les codecs et les formats de fichiers pris en ch
 
 ###Formats de fichiers vidéo
  
-<table border="1">
-<tr><th>Format de fichier</th><th>Extensions de fichiers</th></tr>
-<tr><td>3GPP, 3GPP2</td><td>.3gp, .3g2, .3gp2</td></tr>
-<tr><td>Advanced Systems Format (ASF)</td><td>.asf</td></tr>
-<tr><td>Advanced Video Coding High Definition (AVCHD) [MPEG-2 Transport Stream]</td><td>.mts, .m2ts</td></tr>
-<tr><td>Audio-Video Interleaved (AVI)</td><td>.avi</td></tr>
-<tr><td>Magnétoscope numérique MPEG-2 (MOD)</td><td>.mod</td></tr>
-<tr><td>Fichier de flux de transport (TS) DVD</td><td>.ts</td></tr>
-<tr><td>Fichier d'objet vidéo (VOB) DVD</td><td>.vob</td></tr>
-<tr><td>Fichier de codec Expression Encoder Screen Capture</td><td>.xesc</td></tr>
-<tr><td>MP4</td><td>.mp4</td></tr>
-<tr><td>Flux système MPEG-1</td><td>.mpeg, .mpg</td></tr>
-<tr><td>Fichier vidéo MPEG-2</td><td>.m2v</td></tr>
-<tr><td>Format de fichier de diffusion en continu lisse (PIFF&#160;1.3)</td><td>.ismv</td></tr>
-<tr><td>Windows Media Video (WMV)</td><td>.wmv</td></tr>
-</table>
+Format de fichier|Extensions de fichiers
+---|---
+3GPP, 3GPP2|.3gp, .3g2, .3gp2
+Advanced Systems Format (ASF)|.asf
+Advanced Video Coding High Definition (AVCHD) [MPEG-2 Transport Stream\]|.mts, .m2ts
+Audio-Video Interleaved (AVI)|.avi
+Magnétoscope numérique MPEG-2 (MOD)|.mod
+Fichier de flux de transport (TS) DVD|.ts
+Fichier d'objet vidéo (VOB) DVD|.vob
+Fichier de codec Expression Encoder Screen Capture|.xesc
+MP4|.mp4
+Flux système MPEG-1|.mpeg, .mpg
+Fichier vidéo MPEG-2|.m2v
+Format de fichier de diffusion en continu lisse (PIFF 1.3)|.ismv
+Windows Media Video (WMV)|.wmv
+
 
 Certains formats non compressés sont pris en charge. Pour plus d’informations, consultez [Formats vidéo non compressés pris en charge](#uncompressed)
 
 ###Formats de fichiers audio
 
-<table border="1">
-<tr><th>Format de fichier</th><th>Extensions de fichiers</th></tr>
-<tr><td>Audio AC-3 (Dolby Digital)</td><td>.ac3</td></tr>
-<tr><td>Audio Interchange File Format (AIFF)</td><td>.aiff</td></tr>
-<tr><td>Broadcast Wave Format</td><td>.bwf</td></tr>
-<tr><td>MP3 (MPEG-1 Audio Layer 3)</td><td>.mp3</td></tr>
-<tr><td>MP4 audio</td><td>.m4A</td></tr>
-<tr><td>Livre audio MPEG-4</td><td>.m4b</td></tr>
-<tr><td>Fichier WAVE</td><td>.wav</td></tr>
-<tr><td>Windows Media Audio</td><td>.wma</td></tr>   
-</table>
+Format de fichier|Extensions de fichiers
+---|---
+Audio AC-3 (Dolby Digital)|.ac3
+Audio Interchange File Format (AIFF)|.aiff
+Broadcast Wave Format|.bwf
+MP3 (MPEG-1 Audio Layer 3)|.mp3
+MP4 audio|.m4A
+Livre audio MPEG-4|.m4b
+Fichier WAVE|.wav
+Windows Media Audio|.wma
 
 ###Formats de fichiers image
 
-<table border="1">
-<tr><th>Format de fichier</th><th>Extensions de fichiers</th></tr>
-<tr><td>Bitmap</td><td>.bmp</td></tr>
-<tr><td>GIF, GIF animé</td><td>.gif</td></tr>
-<tr><td>JPEG</td><td>.jpeg, .jpg</td></tr>
-<tr><td>PNG</td><td>.png</td></tr>
-<tr><td>TIFF</td><td>.tif</td></tr>
-<tr><td>WPF Canvas XAML</td><td>.xaml</td></tr>
-</table>
+Format de fichier|Extensions de fichiers
+---|---
+Bitmap|.bmp
+GIF, GIF animé|.gif
+JPEG|.jpeg, .jpg
+PNG|.png
+TIFF|.tif
+WPF Canvas XAML|.xaml
 
 
 ##<a id="export_formats"></a>Formats d'exportation Azure Media Encoder
@@ -107,14 +107,11 @@ Certains formats non compressés sont pris en charge. Pour plus d’informations
 Le tableau suivant répertorie les codecs et les formats de fichiers pris en charge pour l'exportation.
 
 
-<table border="1">
-<tr><th>Format de fichier</th><th>Codec vidéo</th><th>Codec audio</th></tr>
-<tr><td>Windows Media (*.wmv; *.wma)</td><td>VC-1 (profils Advanced, Main et Simple)</td><td>Windows Media Audio Standard, Windows Media Audio Professional, Windows Media Audio Voice, Windows Media Audio sans perte</td></tr>
-<tr><td>MP4 (*.mp4)</td><td>H.264 (profils High, Main et Baseline)</td><td>AAC-LC, HE-AAC v1, HE-AAC v2, Dolby Digital Plus</td></tr>
-<tr><td>Format de fichier de diffusion en continu lisse (PIFF 1,1) (*.ismv&#160;; *.isma)</td><td>VC-1 (profil Advanced)<br/><br/>
-H.264 (profils High, Main et Baseline)</td><td>Windows Media Audio Standard, Windows Media Audio Professional<br/><br/>
-AAC-LC, HE-AAC v1, HE-AAC v2</td></tr>
-</table>
+Format de fichier|Codec vidéo|Codec audio
+---|---|---
+Windows Media (*.wmv; *.wma)|VC-1 (profils Advanced, Main et Simple)|Windows Media Audio Standard, Windows Media Audio Professional, Windows Media Audio Voice, Windows Media Audio sans perte
+MP4 (*.mp4)|H.264 (profils High, Main et Baseline)|AAC-LC, HE-AAC v1, HE-AAC v2, Dolby Digital Plus
+Format de fichier de diffusion en continu lisse (PIFF 1,1) (*.ismv ; *.isma)|VC-1 (profil Advanced)<p>H.264 (profils High, Main et Baseline) |Windows Media Audio Standard, Windows Media Audio Professional<p><p>AAC-LC, HE-AAC v1, HE-AAC v2
 
 Pour plus d’informations sur les codecs et les filtres supplémentaires pris en charge dans Media Services, consultez [Filtres Windows DirectShow](https://msdn.microsoft.com/library/windows/desktop/dd375464.aspx).
 
@@ -124,17 +121,16 @@ Azure Media Services prend en charge l'importation de données vidéo non compre
 
 Voici une liste non exhaustive des formats non compressés pris en charge.
 
-<table border="1">
-<tr><th>Format vidéo non compressé</th><th>Description</th></tr>
-<tr><td>Données non compressées de format YVU9 standard</td><td>Format YUV planaire. Un échantillon Y à chaque pixel, un échantillon U et V à chaque quatrième pixel horizontalement sur chaque ligne&#160;; un échantillon Y sur chaque ligne verticale, un échantillon U et V à chaque quatrième ligne verticale. 9&#160;bits par pixel.</td></tr>
-<tr><td>Données au format YUV 411</td><td>Un échantillon Y à chaque pixel, un échantillon U et V à chaque quatrième pixel horizontalement sur chaque ligne&#160;; chaque ligne verticale échantillonnée. L'ordre des octets (inférieur en premier) est U0, Y0, V0, Y1, U4, Y2, V4, Y3, Y4, Y5, Y6, Y7, où le suffixe 0 est le pixel de gauche et les nombres croissants correspondent aux pixels croissants de gauche à droite. Chaque bloc de 12&#160;octets correspond à 8&#160;pixels d’une image.</td></tr>
-<tr><td>Données au format Y41P</td><td>Un échantillon Y à chaque pixel, un échantillon U et V à chaque quatrième pixel horizontalement sur chaque ligne&#160;; chaque ligne verticale échantillonnée. L'ordre des octets (inférieur en premier) est U0, Y0, V0, Y1, U4, Y2, V4, Y3, Y4, Y5, Y6, Y7, où le suffixe 0 est le pixel de gauche et les nombres croissants correspondent aux pixels croissants de gauche à droite. Chaque bloc de 12&#160;octets correspond à 8&#160;pixels d’une image.</td></tr>
-<tr><td>Données au format YUY2</td><td>Identique à UYVY mais avec un ordre des pixels différent. L'ordre des octets (inférieur en premier) est Y0, U0, Y1, V0, Y2, U2, Y3, V2, Y4, U4, Y5, V4, où le suffixe 0 est le pixel de gauche et les nombres croissants correspondent aux pixels croissants de gauche à droite. Chaque bloc de 4&#160;octets correspond à 2&#160;pixels d’une image.</td></tr>
-<tr><td>Données au format YVYU</td><td>Format YUV compressé. Identique à UYVY mais avec un ordre des pixels différent. L'ordre des octets (inférieur en premier) est Y0, V0, Y1, U0, Y2, V2, Y3, U2, Y4, V4, Y5, U4, où le suffixe 0 est le pixel de gauche et les nombres croissants correspondent aux pixels croissants de gauche à droite. Chaque bloc de 4&#160;octets correspond à 2&#160;pixels d’une image.</td></tr>
-<tr><td>Données au format UYVY</td><td>Format YUV compressé. Un échantillon Y à chaque pixel, un échantillon U et V à chaque deuxième pixel horizontalement sur chaque ligne&#160;; chaque ligne verticale échantillonnée. Le plus populaire des différents formats YUV 4:2:2. L'ordre des octets (inférieur en premier) est U0, Y0, V0, Y1, U2, Y2, V2, Y3, U4, Y4, V4, Y5, où le suffixe 0 est le pixel de gauche et les nombres croissants correspondent aux pixels croissants de gauche à droite. Chaque bloc de 4&#160;octets correspond à 2&#160;pixels d’une image.</td></tr>
-<tr><td>Données au format YUV 211</td><td>Format YUV compressé. Un échantillon Y à chaque pixel, un échantillon U et V à chaque second pixel horizontalement sur chaque ligne&#160;; chaque ligne verticale échantillonnée. L'ordre des octets (inférieur en premier) est Y0, U0, Y2, V0, Y4, U4, Y6, V4, Y8, U8, Y10, V8, où le suffixe 0 est le pixel de gauche et les nombres croissants correspondent aux pixels croissants de gauche à droite. Chaque bloc de 4&#160;octets correspond à 4&#160;pixels d’une image.</td></tr>
-<tr><td>Format Cirrus Logic Jr YUV&#160;411</td><td>Format Cirrus Logic Jr YUV&#160;411 avec moins de 8&#160;bits par échantillon Y, U et V. Un échantillon Y à chaque pixel, un échantillon U et V à chaque quatrième pixel horizontalement sur chaque ligne&#160;; chaque ligne verticale échantillonnée.</td></tr>
-<tr><td>Format Indeo-produced YVU9</td><td>Format Indeo-produced YVU9 avec informations supplémentaires sur les différences par rapport au dernier frame. 9,5&#160;bits par pixel mais déclaré comme 9.</td></tr>
-</table>
+Format vidéo non compressé|Description
+---|---
+Données non compressées de format YVU9 standard|Format YUV planaire. Un échantillon Y à chaque pixel, un échantillon U et V à chaque quatrième pixel horizontalement sur chaque ligne ; un échantillon Y sur chaque ligne verticale, un échantillon U et V à chaque quatrième ligne verticale. 9 bits par pixel.
+Données au format YUV 411|Un échantillon Y à chaque pixel, un échantillon U et V à chaque quatrième pixel horizontalement sur chaque ligne ; chaque ligne verticale échantillonnée. L'ordre des octets (inférieur en premier) est U0, Y0, V0, Y1, U4, Y2, V4, Y3, Y4, Y5, Y6, Y7, où le suffixe 0 est le pixel de gauche et les nombres croissants correspondent aux pixels croissants de gauche à droite. Chaque bloc de 12 octets correspond à 8 pixels d’une image.
+Données au format Y41P|Un échantillon Y à chaque pixel, un échantillon U et V à chaque quatrième pixel horizontalement sur chaque ligne ; chaque ligne verticale échantillonnée. L'ordre des octets (inférieur en premier) est U0, Y0, V0, Y1, U4, Y2, V4, Y3, Y4, Y5, Y6, Y7, où le suffixe 0 est le pixel de gauche et les nombres croissants correspondent aux pixels croissants de gauche à droite. Chaque bloc de 12 octets correspond à 8 pixels d’une image.
+Données au format YUY2|Identique à UYVY mais avec un ordre des pixels différent. L'ordre des octets (inférieur en premier) est Y0, U0, Y1, V0, Y2, U2, Y3, V2, Y4, U4, Y5, V4, où le suffixe 0 est le pixel de gauche et les nombres croissants correspondent aux pixels croissants de gauche à droite. Chaque bloc de 4 octets correspond à 2 pixels d’une image.
+Données au format YVYU|Format YUV compressé. Identique à UYVY mais avec un ordre des pixels différent. L'ordre des octets (inférieur en premier) est Y0, V0, Y1, U0, Y2, V2, Y3, U2, Y4, V4, Y5, U4, où le suffixe 0 est le pixel de gauche et les nombres croissants correspondent aux pixels croissants de gauche à droite. Chaque bloc de 4 octets correspond à 2 pixels d’une image.
+Données au format UYVY|Format YUV compressé. Un échantillon Y à chaque pixel, un échantillon U et V à chaque deuxième pixel horizontalement sur chaque ligne ; chaque ligne verticale échantillonnée. Le plus populaire des différents formats YUV 4:2:2. L'ordre des octets (inférieur en premier) est U0, Y0, V0, Y1, U2, Y2, V2, Y3, U4, Y4, V4, Y5, où le suffixe 0 est le pixel de gauche et les nombres croissants correspondent aux pixels croissants de gauche à droite. Chaque bloc de 4 octets correspond à 2 pixels d’une image.
+Données au format YUV 211|Format YUV compressé. Un échantillon Y à chaque pixel, un échantillon U et V à chaque second pixel horizontalement sur chaque ligne ; chaque ligne verticale échantillonnée. L'ordre des octets (inférieur en premier) est Y0, U0, Y2, V0, Y4, U4, Y6, V4, Y8, U8, Y10, V8, où le suffixe 0 est le pixel de gauche et les nombres croissants correspondent aux pixels croissants de gauche à droite. Chaque bloc de 4 octets correspond à 4 pixels d’une image.
+Format Cirrus Logic Jr YUV 411|Format Cirrus Logic Jr YUV 411 avec moins de 8 bits par échantillon Y, U et V. Un échantillon Y à chaque pixel, un échantillon U et V à chaque quatrième pixel horizontalement sur chaque ligne ; chaque ligne verticale échantillonnée.
+Format Indeo-produced YVU9|Format Indeo-produced YVU9 avec informations supplémentaires sur les différences par rapport au dernier frame. 9,5 bits par pixel mais déclaré comme 9.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

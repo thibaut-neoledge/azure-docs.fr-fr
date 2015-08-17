@@ -1,5 +1,4 @@
 
-
 #### Pour modifier un conteneur de volumes
 
 1. Dans la page **Appareils**, sélectionnez l’appareil, double-cliquez dessus, puis cliquez sur l’onglet **Conteneurs de volumes**.
@@ -26,4 +25,4 @@
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -8,14 +8,16 @@
 	manager="paulettm"
 	editor="cgronlun"/>
 
+
 <tags
 	ms.service="hdinsight"
 	ms.workload="big-data"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article"
+	ms.topic="get-started-article"
 	ms.date="06/10/2015"
 	ms.author="jgao"/>
+
 
 
 #Utilisation du stockage d’objets blob Azure compatible avec HDFS avec Hadoop dans HDInsight
@@ -26,7 +28,7 @@ Le stockage d’objets blob Azure est une solution de stockage à la fois robust
 
 Le stockage de données dans le stockage d’objets blob vous permet de supprimer les clusters HDInsight servant aux calculs, sans perte de données utilisateur.
 
-> [AZURE.NOTE]La syntaxe *asv://* est prise en charge dans les clusters HDInsight version 3.0. Cela signifie que toutes les tâches envoyées vers un cluster HDInsight version 3.0 utilisant explicitement la syntaxe *asv://* échoueront. Vous devez plutôt utiliser la syntaxe *wasb://*. De même, les tâches créées avec un metastore existant contenant des références explicites aux ressources utilisant la syntaxe asv:// et envoyées vers un cluster HDInsight version  3.0 échoueront également. Vous devez recréer ces metastores en utilisant la syntaxe wasb:// pour adresser les ressources.
+> [AZURE.NOTE]La syntaxe **asv://* n’est pas prise en charge dans les clusters HDInsight version 3.0. Cela signifie que toutes les tâches envoyées vers un cluster HDInsight version 3.0 utilisant explicitement la syntaxe **asv://* échoueront. Vous devez plutôt utiliser la syntaxe **wasb://*. De même, les tâches créées avec un metastore existant contenant des références explicites aux ressources utilisant la syntaxe asv:// et envoyées vers un cluster HDInsight version  3.0 échoueront également. Vous devez recréer ces metastores en utilisant la syntaxe « wasb:// » pour adresser les ressources.
 
 > HDInsight prend uniquement en charge les objets blob de blocs pour le moment.
 
@@ -62,7 +64,7 @@ En plus de ce compte de stockage, durant la configuration, vous pouvez ajouter d
 - **Conteneurs privés dans les comptes de stockage qui ne sont PAS connectés à un cluster :** non accessibles dans les conteneurs d’objets blob, sauf si vous définissez le compte de stockage lorsque vous envoyez des tâches WebHCat. Une explication sera fournie plus loin dans cet article.
 
 
-Les comptes de stockage définis durant la configuration et leurs clés sont stockés dans %HADOOP_HOME%/conf/core-site.xml sur les nœuds du cluster. Le comportement par défaut de HDInsight consiste à utiliser les comptes de stockage définis dans le fichier core-site.xml. Il est déconseillé de modifier le fichier core-site.xml, car le nœud principal du cluster peut à tout moment être recréé ou migrer, et toutes les modifications apportées à ces fichiers seront perdues.
+Les comptes de stockage définis durant la configuration et leurs clés sont stockés dans %HADOOP\_HOME%/conf/core-site.xml sur les nœuds du cluster. Le comportement par défaut de HDInsight consiste à utiliser les comptes de stockage définis dans le fichier core-site.xml. Il est déconseillé de modifier le fichier core-site.xml, car le nœud principal du cluster peut à tout moment être recréé ou migrer, et toutes les modifications apportées à ces fichiers seront perdues.
 
 Plusieurs tâches WebHCat, notamment Hive, MapReduce, la diffusion en continu Hadoop et Pig, peuvent véhiculer avec elles une description des comptes de stockage et des métadonnées. (cela fonctionne actuellement pour Pig, pour les comptes de stockage, mais pas pour les métadonnées.) La section [Accès à un objet blob avec Azure PowerShell](#powershell) de cet article contient un exemple de cette fonctionnalité. Pour plus d'informations, consultez la page [Utilisation d'un cluster HDInsight avec des comptes de stockage et des metastores secondaires](http://social.technet.microsoft.com/wiki/contents/articles/23256.using-an-hdinsight-cluster-with-alternate-storage-accounts-and-metastores.aspx).
 
@@ -328,4 +330,4 @@ Pour en savoir plus, consultez les articles suivants :
 [img-hdi-custom-create-storage-account]: ./media/hdinsight-hadoop-use-blob-storage/HDI.CustomCreateStorageAccount.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

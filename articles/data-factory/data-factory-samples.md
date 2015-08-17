@@ -52,8 +52,8 @@ Exemple de nom | description
 Profilage des utilisateurs de jeux | Contoso est une société de jeu qui crée des jeux pour plusieurs plateformes : des consoles de jeux, des périphériques de poche et des ordinateurs personnels (PC). Chacun de ces jeux produit une très grande quantité de journaux. L’objectif de Contoso est de collecter et d’analyser les journaux générés par ces jeux pour obtenir des informations sur l’utilisation, identifier les opportunités de vente incitative et de vente croisée, développer de nouvelles fonctionnalités intéressantes, etc. tout cela afin d’optimiser vos affaires et fournir une meilleure expérience aux clients. Cet exemple collecte des exemples de journaux, les traite et les enrichit avec des données de référence, puis transforme les données pour évaluer l’efficacité d’une campagne marketing lancée dernièrement par Contoso.
  
 ## Exemples sur GitHub
-Le [référentiel GitHub Azure-DataFactory](https://github.com/azure/azure-datafactory) contient plusieurs exemples qui vous aideront à prendre en main rapidement le service Azure Data Factory (ou) à modifier les scripts et à utiliser ce service dans votre propre application. Le dossier Samples\JSON contient des extraits de code JSON pour les scénarios courants.
+Le [référentiel GitHub Azure-DataFactory](https://github.com/azure/azure-datafactory) contient plusieurs exemples qui vous aideront à prendre en main rapidement le service Azure Data Factory (ou) à modifier les scripts et à utiliser ce service dans votre propre application. Le dossier Samples\\JSON contient des extraits de code JSON pour les scénarios courants.
 
 [data-factory-get-started]: data-factory-get-started.md#CreateDataFactory
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

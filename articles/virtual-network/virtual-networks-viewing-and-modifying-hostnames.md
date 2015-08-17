@@ -71,4 +71,4 @@ Pour modifier le nom d’hôte associé à une machine virtuelle ou à une insta
 
 [Configuration d’un réseau virtuel à l’aide d’un fichier de configuration réseau](http://go.microsoft.com/fwlink/?LinkId=248094)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

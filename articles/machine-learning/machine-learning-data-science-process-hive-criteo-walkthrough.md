@@ -1,9 +1,7 @@
 <properties 
 	pageTitle="Processus d'analyse avancé et technologie en action : utilisation des clusters Hadoop HDInsight sur le groupe de données Criteo de 1 To | Azure" 
 	description="Utilisation du processus d'analyse avancé et technologie (ADAPT) pour un scénario de bout en bout employant un cluster Hadoop HDInsight pour créer et déployer un modèle à l'aide d'un groupe de données volumineux (1 To), disponible publiquement." 
-	metaKeywords="" 
 	services="machine-learning,hdinsight" 
-	solutions="" 
 	documentationCenter="" 
 	authors="bradsev" 
 	manager="paulettm" 
@@ -27,7 +25,7 @@ Il est également possible d'utiliser un interpréteur IPython notebook pour acc
 
 ## <a name="dataset"></a>Description du groupe de données Criteo
 
-Les données Criteo représentent un groupe de données de prédiction de clic d'environ 370 Go de fichiers TSV compressés au format gzip (~1,30 To de fichiers non compressés), comprenant plus de 4,3 milliards d'enregistrements. Elles proviennent de 24 jours de données de clic, disponibles via [Criteo](http://labs.criteo.com/downloads/download-terabyte-click-logs/). Pour la commodité des scientifiques de données, nous avons décompressé les données mises à notre disposition pour pouvoir les expérimenter.
+Les données Criteo représentent un groupe de données de prédiction de clic d'environ 370 Go de fichiers TSV compressés au format gzip (\~1,30 To de fichiers non compressés), comprenant plus de 4,3 milliards d'enregistrements. Elles proviennent de 24 jours de données de clic, disponibles via [Criteo](http://labs.criteo.com/downloads/download-terabyte-click-logs/). Pour la commodité des scientifiques de données, nous avons décompressé les données mises à notre disposition pour pouvoir les expérimenter.
 
 Chaque enregistrement de ce groupe de données est constitué de 40 colonnes :
 
@@ -86,11 +84,11 @@ Les données résident dans un emplacement de [stockage d'objets blob Azure](sto
 
 1. Les données de ce stockage public d'objets blob sont constituées de trois sous-dossiers de données décompressées.
 		
-	1. Le sous-dossier *raw/count/* contient les 21 premiers jours de données, de day_00 à day_20
-	2. Le sous-dossier *raw/train/* est constitué d'un seul jour de données, le day_21
-	3. Le sous-dossier *brut/test/* est constitué de deux jours de données, le day_22 et le day_23
+	1. Le sous-dossier *raw/count/* contient les 21 premiers jours de données, de day\_00 à day\_20
+	2. Le sous-dossier *raw/train/* est constitué d'un seul jour de données, le day\_21
+	3. Le sous-dossier *brut/test/* est constitué de deux jours de données, le day\_22 et le day\_23
 
-2. Pour les personnes souhaitant démarrer avec les données brutes gzip, celles-ci sont également disponibles dans le dossier principal *raw/* en tant que day_NN.gz, où NN va de 00 à 23.
+2. Pour les personnes souhaitant démarrer avec les données brutes gzip, celles-ci sont également disponibles dans le dossier principal *raw/* en tant que day\_NN.gz, où NN va de 00 à 23.
 
 Une autre approche vous permettant d’accéder, d’explorer et de modéliser ces données ne nécessitant aucun téléchargement local est expliquée plus loin dans cette procédure pas à pas lors de la création de tables Hive.
 
@@ -114,16 +112,16 @@ Pour créer des tables Hive pour notre groupe de données Criteo, ouvrez la ***L
 
 **REMARQUE IMPORTANTE** : **exécutez, dans cette procédure pas à pas, toutes les commandes Hive depuis l’invite de l’emplacement/du répertoire Hive mentionnée ci-dessus. Il se chargera automatiquement de tout problème lié au chemin d'accès. Nous utiliserons les termes « Invite du répertoire Hive », « Invite de l’emplacement/du répertoire Hive » et « Ligne de commande Hadoop » de manière interchangeable.**
 
-**REMARQUE IMPORTANTE 2** : **pour exécuter une requête Hive, effectuez toujours l'action suivante :** cd %hive_home%\bin hive
+**REMARQUE IMPORTANTE 2** : **pour exécuter une requête Hive, effectuez toujours l'action suivante :** cd %hive\_home%\\bin hive
 
 Lorsque Hive REPL apparaît avec un signe « hive > », coupez-collez simplement la requête pour l'exécuter.
 
 Le code ci-dessous crée une base de données « criteo » et génère ensuite 4 tables :
 
 
-* une *table pour la génération de nombres* reposant sur les jours day_00 à day_20 ; 
-* une *table à utiliser comme jeu de données d'apprentissage* reposant sur day_21 ; et 
-* deux *tables à utiliser comme jeux de données de test* reposant sur day_22 et day_23 respectivement. 
+* une *table pour la génération de nombres* reposant sur les jours day\_00 à day\_20 ; 
+* une *table à utiliser comme jeu de données d'apprentissage* reposant sur day\_21 ; et 
+* deux *tables à utiliser comme jeux de données de test* reposant sur day\_22 et day\_23 respectivement. 
 
 Nous séparons notre groupe de données de test en deux tables bien distinctes, car l’une des journées est un jour férié, et nous voulons déterminer si le modèle peut différer un jour férié d’un jour ordinaire à partir du taux de clic.
 
@@ -234,7 +232,7 @@ Comme d'habitude, nous pouvons également appeler le script à partir de l’inv
 
 		hive -f C:\temp\sample_hive_count_criteo_test_day_22_table_examples.hql
 
-Puis, nous examinons enfin le nombre d'exemples de test dans le groupe de données de test basé sur le day_23.
+Puis, nous examinons enfin le nombre d'exemples de test dans le groupe de données de test basé sur le day\_23.
 
 La commande à exécuter est semblable à celle mentionnée ci-dessus (consultez [sample&#95;hive&#95;count&#95;criteo&#95;test&#95;day&#95;23&#95;examples.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_count_criteo_test_day_23_examples.hql)) :
 
@@ -261,7 +259,7 @@ Notez que le pourcentage d'étiquettes positives est d’environ 3,3 % (cohére
 		
 ### Les distributions de l’histogramme de certaines variables numériques dans le groupe de données de formation
 
-Nous pouvons utiliser la fonction native « histogram_numeric » de Hive pour découvrir à quoi ressemble la distribution des variables numériques. Le contenu de [sample&#95;hive&#95;criteo&#95;histogram&#95;numeric.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_histogram_numeric.hql) est indiqué ci-dessous :
+Nous pouvons utiliser la fonction native « histogram\_numeric » de Hive pour découvrir à quoi ressemble la distribution des variables numériques. Le contenu de [sample&#95;hive&#95;criteo&#95;histogram&#95;numeric.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_histogram_numeric.hql) est indiqué ci-dessous :
 
 		SELECT CAST(hist.x as int) as bin_center, CAST(hist.y as bigint) as bin_height FROM 
 			(SELECT
@@ -299,7 +297,7 @@ La combinaison LATERAL VIEW - explode dans Hive permet de générer une sortie s
 
 ### Les centiles approximatifs de certaines variables numériques dans le groupe de données de formation
 
-Le calcul de centiles approximatifs avec des variables numériques est également intéressant. Le « percentile_approx» natif de Hive le fait pour nous. [sample&#95;hive&#95;criteo&#95;approximate&#95;percentiles.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_approximate_percentiles.hql) contient :
+Le calcul de centiles approximatifs avec des variables numériques est également intéressant. Le « percentile\_approx» natif de Hive le fait pour nous. [sample&#95;hive&#95;criteo&#95;approximate&#95;percentiles.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_approximate_percentiles.hql) contient :
 
 		SELECT MIN(Col2) AS Col2_min, PERCENTILE_APPROX(Col2, 0.1) AS Col2_01, PERCENTILE_APPROX(Col2, 0.3) AS Col2_03, PERCENTILE_APPROX(Col2, 0.5) AS Col2_median, PERCENTILE_APPROX(Col2, 0.8) AS Col2_08, MAX(Col2) AS Col2_max FROM criteo.criteo_train;
 
@@ -382,7 +380,7 @@ Cela donne :
 		Time taken: 12.22 seconds
 		Time taken: 298.98 seconds
 
-Le script [sample&#95;hive&#95;criteo&#95;downsample&#95;test&#95;day&#95;22&#95;dataset.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_downsample_test_day_22_dataset.hql) effectue ceci pour les données de test, du day_22 :
+Le script [sample&#95;hive&#95;criteo&#95;downsample&#95;test&#95;day&#95;22&#95;dataset.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_downsample_test_day_22_dataset.hql) effectue ceci pour les données de test, du day\_22 :
 
 		--- Now for test data (day_22)
 
@@ -400,7 +398,7 @@ Cela donne :
 		Time taken: 317.66 seconds
 
 
-Puis, le script [sample&#95;hive&#95;criteo&#95;downsample&#95;test&#95;day&#95;23&#95;dataset.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_downsample_test_day_23_dataset.hql) effectue ceci pour les données de test du day_23 :
+Puis, le script [sample&#95;hive&#95;criteo&#95;downsample&#95;test&#95;day&#95;23&#95;dataset.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_downsample_test_day_23_dataset.hql) effectue ceci pour les données de test du day\_23 :
 
 		--- Finally test data day_23
 		CREATE TABLE criteo.criteo_test_day_23_downsample_1perc (
@@ -452,7 +450,7 @@ Voici à quoi ressemble le **Lecteur** lors de la récupération des données d�
 Pour le module **Lecteur**, les valeurs des paramètres qui sont fournies dans le graphique servent uniquement d'exemples. Voici quelques instructions générales portant sur le « remplissage » des paramètres pour le module **Lecteur**.
 
 1. Choisissez « Requête Hive » pour la **source de données**.
-2. Dans la zone de **requête de base de données Hive**, une simple opération SELECT * FROM <nom_de_votre_base_de_données.nom_de_votre_table> - suffit.
+2. Dans la zone de **requête de base de données Hive**, une simple opération SELECT * FROM <nom\_de\_votre\_base\_de\_données.nom\_de\_votre\_table> - suffit.
 3. **URI du serveur Hcatalog** : si votre cluster se nomme « abc », vous aurez donc : https://abc.azurehdinsight.net
 4. **Nom du compte utilisateur Hadoop** : nom d'utilisateur choisi lors de la mise en service du cluster. PAS le nom d'utilisateur à distance.
 5. **Nom du compte utilisateur Hadoop** : mot de passe associé au nom d'utilisateur choisi lors de la mise en service du cluster. PAS le mot de passe de l'accès à distance.
@@ -540,7 +538,7 @@ Dans le deuxième script R, nous équilibrons la distribution entre les classes 
 
 ![](http://i.imgur.com/91wvcwN.png)
 
-Dans ce script R simple, nous utilisons « pos_neg_ratio » pour définir l'équilibre entre les classes positive et négatives. Ceci est important car l'amélioration du déséquilibre des classes a, en général, des avantages en matière de performances pour les problèmes de classification où la distribution des classes est déséquilibrée (n'oubliez pas que dans notre cas, nous avons 3,3 % de classe positive et 96,7 % de classe négative).
+Dans ce script R simple, nous utilisons « pos\_neg\_ratio » pour définir l'équilibre entre les classes positive et négatives. Ceci est important car l'amélioration du déséquilibre des classes a, en général, des avantages en matière de performances pour les problèmes de classification où la distribution des classes est déséquilibrée (n'oubliez pas que dans notre cas, nous avons 3,3 % de classe positive et 96,7 % de classe négative).
 
 ##### Application de la transformation de nombre à nos données
 
@@ -658,4 +656,4 @@ Nous remarquons que pour les deux exemples de test sur lesquels nous nous sommes
 
 Ceci conclut notre procédure pas à pas illustrant comment gérer un jeu de données à grande échelle à l'aide d'Azure Machine Learning. Nous avons démarré avec un téraoctet de données, nous avons construit un modèle de prévision et l'avons déployé en tant que service Web dans le cloud.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

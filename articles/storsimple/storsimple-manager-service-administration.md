@@ -109,4 +109,4 @@ Si vous ne parvenez pas à résoudre les problèmes et vous devez générer une 
 
 -  [Contacter le support technique Microsoft](https://msdn.microsoft.com/library/azure/dn757750.aspx)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

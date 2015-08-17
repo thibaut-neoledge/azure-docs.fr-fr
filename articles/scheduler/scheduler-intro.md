@@ -12,7 +12,7 @@
  ms.tgt_pltfrm="na"
  ms.devlang="dotnet"
  ms.topic="get-started-article" 
- ms.date="05/12/2015"
+ ms.date="08/04/2015"
  ms.author="krisragh"/>
 
 # Présentation d'Azure Scheduler
@@ -51,4 +51,4 @@ Scheduler vous permet de créer, de mettre à jour, de supprimer, d'afficher et 
  [Authentification sortante de Scheduler](scheduler-outbound-authentication.md)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

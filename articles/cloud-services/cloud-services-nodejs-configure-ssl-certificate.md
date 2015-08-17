@@ -123,7 +123,7 @@ Votre application doit être configurée pour référencer le certificat, et un 
 
     Toutes les modifications nécessaires ont été apportées au fichier de définition de service, mais vous devez encore y ajouter les informations de certificat.
 
-3.  Dans vos fichiers de configuration de service (**ServiceConfiguration.Cloud.cscfg** et **ServiceConfiguration.Local.cscfg**), ajoutez le certificat à la section **Certificates** vide au sein de la section **Role**, en remplaçant l’exemple de valeur d’empreinte numérique par la valeur indiquée sur votre certificat :
+3.  Dans vos fichiers de configuration de service (**ServiceConfiguration.Cloud.cscfg** et **ServiceConfiguration.Local.cscfg**), ajoutez le certificat à la section **Certificates** vide au sein de la section **Role**, en remplaçant l'exemple de valeur d'empreinte numérique par la valeur indiquée sur votre certificat :
 
         <Role name="WebRole1">
         ...
@@ -192,4 +192,4 @@ Maintenant que votre déploiement est opérationnel dans Azure, vous pouvez vous
   [Configuration de SSL pour une application Node.js dans un rôle de travail Azure]: /develop/nodejs/common-tasks/enable-ssl-worker-role/
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

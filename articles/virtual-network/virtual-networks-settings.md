@@ -100,4 +100,4 @@ Après avoir déployé votre réseau virtuel, seuls certains paramètres peuvent
 
 [Suppression d'un réseau virtuel](../virtual-networks-delete-vnet)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

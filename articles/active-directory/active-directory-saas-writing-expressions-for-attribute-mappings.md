@@ -82,7 +82,7 @@ La syntaxe des expressions pour les mappages d’attributs rappelle celle des fo
 
 |Nom| Requis / Répétition | Type | Remarques |
 |--- | ---                 | ---  | ---   |
-| **Source1... sourceN \*\* | Requis, nombre de fois variable | String |valeurs **sources** parmi lesquelles choisir |
+| ****source1... sourceN ** | Requis, nombre de fois variable | String |valeurs **sources** parmi lesquelles choisir |
 
 
 
@@ -91,7 +91,7 @@ La syntaxe des expressions pour les mappages d’attributs rappelle celle des fo
 
 **Fonction :**<br> FormatDateTime(source, inputFormat, outputFormat)
 
-**Description :**<br> prend une chaîne de date dans un format et la convertit en un format différent.
+**Description :**<br> prend une chaîne de date dans un format et la convertit dans un autre format.
  
 **Paramètres :**<br>
 
@@ -118,7 +118,7 @@ Si l’une des valeurs sources est un attribut à valeurs multiples, toutes les 
 |Nom| Requis / Répétition | Type | Remarques |
 |--- | ---                 | ---  | ---   |
 | **separator** | Requis | String | Chaîne utilisée pour séparer les valeurs sources quand elles sont concaténées en une seule chaîne. Peut être "" si aucun séparateur n’est requis. |
-| **source1... sourceN \*\* | Requis, nombre de fois variable | String | Valeurs de chaîne à joindre. |
+| ****source1... sourceN ** | Requis, nombre de fois variable | String | Valeurs de chaîne à joindre. |
 
 
 
@@ -166,7 +166,7 @@ Si l’une des valeurs sources est un attribut à valeurs multiples, toutes les 
 
 **Fonction :**<br> Not(source)
 
-**Description :**<br> inverse la valeur booléenne de la **source**. Si la valeur **source** est « \*True\* », cette fonction retourne « \*False\* ». Sinon, elle retourne « \*True\* ».
+**Description :**<br> inverse la valeur booléenne de la **source**. Si la valeur **source** est « *True* », cette fonction retourne « *False* ». Sinon, elle retourne « *True* ».
 
 
 **Paramètres :**<br>
@@ -242,7 +242,7 @@ Remplace les valeurs dans une chaîne. Elle fonctionne différemment selon les p
 
 **Fonction :**<br> ReplaceRegex(source, find, replace, group)
 
-**Description :**<br> Dans la chaîne **source**, remplace toutes les sous-chaînes correspondant à l’expression régulière **find** par la valeur **replace**. Si un paramètre **group** est spécifié, il remplace uniquement la valeur de ce groupe d’expressions régulières.
+**Description :**<br> dans la chaîne **source**, remplace toutes les sous-chaînes correspondant à l’expression régulière **find** par la valeur **replace**. Si un paramètre **group** est spécifié, il remplace uniquement la valeur de ce groupe d’expressions régulières.
 
 **Paramètres :**<br>
 
@@ -300,7 +300,7 @@ Vous devez supprimer un nom de domaine connu de l’adresse de messagerie d’un
 
 **Exemple d’entrée/sortie :** <br>
 
-- **ENTRÉE**(mail) : « john.doe@contoso.com »
+- **ENTRÉE** (mail) : « john.doe@contoso.com »
 
 - **SORTIE** : « john.doe »
 
@@ -380,11 +380,6 @@ Vous devez définir le fuseau horaire de l’utilisateur en fonction du code d�
 - **SORTIE** : « Australia/Brisbane »
 
 
+[AZURE.INCLUDE [saas-toc](../../includes/active-directory-saas-toc.md)]
 
-## Ressources supplémentaires
-
-* [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md)
-
-<!--Image references-->
-
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

@@ -79,6 +79,5 @@ Configurez les propriétés d’entrée de l’action « Charger le fichier »
 [7]: ./media/app-service-logic-connector-dropbox/img7.PNG
 [8]: ./media/app-service-logic-connector-dropbox/img8.PNG
 [9]: ./media/app-service-logic-connector-dropbox/img9.PNG
- 
 
-<!-----HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

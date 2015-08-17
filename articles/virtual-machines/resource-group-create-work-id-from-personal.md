@@ -140,4 +140,4 @@ Vous pouvez maintenant vous servir de votre nouvelle identité Azure Active Dire
     data:
     info:    group create command OK
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

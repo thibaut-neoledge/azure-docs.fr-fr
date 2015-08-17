@@ -1,9 +1,7 @@
 <properties
 	pageTitle="Machine virtuelle pour la science des données dans Azure | Microsoft Azure"
 	description="Configurer une machine virtuelle pour la science des données"
-	metaKeywords=""
 	services="machine-learning"
-	solutions=""
 	documentationCenter=""
 	authors="msolhab"
 	manager="paulettm" 
@@ -34,4 +32,4 @@ Une fois approvisionnées et configurées, ces machines virtuelles sont utilisab
 > [AZURE.NOTE]Le service Azure Virtual Machines est facturé au tarif du **paiement à l’utilisation**. Pour vous assurer que vous n’êtes pas facturé lorsque vous n’utilisez pas votre machine virtuelle, cette dernière doit être définie sur l’état **Arrêté (désalloué)** à partir du [Portail de gestion Azure](http://manage.windowsazure.com/). Pour obtenir des instructions détaillées sur la libération de votre machine virtuelle, consultez la page [Arrêter et libérer une machine virtuelle inutilisée](machine-learning-data-science-setup-virtual-machine.md#shutdown).
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

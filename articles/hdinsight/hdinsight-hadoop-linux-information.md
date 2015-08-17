@@ -7,6 +7,7 @@
    manager="paulettm"
    editor="cgronlun"/>
 
+
 <tags
    ms.service="hdinsight"
    ms.devlang="na"
@@ -15,6 +16,7 @@
    ms.workload="big-data"
    ms.date="07/24/2015"
    ms.author="larryfr"/>
+
 
 # Informations sur l’utilisation de HDInsight sur Linux (version préliminaire)
 
@@ -76,7 +78,7 @@ Puisqu'il s'agit d'un stockage par défaut pour HDInsight, vous n'avez normaleme
 
 	hadoop fs -ls /example/data
 
-Pour certaines commandes, vous pouvez être obligé de préciser que vous utilisez le stockage d’objets blob. Pour cela, vous pouvez ajouter à la commande le préfixe suivant : **WASB://**.
+Pour certaines commandes, vous pouvez être obligé de préciser que vous utilisez le stockage d’objets blob. Pour cela, vous pouvez ajouter à la commande le préfixe suivant : ****WASB://**
 
 HDInsight vous permet également d’associer de multiples comptes de stockage d’objets blob à un cluster. Pour accéder à des données sur un compte de stockage d’objets blob qui n’est pas celui par défaut, vous pouvez utiliser le format **WASB://&lt;container-name>@&lt;account-name>.blob.core.windows.net/**. Par exemple, celui-ci listera le contenu du répertoire **/example/data** pour le conteneur et le compte de stockage indiqués :
 
@@ -139,4 +141,4 @@ Outre la commande Hadoop depuis le cluster, vous pouvez accéder aux objets blob
 * [Utilisation de Pig avec HDInsight](hdinsight-use-pig.md)
 * [Utilisation des tâches MapReduce avec HDInsight](hdinsight-use-mapreduce.md)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

@@ -7,6 +7,7 @@
    manager="Adinah" 
    editor=""/>
 
+
 <tags
    ms.service="dns"
    ms.devlang="en"
@@ -15,6 +16,7 @@
    ms.workload="infrastructure-services" 
    ms.date="05/01/2015"
    ms.author="joaoma"/>
+
 
 # Gestion des enregistrements DNS
 
@@ -47,7 +49,7 @@ New-AzureDnsRecordSet retourne un objet local qui représente le jeu d'enregistr
 ### Enregistrements génériques
 Azure DNS prend en charge les [enregistrements génériques](https://en.wikipedia.org/wiki/Wildcard_DNS_record). Ces derniers sont retournés pour toute requête avec un nom correspondant (à moins qu’une correspondance plus proche provienne d'un jeu d'enregistrements non génériques).
 
->[AZURE.NOTE]Pour créer un jeu d'enregistrements génériques, utilisez le nom de jeu d'enregistrements « \* », ou un nom dont la première étiquette est « \* », par exemple, « \*.foo ».
+>[AZURE.NOTE]Pour créer un jeu d'enregistrements génériques, utilisez le nom de jeu d'enregistrements « * », ou un nom dont la première étiquette est « * », par exemple, « *.foo ».
 
 >Les jeux d'enregistrements génériques sont pris en charge pour tous les types d'enregistrements, hormis NS et SOA.
 
@@ -122,7 +124,7 @@ Dans cet exemple, nous utilisons le nom de jeu d'enregistrements "@" pour créer
 	PS C:\> Set-AzureDnsRecordSet -RecordSet $rs
 ### Création d’un jeu d’enregistrements SRV avec un seul enregistrement
 
-Si vous créez un enregistrement SRV à la racine de la zone, indiquez simplement le _service et le_protocole dans le nom de l'enregistrement. Il est inutile d'inclure également « . @ » dans le nom de l'enregistrement
+Si vous créez un enregistrement SRV à la racine de la zone, indiquez simplement le \_service et le \_protocol dans le nom de l'enregistrement. Il est inutile d'inclure également « .@ » dans le nom de l'enregistrement
 
 	PS C:\> $rs = New-AzureDnsRecordSet -Name "_sip._tls" -RecordType SRV -Zone $zone -Ttl 60
 	PS C:\> Add-AzureDnsRecordConfig -RecordSet $rs –Priority 0 –Weight 5 –Port 8080 –Target "sip.contoso.com"
@@ -265,4 +267,4 @@ L'objet du jeu d'enregistrements peut également être envoyé au lieu d’être
 [Prise en main de la création de jeux d'enregistrements et des enregistrements](../dns-getstarted-create-recordset)<BR> [Réalisation d’opérations sur des zones DNS](../dns-operations-dnszones)<BR> [Automatisation d’opérations à l'aide du Kit de développement (SDK) .NET](../dns-sdk)
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

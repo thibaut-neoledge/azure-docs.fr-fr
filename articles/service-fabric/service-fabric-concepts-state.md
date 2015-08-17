@@ -41,4 +41,4 @@ Pour plus d'informations sur les concepts propres à Service Fabric, consultez l
 - [Partitionnement des services Service Fabric](service-fabric-concepts-partitioning.md)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

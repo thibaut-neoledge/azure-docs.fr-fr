@@ -48,7 +48,7 @@ Le format iOS d’un URI de redirection est le suivant :
 - 	**aap-scheme** : il est enregistré dans votre projet XCode. Cela permet aux autres applications de vous appeler. Vous trouverez cela sous Info.plist -> Types d’URL -> Identificateur d’URL. Vous devez en créer une si vous n’en avez pas encore au moins une configurée.
 - 	**bundle-id** : il s’agit de l’identificateur d’offre groupée se trouvant sous « identité » dans les paramètres de votre projet XCode.
 	
-Voici un exemple de code de démarrage rapide : ***msquickstart://com.microsoft.azureactivedirectory.samples.graph.QuickStart***
+Voici un exemple de code de démarrage rapide : ******msquickstart://com.microsoft.azureactivedirectory.samples.graph.QuickStart***
 
 ## *2. Inscription de l’application DirectorySearcher*
 Pour autoriser votre application à obtenir des jetons, vous devez tout d’abord l’enregistrer dans votre client Azure AD et lui accorder l’autorisation d’accéder à l’API Graph Azure AD :
@@ -136,7 +136,7 @@ completionHandler:(void (^) (NSString*, NSError*))completionBlock;
 
 ```
 
-- Nous devons à présent utiliser ce jeton pour rechercher des utilisateurs dans le graphique. La méthode commentThis `// TODO: implement SearchUsersList` effectue une demande GET auprès de l’API Graph Azure AD pour l’interroger à propos d’utilisateurs dont l’UPN commence par le terme de recherche donné. Cependant, pour interroger l’API Graph, vous devez inclure un jeton d’accès (access_token) dans l’en-tête `Authorization` de la demande ; c’est à ce moment qu’intervient la bibliothèque ADAL.
+- Nous devons à présent utiliser ce jeton pour rechercher des utilisateurs dans le graphique. La méthode commentThis `// TODO: implement SearchUsersList` effectue une demande GET auprès de l’API Graph Azure AD pour l’interroger à propos d’utilisateurs dont l’UPN commence par le terme de recherche donné. Cependant, pour interroger l’API Graph, vous devez inclure un jeton d’accès (access\_token) dans l’en-tête `Authorization` de la demande ; c’est à ce moment qu’intervient la bibliothèque ADAL.
 
 ```ObjC
 +(void) searchUserList:(NSString*)searchString
@@ -225,4 +225,4 @@ Pour référence, l’exemple terminé (sans vos valeurs de configuration) est f
 
 [AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

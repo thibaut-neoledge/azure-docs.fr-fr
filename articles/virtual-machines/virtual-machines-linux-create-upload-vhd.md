@@ -7,14 +7,16 @@
 	manager="timlt"
 	editor="tysonn"/>
 
+
 <tags
 	ms.service="virtual-machines"
 	ms.workload="infrastructure-services"
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/15/2015"
+	ms.date="07/29/2015"
 	ms.author="dkshir"/>
+
 
 # Création et téléchargement d'un disque dur virtuel contenant le système d'exploitation Linux
 
@@ -36,13 +38,13 @@ Cet article part du principe que vous disposez des éléments suivants :
 
 - **Un système d'exploitation Linux installé dans un fichier .vhd** : vous avez installé un système d'exploitation Linux pris en charge dans un disque dur virtuel. Il existe de nombreux outils de création de fichiers .vhd. Par exemple, vous pouvez utiliser une solution de virtualisation telle que Hyper-V pour créer le fichier .vhd et installer le système d'exploitation. Pour obtenir des instructions, consultez la page [Installation du rôle Hyper-V et configuration d'une machine virtuelle](http://technet.microsoft.com/library/hh846766.aspx).
 
-	**Important** : Azure ne prend pas en charge le nouveau format VHDX. Vous pouvez convertir le disque au format VHD à l'aide de Hyper-V Manager ou de la cmdlet convert-vhd.
+	**Important** : Azure ne prend pas en charge le nouveau format VHDX. Vous pouvez convertir le disque au format VHD à l'aide de Hyper-V Manager ou de l’applet de commande convert-vhd.
 
 	Pour accéder à la liste des distributions approuvées, consultez la page [Linux dans les distributions approuvées par Azure](../linux-endorsed-distributions.md). Vous pouvez également consulter la section située à la fin de cet article : [Informations pour les distributions non approuvées](virtual-machines-linux-create-upload-vhd-generic.md).
 
 - **Interface de ligne de commande Azure** : si vous utilisez un système d'exploitation Linux pour créer votre image, utilisez l’[interface de ligne de commande Azure](../virtual-machines-command-line-tools.md) pour charger le fichier VHD.
 
-- **Outils Azure Powershell** : la cmdlet `Add-AzureVhd` est également utilisable pour télécharger le fichier VHD. Consultez la page [Téléchargements Azure](http://azure.microsoft.com/downloads/) pour télécharger les cmdlets Azure Powershell. Pour les informations de référence, consultez la page [Add-AzureVhd](https://msdn.microsoft.com/library/azure/dn495173.aspx).
+- **Outils Azure Powershell** : l’applet de commande `Add-AzureVhd` est également utilisable pour télécharger le fichier VHD. Consultez la page [Téléchargements Azure](http://azure.microsoft.com/downloads/) pour télécharger les applets de commande Azure Powershell. Pour les informations de référence, consultez la page [Add-AzureVhd](https://msdn.microsoft.com/library/azure/dn495173.aspx).
 
 ## <a id="prepimage"> </a>Étape 1 : préparation de l'image pour le téléchargement ##
 
@@ -66,6 +68,8 @@ Avant de pouvoir télécharger un fichier .vhd, vous devez établir une connexio
 
 ### En cas d’utilisation de l’interface de ligne de commande Azure
 
+Utilisez la méthode Azure AD pour vous connecter :
+
 1. Ouvrez une fenêtre d'Azure CLI
 
 2. Type :
@@ -74,7 +78,7 @@ Avant de pouvoir télécharger un fichier .vhd, vous devez établir une connexio
 
 	Lorsque vous y êtes invité, tapez votre nom d'utilisateur et votre mot de passe.
 
-**OU**, pour utiliser un fichier de paramètres de publication à la place :
+**OU**, utilisez un fichier de paramètres de publication à la place :
 
 1. Ouvrez une fenêtre d'Azure CLI
 
@@ -92,8 +96,22 @@ Avant de pouvoir télécharger un fichier .vhd, vous devez établir une connexio
 
 	Où `<PathToFile>` est le chemin d'accès complet au fichier .publishsettings.
 
+	Pour plus d’informations, consultez [Se connecter à Azure depuis la CLI Azure](../xplat-cli-connect.md).
+
 
 ### En cas d’utilisation d’Azure PowerShell
+
+Utilisez la méthode Azure AD pour vous connecter :
+
+1. Ouvrez une fenêtre Azure PowerShell.
+
+2. Type :
+
+	`Add-AzureAccount`
+
+	Quand vous y êtes invité, entrez votre ID et votre mot de passe d’entreprise.
+
+**OU**, utilisez les fichiers de paramètres de publication :
 
 1. Ouvrez une fenêtre Azure PowerShell.
 
@@ -113,6 +131,7 @@ Avant de pouvoir télécharger un fichier .vhd, vous devez établir une connexio
 
 	Pour plus d’informations, consultez la rubrique [Comment installer et configurer Azure PowerShell](powershell-install-configure.md).
 
+> [AZURE.NOTE]Nous vous recommandons d’utiliser la nouvelle méthode Azure Active Directory pour vous connecter à votre abonnement Azure, à partir de l’interface CLI Azure ou d’Azure PowerShell.
 
 ## <a id="upload"> </a>Étape 3 : chargement de l’image dans Azure ##
 
@@ -141,4 +160,4 @@ Pour plus d'informations, consultez la page Add-AzureVhd((https://msdn.microsof
 [Step 2: Prepare the connection to Azure]: #connect
 [Step 3: Upload the image to Azure]: #upload
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -72,7 +72,7 @@ Sur le tableau de bord, vous pouvez choisir jusqu'à six mesures sur les neuf di
 	
 	- Pour masquer une mesure représentée sur le graphique, désactivez la case à cocher de couleur en regard de son en-tête.
 	
-		![Monitoring_nmore](./media/storage-monitor-storage-account/storage_Monitoring_nmore.png)
+		![Monitoring\_nmore](./media/storage-monitor-storage-account/storage_Monitoring_nmore.png)
   
 3. Par défaut, le graphique indique les tendances, affichant uniquement la valeur actuelle de chaque mesure (option **Relative** dans la partie supérieure du graphique). Pour afficher un axe Y afin de voir les valeurs absolues, sélectionnez **Absolute**.
 
@@ -99,7 +99,7 @@ Utilisez les procédures suivantes pour choisir les mesures de stockage à affic
 	La page **Monitor** s'ouvre. Par défaut, le tableau des mesures affiche un sous-ensemble des mesures disponibles pour la surveillance. L'écran Monitor par défaut illustré ci-dessous représente un compte de stockage avec une surveillance détaillée configurée pour les trois services. Utilisez **Add Metrics** pour sélectionner parmi les mesures disponibles celles qui doivent faire l'objet d'une surveillance.
 
 
-	![Monitoring_VerboseDisplay](./media/storage-monitor-storage-account/Storage_Monitoring_VerboseDisplay.png)
+	![Monitoring\_VerboseDisplay](./media/storage-monitor-storage-account/Storage_Monitoring_VerboseDisplay.png)
 
 	> [AZURE.NOTE]Tenez compte des frais au moment de sélectionner les mesures. En effet, l'actualisation des écrans de surveillance s'accompagne de frais de transaction et de sortie. Pour plus d'informations, consultez la page [Storage Analytics et facturation](http://msdn.microsoft.com/library/azure/hh360997.aspx).
 
@@ -159,4 +159,4 @@ Pour chaque service de stockage accessible à votre compte de stockage (Blob, Ta
 Les journaux de diagnostic sont enregistrés dans un conteneur d'objets blob nommé $logs dans votre compte de stockage. Pour plus d'informations sur l'accès au conteneur $logs, consultez la page [À propos de la journalisation Storage Analytics](http://msdn.microsoft.com/library/azure/hh343262.aspx).
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -135,4 +135,4 @@ Notez qu'il n'est pas toujours nécessaire d'effectuer l'ingénierie de caracté
 [fisher-linear-discriminant-analysis]: https://msdn.microsoft.com/library/azure/dcaab0b2-59ca-4bec-bb66-79fd23540080/
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

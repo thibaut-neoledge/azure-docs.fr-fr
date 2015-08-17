@@ -70,12 +70,12 @@ La convention d’affectation de noms de fichier est spécifiée à l’aide de 
 	   </OutputFormat>
 	</MediaFile>
 
-L’encodeur insère des traits de soulignement entre chaque macro, par exemple, la configuration ci-dessus donnerait un nom de fichier du type : MyVideo_H264_4500kpbs_AAC_und_ch2_128kbps.mp4.
+L’encodeur insère des traits de soulignement entre chaque macro, par exemple, la configuration ci-dessus donnerait un nom de fichier du type : MyVideo\_H264\_4500kpbs\_AAC\_und\_ch2\_128kbps.mp4.
 
 
 ##Création de superpositions
 
-L’Encodeur Azure Media Services vous permet de superposer une image (jpg, bmp, gif, tif), une vidéo ou une piste audio (*.wma, *.mp3, *.wav) sur une vidéo existante. Cette fonctionnalité est similaire à celle d’Expression Encoder 4 (Service Pack 2).
+L’Encodeur Azure Media Services vous permet de superposer une image (jpg, bmp, gif, tif), une vidéo ou une piste audio (*.wma, .mp3, .wav) sur une vidéo existante. Cette fonctionnalité est similaire à celle d’Expression Encoder 4 (Service Pack 2).
 
 ###Superpositions avec l’Encodeur Media Services
 
@@ -458,11 +458,11 @@ Pour empêcher l’amplification du bruit de fond, procédez comme suit :
 
 1. Enregistrez le fichier de présélection modifié sur votre disque dur local et utilisez un code comme celui qui suit pour encoder avec la présélection personnalisée :
 	
-	// Upload file and create asset IAsset asset = CreateAssetAndUploadSingleFile(AssetCreationOptions.None, @"C:\TEMP\Original.mp4");
+	// Upload file and create asset IAsset asset = CreateAssetAndUploadSingleFile(AssetCreationOptions.None, @"C:\\TEMP\\Original.mp4");
 	 
-	string inputPresetFile = @"C:\TEMP\H264 Broadband 720p NoAudioNorm.xml"; string presetName = Path.GetFileNameWithoutExtension(inputPresetFile);
+	string inputPresetFile = @"C:\\TEMP\\H264 Broadband 720p NoAudioNorm.xml"; string presetName = Path.GetFileNameWithoutExtension(inputPresetFile);
 	 
-	IJob job = _context.Jobs.Create("Encode Job for " + asset.Name + ", encoded using " + presetName);
+	IJob job = \_context.Jobs.Create("Encode Job for " + asset.Name + ", encoded using " + presetName);
 	
 	Console.WriteLine("Encode Job for " + asset.Name + ", encoded using " + presetName);
 	
@@ -482,4 +482,4 @@ Pour empêcher l’amplification du bruit de fond, procédez comme suit :
 
 [Schéma XML de l’Encodeur multimédia Azure](https://msdn.microsoft.com/library/azure/dn584702.aspx)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -7,14 +7,16 @@
 	manager="dwrede"
 	editor=""/>
 
+
 <tags
 	ms.service="notification-hubs"
 	ms.workload="mobile"
 	ms.tgt_pltfrm="mobile-kindle"
 	ms.devlang="Java"
-	ms.topic="get-started-article" 
+	ms.topic="hero-article" 
 	ms.date="06/16/2015"
 	ms.author="wesmc"/>
+
 
 # Prise en main de Notification Hubs
 
@@ -79,7 +81,8 @@ Dans le portail, ajoutez la clé secrète client et l'ID client à l'onglet **Co
 Ajoutez les bibliothèques ADM à votre projet Eclipse
 
 1. Pour obtenir la bibliothèque ADM, [téléchargez le Kit de développement logiciel (SDK)]. Extrayez le fichier zip du Kit de développement logiciel (SDK).
-2. Dans Eclipse, cliquez avec le bouton droit sur votre projet, puis cliquez sur **Propriétés**. Sélectionnez **Java Build Path** sur la gauche, puis l’onglet **Libraries** en haut. Cliquez sur **Add External Jar** et sélectionnez le fichier `\SDK\Android\DeviceMessaging\lib\amazon-device-messaging-*.jar` dans le répertoire dans lequel vous avez extrait le Kit de développement logiciel (SDK) Amazon. 3. Téléchargez le Kit de développement logiciel (SDK) Android Notification Hubs (lien).
+2. Dans Eclipse, cliquez avec le bouton droit sur votre projet, puis cliquez sur **Propriétés**. Sélectionnez **Java Build Path** sur la gauche, puis l’onglet **Libraries** en haut. Cliquez sur **Add External Jar** et sélectionnez le fichier `\SDK\Android\DeviceMessaging\lib\amazon-device-messaging-*.jar` dans le répertoire dans lequel vous avez extrait le Kit de développement logiciel (SDK) Amazon.
+3. Téléchargez le Kit de développement logiciel (SDK) Android Notification Hubs (lien).
 4. Décompressez le package, puis faites glisser le fichier `notification-hubs-sdk.jar` dans le dossier `libs ` dans Eclipse.
 
 Modifiez le manifeste de l'application afin qu'il prenne en charge ADM :
@@ -89,31 +92,38 @@ Modifiez le manifeste de l'application afin qu'il prenne en charge ADM :
 
 		xmlns:amazon="http://schemas.amazon.com/apk/res/android"
 
-2. Ajoutez les autorisations comme le premier élément sous l'élément du manifeste. Remplacez **[VOTRE NOM DE PACKAGE]** par le package utilisé pour créer votre application.
+2. Ajoutez les autorisations comme le premier élément sous l'élément du manifeste. Remplacez **[VOTRE NOM DE PACKAGE\]** par le package utilisé pour créer votre application.
 
 		<permission
 	     android:name="[YOUR PACKAGE NAME].permission.RECEIVE_ADM_MESSAGE"
 	     android:protectionLevel="signature" />
 
+
 		<uses-permission android:name="android.permission.INTERNET"/>
 
+
 		<uses-permission android:name="[YOUR PACKAGE NAME].permission.RECEIVE_ADM_MESSAGE" />
+
 
 		<!-- This permission allows your app access to receive push notifications
 		from ADM. -->
 		<uses-permission android:name="com.amazon.device.messaging.permission.RECEIVE" />
 
+
 		<!-- ADM uses WAKE_LOCK to keep the processor from sleeping when a message is received. -->
 		<uses-permission android:name="android.permission.WAKE_LOCK" />
 
-3. Insérez l'élément suivant comme le premier enfant de l'élément de l'application. N'oubliez pas de remplacer **[VOTRE NOM DE SERVICE]** par le nom de votre gestionnaire de messages ADM que vous créez dans la section suivante (y compris le package), puis remplacez **[VOTRE NOM DE PACKAGE]** par le nom de package avec lequel vous avez créé votre application.
+
+3. Insérez l'élément suivant comme le premier enfant de l'élément de l'application. N'oubliez pas de remplacer **[VOTRE NOM DE SERVICE\]** par le nom de votre gestionnaire de messages ADM que vous créez dans la section suivante (y compris le package), puis remplacez **[VOTRE NOM DE PACKAGE\]** par le nom de package avec lequel vous avez créé votre application.
 
 		<amazon:enable-feature
 		      android:name="com.amazon.device.messaging"
 		             android:required="true"/>
+
 		<service
 		    android:name="[YOUR SERVICE NAME]"
 		    android:exported="false" />
+
 
 		<receiver
 		    android:name="[YOUR SERVICE NAME]$Receiver"
@@ -124,10 +134,13 @@ Modifiez le manifeste de l'application afin qu'il prenne en charge ADM :
 		    <!-- To interact with ADM, your app must listen for the following intents. -->
 		    <intent-filter>
 		  <action android:name="com.amazon.device.messaging.intent.REGISTRATION" />
+
 		  <action android:name="com.amazon.device.messaging.intent.RECEIVE" />
+
 
 		  <!-- Replace the name in the category tag with your app's package name. -->
 		  <category android:name="[YOUR PACKAGE NAME]" />
+
 		    </intent-filter>
 		</receiver>
 
@@ -241,7 +254,7 @@ Modifiez le manifeste de l'application afin qu'il prenne en charge ADM :
 
 ## Ajout de la clé API à votre application
 
-1. Dans Eclipse, créez un nouveau fichier nommé **api_key.txt** dans les composants de répertoire de votre projet.
+1. Dans Eclipse, créez un nouveau fichier nommé **api\_key.txt** dans les composants de répertoire de votre projet.
 2. Ouvrez le fichier et copiez la **clé API** que vous avez générée dans le portail des développeurs Amazon.
 
 ## Exécution de l'application
@@ -281,4 +294,4 @@ Pour envoyer un message à l'aide de .NET :
 [7]: ./media/notification-hubs-kindle-get-started/notification-hub-kindle-notification.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

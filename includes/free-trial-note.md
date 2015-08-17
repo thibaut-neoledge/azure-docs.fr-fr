@@ -4,4 +4,4 @@
   > 
   > + Vous pouvez [activer les avantages de l'abonnement MSDN](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F) : votre abonnement MSDN vous offre des crédits chaque mois que vous pouvez utiliser pour les services Azure payants.
 
-<!----HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

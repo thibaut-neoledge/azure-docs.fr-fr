@@ -437,4 +437,4 @@ Dans ce didacticiel, vous avez appris à approvisionner un cluster HBase. Pour p
 [img-provision-cluster-page5]: ./media/hdinsight-hbase-provision-vnet/hbasewizard5.png "Utilisation de l’action de script pour personnaliser un cluster HBase"
  
 
-<!----HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

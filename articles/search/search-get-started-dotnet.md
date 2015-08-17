@@ -7,6 +7,7 @@
 	manager="mblythe"
 	editor=""/>
 
+
 <tags
 	ms.service="search"
 	ms.devlang="rest-api"
@@ -15,6 +16,7 @@
 	ms.tgt_pltfrm="na"
 	ms.date="07/08/2015"
 	ms.author="heidist"/>
+
 
 #Prise en main de votre première application Azure Search dans .NET#
 
@@ -127,22 +129,25 @@ Vous trouverez ci-dessous une liste partielle des assemblages utilisés dans cet
 
 Chaque projet inclut des fichiers de configuration qui spécifient le nom du service et la clé d'api.
 
-1. Dans **DataIndexer**, remplacez App.config par l'exemple suivant, en mettant à jour le [NOM DE SERVICE] et la [CLÉ du SERVICE] avec des valeurs qui sont valides pour votre service.
+1. Dans **DataIndexer**, remplacez App.config par l'exemple suivant, en mettant à jour le [NOM DE SERVICE\] et la [CLÉ du SERVICE\] avec des valeurs qui sont valides pour votre service.
 
-   Le nom du service n'est pas l'URL complète. Par exemple, si le point de terminaison de votre service de recherche est *https://mysearchsrv.search.microsoft.net*, le nom de service à entrer dans App.config est *mysearchsrv*.
+   Le nom du service n'est pas l'URL complète. Par exemple, si le point de terminaison de votre service de recherche est **https://mysearchsrv.search.microsoft.net*, le nom de service à entrer dans App.config est *mysearchsrv*.
 
 	    <?xml version="1.0" encoding="utf-8"?>
 	    <configuration>
 	      <startup>
 	         <supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.5" />
+
 	      </startup>
 	      <appSettings>
 	        <add key="SearchServiceName" value="[SERVICE NAME]" />
+
 	        <add key="SearchServiceApiKey" value="[SERVICE KEY]" />
+
 	      </appSettings>
 	    </configuration>
 
-2. Dans **SimpleSearchMVCApp**, remplacez Web.config par l'exemple suivant, en mettant de nouveau à jour le [NOM DE SERVICE] et la [CLÉ du SERVICE] avec des valeurs qui sont valides pour votre service.
+2. Dans **SimpleSearchMVCApp**, remplacez Web.config par l'exemple suivant, en mettant de nouveau à jour le [NOM DE SERVICE\] et la [CLÉ du SERVICE\] avec des valeurs qui sont valides pour votre service.
 
 		<?xml version="1.0" encoding="utf-8"?>
 		<!--
@@ -153,50 +158,72 @@ Chaque projet inclut des fichiers de configuration qui spécifient le nom du ser
 		  <configSections>
 		    <!-- For more information on Entity Framework configuration, visit http://go.microsoft.com/fwlink/?LinkID=237468 -->
 		    <section name="entityFramework" type="System.Data.Entity.Internal.ConfigFile.EntityFrameworkSection, EntityFramework, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" requirePermission="false" />
+
 		  </configSections>
 		  <connectionStrings>
 		    <add name="DefaultConnection" providerName="System.Data.SqlClient" connectionString="Data Source=(LocalDb)\v11.0;Initial Catalog=aspnet-SimpleMVCApp-20150303114355;Integrated Security=SSPI;AttachDBFilename=|DataDirectory|\aspnet-SimpleMVCApp-20150303114355.mdf" />
+
 		  </connectionStrings>
 		  <appSettings>
 		    <add key="SearchServiceName" value="[SEARCH SERVICE NAME]" />
+
 		    <add key="SearchServiceApiKey" value="[API KEY]" />
 
+
 		    <add key="webpages:Version" value="2.0.0.0" />
+
 		    <add key="webpages:Enabled" value="false" />
+
 		    <add key="PreserveLoginUrl" value="true" />
+
 		    <add key="ClientValidationEnabled" value="true" />
+
 		    <add key="UnobtrusiveJavaScriptEnabled" value="true" />
+
 		  </appSettings>
 		  <system.web>
 		    <httpRuntime targetFramework="4.5" />
+
 		    <compilation debug="true" targetFramework="4.5" />
+
 		    <authentication mode="Forms">
 		      <forms loginUrl="~/Account/Login" timeout="2880" />
+
 		    </authentication>
 		    <pages>
 		      <namespaces>
 		        <add namespace="System.Web.Helpers" />
+
 		        <add namespace="System.Web.Mvc" />
+
 		        <add namespace="System.Web.Mvc.Ajax" />
+
 		        <add namespace="System.Web.Mvc.Html" />
+
 		        <add namespace="System.Web.Optimization" />
+
 		        <add namespace="System.Web.Routing" />
+
 		        <add namespace="System.Web.WebPages" />
+
 		      </namespaces>
 		    </pages>
 		    <profile defaultProvider="DefaultProfileProvider">
 		      <providers>
 		        <add name="DefaultProfileProvider" type="System.Web.Providers.DefaultProfileProvider, System.Web.Providers, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" connectionStringName="DefaultConnection" applicationName="/" />
+
 		      </providers>
 		    </profile>
 		    <membership defaultProvider="DefaultMembershipProvider">
 		      <providers>
 		        <add name="DefaultMembershipProvider" type="System.Web.Providers.DefaultMembershipProvider, System.Web.Providers, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" connectionStringName="DefaultConnection" enablePasswordRetrieval="false" enablePasswordReset="true" requiresQuestionAndAnswer="false" requiresUniqueEmail="false" maxInvalidPasswordAttempts="5" minRequiredPasswordLength="6" minRequiredNonalphanumericCharacters="0" passwordAttemptWindow="10" applicationName="/" />
+
 		      </providers>
 		    </membership>
 		    <roleManager defaultProvider="DefaultRoleProvider">
 		      <providers>
 		        <add name="DefaultRoleProvider" type="System.Web.Providers.DefaultRoleProvider, System.Web.Providers, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" connectionStringName="DefaultConnection" applicationName="/" />
+
 		      </providers>
 		    </roleManager>
 		    <!--
@@ -208,26 +235,37 @@ Chaque projet inclut des fichiers de configuration qui spécifient le nom du ser
 		    <sessionState mode="InProc" customProvider="DefaultSessionProvider">
 		      <providers>
 		        <add name="DefaultSessionProvider" type="System.Web.Providers.DefaultSessionStateProvider, System.Web.Providers, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" connectionStringName="DefaultConnection" />
+
 		      </providers>
 		    </sessionState>
 		  </system.web>
 		  <system.webServer>
 		    <validation validateIntegratedModeConfiguration="false" />
+
 		    <handlers>
 		      <remove name="ExtensionlessUrlHandler-ISAPI-4.0_32bit" />
+
 		      <remove name="ExtensionlessUrlHandler-ISAPI-4.0_64bit" />
+
 		      <remove name="ExtensionlessUrlHandler-Integrated-4.0" />
+
 		      <add name="ExtensionlessUrlHandler-ISAPI-4.0_32bit" path="*." verb="GET,HEAD,POST,DEBUG,PUT,DELETE,PATCH,OPTIONS" modules="IsapiModule" scriptProcessor="%windir%\Microsoft.NET\Framework\v4.0.30319\aspnet_isapi.dll" preCondition="classicMode,runtimeVersionv4.0,bitness32" responseBufferLimit="0" />
+
 		      <add name="ExtensionlessUrlHandler-ISAPI-4.0_64bit" path="*." verb="GET,HEAD,POST,DEBUG,PUT,DELETE,PATCH,OPTIONS" modules="IsapiModule" scriptProcessor="%windir%\Microsoft.NET\Framework64\v4.0.30319\aspnet_isapi.dll" preCondition="classicMode,runtimeVersionv4.0,bitness64" responseBufferLimit="0" />
+
 		      <add name="ExtensionlessUrlHandler-Integrated-4.0" path="*." verb="GET,HEAD,POST,DEBUG,PUT,DELETE,PATCH,OPTIONS" type="System.Web.Handlers.TransferRequestHandler" preCondition="integratedMode,runtimeVersionv4.0" />
+
 		      <remove name="OPTIONSVerbHandler" />
+
 		      <remove name="TRACEVerbHandler" />
+
 		    </handlers>
 		  </system.webServer>
 		  <entityFramework>
 		    <defaultConnectionFactory type="System.Data.Entity.Infrastructure.LocalDbConnectionFactory, EntityFramework">
 		      <parameters>
 		        <parameter value="v12.0" />
+
 		      </parameters>
 		    </defaultConnectionFactory>
 		  </entityFramework>
@@ -235,31 +273,45 @@ Chaque projet inclut des fichiers de configuration qui spécifient le nom du ser
 		    <assemblyBinding xmlns="urn:schemas-microsoft-com:asm.v1">
 		      <dependentAssembly>
 		        <assemblyIdentity name="Newtonsoft.Json" publicKeyToken="30ad4fe6b2a6aeed" culture="neutral" />
+
 		        <bindingRedirect oldVersion="0.0.0.0-6.0.0.0" newVersion="6.0.0.0" />
+
 		      </dependentAssembly>
 		      <dependentAssembly>
 		        <assemblyIdentity name="WebGrease" publicKeyToken="31bf3856ad364e35" culture="neutral" />
+
 		        <bindingRedirect oldVersion="0.0.0.0-1.6.5135.21930" newVersion="1.6.5135.21930" />
+
 		      </dependentAssembly>
 		      <dependentAssembly>
 		        <assemblyIdentity name="Antlr3.Runtime" publicKeyToken="eb42632606e9261f" culture="neutral" />
+
 		        <bindingRedirect oldVersion="0.0.0.0-3.5.0.2" newVersion="3.5.0.2" />
+
 		      </dependentAssembly>
 		      <dependentAssembly>
 		        <assemblyIdentity name="System.Web.Helpers" publicKeyToken="31bf3856ad364e35" />
+
 		        <bindingRedirect oldVersion="1.0.0.0-3.0.0.0" newVersion="3.0.0.0" />
+
 		      </dependentAssembly>
 		      <dependentAssembly>
 		        <assemblyIdentity name="System.Web.WebPages" publicKeyToken="31bf3856ad364e35" />
+
 		        <bindingRedirect oldVersion="1.0.0.0-3.0.0.0" newVersion="3.0.0.0" />
+
 		      </dependentAssembly>
 		      <dependentAssembly>
 		        <assemblyIdentity name="System.Web.Mvc" publicKeyToken="31bf3856ad364e35" />
+
 		        <bindingRedirect oldVersion="1.0.0.0-5.2.3.0" newVersion="5.2.3.0" />
+
 		      </dependentAssembly>
 		      <dependentAssembly>
 		        <assemblyIdentity name="System.Web.WebPages.Razor" publicKeyToken="31bf3856ad364e35" />
+
 		        <bindingRedirect oldVersion="1.0.0.0-3.0.0.0" newVersion="3.0.0.0" />
+
 		      </dependentAssembly>
 		    </assemblyBinding>
 		  </runtime>
@@ -678,9 +730,11 @@ Remplacez le code par défaut par le code suivant.
 	<h2>USGS Search for Rhode Island</h2>
 
 	<div class="container">
-	    <input type="search" name="q" id="q" autocomplete="off" size="100" /> <button onclick="Search();">Search</button>
+	    <input type="search" name="q" id="q" autocomplete="off" size="100" />
+ <button onclick="Search();">Search</button>
 	</div>
 	<br />
+
 	<div class="container">
 	    <div class="row">
 	        <table id="searchResults" border="1"></table>
@@ -798,4 +852,4 @@ Vous découvrez Azure Search ? Nous vous recommandons de suivre les autres dida
 [12]: ./media/search-get-started-dotnet/AzSearch-DotNet-NuGet-2.PNG
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

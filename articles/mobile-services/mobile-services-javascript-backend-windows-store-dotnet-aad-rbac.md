@@ -66,7 +66,7 @@ Si vous débutez avec le déploiement de scripts vers votre service mobile avec 
 1. Créez un fichier de script nommé *rbac.js* dans le répertoire *./service/shared/* du référentiel local de votre service mobile.
 2. En haut du fichier, ajoutez le script suivant qui définit la fonction `getAADToken`. Étant donné le *domaine du locataire*, l'*ID client* de l'application intégrée et la *clé* d'application, cette fonction fournit un jeton d'accès Graph permettant de lire les informations de l'annuaire.
 
-    >[AZURE.NOTE]Vous devez mettre en cache le jeton au lieu d'en créer un nouveau à chaque vérification d'accès. Actualisez ensuite le cache lorsqu'une tentative d'utilisation du jeton renvoie une réponse 401 Authentication_ExpiredToken comme indiqué dans la page de [référence sur les erreurs de l'API Graph]. Par souci de simplicité, le code ci-après ne reflète pas cette possibilité, mais cela permet de réduire le trafic réseau supplémentaire vers Active Directory.
+    >[AZURE.NOTE]Vous devez mettre en cache le jeton au lieu d'en créer un nouveau à chaque vérification d'accès. Actualisez ensuite le cache lorsqu'une tentative d'utilisation du jeton renvoie une réponse 401 Authentication\_ExpiredToken comme indiqué dans la page de [référence sur les erreurs de l'API Graph]. Par souci de simplicité, le code ci-après ne reflète pas cette possibilité, mais cela permet de réduire le trafic réseau supplémentaire vers Active Directory.
 
         var appSettings = require('mobileservice-config').appSettings;
         var tenant_domain = appSettings.AAD_TENANT_DOMAIN;
@@ -286,4 +286,4 @@ La procédure suivante montre comment déployer un contrôle d'accès en fonctio
 [IsMemberOf]: http://msdn.microsoft.com/library/azure/dn151601.aspx
 [Accès aux informations Azure Active Directory Graph]: mobile-services-javascript-backend-windows-store-dotnet-aad-graph-info.md
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

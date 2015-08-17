@@ -36,4 +36,4 @@ Les didacticiels de cette section fournissent les consignes pour la configuratio
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

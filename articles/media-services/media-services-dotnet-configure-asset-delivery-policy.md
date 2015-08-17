@@ -7,6 +7,7 @@
 	manager="dwrede" 
 	editor=""/>
 
+
 <tags 
 	ms.service="media-services" 
 	ms.workload="media" 
@@ -15,6 +16,7 @@
 	ms.topic="article" 
 	ms.date="05/24/2015" 
 	ms.author="juliako"/>
+
 
 #Procédure : configuration de stratégies de remise de ressources
 [AZURE.INCLUDE [media-services-selector-asset-delivery-policy](../../includes/media-services-selector-asset-delivery-policy.md)]
@@ -291,4 +293,4 @@ Pour plus d'informations sur les valeurs que vous pouvez spécifier au moment de
         EnvelopeEncryptionIV,
     } 
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

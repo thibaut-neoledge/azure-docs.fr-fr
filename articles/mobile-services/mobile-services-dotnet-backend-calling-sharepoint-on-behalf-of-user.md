@@ -69,11 +69,11 @@ Pour appeler SharePoint, vous devez spécifier les points de terminaison avec le
 
     ![][3]
 
-4. Définissez SP_Authority sur le point de terminaison d'autorité pour votre client AAD. Cette valeur doit être identique à la valeur d'autorité utilisée pour votre application cliente. Elle aura la forme suivante : https://login.windows.net/contoso.onmicrosoft.com
+4. Définissez SP\_Authority sur le point de terminaison d'autorité pour votre client AAD. Cette valeur doit être identique à la valeur d'autorité utilisée pour votre application cliente. Elle aura la forme suivante : https://login.windows.net/contoso.onmicrosoft.com
 
-5. Définissez SP_ClientSecret sur la valeur de la clé secrète client que vous avez obtenue précédemment.
+5. Définissez SP\_ClientSecret sur la valeur de la clé secrète client que vous avez obtenue précédemment.
 
-6. Définissez SP_SharePointURL sur l'URL de votre site SharePoint. Il doit être de la forme https://contoso-my.sharepoint.com
+6. Définissez SP\_SharePointURL sur l'URL de votre site SharePoint. Il doit être de la forme https://contoso-my.sharepoint.com
 
 Vous pouvez obtenir de nouveau ces valeurs dans notre code avec ApiServices.Settings.
 
@@ -219,4 +219,4 @@ Pour créer un document Word, vous allez utiliser le package NuGet OpenXML. Inst
 [Authentification de votre application avec le service d'authentification unique de la bibliothèque d'authentification Active Directory]: http://azure.microsoft.com/documentation/articles/mobile-services-windows-store-dotnet-adal-sso-authentication/
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

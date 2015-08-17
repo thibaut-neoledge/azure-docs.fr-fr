@@ -311,7 +311,7 @@ Passez en revue le jeu de commandes Azure PowerShell que vous avez créé dans v
 
 Si vos commandes sont dans un éditeur de texte, copiez le jeu de commandes dans le Presse-papiers, puis cliquez avec le bouton droit sur votre invite de commandes Azure PowerShell ouverte. Vous émettez ainsi le jeu de commandes en tant que série de commandes PowerShell et créez votre machine virtuelle Azure. Vous pouvez aussi exécuter le jeu de commandes depuis l’environnement d’écriture de scripts intégré d’Azure PowerShell.
 
-Si vous devez créer à nouveau cette machine virtuelle ou une machine virtuelle similaire, vous pouvez enregistrer ce jeu de commandes en tant que fichier de script PowerShell (\*.ps1).
+Si vous devez créer à nouveau cette machine virtuelle ou une machine virtuelle similaire, vous pouvez enregistrer ce jeu de commandes en tant que fichier de script PowerShell (*.ps1).
 
 ## Exemple
 
@@ -387,4 +387,4 @@ Voici le jeu de commandes Azure PowerShell correspondant pour créer cette machi
 
 [Installation et configuration d’Azure PowerShell](../install-configure-powershell.md)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

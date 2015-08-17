@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="Gestion des risques avec accès conditionnel" 
-	description="Rubrique qui explique comment autoriser n’importe où l’accès à des ressources spécifiques à partir d’appareils connus, conformément aux stratégies et interdire l’accès à partir d’appareils perdus, volés, non conformes." 
-	services="active-directory, virtual-network" 
-	documentationCenter="" 
-	authors="Justinha" 
-	manager="TerryLan" 
-	editor="LisaToft"/>
+<properties
+	pageTitle="Gestion des risques avec accès conditionnel"
+	description="Rubrique qui explique comment autoriser n’importe où l’accès à des ressources spécifiques à partir d’appareils connus, conformément aux stratégies et interdire l’accès à partir d’appareils perdus, volés, non conformes."
+	services="active-directory, virtual-network"
+	documentationCenter=""
+	authors="femila"
+	manager="stevepo"
+	editor=""/>
 
-<tags 
-	ms.service="active-directory" 
-	ms.devlang="na" 
-	ms.topic="article" 
-    ms.tgt_pltfrm="na" 
-    ms.workload="identity" 
-	ms.date="05/05/2015" 
-	ms.author="Justinha"/>
+<tags
+	ms.service="active-directory"
+	ms.devlang="na"
+	ms.topic="article"
+  ms.tgt_pltfrm="na"
+  ms.workload="identity" 
+	ms.date="07/31/2015"
+	ms.author="femila"/>
 
 
 # Gestion des risques avec accès conditionnel
@@ -43,6 +43,5 @@ Les rubriques suivantes décrivent les différents mécanismes disponibles pour 
 
 <!--Image references-->
 [1]: ./media/active-directory-conditional-access/condaccoverviewvsdx1.png
- 
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -7,6 +7,7 @@
 	manager="timlt"
 	editor=""/>
 
+
 <tags
 	ms.service="cloud-services"
 	ms.workload="tbd"
@@ -15,6 +16,7 @@
 	ms.topic="article"
 	ms.date="06/29/2015"
 	ms.author="adegeo"/>
+
 
 # Configuration d’un nom de domaine personnalisé pour un service cloud Azure
 
@@ -32,6 +34,7 @@ Avez-vous déjà compris ce que sont les enregistrements CNAME et A ? [Passer l
 
 <p/>
 
+
 > [AZURE.TIP]Soyez opérationnel plus rapidement ! Utilisez la nouvelle [procédure pas à pas](http://support.microsoft.com/kb/2990804) d’Azure ! L’association d’un nom de domaine personnalisé ET la sécurisation des communications (SSL) avec Azure Cloud Services ou Sites Web Azure deviennent un jeu d’enfant.
 
 ## Présentation des enregistrements CNAME et A
@@ -40,13 +43,13 @@ Bien que fonctionnant différemment, les enregistrements CNAME (ou enregistremen
 
 ### Enregistrement CNAME ou d’alias
 
-Un enregistrement CNAME associe un domaine *spécifique*, tel que **contoso.com** ou **www.contoso.com**, à un nom de domaine canonique. Dans ce cas, le nom de domaine canonique est le nom de domaine **[myapp].cloudapp.net** de votre application hébergée Azure. Une fois créé, l’enregistrement CNAME émet un alias pour **[myapp].cloudapp.net**. L’entrée CNAME devient automatiquement l’adresse IP de votre service **[myapp].cloudapp.net**. Ainsi, même si l’adresse IP du service cloud change, vous n’avez aucune action à effectuer.
+Un enregistrement CNAME associe un domaine *spécifique*, tel que **contoso.com** ou **www.contoso.com**, à un nom de domaine canonique. Dans ce cas, le nom de domaine canonique est le nom de domaine **[myapp\].cloudapp.net** de votre application hébergée Azure. Une fois créé, l’enregistrement CNAME émet un alias pour **[myapp\].cloudapp.net**. L’entrée CNAME devient automatiquement l’adresse IP de votre service **[myapp\].cloudapp.net**. Ainsi, même si l’adresse IP du service cloud change, vous n’avez aucune action à effectuer.
 
 > [AZURE.NOTE]Certains bureaux d’enregistrement de domaines autorisent le mappage de sous-domaines uniquement lorsqu’un enregistrement CNAME est utilisé (par exemple, www.contoso.com) et non un nom racine (tel que contoso.com). Pour plus d'informations sur les enregistrements CNAME, consultez la documentation fournie par votre bureau d'enregistrement, [la page Wikipedia sur l'enregistrement CNAME](http://en.wikipedia.org/wiki/CNAME_record) ou le document [Noms de domaine IETF - Implémentation et spécification](http://tools.ietf.org/html/rfc1035).
 
 ### Enregistrement A
 
-Un enregistrement *A* associe un domaine, tel que **contoso.com** ou **www.contoso.com**, ou un *nom de domaine générique* (par exemple : **\*.contoso.com**) à une adresse IP. Dans le cas d’un service cloud Azure, il s’agit de l’adresse IP virtuelle du service. Le principal avantage d'un enregistrement A par rapport à un enregistrement CNAME est que vous pouvez disposer d'une entrée utilisant un caractère générique (par exemple, \*\*.contoso.com\*\*), ce qui permet de gérer les demandes pour plusieurs sous-domaines, tels que **mail.contoso.com**, **login.contoso.com** ou **www.contso.com**.
+Un enregistrement *A* associe un domaine, tel que **contoso.com** ou **www.contoso.com**, ou un *nom de domaine générique* (par exemple : ***.contoso.com**) à une adresse IP. Dans le cas d’un service cloud Azure, il s’agit de l’adresse IP virtuelle du service. Le principal avantage d'un enregistrement A par rapport à un enregistrement CNAME est que vous pouvez disposer d'une entrée utilisant un caractère générique (par exemple, **.contoso.com**), ce qui permet de gérer les demandes pour plusieurs sous-domaines, tels que **mail.contoso.com**, **login.contoso.com** ou **www.contso.com**.
 
 > [AZURE.NOTE]L’enregistrement A étant associé à une adresse IP statique, les changements d’adresse IP de votre service cloud ne sont donc pas pris en compte automatiquement. L’adresse IP utilisée par votre service cloud est allouée la première fois que vous effectuez un déploiement vers un emplacement vide (de production ou intermédiaire). Si vous supprimez le déploiement de l’emplacement, l’adresse IP est publiée par Azure et tout déploiement futur dans l’emplacement peut recevoir une nouvelle adresse IP.
 >
@@ -77,7 +80,7 @@ Pour créer un enregistrement CNAME, vous devez ajouter une nouvelle entrée dan
 
 2.  Maintenant, cherchez où vous pouvez sélectionner ou saisir vos enregistrements CNAME. Il se peut que vous deviez sélectionner le type d’enregistrement dans une liste déroulante ou accéder à une page de paramètres avancés. La section recherchée doit normalement comporter les mots **CNAME**, **Alias** ou **Subdomains**.
 
-3.  Vous devez également fournir l’alias de domaine ou de sous-domaine pour l’enregistrement CNAME, tel que **www** si vous voulez créer un alias pour **www.domainepersonnalisé.com**. Si vous voulez créer un alias pour le domaine racine, l'entrée correspondante peut être répertoriée avec le symbole '\*\*@\*\* dans les outils DNS de votre bureau d'enregistrement.
+3.  Vous devez également fournir l’alias de domaine ou de sous-domaine pour l’enregistrement CNAME, tel que **www** si vous voulez créer un alias pour **www.domainepersonnalisé.com**. Si vous voulez créer un alias pour le domaine racine, l’entrée correspondante devrait être répertoriée avec le symbole « **@** » dans les outils DNS de votre bureau d’enregistrement.
 
 4. Vous devez ensuite fournir un nom d’hôte canonique, qui correspond au domaine **cloudapp.net** de votre application dans le cas présent.
 
@@ -89,7 +92,7 @@ Par exemple, l’enregistrement CNAME suivant renvoie tout le trafic de **www.co
 
 > [AZURE.NOTE]Un utilisateur consultant le site **www.contoso.com** ne verra jamais l’adresse de l’hôte réel (contoso.cloudapp.net). Le processus de transfert est donc invisible pour l’utilisateur final.
 
-> L'exemple ci-dessus s'applique uniquement au trafic du sous-domaine **www**. Puisqu'il n'est pas possible d'utiliser des caractères génériques pour les enregistrements CNAME, vous devez créer un enregistrement CNAME pour chaque domaine/sous-domaine. Pour diriger le trafic de sous-domaines tels que *.contoso.com vers votre adresse cloudapp.net, vous pouvez configurer une entrée de **redirection d’URL** ou de **transfert d’URL** dans vos paramètres DNS. Vous pouvez également créer un enregistrement A.
+> L'exemple ci-dessus s'applique uniquement au trafic du sous-domaine **www**. Puisqu'il n'est pas possible d'utiliser des caractères génériques pour les enregistrements CNAME, vous devez créer un enregistrement CNAME pour chaque domaine/sous-domaine. Pour rediriger le trafic de sous-domaines tels que *.contoso.com vers votre adresse cloudapp.net, vous pouvez configurer une entrée de **redirection d’URL** ou de **transfert d’URL** dans vos paramètres DNS. Vous pouvez également créer un enregistrement A.
 
 
 ## Ajouter un enregistrement A pour votre domaine personnalisé
@@ -116,9 +119,9 @@ Pour créer un enregistrement A, vous devez tout d’abord connaître l’adres
 
 2.  Maintenant, cherchez où vous pouvez sélectionner ou saisir vos enregistrements A. Il se peut que vous deviez sélectionner le type d’enregistrement dans une liste déroulante ou accéder à une page de paramètres avancés.
 
-3. Sélectionnez ou entrez le domaine ou sous-domaine qui utilisera cet enregistrement A. Par exemple, sélectionnez **www** si vous souhaitez créer un alias pour **www.domainepersonnalisé.com**. Pour créer une entrée avec des caractères génériques pour l'ensemble des sous-domaines, entrez « \_\_\*\_\_ ». Ceci permet de couvrir tous les sous-domaines tels que **mail.customdomain.com**, **login.customdomain.com** ou **www.domainepersonnalisé.com**.
+3. Sélectionnez ou entrez le domaine ou sous-domaine qui utilisera cet enregistrement A. Par exemple, sélectionnez **www** si vous souhaitez créer un alias pour **www.domainepersonnalisé.com**. Pour créer une entrée avec des caractères génériques pour l'ensemble des sous-domaines, entrez « \_\_*\_\_ ». Ceci permet de couvrir tous les sous-domaines tels que **mail.customdomain.com**, **login.customdomain.com** ou **www.domainepersonnalisé.com**.
 
-    Si vous voulez créer un enregistrement A pour le domaine racine, l'entrée correspondante devrait être répertoriée avec le symbole '\*\*@\*\* dans les outils DNS de votre bureau d'enregistrement.
+    Si vous voulez créer un enregistrement A pour le domaine racine, l’entrée correspondante devrait être répertoriée avec le symbole « **@** » dans les outils DNS de votre bureau d’enregistrement.
 
 4. Entrez l’adresse IP de votre service cloud dans le champ prévu à cet effet. Cette opération permet d’associer le domaine de l’enregistrement A avec l’adresse IP de votre déploiement de service cloud.
 
@@ -129,7 +132,7 @@ Par exemple, l’enregistrement A suivant transfère tout le trafic de **contos
 | @ | 137\.135.70.239 |
 
 
-Cet exemple montre comment créer un enregistrement A pour le domaine racine. Pour créer une entrée avec des caractères génériques qui couvre l'ensemble des sous-domaines, entrez « \_\_\*\_\_ » comme sous-domaine.
+Cet exemple montre comment créer un enregistrement A pour le domaine racine. Pour créer une entrée avec des caractères génériques qui couvre l'ensemble des sous-domaines, entrez « \_\_*\_\_ » comme sous-domaine.
 
 >[AZURE.WARNING]Les adresses IP dans Azure sont dynamiques par défaut. Vous souhaiterez probablement utiliser une [adresse IP réservée](..\virtual-network\virtual-networks-reserved-public-ip.md) pour vous assurer que votre adresse IP ne change pas.
 
@@ -148,4 +151,4 @@ Cet exemple montre comment créer un enregistrement A pour le domaine racine. P
 [csurl]: ./media/cloud-services-custom-domain-name-portal/csurl.png
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

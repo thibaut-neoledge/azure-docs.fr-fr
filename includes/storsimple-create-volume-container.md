@@ -15,4 +15,4 @@
 
   Le nouveau conteneur de volumes apparaît sur la page **Conteneurs de volume**.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

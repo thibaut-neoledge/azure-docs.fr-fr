@@ -230,4 +230,4 @@ var myServicePartitionClient = new ServicePartitionClient<MyCommunicationClient>
 * [Écriture d'un service à l'aide de l'API de services fiables qui utilise la pile de communication WebAPI](service-fabric-reliable-services-communication-webapi.md)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -80,19 +80,19 @@ UpgradeTimeout = 3000
 
 ## Étape 4 : Préparer l'application pour la mise à niveau
 
-À présent, l'application est créée et prête à être mise à niveau. Si vous ouvrez une fenêtre PowerShell en tant qu'administrateur et tapez **Get-ServiceFabricApplication**, la commande doit vous informer que le Type d'application 1.0.0.0 de **VisualObjects** est en cours de déploiement. Le package d'application est stocké sous le chemin d'accès relatif suivant où vous avez décompressé le Kit de développement logiciel (SDK) Fabric Service : *Samples\Services\Stateful\VisualObjects\VisualObjects\obj\x64\Debug*. Un dossier « Package » doit figurer dans ce répertoire. Il contient le package d'application. Vérifiez les horodatages pour vous assurer qu'il s'agit de la dernière version (et vous devrez peut-être également modifier les chemins d'accès en conséquence).
+À présent, l'application est créée et prête à être mise à niveau. Si vous ouvrez une fenêtre PowerShell en tant qu'administrateur et tapez **Get-ServiceFabricApplication**, la commande doit vous informer que le Type d'application 1.0.0.0 de **VisualObjects** est en cours de déploiement. Le package d'application est stocké sous le chemin d'accès relatif suivant où vous avez décompressé le Kit de développement logiciel (SDK) Fabric Service : *Samples\\Services\\Stateful\\VisualObjects\\VisualObjects\\obj\\x64\\Debug*. Un dossier « Package » doit figurer dans ce répertoire. Il contient le package d'application. Vérifiez les horodatages pour vous assurer qu'il s'agit de la dernière version (et vous devrez peut-être également modifier les chemins d'accès en conséquence).
 
-À présent, nous allons copier le package d'application mis à jour dans le magasin d'images de Service Fabric (où les packages d'application sont stockés par Service Fabric). Le paramètre *ApplicationPackagePathInImageStore* indique à Service Fabric où il peut trouver le package d'application. Nous avons placé l'application mise à jour dans « VisualObjects_V2 » à l'aide de la commande suivante (vous devrez peut-être modifier de nouveau les chemins d'accès en conséquence).
+À présent, nous allons copier le package d'application mis à jour dans le magasin d'images de Service Fabric (où les packages d'application sont stockés par Service Fabric). Le paramètre *ApplicationPackagePathInImageStore* indique à Service Fabric où il peut trouver le package d'application. Nous avons placé l'application mise à jour dans « VisualObjects\_V2 » à l'aide de la commande suivante (vous devrez peut-être modifier de nouveau les chemins d'accès en conséquence).
 
 ```powershell
 Copy-ServiceFabricApplicationPackage  -ApplicationPackagePath .\Samples\Services\Stateful\VisualObjects\VisualObjects\obj\x64\Debug\Package
--ImageStoreConnectionString fabric:ImageStore   -ApplicationPackagePathInImageStore "VisualObjects_V2"
+-ImageStoreConnectionString fabric:ImageStore   -ApplicationPackagePathInImageStore "VisualObjects\_V2"
 ```
 
 L'étape suivante consiste à inscrire l'application auprès de Service Fabric, ce qui peut être effectué à l'aide de la commande suivante :
 
 ```powershell
-Register-ServiceFabricApplicationType -ApplicationPathInImageStore "VisualObjects_V2"
+Register-ServiceFabricApplicationType -ApplicationPathInImageStore "VisualObjects\_V2"
 ```
 
 Si la commande ci-dessus ne réussit pas, il est probable que vous ayez besoin d'une régénération de tous les services. Comme cela est mentionné à l'étape 2, vous devrez peut-être mettre à jour également votre version de WebService.
@@ -126,4 +126,4 @@ Vous souhaiterez peut-être essayer de modifier les versions et de passer de la 
 [Résolution des problèmes de mise à niveau d'une application](service-fabric-application-upgrade-troubleshooting.md)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -7,14 +7,16 @@
 	manager="jdial" 
 	editor=""/>
 
+
 <tags 
 	ms.service="storage" 
 	ms.workload="storage" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/28/2015" 
+	ms.date="08/04/2015" 
 	ms.author="micurd;tamram"/>
+
 
 # Gestion de l’accès aux ressources d’Azure Storage
 
@@ -22,11 +24,11 @@
 
 Par défaut, seul le propriétaire du compte de stockage peut accéder aux ressources de stockage de ce compte. Si votre service ou application doit mettre ces ressources à disposition d’autres clients sans partager votre clé d’accès, vous disposez des options suivantes pour autoriser l’accès :
 
-- Vous pouvez définir les autorisations d’un conteneur afin de permettre un accès en lecture anonyme au conteneur et à ses objets blob. Cela n’est pas autorisé pour les tables ou les files d'attente.
+- Vous pouvez définir les autorisations d’un conteneur afin de permettre un accès en lecture anonyme au conteneur et à ses objets blob. L’accès en lecture anonyme n’est disponible que pour les conteneurs et objets blob. 
 
-- Vous pouvez exposer une ressource via une signature d’accès partagé, ce qui vous permet de déléguer un accès limité à une ressource de conteneur, à un objet blob, à une table ou à une file d’attente en spécifiant l’intervalle pendant lequel les ressources seront disponibles et les autorisations dont bénéficiera le client.
+- Vous pouvez exposer une ressource via une signature d’accès partagé, ce qui vous permet de déléguer un accès limité à un conteneur, un objet blob, une table, une file d’attente, un partage de fichiers ou un fichier, en spécifiant l’intervalle pendant lequel les ressources seront disponibles et les autorisations dont bénéficiera le client.
 
-- Vous pouvez utiliser une stratégie d’accès stockée pour gérer les signatures d’accès partagé d’un conteneur ou ses objets blob, d’une file d’attente ou d’une table. La stratégie d’accès stockée vous donne un contrôle supplémentaire sur vos signatures d’accès partagé et permet également de les révoquer simplement.
+- Vous pouvez utiliser une stratégie d’accès stockée pour gérer les signatures d’accès partagé d’un conteneur ou de ses objets blob, d’une file d’attente, d’une table ou d’un partage de fichiers et de ses fichiers. La stratégie d’accès stockée vous donne un contrôle supplémentaire sur vos signatures d’accès partagé et permet également de les révoquer simplement.
 
 ## Limitation de l’accès aux conteneurs et aux objets blob
 
@@ -74,25 +76,18 @@ Le tableau suivant indique les opérations pouvant être appelées par les utili
 | Get Page Ranges | Tout | Tout |
 
 ## Créer et utiliser une signature d’accès partagé
-Une signature d’accès partagé est un URI qui accorde des droits d’accès restreints aux conteneurs, objets blob, files d'attente et tables pour un intervalle de temps spécifique. En fournissant à un client une signature d’accès partagé, vous lui permettez d’accéder aux ressources de votre compte de stockage sans partager la clé de votre compte.
+Une signature d’accès partagé (SAP) est un URI qui accorde des droits d’accès restreint à une ressource de stockage pendant un intervalle de temps donné. Vous pouvez créer une SAP sur les ressources de stockage suivantes :
+
+- Conteneurs et objets blob
+- Files d’attente
+- Tables
+- Partages de fichiers et fichiers 
+
+En fournissant à un client une signature d’accès partagé, vous lui permettez d’accéder aux ressources de votre compte de stockage sans partager la clé de votre compte.
 
 >[AZURE.NOTE]Pour obtenir une vue d'ensemble conceptuelle détaillée et un didacticiel sur les signatures d'accès partagé, consultez [Signatures d'accès partagé](storage-dotnet-shared-access-signature-part-1.md).
 
-Les opérations prises en charge qui utilisent des signatures d’accès partagé sont notamment :
-
-- La lecture et l’écriture de contenu d’objet blob de blocs ou de pages, de listes de blocs, de propriétés et de métadonnées ;
-
-- la suppression, la location et la création d'un instantané d’un objet blob ;
-
-- la création d’une liste des objets blob contenus dans un conteneur ;
-
-- l’ajout, la suppression, la mise à jour et la suppression de messages de la file d'attente (dans la version 2.0 et ultérieures de la bibliothèque cliente de stockage) ;
-
-- l’obtention de métadonnées de file d’attente, y compris le nombre de messages (dans la version 2.0 et ultérieures de la bibliothèque cliente de stockage) ;
-
-- l’interrogation, l’ajout, la mise à jour, la suppression et l’upsert des entités de table (dans la version 2.0 et ultérieures de la bibliothèque cliente de stockage).
-
-Les paramètres de requête d’URI de signature d’accès partagé incorporent toutes les informations nécessaires pour accorder l’accès contrôlé à une ressource de stockage. Les paramètres de requête d’URI spécifient l’intervalle de temps pendant lequel la signature d’accès partagé est valide, les autorisations qu’elle accorde, la ressource qui doit être rendue disponible et la signature que les services de stockage doivent utiliser pour authentifier la demande.
+Les paramètres de requête d’URI de signature d’accès partagé incorporent toutes les informations nécessaires pour accorder l’accès contrôlé à une ressource de stockage. Dans une SAP, les paramètres de requête d’URI spécifient l’intervalle de temps pendant lequel la signature d’accès partagé est valide, les autorisations qu’elle accorde, la ressource qui doit être rendue disponible, la version à utiliser pour exécuter la demande et la signature que les services de stockage utiliseront pour authentifier la demande.
 
 En outre, l’URI de signature d’accès partagé peut faire référence à une stratégie d’accès stockée qui fournit un niveau de contrôle supplémentaire sur un ensemble de signatures, y compris la capacité à modifier ou à révoquer l’accès à la ressource si nécessaire.
 
@@ -178,18 +173,18 @@ Un client qui reçoit une signature d’accès partagé peut l’utiliser dans s
 ## Utiliser une stratégie d’accès stockée
 Une stratégie d’accès stockée fournit un niveau de contrôle supplémentaire sur les signatures d’accès partagé côté serveur. L’établissement d’une stratégie d’accès stockée sert à regrouper des signatures d’accès partagé et à fournir des restrictions supplémentaires pour les signatures liées par la stratégie. Vous pouvez utiliser une stratégie d’accès stockée pour modifier l’heure de début, l’heure d’expiration ou les autorisations d’une signature, ou pour la révoquer après sa publication.
 
-Une stratégie d’accès stockée procure un contrôle accru sur les signatures d’accès partagé que vous avez publiées. Au lieu de spécifier la durée de vie et les autorisations de la signature sur l’URL, vous pouvez spécifier ces paramètres dans la stratégie d’accès stockée sur l’objet blob, le conteneur, la file d'attente ou la table partagé(e). Pour modifier ces paramètres pour une ou plusieurs signatures, vous pouvez modifier la stratégie d’accès stockée au lieu de republier les signatures. Vous pouvez aussi rapidement révoquer la signature en modifiant la stratégie d’accès stockée.
+Une stratégie d’accès stockée procure un contrôle accru sur les signatures d’accès partagé que vous avez publiées. Au lieu de spécifier la durée de vie et les autorisations de la signature dans l’URL, vous pouvez spécifier ces paramètres dans une stratégie d’accès stockée dans le conteneur, le partage de fichiers, la file d’attente ou la table contenant la ressource à partager. Pour modifier ces paramètres pour une ou plusieurs signatures, vous pouvez modifier la stratégie d’accès stockée au lieu de republier les signatures. Vous pouvez aussi rapidement révoquer la signature en modifiant la stratégie d’accès stockée.
 
 Par exemple, imaginez que vous avez publié une signature d’accès partagé associée à une stratégie d’accès stockée. Si vous avez spécifié l’heure d’expiration dans la stratégie d’accès stockée, vous pouvez modifier la stratégie d’accès pour prolonger la durée de vie de la signature sans avoir à publier une nouvelle signature.
 
 Les meilleures pratiques recommandent de spécifier une stratégie d’accès stockée pour toute ressource signée pour laquelle vous publiez une signature d’accès partagé, car la stratégie stockée peut servir à modifier ou à révoquer la signature après sa publication. Si vous ne spécifiez pas de stratégie stockée, nous vous conseillons de limiter la durée de vie de votre signature pour réduire les risques au niveau de vos ressources de compte de stockage.
 
 ### Association d'une signature d’accès partagé à une stratégie d’accès stockée
-Une stratégie d’accès stockée inclut un nom composé de 64 caractères maximum et unique dans le conteneur, la file d’attente ou la table. Pour associer une signature d’accès partagé à une stratégie d’accès stockée, vous spécifiez cet identificateur lors de la création de la signature d’accès partagé. Dans l’URI de signature d’accès partagé, le champ *signedidentifier* spécifie l’identificateur de la stratégie d’accès stockée.
+Une stratégie d’accès stockée inclut un nom de 64 caractères maximum, qui est unique dans le conteneur, le partage de fichiers, la file d’attente ou la table. Pour associer une signature d’accès partagé à une stratégie d’accès stockée, vous spécifiez cet identificateur lors de la création de la signature d’accès partagé. Dans l’URI de signature d’accès partagé, le champ *signedidentifier* spécifie l’identificateur de la stratégie d’accès stockée.
 
-Un conteneur, une file d’attente ou une table peuvent inclure jusqu’à cinq stratégies d’accès stockées. Chaque stratégie peut être utilisée par plusieurs signatures d’accès partagé.
+Un conteneur, un partage de fichiers, une file d’attente ou une table peut contenir jusqu’à 5 stratégies d’accès stockées. Chaque stratégie peut être utilisée par plusieurs signatures d’accès partagé.
 
->[AZURE.NOTE]Lorsque vous établissez une stratégie d’accès stockée sur un conteneur, une file d’attente ou une table, son application peut prendre jusqu’à 30 secondes. Au cours de cet intervalle, une signature d’accès partagé associée à la stratégie d’accès stockée échoue avec le code d’état 403 (Interdit), jusqu'à ce que la stratégie d’accès devienne active.
+>[AZURE.NOTE]Lorsque vous définissez une stratégie d’accès stockée sur un conteneur, un partage de fichiers, une file d’attente ou une table, son application peut prendre jusqu’à 30 secondes. Au cours de cet intervalle, une signature d’accès partagé associée à la stratégie d’accès stockée échoue avec le code d’état 403 (Interdit), jusqu'à ce que la stratégie d’accès devienne active.
 
 ### Spécification des paramètres de stratégie d’accès pour une stratégie d’accès partagé
 La stratégie d’accès stockée peut spécifier les paramètres suivants de stratégie d’accès pour les signatures auxquelles elle est associée :
@@ -214,4 +209,4 @@ Pour révoquer l’accès aux signatures d’accès partagé qui utilisent la m�
 - [Signatures d'accès partagé : présentation du modèle SAP](storage-dotnet-shared-access-signature-part-1.md)
 - [Délégation de l'accès avec une signature d'accès partagé](https://msdn.microsoft.com/library/azure/ee395415.aspx) 
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

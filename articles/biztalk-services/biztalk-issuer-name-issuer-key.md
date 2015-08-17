@@ -55,7 +55,7 @@ Vous pouvez également cliquer sur **Ouvrir le portail de gestion ACS** pour ré
 
 Dans le volet de navigation de gauche, vous pouvez également sélectionner **Active Directory** pour récupérer les valeurs Access Control.
 
-> [AZURE.IMPORTANT]Lorsqu'un espace de noms Access Control est créé avec <strong>Active Directory</strong>, une identité de service n'est **pas** créée automatiquement. Lorsque vous approvisionnez un service BizTalk, un espace de noms Access Control, une identité de service appelée « Owner » (nom de l'émetteur), un mot de passe (clé de l'émetteur) et une clé symétrique sont automatiquement créés.<br /> La page [Utilisation du service de gestion ACS pour configurer des identités de service](http://go.microsoft.com/fwlink/p/?LinkID=303942) fournit des informations supplémentaires sur les identités de service Access Control.
+> [AZURE.IMPORTANT]Lorsqu'un espace de noms Access Control est créé au moyen d'**Active Directory**, une identité de service n'est **pas** créée automatiquement. Lorsque vous approvisionnez un service BizTalk, un espace de noms Access Control, une identité de service appelée « Owner » (nom de l'émetteur), un mot de passe (clé de l'émetteur) et une clé symétrique sont automatiquement créés.<br /> La page [Utilisation du service de gestion ACS pour configurer des identités de service](http://go.microsoft.com/fwlink/p/?LinkID=303942) fournit des informations supplémentaires sur les identités de service Access Control.
 
 
 ## Nom et clé de l'émetteur Service Bus
@@ -86,4 +86,4 @@ Autres rubriques Azure BizTalk Services :
 - [Limitation BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=302282)<br/>
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

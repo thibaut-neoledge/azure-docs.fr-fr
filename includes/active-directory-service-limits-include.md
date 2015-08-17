@@ -10,4 +10,4 @@ Présentation des contraintes d'utilisation et autres limites de service pour le
 | Panneau d'accès | <ul><li>Il n’existe pas de limite au nombre d’applications par utilisateur qui peuvent être affichées dans le Panneau d’accès pour les utilisateurs possédant une licence à Azure AD Premium ou Enterprise Mobility Suite.</li><li>Un maximum de 10 vignettes d’application (exemples : Box, Salesforce, ou Dropbox) peuvent être consultées dans le Panneau d’accès pour chaque utilisateur disposant d’une licence de l’édition gratuite ou de base d’Azure Active Directory. Cette limite ne s'applique pas aux comptes d'administrateur.</li></ul> |
 | Rapports | 1 000 lignes au maximum peuvent être affichées ou téléchargées dans un rapport. Toutes les données supplémentaires sont tronquées. |
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

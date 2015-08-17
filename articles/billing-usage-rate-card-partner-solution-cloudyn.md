@@ -90,4 +90,4 @@ Voici une courte vidéo expliquant la façon dont un client Azure peut utiliser 
 [6]: ./media/billing-usage-rate-card-partner-solution-cloudyn/Cloudyn-Performance-Reports.png
 [7]: ./media/billing-usage-rate-card-partner-solution-cloudyn/Cloudyn-Category-Manager.png
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

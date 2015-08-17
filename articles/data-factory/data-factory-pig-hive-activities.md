@@ -7,6 +7,7 @@
 	manager="jhubbard" 
 	editor="monicar"/>
 
+
 <tags 
 	ms.service="data-factory" 
 	ms.workload="data-services" 
@@ -15,6 +16,7 @@
 	ms.topic="article" 
 	ms.date="07/26/2015" 
 	ms.author="spelluru"/>
+
 
 # Utilisation de Pig et Hive avec Data Factory
 Un pipeline dans une fabrique de données Azure traite les données dans les services de stockage liés à l'aide des services de calcul liés. Il contient une séquence d'activités dans laquelle chaque activité effectue une opération de traitement spécifique. Cet article décrit l’utilisation de l’activité HDInsight avec une transformation Pig/Hive dans un pipeline Azure Data Factory. Consultez la page [Appel de programmes MapReduce à partir de Data Factory][data-factory-map-reduce] pour plus d’informations sur l’exécution de programmes MapReduce sur un cluster HDInsight à partir d’un pipeline de fabrique de données Azure.
@@ -39,7 +41,7 @@ Cette procédure pas à pas fournit des instructions détaillées pour l’utili
 		FROM hivesampletable 
 		group by country, state;
 
-	> [AZURE.NOTE]Pour utiliser le moteur **Tez** afin d’exécuter des requêtes Hive dans le fichier HQL, ajoutez « \*\*set hive.execution.engine=tez\*\*; » en haut du fichier.
+	> [AZURE.NOTE]Pour utiliser le moteur **Tez** afin d’exécuter des requêtes Hive dans le fichier HQL, ajoutez « **set hive.execution.engine=tez**; » en haut du fichier.
 		
 3.  Téléchargez **hivequery.hql** dans le conteneur **adftutorial** de votre stockage d’objets blob.
 
@@ -140,7 +142,7 @@ Le service Azure Data Factory prend en charge la création d'un cluster à la de
 		                        "Month":"$$Text.Format('{0:%M}',SliceStart)",
 		                        "Day":"$$Text.Format('{0:%d}',SliceStart)"
 		                    },
-		                    "scriptpath": "adftutorial\\hivequery.hql",
+		                    "scriptPath": "adftutorial\\hivequery.hql",
 						    "scriptLinkedService": "StorageLinkedService"
 						},
 						"policy":
@@ -159,7 +161,7 @@ Le service Azure Data Factory prend en charge la création d'un cluster à la de
       		}
 		}
 
-	> [AZURE.NOTE]Remplacez la valeur **StartDateTime** par une date antérieure de trois jours à la date actuelle, et remplacez la valeur **EndDateTime** par la date actuelle. Les valeurs StartDateTime et EndDateTime doivent être au [format ISO](http://fr.wikipedia.org/wiki/ISO_8601). Par exemple : 2014-10-14T16:32:41Z. La table de sortie est planifiée pour être produite tous les jours, trois tranches seront donc produites.
+	> [AZURE.NOTE]Remplacez la valeur **StartDateTime** par une date antérieure de trois jours à la date actuelle, et remplacez la valeur **EndDateTime** par la date actuelle. Les valeurs StartDateTime et EndDateTime doivent être au [format ISO](http://en.wikipedia.org/wiki/ISO_8601). Par exemple : 2014-10-14T16:32:41Z. La table de sortie est planifiée pour être produite tous les jours, trois tranches seront donc produites.
 	> 
 	> Remplacez **votre compte de stockage** dans le script JSON par le nom de votre compte de stockage.
 	
@@ -258,7 +260,7 @@ L’exemple de pipeline JSON suivant utilise une activité Hive qui fait référ
 					"transformation":
 					{
     					"type": "Hive",
-    					"scriptpath": "adfwalkthrough\\scripts\\transformdata.hql",    		
+    					"scriptPath": "adfwalkthrough\\scripts\\transformdata.hql",    		
 						"scriptLinkedService": "StorageLinkedService", 
 						"defines":
 						{
@@ -277,7 +279,7 @@ L’exemple de pipeline JSON suivant utilise une activité Hive qui fait référ
 	}
 
 
-> [AZURE.NOTE]Pour utiliser le moteur **Tez** pour exécuter une requête Hive, exécutez « \*\*set hive.execution.engine=tez\*\*; » avant d’exécuter la requête Hive.
+> [AZURE.NOTE]Pour utiliser le moteur **Tez** pour exécuter une requête Hive, exécutez « **set hive.execution.engine=tez**; » avant d’exécuter la requête Hive.
 > 
 > Pour plus d’informations sur les applets de commande, les schémas JSON et les propriétés du schéma, consultez la [référence du développeur](http://go.microsoft.com/fwlink/?LinkId=516908).
 
@@ -353,4 +355,4 @@ Article | Description
 [Azure Portal]: http://portal.azure.com
  
 
-<!------HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

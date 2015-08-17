@@ -1,21 +1,21 @@
-<properties 
-	pageTitle="Résolution des problèmes d’accès à une application exécutée sur une machine virtuelle Azure" 
+<properties
+	pageTitle="Résolution des problèmes d’accès à une application exécutée sur une machine virtuelle Azure"
 	description="Si vous ne pouvez pas accéder à une application exécutée sur une machine virtuelle Azure, procédez comme suit pour isoler la source du problème."
-	services="virtual-machines" 
-	documentationCenter="" 
-	authors="JoeDavies-MSFT" 
-	manager="timlt" 
+	services="virtual-machines"
+	documentationCenter=""
+	authors="dsk-2015"
+	manager="timlt"
 	editor=""
 	tags="azure-service-management,azure-resource-manager"/>
 
-<tags 
-	ms.service="virtual-machines" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/01/2015" 
-	ms.author="josephd"/>
+<tags
+	ms.service="virtual-machines"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/01/2015"
+	ms.author="dkshir"/>
 
 # Résolution des problèmes d’accès à une application exécutée sur une machine virtuelle Azure
 
@@ -26,7 +26,7 @@ Cet article décrit une approche méthodique pour isoler la source du problème 
 La résolution des problèmes d’accès à une application exécutée sur une machine virtuelle Azure comporte quatre domaines principaux.
 
 ![](./media/virtual-machines-troubleshoot-access-application/tshoot_app_access1.png)
- 
+
 1.	L’application exécutée sur la machine virtuelle Azure.
 2.	La machine virtuelle Azure.
 3.	Les points de terminaison Azure pour le service cloud qui contient la machine virtuelle (pour les machines virtuelles créées dans la gestion des services), les règles NAT entrantes (pour les machines virtuelles créées dans Resource Manager) et les groupes de sécurité réseau.
@@ -37,7 +37,7 @@ Pour les ordinateurs clients qui accèdent à l’application par le biais d’u
 ## Étape 1 : pouvez-vous accéder à l’application à partir de la machine virtuelle cible ?
 
 Essayez d’accéder à l’application avec le programme client approprié à partir de la machine virtuelle sur laquelle l’application s’exécute, utilisez le nom d’hôte local, l’adresse IP locale ou l’adresse de bouclage (127.0.0.1).
- 
+
 ![](./media/virtual-machines-troubleshoot-access-application/tshoot_app_access2.png)
 
 Par exemple, si l’application est un serveur web, exécutez un navigateur sur la machine virtuelle et essayez d’accéder à une page web hébergée sur la machine virtuelle.
@@ -54,7 +54,7 @@ Sur les machines virtuelles Windows et Linux, utilisez la commande **netstat** p
 ## <a id="step2"></a>Étape2 : pouvez-vous accéder à l’application à partir d’une autre machine virtuelle dans le même réseau virtuel ?
 
 Essayez d’accéder à l’application à partir d’une machine virtuelle différente dans le même réseau virtuel que la machine virtuelle sur laquelle l’application s’exécute à l’aide du nom d’hôte de la machine virtuelle, de son adresse IP publique ou privée affectée par Azure ou de l’adresse IP du fournisseur. Pour les machines virtuelles créées dans la gestion des services, n’utilisez pas l’adresse IP publique du service cloud.
- 
+
 ![](./media/virtual-machines-troubleshoot-access-application/tshoot_app_access3.png)
 
 Par exemple, si l’application est un serveur web, essayez d’accéder à un navigateur sur une autre machine virtuelle du même réseau virtuel.
@@ -75,7 +75,7 @@ Sur une machine virtuelle Windows, utilisez le pare-feu Windows avec fonctions a
 Essayez d’accéder à l’application à partir d’un ordinateur en dehors du réseau virtuel car la machine virtuelle sur laquelle l’application est exécutée n’est pas sur le même réseau que votre ordinateur client d’origine.
 
 ![](./media/virtual-machines-troubleshoot-access-application/tshoot_app_access4.png)
- 
+
 Par exemple, si l’application est un serveur web, essayez d’accéder à la page web à partir d’un navigateur sur un autre ordinateur ne faisant pas partie de ce réseau virtuel.
 
 Si vous ne pouvez pas accéder à l’application, vérifiez les éléments suivants :
@@ -110,4 +110,4 @@ Si vous avez effectué les étapes 1 à 3 dans cet article et que vous avez bes
 
 [Résolution des problèmes des connexions SSH avec une machine virtuelle Azure Linux](virtual-machines-troubleshoot-ssh-connections.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

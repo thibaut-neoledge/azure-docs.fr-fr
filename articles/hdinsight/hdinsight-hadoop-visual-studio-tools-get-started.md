@@ -8,6 +8,7 @@
 	manager="paulettm"
 	editor="cgronlun"/>
 
+
 <tags
 	ms.service="hdinsight"
 	ms.devlang="na"
@@ -16,6 +17,7 @@
 	ms.workload="big-data"
 	ms.date="07/21/2015"
 	ms.author="jgao"/>
+
 
 # Prise en main des outils Hadoop de Visual Studio pour HDInsight pour exécuter une requête Hive
 
@@ -67,7 +69,7 @@ Avec HDInsight Tools pour Visual Studio, vous pouvez vous connecter à vos clust
 2.	Dans le menu **Affichage**, cliquez sur **Explorateur de serveurs** pour ouvrir la fenêtre du même nom.
 3.	Développez **Azure**, puis **HDInsight**.
 
-	>[AZURE.NOTE]**Liste des tâches HDInsight****Autres fenêtres****Affichage****Fenêtre de liste des tâches HDInsight**  
+	>[AZURE.NOTE]Notez que la fenêtre **Liste des tâches HDInsight** doit s’ouvrir. Si vous ne la voyez pas, cliquez sur **Autres fenêtres** dans le menu **Affichage**, puis sur la **fenêtre Liste des tâches HDInsight** pour l’ouvrir.  
 4.	Entrez les informations d’identification de votre abonnement Azure, puis cliquez sur **Connexion**. Cette étape n’est nécessaire que si vous ne vous êtes jamais connecté à l’abonnement Azure à partir de Visual Studio sur cette station de travail.
 5.	L’Explorateur de serveurs dresse la liste des clusters HDInsight existants. Si vous ne possédez aucun cluster, vous pouvez en approvisionner un dans le portail Azure, avec Azure PowerShell ou à l’aide du Kit de développement logiciel (SDK) HDInsight. Pour plus d’informations, consultez la rubrique [Approvisionnement de clusters HDInsight][hdinsight-provision].
 
@@ -141,7 +143,7 @@ Vous pouvez créer et exécuter des requêtes Hive de deux manières :
 
 	![Outils Hadoop : IntelliSense dans Visual Studio Tools pour HDInsight][14]
 
-	> [AZURE.NOTE]
+	> [AZURE.NOTE]Seules les métadonnées des clusters sélectionnés dans la barre d'outils HDInsight sont proposées.
 4. (Facultatif) : cliquez sur **Valider le script** pour vérifier l’absence d’erreurs de syntaxe dans le script.
 
 	![Outils Hadoop : validation locale des outils HDInsight pour Visual Studio.][10]
@@ -236,4 +238,4 @@ Dans cet article, vous avez appris à établir une connexion à des clusters HDI
 
 [apache.hive]: http://hive.apache.org
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -24,4 +24,4 @@
 
 ![Connexions après plusieurs échecs](./media/active-directory-reporting-sign-ins-after-multiple-failures/signInsAfterMultipleFailures.PNG)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

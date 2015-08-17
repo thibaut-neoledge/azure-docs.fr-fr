@@ -84,7 +84,7 @@ Dès que vous activez un accès au CDN pour un compte de stockage ou un service 
 
 Pour accéder au contenu mis en cache sur le CDN, utilisez l’URL CDN fournie dans le portail. L’adresse d’un objet blob mis en cache est au format suivant :
 
-http://<*espace_noms_CDN*>.vo.msecnd.net/<*monConteneurPublic*>/<*NomBlob*>
+http://<*EspaceDeNomsCDN*>.vo.msecnd.net/<*monConteneurPublic*>/<*NomObjetBlob*>
 
 
 ## Étape 4 : suppression du contenu du CDN
@@ -120,4 +120,4 @@ La capacité à purger immédiatement le contenu n’est actuellement pas prise 
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

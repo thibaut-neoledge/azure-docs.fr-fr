@@ -139,4 +139,4 @@ La fonctionnalité Batterie de serveurs SharePoint du portail Azure en version p
 
 [Configuration d’une batterie de serveurs SharePoint intranet dans un cloud hybride à des fins de test](../virtual-network/virtual-networks-setup-sharepoint-hybrid-cloud-testing.md)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

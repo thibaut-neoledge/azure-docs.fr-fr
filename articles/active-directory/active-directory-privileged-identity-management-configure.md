@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="Azure AD Privileged Identity Management" 
-	description="Une rubrique qui explique ce qu’est Azure AD Privileged Identity Management et comment le configurer." 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="Justinha" 
-	manager="TerryLan" 
-	editor="LisaToft"/>
+<properties
+	pageTitle="Azure AD Privileged Identity Management"
+	description="Une rubrique qui explique ce qu’est Azure AD Privileged Identity Management et comment le configurer."
+	services="active-directory"
+	documentationCenter=""
+	authors="IHenkel"
+	manager="stevepo"
+	editor=""/>
 
-<tags 
-	ms.service="active-directory" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/04/2015" 
-	ms.author="Justinha"/>
+<tags
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/31/2015"
+	ms.author="inhenk"/>
 
 # Azure AD Privileged Identity Management
 
@@ -26,18 +26,18 @@ Dans cette version préliminaire, Azure AD Privileged Identity Management vous p
 
 - Identifier les utilisateurs qui ont un rôle d’administrateur dans Azure AD
 - Activer un accès administratif immédiat et à la demande aux ressources des répertoires
-- Obtenir des rapports sur l'historique des accès administrateur et sur les modifications apportées aux affectations de l'administrateur 
-- Recevoir des alertes sur l'accès à un rôle privilégié 
+- Obtenir des rapports sur l'historique des accès administrateur et sur les modifications apportées aux affectations de l'administrateur
+- Recevoir des alertes sur l'accès à un rôle privilégié
 
 Dans cette version préliminaire, Azure AD Privileged Identity Management peut gérer les rôles d'organisation intégrés dans Azure Active Directory :
 
-- Administrateur général 
-- Administrateur de facturation 
+- Administrateur général
+- Administrateur de facturation
 - Administrateur de services  
-- Administrateur d'utilisateurs 
-- Administrateur de mots de passe 
+- Administrateur d'utilisateurs
+- Administrateur de mots de passe
 
-## Administrateur des accès immédiats 
+## Administrateur des accès immédiats
 
 Jusqu'ici, vous pouviez affecter un utilisateur à un rôle d'administrateur via le portail de gestion Azure ou Windows PowerShell. Cela permet à cet utilisateur de devenir un **administrateur permanent**, toujours actif dans le rôle qui lui a été affecté. Cette version préliminaire ajoute une prise en charge du rôle d’**administrateur temporaire** qui s’applique à un utilisateur qui doit terminer un processus d'activation pour le rôle qui lui a été affecté. Le processus d'activation permet d’activer l'affectation de l'utilisateur à un rôle dans Azure AD.
 
@@ -49,28 +49,28 @@ Vous pouvez commencer à utiliser Azure AD Privileged Identity Management en acc
 
 Après avoir initialisé cette extension, vous devenez automatiquement le premier **administrateur de sécurité** du répertoire. Seul un administrateur de sécurité peut accéder à cette extension pour gérer l'accès des autres administrateurs. Pendant l'initialisation, une mosaïque d’Azure AD Privileged Identity Management est ajoutée au tableau d'accueil du portail de la version préliminaire d’Azure.
 
-## Tableau de bord de gestion des identités privilégiées 
+## Tableau de bord de gestion des identités privilégiées
 
 Azure AD Privileged Identity Manager fournit un tableau de bord qui contient des informations importantes telles que :
 
 - Le nombre d'utilisateurs affectés à chaque rôle privilégié  
-- Le nombre d'administrateurs temporaires et permanents 
-- L’historique des accès des administrateurs 
+- Le nombre d'administrateurs temporaires et permanents
+- L’historique des accès des administrateurs
 
 ![][2]
 
-## Gestion des rôles privilégiés 
+## Gestion des rôles privilégiés
 
 Avec Azure AD Privileged Identity Management, vous pouvez gérer les administrateurs en ajoutant ou en supprimant des administrateurs permanents ou temporaires pour chaque rôle.
 
 ![][3]
 
-## Configurer les paramètres d'activation de rôle 
+## Configurer les paramètres d'activation de rôle
 
 À l'aide des paramètres d'activation de rôle, vous pouvez configurer les propriétés d'activation d’un rôle temporaire, notamment :
 
 - La durée de la période d’activation d’un rôle
-- La notification d'activation d’un rôle 
+- La notification d'activation d’un rôle
 - Les informations qu'un utilisateur doit fournir au cours du processus d'activation du rôle  
 
 ![][4]
@@ -82,7 +82,7 @@ Pour activer un rôle, un administrateur temporaire doit demander une « activat
 Un administrateur qui souhaite activer un rôle doit initialiser Azure AD Privileged Identity Management sur le portail de la version préliminaire d’Azure.
 
 Toutes les catégories d'administrateur peuvent utiliser Azure AD Privileged Identity Management pour activer leur rôle.
- 
+
 L'activation du rôle est limitée dans le temps. Dans les paramètres d'activation du rôle, vous pouvez configurer la durée de l'activation, ainsi que les informations que l'administrateur doit fournir pour activer le rôle.
 
 ![][5]
@@ -105,6 +105,4 @@ Azure AD Privileged Identity Management vous permet également d’effectuer un 
 [5]: ./media/active-directory-privileged-identity-management-configure/PIM_RequestActivation.png
 [6]: ./media/active-directory-privileged-identity-management-configure/PIM_ActivationHistory.png
 
- 
-
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

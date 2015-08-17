@@ -7,17 +7,70 @@
 	manager="paulettm"
 	authors="nitinme"/>
 
+
 <tags
 	ms.service="hdinsight"
 	ms.workload="big-data"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/26/2015"
+	ms.date="07/30/2015"
 	ms.author="nitinme"/>
 
 
+
 # Notes de publication pour les composants Hadoop sur Azure HDInsight
+
+## Notes relatives à la version du 31/07/2015 de HDInsight ##
+
+Les numéros de version complets des clusters HDInsight déployés avec cette version sont les suivants :
+
+* HDInsight 2.1.10.640.1695824 (HD 1.3.12.0-01795 - inchangé)
+* HDInsight 3.0.6.640.1695824 (HD 2.0.13.0-2117 - inchangé)
+* HDInsight 3.1.4.640.1695824 (HD 2.1.15.0-2334 - inchangé)
+* HDInsight 3.2.6.640.1695824 (HD 2.2.6.1-0012 - inchangé)
+* Kit de développement logiciel (SDK) 1.5.8
+
+Cette version contient les mises à jour suivantes.
+
+| Intitulé | Description | Zone concernée (par exemple, Service, composant ou Kit de développement logiciel) | Type de cluster (par exemple, Hadoop, HBase ou Storm) | JIRA (le cas échéant) |
+|-------------------------------------------------|------------------------------------------------------|---------------------------------------------------------|-----------------------------------------------------|----------------------|
+| Correctif du flux de travail de réimageage du nœud de cluster Spark | Corrige un bogue qui empêchait la récupération des nœuds du cluster Spark après le réimageage. | de diffusion en continu | Spark| N/A |
+
+
+## Notes relatives à la version du 31/07/2015 de HDInsight ##
+
+Les numéros de version complets des clusters HDInsight déployés avec cette version sont les suivants :
+
+* HDInsight 2.1.10.635.1684502 (HD 1.3.12.0-01795 - inchangé)
+* HDInsight 3.0.6.635.1684502 (HD 2.0.13.0-2117 - inchangé)
+* HDInsight 3.1.4.635.1684502 (HD 2.1.15.0-2334 - inchangé)
+* HDInsight 3.2.6.635.1684502 (HD 2.2.6.1-0012 - inchangé)
+* Kit de développement logiciel (SDK) 1.5.8
+
+Cette version contient les mises à jour suivantes.
+
+| Intitulé | Description | Zone concernée (par exemple, Service, composant ou Kit de développement logiciel) | Type de cluster (par exemple, Hadoop, HBase ou Storm) | JIRA (le cas échéant) |
+|-------------------------------------------------|------------------------------------------------------|---------------------------------------------------------|-----------------------------------------------------|----------------------|
+| Versions de HDInsight mises à jour pour tous les clusters HDInsight | Avec cette version, les versions de HDInsight ont été mises à jour | de diffusion en continu | Tout| N/A |
+
+
+## Notes relatives à la version du 07/07/2015 de HDInsight ##
+
+Les numéros de version complets des clusters HDInsight déployés avec cette version sont les suivants :
+
+* HDInsight 2.1.10.610.1630216 (HD 1.3.12.0-01795 - inchangé)
+* HDInsight 3.0.6.610.1630216 (HD 2.0.13.0-2117 - inchangé)
+* HDInsight 3.1.4.610.1630216 (HD 2.1.15.0-2334 - inchangé)
+* HDInsight 3.2.4.610.1630216 (HDP 2.2.6.1-0012)
+* Kit de développement logiciel (SDK) 1.5.8
+
+
+Cette version contient les mises à jour suivantes.
+
+| Intitulé | Description | Zone concernée (par exemple, Service, composant ou Kit de développement logiciel) | Type de cluster (par exemple, Hadoop, HBase ou Storm) | JIRA (le cas échéant) |
+|-------------------------------------------------|------------------------------------------------------|---------------------------------------------------------|-----------------------------------------------------|----------------------|
+| Versions HDP mises à jour pour les clusters HDInsight 3.2 | Avec cette version, HDInsight 3.2 déploie HDP 2.2.6.1-0012 | de diffusion en continu | Tout | N/A |
 
 
 ## Notes relatives à la version du 26/06/2015 de HDInsight ##
@@ -1017,7 +1070,7 @@ Cette version de correctif logiciel a résolu un problème de fuite de mémoire 
 
 ## Notes pour la version du 07/10/2014 ##
 
-* Lors de l’utilisation du point de terminaison Ambari, « https://{clusterDns}.azurehdinsight.net/ambari/api/v1/clusters/{clusterDns}.azurehdinsight.net/services/{servicename}/components/{componentname} », le champ *host_name* renvoie à présent le nom de domaine complet du nœud au lieu du seul nom d’hôte. Par exemple, au lieu de renvoyer « **headnode0** », vous pouvez obtenir le nom de domaine complet « **headnode0.{ClusterDNS}.azurehdinsight.net** ». Cette modification était nécessaire pour permettre les scénarios dans lesquels plusieurs types de cluster tels que HBase et Hadoop sont déployés dans un réseau virtuel. Cela se produit, par exemple, lors de l'utilisation de HBase en tant que plateforme principale pour Hadoop.
+* Lors de l’utilisation du point de terminaison Ambari, « https://{clusterDns}.azurehdinsight.net/ambari/api/v1/clusters/{clusterDns}.azurehdinsight.net/services/{servicename}/components/{componentname} », le champ *host\_name* renvoie à présent le nom de domaine complet du nœud au lieu du seul nom d’hôte. Par exemple, au lieu de renvoyer « **headnode0** », vous pouvez obtenir le nom de domaine complet « **headnode0.{ClusterDNS}.azurehdinsight.net** ». Cette modification était nécessaire pour permettre les scénarios dans lesquels plusieurs types de cluster tels que HBase et Hadoop sont déployés dans un réseau virtuel. Cela se produit, par exemple, lors de l'utilisation de HBase en tant que plateforme principale pour Hadoop.
 
 * Nous avons fourni de nouveaux paramètres de mémoire pour le déploiement par défaut d'un cluster HDInsight. Les précédents paramètres de mémoire ne prenaient pas correctement en compte les conseils relatifs au nombre de cœurs de processeurs déployés. Ces nouveaux paramètres de mémoire doivent normalement fournir de meilleures valeurs par défaut, conformément aux recommandations de Hortonworks. Pour les modifier, veuillez consulter la documentation de référence du Kit de développement logiciel (SDK) relative à la modification de la configuration du cluster. Les nouveaux paramètres de mémoire utilisés par le cluster HDInsight quadricœur (8 conteneurs) par défaut sont répertoriés dans le tableau suivant. Les valeurs utilisées avant cette version sont également indiquées entre parenthèses.
 
@@ -1027,9 +1080,9 @@ Cette version de correctif logiciel a résolu un problème de fuite de mémoire 
 
 Pour plus d’informations sur les paramètres de configuration de mémoire utilisés par YARN et MapReduce sur la plateforme de données Hortonworks utilisée par HDInsight, consultez la page [Déterminer les paramètres de configuration de la mémoire HDP](http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.1-latest/bk_installing_manually_book/content/rpm-chap1-11.html). Hortonworks a également fourni un outil permettant de calculer les paramètres de mémoire adéquats.
 
-En ce qui concerne le message d’erreur Azure PowerShell et du Kit de développement logiciel (SDK) HDInsight: « *Le cluster n’est pas configuré pour l’accès aux services HTTP* » :
+En ce qui concerne le message d’erreur Azure PowerShell et du Kit de développement logiciel (SDK) HDInsight : « *Le cluster n’est pas configuré pour l’accès aux services HTTP* » :
 
-* Cette erreur est un [problème de compatibilité](https://social.msdn.microsoft.com/Forums/azure/a7de016d-8de1-4385-b89e-d2e7a1a9d927/hdinsight-powershellsdk-error-cluster-is-not-configured-for-http-services-access?forum=hdinsight) connu pouvant survenir en raison d’une différence entre la version du Kit de développement logiciel (SDK) HDInsight ou d’Azure PowerShell et la version du cluster. Les clusters créés le 15/08 ou ultérieurement prennent en charge la nouvelle capacité d’approvisionnement dans les réseaux virtuels. Mais cette capacité n’est pas interprétée correctement par les versions antérieures du Kit de développement logiciel (SDK) HDInsight ou Azure PowerShell. Il en résulte un échec dans certaines opérations de soumission de tâches. Si vous utilisez des API SDK HDInsight ou des cmdlets Azure PowerShell (**Use-AzureHDInsightCluster** ou **Invoke-Hive**) pour envoyer des tâches, ces opérations peuvent échouer avec le message d’erreur « Le cluster <clustername> n’est pas configuré pour l’accès aux services Http ». Ou, en fonction de l’opération, vous pouvez recevoir d’autres types de message d’erreur tels que « Impossible de se connecter au cluster ».
+* Cette erreur est un [problème de compatibilité](https://social.msdn.microsoft.com/Forums/azure/a7de016d-8de1-4385-b89e-d2e7a1a9d927/hdinsight-powershellsdk-error-cluster-is-not-configured-for-http-services-access?forum=hdinsight) connu pouvant survenir en raison d’une différence entre la version du Kit de développement logiciel (SDK) HDInsight ou d’Azure PowerShell et la version du cluster. Les clusters créés le 15/08 ou ultérieurement prennent en charge la nouvelle capacité d’approvisionnement dans les réseaux virtuels. Mais cette capacité n’est pas interprétée correctement par les versions antérieures du Kit de développement logiciel (SDK) HDInsight ou Azure PowerShell. Il en résulte un échec dans certaines opérations de soumission de tâches. Si vous utilisez des API du Kit de développement logiciel (SDK) HDInsight ou des cmdlets Azure PowerShell (**Use-AzureHDInsightCluster** ou **Invoke-Hive**) pour envoyer des tâches, ces opérations peuvent échouer avec le message d’erreur « *Le cluster <clustername> n’est pas configuré pour l’accès aux services HTTP* ». Ou, en fonction de l’opération, vous pouvez recevoir d’autres types de message d’erreur tels que « *Impossible de se connecter au cluster* ».
 
 * Ces problèmes de compatibilité sont résolus dans les dernières versions du Kit de développement logiciel (SDK) HDInsight et Azure PowerShell. Nous vous recommandons de mettre à jour le Kit de développement logiciel (SDK) HDInsight vers la version 1.3.1.6 ou ultérieure et les outils Azure PowerShell vers la version 0.8.8 ou ultérieure. Vous pouvez accéder au dernier Kit de développement logiciel HDInsight à partir de [](http://nuget.codeplex.com/wikipage?title=Getting%20Started) et aux outils Azure PowerShell les plus récents sur la page [Installation et configuration d’Azure PowerShell](../powershell-install-configure/).
 
@@ -1075,7 +1128,7 @@ Ces problèmes de compatibilité sont résolus dans les dernières versions du K
 * Suppression en cours de HDInsight version 1.6 (HDP 1.1 et Hadoop 1.0.3) et de HDInsight version 2.1 (HDP 1.3 et Hadoop 1.2) du portail Azure. Vous pouvez continuer à créer des clusters Hadoop pour ces versions avec les applets de commande Azure PowerShell ([New-AzureHDInsightCluster](http://msdn.microsoft.com/library/dn593744.aspx)) ou avec le [Kit de développement logiciel (SDK) HDInsight](http://msdn.microsoft.com/library/azure/dn469975.aspx). Pour plus d'informations, consultez la page [Contrôle de version des composants HDInsight](../hdinsight-component-versioning/).
 * Changements concernant Hortonworks Data Platform (HDP) dans cette version :
 
-<table border="1"> <tr><th>HDP</th><th>Modifications</th></tr> <tr><td>HDP 1.3 / HDI 2.1</td><td>Aucune modification</td></tr> <tr><td>HDP 2.0 / HDI 3.0</td><td>Aucune modification</td></tr> <tr><td>HDP 2.1 / HDI 3.1</td><td>zookeeper: [« 3.4.5.2.1.3.0-1948 »] -> [« 3.4.5.2.1.3.2-0002 »]</td></tr>
+<table border="1"> <tr><th>HDP</th><th>Modifications</th></tr> <tr><td>HDP 1.3 / HDI 2.1</td><td>Aucune modification</td></tr> <tr><td>HDP 2.0 / HDI 3.0</td><td>Aucune modification</td></tr> <tr><td>HDP 2.1 / HDI 3.1</td><td>zookeeper: [« 3.4.5.2.1.3.0-1948 »\] -> [« 3.4.5.2.1.3.2-0002 »\]</td></tr>
 
 
 </table><br>
@@ -1147,7 +1200,7 @@ Les dépendances suivantes ont été ajoutées à HDInsight 3.x (HDP2.x) :
 * javax.inject
 * activation
 * jsr305
-* geronimo-jaspic_1.0_spec
+* geronimo-jaspic\_1.0\_spec
 * jul-to-slf4j
 * java-xmlbuilder
 * ant
@@ -1174,7 +1227,7 @@ Les dépendances suivantes ont été ajoutées à HDInsight 3.x (HDP2.x) :
 * jpam
 * jersey-client
 * aopalliance
-* geronimo-annotation_1.0_spec
+* geronimo-annotation\_1.0\_spec
 * ant-launcher
 * jersey-guice
 * xml-apis
@@ -1182,7 +1235,7 @@ Les dépendances suivantes ont été ajoutées à HDInsight 3.x (HDP2.x) :
 * asm-commons
 * asm-tree
 * wadl
-* geronimo-jta_1.1_spec
+* geronimo-jta\_1.1\_spec
 * guice
 * leveldbjni-all
 * velocity
@@ -1217,24 +1270,24 @@ Les dépendances suivantes n'existent plus dans HDInsight 3.x (HDP2.x) :
 
 Les changements de version suivants ont eu lieu entre HDInsight 2.x (HDP1.x) et HDInsight 3.x (HDP2.x) :
 
-* metrics-core : [« 2.1.2 »] -> [« 3.0.0 »]
-* derbynet : [« 10.4.2.0 »] -> [« 10.10.1.1 »]
-* datanucleus : [« rdbms-3.0.8 »] -> [« rdbms-3.2.9 »]
-* jasper-compiler : [« 5.5.12 »] -> [« 5.5.23 »]
-* log4j : [« 1.2.15 »], [« 1.2.16 »] -> [« 1.2.16 », « 1.2.17 »]
-* derbyclient : [« 10.4.2.0 »] -> [« 10.10.1.1 »]
-* httpcore : [« 4.2.4 »] -> [« 4.2.5 »]
-* hsqldb : [« 1.8.0.10 »] -> [« 2.0.0 »]
-* jets3t : [« 0.6.1 »] -> [« 0.9.0 »]
-* protobuf-java : [« 2.4.1 »] -> [« 2.5.0 »]
-* derby : [« 10.4.2.0 »] -> [« 10.10.1.1 »]
-* jasper : [« runtime-5.5.12 »] -> [« runtime-5.5.23 »]
-* commons-daemon : [« 1.0.1 »] -> [« 1.0.13 »]
-* datanucleus-core : [« 3.0.9 »] -> [« 3.2.10 »]
-* datanucleus-api-jdo : [« 3.0.7 »] -> [« 3.2.6 »]
-* zookeeper : [« 3.4.5.1.3.9.0-01320 »] -> [« 3.4.5.2.1.3.0-1948 »]
-* bonecp : [« 0.7.1.RELEASE »] -> [« 
-* 0.8.0.RELEASE »]
+* metrics-core : [« 2.1.2 »\] -> [« 3.0.0 »\]
+* derbynet : [« 10.4.2.0 »\] -> [« 10.10.1.1 »\]
+* datanucleus : [« rdbms-3.0.8 »\] -> [« rdbms-3.2.9 »\]
+* jasper-compiler : [« 5.5.12 »\] -> [« 5.5.23 »\]
+* log4j : [« 1.2.15 »\], [« 1.2.16 »\] -> [« 1.2.16 », « 1.2.17 »\]
+* derbyclient : [« 10.4.2.0 »\] -> [« 10.10.1.1 »\]
+* httpcore : [« 4.2.4 »\] -> [« 4.2.5 »\]
+* hsqldb : [« 1.8.0.10 »\] -> [« 2.0.0 »\]
+* jets3t : [« 0.6.1 »\] -> [« 0.9.0 »\]
+* protobuf-java : [« 2.4.1 »\] -> [« 2.5.0 »\]
+* derby : [« 10.4.2.0 »\] -> [« 10.10.1.1 »\]
+* jasper : [« runtime-5.5.12 »\] -> [« runtime-5.5.23 »\]
+* commons-daemon : [« 1.0.1 »\] -> [« 1.0.13 »\]
+* datanucleus-core : [« 3.0.9 »\] -> [« 3.2.10 »\]
+* datanucleus-api-jdo : [« 3.0.7 »\] -> [« 3.2.6 »\]
+* zookeeper : [« 3.4.5.1.3.9.0-01320 »\] -> [« 3.4.5.2.1.3.0-1948 »\]
+* bonecp : [« 0.7.1.RELEASE »\] -> [« 
+* 0\.8.0.RELEASE »\]
 
 
 ###Pilotes
@@ -1280,4 +1333,4 @@ Les notes de publication des plateformes de données Hortonworks (HDP) utilisée
 [hdinsight-r-scripts]: ../hdinsight-hadoop-r-scripts/
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

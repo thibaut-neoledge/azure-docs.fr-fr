@@ -1,19 +1,5 @@
-<properties 
-	pageTitle="Création d’une machine virtuelle Oracle Database dans Azure" 
-	description="Parcourez un exemple vous indiquant comment créer une machine virtuelle Oracle dans Microsoft Azure, puis comment créer une base de données Oracle au sein de cette machine." 
-	services="virtual-machines" 
-	authors="bbenz" 
-	documentationCenter=""/>
-	
-<tags 
-	ms.service="virtual-machines" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.tgt_pltfrm="na" 
-	ms.workload="infrastructure-services" 
-	ms.date="06/22/2015" 
-	ms.author="bbenz" />
-
+<properties title="Creating an Oracle Database Virtual Machine in Azure" pageTitle="Création d’une machine virtuelle Oracle Database dans Azure" description="Parcourez un exemple vous indiquant comment créer une machine virtuelle Oracle dans Microsoft Azure, puis comment créer une base de données Oracle au sein de cette machine." services="virtual-machines" authors="bbenz" documentationCenter=""/>
+<tags ms.service="virtual-machines" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="infrastructure-services" ms.date="06/22/2015" ms.author="bbenz" />
 #Création d’une machine virtuelle Oracle Database dans Azure
 L’exemple suivant vous indique comment créer une machine virtuelle sur la base d’une image Oracle Database fournie par Microsoft et exécutée sur Windows Server 2012 dans Azure. Cet exemple comporte deux étapes : la création de la machine virtuelle, puis la création de la base de données Oracle au sein de la machine virtuelle. L’exemple présenté concerne Oracle Database version 12c, mais les étapes sont presque identiques pour la version 11g.
 
@@ -62,7 +48,7 @@ L’exemple suivant vous indique comment créer une machine virtuelle sur la bas
 
 5.	Répondez aux invites afin de vous connecter à la machine virtuelle. Lorsque vous y êtes invité, entrez le nom d’administrateur et le mot de passe fournis lors de la création de la machine virtuelle.
 
-6.	Créez une variable d’environnement nommée **ORACLE_HOSTNAME** dont la valeur définie correspond au nom de la machine virtuelle. Pour créer une variable d’environnement, procédez comme suit :
+6.	Créez une variable d’environnement nommée **ORACLE\_HOSTNAME** dont la valeur définie correspond au nom de la machine virtuelle. Pour créer une variable d’environnement, procédez comme suit :
 
 	1.	Cliquez sur **Démarrage Windows**, saisissez **Panneau de configuration**, cliquez sur l’icône **Panneau de configuration** et sélectionnez **Système et sécurité**, puis **Système** et enfin cliquez sur **Paramètres système avancés**.
 
@@ -70,7 +56,7 @@ L’exemple suivant vous indique comment créer une machine virtuelle sur la bas
 
 	3.	Dans la section **Variables système**, cliquez sur **Nouveau** afin de créer la variable.
 
-	4.	Dans la boîte de dialogue **Nouvelle variable système**, saisissez le nom de variable **ORACLE_HOSTNAME**, puis entrez le nom de la machine virtuelle en guise de valeur. Pour déterminer le nom de la machine, ouvrez une invite de commandes et exécutez la commande **SET COMPUTERNAME** (la sortie de cette commande indique le nom de la machine).
+	4.	Dans la boîte de dialogue **Nouvelle variable système**, saisissez le nom de variable **ORACLE\_HOSTNAME**, puis entrez le nom de la machine virtuelle en guise de valeur. Pour déterminer le nom de la machine, ouvrez une invite de commandes et exécutez la commande **SET COMPUTERNAME** (la sortie de cette commande indique le nom de la machine).
 	
 	5.	Cliquez sur **OK** pour enregistrer la nouvelle variable d’environnement et fermer la boîte de dialogue **Nouvelle variable système**.
 
@@ -106,7 +92,7 @@ L’exemple suivant vous indique comment créer une machine virtuelle sur la bas
 
 3.	Exécutez la commande suivante dans la l’invite de commandes SQL Plus :
 
-		select * from GLOBAL_NAME;
+		select * from GLOBAL\_NAME;
 
 	Vous devez alors obtenir le nom global de la base de données que vous avez créée.
 
@@ -171,7 +157,7 @@ Pour permettre l’accès à distance à votre base de données (par exemple, à
 10. Cliquez sur **OK**
 
 ##Activer l’accès à distance à Oracle Database Enterprise Manager
-Si vous souhaitez activer l’accès distant à Oracle Database Enterprise Manager, ouvrez le port 5500 dans votre pare-feu et créez un point de terminaison de machine virtuelle pour le port 5500 dans le portail Azure (utilisez la procédure décrite ci-dessus pour ouvrir le port 1521 et créer un point de terminaison pour le port 1521). Ensuite, pour exécuter Oracle Enterprise Manager à partir de l’ordinateur distant, ouvrez un navigateur et saisissez une URL sous la forme `http://<<unique_domain_name>>:5500/em`. (Vous pouvez déterminer la valeur de *<<unique_domain_name>>* dans le [Portail Azure](https://ms.portal.azure.com/) en cliquant sur **Machines Virtuelles**, puis en sélectionnant la machine virtuelle que vous utilisez pour exécuter Oracle Database).
+Si vous souhaitez activer l’accès distant à Oracle Database Enterprise Manager, ouvrez le port 5500 dans votre pare-feu et créez un point de terminaison de machine virtuelle pour le port 5500 dans le portail Azure (utilisez la procédure décrite ci-dessus pour ouvrir le port 1521 et créer un point de terminaison pour le port 1521). Ensuite, pour exécuter Oracle Enterprise Manager à partir de l’ordinateur distant, ouvrez un navigateur et saisissez une URL sous la forme `http://<<unique_domain_name>>:5500/em`. (Vous pouvez déterminer la valeur de *<<unique\_domain\_name>>* dans le [Portail Azure](https://ms.portal.azure.com/) en cliquant sur **Machines Virtuelles**, puis en sélectionnant la machine virtuelle que vous utilisez pour exécuter Oracle Database).
 
 ##Configurer les offres groupées options populaires et options avancées
 Si vous avez choisi l’offre groupée **Oracle Database avec options populaires** ou l’offre groupée **Oracle Database avec options avancées**, l’étape suivante vous permet de configurer les fonctionnalités supplémentaires de votre installation Oracle. Pour obtenir des informations concernant la configuration dans Windows, consultez la documentation Oracle, les configurations pouvant fortement varier en fonction de vos besoins concernant chaque composant.
@@ -193,4 +179,4 @@ Maintenant que vous avez configuré votre machine virtuelle et créé votre base
 
 -	[Oracle Database 2 Day DBA 12c Release 1](http://docs.oracle.com/cd/E16655_01/server.121/e17643/toc.htm) (en anglais)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

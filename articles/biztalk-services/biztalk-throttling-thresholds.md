@@ -7,6 +7,7 @@
 	manager="dwrede" 
 	editor="cgronlun"/>
 
+
 <tags 
 	ms.service="biztalk-services" 
 	ms.workload="integration" 
@@ -20,6 +21,7 @@
 
 
 
+
 # Limitation BizTalk Services
 
 Azure BizTalk Services met en place un service de limitation basé sur deux conditions : l’utilisation de la mémoire et le nombre de messages traités simultanément. Cette rubrique répertorie les seuils de limitation et décrit le comportement d'exécution lorsque les conditions de limitation sont réunies.
@@ -28,29 +30,7 @@ Azure BizTalk Services met en place un service de limitation basé sur deux cond
 
 Le tableau suivant répertorie les sources et seuils de limitation :
 
-<table border="1">
-
-<tr bgcolor="FAF9F9">
-        <th> </th>
-        <td><strong>Description</strong></td>
-        <td><strong>Seuil minimum</strong></td>
-        <td><strong>Seuil maximum</strong></td>
-</tr>
-    <tr>
-        <td>Mémoire</td>
-        <td>Pourcentage de la mémoire système totale disponible/PageFileBytes (octets de fichier de page). 
-<br/><br/>
-Le total de PageFileBytes disponible correspond environ à 2&#160;fois la mémoire RAM du système.</td>
-        <td>60&#160;%</td>
-        <td>70&#160;%</td>
-    </tr>
-    <tr>
-        <td>Traitement de message</td>
-        <td>Nombre de messages traités simultanément</td>
-        <td>40 * nombre de cœurs</td>
-        <td>100 * nombre de cœurs</td>
-    </tr>
-</table>
+||Description|Seuil minimum|Seuil maximum| |---|---|---|---| |Mémoire|% de la mémoire système totale disponible/PageFileBytes. <p><p>Le total de PageFileBytes disponible correspond environ à 2 fois la mémoire RAM du système.|60 %|70 %| |Traitement de message|Nombre de messages traités simultanément|40 * nombre de cœurs|100 * nombre de cœurs|
 
 Lorsqu'un seuil maximal est atteint, Azure BizTalk Services active les limitations. La limitation s'arrête une fois le seuil minimal atteint. Par exemple, votre service utilise 65 % de la mémoire système. Dans ce cas, le service n'utilise pas de limitation. Votre service monte à 70 % d'utilisation de mémoire système. Dans ce cas, le service lance une limitation et continue de l'appliquer jusqu'à ce que le service utilise 60 % (seuil minimal) de la mémoire système.
 
@@ -61,8 +41,14 @@ Azure BizTalk Services assure le suivi du statut de la limitation (état normal 
 
 Lorsque Azure BizTalk Services passe en mode limitation, les actions suivantes se produisent :
 
-- La limitation s'effectue par instance de rôle. Par exemple : <br/> l'instance RoleInstanceA est limitée. L'instance RoleInstanceB ne l'est pas. Dans ce cas, les messages dans RoleInstanceB sont traités normalement. Les messages dans RoleInstanceA sont ignorés et échouent avec le message d'erreur suivant :<br/><br/> **Le serveur est occupé. Veuillez réessayez.**<br/><br/>
-- Les sources d'extraction cessent d'interroger et de télécharger les messages. Par exemple : <br/> Un pipeline extrait les messages depuis une source FTP externe. L'instance de rôle responsable de l'extraction passe en mode limité. Dans cette situation, le pipeline cesse de télécharger de nouveaux messages tant que l'instance de rôle est limitée.
+- La limitation s'effectue par instance de rôle. Par exemple : <br/>
+ l'instance RoleInstanceA est limitée. L'instance RoleInstanceB ne l'est pas. Dans ce cas, les messages dans RoleInstanceB sont traités normalement. Les messages dans RoleInstanceA sont ignorés et échouent avec le message d'erreur suivant :<br/>
+<br/>
+ **Le serveur est occupé. Veuillez réessayez.**<br/>
+<br/>
+
+- Les sources d'extraction cessent d'interroger et de télécharger les messages. Par exemple : <br/>
+ Un pipeline extrait les messages depuis une source FTP externe. L'instance de rôle responsable de l'extraction passe en mode limité. Dans cette situation, le pipeline cesse de télécharger de nouveaux messages tant que l'instance de rôle est limitée.
 - Une réponse est envoyée au client afin qu'il puisse soumettre le message de nouveau.
 - Vous devez patienter jusqu'à la fin de la limitation. Plus précisément, vous devez attendre que le seuil minimal soit atteint.
 
@@ -75,17 +61,27 @@ Lorsque Azure BizTalk Services passe en mode limitation, les actions suivantes s
 ## Autres rubriques Azure BizTalk Services
 
 -  [Installation du Kit de développement logiciel (SDK) Azure BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=241589)<br/>
+
 -  [Didacticiels : Azure BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=236944)<br/>
+
 -  [Utilisation du Kit de développement logiciel (SDK) Azure BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=302335)<br/>
+
 -  [Azure BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=303664)<br/>
+
 
 ## Voir aussi
 - [Tableau comparatif des éditions Développeur, De base, Standard et Premium de BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=302279)<br/>
+
 - [Approvisionnement de BizTalk Services avec le portail de gestion Azure](http://go.microsoft.com/fwlink/p/?LinkID=302280)<br/>
+
 - [Tableau comparatif des états d'approvisionnement BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=329870)<br/>
+
 - [Onglets Tableau de bord, Surveiller et Mettre à l'échelle dans BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=302281)<br/>
+
 - [Sauvegarde et restauration de BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=329873)<br/>
+
 - [Nom et clé de l'émetteur dans BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=303941)<br/>
+
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -70,4 +70,4 @@ Pour démarrer la configuration de cette charge de travail, passez à la [Phase�
 
 [Instructions d’implémentation des services d’infrastructure Azure](virtual-machines-infrastructure-services-implementation-guidelines.md)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

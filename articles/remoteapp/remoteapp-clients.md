@@ -2,7 +2,7 @@
 <properties
     pageTitle="Accès à vos applications"
     description="Découvrez quels clients sont pris en charge pour Azure RemoteApp et comment accéder à vos applications."
-    services="remoteapp"
+    services="remoteapp" 
 	documentationCenter=""
     authors="lizap"
     manager="mbaldwin" />
@@ -207,4 +207,4 @@ Une fois l'application Bureau à distance Microsoft installée à partir du maga
 	![Démonstration de flux pour Azure RemoteApp](./media/remoteapp-clients/WinPhone8.png)
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

@@ -1,11 +1,14 @@
 <properties
 	pageTitle="Configurer une machine virtuelle comme serveur IPython Notebook pour des analyses avancées | Microsoft Azure"
 	description="Configurez une machine virtuelle Azure pour l’utiliser dans un environnement de science des données avec un serveur IPython à des fins d’analyse avancée."
+	metaKeywords=""
 	services="machine-learning"
+	solutions="" 
 	documentationCenter=""
 	authors="msolhab"
 	manager="paulettm"
 	editor="cgronlun"  />
+
 
 <tags
 	ms.service="machine-learning"
@@ -15,6 +18,7 @@
 	ms.topic="article"
 	ms.date="05/29/2015"
 	ms.author="mohabib;xibingao;bradsev" />
+
 
 # Configurer une machine virtuelle Azure comme serveur IPython Notebook pour des analyses avancées
 
@@ -66,7 +70,7 @@ Si la machine virtuelle existe déjà et que vous devez ajouter un point de term
 
 ## <a name="run-commands"></a>Étape 3 : installer Notebook IPython et les autres outils connexes
 
-Une fois la machine virtuelle créée, utilisez le protocole RDP (Remote Desktop Protocol) pour vous connecter à la machine virtuelle Windows. Pour plus d’informations, consultez [Connexion à une machine virtuelle exécutant Windows Server](../virtual-machines-log-on-windows-server.md). Ouvrez l’**invite de commandes** (\*\*et non la fenêtre Commande Powershell\*\*) en tant qu’**administrateur**, puis exécutez la commande suivante.
+Une fois la machine virtuelle créée, utilisez le protocole RDP (Remote Desktop Protocol) pour vous connecter à la machine virtuelle Windows. Pour plus d’informations, consultez [Connexion à une machine virtuelle exécutant Windows Server](../virtual-machines-log-on-windows-server.md). Ouvrez l’**invite de commandes** (et **non la fenêtre Commande Powershell**) en tant qu’**administrateur**, puis exécutez la commande suivante.
 
     set script='https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/MachineSetup/Azure_VM_Setup_Windows.ps1'
 
@@ -77,13 +81,13 @@ Une fois l’installation terminée, le serveur Notebook IPython est automatique
 Lorsque vous y êtes invité, entrez un mot de passe pour Notebook IPython et le mot de passe de l’administrateur de la machine. Ceci permet à Notebook IPython de s’exécuter en tant que service sur la machine.
 
 ## <a name="access"></a>Étape 4 : accéder à Notebook IPython à partir d’un navigateur web
-Pour accéder au serveur Notebook IPython, ouvrez un navigateur web, puis entrez la chaîne *https://&#60;virtual nom d’ordinateur DNS>:&#60;public port number>* dans la zone de texte de l’URL. Dans cette chaîne, la variable *&#60;public port number>* doit correspondre au numéro de port que vous avez spécifié lors de l’ajout du point de terminaison de Notebook IPython.
+Pour accéder au serveur Notebook IPython, ouvrez un navigateur web, puis entrez la chaîne *https://&#60;virtual nom DNS de la machine>:&#60;numéro du port public>* dans la zone de texte de l’URL. Dans cette chaîne, la variable *&#60;public port number>* doit correspondre au numéro de port que vous avez spécifié lors de l’ajout du point de terminaison de Notebook IPython.
 
 La variable *&#60;virtual machine DNS name>* correspond au nom DNS de la machine virtuelle, qui est accessible par le biais du Portail de gestion Azure. Après vous être connecté au Portail de gestion, cliquez sur **MACHINES VIRTUELLES**, sélectionnez la machine que vous avez créée, puis sélectionnez **TABLEAU DE BORD**. Le nom DNS s’affiche sous la forme suivante :
 
 ![Create workspace][19]
 
-Vous verrez apparaître un message d’avertissement signalant qu’_il existe un problème avec le certificat de sécurité de ce site web_ (Internet Explorer) ou que _votre connexion n’est pas privée_ (Chrome), comme illustré dans les figures ci-après. Cliquez sur **Poursuivre avec ce site web (non recommandé)** (Internet Explorer) ou sur **Paramètres avancés**, puis sur **Continuer vers le site &#60;nom\_DNS> (dangereux)** (Chrome) pour continuer. Puis entrez le mot de passe que vous avez indiqué précédemment pour accéder à Notebook IPython.
+Vous verrez apparaître un message d’avertissement signalant qu’_il existe un problème avec le certificat de sécurité de ce site web_ (Internet Explorer) ou que _votre connexion n’est pas privée_ (Chrome), comme illustré dans les figures ci-après. Cliquez sur **Poursuivre avec ce site web (non recommandé)** (Internet Explorer) ou sur **Paramètres avancés**, puis sur **Continuer vers le site *Nom DNS*> (dangereux)** (Chrome) pour continuer. Puis entrez le mot de passe que vous avez indiqué précédemment pour accéder à Notebook IPython.
 
 Internet Explorer : ![Create workspace][20]
 
@@ -143,4 +147,4 @@ Les étapes suivantes du processus d’analyse avancé et technologie et dans Az
 [29]: ./media/machine-learning-data-science-setup-virtual-machine/create-virtual-machine-6.png
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

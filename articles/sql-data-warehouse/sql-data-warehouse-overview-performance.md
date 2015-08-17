@@ -77,4 +77,4 @@ Consultez la [vue d’ensemble sur le développement][] afin de bénéficier de 
 
 <!--Other web references-->
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

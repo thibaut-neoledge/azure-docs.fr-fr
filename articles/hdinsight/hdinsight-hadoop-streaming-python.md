@@ -7,6 +7,7 @@
    manager="paulettm"
    editor="cgronlun"/>
 
+
 <tags
    ms.service="hdinsight"
    ms.devlang="na"
@@ -16,11 +17,12 @@
    ms.date="07/13/2015"
    ms.author="larryfr"/>
 
+
 #Développement de programmes de diffusion en continu Python pour HDInsight
 
 Hadoop fournit une API de diffusion en continu pour MapReduce qui vous permet d'écrire des fonctions de mappage et de réduction dans d'autres langages que Java. Cet article explique comment utiliser Python pour effectuer des opérations MapReduce.
 
-> [AZURE.NOTE]Il est basé sur des informations et des exemples publiés par Michael Noll à l’adresse [http://www.michael-noll.com/tutorials/writing-an-hadoop-mapreduce-program-in-python/](Rédaction d’un programme MapReduce Hadoop dans Python).
+> [AZURE.NOTE]Il est basé sur des informations et des exemples publiés par Michael Noll à l’adresse [http://www.michael-noll.com/tutorials/writing-an-hadoop-mapreduce-program-in-python/\](Rédaction d’un programme MapReduce Hadoop dans Python).
 
 ##Composants requis
 
@@ -202,4 +204,4 @@ Maintenant que vous avez découvert comment utiliser des travaux de diffusion en
 * [Utilisation de Pig avec HDInsight](hdinsight-use-pig.md)
 * [Utilisation des tâches MapReduce avec HDInsight](hdinsight-use-mapreduce.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

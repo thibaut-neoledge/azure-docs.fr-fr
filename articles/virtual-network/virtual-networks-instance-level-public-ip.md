@@ -26,8 +26,8 @@ Comme illustré à la Figure 1, le service cloud est accessible à l’aide d�
 
 Quand vous créez un service cloud dans Azure, les enregistrements DNS A correspondants sont automatiquement créés de façon à autoriser l’accès au service par le biais d’un nom de domaine complet (FQDN) plutôt qu’avec l’adresse IP virtuelle proprement dite. Le même processus se produit pour l’adresse ILPIP en permettant d’accéder à la machine virtuelle ou à l’instance de rôle par le nom de domaine complet plutôt que par l’intermédiaire de l’adresse ILPIP. Par exemple, si vous créez un service cloud nommé *contosoadservice*, et que vous configurez un rôle web nommé *contosoweb* avec deux instances, Azure inscrit les enregistrements A suivants pour les instances :
 
-- contosoweb_IN_0.contosoadservice.cloudapp.NET
-- contosoweb_IN_1.contosoadservice.cloudapp.net 
+- contosoweb\_IN\_0.contosoadservice.cloudapp.NET
+- contosoweb\_IN\_1.contosoadservice.cloudapp.net 
 
 >[AZURE.NOTE]Vous ne pouvez affecter qu’une seule adresse ILPIP par machine virtuelle ou instance de rôle. Vous pouvez utiliser jusqu’à 5 adresses ILPIP par abonnement. Pour l’instant, les adresses ILPIP ne sont pas prises en charge pour les machines virtuelles équipées de plusieurs cartes d’interface réseau.
 
@@ -125,4 +125,4 @@ Vous pouvez également associer une adresse ILPIP à une machine virtuelle au m
 [API REST d’adresse IP réservée](https://msdn.microsoft.com/library/azure/dn722420.aspx)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

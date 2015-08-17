@@ -1,7 +1,9 @@
 
-| Resource	| Default limit 
+| Ressource | Limite par défaut 
 --- | ---
-| Zones per subscription | 50
-| Record sets per zone| 1000
-| Records per record set| 20
+| Zones par abonnement | 50
+| Jeux d’enregistrements par zone| 1 000
+| Enregistrements par jeu d’enregistrements| 20
  
+
+<!---HONumber=August15_HO6-->

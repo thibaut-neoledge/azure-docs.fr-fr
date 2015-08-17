@@ -501,4 +501,4 @@ Ajoutez la section appSettings au fichier app.config, puis définissez les valeu
 [Utilisation de canaux encodant en temps réel un flux à vitesse de transmission unique en flux à vitesses de transmission multiples](media-services-manage-live-encoder-enabled-channels.md)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

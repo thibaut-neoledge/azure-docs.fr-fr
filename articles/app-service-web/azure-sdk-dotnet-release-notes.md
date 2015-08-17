@@ -65,4 +65,4 @@ Cette rubrique contient des liens vers les notes de publication du Kit de dével
 [Notes de publication du Kit de développement logiciel (SDK) Azure sur MSDN](https://msdn.microsoft.com/library/azure/dn627519.aspx)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

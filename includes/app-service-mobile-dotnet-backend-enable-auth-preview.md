@@ -6,4 +6,4 @@ Dans votre projet ASP.NET, vous devez voir les éléments suivants :
 
 * Dans WebApiConfig.cs, la méthode `UseDefaultConfiguration()` est appelée sur l'objet MobileAppConfiguration. Cela appelle alors la méthode d'extension `AddAppServiceAuthentication()` fournie par le package NuGet ci-dessus. Cela enregistre également un intergiciel (middleware) OWIN nécessaire pour l'authentification, en appelant `app.UseAppServiceAuthentication()` lors du démarrage d’OWIN.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

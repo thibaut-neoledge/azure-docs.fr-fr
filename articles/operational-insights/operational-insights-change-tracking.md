@@ -6,14 +6,16 @@
    authors="bandersmsft"
    manager="jwhit"
    editor="" />
+
 <tags
    ms.service="operational-insights"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/21/2015"
+   ms.date="08/05/2015"
    ms.author="banders" />
+
 
 # Identification des différences avec le suivi des modifications
 
@@ -25,7 +27,7 @@ Vous installez la solution pour mettre à jour l’agent Operations Manager et 
 
 ## Utilisation du suivi des modifications
 
-Avant de pouvoir utiliser le suivi des modifications dans Operational Insights, vous devez avoir installé la solution. Pour plus d'informations sur l'installation de solutions, consultez la rubrique [Utilisation de la galerie de solutions pour ajouter ou supprimer des solutions](operational-insights-add-solution.md).
+Avant de pouvoir utiliser le suivi des modifications dans Operational Insights, vous devez avoir installé la solution. Pour plus d'informations sur l'installation de solutions, consultez la rubrique [Utilisation de la galerie de solutions pour ajouter ou supprimer des solutions](operational-insights-setup-workspace.md).
 
 Après son installation, vous pouvez afficher le résumé des modifications pour vos serveurs analysés à l’aide de la vignette **Suivi des modifications** sur la page **Vue d’ensemble** d’Operational Insights.
 
@@ -54,4 +56,4 @@ Vous pouvez afficher les modifications apportées à votre infrastructure, puis 
 
 [AZURE.INCLUDE [operational-insights-export](../../includes/operational-insights-export.md)]
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

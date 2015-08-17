@@ -221,4 +221,4 @@ Consultez la rubrique [Prise en main du service Azure Data Factory][data-factory
 [clone-datafactory-entity]: ./media/data-factory-editor/clone-datafactory-entity.png
 [add-activity-options]: ./media/data-factory-editor/add-activity-options.png
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

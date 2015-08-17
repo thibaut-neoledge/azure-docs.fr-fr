@@ -66,4 +66,4 @@ Une fois ces deux didacticiels terminés, vous saurez comment empêcher les util
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -7,6 +7,7 @@
 	manager="timlt" 
 	editor=""/>
 
+
 <tags 
 	ms.service="cloud-services" 
 	ms.workload="tbd" 
@@ -15,6 +16,7 @@
 	ms.topic="article" 
 	ms.date="07/16/2015"
 	ms.author="adegeo"/>
+
 
 # Vue d’ensemble des certificats pour Azure Cloud Services
 Dans Azure, des certificats sont utilisés pour les services cloud ([certificats de service](#what-are-service-certificates)) et pour l’authentification auprès de l’API de gestion ([certificats de gestion](#what-are-management-certificates)). Cette rubrique offre une vue d’ensemble de ces deux types de certificat et vous décrit comment les [créer](#create) et les [déployer](#deploy) dans Azure.
@@ -49,7 +51,7 @@ Vous pouvez créer un certificat auto-signé au moyen de n’importe quel outil 
 * Contient une clé privée.
 * Créé pour l’échange de clés (fichier .pfx).
 * Le nom du sujet doit correspondre au domaine servant à accéder au service cloud.
-    > **contoso.net****contoso.cloudapp.net**
+    > Vous ne pouvez pas acquérir un certificat SSL pour le domaine cloudapp.net (ou pour tout domaine lié à Azure). Le nom d'objet du certificat doit correspondre au nom de domaine personnalisé utilisé pour accéder à votre application. Par exemple, **contoso.net**, mais pas **contoso.cloudapp.net**.
 * Chiffrement à 2 048 bits au minimum.
 * **Certificat de service uniquement** : le certificat côté client doit résider dans le magasin de certificats *personnel*.
 
@@ -77,4 +79,4 @@ Chargez un [certificat d’API de gestion](../azure-api-management-certs.md) dan
 
 >[AZURE.NOTE]Le portail Azure en version préliminaire n’utilise pas de certificats de gestion pour accéder à l’API, mais utilise plutôt des comptes d’utilisateurs.
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

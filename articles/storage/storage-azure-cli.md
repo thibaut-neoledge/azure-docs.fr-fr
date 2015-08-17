@@ -80,9 +80,9 @@ Pour en savoir plus sur les abonnements à Microsoft Azure, voir [Gestion des c
 
     - **<container_name>** : utilisez le nom donné dans le script ou saisissez un nouveau nom pour votre conteneur.
 
-    - **<image_to_upload>** : saisissez le chemin d’accès à une image sur l’ordinateur local, par exemple : « ~/images/HelloWorld.png ».
+    - **<image_to_upload>** : saisissez le chemin d’accès à une image sur l’ordinateur local, par exemple : « \~/images/HelloWorld.png ».
 
-    - **<destination_folder>** : saisissez un chemin d’accès à un répertoire local pour le stockage des fichiers téléchargés depuis Microsoft Azure Storage, par exemple « ~/downloadImages ».
+    - **<destination_folder>** : saisissez un chemin d’accès à un répertoire local pour le stockage des fichiers téléchargés depuis Microsoft Azure Storage, par exemple « \~/downloadImages ».
 
 7. Une fois que vous avez mis à jour les variables nécessaires dans vim, appuyez sur les combinaisons de touches « Échap, :, wq! » pour enregistrer le script.
 
@@ -189,7 +189,7 @@ Remarque : ce chemin d’accès au répertoire peut inclure plusieurs niveaux, 
 
 ### Charger un fichier local vers le répertoire
 
-Dans l’exemple suivant, un fichier est chargé à partir de l’emplacement **~/temp/samplefile.txt** vers le répertoire **MonRép**. Modifiez le chemin d’accès du fichier de façon à ce qu’il désigne un fichier valide sur votre ordinateur local :
+Dans l’exemple suivant, un fichier est chargé à partir de l’emplacement **\~/temp/samplefile.txt** vers le répertoire **MonRép**. Modifiez le chemin d’accès du fichier de façon à ce qu’il désigne un fichier valide sur votre ordinateur local :
 
         azure storage file upload '~/temp/samplefile.txt' myshare myDir
 
@@ -214,4 +214,4 @@ Pour en savoir plus sur Azure Storage, consultez les articles et ressources sui
 [Image1]: ./media/storage-azure-cli/azure_command.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

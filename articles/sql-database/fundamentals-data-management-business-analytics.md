@@ -25,4 +25,4 @@
 [AZURE.INCLUDE [stockage sur le cloud](../../includes/cloud-storage.md)]
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

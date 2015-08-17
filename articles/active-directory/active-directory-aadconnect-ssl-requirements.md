@@ -32,4 +32,4 @@
 Les certificats utilisant des caractères génériques sont pris en charge.
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

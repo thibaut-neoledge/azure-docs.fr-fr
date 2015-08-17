@@ -88,4 +88,4 @@ Autorisation de différents modèles de service à appliquer pour les flux d’a
 Autorisation du blocage des attributs circulant d’AD vers Azure AD | ● | ● | |  
 Autorisation de la personnalisation avancée pour les flux d’attributs | ● | ● | | ●  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

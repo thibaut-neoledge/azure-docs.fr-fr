@@ -13,7 +13,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="07/01/2015" 
+	ms.date="08/04/2015" 
 	ms.author="jeffstok"/>
 
 #Remplacement des informations d’identification des entrées/sorties
@@ -137,7 +137,7 @@ Le message de confirmation suivant s’affiche.
 	Command(s) completed successfully.
 
 ## Obtenir de l'aide
-Pour obtenir une assistance, essayez notre [forum Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/fr-fr/home?forum=AzureStreamAnalytics)
+Pour obtenir une assistance, essayez notre [forum Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
 
 ## Étapes suivantes
 
@@ -193,4 +193,4 @@ Pour obtenir une assistance, essayez notre [forum Azure Stream Analytics](https:
 [graphic43]: ./media/stream-analytics-login-credentials-inputs-outputs/43-stream-analytics-login-credentials-inputs-outputs.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

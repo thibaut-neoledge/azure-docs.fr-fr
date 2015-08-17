@@ -136,7 +136,7 @@ Le code suivant permet d'ajouter une pièce jointe.
 
     // Local file name and path.
     String attachmentName = "myfile.zip";
-    String attachmentPath = "c:\myfiles\"; 
+    String attachmentPath = "c:\\myfiles\"; 
     MimeBodyPart attachmentPart = new MimeBodyPart();
     // Specify the local file to attach.
     DataSource source = new FileDataSource(attachmentPath + attachmentName);
@@ -228,4 +228,4 @@ Maintenant que vous avez appris les bases du service de messagerie SendGrid, con
   [service de messagerie dans le cloud]: https://sendgrid.com/email-solutions
   [remise de courrier électronique transactionnelle]: https://sendgrid.com/transactional-email
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

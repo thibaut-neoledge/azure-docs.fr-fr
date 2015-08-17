@@ -54,8 +54,8 @@ Il est donc impossible de lister tous les objets dans une même réponse. En rev
 
 La réponse à une opération de listage segmenté comporte les éléments suivants :
 
--	<i>_segment</i>, qui contient le jeu de résultats retourné pour un seul appel à l'API de listage ; 
--	*continuation_token* (jeton de liaison), qui est transmis à l'appel suivant pour obtenir la page de résultats suivante. Quand il n’y a plus de résultats à retourner, le jeton de liaison prend la valeur null.
+-	<i>\_segment</i>, qui contient le jeu de résultats retourné pour un seul appel à l'API de listage ; 
+-	*continuation\_token* (jeton de liaison), qui est transmis à l'appel suivant pour obtenir la page de résultats suivante. Quand il n’y a plus de résultats à retourner, le jeton de liaison prend la valeur null.
 
 Par exemple, un appel type destiné à lister tous les objets blob présents dans un conteneur peut ressembler à l'extrait de code suivant. Le code est disponible dans nos [exemples](https://github.com/Azure/azure-storage-cpp/blob/master/Microsoft.WindowsAzure.Storage/samples/BlobsGettingStarted/Application.cpp) :
 
@@ -80,15 +80,15 @@ Par exemple, un appel type destiné à lister tous les objets blob présents dan
 	}
 	while (!token.empty());
 
-Notez que le nombre de résultats retournés dans une page peut être contrôlé par le paramètre *max_results* au niveau de la surcharge de chaque API, par exemple :
+Notez que le nombre de résultats retournés dans une page peut être contrôlé par le paramètre *max\_results* au niveau de la surcharge de chaque API, par exemple :
 	
 	list_blob_item_segment list_blobs_segmented(const utility::string_t& prefix, bool use_flat_blob_listing, 
 		blob_listing_details::values includes, int max_results, const continuation_token& token, 
 		const blob_request_options& options, operation_context context)
 
-Si vous ne spécifiez pas le paramètre *max_results*, le nombre de résultats retournés dans une seule page peut atteindre 5 000 résultats, soit la valeur maximale par défaut.
+Si vous ne spécifiez pas le paramètre *max\_results*, le nombre de résultats retournés dans une seule page peut atteindre 5 000 résultats, soit la valeur maximale par défaut.
 
-Sachez aussi qu'une requête au niveau du stockage d’une table Azure peut retourner aucun enregistrement ou moins d'enregistrements que la valeur du paramètre *max_results* que vous avez spécifiée, même si le jeton de liaison n'est pas vide. L’une des raisons possibles à cela est que la requête n’a pas pu aboutir dans un délai de cinq secondes. Tant que le jeton de liaison n'est pas vide, la requête doit se poursuivre et votre code ne doit pas présumer la taille des résultats du segment.
+Sachez aussi qu'une requête au niveau du stockage d’une table Azure peut retourner aucun enregistrement ou moins d'enregistrements que la valeur du paramètre *max\_results* que vous avez spécifiée, même si le jeton de liaison n'est pas vide. L’une des raisons possibles à cela est que la requête n’a pas pu aboutir dans un délai de cinq secondes. Tant que le jeton de liaison n'est pas vide, la requête doit se poursuivre et votre code ne doit pas présumer la taille des résultats du segment.
 
 Le modèle de codage recommandé dans la plupart des scénarios est le listing segmenté, qui indique la progression explicite de l’opération de listing ou d'interrogation et la façon dont le service répond à chaque demande. Un contrôle de niveau inférieur de la progression du listage peut aider à contrôler la mémoire et les performances, en particulier pour les applications ou services C++.
 
@@ -128,7 +128,7 @@ Vous avez tout intérêt à modifier votre code de façon à utiliser les API de
 	    token = segment.continuation_token();
 	} while (!token.empty());
 
-En spécifiant le paramètre *max_results* du segment, vous pouvez établir un juste équilibre entre le nombre de demandes et l'utilisation de mémoire de façon à répondre à des considérations de performance pour votre application.
+En spécifiant le paramètre *max\_results* du segment, vous pouvez établir un juste équilibre entre le nombre de demandes et l'utilisation de mémoire de façon à répondre à des considérations de performance pour votre application.
 
 Par ailleurs, si vous utilisez les API de listage segmenté, mais que vous stockez les données dans une collection locale, méthode qui s’avère « vorace », nous vous recommandons vivement de refactoriser votre code pour une gestion soigneuse et adaptée du stockage des données dans une collection locale.
 
@@ -138,7 +138,7 @@ Même si le listage vorace peut poser des problèmes, il est utile s’il n’y 
 
 Si vous faites aussi appel à des Kits de développement logiciel (SDK) C# ou Oracle Java, vous devez connaître le modèle de programmation « énumérable », qui offre un mode de listage « paresseux », qui ne va chercher certaines données périphériques que s’il y est contraint. En C++, le modèle basé sur un itérateur offre une approche similaire.
 
-Une API de listage paresseux type, utilisant **list_blobs** en guise d’exemple, se présente comme ceci :
+Une API de listage paresseux type, utilisant **list\_blobs** en guise d’exemple, se présente comme ceci :
 
 	list_blob_item_iterator list_blobs() const;
 
@@ -184,4 +184,4 @@ Pour plus d'informations sur Azure Storage et la bibliothèque cliente pour C++,
 -	[Blog de l'équipe Azure Storage](http://blogs.msdn.com/b/windowsazurestorage/)
 -	[Documentation d'Azure Storage](http://azure.microsoft.com/documentation/services/storage/)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

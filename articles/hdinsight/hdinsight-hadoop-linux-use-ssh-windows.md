@@ -28,7 +28,7 @@ Les clusters HDInsight Azure sous Linux permettent d’utiliser l’accès SSH (
 
 ##Configuration requise
 
-* **PuTTY** et **PuTTYGen** pour les clients Windows. Ces utilitaires sont disponibles à l’adresse suivante : [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
+* **PuTTY** et **PuTTYGen** pour les clients Windows. Ces utilitaires sont disponibles à l’adresse suivante : [http://www.chiark.greenend.org.uk/\~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
 
 * Un navigateur web moderne qui prend en charge HTML5.
 
@@ -124,7 +124,7 @@ Les nœuds de travail ne sont pas directement accessibles de l’extérieur du c
 
 Si vous avez fourni une clé SSH lors de la création de votre compte d’utilisateur, vous devez effectuer les étapes suivantes pour utiliser la clé privée lors de l’authentification au cluster si vous souhaitez vous connecter aux nœuds de travail.
 
-1. Installez Pageant à partir de l’adresse suivante : [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html). Cet utilitaire permet de mettre en cache des clés SSH pour PuTTY.
+1. Installez Pageant à partir de l’adresse suivante : [http://www.chiark.greenend.org.uk/\~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html). Cet utilitaire permet de mettre en cache des clés SSH pour PuTTY.
 
 2. Exécutez Pageant. Il est réduit à une icône dans la barre d’état. Cliquez avec le bouton droit sur l’icône et sélectionnez **Ajouter une clé**.
 
@@ -278,4 +278,4 @@ Maintenant que vous savez comment vous authentifier avec une clé SSH, apprenez 
 
 * [Utilisation des tâches MapReduce avec HDInsight](hdinsight-use-mapreduce.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

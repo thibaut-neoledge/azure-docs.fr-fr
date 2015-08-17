@@ -84,4 +84,4 @@ Vous pouvez utiliser la page **Catalogue de sauvegarde** pour restaurer votre vo
 
 En savoir plus sur la [gestion des volumes StorSimple](storsimple-manage-volumes.md)
 
-<!----HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

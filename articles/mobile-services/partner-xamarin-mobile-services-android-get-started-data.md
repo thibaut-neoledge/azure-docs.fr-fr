@@ -283,4 +283,4 @@ Une fois que vous avez terminé les séries de données, essayez ces autres dida
 [projet d'exemple terminé]: http://go.microsoft.com/fwlink/p/?LinkId=331302
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

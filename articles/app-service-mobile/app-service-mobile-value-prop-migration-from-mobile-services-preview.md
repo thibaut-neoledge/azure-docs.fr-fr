@@ -67,4 +67,4 @@ Sauvegardez automatiquement votre backend et votre base de données. Votre code 
 D'ici à ce que la fonctionnalité *Azure App Service Mobile Apps* devienne disponible pour tous, nous vous fournirons une expérience de migration transparente pour vos applications Mobile Services vers App Service, si vous choisissez d'effectuer une migration. En attendant, vous pouvez commencer à explorer *App Service* et à tirer parti d'*App Service* pour votre application Mobile Service existante en suivant ce [didacticiel](app-service-mobile-dotnet-backend-migrating-from-mobile-services-preview.md).
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

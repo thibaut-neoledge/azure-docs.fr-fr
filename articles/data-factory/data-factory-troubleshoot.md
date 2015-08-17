@@ -7,6 +7,7 @@
 	manager="jhubbard" 
 	editor="monicar"/>
 
+
 <tags 
 	ms.service="data-factory" 
 	ms.workload="data-services" 
@@ -15,6 +16,7 @@
 	ms.topic="article" 
 	ms.date="06/04/2015" 
 	ms.author="spelluru"/>
+
 
 # Résolution des problèmes liés à Data Factory
 Vous pouvez résoudre les problèmes Azure Data Factory à l'aide du portail Azure ou des cmdlets PowerShell. Cette rubrique contient des procédures pas à pas qui vous montrent comment utiliser le portail Azure pour résoudre rapidement les erreurs Data Factory.
@@ -52,44 +54,42 @@ Vérifiez que SQL Server est accessible à partir de l'ordinateur sur lequel la 
 
 ## Problème : l’état des tranches d’entrée est PendingExecution ou PendingValidation depuis longtemps.
 
-Les tranches peuvent avoir l’état **PendingExecution** ou **PendingValidation** pour plusieurs raisons, par exemple parce que la propriété **waitOnExternal** n’est pas spécifiée dans la section **availability** de la première table ou du premier jeu de données dans le pipeline. Tout jeu de données généré en dehors de la portée d’Azure Data Factory doit être marqué avec la propriété **waitOnExternal** dans la section **availability**. Cela indique que les données sont externes et qu’elles ne sont sauvegardées par aucun pipeline au sein de la fabrique de données. Les tranches de données sont marquées comme prêtes (**Ready**) une fois que les données sont disponibles dans le magasin respectif.
+Les tranches peuvent avoir l’état **PendingExecution** ou **PendingValidation** pour plusieurs raisons, par exemple parce que la propriété **external** n’est pas définie sur **true**. Tout jeu de données généré en dehors de la portée d’Azure Data Factory doit être marqué avec la propriété **external**. Cela indique que les données sont externes et qu’elles ne sont sauvegardées par aucun pipeline au sein de la fabrique de données. Les tranches de données sont marquées comme prêtes (**Ready**) une fois que les données sont disponibles dans le magasin respectif.
 
-Consultez l’exemple suivant pour l’utilisation de la propriété **waitOnExternal**. Vous pouvez spécifier **waitOnExternal{}** sans définir de valeurs pour les propriétés figurant dans la section afin d’utiliser les valeurs par défaut.
+Consultez l’exemple suivant pour l’utilisation de la propriété **external**. Vous pouvez éventuellement spécifier **externalData*** lorsque vous définissez external sur true.
 
 Consultez la section Tables dans [Référence sur la création de scripts JSON][json-scripting-reference] pour plus d’informations sur cette propriété.
 	
 	{
-	    "name": "CustomerTable",
-	    "properties":
-	    {
-	        "location":
-	        {
-	            "type": "AzureBlobLocation",
-	            "folderPath": "MyContainer/MySubFolder/",
-	            "linkedServiceName": "MyLinkedService",
-	            "format":
-	            {
-	                "type": "TextFormat",
-	                "columnDelimiter": ",",
-	                "rowDelimiter": ";"
-	            }
-	        },
-	        "availability":
-	        {
-	            "frequency": "Hour",
-	            "interval": 1,
-	            "waitOnExternal":
-	            {
-	                "dataDelay": "00:10:00",
-	                "retryInterval": "00:01:00",
-	                "retryTimeout": "00:10:00",
-	                "maximumRetry": 3
-	            }
-	        }
+	  "name": "CustomerTable",
+	  "properties": {
+	    "type": "AzureBlob",
+	    "linkedServiceName": "MyLinkedService",
+	    "typeProperties": {
+	      "folderPath": "MyContainer/MySubFolder/",
+	      "format": {
+	        "type": "TextFormat",
+	        "columnDelimiter": ",",
+	        "rowDelimiter": ";"
+	      }
+	    },
+	    "external": true,
+	    "availability": {
+	      "frequency": "Hour",
+	      "interval": 1
+	    },
+	    "policy": {
+	      "externalData": {
+	        "dataDelay": "00:10:00",
+	        "retryInterval": "00:01:00",
+	        "retryTimeout": "00:10:00",
+	        "maximumRetry": 3
+	      }
 	    }
+	  }
 	}
 
- Pour résoudre l’erreur, ajoutez la section **waitOnExternal** à la définition JSON de la table d’entrée, puis recréez la table.
+ Pour résoudre l’erreur, ajoutez la propriété **external** et la section **externalData** facultative à la définition JSON de la table d’entrée, puis recréez la table.
 
 ## Problème : échec de l’opération de copie hybride
 Pour en savoir plus :
@@ -131,7 +131,7 @@ Pour énumérer et lire les journaux d’une activité personnalisée spécifiqu
 
 Un **erreur courante** liée à une activité personnalisée est l’échec de l’exécution du package avec le code de sortie « 1 ». Consultez « wasb://adfjobs@storageaccount.blob.core.windows.net/PackageJobs/<guid>/<jobid>/Status/stderr » pour plus de détails.
 
-Pour voir plus de détails sur ce type d’erreur, ouvrez le fichier **stderr**. Une erreur courante est liée à une condition de délai d’expiration telle que celle-ci : INFO mapreduce.Job: Task Id : attempt_1424212573646_0168_m_000000_0, Status : FAILED AttemptID:attempt_1424212573646_0168_m_000000_0 Timed out after 600 secs
+Pour voir plus de détails sur ce type d’erreur, ouvrez le fichier **stderr**. Une erreur courante est liée à une condition de délai d’expiration telle que celle-ci : INFO mapreduce.Job: Task Id : attempt\_1424212573646\_0168\_m\_000000\_0, Status : FAILED AttemptID:attempt\_1424212573646\_0168\_m\_000000\_0 Timed out after 600 secs
 
 Ce même message d’erreur peut apparaître plusieurs fois, si le travail a tenté de s’exécuter 3 fois par exemple, pendant au moins 30 minutes.
 
@@ -386,4 +386,4 @@ Dans ce scénario, le jeu de données est associé à un état d'erreur dû à u
 [image-data-factory-troubleshoot-activity-run-details]: ./media/data-factory-troubleshoot/Walkthrough2ActivityRunDetails.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

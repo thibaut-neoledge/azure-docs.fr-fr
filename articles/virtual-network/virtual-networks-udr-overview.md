@@ -90,4 +90,4 @@ Pour savoir comment activer le transfert IP pour une machine virtuelle dans Mic
 - Découvrez comment [créer des routes](../virtual-networks-udr-how-to#How-to-manage-routes) et les associer à des sous-réseaux.
 - Découvrez comment [activer le transfert IP](../virtual-networks-udr-how-to#How-to-Manage-IP-Forwarding) pour une machine virtuelle exécutant une appliance virtuelle. 
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

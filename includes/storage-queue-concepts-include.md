@@ -18,10 +18,10 @@ Le service de file d’attente contient les composants suivants :
       
 L'URL suivante désigne l'une des files d'attente du schéma : http://myaccount.queue.core.windows.net/imagesToDownload
 
--**Compte de stockage :** tous les accès au stockage Azure sont effectués via un compte de stockage. Pour plus d’informations sur la capacité du compte de stockage, consultez la page [Objectifs de performance et évolutivité du stockage Azure](../articles/storage/storage-scalability-targets.md).
+\- **Compte de stockage** : tout accès à Azure Storage s’effectue via un compte de stockage. Pour plus d’informations sur la capacité du compte de stockage, consultez la page [Objectifs de performance et évolutivité du stockage Azure](../articles/storage/storage-scalability-targets.md).
 
 - **File d’attente :** une file d’attente contient un ensemble de messages. Tous les messages doivent être dans une file d’attente.
 
 - **Message :** message de tout format, d’une taille maximale de 64 Ko.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -150,4 +150,4 @@ Windows PowerShell est un environnement de création de scripts vous permettant 
 		
 		Provisioned 
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

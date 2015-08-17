@@ -7,6 +7,7 @@
 	manager="dwrede" 
 	editor=""/>
 
+
 <tags 
 	ms.service="media-services" 
 	ms.workload="media" 
@@ -15,6 +16,7 @@
 	ms.topic="article" 
 	ms.date="05/24/2015" 
 	ms.author="juliako"/>
+
 
 #Développement Media Services avec .NET 
 
@@ -77,7 +79,9 @@ Vous pouvez également obtenir les dernières informations relatives au Kit de d
 &lt;configuration>
     &lt;appSettings>
 	&lt;add key="MediaServicesAccountName" value="Media-Services-Account-Name" />
+
     	&lt;add key="MediaServicesAccountKey" value="Media-Services-Account-Key" />
+
     &lt;/appSettings>
 &lt;/configuration>
 </code></pre>
@@ -98,4 +102,4 @@ Vous pouvez également obtenir les dernières informations relatives au Kit de d
 À ce stade, vous êtes prêt à commencer le développement d’une application Media Services.
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

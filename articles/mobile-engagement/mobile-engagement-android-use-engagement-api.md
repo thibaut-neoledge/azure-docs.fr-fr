@@ -298,4 +298,4 @@ Dans l'exemple précédent, le JSON envoyé au serveur fait 44 caractères :
 			{"expiration":"2016-12-07","status":"premium"}
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

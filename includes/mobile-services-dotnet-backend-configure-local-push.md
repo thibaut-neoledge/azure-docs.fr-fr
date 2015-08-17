@@ -15,10 +15,10 @@ Vous pouvez éventuellement tester les notifications push en exécutant votre se
 
 	![](./media/mobile-services-dotnet-backend-configure-local-push/notification-hub-connection-string.png)
 
-4. Dans Visual Studio, accédez à votre projet de service mobile, ouvrez le fichier Web.config du service et dans **connectionStrings**, remplacez la chaîne de connexion **MS_NotificationHubConnectionString** par la chaîne de connexion de l'étape précédente.
+4. Dans Visual Studio, accédez à votre projet de service mobile, ouvrez le fichier Web.config du service et dans **connectionStrings**, remplacez la chaîne de connexion **MS\_NotificationHubConnectionString** par la chaîne de connexion de l'étape précédente.
 
-5. Dans **appSettings**, remplacez la valeur du paramètre d'application **MS_NotificationHubName** par le nom du concentrateur de notification.
+5. Dans **appSettings**, remplacez la valeur du paramètre d'application **MS\_NotificationHubName** par le nom du concentrateur de notification.
 
 Le projet de service mobile est désormais configuré pour se connecter au concentrateur de notification Azure lorsqu'il est exécuté localement. Notez qu'il est impératif d'utiliser le même nom de concentrateur de notification et la même chaîne de connexion que sur le portail car ces paramètres de projet Web.config sont remplacés par les paramètres du portail lors d'une exécution sous Azure.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

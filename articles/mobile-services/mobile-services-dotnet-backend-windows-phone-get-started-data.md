@@ -195,7 +195,7 @@ Dans cette section, vous allez utiliser Visual Studio pour tester l'application 
 
 9. Entrez un texte pour le nouvel élément todoitem. Cliquez ensuite sur **Enregistrer**. Un nouvel élément TodoItem est inséré dans la base de données créée par le service mobile hébergé localement dans IIS Express. Activez la case à cocher d'un des éléments pour le marquer comme terminé.
 
-10. Dans Visual Studio, arrêtez le débogage de l'application. Vous pouvez consulter les modifications dans la base de données créée pour le service backend en ouvrant l'Explorateur de serveurs et en développant les Connexions de données. Cliquez avec le bouton droit sur la table TodoItems située sous **MS_TableConnectionString** et cliquez sur **Afficher les données de la table.**
+10. Dans Visual Studio, arrêtez le débogage de l'application. Vous pouvez consulter les modifications dans la base de données créée pour le service backend en ouvrant l'Explorateur de serveurs et en développant les Connexions de données. Cliquez avec le bouton droit sur la table TodoItems située sous **MS\_TableConnectionString** et cliquez sur **Afficher les données de la table.**
 
     ![Show data in the table]([14]: ./media/mobile-services-dotnet-backend-windows-phone-get-started-data/vs-show-local-table-data.png)
 
@@ -272,4 +272,4 @@ Ce didacticiel a présenté les bases de l'activation d'une application Windows 
 [How to add a new Windows Firewall port rule]: http://go.microsoft.com/fwlink/?LinkId=392240
    
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

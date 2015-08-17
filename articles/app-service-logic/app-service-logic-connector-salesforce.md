@@ -133,4 +133,4 @@ Créons une application logique simple qui crée un compte dans Salesforce et me
 [14]: ./media/app-service-logic-connector-salesforce/14_Update_Account_Address.png
 [15]: ./media/app-service-logic-connector-salesforce/15_Create_new_salesforce_connector.png
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

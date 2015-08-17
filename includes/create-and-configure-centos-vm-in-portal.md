@@ -69,4 +69,4 @@ Entrez de nouveau le mot de passe. Patientez pendant l’installation des mises 
 
 [Image6]: ./media/create-and-configure-centos-vm-in-portal/putty.png
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

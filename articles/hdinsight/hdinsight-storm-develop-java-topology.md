@@ -36,13 +36,13 @@ Après avoir suivi les étapes décrites dans ce document, vous disposerez d’u
 
 Les variables d’environnement suivantes peuvent être définies lors de l’installation de Java et du JDK. Toutefois, vous devez vérifier qu’elles existent et qu’elles contiennent les valeurs correctes pour votre système.
 
-* **JAVA_HOME** : doit pointer vers le répertoire d’installation de l’environnement d’exécution Java (JRE). Par exemple, sur une distribution Unix ou Linux, il doit avoir une valeur semblable à `/usr/lib/jvm/java-7-oracle`. Sous Windows, il a une valeur semblable à `c:\Program Files (x86)\Java\jre1.7`
+* **JAVA\_HOME** : doit pointer vers le répertoire d’installation de l’environnement d’exécution Java (JRE). Par exemple, sur une distribution Unix ou Linux, il doit avoir une valeur semblable à `/usr/lib/jvm/java-7-oracle`. Sous Windows, il a une valeur semblable à `c:\Program Files (x86)\Java\jre1.7`
 
 * **PATH** :doit contenir les chemins d’accès suivants :
 
-	* **JAVA_HOME** (ou le chemin d’accès équivalent)
+	* **JAVA\_HOME** (ou le chemin d’accès équivalent)
 
-	* **JAVA_HOME\bin** (ou le chemin d’accès équivalent)
+	* **JAVA\_HOME\\bin** (ou le chemin d’accès équivalent)
 
 	* Le répertoire d’installation de Maven
 
@@ -58,17 +58,17 @@ Le répertoire **WordCount** contiendra les éléments suivants :
 
 * **pom.xml** : contient les paramètres du projet Maven.
 
-* **src\main\java\com\microsoft\example** : contient le code de votre application.
+* **src\\main\\java\\com\\microsoft\\example** : contient le code de votre application.
 
-* **ssrc\test\java\com\microsoft\example** : contient des tests pour votre application. Pour cet exemple, nous n’allons pas créer de tests.
+* **ssrc\\test\\java\\com\\microsoft\\example** : contient des tests pour votre application. Pour cet exemple, nous n’allons pas créer de tests.
 
 ###Suppression de l’exemple de code
 
 Étant donné que nous allons créer notre application, supprimez les fichiers d’application et de test générés :
 
-*  **src\test\java\com\microsoft\example\AppTest.Java**
+*  **src\\test\\java\\com\\microsoft\\example\\AppTest.Java**
 
-*  **src\main\java\com\microsoft\example\App.Java**
+*  **src\\main\\java\\com\\microsoft\\example\\App.Java**
 
 ##Ajout de dépendances
 
@@ -153,7 +153,7 @@ Afin de réduire les besoins de configuration de sources de données externes, l
 >
 > * <a href="https://github.com/apache/storm/tree/master/external/storm-kafka" target="_blank">Storm-Kafka</a> : un spout qui lit à partir de Kafka
 
-Pour le spout, créez un nouveau fichier nommé **RandomSentenceSpout.java** dans le répertoire **src\main\java\com\microsoft\example** et utilisez ce qui suit comme contenu :
+Pour le spout, créez un nouveau fichier nommé **RandomSentenceSpout.java** dans le répertoire **src\\main\\java\\com\\microsoft\\example** et utilisez ce qui suit comme contenu :
 
     /**
      * Licensed to the Apache Software Foundation (ASF) under one
@@ -251,7 +251,7 @@ Les bolts gèrent le traitement des données. Dans cette topologie, nous en avon
 
 > [AZURE.NOTE]Les bolts peuvent tout faire : des calculs, la persistance, la communication avec des composants externes, etc.
 
-Créez deux nouveaux fichiers, **SplitSentence.java** et **WordCount.Java** dans le répertoire **src\main\java\com\microsoft\example**. Utilisez les données suivantes comme contenu des fichiers :
+Créez deux nouveaux fichiers, **SplitSentence.java** et **WordCount.Java** dans le répertoire **src\\main\\java\\com\\microsoft\\example**. Utilisez les données suivantes comme contenu des fichiers :
 
 **SplitSentence**
 
@@ -285,7 +285,7 @@ Créez deux nouveaux fichiers, **SplitSentence.java** et **WordCount.Java** dans
           //get the word
           String word=sentence.substring(start,end);
           //If a word is whitespace characters, replace it with empty
-          word=word.replaceAll("\s+","");
+          word=word.replaceAll("\\s+","");
           //if it's an actual word, emit it
           if (!word.equals("")) {
             collector.emit(new Values(word));
@@ -352,7 +352,7 @@ Voici un schéma de base du graphique des composants de cette topologie.
 
 ![schéma montrant la disposition des spouts et bolts](./media/hdinsight-storm-develop-java-topology/wordcount-topology.png)
 
-Pour implémenter la topologie, créez un fichier nommé **WordCountTopology.java** dans le répertoire **src\main\java\com\microsoft\example**. Utilisez le s données suivantes comme contenu du :
+Pour implémenter la topologie, créez un fichier nommé **WordCountTopology.java** dans le répertoire **src\\main\\java\\com\\microsoft\\example**. Utilisez le s données suivantes comme contenu du :
 
 	package com.microsoft.example;
 
@@ -466,4 +466,4 @@ Vous avez appris à créer une topologie Storm à l’aide de Java. Apprenez mai
 
 Vous trouverez davantage d’exemples de topologies Storm en vous rendant sur [Exemples de topologies Storm sur HDInsight](hdinsight-storm-example-topology.md).
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

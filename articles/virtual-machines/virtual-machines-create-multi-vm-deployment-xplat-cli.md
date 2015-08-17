@@ -7,6 +7,7 @@
    manager="timlt"
    editor=""/>
 
+
    <tags
    ms.service="virtual-machines"
    ms.devlang="nodejs"
@@ -15,6 +16,7 @@
    ms.workload="infrastructure-services"
    ms.date="02/20/2015"
    ms.author="alanst;kasing"/>
+
 
 # Créer un déploiement de plusieurs machines virtuelles à l'aide de l'interface de ligne de commande Microsoft Azure
 
@@ -67,4 +69,4 @@ Bien que vous puissiez trouver plus d'informations à l'aide de l'option –help
 * [Connexion à une machine virtuelle exécutant Linux](virtual-machines-linux-how-to-log-on.md)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

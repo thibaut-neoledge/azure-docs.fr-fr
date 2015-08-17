@@ -7,6 +7,7 @@
 	manager="swadhwa" 
 	editor="curtand"/>
 
+
 <tags 
 	ms.service="active-directory" 
 	ms.workload="identity" 
@@ -15,6 +16,7 @@
 	ms.topic="article" 
 	ms.date="07/12/2015" 
 	ms.author="billmath"/>
+
 
 # Configuration requise d’Azure Active Directory Connect Health
 La documentation suivante décrit la configuration requise à respecter avant de commencer à utiliser Azure AD Connect Health.
@@ -49,7 +51,8 @@ Pour commencer à utiliser Azure AD Connect Health, vous pouvez télécharger sa
 ### Connectivité sortante vers les points de terminaison de service Azure
 Pendant l’installation et l’exécution, l’agent nécessite une connectivité vers les points de terminaison de service Azure AD Connect Health répertoriés ci-dessous. Si vous bloquez la connectivité sortante, assurez-vous d’ajouter les éléments suivants à la liste autorisée :
 
-- *.servicebus.windows.net - Port : 5671 - https://*.adhybridhealth.azure.com/
+- **.servicebus.windows.net - Port : 5671
+- https://*.adhybridhealth.azure.com/
 - https://*.table.core.windows.net/
 - https://policykeyservice.dc.ad.msft.net/
 - https://login.windows.net
@@ -73,7 +76,7 @@ Pour que la fonctionnalité d’analyse de l’utilisation puisse collecter les 
 
 1. Cliquez sur **Démarrer**, survolez **Programmes**, **Outils d’administration**, puis cliquez sur **Stratégie de sécurité locale**.
 1. Accédez au dossier **Security Settings\\Local Policies\\User Rights Management**, puis double-cliquez sur Générer des audits de sécurité.
-1. Sur l’onglet **Paramètre de sécurité locale**, vérifiez que le compte de service AD FS 2.0 est répertorié. S’il n’est pas présent, cliquez sur **Ajouter un utilisateur ou un groupe** et ajoutez-le dans la liste, puis cliquez sur **OK**.
+1. Sur l’onglet **Paramètre de sécurité locale**, vérifiez que le compte de service AD FS 2.0 est répertorié. Si ce n’est pas le cas, cliquez sur **Ajouter un utilisateur ou un groupe** et procédez à l’ajout dans la liste, puis cliquez sur **OK**.
 1. Ouvrez une invite de commandes avec des privilèges élevés et exécutez la commande suivante pour activer l’audit. `auditpol.exe /set /subcategory:"Application Generated" /failure:enable /success:enable`
 1. Fermez Stratégie de sécurité locale, puis ouvrez le composant logiciel enfichable Gestion. Pour ouvrir le composant logiciel enfichable Gestion, cliquez sur **Démarrer**, survolez **Programmes**, **Outils d’administration**, puis cliquez sur Gestion AD FS 2.0.
 1. Dans le volet Actions, cliquez sur Modifier les propriétés du service FS (Federation Service).
@@ -101,7 +104,7 @@ Pour que la fonctionnalité d’analyse de l’utilisation puisse collecter les 
 
 
 1. Ouvrez l’**Observateur d’événements**.</li>
-1. Accédez aux Journaux Windows, puis sélectionnez **Securité**.
+1. Accédez aux Journaux Windows, puis sélectionnez **Sécurité**.
 1. Sur la droite, cliquez sur **Filtrer les journaux actuels**.
 1. Dans Source de l’événement, sélectionnez **Audit AD FS**.
 
@@ -155,4 +158,4 @@ Pour vérifier que l’agent a été installé, ouvrez les services et procédez
  
 ![Vérifier Azure AD Connect Health](./media/active-directory-aadconnect-health-requirements/install5.png)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

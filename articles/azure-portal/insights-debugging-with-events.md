@@ -7,6 +7,7 @@
 	services="azure-portal" 
 	documentationCenter="na"/>
 
+
 <tags 
 	ms.service="azure-portal" 
 	ms.workload="na" 
@@ -15,6 +16,7 @@
 	ms.topic="article" 
 	ms.date="04/28/2015" 
 	ms.author="hanikn"/>
+
 
 # Affichage des événements et des journaux d'audit
 
@@ -72,4 +74,4 @@ Après avoir choisi ce que vous souhaitez afficher, cliquez sur le bouton **Mise
 * [Surveillance des mesures de service](insights-how-to-customize-monitoring.md) pour vous assurer que votre service est disponible et réactif.
 * [Suivi de l'intégrité du service](insights-service-health.md) pour déterminer à quel moment Azure a rencontré des interruptions de service ou une dégradation des performances.  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

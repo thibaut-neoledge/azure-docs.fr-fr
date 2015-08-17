@@ -7,6 +7,7 @@
 	manager="wpickett" 
 	editor=""/>
 
+
 <tags 
 	ms.service="app-service-web" 
 	ms.workload="web" 
@@ -15,6 +16,7 @@
 	ms.topic="article" 
 	ms.date="06/30/2015" 
 	ms.author="stefsh"/>
+
 
 # Connexion sécurisée à des ressources de backend à partir d'un environnement App Service #
 
@@ -30,7 +32,7 @@ Pour tous ces scénarios, les applications s'exécutant dans un environnement Ap
 ## Connectivité sortante et configuration DNS requise ##
 Notez que pour qu'un environnement App Service fonctionne correctement, il requiert un accès sortant au stockage Azure, ainsi que la base de données SQL dans la même région Azure. Si l'accès Internet sortant est bloqué sur le réseau virtuel, les environnements App Service ne pourront pas accéder à ces points de terminaison Azure.
 
-Le client peut également avoir des serveurs DNS personnalisés configurés sur le réseau virtuel. Les environnements App Service doivent être en mesure de résoudre les points de terminaison Azure sous *.database.windows.net, *.file.core.windows.net et *.blob.core.windows.net. 
+Le client peut également avoir des serveurs DNS personnalisés configurés sur le réseau virtuel. Les environnements App Service doivent être en mesure de résoudre les systèmes d’extrémité Azure sous *.database.windows.net, *.file.core.windows.net et *.blob.core.windows.net.
 
 Il est également recommandé de configurer les serveurs DNS personnalisés sur le réseau virtuel à l'avance, avant de créer un environnement App Service. Si la configuration DNS d'un réseau virtuel est modifiée pendant la création d'un environnement App Service, alors le processus de création de l'environnement App Service échouera.
 
@@ -110,4 +112,4 @@ Pour plus d’informations sur la plateforme Azure App Service, consultez la rub
 [NetworkAccessControlListExample]: ./media/app-service-app-service-environment-securely-connecting-to-backend-resources/NetworkAcl01.png
 [DefaultNetworkSecurityRules]: ./media/app-service-app-service-environment-securely-connecting-to-backend-resources/DefaultNetworkSecurityRules01.png
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

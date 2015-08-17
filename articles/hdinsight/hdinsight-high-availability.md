@@ -7,6 +7,7 @@
 	authors="mumian" 
 	documentationCenter=""/>
 
+
 <tags 
 	ms.service="hdinsight" 
 	ms.workload="big-data" 
@@ -15,6 +16,7 @@
 	ms.topic="article" 
 	ms.date="07/10/2015" 
 	ms.author="jgao"/>
+
 
 
 #Disponibilité et fiabilité des clusters Hadoop dans HDInsight
@@ -57,7 +59,7 @@ Dans la capture d’écran, le nœud principal actif est *headnode0*.
 
 ## Accéder aux fichiers journaux sur le nœud principal secondaire
 
-Pour accéder aux fichiers journaux sur le nœud principal secondaire dans le cas où il est devenu le nœud principal actif, la navigation dans l’interface utilisateur du service JobTracker de suivi des tâches fonctionne de la même manière que pour le nœud primaire (actif). Pour accéder au dispositif de suivi des tâches (Job Tracker), vous devez vous connecter au cluster Hadoop avec le protocole RDP (Remote Desktop Protocol), comme décrit dans la section précédente. Une fois que vous avez accédé à distance au cluster, double-cliquez sur l’icône **Hadoop Name Node Status** située sur le Bureau, puis cliquez sur les **NameNode logs** pour accéder au répertoire des journaux sur le nœud principal secondaire.
+Pour accéder aux fichiers journaux sur le nœud principal secondaire dans le cas où il est devenu le nœud principal actif, la navigation dans l’interface utilisateur du service JobTracker de suivi des tâches fonctionne de la même manière que pour le nœud primaire (actif). Pour accéder au dispositif de suivi des tâches (Job Tracker), vous devez vous connecter au cluster Hadoop avec le protocole RDP (Remote Desktop Protocol), comme décrit dans la section précédente. Une fois que vous avez accédé à distance au cluster, double-cliquez sur l'icône **Nœud de nom Hadoop** située sur le bureau, puis cliquez sur **Journal du nœud de nom** pour accéder au répertoire des journaux sur le nœud principal secondaire.
 
 ![](./media/hdinsight-high-availability/Hadoop.Head.Node.Log.Files.png)
 
@@ -105,4 +107,4 @@ Pour le Kit de développement logiciel (SDK), le scénario est similaire. La cr�
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

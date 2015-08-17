@@ -104,4 +104,4 @@ Pour être en harmonie avec le format [datetime](http://msdn.microsoft.com/libra
     puts row
     end
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

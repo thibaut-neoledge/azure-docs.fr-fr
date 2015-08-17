@@ -34,10 +34,10 @@ Le schéma de données d'entrée du service web est présenté dans le tableau s
 
 - trainingdata : il s’agit d’une chaîne de caractères. Les lignes sont séparées par des virgules et les colonnes sont séparées par des points-virgules. Chaque ligne inclut la dimension « temporelle », la dimension de l'« évènement » et les variables de prédiction.
 - testingdata : il s’agit d’une ligne de données qui contient les variables de prédiction pour un objet particulier.
-- time_of_interest : le temps n écoulé.
-- index_time : index de colonne de la dimension « temporelle » (à partir de 1).
-- index_event : index de colonne de la dimension « événement » (à partir de 1).
-- variable_types : une chaîne de caractères séparés par des points-virgules. 0 représente les variables continues et 1 représente les variables facteur.
+- time\_of\_interest : le temps n écoulé.
+- index\_time : index de colonne de la dimension « temporelle » (à partir de 1).
+- index\_event : index de colonne de la dimension « événement » (à partir de 1).
+- variable\_types : une chaîne de caractères séparés par des points-virgules. 0 représente les variables continues et 1 représente les variables facteur.
 
 
 La sortie est la probabilité qu'un événement se produise à un moment précis.
@@ -87,7 +87,7 @@ L'interprétation de ce test est la suivante. Supposons que l’objectif des don
 
 >Ce service web a été créé à l’aide d’Azure Machine Learning. Pour un essai gratuit, ainsi que des vidéos de présentation relatives à la création d’expériences et à la [publication de services web](machine-learning-publish-a-machine-learning-web-service.md), consultez la page [azure.com/ml](http://azure.com/ml). Voici une capture d'écran de l'expérience qui a créé le service web et l'exemple de code pour chacun des modules dans l'expérience.
 
-À partir d’Azure Machine Learning, une nouvelle expérience vide a été créée et deux modules [Exécuter le script R][execute-r-script] ont été importés dans l’espace de travail. Le schéma de données a été créé avec un simple module [Exécuter le script R][execute-r-script], qui définit le schéma de données d’entrée pour le service web. Ce module est ensuite lié au deuxième module [Exécuter le script R][execute-r-script] qui effectue la majeure partie du travail. Ce module réalise le prétraitement des données, la création du modèle et les prédictions. Dans l'étape de prétraitement des données, les données d'entrée représentées par une chaîne longue sont transformées et converties en une trame de données. Dans l'étape de création du modèle, un package R externe « survival_2.37-7.zip » est tout d'abord installé pour effectuer l'analyse de survie. La fonction « coxph » est ensuite exécutée après la tâche de traitement des données de série. Pour connaître les détails de la fonction « coxph » pour l’analyse de survie, consultez la documentation R. Dans l'étape de prédiction, une instance de test est fournie dans le modèle d'apprentissage avec la fonction « surfit » et la courbe de survie de cette instance de test est générée en tant que variable « curve ». Enfin, vous obtenez la probabilité de la durée d'intérêt.
+À partir d’Azure Machine Learning, une nouvelle expérience vide a été créée et deux modules [Exécuter le script R][execute-r-script] ont été importés dans l’espace de travail. Le schéma de données a été créé avec un simple module [Exécuter le script R][execute-r-script], qui définit le schéma de données d’entrée pour le service web. Ce module est ensuite lié au deuxième module [Exécuter le script R][execute-r-script] qui effectue la majeure partie du travail. Ce module réalise le prétraitement des données, la création du modèle et les prédictions. Dans l'étape de prétraitement des données, les données d'entrée représentées par une chaîne longue sont transformées et converties en une trame de données. Dans l'étape de création du modèle, un package R externe « survival\_2.37-7.zip » est tout d'abord installé pour effectuer l'analyse de survie. La fonction « coxph » est ensuite exécutée après la tâche de traitement des données de série. Pour connaître les détails de la fonction « coxph » pour l’analyse de survie, consultez la documentation R. Dans l'étape de prédiction, une instance de test est fournie dans le modèle d'apprentissage avec la fonction « surfit » et la courbe de survie de cette instance de test est générée en tant que variable « curve ». Enfin, vous obtenez la probabilité de la durée d'intérêt.
 
 ###Flux de l’expérience :
 
@@ -207,4 +207,4 @@ Pour les questions fréquemment posées relatives à l’utilisation du service 
 [execute-r-script]: https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

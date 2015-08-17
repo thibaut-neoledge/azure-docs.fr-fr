@@ -55,7 +55,7 @@ La version actuelle du portail de gestion Azure accepte uniquement les clés pub
 ## Génération d'une clé à partir d'une clé existante compatible OpenSSH
 L’exemple précédent décrit la création d’une clé à utiliser avec Azure. Il se peut que vous possédiez déjà une paire de clés publique et privée compatible OpenSSH et que vous utilisiez ces clés avec Microsoft Azure.
 
-Les clés privées OpenSSH sont directement accessibles en lecture à partir de l’utilitaire `openssl`. La commande suivante prend une clé privée SSH existante (id_rsa dans l’exemple ci-dessous) et crée la clé publique `.pem` requise par Microsoft Azure :
+Les clés privées OpenSSH sont directement accessibles en lecture à partir de l’utilitaire `openssl`. La commande suivante prend une clé privée SSH existante (id\_rsa dans l’exemple ci-dessous) et crée la clé publique `.pem` requise par Microsoft Azure :
 
 	# openssl req -x509 -key ~/.ssh/id_rsa -nodes -days 365 -newkey rsa:2048 -out myCert.pem
 
@@ -79,7 +79,7 @@ Nombre d’utilitaires incluent `openssl` pour Windows. Voici quelques exemples�
 ### Utilisation de msysgit ###
 
 1.	Téléchargez et installez msysgit à partir de l’emplacement suivant : [http://msysgit.github.com/](http://msysgit.github.com/).
-2.	Exécutez `msys` à partir du répertoire installé (par exemple : c:\msysgit\msys.exe).
+2.	Exécutez `msys` à partir du répertoire installé (par exemple : c:\\msysgit\\msys.exe).
 3.	Accédez au répertoire `bin` en tapant `cd bin`.
 
 
@@ -133,14 +133,14 @@ Nombre d’utilitaires incluent `openssl` pour Windows. Voici quelques exemples�
 
 ## Création d'une clé privée pour Putty ##
 
-1. Téléchargez et installez Puttygen à partir de l’emplacement suivant : [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
+1. Téléchargez et installez Puttygen à partir de l’emplacement suivant : [http://www.chiark.greenend.org.uk/\~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
 
 2. Puttygen ne pourra peut-être pas lire la clé privée créée précédemment (`myPrivateKey.key`). Exécutez la commande suivante pour la transformer en clé privée RSA interprétable par Puttygen :
 
 		# openssl rsa -in ./myPrivateKey.key -out myPrivateKey_rsa
 		# chmod 600 ./myPrivateKey_rsa
 
-	La commande ci-dessus doit produire une nouvelle clé privée myPrivateKey_rsa.
+	La commande ci-dessus doit produire une nouvelle clé privée myPrivateKey\_rsa.
 
 3. Exécutez `puttygen.exe`.
 
@@ -163,7 +163,7 @@ Nombre d’utilitaires incluent `openssl` pour Windows. Voici quelques exemples�
 
 ## Utilisation de Putty pour se connecter à une machine Linux ##
 
-1.	Téléchargez et installez putty à partir de l’emplacement suivant : [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
+1.	Téléchargez et installez putty à partir de l’emplacement suivant : [http://www.chiark.greenend.org.uk/\~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
 2.	Exécutez putty.exe
 3.	Remplissez le nom d'hôte à l'aide de l'adresse IP du portail de gestion :
 
@@ -176,4 +176,4 @@ Nombre d’utilitaires incluent `openssl` pour Windows. Voici quelques exemples�
 5.	Cliquez sur **Ouvrir** pour vous connecter à la machine virtuelle.
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

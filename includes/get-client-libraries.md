@@ -36,7 +36,7 @@ Pour télécharger et installer manuellement les bibliothèques clientes PHP pou
 1. Téléchargez une archive ZIP qui contient les bibliothèques de [GitHub][php-sdk-github]. Sinon, répliquez le répertoire et clonez-le sur votre ordinateur local. La deuxième option requiert un compte GitHub et l’installation locale de Git.
 
 	
-	> [AZURE.NOTE]Les bibliothèques clientes PHP pour Azure ont une dépendance sur les packages PEAR [HTTP_Request2](http://pear.php.net/package/HTTP_Request2), [Mail_mime](http://pear.php.net/package/Mail_mime) et [Mail_mimeDecode](http://pear.php.net/package/Mail_mimeDecode). La méthode recommandée pour résoudre ces dépendances consiste à installer ces packages à l’aide du [Gestionnaire de package PEAR](http://pear.php.net/manual/en/installation.php).
+	> [AZURE.NOTE]Les bibliothèques clientes PHP pour Azure ont une dépendance sur les packages PEAR [HTTP\_Request2](http://pear.php.net/package/HTTP_Request2), [Mail\_mime](http://pear.php.net/package/Mail_mime) et [Mail\_mimeDecode](http://pear.php.net/package/Mail_mimeDecode). La méthode recommandée pour résoudre ces dépendances consiste à installer ces packages à l’aide du [Gestionnaire de package PEAR](http://pear.php.net/manual/en/installation.php).
 
 
 2. Copiez le répertoire `WindowsAzure` de l’archive téléchargée dans la structure de répertoires de votre application.
@@ -49,4 +49,4 @@ Pour plus d’informations sur l’installation des bibliothèques clientes PHP 
 [download-SDK-PHP]: ../articles/php-download-sdk.md
 [composer-phar]: http://getcomposer.org/composer.phar
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

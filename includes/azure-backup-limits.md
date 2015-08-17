@@ -1,4 +1,3 @@
-
 Les limites suivantes s’appliquent à la sauvegarde Azure.
 
 | Identificateur de la limite | Limite par défaut |
@@ -13,4 +12,4 @@ Les limites suivantes s’appliquent à la sauvegarde Azure.
 - <sup>1</sup>La limite de 1,65 To ne s’applique pas à la sauvegarde de la machine virtuelle IaaS.
 - <sup>2</sup>Vous pouvez utiliser n’importe quelle permutation pour arriver à un nombre inférieur à 366.
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

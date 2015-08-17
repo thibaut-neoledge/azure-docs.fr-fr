@@ -38,7 +38,7 @@ Le tableau suivant répertorie les étapes que vous allez exécuter dans le cadr
 -----| -----------
 [Étape 1 : créer une fabrique de données Azure](#CreateDataFactory) | Dans cette étape, vous allez créer une fabrique de données Azure nommée **ADFTutorialDataFactoryPSH**. 
 [Étape 2 : créer des services liés](#CreateLinkedServices) | Dans cette étape, vous allez créer deux services liés : **StorageLinkedService** et **AzureSqlLinkedService**. StorageLinkedService relie un stockage Azure et AzureSqlLinkedService relie une base de données SQL Azure à ADFTutorialDataFactoryPSH.
-[Étape 3 : créer des jeux de données d’entrée et sortie](#CreateInputAndOutputDataSets) | Dans cette étape, vous allez définir deux jeux de données (\*\*EmpTableFromBlob\*\* et **EmpSQLTable**), qui sont utilisés en entrée et sortie de l’**activité de copie** du pipeline ADFTutorialPipeline que vous allez créer à l’étape suivante.
+[Étape 3 : créer des jeux de données d’entrée et sortie](#CreateInputAndOutputDataSets) | Dans cette étape, vous allez définir deux jeux de données (**EmpTableFromBlob** et **EmpSQLTable**), qui sont utilisés en entrée et sortie de l’**activité de copie** du pipeline ADFTutorialPipeline que vous allez créer à l’étape suivante.
 [Étape 4 : créer et exécuter un pipeline](#CreateAndRunAPipeline) | Dans cette étape, vous allez créer un pipeline nommé **ADFTutorialPipeline** dans la fabrique de données : **ADFTutorialDataFactoryPSH**. Le pipeline effectue une **activité de copie** qui se charge de copier des données d’objet blob Azure dans une table de base de données Azure de sortie.
 [Étape 5 : surveiller des jeux de données et le pipeline](#MonitorDataSetsAndPipeline) | Dans cette étape, vous allez surveiller les jeux de données et le pipeline à l’aide d’Azure PowerShell.
 
@@ -111,7 +111,7 @@ Dans cette étape, vous allez créer deux services liés : **StorageLinkedServi
 		  }
 		}
 
-	Remplacez **servername**, **databasename**, **username@servername** et **password** par les noms de votre serveur SQL Azure, de la base de données, du compte d'utilisateur et par le mot de passe.
+	Remplacez **servername**, **databasename**, ****username@servername** et **password** par les noms de votre serveur SQL Azure, de la base de données, du compte d'utilisateur et par le mot de passe.
 
 2.	Exécutez la commande suivante pour créer un service lié :
 	
@@ -168,7 +168,7 @@ Vous devez effectuer les étapes suivantes pour préparer le stockage d’objets
 	Si Visual Studio 2013 est installé sur votre ordinateur : dans le portail Azure en version préliminaire ([http://portal.azure.com](http://portal.sazure.com)), cliquez sur le concentrateur **PARCOURIR** sur la gauche, cliquez sur **Serveurs SQL**, sélectionnez votre base de données, puis cliquez sur **Ouvrir dans Visual Studio** dans la barre d’outils pour vous connecter à votre serveur SQL Azure et exécuter le script. Si votre client n’est pas autorisé à accéder au serveur SQL Azure, vous devez configurer le pare-feu pour votre serveur SQL Azure afin d’autoriser l’accès à partir de votre ordinateur (adresse IP). Consultez l’article ci-dessus pour savoir comment configurer le pare-feu pour votre serveur SQL Azure.
 		
 ### Créer une table d'entrée 
-Une table est un jeu de données rectangulaire qui dispose d'un schéma. Dans cette étape, vous allez créer une table nommée **EmpBlobTable** qui pointe vers un conteneur d’objets blob dans l’emplacement Azure Storage représenté par le service lié **StorageLinkedService**. Ce conteneur d’objets blob (\*\*adftutorial\*\*) contient les données d’entrée dans le fichier : **emp.txt**.
+Une table est un jeu de données rectangulaire qui dispose d'un schéma. Dans cette étape, vous allez créer une table nommée **EmpBlobTable** qui pointe vers un conteneur d’objets blob dans l’emplacement Azure Storage représenté par le service lié **StorageLinkedService**. Ce conteneur d’objets blob (**adftutorial**) contient les données d’entrée dans le fichier : **emp.txt**.
 
 1.	Créez un fichier JSON nommé **EmpBlobTable.json** dans le dossier **C:\\ADFGetStartedPSH** avec le contenu suivant :
 
@@ -204,14 +204,14 @@ Une table est un jeu de données rectangulaire qui dispose d'un schéma. Dans ce
 	
 	Notez les points suivants :
 	
-	- Le **type** d’emplacement est défini sur **AzureBlob**.
+	- Le **type** de jeu de données est défini sur **AzureBlob**.
 	- **linkedServiceName** a la valeur **StorageLinkedService**. 
 	- **folderPath** est défini sur le conteneur **adftutorial**. Vous pouvez également spécifier le nom d'un objet blob dans le dossier. Étant donné que vous ne spécifiez pas le nom de l'objet blob, les données provenant de tous les objets blob du conteneur sont considérées comme données d'entrée.  
 	- Le **type** de format a la valeur **TextFormat**.
-	- Il existe deux champs dans le fichier texte, **FirstName** et **LastName**, séparés par une virgule (\*\*columnDelimiter\*\*).	
-	- **availability** est défini sur **hourly** (\*\*frequency\*\* a la valeur **hour** et **interval** est défini sur **1** ), de sorte que le service Data Factory recherche les données d'entrée toutes les heures dans le dossier racine du conteneur d'objets blob (\*\*adftutorial\*\*) que vous avez spécifié.
+	- Il existe deux champs dans le fichier texte, **FirstName** et **LastName**, séparés par une virgule (**columnDelimiter**).	
+	- **availability** est défini sur **hourly** (**frequency** a la valeur **hour** et **interval** est défini sur **1**), de sorte que le service Data Factory recherche les données d'entrée toutes les heures dans le dossier racine du conteneur d'objets blob (**adftutorial**) que vous avez spécifié.
 
-	Si vous ne spécifiez pas de nom (**fileName**) pour une **table** **d'entrée**, tous les fichiers/objets blob du dossier d'entrée (\*\*folderPath\*\*) sont considérés comme des entrées. Si vous spécifiez un fileName dans le JSON, seul le fichier/objet blob spécifié est considéré comme une entrée. Consultez les exemples de fichiers dans le [didacticiel][adf-tutorial] pour plus d’informations.
+	Si vous ne spécifiez pas de nom (**fileName**) pour une **table** d'**entrée**, tous les fichiers/objets blob du dossier d'entrée (**folderPath**) sont considérés comme des entrées. Si vous spécifiez un fileName dans le JSON, seul le fichier/objet blob spécifié est considéré comme une entrée. Consultez les exemples de fichiers dans le [didacticiel][adf-tutorial] pour plus d’informations.
  
 	Si vous ne spécifiez pas de nom (**fileName**) pour une **table de sortie**, les fichiers générés dans le **folderPath** sont nommés selon le format suivant : Data.<Guid>.txt (exemple : Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt).
 
@@ -234,7 +234,7 @@ Une table est un jeu de données rectangulaire qui dispose d'un schéma. Dans ce
 		New-AzureDataFactoryTable $df -File .\EmpBlobTable.json
 
 ### Créer la table de sortie
-Dans cette partie de l’étape, vous allez créer une table de sortie nommée **EmpSQLTable** qui pointe vers une table SQL (\*\*emp\*\*) de la base de données SQL Azure, représentée par le service lié **AzureSqlLinkedService**. Le pipeline copie les données à partir de l’objet blob d’entrée vers la table **emp**.
+Dans cette partie de l’étape, vous allez créer une table de sortie nommée **EmpSQLTable** qui pointe vers une table SQL (**emp**) de la base de données SQL Azure, représentée par le service lié **AzureSqlLinkedService**. Le pipeline copie les données à partir de l’objet blob d’entrée vers la table **emp**.
 
 1.	Créez un fichier JSON nommé **EmpSQLTable.json** dans le dossier **C:\\ADFGetStartedPSH** avec le contenu suivant.
 		
@@ -265,11 +265,11 @@ Dans cette partie de l’étape, vous allez créer une table de sortie nommée *
 
      Notez les points suivants :
 	
-	* Le **type** d’emplacement est défini sur **AzureSqlTable**.
+	* Le **type** de jeu de données est défini sur **AzureSqlTable**.
 	* **linkedServiceName** est défini sur **AzureSqlLinkedService**.
 	* **tablename** est défini sur **emp**.
 	* Il existe trois colonnes (**ID**, **FirstName** et **LastName**) dans la table emp de la base de données. Toutefois, ID étant une colonne d'identité, vous devez donc spécifier uniquement **FirstName** et **LastName**.
-	* **availability** est défini sur **hourly** (\*\*frequency\*\* a la valeur **hour** et **interval** a la valeur **1**). Le service Data Factory génère une tranche de données de sortie toutes les heures dans la table **emp** de la base de données SQL Azure.
+	* **availability** est défini sur **hourly** (**frequency** a la valeur **hour** et **interval** est défini sur **1**). Le service Data Factory génère une tranche de données de sortie toutes les heures dans la table **emp** de la base de données SQL Azure.
 
 2.	Exécutez la commande suivante pour créer la table Data Factory :
 	
@@ -307,7 +307,7 @@ Dans cette étape, vous créez un pipeline avec une **activité de copie** qui u
 		          "sink": {
 		            "type": "SqlSink",
 		            "writeBatchSize": 10000,
-		            "writeBatchTimeout": "60:00:00"
+		            "writeBatchTimeout": "00:60:00"
 		          }
 		        },
 		        "Policy": {
@@ -333,7 +333,7 @@ Dans cette étape, vous créez un pipeline avec une **activité de copie** qui u
 
 	Remplacez la valeur de la propriété **start** par le jour actuel et la valeur **end** par le jour suivant. Les dates/heures de début et de fin doivent toutes deux être au [format ISO](http://en.wikipedia.org/wiki/ISO_8601). Par exemple : 2014-10-14T16:32:41Z. L’heure de fin (**end**) est facultative, mais nous allons l’utiliser dans ce didacticiel.
 	
-	Si vous ne spécifiez aucune valeur pour la propriété **end**, cette dernière est calculée comme suit : « \*\*start + 48 heures\*\* ». Pour exécuter le pipeline indéfiniment, spécifiez **9/9/9999** comme valeur pour la propriété **end**.
+	Si vous ne spécifiez aucune valeur pour la propriété **end**, cette dernière est calculée comme suit : « **start + 48 heures** ». Pour exécuter le pipeline indéfiniment, spécifiez **9/9/9999** comme valeur pour la propriété **end**.
 	
 	Dans l'exemple ci-dessus, 24 tranches de données existent, car une tranche de données est générée toutes les heures.
 	
@@ -437,7 +437,6 @@ Article | Description
 [adf-get-started]: data-factory-get-started.md
 [azure-preview-portal]: http://portal.azure.com
 [download-azure-powershell]: ../powershell-install-configure.md
-[data-factory-create-sql-database]: ../sql-database-create-configure.md
 [data-factory-introduction]: data-factory-introduction.md
 
 [image-data-factory-get-started-storage-explorer]: ./media/data-factory-monitor-manage-using-powershell/getstarted-storage-explorer.png
@@ -445,4 +444,4 @@ Article | Description
 [sql-management-studio]: ../sql-database-manage-azure-ssms.md#Step2
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

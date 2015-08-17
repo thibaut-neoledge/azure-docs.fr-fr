@@ -1,3 +1,22 @@
+<properties 
+   pageTitle="Configuration et inscription de votre appareil"
+   description="Explique comment utiliser Windows PowerShell pour StorSimple pour configurer et inscrire un appareil StorSimple qui exécute Update 1."
+   services="storsimple"
+   documentationCenter="NA"
+   authors="alkohli"
+   manager="adinah"
+   editor="tysonn" />
+
+<tags 
+   ms.service="storsimple"
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="TBD"
+   ms.date="05/22/2015"
+   ms.author="alkohli" />
+
+
 
 ### Configuration et inscription de l’appareil
 
@@ -90,7 +109,7 @@
 
      `Set-CloudPlatform -AzureGovt_US`
 
-    Un message de confirmation s’affiche. Acceptez la valeur par défaut (\*\*Y\*\*).
+    Un message de confirmation s’affiche. Acceptez la valeur par défaut (**Y**).
 
 11. Exécutez l’applet de commande suivante pour reprendre l’installation :
 
@@ -104,7 +123,8 @@
  
 13. Pour des raisons de sécurité, le mot de passe administrateur de l’appareil expire après la première session, et vous devez le modifier maintenant. Lorsque vous y êtes invité, fournissez un mot de passe administrateur de l’appareil. Un mot de passe administrateur d’appareil valide doit comprendre entre 8 et 15 caractères. Le mot de passe doit contenir trois des éléments suivants : caractères en minuscules, en majuscules, numériques et spéciaux.
 
-	<br/>![Inscription de l’appareil StorSimple 5](./media/storsimple-configure-and-register-device-gov/HCS_RegisterYourDevice5_gov-include.png)
+	<br/>
+![Inscription de l’appareil StorSimple 5](./media/storsimple-configure-and-register-device-gov/HCS_RegisterYourDevice5_gov-include.png)
 
 14. La dernière étape de l’Assistant Installation inscrit votre appareil auprès du service StorSimple Manager. Pour cela, vous avez besoin de la clé d’inscription de service que vous avez obtenue à l’[étape 2 : obtention de la clé d’inscription](storsimple-get-service-registration-key-gov.md). Après avoir entré la clé d’inscription, vous devrez peut-être attendre 2 à 3 minutes avant que l’appareil ne soit inscrit.
 
@@ -133,4 +153,4 @@
      
         
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

@@ -1,4 +1,3 @@
-
 >[AZURE.NOTE]Lorsque vous modifiez la configuration RBS de l’adaptateur StorSimple pour SharePoint, vous devez être connecté avec un compte utilisateur appartenant au groupe Domain Admins. En outre, vous devez accéder à la page de configuration à partir d’un navigateur s’exécutant sur le même hôte que l’Administration centrale.
 
 #### Configuration de RBS
@@ -27,7 +26,7 @@
 
           ![Désactivation activation Configuration de l’adaptateur StorSimple](./media/storsimple-sharepoint-adapter-configure-rbs/HCS_ConfigureStorSimpleAdapterEnableDisableMessage-include.png)
 
-    4. Cliquez sur le bouton **Mettre à jour** pour appliquer la configuration. Lorsque vous cliquez sur le bouton Mettre à jour, l’état de configuration de RBS est actualisé sur tous les serveurs web frontaux (WFE) et la batterie entière sera activée pour RBS. Le message suivant s’affiche.
+    4. Cliquez sur le bouton **Mettre à jour** pour appliquer la configuration. Quand vous cliquez sur le bouton **Mettre à jour**, l’état de configuration de RBS est actualisé sur tous les serveurs web frontaux (WFE) et la batterie entière est activée pour RBS. Le message suivant s’affiche.
 
            ![Message de configuration de l’adaptateur](./media/storsimple-sharepoint-adapter-configure-rbs/HCS_SSASP_ConfigRBS3-include.png)
 
@@ -45,7 +44,7 @@
 
     2. Recherchez le chemin d’accès UNC que vous avez configuré. Assurez-vous que la structure de répertoire RBS a été créée et qu’elle contient l’objet téléchargé.
 
-6. (Facultatif) Vous pouvez utiliser l’applet de commande Microsoft RBS `Migrate()` PowerShell inclus avec SharePoint pour migrer le contenu des objets BLOB existants vers l’appareil StorSimple. Pour plus d’informations, consultez [Migration du contenu vers ou à partir de RBS dans SharePoint 2013][6] ou [Migration du contenu vers ou à partir de RBS (SharePoint Foundation 2010)][7].
+6. (Facultatif) Vous pouvez utiliser l’applet de commande PowerShell Microsoft RBS `Migrate()` incluse avec SharePoint pour migrer le contenu des objets blob existants vers l’appareil StorSimple. Pour plus d’informations, consultez [Migration du contenu vers ou à partir de RBS dans SharePoint 2013][6] ou [Migration du contenu vers ou à partir de RBS (SharePoint Foundation 2010)][7].
 
 7. (Facultatif) Sur les installations de test, vous pouvez vérifier que les objets BLOB ont été déplacés hors de la base de données de contenu comme suit :
 
@@ -96,11 +95,11 @@
  
      Si vous stockez des objets BLOB et la base de données contenu dans des volumes distincts sur l’appareil StorSimple, nous vous recommandons de les configurer dans le même conteneur de volume. Cela garantit qu’ils seront sauvegardés ensemble.
 
-     >[AZURE.WARNING]Si vous n’avez pas activé RBS, il est déconseillé de déplacer la base de données de contenu sur l’appareil StorSimple. Il s’agit d’une configuration non testée.
+       >[AZURE.WARNING]Si vous n’avez pas activé RBS, il est déconseillé de déplacer la base de données de contenu sur l’appareil StorSimple. Il s’agit d’une configuration non testée.
  
 9. Accédez à l’étape suivante : [Configuration du nettoyage de mémoire](#configure-garbage-collection).
 
 [6]: https://technet.microsoft.com/library/ff628254(v=office.15).aspx
 [7]: https://technet.microsoft.com/library/ff628255(v=office.14).aspx
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

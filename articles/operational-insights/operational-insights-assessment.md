@@ -6,14 +6,16 @@
    authors="bandersmsft"
    manager="jwhit"
    editor="" />
+
 <tags
    ms.service="operational-insights"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/21/2015"
+   ms.date="08/05/2015"
    ms.author="banders" />
+
 
 # Optimisation de votre environnement avec des solutions d’évaluation
 
@@ -105,7 +107,7 @@ Chaque recommandation est accompagnée d'une explication sur son importance. Ser
 
 ## Utilisation des recommandations des domaines d'évaluation
 
-Avant de pouvoir utiliser une solution d’évaluation dans Microsoft Azure Operational Insights, vous devez avoir installé cette solution. Pour plus d'informations sur l'installation de solutions, consultez la rubrique [Utilisation de la galerie de solutions pour ajouter ou supprimer des solutions](operational-insights-add-solution.md). Une fois le pack installé, vous pouvez afficher un résumé des recommandations à l'aide de la vignette Évaluation de la page Vue d'ensemble d'Operational Insights.
+Avant de pouvoir utiliser une solution d’évaluation dans Microsoft Azure Operational Insights, vous devez avoir installé cette solution. Pour plus d'informations sur l'installation de solutions, consultez la rubrique [Utilisation de la galerie de solutions pour ajouter ou supprimer des solutions](operational-insights-setup-workspace.md). Une fois le pack installé, vous pouvez afficher un résumé des recommandations à l'aide de la vignette Évaluation de la page Vue d'ensemble d'Operational Insights.
 
 Consultez le résumé des évaluations de conformité pour votre infrastructure, puis explorez les recommandations.
 
@@ -125,4 +127,4 @@ Consultez le résumé des évaluations de conformité pour votre infrastructure,
 
 [AZURE.INCLUDE [operational-insights-export](../../includes/operational-insights-export.md)]
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

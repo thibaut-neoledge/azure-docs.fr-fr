@@ -220,4 +220,4 @@ Si vous avez apporté des personnalisations à ApplicationInsights.config, conse
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

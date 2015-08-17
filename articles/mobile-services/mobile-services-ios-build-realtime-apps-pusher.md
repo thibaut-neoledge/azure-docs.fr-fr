@@ -18,9 +18,6 @@
 
 
 # Génération d'applications en temps réel avec Mobile Services et Pusher
-<div class="dev-center-tutorial-selector sublanding">
-	<a href="" title="iOS" class="current">iOS</a>
-</div>
 
 Cette rubrique vous explique comment ajouter une fonctionnalité en temps réel à votre application basée sur Azure Mobile Services. Une fois cette opération terminée, vos données TodoList seront synchronisées en temps réel sur toutes les instances en cours d'exécution de votre application.
 
@@ -76,11 +73,11 @@ La bibliothèque [libPusher][] vous permet d'accéder à Pusher à partir d'iOS.
 	- Security.framework
 	- SystemConfiguration.framework
 
-9. Enfin, dans **Build Settings**, localisez le paramètre de génération cible **Other Linker Flags** et ajoutez l'indicateur **-all_load**.
+9. Enfin, dans **Build Settings**, localisez le paramètre de génération cible **Other Linker Flags** et ajoutez l'indicateur **-all\_load**.
 
 	![][add-linker-flag]
 
-	L'ensemble d'indicateurs **-all_load** s'affiche pour la cible de génération Debug.
+	L'ensemble d'indicateurs **-all\_load** s'affiche pour la cible de génération Debug.
 
 La bibliothèque est désormais installée et prête à l'emploi.
 
@@ -240,7 +237,7 @@ La bibliothèque est désormais installée et prête à l'emploi.
 		    }];
 		}
 
-11. Remplacez l'espace réservé `**your_app_key**` par la valeur app_key que vous avez précédemment copiée dans la boîte de dialogue Informations de connexion.
+11. Remplacez l'espace réservé `**your_app_key**` par la valeur app\_key que vous avez précédemment copiée dans la boîte de dialogue Informations de connexion.
 
 12. Remplacez la méthode **onAdd** par le code suivant :
 
@@ -444,4 +441,4 @@ Pour en savoir plus sur l'enregistrement et l'utilisation de scripts serveur, co
 [Référence de script serveur Mobile Services]: http://go.microsoft.com/fwlink/p/?LinkId=262293
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

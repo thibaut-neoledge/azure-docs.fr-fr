@@ -111,4 +111,4 @@ Les ressources suivantes sont disponibles pour les applications de développemen
 [Développement d’applications de traitement de données de diffusion avec SCP.NET et C# sur Storm et HDInsight]: ../hdinsight/hdinsight-storm-develop-csharp-visual-studio-topology.md
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -8,6 +8,7 @@
 	manager="wpickett" 
 	editor="mollybos"/>
 
+
 <tags 
 	ms.service="app-service-web" 
 	ms.workload="web" 
@@ -16,6 +17,7 @@
 	ms.topic="article" 
 	ms.date="07/07/2015" 
 	ms.author="tomfitz"/>
+
 
 
 
@@ -140,7 +142,7 @@ Durant les prochaines étapes, vous allez développer l'application Tasklist en 
 
 	Dans la boîte de dialogue qui s'affiche, accédez aux fichiers téléchargés auparavant, sélectionnez-les tous, puis cliquez sur Ouvrir. Lorsque vous y êtes invité, remplacez le fichier `index.php`.
 
-7. Ensuite, ajoutez les informations de connexion à votre base de données MySQL locale dans le fichier `taskmodel.php`. Ouvrez le fichier `taskmodel.php` en double-cliquant dessus et mettez à jour les informations de connexion à la base de données dans la fonction `connect`. (** Remarque** : passez à la section [Publication de votre application](#Publish) si vous ne souhaitez pas la tester localement et si vous préférez la publier directement dans Azure App Service Web Apps.)
+7. Ensuite, ajoutez les informations de connexion à votre base de données MySQL locale dans le fichier `taskmodel.php`. Ouvrez le fichier `taskmodel.php` en double-cliquant dessus, puis mettez à jour les informations de connexion à la base de données dans la fonction `connect`. (**Remarque** : passez à l'étape [Publication de votre application](#Publish) si vous ne voulez pas tester votre application en local, mais plutôt la publier directement sur votre site web Azure).
 
 		// DB connection info
 		$host = "localhost";
@@ -183,9 +185,9 @@ Avant de publier votre application dans App Service Web Apps, vous devez mettre 
 
 3. Continuez à cliquer sur **Continuer** jusqu’à ce que WebMatrix publie le site dans Azure App Service Web Apps.
 
-3. Accédez à http://[yournom du site web].azurewebsites.net/createtable.php pour créer la table `items`.
+3. Accédez à http://[yournom du site web\].azurewebsites.net/createtable.php pour créer la table `items`.
 
-4. Enfin, accédez à http://[yournom du site web].azurewebsites.net/index.php pour utiliser l’application.
+4. Enfin, accédez à http://[yournom du site web\].azurewebsites.net/index.php pour utiliser l’application.
 	
 ##Modification et republication de votre application
 
@@ -261,4 +263,4 @@ Vous pouvez facilement modifier votre application en modifiant la copie locale d
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

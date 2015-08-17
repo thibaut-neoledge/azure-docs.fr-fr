@@ -28,7 +28,7 @@ Pour créer un espace de noms de service :
 
 	IMPORTANT : choisissez la **même région** que celle que vous prévoyez de sélectionner pour le déploiement de votre application. Vous bénéficiez ainsi des meilleures performances.
 
-6. 	Laissez les autres champs de la boîte de dialogue avec leurs valeurs par défaut (**Messaging** et **Niveau Standard**), puis cliquez sur la coche. Le système crée l'espace de noms de service et l'active. Vous devrez peut-être attendre plusieurs minutes afin que le système approvisionne des ressources pour votre compte.
+6. 	Gardez les valeurs par défaut des autres champs de la boîte de dialogue (**Messaging** et **Niveau Standard**), puis cliquez sur la coche. Le système crée l'espace de noms de service et l'active. Vous devrez peut-être attendre plusieurs minutes afin que le système approvisionne des ressources pour votre compte.
 
 	![][6]
 
@@ -64,4 +64,4 @@ Notez la valeur **SharedAccessKey** ou copiez-la dans le Presse-papiers :
   [6]: ./media/howto-service-bus-topics/getting-started-multi-tier-27.png
   [34]: ./media/howto-service-bus-topics/VSProperties.png
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

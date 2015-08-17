@@ -7,6 +7,7 @@
    manager="paulettm"
    editor="cgronlun"/>
 
+
 <tags
    ms.service="hdinsight"
    ms.devlang="na"
@@ -15,6 +16,7 @@
    ms.workload="big-data"
    ms.date="07/06/2015"
    ms.author="larryfr"/>
+
 
 #Exécution à distance de requêtes Hadoop sur HDInsight à l’aide de PowerShell
 
@@ -104,7 +106,7 @@ Les étapes suivantes montrent comment utiliser ces applets de commande pour ex�
 
 ##<a id="results"></a>Affichage de la sortie du travail
 
-La tâche MapReduce a stocké les résultats de l’opération dans le stockage d’objets blob Azure, dans le chemin d’accès **wasb:///example/data/WordCountOutput** spécifié en tant qu’argument de la tâche. Le stockage d’objets blob Azure est accessible via Azure PowerShell, mais vous devez connaître le nom du compte de stockage, la clé et un conteneur utilisé par votre cluster HDInsight pour accéder directement aux fichiers.
+La tâche MapReduce a stocké les résultats de l’opération dans le stockage d’objets blob Azure, dans le chemin d’accès ****wasb:///example/data/WordCountOutput** spécifié en tant qu’argument de la tâche. Le stockage d’objets blob Azure est accessible via Azure PowerShell, mais vous devez connaître le nom du compte de stockage, la clé et un conteneur utilisé par votre cluster HDInsight pour accéder directement aux fichiers.
 
 Vous pouvez obtenir ces informations à l’aide des applets de commande Azure PowerShell suivantes :
 
@@ -113,7 +115,7 @@ Vous pouvez obtenir ces informations à l’aide des applets de commande Azure P
 * **Get-AzureStorageBlob** : avec un objet de contexte et un nom de conteneur, il renvoie une liste d’objets blob au sein du conteneur.
 * **Get-AzureStorageBlobContent** : avec un objet de contexte, un nom et un chemin d’accès de fichier et un nom de conteneur (retournés par **Get-AzureHDinsightCluster**), il télécharge un fichier du stockage d’objets blob Azure.
 
-L'exemple suivant récupère les informations de stockage, puis télécharge la sortie de **wasb:///example/data/WordCountOutput**. Remplacez **CLUSTERNAME** par le nom de votre cluster HDInsight.
+L'exemple suivant récupère les informations de stockage, puis télécharge la sortie de ****wasb:///example/data/WordCountOutput**. Remplacez **CLUSTERNAME** par le nom de votre cluster HDInsight.
 
 		#Login to your Azure subscription
 		# Is there an active Azure subscription?
@@ -173,4 +175,4 @@ Pour plus d’informations sur d’autres méthodes de travail avec Hadoop sur H
 
 * [Utilisation de Pig avec Hadoop sur HDInsight](hdinsight-use-pig.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

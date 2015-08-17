@@ -85,7 +85,7 @@ Cette commande ouvre votre navigateur par défaut et vous invite à vous connect
 
 > [AZURE.NOTE]Si votre compte est associé à plusieurs clients Azure Active Directory, vous pouvez être invité à sélectionner l'annuaire Active Directory pour lequel vous voulez télécharger un fichier de paramètres de publication.
 >
-> Une fois l’annuaire Active Directory sélectionné à partir de la page de téléchargement ou par le biais du portail Azure, il est utilisé par défaut par le portail et par la page de téléchargement. Une fois qu'un paramètre par défaut a été défini, le texte « cliquez ici pour revenir à la page de sélection » apparaît en haut de la page de téléchargement. Utilisez le lien affiché pour revenir à la page de sélection.
+> Une fois l’annuaire Active Directory sélectionné à partir de la page de téléchargement ou par le biais du portail Azure, il est utilisé par défaut par le portail et par la page de téléchargement. Une fois qu'un paramètre par défaut a été défini, le texte « __cliquez ici pour revenir à la page de sélection__ » apparaît en haut de la page de téléchargement. Utilisez le lien affiché pour revenir à la page de sélection.
 
 Importez ensuite le fichier `.publishsettings` en exécutant la commande suivante :
 
@@ -145,4 +145,4 @@ Une fois connecté à votre abonnement Azure, vous pouvez commencer à utiliser 
 [cliasm]: virtual-machines/virtual-machines-command-line-tools.md
 [cliarm]: virtual-machines/xplat-cli-azure-resource-manager.md
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

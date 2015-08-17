@@ -8,6 +8,7 @@
    editor=""
    tags=""/>
 
+
 <tags
    ms.service="best-practice"
    ms.devlang="na"
@@ -16,6 +17,7 @@
    ms.workload="na"
    ms.date="04/28/2015"
    ms.author="masashin"/>
+
 
 # Recommandations en matière de partitionnement des données
 
@@ -227,7 +229,7 @@ Le schéma de partitionnement que vous mettez en œuvre peut avoir une incidence
 
 - Les données stockées au sein des shardlets appartenant à la même carte des partitions doivent présenter le même schéma. Par exemple, ne créez pas une carte de partitions de liste pointant vers des shardlets comportant des données relatives aux clients et d’autres shardlets comportant des informations relatives aux produits. Cette règle n’est pas indispensable pour Évolutivité élastique, mais la gestion et l’interrogation des données deviennent très complexes si chaque shardlet présente un schéma différent. Dans l’exemple que nous venons de citer, il vous faut créer deux cartes de partitions de liste, l’une faisant référence aux données relatives aux clients et l’autre aux informations relatives aux produits. N’oubliez pas que les données appartenant à différentes shardlets peuvent être stockées au sein de la même partition.
 
-	> [AZURE.NOTE]
+	> [AZURE.NOTE]La fonctionnalité de requête entre partitions de l'API Elastic Scale dépend de chaque shardlet contenu dans la carte de partitions contenant le même schéma.
 - Les opérations transactionnelles sont uniquement prises en charge pour les données stockées au sein de la même partition et non pas au sein de différentes partitions. Les transactions peuvent être stockées au sein de différents shardlets tant qu’elles font partie de la même partition. Par conséquent, si votre logique professionnelle nécessite la réalisation de transactions, stockez les données concernées au sein de la même partition ou mettez en œuvre la cohérence finale. Pour plus d’informations, reportez-vous aux recommandations en matière de cohérence des données.
 - Disposez les partitions à proximité des utilisateurs qui accèdent aux données stockées au sein de ces partitions (géolocalisez les partitions). Cette stratégie permet de réduire la latence.
 - Évitez de disposer de diverses partitions très actives (zones sensibles) et de partitions relativement inactives. Essayer de répartir la charge de manière homogène entre les partitions. Cela peut signifier un hachage nécessaire des clés de shardlet.
@@ -313,10 +315,10 @@ Azure Service Bus utilise un processus Broker de messages pour gérer les messag
 
 Service Bus attribue un message à un fragment comme suit :
 
-- Si le message appartient à une session, tous les messages présentant la même valeur concernant la propriété _SessionId_ sont envoyés au même fragment.
+- Si le message appartient à une session, tous les messages présentant la même valeur concernant la propriété \_SessionId\_ sont envoyés au même fragment.
 - Si le message n’appartient pas à une session, mais que l’expéditeur a spécifié une valeur concernant la propriété _PartitionKey_, tous les messages présentant la même valeur _PartitionKey_ sont alors envoyés au même fragment.
 
-	> [AZURE.NOTE]_SessionId__PartitionKey_
+	> [AZURE.NOTE]Si les propriétés _SessionId_ et _PartitionKey_ sont toutes deux spécifiées, elles doivent être définies sur la même valeur. Sinon, le message sera rejeté.
 - Si les propriétés _SessionId_ et _PartitionKey_ d’un message ne sont pas spécifiées, mais que la détection des doublons est activée, la propriété _MessageId_ est utilisée. Tous les messages présentant la même propriété _MessageId_ sont dirigés vers le même fragment.
 - Si des messages ne présentent aucune propriété _SessionId, PartitionKey,_ ou _MessageId_, Service Bus attribue alors les messages aux fragments de manière alternée. Si un fragment n’est pas disponible, Service Bus passe au suivant. De cette manière, une défaillance temporaire de l’infrastructure de la messagerie n’entraîne pas de défaillance de l’opération d’envoi des messages.
 
@@ -401,9 +403,9 @@ Considérez les points suivants lorsque vous décidez de partitionner des donné
 
 _Figure 10 : Structure suggérée au sein du stockage Redis pour enregistrer les commandes des clients et les détails associés_
 
-> [AZURE.NOTE]Dans Redis, toutes les clés correspondent à des valeurs de données binaires (comme les chaînes Redis) et peuvent contenir jusqu’à 512 Mo de données. En théorie, une clé peut donc contenir pratiquement tout type d’information. Cependant, vous devez adopter une convention d’affectation de noms cohérente concernant les clés et permettant de décrire le type de données et d’identifier l’entité, sans pour autant correspondre à un nom trop long. Une approche courante consiste à utiliser des clés sous la forme « type_entité:ID », par exemple : « client:99 » pour indiquer la clé correspondant au client présentant l’ID 99.
+> [AZURE.NOTE]Dans Redis, toutes les clés correspondent à des valeurs de données binaires (comme les chaînes Redis) et peuvent contenir jusqu’à 512 Mo de données. En théorie, une clé peut donc contenir pratiquement tout type d’information. Cependant, vous devez adopter une convention d’affectation de noms cohérente concernant les clés et permettant de décrire le type de données et d’identifier l’entité, sans pour autant correspondre à un nom trop long. Une approche courante consiste à utiliser des clés sous la forme « type\_entité:ID », par exemple : « client:99 » pour indiquer la clé correspondant au client présentant l’ID 99.
 
-- Vous pouvez mettre en œuvre le partitionnement vertical en stockant les informations connexes dans des agrégations différentes au sein de la même base de données. Par exemple, au sein d’une application de commerce électronique, vous pouvez stocker les informations relatives aux produits fréquemment utilisées dans une table de hachage Redis et les informations les moins fréquemment utilisées dans une autre. Les deux hachages peuvent utiliser le même ID de produit pour définir la clé, par exemple : « produit:_nn_ », où _nn_ correspond à l’ID du produit relatif aux informations associées et « détails_produit:_nn_ » pour les informations détaillées. Cette stratégie favorise la réduction du volume de données que la plupart des requêtes sont susceptibles de récupérer.
+- Vous pouvez mettre en œuvre le partitionnement vertical en stockant les informations connexes dans des agrégations différentes au sein de la même base de données. Par exemple, au sein d’une application de commerce électronique, vous pouvez stocker les informations relatives aux produits fréquemment utilisées dans une table de hachage Redis et les informations les moins fréquemment utilisées dans une autre. Les deux hachages peuvent utiliser le même ID de produit pour définir la clé, par exemple : « produit:_nn_ », où _nn_ correspond à l’ID du produit relatif aux informations associées et « détails\_produit:_nn_ » pour les informations détaillées. Cette stratégie favorise la réduction du volume de données que la plupart des requêtes sont susceptibles de récupérer.
 - Le repartitionnement d’un magasin de données Redis constitue une tâche complexe et chronophage. Le clustering Redis est capable de repartitionner automatiquement les données, mais cette fonctionnalité n’est pas disponible avec Cache Redis Azure. Par conséquent, lorsque vous concevez votre modèle de partitionnement, vous devez laisser suffisamment d’espace libre dans chaque partition pour permettre l’augmentation attendue du volume de données au fil du temps. Cependant, n’oubliez pas que Cache Redis Azure est conçu pour mettre temporairement des données en cache et que les données stockées dans le cache peuvent présenter une durée de vie limitée, spécifiée en tant que valeur de durée de vie. Concernant les données relativement volatiles, la durée de vie doit être courte. En revanche, concernant les données statiques, la durée de vie peut être beaucoup plus longue. Évitez de stocker de grandes quantités de données durables dans le cache si le volume de ces données est susceptible de remplir le cache. Vous pouvez spécifier une stratégie d’éviction permettant à Cache Redis Azure de supprimer les données si l’espace est limité.
 
 	> [AZURE.NOTE]Cache Redis Azure vous permet de spécifier la taille maximale du cache (de 250 Mo à 53 Go) en sélectionnant le niveau de tarification approprié. Cependant, après avoir créé un cache Redis Azure, vous ne pouvez pas en augmenter ni réduire la taille.
@@ -477,4 +479,4 @@ Les modèles suivants peuvent également s’appliquer à votre cas lorsque vous
 - La page (en anglais) [Running Redis on a CentOS Linux VM in Azure](http://blogs.msdn.com/b/tconte/archive/2012/06/08/running-redis-on-a-centos-linux-vm-in-windows-azure.aspx) sur le site Web de Microsoft présente un exemple décrivant comment créer et configurer un nœud Redis en tant que machine virtuelle Azure.
 - La page (en anglais) [Data Types](http://redis.io/topics/data-types) sur le site Web de Redis présente les types de données disponibles avec Redis et Cache Redis Azure.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

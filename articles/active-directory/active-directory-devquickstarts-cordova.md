@@ -65,8 +65,8 @@ Chaque plateforme cible a sa propre configuration requise.
 	-   [ios-sim](https://www.npmjs.org/package/ios-sim) : vous permet de lancer des applications iOS sur le simulateur iOS à partir de la ligne de commande (peut être installé facilement via le terminal : `npm install -g ios-sim`)
 
 - Pour générer et exécuter l’application pour Android
-	- Installez le [Kit de développement Java (JDK) 7](http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html) ou ultérieur. Assurez-vous que la variable d’environnement `JAVA_HOME` est correctement définie en fonction du chemin d’installation du JDK (par exemple C:\Program Files\Java\jdk1.7.0_75).
-	- Installez le [Kit de développement logiciel (SDK) Android](http://developer.android.com/sdk/installing/index.html?pkg=tools) et ajoutez l’emplacement `<android-sdk-location>\tools` (par exemple, C:\tools\Android\android-sdk\tools) pour votre variable d’environnement`PATH`.
+	- Installez le [Kit de développement Java (JDK) 7](http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html) ou ultérieur. Assurez-vous que la variable d’environnement `JAVA_HOME` est correctement définie en fonction du chemin d’installation du JDK (par exemple C:\\Program Files\\Java\\jdk1.7.0\_75).
+	- Installez le [Kit de développement logiciel (SDK) Android](http://developer.android.com/sdk/installing/index.html?pkg=tools) et ajoutez l’emplacement `<android-sdk-location>\tools` (par exemple, C:\\tools\\Android\\android-sdk\\tools) pour votre variable d’environnement`PATH`.
 	- Ouvrez Android SDK Manager (via le terminal, par exemple : `android`) et installez-le.
     - Kit de développement logiciel (SDK) de la plateforme *Android 5.0.1 (API 21)*
     - *Android SDK Build-tools* version 19.1.0 ou supérieure
@@ -257,4 +257,4 @@ Pour référence, l’exemple terminé (sans vos valeurs de configuration) est f
 [AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -1,11 +1,13 @@
 <properties 
 	pageTitle="Tableau de bord d’alimentation sur Stream Analytics | Microsoft Azure" 
 	description="Utilisez un tableau de bord Power BI de diffusion en temps réel pour collecter des informations d’analyse décisionnelle et analyser les données volumineuses à partir d’un travail Stream Analytics." 
+	keywords="business intelligence tools,power bi,streaming data,power bi dashboard"	
 	services="stream-analytics" 
 	documentationCenter="" 
 	authors="jeffstokes72" 
 	manager="paulettm" 
 	editor="cgronlun"/>
+
 
 <tags 
 	ms.service="stream-analytics" 
@@ -13,8 +15,9 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="06/30/2015" 
+	ms.date="08/03/2015" 
 	ms.author="jeffstok"/>
+
 	
 # Azure Stream Analytics & Power BI : tableau de bord en direct pour analyser en temps réel les flux de données
 
@@ -30,7 +33,7 @@ Dans cet article, découvrez comment créer vos propres outils d’analyse déci
 
 * Compte Microsoft Azure.
 * Une entrée pour alimenter un travail Stream Analytics en flux de données. Stream Analytics accepte les entrées d'Azure Event Hubs ou d'Azure Blob storage.  
-* ID d'organisation Microsoft Power BI
+* Compte professionnel ou scolaire pour Power BI
 
 ## Création d’un travail Azure Stream Analytics ##
 
@@ -39,7 +42,7 @@ Dans le [portail Azure](https://manage.windowsazure.com), cliquez sur **Nouveau,
 Spécifiez les valeurs suivantes, puis cliquez sur **Créer un travail Stream Analytics** :
 
 * **Nom du travail** - entrez un nom pour le travail. Par exemple, **DeviceTemperatures**.
-* **Région** - sélectionnez la région où vous souhaitez exécuter le travail. Envisagez de placer le travail et le concentrateur d’événements dans la même région afin d’améliorer les performances et d’éviter le coût d’un transfert de données entre différentes régions.
+* **Région** - sélectionnez la région où vous souhaitez exécuter le travail. Envisagez de placer le travail et le hub d’événements dans la même région afin d’améliorer les performances et d’éviter le coût d’un transfert de données entre différentes régions.
 * **Compte de stockage** - choisissez le compte de stockage que vous souhaitez utiliser pour stocker les données de surveillance de tous les travaux Stream Analytics en cours d’exécution dans cette région. Vous pouvez choisir un compte de stockage existant ou en créer un.
 
 Dans le volet gauche, cliquez sur **Stream Analytics** pour afficher une liste des travaux Stream Analytics.
@@ -55,42 +58,42 @@ Pour ce didacticiel, nous partons du principe que vous utilisez Event Hub comme 
 * Cliquez sur le nom du travail.
 * En haut de la page, cliquez sur **Entrées**, puis sur **Ajouter une entrée**. La boîte de dialogue qui s’ouvre vous guidera le long d’une procédure de configuration de votre entrée.
 *	Sélectionnez **Flux de données**, puis cliquez avec le bouton droit.
-*	Sélectionnez **Concentrateur d’événements**, puis cliquez avec le bouton droit.
+*	Sélectionnez **Hub d’événements**, puis cliquez avec le bouton droit.
 *	Saisissez ou sélectionnez les valeurs suivantes sur la troisième page :
   *	**Alias d’entrée** - entrez un nom convivial pour cette entrée de travail. Notez que vous utiliserez ce nom dans la requête par la suite.
-  * **Concentrateur d’événements** - si le concentrateur d’événements que vous avez créé est situé dans le même abonnement que le travail Stream Analytics, sélectionnez l’espace de noms dans lequel est situé le concentrateur d’événements.
-*	Si votre concentrateur d’événements est situé dans un autre abonnement, sélectionnez **Utiliser le concentrateur d’événements à partir d’un autre abonnement** et entrez manuellement l’**espace de noms Service Bus**, le **nom du concentrateur d’événements**, le **nom de la stratégie du concentrateur d’événements**, la **clé de stratégie du concentrateur d’événements** et le **nombre de partitions du concentrateur d’événements**.
+  * **Hub d’événements** - si le hub d’événements que vous avez créé est situé dans le même abonnement que le travail Stream Analytics, sélectionnez l’espace de noms dans lequel est situé le hub d’événements.
+*	Si votre hub d’événements est situé dans un autre abonnement, sélectionnez **Utiliser le hub d’événements à partir d’un autre abonnement** et entrez manuellement l’**espace de noms Service Bus**, le **nom du hub d’événements**, le **nom de la stratégie du hub d’événements**, la **clé de stratégie du hub d’événements** et le **nombre de partitions du hub d’événements**.
 
 > [AZURE.NOTE]Cet exemple utilise le nombre de partitions par défaut : 16.
 
-* **Nom du concentrateur d’événements** - sélectionnez le nom du concentrateur d’événements Azure que vous possédez.
-* **Nom de la stratégie du concentrateur d’événements** - sélectionnez la stratégie du concentrateur d’événements pour le concentrateur d’événements que vous utilisez. Assurez-vous que cette stratégie a des autorisations de gestion.
-*	**Groupe de consommateurs du concentrateur d’événements** - vous pouvez laisser ce champ vide ou spécifier un groupe de consommateurs présent sur votre concentrateur d’événements. Notez que chaque groupe de consommateurs d’un concentrateur d’événements peut avoir seulement 5 lecteurs à la fois. Décidez en conséquence du groupe de consommateurs approprié pour votre travail. Si vous laissez le champ vide, le groupe de consommateurs par défaut est utilisé.
+* **Nom du hub d’événements** – sélectionnez le nom du hub d’événements Azure que vous avez.
+* **Nom de la stratégie du hub d’événements** – sélectionnez la stratégie pour le hub d’événements que vous utilisez. Assurez-vous que cette stratégie a des autorisations de gestion.
+*	**Groupe de consommateurs du hub d’événements** – vous pouvez laisser ce champ vide ou spécifier un groupe de consommateurs présent sur votre hub d’événements. Notez que chaque groupe de consommateurs d’un hub d’événements peut avoir seulement 5 lecteurs à la fois. Décidez en conséquence du groupe de consommateurs approprié pour votre travail. Si vous laissez le champ vide, le groupe de consommateurs par défaut est utilisé.
 
 *	Cliquez avec le bouton droit.
 *	Spécifiez les valeurs suivantes :
   *	**Format du sérialiseur d’événements** - JSON
   *	**Encodage** - UTF8
-*	Cliquez sur le bouton de vérification pour ajouter cette source et vérifier que Stream Analytics peut se connecter au concentrateur d'événements.
+*	Cliquez sur le bouton de vérification pour ajouter cette source et vérifier que Stream Analytics peut se connecter au hub d'événements.
 
 ## Ajouter une sortie Power BI ##
 
 1.  En haut de la page, cliquez sur **Sortie**, puis sur**Ajouter une sortie**. Power BI est répertorié comme option de sortie.
 
-![graphic2][graphic2]
+    ![graphic2][graphic2]
 
 2.  Sélectionnez **Power BI**, puis cliquez avec le bouton droit.
 3.  Un écran de ce type s’affiche :
 
-![graphic3][graphic3]
+    ![graphic3][graphic3]
 
-4.  Dans cette étape, fournissez un ID de commande pour la sortie de tâche Stream Analytics. Si vous avez déjà un compte Power BI, sélectionnez **Autoriser maintenant**. Dans le cas contraire, choisissez **S'inscrire maintenant**. [Voici un bon blog décrivant les détails de l’inscription à Power BI](http://blogs.technet.com/b/powerbisupport/archive/2015/02/06/power-bi-sign-up-walkthrough.aspx).
+4.  Dans cette étape, vous devez fournir un compte professionnel ou scolaire pour la sortie de la tâche Stream Analytics. Si vous avez déjà un compte Power BI, sélectionnez **Autoriser maintenant**. Dans le cas contraire, choisissez **S’inscrire maintenant**. [Voici un bon blog décrivant les détails de l’inscription à Power BI](http://blogs.technet.com/b/powerbisupport/archive/2015/02/06/power-bi-sign-up-walkthrough.aspx).
 
-![graphic11][graphic11]
+    ![graphic11][graphic11]
 
 5.  Ensuite, un écran de ce type s’affiche :
 
-![graphic4][graphic4]
+    ![graphic4][graphic4]
 
 Fournissez les valeurs suivantes :
 
@@ -98,11 +101,11 @@ Fournissez les valeurs suivantes :
 * **Nom du jeu de données** - Fournissez un nom de jeu de données que vous souhaitez donner à votre sortie de Power BI. Par exemple, utilisons « pbidemo ».
 *	**Nom de la table** - Fournissez un nom de table dans le jeu de données de la sortie de Power BI. Appelons-la par exemple « pbidemo ». Actuellement, la sortie Power BI des travaux Stream Analytics peut avoir seulement une table dans un jeu de données.
 
->	[AZURE.NOTE] Il n'est pas recommandé de créer de façon explicite ce groupe de données et ce tableau dans votre compte Power BI. Ceux-ci seront créés de façon automatique lorsque vous commencez une tâche Stream Analytics et que cette tâche se met à injecter des résultats dans Power BI. Si la requête de votre tâche ne renvoie aucun résultat, le groupe de données et le tableau ne seront pas créés.
+>	[AZURE.NOTE] You should not explicitly create this dataset and table in your Power BI account. They will be automatically created when you start your Stream Analytics job and the job starts pumping output into Power BI. If your job query doesn’t return any results, the dataset and table will not be created.
 
 *	Cliquez sur **OK**, puis **Tester la connexion** . Votre configuration de sortie est terminée.
 
->	[AZURE.WARNING] De même, veuillez noter que si Power BI dispose déjà d'un groupe de données et d'un tableau portant le même nom que celui que vous avez saisi dans la tâche Stream Analytics, alors ces données seront écrasées.
+>	[AZURE.WARNING] Also be aware that if Power BI already had a dataset and table with the same name as the one you provided in this Stream Analytics job, the existing data will be overwritten.
 
 
 ## Écriture d’une requête ##
@@ -124,11 +127,11 @@ Accédez à l’onglet **Requête** de votre travail. Écrivez la requête dont 
 
     
     
-Démarrez votre travail. Assurez-vous que votre concentrateur d’événements reçoit des événements et que votre requête génère les résultats attendus. Si votre requête renvoie 0 ligne, le jeu de données et les tables de Power BI ne sont pas créés automatiquement.
+Démarrez votre travail. Assurez-vous que votre hub d’événements reçoit des événements et que votre requête génère les résultats attendus. Si votre requête renvoie 0 ligne, le jeu de données et les tables de Power BI ne sont pas créés automatiquement.
 
 ## Créez le tableau de bord dans Power BI ##
 
-Accédez à [Powerbi.com](https://powerbi.com) et connectez-vous à l’aide de votre ID d’organisation. Si la requête du travail Stream Analytics génère des résultats, vous voyez que votre jeu de données est déjà créé :
+Accédez à [Powerbi.com](https://powerbi.com), puis connectez-vous à l’aide de votre compte professionnel ou scolaire. Si la requête du travail Stream Analytics génère des résultats, vous voyez que votre jeu de données est déjà créé :
 
 ![graphic5][graphic5]
 
@@ -163,12 +166,11 @@ Notez que ce didacticiel ne vous a montré la création que d’un seul type de 
 Vous pouvez également consulter la page [Tableaux de bord dans Power BI en version préliminaire](http://support.powerbi.com/knowledgebase/articles/424868-dashboards-in-power-bi-preview) pour en savoir plus sur la création des tableaux de bord avec Power BI.
 
 ## Limites et meilleures pratiques ##
-Power BI utilise des contraintes d’accès concurrentiel et le débit comme indiqué ici : [https://powerbi.microsoft.com/pricing](https://powerbi.microsoft.com/pricing "Tarification de Power BI")
+Power BI utilise des contraintes d’accès concurrentiel et le débit comme indiqué ici : [https://powerbi.microsoft.com/pricing](https://powerbi.microsoft.com/pricing "Tarification de Power BI")
 
-C’est pour cette raison que Power BI s’applique naturellement dans les cas où l’analyse de flux de données Windows Azure débouche sur une réduction significative de la charge des données. Nous recommandons l’utilisation de TumblingWindow ou HoppingWindow pour vous assurer le push de données est au plus de 1 push/seconde et que votre requête respecte les exigences en matière de débit. Vous pouvez utiliser l’équation suivante pour calculer la valeur à donner à votre fenêtre en secondes :![equation1](./media/stream-analytics-power-bi-dashboard/equation1.png).
+C’est pour cette raison que Power BI s’applique naturellement dans les cas où l’analyse de flux de données Windows Azure débouche sur une réduction significative de la charge des données. Nous recommandons l’utilisation de TumblingWindow ou HoppingWindow pour vous assurer le Push de données est au plus de 1 push/seconde et que votre requête respecte les exigences en matière de débit. Vous pouvez utiliser l’équation suivante pour calculer la valeur à donner à votre fenêtre en secondes : ![equation1](./media/stream-analytics-power-bi-dashboard/equation1.png).
 
-Par exemple, si 1 000 appareils envoient des données à chaque seconde, il s’agit de la référence Pro Power BI qui prend en charge 1 000 000 lignes/heure et si vous souhaitez obtenir la moyenne des données par appareil sur Power BI, vous pouvez exécuter un push toutes les 4 secondes par appareil (comme indiqué ci-dessous) :
-![equation2](./media/stream-analytics-power-bi-dashboard/equation2.png)
+Par exemple, si 1 000 appareils envoient des données à chaque seconde, il s’agit de la référence Pro Power BI qui prend en charge 1 000 000 lignes/heure et si vous souhaitez obtenir la moyenne des données par appareil sur Power BI, vous pouvez exécuter un Push toutes les 4 secondes par appareil (comme indiqué ci-dessous) : ![equation2](./media/stream-analytics-power-bi-dashboard/equation2.png)
 
 Cela signifie que nous pouvons modifier la requête d’origine :
 
@@ -188,7 +190,7 @@ Cela signifie que nous pouvons modifier la requête d’origine :
 
 
 ## Obtenir de l'aide ##
-Pour obtenir une assistance, essayez notre [forum Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/fr-fr/home?forum=AzureStreamAnalytics)
+Pour obtenir une assistance, essayez notre [forum Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
 
 ## Étapes suivantes ##
 
@@ -211,4 +213,4 @@ Pour obtenir une assistance, essayez notre [forum Azure Stream Analytics](https:
 [graphic10]: ./media/stream-analytics-power-bi-dashboard/10-stream-analytics-power-bi-dashboard.png
 [graphic11]: ./media/stream-analytics-power-bi-dashboard/11-stream-analytics-power-bi-dashboard.png
 
-<!----HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

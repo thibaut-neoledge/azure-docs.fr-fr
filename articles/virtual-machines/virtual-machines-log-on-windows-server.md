@@ -36,4 +36,4 @@ Si votre mot de passe pose problème, essayez de le réinitialiser à partir du 
 
 Si ces actions ne fonctionnent pas, vous devez effectuer un dépannage plus étendu. Pour obtenir des instructions, consultez la rubrique [Résolution des problèmes de connexion Bureau à distance avec une machine virtuelle Azure Windows](virtual-machines-troubleshoot-remote-desktop-connections.md).
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

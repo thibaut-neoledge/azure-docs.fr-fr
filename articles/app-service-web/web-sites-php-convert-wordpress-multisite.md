@@ -34,7 +34,7 @@ Commençons.
 
 ## Autorisation du multisite
 
-Vous devez d’abord activer le multisite via le fichier `wp-config.php` avec la constante **WP_ALLOW_MULTISITE**. Vous disposez de deux méthodes pour modifier vos fichiers d’application web : via FTP et via Git. Si vous ne savez pas comment configurer l'une de ces méthodes, consultez les didacticiels suivants :
+Vous devez d’abord activer le multisite via le fichier `wp-config.php` avec la constante **WP\_ALLOW\_MULTISITE**. Vous disposez de deux méthodes pour modifier vos fichiers d’application web : via FTP et via Git. Si vous ne savez pas comment configurer l'une de ces méthodes, consultez les didacticiels suivants :
 
 * [Site web PHP avec MySQL et FTP][website-w-mysql-and-ftp-ftp-setup]
 
@@ -93,7 +93,7 @@ Avant que la fonctionnalité Azure Web Apps vous permette de mapper un domaine 
 
 * Connectez-vous au gestionnaire DNS de votre domaine.
 * Créez un enregistrement CNAME *awverify*.
-* Faites pointer *awverify* sur *awverify.VOTRE_DOMAINE.azurewebsites.net*.
+* Faites pointer *awverify* sur *awverify.VOTRE\_DOMAINE.azurewebsites.net*.
 
 Les modifications apportées au DNS peuvent mettre du temps à être effectives. Par conséquent, si les étapes suivantes ne fonctionnent pas immédiatement, faites une pause, puis revenez et réessayez.
 
@@ -113,7 +113,7 @@ Notez l'adresse IP affichée en bas de la boîte de dialogue. Elle est nécessai
 
 Si les autres étapes se sont correctement déroulées, vous pouvez désormais attribuer le domaine à votre application web Azure via un enregistrement DNS A.
 
-Il est important de remarquer que les applications web Azure acceptent les enregistrements CNAME et A. Toutefois, vous *devez* utiliser un enregistrement A pour activer le mappage de domaine approprié. Un enregistrement CNAME ne peut pas être transféré vers un autre CNAME, qui correspond à ce qu'Azure a créé pour vous avec VOTRE_DOMAINE.azurewebsites.net.
+Il est important de remarquer que les applications web Azure acceptent les enregistrements CNAME et A. Toutefois, vous *devez* utiliser un enregistrement A pour activer le mappage de domaine approprié. Un enregistrement CNAME ne peut pas être transféré vers un autre CNAME, qui correspond à ce qu'Azure a créé pour vous avec VOTRE\_DOMAINE.azurewebsites.net.
 
 À l'aide de l'adresse IP de l'étape précédente, revenez sur votre gestionnaire DNS et configurez l'enregistrement A de manière ce qu'il pointe sur cette IP.
 
@@ -154,4 +154,4 @@ La fonctionnalité Azure Web Apps vous permet d’ajouter un nombre de domaines
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

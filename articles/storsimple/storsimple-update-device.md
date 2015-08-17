@@ -6,14 +6,16 @@
    authors="SharS"
    manager="adinah"
    editor="tysonn" />
+
 <tags 
    ms.service="storsimple"
    ms.devlang="NA"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="07/28/2015"
+   ms.date="07/30/2015"
    ms.author="v-sharos" />
+
 
 # Mettre à jour votre appareil StorSimple
 
@@ -58,7 +60,7 @@ Vous pouvez utiliser le portail de gestion pour appliquer les mises à jour à v
 
 Sinon, vous pouvez utiliser Windows PowerShell pour StorSimple pour appliquer les mises à jour ordinaires (mode Normal).
 
-> [AZURE.IMPORTANT]Bien que vous puissiez installer des mises à jour standard à l’aide de Windows PowerShell pour StorSimple, nous vous recommandons vivement de les installer via le portail de gestion. Depuis la version Update 1, des vérifications préalables sont effectuées avant l’installation des mises à jour à partir du portail qui anticipent les échecs et garantissent une meilleure expérience.
+> [AZURE.IMPORTANT]Bien que vous puissiez installer des mises à jour standard à l’aide de Windows PowerShell pour StorSimple, nous vous recommandons vivement de les installer via le portail de gestion. Depuis la mise à jour 1, des vérifications préalables seront effectuées avant d’installer les mises à jour à partir du portail. Ces vérifications préalables permettent de prévenir les échecs et de garantir une expérience avec moins de problèmes.
 
 [AZURE.INCLUDE [storsimple-install-regular-updates-powershell](../../includes/storsimple-install-regular-updates-powershell.md)]
 
@@ -119,4 +121,4 @@ Si un appareil est réinitialisé aux paramètres d’usine, toutes les mises à
 Pour en savoir plus sur [Windows PowerShell pour StorSimple](https://msdn.microsoft.com/library/azure/dn772425.aspx).
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

@@ -23,4 +23,4 @@ Cette section r√©pertorie les quotas de base et les seuils de limitation qui s‚Ä
 
 [AZURE.INCLUDE [service-bus-quotas-table](../../includes/service-bus-quotas-table.md)]
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

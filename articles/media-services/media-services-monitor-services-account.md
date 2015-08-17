@@ -34,7 +34,7 @@ Vous pouvez surveiller le nombre de travaux d'encodage en file d'attente, de tâ
 
 1. Dans le [portail de gestion](http://go.microsoft.com/fwlink/?LinkID=256666), cliquez sur **Media Services**, puis sur le nom du compte Media Services pour ouvrir le tableau de bord. 
 
-	![MediaServices_Dashboard][dashboard]
+	![MediaServices\_Dashboard][dashboard]
 
 2. Pour surveiller vos travaux ou vos données d'encodage, commencez simplement à envoyer des travaux d'encodage à Media Services ou commencez à diffuser en continu du contenu pour les clients en utilisant la diffusion en continu à la demande Azure Media Services. Les premières données de surveillance devraient apparaître sur le tableau de bord après un délai d'environ une heure.
 
@@ -67,4 +67,4 @@ Vous pouvez surveiller le nombre de travaux d'encodage en file d'attente, de tâ
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

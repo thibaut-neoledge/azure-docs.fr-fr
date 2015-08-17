@@ -33,4 +33,4 @@ Pour la configuration rapide et la mise à niveau de la synchronisation d’annu
 * [Installation personnalisée d’Azure AD Connect](active-directory-aadconnect-get-started-custom.md)
 * [Azure AD Connect sur MSDN](https://msdn.microsoft.com/library/azure/dn832695.aspx) 
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

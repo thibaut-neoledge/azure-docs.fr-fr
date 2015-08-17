@@ -36,4 +36,4 @@ N'oubliez pas qu'il est parfaitement raisonnable d'utiliser des infrastructures 
 - [En savoir plus sur les API avec acteurs fiables](service-fabric-reliable-actors-introduction.md)
 - [En savoir plus sur les API avec services fiables](../Service-Fabric/service-fabric-reliable-services-introduction.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -6,14 +6,16 @@
    authors="bandersmsft"
    manager="jwhit"
    editor="" />
+
 <tags
    ms.service="operational-insights"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/21/2015"
+   ms.date="08/05/2015"
    ms.author="banders" />
+
 
 # Gestion de la capacité de l'infrastructure
 
@@ -25,7 +27,7 @@ Par exemple, une projection peut identifier le moment où de la mémoire supplé
 
 ## Tableau de bord Gestion de la capacité
 
-Avant de pouvoir utiliser le tableau de bord de gestion de la capacité dans Microsoft Azure Operational Insights, vous devez avoir installé la solution. Pour plus d'informations sur l'installation de solutions, consultez la rubrique [Utilisation de la galerie de solutions pour ajouter ou supprimer des solutions](operational-insights-add-solution.md). Une fois la solution de planification de la capacité installée, vous pouvez consulter la capacité de vos serveurs analysés à l'aide de la vignette **Planification de la capacité** sur la page **Vue d’ensemble** d'Operational Insights.
+Avant de pouvoir utiliser le tableau de bord de gestion de la capacité dans Microsoft Azure Operational Insights, vous devez avoir installé la solution. Pour plus d'informations sur l'installation de solutions, consultez la rubrique [Utilisation de la galerie de solutions pour ajouter ou supprimer des solutions](operational-insights-setup-workspace.md). Une fois la solution de planification de la capacité installée, vous pouvez consulter la capacité de vos serveurs analysés à l'aide de la vignette **Planification de la capacité** sur la page **Vue d’ensemble** d'Operational Insights.
 
 ![image de la vignette Planification de la capacité](./media/operational-insights-capacity/overview-cap-plan.png)
 
@@ -164,4 +166,4 @@ L'outil de projection vous permet d'afficher l'historique des tendances d'utilis
 
 [AZURE.INCLUDE [operational-insights-export](../../includes/operational-insights-export.md)]
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

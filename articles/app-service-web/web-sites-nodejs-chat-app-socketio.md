@@ -283,4 +283,4 @@ Ce didacticiel vous a expliqué comment créer une application de conversation i
 [pricing]: /pricing/details/web-sites/
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

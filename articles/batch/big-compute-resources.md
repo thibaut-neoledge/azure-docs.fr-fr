@@ -146,4 +146,4 @@ Azure propose [plusieurs tailles](../virtual-machines/virtual-machines-size-spec
 * Pour les dernières annonces, consultez le [blog de l'équipe Microsoft HPC et Batch](http://blogs.technet.com/b/windowshpc/) et le [blog Azure](http://azure.microsoft.com/blog/tag/hpc/).
 * Consultez également les [nouveautés de Batch](http://azure.microsoft.com/updates/?service=batch) ou abonnez-vous au [flux RSS](http://azure.microsoft.com/updates/feed/?service=batch).
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

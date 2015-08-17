@@ -461,7 +461,7 @@ Pour obtenir les informations de connexion FTP à partir du panneau de l’appli
 
 1. Sous **Essentials**, recherchez et copiez le **Nom d’hôte FTP**. Il s’agit d’un URI similaire à `ftp://waws-prod-bay-NNN.ftp.azurewebsites.windows.net`.
 
-2. Sous **Essentials**, recherchez et copiez le **Nom d’utilisateur FTP/déploiement**. Il se présente sous la forme *nomappweb\déploiement-nomutilisateur* ; par exemple `WebDemoWebApp\deployer77`.
+2. Sous **Essentials**, recherchez et copiez le **Nom d’utilisateur FTP/déploiement**. Il se présente sous la forme *nomappweb\\déploiement-nomutilisateur* ; par exemple `WebDemoWebApp\deployer77`.
 
 Pour obtenir les informations de connexion FTP à partir du profil de publication :
 
@@ -493,7 +493,7 @@ Avant de publier l’application, vous devez modifier quelques paramètres de co
 
 1. Dans le Portail Classic, accédez à la page **Tableau de bord** de l’application web et cliquez sur **Configurer**. Dans la page **Configurer**, spécifiez les paramètres suivants.
 
-2. Dans **Version Java**, la valeur par défaut est **Off** ; sélectionnez la version Java ciblée par votre application cible ; par exemple 1.7.0_51. Après cela, assurez-vous également que **Conteneur Web** est défini sur une version de Tomcat Server.
+2. Dans **Version Java**, la valeur par défaut est **Off** ; sélectionnez la version Java ciblée par votre application cible ; par exemple 1.7.0\_51. Après cela, assurez-vous également que **Conteneur Web** est défini sur une version de Tomcat Server.
 
 3. Dans **Documents par défaut**, ajoutez index.jsp et déplacez-le vers le haut de la liste. (Le fichier par défaut pour les applications web est hostingstart.html.)
 
@@ -542,7 +542,7 @@ Un autre outil que vous pouvez utiliser pour publier l’application est FileZil
 1. Dans FileZilla, cliquez sur **Fichier > Gestionnaire de Sites**.
 2. Dans la boîte de dialogue **Gestionnaire de Sites**, cliquez sur **Nouveau Site**. Un nouveau site FTP vierge apparaît dans **Sélectionnez une entrée** vous invitant à fournir un nom. Dans le cadre de cette procédure, nommez-le `AzureWebDemo-FTP`.
 
-    Sous l’onglet **Général**, spécifiez les paramètres suivants :- **Hôte :** entrez le **Nom d’hôte FTP** que vous avez copié à partir du tableau de bord. - **Port :** (laissez ce champ vierge, comme il s’agit d’un transfert passif ; le serveur déterminera le port à utiliser.) - **Protocole :** FTP - Protocole de Transfert de Fichiers - **Chiffrement :** Connexion FTP simple - **Type d’authentification :** Normale - **Utilisateur :** entrez le déploiement / utilisateur FTP que vous avez copié à partir du tableau de bord. Il s’agit du nom d’utilisateur FTP complet, qui se présente sous la forme *nomappweb\nomutilisateur*.- **Mot de passe :** entrez le mot de passe que vous avez spécifié lorsque vous avez défini les informations d’identification de déploiement.
+    Sous l’onglet **Général**, spécifiez les paramètres suivants :- **Hôte :** entrez le **Nom d’hôte FTP** que vous avez copié à partir du tableau de bord. - **Port :** (laissez ce champ vierge, comme il s’agit d’un transfert passif ; le serveur déterminera le port à utiliser.) - **Protocole :** FTP - Protocole de Transfert de Fichiers - **Chiffrement :** Connexion FTP simple - **Type d’authentification :** Normale - **Utilisateur :** entrez le déploiement / utilisateur FTP que vous avez copié à partir du tableau de bord. Il s’agit du nom d’utilisateur FTP complet, qui se présente sous la forme *nomappweb\\nomutilisateur*.- **Mot de passe :** entrez le mot de passe que vous avez spécifié lorsque vous avez défini les informations d’identification de déploiement.
 
     Sous l’onglet **Paramètres de transfert**, sélectionnez **Passif**.
 
@@ -590,4 +590,4 @@ Cette procédure crée une application web App Service. La ressource vous sera f
   [10]: ./media/java-create-azure-website-using-java-sdk/kudu-console-jsphello-war-2.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

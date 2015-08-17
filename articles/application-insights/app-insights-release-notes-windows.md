@@ -77,4 +77,4 @@ Aperçu 28/04/2015
 
 Aucune note de publication pour des versions antérieures.
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

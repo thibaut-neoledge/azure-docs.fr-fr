@@ -23,7 +23,7 @@ Diagnostic et résolution des problèmes sont essentiels pour la création et la
 
 Dans ce didacticiel, nous montrons comment identifier certaines erreurs du client qui peuvent affecter les performances et comment résoudre ces erreurs de bout en bout à l'aide des outils fournis par Microsoft et Azure Storage, afin d'optimiser l'application cliente.
 
-Ce didacticiel fournit une exploration pratique d'un scénario de dépannage de bout en bout. Pour un guide conceptuel détaillé du dépannage des applications de stockage Azure, consultez la page [Analyse, diagnostic et résolution des problèmes rencontrés sur Microsoft Azure Storage](../articles/storage-monitoring-diagnosing-troubleshooting/).
+Ce didacticiel fournit une exploration pratique d'un scénario de dépannage de bout en bout. Pour un guide conceptuel détaillé du dépannage des applications de stockage Azure, consultez la page [Analyse, diagnostic et résolution des problèmes rencontrés sur Microsoft Azure Storage](../articles/storage-monitoring-diagnosing-troubleshooting.md).
 
 ## Outils de résolution des problèmes dans les applications Azure Storage
 
@@ -375,4 +375,4 @@ Pour plus d'informations sur les scénarios de résolution des problèmes de bou
  
  
 
-<!----HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

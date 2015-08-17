@@ -245,7 +245,7 @@ Le modèle de ressource facultatif contient des ressources qui sont déployées 
 
 **Modèle de ressource facultatif**
 
-Par exemple, vous pouvez utiliser un modèle de ressource facultatif pour configurer une jumpbox, qui permet d’accéder indirectement à un environnement déployé à partir de l’Internet public. Vous devez utiliser un paramètre ou une variable pour déterminer si la jumpbox doit être activée, et pour identifier la fonction *concat* permettant de générer le nom cible du modèle, par exemple *jumpbox_enabled.json*. La liaison de modèles doit utiliser la variable obtenue pour installer la jumpbox.
+Par exemple, vous pouvez utiliser un modèle de ressource facultatif pour configurer une jumpbox, qui permet d’accéder indirectement à un environnement déployé à partir de l’Internet public. Vous devez utiliser un paramètre ou une variable pour déterminer si la jumpbox doit être activée, et pour identifier la fonction *concat* permettant de générer le nom cible du modèle, par exemple *jumpbox\_enabled.json*. La liaison de modèles doit utiliser la variable obtenue pour installer la jumpbox.
 
 Vous pouvez lier le modèle de ressource facultatif à partir de plusieurs emplacements :
 
@@ -309,7 +309,7 @@ Vous allez créer un modèle principal nommé azuredeploy.json.
 
 Vous allez créer un modèle de ressource partagé, nommé shared-resources.json.
 
-Vous allez créer un modèle de ressource facultatif pour permettre le déploiement d’une jumpbox, nommée jumpbox_enabled.json.
+Vous allez créer un modèle de ressource facultatif pour permettre le déploiement d’une jumpbox, nommée jumpbox\_enabled.json.
 
 Comme Redis utilise simplement un type de nœud unique, vous allez créer un modèle de ressource de membre unique, nommé node-resources.json.
 
@@ -319,9 +319,9 @@ Avec Redis, vous souhaitez installer chaque nœud individuel, puis, une fois tou
 
 À l’aide d’une liaison de modèles, le modèle principal est lié au modèle de ressource partagé, qui établit le réseau virtuel.
 
-Une logique est ajoutée dans le modèle principal pour permettre aux utilisateurs du modèle de spécifier si une jumpbox doit être déployée. La valeur *enabled* du paramètre *EnableJumpbox* indique que le client souhaite en déployer une. Si cette valeur est indiquée, le modèle concatène *_enabled* comme suffixe d’un nom de modèle de base pour la fonctionnalité jumpbox.
+Une logique est ajoutée dans le modèle principal pour permettre aux utilisateurs du modèle de spécifier si une jumpbox doit être déployée. La valeur *enabled* du paramètre *EnableJumpbox* indique que le client souhaite en déployer une. Si cette valeur est indiquée, le modèle concatène *\_enabled* comme suffixe d’un nom de modèle de base pour la fonctionnalité jumpbox.
 
-Le modèle principal applique la valeur de paramètre *large* comme suffixe d’un nom de modèle de base pour les tailles standard, puis utilise cette valeur dans un lien du modèle vers *technology_on_os_large.json*.
+Le modèle principal applique la valeur de paramètre *Grand* comme suffixe d’un nom de modèle de base pour les tailles standard, puis utilise cette valeur dans un lien du modèle vers *technology\_on\_os\_large.json*.
 
 La topologie doit ressembler à cette illustration.
 
@@ -335,7 +335,7 @@ Pour les nœuds du cluster, la configuration de l’état s’effectue en deux 
 
 ### Prise en charge des déploiements de taille différente
 
-Au sein des variables, le modèle de taille standard spécifie le nombre de nœuds de chaque type à déployer pour la taille spécifiée (*large*). Il déploie ensuite ce nombre d’instances de machine virtuelle à l’aide de boucles de ressources, en fournissant des noms uniques aux ressources en ajoutant un nom de nœud avec un numéro de séquence numérique à partir de *copyIndex()*. Il effectue cette opération pour les deux machines virtuelles de la zone sensible, comme défini dans le modèle de nom standard.
+Au sein des variables, le modèle de taille standard spécifie le nombre de nœuds de chaque type à déployer pour la taille spécifiée (*Grand*). Il déploie ensuite ce nombre d’instances d’ordinateur virtuel à l’aide de boucles de ressources, en fournissant des noms uniques aux ressources en ajoutant un nom de nœud avec un numéro de séquence numérique à partir de *copyIndex()*. Il effectue cette opération pour les deux machines virtuelles de la zone sensible, comme défini dans le modèle de nom standard.
 
 ## Modèles de décomposition et avec étendue de solution de bout en bout
 
@@ -378,7 +378,7 @@ Pour publier votre modèle dans le Marketplace, vous devez établir simplement d
 ## Étapes suivantes
 
 - Pour voir des exemples contextuels de l’implémentation des principes de conception présentés dans cette rubrique, consultez [Exemples contextuels des meilleures pratiques d’implémentation des modèles](best-practices-resource-manager-examples.md).
-- Pour obtenir des recommandations sur la gestion de la sécurité dans Azure Resource Manager, consultez [Questions de sécurité relatives à Azure Resource Manager](best-practices-resource-manager-security.md).
-- Pour en savoir plus sur le partage d’état dans les modèles, consultez [Partage d’état dans les modèles Azure Resource Manager](best-practices-resource-manager-state.md).
+- Pour obtenir des recommandations sur la façon de gérer la sécurité dans Azure Resource Manager, consultez [Considérations de sécurité pour Azure Resource Manager](best-practices-resource-manager-security.md).
+- Pour en savoir plus sur le partage d’état vers et depuis des modèles, consultez [partage d’état dans Azure Resource manager](best-practices-resource-manager-state.md).
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -38,13 +38,13 @@ Avant de commencer ce didacticiel, vous devez disposer des éléments suivants 
 
 Les variables d’environnement suivantes peuvent être définies lors de l’installation de Java et du JDK. Toutefois, vous devez vérifier qu’elles existent et qu’elles contiennent les valeurs correctes pour votre système.
 
-* **JAVA_HOME** : doit pointer vers le répertoire d’installation de l’environnement d’exécution Java (JRE). Par exemple, sur un système OS X, Unix ou Linux, il doit avoir une valeur semblable à `/usr/lib/jvm/java-7-oracle`. Sous Windows, il a une valeur semblable à `c:\Program Files (x86)\Java\jre1.7`
+* **JAVA\_HOME** : doit pointer vers le répertoire d’installation de l’environnement d’exécution Java (JRE). Par exemple, sur un système OS X, Unix ou Linux, il doit avoir une valeur semblable à `/usr/lib/jvm/java-7-oracle`. Sous Windows, il a une valeur semblable à `c:\Program Files (x86)\Java\jre1.7`
 
 * **PATH** :doit contenir les chemins d’accès suivants :
 
-	* **JAVA_HOME** (ou le chemin d’accès équivalent)
+	* **JAVA\_HOME** (ou le chemin d’accès équivalent)
 
-	* **JAVA_HOME\bin** (ou le chemin d’accès équivalent)
+	* **JAVA\_HOME\\bin** (ou le chemin d’accès équivalent)
 
 	* Le répertoire d’installation de Maven
 
@@ -56,13 +56,13 @@ Les variables d’environnement suivantes peuvent être définies lors de l’in
 
 		mvn archetype:generate -DgroupId=org.apache.hadoop.examples -DartifactId=wordcountjava -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
 
-	Cela crée un répertoire dans le répertoire actuel, avec le nom spécifié par le paramètre __artifactID__ (**wordcountjava** dans cet exemple). Ce répertoire contiendra les éléments suivants :
+	Cela créera un répertoire dans le répertoire actuel avec le nom spécifié par le paramètre __artifactID__ (**wordcountjava** dans cet exemple). Ce répertoire contiendra les éléments ci-après :
 
 	* __pom.xml__ - Le [modèle d’objet du projet (POM)](http://maven.apache.org/guides/introduction/introduction-to-the-pom.html)qui contient les informations et la configuration utilisées pour générer le projet.
 
-	* __src__ - Répertoire contenant le répertoire __main\java\org\apache\hadoop\examples__, dans lequel vous créez l'application.
+	* __src__ - Le répertoire contenant le répertoire __main\\java\\org\\apache\\hadoop\\examples__ dans lequel vous créerez l’application.
 
-3. Supprimez le fichier __src/test/java/org/apache/hadoop/examples/apptest.java__, car il ne sera pas utilisé dans cet exemple.
+3. Supprimez le fichier __src\\test\\java\\org\\apache\\hadoop\\examples\\apptest.java__, car il ne sera pas utilisé dans cet exemple.
 
 ##Ajout de dépendances
 
@@ -133,7 +133,7 @@ Les variables d’environnement suivantes peuvent être définies lors de l’in
 
 ##Création de l’application MapReduce
 
-1. Accédez au répertoire __wordcountjava/src/main/java/org/apache/hadoop/examples__ et renommez le fichier __App.java__ en __WordCount.java__.
+1. Accédez au répertoire __wordcountjava\\src\\main\\java\\org\\apache\\hadoop\\examples__ et renommez le fichier __app.java__ en __WordCount.java__.
 
 2. Ouvrez le fichier __WordCount.java__ dans un éditeur de texte et remplacez le contenu par les éléments suivants :
 
@@ -220,7 +220,7 @@ Les variables d’environnement suivantes peuvent être définies lors de l’in
 
 	Cela nettoie les artefacts de build précédents, télécharge toute dépendance non encore installée, puis génère et met l’application en package.
 
-3. Une fois la commande exécutée, le répertoire __wordcountjava\target__ contient un fichier appelé __wordcountjava-1.0-SNAPSHOT.jar__.
+3. Une fois la commande exécutée, le répertoire __wordcountjava\\target__ contient un fichier appelé __wordcountjava-1.0-SNAPSHOT.jar__.
 
 	> [AZURE.NOTE]Le fichier __wordcountjava-1.0-SNAPSHOT.jar__ est un uberjar, qui contient non seulement la tâche WordCount, mais également les dépendances nécessaires à la tâche au moment de l’exécution.
 
@@ -249,7 +249,7 @@ De cette façon, les fichiers du système local sont copiés dans le nœud princ
 
 		hadoop jar wordcountjava.jar org.apache.hadoop.examples.WordCount wasb:///example/data/gutenberg/davinci.txt wasb:///example/data/wordcountout
 
-	Elle utilise l’application MapReduce WordCount pour compter les mots dans le fichier davinci.txt et stocker les résultats dans __wasb:///example/data/wordcountout__. Les fichiers d’entrée et de sortie sont stockés dans le stockage par défaut du cluster.
+	Elle utilise l’application MapReduce WordCount pour compter les mots dans le fichier davinci.txt et stocker les résultats dans \_\___wasb:///example/data/wordcountout__. Les fichiers d’entrée et de sortie sont stockés dans le stockage par défaut du cluster.
 
 3. Une fois la tâche terminée, utilisez la commande suivante pour afficher les résultats :
 
@@ -297,4 +297,4 @@ Dans ce document, vous avez appris à développer une tâche MapReduce Java. Con
 [image-emulator-wordcount-compile]: ./media/hdinsight-develop-deploy-java-mapreduce/HDI-Emulator-Compile-Java-MapReduce.png
 [image-emulator-wordcount-run]: ./media/hdinsight-develop-deploy-java-mapreduce/HDI-Emulator-Run-Java-MapReduce.png
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

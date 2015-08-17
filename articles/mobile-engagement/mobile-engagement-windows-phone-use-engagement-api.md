@@ -334,7 +334,7 @@ Chaque clé de l'objet doit correspondre à l'expression régulière suivante :
 
 `^[a-zA-Z][a-zA-Z_0-9]*$`
 
-Cela signifie que les clés doivent commencer par au moins une lettre, suivie de lettres, de chiffres ou de traits de soulignement (_).
+Cela signifie que les clés doivent commencer par au moins une lettre, suivie de lettres, de chiffres ou de traits de soulignement (\_).
 
 #### Taille
 
@@ -368,7 +368,7 @@ Chaque clé de l'objet doit correspondre à l'expression régulière suivante :
 
 `^[a-zA-Z][a-zA-Z_0-9]*$`
 
-Cela signifie que les clés doivent commencer par au moins une lettre, suivie de lettres, de chiffres ou de traits de soulignement (_).
+Cela signifie que les clés doivent commencer par au moins une lettre, suivie de lettres, de chiffres ou de traits de soulignement (\_).
 
 #### Taille
 
@@ -379,4 +379,4 @@ Dans l'exemple précédent, le JSON envoyé au serveur fait 44 caractères :
 			{"subscription":"2013-12-07","premium":"true"}
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

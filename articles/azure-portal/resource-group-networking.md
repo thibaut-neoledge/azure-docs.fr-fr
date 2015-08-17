@@ -363,4 +363,4 @@ Vous pouvez déployer des services dans Azure à partir d’un modèle à l’ai
 
 [Déploiements de modèles](https://msdn.microsoft.com/library/azure/dn790549.aspx)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

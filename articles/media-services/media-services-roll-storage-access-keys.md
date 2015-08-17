@@ -108,4 +108,4 @@ Pour mettre à jour la date d’expiration d’un localisateur, utilisez l’[AP
  
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

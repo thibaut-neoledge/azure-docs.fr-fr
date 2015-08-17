@@ -65,4 +65,4 @@ Si tous les éléments ci-dessus vous sont incompréhensibles, ne vous inquiéte
 
 Dans le cadre du processus d'inscription à Azure, vous devrez fournir les informations d’une carte de crédit. Vous pouvez procéder en toute confiance. Vous ne serez pas facturé pour la publication d'applications dans Azure AD ou la création de nouveaux clients.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

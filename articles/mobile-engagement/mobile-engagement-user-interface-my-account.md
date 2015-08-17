@@ -44,7 +44,7 @@ Pour utiliser l'API Push ou l'API de l'appareil, vous devez connaître l'identif
 3. À partir d'une annonce Reach, si l'URL de l'action associée à l'annonce contient le modèle {deviceid}, il sera automatiquement remplacé par l'identificateur du périphérique à l’origine de l’action. http://<example>.com/registeruser?deviceid={deviceid}&otherparam=myparamdata sera remplacé par : http://<example>.com/registeruser?deviceid=XXXXXXXXXXXXXXXX&otherparam=myparamdata 
 4. À partir d'une annonce Web Reach, si le code HTML de l'annonce contient le modèle {deviceid}, celui-ci sera automatiquement remplacé par l'identificateur de l'appareil qui affiche l'annonce Web. Voici mon identificateur de périphérique : {deviceid} sera remplacé par : Voici mon identificateur de périphérique : XXXXXXXXXXXXXXXX
 5.  Ouvrez votre application sur votre appareil et créez un Événement dans votre application identifiée. À partir de « IU - votre application - Surveillance - Événements - Détails », cherchez l'événement que vous avez créé dans la liste. Cliquez sur cet événement dans le Moniteur. Vous devriez trouver l'ID de votre appareil dans la liste des appareils qui ont créé cet événement. Vous pouvez ensuite copier cet ID de l'appareil et l'enregistrer dans « IU - Mon compte - Appareils - Nouvel appareil - Sélectionnez la plateforme de votre appareil ».
->
+>(Notez que lorsque l'IDFA est désactivé pour iOS, l'ID de l'appareil peut changer après un certain temps si vous désinstallez et réinstallez votre application).
 
 <!--Image references-->
 [1]: ./media/mobile-engagement-user-interface-navigation/navigation1.png
@@ -145,4 +145,4 @@ Pour utiliser l'API Push ou l'API de l'appareil, vous devez connaître l'identif
  
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -27,7 +27,7 @@ Une surveillance des dépendances est actuellement disponible en standard pour 
 * les applications et les services web ASP.NET qui s’exécutent sur un serveur IIS ou sur Azure
 * [Applications web Java](app-insights-java-agent.md)
 
-Pour les autres types, tels que les applications pour appareil, vous pouvez créer votre propre surveillance à l’aide de l’API TrackDependency.
+Pour les autres types, tels que les applications pour appareil, vous pouvez créer votre propre surveillance à l’aide de l’API [TrackDependency](app-insights-api-custom-events-metrics.md#track-dependency).
 
 Le moniteur de dépendance prêt à l’emploi signale les appels aux types de dépendances suivants :
 
@@ -107,7 +107,7 @@ Le module de suivi des dépendances standard découvre automatiquement les dépe
 
 Vous pouvez écrire du code qui envoie des informations de dépendance, en utilisant la même [API TrackDependency](app-insights-api-custom-events-metrics.md#track-dependency) que celle utilisée par les modules standard.
 
-Par exemple, si vous générez votre code avec un assembly que vous n’avez pas écrit vous-même, vous pouvez minuter tous les appels vers cet assembly afin de déterminer sa contribution dans votre temps de réponse. Pour afficher ces données dans les graphiques de dépendance d’Application Insights, envoyez-les en utilisant `TrackDependency`.
+Par exemple, si vous générez votre code avec un assembly que vous n’avez pas écrit vous-même, vous pouvez minuter tous les appels vers cet assembly afin de déterminer sa contribution dans votre temps de réponse. Pour afficher ces données dans les graphiques de dépendance d’Application Insights, envoyez-les en utilisant `TrackDependency`.
 
 ```C#
 
@@ -129,4 +129,4 @@ Si vous souhaitez désactiver le module de suivi des dépendances standard, supp
 
 <!--Link references-->
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

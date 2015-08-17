@@ -2,7 +2,6 @@
 	pageTitle="Créer et charger des données dans des tables Hive à partir d'un stockage Blob | Microsoft Azure" 
 	description="Créer des tables Hive et charger des données d’un blob dans des tables Hive" 
 	services="machine-learning" 
-	solutions="" 
 	documentationCenter="" 
 	authors="hangzh-msft" 
 	manager="paulettm" 
@@ -146,4 +145,4 @@ Les utilisateurs ne peuvent pas charger directement les données d’un blob dan
 Vous disposez maintenant d’une table au format ORC, immédiatement exploitable.
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

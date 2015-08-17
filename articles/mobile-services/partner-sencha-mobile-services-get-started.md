@@ -712,4 +712,4 @@ Pour plus d'informations sur la prise en main de Sencha Touch, consultez l'ensem
 [0]: ./media/partner-sencha-mobile-services-get-started/finished-app.png
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

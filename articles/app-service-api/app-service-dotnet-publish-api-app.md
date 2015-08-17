@@ -122,4 +122,4 @@ Vous avez vu comment les fonctionnalités de déploiement direct dans Visual Stu
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -1,11 +1,13 @@
 <properties
 	pageTitle="Modèles de requêtes Azure Stream Analytics | Microsoft Azure"
-	description="Guide sur le langage des requêtes d’échantillon d'Azure Stream Analytics"
+	description="Modèles courants de requêtes Azure Stream Analytics"
+	keywords="stream analytics, sample, query, language, guide, patterns"
 	services="stream-analytics"
 	documentationCenter=""
 	authors="jeffstokes72"
 	manager="paulettm"
 	editor="cgronlun"/>
+
 
 <tags
 	ms.service="stream-analytics"
@@ -13,11 +15,12 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-data"
-	ms.date="07/30/2015"
+	ms.date="08/03/2015"
 	ms.author="jeffstok"/>
 
 
-# Guide sur le langage des requêtes d’échantillon d'Azure Stream Analytics #
+
+# Modèles courants de requêtes Azure Stream Analytics  #
 
 ## Introduction ##
 Les requêtes Azure Stream Analytics sont exprimées dans un langage de requête de type SQL présenté [ici](https://msdn.microsoft.com/library/azure/dn834998.aspx). Ce document décrit les solutions à plusieurs modèles de requête habituels, inspirés de scénarios réels. Il est en cours et sera mis à jour avec de nouveaux modèles de manière continue.
@@ -443,7 +446,7 @@ Grâce à ce que nous avons appris dans « Jonction extérieure LEFT pour inclu
 En les utilisant ensemble, nous obtenons un schéma correct -> incorrect -> correct sans aucun autre événement correct entre les deux. Nous pouvons maintenant calculer la durée entre les événements corrects de début et de fin, ce qui nous donne la durée du bogue.
 
 ## Obtenir de l'aide
-Pour obtenir une assistance, essayez notre [forum Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/fr-fr/home?forum=AzureStreamAnalytics)
+Pour obtenir une assistance, essayez notre [forum Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
 
 ## Étapes suivantes
 
@@ -454,4 +457,4 @@ Pour obtenir une assistance, essayez notre [forum Azure Stream Analytics](https:
 - [Références sur l’API REST de gestion d’Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

@@ -7,6 +7,7 @@
 	manager="jwhit"
 	editor="tysonn"/>
 
+
 <tags
 	ms.service="site-recovery"
 	ms.devlang="na"
@@ -15,6 +16,7 @@
 	ms.workload="storage-backup-recovery"
 	ms.date="05/08/2015"
 	ms.author="raynew"/>
+
 
 # Meilleures pratiques du déploiement de Site Recovery
 
@@ -103,7 +105,12 @@ Les fournisseurs et les agents sont installés sur les serveurs locaux, et peuve
 
 	- Configurez le serveur de proxy personnalisé avant d’installer le fournisseur.
 	- Autorisez ces URL sur le pare-feu :
-		- *.hypervrecoverymanager.windowsazure.com - *.accesscontrol.windows.net - *.backup.windowsazure.com - *.blob.core.windows.net - *.store.core.windows.net 
+		- **.hypervrecoverymanager.windowsazure.com
+- **.accesscontrol.windows.net
+- **.backup.windowsazure.com
+- **.blob.core.windows.net
+- **.store.core.windows.net
+
 	- Si vous déployez Site Recovery avec VMM et utilisez un proxy personnalisé, un compte RunAs VMM (DRAProxyAccount) sera créé automatiquement à l’aide des informations d’identification du proxy spécifiées dans les paramètres personnalisés du proxy dans le portail Site Recovery. Pour permettre l’authentification du compte, vous devez configurer le serveur proxy.
 
 
@@ -189,4 +196,4 @@ Après avoir consulté ces meilleures pratiques, vous pouvez amorcer le déploie
 - [Configuration de la protection avec un seul serveur VMM](site-recovery-single-vmm.md)
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

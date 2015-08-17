@@ -294,7 +294,7 @@ Pour spécifier des valeurs pour les paramètres de ressource qui ont été déf
           }
         }
 
-    >[AZURE.NOTE]Les noms d’images de disque dur virtuel changent régulièrement dans la galerie d’images. Vous devez donc obtenir le nom d’une image actuelle pour déployer la machine virtuelle. Pour ce faire, consultez la page [Gérer les images Windows à l’aide de Windows PowerShell](https://msdn.microsoft.com/library/azure/dn790330.aspx), puis remplacez {source-image-name} par le nom du fichier de disque dur virtuel que vous souhaitez utiliser. Par exemple, « a699494373c04fc0bc8f2bb1389d6106__Windows-Server-2012-R2-201412.01-en.us-127GB.vhd ». Remplacez {subscription-id} par l’identificateur de votre abonnement.
+    >[AZURE.NOTE]Les noms d’images de disque dur virtuel changent régulièrement dans la galerie d’images. Vous devez donc obtenir le nom d’une image actuelle pour déployer la machine virtuelle. Pour ce faire, consultez la page [Gérer les images Windows à l’aide de Windows PowerShell](https://msdn.microsoft.com/library/azure/dn790330.aspx), puis remplacez {source-image-name} par le nom du fichier de disque dur virtuel que vous souhaitez utiliser. Par exemple, « a699494373c04fc0bc8f2bb1389d6106\_\_Windows-Server-2012-R2-201412.01-en.us-127GB.vhd ». Remplacez {subscription-id} par l’identificateur de votre abonnement.
 
 
 4.	Enregistrez le fichier de paramètres que vous avez créé.
@@ -443,4 +443,4 @@ Les ressources sont toujours déployées à partir d’un modèle dans un groupe
 
 	![Création d'une application Active Directory](./media/arm-template-deployment/crpportal.png)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

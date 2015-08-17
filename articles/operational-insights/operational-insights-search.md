@@ -467,7 +467,7 @@ Syntaxe :
 
 filterExpression | Command1 | Command2...
 
-L'expression de filtre (\*\* filterExpression \*\*) définit la condition « where » pour la requête. Les commandes s'appliquent aux résultats retournés par la requête. Plusieurs commandes doivent être séparées par la barre verticale (|).
+L'expression de filtre (**filterExpression**) définit la condition « where » pour la requête. Les commandes s'appliquent aux résultats retournés par la requête. Plusieurs commandes doivent être séparées par la barre verticale (|).
 
 #### Exemples de syntaxe générale
 
@@ -777,7 +777,7 @@ Syntaxe :
 Agrège les résultats par valeur de **groupField** et calcule les valeurs de mesure agrégées à l'aide de **aggregatedField**.
 
 
-<table border="1" cellspacing="4" cellpadding="4"><table> <tr> <th>Fonction statistique de mesure </th> <th>Description </th> </tr> <tr> <td> <p><em>aggregateFunction</em> </p> <p></p> </td> <td> <p>Nom de la fonction d'agrégation (ne respecte pas la casse). Les fonctions d'agrégation suivantes sont prises en charge :</p> <ul> <li class="unordered">COUNT<br><br></li> <li class="unordered">MAX<br><br></li> <li class="unordered">MIN<br><br></li> <li class="unordered">SUM<br><br></li> <li class="unordered">AVG<br><br></li> <li class="unordered">STDDEV<br><br></li> </ul> </td> </tr> <tr> <td> <p><em>aggregatedField</em> </p> </td> <td> <p>Champ qui est agrégé. Ce champ est facultatif pour la fonction d'agrégation COUNT, mais il doit être un champ numérique existant pour SUM, MAX, MIN, AVG ou STDDEV.</p> </td> </tr> <tr> <td> <p><em>fieldAlias</em> </p> </td> <td> <p>Alias (facultatif) pour la valeur agrégée calculée. S'il n'est pas indiqué, le nom du champ sera <em>AggregatedValue.</em></p> </td> </tr> <tr> <td> <p><em>groupField</em> </p> </td> <td> <p>Nom du champ groupant le jeu de résultats. </p> </td> </tr> <tr> <td> <p><em>Interval</em> </p> </td> <td> <p>Intervalle de temps au format : </p> <p><em>nnnNAME</em> </p> <p></p> <p>Où : </p> <p>nnn est le nombre entier positif</p> <p><em>NAME</em> est le nom de l'intervalle</p> <p>Les noms d'intervalles pris en charge incluent (ne respectent pas la casse) : </p> <ul> <li class="unordered">MILLISECOND[S]<br><br></li> <li class="unordered">SECOND[S]<br><br></li> <li class="unordered">MINUTE[S]<br><br></li> <li class="unordered">HOUR[S]<br><br></li> <li class="unordered">DAY[S]<br><br></li> <li class="unordered">MONTH[S]<br><br></li> <li class="unordered">YEAR[S]<br></li> </ul> </td> </tr> </table>
+<table border="1" cellspacing="4" cellpadding="4"><table> <tr> <th>Fonction statistique de mesure </th> <th>Description </th> </tr> <tr> <td> <p><em>aggregateFunction</em> </p> <p></p> </td> <td> <p>Nom de la fonction d'agrégation (ne respecte pas la casse). Les fonctions d'agrégation suivantes sont prises en charge :</p> <ul> <li class="unordered">COUNT<br><br></li> <li class="unordered">MAX<br><br></li> <li class="unordered">MIN<br><br></li> <li class="unordered">SUM<br><br></li> <li class="unordered">AVG<br><br></li> <li class="unordered">STDDEV<br><br></li> </ul> </td> </tr> <tr> <td> <p><em>aggregatedField</em> </p> </td> <td> <p>Champ qui fait l'objet de l'agrégation. Ce champ est facultatif pour la fonction d'agrégation COUNT, mais il doit être un champ numérique existant pour SUM, MAX, MIN, AVG ou STDDEV.</p> </td> </tr> <tr> <td> <p><em>fieldAlias</em> </p> </td> <td> <p>Alias (facultatif) pour la valeur agrégée calculée. S'il n'est pas indiqué, le nom du champ sera <em>AggregatedValue.</em></p> </td> </tr> <tr> <td> <p><em>groupField</em> </p> </td> <td> <p>Nom du champ groupant le jeu de résultats. </p> </td> </tr> <tr> <td> <p><em>Interval</em> </p> </td> <td> <p>Intervalle de temps au format : </p> <p><em>nnnNAME</em> </p> <p></p> <p>Où : </p> <p>nnn est le nombre entier positif</p> <p><em>NAME</em> est le nom de l'intervalle</p> <p>Les noms d'intervalle pris en charge incluent (sensibles à la casse) : </p> <ul> <li class="unordered">MILLISECOND[S]<br><br></li> <li class="unordered">SECOND[S]<br><br></li> <li class="unordered">MINUTE[S]<br><br></li> <li class="unordered">HOUR[S]<br><br></li> <li class="unordered">DAY[S]<br><br></li> <li class="unordered">MONTH[S]<br><br></li> <li class="unordered">YEAR[S]<br></li> </ul> </td> </tr> </table>
 
 
 
@@ -809,7 +809,7 @@ Groupe les alertes par intervalles d'une heure à l'aide du champ **TimeGenerate
 
 *Explication*
 
-Comme pour l'exemple précédent, mais avec un alias de champ agrégé (\*\* AlertsPerHour \*\*).
+Comme pour l'exemple précédent, mais avec un alias de champ agrégé (**AlertsPerHour**).
 
 **Exemple 4**
 
@@ -2049,4 +2049,4 @@ Lorsque vous utilisez la fonction de recherche pour rechercher des données, les
 ## Autres ressources
 Stefan Roth a créé un aide-mémoire de recherche pratique. Découvrez son [blog](http://stefanroth.net/2014/11/05/microsoft-azure-operational-insights-search-data-explorer-cheat-sheet/) pour en savoir plus et télécharger son aide-mémoire.
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

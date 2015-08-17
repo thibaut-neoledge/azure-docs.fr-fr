@@ -4,7 +4,8 @@
 	services="application-insights" 
     documentationCenter=".net"
 	authors="alancameronwills" 
-	manager="keboyd"/>
+	manager="douge"/>
+
 
 <tags 
 	ms.service="application-insights" 
@@ -12,8 +13,9 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/27/2015" 
+	ms.date="08/04/2015" 
 	ms.author="awills"/>
+
  
 # Exploration des journaux .NET dans Application Insights  
 
@@ -61,7 +63,7 @@ Par exemple :
     var telemetry = new Microsoft.ApplicationInsights.TelemetryClient();
     telemetry.TrackTrace("Slow response - database01");
 
-
+l’un des avantages de TrackTrace est que vous pouvez insérer des données relativement longues dans le message. Par exemple, vous pourriez y encoder des données POST.
 
 
 ## Exploration de vos journaux
@@ -124,4 +126,4 @@ Jusqu'à 500 événements par seconde pour chaque application. Les événements
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

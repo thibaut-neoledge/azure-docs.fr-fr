@@ -7,6 +7,7 @@
    manager="timlt" 
    editor=""/>
 
+
 <tags
    ms.service="cloud-services"
    ms.devlang="na"
@@ -15,6 +16,7 @@
    ms.workload="tbd" 
    ms.date="05/19/2015"
    ms.author="adegeo"/>
+
 
 # Prise en charge et stratégie de suppression du SE invité d'Azure
 Les informations de cette page concernent le système d'exploitation invité Azure ([SE invité](https://msdn.microsoft.com/library/azure/ff729422.aspx)) pour les rôles Web et de travail Cloud Services (PaaS). Elles ne s'appliquent pas aux machines virtuelles (IaaS).
@@ -59,7 +61,7 @@ Les versions de SE invité sont publiées chaque mois. En raison de la fréquenc
 
 Après 60 jours de vie, une version obtient le statut « *désactivé* ». Cela signifie que la version est supprimée du portail de gestion Azure. De plus, elle ne peut plus être définie à partir du fichier de configuration CSCFG. Les déploiements existants continuent d'être exécutés, mais les nouveaux déploiements et les mises à jour de code et de configuration pour les déploiements existants ne seront pas autorisés.
 
-Ultérieurement, la version du système d'exploitation invité obtient le statut « *expiré* » et toutes les installations qui exécutent encore cette version sont obligatoirement mises à niveau et paramétrées pour mettre à jour automatiquement le système d'exploitation invité dans le futur. L'expiration se fait par lots. Ainsi, la période de temps entre la désactivation et l'expiration peut varier.
+Ultérieurement, la version du SE invité obtient le statut « *expiré* » et toutes les installations qui exécutent encore cette version sont obligatoirement mises à niveau et paramétrées pour mettre à jour automatiquement le SE invité dans le futur. L'expiration se fait par lots. Ainsi, la période de temps entre la désactivation et l'expiration peut varier.
 
 Ces périodes peuvent être allongées à la discrétion de Microsoft pour faciliter les transitions des clients. Toutes les modifications seront communiquées sur les [versions de système d'exploitation invité d'Azure et la matrice de compatibilité du Kit de développement logiciel (SDK)](cloud-services-guestos-update-matrix.md).
 
@@ -88,4 +90,4 @@ Vous devez utiliser la famille la plus récente de SE invités pour concevoir vo
 Si l'architecture de votre application Web nécessite une intégration plus avancée au système d'exploitation sous-jacent, utilisez les fonctionnalités de plateforme prise en charge telles que les « [Tâches de démarrage](https://msdn.microsoft.com/library/windowsazure/gg456327.aspx) » ou d'autres mécanismes d'extensibilité qui peuvent exister par la suite. Sinon, vous pouvez également utiliser les [machines virtuelles Azure](http://azure.microsoft.com/documentation/scenarios/virtual-machines/) (IaaS – Infrastructure en tant que Service), qui vous permettent d'être responsable de la maintenance du système d'exploitation sous-jacent.
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

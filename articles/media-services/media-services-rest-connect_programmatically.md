@@ -60,9 +60,9 @@ L’exemple suivant montre l’en-tête et le corps de demande HTTP qui permet d
 	
 **Corps** :
 
-Il convient de vérifier les valeurs client_id et client_secret dans le corps de cette demande ; client_id et client_secret correspondent aux valeurs AccountName et AccountKey, respectivement. Ces valeurs sont fournies par Media Services pour vous lorsque vous configurez votre compte.
+Il convient de vérifier les valeurs client\_id et client\_secret dans le corps de cette demande ; client\_id et client\_secret correspondent aux valeurs AccountName et AccountKey, respectivement. Ces valeurs sont fournies par Media Services pour vous lorsque vous configurez votre compte.
 
-Notez que la valeur AccountKey de votre compte Media Services doit être encodée dans l’URL (voir l’[encodage par pourcentage](http://tools.ietf.org/html/rfc3986#section-2.1) quand vous l’utilisez comme valeur client_secret dans votre demande de jeton d’accès.
+Notez que la valeur AccountKey de votre compte Media Services doit être encodée dans l’URL (voir l’[encodage par pourcentage](http://tools.ietf.org/html/rfc3986#section-2.1) quand vous l’utilisez comme valeur client\_secret dans votre demande de jeton d’accès.
 
 	grant_type=client_credentials&client_id=ams_account_name&client_secret=URL_encoded_ams_account_key&scope=urn%3aWindowsAzureMediaServices
 
@@ -93,9 +93,9 @@ L’exemple suivant montre la réponse HTTP qui contient le jeton d’accès dan
 	}
 	
 
->[AZURE.NOTE]Il est recommandé de mettre en cache les valeurs « access_token » et « expires_in » sur un stockage externe. Les données du jeton peuvent être récupérées ultérieurement à partir du stockage et réutilisées dans vos appels d’API REST Media Services. Ceci est particulièrement utile pour les scénarios où le jeton peut être partagé en toute sécurité entre plusieurs processus ou ordinateurs.
+>[AZURE.NOTE]Il est recommandé de mettre en cache les valeurs « access\_token » et « expires\_in » sur un stockage externe. Les données du jeton peuvent être récupérées ultérieurement à partir du stockage et réutilisées dans vos appels d’API REST Media Services. Ceci est particulièrement utile pour les scénarios où le jeton peut être partagé en toute sécurité entre plusieurs processus ou ordinateurs.
 
-Veillez à analyser la valeur « expires_in » du jeton d’accès et à mettre à jour vos appels d’API REST avec de nouveaux jetons le cas échéant.
+Veillez à analyser la valeur « expires\_in » du jeton d’accès et à mettre à jour vos appels d’API REST avec de nouveaux jetons le cas échéant.
 
 ###Connexion à l’URI Media Services
 
@@ -167,4 +167,4 @@ L’exemple suivant montre la demande HTTP vers l’URI racine de Media Services
 
 <!-- URLs. -->
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

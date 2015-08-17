@@ -69,47 +69,9 @@ La liste suivante décrit chacune des colonnes du rapport en détail :
 ### Description des valeurs du rapport
 Le tableau suivant décrit les différentes valeurs autorisées pour chaque colonne :
 
-<table>
-            <tbody><tr>
-              <td>
-                <p>
-                  <strong>Colonne</strong>
-                </p>
-              </td>
-              <td>
-                <p>
-                  <strong>Valeurs autorisées et leur signification</strong>
-                </p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>Données inscrites</p>
-              </td>
-              <td>
-                <ul>
-                  <li class="unordered">
-                    <strong>Adresse de messagerie de secours</strong>&#160;: l’utilisateur a utilisé une autre adresse de messagerie électronique ou une adresse électronique d’authentification pour s’authentifier.<br><br></li>
-                </ul>
-                <ul>
-                  <li class="unordered">
-                    <strong>Téléphone professionnel</strong>&#160;: l’utilisateur a utilisé un téléphone professionnel pour s’authentifier.<br><br></li>
-                </ul>
-                <ul>
-                  <li class="unordered">
-                    <strong>Téléphone mobile</strong>&#160;: l’utilisateur a utilisé un téléphone portable ou un téléphone d’authentification pour s’authentifier.<br><br></li>
-                </ul>
-                <ul>
-                  <li class="unordered">
-                    <strong>Questions de sécurité</strong>&#160;: l’utilisateur a utilisé des questions de sécurité pour s’authentifier.<br><br></li>
-                </ul>
-                <ul>
-                  <li class="unordered">
-                    <strong>Toute combinaison des éléments ci-dessus (par exemple, Adresse de messagerie de secours + Téléphone mobile)</strong>&#160;: se produit lorsqu’une stratégie à 2&#160;voies d’accès est spécifiée et indique les deux méthodes employées par l’utilisateur pour authentifier sa demande de réinitialisation de mot de passe.<br><br></li>
-                </ul>
-              </td>
-            </tr>
-          </tbody></table>
+des colonnes|Valeurs autorisées et leur signification
+---|---
+Données inscrites| **Adresse de messagerie de secours** : l’utilisateur a utilisé une autre adresse de messagerie électronique ou une adresse électronique d’authentification pour s’authentifier.<p><p>**Téléphone professionnel** : l’utilisateur a utilisé un téléphone professionnel pour s’authentifier.<p>**Téléphone mobile** : l’utilisateur a utilisé un téléphone portable ou un téléphone d’authentification pour s’authentifier.<p>**Questions de sécurité** : l’utilisateur a utilisé des questions de sécurité pour s’authentifier.<p>**Toute combinaison des éléments ci-dessus (par exemple, Adresse de messagerie de secours + Téléphone mobile)** : se produit lorsqu’une stratégie à 2 voies d’accès est spécifiée et indique les deux méthodes employées par l’utilisateur pour authentifier sa demande de réinitialisation de mot de passe.
 
 ## Visualiser l’activité de réinitialisation de mot de passe dans votre organisation
 
@@ -134,394 +96,53 @@ La liste suivante décrit chacune des colonnes du rapport en détail :
 ### Description des valeurs du rapport
 Le tableau suivant décrit les différentes valeurs autorisées pour chaque colonne :
 
-<table>
-            <tbody><tr>
-              <td>
-                <p>
-                  <strong>Colonne</strong>
-                </p>
-              </td>
-              <td>
-                <p>
-                  <strong>Valeurs autorisées et leur signification</strong>
-                </p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>Méthodes utilisées</p>
-              </td>
-              <td>
-                <ul>
-                  <li class="unordered">
-                    <strong>Adresse de messagerie de secours</strong>&#160;: l’utilisateur a utilisé une autre adresse de messagerie électronique ou une adresse électronique d’authentification pour s’authentifier.<br><br></li>
-                </ul>
-                <ul>
-                  <li class="unordered">
-                    <strong>Téléphone professionnel</strong>&#160;: l’utilisateur a utilisé un téléphone professionnel pour s’authentifier.<br><br></li>
-                </ul>
-                <ul>
-                  <li class="unordered">
-                    <strong>Téléphone mobile</strong>&#160;: l’utilisateur a utilisé un téléphone portable ou un téléphone d’authentification pour s’authentifier.<br><br></li>
-                </ul>
-                <ul>
-                  <li class="unordered">
-                    <strong>Questions de sécurité</strong>&#160;: l’utilisateur a utilisé des questions de sécurité pour s’authentifier.<br><br></li>
-                </ul>
-                <ul>
-                  <li class="unordered">
-                    <strong>Toute combinaison des éléments ci-dessus (par exemple, Adresse de messagerie de secours + Téléphone mobile)</strong>&#160;: se produit lorsqu’une stratégie à 2&#160;voies d’accès est spécifiée et indique les deux méthodes employées par l’utilisateur pour authentifier sa demande de réinitialisation de mot de passe.<br><br></li>
-                </ul>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>Résultat</p>
-              </td>
-              <td>
-                <ul>
-                  <li class="unordered">
-                    <strong>Abandonné</strong>&#160;: l’utilisateur a démarré la réinitialisation du mot de passe, puis s’est arrêté à mi-chemin sans terminer<br><br></li>
-                </ul>
-                <ul>
-                  <li class="unordered">
-                    <strong>Bloqué</strong>&#160;: le compte d’utilisateur n’a pas été autorisé à utiliser la réinitialisation de mot de passe, car il a tenté d’utiliser la page de réinitialisation de mot de passe ou une même méthode de réinitialisation de mot de passe un trop grand nombre de fois durant une période de 24&#160;heures.<br><br></li>
-                </ul>
-                <ul>
-                  <li class="unordered">
-                    <strong>Annulé</strong>&#160;: l’utilisateur a démarré la réinitialisation du mot de passe, puis il a cliqué sur le bouton Annuler pour annuler la session en cours. <br><br></li>
-                </ul>
-                <ul>
-                  <li class="unordered">
-                    <strong>Administrateur contacté</strong>&#160;: l’utilisateur a rencontré un problème insoluble lors de sa session et il a cliqué sur le lien « Contactez votre administrateur » au lieu de terminer le flux de réinitialisation de mot de passe.<br><br></li>
-                </ul>
-                <ul>
-                  <li class="unordered">
-                    <strong>Échec</strong>&#160;: l’utilisateur n’a pas pu réinitialiser un mot de passe, probablement car il n’était pas configuré pour utiliser la fonctionnalité (par exemple, aucune licence, informations d’authentification manquantes, mot de passe géré localement mais écriture différée désactivée).<br><br></li>
-                </ul>
-                <ul>
-                  <li class="unordered">
-                    <strong>Réussi</strong>&#160;: la réinitialisation du mot de passe a réussi.<br><br></li>
-                </ul>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>Détails</p>
-              </td>
-              <td>
-                <p>Voir le tableau ci-dessous</p>
-              </td>
-            </tr>
-          </tbody></table>
+
+des colonnes|Valeurs autorisées et leur signification
+---|---
+Méthodes utilisées|**Adresse de messagerie de secours** : l’utilisateur a utilisé une autre adresse de messagerie électronique ou une adresse électronique d’authentification pour s’authentifier.<p>**Téléphone professionnel** : l’utilisateur a utilisé un téléphone professionnel pour s’authentifier.<p>**Téléphone mobile** : l’utilisateur a utilisé un téléphone portable ou un téléphone d’authentification pour s’authentifier.<p>**Questions de sécurité** : l’utilisateur a utilisé des questions de sécurité pour s’authentifier.<p>**Toute combinaison des éléments ci-dessus (par exemple, Adresse de messagerie de secours + Téléphone mobile)** : se produit lorsqu’une stratégie à 2 voies d’accès est spécifiée et indique les deux méthodes employées par l’utilisateur pour authentifier sa demande de réinitialisation de mot de passe.
+Résultat|**Abandonné** : l’utilisateur a démarré la réinitialisation du mot de passe, puis s’est arrêté à mi-chemin sans terminer<p>**Bloqué** : le compte d’utilisateur n’a pas été autorisé à utiliser la réinitialisation de mot de passe, car il a tenté d’utiliser la page de réinitialisation de mot de passe ou une même méthode de réinitialisation de mot de passe un trop grand nombre de fois durant une période de 24 heures.<p>**Annulé** : l’utilisateur a démarré la réinitialisation du mot de passe, puis il a cliqué sur le bouton Annuler pour annuler la session en cours.<p>**Administrateur contacté** : l’utilisateur a rencontré un problème insoluble lors de sa session et il a cliqué sur le lien « Contactez votre administrateur » au lieu de terminer le flux de réinitialisation de mot de passe.<p>**Échec** : l’utilisateur n’a pas pu réinitialiser un mot de passe, probablement car il n’était pas configuré pour utiliser la fonctionnalité (par exemple, aucune licence, informations d’authentification manquantes, mot de passe géré localement mais écriture différée désactivée).<p>**Réussi** : la réinitialisation du mot de passe a réussi.
+Détails|Voir le tableau ci-dessous
 
 ### Valeurs autorisées pour la colonne Détails
 Voici la liste des types de résultats que vous pouvez attendre lors de l’utilisation du rapport d’activité de réinitialisation du mot de passe :
 
-<table>
-            <tbody><tr>
-              <td>
-                <p>
-                  <strong>Détails</strong>
-                </p>
-              </td>
-              <td>
-                <p>
-                  <strong>Type de résultat</strong>
-                </p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>L’utilisateur a abandonné avant d’avoir effectué complètement l’option de vérification par e-mail.</p>
-              </td>
-              <td>
-                <p>Abandonné</p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>L’utilisateur a abandonné avant d’avoir effectué complètement l’option de vérification par SMS sur mobile.</p>
-              </td>
-              <td>
-                <p>Abandonné</p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>L’utilisateur a abandonné avant d’avoir effectué complètement l’option de vérification par appel vocal sur mobile.</p>
-              </td>
-              <td>
-                <p>Abandonné</p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>L’utilisateur a abandonné avant d’avoir effectué complètement l’option de vérification par appel vocal au bureau.</p>
-              </td>
-              <td>
-                <p>Abandonné</p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>L’utilisateur a abandonné avant d’avoir effectué complètement l’option de questions de sécurité.</p>
-              </td>
-              <td>
-                <p>Abandonné</p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>L’utilisateur a abandonné après avoir entré son ID utilisateur.</p>
-              </td>
-              <td>
-                <p>Abandonné</p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>L’utilisateur a abandonné après avoir commencé l’option de vérification par e-mail.</p>
-              </td>
-              <td>
-                <p>Abandonné</p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>L’utilisateur a abandonné après avoir commencé l’option de vérification par SMS sur mobile.</p>
-              </td>
-              <td>
-                <p>Abandonné</p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>L’utilisateur a abandonné après avoir commencé l’option de vérification par appel vocal sur mobile.</p>
-              </td>
-              <td>
-                <p>Abandonné</p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>L’utilisateur a abandonné après avoir commencé l’option de vérification par appel vocal au bureau.</p>
-              </td>
-              <td>
-                <p>Abandonné</p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>L’utilisateur a abandonné après avoir commencé l’option de vérification par questions de sécurité.</p>
-              </td>
-              <td>
-                <p>Abandonné</p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>L’utilisateur a abandonné avant de choisir un nouveau mot de passe.</p>
-              </td>
-              <td>
-                <p>Abandonné</p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>L’utilisateur a abandonné lors du choix d’un nouveau mot de passe.</p>
-              </td>
-              <td>
-                <p>Abandonné</p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>L’utilisateur a entré un nombre trop élevé de codes de vérification d’e-mail et est bloqué pour 24&#160;heures.</p>
-              </td>
-              <td>
-                <p>Bloqué</p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>L’utilisateur a entré un trop grand nombre de codes de vérification par SMS non valides et est bloqué pour 24&#160;heures.</p>
-              </td>
-              <td>
-                <p>Bloqué</p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>L’utilisateur a tenté un trop grand nombre de fois la vérification de la voix par appel sur mobile et est bloqué pour 24&#160;heures.</p>
-              </td>
-              <td>
-                <p>Bloqué</p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>L’utilisateur a tenté un trop grand nombre de fois la vérification de la voix par appel au bureau et est bloqué pour 24&#160;heures.</p>
-              </td>
-              <td>
-                <p>Bloqué</p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>L’utilisateur a tenté un trop grand nombre de fois de répondre à des questions de sécurité et est bloqué pour 24&#160;heures.</p>
-              </td>
-              <td>
-                <p>Bloqué</p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>L’utilisateur a tenté un trop grand nombre de fois de vérifier un numéro de téléphone et est bloqué pour 24&#160;heures.</p>
-              </td>
-              <td>
-                <p>Bloqué</p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>L’utilisateur a abandonné avant de se soumettre aux méthodes d’authentification requises.</p>
-              </td>
-              <td>
-                <p>Annulé</p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>L’utilisateur a abandonné avant de soumettre un nouveau mot de passe.</p>
-              </td>
-              <td>
-                <p>Annulé</p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>L’utilisateur a contacté un administrateur après avoir essayé l’option de vérification par e-mail.</p>
-              </td>
-              <td>
-                <p>Administrateur contacté</p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>L’utilisateur a contacté un administrateur après avoir essayé l’option de vérification par SMS sur mobile.</p>
-              </td>
-              <td>
-                <p>Administrateur contacté</p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>L’utilisateur a contacté un administrateur après avoir essayé l’option de vérification par appel vocal sur mobile.</p>
-              </td>
-              <td>
-                <p>Administrateur contacté</p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>L’utilisateur a contacté un administrateur après avoir essayé l’option de vérification par appel vocal au bureau.</p>
-              </td>
-              <td>
-                <p>Administrateur contacté</p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>L’utilisateur a contacté un administrateur après avoir essayé l’option de vérification par question de sécurité.</p>
-              </td>
-              <td>
-                <p>Administrateur contacté</p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>La réinitialisation du mot de passe n’est pas activée pour cet utilisateur. Activez-la sous l’onglet Configuration pour résoudre ce problème.</p>
-              </td>
-              <td>
-                <p>Échec</p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>L’utilisateur n’a pas de licence. Vous pouvez ajouter une licence à l’utilisateur pour résoudre ce problème.</p>
-              </td>
-              <td>
-                <p>Échec</p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>L’utilisateur a tenté de réinitialiser depuis un appareil où les cookies ne sont pas activés.</p>
-              </td>
-              <td>
-                <p>Échec</p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>Un nombre insuffisant de méthodes d’authentification sont définies pour le compte de l’utilisateur. Ajoutez des informations d’authentification pour résoudre ce problème.</p>
-              </td>
-              <td>
-                <p>Échec</p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>Le mot de passe de l’utilisateur est géré localement. Vous pouvez activer l’écriture en différé du mot de passe pour résoudre ce problème.</p>
-              </td>
-              <td>
-                <p>Échec</p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>Nous n’avons pas pu accéder au service de réinitialisation de votre mot de passe local. Vérifiez le journal des événements de votre ordinateur synchronisé.</p>
-              </td>
-              <td>
-                <p>Échec</p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>Nous avons rencontré un problème lors de la réinitialisation du mot de passe local de l’utilisateur. Vérifiez le journal des événements de votre ordinateur synchronisé.</p>
-              </td>
-              <td>
-                <p>Échec</p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>Cet utilisateur n’est pas membre du groupe utilisateurs de réinitialisation de mot de passe. Ajoutez cet utilisateur à ce groupe pour résoudre ce problème.</p>
-              </td>
-              <td>
-                <p>Échec</p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>La réinitialisation du mot de passe a été désactivée pour ce locataire. Consultez <a href="http://aka.ms/ssprtroubleshoot">http://aka.ms/ssprtroubleshoot</a> pour résoudre ce problème.</p>
-              </td>
-              <td>
-                <p>Échec</p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>L’utilisateur a réinitialisé le mot de passe.</p>
-              </td>
-              <td>
-                <p>Réussi</p>
-              </td>
-            </tr>
-          </tbody></table>
-
-<br/> <br/> <br/>
+Détails | Type de résultat 
+----|----
+L’utilisateur a abandonné avant d’avoir effectué complètement l’option de vérification par e-mail. | Abandonné
+L’utilisateur a abandonné avant d’avoir effectué complètement l’option de vérification par SMS sur mobile.|Abandonné 
+L’utilisateur a abandonné avant d’avoir effectué complètement l’option de vérification par appel vocal sur mobile. | Abandonné 
+L’utilisateur a abandonné avant d’avoir effectué complètement l’option de vérification par appel vocal au bureau. | Abandonné
+L’utilisateur a abandonné avant d’avoir effectué complètement l’option de questions de sécurité.|Abandonné 
+L’utilisateur a abandonné après avoir entré son ID utilisateur.| Abandonné 
+L’utilisateur a abandonné après avoir commencé l’option de vérification par e-mail.|Abandonné
+L’utilisateur a abandonné après avoir commencé l’option de vérification par SMS sur mobile.|Abandonné
+L’utilisateur a abandonné après avoir commencé l’option de vérification par appel vocal sur mobile.|Abandonné
+L’utilisateur a abandonné après avoir commencé l’option de vérification par appel vocal au bureau.|Abandonné
+L’utilisateur a abandonné après avoir commencé l’option de vérification par questions de sécurité.| Abandonné
+L’utilisateur a abandonné avant de choisir un nouveau mot de passe.| Abandonné
+L’utilisateur a abandonné lors du choix d’un nouveau mot de passe.| Abandonné
+L’utilisateur a entré un trop grand nombre de codes de vérification par SMS non valides et est bloqué pour 24 heures.|Bloqué
+L’utilisateur a tenté un trop grand nombre de fois la vérification de la voix par appel sur mobile et est bloqué pour 24 heures.|Bloqué
+L’utilisateur a tenté un trop grand nombre de fois la vérification de la voix par appel au bureau et est bloqué pour 24 heures. |Bloqué
+L’utilisateur a tenté un trop grand nombre de fois de répondre à des questions de sécurité et est bloqué pour 24 heures.| Bloqué
+L’utilisateur a tenté un trop grand nombre de fois de vérifier un numéro de téléphone et est bloqué pour 24 heures.|Bloqué
+L’utilisateur a abandonné avant de se soumettre aux méthodes d’authentification requises.|Annulé
+L’utilisateur a abandonné avant de soumettre un nouveau mot de passe.|Annulé
+L’utilisateur a contacté un administrateur après avoir essayé l’option de vérification par e-mail. |Administrateur contacté
+L’utilisateur a contacté un administrateur après avoir essayé l’option de vérification par SMS sur mobile.|Administrateur contacté
+L’utilisateur a contacté un administrateur après avoir essayé l’option de vérification par appel vocal sur mobile.|Administrateur contacté
+L’utilisateur a contacté un administrateur après avoir essayé l’option de vérification par appel vocal au bureau. |Administrateur contacté
+L’utilisateur a contacté un administrateur après avoir essayé l’option de vérification par question de sécurité.|Administrateur contacté
+La réinitialisation du mot de passe n’est pas activée pour cet utilisateur. Activez-la sous l’onglet Configuration pour résoudre ce problème.| Échec
+L’utilisateur n’a pas de licence. Vous pouvez ajouter une licence à l’utilisateur pour résoudre ce problème.|Échec
+L’utilisateur a tenté de réinitialiser depuis un appareil où les cookies ne sont pas activés.| Échec
+Un nombre insuffisant de méthodes d’authentification sont définies pour le compte de l’utilisateur. Ajoutez des informations d’authentification pour résoudre ce problème.|Échec
+Le mot de passe de l’utilisateur est géré localement. Vous pouvez activer l’écriture en différé du mot de passe pour résoudre ce problème.|Échec
+Nous n’avons pas pu accéder au service de réinitialisation de votre mot de passe local. Vérifiez le journal des événements de votre ordinateur synchronisé.|Échec
+Nous avons rencontré un problème lors de la réinitialisation du mot de passe local de l’utilisateur. Vérifiez le journal des événements de votre ordinateur synchronisé. | Échec
+Cet utilisateur n’est pas membre du groupe utilisateurs de réinitialisation de mot de passe. Ajoutez cet utilisateur à ce groupe pour résoudre ce problème.|Échec
+La réinitialisation du mot de passe a été désactivée pour ce locataire. Voir [ici](http://aka.ms/ssprtroubleshoot) pour résoudre ce problème. | Échec 
+L’utilisateur a réinitialisé le mot de passe.|Succeeded
 
 **Ressources supplémentaires**
 
@@ -543,4 +164,4 @@ Voici la liste des types de résultats que vous pouvez attendre lors de l’util
 [003]: ./media/active-directory-passwords-get-insights/003.jpg "Image_003.jpg"
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

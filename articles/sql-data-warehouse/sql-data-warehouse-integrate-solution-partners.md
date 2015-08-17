@@ -72,6 +72,7 @@ Pour plus d’informations sur l’intégration de solutions à SQL Data Warehou
 [20]: ./media/sql-data-warehouse-integrate-solution-partners/targit_logo.png
 [21]: ./media/sql-data-warehouse-integrate-solution-partners/yellowfin_logo.png
 
+
 <!--Article links-->
 [Développer des solutions intégrées avec SQL Data Warehouse]: ./sql-data-warehouse-overview-integrate.md
 
@@ -99,4 +100,4 @@ Pour plus d’informations sur l’intégration de solutions à SQL Data Warehou
 [targit_more]: http://www.targit.com/en/
 [yellowfin_more]: http://www.yellowfinbi.com/
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

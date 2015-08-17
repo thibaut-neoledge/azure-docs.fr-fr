@@ -101,4 +101,4 @@ La connexion d’applications a toujours fait partie de l’assemblage de soluti
 [relay]: ./media/hybrid-solutions/SvcBus_04_relay.png
 [Vue d’ensemble des concentrateurs d’événements]: https://msdn.microsoft.com/library/azure/dn836025.aspx
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

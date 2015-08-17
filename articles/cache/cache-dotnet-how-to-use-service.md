@@ -486,4 +486,4 @@ Pour plus d'informations sur l'utilisation du fournisseur de caches de sortie d'
 [Choix de l'offre Azure Cache appropriée]: http://msdn.microsoft.com/library/azure/dn766201.aspx
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -105,7 +105,7 @@ Un modèle d'ordinateur virtuel définit les paramètres qui seront utilisés pa
 8. Sélectionnez une région où l'ordinateur virtuel sera créé.
 9. Sélectionnez la taille appropriée pour l'ordinateur virtuel.
 10. Spécifiez un compte de stockage dans lequel l'ordinateur virtuel sera créé. Assurez-vous qu'il se trouve dans la même région que le service Cloud que vous allez utiliser. Si vous souhaitez créer un nouveau stockage, vous pouvez laisser ce champ vide.
-11. La durée de conservation spécifie le nombre de minutes avant la suppression d'un esclave inactif par Jenkins. Conservez la valeur par défaut de 60. Vous pouvez également choisir d'arrêter l'esclave plutôt que de le supprimer lorsqu'il est inactif. Pour ce faire, cochez la case **Shutdown Only (Do Not Delete) After Retention Time** (Arrêt uniquement (ne pas supprimer) après le délai de conservation).
+11. La durée de conservation spécifie le nombre de minutes avant la suppression d'un esclave inactif par Jenkins. Conservez la valeur par défaut de 60. Vous pouvez également choisir d'arrêter l'subordonné plutôt que de le supprimer lorsqu'il est inactif. Pour ce faire, cochez la case **Shutdown Only (Do Not Delete) After Retention Time** (Arrêt uniquement (ne pas supprimer) après le délai de conservation).
 12. Dans **Usage** (Utilisation), sélectionnez la condition appropriée lorsque ce nœud subordonné sera utilisé. Pour l'instant, sélectionnez **Utilize this node as much as possible** (Utiliser ce nœud autant que possible).
 
 	À ce stade, votre formulaire doit ressembler à ce qui suit :
@@ -213,4 +213,4 @@ Jenkins crée ensuite un nœud subordonné à l'aide du modèle créé dans la s
 
   
 
-<!-----HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

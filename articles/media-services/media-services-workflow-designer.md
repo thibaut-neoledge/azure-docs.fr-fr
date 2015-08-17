@@ -69,4 +69,4 @@ La vidéo du jour 3 présente :
 
 [Vidéos de formation pour le Concepteur de flux de travail Azure Premium Encoder](http://johndeutscher.com/2015/07/06/azure-premium-encoder-workflow-designer-training-videos/)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

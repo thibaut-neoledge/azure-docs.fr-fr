@@ -7,6 +7,7 @@
    manager="dwrede" 
    editor=""/>
 
+
 <tags
    ms.service="mobile-engagement"
    ms.devlang="na"
@@ -15,6 +16,7 @@
    ms.workload="mobile" 
    ms.date="02/17/2015"
    ms.author="piyushjo"/>
+
 
 
 # Utilisation des critères de ciblage pour envoyer des campagnes push à un sous-ensemble donné de vos utilisateurs
@@ -26,7 +28,8 @@ Le ciblage de votre audience suivant des critères spécifiques à l'aide du bou
 - [Documentation de l’interface utilisateur - Reach - Nouvelle campagne Push][Link 27]
 
 ## Les critères d’audience peuvent inclure :
-- **Informations techniques : ** vous pouvez cibler votre audience en vous basant sur les mêmes informations techniques indiquées dans les sections Analyses et Moniteur. **Voir aussi :** [Documentation de l’interface utilisateur - Analyse][Link 15], [Documentation de l’interface utilisateur - Moniteur][Link 16] - **Emplacement :** les applications qui utilisent un « rapport de localisation en temps réel » avec géorepérage peuvent utiliser l’emplacement géographique en tant que critère pour cibler une audience à partir de l’emplacement GPS. Un « rapport de localisation de zone différé » peut également être utilisé pour cibler une audience à partir de la localisation du téléphone cellulaire (Le « rapport de localisation en temps réel » et le « rapport de localisation de zone différé » doivent être activés à partir du Kit de développement logiciel (SDK)). **Consultez également :** [Documentation du Kit de développement logiciel (SDK) - iOS - Intégration][Link 5], [Documentation relative au Kit de développement logiciel (SDK) - Android - Intégration][Link 5]
+- ****Informations techniques : ** vous pouvez cibler votre audience en vous basant sur les mêmes informations techniques indiquées dans les sections Analyses et Moniteur. **Voir aussi :** [Documentation de l’interface utilisateur - Analyse][Link 15], [Documentation de l’interface utilisateur - Moniteur][Link 16]
+- **Emplacement :** les applications qui utilisent un « rapport de localisation en temps réel » avec géorepérage peuvent utiliser l’emplacement géographique en tant que critère pour cibler une audience à partir de l’emplacement GPS. Un « rapport de localisation de zone différé » peut également être utilisé pour cibler une audience à partir de la localisation du téléphone cellulaire (Le « rapport de localisation en temps réel » et le « rapport de localisation de zone différé » doivent être activés à partir du Kit de développement logiciel (SDK)). **Consultez également :** [Documentation du Kit de développement logiciel (SDK) - iOS - Intégration][Link 5], [Documentation relative au Kit de développement logiciel (SDK) - Android - Intégration][Link 5]
 - **Commentaire Reach :** vous pouvez cibler votre audience selon les commentaires des précédentes notifications Reach via les commentaires Reach dans les sections Annonces, Sondages et Push de données. Cela vous permet de mieux cibler votre audience après deux ou trois campagnes Reach, en comparaison à la première. Cela peut aussi être utilisé pour filtrer les utilisateurs qui ont déjà reçu une notification avec un contenu similaire, en définissant une campagne à NE PAS envoyer aux utilisateurs ayant déjà reçu une campagne spécifique précédente. Vous pouvez même exclure les utilisateurs faisant partie d’une campagne spécifique toujours active, afin qu’ils ne reçoivent pas de nouvelles notifications Push. **Consultez également :** [Documentation sur l’interface utilisateur - Reach - Contenu Push][Link 29]
 - **Installation du suivi :** vous pouvez suivre des informations selon l’emplacement où les utilisateurs ont installé votre application. **Consultez également :** [Documentation sur l’interface utilisateur - Paramètres][Link 20]
 - **Profil utilisateur :** vous pouvez cibler votre audience en fonction des informations d’utilisateur standard et des informations d’application personnalisées que vous avez créées. Cela inclut les utilisateurs qui sont actuellement connectés et les utilisateurs qui ont répondu à des questions spécifiques que vous leur avez demandé de définir dans l’application même, plutôt que leurs réponses aux campagnes précédentes. Toutes les informations définies pour votre application sont indiquées dans cette liste.
@@ -173,4 +176,4 @@ Si vous souhaitez effectuer une transmission de type Push pour faire une annonce
 [Link 29]: mobile-engagement-user-interface-reach-content.md
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

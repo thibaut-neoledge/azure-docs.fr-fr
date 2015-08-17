@@ -159,4 +159,4 @@ Maintenant que vous connaissez les bases du stockage des tables, consultez les l
 - Accédez au référentiel du [Kit de développement logiciel (SDK) Azure pour Ruby](http://github.com/WindowsAzure/azure-sdk-for-ruby) sur GitHub.
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

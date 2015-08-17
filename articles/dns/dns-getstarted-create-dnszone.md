@@ -10,10 +10,10 @@
 <tags
    ms.service="dns"
    ms.devlang="na"
-   ms.topic="hero-article"
+   ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/01/2015"
+   ms.date="07/28/2015"
    ms.author="joaoma"/>
 
 # Prise en main d’Azure DNS
@@ -147,4 +147,4 @@ Si vous n’avez pas encore délégué votre domaine pour qu’il utilise la nou
 [Prise en main de la création de jeux d'enregistrements et d'enregistrements](dns-getstarted-create-recordset.md)<BR> [Gestion des zones DNS](dns-operations-dnszones.md)<BR> [Gestion des enregistrements DNS](dns-operations-recordsets.md)<BR> [Automatisation des opérations Azure avec le Kit de développement logiciel (SDK) .NET](dns-sdk.md)<BR> [Référence de l'API REST d'Azure DNS](https://msdn.microsoft.com/library/azure/mt163862.aspx)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

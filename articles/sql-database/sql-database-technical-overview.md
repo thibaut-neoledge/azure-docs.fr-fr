@@ -29,4 +29,4 @@ Il existe différents [niveaux de service](sql-database-service-tiers.md) pour 
 Démarrez avec une [version d’évaluation gratuite](http://azure.microsoft.com/pricing/free-trial/), puis [créez votre première base de données SQL](sql-database-get-started.md) en quelques minutes.
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

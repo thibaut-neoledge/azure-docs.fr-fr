@@ -1,28 +1,31 @@
 <properties
    pageTitle="Azure Backup - Création d’un archivage de sauvegarde et spécification de la redondance de stockage"
-   description="Découvrez comment créer un archivage de sauvegarde et spécifier des options de redondance de stockage dans Azure Backup"
+   description="Découvrez comment créer un archivage de sauvegarde et spécifier des options de redondance de stockage dans Azure Backup."
    services="backup"
    documentationCenter=""
    authors="aashishr"
    manager="shreeshd"
    editor=""/>
 
-<tags
-   ms.service="backup"
-   ms.workload="storage-backup-recovery"
-	 ms.tgt_pltfrm="na"
-	 ms.devlang="na"
-	 ms.topic="article"
-	 ms.date="07/28/2015"
-	 ms.author="prvijay"; "jimpark"/>
+
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="07/28/2015" ms.author="prvijay"; "jimpark"/>
+
 
 # Créer un archivage de sauvegarde
 Pour sauvegarder des fichiers et données à partir de Windows Server ou de System Center Data Protection Manager (SCDPM) dans Azure ou lors de la sauvegarde de machines virtuelles IaaS dans Azure, vous devez créer un archivage de sauvegarde dans la région géographique où vous voulez stocker les données.
 
 Ce didacticiel vous guide tout au long des étapes de création de l’archivage que vous utiliserez pour stocker les sauvegardes.
 
+## Vidéo de procédure pas à pas
+
+Voici une procédure pas à pas de ce didacticiel.
+
+[AZURE.VIDEO azure-backup-vault-creation]
+
+## Création de l’archivage de sauvegarde
+
 1. Connectez-vous au [portail de gestion](https://manage.windowsazure.com/).
-2. Cliquez sur **Nouveau** -> **Services de données** -> **Services de récupération** -> **Archivage de sauvegarde** et choisissez **Création rapide**.
+2. Cliquez sur **Nouveau** -> **Data Services** -> **Recovery Services** -> **Archivage de sauvegarde** et choisissez **Création rapide**.
 
   ![Créer un archivage][1]
 
@@ -69,4 +72,4 @@ Si vous utilisez Azure comme point de terminaison de stockage de sauvegarde tert
 [4]: ./media/backup-azure-backup-create-vault/grs.png
 [5]: ./media/backup-azure-backup-create-vault/lrs.png
 
-<!-----HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

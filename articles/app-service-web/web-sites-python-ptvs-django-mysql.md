@@ -7,6 +7,7 @@
 	manager="wpickett" 
 	editor=""/>
 
+
 <tags 
 	ms.service="app-service-web" 
 	ms.workload="web" 
@@ -15,6 +16,7 @@
 	ms.topic="article" 
 	ms.date="04/16/2015" 
 	ms.author="huguesv"/>
+
 
 
 
@@ -99,7 +101,7 @@ Pour créer une base de données avec un plan gratuit, procédez comme suit :
 
   	<!-- ![New Button](./media/web-sites-python-ptvs-django-mysql/PollsCommonAzurePlusNew.png)-->
 
-1.  Entrez « ** mysql ** » dans la zone de recherche, cliquez sur **Base de données MySQL**, puis sur **Créer**.
+1.  Entrez « **mysql** » dans la zone de recherche, cliquez sur **Base de données MySQL**, puis sur **Créer**.
 
   	<!-- ![Choose Add-on Dialog](./media/web-sites-python-ptvs-django-mysql/PollsDjangoClearDBAddon1.png) -->
 
@@ -134,7 +136,7 @@ Dans cette section, nous allons configurer notre application web pour utiliser l
 
 1.  Dans l’Explorateur de solutions, sous **Environnements Python**, cliquez avec le bouton droit sur l’environnement virtuel et sélectionnez **Installer le package Python**.
 
-1. Installez le package `mysql-python` en utilisant **easy_install**.
+1. Installez le package `mysql-python` en utilisant **easy\_install**.
 
   	![Boîte de dialogue Installer le package](./media/web-sites-python-ptvs-django-mysql/PollsDjangoMySQLInstallPackage.png)
 
@@ -211,4 +213,4 @@ Suivez ces liens pour en savoir plus sur Python Tools pour Visual Studio, Django
 [MySQL]: http://www.mysql.com/
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

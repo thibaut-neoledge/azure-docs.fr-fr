@@ -45,7 +45,7 @@ Pour créer votre batterie SharePoint avec le modèle Batterie de serveurs Share
 4. Si vous souhaitez une batterie à haute disponibilité, cliquez sur **Activer la haute disponibilité**.
 5. Pour configurer vos contrôleurs de domaine, cliquez sur la flèche. Vous pouvez indiquer un préfixe de nom d'hôte (par défaut, il s'agit du nom du groupe de ressources), le nom de domaine racine de forêt (contoso.com, par défaut) et la taille de vos contrôleurs de domaine (A1, par défaut).
 6. Pour configurer vos serveurs SQL, cliquez sur la flèche. Vous pouvez indiquer un préfixe de nom d'hôte (par défaut, il s'agit du nom du groupe de ressources), la taille de vos serveurs SQL (A5, par défaut), un nom et un mot de passe de compte d'accès à la base de données (par défaut, il s'agit du compte administrateur), ainsi qu'un nom de compte de service de serveur SQL (sqlservice) et un mot de passe (par défaut, le même mot de passe que le compte administrateur est utilisé).
-7. Pour configurer vos serveurs SharePoint, cliquez sur la flèche. Vous pouvez indiquer un préfixe de nom d’hôte (par défaut, il s’agit du nom du groupe de ressources), la taille de vos serveurs SharePoint (A2 par défaut), un compte d’utilisateur SharePoint (par défaut, il s’agit de sp_setup) et un mot de passe, un nom de compte de batterie de serveurs SharePoint (par défaut, il s’agit de sp_farm) et un mot de passe, ainsi qu’une phrase secrète de batterie de serveurs SharePoint. Par défaut, vous utiliserez le mot de passe administrateur du compte d'utilisateur SharePoint, le compte de la batterie de serveurs et une phrase secrète.
+7. Pour configurer vos serveurs SharePoint, cliquez sur la flèche. Vous pouvez indiquer un préfixe de nom d’hôte (par défaut, il s’agit du nom du groupe de ressources), la taille de vos serveurs SharePoint (A2 par défaut), un compte d’utilisateur SharePoint (par défaut, il s’agit de sp\_setup) et un mot de passe, un nom de compte de batterie de serveurs SharePoint (par défaut, il s’agit de sp\_farm) et un mot de passe, ainsi qu’une phrase secrète de batterie de serveurs SharePoint. Par défaut, vous utiliserez le mot de passe administrateur du compte d'utilisateur SharePoint, le compte de la batterie de serveurs et une phrase secrète.
 8. Pour configurer les paramètres de configuration facultatifs pour le réseau virtuel, le compte de stockage ou les diagnostics, cliquez sur la flèche correspondante.
 9. Pour indiquer l'abonnement, cliquez sur la flèche.
 10. Une fois ces opérations effectuées, cliquez sur **Créer**.
@@ -95,4 +95,4 @@ La fonctionnalité Batterie de serveurs SharePoint du Portail Azure en version p
 
 [Batteries de serveurs SharePoint hébergés dans des services d’infrastructure Azure](virtual-machines-sharepoint-infrastructure-services.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

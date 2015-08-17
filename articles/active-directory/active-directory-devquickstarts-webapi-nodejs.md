@@ -32,7 +32,7 @@ Nous avons publié tout le code source de cet exemple dans GitHub sous une licen
 
 ## À propos des modules Node.js
 
-Nous utiliserons les modules Node.js au cours de cette procédure détaillée. Les modules sont des packages JavaScript chargeables qui fournissent une fonctionnalité spécifique à votre application. En général, vous installez un module à l’aide de l’outil en ligne de commande NPM Node.js. Néanmoins, certains modules, comme le module HTTP, sont intégrés au package Node.js principal. Les modules installés sont stockés dans le répertoire node_modules, à la racine de votre répertoire Node.js. Chaque module du répertoire node_modules conserve son propre répertoire node_modules qui contient tous les modules dont il dépend. Chaque module requis dispose de son propre répertoire node_modules. Cette structure de répertoire récursive représente la chaîne de dépendance.
+Nous utiliserons les modules Node.js au cours de cette procédure détaillée. Les modules sont des packages JavaScript chargeables qui fournissent une fonctionnalité spécifique à votre application. En général, vous installez un module à l’aide de l’outil en ligne de commande NPM Node.js. Néanmoins, certains modules, comme le module HTTP, sont intégrés au package Node.js principal. Les modules installés sont stockés dans le répertoire node\_modules, à la racine de votre répertoire Node.js. Chaque module du répertoire node\_modules conserve son propre répertoire node\_modules qui contient tous les modules dont il dépend. Chaque module requis dispose de son propre répertoire node\_modules. Cette structure de répertoire récursive représente la chaîne de dépendance.
 
 Cette structure de chaîne de dépendance produit une application certes plus encombrante, mais elle garantit que toutes les dépendances sont vérifiées et que la version des modules utilisée dans le développement sera également utilisée en production. Le comportement de l’application de production est ainsi plus prévisible et cela évite les problèmes de version pouvant affecter les utilisateurs.
 
@@ -197,7 +197,7 @@ Depuis la ligne de commande, accédez au dossier **azuread** si vous ne vous y t
 `cd azuread`
 
 
-Entrez les commandes suivantes pour installer les modules suivants dans le répertoire node_modules :
+Entrez les commandes suivantes pour installer les modules suivants dans le répertoire node\_modules :
 
 * `npm install crypto`
 * `npm install assert-plus`
@@ -274,7 +274,7 @@ Créez un fichier `config.js` dans votre éditeur favori et ajoutez les informat
 
 **REMARQUE :** vous n’aurez probablement jamais besoin de modifier ces valeurs.
 
-**REMARQUE :** nous remplaçons régulièrement et fréquemment nos clés. Vérifiez que votre extraction est toujours effectuée à partir de l’URL « openid_keys » et que l’application peut accéder à Internet.
+**REMARQUE :** nous remplaçons régulièrement et fréquemment nos clés. Vérifiez que votre extraction est toujours effectuée à partir de l’URL « openid\_keys » et que l’application peut accéder à Internet.
 
 
 ## Étape 12 : ajout de configuration à votre fichier server.js
@@ -540,7 +540,7 @@ Toute cette préparation va maintenant prouver son utilité : associez ces troi
 
 Pour cette procédure détaillée, nous utilisons MongoDB pour stocker les tâches, comme indiqué dans l’***étape 4***.
 
-Si vous vous rappelez le contenu du fichier `config.js` que nous avons créé dans l’***étape 11***, vous savez que nous avons appelé notre base de données `tasklist`, car c’était ce que nous avions placé à la fin de l’URL de connexion mogoose_auth_local. Vous n’avez pas besoin de créer cette base de données au préalable dans MongoDB ; il la crée lors de la première exécution de notre application de serveur (à condition qu’elle n’existe pas déjà).
+Si vous vous rappelez le contenu du fichier `config.js` que nous avons créé dans l’***étape 11***, vous savez que nous avons appelé notre base de données `tasklist`, car c’était ce que nous avions placé à la fin de l’URL de connexion mogoose\_auth\_local. Vous n’avez pas besoin de créer cette base de données au préalable dans MongoDB ; il la crée lors de la première exécution de notre application de serveur (à condition qu’elle n’existe pas déjà).
 
 Maintenant que nous avons indiqué au serveur quelle base de données MongoDB nous souhaitons utiliser, nous devons écrire du code supplémentaire pour créer le modèle et le schéma pour les tâches du serveur.
 
@@ -847,7 +847,7 @@ var server = restify.createServer({
     formatters: {
         'application/json': function(req, res, body){
             if(req.params.callback){
-                var callbackFunctionName = req.params.callback.replace(/[^A-Za-z0-9_.]/g, '');
+                var callbackFunctionName = req.params.callback.replace(/[^A-Za-z0-9_\.]/g, '');
                 return callbackFunctionName + "(" + JSON.stringify(body) + ");";
             } else {
                 return JSON.stringify(body);
@@ -1029,7 +1029,7 @@ var passport = require('passport')
   , OAuth2Strategy = require('passport-oauth').OAuth2Strategy;
 ```
 
-### 2. Indiquez au serveur que nous utilisons l’authentification.
+### 2\. Indiquez au serveur que nous utilisons l’authentification.
 
 Ouvrez votre fichier `server.js` dans votre éditeur favori et ajoutez les informations suivantes **sous l’instruction server.get()** où vous avez défini vos itinéraires, mais au-dessus de la méthode **server.listen()**.
 
@@ -1043,7 +1043,7 @@ Nous devons indiquer à Restify de commencer à utiliser ses `authorizationParse
 ```
 
 
-### 3. Ajoutez le module Passport OAuth2 à notre code.
+### 3\. Ajoutez le module Passport OAuth2 à notre code.
 
 Ici, nous utilisons les paramètres propres à OAuth2 que nous avons ajoutés au fichier config.js. Si notre fichier `aadutils.js` a fait son travail d’analyse de notre document de métadonnées de fédération, toutes ces valeurs doivent être remplies, même si elles sont vides dans le fichier config.js.
 
@@ -1180,4 +1180,4 @@ Clonez simplement sur votre ordinateur de développement et configurez comme ind
 [AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -64,4 +64,4 @@ Pour consulter une vue d’ensemble de l’intégration, accédez à la rubrique
 
 <!--Other Web references-->
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

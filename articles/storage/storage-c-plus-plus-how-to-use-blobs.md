@@ -243,4 +243,4 @@ Maintenant que vous connaissez les bases du stockage d'objets blob, consultez le
 
  
 
-<!-------HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

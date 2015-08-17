@@ -335,4 +335,4 @@ Pour obtenir plus d'informations sur les cmdlets ILB, exécutez les commandes su
 [Configuration des paramètres de délai d’expiration TCP inactif pour votre équilibrage de charge](load-balancer-tcp-idle-timeout.md)
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

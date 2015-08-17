@@ -7,6 +7,7 @@
 	manager="wpickett" 
 	editor=""/>
 
+
 <tags 
 	ms.service="storage" 
 	ms.workload="storage" 
@@ -15,6 +16,7 @@
 	ms.topic="article" 
 	ms.date="03/11/2015" 
 	ms.author="mwasson"/>
+
 
 
 # Utilisation du stockage de tables à partir de Node.js
@@ -58,7 +60,7 @@ Pour utiliser le stockage Azure, vous avez besoin du Kit de développement logic
 		├── xml2js@0.2.7 (sax@0.5.2)
 		└── request@2.27.0 (json-stringify-safe@5.0.0, tunnel-agent@0.3.0, aws-sign@0.3.0, forever-agent@0.5.2, qs@0.6.6, oauth-sign@0.3.0, cookie-jar@0.3.0, hawk@1.0.0, form-data@0.1.3, http-signature@0.10.0)
 
-3.  Vous pouvez exécuter manuellement la commande **ls** pour vérifier que le dossier **node_modules** a été créé. Dans ce dossier, recherchez le dossier **azure-storage**, qui contient les bibliothèques dont vous avez besoin pour accéder au stockage.
+3.  Vous pouvez exécuter manuellement la commande **ls** pour vérifier que le dossier **node\_modules** a été créé. Dans ce dossier, recherchez le dossier **azure-storage**, qui contient les bibliothèques dont vous avez besoin pour accéder au stockage.
 
 ### Importation du package
 
@@ -68,7 +70,7 @@ Ajoutez le code suivant en haut du fichier **server.js** dans votre application�
 
 ## Configuration d'une connexion Azure Storage
 
-Le module Azure lit les variables d'environnement AZURE_STORAGE_ACCOUNT et AZURE_STORAGE_ACCESS_KEY, ou AZURE_STORAGE_CONNECTION_STRING pour obtenir les informations obligatoires pour se connecter à votre compte de stockage Azure. Si ces variables d'environnement ne sont pas définies, vous devez spécifier les informations de compte lors de l'appel de **TableService**.
+Le module Azure lit les variables d'environnement AZURE\_STORAGE\_ACCOUNT et AZURE\_STORAGE\_ACCESS\_KEY, ou AZURE\_STORAGE\_CONNECTION\_STRING pour obtenir les informations obligatoires pour se connecter à votre compte de stockage Azure. Si ces variables d'environnement ne sont pas définies, vous devez spécifier les informations de compte lors de l'appel de **TableService**.
 
 Pour obtenir un exemple de configuration des variables d'environnement dans le portail de gestion pour un site web Azure, consultez la rubrique [Application web Node.js avec stockage]
 
@@ -148,7 +150,7 @@ Si l’opération aboutit, `result` contient l’élément [ETag](http://en.wiki
 
 Exemple de réponse :
 
-	{ '.metadata': { etag: 'W/"datetime'2015-02-25T01%3A22%3A22.5Z'"' } }
+	{ '.metadata': { etag: 'W/"datetime\'2015-02-25T01%3A22%3A22.5Z\'"' } }
 
 > [AZURE.NOTE]Par défaut, **insertEntity** ne renvoie pas l’entité insérée dans le cadre des informations `response`. Si vous prévoyez d’exécuter d’autres opérations sur cette entité, ou si vous voulez mettre en cache les informations, il peut être utile de la faire renvoyer dans `result`. Pour ce faire, activez **echoContent** comme suit :
 >
@@ -275,7 +277,7 @@ Comme **select** n'est pas utilisé, tous les champs sont renvoyés. Pour exécu
 	  }
 	});
 
-En cas de réussite, `result.entries` contient un tableau d’entités qui correspondent à la requête. Si la requête n’a pas pu renvoyer toutes les entités, `result.continuationToken` est non-*null* et peut servir de troisième paramètre de **queryEntities** pour récupérer plus de résultats. Pour la requête initiale, le troisième paramètre doit être *null*.
+En cas de réussite, `result.entries` contient un tableau d’entités qui correspondent à la requête. Si la requête n’a pas pu renvoyer toutes les entités, `result.continuationToken` est non-*null* et peut servir de troisième paramètre de **queryEntities** pour obtenir davantage de résultats. Pour la requête initiale, le troisième paramètre doit être *null*.
 
 ### Interrogation d’un sous-ensemble de propriétés d’entité
 
@@ -301,7 +303,7 @@ Vous pouvez supprimer une entité en utilisant ses clés de partition et de lign
 	  }
 	});
 
-> [AZURE.NOTE]Vous avez intérêt à utiliser les ETag pour supprimer des éléments afin de vous assurer que les éléments n'ont pas été modifiés par un autre processus. Pour plus d’informations sur l’utilisation des ETags, consultez la rubrique [Procédure : mise à jour d’une entité][].
+> [AZURE.NOTE]Vous avez intérêt à utiliser les ETag pour supprimer des éléments afin de vous assurer que les éléments n'ont pas été modifiés par un autre processus. Pour plus d’informations sur l’utilisation des ETags, consultez la rubrique [Procédure : mise à jour d’une entité\][\].
 
 ## Suppression d'une table
 
@@ -319,7 +321,7 @@ Si vous ne savez pas si la table existe, utilisez **deleteTableIfExists**.
 
 Si vous interrogez des tables et que les résultats peuvent être volumineux, vous devez rechercher des jetons de liaison. Sans que vous en ayez vraiment conscience, de grandes quantités de données peuvent être disponibles pour votre requête si elle n’est pas en mesure de détecter la présence d’un jeton de liaison.
 
-L’objet résultats retourné pendant l’interrogation des entités définit une propriété `continuationToken` si ce jeton est présent. Vous pouvez ensuite utiliser cette propriété pour exécuter une requête sur l’ensemble des entités de table et de partition.
+L’objet de résultats renvoyé après l’interrogation des entités définit une propriété `continuationToken` si ce jeton est présent. Vous pouvez ensuite utiliser cette propriété pour exécuter une requête sur l’ensemble des entités de table et de partition.
 
 Pendant l’interrogation, un paramètre continuationToken peut être fourni entre l’instance d’objet de requête et la fonction de rappel :
 
@@ -431,7 +433,7 @@ Lorsque la liste de contrôle d'accès est définie, vous pouvez créer une sign
 
 Maintenant que vous connaissez les bases du stockage de tables, consultez les liens suivants pour apprendre à exécuter les tâches de stockage plus complexes.
 
--   Consultez la référence MSDN suivante : [Stockage et accessibilité des données dans Azure][].
+-   Consultez la référence MSDN : [Stockage et accessibilité des données dans Azure][].
 -   [Consultez le blog de l'équipe Azure Storage][].
 -   Consultez le référentiel [Kit de développement logiciel (SDK) Azure Storage pour Node][] sur GitHub.
 
@@ -449,4 +451,4 @@ Maintenant que vous connaissez les bases du stockage de tables, consultez les li
   [Create and deploy a Node.js application to an Azure Web Site]: ../web-sites-nodejs-develop-deploy-mac.md
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

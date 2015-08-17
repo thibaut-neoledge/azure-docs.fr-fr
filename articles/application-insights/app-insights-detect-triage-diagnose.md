@@ -4,16 +4,18 @@
 	authors="alancameronwills"
 	services="application-insights"
     documentationCenter=""
-	manager="keboyd"/>
+	manager="douge"/>
+
 
 <tags
 	ms.service="application-insights"
 	ms.workload="tbd"
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
-	ms.topic="get-started-article" 
-	ms.date="04/02/2015"
+	ms.topic="article" 
+	ms.date="08/04/2015"
 	ms.author="awills"/>
+
 
 # Détection, tri et diagnostic avec Application Insights
 
@@ -59,7 +61,7 @@ Marcela Markova est la spécialiste de test de l'équipe OBS et elle est respons
 Une fois ces tests configurés, Marcela sait que l'équipe sera rapidement avertie en cas d'interruption.
 
 
-Les échecs apparaissent sous forme de points rouges sur le graphique présentant la vue d'ensemble du test web :
+Les défaillances sont indiquées par des points rouge dans le graphique de test web :
 
 ![Affichage des tests web exécutés sur la période précédente](./media/app-insights-detect-triage-diagnose/04-webtests.png)
 
@@ -70,18 +72,17 @@ Mais surtout, une alerte est envoyée à l'équipe de développement pour toute 
 ## Analyser les mesures de performances
 
 
-Sur la même page de présentation que le graphique de disponibilité se trouve un graphique qui affiche différentes [mesures clés][perf].
-
+Sur la page Vue d’ensemble dans Application Insights, un graphique montre une série de [métriques essentiels][perf].
 
 ![Différentes mesures](./media/app-insights-detect-triage-diagnose/05-perfMetrics.png)
 
-Le temps de traitement du client est dérivé de la télémétrie envoyée directement à partir des pages web. Les autres présentent des mesures calculées sur les serveurs web.
+Le temps de chargement de la page du navigateur provient de la télémétrie envoyée directement depuis vos pages web. Le temps de réponse du serveur, le nombre de demandes au serveur et le nombre de demandes ayant échoué sont mesurés dans le serveur web puis envoyés à Application Insights à partir de là.
 
 
 Le nombre de demandes ayant échoué indique les cas dans lesquels les utilisateurs ont vu une erreur, suite en général à une exception dans le code. Peut-être ont-ils vu un message indiquant « Nous ne pouvons pas mettre à jour vos informations maintenant » ou, dans le pire des cas, le vidage de la pile sur l'écran de l'utilisateur, via le serveur web.
 
 
-Marcela aime consulter ces graphiques de temps à autre. Le nombre constant de demandes ayant échoué est un peu déprimant, mais il est lié à un bogue sur lequel l'équipe travaille, il devrait donc disparaître une fois la correction effectuée. Mais s'il se présente un pic soudain de demandes ayant échoué ou de certaines des autres mesures, comme le temps de réponse du serveur, Marcela souhaite en être immédiatement informée. Cela peut indiquer un problème imprévu, causé par une certaine version du code ou un échec dans une dépendance, comme une base de données, ou peut-être encore une réaction anormale à un nombre élevé de demandes.
+Marcela aime consulter ces graphiques de temps à autre. L'absence de demandes ayant échoué est positive, même si lorsqu’elle modifie l’intervalle du graphique pour couvrir la semaine précédente, des défaillances occasionnelles apparaissent. Il s'agit d'un niveau acceptable pour un serveur très sollicité. Mais si un pic est indiqué pour les défaillances ou pour d’autres mesures comme le temps de réponse du serveur, Marcela a besoin de le savoir immédiatement. Cela peut indiquer un problème imprévu, causé par une certaine version du code ou un échec dans une dépendance, comme une base de données, ou peut-être encore une réaction anormale à un nombre élevé de demandes.
 
 #### Alertes
 
@@ -103,7 +104,7 @@ Il est également possible de définir des alertes sur un grand nombre d'autres 
 ## Détection des exceptions
 
 
-Les exceptions sont signalées à Application Insights via [TrackException()][api] :
+Après quelques configurations, les [exceptions](app-insights-asp-net-exceptions.md) sont signalées automatiquement à Application Insights. Elles peuvent également être capturées explicitement en insérant des appels à [TrackException()](app-insights-api-custom-events-metrics.md#track-exception) dans le code :
 
     var telemetry = new TelemetryClient();
     ...
@@ -144,19 +145,20 @@ Les exceptions et les événements apparaissent dans le panneau [Recherche de di
 
 ![Dans Recherche de diagnostic, utilisez les filtres pour afficher certains types de données.](./media/app-insights-detect-triage-diagnose/appinsights-333facets.png)
 
-## Surveillance des événements positifs
+## Suivi des activités des utilisateurs.
+
+Si le temps de réponse reste excellent et qu’il y a peu d’exceptions, l’équipe de développement peut réfléchir à l’amélioration de l’expérience utilisateur et à la manière d’aider plus d’utilisateurs à atteindre leurs objectifs.
 
 
-L'équipe de développement Fabrikam souhaite voir les événements heureux aussi bien que les événements indésirables. En partie parce qu'il est intéressant de savoir si tout se passe bien, mais aussi parce que quand les événements positifs cessent de se produire, c'est qu'il y a un problème.
+Par exemple, la visite d’un utilisateur typique sur un site web présente un parcours évident : de nombreux clients regardent les taux pour différents types de prêts ; certains remplissent un formulaire de devis et, parmi ceux qui reçoivent le devis, un petit nombre d’entre eux se décident et contractent un prêt.
 
+![](./media/app-insights-detect-triage-diagnose/12-funnel.png)
 
-Par exemple, le parcours de la plupart des utilisateurs est clairement balisé : nombreux d’entre eux consultent les taux de différents types de prêt, certains remplissent le formulaire de devis et parmi ceux qui reçoivent le devis, certains contractent un emprunt.
+En regardant à quel moment le plus grand nombre de clients s’est désintéressé, l’entreprise peut réfléchir à un moyen pour encourager davantage d’utilisateurs à aller plus loin dans leur exploration du site. Dans certains cas, il peut y avoir une défaillance de l'expérience utilisateur : par exemple, le bouton « suivant » est difficile de trouver ou les instructions ne sont pas claires. Toutefois, il est plus probable que ce désintéressement soit lié à des raisons commerciales : le taux du prêt est peut-être trop élevé.
 
+Quelque soit les raisons, les données permettent à l’équipe de comprendre ce que font les utilisateurs. Plusieurs appels de suivi peuvent être insérées afin d’obtenir davantage de détails. TrackEvent() peut être utilisé pour compter toutes les actions d’un utilisateur, des moindres détails relatifs aux clics sur un bouton aux résultats les plus significatifs tels que le remboursement d’un prêt.
 
-L'équipe de développement insère des appels TrackMetric() à chaque étape. Dans Metrics Explorer, Brian, l'architecte système, peut comparer les valeurs de chaque mesure, pour évaluer comment le système vend les emprunts.
-
-
-Ursula, la spécialiste de l'expérience utilisateur, garde également un œil sur les mesures positives. Si le graphique montre une chute soudaine à un des stades du processus, cela indique un problème. Peut-être qu'il est difficile de trouver le bon bouton ou peut-être que le texte n'est pas très encourageant. Peut-être qu'il y a un bogue : les utilisateurs cliquent sur le bouton, mais rien ne se produit.
+L'équipe est habituée à recevoir des informations sur l’activité d’un utilisateur. Aujourd'hui, chaque fois qu'ils conçoivent une nouvelle fonctionnalité, ils anticipent les avis qu’ils pourraient obtenir sur celle-ci. Ils conçoivent de zéro des appels de suivi dans la fonctionnalité. Ils exploitent les avis afin d’améliorer la fonctionnalité pour chaque cycle de développement.
 
 
 ## Surveillance proactive  
@@ -260,4 +262,4 @@ Voici donc une équipe qui utilise Application Insights non seulement pour réso
 [usage]: app-insights-web-track-usage.md
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

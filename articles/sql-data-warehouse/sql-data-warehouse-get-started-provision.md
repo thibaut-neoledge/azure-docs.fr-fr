@@ -7,14 +7,16 @@
    manager="barbkess"
    editor=""/>
 
+
 <tags
    ms.service="sql-data-warehouse"
    ms.devlang="NA"
-   ms.topic="article"
+   ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
    ms.date="06/23/2015"
    ms.author="JRJ@BigBangData.co.uk;barbkess"/>
+
 
 # Prise en main : approvisionnement d’une instance SQL Data Warehouse #
 
@@ -153,17 +155,17 @@ Maintenant que vous avez configuré le pare-feu, vous devriez être en mesure d�
 
 Le service SQLDW est correctement approvisionné. Nous pouvons désormais découvrir comment l’utiliser.
 
-Les étapes suivantes ont donc pour objectif de vous aider à savoir comment : [Connecter et interroger][] l’entrepôt de données. 2. Exporter les données de l’entrepôt de données vers le stockage d’objets blob Azure. 3. Charger d’autres données dans l’entrepôt de données.
-
+Les étapes suivantes ont donc pour objectif de vous aider à savoir comment : [Connecter et interroger][] l’entrepôt de données. 2. Chargez les [exemples de données].
 
 <!--Image references-->
 
 
 <!-- Articles -->
 [Connecter et interroger]: sql-data-warehouse-get-started-connect-query.md
+[exemples de données]: ./sql-data-warehouse-get-started-load-samples.md
 
 <!--External links-->
 [version d’essai gratuit]: https://azure.microsoft.com/fr-fr/pricing/free-trial/
 [portail Azure]: https://portal.azure.com/
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

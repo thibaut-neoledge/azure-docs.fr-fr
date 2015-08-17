@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="Inscription à Azure en tant qu’organisation" 
-	description="Découvrez comment vous pouvez utiliser un compte professionnel ou scolaire pour tirer parti des comptes d’utilisateur, des stratégies, des paramètres ou des déploiements de serveur local que vous possédez déjà et améliorer l’efficacité entre l’infrastructure d’identité locale de votre organisation et Azure AD." 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="Justinha" 
-	manager="terrylan" 
-	editor="Lisatoft"/>
+<properties
+	pageTitle="Inscription à Azure en tant qu’organisation"
+	description="Découvrez comment vous pouvez utiliser un compte professionnel ou scolaire pour tirer parti des comptes d’utilisateur, des stratégies, des paramètres ou des déploiements de serveur local que vous possédez déjà et améliorer l’efficacité entre l’infrastructure d’identité locale de votre organisation et Azure AD."
+	services="active-directory"
+	documentationCenter=""
+	authors="markvi"
+	manager="stevenpo"
+	editor=""/>
 
-<tags 
-	ms.service="active-directory" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="04/27/2015" 
-	ms.author="terrylan"/>
+<tags
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/30/2015"
+	ms.author="markvi"/>
 
 
 # Inscription à Azure en tant qu’organisation
@@ -27,13 +27,12 @@ Jusqu’à récemment, vous pouviez uniquement créer un abonnement Microsoft Az
 
 	Une fois le répertoire créé, un administrateur peut créer des utilisateurs et leur attribuer des licences en fonction des abonnements aux services cloud dont ils ont besoin, comme Azure.
 
-Pour vous inscrire à Azure en tant qu'organisation, cliquez [**Inscription**](http://go.microsoft.com/fwlink/?LinkId=269967)
+Pour vous inscrire à Azure en tant qu'organisation, cliquez [**Inscription**](https://azure.microsoft.com/pricing/purchase-options/)
 
 **Ressources supplémentaires**
 
-* [Blog Microsoft Azure](http://azure.microsoft.com/blog/) 
+* [Blog Microsoft Azure](http://azure.microsoft.com/blog/)
 * [Présentation d’Azure AD](active-directory-whatis.md)
 * [Utiliser votre infrastructure d’identité locale dans le cloud](active-directory-aadconnect.md)
- 
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

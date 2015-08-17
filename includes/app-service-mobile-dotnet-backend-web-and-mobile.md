@@ -32,7 +32,7 @@ Dans cette section, vous allez créer une application web à l’aide d’un exe
 
     - Dans le panneau qui s'ouvre, sélectionnez **Tous les paramètres**, puis **Paramètres de l'application**.
 
-    - Dans **Chaînes de connexion**, cliquez sur **Afficher les chaînes de connexion**. Copiez la valeur du paramètre **MS_TableConnectionString**. Il s’agit de la chaîne de connexion utilisée par votre application mobile pour se connecter à la base de données SQL.
+    - Dans **Chaînes de connexion**, cliquez sur **Afficher les chaînes de connexion**. Copiez la valeur du paramètre **MS\_TableConnectionString**. Il s’agit de la chaîne de connexion utilisée par votre application mobile pour se connecter à la base de données SQL.
 
 5. Dans Visual Studio, cliquez avec le bouton droit sur le projet d'API web, puis sélectionnez **Publier**. Sélectionnez **Azure Web Apps** comme cible de publication, puis l'application web que vous avez créée ci-dessus. Cliquez sur **Suivant** jusqu'à l'affichage de la section **Paramètres** de l'assistant Publier le site Web.
 
@@ -77,4 +77,4 @@ Dans cet exemple, nous vous avons montré comment utiliser la même base de donn
 [MultiChannelToDo]: https://github.com/Azure/mobile-services-samples/tree/web-mobile/MultiChannelToDo
 [Créer une application mobile]: ../article/app-service-mobile/app-service-mobile-dotnet-backend-xamarin-ios-get-started-preview.md
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

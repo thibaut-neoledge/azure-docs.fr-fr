@@ -41,4 +41,4 @@ Le service Azure AD Device Registration attribue aux appareils une identité qui
 * [Identité Azure](fundamentals-identity.md)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

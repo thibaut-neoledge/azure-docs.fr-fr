@@ -7,6 +7,7 @@
    manager="timlt"
    editor=""/>
 
+
 <tags
    ms.service="batch"
    ms.devlang="NA"
@@ -15,6 +16,7 @@
    ms.workload="big-compute"
    ms.date="07/08/2015"
    ms.author="danlep"/>
+
 
 # Prise en main des applets de commande Azure Batch PowerShell
 Cet article est une présentation rapide des applets de commande Azure PowerShell que vous pouvez utiliser pour gérer vos comptes Batch et obtenir des informations sur vos travaux et tâches Batch notamment.
@@ -53,7 +55,7 @@ Vous pouvez utiliser les applets de commande Azure PowerShell pour créer et gé
 New-AzureResourceGroup –Name MyBatchResourceGroup –location "Central US"
 ```
 
-Créez ensuite un compte Batch dans le groupe de ressources, spécifiez également un nom de compte pour <\*account\_name\*> et la région où le service Batch est disponible. La création du compte peut prendre plusieurs minutes. Par exemple :
+Créez ensuite un compte Batch dans le groupe de ressources, spécifiez également un nom de compte pour <*account\_name*> et la région où le service Batch est disponible. La création du compte peut prendre plusieurs minutes. Par exemple :
 
 ```
 New-AzureBatchAccount –AccountName <account_name> –Location "Central US" –ResourceGroupName MyBatchResourceGroup
@@ -90,7 +92,7 @@ Quand vous y êtes invité, confirmez que vous voulez supprimer le compte. La su
 
 ## Requête pour les travaux, tâches et autres détails
 
-Utilisez les applets de commande telles que **Get-AzureBatchJob**, **Get-AzureBatchTask** et **Get-AzureBatchPool** pour interroger les entités créées sous un compte Batch.
+Utilisez les cmdlets tels que **Get-AzureBatchJob**, **Get-AzureBatchTask** et **Get-AzureBatchPool** pour interroger les entités créées sous un compte Batch.
 
 Pour utiliser ces applets de commande, vous devez d'abord créer un objet AzureBatchContext pour stocker le nom et les clés de votre compte :
 
@@ -156,4 +158,4 @@ Pour supprimer la limite supérieure, définissez **MaxCount** sur 0 ou une val
 * [Informations de référence sur les applets de commande Azure Batch](https://msdn.microsoft.com/library/azure/mt125957.aspx)
 * [Requêtes de liste efficaces](batch-efficient-list-queries.md)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

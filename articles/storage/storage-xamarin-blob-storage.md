@@ -7,6 +7,7 @@
 	manager="carolz" 
 	editor=""/>
 
+
 <tags 
 	ms.service="storage" 
 	ms.workload="storage" 
@@ -15,6 +16,7 @@
 	ms.topic="article" 
 	ms.date="06/15/2015" 
 	ms.author="tamram"/>
+
 
 # Utilisation du stockage d’objets blob à partir de Xamarin (version préliminaire)
 
@@ -47,7 +49,7 @@ L’URI de la signature d’accès partagé du nouveau conteneur doit être semb
 
 	https://storageaccount.blob.core.windows.net/sascontainer?sv=2012-02-12&se=2013-04-13T00%3A12%3A08Z&sr=c&sp=wl&sig=t%2BbzU9%2B7ry4okULN9S0wst%2F8MCUhTjrHyV9rDNLSe8g%3Dsss
 
-La signature d’accès partagé que vous avez créée sur le conteneur est valide pour le jour suivant. La signature accorde des autorisations complètes (*par ex.* lecture, écriture, suppression et liste) aux objets blob du conteneur.
+La signature d’accès partagé que vous avez créée sur le conteneur est valide pour le jour suivant. La signature accorde des droits d’accès complets (*par exemple*, lecture, écriture, suppression et liste) aux objets blob du conteneur.
 
 Pour plus d’informations sur les signatures d’accès partagé, consultez le [didacticiel sur les signatures d’accès partagé](storage-dotnet-shared-access-signature-part-2.md).
 
@@ -173,10 +175,7 @@ Dans ce didacticiel, vous avez appris à utiliser le stockage d’objets blob Az
 
 Pour en savoir plus sur les objets blob, les tables et les files d’attente, suivez les liens ci-après :
 
-[Introduction à Microsoft Azure Storage](storage-introduction.md)  
-[Utilisation du stockage d’objets blob à partir de .NET](storage-dotnet-how-to-use-blobs.md)  
-[Utilisation du stockage de tables à partir de .NET](storage-dotnet-how-to-use-tables.md)  
-[Utilisation du stockage de files d’attente à partir de .NET](storage-dotnet-how-to-use-queues.md)
+[Introduction à Microsoft Azure Storage](storage-introduction.md) [Utilisation du stockage d’objets blob à partir de .NET](storage-dotnet-how-to-use-blobs.md) [Utilisation du stockage de tables à partir de .NET](storage-dotnet-how-to-use-tables.md) [Utilisation du stockage de files d’attente à partir de .NET](storage-dotnet-how-to-use-queues.md)
  
 
-<!-------HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

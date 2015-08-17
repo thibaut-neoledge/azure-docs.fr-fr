@@ -99,4 +99,4 @@ Pour plus d’informations, consultez la [vue d’ensemble de référence de SQL
 [yah]: http://search.yahoo.com/
 [msn]: http://search.msn.com/
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

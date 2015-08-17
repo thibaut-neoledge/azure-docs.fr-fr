@@ -13,7 +13,7 @@
 	ms.workload="data-management"
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
-	ms.topic="get-started-article" 
+	ms.topic="article" 
 	ms.date="06/22/2015"
 	ms.author="rickbyh"/>
 
@@ -62,11 +62,11 @@ Les règles de pare-feu au niveau du serveur peuvent être créées et gérées 
 1. Lancez une fenêtre de requête par le biais du portail de gestion ou SQL Server Management Studio.
 2. Assurez-vous d’être connecté à la base de données master.
 3. Les règles de pare-feu au niveau du serveur peuvent être créées, mises à jour ou supprimés dans la fenêtre de requête.
-4. Pour créer ou mettre à jour les règles de pare-feu au niveau du serveur, exécutez la procédure stockée sp_set_firewall_rule. L’exemple suivant active une plage d’adresses IP sur le serveur de Contoso.
+4. Pour créer ou mettre à jour les règles de pare-feu au niveau du serveur, exécutez la procédure stockée sp\_set\_firewall\_rule. L’exemple suivant active une plage d’adresses IP sur le serveur de Contoso.
 
 		EXEC sp_set_firewall_rule @name = N'ContosoFirewallRule', @start_ip_address = '192.168.1.1', @end_ip_address = '192.168.1.10'
 
-	Pour supprimer une règle de pare-feu au niveau du serveur, exécutez la procédure stockée sp_delete_firewall_rule. L’exemple suivant supprime la règle nommée ContosoFirewallRule.
+	Pour supprimer une règle de pare-feu au niveau du serveur, exécutez la procédure stockée sp\_delete\_firewall\_rule. L’exemple suivant supprime la règle nommée ContosoFirewallRule.
  
 		EXEC sp_delete_firewall_rule @name = N'ContosoFirewallRule'
  
@@ -112,11 +112,11 @@ Les règles de pare-feu au niveau du serveur peuvent être créées et gérées 
 1. Après avoir créé un pare-feu au niveau du serveur pour votre adresse IP, lancez une fenêtre de requête par le biais du portail de gestion ou de SQL Server Management Studio.
 2. Connectez-vous à la base de données pour laquelle vous souhaitez créer une règle de pare-feu de niveau base de données.
 
-	Pour créer une nouvelle règle de pare-feu au niveau de la base de données ou pour mettre à jour une règle existante, exécutez la procédure stockée sp_set_database_firewall_rule. L’exemple suivant crée une nouvelle règle de pare-feu nommée ContosoFirewallRule.
+	Pour créer une nouvelle règle de pare-feu au niveau de la base de données ou pour mettre à jour une règle existante, exécutez la procédure stockée sp\_set\_database\_firewall\_rule. L’exemple suivant crée une nouvelle règle de pare-feu nommée ContosoFirewallRule.
  
 		EXEC sp_set_database_firewall_rule @name = N'ContosoFirewallRule', @start_ip_address = '192.168.1.11', @end_ip_address = '192.168.1.11'
  
-	Pour supprimer une règle de pare-feu au niveau de la base de données, exécutez la procédure stockée sp_delete_database_firewall_rule. L’exemple suivant supprime la règle nommée ContosoFirewallRule.
+	Pour supprimer une règle de pare-feu au niveau de la base de données, exécutez la procédure stockée sp\_delete\_database\_firewall\_rule. L’exemple suivant supprime la règle nommée ContosoFirewallRule.
  
 		EXEC sp_delete_database_firewall_rule @name = N'ContosoFirewallRule'
 
@@ -144,4 +144,4 @@ Pour consulter un didacticiel sur la création d’une base de données, reporte
 [2]: ./media/sql-database-configure-firewall-settings/AzurePortalFirewallSettings.png
 <!--anchors-->
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

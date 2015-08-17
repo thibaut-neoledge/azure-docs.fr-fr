@@ -70,7 +70,7 @@ La première étape consiste à créer l’application web par le biais du [port
 
 Voici une vue d’ensemble des fichiers que vous trouverez dans le référentiel Git initial, que nous allons cloner dans la section suivante.
 
-    \FlaskWebProject__init__.py
+    \FlaskWebProject\__init__.py
     \FlaskWebProject\views.py
     \FlaskWebProject\static\content\
     \FlaskWebProject\static\fonts\
@@ -401,4 +401,4 @@ Pour obtenir des informations concernant l’utilisation du stockage de tables A
 [Documentation relative à Flask]: http://flask.pocoo.org/
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -265,12 +265,9 @@ Les fonctionnalités principales d'IPython sont également disponibles dans Visu
 [Matplotlib]: http://matplotlib.sourceforge.net/ "Matplotlib"
 [portal-vm-windows]: /manage/windows/tutorials/virtual-machine-from-gallery/
 [portal-vm-linux]: /manage/linux/tutorials/virtual-machine-from-gallery/
-
 [référentiel]: https://github.com/ipython/ipython
 [outils Python pour Visual Studio]: http://aka.ms/ptvs
-
 [Python 2.7]: http://www.python.org/download
-[openssl]: http://slproweb.com/products/Win32OpenSSL.html
- 
+[OpenSSL]: http://slproweb.com/products/Win32OpenSSL.html
 
-<!----HONumber=July15_HO5---->
+<!---HONumber=August15_HO6-->

@@ -24,7 +24,7 @@ Comme d’autres machines virtuelles, une machine virtuelle dans Azure dispose d
 
 Les machines virtuelles utilisent des disques durs virtuels pour stocker leurs données et leur système d’exploitation (SE). Les disques durs virtuels sont également utilisés pour les images à partir desquelles vous pouvez choisir d'installer un système d'exploitation. La figure suivante illustre ce concept, ainsi que deux des outils vous permettant de créer et de gérer vos machines virtuelles.
 
-<a name="fig_createvms"></a> ![vm_diagram](./media/virtual-machines-choose-me-content/diagram.png)
+<a name="fig_createvms"></a> ![vm\_diagram](./media/virtual-machines-choose-me-content/diagram.png)
 
 **Figure : Azure Virtual Machines fournit une infrastructure IaaS.**
 
@@ -42,4 +42,4 @@ D’autres avantages à prendre en compte pour les machines virtuelles :
 
 **Résilience** : Azure analyse le matériel physique qui héberge chaque machine virtuelle en cours d'exécution. Si un serveur physique exécutant une machine virtuelle échoue, Azure s’en aperçoit, transfère la machine virtuelle vers un nouveau matériel et la redémarre. Ce processus est parfois appelé service de réparation. Azure protège également les données d'une machine virtuelle, en conservant des copies redondantes des disques durs virtuels dans le stockage d’objets blob.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

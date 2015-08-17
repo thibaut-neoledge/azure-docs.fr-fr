@@ -1,9 +1,9 @@
-﻿
+
 <properties 
     pageTitle="Configuration requise pour les images Azure RemoteApp"
     description="En savoir plus sur la configuration requise pour la création d’images à utiliser avec Azure RemoteApp" 
     services="remoteapp" 
-    solutions="documentationCenter" 
+	documentationCenter="" 
     authors="lizap" 
     manager="mbaldwin" />
 
@@ -43,4 +43,4 @@ Vous trouverez, ci-dessous, les exigences relatives à l’image qui peut être 
 - Le téléchargement de votre disque dur virtuel à partir d’une chaîne d’instantanés n’est pas pris en charge.
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

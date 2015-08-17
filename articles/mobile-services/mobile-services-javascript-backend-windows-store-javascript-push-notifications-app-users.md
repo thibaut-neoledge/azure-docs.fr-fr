@@ -93,4 +93,4 @@ Une fois ces deux didacticiels terminés, vous saurez comment empêcher les util
 [portail de gestion Azure]: https://manage.windowsazure.com/
  
 
-<!----HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

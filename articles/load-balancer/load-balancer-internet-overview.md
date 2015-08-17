@@ -7,6 +7,7 @@
    authors="joaoma"
    manager="adinah"
    editor="tysonn" />
+
 <tags 
    ms.service="load-balancer"
    ms.devlang="na"
@@ -15,6 +16,7 @@
    ms.workload="infrastructure-services"
    ms.date="07/09/2015"
    ms.author="joaoma" />
+
 
 
 # Équilibrage de charge accessible sur Internet entre plusieurs services ou machines virtuelles
@@ -52,4 +54,4 @@ Lorsque les clients Internet envoient des demandes de page Web à l’adresse IP
 
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

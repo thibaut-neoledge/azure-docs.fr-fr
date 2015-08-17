@@ -48,4 +48,4 @@ Pour commencer à utiliser ces outils, accédez à la rubrique [connexion][].
 <!--Other web references-->
 [portail Azure]: http://portal.azure.com/
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

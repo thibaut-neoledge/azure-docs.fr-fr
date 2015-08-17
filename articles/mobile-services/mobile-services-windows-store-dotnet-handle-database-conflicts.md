@@ -199,7 +199,7 @@ todoTable.SystemProperties |= MobileServiceSystemProperties.Version;
 Dans cette section, vous allez créer un package d'application Windows Store pour installer cette application sur un deuxième ordinateur ou une deuxième machine virtuelle. Vous exécuterez ensuite l'application sur les deux machines en générant un conflit d'écriture afin de tester le code. Les deux instances de l'application tenteront de mettre à jour la propriété `text` du même élément, ce qui contraindra l'utilisateur à résoudre le conflit.
 
 
-1. Créez un package d'application Windows Store pour l'installer sur un deuxième ordinateur ou une deuxième machine virtuelle. Pour ce faire, cliquez sur **Projet**->->**Store**->**Créer des packages d'application** dans Visual Studio.
+1. Créez un package d'application Windows Store pour l'installer sur un deuxième ordinateur ou une deuxième machine virtuelle. Pour ce faire, cliquez sur **Projet**->**Windows Store**->**Créer des packages d'application** dans Visual Studio.
 
 	![][0]
 
@@ -215,7 +215,7 @@ Dans cette section, vous allez créer un package d'application Windows Store pou
 
    	![][11]
 
-5. Copiez le dossier du package, « todolist_1.0.0.0_AnyCPU_Debug_Test », sur la deuxième machine. Sur cette dernière, ouvrez le dossier du package, cliquez avec le bouton droit sur le script PowerShell **Add-AppDevPackage.ps1**, puis cliquez sur **Exécuter avec PowerShell**, comme illustré ci-dessous. Suivez les instructions de l'invite pour installer l'application.
+5. Copiez le dossier du package, « todolist\_1.0.0.0\_AnyCPU\_Debug\_Test », sur la deuxième machine. Sur cette dernière, ouvrez le dossier du package, cliquez avec le bouton droit sur le script PowerShell **Add-AppDevPackage.ps1**, puis cliquez sur **Exécuter avec PowerShell**, comme illustré ci-dessous. Suivez les instructions de l'invite pour installer l'application.
 
 	![][12]
   
@@ -366,4 +366,4 @@ Ce didacticiel a montré comment permettre à une application Windows Store de g
 [Propriétés système]: http://go.microsoft.com/fwlink/?LinkId=331143
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

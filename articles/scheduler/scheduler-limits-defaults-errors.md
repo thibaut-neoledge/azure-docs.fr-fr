@@ -23,7 +23,7 @@
 
 ## L'en-tête x-ms-request-id
 
-Chaque requête adressée au service de Scheduler retourne un en-tête de réponse nommé \*\*x-ms-request-id\*\*. Cet en-tête contient une valeur opaque qui identifie de façon unique la requête.
+Chaque requête adressée au service de Scheduler retourne un en-tête de réponse nommé **x-ms-request-id**. Cet en-tête contient une valeur opaque qui identifie de façon unique la requête.
 
 Si une requête échoue constamment et que vous avez vérifié qu'elle est formulée correctement, vous pouvez utiliser cette valeur pour signaler l'erreur à Microsoft. Dans votre rapport, incluez la valeur de x-ms-request-id, l'heure approximative de la requête, l'identificateur de l'abonnement, le service cloud, la collection de travaux et/ou le travail et le type d'opération tentée par la requête.
 
@@ -73,4 +73,4 @@ Les opérations API peuvent également retourner des informations d'erreur suppl
 
  [Authentification sortante de Scheduler](scheduler-outbound-authentication.md)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

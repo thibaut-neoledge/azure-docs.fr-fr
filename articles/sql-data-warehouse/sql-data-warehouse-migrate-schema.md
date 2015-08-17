@@ -110,10 +110,10 @@ Au lieu du paramètre...
 - **image**, **text**, **ntext** : utilisez une valeur «  varchar/nvarchar » (la plus petite possible) ;
 - **nvarchar(max)** : utilisez le paramètre « varchar (4000) » ou une valeur inférieure pour optimiser les performances ;
 - **numeric** : utilisez une valeur décimale ;
-- **sql_variant** : fractionnez la colonne en plusieurs colonnes fortement typées ;
+- **sql\_variant** : fractionnez la colonne en plusieurs colonnes fortement typées ;
 - **sysname** : utilisez le paramètre « nvarchar (128) » ;
 - **table** : appliquez une conversion vers des tables temporaires ;
-- **timestamp** : modifiez le code afin d’utiliser le paramètre « datetime2 » et la fonction `CURRENT_TIMESTAMP`. Remarque : vous ne pouvez pas utiliser le paramètre « current_timestamp » en tant que contrainte par défaut ; la valeur ne sera pas automatiquement mise à jour. Si vous devez migrer les valeurs « rowversion » à partir d’une colonne de type horodatage, utilisez le paramètre binary(8) ou varbinary(8) pour les valeurs de version de ligne NOT NULL ou NULL ;
+- **timestamp** : modifiez le code afin d’utiliser le paramètre « datetime2 » et la fonction `CURRENT_TIMESTAMP`. Remarque : vous ne pouvez pas utiliser le paramètre « current\_timestamp » en tant que contrainte par défaut ; la valeur ne sera pas automatiquement mise à jour. Si vous devez migrer les valeurs « rowversion » à partir d’une colonne de type horodatage, utilisez le paramètre binary(8) ou varbinary(8) pour les valeurs de version de ligne NOT NULL ou NULL ;
 - **varchar(max)** : utilisez la valeur « varchar(8000) » ou une valeur inférieure pour optimiser les performances ;
 - **uniqueidentifier** : utilisez le paramètre « varbinary (8) » ;
 - **types définis par l’utilisateur** : appliquez à nouveau les types natifs, le cas échéant ;
@@ -145,4 +145,4 @@ Pour obtenir des conseils supplémentaires sur le développement, consultez la [
 
 <!--Other Web references-->
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

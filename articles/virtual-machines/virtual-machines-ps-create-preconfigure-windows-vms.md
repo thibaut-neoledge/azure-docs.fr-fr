@@ -269,4 +269,4 @@ Voici le jeu de commandes Azure PowerShell correspondant qui permet de créer ce
 
 [Création et préconfiguration d’une machine virtuelle Windows avec Resource Manager et Azure PowerShell](virtual-machines-ps-create-preconfigure-windows-resource-manager-vms.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

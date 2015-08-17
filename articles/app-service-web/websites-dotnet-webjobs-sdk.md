@@ -7,14 +7,16 @@
 	manager="wpickett" 
 	editor="jimbe"/>
 
+
 <tags 
 	ms.service="app-service-web" 
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/29/2015" 
+	ms.date="08/05/2015" 
 	ms.author="tdykstra"/>
+
 
 # Présentation du Kit de développement logiciel (SDK) Azure WebJobs
 
@@ -46,6 +48,8 @@ Voici quelques scénarios typiques plus faciles à gérer avec le Kit de dévelo
 
 * Autres tâches longues que vous voulez exécuter dans un thread en arrière-plan (par exemple, [envoi de courriers électroniques](https://github.com/victorhurdugaci/AzureWebJobsSamples/tree/master/SendEmailOnFailure)).
 
+Dans un grand nombre de ces scénarios, vous souhaiterez mettre à l'échelle une application web de sorte à ce qu’elle puisse être exécutée sur plusieurs machines virtuelles, qui exécuteraient plusieurs WebJobs simultanément. Dans certains scénarios, cela pourrait entraîner le traitement multiple de mêmes données, mais ceci n'est pas un problème lorsque vous utilisez la file d'attente intégrée, blob et les déclencheurs de bus de service du Kit de développement logiciel (SDK) de WebJobs. Le Kit de développement logiciel (SDK) garantit que vos fonctions ne seront traitées qu'une seule fois pour chaque message ou objet blob.
+
 ## <a id="code"></a> Exemples de code
 
 Le code de traitement des tâches typiques fonctionnant avec Azure Storage est simple. Dans une application console, vous écrivez des méthodes pour les tâches en arrière-plan que vous voulez exécuter et vous les décorez avec des attributs du Kit de développement logiciel (SDK) WebJobs. Votre méthode `Main` crée un objet `JobHost`, qui coordonne les appels aux méthodes que vous écrivez. L’infrastructure du Kit de développement logiciel (SDK) WebJobs sait quand appeler vos méthodes d’après les attributs associés que vous utilisez dans ces méthodes.
@@ -66,15 +70,12 @@ Voici un programme simple qui interroge une file d’attente et crée un objet b
 
 L’objet `JobHost` est un conteneur prévu pour un ensemble de fonctions en arrière-plan. L’objet `JobHost` surveille ces fonctions, recherche les événements qui les déclenchent et exécute les fonctions lorsque des événements de déclenchement se produisent. Vous appelez une méthode `JobHost` pour indiquer si vous voulez que le processus du conteneur s’exécute sur le thread actif ou dans un thread en arrière-plan. Dans cet exemple, la méthode `RunAndBlock` exécute le processus en permanence sur le thread actif.
 
-Comme la méthode `ProcessQueueMessage` de cet exemple inclut un attribut `QueueTrigger`, le déclencheur de cette fonction est la réception d’un nouveau message en file d’attente. L’objet `JobHost` recherche les nouveaux messages dans la file d’attente spécifiée (« webjobsqueue », dans cet exemple). Lorsqu’il trouve un message, il appelle `ProcessQueueMessage`. L’attribut `QueueTrigger` indique également à l’infrastructure de lier le paramètre `inputText` à la valeur du message en file d’attente :
+Comme la méthode `ProcessQueueMessage` de cet exemple inclut un attribut `QueueTrigger`, le déclencheur de cette fonction est la réception d’un nouveau message en file d’attente. L’objet `JobHost` recherche les nouveaux messages dans la file d’attente spécifiée (« webjobsqueue », dans cet exemple). Lorsqu’il trouve un message, il appelle `ProcessQueueMessage`.
 
-<pre class="prettyprint">public static void ProcessQueueMessage([QueueTrigger("webjobsqueue")]] <mark>string inputText</mark>, 
-    [Blob("containername/blobname")]TextWriter writer)</pre>
+L’attribut `QueueTrigger` lie le paramètre `inputText` à la valeur du message de file d'attente. L’attribut `Blob` lie également un objet `TextWriter` à un objet blob nommé « blobname » dans le conteneur « containername ».
 
-L’infrastructure lie également un objet `TextWriter` à un objet blob nommé « blobname » dans le conteneur « containername » :
-
-<pre class="prettyprint">public static void ProcessQueueMessage([QueueTrigger("webjobsqueue")]] string inputText, 
-    <mark>[Blob("containername/blobname")]TextWriter writer</mark>)</pre>
+		public static void ProcessQueueMessage([QueueTrigger("webjobsqueue")]] string inputText, 
+		    [Blob("containername/blobname")]TextWriter writer)
 
 La fonction utilise ensuite ces paramètres pour écrire la valeur du message en file d'attente dans l'objet blob :
 
@@ -105,4 +106,4 @@ Le Kit de développement logiciel (SDK) WebJobs offre plusieurs avantages même 
 Pour en savoir plus sur le Kit de développement logiciel (SDK) WebJobs, consultez la rubrique [Tâches web Azure - Ressources recommandées](http://go.microsoft.com/fwlink/?linkid=390226).
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

@@ -2,10 +2,12 @@
 	pageTitle="Importer des données en parallèle et en bloc à l’aide de tables de partition SQL | Microsoft Azure" 
 	description="Importer des données en parallèle et en bloc à l’aide de tables de partition SQL" 
 	services="machine-learning" 
+	solutions="" 
 	documentationCenter="" 
 	authors="msolhab"
 	manager="paulettm" 
 	editor="cgronlun" />
+
 
 <tags 
 	ms.service="machine-learning" 
@@ -15,6 +17,7 @@
 	ms.topic="article" 
 	ms.date="05/29/2015" 
 	ms.author="msolhab" />
+
 
 # Importer des données en parallèle et en bloc à l’aide de tables de partition SQL
 
@@ -184,4 +187,4 @@ ou
 Pour obtenir un exemple de procédure pas à pas de bout en bout utilisant le processus de science des données avec un jeu de données public, consultez la page [Processus de science des données Azure en action : utilisation de SQL Server](machine-learning-data-science-process-sql-walkthrough.md).
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

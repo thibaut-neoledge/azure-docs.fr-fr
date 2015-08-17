@@ -80,4 +80,4 @@ Ce didacticiel est basé sur le démarrage rapide de Mobile Services et s'appuie
 [Ajout de l'authentification à une application Mobile Services existante]: mobile-services-dotnet-backend-ios-get-started-users.md
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

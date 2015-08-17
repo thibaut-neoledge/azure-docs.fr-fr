@@ -114,4 +114,4 @@ Vous pouvez personnaliser l'aspect de votre portail des développeurs en ajoutan
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

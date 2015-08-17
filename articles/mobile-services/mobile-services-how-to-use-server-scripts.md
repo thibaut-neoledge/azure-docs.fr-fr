@@ -7,6 +7,7 @@
 	manager="dwrede" 
 	editor=""/>
 
+
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
@@ -17,9 +18,13 @@
 	ms.author="ricksal"/>
 
 
+
 # Utilisation d'un service mobile de backend Javascript
 
-<div class="dev-center-tutorial-subselector"><a href="/documentation/articles/mobile-services-dotnet-backend-how-to-use/" title=".NET backend">.NET backend</a> | <a href="/documentation/articles/mobile-services-how-to-use-server-scripts/"  title="JavaScript backend" class="current">JavaScript backend</a></div>
+> [AZURE.SELECTOR]
+[.NET backend](mobile-services-dotnet-backend-how-to-use.md)
+[JavaScript backend](mobile-services-how-to-use-server-scripts.md)
+ 
 Cet article fournit des informations détaillées et des exemples sur l'utilisation d'un backend JavaScript dans Azure Mobile Services.
 
 ##<a name="intro"></a>Introduction
@@ -96,7 +101,7 @@ Vous pouvez définir des scripts serveur qui sont enregistrés pour une opérati
 	
 	Pour plus d'informations, consultez la page [Validation et modification des données dans Mobile Services à l'aide des scripts serveur].
 
-+ À l'aide du contrôle de code source Quand le contrôle de code source est activé, créez simplement un fichier nommé <em>`<table>`</em>.<em>`<operation>`</em>.js dans le sous-dossier .\service\table de votre référentiel git, où <em>`<table>`</em> est le nom de la table et où <em>`<operation>`</em> est l'opération de table enregistrée. Pour plus d'informations, consultez la section [Contrôle du code source et code partagé][Source control, shared code, and helper functions].
++ À l'aide du contrôle de code source Quand le contrôle de code source est activé, créez simplement un fichier nommé <em>`<table>`</em>.<em>`<operation>`</em>.js dans le sous-dossier .\\service\\table de votre référentiel git, où <em>`<table>`</em> est le nom de la table et où <em>`<operation>`</em> est l'opération de table enregistrée. Pour plus d'informations, consultez la section [Contrôle du code source et code partagé][Source control, shared code, and helper functions].
 
 + À partir de l'invite de commandes de l'outil en ligne de commande Azure. Pour plus d'informations, consultez la section [Utilisation de l'outil en ligne de commande].
 
@@ -227,7 +232,7 @@ Si une application fournit la valeur d’un ID, Mobile Services la stocke en l�
 
 La valeur pour le `id` doit être unique et ne contenir aucun caractère présent dans les ensembles suivants :
 
-+ Caractères de contrôle : [0x0000-0x001F] et [0x007F-0x009F]. Pour plus d'informations, consultez la page [Codes de contrôle ASCII C0 et C1](http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set).
++ Caractères de contrôle : [0x0000-0x001F\] et [0x007F-0x009F\]. Pour plus d'informations, consultez la page [Codes de contrôle ASCII C0 et C1](http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set).
 +  Caractères imprimables : **"**(0x0022), **+** (0x002B), **/** (0x002F), **?** (0x003F), **\** (0x005C), **`** (0x0060)
 +  Les ID « . » et « .. »
 
@@ -343,7 +348,7 @@ Vous pouvez définir des scripts serveur qui sont enregistrés pour des méthode
 	
 	Les autorisations d'accès aux méthodes de l'API personnalisée sont attribuées dans l'onglet Autorisations. Pour plus d'informations sur la création de cette API personnalisée, consultez la page [Appel d'une API personnalisée à partir du client].
 
-+ À l'aide du contrôle de code source Quand le contrôle de code source est activé, créez simplement un fichier nommé <em>`<custom_api>`</em>.js dans le sous-dossier .\service\api de votre référentiel git, où <em>`<custom_api>`</em> est le nom de l'API personnalisée qui est enregistrée. Ce fichier de script contient une fonction _exportée_ pour chaque méthode HTTP exposée par l'API personnalisée. Les autorisations sont définies dans un fichier complément .json. Pour plus d'informations, consultez la section [Contrôle du code source et code partagé][Source control, shared code, and helper functions].
++ À l'aide du contrôle de code source Quand le contrôle de code source est activé, créez simplement un fichier nommé <em>`<custom_api>`</em>.js dans le sous-dossier .\\service\\api de votre référentiel git, où <em>`<custom_api>`</em> est le nom de l'API personnalisée qui est enregistrée. Ce fichier de script contient une fonction _exportée_ pour chaque méthode HTTP exposée par l'API personnalisée. Les autorisations sont définies dans un fichier complément .json. Pour plus d'informations, consultez la section [Contrôle du code source et code partagé][Source control, shared code, and helper functions].
 
 + À partir de l'invite de commandes de l'outil en ligne de commande Azure. Pour plus d'informations, consultez la section [Utilisation de l'outil en ligne de commande].
 
@@ -367,7 +372,8 @@ La fonction de l'API personnalisée **OrderPizza** renvoie un document XML simpl
 
 		exports.get = function(request, response) {
 		  response.set('content-type', 'application/xml');
-		  var xml = '<?xml version="1.0"?><PizzaOrderForm><PizzaOrderForm/>';
+		  var xml = '<?xml version="1.0"?><PizzaOrderForm><PizzaOrderForm/>
+';
 		  response.send(200, xml);
 		};
 
@@ -430,7 +436,7 @@ Plusieurs itinéraires sont définis en exportant une fonction **register**, à 
 		    res.send(200, { result: result });
 		}
 
-L'objet **api** transmis à la fonction **register** expose une fonction pour chaque méthode HTTP (**get**, **post**, **put**, **patch**, **delete**). Ces fonctions enregistrent un itinéraire sur une fonction définie pour une méthode HTTP spécifique. Chaque fonction prend deux paramètres, le premier étant le nom de l'itinéraire, et le deuxième la fonction enregistrée pour l'itinéraire.
+L'objet **api** transmis à la fonction **register** expose une fonction pour chaque méthode HTTP (**get**, **post**, **put**, **patch** et **delete**). Ces fonctions enregistrent un itinéraire sur une fonction définie pour une méthode HTTP spécifique. Chaque fonction prend deux paramètres, le premier étant le nom de l'itinéraire, et le deuxième la fonction enregistrée pour l'itinéraire.
 
 Les deux itinéraires de l'exemple d'API personnalisée ci-dessus peuvent être appelés par des requêtes HTTP GET comme suit (présentés avec la réponse) :
 
@@ -462,7 +468,7 @@ Vous définissez des travaux planifiés de l'une des façons suivantes :
 
 + À partir de l'invite de commandes de l'outil en ligne de commande Azure. Pour plus d'informations, consultez la section [Utilisation de l'outil en ligne de commande].
 
->[AZURE.NOTE]Lorsque le contrôle du code source est activé, vous pouvez modifier les fichiers de script du travail planifié directement dans le sous-dossier .\service\scheduler de votre référentiel git. Pour plus d'informations, consultez [Procédure : partage de code à l'aide du contrôle du code source].
+>[AZURE.NOTE]Lorsque le contrôle du code source est activé, vous pouvez modifier les fichiers de script du travail planifié directement dans le sous-dossier .\\service\\scheduler de votre référentiel git. Pour plus d'informations, consultez [Procédure : partage de code à l'aide du contrôle du code source].
 
 ##<a name="shared-code"></a>Contrôle du code source, code partagé et fonctions d'assistance
 
@@ -772,38 +778,16 @@ Lorsque vous écrivez des scripts serveur utilisant les fonctions [insert], [upd
 
 Lorsque vous utilisez l'[objet tables] ou l'[objet mssql] ou pour simplement laisser vos scripts de table s'exécuter, les objets JavaScript désérialisés sont insérés dans une base de données SQL. Dans ce processus, les propriétés des objets sont mappées aux types T-SQL :
 
-<table border="1">
-<tr>
-<td>Propriété JavaScript</td>
-<td>Type T-SQL</td>
-</tr><tr>
-<td>Number</td>
-<td>Float(53)</td>
-</tr><tr>
-<td>Boolean</td>
-<td>Bit</td>
-</tr><tr>
-<td>Date</td>
-<td>DateTimeOffset(3)</td>
-</tr>
-<tr>
-<td>String</td>
-<td>Nvarchar(max)</td>
-</tr>
-<tr>
-<td>Buffer</td>
-<td>Non pris en charge</td>
-</tr><tr>
-<td>Object</td>
-<td>Non pris en charge</td>
-</tr><tr>
-<td>Array</td>
-<td>Non pris en charge</td>
-</tr><tr>
-<td>Stream</td>
-<td>Non pris en charge</td>
-</tr>
-</table>
+Propriété JavaScript|Type T-SQL
+---|---
+Number|Float(53)
+Boolean|Bit
+Date|DateTimeOffset(3)|
+String|Nvarchar(max)
+Buffer|Non pris en charge
+Object|Non pris en charge
+Array|Non pris en charge
+Stream|Non pris en charge
 
 ###<a name="TSQL"></a>Accès aux tables à l'aide de Transact-SQL
 
@@ -1075,4 +1059,4 @@ Pour éviter de surcharger votre journal, il est conseillé de supprimer ou de d
 [Prise en charge de package.json dans Azure Mobile Services]: http://go.microsoft.com/fwlink/p/?LinkId=391036
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -1,11 +1,12 @@
 <properties 
-	pageTitle="Déploiement de DocumentDB et d’Azure App Service Web Apps avec un modèle Azure Resource Manager | Azure" 
+	pageTitle="Déploiement de DocumentDB et d’Azure App Service Web Apps avec un modèle Azure Resource Manager | Microsoft Azure" 
 	description="Découvrez comment déployer un compte DocumentDB, Azure App Service Web Apps et un exemple d’application web avec un modèle Azure Resource Manager." 
 	services="documentdb, app-service\web" 
 	authors="stephbaron" 
-	manager="johnmac" 
+	manager="jhubbard" 
 	editor="monicar" 
 	documentationCenter=""/>
+
 
 <tags 
 	ms.service="documentdb" 
@@ -13,8 +14,9 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/29/2015" 
+	ms.date="07/28/2015" 
 	ms.author="stbaro"/>
+
 
 # Déploiement de DocumentDB et d’Azure App Service Web Apps avec un modèle Azure Resource Manager #
 
@@ -38,9 +40,9 @@ Avant de suivre les instructions de ce didacticiel, assurez-vous de disposer des
 ##<a id="CreateDB"></a>Étape 1 : téléchargement et extraction des fichiers d’exemple ##
 Commençons par télécharger les fichiers d'exemple que nous utiliserons dans ce didacticiel.
 
-1. Téléchargez [l’exemple de création d’un compte DocumentDB, de Web Apps et de déploiement d’une application de démonstration](https://portalcontent.blob.core.windows.net/samples/CreateDocDBWebsiteTodo.zip) dans un dossier local (par exemple, C:\DocumentDBTemplates), puis extrayez les fichiers. Cet exemple déploie un compte DocumentDB, une application web App Service et une application web. Il configure également automatiquement l'application web pour se connecter au compte DocumentDB.
+1. Téléchargez [l’exemple de création d’un compte DocumentDB, de Web Apps et de déploiement d’une application de démonstration](https://portalcontent.blob.core.windows.net/samples/CreateDocDBWebsiteTodo.zip) dans un dossier local (par exemple, C:\\DocumentDBTemplates), puis extrayez les fichiers. Cet exemple déploie un compte DocumentDB, une application web App Service et une application web. Il configure également automatiquement l'application web pour se connecter au compte DocumentDB.
 
-2. Téléchargez [l’exemple de création d’un compte DocumentDB et de Web Apps](https://portalcontent.blob.core.windows.net/samples/CreateDocDBWebSite.zip) dans un dossier local (par exemple, C:\DocumentDBTemplates), puis extrayez les fichiers. Cet exemple déploie un compte DocumentDB et une application web App Service, ainsi qu’il modifie la configuration de l’application web pour faire facilement apparaître les informations de connexion DocumentDB. Toutefois, il n’inclut pas d’application web.
+2. Téléchargez [l’exemple de création d’un compte DocumentDB et de Web Apps](https://portalcontent.blob.core.windows.net/samples/CreateDocDBWebSite.zip) dans un dossier local (par exemple, C:\\DocumentDBTemplates), puis extrayez les fichiers. Cet exemple déploie un compte DocumentDB et une application web App Service, ainsi qu’il modifie la configuration de l’application web pour faire facilement apparaître les informations de connexion DocumentDB. Toutefois, il n’inclut pas d’application web.
 
 > [AZURE.TIP]Notez qu’en fonction des paramètres de sécurité de votre ordinateur, vous devrez débloquer les fichiers extraits en cliquant avec le bouton droit sur **Propriétés**, puis sur **Débloquer**.
 
@@ -53,7 +55,7 @@ Maintenant, nous allons déployer notre premier modèle.
 
 > [AZURE.TIP]Ce modèle ne valide pas que le nom de l’application web et le nom du compte DocumentDB entrés ci-dessous sont a) corrects et b) disponibles. Il est vivement recommandé de vérifier la disponibilité des noms que vous souhaitez fournir avant d'exécuter le script de déploiement PowerShell.
 
-1. Ouvrez Microsoft Azure PowerShell et accédez au dossier dans lequel vous avez téléchargé et extrait [l’exemple de création d’un compte DocumentDB, d’une application web App Service et de déploiement d’une application de démonstration](https://portalcontent.blob.core.windows.net/samples/CreateDocDBWebsiteTodo.zip) (par exemple, C:\DocumentDBTemplates\CreateDocDBWebsiteTodo).
+1. Ouvrez Microsoft Azure PowerShell et accédez au dossier dans lequel vous avez téléchargé et extrait [l’exemple de création d’un compte DocumentDB, d’une application web App Service et de déploiement d’une application de démonstration](https://portalcontent.blob.core.windows.net/samples/CreateDocDBWebsiteTodo.zip) (par exemple, C:\\DocumentDBTemplates\\CreateDocDBWebsiteTodo).
 
 
 2. Nous allons exécuter le script PowerShell CreateDocDBWebsiteTodo.ps1. Le script accepte les paramètres obligatoires suivants :
@@ -153,7 +155,7 @@ Maintenant nous allons déployer notre deuxième modèle.
 
 > [AZURE.TIP]Ce modèle ne valide pas que le nom de l’application web et le nom du compte DocumentDB entrés ci-dessous sont a) corrects et b) disponibles. Il est vivement recommandé de vérifier la disponibilité des noms que vous souhaitez fournir avant d'exécuter le script de déploiement PowerShell.
 
-1. Ouvrez Microsoft Azure PowerShell et accédez au dossier dans lequel vous avez téléchargé et extrait [l’exemple de création d’un compte DocumentDB et d’application web](https://portalcontent.blob.core.windows.net/samples/CreateDocDBWebSite.zip) (par exemple, C:\DocumentDBTemplates\CreateDocDBWebsite).
+1. Ouvrez Microsoft Azure PowerShell et accédez au dossier dans lequel vous avez téléchargé et extrait [l’exemple de création d’un compte DocumentDB et d’application web](https://portalcontent.blob.core.windows.net/samples/CreateDocDBWebSite.zip) (par exemple, C:\\DocumentDBTemplates\\CreateDocDBWebsite).
 
 
 2. Nous allons exécuter le script PowerShell CreateDocDBWebsite.ps1. Le script accepte les mêmes paramètres que le premier modèle que nous avons déployé, à savoir :
@@ -210,4 +212,4 @@ Félicitations ! Vous avez déployé DocumentDB, une application web App Servic
 >[AZURE.NOTE]Si vous voulez vous familiariser avec Azure App Service avant d’ouvrir un compte Azure, accédez à la page [Essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751). Vous pourrez créer immédiatement et gratuitement une application de départ temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -38,4 +38,4 @@ Si vous utilisez l’une des images Microsoft incluses dans votre abonnement, es
 Cette erreur signifie généralement que vous avez été mis à niveau vers un compte payant, mais que vous essayez d’utiliser une image fournie par Microsoft, valide uniquement pendant le mode d’évaluation du service. Dans ce cas, essayez de créer à nouveau votre collection cloud, en veillant à spécifier une image correcte.
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -7,6 +7,7 @@
 	manager="jeffreyg" 
 	editor=""/>
 
+
 <tags 
 	ms.service="sql-database"
 	ms.devlang="NA"
@@ -15,6 +16,7 @@
 	ms.workload="data-management" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="NA"/>
+
 
 
 # Maîtrise de la croissance avec les bases de données élastiques
@@ -57,10 +59,10 @@ La restauration géographique vous permet de récupérer une base de données d'
 
 ### Utiliser la géo-réplication
 
-Les bases de données pour lesquelles la géo-réplication est déjà activée peuvent être déplacées vers et depuis un pool de bases de données élastiques, et la réplication fonctionne normalement. Actuellement, dans la version préliminaire, vous ne pouvez pas activer la géo-réplication sur une base de données qui se trouve déjà dans un pool.
+Les bases de données pour lesquelles la géo-réplication est déjà activée peuvent être déplacées vers et depuis un pool de bases de données élastiques, et la réplication fonctionne normalement. Vous pouvez activer la géo-réplication sur une base de données déjà dans le pool si le serveur cible indiqué possède un pool du même nom que le pool source. Actuellement dans la version préliminaire, vous ne pouvez pas activer la géo-réplication sur une base de données déjà dans un pool, vers un pool de nom différent ou une base de données secondaire (classe singleton).
 
 
 
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

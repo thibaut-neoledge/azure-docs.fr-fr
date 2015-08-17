@@ -57,10 +57,10 @@ Tables | Non | Entrez les tables de la base de données que le connecteur est au
 Procédures stockées | Non | Entrez les procédures stockées dans la base de données que le connecteur peut appeler. Par exemple, entrez *IsEmployeeEligible,CalculateOrderDiscount*.
 Fonctions | Non | Entrez les fonctions dans la base de données que le connecteur peut appeler. Par exemple, entrez *IsEmployeeEligible,CalculateOrderDiscount*.
 Entités de package | Non | Entrez les packages dans la base de la base de données que le connecteur peut appeler. Par exemple, entrez *PackageOrderProcessing.CompleteOrder,PackageOrderProcessing.GenerateBill*.
-Instruction de données disponibles | Non | Entrez l'instruction permettant de déterminer si des données sont disponibles pour l'interrogation. Par exemple, entrez *SELECT * from table_name*.
+Instruction de données disponibles | Non | Entrez l'instruction permettant de déterminer si des données sont disponibles pour l'interrogation. Par exemple, entrez *SELECT * from table\_name*.
 Type d’interrogation | Non | Entrez le type d'interrogation. Les valeurs autorisées sont « Sélection », « Procédure », « Fonction » et « Package ».
-Instruction d’interrogation | Non | Entrez l'instruction permettant d'interroger la base de données du serveur Oracle. Par exemple, entrez *SELECT * from table_name*.
-Instruction de post-interrogation | Non | Entrez l'instruction à exécuter après l'interrogation. Par exemple, entrez *DELETE * from table_name*.
+Instruction d’interrogation | Non | Entrez l'instruction permettant d'interroger la base de données du serveur Oracle. Par exemple, entrez *SELECT * from table\_name*.
+Instruction de post-interrogation | Non | Entrez l'instruction à exécuter après l'interrogation. Par exemple, entrez *DELETE * from table\_name*.
 
 5. Lorsque vous avez terminé, les paramètres du package se présentent comme suit : <br/> ![][1]
 
@@ -115,4 +115,4 @@ Vous pouvez également consulter les statistiques de performances et contrôler 
 [11]: ./media/app-service-logic-connector-oracle/LogicApp7.png
 [12]: ./media/app-service-logic-connector-oracle/LogicApp8.png
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

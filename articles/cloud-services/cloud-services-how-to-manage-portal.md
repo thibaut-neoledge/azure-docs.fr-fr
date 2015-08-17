@@ -106,4 +106,4 @@ Utiliser la procédure suivante pour supprimer un déploiement ou un service clo
 
 [portail Azure en version préliminaire]: https://portal.azure.com
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

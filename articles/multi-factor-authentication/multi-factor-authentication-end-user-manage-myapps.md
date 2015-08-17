@@ -33,4 +33,4 @@ Si vous utilisez l’authentification multifacteur avec Office 365, vous souhai
 
 <center>![Setup](./media/multi-factor-authentication-end-user-manage-myapps/proofup.png)</center>
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

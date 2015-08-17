@@ -159,4 +159,4 @@ Si la surveillance détaillée est configurée pour votre service cloud, Azure n
 
  
 
-<!----HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

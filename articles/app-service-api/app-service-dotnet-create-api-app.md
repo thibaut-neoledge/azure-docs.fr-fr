@@ -12,7 +12,7 @@
 	ms.workload="web"
 	ms.tgt_pltfrm="dotnet"
 	ms.devlang="na"
-	ms.topic="get-started-article" 
+	ms.topic="hero-article" 
 	ms.date="05/19/2015"
 	ms.author="bradyg;tarcher"/>
 
@@ -50,4 +50,4 @@ Lorsque les instructions vous invitent à entrer un nom pour le projet, entrez *
 Votre application API est maintenant prête à être déployée et vous pouvez pour cela suivre le didacticiel [Déployer une application API](app-service-dotnet-deploy-api-app.md).
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

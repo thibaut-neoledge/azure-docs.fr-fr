@@ -6,14 +6,16 @@
 	authors="alancameronwills" 
 	manager="douge"/>
 
+
 <tags 
 	ms.service="application-insights" 
 	ms.workload="tbd" 
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
-	ms.topic="article" 
+	ms.topic="get-started-article" 
 	ms.date="07/08/2015" 
 	ms.author="awills"/>
+
  
 # Analyse de la disponibilité et de la réactivité d'un site Web
 
@@ -69,7 +71,7 @@ Dans votre ressource Application Insights, recherchez la vignette de disponibili
 
 #### Test d'autres URL
 
-Vous pouvez ajouter d’autres tests pour autant d’URL que vous le souhaitez. Exemple : outre le test de votre page d'accueil, vous pouvez vérifier que votre base de données fonctionne correctement en testant une recherche sur l'URL.
+Ajoutez d’autres tests. Exemple : outre le test de votre page d'accueil, vous pouvez vérifier que votre base de données fonctionne correctement en testant une recherche sur l'URL.
 
 
 ### <a name="monitor"></a>3. Afficher les rapports de disponibilité
@@ -207,6 +209,16 @@ Ouvrez un test à modifier ou à désactiver.
 
 Vous pouvez par exemple désactiver des tests web lorsque vous effectuez des opérations de maintenance sur votre service.
 
+## Des questions ? Des problèmes ?
+
+* J'obtiens une erreur de « caractères non valides » lorsque je 
+
+* **Quelle est la différence entre « tests Web » et « disponibilité » ?
+
+    Nous utilisons ces deux termes indifféremment.
+
+
+
 ## <a name="video"></a>Vidéo
 
 > [AZURE.VIDEO monitoring-availability-with-application-insights]
@@ -229,4 +241,4 @@ Vous pouvez par exemple désactiver des tests web lorsque vous effectuez des op�
 
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

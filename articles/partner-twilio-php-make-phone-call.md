@@ -28,9 +28,9 @@ Pour utiliser le code de cette rubrique, vous devrez effectuer les opérations s
 2. Récupérer la bibliothèque Twilio pour PHP. Vous pouvez la télécharger à partir de GitHub ([https://github.com/twilio/twilio-php][twilio_php_github]) ou l’installer sous la forme d’un package PEAR. Pour plus d'informations, consultez la page [https://github.com/twilio/twilio-php/blob/master/README.md][twilio_github_readme].
 3. Installer le Kit de développement logiciel (SDK) Azure pour PHP. Pour une présentation du Kit de développement logiciel et des instructions sur son installation, consultez la page [Installation du SDK Azure pour PHP][setup_php_sdk].
 
-## création d'un formulaire web pour passer un appel
+## Création d'un formulaire Web pour passer un appel
 
-Le code HTML qui suit présente la conception d’une page web (**callform.html**) qui extrait les données des utilisateurs pour passer un appel :
+Le code HTML qui suit présente la conception d'une page Web (**callform.html**) qui extrait les données des utilisateurs pour passer un appel :
 
     <html>
 	<head>
@@ -62,8 +62,8 @@ Le code HTML qui suit présente la conception d’une page web (**callform.html*
 	</body>
 	</html>
 
-## création du code pour passer l'appel
-Le code qui suit indique comment créer une page web (**makecall.php**) qui est appelée lorsque l’utilisateur envoie le formulaire affiché par **callform.html**. Le code présenté ici crée le message d'appel et passe l'appel. Utilisez votre compte Twilio et votre jeton d'authentification plutôt que les valeurs par défaut utilisées dans **$sid** et **$token** dans le code qui suit.
+## Création du code pour passer l'appel
+Le code qui suit montre comment créer une page Web (**makecall.php**) qui est appelée lorsque l'utilisateur envoie le formulaire affiché par **callform.html**. Le code présenté ici crée le message d'appel et passe l'appel. Utilisez votre compte Twilio et votre jeton d'authentification plutôt que les valeurs par défaut utilisées dans **$sid** et **$token** dans le code qui suit.
 
     <html>
 	<head><title>Making call...</title></head>
@@ -143,4 +143,4 @@ Pour plus d'informations sur Twilio, consultez la page [https://www.twilio.com/d
 [website-webmatrix]: https://www.windowsazure.com/develop/php/tutorials/website-w-mysql-and-webmatrix/
 [twilio_php_github]: https://github.com/twilio/twilio-php
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

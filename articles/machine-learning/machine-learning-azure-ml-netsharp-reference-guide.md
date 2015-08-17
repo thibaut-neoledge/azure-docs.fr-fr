@@ -7,6 +7,7 @@
 	manager="paulettm" 
 	editor="cgronlun"/>
 
+
 <tags 
 	ms.service="machine-learning" 
 	ms.workload="data-services" 
@@ -15,6 +16,7 @@
 	ms.topic="article" 
 	ms.date="06/29/2015" 
 	ms.author="jeannt"/>
+
 
 
 
@@ -94,7 +96,7 @@ La déclaration de couche est requise. Elle définit la taille et la source de l
 	hidden Hidden[5,20] from Data all;
 	output Result[2] from Hidden all;  
 
--	Le produit des dimensions est le nombre de nœuds de la couche. Dans cet exemple, il y a deux dimensions [5,20], ce qui signifie qu'il y a 100 nœuds dans la couche.
+-	Le produit des dimensions est le nombre de nœuds de la couche. Dans cet exemple, il y a deux dimensions [5,20\], ce qui signifie qu'il y a 100 nœuds dans la couche.
 -	Les couches peuvent être déclarés dans n'importe quel ordre, à une exception près : si plusieurs couches d'entrée sont définies, l'ordre dans lequel elles sont déclarées doit être le même que celui des fonctions dans les données d'entrée.  
 
 <!-- REMOVED THIS CONTENT UNTIL THIS FEATURE IS SUPPORTED IN THE PRODUCT
@@ -150,8 +152,8 @@ Une spécification de faisceau de connexion filtré inclut un prédicat, dont la
 	hidden ByRow[10, 12] from Pixels where (s,d) => s[0] == d[0];
 	hidden ByCol[5, 20] from Pixels where (s,d) => abs(s[1] - d[1]) <= 1;  
 
--	Dans le prédicat de ByRow, **s** est un paramètre représentant un index dans le tableau rectangulaire de nœuds de la couche d'entrée Pixels, tandis que **d** est un paramètre représentant un index dans le tableau de nœuds de la couche masquée ByRow. Le type de **s** et de **d** est un tuple d'entiers de longueur 2. D'un point de vue conceptuel, **s** couvre toutes les paires d’entiers avec _0 <= s[0] < 10_ et _0 <= s[1] < 20_, tandis que **d** couvre toutes les paires d’entiers avec _0 <= d[0] < 10_ et _0 <= d[1] < 12_. 
--	Sur la droite de l'expression de prédicat se trouve une condition. Dans cet exemple, pour chaque valeur de **s** et **d** permettant à la condition d'avoir la valeur True, il existe un bord à partir du nœud de couche source vers le nœud de couche de destination. Ainsi, cette expression de filtre indique que le faisceau inclut une connexion du nœud défini par **s** au nœud défini par **d**, dans tous les cas où s[0] est égal à d[0].  
+-	Dans le prédicat de ByRow, **s** est un paramètre représentant un index dans le tableau rectangulaire de nœuds de la couche d'entrée Pixels, tandis que **d** est un paramètre représentant un index dans le tableau de nœuds de la couche masquée ByRow. Le type de **s** et de **d** est un tuple d'entiers de longueur 2. D'un point de vue conceptuel, **s** couvre toutes les paires d’entiers avec _0 <= s[0\] < 10_ et _0 <= s[1] < 20_, tandis que **d** couvre toutes les paires d’entiers avec _0 <= d[0\] < 10_ et _0 <= d[1] < 12_. 
+-	Sur la droite de l'expression de prédicat se trouve une condition. Dans cet exemple, pour chaque valeur de **s** et **d** permettant à la condition d'avoir la valeur True, il existe un bord à partir du nœud de couche source vers le nœud de couche de destination. Ainsi, cette expression de filtre indique que le faisceau inclut une connexion du nœud défini par **s** au nœud défini par **d**, dans tous les cas où s[0\] est égal à d[0\].  
 
 Vous pouvez également spécifier un ensemble de poids pour un faisceau filtré. La valeur de l'attribut **Weights** doit être un tuple de valeurs à virgule flottante dont la longueur est égale au nombre de connexions défini par le faisceau. Par défaut, les poids sont générés de façon aléatoire.
 
@@ -176,24 +178,24 @@ Pour définir la forme et les emplacements des noyaux, utilisez les attributs **
 
 Il existe deux ensembles de propriétés contrôlant le remplissage, qui s'excluent mutuellement :
 
--	**Padding** : (facultatif) détermine si l’entrée doit être remplie selon un **schéma de remplissage par défaut**. La valeur peut être une valeur booléenne unique ou un tuple de valeurs booléennes, dont la longueur est égale à l’arité du faisceau. Une valeur booléenne unique est étendue de façon à devenir un tuple de la bonne longueur dont tous les éléments sont égaux à la valeur spécifiée. Si la valeur d'une dimension correspond à True, la source est remplie de façon logique dans cette dimension par des cellules de valeur zéro afin de prendre en charge d'autres applications de noyau, de façon que les nœuds centraux des premier et dernier noyaux de cette dimension soient les premier et dernier nœuds de cette dimension dans la couche source. Ainsi, le nombre de nœuds « factices » de chaque dimension est déterminé automatiquement, afin de correspondre exactement à _(InputShape[d] - 1) / Stride[d] + 1_ noyaux dans la couche source remplie. Si la valeur d’une dimension correspond à False, les noyaux sont définis de façon que le nombre de nœuds omis soit le même de chaque côté (une différence de 1 au maximum est tolérée). La valeur par défaut de cet attribut est un tuple dont tous les éléments ont la valeur False.
--	**UpperPad** et **LowerPad** : (facultatifs) permettent de contrôler la quantité de remplissage à utiliser. **Important:** Ces attributs peuvent être définis si et seulement la propriété **Padding** ci-dessus n’est ***pas*** définie. Les valeurs doivent être des tuples d’entiers dont la longueur est égale à l’arité du faisceau. Lorsque ces attributs sont spécifiés, des nœuds « factices » sont ajoutés aux extrémités inférieure et supérieure de chaque dimension de la couche d’entrée. Le nombre de nœuds ajoutés aux extrémités inférieure et supérieure de la dimension est déterminé respectivement par **LowerPad**[i] et **UpperPad**[i]. Afin de veiller à ce que les noyaux correspondent à des nœuds « réels » et non « factices », les conditions suivantes doivent être respectées :
-	-	Chaque élément de **LowerPad** doit être strictement inférieur à KernelShape[d]/2. 
-	-	Chaque élément de **UpperPad** doit être inférieur à KernelShape[d]/2. 
+-	**Padding** : (facultatif) détermine si l’entrée doit être remplie selon un **schéma de remplissage par défaut**. La valeur peut être une valeur booléenne unique ou un tuple de valeurs booléennes, dont la longueur est égale à l’arité du faisceau. Une valeur booléenne unique est étendue de façon à devenir un tuple de la bonne longueur dont tous les éléments sont égaux à la valeur spécifiée. Si la valeur d'une dimension correspond à True, la source est remplie de façon logique dans cette dimension par des cellules de valeur zéro afin de prendre en charge d'autres applications de noyau, de façon que les nœuds centraux des premier et dernier noyaux de cette dimension soient les premier et dernier nœuds de cette dimension dans la couche source. Ainsi, le nombre de nœuds « factices » de chaque dimension est déterminé automatiquement, afin de correspondre exactement à _(InputShape[d\] - 1) / Stride[d\] + 1_ noyaux dans la couche source remplie. Si la valeur d’une dimension correspond à False, les noyaux sont définis de façon que le nombre de nœuds omis soit le même de chaque côté (une différence de 1 au maximum est tolérée). La valeur par défaut de cet attribut est un tuple dont tous les éléments ont la valeur False.
+-	**UpperPad** et **LowerPad** : (facultatifs) permettent de contrôler la quantité de remplissage à utiliser. **Important:** Ces attributs peuvent être définis si et seulement la propriété **Padding** ci-dessus n’est ***pas*** définie. Les valeurs doivent être des tuples d’entiers dont la longueur est égale à l’arité du faisceau. Lorsque ces attributs sont spécifiés, des nœuds « factices » sont ajoutés aux extrémités inférieure et supérieure de chaque dimension de la couche d’entrée. Le nombre de nœuds ajoutés aux extrémités inférieure et supérieure de la dimension est déterminé respectivement par **LowerPad**[i\] et **UpperPad**[i\]. Afin de veiller à ce que les noyaux correspondent à des nœuds « réels » et non « factices », les conditions suivantes doivent être respectées :
+	-	Chaque élément de **LowerPad** doit être strictement inférieur à KernelShape[d\]/2. 
+	-	Chaque élément de **UpperPad** doit être inférieur à KernelShape[d\]/2. 
 	-	La valeur par défaut de ces attributs est un tuple dont tous les éléments sont égaux à 0. 
 
-Le paramètre **Padding** = true permet d’obtenir le remplissage requis pour maintenir le « centre » du noyau à l’intérieur de l’entrée « réelle ». Cela modifie un peu le calcul de la taille de sortie. En règle générale, la taille de sortie _D_ est calculée comme suit : _D = (I - K) / S + 1_, où _I_ est la taille d'entrée, _K_ est la taille du noyau, _S_ est le stride, et _/_ est la division d’entier (arrondi vers zéro). Si vous définissez UpperPad = [1, 1], la taille d'entrée _I_ est effectivement 29 et par conséquent _D = (29-5) / 2 + 1 = 13_. Toutefois, lorsque **Padding** = true, essentiellement _I_ est augmenté de _K - 1_ ; donc _D = ((28 + 4) - 5) / 2 + 1 = 27 / 2 + 1 = 13 + 1 = 14_. En spécifiant des valeurs pour **UpperPad** et **LowerPad**, vous obtenez un meilleur contrôle sur le remplissage que si vous définissez simplement **Padding** = true.
+Le paramètre **Padding** = true permet d’obtenir le remplissage requis pour maintenir le « centre » du noyau à l’intérieur de l’entrée « réelle ». Cela modifie un peu le calcul de la taille de sortie. En règle générale, la taille de sortie _D_ est calculée comme suit : _D = (I - K) / S + 1_, où _I_ est la taille d'entrée, _K_ est la taille du noyau, _S_ est le stride, et _/_ est la division d’entier (arrondi vers zéro). Si vous définissez UpperPad = [1, 1\], la taille d'entrée _I_ est effectivement 29 et par conséquent _D = (29-5) / 2 + 1 = 13_. Toutefois, lorsque **Padding** = true, essentiellement _I_ est augmenté de _K - 1_ ; donc _D = ((28 + 4) - 5) / 2 + 1 = 27 / 2 + 1 = 13 + 1 = 14_. En spécifiant des valeurs pour **UpperPad** et **LowerPad**, vous obtenez un meilleur contrôle sur le remplissage que si vous définissez simplement **Padding** = true.
 
 Pour plus d’informations sur les réseaux convolutionnels et leurs applications, consultez les articles suivants :
 
 -	[http://deeplearning.net/tutorial/lenet.html ](http://deeplearning.net/tutorial/lenet.html)
 -	[http://research.microsoft.com/pubs/68920/icdar03.pdf](http://research.microsoft.com/pubs/68920/icdar03.pdf) 
--	[http://people.csail.mit.edu/jvb/papers/cnn_tutorial.pdf](http://people.csail.mit.edu/jvb/papers/cnn_tutorial.pdf)  
+-	[http://people.csail.mit.edu/jvb/papers/cnn\_tutorial.pdf](http://people.csail.mit.edu/jvb/papers/cnn_tutorial.pdf)  
 
 ##Faisceaux de regroupement
 Un **faisceau de regroupement** applique une géométrie similaire à la connectivité convolutionnelle, mais utilise des fonctions prédéfinies pour dériver les valeurs du nœud source vers la valeur du nœud de destination. De ce fait, les faisceaux de regroupement n’ont pas d’état entraînable (poids ou biais). Ils prennent en charge tous les attributs convolutionnels, hormis **Sharing**, **MapCount** et **Weights**.
 
-En général, les noyaux résumés par des unités de regroupement adjacentes ne se chevauchent pas. Si Stride[d] est égal à KernelShape[d] dans chaque dimension, la couche obtenue est la couche de regroupement locale traditionnelle, qui est généralement employée dans les réseaux neuronaux convolutionnels. Chaque nœud de destination calcule le maximum ou la moyenne des activités de son noyau dans la couche source.
+En général, les noyaux résumés par des unités de regroupement adjacentes ne se chevauchent pas. Si Stride[d\] est égal à KernelShape[d\] dans chaque dimension, la couche obtenue est la couche de regroupement locale traditionnelle, qui est généralement employée dans les réseaux neuronaux convolutionnels. Chaque nœud de destination calcule le maximum ou la moyenne des activités de son noyau dans la couche source.
 
 L’exemple suivant illustre un faisceau de regroupement :
 
@@ -211,9 +213,9 @@ L’exemple suivant illustre un faisceau de regroupement :
 	
 Pour plus d’informations sur les couches de regroupement, consultez les articles suivants :
 
--	[http://www.cs.toronto.edu/~hinton/absps/imagenet.pdf](http://www.cs.toronto.edu/~hinton/absps/imagenet.pdf) (Section 3.4)
--	[http://cs.nyu.edu/~koray/publis/lecun-iscas-10.pdf](http://cs.nyu.edu/~koray/publis/lecun-iscas-10.pdf) 
--	[http://cs.nyu.edu/~koray/publis/jarrett-iccv-09.pdf](http://cs.nyu.edu/~koray/publis/jarrett-iccv-09.pdf)
+-	[http://www.cs.toronto.edu/\~hinton/absps/imagenet.pdf](http://www.cs.toronto.edu/~hinton/absps/imagenet.pdf) (Section 3.4)
+-	[http://cs.nyu.edu/\~koray/publis/lecun-iscas-10.pdf](http://cs.nyu.edu/~koray/publis/lecun-iscas-10.pdf) 
+-	[http://cs.nyu.edu/\~koray/publis/jarrett-iccv-09.pdf](http://cs.nyu.edu/~koray/publis/jarrett-iccv-09.pdf)
 	
 ##Faisceaux de normalisation de réponse
 La **normalisation de réponse** est un schéma de normalisation local proposé par Geoffrey Hinton (et al.) dans un article intitulé ImageNet Classiﬁcation with Deep Convolutional Neural Networks (Classification ImageNet avec les réseaux neuronaux profonds) (voir la section 3.3). La normalisation de réponse permet de contribuer à la généralisation dans les réseaux neuronaux. Lorsqu’un neurone s’active à un niveau très élevé, la couche de normalisation de réponse locale supprime le niveau d’activation des neurones alentour. Pour cela, on utilise trois paramètres (***α***, ***β*** et ***k***), ainsi qu'une structure convolutionnelle (ou forme de voisinage). Chaque neurone ***y*** de la couche de destination correspond à un neurone ***x*** de la couche source. Le niveau de l'activation de l'élément ***y*** est calculé via la formule suivante, où ***f*** correspond au niveau de l'activation d'un neurone de la valeur ***Nx***, au noyau (ou à l'ensemble qui contient les neurones dans le voisinage de l'élément ***x***), comme défini par la structure convolutionnelle suivante :
@@ -227,7 +229,7 @@ Les faisceaux de normalisation de réponse prennent en charge tous les attributs
 
 Les faisceaux de normalisation de réponse appliquant une fonction prédéfinie aux valeurs de nœud source pour déterminer la valeur du nœud de destination, ils n’ont pas d’état entraînable (poids ou biais).
 
-**Alerte** : les nœuds de la couche de destination correspondent aux neurones centraux des noyaux. Par exemple, si KernelShape[d] est impair, alors _KernelShape[d]/2_ correspond au nœud de noyau central. Si la valeur _KernelShape[d]_ est paire, le nœud central a la valeur _KernelShape[d]/2 - 1_. Par conséquent, si le paramètre **Padding**[d] a la valeur False, les premier et dernier nœuds _KernelShape[d]/2_ ne sont associés à aucun nœud correspondant dans la couche de destination. Pour éviter cette situation, définissez **Padding** sur [true, true, …, true].
+**Alerte** : les nœuds de la couche de destination correspondent aux neurones centraux des noyaux. Par exemple, si KernelShape[d\] est impair, alors _KernelShape[d\]/2_ correspond au nœud de noyau central. Si la valeur _KernelShape[d\]_ est paire, le nœud central a la valeur _KernelShape[d\]/2 - 1_. Par conséquent, si le paramètre **Padding**[d\] a la valeur False, les premier et dernier nœuds _KernelShape[d\]/2_ ne sont associés à aucun nœud correspondant dans la couche de destination. Pour éviter cette situation, définissez **Padding** sur [true, true, …, true\].
 
 Outre les quatre attributs décrits précédemment, les faisceaux de normalisation de réponse prennent également en charge les attributs suivants :
 
@@ -247,7 +249,7 @@ L’exemple suivant définit un faisceau de normalisation de réponse utilisant 
 
 -	La couche source inclut cinq signatures, chacune présentant des dimensions 12x12, pour un total de 1 440 nœuds. 
 -	La valeur de **KernelShape** indique qu'il s'agit d'une couche de normalisation de même signature, où le voisinage est un rectangle 3x3. 
--	La valeur par défaut de **Padding** est False. La couche de destination n'a donc que 10 nœuds par dimension. Pour inclure un seul nœud dans la couche de destination correspondant à tous les nœuds de la couche source, ajoutez la chaîne Padding = [true, true, true] et remplacez la taille de l'élément RN1 par [5, 12, 12].  
+-	La valeur par défaut de **Padding** est False. La couche de destination n'a donc que 10 nœuds par dimension. Pour inclure un seul nœud dans la couche de destination correspondant à tous les nœuds de la couche source, ajoutez la chaîne Padding = [true, true, true\] et remplacez la taille de l'élément RN1 par [5, 12, 12\].  
 
 ##Déclaration de partage 
 Net# peut prendre en charge la définition de plusieurs faisceaux avec des poids partagés. Les poids de deux faisceaux quelconques peuvent être partagés tant qu’ils ont la même structure. La syntaxe suivante définit des faisceaux avec des poids partagés :
@@ -359,7 +361,7 @@ Cet exemple illustre plusieurs caractéristiques du langage de spécification de
 -	La couche Pixels est une couche source pour deux faisceaux de connexion, avec les couches de destination ByRow et ByCol.
 -	Les couches Gather et Result sont des couches de destination dans plusieurs faisceaux de connexion.
 -	La couche de sortie, Result, est une couche de destination dans deux faisceaux de connexion, le premier indiquant la deuxième couche masquée (Gather) en tant que couche de destination et le deuxième, la couche d’entrée MetaData en tant que couche de destination.
--	Les couches masquées ByRow et ByCol spécifient une connectivité filtrée en utilisant des expressions de prédicat. Plus précisément, le nœud de l'élément ByRow à [x, y] est connecté à ces nœuds dans l'élément Pixels, car la première coordonnée d'index est égale à la première coordonnée du nœud, x. De même, le nœud de l'élément ByCol à [x, y] est connecté à ces nœuds dans l'élément Pixels, car la deuxième coordonnée d'index est dans la deuxième coordonnée du nœud, y.  
+-	Les couches masquées ByRow et ByCol spécifient une connectivité filtrée en utilisant des expressions de prédicat. Plus précisément, le nœud de l'élément ByRow à [x, y\] est connecté à ces nœuds dans l'élément Pixels, car la première coordonnée d'index est égale à la première coordonnée du nœud, x. De même, le nœud de l'élément ByCol à [x, y\] est connecté à ces nœuds dans l'élément Pixels, car la deuxième coordonnée d'index est dans la deuxième coordonnée du nœud, y.  
 
 ###Définir un réseau convolutionnel pour la classification multiclasse : exemple de reconnaissance de chiffre
 La définition du réseau ci-après, conçu pour reconnaître les chiffres, illustre certaines techniques avancées de personnalisation d’un réseau neuronal.
@@ -390,15 +392,15 @@ La définition du réseau ci-après, conçu pour reconnaître les chiffres, illu
 -	Le réseau contient une troisième couche masquée, Hid3, entièrement connectée à la deuxième couche masquée, Conv2.
 -	La couche de sortie, Digit, n'est connectée qu'à la troisième couche masquée, Hid3. Le mot clé **all** indique que la couche de sortie est entièrement connectée à Hid3.
 -	L'arité de la convolution est de 3 (longueur des tuples **InputShape**, **KernelShape**, **Stride** et **Sharing**). 
--	Le nombre de poids par noyau est de _ 1 + **KernelShape**[0] * **KernelShape**\[1] * **KernelShape**[2] = 1 + 1 * 5 * 5 = 26. Ou 26 * 50 = 1300_.
+-	Le nombre de poids par noyau est de _ 1 + **KernelShape**[0\] * **KernelShape**[1\] * **KernelShape**[2\] = 1 + 1 * 5 * 5 = 26. Ou 26 * 50 = 1300_.
 -	Vous pouvez calculer les nœuds de chaque couche masquée comme suit :
-	-	**NodeCount**[0] = (5 - 1) / 1 + 1 = 5.
-	-	**NodeCount**\[1] = (13 - 5) / 2 + 1 = 5. 
-	-	**NodeCount**[2] = (13 - 5) / 2 + 1 = 5. 
--	Vous pouvez calculer le nombre total de nœuds en utilisant la dimensionnalité déclarée de la couche, [50, 5, 5], comme suit : _**MapCount** * **NodeCount**[0] * **NodeCount**\[1] * **NodeCount**[2] = 10 * 5 * 5 * 5_
--	Puisque **Sharing**[d] est faux uniquement pour _d == 0_, le nombre de noyaux est _**MapCount** * **NodeCount**[0] = 10 * 5 = 50_. 
+	-	**NodeCount**[0\] = (5 - 1) / 1 + 1 = 5.
+	-	**NodeCount**[1\] = (13 - 5) / 2 + 1 = 5. 
+	-	**NodeCount**[2\] = (13 - 5) / 2 + 1 = 5. 
+-	Vous pouvez calculer le nombre total de nœuds en utilisant la dimensionnalité déclarée de la couche, [50, 5, 5\], comme suit : _**MapCount** * **NodeCount**[0\] * **NodeCount**[1\] * **NodeCount**[2\] = 10 * 5 * 5 * 5_
+-	Puisque **Sharing**[d\] est faux uniquement pour _d == 0_, le nombre de noyaux est _**MapCount** * **NodeCount**[0\] = 10 * 5 = 50_. 
 
 [1]: ./media/machine-learning-azure-ml-netsharp-reference-guide/formula_large.gif
  
 
-<!----HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

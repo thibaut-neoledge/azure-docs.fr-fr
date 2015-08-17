@@ -51,4 +51,4 @@ Cette rubrique vous a montré comment utiliser la méthode **invokeApi** pour ap
 [Store server scripts in source control]: mobile-services-store-scripts-source-control.md
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

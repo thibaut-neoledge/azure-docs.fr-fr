@@ -44,7 +44,7 @@ Une fois que le CDN est activé sur un compte de stockage Azure, tous les objets
 
 Pour de meilleures performances, utilisez le cache de périmètre CDN pour distribuer des objets blob dont la taille est inférieure à 10 Go.
 
-Quand vous activez l'accès CDN pour un compte de stockage, le portail de gestion vous fournit un nom de domaine CDN au format suivant : http://<identifier>.vo.msecnd.net/. Ce nom de domaine peut être utilisé pour accéder aux objets blob dans un conteneur public. Les utilisateurs peuvent, par exemple, accéder aux objets blobs d’un conteneur public nommé « musique » dans un compte de stockage nommé « mon_compte », via l’une de ces deux URL suivantes :
+Quand vous activez l'accès CDN pour un compte de stockage, le portail de gestion vous fournit un nom de domaine CDN au format suivant : http://<identifier>.vo.msecnd.net/. Ce nom de domaine peut être utilisé pour accéder aux objets blob dans un conteneur public. Les utilisateurs peuvent, par exemple, accéder aux objets blobs d’un conteneur public nommé « musique » dans un compte de stockage nommé « mon\_compte », via l’une de ces deux URL suivantes :
 
 - **URL du service Azure Blob** : `http://myAccount.blob.core.windows.net/music/` 
 - **URL du CDN Azure** : `http://<identifier>.vo.msecnd.net/music/` 
@@ -67,7 +67,7 @@ Du point de vue des services cloud, la mise en cache présente les contraintes s
 
 - Le CDN doit uniquement servir à mettre en cache du contenu statique.
 
-	>[AZURE.WARNING]
+	>[AZURE.WARNING]La mise en cache de contenu extrêmement volatil ou particulièrement dynamique peut affecter vos performances ou provoquer des problèmes de contenu, avec à la clé un surcoût.
 - Votre service cloud doit être déployé dans un environnement de production.
 - Votre service cloud doit fournir l'objet sur le port 80 à l'aide du protocole HTTP.
 - Le service cloud doit placer le contenu à mettre en cache ou à distribuer dans son dossier /cdn.
@@ -114,4 +114,4 @@ Pour plus d'informations sur le mappage d'un domaine personnalisé, consultez la
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

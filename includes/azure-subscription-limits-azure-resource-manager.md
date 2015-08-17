@@ -35,6 +35,11 @@
    <td valign="middle"><p>1&#160;200 par heure</p></td>
 </tr>
 <tr>
+   <td valign="middle"><p>Taille de la demande d’API Resource&#160;Manager</p></td>
+   <td valign="middle"><p>4&#160;194&#160;304&#160;octets</p></td>
+   <td valign="middle"><p>4&#160;194&#160;304&#160;octets</p></td>
+</tr>
+<tr>
    <td valign="middle"><p><a href="http://azure.microsoft.com/documentation/articles/cloud-services-what-is/">Services cloud</a> par abonnement</p></td>
    <td valign="middle"><p>Déconseillé<sup>3</sup></p></td>
    <td valign="middle"><p>Déconseillé<sup>3</sup></p></td>
@@ -52,4 +57,4 @@
 
 <sup>3</sup>Ces fonctionnalités ne sont plus nécessaires avec les groupes de ressources Azure et Azure Resource Manager.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

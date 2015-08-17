@@ -7,6 +7,7 @@
 	editor=""
 	services="mobile-services"/>
 
+
 <tags
 	ms.service="mobile-services"
 	ms.workload="mobile"
@@ -15,6 +16,7 @@
 	ms.topic="article"
 	ms.date="07/01/2015" 
 	ms.author="krisragh;donnam"/>
+
 
 
 # Gestion des conflits liés à la synchronisation des données hors connexion dans Mobile Services
@@ -51,7 +53,7 @@ Les fonctions de synchronisation hors connexion du Kit de développement logicie
 
 ### <a name="update-list-view"></a>Mise à jour du contrôleur d'affichage de la liste des tâches
 
-1. Sélectionnez **MainStoryboard_iPhone.storyboard** dans l'Explorateur de projets Xcode, puis sélectionnez **Contrôleur d'affichage de la liste des tâches**. Sélectionnez la cellule d'affichage de table et définissez Mode accessoire sur **Indicateur de divulgation**. L'indicateur de divulgation indique aux utilisateurs que s'ils appuient sur le contrôleur d'affichage de table associé, une nouvelle vue s'affichera. L'indicateur de divulgation ne produit aucun événement.
+1. Sélectionnez **MainStoryboard\_iPhone.storyboard** dans l'Explorateur de projets Xcode, puis sélectionnez **Contrôleur d'affichage de la liste des tâches**. Sélectionnez la cellule d'affichage de table et définissez Mode accessoire sur **Indicateur de divulgation**. L'indicateur de divulgation indique aux utilisateurs que s'ils appuient sur le contrôleur d'affichage de table associé, une nouvelle vue s'affichera. L'indicateur de divulgation ne produit aucun événement.
 
       ![][update-todo-list-view-controller-2]
 
@@ -145,7 +147,7 @@ Les fonctions de synchronisation hors connexion du Kit de développement logicie
 
 ### <a name="add-segue"></a>Ajout d'un contrôleur d'affichage des tâches et d'un segue au storyboard
 
-1. Revenez au fichier **MainStoryboard_iPhone.storyboard** à l'aide de l'Explorateur de projets.
+1. Revenez au fichier **MainStoryboard\_iPhone.storyboard** à l'aide de l'Explorateur de projets.
 
 2. Ajoutez un nouveau contrôleur d'affichage pour la tâche au storyboard, à droite du **Contrôleur d'affichage de la liste des tâches** existant. Définissez la classe personnalisée de ce nouveau contrôleur d'affichage sur **QSItemViewController**. Pour en savoir plus, consultez la page [Ajout d'une scène à un storyboard].
 
@@ -171,8 +173,7 @@ Les fonctions de synchronisation hors connexion du Kit de développement logicie
 
 7. Vérifiez que l'application fonctionne avec toutes les modifications que vous avez apportées jusqu'ici. Exécutez à présent l'application dans le simulateur. Ajoutez des éléments à la liste des tâches, puis cliquez sur ces éléments. Le contrôleur d'affichage des éléments (actuellement vide) apparaît.
 
-      ![][add-todo-item-view-controller-4]
-      ![][add-todo-item-view-controller-5]
+      ![][add-todo-item-view-controller-4] ![][add-todo-item-view-controller-5]
 
 ### <a name="add-item-details"></a>Ajout des détails des éléments au contrôleur d'affichage des tâches
 
@@ -472,4 +473,4 @@ Au cours du processus, vous avez ajouté une classe d'assistance **QSUIAlertView
 [Get started with Mobile Services]: mobile-services-ios-get-started.md
 [Get started with data]: mobile-services-ios-get-started-data.md
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

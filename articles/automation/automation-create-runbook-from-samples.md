@@ -12,7 +12,7 @@
 	ms.workload="tbd"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="get-started-article" 
+	ms.topic="hero-article" 
 	ms.date="05/19/2015"
 	ms.author="bwren"/>
 
@@ -26,7 +26,7 @@ Microsoft Azure Automation permet aux développeurs d'automatiser les tâches r�
 ## Didacticiel
 Le didacticiel vous guide dans la création d'un compte Automation, l'importation d'un exemple de Runbook « HelloWorld » dans Azure Automation, l'exécution du Runbook et l'affichage de sa sortie.
 
-Pour suivre le didacticiel, vous devez disposer d'un abonnement Azure. Si vous n'avez pas encore d'abonnement, vous pouvez <a href="/pricing/member-offers/msdn-benefits-details/" target="_blank">activer vos avantages abonnés MSDN</a> ou vous <a href="/pricing/free-trial/" target="_blank">inscrire pour une évaluation gratuite</a>.
+Pour suivre le didacticiel, vous devez disposer d'un abonnement Azure. Si vous n'avez pas encore d'abonnement, vous pouvez [activer vos avantages abonnés MSDN](../pricing/member-offers/msdn-benefits-details/) ou vous [inscrire pour un essai gratuit](../pricing/free-trial.md)</a>.
 
 [AZURE.INCLUDE [automation-note-authentication](../../includes/automation-note-authentication.md)]
 
@@ -138,7 +138,7 @@ Microsoft et la communauté Azure Automation fournissent des exemples de Runbook
 
 ## Commentaires
 
-<strong>Envoyez-nous vos commentaires !</strong> Si vous recherchez un module d'intégration ou une solution de Runbook Azure Automation, envoyez une demande de script au Centre de scripts. Le cas échéant, publiez vos commentaires ou demandes de fonctionnalités pour Azure Automation sur [User Voice](http://feedback.windowsazure.com/forums/34192--general-feedback). Merci !
+**Envoyez-nous vos commentaires !** Si vous recherchez un module d'intégration ou une solution de Runbook Azure Automation, envoyez une demande de script au Centre de scripts. Le cas échéant, publiez vos commentaires ou demandes de fonctionnalités pour Azure Automation sur [User Voice](http://feedback.windowsazure.com/forums/34192--general-feedback). Merci !
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

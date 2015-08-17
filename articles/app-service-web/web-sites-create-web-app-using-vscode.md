@@ -7,6 +7,7 @@
    manager="wpickett"
    editor="jimbe"/>
 
+
 <tags
 	ms.service="app-service-web" 
 	ms.workload="web" 
@@ -15,6 +16,7 @@
 	ms.topic="article" 
 	ms.date="06/14/2015" 
 	ms.author="erikre;tarcher"/>
+
 
 # Création d’une application Web ASP.NET 5 dans Visual Studio Code
 
@@ -127,7 +129,7 @@ Maintenant que vous avez créé l'application Web et extrait tous les packages N
 
 5. Ouvrez un navigateur et accédez à l'URL suivante.
 
-	**http://localhost:5001**
+	****http://localhost:5001**
 
 	La page par défaut de l’application Web apparaîtra comme suit.
 
@@ -187,8 +189,8 @@ Git est un système de contrôle de version distribué permettant de déployer v
 
 	![Informations d’identification sur le déploiement dans Microsoft Azure](./media/web-sites-create-web-app-using-vscode/16-azure-credentials.png)
 
-9. Dans le panneau de l’application Web, cliquez sur **Paramètres > Propriétés**. L'URL du référentiel Git distant vers lequel vous allez déployer se trouve sous \*\*
-10.  URL\*\*.
+9. Dans le panneau de l’application Web, cliquez sur **Paramètres > Propriétés**. L'URL du référentiel Git distant vers lequel vous allez déployer se trouve sous **
+10.  URL**.
 
 10. Copiez la valeur **URL GIT** pour pouvoir l’utiliser plus tard dans le didacticiel.
 
@@ -236,7 +238,7 @@ Dans cette section, vous créerez un référentiel Git local et vous effectuerez
 		To https://user@testsite.scm.azurewebsites.net/testsite.git
 		[new branch]      master -> master
 
-> [AZURE.NOTE]Si vous apportez des modifications à votre application, vous pouvez republier directement dans VS Code à l'aide de la fonctionnalité intégrée de Git en sélectionnant l'option **Valider tout** suivie de l'option **Push**. Vous trouverez l'option **Push** disponible dans le menu déroulant à côté des boutons **Valider tout** et **Actualiser**.
+> [AZURE.NOTE]Si vous apportez des modifications à votre application, vous pouvez republier directement dans VS Code à l'aide de la fonctionnalité intégrée de Git en sélectionnant l'option **Valider tout** suivie de l'option **Push**. Vous trouverez l'option **Push** dans le menu déroulant à côté des boutons **Valider tout** et **Actualiser**.
 
 Si vous avez besoin de collaborer sur un projet, envisagez d'alterner les commandes push vers GitHub et les commandes push vers Azure.
 
@@ -256,4 +258,4 @@ Cette opération peut être réalisée de deux manières :
 ## Résumé
 Dans ce didacticiel, vous avez appris à créer une application Web dans VS Code et à le déployer dans Azure. Pour plus d'informations sur VS Code, consultez l'article [Pourquoi VS Code ?](https://code.visualstudio.com/Docs/). Pour plus d'informations sur les applications Web App Service, consultez la [Vue d'ensemble des applications Web](app-service-web-overview.md).
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

@@ -63,4 +63,4 @@ Si de nouvelles informations d'identification ont été fournies lors de l'insta
 [4]: ./media/sql-database-elastic-jobs-service-installation/incomplete.png
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

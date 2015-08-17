@@ -1,11 +1,12 @@
 <properties 
-	pageTitle="Niveaux de performances dans DocumentDB | Azure" 
+	pageTitle="Niveaux de performances dans DocumentDB | Microsoft Azure" 
 	description="Découvrez comment les niveaux de performances dans DocumentDB permettent de réserver le débit pour chaque collection." 
 	services="documentdb" 
 	authors="johnfmacintyre" 
 	manager="jhubbard" 
 	editor="monicar" 
 	documentationCenter=""/>
+
 
 <tags 
 	ms.service="documentdb" 
@@ -15,6 +16,7 @@
 	ms.topic="article" 
 	ms.date="07/21/2015" 
 	ms.author="johnmac"/>
+
 
 #Niveaux de performances dans DocumentDB
 
@@ -141,4 +143,4 @@ Pour en savoir plus sur DocumentDB, consultez la [documentation](http://azure.mi
 
 [1]: ./media/documentdb-performance-levels/img1.png
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

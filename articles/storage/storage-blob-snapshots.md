@@ -7,6 +7,7 @@
 	manager="adinah" 
 	editor=""/>
 
+
 <tags 
 	ms.service="storage" 
 	ms.workload="storage" 
@@ -15,6 +16,7 @@
 	ms.topic="article" 
 	ms.date="05/27/2015" 
 	ms.author="tamram"/>
+
 
 # Création d’un instantané d’objet blob
 
@@ -125,4 +127,4 @@ Dans le scénario 4, l’objet blob de base a été complètement mis à jour et
 
 ![Azure Storage Resources](./media/storage-blob-snapshots/storage-blob-snapshots-billing-scenario-4.png)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->
