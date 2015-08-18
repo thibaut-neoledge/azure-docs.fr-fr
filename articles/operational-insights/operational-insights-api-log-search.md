@@ -199,7 +199,7 @@ Le tableau suivant décrit les propriétés qui sont disponibles
 	armclient post /subscriptions/{SubId}/resourceGroups/{ResourceGroupId}/providers/Microsoft.OperationalInsights/workspaces/{WorkspaceName}/search/{SearchId}?api-version=2014-10-10
 ```
 
->[AZURE.NOTE]Si la recherche renvoie un état « En attente », une interrogation des résultats mis à jour peut alors être réalisée via cette API. Après 6 minutes, le résultat de la recherche est supprimé du cache et Http Gone est renvoyé. Si la demande de recherche initiale a renvoyé immédiatement un état « Succès », le résultat ne sera pas ajouté au cache, ce qui signifie que cette API devra retourner Http Gone si elle est interrogée. Le contenu d'un résultat Http 200 sera présenté sous le même format que la demande de recherche initiale, avec des valeurs qui auront été mises à jour.
+>[AZURE.NOTE] Si la recherche renvoie un état « En attente », une interrogation des résultats mis à jour peut alors être réalisée via cette API. Après 6 minutes, le résultat de la recherche est supprimé du cache et Http Gone est renvoyé. Si la demande de recherche initiale a renvoyé immédiatement un état « Succès », le résultat ne sera pas ajouté au cache, ce qui signifie que cette API devra retourner Http Gone si elle est interrogée. Le contenu d'un résultat Http 200 sera présenté sous le même format que la demande de recherche initiale, avec des valeurs qui auront été mises à jour.
 
 ### Recherches enregistrées - REST uniquement
 
@@ -207,7 +207,7 @@ Le tableau suivant décrit les propriétés qui sont disponibles
 
 ```
 	armclient get /subscriptions/{SubId}/resourceGroups/{ResourceGroupId}/providers/Microsoft.OperationalInsights/workspaces/{WorkspaceName}/savedSearches?api-version=2014-10-10
-```
+  ```
 
 Méthodes prises en charge : GET PUT DELETE
 
@@ -223,7 +223,7 @@ Le tableau suivant décrit les propriétés qui sont disponibles
 |properties.displayName|**Requis**. Nom d'affichage de la requête défini par l'utilisateur. S'il est modélisé en tant que ressource Azure, il s'agit d'une balise.|
 |properties.category|**Requis**. Catégorie de la requête définie par l'utilisateur. Si elle est modélisée en tant que ressource Azure, il s'agit d'une balise.|
 
->[AZURE.NOTE]Actuellement, l'API de recherche Operational Insights retourne des recherches enregistrées créées par l'utilisateur lorsqu'elle est interrogée concernant les recherches enregistrées dans un espace de travail. Pour le moment, l'API ne retourne pas de recherches enregistrées fournies par les solutions. Cette fonctionnalité sera ajoutée à une date ultérieure.
+>[AZURE.NOTE] Actuellement, l'API de recherche Operational Insights retourne des recherches enregistrées créées par l'utilisateur lorsqu'elle est interrogée concernant les recherches enregistrées dans un espace de travail. Pour le moment, l'API ne retourne pas de recherches enregistrées fournies par les solutions. Cette fonctionnalité sera ajoutée à une date ultérieure.
 
 ### Supprimer les recherches enregistrées
 
@@ -302,7 +302,8 @@ Les informations suivantes décrivent les paramètres facultatifs disponibles.
 
 Le paramètre « Highlight » est un paramètre facultatif que vous pouvez utiliser pour demander au sous-système de recherche d'inclure un jeu de marqueurs dans sa réponse.
 
-Ces marqueurs indiquent le début et la fin du texte mis en surbrillance qui correspond aux critères fournis dans votre requête de recherche. Vous pouvez spécifier les marqueurs de début et de fin qui seront utilisés par la recherche pour encapsuler le terme en surbrillance.
+Ces marqueurs indiquent le début et la fin du texte mis en surbrillance qui correspond aux critères fournis dans votre requête de recherche.
+Vous pouvez spécifier les marqueurs de début et de fin qui seront utilisés par la recherche pour encapsuler le terme en surbrillance.
 
 **Exemple de requête de recherche**
 
@@ -347,4 +348,4 @@ Ces marqueurs indiquent le début et la fin du texte mis en surbrillance qui cor
 
 Notez que le résultat ci-dessus contient un message d'erreur qui a été préfixé et ajouté.
 
-<!---HONumber=August15_HO6-->
+<!------HONumber=August15_HO6-->

@@ -40,7 +40,7 @@ Ce didacticiel est basé sur [GetStartedWithData][Developer Code Samples site], 
 
 1. Téléchargez le projet de l'exemple d'application GetStartedWithData sur le [site d'exemples de code développeur]. 
 
-	>[AZURE.NOTE]Pour créer une application Silverlight pour Windows Phone 8.1, il vous suffit de remplacer par Windows Phone 8.1 le système d'exploitation cible dans le projet d'application Silverlight pour Windows Phone 8 téléchargé. Pour créer une application Windows Phone Store, téléchargez la [version Windows Phone Store de l'application](http://go.microsoft.com/fwlink/p/?LinkId=397372) du projet de l'exemple d'application GetStartedWithData.
+	>[AZURE.NOTE] Pour créer une application Silverlight pour Windows Phone 8.1, il vous suffit de remplacer par Windows Phone 8.1 le système d'exploitation cible dans le projet d'application Silverlight pour Windows Phone 8 téléchargé. Pour créer une application Windows Phone Store, téléchargez la [version Windows Phone Store de l'application](http://go.microsoft.com/fwlink/p/?LinkId=397372) du projet de l'exemple d'application GetStartedWithData.
 
 2. Dans Visual Studio, ouvrez le projet téléchargé et examinez le fichier MainPage.xaml.cs.
 
@@ -193,4 +193,4 @@ Ce didacticiel a présenté les bases de l'activation d'une application Windows 
 [site d'exemples de code développeur]: http://go.microsoft.com/fwlink/p/?LinkId=271146
  
 
-<!---HONumber=August15_HO6-->
+<!------HONumber=August15_HO6-->

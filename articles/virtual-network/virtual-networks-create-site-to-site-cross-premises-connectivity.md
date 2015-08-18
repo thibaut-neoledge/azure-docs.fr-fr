@@ -64,7 +64,8 @@ Si vous utilisez ce didacticiel pour configurer un réseau virtuel fonctionnel e
 
 -  Vous devez avoir un périphérique VPN avec une adresse IPv4 publique. Une adresse IP est obligatoire pour terminer l'Assistant. Le périphérique VPN doit respecter les standards minimum de périphérique et ne doit pas se trouver derrière un traducteur d’adresses réseau (NAT). Pour plus d'informations, consultez la page [À propos des périphériques VPN pour Virtual Network](http://go.microsoft.com/fwlink/p/?LinkID=248098).
 
-	Remarque : vous pouvez utiliser le service Routage et accès distant (RRAS) dans Windows Server dans le cadre de votre solution VPN. Cependant, ce didacticiel ne présente pas la procédure de configuration RRAS. Pour obtenir des informations sur la configuration RRAS, consultez la page [Modèles de service Routage et accès distant](http://msdn.microsoft.com/library/windowsazure/dn133801.aspx).
+	Remarque : vous pouvez utiliser le service Routage et accès distant (RRAS) dans Windows Server dans le cadre de votre solution VPN. Cependant, ce didacticiel ne présente pas la procédure de configuration RRAS.
+	Pour obtenir des informations sur la configuration RRAS, consultez la page [Modèles de service Routage et accès distant](http://msdn.microsoft.com/library/windowsazure/dn133801.aspx).
 
 -  Une expérience préalable ou une collaboration avec une personne expérimentée dans la configuration de routeur pour une connexion en mode de tunnel IPsec peut vous être utile.
 
@@ -98,7 +99,7 @@ Pour créer un réseau virtuel d'illustration connecté à un réseau d'entrepri
 	
 4.	Sur la page **Serveurs DNS et connectivité VPN**, entrez les informations suivantes, puis cliquez sur la flèche Suivant située dans le coin inférieur droit.
 
-> [AZURE.NOTE]Sur cette page, vous pouvez sélectionner simultanément les configurations **Pointer vers un site** et **Site à site.** Dans le cadre de ce didacticiel, seule la configuration **Site à site** est sélectionnée. Pour plus d'informations sur la configuration de cette page, consultez la section **Serveurs DNS et connectivité VPN** dans [À propos de la configuration d'un réseau virtuel à l'aide du portail de gestion](http://go.microsoft.com/fwlink/p/?LinkID=248092).
+> [AZURE.NOTE] Sur cette page, vous pouvez sélectionner simultanément les configurations **Pointer vers un site** et **Site à site.** Dans le cadre de ce didacticiel, seule la configuration **Site à site** est sélectionnée. Pour plus d'informations sur la configuration de cette page, consultez la section **Serveurs DNS et connectivité VPN** dans [À propos de la configuration d'un réseau virtuel à l'aide du portail de gestion](http://go.microsoft.com/fwlink/p/?LinkID=248092).
 
 	-  **DNS SERVERS:** Enter the DNS server name and IP address that you want to use for name resolution. Typically this would be a DNS server that you use for on-premises name resolution. This setting does not create a DNS server. For the example in this tutorial, type **YourDNS** for the name and **10.1.0.4** for the IP address.
 	-  **Configure Point-To-Site VPN:** Leave this field blank. 
@@ -215,30 +216,30 @@ Cette procédure part des principes suivants :
 3.	Testez votre connexion en exécutant l'une des commandes suivantes :
 
 	<table border="1">
-<tr>
-<th>-</th>
-<th>Cisco ASA</th>
-<th>Cisco ISR/ASR</th>
-<th>Juniper SSG/ISG</th>
-<th>Juniper SRX/J</th>
-</tr>
-
-<tr>
-<td><b>Vérification de toutes les associations de sécurité en mode principal</b></td>
-<td><FONT FACE="courier" SIZE="-1">show crypto isakmp sa</FONT></td>
-<td><FONT FACE="courier" SIZE="-1">show crypto isakmp sa</FONT></td>
-<td><FONT FACE="courier" SIZE="-1">get ike cookie</FONT></td>
-<td><FONT FACE="courier" SIZE="-1">show security ike security-association</FONT></td>
-</tr>
-
-<tr>
-<td><b>Vérification des associations de sécurité en mode rapide</b></td>
-<td><FONT FACE="courier" SIZE="-1">show crypto ipsec sa</FONT></td>
-<td><FONT FACE="courier" SIZE="-1">show crypto ipsec sa</FONT></td>
-<td><FONT FACE="courier" SIZE="-1">get sa</FONT></td>
-<td><FONT FACE="courier" SIZE="-1">show security ipsec security-association</FONT></td>
-</tr>
-</table>
+	<tr>
+	<th>-</th>
+	<th>Cisco ASA</th>
+	<th>Cisco ISR/ASR</th>
+	<th>Juniper SSG/ISG</th>
+	<th>Juniper SRX/J</th>
+	</tr>
+	
+	<tr>
+	<td><b>Vérification de toutes les associations de sécurité en mode principal</b></td>
+	<td><FONT FACE="courier" SIZE="-1">show crypto isakmp sa</FONT></td>
+	<td><FONT FACE="courier" SIZE="-1">show crypto isakmp sa</FONT></td>
+	<td><FONT FACE="courier" SIZE="-1">get ike cookie</FONT></td>
+	<td><FONT FACE="courier" SIZE="-1">show security ike security-association</FONT></td>
+	</tr>
+	
+	<tr>
+	<td><b>Vérification des associations de sécurité en mode rapide</b></td>
+	<td><FONT FACE="courier" SIZE="-1">show crypto ipsec sa</FONT></td>
+	<td><FONT FACE="courier" SIZE="-1">show crypto ipsec sa</FONT></td>
+	<td><FONT FACE="courier" SIZE="-1">get sa</FONT></td>
+	<td><FONT FACE="courier" SIZE="-1">show security ipsec security-association</FONT></td>
+	</tr>
+	</table>
 
 
 ##  Étapes suivantes
@@ -271,4 +272,4 @@ Si vous voulez exporter les paramètres de votre réseau virtuel dans un fichier
 
  
 
-<!---HONumber=August15_HO6-->
+<!-----HONumber=August15_HO6-->

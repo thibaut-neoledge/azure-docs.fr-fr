@@ -47,7 +47,7 @@ Cet article ne fournit pas une vue d'ensemble conceptuelle du service Azure Dat
 
 	![Panneau Nouvelle fabrique de données](./media/data-factory-build-your-first-pipeline-using-vs/new-data-factory-blade.png)
 
-	> [AZURE.IMPORTANT]Les noms Azure Data Factory sont globalement uniques. Vous devez faire précéder le nom de la fabrique de données par votre nom, pour activer la création de la fabrique. 
+	> [AZURE.IMPORTANT] Les noms Azure Data Factory sont globalement uniques. Vous devez faire précéder le nom de la fabrique de données par votre nom, pour activer la création de la fabrique. 
 3.	Si vous n’avez pas créé de groupe de ressources, vous devez en créer un. Pour ce faire :
 	1.	Cliquez sur **NOM DU GROUPE DE RESSOURCES**.
 	2.	Sélectionnez **Créer un groupe de ressources** dans le panneau **Groupe de ressources**.
@@ -70,7 +70,9 @@ Dans les étapes suivantes, vous apprendrez à créer les services liés, les je
 
 ### Conditions préalables
 
-Vous devez avoir installé le logiciel suivant sur votre ordinateur : - Visual Studio 2013 - Téléchargez le Kit de développement logiciel (SDK) Azure pour Visual Studio 2013. Accédez à la [page de téléchargement d’Azure](http://azure.microsoft.com/downloads/), puis cliquez sur **Installation de Visual Studio 2013** dans la section **.NET**.
+Vous devez avoir installé le logiciel suivant sur votre ordinateur :
+- Visual Studio 2013
+- Téléchargez le Kit de développement logiciel (SDK) Azure pour Visual Studio 2013. Accédez à la [page de téléchargement d’Azure](http://azure.microsoft.com/downloads/), puis cliquez sur **Installation de Visual Studio 2013** dans la section **.NET**.
 
 
 ### Créer le projet Visual Studio 
@@ -246,4 +248,4 @@ Consultez [Surveiller les jeux de données et le pipeline](data-factory-monitor-
 Dans cet article, vous avez créé un pipeline avec une activité de transformation (Activité HDInsight) qui exécute un script Hive sur un cluster HDInsight à la demande. Pour apprendre à utiliser une activité de copie pour copier des données à partir d'un objet blob Azure dans Azure SQL, consultez le [didacticiel : copie de données depuis un objet blob Azure vers Azure SQL](data-factory-get-started.md).
   
 
-<!---HONumber=August15_HO6-->
+<!------HONumber=August15_HO6-->
