@@ -45,7 +45,7 @@ Les jeux de sauvegarde filtrés sont ensuite affichés sous forme de tableau sur
 
 Vous pouvez utiliser la page **Catalogue de sauvegarde** pour restaurer votre volume StorSimple à partir d’une sauvegarde spécifique. N’oubliez pas cependant que la restauration d’un volume rétablit l’état dans lequel il se trouvait au moment de la sauvegarde. Toutes les données qui ont été ajoutées après l’opération de sauvegarde seront perdues.
 
-> [AZURE.WARNING] La restauration à partir d’une sauvegarde remplace les volumes existants à partir de la sauvegarde. Cela peut entraîner la perte des données qui ont été écrites après la sauvegarde.
+> [AZURE.WARNING]La restauration à partir d’une sauvegarde remplace les volumes existants à partir de la sauvegarde. Cela peut entraîner la perte des données qui ont été écrites après la sauvegarde.
 
 
 ### Pour restaurer à partir d’un jeu de sauvegarde
@@ -58,9 +58,7 @@ Vous pouvez utiliser la page **Catalogue de sauvegarde** pour restaurer votre vo
   1. Sélectionnez l’appareil approprié.
   2. Dans la liste déroulante, choisissez la stratégie de sauvegarde ou le volume pour la sauvegarde à sélectionner.
   3. Indiquez l’intervalle de temps.
-  4. Cliquez sur l’icône en forme de coche
-
-    ![icône en forme de coche](./media/storsimple-restore-from-backup-set/HCS_CheckIcon.png) pour exécuter cette requête.
+  4. Cliquez sur l’icône en forme de coche ![icône en forme de coche](./media/storsimple-restore-from-backup-set/HCS_CheckIcon.png) pour exécuter cette requête.
  
     Les sauvegardes associées au volume ou à la stratégie de sauvegarde sélectionné doivent figurer dans la liste des jeux de sauvegarde.
 
@@ -84,4 +82,4 @@ Vous pouvez utiliser la page **Catalogue de sauvegarde** pour restaurer votre vo
 
 En savoir plus sur la [gestion des volumes StorSimple](storsimple-manage-volumes.md)
 
-<!-----HONumber=August15_HO6-->
+<!-------HONumber=August15_HO6-->
