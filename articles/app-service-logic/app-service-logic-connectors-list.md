@@ -38,8 +38,7 @@ Nom | Description
 [Dropbox](app-service-logic-connector-dropbox.md) | Se connecte à Box et permet notamment d’obtenir, de supprimer et de répertorier des fichiers.
 [Facebook](app-service-logic-connector-facebook.md) | Se connecte à Facebook et permet notamment de publier des messages et des images. Vous pouvez également obtenir des messages et des commentaires, obtenir des informations utilisateur sur les différents » J’aime », comme les livres et les films.
 [File](app-service-logic-connector-file.md) | À l'aide de ce connecteur, vous pouvez vous connecter au réseau ou système de fichiers local, et notamment télécharger, supprimer et répertorier des fichiers.
-[FTP<br/>
-FTPS](app-service-logic-connector-ftp.md) | Se connecte à un serveur FTP/FTPS et permet notamment de télécharger; d’obtenir et de supprimer des fichiers.
+[FTP<br/>FTPS](app-service-logic-connector-ftp.md) | Se connecte à un serveur FTP/FTPS et permet notamment de télécharger; d’obtenir et de supprimer des fichiers.
 [HTTP](app-service-logic-connector-http.md) | L'écouteur HTTP ouvre un point de terminaison qui agit comme serveur HTTP et écoute les requêtes HTTP ou HTTPS entrantes. L'action HTTP ne nécessite aucune application API et est prise en charge en mode natif au sein des applications logiques.
 [Microsoft Office 365](app-service-logic-connector-office365.md) | Le connecteur Office 365 permet d'envoyer et recevoir des courriers électroniques, de gérer votre calendrier et de gérer vos contacts à l'aide de votre compte Office 365.
 [Microsoft OneDrive](app-service-logic-connector-onedrive.md) | Se connecte à votre Microsoft OneDrive personnel et permet notamment de télécharger, de supprimer et de répertorier des fichiers.
@@ -69,21 +68,9 @@ Nom | Description
 [Gestion des partenaires commerciaux BizTalk](app-service-logic-connector-tpm.md) | Permet de définir et de rendre persistantes les relations B2B (entreprise à entreprise) à l'aide de partenaires, contrats, schémas et certificats utilisés dans les contrats. Ces relations sont mises en œuvre à l’aide des applications API AS2, EDIFACT et X12.
 [Encodeur JSON BizTalk](app-service-logic-connector-jsonencoder.md) | Un encodeur et décodeur qui facilite l'interopérabilité de votre application entre les données JSON et XML. Il peut convertir une instance JSON donnée au format XML et vice versa.
 [Règles BizTalk](app-service-logic-use-biztalk-rules.md) | Utilisez les règles de BizTalk pour définir et contrôler la logique métier d'une organisation. Les stratégies d’entreprise peuvent être mises à jour sans recompilation ou redéploiement des applications associées.
-Connecteur DB2 | Se connecte à une base de données IBM DB2, localement et sur une machine virtuelle Azure exécutant un système d’exploitation Windows. Il peut mapper les opérations API web et API OData avec les commandes SQL Informix. <br/>
-<br/>
-Aucun déclencheur. Les actions comprennent les instructions table select, insert, update, delete et les instructions personnalisées<br/>
-<br/>
-Ce connecteur comprend également le client Microsoft pour DRDA pour se connecter à un serveur Informix via un réseau TCP/IP.
-Informix | Le connecteur DB2 se connecte à une base de données IBM Informix, localement et sur une machine virtuelle Azure exécutant un système d'exploitation Windows. Il peut mapper les opérations API web et API OData avec les commandes SQL Informix.<br/>
-<br/>
-Aucun déclencheur. Les actions comprennent les instructions table select, insert, update, delete et les instructions personnalisées.<br/>
-<br/>
-En mode local, VPN ou Azure ExpressRoute peut être utilisé. Ce connecteur comprend également un client Microsoft pour DRDA pour se connecter à un serveur Informix via un réseau TCP/IP.
-MQ | Se connecte à une base de données IBM WebSphere MQ Server version 8, sur site et sur une machine virtuelle Azure exécutant un système d'exploitation Windows. Lorsque vous l’utilisez en local, VPN ou ExpressRoute Azure peuvent être utilisés. Ce connecteur comprend également le client Microsoft pour MQ.<br/>
-<br/>
-Aucun déclencheur. Aucune action.<br/>
-<br/>
-**Remarque** Ne peut actuellement pas être utilisé avec les applications logiques.
+Connecteur DB2 | Se connecte à une base de données IBM DB2, localement et sur une machine virtuelle Azure exécutant un système d’exploitation Windows. Il peut mapper les opérations API web et API OData avec les commandes SQL Informix. <br/><br/>Aucun déclencheur. Les actions comprennent les instructions table select, insert, update, delete et les instructions personnalisées<br/><br/>Ce connecteur comprend également le client Microsoft pour DRDA pour se connecter à un serveur Informix via un réseau TCP/IP.
+Informix | Le connecteur DB2 se connecte à une base de données IBM Informix, localement et sur une machine virtuelle Azure exécutant un système d'exploitation Windows. Il peut mapper les opérations API web et API OData avec les commandes SQL Informix.<br/><br/>Aucun déclencheur. Les actions comprennent les instructions table select, insert, update, delete et les instructions personnalisées.<br/><br/>En mode local, VPN ou Azure ExpressRoute peut être utilisé. Ce connecteur comprend également un client Microsoft pour DRDA pour se connecter à un serveur Informix via un réseau TCP/IP.
+MQ | Se connecte à une base de données IBM WebSphere MQ Server version 8, sur site et sur une machine virtuelle Azure exécutant un système d'exploitation Windows. Lorsque vous l’utilisez en local, VPN ou ExpressRoute Azure peuvent être utilisés. Ce connecteur comprend également le client Microsoft pour MQ.<br/><br/>Aucun déclencheur. Aucune action.<br/><br/>**Remarque** Ne peut actuellement pas être utilisé avec les applications logiques.
 [Oracle Database](app-service-logic-connector-oracle.md) | Se connecte à une base de données Oracle localement et permet de créer, de mettre à jour, d’obtenir et de supprimer des entrées dans une table de la base de données.
 [SAP](app-service-logic-connector-sap.md) | Se connecte à un serveur SAP local et appelle des RFC, BAPI et TRFC, et permet d'envoyer des IDOC.
 [Encodeur de fichier plat BizTalk](app-service-logic-flatfile-encoder.md) | Fournit une interopérabilité entre des données de fichier plat (comme Excel et csv) et des données XML. Cette application API peut convertir une instance de fichier plat au format XML et vice versa.
@@ -112,4 +99,4 @@ Vous pouvez aussi utiliser des connecteurs comme actions au sein de votre applic
  [Utilisation du Gestionnaire des connexions hybrides dans Azure App Service](app-service-logic-hybrid-connection-manager.md)<br/>
  [Gestion et contrôle de vos connecteurs et applications API intégrés](app-service-logic-monitor-your-connectors.md)
 
-<!---HONumber=August15_HO6-->
+<!----HONumber=August15_HO6-->

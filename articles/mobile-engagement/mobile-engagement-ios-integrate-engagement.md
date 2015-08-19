@@ -7,7 +7,6 @@
 	manager="dwrede"
 	editor="" />
 
-
 <tags
 	ms.service="mobile-engagement"
 	ms.workload="mobile"
@@ -16,7 +15,6 @@
 	ms.topic="article"
 	ms.date="08/05/2015"
 	ms.author="MehrdadMzfr" />
-
 
 #Intégration d'Engagement sur iOS
 
@@ -45,7 +43,7 @@ Engagement nécessite des infrastructures supplémentaires pour fonctionner : d
 > -   `CoreLocation.framework`
 > -   `libxml2.dylib`
 
-> [AZURE.NOTE]L'infrastructure AdSupport peut être supprimée. Engagement en a besoin pour collecter l'IDFA. Toutefois, il est possible de désactiver la collection de l'IDFA <ios-sdk-engagement-idfa> pour se conformer à la nouvelle politique d'Apple concernant cet ID.
+> [AZURE.NOTE]L'infrastructure AdSupport peut être supprimée. Engagement en a besoin pour collecter l'IDFA. Toutefois, il est possible de désactiver la collection de l'IDFA \<ios-sdk-engagement-idfa\> pour se conformer à la nouvelle politique d'Apple concernant cet ID.
 
 ##Initialiser le SDK Engagement
 
@@ -210,4 +208,4 @@ L'exemple suivant de `Settings.bundle` montre comment l'implémenter :
 [startMonitoringSignificantLocationChanges]: http://developer.apple.com/library/IOs/#documentation/CoreLocation/Reference/CLLocationManager_Class/CLLocationManager/CLLocationManager.html#//apple_ref/occ/instm/CLLocationManager/startMonitoringSignificantLocationChanges
 [IDFA]: https://developer.apple.com/library/ios/documentation/AdSupport/Reference/ASIdentifierManager_Ref/ASIdentifierManager.html#//apple_ref/occ/instp/ASIdentifierManager/advertisingIdentifier
 
-<!---HONumber=August15_HO6-->
+<!----HONumber=August15_HO6-->

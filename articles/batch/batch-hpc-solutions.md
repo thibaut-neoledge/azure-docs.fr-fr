@@ -41,36 +41,8 @@ Contrairement aux applications Web et à de nombreuses applications métier, les
 
 Type | Caractéristiques | Exemples
 ------------- | ----------- | ---------------
-**Intrinsèquement parallèles**<br/>
-<br/>
-![Intrinsèquement parallèles][parallel] |• Les ordinateurs exécutent la logique applicative indépendamment<br/>
-<br/>
-• L’ajout d’ordinateurs permet à l'application une mise à l’échelle et une réduction du temps de calcul<br/>
-<br/>
-• L’application se compose d'exécutables séparés ou est divisée en un groupe de services appelés par un client (une application SOA ou une architecture orientée services) |• Modélisation de risques financiers<br/>
-<br/>
-• Rendu et traitement d'image<br/>
-<br/>
-• Codage et transcodage de fichiers multimédia<br/>
-<br/>
-• Simulations Monte Carlo<br/>
-<br/>
-• Tests de logiciels
-**Fortement couplées**<br/>
-<br/>
-![Fortement couplées][coupled] |• L’application requiert des nœuds de calcul pour interagir ou échanger des résultats intermédiaires<br/>
-<br/>
-• Les nœuds de calcul peuvent communiquer à l'aide de l'interface MPI (Message Passing), un protocole de communication commun pour l'informatique parallèle<br/>
-<br/>
-• L'application est sensible à la latence du réseau et à la bande passante<br/>
-<br/>
-• Les performances de l'application peuvent être améliorées en utilisant une infrastructure de calcul prenant en charge les technologies de réseau à haut débit comme InfiniBand et l'accès direct à la mémoire à distance (RDMA) |• Modélisation de réservoirs de pétrole et de gaz<br/>
-<br/>
-• Conception et analyse d’ingénierie, comme la dynamique des fluides informatisée<br/>
-<br/>
-• Simulations physiques comme des accidents automobiles et les réactions nucléaires<br/>
-<br/>
-• Prévisions météorologiques
+**Intrinsèquement parallèles**<br/><br/>![Intrinsèquement parallèles][parallel] |• Les ordinateurs exécutent la logique applicative indépendamment<br/><br/> • L’ajout d’ordinateurs permet à l'application une mise à l’échelle et une réduction du temps de calcul<br/><br/>• L’application se compose d'exécutables séparés ou est divisée en un groupe de services appelés par un client (une application SOA ou une architecture orientée services) |• Modélisation de risques financiers<br/><br/> • Rendu et traitement d'image<br/><br/> • Codage et transcodage de fichiers multimédia<br/><br/>• Simulations Monte Carlo<br/><br/>• Tests de logiciels
+**Fortement couplées**<br/><br/>![Fortement couplées][coupled] |• L’application requiert des nœuds de calcul pour interagir ou échanger des résultats intermédiaires<br/><br/>• Les nœuds de calcul peuvent communiquer à l'aide de l'interface MPI (Message Passing), un protocole de communication commun pour l'informatique parallèle<br/><br/>• L'application est sensible à la latence du réseau et à la bande passante<br/><br/>• Les performances de l'application peuvent être améliorées en utilisant une infrastructure de calcul prenant en charge les technologies de réseau à haut débit comme InfiniBand et l'accès direct à la mémoire à distance (RDMA) |• Modélisation de réservoirs de pétrole et de gaz<br/><br/>• Conception et analyse d’ingénierie, comme la dynamique des fluides informatisée<br/><br/>• Simulations physiques comme des accidents automobiles et les réactions nucléaires<br/><br/>• Prévisions météorologiques
 
 ### Considérations relatives à l'exécution d’applications Batch et HPC dans le cloud
 
@@ -134,27 +106,9 @@ Les services de calcul dans Azure sont au cœur des solutions Big Compute. Les 
 
 de diffusion en continu | Description
 ------------- | -----------
-**[Cloud Services](http://azure.microsoft.com/documentation/services/cloud-services)**<br/>
-<br/>
- |• Peuvent exécuter des applications Big Compute dans des instances de rôle de travail, qui sont des machines virtuelles qui exécutent une version de Windows Server et sont entièrement gérées par Azure<br/>
-<br/>
-• Fournissent des applications évolutives et fiables avec une charge administrative basse, exécutées dans un modèle de plateforme en tant que service (PaaS)<br/>
-<br/>
-• Peuvent nécessiter un développement ou des outils supplémentaires pour une intégration avec les solutions de cluster HPC locales
-**[Ordinateurs virtuels](http://azure.microsoft.com/documentation/services/virtual-machines)**<br/>
-<br/>
- |• Fournissent l’infrastructure de calcul en tant que service (IaaS) à l'aide de la technologie Microsoft Hyper-V<br/>
-<br/>
-• Permettent de configurer et de gérer de manière flexible des ordinateurs cloud persistants depuis des images standard Windows Server ou Linux, ou encore des images et des disques de données que vous fournissez ou provenant d’[Azure Marketplace](https://azure.microsoft.com/marketplace/)<br/>
-<br/>
-• Exécutent les outils de clusters de calcul locaux et les applications entièrement dans le cloud
-**[Batch](http://azure.microsoft.com/documentation/services/batch)**<br/>
-<br/>
- |• Exécute des charges de travail à grande échelle parallèles et par lot comme le rendu d'image et le codage et transcodage multimédia dans un service entièrement géré<br/>
-<br/>
-• Fournit la planification des tâches et la mise à l'échelle automatique d'un pool d’ordinateurs virtuels géré<br/>
-<br/>
-• Permet aux développeurs de créer et d’exécuter des applications en tant que service ou d’adapter des applications existantes au cloud<br/>
+**[Cloud Services](http://azure.microsoft.com/documentation/services/cloud-services)**<br/><br/> |• Peuvent exécuter des applications Big Compute dans des instances de rôle de travail, qui sont des machines virtuelles qui exécutent une version de Windows Server et sont entièrement gérées par Azure<br/><br/>• Fournissent des applications évolutives et fiables avec une charge administrative basse, exécutées dans un modèle de plateforme en tant que service (PaaS)<br/><br/>• Peuvent nécessiter un développement ou des outils supplémentaires pour une intégration avec les solutions de cluster HPC locales
+**[Ordinateurs virtuels](http://azure.microsoft.com/documentation/services/virtual-machines)**<br/><br/>|• Fournissent l’infrastructure de calcul en tant que service (IaaS) à l'aide de la technologie Microsoft Hyper-V<br/><br/>• Permettent de configurer et de gérer de manière flexible des ordinateurs cloud persistants depuis des images standard Windows Server ou Linux, ou encore des images et des disques de données que vous fournissez ou provenant d’[Azure Marketplace](https://azure.microsoft.com/marketplace/)<br/><br/>• Exécutent les outils de clusters de calcul locaux et les applications entièrement dans le cloud
+**[Batch](http://azure.microsoft.com/documentation/services/batch)**<br/><br/>|• Exécute des charges de travail à grande échelle parallèles et par lot comme le rendu d'image et le codage et transcodage multimédia dans un service entièrement géré<br/><br/>• Fournit la planification des tâches et la mise à l'échelle automatique d'un pool d’ordinateurs virtuels géré<br/><br/>• Permet aux développeurs de créer et d’exécuter des applications en tant que service ou d’adapter des applications existantes au cloud<br/>
 
 
 ### Services de stockage
@@ -271,4 +225,4 @@ Consultez la figure suivante pour voir un flux de travail typique qu'un dévelop
 [burst_cluster]: ./media/batch-hpc-solutions/burst_cluster.png
 [batch_proc]: ./media/batch-hpc-solutions/batch_proc.png
 
-<!---HONumber=August15_HO6-->
+<!----HONumber=August15_HO6-->
