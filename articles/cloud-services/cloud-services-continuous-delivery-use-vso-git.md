@@ -51,7 +51,8 @@ Pour configurer un service cloud permettant de générer et de déployer automat
 
 1. Si vous n'avez pas encore un compte Visual Studio Online, [procédez comme suit](http://go.microsoft.com/fwlink/?LinkId=397665). Lorsque vous créez un projet d'équipe, choisissez Git comme système de contrôle de code source. Suivez les instructions de connexion de Visual Studio à votre projet d'équipe.
 
-2. Dans Team Explorer, sélectionnez le lien **Cloner ce référentiel**. ![][3]
+2. Dans Team Explorer, sélectionnez le lien **Cloner ce référentiel**.
+![][3]
 
 3. Indiquez l'emplacement de la copie locale et sélectionnez le bouton **Cloner**.
  
@@ -75,7 +76,8 @@ Pour configurer un service cloud permettant de générer et de déployer automat
 
 ## <a name="step3"> </a>Étape 3 : connexion du projet à Azure
 
-1. Vous avez maintenant un référentiel Git dans Visual Studio Online contenant du code source : vous êtes prêt à connecter votre référentiel Git à Azure. Dans le [portail Azure](http://manage.windowsazure.com), sélectionnez votre service cloud ou application Web, ou créez-en une en sélectionnant l'icône + en bas à gauche et en choisissant **Service cloud** ou **Application Web**, puis **Création rapide**.<br.> ![][9]
+1. Vous avez maintenant un référentiel Git dans Visual Studio Online contenant du code source : vous êtes prêt à connecter votre référentiel Git à Azure. Dans le [portail Azure](http://manage.windowsazure.com), sélectionnez votre service cloud ou application Web, ou créez-en une en sélectionnant l'icône + en bas à gauche et en choisissant **Service cloud** ou **Application Web**, puis **Création rapide**.<br.> 
+![][9]
 
 3. Pour les services cloud, sélectionnez le lien **Configurer la publication avec Visual Studio Online**. Pour les applications Web, cliquez sur le lien **Configurer le déploiement à partir du contrôle de code source**.<br/>
  ![][10]
@@ -125,12 +127,16 @@ La prochaine fois que vous placerez une validation dans votre référentiel, Vis
 
 
 10. Pendant la création de la build, examinez la définition de build créée lorsque vous avez utilisé l'Assistant pour la liaison à Azure. Ouvrez le menu contextuel de la définition de build et choisissez **Modifier la définition de build**.<br/>
- ![][25] <br/>
- Dans l’onglet **Déclencher**, vous allez voir que la définition de build prévoit par défaut un processus de génération pour chaque archivage. (Pour un service cloud, Visual Studio Online génère et déploie automatiquement la branche principale dans l'environnement intermédiaire. Vous devez quand même effectuer une opération manuelle pour le déploiement dans le site Web en activité. Pour un e application Web qui ne comporte pas d'environnement intermédiaire, elle déploie la branche principale directement dans le site en activité.<br/>
- ![][26] <br/>
+![][25]
+<br/>
+Dans l’onglet **Déclencher**, vous allez voir que la définition de build prévoit par défaut un processus de génération pour chaque archivage. (Pour un service cloud, Visual Studio Online génère et déploie automatiquement la branche principale dans l'environnement intermédiaire. Vous devez quand même effectuer une opération manuelle pour le déploiement dans le site Web en activité. Pour un e application Web qui ne comporte pas d'environnement intermédiaire, elle déploie la branche principale directement dans le site en activité.<br/>
+![][26]
+<br/>
 Dans l'onglet **Processus**, vous pouvez voir que l'environnement de déploiement est défini sur le nom de votre service cloud ou application Web.<br/>
- ![][27] <br/>
- Spécifiez des valeurs pour les propriétés si vous souhaitez d’autres valeurs que celles par défaut. Les propriétés de publication dans Azure se trouvent dans la section Déploiement ; vous devrez peut-être configurer également les paramètres MSBuild. Exemple : dans un projet de service cloud, pour spécifier la configuration d’un autre service que Cloud, configurez les paramètres MSbuild avec /p:TargetProfile=*YourProfile* où *YourProfile* correspond à un fichier de configuration de service avec un nom tel que ServiceConfiguration.*YourProfile*.cscfg. Le tableau suivant présente les propriétés disponibles dans la section Déploiement :
+![][27]
+<br/>
+Spécifiez des valeurs pour les propriétés si vous souhaitez d’autres valeurs que celles par défaut. Les propriétés de publication dans Azure se trouvent dans la section Déploiement ; vous devrez peut-être configurer également les paramètres MSBuild. Exemple : dans un projet de service cloud, pour spécifier la configuration d’un autre service que Cloud, configurez les paramètres MSbuild avec /p:TargetProfile=*YourProfile* où *YourProfile* correspond à un fichier de configuration de service avec un nom tel que ServiceConfiguration.*YourProfile*.cscfg.
+Le tableau suivant présente les propriétés disponibles dans la section Déploiement :
 	<table>
 <tr><td><b>Propriété</b></td><td><b>Valeur par défaut</b></td></tr>
 ><tr><td>Autoriser les certificats non approuvés</td><td>Si cette propriété a la valeur false, des certificats&#160;SSL doivent être signés par une autorité racine.</td></tr>
@@ -138,7 +144,8 @@ Dans l'onglet **Processus**, vous pouvez voir que l'environnement de déploiemen
 <tr><td>Chemin d'accès des paramètres de déploiement</td><td>Chemin d’accès à votre fichier .pubxml pour un site Web, relatif au dossier racine du référentiel. Ignorée pour les services cloud.</td></tr>
 <tr><td>Environnement de déploiement SharePoint</td><td>Identique au nom du service</td></tr>
 <tr><td>Environnement de déploiement Azure</td><td>Nom de l’application Web ou du service cloud</td></tr>
-</table> <br/>
+</table>
+<br/>
 
 
 11. À ce stade, la création de la build doit être terminée.<br/>
@@ -254,4 +261,4 @@ Pour plus d'informations, consultez la page [Visual Studio Online](http://go.mic
 [48]: ./media/cloud-services-continuous-delivery-use-vso-git/IncludeWorkingBranch.PNG
  
 
-<!---HONumber=August15_HO6-->
+<!----HONumber=August15_HO6-->

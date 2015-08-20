@@ -112,9 +112,9 @@ Ce didacticiel a présenté les bases de l'activation d'une application Windows 
 [portail de gestion Azure]: https://manage.windowsazure.com/
 [Management Portal]: https://manage.windowsazure.com/
 [Mobile Services SDK]: http://go.microsoft.com/fwlink/p/?LinkId=257545
-[Developer Code Samples site]: http://go.microsoft.com/fwlink/p/?LinkID=510826
+[site d'exemples de code développeur]: http://go.microsoft.com/fwlink/p/?LinkID=510826
 
 [MobileServiceClient]: http://go.microsoft.com/fwlink/p/?LinkId=302030
  
 
-<!---HONumber=August15_HO6-->
+<!-----HONumber=August15_HO6-->

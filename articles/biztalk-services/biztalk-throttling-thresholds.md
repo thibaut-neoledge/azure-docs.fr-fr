@@ -30,7 +30,10 @@ Azure BizTalk Services met en place un service de limitation basé sur deux cond
 
 Le tableau suivant répertorie les sources et seuils de limitation :
 
-||Description|Seuil minimum|Seuil maximum| |---|---|---|---| |Mémoire|% de la mémoire système totale disponible/PageFileBytes. <p><p>Le total de PageFileBytes disponible correspond environ à 2 fois la mémoire RAM du système.|60 %|70 %| |Traitement de message|Nombre de messages traités simultanément|40 * nombre de cœurs|100 * nombre de cœurs|
+||Description|Seuil minimum|Seuil maximum|
+|---|---|---|---|
+|Mémoire|% de la mémoire système totale disponible/PageFileBytes. <p><p>Le total de PageFileBytes disponible correspond environ à 2 fois la mémoire RAM du système.|60%|70%|
+|Traitement de message|Nombre de messages traités simultanément|40 * nombre de cœurs|100 * nombre de cœurs|
 
 Lorsqu'un seuil maximal est atteint, Azure BizTalk Services active les limitations. La limitation s'arrête une fois le seuil minimal atteint. Par exemple, votre service utilise 65 % de la mémoire système. Dans ce cas, le service n'utilise pas de limitation. Votre service monte à 70 % d'utilisation de mémoire système. Dans ce cas, le service lance une limitation et continue de l'appliquer jusqu'à ce que le service utilise 60 % (seuil minimal) de la mémoire système.
 
@@ -42,11 +45,8 @@ Azure BizTalk Services assure le suivi du statut de la limitation (état normal 
 Lorsque Azure BizTalk Services passe en mode limitation, les actions suivantes se produisent :
 
 - La limitation s'effectue par instance de rôle. Par exemple : <br/>
- l'instance RoleInstanceA est limitée. L'instance RoleInstanceB ne l'est pas. Dans ce cas, les messages dans RoleInstanceB sont traités normalement. Les messages dans RoleInstanceA sont ignorés et échouent avec le message d'erreur suivant :<br/>
-<br/>
- **Le serveur est occupé. Veuillez réessayez.**<br/>
-<br/>
-
+l'instance RoleInstanceA est limitée. L'instance RoleInstanceB ne l'est pas. Dans ce cas, les messages dans RoleInstanceB sont traités normalement. Les messages dans RoleInstanceA sont ignorés et échouent avec le message d'erreur suivant :<br/><br/>
+ **Le serveur est occupé. Veuillez réessayez.**<br/><br/>
 - Les sources d'extraction cessent d'interroger et de télécharger les messages. Par exemple : <br/>
  Un pipeline extrait les messages depuis une source FTP externe. L'instance de rôle responsable de l'extraction passe en mode limité. Dans cette situation, le pipeline cesse de télécharger de nouveaux messages tant que l'instance de rôle est limitée.
 - Une réponse est envoyée au client afin qu'il puisse soumettre le message de nouveau.
@@ -84,4 +84,4 @@ Lorsque Azure BizTalk Services passe en mode limitation, les actions suivantes s
 
  
 
-<!---HONumber=August15_HO6-->
+<!----HONumber=August15_HO6-->

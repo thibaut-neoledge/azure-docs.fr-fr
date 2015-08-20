@@ -30,7 +30,15 @@ Ce guide explique le déroulement des scénarios courants dans le cadre de l’u
 
 ## Sommaire
 
-[Présentation du bloc applicatif de mise à l’échelle automatique][] [Concepts][] [Collecte de données de compteurs de performances à partir de votre application Azure cible][] [Configuration d’une application hôte pour le bloc applicatif de mise à l’échelle automatique][] [Instanciation et exécution de la classe Autoscaler][] [Définition d’un modèle de service][] [Définition de règles de mise à l’échelle automatique][] [Configuration du bloc applicatif de mise à l’échelle automatique][] [Étapes suivantes][]
+[Présentation du bloc applicatif de mise à l’échelle automatique][]   
+[Concepts][]   
+[Collecte de données de compteurs de performances à partir de votre application Azure cible][]   
+[Configuration d’une application hôte pour le bloc applicatif de mise à l’échelle automatique][]   
+[Instanciation et exécution de la classe Autoscaler][]   
+[Définition d’un modèle de service][]   
+[Définition de règles de mise à l’échelle automatique][]   
+[Configuration du bloc applicatif de mise à l’échelle automatique][]   
+[Étapes suivantes][]   
 
 ## <a id="WhatIs"> </a>Présentation du bloc applicatif de mise à l’échelle automatique
 
@@ -128,15 +136,31 @@ Dans Visual Studio, vous devez vous assurer que le fichier de modèle de service
 
 	L'exemple de code suivant montre un exemple de modèle de service dans un fichier **services.xml** :
 
-    <?xml version="1.0" encoding="utf-8" ?> <serviceModel xmlns="http://schemas.microsoft.com/practices/2011/entlib/autoscaling/serviceModel"> <subscriptions> <subscription name="[subscriptionname]"
+    <?xml version="1.0" encoding="utf-8" ?>
+    <serviceModel xmlns="http://schemas.microsoft.com/practices/2011/entlib/autoscaling/serviceModel">
+      <subscriptions>
+        <subscription name="[subscriptionname]"
                       certificateThumbprint="[managementcertificatethumbprint]"
                       subscriptionId="[subscriptionid]"
                       certificateStoreLocation="CurrentUser"
-                      certificateStoreName="My"> <services> <service dnsPrefix="[hostedservicednsprefix]" slot="Staging"> <roles> <role alias="AutoscalingApplicationRole"
+                      certificateStoreName="My">
+          <services>
+            <service dnsPrefix="[hostedservicednsprefix]" slot="Staging">
+              <roles>
+                <role alias="AutoscalingApplicationRole"
                       roleName="[targetrolename]"
                       wadStorageAccountName="targetstorage"/>
- </roles> </service> </services> <storageAccounts> <storageAccount alias="targetstorage"
-              connectionString="DefaultEndpointsProtocol=https;AccountName=[storageaccountname];AccountKey=[storageaccountkey]"> </storageAccount> </storageAccounts> </subscription> </subscriptions> </serviceModel>
+              </roles>
+            </service>
+          </services>
+          <storageAccounts>
+            <storageAccount alias="targetstorage"
+              connectionString="DefaultEndpointsProtocol=https;AccountName=[storageaccountname];AccountKey=[storageaccountkey]">
+            </storageAccount>
+          </storageAccounts>
+        </subscription>
+      </subscriptions>
+    </serviceModel>
 
 Vous devez remplacer les valeurs entre crochets par des valeurs propres à votre environnement et à votre application cible. Pour trouver la plupart de ces valeurs, vous devez vous connecter au [portail de gestion Azure][].
 
@@ -271,23 +295,27 @@ Par défaut, le bloc applicatif de mise à l'échelle automatique considère que
 
 1.  Cliquez avec le bouton droit sur le fichier **App.config** dans l'Explorateur de solutions, puis cliquez sur **Edit Configuration File**.
 
-2.  Dans le menu **Blocks**, cliquez sur **Add Autoscaling Settings** :![image](./media/cloud-services-dotnet-autoscaling-application-block/autoscaling10.png)
+2.  Dans le menu **Blocks**, cliquez sur **Add Autoscaling Settings** :  
+	![image](./media/cloud-services-dotnet-autoscaling-application-block/autoscaling10.png)
   
 3.  Développez **Autoscaling Settings**, cliquez sur les points de suspension (...) en regard de **Data Points Store Storage Account**, ajoutez le **nom de compte** et la **clé de compte** du compte de stockage Azure dans lequel le bloc doit stocker les points de données qu’il collecte (consultez la rubrique [Définition d’un modèle de service][] si vous n’êtes pas sûr de l’endroit où se situent ces valeurs), puis cliquez sur **OK** :
 
 	![image](./media/cloud-services-dotnet-autoscaling-application-block/autoscaling11.png)
 
-4.  Développez la section **Autoscaling Settings** pour afficher les sections **Rules Store** et **Service Information Store**. Par défaut, elles sont configurées pour utiliser le stockage d’objets blob Azure : ![image](./media/cloud-services-dotnet-autoscaling-application-block/autoscaling12.png)
+4.  Développez la section **Autoscaling Settings** pour afficher les sections **Rules Store** et **Service Information Store**. Par défaut, elles sont configurées pour utiliser le stockage d’objets blob Azure :  
+	![image](./media/cloud-services-dotnet-autoscaling-application-block/autoscaling12.png)
 
 
 5.  Cliquez sur le signe plus (+) en regard de **Rules Store**, pointez sur **Set Rules Store**, cliquez sur **Use Local File Rules Store**, puis sur **Yes**.
 
-6.  Dans la zone **File Name**, tapez **rules.xml**. Il s’agit du nom du fichier qui contient vos règles de mise à l’échelle automatique : ![image](./media/cloud-services-dotnet-autoscaling-application-block/autoscaling13.png)
+6.  Dans la zone **File Name**, tapez **rules.xml**. Il s’agit du nom du fichier qui contient vos règles de mise à l’échelle automatique :  
+	![image](./media/cloud-services-dotnet-autoscaling-application-block/autoscaling13.png)
 
 
 7.  Cliquez sur le signe plus (+) en regard de **Service Information Store**, pointez sur **Set Service Information Store**, cliquez sur **Use Local File Service Information Store**, puis sur **Yes**.
 
-8.  Dans la zone **File Name**, tapez **services.xml**. Il s’agit du nom du fichier qui contient vos règles de mise à l’échelle automatique : ![image](./media/cloud-services-dotnet-autoscaling-application-block/autoscaling14.png)
+8.  Dans la zone **File Name**, tapez **services.xml**. Il s’agit du nom du fichier qui contient vos règles de mise à l’échelle automatique :  
+	![image](./media/cloud-services-dotnet-autoscaling-application-block/autoscaling14.png)
 
 
 9.  Dans la fenêtre Enterprise Library Configuration, dans le menu **File**, cliquez sur **Save** pour enregistrer les modifications de votre configuration. Ensuite, dans la fenêtre Enterprise Library Configuration, dans le menu **File**, cliquez sur **Exit**.
@@ -392,4 +420,4 @@ Maintenant que vous avez appris les principes de base de l'utilisation du bloc a
   [Réduction des coûts d’hébergement et de l’impact environnemental de TechNet et MSDN grâce à la mise à l’échelle automatique Azure]: http://msdn.microsoft.com/library/jj838718(PandP.50).aspx
  
 
-<!---HONumber=August15_HO6-->
+<!----HONumber=August15_HO6-->
