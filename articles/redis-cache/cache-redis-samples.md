@@ -50,7 +50,7 @@ L’exemple [Utilisation des objets .NET dans le cache](https://msdn.microsoft.c
 
 ## Utiliser le Cache Redis comme un fond de panier de montée en puissance pour ASP.NET SignalR
 
-L’exemple [Utilisez Redis Cache en tant qu'infrastructure d'intégration avec montée en charge pour ASP.NET SignalR](https://github.com/rustd/RedisSamples/tree/master/RedisAsSignalRBackplane) montre comment utiliser le cache Redis Azure comme fond de panier SignalR. Pour plus d’informations sur le fond de panier, consultez [Mise à l'échelle horizontale SignalR avec Redis](http://www.asp.net/signalr/overview/performance/scaleout-with-redis).
+L’exemple [Utilisez Redis Cache en tant qu'infrastructure d'intégration avec montée en charge pour ASP.NET SignalR](https://github.com/rustd/RedisSamples/tree/master/RedisAsSignalRBackplane) montre comment utiliser le cache Redis Azure comme fond de panier SignalR. Pour plus d’informations sur le fond de panier, consultez [Montée en puissance SignalR avec redis SignalR avec Redis](http://www.asp.net/signalr/overview/performance/scaleout-with-redis).
 
 ## Exemple de requête client dans le Cache Redis
 
@@ -79,4 +79,4 @@ L’exemple [Retwis](https://github.com/SyntaxC4-MSFT/retwis) est Redis Hello Wo
 
 L’exemple [Surveiller la bande passante](https://github.com/JonCole/SampleCode/tree/master/BandWidthMonitor) vous permet de surveiller la bande passante utilisée sur le client. Pour mesurer la bande passante, exécutez l’exemple sur l’ordinateur client du cache, effectuez des appels au cache et observez la bande passante signalée par l’exemple de surveillance de la bande passante.
 
-<!--------HONumber=August15_HO6-->
+<!----------HONumber=August15_HO6-->
