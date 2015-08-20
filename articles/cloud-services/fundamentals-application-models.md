@@ -24,9 +24,9 @@ Azure propose différents modèles d’hébergement d’applications. Chaque mod
 
 | Options de calcul | Public ciblé |
 | ------------------ | --------   |
-| [App Service](#tellmeas) | Applications Web évolutives, applications mobiles, applications d’API et applications logiques pour n’importe quel appareil |
-| [Cloud Services](#tellmecs) | Applications cloud à N niveaux, hautement disponibles et évolutives avec plus de contrôle du système d'exploitation |
-| [Virtual Machines](#tellmevm) | Machines virtuelles Windows et Linux personnalisées avec contrôle total du système d'exploitation |
+| [App Service] | Applications Web évolutives, applications mobiles, applications d’API et applications logiques pour n’importe quel appareil |
+| [Cloud Services] | Applications cloud à N niveaux, hautement disponibles et évolutives avec plus de contrôle du système d'exploitation |
+| [Virtual Machines] | Machines virtuelles Windows et Linux personnalisées avec contrôle total du système d'exploitation |
 
 [AZURE.INCLUDE [Contenu](../../includes/app-service-choose-me-content.md)]
 
@@ -79,4 +79,4 @@ As the figure illustrates, the Cloud Services VMs run in a separate cloud servic
 * En savoir plus sur [Cloud Service](services/cloud-services/)
 * En savoir plus sur [Virtual Machines](https://msdn.microsoft.com/library/azure/jj156143.aspx) 
 
-<!-----HONumber=August15_HO6-->
+<!-------HONumber=August15_HO6-->
