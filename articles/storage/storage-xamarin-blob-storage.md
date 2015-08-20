@@ -178,7 +178,7 @@ Pour en savoir plus sur les objets blob, les tables et les files d’attente, su
 [Introduction à Microsoft Azure Storage](storage-introduction.md)  
 [Utilisation du stockage d’objets blob à partir de .NET](storage-dotnet-how-to-use-blobs.md)  
 [Utilisation du stockage de tables à partir de .NET](storage-dotnet-how-to-use-tables.md)  
-[Utilisation du stockage de files d’attente à partir de .NET](storage-dotnet-how-to-use-queues.md)  
+[Utilisation du stockage de files d’attente à partir de .NET](storage-dotnet-how-to-use-queues.md)
  
 
-<!----HONumber=August15_HO6-->
+<!--------HONumber=August15_HO6-->
