@@ -1,7 +1,7 @@
-| Options de calcul | Public ciblé |
+| Options de calcul    |   Public   ciblé |
 | ------------------ | --------   |
 | [App Service] | Applications Web évolutives, applications mobiles, applications d’API et applications logiques pour n’importe quel appareil |
-| [Cloud Services] | Applications cloud à N niveaux, hautement disponibles et évolutives avec plus de contrôle du système d'exploitation |
+| [Cloud Services]   | Applications cloud à N niveaux, hautement disponibles et évolutives avec plus de contrôle du système d'exploitation |
 | [Virtual Machines] | Machines virtuelles Windows et Linux personnalisées avec contrôle total du système d'exploitation |
 
 <a name="tellmevm"></a>
@@ -24,7 +24,8 @@ Comme d’autres machines virtuelles, une machine virtuelle dans Azure dispose d
 
 Les machines virtuelles utilisent des disques durs virtuels pour stocker leurs données et leur système d’exploitation (SE). Les disques durs virtuels sont également utilisés pour les images à partir desquelles vous pouvez choisir d'installer un système d'exploitation. La figure suivante illustre ce concept, ainsi que deux des outils vous permettant de créer et de gérer vos machines virtuelles.
 
-<a name="fig_createvms"></a> ![vm\_diagram](./media/virtual-machines-choose-me-content/diagram.png)
+<a name="fig_createvms"></a>
+![vm_diagram](./media/virtual-machines-choose-me-content/diagram.png)
 
 **Figure : Azure Virtual Machines fournit une infrastructure IaaS.**
 
@@ -42,8 +43,4 @@ D’autres avantages à prendre en compte pour les machines virtuelles :
 
 **Résilience** : Azure analyse le matériel physique qui héberge chaque machine virtuelle en cours d'exécution. Si un serveur physique exécutant une machine virtuelle échoue, Azure s’en aperçoit, transfère la machine virtuelle vers un nouveau matériel et la redémarre. Ce processus est parfois appelé service de réparation. Azure protège également les données d'une machine virtuelle, en conservant des copies redondantes des disques durs virtuels dans le stockage d’objets blob.
 
-[App Service]: #tellmeas
-[Virtual Machines]: #tellmevm
-[Cloud Services]: #tellmecs
-
-<!----HONumber=August15_HO6-->
+<!------HONumber=August15_HO6-->
