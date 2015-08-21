@@ -133,7 +133,7 @@ Par exemple, l’enregistrement A suivant transfère tout le trafic de **contos
 | @ | 137\.135.70.239 |
 
 
-Cet exemple montre comment créer un enregistrement A pour le domaine racine. Pour créer une entrée avec des caractères génériques qui couvre l'ensemble des sous-domaines, entrez « \_\_*\_\_ » comme sous-domaine.
+Cet exemple montre comment créer un enregistrement A pour le domaine racine. Pour créer une entrée avec des caractères génériques qui couvre l'ensemble des sous-domaines, entrez '__*__' comme sous-domaine.
 
 >[AZURE.WARNING]Les adresses IP dans Azure sont dynamiques par défaut. Vous souhaiterez probablement utiliser une [adresse IP réservée](..\virtual-network\virtual-networks-reserved-public-ip.md) pour vous assurer que votre adresse IP ne change pas.
 
@@ -153,4 +153,4 @@ Cet exemple montre comment créer un enregistrement A pour le domaine racine. P
 [csurl]: ./media/cloud-services-custom-domain-name/csurl.png
  
 
-<!---HONumber=August15_HO6-->
+<!----HONumber=August15_HO6-->
