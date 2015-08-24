@@ -218,7 +218,7 @@ Ce didacticiel est aussi disponible sous forme de vidéos, ci-dessous.
 
 		![Confirm the assignment.][29]
 
-		> [AZURE.IMPORTANT] If you are provisioning to a Salesforce **developer** environment, you will have a very limited number of licenses available for each profile. Therefore, it's best to provision users to the **Chatter Free User** profile, which has 4,999 licenses available.
+		> [AZURE.IMPORTANT] Si vous configurez un environnement de **développeur** Salesforce, vous disposerez d'un nombre très limité de licences pour chaque profil. Il est donc préférable d'attribuer aux utilisateurs le profil **Utilisateur Chatter Free**, qui dispose de 4 999 licences.
 
 4. Pour tester vos paramètres d’authentification unique, ouvrez le volet d’accès à l’adresse [https://myapps.microsoft.com](https://myapps.microsoft.com/), puis connectez-vous au compte de test et cliquez sur **Salesforce**.
 
@@ -255,4 +255,4 @@ Ce didacticiel est aussi disponible sous forme de vidéos, ci-dessous.
 [28]: ./media/active-directory-saas-salesforce-tutorial/assign-confirm.png
 [29]: ./media/active-directory-saas-salesforce-tutorial/assign-sf-profile.png
 
-<!---HONumber=August15_HO6-->
+<!----HONumber=August15_HO6-->
