@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Configuration StorSimple requise" 
+   pageTitle="Configuration requise du système StorSimple | Microsoft Azure" 
    description="Décrit la configuration système requise et les meilleures pratiques pour les logiciels, la haute disponibilité et la mise en réseau d’une solution Azure StorSimple." 
    services="storsimple" 
    documentationCenter="NA" 
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD" 
-   ms.date="06/03/2015"
+   ms.date="08/12/2015"
    ms.author="alkohli"/>
 
 # Configuration StorSimple requise
@@ -96,7 +96,7 @@ Les modules de contrôleur d’un appareil StorSimple possèdent chacun quatre i
 
 - Si possible, utilisez MPIO sur les serveurs pour vous assurer qu’ils peuvent tolérer une panne de liaison, de réseau ou d’interface.
 
-Pour plus d’informations sur la mise en réseau de votre appareil pour la haute disponibilité et les performances, consultez [Câblage de votre appareil 8100](https://msdn.microsoft.com/library/azure/dn757738.aspx) ou [Câbler votre appareil 8600](https://msdn.microsoft.com/library/azure/dn757762.aspx).
+Pour plus d'informations sur la mise en réseau de votre appareil pour la haute disponibilité et les performances, consultez [Installation de votre appareil StorSimple 8100](storsimple-8100-hardware-installation.md#cable-your-storsimple-8100-device) ou [Installation de votre appareil StorSimple 8600](storsimple-8600-hardware-installation.md#cable-your-storsimple-8600-device).
 
 #### Disques SSD et disques durs
 
@@ -138,7 +138,7 @@ L’appareil StorSimple (modèle 8600) est équipé d’un boîtier EBOD (Extend
 
 Lisez attentivement les spécifications et meilleures pratiques recommandées pour assurer la haute disponibilité des hôtes connectés à votre appareil StorSimple.
 
-- Configurez StorSimple avec des [configurations de cluster de basculement de serveur de fichiers à deux nœuds] (https://technet.microsoft.com/library/cc731844(v=WS.10).aspx). En supprimant les points de défaillance uniques et en assurant la redondance côté hôte, l’ensemble de la solution devient hautement disponible.
+- Configurez StorSimple avec des [configurations de cluster de serveur de fichiers à deux nœuds][1]. En supprimant les points de défaillance uniques et en assurant la redondance côté hôte, l’ensemble de la solution devient hautement disponible.
 
 - Utilisez des partages disponibles en continu avec Windows Server 2012 (SMB 3.0) pour bénéficier d’un haut niveau de disponibilité lors du basculement des contrôleurs de stockage. Pour plus d’informations sur la configuration de clusters de serveurs de fichiers et de partages disponibles en continu avec Windows Server 2012, consultez cette [vidéo de démonstration](http://channel9.msdn.com/Events/IT-Camps/IT-Camps-On-Demand-Windows-Server-2012/DEMO-Continuously-Available-File-Shares).
 
@@ -184,12 +184,14 @@ Outre les exigences de mise en réseau ci-dessus, pour obtenir des performances 
 
 - Vérifiez que la connectivité réseau à Internet est disponible en permanence. Les connexions Internet sporadiques ou non fiables aux appareils, y compris aucune connectivité Internet quelle qu’elle soit, se traduisent par l’absence de prise en charge de la configuration.
 
-- Isolez le trafic iSCSI et le trafic cloud en dédiant les interfaces réseau de votre appareil pour l’accès iSCSI et cloud. Pour plus d’informations, consultez la section relative à la [configuration des interfaces réseau ](https://msdn.microsoft.com/library/dn772371.aspx) sur votre appareil StorSimple.
+- Isolez le trafic iSCSI et le trafic cloud en dédiant les interfaces réseau de votre appareil pour l’accès iSCSI et cloud. Pour plus d’informations, consultez la section relative à la [modification des interfaces réseau](storsimple-modify-device-config.md#modify-network-interfaces) sur votre appareil StorSimple.
 
 ## Étapes suivantes
 
-- [Limites StorSimple](storsimple-limits.md)
-- [Déployer votre solution StorSimple](storsimple-deployment-walkthrough.md)
+- En savoir plus sur les [limites StorSimple](storsimple-limits.md).
+- [Déployer votre solution StorSimple](storsimple-deployment-walkthrough.md).
  
+<!--Reference links-->
+[1]: https://technet.microsoft.com/library/cc731844(v=WS.10).aspx
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

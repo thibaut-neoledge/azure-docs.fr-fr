@@ -1,12 +1,11 @@
 <properties 
-	pageTitle="Stockage du code de projet dans le contrôle de code source - Azure Mobile Services" 
+	pageTitle="Stockage du code de projet dans le contrôle de code source | Microsoft Azure" 
 	description="Découvrez comment stocker vos fichiers et modules de script serveur dans un référentiel Git local sur votre ordinateur." 
 	services="mobile-services" 
 	documentationCenter="" 
 	authors="ggailey777" 
 	manager="dwrede" 
 	editor=""/>
-
 
 <tags 
 	ms.service="mobile-services" 
@@ -16,7 +15,6 @@
 	ms.topic="article" 
 	ms.date="04/24/2015" 
 	ms.author="ggailey777"/>
-
 
 # Stockage du code de projet dans le contrôle de code source
 
@@ -164,4 +162,4 @@ Explique comment utiliser les scripts serveur, le planificateur de travaux et le
 [node-uuid]: https://npmjs.org/package/node-uuid
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

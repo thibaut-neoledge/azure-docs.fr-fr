@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Prise en main de l'audit de base de données SQL | Azure" 
+	pageTitle="Prise en main de l'audit de base de données SQL | Microsoft Azure" 
 	description="Prise en main de l'audit de base de données SQL" 
 	services="sql-database" 
 	documentationCenter="" 
@@ -74,7 +74,7 @@ Avant de configurer l'audit, assurez-vous que vous utilisez bien un [« Client 
 4. Sous **ENREGISTREMENT PAR ÉVÈNEMENT**, cliquez sur **SUCCÈS** et **ÉCHEC**pour enregistrer tous les événements, ou choisissez des catégories d’événements individuelles.
 
 
-5. Si vous configurez l’audit pour une base de données SQL, cliquez sur **Pour appliquer l’audit, cliquez ici...**, puis sur **ACCÈS DE SÉCURITÉ ACTIVÉ**, sélectionnez **OBLIGATOIRE**. Si vous configurez l'audit pour un serveur SQL, vous avez deux options : (a) après l'étape #6, accédez pour chaque base de données SQL au serveur et appliquez cette étape, ou (2) [modifiez Server FDQN dans la chaîne de connexion](sql-database-auditing-and-dynamic-data-masking-downlevel-clients.md).
+5. Si vous configurez l’audit pour une base de données SQL, cliquez sur **Pour appliquer l’audit, cliquez ici...**, puis sur **ACCÈS DE SÉCURITÉ ACTIVÉ**, sélectionnez **OBLIGATOIRE**. Si vous configurez l'audit pour un serveur SQL, vous avez deux options : (a) après l'étape \#6, accédez pour chaque base de données SQL au serveur et appliquez cette étape, ou (2) [modifiez Server FDQN dans la chaîne de connexion](sql-database-auditing-and-dynamic-data-masking-downlevel-clients.md).
 
 
 	![][5]
@@ -102,7 +102,7 @@ Pour des instructions plus détaillées sur la façon de travailler avec le mod�
  
 2.   Cliquez sur la base de données SQL/le SQL Server que vous voulez auditer, puis sur l'onglet **AUDIT ET SÉCURITÉ**
 
-3.   Si vous configurez l’audit pour une base de données SQL, cliquez sur **ACCÈS DE SÉCURITÉ ACTIVÉ**, sélectionnez **OBLIGATOIRE**. Si vous configurez l'audit pour un SQL Server, vous avez deux options : (a) après l'étape #7, accédez pour chaque base de données SQL au serveur et appliquez cette étape, ou (2) [modifiez Server FDQN dans la chaîne de connexion](sql-database-auditing-and-dynamic-data-masking-downlevel-clients.md).
+3.   Si vous configurez l’audit pour une base de données SQL, cliquez sur **ACCÈS DE SÉCURITÉ ACTIVÉ**, sélectionnez **OBLIGATOIRE**. Si vous configurez l'audit pour un SQL Server, vous avez deux options : (a) après l'étape \#7, accédez pour chaque base de données SQL au serveur et appliquez cette étape, ou (2) [modifiez Server FDQN dans la chaîne de connexion](sql-database-auditing-and-dynamic-data-masking-downlevel-clients.md).
 
 4. Dans la section Audit, cliquez sur **ACTIVÉ**.
 
@@ -182,4 +182,4 @@ Lorsque vous êtes en mode Azure Resource Manager, exécutez `Get-Command *Azu
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

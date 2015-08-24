@@ -1,12 +1,11 @@
 <properties
-   pageTitle="Créer un déploiement de machines virtuelles à l’aide de l’interface de ligne de commande Microsoft Azure | Microsoft Azure"
+   pageTitle="Créer un déploiement de machines virtuelles à l'aide de l'interface de ligne de commande | Microsoft Azure"
    description="Apprenez à créer un déploiement de plusieurs machines virtuelles à l'aide de l'interface de ligne de commande Microsoft Azure"
    services="virtual-machines"
    documentationCenter="nodejs"
    authors="AlanSt"
    manager="timlt"
    editor=""/>
-
 
    <tags
    ms.service="virtual-machines"
@@ -16,7 +15,6 @@
    ms.workload="infrastructure-services"
    ms.date="02/20/2015"
    ms.author="alanst;kasing"/>
-
 
 # Créer un déploiement de plusieurs machines virtuelles à l'aide de l'interface de ligne de commande Microsoft Azure
 
@@ -69,4 +67,4 @@ Bien que vous puissiez trouver plus d'informations à l'aide de l'option –help
 * [Connexion à une machine virtuelle exécutant Linux](virtual-machines-linux-how-to-log-on.md)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

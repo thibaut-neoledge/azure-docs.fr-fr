@@ -1,19 +1,19 @@
 <properties 
-    pageTitle="Caractéristiques techniques et conformité de l’appareil StorSimple"
-    description="Décrit les caractéristiques techniques et les informations de conformité aux normes réglementaires relatives à l’appareil StorSimple."
-    services="storsimple"
-    documentationCenter="NA"
-    authors="alkohli"
-    manager="adinah"
-    editor="tysonn" />
+   pageTitle="Caractéristiques techniques et conformité de l'appareil StorSimple | Microsoft Azure"
+   description="Décrit les caractéristiques techniques et les informations de conformité aux normes réglementaires relatives à l'appareil StorSimple."
+   services="storsimple"
+   documentationCenter="NA"
+   authors="alkohli"
+   manager="adinah"
+   editor="" />
  <tags 
-    ms.service="storsimple"
-    ms.devlang="NA"
-    ms.topic="article"
-    ms.tgt_pltfrm="NA"
-    ms.workload="TBD"
-    ms.date="06/15/2015"
-    ms.author="alkohli" />
+   ms.service="storsimple"
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="TBD"
+   ms.date="08/12/2015"
+   ms.author="alkohli" />
 
 # Caractéristiques techniques et conformité de l’appareil StorSimple
 
@@ -168,8 +168,8 @@ L’ensemble fiche-cordon d’alimentation doit être conforme aux normes applic
 
 ## Câbles réseau pris en charge  
 
-Pour les interfaces réseau de 10 GbE, et les DONNÉES 2 et 3, reportez-vous à la [Liste des modules et des câbles réseau pris en charge](https://msdn.microsoft.com/library/dn891474.aspx).
+Pour les interfaces réseau 10 GbE, DATA 2 et DATA 3, consultez la [liste des modules et des câbles réseau pris en charge](storsimple-supported-hardware-for-10-gbe-network-interfaces.md).
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

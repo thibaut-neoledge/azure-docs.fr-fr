@@ -7,7 +7,6 @@
    manager="timlt"
    editor=""/>
 
-
 <tags
    ms.service="service-bus"
    ms.devlang="na"
@@ -16,7 +15,6 @@
    ms.workload="tbd"
    ms.date="07/24/2015"
    ms.author="darosa"/>
-
 
 # Les signatures d'accès partagé
 
@@ -253,6 +251,6 @@ Après avoir envoyé le jeton SAS sur le lien de l’expéditeur, le serveur de 
 
 Consultez la [référence API REST Service Bus](https://msdn.microsoft.com/library/azure/hh780717.aspx) pour plus d’informations sur ce que vous pouvez faire avec ces jetons SAS.
 
-Pour plus d’informations sur les SAS, consultez le nœud [Authentification Service Bus](https://msdn.microsoft.com/library/azure/dn155925.aspx) sur MSDN.
+Pour plus d’informations sur les SAS, consultez le nœud [Authentification Service Bus](https://msdn.microsoft.com/library/azure/dn155925.aspx) sur MSDN. Plus d’exemples sur les SAS dans C# et Java Script sur le [blog de Damir](http://developers.de/blogs/damir_dobric/archive/2013/10/17/how-to-create-shared-access-signature-for-service-bus.aspx)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

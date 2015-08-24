@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
-	ms.date="05/23/2015" 
+	ms.date="08/11/2015"
 	ms.author="juliako"/>
 
 #Utilisation des canaux recevant un flux dynamique à débit binaire multiple provenant d’encodeurs locaux
@@ -330,4 +330,4 @@ Pour plus d’informations sur la mise à l’échelle des unités de diffusion 
 [live-overview]: ./media/media-services-manage-channels-overview/media-services-live-streaming-current.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

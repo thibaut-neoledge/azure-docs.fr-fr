@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Utiliser le gestionnaire de ressources pour allouer des ressources au cluster Apache Spark dans HDInsight | Azure" 
+	pageTitle="Utiliser le gestionnaire de ressources pour allouer des ressources au cluster Apache Spark dans HDInsight | Microsoft Azure" 
 	description="Découvrez comment utiliser le gestionnaire de ressources pour les clusters Spark sur HDInsight pour obtenir de meilleures performances." 
 	services="hdinsight" 
 	documentationCenter="" 
@@ -79,4 +79,4 @@ Indiquez 0 pour le nombre de cœurs et la mémoire d’exécution du serveur Th
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="06/29/2015" 
+	ms.date="08/10/2015" 
 	ms.author="tdykstra"/>
 
 # Utilisation de Microsoft Azure Service Bus avec le Kit de développement logiciel (SDK) WebJobs
@@ -81,6 +81,13 @@ Le Kit de développement logiciel (SDK) désérialise automatiquement un message
 		}
 
 Pour obtenir des exemples de code montrant comment utiliser les propriétés de l’objet POCO de façon à les rendre compatibles avec les objets blob et les tables contenus d’une même fonction, consultez la [version de cet article qui traite des files d’attente de stockage](websites-dotnet-webjobs-sdk-storage-queues-how-to.md#pocoblobs).
+
+Si votre code qui crée le message de la file d'attente n'utilise pas le SDK WebJobs, utilisez du code similaire à l'exemple suivant :
+
+		var client = QueueClient.CreateFromConnectionString(ConfigurationManager.ConnectionStrings["AzureWebJobsServiceBus"].ConnectionString, "blobadded");
+		BlobInformation blobInformation = new BlobInformation () ;
+		var message = new BrokeredMessage(blobInformation);
+		client.Send(message);
 
 ### Types utilisés par ServiceBusTrigger
 
@@ -159,4 +166,4 @@ Les sujets abordés dans cet article sont les suivants :
 Ce guide fournit des exemples de code qui indiquent comment gérer des scénarios courants pour l’utilisation d’Azure Service Bus. Pour plus d’informations sur l’utilisation d’Azure Webjobs et du Kit de développement logiciel (SDK) WebJobs Azure, consultez la rubrique [Azure Webjobs - Ressources recommandées](http://go.microsoft.com/fwlink/?linkid=390226).
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

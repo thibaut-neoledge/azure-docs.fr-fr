@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="backup-recovery"
-	ms.date="05/04/2015"
+	ms.date="08/05/2015"
 	ms.author="raynew"/>
 
 #  Configurer la protection avec un seul serveur VMM
@@ -100,4 +100,4 @@ En cas de sinistre, vous pouvez récupérer les charges de travail en procédant
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

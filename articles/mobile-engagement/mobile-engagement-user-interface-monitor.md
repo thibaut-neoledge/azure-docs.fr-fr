@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="mobile-multiple"
    ms.workload="mobile" 
-   ms.date="02/17/2015"
+   ms.date="08/10/2015"
    ms.author="piyushjo"/>
 
 # Surveillance des données en temps réel de votre application
@@ -144,4 +144,4 @@ Vous pouvez également indiquer des conditions pour des alertes qui vous seront 
 [Link 33]: ../mobile-engagement-how-tos-web-view.md
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

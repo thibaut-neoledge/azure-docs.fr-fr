@@ -47,14 +47,14 @@ Les attributs sont fortement typés. Une fonction qui attend un attribut de cha�
 Vous pouvez utiliser les opérateurs suivants :
 
 - **Comparaison** : <, < =, <>, =, >, > =
-- **Mathématiques** : +, -, *, -
+- **Mathématiques** : +, -, \*, -
 - **Chaîne** : & (concaténation)
 - **Logiques** : && (et), || (ou)
 - **Ordre d’évaluation** : ( )
 
 
 
-Les opérateurs sont évalués de gauche à droite. 2*(5+3) n’est pas la même chose que 2*5+3.<br> Les parenthèses () servent à modifier l’ordre d’évaluation.
+Les opérateurs sont évalués de gauche à droite. 2\*(5+3) n’est pas la même chose que 2\*5+3.<br> Les parenthèses () servent à modifier l’ordre d’évaluation.
 
 
 
@@ -135,4 +135,4 @@ Pour obtenir une liste complète de fonctions, consultez [Azure AD Connect Sync�
  
 <!--Image references-->
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-linux"
 	ms.workload="infrastructure-services"
-	ms.date="05/08/2015"
+	ms.date="08/07/2015"
 	ms.author="rasquill"/>
 
 
@@ -114,25 +114,25 @@ CoreOS est une petite distribution optimisée pour la mise à l'échelle pure av
 
 ## Concepts de base
 
-1. [Concepts de base : Interface de ligne de commande Microsoft Azure](../xplat-cli.md)
-4. [Concepts de base : Utilisation et gestion des certificats](http://msdn.microsoft.com/library/azure/gg981929.aspx)
-5. [Concepts de base : Sélection des noms d’utilisateur Linux](virtual-machines-linux-usernames.md)
-6. [Concepts de base : Connexion à une machine virtuelle Linux à l’aide du portail Microsoft Azure](virtual-machines-linux-how-to-log-on.md)
+1. [Concepts de base : interface de ligne de commande Microsoft Azure (Azure CLI)](../xplat-cli.md)
+4. [Concepts de base : utilisation et gestion des certificats](http://msdn.microsoft.com/library/azure/gg981929.aspx)
+5. [Concepts de base : sélection de noms d'utilisateur Linux](virtual-machines-linux-usernames.md)
+6. [Concepts de base : connexion à une machine virtuelle Linux à l'aide du portail Azure](virtual-machines-linux-how-to-log-on.md)
 7. [Concepts de base : SSH](virtual-machines-linux-use-ssh-key.md)
-8. [Concepts de base : Comment réinitialiser un mot de passe ou des propriétés SSH pour Linux](virtual-machines-linux-use-vmaccess-reset-password-or-ssh.md)
-9. [Concepts de base : Utilisation de la racine](virtual-machines-linux-use-root-privileges.md)
-10. [Concepts de base : Association d’un disque de données à une machine virtuelle Linux](virtual-machines-linux-how-to-attach-disk.md)
-11. [Concepts de base : Détachement d’un disque de données d’une machine virtuelle Linux](virtual-machines-linux-how-to-detach-disk.md)
-12. [Blog sur les concepts de base : Optimisation du stockage, des disques et des performances avec Linux et Azure](http://blogs.msdn.com/b/igorpag/archive/2014/10/23/azure-storage-secrets-and-linux-i-o-optimizations.aspx)
+8. [Concepts de base : comment réinitialiser un mot de passe ou des propriétés SSH pour Linux](virtual-machines-linux-use-vmaccess-reset-password-or-ssh.md)
+9. [Concepts de base : utilisation de la racine](virtual-machines-linux-use-root-privileges.md)
+10. [Concepts de base : association d'un disque de données à une machine virtuelle Linux](virtual-machines-linux-how-to-attach-disk.md)
+11. [Concepts de base : détachement d'un disque de données d'une machine virtuelle Linux](virtual-machines-linux-how-to-detach-disk.md)
+12. [Blog sur les concepts de base : optimisation du stockage, des disques et des performances avec Linux et Azure](http://blogs.msdn.com/b/igorpag/archive/2014/10/23/azure-storage-secrets-and-linux-i-o-optimizations.aspx)
 13. [Concepts de base : RAID](virtual-machines-linux-configure-raid.md)
-14. [Concepts de base : Capture d’une machine virtuelle Linux pour en faire un modèle](virtual-machines-linux-capture-image.md)
+14. [Concepts de base : capture d'une machine virtuelle Linux pour en faire un modèle](virtual-machines-linux-capture-image.md)
 15. [Concepts de base : Agent Linux Azure](virtual-machines-linux-agent-user-guide.md)
-16. [Concepts de base : Fonctionnalités et extensions de machine virtuelle Azure](http://msdn.microsoft.com/library/azure/dn606311.aspx)
-17. [Concepts de base : Injection de données personnalisées dans une machine virtuelle à utiliser avec Cloud-init](virtual-machines-how-to-inject-custom-data.md)
-18. [Blog sur les concepts de base : Génération d’une distribution Linux à haute disponibilité dans Microsoft Azure en 12 étapes](http://blogs.technet.com/b/keithmayer/archive/2014/10/03/quick-start-guide-building-highly-available-linux-servers-in-the-cloud-on-microsoft-azure.aspx)
-19. [Blog sur les concepts de base : Automatisation de l’approvisionnement de Linux dans Azure avec l’interface de ligne de commande Azure, node.js et jhawk](http://blogs.technet.com/b/keithmayer/archive/2014/11/24/step-by-step-automated-provisioning-for-linux-in-the-cloud-with-microsoft-azure-xplat-cli-json-and-node-js-part-1.aspx)
+16. [Concepts de base : extensions et fonctionnalités des machines virtuelles Azure](http://msdn.microsoft.com/library/azure/dn606311.aspx)
+17. [Concepts de base : injection de données personnalisées dans une machine virtuelle à utiliser avec Cloud-init](virtual-machines-how-to-inject-custom-data.md)
+18. [Blog sur les concepts de base : génération d'une distribution Linux à haute disponibilité dans Azure en 12 étapes](http://blogs.technet.com/b/keithmayer/archive/2014/10/03/quick-start-guide-building-highly-available-linux-servers-in-the-cloud-on-microsoft-azure.aspx)
+19. [Blog sur les concepts de base : automatisation de l'approvisionnement de Linux dans Azure avec l'interface de ligne de commande Azure, node.js et jhawk](http://blogs.technet.com/b/keithmayer/archive/2014/11/24/step-by-step-automated-provisioning-for-linux-in-the-cloud-with-microsoft-azure-xplat-cli-json-and-node-js-part-1.aspx)
 19. [Créer un déploiement de plusieurs machines virtuelles à l’aide de l’interface de ligne de commande Microsoft Azure](virtual-machines-create-multi-vm-deployment-../xplat-cli.md)
-20. [Concepts de base : Extension Docker VM dans Microsoft Azure](virtual-machines-docker-vm-extension.md)
+20. [Concepts de base : extension de machine virtuelle Docker dans Azure](virtual-machines-docker-vm-extension.md)
 23. Documentation de référence sur l’[API REST de gestion des services Azure](https://msdn.microsoft.com/library/azure/ee460799.aspx)
 24. [GlusterFS sur Azure](http://dastouri.azurewebsites.net/gluster-on-azure-part-1/)
 
@@ -141,7 +141,7 @@ CoreOS est une petite distribution optimisée pour la mise à l'échelle pure av
 4. [Github](https://github.com/Azure/) pour l’interface de ligne de commande Microsoft Azure et de nombreux autres outils et projets.
 5. [Docker Hub Registry](https://registry.hub.docker.com/) : Registre réservé aux images de conteneurs Docker.
 
-## Langages et plateformes
+## Langages et plates-formes
 ### [Centre de développement Java pour Azure](http://azure.microsoft.com/develop/java/)
 
 1. [Images](https://vmdepot.msopentech.com/List/Index?sort=Featured&search=java)
@@ -163,7 +163,7 @@ CoreOS est une petite distribution optimisée pour la mise à l'échelle pure av
 
 1. [Scala : Exécution d’applications Play Framework dans Azure Cloud Services](http://msopentech.com/blog/2014/09/25/tutorial-running-play-framework-applications-microsoft-azure-cloud-services-2/)
 
-### Types de Kit de développement logiciel (SDK), installations et mises à niveau
+### Types de Kits de développement logiciel (SDK), installations et mises à niveau
 4. [SDK Azure Service Management : Java](http://dl.windowsazure.com/javadoc/)
 5. [SDK Azure Service Management : Go](https://github.com/MSOpenTech/azure-sdk-for-go)
 5. [SDK Azure Service Management : Ruby](https://github.com/MSOpenTech/azure-sdk-for-ruby)
@@ -235,10 +235,19 @@ Cette section contient des informations sur différentes approches et technologi
 
 L'authentification et le chiffrement sont des thèmes essentiels du développement logiciel. De nombreuses rubriques disponibles sur le web décrivent les techniques de sécurité appropriées à chacun et la manière de les utiliser. Nous présentons certaines utilisations de base pour être opérationnel rapidement sur Linux et les charges de travail open source. Nous indiquons également des outils permettant de réinitialiser ou de supprimer des fonctionnalités de sécurité distantes dans Azure. Il s'agit de procédures de base, auxquelles nous ajouterons bientôt des scénarios plus complexes.
 
-4. [Concepts de base : Utilisation et gestion des certificats](http://msdn.microsoft.com/library/azure/gg981929.aspx)
+4. [Concepts de base : utilisation et gestion des certificats](http://msdn.microsoft.com/library/azure/gg981929.aspx)
 7. [Concepts de base : SSH](virtual-machines-linux-use-ssh-key.md)
-8. [Concepts de base : Comment réinitialiser un mot de passe ou des propriétés SSH pour Linux](virtual-machines-linux-use-vmaccess-reset-password-or-ssh.md)
-9. [Concepts de base : Utilisation de la racine](virtual-machines-linux-use-root-privileges.md)
+8. [Concepts de base : comment réinitialiser un mot de passe ou des propriétés SSH pour Linux](virtual-machines-linux-use-vmaccess-reset-password-or-ssh.md)
+9. [Concepts de base : utilisation de la racine](virtual-machines-linux-use-root-privileges.md)
+
+## Calcul haute performance (HPC) Linux
+
+Exécutez des charges de travail HPC sur des clusters de machines virtuelles Linux créés avec les outils open source ou avec Microsoft HPC Pack.
+
+1.	[Modèle de démarrage rapide : Spin up a SLURM cluster](http://azure.microsoft.com/documentation/templates/slurm/) (et [billet de blog](http://blogs.technet.com/b/windowshpc/archive/2015/06/06/deploy-a-slurm-cluster-on-azure.aspx))
+2.	[Modèle de démarrage rapide : Spin up a Torque cluster](http://azure.microsoft.com/documentation/templates/torque-cluster/)
+3.	[Didacticiel : prise en main des nœuds de calcul Linux dans un cluster HPC Pack dans Azure](virtual-machines-linux-cluster-hpcpack.md)
+4.	[Didacticiel : configuration d'un cluster Linux RDMA pour exécuter des applications MPI](virtual-machines-linux-cluster-rdma.md)
 
 ## DevOps, gestion et optimisation
 
@@ -294,6 +303,5 @@ Cette section présente en premier lieu une entrée de blog contenant une série
 <!--Link references--In actual articles, you only need a single period before the slash. -->
 [How to use docker-machine on Azure]: virtual-machines-docker-machine.md
 [How to use docker with swarm on Azure]: virtual-machines-docker-swarm.md
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

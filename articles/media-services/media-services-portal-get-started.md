@@ -7,16 +7,14 @@
 	manager="dwrede"
 	editor=""/>
 
-
 <tags
 	ms.service="media-services"
 	ms.workload="media"
 	ms.tgt_pltfrm="na"
 	ms.devlang="ne"
 	ms.topic="get-started-article" 
-	ms.date="07/16/2015"
+	ms.date="08/11/2015" 
 	ms.author="juliako"/>
-
 
 
 #Prise en main de la diffusion de contenus vidéo à la demande (VoD) à l’aide du portail de gestion Azure
@@ -228,9 +226,6 @@ Certaines considérations s’appliquent :
 ![AMSPlayer][AMSPlayer]
 
 
-##Étape suivante
-
-Pour en savoir plus sur la création d’applications de vidéo à la demande, consultez la page [Création d’applications de vidéo à la demande](media-services-video-on-demand-workflow.md).
 
 ###Ressources supplémentaires
 - <a href="http://channel9.msdn.com/Shows/Azure-Friday/Azure-Media-Services-101-Get-your-video-online-now-">Azure Media Services 101 - Mettez votre vidéo en ligne dès maintenant.</a>
@@ -258,4 +253,4 @@ Pour en savoir plus sur la création d’applications de vidéo à la demande, c
 [AMSPlayer]: ./media/media-services-portal-get-started/media-services-portal-player.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

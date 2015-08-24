@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Utilisation des diagnostics (.NET) - Guide des fonctionnalités Azure" 
+	pageTitle="Utilisation des diagnostics (.NET) | Microsoft Azure" 
 	description="Découvrez comment utiliser les données de diagnostic dans Azure pour le débogage, la mesure des performances, la surveillance, l'analyse du trafic, etc." 
 	services="cloud-services" 
 	documentationCenter=".net" 
@@ -300,7 +300,7 @@ Cette procédure pas à pas part du principe que vous disposez d'un abonnement A
 
 ### Étape 3 : déploiement de votre application
 1.	Cliquez avec le bouton droit sur le projet **WadExampleVM** dans l’**Explorateur de solutions**, puis choisissez **Ouvrir un dossier dans l’Explorateur de fichiers**.
-2.	Naviguez vers le dossier *bin\\Debug* et copiez tous les fichiers (WadExampleVM.*)
+2.	Naviguez vers le dossier *bin\\Debug* et copiez tous les fichiers (WadExampleVM.\*)
 3.	Dans l'**Explorateur de serveurs**, cliquez avec le bouton droit sur la machine virtuelle, puis sélectionnez **Se connecter à l'aide du Bureau à distance**.
 4.	Une fois connecté à la machine virtuelle, créez un dossier nommé WadExampleVM, puis collez vos fichiers d'application dans le dossier.
 5.	Lancez l'application WadExampleVM.exe. Une fenêtre de console vide doit apparaître.
@@ -512,4 +512,4 @@ ETW basé sur les manifestes|Non|Table|Événements ETW générés par n'importe
 [Remove-AzureServiceDiagnosticsExtension]: http://msdn.microsoft.com/library/dn495168.aspx
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

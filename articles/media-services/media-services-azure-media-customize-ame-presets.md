@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/29/2015" 
+	ms.date="08/11/2015"
 	ms.author="juliako"/>
 
 #Manipuler les tâches d’encodage en personnalisant les présélections de tâches 
@@ -193,36 +193,42 @@ L’extrait de code qui suit montre comment effectuer ces étapes :
 
 	static public void CreateOverlayJob()
 	{
-	_context = new CloudMediaContext(_accountName, _accountKey);
-	
-	       // Upload assets to overlay
-	       IAsset inputAsset1 = CreateAssetAndUploadSingleFile(AssetCreationOptions.None, video1.mp4); // this is the input mezzanine
-	       IAsset inputAsset2 = CreateAssetAndUploadSingleFile(AssetCreationOptions.None, video2.wmv);// this will be used as a video overlay
-	       IAsset inputAsset3 = CreateAssetAndUploadSingleFile(AssetCreationOptions.None, video3.wmv); // this will be used as an audio overlay
-	
-	       // Load the preset configuration
-	       string presetFileName = "OverlayPreset.xml";
-	       string configuration = File.ReadAllText(presetFileName);
-	
-	       // Create a job
-	       IJob job = _context.Jobs.Create("A WAME overlay job, using " + presetFileName);
-	                 
-	// Get a reference to the media services encoder   
-	       IMediaProcessor processor = GetLatestMediaProcessorByName("Azure Media Encoder");
-	            
-	        // Create a task    
-	       ITask task = job.Tasks.AddNew("Encode Task for overlay, using " + presetFileName, processor, configuration, TaskOptions.None);
-	
-	    // Add the input assets
-	           task.InputAssets.Add(inputAsset1);
-	           task.InputAssets.Add(inputAsset2);
-	           task.InputAssets.Add(inputAsset3);
-	
-	     // Add the output asset
-	            task.OutputAssets.AddNew("Result of an overlay job, using " + presetFileName, AssetCreationOptions.None);
-	
-	     // Submit the job
-	            job.Submit();
+        // Create and cache the Media Services credentials in a static class variable.
+        _cachedCredentials = new MediaServicesCredentials(
+                        MediaServicesAccountName,
+                        MediaServicesAccountKey);
+        // Used the cached credentials to create CloudMediaContext.
+        _context = new CloudMediaContext(_cachedCredentials);
+
+
+		// Upload assets to overlay
+		IAsset inputAsset1 = CreateAssetAndUploadSingleFile(AssetCreationOptions.None, video1.mp4); // this is the input mezzanine
+		IAsset inputAsset2 = CreateAssetAndUploadSingleFile(AssetCreationOptions.None, video2.wmv);// this will be used as a video overlay
+		IAsset inputAsset3 = CreateAssetAndUploadSingleFile(AssetCreationOptions.None, video3.wmv); // this will be used as an audio overlay
+		
+		// Load the preset configuration
+		string presetFileName = "OverlayPreset.xml";
+		string configuration = File.ReadAllText(presetFileName);
+		
+		// Create a job
+		IJob job = _context.Jobs.Create("A AME overlay job, using " + presetFileName);
+		         
+		// Get a reference to the media services encoder   
+		IMediaProcessor processor = GetLatestMediaProcessorByName("Azure Media Encoder");
+		    
+		// Create a task    
+		ITask task = job.Tasks.AddNew("Encode Task for overlay, using " + presetFileName, processor, configuration, TaskOptions.None);
+		
+		// Add the input assets
+		task.InputAssets.Add(inputAsset1);
+		task.InputAssets.Add(inputAsset2);
+		task.InputAssets.Add(inputAsset3);
+		
+		// Add the output asset
+		task.OutputAssets.AddNew("Result of an overlay job, using " + presetFileName, AssetCreationOptions.None);
+		
+		// Submit the job
+		job.Submit();
 	}
 
 
@@ -342,37 +348,42 @@ L’extrait de code qui suit montre comment effectuer ces étapes :
 	
 	static public void StitchWithMultipleAssets()
 	{
-    		_context = new CloudMediaContext(_accountName, _accountKey);
-	
-	       // Upload assets to stitch
-	       IAsset inputAsset1 = CreateAssetAndUploadSingleFile(AssetCreationOptions.None, video1.mp4);
-	       IAsset inputAsset2 = CreateAssetAndUploadSingleFile(AssetCreationOptions.None, video2.wmv);
-	       IAsset inputAsset3 = CreateAssetAndUploadSingleFile(AssetCreationOptions.None, video3.wmv);
-	
-	       // Load the preset configuration
-	       string presetFileName = "StitchingWithMultipleAssets.xml";
-	       string configuration = File.ReadAllText(presetFileName);
-	
-	       // Create a job
-	       IJob job = _context.Jobs.Create("A WAME stitching job, using " + presetFileName);
-	                 
-	// Get a reference to the media services encoder   
-	       IMediaProcessor processor = GetLatestMediaProcessorByName("Azure Media Encoder");
-	            
-	        // Create a task    
-	       ITask task = job.Tasks.AddNew("Encode Task for stitching, using " + presetFileName, processor, configuration, TaskOptions.None);
-	
-			// Add the input assets
-	       task.InputAssets.Add(inputAsset1);
-	       task.InputAssets.Add(inputAsset2);
-	       task.InputAssets.Add(inputAsset3);
-	
-	       // Add the output asset
-	        task.OutputAssets.AddNew("Result of a stitching job, using " + presetFileName, AssetCreationOptions.None);
-	
-	       // Submit the job
-	        job.Submit();
-	} 
+        // Create and cache the Media Services credentials in a static class variable.
+        _cachedCredentials = new MediaServicesCredentials(
+                        MediaServicesAccountName,
+                        MediaServicesAccountKey);
+        // Used the cached credentials to create CloudMediaContext.
+        _context = new CloudMediaContext(_cachedCredentials);
+		
+		// Upload assets to stitch
+		IAsset inputAsset1 = CreateAssetAndUploadSingleFile(AssetCreationOptions.None, video1.mp4);
+		IAsset inputAsset2 = CreateAssetAndUploadSingleFile(AssetCreationOptions.None, video2.wmv);
+		IAsset inputAsset3 = CreateAssetAndUploadSingleFile(AssetCreationOptions.None, video3.wmv);
+		
+		// Load the preset configuration
+		string presetFileName = "StitchingWithMultipleAssets.xml";
+		string configuration = File.ReadAllText(presetFileName);
+		
+		// Create a job
+		IJob job = _context.Jobs.Create("A AME stitching job, using " + presetFileName);
+		         
+		// Get a reference to the media services encoder   
+		IMediaProcessor processor = GetLatestMediaProcessorByName("Azure Media Encoder");
+		    
+		// Create a task    
+		ITask task = job.Tasks.AddNew("Encode Task for stitching, using " + presetFileName, processor, configuration, TaskOptions.None);
+		
+		// Add the input assets
+		task.InputAssets.Add(inputAsset1);
+		task.InputAssets.Add(inputAsset2);
+		task.InputAssets.Add(inputAsset3);
+		
+		// Add the output asset
+		task.OutputAssets.AddNew("Result of a stitching job, using " + presetFileName, AssetCreationOptions.None);
+		
+		// Submit the job
+		job.Submit();
+		} 
 
 
 Cet extrait charge chaque élément multimédia l’un après l’autre par souci de simplicité. En production, les éléments multimédias seraient chargés en bloc. Pour plus d’informations sur le chargement d’éléments multimédias en bloc, consultez la page [Réception d’éléments multimédias en bloc avec le Kit de développement logiciel (SDK) Media Services pour .NET](media-services-dotnet-upload-files.md#ingest_in_bulk). Pour obtenir un exemple complet de code, consultez la page [Assemblage avec Media Services Encoder](https://code.msdn.microsoft.com/Stitching-with-Media-8fd5f203).
@@ -425,10 +436,16 @@ Cette présélection assemble des parties de video1.mp4, video2.wmv et video3.wm
     {
         string presetFileName = "StitchingWithASingleAsset.xml";
         string configuration = File.ReadAllText(presetFileName);
-        _context = new CloudMediaContext(_accountName, _accountKey);
+
+        // Create and cache the Media Services credentials in a static class variable.
+        _cachedCredentials = new MediaServicesCredentials(
+                        MediaServicesAccountName,
+                        MediaServicesAccountKey);
+        // Used the cached credentials to create CloudMediaContext.
+        _context = new CloudMediaContext(_cachedCredentials);
 
         IMediaProcessor processor = GetLatestMediaProcessorByName("Azure Media Encoder");
-        IJob job = _context.Jobs.Create("A WAME stitching job, using " + presetFileName);
+        IJob job = _context.Jobs.Create("A AME stitching job, using " + presetFileName);
         IAsset asset = CreateAssetAndUploadMultipleFiles(AssetCreationOptions.None, _stitchingFiles);
 
         ITask task = job.Tasks.AddNew("Encode Task for stitching, using " + presetFileName, processor, configuration, TaskOptions.None);
@@ -457,29 +474,39 @@ Pour empêcher l’amplification du bruit de fond, procédez comme suit :
 	     VideoResizeMode="Stretch">
 
 1. Enregistrez le fichier de présélection modifié sur votre disque dur local et utilisez un code comme celui qui suit pour encoder avec la présélection personnalisée :
-	
-	// Upload file and create asset IAsset asset = CreateAssetAndUploadSingleFile(AssetCreationOptions.None, @"C:\\TEMP\\Original.mp4");
-	 
-	string inputPresetFile = @"C:\\TEMP\\H264 Broadband 720p NoAudioNorm.xml"; string presetName = Path.GetFileNameWithoutExtension(inputPresetFile);
-	 
-	IJob job = \_context.Jobs.Create("Encode Job for " + asset.Name + ", encoded using " + presetName);
-	
-	Console.WriteLine("Encode Job for " + asset.Name + ", encoded using " + presetName);
-	
-	// Get a media processor reference, and pass to it the name of the processor to use for the specific task. IMediaProcessor processor = GetLatestMediaProcessorByName("Azure Media Encoder"); Console.WriteLine("Got MP " + processor.Name + ", ID : " + processor.Id + ", version: " + processor.Version);
-	 
-	// Read the configuration data into a string. string configuration = File.ReadAllText(inputPresetFile);
-	 
-	// Créez une tâche avec les détails de l’encodage, à l’aide d’une chaîne de présélection. ITask task = job.Tasks.AddNew("Encode Task for " + asset.Name + ", encoded using " + presetName, processor, configuration, Microsoft.WindowsAzure.MediaServices.Client.TaskOptions.None);
-	 
-	// Specify the input asset to be encoded. task.InputAssets.Add(asset);
-	 
-	// Add an output asset to contain the results of the job. task.OutputAssets.AddNew("Output asset for " + asset.Name + ", encoded using " + presetName, AssetCreationOptions.None);
-	 
-	// Launch the job. job.Submit();
+		
+		// Upload file and create asset
+		IAsset asset = CreateAssetAndUploadSingleFile(AssetCreationOptions.None, @"C:\TEMP\Original.mp4");
+		 
+		string inputPresetFile = @"C:\TEMP\H264 Broadband 720p NoAudioNorm.xml";
+		string presetName = Path.GetFileNameWithoutExtension(inputPresetFile);
+		 
+		IJob job = _context.Jobs.Create("Encode Job for " + asset.Name + ", encoded using " +  presetName);
+		
+		Console.WriteLine("Encode Job for " + asset.Name + ", encoded using " + presetName);
+		
+		// Get a media processor reference, and pass to it the name of the processor to use for the specific task.
+		IMediaProcessor processor = GetLatestMediaProcessorByName("Azure Media Encoder");
+		Console.WriteLine("Got MP " + processor.Name + ", ID : " + processor.Id + ", version: " + processor.Version);
+		 
+		// Read the configuration data into a string. 
+		string configuration = File.ReadAllText(inputPresetFile);
+		 
+		// Create a task with the encoding details, using a string preset.
+		ITask task = job.Tasks.AddNew("Encode Task for " + asset.Name + ", encoded using " + presetName, processor, configuration,
+		                Microsoft.WindowsAzure.MediaServices.Client.TaskOptions.None);
+		 
+		// Specify the input asset to be encoded.
+		task.InputAssets.Add(asset);
+		 
+		// Add an output asset to contain the results of the job.
+		task.OutputAssets.AddNew("Output asset for " + asset.Name + ", encoded using " + presetName, AssetCreationOptions.None);
+		 
+		// Launch the job. 
+		job.Submit();
 
 ##Voir aussi
 
 [Schéma XML de l’Encodeur multimédia Azure](https://msdn.microsoft.com/library/azure/dn584702.aspx)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

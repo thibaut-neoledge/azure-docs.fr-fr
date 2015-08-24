@@ -7,18 +7,18 @@
 	manager="dwrede" 
 	editor=""/>
 
-
 <tags 
 	ms.service="media-services" 
 	ms.workload="media" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="05/24/2015" 
+	ms.date="08/11/2015"
 	ms.author="juliako"/>
 
-
 #Développement Media Services avec .NET 
+
+[AZURE.INCLUDE [media-services-selector-setup](../../includes/media-services-selector-setup.md)]
 
 Cette rubrique explique comment commencer à développer des applications Media Services à l’aide de .NET.
 
@@ -79,9 +79,7 @@ Vous pouvez également obtenir les dernières informations relatives au Kit de d
 &lt;configuration>
     &lt;appSettings>
 	&lt;add key="MediaServicesAccountName" value="Media-Services-Account-Name" />
-
     	&lt;add key="MediaServicesAccountKey" value="Media-Services-Account-Key" />
-
     &lt;/appSettings>
 &lt;/configuration>
 </code></pre>
@@ -102,4 +100,4 @@ Vous pouvez également obtenir les dernières informations relatives au Kit de d
 À ce stade, vous êtes prêt à commencer le développement d’une application Media Services.
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

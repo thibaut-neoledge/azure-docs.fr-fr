@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Installation de votre appareil StorSimple 8100"
+   pageTitle="Installation de votre appareil StorSimple 8100 | Microsoft Azure"
    description="Explique comment déballer, monter en rack et brancher les câbles de votre appareil StorSimple 8100."
    services="storsimple"
    documentationCenter="NA"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="07/20/2015"
+   ms.date="08/06/2015"
    ms.author="alkohli" />
 
 # Installation de votre appareil StorSimple 8100
@@ -47,7 +47,7 @@ Ensuite, procédez comme suit pour déballer votre appareil.
 
      ![Déballage de votre appareil de stockage](./media/storsimple-8100-hardware-installation/HCSUnpackyour2Udevice.png)
 
-    **Figure 1 : vue de votre appareil de stockage déballé**
+    **Vue de votre appareil de stockage déballé**
 
      Étiquette | Description 
      ----- | -------------
@@ -115,7 +115,7 @@ Un ensemble de rails de montage compatible avec l’armoire à rack de 19 pouce
 
     ![Fixation des glissières de rail sur le châssis du boîtier](./media/storsimple-8100-hardware-installation/HCSAttachingRailSlidestoEnclosureChassis.png)
 
-   **Figure 2 : fixation des glissières de rail sur les côtés du boîtier**
+   **Fixation des glissières de rail sur les côtés du boîtier**
 
     Label | Description
     ----- | -----------
@@ -132,7 +132,7 @@ Un ensemble de rails de montage compatible avec l’armoire à rack de 19 pouce
 
      ![Fixation des glissières de rail sur l’armoire à rack](./media/storsimple-8100-hardware-installation/HCSAttachingRailSlidestoRackCabinet.png)
 
-    **Figure 3 : fixation des rails au rack**
+    **Fixation des rails au rack**
 
      Étiquette | Description
      ----- | -----------
@@ -154,7 +154,7 @@ Un ensemble de rails de montage compatible avec l’armoire à rack de 19 pouce
 
     ![Insertion de l’appareil dans le rack](./media/storsimple-8100-hardware-installation/HCSInsertingDeviceintheRack.png)
 
-    **Figure 4 : montage de l’appareil dans le rack**
+    **Montage de l’appareil dans le rack**
 
 3. Sécurisez le boîtier dans le rack en installant une vis cruciforme fournie sur chaque embase, à gauche et à droite.
 
@@ -162,7 +162,7 @@ Un ensemble de rails de montage compatible avec l’armoire à rack de 19 pouce
 
      ![Installation des capuchons d’embase](./media/storsimple-8100-hardware-installation/HCSInstallingFlangeCaps.png)
  
-    **Figure 5 : installation des capuchons d’embase**
+    **Installation des capuchons d’embase**
 
      Étiquette | Description
      ----- | -----------
@@ -192,7 +192,7 @@ Avant de commencer le câblage de votre appareil, vous devez disposer des élém
 
 - Adaptateurs QSFP-SFP+ uniques fournis à utiliser avec les interfaces réseau 10 Gigabit Ethernet
 
-- [Transmetteurs, câbles et commutateurs pris en charge pour les interfaces réseau 10 Gigabit Ethernet](https://msdn.microsoft.com/library/azure/dn891474.aspx)
+- [Matériel pris en charge pour les interfaces réseau 10 Gigabit Ethernet sur votre appareil StorSimple](storsimple-supported-hardware-for-10-gbe-network-interfaces.md)
 
 
 ### Branchement des câbles d’alimentation
@@ -201,29 +201,7 @@ Votre appareil est doté de modules d’alimentation et de refroidissement (PCM)
 
 Procédez comme suit pour brancher les câbles d’alimentation de votre appareil.
 
-#### Pour brancher les câbles d’alimentation
-
-1. Assurez-vous que les commutateurs d’alimentation de chaque PCM sont en position d’arrêt.
-
-2. Branchez les câbles d’alimentation aux deux PCM du boîtier principal.
-
-3. Fixez les câbles d’alimentation aux unités de distribution de l’alimentation (PDU) du rack, comme indiqué sur l’illustration suivante. Assurez-vous que les deux modules d’alimentation et de refroidissement (PCM) utilisent des sources d’alimentation distinctes.
-
-4. Activez le système en mettant en marche les commutateurs d’alimentation des deux PCM.
-
-    >[AZURE.NOTE]Pour garantir une haute disponibilité de votre système, vous devez vous conformer strictement au schéma de branchement des câbles d’alimentation représenté ci-dessous.
-
-    ![Câble d’alimentation de votre appareil 2U](./media/storsimple-8100-hardware-installation/HCSCableYour2UDeviceforPower.png)
-
-    **Figure 6 : branchement des câbles d’alimentation de votre appareil**
-
-     Étiquette | Description
-     ----- | -----------
-     1 | PCM 0
-     2 | Contrôleur 1
-     3 | Contrôleur 0
-     4 | PCM 1
-     5 | PDU
+[AZURE.INCLUDE [storsimple-cable-8100-for-power](../../includes/storsimple-cable-8100-for-power.md)]
 
 ### Branchement des câbles réseau
 
@@ -237,7 +215,7 @@ Pour prendre en charge ce basculement de contrôleur redondant, vous devez branc
 
     ![Fond de panier de l’appareil 8100](./media/storsimple-8100-hardware-installation/HCSBackplaneof2UDevicewithPortsLabeled.jpg)
 
-    **Figure 7 : dos de l’appareil avec ports de données**
+    **Dos de l’appareil avec ports de données**
  
      Étiquette | Description
      ------- | -----------
@@ -258,7 +236,7 @@ Pour prendre en charge ce basculement de contrôleur redondant, vous devez branc
 
     ![Câble réseau de votre appareil 2U](./media/storsimple-8100-hardware-installation/HCSCableYour2UDeviceforNetwork.png)
 
-    **Figure 8 : branchement des câbles réseau de votre appareil**
+    **Branchement des câbles réseau de votre appareil**
 
     Étiquette | Description
     ----- | -----------
@@ -276,7 +254,7 @@ Procédez comme suit pour brancher les câbles de port série de votre appareil.
 
 #### Pour brancher les câbles de connexion en série
 
-1. Votre appareil possède un port série sur chaque contrôleur, qui est identifié par une icône en forme de clé. Reportez-vous à la figure 7 pour localiser les ports série sur le fond de panier de votre appareil. 
+1. Votre appareil possède un port série sur chaque contrôleur, qui est identifié par une icône en forme de clé. Reportez-vous à l'illustration de la section [Câblage réseau](#network-cabling) pour localiser les ports série à l'arrière de votre appareil. 
 
 2. Identifiez le contrôleur actif sur le fond de panier de votre appareil. Un voyant bleu clignotant indique que le contrôleur est actif.
 
@@ -297,4 +275,4 @@ Votre appareil est désormais branché à l’alimentation, au réseau et au por
 Vous êtes maintenant prêt à procéder au [Déploiement de votre appareil StorSimple local](storsimple-deployment-walkthrough.md).
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

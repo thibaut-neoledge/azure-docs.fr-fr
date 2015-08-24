@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Accès aux informations de graphique Azure Active Directory (Windows Store) | Centre de développement mobile" 
+	pageTitle="Accès aux informations de graphique Azure Active Directory (Windows Store) | Microsoft Azure" 
 	description="Découvrez comment accéder aux informations Azure Active Directory à l'aide de l'API Graph dans votre application Windows Store." 
 	documentationCenter="windows" 
 	authors="wesmc7777" 
@@ -180,4 +180,4 @@ Dans le prochain didacticiel, [Contrôle d'accès en fonction du rôle avec AAD 
 [Contrôle d'accès en fonction du rôle avec AAD dans Mobile Services]: mobile-services-javascript-backend-windows-store-dotnet-aad-rbac.md
 [blog de l'équipe Azure Active Directory Graph]: http://go.microsoft.com/fwlink/?LinkId=510536
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

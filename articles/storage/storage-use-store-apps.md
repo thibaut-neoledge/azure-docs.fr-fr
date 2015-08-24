@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Utilisation du stockage Azure dans les applications Windows Store | Azure" 
+	pageTitle="Utilisation du stockage Azure dans les applications Windows Store | Microsoft Azure" 
 	description="Apprenez à utiliser les objets blob, les files d'attente et les tables Azure pour stocker les données d'une application Windows Store." 
 	services="storage" 
 	documentationCenter="" 
@@ -94,4 +94,4 @@ Vous pouvez également ajouter une référence dans Microsoft.WindowsAzure.Stora
 [store-apps-storage-package-manager]: ./media/storage-use-store-apps/store-apps-storage-package-manager.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

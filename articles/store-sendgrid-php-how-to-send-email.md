@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Utilisation du service de messagerie SendGrid (PHP) - Azure" 
+	pageTitle="Utilisation du service de messagerie électronique SendGrid (PHP) | Microsoft Azure" 
 	description="Découvrez comment envoyer un courrier électronique avec le service de messagerie SendGrid dans Azure. Exemples de code écrits en PHP." 
 	documentationCenter="php" 
 	services="" 
@@ -420,4 +420,4 @@ Maintenant que vous avez appris les bases du service de messagerie SendGrid, con
   [sendgrid-php]: https://github.com/sendgrid/sendgrid-php/tree/v2.1.1
   [Composer]: https://getcomposer.org/download/
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

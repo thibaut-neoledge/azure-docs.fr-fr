@@ -67,7 +67,14 @@ Dans cet exemple, une base de données appelée « Database02 » est récupér
 
 ## Get-AzureSqlDatabaseRestorePoints
 
-Cette applet de commande répertorie les points de restauration de sauvegarde associés à une base de données SQL. Les points de restauration sont utilisés pour restaurer la base de données. Les propriétés de l’objet renvoyé sont les suivantes. <table> <tr> <td>Propriété</td> <td>Description</td> </tr> <tr> <td>RestorePointType</td> <td>DISCRETS / CONTINUS. Les points de restauration discrets sont les éventuels points dans le temps auxquels une base de données Azure SQL peut être restaurée. Les points de restauration continus sont les points dans le temps les plus antérieurs auxquels une base de données Azure SQL peut être restaurée. La base de données peut être restaurée à tout point dans le temps postérieur au point le plus antérieur.</td> </tr> <tr> <td>EarliestRestoreDate</td> <td>Point de restauration le plus antérieur (rempli quand restorePointType = CONTINU)</td> </tr> <tr> <td>RestorePointCreationDate </td> <td>Prise de l’instantané de sauvegarde (rempli quand restorePointType = DISCRET)</td> </tr> </table>
+Cette applet de commande répertorie les points de restauration de sauvegarde associés à une base de données SQL. Les points de restauration sont utilisés pour restaurer la base de données. Les propriétés de l’objet renvoyé sont les suivantes.
+
+Propriété|Description
+---|---
+RestorePointType|DISCRETS / CONTINUS. Les points de restauration discrets sont les éventuels points dans le temps auxquels une base de données Azure SQL peut être restaurée. Les points de restauration continus sont les points dans le temps les plus antérieurs auxquels une base de données Azure SQL peut être restaurée. La base de données peut être restaurée à tout point dans le temps postérieur au point le plus antérieur.
+EarliestRestoreDate|Point de restauration le plus antérieur (rempli quand restorePointType = CONTINU)
+RestorePointCreationDate |Prise de l’instantané de sauvegarde (rempli quand restorePointType = DISCRET)
+
 ### Exemple 1: Extraction des points de restauration de base de données par nom sur un serveur
 Dans cet exemple, les points de restauration d’une base de données appelée « Database02 » sont récupérés d’un serveur appelé « Server01 » hébergé dans un groupe de ressources appelé « ResourceGroup1 ».
 
@@ -99,4 +106,4 @@ Pour plus d’informations, consultez la [vue d’ensemble de référence de SQL
 [yah]: http://search.yahoo.com/
 [msn]: http://search.msn.com/
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

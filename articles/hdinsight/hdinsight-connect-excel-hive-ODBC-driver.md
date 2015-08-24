@@ -54,26 +54,29 @@ La procédure suivante explique comment créer une source de données ODBC Hive.
 
 5. Tapez ou sélectionnez les valeurs suivantes :
 
-	<table border="1">
-<tr><td><strong>Propriété</strong></td><td><strong>Description</strong></td></tr>
-<tr><td>Data Source Name</td><td>Donnez un nom à votre source de données</td></tr>
-<tr><td>Hôte</td><td>Entrez <HDInsightClusterName>.azurehdinsight.net. Par exemple, myHDICluster.azurehdinsight.net</td></tr>
-<tr><td>Port</td><td>Utilisez <strong>443</strong> (ce port est passé de 563 à 443).</td></tr>
-<tr><td>Database</td><td>Utilisez <strong>Default</strong>.</td></tr>
-<tr><td>Hive Server Type</td><td>Sélectionnez <strong>Hive Server 2</strong></td></tr>
-<tr><td>Mechanism</td><td>Sélectionnez <strong>Azure HDInsight Service</strong></td></tr>
-<tr><td>HTTP Path</td><td>Laissez cette valeur vide.</td></tr>
-<tr><td>User Name</td><td>Entrez le nom d'utilisateur du cluster HDInsight. Il s'agit du nom d'utilisateur créé au cours du processus d'approvisionnement de cluster. Si vous avez utilisé l'option de création rapide, le nom d'utilisateur par défaut est <strong>admin</strong>.</td></tr>
-<tr><td>Password</td><td>Entrez le mot de passe du cluster HDInsight.</td></tr>
-</table>Certains paramètres importants sont à prendre en compte lorsque vous cliquez sur **Options avancées** :
+Propriété|Description
+---|---
+Data Source Name|Donnez un nom à votre source de données
+Hôte|Entrez <HDInsightClusterName>.azurehdinsight.net. Par exemple, myHDICluster.azurehdinsight.net
+Port|Utilisez <strong>443</strong>. (ce port est passé de 563 à 443).
+Base de données|Utilisez <strong>Default</strong>.
+Hive Server Type|Sélectionnez <strong>Hive Server 2</strong>
+Mechanism|Sélectionnez <strong>Azure HDInsight Service</strong>
+HTTP Path|Laissez cette valeur vide.
+User Name|Entrez le nom d'utilisateur du cluster HDInsight. Il s'agit du nom d'utilisateur créé au cours du processus d'approvisionnement de cluster. Si vous avez utilisé l'option de création rapide, le nom d'utilisateur par défaut est <strong>admin</strong>.
+Mot de passe|Entrez le mot de passe du cluster HDInsight.
+</table>
 
-	<table border="1">
-<tr><td>Use Native Query</td><td>Si cette option est sélectionnée, le pilote ODBC n'essaiera PAS de convertir TSQL en HiveQL. À utiliser uniquement si vous êtes sûr à 100&#160;% que vous envoyez des instructions HiveQL pures. Si vous effectuez une connexion à SQL&#160;Server ou Base de données SQL Azure, ne sélectionnez pas cette option.</td></tr>
-<tr><td>Rows fetched per block</td><td>Lors de la récupération d'une grande quantité d'enregistrements, la définition de ce paramètre peut être nécessaire pour garantir des performances optimales.</td></tr>
-<tr><td>Default string column length, <br/>
-		Binary column length,  <br/>
-		Decimal column scale</td><td>Les précisions et longueurs des types de données peuvent affecter la façon dont les données sont renvoyées. Elles peuvent entraîner le renvoi d'informations incorrectes en raison d'une perte de précision et/ou de troncations.</td></tr>
-</table>![Options avancées][img-HiveOdbc-DataSource-AdvancedOptions]
+Certains paramètres importants sont à prendre en compte lorsque vous cliquez sur **Options avancées** :
+
+Paramètre|Description
+---|---
+Use Native Query|Si cette option est sélectionnée, le pilote ODBC n'essaiera PAS de convertir TSQL en HiveQL. À utiliser uniquement si vous êtes sûr à 100 % que vous envoyez des instructions HiveQL pures. Si vous effectuez une connexion à SQL Server ou Base de données SQL Azure, ne sélectionnez pas cette option.
+Rows fetched per block|Lors de la récupération d'une grande quantité d'enregistrements, la définition de ce paramètre peut être nécessaire pour garantir des performances optimales.
+Default string column length, Binary column length, Decimal column scale|Les précisions et longueurs des types de données peuvent affecter la façon dont les données sont renvoyées. Elles peuvent entraîner le renvoi d'informations incorrectes en raison d'une perte de précision et/ou de troncations.
+
+
+	![Advanced options][img-HiveOdbc-DataSource-AdvancedOptions]
 
 6. Cliquez sur **Tester** pour tester la source de données. Une fois que la source de données est configurée correctement, le message suivant apparaît *TESTS COMPLETED SUCCESSFULLY!*.
 7. Cliquez sur **OK** pour fermer la boîte de dialogue de test. La nouvelle source de données doit à présent figurer dans la boîte de dialogue **Administrateur de sources de données ODBC**.
@@ -127,4 +130,4 @@ Dans cet article, vous avez appris à utiliser le pilote Microsoft Hive ODBC pou
 [img-hdi-simbahiveodbc-excel-connectionproperties]: ./media/hdinsight-connect-excel-hive-ODBC-driver/HDI.SimbaHiveODBC.Excel.ConnectionProperties1.png
 [img-hdi-simbahiveodbc.excel.dataconnection]: ./media/hdinsight-connect-excel-hive-ODBC-driver/HDI.SimbaHiveOdbc.Excel.DataConnection1.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

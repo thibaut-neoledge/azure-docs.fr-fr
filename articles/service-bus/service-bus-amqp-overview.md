@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Vue d’ensemble d’AMQP de Service Bus - Azure" 
+	pageTitle="Vue d'ensemble d’AMQP de Service Bus | Microsoft Azure" 
 	description="Découvrez comment utiliser le protocole Advanced Message Queuing Protocol (AMQP) 1.0 dans Azure." 
 	services="service-bus" 
 	documentationCenter=".net" 
@@ -98,4 +98,4 @@ Pour plus d’informations sur l’obtention et l’utilisation de ces biblioth�
 [0]: ./media/service-bus-amqp-overview/Example1.png
 [Guide du développeur AMPQ Service Bus]: http://msdn.microsoft.com/library/jj841071.aspx
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

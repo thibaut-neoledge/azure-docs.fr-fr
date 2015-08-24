@@ -1,5 +1,5 @@
 <properties
-	pageTitle="En savoir plus sur les fonctionnalités dans les éditions BizTalk Services | Azure"
+	pageTitle="En savoir plus sur les fonctionnalités des éditions BizTalk Services | Microsoft Azure"
 	description="Comparer les fonctions des éditions BizTalk Services : Gratuite, Développeur, De base, Standard et Premium. MABS, WABS"
 	services="biztalk-services"
 	documentationCenter=""
@@ -257,4 +257,4 @@ Pour créer Azure BizTalk Services dans le portail de gestion Azure, accédez à
 - [Utilisation du Kit de développement logiciel (SDK) Azure BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=302335) <br/>
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

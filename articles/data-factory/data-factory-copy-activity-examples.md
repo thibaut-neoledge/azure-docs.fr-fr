@@ -7,7 +7,6 @@
 	manager="jhubbard" 
 	editor="monicar"/>
 
-
 <tags 
 	ms.service="data-factory" 
 	ms.workload="data-services" 
@@ -17,9 +16,8 @@
 	ms.date="08/03/2015" 
 	ms.author="spelluru"/>
 
-
 # Exemples d'utilisation de l’activité de copie dans Azure Data Factory
-Vous pouvez utiliser l'**activité de copie** dans un pipeline pour copier les données d'une source vers un récepteur (destination) au sein d'un lot. Cette rubrique fournit quelques exemples d'utilisation de l'activité de copie dans un pipeline Data Factory. Pour une présentation détaillée de l'activité de copie et des principaux scénarios pris en charge, consultez la rubrique [Copier des données avec Azure Data Factory][adf-copyactivity].
+Vous pouvez utiliser l'**activité de copie** dans un pipeline pour copier les données d'une source vers un récepteur (destination) au sein d'un lot. Cette rubrique fournit quelques exemples d'utilisation de l'activité de copie dans un pipeline Data Factory.
 
 ## Copie de données depuis une base de données SQL Server locale vers un objet blob Azure
 Dans cet exemple, une table d'entrée et une table de sortie sont définies puis utilisées dans une activité de copie au sein d'un pipeline copiant des données à partir d'une base de données SQL Server locale vers un objet blob Azure.
@@ -68,7 +66,7 @@ Au cours de cette étape, vous créez un service lié nommé **MyAzureStorage** 
 
 Notez les points suivants :
 
-- Le **type** est défini sur **AzureStorage**.
+- **type** est défini sur **AzureStorage**.
 - **connectionString** : indique le nom du compte et la clé du compte pour le stockage Azure.
 
 Consultez [Service lié Azure Storage](https://msdn.microsoft.com/library/dn893522.aspx) pour en savoir plus sur les éléments JSON permettant de définir un service lié Azure Storage.
@@ -94,11 +92,11 @@ Le script JSON suivant définit une table d'entrée qui fait référence à la 
 
 Notez les points suivants :
 
-- Le **type** est défini sur **SqlServerTable**.
+- **type** est défini sur **SqlServerTable**.
 - **tableName** est défini sur **MyTable**, qui contient les données sources. 
 - **linkedServiceName** est défini sur **MyOnPremisesSQLDB**, le service lié que vous avez créé pour la base de données SQL locale.
 
-Consultez [Propriétés du type du SQL local](https://msdn.microsoft.com/library/mt185722.aspx#OnPremSQL) pour en savoir plus sur les éléments JSON permettant de définir une table Data Factory faisant référence à une table SQL Server.
+Pour plus d’informations sur les éléments JSON permettant de définir une table Data Factory faisant référence à une table SQL Server, voir l’article décrivant les [propriétés type de base de données SQL Server locale](https://msdn.microsoft.com/library/mt185722.aspx#OnPremSQL).
 
 ### Table de sortie JSON
 Le script JSON suivant définit une table de sortie : **MyAzureBlob**, qui fait référence à un objet blob Azure : **MyBlob** situé dans le dossier d’objets blob : **MySubFolder**, lui-même situé dans le conteneur d’objets blob : **MyContainer**.
@@ -128,12 +126,12 @@ Le script JSON suivant définit une table de sortie : **MyAzureBlob**, qui fait
 
 Notez les points suivants :
  
-- Le **type** est défini sur **AzureBlob**.
+- **type** est défini sur **AzureBlob**.
 - **folderPath** est défini sur **MyContainer/MySubFolder**, qui contient l'objet blob contenant les données copiées. 
 - **fileName** est défini sur **MyBlob**, l'objet blob qui contient les données de sortie.
 - **linkedServiceName** est défini sur **MyAzureStorge**, le service lié que vous avez créé pour le stockage Azure.    
 
-Consultez la rubrique [Propriétés du type des objets blob Azure](https://msdn.microsoft.com/library/mt185722.aspx#AzureBlob) pour en savoir plus sur les éléments JSON permettant de définir une table Data Factory faisant référence à un objet blob Azure.
+Pour plus d’informations sur les éléments JSON permettant de définir une table Data Factory faisant référence à un objet blob Azure, voir l’article décrivant les [propriétés type des objets blob Azure](https://msdn.microsoft.com/library/mt185722.aspx#AzureBlob).
 
 ### Pipeline (avec activité de copie) JSON
 Dans cet exemple, le pipeline **CopyActivityPipeline** est défini à l'aide des propriétés suivantes :
@@ -177,7 +175,7 @@ Dans cet exemple, le pipeline **CopyActivityPipeline** est défini à l'aide des
 		  }
 		}
 
-Consultez la rubrique [Référence du pipeline JSON](https://msdn.microsoft.com/library/dn834988.aspx) pour en savoir plus sur les éléments JSON permettant de définir un pipeline Data Factory et la rubrique [Sources et récepteurs pris en charge](https://msdn.microsoft.com/library/dn894007.aspx) pour les propriétés de SqlSource (par exemple : **sqlReaderQuery **dans l'exemple) et BlobSink.
+Pour plus d’informations sur les éléments JSON permettant de définir un pipeline Data Factory, voir l’article de [référence JSON du pipeline](https://msdn.microsoft.com/library/dn834988.aspx) ; pour plus d’informations sur les propriétés de SqlSource (par exemple : \*\*sqlReaderQuery\*\* dans l’exemple) et BlobSink, voir l’article [Sources et récepteurs pris en charge](https://msdn.microsoft.com/library/dn894007.aspx).
 
 
 ## Copie de données depuis un système de fichiers local vers un objet blob Azure
@@ -187,10 +185,10 @@ Vous pouvez utiliser l'activité de copie pour copier des fichiers à partir d'u
 Cet exemple part des principes suivants :
 
 - **Hôte** : le nom du serveur qui héberge le système de fichiers est : **\\contoso**.
-- **Dossier** : le nom du dossier qui contient les fichiers d’entrée est : **marketingcampaign\\regionaldata\\{tranche}, où les fichiers sont partitionnés dans un dossier nommé {tranche}, comme 2014121112 (année 2014, 12e mois, 11e jour, midi).
+- **Dossier** : le nom du dossier qui contient les fichiers d’entrée est : \*\*marketingcampaign\\regionaldata\\{slice}, où les fichiers sont partitionnés dans un dossier nommé {slice}, comme 2014121112 (année 2014, 12e mois, 11e jour, midi).
 
 ### Création d’un service lié du système de fichiers local
-L'exemple JSON suivant peut être utilisé pour créer un service lié nommé **FolderDataStore** de type **OnPremisesFileServer**.
+L’exemple JSON suivant permet de créer un service lié nommé **FolderDataStore** de type **OnPremisesFileServer**.
 
 	{
 	  "name": "FolderDataStore",
@@ -253,7 +251,7 @@ Le script JSON suivant définit une table d'entrée qui fait référence à un s
 	  }
 	}
 
-Consultez la rubrique [Propriétés du type du système de fichiers local](https://msdn.microsoft.com/library/mt185722.aspx#OnPremFileSystem) pour en savoir plus sur les éléments JSON permettant de définir une table Data Factory faisant référence à un système de fichiers local.
+Pour plus d’informations sur les éléments JSON permettant de définir une table Data Factory faisant référence à un système de fichiers local, voir l’article décrivant les [propriétés type de système de fichiers local](https://msdn.microsoft.com/library/mt185722.aspx#OnPremFileSystem).
 
 ### Création de la table de sortie
 Le script JSON suivant définit une table de sortie : **AzureBlobDest**, qui fait référence à un objet blob Azure : **MyBlob** situé dans le dossier d'objets blob : **MySubFolder**, lui-même situé dans le conteneur d'objets blob : **MyContainer**.
@@ -281,7 +279,7 @@ Le script JSON suivant définit une table de sortie : **AzureBlobDest**, qui fa
 	  }
 	}
 
-Consultez la rubrique [Propriétés du type des objets blob Azure](https://msdn.microsoft.com/library/mt185722.aspx#AzureBlob) pour en savoir plus sur les éléments JSON permettant de définir une table Data Factory faisant référence à un objet blob Azure.
+Pour plus d’informations sur les éléments JSON permettant de définir une table Data Factory faisant référence à un objet blob Azure, voir l’article décrivant les [propriétés type des objets blob Azure](https://msdn.microsoft.com/library/mt185722.aspx#AzureBlob).
 
 ### Création du pipeline
 Le pipeline JSON suivant définit un pipeline avec une activité de copie qui copie les données du système de fichiers local vers l’objet blob de destination Azure.
@@ -336,7 +334,7 @@ Notez que seul **folderPath** est spécifié dans l'exemple JSON.
 	}
  
 #### Copie de tous les fichiers CSV dans le dossier spécifique
-Notez que le **fileFilter** est défini sur ****.csv**.
+Notez que l’élément **fileFilter** est défini sur ***\*.csv**.
 
     "typeProperties": {
         "folderPath": "marketingcampaign\\regionaldata\\na",
@@ -355,7 +353,7 @@ Notez que le **fileFiter** est défini dans un fichier spécifique : **201501.c
 Vous pouvez utiliser l'activité de copie pour copier les fichiers d’une base de données Oracle locale vers un objet blob Azure.
 
 ### Création d’un service lié pour une base de données Oracle locale
-Le JSON suivant peut être utilisé pour créer un service lié qui pointe vers une base de données Oracle locale. Notez que le **type** est défini sur **OnPremisesOracle**.
+Le JSON suivant peut être utilisé pour créer un service lié qui pointe vers une base de données Oracle locale. Notez que l’élément **type** est défini sur **OnPremisesOracle**.
 
 	{
 	    "name": "OnPremOracleSource",
@@ -371,7 +369,7 @@ Le JSON suivant peut être utilisé pour créer un service lié qui pointe vers 
 Consultez [Service lié Oracle local](https://msdn.microsoft.com/library/dn948537.aspx) pour en savoir plus sur les éléments JSON permettant de définir un service lié Oracle local.
 
 ### Création d’un service lié pour un objet blob de destination Azure
-L'exemple JSON suivant peut être utilisé pour créer un service lié nommé **MyAzureStorage** de type **AzureStorage**.
+L’exemple JSON suivant permet de créer un service lié nommé **MyAzureStorage** de type **AzureStorage**.
 
 	{
 	    "name": "AzureBlobDest",
@@ -387,7 +385,7 @@ L'exemple JSON suivant peut être utilisé pour créer un service lié nommé **
 Consultez [Service lié Azure Storage](https://msdn.microsoft.com/library/dn893522.aspx) pour en savoir plus sur les éléments JSON permettant de définir un service lié Azure Storage.
 
 ### Création de la table d’entrée
-L'exemple JSON suivant peut être utilisé pour créer une table Azure Data Factory faisant référence à une table dans une base de données Oracle locale. Notez que le **type** est défini sur **OracleTable**.
+L'exemple JSON suivant peut être utilisé pour créer une table Azure Data Factory faisant référence à une table dans une base de données Oracle locale. Notez que l’élément **type** est défini sur **OracleTable**.
 
 	{
 	  "name": "TableOracle",
@@ -406,7 +404,7 @@ L'exemple JSON suivant peut être utilisé pour créer une table Azure Data Fact
 	  }
 	}
 
-Consultez la rubrique [Propriétés du type de la base de données Oracle locale](https://msdn.microsoft.com/library/mt185722.aspx#Oracle) pour en savoir plus sur les éléments JSON permettant de définir une table Data Factory faisant référence à une table dans une base de données Oracle locale.
+Pour plus d’informations sur les éléments JSON permettant de définir une table Data Factory faisant référence à une table dans une base de données Oracle locale, voir l’article décrivant les [propriétés type de base de données Oracle locale](https://msdn.microsoft.com/library/mt185722.aspx#Oracle).
 
 ### Création de la table de sortie
 Le script JSON suivant définit une table de sortie : **MyAzureBlob**, qui fait référence à un objet blob Azure : **MyBlob** situé dans le dossier d’objets blob : **MySubFolder**, lui-même situé dans le conteneur d'objets blob : **MyContainer**.
@@ -434,7 +432,7 @@ Le script JSON suivant définit une table de sortie : **MyAzureBlob**, qui fait
 	  }
 	}
 
-Consultez la rubrique [Propriétés du type des objets blob Azure](https://msdn.microsoft.com/library/mt185722.aspx#AzureBlob) pour en savoir plus sur les éléments JSON permettant de définir une table Data Factory faisant référence à un objet blob Azure.
+Pour plus d’informations sur les éléments JSON permettant de définir une table Data Factory faisant référence à un objet blob Azure, voir l’article décrivant les [propriétés type des objets blob Azure](https://msdn.microsoft.com/library/mt185722.aspx#AzureBlob).
 
 ### Création du pipeline
 L'activité de copie de l’exemple de pipeline suivant copie les données à partir d'une table de la base de données Oracle vers un objet blob Azure Storage.
@@ -482,12 +480,9 @@ Consultez la rubrique [Référence JSON du pipeline](https://msdn.microsoft.com/
 
 ## Voir aussi
 
-- [Copie de données avec Azure Data Factory][adf-copyactivity]
 - [Activité de copie : informations de référence sur la création de scripts JSON](https://msdn.microsoft.com/library/dn835035.aspx)
 - [Vidéo : Présentation de l'activité de copie dans Azure Data Factory][copy-activity-video]
 
-
-[adf-copyactivity]: data-factory-copy-activity.md
 [copy-activity-video]: http://azure.microsoft.com/documentation/videos/introducing-azure-data-factory-copy-activity/
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

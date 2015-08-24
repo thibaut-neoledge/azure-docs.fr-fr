@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/29/2015" 
+	ms.date="08/11/2015"
 	ms.author="juliako"/>
 
 #Présentation du modèle de licence PlayReady de Media Services
@@ -301,4 +301,4 @@ Pour obtenir un exemple des niveaux de protection que Silverlight prend charge, 
 	  <xs:element name="ScmsRestriction" nillable="true" type="tns:ScmsRestriction" />
 	</xs:schema>
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

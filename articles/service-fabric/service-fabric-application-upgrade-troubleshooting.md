@@ -7,16 +7,14 @@
    manager="samgeo"
    editor=""/>
 
-
 <tags
    ms.service="service-fabric"
    ms.devlang="dotnet"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/24/2015"
+   ms.date="08/11/2015"
    ms.author="subramar"/>
-
 
 # Résoudre les problèmes de mise à niveau d'application
 
@@ -227,4 +225,4 @@ La durée de mise à niveau d'un domaine de mise à niveau est limitée par *Upg
 [Sérialisation des données](service-fabric-application-upgrade-data-serialization.md)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

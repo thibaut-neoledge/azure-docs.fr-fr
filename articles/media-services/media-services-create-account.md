@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Création d'un compte Media Services - Azure"
+	pageTitle="Création d'un compte Media Services | Microsoft Azure"
 	description="Explique comment créer un compte Media Services dans Azure."
 	services="media-services"
 	documentationCenter=""
@@ -7,16 +7,14 @@
 	manager="dwrede"
 	editor=""/>
 
-
 <tags
 	ms.service="media-services"
 	ms.workload="media"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article" 
-	ms.date="04/20/2015"
+	ms.date="08/11/2015"
 	ms.author="juliako"/>
-
 
 
 #Création d’un compte Media Services
@@ -25,8 +23,6 @@
 - [Portal](media-services-create-account.md)
 - [PowerShell](media-services-manage-with-powershell.md)
 - [REST](https://msdn.microsoft.com/library/azure/dn167014.aspx)
-
-Cet article fait partie des séries [workflow de vidéo à la demande Media Services](media-services-video-on-demand-workflow.md) et [workflow de vidéo en flux continu Media Services](media-services-live-streaming-workflow.md).
 
 Le portail de gestion Azure permet de créer rapidement un compte Azure Media Services. Vous pouvez utiliser ce dernier pour accéder à Media Services afin de stocker, de chiffrer, d'encoder, de gérer et de diffuser du contenu multimédia dans Azure. Lorsque vous créez un compte Media Services, vous créez également un compte de stockage associé ou en utilisez un existant, situé dans la même zone géographique que le compte Media Services.
 
@@ -83,4 +79,4 @@ L'accès à Media Services requiert deux comptes associés :
   [portail de gestion]: http://manage.windowsazure.com/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Utilisation des rubriques Service Bus (Ruby) - Azure"
+	pageTitle="Utilisation des rubriques Service Bus (Ruby | Microsoft Azure"
 	description="Découvrez comment utiliser les rubriques et abonnements Service Bus dans Azure. Les exemples de code sont écrits pour les applications Ruby."
 	services="service-bus"
 	documentationCenter="ruby"
@@ -218,4 +218,4 @@ Maintenant que vous avez appris les principes de base des rubriques Service Bus,
 -	Accédez au référentiel du [Kit de développement logiciel (SDK) Azure pour Ruby](https://github.com/WindowsAzure/azure-sdk-for-ruby) sur GitHub.
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -7,7 +7,6 @@
 	manager="jhubbard" 
 	editor="monicar"/>
 
-
 <tags 
 	ms.service="data-factory" 
 	ms.workload="data-services" 
@@ -16,7 +15,6 @@
 	ms.topic="article" 
 	ms.date="07/28/2015" 
 	ms.author="spelluru"/>
-
 
 # Planification et exécution avec Data Factory
   
@@ -233,7 +231,6 @@ Prenons l’exemple suivant, il montre les deux activités. Activity1 génère u
 ![Tranche de données ayant échoué](./media/data-factory-scheduling-and-execution/failed-slice.png)
 
 <br/>
-
 
 Le diagramme ci-dessus montre que, parmi les 3 tranches récentes, il y a eu un échec, ce qui généré une tranche 9 à 10 h pour **Dataset2**. Data Factory effectue automatiquement le suivi de la dépendance du jeu de données et, par conséquent, retient l’exécution de l’activité sur la tranche 9 à 10 h en aval.
 
@@ -521,10 +518,8 @@ Nom de la variable | Description | Portée de l’objet | Étendue JSON et cas d
 ------------- | ----------- | ------------ | ------------------------
 WindowStart | Début de l’intervalle de temps pour l’intervalle d’exécution d’activité en cours | activité | <ol><li>Spécifier des requêtes de sélection de données. Consulter les articles de connecteur référencés dans l’article [activités de déplacement des données](data-factory-data-movement-activities.md). </li><li>Passer des paramètres des scripts de Hive (exemple ci-dessus).</li>
 WindowEnd | Fin de l’intervalle de temps de l’intervalle d’exécution d’activité en cours | activité | Identique à ce qui précède.
-SliceStart | Début de l’intervalle de temps pour une tranche de données en cours de génération | activité<br/>
-jeu de données | <ol><li>Spécifier les chemins d’accès dynamiques en cas de travail avec [objets Blob Azure](data-factory-azure-blob-connector.md) et [jeux de données de système de fichiers](data-factory-onprem-file-system-connector.md).</li><li>Spécifier les dépendances d’entrée avec les fonctions Data Factory dans une collecte d’entrées de données.</li></ol>
-SliceEnd | Fin de l’intervalle de temps pour une tranche de données en cours de génération | activité<br/>
-jeu de données | identique à ce qui précède. 
+SliceStart | Début de l’intervalle de temps pour une tranche de données en cours de génération | activité<br/>jeu de données | <ol><li>Spécifier les chemins d’accès dynamiques en cas de travail avec [objets Blob Azure](data-factory-azure-blob-connector.md) et [jeux de données de système de fichiers](data-factory-onprem-file-system-connector.md).</li><li>Spécifier les dépendances d’entrée avec les fonctions Data Factory dans une collecte d’entrées de données.</li></ol>
+SliceEnd | Fin de l’intervalle de temps pour une tranche de données en cours de génération | activité<br/>jeu de données | identique à ce qui précède. 
 
 > [AZURE.NOTE]Actuellement Data Factory exige que le calendrier spécifié dans l’activité corresponde exactement à la planification spécifiée dans la disponibilité du jeu de données de sortie. Cela signifie que WindowStart, WindowEnd et SliceStart et SliceEnd font toujours correspondre la même période de temps et une tranche de sortie unique.
  
@@ -557,15 +552,12 @@ Time | AddMinutes(X,Y) | X: DateTime <p>Y: int</p> | Ajoute Y minutes à X.<p>Ex
 Time | StartOfHour(X) | X: Datetime | Obtient l’heure de début de l’heure représentée par le composant heure de X.<p>Exemple : StartOfHour 9/15/2013 05:10:23 PM est 9/15/2013 05:00:00 PM</p>
 Date | AddDays(X,Y) | X: DateTime<p>Y: int</p> | Ajoute Y jours à X.<p>Exemple : 9/15/2013 12:00:00 PM + 2 jours = 9/17/2013 12:00:00 PM</p>
 Date | AddMonths(X,Y) | X: DateTime<p>Y: int</p> | Ajoute Y mois à X.<p>Exemple : 9/15/2013 12:00:00 PM + 1 mois = 10/15/2013 12:00:00 PM </p> 
-Date | AddQuarters(X,Y) | X: DateTime <p>Y: int</p> | Ajoute Y* 3 mois à X.<p>Exemple : 9/15/2013 12:00:00 PM + 1 trimestre = 12/15/2013 12:00:00 PM</p>
-Date | AddWeeks(X,Y) | X: DateTime<p>Y: int</p> | Ajoute les Y * 7 jours x<p>exemple : 15/9/2013 12:00:00 PM + 1 semaine = 22/9/2013 12:00:00 PM</p>
+Date | AddQuarters(X,Y) | X: DateTime <p>Y: int</p> | Ajoute Y\* 3 mois à X.<p>Exemple : 9/15/2013 12:00:00 PM + 1 trimestre = 12/15/2013 12:00:00 PM</p>
+Date | AddWeeks(X,Y) | X: DateTime<p>Y: int</p> | Ajoute les Y \* 7 jours x<p>exemple : 15/9/2013 12:00:00 PM + 1 semaine = 22/9/2013 12:00:00 PM</p>
 Date | AddYears(X,Y) | X: DateTime<p>Y: int</p> | Ajoute Y années à X.<p>Exemple : 9/15/2013 12:00:00 PM + 1 an = 9/15/2014 12:00:00 PM</p>
 Date | Day(X) | X: DateTime | Obtient le composant « jour » de X.<p>Exemple : le jour du 9/15/2013, 12:00:00 PM est 9.</p>
 Date | DayOfWeek(X) | X: DateTime | Obtient le composant « semaine » de X.<p>Exemple : DayOfWeek du 9/15/2013, 12:00:00 PM est dimanche.</p>
-Date | DayOfYear(X) | X: DateTime | Permet d’obtenir le jour de l’année représenté par le composant année de X.<p>Exemples :<br/>
-12/1/2015: jour 335 de 2015<br/>
-12/31/2015 : jour 365 de 2015<br/>
-12/31/2016 : jour 366 de 2016 (année bissextile)</p>
+Date | DayOfYear(X) | X: DateTime | Permet d’obtenir le jour de l’année représenté par le composant année de X.<p>Exemples :<br/>12/1/2015: jour 335 de 2015<br/>12/31/2015 : jour 365 de 2015<br/>12/31/2016 : jour 366 de 2016 (année bissextile)</p>
 Date | DaysInMonth(X) | X: DateTime | Permet d’obtenir les jours du mois représentés par le composant mois du paramètre x.<p>Exemple : DaysInMonth du 9/15/2013 sont 30 puisqu’il y a 30 jours dans le mois de septembre.</p>
 Date | EndOfDay(X) | X: DateTime | Obtient la valeur date-heure qui représente la fin de la journée (composant jour) de X.<p>Exemple : EndOfDay du 9/15/2013 05:10:23 PM est 9/15/2013 11:59:59 PM.</p>
 Date | EndOfMonth(X) | X: DateTime | Permet d’obtenir la fin du mois représentée par le composant mois du paramètre x.<p>Exemple : EndOfMonth 9/15/2013 05:10:23 PM est 9/30/2013 11:59:59 PM (heure date qui représente la fin du mois de septembre)</p>
@@ -594,7 +586,7 @@ La plage de temps des jeux de données d’entrée requis pour générer la tran
 
 Une exécution d’activité génère une tranche de jeu de données seulement après que les tranches de données dans les jeux de données d’entrée au sein de la période de dépendance sont disponibles. Cela signifie que toutes les tranches d’entrée comprenant la période de dépendance doivent être à l’état **prêt** pour que la tranche de jeu de données de sortie puisse être générée par l’exécution de l’activité.
 
-Pour générer la tranche de jeu de données [début, fin\], une fonction mettant en adéquation la tranche de jeu de données avec la période de dépendance doit exister. Cette fonction est essentiellement une formule qui convertit le début et la fin de la tranche de jeu de données au début et à la fin de la période de dépendance. Plus formellement,
+Pour générer la tranche de jeu de données [début, fin], une fonction mettant en adéquation la tranche de jeu de données avec la période de dépendance doit exister. Cette fonction est essentiellement une formule qui convertit le début et la fin de la tranche de jeu de données au début et à la fin de la période de dépendance. Plus formellement,
 	
 	DatasetSlice = [start, end]
 	DependecyPeriod = [f(start, end), g(start, end)]
@@ -684,4 +676,4 @@ Similaires aux jeux de données produits par Data Factory, les tranches de donn�
 
   
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

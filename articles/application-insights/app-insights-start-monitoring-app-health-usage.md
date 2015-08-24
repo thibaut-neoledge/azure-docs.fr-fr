@@ -118,7 +118,7 @@ Lorsque vous exécutez l'application en mode débogage, la télémétrie est env
 
 * Ouvrez la vignette [Rechercher][diagnostic] pour afficher les événements individuels.
 * Utilisez l'application en ouvrant différentes pages pour générer des données de télémétrie.
-* Attendez quelques secondes, puis cliquez sur Actualiser.
+* Attendez quelques secondes, puis cliquez sur Actualiser. Les graphiques s’actualisent à intervalles réguliers, mais vous pouvez les actualiser manuellement si vous attendez que certaines données s’affichent.
 * Consultez la rubrique [Résolution des problèmes][qna].
 
 #### Vous rencontrez des problèmes sur votre serveur de builds ?
@@ -243,4 +243,4 @@ Si cette application fait partie d'une application plus importante, vous pouvez 
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

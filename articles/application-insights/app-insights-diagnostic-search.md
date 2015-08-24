@@ -6,16 +6,14 @@
 	authors="alancameronwills" 
 	manager="douge"/>
 
-
 <tags 
 	ms.service="application-insights" 
 	ms.workload="tbd" 
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/08/2015" 
+	ms.date="08/07/2015" 
 	ms.author="awills"/>
-
  
 # Utilisation de Recherche de diagnostic dans Application Insights
 
@@ -36,6 +34,8 @@ Par exemple, si votre application est un service web, le panneau Vue d’ensembl
 
 
 La partie principale de Recherche de diagnostic est une liste d’éléments de télémétrie : demandes serveur, pages vues, événements personnalisés que vous avez codés, et ainsi de suite. En haut de la liste se trouve un graphique de synthèse indiquant le nombre d’événements au fil du temps.
+
+Les événements s’affichent généralement dans Recherche de diagnostic avant d’apparaître dans Metrics Explorer. Même si le panneau est actualisé à intervalles réguliers, vous pouvez cliquer sur Actualiser si vous attendez un événement spécifique.
 
 
 ## Inspecter les éléments un par un
@@ -111,7 +111,7 @@ Recherchez tous les éléments dont la valeur de la propriété est la même :
 
 Récupérez toutes les demandes dont le temps de réponse excède 5 secondes. Les heures sont indiquées en cycles : 10 000 cycles = 1 ms.
 
-!["Response time":(threshold TO *)\](./media/app-insights-diagnostic-search/11-responsetime.png)
+!["Response time":(threshold TO \*)](./media/app-insights-diagnostic-search/11-responsetime.png)
 
 
 
@@ -127,17 +127,9 @@ Recherchez des termes, et non des sous-chaînes. Les termes sont des chaînes al
 
 terme|*non* trouvé en recherchant|mais en recherchant
 ---|---|---
-HomeController.About|about<br/>
-home|h*about<br/>
-home*
-IsLocal|local<br/>
-is<br/>
-*local|isl*<br/>
-islocal<br/>
-i*l*
-New Delay|w d|new<br/>
-delay<br/>
-n* AND d*
+HomeController.About|about<br/>home|h\*about<br/>home\*
+IsLocal|local<br/>is<br/>\*local|isl\*<br/>islocal<br/>i\*l\*
+New Delay|w d|new<br/>delay<br/>n\* AND d\*
 
 
 Expressions de recherche utilisables :
@@ -145,20 +137,13 @@ Expressions de recherche utilisables :
 Exemple de requête | Résultat 
 ---|---
 slow|Trouve tous les événements dont la période comprend le terme « slow »
-database??|Renvoie database01, databaseAB,...<br/>
-? n’est pas autorisé au début du terme à rechercher.
-database*|Renvoie database, database01, databaseNNNN<br/>
-* n’est pas autorisé au début du terme à rechercher.
+database??|Renvoie database01, databaseAB,...<br/>? n’est pas autorisé au début du terme à rechercher.
+database\*|Renvoie database, database01, databaseNNNN<br/>\* n’est pas autorisé au début du terme à rechercher.
 apple AND banana|Trouve les événements qui contiennent les deux termes. Utilisez « AND » en lettres majuscules (et non « and » en lettres minuscules).
-apple OR banana<br/>
-apple banana|Trouve les événements qui contiennent un des deux termes. Utilisez « OR » et non « or ».</br/>
-Forme abrégée.
-apple NOT banana<br/>
-apple -banana|Trouve les événements qui contiennent un terme, mais pas l’autre.<br/>
-Forme abrégée.
-app* AND banana -(grape pear)|Opérateurs logiques et utilisation des parenthèses.
-"Metric": 0 TO 500<br/>
-"Metric" : 500 TO * | Trouve les événements qui contiennent la mesure nommée dans la plage de valeurs.
+apple OR banana<br/>apple banana|Trouve les événements qui contiennent un des deux termes. Utilisez « OR » et non « or ».</br/>Forme abrégée.
+apple NOT banana<br/>apple -banana|Trouve les événements qui contiennent un terme, mais pas l’autre.<br/>Forme abrégée.
+app\* AND banana -(grape pear)|Opérateurs logiques et utilisation des parenthèses.
+"Metric": 0 TO 500<br/>"Metric" : 500 TO \* | Trouve les événements qui contiennent la mesure nommée dans la plage de valeurs.
 
 
 ## Enregistrer votre recherche
@@ -215,4 +200,4 @@ Nous n’enregistrons pas automatiquement les données POST, mais vous pouvez ut
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

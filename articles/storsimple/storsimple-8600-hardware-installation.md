@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Installation de votre appareil StorSimple 8600"
+   pageTitle="Installation de votre appareil StorSimple 8600 | Microsoft Azure"
    description="Explique comment déballer, monter en rack et brancher les câbles de votre appareil StorSimple 8600."
    services="storsimple"
    documentationCenter="NA"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="07/17/2015"
+   ms.date="08/06/2015"
    ms.author="alkohli" />
 
 # Installation de votre appareil StorSimple 8600
@@ -44,7 +44,7 @@ Ensuite, procédez comme suit pour déballer votre appareil.
 
     ![Déballage de votre appareil de stockage](./media/storsimple-8600-hardware-installation/HCSUnpackyour4Udevice.png)
  
-    **Figure 1 : vue de votre appareil de stockage déballé**
+    **Vue de votre appareil de stockage déballé**
 
      Étiquette | Description 
      ----- | -------------
@@ -114,7 +114,7 @@ Un ensemble de rails de montage compatible avec l’armoire à rack de 19 pouce
 
     ![Fixation des glissières de rail sur le châssis du boîtier](./media/storsimple-8600-hardware-installation/HCSAttachingRailSlidestoEnclosureChassis.png)
 
-    **Figure 2 : fixation des glissières de rail sur les côtés du boîtier**
+    **Fixation des glissières de rail sur les côtés du boîtier**
 
     Étiquette | Description
     ----- | -----------
@@ -131,7 +131,7 @@ Un ensemble de rails de montage compatible avec l’armoire à rack de 19 pouce
 
      ![Fixation des glissières de rail sur l’armoire à rack](./media/storsimple-8600-hardware-installation/HCSAttachingRailSlidestoRackCabinet.png)
 
-    **Figure 3 : fixation des rails au rack**
+    **Fixation des rails au rack**
 
      Étiquette | Description
      ----- | -----------
@@ -153,7 +153,7 @@ Un ensemble de rails de montage compatible avec l’armoire à rack de 19 pouce
 
     ![Insertion de l’appareil dans le rack](./media/storsimple-8600-hardware-installation/HCSInsertingDeviceintheRack.png)
 
-    **Figure 4 : montage du boîtier dans le rack**
+    **Montage du boîtier dans le rack**
 
 3. Sécurisez le boîtier dans le rack en installant une vis cruciforme fournie sur chaque embase, à gauche et à droite.
 
@@ -161,7 +161,7 @@ Un ensemble de rails de montage compatible avec l’armoire à rack de 19 pouce
 
      ![Installation des capuchons d’embase](./media/storsimple-8600-hardware-installation/HCSInstallingFlangeCaps.png)
 
-    **Figure 5 : installation des capuchons d’embase**
+    **Installation des capuchons d’embase**
  
      Étiquette | Description
      ----- | -----------
@@ -196,110 +196,17 @@ Avant de commencer à raccorder votre appareil, vous devez disposer des élémen
 - Câbles série fournis
 - Convertisseur de série USB avec le pilote approprié installé sur votre ordinateur (si nécessaire)
 - Adaptateurs QSFP-SFP+ uniques fournis à utiliser avec les interfaces réseau 10 Gigabit Ethernet
-- [Transmetteurs, câbles et commutateurs pris en charge pour les interfaces réseau 10 Gigabit Ethernet](https://msdn.microsoft.com/library/azure/dn891474.aspx) 
+- [Matériel pris en charge pour les interfaces réseau 10 Gigabit Ethernet sur votre appareil StorSimple](storsimple-supported-hardware-for-10-gbe-network-interfaces/) 
 
-### Branchement des câbles SAS
+### Branchement des câbles d’alimentation et SAS
 
-Votre appareil possède un boîtier principal et un boîtier EBOD. Ces boîtiers doivent être connectés l’un à l’autre à l’aide de câbles SAS.
+Votre appareil possède un boîtier principal et un boîtier EBOD. Les unités doivent donc être reliées entre elles pour l'alimentation et la connectivité SAS (Serial Attached SCSI).
 
-Pour ce faire, vous devez dans un premier temps identifier le boîtier principal et le boîtier EBOD.
+Lorsque vous configurez cet appareil pour la première fois, commencez par les étapes du câblage SAS, puis effectuez les étapes pour le câblage d'alimentation.
 
-#### Pour identifier le boîtier principal et le boîtier EBOD
+[AZURE.INCLUDE [storsimple-cable-8600-for-power](../../includes/storsimple-sas-cable-8600.md)]
 
-1. Identifiez le boîtier principal et le boîtier EBOD en examinant les fonds de panier respectifs. Reportez-vous à la figure suivante.
-
-    ![Boîtier principal et boîtier EBOD](./media/storsimple-8600-hardware-installation/HCSBackplaneofprimaryandEBODenclosure.png)
-
-    **Figure 6 : dos du boîtier principal et du boîtier EBOD**
-
-     Étiquette | Description
-     ----- | -----------
-     1 | Boîtier principal
-     2 | Boîtier EBOD
-
-
-2. Recherchez les numéros de série sur les deux boîtiers. L’étiquette du numéro de série est apposée sur la languette arrière de chaque boîtier. Les numéros de série doivent être identiques sur les deux boîtiers. Contactez immédiatement le support technique Microsoft si les numéros de série ne correspondent pas. Reportez-vous à la figure suivante pour vous aider à trouver les numéros de série.
-
-    ![Emplacement du numéro de série](./media/storsimple-8600-hardware-installation/HCSRearviewofenclosureindicatinglocationofserialnumbersticker.png)
-
-    **Figure 7 : vue arrière du boîtier avec emplacement du numéro de série**
-
-     Étiquette | Description
-     ----- | -----------
-     1 | Languette du boîtier
-
-
-Ensuite, utilisez les câbles SAS fournis pour connecter le boîtier EBOD au boîtier principal.
-
-#### Pour connecter le boîtier principal et le boîtier EBOD
-
-1. Identifiez les quatre ports SAS (Serial Attached SCSI) sur le boîtier principal et le boîtier EBOD. Les ports SAS sont indiqués par la mention EBOD sur le boîtier principal et par la mention CTRL sur le boîtier EBOD, comme illustré sur la figure 8.
-
-    ![Emplacement des ports SAS](./media/storsimple-8600-hardware-installation/HCSSAScablingforyourdevice.png)
-
-    **Figure 8 : emplacement des ports SAS sur le boîtier principal et le boîtier EBOD**
-
-     Étiquette | Description
-     ----- | -----------
-     Une | Boîtier principal
-     B | Boîtier EBOD
-     1 | Contrôleur 0
-     2 | Contrôleur 1
-     3 | Contrôleur 0 du boîtier EBOD
-     4 | Contrôleur 1 du boîtier EBOD
-     5/6 | Ports SAS sur le boîtier principal (mention EBOD)
-     7/8 | Ports SAS sur le boîtier EBOD (mention CTRL)
-
-2. Utilisez les câbles SAS fournis pour connecter les ports EBOD aux ports CTRL.
-
-    Le port EBOD sur le contrôleur 0 doit être raccordé au port CTRL du contrôleur 0 du boîtier EBOD. Le port EBOD sur le contrôleur 1 doit être raccordé au port CTRL du contrôleur 1 du boîtier EBOD. Reportez-vous à la figure 8.
-
-### Branchement des câbles d’alimentation
-
-Le boîtier principal et le boîtier EBOD contiennent tous deux des modules redondants d’alimentation et de refroidissement (PCM). Dans chaque boîtier, chaque PCM doit être installé et connecté à une autre source d’alimentation pour garantir une haute disponibilité.
-
-Procédez comme suit pour brancher les câbles d’alimentation de votre appareil.
-
-#### Pour brancher les câbles d’alimentation
-
-1. Assurez-vous que les commutateurs d’alimentation sont en position d’arrêt sur tous les PCM.
-
-2. Pour le boîtier principal, branchez les câbles d’alimentation aux deux PCM. Les câbles d’alimentation sont représentés en rouge dans le schéma suivant.
-
-3. Vérifiez que le deux PCM du boîtier principal utilisent des sources d’alimentation distinctes.
-
-4. Fixez les câbles d’alimentation aux unités de distribution de l’alimentation du rack, comme indiqué sur le schéma suivant.
-
-5. Répétez les étapes 2 à 4 pour le boîtier EBOD.
-
-6. Activez le boîtier EBOD en mettant en marche tous les commutateurs d’alimentation du PCM.
-
-7. Assurez-vous que le boîtier EBOD est activé en vérifiant que les voyants de son contrôleur sont allumés (voyants verts à l’arrière du châssis).
-
-8. À présent, activez le boîtier principal en mettant en marche tous les commutateurs d’alimentation du PCM.
-
-9. Assurez-vous que le système fonctionne en vérifiant que les voyants du contrôleur sont allumés.
-
-10. Assurez-vous que la connexion entre le contrôleur EBOD et le contrôleur de l’appareil est active en vérifiant les voyants SAS (4 voyants du port SAS) sur le contrôleur du boîtier EBOD. Les voyants SAS doivent être verts.
-
-> [AZURE.IMPORTANT]Pour garantir une haute disponibilité de votre système, il est conseillé de se conformer strictement au schéma de branchement des câbles d’alimentation représenté ci-dessous.
-
-   ![Schéma de branchement des câbles d’alimentation](./media/storsimple-8600-hardware-installation/HCSCableYour4UDeviceforPower.png)
-
-   **Figure 9 : branchement des câbles d’alimentation de votre appareil**
-
-     Label | Description
-     ----- | -----------
-     1     | Primary enclosure
-     2     | PCM 0
-     3     | PCM 1
-     4     | Controller 0
-     5     | Controller 1
-     6     | EBOD controller 0
-     7     | EBOD controller 1
-     8     | EBOD enclosure
-     9     | PDUs
- 
+[AZURE.INCLUDE [storsimple-cable-8600-for-power](../../includes/storsimple-cable-8600-for-power.md)]
 
 ### Branchement des câbles réseau
 
@@ -313,7 +220,7 @@ Pour prendre en charge ce basculement de contrôleur redondant, vous devez branc
 
      ![Fond de panier de l’appareil 8600](./media/storsimple-8600-hardware-installation/HCSBackplaneof2UDevicewithPortsLabeled.jpg)
 
-    **Figure 10 : dos de votre appareil avec ports de données**
+    **Dos de votre appareil avec ports de données**
  
      Étiquette | Description
      ------- | -----------
@@ -334,7 +241,7 @@ Configurez au moins une interface réseau pour l’accès au cloud et une pour i
 
 ![Câble réseau de votre appareil 4U](./media/storsimple-8600-hardware-installation/HCSCableYour4UDeviceforNetwork.png)
 
-**Figure 11 : branchement des câbles réseau de votre appareil**
+**Branchement des câbles réseau de votre appareil**
 
 Étiquette | Description
 ----- | -----------
@@ -356,7 +263,7 @@ Procédez comme suit pour brancher les câbles de port série de votre appareil.
 
 #### Pour brancher les câbles de connexion en série
 
-1. Votre appareil possède un port série sur chaque contrôleur, qui est identifié par une icône en forme de clé. Reportez-vous à la figure 10 pour localiser les ports série sur le fond de panier de votre appareil.
+1. Votre appareil possède un port série sur chaque contrôleur, qui est identifié par une icône en forme de clé. Pour localiser les ports série, reportez-vous à l'illustration qui affiche les ports de données à l'arrière de votre appareil.
 
 2. Identifiez le contrôleur actif sur le fond de panier de votre appareil. Un voyant bleu clignotant indique que le contrôleur est actif.
 
@@ -382,4 +289,4 @@ Vous avez terminé le branchement des câbles d’alimentation, d’accès rése
 Vous êtes maintenant prêt à procéder au [Déploiement de votre appareil StorSimple local](storsimple-deployment-walkthrough.md).
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

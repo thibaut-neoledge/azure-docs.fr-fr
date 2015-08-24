@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Ajouter la synchronisation des données hors connexion à votre application de services mobiles Android | Centre de développement mobile"
+	pageTitle="Ajouter la synchronisation des données hors connexion à votre application de services mobiles Android | Microsoft Azure"
 	description="Découvrez comment utiliser Azure Mobile Services pour stocker dans le cache et synchroniser des données hors connexion dans votre application Android"
 	documentationCenter="android"
 	authors="RickSaling"
@@ -221,4 +221,4 @@ One thing which is important to point out: if there are pending changes in the l
 
 [didacticiel Démarrage rapide de Mobile Services]: mobile-services-android-get-started.md
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

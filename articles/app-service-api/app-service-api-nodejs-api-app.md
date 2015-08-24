@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="nodejs"
 	ms.topic="get-started-article"
-	ms.date="04/21/2015"
+	ms.date="08/11/2015"
 	ms.author="pakefali"/>
 
 # Créer et déployer une application API Node.js dans Azure App Service
@@ -245,4 +245,4 @@ Vous avez déployé dans Azure une application web Node.js qui utilise un backen
 [browse-api-app-page]: ./media/app-service-api-nodejs-api-app/browse-api-app-page.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

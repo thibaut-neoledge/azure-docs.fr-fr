@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Utilisation des rubriques Service Bus (Node.js) - Azure" 
+	pageTitle="Utilisation des rubriques Service Bus (Node.js) | Microsoft Azure" 
 	description="Découvrez comment utiliser les rubriques et abonnements Service Bus dans Azure à partir d’une application Node.js." 
 	services="service-bus" 
 	documentationCenter="nodejs" 
@@ -305,4 +305,4 @@ Maintenant que vous avez appris les principes de base des rubriques Service Bus,
   [Application web Node.js avec stockage]: /develop/nodejs/tutorials/web-site-with-storage/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

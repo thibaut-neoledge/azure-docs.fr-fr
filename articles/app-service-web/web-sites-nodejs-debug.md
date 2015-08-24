@@ -4,7 +4,7 @@
 	tags="azure-portal"
 	services="app-service\web"
 	documentationCenter="nodejs"
-	authors="MikeWasson"
+	authors="TomArcher"
 	manager="wpickett"
 	editor="mollybos"/>
 
@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="nodejs"
 	ms.topic="article"
-	ms.date="04/23/2015"
-	ms.author="mwasson"/>
+	ms.date="08/11/2015"
+	ms.author="tarcher"/>
 
 # Débogage d’une application web Node.js dans Azure Web Service
 
@@ -125,4 +125,4 @@ Pour plus d'informations sur la spécification d'une version Node.js de votre ap
 [restart-button]: ./media/web-sites-nodejs-debug/restartbutton.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

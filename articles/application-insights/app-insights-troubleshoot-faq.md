@@ -6,7 +6,6 @@
 	authors="alancameronwills" 
 	manager="douge"/>
 
-
 <tags 
 	ms.service="application-insights" 
 	ms.workload="mobile" 
@@ -15,7 +14,6 @@
 	ms.topic="article" 
 	ms.date="07/22/2015" 
 	ms.author="awills"/>
-
  
 # Dépannage et questions : Application Insights pour ASP.NET
 
@@ -114,15 +112,12 @@ Pour ce faire :
 1. Cliquez avec le bouton droit de la souris sur votre projet dans l'Explorateur de solutions, puis sélectionnez Décharger le projet.
 2. Cliquez de nouveau avec le bouton droit de la souris sur le projet, puis choisissez Modifier *votreProjet.csproj*. 
 3. Atteignez la fin du fichier du projet et supprimez les cibles BCL semblables à ce qui suit : ``` <Import Project="..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets" Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" />
-
 	  
 	  <Target Name="EnsureBclBuildImported" BeforeTargets="BeforeBuild" Condition="'$(BclBuildImported)' == ''">
 	  
 	    <Error Condition="!Exists('..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" Text="This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=317567." HelpKeyword="BCLBUILD2001" />
-
 	    
 	    <Error Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" Text="The build restored NuGet packages. Build the project again to include these packages in the build. For more information, see http://go.microsoft.com/fwlink/?LinkID=317568." HelpKeyword="BCLBUILD2002" />
-
 	    
 	</Target> ```
 4. Enregistrez le fichier .
@@ -138,7 +133,7 @@ Consultez les [notes de publication](app-insights-release-notes.md) du Kit de d�
 #### <a name="q03"></a>J'ai ajouté Application Insights sans problème et exécuté mon application, mais je ne vois aucune donnée dans le portail.
 
 + Dans la page Vue d'ensemble, cliquez sur la vignette Rechercher pour ouvrir la fonction Recherche de diagnostic. Les données s'affichent d'abord ici.
-+ Cliquez sur le bouton Actualiser. Dans la version actuelle, le contenu d'un volet n'est pas automatiquement actualisé.
++ Cliquez sur le bouton Actualiser. Le panneau s’actualise à intervalles réguliers, mais vous pouvez également l’actualiser manuellement. Plus les intervalles de temps sur lesquels portent les graphiques sont étendus, plus l’intervalle d’actualisation est long.
 + Dans le tableau de démarrage Microsoft Azure, examinez la carte d'état du service. Si des alertes sont indiquées, attendez qu'elles soient corrigées (OK), puis fermez et rouvrez le volet de votre application Application Insights.
 + Vérifiez également [notre blog d'état](http://blogs.msdn.com/b/applicationinsights-status/).
 + Vous devrez ouvrir les ports TCP 80 et 443 de votre pare-feu pour le trafic sortant vers dc.services.visualstudio.com et f5.services.visualstudio.com.
@@ -218,9 +213,7 @@ Voir [Rétention de données et confidentialité][data].
 <tr><th>Ce qui suit doit s'afficher</th><th>Comment y accéder</th><th>Utilité</th></tr>
 <tr><td>Graphiques de disponibilité</td><td><a href="../app-insights-monitor-web-app-availability/">Tests&#160;web</a></td><td>Savoir si votre application&#160;web est active</td></tr>
 <tr><td>Performances des applications de serveur (temps de réponse, etc.)
-</td><td><a href="../app-insights-start-monitoring-app-health-usage/">Ajout d'Application&#160;Insights à votre projet</a><br/>
-ou <br/>
-<a href="../app-insights-monitor-performance-live-website-now/">Installation d’AI Status Monitor sur le serveur</a> (ou écrivez votre propre code pour <a href="../app-insights-api-custom-events-metrics/#track-dependency">suivre des dépendances</a>)</td><td>Détecter les problèmes de performances</td></tr>
+</td><td><a href="../app-insights-start-monitoring-app-health-usage/">Ajout d'Application&#160;Insights à votre projet</a><br/>ou <br/><a href="../app-insights-monitor-performance-live-website-now/">Installation d’AI Status Monitor sur le serveur</a> (ou écrivez votre propre code pour <a href="../app-insights-api-custom-events-metrics/#track-dependency">suivre des dépendances</a>)</td><td>Détecter les problèmes de performances</td></tr>
 <tr><td>Télémétrie des dépendances</td><td><a href="../app-insights-monitor-performance-live-website-now/">Installation d'AI Status Monitor sur le serveur</a></td><td>Diagnostiquer les problèmes relatifs à des bases de données ou à d'autres composants externes</td></tr>
 <tr><td>Obtention de l'arborescence des appels de procédure à partir des exceptions</td><td><a href="../app-insights-search-diagnostic-logs/#exceptions">Insertion d'appels&#160;TrackException dans votre code</a> (certains d'entre eux sont cependant signalés automatiquement)</td><td>Détecter et diagnostiquer les exceptions</td></tr>
 <tr><td>Recherche des données de suivi des journaux</td><td><a href="../app-insights-search-diagnostic-logs/">Ajout d'un enregistreur de données</a></td><td>Diagnostiquer les exceptions et problèmes de performances</td></tr>
@@ -246,4 +239,4 @@ Vous pouvez [écrire un script PowerShell](app-insights-powershell-script-create
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

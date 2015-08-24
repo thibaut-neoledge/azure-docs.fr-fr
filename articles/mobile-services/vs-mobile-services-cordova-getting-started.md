@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="vs-getting-started" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="06/22/2015" 
-	ms.author="patshea123"/>
+	ms.date="08/12/2015" 
+	ms.author="patshea"/>
 
 # Prise en main de Mobile Services (Projets Cordova)
 
@@ -22,6 +22,7 @@
 > - [Getting Started](vs-mobile-services-cordova-getting-started.md)
 > - [What Happened](vs-mobile-services-cordova-what-happened.md)
 
+##Premières étapes
 La première étape à effectuer pour suivre le code figurant dans ces exemples dépend du type de service mobile auquel vous êtes connecté.
 
 - Dans le cas d'un service mobile principal JavaScript, créez une table nommée TodoItem. Pour créer une table, recherchez le service mobile sous le nœud Azure dans l'Explorateur de serveurs, cliquez avec le bouton droit sur le nœud du service mobile pour ouvrir le menu contextuel, puis choisissez **Créer une table**. Entrez « TodoItem » comme nom de table.
@@ -30,7 +31,7 @@ La première étape à effectuer pour suivre le code figurant dans ces exemples 
 
 
 
-#####Créer une référence à une table
+##Créer une référence à une table
 
 Le code ci-dessous permet d'obtenir une référence pointant vers une table qui contient des données destinées à un objet TodoItem. Cette référence peut ensuite être utilisée pour lire et mettre à jour la table de données. La table TodoItem est automatiquement créée lorsque vous créez un service mobile.
 
@@ -38,9 +39,9 @@ Le code ci-dessous permet d'obtenir une référence pointant vers une table qui 
 
 Pour que ces exemples fonctionnent, les autorisations de la table doivent être définies sur **Toute personne avec la clé d'application**. Vous pourrez ensuite configurer l'authentification. Consultez la page [Prise en main de l'authentification](mobile-services-html-get-started-users.md).
 
-#####Ajouter un élément à une table
+##Ajouter un élément à une table
 
-Insérez un nouvel élément dans une table de données. Un ID (GUID de type String) est automatiquement créé comme clé primaire de la nouvelle ligne. Appelez la méthode `done()` sur l’objet [Promise](https://msdn.microsoft.com/library/dn802826.aspx) renvoyé pour obtenir une copie de l’objet inséré et gérer les éventuelles erreurs.
+Insérez un nouvel élément dans une table de données. Un ID (GUID de type String) est automatiquement créé comme clé primaire de la nouvelle ligne. Appelez la méthode **done** sur l'objet [Promise](https://msdn.microsoft.com/library/dn802826.aspx) renvoyé pour obtenir une copie de l'objet inséré et gérer les éventuelles erreurs.
 
     function TodoItem(text) {
         this.text = text;
@@ -54,7 +55,7 @@ Insérez un nouvel élément dans une table de données. Un ID (GUID de type Str
         });
     };
 
-#####Lire une table ou exécuter des requêtes sur une table
+##Lire une table ou exécuter des requêtes sur une table
 
 Le code ci-dessous permet de lancer une requête sur tous les éléments d'une table, dans l'ordre des champs de texte. Vous pouvez ajouter un code pour traiter les résultats de la requête dans le gestionnaire success. Dans ce cas, un tableau local des éléments est mis à jour.
 
@@ -74,18 +75,18 @@ Vous pouvez utiliser la méthode where pour modifier la requête. Voici un exemp
 
 Pour consulter plus d'exemples de requêtes, reportez-vous à l'objet [query](http://msdn.microsoft.com/library/azure/jj613353.aspx).
 
-#####Mettre à jour un élément de table
+##Mettre à jour un élément de table
 
-Mettez une ligne à jour dans une table de données. Avec ce code, l'élément est retiré de la liste lorsque le service mobile répond. Appelez la méthode `done()` sur l’objet [Promise](https://msdn.microsoft.com/library/dn802826.aspx) renvoyé pour obtenir une copie de l’objet inséré et gérer les éventuelles erreurs.
+Mettez une ligne à jour dans une table de données. Avec ce code, l'élément est retiré de la liste lorsque le service mobile répond. Appelez la méthode **done** sur l'objet [Promise](https://msdn.microsoft.com/library/dn802826.aspx) renvoyé pour obtenir une copie de l'objet inséré et gérer les éventuelles erreurs.
 
     todoTable.update(todoItem).done(function (item) {
         // Update a local collection of items.
         items.splice(items.indexOf(todoItem), 1, item);
     });
 
-#####Supprimer un élément de table
+##Supprimer un élément de table
 
-Supprimez une ligne d'une table de données à l'aide de la méthode **del**. Appelez la méthode `done()` sur l’objet [Promise](https://msdn.microsoft.com/library/dn802826.aspx) renvoyé pour obtenir une copie de l’objet inséré et gérer les éventuelles erreurs.
+Supprimez une ligne d'une table de données à l'aide de la méthode **del**. Appelez la méthode **done** sur l'objet [Promise](https://msdn.microsoft.com/library/dn802826.aspx) renvoyé pour obtenir une copie de l'objet inséré et gérer les éventuelles erreurs.
 
     todoTable.del(todoItem).done(function (item) {
         items.splice(items.indexOf(todoItem), 1);
@@ -93,4 +94,4 @@ Supprimez une ligne d'une table de données à l'aide de la méthode **del**. Ap
 
 [En savoir plus sur Mobile Services](http://azure.microsoft.com/documentation/services/mobile-services/)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

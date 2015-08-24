@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/07/2015" 
+	ms.date="08/05/2015" 
 	ms.author="raynew"/>
 
 # Configuration de la protection entre des sites VMM locaux
@@ -110,7 +110,7 @@ Générez une clé d'inscription dans le coffre. Une fois que vous aurez téléc
 2. Dans la liste déroulante, sélectionnez **Between two on-premises Hyper-V sites**.
 3. Dans **Préparer les serveurs VMM**, cliquez sur **Générer le fichier de clé d'inscription**. Le fichier de clé est généré automatiquement et est valide pendant cinq jours après sa création. Si vous n'accédez pas au portail Azure à partir du serveur VMM, vous devez copier ce fichier sur le serveur. 
 
-	![Clé d’enregistrement](./media/site-recovery-vmm-to-vmm/ASRE2EHVR_E2ERegisterKey.png)
+	![Clé d'enregistrement](./media/site-recovery-vmm-to-vmm/ASRE2EHVR_E2ERegisterKey.png)
 	
 ## Étape 3 : Installation du fournisseur Azure Site Recovery	
 
@@ -120,7 +120,7 @@ Générez une clé d'inscription dans le coffre. Une fois que vous aurez téléc
 
 3. Dans **Pre-requirements Check**, choisissez d'arrêter le service VMM pour lancer l'installation du fournisseur. Le service s'arrête et redémarre automatiquement une fois l'installation terminée. Si vous installez sur un cluster VMM, vous serez invité à arrêter le rôle de cluster.
 
-	![Composants requis](./media/site-recovery-vmm-to-vmm/ASRE2EHVR_ProviderPrereq.png)
+	![Conditions préalables](./media/site-recovery-vmm-to-vmm/ASRE2EHVR_ProviderPrereq.png)
 
 4. Dans **Microsoft Update**, vous pouvez opter pour l'installation de mises à jour. En activant ce paramètre, les mises à jour du fournisseur seront installées en fonction de votre stratégie Microsoft Update.
 
@@ -370,4 +370,4 @@ Le fournisseur du serveur VMM est averti de l'événement par le Service et exé
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

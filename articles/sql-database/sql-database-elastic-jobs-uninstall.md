@@ -13,26 +13,32 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/25/2015" 
-	ms.author="sidneyh"/>
+	ms.date="08/09/2015" 
+	ms.author="ddove; sidneyh"/>
 
-# Comment désinstaller les composants de tâches de bases de données élastiques
+#Désinstallation des composants de Tâches de bases de données élastiques.
+Les composants de **Tâches de bases de données élastiques** peuvent être désinstallés à l'aide du portail ou de PowerShell.
 
-Si une défaillance se produit lorsque vous tentez d’installer le service de tâche de base de données élastique, supprimez le groupe de ressources du service.
+##Désinstallez les composants de Tâches de bases de données élastiques à l'aide du portail Azure
 
-## Pour installer les composants de service
-
-1. Ouvrez la [version préliminaire du portail Azure](https://ms.portal.azure.com/).
-2. Accédez à l'abonnement qui contient la tâche élastique.
+1. Ouvrez le [portail Azure](https://ms.portal.azure.com/).
+2. Accédez à l'abonnement qui contient les composants de **Tâches de bases de données élastiques**, à savoir l'abonnement dans lequel les composants de Tâches de bases de données élastiques ont été installés.
 3. Cliquez sur **Parcourir** pus sur **Groupes de ressources**.
 4. Sélectionnez le groupe de ressources intitulé « \_\_ElasticDatabaseJob ».
 5. Supprimez le groupe de ressources.
 
-Ou utilisez ce script PowerShell :
+##Désinstallez les composants de Tâches de bases de données élastiques à l'aide de PowerShell
 
-1. Ouvrez une [fenêtre PowerShell Microsoft Azure](../powershell-install-configure.md). 
-2. Vérifiez que vous utilisez PowerShell SDK 0.8.10 ou version ultérieure.
-3. Exécutez le script :
+1.	Lancez une fenêtre de commande Microsoft Azure PowerShell et accédez au sous-répertoire des outils, sous le dossier Microsoft.Azure.SqlDatabase.Jobs.x.x.xxxx.x folder : tapez cd tools
+
+		PS C:\*Microsoft.Azure.SqlDatabase.Jobs.x.x.xxxx.x*>cd tools
+
+2.	Exécutez le script PowerShell .\\UninstallElasticDatabaseJobs.ps1.
+
+		PS C:\*Microsoft.Azure.SqlDatabase.Jobs.x.x.xxxx.x*\tools>Unblock-File .\UninstallElasticDatabaseJobs.ps1
+		PS C:\*Microsoft.Azure.SqlDatabase.Jobs.x.x.xxxx.x*\tools>.\UninstallElasticDatabaseJobs.ps1
+
+Ou exécutez simplement le script suivant, en supposant que les valeurs par défaut ont été utilisées pour l'installation des composants :
 
 		$ResourceGroupName = "__ElasticDatabaseJob"
 		Switch-AzureMode AzureResourceManager
@@ -40,22 +46,22 @@ Ou utilisez ce script PowerShell :
 		$resourceGroup = Get-AzureResourceGroup -Name $ResourceGroupName
 		if(!$resourceGroup)
 		{
-		    Write-Host "The Azure Resource Group: $ResourceGroupName has already been deleted.  Elastic database job is uninstalled."
+		    Write-Host "The Azure Resource Group: $ResourceGroupName has already been deleted.  Elastic database job components are uninstalled."
 		    return
 		}
 		
 		Write-Host "Removing the Azure Resource Group: $ResourceGroupName.  This may take a few minutes.”
 		Remove-AzureResourceGroup -Name $ResourceGroupName -Force
-		Write-Host "Completed removing the Azure Resource Group: $ResourceGroupName.  Elastic database job is now uninstalled."
+		Write-Host "Completed removing the Azure Resource Group: $ResourceGroupName.  Elastic database job compoennts are now uninstalled."
 
 ## Étapes suivantes
 
-Pour réinstaller les tâches de bases de données élastiques, consultez [Installation du service de tâche de base de données élastique](sql-database-elastic-jobs-service-installation.md).
+Pour réinstaller les tâches de bases de données élastiques, consultez [Installation du service de Tâche de bases de données élastiques](sql-database-elastic-jobs-service-installation.md).
 
-Pour une présentation du service de tâche élastique, consultez [Vue d’ensemble des tâches élastiques](sql-database-elastic-jobs-overview.md).
+Pour plus d’informations concernant les tâches de bases de données élastiques, consultez la rubrique [Vue d’ensemble des tâches de bases de données élastiques](sql-database-elastic-jobs-overview.md).
 
 <!--Image references-->
 [1]: ./media/sql-database-elastic-job-uninstall/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

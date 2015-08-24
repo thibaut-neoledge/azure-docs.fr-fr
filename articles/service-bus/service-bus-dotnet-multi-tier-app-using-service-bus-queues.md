@@ -1,12 +1,11 @@
 <properties
-	pageTitle="Didacticiel Azure sur l'application multiniveau .NET"
+	pageTitle="Application multiniveau .NET | Microsoft Azure"
 	description="Un didacticiel qui vous permet de développer dans Azure une application multiniveau qui utilise les files d'attente de Service Bus pour communiquer entre les différents niveaux. Exemples dans .NET."
 	services="service-bus"
 	documentationCenter=".net"
 	authors="sethmanheim"
 	manager="timlt"
 	editor=""/>
-
 
 <tags
 	ms.service="service-bus"
@@ -16,7 +15,6 @@
 	ms.topic="hero-article"
 	ms.date="07/02/2015"
 	ms.author="sethm"/>
-
 
 # Application multiniveau .NET avec les files d'attente Service Bus
 
@@ -248,7 +246,7 @@ Dans cette section, vous allez créer les différentes pages affichées par votr
 
 7.  Cliquez sur **Ajouter**.
 
-8.  À présent, modifiez le nom affiché de votre application. Dans l'**Explorateur de solutions**, double-cliquez sur le fichier **Views\\Shared\\\\\_Layout.cshtml** pour l'ouvrir dans l'éditeur de Visual Studio.
+8.  À présent, modifiez le nom affiché de votre application. Dans l'**Explorateur de solutions**, double-cliquez sur le fichier \*\*Views\\Shared\\\\\_Layout.cshtml\*\* pour l'ouvrir dans l'éditeur de Visual Studio.
 
 9.  Remplacez toutes les occurrences d'**Application ASP.NET** par **LITWARE'S Products**.
 
@@ -394,7 +392,6 @@ Pour instancier un client (par exemple, un client Service Bus **QueueClient**), 
 	<ConfigurationSettings>
     ...
     	<Setting name="Microsoft.ServiceBus.ConnectionString" value="Endpoint=sb://[yourServiceNamespace].servicebus.windows.net/;SharedSecretIssuer=RootManageSharedAccessKey;SharedSecretValue=[yourKey]" />
-
 	</ConfigurationSettings>
 
 Le code qui suit récupère la chaîne de connexion, crée une file d'attente et initialise la connexion à la file d'attente :
@@ -542,4 +539,4 @@ Pour plus d'informations sur le déploiement du composant frontal sur un site We
   [executionmodels]: http://azure.microsoft.com/develop/net/fundamentals/compute/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

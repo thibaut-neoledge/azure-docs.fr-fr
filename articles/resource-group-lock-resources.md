@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/15/2015" 
+	ms.date="08/10/2015" 
 	ms.author="tomfitz"/>
 
 # Verrouiller des ressources avec Azure Resource Manager
@@ -83,15 +83,16 @@ Pour consulter des exemples, accédez à la section [API REST pour les verrous d
 
 ## Création d’un verrou à l’aide d’Azure PowerShell
 
-Pour verrouiller avec Azure PowerShell des ressources déployées, utilisez l’élément **New-AzureResourceLock**, comme indiqué ci-dessous.
+Pour verrouiller avec Azure PowerShell des ressources déployées, utilisez l’élément **New-AzureResourceLock**, comme indiqué ci-dessous. Avec PowerShell, vous pouvez uniquement définir le **niveau de verrouillage** sur **CanNotDelete**.
 
     PS C:\> New-AzureResourceLock -LockLevel CanNotDelete -LockName LockSite -ResourceName examplesite -ResourceType Microsoft.Web/sites -ResourceGroupName ExampleGroup
 
-PowerShell fournit d’autres commandes d’utilisation des verrous, comme **Set-AzureResourceLock** pour mettre à jour un verrou et **Remove-AzureResourceLock** pour supprimer un verrou.
+PowerShell fournit d'autres commandes d'utilisation des verrous, comme **Set-AzureResourceLock** pour mettre à jour un verrou et **Remove-AzureResourceLock** pour supprimer un verrou.
 
 ## Étapes suivantes
 
-- [Organisation des ressources Azure à l’aide de balises](resource-group-using-tags.md)
-- [Déplacez des ressources vers un nouveau groupe de ressources](resource-group-move-resources.md)
+- Pour plus d'informations sur l'utilisation des verrous sur les ressources, consultez [Verrouillage de vos ressources Azure](http://blogs.msdn.com/b/cloud_solution_architect/archive/2015/06/18/lock-down-your-azure-resources.aspx)
+- Pour en savoir plus sur le classement logique de vos ressources, consultez [Organisation des ressources à l’aide de balises](resource-group-using-tags.md)
+- Pour modifier le groupe de ressources dans lequel une ressource réside, consultez [Déplacer les ressources vers un nouveau groupe de ressources](resource-group-move-resources.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

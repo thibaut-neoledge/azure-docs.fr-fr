@@ -7,27 +7,24 @@
 	manager="dwrede" 
 	editor=""/>
 
-
 <tags 
 	ms.service="media-services" 
 	ms.workload="media" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/24/2015" 
+	ms.date="08/11/2015" 
 	ms.author="juliako"/>
-
 
 
 
 #Chiffrement dynamique : configurer la stratégie d'autorisation de clé de contenu 
 [AZURE.INCLUDE [media-services-selector-content-key-auth-policy](../../includes/media-services-selector-content-key-auth-policy.md)]
 
-Cet article fait partie des séries [workflow de vidéo à la demande Media Services](media-services-video-on-demand-workflow.md) et [workflow de vidéo en flux continu Media Services](media-services-live-streaming-workflow.md).
 
 ##Présentation
 
-Microsoft Azure Media Services permet de transmettre un contenu chiffré (dynamiquement) avec la norme AES (Advanced Encryption Standard) (à l’aide de clés de chiffrement 128 bits) et le DRM PlayReady. Media Services fournit également un service de distribution de clés et licences PlayReady aux clients autorisés.
+Microsoft Azure Media Services permet de transmettre un contenu chiffré dynamiquement avec la norme AES (Advanced Encryption Standard) (à l’aide de clés de chiffrement 128 bits) et/ou le DRM PlayReady. Media Services fournit également un service de distribution de clés et licences PlayReady aux clients autorisés.
 
 Actuellement, vous pouvez chiffrer les formats de diffusion en continu suivants : HLS, MPEG DASH et Smooth Streaming. Vous ne pouvez pas chiffrer le format de diffusion en continu HDS ni les téléchargements progressifs.
 
@@ -35,7 +32,7 @@ Si vous souhaitez que Media Services chiffre une ressource, vous devez associer 
 
 Lorsqu’un lecteur demande un flux de données, Media Services utilise la clé spécifiée pour chiffrer dynamiquement votre contenu à l’aide du chiffrement AES ou PlayReady. Pour déchiffrer le flux de données, le lecteur demande la clé au service de remise de clé. Pour déterminer si l’utilisateur est autorisé à obtenir la clé, le service évalue les stratégies d’autorisation que vous avez spécifiées pour la clé.
 
-Media Services prend en charge plusieurs méthodes d’authentification des utilisateurs effectuant des demandes de clé. La stratégie d'autorisation des clés de contenu peut avoir une ou plusieurs restrictions d'autorisations : **ouvert**, restriction par **jeton** ou restriction **IP**. La stratégie de restriction à jeton doit être accompagnée d’un jeton émis par un service de jeton sécurisé (STS). Media Services prend en charge les jetons aux formats **SWT** ([Simple Web Tokens](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_2)) et **JWT (JSON Web Token).
+Media Services prend en charge plusieurs méthodes d’authentification des utilisateurs effectuant des demandes de clé. La stratégie d'autorisation des clés de contenu peut avoir une ou plusieurs restrictions d'autorisations : **ouvert**, restriction par **jeton** ou restriction **IP**. La stratégie de restriction à jeton doit être accompagnée d’un jeton émis par un service de jeton sécurisé (STS). Media Services prend en charge les jetons aux formats **SWT** ([Simple Web Tokens](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_2)) et \*\*JWT \*\* (JSON Web Token).
 
 Media Services ne fournit pas de services de jeton sécurisé. Vous pouvez créer un STS personnalisé ou utiliser l’ACS Microsoft Azure pour émettre des jetons. Le STS doit être configuré pour créer un jeton signé avec la clé spécifiée et émettre les revendications spécifiées dans la configuration de restriction de jeton (comme le décrit cet article). Le service de remise de clé Media Services retourne la clé de chiffrement pour le client si le jeton est valide et que les revendications du jeton correspondent à celles configurées pour la clé de contenu.
 
@@ -115,66 +112,49 @@ Pour configurer l’option de restriction par jeton, vous devez utiliser un docu
 	  <xs:complexType name="TokenClaim">
 	    <xs:sequence>
 	      <xs:element name="ClaimType" nillable="true" type="xs:string" />
-
 	      <xs:element minOccurs="0" name="ClaimValue" nillable="true" type="xs:string" />
-
 	    </xs:sequence>
 	  </xs:complexType>
 	  <xs:element name="TokenClaim" nillable="true" type="tns:TokenClaim" />
-
 	  <xs:complexType name="TokenRestrictionTemplate">
 	    <xs:sequence>
 	      <xs:element minOccurs="0" name="AlternateVerificationKeys" nillable="true" type="tns:ArrayOfTokenVerificationKey" />
-
 	      <xs:element name="Audience" nillable="true" type="xs:anyURI" />
-
 	      <xs:element name="Issuer" nillable="true" type="xs:anyURI" />
-
 	      <xs:element name="PrimaryVerificationKey" nillable="true" type="tns:TokenVerificationKey" />
-
 	      <xs:element minOccurs="0" name="RequiredClaims" nillable="true" type="tns:ArrayOfTokenClaim" />
-
 	    </xs:sequence>
 	  </xs:complexType>
 	  <xs:element name="TokenRestrictionTemplate" nillable="true" type="tns:TokenRestrictionTemplate" />
-
 	  <xs:complexType name="ArrayOfTokenVerificationKey">
 	    <xs:sequence>
 	      <xs:element minOccurs="0" maxOccurs="unbounded" name="TokenVerificationKey" nillable="true" type="tns:TokenVerificationKey" />
-
 	    </xs:sequence>
 	  </xs:complexType>
 	  <xs:element name="ArrayOfTokenVerificationKey" nillable="true" type="tns:ArrayOfTokenVerificationKey" />
-
 	  <xs:complexType name="TokenVerificationKey">
 	    <xs:sequence />
-
 	  </xs:complexType>
 	  <xs:element name="TokenVerificationKey" nillable="true" type="tns:TokenVerificationKey" />
-
 	  <xs:complexType name="ArrayOfTokenClaim">
 	    <xs:sequence>
 	      <xs:element minOccurs="0" maxOccurs="unbounded" name="TokenClaim" nillable="true" type="tns:TokenClaim" />
-
 	    </xs:sequence>
 	  </xs:complexType>
 	  <xs:element name="ArrayOfTokenClaim" nillable="true" type="tns:ArrayOfTokenClaim" />
-
 	  <xs:complexType name="SymmetricVerificationKey">
 	    <xs:complexContent mixed="false">
 	      <xs:extension base="tns:TokenVerificationKey">
 	        <xs:sequence>
 	          <xs:element name="KeyValue" nillable="true" type="xs:base64Binary" />
-
 	        </xs:sequence>
 	      </xs:extension>
 	    </xs:complexContent>
 	  </xs:complexType>
 	  <xs:element name="SymmetricVerificationKey" nillable="true" type="tns:SymmetricVerificationKey" />
-
 	</xs:schema>
 
-Quand vous configurez la stratégie de restriction par **jeton**, vous devez définir les paramètres **primaryverificationkey** (clé de vérification principale), **issuer** (émetteur) et **audience** (public). La **clé de vérification principale** contient la clé utilisée pour signer le jeton, l’**émetteur** est le service de jeton sécurisé qui émet le jeton. Le **public** (parfois appelé **étendue**) décrit l'objectif du jeton ou la ressource à laquelle le jeton autorise l'accès. Le service de remise de clé Media Services valide le fait que les valeurs du jeton correspondent aux valeurs du modèle.
+Quand vous configurez la stratégie de restriction par **jeton**, vous devez définir les paramètres \*\*primaryverificationkey\*\* (clé de vérification principale), **issuer** (émetteur) et **audience** (public). La \*\*clé de vérification principale\*\* contient la clé utilisée pour signer le jeton, l'**émetteur** est le service de jeton sécurisé qui émet le jeton. Le **public** (parfois appelé **étendue**) décrit l'objectif du jeton ou la ressource à laquelle le jeton autorise l'accès. Le service de remise de clé Media Services valide le fait que les valeurs du jeton correspondent aux valeurs du modèle.
 
 Quand vous utilisez le **Kit de développement logiciel (SDK) Media Services pour .NET**, vous pouvez utiliser la classe **TokenRestrictionTemplate** pour générer le jeton de restriction. L’exemple suivant crée une stratégie d’autorisation avec une restriction par jeton. Dans cet exemple, le client devra présenter un jeton contenant : une clé de signature (VerificationKey), un émetteur de jeton et les revendications requises.
 	
@@ -414,4 +394,4 @@ Pour obtenir un jeton de test basé sur la restriction par jeton utilisée pour 
 La stratégie d'autorisation de la clé de contenu étant configurée, consultez la rubrique [Comment configurer une stratégie de remise de ressources](media-services-dotnet-configure-asset-delivery-policy.md).
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

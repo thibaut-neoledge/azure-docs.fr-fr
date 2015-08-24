@@ -1,38 +1,40 @@
 <properties 
-	pageTitle="Prise en main d'Azure Storage" 
-	description="Comment utiliser le stockage de files d’attente Azure dans un projet WebJobs Azure dans Visual Studio" 
-	services="storage" 
-	documentationCenter="" 
-	authors="patshea123" 
-	manager="douge" 
+	pageTitle="Prise en main du stockage de files d'attente Azure et des services connectés Visual Studio (projets WebJob)" 
+	description="Comment commencer à utiliser le stockage de files d'attente dans un compte de stockage Azure qui a été créé à l'aide de la boîte de dialogue Ajouter des services connectés de Visual Studio dans un projet WebJob."
+	services="storage"
+	documentationCenter=""
+	authors="patshea123"
+	manager="douge"
 	editor="tglee"/>
 
 <tags 
-	ms.service="storage" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="vs-getting-started" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/13/2015" 
+	ms.service="storage"
+	ms.workload="web"
+	ms.tgt_pltfrm="vs-getting-started"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/13/2015"
 	ms.author="patshea123"/>
 
-# Prise en main d’Azure Storage (projets de tâche web Azure)
+# Prise en main du stockage de files d'attente Azure et des services connectés Visual Studio (projets WebJob)
 
 > [AZURE.SELECTOR]
-> - [Getting Started](vs-storage-webjobs-getting-started-queues.md)
-> - [What Happened](vs-storage-webjobs-what-happened.md)
+> - [Getting started](vs-storage-webjobs-getting-started-queues.md)
+> - [What happened](vs-storage-webjobs-what-happened.md)
 
 > [AZURE.SELECTOR]
 > - [Blobs](vs-storage-webjobs-getting-started-blobs.md)
 > - [Queues](vs-storage-webjobs-getting-started-queues.md)
 > - [Tables](vs-storage-webjobs-getting-started-tables.md)
 
+## Vue d’ensemble
 
-Le service de stockage de files d'attente Azure permet de stocker un grand nombre de messages accessibles partout dans le monde via des appels authentifiés avec HTTP ou HTTPS. Un simple message de file d’attente peut avoir une taille de 64 Ko et une file d’attente peut contenir des millions de messages, jusqu’à la limite de capacité totale d’un compte de stockage. Pour plus d'informations, consultez la page [Utilisation du service de stockage de files d'attente à partir de .NET](storage-dotnet-how-to-use-queues.md). Pour plus d’informations sur ASP.NET, voir le site [ASP.NET](http://www.asp.net) (en anglais).
+Cet article explique comment prendre en main le stockage de files d’attente Azure dans un projet WebJob Visual Studio Azure après avoir créé ou référencé un compte de stockage Azure à l'aide de la boîte de dialogue **Ajouter des services connectés** de Visual Studio. Quand vous ajoutez un compte de stockage à un projet de tâche web à l’aide de la boîte de dialogue **Ajouter des services connectés** de Visual Studio, le package NuGet d’Azure Storage approprié est installé, les références .NET appropriées sont ajoutées au projet et les chaînes de connexion pour le compte de stockage sont mises à jour dans le fichier App.config.
 
-Quand vous ajoutez un compte de stockage à un projet de tâche web à l’aide de la boîte de dialogue **Ajouter des services connectés** de Visual Studio, le package NuGet d’Azure Storage approprié est installé, les références .NET appropriées sont ajoutées au projet et les chaînes de connexion pour le compte de stockage sont mises à jour dans le fichier App.config.
+Cet article fournit des exemples de code C# qui indiquent comment utiliser la version 1.x du Kit de développement logiciel (SDK) WebJobs Azure avec le service de stockage de files d’attente Azure.
 
-Cet article fournit des exemples de code C# qui indiquent comment utiliser la version 1.x du Kit de développement logiciel (SDK) WebJobs Azure avec le service de stockage de files d’attente Azure. Cet article comprend les rubriques suivantes :
+Les files d’attente de stockage Azure sont un service permettant de stocker un grand nombre de messages accessibles depuis n’importe où dans le monde via des appels authentifiés avec HTTP ou HTTPS. Un simple message de file d’attente peut avoir une taille de 64 Ko et une file d’attente peut contenir des millions de messages, jusqu’à la limite de capacité totale d’un compte de stockage. Pour plus d'informations, consultez la page [Utilisation du service de stockage de files d'attente à partir de .NET](storage-dotnet-how-to-use-queues.md). Pour plus d’informations sur ASP.NET, voir le site [ASP.NET](http://www.asp.net) (en anglais).
+
 
 
 ## Déclenchement d'une fonction à la réception d'un message de file d'attente
@@ -532,7 +534,7 @@ Dans le tableau de bord du Kit de développement logiciel (SDK) WebJobs, les 100
  
 ![Cliquez sur Activer/désactiver la sortie](./media/vs-storage-webjobs-getting-started-queues/dashboardapplogs.png)
 
-Dans une tâche web continue, les journaux des applications apparaissent dans /data/jobs/continuous/*{nomdelatâcheweb}*/job\_log.txt dans le système de fichiers du site web.
+Dans une tâche web continue, les journaux des applications apparaissent dans /data/jobs/continuous/\*{nomdelatâcheweb}\*/job\_log.txt dans le système de fichiers du site web.
 
 		[09/26/2014 21:01:13 > 491e54: INFO] Console.Write - Hello world!
 		[09/26/2014 21:01:13 > 491e54: ERR ] Console.Error - Hello world!
@@ -551,4 +553,4 @@ Dans une table Azure, les journaux `Console.Out` et `Console.Error` ressemblent 
 Cet article fournit des exemples de code qui montrent comment gérer des scénarios courants pour l’utilisation des files d’attente Azure. Pour plus d’informations sur l’utilisation d’Azure Webjobs et du Kit de développement logiciel (SDK) WebJobs Azure, consultez la rubrique [Azure Webjobs - Ressources recommandées](http://go.microsoft.com/fwlink/?linkid=390226).
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

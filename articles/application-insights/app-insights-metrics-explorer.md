@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/14/2015" 
+	ms.date="08/07/2015" 
 	ms.author="awills"/>
  
 # Exploration des mesures dans Application Insights
@@ -33,12 +33,12 @@ Les pointillés indiquent la valeur de la mesure une semaine auparavant.
 
 ## Période
 
-Vous pouvez modifier la période couverte par la plupart des graphiques et des grilles dans n'importe quel panneau.
+Vous pouvez modifier l’intervalle de temps sur lequel portent les graphiques et les grilles dans n’importe quel panneau.
 
 ![Ouvrez le panneau Vue d'ensemble de votre application dans le portail Azure](./media/app-insights-metrics-explorer/03-range.png)
 
 
-Si vous attendez des données qui ne sont pas encore affichées, cliquez sur Actualiser. Les graphiques ne sont pas mis à jour automatiquement. Dans la version finale, les données peuvent mettre un certain temps pour passer du pipeline d'analyse au graphique.
+Si vous attendez des données qui ne sont pas encore affichées, cliquez sur Actualiser. Les graphiques s’actualisent régulièrement, mais plus les intervalles de temps sur lesquels ils portent sont étendus, plus les intervalles d’actualisation sont longs. Dans la version finale, les données peuvent mettre un certain temps pour passer du pipeline d'analyse au graphique.
 
 Dans le panneau Vue d'ensemble, sélectionnez une partie du graphique pour l'ouvrir en plus grand dans un nouveau graphique.
 
@@ -201,4 +201,4 @@ Si vous souhaitez obtenir des vues enrichies de vos données, vous pouvez [expor
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

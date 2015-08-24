@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
-	ms.date="05/27/2015" 
+	ms.date="08/11/2015" 
 	ms.author="juliako"/>
 
 #Utilisation de canaux activés pour effectuer un encodage en temps réel avec Azure Media Services (version préliminaire)
@@ -505,4 +505,4 @@ Pour plus d’informations sur la mise à l’échelle des unités de diffusion 
 [live-overview]: ./media/media-services-manage-live-encoder-enabled-channels/media-services-live-streaming-new.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

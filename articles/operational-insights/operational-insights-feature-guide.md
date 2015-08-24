@@ -12,8 +12,8 @@
 	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/24/2015"
+	ms.topic="get-started-article"
+	ms.date="08/06/2015"
 	ms.author="banders"/>
 
 # Guide des fonctionnalités d’Operational Insights
@@ -33,7 +33,7 @@ Grâce à Operational Insights, vous pouvez transformer les données machine en 
 |---|---|---|
 |![](./media/operational-insights-feature-guide/cap-plan.png) | [Planification de la capacité](operational-insights-capacity.md) | Vous pouvez utiliser la solution de planification de la capacité dans Microsoft Azure Operational Insights pour vous aider à comprendre la capacité de votre infrastructure serveur. |
 | ![](./media/operational-insights-feature-guide/update.png) | [Évaluation des mises à jour du système](operational-insights-updates.md) | Vous pouvez utiliser la solution des mises à jour du système dans Microsoft Azure Operational Insights pour vous aider à appliquer les mises à jour manquantes aux serveurs dans votre infrastructure. |
-| ![](./media/operational-insights-feature-guide/log-mgt.png) | [Gestion du journal](operational-insights-search.md) | La solution Gestion du journal permet de collecter des journaux IIS et d’événements pour les recherches de journal via Operational Insights. |
+| ![](./media/operational-insights-feature-guide/log-search.png) | [Recherche de journal](operational-insights-search.md) | Vous utilisez la fonctionnalité de recherche de journal pour créer des requêtes pour la transformation, le filtrage et les rapports relatifs aux résultats. La recherche utilise des données d'événements et les journaux IIS pour les recherches de journal dans Operational Insights. |
 | ![](./media/operational-insights-feature-guide/malware.png) | [Évaluation des logiciels malveillants](operational-insights-antimalware.md) | Vous pouvez utiliser la solution anti-programme malveillant de Microsoft Azure Operational Insights pour protéger les serveurs de votre infrastructure contre les programmes malveillants. |
 | ![](./media/operational-insights-feature-guide/sec-audit.png) | [Ports et sécurité](operational-insights-security-audit.md) | Vous pouvez utiliser la solution d’analyse décisionnelle de sécurité et d’audit d’Operational Insights qui vous permet d’obtenir une vue détaillée de la sécurité informatique de votre organisation. Elle fournit des requêtes de recherche intégrées pour détecter les problèmes importants qui requièrent votre attention. |
 | ![](./media/operational-insights-feature-guide/assessment.png) | [Évaluation d’Active Directory et de SQL](operational-insights-assessment.md) | Les solutions d’évaluation permettent d’évaluer les risques et l’intégrité de vos environnements de serveurs à intervalles réguliers. |
@@ -47,7 +47,7 @@ Vous pouvez également :
 	- [Connexion directe des ordinateurs à Operational Insights](operational-insights-direct-agent.md)
 	- [Analyse des données des serveurs dans Microsoft Azure](operational-insights-analyze-data-azure.md)
 - **Effectuer toutes les actions précédentes durant vos déplacements grâce à l’application mobile**
-	- Pour plus d’informations sur l’application Windows Phone, consultez la page sur l’[application mobile Operational Insights](http://www.windowsphone.com/fr-fr/store/app/operational-insights/4823b935-83ce-466c-82bb-bd0a3f58d865)
+	- Pour plus d’informations sur l’application Windows Phone, consultez la page sur l’[application mobile Operational Insights](http://www.windowsphone.com/fr-fr/store/app/operational-insights/4823b935-83ce-466c-82bb-bd0a3f58d865).
 
 ## Environnement Operational Insights
 
@@ -72,4 +72,4 @@ Les données de chaque solution sont analysées, indexées et présentées sur l
 ### Où l’application Operational Insights est-elle disponible ?
 Microsoft Azure Operational Insights est hébergée aux États-Unis. Bien que cette application soit en anglais, le service est disponible dans un certain nombre de marchés supplémentaires. Pour plus d’informations, consultez la page [Disponibilité internationale](http://go.microsoft.com/fwlink/?LinkId=229842).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

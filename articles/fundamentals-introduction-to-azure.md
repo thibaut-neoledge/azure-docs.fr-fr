@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Introduction à Azure - Principes de base Azure" 
+	pageTitle="Introduction à Azure | Microsoft Azure" 
 	description="Vous débutez avec Microsoft Azure ? Consultez une présentation générale des services fournis, ainsi que des exemples démontrant leur efficacité." 
 	services=" " 
 	documentationCenter=".net" 
@@ -261,8 +261,8 @@ Le système de contrôle de code source hébergé Team Foundation Service est é
 
 Visual Studio Online fournit un service de test de charge. Vous pouvez exécuter des tests de charge créés dans Visual Studio sur des machines virtuelles du cloud. Il vous suffit de spécifier le nombre total d'utilisateurs que vous souhaitez soumettre à un test de charge et Visual Studio Online détermine automatiquement le nombre d'agents nécessaires, lance les machines virtuelles requises et exécute vos tests de charge. Si vous êtes abonné à MSDN, vous bénéficiez chaque mois de milliers de minutes gratuites pour les tests de charge.
 
-Visual Studio Online propose également un service appelé Application Insights qui analyse votre application dans son intégralité. Ce service fournit des statistiques de performances et indique comment votre application est utilisée. Si vous utilisez déjà System Center Operations Manager, ce service peut également y être associé et fournir des alertes lorsque des problèmes surviennent.
-
+Visual Studio Online propose également un service appelé Application Insights qui analyse votre application dans son intégralité. Ce service fournit des statistiques de performances et indique comment votre application est utilisée. Si vous utilisez déjà System Center Operations Manager, ce service peut également y être associé et fournir des alertes lorsque des problèmes surviennent. +Visual Studio Online propose également une assistance pour le développement agile avec des fonctionnalités comme les builds d'intégration continue, les tableaux Kanban et les salles d'équipe virtuelles.
+	
 En outre, une assistance est proposée pour le développement agile avec des fonctionnalités comme les builds d'intégration continue, les tableaux Kanban et les salles d'équipe virtuelles.
 
 **Scénarios relatifs à Visual Studio Online**
@@ -592,4 +592,4 @@ Maintenant que vous connaissez les grandes lignes, la prochaine étape est de cr
 
 [Azure Media Services Poster]: http://azure.microsoft.com/documentation/infographics/media-services/
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -13,10 +13,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
-   ms.date="05/01/2015"
+   ms.date="07/30/2015"
    ms.author="joaoma"/>
 
 # Gestion des zones DNS
+
 
 Ce guide explique comment gérer votre zone DNS. Il vous permettra de comprendre la séquence des opérations à effectuer pour administrer votre zone DNS.
 
@@ -103,4 +104,4 @@ L’objet de zone peut également être redirigé au lieu d’être transmis en 
 
 [Automatisation des opérations à l’aide du Kit de développement (SDK) .NET](../dns-sdk)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

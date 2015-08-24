@@ -5,20 +5,21 @@
    documentationCenter=""
    authors="alkohli"
    manager="carolz"
-   editor="tysonn" />
+   editor="" />
 <tags 
    ms.service="storsimple"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/24/2015"
+   ms.date="08/12/2015"
    ms.author="alkohli" />
 
 
 # Création et gestion d'un package de support
 
 ## Vue d'ensemble
+
 Ce didacticiel décrit les différentes tâches associées à la création et la gestion d'un package de support. Un package de support inclut tous les journaux pertinents dans un format compressé et chiffré. Il est utilisé pour aider l'équipe de support technique de Microsoft à résoudre les problèmes d'appareil StorSimple.
 
 Ce didacticiel inclut des instructions détaillées pour créer et gérer le package de support à l'aide des éléments suivants :
@@ -33,6 +34,7 @@ Après avoir lu ce didacticiel, vous pourrez :
 
 
 ## Création d'un package de support dans le portail de gestion
+
 Pour résoudre les problèmes que vous pourriez rencontrer avec le service StorSimple Manager, vous pouvez créer et télécharger un package de support sur le site de support technique de Microsoft à l'aide de la page **Maintenance** du service dans le portail de gestion. Vous devrez fournir une clé de sécurité de support pour autoriser le téléchargement. La clé de sécurité de support doit vous être fournie par un ingénieur du support technique dans un message électronique. Un package de support non crypté et compressé est créé (fichier .cab). Ce package peut ensuite être récupéré par l'ingénieur du support technique à partir du site de support lorsqu'il vous fournit la clé de sécurité.
 
 Procédez comme suit dans le portail de gestion pour créer un package de support :
@@ -41,11 +43,9 @@ Procédez comme suit dans le portail de gestion pour créer un package de suppor
 
 1. Accédez à **Appareils > Maintenance**.
 
-1. Dans la section **Package de support**, cliquez sur **Créer et télécharger le package de support**.
+2. Dans la section **Package de support**, cliquez sur **Créer et télécharger le package de support**.
 
-	
-
-1. Dans la boîte de dialogue **Créer et télécharger le package de support**, procédez comme suit :
+3. Dans la boîte de dialogue **Créer et télécharger le package de support**, procédez comme suit :
 
 	![Création d'un package de support](./media/storsimple-create-manage-support-package/IC740923.png)
 											
@@ -57,6 +57,7 @@ Procédez comme suit dans le portail de gestion pour créer un package de suppor
 
 
 ## Création d'un package de support dans Windows PowerShell pour StorSimple
+
 Si vous devez modifier vos fichiers journaux avant de créer un package, vous devrez créer votre package à l'aide de Windows PowerShell pour StorSimple.
 
 Procédez comme suit pour créer un package de support dans Windows PowerShell pour StorSimple :
@@ -68,7 +69,7 @@ Procédez comme suit pour créer un package de support dans Windows PowerShell p
 
 	`Start PowerShell`
 
-1. Dans la session Windows PowerShell, connectez-vous à l'instance d'exécution de la console SSAdmin votre appareil :
+2. Dans la session Windows PowerShell, connectez-vous à l'instance d'exécution de la console SSAdmin votre appareil :
 
 
 	-  À l’invite de commandes, tapez : 
@@ -88,7 +89,7 @@ Procédez comme suit pour créer un package de support dans Windows PowerShell p
 		`Enter-PSSession $MS`
 
 
-1. Dans la session qui s'ouvre, tapez la commande appropriée.
+3. Dans la session qui s'ouvre, tapez la commande appropriée.
 
 
 	- Pour les partages réseau protégés par un mot de passe, entrez :
@@ -98,11 +99,11 @@ Procédez comme suit pour créer un package de support dans Windows PowerShell p
 		Vous serez invité à entrer un mot de passe, le chemin d'accès au dossier réseau partagé et une phrase secrète de chiffrement (car le package de support est chiffré). Une fois ces éléments fournis, un package de support sera créé dans le dossier spécifié.
 											
 
-	- Pour les dossiers réseau partagés ouverts (ceux qui ne sont pas protégés par un mot de passe), vous n'avez pas besoin du paramètre -Credential. Entrez ce qui suit :
+	- Pour les dossiers réseau partagés ouverts (ceux qui ne sont pas protégés par un mot de passe), vous n'avez pas besoin du paramètre `-Credential`. Entrez ce qui suit :
 
 		`Export-HcsSupportPackage –PackageTag "MySupportPackage" -Force`
 
-		Le package de support sera créé pour les deux contrôleurs dans le dossier réseau partagé spécifié. Il s'agit d'un fichier compressé et chiffré qui peut être envoyé au support technique de Microsoft à des fins de dépannage. Pour plus d'informations, consultez [Contacter le support technique de Microsoft](https://msdn.microsoft.com/library/dn757750.aspx).
+		Le package de support sera créé pour les deux contrôleurs dans le dossier réseau partagé spécifié. Il s'agit d'un fichier compressé et chiffré qui peut être envoyé au support technique de Microsoft à des fins de dépannage. Pour plus d'informations, consultez [Contacter le support technique de Microsoft](storsimple-contact-microsoft-support.md).
 
 
 ### Informations supplémentaires sur l'applet de commande Export-HcsSupportPackage
@@ -128,16 +129,15 @@ Pour modifier un package de support avant de le télécharger sur le site de sup
 
 #### Pour modifier un package de support dans Windows PowerShell pour StorSimple
 
-1. Utilisez Windows PowerShell pour StorSimple pour générer un package de support, comme décrit à la page [Création d'un package de support](#Create-a-Support-package-in-Windows-PowerShell-for-StorSimple).
+1. Générez un package de support, comme décrit à la page [Création d'un package de support dans Windows PowerShell pour StorSimple](#create-a-support-package-in-windows-powershell-for-storsimple).
 
-1. [Téléchargez le script](http://gallery.technet.microsoft.com/scriptcenter/Script-to-decrypt-a-a8d1ed65) localement sur votre ordinateur client.
+2. [Téléchargez le script](http://gallery.technet.microsoft.com/scriptcenter/Script-to-decrypt-a-a8d1ed65) localement sur votre ordinateur client.
 
-
-1. Importez le module Windows PowerShell. Vous devrez spécifier le chemin d'accès au dossier local dans lequel vous avez téléchargé le script. Pour importer le module, entrez :
+3. Importez le module Windows PowerShell. Vous devrez spécifier le chemin d'accès au dossier local dans lequel vous avez téléchargé le script. Pour importer le module, entrez :
  
 	`Import-module <Path to the folder that contains the Windows PowerShell script>`
 
-1. Ouvrez le dossier du package de support. Notez que tous les fichiers sont des fichiers *.aes* compressés et chiffrés. Ouvrez les fichiers. Pour ouvrir les fichiers, entrez :
+4. Ouvrez le dossier du package de support. Notez que tous les fichiers sont des fichiers *.aes* compressés et chiffrés. Ouvrez les fichiers. Pour ouvrir les fichiers, entrez :
 
 	`Open-HcsSupportPackage <Path to the folder that contains support package files>`
 
@@ -146,27 +146,26 @@ Pour modifier un package de support avant de le télécharger sur le site de sup
 	![Modifier le package de support 3](./media/storsimple-create-manage-support-package/IC750706.png)
 
 
-1. Lorsque vous êtes invité à entrer la phrase secrète de chiffrement, tapez la phrase secrète utilisée lors de la création du package de support.
+5. Lorsque vous êtes invité à entrer la phrase secrète de chiffrement, tapez la phrase secrète utilisée lors de la création du package de support.
 
     	cmdlet Open-HcsSupportPackage at command pipeline position 1
     
     	Supply values for the following parameters:EncryptionPassphrase: ****
 	
+6. Accédez au dossier qui contient les fichiers journaux. Étant donné que les fichiers journaux sont désormais décompressés et déchiffrés, leurs extensions d'origine sont affichées. Modifiez ces fichiers pour supprimer toutes les informations spécifiques au client, comme les noms de volumes et les adresses IP d'appareils, puis enregistrez les fichiers.
 
-1. Accédez au dossier qui contient les fichiers journaux. Étant donné que les fichiers journaux sont désormais décompressés et déchiffrés, leurs extensions d'origine sont affichées. Modifiez ces fichiers pour supprimer toutes les informations spécifiques au client, comme les noms de volumes et les adresses IP d'appareils, puis enregistrez les fichiers.
-
-1. Fermez les fichiers. Lors de leur fermeture, les fichiers sont compressés au format Gzip et chiffrés avec AES-256. Cette opération est exécutée à des fins de sécurité et de rapidité lors du transfert du package de support sur un réseau. Pour fermer les fichiers, entrez :
+7. Fermez les fichiers. Lors de leur fermeture, les fichiers sont compressés au format Gzip et chiffrés avec AES-256. Cette opération est exécutée à des fins de sécurité et de rapidité lors du transfert du package de support sur un réseau. Pour fermer les fichiers, entrez :
 
 	`Close-HcsSupportPackage <Path to the folder that contains support package files>`
 
 	![Modifier le package de support 2](./media/storsimple-create-manage-support-package/IC750707.png)
 
-1. Lorsque vous y êtes invité, fournissez une phrase secrète de chiffrement pour le package de support modifié.
+8. Lorsque vous y êtes invité, fournissez une phrase secrète de chiffrement pour le package de support modifié.
 
 	    cmdlet Close-HcsSupportPackage at command pipeline position 1
     	Supply values for the following parameters:EncryptionPassphrase: ****
 
-1. Notez la nouvelle phrase secrète afin de pouvoir la partager avec le support technique de Microsoft si nécessaire.
+9. Notez la nouvelle phrase secrète afin de pouvoir la partager avec le support technique de Microsoft si nécessaire.
 
 
 ### Exemple : Modification de fichiers dans un package de support sur un partage protégé par mot de passe
@@ -199,4 +198,4 @@ Vous trouverez ci-dessous un exemple illustrant comment déchiffrer, modifier et
 
 Découvrez comment [utiliser les packages de support et les journaux de l'appareil pour dépanner votre déploiement](storsimple-troubleshoot-deployment.md#support-packages-and-device-logs-available-for-troubleshooting).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

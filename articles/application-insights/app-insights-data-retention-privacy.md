@@ -4,7 +4,7 @@
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
-	manager="ronmart"/>
+	manager="douge"/>
 
 <tags 
 	ms.service="application-insights" 
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/11/2015" 
+	ms.date="08/11/2015" 
 	ms.author="awills"/>
 
 # Collecte, rétention et stockage des données dans Application Insights 
@@ -35,6 +35,12 @@ Les Kits de développement logiciel (SDK) d’Application Insights et les agents
 #### Quelle est la quantité de données qui peut être capturée ? 
 
 **Par seconde** : jusqu’à 500 points de données de télémétrie par seconde par clé d’instrumentation (autrement dit, par application). Pour le[niveau de tarification][pricing] gratuit, la limite est de 100 pd/s.
+
+Il existe trois compartiments qui sont comptabilisés séparément :
+
+* [appels TrackTrace](app-insights-api-custom-events-metrics.md#track-trace) et [journaux capturés](app-insights-asp-net-trace-logs.md) ;
+* [exceptions](app-insights-api-custom-events-metrics.md#track-exception), soumises à une limite inférieure de 50 points/s ;
+* toutes les autres données de télémétrie (pages consultées, demandes, dépendances, métriques, événements personnalisés).
 
 **Par mois** : entre 5 et 15 millions de points de données par mois, selon votre [plan de tarification](http://azure.microsoft.com/pricing/details/application-insights/). À l'exception du [niveau de tarification][pricing] gratuit, vous pouvez acheter une capacité supplémentaire si vous avez atteint la limite.
 
@@ -160,15 +166,15 @@ Les Kits de développement logiciel (SDK) varient en fonction des plateformes et
 
 Votre action | Classes de données collectées (voir tableau suivant)
 ---|---
-[Ajout du Kit de développement logiciel (SDK) Application Insights à un projet web .NET][greenbrown] | ServerContext<br/>Inferred<br/>Perf counters<br/>Requests<br/>**Exceptions**<br/>Session<br/>users
+[Ajout du Kit de développement logiciel (SDK) Application Insights à un projet web .NET][greenbrown] | ServerContext<br/>Inferred<br/>Perf counters<br/>Requests<br/>\*\*Exceptions\*\*<br/>Session<br/>users
 [Installation du moniteur d’état sur IIS][redfield]<br/>[Ajout de l’extension AI à une machine virtuelle ou application web Azure][azure]|Dependencies<br/>ServerContext<br/>Inferred<br/>Perf counters
 [Ajout du Kit de développement logiciel (SDK) Application Insights à une application web Java][java]|ServerContext<br/>Inferred<br/>Request<br/>Session<br/>users
 [Ajout d’un Kit de développement logiciel (SDK) JavaScript à une page web][client]|ClientContext <br/>Inferred<br/>Page<br/>ClientPerf
 [Ajout du Kit de développement logiciel (SDK) à une application Windows Store][windows]|DeviceContext<br/>Users<br/>Crash data
 [Définition des propriétés par défaut][apiproperties]|**Propriétés** sur tous les événements standard et personnalisés
-[Appel TrackMetric][api]|Valeurs numériques<br/>**Propriétés**
-[Appel Track*][api]|Nom de l’événement<br/>**Propriétés**
-[Appel TrackException][api]|**Exceptions**<br/>Vidage de pile<br/>**Propriétés**
+[Appel TrackMetric][api]|Valeurs numériques<br/>\*\*Propriétés\*\*
+[Appel Track\*][api]|Nom de l’événement<br/>\*\*Propriétés\*\*
+[Appel TrackException][api]|**Exceptions**<br/>Vidage de pile<br/>\*\*Propriétés\*\*
 Le Kit de développement logiciel (SDK) ne peut pas collecter les données. Par exemple : <br/> - ne peut pas accéder aux compteurs de performances<br/> - exception dans l’initialiseur de télémétrie | SDK diagnostics
  
 
@@ -236,4 +242,4 @@ Ce produit contient des données GeoLite2 créées par MaxMind, disponible sur [
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="06/30/2015"
+   ms.date="08/09/2015"
    ms.author="rajram"/>
    
 # Connecteur d'objet blob de stockage Azure
@@ -36,9 +36,9 @@ Aucun | <ul><li>Get Blob : Obtenir un objet blob spécifique du conteneur</li><
 Un connecteur peut être créé dans une application logique ou directement à partir d'Azure Marketplace. Pour créer un connecteur à partir de Marketplace :
 
 1. Dans le tableau d'accueil Azure, sélectionnez **Marketplace**.
-2. Sélectionnez **API Apps** et recherchez « Blob » : <br/>![Sélectionner le connecteur d’objet blob de stockage Azure][2]
+2. Recherchez « Blob » : ![Sélectionner le connecteur d’objet blob de stockage Azure][2]
 
-3. **Créez** le connecteur.
+3. Sélectionnez-le, puis sélectionnez **Créer**.
 4. Entrez le nom, le plan App Service et d'autres propriétés.
 5. Entrez les paramètres de package suivants :
 
@@ -54,21 +54,13 @@ Clé d’accès | Non | Entrez une clé d’accès de compte de stockage primair
 ## Utiliser le connecteur d'objet blob de stockage Azure dans une application logique
 Une fois le connecteur d’objet blob de stockage Azure créé, il peut être ajouté à votre flux de travail.
 
-1. Créez une application logique : Nouveau -> Web+Mobile -> LogicApp. Indiquez les propriétés de votre application logique :
+1. Créez une application logique : Nouveau -> Web+Mobile -> LogicApp. Indiquez les propriétés de votre application logique : ![Créer une application logique][4]
 
-	![Créer une application logique][4]
+2. Cliquez sur **Déclencheurs et actions**. Le concepteur de flux de travail s'ouvre : ![Concepteur de flux d’application logique vide][5]
 
-2. Cliquez sur **Déclencheurs et actions**. Le concepteur de flux de travail s’ouvre :
+3. Sélectionnez votre connecteur d’objet blob de stockage Azure dans le volet droit. Le connecteur répertorie les actions disponibles : ![Liste des actions de l’objet blob de stockage Azure][10]
 
-	![Concepteur de flux d’application logique vide][5]
-
-3. Sélectionnez votre connecteur d’objet blob de stockage Azure dans le volet droit. Le connecteur répertorie les actions disponibles :
-
-	![Liste des actions de l’objet blob de stockage Azure][10]
-
-4. Dans ce scénario, nous allons utiliser l’action **Upload Blob** :
-
-	![Entrées de l’action de téléchargement de l’objet blob][11]
+4. Dans ce scénario, nous allons utiliser l'action **Télécharger un objet Blob** : ![Entrées de l’action de téléchargement de l’objet blob][11]
 
 5. Indiquez les valeurs d’entrée et sélectionnez la case à cocher pour terminer la configuration :
 
@@ -82,7 +74,7 @@ Remplacer | Lorsque la valeur est true, l’objet blob existant est remplacé. L
 Notez que l'action de téléchargement de l'objet blob de stockage Azure configurée montre à la fois les paramètres d'entrée et les paramètres de sortie.
 
 #### Utilisation des sorties des actions précédentes en tant qu’entrée des actions de l’objet blob de stockage Azure
-Dans la capture d’écran précédente, la valeur **Content** peut être une expression :
+Dans la capture d'écran précédente, la valeur **Content** peut être une expression :
 
 	@triggers().outputs.body.Content
 
@@ -93,9 +85,9 @@ Vous pouvez définir n'importe quelle valeur souhaitée. L'expression prend la s
 ## En faire plus avec votre connecteur
 Maintenant que le connecteur est créé, vous pouvez l'ajouter à un flux d'entreprise à l'aide d'une application logique. Voir [Que sont les applications logiques ?](app-service-logic-what-are-logic-apps.md).
 
-Créez les applications API à l’aide des API REST. Consultez la page [Référence de connecteurs et d’applications API](http://go.microsoft.com/fwlink/p/?LinkId=529766).
+Créez les applications API à l’aide des API REST. Pour plus d'informations, consultez [Référence de connecteurs et d'applications API](http://go.microsoft.com/fwlink/p/?LinkId=529766).
 
-Vous pouvez également consulter les statistiques de performances et contrôler la sécurité du connecteur. Consultez la page [Gestion et contrôle de vos connecteurs et applications API intégrés](app-service-logic-monitor-your-connectors.md).
+Vous pouvez également consulter les statistiques de performances et contrôler la sécurité du connecteur. Pour plus d'informations, consultez [Gestion et contrôle de vos connecteurs et applications API intégrés](app-service-logic-monitor-your-connectors.md).
 
 <!-- Image reference -->
 [2]: ./media/app-service-logic-connector-azurestorageblob/SelectAzureStorageBlobConnector.PNG
@@ -110,4 +102,4 @@ Vous pouvez également consulter les statistiques de performances et contrôler 
 [11]: ./media/app-service-logic-connector-azurestorageblob/BasicInputsUploadBlob.PNG
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

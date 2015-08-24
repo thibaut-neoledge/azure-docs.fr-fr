@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.topic="article"
    ms.workload="required" 
-   ms.date="07/03/2015"
+   ms.date="08/05/2015"
    ms.author="ruturajd@microsoft.com"/>
 
   
@@ -135,8 +135,18 @@ Voici à quoi ressemble la variable de contexte.
 
 
 Le tableau ci-dessous contient le nom et la description de chaque variable dans le contexte.
-  
-<table border="1"> <tr><th>Nom de la variable</th><th>Description de la variable</th></tr> <tr><td>RecoveryPlanName</td><td>Nom du plan de récupération en cours d’exécution. <p> Cette variable peut vous aider à effectuer des actions différentes selon le nom du plan de récupération, via le même script.</td></tr> <tr><td>FailoverType</td><td>Spécifie si l’exécution est de type **Test**, **Planifiée** ou **Non planifiée**. <p> Cette variable vous permet d’effectuer des actions différentes selon le type de basculement. </td></tr> <tr><td>FailoverDirection</td><td>Spécifie si la récupération est effectuée à partir du côté principal de la récupération ou de l’autre côté. <p>Les deux valeurs requises sont **PrimaryToSecondary** et **SecondaryToPrimary**.</td></tr> <tr><td>GroupId</td><td> identifie le numéro de groupe dans le plan de récupération au sein duquel le Runbook est exécuté. <p> Par exemple, si le Runbook correspond à « post group 2 », la valeur GroupId sera de 2. </td></tr> <tr><td>VMMap</td><td> Il s’agit d’un tableau regroupant toutes les machines virtuelles du groupe. </td></tr> <tr><td>VMMap key</td><td>Chaque machine virtuelle dispose d’une clé unique, identifiée par un GUID. Ce GUID est identique à l’ID VMM de la machine virtuelle. <p> Vous pouvez utiliser ce GUID pour indiquer de façon déterministe le machine virtuelle que vous souhaitez utiliser. </td></tr> <tr><td>RoleName</td><td>Spécifie le nom de la machine virtuelle Microsoft Azure en cours de récupération.</td></tr> <tr><td>CloudServiceName</td><td> Spécifie le nom du service Microsoft Azure Cloud Service sous lequel la machine virtuelle est créée. </td></tr> </table><br />
+
+**Nom de la variable** | **Description**
+---|---
+RecoveryPlanName | Nom du plan en cours d'exécution. Vous permet d'entreprendre une action basée sur le nom à l'aide du même script
+FailoverType | Indique si le basculement est un test, planifié ou non planifié. 
+FailoverDirection | Indique si la récupération est principale ou secondaire
+GroupID | Identifie le numéro de groupe dans le plan de récupération lorsque le plan est en cours d'exécution.
+VmMap | Tableau de toutes les machines virtuelles du groupe.
+Clé VMMap | Clé unique (GUID) pour chaque machine virtuelle. Ce GUID est identique à l’ID VMM de la machine virtuelle, le cas échéant. 
+RoleName | Nom de la machine virtuelle Azure qui est en cours de récupération
+CloudServiceName | Nom Azure Cloud Service sous lequel la machine virtuelle est créée.
+
 
 Pour identifier la valeur du paramètre « VmMap Key » dans le contexte, vous pouvez également accéder à la page des propriétés de la machine virtuelle dans ASR et examiner la propriété GUID VM.
 
@@ -303,4 +313,4 @@ Dans ce didacticiel, nous avons passé en revue la procédure d’automatisation
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

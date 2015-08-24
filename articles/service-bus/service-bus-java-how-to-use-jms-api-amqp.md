@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Utilisation d’AMQP 1.0 avec l’API Java Service Bus - Azure" 
+	pageTitle="Utilisation d’AMQP 1.0 avec l’API Java Service Bus | Microsoft Azure" 
 	description="Découvrez comment utiliser Java Message Service (JMS) avec Azure Service Bus et le protocole Advanced Message Queuing Protocol (AMQP) 1.0." 
 	services="service-bus" 
 	documentationCenter="java" 
@@ -334,8 +334,8 @@ Vous pouvez également utiliser l’AMQP 1.0 de Service Bus avec d’autres lan
 * [Prise en charge d’AMQP 1.0 dans Azure Service Bus](service-bus-amqp-overview.md)
 * [Utilisation d’AMQP 1.0 avec l’API .NET Service Bus](service-bus-dotnet-advanced-message-queuing.md)
 * [AMQP de Service Bus 1.0 : guide du développeur](http://msdn.microsoft.com/library/jj841071.aspx)
-* [Utilisation des files d’attente Service Bus](service-bus-dotnet-how-to-use-queues.md)
+* [Utilisation des files d'attente Service Bus](service-bus-dotnet-how-to-use-queues.md)
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Prise en main des données (Android) | Centre de développement mobile" 
+	pageTitle="Prise en main des données (Android) | Microsoft Azure" 
 	description="Découvrez comment utiliser Mobile Services pour tirer profit des données de votre application Android." 
 	services="mobile-services" 
 	documentationCenter="android" 
@@ -133,4 +133,4 @@ Ensuite, essayez l'un de ces autres didacticiels :
 [Developer Code Samples site]: http://go.microsoft.com/fwlink/p/?LinkId=328660
    
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

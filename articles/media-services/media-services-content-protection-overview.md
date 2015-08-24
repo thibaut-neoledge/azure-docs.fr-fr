@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/07/2015" 
+	ms.date="08/11/2015"
 	ms.author="juliako"/>
 
 #Vue d’ensemble de la protection du contenu
@@ -141,4 +141,4 @@ Configurez la stratégie de remise de ressources à l’aide de **.NET** ou de l
 [content-protection]: ./media/media-services-content-protection-overview/media-services-content-protection.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

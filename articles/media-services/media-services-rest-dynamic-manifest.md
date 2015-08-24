@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
-	ms.date="05/26/2015" 
+	ms.date="08/11/2015" 
 	ms.author="juliako"/>
 
 #Création de filtres avec l'API REST Media Services
@@ -363,4 +363,4 @@ Les exemples suivants montrent comment ajouter des filtres à vos URL de diffusi
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

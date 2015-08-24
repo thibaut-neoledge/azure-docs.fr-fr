@@ -1,12 +1,11 @@
 <properties 
-	pageTitle="Inscription pour l'authentification Facebook - Mobile Services" 
+	pageTitle="Inscription pour l'authentification Facebook | Microsoft Azure" 
 	description="Apprenez à utiliser l'authentification Facebook dans votre application Azure Mobile Services." 
 	services="mobile-services" 
 	documentationCenter="" 
 	authors="ggailey777" 
 	manager="dwrede" 
 	editor=""/>
-
 
 <tags 
 	ms.service="mobile-services" 
@@ -16,7 +15,6 @@
 	ms.topic="article" 
 	ms.date="06/27/2015" 
 	ms.author="glenga"/>
-
 
 # Inscription des applications pour l'authentification Facebook avec Mobile Services
 
@@ -75,4 +73,4 @@ Vous pouvez désormais utiliser une connexion Facebook pour l'authentification d
 [Azure Mobile Services]: http://azure.microsoft.com/services/mobile-services/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

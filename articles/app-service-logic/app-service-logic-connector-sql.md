@@ -7,16 +7,14 @@
    manager="dwrede"
    editor=""/>
 
-
 <tags
    ms.service="app-service-logic"
    ms.devlang="multiple"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="06/30/2015"
+   ms.date="08/09/2015"
    ms.author="sameerch"/>
-
 
 
 # Connecteur SQL Microsoft
@@ -43,7 +41,7 @@ Interrogation des données | <ul><li>Insérer dans la table</li><li>Mettre à jo
 Un connecteur peut être créé dans une application logique ou directement à partir d'Azure Marketplace. Pour créer un connecteur à partir de Marketplace :
 
 1. Dans le tableau d'accueil Azure, sélectionnez **Marketplace**.
-2. Sélectionnez **API Apps** et recherchez « Connecteur SQL ».
+2. Recherchez « Connecteur SQL », sélectionnez-le et sélectionnez **Créer**.
 3. Entrez le nom, le plan App Service et d'autres propriétés.
 4. Entrez les paramètres de package suivants :
 
@@ -64,8 +62,11 @@ Requête de données disponibles | Pour la prise en charge du déclencheur | Ins
 **Remarque**<br/>
 Vous devez fournir une instruction d'interrogation qui évite la création d'une boucle infinie en supprimant, déplaçant ou mettant à jour les données sélectionnées afin qu'elles ne soient pas interrogées à nouveau.
 
-5. Lorsque vous avez terminé, les paramètres du package se présentent comme suit : <br/>
+5. Lorsque vous avez terminé, les paramètres du package se présentent comme suit : 
  ![][1]
+
+6. Sélectionnez **Créer**.
+
 
 ## Utiliser le connecteur comme un déclencheur
 Prenons l'exemple d'une application logique simple qui interroge les données d'une table SQL, ajoute des données dans une autre table et les met à jour.
@@ -163,4 +164,4 @@ Vous pouvez également consulter les statistiques de performances et contrôler 
 [11]: ./media/app-service-logic-connector-sql/LogicApp7.png
 [12]: ./media/app-service-logic-connector-sql/LogicApp8.png
 
-<!----HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

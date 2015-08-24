@@ -7,18 +7,17 @@
    manager="Adinah" 
    editor=""/>
 
-
 <tags
    ms.service="dns"
    ms.devlang="en"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
-   ms.date="05/01/2015"
+   ms.date="08/02/2015"
    ms.author="joaoma"/>
 
-
 # Gestion des enregistrements DNS
+
 
 Ce guide explique comment gérer des jeux d'enregistrements et des enregistrements pour votre zone DNS.
 
@@ -267,4 +266,4 @@ L'objet du jeu d'enregistrements peut également être envoyé au lieu d’être
 [Prise en main de la création de jeux d'enregistrements et des enregistrements](../dns-getstarted-create-recordset)<BR> [Réalisation d’opérations sur des zones DNS](../dns-operations-dnszones)<BR> [Automatisation d’opérations à l'aide du Kit de développement (SDK) .NET](../dns-sdk)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

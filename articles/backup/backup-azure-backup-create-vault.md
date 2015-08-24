@@ -7,9 +7,7 @@
    manager="shreeshd"
    editor=""/>
 
-
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="07/28/2015" ms.author="prvijay"; "jimpark"/>
-
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt\_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/11/2015" ms.author="aashishr"; "jimpark"/>
 
 # Créer un archivage de sauvegarde
 Pour sauvegarder des fichiers et données à partir de Windows Server ou de System Center Data Protection Manager (SCDPM) dans Azure ou lors de la sauvegarde de machines virtuelles IaaS dans Azure, vous devez créer un archivage de sauvegarde dans la région géographique où vous voulez stocker les données.
@@ -62,7 +60,6 @@ Si vous utilisez Azure comme point de terminaison de stockage de sauvegarde tert
 
 ## Remarque
 
-- Depuis mars 2015, les clients n’ont pas la possibilité de créer un archivage de sauvegarde par programme (par ex., via PowerShell).
 - La redondance de stockage doit être sélectionnée juste après la création de l’archivage et avant l’inscription d’un ordinateur dans l’archivage. Une fois qu’un élément a été inscrit dans l’archivage, l’option de redondance de stockage est verrouillée et ne peut pas être modifiée.
 
 <!--Image references-->
@@ -72,4 +69,4 @@ Si vous utilisez Azure comme point de terminaison de stockage de sauvegarde tert
 [4]: ./media/backup-azure-backup-create-vault/grs.png
 [5]: ./media/backup-azure-backup-create-vault/lrs.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

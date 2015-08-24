@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Application Node.js avec Socket.io - Didacticiel Azure" 
+	pageTitle="Application Node.js avec Socket.io | Microsoft Azure" 
 	description="Découvrez comment utiliser socket.io dans une application node.js hébergée sur Azure." 
 	services="cloud-services" 
 	documentationCenter="nodejs" 
@@ -158,4 +158,4 @@ Ce didacticiel vous a montré comment créer une application de conversation ins
   
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

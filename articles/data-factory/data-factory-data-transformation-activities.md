@@ -1,12 +1,11 @@
 <properties 
-	pageTitle="Activités de transformation de données | Azure Data Factory" 
+	pageTitle="Activités de transformation de données | Microsoft Azure" 
 	description="Découvrez comment utiliser le service Azure Data Factory pour transformer et analyser des données." 
 	services="data-factory" 
 	documentationCenter="" 
 	authors="spelluru" 
 	manager="jhubbard" 
 	editor="monicar"/>
-
 
 <tags 
 	ms.service="data-factory" 
@@ -17,16 +16,15 @@
 	ms.date="07/26/2015" 
 	ms.author="spelluru"/>
 
-
 # Transformation et analyse en utilisant Azure Data Factory
 Les activités de transformation dans Azure Data Factory transforment et traitent vos données brutes en prévisions et en analyses. L'activité de transformation s'exécute dans un environnement de calcul comme un cluster Azure HDInsight ou un Azure Batch. Azure Data Factory prend en charge les activités de transformation suivantes, qui peuvent être ajoutées à des [pipelines](data-factory-create-pipelines.md), soit individuellement soit de façon chaînée avec une autre activité.
 
 
 Activité de transformation | Environnement de calcul 
 ----------------------- | --------------------
-[Hive](data-factory-hive-activity.md) | HDInsight [Hadoop\] [Pig\](data-factory-pig-activity.md) | HDInsight [Hadoop\] [MapReduce\](data-factory-map-reduce.md) | HDInsight [Hadoop\] [Diffusion Hadoop\](https://msdn.microsoft.com/library/mt185698.aspx) | HDInsight [Hadoop\] [Notation par lot Machine Learning\](data-factory-create-predictive-pipelines.md) | Microsoft Azure 
+[Hive](data-factory-hive-activity.md) | HDInsight [Hadoop] [Pig](data-factory-pig-activity.md) | HDInsight [Hadoop] [MapReduce](data-factory-map-reduce.md) | HDInsight [Hadoop] [Diffusion Hadoop](https://msdn.microsoft.com/library/mt185698.aspx) | HDInsight [Hadoop] [Notation par lot Machine Learning](data-factory-create-predictive-pipelines.md) | Microsoft Azure 
 [Procédure stockée](data-factory-stored-proc-activity.md) | Azure SQL | 
-[DotNet](data-factory-use-custom-activities.md) | HDInsight [Hadoop\] ou Azure Batch    
+[DotNet](data-factory-use-custom-activities.md) | HDInsight [Hadoop] ou Azure Batch    
 
 Vous devez créer un service lié à l'environnement de calcul puis l’utiliser lorsque vous définissez une activité de transformation. Il existe deux types d'environnements de calcul pris en charge par Data Factory.
 
@@ -35,4 +33,4 @@ Vous devez créer un service lié à l'environnement de calcul puis l’utiliser
 
 Consultez l’article [Services liés de calcul](data-factory-compute-linked-services.md) pour en savoir plus sur les services de calcul liés pris en charge par Data Factory.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

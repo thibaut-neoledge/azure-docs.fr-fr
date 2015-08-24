@@ -7,25 +7,23 @@
    manager="timlt"
    editor=""/>
 
-
 <tags
    ms.service="batch"
    ms.devlang="NA"
    ms.topic="get-started-article"
    ms.tgt_pltfrm="powershell"
    ms.workload="big-compute"
-   ms.date="07/08/2015"
+   ms.date="08/07/2015"
    ms.author="danlep"/>
-
 
 # Prise en main des applets de commande Azure Batch PowerShell
 Cet article est une présentation rapide des applets de commande Azure PowerShell que vous pouvez utiliser pour gérer vos comptes Batch et obtenir des informations sur vos travaux et tâches Batch notamment.
 
-Pour connaître la syntaxe détaillée des applets de commande, tapez `get-help <Cmdlet_name>` ou consultez les [informations de référence sur les applets de commande Azure Batch](https://msdn.microsoft.com/library/azure/mt125957.aspx).
+Pour la syntaxe détaillée des applets de commande, tapez `get-help <Cmdlet_name>` ou consultez les [informations de référence sur les applets de commande Azure Batch](https://msdn.microsoft.com/library/azure/mt125957.aspx).
 
 ## Composants requis
 
-* **Azure PowerShell** : consultez la rubrique [Installation et configuration d'Azure PowerShell](../powershell-install-configure.md) pour connaître la configuration requise et obtenir des instructions sur le téléchargement et l'installation. Les applets de commande Batch ont été introduites dans la version 0.8.10 et les versions ultérieures.
+* **Azure PowerShell** : consultez la rubrique [Installation et configuration d'Azure PowerShell](../powershell-install-configure.md) pour connaître la configuration requise et obtenir des instructions sur le téléchargement et l'installation. Les applets de commande Batch ont été introduites dans la version 0.8.10 et les versions ultérieures. Les applets de commande Batch ont été mises à jour de façon à utiliser l’API à disponibilité générale dans la version 0.9.6.
 
 ## Utilisation des applets de commande Batch
 
@@ -114,24 +112,24 @@ Get-AzureBatchPool -BatchContext $context
 ```
 ### Utilisation d’un filtre OData
 
-Vous pouvez fournir un filtre OData à l'aide du paramètre **Filter** pour rechercher uniquement les objets qui vous intéressent. Par exemple, vous pouvez rechercher tous les pools dont le nom commence par « myPool » :
+Vous pouvez fournir un filtre OData à l'aide du paramètre **Filter** pour rechercher uniquement les objets qui vous intéressent. Par exemple, vous pouvez rechercher tous les pools dont l’identificateur commence par « myPool » :
 
 ```
-$filter = "startswith(name,'myPool')"
+$filter = "startswith(id,'myPool')"
 Get-AzureBatchPool -Filter $filter -BatchContext $context
 ```
 
 Cette méthode n'est pas aussi flexible que l'utilisation de « Where-Object » dans un pipeline local. Toutefois, la requête est envoyée au service Batch directement pour que tout le filtrage se produise côté serveur et économise ainsi la bande passante Internet.
 
-### Utilisation du paramètre Name
+### Utilisation du paramètre Id
 
-Une alternative au filtre OData consiste à utiliser le paramètre **Name**. Pour rechercher un pool spécifique nommé « myPool » :
-
-```
-Get-AzureBatchPool -Name "myPool" -BatchContext $context
+Une alternative au filtre OData consiste à utiliser le paramètre **Id**. Pour rechercher un pool spécifique présentant l’identificateur « myPool » :
 
 ```
-Le paramètre **Name** prend en charge uniquement la recherche du nom complet et non les caractères génériques ou les filtres de style OData.
+Get-AzureBatchPool -Id "myPool" -BatchContext $context
+
+```
+Le paramètre **Id** prend uniquement en charge la recherche de l’identificateur complet, et non les caractères génériques ni les filtres de style OData.
 
 ### Utilisation du pipeline
 
@@ -158,4 +156,4 @@ Pour supprimer la limite supérieure, définissez **MaxCount** sur 0 ou une val
 * [Informations de référence sur les applets de commande Azure Batch](https://msdn.microsoft.com/library/azure/mt125957.aspx)
 * [Requêtes de liste efficaces](batch-efficient-list-queries.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

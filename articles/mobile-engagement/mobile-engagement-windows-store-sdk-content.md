@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-store" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="04/06/2015" 
+	ms.date="08/10/2015" 
 	ms.author="piyushjo" />
 
 #Contenu du Kit de développement logiciel (SDK) des applications Windows Universal
@@ -55,4 +55,4 @@ Ce dossier contient toutes les ressources dont Mobile Engagement a besoin. Vous
 - `EngagementPageOverlay.cs` : le code d'affichage de la superposition des annonces et des notifications `Overlay`.
   
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -6,16 +6,14 @@
    authors="telmosampaio"
    manager="carolz"
    editor="tysonn" />
-
 <tags 
    ms.service="virtual-network"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/02/2015"
+   ms.date="08/10/2015"
    ms.author="telmos" />
-
 
 # Créer une machine virtuelle avec plusieurs cartes d’interface réseau
 
@@ -37,7 +35,7 @@ Actuellement, les exigences et contraintes liées à la fonctionnalité Multi-NI
 >[AZURE.IMPORTANT]Si vous essayez d’ajouter une machine virtuelle multi-NIC à un déploiement (service cloud) contenant déjà une machine virtuelle à une seule NIC, vous recevrez le message d’erreur suivant : « Les machines virtuelles avec des interfaces réseau secondaires et les machines virtuelles sans interface réseau secondaire ne sont pas prises en charge dans le même déploiement ; de même, une machine virtuelle n’ayant aucune interface réseau secondaire ne peut pas être mise à jour pour obtenir des interfaces réseau secondaires et inversement. »
  
 - Une adresse IP virtuelle accessible via Internet n’est prise en charge que sur la NIC « par défaut ». Il n’existe qu’une seule adresse IP virtuelle pour l’adresse IP de la NIC par défaut. 
-- Pour l’instant, les adresses IP publiques de niveau d’instance ne sont pas prises en charge pour les machines virtuelles à plusieurs NIC. 
+- Pour l’instant, les adresses IP publiques de niveau d’instance (LPIP) ne sont pas prises en charge pour les machines virtuelles à plusieurs NIC. 
 - L’ordre des NIC à l’intérieur de la machine virtuelle est aléatoire et peut changer lors des mises à jour de l’infrastructure Azure. Toutefois, les adresses IP et les adresses MAC Ethernet correspondantes restent identiques. Par exemple, supposons qu’**Eth1** comporte l’adresse IP 10.1.0.100 et l’adresse MAC 00-0D-3A-B0-39-0D. Après une mise à jour et un redémarrage de l’infrastructure Azure, il se peut qu’Eth1 devienne Eth2, mais l’association d’adresses IP et MAC ne change pas. Lorsqu’un redémarrage est effectué par le client, l’ordre des NIC reste identique. 
 - L’adresse de chaque NIC équipant chacune des machines virtuelles doit figurer dans un sous-réseau, et les différentes NIC d’une même machine virtuelle peuvent recevoir des adresses situées dans le même sous-réseau. 
 - La taille de machine virtuelle détermine le nombre de NIC que vous pouvez créer pour une machine virtuelle. Le tableau ci-dessous indique les nombres de NIC autorisés en fonction des tailles de machine virtuelle : 
@@ -80,19 +78,19 @@ Actuellement, les exigences et contraintes liées à la fonctionnalité Multi-NI
 |G5|16|
 |Tous les autres tailles|1|
 
-## Groupes de sécurité réseau
+## Groupes de sécurité réseau (NSG)
 Les NIC d’une machine virtuelle peuvent être associées à un groupe de sécurité réseau (NSG), y compris les NIC d’une machine virtuelle sur laquelle la fonctionnalité Multi-NIC est activée. Si une NIC reçoit une adresse d’un sous-réseau associé à un NSG, les règles qui régissent le NSG du sous-réseau s’appliquent également à cette NIC. Outre l’association de sous-réseaux à des NSG, vous pouvez également associer une NIC à un NSG.
 
-Si un sous-réseau est associé à un NSG,et qu’une NIC de ce sous-réseau est liée individuellement à un NSG, les règles du NSG associé sont appliquées dans l’« **ordre du flux de trafic** » en fonction de la direction du trafic entrant ou sortant de la NIC :
+Si un sous-réseau est associé à un NSG,et qu’une NIC de ce sous-réseau est liée individuellement à un NSG, les règles du NSG associé sont appliquées dans l’« \*\*ordre du flux de trafic\*\* » en fonction de la direction du trafic entrant ou sortant de la NIC :
 
-- **Le **trafic entrant** dont la destination est la NIC en question passe d’abord par le sous-réseau, en déclenchant les règles du NSG du sous-réseau, puis transite par la NIC et déclenche les règles du NSG de la NIC.
+- **Le \*\*trafic entrant\*\* dont la destination est la NIC en question passe d’abord par le sous-réseau, en déclenchant les règles du NSG du sous-réseau, puis transite par la NIC et déclenche les règles du NSG de la NIC.
 - Le **trafic sortant** dont la source est la NIC en question commence par sortir de la NIC, en déclenchant les règles du NSG du sous-réseau, puis transite par le sous-réseau, et déclenche alors les règles du NSG du sous-réseau. 
 
 La figure ci-dessus représente le mode d’application des règles du NSG en fonction du flux de trafic (de la machine virtuelle vers le sous-réseau, ou du sous-réseau vers la machine virtuelle).
 
 ## Configuration d’une machine virtuelle à plusieurs NIC
 
-Les instructions ci-dessous expliquent comment créer une machine virtuelle Multi-NIC contenant 3 NIC : une NIC par défaut et deux NIC supplémentaires. Cette procédure de configuration crée une machine virtuelle qui sera configurée en fonction du fragment de fichier de configuration de service ci-dessous :
+Les instructions ci-dessous expliquent comment créer une machine virtuelle multi-NIC contenant 3 NIC : une NIC par défaut et deux NIC supplémentaires. Cette procédure de configuration crée une machine virtuelle qui sera configurée en fonction du fragment de fichier de configuration de service ci-dessous :
 
 	<VirtualNetworkSite name="MultiNIC-VNet" Location="North Europe">
 	<AddressSpace>
@@ -251,4 +249,4 @@ Pour ajouter un itinéraire par défaut à la carte réseau secondaire, suivez l
 
 Pour les machines virtuelles Linux, dans la mesure où le comportement par défaut valorise un modèle de routage d’hôte faible, nous vous recommandons de limiter les cartes réseau secondaires au flux de trafic au sein du même sous-réseau. Toutefois, si certains scénarios nécessitent une connectivité à l’extérieur du sous-réseau, les utilisateurs doivent configurer un routage basé sur une stratégie afin de garantir que les trafics entrant et sortant utilisent la même carte réseau.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

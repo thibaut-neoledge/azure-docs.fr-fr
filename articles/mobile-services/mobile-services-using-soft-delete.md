@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Utilisation de la suppression réversible dans Mobile Services (Windows Store) | Centre de développement pour appareils mobiles" 
+	pageTitle="Utilisation de la suppression réversible dans Mobile Services (Windows Store) | Microsoft Azure" 
 	description="Découvrez comment utiliser la fonctionnalité de suppression réversible Azure Mobile Services dans votre application" 
 	documentationCenter="" 
 	authors="wesmc7777" 
@@ -163,4 +163,4 @@ Pour en savoir plus sur les tâches planifiées avec Mobile Services du backend 
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="mobile-multiple"
    ms.workload="mobile" 
-   ms.date="02/17/2015"
+   ms.date="08/10/2015"
    ms.author="piyushjo"/>
 
 # Gestion du profil de votre compte et test des périphériques 
@@ -145,4 +145,4 @@ Pour utiliser l'API Push ou l'API de l'appareil, vous devez connaître l'identif
  
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

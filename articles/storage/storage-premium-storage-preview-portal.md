@@ -7,16 +7,14 @@
 	manager="carolz"
 	editor="tysonn"/>
 
-
 <tags
 	ms.service="storage"
 	ms.workload="storage"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/30/2015"
+	ms.date="08/06/2015"
 	ms.author="tamram;selcint"/>
-
 
 
 # Stockage Premium : stockage hautes performances pour les charges de travail des machines virtuelles Azure
@@ -41,7 +39,7 @@ Voici une liste des points importants à prendre en compte avant ou pendant l'ut
 
 - Le stockage Premium est actuellement disponible dans le [portail Microsoft Azure en version préliminaire](https://portal.azure.com/) et accessible grâce aux bibliothèques suivantes du kit de développement logiciel (SDK) : [API REST de stockage](http://msdn.microsoft.com//library/azure/dd179355.aspx) version 2014-02-14 or ultérieure ; [API REST de gestion des services](http://msdn.microsoft.com/library/azure/ee460799.aspx) version 2014-10-01 ou ultérieure ; et [Azure PowerShell](../install-configure-powershell.md) version 0.8.10 ou ultérieure.
 
-- Premium Storage est actuellement disponible dans les régions suivantes : Ouest des États-Unis, Est des États-Unis 2, Europe de l'Ouest, Est de la Chine, Asie du Sud-Est, Ouest du Japon et Est de l’Australie.
+- Pour obtenir la liste des régions qui prennent actuellement en charge le stockage Premium, consultez [Services Azure par région](http://azure.microsoft.com/regions/#services).
 
 - Le stockage Premium prend uniquement en charge les objets blob de pages Azure, utilisés pour stocker les disques persistants des machines virtuelles Azure. Pour plus d'informations sur les objets blob de page Azure, consultez [Présentation des objets blob de blocs, des objets blob d'ajout et des objets blob de pages](http://msdn.microsoft.com/library/azure/ee691964.aspx). Le stockage Premium ne prend pas en charge les objets blob de blocs Azure, les fichiers Azure, les tables Azure ou les files d'attente Azure.
 
@@ -264,11 +262,66 @@ Consultez les instructions importantes ci-dessous pour configurer vos machines v
 
 - Pour les disques de stockage Premium dont le paramètre de cache est « ReadWrite », les barrières doivent être activées pour pérenniser les écritures.
 
-Les distributions Linux suivantes ont été validées avec le stockage Premium. Nous vous recommandons de mettre vos machines virtuelles au niveau de l’une de ces versions (ou d’une version ultérieure) pour améliorer les performances et la stabilité du stockage Premium. De plus, certaines versions nécessitent également la dernière version de LIS (Linux Integration Services version 4.0 pour Microsoft Azure). Cliquez sur le lien ci-dessous pour effectuer le téléchargement et l'installation. Nous allons continuer à ajouter des images à la liste, à chaque validation supplémentaire. Veuillez noter que, selon nos validations, les performances varient pour ces images. Elles dépendent également des caractéristiques de la charge de travail et des paramètres des images. Chaque image est optimisée pour une charge de travail particulière. <table border="1" cellspacing="0" cellpadding="5" style="border: 1px solid #000000;"> <tbody> <tr> <td><strong>Distribution</strong></td> <td><strong>Version</strong></td> <td><strong>Noyau pris en charge</strong></td> <td><strong>Image prise en charge</strong></td> </tr> <tr> <td rowspan="4"><strong>Ubuntu</strong></td> <td>12.04</td> <td>3.2.0-75.110</td> <td>Ubuntu-12\_04\_5-LTS-amd64-server-20150119-fr-fr-30GB</td> </tr> <tr> <td>14.04</td> <td>3.13.0-44.73</td> <td>Ubuntu-14\_04\_1-LTS-amd64-server-20150123-fr-fr-30GB</td> </tr> <tr> <td>14.10</td> <td>3.16.0-29.39</td> <td>Ubuntu-14\_10-amd64-server-20150202-fr-fr-30GB</td> </tr> <tr> <td>15.04</td> <td>3.19.0-15</td> <td>Ubuntu-15\_04-amd64-server-20150422-fr-fr-30GB</td> </tr> <tr> <td><strong>SUSE</strong></td> <td>SLES 12</td> <td>3.12.36-38.1</td> <td>suse-sles-12-priority-v20150213<br>suse-sles-12-v20150213</td> </tr> <tr> <td><strong>CoreOS</strong></td> <td>584.0.0</td> <td>3.18.4</td> <td>CoreOS 584.0.0</td> </tr> <tr> <td rowspan="2"><strong>CentOS</strong></td> <td>6.5, 6.6, 7.0</td> <td></td> <td> <a href="http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409"> LIS 4.0 requis </a> </br> *Voir la remarque ci-dessous. </td> </tr> <tr> <td>7.1</td> <td>3.10.0-229.1.2.el7</td> <td> <a href="http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409"> LIS 4.0 recommandée </a> <br/>
- *Voir la remarque ci-dessous </td> </tr>
-
+Les distributions Linux suivantes ont été validées avec le stockage Premium. Nous vous recommandons de mettre vos machines virtuelles au niveau de l’une de ces versions (ou d’une version ultérieure) pour améliorer les performances et la stabilité du stockage Premium. De plus, certaines versions nécessitent également la dernière version de LIS (Linux Integration Services version 4.0 pour Microsoft Azure). Cliquez sur le lien ci-dessous pour effectuer le téléchargement et l'installation. Nous allons continuer à ajouter des images à la liste, à chaque validation supplémentaire. Veuillez noter que, selon nos validations, les performances varient pour ces images. Elles dépendent également des caractéristiques de la charge de travail et des paramètres des images. Chaque image est optimisée pour une charge de travail particulière. 
+<table border="1" cellspacing="0" cellpadding="5" style="border: 1px solid #000000;">
+<tbody> 
+<tr> 
+	<td><strong>Distribution</strong></td> 
+	<td><strong>Version</strong></td> 
+	<td><strong>Noyau pris en charge</strong></td> 
+	<td><strong>Image prise en charge</strong></td> 
+</tr>
+<tr> 
+	<td rowspan="4"><strong>Ubuntu</strong></td> 
+	<td>12.04</td> 
+	<td>3.2.0-75.110</td> 
+	<td>Ubuntu-12\_04\_5-LTS-amd64-server-20150119-fr-fr-30GB</td> 
+</tr> 
+<tr> 
+	<td>14.04</td> 
+	<td>3.13.0-44.73</td> 
+	<td>Ubuntu-14\_04\_1-LTS-amd64-server-20150123-fr-fr-30GB</td>
+</tr>
 <tr>
-	<td rowspan="2"><link id="138" refid="139" url="virtual-machines-oracle-azure-virtual-machines.md">Oracle</link></td>
+	<td>14.10</td> 
+	<td>3.16.0-29.39</td> 
+	<td>Ubuntu-14\_10-amd64-server-20150202-fr-fr-30GB</td>
+</tr>
+<tr> 
+	<td>15.04</td> 
+	<td>3.19.0-15</td> 
+	<td>Ubuntu-15\_04-amd64-server-20150422-fr-fr-30GB</td> 
+</tr> 
+<tr> 
+	<td><strong>SUSE</strong></td> 
+	<td>SLES 12</td> 
+	<td>3.12.36-38.1</td> 
+	<td>suse-sles-12-priority-v20150213<br>suse-sles-12-v20150213</td>
+</tr> 
+<tr> 
+	<td><strong>CoreOS</strong></td>
+	<td>584.0.0</td> <td>3.18.4</td> 
+	<td>CoreOS 584.0.0</td> 
+</tr> 
+<tr> 
+	<td rowspan="2"><strong>CentOS</strong></td>
+	<td>6.5, 6.6, 7.0</td> 
+	<td></td> 
+	<td>
+		<a href="http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409"> LIS 4.0 obligatoire </a> </br>
+		*Voir remarque ci-dessous
+	</td> 
+</tr> 
+<tr> 
+	<td>7.1</td> 
+	<td>3.10.0-229.1.2.el7</td> 
+	<td> 
+		<a href="http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409"> LIS 4.0 Recommandé </a> <br/> 
+		*Voir remarque ci-dessous 
+	</td> 
+</tr>
+<tr>
+	<td rowspan="2"><strong>Oracle</strong></td>
 	<td>6.4.</td>
 	<td></td>
 	<td><a href="http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409"> LIS 4.0 Requise </a></td>
@@ -278,7 +331,8 @@ Les distributions Linux suivantes ont été validées avec le stockage Premium. 
 	<td></td>
 	<td>Contacter le Support technique pour plus d'informations</td>
 </tr>
-</tbody> </table>
+</tbody> 
+</table>
 
 
 ### Pilotes LIS pour Openlogic CentOS
@@ -404,4 +458,4 @@ azure storage account create "premiumtestaccount" -l "west us" --type PLRS
 [Image1]: ./media/storage-premium-storage-preview-portal/Azure_pricing_tier.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

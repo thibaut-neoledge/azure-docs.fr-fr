@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Charger des images vers Azure Storage à partir d'une application Windows Phone Silverlight | Azure Mobile Services" 
+	pageTitle="Charger des images vers Azure Storage à partir d'une application Windows Phone Silverlight | Microsoft Azure" 
 	description="Découvrez comment utiliser Mobile Services pour charger des images vers le stockage d'objets blob Azure à partir d'une application Windows Phone Silverlight." 
 	documentationCenter="windows" 
 	authors="ggailey777" 
@@ -103,4 +103,4 @@ Maintenant que vous avez intégré votre service mobile au service BLOB et que v
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

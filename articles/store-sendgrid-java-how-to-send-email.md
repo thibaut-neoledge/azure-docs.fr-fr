@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Utilisation du service de messagerie électronique SendGrid (Java) - Azure" 
+	pageTitle="Utilisation du service de messagerie électronique SendGrid (Java) | Microsoft Azure" 
 	description="Découvrez comment envoyer un courrier électronique avec le service de messagerie SendGrid dans Azure. Exemples de code écrits en Java." 
 	services="" 
 	documentationCenter="java" 
@@ -56,6 +56,7 @@ Obtenez les bibliothèques javax.mail, par exemple depuis <http://www.oracle.com
 
 1.  Spécifiez les valeurs SMTP, notamment le serveur SMTP qui, dans le cas de SendGrid, est smtp.sendgrid.net.
     
+```
         import java.util.Properties;
         import javax.activation.*;
         import javax.mail.*;
@@ -78,8 +79,9 @@ Obtenez les bibliothèques javax.mail, par exemple depuis <http://www.oracle.com
            	  properties.put("mail.smtp.port", 587);
            	  properties.put("mail.smtp.auth", "true");
            	  // …
+```
 
-2.  Développez la classe <span class="auto-style1">javax.mail.Authenticator</span>, puis, dans votre implémentation de la méthode <span class="auto-style1">getPasswordAuthentication</span>, renvoyez votre nom d'utilisateur et votre mot de passe SendGrid.
+2.  Développez la classe *javax.mail.Authenticator*, puis, dans votre implémentation de la méthode *getPasswordAuthentication*, renvoyez votre nom d'utilisateur et votre mot de passe SendGrid.  
 
         private class SMTPAuthenticator extends javax.mail.Authenticator {
         public PasswordAuthentication getPasswordAuthentication() {
@@ -88,13 +90,13 @@ Obtenez les bibliothèques javax.mail, par exemple depuis <http://www.oracle.com
            return new PasswordAuthentication(username, password);
         }
 
-3.  Créez une session de messagerie électronique authentifiée via un objet <span class="auto-style1">javax.mail.Session</span>.
+3.  Créez une session de messagerie électronique authentifiée via un objet *javax.mail.Session*.
 
         Authenticator auth = new SMTPAuthenticator();
         Session mailSession = Session.getDefaultInstance(properties, auth);
 
 4.  Créez votre message et entrez des valeurs **À**, **De**, **Objet** et du contenu. Ceci est indiqué dans la section [Création d'un message électronique](#bkmk_HowToCreateEmail).
-5.  Envoyez le message via un objet <span class="auto-style1">javax.mail.Transport</span>. Ceci est indiqué dans la section [Envoi d'un message électronique][How to: Send an Email].
+5.  Envoyez le message via un objet *javax.mail.Transport*. Ceci est indiqué dans la section [Envoi d'un message électronique][How to: Send an Email].
 
 ## <a name="bkmk_HowToCreateEmail"> </a>Création d'un message électronique
 
@@ -178,7 +180,7 @@ SendGrid offre des fonctionnalités de messagerie électronique supplémentaires
 
 ## <a name="bkmk_HowToUpdateEmail"> </a>Mise à jour des propriétés de messagerie électronique
 
-Certaines propriétés de courrier électronique peuvent être remplacées à l'aide de **set*Property*** ou ajoutées à l'aide de **add*Property***.
+Certaines propriétés de courrier électronique peuvent être remplacées à l'aide de **set\*Property**\* ou ajoutées à l'aide de **add\*Property**\*.
 
 Par exemple, pour indiquer des adresses **ReplyTo**, utilisez le code suivant :
 
@@ -228,4 +230,4 @@ Maintenant que vous avez appris les bases du service de messagerie SendGrid, con
   [service de messagerie dans le cloud]: https://sendgrid.com/email-solutions
   [remise de courrier électronique transactionnelle]: https://sendgrid.com/transactional-email
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

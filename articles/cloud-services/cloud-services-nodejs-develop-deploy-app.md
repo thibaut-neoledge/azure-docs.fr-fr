@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Guide de démarrage Node.js - Didacticiel Azure"
+	pageTitle="Guide de démarrage Node.js | Microsoft Azure"
 	description="Apprenez à créer une application web Node.js simple et à la déployer vers un service cloud Azure."
 	services="cloud-services"
 	documentationCenter="nodejs"
@@ -7,16 +7,14 @@
 	manager="wpickett"
 	editor=""/>
 
-
 <tags
 	ms.service="cloud-services"
 	ms.workload="tbd"
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs"
-	ms.topic="article"
+	ms.topic="hero-article"
 	ms.date="06/01/2015"
 	ms.author="mwasson"/>
-
 
 
 # Création et déploiement d'une application Node.js dans Azure Cloud Services
@@ -194,4 +192,4 @@ Après avoir déployé votre application, vous pouvez la désactiver afin de vou
 [powershell-menu]: ./media/cloud-services-nodejs-develop-deploy-app/azure-powershell-start.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

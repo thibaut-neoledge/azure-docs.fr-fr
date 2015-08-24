@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Prise en main de Mobile Analytics | Centre de développement mobile" 
+	pageTitle="Prise en main de Mobile Analytics | Microsoft Azure" 
 	description="Prenez en main Mobile Analytics." 
 	documentationCenter="ios" 
 	authors="mattchenderson" 
@@ -98,4 +98,4 @@ Si vous voulez en savoir plus les possibilités offertes par Capptain pour votre
 [Mobile Services niveau Standard]: /pricing/details/mobile-services/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

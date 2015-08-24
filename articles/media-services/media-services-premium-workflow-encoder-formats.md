@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/29/2015" 
+	ms.date="08/11/2015"  
 	ms.author="juliako"/>
 
 #Codecs et formats de Media Encoder Premium Workflow
@@ -127,4 +127,4 @@ Remarque : tous les formats de sortie mentionnés ci-dessus ne sont pas pris en
 
 Si votre vidéo d’entrée ne contient pas de sous-titres, l’élément multimédia de sortie actif comportera toujours un fichier TTML vide.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

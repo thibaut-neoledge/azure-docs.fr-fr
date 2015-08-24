@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="07/23/2015" 
+	ms.date="08/11/2015" 
 	ms.author="juliako"/>
 
 #Encodage avancé avec Media Encoder Premium Workflow
@@ -32,9 +32,12 @@ Vous trouverez dans les rubriques suivantes des détails concernant **Media Enco
 
 Cette rubrique montre comment encoder avec **Media Encoder Premium Workflow** en utilisant .NET.
 
+Les tâches d’encodage pour **Media Encoder Premium Workflow** nécessitent un fichier de configuration distinct appelé fichier de flux de travail. Ces fichiers ont une extension .workflow et sont créés à l’aide de l’outil [Concepteur de workflow](media-services-workflow-designer.md)
+
 ##Encoder
 
 Les tâches d’encodage pour **Media Encoder Premium Workflow** nécessitent un fichier de configuration distinct appelé fichier de flux de travail. Ces fichiers ont une extension .workflow et sont créés à l’aide de l’outil [Concepteur de workflow](media-services-workflow-designer.md)
+
 
 Vous pouvez aussi vous procurer les fichiers de flux de travail par défaut [ici](https://github.com/Azure/azure-media-services-samples/tree/master/Encoding%20Presets/VoD/MediaEncoderPremiumWorkfows). Le dossier contient aussi la description de ces fichiers.
 
@@ -265,4 +268,4 @@ L’exemple ci-dessous est complet. Pour plus d’informations sur la configurat
 
 Si votre vidéo d’entrée ne contient pas de sous-titres, l’élément multimédia de sortie actif comportera toujours un fichier TTML vide.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

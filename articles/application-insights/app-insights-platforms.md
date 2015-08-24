@@ -6,16 +6,14 @@
 	authors="alancameronwills" 
 	manager="douge"/>
 
-
 <tags 
 	ms.service="application-insights" 
 	ms.workload="tbd" 
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="07/22/2015" 
+	ms.date="08/05/2015" 
 	ms.author="awills"/>
-
  
 # Application Insights : plateformes
 
@@ -27,8 +25,9 @@
 + [C#|VB (.NET)](app-insights-start-monitoring-app-health-usage.md)
 + [C#|VB (Windows Store)](app-insights-windows-get-started.md)
 + [C++ (Windows Store)](app-insights-windows-cpp.md)
-+ [Java](../app-insights-java-get-started.md)
++ [Java](app-insights-java-get-started.md)
 + [Pages web JavaScript](app-insights-web-track-usage.md)
++ [Objective-C](app-insights-ios.md)
 + [PHP](https://github.com/Microsoft/ApplicationInsights-PHP)
 + [Python](https://pypi.python.org/pypi/applicationinsights/0.1.0)
 + [Ruby](https://rubygems.org/gems/application_insights) 
@@ -36,22 +35,25 @@
 
 ## Plateformes
 
++ [Angular](https://www.npmjs.com/package/angular-applicationinsights)
 + [ASP.NET](app-insights-start-monitoring-app-health-usage.md)
++ [ASP.NET - Déjà actif](app-insights-monitor-performance-live-website-now.md)
 + [ASP.NET 5](app-insights-asp-net-five.md)
 + [Android](https://github.com/Microsoft/ApplicationInsights-Android)
 + [Applications web Azure et machines virtuelles](../insights-perf-analytics.md)
-+ [Azure Cloud Services](app-insights-cloudservices.md) y compris les rôles web et de travail
++ [Azure Cloud Services](app-insights-cloudservices.md) incluant les rôles Web et de travail
 + [iOS](https://github.com/Microsoft/ApplicationInsights-iOS)
-+ [OSX](https://github.com/Microsoft/ApplicationInsights-OSX)
-+ [Angular](https://www.npmjs.com/package/angular-applicationinsights)
++ [J2EE](app-insights-java-get-started.md)
++ [J2EE - Déjà actif](app-insights-java-live.md)
++ [Joomla](https://github.com/fidmor89/AppInsights-Joomla)
 + [Microsoft CRM](app-insights-sample-mscrm.md)
 + [Node.JS](https://www.npmjs.com/package/applicationinsights)
-+ [Joomla](https://github.com/fidmor89/AppInsights-Joomla)
++ [OSX](https://github.com/Microsoft/ApplicationInsights-OSX)
 + [SharePoint](app-insights-sharepoint.md)
-+ [WordPress](https://wordpress.org/plugins/application-insights/)
 + [Windows Store C#|VB](app-insights-windows-get-started.md)
 + [Windows Store C++](app-insights-windows-cpp.md)
 + [Services et applications de bureau Windows](app-insights-windows-desktop.md)
++ [WordPress](https://wordpress.org/plugins/application-insights/)
 + [Tout autre élément](#projects)
 
 
@@ -75,4 +77,4 @@ S’il n’existe pas encore de kit de développement logiciel (SDK) pour votre 
 
 <!--Link references-->
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

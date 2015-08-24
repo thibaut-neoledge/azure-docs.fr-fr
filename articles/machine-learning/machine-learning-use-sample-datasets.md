@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Utilisation des exemples de jeux de données dans Machine Learning Studio | Microsoft Azure" 
-	description="Descriptions des jeux de données utilisés dans les exemples de modèles inclus dans ML Studio. Vous pouvez utiliser ces exemples de jeux de données pour vos expériences." 
+<properties
+	pageTitle="Utilisation des exemples de jeux de données dans Machine Learning Studio | Microsoft Azure"
+	description="Descriptions des jeux de données utilisés dans les exemples de modèles inclus dans ML Studio. Vous pouvez utiliser ces exemples de jeux de données pour vos expériences."
 	services="machine-learning" 
-	documentationCenter="" 
-	authors="garyericson" 
-	manager="paulettm" 
+	documentationCenter=""
+	authors="garyericson"
+	manager="paulettm"
 	editor="cgronlun"/>
 
-<tags 
-	ms.service="machine-learning" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/10/2015" 
+<tags
+	ms.service="machine-learning"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/10/2015"
 	ms.author="garye"/>
 
 
@@ -315,6 +315,5 @@ For a list of sample experiments available in ML Studio, see [Machine Learning S
 
 <!-- Module References -->
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

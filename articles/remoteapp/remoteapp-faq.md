@@ -12,8 +12,8 @@
 	ms.workload="compute" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/30/2015" 
+	ms.topic="get-started-article" 
+	ms.date="08/06/2015" 
 	ms.author="elizapo"/>
 
 # FAQ Azure RemoteApp
@@ -22,13 +22,13 @@ Les questions suivantes sont celles qui nous ont été posées sur Azure RemoteA
 ## Présentation d'Azure RemoteApp ##
 
 
-- **Présentation d'Azure RemoteApp** RemoteApp est un service Azure qui fournit les fonctionnalités de Microsoft RemoteApp locales, complétées des Services Bureau à distance, à partir d'Azure. RemoteApp vous permet de proposer un accès à distance sécurisé aux applications sur de nombreux appareils utilisateur. En savoir plus sur [Azure RemoteApp](remoteapp-whatis.md).
+- **Présentation d'Azure RemoteApp** RemoteApp est un service Azure qui vous permet de proposer un accès à distance sécurisé aux applications sur de nombreux appareils utilisateur. En savoir plus sur [Azure RemoteApp](remoteapp-whatis.md).
 - **Quels sont les deux types d'options de déploiement ?** Il existe deux types de déploiements RemoteApp (ou collections) : cloud et hybride. Déterminez quelle [option de déploiement](remoteapp-whatis.md) convient le mieux à votre organisation.
 
 ## Configurations prises en charge ##
 
-- **Quelles sont les limites du service ?** Nous avons ajouté une nouvelle rubrique couvrant tous les [limites et valeurs par défaut du service](remoteapp-servicelimits.md). N’hésitez pas à nous contacter si vous avez d'autres questions.
-- **Combien d'utilisateurs dois-je avoir ?** Il existe un minimum de 20 utilisateurs. Il s’agit bien de la valeur MINIMALE. Vous serez facturé pour 20 utilisateurs. Découvrez ici les autres [limites et valeurs par défaut du nombre d’utilisateurs](remoteapp-servicelimits.md).
+- **Quelles sont les limites du service ?** Vous pouvez en savoir plus sur les paramètres par défaut et les limites du service Azure RemoteApp dans [Abonnement Azure et limites, quotas et contraintes du service](.\azure-subscription-service-limits.md). N’hésitez pas à nous contacter si vous avez d'autres questions.
+- **Combien d'utilisateurs dois-je avoir ?** Il existe un minimum de 20 utilisateurs. Il s’agit bien de la valeur MINIMALE. Vous serez facturé pour 20 utilisateurs. 
 - **Les applications métier personnalisées sont-elles prises en charge ?** Oui. Pour utiliser une application personnalisée dans Azure RemoteApp, créez une [image de modèle personnalisée](remoteapp-create-custom-image.md), puis téléchargez-la dans la collection RemoteApp.
 - **Mon application métier personnalisée fonctionnera-t-elle dans Azure RemoteApp ?** La meilleure façon de le savoir consiste à la tester. Examinez les [conditions de compatibilité des applications](http://www.microsoft.com/download/details.aspx?id=18704) et consultez le [Centre de compatibilité du Bureau à distance](http://www.rdcompatibility.com/compatibility/default.aspx).
 - **Quelle méthode de déploiement (cloud ou hybride) convient le mieux à mon organisation ?** Les collections hybride offrent une expérience plus riche si vous voulez une intégration complète avec authentification unique (SSO) et connectivité au réseau local sécurisée. Le collections cloud offrent un moyen souple et simple d'isoler votre déploiement à l'aide de plusieurs méthodes d'authentification. En savoir plus sur les [options de déploiement](remoteapp-whatis.md).
@@ -82,4 +82,4 @@ Les questions suivantes sont celles qui nous ont été posées sur Azure RemoteA
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

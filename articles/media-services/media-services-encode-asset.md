@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/23/2015" 
+	ms.date="08/11/2015"  
 	ms.author="juliako"/>
 
 #Encodage de contenu à la demande avec Azure Media Services
@@ -48,6 +48,8 @@ Pour plus d'informations, consultez [ce blog](http://azure.microsoft.com/blog/20
 
 L'**Encodeur multimédia Azure** se configure à l'aide d'une des chaînes de présélection d'encodeur décrites [ici](https://msdn.microsoft.com/library/azure/dn619392.aspx). Vous pouvez également obtenir les fichiers de présélection de l'Encodeur multimédia Azure [ici](https://github.com/Azure/azure-media-services-samples/tree/master/Encoding%20Presets/VoD/Azure%20Media%20Encoder).
 
+###Exemple
+
 Procédez à l’encodage à l’aide de l’**Encodeur multimédia Azure** en utilisant le **portail de gestion Azure**, **.NET** ou l’**API REST**.
  
 [AZURE.INCLUDE [media-services-selector-encode](../../includes/media-services-selector-encode.md)]
@@ -56,21 +58,24 @@ Procédez à l’encodage à l’aide de l’**Encodeur multimédia Azure** en u
 
 [Empaquetage dynamique](https://msdn.microsoft.com/library/azure/jj889436.aspx) : explique comment encoder des fichiers MP4 à débit adaptatif et fournir dynamiquement du contenu aux formats Smooth Streaming, Apple HLS ou MPEG-DASH.
 
-[Contrôle des noms de fichier de sortie de l'encodeur Media Services](https://msdn.microsoft.com/library/azure/dn303341.aspx) : explique les conventions d'affectation de noms de fichiers utilisés par l'Encodeur multimédia Azure et comment modifier les noms de fichier de sortie.
+[Contrôle des noms de fichier de sortie de l'encodeur Media Services](https://msdn.microsoft.com/library/azure/dn303341.aspx) : explique les conventions d'affectation de noms de fichiers utilisés par l'Azure Media Encoder et comment modifier les noms de fichier de sortie.
 
 [Encodage de vos médias avec Dolby Digital Plus](media-services-encode-with-dolby-digital-plus.md) : explique comment encoder les pistes audio à l'aide de l'encodage Dolby Digital Plus.
 
 
-##<a id="media_encoder_premium_wokrflow"></a>Media Encoder Premium Workflow 
+##<a id="media_encoder_premium_wokrflow"></a>Media Encoder Premium Workflow 
 
 **Remarque** : le processeur multimédia Media Encoder Premium Workflow présenté dans cette rubrique n’est pas disponible en Chine.
 
 [Formats pris en charge par Media Encoder Premium Workflow](media-services-premium-workflow-encoder-formats.md) : présente les formats de fichiers et les codecs pris en charge par **Media Encoder Premium Workflow**.
 
+### Concepteur de flux de travail
+
 **Media Encoder Premium Workflow** se configure à l'aide de flux de travail complexes. Les fichiers de flux de travail peuvent être créés à l'aide de l'outil [Concepteur de flux de travail](media-services-workflow-designer.md).
 
 Vous pouvez vous procurer les fichiers de flux de travail par défaut [ici](https://github.com/Azure/azure-media-services-samples/tree/master/Encoding%20Presets/VoD/MediaEncoderPremiumWorkfows). Le dossier contient aussi la description de ces fichiers.
 
+###Exemple
 Encodez avec **Media Encoder Premium Workflow** à l'aide de **.NET**. Pour plus d'informations, consultez [Encodage avancé avec Media Encoder Premium Workflow](media-services-encode-with-premium-workflow.md).
  
 
@@ -87,7 +92,7 @@ Nom du processeur multimédia|Tarification applicable|Remarques
 
 
 
-Cette section compare les fonctionnalités d'encodage de l'**Encodeur multimédia Azure**, **Media Encoder Premium Workflow** et **Media Encoder Standard**.
+Cette section compare les fonctionnalités d'encodage de l'**Azure Media Encoder**, **Media Encoder Premium Workflow** et **Media Encoder Standard**.
 
 
 ###Formats d’entrée
@@ -191,4 +196,4 @@ Windows Media Audio|Oui|Oui|Non
 <!--Reference links in article-->
 [1]: http://azure.microsoft.com/pricing/details/media-services/
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

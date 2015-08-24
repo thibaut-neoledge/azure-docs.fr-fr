@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-store" 
 	ms.devlang="javascript" 
 	ms.topic="article" 
-	ms.date="04/08/2015" 
+	ms.date="08/08/2015" 
 	ms.author="glenga"/>
 
 # Authentifier votre application Windows Phone avec l'authentification gérée par le client à l'aide du compte Microsoft
@@ -114,7 +114,7 @@ Enfin, ajoutez le Kit de développement logiciel (SDK) Live et utilisez-le pour 
 
     Cela permet d'initialiser le client Live Connect, d'envoyer une nouvelle demande de connexion à Live Connect, d'envoyer le jeton d'authentification renvoyé à Mobile Services, puis d'afficher des informations sur l'utilisateur connecté.
 
-	>[AZURE.NOTE]Idéalement, vous ne devez pas effectuer de demande de jetons d'authentification de connexion Live ou de jetons d'autorisation Mobile Services chaque fois que votre application s'exécute. Cette méthode est non seulement inefficace, mais vous pouvez rencontrer des problèmes d'utilisation si de nombreux clients tentent de lancer votre application en même temps. Il est préférable de mettre les jetons en cache et d'essayer tout d'abord d'utiliser le jeton Mobile Services en cache avant d'appeler **LoginWithMicrosoftAccountAsync**. Pour voir un exemple de mise en cache de ce jeton, consultez [Prise en main de l'authentification](mobile-services-windows-store-javascript-get-started-users.md#tokens)
+	>[AZURE.NOTE]Idéalement, vous ne devez pas effectuer de demande de jetons d'authentification de connexion Live ou de jetons d'autorisation Mobile Services chaque fois que votre application s'exécute. Cette méthode est non seulement inefficace, mais vous pouvez rencontrer des problèmes d'utilisation si de nombreux clients tentent de lancer votre application en même temps. Il est préférable de mettre les jetons en cache et d'essayer tout d'abord d'utiliser le jeton Mobile Services en cache avant d'appeler **LoginWithMicrosoftAccountAsync**. Pour voir un exemple de mise en cache de ce jeton, consultez [Prise en main de l'authentification](mobile-services-windows-store-javascript-get-started-users.md#tokens).
 	
 7. Remplacez la valeur `<yourClient>` de la première ligne du code ci-dessus par la variable définie dans le fichier .js ajouté lorsque vous avez connecté votre projet au service mobile.
 		
@@ -145,4 +145,4 @@ Dans le didacticiel suivant, [Autorisation des utilisateurs avec des scripts], v
 [Azure Management Portal]: https://manage.windowsazure.com/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

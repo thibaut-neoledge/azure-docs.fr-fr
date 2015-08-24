@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Ajouter Mobile Services à une application existante (Xamarin.Android) - Azure Mobile Services" 
+	pageTitle="Ajouter Mobile Services à une application existante (Xamarin.Android) | Microsoft Azure" 
 	description="Découvrez comment stocker des données et y accéder à partir de votre application Azure Mobile Services Xamarin.Android." 
 	documentationCenter="xamarin" 
 	authors="ggailey777" 
@@ -283,4 +283,4 @@ Une fois que vous avez terminé les séries de données, essayez ces autres dida
 [projet d'exemple terminé]: http://go.microsoft.com/fwlink/p/?LinkId=331302
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Utilisation du service de messagerie électronique SendGrid (Node.js) - Azure" 
+	pageTitle="Utilisation du service de messagerie électronique SendGrid (Node.js) | Microsoft Azure" 
 	description="Découvrez comment envoyer un courrier électronique avec le service de messagerie SendGrid dans Azure. Exemples de code écrits à l'aide de l'API Node.js." 
 	services="" 
 	documentationCenter="nodejs" 
@@ -177,7 +177,7 @@ Il est possible d'appliquer des filtres à un message par l'intermédiaire de la
 
 ## <a name="updateproperties"> </a>Mise à jour des propriétés de messagerie électronique
 
-Certaines propriétés de courrier électronique peuvent être remplacées à l'aide de **set*Property*** ou ajoutées à l'aide de **add*Property***. Par exemple, vous pouvez ajouter des destinataires supplémentaires en utilisant
+Certaines propriétés de courrier électronique peuvent être remplacées à l'aide de **set\*Property**\* ou ajoutées à l'aide de **add\*Property**\*. Par exemple, vous pouvez ajouter des destinataires supplémentaires en utilisant
 
     email.addTo('jeff@contoso.com');
 
@@ -224,4 +224,4 @@ Maintenant que vous avez appris les bases du service de messagerie SendGrid, con
   [service de messagerie dans le cloud]: https://sendgrid.com/email-solutions
   [remise de courrier électronique transactionnelle]: https://sendgrid.com/transactional-email
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

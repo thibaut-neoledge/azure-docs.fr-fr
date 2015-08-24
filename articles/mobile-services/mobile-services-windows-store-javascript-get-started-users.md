@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Prise en main de l'authentification (JavaScript) | Centre de développement mobile" 
+	pageTitle="Prise en main de l'authentification (JavaScript) | Microsoft Azure" 
 	description="Apprenez à utiliser Mobile Services pour authentifier les utilisateurs de votre application Windows Store JavaScript par l'intermédiaire de divers fournisseurs d'identité, notamment Google, Facebook, Twitter et Microsoft." 
 	services="mobile-services" 
 	documentationCenter="windows" 
@@ -94,4 +94,4 @@ Dans le didacticiel suivant, [Autorisation côté service des utilisateurs Mobil
 [Register your Windows Store app package for Microsoft authentication]: /develop/mobile/how-to-guides/register-windows-store-app-package
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

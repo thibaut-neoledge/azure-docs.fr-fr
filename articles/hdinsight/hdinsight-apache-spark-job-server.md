@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Apache Spark Job Server sur HDInsight | Azure" 
+	pageTitle="Apache Spark Job Server sur HDInsight | Microsoft Azure" 
 	description="Découvrez comment utiliser le serveur Spark Job Server pour soumettre et gérer des travaux à distance sur un cluster Spark." 
 	services="hdinsight" 
 	documentationCenter="" 
@@ -68,7 +68,7 @@ Exemple :
 * [Effectuer une analyse interactive des données à l’aide de Spark sur HDInsight avec des outils décisionnels](hdinsight-apache-spark-use-bi-tools.md)
 * [Utiliser Spark sur HDInsight pour créer des applications d’apprentissage automatique](hdinsight-apache-spark-ipython-notebook-machine-learning.md)
 * [Utiliser Spark sur HDInsight pour créer des applications de diffusion en continu en temps réel](hdinsight-apache-spark-csharp-apache-zeppelin-eventhub-streaming.md)
-* [Gérer les ressources du cluster Apache Spark dans Azure HDInsight](hdinsight-apache-spark-resource-manager.md)
+* [Gérer les ressources du cluster Apache Spark dans Azure HDInsight](hdinsight-apache-spark-resource-manager.md)
 
 
 [hdinsight-versions]: ../hdinsight-component-versioning/
@@ -81,4 +81,4 @@ Exemple :
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

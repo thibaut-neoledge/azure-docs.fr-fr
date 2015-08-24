@@ -3,7 +3,7 @@
     description="Décrit les nouvelles fonctionnalités, les problèmes et les solutions de contournement associés à StorSimple série 8000 Update 1."
     services="storsimple"
     documentationCenter="NA"
-    authors="SharS"
+    authors="alkohli"
     manager="adinah"
     editor="tysonn" />
  <tags 
@@ -12,8 +12,8 @@
     ms.topic="article"
     ms.tgt_pltfrm="NA"
     ms.workload="TBD"
-    ms.date="07/15/2015"
-    ms.author="v-sharos" />
+    ms.date="08/12/2015"
+    ms.author="alkohli" />
 
 # Notes de publication de StorSimple série 8000 Update 1  
 
@@ -85,7 +85,7 @@ Le tableau suivant récapitule les problèmes connus de cette version.
 | 6 | Proxy web | Si HTTPS est défini comme protocole dans la configuration du proxy web, la communication appareil-service est altérée et l’appareil se met hors connexion. Des packages de prise en charge sont également générés, ce qui consomme de nombreuses ressources de l’appareil. | Vérifiez que le protocole défini pour l’URL du proxy web est bien HTTP. Pour plus d’informations, consultez la section [Configuration du proxy web pour votre appareil](https://msdn.microsoft.com/library/azure/dn764937.aspx). | Oui | Non |
 | 7 | Proxy web | Si vous configurez et activez le proxy web sur un appareil inscrit, vous devez redémarrer le contrôleur actif sur votre appareil. | | Oui | Non |
 | 8 | Latence de cloud élevée et charge de travail d’E/S élevée | Lorsque l’appareil StorSimple doit gérer à la fois des latences de cloud très élevées (de l’ordre de quelques secondes) et une charge de travail d’E/S élevée, ses volumes se détériorent et une défaillance peut se produire au niveau des E/S, avec l’erreur « appareil non prêt ». | Vous devez redémarrer les contrôleurs de l’appareil manuellement ou effectuer un basculement d’appareil pour résoudre ce problème. | Oui | Non |
-| 9 | Azure PowerShell | Lorsque vous utilisez l’applet de commande StorSimple **Get-AzureStorSimpleStorageAccountCredential &#124; Select-Object -First 1 -Wait** pour sélectionner le premier objet afin de créer un objet **contrôleur de volumes**, l’applet de commande renvoie l’ensemble des objets. | Encapsulez l’applet de commande entre parenthèses comme suit : **(Get-Azure-StorSimpleStorageAccountCredential) &#124; Select-Object -First 1 -Wait** | Oui | Oui |
+| 9 | Azure PowerShell | Lorsque vous utilisez l’applet de commande StorSimple **Get-AzureStorSimpleStorageAccountCredential | Select-Object -First 1 -Wait** pour sélectionner le premier objet afin de créer un objet **contrôleur de volumes**, l’applet de commande renvoie l’ensemble des objets. | Encapsulez l’applet de commande entre parenthèses comme suit : **(Get-Azure-StorSimpleStorageAccountCredential) | Select-Object -First 1 -Wait** | Oui | Oui |
 | 10| Migration | Lorsque plusieurs conteneurs de volumes sont transmis pour migration, l’heure prévue de la dernière sauvegarde est exacte uniquement pour le premier conteneur de volumes. Par ailleurs, la migration parallèle démarre après la migration des quatre premières sauvegardes du premier conteneur de volumes. | Nous vous recommandons de migrer un seul conteneur de volumes à la fois. | Oui | Non |
 | 11| Migration | Après la restauration, les volumes ne sont pas ajoutés à la stratégie de sauvegarde ni au groupe de disques virtuels. | Pour créer les sauvegardes, il vous faudra ajouter ces volumes à une stratégie de sauvegarde. | Oui | Oui |
 | 12| Migration | Une fois la migration terminée, l’appareil de série 5000/7000 ne doit pas accéder aux conteneurs de données migrées. | Nous vous recommandons de supprimer les conteneurs de données migrées une fois que la migration est terminée et validée. | Oui | Non |
@@ -115,4 +115,4 @@ Cette mise à jour ne peut pas être appliquée à l’appareil virtuel. Toutefo
 - [Installer Update 1 sur votre appareil](storsimple-install-update-1.md)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

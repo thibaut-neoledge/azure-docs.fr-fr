@@ -7,7 +7,6 @@
     manager="jhubbard" 
     editor="monicar"/>
 
-
 <tags 
     ms.service="documentdb" 
     ms.devlang="na" 
@@ -16,7 +15,6 @@
     ms.workload="data-services" 
     ms.date="08/03/2015" 
     ms.author="mimig"/>
-
 
 
 # Stratégies d’indexation de DocumentDB
@@ -304,9 +302,9 @@ L'exemple de code suivant montre comment utiliser le Kit de développement logic
 
 DocumentDB modélise les documents JSON et l'index sous forme d’arborescences et vous permet de les ajuster aux stratégies de chemins d'accès dans l'arborescence. Pour plus d’informations, consultez la rubrique [Présentation de l'indexation DocumentDB](documentdb-indexing.md). Dans les documents, vous pouvez choisir les chemins d'accès qui doivent être inclus ou exclus de l'indexation. Il peut en résulter de meilleures performances d'écriture et un stockage des index inférieur pour les scénarios lorsque les modèles de requête sont connus au préalable.
 
-Les chemins d’accès de l’index commencent par la racine (/) et se terminent généralement par l’opérateur générique ?, ce qui signifie qu’il y a plusieurs valeurs possibles pour le préfixe. Par exemple, pour traiter SELECT * FROM Families F WHERE F.familyName = "Andersen", vous devez inclure un chemin d'index pour /familyName/? dans la stratégie d'index de la collection.
+Les chemins d’accès de l’index commencent par la racine (/) et se terminent généralement par l’opérateur générique ?, ce qui signifie qu’il y a plusieurs valeurs possibles pour le préfixe. Par exemple, pour traiter SELECT \* FROM Families F WHERE F.familyName = "Andersen", vous devez inclure un chemin d'index pour /familyName/? dans la stratégie d'index de la collection.
 
-Les chemins d'index peuvent aussi utiliser l'opérateur générique * pour spécifier le comportement des chemins de manière récursive sous le préfixe. Par exemple, /payload/* peut être utilisé pour exclure de l'indexation tout ce qui figure sous la propriété « payload ».
+Les chemins d'index peuvent aussi utiliser l'opérateur générique \* pour spécifier le comportement des chemins de manière récursive sous le préfixe. Par exemple, /payload/\* peut être utilisé pour exclure de l'indexation tout ce qui figure sous la propriété « payload ».
 
 Voici les modèles courants de spécification des chemins d'index :
 
@@ -441,7 +439,7 @@ Voici les modèles courants de spécification des chemins d'index :
     </tbody>
 </table>
 
->[AZURE.NOTE]Lors de la définition des chemins d’accès de l’index personnalisé, il est nécessaire de spécifier la règle d’indexation par défaut pour la totalité de l’arborescence du document, désignée par le chemin d’accès spécial « /* ».
+>[AZURE.NOTE]Lors de la définition des chemins d’accès de l’index personnalisé, il est nécessaire de spécifier la règle d’indexation par défaut pour la totalité de l’arborescence du document, désignée par le chemin d’accès spécial « /\* ».
 
 L’exemple suivant configure un chemin d’accès spécifique avec l’indexation de plage et une valeur personnalisée de précision de 20 octets :
 
@@ -470,33 +468,25 @@ L’exemple suivant configure un chemin d’accès spécifique avec l’indexati
 
 Maintenant que nous avons vu comment spécifier des chemins d’accès, examinons les options que nous pouvons utiliser pour configurer la stratégie d’indexation pour un chemin d’accès. Vous pouvez spécifier une ou plusieurs définitions d’indexation pour chaque chemin d’accès :
 
-- Type de données : **chaîne** ou **nombre** (ne pouvant contenir qu’une seule entrée par type de données par chemin d’accès)
-- Type d’index : **hachage** (requêtes d’égalité) ou **plage** (requêtes d’égalité, de plage ou requêtes Trier par)
+- Type de données : **chaîne**, **nombre** ou **point** (ne pouvant contenir qu’une seule entrée par type de données par chemin d’accès)
+- Type d’index : **hachage** (requêtes d’égalité) ou **plage** (requêtes d’égalité, de plage ou requêtes Trier par) ou **spatial** (demandes spatiales) 
 - Précision : 1 à 8 ou -1 (précision maximale) pour les nombres, 1 à 100 (précision maximale) pour les chaînes
 
 #### Type d’index
 
-DocumentDB prend en charge deux types d’index pour chaque paire de type de données et de chemin d’accès.
+DocumentDB prend en charge les types d'index de hachage et de plage pour chaque chemin d'accès (qui peuvent être configurés pour les chaînes, nombres ou les deux).
 
 - **Hachage** prend en charge les requêtes d’égalité efficaces et JOIN. Dans la plupart des cas d’utilisation, les index de hachage ne nécessitent pas une précision plus élevée que la valeur par défaut de 3 octets.
-- **Plage** prend en charge les requêtes d’égalité efficaces, les requêtes de plage (avec >, <>, =, < =,! =) et les requêtes Trier par. Par défaut, les requêtes Trier par nécessitent également une précision d’index maximale (-1).
+- **Plage** prend en charge les requêtes d’égalité efficaces, les requêtes de plage (avec >, <, >=, <=, !=) et les requêtes Trier par. Par défaut, les requêtes Trier par nécessitent également une précision d’index maximale (-1).
+
+DocumentDB prend également en charge le type d'index spatial pour chaque chemin d'accès, qui peut être spécifié pour le type de données de point. La valeur dans le chemin d'accès spécifié doit être un point GeoJSON valide, comme `{"type": "Point", "coordinates": [0.0, 10.0]}`.
+
+- **Spatial** prend en charge les requêtes spatiales efficaces (within et distance)
 
 Voici les types d'index pris en charge et les exemples de requêtes qui peuvent être traitées :
 
 <table border="0" cellspacing="0" cellpadding="0">
     <tbody>
-        <tr>
-            <td valign="top">
-                <p>
-                    <strong>Type d’index</strong>
-                </p>
-            </td>
-            <td valign="top">
-                <p>
-                    <strong>Description/Cas d’utilisation</strong>
-                </p>
-            </td>
-        </tr>
         <tr>
             <td valign="top">
                 <p>
@@ -533,18 +523,34 @@ Voici les types d'index pris en charge et les exemples de requêtes qui peuvent 
                 </p>
             </td>
         </tr>
+        <tr>
+            <td valign="top">
+                <p>
+                    Spatial
+                </p>
+            </td>
+            <td valign="top">
+                <p>
+                    La plage disposant de l’élément /prop/? (ou /*) peut être utilisée pour traiter de manière efficace les requêtes suivantes&#160;: SELECT * FROM collection c WHERE ST_DISTANCE(c.prop, {"type": "Point", "coordinates": [0.0, 10.0]}) &lt; 40 SELECT * FROM collection c WHERE ST_WITHIN(c.prop, {"type": "Polygon", ... })
+                </p>
+            </td>
+        </tr>        
     </tbody>
 </table>
 
 Par défaut, une erreur est renvoyée pour les requêtes disposant d’opérateurs de plage tels que >= s'il n'existe aucun index de plage (de n’importe quelle précision) pour signaler qu'une analyse peut être requise pour traiter la requête. Les requêtes peuvent être effectuées sans un index de plage à l'aide de l'en-tête x-ms-documentdb-enable-scans header dans l'API REST ou l'option de requête EnableScanInQuery à l'aide du Kit de développement logiciel (SDLK) .NET. Si d'autres filtres de la requête peuvent être utilisés par DocumentDB sur l’index, aucune erreur ne vous sera renvoyée.
 
+Les mêmes règles s'appliquent pour les requêtes spatiales. Par défaut, une erreur est renvoyée pour les requêtes spatiales s'il n'existe pas d'index spatial. Elles peuvent être effectuées en tant qu'analyse à l'aide de x-ms-documentdb-enable-scan/EnableScanInQuery.
+
 #### Précision d’index
 
 La précision d’index vous permet de trouver un compromis entre le traitement du stockage de l’index et les performances des requêtes. Pour les nombres, nous recommandons d’utiliser la configuration de précision par défaut définie sur -1 (« valeur maximale »). Comme les nombres correspondent à 8 octets dans JSON, cela équivaut à une configuration de 8 octets. Si vous choisissez une valeur inférieure pour la précision, par exemple 1 à 7, les valeurs de certaines plages sont mappées à la même entrée d’index. Ce faisant, vous réduisez l’espace de stockage des index, mais l’exécution des requêtes peut devoir traiter plus de documents et, par conséquent, consommer davantage de débit, c’est-à-dire d’unités de demande.
 
-La configuration de la précision d’index est plus pratique avec les plages de chaînes. Comme les chaînes peuvent avoir n’importe quelle longueur arbitraire, le choix de la précision d’index peut avoir des conséquences sur les performances des requêtes de plage de chaînes et sur l’espace de stockage requis pour les index. Les index de plage de chaînes peuvent être configurés avec une valeur comprise entre 1 et 100, ou la valeur de précision maximale (-1). Si vous souhaitez exécuter des requêtes Trier par sur les propriétés de chaîne, vous devez spécifier une précision de -1 pour les chemins d'accès correspondants.
+La configuration de la précision d’index est plus pratique avec les plages de chaînes. Comme les chaînes peuvent avoir n’importe quelle longueur arbitraire, le choix de la précision d’index peut avoir des conséquences sur les performances des requêtes de plage de chaînes et sur l’espace de stockage requis pour les index. Les index de plage de chaînes peuvent être configurés avec une valeur comprise entre 1 et 100, ou la valeur de précision maximale (-1). Si vous souhaitez exécuter des requêtes Trier par sur les propriétés de chaîne, vous devez spécifier une précision de -1 pour les chemins d'accès correspondants.
 
-L’exemple suivant montre comment augmenter la précision des index de plage d’une collection à l’aide du Kit de développement (SDK) .NET. Notez qu’il utilise le chemin d’accès par défaut « /* ».
+Les index spatiaux utilisent toujours la précision d'index par défaut pour les points et ne peuvent pas être remplacés.
+
+L’exemple suivant montre comment augmenter la précision des index de plage d’une collection à l’aide du Kit de développement (SDK) .NET. Notez qu’il utilise le chemin d’accès par défaut « /\* ».
 
 **Créer une collection avec une précision d'index personnalisée**
 
@@ -564,7 +570,7 @@ L’exemple suivant montre comment augmenter la précision des index de plage d�
 
 > [AZURE.NOTE]DocumentDB retourne une erreur lorsqu’une requête utilise Trier par, mais n’a pas d’index de plage par rapport au chemin d’accès de requête avec la précision maximale.
 
-De même, des chemins d’accès peuvent être exclus complètement de l’indexation. L'exemple suivant montre comment exclure toute une section de documents (également appelé une sous-arborescence) de l'indexation à l'aide du caractère générique « * ».
+De même, des chemins d’accès peuvent être exclus complètement de l’indexation. L'exemple suivant montre comment exclure toute une section de documents (également appelé une sous-arborescence) de l'indexation à l'aide du caractère générique « \* ».
 
     var collection = new DocumentCollection { Id = "excludedPathCollection" };
     collection.IndexingPolicy.IncludedPaths.Add(new IncludedPath { Path = "/" });
@@ -600,7 +606,7 @@ Les transformations d’index sont effectuées en ligne, ce qui signifie que les
 
 Toutefois, lors de la transformation de l'index, les requêtes sont cohérentes, et ce, quelle que soit la configuration du mode d'indexation (mode Cohérent ou Différé). Cela s'applique également aux requêtes effectuées à l'aide de n'importe quelle interface : API REST, Kit de développement logiciel (SDK) ou à partir de déclencheurs et de procédures stockées. Tout comme avec l'indexation Différé, la transformation de l'index est exécutée de façon asynchrone en arrière-plan sur les réplicas à l'aide de ressources d’échange disponibles pour un réplica donné.
 
-Les transformations d'index sont également effectuées**in situ**(sur place), c'est-à-dire que DocumentDB ne conserve pas deux copies de l'index et remplace l'ancien index par un nouveau. Cela signifie qu'aucun espace disque supplémentaire n’est requis ou utilisé dans vos collections lors de l'exécution des transformations d’index.
+Les transformations d'index sont également effectuées **in situ** (sur place), cela signifie que DocumentDB ne conserve pas deux copies de l'index et remplace l'ancien index par un nouveau. Cela signifie qu'aucun espace disque supplémentaire n’est requis ou utilisé dans vos collections lors de l'exécution des transformations d’index.
 
 Lorsque vous modifiez une stratégie d'indexation, ces modifications qui sont appliquées pour passer de l'ancien index à un nouveau dépendent plus des configurations du mode d’indexation que d'autres valeurs telles que les chemins d'accès inclus/exclus, les types d'index et les précisions. Si vos anciennes et nouvelles stratégies utilisent l’indexation cohérente, DocumentDB effectue une transformation d'index en ligne. Vous ne pouvez pas appliquer une autre modification de stratégie d'indexation via le mode d'indexation Cohérent lors de la transformation.
 
@@ -609,7 +615,7 @@ Vous pouvez toutefois opter pour le mode d'indexation Différé ou Aucun lorsqu'
 - Lorsque vous optez pour le mode Différé, la modification de stratégie d’indexation prend immédiatement effet et DocumentDB démarre la recréation de l'index de façon asynchrone. 
 - Lorsque vous optez pour le mode Aucun, l'index est immédiatement désactivé. Opter pour le mode Aucun peut s’avérer très utile lorsque vous souhaitez annuler une transformation en cours et utiliser une nouvelle stratégie d'indexation. 
 
-Si vous utilisez le Kit de développement logiciel (SDK) .NET, vous pouvez lancer une modification de stratégie d'indexation en utilisant la nouvelle méthode **ReplaceDocumentCollectionAsync** et suivre la progression de la transformation d'index à l'aide de la propriété Response **IndexTransformationProgress** à partir d’un appel **ReadDocumentCollectionAsync**. D’autres Kits de développement logiciel (SDK), ainsi que l'API REST, prennent en charge des propriétés et des méthodes équivalentes pour apporter des modifications de stratégie d'indexation.
+Si vous utilisez le Kit de développement logiciel (SDK) .NET, vous pouvez lancer une modification de stratégie d'indexation en utilisant la nouvelle méthode **ReplaceDocumentCollectionAsync** et suivre la progression de la transformation d'index à l'aide de la propriété Response **IndexTransformationProgress** à partir d’un appel **ReadDocumentCollectionAsync**. D’autres Kits de développement logiciel (SDK), ainsi que l'API REST, prennent en charge des propriétés et des méthodes équivalentes pour apporter des modifications de stratégie d'indexation.
 
 Voici un extrait de code qui vous indique comment faire passer la stratégie d'indexation d'une collection, du mode Cohérent au mode Différé.
 
@@ -652,7 +658,7 @@ Vous pouvez supprimer l'index d’une collection en optant pour le mode d'indexa
 Quand pouvez-vous apporter des modifications de stratégie d'indexation à vos collections DocumentDB ? Les scénarios d'utilisation les plus courants sont les suivants :
 
 - Fournir des résultats cohérents lors du bon déroulement de l’opération, mais revenir à l'indexation différée lors de l'importation de données en bloc
-- Commencer à utiliser de nouvelles fonctionnalités d’indexation sur vos collections DocumentDB, telles que Trier par et les requêtes de plage de chaîne qui requièrent le type d’index de plage de chaîne récemment introduit.
+- Commencer à utiliser de nouvelles fonctionnalités d’indexation sur vos collections DocumentDB, telles que les requêtes géospatiales nécessitant le type d’index spatial, Trier par et les requêtes de plage de chaîne qui requièrent le type d’index de plage de chaîne
 - Sélectionner les propriétés à indexer et les modifier au fil du temps
 - Ajuster la précision d'indexation pour améliorer les performances de requête ou réduire le stockage utilisé
 
@@ -697,7 +703,7 @@ Les modifications suivantes ont été implémentées dans la spécification JSON
 - Chaque chemin d'accès peut avoir plusieurs définitions d'index, un pour chaque type de données
 - L'indexation de précision prend en charge les nombres de 1 à 8, les chaînes de 1 à 100 et -1 (précision maximale)
 - Les segments des chemins d'accès ne nécessitent pas de doubles guillemets pour éviter chaque chemin d'accès. Par exemple, vous pouvez ajouter un chemin d’accès pour /title/? au lieu de /"title"/?
-- Le chemin d'accès racine représentant « tous les chemins d'accès » peut être représenté comme /* (en plus de /)
+- Le chemin d'accès racine représentant « tous les chemins d'accès » peut être représenté comme /\* (en plus de /)
 
 Si votre code approvisionne des collections avec une stratégie d'indexation personnalisée écrite avec la version 1.1.0 du Kit de développement logiciel (SDK) .NET ou une version antérieure, vous devrez modifier le code de votre application pour gérer ces modifications afin de les déplacer vers la version 1.2.0 du Kit de développement logiciel (SDK). Si vous n’avez pas le code qui configure la stratégie d'indexation, ou si vous envisagez de continuer à l'aide d'une version du Kit de développement logiciel (SDK) plus ancienne, aucune modification n'est requise.
 
@@ -760,4 +766,4 @@ Suivez les liens ci-dessous pour accéder à des exemples de gestion de stratég
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

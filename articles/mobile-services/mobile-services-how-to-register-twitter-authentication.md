@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Inscription pour l'authentification Twitter - Mobile Services" 
+	pageTitle="Inscription pour l'authentification Twitter | Microsoft Azure" 
 	description="Découvrez comment utiliser l'authentification Twitter avec votre application Azure Mobile Services." 
 	services="mobile-services" 
 	documentationCenter="" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="04/13/2015" 
+	ms.date="08/08/2015" 
 	ms.author="glenga"/>
 
 #Inscrire des applications pour la connexion à Twitter avec Mobile Services
@@ -32,25 +32,19 @@ Pour effectuer la procédure décrite dans cette rubrique, vous devez disposer d
 
 2. Tapez les valeurs **Name**, **Description** et **Website** correspondant à votre application, puis tapez l'URL du service mobile suivie du chemin _/login/twitter_ dans **Callback URL**.
 
-	>[AZURE.NOTE]Pour un service mobile de backend .NET publié sur Azure avec Visual Studio, l'URL de redirection est l'URL de votre service mobile, suivie du chemin _signin-twitter_ de votre service mobile en tant que service .NET, par exemple <code>https://todolist.azure-mobile.net/signin-twitter</code>.
+	>[AZURE.NOTE]Pour un service mobile de backend .NET publié sur Azure avec Visual Studio, l'URL de redirection est l'URL de votre service mobile, suivie du chemin _signin-twitter_. Dans cet exemple, notre service mobile aurait l'URL de rappel ```https://todolist.azure-mobile.net/signin-twitter```.
 
    	![][2]
 
-3.  En bas de la page, lisez les conditions et acceptez-les, tapez les mots affichés dans le CAPTCHA, puis cliquez sur **Create your Twitter application**.
-
-   	![][3]
+3.  En bas de la page, lisez les conditions et acceptez-les, puis cliquez sur **Create your Twitter application**.
 
    	Cette opération inscrit l'application et affiche les détails de la demande.
 
-6. Notez les valeurs de **Consumer key** et **Consumer secret**.
-
-   	![][4]
+6. Cliquez sur l'onglet **Keys and Access Tokens** dans le tableau de bord de votre application et prenez note des valeurs **Consumer key** et **Consumer secret**.
 
     > [AZURE.NOTE]La clé secrète consommateur est une information d'identification de sécurité importante. Ne partagez pas cette clé secrète avec quiconque et ne la distribuez pas avec votre application.
 
-7. Cliquez sur l'onglet **Settings**, faites défiler vers le bas et activez l'option **Allow this application to be used to sign in with Twitter**, puis cliquez sur **Update this Twitter application's settings**.
-
-	![][5]
+7. Cliquez sur l'onglet **Settings**, faites défiler vers le bas et vérifiez que la case **Allow this application to be used to sign in with Twitter** est cochée, puis cliquez sur **Update Settings**.
 
 Vous pouvez désormais utiliser une connexion Twitter pour l'authentification dans votre application en fournissant les valeurs de clé et de secret à Mobile Services.
 
@@ -59,9 +53,6 @@ Vous pouvez désormais utiliser une connexion Twitter pour l'authentification da
 <!-- Images. -->
 [1]: ./media/mobile-services-how-to-register-twitter-authentication/mobile-services-twitter-developers.png
 [2]: ./media/mobile-services-how-to-register-twitter-authentication/mobile-services-twitter-register-app1.png
-[3]: ./media/mobile-services-how-to-register-twitter-authentication/mobile-services-twitter-register-app2.png
-[4]: ./media/mobile-services-how-to-register-twitter-authentication/mobile-services-twitter-app-details.png
-[5]: ./media/mobile-services-how-to-register-twitter-authentication/mobile-services-twitter-register-settings.png
 
 <!-- URLs. -->
 
@@ -71,4 +62,4 @@ Vous pouvez désormais utiliser une connexion Twitter pour l'authentification da
 [Azure Management Portal]: https://manage.windowsazure.com/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

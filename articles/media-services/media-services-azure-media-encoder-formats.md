@@ -7,16 +7,14 @@
 	manager="dwrede" 
 	editor=""/>
 
-
 <tags 
 	ms.service="media-services" 
 	ms.workload="media" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/29/2015" 
+	ms.date="08/11/2015" 
 	ms.author="juliako"/>
-
 
 #Codecs et formats Azure Media Encoder
 
@@ -62,7 +60,7 @@ Format de fichier|Extensions de fichiers
 ---|---
 3GPP, 3GPP2|.3gp, .3g2, .3gp2
 Advanced Systems Format (ASF)|.asf
-Advanced Video Coding High Definition (AVCHD) [MPEG-2 Transport Stream\]|.mts, .m2ts
+Advanced Video Coding High Definition (AVCHD) [MPEG-2 Transport Stream]|.mts, .m2ts
 Audio-Video Interleaved (AVI)|.avi
 Magnétoscope numérique MPEG-2 (MOD)|.mod
 Fichier de flux de transport (TS) DVD|.ts
@@ -133,4 +131,4 @@ Données au format YUV 211|Format YUV compressé. Un échantillon Y à chaque pi
 Format Cirrus Logic Jr YUV 411|Format Cirrus Logic Jr YUV 411 avec moins de 8 bits par échantillon Y, U et V. Un échantillon Y à chaque pixel, un échantillon U et V à chaque quatrième pixel horizontalement sur chaque ligne ; chaque ligne verticale échantillonnée.
 Format Indeo-produced YVU9|Format Indeo-produced YVU9 avec informations supplémentaires sur les différences par rapport au dernier frame. 9,5 bits par pixel mais déclaré comme 9.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

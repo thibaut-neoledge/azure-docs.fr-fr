@@ -5,8 +5,8 @@
    documentationCenter="windows"
    authors="singhkay"
    manager="timlt"
-   editor=""/>
-
+   editor=""
+   tags="azure-service-management"/>
 
    <tags
    ms.service="virtual-machines"
@@ -16,7 +16,6 @@
    ms.workload="infrastructure-services"
    ms.date="06/24/2015"
    ms.author="kasing"/>
-
 
 # Gérer vos machines virtuelles à l’aide d’Azure PowerShell
 
@@ -95,4 +94,4 @@ Pour créer une nouvelle machine virtuelle Windows dans Azure, consultez [Utilis
 - une appartenance à un jeu d’équilibrage de la charge ;
 - une adresse IP statique.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

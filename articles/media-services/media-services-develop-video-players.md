@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/20/2015" 
+	ms.date="08/11/2015"
 	ms.author="juliako"/>
 
 
@@ -76,4 +76,4 @@ Pour en savoir plus sur la prise en charge du sous-titrage et des publicités da
 [Référentiel dash.js GitHub](https://github.com/Dash-Industry-Forum/dash.js)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

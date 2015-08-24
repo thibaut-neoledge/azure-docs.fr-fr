@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Gestion des données et analyse marketing - Azure" 
+	pageTitle="Mestion des données et analyse marketing | Microsoft Azure" 
 	description="Présentation de la gestion et de l'analyse des données dans Azure. A range of options are provided for working with relational and non-relational data." 
 	services="sql-database, storage" 
 	documentationCenter=".net" 
@@ -25,4 +25,4 @@
 [AZURE.INCLUDE [stockage sur le cloud](../../includes/cloud-storage.md)]
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

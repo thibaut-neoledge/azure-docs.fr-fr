@@ -7,16 +7,14 @@
 	manager="wpickett" 
 	editor="jimbe"/>
 
-
 <tags 
 	ms.service="cdn" 
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="05/27/2015" 
+	ms.date="08/06/2015" 
 	ms.author="cephalin"/>
-
 
 # Distribution de contenu depuis Azure CDN dans votre application web #
 
@@ -144,7 +142,6 @@ Commençons. Procédez comme suit pour commencer à utiliser le réseau de distr
 
 		<img alt="Mugshot" src="http://az623979.vo.msecnd.net/cdn/cephas_lin.png" />
 
-
 Dans cette section, vous avez appris à créer un point de terminaison CDN, à lui télécharger du contenu et à le lier au contenu CDN d'une page web.
 
 <a name="upload"></a>
@@ -180,7 +177,6 @@ Pour le paramètre `-StorageContainer`, il est pratique d'utiliser le nom de vo
 Quand le téléchargement du contenu est terminé, vous pouvez lier n'importe quoi dans vos dossiers *\\Content* et *\\Scripts* dans votre code HTML (par exemple, vos fichiers .cshtml) en utilisant `http://<yourCDNName>.vo.msecnd.net/<containerName>`. Voici un exemple de quelque chose que je peux utiliser dans une vue Razor :
 
 	<img alt="Mugshot" src="http://az623979.vo.msecnd.net/MyMvcApp/Content/cephas_lin.png" />
-
 
 Pour un exemple d'intégration de scripts PowerShell dans votre configuration de remise continue, consultez la page [Remise continue pour Cloud Services dans Azure](../cloud-services/cloud-services-dotnet-continuous-delivery.md).
 
@@ -222,17 +218,27 @@ Bien sûr, il y a un moment et un endroit pour la mise en cache. Exemple : vous
 <a name="query"></a>
 ## Distribution immédiate du nouveau contenu au moyen de chaînes de requête ##
 
-Dans Azure CDN, vous pouvez activer des chaînes de requête de façon à ce que le contenu d'URL comportant des chaînes de requête données soit mis en cache séparément. Cette fonctionnalité est intéressante si vous voulez placer immédiatement un contenu mis à jour donné dans les navigateurs clients au lieu d'attendre l'expiration du contenu CDN en cache. Supposons que je publie ma page Web avec un numéro de version dans l'URL. <pre class="prettyprint"> &lt;link href=";http://az623979.vo.msecnd.net/MyMvcApp/Content/bootstrap.css?v=3.0.0"; rel=";stylesheet";/&gt; </pre>
+Dans Azure CDN, vous pouvez activer des chaînes de requête de façon à ce que le contenu d'URL comportant des chaînes de requête données soit mis en cache séparément. Cette fonctionnalité est intéressante si vous voulez placer immédiatement un contenu mis à jour donné dans les navigateurs clients au lieu d'attendre l'expiration du contenu CDN en cache. Supposons que je publie ma page web avec un numéro de version dans l'URL.
+  
+	<link href="http://az623979.vo.msecnd.net/MyMvcApp/Content/bootstrap.css?v=3.0.0" rel="stylesheet"/>
 
-Quand je publie une mise à jour CSS et que j'utilise un numéro de version différent dans mon URL CSS : <pre class="prettyprint"> &lt;link href=";http://az623979.vo.msecnd.net/MyMvcApp/Content/bootstrap.css?v=3.1.1"; rel=";stylesheet";/&gt; </pre>
+Quand je publie une mise à jour CSS et que j'utilise un numéro de version différent dans mon URL CSS :
+
+	<link href="http://az623979.vo.msecnd.net/MyMvcApp/Content/bootstrap.css?v=3.1.1" rel="stylesheet"/>
 
 Pour un point de terminaison CDN dont les chaînes de requête sont activées, les deux URL sont uniques. Une nouvelle requête à mon serveur web récupérera donc le nouveau fichier *bootstrap.css*. Cependant, pour un point de terminaison CDN dont les chaînes de requête ne sont pas activées, les URL sont identiques : il distribuera donc simplement le fichier *bootstrap.css* en cache.
 
-L'astuce consiste alors à mettre automatiquement à jour le numéro de version. Dans Visual Studio, ceci est très simple à réaliser. Dans un fichier .cshtml où j'utiliserais le lien ci-dessus, je peux spécifier un numéro de version en fonction du numéro de l’assembly. <pre class="prettyprint"> @{ var cdnVersion = System.Reflection.Assembly.GetAssembly( typeof(MyMvcApp.Controllers.HomeController)) .GetName().Version.ToString(); }
+L'astuce consiste alors à mettre automatiquement à jour le numéro de version. Dans Visual Studio, ceci est très simple à réaliser. Dans un fichier .cshtml où j'utilise le lien ci-dessus, je peux spécifier un numéro de version basé sur le numéro d’assembly.
 
-...
-
-&lt;link href=";http://az623979.vo.msecnd.net/MyMvcApp/Content/bootstrap.css?v=@cdnVersion"; rel=";stylesheet";/&gt; </pre>
+	@{
+	    var cdnVersion = System.Reflection.Assembly.GetAssembly(
+	        typeof(MyMvcApp.Controllers.HomeController))
+	        .GetName().Version.ToString();
+	}
+	
+	...
+	
+	<link href="http://az623979.vo.msecnd.net/MyMvcApp/Content/bootstrap.css?v=@cdnVersion" rel="stylesheet"/>
 
 Si vous modifiez le numéro d'assembly à chaque cycle de publication, chaque fois que vous publiez votre application web, vous êtes sûr d'obtenir un numéro de version unique qui reste identique jusqu'au prochain cycle de publication. Vous pouvez également faire en sorte que Visual Studio incrémente automatiquement le numéro de version de l'assembly à chaque génération de l'application Web en ouvrant le fichier *Properties\\AssemblyInfo.cs* dans votre projet Visual Studio et en utilisant `*` dans `AssemblyVersion`. Par exemple :
 
@@ -265,4 +271,4 @@ Sans intégration avec les services Azure App Service Web Apps ou Azure Clo
 - [Utilisation du réseau de distribution de contenu (CDN) Azure](cdn-how-to-use-cdn.md)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

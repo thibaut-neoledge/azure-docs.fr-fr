@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Utilisation de Mobile Services pour télécharger des images dans le stockage d'objets blob (Windows Store) | Mobile Services" 
+	pageTitle="Utilisation de Mobile Services pour télécharger des images dans le stockage d'objets blob (Windows Store) | Microsoft Azure" 
 	description="Découvrez comment utiliser Mobile Services pour télécharger des images vers le stockage d'objets blob Azure et y accéder à partir de votre application Windows Store." 
 	services="mobile-services" 
 	documentationCenter="windows" 
@@ -103,4 +103,4 @@ Maintenant que vous avez intégré votre service mobile au service BLOB et que v
 [App settings]: http://msdn.microsoft.com/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

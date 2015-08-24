@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-phone"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/07/2015"
+	ms.date="08/10/2015" 
 	ms.author="piyushjo" />
 	
 #Contenu du Kit de développement logiciel Windows Phone Silverlight
@@ -37,4 +37,4 @@ Ce dossier contient toutes les ressources dont Mobile Engagement a besoin. Vous
 - `EngagementConfiguration.xml` : fichier de configuration de Mobile Engagement. C'est dans ce fichier que vous pouvez personnaliser les paramètres d'Engagement (chaîne de connexion Engagement, rapport sur les incidents, etc.).
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

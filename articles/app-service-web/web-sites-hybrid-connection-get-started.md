@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/24/2015" 
+	ms.date="08/11/2015" 
 	ms.author="cephalin"/>
 
 #Accéder à des ressources locales à l’aide de connexions hybrides dans Azure App Service
@@ -207,4 +207,4 @@ Maintenant que l'infrastructure de connexion hybride est terminée, vous pouvez 
 [HCStatusConnected]: ./media/web-sites-hybrid-connection-get-started/D10HCStatusConnected.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

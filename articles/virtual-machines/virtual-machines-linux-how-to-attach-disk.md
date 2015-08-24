@@ -13,16 +13,16 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/29/2015"
+	ms.date="08/11/2015"
 	ms.author="dkshir"/>
 
 # Association d’un disque de données à une machine virtuelle Linux
 
 Vous pouvez attacher des disques, qu'ils soient vides ou non. Dans les deux cas, les disques sont en fait des fichiers .vhd conservés dans un compte de stockage Azure. Après avoir attaché le disque, vous devrez également l'initialiser pour le rendre opérationnel.
 
-> [AZURE.NOTE]Il est recommandé d'utiliser un ou plusieurs disques distincts pour stocker les données d'une machine virtuelle. Lorsque vous créez une machine virtuelle Azure, celle-ci possède un disque de système d'exploitation et un disque temporaire. **N’utilisez pas le disque temporaire pour stocker les données.** Comme son nom l’indique, il ne permet qu’un stockage temporaire. Il n'offre aucune possibilité de redondance ou de sauvegarde, car il ne réside pas dans le stockage Azure. Le disque de ressources est habituellement géré par l’agent Linux Azure et monté automatiquement dans **/mnt/resource** (ou **/mnt** pour les images Ubuntu). Par contre, sous Linux, le disque de données peut être nommé `/dev/sdc` par le noyau. Si tel est le cas, il vous faudra partitionner, formater et monter cette ressource. Consultez le [Guide de l’utilisateur de l’Agent Linux Azure][Agent] pour plus d’informations.
+> [AZURE.NOTE]Il est recommandé d'utiliser un ou plusieurs disques distincts pour stocker les données d'une machine virtuelle. Lorsque vous créez une machine virtuelle Azure, celle-ci possède un disque de système d'exploitation et un disque temporaire. **N’utilisez pas le disque temporaire pour stocker les données.** Comme son nom l’indique, il ne permet qu’un stockage temporaire. Il n'offre aucune possibilité de redondance ou de sauvegarde, car il ne réside pas dans le stockage Azure. Le disque de ressources est habituellement géré par l’agent Linux Azure et monté automatiquement dans **/mnt/resource** (ou **/mnt** pour les images Ubuntu). Par contre, un disque de données peut être nommé par le noyau Linux par exemple en `/dev/sdc`, et les utilisateurs devront partitionner, formater et monter cette ressource. Consultez le [Guide de l’utilisateur de l’Agent Linux Azure][Agent] pour plus d’informations.
 
-[AZURE.INCLUDE [howto-attach-disk-windows-linux](../../includes/howto-attach-disk-windows-linux.md)]
+[AZURE.INCLUDE [howto-attach-disk-windows-linux](../../includes/howto-attach-disk-linux.md)]
 
 ## Initialisation d’un nouveau disque de données dans Linux
 
@@ -30,33 +30,59 @@ Vous pouvez attacher des disques, qu'ils soient vides ou non. Dans les deux cas,
 
 
 
-2. Dans la fenêtre SSH, tapez la commande suivante, puis entrez le mot de passe du compte créé pour gérer la machine virtuelle :
+2. Ensuite, vous devez rechercher l'identificateur de périphérique pour initialiser le disque de données. Il existe deux façons d'effectuer cette opération :
 
-		# sudo grep SCSI /var/log/messages
+	a) Dans la fenêtre SSH, tapez la commande suivante, puis entrez le mot de passe du compte créé pour gérer la machine virtuelle :
 
-	>[AZURE.NOTE]Pour les distributions Ubuntu récentes, vous devrez peut-être utiliser `sudo grep SCSI /var/log/syslog` car l’enregistrement vers `/var/log/messages` peut être désactivé par défaut.
+			$sudo grep SCSI /var/log/messages
+
+	Pour les distributions Ubuntu récentes, vous devrez peut-être utiliser `sudo grep SCSI /var/log/syslog` car l’enregistrement vers `/var/log/messages` peut être désactivé par défaut.
 
 	L’identificateur du dernier disque de données ajouté est disponible dans les messages qui s’affichent.
 
-
-
 	![Obtenir les messages du disque](./media/virtual-machines-linux-how-to-attach-disk/DiskMessages.png)
 
+	OU
 
+	b) Utilisez la commande `lsscsi` pour rechercher l'ID de périphérique. `lsscsi` peut être installé par `yum install lsscsi` (dans des distributions Red Hat) ou `apt-get install lsscsi` (dans des distributions Debian). Vous pouvez retrouver le disque que vous recherchez par son _LUN_ ou **numéro d'unité logique**. Par exemple, le _LUN_ pour les disques attachés peuvent être vus facilement à partir de `azure vm disk list <virtual-machine>` en tant que :
+
+			~$ azure vm disk list ubuntuVMasm
+			info:    Executing command vm disk list
+			+ Fetching disk images
+			+ Getting virtual machines
+			+ Getting VM disks
+			data:    Lun  Size(GB)  Blob-Name                         OS
+			data:    ---  --------  --------------------------------  -----
+			data:         30        ubuntuVMasm-2645b8030676c8f8.vhd  Linux
+			data:    1    10        test.VHD
+			data:    2    30        ubuntuVMasm-76f7ee1ef0f6dddc.vhd
+			info:    vm disk list command OK
+
+	Effectuez une comparaison avec la sortie de `lsscsi` pour le même exemple de machine virtuelle :
+
+			adminuser@ubuntuVMasm:~$ lsscsi
+			[1:0:0:0]    cd/dvd  Msft     Virtual CD/ROM   1.0   /dev/sr0
+			[2:0:0:0]    disk    Msft     Virtual Disk     1.0   /dev/sda
+			[3:0:1:0]    disk    Msft     Virtual Disk     1.0   /dev/sdb
+			[5:0:0:0]    disk    Msft     Virtual Disk     1.0   /dev/sdc
+			[5:0:0:1]    disk    Msft     Virtual Disk     1.0   /dev/sdd
+			[5:0:0:2]    disk    Msft     Virtual Disk     1.0   /dev/sde
+
+	Le dernier numéro du tuple dans chaque ligne est le _LUN_. Pour plus d'informations, consultez `man lsscsi`.
 
 3. Dans la fenêtre SSH, tapez la commande suivante pour créer un appareil, puis entrez le mot de passe du compte :
 
-		# sudo fdisk /dev/sdc
+		$sudo fdisk /dev/sdc
 
 	>[AZURE.NOTE]Dans cet exemple, vous devrez peut-être utiliser `sudo -i` avec certaines distributions, si /sbin ou /usr/sbin ne figurent pas dans votre `$PATH`.
 
 
-4. Tapez **n** pour créer une partition.
+4. Lorsque vous y êtes invité, tapez **n** pour créer une partition.
 
 
 	![Créer un appareil](./media/virtual-machines-linux-how-to-attach-disk/DiskPartition.png)
 
-5. Tapez **p** pour définir la partition comme partition principale, tapez **1** pour la définir comme première partition, puis appuyez sur Entrée pour accepter la valeur par défaut du cylindre.
+5. Lorsque vous y êtes invité, tapez **p** pour définir la partition comme partition principale, tapez **1** pour la définir comme première partition, puis appuyez sur Entrée pour accepter la valeur par défaut du cylindre.
 
 
 	![Créer une partition](./media/virtual-machines-linux-how-to-attach-disk/DiskCylinder.png)
@@ -136,9 +162,12 @@ Vous pouvez attacher des disques, qu'ils soient vides ou non. Dans les deux cas,
 ## Ressources supplémentaires
 [Connexion à une machine virtuelle exécutant Linux][Logon]
 
+[Détachement d'un disque d'une machine virtuelle Linux](virtual-machines-linux-how-to-detach-disk.md)
+
+[Utilisation de l'interface de ligne de commande Azure avec la gestion des services Azure](virtual-machines-command-line-tools.md)
 
 <!--Link references-->
 [Agent]: virtual-machines-linux-agent-user-guide.md
 [Logon]: virtual-machines-linux-how-to-log-on.md
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

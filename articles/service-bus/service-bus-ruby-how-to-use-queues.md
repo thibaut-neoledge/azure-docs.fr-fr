@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Utilisation des files d'attente Service Bus (Ruby) - Azure"
+	pageTitle="Utilisation des files d’attente Service Bus (Ruby) | Microsoft Azure"
 	description="Découvrez comment utiliser les files d'attente Service Bus dans Azure. Exemples de code écrits en Ruby."
 	services="service-bus"
 	documentationCenter="ruby"
@@ -152,4 +152,4 @@ Maintenant que vous avez appris les principes de base des files d'attente Servic
 Pour consulter un comparatif entre les files d'attente Azure Service Bus évoquées dans cet article et les files d'attente Azure présentées dans l'article [Utilisation du service de file d'attente Azure](/develop/ruby/how-to-guides/queue-service/), voir [Files d'attente Windows Azure et files d'attente Windows Azure Service Bus - comparaison et différences](http://msdn.microsoft.com/library/windowsazure/hh767287.aspx)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -7,16 +7,14 @@
 	manager="jwhit"
 	editor="tysonn"/>
 
-
 <tags
 	ms.service="site-recovery"
 	ms.devlang="na"
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery"
-	ms.date="05/08/2015"
+	ms.date="08/05/2015"
 	ms.author="raynew"/>
-
 
 # Meilleures pratiques du déploiement de Site Recovery
 
@@ -196,4 +194,4 @@ Après avoir consulté ces meilleures pratiques, vous pouvez amorcer le déploie
 - [Configuration de la protection avec un seul serveur VMM](site-recovery-single-vmm.md)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

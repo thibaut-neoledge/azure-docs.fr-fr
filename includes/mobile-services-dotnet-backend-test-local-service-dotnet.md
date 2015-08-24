@@ -5,13 +5,13 @@ Dans cette section, vous allez tester votre nouvelle application avec le service
 
 1. Accédez à l'emplacement où vous avez enregistré les fichiers projet compressés, développez les fichiers sur votre ordinateur et ouvrez le fichier solution dans Visual Studio.
 
-2. Appuyez sur la touche **F5** pour régénérer le projet et démarrer le service mobile localement.
+2. Dans l'Explorateur de solutions de Visual Studio, cliquez avec le bouton droit le projet de service, puis cliquez sur **Définir comme projet de démarrage**, et appuyez sur la touche **F5** pour générer le projet et démarrer le service mobile localement.
 
 	![](./media/mobile-services-dotnet-backend-test-local-service-dotnet/mobile-service-startup.png)
 
-	Une page web s’affiche une fois le service mobile correctement démarré.
+	Une page Web s'affiche une fois le service mobile correctement démarré.
 
-3. Dans l'Explorateur de solutions de Visual Studio, cliquez avec le bouton droit sur votre projet d'application cliente, puis cliquez sur **Définir comme projet de démarrage** et appuyez sur la touche **F5** pour régénérer le projet et démarrer l'application.
+3. Pour tester l'application de magasin, cliquez avec le bouton droit sur votre projet d'application cliente, puis cliquez sur **Définir comme projet de démarrage** et appuyez sur la touche **F5** pour régénérer le projet et démarrer l'application.
 
 	L'application démarre en se connectant à l'instance locale du service mobile.
 
@@ -19,4 +19,4 @@ Dans cette section, vous allez tester votre nouvelle application avec le service
 
 	Une demande POST est alors envoyée au service mobile local. Les données de la requête sont insérées dans la table TodoItem. Les éléments stockés dans la table sont renvoyés par le service mobile et les données sont affichées dans la deuxième colonne de l'application.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -6,7 +6,6 @@
    authors="rothja"
    manager="jeffreyg"
    editor="monicar" />
-
 <tags 
    ms.service="virtual-machines"
    ms.devlang="na"
@@ -16,12 +15,11 @@
    ms.date="08/05/2015"
    ms.author="jroth" />
 
-
 # Mise à jour corrective automatisée pour SQL Server dans les machines virtuelles Azure
 
 La mise à jour corrective automatisée établit une fenêtre de maintenance pour une machine virtuelle Azure exécutant SQL Server 2012 ou 2014. Les mises à jour automatisées ne peuvent être installées qu’au cours de cette fenêtre de maintenance. Pour SQL Server, les mises à jour système et les redémarrages associés ont ainsi lieu au meilleur moment possible pour la base de données. Cela dépend de l’agent IaaS de SQL Server.
 
->[AZURE.IMPORTANT]La mise à jour corrective automatisée utilise l’agent IaaS de SQL Server. Pour installer et configurer l’agent, vous devez disposer de l’agent Azure VM s’exécutant sur la machine virtuelle cible. Par défaut, cette option est activée dans les nouvelles images de galerie de machines virtuelles Azure, mais l’agent Azure VM peut être manquant sur les machines virtuelles existantes. Si vous utilisez votre propre image de machine virtuelle, vous devez également installer l’agent IaaS de SQL Server. Pour plus d’informations, consultez la page [VM Agent and Extensions](http://azure.microsoft.com/blog/2014/04/15/vm-agent-and-extensions-part-2/) (en anglais).
+>[AZURE.NOTE]La mise à jour corrective automatisée utilise l’agent IaaS de SQL Server. Pour installer et configurer l’agent, vous devez disposer de l’agent Azure VM s’exécutant sur la machine virtuelle cible. Par défaut, cette option est activée dans les nouvelles images de galerie de machines virtuelles Azure, mais l’agent Azure VM peut être manquant sur les machines virtuelles existantes. Si vous utilisez votre propre image de machine virtuelle, vous devez également installer l’agent IaaS de SQL Server. Pour plus d’informations, consultez la page [VM Agent and Extensions](http://azure.microsoft.com/blog/2014/04/15/vm-agent-and-extensions-part-2/) (en anglais).
 
 ## Configurer une mise à jour corrective automatisée dans le portail
 
@@ -90,4 +88,4 @@ La [sauvegarde automatisée pour SQL Server dans les machines virtuelles Azure]
 
 Passez en revue les autres [ressources liées à l’exécution de SQL Server dans les machines virtuelles Azure](virtual-machines-sql-server-infrastructure-services.md).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

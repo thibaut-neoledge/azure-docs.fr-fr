@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Création d'une collection cloud de RemoteApp" 
-	description="Découvrez comment créer un déploiement de RemoteApp qui enregistre les données dans le cloud Azure." 
+	pageTitle="Création d'une collection cloud d’Azure RemoteApp" 
+	description="Découvrez comment créer un déploiement d'Azure RemoteApp qui enregistre les données dans le cloud Azure." 
 	services="remoteapp" 
 	documentationCenter="" 
 	authors="lizap" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/26/2015" 
+	ms.date="08/12/2015" 
 	ms.author="elizapo"/>
 
 # Création d'une collection cloud d’Azure RemoteApp
@@ -34,12 +34,12 @@ Ce didacticiel vous guide dans la procédure de création d'une collection cloud
 
 Avant de créer la collection, vous devez effectuer les étapes suivantes :
 
-- [S'inscrire](http://azure.microsoft.com/services/remoteapp/) à RemoteApp. 
+- [S'inscrire](http://azure.microsoft.com/services/remoteapp/) à Azure RemoteApp. 
 - Collecter des informations sur les utilisateurs auxquels vous souhaitez accorder l'accès. Il peut s'agir d'informations sur le compte Microsoft ou sur le compte professionnel Active Directory pour les utilisateurs.
 - Cette procédure part du principe que vous allez utiliser les images de modèle fournies dans le cadre de votre abonnement ou que vous avez déjà téléchargé l'image de modèle à utiliser. Si vous devez télécharger une autre image de modèle, rendez-vous sur la page Images de modèle. Il vous suffit de cliquer sur **télécharger une image de modèle** et de suivre les étapes de l'Assistant. 
 - Vous voulez fournir des applications personnalisées ou des programmes métier ? Créez une [image](remoteapp-imageoptions.md) et utilisez-la dans votre collection cloud.
 
-## Étape 1 : création d'une collection RemoteApp ##
+## Étape 1 : créer une collection ##
 
 
 
@@ -56,7 +56,7 @@ Avant de créer la collection, vous devez effectuer les étapes suivantes :
 	
 	**Important :** la configuration de votre collection peut prendre jusqu'à 30 minutes.
 
-Une fois votre collection RemoteApp créée, accédez à la page **Démarrage rapide** de RemoteApp pour continuer avec la procédure de configuration.
+Après avoir créé votre collection RemoteApp, double-cliquez sur son nom. Ceci affiche la page **Démarrage rapide** qui vous permet de terminer la configuration de la collection.
 
 
 ## Étape 2 : configuration de la synchronisation d'annuaires Active Directory (facultatif) ##
@@ -93,4 +93,4 @@ Félicitations ! Vous avez créé et déployé correctement votre collection cl
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

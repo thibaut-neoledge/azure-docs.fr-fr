@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Sécurité StorSimple" 
+   pageTitle="Sécurité StorSimple | Microsoft Azure" 
    description="Décrit les fonctionnalités de sécurité et de confidentialité qui protègent votre service, vos appareils et vos données StorSimple." 
    services="storsimple" 
    documentationCenter="NA" 
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD" 
-   ms.date="03/19/2015"
+   ms.date="08/11/2015"
    ms.author="v-sharos"/>
 
 # Sécurité StorSimple 
@@ -50,13 +50,12 @@ L’appareil StorSimple est un appareil de stockage hybride local qui contient d
 
 Seuls les appareils autorisés par StorSimple peuvent rejoindre le service StorSimple Manager que vous avez créé dans votre abonnement Azure.
 
-Pour autoriser un appareil, vous devez l’inscrire auprès du service StorSimple Manager en fournissant la clé d’inscription. La clé d’inscription est une clé aléatoire de 128 bits, générée dans le portail. Pour savoir comment obtenir une clé d’inscription, passez à l’[Étape 2 : Obtention de la clé d’inscription](https://msdn.microsoft.com/library/azure/dn772346.aspx).
+Pour autoriser un appareil, vous devez l’inscrire auprès du service StorSimple Manager en fournissant la clé d’inscription. La clé d’inscription est une clé aléatoire de 128 bits, générée dans le portail. Pour savoir comment obtenir une clé d’inscription, passez à l’[Étape 2 : Obtention de la clé d’inscription](storsimple-deployment-walkthrough.md#step-2-get-the-service-registration-key).
 
 > [AZURE.NOTE]La clé d’inscription est une clé longue, contenant plus de 100 caractères. Nous vous recommandons de copier la clé et de l’enregistrer dans un fichier texte dans un emplacement sécurisé, afin que vous puissiez l’utiliser pour autoriser des appareils supplémentaires si nécessaire.
 > 
 > * Si vous égarez la clé d’inscription après avoir enregistré votre premier appareil, vous pouvez générer une nouvelle clé à partir du service StorSimple Manager. Cela n’a pas d’incidence sur le fonctionnement des appareils existants. 
 > * Une fois qu’un appareil est inscrit, il utilise des jetons pour communiquer avec Microsoft Azure. La clé d’inscription au service n’est pas utilisée après l’inscription de l’appareil.
-
 
 ## Protection de votre solution StorSimple par des mots de passe
 
@@ -93,13 +92,15 @@ CHAP est un schéma d’authentification utilisé par l’appareil StorSimple po
 > * Vous ne pouvez pas utiliser le même mot de passe pour l’initiateur CHAP et la cible CHAP.
 > * Une fois le mot de passe défini, il peut être modifié, mais il ne peut pas être récupéré. En cas de modification du mot de passe, veillez à informer tous les utilisateurs de l’accès à distance afin qu’ils puissent se connecter à l’appareil StorSimple.
 
+Pour plus d'informations et configurer le protocole CHAP, consultez [Configuration de CHAP pour votre appareil StorSimple](storsimple-configure-chap.md).
+
 ### Mot de passe de gestionnaire d’instantanés StorSimple
 
 Le gestionnaire d’instantanés StorSimple est un composant logiciel enfichable MMC (Microsoft Management Console) qui utilise des groupes de volumes et Windows Volume Shadow Copy Service pour générer des sauvegardes cohérentes avec les applications. En outre, vous pouvez utiliser le gestionnaire d’instantanés StorSimple pour créer des planifications de sauvegarde et cloner ou restaurer des volumes.
 
 Lorsque vous configurez une unité pour utiliser le gestionnaire d’instantanés StorSimple, vous devez fournir le mot de passe du gestionnaire d’instantanés StorSimple. Ce mot de passe est d’abord défini dans Windows PowerShell pour StorSimple lors de l’inscription. Le mot de passe peut également être défini et modifié à partir du service StorSimple Manager. Ce mot de passe authentifie l’appareil auprès du gestionnaire d’instantanés StorSimple.
 
-> [AZURE.IMPORTANT]<ul><li>Ce mot de passe doit comporter 14 à 15 caractères et contenir une combinaison d’au moins 3 caractères majuscules, minuscules, numériques et spéciaux.</li><li>Une fois le mot de passe du gestionnaire d’instantanés Storsimple défini, vous pouvez le modifier, mais pas le récupérer. Si vous le modifiez, veillez à informer tous les utilisateurs distants.</li></ul>
+> [AZURE.IMPORTANT]<ul><li>Ce mot de passe doit comporter 14 à 15 caractères et contenir une combinaison d’au moins 3 caractères majuscules, minuscules, numériques et spéciaux.</li><li>Une fois le mot de passe du gestionnaire d’instantanés StorSimple défini, vous pouvez le modifier, mais pas le récupérer. Si vous le modifiez, veillez à informer tous les utilisateurs distants.</li></ul>
 
 
 ### Meilleures pratiques relatives aux mots de passe
@@ -107,7 +108,7 @@ Lorsque vous configurez une unité pour utiliser le gestionnaire d’instantané
 Nous vous recommandons d’utiliser les instructions suivantes afin de garantir que les mots de passe Azure StorSimple sont forts et bien protégés :
 
 - Modifiez votre mot de passe tous les trois mois.
-- Utilisez des mots de passe forts. Pour plus d’informations, consultez Conseils pour créer un mot de passe fort.
+- Utilisez des mots de passe forts. Pour plus d’informations, consultez [Conseils pour créer un mot de passe plus fort et le protéger](http://blogs.microsoft.com/cybertrust/2014/08/25/create-stronger-passwords-and-protect-them/).
 - Utilisez toujours des mots de passe différents pour les différents mécanismes d’accès : chacun des mots de passe que vous spécifiez doit être unique.
 - Ne partagez pas les mots de passe avec les personnes non autorisées à accéder à l’appareil StorSimple.
 - Ne parlez pas d’un mot de passe devant d’autres personnes et ne faites pas allusion à son format.
@@ -134,9 +135,9 @@ L’objectif principal du service StorSimple Manager est de gérer et de configu
 > [AZURE.IMPORTANT]
 > 
 > * La clé de chiffrement des données du service est générée uniquement sur le premier appareil inscrit auprès du service. Tous les autres appareils inscrits auprès du service doivent utiliser la même clé de chiffrement. Il est très important de faire une copie de cette clé et de l’enregistrer dans un emplacement sécurisé. La méthode de stockage de la copie de la clé de chiffrement des données de service doit permettre à toute personne autorisée d’y accéder et de la communiquer facilement à l’administrateur de l’appareil.
-> * Vous pouvez modifier la clé de chiffrement des données du service et le certificat de chiffrement de données correspondant en sélectionnant l’option Modifier la clé de chiffrement des données du service dans le tableau de bord des services. La modification des clés de chiffrement requiert que tous les appareils soient mis à jour avec la nouvelle clé. Par conséquent, nous vous recommandons de modifier la clé lorsque tous les appareils sont en ligne. Si des appareils sont hors connexion, leurs clés peuvent être modifiées plus tard. Les appareils avec des clés obsolètes seront toujours en mesure d’exécuter des sauvegardes, mais ils ne seront pas en mesure de restaurer les données, et ce tant que leur clé n’aura pas été mise à jour. Pour plus d’informations, consultez la page [Tableau de bord des services](https://msdn.microsoft.com/library/azure/dn772326.aspx).
+> * Vous pouvez modifier la clé de chiffrement des données du service et le certificat de chiffrement de données correspondant en sélectionnant l’option **Modifier la clé de chiffrement des données du service** dans le tableau de bord des services. La modification des clés de chiffrement requiert que tous les appareils soient mis à jour avec la nouvelle clé. Par conséquent, nous vous recommandons de modifier la clé lorsque tous les appareils sont en ligne. Si des appareils sont hors connexion, leurs clés peuvent être modifiées plus tard. Les appareils avec des clés obsolètes seront toujours en mesure d’exécuter des sauvegardes, mais ils ne seront pas en mesure de restaurer les données, et ce tant que leur clé n’aura pas été mise à jour. Pour plus d’informations, consultez [Utilisation du tableau de bord des services](storsimple-service-dashboard.md).
 > * Pour vous assurer que la sécurité des données n’est pas compromise, vous devez utiliser un appareil StorSimple physique pour modifier la clé de chiffrement des données du service.
-> * Si la clé de chiffrement est perdue, une personne du support technique Microsoft peut vous aider à la récupérer, sous réserve qu’au moins un appareil soit en ligne. Nous vous recommandons de modifier la clé de chiffrement des données de service après sa récupération. Pour obtenir des instructions, consultez la page [Modification de la clé de chiffrement des données du service](https://msdn.microsoft.com/library/azure/8158cbe9-1f26-4513-a031-49f88bb3d481#sec01).
+> * Si la clé de chiffrement est perdue, une personne du support technique Microsoft peut vous aider à la récupérer, sous réserve qu’au moins un appareil soit en ligne. Nous vous recommandons de modifier la clé de chiffrement des données de service après sa récupération. Pour obtenir des instructions, consultez la page [Modification de la clé de chiffrement des données du service](storsimple-service-dashboard.md#change-the-service-data-encryption-key).
 > * La clé de chiffrement des données du service et le certificat de chiffrement de données n’arrivent pas à expiration. Toutefois, nous vous recommandons de modifier la clé de chiffrement des données du service régulièrement pour des raisons de sécurité.</li></ul>
 
 
@@ -149,6 +150,14 @@ L’appareil StorSimple gère les données en les stockant dans des couches loca
 - Lorsque vous entrez la clé de chiffrement de stockage cloud dans le service StorSimple Manager, la clé est chiffrée à l’aide de la partie publique de la clé de chiffrement des données de service, puis envoyée à l’appareil.
 - La clé de chiffrement de stockage cloud n’est pas stockée dans le service et est connue uniquement de l’appareil.
 - La spécification d’une clé de chiffrement de stockage cloud est facultative. Vous pouvez envoyer des données chiffrées à l’hôte et à l’appareil.
+
+### Meilleures pratiques supplémentaires en matière de sécurité
+
+- Pour implémenter la redondance, utilisez des chemins d'accès multiples (MPIO) afin d'éviter un point unique de défaillance dans le réseau SAN iSCSI. Pour obtenir les instructions détaillées, consultez [Configuration de la solution MPIO pour votre appareil StorSimple](#storsimple-configure-mpio-windows-server.md).
+
+- Fractionner le trafic : isolez votre SAN iSCSI du trafic utilisateur sur un réseau LAN d'entreprise en déployant un réseau totalement séparé et en utilisant des réseaux locaux virtuels où l'isolation physique n'est pas une option. Un réseau dédié pour le stockage iSCSI garantit la sécurité et les performances de vos données critiques. Le fait de mélanger le stockage et le trafic utilisateur sur un réseau LAN d'entreprise n'est pas recommandé et peut augmenter la latence, ainsi que provoquer des défaillances du réseau.
+
+- Pour une sécurité réseau côté hôte, utilisez des interfaces réseau qui prennent en charge le moteur de déchargement TCP/IP (TOE). TOE réduit la charge de l'UC grâce au traitement de TCP sur la carte réseau.
 
 ## Protection des données par les comptes de stockage
 
@@ -183,20 +192,20 @@ Voici quelques questions et réponses relatives à la sécurité et à Microsoft
 
 **R :** Vous devez immédiatement modifier la clé de chiffrement des données du service et les clés du compte de stockage utilisé pour hiérarchiser les données. Pour obtenir des instructions, consultez :
 
-- [Modification de la clé de chiffrement des données du service](https://msdn.microsoft.com/library/azure/8158cbe9-1f26-4513-a031-49f88bb3d481#sec01)
-- [Rotation des clés de comptes de stockage](https://msdn.microsoft.com/library/azure/1747f56e-858a-4cfe-a020-949d7db23b8b#rotate)
+- [Modification de la clé de chiffrement des données du service](storsimple-service-dashboard.md#change-the-service-data-encryption-key)
+- [Rotation des clés de comptes de stockage](storsimple-manage-storage-accounts.md#key-rotation-of-storage-accounts)
 
 **Q :** J’ai un nouvel appareil StorSimple qui demande la clé d’inscription. Comment la récupérer ?
 
 **R :** Cette clé a été créée lorsque vous avez créé le service StorSimple Manager. Si vous utilisez le service StorSimple Manager pour vous connecter à l’appareil, vous pouvez utiliser la page de démarrage rapide du service pour afficher ou régénérer la clé d’inscription. La génération d’une nouvelle clé d’inscription n’affecte pas les appareils déjà inscrits. Pour obtenir des instructions, consultez :
 
-- [Affichage ou régénération de la clé d’inscription au service](https://msdn.microsoft.com/library/azure/8158cbe9-1f26-4513-a031-49f88bb3d481#BKMK_viewsrk)
+- [Affichage ou régénération de la clé d’inscription au service](storsimple-service-dashboard.md#view-or-regenerate-the-service-registration-key)
 
 **Q :** J’ai perdu ma clé de chiffrement des données du service. Que faire ?
 
 **R :** Contactez le support technique Microsoft. Il peut ouvrir une session de support sur votre appareil et vous aider à récupérer la clé. Dès que vous avez obtenu la clé de chiffrement des données du service, vous devez la modifier pour vous assurer que vous seul la connaissez. Pour obtenir des instructions, consultez :
 
-- [Modification de la clé de chiffrement des données du service](https://msdn.microsoft.com/library/azure/8158cbe9-1f26-4513-a031-49f88bb3d481#sec01)
+- [Modification de la clé de chiffrement des données du service](storsimple-service-dashboard.md#change-the-service-data-encryption-key)
 
 **Q :** J’ai autorisé un appareil pour la modification de la clé de chiffrement des données du service, mais n’ai pas démarré le processus de modification de la clé. Que dois-je faire ?
 
@@ -210,18 +219,16 @@ Voici quelques questions et réponses relatives à la sécurité et à Microsoft
 
 **R :** Modifiez et réinitialisez les mots de passe qui permettent l’accès à l’appareil StorSimple, puis changez la clé de chiffrement des données du service pour vous assurer que les nouvelles informations ne seront pas accessibles au personnel non autorisé. Pour obtenir des instructions, consultez :
 
-- [Configuration du gestionnaire d’instantanés StorSimple](https://msdn.microsoft.com/library/azure/02f1412f-e196-4a88-8eda-2113247ea47c#sec08)
-- [Configuration du mot de passe Administrateur de l’appareil](https://msdn.microsoft.com/library/azure/02f1412f-e196-4a88-8eda-2113247ea47c#sec09)
-- [Configuration de l’administration à distance](https://msdn.microsoft.com/library/azure/02f1412f-e196-4a88-8eda-2113247ea47c#sec10)
-- [Configuration de l’initiateur CHAP](https://msdn.microsoft.com/library/azure/02f1412f-e196-4a88-8eda-2113247ea47c#sec06)
-- [Configuration de la cible CHAP](https://msdn.microsoft.com/library/azure/02f1412f-e196-4a88-8eda-2113247ea47c#sec07)
+- [Utilisation du service StorSimple Manager pour modifier vos mots de passe StorSimple](storsimple-change-passwords.md)
+- [Modification de la clé de chiffrement des données du service](storsimple-service-dashboard.md#change-the-service-data-encryption-key)
+- [Configuration de CHAP pour votre appareil StorSimple](storsimple-configure-chap.md)
 
 **Q :** Je souhaite fournir le mot de passe du gestionnaire d’instantanés StorSimple à un hôte qui se connecte à l’appareil StorSimple, mais le mot de passe n’est pas disponible. Que puis-je faire ?
 
 **R :** Si vous avez oublié le mot de passe, vous devez en créer un. Veillez ensuite à informer tous les utilisateurs existants que le mot de passe a été modifié et qu’ils doivent mettre à jour leur client pour utiliser le nouveau mot de passe. Pour obtenir des instructions, consultez :
 
-- [Configuration du gestionnaire d’instantanés](https://msdn.microsoft.com/library/azure/02f1412f-e196-4a88-8eda-2113247ea47c#sec08)
-- [Authentification d’un appareil](https://msdn.microsoft.com/library/azure/dn790537.aspx)
+- [Modification du mot de passe du Gestionnaire d’instantanés StorSimple](storsimple-change-passwords.md#change-the-storsimple-snapshot-manager-password)
+- [Authentification d’un appareil](storsimple-snapshot-manager-manage-devices.md#authenticate-a-device)
 
 **Q :** Le certificat pour l’accès à distance à Windows PowerShell pour StorSimple a été modifié sur l’appareil. Comment mettre à jour mes clients d’accès à distance ?
 
@@ -243,7 +250,7 @@ Voici quelques questions et réponses relatives à la sécurité et à Microsoft
 
 ## Étapes suivantes
 
-[Prise en main de l’appareil physique](https://msdn.microsoft.com/library/azure/dn772410.aspx)
+[Déploiement de votre appareil StorSimple](storsimple-deployment-walkthrough.md)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

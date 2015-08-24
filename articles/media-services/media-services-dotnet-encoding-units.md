@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/29/2015" 
+	ms.date="08/11/2015" 
 	ms.author="juliako"/>
 
 
@@ -21,9 +21,13 @@
 
 #Mise à l’échelle de l’encodage avec le Kit de développement logiciel (SDK) .NET
 
-Cet article fait partie de la série [workflow de vidéo à la demande Media Services](media-services-video-on-demand-workflow.md).
-  
-##Vue d’ensemble
+
+> [AZURE.SELECTOR]
+- [Portal](media-services-portal-encoding-units.md)
+- [.NET](media-services-dotnet-encoding-units.md)
+- [REST](https://msdn.microsoft.com/library/azure/dn859236.aspx)
+
+##Vue d'ensemble
 
 Un compte Media Services est associé à un Type d’unité réservé qui détermine la vitesse à laquelle vos tâches d’encodage sont traitées. Vous avez le choix entre les types d’unités réservées suivantes : De base, Standard ou Premium. Par exemple, une même tâche d’encodage s’exécute plus rapidement quand vous utilisez le type d’unité réservée Standard que le type De base. Pour plus d’informations, consultez le blog « Encodage des types d’unité réservée » rédigé par [Milan Gada](http://azure.microsoft.com/blog/author/milanga/).
 
@@ -70,4 +74,4 @@ Pour ouvrir un ticket de support, procédez comme suit :
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

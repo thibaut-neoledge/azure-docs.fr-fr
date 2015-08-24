@@ -163,29 +163,12 @@ Azure offre un modèle d'autorisation par rôle global pour tous les services g�
 
 Dans Azure Search, les contrôles d'accès en fonction du rôle déterminent les tâches d'administration suivantes :
 
-<table>
-<tr>
-<td>Propriétaire</td>
-<td>
-Démarrage, arrêt ou suppression du service.</br>
-Génération et affichage des clés Admin et Requête.</br>
-Affichage de l'état du service, y compris le nombre d'index, les noms d'index, le nombre de documents et la taille de stockage.</br>
-Ajout ou suppression d'appartenance à un rôle (seul un Propriétaire peut gérer l'appartenance à un rôle).</br>
-</br>
-Les administrateurs d'abonnement et de service appartiennent automatiquement au rôle Propriétaire.
-</td>
-</tr>
-<tr>
-<td>Collaborateur</td>	
-<td>Même niveau d'accès que le Propriétaire, à l'exception de la gestion des rôles. Par exemple, un Collaborateur peut afficher et régénérer «&#160;api-key&#160;», mais il ne peut pas modifier les appartenances aux rôles.
-</td>
-</tr>
-<tr>
-<td>Lecteur</td>
-<td>Affichage de l'état du service et des clés Requête. Les membres de ce rôle ne peuvent ni démarrer ou arrêter un service, ni afficher des clés Admin.
-</td>
-</tr>
-</table>
+
+Rôle|Task
+---|---
+Propriétaire|Démarrage, arrêt ou suppression du service.<p>Génération et affichage des clés d’administration et de requête.<p>Affichage de l’état du service, y compris le nombre d’index, les noms d’index, le nombre de documents et la taille de stockage.<p>Ajout ou suppression d’appartenance à un rôle (seul un Propriétaire peut gérer l’appartenance à un rôle).<p>Les administrateurs d’abonnement et de service appartiennent automatiquement au rôle Propriétaire.
+Collaborateur|Même niveau d'accès que le Propriétaire, à l'exception de la gestion des rôles. Par exemple, un Collaborateur peut visualiser et régénérer `api-key`, mais il ne peut pas modifier les appartenances aux rôles.
+Lecteur|Affichage de l'état du service et des clés Requête. Les membres de ce rôle ne peuvent ni démarrer ou arrêter un service, ni afficher des clés Admin.
 
 Notez que les rôles n'accordent pas de droits d'accès au point de terminaison de service. Les opérations du service Search telles que la gestion ou le remplissage d'index, tout comme les requêtes de données de recherche, sont contrôlées via des clés api, et non par des rôles. Pour en savoir plus, consultez la section « Autorisation pour les opérations de gestion et les opérations de données » de la page [Contrôle d'accès en fonction du rôle dans le portail Azure](../role-based-access-control-configure.md).
 
@@ -210,4 +193,4 @@ Les rôles offrent un contrôle d'accès après la création du service. Seuls l
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Présentation de DocumentDB - Une base de données NoSQL pour Microsoft Azure | Azure" 
+	pageTitle="Présentation de DocumentDB - Une base de données NoSQL pour Microsoft Azure | Microsoft Azure" 
 	description="Téléchargez un livre blanc rédigé par David Chappell sur DocumentDB, une base de données NoSQL gérée sur Azure." 
 	services="documentdb" 
 	documentationCenter="" 
@@ -31,4 +31,4 @@ Ce livre blanc vous familiarise également avec les concepts suivants :
 **Téléchargement PDF :** [Présentation de DocumentDB - Une base de données NoSQL pour Microsoft Azure](http://go.microsoft.com/fwlink/?LinkId=511318)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

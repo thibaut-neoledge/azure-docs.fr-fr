@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Utilisation de la base de données SQL Azure (Java) - Guide des fonctionnalités Azure" 
+	pageTitle="Utilisation de SQL Azure (Java) | Microsoft Azure" 
 	description="Découvrez comment utiliser la base de données SQL Azure à partir du code Java." 
 	services="sql-database" 
 	documentationCenter="java" 
@@ -78,7 +78,7 @@ Avant d’utiliser la base de données SQL Azure dans du code Java, vous devez c
 6. Cliquez avec le bouton droit sur le contenu mis en surbrillance de la chaîne de connexion **JDBC**, puis cliquez sur **Copier**.
 7. Vous pouvez maintenant coller cette valeur dans votre fichier de code pour créer une chaîne de connexion au format suivant. Remplacez *your\_server* (à deux endroits) par le texte que vous avez copié à l’étape précédente, puis remplacez *your\_password* par la valeur de mot de passe que vous avez spécifiée lorsque vous avez créé votre compte de base de données SQL (remplacez également les valeurs attribuées à **database=** et **user=** si vous n’avez pas utilisé **gettingstarted** et **MySQLAdmin**, respectivement). 
 
-    String connectionString = "jdbc:sqlserver://*your_server*.database.windows.net:1433" + ";" + "database=gettingstarted" + ";" + "user=MySQLAdmin@*your\_server*" + ";" + "password=*your\_password*" + ";" + "encrypt=true" + ";" + "hostNameInCertificate=*.int.mscds.com" + ";" + "loginTimeout=30";
+    String connectionString = "jdbc:sqlserver://*your_server*.database.windows.net:1433" + ";" + "database=gettingstarted" + ";" + "user=MySQLAdmin@\*your\_server\*" + ";" + "password=\*your\_password\*" + ";" + "encrypt=true" + ";" + "hostNameInCertificate=\*.int.mscds.com" + ";" + "loginTimeout=30";
 
 De fait, nous utiliserons cette chaîne plus loin dans ce guide. Pour l’heure, vous savez comment déterminer la chaîne de connexion. De même, selon les besoins de votre application, vous serez peut-être amené à utiliser les paramètres **encrypt** et **hostNameInCertificate** et à modifier le paramètre **loginTimeout**.
 
@@ -726,4 +726,4 @@ Pour plus d’informations sur Microsoft JDBC Driver pour SQL Server, consultez 
 [allowed_ips_dialog]: ./media/sql-data-java-how-to-use-sql-database/WA_Allowed_IPs.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

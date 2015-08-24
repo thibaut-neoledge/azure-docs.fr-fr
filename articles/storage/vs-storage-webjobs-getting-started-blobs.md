@@ -1,28 +1,26 @@
 <properties 
-	pageTitle="Prise en main d'Azure Storage" 
-	description="Prise en main du stockage d’objets blob Azure au sein d’un projet de tâche web Azure dans Visual Studio" 
-	services="storage" 
-	documentationCenter="" 
-	authors="patshea123" 
-	manager="douge" 
+	pageTitle="Prise en main du stockage Azure et des services connectés Visual Studio (projets WebJob)" 
+	description="Comment commencer à utiliser le stockage Blob dans un compte de stockage Azure qui a été créé à l'aide de la boîte de dialogue Ajouter des services connectés de Visual Studio dans un projet WebJob."
+	services="storage"
+	documentationCenter=""
+	authors="patshea123"
+	manager="douge"
 	editor="tglee"/>
 
-
 <tags 
-	ms.service="storage" 
-	ms.workload="web" 
+	ms.service="storage"
+	ms.workload="web"
 	ms.tgt_pltfrm="vs-getting-started" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/13/2015" 
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/13/2015"
 	ms.author="patshea123"/>
-
 
 # Prise en main d’Azure Storage (projets de tâche web Azure)
 
 > [AZURE.SELECTOR]
-> - [Getting Started](vs-storage-webjobs-getting-started-blobs.md)
-> - [What Happened](vs-storage-webjobs-what-happened.md)
+> - [Getting started](vs-storage-webjobs-getting-started-blobs.md)
+> - [What happened](vs-storage-webjobs-what-happened.md)
 
 > [AZURE.SELECTOR]
 > - [Blobs](vs-storage-webjobs-getting-started-blobs.md)
@@ -31,9 +29,9 @@
 
 ## Vue d'ensemble
 
-Quand vous ajoutez un compte de stockage à un projet de tâche web à l’aide de la boîte de dialogue **Ajouter des services connectés** de Visual Studio, le package NuGet d’Azure Storage approprié est installé, les références .NET appropriées sont ajoutées au projet et les chaînes de connexion pour le compte de stockage sont mises à jour dans le fichier App.config.
+Cet article fournit des exemples de code C# qui montrent comment déclencher un processus quand un objet blob Azure est créé ou mis à jour. Les exemples de code utilisent le [Kit de développement logiciel (SDK) WebJobs](websites-dotnet-webjobs-sdk.md) version 1.x. Quand vous ajoutez un compte de stockage à un projet de tâche web à l’aide de la boîte de dialogue **Ajouter des services connectés** de Visual Studio, le package NuGet d’Azure Storage approprié est installé, les références .NET appropriées sont ajoutées au projet et les chaînes de connexion pour le compte de stockage sont mises à jour dans le fichier App.config.
 
-Cet article fournit des exemples de code C# qui montrent comment déclencher un processus quand un objet blob Azure est créé ou mis à jour. Les exemples de code utilisent le [Kit de développement logiciel (SDK) WebJobs](websites-dotnet-webjobs-sdk.md) version 1.x.
+
 
 ## Comment utiliser le stockage d’objets blob Azure avec le Kit de développement logiciel (SDK) WebJobs
 
@@ -88,7 +86,7 @@ L’exemple de code suivant remplace l’extension de fichier pendant la copie d
 		    output = input.ReadToEnd();
 		}
 
-## <a id="types"></a> Types que vous pouvez lier aux objets blob
+## Types que vous pouvez lier aux objets blob
 
 Vous pouvez utiliser l’attribut `BlobTrigger` sur les types de paramètre suivants :
 
@@ -102,7 +100,7 @@ Vous pouvez utiliser l’attribut `BlobTrigger` sur les types de paramètre suiv
 
 Si vous souhaitez utiliser directement le compte Microsoft Azure Storage, vous pouvez ajouter un paramètre `CloudStorageAccount` à la signature de méthode.
 
-## <a id="string"></a> Obtention du contenu de l’objet blob de texte via la liaison à une chaîne
+## Obtention du contenu de l’objet blob de texte via la liaison à une chaîne
 
 Si vous attendez des objets de texte blob, vous pouvez appliquer l’élément `BlobTrigger` à un paramètre `string`. L’exemple de code suivant lie un objet blob de texte à un paramètre `string` nommé `logMessage`. La fonction utilise ce paramètre pour écrire le contenu de l’objet blob dans le tableau de bord du Kit de développement logiciel (SDK) WebJobs.
  
@@ -115,7 +113,7 @@ Si vous attendez des objets de texte blob, vous pouvez appliquer l’élément `
 		     logger.WriteLine(logMessage);
 		}
 
-## <a id="icbsb"></a> Obtention de contenu d’objet blob sérialisé via ICloudBlobStreamBinder
+## Obtention de contenu d’objet blob sérialisé via ICloudBlobStreamBinder
 
 L’exemple de code suivant utilise une classe qui implémente l’élément `ICloudBlobStreamBinder` pour activer l’attribut `BlobTrigger`, afin de lier un objet blob au type `WebImage`.
 
@@ -153,7 +151,7 @@ Le code de liaison du type `WebImage` est fourni dans une classe `WebImageBinder
 		    }
 		}
 
-## <a id="poison"></a> Gestion des objets blob incohérents
+## Gestion des objets blob incohérents
 
 Lorsqu’une fonction `BlobTrigger` échoue, le Kit de développement logiciel (SDK) l’appelle à nouveau, au cas où l’échec aurait été provoqué par une erreur temporaire. Si le problème est occasionné par le contenu de l’objet blob, la fonction échoue chaque fois qu’elle tente de traiter cet objet. Par défaut, le Kit de développement logiciel (SDK) appelle une fonction jusqu’à 5 fois pour un objet blob donné. En cas d’échec après la cinquième tentative, le Kit de développement logiciel (SDK) ajoute un message à la file d’attente nommée *webjobs-blobtrigger-poison*.
 
@@ -198,7 +196,7 @@ Le Kit de développement logiciel (SDK) désérialise automatiquement le messag
 		    public string ETag { get; set; }
 		}
 
-### <a id="polling"></a> Algorithme d’interrogation des objets blob
+### Algorithme d’interrogation des objets blob
 
 Le Kit de développement logiciel (SDK) WebJobs analyse tous les conteneurs spécifiés par les attributs `BlobTrigger` au démarrage de l’application. Dans un compte de stockage volumineux, cette analyse peut prendre du temps. Il se peut que les nouveaux objets blob ne soient pas tout de suite détectés et que les fonctions `BlobTrigger` ne soient pas exécutées avant un certain temps.
 
@@ -206,7 +204,7 @@ Pour détecter des objets blob nouveaux ou modifiés après le démarrage de l�
 
 Il existe une exception pour les objets blob que vous créez à l’aide de l’attribut `Blob`. Lorsque le Kit de développement logiciel (SDK) WebJobs crée un objet blob, il le transmet immédiatement à toutes les fonctions `BlobTrigger` correspondantes. Par conséquent, si vous avez une chaîne d’entrées et de sorties d’objets blob, le Kit de développement logiciel (SDK) peut les traiter efficacement. Mais si vous voulez bénéficier d’une faible latence lors de l’exécution des fonctions de traitement des objets blob créés ou mis à jour par d’autres moyens, nous vous recommandons d’utiliser l’élément `QueueTrigger` plutôt que l’élément `BlobTrigger`.
 
-### <a id="receipts"></a> Reçus d’objets blob
+### Reçus d’objets blob
 
 Le Kit de développement logiciel (SDK) Webjobs s’assure qu’aucune fonction `BlobTrigger` n’est appelée plusieurs fois pour un seul et même objet blob, nouveau ou mis à jour. Pour ce faire, il tient à jour les *reçus d’objets blob* afin de déterminer si la version d’un objet blob donné a été traitée.
 
@@ -220,7 +218,7 @@ Les reçus d’objets blob sont stockés dans un conteneur appelé *azure-webjob
 
 Si vous souhaitez forcer le retraitement d’un objet blob, vous pouvez supprimer manuellement le reçu de l’objet blob à partir du conteneur *azure-webjobs-hosts*.
 
-## <a id="queues"></a>Sujets connexes traités dans l’article relatif aux files d’attente
+## Sujets connexes traités dans l’article relatif aux files d’attente
 
 Pour en savoir plus sur la gestion du traitement d’objets blob déclenché par un message en file d’attente, ou pour consulter des scénarios relatifs au Kit de développement logiciel (SDK) WebJobs non spécifiques du traitement d’objets blob, consultez la rubrique [Utilisation du stockage de la file d’attente Azure avec le Kit de développement logiciel (SDK) WebJobs](websites-dotnet-webjobs-sdk-storage-queues-how-to.md).
 
@@ -236,9 +234,9 @@ Les sujets associés abordés dans cet article sont les suivants :
 * Déclenchement manuel d’une fonction
 * Écriture de journaux
 
-## <a id="nextsteps"></a>Étapes suivantes
+## Étapes suivantes
 
-Ce guide fournit des exemples de code qui indiquent comment gérer des scénarios courants pour l’utilisation des objets blob Microsoft Azure. Pour plus d’informations sur l’utilisation d’Azure Webjobs et du Kit de développement logiciel (SDK) WebJobs Azure, consultez la rubrique [Azure Webjobs - Ressources recommandées](http://go.microsoft.com/fwlink/?linkid=390226).
+Cet article a fourni des exemples de code qui montrent comment gérer des scénarios courants pour l’utilisation des objets blob Azure. Pour plus d’informations sur l’utilisation d’Azure Webjobs et du Kit de développement logiciel (SDK) WebJobs Azure, consultez la rubrique [Azure Webjobs - Ressources recommandées](http://go.microsoft.com/fwlink/?linkid=390226).
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

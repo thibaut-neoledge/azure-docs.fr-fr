@@ -7,7 +7,6 @@
 	manager="paulettm" 
 	editor="cgronlun"/>
 
-
 <tags 
 	ms.service="hdinsight" 
 	ms.workload="big-data" 
@@ -16,7 +15,6 @@
 	ms.topic="article" 
 	ms.date="07/08/2015" 
 	ms.author="jgao"/>
-
 
 
 
@@ -53,13 +51,13 @@ La solution de comptage de mots contient deux projets d’application console :
 2. Cliquez sur **FICHIER**, **Nouveau**, puis sur **Projet**.
 3. Tapez ou sélectionnez les valeurs suivantes :
 
-	<table border="1">
-<tr><td>Champ</td><td>Valeur</td></tr>
-<tr><td>Modèle</td><td>Visual C#/Windows/Application console</td></tr>
-<tr><td>Nom</td><td>WordCountMapper</td></tr>
-<tr><td>Emplacement</td><td>C:\Tutorials</td></tr>
-<tr><td>Nom de la solution</td><td>WordCount</td></tr>
-</table>
+Champ|Valeur
+---|---
+Modèle|Visual C#/Windows/Application console
+Nom|WordCountMapper
+Emplacement|C:\\Tutorials
+Nom de la solution|WordCount
+
 	
 4. Cliquez sur **OK** pour créer le projet.
 
@@ -102,12 +100,12 @@ La solution de comptage de mots contient deux projets d’application console :
 1. Dans Visual Studio 2013, cliquez sur **FICHIER**, sur **Ajouter**, puis sur **Nouveau projet**.
 2. Tapez ou sélectionnez les valeurs suivantes :
 
-	<table border="1">
-<tr><td>Champ</td><td>Valeur</td></tr>
-<tr><td>Modèle</td><td>Visual C#/Windows/Application console</td></tr>
-<tr><td>Nom</td><td>WordCountReducer</td></tr>
-<tr><td>Emplacement</td><td>C:\Tutorials\WordCount</td></tr>
-</table>
+Champ|Valeur
+---|---
+Modèle|Visual C#/Windows/Application console
+Nom|WordCountReducer
+Emplacement|C:\\Tutorials\\WordCount
+	
 3. Désactivez la case à cocher pour **Créer un répertoire pour la solution**, puis cliquez sur **OK** pour créer le projet.
 4. Dans l'Explorateur de solutions, cliquez avec le bouton droit sur **Program.cs**, puis cliquez sur **Renommer**.
 5. Renommez le fichier **WordCountReducer.cs**, puis appuyez sur **ENTRÉE**.
@@ -169,7 +167,14 @@ Par défaut, l’émulateur HDInsight utilise un HDFS (Hadoop Distributed File S
 
 Ce didacticiel utilise la structure de dossiers suivante :
 
-<table border="1"> <tr><td>Dossier</td><td>Remarque</td></tr> <tr><td>\\WordCount</td><td>Dossier racine du projet de comptage des mots. </td></tr> <tr><td>\\WordCount\\Apps</td><td>Dossier des exécutables du mappeur et du raccord de réduction.</td></tr> <tr><td>\\WordCount\\Input</td><td>Dossier du fichier source MapReduce.</td></tr> <tr><td>\\WordCount\\Output</td><td>Dossier du fichier de sortie MapReduce.</td></tr> <tr><td>\\WordCount\\MRStatusOutput</td><td>Dossier de sortie du travail.</td></tr> </table></br>
+Dossier|Remarque
+---|---
+\\WordCount|Dossier racine du projet de comptage de mots. 
+\\WordCount\\Apps|Dossier contenant les exécutables de mappeur et du raccord de réduction.
+\\WordCount\\Input|Dossier des fichiers source MapReduce.
+\\WordCount\\Output|Dossier des fichiers de résultat MapReduce.
+\\WordCount\\MRStatusOutput|Dossier de résultat de la tâche.
+
 
 Ce didacticiel utilise les fichiers .txt situés dans le répertoire %hadoop\_home%.
 
@@ -188,7 +193,7 @@ Ce didacticiel utilise les fichiers .txt situés dans le répertoire %hadoop\_ho
 
 2. Exécutez la commande suivante pour copier certains fichiers texte vers le dossier d'entrée sur le HDFS :
 
-		hadoop fs -copyFromLocal %hadoop_home%\share\doc\hadoop\common*.txt \WordCount\Input
+		hadoop fs -copyFromLocal %hadoop_home%\share\doc\hadoop\common\*.txt \WordCount\Input
 
 3. Utilisez la commande suivante pour répertorier les fichiers téléchargés :
 
@@ -265,7 +270,7 @@ Ce didacticiel utilise les fichiers .txt situés dans le répertoire %hadoop\_ho
 
 **Pour vérifier l’état du travail**
 
-1. Sur le Bureau, cliquez sur **Hadoop YARN Status** ou accédez à ****http://localhost:50030/jobtracker.jsp**.
+1. Sur le Bureau, cliquez sur **Hadoop YARN Status** ou accédez à \*\***http://localhost:50030/jobtracker.jsp**.
 2. Recherchez le travail en utilisant son ID sous la catégorie **EN COURS D’EXÉCUTION** ou **TERMINÉ**. 
 3. Si une tâche a échoué, vous la trouverez sous la catégorie **FAILED**. Vous pouvez également accéder à ses informations détaillées pour y chercher des informations utiles à son débogage.
 
@@ -554,4 +559,4 @@ Dans ce didacticiel, vous avez appris à développer un travail MapReduce en Had
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

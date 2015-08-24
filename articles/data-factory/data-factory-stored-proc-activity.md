@@ -7,7 +7,6 @@
 	manager="jhubbard" 
 	editor="monicar"/>
 
-
 <tags 
 	ms.service="data-factory" 
 	ms.workload="data-services" 
@@ -16,7 +15,6 @@
 	ms.topic="article" 
 	ms.date="08/04/2015" 
 	ms.author="spelluru"/>
-
 
 # Activité de procédure stockée SQL Server
 
@@ -31,8 +29,8 @@ Vous pouvez utiliser l’activité de procédure stockée SQL Server dans un [p
     	"outputs":  [ { "name": "outputtable" } ],
     	"typeProperties":
     	{
-        	"storedProcedureName": “”,
-        	"storedProcedureParameters": “” 
+        	"storedProcedureName": "<name of the stored procedure>",
+        	"storedProcedureParameters":  
         	{
 				"param1": "param1Value"
 				…
@@ -74,9 +72,11 @@ Datetime | Date et heure auxquelles l’ID correspondant a été généré.
 	    VALUES (newid(), @DateTime)
 	END
 
+> [AZURE.NOTE]Le **nom** et la **casse** du paramètre (DateTime dans cet exemple) doivent correspondre à ceux du paramètre spécifié dans le script JSON de l’activité ci-dessous. Dans la définition de procédure stockée, vérifiez que **@** est utilisé en tant que préfixe pour le paramètre.
+
 Pour exécuter cette procédure stockée dans un pipeline Data Factory, vous devez effectuer les opérations suivantes :
 
-1.	Créez un [service lié](data-factory-azure-sql-connector.md/#azure-sql-linked-service-properties) pour enregistrer la chaîne de connexion de la base de données SQL Azure dans laquelle la procédure stockée doit être exécutée.
+1.	Créez un [service lié](data-factory-azure-sql-connector.md/#azure-sql-linked-service-properties) pour inscrire la chaîne de connexion de la base de données SQL Azure dans laquelle la procédure stockée doit être exécutée.
 2.	Créez un [jeu de données](data-factory-azure-sql-connector.md/#azure-sql-dataset-type-properties) pointant vers la table de sortie dans la base de données SQL Azure. Appelons ce jeu de données sprocsampleout. Ce jeu de données doit référencer le service lié de l’étape n°1. 
 3.	Créez la procédure stockée dans la base de données SQL Azure.
 4.	Créez le [pipeline](data-factory-azure-sql-connector.md/#azure-sql-copy-activity-type-properties) ci-dessous avec l’activité SqlServerStoredProcedure pour appeler la procédure stockée dans la base de données SQL Azure.
@@ -88,19 +88,19 @@ Pour exécuter cette procédure stockée dans un pipeline Data Factory, vous de
 		        "activities":
 		        [
 		            {
-		             "name": "SprocActivitySample",
-		             "type": " SqlServerStoredProcedure ",
-		             "outputs": [ {"name": "sprocsampleout"} ],
-		             "typeproperties":
-		              {
-		                "storedProcedureName": "sp_sample",
-		        		"storedProcedureParameters": 
-		        		{
-		            	"DateTime": "$$Text.Format('{0:yyyy-MM-dd HH:mm:ss}', SliceStart)"
-		        		}
-				}
-		            }
-		          ]
+		            	"name": "SprocActivitySample",
+		             	"type": " SqlServerStoredProcedure",
+		             	"outputs": [ {"name": "sprocsampleout"} ],
+		             	"typeProperties":
+		              	{
+		                	"storedProcedureName": "sp_sample",
+			        		"storedProcedureParameters": 
+		        			{
+		            			"DateTime": "$$Text.Format('{0:yyyy-MM-dd HH:mm:ss}', SliceStart)"
+		        			}
+						}
+	            	}
+		        ]
 		     }
 		}
 5.	Déployez le [pipeline](data-factory-create-pipelines.md).
@@ -123,9 +123,9 @@ Pour exécuter cette procédure stockée dans un pipeline Data Factory, vous de
 	    VALUES (newid(), @DateTime, @Scenario)
 	END
 
-Pour ce faire, transmettez le paramètre Scénario et la valeur de l’activité de procédure stockée. La section typeproperties de l’exemple ci-dessus ressemble à ceci :
+Pour ce faire, transmettez le paramètre Scénario et la valeur de l’activité de procédure stockée. La section typeProperties de l’exemple ci-dessus ressemble à ceci :
 
-	"typeproperties":
+	"typeProperties":
 	{
 		"storedProcedureName": "sp_sample",
 	    "storedProcedureParameters": 
@@ -135,4 +135,4 @@ Pour ce faire, transmettez le paramètre Scénario et la valeur de l’activité
 		}
 	}
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

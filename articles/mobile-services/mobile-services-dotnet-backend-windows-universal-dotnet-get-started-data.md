@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Ajouter Mobile Services à une application Windows Store universelle existante | Azure Mobile Services" 
+	pageTitle="Ajouter Mobile Services à une application Windows Store universelle existante | Microsoft Azure" 
 	description="Learn how to get started using Mobile Services to leverage data in your Windows Store app." 
 	services="mobile-services" 
 	documentationCenter="windows" 
@@ -121,4 +121,4 @@ Ce didacticiel a présenté les bases de l'activation d'un projet d'application 
 [MobileServiceClient class]: http://go.microsoft.com/fwlink/p/?LinkId=302030
   
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

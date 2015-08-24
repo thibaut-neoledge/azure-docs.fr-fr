@@ -7,26 +7,24 @@
 	manager="dwrede"
 	editor=""/>
 
-
 <tags
 	ms.service="api-management"
 	ms.workload="mobile"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/03/2015"
+	ms.date="08/06/2015"
 	ms.author="sdanie"/>
-
 
 # Protection d’un serveur principal d’API web avec Azure Active Directory et Gestion des API
 
 La vidéo suivante montre comment générer un serveur principal d’API web et le protéger à l’aide du protocole OAuth 2.0 avec Azure Active Directory et Gestion des API. Cet article fournit une vue d’ensemble et des informations supplémentaires pour les étapes mentionnées dans la vidéo. Cette vidéo 24 minutes vous montre comment faire pour :
 
--	générer un serveur principal d’API web et le protéger avec AAD ;
--	importer l’API dans Gestion des API ;
--	configurer le portail des développeurs pour appeler l’API ;
--	configurer une application de bureau pour appeler l’API ; et
--	configurer une stratégie de validation JWT pour autoriser des demandes.
+-	générer un serveur principal d’API Web et le protéger avec AAD (début à 1:30) ;
+-	importer l’API dans Gestion des API (début à 7:10) ;
+-	configurer le portail des développeurs pour l’appel de l’API (début à 9:09) ;
+-	configurer une application de bureau pour l’appel de l’API (début à 18:08) ;
+-	configurer une stratégie de validation JWT pour l’autorisation préalable des demandes (début à 20:47).
 
 >[AZURE.VIDEO protecting-web-api-backend-with-azure-active-directory-and-api-management]
 
@@ -373,9 +371,9 @@ Choisissez **Application web et/ou API web**, saisissez un nom, puis cliquez sur
 
 ![Nouvelle application][api-management-aad-new-application-devportal-1]
 
-Pour **URL d’authentification**, saisissez l’URL de votre service Gestion des API et ajoutez `/signin`. Dans cet exemple, on utilise ****https://contoso5.portal.azure-api.net/signin**.
+Pour **URL d’authentification**, saisissez l’URL de votre service Gestion des API et ajoutez `/signin`. Dans cet exemple, on utilise \*\***https://contoso5.portal.azure-api.net/signin\*\*.
 
-Pour **URL d’ID d’application**, saisissez l’URL de votre service Gestion des API et ajoutez quelques caractères uniques. Il peut s’agir des caractères de votre choix ; dans cet exemple, on utilise ****https://contoso5.portal.azure-api.net/dp**. Lorsque les **Propriétés de l’application** sont configurées, cliquez sur la coche pour créer l’application.
+Pour **URL d’ID d’application**, saisissez l’URL de votre service Gestion des API et ajoutez quelques caractères uniques. Il peut s’agir des caractères de votre choix ; dans cet exemple, on utilise \*\***https://contoso5.portal.azure-api.net/dp**. Lorsque les **Propriétés de l’application** sont configurées, cliquez sur la coche pour créer l’application.
 
 ![Nouvelle application][api-management-aad-new-application-devportal-2]
 
@@ -487,7 +485,6 @@ La procédure finale de la vidéo commence à 20’48’’ et vous montre comme
 
     <validate-jwt header-name="Authorization" failed-validation-httpcode="401" failed-validation-error-message="Unauthorized. Access token is missing or invalid.">
         <openid-config url="https://login.windows.net/DemoAPIM.onmicrosoft.com/.well-known/openid-configuration" />
-
         <required-claims>
             <claim name="aud">
                 <value>https://DemoAPIM.NOTonmicrosoft.com/APIMAADDemo</value>
@@ -550,4 +547,4 @@ Pour une autre démonstration de la configuration et l’utilisation de cette st
 [Création d’une instance de service Gestion des API]: api-management-get-started.md#create-service-instance
 [Gérer votre première API]: api-management-get-started.md
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Utiliser des outils décisionnels avec Apache Spark sur HDInsight | Azure" 
+	pageTitle="Utiliser des outils de BI avec Apache Spark sur HDInsight | Microsoft Azure" 
 	description="Des instructions pas à pas expliquent comment utiliser des blocs-notes avec Apache Spark pour créer des schémas basés sur les données brutes, comment les enregistrer dans des tables Hive, et comment utiliser des outils décisionnels dans la table Hive pour analyser les données." 
 	services="hdinsight" 
 	documentationCenter="" 
@@ -127,7 +127,7 @@ Une fois que vous avez enregistré les données dans une table Hive, vous pouvez
 
 	  ![Répertorier les tables Hive](./media/hdinsight-apache-spark-use-bi-tools/HDI.Spark.PowerBI.Display.Tables.png "Répertorier les tables Hive")
 
-7. Générez une visualisation pour afficher l’écart entre la température cible et la température réelle de chaque bâtiment. Pour ce faire, effectuez un glisser-déplacer du champ **BuildingID** situé sous **Axe** et des champs **ActualTemp**/**TargetTemp** situés sous **Valeur**.
+7. Générez une visualisation pour afficher l’écart entre la température cible et la température réelle de chaque bâtiment. Pour ce faire, effectuez un glisser-déplacer du champ **BuildingID** situé sous **Axe** et des champs **ActualTemp**/\*\*TargetTemp\*\* situés sous **Valeur**.
 
 	![Créer des visualisations](./media/hdinsight-apache-spark-use-bi-tools/HDI.Spark.PowerBI.Visual.1.png "Créer des visualisations")
 
@@ -167,7 +167,7 @@ Une fois que vous avez enregistré les données dans une table Hive, vous pouvez
 
 	![Ajouter des tables à Tableau](./media/hdinsight-apache-spark-use-bi-tools/HDI.Spark.Tableau.Drag.Table.png "Ajouter des tables à Tableau")
 
-6. Cliquez sur l’onglet **Sheet1** en bas à gauche. Réalisez une visualisation qui affiche la moyenne des températures cibles et réelles de tous les bâtiments à chaque date. Faites glisser **Date** et **Building ID** vers **Columns**, et **Actual Temp**/**Target Temp** vers **Rows**. Sous **Marks**, sélectionnez **Area** pour utiliser une visualisation par carte des zones.
+6. Cliquez sur l’onglet **Sheet1** en bas à gauche. Réalisez une visualisation qui affiche la moyenne des températures cibles et réelles de tous les bâtiments à chaque date. Faites glisser **Date** et **Building ID** vers **Columns**, et **Actual Temp**/\*\*Target Temp\*\* vers **Rows**. Sous **Marks**, sélectionnez **Area** pour utiliser une visualisation par carte des zones.
 
 	 ![Ajouter des champs pour la visualisation](./media/hdinsight-apache-spark-use-bi-tools/HDI.Spark.Tableau.Drag.Fields.png "Ajouter des champs pour la visualisation")
 
@@ -205,4 +205,4 @@ Une fois que vous avez enregistré les données dans une table Hive, vous pouvez
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

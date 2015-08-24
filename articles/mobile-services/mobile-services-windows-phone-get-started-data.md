@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Ajouter Mobile Services à une application existante (WP8) - Azure Mobile Services" 
+	pageTitle="Ajout de Mobile Services à une application existante (WP8) | Microsoft Azure" 
 	description="Learn how to get started using data from your Azure Mobile Services Windows Phone 8 app." 
 	services="mobile-services" 
 	documentationCenter="windows" 
@@ -193,4 +193,4 @@ Ce didacticiel a présenté les bases de l'activation d'une application Windows 
 [site d'exemples de code développeur]: http://go.microsoft.com/fwlink/p/?LinkId=271146
  
 
-<!------HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

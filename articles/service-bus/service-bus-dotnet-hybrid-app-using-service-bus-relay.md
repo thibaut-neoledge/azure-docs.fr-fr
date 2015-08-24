@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Applications hybrides locales/dans le cloud (.NET) - Azure"
+	pageTitle="Application hybride locale/dans le cloud (.NET) | Microsoft Azure"
 	description="Découvrez comment créer une application hybride locale/de cloud .NET à l'aide de Azure Service Bus Relay."
 	services="service-bus"
 	documentationCenter=".net"
@@ -620,4 +620,4 @@ Pour en savoir plus sur Service Bus, consultez les ressources suivantes :
   [executionmodels]: http://azure.microsoft.com/develop/net/fundamentals/compute/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

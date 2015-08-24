@@ -1,12 +1,11 @@
 <properties 
-	pageTitle="Créer un service qui utilise le stockage de tables au lieu d’une base de données SQL | Azure Mobile Services" 
+	pageTitle="Créer un service qui utilise le stockage de tables au lieu d’une base de données SQL | Microsoft Azure" 
 	description="Découvrez comment utiliser le stockage de tables Azure avec votre service mobile principal .NET." 
 	services="mobile-services" 
 	documentationCenter="" 
 	authors="ggailey777" 
 	manager="dwrede" 
 	editor=""/>
-
 
 <tags 
 	ms.service="mobile-services" 
@@ -16,7 +15,6 @@
 	ms.topic="article" 
 	ms.date="06/09/2015" 
 	ms.author="glenga"/>
-
 
 # Créer un service mobile principal .NET qui utilise le stockage de tables au lieu d’une base de données SQL
 
@@ -55,7 +53,6 @@ Tout d’abord, vous devez configurer votre service mobile et le projet de code 
 8. Dans l’Explorateur de solutions de Visual Studio, ouvrez le fichier Web.config du projet de service mobile et ajoutez la nouvelle chaîne de connexion suivante :
 
 		<add name="StorageConnectionString" connectionString="<STORAGE_CONNECTION_STRING>" />
-
 
 9. Remplacez l’espace réservé `<STORAGE_CONNECTION_STRING>` par la chaîne de connexion évoquée à l’étape 6.
 
@@ -161,4 +158,4 @@ Vous savez désormais qu’il est facile d’utiliser le stockage de table avec 
 [MongoLab Add-on Page]: /gallery/store/mongolab/mongolab
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

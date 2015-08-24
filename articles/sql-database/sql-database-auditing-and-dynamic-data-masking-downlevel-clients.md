@@ -1,12 +1,11 @@
 <properties 
-	pageTitle="Prise en charge des clients de niveau inférieur de base de données SQL pour l’audit et le masquage de données dynamiques | Azure" 
+	pageTitle="Prise en charge des clients de niveau inférieur de base de données SQL pour l’audit et le masquage de données dynamiques | Microsoft Azure" 
 	description="Prise en charge des clients de niveau inférieur de base de données SQL pour l’audit et le masquage de données dynamiques" 
 	services="sql-database" 
 	documentationCenter="" 
 	authors="nadavhelfman" 
 	manager="jeffreyg" 
 	editor=""/>
-
 
 <tags 
 	ms.service="sql-database" 
@@ -16,7 +15,6 @@
 	ms.topic="article" 
 	ms.date="06/01/2015" 
 	ms.author="nadavhelfman"/>
-
  
 # Base de données SQL : prise en charge des clients de niveau inférieur pour l’audit et le masquage des données dynamiques 
 
@@ -42,4 +40,4 @@ Voici une liste non exhaustive de « clients de niveau inférieur » :
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

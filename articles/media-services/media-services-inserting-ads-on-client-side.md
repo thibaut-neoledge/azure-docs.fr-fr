@@ -7,16 +7,14 @@
 	manager="dwrede" 
 	editor=""/>
 
-
 <tags 
 	ms.service="media-services" 
 	ms.workload="media" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/29/2015" 
+	ms.date="08/11/2015"  
 	ms.author="juliako"/>
-
 
 
 #Insertion de publicités du côté client
@@ -277,12 +275,10 @@ Un fichier MAST vous permet de spécifier les déclencheurs qui définissent le 
 	    <trigger id="preroll" description="preroll every item"  >
 	      <startConditions>
 	        <condition type="event" name="OnItemStart" />
-
 	      </startConditions>
 	      <sources>
 	        <source uri="http://smf.blob.core.windows.net/samples/win8/ads/vast_linear.xml" format="vast">
 	          <sources />
-
 	        </source>
 	      </sources>
 	    </trigger>
@@ -290,17 +286,14 @@ Un fichier MAST vous permet de spécifier les déclencheurs qui définissent le 
 	    <trigger id="midroll" description="midroll at 15 sec."  >
 	      <startConditions>
 	        <condition type="property" name="Position" value="00:00:15.0" operator="GEQ" />
-
 	      </startConditions>
 	      <endConditions>
 	        <condition type="event" name="OnItemEnd"/>
-
 	        <!--This 'resets' the trigger for the next clip-->
 	      </endConditions>
 	      <sources>
 	        <source uri="http://smf.blob.core.windows.net/samples/win8/ads/vast_linear.xml" format="vast">
 	          <sources />
-
 	        </source>
 	      </sources>
 	    </trigger>
@@ -308,12 +301,10 @@ Un fichier MAST vous permet de spécifier les déclencheurs qui définissent le 
 	    <trigger id="postroll" description="postroll"  >
 	      <startConditions>
 	        <condition type="event" name="OnItemEnd"/>
-
 	      </startConditions>
 	      <sources>
 	        <source uri="http://smf.blob.core.windows.net/samples/win8/ads/vast_linear.xml" format="vast">
 	          <sources />
-
 	        </source>
 	      </sources>
 	    </trigger>
@@ -337,12 +328,10 @@ L’élément **<trigger>** contient un élément **<startConditions>** qui spé
 	<trigger id="postroll" description="postroll"  >
       <startConditions>
         <condition/>
-
       </startConditions>
       <sources>
         <source uri="http://smf.blob.core.windows.net/samples/win8/ads/vast_linear.xml" format="vast">
           <sources />
-
         </source>
       </sources>
     </trigger>
@@ -398,14 +387,12 @@ Cet exemple utilise AdSchedulerPlugin pour définir quand afficher une publicit�
 	                <ads:MidrollAdvertisement Time="00:00:05">
 	                    <ads:MidrollAdvertisement.Source>
 	                        <ads:RemoteAdSource Uri="http://smf.blob.core.windows.net/samples/win8/ads/vast_adpod.xml" Type="vast"/>
-
 	                    </ads:MidrollAdvertisement.Source>
 	                </ads:MidrollAdvertisement>
 	
 	            </ads:AdSchedulerPlugin.Advertisements>
 	        </ads:AdSchedulerPlugin>
 	        <ads:AdHandlerPlugin/>
-
 	    </mmppf:MediaPlayer.Plugins>
 	</mmppf:MediaPlayer>
 
@@ -423,28 +410,24 @@ Cet exemple utilise également AdSchedulerPlugin. Il planifie trois publicités,
 	                        <ads:PrerollAdvertisement>
 	                            <ads:PrerollAdvertisement.Source>
 	                                <ads:RemoteAdSource Uri="http://smf.blob.core.windows.net/samples/win8/ads/vast_linear.xml" Type="vast"/>
-
 	                            </ads:PrerollAdvertisement.Source>
 	                        </ads:PrerollAdvertisement>
 	
 	                        <ads:MidrollAdvertisement Time="00:00:15">
 	                            <ads:MidrollAdvertisement.Source>
 	                                <ads:RemoteAdSource Uri="http://smf.blob.core.windows.net/samples/win8/ads/vast_linear.xml" Type="vast"/>
-
 	                            </ads:MidrollAdvertisement.Source>
 	                        </ads:MidrollAdvertisement>
 	
 	                        <ads:PostrollAdvertisement>
 	                            <ads:PostrollAdvertisement.Source>
 	                                <ads:RemoteAdSource Uri="http://smf.blob.core.windows.net/samples/win8/ads/vast_linear.xml" Type="vast"/>
-
 	                            </ads:PostrollAdvertisement.Source>
 	                        </ads:PostrollAdvertisement>
 	
 	                    </ads:AdSchedulerPlugin.Advertisements>
 	                </ads:AdSchedulerPlugin>
 	                <ads:AdHandlerPlugin/>
-
 	            </mmppf:MediaPlayer.Plugins>
 	        </mmppf:MediaPlayer>
 
@@ -456,9 +439,7 @@ Cet exemple utilise FreeWheelPlugin qui spécifie un attribut Source, lequel ind
 	<mmppf:MediaPlayer x:Name="player" Source="http://smf.blob.core.windows.net/samples/videos/bigbuck.mp4">
 	            <mmppf:MediaPlayer.Plugins>
 	                <ads:FreeWheelPlugin Source="http://smf.blob.core.windows.net/samples/win8/ads/freewheel.xml"/>
-
 	                <ads:AdHandlerPlugin/>
-
 	            </mmppf:MediaPlayer.Plugins>
 	        </mmppf:MediaPlayer>
 
@@ -469,9 +450,7 @@ Cet exemple utilise MastSchedulerPlugin qui vous permet d’employer un fichier 
 	<mmppf:MediaPlayer x:Name="player" Source="http://smf.blob.core.windows.net/samples/videos/bigbuck.mp4">
 	            <mmppf:MediaPlayer.Plugins>
 	                <ads:MastSchedulerPlugin Source="http://smf.blob.core.windows.net/samples/win8/ads/mast.xml" />
-
 	                <ads:AdHandlerPlugin/>
-
 	            </mmppf:MediaPlayer.Plugins>
 	        </mmppf:MediaPlayer>
 
@@ -480,7 +459,6 @@ Cet exemple utilise MastSchedulerPlugin qui vous permet d’employer un fichier 
 Cet exemple interagit par programmation avec MediaPlayer. Le fichier ProgrammaticAdPage.xaml instancie MediaPlayer :
 
 	<mmppf:MediaPlayer x:Name="player" Source="http://smf.blob.core.windows.net/samples/videos/bigbuck.mp4"/>
-
 
 Le fichier ProgrammaticAdPage.xaml.cs crée un AdHandlerPlugin, ajoute un TimelineMarker pour indiquer le moment où la publicité doit être affichée, puis ajoute un gestionnaire pour l’événement MarkerReached qui charge un RemoteAdSource spécifiant un URI vers un fichier VAST. Enfin, il diffuse la publicité.
 	
@@ -526,7 +504,6 @@ Cet exemple utilise AdSchedulerPlugin pour planifier une publicité mi-bande en 
 	                                <ads:AdSource Type="clip">
 	                                    <ads:AdSource.Payload>
 	                                        <ads:ClipAdPayload MediaSource="http://smf.blob.core.windows.net/samples/ads/media/XBOX_HD_DEMO_700_2_000_700_4x3.wmv" MimeType="video/x-ms-wmv" />
-
 	                                    </ads:AdSource.Payload>
 	                                </ads:AdSource>
 	                            </ads:MidrollAdvertisement.Source>
@@ -535,7 +512,6 @@ Cet exemple utilise AdSchedulerPlugin pour planifier une publicité mi-bande en 
 	                    </ads:AdSchedulerPlugin.Advertisements>
 	                </ads:AdSchedulerPlugin>
 	                <ads:AdHandlerPlugin/>
-
 	            </mmppf:MediaPlayer.Plugins>
 	        </mmppf:MediaPlayer>
 
@@ -551,14 +527,12 @@ Cet exemple montre comment utiliser AdSchedulerPlugin pour planifier une publici
 	                        <ads:MidrollAdvertisement Time="00:00:05">
 	                            <ads:MidrollAdvertisement.Source>
 	                                <ads:RemoteAdSource Uri="http://smf.blob.core.windows.net/samples/win8/ads/vast_linear_companions.xml" Type="vast"/>
-
 	                            </ads:MidrollAdvertisement.Source>
 	                        </ads:MidrollAdvertisement>
 	
 	                    </ads:AdSchedulerPlugin.Advertisements>
 	                </ads:AdSchedulerPlugin>
 	                <ads:AdHandlerPlugin/>
-
 	            </mmppf:MediaPlayer.Plugins>
 	        </mmppf:MediaPlayer>
 
@@ -574,14 +548,12 @@ Cet exemple utilise AdSchedulerPlugin pour planifier une publicité linéaire et
 	                        <ads:MidrollAdvertisement Time="00:00:05">
 	                            <ads:MidrollAdvertisement.Source>
 	                                <ads:RemoteAdSource Uri="http://smf.blob.core.windows.net/samples/win8/ads/vast_linear_nonlinear.xml" Type="vast"/>
-
 	                            </ads:MidrollAdvertisement.Source>
 	                        </ads:MidrollAdvertisement>
 	                        
 	                    </ads:AdSchedulerPlugin.Advertisements>
 	                </ads:AdSchedulerPlugin>
 	                <ads:AdHandlerPlugin/>
-
 	            </mmppf:MediaPlayer.Plugins>
 	        </mmppf:MediaPlayer>
 
@@ -592,9 +564,7 @@ Cet exemple utilise VmapSchedulerPlugin pour planifier des publicités à l’ai
 	<mmppf:MediaPlayer x:Name="player" Source="http://smf.blob.core.windows.net/samples/videos/bigbuck.mp4">
 	            <mmppf:MediaPlayer.Plugins>
 	                <ads:VmapSchedulerPlugin Source="http://smf.blob.core.windows.net/samples/win8/ads/vmap.xml"/>
-
 	                <ads:AdHandlerPlugin/>
-
 	            </mmppf:MediaPlayer.Plugins>
 	        </mmppf:MediaPlayer>
 
@@ -654,7 +624,7 @@ L’exemple ci-dessous montre comment planifier une publicité VAST à liaison t
         [self logFrameworkError];
     }
          
-   L’exemple ci-dessous montre comment planifier une publicité VAST à liaison anticipée. //Example:4 Schedule an early binding VAST ad //Download the VAST file if (![framework.adResolver downloadManifest:&manifest withURL:[NSURL URLWithString:@"http://portalvhdsq3m25bf47d15c.blob.core.windows.net/vast/PlayerTestVAST.xml"\]\]) { [self logFrameworkError\]; } else { adLinearTime.startTime = 7; adLinearTime.duration = 0;
+   L’exemple ci-dessous montre comment planifier une publicité VAST à liaison anticipée. //Example:4 Schedule an early binding VAST ad //Download the VAST file if (![framework.adResolver downloadManifest:&manifest withURL:[NSURL URLWithString:@"http://portalvhdsq3m25bf47d15c.blob.core.windows.net/vast/PlayerTestVAST.xml"]]) { [self logFrameworkError]; } else { adLinearTime.startTime = 7; adLinearTime.duration = 0;
         
 		// Create AdInfo instance
 	    AdInfo *vastAdInfo2 = [[[AdInfo alloc] init] autorelease];
@@ -834,4 +804,4 @@ L’exemple ci-dessous montre comment planifier une publicité mi-bande de recou
 
 [Développer des applications de lecteur vidéo](media-services-develop-video-players.md) [Présentation de l’infrastructure de lecteur Azure Media Player Framework pour iOS](https://channel9.msdn.com/Series/Windows-Azure-Media-Services-Tutorials/An-introduction-to-Azure-Media-Player-Framework-for-IOS)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

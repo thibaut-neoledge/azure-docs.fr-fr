@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Liste des connecteurs et des applications API | Azure"
+	pageTitle="Liste des connecteurs et des applications API | Microsoft Azure"
 	description="En savoir plus sur les connecteurs et les applications API dans Azure App Service ; architecture microservices"
 	services="app-service\logic"
 	documentationCenter=""
@@ -7,16 +7,14 @@
 	manager="dwrede"
 	editor="cgronlun"/>
 
-
 <tags
 	ms.service="app-service-logic"
 	ms.workload="integration"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/05/2015"
+	ms.date="08/09/2015"
 	ms.author="mandia"/>
-
 
 
 # Liste des connecteurs et applications API dans Microsoft Azure App Service
@@ -99,4 +97,4 @@ Vous pouvez aussi utiliser des connecteurs comme actions au sein de votre applic
  [Utilisation du Gestionnaire des connexions hybrides dans Azure App Service](app-service-logic-hybrid-connection-manager.md)<br/>
  [Gestion et contrôle de vos connecteurs et applications API intégrés](app-service-logic-monitor-your-connectors.md)
 
-<!----HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

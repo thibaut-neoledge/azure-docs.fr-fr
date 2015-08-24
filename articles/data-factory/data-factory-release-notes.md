@@ -1,12 +1,11 @@
 <properties 
-	pageTitle="Data Factory - Notes de publication | Azure" 
+	pageTitle="Data Factory - Notes de publication | Microsoft Azure" 
 	description="Data Factory release notes" 
 	services="data-factory" 
 	documentationCenter="" 
 	authors="spelluru" 
 	manager="jhubbard" 
 	editor="monicar"/>
-
 
 <tags 
 	ms.service="data-factory" 
@@ -16,7 +15,6 @@
 	ms.topic="article" 
 	ms.date="07/27/2015" 
 	ms.author="spelluru"/>
-
 
 # Notes de publication sur Azure Data Factory
 
@@ -286,7 +284,7 @@ Mais, si une tranche antérieure est réexécutée, elle n’apparaît pas en ha
 	-  [Propriétés OnPremisesOracleTableLocation dans une table JSON](https://msdn.microsoft.com/library/dn894089.aspx#Oracle) 
 	-  [Sources et récepteurs pris en charge](https://msdn.microsoft.com/library/dn894007.aspx) Consultez la matrice de copie mise à jour et les propriétés **OracleSource**.
 -  Vous pouvez spécifier le codage pour les fichiers texte dans un objet Blob Azure. Consultez la nouvelle [propriété encodingName](https://msdn.microsoft.com/library/dn894089.aspx#AzureBlob). 
-- Vous pouvez appeler une procédure stockée avec des paramètres supplémentaires lors de la copie dans un récepteur SQL. Pour plus d’informations, consultez la page [Appel d’une procédure stockée pour un récepteur SQL][adf-copy-advanced].   
+- Vous pouvez appeler une procédure stockée avec des paramètres supplémentaires lors de la copie dans un récepteur SQL.    
 
 Consultez le billet de blog : [Mise à jour d’Azure Data Factory - nouveaux magasins de données](http://azure.microsoft.com/blog/2015/03/30/azure-data-factory-update-new-data-stores/) pour plus d’informations, notamment des exemples.
 
@@ -301,7 +299,7 @@ Consultez le billet de blog : [Mise à jour d’Azure Data Factory - nouveaux m
 
 ### Changements
 - Une mise à jour du package d’installation **Passerelle de gestion des données** a été publiée dans le [Centre de téléchargement Microsoft][adf-gateway-download]. À partir de cette version, vous pouvez trouver la dernière passerelle de gestion des données à utiliser avec Azure Data Factory à cet emplacement de téléchargement. Ce package d’installation concerne à la fois Azure Data Factory et Power BI pour les services Office 365. Si vous utilisez les deux services, notez que les passerelles pour Data Factory et Power BI doivent être installées sur des ordinateurs différents, et configurées différemment en fonction des instructions figurant dans la documentation de Data Factory ou Power BI.
-- L’**activité de copie** prend désormais en charge la copie de données entre la base de données SQL Server locale et une base de données SQL Azure. Consultez [Activité de copie][adf-copy-activity] pour plus d’informations et [GitHub][adf-github-samples] pour obtenir des exemples JSON.
+- L’**activité de copie** prend désormais en charge la copie de données entre la base de données SQL Server locale et une base de données SQL Azure. 
 - **SqlSink** prend en charge une nouvelle propriété : **WriteBatchTimeout**. Cette propriété vous permet de configurer la durée d’attente de l’opération d’insertion par lots avant l’arrivée à expiration de l’opération. Pour une copie hybride (opération de copie qui implique une source de données locale et une source de données du cloud), vous devez disposer de la passerelle version 1.4 ou ultérieure pour pouvoir utiliser cette propriété. 
 - Le **service lié SQL Server** prend désormais en charge **l’authentification Windows**. 
 	- Lors de la création d’un service lié SQL Server à l’aide du portail, vous pouvez maintenant choisir d’utiliser l’authentification Windows et définir les informations d’identification appropriées. Pour cela, vous avez besoin de la passerelle version 1.4 ou ultérieure. 
@@ -341,9 +339,7 @@ Consultez le billet de blog : [Mise à jour d’Azure Data Factory - nouveaux m
 
 [adf-azure-ml]: data-factory-create-predictive-pipelines.md
 [adf-custom-activities]: data-factory-use-custom-activities.md
-[adf-copy-activity]: data-factory-copy-activity.md
 [adf-editor]: data-factory-editor.md
-[adf-copy-advanced]: data-factory-copy-activity-advanced.md
 
 [adf-editor-video]: http://channel9.msdn.com/Blogs/Windows-Azure/New-Azure-Data-Factory-Editor-UI
 [adf-editor-blog]: http://azure.microsoft.com/blog/2015/03/02/azure-data-factory-editor-a-light-weight-web-editor/
@@ -357,4 +353,4 @@ Consultez le billet de blog : [Mise à jour d’Azure Data Factory - nouveaux m
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

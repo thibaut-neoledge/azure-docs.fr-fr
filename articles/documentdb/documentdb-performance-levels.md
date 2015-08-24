@@ -7,7 +7,6 @@
 	editor="monicar" 
 	documentationCenter=""/>
 
-
 <tags 
 	ms.service="documentdb" 
 	ms.workload="data-services" 
@@ -16,7 +15,6 @@
 	ms.topic="article" 
 	ms.date="07/21/2015" 
 	ms.author="johnmac"/>
-
 
 #Niveaux de performances dans DocumentDB
 
@@ -35,30 +33,11 @@ Chaque collection DocumentDB créée sous un compte d'utilisateur Standard est c
 
 À chaque niveau de performances est associé un taux limite d'unités de demande. Il s'agit du débit qui sera réservé pour une collection en fonction de son niveau de performances et qui sera disponible exclusivement pour cette collection. Des collections peuvent être créées via le [portail Azure](http://portal.azure.com) ou l’un des [Kits de développement logiciel (SDK) DocumentDB](https://msdn.microsoft.com/library/azure/dn781482.aspx). Les API DocumentDB vous permettent de spécifier le niveau de performances d'une collection.
 
-<table> 
-<tbody>
-<tr>
-<td valign="top" ><p><b>Niveau de performances de collection</b></p></td>
-<td valign="top" ><p><b>Débit réservé</b></p></td>
-</tr>
-
-<tr>
-<td valign="top" ><p>S1</p></td>
-<td valign="top" ><p>250&#160;unités de demande/seconde</p></td>
-</tr>
-
-<tr>
-<td valign="top" ><p>S2</p></td>
-<td valign="top" ><p>1&#160;000&#160;unités de demande/seconde</p></td>
-</tr>
-
-<tr>
-<td valign="top" ><p>S3</p></td>
-<td valign="top" ><p>2&#160;500&#160;unités de demande/seconde</p></td>
-</tr>
-
-</tbody>
-</table>
+Niveau de performances de collection|Débit réservé
+---|---
+S1|250 unités de demande/seconde
+S2|1 000 unités de demande/seconde
+S3|2 500 unités de demande/seconde
 
 DocumentDB permet un ensemble complet d'opérations de base de données, notamment des requêtes, des requêtes avec des fonctions définies par l'utilisateur, des procédures stockées et des déclencheurs. Le coût de traitement associé à chacune de ces opérations varie selon le processeur, les E/S et la mémoire nécessaires à l'exécution de l'opération. Plutôt que de vous soucier de la gestion des ressources matérielles, vous pouvez considérer une unité de demande comme une mesure unique des ressources nécessaires à l'exécution des opérations de base de données et à la réponse à une demande de l'application.
 
@@ -143,4 +122,4 @@ Pour en savoir plus sur DocumentDB, consultez la [documentation](http://azure.mi
 
 [1]: ./media/documentdb-performance-levels/img1.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

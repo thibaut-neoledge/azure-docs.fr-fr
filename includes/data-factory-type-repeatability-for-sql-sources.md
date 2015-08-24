@@ -2,7 +2,7 @@
 
 Lors de la copie de données vers SQL Azure/SQL Server à partir d’autres magasins de données, vous devez garder la répétabilité à l’esprit afin d’éviter des résultats inattendus.
 
-Lors de la copie de données dans une base de données SQL Azure, l’activité de copie AJOUTE par défaut le jeu de données à la table de récepteur par défaut. Par exemple, lors de la copie de données à partir d’une source de fichier CSV (valeurs de données séparées par des virgules) contenant deux enregistrements pour la base de données SQL Azure/SQL Server, la table ressemble à ce qui suit :
+Lors de la copie de données dans une base de données SQL Azure/SQL Server, l'activité de copie AJOUTE par défaut le jeu de données à la table de récepteur par défaut. Par exemple, lors de la copie de données à partir d’une source de fichier CSV (valeurs de données séparées par des virgules) contenant deux enregistrements pour la base de données SQL Azure/SQL Server, la table ressemble à ce qui suit :
 	
 	ID	Product		Quantity	ModifiedDate
 	...	...			...			...
@@ -20,7 +20,7 @@ Supposons que vous trouviez des erreurs dans le fichier source et mettiez à jou
 
 Pour éviter cela, vous devez spécifier une sémantique UPSERT en tirant parti d’un des 2 mécanismes indiqués ci-dessous.
 
-> [AZURE.NOTE]Une tranche peut être réexécutée automatiquement dans Azure Data Factory, selon la stratégie relative aux nouvelles tentatives qui a été spécifiée.
+> [AZURE.NOTE]Une tranche peut être réexécutée automatiquement dans Azure Data Factory en fonction de la stratégie relative aux nouvelles tentatives qui a été spécifiée.
 
 ### Mécanisme 1
 
@@ -29,10 +29,10 @@ Vous pouvez tirer parti de la propriété **sqlWriterCleanupScript** pour effect
 	"sink":  
 	{ 
 	  "type": "SqlSink", 
-	  "sqlWriterCleanupScript": "$$Text.Format('DELETE FROM table WHERE ModifiedDate = \\'{0:yyyy-MM-dd HH:mm}\\'', SliceStart)"
+	  "sqlWriterCleanupScript": "$$Text.Format('DELETE FROM table WHERE ModifiedDate >= \\'{0:yyyy-MM-dd HH:mm}\\' AND ModifiedDate < \\'{1:yyyy-MM-dd HH:mm}\\'', WindowStart, WindowEnd)"
 	}
 
-Le script de nettoyage est d’abord exécuté pendant la copie d’une tranche donnée, ce qui supprime les données de la table SQL correspondant à cette tranche. L’activité de copie insère ensuite les données dans la table SQL.
+Le script de nettoyage est d’abord exécuté pendant la copie d’une tranche donnée, ce qui supprime les données de la table SQL correspondant à cette tranche. L'activité insère ensuite les données dans la table SQL.
 
 Si la tranche est réexécutée à présent, la quantité est alors mise à jour comme vous le souhaitez.
 	
@@ -45,9 +45,9 @@ Supposons que l’enregistrement Flat Washer soit supprimé du fichier csv d’
 	
 	ID	Product		Quantity	ModifiedDate
 	...	...			...			...
-	8 	Down Tube	4			2015-05-01 00:00:00
+	7 	Down Tube	4			2015-05-01 00:00:00
 
-Rien d’autre n’a dû être effectué. L’activité de copie a exécuté le script de nettoyage pour supprimer les données correspondant à cette tranche. Elle a ensuite lu l’entrée du fichier csv (qui ne contient désormais qu’un enregistrement) avant de l’insérer dans la table.
+Rien d’autre n’a dû être effectué. L’activité de copie a exécuté le script de nettoyage pour supprimer les données correspondant à cette tranche. Elle a ensuite lu l'entrée du fichier csv (qui ne contenait qu'un enregistrement) avant de l'insérer dans la table.
 
 ### Mécanisme 2
 
@@ -68,4 +68,4 @@ Azure Data Factory renseigne cette colonne conformément à ses besoins pour s
 
 Comme pour le mécanisme 1, l’activité de copie nettoie tout d’abord automatiquement les données de la tranche donnée dans la table SQL de destination, puis exécute l’activité de copie normalement pour insérer les données de la source dans la destination correspondant à cette tranche.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

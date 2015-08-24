@@ -5,7 +5,7 @@
 	documentationCenter="" 
 	authors="cephalin" 
 	manager="wpickett" 
-	editor="mollybos"/>
+	editor="jimbe"/>
 
 <tags 
 	ms.service="app-service-web" 
@@ -96,4 +96,4 @@ Le panneau de détails affiche les informations disponibles relatives à l’op�
 [OperationDetails]: ./media/web-sites-restore/13OperationDetails.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

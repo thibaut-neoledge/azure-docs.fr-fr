@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Utilisation de données hors connexion dans une application mobile Azure (Windows Store) | Centre de développement mobile"
+	pageTitle="Utilisation de données hors connexion dans une application mobile Azure (Windows Store) | Microsoft Azure"
 	description="Découvrez comment utiliser une application mobile Azure pour mettre en cache et synchroniser des données hors connexion dans votre application Windows Store"
 	documentationCenter="windows"
 	authors="christopheranderson"
@@ -278,4 +278,4 @@ Lorsque nous avons voulu synchroniser le magasin local avec le serveur, nous avo
 [sqlite store nuget]: http://www.nuget.org/packages/WindowsAzure.MobileServices.SQLiteStore/1.0.2
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

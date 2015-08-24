@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/24/2015" 
+	ms.date="08/11/2015" 
 	ms.author="cephalin"/>
 
 # Intégrer une application web à un réseau virtuel Azure #
@@ -26,9 +26,9 @@ Pour plus de détails sur les réseaux virtuels Azure, consultez la rubrique «�
 ## Prise en main ##
 Voici quelques informations à garder à l’esprit avant de connecter votre application web à un réseau virtuel.
 
-1.	Les applications web ne peuvent être connectées à un réseau virtuel que si elles s’exécutent dans un plan App Service présentant le niveau de tarification « Standard ». Les applications web des plans Gratuit, Partagé et De base ne peuvent pas être connectées à un réseau virtuel.
+1.	Les applications web ne peuvent être connectées à un réseau virtuel que si elles s’exécutent dans un plan App Service présentant le niveau de tarification **Standard**. Les applications web des plans Gratuit, Partagé et De base ne peuvent pas être connectées à un réseau virtuel.
 2.	Si votre réseau virtuel cible existe déjà, il doit prendre en charge la connexion de point à site avec une passerelle de routage dynamique avant de pouvoir être connecté à une application web. Vous ne pouvez pas activer le réseau privé virtuel (VPN) de point à site si votre passerelle est configurée avec un routage statique.
-3.	Votre plan App Service peut comporter un maximum de 5 réseaux configurés. Une application web ne peut être connectée qu’à un seul réseau à la fois. Ces 5 réseaux sont utilisables par un nombre quelconque d’applications web appartenant au même plan App Service.  
+3.	Votre plan App Service peut comporter un maximum de 5 réseaux configurés. Une application web ne peut être connectée qu’à un seul réseau à la fois. Ces 5 réseaux sont utilisables par un nombre quelconque d'applications web appartenant au même plan App Service.  
 
 Vous pouvez connecter un site Web à un réseau virtuel nouveau ou existant. Si vous créez un nouveau réseau, une passerelle est alors préconfigurée pour vous. Notez que la création et la configuration d'un nouveau réseau virtuel prendra quelques minutes.
 
@@ -50,7 +50,7 @@ Pour connecter une application web à un réseau virtuel, accédez au panneau de
 
 ![](./media/web-sites-integrate-with-vnet/connect-to-existing-vnet.png)
  
-Le système crée ensuite un certificat pour l’authentification auprès de votre réseau virtuel s’il s’agit de la première application web de votre abonnement à établir une connexion à ce réseau. Pour voir le certificat, accédez au [portail Azure](http://go.microsoft.com/fwlink/?LinkId=529715), cliquez sur Virtual Networks, sélectionnez le réseau, puis cliquez sur l’onglet Certificats.
+Le système crée ensuite un certificat pour l’authentification auprès de votre réseau virtuel s’il s’agit de la première application web de votre abonnement à établir une connexion à ce réseau. Pour voir le certificat, accédez au [portail Azure](http://go.microsoft.com/fwlink/?LinkId=529715), cliquez sur Réseaux virtuels, sélectionnez le réseau, puis cliquez sur l'onglet Certificats.
 
 Dans l'illustration ci-dessus, le réseau nommé cantConnectVnet est grisé et ne peut pas être sélectionné. Il ne peut y avoir que deux raisons à cela. Soit le VPN de point à site n’est pas activé sur votre réseau, soit vous n’avez pas approvisionné une passerelle de routage dynamique dans votre réseau virtuel. Lorsque ces deux conditions seront remplies, vous pourrez sélectionner le réseau virtuel pour l’intégration à votre application web.
 
@@ -63,7 +63,7 @@ La création d'un réseau virtuel avec des passerelles configurées peut prendre
 
 ![](./media/web-sites-integrate-with-vnet/new-vnet-progress.png)
 
-Une fois que le réseau a été joint à l’application web, cette dernière peut accéder aux ressources de ce réseau virtuel via TCP ou UDP. Si vous voulez accéder à des ressources de votre système local disponibles sur votre réseau virtuel via un VPN de site à site, vous devez ajouter des itinéraires à votre réseau d’entreprise pour autoriser le trafic depuis votre réseau vers les adresses de point à site configurées dans votre réseau virtuel.
+Une fois que le réseau a été joint à l’application web, cette dernière peut accéder aux ressources de ce réseau virtuel via TCP ou UDP. Si vous voulez accéder à des ressources de votre système local disponibles sur votre réseau virtuel via un VPN de site à site, vous devez ajouter des itinéraires à votre réseau d'entreprise pour autoriser le trafic depuis votre réseau vers les adresses de point à site configurées dans votre réseau virtuel.
 
 Une fois l’intégration terminée, le portail Azure affiche des informations de base sur la connexion et indique les procédures à suivre pour déconnecter l’application web du réseau et pour synchroniser les certificats utilisés pour authentifier la connexion. La synchronisation peut être nécessaire si un certificat a expiré ou a été révoqué.
 
@@ -76,7 +76,7 @@ S’il est nécessaire de faire évoluer le plan App Service vers un plan infér
 
 Dans Azure, il n'est actuellement pas possible de déplacer une machine virtuelle existante vers un réseau virtuel. La machine virtuelle doit être déployée dans le réseau virtuel au moment de sa création.
 
-## Accès aux ressources sur site ##
+## Accès aux ressources locales ##
 Si vous travaillez avec un réseau virtuel configuré avec un VPN de site à site, une étape supplémentaire est nécessaire pour permettre l’accès à vos ressources locales depuis votre application web. Des itinéraires doivent être ajoutés à votre réseau sur site pour autoriser le trafic depuis votre réseau vers les adresses de point à site configurées dans votre réseau virtuel. Pour voir la plage d’adresses IP de votre connexion de point à site, accédez à la zone Réseau du portail Azure, comme illustré ici.
 
 ![](./media/web-sites-integrate-with-vnet/vpn-to-onpremise.png)
@@ -106,4 +106,4 @@ Une autre différence est que vous devez installer un agent de relais pour que l
 * Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre l’ancien et le nouveau portail, consultez la page [Références sur la navigation dans le portail Azure](http://go.microsoft.com/fwlink/?LinkId=529715).
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

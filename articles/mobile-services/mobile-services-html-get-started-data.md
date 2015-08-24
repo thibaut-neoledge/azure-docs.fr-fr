@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Ajout de Mobile Services à une application existante (HTML 5) | Centre de développement mobile" 
+	pageTitle="Ajout de Mobile Services à une application existante (HTML 5) | Microsoft Azure" 
 	description="Découvrez comment commencer à utiliser Mobile Services dans une application HTML existante." 
 	services="mobile-services" 
 	documentationCenter="" 
@@ -257,4 +257,4 @@ Ce didacticiel a présenté les bases de l'activation d'une application HTML pou
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

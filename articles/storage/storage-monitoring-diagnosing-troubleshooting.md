@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Analyse, diagnostic et résolution des problèmes de stockage | Azure" 
+	pageTitle="Analyse, diagnostic et résolution des problèmes rencontrés sur Microsoft Azure Storage | Microsoft Azure" 
 	description="Utilisation de fonctionnalités telles que l’analyse du stockage, la journalisation côté client et d’autres outils tiers pour identifier, diagnostiquer et résoudre les problèmes liés à Azure Storage." 
 	services="storage" 
 	documentationCenter="" 
@@ -673,7 +673,7 @@ Si vous constatez des changements soudains, inattendus dans l’utilisation de l
 
 ### <a name="you-are-experiencing-unexpected-reboots"></a>Vous constatez des redémarrages inattendus des machines virtuelles associées à un grand nombre de disques durs virtuels
 
-Si une machine virtuelle est associée à un grand nombre de disques durs virtuels dans le même compte de stockage, vous risquez de dépasser les cibles d’évolutivité pour un compte de stockage individuel, ce qui provoquera une panne de la machine virtuelle. Vous devez consulter les métriques par minute pour le compte de stockage (**TotalRequests**/**TotalIngress**/**TotalEgress**) et vérifier la présence de pics dépassant les cibles d’évolutivité pour un compte de stockage. La section « [Les métriques indiquent une augmentation de la valeur PercentThrottlingError] » vous aidera à déterminer si une limitation a été appliquée à votre compte de stockage.
+Si une machine virtuelle est associée à un grand nombre de disques durs virtuels dans le même compte de stockage, vous risquez de dépasser les cibles d’évolutivité pour un compte de stockage individuel, ce qui provoquera une panne de la machine virtuelle. Vous devez consulter les métriques par minute pour le compte de stockage (**TotalRequests**/\*\*TotalIngress\*\*/\*\*TotalEgress\*\*) et vérifier la présence de pics dépassant les cibles d’évolutivité pour un compte de stockage. La section « [Les métriques indiquent une augmentation de la valeur PercentThrottlingError] » vous aidera à déterminer si une limitation a été appliquée à votre compte de stockage.
 
 En général, chaque opération d'entrée ou de sortie individuelle sur un disque dur virtuel à partir d'une machine virtuelle traduit les opérations **Get Page** ou **Put Page** sur l'objet blob de la page sous-jacente. Vous pouvez donc utiliser les opérations d’E/S par seconde (IOPS) estimées pour votre environnement pour déterminer le nombre de disques durs virtuels que vous pouvez avoir dans un compte de stockage unique, sur base du comportement spécifique de votre application. Nous déconseillons d’avoir plus de 40 disques dans un compte de stockage unique. Consultez la section <a href="http://msdn.microsoft.com/library/azure/dn249410.aspx" target="_blank">Cibles d’évolutivité et de performances Azure Storage</a> pour les détails des cibles d’évolutivité actuelles des comptes de stockage, en particulier le taux de demandes total et la bande passante totale pour le type de compte de stockage que vous utilisez. Si vous dépassez les cibles d’évolutivité pour votre compte de stockage, vous devez placer vos disques durs virtuels dans plusieurs comptes de stockage différents afin de réduire l’activité dans chaque compte individuel.
 
@@ -912,4 +912,4 @@ Au moment de la rédaction du présent document, Application Insights était à 
 [10]: ./media/storage-monitoring-diagnosing-troubleshooting/mma-screenshot-2.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

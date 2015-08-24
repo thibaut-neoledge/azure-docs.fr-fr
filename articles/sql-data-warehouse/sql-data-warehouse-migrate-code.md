@@ -28,7 +28,6 @@ La liste suivante répertorie les fonctionnalités principales qui ne sont pas p
 - Jointures ANSI sur les opérations DELETE
 - Instruction MERGE
 - Jonctions entre plusieurs bases de données
-- [Instructions pivot et unpivot][]
 - [Curseurs][]
 - [SELECT..INTO][]
 - INSERT..EXEC
@@ -86,7 +85,7 @@ Pour bénéficier de recommandation sur le développement de votre code, consult
 <!--Image references-->
 
 <!--Article references-->
-[Instructions pivot et unpivot]: sql-data-warehouse-develop-pivot-unpivot.md
+[pivot and unpivot statements]: sql-data-warehouse-develop-pivot-unpivot.md
 [Curseurs]: sql-data-warehouse-develop-loops.md
 [SELECT..INTO]: sql-data-warehouse-develop-ctas.md
 [Regroupement par clause à l’aide des options rollup/cube/grouping sets]: sql-data-warehouse-develop-group-by-options.md
@@ -100,4 +99,4 @@ Pour bénéficier de recommandation sur le développement de votre code, consult
 
 <!--Other Web references-->
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

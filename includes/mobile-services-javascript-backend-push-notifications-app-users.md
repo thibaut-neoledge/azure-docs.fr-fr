@@ -1,11 +1,11 @@
 
 1. Connectez-vous au [portail de gestion Azure], cliquez sur **Mobile Services**, puis sur votre service mobile.
 
-2. Cliquez sur l'onglet **Notifications Push**, sélectionnez **Seuls les utilisateurs authentifiés** pour **Autorisations**, puis cliquez sur **Modifier le script**.
+2. Cliquez sur l'onglet **Push**, sélectionnez **Seuls les utilisateurs authentifiés** pour **Autorisations**, puis cliquez sur **Enregistrer** et **Modifier le script**.
 	
 	Ceci vous permet de personnaliser la fonction de rappel d'inscription aux notifications Push. Si vous utilisez Git pour modifier votre code source, cette même fonction d'inscription peut être trouvée dans `.\service\extensions\push.js`.
 
-3. Remplacez la méthode **register** existante par le code suivant :
+3. Remplacez la fonction **register** existante par le code suivant, puis cliquez sur **Enregistrer** :
 
 		exports.register = function (registration, registrationContext, done) {   
 		    // Get the ID of the logged-in user.
@@ -40,6 +40,6 @@
 
 	Ceci ajoute une balise à l'inscription, qui est l'ID de l'utilisateur connecté. Les balises fournies sont validées pour empêcher un utilisateur de s’inscrire avec l’ID d’un autre utilisateur Lorsqu’une notification est envoyée à cet utilisateur, elle est reçue sur ce périphérique et tout autre périphérique enregistré par l’utilisateur.
 
-4. Cliquez sur la flèche Précédent, cliquez sur l'onglet **Données**, cliquez sur **TodoItem**, cliquez sur **Script** et sélectionnez **Insérer**.
+4. Cliquez sur la flèche Précédent. Cliquez sur l'onglet **Données**, puis sur **TodoItem** et **Script**, puis sélectionnez **Insérer**.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

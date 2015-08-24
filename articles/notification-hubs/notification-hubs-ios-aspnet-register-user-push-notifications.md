@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Inscription de l’utilisateur actif aux notifications Push au moyen de l’API web - Notification Hubs" 
+	pageTitle="Inscription de l’utilisateur actif aux notifications Push au moyen de l’API Web | Microsoft Azure" 
 	description="Découvrez comment demander l’inscription aux notifications Push dans une application iOS avec Azure Notification Hubs lorsque l’inscription est réalisée par l’API web ASP.NET." 
 	services="notification-hubs" 
 	documentationCenter="ios" 
@@ -238,4 +238,4 @@ Maintenant que l'application cliente est à jour, retournez au didacticiel [Noti
 [Prise en main de Notification Hubs]: /manage/services/notification-hubs/get-started-notification-hubs-ios
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

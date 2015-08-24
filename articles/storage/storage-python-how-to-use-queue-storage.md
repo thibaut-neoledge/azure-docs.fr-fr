@@ -112,4 +112,4 @@ Maintenant que vous connaissez les bases du stockage des files d'attente, consul
 [package Azure Python]: https://pypi.python.org/pypi/azure
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

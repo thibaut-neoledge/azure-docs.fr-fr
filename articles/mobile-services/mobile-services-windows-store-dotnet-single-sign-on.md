@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="04/08/2015" 
+	ms.date="08/08/2015" 
 	ms.author="glenga"/>
 
 # Authentifier votre application Windows Phone avec l'authentification gérée par le client à l'aide du compte Microsoft
@@ -163,4 +163,4 @@ Dans le didacticiel suivant, [Autorisation des utilisateurs avec des scripts], v
 [Kit de développement logiciel (SDK) Live]: http://go.microsoft.com/fwlink/p/?LinkId=262253
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

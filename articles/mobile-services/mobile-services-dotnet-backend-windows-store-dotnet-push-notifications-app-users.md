@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Envoi de notifications Push aux utilisateurs authentifiés (application Windows 8.1 universelle) | Azure Mobile Services" 
+	pageTitle="Envoi de notifications Push aux utilisateurs authentifiés (application Windows 8.1 universelle) | Microsoft Azure" 
 	description="Découvrez comment utiliser Azure Mobile Services pour envoyer des notifications Push à un utilisateur authentifié particulier qui exécute votre application Windows 8.1 universelle." 
 	services="mobile-services,notification-hubs" 
 	documentationCenter="windows" 
@@ -66,4 +66,4 @@ Une fois ces deux didacticiels terminés, vous saurez comment empêcher les util
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

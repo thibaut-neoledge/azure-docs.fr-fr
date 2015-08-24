@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Planification des tâches du backend avec le planificateur - Mobile Services" 
+	pageTitle="Planification des tâches du backend avec le planificateur | Microsoft Azure" 
 	description="Azure Mobile Services Scheduler permet de planifier des tâches pour votre application mobile." 
 	services="mobile-services" 
 	documentationCenter="" 
@@ -167,4 +167,4 @@ Félicitations, vous avez créé un nouveau travail planifié dans votre service
 [App settings]: http://msdn.microsoft.com/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

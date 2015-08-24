@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Autorisation côté service des utilisateurs d’un service mobile principal .NET | Azure Mobile Services"
+	pageTitle="Autorisation côté service des utilisateurs d’un service mobile principal .NET | Microsoft Azure"
 	description="Découvrez comment limiter l’accès des utilisateurs autorisés d’un service mobile principal .NET."
 	services="mobile-services"
 	documentationCenter="windows"
@@ -80,4 +80,4 @@ Ce didacticiel est basé sur le démarrage rapide de Mobile Services et s'appuie
 [Ajout de l'authentification à une application Mobile Services existante]: mobile-services-dotnet-backend-ios-get-started-users.md
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

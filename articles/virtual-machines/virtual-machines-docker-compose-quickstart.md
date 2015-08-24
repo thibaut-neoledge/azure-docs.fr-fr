@@ -7,16 +7,14 @@
    manager="timlt"
    editor=""/>
 
-
 <tags
    ms.service="virtual-machines"
    ms.devlang="NA"
    ms.topic="article"
    ms.tgt_pltfrm="vm-linux"
    ms.workload="infrastructure-services"
-   ms.date="08/05/2015"
+   ms.date="08/07/2015"
    ms.author="danlep"/>
-
 
 # Prise en main de Docker et Compose sur une machine virtuelle Microsoft Azure
 
@@ -114,4 +112,4 @@ L’écran de démarrage de WordPress, vous permettant de terminer l’installat
 
 [wordpress_start]: ./media/virtual-machines-docker-compose-quickstart/WordPress.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

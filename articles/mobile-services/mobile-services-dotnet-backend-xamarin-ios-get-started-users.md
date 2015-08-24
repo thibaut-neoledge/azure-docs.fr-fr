@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Prise en main de l'authentification dans Mobile Services pour les applications Xamarin iOS - Azure Mobile Services" 
+	pageTitle="Prise en main de l'authentification dans Mobile Services pour les applications Xamarin iOS | Microsoft Azure" 
 	description="Apprenez à utiliser Mobile Services pour authentifier les utilisateurs de votre application Xamarin iOS par l'intermédiaire de divers fournisseurs d'identité, notamment Google, Facebook, Twitter et Microsoft." 
 	services="mobile-services" 
 	documentationCenter="xamarin" 
@@ -136,4 +136,4 @@ In the next tutorial, [Service-side authorization of Mobile Services users][Auth
 [Azure Management Portal]: https://manage.windowsazure.com/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Ajouter Mobile Services à une application existante (Xamarin.iOS) - Azure Mobile Services"
+	pageTitle="Ajouter Mobile Services à une application existante (Xamarin.iOS) | Microsoft Azure"
 	description="Découvrez comment stocker des données et y accéder à partir de votre application Azure Mobile Services Xamarin.iOS."
 	documentationCenter="xamarin"
 	authors="ggailey777"
@@ -242,4 +242,4 @@ Une fois que vous avez terminé les séries de données, essayez ces autres dida
 [Xamarin.iOS]: http://xamarin.com/download
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

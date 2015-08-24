@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
-	ms.date="05/26/2015" 
+	ms.date="08/11/2015" 
 	ms.author="juliako"/>
 
 #Filtres et manifestes dynamiques
@@ -209,4 +209,4 @@ La rubrique suivante décrit les entités Media Services liées aux filtres. La 
 [skiing]: ./media/media-services-dynamic-manifest-overview/media-services-skiing.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

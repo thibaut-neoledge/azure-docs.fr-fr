@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/15/2015" 
+	ms.date="08/11/2015"  
 	ms.author="juliako"/>
 
 
@@ -97,4 +97,4 @@ Les formats de fichiers sources suivants ne sont pas pris en charge par l'empaqu
 - Fichiers MP4 Dolby Digital Plus
 - Fichiers Smooth Streaming Dolby Digital Plus. 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

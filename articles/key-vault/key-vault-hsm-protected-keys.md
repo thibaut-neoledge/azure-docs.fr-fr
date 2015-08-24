@@ -1,12 +1,11 @@
 <properties
-	pageTitle="Génération et transfert de clés HSM protégées pour Azure| Microsoft Aure"
+	pageTitle="Génération et transfert de clés protégées par HSM pour le coffre de clés Azure | Microsoft Azure"
 	description="Utilisez les informations présentes dans cette rubrique pour planifier, générer, puis transférer vos propres clés protégées par HSM à utiliser avec Azure Key Vault."
 	services="key-vault"
 	documentationCenter=""
 	authors="cabailey"
 	manager="mbaldwin"
 	tags="azure-resource-manager"/>
-
 
 <tags
 	ms.service="key-vault"
@@ -16,7 +15,6 @@
 	ms.topic="article" 
 	ms.date="07/22/2015"
 	ms.author="cabailey"/>
-
 #Génération et transfert de clés HSM protégées pour Azure clé de coffre
 
 ##Introduction
@@ -63,15 +61,7 @@ Consultez le tableau qui suit pour connaître les conditions requises pour appor
 |Abonnement à Azure|Pour créer un coffre de clés Azure, vous avez besoin d’un abonnement Azure : [Inscrivez-vous pour la version d’évaluation gratuite](http://azure.microsoft.com/pricing/free-trial/)|
 |Un coffre de clés Azure qui prend en charge des modules de sécurité matériels|Pour plus d’informations sur les niveaux de service et les capacités d’Azure Key Vault, consultez le site Web [Tarifs Azure Key Vault](http://azure.microsoft.com/pricing/details/key-vault/).|
 |Modules de sécurité matérielle, cartes à puces et logiciel d’assistance de Thales|Vous devez disposer d’un accès au module de sécurité matérielle Thales et quelques notions sur les modules de sécurité matérielle d’HSM. Voir [Modules de sécurité matérielle Thales](https://www.thales-esecurity.com/msrms/buy) pour obtenir une liste des modèles compatibles ou acheter un module de sécurité matérielle si vous n’en n’avez pas encore.|
-|Les matériels et le logiciel suivants :<ol><li> une station de travail x64 hors ligne avec système d’exploitation Windows 7 minimum et un logiciel Thales nShield version 11.50 minimum.<br/>
-<br/>
-Si la station de travail exécute Windows 7, vous devez installer [install Microsoft .NET Framework 4.5](http://download.microsoft.com/download/b/a/4/ba4a7e71-2906-4b2d-a0e1-80cf16844f5f/dotnetfx45_full_x86_x64.exe).</li><li>Une station de travail connectée à Internet avec système d’exploitation Windows 7 minimum.</li><li>Une clé USB ou un autre support de stockage amovible avec au moins 16 Mo d’espace libre.</li></ol>|Pour des raisons sécurité, nous conseillons de faire en sorte que la première station de travail ne soit pas connectée à un réseau. Cependant, cette modification n’est pas appliquée par programmation.<br/>
-<br/>
-Notez que dans la procédure qui suit, cette station de travail est désignée comme une station de travail déconnectée.</p></blockquote><br/>
-En outre, si votre clé locataire est destinée à un réseau de production, nous vous recommandons d’utiliser un poste de travail distinct pour télécharger les outils et télécharger la clé locataire. À des fins de test, vous pouvez utiliser la même station de travail que la précédente.<br/>
-<br/>
-Notez que dans la procédure qui suit, la station de travail est désignée comme une station de travail connectée à Internet.</p></blockquote><br/>
-|
+|Les matériels et le logiciel suivants :<ol><li> une station de travail x64 hors ligne avec système d’exploitation Windows 7 minimum et un logiciel Thales nShield version 11.50 minimum.<br/><br/>Si la station de travail exécute Windows 7, vous devez installer [install Microsoft .NET Framework 4.5](http://download.microsoft.com/download/b/a/4/ba4a7e71-2906-4b2d-a0e1-80cf16844f5f/dotnetfx45_full_x86_x64.exe).</li><li>Une station de travail connectée à Internet avec système d’exploitation Windows 7 minimum.</li><li>Une clé USB ou un autre support de stockage amovible avec au moins 16 Mo d’espace libre.</li></ol>|Pour des raisons sécurité, nous conseillons de faire en sorte que la première station de travail ne soit pas connectée à un réseau. Cependant, cette modification n’est pas appliquée par programmation.<br/><br/>Notez que dans la procédure qui suit, cette station de travail est désignée comme une station de travail déconnectée.</p></blockquote><br/>En outre, si votre clé locataire est destinée à un réseau de production, nous vous recommandons d’utiliser un poste de travail distinct pour télécharger les outils et télécharger la clé locataire. À des fins de test, vous pouvez utiliser la même station de travail que la précédente.<br/><br/>Notez que dans la procédure qui suit, la station de travail est désignée comme une station de travail connectée à Internet.</p></blockquote><br/>|
 
 ##Générez et transférez votre clé sur le module de sécurité matérielle Azure Key Vault
 
@@ -124,7 +114,7 @@ Le jeux d’outils contient les éléments suivants :
 
 - Un package de clé KEK portant un nom commençant par **BYOK-KEK- pkg-.**
 - Un package Security World dont le nom commence par **BYOK-SecurityWorld - pkg-.**
-- Un script python nommé v**erifykeypackage.py.**
+- Un script python nommé v\*\*erifykeypackage.py.\*\*
 - Un fichier exécutable sur ligne de commande nommé **KeyTransferRemote.exe** et les DLL associées.
 - Un Package redistribuable Visual C++, nommé **vcredist\_x64.exe.**
 
@@ -316,4 +306,4 @@ Si le téléchargement réussit, les propriétés de la clé que vous venez de c
 
 Vous pouvez maintenant utiliser cette clé protégée HSM dans votre coffre de clés. Pour plus d’informations, consultez la section **Utiliser un module de sécurité matériel (HSM)** du didacticiel [Prise en main d’Azure Key Vault](key-vault-get-started.md).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

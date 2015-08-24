@@ -3,7 +3,7 @@
 	description="Codez votre propre analyse des données de télémétrie dans Application Insights à l’aide de la fonctionnalité d’exportation continue." 
 	services="application-insights" 
     documentationCenter=""
-	authors="alancameronwills" 
+	authors="noamben" 
 	manager="douge"/>
 
 <tags 
@@ -305,4 +305,4 @@ Après quelques minutes, revenez aux Outils d’administration SQL Server et obs
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Inscription pour l'authentification Azure Active Directory | Azure Mobile Services" 
+	pageTitle="Inscription pour l'authentification Azure Active Directory | Microsoft Azure" 
 	description="Découvrez comment vous inscrire pour l'authentification Azure Active Directory dans votre application Mobile Services." 
 	authors="wesmc7777" 
 	services="mobile-services" 
@@ -66,4 +66,4 @@ Vous êtes maintenant prêt à utiliser Azure Active Directory pour l'authentifi
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

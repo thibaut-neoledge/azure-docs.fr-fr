@@ -6,16 +6,14 @@
    authors="alkohli"
    manager="carolz"
    editor="" />
-
 <tags 
    ms.service="storsimple"
    ms.devlang="NA"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="08/05/2015"
+   ms.date="08/12/2015"
    ms.author="alkohli" />
-
 
 # Remplacer un lecteur de disque sur votre appareil StorSimple
 
@@ -126,4 +124,4 @@ Quand un lecteur est défectueux dans votre appareil Microsoft Azure StorSimple 
 
 En savoir plus sur le [Remplacement des composants matériels StorSimple](storsimple-hardware-component-replacement.md).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

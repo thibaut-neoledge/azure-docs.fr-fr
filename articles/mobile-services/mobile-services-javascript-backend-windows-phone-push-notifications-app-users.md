@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Envoi de notifications Push aux utilisateurs authentifiés de l'application Windows Phone Silverlight | Azure Mobile Services" 
+	pageTitle="Envoi de notifications Push aux utilisateurs authentifiés de l'application Windows Phone Silverlight | Microsoft Azure" 
 	description="Découvrez comment utiliser Azure Mobile Services pour envoyer des notifications Push à des utilisateurs spécifiques de votre application Windows Phone Silverlight." 
 	services="mobile-services,notification-hubs" 
 	documentationCenter="windows" 
@@ -94,4 +94,4 @@ Une fois ces deux didacticiels terminés, vous saurez comment empêcher les util
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

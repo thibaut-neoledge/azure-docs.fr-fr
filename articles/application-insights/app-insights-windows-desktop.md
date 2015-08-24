@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/18/2015" 
+	ms.date="08/12/2015" 
 	ms.author="awills"/>
 
 # Application Insights sur des services et applications de bureau Windows
@@ -44,13 +44,21 @@ La prise en charge des services et applications de bureau Windows est assurée 
 
 1. Dans Visual Studio, modifiez les packages NuGet de votre projet d'application de bureau. ![Cliquez avec le bouton droit sur le projet et sélectionnez Gérer les packages NuGet](./media/app-insights-windows-desktop/03-nuget.png)
 
-2. Installez le package de l’API Application Insights
+2. Installez le package d’API Core Application Insights.
 
     ![Recherchez « Application Insights »](./media/app-insights-windows-desktop/04-core-nuget.png)
 
-3. Définissez votre InstrumentationKey dans le code via l’objet `TelemetryConfiguration.Active`.
+3. Définissez votre élément InstrumentationKey dans le code, par exemple dans main().
 
     `TelemetryConfiguration.Active.InstrumentationKey = "your key";`
+
+*Pourquoi n’existe-t-il aucun fichier ApplicationInsights.config ?*
+
+* Le fichier .config n’est pas installé par le package d’API Core, qui permet uniquement de configurer les collecteurs de télémétrie. Vous écrivez donc votre propre code pour définir la clé d’instrumentation et envoyer les données de télémétrie.
+
+*Puis-je utiliser un autre package NuGet ?*
+
+* Oui, vous pouvez utiliser le package de serveur web, qui installe des collecteurs pour les compteurs de performances. Dans ce cas, vous devez [désactiver le collecteur de demande HTTP](app-insights-configuration-with-applicationinsights-config.md). Ce package installe un fichier .config dans lequel vous devrez placer votre clé d’instrumentation.
 
 ## <a name="telemetry"></a>Insertion d’appels de télémétrie
 
@@ -173,4 +181,4 @@ Si vous avez utilisé TrackMetric ou le paramètre de mesure de TrackEvent, ouvr
 [CoreNuGet]: https://www.nuget.org/packages/Microsoft.ApplicationInsights
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

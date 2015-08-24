@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Gestion de la disponibilité des machines virtuelles - Azure"
+	pageTitle="Gestion de la disponibilité des machines virtuelles | Microsoft Azure"
 	description="Apprenez à utiliser plusieurs machines virtuelles afin de garantir la haute disponibilité de votre application Azure."
 	services="virtual-machines"
 	documentationCenter=""
@@ -69,4 +69,4 @@ Si l'équilibrage de charge n'est pas configuré pour équilibrer le trafic entr
 [Éviter les instances uniques de machines virtuelles dans les groupes à haute disponibilité]: #avoid-single-instance-virtual-machines-in-availability-sets
 [Configuration d’un groupe à haute disponibilité pour des machines virtuelles]: virtual-machines-how-to-configure-availability.md
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Présentation de RemoteApp" 
+	pageTitle="Présentation d'Azure RemoteApp" 
 	description="Découvrez Azure RemoteApp." 
 	services="remoteapp" 
 	documentationCenter="" 
@@ -12,8 +12,8 @@
 	ms.workload="compute" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/30/2015" 
+	ms.topic="get-started-article" 
+	ms.date="08/05/2015" 
 	ms.author="elizapo"/>
 
 # Présentation d'Azure RemoteApp
@@ -94,4 +94,4 @@ OK Faites un essai. Ces articles vous aident à prendre en main RemoteApp :
 - [FAQ Azure RemoteApp](remoteapp-faq.md)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

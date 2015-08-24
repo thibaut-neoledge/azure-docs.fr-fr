@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="07/06/2015" 
+    ms.date="08/12/2015" 
     ms.author="elizapo" />
 
 
@@ -42,5 +42,6 @@ Vous trouverez, ci-dessous, les exigences relatives à l’image qui peut être 
 - L'image doit être préparée avec SYSPREP en utilisant les paramètres **/oobe /generalize /shutdown** (n'utilisez PAS le paramètre **/mode:vm**).
 - Le téléchargement de votre disque dur virtuel à partir d’une chaîne d’instantanés n’est pas pris en charge.
  
+Consultez [Création d'une image Azure RemoteApp](remoteapp-imageoptions.md) pour plus d'informations sur la création d'images pour Azure RemoteApp.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

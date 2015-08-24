@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Clonage de votre volume StorSimple"
+   pageTitle="Clonage de votre volume StorSimple | Microsoft Azure"
    description="Décrit les différents types de clone et les moments auxquels les utiliser et explique comment vous pouvez utiliser un jeu de sauvegarde pour cloner un volume individuel."
    services="storsimple"
    documentationCenter="NA"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="05/27/2015"
+   ms.date="08/11/2015"
    ms.author="alkohli" />
 
 # Clonage d’un volume StorSimple
@@ -91,4 +91,4 @@ Découvrez comment [restaurer un volume StorSimple à partir d’un jeu de sauve
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

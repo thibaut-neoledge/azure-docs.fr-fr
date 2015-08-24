@@ -7,20 +7,20 @@
 	editor="mimig" 
 	documentationCenter=""/>
 
-
 <tags 
 	ms.service="documentdb" 
 	ms.workload="data-services" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/03/2015" 
+	ms.date="08/11/2015" 
 	ms.author="arramac"/>
-
 	
 # Indexation automatique dans Azure DocumentDB
 
-Cet article est une introduction au fonctionnement de l'indexation automatique dans DocumentDB, extrait du livre « Indexation du schéma non spécifié avec Azure DocumentDB » qui sera présenté à la [conférence VLDB de 2015](http://www.vldb.org/2015/). Après avoir lu cet article, vous serez en mesure de répondre aux questions suivantes :
+Cet article est extrait du livre [« Indexation du schéma non spécifié avec Azure DocumentDB »](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf) qui sera présenté à la [41e conférence VLDB](http://www.vldb.org/2015/) entre le 31 août et le 4 septembre 2015. C’est une introduction au fonctionnement de l’indexation dans Azure DocumentDB.
+
+Après avoir lu cet article, vous serez en mesure de répondre aux questions suivantes :
 
 - Comment DocumentDB déduit-t-il le schéma à partir d'un document JSON ?
 - Comment DocumentDB crée-t-il un index de documents disparates ?
@@ -34,7 +34,7 @@ Dans le but d'éliminer tout risque d’incohérence d’impédance entre la bas
 
 L’indexation dans DocumentDB tire parti du fait que la grammaire JSON permet que les documents soient **représentés sous forme d’arborescences**. Pour qu'un document JSON soit représenté sous forme d'arborescence, il est nécessaire de créer un nœud racine factice qui comporte le reste des nœuds réels du document en dessous. Chaque étiquette incluant les index de tableau d'un document JSON devient un nœud de l'arborescence. La figure ci-dessous illustre un exemple de document JSON et sa représentation correspondante sous forme d'arborescence.
 
->[AZURE.NOTE]Le caractère de JSON est autodescriptif, ce qui veut dire que chaque document inclut le schéma (les métadonnées) et les données, par exemple, `{"locationId", 5, "city": "Moscow"}` révèle qu'il existe deux propriétés `locationId` et `city`, et qu’elles disposent de valeurs de propriétés numériques et de valeurs de propriétés de chaîne. DocumentDB est en mesure de déduire le schéma de documents et de les indexer lorsqu'ils sont insérés ou remplacés, sans que vous ayez besoin de définir les schémas ou les index secondaires.
+>[AZURE.NOTE]Le caractère de JSON est autodescriptif, ce qui veut dire que chaque document inclut le schéma (les métadonnées) et les données, par exemple, `{"locationId", 5, "city": "Moscow"}` révèle qu'il existe deux propriétés `locationId` et `city`, et que celles-ci disposent de valeurs de propriétés numériques et de valeurs de propriétés de chaîne. DocumentDB est en mesure de déduire le schéma de documents et de les indexer lorsqu'ils sont insérés ou remplacés, sans que vous ayez besoin de définir les schémas ou les index secondaires.
 
 
 **Documents JSON sous forme d'arborescences :**
@@ -43,7 +43,7 @@ L’indexation dans DocumentDB tire parti du fait que la grammaire JSON permet 
 
 Par exemple, dans l’illustration ci-dessus :
 
-- La propriété JSON `{"headquarters": "Belgium"}` de l'exemple ci-dessus correspond au chemin /headquarters/Belgium.
+- La propriété JSON `{"headquarters": "Belgium"}` de l'exemple ci-dessus correspond au chemin /headquarters/Belgium.
 - Le tableau JSON `{"exports": [{"city": “Moscow"}`, `{"city": Athens"}]}` correspond aux chemins d’accès `/exports/[]/city/Moscow` et `/exports/[]/city/Athens`.
 
 Avec l’indexation automatique, (1) chaque chemin d’une arborescence de documents est indexé (à moins que le développeur ait configuré explicitement la stratégie d’indexation de manière à exclure certains modèles de chemin). (2) Chaque mise à jour d’un document d’une collection DocumentDB entraîne la mise à jour de la structure de l'index (c.-à-d. l’ajout de causes ou la suppression de nœuds). Une des exigences principales de l'indexation automatique de documents est de veiller à ce que le coût d’indexation et de requête d’un document via une structure fortement imbriquée (à 10 niveaux) soit identique à celui d'un document JSON plat, constitué de paires clé-valeur à un seul niveau d’imbrication. Par conséquent, une représentation normalisée, sous forme de chemin d'accès, constitue la fondation sur laquelle les sous-systèmes de requête et d'indexation automatique ont été créés.
@@ -62,8 +62,9 @@ La stratégie d'indexation par défaut indexe automatiquement toutes les propri�
 L’indexation de DocumentDB vous permet de prendre en charge une architecture mutualisée et d’obtenir une efficacité de stockage maximale. Pour des raisons économiques, la surcharge de stockage sur disque de l'index est limitée et prévisible. Les mises à jour de l'index sont également effectuées dans le budget des ressources système allouées par collection DocumentDB.
 
 ##<a name="NextSteps"></a>Étapes suivantes
-- Maintenant que vous avez découvert comment fonctionner l'indexation, consultez la rubrique [Interrogation avec le langage SQL de DocumentDB Azure](documentdb-sql-query.md) pour en savoir plus à ce sujet.
-- Pour en savoir plus sur la personnalisation de l'index DocumentDB, cliquez [ici](documentdb-indexing-policies.md)
+- Télécharger [« Indexation du schéma non spécifié avec Azure DocumentDB »](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf) qui sera présenté à la 41e conférence VLDB entre le 31 août et le 4 septembre 2015.
+- [Interrogation avec le langage SQL de DocumentDB](documentdb-sql-query.md)
+- Pour en savoir plus sur la personnalisation de l'index DocumentDB, cliquez [ici](documentdb-indexing-policies.md)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -1,55 +1,14 @@
-<table cellspacing="0" border="1">
-<tr>
-   <th align="left" valign="middle">Ressource</th>
-   <th align="left" valign="middle">Limite par défaut</th>
-   <th align="left" valign="middle">Limite maximale</th>
-</tr>
-<tr>
-   <td valign="middle"><p>Cœurs par <a href="http://msdn.microsoft.com/library/azure/hh531793.aspx">abonnement</a></p></td>
-   <td valign="middle"><p>20<sup>1</sup> par région</p></td>
-   <td valign="middle"><p>10&#160;000 par région</p></td>
-</tr>
-<tr>
-   <td valign="middle"><p><a href="http://msdn.microsoft.com/library/azure/gg456328.aspx">Coadministrateurs</a> par abonnement</p></td>
-   <td valign="middle"><p>Illimité</p></td>
-   <td valign="middle"><p>Illimité</p></td>
-</tr>
-<tr>
-   <td valign="middle"><p><a href="http://azure.microsoft.com/documentation/articles/storage-create-storage-account/">Comptes de stockage</a> par abonnement</p></td>
-   <td valign="middle"><p>100</p></td>
-   <td valign="middle"><p>100<sup>2</sup></p></td>
-</tr>
-<tr>
-   <td valign="middle"><p><a href="http://azure.microsoft.com/documentation/articles/resource-group-overview/">Groupes de ressources</a> par abonnement</p></td>
-   <td valign="middle"><p>800</p></td>
-   <td valign="middle"><p>800</p></td>
-</tr>
-<tr>
-   <td valign="middle"><p>Lectures API&#160;Resource&#160;Manager</p></td>
-   <td valign="middle"><p>32&#160;000 par heure</p></td>
-   <td valign="middle"><p>32&#160;000 par heure</p></td>
-</tr>
-<tr>
-   <td valign="middle"><p>Écritures API&#160;Resource&#160;Manager</p></td>
-   <td valign="middle"><p>1&#160;200 par heure</p></td>
-   <td valign="middle"><p>1&#160;200 par heure</p></td>
-</tr>
-<tr>
-   <td valign="middle"><p>Taille de la demande d’API Resource&#160;Manager</p></td>
-   <td valign="middle"><p>4&#160;194&#160;304&#160;octets</p></td>
-   <td valign="middle"><p>4&#160;194&#160;304&#160;octets</p></td>
-</tr>
-<tr>
-   <td valign="middle"><p><a href="http://azure.microsoft.com/documentation/articles/cloud-services-what-is/">Services cloud</a> par abonnement</p></td>
-   <td valign="middle"><p>Déconseillé<sup>3</sup></p></td>
-   <td valign="middle"><p>Déconseillé<sup>3</sup></p></td>
-</tr>
-<tr>
-   <td valign="middle"><p><a href="http://msdn.microsoft.com/library/azure/jj156085.aspx">Groupes d'affinités</a> par abonnement</p></td>
-   <td valign="middle"><p>Déconseillé<sup>3</sup></p></td>
-   <td valign="middle"><p>Déconseillé<sup>3</sup></p></td>
-</tr>
-</table>
+Ressource|Limite par défaut|Limite maximale
+---|---|---
+Cœurs par [abonnement](http://msdn.microsoft.com/library/azure/hh531793.aspx)|20<sup>1</sup> par région|10 000 par région
+[Coadministrateurs](http://msdn.microsoft.com/library/azure/gg456328.aspx) par abonnement|Illimité|Illimité
+[Comptes de stockage](storage-create-storage-account.md) par abonnement|100|100<sup>2</sup>
+[Groupes de ressources](resource-group-overview.md) par abonnement|800|800
+Lectures API Resource Manager|32 000 par heure|32 000 par heure
+Écritures API Resource Manager|1 200 par heure|1 200 par heure
+Taille de la demande d’API Resource Manager|4 194 304 octets|4 194 304 octets
+[Services cloud](cloud-services-what-is.md) par abonnement|Déconseillé<sup>3</sup>|Déconseillé<sup>3</sup>
+[Groupes d'affinités](http://msdn.microsoft.com/library/azure/jj156085.aspx) par abonnement|Déconseillé<sup>3</sup>|Déconseillé<sup>3</sup>
 
 <sup>1</sup>Les limites par défaut varient selon le type de catégorie d'offre, comme Version d'évaluation gratuite, Paiement à l'utilisation, etc.
 
@@ -57,4 +16,4 @@
 
 <sup>3</sup>Ces fonctionnalités ne sont plus nécessaires avec les groupes de ressources Azure et Azure Resource Manager.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

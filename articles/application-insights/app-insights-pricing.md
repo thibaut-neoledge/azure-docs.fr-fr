@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/09/2015" 
+	ms.date="08/11/2015" 
 	ms.author="awills"/>
 
 # Gestion de la tarification et du quota pour Application Insights
@@ -31,7 +31,23 @@ Vous pouvez ouvrir le panneau relatif au quota et à la tarification depuis les 
 
 ![Cliquez sur paramètres, Quota + tarification.](./media/app-insights-pricing/01-pricing.png)
 
-## Comment fonctionne le quota ?
+Le mécanisme de tarification que vous choisissez a une incidence sur les éléments suivants :
+
+* [Quota mensuel](#monthly-quota) : volume de données de télémétrie que vous pouvez analyser chaque mois.
+* [Débit de données](#data-rate) : vitesse de traitement maximale des données de votre application.
+* [Rétention](#data-retention) : durée pendant laquelle les données sont conservées dans le portail Application Insights à votre intention.
+* [Exportation continue](#continuous-export) : possibilité ou non d’exporter des données vers d’autres outils et services.
+
+Ces limites sont définies séparément pour chacune des ressources Application Insights.
+
+### Version d’évaluation Premium gratuite
+
+Lorsque vous créez une nouvelle ressource Application Insights, celle-ci démarre en mode gratuit.
+
+Vous pouvez à tout moment passer à la version d’évaluation Premium gratuite de 30 jours. Celle-ci vous offre les avantages du niveau Premium. Après 30 jours, vous revenez automatiquement au niveau dans lequel vous vous trouviez précédemment, à moins d’avoir choisi explicitement un autre niveau. Vous sélectionnez le niveau souhaité à tout moment pendant la période d’évaluation, tout en bénéficiant toujours de l’évaluation gratuite jusqu’au terme de la période de 30 jours.
+
+
+## Quota mensuel
 
 * Chaque mois calendaire, votre application peut envoyer une quantité spécifique de données de télémétrie à Application Insights. Consultez le [mécanisme de tarification][pricing] pour les nombres réels. 
 * Le quota varie selon le niveau de tarification que vous avez choisi.
@@ -41,7 +57,7 @@ Vous pouvez ouvrir le panneau relatif au quota et à la tarification depuis les 
 * Les *données de session* ne sont pas comptabilisées dans le quota. Cela inclut le nombre d’utilisateurs, de sessions et les données relatives à l’environnement et aux appareils.
 
 
-## Dépassement
+### Dépassement
 
 Si votre application dépasse le quota d’envoi mensuel, vous pouvez :
 
@@ -49,20 +65,52 @@ Si votre application dépasse le quota d’envoi mensuel, vous pouvez :
 * Mettre à jour votre niveau de tarification.
 * Ne rien faire. Les données de session continueront à être enregistrées, mais les autres données n’apparaîtront pas dans Recherche de diagnostic ou Metrics explorer.
 
-## Version d’évaluation Premium gratuite
 
-Lorsque vous créez une nouvelle ressource Application Insights, celle-ci démarre en mode gratuit.
+### Quelle quantité de données suis-je en train d’envoyer ?
 
-Vous pouvez à tout moment passer à la version d’évaluation Premium gratuite de 30 jours. Celle-ci vous offre les avantages du niveau Premium. Après 30 jours, vous revenez automatiquement au niveau dans lequel vous vous trouviez précédemment, à moins d’avoir choisi explicitement un autre niveau. Vous sélectionnez le niveau souhaité à tout moment pendant la période d’évaluation, tout en bénéficiant toujours de l’évaluation gratuite jusqu’au terme de la période de 30 jours.
-
-
-## Comment mon quota a été utilisé ?
-
-Le graphique en bas du panneau de tarification illustre l’utilisation des points de données de votre application, regroupées par type.
+Le graphique au bas du panneau de tarification illustre le volume des points de données de votre application, regroupés par type. (Vous pouvez également créer ce graphique dans Metrics Explorer).
 
 ![Au bas du panneau de tarification](./media/app-insights-pricing/03-allocation.png)
 
 Cliquez sur le graphique pour plus d’informations ou sélectionnez une partie de ce dernier pour obtenir des informations sur une période.
+
+
+## Débit de données
+
+Outre le quota mensuel, il existe des seuils de limitation en matière de débit de données. Pour le [niveau de tarification][pricing] Gratuit, la limite correspond à un débit moyen de 200 points de données par seconde sur une période de 5 minutes ; pour les niveaux de tarification payants, cette limite équivaut à un débit moyen de 500 points de données par seconde sur une période de 1 minute.
+
+Il existe trois compartiments qui sont comptabilisés séparément :
+
+* [appels TrackTrace](app-insights-api-custom-events-metrics.md#track-trace) et [journaux capturés](app-insights-asp-net-trace-logs.md) ;
+* [exceptions](app-insights-api-custom-events-metrics.md#track-exception), limitées à 50 points/s ;
+* toutes les autres données de télémétrie (pages consultées, sessions, demandes, dépendances, métriques, événements personnalisés).
+
+Si le volume de données envoyées par votre application dépasse cette limite, certaines de ces données sont supprimées. Si tel est le cas, vous en êtes informé par un avertissement.
+
+### Conseils destinés à réduire votre débit de données
+
+Si vous rencontrez les seuils de limitation, voici quelques opérations à effectuer :
+
+* Désactivez les modules de collecte dont vous n’avez pas besoin en [modifiant ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md). Par exemple, vous pouvez décider que les compteurs de performances ou les données de dépendance ne sont pas essentiels.
+* Procédez à la pré-agrégation des métriques. Si vous avez placé des appels de TrackMetric dans votre application, vous pouvez réduire le trafic en utilisant la surcharge qui accepte votre calcul de la moyenne et de l’écart type d’un lot de mesures. Une autre possibilité consiste à utiliser un [package de pré-agrégation](https://www.myget.org/gallery/applicationinsights-sdk-labs). 
+
+
+### Limites de nom
+
+1.	Un maximum de 200 noms de mesure uniques et de 200 noms de propriété unique pour votre application. Les mesures comprennent l’envoi de données via TrackMetric ainsi que des mesures sur d’autres types de données tels que des événements. Les [noms de mesure et de propriété][api] sont globaux pour chaque clé d’instrumentation et ne s’étendent pas au type de données.
+2.	Les [propriétés][apiproperties] peuvent être utilisées pour le filtrage et le regroupement uniquement lorsqu’il y a moins de 100 valeurs uniques pour chaque propriété. Lorsque les valeurs uniques dépassent 100, la propriété peut toujours être utilisée pour effectuer une recherche et un filtrage, mais elle ne peut plus être utilisée pour des filtres.
+3.	Les propriétés standard telles que le nom de la requête et l’URL de la page sont limitées à 1 000 valeurs uniques par semaine. Au-delà de 1 000 valeurs uniques, les valeurs supplémentaires sont marquées comme « Autres valeurs ». La valeur d'origine peut toujours être utilisée pour une recherche de texte intégrale et pour le filtrage.
+
+## Conservation des données
+
+Votre niveau de tarification détermine la durée de conservation des données dans le portail, et donc les intervalles de temps les plus éloignés dont vous pouvez consulter les données.
+
+
+* Les points de données bruts (autrement dit, les instances que vous pouvez inspecter dans Recherche de diagnostic) sont conservés entre 7 et 30 jours.
+* Les données agrégées (autrement dit, les nombres, moyennes et autres données statistiques que vous voyez dans Metrics Explorer) sont conservées pour une minute pendant 30 jours et pour une heure ou un jour (selon le type) pendant 13 mois.
+
+
+
 
 ## Consultation de la facture de votre abonnement à Azure
 
@@ -75,10 +123,11 @@ Les frais liés à Application Insights sont ajoutés à votre facture Azure. Le
 
 <!--Link references-->
 
-
+[api]: app-insights-api-custom-events-metrics.md
+[apiproperties]: app-insights-api-custom-events-metrics.md#properties
 [start]: app-insights-get-started.md
 [pricing]: http://azure.microsoft.com/pricing/details/application-insights/
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

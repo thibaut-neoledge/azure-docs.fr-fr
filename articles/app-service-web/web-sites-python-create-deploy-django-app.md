@@ -36,7 +36,7 @@ Vous allez créer une application à l’aide de l’infrastructure web Django (
 - Python 2.7 ou 3.4
 - setuptools, pip, virtualenv (Python 2.7 uniquement)
 - Git
-- [Python Tools 2.1 pour Visual Studio](optional)
+- [Python Tools 2.1 pour Visual Studio] - Ceci est facultatif
 
 **Remarque** : la publication de TFS n’est actuellement pas prise en charge pour les projets Python.
 
@@ -508,6 +508,7 @@ Pour plus d’informations sur l’utilisation de Base de données SQL et de MyS
 [Git pour Windows]: http://msysgit.github.io/
 [GitHub pour Windows]: https://windows.github.com/
 [Python Tools for Visual Studio]: http://aka.ms/ptvs
+[Python Tools 2.1 pour Visual Studio]: http://go.microsoft.com/fwlink/?LinkId=517189
 [Python Tools 2.1 pour Visual Studio]: http://go.microsoft.com/fwlink/?LinkId=517189
 [Visual Studio]: http://www.visualstudio.com/
 [documentation de PTVS]: http://pytools.codeplex.com/documentation
@@ -515,4 +516,4 @@ Pour plus d’informations sur l’utilisation de Base de données SQL et de MyS
 [Documentation Django]: https://www.djangoproject.com/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -3,7 +3,7 @@
 	description="Découvrez comment utiliser et optimiser votre Mobile Engagement avec les analyses et les notifications push"
 	services="mobile-engagement"
 	documentationCenter="Mobile"
-	authors="kpiteira"
+	authors="piyushjo"
 	manager="dwrede"
 	editor="" />
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="02/10/2015"
-	ms.author="kapiteir" />
+	ms.date="08/10/2015"
+	ms.author="piyushjo" />
 
 #Définir votre stratégie Mobile Engagement
 
@@ -128,4 +128,4 @@ Tous ces types de données peuvent être agrémentés de paramètres (`extra-inf
 [Didacticiels]: http://azure.microsoft.com/documentation/articles/mobile-engagement-ios-get-started/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

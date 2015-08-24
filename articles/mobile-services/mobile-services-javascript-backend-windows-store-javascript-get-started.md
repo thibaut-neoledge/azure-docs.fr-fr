@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Prise en main de Mobile Services pour les applications Windows Store | Centre de développement mobile" 
+	pageTitle="Prise en main de Mobile Services pour les applications Windows Store | Microsoft Azure" 
 	description="Suivez ce didacticiel pour commencer à utiliser Azure Mobile Services pour le développement Windows Store en C# ou JavaScript." 
 	services="mobile-services" 
 	documentationCenter="windows" 
@@ -93,4 +93,4 @@ Pour plus d'informations sur les applications Windows universelles, consultez la
 [Management Portal]: https://manage.windowsazure.com/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

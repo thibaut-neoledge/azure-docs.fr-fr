@@ -10,7 +10,7 @@
 	ms.service="application-insights" 
 	ms.workload="tbd" 
 	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="na" 
+	ms.devlang="multiple" 
 	ms.topic="article" 
 	ms.date="08/04/2015" 
 	ms.author="awills"/>
@@ -329,19 +329,6 @@ Si vous avez plusieurs onglets dans différentes pages HTML, vous pouvez aussi s
 
     appInsights.trackPageView("tab1", "http://fabrikam.com/page1.htm");
 
-#### Affichages de pages datées
-
-En utilisant cette paire d'appels de méthodes au lieu de trackPageView, vous pouvez analyser la durée pendant laquelle les utilisateurs restent sur vos pages.
-
-    // At the start of a page view:
-    appInsights.startTrackPage(myPage.name);
-
-    // At the completion of a page view:
-    appInsights.stopTrackPage(myPage.name, "http://fabrikam.com/page", properties, measurements);
-
-Utilisez la même chaîne en tant que premier paramètre dans les appels de démarrage et d'arrêt.
-
-Regardez la mesure de durée de page dans [Metrics Explorer][metrics].
 
 
 ## Suivi des requêtes
@@ -420,9 +407,9 @@ Utilisez cet appel pour suivre les temps de réponse et les taux de réussite de
             }
 ```
 
-N'oubliez pas que les kits de développement logiciel de serveur incluent un [module de dépendance](app-insights-dependencies.md) qui détecte et effectue le suivi de certains appels de dépendance automatiquement. C’est le cas, par exemple, des bases de données et des API REST. Vous devez installer un agent sur votre serveur pour que le module fonctionne. Vous utiliserez cet appel si vous souhaitez effectuer le suivi des appels qui ne sont pas interceptés par le système de suivi automatisé, ou si vous ne souhaitez pas installer l'agent.
+N’oubliez pas que les Kits de développement logiciel (SDK) de serveur incluent un [module de dépendance](app-insights-dependencies.md) qui détecte certains appels de dépendance et en effectue le suivi automatiquement. C’est notamment le cas des bases de données et des API REST. Vous devez installer un agent sur votre serveur pour que le module fonctionne. Vous utiliserez cet appel si vous souhaitez effectuer le suivi des appels qui ne sont pas interceptés par le système de suivi automatisé, ou si vous ne souhaitez pas installer l'agent.
 
-Pour désactiver le module de suivi des dépendances standard, modifiez [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md) et supprimez la référence à `DependencyCollector.DependencyTrackingTelemetryModule`.
+Pour désactiver le module de suivi des dépendances standard, modifiez le fichier [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md) et supprimez la référence à `DependencyCollector.DependencyTrackingTelemetryModule`.
 
 ## <a name="defaults"></a>Définir les paramètres par défaut de la télémétrie personnalisée sélectionnée
 
@@ -561,7 +548,7 @@ Utilisez des initialiseurs de télémétrie pour remplacer le comportement séle
 
 Par exemple, le package Application Insights pour le Web collecte la télémétrie sur les requêtes HTTP. Il indique par défaut l’échec de toute requête à l’aide d’un code de réponse supérieur ou égal à 400. Toutefois, si 400 vous convient, vous pouvez fournir un initialiseur de télémétrie qui définit la propriété Success.
 
-Si vous fournissez un initialiseur de télémétrie, celui-ci est appelé chaque fois qu'une des méthodes Track*() est appelée. Cela inclut les méthodes appelées par les modules de télémétrie standard. Par convention, ces modules ne définissent aucune propriété déjà définie par un initialiseur.
+Si vous fournissez un initialiseur de télémétrie, celui-ci est appelé chaque fois qu'une des méthodes Track\*() est appelée. Cela inclut les méthodes appelées par les modules de télémétrie standard. Par convention, ces modules ne définissent aucune propriété déjà définie par un initialiseur.
 
 **Définir votre initialiseur**
 
@@ -715,7 +702,7 @@ Si vous définissez une de ces valeurs vous-même, supprimez la ligne approprié
  * **ID** : une valeur générée qui met en relation différents événements de manière à ce que vous trouviez les « Éléments associés » lorsque vous inspectez un événement dans la Recherche de diagnostic.
  * **Nom** : l'URL de la requête HTTP
  * **SyntheticSource** : si elle est non nulle ou vide, cette chaîne indique que la source de la requête a été identifiée en tant que robot ou test web. Par défaut, celle-ci sera exclue des calculs dans Metrics Explorer.
-* **Propriétés** : ce sont les propriétés qui sont envoyées avec toutes les données de télémétrie. Elles peuvent être remplacées dans les appels Track* individuels.
+* **Propriétés** : ce sont les propriétés qui sont envoyées avec toutes les données de télémétrie. Elles peuvent être remplacées dans les appels Track\* individuels.
 * **Session** : identifie la session de l’utilisateur. L'ID est définie sur une valeur générée qui est modifiée lorsque l'utilisateur n'a pas été actif pendant un certain temps.
 * **Utilisateur** : permet aux utilisateurs d'être comptés. Dans une application web, s'il existe un cookie, l'ID d'utilisateur est supprimé de celui-ci. S'il n'en existe pas, un nouveau est généré. Si vos utilisateurs doivent se connecter à votre application, vous pouvez définir l’ID depuis leur ID d’authentification, afin de fournir un nombre plus fiable qui est juste même si l'utilisateur se connecte à partir d'une autre machine. 
 
@@ -744,7 +731,7 @@ Il existe certaines limites au nombre de mesures et d’événements par applica
 
 ## Questions
 
-* *Quelles exceptions peuvent être lancées par les appels Track* ?*
+* *Quelles exceptions peuvent être lancées par les appels Track\* ?*
     
     Aucun. Vous n’aurez pas besoin de les inclure dans des clauses catch.
 
@@ -781,4 +768,4 @@ Il existe certaines limites au nombre de mesures et d’événements par applica
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

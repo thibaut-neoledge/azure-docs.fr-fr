@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="07/22/2015"
+   ms.date="08/10/2015"
    ms.author="jgao"/>
 
 #Approvisionnement de clusters dans HDInsight
@@ -220,7 +220,7 @@ Pour plus d'informations sur les fonctions, les avantages et les capacités d'Az
 
 > [AZURE.NOTE]Vous devez créer le réseau Azure Virtual Network avant d’approvisionner un cluster HDInsight. Pour plus d'informations, consultez [Tâches de configuration de réseau virtuel](http://msdn.microsoft.com/library/azure/jj156206.aspx).
 >
->[AZURE.NOTE]Azure HDInsight prend uniquement en charge les réseaux virtuels basés sur l'emplacement et ne fonctionne pas pour le moment avec les réseaux virtuels basés sur des groupes d'affinités. Utilisez l’applet de commande Get-AzureVNetConfig d’Azure PowerShell pour vérifier si un réseau virtuel Azure est basé sur l'emplacement. Si votre réseau virtuel n'est pas basé sur l'emplacement, vous disposez des options suivantes :
+> [AZURE.NOTE]Azure HDInsight prend uniquement en charge les réseaux virtuels basés sur l'emplacement et ne fonctionne pas pour le moment avec les réseaux virtuels basés sur des groupes d'affinités. Utilisez l’applet de commande Get-AzureVNetConfig d’Azure PowerShell pour vérifier si un réseau virtuel Azure est basé sur l'emplacement. Si votre réseau virtuel n'est pas basé sur l'emplacement, vous disposez des options suivantes :
 >
 > - Exportez la configuration du réseau virtuel existant, puis créez un réseau virtuel. Les nouveaux réseaux virtuels sont basés par défaut sur l’emplacement.
 > - Migrez vers un réseau virtuel basé sur l’emplacement. Consultez la rubrique [Migration des services existants vers une portée régionale](http://azure.microsoft.com/blog/2014/11/26/migrating-existing-services-to-regional-scope/).
@@ -782,4 +782,4 @@ Cet article vous a présenté différentes méthodes pour configurer un cluster 
 [hdinsight-sdk-documentation]: http://msdn.microsoft.com/library/dn479185.aspx
 [azure-management-portal]: https://manage.windowsazure.com
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

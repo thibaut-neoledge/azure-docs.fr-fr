@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Traitement des événements de concentrateurs d’événements avec Storm sur HDInsight | Azure"
+   pageTitle="Traitement des événements de hubs d’événements avec Storm sur HDInsight | Microsoft Azure"
    description="Découvrez comment traiter les données de concentrateurs d’événements avec une topologie Storm C# créée dans Visual Studio à l’aide de HDInsight Tools pour Visual Studio."
    services="hdinsight,notification hubs"
    documentationCenter=""
@@ -557,4 +557,4 @@ Dans ce document, vous avez découvert comment utiliser le spout et le bolt du h
 * [Exemples de topologies pour Storm dans HDInsight](hdinsight-storm-example-topology.md)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

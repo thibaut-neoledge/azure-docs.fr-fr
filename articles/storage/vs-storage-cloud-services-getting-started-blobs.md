@@ -1,22 +1,20 @@
 <properties 
-	pageTitle="Mise en route avec le stockage d’objets blob Azure et les appareils connectés Visual Studio" 
-	description="Mise en route de l'utilisation du stockage d'objets blob Azure dans un projet de service cloud dans Visual Studio" 
-	services="storage" 
-	documentationCenter="" 
-	authors="patshea123" 
-	manager="douge" 
+	pageTitle="Mise en route avec le stockage d’objets blob Azure et les appareils connectés Visual Studio"
+	description="Mise en route de l'utilisation du stockage d'objets blob Azure dans un projet de service cloud dans Visual Studio"
+	services="storage"
+	documentationCenter=""
+	authors="patshea123"
+	manager="douge"
 	editor="tglee"/>
 
-
 <tags 
-	ms.service="storage" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="vs-getting-started" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/04/2015" 
+	ms.service="storage"
+	ms.workload="web"
+	ms.tgt_pltfrm="vs-getting-started"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/04/2015"
 	ms.author="patshea123"/>
-
 
 # Mise en route avec le stockage d’objets blob Azure et les appareils connectés Visual Studio
 
@@ -182,7 +180,7 @@ et voici les résultats :
 	Block blob of length 399751: https://<accountname>.blob.core.windows.net/photos/2011/photo7.jpg
 	Block blob of length 505623: https://<accountname>.blob.core.windows.net/photos/photo1.jpg
 
-Pour plus d’informations, consultez [CloudBlobContainer.ListBlobs\][\].
+Pour plus d’informations, consultez [CloudBlobContainer.ListBlobs][].
 
 ## Télécharger des objets blob
 
@@ -264,10 +262,10 @@ Comme l’exemple de méthode appelle une méthode asynchrone, il doit être pr�
             continuationToken = resultSegment.ContinuationToken;
         }
         while (continuationToken != null);
-    }ddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
+    }
 
 ## Étapes suivantes
 
 [AZURE.INCLUDE [vs-storage-dotnet-blobs-next-steps](../../includes/vs-storage-dotnet-blobs-next-steps.md)]
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

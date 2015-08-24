@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Prise en main d'Azure Mobile Apps pour les applications Xamarin Android - Azure Mobile App"
+	pageTitle="Prise en main d'Azure Mobile Apps pour les applications Xamarin Android | Microsoft Azure"
 	description="Suivez ce didacticiel pour commencer à utiliser Azure Mobile Apps pour le développement d'applications Xamarin Android."
 	services="app-service\mobile"
 	documentationCenter="xamarin"
@@ -110,4 +110,4 @@ La dernière étape de ce didacticiel consiste à générer et à exécuter votr
 [Xamarin for Windows]: https://go.microsoft.com/fwLink/?LinkID=330242&clcid=0x409
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Informations relatives à la suppression de la famille 1 des systèmes d'exploitation invités | Azure" 
+   pageTitle="Informations relatives à la suppression de la famille 1 des systèmes d'exploitation invités | Microsoft Azure" 
    description="Fournit des informations sur la suppression de la famille 1 des SE invités d'Azure et sur la façon de déterminer si vous êtes concerné" 
    services="cloud-services" 
    documentationCenter="na" 
@@ -78,4 +78,4 @@ Nous vous recommandons de migrer vos rôles de service cloud vers l'une des fami
 ## Fin de la prise en charge étendue pour la famille 1 des SE invités depuis le 3 novembre 2014
 Les services cloud de la famille 1 des SE invités ne sont plus pris en charge. Veuillez quitter la famille 1 dès que possible pour éviter toute interruption de service.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -2,7 +2,7 @@
     pageTitle="Meilleures pratiques pour Azure RemoteApp"
     description="Meilleures pratiques pour la configuration et l'utilisation d’Azure RemoteApp"
     services="remoteapp"
-	documentationCenter=""
+    documentationCenter=""
     authors="lizap"
     manager="mbaldwin" />
 
@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="05/28/2015" 
+    ms.date="08/12/2015" 
     ms.author="elizapo" />
 
 # Meilleures pratiques pour la configuration et l'utilisation d'Azure RemoteApp
@@ -44,4 +44,4 @@ Les informations suivantes peuvent vous aider à configurer et utiliser efficace
 	- Désactivez les mises à jour logicielles automatiques pour les applications publiées. Appliquez-les plutôt manuellement à l'image de modèle et testez-les avant d'effectuer le déploiement à partir du modèle.
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

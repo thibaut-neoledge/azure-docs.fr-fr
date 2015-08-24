@@ -25,7 +25,7 @@ Dans Azure Scheduler, les collections de travaux constituent l'entité facturabl
 |:---|:---|:---|:---|:---|
 |**Gratuit**|5 travaux par collection|Une fois par heure. Ne peut pas exécuter des travaux plus souvent qu'une fois par heure|Un abonnement est autorisé jusqu'à 1 collection de travaux gratuite|Impossible d'utiliser un [objet d'autorisation sortante HTTP](scheduler-outbound-authentication.md)
 |**Standard**|50 travaux par collection|Une fois par minute. Ne peut pas exécuter des travaux plus souvent qu'une fois par minute|Un abonnement est autorisé jusqu'à 100 collections de travaux standard|Accès à l'ensemble complet des fonctionnalités de Scheduler|
-|**Premium**|50 travaux par collection|Une fois par minute. Ne peut pas exécuter des travaux plus souvent qu'une fois par minute|Aucune limite sur le nombre de collections de travaux Premium dans un abonnement|Accès à l'ensemble complet des fonctionnalités de Scheduler|
+|**Premium**|50 travaux par collection|Une fois par minute. Ne peut pas exécuter des travaux plus souvent qu'une fois par minute|Un abonnement autorise jusqu’à 10 000 collections de travaux Premium. Pour augmenter cette limite, <a href="mailto:wapteams@microsoft.com">contactez-nous</a>.|Accès à l'ensemble complet des fonctionnalités de Scheduler|
 
 ## Mises à niveau et versions antérieures des Plans de collections de travaux
 
@@ -34,13 +34,13 @@ Vous pouvez mettre à niveau ou rétrograder un plan de collection de travaux à
 - Il existe déjà une collection de travaux gratuite dans l'abonnement.
 - Un travail de la collection de travaux a une périodicité supérieure à celle autorisée pour les travaux dans les collections de travaux gratuites. La périodicité maximale autorisée dans une collection de travaux gratuite est une fois par heure.
 - La collection de travaux contient plus de 5 travaux.
-- Un travail de la collection de travaux a une action HTTP ou HTTPS qui utilise un [objet d'autorisation sortante HTTP](scheduler-outbound-authentication.md)
+- Un travail de la collection de travaux comporte une action HTTP ou HTTPS qui utilise un [objet d’autorisation sortante HTTP](scheduler-outbound-authentication.md).
 
 ## Facturation et plans Azure
 
 Les abonnements ne sont pas facturés pour les collections de travaux gratuites. Si vous avez plus de 100 collections de travaux standard (10 unités de facturation standard), il est plus intéressant de regrouper toutes les collections de travaux dans le plan Premium.
 
-Si vous avez une collection de travaux Standard et une collection de travaux Premium, vous êtes facturé une unité de facturation standard _et_ une unité de facturation premium. Le service de Scheduler facture en fonction du nombre de collections de travaux actives qui sont définies sur Standard ou Premium. Ceci est expliqué dans les deux sections suivantes.
+Si vous disposez d’une collection de travaux Standard et d’une collection de travaux Premium, une unité de facturation standard _et_ une unité de facturation premium vous sont facturées. Le service de Scheduler facture en fonction du nombre de collections de travaux actives qui sont définies sur Standard ou Premium. Ceci est expliqué dans les deux sections suivantes.
 
 ## Unités facturables standard
 
@@ -58,13 +58,13 @@ Ainsi, les collections de travaux premium ont les mêmes fonctionnalités que le
 
 ## Facturation et état Actif
 
-Les collections de travaux sont toujours actives, sauf si votre abonnement entier est dans un état temporaire désactivé en raison de problèmes de facturation. La seule façon de s'assurer qu'une collection de travaux n'est pas facturée est de la définir dans le plan _Gratuit_ ou de la supprimer.
+Les collections de travaux sont toujours actives, sauf si votre abonnement entier est dans un état temporaire désactivé en raison de problèmes de facturation. La seule façon de s’assurer qu’une collection de travaux n’est pas facturée est de la définir dans le plan _Gratuit_ ou de la supprimer.
 
-Bien que vous puissiez désactiver tous les travaux dans une collection de travaux en une seule opération, cela ne modifie pas l'état de facturation de la collection de travaux : celle-ci sera _tout de même_ facturée. De même, les collections de travaux vides sont considérées comme actives et seront facturées.
+Bien que vous puissiez désactiver tous les travaux d’une collection de travaux en une seule opération, cela ne modifie pas l’état de facturation de la collection de travaux : celle-ci sera _tout de même_ facturée. De même, les collections de travaux vides sont considérées comme actives et seront facturées.
 
 ## Tarification
 
-Pour plus d'informations sur la tarification, consultez [Tarification d'Azure Scheduler](http://azure.microsoft.com/pricing/details/scheduler/).
+Pour plus d’informations sur la tarification, voir l’article [Tarification d’Azure Scheduler](http://azure.microsoft.com/pricing/details/scheduler/).
 
 ## Voir aussi
  
@@ -87,4 +87,4 @@ Pour plus d'informations sur la tarification, consultez [Tarification d'Azure Sc
  [Authentification sortante de Scheduler](scheduler-outbound-authentication.md)
   
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

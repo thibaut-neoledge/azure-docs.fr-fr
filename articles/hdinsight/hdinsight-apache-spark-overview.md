@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Vue d’ensemble d’Apache Spark dans HDInsight | Azure" 
+	pageTitle="Vue d’ensemble d’Apache Spark dans HDInsight | Microsoft Azure" 
 	description="Présentation d’Apache Spark dans HDInsight et des scénarios dans lesquels utiliser Spark sur HDInsight dans vos applications." 
 	services="hdinsight" 
 	documentationCenter="" 
@@ -99,4 +99,4 @@ Spark dans HDInsight fournit également un [pilote ODBC](http://go.microsoft.co
 
 [hdinsight-storage]: ../hdinsight-use-blob-storage/
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

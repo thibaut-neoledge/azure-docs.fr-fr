@@ -7,16 +7,14 @@
    manager="dwrede" 
    editor=""/>
 
-
 <tags
    ms.service="mobile-engagement"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="mobile-multiple"
    ms.workload="mobile" 
-   ms.date="02/17/2015"
+   ms.date="08/10/2015"
    ms.author="piyushjo"/>
-
 
 
 # Utilisation des critères de ciblage pour envoyer des campagnes push à un sous-ensemble donné de vos utilisateurs
@@ -176,4 +174,4 @@ Si vous souhaitez effectuer une transmission de type Push pour faire une annonce
 [Link 29]: mobile-engagement-user-interface-reach-content.md
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

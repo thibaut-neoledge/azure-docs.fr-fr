@@ -8,16 +8,14 @@
 	editor=""/>
 
 
-
 <tags 
 	ms.service="sql-database" 
 	ms.workload="data-management" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="08/05/2015" 
+	ms.date="08/10/2015" 
 	ms.author="genemi"/>
-
 
 
 # Nouveautés de SQL Database V12
@@ -31,6 +29,9 @@ Nous continuons d’ajouter des fonctionnalités à la version 12 (V12). Par co
 
 - Filtrez sur [Service SQL Database](http://azure.microsoft.com/updates/?service=sql-database).
 - Filtrez sur [annonces](http://azure.microsoft.com/updates/?service=sql-database&update-type=general-availability) de disponibilité générale pour les fonctionnalités SQL Database.
+
+
+Les dernières informations sur les limites de ressources pour une base de données SQL se trouvent sur la page :<br/>[Limites de ressources d’une base de données SQL Azure](sql-database-resource-limits.md).
 
 
 ## Compatibilité améliorée des applications avec SQL Server
@@ -47,7 +48,7 @@ Un objectif important de la version 12 (V12) de SQL Database était d’amélio
 - [Recherche en texte intégral](http://msdn.microsoft.com/library/ms142571.aspx)
 
 
-Consultez [cette page](http://msdn.microsoft.com/library/azure/ee336281.aspx) pour découvrir les quelques fonctionnalités non prises en charge par SQL Database.
+Consultez [cette page](http://msdn.microsoft.com/library/azure/ee336281.aspx) pour découvrir les quelques fonctionnalités non prises en charge par Base de données SQL.
 
 
 ## Plus de performances pour le niveau Premium, nouveaux niveaux de performances
@@ -92,18 +93,12 @@ La version 12 (V12) offre des valeurs sensiblement améliorées pour les object
 
 | Fonctionnalité de continuité des activités | Version antérieure | Version 12 (V12) |
 | :-- | :-- | :-- |
-| Géo-restauration | • RPO < 24 heures.<br/>
-• ERT < 12 heures. | • RPO < 1 heure.<br/>
-• ERT < 12 heures. |
-| Géo-réplication standard | • RPO < 30 minutes.<br/>
-• ERT < 2 heures. | • RPO < 5 secondes.<br/>
-• ERT < 30 secondes. |
-| Géo-réplication active | • RPO < 5 minutes.<br/>
-• ERT < 1 heure. | • RPO < 5 secondes.<br/>
-• ERT < 30 secondes. |
+| Géo-restauration | • RPO < 24 heures.<br/>• ERT < 12 heures. | • RPO < 1 heure.<br/>• ERT < 12 heures. |
+| Géo-réplication standard | • RPO < 30 minutes.<br/>• ERT < 2 heures. | • RPO < 5 secondes.<br/>• ERT < 30 secondes. |
+| Géo-réplication active | • RPO < 5 minutes.<br/>• ERT < 1 heure. | • RPO < 5 secondes.<br/>• ERT < 30 secondes. |
 
 
-Pour plus d’informations, consultez la rubrique [Continuité de l’activité SQL Database](https://msdn.microsoft.com/library/azure/hh852669.aspx).
+Pour plus d’informations, consultez la rubrique [Continuité de l’activité Base de données SQL Azure](https://msdn.microsoft.com/library/azure/hh852669.aspx).
 
 
 ## Autres raisons pour effectuer la mise à niveau maintenant
@@ -114,18 +109,7 @@ Il y a de nombreuses bonnes raisons pour lesquelles les clients doivent passer d
 
 - SQL Database V12 présente une longue liste de fonctionnalités, bien plus longue que celle de la version 11.
 - Nous continuons à ajouter de nouvelles fonctionnalités à la version 12 (V12), mais aucune nouvelle fonctionnalité ne sera ajoutée à la 11.
-- La plupart des nouvelles fonctionnalités sont publiées dans la version 12 (V12) de SQL Database avant qu’elles ne soient intégrées à Microsoft SQL Server.
-
-
-## La passerelle ne fournit plus de logique de nouvelle tentative dans V12
-
-
-Avant la version V12, Azure SQL Database avait une passerelle qui agissait en tant que proxy pour mettre en mémoire tampon toutes les interactions entre la base de données et votre programme client. La passerelle fournissait une *logique de nouvelle tentative* automatisée pour certaines *erreurs temporaires*.
-
- V12 a supprimé la passerelle. Désormais, votre programme doit gérer plus en détail les erreurs temporaires. Pour plus d'informations, consultez :
-
-
-- [Connexion à SQL Database : liens, meilleures pratiques et règles de conception](sql-database-connect-central-recommendations.md#gatewaynoretry)
+- La plupart des nouvelles fonctionnalités sont publiées dans la version 12 (V12) de Base de données SQL avant qu’elles ne soient intégrées à Microsoft SQL Server.
 
 
 ## Vous utilisez déjà la version 12 (V12) ?
@@ -155,17 +139,12 @@ Les bases de données version 12 (V12) peuvent uniquement être hébergées su
 Si vous n’utilisez pas encore la version 12 (V12), vous pouvez mettre à niveau votre serveur logique en suivant les étapes de la section [Mise à niveau vers la version 12 (V12) de Base de données SQL](sql-database-v12-upgrade.md).
 
 
-## <a name="V12AzureSqlDbPreviewGaTable"></a>Régions en version préliminaire
+## <a name="V12AzureSqlDbPreviewGaTable"></a>Régions en disponibilité générale
 
 
-La version 12 (V12) a été publiée en décembre 2014, mais uniquement à l’état de version préliminaire.
+- Le 31 juillet 2015, toutes les régions avaient été promues en disponibilité générale.
+- La version 12 (V12) a été publiée en décembre 2014, mais uniquement à l’état de version préliminaire.
 
+Voir les [Conditions d’utilisation supplémentaires des versions préliminaires de Microsoft Azure](http://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-- Voir les [Conditions d’utilisation supplémentaires des versions préliminaires de Microsoft Azure](http://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-
-Le 31 juillet 2015, toutes les régions avaient été promues en disponibilité générale.
-
- 
-
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Utilisation du client Xamarin Component - Guide des fonctionnalités Azure Mobile Services" 
+	pageTitle="Utilisation du client Xamarin Component | Microsoft Azure" 
 	description="Découvrez comment utiliser le client Xamarin Component pour Azure Mobile Services." 
 	authors="lindydonna" 
 	manager="dwrede" 
@@ -113,7 +113,7 @@ Cela aurait pu également être écrit sur plusieurs lignes :
 
 Les deux méthodes sont équivalentes et peuvent être utilisées de manière interchangeable. La dernière option, qui consiste à concaténer plusieurs prédicats dans une même requête, est plus compacte. C'est celle que nous recommandons.
 
-La clause `where` prend en charge les opérations traduites dans le sous-ensemble OData Mobile Services. Cela inclut les opérateurs relationnels (==, !=, <, <=, >, >=), les opérateurs arithmétiques (+, -, /, *, %), la précision des nombres (Math.Floor, Math.Ceiling), les fonctions de chaîne (Length, Substring, Replace, IndexOf, StartsWith, EndsWith), les propriétés de date (Year, Month, Day, Hour, Minute, Second), les propriétés d'accès d'un objet, ainsi que les expressions qui combinent tous ces éléments.
+La clause `where` prend en charge les opérations traduites dans le sous-ensemble OData Mobile Services. Cela inclut les opérateurs relationnels (==, !=, <, <=, >, >=), les opérateurs arithmétiques (+, -, /, \*, %), la précision des nombres (Math.Floor, Math.Ceiling), les fonctions de chaîne (Length, Substring, Replace, IndexOf, StartsWith, EndsWith), les propriétés de date (Year, Month, Day, Hour, Minute, Second), les propriétés d'accès d'un objet, ainsi que les expressions qui combinent tous ces éléments.
 
 ### <a name="sorting"></a>Procédure : tri des données renvoyées
 
@@ -472,4 +472,4 @@ Maintenant que vous avez consulté ce guide de fonctionnement, découvrez en dé
 [MobileServiceAuthenticationToken]: http://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.mobileserviceauthenticationtoken.aspx
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

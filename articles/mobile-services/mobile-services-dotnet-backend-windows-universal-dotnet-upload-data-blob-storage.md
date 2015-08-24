@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Charger des images vers le stockage d’objets blob Azure à partir d’une application Windows universelle | Azure Mobile Services" 
+	pageTitle="Charger des images vers le stockage d’objets blob Azure à partir d’une application Windows universelle | Microsoft Azure" 
 	description="Découvrez comment utiliser un service mobile principal .NET pour charger des images vers le stockage d’objets blob Azure et y accéder à partir de votre application Windows universelle." 
 	documentationCenter="windows" 
 	authors="ggailey777" 
@@ -71,4 +71,4 @@ Maintenant que vous avez intégré votre service mobile au service BLOB et que v
 [Azure Storage Client library for Store apps]: http://go.microsoft.com/fwlink/p/?LinkId=276866
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

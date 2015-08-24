@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Prise en main des données (Android) | Centre de développement mobile" 
+	pageTitle="Prise en main des données (Android) | Microsoft Azure" 
 	description="Découvrez comment utiliser Mobile Services pour tirer profit des données de votre application Android." 
 	services="mobile-services" 
 	documentationCenter="android" 
@@ -156,4 +156,4 @@ Une fois que vous avez terminé les séries de données, essayez ces autres dida
 [Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=280125
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

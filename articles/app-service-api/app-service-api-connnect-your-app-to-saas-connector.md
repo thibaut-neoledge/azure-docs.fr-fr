@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="dotnet" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/08/2015" 
+	ms.date="08/06/2015" 
 	ms.author="tdykstra"/>
 
 # Déployer et configurer une application API de connecteur SaaS dans Microsoft Azure App Service
@@ -24,7 +24,7 @@ Ce didacticiel montre l’installation, la configuration et le test d’un [conn
 
 Par exemple, si vous souhaitez coder les demandes HTTP pour qu’elles lisent et écrivent des fichiers dans votre compte Dropbox, le processus d’authentification pour travailler directement avec Dropbox est complexe. Le connecteur Dropbox s’occupe de la partie complexe de l’authentification afin que vous puissiez vous concentrer sur l’écriture de votre code.
 
-> [AZURE.NOTE]Si vous souhaitez utiliser un connecteur SaaS à partir d’une application logique, les instructions fournies ici ne sont pas nécessaires. Pour en savoir plus sur l’utilisation de connecteurs SaaS au sein d’applications logiques, voir [Créer une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md).
+> [AZURE.NOTE]Si vous souhaitez utiliser un connecteur SaaS à partir d’une application logique, les instructions fournies ici ne sont pas nécessaires. Pour en savoir plus sur l'utilisation de connecteurs SaaS au sein d'applications logiques, consultez [Créer une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md) et [Utilisation d'une application OAUTH personnalisée dans les connecteurs](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps&announcementId=4af1e4c5-d220-4457-97d8-d08e427ae6c1).
  
 Ce didacticiel utilise un connecteur DropBox à titre d’exemple et vous guide dans les étapes suivantes :
 
@@ -33,7 +33,7 @@ Ce didacticiel utilise un connecteur DropBox à titre d’exemple et vous guide 
 * Configurez le groupe de ressources afin que seuls les utilisateurs authentifiés puissent accéder aux applications API qui font partie du groupe de ressources.
 * Faites des tests pour vérifier que l’authentification des utilisateurs et l’authentification Dropbox fonctionnent.
 
-Pour plus d’informations sur l’authentification dans App Service, consultez la page [Authentification pour les applications d’API et les applications mobiles](../app-service/app-service-authentication-overview.md).
+Pour plus d'informations sur l'authentification dans App Service, consultez [Authentification pour les applications d'API et les applications mobiles](../app-service/app-service-authentication-overview.md).
 
 ## Installer le connecteur Dropbox
 
@@ -179,7 +179,7 @@ Celle-ci doit comprendre le jeton d’authentification Azure fourni lors de la c
 
 	![Envoyez l’URL de consentement](./media/app-service-api-connnect-your-app-to-saas-connector/sendforconsent.png)
 
-	La réponse comprend une URL à utiliser pour initier le processus de journalisation de l’utilisateur auprès de Dropbox. (Si vous obtenez une erreur qui indique que la méthode Get n’est pas prise en charge, même si la méthode dropdown est définie sur **Post**, veuillez vérifier que l’URL de votre passerelle est HTTPS, et non HTTP.)
+	La réponse comprend une URL à utiliser pour initier le processus de journalisation de l’utilisateur auprès de Dropbox. (Si vous obtenez une erreur qui indique que la méthode Get n'est pas prise en charge, même si la méthode dropdown est définie sur **Post**, veuillez vérifier que l'URL de votre passerelle est HTTPS, et non HTTP.)
 
 	![URL de consentement](./media/app-service-api-connnect-your-app-to-saas-connector/getconsenturl.png)
 
@@ -187,7 +187,7 @@ Celle-ci doit comprendre le jeton d’authentification Azure fourni lors de la c
 
 	La réponse à cette URL redirige le navigateur vers le site Dropbox, où l’utilisateur se connecte et autorise l’application à accéder à son compte.
 	
-	Lorsque le processus de connexion et d’autorisation est terminé, Dropbox redirige le navigateur vers l’URL de redirection que vous avez spécifiée (par exemple, le portail Azure en version préliminaire si vous avez suivi l’exemple et utilisé https://portal.azure.com)). Si vous appeliez à partir d’une application web, il s’agirait de la page suivante à afficher dans l’application web. L’application doit vérifier l’URL, car si une erreur s’est produite dans le processus de connexion ou d’autorisation, l’URL de redirection peut inclure une variable querystring `error`.
+	Lorsque le processus de connexion et d'autorisation est terminé, Dropbox redirige le navigateur vers l'URL de redirection que vous avez spécifiée (par exemple, le portail Azure en version préliminaire si vous avez suivi l'exemple et utilisé https://portal.azure.com)). Si vous appeliez à partir d’une application web, il s’agirait de la page suivante à afficher dans l’application web. L'application doit vérifier l'URL, car si une erreur s'est produite dans le processus de connexion ou d'autorisation, l'URL de redirection peut inclure une variable querystring `error`.
 
 3. Ne fermez pas cette fenêtre du navigateur, vous allez l’utiliser dans la section suivante.
 
@@ -236,4 +236,4 @@ Vous avez vu comment installer, configurer et tester un connecteur SaaS. Pour pl
 [portail Azure]: https://manage.windowsazure.com/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

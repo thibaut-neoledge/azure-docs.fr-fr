@@ -19,7 +19,7 @@
 
 # Création d’une machine virtuelle Windows avec un modèle du Gestionnaire de ressources
 
-Vous pouvez facilement créer une machine virtuelle basée sur Windows à l'aide d'un modèle du Gestionnaire de ressources avec Azure PowerShell ou l’interface de ligne de commande Azure. Ce modèle crée une machine virtuelle unique exécutant Windows dans un nouveau réseau virtuel avec un seul sous-réseau dans un nouveau groupe de ressources.
+Vous pouvez facilement créer une machine virtuelle basée sur Windows à l'aide d'un modèle du Gestionnaire de ressources avec Azure PowerShell ou l'interface de ligne de commande Azure. Ce modèle crée une machine virtuelle unique exécutant Windows dans un nouveau réseau virtuel avec un seul sous-réseau dans un nouveau groupe de ressources.
 
 ![](./media/virtual-machines-create-windows-powershell-resource-manager-template/windowsvm.png)
 
@@ -29,11 +29,11 @@ Avant d’aller plus loin, veuillez vérifier qu’Azure, PowerShell et l’inte
 
 [AZURE.INCLUDE [xplat-getting-set-up-arm](../../includes/xplat-getting-set-up-arm.md)]
 
-## Création d’une machine virtuelle Windows avec un modèle du Gestionnaire de ressources en utilisant Azure PowerShell
+## Création d'une machine virtuelle Windows avec un modèle du Gestionnaire de ressources à l'aide d'Azure PowerShell
 
-Procédez comme suit pour créer une machine virtuelle Windows en utilisant un modèle du Gestionnaire des ressources dans le référentiel de modèles Github avec Azure PowerShell.
+Procédez comme suit pour créer une machine virtuelle Windows à l'aide d'un modèle du Resource Manager dans le référentiel de modèles GitHub avec Azure PowerShell.
 
-### Étape 1 : Examen du fichier JSON pour obtenir le modèle
+### Étape 1 : examen du fichier JSON pour obtenir le modèle
 
 Voici le contenu du fichier JSON relatif au modèle.
 
@@ -75,7 +75,7 @@ Voici le contenu du fichier JSON relatif au modèle.
                 "Windows-Server-Technical-Preview"
             ],
             "metadata": {
-                "Description": "The Windows version for the VM. This will pick a fully patched image of this given Windows version. Allowed values: 2008-R2-SP1, 2012-Datacenter, 2012-R2-Datacenter, Windows-Server-Technical-Preview."
+                "Description": "The Windows version for the virtual machine. This will pick a fully patched image of this given Windows version. Allowed values: 2008-R2-SP1, 2012-Datacenter, 2012-R2-Datacenter, Windows-Server-Technical-Preview."
             }
         }
     },
@@ -214,7 +214,7 @@ Voici le contenu du fichier JSON relatif au modèle.
 	}
 
 
-### Étape 2 : Création de la machine virtuelle avec le modèle
+### Étape 2 : création de la machine virtuelle avec le modèle
 
 Entrez un nom de déploiement Azure, un nom de groupe de ressources et un emplacement de centre de données Azure, puis exécutez les commandes suivantes.
 
@@ -274,11 +274,11 @@ Le résultat suivant doit s’afficher :
 
 	Outputs           :
 
-Vous disposez maintenant d'une nouvelle machine virtuelle Windows nommée MyWindowsVM dans votre nouveau groupe de ressources.
+Vous disposez maintenant d’une nouvelle machine virtuelle Windows nommée MyWindowsVM dans votre nouveau groupe de ressources.
 
-## Création d’une machine virtuelle Windows avec un modèle du Gestionnaire de ressources en utilisant l’interface de ligne de commande Azure
+## Création d'une machine virtuelle Windows avec un modèle du Gestionnaire de ressources à l'aide de l'interface de ligne de commande Azure
 
-Procédez comme suit pour créer une machine virtuelle Windows en utilisant un modèle du Gestionnaire de ressources dans le référentiel de modèles Github avec l’interface de ligne de commande.
+Procédez comme suit pour créer une machine virtuelle Windows à l'aide d'un modèle du Gestionnaire des ressources dans le référentiel de modèles Github avec des commande de l'interface de ligne de commande Azure.
 
 Entrez un nom de groupe de ressources et un emplacement Azure (par exemple, westus pour Ouest des États-Unis), supprimez les crochets, puis exécutez les commandes suivantes.
 
@@ -323,7 +323,7 @@ Le résultat suivant doit s'afficher :
 
 [Fournisseurs de calcul, de réseau et de stockage Azure dans Azure Resource Manager](virtual-machines-azurerm-versus-azuresm.md)
 
-[Présentation du Gestionnaire de ressources Azure](resource-group-overview.md)
+[Présentation d’Azure Resource Manager](resource-group-overview.md)
 
 [Création d’une machine virtuelle Windows avec le Gestionnaire de ressources Azure et PowerShell](virtual-machines-create-windows-powershell-resource-manager.md)
 
@@ -333,4 +333,4 @@ Le résultat suivant doit s'afficher :
 
 [Installation et configuration d’Azure PowerShell](install-configure-powershell.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/24/2015" 
+	ms.date="08/11/2015"
 	ms.author="juliako"/>
 
 #Procédure : mettre à jour Media Services après la substitution de clés d’accès de stockage
@@ -43,7 +43,7 @@ Mettez à jour Media Services pour utiliser la clé d’accès de stockage secon
 
 - Utilisez l’API REST de gestion de Media Services.
 
-	L’exemple de code suivant montre comment construire la demande de clé https://endpoint/<subscriptionId>/services/mediaservices/Accounts/<accountName>/StorageAccounts/<storageAccountName>/ afin de synchroniser la clé de stockage spécifiée avec Media Services. Dans le cas présent, la valeur de la clé de stockage secondaire est utilisée. Pour plus d’informations, consultez la page [Procédure : utiliser l’API REST de gestion des services de média](http://msdn.microsoft.com/library/azure/dn167656.aspx).
+	L’exemple de code suivant montre comment construire la demande de clé https://endpoint/<subscriptionId>/services/mediaservices/Accounts/<accountName>/StorageAccounts/<storageAccountName>/ afin de synchroniser la clé de stockage spécifiée avec Media Services. Dans le cas présent, la valeur de la clé de stockage secondaire est utilisée. Pour plus d’informations, consultez la page [Procédure : utiliser l’API REST de gestion des services de média](http://msdn.microsoft.com/fr-fr/library/azure/dn167656.aspx).
  
 		public void UpdateMediaServicesWithStorageAccountKey(string mediaServicesAccount, string storageAccountName, string storageAccountKey)
 		{
@@ -108,4 +108,4 @@ Pour mettre à jour la date d’expiration d’un localisateur, utilisez l’[AP
  
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

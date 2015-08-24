@@ -3,7 +3,7 @@
     pageTitle="Essai d’Azure RemoteApp sur votre périphérique en 3 minutes ou moins"
     description="Testez les fonctionnalités d’Azure RemoteApp sans installer le service." 
     services="remoteapp" 
-	documentationCenter="" 
+    documentationCenter="" 
     authors="lizap" 
     manager="mbaldwin" />
 
@@ -13,14 +13,14 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="05/28/2015" 
+    ms.date="08/12/2015" 
     ms.author="mbaldwin" />
 
 
 
 # Essai d’Azure RemoteApp sur votre périphérique en 3 minutes ou moins
 
-Vous souhaitez avoir RemoteApp sur votre appareil ? Vous pouvez accéder à notre déploiement de démonstration pendant 10 minutes, tant que vous disposez d’un compte Microsoft. Office et quelques autres applications sont disponibles. Il s’agit d’un excellent moyen de tester l’expérience utilisateur Azure RemoteApp en moins de 3 minutes.
+Vous souhaitez avoir Azure RemoteApp sur votre appareil ? Vous pouvez accéder à notre déploiement de démonstration pendant 10 minutes, tant que vous disposez d’un compte Microsoft. Office et quelques autres applications sont disponibles. Il s’agit d’un excellent moyen de tester l’expérience utilisateur Azure RemoteApp en moins de 3 minutes.
 
 Vous êtes intéressé ?
 
@@ -29,7 +29,7 @@ Vous êtes intéressé ?
 3. Le système détecte automatiquement votre dispositif et vous dirigera vers le client pour votre appareil. Installez le client.
 4. Revenez sur [http://remoteapp.azure.com](http://remoteapp.azure.com) et connectez-vous avec votre compte Microsoft.
  
-Vous pouvez désormais accéder aux applications s’exécutant en temps réel sur RemoteApp.
+Vous pouvez désormais accéder aux applications s’exécutant en temps réel sur Azure RemoteApp.
 
 Votre opinion est importante. À la fin de chaque session, vous verrez une boîte de dialogue pour vos commentaires. Si vous avez une minute, envoyez-nous votre avis et faites-nous savoir si vous souhaitez que Microsoft puisse vous contacter pour vous fournir plus d’informations.
 
@@ -37,4 +37,4 @@ Votre opinion est importante. À la fin de chaque session, vous verrez une boît
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

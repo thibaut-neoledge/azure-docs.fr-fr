@@ -7,16 +7,14 @@
 	manager="dwrede" 
 	editor=""/>
 
-
 <tags 
 	ms.service="media-services" 
 	ms.workload="media" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/23/2015" 
+	ms.date="08/11/2015"
 	ms.author="juliako"/>
-
 
 
 # Gestion de contenu avec Azure Media Services à l’aide du portail de gestion Azure
@@ -217,4 +215,4 @@ Certaines considérations s’appliquent :
 [encrypt]: ./media/media-services-manage-content/media-services-encrypt-content.png
 [AMSPlayer]: ./media/media-services-manage-content/media-services-portal-player.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

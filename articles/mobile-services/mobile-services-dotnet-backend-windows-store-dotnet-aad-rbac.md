@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Contrôle d'accès en fonction du rôle dans Mobile Services et Azure Active Directory (Windows Store) | Centre de développement mobile" 
+	pageTitle="Contrôle d'accès en fonction du rôle dans Mobile Services et Azure Active Directory (Windows Store) | Microsoft Azure" 
 	description="Découvrez comment contrôler l'accès en fonction des rôles Azure Active Directory dans votre application Windows Store." 
 	documentationCenter="windows" 
 	authors="wesmc7777" 
@@ -392,4 +392,4 @@ Dans cette section, vous allez créer un attribut d'autorisation personnalisé p
 [Accès aux informations Azure Active Directory Graph]: mobile-services-dotnet-backend-windows-store-dotnet-aad-graph-info.md
 [Bibliothèque d'authentification Azure AD pour .NET]: https://msdn.microsoft.com/library/azure/jj573266.aspx
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

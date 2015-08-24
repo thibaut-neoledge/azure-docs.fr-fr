@@ -1,43 +1,51 @@
 <properties
-	pageTitle="Azure Backup - Déploiement et gestion de la sauvegarde pour DPM à l’aide d’Azure PowerShell | Microsoft Azure"
-	description="Découvrez comment déployer et gérer Azure Backup pour Data Protection Manager (DPM) à l’aide d’Azure PowerShell"
+	pageTitle="Azure Backup - Déployer et gérer une sauvegarde pour DPM à l’aide de PowerShell | Microsoft Azure"
+	description="Découvrez comment déployer et gérer Azure Backup pour Data Protection Manager (DPM) à l’aide de PowerShell"
 	services="backup"
 	documentationCenter=""
 	authors="Jim-Parker"
 	manager="jwhit"
 	editor=""/>
 
-
-<tags
-	ms.service="backup"
-	ms.workload="storage-backup-recovery"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="06/23/2015"
-	ms.author="jimpark"/>
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt\_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/11/2015" ms.author="jimpark"; "aashishr"/>
 
 
+# Déployer et gérer une sauvegarde vers Azure pour des serveurs Data Protection Manager (DPM) à l’aide de PowerShell
+Cet article décrit comment utiliser PowerShell pour configurer Azure Backup sur un serveur DPM, ainsi que pour gérer les sauvegardes et la récupération.
 
-# Déploiement et gestion d’une sauvegarde vers Azure pour des serveurs DPM (Data Protection Manager) à l’aide d’Azure PowerShell
-Cet article décrit l’utilisation d’Azure PowerShell pour configurer Azure Backup sur un serveur DPM, ainsi que la gestion des sauvegardes et de la récupération.
-
-## Configuration de l’environnement Azure PowerShell
-Avant de pouvoir utiliser Azure PowerShell pour gérer les sauvegardes de Data Protection Manager vers Azure, vous devez disposer de l'environnement approprié dans Azure PowerShell. Au début de la session Azure PowerShell, veillez à exécuter la commande suivante pour importer les modules adéquats et avoir la possibilité de référencer correctement les applets de commande DPM :
+## Configuration de l’environnement PowerShell
+Avant de pouvoir utiliser PowerShell pour gérer les sauvegardes de Data Protection Manager vers Azure, vous devez disposer de l’environnement approprié dans PowerShell. Au début de la session PowerShell, veillez à exécuter la commande suivante pour importer les modules adéquats et avoir la possibilité de référencer correctement les applets de commande DPM :
 
 ```
 PS C:\> & "C:\Program Files\Microsoft System Center 2012 R2\DPM\DPM\bin\DpmCliInitScript.ps1"
 
 Welcome to the DPM Management Shell!
 
-Full list of cmdlets: Get-Command Only DPM cmdlets: Get-DPMCommand Get general help: help Get help for a cmdlet: help <cmdlet-name> or <cmdlet-name> -? Get definition of a cmdlet: Get-Command <cmdlet-name> -Syntax Sample DPM scripts: Get-DPMSampleScript
+Full list of cmdlets: Get-Command 
+Only DPM cmdlets: Get-DPMCommand 
+Get general help: help 
+Get help for a cmdlet: help <cmdlet-name> or <cmdlet-name> -? 
+Get definition of a cmdlet: Get-Command <cmdlet-name> -Syntax 
+Sample DPM scripts: Get-DPMSampleScript
 ```
 
 ## Installation et inscription
-### Installation de l'agent Azure Backup sur un serveur DPM
-Avant d’installer l'agent Azure Backup, vous devez avoir téléchargé le programme d’installation sur le serveur Windows. Vous pouvez obtenir la dernière version du programme d’installation sur le [Centre de téléchargement de Microsoft](http://aka.ms/azurebackup_agent). Enregistrez le programme d’installation dans un emplacement auquel vous pouvez accéder facilement, par exemple *C:\\Téléchargements*.
 
-Pour installer l’agent, exécutez la commande suivante dans une console Azure PowerShell avec des privilèges élevés **sur le serveur DPM** :
+### Créer un coffre de sauvegarde
+Vous pouvez créer un coffre de sauvegarde en utilisant l’applet de commande **New-AzureBackupVault**. Le coffre de sauvegarde constituant une ressource ARM, vous devez le placer dans un groupe de ressources. Dans une console Azure PowerShell avec élévation de privilèges, exécutez les commandes suivantes :
+
+```
+PS C:\> New-AzureResourceGroup –Name “test-rg” –Region “West US”
+PS C:\> $backupvault = New-AzureBackupVault –ResourceGroupName “test-rg” –Name “test-vault” –Region “West US” –Storage GRS
+```
+
+Vous pouvez obtenir la liste de tous les coffres de sauvegarde d’un abonnement spécifique à l’aide de l’applet de commande **Get-AzureBackupVault**.
+
+
+### Installation de l'agent Azure Backup sur un serveur DPM
+Avant d’installer l'agent Azure Backup, vous devez avoir téléchargé le programme d’installation sur le serveur Windows. Vous pouvez obtenir la dernière version du programme d’installation à partir du [Centre de téléchargement Microsoft](http://aka.ms/azurebackup_agent) ou de la page Tableau de bord du coffre de sauvegarde. Enregistrez le programme d’installation dans un emplacement auquel vous pouvez accéder facilement, par exemple \*C:\\Téléchargements\*.
+
+Pour installer l’agent, exécutez la commande ci-après dans une console PowerShell avec élévation de privilèges **sur le serveur DPM** :
 
 ```
 PS C:\> MARSAgentInstaller.exe /q
@@ -75,13 +83,22 @@ Les options disponibles incluent :
 Avant de pouvoir vous inscrire auprès du service Azure Backup, vous devez vous assurer que les [conditions préalables](backup-azure-dpm-introduction.md) sont remplies. Vous devez respecter les consignes suivantes :
 
 - Avoir un abonnement Azure valide
-- Créer un coffre de sauvegarde
-- Télécharger les informations d'identification de coffre et les stocker dans un emplacement pratique (comme *C:\\Téléchargements*). Les informations d’identification du coffre peuvent également être renommées à votre convenance.
+- Disposer d’un coffre de sauvegarde
+
+Pour télécharger les informations d’identification du coffre, exécutez l’applet de commande **Get-AzureBackupVaultCredentials** dans une console Azure PowerShell, puis stockez ces informations dans un emplacement pratique, tel que \*C:\\Downloads\*.
+
+```
+PS C:\> $credspath = "C:"
+PS C:\> $credsfilename = Get-AzureBackupVaultCredentials -Vault $backupvault -TargetLocation $credspath
+PS C:\> $credsfilename
+f5303a0b-fae4-4cdb-b44d-0e4c032dde26_backuprg_backuprn_2015-08-11--06-22-35.VaultCredentials
+```
 
 L’inscription de l’ordinateur auprès du coffre s’effectue l’aide de la cmdlet [Start-DPMCloudRegistration](https://technet.microsoft.com/library/jj612787) :
 
 ```
-PS C:\> Start-DPMCloudRegistration -DPMServerName "TestingServer" -VaultCredentialsFilePath "C:\Downloads\REGISTER.VaultCredentials"
+PS C:\> $cred = $credspath + $credsfilename 
+PS C:\> Start-DPMCloudRegistration -DPMServerName "TestingServer" -VaultCredentialsFilePath $cred
 ```
 
 Cette opération inscrira le serveur DPM nommé « TestingServer » auprès de Microsoft Azure Vault à l’aide des informations d’identification de coffre.
@@ -95,7 +112,7 @@ Une fois que le serveur DPM est inscrit auprès du coffre de sauvegarde Azure, i
 $setting = Get-DPMCloudSubscriptionSetting -DPMServerName "TestingServer"
 ```
 
-Toutes les modifications sont apportées à cet objet Azure PowerShell local ```$setting```. L'objet complet est ensuite validé vers DPM et Azure Backup à des fins d’enregistrement à l'aide de l’applet de commande [Set-DPMCloudSubscriptionSetting](https://technet.microsoft.com/library/jj612791). Vous devez utiliser l’indicateur ```–Commit``` pour vous assurer que les modifications sont conservées. Les paramètres ne sont pas appliqués ni utilisés par Azure Backup tant qu’ils ne sont pas validés.
+Toutes les modifications sont apportées à cet objet PowerShell local ```$setting```. L’objet complet est ensuite validé vers DPM et Azure Backup à des fins d’enregistrement à l’aide de l’applet de commande [Set-DPMCloudSubscriptionSetting](https://technet.microsoft.com/library/jj612791). Vous devez utiliser l’indicateur ```–Commit``` pour vous assurer que les modifications sont conservées. Les paramètres ne sont pas appliqués ni utilisés par Azure Backup tant qu’ils ne sont pas validés.
 
 ```
 PS C:\> Set-DPMCloudSubscriptionSetting -DPMServerName "TestingServer" -SubscriptionSetting $setting -Commit
@@ -121,7 +138,7 @@ L’agent Azure Backup en cours d’exécution sur le serveur DPM a besoin d’u
 PS C:\> Set-DPMCloudSubscriptionSetting -DPMServerName "TestingServer" -SubscriptionSetting $setting -StagingAreaPath "C:\StagingArea"
 ```
 
-Dans l'exemple ci-dessus, la zone intermédiaire est définie sur *C:\\StagingArea* dans l'objet Azure PowerShell ```$setting```. Assurez-vous que le dossier spécifié existe déjà, sinon la validation finale des paramètres d'abonnement échouera.
+Dans l’exemple ci-dessus, la zone intermédiaire est définie sur *C:\\StagingArea* dans l’objet PowerShell ```$setting```. Assurez-vous que le dossier spécifié existe déjà, sinon la validation finale des paramètres d'abonnement échouera.
 
 
 ### Paramètres de chiffrement
@@ -165,7 +182,7 @@ PS C:\> $MPG = Get-ModifiableProtectionGroup $PG
 ```
 
 ### Ajout de membres au groupe de protection
-Chaque agent DPM connaît la liste des sources de données sur le serveur sur lequel il est installé. Pour ajouter une source de données au groupe de Protection, l'agent DPM doit renvoyer tout d'abord une liste des sources de données au serveur DPM. Une ou plusieurs sources de données sont sélectionnées, puis ajoutées au groupe de protection. Les étapes Azure PowerShell à effectuer sont les suivantes :
+Chaque agent DPM connaît la liste des sources de données sur le serveur sur lequel il est installé. Pour ajouter une source de données au groupe de Protection, l'agent DPM doit renvoyer tout d'abord une liste des sources de données au serveur DPM. Une ou plusieurs sources de données sont sélectionnées, puis ajoutées au groupe de protection. Les étapes PowerShell requises sont les suivantes :
 
 1. Extrayez une liste de tous les serveurs gérés par DPM via l'agent DPM.
 2. Choisissez un serveur spécifique.
@@ -178,7 +195,7 @@ Vous pouvez obtenir la liste des serveurs sur lesquels l’agent DPM est install
 PS C:\> $server = Get-ProductionServer -DPMServerName "TestingServer" | where {($_.servername) –contains “productionserver01”
 ```
 
-Extrayez à présent la liste des sources de données sur ```$server``` à l'aide de l’applet de commande [Get-DPMDatasource](https://technet.microsoft.com/library/hh881605). Dans cet exemple, nous filtrons le volume *D:* que nous souhaitons configurer pour la sauvegarde. Cette source de données est ensuite ajoutée au groupe de protection à l'aide de l’applet de commande [Add-DPMChildDatasource](https://technet.microsoft.com/library/hh881732). N'oubliez pas d'utiliser l’objet de groupe de protection *modifiable* ```$MPG``` pour effectuer les ajouts.
+Extrayez à présent la liste des sources de données sur ```$server``` à l'aide de l’applet de commande [Get-DPMDatasource](https://technet.microsoft.com/library/hh881605). Dans cet exemple, nous filtrons le volume \*D:\* que nous souhaitons configurer pour la sauvegarde. Cette source de données est ensuite ajoutée au groupe de protection à l'aide de l’applet de commande [Add-DPMChildDatasource](https://technet.microsoft.com/library/hh881732). N’oubliez pas d’utiliser l’objet de groupe de protection *modifiable* ```$MPG``` pour effectuer les ajouts.
 
 ```
 PS C:\> $DS = Get-Datasource -ProductionServer $server -Inquire | where { $_.Name -contains “D:\” }
@@ -283,4 +300,4 @@ Les commandes peuvent facilement être étendues à n'importe quel type de sourc
 ## Étapes suivantes
 Pour en savoir plus sur Azure Backup pour DPM, consultez la rubrique [Présentation d’Azure DPM Backup](backup-azure-dpm-introduction.md)
 
-<!----HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

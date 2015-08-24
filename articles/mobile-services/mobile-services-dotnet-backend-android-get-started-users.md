@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Prise en main de l'authentification (Android) | Centre de développement mobile" 
+	pageTitle="Prise en main de l'authentification (Android) | Microsoft Azure" 
 	description="Découvrez comment utiliser Mobile Services pour authentifier les utilisateurs de votre application Windows Store via divers fournisseurs d'identité, notamment Google, Facebook, Twitter et Microsoft." 
 	services="mobile-services" 
 	documentationCenter="android" 
@@ -86,4 +86,4 @@ Dans le didacticiel suivant, [Autorisation côté service des utilisateurs Mobil
 [Register your Windows Store app package for Microsoft authentication]: ../mobile-services-how-to-register-store-app-package-microsoft-authentication.md
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

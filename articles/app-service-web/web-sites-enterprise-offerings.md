@@ -4,10 +4,8 @@
 	services="app-service\web" 
 	documentationCenter="" 
 	authors="apwestgarth" 
-	writer="cephalin" 
 	manager="wpickett" 
 	editor=""/>
-
 
 <tags 
 	ms.service="app-service-web" 
@@ -16,8 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="08/04/2015" 
-	ms.author="apwestgarth"/>
-
+	ms.author="anwestg"/>
 
 # Livre blanc sur les offres Azure App Service Web Apps pour les entreprises #
 
@@ -42,7 +39,6 @@ Les besoins évoluent chaque mois, chaque semaine, chaque jour. Les entreprises 
 Les équipes de développement cherchent à apporter des avantages métier immédiats, en fournissant régulièrement de nouvelles fonctionnalités. Elles veulent une plateforme économique et fiable, qui intègre leurs outils et pratiques : développement, test, commercialisation. Elles collaborent avec les services informatiques pour automatiser le déploiement, la gestion et les alertes, avec comme principal objectif l’absence d’interruption.
 
 <a href="highlevel" />
-
 ## Solution de haut niveau ##
 
 Les infrastructures et les plateformes web sont de plus en plus utilisées pour développer, tester et héberger des applications métier. Prenons le cas d’une application métier classique, telle qu’un système interne de notes de frais des employés, souvent constitué d’une application web avec une base de données de sauvegarde pour stocker les données connectées à l’application.
@@ -84,7 +80,7 @@ App Service Web Apps fournit une plateforme fiable et stable, capable de gérer 
 
 La plateforme Microsoft Azure autorise les contrôles d’autorisation basés sur des rôles, qui assurent un contrôle professionnel des ressources dans Web Apps. Avec RBAC, les entreprises peuvent implémenter leurs propres stratégies de gestion des accès pour l’ensemble de leurs actifs dans l’environnement Azure, en affectant des utilisateurs aux groupes et en attribuant les autorisations nécessaires à ces groupes en fonction des actifs, tels qu’une application web. Pour plus d’informations sur RBAC dans Azure, consultez la page [http://aka.ms/azurerbac](../role-based-access-control-configure/). Avec Web Apps, vous avez l’assurance que vos applications web sont déployées dans un environnement sécurisé et vous avez un contrôle total sur le territoire où vos actifs sont déployés.
 
-De plus, Web Apps peut également tirer pleinement parti de vos investissements locaux en vous permettant de vous reconnecter à vos ressources internes, telles que votre entrepôt de données ou votre environnement SharePoint. Comme indiqué dans [Solution de niveau élevé\], vous utilisez des connexions hybrides et la connectivité au réseau virtuel pour établir des connexions à l’infrastructure et aux services locaux.
+De plus, Web Apps peut également tirer pleinement parti de vos investissements locaux en vous permettant de vous reconnecter à vos ressources internes, telles que votre entrepôt de données ou votre environnement SharePoint. Comme indiqué dans [Solution de niveau élevé], vous utilisez des connexions hybrides et la connectivité au réseau virtuel pour établir des connexions à l’infrastructure et aux services locaux.
 
 ### Portée mondiale ###
 
@@ -157,4 +153,4 @@ Pour plus d’informations sur le service Azure App Service Web Apps, visitez le
  
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

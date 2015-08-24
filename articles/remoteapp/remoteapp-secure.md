@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="07/16/2015" 
+    ms.date="08/12/2015" 
     ms.author="elizapo" />
 
 
@@ -33,7 +33,7 @@ Autre exemple : Si vous souhaitez bloquer l'accès à Internet pour une applicat
 1.	Si votre collection RemoteApp est jointe au domaine, vous pouvez appliquer n’importe quelle [stratégie de groupe](https://technet.microsoft.com/library/cc725828.aspx) (à l’exception des stratégies d'expiration d’inactivité et de déconnexion décrites [ici](../azure-subscription-service-limits.md)).
 2.	Comme alternative à la stratégie de groupe (si votre collection n'est pas jointe au domaine ou que vous n'avez pas les autorisations appropriées dans Active Directory), vous pouvez configurer des [stratégies locales](https://technet.microsoft.com/library/cc775702.aspx) dans votre image de modèle. Notez que ce groupe de stratégies prévaut sur les stratégies locales en cas de conflit.
 3.	Certains paramètres du système d'exploitation/de l’application ne sont pas configurables via la stratégie, mais peuvent l’être via la clé de registre en utilisant l’[outil RegEdit](./remoteapp-hybridtrouble.md) lors de la configuration de votre image de modèle.
-4.	Vous pouvez utiliser le [pare-feu Windows](http://windows.microsoft.com/en-US/windows-8/Windows-Firewall-from-start-to-finish) pour contrôler l'accès réseau vers et depuis l'ordinateur sur lequel l'application est exécutée. Assurez-vous que vous ne bloquez pas les URL et les ports définis ici.
+4.	Vous pouvez utiliser le [pare-feu Windows](http://windows.microsoft.com/fr-fr/windows-8/Windows-Firewall-from-start-to-finish) pour contrôler l'accès réseau vers et depuis l'ordinateur sur lequel l'application est exécutée. Assurez-vous que vous ne bloquez pas les URL et les ports définis ici.
 5.	Vous pouvez utiliser [AppLocker](https://technet.microsoft.com/library/hh831440.aspx) pour contrôler les applications et les fichiers que les utilisateurs peuvent exécuter. Par exemple, les utilisateurs expérimentés peuvent déterminer comment exécuter les applications que vous n'avez pas publiées mais qui sont disponibles dans l'image que vous avez utilisée pour créer la collection - AppLocker peut bloquer ce processus.
  
 ## Informations détaillées
@@ -47,4 +47,4 @@ Autre exemple : Si vous souhaitez bloquer l'accès à Internet pour une applicat
 - [Stratégies Office 2013](https://technet.microsoft.com/library/cc178969.aspx) (y compris [la personnalisation de la barre d'outils Office](https://technet.microsoft.com/library/cc179143.aspx)).
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

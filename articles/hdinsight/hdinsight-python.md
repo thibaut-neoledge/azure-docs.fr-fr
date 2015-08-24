@@ -308,15 +308,10 @@ Les deux exemples de script PowerShell utilisés pour l'exécution des exemples 
 
 Les informations sur l'erreur (STDERR) et le résultat de la tâche (STDOUT) sont également enregistrés dans le conteneur d'objets blob par défaut pour vos clusters aux emplacements suivants.
 
-<table>
-<tr>
-<td>Pour cette tâche...</td><td>Examinez ces fichiers dans le conteneur d'objets blob</td>
-</tr>
-<td>Hive</td><td>/HivePython/stderr</br>/HivePython/stdout</td>
-</tr>
-<td>Pig</td><td>/PigPython/stderr</br>/PigPython/stdout</td>
-</tr>
-</table>
+Pour cette tâche...|Examinez ces fichiers dans le conteneur d'objets blob
+---|---
+Hive|/HivePython/stderr<p>/HivePython/stdout
+Pig|/PigPython/stderr<p>/PigPython/stdout
 
 ##<a name="next"></a>Étapes suivantes
 
@@ -330,4 +325,4 @@ Pour connaître d’autres façons d’utiliser Pig et Hive et en savoir plus su
 
 * [Utilisation de MapReduce avec HDInsight](hdinsight-use-mapreduce.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Créer et gérer une base de données SQL avec la bibliothèque Azure SQL Database pour .NET" 
-   description="Cet article vous montre comment créer et gérer une base de données SQL Azure à l’aide de la bibliothèque Azure SQL Database pour .NET." 
+   pageTitle="Créer et gérer la base de données SQL Azure avec C#" 
+   description="Cet article vous montre comment créer et gérer une base de données SQL Azure à l’aide de la bibliothèque de base de données SQL Azure pour .NET." 
    services="sql-database" 
    documentationCenter="" 
    authors="stevestein" 
@@ -13,25 +13,24 @@
    ms.topic="article"
    ms.tgt_pltfrm="powershell"
    ms.workload="data-management" 
-   ms.date="08/04/2015"
+   ms.date="08/07/2015"
    ms.author="sstein"/>
 
-# Créer et gérer une base de données SQL avec la bibliothèque Azure SQL Database pour .NET
+# Créer et gérer la base de données SQL avec C&\#x23;
 
 > [AZURE.SELECTOR]
-- [Azure portal](sql-database-elastic-pool-portal.md)
+- [Azure Preview Portal](sql-database-elastic-pool-portal.md)
 - [C#](sql-database-client-library.md)
 - [PowerShell](sql-database-elastic-pool-powershell.md)
 
 
-## Vue d'ensemble
+## Vue d’ensemble
 
-Cet article fournit des commandes permettant d’effectuer de nombreuses tâches de gestion de base de données SQL Azure à l’aide de C#. Les différents extraits de code sont fractionnés par souci de clarté, et un exemple d’application console réunit toutes les commandes dans la dernière section de cet article.
+Cet article fournit des commandes permettant d’effectuer de nombreuses tâches de gestion de base de données SQL Azure à l’aide de la [bibliothèque de base de données SQL Azure pour .NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql)
 
-La bibliothèque Azure SQL Database pour .NET fournit une API basée sur [Azure Resource Manager](resource-group-overview.md) qui encapsule l’[API REST SQL Database basée sur Resource Manager](https://msdn.microsoft.com/library/azure/mt163571.aspx). Cette bibliothèque cliente suit le modèle commun pour les bibliothèques clientes basées sur Resource Manager.
+Les différents extraits de code sont fractionnés par souci de clarté, et un exemple d’application console réunit toutes les commandes dans la dernière section de cet article.
 
-
-Resource Manager nécessite des groupes de ressources et l’authentification avec [Azure Active Directory](https://msdn.microsoft.com/library/azure/mt168838.aspx) (AAD).
+La bibliothèque de base de données SQL Azure pour .NET fournit une API basée sur [Azure Resource Manager](resource-group-overview.md) qui encapsule l’[API REST de base de données SQL basée sur Resource Manager](https://msdn.microsoft.com/library/azure/mt163571.aspx). Cette bibliothèque cliente suit le modèle commun pour les bibliothèques clientes basées sur Resource Manager. Resource Manager nécessite des groupes de ressources et l’authentification avec [Azure Active Directory](https://msdn.microsoft.com/library/azure/mt168838.aspx) (AAD).
 
 <br>
 
@@ -39,7 +38,7 @@ Resource Manager nécessite des groupes de ressources et l’authentification av
 
 <br>
 
-Si vous n’avez pas d’abonnement Azure, cliquez simplement sur **VERSION D’ÉVALUATION GRATUITE** en haut de cette page, puis continuez la lecture de cet article. Pour une copie gratuite de Visual Studio, consultez la page [Téléchargements Visual Studio](https://www.visualstudio.com/downloads/download-visual-studio-vs).
+Si vous n’avez pas d’abonnement Azure, cliquez simplement sur **VERSION D’ÉVALUATION GRATUITE** en haut de cette page, puis continuez la lecture de cet article. Pour une copie gratuite de Visual Studio, consultez la page [Téléchargements Visual Studio](https://www.visualstudio.com/downloads/download-visual-studio-vs).
 
 ## Installation des bibliothèques nécessaires
 
@@ -54,13 +53,13 @@ Obtenez les bibliothèques de gestion nécessaires en installant les packages su
 
 Vous devez d’abord autoriser votre application à accéder à l’API REST en configurant l’authentification nécessaire.
 
-Les [API REST Azure Resource Manager](https://msdn.microsoft.com/library/azure/dn948464.aspx) utilisent Azure Active Directory pour l’authentification, plutôt que les certificats utilisés par les API REST de gestion des services Azure antérieures.
+Les [API REST Azure Resource Manager](https://msdn.microsoft.com/library/azure/dn948464.aspx) utilisent Azure Active Directory pour l’authentification, plutôt que les certificats utilisés par les API REST de gestion des services Azure antérieures.
 
 Pour authentifier votre application cliente en fonction de l’utilisateur actuel, vous devez d’abord inscrire celle-ci dans le domaine AAD associé à l’abonnement sous lequel les ressources Azure ont été créées. Si votre abonnement Azure a été créé avec un compte Microsoft, plutôt qu’avec un compte professionnel ou scolaire, vous disposez déjà d’un domaine AAD par défaut. L’inscription de l’application peut être effectuée dans le [portail de gestion](https://manage.windowsazure.com/).
 
 Pour créer une application et l’inscrire dans le répertoire actif correct, procédez comme suit :
 
-1. Faites défiler le menu situé à gauche pour localiser le service **Active Directory**, puis ouvrez ce dernier.
+1. Faites défiler le menu situé à gauche pour localiser le service **Active Directory**, puis ouvrez ce dernier.
 
     ![AAD][1]
 
@@ -78,7 +77,7 @@ Pour créer une application et l’inscrire dans le répertoire actif correct, p
 
 5. Sélectionnez **Ajouter une application développée par mon organisation**.
 
-5. Fournissez un **NOM ** pour l’application et sélectionnez **APPLICATION CLIENTE NATIVE**.
+5. Fournissez un **NOM** pour l’application et sélectionnez **APPLICATION CLIENTE NATIVE**.
 
     ![Ajouter l’application][7]
 
@@ -86,7 +85,7 @@ Pour créer une application et l’inscrire dans le répertoire actif correct, p
 
     ![Ajouter l’application][8]
 
-7. Terminer la création de l’application, cliquez sur **CONFIGURER**, puis copiez l’**ID CLIENT** (vous en aurez besoin dans votre code).
+7. Terminez la création de l’application, cliquez sur **CONFIGURER**, puis copiez l’**ID CLIENT** (vous en aurez besoin dans votre code).
 
     ![Obtenir l’ID client][9]
 
@@ -117,7 +116,7 @@ Le nom de domaine est nécessaire pour votre code. Pour identifier aisément le 
 
 **Ressources AAD supplémentaires**
 
-Pour plus d’informations sur l’utilisation d’Azure Active Directory pour l’authentification, consultez [ce billet de blog utile](http://www.cloudidentity.com/blog/2013/09/12/active-directory-authentication-library-adal-v1-for-net-general-availability/).
+Pour plus d’informations sur l’utilisation d’Azure Active Directory pour l’authentification, consultez [ce billet de blog utile](http://www.cloudidentity.com/blog/2013/09/12/active-directory-authentication-library-adal-v1-for-net-general-availability/).
 
 
 ### Récupérer le jeton d’accès pour l’utilisateur actuel 
@@ -199,7 +198,7 @@ Les bases de données SQL se trouvent sur des serveurs. Le nom du serveur doit �
 
 ## Créer une règle de pare-feu de serveur pour autoriser l’accès au serveur
 
-Par défaut, un serveur n’est pas accessible depuis n’importe quel emplacement. Pour vous connecter à un serveur à l’aide de TDS et y exécuter des instructions T-SQL, ou à des bases de données sur le serveur, une [règle de pare-feu](https://msdn.microsoft.com/library/azure/ee621782.aspx) doit être définie qui autorise l’accès à partir de l’adresse IP du client.
+Par défaut, un serveur n’est pas accessible depuis n’importe quel emplacement. Pour vous connecter à un serveur à l’aide de TDS et y exécuter des instructions T-SQL, ou à des bases de données sur le serveur, une [règle de pare-feu](https://msdn.microsoft.com/library/azure/ee621782.aspx) qui autorise l’accès à partir de l’adresse IP du client doit être définie.
 
 L’exemple suivant crée une règle qui ouvre l’accès au serveur à partir de n’importe quelle adresse IP. En guise de défense principale contre les intrusions, nous vous recommandons de créer des connexions SQL et des mots de passe appropriés pour sécuriser votre base de données et de ne pas compter sur des règles de pare-feu.
 
@@ -795,4 +794,4 @@ Pour supprimer un groupe de ressources :
 [8]: ./media/sql-database-client-library/add-application2.png
 [9]: ./media/sql-database-client-library/clientid.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

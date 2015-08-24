@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD" 
-   ms.date="07/17/2015"
+   ms.date="08/11/2015"
    ms.author="v-sharos@microsoft.com"/>
 
 # Utilisation du service StorSimple Manager pour modifier vos mots de passe StorSimple
@@ -26,7 +26,7 @@ La page **Configurer** du portail de gestion contient tous les paramètres recon
 
 Le Gestionnaire d’instantanés StorSimple réside sur l’ordinateur hôte Windows et permet aux administrateurs de gérer les sauvegardes de votre appareil StorSimple sous la forme d’instantanés cloud ou locaux.
 
-Au moment de configurer un appareil dans le Gestionnaire d’instantanés StorSimple, vous êtes invité à fournir l’adresse IP et le mot de passe de votre appareil de stockage afin de l’authentifier. Ce mot de passe est d’abord configuré via l’interface Windows PowerShell. Pour plus d'informations, consultez l’[Étape 3 : configuration et inscription de l'appareil via Windows PowerShell pour StorSimple](storsimple-deployment-walkthrough.md#to-configure-and-register-the-device) dans la page [Déploiement de votre appareil StorSimple local](storsimple-deployment-walkthrough.md).
+Au moment de configurer un appareil dans le Gestionnaire d’instantanés StorSimple, vous êtes invité à fournir l’adresse IP et le mot de passe de votre appareil de stockage afin de l’authentifier. Ce mot de passe est d’abord configuré via l’interface Windows PowerShell. Pour plus d'informations, consultez l’[Étape 3 : configuration et inscription de l'appareil via Windows PowerShell pour StorSimple](storsimple-deployment-walkthrough.md#step-3-configure-and-register-the-device-through-windows-powershell-for-storsimple) dans la page [Déploiement de votre appareil StorSimple local](storsimple-deployment-walkthrough.md).
 
 Le mot de passe qui a été défini initialement dans l'interface Windows PowerShell au moment de l’inscription peut ensuite être modifié via le portail de gestion. Pour modifier le mot de passe du Gestionnaire d’instantanés StorSimple, procédez comme suit.
 
@@ -44,7 +44,7 @@ Le mot de passe du Gestionnaire d’instantanés StorSimple doit maintenant êtr
  
 ## Modification du mot de passe d’administrateur de l’appareil
 
-Quand vous utilisez l’interface Windows PowerShell pour accéder à l’appareil StorSimple, vous devez entrer un mot de passe d’administrateur de l’appareil. À l’inscription du premier appareil StorSimple auprès d’un service, le mot de passe par défaut de cette interface est *Password1*. Pour assurer la sécurité de vos données, il vous est demandé de modifier ce mot de passe à la fin de l’inscription. Vous ne pouvez pas quitter le processus d'inscription sans modifier ce mot de passe. Pour plus d'informations, consultez l’[Étape 3 : configuration et inscription de l'appareil via Windows PowerShell pour StorSimple](storsimple-deployment-walkthrough.md#to-configure-and-register-the-device) dans la page [Déploiement de votre appareil StorSimple local](storsimple-deployment-walkthrough.md).
+Quand vous utilisez l’interface Windows PowerShell pour accéder à l’appareil StorSimple, vous devez entrer un mot de passe d’administrateur de l’appareil. À l’inscription du premier appareil StorSimple auprès d’un service, le mot de passe par défaut de cette interface est *Password1*. Pour assurer la sécurité de vos données, il vous est demandé de modifier ce mot de passe à la fin de l’inscription. Vous ne pouvez pas quitter le processus d'inscription sans modifier ce mot de passe. Pour plus d'informations, consultez l’[Étape 3 : configuration et inscription de l'appareil via Windows PowerShell pour StorSimple](storsimple-deployment-walkthrough.md#step-3-configure-and-register-the-device-through-windows-powershell-for-storsimple) dans la page [Déploiement de votre appareil StorSimple local](storsimple-deployment-walkthrough.md).
 
 Le mot de passe qui a été défini initialement dans l'interface Windows PowerShell au moment de l’inscription peut ensuite être modifié via le portail de gestion. Pour modifier le mot de passe d’administrateur de l’appareil, procédez comme suit.
 
@@ -66,4 +66,4 @@ Le mot de passe Administrateur d’appareil doit maintenant être à jour. Vous 
 
 [En savoir plus sur la modification de la configuration de votre appareil](storsimple-modify-device-config.md).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Utilisation de l’Assistant Migration SQL Azure | Microsoft" 
+   pageTitle="Utilisation de l’Assistant Migration SQL Azure | Microsoft Azure" 
    description="Base de données SQL Microsoft Azure, migration de base de données, importer une base de données, exporter une base de données, assistant de migration" 
    services="sql-database" 
    documentationCenter="" 
@@ -98,4 +98,4 @@ Vous pouvez télécharger l’Assistant Migration SQL Azure à partir de CodePl
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

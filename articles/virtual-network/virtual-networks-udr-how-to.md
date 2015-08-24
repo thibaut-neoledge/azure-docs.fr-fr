@@ -4,7 +4,7 @@
    services="virtual-network"
    documentationCenter="na"
    authors="telmosampaio"
-   manager="adinah"
+   manager="carolz"
    editor="tysonn" />
 <tags 
    ms.service="virtual-network"
@@ -12,13 +12,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="04/22/2015"
+   ms.date="08/10/2015"
    ms.author="telmos" />
 
 # Création d’itinéraires et activation du transfert IP dans Azure
 Vous pouvez utiliser des appliances virtuelles dans Azure pour gérer le trafic dans Azure Virtual Network. Toutefois, vous devez créer des itinéraires qui permettent aux machines virtuelles et aux services cloud de votre réseau virtuel de transmettre des paquets à votre appliance virtuelle, au lieu de la destination de votre choix. Vous devez également activer le transfert IP sur la machine virtuelle de l’appliance virtuelle, pour qu’elle puisse recevoir et transmettre des paquets qui ne lui sont pas adressés.
 
-##Gestion des itinéraires
+## Gestion des itinéraires
 Vous pouvez ajouter, supprimer et modifier des itinéraires dans Azure à l'aide de PowerShell. Avant de pouvoir créer un itinéraire, vous devez créer une table d’itinéraires pour héberger l'itinéraire.
 
 ### Création d'une table d’itinéraires
@@ -144,10 +144,6 @@ Pour afficher le statut du transfert IP sur une machine virtuelle nommée *FWApp
 ```powershell
 Get-AzureVM -Name FWAppliance1 -ServiceName ProductionVMs `
 	| Get-AzureIPForwarding
-```
+``` 
 
-## Voir aussi
-
-[Présentation des itinéraires définis par l’utilisateur et du transfert IP](../virtual-networks-udr-overview)
-
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

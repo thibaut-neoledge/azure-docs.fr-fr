@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Connecteur Dropbox"
-	description="Prise en main du connecteur Dropbox"
+	pageTitle="Utilisation du connecteur Dropbox dans votre application logique dans Azure App Service"
+	description="Prise en main du connecteur Dropbox dans une application logique dans App Service"
 	authors="anuragdalmia"
 	manager="dwrede"
 	editor=""
@@ -13,52 +13,55 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/02/2015"
+	ms.date="08/09/2015"
 	ms.author="sameerch"/>
 
-# Utilisation du connecteur Dropbox dans votre application logique #
-
-Les applications logiques peuvent se déclencher selon diverses sources de données et proposent des connecteurs pour obtenir et traiter les données dans le cadre du flux.
+# Connecteur Dropbox
 
 Le connecteur Dropbox vous permet de télécharger des fichiers vers ou depuis votre compte Dropbox.
 
-## Création d’un connecteur Dropbox pour votre application logique ##
-Pour utiliser le connecteur Dropbox, vous devez d’abord créer une instance de l’application API de ce connecteur. Pour cela, procédez comme suit :
+Les applications logiques peuvent se déclencher selon diverses sources de données et proposent des connecteurs pour obtenir et traiter les données dans le cadre du flux.
 
-1.	Ouvrez Azure Marketplace à l’aide de l’option + NOUVEAU en bas à gauche du portail Azure.
-2.	Accédez à « Web et mobilité --> Azure Marketplace » et recherchez « Connecteur Dropbox ».
-3.	Configurez le connecteur Dropbox comme suit :
- 
-	![][1]
-	- **Emplacement** : choisissez l'emplacement géographique dans lequel vous voulez déployer le connecteur
-	- **Abonnement** : choisissez un abonnement dans lequel vous souhaitez créer ce connecteur
-	- **Groupe de ressources** : sélectionnez ou créez un groupe de ressources où le connecteur doit résider
-	- **Plan de service de l'application** : sélectionnez ou créez un plan d'hébergement Web
-	- **Niveau de tarification** : choisissez un niveau de tarification pour le connecteur
-	- **Nom** : donnez un nom à votre connecteur Dropbox
-4. Cliquez sur Créer. Un connecteur Dropbox est créé.
-5. Une fois l’installation de l’application API créée, vous pouvez créer une application logique dans le même groupe de ressources pour utiliser le connecteur Dropbox.
+## Déclencheurs et actions
 
-## Utilisation du connecteur Dropbox dans votre application logique ##
-Une fois votre application API créée, vous pouvez utiliser le connecteur Dropbox comme une action pour votre application logique. Pour cela, vous devez procéder comme suit :
+Un déclencheur démarre une nouvelle instance en fonction d'un événement spécifique, comme l'arrivée d'un nouveau message. Une action correspond au résultat : par exemple, après la réception d'un nouveau message, le message est téléchargé vers Dropbox.
 
-1.	Créez une application logique et choisissez le groupe de ressources qui contient le connecteur Dropbox.
- 	
-	![][2]
-2.	Ouvrez « Déclencheurs et actions » pour ouvrir le concepteur d’applications logiques et configurer votre flux. 
- 	
+Le connecteur Dropbox peut être utilisé comme une action dans une application logique et prend en charge les données aux formats JSON et XML. Le connecteur Chatter dispose des déclencheurs et actions suivants :
+
+Déclencheurs | Actions
+--- | ---
+Aucun | <ul><li>Supprimer le fichier</li><li>Obtenir le fichier</li><li>Télécharger le fichier</li><li>Répertorier les fichiers</li></ul>
+
+
+## Création d'un connecteur Dropbox pour votre application logique
+Un connecteur peut être créé dans une application logique ou directement à partir d'Azure Marketplace. Pour créer un connecteur à partir de Marketplace :
+
+1. Dans le tableau d'accueil Azure, sélectionnez **Marketplace**.
+2. Recherchez « Connecteur Dropbox », sélectionnez-le et sélectionnez **Créer**.
+3. Entrez le nom, le plan App Service et d'autres propriétés : ![][1]
+	- **Emplacement** : choisissez l’emplacement géographique dans lequel vous voulez déployer le connecteur.
+	- **Abonnement** : choisissez un abonnement dans lequel vous souhaitez créer ce connecteur.
+	- **Groupe de ressources** : sélectionnez ou créez un groupe de ressources où doit résider le connecteur.
+	- **Plan App Service** : sélectionnez ou créez un plan d'hébergement web.
+	- **Niveau de tarification** : choisissez un niveau de tarification pour le connecteur.
+	- **Nom** : indiquez le nom de votre connecteur Dropbox.  
+4. Sélectionnez **Créer**.
+
+
+## Utilisation du connecteur Dropbox dans votre application logique
+Une fois votre application API créée, vous pouvez utiliser le connecteur Dropbox comme une action pour votre application logique. Pour ce faire :
+
+1.	Dans votre application logique, ouvrez **Déclencheurs et actions** pour ouvrir le concepteur d'applications logiques et configurer votre flux : 
 	![][3]
-3.	Le connecteur Dropbox s’affiche dans la section « Applications API dans ce groupe de ressources » de la galerie à droite.
- 
+2.	Le connecteur Dropbox est répertorié dans la galerie : 
 	![][4]
-4.	Vous pouvez déposer l’application API du connecteur Dropbox dans l’éditeur en cliquant sur « Connecteur Dropbox ». Cliquez sur le bouton Autoriser. Indiquez vos informations d’identification Dropbox. Cliquez sur « Autoriser ».
- 
-	![][5]
-	![][6]
+3.	Sélectionnez le connecteur Dropbox pour l'ajouter automatiquement dans le concepteur. Sélectionnez **Autoriser**, entrez vos informations d'identification, puis sélectionnez **Autoriser** : 
+	![][5] 
+	![][6] 
 	![][7]
-6.	Vous pouvez maintenant utiliser le connecteur Dropbox dans le flux. Vous pouvez utiliser l’action Dropbox « Upload File » pour télécharger un fichier dans votre compte Dropbox.
- 
-	![][8]
+
+Vous pouvez maintenant utiliser le connecteur Dropbox dans le flux. Vous pouvez utiliser l'action Dropbox « Télécharger le fichier » pour télécharger un fichier dans votre compte Dropbox : 
+	![][8] 
 	![][9]
 
 Configurez les propriétés d’entrée de l’action « Charger le fichier » comme suit :
@@ -68,6 +71,12 @@ Configurez les propriétés d’entrée de l’action « Charger le fichier »
 - **Encodage de transfert de contenu** : spécifiez none ou base64.
 - **Remplacer** : spécifiez « true » pour remplacer le fichier existant.
 
+## En faire plus avec votre connecteur
+Maintenant que le connecteur est créé, vous pouvez l'ajouter à un flux d'entreprise à l'aide d'une application logique. Voir [Que sont les applications logiques ?](app-service-logic-what-are-logic-apps.md).
+
+Créez les applications API à l’aide des API REST. Consultez la page [Référence de connecteurs et d’applications API](http://go.microsoft.com/fwlink/p/?LinkId=529766).
+
+Vous pouvez également consulter les statistiques de performances et contrôler la sécurité du connecteur. Consultez la page [Gestion et contrôle de vos connecteurs et applications API intégrés](app-service-logic-monitor-your-connectors.md).
 
 <!-- Image reference -->
 [1]: ./media/app-service-logic-connector-dropbox/img1.PNG
@@ -80,4 +89,4 @@ Configurez les propriétés d’entrée de l’action « Charger le fichier »
 [8]: ./media/app-service-logic-connector-dropbox/img8.PNG
 [9]: ./media/app-service-logic-connector-dropbox/img9.PNG
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

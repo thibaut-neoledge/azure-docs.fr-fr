@@ -1,12 +1,11 @@
 <properties
-	pageTitle="Prise en main de l'authentification pour Mobile Apps dans Windows | Azure App Service"
+	pageTitle="Prise en main de l'authentification pour Mobile Apps dans Windows | Microsoft Azure"
 	description="Découvrez comment utiliser Mobile Apps pour authentifier les utilisateurs de votre application Windows à l’aide de divers fournisseurs d'identité, notamment AAD, Google, Facebook, Twitter et Microsoft."
 	services="app-service\mobile"
 	documentationCenter="windows"
 	authors="mattchenderson" 
 	manager="dwrede"
 	editor=""/>
-
 
 <tags
 	ms.service="app-service"
@@ -16,7 +15,6 @@
 	ms.topic="article"
 	ms.date="06/22/2015"
 	ms.author="mahender"/>
-
 
 # Ajout de l'authentification à votre application Windows
 
@@ -77,4 +75,4 @@ Ensuite, vous allez mettre à jour l'application pour authentifier les utilisate
 [Prise en main de votre application mobile]: app-service-mobile-dotnet-backend-windows-store-dotnet-get-started-preview.md
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

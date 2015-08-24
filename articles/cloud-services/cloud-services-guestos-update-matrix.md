@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="En savoir plus sur les dernières publications du SE invité de Microsoft Azure | Azure" 
+   pageTitle="En savoir plus sur les dernières publications du SE invité de Microsoft Azure | Microsoft Azure" 
    description="Dernières informations de publication et de compatibilité du Kit de développement logiciel (SDK) pour le SE invité de Microsoft Azure Cloud Services." 
    services="cloud-services" 
    documentationCenter="na" 
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="tbd" 
-   ms.date="05/20/2015"
+   ms.date="08/07/2015"
    ms.author="yuemlu"/>
 
 # Versions du SE invité et matrice de compatibilité du Kit de développement logiciel (SDK) Azure
@@ -28,6 +28,9 @@ Fournit des informations récentes sur les dernières publications du SE (systè
 
 
 ## Nouvelles mises à jour
+###### **7 août 2015**
+Les versions 4.22, 3.29, 2.41 du SE invité ont été publiées le 7 août 2015.
+
 ###### **14 juillet 2015**
 Le déploiement du système d'exploitation invité du mois de juillet commence dès aujourd'hui, le 14 juillet 2015, et devrait être publié le 14 août 2015.
 
@@ -115,9 +118,9 @@ Prend en charge .NET 4.0, 4.5, 4.5.1, 4.5.2 (Remarque 2)
 
 | Version du SE invité | Chaîne de configuration | Date de lancement | Date de désactivation | Date d’expiration |
 | ---------------- | -------------------------- | ---------------------- | ------------ | --- |
-| 4\.22 | WA-GUEST-OS-4.22\_201507-01 | Prévu le 14 août 2015 | Mise à jour lors de la publication de la version 4.24 | TBD |
+| 4\.22 | WA-GUEST-OS-4.22\_201507-01 | 7 août 2015 | Mise à jour lors de la publication de la version 4.24 | TBD |
 | 4\.21 | WA-GUEST-OS-4.21\_201506-01 | 9 juillet 2015 | Mise à jour lors de la publication de la version 4.23 | TBD |
-| 4\.20 | WA-GUEST-OS-4.20\_201505-02 | 12 juin 2015 | Mise à jour lors de la publication de la version 4.22 | TBD |
+| 4\.20 | WA-GUEST-OS-4.20\_201505-02 | 12 juin 2015 | 7 septembre 2015 | TBD |
 | 4\.19 | WA-GUEST-OS-4.19\_201504-01 | 17 avril 2015 | 9 août 2015 | TBD |
 | 4\.18 | WA-GUEST-OS-4.18\_201503-01 | 2 avril 2015 | 12 juillet 2015 | TBD |
 | 4\.17 | WA-GUEST-OS-4.17\_201502-01 | 9 mars 2015 | 17 mai 2015 | TBD |
@@ -139,9 +142,9 @@ Prend en charge .NET 4.0, 4.5
 
 | Version du SE invité | Chaîne de configuration | Date de lancement | Date de désactivation | Date d’expiration |
 | ---------------- | -------------------------- | ---------------------- | ------------ | --- |
-| 3\.29 | WA-GUEST-OS-3.29\_201507-01 | Prévu le 14 août 2015 | Mise à jour lors de la publication de la version 3.31 | TBD |
+| 3\.29 | WA-GUEST-OS-3.29\_201507-01 | 7 août 2015 | Mise à jour lors de la publication de la version 3.31 | TBD |
 | 3\.28 | WA-GUEST-OS-3.28\_201506-01 | 9 juillet 2015 | Mise à jour lors de la publication de la version 3.30 | TBD |
-| 3\.27 | WA-GUEST-OS-3.27\_201505-02 | 12 juin 2015 | Mise à jour lors de la publication de la version 3.29 | TBD |
+| 3\.27 | WA-GUEST-OS-3.27\_201505-02 | 12 juin 2015 | 7 septembre 2015 | TBD |
 | 3\.26 | WA-GUEST-OS-3.26\_201504-01 | 17 avril 2015 | 9 août 2015 | TBD |
 | 3\.25 | WA-GUEST-OS-3.25\_201503-01 | 2 avril 2015 | 12 juillet 2015 | TBD |
 | 3\.24 | WA-GUEST-OS-3.24\_201502-01 | 9 mars 2015 | 17 mai 2015 | TBD |
@@ -164,9 +167,9 @@ Prend en charge .NET 3.5, 4.0
 
 | Version du SE invité | Chaîne de configuration | Date de lancement | Date de désactivation | Date d’expiration |
 | ---------------- | -------------------------- | ---------------------- | ------------ | --- |
-| 2\.41 | WA-GUEST-OS-2.41\_201507-01 | Prévu le 14 août 2015 | Mise à jour lors de la publication de la version 2.43 | TBD |
+| 2\.41 | WA-GUEST-OS-2.41\_201507-01 | 7 août 2015 | Mise à jour lors de la publication de la version 2.43 | TBD |
 | 2\.40 | WA-GUEST-OS-2.40\_201506-01 | 9 juillet 2015 | Mise à jour lors de la publication de la version 2.42 | TBD |
-| 2\.39 | WA-GUEST-OS-2.39\_201505-02 | 12 juin 2015 | Mise à jour lors de la publication de la version 2.41 | TBD |
+| 2\.39 | WA-GUEST-OS-2.39\_201505-02 | 12 juin 2015 | 7 septembre 2015 | TBD |
 | 2\.38 | WA-GUEST-OS-2.38\_201504-01 | 17 avril 2015 | 9 août 2015 | TBD |
 | 2\.37 | WA-GUEST-OS-2.37\_201503-01 | 2 avril 2015 | 12 juillet 2015 | TBD |
 | 2\.36 | WA-GUEST-OS-2.36\_201502-01 | 9 mars 2015 | 17 mai 2015 | TBD |
@@ -326,4 +329,4 @@ En raison du déploiement partiel des deux dernières versions, les personnes ut
 [fam1retire]: cloud-services-guestos-family1-retirement.md
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

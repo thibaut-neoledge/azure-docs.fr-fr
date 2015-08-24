@@ -7,26 +7,22 @@
 	manager="dwrede" 
 	editor=""/>
 
-
 <tags 
 	ms.service="media-services" 
 	ms.workload="media" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/24/2015" 
+	ms.date="08/11/2015"
 	ms.author="juliako"/>
-
 
 
 
 #Configuration de la stratégie d’autorisation de clé de contenu 
 [AZURE.INCLUDE [media-services-selector-content-key-auth-policy](../../includes/media-services-selector-content-key-auth-policy.md)]
 
-Cet article fait partie des séries [workflow de vidéo à la demande Media Services](media-services-video-on-demand-workflow.md) et [workflow de vidéo en flux continu Media Services](media-services-live-streaming-workflow.md).
 
-
-##Vue d'ensemble
+##Vue d’ensemble
 
 Microsoft Azure Media Services permet de transmettre un contenu chiffré avec la norme AES (Advanced Encryption Standard) (à l’aide de clés de chiffrement 128 bits) et le DRM PlayReady. Media Services fournit également un **service de remise de clés/de licences** à partir duquel les clients peuvent obtenir une clé ou une licence pour lire le contenu chiffré.
 
@@ -64,7 +60,7 @@ La restriction **ouverte** signifie que le système fournira la clé à toute pe
 
 Pour choisir la stratégie de restriction à jeton, cliquez sur le bouton **JETON**.
 
-La stratégie de restriction à **jeton** doit être accompagnée d’un jeton émis par un **service de jeton sécurisé** (STS). Media Services prend en charge les jetons aux formats **SWT** ([Simple Web Tokens](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_2)) et JWT (**JSON Web Token**). Pour plus d’informations, consultez [Authentification à jeton JWT](http://www.gtrifonov.com/2015/01/03/jwt-token-authentication-in-azure-media-services-and-dynamic-encryption/).
+La stratégie de restriction à **jeton** doit être accompagnée d’un jeton émis par un **service de jeton sécurisé** (STS). Media Services prend en charge les jetons aux formats **SWT** ([Simple Web Tokens](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_2)) et **JWT** (JSON Web Token). Pour plus d’informations, consultez [Authentification à jeton JWT](http://www.gtrifonov.com/2015/01/03/jwt-token-authentication-in-azure-media-services-and-dynamic-encryption/).
 
 Media Services ne fournit pas de **services de jeton sécurisé**. Vous pouvez créer un STS personnalisé ou utiliser l’ACS Microsoft Azure pour émettre des jetons. Le STS doit être configuré pour créer un jeton signé avec la clé spécifiée et émettre les revendications spécifiées dans la configuration de restriction de jeton. Le service de remise de clé Media Services retourne la clé de chiffrement pour le client si le jeton est valide et que les revendications du jeton correspondent à celles configurées pour la clé de contenu. Pour plus d’informations, consultez [Utilisation de l’ACS Azure pour émettre des jetons](http://mingfeiy.com/acs-with-key-services).
 
@@ -78,7 +74,6 @@ Quand vous protégez votre contenu avec **PlayReady**, vous devez spécifier dan
 	  <LicenseTemplates>
 	    <PlayReadyLicenseTemplate><AllowTestDevices>true</AllowTestDevices>
 	      <ContentKey i:type="ContentEncryptionKeyFromHeader" />
-
 	      <LicenseType>Nonpersistent</LicenseType>
 	      <PlayRight>
 	        <AllowPassingVideoContentToUnknownOutput>Allowed</AllowPassingVideoContentToUnknownOutput>
@@ -98,4 +93,4 @@ Maintenant que vous avez configuré la stratégie d'autorisation de la clé de c
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

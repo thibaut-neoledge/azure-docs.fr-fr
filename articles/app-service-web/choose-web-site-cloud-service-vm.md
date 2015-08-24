@@ -7,16 +7,14 @@
 	manager="wpickett"
 	editor="jimbe"/>
 
-
 <tags
 	ms.service="app-service-web"
 	ms.workload="web"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article" 
-	ms.date="04/29/2015"
+	ms.date="08/10/2015"
 	ms.author="tdykstra"/>
-
 
 # Comparaison entre Azure App Service, Azure Cloud Services et Azure Virtual Machines
 
@@ -52,7 +50,7 @@ Voici quelques scénarios d'application courants avec des recommandations sur l'
 
 ### <a id="onprem"></a> J’ai besoin d’un site web frontal avec traitement en arrière-plan et base de données principale pour exécuter des applications métier intégrées à des ressources locales.
 
-Azure App Service est une excellente solution pour l’hébergement d’applications métier complexes. Elle vous permet de développer des applications automatiquement mises à l'échelle sur les plateformes avec équilibrage de la charge. Elles sont aussi sécurisées grâce à Active Directory et se connectent à vos ressources locales. Elle simplifie la gestion de ces applications grâce au portail de gestion et aux API et vous permet de savoir comment vos clients les utilisent avec les outils d'analyse. La nouvelle fonctionnalité [Webjobs][] vous permet d'exécuter des processus et des tâches en arrière-plan dans le cadre de votre niveau de service. La connectivité hybride et les [fonctionnalités VNET](../fundamentals-introduction-to-azure.md#networking/) simplifient la connexion aux ressources locales. Azure App Service offre des contrats SLA pour des applications web à 0,001 % d’erreur et offre les possibilités suivantes :
+Azure App Service est une excellente solution pour l’hébergement d’applications métier complexes. Elle vous permet de développer des applications automatiquement mises à l'échelle sur les plateformes avec équilibrage de la charge. Elles sont aussi sécurisées grâce à Active Directory et se connectent à vos ressources locales. Elle simplifie la gestion de ces applications grâce au portail de gestion et aux API et vous permet de savoir comment vos clients les utilisent avec les outils d'analyse. La fonctionnalité [Webjobs][] vous permet d'exécuter des processus et des tâches en arrière-plan dans le cadre de votre niveau de service. La connectivité hybride et les [fonctionnalités VNET](../fundamentals-introduction-to-azure.md#networking/) simplifient la connexion aux ressources locales. Azure App Service offre des contrats SLA pour des applications web à 0,001 % d’erreur et offre les possibilités suivantes :
 
 * Exécution fiable de vos applications sur une plateforme cloud avec corrections et mises à jour automatiques.
 * Extension automatique sur un réseau mondial de centres de données.
@@ -184,7 +182,7 @@ Pour plus d'informations sur les trois options d'hébergement web, consultez les
 
 Pour choisir une ou plusieurs de ces options pour votre application, consultez les ressources suivantes :
 
-* [Sites Web Azure](/documentation/services/app-service/)
+* [Azure App Service](/documentation/services/app-service/)
 * [Azure Cloud Services](/documentation/services/cloud-services/)
 * [Azure Virtual Machines](/documentation/services/virtual-machines/)
 
@@ -206,4 +204,4 @@ Pour choisir une ou plusieurs de ces options pour votre application, consultez l
   [Azure Storage]: http://www.windowsazure.com/documentation/services/storage/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

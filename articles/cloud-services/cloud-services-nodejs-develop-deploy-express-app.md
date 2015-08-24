@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Application web avec Express (Node.js) - Didacticiel Azure" 
+	pageTitle="Application web avec Express (Node.js) | Microsoft Azure" 
 	description="Ce didacticiel poursuit le didacticiel relatif au service cloud et présente l’utilisation du module Express." 
 	services="cloud-services" 
 	documentationCenter="nodejs" 
@@ -135,4 +135,4 @@ Une fois le déploiement terminé, votre navigateur s'ouvre et affiche la page W
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

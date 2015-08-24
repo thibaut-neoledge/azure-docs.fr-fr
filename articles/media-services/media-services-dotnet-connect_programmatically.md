@@ -13,13 +13,16 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="05/24/2015" 
+	ms.date="08/11/2015"  
 	ms.author="juliako"/>
 
 
 # Connexion à un compte Media Services à l’aide du Kit de développement logiciel (SDK) Media Services pour .NET
 
-Cet article fait partie des séries [workflow de vidéo à la demande Media Services](media-services-video-on-demand-workflow.md) et [workflow de vidéo en flux continu Media Services](media-services-live-streaming-workflow.md).
+> [AZURE.SELECTOR]
+- [REST](media-services-rest-connect_programmatically.md)
+- [.NET](media-services-dotnet-connect_programmatically.md)
+
 
 Cette rubrique décrit comment obtenir une connexion à Microsoft Azure Media Services par programme lorsque vous programmez avec le Kit de développement logiciel (SDK) Media Services pour .NET.
 
@@ -171,14 +174,14 @@ Il est fortement recommandé de stocker des valeurs de connexion, en particulier
 Le fichier App.config suivant contient les valeurs de connexion requises. Les valeurs de l’élément <appSettings> sont les valeurs requises que vous avez obtenues lors du processus d’installation du compte Media Services.
 
 
-```
-&lt;configuration&gt;
-    &lt;appSettings&gt;
-	&lt;add key="MediaServicesAccountName" value="Media-Services-Account-Name" /&gt;
-    	&lt;add key="MediaServicesAccountKey" value="Media-Services-Account-Key" /&gt;
-    &lt;/appSettings&gt;
-&lt;/configuration&gt;
-```
+<pre>
+&lt;configuration>
+    &lt;appSettings>
+	&lt;add key="MediaServicesAccountName" value="Media-Services-Account-Name" />
+    	&lt;add key="MediaServicesAccountKey" value="Media-Services-Account-Key" />
+    &lt;/appSettings>
+&lt;/configuration>
+</pre>
 
 Pour récupérer les valeurs de connexion de configuration, vous pouvez utiliser la classe **ConfigurationManager**, puis affectez les valeurs aux champs de votre code :
 	
@@ -191,4 +194,4 @@ Pour récupérer les valeurs de connexion de configuration, vous pouvez utiliser
 
 <!-- URLs. -->
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

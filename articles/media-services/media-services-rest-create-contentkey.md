@@ -13,13 +13,17 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/15/2015" 
+	ms.date="08/11/2015" 
 	ms.author="juliako"/>
 
 
 #Création de ContentKeys avec REST
 
-Cet article fait partie des séries [workflow de vidéo à la demande Media Services](media-services-video-on-demand-workflow.md) et [workflow de vidéo en flux continu Media Services](media-services-live-streaming-workflow.md).
+
+> [AZURE.SELECTOR]
+- [REST](media-services-rest-create-contentkey.md)
+- [.NET](media-services-dotnet-create-contentkey.md)
+
 
 Media Services vous permet de créer et de fournir des ressources chiffrées. Une **ContentKey** fournit un accès sécurisé à vos **éléments multimédias**.
 
@@ -247,4 +251,4 @@ Réponse :
 
 	HTTP/1.1 204 No Content 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

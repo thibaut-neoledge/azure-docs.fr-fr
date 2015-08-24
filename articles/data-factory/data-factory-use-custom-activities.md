@@ -7,7 +7,6 @@
 	manager="jhubbard" 
 	editor="monicar"/>
 
-
 <tags 
 	ms.service="data-factory" 
 	ms.workload="data-services" 
@@ -17,15 +16,13 @@
 	ms.date="07/16/2015" 
 	ms.author="spelluru"/>
 
-
 # Utilisation des activités personnalisées dans un pipeline Azure Data Factory
 Azure Data Factory prend en charge l’utilisation d’activités intégrées telles que **Copier l’activité** et **Activité HDInsight** dans les pipelines dans le but de déplacer et de traiter des données. Vous pouvez également créer une activité personnalisée .NET avec votre propre logique de transformation/de traitement et utiliser l’activité dans un pipeline. Vous pouvez configurer l’activité à exécuter en utilisant un cluster **Azure HDInsight** ou un service **Azure Batch**.
 
 Cet article décrit comment créer une activité personnalisée et l'utiliser dans un pipeline Azure Data Factory. Il fournit également une procédure pas à pas pour créer et utiliser une activité personnalisée. La procédure pas à pas utilise le service HDInsight lié. Pour utiliser le service lié Azure Batch à la place, vous créez un service lié de type **AzureBatch** et l’utilisez dans la section d’activité du pipeline JSON (**linkedServiceName**). Consultez la section [Service lié Azure Batch](#AzureBatch) pour plus d’informations sur l’utilisation d’Azure Batch avec l’activité personnalisée.
 
 
-## <a name="walkthrough" />
- Procédure pas à pas
+## <a name="walkthrough" /> Procédure pas à pas
 Cette procédure pas à pas vous fournit des instructions détaillées sur la création d’une activité personnalisée et l’utilisation de l’activité dans un pipeline Microsoft Azure Data Factory. Cette procédure pas à pas développe le didacticiel de la rubrique [Prise en main d’Azure Data Factory][adfgetstarted]. Si vous souhaitez voir fonctionner l'activité personnalisée, vous devez commencer par le didacticiel de prise en main, puis effectuer cette procédure pas à pas.
 
 **Configuration requise :**
@@ -93,7 +90,10 @@ Cette procédure pas à pas vous fournit des instructions détaillées sur la cr
 
             Table inputTable = tables.Single(table => table.Name == activity.Inputs.Single().Name);
             inputLocation = inputTable.Properties.TypeProperties as CustomDataset;
-            inputLinkedService = linkedServices.Single(linkedService => linkedService.Name == inputTable.Properties.LinkedServiceName).Properties.TypeProperties as AzureStorageLinkedService;
+
+			// using First method instead of Single since we are using the same 
+			// Azure Storage linked service for input and output. 
+            inputLinkedService = linkedServices.First(linkedService => linkedService.Name == inputTable.Properties.LinkedServiceName).Properties.TypeProperties as AzureStorageLinkedService;
 
 
             string output = string.Empty;
@@ -161,7 +161,7 @@ Cette procédure pas à pas vous fournit des instructions détaillées sur la cr
 
             Table outputTable = tables.Single(table => table.Name == activity.Outputs.Single().Name);
             outputLocation = outputTable.Properties.TypeProperties as AzureBlobDataset;
-            outputLinkedService = linkedServices.Single(linkedService => linkedService.Name == outputTable.Properties.LinkedServiceName).Properties.TypeProperties as AzureStorageLinkedService;
+            outputLinkedService = linkedServices.First(linkedService => linkedService.Name == outputTable.Properties.LinkedServiceName).Properties.TypeProperties as AzureStorageLinkedService;
 
             connectionString = GetConnectionString(outputLinkedService);
             folderPath = GetFolderPath(outputTable);
@@ -212,7 +212,7 @@ Cette procédure pas à pas vous fournit des instructions détaillées sur la cr
 
 10. Compilez le projet. Cliquez sur l’option **Générer** du menu, puis sur **Générer la solution**.
 11. Lancez l’**Explorateur Windows** et accédez au dossier **bin\\debug** ou **bin\\release** (selon le type de build).
-12. Créez un fichier **MyDotNetActivity.zip** contenant tous les binaires dans le dossier <project folder>\\bin\\Debug.
+12. Créez un fichier **MyDotNetActivity.zip** contenant tous les binaires dans le dossier <project folder>\\bin\\Debug. Si vous le souhaitez, vous pouvez inclure le fichier MyDotNetActivity.pdb afin d’obtenir des détails supplémentaires tels que le numéro de ligne du code source ayant causé le problème en cas de défaillance. 
 13. Chargez le fichier **MyDotNetActivity.zip** en tant qu’objet blob dans le conteneur d’objets blob **customactvitycontainer** du stockage d’objets blob Azure utilisé par le service lié **StorageLinkedService** dans **ADFTutorialDataFactory**. Créez le conteneur d’objets blob **customactivitycontainer**, le cas échéant. 
 
 
@@ -364,11 +364,12 @@ Si, après avoir exécuté le didacticiel [Prise en main d’Azure Data Factory]
 
 	(emplacement de l’objet blob), (nom de l’objet blob), (nombre de lignes de l’objet blob), (nœud sur lequel l’activité a été exécutée), (horodatage)
 
-10.	Utilisez le [portail Azure][azure-preview-portal] ou les applets de commande Azure PowerShell pour surveiller votre fabrique de données, pipelines et jeux de données. Vous pouvez voir les messages de l’élément **ActivityLogger** dans le code de l’activité personnalisée dans les journaux, que vous pouvez télécharger depuis le portail ou à l’aide des applets de commande.
+10.	Utilisez le [portail Azure][azure-preview-portal] ou les applets de commande Azure PowerShell pour surveiller votre fabrique de données, pipelines et jeux de données. Vous pouvez voir les messages de l’outil **ActivityLogger** dans le code concernant l’activité personnalisée dans les journaux (plus précisément, user-0.log) que vous pouvez télécharger à partir du portail ou à l’aide d’applets de commande.
 
 	![Téléchargement des journaux d’activités personnalisées][image-data-factory-download-logs-from-custom-activity]
+	
    
-Pour connaître les étapes détaillées de la surveillance des jeux de données et des pipelines, voir [Prise en main d’Azure Data Factory][adfgetstarted].
+Pour découvrir la procédure détaillée de surveillance des jeux de données et des pipelines, consultez l’article [Surveiller et gérer les pipelines](data-factory-monitor-manage-pipelines.md).
 
 ## Mise à jour d’une activité personnalisée
 Si vous mettez à jour le code de l’activité personnalisée, créez et téléchargez le fichier .zip qui contient les nouveaux fichiers binaires pour le stockage d’objets blob.
@@ -466,4 +467,4 @@ Voici les étapes générales d’utilisation du service lié Microsoft Azure B
 [image-data-factory-azure-batch-tasks]: ./media/data-factory-use-custom-activities/AzureBatchTasks.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

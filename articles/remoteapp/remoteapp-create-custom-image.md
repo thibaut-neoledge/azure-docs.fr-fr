@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Création d’une image de modèle personnalisée pour Azure RemoteApp"
-	description="Découvrez comment créer une image de modèle personnalisée pour RemoteApp. You can use this template with either a hybrid or cloud deployment."
+	description="Découvrez comment créer une image de modèle personnalisée pour Azure RemoteApp. Vous pouvez utiliser ce modèle avec une collection hybride ou cloud."
 	services="remoteapp"
 	documentationCenter=""
 	authors="lizap"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/28/2015" 
+	ms.date="08/12/2015" 
 	ms.author="elizapo"/>
 
 # Création d’une image de modèle personnalisée pour Azure RemoteApp
@@ -22,7 +22,7 @@ Azure RemoteApp utilise une image de modèle Windows Server 2012 R2 pour héb
 
 - La taille de l'image doit être un multiple de Mo. Si vous tentez de télécharger une image dont la taille n'est pas un multiple exact de Mo, le téléchargement échouera.
 - La taille de l'image doit être de 127 Go ou moins.
-- Elle doit se trouver dans un fichier VHD (pour l'instant, les fichiers VHDX ne sont pas pris en charge).
+- Elle doit se trouver dans un fichier VHD (pour l'instant, les fichiers VHDX [disques durs virtuels Hyper-V] ne sont pas pris en charge).
 - Le disque dur virtuel ne doit pas être une machine virtuelle de deuxième génération.
 - Le disque dur virtuel (VHD) peut être de taille fixe ou dynamique. L'utilisation d'un fichier VHD de taille dynamique est recommandée, car le téléchargement sur Azure prend moins de temps qu'un fichier VHD de taille fixe.
 - Le disque doit être initialisé à l'aide du type de partitionnement MBR (Enregistrement de démarrage principal). Le style de partition GPT (GUID Partition Table) n'est pas pris en charge.
@@ -49,7 +49,7 @@ Avant de créer le service, vous devez effectuer les étapes suivantes :
 
 ## Création d'une image de modèle ##
 
-Pour créer une image de modèle à partir de zéro, procédez comme suit :
+Voici les principales étapes à suivre pour créer une nouvelle image de modèle :
 
 1.	Recherchez une image ISO ou DVD de mise à jour de Windows Server 2012 R2.
 2.	Créez un disque dur virtuel.
@@ -109,8 +109,8 @@ La procédure détaillée de création d'une image se présente comme suit :
  	**Important :**
 
 
-	- Microsoft vous conseille d'installer le rôle RDSH avant les applications pour être sûr de détecter tout problème au niveau de la compatibilité des applications avant le téléchargement de l'image sur RemoteApp.
-	- Assurez-vous que votre application s'affiche dans le menu Démarrer. Vérifiez également que l'icône qui s'affiche dans le menu Démarrer est correcte. Sinon, changez-la. (Vous n'êtes pas *obligé* d'ajouter l'application au menu Démarrer, mais cela facilite sa publication dans RemoteApp. Sinon, vous devez fournir le chemin d'installation de l'application quand vous publiez l'application.)
+	- Installez le rôle RDSH avant les applications pour être sûr de détecter tout problème au niveau de la compatibilité des applications avant le téléchargement de l'image sur RemoteApp.
+	- Assurez-vous que votre application s'affiche dans le menu **Démarrer**. Vérifiez également que l'icône qui s'affiche dans le menu **Démarrer** est correcte. Sinon, changez-la. (Vous n'êtes pas *obligé* d'ajouter l'application au menu Démarrer, mais cela facilite sa publication dans RemoteApp. Sinon, vous devez fournir le chemin d'installation de l'application quand vous publiez l'application.)
 
 8.	Exécutez les éventuelles opérations de configuration Windows supplémentaires requises par vos applications.
 9.	Désactivez le système de fichiers EFS. Exécutez la commande suivante dans une fenêtre de commande avec élévation de privilèges :
@@ -137,4 +137,4 @@ Maintenant que vous avez votre image de modèle personnalisée, vous devez la t�
 - [Création d'une collection cloud de RemoteApp](remoteapp-create-cloud-deployment.md)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

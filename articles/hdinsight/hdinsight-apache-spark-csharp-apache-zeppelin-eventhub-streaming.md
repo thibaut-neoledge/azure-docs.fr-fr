@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Utilisez les concentrateurs d'événements Azure avec Apache Spark dans HDInsight pour traiter les données de diffusion en continu | Azure" 
+	pageTitle="Utilisation des hubs d'événements Azure avec Apache Spark dans HDInsight pour traiter les données de diffusion en continu | Microsoft Azure" 
 	description="Des instructions étape par étape sur l'envoi d’un flux de données vers un concentrateur d'événements Azure et la réception de ces événements dans Spark à l’aide d’un bloc-notes Zeppelin" 
 	services="hdinsight" 
 	documentationCenter="" 
@@ -151,7 +151,7 @@ Les instructions sur la procédure de réalisation de ces étapes et un exemple 
 * [Démarrage rapide : approvisionnement Apache Spark sur HDInsight et exécution des requêtes interactives à l'aide de Spark SQL](hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql.md)
 * [Utilisez Spark dans HDInsight pour la création d'applications pour l’apprentissage automatique](hdinsight-apache-spark-ipython-notebook-machine-learning.md)
 * [Effectuez une analyse interactive des données à l'aide de Spark dans HDInsight avec les outils décisionnels](hdinsight-apache-spark-use-bi-tools.md)
-* [Gérez les ressources du cluster Apache Spark dans Azure HDInsight](hdinsight-apache-spark-resource-manager.md)
+* [Gérer les ressources du cluster Apache Spark dans Azure HDInsight](hdinsight-apache-spark-resource-manager.md)
 
 
 [hdinsight-versions]: ../hdinsight-component-versioning/
@@ -164,4 +164,4 @@ Les instructions sur la procédure de réalisation de ces étapes et un exemple 
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

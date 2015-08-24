@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/04/2015" 
+	ms.date="08/12/2015" 
 	ms.author="awills"/>
  
 # Présentation d’Application Insights
@@ -103,17 +103,19 @@ L'impact sur les performances est très faible. Le suivi des appels n’entraîn
 
 Pour plus de détails, choisissez votre type d'application sous Prise en main dans la barre de navigation située à gauche de cette page.
 
-## Exemples
+## Code
 
 
 [Exemples et procédures pas à pas](app-insights-code-samples.md)
+
+[SDK Labs](https://www.myget.org/gallery/applicationinsights-sdk-labs) : packages NuGet que vous pouvez installer (et désinstaller) sous forme d’ajouts au Kit de développement logiciel (SDK) Application Insights. Essayez-les et envoyez-nous vos commentaires !
 
 
 ## Support et commentaires
 
 * Questions et problèmes :
  * [Résolution des problèmes][qna]
- * [Forum MSDN](https://social.msdn.microsoft.com/Forums/vstudio/fr-fr/home?forum=ApplicationInsights)
+ * [Forum MSDN](https://social.msdn.microsoft.com/Forums/vstudio/en-US/home?forum=ApplicationInsights)
  * [Stackoverflow](http://stackoverflow.com/questions/tagged/ms-application-insights)
 * Bogues :
  * [Connect](https://connect.microsoft.com/VisualStudio/Feedback/LoadSubmitFeedbackForm?FormID=6076)
@@ -150,4 +152,4 @@ Pour plus de détails, choisissez votre type d'application sous Prise en main da
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

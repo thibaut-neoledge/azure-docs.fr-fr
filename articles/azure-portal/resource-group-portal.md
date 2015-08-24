@@ -3,11 +3,9 @@
 	description="Regroupez plusieurs ressources dans un groupe logique qui devient la limite de cycle de vie pour les ressources qu’il contient." 
 	services="azure-portal" 
 	documentationCenter="" 
-	authors="" 
-	writer="tfitzmac" 
+	authors="tfitzmac" 
 	manager="wpickett" 
 	editor=""/>
-
 
 <tags 
 	ms.service="azure-portal" 
@@ -17,7 +15,6 @@
 	ms.topic="article" 
 	ms.date="06/22/2015" 
 	ms.author="tomfitz"/>
-
 
 
 # Utilisation du portail Azure en version préliminaire pour gérer vos ressources Azure
@@ -33,7 +30,6 @@ Voici une présentation succincte de la façon dont vous pouvez utiliser les gro
 ## Création de groupes de ressources
 
 Lorsqu’une ressource est créée dans le portail, elle est toujours intégrée à un groupe de ressources. Vous avez le choix entre créer un groupe de ressources et utiliser un groupe qui existe déjà dans le flux de création. <br><br />
-
 
 ![Créer un groupe de ressources](./media/resource-group-portal/1_createWebsite.png)
 
@@ -79,4 +75,4 @@ Mise en route
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

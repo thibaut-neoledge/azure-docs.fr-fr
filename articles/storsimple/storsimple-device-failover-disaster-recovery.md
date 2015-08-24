@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/23/2015"
+   ms.date="08/12/2015"
    ms.author="alkohli" />
 
 # Basculement et récupération d’urgence pour votre appareil StorSimple
@@ -77,7 +77,7 @@ Procédez comme suit si vous disposez d’un seul appareil et devez effectuer un
 
 1. Prenez des instantanés de cloud de tous les volumes de votre appareil.
 
-1. Réinitialisez votre appareil aux valeurs par défaut. Suivez les instructions détaillées dans la section [Rétablissement des paramètres par défaut de l’appareil](https://msdn.microsoft.com/library/dn772373.aspx).
+1. Réinitialisez votre appareil aux valeurs par défaut. Suivez les instructions détaillées dans la section [Rétablissement des paramètres par défaut de l’appareil](storsimple-manage-device-controller.md#reset-the-device-to-factory-default-settings).
 
 1. Configurez votre appareil et réenregistrez-le avec votre service StorSimple Manager.
 
@@ -142,10 +142,7 @@ Après avoir effectué un basculement, vous devrez peut-être :
 - [Désactiver votre appareil StorSimple](storsimple-deactivate-and-delete-device.md#deactivate-a-device)
 - [Supprimer votre appareil StorSimple](storsimple-deactivate-and-delete-device.md#delete-a-device)
 
-Pour plus d’informations sur la gestion de votre appareil à l’aide du service StorSimple Manager, consultez :
-
-- [Guide de l’administrateur](https://msdn.microsoft.com/library/dn772401.aspx)
-
+Pour plus d'informations sur la façon de gérer votre appareil à l'aide du service StorSimple Manager, accédez à [Utilisation du service StorSimple Manager pour gérer votre appareil StorSimple](storsimple-manager-service-administration.md).
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

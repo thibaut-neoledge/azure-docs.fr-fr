@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Livraison continue avec Visual Studio Online dans Azure" 
-	description="Découvrez comment configurer vos projets d'équipe Visual Studio Online afin de les générer et de les déployer automatiquement vers la fonctionnalité Web App d’Azure App Service ou des services cloud." 
-	services="cloud-services" 
-	documentationCenter=".net" 
-	authors="kempb" 
-	manager="douge" 
+<properties
+	pageTitle="Livraison continue avec Visual Studio Online dans Azure"
+	description="Découvrez comment configurer vos projets d'équipe Visual Studio Online afin de les générer et de les déployer automatiquement vers la fonctionnalité Web App d’Azure App Service ou des services cloud."
+	services="cloud-services"
+	documentationCenter=".net"
+	authors="kempb"
+	manager="douge"
 	editor="tglee"/>
 
-<tags 
-	ms.service="cloud-services" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="05/08/2015" 
+<tags
+	ms.service="cloud-services"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="na"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="08/07/2015" 
 	ms.author="kempb"/>
 
 
@@ -189,7 +189,7 @@ Cette étape s'applique uniquement aux applications Web, et non aux services clo
 
 		using System;
 		using Microsoft.VisualStudio.TestTools.UnitTesting;
-		
+
 		namespace UnitTestProject1
 		{
 		    [TestClass]
@@ -304,6 +304,5 @@ Pour plus d'informations, consultez la page [Visual Studio Online](http://go.mic
 [48]: ./media/cloud-services-continuous-delivery-use-vso/CheckInChangeToMakeTestsFail.PNG
 [49]: ./media/cloud-services-continuous-delivery-use-vso/TestsFailed.PNG
 [50]: ./media/cloud-services-continuous-delivery-use-vso/TestsResultsFailed.PNG
- 
 
-<!----HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

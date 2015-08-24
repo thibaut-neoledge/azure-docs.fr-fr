@@ -7,7 +7,6 @@
 	manager="jhubbard" 
 	editor="monicar"/>
 
-
 <tags 
 	ms.service="data-factory" 
 	ms.workload="data-services" 
@@ -17,10 +16,9 @@
 	ms.date="07/21/2015" 
 	ms.author="spelluru"/>
 
-
 # Scénarios avancés pour l'utilisation de l'activité de copie avec Azure Data Factory 
 ## Vue d'ensemble
-Vous pouvez utiliser l'**activité de copie** dans un pipeline pour copier les données d'une source vers un récepteur (destination) au sein d'un lot. Cette rubrique décrit les scénarios avancés pris en charge par l'activité de copie. Pour une présentation détaillée de l'activité de copie et des principaux scénarios pris en charge, consultez la rubrique [Copier des données avec Azure Data Factory][adf-copyactivity].
+Vous pouvez utiliser l'**activité de copie** dans un pipeline pour copier les données d'une source vers un récepteur (destination) au sein d'un lot. Cette rubrique décrit les scénarios avancés pris en charge par l'activité de copie.
 
 
 ## Filtrage de colonne à l'aide de la définition de structure
@@ -130,7 +128,7 @@ Pour affecter une valeur à **folderPath** et **fileName** de manière dynamique
     ],
 
 #### Exemple : définition du mappage de colonnes
-Dans cet exemple, l'activité d'un pipeline est définie comme suit. Colonnes de la source mappées vers les colonnes du récepteur (**columnMappings**) en utilisant la propriété **Translator**.
+Dans cet exemple, l'activité d'un pipeline est définie comme suit. Colonnes de la source mappées sur les colonnes du récepteur (**columnMappings**) en utilisant la propriété **Translator**.
 
 	{
 		"name": "CopyActivity",
@@ -196,7 +194,7 @@ Les types de données spécifiés dans la section Structure de la définition de
 | ----------- | ------------------------ |
 | SqlSource | Les types de données définis dans la section Structure de la définition de la table sont ignorés. Les types de données définis dans la base de données SQL sous-jacente sont utilisés pour l'extraction de données durant l'activité de copie. |
 | SqlSink | Les types de données définis dans la section Structure de la définition de la table sont ignorés. Les types de données de la source et de la destination sous-jacentes sont comparés. Par ailleurs, une conversion de type implicite est effectuée s'il existe des incompatibilités de types. |
-| BlobSource | Lors du transfert de BlobSource vers BlobSink, il n’existe aucune transformation de type ; les types de données définis dans la section Structure de la définition de la table sont ignorés. Pour les destinations autres que BlobSink, les types de données définis dans la section Structure de la définition de la table sont respectés. Si la Structure n’est pas spécifiée dans la définition de la table, la gestion du type dépend de la propriété format de la table BlobSource, TextFormat : tous les types de colonne sont traités en tant que chaîne, et tous les noms de colonne sont définis en tant que « Prop\_<0-N> ». AvroFormat : permet d’utiliser les types et les noms de colonne prédéfinis dans le fichier Avro.
+| BlobSource | Lors du transfert de BlobSource vers BlobSink, il n’existe aucune transformation de type ; les types de données définis dans la section Structure de la définition de la table sont ignorés. Pour les destinations autres que BlobSink, les types de données définis dans la section Structure de la définition de la table sont respectés. Si la Structure n’est pas spécifiée dans la définition de la table, la gestion du type dépend de la propriété de format de la table BlobSource, TextFormat : tous les types de colonne sont traités en tant que chaîne, et tous les noms de colonne sont définis en tant que « Prop\_<0-N> ». AvroFormat : permet d’utiliser les types et les noms de colonne prédéfinis dans le fichier Avro.
 | BlobSink | Les types de données définis dans la section Structure de la définition de la table sont ignorés. Les types de données définis dans le magasin de données d'entrée sous-jacent sont utilisés. Les colonnes sont spécifiées en tant que colonnes de type Nullable pour la sérialisation Avro. |
 | AzureTableSource | Les types de données définis dans la section Structure de la définition de la table sont ignorés. Les types de données définis dans la table Azure sous-jacente sont utilisés. |
 | AzureTableSink | Les types de données définis dans la section Structure de la définition de la table sont ignorés. Les types de données définis dans le magasin de données d'entrée sous-jacent sont utilisés. |
@@ -267,8 +265,6 @@ Même si l'encodage UTF-8 est très populaire, les fichiers texte d’objet blob
 
 ## Voir aussi
 
-- [Exemples d'utilisation de l’activité de copie][copy-activity-examples]
-- [Copie de données avec Azure Data Factory][adf-copyactivity]
 - [Activité de copie : informations de référence sur la création de scripts JSON](https://msdn.microsoft.com/library/dn835035.aspx)
 - [Vidéo : Présentation de l'activité de copie dans Azure Data Factory][copy-activity-video]
 
@@ -278,9 +274,7 @@ Même si l'encodage UTF-8 est très populaire, les fichiers texte d’objet blob
 
 
 [adfgetstarted]: data-factory-get-started.md
-[adf-copyactivity]: data-factory-copy-activity.md
 [use-onpremises-datasources]: data-factory-use-onpremises-datasources.md
-[copy-activity-examples]: data-factory-copy-activity-examples.md
 
 [json-script-reference]: http://go.microsoft.com/fwlink/?LinkId=516971
 [cmdlet-reference]: http://go.microsoft.com/fwlink/?LinkId=517456
@@ -291,4 +285,4 @@ Même si l'encodage UTF-8 est très populaire, les fichiers texte d’objet blob
 [image-data-factory-column-mapping-2]: ./media/data-factory-copy-activity-advanced/ColumnMappingSample2.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

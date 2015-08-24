@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Nom et clé de l'émetteur dans BizTalk Services | Azure" 
+	pageTitle="Nom et clé de l’émetteur dans BizTalk Services | Microsoft Azure" 
 	description="Découvrez comment récupérer le nom et la clé de l'émetteur pour le bus des services ou le contrôle d'accès (ACS) dans BizTalk Services. MABS, WABS" 
 	services="biztalk-services" 
 	documentationCenter="" 
@@ -86,4 +86,4 @@ Autres rubriques Azure BizTalk Services :
 - [Limitation BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=302282)<br/>
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -46,7 +46,7 @@ Les étapes classiques pour créer une instance Azure Data Factory sont les suiv
 
 Le service Azure Data Factory prend en charge les activités suivantes dans un pipeline :
 
-- L’**activité de copie** copie les données d’un magasin de données vers un autre magasin de données. Pour plus d’informations sur les magasins de données pris en charge par l’activité de copie, consultez [Copie de données avec Azure Data Factory][copy-data-with-adf]. 
+- L’**activité de copie** copie les données d’un magasin de données vers un autre magasin de données.  
 - L’**activité HDInsight** traite les données en exécutant des scripts Hive/Pig ou des programmes MapReduce sur un cluster HDInsight. Pour plus d’informations, consultez les pages [Utilisation de Pig et Hive avec Data Factory][use-pig-hive] et [Appel de programmes MapReduce à partir de Data Factory][run-map-reduce]. 
 - L’**activité d’évaluation par lots Azure Machine Learning** appelle l’API d’évaluation par lots Azure Machine Learning. Pour plus d’informations, consultez la page [Créer des pipelines prédictifs à l’aide d’Azure Data Factory et Azure Machine Learning][azure-ml-adf]. 
 - L’**activité de procédure stockée** appelle une procédure stockée dans une base de données SQL Azure. Pour plus d’informations, consultez l’[activité de procédure stockée][msdn-stored-procedure-activity] dans la bibliothèque MSDN.   
@@ -82,7 +82,6 @@ Un pipeline s'exécute sur un concentrateur unique ce qui constitue une caracté
 
 [adf-faq]: data-factory-faq.md
 [adf-intro]: data-factory-introduction.md
-[copy-data-with-adf]: data-factory-copy-activity.md
 [use-pig-hive]: data-factory-pig-hive-activities.md
 [run-map-reduce]: data-factory-map-reduce.md
 [azure-ml-adf]: data-factory-create-predictive-pipelines.md
@@ -113,4 +112,4 @@ Un pipeline s'exécute sur un concentrateur unique ce qui constitue une caracté
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

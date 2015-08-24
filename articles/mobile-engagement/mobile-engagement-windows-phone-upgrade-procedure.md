@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-phone" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/07/2015" 
+	ms.date="08/10/2015" 
 	ms.author="piyushjo" />
 
 #Procédures de mise à niveau du Kit de développement Windows Phone Silverlight
@@ -142,4 +142,4 @@ Notez que ce changement affecte également les méthodes substituées.
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

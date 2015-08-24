@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/24/2015" 
+	ms.date="08/11/2015" 
 	ms.author="juliako"/>
 
 
@@ -81,4 +81,4 @@ Pour plus d’informations sur le développement de vos propres lecteurs, consul
  
 [AMSPlayer]: ./media/media-services-playback-content-with-existing-players/media-services-portal-player.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

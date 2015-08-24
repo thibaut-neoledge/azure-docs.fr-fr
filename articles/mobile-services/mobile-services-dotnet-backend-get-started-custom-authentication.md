@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Prise en main de l'authentification personnalisée | Centre de développement mobile" 
+	pageTitle="Prise en main de l'authentification personnalisée | Microsoft Azure" 
 	description="Découvrez comment authentifier les utilisateurs à l'aide d'un nom d'utilisateur et d'un mot de passe." 
 	documentationCenter="Mobile" 
 	authors="mattchenderson" 
@@ -420,4 +420,4 @@ C'est ici que s'achève ce didacticiel.
 [ProviderCredentials]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobile.service.security.providercredentials.aspx
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

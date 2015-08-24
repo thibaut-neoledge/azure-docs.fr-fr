@@ -14,11 +14,17 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/29/2015" 
+	ms.date="08/11/2015"
 	ms.author="juliako"/>
 
 
 #Gestion des éléments multimédias et des entités connexes avec le Kit de développement logiciel (SDK) Media Services .NET
+
+
+> [AZURE.SELECTOR]
+- [.NET](media-services-dotnet-manage-entities.md)
+- [REST](media-services-rest-manage-entities.md)
+
 
 Cette rubrique explique comment effectuer les tâches de gestion Media Services suivantes :
 
@@ -34,7 +40,7 @@ Cette rubrique explique comment effectuer les tâches de gestion Media Services 
 
 ##Conditions préalables 
 
-Consultez la page [Configuration de votre environnement](media-services-set-up-computer.md)
+Consultez [Configuration de votre environnement](media-services-set-up-computer.md)
 
 ##Obtenir une référence pointant vers un élément multimédia
 
@@ -219,7 +225,7 @@ Un localisateur est une URL qui fournit un chemin d’accès direct pour accéde
 
 L’exemple de code suivant répertorie tous les localisateurs sur le serveur. Il affiche l’ID des éléments multimédias et les stratégies d’accès associés à chaque localisateur. Il affiche également le type d’autorisation, la date d’expiration et le chemin d’accès complet à l’élément multimédia.
 
-Notez qu’un chemin d’accès de localisateur vers un élément multimédia est simplement une URL de base pointant vers l’élément multimédia. Pour créer un chemin d’accès direct vers les fichiers individuels auxquels peut accéder un utilisateur ou une application, votre code doit ajouter le chemin d’accès de fichier spécifique au chemin d’accès du localisateur. Pour plus d’informations sur la procédure à suivre, consultez la page [Livraison d’éléments multimédias à l’aide du Kit de développement logiciel (SDK) Media Services pour .NET](media-services-deliver-streaming-content.md).
+Notez qu’un chemin d’accès de localisateur vers un élément multimédia est simplement une URL de base pointant vers l’élément multimédia. Pour créer un chemin d’accès direct vers les fichiers individuels auxquels peut accéder un utilisateur ou une application, votre code doit ajouter le chemin d’accès de fichier spécifique au chemin d’accès du localisateur. Pour plus d’informations sur la procédure à suivre, consultez [Livraison d’éléments multimédias à l’aide du Kit de développement logiciel (SDK) Media Services pour .NET](media-services-deliver-streaming-content.md).
 
 	static void ListAllLocators()
 	{
@@ -324,4 +330,4 @@ L’exemple de code suivant montre comment obtenir une référence pointant vers
 	}
 	
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

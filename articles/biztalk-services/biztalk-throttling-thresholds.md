@@ -1,12 +1,11 @@
 <properties 
-	pageTitle="En savoir plus sur la limitation dans BizTalk Services | Azure" 
+	pageTitle="En savoir plus sur la limitation dans BizTalk Services | Microsoft Azure" 
 	description="En savoir plus sur les seuils de limitation et les comportements qui s'ensuivent lors de l'exécution pour BizTalk Services. La limitation est basée sur l'utilisation de la mémoire et le nombre de messages. MABS, WABS" 
 	services="biztalk-services" 
 	documentationCenter="" 
 	authors="MandiOhlinger" 
 	manager="dwrede" 
 	editor="cgronlun"/>
-
 
 <tags 
 	ms.service="biztalk-services" 
@@ -16,7 +15,6 @@
 	ms.topic="article" 
 	ms.date="06/07/2015" 
 	ms.author="mandia"/>
-
 
 
 
@@ -61,27 +59,17 @@ l'instance RoleInstanceA est limitée. L'instance RoleInstanceB ne l'est pas. Da
 ## Autres rubriques Azure BizTalk Services
 
 -  [Installation du Kit de développement logiciel (SDK) Azure BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=241589)<br/>
-
 -  [Didacticiels : Azure BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=236944)<br/>
-
 -  [Utilisation du Kit de développement logiciel (SDK) Azure BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=302335)<br/>
-
 -  [Azure BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=303664)<br/>
-
 
 ## Voir aussi
 - [Tableau comparatif des éditions Développeur, De base, Standard et Premium de BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=302279)<br/>
-
 - [Approvisionnement de BizTalk Services avec le portail de gestion Azure](http://go.microsoft.com/fwlink/p/?LinkID=302280)<br/>
-
 - [Tableau comparatif des états d'approvisionnement BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=329870)<br/>
-
 - [Onglets Tableau de bord, Surveiller et Mettre à l'échelle dans BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=302281)<br/>
-
 - [Sauvegarde et restauration de BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=329873)<br/>
-
 - [Nom et clé de l'émetteur dans BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=303941)<br/>
-
  
 
-<!----HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

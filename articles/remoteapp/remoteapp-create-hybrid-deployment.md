@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/28/2015" 
+	ms.date="08/12/2015" 
 	ms.author="elizapo"/>
 
 # Création d'une collection hybride pour Azure RemoteApp
@@ -78,7 +78,7 @@ Vous trouverez plus d'informations sur la création de machines virtuelles Azure
 4. Choisissez le plan que vous souhaitez utiliser (de base ou standard).
 5. Cliquez sur **Créer une collection RemoteApp**.
 
-Une fois votre collection RemoteApp créée, accédez à la page **Démarrage rapide** de RemoteApp pour poursuivre la procédure de configuration.
+Après avoir créé votre collection RemoteApp, double-cliquez sur son nom. Ceci affiche la page **Démarrage rapide** qui vous permet de terminer la configuration de la collection.
 
 ## Étape 3 : liaison de votre collection au réseau virtuel ##
 
@@ -136,4 +136,4 @@ Félicitations ! Vous avez créé et déployé correctement votre collection hy
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

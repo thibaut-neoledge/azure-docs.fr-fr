@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article" 
-	ms.date="07/07/2015"
+	ms.date="08/11/2015" 
 	ms.author="juliako"/>
 
 #Configurer votre environnement
@@ -42,4 +42,4 @@ Choisissez **.NET** ou **API REST** pour vous connecter par programme à Azure M
 [AZURE.INCLUDE [media-services-selector-connect](../../includes/media-services-selector-connect.md)]
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

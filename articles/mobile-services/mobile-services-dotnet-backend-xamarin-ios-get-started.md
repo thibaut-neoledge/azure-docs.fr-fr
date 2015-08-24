@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Prise en main de Mobile Services pour les applications Xamarin iOS - Azure Mobile Services"
+	pageTitle="Prise en main de Mobile Services pour les applications Xamarin iOS | Microsoft Azure"
 	description="Suivez ce didacticiel pour commencer à utiliser Azure Mobile Services pour le développement Xamarin iOS"
 	services="mobile-services"
 	documentationCenter="xamarin"
@@ -136,4 +136,4 @@ Vous avez terminé les étapes de démarrage rapide. Découvrez ensuite comment 
 [Xamarin for Windows]: https://go.microsoft.com/fwLink/?LinkID=330242&clcid=0x409
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

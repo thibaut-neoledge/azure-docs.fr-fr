@@ -13,16 +13,18 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/27/2015"
+	ms.date="08/11/2015"
 	ms.author="dkshir"/>
 
 # Détachement d'un disque d'une machine virtuelle Linux
 
 
-[AZURE.INCLUDE [howto-detach-disk-windows-linux](../../includes/howto-detach-disk-windows-linux.md)]
+[AZURE.INCLUDE [howto-detach-disk-windows-linux](../../includes/howto-detach-disk-linux.md)]
 
 ## Ressources supplémentaires
 
 [Association d’un disque de données à une machine virtuelle Linux](virtual-machines-linux-how-to-attach-disk.md)
 
-<!---HONumber=August15_HO6-->
+[Utilisation de l'interface de ligne de commande Azure avec la gestion des services Azure](virtual-machines-command-line-tools.md)
+
+<!---HONumber=August15_HO7-->

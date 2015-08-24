@@ -7,16 +7,14 @@
 	manager="jeffreyg" 
 	editor=""/>
 
-
 <tags 
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="06/25/2015" 
+	ms.date="08/12/2015" 
 	ms.author="sstein" 
 	ms.workload="data-management" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="NA"/>
-
 
 
 # Maîtrise de la croissance avec les bases de données élastiques
@@ -31,12 +29,12 @@ Microsoft a créé les pools de bases de données élastiques spécifiquement po
 
 Un pool de bases de données élastique est un ensemble de ressources disponibles partagé par les bases de données élastiques dans le pool. Vous pouvez ajouter des bases de données au pool ou les en supprimer à tout moment. Les bases de données du pool partagent les ressources (exprimées en unités de débit de base de données élastique ou eDTU) et la capacité de stockage du pool, mais chaque base de données utilise uniquement les ressources dont elle a besoin quand elle en a besoin, libérant ainsi les ressources pour d’autres bases de données si nécessaire. Au lieu de sur-approvisionner des bases de données individuelles et de payer pour des ressources inutilisées, vous allouez globalement à un coût prévisible les ressources du pool. Ceci permet de répartir le coût pour adopter un modèle commercial compétitif et d’adapter les performances de chaque base de données.
 
-Les bases de données susceptibles d'être intégrées à des pools de bases de données élastiques ne sont généralement actives que moins 50 % du temps. Généralement, les bases de données sont parfois inactives, actives avec de faibles demandes en ressources ou actives avec des demandes en ressources élevées. Toutes les bases de données n'adoptent pas ce schéma. Il existe des bases de données qui ont une demande en ressources constante. Elles sont mieux adaptées aux niveaux de service Basic, Standard et Premium dans lesquels les ressources sont attribuées individuellement. Pour obtenir de l’aide pour déterminer si vos bases de données tireraient parti d’un pool de base de données élastique, consultez [Considérations sur les prix et performances pour un pool de base de données élastique](sql-database-elastic-pool-guidance.md).
+Les bases de données susceptibles d'être intégrées à des pools de bases de données élastiques ne sont généralement actives que moins 50 % du temps. Généralement, les bases de données sont parfois inactives, actives avec de faibles demandes en ressources ou actives avec des demandes en ressources élevées. Toutes les bases de données n'adoptent pas ce schéma. Il existe des bases de données qui ont une demande en ressources constante. Elles sont mieux adaptées aux niveaux de service Basic, Standard et Premium dans lesquels les ressources sont attribuées individuellement à des bases de données uniques. Pour obtenir de l’aide pour déterminer si vos bases de données tireraient parti d’un pool de base de données élastique, consultez [Considérations sur les prix et performances pour un pool de base de données élastique](sql-database-elastic-pool-guidance.md).
 
-Vous pouvez créer un pool de bases de données élastiques en quelques minutes à l’aide du portail Microsoft Azure ou de PowerShell. Pour plus d'informations, consultez [Créer et gérer un pool élastique](sql-database-elastic-pool-portal.md). Pour en savoir plus sur les pools de bases de données élastiques, y compris les détails des API et des erreurs, consultez [Référence des bases de données élastiques](sql-database-elastic-pool-reference.md).
+Vous pouvez créer un pool de bases de données élastiques en quelques minutes à l’aide du portail Microsoft Azure, de PowerShell et de C#. Pour plus d'informations, consultez [Création et gestion d’un pool de bases de données élastiques](sql-database-elastic-pool-portal.md). Pour en savoir plus sur les pools de bases de données élastiques, y compris les détails des API et des erreurs, consultez [Référence sur les pools de bases de données élastiques](sql-database-elastic-pool-reference.md).
 
 
-> [AZURE.NOTE]Les pools élastiques sont actuellement en version préliminaire et uniquement disponibles avec des serveurs de base de données SQL V12.
+> [AZURE.NOTE]Les pools élastiques de bases de données sont actuellement en version préliminaire et uniquement disponibles avec des serveurs de base de données SQL V12.
 
 ## Gestion en toute facilité d’un grand nombre de bases de données grâce aux outils de bases de données élastiques
 
@@ -46,11 +44,11 @@ Un large ensemble d'outils de développement puissants est également disponible
 
 ## Fonctionnalités de continuité des activités pour les bases de données d’un pool
 
-Dans la version préliminaire actuelle, les bases de données d’un pool de bases de données élastiques (dans le niveau élastique standard) prennent en charge la plupart des fonctionnalités disponibles pour les bases de données de niveau Standard.
+Dans la version d'évaluation actuelle, les bases de données élastiques prennent en charge la plupart des fonctionnalités disponibles sur les bases de données uniques.
 
 ### Sauvegarde et restauration de bases de données (Limite de restauration dans le temps)
 
-Les bases de données qui se trouvent dans un pool de bases de données élastiques sont sauvegardées automatiquement par le système et la stratégie de rétention de la sauvegarde est la même que pour les bases de données de niveau Standard. Dans la version préliminaire, les bases de données du pool sont restaurées dans une nouvelle base de données dans le même pool. Les bases de données supprimées sont toujours restaurées comme bases de données autonomes en dehors du pool en tant que bases de données Standard S0. Vous pouvez effectuer des opérations de restauration de bases de données à l'aide du portail Azure ou par programmation en utilisant l'API REST. La prise en charge des applets de commande PowerShell sera bientôt disponible.
+Les bases de données qui se trouvent dans un pool de bases de données élastiques sont sauvegardées automatiquement par le système et la stratégie de rétention de la sauvegarde est la même que pour les bases de données uniques. Dans la version préliminaire, les bases de données du pool sont restaurées dans une nouvelle base de données dans le même pool. Les bases de données supprimées sont toujours restaurées comme bases de données autonomes en dehors du pool en tant que bases de données Standard S0. Vous pouvez effectuer des opérations de restauration de bases de données à l'aide du portail Azure ou par programmation en utilisant l'API REST. La prise en charge des applets de commande PowerShell sera bientôt disponible.
 
 ### Restauration géographique
 
@@ -65,4 +63,4 @@ Les bases de données pour lesquelles la géo-réplication est déjà activée p
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

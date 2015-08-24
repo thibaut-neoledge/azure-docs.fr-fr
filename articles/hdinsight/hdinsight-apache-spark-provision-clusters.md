@@ -1,12 +1,11 @@
 <properties 
-   pageTitle="Approvisionner des clusters Apache Spark dans HDInsight | Azure" 
+   pageTitle="Approvisionner des clusters Apache Spark dans HDInsight | Microsoft Azure" 
    description="Découvrez comment configurer des clusters Spark pour Azure HDInsight à l’aide du portail Azure, d’Azure PowerShell, d’une ligne de commande ou du Kit de développement logiciel (SDK) .NET HDInsight." 
    services="hdinsight" 
    documentationCenter="" 
    authors="nitinme" 
    manager="paulettm" 
    editor="cgronlun"/>
-
 
 <tags
    ms.service="hdinsight"
@@ -16,7 +15,6 @@
    ms.workload="big-data" 
    ms.date="07/10/2015"
    ms.author="nitinme"/>
-
 
 # Approvisionner des clusters Apache Spark dans HDInsight à l’aide d’options personnalisées
 
@@ -107,14 +105,14 @@ Les clusters Spark sur HDInsight utilisent un conteneur de stockage d’objets b
 	![Indiquer le nombre de nœuds et les types de nœud du cluster](./media/hdinsight-apache-spark-provision-clusters/HDI.CustomProvision.Page2.png "Indiquer le nombre de nœuds et les types de nœud du cluster")
 
 	<table border="1">
-<tr><th>Nom</th><th>Valeur</th></tr>
-<tr><td>Nœuds de données</td><td>Nombre de nœuds de données que vous souhaitez déployer. À des fins de test, créez un cluster à nœud unique. <br />
-La limite de taille de cluster varie pour les abonnements Azure. Contactez le support de facturation Azure pour augmenter la limite.</td></tr>
-<tr><td>Région/Réseau virtuel</td><td><p>Choisissez la même région que pour le compte de stockage que vous avez créé dans la dernière procédure. HDInsight requiert en effet que le compte de stockage soit situé dans la même région. Plus loin dans la configuration, vous ne pourrez choisir qu’un compte de stockage situé dans la région spécifiée ici.</p>.<br/>
-Si vous avez créé un réseau virtuel Azure, vous pouvez sélectionner le réseau pour lequel le cluster HDInsight va être configuré.</p><p>Pour plus d’informations sur la création d’un réseau virtuel Azure, consultez la rubrique <a href="http://msdn.microsoft.com/library/azure/jj156206.aspx">Tâches de configuration d’un réseau virtuel</a>.</p></td></tr>
-<tr><td>Taille du nœud principal</td><td><p>Sélectionnez une taille de machine virtuelle pour le nœud principal.</p></td></tr>
-<tr><td>Taille du nœud de données</td><td><p>Sélectionnez une taille de machine virtuelle pour le nœud de données.</p></td></tr>
-</table>>[AZURE.NOTE]Selon votre choix de machines virtuelles, les coûts peuvent varier. HDInsight utilise toutes les machines virtuelles de niveau standard pour les nœuds de cluster. Pour plus d’informations concernant les répercussions de la taille des machines virtuelles sur les prix, consultez la rubrique <a href="http://azure.microsoft.com/pricing/details/hdinsight/" target="_blank">Tarification HDInsight</a>.
+	<tr><th>Nom</th><th>Valeur</th></tr>
+	<tr><td>Nœuds de données</td><td>Nombre de nœuds de données que vous souhaitez déployer. À des fins de test, créez un cluster à nœud unique. <br />La limite de taille de cluster varie pour les abonnements Azure. Contactez le support de facturation Azure pour augmenter la limite.</td></tr>
+	<tr><td>Région/Réseau virtuel</td><td><p>Choisissez la même région que pour le compte de stockage que vous avez créé dans la dernière procédure. HDInsight requiert en effet que le compte de stockage soit situé dans la même région. Plus loin dans la configuration, vous ne pourrez choisir qu’un compte de stockage situé dans la région spécifiée ici.</p>.<br/>Si vous avez créé un réseau virtuel Azure, vous pouvez sélectionner le réseau pour lequel le cluster HDInsight va être configuré.</p><p>Pour plus d’informations sur la création d’un réseau virtuel Azure, consultez la rubrique <a href="http://msdn.microsoft.com/library/azure/jj156206.aspx">Tâches de configuration d’un réseau virtuel</a>.</p></td></tr>
+	<tr><td>Taille du nœud principal</td><td><p>Sélectionnez une taille de machine virtuelle pour le nœud principal.</p></td></tr>
+	<tr><td>Taille du nœud de données</td><td><p>Sélectionnez une taille de machine virtuelle pour le nœud de données.</p></td></tr>
+	</table>
+	
+	>[AZURE.NOTE] Selon votre choix de machines virtuelles, les coûts peuvent varier. HDInsight utilise toutes les machines virtuelles de niveau standard pour les nœuds de cluster. Pour plus d’informations concernant les répercussions de la taille des machines virtuelles sur les prix, consultez la rubrique <a href="http://azure.microsoft.com/pricing/details/hdinsight/" target="_blank">Tarification HDInsight</a>.
 
 
 5. Sur la page **Configuration de l'utilisateur du cluster**, entrez les valeurs suivantes :
@@ -501,4 +499,4 @@ Lorsque l'application est ouverte dans Visual Studio, appuyez sur **F5** pour l'
 
 [89e2276a]: /documentation/articles/hdinsight-use-sqoop/ "Utilisation de Sqoop avec HDInsight"
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

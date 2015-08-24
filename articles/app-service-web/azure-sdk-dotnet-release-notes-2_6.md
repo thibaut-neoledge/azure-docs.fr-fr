@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="07/08/2015"
+   ms.date="08/08/2015"
    ms.author="juliako"/>
 
 
@@ -36,7 +36,7 @@ Grâce au Kit de développement logiciel (SDK) Azure pour .NET 2.6, vous pouve
 
 - **Amélioration d'IntelliSense** : suggestion de métadonnées distantes
 
-	Les outils HDInsight pour Visual Studio prennent en charge l'obtention de métadonnées distantes pendant la modification d'un script Hive. Par exemple, vous pouvez taper **SELECT * FROM** pour afficher tous les noms de tables. Si vous spécifiez une table, les noms des colonnes s'afficheront également.
+	Les outils HDInsight pour Visual Studio prennent en charge l'obtention de métadonnées distantes pendant la modification d'un script Hive. Par exemple, vous pouvez taper **SELECT \* FROM** pour afficher tous les noms de tables. Si vous spécifiez une table, les noms des colonnes s'afficheront également.
 
 - **Prise en charge de l'émulateur HDInsight**
 
@@ -102,5 +102,8 @@ Le compte de stockage Diagnostics peut désormais être spécifié dans le fichi
 
 	Si vous rencontrez toujours les problèmes ci-dessus, installez la dernière version du SDK Azure 2.6 pour [Visual Studio 2012](http://go.microsoft.com/fwlink/p/?linkid=323511&clcid=0x409), [VS 2013](http://go.microsoft.com/fwlink/p/?linkid=323510&clcid=0x409) ou [VS 2015](http://go.microsoft.com/fwlink/?linkid=518003&clcid=0x409).
  
+##Voir aussi
 
-<!---HONumber=August15_HO6-->
+[Informations relatives à la prise en charge et au retrait pour le Kit de développement logiciel Azure SDK pour .NET et les API](https://msdn.microsoft.com/library/azure/dn479282.aspx/)
+
+<!---HONumber=August15_HO7-->

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Utilisation des rubriques Service Bus (Java) - Azure"
+	pageTitle="Utilisation des rubriques Service Bus (Java) | Microsoft Azure"
 	description="Découvrez comment utiliser les rubriques et abonnements Service Bus dans Azure. Les exemples de code sont écrits pour les applications Java."
 	services="service-bus"
 	documentationCenter="java"
@@ -247,4 +247,4 @@ Maintenant que vous avez appris les principes de base des files d'attente Servic
   [Files d'attente, rubriques et abonnements Service Bus]: http://msdn.microsoft.com/library/hh367516.aspx
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/16/2015" 
+	ms.date="08/05/2015" 
 	ms.author="raynew"/>
 
 
@@ -117,4 +117,4 @@ Cette dernière mise à jour comprend des correctifs de bogues et de nouvelles f
 
 Posez vos questions sur le [Forum Azure Recovery Services](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).<
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

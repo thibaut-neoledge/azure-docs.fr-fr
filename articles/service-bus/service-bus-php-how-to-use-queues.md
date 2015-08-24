@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Utilisation des files d'attente Service Bus (PHP) - Azure" 
+	pageTitle="Utilisation des files d’attente Service Bus (PHP) |Microsoft Azure" 
 	description="Découvrez comment utiliser les files d'attente Service Bus dans Azure. Exemples de code écrits en PHP." 
 	services="service-bus" 
 	documentationCenter="php" 
@@ -213,4 +213,4 @@ Maintenant que vous avez appris les principes de base des files d'attente Servic
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

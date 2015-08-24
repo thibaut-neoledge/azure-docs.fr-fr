@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Utilisation des files d'attente Service Bus (Node.js) - Azure" 
+	pageTitle="Utilisation des files d’attente Service Bus (Node.js) | Microsoft Azure" 
 	description="Découvrez comment utiliser les files d'attente Service Bus dans Azure à partir d’une application Node.js." 
 	services="service-bus" 
 	documentationCenter="nodejs" 
@@ -190,4 +190,4 @@ Maintenant que vous avez appris les principes de base des files d'attente Servic
   [Application web Node.js avec stockage]: ../storage/storage-nodejs-how-to-use-table-storage.md
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

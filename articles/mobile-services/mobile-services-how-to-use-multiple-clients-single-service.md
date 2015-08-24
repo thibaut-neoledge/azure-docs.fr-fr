@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Utilisation de plusieurs clients avec un seul backend de service mobile | Azure Mobile" 
+	pageTitle="Utilisation de plusieurs clients avec un seul backend de service mobile | Microsoft Azure" 
 	description="Découvrez comment utiliser un seul serveur de services mobiles à partir de plusieurs applications clientes qui ciblent différentes plateformes mobiles, y compris Windows Store et Windows Phone." 
 	services="mobile-services" 
 	documentationCenter="" 
@@ -139,7 +139,7 @@ Des outils interplateforme sont disponibles et fournissent une expérience nativ
 
 + [**Appcelerator**](http://go.microsoft.com/fwlink/p/?LinkId=509987)<br/>Appcelerator vous permet d'utiliser JavaScript pour développer une application unique compilée pour fonctionner facilement sur toutes les plateformes d'appareil mobile. Cet outil permet de fournir à l'utilisateur une expérience riche via l'interface utilisateur, d'accéder à toutes les ressources natives d'appareil et d'optimiser les performances de l'application native. Pour plus d'informations, consultez la page [Didacticiel d'Appcelerator][Appcelerator].
  
-+ [**PhoneGap**](https://go.microsoft.com/fwLink/p/?LinkID=390707)**/**[**Cordova**](http://cordova.apache.org/)<br/>PhoneGap (créée dans le cadre du projet Apache Cordova) est une infrastructure open source gratuite qui vous permet d'utiliser des modèles web d'API, HTML et JavaScript normalisés pour développer une application unique fonctionnant sur les appareils Android, iOS et Windows. PhoneGap fournit une interface utilisateur dotée d'un affichage Web, mais dont l'expérience utilisateur est améliorée grâce à l'accès à des ressources natives sur l'appareil, comme les notifications Push, l'accéléromètre, l'appareil photo, la géolocalisation et le navigateur intégré à l'application. Pour plus d'informations, consultez la page [Didacticiel de démarrage rapide de PhoneGap][PhoneGap].
++ [**PhoneGap**](https://go.microsoft.com/fwLink/p/?LinkID=390707)\*\*/\*\*[**Cordova**](http://cordova.apache.org/)<br/>PhoneGap (créée dans le cadre du projet Apache Cordova) est une infrastructure open source gratuite qui vous permet d'utiliser des modèles web d'API, HTML et JavaScript normalisés pour développer une application unique fonctionnant sur les appareils Android, iOS et Windows. PhoneGap fournit une interface utilisateur dotée d'un affichage Web, mais dont l'expérience utilisateur est améliorée grâce à l'accès à des ressources natives sur l'appareil, comme les notifications Push, l'accéléromètre, l'appareil photo, la géolocalisation et le navigateur intégré à l'application. Pour plus d'informations, consultez la page [Didacticiel de démarrage rapide de PhoneGap][PhoneGap].
 	
 	Visual Studio vous permet désormais de créer des applications Cordova interplateforme en utilisant l'extension Multi-Device Hybrid Apps (applications hybrides multi-appareils) pour Visual Studio, un logiciel préliminaire. Pour plus d'informations, consultez la page [Prise en main des applications hybrides multi-appareils utilisant HTML et JavaScript](http://msdn.microsoft.com/library/dn771545.aspx).
 
@@ -208,4 +208,4 @@ La bibliothèque cliente .NET de Mobile Services prend en charge les application
 [Projet d'application Windows universelle pour Azure Mobile Services à l'aide du modèle MVVM]: http://code.msdn.microsoft.com/Universal-Windows-app-for-db3564de
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -13,16 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/24/2015" 
+	ms.date="08/11/2015"
 	ms.author="juliako"/>
 
 
 
-
-
 #<a id="monitormediaservicesaccount"></a>Comment surveiller un compte Media Services
-
-Cet article fait partie des séries [workflow de vidéo à la demande Media Services](media-services-video-on-demand-workflow.md) et [workflow de vidéo en flux continu Media Services](media-services-live-streaming-workflow.md).
 
 Le tableau de bord Azure Media Services présente des mesures d'utilisation et des informations de compte dont vous pouvez vous servir pour gérer votre compte Media Services.
 
@@ -67,4 +63,4 @@ Vous pouvez surveiller le nombre de travaux d'encodage en file d'attente, de tâ
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

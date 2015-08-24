@@ -13,13 +13,15 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="04/13/2015" 
+	ms.date="08/11/2015"
 	ms.author="juliako"/>
 
 
 # Connexion à un compte Media Services à l’aide de l’API REST
 
-Cet article fait partie des séries [workflow de vidéo à la demande Media Services](media-services-video-on-demand-workflow.md) et [workflow de vidéo en flux continu Media Services](media-services-live-streaming-workflow.md).
+> [AZURE.SELECTOR]
+- [.NET](media-services-dotnet-connect_programmatically.md)
+- [REST](media-services-rest-connect_programmatically.md)
 
 Cette rubrique décrit comment obtenir une connexion à Microsoft Azure Media Services par programme lorsque vous programmez avec l’API REST Media Services.
 
@@ -167,4 +169,4 @@ L’exemple suivant montre la demande HTTP vers l’URI racine de Media Services
 
 <!-- URLs. -->
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

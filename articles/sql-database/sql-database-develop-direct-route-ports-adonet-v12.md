@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/05/2015" 
+	ms.date="08/06/2015" 
 	ms.author="genemi"/>
 
 
@@ -22,27 +22,6 @@
 
 
 Cette rubrique décrit les modifications qu’apporte Azure SQL Database V12 au comportement de connexion des clients qui utilisent ADO.NET version 4.5 ou ultérieure.
-
-
-## Précisions concernant les versions
-
-
-#### ADO.NET
-
-
-- ADO.NET 4.0 prend en charge le protocole TDS 7.3, mais pas la version 7.4.
-- Les versions d’ADO.NET 4.5 et ultérieures prennent en charge le protocole TDS 7.4.
-- En interne, ADO.NET 4.5 utilise ODBC 11.
- - Les informations indiquées ici qui s’appliquent à ADO.NET 4.5 concernent également ODBC 11.
-
-
-#### SQL Database V11 et SQL Database V12
-
-
-Les différences entre SQL Database V11 et SQL Database V12 pour la connexion cliente sont soulignées dans cette rubrique.
-
-
-*Remarque :* l’instruction Transact-SQL `SELECT @@version;` retourne une valeur qui commence par un nombre, tel que « 11. » ou «12.», qui correspond aux noms de version V11 et V12 pour SQL Database.
 
 
 ## V11 de SQL Database : port 1433
@@ -58,7 +37,7 @@ Quand votre programme client utilise ADO.NET 4.5 pour se connecter à SQL Datab
 3. SQL Database envoie sa réponse à l’intergiciel, qui la transmet à ADO.NET sur le port 1433.
 
 
-**Terminologie :** dans la séquence précédente, ADO.NET interagit avec SQL Database en utilisant l’*itinéraire de proxy*. Si aucun intergiciel n’était impliqué, c’est l’*itinéraire direct* qui serait utilisé.
+**Terminologie :** dans la séquence précédente, ADO.NET interagit avec la base de données SQL en utilisant l’*itinéraire de proxy*. Si aucun intergiciel n’était impliqué, c’est l’*itinéraire direct* qui serait utilisé.
 
 
 ## V12 de SQL Database : exécution externe ou exécution interne
@@ -73,10 +52,10 @@ Pour les connexions à V12, nous devons déterminer si le programme client s’e
 Le port 1433 est le seul port qui doit être ouvert sur votre ordinateur de bureau qui héberge votre application cliente SQL Database.
 
 
-#### *À l’intérieur :* le client s’exécute sur une machine virtuelle Azure
+#### *À l’intérieur :* le client s’exécute sur Azure
 
 
-Quand votre client s’exécute à l’intérieur de la limite du cloud Azure, il utilise ce que nous pouvons appeler un *itinéraire direct* pour interagir avec le serveur SQL Database. Une fois une connexion établie, les interactions suivantes entre le client et la base de données n’impliquent aucun proxy d’intergiciel.
+Quand votre client s’exécute à l’intérieur de la limite du cloud Azure, il utilise ce que nous pouvons appeler un *itinéraire direct* pour interagir avec le serveur de la base de données SQL. Une fois une connexion établie, les interactions suivantes entre le client et la base de données n’impliquent aucun proxy d’intergiciel.
 
 
 La séquence est la suivante :
@@ -113,7 +92,29 @@ L’itinéraire de proxy abordé précédemment dans cette rubrique s’applique
 Dans les deux scénarios, nous conseillons que les clients implémentent la logique de nouvelle tentative dans leur propre code. La nécessité d’une logique de nouvelle tentative dans le client est sans doute accrue avec le dernier itinéraire de proxy qui ne fournit aucune logique de nouvelle tentative.
 
 
-Pour obtenir des exemples de code qui illustrent une logique de nouvelle tentative, consultez [Exemples de code de démarrage rapide client pour SQL Database](sql-database-develop-quick-start-client-code-samples.md).
+Pour obtenir des exemples de code qui illustrent une logique de nouvelle tentative, consultez la rubrique [Exemples de code de démarrage rapide client pour la base de données SQL](sql-database-develop-quick-start-client-code-samples.md).
+
+
+## Précisions concernant les versions
+
+
+Cette section clarifie les monikers qui font référence aux versions du produit. Elle répertorie également certaines paires de versions entre les produits.
+
+
+#### ADO.NET
+
+
+- ADO.NET 4.0 prend en charge le protocole TDS 7.3, mais pas la version 7.4.
+- Les versions d’ADO.NET 4.5 et ultérieures prennent en charge le protocole TDS 7.4.
+
+
+#### SQL Database V11 et SQL Database V12
+
+
+Les différences entre SQL Database V11 et SQL Database V12 pour la connexion cliente sont soulignées dans cette rubrique.
+
+
+*Remarque :* l’instruction Transact-SQL `SELECT @@version;` retourne une valeur qui commence par un nombre, tel que « 11. » ou «12.», qui correspond aux noms de version V11 et V12 pour la base de données SQL.
 
 
 ## Liens connexes
@@ -121,7 +122,7 @@ Pour obtenir des exemples de code qui illustrent une logique de nouvelle tentati
 
 - [Nouveautés de la base de données SQL V12](sql-database-v12-whats-new.md)
 
-- Considérations relatives à la logique de nouvelle tentative : [section « La passerelle ne fournit plus de logique de nouvelle tentative dans V12 », dans la rubrique « Connexion à SQL Database : liens, meilleures pratiques et règles de conception »](sql-database-connect-central-recommendations.md#gatewaynoretry)
+- Considérations relatives à la logique de nouvelle tentative : [section « La passerelle ne fournit plus de logique de nouvelle tentative dans V12 », dans la rubrique « Connexion à la base de données SQL : liens, meilleures pratiques et règles de conception »](sql-database-connect-central-recommendations.md#gatewaynoretry)
 
 - ADO.NET 4.6 a été publié le 20 juillet 2015. Une annonce dans un billet de blog de l’équipe .NET est disponible [ici](http://blogs.msdn.com/b/dotnet/archive/2015/07/20/announcing-net-framework-4-6.aspx).
 
@@ -130,4 +131,4 @@ Pour obtenir des exemples de code qui illustrent une logique de nouvelle tentati
 
 - [Liste des versions du protocole TDS](http://www.freetds.org/userguide/tdshistory.htm)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

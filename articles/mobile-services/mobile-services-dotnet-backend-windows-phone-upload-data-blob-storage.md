@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Utilisation de Mobile Services pour télécharger des images dans le stockage d'objets blob (Windows Phone) | Mobile Services" 
+	pageTitle="Utilisation de Mobile Services pour télécharger des images dans le stockage d'objets blob (Windows Phone) | Microsoft Azure" 
 	description="Découvrez comment utiliser Mobile Services pour télécharger des images dans le stockage d'objets blob Azure." 
 	documentationCenter="windows" 
 	authors="ggailey777" 
@@ -81,4 +81,4 @@ Avant de pouvoir utiliser une signature d'accès partagé en vue de télécharge
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

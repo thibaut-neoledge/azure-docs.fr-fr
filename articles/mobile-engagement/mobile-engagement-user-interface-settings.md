@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="mobile-multiple"
    ms.workload="mobile" 
-   ms.date="02/17/2015"
+   ms.date="08/10/2015"
    ms.author="piyushjo"/>
 
 # Comment gérer les paramètres globaux de votre application
@@ -251,4 +251,4 @@ Vous pouvez rechercher et afficher le courrier électronique, le nom, l'organisa
 [Link 33]: ../mobile-engagement-how-tos-web-view.md
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

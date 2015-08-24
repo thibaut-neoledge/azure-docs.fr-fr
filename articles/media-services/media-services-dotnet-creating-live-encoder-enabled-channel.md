@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
-	ms.date="05/27/2015" 
+	ms.date="08/11/2015" 
 	ms.author="juliako"/>
 
 
@@ -23,7 +23,7 @@
 - [Portal](media-services-portal-creating-live-encoder-enabled-channel.md)
 - [.NET SDK](media-services-dotnet-creating-live-encoder-enabled-channel.md)
 - [REST API](https://msdn.microsoft.com/library/azure/dn783458.aspx)
-- 
+
 ##Vue d'ensemble
 
 Ce didacticiel vous guide tout au long des étapes de création d'un **canal** qui reçoit un flux continu à vitesse de transmission unique et qui l'encode en flux à vitesses de transmission multiples.
@@ -79,7 +79,9 @@ La rubrique montre comment effectuer les opérations suivantes :
 1. Afficher et masquer des slates. Démarrer et arrêter des publicités. Des API de longue durée sont utilisées.
 1. Nettoyer votre canal et toutes les ressources associées.
 
-##Configuration requise
+>[AZURE.NOTE]Bien que cette fonctionnalité soit en mode préliminaire, la durée maximale recommandée pour un événement en direct est de 8 heures.
+>
+##Composants requis
 Les éléments suivants sont requis pour suivre le didacticiel.
 
 - Pour effectuer ce didacticiel, vous avez besoin d’un compte Azure. Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](azure.microsoft.com).
@@ -501,4 +503,4 @@ Ajoutez la section appSettings au fichier app.config, puis définissez les valeu
 [Utilisation de canaux encodant en temps réel un flux à vitesse de transmission unique en flux à vitesses de transmission multiples](media-services-manage-live-encoder-enabled-channels.md)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

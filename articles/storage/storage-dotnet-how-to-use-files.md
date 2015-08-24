@@ -225,11 +225,11 @@ Exécutez l’application console pour voir le résultat.
 
 ## Définition de la taille maximale d’un partage de fichiers
 
-Depuis la version 5.x de la bibliothèque cliente de stockage Azure, vous pouvez définir le quota (ou la taille maximale) pour un partage, en gigaoctets. En définissant le quota pour un partage, vous pouvez limiter la taille totale des fichiers stockés sur ce partage.
+Depuis la version 5.x de la bibliothèque cliente de stockage Azure, vous pouvez définir le quota (ou la taille maximale) pour un partage de fichier, en gigaoctets. Vous pouvez également vérifier la quantité de données actuellement stockée sur le partage.
 
-Si la taille totale des fichiers sur le partage dépasse le quota défini sur celui-ci, les clients ne peuvent pas augmenter la taille des fichiers existants ou créer des fichiers, sauf s’ils sont vides.
+En définissant le quota pour un partage, vous pouvez limiter la taille totale des fichiers stockés sur ce partage. Si la taille totale des fichiers sur le partage dépasse le quota défini sur celui-ci, les clients ne peuvent pas augmenter la taille des fichiers existants ou créer des fichiers, sauf si ces fichiers sont vides.
 
-L’exemple ci-dessous montre comment définir le quota pour un partage de fichiers existant.
+L'exemple ci-dessous illustre comment vérifier l'utilisation actuelle pour un partage et comment définir le quota pour le partage.
 
     //Parse the connection string for the storage account.
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -244,12 +244,20 @@ L’exemple ci-dessous montre comment définir le quota pour un partage de fichi
     //Ensure that the share exists.
     if (share.Exists())
     {
-		//Specify the maximum size of the share, in GB.
-	    share.Properties.Quota = 100;
-	    share.SetProperties();
-	}
+        //Check current usage stats for the share.
+		//Note that the ShareStats object is part of the protocol layer for the File service.
+        Microsoft.WindowsAzure.Storage.File.Protocol.ShareStats stats = share.GetStats();
+        Console.WriteLine("Current share usage: {0} GB", stats.Usage.ToString());
 
-Pour obtenir la valeur d’un quota existant pour le partage, appelez la méthode **FetchAttributes()** pour récupérer les propriétés du partage.
+        //Specify the maximum size of the share, in GB.
+        //This line sets the quota to be 10 GB greater than the current usage of the share.
+        share.Properties.Quota = 10 + stats.Usage;
+        share.SetProperties();
+
+        //Now check the quota for the share. Call FetchAttributes() to populate the share's properties. 
+        share.FetchAttributes();
+        Console.WriteLine("Current share quota: {0} GB", share.Properties.Quota);
+    }
 
 ## Génération d’une signature d’accès partagé pour un fichier ou partage de fichiers
 
@@ -428,4 +436,4 @@ Pour plus d’informations sur le stockage de fichiers Azure, consultez ces lien
 - [Conservation des connexions vers les fichiers Microsoft Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

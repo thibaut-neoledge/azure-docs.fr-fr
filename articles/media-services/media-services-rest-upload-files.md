@@ -13,9 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/23/2015" 
+	ms.date="08/11/2015"
 	ms.author="juliako"/>
-
 
 
 #Téléchargement de fichiers dans un compte Media Services à l’aide des API REST
@@ -367,4 +366,4 @@ Si l’opération réussit, l’élément suivant est retourné :
 [How to Get a Media Processor]: media-services-get-media-processor.md
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

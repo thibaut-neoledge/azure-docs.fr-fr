@@ -202,7 +202,7 @@ Pour créer le réseau virtuel ARM, avec deux sous-réseaux et un réseau local 
 
 	>[AZURE.NOTE]Cette opération peut prendre plusieurs minutes.
 
-7. À partir de votre navigateur, accédez à https://ms.portal.azure.com/ et entrez vos informations d'identification, si nécessaire.
+7. À partir de votre navigateur, accédez à https://portal.azure.com/ et entrez vos informations d'identification, si nécessaire.
 8. Cliquez sur la vignette du groupe de ressources **RG1** dans le portail Azure, comme illustré ci-dessous.
 
 	![Tableau de bord de réseau virtuel](..\virtual-network\media\virtual-networks-arm-asm-s2s\figure06.png)
@@ -317,7 +317,7 @@ Maintenant que la passerelle de réseau virtuel classique est configurée, il es
 
 	![Tableau de bord de réseau virtuel](..\virtual-network\media\virtual-networks-arm-asm-s2s\figure11.png)
 
-5. Même si vous pouvez gérer le réseau virtuel classique et sa connexion à partir du portail classique, il est recommandé d'utiliser le nouveau portail Azure. Pour ouvrir le nouveau portail, accédez à https://ms.portal.azure.com.
+5. Même si vous pouvez gérer le réseau virtuel classique et sa connexion à partir du portail classique, il est recommandé d'utiliser le nouveau portail Azure. Pour ouvrir le nouveau portail, accédez à https://portal.azure.com.
 6. Dans le nouveau portail, cliquez sur **PARCOURIR TOUT**, puis sur **Réseaux virtuels (classiques)**, puis sur **vnet01**. Notez le panneau **Connexions VPN** illustré ci-dessous.
 
 	![Tableau de bord de réseau virtuel](..\virtual-network\media\virtual-networks-arm-asm-s2s\figure12.png)
@@ -363,4 +363,4 @@ Maintenant que les deux réseaux virtuels sont connectés, il est temps de teste
 - En savoir plus sur [le fournisseur de ressources réseau (NRP) pour ARM](../resource-groups-networking.md).
 - Afficher les instructions générales sur la [création d’une connexion VPN S2S entre un réseau virtuel classique et un réseau virtuel ARM](../virtual-networks-arm-asm-s2s-howto.md).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

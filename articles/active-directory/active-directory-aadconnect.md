@@ -142,7 +142,7 @@ La sélection des paramètres Express est l’option par défaut et s’applique
 8. Sur l’écran Connexion à AD DS, entrez le nom d'utilisateur et le mot de passe d’un compte d'administrateur d’entreprise. Cliquez sur **Next**.
 <center>![Bienvenu dans Azure AD Connect](./media/active-directory-aadconnect-get-started/install4.png)</center>
 9. Sur l’écran Prêt à configurer, cliquez sur **Installer**.
-	- Sur la page Prêt à configurer, vous pouvez éventuellement la case à cocher « **Démarrer le processus de synchronisation dès que la configuration est terminée** ». Si vous faites cela, l'assistant configurera la synchronisation, mais laissera la tâche désactivée afin qu'elle ne s’exécute pas avant que vous ne l'activiez manuellement dans le Planificateur de tâches. Une fois que la tâche est activée, la synchronisation s'exécute toutes les trois heures.
+	- Sur la page Prêt à configurer, vous pouvez éventuellement la case à cocher « \*\*Démarrer le processus de synchronisation dès que la configuration est terminée\*\* ». Si vous faites cela, l'assistant configurera la synchronisation, mais laissera la tâche désactivée afin qu'elle ne s’exécute pas avant que vous ne l'activiez manuellement dans le Planificateur de tâches. Une fois que la tâche est activée, la synchronisation s'exécute toutes les trois heures.
 	- Éventuellement, vous pouvez également choisir de configurer les services de synchronisation pour le **déploiement hybride Exchange** en cochant la case à cocher correspondante. Si vous n'envisagez pas d'avoir des boîtes aux lettres Exchange dans le cloud et en local, vous n’avez pas besoin de cela.
 
 <center>![Bienvenue dans Azure AD Connect](./media/active-directory-aadconnect-get-started/readyinstall.png)</center>
@@ -229,6 +229,7 @@ Activation du mode intermédiaire | Cela vous permet d’organiser les informati
 ### Documentation supplémentaire
 Consultez les liens suivants pour obtenir de la documentation supplémentaire sur l’utilisation de Azure AD Connect :
 
+- [Azure AD Connect Sync : personnalisation des options de synchronisation](active-directory-aadconnectsync-whatis.md) 
 - [Modification de la configuration par défaut de Azure AD Connect](active-directory-aadconnect-whats-next-change-default-config.md)
 - [Utilisation de l’éditeur de règles de synchronisation Azure AD Connect](active-directory-aadconnect-whats-next-synch-rules-editor.md)
 - [Utilisation de l’approvisionnement déclaratif](active-directory-aadconnect-whats-next-declarative-prov.md)
@@ -248,7 +249,7 @@ Présentation d’Ignite 2015 sur l'extension de vos répertoires locaux dans l
 
 [Azure AD Connect Health](active-directory-aadconnect-health.md) : analysez le fonctionnement de votre infrastructure AD FS locale.
 
-[FAQ Azure D Connect](active-directory-aadconnect-faq.md) - Forum aux questions concernant Azure AD Connect.
+[FAQ Azure D Connect](active-directory-aadconnect-faq.md) - Forum aux questions sur Azure AD Connect.
 
 
 
@@ -257,4 +258,4 @@ Présentation d’Ignite 2015 sur l'extension de vos répertoires locaux dans l
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

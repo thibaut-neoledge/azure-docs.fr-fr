@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Résolution des problèmes BizTalk Services à l'aide des journaux des opérations | Azure" 
+	pageTitle="Résolution des problèmes BizTalk Services à l’aide des journaux des opérations | Microsoft Azure" 
 	description="Résolution des problèmes BizTalk Services à l'aide des journaux des opérations. MABS, WABS" 
 	services="biztalk-services" 
 	documentationCenter="" 
@@ -67,4 +67,4 @@ PurgeBackupBizTalkService | Opération de vidage des sauvegardes du service BizT
 [ViewLogs]: ./media/biztalk-troubleshoot-using-ops-logs/Operation-Logs.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

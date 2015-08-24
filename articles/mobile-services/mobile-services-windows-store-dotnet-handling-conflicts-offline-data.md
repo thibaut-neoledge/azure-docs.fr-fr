@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Gestion des conflits liés aux données hors connexion dans les applications Windows universelles | Azure Mobile Services" 
+	pageTitle="Gestion des conflits liés aux données hors connexion dans les applications Windows universelles | Microsoft Azure" 
 	description="Apprenez à gérer les conflits à l'aide d'Azure Mobile Services lors de la synchronisation des données hors connexion dans votre application Windows universelle" 
 	documentationCenter="windows" 
 	authors="wesmc7777" 
@@ -164,4 +164,4 @@ Lorsqu'une opération Push est annulée, `PushAsync` génère une `MobileService
 [Exemple TODO hors connexion Mobile Services]: http://go.microsoft.com/fwlink/?LinkId=512866
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

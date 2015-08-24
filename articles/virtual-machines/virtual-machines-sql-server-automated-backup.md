@@ -6,7 +6,6 @@
    authors="rothja"
    manager="jeffreyg"
    editor="monicar" />
-
 <tags 
    ms.service="virtual-machines"
    ms.devlang="na"
@@ -16,12 +15,11 @@
    ms.date="08/05/2015"
    ms.author="jroth" />
 
-
 # Sauvegarde automatisée pour SQL Server dans les machines virtuelles Azure
 
 La sauvegarde automatisée configure automatiquement une [sauvegarde managée sur Microsoft Azure](https://msdn.microsoft.com/library/dn449496.aspx) pour toutes les bases de données nouvelles et existantes sur une machine virtuelle Azure exécutant SQL Server 2014 Standard ou Enterprise. Cela vous permet de configurer des sauvegardes régulières de base de données utilisant le stockage d’objets blob Azure durable.
 
->[AZURE.IMPORTANT]La sauvegarde automatisée utilise l’agent IaaS de SQL Server. Pour installer et configurer l’agent, vous devez disposer de l’agent Azure VM s’exécutant sur la machine virtuelle cible. Par défaut, cette option est activée dans les nouvelles images de galerie de machines virtuelles Azure, mais l’agent Azure VM peut être manquant sur les machines virtuelles existantes. Si vous utilisez votre propre image de machine virtuelle, vous devez également installer l’agent IaaS de SQL Server. Pour plus d’informations, consultez la page [VM Agent and Extensions](http://azure.microsoft.com/blog/2014/04/15/vm-agent-and-extensions-part-2/) (en anglais).
+>[AZURE.NOTE]La sauvegarde automatisée utilise l’agent IaaS de SQL Server. Pour installer et configurer l’agent, vous devez disposer de l’agent Azure VM s’exécutant sur la machine virtuelle cible. Par défaut, cette option est activée dans les nouvelles images de galerie de machines virtuelles Azure, mais l’agent Azure VM peut être manquant sur les machines virtuelles existantes. Si vous utilisez votre propre image de machine virtuelle, vous devez également installer l’agent IaaS de SQL Server. Pour plus d’informations, consultez la page [VM Agent and Extensions](http://azure.microsoft.com/blog/2014/04/15/vm-agent-and-extensions-part-2/) (en anglais).
 
 ## Paramètres de sauvegarde automatisée
 
@@ -111,4 +109,4 @@ La [mise à jour corrective automatisée pour SQL Server dans les machines virt
 
 Passez en revue les autres [ressources liées à l’exécution de SQL Server dans les machines virtuelles Azure](virtual-machines-sql-server-infrastructure-services.md).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

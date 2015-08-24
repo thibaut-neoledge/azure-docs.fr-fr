@@ -7,16 +7,14 @@
 	manager="paulettm"
 	editor=""/>
 
-
 <tags
 	ms.service="hdinsight"
 	ms.workload="big-data"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/06/2014"
+	ms.date="08/11/2015"
 	ms.author="larryfr"/>
-
 
 #Utilisation de Maven pour créer des applications Java utilisant HBase avec HDInsight (Hadoop)
 
@@ -593,4 +591,4 @@ Remplacez __hdinsightclustername__ par le nom de votre cluster HDInsight.
 
 Utilisez le paramètre `-showErr` pour afficher l’erreur standard (STDERR) produite lors de l'exécution de la tâche.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

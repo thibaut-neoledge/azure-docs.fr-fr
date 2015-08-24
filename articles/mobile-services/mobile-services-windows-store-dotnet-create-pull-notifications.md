@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Définition d'une API personnalisée qui prend en charge les notifications Pull - Azure Mobile Services" 
+	pageTitle="Définition d'une API personnalisée prenant en charge les notifications de réception | Microsoft Azure" 
 	description="Découvrez comment définir une API personnalisée qui prend en charge les notifications périodiques dans les applications Windows Store utilisant Azure Mobile Services." 
 	services="mobile-services" 
 	documentationCenter="windows" 
@@ -13,14 +13,10 @@
 	ms.tgt_pltfrm="windows" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="04/14/2015" 
+	ms.date="08/08/2015" 
 	ms.author="glenga"/>
 
 # Définition d'une API personnalisée qui prend en charge les notifications périodiques
-
-<div class="dev-center-tutorial-selector"> 
-	<a href="/documentation/articles/mobile-services-windows-store-dotnet-create-pull-notifications/" title="Windows Store C#" class="current">Windows Store C#</a><a href="/documentation/articles/mobile-services-windows-store-javascript-create-pull-notifications/" title="Windows Store JavaScript">Windows Store JavaScript</a>
-</div>
 
 Cette rubrique explique comment appeler une API personnalisée afin de prendre en charge des notifications périodiques à partir d'une application Windows Store. Si les notifications périodiques sont activées, Windows accédera régulièrement au point de terminaison de votre API personnalisée et utilisera le XML renvoyé, dans un format mosaïque, pour mettre à jour la vignette de l'application dans le menu Démarrer. Pour plus d'informations, consultez la page [Notifications périodiques].
 
@@ -167,4 +163,4 @@ Maintenant que vous avez créé une notification périodique, vous pouvez consul
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

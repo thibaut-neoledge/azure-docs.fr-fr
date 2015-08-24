@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Prise en main de Mobile Services pour les applications Xamarin iOS - Azure Mobile Services" 
+	pageTitle="Prise en main de Mobile Services pour les applications Xamarin iOS | Microsoft Azure" 
 	description="Découvrez comment utiliser Azure Mobile Services et Notification Hubs pour envoyer des notifications Push à votre application Xamarin iOS." 
 	services="mobile-services" 
 	documentationCenter="xamarin" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-xamarin-ios" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="04/24/2015" 
+	ms.date="08/08/2015" 
 	ms.author="lindydonna"/>
 
 # Ajout de notifications push à votre application Mobile Services
@@ -23,4 +23,4 @@
 [AZURE.INCLUDE [mobile-services-content-not-ready](../../includes/mobile-services-content-not-ready.md)]
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

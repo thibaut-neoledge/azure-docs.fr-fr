@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="04/21/2015" 
+	ms.date="08/11/2015" 
 	ms.author="cephalin"/>
 
 
@@ -92,7 +92,7 @@ Pour installer le pilote MongoDB C# :
 
 	![Gérer les packages NuGet][VS2013ManageNuGetPackages]
 
-2. Dans le volet gauche de la fenêtre **Gérer les packages NuGet**, cliquez sur **En ligne**. Dans la zone **Rechercher en ligne** de droite, tapez « mongocsharpdriver ». Cliquez sur **Installer** pour installer le pilote.
+2. Dans le volet gauche de la fenêtre **Gérer les packages NuGet**, cliquez sur **En ligne**. Dans la zone **Rechercher en ligne** de droite, tapez « mongodb.driver ». Cliquez sur **Installer** pour installer le pilote.
 
 	![Recherche du pilote MongoDB C#][SearchforMongoDBCSharpDriver]
 
@@ -101,7 +101,7 @@ Pour installer le pilote MongoDB C# :
 4. Cliquez sur **Fermer** une fois le pilote installé. ![Pilote MongoDB C# installé][MongoDBCsharpDriverInstalled]
 
 
-Le pilote MongoDB C# est maintenant installé. Des références vers les bibliothèques **MongoDB.Driver.dll** et **MongoDB.Bson.dll** ont été ajoutées au projet.
+Le pilote MongoDB C# est maintenant installé. Des références vers les bibliothèques **MongoDB.Bson**, **MongoDB.Driver** et **MongoDB.Driver.Core** ont été ajoutées au projet.
 
 ![Références du pilote MongoDB C#][MongoDBCSharpDriverReferences]
 
@@ -326,7 +326,7 @@ Ouvrez le fichier *Controllers\\HomeController.cs* dans l'**Explorateur de solut
 	}
 
 ## Configuration des styles ##
-Pour changer le titre en haut de la page, ouvrez le fichier *Views\\Shared\\\_Layout.cshtml* dans l'**Explorateur de solutions** et remplacez « Nom de l'application » dans le titre de la barre de navigation par « Application My Task List » afin d'afficher ce qui suit :
+Pour changer le titre en haut de la page, ouvrez le fichier \*Views\\Shared\\\_Layout.cshtml\* dans l'**Explorateur de solutions** et remplacez « Nom de l'application » dans le titre de la barre de navigation par « Application My Task List » afin d'afficher ce qui suit :
 
  	@Html.ActionLink("My Task List Application", "Index", "Home", null, new { @class = "navbar-brand" })
 
@@ -367,7 +367,7 @@ Pour configurer le menu Liste des tâches, ouvrez le fichier *\\Views\\Home\\Ind
 	<div>  @Html.Partial("Create", new MyTaskListApp.Models.MyTask())</div>
 
 
-Pour permettre la création d'une tâche, cliquez avec le bouton droit sur le dossier *Views\\Home\* et **ajoutez** une **vue** que vous nommez *Créer*. Remplacez le code par ce qui suit :
+Pour permettre la création d'une tâche, cliquez avec le bouton droit sur le dossier *Views\\Home\\* et **ajoutez** une **vue** que vous nommez *Créer*. Remplacez le code par ce qui suit :
 
 	@model MyTaskListApp.Models.MyTask
 	
@@ -499,4 +499,4 @@ Pour plus d'informations sur le développement d'applications C# sur MongoDB, re
 [Deploy the ASP.NET application to the web site using Git]: #deployapp
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

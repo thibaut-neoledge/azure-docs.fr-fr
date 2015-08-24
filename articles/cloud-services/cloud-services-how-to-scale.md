@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Mise à l’échelle d’un service cloud | Azure" 
+	pageTitle="Mise à l'échelle d'un service cloud | Microsoft Azure" 
 	description="Découvrez comment mettre à l'échelle un service cloud et ses ressources liées dans Azure." 
 	services="cloud-services" 
 	documentationCenter="" 
@@ -227,4 +227,4 @@ Vous pouvez planifier la mise à l'échelle automatique de votre application en 
 [scale_schedule]: ./media/cloud-services-how-to-scale/CloudServices_SetUpSchedule.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -12,7 +12,7 @@
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="PHP" 
-	ms.topic="get-started-article" 
+	ms.topic="hero-article" 
 	ms.date="07/02/2015" 
 	ms.author="tomfitz"/>
 
@@ -31,4 +31,4 @@ Vous savez désormais comment créer et déployer une application web à partir 
 * Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre l’ancien et le nouveau portail, consultez la page [Références sur la navigation dans le portail Azure](http://go.microsoft.com/fwlink/?LinkId=529715).
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

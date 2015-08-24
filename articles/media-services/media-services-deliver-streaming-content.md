@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/23/2015" 
+	ms.date="08/11/2015" 
 	ms.author="juliako"/>
 
 
@@ -26,7 +26,9 @@
 
 ##Vue d'ensemble
 
-Vous pouvez diffuser un MP4 à débit adaptatif défini par la création d’un localisateur de diffusion en continu à la demande et la création d’une URL de diffusion en continu. La rubrique [Encodage d’un élément multimédia](media-services-encode-asset.md) indique comment encoder un ensemble de fichiers MP4 à débit adaptatif. Si votre contenu est chiffré, configurez la stratégie de remise d’élément multimédia (comme décrit dans [cette](media-services-dotnet-configure-asset-delivery-policy.md) rubrique) avant de créer un localisateur.
+Vous pouvez diffuser un MP4 à débit adaptatif défini par la création d’un localisateur de diffusion en continu à la demande et la création d’une URL de diffusion en continu. La rubrique [Encodage d’un élément multimédia](media-services-encode-asset.md) indique comment encoder un ensemble de fichiers MP4 à débit adaptatif.
+
+>[AZURE.NOTE]Si votre contenu est chiffré, configurez la stratégie de remise d’élément multimédia (comme décrit dans [cette](media-services-dotnet-configure-asset-delivery-policy.md) rubrique) avant de créer un localisateur.
 
 Vous pouvez également utiliser un localisateur de diffusion en continu à la demande pour créer des URL qui pointent vers les fichiers MP4 pouvant être téléchargés progressivement.
 
@@ -94,6 +96,8 @@ Le code fournit :
 	http://amstest1.streaming.mediaservices.windows.net/3c5fe676-199c-4620-9b03-ba014900f214/BigBuckBunny.ism/manifest(format=mpd-time-csf)
 	
 
+>[AZURE.NOTE]Vous pouvez aussi diffuser votre contenu via une connexion SSL. Pour ce faire, assurez-vous que votre URL de diffusion commence par HTTPS.
+
 Génération d’URL de téléchargement progressif
 
 	private static void BuildProgressiveDownloadURLs(IAsset asset)
@@ -157,4 +161,4 @@ Le code suivant appelle les méthodes des extensions du Kit de développement lo
 
 [Télécharger des éléments multimédias](media-services-deliver-asset-download.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

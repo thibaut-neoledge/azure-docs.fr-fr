@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="mobile-multiple"
    ms.workload="mobile" 
-   ms.date="02/17/2015"
+   ms.date="08/10/2015"
    ms.author="piyushjo"/>
 
 # Comment créer et gérer des segments d'utilisateurs afin d'identifier des modèles d'utilisation
@@ -188,4 +188,4 @@ Une fois votre critère défini, il apparaît dans la synthèse du segment. Comm
 [Link 33]: ../mobile-engagement-how-tos-web-view.md
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

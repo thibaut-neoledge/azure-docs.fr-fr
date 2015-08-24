@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Authentification de votre application avec le service d'authentification unique de la bibliothèque d'authentification Active Directory (Windows Store) | Centre de développement mobile" 
+	pageTitle="Authentification de votre application avec le service d'authentification unique de la bibliothèque d'authentification Active Directory (Windows Store) | Microsoft Azure" 
 	description="Découvrez comment authentifier les utilisateurs pour l'authentification unique avec la bibliothèque d'authentification AD dans votre application Windows Store." 
 	documentationCenter="windows" 
 	authors="wesmc7777" 
@@ -217,4 +217,4 @@ Votre service mobile est maintenant configuré dans AAD de manière à accepter 
 [Prise en main de Mobile Services]: mobile-services-dotnet-backend-windows-store-dotnet-get-started.md
 [Tableau de bord du centre de développement Windows]: http://go.microsoft.com/fwlink/p/?LinkID=266734
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

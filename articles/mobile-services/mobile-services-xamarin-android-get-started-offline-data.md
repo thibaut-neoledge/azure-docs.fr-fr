@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Utilisation des données hors connexion dans Mobile Services (Xamarin Android) | Centre de développement mobile"
+	pageTitle="Utilisation des données hors connexion dans Mobile Services (Xamarin Android) | Microsoft Azure"
 	description="Learn how to use Azure Mobile Services to cache and sync offline data in your Xamarin Android application"
 	documentationCenter="xamarin"
 	authors="lindydonna"
@@ -172,4 +172,4 @@ Dans cette section, vous allez reconnecter l'application au service mobile. Cett
 [NuGet Addin for Xamarin]: https://github.com/mrward/monodevelop-nuget-addin
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

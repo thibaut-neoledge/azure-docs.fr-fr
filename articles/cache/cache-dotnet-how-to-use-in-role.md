@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Utilisation d'In-Role Cache (.NET) - Guide des fonctionnalités Azure" 
+	pageTitle="Utilisation de In-Role Cache (.NET) | Microsoft Azure" 
 	description="Learn how to use Azure In-Role Cache. Les exemples sont écrits en C# et utilisent l'API .NET." 
 	services="cache" 
 	documentationCenter=".net" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="05/19/2015" 
+	ms.date="08/11/2015" 
 	ms.author="sdanie"/>
 
 
@@ -413,4 +413,4 @@ Maintenant que vous avez appris les bases de In-Role Cache, suivez ces liens pou
 [Choix de l'offre Azure Cache appropriée]: http://msdn.microsoft.com/library/azure/dn766201.aspx
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

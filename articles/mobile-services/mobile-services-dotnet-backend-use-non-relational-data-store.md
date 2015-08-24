@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Création d’un service à l’aide d’un magasin de données non relationnelles | Azure Mobile Services" 
+	pageTitle="Création d’un service à l’aide d’un magasin de données non relationnelles | Microsoft Azure" 
 	description="Découvrez comment utiliser un magasin de données non relationnelles tel que MongoDB ou Azure Table Storage avec votre service mobile .NET" 
 	services="mobile-services" 
 	documentationCenter="" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="04/24/2015" 
+	ms.date="08/08/2015" 
 	ms.author="mahender"/>
 
 # Création d’un service mobile principal .NET utilisant MongoDB au lieu d’une base de données SQL pour le stockage
@@ -121,4 +121,4 @@ Vous savez désormais qu’il est facile d’utiliser le stockage de table avec 
 [page dédiée au module complémentaire MongoLab]: /gallery/store/mongolab/mongolab
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

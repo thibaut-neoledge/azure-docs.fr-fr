@@ -5,16 +5,14 @@
     documentationCenter=""
 	authors="alancameronwills" 
 	manager="douge"/>
-
 <tags 
 	ms.service="application-insights" 
 	ms.workload="tbd" 
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/18/2015" 
+	ms.date="08/06/2015" 
 	ms.author="sergkanz"/>
-
  
 # Notes de publication pour le Kit de développement logiciel (SDK) Application Insights pour .NET
 
@@ -38,7 +36,7 @@ Consultez la rubrique [Prise en main d'Application Insights pour .NET](app-insi
 
 - Les initialiseurs de télémétrie qui n'ont pas de dépendances sur les bibliothèques ASP.NET ont été déplacés de l’emplacement `Microsoft.ApplicationInsights.Web` vers le nouveau nuget de dépendance `Microsoft.ApplicationInsights.WindowsServer`
 - `Microsoft.ApplicationInsights.Web.dll` a été renommé sur `Microsoft.AI.Web.dll`.
-- Le nuget `Microsoft.Web.TelemetryChannel` a été renommé sur `Microsoft.WindowsServer.TelemetryChannel`. L’assembly `Microsoft.ApplicationInsights.Extensibility.Web.TelemetryChannel` a été renommé sur `Microsoft.AI.ServerTelemetryChannel.dll`. La classe `Microsoft.ApplicationInsights.Extensibility.Web.TelemetryChannel` a été renommée sur `Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.ServerTelemetryChannel`.
+- Le nuget `Microsoft.ApplicationInsights.Web.TelemetryChannel` a été renommé sous la forme `Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel`. L’assembly `Microsoft.ApplicationInsights.Extensibility.Web.TelemetryChannel` a été renommé sous la forme `Microsoft.AI.ServerTelemetryChannel.dll`. La classe `Microsoft.ApplicationInsights.Extensibility.Web.TelemetryChannel` a été renommée sous la forme `Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.ServerTelemetryChannel`.
 - Tous les espaces de noms qui font partie d’un kit de développement logiciel (SDK) ont été modifiés de manière à exclure la partie `Extensibility`. Cela inclut tous les initialiseurs de télémétrie dans ApplicationInsights.config et le module `ApplicationInsightsWebTracking` dans le fichier web.config.
 - Les dépendances collectées à l'aide de l'agent d’instrumentation de runtime (activé via l'extension Status Monitor ou du site Web Azure) ne seront pas marquées comme asynchrones s'il n’y a aucun HttpContext.Current sur le thread.
 - La propriété `SamplingRatio` de `DependencyTrackingTelemetryModule` n’a aucun effet et est marquée comme obsolète.
@@ -88,4 +86,4 @@ Aucune note de publication pour des versions antérieures.
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -13,12 +13,15 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/25/2015" 
+	ms.date="08/11/2015"
 	ms.author="juliako"/>
 
 #Procédure : vérification de la progression des tâches
 
-Cet article fait partie de la série [workflow de vidéo à la demande Media Services](media-services-video-on-demand-workflow.md).
+> [AZURE.SELECTOR]
+- [Portal](media-services-portal-check-job-progress.md)
+- [.NET](media-services-check-job-progress.md)
+- [REST](media-services-rest-check-job-progress.md)
 
 ##Utilisation du portail pour vérifier l’état de la tâche
 
@@ -37,4 +40,4 @@ Publiez votre contenu. Pour plus d'informations, consultez [Procédure : encoda
 [checkstatus]: ./media/media-services-portal-check-job-progress/media-services-monitor-job-progress.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

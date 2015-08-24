@@ -1,12 +1,11 @@
 <properties 
-	pageTitle="Exécution d'un appel téléphonique à partir de Twilio (Java) - Azure" 
+	pageTitle="Appel téléphonique à partir de Twilio (Java) | Microsoft Azure" 
 	description="Apprenez à passer un appel téléphonique à partir d'une page web à l'aide de Twilio dans une application Java sur Azure." 
 	services="" 
 	documentationCenter="java" 
 	authors="devinrader" 
 	manager="twilio" 
 	editor="mollybos"/>
-
 
 <tags 
 	ms.service="multiple" 
@@ -16,7 +15,6 @@
 	ms.topic="article" 
 	ms.date="11/25/2014" 
 	ms.author="microsofthelp@twilio.com"/>
-
 
 # Exécution d'un appel téléphonique à l'aide de Twilio dans une application Java sur Azure 
 
@@ -49,36 +47,30 @@ Le code qui suit présente la conception d'un formulaire Web qui extrait les don
     <body>
      <p>Fill in all fields and click <b>Make this call</b>.</p>
      <br/>
-
       <form action="makecall.jsp" method="post">
        <table>
          <tr>
            <td>To:</td>
            <td><input type="text" size=50 name="callTo" value="" />
-
            </td>
          </tr>
          <tr>
            <td>From:</td>
            <td><input type="text" size=50 name="callFrom" value="" />
-
            </td>
          </tr>
          <tr>
            <td>Call message:</td>
            <td><input type="text" size=400 name="callText" value="Hello. This is the call text. Good bye." />
-
            </td>
          </tr>
          <tr>
            <td colspan=2><input type="submit" value="Make this call" />
-
            </td>
          </tr>
        </table>
      </form>
      <br/>
-
     </body>
     </html>
 
@@ -100,7 +92,6 @@ Le code qui suit, qui est appelé une fois que l'utilisateur remplit le formulai
     </head>
     <body>
         <b>This is my make call page.</b><p/>
-
      <%
     try 
     {
@@ -178,7 +169,7 @@ Voici les étapes générales pour exécuter votre application. Ces étapes sont
 2. Modifiez **startup.cmd** pour décompresser votre WAR TwilioCloud.
 3. Compilez votre application pour l'émulateur de calcul.
 4. Démarrez votre déploiement dans l'émulateur de calcul.
-5. Ouvrez un navigateur, puis exécutez ****http://localhost:8080/TwilioCloud/callform.jsp**.
+5. Ouvrez un navigateur, puis exécutez \*\***http://localhost:8080/TwilioCloud/callform.jsp**.
 6. Entrez les valeurs dans le formulaire, cliquez sur **Make this call**, puis consultez les résultats dans makecall.jsp.
 
 Lorsque vous êtes prêt pour le déploiement dans Azure, effectuez une recompilation pour un déploiement dans le cloud, procédez au déploiement dans Azure, puis exécutez http://*your_hosted_name*.cloudapp.net/TwilioCloud/callform.jsp dans le navigateur (en remplaçant *your\_hosted\_name* par la valeur qui vous correspond).
@@ -218,4 +209,4 @@ Pour plus d'informations sur Twilio, consultez la page [https://www.twilio.com/d
 [twilio_java]: ./media/partner-twilio-java-phone-call-example/WA_TwilioJavaCallForm.jpg
 [twilio_java_response]: ./media/partner-twilio-java-phone-call-example/WA_TwilioJavaMakeCall.jpg
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

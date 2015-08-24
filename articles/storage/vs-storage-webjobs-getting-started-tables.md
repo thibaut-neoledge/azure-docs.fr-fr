@@ -1,26 +1,26 @@
 <properties 
-	pageTitle="Prise en main d'Azure Storage" 
-	description="Prise en main du stockage de tables Azure au sein d’un projet Azure WebJobs 5 dans Visual Studio" 
-	services="storage" 
-	documentationCenter="" 
-	authors="patshea123" 
-	manager="douge" 
+	pageTitle="Prise en main du stockage Azure et des services connectés Visual Studio (projets WebJob)" 
+	description="Prise en main du stockage de tables Azure au sein d’un projet Azure WebJobs 5 dans Visual Studio"
+	services="storage"
+	documentationCenter=""
+	authors="patshea123"
+	manager="douge"
 	editor="tglee"/>
 
 <tags 
-	ms.service="storage" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="vs-getting-started" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/13/2015" 
+	ms.service="storage"
+	ms.workload="web"
+	ms.tgt_pltfrm="vs-getting-started"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/13/2015"
 	ms.author="patshea123"/>
 
 # Prise en main d’Azure Storage (projets de tâche web Azure)
 
 > [AZURE.SELECTOR]
-> - [Getting Started](vs-storage-webjobs-getting-started-tables.md)
-> - [What Happened](vs-storage-webjobs-what-happened.md)
+> - [Getting started](vs-storage-webjobs-getting-started-tables.md)
+> - [What happened](vs-storage-webjobs-what-happened.md)
 
 > [AZURE.SELECTOR]
 > - [Blobs](vs-storage-webjobs-getting-started-blobs.md)
@@ -31,9 +31,9 @@
 
 ## Vue d'ensemble
 
-Le service de stockage de tables Azure vous permet de stocker de grandes quantités de données structurées. Il s'agit d'une banque de données NoSQL qui accepte les appels authentifiés provenant de l'intérieur et de l'extérieur du cloud Azure. Les tables Azure sont idéales pour le stockage des données structurées non relationnelles. Pour plus d’informations, voir l’article [Utilisation du stockage de tables à partir de .NET](storage-dotnet-how-to-use-tables.md/#create-a-table "Utilisation du stockage de tables à partir de .NET").
-
 Cet article fournit des exemples de code C# qui montrent comment utiliser la version 1.x du Kit de développement logiciel (SDK) WebJobs Azure avec le service de stockage de tables Azure. Les exemples de code utilisent le [Kit de développement logiciel (SDK) WebJobs](websites-dotnet-webjobs-sdk.md) version 1.x.
+
+Le service de stockage de tables Azure vous permet de stocker de grandes quantités de données structurées. Il s'agit d'une banque de données NoSQL qui accepte les appels authentifiés provenant de l'intérieur et de l'extérieur du cloud Azure. Les tables Azure sont idéales pour le stockage des données structurées non relationnelles. Pour plus d’informations, voir l’article [Utilisation du stockage de tables à partir de .NET](storage-dotnet-how-to-use-tables.md/#create-a-table "Utilisation du stockage de tables à partir de .NET").
 
 		
 Certains extraits de code illustrent l’attribut `Table` utilisé dans des fonctions [appelées manuellement](vs-storage-webjobs-getting-started-blobs.md#manual), c’est-à-dire sans utiliser l’un des attributs de déclenchement.
@@ -166,4 +166,4 @@ Pour en savoir plus sur la gestion du traitement de tables déclenché par un me
 Cet article a fourni des exemples de code qui montrent comment gérer des scénarios courants pour l’utilisation des tables Azure. Pour plus d’informations sur l’utilisation d’Azure Webjobs et du Kit de développement logiciel (SDK) WebJobs Azure, consultez la rubrique [Azure Webjobs - Ressources recommandées](http://go.microsoft.com/fwlink/?linkid=390226).
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

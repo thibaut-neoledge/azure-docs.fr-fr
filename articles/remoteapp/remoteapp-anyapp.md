@@ -7,18 +7,16 @@
    manager="mbaldwin"
    editor=""/>
 
-
 <tags
    ms.service="remoteapp"
    ms.devlang="na"
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="compute"
-   ms.date="08/03/2015"
+   ms.date="08/10/2015"
    ms.author="elizapo"/>
 
-
-# Exécuter n’importe quelle application Windows sur n’importe quel appareil avec RemoteApp
+# Exécuter n’importe quelle application Windows sur n’importe quel appareil avec Azure RemoteApp
 
 Ce didacticiel va vous expliquer dès à présent comment exécuter une application Windows n’importe où et sur n’importe quel appareil. Qu’il s’agisse d’Internet Explorer 6, d’une application personnalisée écrite il y a 10 ans, ou d’une application Office, vos utilisateurs n’ont plus besoin d’être rattachés à un système d’exploitation spécifique (comme Windows XP) pour accéder à ces applications.
 
@@ -68,7 +66,7 @@ Si vous avez quitté le nœud Azure RemoteApp pendant la création de la collect
 
 ## Configuration de l’accès à Access
 
-Certaines applications nécessitent une configuration supplémentaire après leur déploiement via RemoteApp. Dans le cas d’Access, nous allons créer un partage de fichiers sur Azure, accessible par n’importe quel utilisateur. (Si vous ne souhaitez pas effectuer cette opération, vous pouvez créer une [collection hybride](remoteapp-create-hybrid-deployment.md) [au lieu de notre collection cloud\], afin que vos utilisateurs accèdent aux fichiers et aux informations sur votre réseau local.) Vous allez ensuite devoir demander aux utilisateurs de mapper un lecteur local sur leur ordinateur vers le système de fichiers Azure.
+Certaines applications nécessitent une configuration supplémentaire après leur déploiement via RemoteApp. Dans le cas d’Access, nous allons créer un partage de fichiers sur Azure, accessible par n’importe quel utilisateur. (Si vous ne souhaitez pas effectuer cette opération, vous pouvez créer une [collection hybride](remoteapp-create-hybrid-deployment.md) [au lieu de notre collection cloud], afin que vos utilisateurs accèdent aux fichiers et aux informations sur votre réseau local.) Vous allez ensuite devoir demander aux utilisateurs de mapper un lecteur local sur leur ordinateur vers le système de fichiers Azure.
 
 Dans un premier temps, vous allez être mis à contribution en tant qu’administrateur. Dans un second temps, nous allons demander à vos utilisateurs de procéder à quelques étapes.
 
@@ -108,4 +106,4 @@ Maintenant que vous maîtrisez la création d’une collection, essayez de crée
 
 <!--Image references-->
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

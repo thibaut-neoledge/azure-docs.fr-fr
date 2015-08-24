@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Association d'un disque à une machine virtuelle | Azure"
+	pageTitle="Attachez un disque à une machine virtuelle | Microsoft Azure"
 	description="Découvrez comment attacher un disque à une machine virtuelle Azure et à l'initialiser pour le rendre opérationnel."
 	services="virtual-machines, storage"
 	documentationCenter=""
@@ -53,4 +53,4 @@ Vous pouvez attacher des disques, qu’ils soient vides ou non. Dans les deux ca
 
 [logon]: virtual-machines-log-on-windows-server.md
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

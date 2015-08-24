@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-store" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="04/02/2015" 
+	ms.date="08/10/2015" 
 	ms.author="piyushjo" />
 
 #Procédures de mise à niveau du Kit de développement logiciel (SDK) des applications Windows Universal
@@ -169,4 +169,4 @@ Notez que ce changement affecte également les méthodes substituées.
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

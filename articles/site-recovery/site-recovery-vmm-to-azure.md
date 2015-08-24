@@ -7,16 +7,14 @@
 	manager="jwhit"
 	editor="tysonn"/>
 
-
 <tags
 	ms.service="site-recovery"
 	ms.workload="backup-recovery"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="05/07/2015"
+	ms.date="08/05/2015"
 	ms.author="raynew"/>
-
 
 #  Configuration de la protection entre un site local VMM et Azure
 
@@ -109,7 +107,7 @@ Générez une clé d'inscription dans le coffre. Une fois que vous aurez téléc
 2. Dans la liste déroulante, sélectionnez **Entre un site Hyper-V local et Microsoft Azure**.
 3. Dans **Prepare VMM Servers**, cliquez sur le fichier **Generate registration key**. Le fichier de clé est généré automatiquement et est valide pendant cinq jours après sa création. Si vous n'accédez pas au portail Azure à partir du serveur VMM, vous devez copier ce fichier sur le serveur.
 
-	![Clé d’enregistrement](./media/site-recovery-vmm-to-azure/ASRE2AVMM_RegisterKey.png)
+	![Clé d'enregistrement](./media/site-recovery-vmm-to-azure/ASRE2AVMM_RegisterKey.png)
 
 ## Étape 3 : Installation du fournisseur Azure Site Recovery
 
@@ -323,4 +321,4 @@ Pour exécuter un test de basculement, procédez comme suit :
 <LI>Pour toute question, visitez le <a href="http://go.microsoft.com/fwlink/?LinkId=313628">Forum Azure Recovery Services</a>.</LI></UL>
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -5,7 +5,8 @@
 	documentationCenter=""
 	authors="KBDAzure"
 	manager="timlt"
-	editor=""/>
+	editor=""
+	tags="azure-service-management"/>
 
 <tags
 	ms.service="virtual-machines"
@@ -20,7 +21,7 @@
 
 > [AZURE.SELECTOR]
 - [Azure Preview Portal](virtual-machines-windows-tutorial.md)
-- [Azure Management Portal](virtual-machines-windows-tutorial-classic-portal.md)
+- [Azure Portal](virtual-machines-windows-tutorial-classic-portal.md)
 - [PowerShell](virtual-machines-ps-create-preconfigure-windows-vms.md)
 
 Ces étapes vous montrent comment personnaliser un jeu de commandes Azure PowerShell en vue de créer et de préconfigurer une machine virtuelle Azure basée sur Windows à l'aide d'une approche modulaire. À l'aide de cette procédure, vous pouvez créer rapidement un jeu de commandes pour une nouvelle machine virtuelle basée sur Windows et étendre un déploiement existant, ou créer plusieurs jeux de commandes qui génèrent rapidement un environnement personnalisé de développement/test ou destiné aux professionnels de l'informatique.
@@ -46,7 +47,7 @@ Pour configurer votre abonnement et votre compte de stockage Azure, exécutez ce
 	Select-AzureSubscription -SubscriptionName $subscr –Current
 	Set-AzureSubscription -SubscriptionName $subscr -CurrentStorageAccountName $staccount
 
-Le nom de l’abonnement apparaît dans la propriété SubscriptionName du résultat de la commande **Get-AzureSubscription**. Le nom du compte de stockage apparaît dans la propriété Label du résultat de la commande **Get-AzureStorageAccount** une fois que vous avez émis la commande **Select-AzureSubscription**.
+Le nom de l’abonnement apparaît dans la propriété SubscriptionName du résultat de la commande **Get-AzureSubscription**. Le nom du compte de stockage correct apparaît dans la propriété Label de la sortie de la commande **Get-AzureStorageAccount** une fois que vous avez exécuté la commande **Select-AzureSubscription**.
 
 ## Étape 3 : déterminer la valeur ImageFamily
 
@@ -141,7 +142,7 @@ Pour un contrôleur de domaine Active Directory, définissez $hcaching sur « A
 
 Vous pouvez éventuellement ajouter la machine virtuelle à un jeu à charge équilibrée existant pour le trafic externe.
 
-	$prot="<Specify one: tcp, udp>"
+	$port="<Specify one: tcp, udp>"
 	$localport=<port number of the internal port>
 	$pubport=<port number of the external port>
 	$endpointname="<name of the endpoint>"
@@ -151,7 +152,7 @@ Vous pouvez éventuellement ajouter la machine virtuelle à un jeu à charge éq
 	$probepath="<URL path for probe traffic>"
 	$vm1 | Add-AzureEndpoint -Name $endpointname -Protocol $prot -LocalPort $localport -PublicPort $pubport -LBSetName $lbsetname -ProbeProtocol $probeprotocol -ProbePort $probeport -ProbePath $probepath
 
-Enfin, démarrez le processus de création de machine virtuelle en choisissant l'un des blocs de commandes suivants (obligatoire).
+Enfin, choisissez l'un de ces blocs de commande requis pour la création de la machine virtuelle.
 
 Option 1 : créez la machine virtuelle dans un service cloud existant.
 
@@ -173,7 +174,7 @@ Si vous utilisez un éditeur de texte, copiez le jeu de commandes dans le Presse
 
 Si vous comptez créer cette machine virtuelle de nouveau ou une autre similaire, vous pouvez :
 
-- Enregistrez ce jeu de commandes en tant que fichier de script PowerShell (*.ps1).
+- Enregistrez ce jeu de commandes en tant que fichier de script PowerShell (\*.ps1).
 - Enregistrez ce jeu de commandes en tant que Runbook Azure Automation dans la section **Automatisation** du Portail de gestion Azure.
 
 ## <a id="examples"></a>Exemples
@@ -256,7 +257,7 @@ Voici le jeu de commandes Azure PowerShell correspondant qui permet de créer ce
 
 
 ## Ressources supplémentaires
-<!-- For section headings, use sentence-case caps -->
+
 [Documentation sur les machines virtuelles](http://azure.microsoft.com/documentation/services/virtual-machines/)
 
 [FAQ sur les machines virtuelles Azure](http://msdn.microsoft.com/library/azure/dn683781.aspx)
@@ -269,4 +270,4 @@ Voici le jeu de commandes Azure PowerShell correspondant qui permet de créer ce
 
 [Création et préconfiguration d’une machine virtuelle Windows avec Resource Manager et Azure PowerShell](virtual-machines-ps-create-preconfigure-windows-resource-manager-vms.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

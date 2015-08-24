@@ -6,7 +6,7 @@
    authors="Jim-Parker"
    manager="shreeshd"
    editor=""/>
-<tagsms.service="backup" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="storage-backup-recovery" ms.date="07/01/2015" ms.author="jimpark"; "aashishr"/>
+<tags  ms.service="backup" ms.devlang="na" ms.topic="article" ms.tgt\_pltfrm="na" ms.workload="storage-backup-recovery" ms.date="08/11/2015" ms.author="jimpark"; "aashishr"/>
 
 # Utilisation des informations d’identification de coffre pour s’authentifier auprès du service Azure Backup
 Le serveur local (client Windows ou Windows Server ou serveur SCDPM) doit être authentifié avec un archivage de sauvegarde avant de pouvoir sauvegarder des données dans Azure. L’authentification s’effectue à l’aide des « informations d’identification du coffre ». Le concept d’informations d’identification de coffre est similaire à celui du fichier de « paramètres de publication » utilisé dans Azure PowerShell.
@@ -32,7 +32,6 @@ Le fichier d’informations d’identification de coffre est téléchargé via u
 5.  Le portail générera une information d'identification de coffre en combinant le nom du coffre et la date actuelle. Cliquez sur **Enregistrer** pour télécharger les informations d’identification de coffre dans le dossier de téléchargements du compte local, ou sélectionnez Enregistrer sous dans le menu Enregistrer pour spécifier un emplacement pour les informations d’identification du coffre.
 
 ## Remarques
-- Depuis mars 2015, les utilisateurs n’ont pas la possibilité de télécharger les informations d’identification de coffre par programme (par ex., via PowerShell).
 - Vérifiez que les informations d’identification de coffre sont enregistrées dans un emplacement accessible à partir de votre ordinateur. Si elles sont stockées dans un partage de fichiers/SMB, vérifiez les autorisations d’accès.
 - Le fichier d’informations d’identification de coffre est utilisé uniquement pendant le flux de travail d’inscription.
 - Le fichier d’informations d’identification de coffre expire au bout de 48 heures et peut être téléchargé à partir du portail.
@@ -41,4 +40,4 @@ Le fichier d’informations d’identification de coffre est téléchargé via u
 ## Étapes suivantes
 [Téléchargement, inscription et installation de l’agent Azure Backup](backup-azure-backup-download-register)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

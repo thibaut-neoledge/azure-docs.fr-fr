@@ -7,7 +7,6 @@
 	manager="jhubbard" 
 	editor="monicar"/>
 
-
 <tags 
 	ms.service="data-factory" 
 	ms.workload="data-services" 
@@ -16,7 +15,6 @@
 	ms.topic="article" 
 	ms.date="07/21/2015" 
 	ms.author="spelluru"/>
-
 
 # Copie de données avec Azure Data Factory (activité de copie)
 ## Vue d'ensemble
@@ -249,7 +247,6 @@ Dans cet exemple, le pipeline **CopyActivityPipeline** est défini à l'aide des
          
 		New-AzureDataFactoryPipeline -ResourceGroupName ADF –DataFactoryName CopyFactory –File <Filepath>
 
-> [AZURE.NOTE]Pour obtenir des exemples d'utilisation de l'activité de copie, consultez [Exemples d'utilisation de l'activité de copie dans Azure Data Factory][copy-activity-examples]
 
 ## Sécurité
 Cette section comprend des instructions et des méthodes conseillées concernant la sécurité globale, qui permettent d'établir un accès sécurisé aux magasins de données pour l'activité de copie.
@@ -258,7 +255,7 @@ Pour les magasins de données qui autorisent les connexions HTTPS, choisissez l
 
 Pour **Azure SQL Database**, demandez explicitement une connexion chiffrée et ne faites pas confiance aux certificats de serveur pour éviter une attaque de l'intercepteur (« man in the middle »). Pour ce faire, utilisez **Encrypt=True** et **TrustServerCertificate=False** dans la chaîne de connexion. Pour plus d'informations, consultez [Instructions de sécurité et limitations d'Azure SQL Database](https://msdn.microsoft.com/library/azure/ff394108.aspx).
 
-Pour les bases de données classiques telles que **SQL Server**, en particulier quand les instances se trouvent sur une machine virtuelle Azure, activez l'option de connexion chiffrée en configurant un certificat signé, avec **Encrypt=True** et **TrustServerCertificate=False** dans la chaîne de connexion. Pour plus d'informations, consultez [Activation des connexions chiffrées dans le moteur de base de données\] (https://msdn.microsoft.com/library/ms191192(v=sql.110)) et [Syntaxe de chaîne de connexion](https://msdn.microsoft.com/library/ms254500.aspx).
+Pour les bases de données classiques telles que **SQL Server**, en particulier quand les instances se trouvent sur une machine virtuelle Azure, activez l'option de connexion chiffrée en configurant un certificat signé, avec **Encrypt=True** et **TrustServerCertificate=False** dans la chaîne de connexion. Pour plus d'informations, consultez [Activation des connexions chiffrées dans le moteur de base de données] (https://msdn.microsoft.com/library/ms191192(v=sql.110)) et [Syntaxe de chaîne de connexion](https://msdn.microsoft.com/library/ms254500.aspx).
 
 ## Scénarios avancés
 - **Filtrage de colonne à l'aide de la définition de structure**. En fonction du type de table, il est possible de spécifier un sous-ensemble de colonnes à partir de la source en indiquant un nombre de colonnes dans la définition de **Structure** de la définition de table inférieur à celles qui se trouvent dans la source de données sous-jacente.
@@ -266,7 +263,6 @@ Pour les bases de données classiques telles que **SQL Server**, en particulier 
 - **Gestion des types de données par l'activité de copie**. Explique dans quels cas les types de données spécifiés dans la section Structure de la définition de la table sont honorés/ignorés.
 - **Appeler une procédure stockée pour un récepteur SQL**. Quand vous copiez des données dans SQL Server ou Azure SQL Database, une procédure stockée spécifiée par l'utilisateur peut être configurée et appelée.
 
-Pour plus d'informations sur ces scénarios, consultez l'article [Scénarios avancés pour l'utilisation de l'activité de copie avec Azure Data Factory][copy-activity-advanced].
 
 ## Procédures pas à pas
 Consultez [Prise en main d'Azure Data Factory][adfgetstarted] pour parcourir un didacticiel vous permettant de copier des données à partir d'un stockage d'objets blob Azure vers une base de données SQL Azure, en utilisant l'activité de copie.
@@ -274,10 +270,8 @@ Consultez [Prise en main d'Azure Data Factory][adfgetstarted] pour parcourir un 
 Consultez [Utilisation des pipelines avec des données locales][use-onpremises-datasources] pour suivre une procédure pas à pas permettant de copier des données à partir d'une base de données SQL Serveur locale vers un stockage d'objets blob Azure à l'aide de l'activité de copie.
 
 ## Voir aussi
-- [Exemples d'activité de copie][copy-activity-examples]
 - [Vidéo : Présentation de l'activité de copie dans Azure Data Factory][copy-activity-video]
 - [Rubrique Activité de copie sur MSDN Library][msdn-copy-activity]
-- [Scénarios avancés pour l'utilisation de l'activité de copie avec Azure Data Factory][copy-activity-advanced]
 
 [msdn-copy-activity]: https://msdn.microsoft.com/library/dn835035.aspx
 [msdn-linkedservices]: https://msdn.microsoft.com/library/dn834986.aspx
@@ -290,9 +284,7 @@ Consultez [Utilisation des pipelines avec des données locales][use-onpremises-d
 
 [adfgetstarted]: data-factory-get-started.md
 [use-onpremises-datasources]: data-factory-use-onpremises-datasources.md
-[copy-activity-examples]: data-factory-copy-activity-examples.md
 
-[copy-activity-advanced]: data-factory-copy-activity-advanced.md
 [json-script-reference]: http://go.microsoft.com/fwlink/?LinkId=516971
 [cmdlet-reference]: http://go.microsoft.com/fwlink/?LinkId=517456
 
@@ -301,4 +293,4 @@ Consultez [Utilisation des pipelines avec des données locales][use-onpremises-d
 [image-data-factory-column-mapping-2]: ./media/data-factory-copy-activity/ColumnMappingSample2.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

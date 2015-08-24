@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Analyse de flux : remplacer les informations d’identification de connexion pour les entrées et sorties | Azure" 
+	pageTitle="Stream Analytics : inverser les informations d'identification de connexion pour les entrées et sorties | Microsoft Azure" 
 	description="Découvrez comment mettre à jour les informations d’identification pour les entrées et les sorties Stream Analytics." 
 	services="stream-analytics" 
 	documentationCenter="" 
@@ -120,7 +120,7 @@ Pour les autres entrées/sorties, passez à la partie 2.
 4.	Passez à la partie 5.  
 
 ##Partie 5 – Suppression de l’ancien jeu d’informations d’identification
-Cette partie concerne les entrées/sorties suivantes : * Stockage d’objets Blob * Concentrateurs d’événements * Base de données SQL * Stockage de tables
+Cette partie concerne les entrées/sorties suivantes : \* Stockage d’objets Blob \* Concentrateurs d’événements \* Base de données SQL \* Stockage de tables
 
 ###Stockage d’objets blob/de tables
 Répétez la partie 1 pour la clé d’accès qui était précédemment utilisée par votre travail afin de renouveler la clé d’accès maintenant inutilisée.
@@ -193,4 +193,4 @@ Pour obtenir une assistance, essayez notre [forum Azure Stream Analytics](https:
 [graphic43]: ./media/stream-analytics-login-credentials-inputs-outputs/43-stream-analytics-login-credentials-inputs-outputs.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

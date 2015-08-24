@@ -20,8 +20,6 @@ Il existe deux catégories d’adresses IP dans Azure, les réservées et les dy
 
 Pour empêcher la modification des adresses IP, vous pouvez réserver une adresse IP. Les adresses IP réservées peuvent uniquement servir d’adresse IP virtuelle, garantissant que l'adresse IP utilisée pour le service cloud restera la même, et ce même si les ressources sont arrêtées ou désallouées. Par ailleurs, vous pouvez convertir une adresse IP dynamique existante utilisée comme adresse IP virtuelle en adresse IP réservée.
 
->[AZURE.WARNING]Vous pouvez affecter uniquement une adresse IP réservée à une adresse IP virtuelle.
-
 ## Quand ai-je besoin d’une adresse IP réservée ?
 - **Vous souhaitez vous assurer que l'adresse IP est réservée dans votre abonnement**. Si vous souhaitez réserver une adresse IP qui restera associée à votre abonnement en toute circonstance, vous devez utiliser une adresse IP publique réservée.  
 - **Vous souhaitez que votre adresse IP reste associée à votre service cloud, même lorsque les machines virtuelles sont arrêtées ou désallouées**. Si vous souhaitez que votre service soit accessible à l'aide d'une adresse IP qui ne change pas, même lorsque les machines virtuelles dans le service cloud sont arrêtées ou désallouées.
@@ -117,10 +115,10 @@ Vous pouvez aussi associer une adresse réservée à un service cloud à l’ai
 
 ## Étapes suivantes
 
-[Adresses IP privées réservées](../virtual-networks-reserved-private-ip)
+- En savoir plus sur [les adresses IP privées réservées](../virtual-networks-reserved-private-ip).
 
-[Adresses IP publiques de niveau d’instance (ILPIP)](../virtual-networks-instance-level-public-ip)
+- En savoir plus sur [les adresses IP publiques de niveau d’instance (ILPIP)](../virtual-networks-instance-level-public-ip).
 
-[API REST d’adresse IP réservée](https://msdn.microsoft.com/library/azure/dn722420.aspx)
+- Consultez les [API REST d’adresse IP réservée](https://msdn.microsoft.com/library/azure/dn722420.aspx)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

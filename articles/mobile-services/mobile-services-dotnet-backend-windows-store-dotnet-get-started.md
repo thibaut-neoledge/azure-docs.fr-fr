@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Prise en main de Mobile Services pour les applications Windows universelles | Centre de développement mobile"
+	pageTitle="Prise en main de Mobile Services pour les applications Windows universelles | Microsoft Azure"
 	description="Suivez ce didacticiel pour commencer à utiliser Azure Mobile Services pour développer des applications Windows universelles en C#."
 	services="mobile-services"
 	documentationCenter="windows"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="dotnet"
 	ms.topic="article" 
-	ms.date="05/03/2015"
+	ms.date="08/08/2015"
 	ms.author="glenga"/>
 
 
@@ -126,4 +126,4 @@ Pour plus d'informations sur les applications Windows universelles, consultez la
 [Résolution des problèmes d'un backend .NET Mobile Services ]: mobile-services-dotnet-backend-how-to-troubleshoot.md
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

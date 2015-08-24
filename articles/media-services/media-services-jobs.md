@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/24/2015" 
+	ms.date="08/11/2015" 
 	ms.author="juliako"/>
 
 #Utilisation des travaux Azure Media Services
@@ -60,4 +60,4 @@ Vous pouvez surveiller la progression des travaux à l’aide du **portail de ge
 [Quotas et limitations](media-services-quotas-and-limitations.md) : décrit les quotas utilisés et les limitations de l’Encodeur de Media Services
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

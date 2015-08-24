@@ -7,21 +7,20 @@
    manager="jeffreyg" 
    editor=""/>
 
-
 <tags
    ms.service="sql-database"
    ms.devlang="NA"
    ms.topic="article"
    ms.tgt_pltfrm="powershell"
    ms.workload="data-management" 
-   ms.date="07/28/2015"
+   ms.date="08/12/2015"
    ms.author="adamkr; sstein"/>
 
-
-# Créer et gérer un pool de base de données SQL élastique à l’aide de PowerShell
+# Créer et gérer un pool élastique de bases de données SQL à l'aide de PowerShell
 
 > [AZURE.SELECTOR]
 - [Azure portal](sql-database-elastic-pool-portal.md)
+- [C#](sql-database-client-library.md)
 - [PowerShell](sql-database-elastic-pool-powershell.md)
 
 
@@ -43,7 +42,7 @@ Pour créer un pool élastique de bases de données avec PowerShell, vous avez b
 
 Vous pouvez télécharger et installer les modules Azure PowerShell en exécutant [Microsoft Web Platform Installer](http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409). Pour plus de détails, consultez la rubrique [Installation et configuration d’Azure PowerShell](powershell-install-configure.md).
 
-Les applets de commande pour créer et gérer des bases de données SQL et des pools élastiques de bases de données se trouvent dans le module Azure Resource Manager. Si vous démarrez Azure PowerShell, les applets de commande du module Azure sont importées par défaut. Pour passer au module Azure Resource Manager, utilisez l'applet de commande Switch-AzureMode.
+Les applets de commande pour créer et gérer des bases de données SQL Azure et des pools élastiques de bases de données se trouvent dans le module Azure Resource Manager. Si vous démarrez Azure PowerShell, les applets de commande du module Azure sont importées par défaut. Pour passer au module Azure Resource Manager, utilisez l'applet de commande Switch-AzureMode.
 
 	Switch-AzureMode -Name AzureResourceManager
 
@@ -52,7 +51,7 @@ Pour plus d'informations, consultez [Utilisation de Windows PowerShell avec Reso
 
 ## Configurer vos informations d'identification et sélectionner votre abonnement
 
-Maintenant que vous exécutez le module Azure Resource Manager, vous avez accès à toutes les applets de commande nécessaires pour créer et configurer un pool élastique de bases de données. Vous devez tout d'abord établir l'accès à votre compte Azure. Exécutez la commande suivante et un écran de connexion s'affichera dans lequel vous pourrez entrer vos informations d'identification. Utilisez l'adresse électronique et le mot de passe que vous utilisez pour vous connecter au portail Azure.
+Maintenant que vous exécutez le module Azure Resource Manager, vous avez accès à toutes les applets de commande nécessaires pour créer et configurer un pool de bases de données élastique. Vous devez tout d'abord établir l'accès à votre compte Azure. Exécutez la commande suivante et un écran de connexion s'affichera dans lequel vous pourrez entrer vos informations d'identification. Utilisez l'adresse électronique et le mot de passe que vous utilisez pour vous connecter au portail Azure.
 
 	Add-AzureAccount
 
@@ -68,7 +67,7 @@ Pour sélectionner l’abonnement, vous avez besoin de votre identifiant ou de v
 
 ## Créer un groupe de ressources, un serveur et une règle de pare-feu
 
-Vous disposez maintenant d'un accès pour exécuter des applets de commande en fonction de votre abonnement Azure. L'étape suivante consiste à établir le groupe de ressources qui contient le serveur dans lequel le pool élastique de base de données est créé. Vous pouvez modifier la commande suivante pour utiliser l'emplacement valide de votre choix. Exécutez **(Get-AzureLocation | where-object {$\_.Name -eq "Microsoft.Sql/servers" }).Locations** pour obtenir la liste des emplacements autorisés.
+Vous disposez maintenant d'un accès pour exécuter des applets de commande en fonction de votre abonnement Azure. L'étape suivante consiste donc à établir le groupe de ressources qui contient le serveur dans lequel le pool de base de données élastique est créé. Vous pouvez modifier la commande suivante pour utiliser l'emplacement valide de votre choix. Exécutez **(Get-AzureLocation | where-object {$\_.Name -eq "Microsoft.Sql/servers" }).Locations** pour obtenir la liste des emplacements autorisés.
 
 Si vous disposez déjà d'un groupe de ressources, vous pouvez accéder à l’étape suivante, ou vous pouvez exécuter la commande suivante pour créer un groupe de ressources :
 
@@ -96,15 +95,15 @@ Pour en savoir plus, consultez [Pare-feu de la base de données SQL Azure](https
 
 ## Créer un pool élastique de bases de données et des bases de données élastiques
 
-Vous disposez maintenant d'un groupe de ressources, d'un serveur et d'une règle de pare-feu configurés pour vous permettre un accès au serveur. La commande suivante crée le pool. Cette commande crée un pool qui partage un total de 400 UDBD. Chaque base de données dans le pool a toujours 10 UDBD garanties disponibles (DatabaseDtuMin). Les différentes bases de données dans le pool peuvent consommer un maximum de 100 UDBD (DatabaseDtuMax). Pour une explication détaillée des paramètres, consultez [Pools élastiques de bases de données SQL Azure](sql-database-elastic-pool.md).
+Vous disposez maintenant d'un groupe de ressources, d'un serveur et d'une règle de pare-feu configurés pour vous permettre un accès au serveur. La commande suivante crée le pool élastique de bases de données. Cette commande crée un pool qui partage un total de 400 eDTU. Chaque base de données dans le pool a toujours 10 eDTU garanties disponibles (DatabaseDtuMin). Les différentes bases de données dans le pool peuvent consommer un maximum de 100 eDTU (DatabaseDtuMax). Pour une explication détaillée des paramètres, consultez [Pools élastiques de bases de données SQL Azure](sql-database-elastic-pool.md).
 
 
 	New-AzureSqlElasticPool -ResourceGroupName "resourcegroup1" -ServerName "server1" -ElasticPoolName "elasticpool1" -Edition "Standard" -Dtu 400 -DatabaseDtuMin 10 -DatabaseDtuMax 100
 
 
-### Créer ou ajouter des bases de données élastiques dans un pool
+### Créez ou ajoutez des bases de données dans un pool élastique de bases de données
 
-Le pool créé à l'étape précédente est vide. Il ne comporte aucune base de données. Les sections suivantes indiquent comment créer des bases de données dans le pool et comment ajouter des bases de données existantes au pool.
+Le pool créé à l'étape précédente est vide. Il ne comporte aucune base de données élastique. Les sections suivantes indiquent comment créer des bases de données élastiques dans le pool et comment ajouter des bases de données existantes au pool.
 
 
 ### Créer une base de données élastique dans un pool élastique de bases de données
@@ -125,15 +124,21 @@ Pour déplacer une base de données existante dans un pool, utilisez la cmdlet *
 
 	New-AzureSqlDatabase -ResourceGroupName "resourcegroup1" -ServerName "server1" -DatabaseName "database1" -Edition "Standard"
 
-Déplacez la base de données existante vers le pool.
+Déplacez la base de données existante vers le pool de bases de données élastiques.
 
 	Set-AzureSqlDatabase -ResourceGroupName "resourcegroup1" -ServerName "server1" -DatabaseName "database1" -ElasticPoolName "elasticpool1"
+
+## Modifier les paramètres de performances d'un pool de bases de données élastiques
+
+
+    Set-AzureSqlElasticPool –ResourceGroupName “resourcegroup1” –ServerName “server1” –ElasticPoolName “elasticpool1” –Dtu 1200 –DatabaseDtuMax 100 –DatabaseDtuMin 50 
+
 
 ## Surveiller des bases de données et des pools élastiques de bases de données
 
 ### Obtenir l'état d'opérations de pools élastiques de bases de données
 
-Vous pouvez suivre l’état d'opérations de pools, notamment la création et les mises à jour.
+Vous pouvez suivre l’état d'opérations de pools de bases de données élastiques, notamment la création et les mises à jour.
 
 	Get-AzureSqlElasticPoolActivity –ResourceGroupName “resourcegroup1” –ServerName “server1” –ElasticPoolName “elasticpool1” 
 
@@ -144,16 +149,16 @@ Vous pouvez suivre l’état d'opérations de pools, notamment la création et l
 
 ### Obtenir des mesures de consommation de ressources pour un pool élastique de bases de données
 
-Mesures récupérables sous la forme d'un pourcentage de la limite de pool :
+Mesures récupérables sous la forme d'un pourcentage de la limite de pool de ressources :
 
 * Utilisation moyenne du processeur - cpu\_percent 
 * Utilisation moyenne des E/S - data\_io\_percent 
 * Utilisation moyenne du journal - log\_write\_percent 
 * Utilisation moyenne de la mémoire - memory\_percent 
-* Utilisation moyenne d'UDBD (en tant que valeur maximale de l'utilisation du processeur / des E/S / du journal) – DTU\_percent 
+* Utilisation moyenne d'eDTU (en tant que valeur maximale de l'utilisation du processeur, des E/S, du journal) – DTU\_percent 
 * Nombre maximum de requêtes utilisateur simultanées (travaux) – max\_concurrent\_requests 
 * Nombre maximum de sessions utilisateur simultanées – max\_concurrent\_sessions 
-* Taille de stockage totale pour le pool – storage\_in\_megabytes 
+* Taille de stockage totale pour le pool élastique – storage\_in\_megabytes 
 
 
 Granularité des mesures/périodes de rétention :
@@ -185,9 +190,9 @@ Exportez vers un fichier CSV :
 
 Ces API sont les mêmes que les API actuelles (V12) utilisées pour surveiller l'utilisation des ressources d'une base de données autonome, à l'exception de la différence sémantique suivante :
 
-* dans ce cas, les mesures d'API sont obtenues sous forme de pourcentage de DTU MAX par base de données (databaseDtuMax) (ou le nombre maximal équivalent pour la mesure sous-jacente telle que le processeur, les E/S, etc.) défini pour ce pool. Par exemple, une utilisation de 50 % de l'une de ces mesures indique que la consommation des ressources spécifiques est de 50 % de la limite supérieure par base de données définie pour cette ressource dans le pool parent. 
+* Dans ce cas, les métriques d'API sont obtenues sous forme de pourcentage de DTU MAX par base de données (databaseDtuMax) (ou le nombre maximal équivalent pour la métrique sous-jacente telle que le processeur, les E/S, etc.) défini pour ce pool de bases de données élastiques. Par exemple, une utilisation de 50 % de l'une de ces métriques indique que la consommation des ressources spécifiques est de 50 % de la limite supérieure par base de données définie pour cette ressource dans le pool de bases de données élastiques parent. 
 
-Obtenez les mesures : $metrics = (Get-Metrics -ResourceId /subscriptions/d7c1d29a-ad13-4033-877e-8cc11d27ebfd/resourceGroups/FabrikamData01/providers/Microsoft.Sql/servers/fabrikamsqldb02/databases/myDB -TimeGrain ([TimeSpan\]::FromMinutes(5)) -StartTime "4/18/2015" -EndTime "4/21/2015")
+Obtenez les mesures : $metrics = (Get-Metrics -ResourceId /subscriptions/d7c1d29a-ad13-4033-877e-8cc11d27ebfd/resourceGroups/FabrikamData01/providers/Microsoft.Sql/servers/fabrikamsqldb02/databases/myDB -TimeGrain ([TimeSpan]::FromMinutes(5)) -StartTime "4/18/2015" -EndTime "4/21/2015")
 
 Le cas échéant, obtenez des jours supplémentaires en répétant l'appel et en ajoutant les données :
 
@@ -213,7 +218,7 @@ Exportez vers un fichier CSV :
     New-AzureSqlServerFirewallRule -ResourceGroupName "resourcegroup1" -ServerName "server1" -FirewallRuleName "rule1" -StartIpAddress "192.168.0.198" -EndIpAddress "192.168.0.199"
     New-AzureSqlElasticPool -ResourceGroupName "resourcegroup1" -ServerName "server1" -ElasticPoolName "elasticpool1" -Edition "Standard" -Dtu 400 -DatabaseDtuMin 10 -DatabaseDtuMax 100
     New-AzureSqlDatabase -ResourceGroupName "resourcegroup1" -ServerName "server1" -DatabaseName "database1" -ElasticPoolName "elasticpool1" -MaxSizeBytes 10GB
-    
+    Set-AzureSqlElasticPool –ResourceGroupName “resourcegroup1” –ServerName “server1” –ElasticPoolName “elasticpool1” –Dtu 1200 –DatabaseDtuMax 100 –DatabaseDtuMin 50 
     
     $metrics = (Get-Metrics -ResourceId /subscriptions/d7c1d29a-ad13-4033-877e-8cc11d27ebfd/resourceGroups/FabrikamData01/providers/Microsoft.Sql/servers/fabrikamsqldb02/elasticPools/franchisepool -TimeGrain ([TimeSpan]::FromMinutes(5)) -StartTime "4/18/2015" -EndTime "4/21/2015") 
     $metrics = $metrics + (Get-Metrics -ResourceId /subscriptions/d7c1d29a-ad13-4033-877e-8cc11d27ebfd/resourceGroups/FabrikamData01/providers/Microsoft.Sql/servers/fabrikamsqldb02/elasticPools/franchisepool -TimeGrain ([TimeSpan]::FromMinutes(5)) -StartTime "4/21/2015" -EndTime "4/24/2015")
@@ -227,13 +232,11 @@ Exportez vers un fichier CSV :
 
 ## Étapes suivantes
 
-Après avoir créé un pool élastique de bases de données, vous pouvez gérer des bases de données élastiques du pool en créant des tâches élastiques. Les tâches élastiques facilitent l'exécution de scripts T-SQL, quel que soit le nombre de bases de données élastiques dans le pool.
-
-Pour en savoir plus, consultez [Vue d'ensemble des tâches de base de données élastiques](sql-database-elastic-jobs-overview.md).
+Après avoir créé un pool élastique de bases de données, vous pouvez gérer des bases de données élastiques du pool en créant des tâches élastiques. Les tâches élastiques facilitent l'exécution de scripts T-SQL, quel que soit le nombre de bases de données dans le pool. Pour en savoir plus, consultez [Vue d'ensemble des tâches de base de données élastiques](sql-database-elastic-jobs-overview.md).
 
 
 ## Référence des bases de données élastiques
 
 Pour en savoir plus sur les bases de données et les pools de bases de données élastiques, y compris les détails des API et des erreurs, consultez [Référence du pool de bases de données élastique](sql-database-elastic-pool-reference.md).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

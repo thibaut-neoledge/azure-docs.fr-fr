@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Gestion d'un service cloud - Azure" 
+	pageTitle="Gestion d'un service cloud | Microsoft Azure" 
 	description="Découvrez comment gérer des services cloud dans le portail Azure en version préliminaire." 
 	services="cloud-services" 
 	documentationCenter="" 
@@ -106,4 +106,4 @@ Utiliser la procédure suivante pour supprimer un déploiement ou un service clo
 
 [portail Azure en version préliminaire]: https://portal.azure.com
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

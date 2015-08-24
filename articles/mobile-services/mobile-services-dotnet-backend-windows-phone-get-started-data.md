@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Ajout de Mobile Services à une application existante (Windows Phone) | Centre de développement mobile" 
+	pageTitle="Ajout de Mobile Services à une application existante (Windows Phone) | Microsoft Azure" 
 	description="Apprenez à Mobile Services pour tirer parti des données de votre application Windows Phone." 
 	services="mobile-services" 
 	documentationCenter="windows" 
@@ -272,4 +272,4 @@ Ce didacticiel a présenté les bases de l'activation d'une application Windows 
 [How to add a new Windows Firewall port rule]: http://go.microsoft.com/fwlink/?LinkId=392240
    
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

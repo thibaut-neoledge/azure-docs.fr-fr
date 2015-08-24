@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="06/10/2015"
+   ms.date="08/12/2015"
    ms.author="mbaldwin"/>
 
 
@@ -67,6 +67,7 @@ Ces articles décrivent comment effectuer des tâches spécifiques avec Azure Ac
 - [Affichage de votre application dans la galerie d’applications Azure AD](active-directory-app-gallery-listing.md)
 - [Prise en main des API Office 365 dans les applications](https://msdn.microsoft.com/office/office365/howto/getting-started-Office-365-APIs)
 - [Envoi d’applications web pour Office 365 à Mon tableau de bord vendeur](https://msdn.microsoft.com/office/office365/howto/submit-web-apps-seller-dashboard)
+- [Version préliminaire : comment créer des applications qui connectent les utilisateurs avec à la fois des comptes personnels et des comptes professionnels ou scolaires](active-directory-appmodel-v2-overview.md)
 
 
 ## Référence
@@ -132,4 +133,4 @@ Ces vues d’ensemble sur le développement d’applications avec Azure Active D
 
 - **[Azure AD sur Twitter](https://twitter.com/azuread)** : annonces Azure AD limitées à 140 caractères.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

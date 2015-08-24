@@ -1,21 +1,20 @@
 
-<properties 
-	pageTitle="Utilisation d’un groupe pour gérer l’accès aux applications SaaS| Microsoft Azure" 
-	description="Une rubrique vous expliquant comment utiliser des groupes dans Azure AD Premium pour attribuer l’accès à des applications SaaS intégrées avec Azure AD." 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="femila" 
-	manager="swadhwa" 
-	editor=""
-	tags="azure-classic-portal"/>
+<properties
+	pageTitle="Utilisation d’un groupe pour gérer l’accès aux applications SaaS| Microsoft Azure"
+	description="Comment utiliser les groupes dans Azure AD Premium ou Basic pour attribuer l’accès à des applications SaaS intégrées à Azure AD."
+	services="active-directory"
+	documentationCenter=""
+	authors="femila"
+	manager="swadhwa"
+	editor=""/>
 
-<tags 
-	ms.service="active-directory" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
+<tags
+	ms.service="active-directory"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="na"
 	ms.devlang="na" identity
-	ms.topic="article" 
-	ms.date="07/13/2015" 
+	ms.topic="article"
+	ms.date="08/10/2015"
 	ms.author="femila"/>
 
 
@@ -39,9 +38,9 @@ Cette fonctionnalité peut être utilisée avec des centaines d’applications p
 4. Vous pouvez également voir quels utilisateurs sont affectés à l’application, soit directement ou en étudiant l’adhésion au sein d’un groupe. Pour ce faire, modifiez la définition de **la liste déroulante Affichage de Groupe** à **Tous les utilisateurs**. La liste affiche les utilisateurs du répertoire et indique s’ils sont affectés ou non à l’application. Elle indique également si les utilisateurs sont affectés directement à l’application (type d’affectation direct) ou par le biais de l’adhésion à un groupe (type d’affectation hérité).
 
 
-> [AZURE.NOTE]L’onglet Utilisateurs et groupes s’affichera une fois que vous avez activé Azure AD Premium.
+> [AZURE.NOTE]L’onglet Utilisateurs et groupes ne s’affiche qu’une fois que vous avez activé Azure AD Premium ou Azure AD Basic.
 
-Voici quelques rubriques vous fournissant des informations supplémentaires sur Azure Active Directory.
+Voici des rubriques qui fournissent des informations supplémentaires sur Azure Active Directory
 
 * [Gestion de l’accès aux ressources avec les groupes Azure Active Directory](active-directory-manage-groups.md)
 
@@ -49,4 +48,4 @@ Voici quelques rubriques vous fournissant des informations supplémentaires sur 
 
 * [Intégration de vos identités locales avec Azure Active Directory](active-directory-aadconnect.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

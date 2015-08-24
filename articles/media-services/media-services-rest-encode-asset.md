@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/23/2015" 
+	ms.date="08/11/2015" 
 	ms.author="juliako"/>
 
 
@@ -257,7 +257,6 @@ Si l’opération réussit, la réponse suivante est retournée :
 	. . . 
 
 
-
 ##Étapes suivantes
 Maintenant que vous savez comment créer une tâche pour encoder un élément multimédia, consultez la rubrique [Vérification de la progression d'une tâche avec Media Services](media-services-rest-check-job-progress.md).
 
@@ -266,4 +265,4 @@ Maintenant que vous savez comment créer une tâche pour encoder un élément mu
 
 [Obtenir des processeurs multimédias](media-services-rest-get-media-processor.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

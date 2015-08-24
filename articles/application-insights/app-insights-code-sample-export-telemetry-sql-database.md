@@ -4,7 +4,7 @@
 	services="application-insights" 
     documentationCenter=""
 	authors="mazharmicrosoft" 
-	manager="klin"/>
+	manager="douge"/>
 
 <tags 
 	ms.service="application-insights" 
@@ -531,4 +531,4 @@ Pour voir cet exemple en action, [téléchargez](https://sesitai.codeplex.com/) 
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

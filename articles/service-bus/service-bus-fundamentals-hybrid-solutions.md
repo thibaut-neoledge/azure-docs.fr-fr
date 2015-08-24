@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Azure Service Bus : principes de base d’Azure" 
+	pageTitle="Azure Service Bus | Microsoft Azure" 
 	description="Présentation des différentes utilisations de Service Bus pour connecter les applications Azure à d’autres logiciels." 
 	services="service-bus" 
 	documentationCenter=".net" 
@@ -130,4 +130,4 @@ Maintenant que vous avez appris les principes de base d’Azure Service Bus, con
 [3]: ./media/service-bus-fundamentals-hybrid-solutions/SvcBus_03_topicsandsubscriptions.png
 [4]: ./media/service-bus-fundamentals-hybrid-solutions/SvcBus_04_relay.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

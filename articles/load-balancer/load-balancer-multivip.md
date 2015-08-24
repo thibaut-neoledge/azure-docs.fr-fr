@@ -94,7 +94,7 @@ Dans cet exemple, le service cloud a trois adresses IP virtuelles (Vip) :
 >[AZURE.NOTE]Votre abonnement est uniquement facturé pour les adresses IP virtuelles supplémentaires après leur association à un point de terminaison. Pour plus d’informations sur la tarification, voir la page [Tarification des adresses IP](http://azure.microsoft.com/pricing/details/ip-addresses/).
 
 ## Association d’une adresse IP virtuelle à un point de terminaison
-Pour associer une adresse IP virtuelle sur un service cloud à un point de terminaison, exécutez la commande PowerShell suivante :
+Pour associer une adresse IP virtuelle sur un service cloud à un point de terminaison, exécutez la commande PowerShell suivante :
 
     Get-AzureVM -ServiceName myService -Name myVM1 `
     | Add-AzureEndpoint -Name myEndpoint -Protocol tcp -LocalPort 8080 -PublicPort 80 -VirtualIPName Vip2 `
@@ -155,4 +155,4 @@ Vous pouvez également mettre à jour votre équilibrage de charge pour utiliser
 [API REST d’adresse IP réservée](https://msdn.microsoft.com/library/azure/dn722420.aspx)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

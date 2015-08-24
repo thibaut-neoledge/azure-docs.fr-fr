@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Inscription pour l'authentification Microsoft - Mobile Services" 
+	pageTitle="Inscription pour l'authentification Microsoft | Microsoft Azure" 
 	description="Découvrez comment vous inscrire pour l'authentification Microsoft dans votre application Azure Mobile Services." 
 	authors="ggailey777" 
 	services="mobile-services" 
@@ -7,16 +7,14 @@
 	manager="dwrede" 
 	editor=""/>
 
-
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
 	ms.tgt_pltfrm="NA" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="06/14/2015" 
+	ms.date="08/08/2015" 
 	ms.author="glenga"/>
-
 
 # Inscrire votre application pour utiliser un compte Microsoft pour l'authentification
 
@@ -56,13 +54,9 @@ Les applications du Windows Store doivent d'abord être enregistrées auprès du
 
 6. (Facultatif) Pour une application Windows universelle, répétez les étapes 4 et 5 pour le projet du Windows Phone Store.
 
-6. De retour sur la page du centre de développement Windows pour la nouvelle application, cliquez sur **Services**.
+6. De retour sur la page du centre de développement Windows pour la nouvelle application, cliquez sur **Services** > **Notifications Push**.
 
-   	![](./media/mobile-services-how-to-register-microsoft-authentication/mobile-services-win8-edit-app.png)
-
-7. Sur la page Services, cliquez sur **Live Services site** sous **Azure Mobile Services**.
-
-	![](./media/mobile-services-how-to-register-microsoft-authentication/mobile-services-win8-edit2-app.png)
+7. Sur la page **Notifications Push**, cliquez sur **Site des services Microsoft Live** sous **Windows Push Notification Services (WNS) et Microsoft Azure Mobile Services**.
 
 La page du compte Microsoft de votre application s'affiche.
 
@@ -74,7 +68,7 @@ La première étape de cette section s'applique uniquement aux applications Wind
 
    	Une fois cette opération effectuée, le nom de votre application est réservé avec un compte Microsoft et la page du compte Microsoft de votre application s'affiche.
 
-2. Sur la page du compte Microsoft de votre application, cliquez sur **Paramètres de l'API**, sélectionnez **Application cliente mobile ou de bureau**, définissez l'URL du service mobile en tant que **Domaine cible**, fournissez une valeur de `https://<mobile_service>.azure-mobile.net/login/microsoftaccount/` dans **URL de redirection**, puis cliquez sur **Enregistrer**.
+2. Sur la page du compte Microsoft de votre application, cliquez sur **Paramètres de l'API**, sélectionnez **Application cliente mobile ou de bureau**, définissez l'URL du service mobile en tant que **Domaine cible**, fournissez une valeur de `https://<mobile_service>.azure-mobile.net/` dans **URL de redirection**, puis cliquez sur **Enregistrer**.
 
 	 >[AZURE.NOTE]Pour un service mobile de backend .NET publié sur Azure avec Visual Studio, l'URL de redirection est l'URL de votre service mobile, suivie du chemin _signin-microsoft_ de votre service mobile en tant que service .NET, par exemple `https://todolist.azure-mobile.net/signin-microsoft`.
 
@@ -109,4 +103,4 @@ Votre service mobile et votre application sont désormais configurés pour utili
 [portail de gestion Azure]: https://manage.windowsazure.com/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

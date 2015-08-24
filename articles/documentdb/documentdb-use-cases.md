@@ -1,5 +1,5 @@
 <properties 
-    pageTitle="Cas d’utilisation courants de DocumentDB | Azure" 
+    pageTitle="Cas d’utilisation courants de DocumentDB | Microsoft Azure" 
     description="Découvrez les cinq cas d'utilisation principaux pour DocumentDB : le contenu généré par l’utilisateur, la journalisation des événements, les données de catalogue, les données de préférences de l’utilisateur et l’Internet des objets (IoT)." 
     services="documentdb" 
     authors="h0n" 
@@ -79,4 +79,4 @@ Si vous souhaitez en savoir plus sur les clients qui utilisent DocumentDB, consu
 - [XOMNI](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18667). Le magasin du futur fonctionne grâce à la recherche rapide et au flux de données simplifié.
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

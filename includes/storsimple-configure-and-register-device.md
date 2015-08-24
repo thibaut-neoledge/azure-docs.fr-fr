@@ -30,7 +30,7 @@
    
       >[AZURE.NOTE]Vous devrez peut-être attendre quelques minutes que les paramètres de masque de sous-réseau et de DNS soient appliqués. Si vous obtenez le message d’erreur « Le périphérique n’est pas prêt », vérifiez la connexion réseau physique sur l’interface réseau DATA 0 de votre contrôleur actif.
 
-8. (Facultatif) Configurez votre serveur proxy web. Bien que la configuration du proxy web soit facultative, **si vous en utilisez un, vous pouvez uniquement le configurer ici**. Pour plus d’informations, consultez la section [Configuration du proxy web pour votre appareil](https://msdn.microsoft.com/library/azure/dn764937.aspx).
+8. (Facultatif) Configurez votre serveur proxy web. Bien que la configuration du proxy web soit facultative, **si vous en utilisez un, vous pouvez uniquement le configurer ici**. Pour plus d’informations, consultez la section [Configuration du proxy web pour votre appareil](https://msdn.microsoft.com/library/azure/dn764937.aspx). Si vous rencontrez des problèmes au cours de cette étape, reportez-vous aux instructions pour la résolution des problèmes pour les [Erreurs lors de la configuration du proxy web](storsimple-troubleshoot-deployment.md#errors-during-the-optional-web-proxy-settings).
  
 
       >[AZURE.NOTE]Vous pouvez appuyer sur Ctrl + C à tout moment pour quitter l’Assistant Installation. Tous les paramètres que vous avez appliqués avant l’émission de cette commande sont conservés.
@@ -41,11 +41,17 @@
 
     ![Inscription de l’appareil StorSimple 4](./media/storsimple-configure-and-register-device/HCS_RegisterYourDevice4-include.png)
 
-    Vous pouvez réinitialiser le mot de passe du gestionnaire d’instantanés StorSimple à partir de l’interface de service StorSimple Manager.
+    Vous pouvez réinitialiser le mot de passe du gestionnaire d’instantanés StorSimple à partir de l’interface de service StorSimple Manager. Pour des instructions détaillées, consultez la page [Modifier les mots de passe StorSimple à l'aide du service Gestionnaire StorSimple](storsimple-change-passwords.md).
+
+	Pour effectuer des dépannages au cours de cette étape, reportez-vous aux instructions pour la résolution des problèmes pour les [Erreurs liées aux mots de passe](storsimple-troubleshoot-deployment.md#errors-related-to-device-administrator-and-storsimple-snapshot-manager-passwords).
 
 11. La dernière étape de l’Assistant Installation inscrit votre appareil auprès du service StorSimple Manager. Pour cela, vous avez besoin de la clé d’inscription de service que vous avez obtenue à l’étape 2. Après avoir entré la clé d’inscription, vous devrez peut-être attendre 2 à 3 minutes avant que l’appareil ne soit inscrit.
 
-12. Une fois l’appareil inscrit, une clé de chiffrement de données de service s’affiche. Copiez-la et enregistrez-la en lieu sûr. **Cette clé et la clé d’enregistrement de service sont requises pour l’inscription d’appareils supplémentaires avec le service StorSimple Manager.** Reportez-vous à la section [Sécurité StorSimple](../articles/storsimple/storsimple-security.md) pour plus d’informations sur cette clé.
+	Pour dépanner toute défaillance possible de l'inscription d'un appareil, consultez la rubrique [Erreurs pendant l'inscription d'un appareil](storsimple-troubleshoot-deployment.md#errors-during-device-registration). Pour des instructions de résolution de problèmes détaillées, vous pouvez également consulter la rubrique [Exemple de résolution des problèmes pas à pas](storsimple-troubleshoot-deployment.md#step-by-step-storsimple-troubleshooting-example).
+
+12. Une fois l’appareil inscrit, une clé de chiffrement de données de service s’affiche. Copiez-la et enregistrez-la en lieu sûr.
+	
+	> [AZURE.WARNING]Cette clé et la clé d’enregistrement de service sont requises pour l’inscription d’appareils supplémentaires avec le service StorSimple Manager. Reportez-vous à la section [Sécurité StorSimple](../articles/storsimple/storsimple-security.md) pour plus d’informations sur cette clé.
 
      ![Inscription de l’appareil StorSimple 6](./media/storsimple-configure-and-register-device/HCS_RegisterYourDevice6-include.png)
 
@@ -56,10 +62,12 @@
 14. Revenez au portail de gestion et procédez comme suit :
   1. Double-cliquez sur le service StorSimple Manager pour accéder à la page **Démarrage rapide**.
   2. Cliquez sur **Afficher les appareils connectés**.
-  3. Sur la page **Appareils**, vérifiez que l’appareil s’est bien connecté au service en vérifiant son état. L’état de l’appareil doit être **En ligne**.
+  3. Sur la page **Appareils**, vérifiez que l’appareil s’est bien connecté au service en vérifiant son état. L’état de l’appareil doit être **En ligne**. Si l’état de l’appareil est **Hors ligne**, attendez quelques minutes qu’il soit en ligne.
    
     ![Page Appareils StorSimple](./media/storsimple-configure-and-register-device/HCS_DevicesPageM-include.png)
   
-      >[AZURE.NOTE]Si l’état de l’appareil est **Hors ligne**, attendez quelques minutes qu’il soit en ligne.
+      >[AZURE.IMPORTANT]Une fois que le périphérique est en ligne, branchez les câbles réseau que vous aviez déconnectés au début de cette étape.
 
-<!---HONumber=August15_HO6-->
+Une fois que le périphérique est inscrit correctement et n'est pas en ligne, vous pouvez exécuter la commande `Test-HcsmConnection -Verbose` pour vous assurer que la connectivité réseau est intègre. Pour plus d'informations sur l'utilisation détaillée de cette applet de commande, référez-vous au [Guide de référence des applets de commande Test-HcsmConnection](https://technet.microsoft.com/library/dn715782.aspx).
+
+<!---HONumber=August15_HO7-->

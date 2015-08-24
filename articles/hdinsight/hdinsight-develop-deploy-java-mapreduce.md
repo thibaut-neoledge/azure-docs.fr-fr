@@ -220,14 +220,14 @@ Ce didacticiel utilise la commande **copyFromLocal** HDFS pour le téléchargeme
 
 Ce didacticiel utilise la structure de dossiers HDFS suivante :
 
-<table border="1">
-<tr><td>Dossier</td><td>Remarque</td></tr>
-<tr><td>/WordCount</td><td>Dossier racine du projet de comptage de mots. </td></tr>
-<tr><td>/WordCount/Apps</td><td>Dossier contenant les exécutables de mappeur et du raccord de réduction.</td></tr>
-<tr><td>/WordCount/Input</td><td>Dossier des fichiers source MapReduce.</td></tr>
-<tr><td>/WordCount/Output</td><td>Dossier des fichiers de résultat MapReduce.</td></tr>
-<tr><td>/WordCount/MRStatusOutput</td><td>Dossier de résultat de la tâche.</td></tr>
-</table>
+Dossier|Remarque
+---|---
+/WordCount|Dossier racine du projet de comptage de mots. 
+/WordCount/Apps|Dossier contenant les exécutables de mappeur et du raccord de réduction.
+/WordCount/Input|Dossier des fichiers source MapReduce.
+/WordCount/Output|Dossier des fichiers de résultat MapReduce.
+/WordCount/MRStatusOutput|Dossier de résultat de la tâche.
+
 
 Ce didacticiel utilise les fichiers .txt situés dans le répertoire %hadoop\_home% en tant que fichiers de données.
 
@@ -610,4 +610,4 @@ Dans ce didacticiel, vous avez appris à développer une tâche MapReduce en Jav
 [image-emulator-wordcount-compile]: ./media/hdinsight-develop-deploy-java-mapreduce/HDI-Emulator-Compile-Java-MapReduce.png
 [image-emulator-wordcount-run]: ./media/hdinsight-develop-deploy-java-mapreduce/HDI-Emulator-Run-Java-MapReduce.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

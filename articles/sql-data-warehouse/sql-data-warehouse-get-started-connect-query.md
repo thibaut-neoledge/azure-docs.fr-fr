@@ -7,7 +7,6 @@
    manager="barbkess"
    editor=""/>
 
-
 <tags
    ms.service="sql-data-warehouse"
    ms.devlang="NA"
@@ -16,7 +15,6 @@
    ms.workload="data-services"
    ms.date="06/23/2015"
    ms.author="JRJ@BigBangData.co.uk;barbkess"/>
-
    
 # Prise en main : connexion à SQL Data Warehouse
 Cet article vous présente rapidement le processus de connexion et d’interrogation d’une instance provisionnée de SQL Data Warehouse, via deux outils :
@@ -33,7 +31,7 @@ Après la fin de cet article, vous aurez effectué les opérations suivantes :
 2. création d’une connexion à SQL Data Warehouse dans SSDT ;
 3. exécution de requêtes sur la base de données SQL Data Warehouse.
 
->[AZURE.NOTE]Nous partons du principe que vous avez suivi les directives du guide d’approvisionnement, ou que le logiciel SQL Data Warehouse est disponible. Si ce dernier n’est pas approvisionné, reportez-vous au [guide de démarrage rapide sur l’approvisionnement\].
+>[AZURE.NOTE]Nous partons du principe que vous avez suivi les directives du guide d’approvisionnement, ou que le logiciel SQL Data Warehouse est disponible. Si ce dernier n’est pas approvisionné, reportez-vous au [guide de démarrage rapide sur l’approvisionnement].
 
 ## Configuration de Visual Studio à des fins de développement##
 Pour le développement, l’équipe SQL Data Warehouse recommande l’utilisation de Visual Studio 2013 ou plus, en parallèle avec SSDT. Cette section explique comment télécharger et mettre à jour Visual Studio 2013 lorsqu’aucune version utilisable de ce logiciel n’est installée.
@@ -185,7 +183,9 @@ Maintenant que nous avons enregistré notre serveur, passons à l’écriture de
 	Pour exécuter la requête, cliquez sur la flèche verte ci-dessous, ou utilisez le raccourci `CTRL`+`SHIFT`+`F5` :
 
 ## Étapes suivantes ##
-[Load sample data.]: ./sql-data-warehouse-get-started-load-samples.md
-[Start developing code]: ./articles/sql-data-warehouse-overview-develop/
+Maintenant que vous pouvez vous connecter et faire des requêtes, essayez de [charger un exemple de données][] ou de [développer un code][].
 
-<!---HONumber=August15_HO6-->
+[charger un exemple de données]: ./sql-data-warehouse-get-started-load-samples.md
+[développer un code]: ./articles/sql-data-warehouse-overview-develop/
+
+<!---HONumber=August15_HO7-->

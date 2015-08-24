@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/08/2015"
+	ms.date="08/05/2015"
 	ms.author="lauraa"/>
 
 #  Déploiement d'Azure Site Recovery avec PowerShell
@@ -104,7 +104,7 @@ Dans PowerShell, remplacez les éléments entre « < > » par vos informations
 
 	$VaultName = "<testvault123>"
 	$VaultGeo  = "<Southeast Asia>"
-	$OutputPathForSettingsFile = "<C:\>"
+	$OutputPathForSettingsFile = "<c:>"
 
 ```
 
@@ -125,7 +125,7 @@ Générez une clé d'inscription dans le coffre. Une fois que vous aurez téléc
 	
 		$VaultName = "<testvault123>"
 		$VaultGeo  = "<Southeast Asia>"
-		$OutputPathForSettingsFile = "<C:\>"
+		$OutputPathForSettingsFile = "<c:>"
 	
 		$VaultSetingsFile = Get-AzureSiteRecoveryVaultSettingsFile -Location $VaultGeo -Name $VaultName -Path $OutputPathForSettingsFile;
 	
@@ -461,4 +461,4 @@ if($isJobLeftForProcessing)
 
 <LI>Pour toute question, visitez le <a href="http://go.microsoft.com/fwlink/?LinkId=313628">Forum Azure Recovery Services</a>.</LI></UL>
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

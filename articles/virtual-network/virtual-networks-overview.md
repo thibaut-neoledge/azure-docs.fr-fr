@@ -6,7 +6,6 @@
    authors="telmosampaio"
    manager="carolz"
    editor="tysonn" />
-
 <tags
    ms.service="virtual-network"
    ms.devlang="na"
@@ -15,7 +14,6 @@
    ms.workload="infrastructure-services"
    ms.date="08/05/2015"
    ms.author="telmos" />
-
 
 # Présentation du réseau virtuel
 
@@ -95,4 +93,4 @@ Les appliances virtuelles dépendent des [itinéraires définis par l’utilisat
 - [Réserver une adresse IP publique](../virtual-networks-reserved-public-ip.md).
 - En savoir plus sur les [Itinéraires définis par l’utilisateur et le transfert IP](virtual-networks-udr-overview.md).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

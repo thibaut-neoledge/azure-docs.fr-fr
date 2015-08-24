@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/09/2015"
+   ms.date="08/12/2015"
    ms.author="v-sharos" />
 
 # Désactiver et supprimer un appareil StorSimple
@@ -47,7 +47,7 @@ Si vous êtes intéressé par la suppression de l’appareil, mais que vous souh
 
 1. Désactivez l’appareil. Tous les conteneurs de volumes et les instantanés de l’appareil sont conservés. Pour connaître les instructions à suivre, consultez [Étapes de la désactivation](#steps-to-deactivate).
 
-2. Vous pouvez maintenant basculer les conteneurs de volumes et les instantanés associés. Pour connaître les procédures, consultez [Basculement et récupération d’urgence pour votre appareil StorSimple](storsimple-device-failover-disaster-recovery.md).
+2. Vous pouvez maintenant basculer les conteneurs de volumes et les instantanés associés. Pour connaître les procédures, consultez [Basculement et récupération d'urgence pour votre appareil StorSimple](storsimple-device-failover-disaster-recovery.md).
 
 3. Après la désactivation et le basculement, vous pouvez supprimer complètement l’appareil. Pour connaître les instructions à suivre, consultez [Supprimer un appareil](#delete-a-device).
 
@@ -87,8 +87,8 @@ Vous ne pouvez supprimer que les appareils qui ont été désactivés. Si vous s
 La suppression de l’appareil peut nécessiter quelques minutes.
 
 ## Étapes suivantes
-Pour restaurer les paramètres d’usine de l’appareil désactivé, consultez [Rétablir les paramètres d’usine de l’appareil](https://msdn.microsoft.com/library/dn772373.aspx).
+Pour restaurer les paramètres d'usine de l'appareil désactivé, consultez [Rétablir les paramètres d’usine de l'appareil](storsimple-manage-device-controller.md#reset-the-device-to-factory-default-settings).
 
-Pour obtenir une assistance technique, [contactez le support technique de Microsoft](https://msdn.microsoft.com/library/azure/dn757750.aspx).
+Pour obtenir une assistance technique, [contactez le support technique de Microsoft](storsimple-contact-microsoft-support.md).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

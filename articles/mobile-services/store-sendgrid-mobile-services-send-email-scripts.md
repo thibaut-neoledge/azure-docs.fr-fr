@@ -1,12 +1,11 @@
 <properties 
-	pageTitle="Envoi de courrier électronique avec SendGrid - Azure Mobile Services" 
+	pageTitle="Envoi de courriers électroniques à l'aide de SendGrid | Microsoft Azure" 
 	description="Découvrez comment utiliser le service SendGrid pour envoyer un courrier électronique à partir de votre application Azure Mobile Services." 
 	services="mobile-services" 
 	documentationCenter="" 
 	authors="Erikre" 
 	manager="sendgrid" 
 	editor=""/>
-
 
 <tags 
 	ms.service="mobile-services" 
@@ -16,7 +15,6 @@
 	ms.topic="article" 
 	ms.date="07/31/2015" 
 	ms.author="Erikre"/>
-
 
 
 # Envoi de courrier électronique à partir de Mobile Services avec SendGrid
@@ -90,7 +88,7 @@ Ce didacticiel est basé sur le démarrage rapide de Mobile Services. Avant de c
 
 	- **_from-address_** : adresse d'origine du message électronique. Envisagez d'utiliser une adresse de domaine inscrit appartenant à votre organisation.
 
-     >[AZURE.NOTE]Si vous n'avez pas de domaine enregistré, vous pouvez utiliser le domaine de votre service mobile, au format **notifications@_your-mobile-service_.azure-mobile.net*. Toutefois, les messages envoyés au domaine de votre service mobile sont ignorés.
+     >[AZURE.NOTE]Si vous n'avez pas de domaine enregistré, vous pouvez utiliser le domaine de votre service mobile, au format \**notifications@_your-mobile-service_.azure-mobile.net*. Toutefois, les messages envoyés au domaine de votre service mobile sont ignorés.
 
 6. Cliquez sur le bouton **Enregistrer**. Vous avez maintenant configuré un script pour qu'un message électronique soit envoyé chaque fois qu'un enregistrement est inséré dans la table **TodoItem**.
 
@@ -138,4 +136,4 @@ Maintenant que vous avez vu à quel point il est facile d'utiliser le service de
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

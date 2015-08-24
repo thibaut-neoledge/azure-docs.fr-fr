@@ -1,6 +1,6 @@
 
 <properties
-	pageTitle="Azure Backup - Restauration d’une machine virtuelle"
+	pageTitle="Azure Backup - Restaurer une machine virtuelle | Microsoft Azure"
 	description="Découvrez comment restaurer une machine virtuelle Azure."
 	services="backup"
 	documentationCenter=""
@@ -93,6 +93,6 @@ Pour la plupart des erreurs, vous pouvez suivre l’action recommandée suggér�
 | Restauration | Échec de la restauration avec une erreur interne du cloud | <ol><li>Le service cloud sur lequel vous essayez d’effectuer la restauration est configuré avec des paramètres DNS. Vous pouvez vérifier <br>$deployment = Get-AzureDeployment -ServiceName "ServiceName" -Slot "Production" Get-AzureDns -DnsSettings $deployment.DnsSettings<br>Si une adresse est configurée, cela signifie que des paramètres DNS sont configurés.<br> <li>Le service cloud sur lequel vous essayez d’effectuer la restauration est configuré avec une adresse IP réservée et les machines virtuelles existantes dans le service cloud sont dans un état arrêté.<br>Vous pouvez vérifier qu’un service cloud a une adresse IP réservée à l’aide des applets de commande PowerShell suivantes :<br>$deployment = Get-AzureDeployment -ServiceName "servicename" -Slot "Production" $dep.ReservedIPName</ol> |
 
 ## Étapes suivantes
-- [Gestion des machines virtuelles](backup-azure-manage-vms)
+- [Gestion des machines virtuelles](backup-azure-manage-vms.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

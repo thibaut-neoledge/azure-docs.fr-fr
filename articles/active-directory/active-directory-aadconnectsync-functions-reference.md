@@ -196,7 +196,7 @@ Les deux exemples renvoient « *Hello world!* »
 
 **Description :**<br> La fonction ConvertFromUTF8Hex convertit la valeur codée hexadécimale UTF8 spécifiée en chaîne.
  
-**Syntaxe :** <br> `str ConvertFromUTF8Hex(str source)`
+**Syntaxe :**<br> `str ConvertFromUTF8Hex(str source)`
 
 - source : chaîne encodée sur 2 octets UTF8
  
@@ -382,7 +382,7 @@ Les deux exemples renvoient « *Hello world!* »
 - valeur : valeur au format DateTime<br>
 - format : chaîne représentant le format à convertir.
  
-**Remarques :**<br> Vous trouverez ici les valeurs possibles pour le format : [User-Defined Date/Time Formats (fonction Format)](http://msdn2.microsoft.com/library/73ctwf33(VS.90).aspx)
+**Remarques :** <br> Vous trouverez les valeurs de format possibles ici : [Formats de date/heure définis par l’utilisateur (fonction Format)](http://msdn2.microsoft.com/library/73ctwf33(VS.90).aspx)
  
 **Exemple :** <br>
  
@@ -406,13 +406,13 @@ Les deux exemples renvoient « *Hello world!* »
 ----------
 ### IIF
 
-**Description :** <br> La fonction IIF renvoie une valeur dans un ensemble de valeurs possibles selon une condition spécifiée.
+**Description :** <br> La fonction IIF renvoie une valeur parmi un ensemble de valeurs possibles en fonction d’une condition spécifiée.
  
 **Syntaxe :** <br> `var IIF(exp condition, var valueIfTrue, var valueIfFalse)`
 
 - condition : toute valeur ou expression qui peut être évaluée à true ou false.
-- ValeurSiVrai : valeur renvoyée si la condition prend la valeur True.
-- ValeurSiFaux : une valeur qui est renvoyée si la condition prend la valeur False.
+- valueIfTrue : valeur renvoyée si la condition prend la valeur True.
+- valueIfFalse : une valeur qui est renvoyée si la condition prend la valeur False.
 
 **Exemple :** <br> `IIF([employeeType]=“Intern”,”t-“&[alias],[alias])` <br> Renvoie l’alias d’un utilisateur avec le suffixe « t- » ajouté au début de celui-ci si l’utilisateur est un stagiaire. Sinon, l’alias reste inchangé.
  
@@ -431,13 +431,13 @@ Les deux exemples renvoient « *Hello world!* »
 - stringcheck : chaîne à rechercher <br>
 - stringmatch : chaîne à trouver <br>
 - start : position de départ pour trouver la sous-chaîne <br>
-- comparer : vbTextCompare ou vbBinaryCompare
+- compare : vbTextCompare ou vbBinaryCompare
  
 **Remarques :** <br> Renvoie la position à laquelle la sous-chaîne a été trouvée ou 0 si elle est introuvable.
 
-**Exemple :** <br> `InStr("The quick brown fox","quick")` <br> Donne la valeur 5
+**Exemple :** <br> `InStr("The quick brown fox","quick")` <br> Prend la valeur 5
 
-`InStr("repEated","e",3,vbBinaryCompare)` <br> Donne la valeur 7
+`InStr("repEated","e",3,vbBinaryCompare)` <br> Prend la valeur 7
  
  
 
@@ -447,16 +447,16 @@ Les deux exemples renvoient « *Hello world!* »
 
 **Description :**<br> La fonction InStrRev recherche la dernière occurrence d’une sous-chaîne dans une chaîne
  
-**Syntaxe :** <br> `num InstrRev(str stringcheck, str stringmatch)` <br> `num InstrRev(str stringcheck, str stringmatch, num start)` <br> `num InstrRev(str stringcheck, str stringmatch, num start, enum compare)`
+**Syntax :** <br> `num InstrRev(str stringcheck, str stringmatch)` <br> `num InstrRev(str stringcheck, str stringmatch, num start)` <br> `num InstrRev(str stringcheck, str stringmatch, num start, enum compare)`
 
 - stringcheck : chaîne à rechercher <br>
 - stringmatch : chaîne à trouver <br>
 - start : position de départ pour trouver la sous-chaîne <br>
-- comparer : vbTextCompare ou vbBinaryCompare
+- compare : vbTextCompare ou vbBinaryCompare
 
 **Remarques :** <br> Renvoie la position à laquelle la sous-chaîne a été trouvée ou 0 si elle est introuvable.
 
-**Exemple :** <br> `InStrRev("abbcdbbbef","bb")` <br> renvoie 7.
+**Exemple :** <br> `InStrRev("abbcdbbbef","bb")` <br> Renvoie 7.
  
  
 
@@ -468,7 +468,7 @@ Les deux exemples renvoient « *Hello world!* »
  
 **Syntaxe :** <br> `bool IsBitSet(num value, num flag)`
 
-- valeur : valeur numérique évaluée. flag : valeur numérique contenant le bit à évaluer
+- value : valeur numérique évaluée. flag : valeur numérique contenant le bit à évaluer
  
 **Exemple :** <br> `IsBitSet(&HF,4)`<br> Renvoie True, car le bit « 4 » est défini dans la valeur hexadécimale « F »
  
@@ -490,7 +490,7 @@ Les deux exemples renvoient « *Hello world!* »
 ----------
 ###IsEmpty
 
-**Description : ** <br> La fonction IsEmpty renvoie True si l’attribut est présent dans SC ou MV, mais est évaluée à une chaîne vide.
+**Description : ** <br> La fonction IsEmpty prend la valeur True si l’attribut est présent dans CS ou MV, mais est évaluée à une chaîne vide.
  
 **Syntaxe :** <br> `bool IsEmpty(var Expression)`
  
@@ -500,11 +500,11 @@ Les deux exemples renvoient « *Hello world!* »
 ----------
 ###IsGuid
 
-**Description :** <br> La fonction IsGuid renvoie True si la chaîne peut être convertie en GUID.
+**Description :** <br> La fonction IsGuid prend la valeur True si la chaîne peut être convertie en GUID.
  
 **Syntaxe :** <br> `bool IsGuid(str GUID)`
  
-**Remarques :**<br> Un GUID est défini en tant que chaîne suivant l’un de ces modèles : xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx ou {xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx}
+**Remarques :**<br> Un GUID est défini en tant que chaîne selon un de ces modèles : xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx ou {xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx}
 
 Utilisé pour déterminer si CGuid() sera réussi.
  
@@ -516,13 +516,13 @@ Utilisé pour déterminer si CGuid() sera réussi.
 ----------
 ###IsNull
 
-**Description :** <br> La fonction IsNull renvoie true si l’expression renvoie Null.
+**Description :** <br> La fonction IsNull renvoie true si l’expression correspond à la valeur Null.
  
 **Syntaxe :** <br> `bool IsNull(var Expression)`
  
 **Remarques :**<br> Dans le cas d’un attribut, une valeur Null est exprimée par l’absence de ce dernier.
  
-**Exemple :** <br> `IsNull([displayName])` <br> Renvoie True si l’attribut n’est pas présent dans SC ou MV.
+**Exemple :** <br> `IsNull([displayName])` <br> Renvoie True si l’attribut n’est pas présent dans CS ou MV.
  
  
 
@@ -530,13 +530,13 @@ Utilisé pour déterminer si CGuid() sera réussi.
 ----------
 ###IsNullOrEmpty
 
-**Description :** <br> La fonction IsNullOrEmpty renvoie la valeur true si l’expression est null ou s’il s’agit d’une chaîne vide.
+**Description :** <br> La fonction IsNullOrEmpty renvoie la valeur true si l’expression a la valeur null ou s’il s’agit d’une chaîne vide.
  
 **Syntaxe :** <br> `bool IsNullOrEmpty(var Expression)`
  
-**Remarques :**<br> Dans le cas d’un attribut, cela donne la valeur True si l’attribut est absent ou est présent mais qu’il s’agit d’une chaîne vide.<br> L’inverse de cette fonction est nommé IsPresent.
+**Remarques :**<br> Dans le cas d’un attribut, cela correspond à la valeur True si l’attribut est absent ou est présent mais qu’il s’agit d’une chaîne vide.<br> L’inverse de cette fonction est nommé IsPresent.
  
-**Exemple :** <br> `IsNull([displayName])` <br> Renvoie True si l’attribut n’est pas présent dans SC ou MV ou s’il s’agit d’une chaîne vide.
+**Exemple :** <br> `IsNull([displayName])` <br> Renvoie True si l’attribut n’est pas présent dans CS ou MV ou s’il s’agit d’une chaîne vide.
  
  
 
@@ -544,11 +544,11 @@ Utilisé pour déterminer si CGuid() sera réussi.
 ----------
 ### IsNumeric
 
-**Description :** <br> La fonction IsNumeric renvoie une valeur booléenne indiquant si une expression peut donner un type de nombre.
+**Description :** <br> La fonction IsNumeric renvoie une valeur booléenne indiquant si une expression peut être évalue en tant que type de nombre.
  
 **Syntaxe :** <br> `bool IsNumeric(var Expression)`
  
-**Remarques :**<br> Permet de déterminer si CNum() réussira l’analyse de l’expression.
+**Remarques :**<br> Permet de déterminer si CNum() réussira à analyser l’expression.
 
 
 
@@ -556,11 +556,11 @@ Utilisé pour déterminer si CGuid() sera réussi.
 ----------
 ### IsString
 
-**Description :**<br> La fonction IsString prend la valeur True si l’expression peut donner un type de chaîne.
+**Description :**<br> La fonction IsString prend la valeur True si l’expression peut être évaluée en tant que type de chaîne.
  
 **Syntaxe :** <br> `bool IsString(var expression)`
  
-**Remarques :** <br> Permet de déterminer si CStr() réussira l’analyse de l’expression.
+**Remarques :** <br> Permet de déterminer si CStr() réussira à analyser l’expression.
  
 
 
@@ -568,7 +568,7 @@ Utilisé pour déterminer si CGuid() sera réussi.
 ----------
 ### IsPresent
 
-**Description :**<br> La fonction IsPresent renvoie true si l’expression correspond à une chaîne qui n’est pas Null et n’est pas vide.
+**Description :**<br> La fonction IsPresent renvoie true si l’expression correspond à une chaîne qui n’a pas la valeur Null et n’est pas vide.
  
 **Syntaxe :** <br> `bool IsPresent(var expression)`
  
@@ -582,16 +582,16 @@ Utilisé pour déterminer si CGuid() sera réussi.
 
 
 ----------
-### Élément
+### Item
 
-**Description :**<br> La fonction Élément renvoie un élément à partir d’une chaîne/d’un attribut à valeurs multiples.
+**Description :**<br> La fonction Item renvoie un élément à partir d’une chaîne/d’un attribut à valeurs multiples.
  
 **Syntaxe :** <br> `var Item(mvstr attribute, num index)`
 
-- attribut : attribut à valeurs multiples <br>
+- attribute : attribut à valeurs multiples <br>
 - index : index vers un élément dans la chaîne à valeurs multiples.
  
-**Remarques :** <br> La fonction Élément est utile avec la fonction Contains, car cette dernière renvoie l’index à un élément de l’attribut à valeurs multiples.
+**Remarques :** <br> La fonction Item est utile avec la fonction Contains, car cette dernière renvoie l’index à un élément de l’attribut à valeurs multiples.
 
 Génère une erreur si l’index est hors limites.
  
@@ -607,7 +607,7 @@ Génère une erreur si l’index est hors limites.
  
 **Syntaxe :** <br> `var ItemOrNull(mvstr attribute, num index)`
 
-- attribut : attribut à valeurs multiples <br>
+- attribute : attribut à valeurs multiples <br>
 - index : index vers un élément dans la chaîne à valeurs multiples.
  
 **Remarques :** <br> La fonction ItemOrNull est utile avec la fonction Contains, car cette dernière renvoie l’index à un élément de l’attribut à valeurs multiples.
@@ -624,12 +624,12 @@ Retourne une valeur Null si l’index est hors limites.
  
 **Syntaxe :** <br> `str Join(mvstr attribute)` <br> `str Join(mvstr attribute, str Delimiter)`
 
-- attribut : attribut à valeurs multiples contenant des chaînes à joindre. <br>
-- délimiteur : toute chaîne utilisée pour séparer les sous-chaînes dans la chaîne renvoyée. En cas d’omission, le caractère espace (" ") est utilisé. Si le délimiteur est une chaîne de longueur nulle ("") ou Nothing, tous les éléments de la liste sont concaténés sans délimiteurs.
+- attribute : attribut à valeurs multiples contenant des chaînes à joindre. <br>
+- délimiter : toute chaîne utilisée pour séparer les sous-chaînes dans la chaîne renvoyée. En cas d’omission, le caractère espace (" ") est utilisé. Si le délimiteur est une chaîne de longueur nulle ("") ou Nothing, tous les éléments de la liste sont concaténés sans délimiteurs.
  
 **Remarques**<br> Il existe une parité entre les fonctions Join et Split. La fonction Join prend un tableau de chaînes et les joint à l’aide d’une chaîne de délimiteur, pour renvoyer une chaîne unique. La fonction Split accepte une chaîne et la sépare au niveau du délimiteur, pour renvoyer un tableau de chaînes. Toutefois, la principale différence est que Join peut concaténer des chaînes avec n’importe quelle chaîne de délimiteur, Split peut uniquement séparer des chaînes à l’aide d’un délimiteur de caractère unique.
  
-**Exemple :** <br> `Join([proxyAddresses],”,”)` <br> peut renvoyer « SMTP :john.doe@contoso.com,smtp:jd@contoso.com”
+**Exemple :** <br> `Join([proxyAddresses],”,”)` <br> Peut renvoyer “SMTP :john.doe@contoso.com,smtp:jd@contoso.com”
  
  
 
@@ -637,11 +637,11 @@ Retourne une valeur Null si l’index est hors limites.
 ----------
 ### LCase
 
-**Description :** <br> La fonction LCase convertit tous les caractères en chaîne en minuscules.
+**Description :** <br> La fonction LCase convertit tous les caractères d’une chaîne en minuscules.
  
 **Syntaxe :** <br> `str LCase(str value)`
  
-**Exemple :** <br> `LCase(“TeSt”)` <br> Renvoie « Test ».
+**Exemple :** <br> `LCase(“TeSt”)` <br> Renvoie “test”.
  
  
 
@@ -649,20 +649,20 @@ Retourne une valeur Null si l’index est hors limites.
 ----------
 ### Left
 
-**Description :**<br> La fonction Left renvoie un nombre spécifié de caractères à partir de la gauche d’une chaîne.
+**Description :**<br> La fonction Left renvoie un nombre spécifié de caractères en partant de la gauche d’une chaîne.
  
 **Syntaxe :** <br> `str Left(str string, num NumChars)`
 
-- string : chaîne à partir de laquelle renvoyer des caractères <br>
-- NombreCar : nombre identifiant le nombre de caractères à retourner à partir du début (à gauche) de chaîne
+- string : chaîne à partir de laquelle les caractères sont renvoyés <br>
+- NumChars : nombre identifiant le nombre de caractères à retourner du début (à gauche) de la chaîne
  
-**Remarques :** <br> Chaîne contenant les premiers caractères NombreCar dans la chaîne :
+**Remarques :** <br> Chaîne contenant les numChars premiers caractères de la chaîne :
 
-- Si NombreCar = 0, retourne une chaîne vide.
-- Si NombreCar < 0, retourne une chaîne saisie.
-- Si la chaîne est null, retourne une chaîne vide.
+- Si numChars = 0, retourne une chaîne vide.
+- Si numChars < 0, retourne une chaîne d’entrée.
+- Si string a la valeur null, retourne une chaîne vide.
 
-Si la chaîne contient moins de caractères que le nombre spécifié dans NombreCar, une chaîne identique à la chaîne (par exemple, contenant tous les caractères dans le paramètre 1) est renvoyée.
+Si la chaîne contient moins de caractères que le nombre spécifié dans numChars, une chaîne identique à la chaîne (c’est-à-dire, contenant tous les caractères du paramètre 1) est renvoyée.
  
 **Exemple :** <br> `Left(“John Doe”, 3)` <br> Renvoie « Joh ».
  
@@ -672,7 +672,7 @@ Si la chaîne contient moins de caractères que le nombre spécifié dans Nombre
 ----------
 ### Len
 
-**Description :**<br> La fonction Len renvoie un nombre de caractères dans une chaîne.
+**Description :**<br> La fonction Len renvoie le nombre de caractères contenus dans une chaîne.
  
 **Syntaxe :** <br> `num Len(str value)`
  
@@ -684,11 +684,11 @@ Si la chaîne contient moins de caractères que le nombre spécifié dans Nombre
 ----------
 ### LTrim
 
-**Description :** <br> La fonction LTrim supprime les espaces vides situés à gauche d’une chaîne.
+**Description :** <br> La fonction LTrim supprime les espaces blancs situés au début d’une chaîne.
  
 **Syntaxe :** <br> `str LTrim(str value)`
  
-**Exemple :** <br> `LTrim(“ Test ”)` <br> renvoie « Test ».
+**Exemple :** <br> `LTrim(“ Test ”)` <br> Renvoie “Test ”.
  
  
 
@@ -700,20 +700,20 @@ Si la chaîne contient moins de caractères que le nombre spécifié dans Nombre
  
 **Syntaxe :** <br> `str Mid(str string, num start, num NumChars)`
 
-- string : chaîne à partir de laquelle renvoyer des caractères <br>
-- départ : nombre identifiant la position de départ dans la chaîne à partir de laquelle renvoyer les caractères
-- NombreCar : nombre identifiant le nombre de caractères à retourner à partir de la position de la chaîne
+- string : chaîne à partir de laquelle les caractères sont renvoyés <br>
+- start : nombre identifiant la position de départ dans la chaîne à partir de laquelle les caractères sont renvoyés
+- NumChars : nombre identifiant le nombre de caractères à retourner à partir de la position dans la chaîne
  
 
-**Remarques :** <br> Renvoie les caractères NombreCar à partir de la position de départ dans la chaîne.<br> Chaîne contenant les caractères NombreCar à partir de la position de départ dans la chaîne :
+**Remarques :** <br> Renvoie numChars caractères à partir de la position de départ dans la chaîne.<br> Chaîne contenant numChars caractères à partir de la position de départ dans la chaîne :
 
-- Si NombreCar = 0, retourne une chaîne vide.
-- Si NombreCar < 0, retourne une chaîne saisie.
-- Si départ > la longueur de chaîne, retourner une chaîne d’entrée.
-- Si départ < = 0, renvoie la chaîne d’entrée.
+- Si numChars = 0, retourne une chaîne vide.
+- Si numChars < 0, retourne une chaîne d’entrée.
+- Si start > la longueur de la chaîne, retourne une chaîne d’entrée.
+- Si start < = 0, retourne une chaîne d’entrée.
 - Si la chaîne est null, retourne une chaîne vide.
 
-Si les caractères NombreCar ne figurent pas dans la chaîne à partir de la position de départ, autant de caractères que possible peuvent être renvoyés.
+S’il ne reste pas numChars caractères dans la chaîne à partir de la position de départ, autant de caractères que possible sont renvoyés.
  
 **Exemple :** <br>
  
@@ -727,7 +727,7 @@ Si les caractères NombreCar ne figurent pas dans la chaîne à partir de la pos
 ----------
 ### Now
 
-**Description :**<br> La fonction Now renvoie une valeur DateTime indiquant la date et l’heure, en fonction de celles de votre système.
+**Description :**<br> La fonction Now renvoie une valeur DateTime indiquant la date et l’heure actuelles, qui correspondent à la date et à l’heure système de votre ordinateur.
  
 **Syntaxe :** <br> `dt Now()`
  
@@ -737,7 +737,7 @@ Si les caractères NombreCar ne figurent pas dans la chaîne à partir de la pos
 ----------
 ### NumFromDate
 
-**Description :**<br> La fonction NumFromDate renvoie une date au format de date AD.
+**Description :**<br> La fonction NumFromDate renvoie une date au format AD.
  
 **Syntaxe :** <br> `num NumFromDate(dt value)`
  
@@ -782,8 +782,8 @@ Si les caractères NombreCar ne figurent pas dans la chaîne à partir de la pos
  
 **Syntaxe :** <br> `str PadRight(str string, num length, str padCharacter)`
 
-- chaîne : chaîne de remplissage. 
-- longueur : entier représentant la longueur de chaîne souhaitée.
+- string : chaîne à remplir. 
+- length : entier représentant la longueur de chaîne souhaitée.
 - padCharacter : chaîne constituée d’un seul caractère à utiliser comme caractère de remplissage
  
 **Remarques :**
@@ -804,11 +804,11 @@ Si les caractères NombreCar ne figurent pas dans la chaîne à partir de la pos
 ----------
 ### PCase
 
-**Description :** <br> La fonction PCase convertit le premier caractère de chaque mot délimité par un espace d’une chaîne en majuscules et tous les autres caractères sont convertis en minuscules.
+**Description :** <br> La fonction PCase met en majuscule le premier caractère de chaque mot délimité par un espace dans une chaîne et tous les autres caractères sont convertis en minuscules.
  
 **Syntaxe :** <br> `String PCase(string)`
  
-**Exemple :** <br> `PCase(“TEsT”)` <br> Renvoie « Test ».
+**Exemple :** <br> `PCase(“TEsT”)` <br> Renvoie “Test”.
  
  
 
@@ -821,7 +821,7 @@ Si les caractères NombreCar ne figurent pas dans la chaîne à partir de la pos
 **Syntaxe :** <br> `num RandomNum(num start, num end)`
 
 - start : nombre identifiant la limite inférieure de la valeur aléatoire à générer <br>
-- fin : nombre identifiant la limite supérieure à la valeur aléatoire à générer
+- end : nombre identifiant la limite supérieure de la valeur aléatoire à générer
  
 **Exemple :** <br> `Random(100,999)` <br> Renvoie 734.
  
@@ -831,7 +831,7 @@ Si les caractères NombreCar ne figurent pas dans la chaîne à partir de la pos
 ----------
 ### RemoveDuplicates
 
-**Description :** <br> La fonction RemoveDuplicates prend une chaîne à valeurs multiples et s’assure que chaque valeur est unique.
+**Description :** <br> La fonction RemoveDuplicates prend une chaîne à valeurs multiples et vérifie que chaque valeur est unique.
  
 **Syntaxe :** <br> `mvstr RemoveDuplicates(mvstr attribute)`
  
@@ -841,15 +841,15 @@ Si les caractères NombreCar ne figurent pas dans la chaîne à partir de la pos
 
 
 ----------
-### Remplacez
+### Replace
 
 **Description :** <br> La fonction Replace remplace toutes les occurrences d’une chaîne par une autre chaîne.
  
 **Syntaxe :** <br> `str Replace(str string, str OldValue, str NewValue)`
 
-- string : chaîne dans laquelle remplacer des caractères. <br>
+- string : chaîne dans laquelle les caractères sont remplacés. <br>
 - OldValue : chaîne à rechercher et remplacer. <br>
-- NewValue : chaîne devant assurer le remplacement.
+- NewValue : chaîne de remplacement.
  
 
 **Remarques :** <br> La fonction reconnaît les monikers spéciaux suivants :
@@ -869,11 +869,11 @@ Si les caractères NombreCar ne figurent pas dans la chaîne à partir de la pos
 ----------
 ### ReplaceChars
 
-**Description :** <br> La fonction ReplaceChars remplace toutes les occurrences de caractères trouvées dans la chaîne ReplacePattern.
+**Description :** <br> La fonction ReplaceChars remplace toutes les occurrences des caractères trouvés dans la chaîne ReplacePattern.
 
 **Syntaxe :** <br> `str ReplaceChars(str string, str ReplacePattern)`
 
-- chaîne : une chaîne dans laquelle remplacer des caractères.
+- string : chaîne dans laquelle les caractères sont remplacés.
 - ReplacePattern : chaîne contenant un dictionnaire avec des caractères à remplacer. 
  
 Le format est {source1}: {target1}, {source2}: {target2}, {sourceN}, {targetN}, source étant le caractère à rechercher et la cible, la chaîne à remplacer.
@@ -903,22 +903,22 @@ Le format est {source1}: {target1}, {source2}: {target2}, {sourceN}, {targetN}, 
 ----------
 ### Right
 
-**Description :**<br> La fonction Right renvoie un nombre spécifié de caractères à partir de la droite (fin) d’une chaîne.
+**Description :**<br> La fonction Right renvoie un nombre spécifié de caractères en partant de la droite (fin) d’une chaîne.
  
 **Syntaxe :** <br> `str Right(str string, num NumChars)`
 
-- chaîne : chaîne à l’origine d’un mot à renvoyer 
-- NombreCar : nombre identifiant le nombre de caractères à retourner à partir de la fin (à droite) de chaîne
+- string : chaîne à partir de laquelle les caractères sont renvoyés 
+- numChars : nombre identifiant le nombre de caractères à retourner à partir de la fin (à droite) de la chaîne
  
-**Remarques :** <br> Les caractères NombreCar sont renvoyés depuis la dernière position de la chaîne.
+**Remarques :** <br> numChars caractères sont renvoyés à partir de la dernière position de la chaîne.
 
-Chaîne contenant les derniers caractères NombreCar dans la chaîne :
+Chaîne contenant les numChars derniers caractères de la chaîne :
 
-- Si NombreCar = 0, retourne une chaîne vide.
-- Si NombreCar < 0, retourne une chaîne saisie.
+- Si numChars = 0, retourne une chaîne vide.
+- Si numChars < 0, retourne une chaîne d’entrée.
 - Si la chaîne est null, retourne une chaîne vide.
 
-Si la chaîne contient un nombre de caractères inférieur au nombre spécifié un NombreCar, une chaîne identique est renvoyée.
+Si la chaîne contient un nombre de caractères inférieur au nombre spécifié dans numChars, une chaîne identique est renvoyée.
 
 **Exemple :** <br> `Right(“John Doe”, 3)` <br> Renvoie « Doe ».
  
@@ -928,28 +928,28 @@ Si la chaîne contient un nombre de caractères inférieur au nombre spécifié 
 ----------
 ### RTrim
 
-**Description :** <br> La fonction RTrim supprime les espaces de droite d’une chaîne.
+**Description :** <br> La fonction RTrim supprime les espaces blancs de fin d’une chaîne.
  
 **Syntaxe :** <br> `str RTrim(str value)`
 
-**Exemple :** <br> `RTrim(“ Test ”)` <br> Renvoie « Test ».
+**Exemple :** <br> `RTrim(“ Test ”)` <br> Renvoie “ Test”.
 
 
 
 
 ----------
-### Fractionner
+### Split
 
-**Description :** <br> La fonction Fractionner prend une chaîne fractionnée par des séparateurs et en fait une chaîne à valeurs multiples.
+**Description :** <br> La fonction Split prend une chaîne séparée par un délimiteur et en fait une chaîne à valeurs multiples.
  
 
 **Syntaxe :** <br> `mvstr Split(str value, str delimiter)` <br? `mvstr Split(str value, str delimiter, num limit)`
 
-- valeur : chaîne avec un caractère délimiteur pour assurer la séparation.
-- séparateur : caractère à utiliser comme délimiteur. 
-- limite : nombre maximal de valeurs qui seront renvoyées.
+- value : chaîne contenant un caractère délimiteur pour assurer la séparation.
+- delimiter : caractère unique à utiliser comme délimiteur. 
+- limit : nombre maximal de valeurs qui seront renvoyées.
  
-**Exemple :** <br> `Split(“SMTP:john.doe@contoso.com,smtp:jd@contoso.com”,”,”)` <br> Renvoie une chaîne à plusieurs valeurs avec 2 éléments utiles pour l’attribut proxyAddress
+**Exemple :** <br> `Split(“SMTP:john.doe@contoso.com,smtp:jd@contoso.com”,”,”)` <br> Renvoie une chaîne à valeurs multiples contenant 2 éléments utiles à l’attribut proxyAddress
  
 
 
@@ -982,7 +982,7 @@ Si la chaîne contient un nombre de caractères inférieur au nombre spécifié 
 **Syntaxe :** <br> `var Switch(exp expr1, var value1[, exp expr2, var value … [, exp expr, var valueN]])`
 
 - expr : expression de variante à évaluer. 
-- valeur : valeur à retourner si l’expression correspondante est True.
+- value : valeur à retourner si l’expression correspondante a la valeur True.
  
 **Remarques :** <br> La liste d’arguments de la fonction Switch se compose de paires d’expressions et de valeurs. Les expressions sont évaluées de gauche à droite et la valeur associée à la première expression à évoluer à True est renvoyée. Si les parties ne sont pas correctement couplées, une erreur d’exécution se produit.
 
@@ -1002,13 +1002,13 @@ La valeur peut être également la fonction Error, qui renvoie une chaîne perso
 ----------
 ### Trim
 
-**Description :** <br> La fonction Trim supprime les espaces à gauche et à droite d’une chaîne.
+**Description :** <br> La fonction Trim supprime les espaces blancs de début et de fin d’une chaîne.
  
 **Syntaxe :** <br> `str Trim(str value)` <br> `mvstr Trim(mvstr value)`
  
-**Exemple :** <br> `Trim(“ Test ”)` <br> Renvoie « Test ».
+**Exemple :** <br> `Trim(“ Test ”)` <br> Renvoie “Test”.
 
-`Trim([proxyAddresses])` <br> Supprime les espaces à gauche et à droite de chaque valeur dans l’attribut proxyAddress.
+`Trim([proxyAddresses])` <br> Supprime les espaces blancs de début et de fin pour chaque valeur contenue dans l’attribut proxyAddress.
 
 
 
@@ -1016,11 +1016,11 @@ La valeur peut être également la fonction Error, qui renvoie une chaîne perso
 ----------
 ### UCase
 
-**Description :** <br> La fonction UCase convertit tous les caractères en chaîne en majuscules.
+**Description :** <br> La fonction UCase convertit tous les caractères d’une chaîne en majuscules.
 
 **Syntaxe :** <br> `str UCase(str string)`
  
-**Exemple :** <br> `UCase(“TeSt”)` <br> Renvoie « TEST ».
+**Exemple :** <br> `UCase(“TeSt”)` <br> Renvoie “TEST”.
  
  
 
@@ -1028,18 +1028,18 @@ La valeur peut être également la fonction Error, qui renvoie une chaîne perso
 ----------
 ### Word
 
-**Description :**<br> La fonction Word renvoie un mot contenu dans une chaîne, en fonction des paramètres qui décrivent les délimiteurs à utiliser et le nombre de mots à renvoyer.
+**Description :**<br> La fonction Word renvoie un mot contenu dans une chaîne, en fonction des paramètres indiquant les délimiteurs à utiliser et le nombre de mots à renvoyer.
  
 **Syntaxe :** <br> `str Word(str string, num WordNumber, str delimiters)`
 
-- chaîne : chaîne à l’origine d’un mot à renvoyer.
+- string : chaîne à partir de laquelle le mot est renvoyé.
 - WordNumber : nombre identifiant le nombre de mots à renvoyer. 
-- délimiteurs : chaîne représentant le ou les séparateur(s) à utiliser pour identifier des mots
+- delimiters : chaîne représentant le ou les délimiteur(s) à utiliser pour identifier les mots
  
-**Remarques :** <br> Chaque chaîne de caractères séparée des autres par l’un des caractères figurant dans les délimiteurs est identifiée en tant que mots :
+**Remarques :** <br> Chaque chaîne de caractères contenue dans la chaîne séparée par l’un des caractères figurant dans delimiters est identifiée en tant que mot :
 
-- Si nombre < 1, retourne une chaîne vide.
-- Si la chaîne est nulle, renvoie une chaîne vide.
+- Si number < 1, retourne une chaîne vide.
+- Si string a la valeur null, renvoie une chaîne vide.
 
 Si la chaîne contient moins de mots ou ne contient pas les mots identifiés par les délimiteurs, une chaîne vide est retournée.
  
@@ -1058,4 +1058,4 @@ Si la chaîne contient moins de mots ou ne contient pas les mots identifiés par
  
 <!--Image references-->
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

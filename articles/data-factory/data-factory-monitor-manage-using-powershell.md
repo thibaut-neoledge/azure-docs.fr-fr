@@ -409,22 +409,7 @@ Au cours de cette étape, vous allez utiliser Azure PowerShell pour surveiller c
 
 Consultez la [référence des applets de commande Data Factory][cmdlet-reference] pour obtenir une documentation complète sur les applets de commande Data Factory.
 
-## Étapes suivantes
 
-Article | Description
------- | ---------------
-[Copier des données avec Azure Data Factory (activité de copie)][copy-activity] | Cet article fournit une description détaillée de l'**activité de copie** que vous avez utilisée dans ce didacticiel. 
-[Permettre à vos pipelines d'utiliser des données locales][use-onpremises-datasources] | Cet article contient une procédure pas à pas permettant de copier les données d’une **base de données SQL Server locale** vers un objet blob Azure. 
-[Utilisation de Pig et Hive avec Data Factory][use-pig-and-hive-with-data-factory] | Cet article contient une procédure pas à pas permettant d’exécuter un script **Hive/Pig** à l’aide de **HDInsight Activity** pour traiter les données d’entrée afin de produire des données de sortie.
-[Didacticiel : déplacement et traitement de fichiers journaux à l’aide de Data Factory][adf-tutorial] | Cet article comporte une **procédure pas à pas de bout en bout** qui montre comment implémenter un **scénario réel** à l’aide d’Azure Data Factory pour transformer des données de fichiers journaux en informations pertinentes.
-[Utilisation d’activités personnalisées dans une fabrique de données][use-custom-activities] | Cet article contient une procédure pas à pas permettant de créer une **activité personnalisée** et de l’utiliser dans un pipeline. 
-[Résolution des problèmes liés à Data Factory][troubleshoot] | Cet article explique comment **résoudre des problèmes** liés à Azure Data Factory. Vous pouvez essayer la procédure pas à pas de cet article portant sur ADFTutorialDataFactory en introduisant une erreur (en supprimant la table dans la base de données SQL Azure). 
-[Référence sur les applets de commande Azure Data Factory][cmdlet-reference] | Ces informations de référence comportent des détails sur toutes les **applets de commande Data Factory**.
-[Référence du développeur Azure Data Factory][developer-reference] | Ces informations de référence pour les développeurs comportent des informations complètes sur les applets de commande, le script JSON, les fonctions, etc. 
-
-[copy-activity]: data-factory-copy-activity.md
-[use-onpremises-datasources]: data-factory-use-onpremises-datasources.md
-[use-pig-and-hive-with-data-factory]: data-factory-pig-hive-activities.md
 [adf-tutorial]: data-factory-tutorial.md
 [use-custom-activities]: data-factory-use-custom-activities.md
 [troubleshoot]: data-factory-troubleshoot.md
@@ -444,4 +429,4 @@ Article | Description
 [sql-management-studio]: ../sql-database-manage-azure-ssms.md#Step2
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

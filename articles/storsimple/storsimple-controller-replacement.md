@@ -6,16 +6,14 @@
    authors="alkohli"
    manager="carolz"
    editor="" />
-
 <tags 
    ms.service="storsimple"
    ms.devlang="NA"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="08/05/2015"
+   ms.date="08/12/2015"
    ms.author="alkohli" />
-
 
 # Remplacer un module de contrôleur sur votre appareil StorSimple
 
@@ -254,7 +252,7 @@ Pour identifier le contrôleur actif sur votre appareil, localisez le voyant LED
 
 Si ce voyant clignote, le contrôleur est actif et l’autre contrôleur est en mode veille. Utilisez le schéma et le tableau suivants pour vous aider.
 
-![Fond du panier du boîtier principal de l’appareil avec ports de données](./media/storsimple-controller-replacement/IC741055.png)
+![Fond de panier du boîtier principal de l'appareil avec ports de données](./media/storsimple-controller-replacement/IC741055.png)
 
 **Figure 8** Arrière du boîtier principal, avec les ports de données et les voyants LED de surveillance
 
@@ -268,4 +266,4 @@ Si ce voyant clignote, le contrôleur est actif et l’autre contrôleur est en 
 
 En savoir plus sur le [remplacement des composants matériels StorSimple](storsimple-hardware-component-replacement.md).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

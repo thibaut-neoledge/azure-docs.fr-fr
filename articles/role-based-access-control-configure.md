@@ -55,7 +55,7 @@ Il n'est pas nécessaire d'accorder l'accès à l'ensemble de l'abonnement. Les 
 
 L'administrateur et les coadministrateurs d'abonnement continueront à disposer d'un accès complet aux portails et aux API de gestion Azure. Dans le modèle RBAC, ils se voient affecter le rôle de propriétaire au niveau de l'abonnement. Toutefois, le nouveau modèle RBAC est pris en charge uniquement par le portail Azure et les API Azure Resource Manager. Les utilisateurs et services qui se voient affecter des rôles RBAC ne peuvent pas accéder au portail de gestion Azure et aux API de gestion des services. L’ajout d’un utilisateur au rôle Propriétaire d'un abonnement dans le portail Azure ne fait pas de cet utilisateur un coadministrateur de l'abonnement dans la version complète du portail Azure.
 
-Si vous souhaitez accorder à un utilisateur l'accès à une ressource Azure qui ne peut pas encore être gérée via le portail Azure, vous devez l'ajouter aux coadministrateurs de l'abonnement en utilisant le portail de gestion Azure. Service Bus et Cloud Services sont des exemples de ressources qui ne peuvent actuellement pas être gérées à l'aide du RBAC.
+Si vous souhaitez accorder à un utilisateur l'accès à une ressource Azure qui ne peut pas encore être gérée via le portail Azure, vous devez l'ajouter aux coadministrateurs de l'abonnement en utilisant le portail de gestion Azure. Service Bus et StorSimple sont des exemples de ressources qui ne peuvent actuellement pas être gérées à l'aide du RBAC.
 
 ## Autorisation pour les opérations de gestion et les opérations de données
 
@@ -84,7 +84,7 @@ Commençons par ajouter l'accès en Lecture pour toutes les ressources de l'abon
 
 ![][3]
 
-Cliquez sur le *nom de l'abonnement* ** > Lecteur > Ajouter**. Dans la liste des utilisateurs et des groupes, sélectionnez ou entrez le nom du groupe Active Directory.
+Cliquez sur le *nom de l'abonnement* \*\* > Lecteur > Ajouter\*\*. Dans la liste des utilisateurs et des groupes, sélectionnez ou entrez le nom du groupe Active Directory.
 
 ![][4]
 
@@ -1293,4 +1293,4 @@ Voici quelques ressources supplémentaires destinées à faciliter votre utilisa
 [9]: ./media/role-based-access-control-configure/RBACInviteExtUser_NEW.png
 [10]: ./media/role-based-access-control-configure/RBACDirConfigTab.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

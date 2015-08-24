@@ -3,7 +3,7 @@
 	description="Dernières mises à jour et procédures du SDK Android pour Azure Mobile Engagement"
 	services="mobile-engagement" 
 	documentationCenter="mobile" 
-	authors="kpiteira" 
+	authors="piyushjo" 
 	manager="dwrede" 
 	editor="" />
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="mobile-android" 
 	ms.devlang="Java" 
 	ms.topic="article" 
-	ms.date="05/04/2015" 
-	ms.author="kapiteir" />
+	ms.date="08/10/2015" 
+	ms.author="piyushjo" />
 
 
 #SDK Android pour Azure Mobile Engagement
@@ -118,4 +118,4 @@ Il se peut désormais qu’un écran de chargement s’affiche lorsque vous cliq
 
 Incorporez le nouveau fichier `res/layout/engagement_loading.xml` dans votre projet.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Récupération de votre service mobile en cas d'incident - Azure Mobile Services"
+	pageTitle="Récupération de votre service mobile en cas d'incident | Microsoft Azure"
 	description="Découvrez comment récupérer votre service mobile en cas d'urgence."
 	services="mobile-services"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="04/24/2015"
+	ms.date="08/08/2015"
 	ms.author="christopheranderson"/>
 
 # Récupération de votre service mobile en cas d'incident
@@ -104,4 +104,4 @@ Votre service mobile a maintenant été récupéré pour une nouvelle région Az
 [Automatisation des services mobiles avec l'interface CLI Azure]: http://www.windowsazure.com/develop/mobile/tutorials/command-line-administration/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

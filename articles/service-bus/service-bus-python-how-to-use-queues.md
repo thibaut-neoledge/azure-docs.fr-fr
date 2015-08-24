@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Utilisation des files d'attente Service Bus (Python) - Azure" 
+	pageTitle="Utilisation des files d’attente Service Bus (Python) | Microsoft Azure" 
 	description="Découvrez comment utiliser les files d'attente Service Bus Azure depuis Python." 
 	services="service-bus" 
 	documentationCenter="python" 
@@ -98,4 +98,4 @@ Maintenant que vous avez appris les principes de base des files d'attente Servic
 [Files d'attente, rubriques et abonnements]: http://msdn.microsoft.com/library/azure/hh367516.aspx
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

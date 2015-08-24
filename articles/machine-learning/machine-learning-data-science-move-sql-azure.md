@@ -1,0 +1,104 @@
+<properties 
+	pageTitle="Déplacement de données vers une base de données SQL Azure pour Azure Machine Learning | Azure" 
+	description="Création d’une table SQL et chargement de données dans une table SQL" 
+	services="machine-learning" 
+	documentationCenter="" 
+	authors="fashah" 
+	manager="jacob.spoelstra" 
+	editor="" />
+
+<tags 
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/10/2015" 
+	ms.author="fashah;bradsev" />
+
+# Déplacement de données vers une base de données SQL Azure pour Azure Machine Learning
+
+
+Ce document présente les options de déplacement des données à partir de fichiers plats (formats CSV ou TSV) ou de données stockées dans un SQL Server local vers une base de données Azure SQL. Ces tâches de déplacement de données vers le cloud font partie du processus d’analyse avancé et technologie en action (ADAPT) fourni par Azure Machine Learning.
+
+Pour la rubrique présentant les options de déplacement de données sur un SQL Server local pour Machine Learning, consultez [Déplacer des données vers SQL Server sur une machine virtuelle Azure](machine-learning-data-science-move-sql-server-virtual-machine.md).
+
+Le tableau suivant récapitule les options de déplacement de données vers une base de données SQL Azure. <table>
+
+<tr>
+<td><b>SOURCE</b></td>
+<td colspan="2"><b>DESTINATION&#160;: une base de données SQL&#160;Azure</b>.</td>
+</tr>
+
+<tr>
+  <td><b>Fichier plat (mise en forme&#160;CSV ou TSV)</b></td>  
+
+  <td>
+    1. <a href="#bulk-insert-sql-query">Requête&#160;SQL&#160;Bulk&#160;Insert
+  </td>
+</tr>
+
+<tr>
+  <td><b>SQL&#160;Server local</b></td>
+
+  <td>
+    1. <a href="#export-flat-file">Exporter dans un fichier plat<br>
+    2. <a href="#insert-tables-bcp">Assistant Migration de la base de données&#160;SQL<br>
+    3. <a href="#db-migration">Sauvegarde et restauration de base de données<br>
+    4. <a href="#adf">Azure&#160;Data&#160;Factory
+  </td>
+</tr>
+
+</table>
+
+
+## <a name="prereqs"></a>Configuration requise
+Les procédures décrites ici nécessitent :
+
+* un **abonnement Azure**. Si vous n’avez pas d’abonnement, vous pouvez vous inscrire à une [évaluation gratuite](https://azure.microsoft.com/pricing/free-trial/).
+* un **compte de stockage Azure**. Dans ce didacticiel, vous allez utiliser un compte de stockage Azure pour stocker des données. Si vous ne possédez pas de compte de stockage Azure, consultez l’article [Créer un compte de stockage](storage-create-storage-account.md#create-a-storage-account). Après avoir créé le compte de stockage, vous devrez obtenir la clé du compte utilisée pour accéder au stockage. Voir [Affichage, copie et régénération de clés d’accès de stockage](storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys).
+* Accès à une **base de données SQL Azure** Si vous devez configurer une base de données SQL Azure, l’article [Créer votre première base de données SQL Microsoft Azure](sql-database-get-started.md) fournit des informations sur la configuration d'une nouvelle instance de base de données SQL Azure.
+* **Azure PowerShell** installé et configuré localement. Pour obtenir des instructions, consultez la rubrique [Installation et configuration d'Azure PowerShell](powershell-install-configure.md).
+
+**Données** : les processus de migration sont illustrés à l'aide du [jeu de données NYC Taxi](http://chriswhong.com/open-data/foil_nyc_taxi/). Le jeu de données NYC Taxi contient des informations sur les données de voyage et les prix. Il est disponible, comme mentionné dans cet article, sur le stockage d'objets blob Azure, [ici](http://www.andresmh.com/nyctaxitrips/). Un échantillon et une description de ces fichiers sont fournis dans la [description du jeu de données des voyages NYC Taxi](machine-learning-data-science-process-sql-walkthrough.md#dataset).
+ 
+Vous pouvez adapter les procédures décrites ici à un jeu de vos propres données ou suivre les étapes décrites à l'aide du jeu de données NYC Taxi. Pour télécharger le jeu de données NYC Taxi dans votre base de données SQL Server locale, suivez la procédure décrite dans [Bulk Import Data into SQL Server Database](machine-learning-data-science-process-sql-walkthrough.md#dbload). Ces instructions concernent un SQL Server sur une machine virtuelle Azure, mais la procédure de téléchargement vers le serveur local SQL Server est la même.
+
+## <a name="file-to-azure-sql-database"></a> Déplacement des données à partir d'un fichier plat source vers une base de données Azure SQL
+
+Les données de fichiers plats (au format CSV ou TSV) peuvent être déplacées vers une base de données Azure SQL à l'aide d'une requête SQL Bulk Insert.
+
+### <a name="bulk-insert-sql-query"></a>Requête SQL Bulk Insert
+
+Les étapes de la procédure à l'aide de la requête SQL Bulk Insert sont similaires à celles décrites dans les sections de déplacement des données à partir d'une source de fichier plat vers SQL Server sur une machine virtuelle Azure. Pour plus d'informations, consultez [Requête SQL Bulk Insert](machine-learning-data-science-move-sql-server-virtual-machine.md#insert-tables-bulkquery).
+
+##<a name="sql-on-prem-to-sazure-sql-database"></a> Déplacement des données à partir d'un SQL Server local vers une base de données Azure SQL
+
+Si la source de données est stockée dans un serveur local SQL Server, il existe différentes possibilités pour déplacer les données vers une base de données Azure SQL :
+
+1. [Exporter dans un fichier plat](#export-flat-file) 
+2. [Assistant Migration de la base de données SQL](#insert-tables-bcp)
+3. [Sauvegarde et restauration de base de données](#db-migration)
+4. [Azure Data Factory](#adf)
+
+Les étapes pour les trois premières sont très similaires aux sections de [Déplacer des données vers SQL Server sur Azure](machine-learning-data-science-move-sql-server-virtual-machine.md) qui couvrent les mêmes procédures. Vous trouverez ci-dessous des liens vers les sections appropriées de cette rubrique.
+
+###<a name="export-flat-file"></a>Exporter dans un fichier plat
+
+Les étapes de l’exportation vers un fichier plat sont similaires à celles de [Exportation vers un fichier plat](machine-learning-data-science-move-sql-server-virtual-machine.md#export-flat-file).
+
+###<a name="insert-tables-bcp"></a>Assistant Migration de la base de données SQL
+
+Les étapes d'utilisation de l'Assistant de migration de base de données SQL sont semblables à celles de [l'Assistant de migration de base de données SQL](machine-learning-data-science-move-sql-server-virtual-machine.md#sql-migration).
+
+###<a name="db-migration"></a>Sauvegarde et restauration de base de données
+
+Les étapes d'utilisation de la sauvegarde et de restauration de la base de données sont similaires à celles de [Sauvegarde et restauration de bases de données](machine-learning-data-science-move-sql-server-virtual-machine.md#sql-backup).
+
+###<a name="adf"></a>Azure Data Factory
+
+La procédure de déplacement de données vers une base de données Azure SQL avec Azure Data Factory (ADF) est fournie dans la rubrique [Déplacement de données à partir d'un serveur SQL local vers SQL Azure avec Azure Data Factory](machine-learning-data-science-move-sql-azure-adf.md). Cette rubrique montre comment déplacer des données d'une base de données SQL Server locale vers une base de données Azure SQL via le stockage des objets blob Azure à l'aide d’ADF.
+
+Envisagez d'utiliser ADF lorsque les données doivent être migrées en permanence dans un scénario hybride qui accède aux ressources locales et cloud, et lorsque les données sont traitées ou doivent être modifiées ou si vous avez une logique métier ajoutée en cours de migration. ADF permet la planification et la surveillance des travaux à l'aide de scripts JSON simples qui gèrent le déplacement des données sur une base périodique. ADF dispose également d'autres fonctionnalités comme la prise en charge des opérations complexes.
+
+<!---HONumber=August15_HO7-->

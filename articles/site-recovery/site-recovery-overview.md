@@ -7,16 +7,14 @@
 	manager="jwhit" 
 	editor=""/>
 
-
 <tags 
 	ms.service="site-recovery" 
 	ms.devlang="na"
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery" 
-	ms.date="05/10/2015" 
+	ms.date="08/05/2015" 
 	ms.author="raynew"/>
-
 
 #  Vue d’ensemble de Microsoft Azure Site Recovery
 
@@ -79,4 +77,4 @@ Mappage de stockage|Non applicable|Mappe les classifications de stockage sur les
 Une fois que vous avez fini de consulter cette présentation, [lisez les meilleures pratiques](site-recovery-best-practices.md) pour vous aider à prendre en main la planification du déploiement.
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

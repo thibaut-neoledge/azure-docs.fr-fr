@@ -1,9 +1,9 @@
 
 <properties 
-    pageTitle="Utilisation d'Office 365 avec Azure RemoteApp" 
-    description="Learn how Office 365 and Azure RemoteApp work together" 
+    pageTitle="Utilisation d'Office avec Azure RemoteApp" 
+    description="Découvrez comment Office et Azure RemoteApp fonctionnent ensemble" 
     services="remoteapp" 
-	documentationCenter="" 
+    documentationCenter="" 
     authors="lizap" 
     manager="mbaldwin" />
 
@@ -13,12 +13,12 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="05/28/2015" 
+    ms.date="08/12/2015" 
     ms.author="elizapo" />
 
-# Utilisation d'Office 365 avec Azure RemoteApp
+# Utilisation d'Office avec Azure RemoteApp
 
-Vous avez deux possibilités pour l'hébergement des applications Office dans RemoteApp : Office 365 ProPlus ou la version d'évaluation d'Office 2013 Professionnel Plus.
+Vous avez deux possibilités pour l'hébergement des applications Office dans Azure RemoteApp : Office 365 ProPlus ou la version d'évaluation d'Office 2013 Professionnel Plus.
 
 ## Office 365 ProPlus 
 Vous pouvez créer une collection RemoteApp à l'aide de l'image de modèle Office 365 ProPlus. Cette option vous permet d'étendre votre service Office 365 à RemoteApp. Vous devez déjà disposer d'un abonnement et vos utilisateurs doivent bénéficier d'une licence pour le service Office 365 ProPlus (en version autonome ou via les plans de service Office 365).
@@ -48,4 +48,4 @@ L'activation de votre compte concerne toutes les collections RemoteApp de votre 
 Si vous ne passez pas en mode de production à l'expiration de votre version d'évaluation, vos collections RemoteApp sont désactivées. Ne vous inquiétez pas, vos paramètres et données utilisateur sont enregistrés pendant 90 jours supplémentaires, vous pouvez donc toujours activer votre service et passer en mode de production sans perte de données.
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

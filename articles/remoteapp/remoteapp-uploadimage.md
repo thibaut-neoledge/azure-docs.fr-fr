@@ -3,7 +3,7 @@
     pageTitle="Téléchargement d'une image personnalisée pour Azure RemoteApp"
     description="Découvrez comment télécharger une image personnalisée pour Azure RemoteApp." 
     services="remoteapp" 
-	documentationCenter="" 
+    documentationCenter="" 
     authors="ericorman" 
     manager="mbaldwin" />
 
@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="05/28/2015" 
+    ms.date="08/12/2015" 
     ms.author="ericor" />
 
 
@@ -35,7 +35,7 @@ Maintenant que vous avez créé votre image de modèle personnalisée ou l’ave
 4.      Entrez un nom convivial pour votre image et spécifiez l’emplacement du compte de stockage. Vérifiez que l’emplacement est le même que votre collection RemoteApp ou est un emplacement où vous souhaitez en créer une. 
 5.      Lorsque vous y êtes invité, téléchargez le script sur votre ordinateur local.
 6.      Copiez les paramètres de commande de la zone de texte dans votre Presse-papiers.
-7.      Ouvrez une fenêtre Windows PowerShell avec élévation de privilèges  
+7.      Ouvrez une fenêtre Windows PowerShell avec élévation de privilèges.
 8.      Dans la fenêtre Windows PowerShell avec élévation de privilèges, accédez au répertoire où vous avez téléchargé le script.
 9.      Collez la commande copiée et appuyez sur **Entrée**.
 
@@ -52,4 +52,4 @@ Maintenant que vous avez créé votre image de modèle personnalisée ou l’ave
 - Si le fichier de disque dur virtuel est verrouillé pendant le téléchargement, copiez le fichier ou déplacez-le vers un nouvel emplacement et essayez à nouveau. Un processus Windows peut empêcher le téléchargement.  
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

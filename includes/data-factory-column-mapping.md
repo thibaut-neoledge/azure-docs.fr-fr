@@ -34,14 +34,14 @@ Dans cet exemple, la table d’entrée possède une structure et pointe vers une
 	        },
 	        "availability": {
 	            "frequency": "Hour",
-	            "interval": "1",
+	            "interval": 1
 	        },
 			"external": true,
 			"policy": {
 	            "externalData": {
 	                "retryInterval": "00:01:00",
 	                "retryTimeout": "00:10:00",
-	                "maximumRetry": "3"
+	                "maximumRetry": 3
 	            }
 			}
 	    }
@@ -50,7 +50,7 @@ Dans cet exemple, la table d’entrée possède une structure et pointe vers une
 Dans cet exemple, la table de sortie possède une structure et pointe vers un objet blob compris dans un stockage d’objets blob Azure.
 
 	{
-	    "name": " AzureBlobOutput",
+	    "name": "AzureBlobOutput",
 	    "properties":
 	    {
 	         "structure": 
@@ -83,9 +83,9 @@ Le code JSON de cette activité est fourni ci-dessous. Colonnes de la source ma
 	{
 	    "name": "CopyActivity",
 	    "description": "description", 
-	    "type": "CopyActivity",
-	    "inputs":  [ { "name": " AzureSQLInput"  } ],
-	    "outputs":  [ { "name": " AzureBlobOutput" } ],
+	    "type": "Copy",
+	    "inputs":  [ { "name": "AzureSQLInput"  } ],
+	    "outputs":  [ { "name": "AzureBlobOutput" } ],
 	    "typeProperties":    {
 	        "source":
 	        {
@@ -95,7 +95,7 @@ Le code JSON de cette activité est fourni ci-dessous. Colonnes de la source ma
 	        {
 	            "type": "BlobSink"
 	        },
-	        "Translator": 
+	        "translator": 
 	        {
 	            "type": "TabularTranslator",
 	            "ColumnMappings": "UserId: MyUserId, Group: MyGroup, Name: MyName"
@@ -149,4 +149,4 @@ Dans ce cas, les résultats de la requête sont d’abord mappés vers les colon
 
 ![Flux du mappage de colonnes 2](./media/data-factory-data-stores-with-rectangular-tables/column-mapping-flow-2.png)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

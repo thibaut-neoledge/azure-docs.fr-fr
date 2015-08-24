@@ -5,7 +5,8 @@
  documentationCenter=""
  authors="KBDAzure"
  manager="timlt"
- editor=""/>
+ editor=""
+ tags="azure-resource-manager,azure-service-management"/>
 
 <tags
 ms.service="virtual-machines"
@@ -15,7 +16,6 @@ ms.service="virtual-machines"
  ms.workload="infrastructure-services"
  ms.date="07/02/2015"
  ms.author="kathydav"/>
-
 
 # Tailles de machines virtuelles
 
@@ -136,4 +136,4 @@ Les tableaux ci-après indiquent les tailles et les capacités offertes par chaq
 
 [À propos des instances de calcul intensif A8, A9, A10 et A11](virtual-machines-a8-a9-a10-a11-specs.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

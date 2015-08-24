@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Stockage du code de projet dans le contrôle de code source - Azure Mobile Services" 
+	pageTitle="Stockage du code de projet dans le contrôle de code source | Microsoft Azure" 
 	description="Découvrez comment stocker votre projet de backend .NET dans un référentiel Git local sur votre ordinateur et à le publier depuis cet emplacement." 
 	services="mobile-services" 
 	documentationCenter="" 
@@ -103,4 +103,4 @@ Pour suivre ce didacticiel, vous devez avoir créé un service mobile en suivant
 [Modifications des modèles de données pour un service mobile de backend .NET]: mobile-services-dotnet-backend-how-to-use-code-first-migrations.md
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

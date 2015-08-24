@@ -1,12 +1,11 @@
 <properties 
-	pageTitle="Services liés de calcul | Azure Data Factory" 
+	pageTitle="Services liés de calcul | Microsoft Azure" 
 	description="En savoir plus sur environnements de calcul que vous pouvez utiliser dans les pipelines Azure Data Factory pour transformer/traiter les données." 
 	services="data-factory" 
 	documentationCenter="" 
 	authors="spelluru" 
 	manager="jhubbard" 
 	editor="monicar"/>
-
 
 <tags 
 	ms.service="data-factory" 
@@ -16,7 +15,6 @@
 	ms.topic="article" 
 	ms.date="08/04/2015" 
 	ms.author="spelluru"/>
-
 
 # Services liés de calcul
 
@@ -210,7 +208,7 @@ poolName | Nom du pool de machines virtuelles. | Oui
 linkedServiceName | Nom du service lié Azure Storage associé à ce service lié Azure Batch. Ce service lié est utilisé pour présenter les fichiers nécessaires à l'exécution de l'activité et stocker les journaux d'exécution de l'activité. | Oui
 
 
-## Service lié Azure Batch
+## Service lié Microsoft Azure Machine Learning
 
 Vous créez un service lié Azure Machine Learning pour inscrire un point de terminaison de notation par lot Machine Learning pour une fabrique de données.
 
@@ -236,7 +234,9 @@ mlEndpoint | L'URL de la notation par lot. | Oui
 apiKey | L'API du modèle d'espace de travail publié. | Oui
 
 
+## Service lié Azure SQL
 
+Vous créez un service lié Azure SQL et vous l’utilisez avec l’[activité de procédure stockée](data-factory-stored-proc-activity.md) pour appeler une procédure stockée à partir d’un pipeline Data Factory. Pour plus d’informations sur ce service lié, voir l’article [Connecteur SQL Azure](data-factory-azure-sql-connector.md#azure-sql-linked-service-properties).
 
 
   
@@ -247,4 +247,4 @@ apiKey | L'API du modèle d'espace de travail publié. | Oui
  
    
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

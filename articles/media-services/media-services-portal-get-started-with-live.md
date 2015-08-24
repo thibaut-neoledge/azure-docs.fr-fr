@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="ne"
 	ms.topic="get-started-article" 
-	ms.date="08/03/2015"
+	ms.date="08/11/2015" 
 	ms.author="juliako"/>
 
 
@@ -193,21 +193,9 @@ Si vous avez terminé de diffuser en continu les événements et que vous voulez
 
 
 
-##Étape suivante
-
-En savoir plus sur la création d’applications de diffusion en continu dynamique [Créer des applications de diffusion en continu dynamique](media-services-live-streaming-workflow.md)
-
-###Ressources supplémentaires
-- <a href="http://channel9.msdn.com/Shows/Azure-Friday/Azure-Media-Services-101-Get-your-video-online-now-">Azure Media Services 101 - Mettez votre vidéo en ligne dès maintenant.</a>
-- <a href="http://channel9.msdn.com/Shows/Azure-Friday/Azure-Media-Services-102-Dynamic-Packaging-and-Mobile-Devices">Azure Media Services 102 - Empaquetage dynamique et appareils mobiles</a>
-
-
-<!-- Anchors. -->
-
-
 <!-- URLs. -->
 [Management Portal]: http://manage.windowsazure.com/
 
 <!-- Images -->
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -7,16 +7,14 @@
 	manager="dwrede"
 	editor="" />
 
-
 <tags
 	ms.service="mobile-engagement"
 	ms.workload="mobile"
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
-	ms.topic="get-started-article"
+	ms.topic="hero-article"
 	ms.date="08/05/2015"
 	ms.author="MehrdadMzfr" />
-
 
 # Prise en main d’Azure Mobile Engagement pour les applications iOS en Objective C
 
@@ -79,7 +77,7 @@ Vous devez suivre ce didacticiel pour avoir accès à tous les autres didacticie
 
 ##<a id="connecting-app"></a>Connexion de votre application au serveur principal Mobile Engagement
 
-Ce didacticiel aborde l'intégration de base qui correspond aux éléments nécessaires à la collection de données et à l'envoi de notifications Push. Vous trouverez la documentation complète d'intégration dans la [documentation du SDK iOS Mobile Engagement\]
+Ce didacticiel aborde l'intégration de base qui correspond aux éléments nécessaires à la collection de données et à l'envoi de notifications Push. Vous trouverez la documentation complète d'intégration dans la [documentation du SDK iOS Mobile Engagement]
 
 Nous allons créer une application de base à l’aide de XCode afin d’illustrer l’intégration :
 
@@ -307,4 +305,4 @@ Nous allons maintenant créer une campagne simple de notification push qui enver
 [38]: ./media/mobile-engagement-ios-get-started/campaign-create.png
 [39]: ./media/mobile-engagement-ios-get-started/campaign-activate.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

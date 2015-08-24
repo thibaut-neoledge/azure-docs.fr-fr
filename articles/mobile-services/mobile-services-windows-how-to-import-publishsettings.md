@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Importation du fichier de paramètres de publication dans Visual Studio 2013 | Mobile Services" 
+	pageTitle="Importation du fichier de paramètres de publication dans Visual Studio 2013 | Microsoft Azure" 
 	description="Découvrez comment importer un fichier de paramètres de publication d'abonnement pour votre application Azure Mobile Services dans Visual Studio 2013." 
 	documentationCenter="" 
 	services="mobile-services" 
@@ -62,4 +62,4 @@ Avant de créer le service mobile, vous devez importer le fichier de paramètres
 [Azure Management Portal]: https://manage.windowsazure.com/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

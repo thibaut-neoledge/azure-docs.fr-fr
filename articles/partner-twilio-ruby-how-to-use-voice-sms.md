@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Utilisation de Twilio pour les fonctionnalités vocales et de SMS (Ruby) - Azure" 
+	pageTitle="Utilisation de Twilio pour les fonctionnalités vocales et de SMS (Ruby) | Microsoft Azure" 
 	description="Découvrez comment passer un appel téléphonique et envoyer un message texte avec le service d'API Twilio sur Azure. Exemples de code écrits en Ruby." 
 	services="" 
 	documentationCenter="ruby" 
@@ -195,4 +195,4 @@ Maintenant que vous avez appris les bases du service Twilio, consultez ces liens
 [sinatra]: http://www.sinatrarb.com/
 [azure_vm_setup]: http://www.windowsazure.com/develop/ruby/tutorials/web-app-with-linux-vm/
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -3,7 +3,7 @@
 	description="Dernières mises à jour et procédures du SDK Android pour Azure Mobile Engagement"
 	services="mobile-engagement" 
 	documentationCenter="mobile" 
-	authors="kpiteira" 
+	authors="piyushjo" 
 	manager="dwrede" 
 	editor="" />
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="mobile-android" 
 	ms.devlang="Java" 
 	ms.topic="article" 
-	ms.date="02/12/2015" 
-	ms.author="kapiteir" />
+	ms.date="08/10/2015" 
+	ms.author="piyushjo" />
 
 
 #Comment intégrer ADM à Engagement
@@ -113,4 +113,4 @@ Vous pouvez maintenant sélectionner l'option À tout moment lors de la créatio
 [cette procédure]: https://developer.amazon.com/sdk/adm/integrating-app.html#Asset
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

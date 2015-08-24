@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Tableau de bord, Surveiller, Mettre à l’échelle, Configurer et Connexions hybrides dans BizTalk Services | Azure" 
+	pageTitle="Tableau de bord, Surveiller, Mettre à l’échelle, Configurer et Connexions hybrides dans BizTalk Services | Microsoft Azure" 
 	description="Découvrez les commandes et surveillez les performances sous les onglets du portail de gestion de BizTalk Services : Tableau de bord, Surveiller, Mettre à l’échelle, Configurer et Connexions hybrides. MABS, WABS" 
 	services="biztalk-services" 
 	documentationCenter="" 
@@ -368,4 +368,4 @@ Pour créer ou gérer des connexions hybrides dans Azure BizTalk Services, consu
 [EnabledMetric]: ./media/biztalk-dashboard-monitor-scale-tabs/WABS_EnabledMetric.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -1,12 +1,11 @@
 <properties 
-	pageTitle="Utilisation du bloc applicatif de mise à l'échelle automatique (.NET) - Azure" 
+	pageTitle="Utilisation du bloc applicatif de mise à l'échelle automatique (.NET) | Microsoft Azure" 
 	description="Découvrez comment utiliser l'application de mise à l'échelle automatique pour Azure. Les exemples de code sont écrits en C# et utilisent l'API .NET." 
 	services="cloud-services" 
 	documentationCenter=".net" 
 	authors="squillace" 
 	manager="timlt" 
 	editor=""/>
-
 
 <tags 
 	ms.service="cloud-services" 
@@ -16,7 +15,6 @@
 	ms.topic="article" 
 	ms.date="05/18/2015" 
 	ms.author="rasquill"/>
-
 
 
 
@@ -136,39 +134,22 @@ Dans Visual Studio, vous devez vous assurer que le fichier de modèle de service
 
 	L'exemple de code suivant montre un exemple de modèle de service dans un fichier **services.xml** :
 
-    <?xml version="1.0" encoding="utf-8" ?>
-    <serviceModel xmlns="http://schemas.microsoft.com/practices/2011/entlib/autoscaling/serviceModel">
-      <subscriptions>
-        <subscription name="[subscriptionname]"
+    <?xml version="1.0" encoding="utf-8" ?> <serviceModel xmlns="http://schemas.microsoft.com/practices/2011/entlib/autoscaling/serviceModel"> <subscriptions> <subscription name="[subscriptionname]"
                       certificateThumbprint="[managementcertificatethumbprint]"
                       subscriptionId="[subscriptionid]"
                       certificateStoreLocation="CurrentUser"
-                      certificateStoreName="My">
-          <services>
-            <service dnsPrefix="[hostedservicednsprefix]" slot="Staging">
-              <roles>
-                <role alias="AutoscalingApplicationRole"
+                      certificateStoreName="My"> <services> <service dnsPrefix="[hostedservicednsprefix]" slot="Staging"> <roles> <role alias="AutoscalingApplicationRole"
                       roleName="[targetrolename]"
-                      wadStorageAccountName="targetstorage"/>
-              </roles>
-            </service>
-          </services>
-          <storageAccounts>
-            <storageAccount alias="targetstorage"
-              connectionString="DefaultEndpointsProtocol=https;AccountName=[storageaccountname];AccountKey=[storageaccountkey]">
-            </storageAccount>
-          </storageAccounts>
-        </subscription>
-      </subscriptions>
-    </serviceModel>
+                      wadStorageAccountName="targetstorage"/> </roles> </service> </services> <storageAccounts> <storageAccount alias="targetstorage"
+              connectionString="DefaultEndpointsProtocol=https;AccountName=[storageaccountname];AccountKey=[storageaccountkey]"> </storageAccount> </storageAccounts> </subscription> </subscriptions> </serviceModel>
 
 Vous devez remplacer les valeurs entre crochets par des valeurs propres à votre environnement et à votre application cible. Pour trouver la plupart de ces valeurs, vous devez vous connecter au [portail de gestion Azure][].
 
 Connectez-vous au portail de gestion.
 
--   **[subscriptionname\] :** choisissez un nom convivial pour faire référence à l’abonnement Azure qui contient l’application dans laquelle vous souhaitez utiliser la mise à l’échelle automatique.
+-   **[subscriptionname] :** choisissez un nom convivial pour faire référence à l’abonnement Azure qui contient l’application dans laquelle vous souhaitez utiliser la mise à l’échelle automatique.
 
--   **[subscriptionid\] :** ID unique de l’abonnement Azure qui contient l’application dans laquelle vous souhaitez utiliser la mise à l’échelle automatique.
+-   **[subscriptionid] :** ID unique de l’abonnement Azure qui contient l’application dans laquelle vous souhaitez utiliser la mise à l’échelle automatique.
 
     1.  Dans le portail de gestion Azure, cliquez sur **Cloud Services**.
 
@@ -177,7 +158,7 @@ Connectez-vous au portail de gestion.
         ![image](./media/cloud-services-dotnet-autoscaling-application-block/autoscaling05.png)
 
   
-	-   **[hostedservicednsprefix\] :** préfixe DNS du service hébergé dans lequel vous souhaitez utiliser la mise à l'échelle automatique.
+	-   **[hostedservicednsprefix] :** préfixe DNS du service hébergé dans lequel vous souhaitez utiliser la mise à l'échelle automatique.
 
     1.  Dans le portail de gestion Azure, cliquez sur **Cloud Services**.
 
@@ -185,16 +166,16 @@ Connectez-vous au portail de gestion.
 
         ![image](./media/cloud-services-dotnet-autoscaling-application-block/autoscaling06.png)
  
-	-   **[targetrolename\]** : nom du rôle correspondant à la cible de vos règles de mise à l'échelle automatique.
+	-   **[targetrolename]** : nom du rôle correspondant à la cible de vos règles de mise à l'échelle automatique.
 
     1.  Dans le portail de gestion Azure, cliquez sur **Cloud Services**.
 
-    2.  Dans la liste Cloud Services, cliquez sur le service qui héberge l'application dans laquelle vous souhaitez utiliser la mise à l'échelle automatique, puis cliquez sur **Instances**. La colonne **Role* affiche le nom de votre rôle cible.
+    2.  Dans la liste Cloud Services, cliquez sur le service qui héberge l'application dans laquelle vous souhaitez utiliser la mise à l'échelle automatique, puis cliquez sur **Instances**. La colonne \*\*Role\* affiche le nom de votre rôle cible.
 
         ![image](./media/cloud-services-dotnet-autoscaling-application-block/autoscaling07.png)
 
 
-	-   **[storageaccountname\]** et **[storageaccountkey\] :** nom du compte de stockage Azure que vous utilisez pour votre application Azure cible.
+	-   **[storageaccountname]** et **[storageaccountkey] :** nom du compte de stockage Azure que vous utilisez pour votre application Azure cible.
 
     1.  Dans le portail de gestion Azure, cliquez sur **Storage**.
 
@@ -205,7 +186,7 @@ Connectez-vous au portail de gestion.
         ![image](./media/cloud-services-dotnet-autoscaling-application-block/autoscaling08.png)
   
  
-	-   **[managementcertificatethumbprint\] :** **empreinte** du certificat de gestion que le bloc utilisera pour sécuriser les demandes de mise à l'échelle à destination de l'application cible.
+	-   **[managementcertificatethumbprint] :** **empreinte** du certificat de gestion que le bloc utilisera pour sécuriser les demandes de mise à l'échelle à destination de l'application cible.
 
     1.  Dans le portail de gestion Azure, cliquez sur **Settings**.
 
@@ -236,7 +217,6 @@ L'exemple de code suivant montre un exemple de règle définie dans un fichier *
         <rule name="default" enabled="true" rank="1" description="The default constraint rule">
           <actions>
             <range min="2" max="6" target="AutoscalingApplicationRole"/>
-
           </actions>
         </rule>
       </constraintRules>
@@ -245,24 +225,20 @@ L'exemple de code suivant montre un exemple de règle définie dans un fichier *
           <when>
             <any>
                <greaterOrEqual operand="WebRoleA_CPU_Avg_5m" than="60"/>
-
             </any>
           </when>
           <actions>
             <scale target="AutoscalingApplicationRole" by="1"/>
-
           </actions>
         </rule>
         <rule name="ScaleDownOnLowUtilization" rank="10" description="Scale up the web role" enabled="true" >
           <when>
             <all>
               <less operand="WebRoleA_CPU_Avg_5m" than="60"/>
-
             </all>
           </when>
           <actions>
             <scale target="AutoscalingApplicationRole" by="-1"/>
-
           </actions>
         </rule>
       </reactiveRules>
@@ -271,7 +247,6 @@ L'exemple de code suivant montre un exemple de règle définie dans un fichier *
           performanceCounterName="\Processor(_Total)\% Processor Time"
           source ="AutoscalingApplicationRole"
           timespan="00:05:00" aggregate="Average"/>
-
       </operands>
     </rules>
 
@@ -332,13 +307,10 @@ Pour obtenir des informations détaillées sur les actions effectuées par le bl
           <system.diagnostics>
             <sources>
               <sourcename="Autoscaling General" switchName="SourceSwitch" switchType="System.Diagnostics.SourceSwitch" />
-
               <sourcename="Autoscaling Updates" switchName="SourceSwitch" switchType="System.Diagnostics.SourceSwitch" />
-
             </sources>
             <switches>
               <addname="SourceSwitch" value="Verbose, Information, Warning, Error, Critical" />
-
             </switches>
           </system.diagnostics>
         </configuration>
@@ -420,4 +392,4 @@ Maintenant que vous avez appris les principes de base de l'utilisation du bloc a
   [Réduction des coûts d’hébergement et de l’impact environnemental de TechNet et MSDN grâce à la mise à l’échelle automatique Azure]: http://msdn.microsoft.com/library/jj838718(PandP.50).aspx
  
 
-<!----HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

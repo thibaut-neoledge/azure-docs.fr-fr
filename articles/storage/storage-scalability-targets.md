@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="storage"
-   ms.date="06/30/2015"
+   ms.date="08/07/2015"
    ms.author="tamram" />
 
 # Objectifs de performance et évolutivité d'Azure Storage
@@ -27,7 +27,7 @@ Cet article décrit l’extensibilité et les performances de Microsoft Azure 
 
 >Lorsque votre application atteint la limite de gestion d’une partition concernant la charge de travail, Azure Storage commence à renvoyer des codes d’erreur 503 (Serveur occupé) ou 500 (Délai d’expiration de l’opération). Quand cela se produit, l’application doit utiliser une stratégie d’interruption exponentielle pour les nouvelles tentatives. L’interruption exponentielle diminue la charge sur la partition et atténue les pics de trafic pour cette partition.
 
-Si les besoins de votre application dépassent les objectifs d’extensibilité d’un compte de stockage unique, vous pouvez concevoir votre application afin qu’elle utilise plusieurs comptes de stockage et partitionner vos objets de données sur ces comptes. Un seul abonnement Azure permet l’utilisation de 100 comptes de stockage. Pour plus d'informations sur la tarification des licences en volume, consultez la page [Tarification Azure Storage](http://azure.microsoft.com/pricing/details/storage/).
+Si les besoins de votre application dépassent les objectifs d’extensibilité d’un compte de stockage unique, vous pouvez concevoir votre application afin qu’elle utilise plusieurs comptes de stockage et partitionner vos objets de données sur ces comptes. Pour plus d'informations sur la tarification des licences en volume, consultez la page [Tarification Azure Storage](http://azure.microsoft.com/pricing/details/storage/).
 
 ## Objectifs d’extensibilité des comptes de stockage standard
 
@@ -50,6 +50,8 @@ Le tableau présenté plus haut dans la section [Objectifs d’extensibilité de
 Les partitions affectent l’extensibilité et l’équilibrage de charge de chacun des services de stockage comme suit :
 
 - **Blobs** : la clé de partition d’un blob est le nom du conteneur +  le nom du blob. Autrement dit, chaque blob a sa propre partition. Les blobs peuvent donc être répartis sur plusieurs serveurs afin de d’offrir un accès horizontal. Si les blobs peuvent être regroupés de manière logique dans des conteneurs, ce regroupement n’a aucune incidence sur le partitionnement.
+
+- **Fichiers** : la clé de partition pour un fichier est le nom du compte + le nom de partage du fichier. Cela signifie que tous les fichiers dans un partage de fichiers sont également dans une seule partition.
 
 - **Messages** : la clé de partition d’un message est le nom de la file d’attente : tous les messages d’une file d’attente sont regroupés en une seule partition et servis par un seul serveur. Plusieurs files d’attente peuvent être traitées par différents serveurs pour équilibrer la charge, quel que soit le nombre de files d’attente du compte de stockage.
 
@@ -74,4 +76,4 @@ Les partitions affectent l’extensibilité et l’équilibrage de charge de cha
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

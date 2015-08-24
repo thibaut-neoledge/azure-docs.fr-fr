@@ -2,21 +2,18 @@
     pageTitle="Utilisation de la redirection dans Azure RemoteApp" 
     description="En savoir plus sur la configuration et l'utilisation de la redirection dans RemoteApp" 
     services="remoteapp" 
-    solutions="" 
-	documentationCenter="" 
+    documentationCenter="" 
     authors="lizap" 
     manager="mbaldwin" />
 
-
 <tags 
     ms.service="remoteapp" 
-    ms.workload="tbd" 
+    ms.workload="compute" 
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="05/29/2015" 
+    ms.date="08/10/2015" 
     ms.author="elizapo" />
-
 
 # Utilisation de la redirection dans Azure RemoteApp
 
@@ -34,7 +31,7 @@ Lorsque vous utilisez RemoteApp, les redirections suivantes sont activées par d
 - Périphérique à carte à puce (redirectsmartcards:i:1)
 - Presse-papiers (capacité à copier et coller) (redirectclipboard:i:1)
 - Lissage des polices ClearType (allowfontsmoothing:i:1)
-- Rediriger tous les périphériques Plug-and-Play pris en charge (devicestoredirect:s:*)
+- Rediriger tous les périphériques Plug-and-Play pris en charge (devicestoredirect:s:\*)
 
 ## Quelle autre redirection est disponible ?
 Deux options de redirection sont désactivées par défaut :
@@ -79,7 +76,9 @@ Si vous voulez utiliser la redirection USB sur un ordinateur qui se connecte à 
 > [AZURE.NOTE]La redirection USB avec Azure RemoteApp est prise en charge uniquement pour les ordinateurs Windows.
 
 ### Activation de la redirection USB pour la collection RemoteApp
-Utilisez l'applet de commande suivante pour activer la redirection USB au niveau de la collection : Set-AzureRemoteAppCollection -CollectionName <collection_name> -CustomRdpProperty "nusbdevicestoredirect:s:*"
+Utilisez l'applet de commande suivante pour activer la redirection USB au niveau de la collection :
+
+    Set-AzureRemoteAppCollection -CollectionName <collection_name> -CustomRdpProperty "nusbdevicestoredirect:s:*"
 
 ### Activation de la redirection USB pour l'ordinateur client
 
@@ -91,7 +90,7 @@ Pour configurer les paramètres de redirection USB sur votre ordinateur :
 4. Sélectionnez **Activé**, puis sélectionnez **Administrateurs et utilisateurs dans les droits d'accès à la redirection USB RemoteFX**.
 5. Ouvrez une invite de commandes avec des privilèges d'administrateur et exécutez la commande suivante : 
 
-    gpupdate /force
+		gpupdate /force
 6. Redémarrez l'ordinateur.
 
 Vous pouvez également utiliser l'outil de gestion des stratégie de groupe pour créer et appliquer la stratégie de redirection USB pour tous les ordinateurs de votre domaine :
@@ -105,4 +104,4 @@ Vous pouvez également utiliser l'outil de gestion des stratégie de groupe pour
 7. Sélectionnez **Activé**, puis sélectionnez **Administrateurs et utilisateurs dans les droits d'accès à la redirection USB RemoteFX**.
 8. Cliquez sur **OK**.  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

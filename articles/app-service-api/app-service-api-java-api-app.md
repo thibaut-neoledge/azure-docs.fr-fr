@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="java"
 	ms.topic="get-started-article"
-	ms.date="04/21/2015"
+	ms.date="08/11/2015"
 	ms.author="pakefali"/>
 
 # Créer et déployer une application API Java dans Azure App Service
@@ -270,4 +270,4 @@ Vous pouvez essayer cet exemple d'application API sur [TryApp Service](http://tr
 [api-definition-blade]: ./media/app-service-api-java-api-app/apidefblade.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

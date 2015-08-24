@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Vue d’ensemble de l’API REST Media Services - Azure" 
+	pageTitle="Vue d’ensemble de l’API REST Media Services | Microsoft Azure" 
 	description="Vue d’ensemble de l’API REST Media Services" 
 	services="media-services" 
 	documentationCenter="" 
@@ -7,19 +7,19 @@
 	manager="dwrede" 
 	editor=""/>
 
-
 <tags 
 	ms.service="media-services" 
 	ms.workload="media" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="06/04/2015" 
+	ms.date="08/11/2015" 
 	ms.author="juliako"/>
 
 
-
 # Vue d’ensemble de l’API REST Media Services 
+
+[AZURE.INCLUDE [media-services-selector-setup](../../includes/media-services-selector-setup.md)]
 
 Microsoft Azure Media Services est un service qui accepte les demandes HTTP OData et peut répondre dans les formats JSON ou atom+pub détaillés. Étant donné que Media Services est conforme aux règles de conception Azure, il existe un ensemble d’en-têtes HTTP obligatoires que chaque client doit utiliser lors de la connexion à Media Services, ainsi qu’un jeu d’en-têtes facultatifs pouvant être utilisé. Les sections suivantes décrivent les en-têtes et verbes HTTP que vous pouvez utiliser lors de la création de requêtes et de la réception des réponses à partir de Media Services.
 
@@ -45,13 +45,13 @@ Voici un ensemble d’en-têtes facultatifs :
 En-tête|Type|Valeur
 ---|---|---
 Date|Date RFC 1123|Horodatage de la demande
-Acceptation|Type de contenu|Type de contenu demandé pour la réponse, comme : <p> -application/json;odata=verbose<p> - application/atom+xml<p> Les réponses peuvent avoir un type de contenu différent, par exemple une extraction d’objets blob, dans laquelle une réponse correcte contiendra le flux d’objets blob en tant que charge utile.
+Acceptation|Type de contenu|Type de contenu demandé pour la réponse, comme :<p> -application/json;odata=verbose<p> - application/atom+xml<p> Les réponses peuvent avoir un type de contenu différent, par exemple une extraction d’objets blob, dans laquelle une réponse correcte contiendra le flux d’objets blob en tant que charge utile.
 Accept-Encoding|Gzip, deflate|Codage GZIP et DEFLATE, le cas échéant. Remarque : pour les ressources volumineuses, Media Services peut ignorer cet en-tête et retourner des données non compressées.
 Accept-Language|« en », « es » et ainsi de suite.|Spécifie la langue préférée pour la réponse.
 Accept-Charset|Type de jeu de caractères comme « UTF-8 »|La valeur par défaut est UTF-8.
 X-HTTP-Method|Méthode HTTP|Permet aux clients ou pare-feu ne prenant pas en charge les méthodes HTTP comme PUT ou DELETE d’utiliser ces méthodes, acheminées via un appel GET.
 Content-Type|Type de contenu|Le type de contenu du corps de la requête dans les demandes PUT ou POST.
-client-request-id|String|Une valeur définie par l’appelant qui identifie la requête donnée. Si spécifiée, cette valeur sera incluse dans le message de réponse comme une méthode de mappage de la requête. <p><p>**Important**<p>Les valeurs doivent être limitées à 2096b (2k).
+client-request-id|String|Une valeur définie par l’appelant qui identifie la requête donnée. Si spécifiée, cette valeur sera incluse dans le message de réponse comme une méthode de mappage de la requête. <p><p>\*\*Important\*\*<p>Les valeurs doivent être limitées à 2096b (2k).
 
 ## En-têtes de réponse HTTP standard pris en charge par Media Services
 
@@ -99,4 +99,4 @@ Vous devez ajouter « ?api-version=2.x » à la fin de l’URI si vous souhait
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -1,12 +1,11 @@
 <properties
-	pageTitle="Prise en main de la synchronisation des données hors connexion dans Mobile Services (iOS) | Centre de développement pour les appareils mobiles"
+	pageTitle="Prise en main de la synchronisation des données hors connexion dans Mobile Services (iOS) | Microsoft Azure"
 	description="Découvrez comment utiliser Azure Mobile Services pour mettre en cache et synchroniser les données hors connexion dans votre application iOS"
 	documentationCenter="ios"
 	authors="krisragh"
 	manager="dwrede"
 	editor=""
 	services="mobile-services"/>
-
 
 <tags
 	ms.service="mobile-services"
@@ -16,7 +15,6 @@
 	ms.topic="article"
 	ms.date="07/01/2015"
 	ms.author="krisragh;donnam"/>
-
 
 # Prise en main de la synchronisation des données hors connexion dans Mobile Services
 
@@ -32,7 +30,7 @@ La synchronisation hors connexion présente plusieurs avantages :
 * Elle synchronise les données sur plusieurs appareils.
 * Elle détecte les conflits quand un même enregistrement est modifié par deux appareils.
 
-> [AZURE.NOTE]Pour suivre ce didacticiel, vous avez besoin d'un compte Azure. Si vous n'avez pas de compte, vous pouvez vous inscrire pour une évaluation d'Azure et obtenir des [services mobiles gratuits que vous pourrez conserver après l'expiration de votre période d'évaluation](http://azure.microsoft.com/pricing/details/mobile-services/). Pour plus d’informations, consultez la page d’[essai gratuit d’Azure\](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AE564AB28 target="\_blank").
+> [AZURE.NOTE]Pour suivre ce didacticiel, vous avez besoin d'un compte Azure. Si vous n'avez pas de compte, vous pouvez vous inscrire pour une évaluation d'Azure et obtenir des [services mobiles gratuits que vous pourrez conserver après l'expiration de votre période d'évaluation](http://azure.microsoft.com/pricing/details/mobile-services/). Pour plus d’informations, consultez la page d’[essai gratuit d’Azure](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AE564AB28 target="\_blank").
 
 Ce didacticiel est basé sur le didacticiel [Démarrage rapide de Mobile Services], que vous devez effectuer en premier. Examinons d'abord le code lié à la synchronisation hors connexion présent dans le Démarrage rapide.
 
@@ -273,4 +271,4 @@ Pour synchroniser le magasin local avec le serveur, vous avez utilisé `MSSyncTa
 
 [Démarrage rapide de Mobile Services]: mobile-services-ios-get-started.md
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

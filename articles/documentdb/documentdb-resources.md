@@ -7,7 +7,6 @@
 	manager="jhubbard" 
 	editor="monicar"/>
 
-
 <tags 
 	ms.service="documentdb" 
 	ms.workload="data-services" 
@@ -16,7 +15,6 @@
 	ms.topic="article" 
 	ms.date="08/03/2015" 
 	ms.author="anhoh"/>
-
 
 #Modèle de ressource et concepts de DocumentDB
 
@@ -60,52 +58,15 @@ Les ressources (telles que les comptes de base de données, les bases de donnée
 >[AZURE.NOTE]Toutes les propriétés générées par le système dans une ressource ont comme préfixe un trait de soulignement (\_) dans leur représentation JSON.
 
 
-<table width="500"> 
-<tbody>
-<tr>
-<td valign="top" ><p><b>Propriété</b></p></td>
-<td valign="top" ><p><b>Définie par l’utilisateur ou générée par le système</b></p></td>
-<td valign="top" ><p><b>Objectif</b></p></td>
-</tr>
-
-<tr>
-<td valign="top" ><p>_rid</p></td>
-<td valign="top" ><p>Générée par le système</p></td>
-<td valign="top" ><p>Identificateur hiérarchique et unique de la ressource. Il est généré par le système.</p></td>
-</tr>
-
-<tr>
-<td valign="top" ><p>_etag</p></td>
-<td valign="top" ><p>Générée par le système</p></td>
-<td valign="top" ><p>etag de la ressource nécessaire au contrôle d'accès concurrentiel optimiste.</p></td>
-</tr>
-
-<tr>
-<td valign="top" ><p>_ts</p></td>
-<td valign="top" ><p>Générée par le système</p></td>
-<td valign="top" ><p>Dernier horodatage mis à jour de la ressource.</p></td>
-</tr>
-
-<tr>
-<td valign="top" ><p>_self</p></td>
-<td valign="top" ><p>Générée par le système</p></td>
-<td valign="top" ><p>URI adressable unique de la ressource.</p></td>
-</tr>
-
-<tr>
-<td valign="top" ><p>id</p></td>
-<td valign="top" ><p>Définissable par l'utilisateur</p></td>
-<td valign="top" ><p>Nom unique défini par l'utilisateur de la ressource.</p></td>
-</tr>
-
-</tbody>
-</table>
+Propriété |Définie par l'utilisateur ou générée par le système ?|Objectif
+---|---|---
+_\_rid|Générée par le système|identifiant unique, hiérarchique et généré par le système de la ressource. \_etag|Générée par le système|etag de la ressource nécessaire pour le contrôle d’accès concurrentiel optimiste. \_ts|Générée par le système|Dernier horodatage mis à jour de la ressource. \_self|Générée par le système|URI adressable unique de la ressource. id|Définie par l’utilisateur|Nom unique défini par l'utilisateur de la ressource.
 
 ###Représentation en réseau des ressources
 DocumentDB n'oblige pas les extensions propriétaires à adopter la norme JSON ou des codages spéciaux ; l'application fonctionne avec les documents JSON standard.
  
 ###Adressage d'une ressource
-Toutes les ressources sont adressables via des URI. La valeur de la propriété **\_self** d'une ressource représente l'URI relatif de la ressource. Le format de l’URI est composé des segments de chemin d’accès /<flux>/{\_rid} :
+Toutes les ressources sont adressables via des URI. La valeur de la propriété \*\*\_self\*\* d'une ressource représente l'URI relatif de la ressource. Le format de l’URI est composé des segments de chemin d’accès /<flux>/{\_rid} :
 
 |Valeur de \_self |Description |-------------------|-----------|/dbs |Flux de bases de données sous un compte de base de données|/dbs/{\_rid-db} |Base de données avec une propriété d’ID unique avec la valeur {\_rid-db} |/dbs/{\_rid-db}/colls/ |Flux de collections sous une base de données |/dbs/{\_rid-db}/colls/{\_rid-coll} |Collection avec la propriété d’ID unique et la valeur {\_rid-coll} |/dbs/{\_rid-db}/users/ |Flux des utilisateurs sous une base de données |/dbs/{\_rid-db}/users/{\_rid-user} |Utilisateur avec la propriété d’ID unique avec la valeur {\_rid-user} |/dbs/{\_rid-db}/users/{\_rid-user}/permissions |Flux d’autorisations sous une base de données |/dbs/{\_rid-db}/users/{\_rid-user}/permissions/{\_rid-permission} |Autorisation avec la propriété d’ID unique et la valeur {\_rid-permission}
   
@@ -123,37 +84,12 @@ Vous pouvez [créer et gérer des comptes de base de données DocumentDB](docume
 ###Propriétés des comptes de base de données
 Dans le cadre de l'approvisionnement et de la gestion d'un compte de base de données, vous pouvez configurer et lire les propriétés suivantes :
 
-<table border="1" cellspacing="0" cellpadding="0" > 
-<tbody>
-<tr>
-<td valign="top" ><p><b>Nom de la propriété</b></p></td>
-<td valign="top" ><p><b>Description</b></p></td>
-</tr>
-
-<tr>
-<td valign="top" ><p>Stratégie de cohérence</p></td>
-<td valign="top" ><p>Définissez cette propriété pour configurer le niveau de cohérence par défaut pour toutes les collections sous votre compte de base de données. Vous pouvez changer le niveau de cohérence en fonction de la demande en utilisant l’en-tête de demande [x-ms-consistency-level]. À l'avenir, nous prendrons probablement en charge le changement du niveau de cohérence par collection. </p>
-
-<p>Notez que cette propriété ne s'applique qu'aux <i>ressources définies par l'utilisateur</i>. Toutes les ressources définies par le système sont configurées pour prendre en charge les requêtes/lectures avec une cohérence forte.</p></td>
-</tr>
-
-<tr>
-<td valign="top" ><p>Clé principale et clé secondaire</p></td>
-<td valign="top" ><p>Les clés principales et secondaires fournissent un accès administratif à toutes les ressources sous le compte de base de données.</p></td>
-</tr>
-
-<tr>
-<td valign="top" ><p>MaxMediaStorageUsageInMB (READ)</p></td>
-<td valign="top" ><p>Quantité maximale d'espace de stockage multimédia disponible pour le compte de base de données.</p></td>
-</tr>
-
-<tr>
-<td valign="top" ><p>MaxMediaStorageUsageInMB (READ)</p></td>
-<td valign="top" ><p>Utilisation actuelle de l'espace de stockage multimédia disponible pour le compte de base de données.</p></td>
-</tr>
-
-</tbody>
-</table>
+Nom de la propriété|Description
+---|---
+Stratégie de cohérence|Définissez cette propriété pour configurer le niveau de cohérence par défaut pour toutes les collections sous votre compte de base de données. Vous pouvez changer le niveau de cohérence en fonction de la demande en utilisant l’en-tête de demande [x-ms-consistency-level]. À l'avenir, nous prendrons probablement en charge le changement du niveau de cohérence par collection. <p><p>Notez que cette propriété ne s'applique qu'aux <i>ressources définies par l'utilisateur</i>. Toutes les ressources définies par le système sont configurées pour prendre en charge les requêtes/lectures avec une cohérence forte.
+Clé principale et clé secondaire|Les clés principales et secondaires fournissent un accès administratif à toutes les ressources sous le compte de base de données.
+MaxMediaStorageUsageInMB (READ)|Quantité maximale d'espace de stockage multimédia disponible pour le compte de base de données.
+MaxMediaStorageUsageInMB (READ)|Utilisation actuelle de l'espace de stockage multimédia disponible pour le compte de base de données.
 
 Notez qu’en plus d’approvisionner, de configurer et de gérer votre compte de base de données à partir du portail Azure, vous pouvez également créer et gérer des comptes de base de données DocumentDB par programme en utilisant les [API REST Azure DocumentDB](https://msdn.microsoft.com/library/azure/dn781481.aspx), ainsi que des [Kits de développement logiciel (SDK) clients](https://msdn.microsoft.com/library/azure/dn781482.aspx).
 
@@ -187,7 +123,7 @@ DocumentDB est un véritable système de base de données sans schéma. Il ne pa
 ###Configuration de la stratégie d'indexation d'une collection
 La stratégie d'indexation de chaque collection vous permet d'établir des compromis entre les performances et les stockages associés à l'indexation. Les options de configuration d'indexation suivantes sont disponibles :
 
--	Choisissez si la collection indexe ou non automatiquement tous les documents. Par défaut, tous les documents sont automatiquement indexés. Vous pouvez choisir de désactiver l'indexation automatique et d'ajouter de façon sélective uniquement certains documents à l'index. À l'inverse, vous pouvez choisir d'exclure certains documents. Pour ce faire, définissez la propriété automatique sur True ou False dans le paramètre indexingPolicy d'une collection et utilisez l'en-tête de demande [x-ms-indexingdirective\] lors de l'insertion, du remplacement ou de la suppression d'un document.  
+-	Choisissez si la collection indexe ou non automatiquement tous les documents. Par défaut, tous les documents sont automatiquement indexés. Vous pouvez choisir de désactiver l'indexation automatique et d'ajouter de façon sélective uniquement certains documents à l'index. À l'inverse, vous pouvez choisir d'exclure certains documents. Pour ce faire, définissez la propriété automatique sur True ou False dans le paramètre indexingPolicy d'une collection et utilisez l'en-tête de demande [x-ms-indexingdirective] lors de l'insertion, du remplacement ou de la suppression d'un document.  
 -	Sélectionnez l'inclusion ou l'exclusion de chemins d'accès ou de modèles spécifiques dans vos documents à partir de l'index. Pour ce faire, définissez les paramètres includedPaths et excludedPaths à partir du paramètre indexingPolicy d'une collection. Vous pouvez également configurer les compromis de performances et de stockage pour les requêtes de plage de données et de hachage pour certains formats de chemin d'accès. 
 -	Choisissez entre des mises à jour d'index synchrones (cohérentes) ou asynchrones (différées). Par défaut, l'index est mis à jour de manière synchrone lors de chaque insertion, remplacement ou suppression d'un document au niveau de la collection. Cela permet aux requêtes de fournir le même niveau de cohérence que celui des lectures de document. Alors que DocumentDB est optimisé pour les écritures et prend en charge des volumes soutenus d'écritures de documents, la maintenance d'index synchrone et les requêtes cohérentes, vous pouvez configurer certaines collections de manière à ce que la mise à jour de l'index soit effectuée en différé. L'indexation en différé dynamise les performances en termes d'écriture. Cela est idéal pour les scénarios d'ingestion en bloc pour les collections comportant principalement beaucoup de lectures.
 
@@ -461,4 +397,4 @@ Pour en savoir plus sur l’utilisation des ressources avec des commandes HTTP, 
 [3]: media/documentdb-resources/resources3.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="compute"
-   ms.date="07/07/2015"
+   ms.date="08/12/2015"
    ms.author="guscatal;spatnaik;elizapo"/>
 
 
@@ -25,6 +25,8 @@
 ## Récupération des applets de commande 
 -------------
 Pour commencer, téléchargez les applets de commande Azure Powershell [ici](http://go.microsoft.com/?linkid=9811175), qui incluent des applets de commande RemoteApp.
+
+Consultez l'aide pour l'applet de commande Azure RemoteApp [ici](https://msdn.microsoft.com/library/mt428031.aspx).
 
 ## Configuration des applets de commande Azure pour utiliser votre abonnement
 ------------------
@@ -99,4 +101,4 @@ Autres applets de commande RemoteApp :
 - Get-AzureRemoteAppOperationResult
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

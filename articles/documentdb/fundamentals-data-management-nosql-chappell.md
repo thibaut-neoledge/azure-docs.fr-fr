@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Présentation des technologies NoSQL sur Azure | Azure" 
+	pageTitle="Présentation des technologies NoSQL sur Azure | Microsoft Azure" 
 	description="Apprenez comment les technologies NoSQL sur HDInsight peuvent vous aider à gérer des données ne convenant pas aux bases de données relationnelles, telles que les jeux de données volumineux et les documents ou les graphiques JSON." 
 	editor="cgronlun" 
 	manager="jhubbard" 
@@ -31,4 +31,4 @@ Il vous familiarise avec les concepts suivants :
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

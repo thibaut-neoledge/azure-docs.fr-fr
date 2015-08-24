@@ -1,12 +1,11 @@
 <properties
 	pageTitle="Gérer les mots de passe dans Azure AD | Microsoft Azure"
-	description="Une rubrique qui explique comment gérer les mots de passe dans Azure AD."
+	description="Comment gérer les mots de passe dans Azure AD"
 	services="active-directory"
 	documentationCenter=""
 	authors="curtand"
-	manager="swadwha"
-	editor=""
-	tags="azure-classic-portal"/>
+	manager="stevenpo"
+	editor=""/>
 
 <tags
 	ms.service="active-directory"
@@ -14,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/28/2015"
+	ms.date="08/10/2015"
 	ms.author="curtand"/>
 
 # Gestion des mots de passe dans Azure AD
@@ -33,13 +32,15 @@ Le reste de cette rubrique couvre l'ensemble complet des fonctionnalités de ges
 
 Utilisez les liens suivants pour accéder à la documentation qui vous intéresse le plus :
 
-- [Présentation : gestion de mot de passe dans Azure AD](https://msdn.microsoft.com/library/azure/dn683880.aspx)
-- [Réinitialisation de mot de passe libre-service dans Azure AD : activation, configuration et test de la réinitialisation de mot de passe libre-service](https://msdn.microsoft.com/library/azure/dn683881.aspx)
-- [Réinitialisation de mot de passe libre-service dans Azure AD : personnalisation de la réinitialisation de mot de passe pour répondre à vos besoins](https://msdn.microsoft.com/library/azure/dn688249.aspx)
-- [Réinitialisation de mot de passe libre-service dans Azure AD : déploiement et gestion des meilleures pratiques](https://msdn.microsoft.com/library/azure/dn903643.aspx)
-- [Rapports de gestion des mots de passe dans Azure AD : affichage de l'activité de gestion de mot de passe dans votre client](https://msdn.microsoft.com/library/azure/dn903641.aspx)
-- [Écriture différée de mot de passe :configuration d’Azure AD pour gérer les mots de passe locaux](https://msdn.microsoft.com/library/azure/dn903642.aspx)
-- [FAQ/résolution de problèmes pour la gestion des mots de passe Azure AD](https://msdn.microsoft.com/library/azure/dn683878.aspx)
+- [Présentation : gestion de mot de passe dans Azure AD](active-directory-passwords-how-it-works.md)
+- [Réinitialisation de mot de passe libre-service dans Azure AD : activation, configuration et test de la réinitialisation de mot de passe libre-service](active-directory-passwords-getting-started.md#enable-users-to-reset-their-azure-ad-passwords)
+- [Réinitialisation de mot de passe libre-service dans Azure AD : personnalisation de la réinitialisation de mot de passe pour répondre à vos besoins](active-directory-passwords-customize.md)
+- [Réinitialisation de mot de passe libre-service dans Azure AD : déploiement et gestion des meilleures pratiques](active-directory-passwords-best-practices.md)
+- [Rapports de gestion des mots de passe dans Azure AD : affichage de l'activité de gestion de mot de passe dans votre client](active-directory-passwords-get-insights.md)
+- [Écriture différée de mot de passe :configuration d’Azure AD pour gérer les mots de passe locaux](active-directory-passwords-getting-started.md#enable-users-to-reset-or-change-their-ad-passwords)
+- [Résolution des problèmes liés à la gestion des mots de passe Azure AD](active-directory-passwords-troubleshoot.md)
+- [Forum aux questions sur la gestion des mots de passe Azure AD](active-directory-passwords-faq.md)
+
 
 ## Étapes suivantes
 
@@ -47,4 +48,4 @@ Utilisez les liens suivants pour accéder à la documentation qui vous intéress
 - [Création ou modification des utilisateurs dans Azure AD](active-directory-create-users.md)
 - [Gestion des groupes dans Azure AD](active-directory-manage-groups.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

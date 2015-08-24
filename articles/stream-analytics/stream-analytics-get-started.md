@@ -20,14 +20,14 @@
 
 # Prise en main de l’utilisation d’Azure Stream Analytics : détection des fraudes en temps réel
 
-Apprenez à créer une solution de bout en bout pour la détection des fraudes en temps réel avec Stream Analytics. Importez des événements dans un concentrateur d’événements Azure, écrivez des requêtes Stream Analytics à des fins d’agrégation ou d’alerte et envoyez les résultats à un récepteur de sortie pour obtenir des informations sur les données grâce au traitement en temps réel.
+Apprenez à créer une solution de bout en bout pour la détection des fraudes en temps réel avec Azure Stream Analytics. Importez des événements dans un concentrateur d’événements Azure, écrivez des requêtes Stream Analytics à des fins d’agrégation ou d’alerte et envoyez les résultats à un récepteur de sortie pour obtenir des informations sur les données grâce au traitement en temps réel.
 
-Azure Stream Analytics est un service entièrement géré permettant de traiter des événements avec une latence faible, une haute disponibilité et de façon évolutive via des données de diffusion dans le cloud. Pour plus d’informations, consultez [Présentation d’Azure Stream Analytics](stream-analytics-introduction.md).
+Stream Analytics est un service entièrement géré permettant de traiter des événements avec une latence faible, une haute disponibilité et un traitement d'événements complexes évolutif à l'aide d'une diffusion de données dans le cloud. Pour plus d’informations, consultez [Présentation d’Azure Stream Analytics](stream-analytics-introduction.md).
 
 
 ## Scénario : détection des fraudes de télécommunication et SIM en temps réel
 
-Une société de télécommunication dispose d’un volume important de données pour les appels entrants. Elle souhaite effectuer les opérations suivantes sur ses données : * Les réduire en une quantité gérable pour dégager des informations sur l’utilisation des clients au fil du temps et dans les différentes régions géographiques. * Détecter les fraudes SIM (plusieurs appels provenant de la même identité quasiment au même moment mais dans des zones géographiques différentes) en temps réel afin d’y répondre facilement en avertissant les clients ou en arrêtant le service.
+Une société de télécommunication dispose d’un volume important de données pour les appels entrants. Elle souhaite effectuer les opérations suivantes sur ses données : \* Les réduire en une quantité gérable pour dégager des informations sur l'utilisation des clients au fil du temps et dans différentes régions géographiques. \* Détecter les fraudes SIM (plusieurs appels provenant de la même identité quasiment au même moment mais dans des zones géographiques différentes) en temps réel afin d'y répondre facilement en avertissant les clients ou en arrêtant le service.
 
 Dans les scénarios de type Internet des objets où des tonnes de données télémétriques ou de capteur sont générées, les clients veulent les agréger ou être alertés en cas d’anomalie en temps réel.
 
@@ -35,11 +35,11 @@ Dans les scénarios de type Internet des objets où des tonnes de données tél�
 
 Ce scénario utilise un générateur d’événements disponible sur GitHub. Téléchargez-le [ici](https://github.com/Azure/azure-stream-analytics/tree/master/DataGenerators/TelcoGenerator), puis suivez les étapes de ce didacticiel pour configurer votre solution.
 
-## Création d’une entrée de concentrateur d’événements et d’un groupe de consommateurs
+## Création d'une entrée Azure Event Hubs et d'un groupe de consommateurs
 
 L’exemple d’application génère des événements et les transmet vers une instance de concentrateur d’événements en vue d’un traitement en temps réel. Les concentrateurs d’événements Service Bus constituent la méthode préférée de l’ingestion d’événements pour Stream Analytics. Pour plus d’informations sur les concentrateurs d’événements, consultez la [documentation Azure Service Bus](/documentation/services/service-bus/).
 
-Procédez comme suit pour créer un concentrateur d’événements.
+Créer un concentrateur d'événements :
 
 1.	Dans le [portail Azure](https://manage.windowsazure.com/), cliquez sur **Nouveau** > **Services d'application** > **Service Bus** > **Concentrateur d'événements** > **Création rapide**. Fournissez un nom, une région et un espace de noms nouveau ou existant pour créer un concentrateur d'événements.  
 2.	Nous vous recommandons de faire en sorte que chaque travail Stream Analytics lise les événements à partir d’un seul groupe de consommateurs de concentrateurs d’événements. Nous verrons plus loin comment créer un groupe de consommateurs et vous pourrez alors [en savoir plus](https://msdn.microsoft.com/library/azure/dn836025.aspx) sur ce point. Pour créer un groupe de consommateurs, accédez au concentrateur d’événements nouvellement créé et cliquez sur l’onglet **Groupes de consommateurs**, puis sur **Créer** en bas de la page et entrez un nom pour votre groupe de consommateurs.
@@ -49,7 +49,7 @@ Procédez comme suit pour créer un concentrateur d’événements.
 	![Stratégies d’accès partagé où vous pouvez créer une stratégie ayant les autorisations Gérer.](./media/stream-analytics-get-started/stream-ananlytics-shared-access-policies.png)
 
 5.	Cliquez sur **Enregistrer** au bas de la page.
-6.	Accédez au **Tableau de bord**, cliquez sur **Informations de connexion** en bas de la page, puis copiez et enregistrez les informations de connexion.
+6.	Accédez au **tableau de bord**, cliquez sur **Informations de connexion** en bas de la page, puis copiez et enregistrez les informations de connexion.
 
 ## Configuration et démarrage de l’application de génération d’événements
 
@@ -62,7 +62,7 @@ Nous avons fourni une application cliente qui génère des exemples de métadonn
 
     	telcodatagen [#NumCDRsPerHour] [SIM Card Fraud Probability] [#DurationHours]
 
-L'exemple suivant génère 1 000 événements avec une probabilité de 20 % de fraude sur une durée de 2 heures :
+L'exemple suivant génèrera 1 000 événements avec une probabilité de 20 % de fraude sur une durée de 2 heures :
 
     TelcoDataGen.exe 1000 .2 2
 
@@ -71,11 +71,11 @@ Vous verrez des enregistrements être envoyés à votre concentrateur d’évén
 | Enregistrement | Définition |
 | ------------- | ------------- |
 | CallrecTime | Horodatage de l'heure de début d'appel |
-| SwitchNum | Commutateur téléphonique utilisé pour connecter l'appel |
-| CallingNum | Numéro de téléphone de l'appelant |
-| CallingIMSI | Identité de l'abonné mobile international (IMSI). Identificateur unique de l'appelant |
-| CalledNum | Numéro de téléphone du destinataire de l'appel |
-| CalledIMSI | Identité de l'abonné mobile international (IMSI). Identificateur unique du destinataire de l'appel |
+| SwitchNum | Commutateur téléphonique utilisé pour connecter l'appel. |
+| CallingNum | Numéro de téléphone de l'appelant. |
+| CallingIMSI | Identité de l'abonné mobile international (IMSI). Identificateur unique de l'appelant. |
+| CalledNum | Numéro de téléphone du destinataire de l'appel. |
+| CalledIMSI | Identité de l'abonné mobile international (IMSI). Identificateur unique du destinataire de l'appel. |
 
 
 ## Création d’un travail Stream Analytics
@@ -83,16 +83,16 @@ Maintenant que nous avons un flux d’événements de télécommunication, nous 
 
 ### Configuration d’un travail Stream Analytics
 
-1.	Dans le portail Azure, cliquez sur **Nouveau** > **Services de données** > **Stream Analytics** > **Création rapide**.
+1.	Dans le portail Azure, cliquez sur **Nouveau > Services de données > Stream Analytics > Création rapide**.
 2.	Spécifiez les valeurs suivantes, puis cliquez sur **Créer un travail Stream Analytics** :
 
 	* **Nom du travail** : entrez un nom pour le travail.
 
 	* **Région** : sélectionnez la région où vous souhaitez exécuter le travail. Envisagez de placer le travail et le concentrateur d’événements dans la même région pour être certain d’améliorer les performances et de ne pas payer pour un transfert de données entre différentes régions.
 
-	* **Compte de stockage** : choisissez le compte de stockage que vous souhaitez utiliser pour stocker les données de surveillance de tous les travaux Stream Analytics en cours d’exécution dans cette région. Vous pouvez choisir un compte de stockage existant ou en créer un.
+	* **Compte de stockage** : choisissez le compte de stockage que vous souhaitez utiliser pour stocker les données de surveillance de toutes les tâches Stream Analytics en cours d'exécution dans cette région. Vous pouvez choisir un compte de stockage existant ou en créer un.
 
-3.	Dans le volet gauche, cliquez sur **Stream Analytics** pour afficher la liste des travaux Stream Analytics.
+3.	Dans le volet gauche, cliquez sur **Stream Analytics** pour afficher une liste des travaux Stream Analytics.
 
 	![Icône du service Stream Analytics](./media/stream-analytics-get-started/stream-analytics-service-icon.png)
 
@@ -109,7 +109,7 @@ Maintenant que nous avons un flux d’événements de télécommunication, nous 
 
 	Si votre concentrateur d’événements est situé dans un autre abonnement, sélectionnez **Utiliser le concentrateur d’événements à partir d’un autre abonnement** et entrez manuellement l’**espace de noms Service Bus**, le **nom du concentrateur d’événements**, le **nom de la stratégie du concentrateur d’événements**, la **clé de stratégie du concentrateur d’événements** et le **nombre de partitions du concentrateur d’événements**.
 
-	* **Nom du concentrateur d'événements** : sélectionnez le nom du concentrateur d’événements.
+	* **Nom du concentrateur d'événements** : sélectionnez le nom du concentrateur d'événements.
 
 	* **Nom de la stratégie du concentrateur d'événements** : sélectionnez la stratégie de concentrateur d’événements créée précédemment dans ce didacticiel.
 
@@ -126,11 +126,11 @@ Maintenant que nous avons un flux d’événements de télécommunication, nous 
 Stream Analytics prend en charge un modèle de requête simple et déclaratif pour la description des transformations dans le cadre du traitement en temps réel. Pour plus d’informations sur ce langage, consultez la page [Références sur le langage des requêtes d’Azure Stream Analytics](https://msdn.microsoft.com/library/dn834998.aspx). Ce didacticiel aborde la création et le test de plusieurs requêtes sur votre flux de données d’appel en temps réel.
 
 #### Facultatif : exemples de données d’entrée
-Pour appliquer votre requête à des données de travail réelles, vous pouvez utiliser la fonctionnalité **Exemples de données** pour extraire des événements à partir de votre flux de données et créer un fichier .JSON contenant les événements du test. Les étapes ci-dessous montrent comment effectuer cette opération. Nous avons également fourni un exemple de [Telco.json](https://github.com/Azure/azure-stream-analytics/blob/master/Sample%20Data/telco.json) à des fins de test.
+Pour appliquer votre requête à des données de travail réelles, vous pouvez utiliser la fonctionnalité **Exemples de données** pour extraire des événements à partir de votre flux de données et créer un fichier .JSON contenant les événements du test. Les étapes suivantes indiquent comment effectuer cette opération. Nous avons également fourni un exemple de fichier [Telco.json](https://github.com/Azure/azure-stream-analytics/blob/master/Sample%20Data/telco.json) à des fins de test.
 
 1.	Sélectionnez l’entrée de votre concentrateur d’événements, puis cliquez sur **Exemples de données** en bas de la page.
-2.	Dans la boîte de dialogue qui s’affiche, entrez une **Heure de début** pour le démarrage de la collecte des données et une **Durée** afin de déterminer la quantité de données supplémentaires à traiter.
-3.	Cliquez sur la coche pour démarrer l'échantillonnage des données à partir de l'entrée. La production du fichier de données peut prendre une minute ou deux. Quand le processus est terminé, cliquez sur **Détails** et téléchargez et enregistrez le fichier .JSON généré.
+2.	Dans la boîte de dialogue qui s'affiche, entrez une **Heure de début** pour le démarrage de la collecte de données et une **Durée** afin de déterminer la quantité de données supplémentaires à traiter.
+3.	Cliquez sur la coche pour démarrer l'échantillonnage des données à partir de l'entrée. La production du fichier de données peut prendre une minute ou deux. Une fois le processus terminé, cliquez sur **Détails** et téléchargez et enregistrez le fichier .JSON généré.
 
 	![Téléchargement et enregistrement des données traitées dans un fichier JSON](./media/stream-analytics-get-started/stream-analytics-download-save-json-file.png)
 
@@ -145,9 +145,9 @@ Si vous voulez archiver tous les événements, vous pouvez utiliser une requête
 
 	> Assurez-vous que le nom de la source d'entrée correspond à celui que vous avez spécifié précédemment.
 
-3.	Sous l’éditeur de requête, cliquez sur **Test**.
-4.	Fournissez un fichier de test, soit un que vous avez créé en suivant la procédure ci-dessus, soit [Telco.json](https://github.com/Azure/azure-stream-analytics/blob/master/Sample%20Data/telco.json).
-5.	Cliquez sur la coche et consultez les résultats affichés sous la définition de la requête.
+3.	Cliquez sur**Test**dans l'éditeur de requête.
+4.	Fournissez un fichier de test. Il peut s'agir soit d'un fichier que vous avez créé en suivant la procédure ci-dessus, soit du fichier [Telco.json](https://github.com/Azure/azure-stream-analytics/blob/master/Sample%20Data/telco.json).
+5.	Cliquez sur le bouton en forme de coche et consultez les résultats affichés sous la définition de la requête.
 
 	![Résultats de la définition de la requête](./media/stream-analytics-get-started/stream-analytics-sim-fraud-output.png)
 
@@ -177,7 +177,7 @@ Pour comparer la quantité d'appels entrants par région, nous allons exploiter 
 
 	Cette requête utilise le mot clé **Timestamp By** pour spécifier un champ d’horodatage dans la charge utile à utiliser dans le calcul temporel. Si ce champ n’est pas spécifié, l’opération de fenêtrage est réalisée en utilisant l’heure d’arrivée de chaque événement dans le concentrateur d’événements. Consultez [« Heure d’arrivée par rapport à l’heure de l’application » dans la page Référence du langage de requête de Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx).
 
-	Notez que vous pouvez accéder à un horodatage pour la fin de chaque fenêtre à l'aide de la propriété System.Timestamp.
+	Notez que vous pouvez accéder à un horodatage pour la fin de chaque fenêtre à l'aide de la propriété **System.Timestamp**.
 
 2.	Cliquez sur **Réexécuter** dans l’éditeur de requête pour afficher les résultats de la requête.
 
@@ -203,22 +203,22 @@ Pour identifier une utilisation potentiellement frauduleuse, nous examinons les 
 
 ### Création du récepteur de sortie
 
-Maintenant que nous avons défini un flux d’événements, un concentrateur d’événements d’entrée pour la réception des événements et une requête pour effectuer une transformation sur le flux, la dernière étape consiste à définir un récepteur de sortie pour le travail. Nous allons écrire des événements pour le comportement frauduleux dans le stockage d'objets blob.
+Maintenant que nous avons défini un flux d’événements, un concentrateur d’événements d’entrée pour la réception des événements et une requête pour effectuer une transformation sur le flux, la dernière étape consiste à définir un récepteur de sortie pour le travail. Il s'agit d'écrire des événements pour le comportement frauduleux lié au stockage d'objets blob.
 
 Si vous n’avez pas déjà de conteneur pour le stockage des objets blob, procédez comme suit pour en créer un.
 
-1.	Utilisez un compte de stockage existant ou créez-en un en cliquant sur **Nouveau** > **Services de données** > **Stockage** > **Création rapide**, puis suivez les instructions qui s’affichent.
-2.	Sélectionnez le compte de stockage, puis, en haut de la page, cliquez sur **Conteneurs**, puis sur **Ajouter**.
+1.	Utilisez un compte de stockage existant ou créez-en un en cliquant sur **NOUVEAU > SERVICES DE DONNÉES > STOCKAGE > CRÉATION RAPIDE**, puis suivez les instructions qui s'affichent.
+2.	Sélectionnez le compte de stockage, cliquez en haut de la page sur **CONTENEURS**, puis sur **AJOUTER**.
 3.	Entrez un **NOM** pour votre conteneur et définissez son **ACCÈS** sur Objet blob public.
 
 ## Spécification de la sortie du travail
 
-1.	En haut de la page de votre travail Stream Analytics, cliquez sur **SORTIE**, puis sur **AJOUTER UNE SORTIE**. La boîte de dialogue qui s’ouvre vous guidera le long d’une procédure de configuration de votre sortie.
+1.	En haut de la page de votre travail Stream Analytics, cliquez sur **SORTIE**, puis sur **AJOUTER UNE SORTIE**. La boîte de dialogue qui s'ouvre vous guidera le long d'une procédure de configuration de votre sortie.
 2.	Sélectionnez **STOCKAGE D’OBJETS BLOB**, puis cliquez avec le bouton droit.
 3.	Saisissez ou sélectionnez les valeurs suivantes sur la troisième page :
 
 	* **ALIAS DE SORTIE** : entrez un nom convivial pour cette sortie de travail.
-	* **ABONNEMENT** : si le stockage d’objets blob que vous avez créé est situé dans le même abonnement que le travail Stream Analytics, sélectionnez **Utiliser le compte de stockage de l’abonnement actuel**. Si votre espace de stockage appartient à un autre abonnement, sélectionnez **Utiliser le compte de stockage d’un autre abonnement** et entrez manuellement les informations des champs **COMPTE DE STOCKAGE**, **CLÉ DU COMPTE DE STOCKAGE** et **CONTENEUR**.
+	* **ABONNEMENT** : si le stockage d'objets blob que vous avez créé est situé dans le même abonnement que la tâche Stream Analytics, sélectionnez **Utiliser le compte de stockage de l'abonnement actuel**. Si votre espace de stockage appartient à un autre abonnement, sélectionnez **Utiliser le compte de stockage d’un autre abonnement** et entrez manuellement les informations des champs **COMPTE DE STOCKAGE**, **CLÉ DU COMPTE DE STOCKAGE** et **CONTENEUR**.
 	* **COMPTE DE STOCKAGE** : sélectionnez le nom du compte de stockage.
 	* **CONTENEUR** : sélectionnez le nom du conteneur.
 	* **PRÉFIXE DU NOM DE FICHIER** : entrez un préfixe de fichier à utiliser lors de l’écriture de la sortie de l’objet blob.
@@ -233,10 +233,10 @@ Si vous n’avez pas déjà de conteneur pour le stockage des objets blob, proc�
 
 ## Démarrer le travail de traitement en temps réel
 
-Après avoir spécifié une entrée, une requête et une sortie pour le travail Stream Analytics, nous pouvons le démarrer pour la détection des fraudes en temps réel.
+Une fois que vous avez spécifié une entrée, une requête et une sortie pour la tâche Stream Analytics, nous pouvons lancer la détection des fraudes en temps réel.
 
 1.	Sur le **TABLEAU DE BORD** du travail, en bas de la page, cliquez sur **DÉMARRER**.
-2.	Dans la boîte de dialogue qui s’affiche, sélectionnez **HEURE DE DÉBUT DU TRAVAIL**, puis cliquez sur la coche en bas de la boîte de dialogue. L’état du travail passe à **Démarrage**, puis à **En cours d’exécution**.
+2.	Dans la boîte de dialogue qui s'affiche, sélectionnez **HEURE DE DÉMARRAGE DE LA TÂCHE**, puis activez la case à cocher en bas de la boîte de dialogue. L’état du travail passe à **Démarrage**, puis à **En cours d’exécution**.
 
 ## Afficher la sortie de détection des fraudes
 
@@ -255,6 +255,5 @@ Pour obtenir une assistance, consultez le [forum Azure Stream Analytics](https:/
 - [Mise à l'échelle des travaux Azure Stream Analytics](stream-analytics-scale-jobs.md)
 - [Références sur le langage des requêtes d'Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Références sur l’API REST de gestion d’Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

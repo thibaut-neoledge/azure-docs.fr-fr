@@ -35,7 +35,7 @@ Dans le [portail Azure][portal], créez une ressource Application Insights. Choi
 
 Dans le panneau qui s’ouvre, vous trouverez des données relatives à l’utilisation et aux performances de votre application. Vous devriez trouver une vignette sur l'écran d'accueil pour accéder à ces informations, la prochaine fois que vous vous connecterez à Azure. Sinon, cliquez sur Parcourir.
 
-## Téléchargez Application Insights pour Mac
+## Téléchargement d’Application Insights pour iOS
 
 (Si vous ne l’avez pas encore fait.)
 
@@ -141,4 +141,4 @@ Cliquez sur n’importe quel graphique pour obtenir plus de détails. Par exempl
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

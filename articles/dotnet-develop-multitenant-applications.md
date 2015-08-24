@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Modèle d'application web mutualisée - Architecture Azure"
+	pageTitle="Modèle d'application web mutualisée | Microsoft Azure"
 	description="Trouvez des présentations et des modèles de conception architecturaux qui décrivent comment implémenter une application web mutualisée dans Azure."
 	services=""
 	documentationCenter=".net"
@@ -95,4 +95,4 @@ Azure offre une série de méthodes permettant d'approvisionner de nouveaux loca
 [Hébergement d'une application mutualisée dans Azure]: http://msdn.microsoft.com/library/hh534480.aspx
 [Designing Multitenant Applications on Azure]: http://msdn.microsoft.com/library/windowsazure/hh689716
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

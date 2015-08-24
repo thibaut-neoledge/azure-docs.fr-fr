@@ -24,12 +24,12 @@ L’activité de copie les données d’un magasin de données **source** vers u
 
 | **Source** | **Section sink** |
 | ------ | ---- |
-| [Objet blob Azure](data-factory-azure-blob-connector.md) | Objet blob Azure, table Azure, base de données Azure SQL, serveur SQL local, serveur SQL sur IaaS, Azure DocumentDB |
+| [Objet blob Azure](data-factory-azure-blob-connector.md) | Objet blob Azure, table Azure, base de données SQL Azure, serveur SQL local, serveur SQL sur IaaS, Azure DocumentDB, système de fichiers local |
 | [Table Azure](data-factory-azure-table-connector.md) | Objet blob Azure, table Azure, base de données Azure SQL, serveur SQL local, serveur SQL sur IaaS, Azure DocumentDB |
 | [Base de données SQL Azure](data-factory-azure-sql-connector.md) | Objet blob Azure, table Azure, base de données Azure SQL, serveur SQL local, serveur SQL sur IaaS, Azure DocumentDB |
 | [Azure DocumentDB](data-factory-azure-documentdb-connector.md) | Objet blob Azure, table Azure, base de données SQL Azure |
 | [Serveur SQL sur IaaS](data-factory-sqlserver-connector.md) | Objet blob Azure, table Azure, base de données Azure SQL, serveur SQL local, serveur SQL sur IaaS |
-| [Système de fichiers local](data-factory-onprem-file-system-connector.md) | Objet blob Azure, table Azure, base de données Azure SQL, serveur SQL local, serveur SQL sur IaaS |
+| [Système de fichiers local](data-factory-onprem-file-system-connector.md) | Objet blob Azure, table Azure, base de données SQL Azure, serveur SQL local, serveur SQL sur IaaS, système de fichiers local |
 | [Serveur SQL local](data-factory-sqlserver-connector.md) | Objet blob Azure, table Azure, base de données Azure SQL, serveur SQL local, serveur SQL sur IaaS |
 | [Base de données Oracle locale](data-factory-onprem-oracle-connector.md) | Objet blob Azure, table Azure, base de données Azure SQL, serveur SQL local, serveur SQL sur IaaS |
 | [Base de données MySQL locale](data-factory-onprem-mysql-connector.md) | Objet blob Azure, table Azure, base de données Azure SQL, serveur SQL local, serveur SQL sur IaaS |
@@ -93,4 +93,4 @@ Des propriétés telles que le nom, la description, les tables d’entrée et de
 
 Pour l’activité de copie, la section **typeProperties** varie selon les types de sources et récepteurs. Chaque page spécifique du magasin de données répertoriée ci-dessus décrit les propriétés spécifiques au type de magasin de données.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Présentation d’Azure Key Vault | Vue d’ensemble" 
+	pageTitle="Présentation d’Azure Key Vault | Microsoft Azure" 
 	description="Azure Key Vault permet de protéger les clés de chiffrement et les secrets utilisés par les services et les applications cloud. En utilisant Azure Key Vault, les clients peuvent chiffrer les clés et secrets (tels que les clés d’authentification, les clés de compte de stockage, les clés de chiffrement de données, les fichiers .PFX et les mots de passe) à l’aide de clés protégées par des modules de sécurité matériels (HSM)." 
 	services="key-vault" 
 	documentationCenter="" 
@@ -68,4 +68,4 @@ Pour plus d’informations sur l’utilisation des clés et des secrets avec Azu
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Création, gestion ou suppression d’un compte de stockage | Azure"
+	pageTitle="Création, gestion ou suppression d’un compte de stockage | Microsoft Azure"
 	description="Découvrez comment créer, gérer ou supprimer un compte de stockage dans le portail de gestion Azure."
 	services="storage"
 	documentationCenter=""
@@ -167,4 +167,4 @@ Pour supprimer un compte de stockage obsolète, utilisez **Supprimer** sur le ta
 - Consultez le [Blog de l'équipe Azure Storage](http://blogs.msdn.com/b/windowsazurestorage/).
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

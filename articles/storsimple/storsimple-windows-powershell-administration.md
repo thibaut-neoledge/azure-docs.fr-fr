@@ -6,7 +6,6 @@
    authors="alkohli"
    manager="carolz"
    editor="tysonn" />
-
 <tags 
    ms.service="storsimple"
    ms.devlang="NA"
@@ -15,7 +14,6 @@
    ms.workload="TBD"
    ms.date="08/04/2015"
    ms.author="alkohli@microsoft.com" />
-
 
 # Utiliser Windows PowerShell pour StorSimple pour appliquer votre appareil
 
@@ -201,4 +199,4 @@ Vous pouvez facilement mettre à jour l’aide de l’interface Windows PowerShe
 ## Étapes suivantes
 Si vous rencontrez des problèmes avec votre appareil StorSimple lors de l’exécution d’un des flux de travail ci-dessus, reportez-vous à [Résolution des problèmes avec les applets de commande](storsimple-troubleshoot-deployment.md#cmdlets-available-for-troubleshooting).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

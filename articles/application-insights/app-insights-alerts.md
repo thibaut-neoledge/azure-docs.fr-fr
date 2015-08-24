@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/13/2015" 
+	ms.date="08/12/2015" 
 	ms.author="awills"/>
  
 # Configuration d’alertes dans Application Insights
@@ -44,9 +44,11 @@ Veillez à noter les unités dans lesquelles vous êtes invité à entrer la val
 
 ## Consultez vos alertes
 
-Les alertes vous sont envoyées par courrier électronique.
+Vous recevez un e-mail lorsqu’une alerte bascule entre les états inactive et active.
 
-Elles apparaissent également dans le journal des événements d’opérations :
+L’état actuel de chaque alerte est indiqué dans le panneau Règles d’alerte.
+
+L’historique des modifications d’état figure dans le journal des événements d’opérations :
 
 ![Sur le panneau Vue d’ensemble, près du bas de la page, cliquez sur « Événements de la semaine dernière »](./media/app-insights-alerts/09-alerts.png)
 
@@ -80,4 +82,4 @@ Les alertes les plus appréciées sont les suivantes :
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

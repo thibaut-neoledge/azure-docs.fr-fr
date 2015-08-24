@@ -13,12 +13,15 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="05/25/2015" 
+	ms.date="08/11/2015"  
 	ms.author="juliako"/>
 
 #Procédure : vérification de la progression des tâches
 
-Cet article fait partie de la série [workflow de vidéo à la demande Media Services](media-services-video-on-demand-workflow.md).
+> [AZURE.SELECTOR]
+- [Portal](media-services-portal-check-job-progress.md)
+- [.NET](media-services-check-job-progress.md)
+- [REST](media-services-rest-check-job-progress.md)
 
 Lorsque vous exécutez des travaux, vous avez généralement besoin de faire appel à une méthode de suivi de la progression du travail. Vous pouvez vérifier la progression en [définissant un gestionnaire d'événements StateChanged](#statechange_event_handler) ou en [utilisant le stockage de files d'attente Azure pour contrôler les notifications de tâches Media Services](#check_progress_with_queues). Les deux méthodes sont décrites dans cette rubrique.
 
@@ -427,4 +430,4 @@ L’exemple ci-dessus produit le résultat suivant. Vos valeurs varieront.
 	
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

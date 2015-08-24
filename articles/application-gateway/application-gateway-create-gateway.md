@@ -17,11 +17,17 @@
 
 # Création, démarrage ou suppression d'une passerelle Application Gateway
 
+
+> [AZURE.SELECTOR]
+- [Azure classic steps](application-gateway-create-gateway.md)
+- [Resource Manager Powershell steps](application-gateway-create-gateway-arm.md)
+
+
 Dans cette version, vous pouvez créer une passerelle Application Gateway à l'aide d'appels d'API REST ou PowerShell. La prise en charge du portail et de l'interface de ligne de commande sera fournie dans une prochaine version. Cet article vous guide lors des étapes de création, configuration, démarrage et suppression d'une passerelle Application Gateway.
 
 ## Avant de commencer
 
-1. Installez la version la plus récente des applets de commande PowerShell Azure à l'aide de Web Platform Installer. Vous pouvez télécharger et installer la dernière version à partir de la section **Windows PowerShell** de la [page de téléchargement](http://azure.microsoft.com/downloads/).
+1. Installez la version la plus récente des applets de commande PowerShell Azure à l'aide de Web Platform Installer. Vous pouvez télécharger et installer la dernière version à partir de la section **Windows PowerShell** de la [page Téléchargements](http://azure.microsoft.com/downloads/).
 2. Vérifiez que vous disposez d'un réseau virtuel qui fonctionne avec un sous-réseau valide. Assurez-vous qu’aucun ordinateur virtuel ou déploiement cloud n’utilise le sous-réseau. La passerelle Application Gateway doit être seule sur un sous-réseau virtuel.
 3. Les serveurs que vous configurerez pour utiliser la passerelle Application Gateway doivent exister ou vous devez créer leurs points de terminaison sur le réseau virtuel ou avec une adresse IP/VIP publique affectée.
 
@@ -33,11 +39,11 @@ Quand vous utilisez la commande New-AzureApplicationGateway pour créer la passe
 
 Les valeurs sont :
 
-- **Pool de serveurs principaux :** liste des adresses IP des serveurs principaux. Les adresses IP répertoriées doivent appartenir au sous-réseau de réseau virtuel ou elles doivent être une adresse IP/VIP publique. 
-- **Paramètres du pool de serveurs principaux :** chaque pool a des paramètres comme le port, le protocole et une affinité basée sur les cookies. Ces paramètres sont liés à un pool et sont appliqués à tous les serveurs du pool.
-- **Port frontal :** il s’agit du port public ouvert sur la passerelle Application Gateway. Le trafic atteint ce port, puis il est redirigé vers l’un des serveurs principaux.
-- **Écouteur :** l’écouteur a un port frontal, un protocole (Http ou Https, avec respect de la casse) et le nom du certificat SSL (en cas de configuration du déchargement SSL). 
-- **Règle :** la règle lie l’écouteur et le pool de serveurs principaux et définit vers quel pool de serveurs principaux le trafic doit être dirigé quand il atteint un écouteur spécifique. Actuellement, seule la règle de *base* est prise en charge. La règle de *base* est la distribution de charge par tourniquet.
+- **Pool de serveurs principaux** : liste des adresses IP des serveurs principaux. Les adresses IP répertoriées doivent appartenir au sous-réseau de réseau virtuel ou elles doivent être une adresse IP/VIP publique. 
+- **Paramètres du pool de serveurs principaux** : chaque pool comporte des paramètres comme le port, le protocole et une affinité basée sur les cookies. Ces paramètres sont liés à un pool et sont appliqués à tous les serveurs du pool.
+- **Port frontal** : il s’agit du port public ouvert sur la passerelle Application Gateway. Le trafic atteint ce port, puis il est redirigé vers l’un des serveurs principaux.
+- **Écouteur** : l’écouteur comporte un port frontal, un protocole (Http ou Https, sensibles à la casse) et le nom du certificat SSL (en cas de configuration du déchargement SSL). 
+- **Règle** : la règle lie l’écouteur et le pool de serveurs principaux et définit le pool de serveurs principaux vers lequel le trafic doit être dirigé lorsqu’il atteint un écouteur spécifique. Actuellement, seule la règle *basic* est prise en charge. La règle *basic* est la distribution de charge par tourniquet (round robin).
 
 
  
@@ -51,7 +57,7 @@ Vous devez suivre un ordre d’étapes spécifique pour créer une passerelle Ap
 
 ### Créer une ressource de passerelle Application Gateway
 
-**Pour créer la passerelle**, utilisez l’applet de commande `New-AzureApplicationGateway`, en remplaçant les valeurs par les vôtres. Notez que la facturation de la passerelle ne démarre pas à ce stade. La facturation commence à une étape ultérieure, lorsque la passerelle a démarré correctement.
+**Pour créer la passerelle**, utilisez l’applet de commande `New-AzureApplicationGateway` en remplaçant les valeurs par les vôtres. Notez que la facturation de la passerelle ne démarre pas à ce stade. La facturation commence à une étape ultérieure, lorsque la passerelle a démarré correctement.
 
 L’exemple suivant illustre la création d’une passerelle Application Gateway à l’aide d’un réseau virtuel appelé « testvnet1 » et d’un sous-réseau appelé « subnet-1 » :
 
@@ -84,10 +90,10 @@ L’exemple suivant illustre la création d’une passerelle Application Gateway
 	VirtualIPs    : {}
 	DnsName       :
 
->[AZURE.NOTE]La valeur par défaut de *InstanceCount* est 2, avec une valeur maximale de 10. La valeur par défaut de *GatewaySize* est Medium. Vous pouvez choisir Small, Medium ou Large.
+>[AZURE.NOTE]La valeur par défaut du paramètre *InstanceCount* est de 2, avec une valeur maximale de 10. La valeur par défaut du paramètre *GatewaySize* est Medium. Vous pouvez choisir Small, Medium ou Large.
 
 
- *Vip* et *DnsName* n’ont pas de valeur, car la passerelle n’a pas encore démarré. Ces valeurs seront créées une fois la passerelle en cours d'exécution.
+ *Vip* et *DnsName* sont vides, car la passerelle n’a pas encore démarré. Ces valeurs seront créées une fois la passerelle en cours d'exécution.
 
 ## Configurer la passerelle Application Gateway
 
@@ -219,13 +225,6 @@ L’exemple suivant montre comment configurer la passerelle Application Gateway 
 ### Étape 1
 
 Créez tous les éléments de configuration :
-
-Créez une adresse IP frontale :
-
-	PS C:\> $fip = New-Object Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.FrontendIPConfiguration 
-	PS C:\> $fip.Name = "fip1" 
-	PS C:\> $fip.Type = "Private" 
-	PS C:\> $fip.StaticIPAddress = "10.0.0.5" 
 
 Créez un port frontal :
 	
@@ -403,4 +402,4 @@ Si vous souhaitez plus d'informations sur les options d'équilibrage de charge e
 - [Équilibrage de charge Azure](https://azure.microsoft.com/documentation/services/load-balancer/)
 - [Azure Traffic Manager](https://azure.microsoft.com/documentation/services/traffic-manager/)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="TBD"
-   ms.date="07/30/2015"
+   ms.date="08/11/2015"
    ms.author="alkohli" />
 
 # Configuration de CHAP pour votre appareil StorSimple
@@ -192,4 +192,4 @@ Vous pouvez vérifier que le protocole CHAP est utilisé en procédant comme sui
 
 En savoir plus sur la [sécurité StorSimple](storsimple-security.md).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

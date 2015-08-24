@@ -1,7 +1,7 @@
 ### Exemple de conversion de type
 L’exemple suivant montre la copie de données à partir d’un objet blob vers SQL Azure avec des conversions de type.
 
-Supposons que le jeu de données d’objets blob soit au format CSV et contienne trois colonnes. L’une d’elles est une colonne datetime avec un format de date et d’heure personnalisé comprenant un nom abrégé en français pour le jour de la semaine.
+Supposons que le jeu de données d’objets blob soit au format CSV et contienne trois colonnes. L'une d'elles est une colonne datetime avec un format de date et d'heure personnalisé comprenant un nom abrégé en français pour le jour de la semaine.
 
 Vous allez définir le jeu de données source d’objets blob source comme suit, ainsi que des définitions de type pour les colonnes.
 
@@ -62,11 +62,11 @@ Ensuite, vous allez définir le jeu de données SQL Azure comme suit. Remarque 
 	        },
 	        "availability": {
 	            "frequency": "Hour",
-	            "interval": 1,
+	            "interval": 1
 	        }
 	    }
 	}
 
 Dans ce cas, Data Factory effectuera automatiquement les conversions de type, y compris pour le champ Datetime avec son format date/heure personnalisé, en utilisant la culture fr-fr lors du déplacement des données à partir de l’objet blob vers SQL Azure.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

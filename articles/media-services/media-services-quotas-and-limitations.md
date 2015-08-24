@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/16/2015" 
+	ms.date="08/11/2015"  
 	ms.author="juliako"/>
 
 
@@ -66,4 +66,4 @@ Pour ouvrir un ticket de support, procédez comme suit :
 1. Cliquez sur Envoyer pour ouvrir le ticket.
   
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

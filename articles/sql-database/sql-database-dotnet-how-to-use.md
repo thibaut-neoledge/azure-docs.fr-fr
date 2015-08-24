@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Utilisation de la base de données SQL (.NET) - Guide de fonctionnalités Azure" 
-	description="Prise en main d’une base de données SQL. Découvrez comment créer une instance de base de données SQL et vous-y connecter à l’aide d’ADO.NET, d’ODBC et du fournisseur EntityClient." 
+	pageTitle="Utilisation de la base de données SQL (.NET) | Microsoft Azure" 
+	description="Prise en main d’une base de données SQL. Découvrez comment créer une instance de base de données SQL et vous y connecter à l’aide d’ADO.NET, d’ODBC et du fournisseur EntityClient." 
 	services="sql-database" 
 	documentationCenter=".net" 
 	authors="jeffgoll" 
@@ -211,4 +211,4 @@ Pour plus d’informations, consultez la page [Fournisseur EntityClient pour Ent
 Maintenant que vous avez appris les principes de base de la connexion à une base de données SQL, consultez [Développement de base de données SQL Azure : Rubriques de procédures](http://msdn.microsoft.com/library/windowsazure/ee621787.aspx).
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

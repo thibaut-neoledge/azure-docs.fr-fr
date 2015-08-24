@@ -7,7 +7,6 @@
 	manager="jhubbard" 
 	editor="monicar"/>
 
-
 <tags 
 	ms.service="data-factory" 
 	ms.workload="data-services" 
@@ -16,7 +15,6 @@
 	ms.topic="article" 
 	ms.date="07/27/2015" 
 	ms.author="spelluru"/>
-
 
 # Didacticiel : créer et surveiller une fabrique de données à l'aide de Data Factory Editor
 > [AZURE.SELECTOR]
@@ -383,17 +381,6 @@ Pour obtenir une liste des activités prises en charge, consultez la rubrique [P
  
 Pour réaliser ce didacticiel en utilisant Azure PowerShell, consultez [Créer et surveiller une fabrique de données à l'aide d'Azure PowerShell][monitor-manage-using-powershell].
 
-## Étapes suivantes
-
-Article | Description
------- | ---------------
-[Copier des données avec Azure Data Factory (activité de copie)][copy-activity] | Cet article fournit une description détaillée de l'**activité de copie** que vous avez utilisée dans ce didacticiel. 
-[Permettre à vos pipelines d'utiliser des données locales][use-onpremises-datasources] | Cet article contient une procédure pas à pas permettant de copier les données d'une **base de données SQL Server locale** vers un objet blob Azure. 
-[Didacticiel : déplacement et traitement de fichiers journaux à l'aide de Data Factory][adf-tutorial] | Cet article comporte une **procédure pas à pas de bout en bout** qui montre comment implémenter un **scénario réel** à l'aide d'Azure Data Factory pour transformer des données de fichiers journaux en informations pertinentes.
-[Résoudre les problèmes liés à Data Factory][troubleshoot] | Cet article explique comment **résoudre des problèmes** liés à Azure Data Factory. Vous pouvez essayer la procédure pas à pas de cet article portant sur ADFTutorialDataFactory en introduisant une erreur (en supprimant la table dans la base de données SQL Azure). 
-[Référence du développeur Azure Data Factory][developer-reference] | Ces informations de référence pour le développeur comportent des informations complètes concernant les applets de commande, le script JSON, les fonctions, etc. 
-
-
 <!--Link references-->
 [azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
 [azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
@@ -410,11 +397,9 @@ Article | Description
 
 [data-factory-editor]: data-factory-editor.md
 [monitor-manage-using-powershell]: data-factory-monitor-manage-using-powershell.md
-[use-onpremises-datasources]: data-factory-use-onpremises-datasources.md
 [adf-tutorial]: data-factory-tutorial.md
 [use-custom-activities]: data-factory-use-custom-activities.md
 [use-pig-and-hive-with-data-factory]: data-factory-pig-hive-activities.md
-[copy-activity]: data-factory-copy-activity.md
 [troubleshoot]: data-factory-troubleshoot.md
 [data-factory-introduction]: data-factory-introduction.md
 [data-factory-create-storage]: http://azure.microsoft.com/documentation/articles/storage-create-storage-account/#create-a-storage-account
@@ -514,4 +499,4 @@ Article | Description
 [image-data-factory-name-not-available]: ./media/data-factory-get-started-using-editor/getstarted-data-factory-not-available.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

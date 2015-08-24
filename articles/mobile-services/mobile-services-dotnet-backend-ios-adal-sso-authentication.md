@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Authentification de votre application avec le service d'authentification unique de la bibliothèque d'authentification Active Directory (iOS) | Centre de développement mobile" 
+	pageTitle="Authentification de votre application avec le service d'authentification unique de la bibliothèque d'authentification Active Directory (iOS) | Microsoft Azure" 
 	description="Découvrez comment authentifier les utilisateurs pour l'authentification unique avec la bibliothèque d'authentification AD dans votre application iOS." 
 	documentationCenter="ios" 
 	authors="mattchenderson" 
@@ -122,4 +122,4 @@ Ce didacticiel requiert les éléments suivants :
 [Bibliothèque d'authentification Active Directory pour iOS]: https://github.com/MSOpenTech/azure-activedirectory-library-for-ios
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

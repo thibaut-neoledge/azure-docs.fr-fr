@@ -1,12 +1,11 @@
 <properties 
-	pageTitle="Création d’une application de classement du Windows Store avec le serveur principal .NET | Azure Mobile Services" 
+	pageTitle="Création d’une application de classement du Windows Store avec le serveur principal .NET | Microsoft Azure" 
 	description="Découvrez comment créer une application de classement du Windows Store à l’aide d’Azure Mobile Services avec un service principal .NET." 
 	documentationCenter="windows" 
 	authors="MikeWasson" 
 	manager="dwrede" 
 	editor="" 
 	services="mobile-services"/>
-
 
 <tags 
 	ms.service="mobile-services" 
@@ -16,7 +15,6 @@
 	ms.topic="article" 
 	ms.date="06/24/2015" 
 	ms.author="glenga"/>
-
 
 # Création d'une application de classement avec le backend .NET Azure Mobile Services
 
@@ -320,7 +318,7 @@ L’attribut **Route** définit un itinéraire personnalisé pour cette méthode
 
 	[Route("api/score")]
 
-Vous pouvez également placer la méthode dans un contrôleur séparé. Aucun des deux cas n'est préférable, tout dépend comment vous voulez organiser votre code. Pour en savoir plus sur l’attribut **[Route\]**, consultez la page [Routage d’attribut dans l’API web](http://www.asp.net/web-api/overview/web-api-routing-and-actions/attribute-routing-in-web-api-2).
+Vous pouvez également placer la méthode dans un contrôleur séparé. Aucun des deux cas n'est préférable, tout dépend comment vous voulez organiser votre code. Pour en savoir plus sur l’attribut **[Route]**, consultez la page [Routage d’attribut dans l’API web](http://www.asp.net/web-api/overview/web-api-routing-and-actions/attribute-routing-in-web-api-2).
 
 ## Création de l'application du Windows Store
 
@@ -590,7 +588,7 @@ Enfin, ajoutez des méthodes effectuant un appel dans la couche de service.
 
 ## Ajout d'une instance MobileServiceClient
 
-Ouvrez le fichier App.xaml.cs* et ajoutez une instance **MobileServiceClient** à la classe `App`.
+Ouvrez le fichier App.xaml.cs\* et ajoutez une instance **MobileServiceClient** à la classe `App`.
 
 	// New code:
 	using Microsoft.WindowsAzure.MobileServices;
@@ -637,7 +635,6 @@ La liste des joueurs s'affiche dans une zone **ListBox** :
 	<ListBox Width="200" Height="400" x:Name="PlayerListBox" 
 	    ItemsSource="{Binding Players}" DisplayMemberPath="Name"/>
 
-
 Les rangs s'affichent dans une liste **ListView** :
 
 	<ListView x:Name="RankingsListView" ItemsSource="{Binding Ranks}" SelectionMode="None">
@@ -647,18 +644,12 @@ Les rangs s'affichent dans une liste **ListView** :
 	            <Grid>
 	                <Grid.ColumnDefinitions>
 	                    <ColumnDefinition Width="*"/>
-
 	                    <ColumnDefinition Width="2*"/>
-
 	                    <ColumnDefinition Width="*"/>
-
 	                </Grid.ColumnDefinitions>
 	                <TextBlock Text="{Binding Path=Rank}"/>
-
 	                <TextBlock Text="{Binding Path=PlayerName}" Grid.Column="1"/>
-
 	                <TextBlock Text="{Binding Path=Score}" Grid.Column="2"/>
-
 	            </Grid>
 	        </DataTemplate>
 	    </ListView.ItemTemplate>
@@ -771,4 +762,4 @@ Transmettez l'URL de service et la clé d'application au constructeur **MobileSe
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

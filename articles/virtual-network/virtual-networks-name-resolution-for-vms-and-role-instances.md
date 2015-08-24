@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="06/30/2015"
+   ms.date="08/10/2015"
    ms.author="joaoma" />
 
 # Résolution de noms pour les machines virtuelles et les instances de rôle
@@ -21,9 +21,9 @@ Selon la manière dont vous utilisez Azure pour héberger les solutions IaaS, P
 
 Lorsque des instances de rôle et des machines virtuelles hébergées dans Azure doivent résoudre des noms d’hôte et de domaine en adresses IP internes, elles peuvent utiliser l’une des deux méthodes suivantes :
 
-- [Résolution de noms dans Azure](azure-provided-name-resolution)
+- [Résolution de noms dans Azure](#azure-provided-name-resolution)
 
-- [Résolution de noms à l’aide de votre propre serveur DNS](name-resolution-using-your-own-DNS-server)
+- [Résolution de noms à l’aide de votre propre serveur DNS](#name-resolution-using-your-own-dns-server)
 
 Le type de résolution de noms que vous utilisez dépend de la manière dont vos machines virtuelles et vos instances de rôle doivent communiquer au sein de votre service cloud et avec d’autres services cloud.
 
@@ -108,7 +108,7 @@ Vous pouvez spécifier plusieurs serveurs DNS à utiliser par vos machines virt
 
 ### Définition d’un serveur DNS à l’aide du portail de gestion
 
-Lorsque vous créez votre réseau virtuel à l’aide du portail de gestion, vous pouvez spécifier l’adresse IP et le nom du (ou des) serveur(s) DNS que vous souhaitez utiliser. Une fois que le réseau virtuel est créé, les machines virtuelles et les instances de rôle déployées sur le réseau virtuel sont automatiquement configurées avec vos paramètres DNS spécifiés, sauf si vous spécifiez le(s) serveur(s) à utiliser pour le déploiement. Pour plus d’informations sur la configuration des paramètres Microsoft Azure Virtual Network, consultez la section [À propos des paramètres de réseau virtuel dans le portail de gestion](https://msdn.microsoft.com/library/azure/jj156074.aspx).
+Lorsque vous créez votre réseau virtuel à l’aide du portail de gestion, vous pouvez spécifier l’adresse IP et le nom du (ou des) serveur(s) DNS que vous souhaitez utiliser. Une fois que le réseau virtuel est créé, les machines virtuelles et les instances de rôle déployées sur le réseau virtuel sont automatiquement configurées avec vos paramètres DNS spécifiés, sauf si vous spécifiez le(s) serveur(s) à utiliser pour le déploiement. Pour plus d’informations sur la configuration des paramètres Microsoft Azure Virtual Network, consultez la section [À propos des paramètres de réseau virtuel dans le portail de gestion](virtual-networks-settings.md).
 
 > [AZURE.NOTE]Vous pouvez utiliser jusqu’à 9 serveurs DNS uniquement.
 
@@ -123,8 +123,14 @@ Le fichier de configuration de service est créé pour chaque service cloud que 
 > [AZURE.NOTE]Les paramètres du fichier de configuration de service remplacent les paramètres du fichier de configuration de réseau. Par exemple, si une machine virtuelle est ajoutée à un service cloud qui fait partie d’un réseau virtuel et que les fichiers de configuration de réseau et de service présentent tous deux des paramètres DNS, les paramètres DNS du fichier de configuration de service sont appliqués à la machine virtuelle.
 
 
-## Voir aussi
+## Étapes suivantes
 
-[Schéma de configuration de service Microsoft Azure](https://msdn.microsoft.com/library/azure/ee758710) [Schéma de configuration Virtual Network](https://msdn.microsoft.com/library/azure/jj157100) [À propos de la configuration des paramètres Virtual Network dans le portail de gestion](https://msdn.microsoft.com/library/azure/jj156074.aspx) [Configurer un réseau virtuel à l’aide d’un fichier de configuration de réseau](https://msdn.microsoft.com/library/azure/jj156097.aspx) [Tâches de configuration Microsoft Azure Virtual Network](https://msdn.microsoft.com/library/azure/jj156206.aspx)
+[Schéma de configuration de service Microsoft Azure](https://msdn.microsoft.com/library/azure/ee758710)
 
-<!---HONumber=August15_HO6-->
+[Schéma de configuration du réseau virtuel](https://msdn.microsoft.com/library/azure/jj157100)
+
+[À propos de la configuration des paramètres de réseau virtuel dans le Portail de gestion](virtual-networks-settings.md)
+
+[Configuration d'un réseau virtuel à l'aide d'un fichier de configuration réseau](virtual-networks-using-network-configuration-file.md)
+
+<!---HONumber=August15_HO7-->

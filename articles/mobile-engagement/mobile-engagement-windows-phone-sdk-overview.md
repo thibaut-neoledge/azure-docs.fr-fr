@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-phone" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/07/2015" 
+	ms.date="08/10/2015" 
 	ms.author="piyushjo" />
 
 #Vue d'ensemble du Kit de développement Silverlight de Windows Phone pour Azure Engagement Mobile
@@ -55,4 +55,4 @@ Aucune.
 Consultez [Procédures de mise à niveau](mobile-engagement-windows-phone-upgrade-procedure/)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

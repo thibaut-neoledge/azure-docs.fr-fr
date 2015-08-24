@@ -3,7 +3,7 @@
 	description="Concepts de Mobile Engagement"
 	services="mobile-engagement"
 	documentationCenter="mobile"
-	authors="kpiteira"
+	authors="piyushjo"
 	manager="dwrede"
 	editor="" />
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="01/24/2015"
-	ms.author="kapiteir" />
+	ms.date="08/10/2015"
+	ms.author="piyushjo" />
 
 #Concepts d'Azure Mobile Engagement
 
@@ -79,4 +79,4 @@ Les extras sont structurés de la même façon que les objets JSON : ils sont c
 L'intégralité de l'arborescence de paires clé/valeur est stockée en tant qu'objet JSON. Toutefois, seul le premier niveau de clés/valeurs est décomposé pour être directement accessible à certaines fonctions avancées, telles que les segments (par exemple, vous pouvez facilement définir un segment « Fans SciFi » constitué de tous les utilisateurs ayant envoyé au moins 10 fois l'événement « content\_viewed » avec la clé extra « content\_type » défini sur la valeur « scifi » le mois dernier). Il est donc fortement recommandé de n'envoyer que des extras constitués de listes simples de paires clé/valeur utilisant des valeurs scalaires (par ex., chaînes, dates, entiers ou valeurs booléennes).
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

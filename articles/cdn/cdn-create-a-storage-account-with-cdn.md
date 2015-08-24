@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Utilisation de CDN - Guide des fonctionnalités Azure" 
+	pageTitle="Utilisation de CDN | Microsoft Azure" 
 	description="Découvrez comment utiliser le réseau de distribution de contenu (CDN) Azure pour diffuser du contenu haut débit en mettant en cache les objets blob et le contenu statique." 
 	services="cdn" 
 	documentationCenter=".net" 
@@ -120,4 +120,4 @@ La capacité à purger immédiatement le contenu n’est actuellement pas prise 
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

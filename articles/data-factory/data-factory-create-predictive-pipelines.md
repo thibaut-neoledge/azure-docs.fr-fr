@@ -1,12 +1,11 @@
 <properties 
-	pageTitle="Data Factory - Créer des pipelines prédictifs à l'aide de Data Factory et Machine Learning | Azure" 
+	pageTitle="Data Factory - Créer des pipelines prédictifs à l’aide de Data Factory et Machine Learning | Microsoft Azure" 
 	description="Describes how to create create predictive pipelines using Azuer Data Factory and Azure Machine Learning" 
 	services="data-factory" 
 	documentationCenter="" 
 	authors="spelluru" 
 	manager="jhubbard" 
 	editor="monicar"/>
-
 
 <tags 
 	ms.service="data-factory" 
@@ -16,7 +15,6 @@
 	ms.topic="article" 
 	ms.date="08/04/2015" 
 	ms.author="spelluru"/>
-
 
 # Créer des pipelines prédictifs à l'aide d'Azure Data Factory et Azure Machine Learning 
 ## Vue d'ensemble
@@ -241,7 +239,7 @@ Comme pour le lecteur SQL Azure, les propriétés de l'enregistreur SQL Azure pe
 
 #### Objet blob Azure comme source
 
-Lorsque vous utilisez le module Lecteur d'une Azure Machine Learning, vous pouvez spécifier un objet blob Azure comme entrée. Les fichiers du stockage blob Azure peuvent être les fichiers de sortie (par exemple, 000000\_0) qui sont générés par un script Pig et Hive exécuté sur HDInsight. Le module Lecteur vous permet de lire des fichiers (sans extension) en configurant le **chemin d'accès au conteneur, au répertoire ou à la propriété blob** du module Lecteur pour pointer vers le dossier/conteneur où figurent les fichiers, comme indiqué ci-dessous. Notez que l'astérisque (*)**spécifie que tous les fichiers du dossier/conteneur (par exemple, data/aggregateddata/year=2014/month-6/*)** seront lus dans le cadre de l'expérience.
+Lorsque vous utilisez le module Lecteur d'une Azure Machine Learning, vous pouvez spécifier un objet blob Azure comme entrée. Les fichiers du stockage blob Azure peuvent être les fichiers de sortie (par exemple, 000000\_0) qui sont générés par un script Pig et Hive exécuté sur HDInsight. Le module Lecteur vous permet de lire des fichiers (sans extension) en configurant le **chemin d'accès au conteneur, au répertoire ou à la propriété blob** du module Lecteur pour pointer vers le dossier/conteneur où figurent les fichiers, comme indiqué ci-dessous. Notez que l'astérisque (\*)**spécifie que tous les fichiers du dossier/conteneur (par exemple, data/aggregateddata/year=2014/month-6/\*)** seront lus dans le cadre de l'expérience.
 
 ![Propriétés des objets blob Azure](./media/data-factory-create-predictive-pipelines/azure-blob-properties.png)
 
@@ -329,4 +327,4 @@ Article | Description
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

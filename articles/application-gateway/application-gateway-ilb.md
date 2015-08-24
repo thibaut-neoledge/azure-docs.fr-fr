@@ -17,12 +17,16 @@
 
 # Création d'une passerelle Application Gateway avec un équilibrage de charge interne (ILB)
 
+> [AZURE.SELECTOR]
+- [Azure classic steps](application-gateway-ilb.md)
+- [Resource Manager Powershell steps](application-gateway-ilb-arm.md)
+
 
 Vous pouvez configurer une passerelle Application Gateway avec une adresse IP virtuelle côté Internet ou avec un point de terminaison interne non exposé à Internet, également appelé point de terminaison d'équilibrage de charge interne (ILB). La configuration de la passerelle avec un équilibrage de charge interne est utile pour les applications métier internes non exposées à Internet. C'est également utile pour les services/niveaux au sein d'une application multiniveau qui se trouve dans une limite de sécurité non exposée à Internet, mais la distribution de charge par tourniquet, l'adhérence de session ou la terminaison SSL sont tout de mêmes requises. Cet article vous guidera au cours des étapes de configuration d'une passerelle Application Gateway avec un équilibrage de charge interne.
 
 ## Avant de commencer
 
-1. Installez la version la plus récente des applets de commande PowerShell Azure à l'aide de Web Platform Installer. Vous pouvez télécharger et installer la dernière version à partir de la section **Windows PowerShell** de la [page de téléchargement](http://azure.microsoft.com/downloads/).
+1. Installez la version la plus récente des applets de commande PowerShell Azure à l'aide de Web Platform Installer. Vous pouvez télécharger et installer la dernière version à partir de la section **Windows PowerShell** de la [page Téléchargements](http://azure.microsoft.com/downloads/).
 2. Vérifiez que vous disposez d'un réseau virtuel qui fonctionne avec un sous-réseau valide.
 3. Vérifiez que vous disposez de serveurs principaux dans le réseau virtuel ou avec une adresse IP/VIP affectée.
 
@@ -39,7 +43,7 @@ Pour créer une passerelle Application Gateway, exécutez les étapes suivantes 
 
 ## Créer une passerelle Application Gateway :
 
-**Pour créer la passerelle**, utilisez l'applet de commande `New-AzureApplicationGateway`, en remplaçant les valeurs par les vôtres. Notez que la facturation de la passerelle ne démarre pas à ce stade. La facturation commence à une étape ultérieure, lorsque la passerelle a démarré correctement.
+**Pour créer la passerelle**, utilisez l’applet de commande `New-AzureApplicationGateway` en remplaçant les valeurs par les vôtres. Notez que la facturation de la passerelle ne démarre pas à ce stade. La facturation commence à une étape ultérieure, lorsque la passerelle a démarré correctement.
 
 	PS C:\> New-AzureApplicationGateway -Name AppGwTest -VnetName testvnet1 -Subnets @("Subnet-1")
 
@@ -49,9 +53,9 @@ Pour créer une passerelle Application Gateway, exécutez les étapes suivantes 
 	----       ----------------     ------------                             ----
 	Successful OK                   55ef0460-825d-2981-ad20-b9a8af41b399
 
-**Pour valider** que la passerelle a été créée, vous pouvez utiliser l'applet de commande `Get-AzureApplicationGateway`.
+**Pour valider** la création de la passerelle, vous pouvez utiliser l’applet de commande `Get-AzureApplicationGateway`.
 
-Dans l'exemple, *Description*, *InstanceCount* et *GatewaySize* sont des paramètres facultatifs. La valeur par défaut pour *InstanceCount* est 2, avec une valeur maximale de 10. La valeur par défaut pour *GatewaySize* est Medium. Les autres valeurs disponibles sont Small et Large. *Vip* et *DnsName* s'affichent sans valeur car la passerelle n'a pas encore démarré. Ces valeurs seront créées une fois la passerelle en cours d'exécution.
+Dans l’exemple, *Description*, *InstanceCount* et *GatewaySize* sont des paramètres facultatifs. La valeur par défaut du paramètre *InstanceCount* est de 2, avec une valeur maximale de 10. La valeur par défaut du paramètre *GatewaySize* est Medium. Les autres valeurs disponibles sont Small et Large. *Vip* et *DnsName* sont vides, car la passerelle n’a pas encore démarré. Ces valeurs seront créées une fois la passerelle en cours d'exécution.
 
 	PS C:\> Get-AzureApplicationGateway AppGwTest
 
@@ -75,11 +79,11 @@ La configuration d'une passerelle Application Gateway se compose de plusieurs va
  
 Les valeurs sont :
 
-- **Pool de serveurs principaux :** la liste des adresses IP des serveurs principaux. Les adresses IP répertoriées doivent appartenir au sous-réseau de réseau virtuel ou elles doivent être une adresse IP/VIP publique. 
-- **Paramètres du pool de serveurs principaux :** chaque pool a des paramètres comme le port, le protocole et une affinité basée sur les cookies. Ces paramètres sont liés à un pool et sont appliqués à tous les serveurs du pool.
-- **Port frontal :** ce port est le port public ouvert sur la passerelle Application Gateway. Le trafic atteint ce port, puis il est redirigé vers l'un des serveurs principaux.
-- **Écouteur :** l'écouteur a un port frontal, un protocole (Http ou Https, sensibles à la casse) et le nom du certificat SSL (en cas de configuration du déchargement SSL). 
-- **Règle :** la règle lie l'écouteur et le pool de serveurs principaux et définit vers quel pool de serveurs principaux le trafic doit être dirigé lorsqu'il atteint un écouteur spécifique. Actuellement, seule la règle de *base* est prise en charge. La règle de *base* est la distribution de charge par tourniquet.
+- **Pool de serveurs principaux** : liste des adresses IP des serveurs principaux. Les adresses IP répertoriées doivent appartenir au sous-réseau de réseau virtuel ou elles doivent être une adresse IP/VIP publique. 
+- **Paramètres du pool de serveurs principaux** : chaque pool comporte des paramètres comme le port, le protocole et une affinité basée sur les cookies. Ces paramètres sont liés à un pool et sont appliqués à tous les serveurs du pool.
+- **Port frontal** : il s’agit du port public ouvert sur la passerelle Application Gateway. Le trafic atteint ce port, puis il est redirigé vers l'un des serveurs principaux.
+- **Écouteur** : l’écouteur comporte un port frontal, un protocole (Http ou Https, sensibles à la casse) et le nom du certificat SSL (en cas de configuration du déchargement SSL). 
+- **Règle** : la règle lie l’écouteur et le pool de serveurs principaux et définit le pool de serveurs principaux vers lequel le trafic doit être dirigé lorsqu’il atteint un écouteur spécifique. Actuellement, seule la règle *basic* est prise en charge. La règle *basic* est la distribution de charge par tourniquet (round robin).
 
 Vous pouvez construire votre configuration en créant un objet de configuration ou en utilisant un fichier XML de configuration. Pour construire votre configuration à l'aide d'un fichier XML de configuration, utilisez l'exemple ci-dessous.
 
@@ -88,13 +92,13 @@ Vous pouvez construire votre configuration en créant un objet de configuration 
 Notez les points suivants :
 
 
-- L'élément *FrontendIPConfigurations* décrit les détails de l'équilibrage de charge interne pertinents pour la configuration de la passerelle Application Gateway avec un équilibrage de charge interne. 
+- L’élément *FrontendIPConfigurations* décrit les détails de l’équilibrage de charge interne pertinents pour la configuration de la passerelle Application Gateway avec un équilibrage de charge interne. 
 
-- Le *Type* de l'adresse IP frontale doit avoir la valeur « Privé ».
+- Le paramètre *Type* de l’adresse IP frontale doit présenter la valeur « Private ».
 
-- Le paramètre *StaticIPAddress* doit être défini sur l'adresse IP interne souhaitée sur laquelle la passerelle reçoit le trafic. Notez que l'élément *StaticIPAddress* est facultatif. S'il n'est pas défini, une adresse IP interne disponible du sous-réseau déployé est choisie.
+- Le paramètre *StaticIPAddress* doit être défini sur l’adresse IP interne sur laquelle la passerelle devra recevoir le trafic. Notez que l’élément *StaticIPAddress* est facultatif. S'il n'est pas défini, une adresse IP interne disponible du sous-réseau déployé est choisie.
 
-- La valeur de l'élément *Name* spécifié dans *FrontendIPConfiguration* doit être utilisée dans l'élément *FrontendIP* de HTTPListener pour faire référence à FrontendIPConfiguration.
+- La valeur de l’élément *Name* spécifié dans *FrontendIPConfiguration* doit être utilisée dans l’élément *FrontendIP* de HTTPListener pour faire référence à FrontendIPConfiguration.
 
  **Exemple de configuration XML**
 
@@ -155,7 +159,7 @@ Notez les points suivants :
 
 ## Définir la configuration de la passerelle
 
-Ensuite, vous allez définir la passerelle Application Gateway. Vous pouvez utiliser l'applet de commande `Set-AzureApplicationGatewayConfig` avec un objet de configuration ou avec un fichier XML de configuration.
+Ensuite, vous allez définir la passerelle Application Gateway. Vous pouvez utiliser l’applet de commande `Set-AzureApplicationGatewayConfig` avec un objet de configuration ou avec un fichier XML de configuration.
 
 	PS C:\> Set-AzureApplicationGatewayConfig -Name AppGwTest -ConfigFile D:\config.xml
 
@@ -167,10 +171,10 @@ Ensuite, vous allez définir la passerelle Application Gateway. Vous pouvez util
 
 ## Démarrer la passerelle
 
-Une fois la passerelle configurée, utilisez l'applet de commande `Start-AzureApplicationGateway` pour démarrer la passerelle. La facturation pour une passerelle Application Gateway commence une fois la passerelle démarrée avec succès.
+Une fois la passerelle configurée, utilisez l’applet de commande `Start-AzureApplicationGateway` pour la démarrer. La facturation pour une passerelle Application Gateway commence une fois la passerelle démarrée avec succès.
 
 
-**Remarque :** l'applet de commande `Start-AzureApplicationGateway` peut prendre jusqu'à 15 à 20 minutes pour se terminer.
+**Remarque :** l’exécution de l’applet de commande `Start-AzureApplicationGateway` peut prendre jusqu’à 15 à 20 minutes.
    
 	PS C:\> Start-AzureApplicationGateway AppGwTest 
 
@@ -182,9 +186,9 @@ Une fois la passerelle configurée, utilisez l'applet de commande `Start-AzureAp
 
 ## Vérifier l'état de la passerelle
 
-Utilisez l'applet de commande `Get-AzureApplicationGateway` pour vérifier l'état de la passerelle. Si *Start-AzureApplicationGateway* a réussi à l'étape précédente, l'état doit être *en cours d'exécution*, et Vip et DnsName doivent disposer d'entrées valides. Cet exemple montre l'applet de commande sur la première ligne, suivie de la sortie. Dans cet exemple, la passerelle est en cours d'exécution et prête à prendre le trafic.
+Utilisez l’applet de commande `Get-AzureApplicationGateway` pour vérifier l’état de la passerelle. Si l’applet de commande *Start-AzureApplicationGateway* a réussi à l’étape précédente, la passerelle doit présenter l’état *Running*, et les champs Vip et DnsName doivent comporter des entrées valides. Cet exemple montre l'applet de commande sur la première ligne, suivie de la sortie. Dans cet exemple, la passerelle est en cours d'exécution et prête à prendre le trafic.
 
-**Remarque :** la passerelle Application Gateway est configurée pour accepter le trafic sur le point de terminaison de l'équilibrage de charge interne configuré de 10.0.0.10 dans cet exemple.
+**Remarque :** la passerelle Application Gateway est configurée pour accepter le trafic sur le point de terminaison de l’équilibrage de charge interne configuré de 10.0.0.10 dans cet exemple.
 
 	PS C:\> Get-AzureApplicationGateway AppGwTest 
 
@@ -208,4 +212,4 @@ Si vous souhaitez plus d'informations sur les options d'équilibrage de charge e
 - [Équilibrage de charge Azure](https://azure.microsoft.com/documentation/services/load-balancer/)
 - [Azure Traffic Manager](https://azure.microsoft.com/documentation/services/traffic-manager/)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -5,7 +5,7 @@
    documentationCenter=""
    authors="alkohli"
    manager="carolz"
-   editor="tysonn" />
+   editor="" />
 <tags 
    ms.service="storsimple"
    ms.devlang="na"
@@ -29,18 +29,17 @@ Procédez comme suit pour créer une demande de support.
 
 	![Contacter le support MS via le Portail de gestion](./media/storsimple-contact-microsoft-support/IC777286.png)
 
-1. Dans la boîte de dialogue **Contact Microsoft Support** :
+2. Dans la boîte de dialogue **Contact Microsoft Support** :
 
+	1. Dans la liste déroulante, sélectionnez l'option **Abonnement** cible associée à votre service StorSimple Manager. Définissez **Support Type** sur **Technical**. Vous avez besoin d'un plan de support payant pour bénéficier du support technique.
 
-	- Dans la liste déroulante, sélectionnez la cible **Subscription** associée à votre service StorSimple Manager. Définissez **Support Type** sur **Technical**. Vous avez besoin d'un plan de support payant pour bénéficier du support technique.
+	2. Cliquez sur l'icône en forme de coche ![Icône en forme de coche](./media/storsimple-contact-microsoft-support/IC740895.png) pour la définir sur **Create Ticket**.
 
-	1. Cliquez sur l’icône en forme de coche ![Icône en forme de coche](./media/storsimple-contact-microsoft-support/IC740895.png) pour la définir sur **Create Ticket**.
-
-1. Dans la fenêtre **Microsoft Support**, dans la liste déroulante **Product**, choisissez **StorSimple**.
+3. Dans la fenêtre **Microsoft Support**, dans la liste déroulante **Product**, choisissez **StorSimple**.
 
 	![Contacter le support Microsoft - Produit](./media/storsimple-contact-microsoft-support/IC777288.png)
 
-1. Suivez les instructions à l’écran pour classer correctement votre demande et fournissez une description claire et précise de votre problème.
+4. Suivez les instructions à l’écran pour classer correctement votre demande et fournissez une description claire et précise de votre problème.
 
 Une fois votre demande envoyée, un ingénieur de support vous contactera dès que possible pour traiter votre demande.
 
@@ -52,24 +51,24 @@ Procédez comme suit pour démarrer une session de support :
 
 #### Démarrage d’une session de support
 
-1. Accédez directement à l’appareil à l'aide de la console série ou via une session telnet à partir d'un ordinateur distant. Pour cela, suivez les étapes de la section [Utiliser PuTTY pour se connecter à la console série de l’appareil](storsimple-deployment-walkthrough.md#step-3-configure-and-register-the-device-through-windows-powershell-for-storsimple).
+1. Accédez directement à l’appareil à l'aide de la console série ou via une session telnet à partir d'un ordinateur distant. Pour cela, suivez les étapes de la section [Utilisation de PuTTY pour se connecter à la console série de l'appareil](storsimple-deployment-walkthrough.md#use-putty-to-connect-to-the-device-serial-console).
 
-1. Dans la session qui s’ouvre, appuyez sur la touche **Entrée** pour afficher une invite de commande.
+2. Dans la session qui s'ouvre, appuyez sur la touche **Entrée** pour afficher une invite de commande.
 
-1. Dans le menu de la console série, sélectionnez l’option 1, **Ouvrir une session avec un accès total**.
+3. Dans le menu de la console série, sélectionnez l’option 1, **Ouvrir une session avec un accès total**.
 
-1. À l'invite de commande, entrez le mot de passe suivant :
+4. À l'invite de commande, entrez le mot de passe suivant :
 
 	`Password1`
 
-1. À l'invite de commande, tapez la commande suivante :
+5. À l'invite de commande, tapez la commande suivante :
 
 	`Enable-HcsSupportAccess`
 
-1. Une chaîne chiffrée s'affiche. Copiez cette chaîne dans un éditeur de texte comme le Bloc-notes.
+6. Une chaîne chiffrée s'affiche. Copiez cette chaîne dans un éditeur de texte comme le Bloc-notes.
 
-1. Enregistrez cette chaîne et envoyez-la par e-mail au support Microsoft.
+7. Enregistrez cette chaîne et envoyez-la par e-mail au support Microsoft.
 
 > [AZURE.IMPORTANT]Vous pouvez désactiver l'accès au support en exécutant `Disable-HcsSupportAccess`. L’appareil StorSimple tentera également de désactiver l'accès au support 8 heures après le début de la session. Il est recommandé de modifier vos informations d'identification de l’appareil StorSimple après le lancement d'une session de support.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

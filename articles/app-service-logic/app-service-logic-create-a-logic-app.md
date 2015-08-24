@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="05/23/2015"
+	ms.date="08/10/2015"
 	ms.author="stepsic"/>
 
-#Créer une application logique
+# Créer une application logique
 Cette rubrique illustre comment se familiariser avec les [applications logiques App Services](app-service-logic-what-are-logic-apps.md) en quelques minutes. Nous allons suivre un flux de travail qui vous permet d'envoyer un ensemble de tweets qui vous intéressent vers un dossier Dropbox.
 
 Pour activer ce scénario, vous aurez besoin des éléments suivants :
@@ -27,7 +27,7 @@ Pour activer ce scénario, vous aurez besoin des éléments suivants :
 
 <!--- TODO: Add try it now information here -->
 
-##Obtention de vos connecteurs
+## Obtention de vos connecteurs
 
 Tout d'abord, vous devez créer les deux connecteurs que vous utiliserez : [**Connecteur Dropbox**](app-service-logic-connector-dropbox.md) et [**Connecteur Twitter**](app-service-logic-connector-twitter.md). Pour les créer :
 
@@ -59,7 +59,7 @@ Tout d'abord, vous devez créer les deux connecteurs que vous utiliserez : [**C
 
 9. Répétez cette procédure avec [Dropbox](https://portal.azure.com/#create/microsoft_com.DropboxConnector.0.2.2).
 
-##Démarrage de l'application logique
+## Démarrage de l'application logique
 
 Maintenant, vous devez créer une application logique :
 
@@ -106,6 +106,8 @@ Les actions correspondent à ce que fait votre flux de travail. Vous pouvez avoi
 	Ce paramètre accorde au connecteur l'accès à votre compte Twitter. Une liste d'opérations possibles fournies par le connecteur Twitter est affichée.
 
 	![Actions](./media/app-service-logic-create-a-logic-app/actions.png)
+
+	> [AZURE.NOTE]Le bouton **Autoriser** utilise la sécurité OAUTH pour la connexion à des services SaaS, comme Twitter. Pour plus d'informations sur OAUTH, consultez [Sécurité OAUTH](app-service-logic-oauth-security.md).
 
 3. Cliquez sur **Rechercher des tweets** puis, dans **Spécifier une requête**, tapez quelque chose comme `#MicrosoftAzure` et cliquez sur la coche verte.
 
@@ -172,4 +174,4 @@ En moins de cinq minutes, vous avez réussi à configurer une application logiq
 [Utiliser les fonctionnalités des applications logiques]: app-service-logic-use-logic-app-features.md
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

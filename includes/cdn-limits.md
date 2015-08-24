@@ -1,7 +1,9 @@
 
-| Resource	| Soft limit 
+| Ressource | Limite logicielle 
 --- | ---
-| CDN endpoints | 50
-| Custom domains per one customer| 16
+| Points de terminaison CND | 50
+| Domaines personnalisés par client| 16
 
-You can request to update soft limits by opening a support ticket.
+Vous pouvez demander la mise à jour des limites logicielles en ouvrant un ticket de support.
+
+<!---HONumber=August15_HO7-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="08/04/2015"
+   ms.date="08/09/2015"
    ms.author="rajram"/>
 
 # Connecteur Microsoft AS2
@@ -33,16 +33,16 @@ Vous devez créer les éléments ci-après pour qu’ils puissent être utilisé
 
 Prérequis | Description
 --- | ---
-Application API TPM | Avant de créer un connecteur AS2, vous devez créer un [connecteur de gestion des partenaires commerciaux BizTalk][1]. <br/><br/>**Remarque** Vous devez connaître le nom de votre application API TPM. 
-Base de données SQL Azure | Stocke les éléments B2B, notamment les partenaires, les schémas, les certificats et les accords. Chacune des applications API B2B requiert sa propre base de données SQL Azure. <br/><br/>**Remarque** Copiez la chaîne de connexion dans cette base de données.<br/><br/>[Créer une base de données SQL Azure](../sql-database-get-started.md)
-Conteneur de stockage d'objets blob Azure | Stocke les propriétés de message quand l'archivage AS2 est activé. Si vous n’avez pas besoin de l’archivage des messages AS2, le conteneur de stockage n’est pas utile. <br/><br/>**Remarque** Si vous activez l’archivage, copiez la chaîne de connexion dans ce stockage d’objets blob.<br/><br/>[À propos des comptes de stockage Azure](../storage-create-storage-account.md).
+Application API TPM | Avant de créer un connecteur AS2, vous devez créer un [connecteur de gestion des partenaires commerciaux BizTalk][1]. <br/><br/>\*\*Remarque\*\* Vous devez connaître le nom de votre application API TPM. 
+Base de données SQL Azure | Stocke les éléments B2B, notamment les partenaires, les schémas, les certificats et les accords. Chacune des applications API B2B requiert sa propre base de données SQL Azure. <br/><br/>\*\*Remarque\*\* Copiez la chaîne de connexion dans cette base de données.<br/><br/>[Créer une base de données SQL Azure](../sql-database-get-started.md)
+Conteneur de stockage d'objets blob Azure | Stocke les propriétés de message quand l'archivage AS2 est activé. Si vous n’avez pas besoin de l’archivage des messages AS2, le conteneur de stockage n’est pas utile. <br/><br/>\*\*Remarque\*\* Si vous activez l’archivage, copiez la chaîne de connexion dans ce stockage d’objets blob.<br/><br/>[À propos des comptes de stockage Azure](../storage-create-storage-account.md).
 
 ## Créer le connecteur AS2
 
 Un connecteur peut être créé dans une application logique ou directement à partir d'Azure Marketplace. Pour créer un connecteur à partir de Marketplace :
 
 1. Dans le tableau d'accueil Azure, sélectionnez **Marketplace**.
-2. Sélectionnez **API Apps** et recherchez « Connecteur AS2 ».
+2. Recherchez « Connecteur AS2 », sélectionnez-le et sélectionnez **Créer**.
 3. Entrez le nom, le plan App Service et d'autres propriétés.
 4. Entrez les paramètres de package suivants :
 
@@ -59,32 +59,32 @@ Les partenaires commerciaux sont des entités impliquées dans des communication
 
 Les étapes de création d’un accord de partenariat commercial sont documentées [ici][2].
 
-## Utiliser le connecteur comme déclencheur
+## Utiliser le connecteur comme un déclencheur
 
-1. Lors de la création ou de la modification d’une application logique, sélectionnez le connecteur AS2 que vous avez créé dans le volet droit : <br/> ![Paramètres du déclencheur][3]
+1. Lors de la création ou de la modification d'une application logique, sélectionnez le connecteur AS2 que vous avez créé dans le volet droit : ![Paramètres du déclencheur][3]
 
-2. Cliquez sur la flèche droite → : <br/> ![Options du déclencheur][4]
+2. Cliquez sur la flèche droite → : ![Options du déclencheur][4]
 
-3. Le connecteur AS2 expose un seul déclencheur. Sélectionnez *Recevoir et décoder* : <br/> ![Entrée Recevoir et décoder][5]
+3. Le connecteur AS2 expose un seul déclencheur. Sélectionnez *Recevoir et décoder* : ![Entrée Recevoir et décoder][5]
 
-4. Ce déclencheur ne possède aucune entrée. Cliquez sur la flèche droite → : <br/> ![Recevoir et décoder configuré][6]
+4. Ce déclencheur ne possède aucune entrée. Cliquez sur la flèche droite → : ![Recevoir et décoder configuré][6]
 
 Dans le cadre de la sortie, le connecteur renvoie la charge utile AS2, ainsi que les métadonnées propres à AS2.
 
-Le déclencheur est déclenché lorsqu’une charge utile AS2 prend la forme d’une méthode POST vers https://{Host URL}/decode. Vous pouvez rechercher l’URL de l’hôte dans les paramètres de l’application API. Vous devrez peut-être également redéfinir le niveau d’accès de l’application API dans les paramètres de l’application sur Public (authentifié ou anonyme).
+Le déclencheur est déclenché lorsqu'une charge utile AS2 prend la forme d'une méthode POST vers https://{Host URL}/decode. Vous pouvez rechercher l’URL de l’hôte dans les paramètres de l’application API. Vous devrez peut-être également redéfinir le niveau d’accès de l’application API dans les paramètres de l’application sur Public (authentifié ou anonyme).
 
 ## Utiliser le connecteur comme une action
-1. Derrière votre déclencheur (ou si vous choisissez d’exécuter cette logique manuellement), ajoutez le connecteur AS2 que vous avez créé à partir du volet droit : <br/> ![Paramètres d'action][7]
+1. Derrière votre déclencheur (ou si vous choisissez d'exécuter cette logique manuellement), ajoutez le connecteur AS2 que vous avez créé à partir du volet droit : ![Paramètres d'action][7]
 
-2. Cliquez sur la flèche droite → : <br/> ![Liste d'actions][8]
+2. Cliquez sur la flèche droite → : ![Liste d'actions][8]
 
-3. Le connecteur AS2 ne prend en charge qu’une seule action. Sélectionnez *Encoder et envoyer* : <br/> ![Entrée Encoder et envoyer][9]
+3. Le connecteur AS2 ne prend en charge qu’une seule action. Sélectionnez *Encoder et envoyer* : ![Entrée Encoder et envoyer][9]
 
-4. Indiquez les entrées de l’action et configurez celle-ci : <br/> ![Encoder et envoyer configuré][10]
+4. Indiquez les entrées de l'action et configurez celle-ci : ![Encoder et envoyer configuré][10]
 
-Les paramètres sont les suivants :
+	Les paramètres sont les suivants :
 
-Paramètre | Type | Description
+	Paramètre | Type | Description
 --- | --- | ---
 Payload | objet| Contenu de la charge utile à encoder et à publier dans le point de terminaison configuré. La charge utile doit être fournie sous la forme d’un objet JSON.
 AS2 à partir de | string | Identité AS2 de l’expéditeur du message AS2. Ce paramètre est utilisé pour rechercher l’accord approprié permettant d’envoyer le message.
@@ -95,11 +95,11 @@ Activer l'archivage | booléenne | Détermine si le message sortant doit être a
 L'action retourne un code de réponse HTTP 200 en cas de réussite.
 
 ## En faire plus avec votre connecteur
-Pour plus d’informations sur les applications logiques, voir l’article [Qu’est-ce qu’une application logique ?](app-service-logic-what-are-logic-apps.md).
+Pour plus d'informations sur les applications logiques, consultez [Qu'est-ce qu'une application logique ?](app-service-logic-what-are-logic-apps.md).
 
-Créez les applications API à l’aide des API REST. Pour plus d’informations, voir l’article [Référence de connecteurs et d’applications API](http://go.microsoft.com/fwlink/p/?LinkId=529766).
+Créez les applications API à l’aide des API REST. Pour plus d'informations, consultez [Référence de connecteurs et d'applications API](http://go.microsoft.com/fwlink/p/?LinkId=529766).
 
-Vous pouvez également consulter les statistiques de performances et contrôler la sécurité du connecteur. Pour plus d’informations, voir l’article [Gestion et contrôle de vos connecteurs et applications API intégrés](app-service-logic-monitor-your-connectors.md).
+Vous pouvez également consulter les statistiques de performances et contrôler la sécurité du connecteur. Pour plus d'informations, consultez [Gestion et contrôle de vos connecteurs et applications API intégrés](app-service-logic-monitor-your-connectors.md).
 
 <!--References -->
 [1]: app-service-logic-connector-tpm.md
@@ -113,4 +113,4 @@ Vous pouvez également consulter les statistiques de performances et contrôler 
 [9]: ./media/app-service-logic-connector-as2/EncodeAndSendInput.PNG
 [10]: ./media/app-service-logic-connector-as2/EncodeAndSendConfigured.PNG
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

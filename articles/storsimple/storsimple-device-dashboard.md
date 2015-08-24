@@ -1,18 +1,18 @@
 <properties 
-   pageTitle="Utilisation du tableau de bord d’appareil StorSimple Manager"
-   description="Décrit le tableau de bord d’appareil StorSimple Manager et explique comment l'utiliser pour afficher les initiateurs connectés et rechercher le numéro de série et l’IQN d’un appareil."
+   pageTitle="Utilisation du tableau de bord d'appareil du service StorSimple Manager | Microsoft Azure"
+   description="Décrit le tableau de bord d’appareil StorSimple Manager et explique comment l'utiliser pour afficher les mesures de stockage et les initiateurs connectés, et rechercher le numéro de série et l’IQN d’un appareil."
    services="storsimple"
    documentationCenter="NA"
    authors="alkohli"
    manager="carolz"
-   editor="tysonn" />
+   editor="" />
 <tags 
    ms.service="storsimple"
    ms.devlang="NA"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="07/21/2015"
+   ms.date="08/12/2015"
    ms.author="alkohli" />
 
 # Utilisation du tableau de bord d’appareil StorSimple Manager
@@ -27,18 +27,21 @@ Le tableau de bord contient les informations suivantes :
 
 - **Zone de graphique** : vous pouvez examiner les métriques de stockage qui vous intéressent dans la zone de graphique située dans la partie supérieure du tableau de bord. Ce graphique vous permet d’examiner les métriques relatives au stockage principal total (quantité de données écrites par les hôtes sur votre appareil), ainsi que le stockage cloud total consommé par votre appareil au cours d’une période donnée.
 
-     Dans ce contexte, *stockage principal* fait référence à la quantité totale de données écrites par l’hôte. Cela peut inclure à la fois les données stockées localement et les données hiérarchisées dans le cloud. Le *stockage cloud*, quant à lui, est une mesure de la quantité totale de données stockées dans le cloud. Cela inclut les données hiérarchisées et les sauvegardes. Qu’il s’agisse du stockage principal ou du stockage cloud, les quantités indiquées dépendent de la fréquence de suivi que vous configurez. Par exemple, si vous optez pour une fréquence hebdomadaire, le graphique affiche des données pour chaque jour de la semaine précédente.
+     Dans ce contexte, *stockage principal* fait référence à la quantité totale de données écrites par l’hôte. Cela peut inclure à la fois les données stockées localement et les données hiérarchisées dans le cloud. Le *stockage cloud*, quant à lui, est une mesure de la quantité totale de données stockées dans le cloud. Cela inclut les données hiérarchisées et les sauvegardes. Notez que les données stockées dans le cloud sont dédupliquées et compressées, tandis que le stockage principal indique la quantité de stockage utilisée avant que les données ne soient dédupliquées et compressées. Vous pouvez comparer ces deux nombres pour avoir une idée du taux de compression. Qu’il s’agisse du stockage principal ou du stockage cloud, les quantités indiquées dépendent de la fréquence de suivi que vous configurez. Par exemple, si vous optez pour une fréquence hebdomadaire, le graphique affiche des données pour chaque jour de la semaine précédente.
  
 	 Vous pouvez configurer le graphique comme suit :
 
 	 - Pour afficher la quantité de stockage cloud consommée au fil du temps, sélectionnez l’option **STOCKAGE CLOUD UTILISÉ**. Pour afficher le stockage total des données écrites par l'hôte, sélectionnez l’option **STOCKAGE PRINCIPAL UTILISÉ**. Dans l'illustration, les deux options sont sélectionnées. Par conséquent, le graphique affiche les quantités pour le stockage cloud et le stockage principal. 
 	 - Le menu déroulant situé en haut à droite du graphique permet de spécifier une période : 1 semaine, 1 mois, 3 mois ou 1 an. À noter que le graphique de niveau supérieur n’est actualisé qu'une fois par jour. Autrement dit, il reflète les totaux du jour précédent.
 
-- **Vue d’ensemble de l’utilisation** : la zone de vue d’ensemble de l’utilisation affiche la quantité de stockage principal utilisée, la quantité de stockage approvisionnée et la quantité de stockage maximale de votre appareil. En comparant ces chiffres d'utilisation à la quantité maximale de stockage disponible, vous pouvez voir en un coup de œil si vous avez besoin d’obtenir du stockage supplémentaire. À noter que cette vue d’ensemble est mise à jour toutes les 15 minutes et qu'en raison de la différence de fréquence de mise à jour, elle peut indiquer des chiffres différents de ceux que montre la zone de graphique de dessus, qui est mise à jour quotidiennement. Pour plus d’informations, consultez la section [Surveillance](https://msdn.microsoft.com/library/dn757759.aspx).
+     Pour plus d’informations, consultez [Utilisation du service StorSimple Manager pour surveiller votre appareil StorSimple](storsimple-monitor-device.md).
 
-- **Alertes** : la zone alertes contient une vue d'ensemble des alertes relatives à votre appareil. Les alertes sont regroupées par niveau de gravité et le nombre d'alertes est indiqué pour chaque niveau. Le fait de cliquer sur le niveau de gravité d'une alerte ouvre une vue délimitée de l'onglet alertes, qui n’affiche que les alertes de ce niveau de gravité pour l'appareil concerné.
+- **Vue d’ensemble de l’utilisation** : la zone de **vue d’ensemble de l’utilisation** affiche la quantité de stockage principal utilisée, la quantité de stockage approvisionnée et la quantité de stockage maximale de votre appareil. En comparant ces chiffres d'utilisation à la quantité maximale de stockage disponible, vous pouvez voir en un coup de œil si vous avez besoin d’obtenir du stockage supplémentaire. À noter que cette vue d’ensemble est mise à jour toutes les 15 minutes et qu'en raison de la différence de fréquence de mise à jour, elle peut indiquer des chiffres différents de ceux que montre la zone de graphique de dessus, qui est mise à jour quotidiennement. Pour plus d’informations, consultez [Utilisation du service StorSimple Manager pour surveiller votre appareil StorSimple](storsimple-monitor-device.md).
 
-- **Tâches** : la zone tâches indique le résultat d’une activité de tâche récente. Vous savez ainsi si le système fonctionne comme prévu ou si vous devez prendre une mesure corrective. Pour plus d'informations sur les tâches effectuées récemment, cliquez sur **Travaux réussis dans les dernières 24 heures**.
+
+- **Alertes** : la zone **alertes** contient une vue d'ensemble des alertes relatives à votre appareil. Les alertes sont regroupées par niveau de gravité et le nombre d'alertes est indiqué pour chaque niveau. Le fait de cliquer sur le niveau de gravité d'une alerte ouvre une vue délimitée de l'onglet alertes, qui n’affiche que les alertes de ce niveau de gravité pour l'appareil concerné.
+
+- **Tâches** : la zone **tâches** indique le résultat d’une activité de tâche récente. Vous savez ainsi si le système fonctionne comme prévu ou si vous devez prendre une mesure corrective. Pour plus d'informations sur les tâches effectuées récemment, cliquez sur **Travaux réussis dans les dernières 24 heures**.
 
 - La zone **aperçu rapide** à droite du tableau de bord fournit des informations utiles, telles que le modèle, le numéro de série, l'état, la description et le nombre de volumes de l'appareil.
 
@@ -96,4 +99,4 @@ Vous aurez peut-être besoin de l'IQN cible au moment de configurer le protocole
 
 [En savoir plus sur le tableau de bord du service StorSimple Manager](storsimple-service-dashboard.md).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

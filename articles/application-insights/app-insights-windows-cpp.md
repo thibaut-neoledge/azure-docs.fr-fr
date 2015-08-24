@@ -19,6 +19,7 @@ Vous devez avoir :
 
 * Un abonnement à [Microsoft Azure](http://azure.com). Vous vous connectez avec un compte Microsoft, que vous pouvez avoir pour Windows, XBox Live ou d’autres services cloud de Microsoft.
 * Visual Studio 2015 ou une version ultérieure.
+* Application universelle Windows 10
 
 ## Création d’une ressource Application Insights dans Azure
 
@@ -139,4 +140,4 @@ Cliquez sur n’importe quel graphique pour obtenir plus de détails. Par exempl
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Utilisation d'AMQP 1.0 avec l'API .NET Service Bus - Azure" 
+	pageTitle="Utilisation d’AMQP 1.0 avec l’API .NET Service Bus | Microsoft Azure" 
 	description="Découvrez comment utiliser le protocole Advanced Message Queuing Protodol (AMQP) 1.0 avec l'API .NET Azure Service Bus." 
 	services="service-bus" 
 	documentationCenter=".net" 
@@ -308,4 +308,4 @@ Vous pouvez également utiliser AMQP 1.0 de Service Bus avec d’autres langage
 * [Utilisation des files d'attente Service Bus](service-bus-dotnet-how-to-use-queues.md)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

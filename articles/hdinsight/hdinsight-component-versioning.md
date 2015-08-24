@@ -23,22 +23,21 @@
 Azure HDInsight prend en charge plusieurs versions de cluster Hadoop qui peuvent être déployées à tout moment. Le choix d'une version approvisionne une version spécifique de la distribution de la plateforme de données Hortonworks et un ensemble de composants qui sont contenus dans cette distribution. Les versions des composants associées aux versions de cluster HDInsight sont répertoriées dans le tableau suivant. Notez que la version de cluster par défaut actuellement utilisée par Azure HDInsight est la version 3.1, et, à la date du 7/11/2014, elle est basée sur HDP 2.1.7.
 
 
-<table border="1">
-<tr><th>Composant</th><th>HDInsight Version&#160;3.2</th><th>HDInsight Version&#160;3.1 (par défaut)</th><th>HDInsight Version&#160;3,0</th><th>HDInsight Version&#160;2.1</th></tr>
-<tr><td>Hortonworks Data Platform</td><td>2.2</td><td>2.1.7</td><td>2.0</td><td>1.3</td></tr>
-<tr><td>Apache Hadoop et YARN</td><td>2.6.0</td><td>2.4.0</td><td>2.2.0</td><td>1.2.0</td></tr>
-<tr><td>Tez</td><td>0.5.2</td><td>0.4.0</td><td></td><td></td></tr>
-<tr><td>Apache Pig</td><td>0.14.0</td><td>0.12.1</td><td>0.12.0</td><td>0.11.0</td></tr>
-<tr><td>Apache Hive et HCatalog</td><td>0.14.0</td><td>0.13.1</td><td>0.12.0</td><td>0.11.0</td></tr>
-<tr><td>HBase </td><td>0.98.4</td><td>0.98.0</td><td></td><td></td></tr>
-<tr><td>Apache Sqoop</td><td>1.4.5</td><td>1.4.4</td><td>1.4.4</td><td>1.4.3</td></tr>
-<tr><td>Apache Oozie</td><td>4.1.0</td><td>4.0.0</td><td>4.0.0</td><td>3.3.2</td></tr>
-<tr><td>Zookeeper</td><td>3.4.6</td><td>3.4.5</td><td>3.4.5</td><td></td></tr>
-<tr><td>Storm</td><td>0.9.3</td><td>0.9.1</td><td></td><td></td></tr>
-<tr><td>Mahout</td><td>0.9.0</td><td>0.9.0</td><td></td><td></td></tr>
-<tr><td>Phoenix</td><td>4.2.0</td><td>4.0.0.2.1.7.0-2162</td><td></td><td></td></tr>
-<tr><td>Spark</td><td>1.3.1</td><td></td><td></td><td></td></tr>
-</table>
+Composant|HDInsight Version 3.2|HDInsight Version 3.1 (par défaut)|HDInsight Version 3,0|HDInsight Version 2.1
+---|---|---|---|---
+Hortonworks Data Platform|2\.2|2\.1.7|2\.0|1\.3
+Apache Hadoop et YARN|2\.6.0|2\.4.0|2\.2.0|1\.2.0
+Tez|0\.5.2|0\.4.0||
+Apache Pig|0\.14.0|0\.12.1|0\.12.0|0\.11.0
+Apache Hive et HCatalog|0\.14.0|0\.13.1|0\.12.0|0\.11.0
+HBase |0\.98.4|0\.98.0||
+Apache Sqoop|1\.4.5|1\.4.4|1\.4.4|1\.4.3
+Apache Oozie|4\.1.0|4\.0.0|4\.0.0|3\.3.2
+Zookeeper|3\.4.6|3\.4.5|3\.4.5|
+Storm|0\.9.3|0\.9.1||
+Mahout|0\.9.0|0\.9.0||
+Phoenix|4\.2.0|4\.0.0.2.1.7.0-2162||
+Spark|1\.3.1|||
 
 
 **Obtention d’informations sur les versions actuelles des composants**
@@ -105,7 +104,13 @@ Le tableau suivant répertorie les versions de HDInsight actuellement disponible
 * Seuls les clusters à haute disponibilité avec deux nœuds principaux sont déployés par défaut pour les clusters HDInsight 2.1 et versions ultérieures. Ils ne sont pas disponibles pour les clusters HDInsight 1.6.
 * Une fois que la prise en charge a expiré pour une version particulière, elle n’est plus disponible par l’intermédiaire du portail Azure. Le tableau suivant indique quelles versions sont disponibles sur le portail Azure. Les versions des clusters resteront disponibles avec le paramètre `Version` de la commande [New-AzureHDInsightCluster](http://msdn.microsoft.com/library/dn593744.aspx) Windows PowerShell et le Kit de développement logiciel (SDK) .NET jusqu’à leur date d’obsolescence.
 
-<table border="1"> <tr><th>Version HDInsight</th><th>Version HDP</a><th>Haute disponibilité</th></th><th>Date de publication</th><th>Disponible sur le portail Azure</th><th>Date d’expiration de la prise en charge</th><th>Date d’obsolescence</th></tr> <tr><td>HDI 3.2</td><td>HDP 2.2</td><td>Oui</td><td>18/02/2015</td><td>Oui</td><td></td><td></td></tr> <tr><td>HDI 3.1</td><td>HDP 2.1</td><td>Oui</td><td>24/06/2014</td><td>Oui</td><td></td><td></td></tr> <tr><td>HDI 3.0</td><td>HDP 2.0</td><td>Oui</td><td>11/02/2014</td><td>Oui</td><td>17/09/2014</td><td>30/06/2015</td></tr> <tr><td>HDI 2.1</td><td>HDP 1.3</td><td>Oui</td><td>28/10/2013</td><td>Non</td><td>12/05/2014</td><td>31/05/2015</td></tr> <tr><td>HDI 1.6</td><td>HDP 1.1</td><td>Non</td><td>28/10/2013</td><td>Non</td><td>26/04/2014</td><td>31/05/2015</td></tr> </table><br>
+Version de HDInsight|Version de HDP|Haute disponibilité|Date de lancement|Disponible sur le portail Azure|Date d'expiration du support|Date d'obsolescence
+---|---|---|---|---|---|---
+HDI 3.2|HDP 2.2|Oui|2/18/2015|Oui||
+HDI 3,1|HDP 2,1|Oui|6/24/2014|Oui||
+HDI 3,0|HDP 2,0|Oui|02/11/2014|Oui|09/17/2014|06/30/2015
+HDI 2,1|HDP 1,3|Oui|10/28/2013|Non|05/12/2014|05/31/2015
+HDI 1.6|HDP 1.1|Non|10/28/2013|Non|04/26/2014|05/31/2015
 
 **Déploiement des clusters autres que les clusters par défaut**
 
@@ -161,4 +166,4 @@ La **Date d’obsolescence** est la date après laquelle la version du cluster n
 [zookeeper]: http://zookeeper.apache.org/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

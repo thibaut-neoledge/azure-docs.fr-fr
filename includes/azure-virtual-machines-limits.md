@@ -7,4 +7,4 @@ Points de terminaison d’entrée par service cloud<sup>2</sup>|150|150
 
 <sup>2</sup>Les points de terminaison d’entrée autorisent les communications avec une machine virtuelle depuis l’extérieur du service cloud de la machine virtuelle. Les machines virtuelles d’un même service cloud ou réseau virtuel peuvent automatiquement communiquer entre elles. Consultez [Configuration des points de terminaison sur une machine virtuelle](../virtual-machines/virtual-machines-set-up-endpoints.md).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Utilisation des rubriques Service Bus (Python) - Azure" 
+	pageTitle="Utilisation des rubriques Service Bus (Python) | Microsoft Azure" 
 	description="Découvrez comment utiliser les rubriques et abonnements Service Bus Azure depuis Python." 
 	services="service-bus" 
 	documentationCenter="python" 
@@ -158,4 +158,4 @@ Maintenant que vous avez appris les principes de base des rubriques Service Bus,
 [SqlFilter.SqlExpression]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -7,16 +7,14 @@
 	manager="jwhit"
 	editor="tysonn"/>
 
-
 <tags
 	ms.service="site-recovery"
 	ms.devlang="na"
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery"
-	ms.date="05/14/2015"
+	ms.date="08/05/2015"
 	ms.author="lauraa"/>
-
 
 # Test des performances et de l’évolutivité : depuis un site local vers un site local
 
@@ -126,12 +124,7 @@ Les résultats indiquent clairement que la solution Microsoft Azure Site Recover
 
 |Serveur|RAM|Modèle|Processeur|Nombre de processeurs|Carte d’interface réseau|Logiciel|
 |---|---|---|---|---|---|---|
-|Serveurs Hyper-V en cluster : <br />
-ESTLAB-HOST11<br />
-ESTLAB-HOST12<br />
-ESTLAB-HOST13<br />
-ESTLAB-HOST14<br />
-ESTLAB-HOST25|128 - ESTLAB-HOST25 : 256|Dell™ PowerEdge™ R820|Processeur Intel(R) Xeon(R) E5-4620 0 à 2,20 GHz|4|1 Gbit/s x 4|Windows Server Datacenter 2012 R2 (x 64) + rôle Hyper-V|
+|Serveurs Hyper-V en cluster : <br />ESTLAB-HOST11<br />ESTLAB-HOST12<br />ESTLAB-HOST13<br />ESTLAB-HOST14<br />ESTLAB-HOST25|128 - ESTLAB-HOST25 : 256|Dell™ PowerEdge™ R820|Processeur Intel(R) Xeon(R) E5-4620 0 à 2,20 GHz|4|1 Gbit/s x 4|Windows Server Datacenter 2012 R2 (x 64) + rôle Hyper-V|
 |Serveur VMM|2|||2|1 Gbit/s|Windows Server Database 2012 R2 (x 64) + rôle VMM 2012 R2|
 
 ### Site secondaire (récupération)
@@ -144,11 +137,7 @@ ESTLAB-HOST25|128 - ESTLAB-HOST25 : 256|Dell™ PowerEdge™ R820|Processeur I
 
 |Serveur|RAM|Modèle|Processeur|Nombre de processeurs|Carte d’interface réseau|Logiciel|
 |---|---|---|---|---|---|---|
-|Serveurs Hyper-V en cluster : <br />
-ESTLAB-HOST07<br />
-ESTLAB-HOST08<br />
-ESTLAB-HOST09<br />
-ESTLAB-HOST10|96|Dell™ PowerEdge™ R720|Processeur Intel(R) Xeon(R) E5-2630 0 à 2,30 GHz|2|1 Gbit/s x 4|Windows Server Datacenter 2012 R2 (x 64) + rôle Hyper-V|
+|Serveurs Hyper-V en cluster : <br />ESTLAB-HOST07<br />ESTLAB-HOST08<br />ESTLAB-HOST09<br />ESTLAB-HOST10|96|Dell™ PowerEdge™ R720|Processeur Intel(R) Xeon(R) E5-2630 0 à 2,30 GHz|2|1 Gbit/s x 4|Windows Server Datacenter 2012 R2 (x 64) + rôle Hyper-V|
 |ESTLAB-HOST17|128|Dell™ PowerEdge™ R820|Processeur Intel(R) Xeon(R) E5-4620 0 à 2,20 GHz|4||Windows Server Datacenter 2012 R2 (x 64) + rôle Hyper-V|
 |ESTLAB-HOST24|256|Dell™ PowerEdge™ R820|Processeur Intel(R) Xeon(R) E5-4620 0 à 2,20 GHz|2||Windows Server Datacenter 2012 R2 (x 64) + rôle Hyper-V|
 |Serveur VMM|2|||2|1 Gbit/s|Windows Server Database 2012 R2 (x 64) + rôle VMM 2012 R2|
@@ -219,4 +208,4 @@ Pour commencer à déployer ASR, effectuez les opérations suivantes :
 - [Configuration de la protection avec un seul serveur VMM](site-recovery-single-vmm.md)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

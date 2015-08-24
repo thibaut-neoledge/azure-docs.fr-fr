@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Création et déploiement d'un service cloud - Azure"
+	pageTitle="Création et déploiement d'un service cloud | Microsoft Azure"
 	description="Découvrez comment créer et déployer un service cloud à l'aide de la méthode Création rapide dans Azure."
 	services="cloud-services"
 	documentationCenter=""
@@ -66,7 +66,7 @@ Trois fonctions du service cloud nécessitent une configuration spécifique avan
 
 ## Création d’un service cloud avec Création rapide
 
-1. Dans le [portail de gestion](http://manage.windowsazure.com/), cliquez sur **Nouveau**>**Calculer**>Service de cloud computing**>**Création rapide**.
+1. Dans le [portail de gestion](http://manage.windowsazure.com/), cliquez sur **Nouveau**>**Calculer**>**Service de cloud computing**>**Création rapide**.
 
 	![CloudServices_QuickCreate](./media/cloud-services-how-to-create-deploy/CloudServices_QuickCreate.png)
 
@@ -147,4 +147,4 @@ Trois fonctions du service cloud nécessitent une configuration spécifique avan
 [TFSTutorialForCloudService]: http://go.microsoft.com/fwlink/?LinkID=251796&clcid=0x409
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

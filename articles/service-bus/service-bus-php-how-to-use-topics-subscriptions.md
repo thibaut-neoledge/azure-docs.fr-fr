@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Utilisation des rubriques Service Bus (PHP) - Azure" 
+	pageTitle="Utilisation des rubriques Service Bus (PHP) | Microsoft Azure" 
 	description="Découvrez comment utiliser les rubriques Service Bus avec PHP dans Azure." 
 	services="service-bus" 
 	documentationCenter="php" 
@@ -332,4 +332,4 @@ Maintenant que vous avez appris les principes de base des files d'attente Servic
 [require-once]: http://php.net/require_once
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

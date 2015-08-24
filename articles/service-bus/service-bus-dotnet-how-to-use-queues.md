@@ -1,12 +1,11 @@
 <properties
-    pageTitle="Utilisation des files d’attente Service Bus (.NET) - Azure"
+    pageTitle="Utilisation des files d’attente Service Bus (.NET) | Microsoft Azure"
     description="Découvrez comment utiliser les files d'attente Service Bus dans Azure. Exemples de code écrits en C# à l’aide de l’API .NET."
     services="service-bus"
     documentationCenter=".net"
     authors="sethmanheim"
     manager="timlt"
     editor=""/>
-
 
 <tags
     ms.service="service-bus"
@@ -16,7 +15,6 @@
     ms.topic="get-started-article"
     ms.date="07/02/2015"
     ms.author="sethm"/>
-
 
 # Utilisation des files d'attente Service Bus
 
@@ -47,27 +45,26 @@ Vous êtes maintenant en mesure d’écrire du code pour Service Bus.
 
 Service Bus utilise une chaîne de connexion pour stocker les points de terminaison et les informations d’identification. Vous pouvez placer votre chaîne de connexion dans un fichier de configuration, au lieu de la coder en dur :
 
-- Quand vous utilisez Azure Cloud Services, il est recommandé de stocker votre chaîne de connexion en utilisant le système de configuration de service Azure (fichiers ****.csdef** et ****.cscfg**).
+- Quand vous utilisez Azure Cloud Services, il est recommandé de stocker votre chaîne de connexion en utilisant le système de configuration de service Azure (fichiers ***\*.csdef** et ***\*.cscfg**).
 - Quand vous utilisez Sites Web Azure ou Azure Virtual Machines, il est recommandé de stocker votre chaîne de connexion en utilisant le système de configuration .NET (par exemple, le fichier **Web.config**).
 
 Dans les deux cas, vous pouvez récupérer votre chaîne de connexion en utilisant la méthode `CloudConfigurationManager.GetSetting`, tel qu’indiqué plus loin dans ce guide.
 
 ### Configuration de votre chaîne de connexion lors de l'utilisation des services cloud
 
-Le mécanisme de configuration de service est propre aux projets de services cloud Azure et vous permet de modifier les paramètres de configuration de façon dynamique à partir du portail de gestion Azure sans avoir à redéployer votre application. Par exemple, ajoutez une étiquette `Setting` à votre fichier de définition de service (****.csdef**), comme indiqué ici :
+Le mécanisme de configuration de service est propre aux projets de services cloud Azure et vous permet de modifier les paramètres de configuration de façon dynamique à partir du portail de gestion Azure sans avoir à redéployer votre application. Par exemple, ajoutez une étiquette `Setting` à votre fichier de définition de service (***\*.csdef**), comme indiqué ici :
 
     <ServiceDefinition name="Azure1">
     ...
         <WebRole name="MyRole" vmsize="Small">
             <ConfigurationSettings>
                 <Setting name="Microsoft.ServiceBus.ConnectionString" />
-
             </ConfigurationSettings>
         </WebRole>
     ...
     </ServiceDefinition>
 
-Vous devez ensuite spécifier des valeurs dans le fichier de configuration de service (****.cscfg**) :
+Vous devez ensuite spécifier des valeurs dans le fichier de configuration de service (***\*.cscfg**) :
 
     <ServiceConfiguration serviceName="Azure1">
     ...
@@ -75,7 +72,6 @@ Vous devez ensuite spécifier des valeurs dans le fichier de configuration de se
             <ConfigurationSettings>
                 <Setting name="Microsoft.ServiceBus.ConnectionString"
                          value="Endpoint=sb://yourServiceNamespace.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=yourKey" />
-
             </ConfigurationSettings>
         </Role>
     ...
@@ -91,7 +87,6 @@ Quand vous utilisez Sites Web ou Virtual Machines, il est recommandé d'utiliser
         <appSettings>
             <add key="Microsoft.ServiceBus.ConnectionString"
                  value="Endpoint=sb://yourServiceNamespace.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=yourKey" />
-
         </appSettings>
     </configuration>
 
@@ -250,4 +245,4 @@ Maintenant que vous avez appris les principes de base des files d'attente Servic
   [MSDN]: https://msdn.microsoft.com/library/azure/dn194201.aspx
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

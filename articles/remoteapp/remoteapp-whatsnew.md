@@ -3,7 +3,7 @@
     pageTitle="Nouveautés d’Azure RemoteApp"
     description="En savoir plus sur les modifications et les améliorations apportées à Azure RemoteApp" 
     services="remoteapp" 
-	documentationCenter="" 
+    documentationCenter="" 
     authors="lizap" 
     manager="mbaldwin" />
 
@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="06/30/2015" 
+    ms.date="08/12/2015" 
     ms.author="elizapo" />
 
 
@@ -22,6 +22,16 @@
 
 Un des avantages de RemoteApp est que nous nous efforçons de l’améliorer continuellement. Nous vous ferons part de toutes les améliorations sur cette page.
 
+## Juillet 2015
+
+Juillet pose les bases des changements qui auron lieu en août, donc il n'y a pas grand chose à dire pour le moment, si ce n'est concernant les mises à jour de la documentation. Voici les modifications les plus récentes :
+
+- Un onglet **Support** a été ajouté sur le portail pour vous permettre d'accéder plus facilement aux ressources de support, comme les forums.
+- Les informations de dépannage pour la création d'une collection hybride ont été retravaillées. Découvrez [les derniers et meilleurs](remoteapp-hybridtrouble.md) conseils de dépannage comme comment identifier les ports à configurer pour votre réseau virtuel.
+- La création et l'enregistrement des [données utilisateur](remoteapp-upd.md) dans Azure RemoteApp ont été documentées.
+- Le [verrouillage des applications](remoteapp-secure.md) a été documenté.
+- Les [applets de commande Azure RemoteApp](https://msdn.microsoft.com/library/mt428031.aspx) ont été publiées.
+- Et enfin, nous avons commencé une conversation avec certains utilisateurs Azure RemoteApp concernant a terminologie. Prenez notes des modifications apportées à la façon dont nous faisons référence aux différentes options de collection.
 
 ## Juin 2015
 
@@ -30,7 +40,7 @@ Que de changements ! L’équipe a été bien occupée en juin :
 - La [page d’accueil](https://www.remoteapp.windowsazure.com/) Azure RemoteApp a été repensée, constatez-le vous-même ! 
 - Le logiciel a été mis à jour dans toutes les images disponibles dans le cadre de votre abonnement.
 - Des améliorations ont été apportées aux collections hybrides, dont la compatibilité avec le tunneling forcé et la vérification de la taille du sous-réseau IP avant d’essayer de créer la collection.
-- Nous avons découvert que le caractère générique * ne fonctionne pas pour les webcams. À la place, vous devez spécifier l’ID d’instance ou le GUID. Nous mettrons à jour les informations de redirection pour refléter ces modifications.
+- Nous avons découvert que le caractère générique \* ne fonctionne pas pour les webcams. À la place, vous devez spécifier l’ID d’instance ou le GUID. Nous mettrons à jour les informations de redirection pour refléter ces modifications.
 - Vous pouvez désormais ajouter un logiciel antivirus personnalisé à votre image lorsque vous créez une image de modèle à partir de la galerie Azure.
 
 Et d’autres modifications seront ajoutées en juillet. Nous reviendrons donc bientôt avec une autre mise à jour.
@@ -51,4 +61,4 @@ Vous avez besoin de voir Azure RemoteApp en action ? Découvrez le didacticiel 
 
 Merci de nous rester fidèle. Nous serons de retour le mois prochain avec d’autres mises à jour.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

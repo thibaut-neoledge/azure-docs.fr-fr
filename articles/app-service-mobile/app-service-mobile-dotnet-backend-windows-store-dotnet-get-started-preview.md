@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Prise en main des backends d'applications mobiles pour les applications du Windows Store | Centre de développement mobile"
+	pageTitle="Prise en main des backends d'applications mobiles pour les applications du Windows Store | Microsoft Azure"
 	description="Suivez ce didacticiel pour commencer à utiliser des backends d'applications mobiles Azure pour le développement d'applications Windows Store en C#, VB ou JavaScript."
 	services="app-service\mobile"
 	documentationCenter="windows"
@@ -88,4 +88,4 @@ Maintenant que le backend d'application mobile est publié et que le client est 
 [Azure Portal]: https://portal.azure.com/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

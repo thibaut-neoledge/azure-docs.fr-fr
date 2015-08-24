@@ -42,10 +42,10 @@ Lorsque vous démarrez un Runbook sur un Runbook Worker hybride, vous spécifiez
 Exécutez la procédure suivante pour préparer votre environnement Azure Automation pour les Runbooks Workers hybrides.
 
 #### 1\. Créer un espace de travail Azure Operational Insights
-Si vous ne disposez pas déjà d'un espace de travail Operational Insights dans votre compte Azure, créez-en un à l'aide des instructions mentionnées dans la section [Configuration de votre espace de travail Operational Insights](../operational-insights-setup-workspace). Vous pouvez utiliser un espace de travail existant si vous en avez déjà un.
+Si vous ne disposez pas déjà d'un espace de travail Operational Insights dans votre compte Azure, créez-en un à l'aide des instructions mentionnées dans la section [Configuration de votre espace de travail Operational Insights](../operational-insights/operational-insights-setup-workspace.md). Vous pouvez utiliser un espace de travail existant si vous en avez déjà un.
 
 #### 2\. Déployer la solution Automation
-Dans Operational Insights, la solution Automation lance les composants requis pour configurer et prendre en charge l'environnement du Runbook. Suivez les instructions fournies dans la section [Solutions Operational Insights](../operational-insights-add-solution) pour installer le pack **Azure Automation**.
+Dans Operational Insights, la solution Automation lance les composants requis pour configurer et prendre en charge l'environnement du Runbook. Suivez les instructions fournies dans la section [Solutions Operational Insights](../operational-insights/operational-insights-setup-workspace.md#1-add-solutions) pour installer le pack **Azure Automation**.
 
 ### Configuration de machines locales
 Exécutez la procédure suivante pour chacune des machines locales qui jouera le rôle de Runbook Worker hybride.
@@ -136,4 +136,4 @@ Vous pouvez utiliser les critères suivants pour déterminer si Azure Automation
 - [Modification d'un Runbook dans Azure Automation](https://msdn.microsoft.com/library/dn879137.aspx)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

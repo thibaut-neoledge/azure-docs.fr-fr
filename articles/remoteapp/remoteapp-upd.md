@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="07/16/2015" 
+    ms.date="08/12/2015" 
     ms.author="elizapo" />
 
 
@@ -123,4 +123,4 @@ Non, cette opération n'est pas prise en charge dans Azure RemoteApp, qui utilis
 
 Non, cette fonctionnalité n’est pas prise en charge dans Azure RemoteApp.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

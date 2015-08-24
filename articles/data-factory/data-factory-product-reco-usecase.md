@@ -7,7 +7,6 @@
 	manager="jhubbard" 
 	editor="monicar"/>
 
-
 <tags 
 	ms.service="data-factory" 
 	ms.workload="data-services" 
@@ -16,7 +15,6 @@
 	ms.topic="article" 
 	ms.date="07/29/2015" 
 	ms.author="spelluru"/>
-
 
 # Cas d’utilisation - Recommandations de produits 
 
@@ -62,4 +60,4 @@ Grâce à cette expérience d'achat personnalisée, le détaillant en ligne a cr
 
   
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

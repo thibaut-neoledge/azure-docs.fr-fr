@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery" 
-	ms.date="07/20/2015" 
+	ms.date="08/13/2015" 
 	ms.author="anbacker"/>
 	
 # Surveiller et résoudre les problèmes de protection pour les sites VMware, VMM, Hyper-V et physiques
@@ -169,6 +169,7 @@ Vous trouverez ci-dessous les erreurs courantes qui peuvent être testées et le
 -   [Impossible d’établir une connexion au coffre Hyper-V Recovery Manager. Vérifiez les paramètres de proxy ou réessayez ultérieurement.](http://social.technet.microsoft.com/wiki/contents/articles/25571.a-connection-cant-be-established-to-the-hyper-v-recovery-manager-vault-verify-the-proxy-settings-or-try-again-later.aspx)
 
 ### Configuration
+-   [Impossible de créer un groupe de protection : une erreur est survenue lors de la récupération de la liste de serveurs.](http://blogs.technet.com/b/somaning/archive/2015/08/12/unable-to-create-the-protection-group-in-azure-site-recovery-portal.aspx)
 
 -   [Le cluster hôte Hyper-V contient au moins une carte réseau statique ou aucune carte connectée n'est configurée pour utiliser DHCP.](http://social.technet.microsoft.com/wiki/contents/articles/25498.hyper-v-host-cluster-contains-at-least-one-static-network-adapter-or-no-connected-adapters-are-configured-to-use-dhcp.aspx)
 
@@ -222,4 +223,4 @@ Serveur de configuration, Serveur de traitement, Serveur maître
 ### Résolution des problèmes après un basculement de bureau à distance
 Suite à un basculement, de nombreux clients ont été confrontés à des problèmes de connexion à la machine virtuelle dans Azure. Utilisez le document de dépannage pour exécuter la résolution des problèmes de bureau à distance sur la machine virtuelle. [Lien vers le document](http://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

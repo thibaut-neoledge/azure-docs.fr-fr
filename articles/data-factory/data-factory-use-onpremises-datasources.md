@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Activation de vos pipelines pour utiliser des données locales | Azure Data Factory" 
+	pageTitle="Activation de vos pipelines pour utiliser des données locales | Microsoft Azure" 
 	description="Découvrez comment inscrire une source de données locale dans une fabrique de données Azure fabrique et copier les données vers/depuis la source de données." 
 	services="data-factory" 
 	documentationCenter="" 
@@ -113,7 +113,7 @@ Dans cette étape, vous utilisez le portail de gestion Microsoft Azure pour cr�
 
 3. Dans le panneau **Configurer**, cliquez sur **Installer directement sur cet ordinateur**. Cette opération télécharge le package d’installation de la passerelle, installe, configure et inscrit la passerelle sur l’ordinateur.
 
-	> [AZURE.NOTE] Utilisez Internet Explorer ou un navigateur web compatible Microsoft ClickOnce.
+	> [AZURE.NOTE]Utilisez Internet Explorer ou un navigateur web compatible Microsoft ClickOnce.
 
 	![Passerelle - Panneau Configurer][image-data-factory-gateway-configure-blade]
 
@@ -123,7 +123,7 @@ Dans cette étape, vous utilisez le portail de gestion Microsoft Azure pour cr�
 	
 	Pour en savoir plus sur la passerelle, y compris les meilleures pratiques et des remarques importantes, consultez la section [Passerelle de gestion des données](#DMG).
 
-	>[AZURE.NOTE] Vous devez être administrateur sur l’ordinateur local pour pouvoir installer et configurer la passerelle de gestion des données avec succès. Vous pouvez ajouter des utilisateurs supplémentaires au groupe Windows local d’utilisateurs de la passerelle de gestion des données. Les membres de ce groupe sont en mesure d’utiliser l’outil Gestionnaire de configuration de la passerelle de gestion de données pour configurer la passerelle.
+	>[AZURE.NOTE]Vous devez être administrateur sur l’ordinateur local pour pouvoir installer et configurer la passerelle de gestion des données avec succès. Vous pouvez ajouter des utilisateurs supplémentaires au groupe Windows local d’utilisateurs de la passerelle de gestion des données. Les membres de ce groupe sont en mesure d’utiliser l’outil Gestionnaire de configuration de la passerelle de gestion de données pour configurer la passerelle.
 
 4. Cliquez sur le concentrateur **NOTIFICATIONS**, sur la gauche. Patientez jusqu’à ce que le message **L’installation rapide de « adftutorialgateway » a réussi** s’affiche dans le panneau **Notifications**.
 
@@ -626,4 +626,4 @@ Vous pouvez supprimer une passerelle à l’aide de l’applet de commande **Rem
 
 [image-data-factory-preview-portal-storage-key]: ./media/data-factory-get-started/PreviewPortalStorageKey.png
 
-<!----HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

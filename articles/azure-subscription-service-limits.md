@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/15/2015"
+	ms.date="08/09/2015"
 	ms.author="jroth"/>
 
 # Abonnement Azure et limites, quotas et contraintes du service
@@ -23,7 +23,6 @@
 Ce document présente quelques-unes des limites Microsoft Azure les plus communes. Notez que ce document ne couvre pas tous les services Azure. Dans le temps, ces limites seront étendues et mises à jour pour couvrir une plus grande partie de la plateforme.
 
 > [AZURE.NOTE]Si vous souhaitez élever la limite au-dessus de la **Limite par défaut**, vous pouvez [ouvrir gratuitement un incident auprès du service client](http://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). Les limites ne peuvent pas être supérieures à la valeur **Limite maximale** dans les tableaux ci-dessous. Si aucune colonne **Limite maximale** n'est présente, la ressource spécifiée ne possède pas de limites ajustables.
-
 
 ### Limites et Azure Resource Manager
 
@@ -141,6 +140,10 @@ Pour plus d’informations sur les limites de Base de données SQL, consultez le
 
 [AZURE.INCLUDE [azure-mediaservices-limits](../includes/azure-mediaservices-limits.md)]
 
+## Limites de CDN
+
+[AZURE.INCLUDE [cdn-limits](../includes/cdn-limits.md)]
+
 ## Limites Mobile Services
 
 [AZURE.INCLUDE [mobile-services-limits](../includes/mobile-services-limits.md)]
@@ -205,4 +208,4 @@ Pour plus d’informations sur les limites de Base de données SQL, consultez le
 
 [Tailles de machines virtuelles et services cloud pour Windows Azure](http://msdn.microsoft.com/library/azure/dn197896.aspx)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

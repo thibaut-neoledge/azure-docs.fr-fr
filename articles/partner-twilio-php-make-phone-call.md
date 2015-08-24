@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Appel téléphonique à partir de Twilio (PHP) - Azure" 
+	pageTitle="Appel téléphonique à partir de Twilio (PHP) | Microsoft Azure" 
 	description="Découvrez comment passer un appel téléphonique et envoyer un message texte avec le service d'API Twilio sur Azure. Les exemples concernent une applications PHP." 
 	documentationCenter="php" 
 	services="" 
@@ -143,4 +143,4 @@ Pour plus d'informations sur Twilio, consultez la page [https://www.twilio.com/d
 [website-webmatrix]: https://www.windowsazure.com/develop/php/tutorials/website-w-mysql-and-webmatrix/
 [twilio_php_github]: https://github.com/twilio/twilio-php
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

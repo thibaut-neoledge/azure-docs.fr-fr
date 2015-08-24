@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Exécution d'un appel téléphonique à partir de Twilio (.NET) - Azure" 
+	pageTitle="Appel téléphonique à partir de Twilio (.NET) | Microsoft Azure" 
 	description="Découvrez comment passer un appel téléphonique et envoyer un message texte avec le service d'API Twilio sur Azure. Exemples de code écrits en .NET." 
 	services="" 
 	documentationCenter=".net" 
@@ -192,4 +192,4 @@ Ce code vous est fourni afin de vous présenter les fonctions de base de l'utili
 
 [azure_runtime_ref_dotnet]: http://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.serviceruntime.aspx
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

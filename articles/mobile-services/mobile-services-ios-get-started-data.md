@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Ajout de Mobile Services à une application existante (iOS) | Centre de développement mobile"
+	pageTitle="Ajout de Mobile Services à une application existante (iOS) | Microsoft Azure"
 	description="Découvrez comment utiliser Mobile Services pour tirer parti des données dans votre application iOS."
 	services="mobile-services"
 	documentationCenter="ios"
@@ -80,4 +80,4 @@ Téléchargez l'[application iOS GetStartedWithData]. Dans Xcode, ouvrez le proj
 [Démarrage rapide]: ../mobile-services-javascript-backend-ios-get-started.md
 [application iOS GetStartedWithData]: http://go.microsoft.com/fwlink/p/?LinkId=268622
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

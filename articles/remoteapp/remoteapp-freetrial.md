@@ -3,7 +3,7 @@
     pageTitle="Essai gratuit de 30 jours d’Azure RemoteApp"
     description="Découvrez l’essai gratuit de 30 jours d’Azure RemoteApp."
     services="remoteapp"
-	documentationCenter=""
+    documentationCenter=""
     authors="lizap"
     manager="mbaldwin" />
 
@@ -13,12 +13,12 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="06/23/2015"
+    ms.date="08/12/2015"
     ms.author="elizapo" />
 
 
 
-# Version d’évaluation gratuite de 30 jours de RemoteApp
+# Essai gratuit de 30 jours d’Azure RemoteApp
 
 Si vous avez un abonnement Azure, vous pouvez essayer [gratuitement Azure RemoteApp pendant 30 jours](https://www.remoteapp.windowsazure.com/en/tour.aspx). Pour commencer, connectez-vous simplement au portail de gestion Azure, accédez au nœud Azure RemoteApp, puis créez une collection. C’est un bon moyen de tester l’ensemble de l’expérience d’administration, avant la conversion vers un abonnement payant d’Azure RemoteApp.
 
@@ -30,4 +30,4 @@ Vous êtes impatient ? Regardez une courte vidéo sur la [Création d’un dép
 
 Vous avez des commentaires ? Posez des questions sur les [forums de discussion](http://feedback.azure.com/forums/247748-azure-remoteapp). Si vous avez une [formule d’assistance Azure](http://azure.microsoft.com/support/plans/), vous pouvez envoyer un dossier de support. Tous les utilisateurs peuvent envoyer des commentaires sur nos [Forums de commentaires](http://feedback.azure.com/forums/247748-azure-remoteapp).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

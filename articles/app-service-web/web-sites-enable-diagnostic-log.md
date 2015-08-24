@@ -22,7 +22,7 @@
 
 Azure fournit des diagnostics intégrés pour aider au débogage d'une [application Web App Service](http://go.microsoft.com/fwlink/?LinkId=529714). Cet article vous explique comment activer la journalisation de diagnostic et ajouter la fonctionnalité d’instrumentation à votre application, et comment accéder aux informations enregistrées par Azure.
 
-> [AZURE.NOTE]Cet article utilise le [portail Azure en version préliminaire](http://go.microsoft.com/fwlink/?LinkId=529715), Azure PowerShell et l’interface de ligne de commande Azure (CLI Azure) pour l’exploitation des journaux de diagnostic. Pour plus d’informations sur l’utilisation de journaux de diagnostic avec Visual Studio, consultez [Résolution des problèmes Azure dans Visual Studio](troubleshoot-web-sites-in-visual-studio.md).
+> [AZURE.NOTE]Cet article utilise le [portail Azure en version préliminaire](http://go.microsoft.com/fwlink/?LinkId=529715), Azure PowerShell et l’interface de ligne de commande Azure (CLI Azure) pour l’exploitation des journaux de diagnostic. Pour plus d’informations sur l’utilisation de journaux de diagnostic avec Visual Studio, consultez [Résolution des problèmes Azure dans Visual Studio](web-sites-dotnet-troubleshoot-visual-studio.md).
 
 ## <a name="whatisdiag"></a>Diagnostics de serveur Web et diagnostics d’application
 
@@ -38,11 +38,11 @@ Vous pouvez activer ou désactiver les types de journaux suivants :
 
 ### Diagnostic d'application
 
-Le diagnostic d'application vous permet de capturer des informations générées par une application Web. Les applications ASP.NET peuvent utiliser la classe [System.Diagnostics.Trace](http://msdn.microsoft.com/library/36hhw2t6.aspx) pour enregistrer des informations dans le journal de diagnostic d'application. Par exemple :
+Le diagnostic d'application vous permet de capturer des informations générées par une application Web. Les applications ASP.NET peuvent utiliser la classe [System.Diagnostics.Trace](http://msdn.microsoft.com/fr-fr/library/36hhw2t6.aspx) pour enregistrer des informations dans le journal de diagnostic d'application. Par exemple :
 
 	System.Diagnostics.Trace.TraceError("If you're seeing this, something bad happened");
 
-Lors de l'exécution, vous pouvez récupérer ces journaux pour vous aider lors du dépannage. Pour plus d’informations, consultez la page [Résolution des problèmes des applications web Azure dans Visual Studio](../troubleshoot-web-sites-in-visual-studio.md).
+Lors de l'exécution, vous pouvez récupérer ces journaux pour vous aider lors du dépannage. Pour plus d’informations, consultez la page [Résolution des problèmes des applications web Azure dans Visual Studio](web-sites-dotnet-troubleshoot-visual-studio.md).
 
 Les applications web App Service journalisent également les informations de déploiement lorsque vous publiez du contenu dans une application web. Cela est effectué automatiquement et il n'existe aucun paramètre de configuration pour la journalisation du déploiement. Cette dernière vous permet de déterminer le motif d'échec d'un déploiement. Si vous utilisez, par exemple, un script de déploiement personnalisé, vous pouvez recourir à la journalisation de déploiement pour déterminer la cause de l'échec du script.
 
@@ -263,4 +263,4 @@ Les journaux de serveur Web utilisent le [format de fichier journal étendu W3C]
 * Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre l'ancien et le nouveau portail, consultez : [Références sur la navigation dans le portail Azure](http://go.microsoft.com/fwlink/?LinkId=529715)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

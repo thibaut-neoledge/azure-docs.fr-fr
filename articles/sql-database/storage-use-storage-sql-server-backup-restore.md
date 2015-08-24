@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Utilisation du stockage Azure pour la sauvegarde et la restauration de SQL Server | Azure"
+	pageTitle="Utilisation du stockage Azure pour la sauvegarde et la restauration de SQL Server | Microsoft Azure"
 	description="Sauvegardez SQL Server et les bases de données SQL dans Azure Storage. Présente les avantages de la sauvegarde des bases de données SQL dans Azure Storage et les composants SQL Server et Azure Storage requis"
 	services="sql-database, virtual-machines"
 	documentationCenter=""
@@ -22,7 +22,7 @@
 
 ## Vue d'ensemble
 
-La fonctionnalité qui offre la possibilité d’écrire des sauvegardes SQL Server sur le service BLOB Azure est apparue avec la version SP1 CU2 de SQL Server 2012. Vous pouvez utiliser cette fonctionnalité pour sauvegarder et restaurer à partir du service BLOB Azure depuis une base de données SQL Server locale ou une base de données SQL Server sur une machine virtuelle Azure. La sauvegarde dans le cloud offre les avantages de la disponibilité, du stockage hors site géo-répliqué sans limite et de la facilité de migration des données vers et depuis le cloud. Dans cette version, vous pouvez émettre des instructions BACKUP ou RESTORE en utilisant T-SQL ou SMO.
+La fonctionnalité qui offre la possibilité d’écrire des sauvegardes SQL Server sur le service BLOB Azure est apparue avec la version SP1 CU2 de SQL Server 2012. Vous pouvez utiliser cette fonctionnalité pour sauvegarder et restaurer à partir du service BLOB Azure depuis une base de données SQL Server locale ou une base de données SQL Server sur une machine virtuelle Azure. La sauvegarde dans le cloud offre les avantages de la disponibilité, du stockage hors site géo-répliqué sans limite et de la facilité de migration des données vers et depuis le cloud. Dans cette version, vous pouvez émettre des instructions BACKUP ou RESTORE en utilisant Transact-SQL ou SMO.
 
 ## Avantages de l’utilisation du service d’objets Azure pour les sauvegardes SQL Server
 
@@ -53,7 +53,7 @@ Pour obtenir une procédure pas à pas complète de création d’un compte de s
 
 ## Composants SQL Server
 
-* URL : une URL attribue un URI (Uniform Resource Identifier) à un fichier de sauvegarde unique. L’URL fournit l’emplacement et le nom du fichier de sauvegarde SQL Server. Dans cette implémentation, la seule URL valide est celle qui pointe vers une page d'objets Blob dans le compte de stockage Azure. L'URL doit pointer vers un objet blob réel, pas juste un conteneur. Si l'objet blob n'existe pas, il est créé. Si un objet blob existant est indiqué, BACKUP échoue, sauf si l’option > WITH FORMAT est indiquée. Vous trouverez ci-dessous un exemple d’URL à indiquer dans la commande BACKUP : ****`http[s]://ACCOUNTNAME.Blob.core.windows.net/<CONTAINER>/<FILENAME.bak>`
+* URL : une URL attribue un URI (Uniform Resource Identifier) à un fichier de sauvegarde unique. L’URL fournit l’emplacement et le nom du fichier de sauvegarde SQL Server. Dans cette implémentation, la seule URL valide est celle qui pointe vers une page d'objets Blob dans le compte de stockage Azure. L'URL doit pointer vers un objet blob réel, pas juste un conteneur. Si l'objet blob n'existe pas, il est créé. Si un objet blob existant est indiqué, BACKUP échoue, sauf si l’option > WITH FORMAT est indiquée. Vous trouverez ci-dessous un exemple d’URL à indiquer dans la commande BACKUP : \*\***`http[s]://ACCOUNTNAME.Blob.core.windows.net/<CONTAINER>/<FILENAME.bak>`
 
 <b>Remarque :</b> HTTPS n’est pas requis, mais recommandé. <b>Important :</b> si vous choisissez de copier et de charger un fichier de sauvegarde dans le service BLOB Azure, vous devez utiliser un type d’objet blob de pages comme option de stockage si vous prévoyez d’utiliser ce fichier pour des opérations de restauration. La commande RESTORE depuis un type d’objet blob de blocs échouera avec une erreur.
 
@@ -73,4 +73,4 @@ Pour obtenir une procédure pas à pas complète de création d’un compte de s
 
 [Pratiques recommandées pour la sauvegarde et la restauration (service de stockage d’objets blob Azure)](http://go.microsoft.com/fwlink/?LinkId=272394)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

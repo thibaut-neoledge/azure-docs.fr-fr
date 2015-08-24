@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Didacticiel IPython Notebook - Azure"
+	pageTitle="IPython Notebook | Microsoft Azure"
 	description="Didacticiel qui explique le déploiement de l'interpréteur IPython Notebook sur Azure en utilisant des machines virtuelles Linux ou Windows."
 	services="virtual-machines"
 	documentationCenter="python"
@@ -112,7 +112,7 @@ Pour installer IPython et ses dépendances sur la machine virtuelle Windows, uti
 
 	* Vous devrez ajouter `C:\OpenSSL-Win32\bin` à votre variable d’environnement `PATH`.
 
-> [AZURE.NOTE]Lors de l’installation d’OpenSSL, utilisez la version 1.0.1g ou ultérieure, car elle inclut un correctif pour la faille de sécurité Heartbleed.
+	> [AZURE.NOTE] Lors de l’installation d’OpenSSL, utilisez la version 1.0.1g ou ultérieure, car elle inclut un correctif pour la faille de sécurité Heartbleed.
 
 1.  Installez IPython en utilisant la commande  suivante.
 
@@ -160,31 +160,31 @@ En plus de l'utilisation d'un certificat, vous devez également fournir un mot d
 
 Vous serez invité à fournir un mot de passe et une confirmation, puis le mot de passe s’affichera comme suit.
 
-    Enter password: 
-    Verify password: 
+    Enter password:
+    Verify password:
     sha1:b86e933199ad:a02e9592e59723da722.. (elided the rest for security)
-    
+
 Nous allons ensuite modifier le fichier de configuration du profil (fichier `ipython_notebook_config.py` du répertoire de profil dans lequel vous vous trouvez). Si ce fichier n’existe pas, créez-le. Ce fichier comporte de nombreux champs, tous commentés par défaut. Vous pouvez ouvrir ce fichier avec un éditeur de texte de votre choix et vous devez vous assurer qu’il a au moins le contenu suivant.
 
     c = get_config()
-    
+
     # This starts plotting support always with matplotlib
     c.IPKernelApp.pylab = 'inline'
-    
+
     # You must give the path to the certificate file.
-    
+
     # If using a Linux VM:
     c.NotebookApp.certfile = u'/home/azureuser/.ipython/profile_nbserver/mycert.pem'
-    
+
     # And if using a Windows VM:
     c.NotebookApp.certfile = r'C:\Users\azureuser\.ipython\profile_nbserver\mycert.pem'
-    
+
     # Create your own password as indicated above
     c.NotebookApp.password = u'sha1:b86e933199ad:a02e9592e5 etc... '
-    
+
     # Network and browser details. We use a fixed port (9999) so it matches
     # our Azure setup, where we've allowed traffic on that port
-    
+
     c.NotebookApp.ip = '*'
     c.NotebookApp.port = 9999
     c.NotebookApp.open_browser = False
@@ -270,4 +270,4 @@ Les fonctionnalités principales d'IPython sont également disponibles dans Visu
 [Python 2.7]: http://www.python.org/download
 [OpenSSL]: http://slproweb.com/products/Win32OpenSSL.html
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

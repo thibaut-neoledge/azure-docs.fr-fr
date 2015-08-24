@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Déploiement d'un service cloud dans un environnement intermédiaire (Node.js) - Azure" 
+	pageTitle="Déploiement d'un service cloud dans un environnement intermédiaire (Node.js) | Microsoft Azure" 
 	description="Découvrez comment déployer votre application Azure vers un environnement intermédiaire, puis comment la déployer vers un environnement de production grâce à l'échange d'adresses IP virtuelles (VIP)." 
 	services="cloud-services" 
 	documentationCenter="nodejs" 
@@ -18,10 +18,6 @@
 
 
 
-
-
-
-
 # Déploiement intermédiaire d'une application dans Azure
 
 Une application packagée peut être déployée dans l'environnement intermédiaire d'Azure afin d'être testée avant de la déplacer vers l'environnement de production dans lequel elle sera accessible sur Internet. L'environnement intermédiaire est exactement comme l'environnement de production, à la différence que vous ne pouvez accéder à l'environnement intermédiaire qu'avec une URL masquée générée par Azure. Une fois que vous avez vérifié que votre application fonctionne correctement, elle peut être déployée dans l'environnement de production après avoir effectué un échange d'adresses IP virtuelles (VIP).
@@ -33,7 +29,7 @@ Cette procédure comprend les étapes suivantes :
 -   [Étape 1 : déploiement intermédiaire d'une application]
 -   [Étape 2 : déploiement d'une application en production en échangeant les adresses IP virtuelles]
 
-<h2><a id="step1"></a>Étape&#160;1&#160;: déploiement intermédiaire d'une application</h2>
+## Étape 1 : déploiement intermédiaire d'une application
 
 Cette tâche explique comment effectuer un déploiement intermédiaire d'une application au moyen de **Windows Azure PowerShell**.
 
@@ -57,7 +53,7 @@ Cette tâche explique comment effectuer un déploiement intermédiaire d'une app
 
 Pour un scénario de mise à niveau, dans lequel l'application intermédiaire est une version mise à niveau de celle ayant déjà été déployée en production, vous pouvez [mettre à niveau l'application dans l'environnement de production en échangeant les adresses IP virtuelles][Step 2: Deploy an Application to Production by Swapping VIPs].
 
-<h2><a id="step2"></a>Étape&#160;2&#160;: mise à niveau d'une application en production en échangeant les adresses&#160;IP virtuelles</h2>
+## Étape 2 : mise à niveau d'une application en production en échangeant les adresses IP virtuelles
 
 Une fois que vous avez vérifié la version mise à niveau d'une application dans l'environnement intermédiaire, vous pouvez la rendre rapidement disponible en production en permutant les adresses IP virtuelles des environnements intermédiaire et de production.
 
@@ -90,4 +86,4 @@ Vous avez correctement effectué un déploiement intermédiaire et mis à niveau
   [Présentation de la gestion des déploiements dans Azure]: http://msdn.microsoft.com/library/windowsazure/hh386336.aspx
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Javadocs - Ressources Azure" 
+	pageTitle="Javadocs | Microsoft Azure" 
 	description="Référence des API Javadoc pour le Kit de développement logiciel (SDK) Azure pour Java." 
 	services="" 
 	documentationCenter="java" 
@@ -20,4 +20,4 @@
 
 Vous pouvez visualiser le contenu Javadoc pour les bibliothèques Azure pour Java à l'adresse <http://dl.windowsazure.com/javadoc>.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->
