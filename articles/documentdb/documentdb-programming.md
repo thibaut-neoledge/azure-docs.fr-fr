@@ -51,7 +51,7 @@ Cette approche du *« JavaScript en tant que langage T-SQL actualisé »* lib�
 	-	Une couche d'abstraction est ajoutée aux données brutes, ce qui permet aux architectes de données de faire évoluer leurs applications indépendamment des données. Ceci est particulièrement avantageux lorsque les données ne présentent pas de schéma, en raison des hypothèses fragiles devant être intégrées à l'application si elles doivent gérer des données directement.  
 	-	Cette abstraction permet aux entreprises d'assurer la sécurité de leurs données en simplifiant l'accès à partir des scripts.  
 
-La création et l’exécution de déclencheurs, de procédures stockées et d’opérateurs de requête personnalisés sont prises en charge par le biais de l’[API REST](https://msdn.microsoft.com/library/azure/dn781481.aspx) et de [Kits de développement logiciel (SDK) clients](https://msdn.microsoft.com/library/azure/dn781482.aspx) dans de nombreuses plateformes, dont .NET, Node.js et JavaScript. **Ce didacticiel utilise le [Kit de développement logiciel (SDK) Node.js](http://dl.windowsazure.com/documentDB/nodedocs/)** pour illustrer la syntaxe et l’utilisation des procédures stockées, des déclencheurs et des fonctions définies par l’utilisateur.
+La création et l’exécution de déclencheurs, de procédures stockées et d’opérateurs de requête personnalisés sont prises en charge par le biais de l’[API REST](https://msdn.microsoft.com/library/azure/dn781481.aspx) et de [Kits de développement logiciel (SDK) clients](https://msdn.microsoft.com/library/azure/dn781482.aspx) dans de nombreuses plateformes, dont .NET, Node.js et JavaScript. **Ce didacticiel utilise le** **[Kit de développement logiciel (SDK) Node.js](http://dl.windowsazure.com/documentDB/nodedocs/)** pour illustrer la syntaxe et l’utilisation des procédures stockées, des déclencheurs et des fonctions définies par l’utilisateur.
 
 ## Procédures stockées
 
@@ -643,4 +643,4 @@ Pour en savoir plus sur la programmation DocumentDB côté serveur, vous pouvez 
 -	[Architecture de base de données orientée services](http://dl.acm.org/citation.cfm?id=1066267&coll=Portal&dl=GUIDE) 
 -	[Hébergement du Runtime .NET dans Microsoft SQL Server](http://dl.acm.org/citation.cfm?id=1007669)  
 
-<!---HONumber=August15_HO6-->
+<!-----HONumber=August15_HO6-->
