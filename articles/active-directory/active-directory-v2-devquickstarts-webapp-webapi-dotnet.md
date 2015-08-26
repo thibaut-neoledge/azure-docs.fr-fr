@@ -18,7 +18,8 @@
 
 # Version d’évaluation du modèle d’application v2.0 : Appel d’une API Web à partir d’une application Web .NET
 
-> [AZURE.NOTE]Ces informations s’appliquent à la version préliminaire publique du point de terminaison v2.0. Pour obtenir des instructions sur l’intégration au service Azure AD, dont la disponibilité est désormais générale, consultez le [Guide du développeur Azure AD](active-directory-developers-guide.md).
+> [AZURE.NOTE]
+	Ces informations s’appliquent à la version préliminaire publique du point de terminaison v2.0. Pour obtenir des instructions sur l’intégration au service Azure AD, dont la disponibilité est désormais générale, consultez le [Guide du développeur Azure AD](active-directory-developers-guide.md).
 
 Avec le modèle d’application v2.0, vous pouvez rapidement ajouter une authentification à vos applications Web et à vos API Web, avec prise en charge pour les comptes Microsoft personnels, ainsi que pour les comptes professionnels ou scolaires. Ici, nous allons créer une application Web MVC qui :
 
@@ -45,7 +46,7 @@ Alternatively, you can [download the completed app as a .zip](https://github.com
 
 ```git clone --branch complete https://github.com/AzureADQuickStarts/AppModelv2-WebApp-WebAPI-OpenIdConnect-DotNet.git```
 
-## 1\. Inscription d’une application
+## 1. Inscription d’une application
 Créez une nouvelle application à l’adresse [apps.dev.microsoft.com](https://apps.dev.microsoft.com), ou suivez cette [procédure détaillée](active-directory-v2-app-registration.md). Veillez à respecter les points suivants :
 
 - Copiez l’**ID d’application** affecté à votre application, vous en aurez bientôt besoin.
@@ -54,7 +55,7 @@ Créez une nouvelle application à l’adresse [apps.dev.microsoft.com](https://
 - Entrez l’**URI de redirection** approprié. L’URI redirige vers Azure AD, destination valide des réponses d’authentification. La valeur par défaut pour ce didacticiel est `https://localhost:44326/`.
 
 
-## 2\. Connexion de l’utilisateur à l’aide d’OpenID Connect
+## 2. Connexion de l’utilisateur à l’aide d’OpenID Connect
 Ici, nous allons configurer l’intergiciel OWIN pour utiliser le [protocole d’authentification OpenID Connect](active-directory-v2-protocols.md#openid-connect-sign-in-flow). OWIN sera utilisé pour émettre des demandes de connexion et de déconnexion, gérer la session utilisateur et obtenir des informations concernant l’utilisateur, entre autres.
 
 -	Pour commencer, ouvrez le fichier `web.config` dans la racine du projet `TodoList-WebApp`, puis entrez les valeurs de configuration de votre application dans la section `<appSettings>`.
@@ -113,7 +114,7 @@ public void ConfigureAuth(IAppBuilder app)
 ...
 ```
 
-## 3\. Utilisation d’ADAL afin de récupérer un jeton d’accès lors de la connexion de l’utilisateur
+## 3. Utilisation d’ADAL afin de récupérer un jeton d’accès lors de la connexion de l’utilisateur
 Dans la notification `AuthorizationCodeReceived`, nous souhaitons utiliser [OAuth 2.0 en tandem avec OpenID Connect](active-directory-v2-protocols.md#openid-connect-with-oauth-code-flow) afin d’échanger le code d’autorisation contre un jeton d’accès au service de la liste de tâches. ADAL peut vous faciliter ce processus :
 
 - Tout d’abord, installez la version d’évaluation d’ADAL :
@@ -123,19 +124,26 @@ Dans la notification `AuthorizationCodeReceived`, nous souhaitons utiliser [OAut
 - Now add a new method, the `OnAuthorizationCodeReceived` event handler.  This handler will use ADAL to acquire an access token to the To-Do List API, and will store the token in ADAL's token cache for later:
 
 ```C#
-private async Task OnAuthorizationCodeReceived(AuthorizationCodeReceivedNotification notification) { string userObjectId = notification.AuthenticationTicket.Identity.FindFirst("http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier").Value; string tenantID = notification.AuthenticationTicket.Identity.FindFirst("http://schemas.microsoft.com/identity/claims/tenantid").Value; string authority = String.Format(CultureInfo.InvariantCulture, aadInstance, tenantID, string.Empty); ClientCredential cred = new ClientCredential(clientId, clientSecret);
+private async Task OnAuthorizationCodeReceived(AuthorizationCodeReceivedNotification notification)
+{
+		string userObjectId = notification.AuthenticationTicket.Identity.FindFirst("http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier").Value;
+		string tenantID = notification.AuthenticationTicket.Identity.FindFirst("http://schemas.microsoft.com/identity/claims/tenantid").Value;
+		string authority = String.Format(CultureInfo.InvariantCulture, aadInstance, tenantID, string.Empty);
+		ClientCredential cred = new ClientCredential(clientId, clientSecret);
 
 		// Here you ask for a token using the web app's clientId as the scope, since the web app and service share the same clientId.
 		var authContext = new Microsoft.IdentityModel.Clients.ActiveDirectory.AuthenticationContext(authority, new NaiveSessionCache(userObjectId));
 		var authResult = await authContext.AcquireTokenByAuthorizationCodeAsync(notification.Code, new Uri(redirectUri), cred, new string[] { clientId });
-} ... ```
+}
+...
+```
 
 - Dans les applications Web, ADAL dispose d’un cache de jeton extensible pouvant être utilisé pour stocker les jetons. Cet exemple implémente l’élément `NaiveSessionCache` qui utilise le stockage de session HTTP pour mettre en cache les jetons.
 
 <!-- TODO: Token Cache article -->
 
 
-## 4\. Appel de l’API Web de la liste des tâches
+## 4. Appel de l’API Web de la liste des tâches
 Il est à présent temps d’utiliser le jeton d’accès acquis lors de l’étape 3. Ouvrez le fichier `Controllers\TodoListController.cs` de l’application Web, qui exécute l’ensemble des requêtes CRUD sur l’API de la liste des tâches.
 
 - Vous pouvez réutiliser ADAL afin de récupérer les jetons d’accès du cache ADAL. Tout d’abord, ajoutez une instruction `using` pour ADAL dans ce fichier.
@@ -195,6 +203,8 @@ Pour référence, l’exemple terminé (sans vos valeurs de configuration) [est 
 
 ## Étapes suivantes
 
-Pour obtenir des ressources supplémentaires, consultez : - [La version d’évaluation du modèle d’application v2.0 >>](active-directory-appmodel-v2-overview.md) - [Balise adal StackOverflow >>](http://stackoverflow.com/questions/tagged/adal)
+Pour obtenir des ressources supplémentaires, consultez : 
+- [La version d’évaluation du modèle d’application v2.0 >>](active-directory-appmodel-v2-overview.md)
+- [Balise adal StackOverflow >>](http://stackoverflow.com/questions/tagged/adal)
 
-<!---HONumber=August15_HO7-->
+<!----HONumber=August15_HO7-->

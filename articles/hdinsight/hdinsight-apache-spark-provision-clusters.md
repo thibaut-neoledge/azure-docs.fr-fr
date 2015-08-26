@@ -85,20 +85,22 @@ Les clusters Spark sur HDInsight utilisent un conteneur de stockage d’objets b
 	![Fournir des détails du cluster Spark sur HDInsight](./media/hdinsight-apache-spark-provision-clusters/HDI.CustomProvision.Page1.png "Fournir des détails du cluster Spark sur HDInsight")
 
     <table border='1'>
-	<tr><th>Propriété</th><th>Valeur</th></tr>
-	<tr><td>Cluster Name</td>
-		<td><p>Nom du cluster. </p>
-			<ul>
-			<li>Le nom DNS (Domain Name System ) doit commencer et finir par un caractère alphanumérique et peut contenir des traits d’union.</li>
-			<li>Le champ doit être une chaîne comportant entre 3&#160;et 63&#160;caractères.</li>
-			</ul></td></tr>
-	<tr><td>Type du cluster</td>
-		<td>Pour le type du cluster, sélectionnez <strong>Spark</strong>.</td></tr>
-	<tr><td>Système d'exploitation</td>
-		<td>Sélectionnez <b>Windows Server&#160;2012 R2 Datacenter</b> pour approvisionner un cluster s’exécutant sur Windows. </td></tr>
-	<tr><td>Version de HDInsight</td>
-		<td>Choisissez la version. Pour Spark, la seule option de version disponible est&#160;<b>HDInsight&#160;3.2</b>, qui utilise Spark&#160;1.3.1.</td></tr>
-	</table>Entrez ou sélectionnez les valeurs, comme indiqué dans le tableau, puis cliquez sur la flèche de droite.
+		<tr><th>Propriété</th><th>Valeur</th></tr>
+		<tr><td>Cluster Name</td>
+			<td><p>Nom du cluster. </p>
+				<ul>
+				<li>Le nom DNS (Domain Name System ) doit commencer et finir par un caractère alphanumérique et peut contenir des traits d’union.</li>
+				<li>Le champ doit être une chaîne comportant entre 3&#160;et 63&#160;caractères.</li>
+				</ul></td></tr>
+		<tr><td>Type du cluster</td>
+			<td>Pour le type du cluster, sélectionnez <strong>Spark</strong>.</td></tr>
+		<tr><td>Système d'exploitation</td>
+			<td>Sélectionnez <b>Windows Server&#160;2012 R2 Datacenter</b> pour approvisionner un cluster s’exécutant sur Windows. </td></tr>
+		<tr><td>Version de HDInsight</td>
+			<td>Choisissez la version. Pour Spark, la seule option de version disponible est&#160;<b>HDInsight&#160;3.2</b>, qui utilise Spark&#160;1.3.1.</td></tr>
+		</table>
+
+	Entrez ou sélectionnez les valeurs, comme indiqué dans le tableau, puis cliquez sur la flèche de droite.
 
 4. Sur la page **Configurer le cluster**, entrez ou sélectionnez les valeurs suivantes :
 
@@ -111,8 +113,8 @@ Les clusters Spark sur HDInsight utilisent un conteneur de stockage d’objets b
 	<tr><td>Taille du nœud principal</td><td><p>Sélectionnez une taille de machine virtuelle pour le nœud principal.</p></td></tr>
 	<tr><td>Taille du nœud de données</td><td><p>Sélectionnez une taille de machine virtuelle pour le nœud de données.</p></td></tr>
 	</table>
-	
-	>[AZURE.NOTE] Selon votre choix de machines virtuelles, les coûts peuvent varier. HDInsight utilise toutes les machines virtuelles de niveau standard pour les nœuds de cluster. Pour plus d’informations concernant les répercussions de la taille des machines virtuelles sur les prix, consultez la rubrique <a href="http://azure.microsoft.com/pricing/details/hdinsight/" target="_blank">Tarification HDInsight</a>.
+
+	>[AZURE.NOTE] Selon votre choix de machines virtuelles, les coûts peuvent varier. HDInsight utilise toutes les machines virtuelles de niveau standard pour les nœuds de cluster. Pour plus d’informations concernant les répercussions de la taille des machines virtuelles sur les prix, consultez la rubrique <a href="http://azure.microsoft.com/pricing/details/hdinsight/" target="_blank">Tarification HDInsight</a>.	
 
 
 5. Sur la page **Configuration de l'utilisateur du cluster**, entrez les valeurs suivantes :
@@ -120,17 +122,19 @@ Les clusters Spark sur HDInsight utilisent un conteneur de stockage d’objets b
     ![Fournir des détails sur l’utilisateur Admin et l’utilisateur RDP](./media/hdinsight-apache-spark-provision-clusters/HDI.CustomProvision.Page3.png "Fournir des détails sur l’utilisateur Admin et l’utilisateur RDP")
 
     <table border='1'>
-	<tr><th>Propriété</th><th>Valeur</th></tr>
-	<tr><td>Nom d’utilisateur HTTP</td>
-		<td>Spécifiez le nom d'utilisateur de cluster HDInsight.</td></tr>
-	<tr><td>Mot de passe HTTP/Confirmer le mot de passe</td>
-		<td>Spécifiez le mot de passe de cluster HDInsight.</td></tr>
-	<tr><td>Activation du Bureau à distance pour le cluster</td>
-		<td>Cochez cette case pour spécifier une date d’expiration, un nom d’utilisateur et un mot de passe pour un utilisateur de bureau à distance pouvant se connecter aux nœuds de cluster à distance, après configuration. Vous pouvez également activer le Bureau à distance ultérieurement, une fois le cluster configuré. Pour la marche à suivre, consultez <a href="hdinsight-administer-use-management-portal/#rdp" target="_blank">Connexion à des clusters HDInsight à l’aide de RDP</a>.</td></tr>
-	<tr><td>Sélection du metastore Hive/Oozie</td>
-		<td>Cochez cette case pour spécifier une base de données SQL sur le même centre de données que le cluster, afin de l’utiliser en tant que metastore Hive/Oozie. Si vous cochez cette case, vous devez renseigner plusieurs informations concernant la base de données SQL Azure dans les pages suivantes de l’Assistant. Ceci est utile si vous voulez conserver les métadonnées sur les tâches Hive/Oozie après la suppression d'un cluster. Pour obtenir des instructions sur la création d’un metastore, consultez&#160;<a href="https://azure.microsoft.com/fr-fr/documentation/articles/sql-database-get-started/" target="_blank">Créer votre première base de données SQL&#160;Azure</a>.</td></tr>
-	</td></tr>
-</table>>[AZURE.NOTE]La base de données SQL Azure utilisée pour le metastore doit autoriser la connectivité aux autres services Azure, y compris Azure HDInsight. Sur le côté droit du tableau de bord de la base de données Azure SQL, cliquez sur le nom du serveur. Il s'agit du serveur sur lequel l'instance de base de données SQL est exécutée. Une fois dans l’affichage du serveur, cliquez sur **Configurer**, puis pour **Services** **Microsoft Azure**, cliquez sur **Oui**, puis sur **Enregistrer**.
+		<tr><th>Propriété</th><th>Valeur</th></tr>
+		<tr><td>Nom d’utilisateur HTTP</td>
+			<td>Spécifiez le nom d'utilisateur de cluster HDInsight.</td></tr>
+		<tr><td>Mot de passe HTTP/Confirmer le mot de passe</td>
+			<td>Spécifiez le mot de passe de cluster HDInsight.</td></tr>
+		<tr><td>Activation du Bureau à distance pour le cluster</td>
+			<td>Cochez cette case pour spécifier une date d’expiration, un nom d’utilisateur et un mot de passe pour un utilisateur de bureau à distance pouvant se connecter aux nœuds de cluster à distance, après configuration. Vous pouvez également activer le Bureau à distance ultérieurement, une fois le cluster configuré. Pour la marche à suivre, consultez <a href="hdinsight-administer-use-management-portal/#rdp" target="_blank">Connexion à des clusters HDInsight à l’aide de RDP</a>.</td></tr>
+		<tr><td>Sélection du metastore Hive/Oozie</td>
+			<td>Cochez cette case pour spécifier une base de données SQL sur le même centre de données que le cluster, afin de l’utiliser en tant que metastore Hive/Oozie. Si vous cochez cette case, vous devez renseigner plusieurs informations concernant la base de données SQL Azure dans les pages suivantes de l’Assistant. Ceci est utile si vous voulez conserver les métadonnées sur les tâches Hive/Oozie après la suppression d'un cluster. Pour obtenir des instructions sur la création d’un metastore, consultez&#160;<a href="https://azure.microsoft.com/fr-fr/documentation/articles/sql-database-get-started/" target="_blank">Créer votre première base de données SQL&#160;Azure</a>.</td></tr>
+		</td></tr>
+	</table>
+
+	>[AZURE.NOTE]La base de données SQL Azure utilisée pour le metastore doit autoriser la connectivité aux autres services Azure, y compris Azure HDInsight. Sur le côté droit du tableau de bord de la base de données Azure SQL, cliquez sur le nom du serveur. Il s'agit du serveur sur lequel l'instance de base de données SQL est exécutée. Une fois dans l’affichage du serveur, cliquez sur **Configurer**, puis pour **Services** **Microsoft Azure**, cliquez sur **Oui**, puis sur **Enregistrer**.
 
     Cliquez sur la flèche droite.
 
@@ -149,29 +153,31 @@ Les clusters Spark sur HDInsight utilisent un conteneur de stockage d’objets b
     ![Entrer les détails du compte de stockage](./media/hdinsight-apache-spark-provision-clusters/HDI.CustomProvision.Page5.png "Entrer les détails du compte de stockage")
 
 	<table border='1'>
-	<tr><th>Propriété</th><th>Valeur</th></tr>
-	<tr><td>Compte de stockage</td>
-		<td>Spécifiez le compte Azure Storage qui sera utilisé comme système de fichiers par défaut pour le cluster HDInsight. Vous pouvez choisir l'une des trois options suivantes&#160;:
-		<ul>
-			<li><strong>Utiliser le stockage existant</strong></li>
-			<li><strong>Créer un nouveau stockage</strong></li>
-			<li><strong>Utiliser le stockage associé à un autre abonnement</strong></li>
-		</ul>
-		</td></tr>
-	<tr><td>Nom du compte</td>
-		<td><ul>
-			<li>Si vous choisissez d’utiliser un stockage existant, pour <strong>Nom du compte</strong>, sélectionnez un compte de stockage existant. La liste déroulante répertorie uniquement les comptes de stockage situés dans le centre de données sur lequel vous voulez approvisionner le cluster.</li>
-			<li>Si vous choisissez l’option <strong>Créer un nouveau stockage</strong> ou <strong>Utiliser le stockage associé à un autre abonnement</strong>, vous devez fournir le nom du compte de stockage.</li>
-		</ul></td></tr>
-	<tr><td>Clé du compte</td>
-		<td>Si vous choisissez l’option <strong>Utiliser le stockage associé à un autre abonnement</strong>, veuillez indiquer la clé de ce compte de stockage.</td></tr>
-	<tr><td>Conteneur par défaut</td>
-		<td><p>Spécifiez le conteneur par défaut du compte de stockage qui sera utilisé comme système de fichiers par défaut pour le cluster HDInsight. Si vous sélectionnez l’option <strong>Utiliser le stockage existant</strong> pour le champ <strong>Compte de stockage</strong> et qu’il n’y a aucun conteneur existant dans ce compte, le conteneur est créé par défaut avec le même nom que celui du cluster. Si un conteneur portant le nom du cluster existe déjà, un numéro de séquence est ajouté au nom de conteneur. Par exemple, mon_conteneur1, mon_conteneur2, et ainsi de suite. Cependant, si le compte de stockage existant a un conteneur dont le nom est différent de celui du cluster spécifié, vous pouvez également utiliser ce conteneur.</p>
-        <p>Si vous choisissez de créer un stockage ou d’utiliser le stockage d’un autre abonnement Azure, vous devez spécifier le nom du conteneur par défaut.</p>
-    </td></tr>
-	<tr><td>Comptes de stockage supplémentaires</td>
-		<td>HDInsight prend en charge plusieurs comptes de stockage. Le nombre de comptes de stockage supplémentaires pouvant être utilisés par un cluster n’est pas limité. Toutefois, si vous créez un cluster au moyen du portail Azure, la limite est établie à sept en raison de contraintes liées à l’interface utilisateur. Chaque compte de stockage supplémentaire que vous spécifiez dans ce champ ajoute une page **Compte de stockage** supplémentaire vers l’Assistant vous permettant de spécifier les informations de compte. Par exemple, dans la capture d’écran suivante, 1&#160;compte de stockage supplémentaire est sélectionné, la page&#160;5 est donc ajoutée à la boîte de dialogue.</td></tr>
-</table>Cliquez sur la flèche droite.
+		<tr><th>Propriété</th><th>Valeur</th></tr>
+		<tr><td>Compte de stockage</td>
+			<td>Spécifiez le compte Azure Storage qui sera utilisé comme système de fichiers par défaut pour le cluster HDInsight. Vous pouvez choisir l'une des trois options suivantes&#160;:
+			<ul>
+				<li><strong>Utiliser le stockage existant</strong></li>
+				<li><strong>Créer un nouveau stockage</strong></li>
+				<li><strong>Utiliser le stockage associé à un autre abonnement</strong></li>
+			</ul>
+			</td></tr>
+		<tr><td>Nom du compte</td>
+			<td><ul>
+				<li>Si vous choisissez d’utiliser un stockage existant, pour <strong>Nom du compte</strong>, sélectionnez un compte de stockage existant. La liste déroulante répertorie uniquement les comptes de stockage situés dans le centre de données sur lequel vous voulez approvisionner le cluster.</li>
+				<li>Si vous choisissez l’option <strong>Créer un nouveau stockage</strong> ou <strong>Utiliser le stockage associé à un autre abonnement</strong>, vous devez fournir le nom du compte de stockage.</li>
+			</ul></td></tr>
+		<tr><td>Clé du compte</td>
+			<td>Si vous choisissez l’option <strong>Utiliser le stockage associé à un autre abonnement</strong>, veuillez indiquer la clé de ce compte de stockage.</td></tr>
+		<tr><td>Conteneur par défaut</td>
+			<td><p>Spécifiez le conteneur par défaut du compte de stockage qui sera utilisé comme système de fichiers par défaut pour le cluster HDInsight. Si vous sélectionnez l’option <strong>Utiliser le stockage existant</strong> pour le champ <strong>Compte de stockage</strong> et qu’il n’y a aucun conteneur existant dans ce compte, le conteneur est créé par défaut avec le même nom que celui du cluster. Si un conteneur portant le nom du cluster existe déjà, un numéro de séquence est ajouté au nom de conteneur. Par exemple, mon_conteneur1, mon_conteneur2, et ainsi de suite. Cependant, si le compte de stockage existant a un conteneur dont le nom est différent de celui du cluster spécifié, vous pouvez également utiliser ce conteneur.</p>
+	        <p>Si vous choisissez de créer un stockage ou d’utiliser le stockage d’un autre abonnement Azure, vous devez spécifier le nom du conteneur par défaut.</p>
+	    </td></tr>
+		<tr><td>Comptes de stockage supplémentaires</td>
+			<td>HDInsight prend en charge plusieurs comptes de stockage. Le nombre de comptes de stockage supplémentaires pouvant être utilisés par un cluster n’est pas limité. Toutefois, si vous créez un cluster au moyen du portail Azure, la limite est établie à sept en raison de contraintes liées à l’interface utilisateur. Chaque compte de stockage supplémentaire que vous spécifiez dans ce champ ajoute une page **Compte de stockage** supplémentaire vers l’Assistant vous permettant de spécifier les informations de compte. Par exemple, dans la capture d’écran suivante, 1&#160;compte de stockage supplémentaire est sélectionné, la page&#160;5 est donc ajoutée à la boîte de dialogue.</td></tr>
+	</table>
+
+	Cliquez sur la flèche droite.
 
 8. Si vous avez choisi de configurer un stockage supplémentaire pour le cluster, dans la page **Compte de stockage**, entrez les informations du compte pour le compte de stockage supplémentaire :
 
@@ -186,16 +192,18 @@ Les clusters Spark sur HDInsight utilisent un conteneur de stockage d’objets b
 	Si vous devez utiliser une action de script, indiquez les entrées suivantes.
 	
 	<table border='1'>
-	<tr><th>Propriété</th><th>Valeur</th></tr>
-	<tr><td>Nom</td>
-		<td>Indiquez un nom pour l'action de script.</td></tr>
-	<tr><td>URI du script</td>
-		<td>Spécifiez l'URI (Uniform Resource Identifier) du script appelé pour personnaliser le cluster.</td></tr>
-	<tr><td>Type de nœud</td>
-		<td>Spécifiez les nœuds sur lesquels le script de personnalisation est exécuté. Vous avez le choix entre <b>Tous les nœuds</b>, <b>Nœuds principaux uniquement</b> et <b>Nœuds de travail uniquement</b>.
-	<tr><td>Paramètres</td>
-		<td>Spécifiez les paramètres, si le script le demande.</td></tr>
-</table>Vous pouvez ajouter plusieurs actions de script pour installer plusieurs composants sur le cluster. Une fois que vous avez ajouté les scripts, cliquez sur la coche pour démarrer l'approvisionnement du cluster.
+		<tr><th>Propriété</th><th>Valeur</th></tr>
+		<tr><td>Nom</td>
+			<td>Indiquez un nom pour l'action de script.</td></tr>
+		<tr><td>URI du script</td>
+			<td>Spécifiez l'URI (Uniform Resource Identifier) du script appelé pour personnaliser le cluster.</td></tr>
+		<tr><td>Type de nœud</td>
+			<td>Spécifiez les nœuds sur lesquels le script de personnalisation est exécuté. Vous avez le choix entre <b>Tous les nœuds</b>, <b>Nœuds principaux uniquement</b> et <b>Nœuds de travail uniquement</b>.
+		<tr><td>Paramètres</td>
+			<td>Spécifiez les paramètres, si le script le demande.</td></tr>
+	</table>
+
+	Vous pouvez ajouter plusieurs actions de script pour installer plusieurs composants sur le cluster. Une fois que vous avez ajouté les scripts, cliquez sur la coche pour démarrer l'approvisionnement du cluster.
 
 
 
@@ -365,19 +373,19 @@ Créez un certificat auto-signé, installez-le sur votre poste de travail et té
 3. Dans **Nouveau projet**, entrez ou sélectionnez les valeurs suivantes :
 
 	<table style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse;">
-<tr>
-<th style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; width:90px; padding-left:5px; padding-right:5px;">Propriété</th>
-<th style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; width:90px; padding-left:5px; padding-right:5px;">Valeur</th></tr>
-<tr>
-<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">Catégorie</td>
-<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px; padding-right:5px;">Modèles/Visual C#/Windows</td></tr>
-<tr>
-<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">Modèle</td>
-<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">Application console</td></tr>
-<tr>
-<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">Nom</td>
-<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">CreateHDICluster</td></tr>
-</table>
+	<tr>
+	<th style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; width:90px; padding-left:5px; padding-right:5px;">Propriété</th>
+	<th style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; width:90px; padding-left:5px; padding-right:5px;">Valeur</th></tr>
+	<tr>
+	<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">Catégorie</td>
+	<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px; padding-right:5px;">Modèles/Visual C#/Windows</td></tr>
+	<tr>
+	<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">Modèle</td>
+	<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">Application console</td></tr>
+	<tr>
+	<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">Nom</td>
+	<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">CreateHDICluster</td></tr>
+	</table>
 
 4. Cliquez sur **OK** pour créer le projet.
 
@@ -499,4 +507,4 @@ Lorsque l'application est ouverte dans Visual Studio, appuyez sur **F5** pour l'
 
 [89e2276a]: /documentation/articles/hdinsight-use-sqoop/ "Utilisation de Sqoop avec HDInsight"
 
-<!---HONumber=August15_HO7-->
+<!-----HONumber=August15_HO7-->
