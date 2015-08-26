@@ -89,7 +89,7 @@ Si cette procédure ne vous est pas familière, consultez [Comment convertir un 
     ![Authentification unique SAML](./media/active-directory-saas-bamboo-hr-tutorial/IC796692.png "Authentification unique SAML")
 
     1.  Dans le portail Azure, dans la page de boîte de dialogue **Configurer l’authentification unique sur BambooHR**, copiez la valeur **URL du service d’authentification unique**, puis collez-la dans la zone de texte \*\*URL de connexion d’authentification unique\*\*.
-2.  Créez un fichier **codé en base 64** à partir du certificat téléchargé.  
+    2.  Créez un fichier **codé en base 64** à partir du certificat téléchargé.  
 
         >[AZURE.TIP]Pour plus d’informations, consultez [Comment convertir un certificat binaire en fichier texte](http://youtu.be/PlgrzUZ-Y1o).
 
