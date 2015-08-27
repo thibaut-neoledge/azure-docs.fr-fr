@@ -96,16 +96,17 @@ Lorsque vous approvisionnez un cluster HDInsight, vous approvisionnez les ressou
 4. Entrez ou sélectionnez les valeurs suivantes :
 
 	<table border="1">
-<tr><th>Nom</th><th>Valeur</th></tr>
-<tr><td>Nom du cluster</td><td>Nom du cluster.</td></tr>
-<tr><td>Cluster Size</td><td>Nombre de nœuds de données que vous souhaitez déployer. La valeur par défaut est 4. mais le menu déroulant propose également 1 ou 2&#160;nœuds de données. Vous pouvez spécifier n'importe quel nombre de clusters en utilisant l'option <strong>Création personnalisée</strong>. Des détails de tarification sur les taux de facturation en fonction des tailles de cluster sont disponibles. Cliquez sur le symbole <strong>?</strong> juste au-dessus de la zone de liste déroulante et suivez le lien dans le menu contextuel.</td></tr>
-<tr><td>Mot de passe</td><td>Le mot de passe du compte <i>HTTP</i> (nom d'utilisateur par défaut&#160;: administrateur) et du compte <i>SSH</i> (nom d'utilisateur par défaut&#160;: hdiuser). Notez que ces comptes ne sont PAS les comptes d'administrateur pour les machines virtuelles sur lesquelles les clusters sont approvisionnés. </td></tr>
+	<tr><th>Nom</th><th>Valeur</th></tr>
+	<tr><td>Nom du cluster</td><td>Nom du cluster.</td></tr>
+	<tr><td>Cluster Size</td><td>Nombre de nœuds de données que vous souhaitez déployer. La valeur par défaut est 4. mais le menu déroulant propose également 1 ou 2&#160;nœuds de données. Vous pouvez spécifier n'importe quel nombre de clusters en utilisant l'option <strong>Création personnalisée</strong>. Des détails de tarification sur les taux de facturation en fonction des tailles de cluster sont disponibles. Cliquez sur le symbole <strong>?</strong> juste au-dessus de la zone de liste déroulante et suivez le lien dans le menu contextuel.</td></tr>
+	<tr><td>Mot de passe</td><td>Le mot de passe du compte <i>HTTP</i> (nom d'utilisateur par défaut&#160;: administrateur) et du compte <i>SSH</i> (nom d'utilisateur par défaut&#160;: hdiuser). Notez que ces comptes ne sont PAS les comptes d'administrateur pour les machines virtuelles sur lesquelles les clusters sont approvisionnés. </td></tr>
 
-<tr><td>Compte de stockage</td><td>Sélectionnez le compte de stockage que vous avez créé dans la zone de liste déroulante. <br/>
+	<tr><td>Compte de stockage</td><td>Sélectionnez le compte de stockage que vous avez créé dans la zone de liste déroulante. <br/>
 
-Une fois qu'un compte de stockage est choisi, il ne peut pas être modifié. Si le compte de stockage est supprimé, le cluster n’est plus disponible. Le cluster HDInsight est colocalisé dans le même centre de données que le compte de stockage.
-</td></tr>
-</table>Conservez une copie du nom de cluster. Vous en aurez besoin plus loin dans le didacticiel.
+	Une fois qu'un compte de stockage est choisi, il ne peut pas être modifié. Si le compte de stockage est supprimé, le cluster n’est plus disponible. Le cluster HDInsight est colocalisé dans le même centre de données que le compte de stockage.
+	</td></tr>
+	</table>
+	Conservez une copie du nom de cluster. Vous en aurez besoin plus loin dans le didacticiel.
 
 
 5. Cliquez sur **CRÉER UN CLUSTER HDINSIGHT**. Lorsque l’approvisionnement est terminé, la colonne d’état indique **En cours d'exécution**.
@@ -271,4 +272,4 @@ Dans ce didacticiel Linux, vous avez appris à approvisionner un cluster Hadoop 
 [image-hdi-gettingstarted-powerquery-importdata2]: ./media/hdinsight-hadoop-tutorial-get-started-windows/HDI.GettingStarted.PowerQuery.ImportData2.png
  
 
-<!---HONumber=August15_HO6-->
+<!------HONumber=August15_HO6-->

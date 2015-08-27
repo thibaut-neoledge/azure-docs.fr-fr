@@ -57,13 +57,11 @@ Chaîne de connexion Service Bus | Non | Si vous vous connectez en local, entrez
 Nom du serveur partenaire | Non | Si le serveur principal est indisponible, vous pouvez entrer un serveur partenaire comme serveur secondaire ou de sauvegarde.
 Tables | Non | Répertoriez les tables de base de données qui peuvent être mises à jour par le connecteur. Par exemple, entrez *OrdersTable* ou *EmployeeTable*. Si aucune table n'est entrée, toutes les tables peuvent être utilisées. Des tables et/ou des procédures stockées valides sont nécessaires pour utiliser ce connecteur comme une action.
 Procédures stockées | Non | Entrez une procédure stockée existante qui peut être appelée par le connecteur. Par exemple, entrez *sp\_IsEmployeeEligible* ou *sp\_CalculateOrderDiscount*. Des tables et/ou des procédures stockées valides sont nécessaires pour utiliser ce connecteur comme une action.
-Requête de données disponibles | Pour la prise en charge du déclencheur | Instruction SQL permettant de déterminer si une table de la base de données SQL Server contient des données interrogeables. Ceci doit renvoyer une valeur numérique représentant le nombre de lignes de données disponibles. Exemple : SELECT COUNT(*) from table\_name. Requête d’interrogation de données | Pour la prise en charge du déclencheur | Instruction SQL d’interrogation de la table de base de données SQL Server. Vous pouvez entrer plusieurs instructions SQL séparées par un point-virgule. Cette instruction est exécutée de façon transactionnelle et validée uniquement lorsque les données sont stockées en toute sécurité dans votre application logique. Exemple : SELECT * FROM table\_name; DELETE FROM table\_name. <br/>
-<br/>
-**Remarque**<br/>
-Vous devez fournir une instruction d'interrogation qui évite la création d'une boucle infinie en supprimant, déplaçant ou mettant à jour les données sélectionnées afin qu'elles ne soient pas interrogées à nouveau.
+Requête de données disponibles | Pour la prise en charge du déclencheur | Instruction SQL permettant de déterminer si une table de la base de données SQL Server contient des données interrogeables. Ceci doit renvoyer une valeur numérique représentant le nombre de lignes de données disponibles. Exemple : SELECT COUNT(*) from table_name.
+Requête d’interrogation de données | Pour la prise en charge du déclencheur | Instruction SQL d’interrogation de la table de base de données SQL Server. Vous pouvez entrer plusieurs instructions SQL séparées par un point-virgule. Cette instruction est exécutée de façon transactionnelle et validée uniquement lorsque les données sont stockées en toute sécurité dans votre application logique. Exemple: SELECT * FROM table_name; DELETE FROM table_name. <br/><br/>**Remarque**<br/>Vous devez fournir une instruction d'interrogation qui évite la création d'une boucle infinie en supprimant, déplaçant ou mettant à jour les données sélectionnées afin qu'elles ne soient pas interrogées à nouveau.
 
-5. Lorsque vous avez terminé, les paramètres du package se présentent comme suit : 
- ![][1]
+5. Lorsque vous avez terminé, les paramètres du package se présentent comme suit :  
+	![][1]  
 
 6. Sélectionnez **Créer**.
 
@@ -164,4 +162,4 @@ Vous pouvez également consulter les statistiques de performances et contrôler 
 [11]: ./media/app-service-logic-connector-sql/LogicApp7.png
 [12]: ./media/app-service-logic-connector-sql/LogicApp8.png
 
-<!---HONumber=August15_HO7-->
+<!------HONumber=August15_HO7-->
