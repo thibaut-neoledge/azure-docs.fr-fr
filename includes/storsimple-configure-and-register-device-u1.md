@@ -25,7 +25,7 @@
    - Passerelle
    - Adresse IP du serveur DNS principal
     
-		Note that the system is validating network settings after each step in the process.
+		Notez que le système valide les paramètres du réseau à la fin de chaque étape de ce processus.
    
       >[AZURE.NOTE]Vous devrez peut-être attendre quelques minutes que les paramètres de masque de sous-réseau et de DNS soient appliqués. Si vous obtenez le message d’erreur « Vérifiez la connectivité du réseau sur Data 0 », vérifiez la connexion réseau physique sur l’interface réseau DATA 0 de votre contrôleur actif.
 
@@ -58,10 +58,10 @@
    
     	![StorSimple Devices page](./media/storsimple-configure-and-register-device-u1/HCS_DevicesPageM_U1-include.png) 
   
-        If the device status is **Offline**, wait for a couple of minutes for the device to come online. 
+        Si l’état de l’appareil est **Hors ligne**, attendez quelques minutes qu’il soit en ligne. 
       
-        If the device is still offline after a few minutes, then you need to make sure that your firewall network was configured as described in the [network requirements for your StorSimple device](https://msdn.microsoft.com/library/dn772371.aspx). If you do not have HTTP 1.1 support, check port 9354 to make sure that it is open for outbound communication. This port is used for communication between the StorSimple Manager service and your StorSimple device.
+        Si l'appareil est toujours hors ligne après quelques minutes, vous devez vous assurer que le réseau de pare-feu a été configuré conformément à la [configuration réseau requise pour votre appareil StorSimple] (https://msdn.microsoft.com/library/dn772371.aspx). Si vous ne bénéficiez d'aucune prise en charge HTTP 1.1 , vérifiez le port 9354 afin de vous assurer qu'il est ouvert pour les communications sortantes. Ce port est utilisé pour la communication entre le service StorSimple Manager et votre appareil StorSimple.
      
        
 
-<!---HONumber=August15_HO6-->
+<!-----HONumber=August15_HO6-->

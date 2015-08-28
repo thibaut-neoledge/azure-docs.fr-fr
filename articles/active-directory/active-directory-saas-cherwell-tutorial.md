@@ -66,7 +66,7 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
     ![Configurer l’URL de l’application](./media/active-directory-saas-cherwell-tutorial/IC798992.png "Configurer l’URL de l’application")
 
     1.  Dans la zone de texte **URL de connexion**, tapez l’URL utilisée par vos utilisateurs pour se connecter à **Cherwell** (par exemple, \**https://pictdev.cherwellondemand.com/cherwellclient*).
-2.  Cliquez sur **Suivant**
+    2.  Cliquez sur **Suivant**
 
 4.  Dans la page **Configurer l’authentification unique sur Cherwell**, procédez comme suit :
 
@@ -108,4 +108,4 @@ Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure
 
 Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d’informations sur le volet d’accès, consultez [Présentation du volet d’accès](https://msdn.microsoft.com/library/dn308586).
 
-<!---HONumber=August15_HO7-->
+<!----HONumber=August15_HO7-->

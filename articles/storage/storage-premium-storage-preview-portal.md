@@ -130,7 +130,7 @@ Pour bénéficier des avantages du stockage Premium, créez d'abord un compte de
 </tbody>
 </table>
 
-	For the most up-to-date information, see [Virtual Machine and Cloud Service Sizes for Azure](http://msdn.microsoft.com/library/azure/dn197896.aspx). To learn about the Premium storage disks and their IOPs and throughput limits, see the table in the [Scalability and Performance Targets when using Premium Storage](#scalability-and-performance-targets-whfr-fring-premium-storage) section in this article.
+	Pour obtenir les informations les plus récentes, consultez [Virtual Machine and Cloud Service Sizes for Azure] (http://msdn.microsoft.com/library/azure/dn197896.aspx). Pour en savoir plus sur les disques de stockage Premium et sur leurs limites d'IOP et de débit, consultez le tableau situé dans la section [Scalability and Performance Targets when using Premium Storage] (#scalability-and-performance-targets-when-using-premium-storage) de cet article.
 
 > [AZURE.NOTE]Les présences dans le cache ne sont pas limitées par l’IOPS et le débit du disque. Autrement dit, lorsque vous utilisez un disque de données avec le paramètre de cache ReadOnly sur une machine virtuelle DS, les lectures effectuées dans le cache ne sont pas soumises aux limites des disques de stockage Premium. Il est donc possible d’obtenir un très haut débit à partir d'un disque, si la charge de travail concerne essentiellement des lectures. Notez que le cache est soumis à des limites IOPS/Débit séparées au niveau de la machine virtuelle, en fonction de la taille de celle-ci. Les machines virtuelles DS exécutent environ 4000 IOPS et ont un débit de 33 Mo/s par cœur pour les E/S du cache et du disque SSD local.
 
@@ -458,4 +458,4 @@ azure storage account create "premiumtestaccount" -l "west us" --type PLRS
 [Image1]: ./media/storage-premium-storage-preview-portal/Azure_pricing_tier.png
  
 
-<!---HONumber=August15_HO7-->
+<!-----HONumber=August15_HO7-->
