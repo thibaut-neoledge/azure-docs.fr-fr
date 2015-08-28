@@ -83,16 +83,19 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 
 8.  Dans la page **Login using SAML**, procédez comme suit, puis cliquez sur **Save Changes** :
 
-    1.  Cliquez sur **Enable Single Sign-On with SAML**. ![Connexion avec SAML](./media/active-directory-saas-samanage-tutorial/IC771719.png "Connexion avec SAML")
-    2.  Dans la page **Configurer l’authentification unique sur Samanage** du portail Azure, copiez la valeur de **ID du fournisseur d’identité** et collez-la dans la zone de texte \*\*Identity Provider URL\*\*.![Configurer l’authentification unique](./media/active-directory-saas-samanage-tutorial/IC771720.png "Configurer l’authentification unique")
-3.  Dans la page **Configurer l’authentification unique sur Samanage** du portail Azure, copiez la valeur **URL de connexion distante**, puis collez-la dans la zone de texte **Login URL**.
+    1.  Cliquez sur **Enable Single Sign-On with SAML**. 
+        ![Connexion avec SAML](./media/active-directory-saas-samanage-tutorial/IC771719.png "Connexion avec SAML")
+    2.  Dans la page **Configurer l’authentification unique sur Samanage** du portail Azure, copiez la valeur de **ID du fournisseur d’identité** et collez-la dans la zone de texte **Identity Provider URL**.
+        ![Configurer l’authentification unique](./media/active-directory-saas-samanage-tutorial/IC771720.png "Configurer l’authentification unique")
+    3.  Dans la page **Configurer l’authentification unique sur Samanage** du portail Azure, copiez la valeur **URL de connexion distante**, puis collez-la dans la zone de texte **Login URL**.
     4.  Dans la page **Configurer l’authentification unique sur Samanage** du portail Azure, copiez la valeur **URL de déconnexion distante**, puis collez-la dans la zone de texte **Logout URL**.
     5.  Créez un fichier **codé en base 64** à partir du certificat téléchargé.  
 
         >[AZURE.TIP]Pour plus d’informations, consultez [Comment convertir un certificat binaire en fichier texte](http://youtu.be/PlgrzUZ-Y1o).
 
     6.  Ouvrez votre certificat codé en base 64 dans le bloc-notes, copiez son contenu dans le Presse-papiers et collez-le dans la zone de texte **X.509 Certificate**.
-    7.  Cliquez sur **Create users if they do not exist in Samanage**. ![Mettre à jour](./media/active-directory-saas-samanage-tutorial/IC771722.png "Mettre à jour")
+    7.  Cliquez sur **Create users if they do not exist in Samanage**. 
+        ![Mettre à jour](./media/active-directory-saas-samanage-tutorial/IC771722.png "Mettre à jour")
     8.  Cliquez sur **Update**.
 
 9.  Dans le portail Azure Active Directory, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Terminer** pour fermer la boîte de dialogue **Configurer l’authentification unique**.
@@ -144,4 +147,4 @@ Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure
   
 Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le panneau d’accès. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](https://msdn.microsoft.com/library/dn308586).
 
-<!---HONumber=August15_HO7-->
+<!------HONumber=August15_HO7-->

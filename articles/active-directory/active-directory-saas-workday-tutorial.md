@@ -110,9 +110,12 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 
     1.  Dans la zone de texte Identity Provider Name, tapez le nom d’un fournisseur (par ex. : *SPInitiatedSSO*).
     2.  Dans le portail Azure, dans la page **Configurer l’authentification unique sur Workday**, copiez la valeur **ID de fournisseur d’identité**, puis collez-la dans la zone de texte **Issuer**.
-    3.  Cliquez sur **Identity Provider Public Key Certificate**, puis sur **Create**. ![Créer](./media/active-directory-saas-workday-tutorial/IC782928.png "Créer")
-    4.  Cliquez sur **Create x509 Public Key**. ![Créer](./media/active-directory-saas-workday-tutorial/IC782929.png "Créer")
-    5.  Dans la section **View x509 Public Key**, procédez comme suit : ![Afficher la clé publique x509](./media/active-directory-saas-workday-tutorial/IC782930.png "Afficher la clé publique x509")
+    3.  Cliquez sur **Identity Provider Public Key Certificate**, puis sur **Create**.
+        ![Créer](./media/active-directory-saas-workday-tutorial/IC782928.png "Créer")
+    4.  Cliquez sur **Create x509 Public Key**.
+        ![Créer](./media/active-directory-saas-workday-tutorial/IC782929.png "Créer")
+    5.  Dans la section **View x509 Public Key**, procédez comme suit :
+        ![Afficher la clé publique x509](./media/active-directory-saas-workday-tutorial/IC782930.png "Afficher la clé publique x509")
         1.  Dans la zone de texte **Name**, tapez le nom du certificat (par ex. : *PPE\_SP*).
         2.  Dans la zone de texte **Valid From**, tapez la valeur correspondante du certificat.
         3.  Dans la zone de texte **Valid To**, tapez la valeur correspondante du certificat.
@@ -127,16 +130,19 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
         6.  Dans la zone de texte **Certificate**, collez le contenu du Presse-papiers.
         7.  Cliquez sur **OK**.
 
-    6.  Procédez comme suit : ![Configuration SSO](./media/active-directory-saas-workday-tutorial/IC792131.png "Configuration SSO")
+    6.  Procédez comme suit :
+        ![Configuration SSO](./media/active-directory-saas-workday-tutorial/IC792131.png "Configuration SSO")
         1.  Dans la zone de texte **Service Provider ID**, tapez \*\***http://www.workday.com**.
-2.  Sélectionnez **Enable SP Initiated SAML Authentication**.
+        2.  Sélectionnez **Enable SP Initiated SAML Authentication**.
         3.  Dans la page **Configurer l’authentification unique sur Workday** du portail Azure, copiez la valeur **URL du service d’authentification unique**, puis collez-la dans la zone de texte **IdP SSO Service URL**.
         4.  Sélectionnez **Ne pas compresser la demande d’authentification initiée par le fournisseur de services**.
 
-    7.  Procédez comme suit : ![Méthode de signature de la demande d’authentification](./media/active-directory-saas-workday-tutorial/IC782932.png "Méthode de signature de la demande d’authentification")
+    7.  Procédez comme suit :
+        ![Méthode de signature de la demande d’authentification](./media/active-directory-saas-workday-tutorial/IC782932.png "Méthode de signature de la demande d’authentification")
         1.  Comme **Méthode de signature de la demande d’authentification**, sélectionnez **SHA256**.
 
-    8.  Cliquez sur **OK**. ![OK](./media/active-directory-saas-workday-tutorial/IC782933.png "OK")
+    8.  Cliquez sur **OK**.
+        ![OK](./media/active-directory-saas-workday-tutorial/IC782933.png "OK")
 
 12. Dans la page **Configurer l’authentification unique sur Workday** du portail Azure AD, cliquez sur **Terminer** pour fermer la boîte de dialogue.
 
@@ -164,4 +170,4 @@ Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure
   
 Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le panneau d’accès. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](https://msdn.microsoft.com/library/dn308586).
 
-<!---HONumber=August15_HO7-->
+<!-----HONumber=August15_HO7-->

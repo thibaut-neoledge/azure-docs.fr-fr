@@ -22,7 +22,11 @@ Les activités de transformation dans Azure Data Factory transforment et traiten
 
 Activité de transformation | Environnement de calcul 
 ----------------------- | --------------------
-[Hive](data-factory-hive-activity.md) | HDInsight [Hadoop] [Pig](data-factory-pig-activity.md) | HDInsight [Hadoop] [MapReduce](data-factory-map-reduce.md) | HDInsight [Hadoop] [Diffusion Hadoop](https://msdn.microsoft.com/library/mt185698.aspx) | HDInsight [Hadoop] [Notation par lot Machine Learning](data-factory-create-predictive-pipelines.md) | Microsoft Azure 
+[Hive](data-factory-hive-activity.md) | HDInsight [Hadoop] 
+[Pig](data-factory-pig-activity.md) | HDInsight [Hadoop]  
+[MapReduce](data-factory-map-reduce.md) | HDInsight [Hadoop]  
+[Diffusion Hadoop](https://msdn.microsoft.com/library/mt185698.aspx) | HDInsight [Hadoop]
+[Notation par lot Machine Learning](data-factory-create-predictive-pipelines.md) | Microsoft Azure 
 [Procédure stockée](data-factory-stored-proc-activity.md) | Azure SQL | 
 [DotNet](data-factory-use-custom-activities.md) | HDInsight [Hadoop] ou Azure Batch    
 
@@ -33,4 +37,4 @@ Vous devez créer un service lié à l'environnement de calcul puis l’utiliser
 
 Consultez l’article [Services liés de calcul](data-factory-compute-linked-services.md) pour en savoir plus sur les services de calcul liés pris en charge par Data Factory.
 
-<!---HONumber=August15_HO7-->
+<!-----HONumber=August15_HO7-->

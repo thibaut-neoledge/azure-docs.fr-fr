@@ -156,7 +156,7 @@ Découvrez Mobile Services et Notification Hubs dans les rubriques suivantes :
 [Prise en main des notifications Push (Eclipse)]: mobile-services-javascript-backend-android-get-started-push-EC.md
 [Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
-[Get started with Mobile Services]: mobile-services-android-get-started.md
+[Prise en main de Mobile Services]: mobile-services-android-get-started.md
 [Prise en main des données]: mobile-services-android-get-started-data.md
 [Prise en main de l'authentification]: mobile-services-android-get-started-users.md
 [Get started with push notifications]: /develop/mobile/tutorials/get-started-with-push-js
@@ -178,4 +178,4 @@ Découvrez Mobile Services et Notification Hubs dans les rubriques suivantes :
 [Send template-based notifications to subscribers]: ../notification-hubs-android-send-localized-breaking-news.md
  
 
-<!---HONumber=August15_HO7-->
+<!-----HONumber=August15_HO7-->

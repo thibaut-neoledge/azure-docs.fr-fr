@@ -63,7 +63,7 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 
     ![Configurer l’authentification unique](./media/active-directory-saas-bluejeans-tutorial/IC785864.png "Configurer l’authentification unique")
 
-3.  Dans la page **Configurer l’URL de l’application**, dans la zone de texte **URL de connexion**, tapez votre URL selon le modèle "\**https://company.BlueJeans.com*", puis cliquez sur **Suivant**.
+3.  Dans la page **Configurer l’URL de l’application**, dans la zone de texte **URL de connexion**, tapez votre URL selon le modèle "**https://company.BlueJeans.com**", puis cliquez sur **Suivant**.
 
     ![Configurer l’URL de l’application](./media/active-directory-saas-bluejeans-tutorial/IC785865.png "Configurer l’URL de l’application")
 
@@ -97,9 +97,9 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 
     ![Enregistrer les modifications](./media/active-directory-saas-bluejeans-tutorial/IC785874.png "Enregistrer les modifications")
 
-    1.  Dans la zone de texte **ID utilisateur**, tapez \*\***http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name**.
-2.  Dans la zone de texte **E-mail**, tapez \*\***http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name**.
-3.  Cliquez sur **Enregistrer les modifications**.
+    1.  Dans la zone de texte **ID utilisateur**, tapez **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name**.
+    2.  Dans la zone de texte **E-mail**, tapez **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name**.
+    3.  Cliquez sur **Enregistrer les modifications**.
 
 10. Dans le portail Azure AD, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Terminer** pour fermer la boîte de dialogue **Configurer l’authentification unique**.
 
@@ -145,4 +145,4 @@ Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure
 
 Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d’informations sur le volet d’accès, consultez [Présentation du volet d’accès](https://msdn.microsoft.com/library/dn308586).
 
-<!---HONumber=August15_HO7-->
+<!-----HONumber=August15_HO7-->

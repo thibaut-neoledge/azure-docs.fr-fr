@@ -68,7 +68,7 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
     ![Configurer les paramètres d’application](./media/active-directory-saas-aba-sainsburys-connect-tutorial/IC807728.png "Configurer les paramètres d’application")
 
     1.  Dans la zone de texte **URL de connexion**, tapez l’URL utilisée par vos utilisateurs pour se connecter à votre application Aba Sainsburys Connect (par exemple : \**https://myaba.co.uk/client-access/sainsburys/saml.php*).
-2.  Cliquez sur **Suivant**
+    2.  Cliquez sur **Suivant**
 
 4.  Dans la page **Configurer l’authentification unique à Aba Sainsburys Connect**, cliquez sur **Télécharger les métadonnées**, puis enregistrez le fichier de métadonnées sur votre ordinateur.
 
@@ -105,4 +105,4 @@ Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure
 
 Si vous voulez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d’informations sur le volet d’accès, consultez la page [Présentation du volet d’accès](https://msdn.microsoft.com/library/dn308586).
 
-<!---HONumber=August15_HO7-->
+<!----HONumber=August15_HO7-->

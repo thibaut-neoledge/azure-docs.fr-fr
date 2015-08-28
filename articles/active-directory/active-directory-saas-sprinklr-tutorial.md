@@ -3,7 +3,8 @@
 #Didacticiel : Intégration d’Azure AD à Sprinklr
 >[AZURE.TIP]Pour envoyer des commentaires, cliquez [ici](http://go.microsoft.com/fwlink/?LinkId=526454).
   
-L’objectif de ce didacticiel est de montrer comment intégrer Azure et Sprinklr. Le scénario décrit dans ce didacticiel part du principe que vous disposez des éléments suivants :
+L’objectif de ce didacticiel est de montrer comment intégrer Azure et Sprinklr.  
+Le scénario décrit dans ce didacticiel part du principe que vous disposez des éléments suivants :
 
 -   Un abonnement Azure valide
 -   Un locataire Sprinklr
@@ -53,7 +54,9 @@ Cette section décrit l’activation de l’intégration d’applications pour S
 
 ##Configuration de l'authentification unique
   
-Cette section explique comment permettre aux utilisateurs de s’authentifier sur Sprinklr avec leur compte Azure AD en utilisant la fédération basée sur le protocole SAML. Dans le cadre de cette procédure, vous devez créer un fichier de certificat codé en base 64. Si cette procédure ne vous est pas familière, consultez [Comment convertir un certificat binaire en fichier texte](http://youtu.be/PlgrzUZ-Y1o).
+Cette section explique comment permettre aux utilisateurs de s’authentifier sur Sprinklr avec leur compte Azure AD en utilisant la fédération basée sur le protocole SAML.  
+Dans le cadre de cette procédure, vous devez créer un fichier de certificat codé en base 64.  
+Si cette procédure ne vous est pas familière, consultez [Comment convertir un certificat binaire en fichier texte](http://youtu.be/PlgrzUZ-Y1o).
 
 ###Pour configurer l’authentification unique, procédez comme suit :
 
@@ -96,7 +99,7 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
     3.  Sélectionnez **Use new SSO Certificate**.
     4.  Créez un fichier **codé en base 64** à partir du certificat téléchargé.  
 
-        >[AZURE.TIP]Pour plus d’informations, consultez [Comment convertir un certificat binaire en fichier texte](http://youtu.be/PlgrzUZ-Y1o).
+        >[AZURE.TIP] Pour plus d’informations, consultez [Comment convertir un certificat binaire en fichier texte](http://youtu.be/PlgrzUZ-Y1o).
 
     5.  Ouvrez votre certificat codé en base 64 dans le bloc-notes, copiez son contenu dans le Presse-papiers et collez-le dans la zone de texte **Certificat du fournisseur d’identité**.
     6.  Dans la page **Configurer l’authentification unique sur Sprinklr** du portail Azure, copiez la valeur **ID du fournisseur d’identité** et collez-la dans la zone de texte **ID de l’entité**.
@@ -114,7 +117,8 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 
 ##Configuration de l'approvisionnement des utilisateurs
   
-Pour que les utilisateurs AAD puissent se connecter, leur accès doit être approvisionné dans l’application Sprinklr. Cette section décrit comment créer des comptes d’utilisateur AAD dans Sprinklr.
+Pour que les utilisateurs AAD puissent se connecter, leur accès doit être approvisionné dans l’application Sprinklr.  
+Cette section décrit comment créer des comptes d’utilisateur AAD dans Sprinklr.
 
 ###Pour approvisionner un compte d’utilisateur dans SpringCM, procédez comme suit :
 
@@ -142,7 +146,7 @@ Pour que les utilisateurs AAD puissent se connecter, leur accès doit être appr
     4.  Sélectionnez un type d’utilisateur dans **User Type**.
     5.  Cliquez sur **Mettre à jour**.
 
-    >[AZURE.IMPORTANT]Décochez **Password Disabled** pour permettre à un utilisateur de se connecter via un fournisseur d’identité.
+    >[AZURE.IMPORTANT] Décochez **Password Disabled** pour permettre à un utilisateur de se connecter via un fournisseur d’identité.
 
 6.  Accédez à **Role**, puis procédez comme suit :
 
@@ -151,7 +155,7 @@ Pour que les utilisateurs AAD puissent se connecter, leur accès doit être appr
     1.  Dans la liste **Global**, sélectionnez **ALL\_Permissions**.
     2.  Cliquez sur **Mettre à jour**.
 
->[AZURE.NOTE]Vous pouvez utiliser n’importe quel outil ou API de création de compte utilisateur, fourni par Sprinklr, pour approvisionner des comptes utilisateur AAD.
+>[AZURE.NOTE] Vous pouvez utiliser n’importe quel outil ou API de création de compte utilisateur, fourni par Sprinklr, pour approvisionner des comptes utilisateur AAD.
 
 ##Affectation d’utilisateurs
   
@@ -171,4 +175,4 @@ Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure
   
 Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le panneau d’accès. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](https://msdn.microsoft.com/library/dn308586).
 
-<!---HONumber=August15_HO7-->
+<!-----HONumber=August15_HO7-->
