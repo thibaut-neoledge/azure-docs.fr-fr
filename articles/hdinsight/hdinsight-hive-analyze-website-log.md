@@ -1,19 +1,20 @@
 <properties 
-	pageTitle="Utilisation de Hive avec Hadoop pour l’analyse des journaux de site web | Microsoft Azure" 
-	description="Découvrez comment utiliser Hive avec HDInsight pour analyser les journaux de site web. Vous allez utiliser un fichier journal en tant qu'entrée dans une table HDInsight, puis faire appel à HiveQL pour interroger les données." 
-	services="hdinsight" 
-	documentationCenter="" 
-	authors="nitinme" 
-	manager="paulettm" 
-	editor="cgronlun"/>
+	pageTitle="Utilisation de Hive avec Hadoop pour l’analyse des journaux de site web | Microsoft Azure"
+	description="Découvrez comment utiliser Hive avec HDInsight pour analyser les journaux de site web. Vous allez utiliser un fichier journal en tant qu'entrée dans une table HDInsight, puis faire appel à HiveQL pour interroger les données."
+	services="hdinsight"
+	documentationCenter=""
+	authors="nitinme"
+	manager="paulettm"
+	editor="cgronlun"
+	tags="azure-portal"/>
 
 <tags 
-	ms.service="hdinsight" 
-	ms.workload="big-data" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/11/2015" 
+	ms.service="hdinsight"
+	ms.workload="big-data"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/07/2015"
 	ms.author="nitinme"/>
 
 # Utilisation de Hive avec HDInsight pour analyser les journaux de site web
@@ -38,7 +39,9 @@ Dans cet exemple, vous allez utiliser un cluster HDInsight pour analyser des fic
 
 ##Exécution de l'exemple
 
-1. À partir du portail Azure, cliquez sur le cluster sur lequel vous voulez exécuter l’exemple, puis cliquez sur **Console de requête** dans la partie inférieure. Vous pouvez également ouvrir directement la console de requête au moyen de l’URL suivante :
+1. Dans la [version préliminaire du portail Azure](https://ms.portal.azure.com/), depuis le tableau d'accueil (si vous y avez épinglé le cluster), cliquez sur la vignette du cluster sur lequel vous souhaitez exécuter l'exemple.
+
+2. Dans le panneau du cluster, sous **Liens rapides**, cliquez sur **Tableau de bord du cluster**, puis dans le panneau **Tableau de bord de Cluster** lame, cliquez sur **Tableau de bord de cluster HDInsight**. Vous pouvez également ouvrir directement le tableau de bord en utilisant l'URL suivante :
 
 	 	https://<clustername>.azurehdinsight.net
 	
@@ -58,4 +61,4 @@ Essayez l’exemple suivant : [Analyse des données de capteur au moyen de Hive
 [img-hdi-weblogs-sample]: ./media/hdinsight-hive-analyze-website-log/hdinsight-weblogs-sample.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

@@ -1,19 +1,20 @@
-<properties 
-	pageTitle="Présentation de HBase dans HDInsight | Microsoft Azure" 
-	description="Présentation d’Apache HBase dans HDInsight, une base de données NoSQL reposant sur Hadoop. En savoir plus sur les cas d'utilisation et la comparaison de HBase sur d'autres clusters Hadoop." 
-	services="hdinsight" 
-	documentationCenter="" 
+<properties
+	pageTitle="Présentation de HBase dans HDInsight | Microsoft Azure"
+	description="Présentation d’Apache HBase dans HDInsight, une base de données NoSQL reposant sur Hadoop. En savoir plus sur les cas d&#39;utilisation et la comparaison de HBase sur d&#39;autres clusters Hadoop."
+	services="hdinsight"
+	documentationCenter=""
+	tags="azure-portal"
 	authors="mumian" 
-	manager="paulettm" 
+	manager="paulettm"
 	editor="cgronlun"/>
 
-<tags 
-	ms.service="hdinsight" 
-	ms.workload="big-data" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/20/2015" 
+<tags
+	ms.service="hdinsight"
+	ms.workload="big-data"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/28/2015"
 	ms.author="jgao"/>
 
 
@@ -34,7 +35,7 @@ La mise en œuvre de HDInsight exploite l'architecture de montée en charge de H
 ## Mode de gestion des données HDInsight HBase
 
 Les données peuvent être gérées dans HBase au moyen des commandes `create`, `get`, `put` et `scan` provenant du Shell HBase. Les données sont écrites dans la base de données au moyen de `put` et lues avec `get`. La commande `scan` permet d'obtenir des données à partir de plusieurs lignes dans une table. Les données peuvent également être gérées au moyen de l'API HBase C#, qui fournit une bibliothèque cliente par-dessus l'API REST HBase. Une base de données HBase peut également être interrogée au moyen de Hive. Pour une introduction à ces modèles de programmation, consultez la page [Prise en main de HBase avec Hadoop dans HDInsight][hbase-get-started]. Des coprocesseurs, permettant de traiter des données dans les nœuds qui hébergent la base de données, sont également disponibles.
- 
+
 
 ## Scénarios : cas d'utilisation pour HBase
 Les recherches Web sont le cas d'utilisation canonique pour lequel BigTable, et par extension HBase, ont été créés. Les moteurs de recherche créent des index qui mappent les termes avec les pages web les contenant. Mais il existe de nombreux autres cas d'utilisation pour lesquels HBase est adapté : plusieurs sont répertoriés dans cette section.
@@ -60,7 +61,7 @@ Les recherches Web sont le cas d'utilisation canonique pour lequel BigTable, et 
 
 - [Prise en main de HBase avec Hadoop dans HDInsight][hbase-get-started]
 - [Approvisionnement de clusters HDInsight sur Azure Virtual Network][hbase-provision-vnet]
-- [Configuration de la réplication HBase dans HDInsigtht](hdinsight-hbase-geo-replication.md) 
+- [Configuration de la réplication HBase dans HDInsigtht](hdinsight-hbase-geo-replication.md)
 - [Analyse de sentiments Twitter avec HBase dans HDInsight][hbase-twitter-sentiment]
 - [Utilisation de Maven pour créer des applications Java utilisant HBase avec HDInsight (Hadoop)][hbase-build-java-maven]
 
@@ -87,20 +88,9 @@ Les recherches Web sont le cas d'utilisation canonique pour lequel BigTable, et 
 [azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
 [azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
 [azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
-[azure-management-portal]: https://manage.windowsazure.com/
+[azure-management-portal]: https://portal.azure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account.md
 
 [apache-hadoop]: http://hadoop.apache.org/
 
-
-
-
-
-
-
-
-
-
- 
-
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

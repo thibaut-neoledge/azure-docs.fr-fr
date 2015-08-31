@@ -1,18 +1,18 @@
 <properties 
-	pageTitle="Procédure : exporter des données de télémétrie depuis Application Insights vers la base de données SQL" 
-	description="Codez votre propre analyse des données de télémétrie dans Application Insights à l’aide de la fonctionnalité d’exportation continue." 
-	services="application-insights" 
-    documentationCenter=""
-	authors="noamben" 
+	pageTitle="Procédure : exporter des données de télémétrie depuis Application Insights vers la base de données SQL"
+	description="Codez votre propre analyse des données de télémétrie dans Application Insights à l’aide de la fonctionnalité d’exportation continue."
+	services="application-insights"
+	documentationCenter=""
+	authors="noamben"
 	manager="douge"/>
 
 <tags 
-	ms.service="application-insights" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/13/2015" 
+	ms.service="application-insights"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="ibiza"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="06/13/2015"
 	ms.author="awills"/>
  
 # Procédure pas à pas : exporter vers SQL à partir d’Application Insights à l’aide de Stream Analytics
@@ -161,6 +161,8 @@ CREATE CLUSTERED INDEX [pvTblIdx] ON [dbo].[PageViewsTable]
 
 ![](./media/app-insights-code-sample-export-sql-stream-analytics/34-create-table.png)
 
+Dans cet exemple, nous utilisons les données issues des affichages de pages. Pour voir les autres données disponibles, examinez la sortie JSON et consultez le [modèle d’exportation de données](app-insights-export-data-model.md).
+
 ## Création d’une instance Azure Stream Analytics
 
 À partir du [portail classique Azure](https://manage.windowsazure.com/), sélectionnez le service Azure Stream Analytics et créez une nouvelle tâche Stream Analytics :
@@ -200,7 +202,7 @@ Dans cet exemple :
 
 * `webapplication27` est le nom de la ressource Application Insights. 
 * `1000...` est la clé d’instrumentation de la ressource Application Insights. 
-* `PageViews` est le type de données que nous souhaitons analyser. Les types disponibles varient selon le filtre que vous définissez dans l’exportation continue. Examinez les données exportées pour voir les autres types disponibles.
+* `PageViews` est le type de données que nous souhaitons analyser. Les types disponibles varient selon le filtre que vous définissez dans l’exportation continue. Examinez les données exportées pour voir les autres types disponibles, et consultez le [modèle d’exportation de données](app-insights-export-data-model.md).
 * `/{date}/{time}` est une séquence écrite de manière littérale.
 
 Pour obtenir le nom et l’iKey de votre ressource Application Insights, ouvrez Essentials sur sa page de présentation ou ouvrez Paramètres.
@@ -305,4 +307,4 @@ Après quelques minutes, revenez aux Outils d’administration SQL Server et obs
 
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

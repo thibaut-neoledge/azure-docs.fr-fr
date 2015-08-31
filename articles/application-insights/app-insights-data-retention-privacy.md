@@ -1,18 +1,18 @@
 <properties 
-	pageTitle="Rétention des données et stockage dans Application Insights" 
-	description="Retention and privacy policy statement" 
-	services="application-insights" 
-    documentationCenter=""
-	authors="alancameronwills" 
+	pageTitle="Rétention des données et stockage dans Application Insights"
+	description="Retention and privacy policy statement"
+	services="application-insights"
+	documentationCenter=""
+	authors="alancameronwills"
 	manager="douge"/>
 
 <tags 
-	ms.service="application-insights" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/11/2015" 
+	ms.service="application-insights"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="ibiza"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/11/2015"
 	ms.author="awills"/>
 
 # Collecte, rétention et stockage des données dans Application Insights 
@@ -40,16 +40,24 @@ Il existe trois compartiments qui sont comptabilisés séparément :
 
 * [appels TrackTrace](app-insights-api-custom-events-metrics.md#track-trace) et [journaux capturés](app-insights-asp-net-trace-logs.md) ;
 * [exceptions](app-insights-api-custom-events-metrics.md#track-exception), soumises à une limite inférieure de 50 points/s ;
-* toutes les autres données de télémétrie (pages consultées, demandes, dépendances, métriques, événements personnalisés).
+* toutes les autres données de télémétrie (pages consultées, demandes, dépendances, métriques, événements personnalisés et résultats des tests web).
 
 **Par mois** : entre 5 et 15 millions de points de données par mois, selon votre [plan de tarification](http://azure.microsoft.com/pricing/details/application-insights/). À l'exception du [niveau de tarification][pricing] gratuit, vous pouvez acheter une capacité supplémentaire si vous avez atteint la limite.
 
 
-Un *point de données* est un élément de télémétrie, par exemple :
+Un *point de données* est un élément de télémétrie relatif à votre application, envoyé au portail Azure. Il peut être envoyé par l’une des méthodes suivantes :
 
-* Appels API `Track...`, comme `TrackEvent` ou `trackPageView`.
-* Éléments de télémétrie envoyés par les modules du Kit de développement logiciel (SDK), par exemple pour signaler une demande ou une panne.
-* Données de compteur de performances - un point pour chaque mesure.
+* [Modules du Kit de développement logiciel (SDK)](app-insights-configuration-with-applicationinsights-config.md) qui collecte automatiquement les données, par exemple pour signaler une demande ou une panne ou pour mesurer les performances.
+* Appels d’[API](app-insights-api-custom-events-metrics.md) `Track...` que vous avez écrits, tels que `TrackEvent` ou `trackPageView`.
+* [Tests web de disponibilité](app-insights-monitor-web-app-availability.md) que vous avez définis.
+
+Les données de télémétrie incluent :
+
+* Chaque ligne de la [recherche de diagnostic](app-insights-diagnostic-search.md)
+* Les données brutes à partir desquelles les graphiques de [Metrics Explorer](app-insights-metrics-explorer.md) sont agrégés. Généralement, les données de mesure, notamment celles fournies par le compteur de performances, n’apparaissent pas sous forme de points individuels dans Metrics Explorer.
+* Chaque résultat de test web dans un rapport de [disponibilité](app-insights-monitor-web-app-availability.md).
+
+Le nombre d’utilisateurs et de sessions n’est pas inclus dans le quota à des fins de tarification.
 
 *Comment savoir combien de points de données envoie mon application ?*
 
@@ -166,15 +174,15 @@ Les Kits de développement logiciel (SDK) varient en fonction des plateformes et
 
 Votre action | Classes de données collectées (voir tableau suivant)
 ---|---
-[Ajout du Kit de développement logiciel (SDK) Application Insights à un projet web .NET][greenbrown] | ServerContext<br/>Inferred<br/>Perf counters<br/>Requests<br/>\*\*Exceptions\*\*<br/>Session<br/>users
+[Ajout du Kit de développement logiciel (SDK) Application Insights à un projet web .NET][greenbrown] | ServerContext<br/>Inferred<br/>Perf counters<br/>Requests<br/>**Exceptions**<br/>Session<br/>users
 [Installation du moniteur d’état sur IIS][redfield]<br/>[Ajout de l’extension AI à une machine virtuelle ou application web Azure][azure]|Dependencies<br/>ServerContext<br/>Inferred<br/>Perf counters
 [Ajout du Kit de développement logiciel (SDK) Application Insights à une application web Java][java]|ServerContext<br/>Inferred<br/>Request<br/>Session<br/>users
 [Ajout d’un Kit de développement logiciel (SDK) JavaScript à une page web][client]|ClientContext <br/>Inferred<br/>Page<br/>ClientPerf
 [Ajout du Kit de développement logiciel (SDK) à une application Windows Store][windows]|DeviceContext<br/>Users<br/>Crash data
 [Définition des propriétés par défaut][apiproperties]|**Propriétés** sur tous les événements standard et personnalisés
-[Appel TrackMetric][api]|Valeurs numériques<br/>\*\*Propriétés\*\*
-[Appel Track\*][api]|Nom de l’événement<br/>\*\*Propriétés\*\*
-[Appel TrackException][api]|**Exceptions**<br/>Vidage de pile<br/>\*\*Propriétés\*\*
+[Appel TrackMetric][api]|Valeurs numériques<br/>**Propriétés**
+[Appel Track*][api]|Nom de l’événement<br/>**Propriétés**
+[Appel TrackException][api]|**Exceptions**<br/>Vidage de pile<br/>**Propriétés**
 Le Kit de développement logiciel (SDK) ne peut pas collecter les données. Par exemple : <br/> - ne peut pas accéder aux compteurs de performances<br/> - exception dans l’initialiseur de télémétrie | SDK diagnostics
  
 
@@ -202,7 +210,7 @@ Dépendances|Type (SQL, HTTP, ...), chaîne de connexion ou URI, synchronisation
 Crashes | ID de processus, ID de processus parent, ID de thread d’incident ; correctif de l’application, ID, version ; type d’exception, adresse, motif ; symboles et enregistrements masqués, adresses binaires de début et de fin, nom et chemin du fichier binaire, type de processeur
 Trace | **Message** et niveau de gravité
 Perf counters | Temps processeur, mémoire disponible, taux de demande, taux d’exception, octets privés du processus, taux d’E/S, durée de la demande, longueur de file d’attente de la demande
-Availability | Code de réponse de test web, durée de chaque étape de test
+Availability | Code de réponse de test web, durée de chaque étape de test, nom de test, horodatage, réussite, temps de réponse, emplacement de test
 SDK diagnostics | Message de suivi ou exception 
 
 Vous pouvez [désactiver certaines données en modifiant ApplicationInsights.config][config]
@@ -242,4 +250,4 @@ Ce produit contient des données GeoLite2 créées par MaxMind, disponible sur [
 
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

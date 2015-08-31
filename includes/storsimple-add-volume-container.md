@@ -1,4 +1,3 @@
-
 #### Pour ajouter un conteneur de volumes
 
 1. Dans la page **Appareils**, sélectionnez l’appareil, double-cliquez dessus, puis cliquez sur l’onglet **Conteneurs de volumes**.
@@ -21,4 +20,4 @@
 Le conteneur de volumes est enregistré et le nouveau conteneur de volumes apparaît sur la page **Conteneur de volumes**.
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

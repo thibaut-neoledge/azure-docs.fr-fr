@@ -27,9 +27,9 @@ Toutes les machines virtuelles dans Azure sont configurées avec au moins deux d
 
 Comme tout autre ordinateur, les machines virtuelles dans Azure utilisent des disques comme emplacement de stockage pour un système d’exploitation, des applications et des données. Toutes les machines virtuelles Azure possèdent au moins deux disques : un disque de système d’exploitation et un disque temporaire. Elles peuvent également disposer d’un ou de plusieurs disques de données.
 
-- **Disque de système d’exploitation** : chaque machine virtuelle dispose d’un disque de système d’exploitation attaché. Il est enregistré comme disque SATA et porte le nom de lecteur C. Ce disque a une capacité maximale de 1 023 gibioctets. Quand Azure crée un disque de système d’exploitation, trois copies du disque sont créées pour assurer une durabilité élevée. En outre, si vous configurez la machine virtuelle pour la géo-réplication, votre VHD est également répliqué sur différents sites distants de plus de 640 kilomètres.
-- Le **disque temporaire** est automatiquement créé pour vous. Sur les machines virtuelles Windows, ce disque porte le nom de lecteur D. Sur les machines virtuelles Linux, le disque se nomme généralement /dev/sdb et il est formaté et monté sur /mnt/resource par l’agent Linux Azure.
-- Un **disque de données** est un VHD attaché à une machine virtuelle pour stocker les données d’application ou d’autres données que vous souhaitez conserver. Les disques de données sont enregistrés en tant que disques SCSI et sont nommés avec la lettre de votre choix. Chaque disque de données a une capacité maximale de 1 023 gibioctets. La taille de la machine virtuelle détermine le nombre de disques de données que vous pouvez attacher et le type de stockage que vous pouvez utiliser pour héberger les disques.
+- **Disque de système d’exploitation** : chaque machine virtuelle dispose d’un disque de système d’exploitation attaché. Il est enregistré comme disque SATA et porte le nom de lecteur C:. Ce disque a une capacité maximale de 1 023 gigaoctets. Quand Azure crée un disque de système d’exploitation, trois copies du disque sont créées pour assurer une durabilité élevée. En outre, si vous configurez la machine virtuelle pour la géo-réplication, votre VHD est également répliqué sur différents sites distants de plus de 640 kilomètres.
+- Le **disque temporaire** est automatiquement créé pour vous. Sur les machines virtuelles Windows, ce disque porte le nom de lecteur D:. Sur les machines virtuelles Linux, le disque se nomme généralement /dev/sdb et il est formaté et monté sur /mnt/resource par l’agent Linux Azure.
+- Un **disque de données** est un VHD attaché à une machine virtuelle pour stocker les données d’application ou d’autres données que vous souhaitez conserver. Les disques de données sont enregistrés en tant que disques SCSI et sont nommés avec la lettre de votre choix. Chaque disque de données possède une capacité maximale de 1 023 gigaoctets. La taille de la machine virtuelle détermine le nombre de disques de données que vous pouvez attacher et le type de stockage que vous pouvez utiliser pour héberger les disques.
 
 	Pour plus d’informations sur les capacités des machines virtuelles, consultez la page [Tailles des machines virtuelles](virtual-machines-size-specs.md).
 
@@ -65,4 +65,4 @@ Machines virtuelles Windows :
 -  [Capture d’une machine virtuelle Windows](virtual-machines-capture-image-windows-server.md)
 -  [Détachement d’un disque](storage-windows-detach-disk.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

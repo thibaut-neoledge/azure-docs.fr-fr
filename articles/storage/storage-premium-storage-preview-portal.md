@@ -19,11 +19,11 @@
 
 # Stockage Premium : stockage hautes performances pour les charges de travail des machines virtuelles Azure
 
-## Vue d'ensemble
+## Vue d’ensemble
 
-Bienvenue aux **Disques de stockage Azure Premium** pour des machines virtuelles plus rapides !
+Bienvenue aux **Disques de stockage Azure Premium** pour des machines virtuelles Azure plus rapides !
 
-Avec le nouveau stockage Premium, Microsoft Azure propose deux types de stockage durable : le **Stockage Premium** et le **Stockage standard**. Le stockage Premium stocke les données sur des disques SSD bénéficiant de la dernière technologie, tandis que le stockage Standard stocke les données sur des disques durs.
+Avec le stockage Premium, Microsoft Azure propose deux types de stockage durable : le **Stockage Premium** et le **Stockage standard**. Le stockage Premium stocke les données sur des disques SSD bénéficiant de la dernière technologie, tandis que le stockage Standard stocke les données sur des disques durs.
 
 Le stockage Premium offre une prise en charge très performante et à faible latence des disques pour les charges de travail intensives d'E/S exécutées sur les machines virtuelles Azure. Vous pouvez attacher plusieurs disques de stockage Premium à une machine virtuelle. Avec le stockage Premium, vos applications peuvent utiliser jusqu'à 32 To de stockage et atteindre 64 000 IOPS (opérations d'E/S par seconde) par machine virtuelle, avec une latence extrêmement faible pour les opérations de lecture.
 
@@ -51,7 +51,7 @@ Voici une liste des points importants à prendre en compte avant ou pendant l'ut
 
 - Un compte de stockage premium ne peut pas être mappé sur un nom de domaine personnalisé.
 
-- L'analyse de stockage n'est pas prise en charge pour le stockage Premium pour l'instant. Pour analyser les métriques de performances des machines virtuelles à l'aide de disques sur des comptes de stockage Premium, utilisez les outils du système d'exploitation, tels que [Analyseur de performances Windows](https://technet.microsoft.com/library/cc749249.aspx) pour les machines virtuelles Windows et [IOSTAT](http://linux.die.net/man/1/iostat) pour les machines virtuelles Linux.
+- L'analyse de stockage n'est pas prise en charge pour le stockage Premium pour l'instant. Pour analyser les métriques de performances des machines virtuelles à l'aide de disques sur des comptes de stockage Premium, utilisez les outils du système d'exploitation, tels que [Analyseur de performances Windows](https://technet.microsoft.com/library/cc749249.aspx) pour les machines virtuelles Windows et [IOSTAT](http://linux.die.net/man/1/iostat) pour les machines virtuelles Linux. Vous pouvez également activer les diagnostics de machine virtuelle Azure sur la version préliminaire du portail Azure. Pour plus d’informations, reportez-vous à la rubrique [Surveillance des machines virtuelles Microsoft Azure avec l'extension Azure Diagnostics](http://azure.microsoft.com/blog/2014/09/02/windows-azure-virtual-machine-monitoring-with-wad-extension/).
 
 ## Utilisation du stockage Premium pour disques
 Vous pouvez utiliser le stockage Premium pour disques de deux manières :
@@ -130,7 +130,7 @@ Pour bénéficier des avantages du stockage Premium, créez d'abord un compte de
 </tbody>
 </table>
 
-	Pour obtenir les informations les plus récentes, consultez [Virtual Machine and Cloud Service Sizes for Azure] (http://msdn.microsoft.com/library/azure/dn197896.aspx). Pour en savoir plus sur les disques de stockage Premium et sur leurs limites d'IOP et de débit, consultez le tableau situé dans la section [Scalability and Performance Targets when using Premium Storage] (#scalability-and-performance-targets-when-using-premium-storage) de cet article.
+	For the most up-to-date information, see [Virtual Machine and Cloud Service Sizes for Azure](http://msdn.microsoft.com/library/azure/dn197896.aspx). To learn about the Premium storage disks and their IOPs and throughput limits, see the table in the [Scalability and Performance Targets when using Premium Storage](#scalability-and-performance-targets-whfr-fring-premium-storage) section in this article.
 
 > [AZURE.NOTE]Les présences dans le cache ne sont pas limitées par l’IOPS et le débit du disque. Autrement dit, lorsque vous utilisez un disque de données avec le paramètre de cache ReadOnly sur une machine virtuelle DS, les lectures effectuées dans le cache ne sont pas soumises aux limites des disques de stockage Premium. Il est donc possible d’obtenir un très haut débit à partir d'un disque, si la charge de travail concerne essentiellement des lectures. Notez que le cache est soumis à des limites IOPS/Débit séparées au niveau de la machine virtuelle, en fonction de la taille de celle-ci. Les machines virtuelles DS exécutent environ 4000 IOPS et ont un débit de 33 Mo/s par cœur pour les E/S du cache et du disque SSD local.
 
@@ -246,10 +246,9 @@ Si un disque est attaché à une machine virtuelle, certaines opérations d'API 
 
 ### Remarques importantes :
 
-- si l'opération de copie d'objet blob sur le stockage Premium remplace un objet blob existant dans la destination, l'objet blob remplacé ne doit contenir aucune capture instantanée. Une copie dans un compte de stockage Premium ou entre plusieurs comptes de ce type requiert que l'objet blob de destination ne contienne aucune capture instantanée pendant le lancement de la copie.
 - Le nombre de captures instantanées est limité à 100 par objet blob. Une capture instantanée peut être prise toutes les 10 minutes au maximum.
-- La capacité maximale de captures instantanées par compte de stockage Premium est de 10 To. Notez que la capacité de captures instantanées représente les seules données contenues dans les captures instantanées. En d'autres termes, la capacité de captures instantanées n'inclut pas la taille de l'objet blob de base.
-- Pour copier une capture instantanée depuis un compte de stockage Premium dans un autre compte, vous devez d'abord effectuer une opération CopyBlob de cette capture instantanée pour créer un objet blob dans le même compte de stockage Premium. Ensuite, copiez le nouvel objet blob dans d'autres comptes de stockage. Vous pouvez supprimer l'objet blob intermédiaire, une fois la copie terminée. Suivez cette procédure pour copier des captures instantanées d'un compte de stockage Premium dans un compte de stockage Standard géo-redondant à l'aide des opérations AzCopy ou Copy Blob. Pour plus d'informations, consultez [Prise en main de l'utilitaire de ligne de commande AzCopy](storage-use-azcopy.md) et [Copy Blob](http://msdn.microsoft.com/library/azure/dd894037.aspx).
+- La capacité maximale de captures instantanées par compte de stockage Premium est de 10 To. Notez que la capacité de captures instantanées fait référence à la quantité totale de données contenues dans les captures instantanées uniquement, et n'incluent pas les données de l'objet blob de base.
+- Pour conserver des copies géo-redondantes de vos captures instantanées, vous pouvez copier des captures instantanées d'un compte de stockage Premium vers un compte de stockage Standard géo-redondant à l'aide des opérations AzCopy ou Copy Blob. Pour plus d'informations, consultez [Prise en main de l'utilitaire de ligne de commande AzCopy](storage-use-azcopy.md) et [Copy Blob](http://msdn.microsoft.com/library/azure/dd894037.aspx).
 - Pour plus d'informations sur l'exécution d'opérations REST sur les objets blob de pages dans les comptes de stockage Premium, consultez [Utilisation des opérations de service blob avec le stockage Azure Premium](http://go.microsoft.com/fwlink/?LinkId=521969) dans la bibliothèque MSDN.
 
 ## Utilisation de machines virtuelles Linux avec le stockage Premium
@@ -262,64 +261,8 @@ Consultez les instructions importantes ci-dessous pour configurer vos machines v
 
 - Pour les disques de stockage Premium dont le paramètre de cache est « ReadWrite », les barrières doivent être activées pour pérenniser les écritures.
 
-Les distributions Linux suivantes ont été validées avec le stockage Premium. Nous vous recommandons de mettre vos machines virtuelles au niveau de l’une de ces versions (ou d’une version ultérieure) pour améliorer les performances et la stabilité du stockage Premium. De plus, certaines versions nécessitent également la dernière version de LIS (Linux Integration Services version 4.0 pour Microsoft Azure). Cliquez sur le lien ci-dessous pour effectuer le téléchargement et l'installation. Nous allons continuer à ajouter des images à la liste, à chaque validation supplémentaire. Veuillez noter que, selon nos validations, les performances varient pour ces images. Elles dépendent également des caractéristiques de la charge de travail et des paramètres des images. Chaque image est optimisée pour une charge de travail particulière. 
-<table border="1" cellspacing="0" cellpadding="5" style="border: 1px solid #000000;">
-<tbody> 
-<tr> 
-	<td><strong>Distribution</strong></td> 
-	<td><strong>Version</strong></td> 
-	<td><strong>Noyau pris en charge</strong></td> 
-	<td><strong>Image prise en charge</strong></td> 
-</tr>
-<tr> 
-	<td rowspan="4"><strong>Ubuntu</strong></td> 
-	<td>12.04</td> 
-	<td>3.2.0-75.110</td> 
-	<td>Ubuntu-12\_04\_5-LTS-amd64-server-20150119-fr-fr-30GB</td> 
-</tr> 
-<tr> 
-	<td>14.04</td> 
-	<td>3.13.0-44.73</td> 
-	<td>Ubuntu-14\_04\_1-LTS-amd64-server-20150123-fr-fr-30GB</td>
-</tr>
-<tr>
-	<td>14.10</td> 
-	<td>3.16.0-29.39</td> 
-	<td>Ubuntu-14\_10-amd64-server-20150202-fr-fr-30GB</td>
-</tr>
-<tr> 
-	<td>15.04</td> 
-	<td>3.19.0-15</td> 
-	<td>Ubuntu-15\_04-amd64-server-20150422-fr-fr-30GB</td> 
-</tr> 
-<tr> 
-	<td><strong>SUSE</strong></td> 
-	<td>SLES 12</td> 
-	<td>3.12.36-38.1</td> 
-	<td>suse-sles-12-priority-v20150213<br>suse-sles-12-v20150213</td>
-</tr> 
-<tr> 
-	<td><strong>CoreOS</strong></td>
-	<td>584.0.0</td> <td>3.18.4</td> 
-	<td>CoreOS 584.0.0</td> 
-</tr> 
-<tr> 
-	<td rowspan="2"><strong>CentOS</strong></td>
-	<td>6.5, 6.6, 7.0</td> 
-	<td></td> 
-	<td>
-		<a href="http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409"> LIS 4.0 obligatoire </a> </br>
-		*Voir remarque ci-dessous
-	</td> 
-</tr> 
-<tr> 
-	<td>7.1</td> 
-	<td>3.10.0-229.1.2.el7</td> 
-	<td> 
-		<a href="http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409"> LIS 4.0 Recommandé </a> <br/> 
-		*Voir remarque ci-dessous 
-	</td> 
-</tr>
+Les distributions Linux suivantes ont été validées avec le stockage Premium. Nous vous recommandons de mettre vos machines virtuelles au niveau de l’une de ces versions (ou d’une version ultérieure) pour améliorer les performances et la stabilité du stockage Premium. De plus, certaines versions nécessitent également la dernière version de LIS (Linux Integration Services version 4.0 pour Microsoft Azure). Cliquez sur le lien ci-dessous pour effectuer le téléchargement et l'installation. Nous allons continuer à ajouter des images à la liste, à chaque validation supplémentaire. Veuillez noter que, selon nos validations, les performances varient pour ces images. Elles dépendent également des caractéristiques de la charge de travail et des paramètres des images. Chaque image est optimisée pour une charge de travail particulière. <table border="1" cellspacing="0" cellpadding="5" style="border: 1px solid #000000;"> <tbody> <tr> <td><strong>Distribution</strong></td> <td><strong>Version</strong></td> <td><strong>Noyau pris en charge</strong></td> <td><strong>Image prise en charge</strong></td> </tr> <tr> <td rowspan="4"><strong>Ubuntu</strong></td> <td>12.04</td> <td>3.2.0-75.110</td> <td>Ubuntu-12\_04\_5-LTS-amd64-server-20150119-fr-fr-30GB</td> </tr> <tr> <td>14.04</td> <td>3.13.0-44.73</td> <td>Ubuntu-14\_04\_1-LTS-amd64-server-20150123-fr-fr-30GB</td> </tr> <tr> <td>14.10</td> <td>3.16.0-29.39</td> <td>Ubuntu-14\_10-amd64-server-20150202-fr-fr-30GB</td> </tr> <tr> <td>15.04</td> <td>3.19.0-15</td> <td>Ubuntu-15\_04-amd64-server-20150422-fr-fr-30GB</td> </tr> <tr> <td><strong>SUSE</strong></td> <td>SLES 12</td> <td>3.12.36-38.1</td> <td>suse-sles-12-priority-v20150213<br>suse-sles-12-v20150213</td> </tr> <tr> <td><strong>CoreOS</strong></td> <td>584.0.0</td> <td>3.18.4</td> <td>CoreOS 584.0.0</td> </tr> <tr> <td rowspan="2"><strong>CentOS</strong></td> <td>6.5, 6.6, 7.0</td> <td></td> <td> <a href="http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409"> LIS 4.0 obligatoire </a> </br> *Voir remarque ci-dessous </td> </tr> <tr> <td>7.1</td> <td>3.10.0-229.1.2.el7</td> <td> <a href="http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409"> LIS 4.0 Recommandé </a> <br/> *Voir remarque ci-dessous </td> </tr>
+
 <tr>
 	<td rowspan="2"><strong>Oracle</strong></td>
 	<td>6.4.</td>
@@ -331,8 +274,7 @@ Les distributions Linux suivantes ont été validées avec le stockage Premium. 
 	<td></td>
 	<td>Contacter le Support technique pour plus d'informations</td>
 </tr>
-</tbody> 
-</table>
+</tbody> </table>
 
 
 ### Pilotes LIS pour Openlogic CentOS
@@ -458,4 +400,4 @@ azure storage account create "premiumtestaccount" -l "west us" --type PLRS
 [Image1]: ./media/storage-premium-storage-preview-portal/Azure_pricing_tier.png
  
 
-<!-----HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

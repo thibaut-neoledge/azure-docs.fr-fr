@@ -1,21 +1,19 @@
 <properties 
-	pageTitle="Application Insights : détection proactive d’anomalies" 
-	description="Application Insights réalise une analyse télémétrique approfondie de votre application et vous avertit des éventuels problèmes de performances." 
-	services="application-insights" 
-    documentationCenter="windows"
-	authors="alancameronwills" 
+	pageTitle="Application Insights : détection proactive d’anomalies"
+	description="Application Insights réalise une analyse télémétrique approfondie de votre application et vous avertit des éventuels problèmes de performances."
+	services="application-insights"
+	documentationCenter="windows"
+	authors="alancameronwills"
 	manager="ronmart"/>
 
-
 <tags 
-	ms.service="application-insights" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/21/2015" 
+	ms.service="application-insights"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="ibiza"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/18/2015"
 	ms.author="awills"/>
-
 
 #  Application Insights : détection proactive d’anomalies
 
@@ -69,13 +67,17 @@ Modifiez l’intervalle de temps et les filtres pour explorer la télémétrie.
 * *Dois-je m’abonner à ce service pour pouvoir recevoir des notifications ?*
  * Non. Notre robot interroge régulièrement les données de tous les utilisateurs d’Application Insights et envoie des notifications s’il détecte des problèmes.
 * *Puis-je me désabonner ou obtenir des notifications envoyées à mes collègues ?*
- * Cliquez sur le lien dans l'alerte ou l’e-mail. Ouvrez les paramètres des anomalies. ![](./media/app-insights-anomaly/01.png)Actuellement, ils sont envoyés aux personnes qui ont un [accès en écriture à la ressource Application Insights](app-insights-resources-roles-access-control.md).
+ * Cliquez sur le lien dans l'alerte ou l’e-mail. Ouvrez les paramètres des anomalies.
+ 
+    ![](./media/app-insights-anomaly/01.png)
+
+    Actuellement, ils sont envoyés aux personnes qui ont un [accès en écriture à la ressource Application Insights](app-insights-resources-roles-access-control.md).
 * *Je ne souhaite pas recevoir tous ces messages.*
  * Ceux-ci sont limités à trois par jour. Vous n’obtiendrez pas plusieurs fois le même message.
 * *Si je ne fais rien, vais-je recevoir un rappel ?*
  * Non, vous ne recevez qu’un message pour chaque problème.
 * *J’ai perdu l’e-mail. Où puis-je trouver les notifications dans le portail ?*
- * Dans la vue d'ensemble Application Insights de votre application, cliquez sur la vignette **Anomalies**. 
+ * Dans la vue d’ensemble Application Insights de votre application, cliquez sur la vignette **Anomalies**. 
 
 
 
@@ -84,4 +86,4 @@ Modifiez l’intervalle de temps et les filtres pour explorer la télémétrie.
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

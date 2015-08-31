@@ -13,12 +13,16 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="05/21/2015" 
+    ms.date="08/14/2015" 
     ms.author="sidneyh"/>
 
 # Migration de fédérations 
 
-La fonctionnalité de fédérations de Base de données SQL Azure sera déclassée en septembre 2015 en même temps que les éditions Web/Business. À cette date, les applications qui utilisent la fonctionnalité de fédérations cesseront de s’exécuter. Pour garantir une migration réussie, il est vivement recommandé que les efforts de migration commencent dès que possible afin de permettre une planification et une exécution respectant les délais. Ce document fournit le contexte, des exemples et une introduction à l’utilitaire de migration de fédérations et illustre comment migrer correctement une application de fédérations actuelle en toute transparence vers les API de la [bibliothèque cliente des bases de données élastiques](http://go.microsoft.com/?linkid=9862592) pour le partitionnement. L’objectif du document est de vous guider tout au long des étapes proposées pour migrer une application de fédérations sans aucun déplacement de données.
+La fonctionnalité de fédérations de Base de données SQL Azure sera déclassée en septembre 2015 en même temps que les éditions Web/Business. À cette date, les applications qui utilisent la fonctionnalité de fédérations cesseront de s’exécuter. Pour garantir une migration réussie, il est vivement recommandé que les efforts de migration commencent dès que possible afin de permettre une planification et une exécution respectant les délais.
+
+Si votre application n'est pas encore prête à fonctionner sans fédération, contactez le support technique Microsoft en suivant les instructions mentionnées [ici](https://support.microsoft.com/kb/3087180).
+
+Ce document fournit le contexte, des exemples et une introduction à l’utilitaire de migration de fédérations et illustre comment migrer correctement une application de fédérations actuelle en toute transparence vers les API de la [bibliothèque cliente des bases de données élastiques](http://go.microsoft.com/?linkid=9862592) pour le partitionnement. L’objectif du document est de vous guider tout au long des étapes proposées pour migrer une application de fédérations sans aucun déplacement de données.
 
 Il existe trois étapes principales de migration d’une application de fédérations existante vers une application qui utilise les outils de bases de données élastiques.
 
@@ -129,6 +133,9 @@ Bien que les outils de bases de données élastiques offrent de nombreuses fonct
 
 * L’exécution de l’instruction SWITCH OUT pour un membre de la fédération permet à la base de données qui en résulte de tirer parti de toutes les fonctionnalités des bases de données SQL Azure (par exemple, les nouvelles éditions, la sauvegarde, le PITR, l’audit, etc.)
 
+##Vous avez besoin de plus de temps pour effectuer la migration ? 
+Si votre application n'est pas encore prête à fonctionner sans fédération, contactez le support technique Microsoft en suivant les instructions mentionnées [ici](https://support.microsoft.com/kb/3087180).
+
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 
 <!--Anchors-->
@@ -143,4 +150,4 @@ Bien que les outils de bases de données élastiques offrent de nombreuses fonct
 [3]: ./media/sql-database-elastic-scale-federation-migration/migrate-3.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

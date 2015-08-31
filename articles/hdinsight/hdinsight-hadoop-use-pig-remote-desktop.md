@@ -1,11 +1,12 @@
 <properties
    pageTitle="Utilisation de Hadoop Pig avec le Bureau à distance dans HDInsight | Microsoft Azure"
-   description="Apprenez à utiliser la commande Pig pour exécuter les instructions Pig Latin à partir d'une connexion Bureau à distance vers un cluster Windows Hadoop sur HDInsight."
+   description="Apprenez à utiliser la commande Pig pour exécuter les instructions Pig Latin à partir d&#39;une connexion Bureau à distance vers un cluster Windows Hadoop sur HDInsight."
    services="hdinsight"
    documentationCenter=""
    authors="Blackmist"
    manager="paulettm"
-   editor="cgronlun"/>
+   editor="cgronlun"
+	tags="azure-portal"/>
 
 <tags
    ms.service="hdinsight"
@@ -135,4 +136,4 @@ Pour plus d’informations sur d’autres méthodes de travail avec Hadoop sur H
 
 * [Utilisation de MapReduce avec Hadoop sur HDInsight](hdinsight-use-mapreduce.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

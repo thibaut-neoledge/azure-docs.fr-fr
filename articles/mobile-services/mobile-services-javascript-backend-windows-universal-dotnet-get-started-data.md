@@ -117,4 +117,4 @@ Ce didacticiel a présenté les bases de l'activation d'une application Windows 
 [MobileServiceClient]: http://go.microsoft.com/fwlink/p/?LinkId=302030
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

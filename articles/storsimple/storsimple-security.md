@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD" 
-   ms.date="08/11/2015"
+   ms.date="08/17/2015"
    ms.author="v-sharos"/>
 
 # Sécurité StorSimple 
@@ -92,7 +92,7 @@ CHAP est un schéma d’authentification utilisé par l’appareil StorSimple po
 > * Vous ne pouvez pas utiliser le même mot de passe pour l’initiateur CHAP et la cible CHAP.
 > * Une fois le mot de passe défini, il peut être modifié, mais il ne peut pas être récupéré. En cas de modification du mot de passe, veillez à informer tous les utilisateurs de l’accès à distance afin qu’ils puissent se connecter à l’appareil StorSimple.
 
-Pour plus d'informations et configurer le protocole CHAP, consultez [Configuration de CHAP pour votre appareil StorSimple](storsimple-configure-chap.md).
+Pour plus d'informations et configurer le protocole CHAP, consultez la rubrique [Configuration de CHAP pour votre appareil StorSimple](storsimple-configure-chap.md).
 
 ### Mot de passe de gestionnaire d’instantanés StorSimple
 
@@ -135,7 +135,7 @@ L’objectif principal du service StorSimple Manager est de gérer et de configu
 > [AZURE.IMPORTANT]
 > 
 > * La clé de chiffrement des données du service est générée uniquement sur le premier appareil inscrit auprès du service. Tous les autres appareils inscrits auprès du service doivent utiliser la même clé de chiffrement. Il est très important de faire une copie de cette clé et de l’enregistrer dans un emplacement sécurisé. La méthode de stockage de la copie de la clé de chiffrement des données de service doit permettre à toute personne autorisée d’y accéder et de la communiquer facilement à l’administrateur de l’appareil.
-> * Vous pouvez modifier la clé de chiffrement des données du service et le certificat de chiffrement de données correspondant en sélectionnant l’option **Modifier la clé de chiffrement des données du service** dans le tableau de bord des services. La modification des clés de chiffrement requiert que tous les appareils soient mis à jour avec la nouvelle clé. Par conséquent, nous vous recommandons de modifier la clé lorsque tous les appareils sont en ligne. Si des appareils sont hors connexion, leurs clés peuvent être modifiées plus tard. Les appareils avec des clés obsolètes seront toujours en mesure d’exécuter des sauvegardes, mais ils ne seront pas en mesure de restaurer les données, et ce tant que leur clé n’aura pas été mise à jour. Pour plus d’informations, consultez [Utilisation du tableau de bord des services](storsimple-service-dashboard.md).
+> * Vous pouvez modifier la clé de chiffrement des données du service et le certificat de chiffrement de données correspondant en sélectionnant l’option **Modifier la clé de chiffrement des données du service** dans le tableau de bord des services. La modification des clés de chiffrement requiert que tous les appareils soient mis à jour avec la nouvelle clé. Par conséquent, nous vous recommandons de modifier la clé lorsque tous les appareils sont en ligne. Si des appareils sont hors connexion, leurs clés peuvent être modifiées plus tard. Les appareils avec des clés obsolètes seront toujours en mesure d’exécuter des sauvegardes, mais ils ne seront pas en mesure de restaurer les données, et ce tant que leur clé n’aura pas été mise à jour. Pour plus d’informations, consultez la rubrique [Utilisation du tableau de bord du service StorSimple Manager](storsimple-service-dashboard.md).
 > * Pour vous assurer que la sécurité des données n’est pas compromise, vous devez utiliser un appareil StorSimple physique pour modifier la clé de chiffrement des données du service.
 > * Si la clé de chiffrement est perdue, une personne du support technique Microsoft peut vous aider à la récupérer, sous réserve qu’au moins un appareil soit en ligne. Nous vous recommandons de modifier la clé de chiffrement des données de service après sa récupération. Pour obtenir des instructions, consultez la page [Modification de la clé de chiffrement des données du service](storsimple-service-dashboard.md#change-the-service-data-encryption-key).
 > * La clé de chiffrement des données du service et le certificat de chiffrement de données n’arrivent pas à expiration. Toutefois, nous vous recommandons de modifier la clé de chiffrement des données du service régulièrement pour des raisons de sécurité.</li></ul>
@@ -153,7 +153,7 @@ L’appareil StorSimple gère les données en les stockant dans des couches loca
 
 ### Meilleures pratiques supplémentaires en matière de sécurité
 
-- Pour implémenter la redondance, utilisez des chemins d'accès multiples (MPIO) afin d'éviter un point unique de défaillance dans le réseau SAN iSCSI. Pour obtenir les instructions détaillées, consultez [Configuration de la solution MPIO pour votre appareil StorSimple](#storsimple-configure-mpio-windows-server.md).
+- Pour implémenter la redondance, utilisez des chemins d'accès multiples (MPIO) afin d'éviter un point unique de défaillance dans le réseau SAN iSCSI. Pour obtenir les instructions détaillées, consultez la rubrique [Configuration de la solution MPIO pour votre appareil StorSimple](storsimple-configure-mpio-windows-server.md).
 
 - Fractionner le trafic : isolez votre SAN iSCSI du trafic utilisateur sur un réseau LAN d'entreprise en déployant un réseau totalement séparé et en utilisant des réseaux locaux virtuels où l'isolation physique n'est pas une option. Un réseau dédié pour le stockage iSCSI garantit la sécurité et les performances de vos données critiques. Le fait de mélanger le stockage et le trafic utilisateur sur un réseau LAN d'entreprise n'est pas recommandé et peut augmenter la latence, ainsi que provoquer des défaillances du réseau.
 
@@ -250,7 +250,7 @@ Voici quelques questions et réponses relatives à la sécurité et à Microsoft
 
 ## Étapes suivantes
 
-[Déploiement de votre appareil StorSimple](storsimple-deployment-walkthrough.md)
+[Déploiement de votre appareil StorSimple](storsimple-deployment-walkthrough.md).
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

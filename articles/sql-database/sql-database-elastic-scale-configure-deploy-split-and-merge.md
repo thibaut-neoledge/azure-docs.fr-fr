@@ -1,12 +1,9 @@
 <properties
-	title="Elastic database Split-Merge tool tutorial"
 	pageTitle="Didacticiel d’outil de fusion et de fractionnement de bases de données élastiques | Microsoft Azure"
 	description="Fractionnement et fusion avec les outils de bases de données élastiques"
-	metaKeywords="elastic database tools, split and merge, Azure SQL Database sharding, elastic scale, splitting and merging elastic databases"
 	services="sql-database" documentationCenter=""  
 	manager="jeffreyg"
 	authors="sidneyh"/>
-
 
 <tags
 	ms.service="sql-database"
@@ -14,9 +11,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/14/2015"
+	ms.date="08/14/2015"
 	ms.author="sidneyh" />
-
 
 # Didacticiel d’outil de fusion et de fractionnement de bases de données élastiques
 
@@ -48,7 +44,11 @@ Les étapes ci-dessus téléchargent les fichiers de fractionnement/fusion dans 
 
 2. Ouvrez ServiceConfiguration.cscfg dans votre éditeur de texte préféré. Nous vous recommandons d’utiliser Visual Studio, car il valide les entrées telles que le format des empreintes numériques de certificat.
 
-3. Créez une base de données ou sélectionnez-en une qui fera office de base de données d’état pour les opérations de fractionnement/fusion et qui permettra de récupérer la chaîne de connexion de la base de données concernée. Dans Azure SQL DB, la chaîne de connexion se présente généralement sous la forme suivante :
+3. Créez une base de données ou sélectionnez-en une qui fera office de base de données d’état pour les opérations de fractionnement/fusion et qui permettra de récupérer la chaîne de connexion de la base de données concernée.
+
+	**Important** À ce stade, la base de données de l'état doit utiliser le classement Latin (SQL\_Latin1\_General\_CP1\_CI\_AS). Pour plus d'informations, consultez la rubrique [Nom de classement Windows (Transact-SQL)](https://msdn.microsoft.com/library/ms188046.aspx).
+
+	Dans Azure SQL DB, la chaîne de connexion se présente généralement sous la forme suivante :
 
         "Server=myservername.database.windows.net; Database=mydatabasename;User ID=myuserID; Password=mypassword; Encrypt=True; Connection Timeout=30" .
 4.    Entrez cette chaîne de connexion dans le fichier cscfg dans les sections de rôle **SplitMergeWeb** et **SplitMergeWorker** du paramètre ElasticScaleMetadata.
@@ -103,24 +103,16 @@ Accédez au [portail Azure en version préliminaire](https://portal.azure.com).
 Collez l’empreinte de certificat copiée précédemment dans l’attribut d’empreinte/de valeur des paramètres suivants. Pour le rôle web :
 
     <Setting name="DataEncryptionPrimaryCertificateThumbprint" value="" />
-
     <Certificate name="DataEncryptionPrimary" thumbprint="" thumbprintAlgorithm="sha1" />
-
 
 Pour le rôle de travail :
 
     <Setting name="AdditionalTrustedRootCertificationAuthorities" value="" />
-
     <Setting name="AllowedClientCertificateThumbprints" value="" />
-
     <Setting name="DataEncryptionPrimaryCertificateThumbprint" value="" />
-
     <Certificate name="SSL" thumbprint="" thumbprintAlgorithm="sha1" />
-
     <Certificate name="CA" thumbprint="" thumbprintAlgorithm="sha1" />
-
     <Certificate name="DataEncryptionPrimary" thumbprint="" thumbprintAlgorithm="sha1" />
-
 
 
 Veuillez noter que pour les déploiements de production, des certificats distincts doivent être utilisés pour l’autorité de certification, le chiffrement, le certificat de serveur et les certificats clients. Pour plus d’informations, consultez la rubrique [Configuration de la sécurité](sql-database-elastic-scale-split-merge-security-configuration.md).
@@ -326,7 +318,7 @@ Cette erreur signifie que votre certificat SSL n’est pas correctement configu
 
 Si vous ne pouvez pas soumettre les demandes, vous pouvez voir ceci :
 
- [Exception\] System.Data.SqlClient.SqlException (0x80131904): Impossible de trouver la procédure stockée « dbo. InsertRequest ».
+ [Exception] System.Data.SqlClient.SqlException (0x80131904): Impossible de trouver la procédure stockée « dbo. InsertRequest ».
 
 Dans ce cas, vérifiez votre fichier de configuration, notamment le paramètre pour **WorkerRoleSynchronizationStorageAccountConnectionString**. Cette erreur indique généralement que le rôle de travail n’a pas pu initialiser avec succès la base de données de métadonnées à la première utilisation.
 
@@ -340,4 +332,4 @@ Dans ce cas, vérifiez votre fichier de configuration, notamment le paramètre p
 [5]: ./media/sql-database-elastic-scale-configure-deploy-split-and-merge/storage.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

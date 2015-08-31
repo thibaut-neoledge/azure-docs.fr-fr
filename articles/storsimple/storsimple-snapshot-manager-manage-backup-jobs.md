@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="07/09/2015"
+   ms.date="08/17/2015"
    ms.author="v-sharos" />
 
 
@@ -108,7 +108,7 @@ Pour afficher les tâches en cours d’exécution, procédez comme suit.
 
 ## Étapes suivantes
 
-[Utiliser le Gestionnaire d’instantanés StorSimple pour gérer le catalogue de sauvegarde](storsimple-snapshot-manager-manage-backup-catalog.md)
+[Utiliser le Gestionnaire d’instantanés StorSimple pour gérer le catalogue de sauvegarde](storsimple-snapshot-manager-manage-backup-catalog.md).
 
 
 
@@ -129,4 +129,4 @@ Pour afficher les tâches en cours d’exécution, procédez comme suit.
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

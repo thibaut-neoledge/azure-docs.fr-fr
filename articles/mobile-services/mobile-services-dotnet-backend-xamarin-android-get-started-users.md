@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Prise en main de l'authentification dans Mobile Services pour les applications Xamarin Android | Microsoft Azure" 
-	description="Apprenez à utiliser Mobile Services pour authentifier les utilisateurs de votre application Xamarin Android par l'intermédiaire de divers fournisseurs d'identité, notamment Google, Facebook, Twitter et Microsoft." 
-	services="mobile-services" 
-	documentationCenter="xamarin" 
-	authors="lindydonna" 
-	manager="dwrede" 
+<properties
+	pageTitle="Prise en main de l&#39;authentification dans Mobile Services pour les applications Xamarin Android | Microsoft Azure"
+	description="Apprenez à utiliser Mobile Services pour authentifier les utilisateurs de votre application Xamarin Android par l&#39;intermédiaire de divers fournisseurs d&#39;identité, notamment Google, Facebook, Twitter et Microsoft."
+	services="mobile-services"
+	documentationCenter="xamarin"
+	authors="lindydonna"
+	manager="dwrede"
 	editor="mollybos"/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-xamarin-android" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="04/13/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-xamarin-android"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="08/18/2015" 
 	ms.author="donnam"/>
 
 # Prise en main de l'authentification dans Mobile Services
@@ -42,7 +42,7 @@ Ce didacticiel est basé sur le démarrage rapide de Mobile Services. Vous devez
 
 <ol start="6">
 <li><p>Dans Visual Studio ou Xamarin Studio, exécutez le projet client sur un appareil ou un simulateur. Vérifiez qu'une exception non gérée avec un code d'état&#160;401 (Non autorisé) est générée après le démarrage de l'application.</p>
-   
+
    	<p>Cela se produit, car l'application essaye d'accéder à Mobile Services en tant qu'utilisateur non authentifié, mais la table <em>TodoItem</em> requiert désormais l'authentification.</p></li>
 </ol>
 
@@ -90,8 +90,9 @@ Ensuite, vous allez mettre à jour l'application pour authentifier les utilisate
 
 <!-- ## <a name="next-steps"> </a>Next steps
 
-In the next tutorial, [Service-side authorization of Mobile Services users][Authorize users with scripts], you will take the user ID value provided by Mobile Services based on an authenticated user and use it to filter the data returned by Mobile Services. 
+In the next tutorial, [Service-side authorization of Mobile Services users][Authorize users with scripts], you will take the user ID value provided by Mobile Services based on an authenticated user and use it to filter the data returned by Mobile Services.
  -->
+
 <!-- Anchors. -->
 [Inscrire votre application pour l'authentification et configurer Mobile Services]: #register
 [Restreindre les autorisations de table aux utilisateurs authentifiés]: #permissions
@@ -110,6 +111,5 @@ In the next tutorial, [Service-side authorization of Mobile Services users][Auth
 [JavaScript and HTML]: ../mobile-services-dotnet-backend-windows-store-javascript-get-started-users.md
 
 [Azure Management Portal]: https://manage.windowsazure.com/
- 
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

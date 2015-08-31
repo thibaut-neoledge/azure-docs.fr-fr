@@ -5,7 +5,8 @@
  documentationCenter=""
  authors="Blackmist"
  manager="paulettm"
- editor="cgronlun"/>
+ editor="cgronlun"
+	tags="azure-portal"/>
 
 <tags
  ms.service="hdinsight"
@@ -57,4 +58,4 @@ Voici une liste d'exemples créés et gérés par Microsoft à utiliser avec Apa
   [ce0c02a2]: https://github.com/hdinsight/hdinsight-storm-examples/tree/master/templates/HDInsightStormExamples "Ce projet contient des modèles de spouts, bolts et topologies permettant d'interagir avec divers services Azure tels que Event Hubs, DocumentDB et SQL Database."
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

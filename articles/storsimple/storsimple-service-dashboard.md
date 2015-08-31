@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/25/2015"
+   ms.date="08/17/2015"
    ms.author="v-sharos" />
 
 # Utilisation du tableau de bord du service StorSimple Manager
@@ -51,7 +51,7 @@ Le fait de cliquer sur la **clé d’enregistrement** (au bas de la page) ouvre 
 
 La régénération de la clé n'affecte pas les périphériques déjà enregistrés : elle affecte uniquement les périphériques enregistrés auprès du service après la régénération.
 
-Pour plus d'informations sur l'affichage et la génération de la clé d'enregistrement auprès du service, consultez la page [Obtenir la clé d'inscription](storsimple-manage-service.md#get-the-service-registration-key)
+Pour plus d'informations sur l'affichage et la génération de la clé d'enregistrement auprès du service, consultez la page [Obtenir la clé d'inscription](storsimple-manage-service.md#get-the-service-registration-key).
 
 ## Modification de la clé de chiffrement des données de service
 
@@ -74,6 +74,6 @@ Vous pouvez afficher les journaux des opérations en cliquant sur le lien des jo
 
 ## Étapes suivantes
 
-Découvrez la procédure de [Résolution des problèmes d’un périphérique StorSimple](storsimple-troubleshoot-operational-device.md).
+[Découvrez la procédure de résolution des problèmes d’un périphérique StorSimple](storsimple-troubleshoot-operational-device.md).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

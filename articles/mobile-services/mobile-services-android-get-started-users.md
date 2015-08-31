@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Prise en main de l'authentification (Android) | Microsoft Azure" 
-	description="Découvrez comment utiliser Mobile Services pour authentifier les utilisateurs de votre application Android via divers fournisseurs d'identité, notamment Google, Facebook, Twitter et Microsoft." 
+	pageTitle="Prise en main de l&#39;authentification (Android) | Microsoft Azure" 
+	description="Découvrez comment utiliser Mobile Services pour authentifier les utilisateurs de votre application Android via divers fournisseurs d&#39;identité, notamment Google, Facebook, Twitter et Microsoft." 
 	services="mobile-services" 
 	documentationCenter="android" 
 	authors="RickSaling" 
@@ -117,4 +117,4 @@ Dans le didacticiel suivant, [Autorisation des utilisateurs avec des scripts], v
 [Azure Management Portal]: https://manage.windowsazure.com/
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

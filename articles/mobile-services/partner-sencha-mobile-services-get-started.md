@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Prise en main d'Azure Mobile Services et Sencha"
-	description="Suivez ce didacticiel pour commencer à développer avec Mobile Services et l'infrastructure d'application mobile Sencha HTML5."
+	pageTitle="Prise en main d&#39;Azure Mobile Services et Sencha"
+	description="Suivez ce didacticiel pour commencer à développer avec Mobile Services et l&#39;infrastructure d&#39;application mobile Sencha HTML5."
 	services="mobile-services"
 	documentationCenter=""
 	authors="ggailey777"
@@ -12,8 +12,8 @@
 	ms.workload="mobile"
 	ms.tgt_pltfrm="mobile-sencha"
 	ms.devlang="multiple"
-	ms.topic="article" 
-	ms.date="04/24/2015"
+	ms.topic="article"
+	ms.date="08/18/2015"
 	ms.author="glenga"/>
 
 # <a name="getting-started"></a>Prise en main de Mobile Services et de Sencha Touch
@@ -710,6 +710,5 @@ Pour plus d'informations sur la prise en main de Sencha Touch, consultez l'ensem
 
 <!-- images -->
 [0]: ./media/partner-sencha-mobile-services-get-started/finished-app.png
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

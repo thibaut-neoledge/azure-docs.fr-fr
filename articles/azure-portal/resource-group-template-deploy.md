@@ -1,20 +1,20 @@
 <properties
    pageTitle="Déployer une application avec un modèle Azure Resource Manager"
-   services="azure-resource-manager"
-   description="Utilisez Azure Resource Manager pour déployer une application sur Azure. Un modèle est un fichier JSON qui peut être utilisé à partir du portail, de PowerShell, d’Azure CLI pour Mac, Linux et Windows, ou de REST."
-   documentationCenter="na"
-   authors="tfitzmac"
-   manager="wpickett"
-   editor=""/>
+	services="azure-resource-manager"
+	description="Utilisez Azure Resource Manager pour déployer une application sur Azure. Un modèle est un fichier JSON qui peut être utilisé à partir du portail, de PowerShell, d’Azure CLI pour Mac, Linux et Windows, ou de REST."
+	documentationCenter="na"
+	authors="tfitzmac"
+	manager="wpickett"
+	editor=""/>
 
 <tags
    ms.service="azure-resource-manager"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="07/24/2015"
-   ms.author="tomfitz"/>
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="na"
+	ms.date="07/24/2015"
+	ms.author="tomfitz"/>
 
 # Déployer une application avec un modèle Azure Resource Manager
 
@@ -122,6 +122,13 @@ Si vous n’avez pas déjà utilisé Azure PowerShell avec Resource Manager, co
 7. Pour obtenir des informations détaillées sur les échecs de déploiement.
 
         PS C:\> Get-AzureResourceGroupLog -ResourceGroup ExampleResourceGroup -Status Failed -DetailedOutput
+        
+### Vidéo
+
+Voici une vidéo expliquant comment utiliser les modèles Resource Manager avec PowerShell.
+
+[AZURE.VIDEO deploy-an-application-with-azure-resource-manager-template]
+
 
 ## Installer Azure CLI pour Mac, Linux et Windows
 
@@ -250,11 +257,11 @@ Si vous utilisez un fichier de paramètres pour passer les valeurs de paramètre
     }
 
 ## Étapes suivantes
-- Pour obtenir un exemple de déploiement de ressources par le biais de la bibliothèque cliente .NET, consultez [Déployer des ressources à l'aide de bibliothèques .NET et d'un modèle](../arm-template-deployment.md).
-- Pour obtenir un exemple détaillé de déploiement d'une application, consultez [Mise en service et déploiement de microservices de manière prévisible dans Azure](../app-service-web/app-service-deploy-complex-application-predictably.md).
+- Pour obtenir un exemple de déploiement de ressources par le biais de la bibliothèque cliente .NET, consultez [Déployer des ressources à l’aide de bibliothèques .NET et d’un modèle](../arm-template-deployment.md).
+- Pour obtenir un exemple détaillé de déploiement d’une application, consultez [Mise en service et déploiement de microservices de manière prévisible dans Azure](../app-service-web/app-service-deploy-complex-application-predictably.md).
 - Pour en savoir plus sur les sections du modèle Azure Resource Manager, consultez la section [Création de modèles](../resource-group-authoring-templates.md).
 - Pour obtenir la liste des fonctions que vous pouvez utiliser dans un modèle Azure Resource Manager, consultez [Fonctions de modèle](../resource-group-template-functions.md).
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

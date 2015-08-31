@@ -411,9 +411,8 @@ Maintenant que vous connaissez les bases du stockage des tables, consultez les l
 -	[Utilisation du stockage d'objets blob à partir de C++](storage-c-plus-plus-how-to-use-blobs.md)
 -	[Utilisation du service de stockage de files d'attente à partir de C++](storage-c-plus-plus-how-to-use-queues.md)
 -	[Listage des ressources Azure Storage en C++](storage-c-plus-plus-enumeration.md)
--	[Bibliothèque cliente de stockage pour C++](https://msdn.microsoft.com/library/azure/gg433040.aspx) 
--	[Référence MSDN d’Azure Storage](https://msdn.microsoft.com/library/azure/gg433040.aspx)
+-	[Référence de la bibliothèque cliente de stockage pour C++](http://azure.github.io/azure-storage-cpp)
 -	[Documentation d'Azure Storage](http://azure.microsoft.com/documentation/services/storage/)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

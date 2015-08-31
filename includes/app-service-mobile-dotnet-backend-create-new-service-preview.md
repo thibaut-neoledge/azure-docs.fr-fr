@@ -1,44 +1,38 @@
 
 
-Pour créer une application mobile, procédez comme suit :
+Suivez ces étapes pour créer un serveur principal d’application mobile.
 
-1. Connectez-vous au [portail Azure]. En bas à gauche de la fenêtre, cliquez sur **+NOUVEAU**. Faites défiler la page, jusqu'à ce que l'élément **Application mobile** s'affiche.
+1. Connectez-vous au [portail Azure].
 
-    ![](./media/app-service-mobile-dotnet-backend-create-new-service-preview/new-mobile-app.png)
+2. Dans le coin supérieur gauche de la fenêtre, cliquez sur le bouton **+ NOUVEAU** > **Web + Mobile** > **Application mobile**, puis indiquez un nom pour le serveur principal de votre application mobile.
 
-    Ce faisant, le panneau **Nouvelle application mobile** s'affiche.
+3. Dans la zone **Groupe de ressources**, entrez le même nom que votre application.
 
-2. Tapez le nom de votre application mobile. Il doit contenir au moins 8 lettres minuscules de a à z.
+4. Le plan App Service par défaut est sélectionné. Pour modifier votre plan de service d’applications, vous pouvez cliquer sur le plan de service d’applications > **+ Créer nouveau**. Indiquez le nom du nouveau plan App Service et sélectionnez un emplacement approprié. Cliquez sur Niveau de tarification et sélectionnez un niveau de tarification approprié pour le service. Sélectionnez **Afficher tout** pour afficher davantage d’options de tarification, telles que **Gratuit** et **Partagé**. Une fois que vous avez sélectionné le niveau de tarification, cliquez sur le bouton **Sélectionner**. Dans le panneau **Plan de service d’applications**, cliquez sur **OK**.
 
-7. Sélectionnez une région. Dans ce didacticiel, nous utilisons **Sud-Centre des États-Unis**.
+5. Cliquez sur **Create**. Un serveur principal d’application mobile est créé à l’emplacement où vous allez déployer votre projet de serveur ultérieurement. La configuration d’un serveur principal d’application mobile peut prendre quelques minutes. Une fois le serveur principal d’application mobile configuré, le portail ouvre le panneau **Paramètres** pour le serveur principal d’application mobile. Dans l’étape suivante, vous allez créer une base de données SQL.
 
-    > [AZURE.NOTE]Dans ce didacticiel, vous créez une instance et un serveur de base de données SQL. Vous pouvez réutiliser cette nouvelle base de données et la gérer comme une autre instance de base de données SQL. Si vous disposez déjà d'une base de données dans la même région que le serveur principal de la nouvelle application mobile, vous pouvez alors choisir **Utiliser la base de données existante** et sélectionner cette base de données. À cause des coûts supplémentaires liés à la bande passante et en raison des latences élevées, il est déconseillé d'utiliser une base de données dans une autre région.
+    > [AZURE.NOTE]Dans ce didacticiel, vous créez une instance et un serveur de base de données SQL. Vous pouvez réutiliser cette nouvelle base de données et la gérer comme une autre instance de base de données SQL. Si vous avez déjà une base de données dans le même emplacement que le nouveau serveur principal d’application mobile, vous pouvez choisir **Utiliser une base de données** et sélectionner la base de données. Il est déconseillé d’utiliser une base de données dans un autre emplacement en raison de latences plus importantes et de frais de bande passante supplémentaires.
 
-3. Sélectionnez votre abonnement.
+6. Dans le nouveau serveur principal d’application mobile, cliquez sur **Paramètres** > **Application mobile** > **Données** > **+Ajouter**.
 
-4. Créez un groupe de ressources portant le même nom que votre application mobile.
+7. Dans le panneau **Ajouter une connexion de données**, cliquez sur **Base de donnée SQL - Configurer les paramètres requis** > **Créer une base de données**. Entrez le nom de la nouvelle base de données dans le champ **Nom**.
 
-5. Dans **Paramètres de package**, sélectionnez **USERDATABASE** ; vous pouvez choisir une base de données existante ou en créer une. Pour créer une base de données, tapez le nom de la nouvelle **base de données**, créez un **serveur**, tapez le nom de ce serveur, puis choisissez un **nom de connexion**, qui correspond au nom de connexion de l'administrateur du nouveau serveur de base de données SQL, tapez et confirmez le mot de passe, puis cliquez sur le bouton OK pour terminer la procédure. Si vous sélectionnez une base de données existante, vous devez fournir un **mot de passe d'administrateur du serveur**.
+8. Cliquez sur **Serveur**. Dans le panneau **Nouveau serveur**, entrez un nom de serveur unique dans le champ **Nom du serveur**, et indiquez un **nom de connexion d’administration serveur** et un **mot de passe** appropriés. Vérifiez que l’option **Autoriser les services Azure à accéder au serveur** est sélectionnée. Cliquez sur **OK**.
 
     ![](./media/app-service-mobile-dotnet-backend-create-new-service-preview/dotnet-backend-create-db.png)
 
-6. Créez un plan d'hébergement web portant le même nom que votre application mobile.
+9. Dans le panneau **Nouvelle base de données**, cliquez sur **OK**.
 
-    > [AZURE.NOTE]Tapez le nom du plan d'hébergement web sans le copier/coller. Si vous ne le tapez pas, la validation du nom dans ce champ est en échec. Le nom n'est pas tenu d'être exactement le même que celui du site web (mais il doit suivre les mêmes règles).
+10. Dans le panneau **Ajouter une connexion de données**, sélectionnez **Chaîne de connexion**, entrez le nom de connexion et le mot de passe que vous avez indiqués lors de la création de la base de données. Si vous utilisez une base de données existante, indiquez les informations d’identification de connexion à celle-ci. Cliquez ensuite sur **OK**.
 
-8. Sélectionnez un niveau de tarification. Dans ce didacticiel, nous utilisons le niveau **Standard 1**.
+11. Dans le panneau **Ajouter une connexion de données**, cliquez sur **OK** pour créer la base de données.
 
-    À présent, la page des paramètres de votre nouvelle application mobile ressemble à ceci :
+La création de la base de données prend quelques minutes. Utilisez la zone **Notifications** pour surveiller la progression du déploiement. Attendez la fin du déploiement avant de continuer.
 
-    ![](./media/app-service-mobile-dotnet-backend-create-new-service-preview/dotnet-backend-create.png)
-
-9. Cliquez sur le bouton **Créer** au bas du panneau. Le déploiement doit commencer et apparaître dans la fenêtre de notifications.
-
-Vous avez créé un serveur principal d'applications mobiles, qui peut être utilisé par vos applications mobiles.
-
-> [AZURE.NOTE]Après avoir créé votre application mobile, accédez au portail du serveur SQL que vous venez de créer (veillez à sélectionner le serveur et pas la base de données SQL Azure). À partir de là, cliquez sur l'élément Paramètres, développez l'élément Pare-feu, puis modifiez « Autoriser l'accès aux services Azure ». Si vous ne procédez pas ainsi, votre application ne fonctionnera pas.
+Vous avez maintenant configuré un serveur principal d’application mobile Azure qui peut être utilisé par vos applications clientes mobiles. Vous allez ensuite télécharger un projet de serveur pour un serveur principal « todo list » simple et le publier dans Azure.
 
 <!-- URLs. -->
 [portail Azure]: https://portal.azure.com/
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

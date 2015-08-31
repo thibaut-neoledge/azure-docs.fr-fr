@@ -70,4 +70,6 @@ Pour démarrer la configuration de cette charge de travail, passez à la [Phase�
 
 [Instructions d’implémentation des services d’infrastructure Azure](virtual-machines-infrastructure-services-implementation-guidelines.md)
 
-<!---HONumber=August15_HO6-->
+[Charge de travail des services d’infrastructure Azure : applications métier à haute disponibilité](virtual-machines-workload-high-availability-lob-application.md)
+
+<!---HONumber=August15_HO8-->

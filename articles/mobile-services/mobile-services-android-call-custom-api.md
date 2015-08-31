@@ -1,6 +1,6 @@
-<properties 
-	pageTitle="Appel d'une API personnalisée à partir d'un client Android | Microsoft Azure" 
-	description="Découvrez comment définir une API personnalisée et l'appeler depuis une application Android qui utilise Azure Mobile Services." 
+<properties  
+	pageTitle="Appel d&#39;une API personnalisée à partir d&#39;un client Android | Microsoft Azure" 
+	description="Découvrez comment définir une API personnalisée et l&#39;appeler depuis une application Android qui utilise Azure Mobile Services." 
 	services="mobile-services" 
 	documentationCenter="android" 
 	authors="RickSaling" 
@@ -69,4 +69,4 @@ Pour plus d'informations sur les rubriques Mobile Services suivantes, consultez�
 [Stockage des scripts serveur dans le contrôle du code source ]: mobile-services-store-scripts-source-control.md
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

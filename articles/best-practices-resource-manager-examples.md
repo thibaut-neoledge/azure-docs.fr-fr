@@ -13,12 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/16/2015"
+	ms.date="08/13/2015"
 	ms.author="mmercuri"/>
 
 # Exemples contextuels des meilleures pratiques d’implémentation des modèles
 
 Cette rubrique fournit 7 exemples en contexte de mise en œuvre de vos modèles Azure Resource Manager. Pour avoir une vue d’ensemble des principes décrits dans ces exemples, consultez la section [Meilleures pratiques pour concevoir les modèles Azure Resource Manager](best-practices-resource-manager-design-templates.md).
+
+Cette rubrique fait partie d’un livre blanc plus volumineux. Pour lire tout le document, téléchargez [World Class ARM Templates Considerations and Proven Practices](http://download.microsoft.com/download/8/E/1/8E1DBEFA-CECE-4DC9-A813-93520A5D7CFE/World Class ARM Templates - Considerations and Proven Practices.pdf).
 
 ## Transformation d’un modèle de fonctionnalité étendue en modèle de solution étendue de bout en bout
 
@@ -248,8 +250,8 @@ Enfin, on peut souhaiter s’assurer que certaines ressources ne sont pas suppri
 
 ## Étapes suivantes
 
-- Pour en savoir plus sur la création de modèles, consultez[Création de modèles](resource-group-authoring-templates.md).
-- Pour obtenir des recommandations sur la façon de gérer la sécurité dans le Gestionnaire de ressources Azure, consultez [Considérations de sécurité pour le Gestionnaire de ressources Azure](best-practices-resource-manager-security.md).
-- Pour en savoir plus sur le partage d’état vers et depuis des modèles, consultez [partage d’état dans Azure Resource manager](best-practices-resource-manager-state.md)
+- Pour en savoir plus sur la création de modèles, consultez [Création de modèles](resource-group-authoring-templates.md).
+- Pour obtenir des recommandations sur la façon de gérer la sécurité dans Azure Resource Manager, consultez [Considérations de sécurité pour Azure Resource Manager](best-practices-resource-manager-security.md).
+- Pour en savoir plus sur le partage d’état vers et depuis des modèles, consultez [Partage d’état dans les modèles Azure Resource Manager](best-practices-resource-manager-state.md).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

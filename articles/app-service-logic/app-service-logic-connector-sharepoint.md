@@ -1,22 +1,20 @@
 <properties
    pageTitle="Créer un connecteur SharePoint à utiliser dans votre application logique"
-   description="Créer un connecteur SharePoint ; Utilisation du connecteur SharePoint dans votre application logique"
-   services="app-service\logic"
-   documentationCenter=".net,nodejs,java"
-   authors="anuragdalmia"
-   manager="dwrede"
-   editor=""/>
-
+	description="Créer un connecteur SharePoint ; Utilisation du connecteur SharePoint dans votre application logique"
+	services="app-service\logic"
+	documentationCenter=".net,nodejs,java"
+	authors="anuragdalmia"
+	manager="dwrede"
+	editor=""/>
 
 <tags
    ms.service="app-service-logic"
-   ms.devlang="multiple"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="integration"
-   ms.date="07/02/2015"
-   ms.author="sameerch"/>
-
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="integration"
+	ms.date="08/19/2015"
+	ms.author="sameerch"/>
 
 # Utilisation du connecteur SharePoint dans votre application logique
 
@@ -474,7 +472,10 @@ Consultez la rubrique [Utilisation du Gestionnaire de connexion hybride](app-ser
 ## En faire plus avec votre connecteur
 Maintenant que le connecteur est créé, vous pouvez l'ajouter à un flux d'entreprise à l'aide d'une application logique. Voir [Que sont les applications logiques ?](app-service-logic-what-are-logic-apps.md).
 
+Affichez la référence d’API REST Swagger sur [Référence de connecteurs et d’applications API](http://go.microsoft.com/fwlink/p/?LinkId=529766).
+
 Vous pouvez également consulter les statistiques de performances et contrôler la sécurité du connecteur. Voir [Gérer et surveiller les applications API et le connecteur](app-service-api-manage-in-portal.md).
+
 
 <!--Image references-->
 [1]: ./media/app-service-logic-connector-sharepoint/image_0.png
@@ -485,4 +486,4 @@ Vous pouvez également consulter les statistiques de performances et contrôler 
 [6]: ./media/app-service-logic-connector-sharepoint/image_5.png
 [7]: ./media/app-service-logic-connector-sharepoint/image_6.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

@@ -19,14 +19,14 @@
 
 #Installation de MongoDB sur une machine virtuelle exécutant Windows Server
 
-[MongoDB][MongoDB] est une base de données NoSQL libre qui offre des performances élevées. Vous pouvez créer une machine virtuelle exécutant Windows Server à partir de la bibliothèque d'images du [portail Azure][AzureManagementPortal]. Vous pouvez alors installer et configurer une base de données MongoDB sur la machine virtuelle.
+[MongoDB][MongoDB] est une base de données NoSQL libre qui offre des performances élevées. Vous pouvez créer une machine virtuelle exécutant Windows Server à partir de la bibliothèque d'images du [portail Azure][AzureManagementPortal], à l’aide du modèle de déploiement classique. Vous pouvez alors installer et configurer une base de données MongoDB sur la machine virtuelle.
 
 
 ## Création d’une machine virtuelle exécutant Windows Server
 
 Pour créer une machine virtuelle, procédez comme suit :
 
-[AZURE.INCLUDE [virtual-machines-create-WindowsVM](../../includes/virtual-machines-create-WindowsVM.md)]
+[AZURE.INCLUDE [virtual-machines-create-WindowsVM](../../includes/virtual-machines-create-windowsvm.md)]
 
 > [AZURE.NOTE]Vous pouvez ajouter un point de terminaison pour MongoDB lors de la création de la machine virtuelle et le configurer : attribuez-lui le nom **Mongo**, utilisez **TCP**comme protocole et attribuez aux ports publics et privés la valeur **27017**.
 
@@ -48,4 +48,4 @@ Ce didacticiel vous a montré comment créer une machine virtuelle exécutant Wi
 [MongoDB]: http://www.mongodb.org/
 [AzureManagementPortal]: http://manage.windowsazure.com
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

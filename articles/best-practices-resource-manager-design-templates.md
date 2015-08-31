@@ -13,12 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/15/2015"
+	ms.date="08/13/2015"
 	ms.author="mmercuri"/>
 
 # Meilleures pratiques relatives à la conception des modèles Azure Resource Manager
 
 Dans notre collaboration avec les entreprises, les intégrateurs de système, les fournisseurs de services cloud et les équipes de projet de logiciel open source, il est souvent nécessaire de déployer rapidement des environnements, des charges de travail ou des unités d’échelle. Ces déploiements doivent être pris en charge, suivre des pratiques éprouvées et respecter des stratégies identifiées. À l’aide d’une approche souple basée sur des modèles Azure Resource Manager, vous pouvez déployer des topologies complexes rapidement et de manière homogène, puis adapter facilement ces déploiements au rythme des offres principales ou aux variables des scénarios ou clients hors norme.
+
+Cette rubrique fait partie d’un livre blanc plus volumineux. Pour lire tout le document, téléchargez [World Class ARM Templates Considerations and Proven Practices](http://download.microsoft.com/download/8/E/1/8E1DBEFA-CECE-4DC9-A813-93520A5D7CFE/World Class ARM Templates - Considerations and Proven Practices.pdf).
 
 Les modèles associent les avantages du gestionnaire Azure Resource Manager sous-jacent à l’adaptabilité et à la lisibilité de JSON (JavaScript Objet Notation). En utilisant des modèles, vous pouvez :
 
@@ -143,7 +145,7 @@ Initialement, vous pouvez penser qu’un modèle doit donner aux clients la flex
 
 De prime abord, les configurations ouvertes semblent idéales. Elles vous permettent de sélectionner un type de machine virtuelle et de fournir un nombre arbitraire de nœuds et de disques attachés pour ces nœuds, et ce, en tant que paramètres pour un modèle. Néanmoins, lorsque vous examinez attentivement et considérez les modèles qui vont déployer plusieurs machines virtuelles de tailles différentes, d’autres considérations apparaissent et rendent ce choix moins approprié dans de nombreux scénarios.
 
-Dans l’article intitulé [Tailles de machines virtuelles et services cloud pour Windows Azure](http://msdn.microsoft.com/library/azure/dn641267.aspx) figurant sur le site web Azure, les différents types de machine virtuelle et les tailles disponibles sont identifiés, ainsi que le nombre de disques (2, 4, 8, 16 ou 32) pouvant être attachés. Chaque disque attaché fournit 500 E/S par seconde, et plusieurs disques peuvent être regroupés pour obtenir un multiplicateur de ce nombre d’E/S par seconde. Par exemple, 16 disques peuvent être regroupés pour fournir 8 000 E/S par seconde. Le regroupement est effectué avec la configuration dans le système d’exploitation, à l’aide des espaces de stockage Microsoft Windows ou des disques RAID (Redundant Array of Inexpensive Disk) dans Linux.
+Dans l’article intitulé [Tailles de machines virtuelles et services cloud pour Azure](http://msdn.microsoft.com/library/azure/dn641267.aspx) figurant sur le site web Azure, les différents types de machines virtuelles et les tailles disponibles sont identifiés, ainsi que le nombre de disques (2, 4, 8, 16 ou 32) pouvant être attachés. Chaque disque attaché fournit 500 E/S par seconde, et plusieurs disques peuvent être regroupés pour obtenir un multiplicateur de ce nombre d’E/S par seconde. Par exemple, 16 disques peuvent être regroupés pour fournir 8 000 E/S par seconde. Le regroupement est effectué avec la configuration dans le système d’exploitation, à l’aide des espaces de stockage Microsoft Windows ou des disques RAID (Redundant Array of Inexpensive Disk) dans Linux.
 
 Une configuration ouverte permet de sélectionner un nombre d’instances de machine virtuelle, un nombre de différents types de machine virtuelle et les tailles de ces instances, un nombre de disques qui peut varier en fonction du type de machine virtuelle et un ou plusieurs scripts pour configurer le contenu de la machine virtuelle.
 
@@ -321,7 +323,7 @@ Avec Redis, vous souhaitez installer chaque nœud individuel, puis, une fois tou
 
 Une logique est ajoutée dans le modèle principal pour permettre aux utilisateurs du modèle de spécifier si une jumpbox doit être déployée. La valeur *enabled* du paramètre *EnableJumpbox* indique que le client souhaite en déployer une. Si cette valeur est indiquée, le modèle concatène *\_enabled* comme suffixe d’un nom de modèle de base pour la fonctionnalité jumpbox.
 
-Le modèle principal applique la valeur de paramètre *Grand* comme suffixe d’un nom de modèle de base pour les tailles standard, puis utilise cette valeur dans un lien du modèle vers *technology\_on\_os\_large.json*.
+Le modèle principal applique la valeur de paramètre *large* comme suffixe d’un nom de modèle de base pour les tailles standard, puis utilise cette valeur dans un lien du modèle vers *technology\_on\_os\_large.json*.
 
 La topologie doit ressembler à cette illustration.
 
@@ -335,7 +337,7 @@ Pour les nœuds du cluster, la configuration de l’état s’effectue en deux 
 
 ### Prise en charge des déploiements de taille différente
 
-Au sein des variables, le modèle de taille standard spécifie le nombre de nœuds de chaque type à déployer pour la taille spécifiée (*Grand*). Il déploie ensuite ce nombre d’instances d’ordinateur virtuel à l’aide de boucles de ressources, en fournissant des noms uniques aux ressources en ajoutant un nom de nœud avec un numéro de séquence numérique à partir de *copyIndex()*. Il effectue cette opération pour les deux machines virtuelles de la zone sensible, comme défini dans le modèle de nom standard.
+Au sein des variables, le modèle de taille standard spécifie le nombre de nœuds de chaque type à déployer pour la taille spécifiée (*large*). Il déploie ensuite ce nombre d’instances de machine virtuelle à l’aide de boucles de ressources, en fournissant des noms uniques aux ressources en ajoutant un nom de nœud avec un numéro de séquence numérique à partir de *copyIndex()*. Il effectue cette opération pour les deux machines virtuelles de la zone sensible, comme défini dans le modèle de nom standard.
 
 ## Modèles de décomposition et avec étendue de solution de bout en bout
 
@@ -379,6 +381,6 @@ Pour publier votre modèle dans le Marketplace, vous devez établir simplement d
 
 - Pour voir des exemples contextuels de l’implémentation des principes de conception présentés dans cette rubrique, consultez [Exemples contextuels des meilleures pratiques d’implémentation des modèles](best-practices-resource-manager-examples.md).
 - Pour obtenir des recommandations sur la façon de gérer la sécurité dans Azure Resource Manager, consultez [Considérations de sécurité pour Azure Resource Manager](best-practices-resource-manager-security.md).
-- Pour en savoir plus sur le partage d’état vers et depuis des modèles, consultez [partage d’état dans Azure Resource manager](best-practices-resource-manager-state.md).
+- Pour en savoir plus sur le partage d’état vers et depuis des modèles, consultez [Partage d’état dans les modèles Azure Resource Manager](best-practices-resource-manager-state.md).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

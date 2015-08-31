@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Authentification de votre application avec le service d'authentification unique de la bibliothèque d'authentification Active Directory (Windows Store) | Microsoft Azure" 
-	description="Découvrez comment authentifier les utilisateurs pour l'authentification unique avec la bibliothèque d'authentification AD dans votre application Windows Store." 
-	documentationCenter="windows" 
-	authors="wesmc7777" 
-	manager="dwrede" 
-	editor="" 
+<properties
+	pageTitle="Authentification de votre application avec le service d&#39;authentification unique de la bibliothèque d&#39;authentification Active Directory (Windows Store) | Microsoft Azure"
+	description="Découvrez comment authentifier les utilisateurs pour l&#39;authentification unique avec la bibliothèque d&#39;authentification AD dans votre application Windows Store."
+	documentationCenter="windows"
+	authors="wesmc7777"
+	manager="dwrede"
+	editor=""
 	services="mobile-services"/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-windows-store" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="04/29/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-windows-store"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="08/18/2015" 
 	ms.author="wesmc"/>
 
 # Authentification de votre application avec le service d'authentification unique de la bibliothèque d'authentification Active Directory
@@ -37,7 +37,7 @@ Ce didacticiel requiert les éléments suivants :
 * Visual Studio 2013 s'exécutant sous Windows 8.1.
 * L'exécution du didacticiel [Prise en main de Mobile Services] ou [Prise en main de données].
 * Kit de développement logiciel (SDK) Microsoft Azure Mobile Services – Package NuGet
-* Bibliothèque d'authentification Active Directory – Package NuGet 
+* Bibliothèque d'authentification Active Directory – Package NuGet
 
 [AZURE.INCLUDE [mobile-services-dotnet-adal-register-service](../../includes/mobile-services-dotnet-adal-register-service.md)]
 
@@ -134,12 +134,12 @@ Votre service mobile est maintenant configuré dans AAD de manière à accepter 
 
 5. Ajoutez le code suivant à la classe MainPage qui déclare la méthode `AuthenticateAsync`.
 
-        private MobileServiceUser user; 
+        private MobileServiceUser user;
         private async Task AuthenticateAsync()
         {
             string authority = "<INSERT-AUTHORITY-HERE>";
             string resourceURI = "<INSERT-RESOURCE-URI-HERE>";
-            string clientID = "<INSERT-CLIENT-ID-HERE>"; 
+            string clientID = "<INSERT-CLIENT-ID-HERE>";
             while (user == null)
             {
                 string message;
@@ -155,11 +155,11 @@ Votre service mobile est maintenant configuré dans AAD de manière à accepter 
                 catch (InvalidOperationException)
                 {
                   message = "You must log in. Login Required";
-                } 
+                }
                 var dialog = new MessageDialog(message);
                 dialog.Commands.Add(new UICommand("OK"));
                 await dialog.ShowAsync();
-            } 
+            }
         }
 
 6. Dans le code de la méthode `AuthenticateAsync` ci-dessus, remplacez **INSERT-AUTHORITY-HERE** par le nom du client dans lequel vous avez déployé votre application ; le format doit être https://login.windows.net/tenant-name.onmicrosoft.com. Cette valeur peut être copiée dans l'onglet Domaine de votre annuaire Azure Active Directory dans le [portail de gestion Azure].
@@ -217,4 +217,4 @@ Votre service mobile est maintenant configuré dans AAD de manière à accepter 
 [Prise en main de Mobile Services]: mobile-services-dotnet-backend-windows-store-dotnet-get-started.md
 [Tableau de bord du centre de développement Windows]: http://go.microsoft.com/fwlink/p/?LinkID=266734
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

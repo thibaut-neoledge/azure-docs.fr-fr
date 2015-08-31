@@ -1,18 +1,18 @@
 <properties 
-    pageTitle="Notes de publication de StorSimple série 8000 Update 0.1 – Octobre 2014"
+    pageTitle="Notes de publication de StorSimple série 8000 Update 0.1 - Octobre 2014 | Microsoft Azure"
     description="Décrit les nouvelles fonctionnalités, les problèmes et les solutions de contournement pour la version d’octobre 2014 de StorSimple."
     services="storsimple"
     documentationCenter="NA"
     authors="SharS"
-    manager="adinah"
-    editor="tysonn" />
+    manager="carolz"
+    editor="" />
  <tags 
     ms.service="storsimple"
     ms.devlang="NA"
     ms.topic="article"
     ms.tgt_pltfrm="NA"
     ms.workload="TBD"
-    ms.date="05/27/2015"
+    ms.date="08/19/2015"
     ms.author="v-sharos" />
 
 # Notes de publication de StorSimple série 8000 Update 0.1 – Octobre 2014  
@@ -21,7 +21,7 @@
 
 Les notes de publication suivantes identifient les problèmes critiques non résolus relatifs à la version StorSimple série 8000 Update 0.1, publiée en octobre 2014. Elles contiennent également une liste des mises à jour du logiciel et du microprogramme StorSimple incluses dans cette version. Il s’agit de la première version importante postérieure à la mise à disposition générale de la version StorSimple série 8000, en juillet 2014. Elle correspond à la version logicielle 6.3.9600.17312.
 
-Nous vous recommandons de rechercher les mises à jour éventuelles et de les appliquer immédiatement après avoir installé l’appareil. Vous pouvez également activer les mises à jour automatiques pour télécharger et installer les mises à jour de haute priorité à partir de Microsoft dès qu’elles sont mises à disposition. Pour plus d’informations, consultez la page sur l’installation des [mises à jour](https://msdn.microsoft.com/library/azure/1a2cd7de-706b-4d3c-8efb-02e322d3ae73#BKMK_Updates).
+Nous vous recommandons de rechercher les mises à jour éventuelles et de les appliquer immédiatement après avoir installé l’appareil. Vous pouvez également activer les mises à jour automatiques pour télécharger et installer les mises à jour de haute priorité à partir de Microsoft dès qu’elles sont mises à disposition. Consultez la rubrique [Mettre à jour votre appareil StorSimple](storsimple-update-device.md) pour plus d'informations.
 
 Lisez les informations contenues dans les notes de publication avant de déployer les mises à jour dans votre solution StorSimple.
 
@@ -35,16 +35,16 @@ Assurez-vous que les conditions préalables suivantes sont remplies avant de met
 
 - Vérifiez que les deux contrôleurs de l’appareil sont actifs avant de rechercher des mises à jour. Si un des contrôleurs n’est pas actif, la recherche échoue. Pour vérifier que les contrôleurs fonctionnent correctement, accédez à **État du matériel** dans la page **Maintenance**. Si des composants **nécessitent une attention**, contactez le support technique de Microsoft avant de continuer.  
 - Vérifiez que les adresses IP fixes des contrôleurs 0 et 1 prennent le routage en charge et permettent la connexion à Internet, car elles sont utilisées pour installer les mises à jour sur l’appareil. Vous pouvez utiliser l’[applet de commande Test-Connection](https://technet.microsoft.com/library/hh849808.aspx) pour effectuer un test ping sur une adresse connue en dehors du réseau, telle que outlook.com, afin de vérifier que le contrôleur peut se connecter au réseau externe.  
-- Vérifiez que les ports 80 et 443 sont disponibles pour la communication sortante sur l’appareil StorSimple. Pour plus d’informations, consultez la rubrique [Configuration réseau requise pour un appareil StorSimple](https://msdn.microsoft.com/library/azure/dn772371.aspx).  
-- Si la version logicielle de l’appareil est supérieure à 6.3.9600.17312 (mise à jour d’octobre 2014), désactivez les ports de données 2 et 3, le cas échéant, avant de commencer la mise à jour. Si vous laissez le port de données 2 ou 3 activé lors de la mise à jour, le contrôleur de l’appareil risque de passer en mode de récupération. Veuillez noter que lorsque vous désactivez les interfaces réseau, tous les volumes associés sont mis hors connexion, et les E/S sont interrompues pendant toute la durée de la mise à jour.  
+- Vérifiez que les ports 80 et 443 sont disponibles pour la communication sortante sur l’appareil StorSimple. Pour plus d’informations, consultez la rubrique [Configuration réseau requise pour votre appareil StorSimple](storsimple-system-requirements.md#networking-requirements-for-your-storsimple-device).  
+- Si la version logicielle de l’appareil est supérieure à 6.3.9600.17312 (mise à jour d’octobre 2014), désactivez les ports de données 2 et 3, le cas échéant, avant de commencer la mise à jour. Si vous laissez le port de données 2 ou 3 activé lors de la mise à jour, le contrôleur de l’appareil risque de passer en mode de récupération. Veuillez noter que lorsque vous désactivez les interfaces réseau, tous les volumes associés sont mis hors connexion, et les E/S sont interrompues pendant toute la durée de la mise à jour.  
 
 ## Nouveautés dans la version d’octobre
 
 Cette mise à jour inclut les améliorations suivantes :
 
-- Vous pouvez désormais utiliser l’interface utilisateur du service StorSimple Manager pour gérer les contrôleurs d’appareil. Les actions de gestion comprennent le redémarrage, l’arrêt ou la mise sous tension des contrôleurs. Pour plus d’informations, consultez la page [Gestion des contrôleurs d’appareil](https://msdn.microsoft.com/library/azure/3216e992-f6ae-41c9-9ca4-f671342e1ab3#ManageControllers).  
-- Vous pouvez planifier l’allocation de bande passante WAN suivant des combinaisons jours de la semaine/heure de la journée. Cela vous permet d’optimiser l’utilisation de la bande passante WAN pendant les heures creuses. Des modèles de bande passante différents sont autorisés pour des conteneurs de volumes distincts. Pour plus d’informations, consultez la page [Modèles de bande passante](https://msdn.microsoft.com/library/azure/1747f56e-858a-4cfe-a020-949d7db23b8b#bt).  
-- Vous pouvez configurer des notifications par courrier électronique pour informer le ou les administrateurs et d’autres personnes des problèmes existants ou potentiels. Pour plus d’informations, consultez la page [Configuration des paramètres d’alerte](https://msdn.microsoft.com/library/azure/02f1412f-e196-4a88-8eda-2113247ea47c#sec_11).  
+- Vous pouvez désormais utiliser l’interface utilisateur du service StorSimple Manager pour gérer les contrôleurs d’appareil. Les actions de gestion comprennent le redémarrage, l’arrêt ou la mise sous tension des contrôleurs. Pour plus d’informations, consultez la page [Gestion des contrôleurs d’appareil](storsimple-manage-device-controller.md).  
+- Vous pouvez planifier l’allocation de bande passante WAN suivant des combinaisons jours de la semaine/heure de la journée. Cela vous permet d’optimiser l’utilisation de la bande passante WAN pendant les heures creuses. Des modèles de bande passante différents sont autorisés pour des conteneurs de volumes distincts. Pour plus d’informations, consultez la page [Gérer vos modèles de bande passante StorSimple](storsimple-manage-bandwidth-templates.md).  
+- Vous pouvez configurer des notifications par courrier électronique pour informer le ou les administrateurs et d’autres personnes des problèmes existants ou potentiels. Pour plus d’informations, consultez la page [Configuration des paramètres d’alerte](storsimple-manage-alerts.md#configure-alert-settings).  
 
 ## Problèmes résolus dans la version d’octobre
 
@@ -80,7 +80,7 @@ Le tableau suivant récapitule les problèmes connus de cette version.
 | 7 | Comptes de stockage | La suppression du compte de stockage à l’aide du service de stockage n’est pas prise en charge. En effet, cette opération donnerait lieu à une situation dans laquelle il serait impossible de récupérer les données utilisateur. | Oui | Oui |
 | 8 | Basculement de l’appareil | Le basculement multiple d’un conteneur de volumes d’un même appareil source vers différents appareils cibles n’est pas pris en charge. | Si un appareil inactif est basculé vers plusieurs appareils, les conteneurs de volumes du premier appareil basculé perdent la propriété des données. Après un basculement de ce type, les conteneurs de volumes concernés apparaissent ou se comportent différemment lorsque vous les affichez dans le portail de gestion. | Oui | Non |
 | 9 | Installation | Lors de l’installation de l’adaptateur StorSimple pour SharePoint, vous devez fournir une adresse IP d’appareil pour que l’installation s’effectue correctement. | | Oui | Non |
-| 10 | Proxy web | Si HTTPS est défini comme protocole dans la configuration du proxy web, la communication appareil-service est altérée et l’appareil se met hors connexion. Des packages de prise en charge sont également générés, ce qui consomme de nombreuses ressources de l’appareil. | Vérifiez que le protocole défini pour l’URL du proxy web est bien HTTP. Découvrez comment [configurer le proxy web pour votre appareil](https://msdn.microsoft.com/library/azure/dn764937.aspx). | Oui | Non |
+| 10 | Proxy web | Si HTTPS est défini comme protocole dans la configuration du proxy web, la communication appareil-service est altérée et l’appareil se met hors connexion. Des packages de prise en charge sont également générés, ce qui consomme de nombreuses ressources de l’appareil. | Vérifiez que le protocole défini pour l’URL du proxy web est bien HTTP. Découvrez comment [configurer le proxy web pour votre appareil](storsimple-configure-web-proxy.md). | Oui | Non |
 | 11 | Proxy web | Si vous configurez et activez le proxy web sur un appareil inscrit, vous devez redémarrer le contrôleur actif sur votre appareil. | | Oui | Non |
 | 12 | Latence de cloud élevée et charge de travail d’E/S élevée | Lorsque l’appareil StorSimple doit gérer à la fois des latences de cloud très élevées (de l’ordre de quelques secondes) et une charge de travail d’E/S élevée, ses volumes se détériorent et une défaillance peut se produire au niveau des E/S, avec l’erreur « appareil non prêt ». | Vous devez redémarrer les contrôleurs de l’appareil manuellement ou effectuer un basculement d’appareil pour résoudre ce problème. | Oui | Non |
 
@@ -99,4 +99,4 @@ Cette version applique également une mise à jour de microprogramme cumulative,
 Cette version ne contient aucune mise à jour pour l’appareil virtuel. L’installation de cette mise à jour ne modifie pas la version logicielle de l’appareil virtuel.
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

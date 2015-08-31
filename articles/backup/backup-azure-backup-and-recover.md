@@ -1,13 +1,6 @@
-<properties
-   pageTitle="Azure Backup - Sauvegarde et restauration à partir d’un serveur/client Windows" 
-   description="Découvrez comment sauvegarder et restaurer des fichiers à partir d’un serveur/client Windows.. Cet article décrit également la récupération sur un autre serveur."
-   services="backup"
-   documentationCenter=""
-   authors="Jim-Parker"
-   manager="jwhit"
-   editor=""/>
+<properties pageTitle="Azure Backup - Sauvegarde et restauration à partir d’un serveur/client Windows" | Description Microsoft Azure="Découvrez comment sauvegarder et restaurer des fichiers à partir d’un serveur/client Windows.. Cet article décrit également la récupération sur un autre serveur.="backup" documentationCenter="" authors="aashishr" manager="jwhit" editor=""/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="07/01/2015" ms.author="jimpark"; "aashishr"/>
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/18/2015" ms.author="jimpark"; "aashishr"/>
 
 # Sauvegarde et restauration à partir d’un serveur Windows ou d’un ordinateur client Windows
 Cet article décrit les étapes requises pour effectuer une sauvegarde à partir d’un serveur Windows ou d’un ordinateur client Windows. Il décrit également les étapes requises pour restaurer les fichiers sauvegardés sur le même ordinateur et pour restaurer les fichiers sauvegardés sur un autre ordinateur.
@@ -118,7 +111,13 @@ La nomenclature utilisée dans les étapes est la suivante : - *Ordinateur sour
 
 11. Une fois l’entrée fournie, cliquez sur le bouton **Récupérer** qui déclenche la restauration des fichiers de sauvegarde dans la destination fournie.
 
+## Vidéo de procédure pas à pas
+
+Voici une vidéo de procédure pas à pas de ce didacticiel.
+
+[AZURE.VIDEO azurebackuprestoreserverandclient]
+
 ## Étapes suivantes
 - [Azure Backup - Forum Aux Questions](backup-azure-backup-faq.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

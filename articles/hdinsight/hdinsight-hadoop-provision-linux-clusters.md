@@ -1,20 +1,21 @@
 <properties
-   pageTitle="Approvisionnement de clusters Hadoop Linux dans HDInsight | Microsoft Azure"
-   description="Découvrez comment approvisionner des clusters Hadoop Linux pour HDInsight à l'aide du portail de gestion, de la ligne de commande et du Kit de développement logiciel (SDK) .NET."
-   services="hdinsight"
-   documentationCenter=""
-   authors="nitinme"
-   manager="paulettm"
-   editor="cgronlun"/>
+   	pageTitle="Approvisionnement de clusters Hadoop Linux dans HDInsight | Microsoft Azure"
+	description="Découvrez comment approvisionner des clusters Hadoop Linux pour HDInsight à l'aide du portail de gestion, de la ligne de commande et du Kit de développement logiciel (SDK) .NET."
+	services="hdinsight"
+	documentationCenter=""
+	authors="nitinme"
+	manager="paulettm"
+	editor="cgronlun"
+	tags="azure-portal"/>
 
 <tags
-   ms.service="hdinsight"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="big-data"
-   ms.date="04/17/2015"
-   ms.author="nitinme"/>
+   	ms.service="hdinsight"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="big-data"
+	ms.date="08/07/2015"
+	ms.author="nitinme"/>
 
 
 #Approvisionnement de clusters Hadoop Linux dans HDInsight à l’aide d’options personnalisées (version préliminaire)
@@ -38,7 +39,7 @@ Cet article fournit des instructions sur les différentes méthode d'approvision
 Avant de commencer cet article, vous devez disposer des éléments suivants :
 
 - **Un abonnement Azure**. Consultez la page [Obtention d’un essai gratuit d’Azure](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-- **Clés Secure Shell (SSH)**. Si vous souhaitez gérer à distance un cluster Linux à l’aide de SSH avec une clé plutôt qu’un mot de passe, la méthode la plus sécurisée (et recommandée) est d’utiliser une clé. Pour savoir comment générer des clés SSH, consultez les articles suivants :
+- **Clés Secure Shell (SSH)**. Si vous souhaitez gérer à distance un cluster Linux à l'aide de SSH avec une clé plutôt qu'un mot de passe. L'utilisation d'une clé constitue la méthode recommandée, car elle est plus sécurisée. Pour savoir comment générer des clés SSH, consultez les articles suivants :
 	-  Depuis un ordinateur Linux : [Utilisation de HDInsight Linux (Hadoop) depuis Linux, Unix ou OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
 	-  Depuis un ordinateur Windows : [Utilisation de SSH avec HDInsight Linux (Hadoop) depuis Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
 
@@ -61,21 +62,17 @@ Pour plus d’informations sur l’utilisation des magasins d’objets blob seco
 
 Le metastore contient des informations concernant les tables Hive, les partitions, les schémas, les colonnes, etc. Ces informations sont utilisées par Hive pour trouver où sont stockées les données dans Hadoop HDFS (Distributed File System) ou dans le stockage d’objets blob Azure pour HDInsight. Hive utilise par défaut une base de données intégrée pour stocker ces informations.
 
-Lors de l’approvisionnement d’un cluster HDInsight, vous pouvez indiquer une base de données SQL qui contiendra le metastore pour Hive. Ceci permet de conserver les informations des métadonnées lorsque vous supprimez un cluster, car elles sont alors stockées de manière externe dans la base de données SQL.
-
-
-> [AZURE.NOTE]L’utilisation des metastores n’est actuellement disponible que lors de l’approvisionnement de HDInsight Linux à l’aide du Kit de développement logiciel (SDK) .NET. Pour en savoir plus, consultez la rubrique [Approvisionnement de clusters HDInsight sur Linux à l’aide du Kit de développement logiciel (SDK) .NET](#sdk).
-
+Lors de l’approvisionnement d’un cluster HDInsight, vous pouvez indiquer une base de données SQL qui contiendra le metastore pour Hive. Ceci permet de conserver les informations des métadonnées lorsque vous supprimez un cluster, car elles sont alors stockées de manière externe dans la base de données SQL. Pour obtenir des instructions sur la création d'une base de données SQL, consultez [Créer votre première base de données SQL Azure](sql-database-get-started.md).
 
 
 ## <a id="options"></a> Options d’approvisionnement des clusters HDInsight Linux
 
 Vous pouvez approvisionner un cluster HDInsight Hadoop Linux depuis un ordinateur Linux ou Windows. Le tableau suivant fournit des informations sur les options d'approvisionnement disponibles depuis les différents systèmes d'exploitation, ainsi que des liens vers des instructions pour chacun d'entre eux.
 
-Approvisionnement de clusters Linux à partir d’un ordinateur doté de ce système d’exploitation| Utilisation du portail Azure | Utilisation de l’interface de ligne de commande Azure | Utilisation du Kit de développement logiciel (SDK) .NET | Utilisation d'Azure PowerShell
+Approvisionnement de clusters Linux à partir d’un ordinateur doté de ce système d’exploitation| Utilisation du portail Azure | Utilisation de Microsoft Azure PowerShell | Utilisation du Kit de développement logiciel (SDK) .NET
 -----------------| ------------------------| -------------------| ---------- | ---------
-Linux| Cliquez [ici](#portal) | Cliquez [ici](#cli)| Non applicable | Non applicable
-Windows | Cliquez [ici](#portal) | Cliquez [ici](#cli) | Cliquez [ici](#sdk) | Cliquez [ici](#powershell)
+Linux| Cliquez [ici](#portal) | Non applicable | Non applicable
+Windows | Cliquez [ici](#portal) | Cliquez [ici](#powershell) | Cliquez [ici](#sdk)
 
 ### <a id="portal"></a>Utilisation du portail Azure
 
@@ -84,436 +81,180 @@ Les clusters HDInsight utilisent un conteneur de stockage d’objets blob Azure 
 
 > [AZURE.NOTE]Actuellement, seules les régions **Asie du Sud-Est**, **Europe du Nord**, **Est des États-Unis** et **Sud du centre des États-Unis** peuvent héberger des clusters HDInsight Linux.
 
-**Pour créer un cluster HDInsight en utilisant l’option Création personnalisée**
-
-1. Connectez-vous au [portail Azure][azure-management-portal].
-2. Dans la partie inférieure de la page, cliquez sur **+ NEW**, sur **DATA SERVICES**, sur **HDINSIGHT**, puis sur **CUSTOM CREATE**.
-3. Sur la page **Détails du cluster**, saisissez ou sélectionnez les valeurs suivantes :
-
-	![Fournir des détails du cluster Hadoop HDInsight](./media/hdinsight-hadoop-provision-linux-clusters/HDI.CustomProvision.Page1.png)
-
-    <table border='1'>
-		<tr><th>Propriété</th><th>Valeur</th></tr>
-		<tr><td>Nom du cluster</td>
-			<td><p>Nom du cluster. </p>
-				<ul>
-				<li>Le nom DNS (Domain Name System ) doit commencer et finir par un caractère alphanumérique et peut contenir des traits d’union.</li>
-				<li>Le champ doit être une chaîne comportant entre 3&#160;et 63&#160;caractères.</li>
-				</ul></td></tr>
-		<tr><td>Type du cluster</td>
-			<td>Sélectionnez <strong>Hadoop</strong>.</td></tr>
-		<tr><td>Système d'exploitation</td>
-			<td>Sélectionnez <b>Ubuntu&#160;12.04 LTS Preview</b> pour approvisionner un cluster HDInsight sur Linux. Pour approvisionner un cluster Windows, consultez la rubrique <a href="http://azure.microsoft.com/documentation/articles/hdinsight-provision-clusters/" target="_blank">Approvisionnement de clusters Hadoop&#160;Windows dans HDInsight</a>.</td></tr>
-		<tr><td>Version de HDInsight</td>
-			<td>Choisissez la version. Pour HDInsight sur Linux, la valeur par défaut est HDInsight version&#160;3.2, qui utilise Hadoop&#160;2.6.</td></tr>
-		</table>
+**Création d'un cluster HDInsight**
 
-	Entrez ou sélectionnez les valeurs, comme indiqué dans le tableau, puis cliquez sur la flèche de droite.
+1. Connectez-vous à la [version préliminaire du portail Azure](https://portal.azure.com).
+2. Cliquez sur **NOUVEAU**, sur **Analyse de données**, puis sur **HDInsight**.
 
-4. Sur la page **Configurer le cluster**, entrez ou sélectionnez les valeurs suivantes :
+    ![Création d'un nouveau cluster dans la version préliminaire du portail Azure](./media/hdinsight-hadoop-provision-linux-clusters/HDI.CreateCluster.1.png "Création d'un nouveau cluster dans la version préliminaire du portail Azure")
 
-	![Fournir des détails du cluster Hadoop HDInsight](./media/hdinsight-hadoop-provision-linux-clusters/HDI.CustomProvision.Page2.png)
+3. Saisissez un **Nom de Cluster**, sélectionnez **Hadoop** comme **Type de cluster**, et à partir du menu déroulant **Système d'exploitation du cluster**, sélectionnez **Ubuntu**. Une coche verte apparaît en regard du nom de cluster s'il est disponible.
 
-	<table border="1">
-	<tr><th>Nom</th><th>Valeur</th></tr>
-	<tr><td>Nœuds de données</td><td>Nombre de nœuds de données que vous souhaitez déployer. À des fins de test, créez un cluster à nœud unique. <br />La limite de taille de cluster varie pour les abonnements Azure. Contactez le support de facturation Azure pour augmenter la limite.</td></tr>
-	<tr><td>Région/Réseau virtuel</td><td><p>Choisissez la même région que pour le compte de stockage que vous avez créé précédemment. Les clusters HDInsight requièrent en effet que le compte de stockage soit situé dans la même région. Plus loin dans la configuration, vous ne pourrez choisir qu'un compte de stockage situé dans la région spécifiée ici.</p></td></tr>
-	<tr><td>Taille du nœud principal</td><td><p>Sélectionnez une taille de machine virtuelle pour le nœud principal.</p></td></tr>
-	<tr><td>Taille du nœud de données</td><td><p>Sélectionnez une taille de machine virtuelle pour le nœud de données.</p></td></tr>
-	</table>
+	![Saisissez le nom et le type de cluster](./media/hdinsight-hadoop-provision-linux-clusters/HDI.CreateCluster.2.png "Saisissez le nom et le type de cluster")
 
-	>[AZURE.NOTE]Selon votre choix de machines virtuelles, les coûts peuvent varier. HDInsight utilise toutes les machines virtuelles de niveau standard pour les nœuds de cluster. Pour plus d’informations concernant les répercussions de la taille des machines virtuelles sur les prix, consultez la rubrique <a href="http://azure.microsoft.com/pricing/details/hdinsight/" target="_blank">Tarification HDInsight</a>.
+4. Si vous avez plusieurs abonnements, cliquez sur l'élément **Abonnement** pour sélectionner l'abonnement Azure qui sera utilisé pour le cluster.
 
+5. Cliquez sur **Groupe de ressources** pour afficher une liste des groupes de ressources existantes, puis sélectionnez celui dans lequel vous devez créer le cluster. Vous pouvez également cliquer sur **Créer nouveau**, puis saisir le nom du nouveau groupe de ressources. Une coche verte s'affiche pour indiquer si le nouveau nom de groupe est disponible.
 
-5. Sur la page **Configuration de l'utilisateur du cluster**, entrez les valeurs suivantes :
+	> [AZURE.NOTE]Cette entrée ira par défaut dans l'un des groupes de ressources existants, si l'un d'eux est disponible.
 
-    ![Fournir l’utilisateur du cluster Hadoop HDInsight](./media/hdinsight-hadoop-provision-linux-clusters/HDI.CustomProvision.Page3.png)
+6. Cliquez sur **Informations d'identification**, puis saisissez un mot de passe pour l'utilisateur admin. Vous devez également saisir un **nom d'utilisateur SSH** et un **MOT DE PASSE** ou **CLÉ PUBLIQUE**, qui seront utilisés pour authentifier l'utilisateur SSH. L'utilisation d'une clé publique est l'approche recommandée. Cliquez sur **Sélectionner** en bas pour enregistrer la configuration des informations d'identification.
 
-    <table border='1'>
-		<tr><th>Propriété</th><th>Valeur</th></tr>
-		<tr><td>Mot de passe HTTP</td>
-			<td>Spécifiez le mot de passe par défaut de l’utilisateur HTTP, <strong>admin</strong>.</td></tr>
-		<tr><td>Nom d’utilisateur du SSH</td>
-			<td>Spécifiez le nom d’utilisateur du SSH. Vous utiliserez ce nom d’utilisateur pour lancer une session SSH à distance sur les nœuds de cluster HDInsight.</td></tr>
-		<tr><td>Type d’authentification SSH</td>
-			<td>Indiquez si vous souhaitez utiliser un mot de passe ou une clé SSH pour authentifier un utilisateur SSH.</td></tr>
-		<tr><td>Mot de passe SSH</td>
-			<td>Si vous choisissez un mot de passe comme type d’authentification, indiquez le mot de passe SSH pour authentifier un utilisateur SSH. Vous serez invité à entrer ce mot de passe lorsque vous essayerez d'ouvrir une session SSH à distance, sur la machine Linux.</td></tr>
-		<tr><td>Clé publique SSH</td>
-			<td>Si vous choisissez une clé comme type d’authentification, indiquez la clé publique SSH que vous avez déjà générée. Pour lancer une session SSH avec un nœud dans le cluster Linux, vous devrez utiliser la clé privée associée à cette clé publique.<br>
-			Pour savoir comment générer une clé SSH sur un ordinateur Linux, cliquez <a href="http://azure.microsoft.com/documentation/articles/hdinsight-hadoop-linux-use-ssh-unix/" target="_blank">ici</a>. Pour savoir comment générer une clé SSH sur un ordinateur Windows, cliquez <a href="http://azure.microsoft.com/documentation/articles/hdinsight-hadoop-linux-use-ssh-windows/" target="_blank">ici</a>.
-		</td></tr>
-		<tr><td>Sélection du metastore Hive/Oozie</td>
-			<td>Cochez cette case pour spécifier une base de données SQL sur le même centre de données que le cluster, afin de l’utiliser en tant que metastore Hive/Oozie. Si vous cochez cette case, vous devez renseigner plusieurs informations concernant la base de données SQL Azure dans les pages suivantes de l’Assistant. Ceci est utile si vous voulez conserver les métadonnées sur les tâches Hive/Oozie après la suppression d'un cluster.</td></tr>
-		</td></tr>
-		</table>
+	![Fournissez les informations d'identification du cluster](./media/hdinsight-hadoop-provision-linux-clusters/HDI.CreateCluster.3.png "Fournissez les informations d'identification du cluster")
 
+	Pour plus d'informations sur l'utilisation de SSH avec HDInsight, consultez l'un des articles suivants :
 
-	> [AZURE.NOTE]Nous vous recommandons d’utiliser l’authentification par clé publique SSH avec SSH car celle-ci est plus sécurisée que l’authentification par mot de passe.
-	
-	Cliquez sur la flèche droite.
+	* [Utilisation de SSH avec Hadoop Linux sur HDInsight à partir de Linux, Unix ou OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
+	* [Utilisation de SSH avec Hadoop Linux sur HDInsight à partir de Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
 
-6. Sur la page **Configuration du metastore Hive/Oozie**, entrez les valeurs suivantes :
 
-    ![Fournir l’utilisateur du cluster Hadoop HDInsight](./media/hdinsight-hadoop-provision-linux-clusters/HDI.CustomProvision.Page4.png)
+7. Cliquez sur **Source de données** pour choisir une source de données existante pour le cluster, ou en créer une nouvelle.
 
-	Spécifiez la base de données SQL Azure qui sera utilisée comme metastore Hive/Oozie. Vous pouvez spécifier la même base de données pour les metastores Hive et Oozie. Cette base de données SQL doit se trouver dans le même centre de données que le cluster HDInsight. La liste répertorie uniquement les bases de données SQL situées dans le même centre de données que celui spécifié sur la page <strong>Détails du cluster</strong>. Spécifiez également le nom d’utilisateur et un mot de passe pour se connecter à la base de données SQL Azure que vous avez sélectionnée.
+	![Panneau Source de données](./media/hdinsight-hadoop-provision-linux-clusters/HDI.CreateCluster.4.png "Fournissez la configuration de source de données")
 
-    >[AZURE.NOTE]La base de données SQL Azure utilisée pour le metastore doit autoriser la connectivité aux autres services Azure, y compris Azure HDInsight. Sur le côté droit du tableau de bord de la base de données Azure SQL, cliquez sur le nom du serveur. Il s'agit du serveur sur lequel l'instance de base de données SQL est exécutée. Une fois sur l’écran du serveur, cliquez sur **Configurer**, puis pour **Services Azure**, cliquez sur **Oui**, puis sur **Enregistrer**.
+	Actuellement, vous pouvez sélectionner un compte de stockage Azure comme source de données pour un cluster HDInsight. Utilisez ce qui suit pour comprendre les saisies du panneau **Source de données**.
 
-    Cliquez sur la flèche droite.
+	- **Méthode de sélection** : définissez cette propriété sur la valeur **De tous les abonnements** pour permettre l'exploration des comptes de stockage de tous vos abonnements. Affectez-lui la valeur **Clé d'accès** si vous souhaitez saisir le **nom de stockage** et la **clé d'accès** d'un compte de stockage existant.
 
+	- **Sélectionner Compte de stockage/Créer** : cliquez sur **Sélectionner le compte de stockage** pour parcourir et sélectionner un compte de stockage existant à associer au cluster. Vous pouvez également cliquer sur **Créer** pour créer un nouveau compte de stockage. Utilisez le champ qui s'affiche pour saisir le nom du compte de stockage. Une coche verte s'affiche si le nom est disponible.
 
-6. Sur la page **Compte de stockage**, entrez les valeurs suivantes :
+	- **Choisir le conteneur par défaut** : utilisez cette option pour saisir le nom du conteneur par défaut à utiliser pour le cluster. Vous pouvez saisir ensuite n'importe quel nom, mais nous vous conseillons d'utiliser le même nom que celui du cluster pour que vous puissiez facilement reconnaître le conteneur utilisé pour ce cluster spécifique.
 
+	- **Emplacement** : zone géographique dans laquelle le compte de stockage se trouve ou dans laquelle il sera créé.
 
-    ![Fournir un compte de stockage pour le cluster Hadoop HDInsight](./media/hdinsight-hadoop-provision-linux-clusters/HDI.CustomProvision.Page5.png)
+		> [AZURE.IMPORTANT]La sélection de l'emplacement de la source de données par défaut définit également l'emplacement du cluster HDInsight. Le cluster et la source de données par défaut doit se trouver dans la même zone.
 
-	<table border='1'>
-		<tr><th>Propriété</th><th>Valeur</th></tr>
-		<tr><td>Compte de stockage</td>
-			<td>Spécifiez le compte Azure Storage qui sera utilisé comme système de fichiers par défaut pour le cluster HDInsight. Vous pouvez choisir l'une des trois options suivantes&#160;:
-			<ul>
-				<li><strong>Utiliser le stockage existant</strong></li>
-				<li><strong>Créer un nouveau stockage</strong></li>
-				<li><strong>Utiliser le stockage associé à un autre abonnement</strong></li>
-			</ul>
-			</td></tr>
-		<tr><td>Nom du compte</td>
-			<td><ul>
-				<li>Si vous choisissez d’utiliser un stockage existant, pour <strong>Nom du compte</strong>, sélectionnez un compte de stockage existant. La liste déroulante répertorie uniquement les comptes de stockage situés dans le même centre de données que celui sur lequel vous voulez approvisionner le cluster.</li>
-				<li>Si vous choisissez l’option <strong>Créer un nouveau stockage</strong> ou <strong>Utiliser le stockage associé à un autre abonnement</strong>, vous devez fournir le nom du compte de stockage.</li>
-			</ul></td></tr>
-		<tr><td>Clé du compte</td>
-			<td>Si vous choisissez l’option <strong>Utiliser le stockage associé à un autre abonnement</strong>, veuillez indiquer la clé de ce compte de stockage.</td></tr>
-		<tr><td>Conteneur par défaut</td>
-			<td><p>Spécifiez le conteneur par défaut du compte de stockage qui sera utilisé comme système de fichiers par défaut pour le cluster HDInsight. Si vous sélectionnez l’option <strong>Utiliser le stockage existant</strong> pour le champ <strong>Compte de stockage</strong> et qu’il n’y a aucun conteneur existant dans ce compte, le conteneur est créé par défaut avec le même nom que celui du cluster. Si un conteneur portant le nom du cluster existe déjà, un numéro de séquence est ajouté au nom de conteneur. Par exemple, mon_conteneur1, mon_conteneur2, et ainsi de suite. Cependant, si le compte de stockage existant dispose d’un conteneur dont le nom est différent de celui du cluster spécifié, vous pouvez également utiliser ce conteneur.</p>
-	        <p>Si vous avez choisi de créer un stockage ou d'utiliser le stockage d'un autre abonnement Azure, vous devez spécifier le nom du conteneur par défaut.</p>
-	    </td></tr>
-		<tr><td>Comptes de stockage supplémentaires</td>
-			<td>HDInsight prend en charge plusieurs comptes de stockage. Le nombre de comptes de stockage supplémentaires pouvant être utilisés par un cluster n’est pas limité. Toutefois, si vous créez un cluster au moyen du portail Azure, la limite est établie à sept en raison de contraintes liées à l’interface utilisateur. Chaque compte de stockage supplémentaire que vous spécifiez dans ce champ ajoute une page <strong>Compte de stockage</strong> supplémentaire vers l’Assistant, ce qui vous permet de spécifier les informations de compte. Par exemple, dans la capture d’écran ci-dessus, un compte de stockage supplémentaire est sélectionné, la page&#160;5 est donc ajoutée à la boîte de dialogue.</td></tr>
-	</table>
+	Cliquez sur **Sélectionner** pour enregistrer la configuration de source de données.
 
-	Cliquez sur la flèche droite.
+8. Cliquez sur **Niveaux de tarification du nœud** pour afficher des informations sur les nœuds qui seront créés pour ce cluster. Définissez le nombre de nœuds Worker dont vous avez besoin pour le cluster. Le coût estimé du cluster s'affiche dans le panneau.
 
-7. Si vous avez choisi de configurer un stockage supplémentaire pour le cluster, dans la page **Compte de stockage**, entrez les informations du compte pour le compte de stockage supplémentaire :
+	![Panneau Niveaux de tarification du nœud](./media/hdinsight-hadoop-provision-linux-clusters/HDI.CreateCluster.5.png "Spécification du nombre de nœuds de cluster")
 
-	![Fournir des détails de stockage supplémentaires pour un cluster HDInsight](./media/hdinsight-hadoop-provision-linux-clusters/HDI.CustomProvision.Page6.png)
+	Cliquez sur **Sélectionner** pour enregistrer la configuration de tarif de nœud.
 
-    De nouveau, vous avez le choix entre le stockage existant, la création d'un stockage ou l'utilisation du stockage d'un autre abonnement Azure. La procédure pour fournir les valeurs est semblable à la procédure précédente.
+9. Cliquez sur **Configuration facultative** pour sélectionner la version de cluster et configurer d'autres paramètres facultatifs, par exemple ajouter un **Réseau virtuel**, définir un **Metastore externe** pour conserver les données Hive et Oozie, utilisez des Actions de Script pour personnaliser un cluster et installer des composants personnalisés ou utiliser des comptes de stockage supplémentaires avec le cluster.
 
+	* Cliquez sur le menu déroulant **Version HDInsight** et sélectionnez la version que vous souhaitez utiliser pour le cluster. Pour plus d'informations, consultez la rubrique [Versions de clusters HDInsight](hdinsight-component-versioning.md).
 
-    > [AZURE.NOTE]Une fois qu’un compte de stockage Azure a été choisi pour votre cluster HDInsight, vous ne pouvez ni le supprimer, ni le modifier pour un autre cluster.
+	* Cliquez sur **Metastores externe** pour spécifier la base de données SQL que vous souhaitez utiliser pour enregistrer les métadonnées Hive et Oozie associée au cluster.
 
+		![Panneau de metastores personnalisés](./media/hdinsight-hadoop-provision-linux-clusters/HDI.CreateCluster.7.png "Spécification des metastores externes")
 
- 	Après avoir spécifié le compte de stockage supplémentaire, cliquez sur la coche pour démarrer l’approvisionnement du cluster.
+		Pour les métadonnées **utiliser une base de données SQL existante pour Hive**, cliquez sur **Oui**, sélectionnez une base de données SQL, puis indiquez le nom d'utilisateur/mot de passe pour la base de données. Répétez ces étapes si vous souhaitez **utiliser une base de données SQL existante pour les métadonnées Oozie**. Cliquez sur **Sélectionner** jusqu'à ce que vous reveniez au panneau **Configuration facultative**.
 
-###<a id="cli"></a> Utilisation de l’interface de ligne de commande Azure
+		>[AZURE.NOTE]La base de données SQL Azure utilisée pour le metastore doit autoriser la connectivité aux autres services Azure, y compris Azure HDInsight. Sur le côté droit du tableau de bord de la base de données Azure SQL, cliquez sur le nom du serveur. Il s'agit du serveur sur lequel l'instance de base de données SQL est exécutée. Une fois sur l’écran du serveur, cliquez sur **Configurer**, puis pour **Services Azure**, cliquez sur **Oui**, puis sur **Enregistrer**.
 
-Une autre possibilité pour l’approvisionnement d’un cluster HDInsight est l’interface de ligne de commande Azure. L’interface de ligne de commande Azure est implémentée dans Node.js. Elle peut être utilisée sur toute plateforme prenant en charge Node.js, y compris Windows, Mac et Linux. Vous pouvez installer l’interface de ligne de commande Azure à partir des emplacements suivants :
+	* Cliquez sur **clés de stockage Azure** pour spécifier les comptes de stockage supplémentaire à associer au cluster. Dans le panneau **Clés de stockage Azure**, cliquez sur **Ajouter une clé de stockage**, puis sélectionnez un compte de stockage existant ou créez un nouveau compte.
 
-- **Kit de développement logiciel (SDK) Node.js** : <a href="https://www.npmjs.com/package/azure-mgmt-hdinsight" target="_blank">https://www.npmjs.com/package/azure-mgmt-hdinsight</a>
-- **Interface de ligne de commande Azure pour Mac, Linux et Windows** : <a href="https://github.com/azure/azure-xplat-cli/archive/hdinsight-February-18-2015.tar.gz" target="_blank">https://github.com/azure/azure-xplat-cli/archive/hdinsight-February-18-2015.tar.gz</a>  
+		![Panneau de stockage supplémentaire](./media/hdinsight-hadoop-provision-linux-clusters/HDI.CreateCluster.9.png "Spécifier des comptes de stockage supplémentaires")
 
-Pour une aide générale sur l’utilisation de l’interface de ligne de commande Azure, consultez la page [Interface de ligne de commande Azure pour Mac, Linux et Windows](../xplat-cli.md).
+		Cliquez sur **Sélectionnez** jusqu'à revenir au panneau **Nouveau cluster HDInsight **.
 
-Les instructions ci-dessous expliquent comment installer l’interface de ligne de commande Azure sur Linux et Windows et comment l’utiliser pour approvisionner un cluster.
+10. Dans le panneau **Nouveau cluster HDInsight**, assurez-vous que l'option **Épingler au tableau d'accueil** est sélectionnée, puis cliquez sur **Créer**. Le cluster est créé et la vignette correspondante ajoutée au tableau d'accueil de votre portail Azure. L'icône indique que le cluster est en cours de configuration et sera modifiée pour représenter l'icône HDInsight une fois la configuration terminée.
 
-- [Configuration de l’interface de ligne de commande Azure pour Linux](#clilin)
-- [Configuration de l’interface de ligne de commande Azure pour Windows](#cliwin)
-- [Configuration de clusters HDInsight à l’aide de l’interface de ligne de commande Azure](#cliprovision)
+	| Pendant l’approvisionnement | Approvisionnement terminé |
+	| ------------------ | --------------------- |
+	| ![Indicateur de configuration sur le tableau d'accueil](./media/hdinsight-hadoop-provision-linux-clusters/provisioning.png) | ![Vignette de cluster approvisionné](./media/hdinsight-hadoop-provision-linux-clusters/provisioned.png) |
 
-#### <a id="clilin"></a>Configuration de l’interface de ligne de commande Azure pour Linux
+	> [AZURE.NOTE]La création du cluster prend un certain temps (en règle générale, environ 15 minutes). Utilisez la vignette du tableau d'accueil ou l'entrée **Notifications** à gauche de la page pour suivre la progression du processus d'approvisionnement.
 
-Pour configurer votre ordinateur Linux à l’aide de l’interface de ligne de commande Azure, procédez comme suit :
+11. Une fois la configuration terminée, cliquez sur la vignette du cluster dans le tableau d'accueil pour lancer le panneau du cluster. Le panneau de cluster fournit des informations essentielles sur le cluster, notamment son nom, le groupe de ressources auquel il appartient, son emplacement, le système d'exploitation, l'URL vers le tableau de bord de cluster, etc.
 
-- Installez l’interface de ligne de commande Azure à l’aide du gestionnaire de package Node.js (NPM)
-- Connectez-vous à un abonnement Azure
+	![Panneau Cluster](./media/hdinsight-hadoop-provision-linux-clusters/HDI.Cluster.Blade.png "Propriétés du cluster")
 
-**Installation de l’interface de ligne de commande Azure à l’aide de NPM**
+	Utilisez ce qui suit pour comprendre les icônes affichées en haut de ce panneau, et dans la section dans la section **Essentials** :
 
-1.	Ouvrez une fenêtre de terminal sur votre ordinateur Linux et exécutez la commande suivante :
+	* **Paramètres** et **Tous les paramètres** : affichent le panneau **Paramètres** du cluster, ce qui vous permet d'accéder aux informations de configuration détaillées du cluster.
 
-		sudo npm install -g https://github.com/azure/azure-xplat-cli/archive/hdinsight-February-18-2015.tar.gz
+	* **Tableau de bord**, **Tableau de bord du cluster** et **URL**: il s'agit de toutes les façons d'accéder au tableau de bord de cluster, qui est un portail web permettant d'exécuter des tâches sur le cluster.
 
-2.	Exécutez la commande suivante pour vérifier l'installation :
+	* **Secure Shell** : informations nécessaires à l'accès au cluster à l'aide de SSH.
 
-		azure hdinsight -h
+	* **Supprimer** : permet de supprimer le cluster HDInsight
 
-	Vous pouvez utiliser le commutateur **-h** à différents niveaux pour afficher les informations d'aide. Par exemple :
+	* **Quickstart** (![icône nuage et foudre = démarrage rapide](./media/hdinsight-hadoop-provision-linux-clusters/quickstart.png)) : affiche des informations qui vous aideront à démarrer l'utilisation de HDInsight.
 
-		azure -h
-		azure hdinsight -h
-		azure hdinsight cluster -h
-		azure hdinsight cluster create -h
+	* **Utilisateurs** (![icône d'utilisateurs](./media/hdinsight-hadoop-provision-linux-clusters/users.png)) : vous permet de définir des autorisations pour la _gestion de portail_ de ce cluster pour d'autres utilisateurs sur votre abonnement Azure.
 
-**Pour vous connecter à votre abonnement Azure**
+		> [AZURE.IMPORTANT]Il affecte _uniquement_ les autorisations d'accès à ce cluster dans la version préliminaire du portail Azure et n'a aucun effet sur les personnes autorisées à se connecter au cluster HDInsight, ou à soumettre des travaux.
 
-Avant d’utiliser l’interface de ligne de commande Azure, vous devez configurer la connectivité entre votre poste de travail et Azure. L’interface de ligne de commande se sert des informations sur votre abonnement Azure pour se connecter à votre compte. Ces informations peuvent être obtenues d’Azure dans un fichier de paramètres de publication. Le fichier de paramètres de publication peut ensuite être importé en tant que paramètre de configuration local persistant dont l’interface de ligne de commande Azure se servira pour les opérations ultérieures. Vous n’avez besoin d’importer vos paramètres de publication qu’une seule fois.
+	* **Balises** (![icône de balise](./media/hdinsight-hadoop-provision-linux-clusters/tags.png)) : les balises vous permettent de définir des paires clé/valeur pour définir une taxonomie personnalisée de vos services cloud. Vous pouvez par exemple créer une clé nommée __projet__, puis utiliser une valeur commune pour tous les services associés au projet spécifique.
 
 
-> [AZURE.NOTE]Le fichier de paramètres de publication contient des informations critiques. Microsoft vous recommande de supprimer le fichier ou de prendre des mesures supplémentaires pour chiffrer le dossier utilisateur contenant le fichier. Sous Windows, modifiez les propriétés du dossier ou utilisez le chiffrement du lecteur BitLocker.
 
+### <a id="powershell"></a> Utilisation d’Azure PowerShell
+Azure PowerShell est un environnement de création de scripts vous permettant de contrôler et d'automatiser le déploiement et la gestion de vos charges de travail dans Azure. Cette section fournit des instructions sur la configuration d’un cluster HDInsight à l’aide d’Azure PowerShell. Pour plus d’informations sur la configuration d’un poste de travail pour exécuter des cmdlets HDInsight Windows Powershell, consultez la rubrique [Installation et configuration d’Azure PowerShell](../install-configure-powershell.md). Pour plus d’informations sur l’utilisation d’Azure PowerShell avec HDInsight, consultez [Administration de HDInsight avec PowerShell](hdinsight-administer-use-powershell.md). Pour la liste des applets de commande Windows PowerShell pour HDInsight, consultez la rubrique [Référence des applets de commande HDInsight](https://msdn.microsoft.com/library/azure/dn858087.aspx).
 
 
-1.	Ouvrez une fenêtre de terminal.
-2.	Exécutez la commande suivante pour vous connecter à votre abonnement Azure :
+Les procédures suivantes sont nécessaires pour mettre en service un cluster HDInsight en utilisant Azure PowerShell :
 
-		azure account download
-
-	![HDI.Linux.CLIAccountDownloadImport](./media/hdinsight-hadoop-provision-linux-clusters/HDI.Linux.CLIAccountDownloadImport.png)
-
-	La commande ouvre la page web sur laquelle télécharger le fichier de paramètres de publication. Si la page web ne s’ouvre pas, cliquez sur le lien de la fenêtre de terminal pour ouvrir la page du navigateur et connectez-vous au portail.
-
-3.	Téléchargez le fichier de paramètres de publication sur votre ordinateur.
-4.	À partir de la fenêtre d’invite de commandes, exécutez la commande suivante pour importer le fichier de paramètres de publication :
-
-		azure account import <path/to/the/file>
-
-
-#### <a id="cliwin"></a>Configuration de l’interface de ligne de commande Azure pour Windows
-
-Pour configurer votre ordinateur Windows à l’aide de l’interface de ligne de commande Azure, procédez comme suit :
-
-- Installation de l’interface de ligne de commande à l’aide de NPM ou de Windows Installer
-- Téléchargement et importation de paramètres de publication de compte Azure
-
-
-L’interface de ligne de commande Azure peut être installée à l’aide de NPM ou de Windows Installer. Microsoft vous recommande de procéder à cette installation en utilisant uniquement l’une des deux options suivantes.
-
-**Installation de l’interface de ligne de commande Azure à l’aide de NPM**
-
-1.	Accédez à **www.nodejs.org**.
-2.	Cliquez sur **INSTALLER** et suivez les instructions en conservant les paramètres par défaut.
-3.	Ouvrez **Invite de commandes** (ou **Invite de commandes Azure** ou **Invite de commandes développeur pour VS2012**) à partir de votre poste de travail.
-4.	Exécutez la commande suivante dans la fenêtre d’invite de commandes :
-
-		npm install -g https://github.com/azure/azure-xplat-cli/archive/hdinsight-February-18-2015.tar.gz
-
-	> [AZURE.NOTE]Si vous obtenez une erreur indiquant que la commande du NPM est introuvable, vérifiez que les chemins d’accès suivants figurent dans la variable d’environnement **PATH** : <i>C:\Program Files (x86)\nodejs;C:\Users[nomutilisateur]\AppData\Roaming\npm</i> ou <i>C:\Program Files\nodejs;C:\Users[nomutilisateur]\AppData\Roaming\npm</i>.
-
-
-5.	Exécutez la commande suivante pour vérifier l'installation :
-
-		azure hdinsight -h
-
-	Vous pouvez utiliser le commutateur **-h** à différents niveaux pour afficher les informations d'aide. Par exemple :
-
-		azure -h
-		azure hdinsight -h
-		azure hdinsight cluster -h
-		azure hdinsight cluster create -h
-
-**Installation de l’interface de ligne de commande à l’aide de Windows Installer**
-
-1.	Accédez à ****http://azure.microsoft.com/downloads/**.
-2.	Faites défiler l’écran pour accéder à la section **Outils en ligne de commande**, puis cliquez sur **Interface de ligne de commande Azure** et suivez les étapes de l’Assistant Web Platform Installer.
-
-**Pour télécharger et importer des paramètres de publication**
-
-Avant d’utiliser l’interface de ligne de commande Azure, vous devez configurer la connectivité entre votre poste de travail et Azure. L’interface de ligne de commande se sert des informations sur votre abonnement Azure pour se connecter à votre compte. Ces informations peuvent être obtenues d’Azure dans un fichier de paramètres de publication. Le fichier de paramètres de publication peut ensuite être importé en tant que paramètre de configuration local persistant dont l’interface de ligne de commande Azure se servira pour les opérations ultérieures. Vous n’avez besoin d’importer vos paramètres de publication qu’une seule fois.
-
-
-> [AZURE.NOTE]Le fichier de paramètres de publication contient des informations critiques. Microsoft vous recommande de supprimer le fichier ou de prendre des mesures supplémentaires pour chiffrer le dossier utilisateur contenant le fichier. Sous Windows, modifiez les propriétés du dossier ou utilisez BitLocker.
-
-
-
-1.	Ouvrez une invite de commandes.
-2.	Exécutez la commande suivante pour télécharger le fichier de paramètres de publication :
-
-		azure account download
-
-
-	![HDI.CLIAccountDownloadImport][image-cli-account-download-import]
-
-	La commande ouvre la page web sur laquelle télécharger le fichier de paramètres de publication.
-
-
-3.	À l'invite d'enregistrement du fichier, cliquez sur **Enregistrer** et indiquez un emplacement pour l'enregistrement du fichier.
-5.	À partir de la fenêtre d'invite de commandes, exécutez la commande suivante pour importer le fichier de paramètres de publication :
-
-		azure account import <path/to/the/file>
-
-	![HDI.CLIAccountDownloadImport][image-cli-account-download-import]
-
-
-#### <a id="cliprovision"></a>Configuration de clusters HDInsight à l’aide de l’interface de ligne de commande Azure
-
-Les procédures suivantes sont nécessaires pour approvisionner un cluster HDInsight en utilisant l’interface de ligne de commande Azure :
-
-- Création d'un compte Azure Storage
-- Mise en service d'un cluster
-
-
-**Pour créer un compte Azure Storage**
-
-HDInsight utilise le conteneur de stockage d'objets blob Azure comme système de fichiers par défaut. Un compte Azure Storage est nécessaire avant de pouvoir créer un cluster HDInsight. Il doit se trouver dans le même centre de données.
-
-- À partir de la fenêtre d’invite de commandes, exécutez la commande suivante pour créer un compte Azure Storage :
-
-		azure storage account create [options] <StorageAccountName>
-
-
-	Lorsque l’invite vous demande d’indiquer un emplacement, sélectionnez-en un où un cluster HDInsight Linux puisse être approvisionné. Le stockage doit se trouver dans le lieu que le cluster HDInsight.
-
-
-Pour plus d’informations sur la création d’un compte Azure Storage au moyen du portail Azure, consultez la rubrique [Création, gestion ou suppression d’un compte de stockage](../storage-create-storage-account.md).
-
-Si vous disposez déjà d’un compte de stockage mais que vous ne connaissez ni le nom ni la clé du compte, vous pouvez utiliser les commandes suivantes pour récupérer ces informations :
-
-	-- Lists Storage accounts
-	azure storage account list
-
-	-- Shows information for a Storage account
-	azure storage account show <StorageAccountName>
-
-	-- Lists the keys for a Storage account
-	azure storage account keys list <StorageAccountName>
-
-Pour plus d’informations sur l’obtention d’informations au moyen du portail Azure, consultez la section « Affichage, copie et régénération des clés d’accès de stockage » de la rubrique [Création, gestion ou suppression d’un compte de stockage](../storage-create-storage-account.md).
-
-Un cluster HDInsight requiert également un conteneur dans un compte de stockage. Si le compte de stockage que vous fournissez ne contient pas de conteneur, la commande **azure hdinsight cluster create** vous invite à entrer un nom de conteneur avant de le créer. Cependant, si vous voulez créer le conteneur au préalable, vous pouvez utiliser la commande suivante :
-
-	azure storage container create --account-name <StorageAccountName> --account-key <StorageAccountKey> [ContainerName]
-
-Une fois que le compte de stockage et le conteneur d’objets blob sont prêts, vous êtes prêt à créer un cluster.
-
-**Pour approvisionner un cluster HDInsight**
-
-- À partir de la fenêtre d'invite de commandes, exécutez la commande suivante :
-
-		azure hdinsight cluster create --clusterName <ClusterName> --storageAccountName "<StorageAccountName>.blob.core.windows.net" --storageAccountKey <StorageAccountKey> --storageContainer <StorageContainerName> --dataNodeCount <NumberOfNodes> --location <DataCenterLocation> --userName <HDInsightClusterUsername> --password <HDInsightClusterPassword> --osType linux --sshUserName <SSH username> --sshPassword <SSH user password>
-
-	>[AZURE.NOTE]Les valeurs que vous spécifiez pour **--userName** et **--password** concernent l’utilisateur Hadoop. Pour l’utilisateur Hadoop, vous devez toujours spécifier ---userName en tant que « admin ».
-
-	![HDI.CLIClusterCreation][image-cli-clustercreation]
-
-
-**Approvisionnement d’un cluster HDInsight au moyen d’un fichier de configuration**
-
-Généralement, vous approvisionnez un cluster HDInsight, vous exécutez les tâches, puis vous supprimez le cluster pour réduire les coûts. L’interface de ligne de commande Azure vous donne la possibilité d’enregistrer les configurations dans un fichier, afin de pouvoir les réutiliser chaque fois que vous approvisionnez un cluster.
-
-- À partir de la fenêtre d’invite de commandes, exécutez les commandes suivantes :
-
-
-		#Create the config file
-		azure hdinsight cluster config create <file>
-
-		#Add commands to create a basic cluster. Make sure you specify --userName as "admin"
-		azure hdinsight cluster config set <file> --clusterName <ClusterName> --dataNodeCount <NumberOfNodes> --location "<DataCenterLocation>" --storageAccountName "<StorageAccountName>.blob.core.windows.net" --storageAccountKey "<StorageAccountKey>" --storageContainer "<BlobContainerName>" --userName "<Username>" --password "<UserPassword>" --osType linux --sshUserName <SSH username> --sshPassword <SSH user password>
-
-		#If required, include commands to use additional Blob storage with the cluster
-		azure hdinsight cluster config storage add <file> --storageAccountName "<StorageAccountName>.blob.core.windows.net"
-		       --storageAccountKey "<StorageAccountKey>"
-
-		#Run this command to create a cluster by using the config file
-		azure hdinsight cluster create --config <file>
-
-
-	>[AZURE.NOTE]La base de données SQL Azure utilisée pour le metastore doit autoriser la connectivité aux autres services Azure, y compris Azure HDInsight. Sur le côté droit du tableau de bord de la base de données SQL, cliquez sur le nom du serveur. Il s'agit du serveur sur lequel l'instance de base de données SQL est exécutée. Une fois sur l’écran du serveur, cliquez sur **Configurer**, puis pour **Services Azure**, cliquez sur **Oui**, puis sur **Enregistrer**.
-
-
-
-	![HDI.CLIClusterCreationConfig][image-cli-clustercreation-config]
-
-
-**Pour énumérer et afficher les détails de cluster**
-
-- Utilisez les commandes suivantes pour énumérer et afficher les détails de cluster :
-
-		azure hdinsight cluster list
-		azure hdinsight cluster show <ClusterName>
-
-	![HDI.CLIListCluster][image-cli-clusterlisting]
-
-
-**Pour supprimer un cluster**
-
-- Utilisez les commandes suivantes pour supprimer un cluster :
-
-		azure hdinsight cluster delete <ClusterName>
-
-###<a id="powershell"></a> Utilisation d’Azure PowerShell
-Azure PowerShell est un environnement de création de scripts vous permettant de contrôler et d'automatiser le déploiement et la gestion de vos charges de travail dans Azure. Cette section fournit des instructions sur l’approvisionnement d’un cluster HDInsight à l’aide d’Azure PowerShell. Pour plus d’informations sur la configuration d’un poste de travail pour qu’il exécute des applets de commande HDInsight Powershell, consultez la rubrique [Installation et configuration d’Azure PowerShell](../install-configure-powershell.md). Pour plus d’informations sur l’utilisation d’Azure PowerShell avec HDInsight, consultez la rubrique [Administration de HDInsight avec PowerShell](hdinsight-administer-use-powershell.md). Pour la liste des applets de commande Windows PowerShell pour HDInsight, consultez la rubrique [Référence des applets de commande HDInsight][hdinsight-powershell-reference].
-
-Les procédures suivantes sont nécessaires pour approvisionner un cluster HDInsight en utilisant Azure PowerShell :
-
-- Création d'un compte Azure Storage
+- Création d'un groupe de ressources Azure
+- Création d’un compte Azure Storage
 - Création d'un conteneur d'objets blob Azure
 - Création d'un cluster HDInsight
-
-Vous pouvez exécuter les scripts depuis la console Windows PowerShell ou depuis l’environnement de développement intégré (ISE) de Windows PowerShell.
-
-HDInsight utilise le conteneur de stockage d'objets blob Azure comme système de fichiers par défaut. Un compte Azure Storage et un conteneur de stockage sont nécessaires avant de pouvoir créer un cluster HDInsight. Ce compte de stockage doit se situer dans le même centre de données que le cluster HDInsight. Actuellement, seules les régions **Asie du Sud-Est**, **Europe du Nord**, **Est des États-Unis** et **Sud du centre des États-Unis** peuvent héberger des clusters HDInsight Linux.
-
-**Pour vous connecter à votre compte Azure**
-
-		Add-AzureAccount
-
-Vous êtes invité à entrer les informations d'identification de votre compte Azure.
-
-**Pour créer un compte Azure Storage**
-
-		$storageAccountName = "<StorageAcccountName>"	# Provide a Storage account name
-		$location = "<MicrosoftDataCenter>"				# For example, "West US"
-
-		# Create an Azure Storage account
-		New-AzureStorageAccount -StorageAccountName $storageAccountName -Location $location
-
-Si vous disposez déjà d’un compte de stockage mais que vous ne connaissez ni le nom ni la clé du compte, vous pouvez utiliser les commandes Windows PowerShell suivantes pour récupérer ces informations :
-
-		# List Storage accounts for the current subscription
-		Get-AzureStorageAccount
-
-		# List the keys for a Storage account
-		Get-AzureStorageKey "<StorageAccountName>"
-
-**Pour créer un conteneur de stockage d’objets blob Azure**
-
-		$storageAccountName = "<StorageAccountName>"	# Provide the Storage account name
-		$containerName="<ContainerName>"				# Provide a container name
-
-		# Create a storage context object
-		$storageAccountKey = Get-AzureStorageKey $storageAccountName | %{ $_.Primary }
-		$destContext = New-AzureStorageContext -StorageAccountName $storageAccountName
-		                                       -StorageAccountKey $storageAccountKey  
-
-		# Create a Blob storage container
-		New-AzureStorageContainer -Name $containerName -Context $destContext
-
-Une fois que le compte de stockage et le conteneur d’objets blob sont prêts, vous êtes prêt à créer un cluster.
-
-**Pour approvisionner un cluster HDInsight**
 
 Les deux paramètres les plus importants que vous devez définir pour approvisionner les clusters Linux sont ceux où vous spécifiez le type de système d’exploitation et les détails de l’utilisateur SSH :
 
 - Vérifiez que le paramètre **-OSType** est défini sur **Linux**.
-- Pour utiliser le protocole SSH pour les sessions à distance sur les clusters, vous pouvez spécifier le mot de passe utilisateur SSH ou la clé publique SSH. Si vous spécifiez le mot de passe utilisateur SSH et la clé publique SSH, la clé sera ignorée. Si vous souhaitez utiliser la clé SSH pour les sessions à distance, vous devez spécifier un mot de passe SSH vide lorsque vous y êtes invité.
+- Pour utiliser le protocole SSH pour les sessions à distance sur les clusters, vous pouvez spécifier le mot de passe utilisateur SSH ou la clé publique SSH. Si vous spécifiez le mot de passe utilisateur SSH et la clé publique SSH, la clé sera ignorée. Si vous souhaitez utiliser la clé SSH pour les sessions à distance, vous devez spécifier un mot de passe SSH vide lorsque vous y êtes invité. Pour plus d'informations sur l'utilisation de SSH avec HDInsight, consultez l'un des articles suivants :
+
+	* [Utilisation de SSH avec Hadoop Linux sur HDInsight à partir de Linux, Unix ou OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
+	* [Utilisation de SSH avec Hadoop Linux sur HDInsight à partir de Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
 
 
-		$subscriptionName = "<AzureSubscriptionName>"	  # The Azure subscription used for the HDInsight cluster to be created
+			# Use the new Azure Resource Manager mode
+			Switch-AzureMode AzureResourceManager
 
-		$storageAccountName = "<AzureStorageAccountName>" # HDInsight cluster requires an existing Azure Storage account to be used as the default file system
+			###########################################
+			# Create required items, if none exist
+			###########################################
 
-		$clusterName = "<HDInsightClusterName>"			  # The name for the HDInsight cluster to be created
-		$clusterNodes = <ClusterSizeInNodes>              # The number of nodes in the HDInsight cluster
-        $containerName = $clusterName					  # Azure Blob container that is used as the default file system for the HDInsight cluster
+			# Sign in
+			Add-AzureAccount
 
+			# Select the subscription to use
+			$subscriptionName = "<SubscriptionName>"        # Provide your Subscription Name
+			Select-AzureSubscription -SubscriptionName $subscriptionName
 
-		# Get the credentials for HTTP and SSH users for the cluster
-		$clusterCredentials = Get-Credential            	  # Make sure you specify the username as "admin". This is the Hadoop user name and password for the cluster. You will use this account to connect to the cluster.
-        $sshCredentials = Get-Credential				      # SSH user name for the cluster. You will use this account to start an SSH session on the remote cluster.
-		$sshPublicKey = "<SSH public key>"
+			# Register your subscription to use HDInsight
+			Register-AzureProvider -ProviderNamespace "Microsoft.HDInsight" -Force
 
-		# Get the storage primary key based on the account name
-		Select-AzureSubscription $subscriptionName
-		$storageAccountKey = Get-AzureStorageKey $storageAccountName | %{ $_.Primary }
+			# Create an Azure Resource Group
+			$resourceGroupName = "<ResourceGroupName>"      # Provide a Resource Group name
+			$location = "<Location>"                        # For example, "West US"
+			New-AzureResourceGroup -Name $resourceGroupName -Location $location
 
-        # The location of the HDInsight cluster. It must be in the same data center as the Storage account.
-        $location = Get-AzureStorageAccount -StorageAccountName $storageAccountName | %{$_.Location}
+			# Create an Azure Storage account
+			$storageAccountName = "<StorageAcccountName>"   # Provide a Storage account name
+			New-AzureStorageAccount -ResourceGroupName $resourceGroupName -StorageAccountName $storageAccountName -Location $location -Type Standard_GRS
 
-		# Create a new HDInsight cluster
-		New-AzureHDInsightCluster -Name $clusterName -Credential $clusterCredentials -Location $location -DefaultStorageAccountName "$storageAccountName.blob.core.windows.net" -DefaultStorageAccountKey $storageAccountKey -DefaultStorageContainerName $containerName  -ClusterSizeInNodes $clusterNodes -Version "3.2" -OSType Linux -SshCredential $sshCredentials -SshPublicKey $sshPublicKey
+			# Create an Azure Blob Storage container
+			$containerName = "<ContainerName>"              # Provide a container name
+			$storageAccountKey = Get-AzureStorageAccountKey -Name $storageAccountName -ResourceGroupName $resourceGroupName | %{ $_.Key1 }
+			$destContext = New-AzureStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageAccountKey
+			New-AzureStorageContainer -Name $containerName -Context $destContext
+
+			###########################################
+			# Create an HDInsight Cluster
+			###########################################
+
+			# Skip these variables if you just created them
+			$resourceGroupName = "<ResourceGroupName>"      # Provide the Resource Group name
+			$storageAccountName = "<StorageAcccountName>"   # Provide the Storage account name
+			$containerName = "<ContainerName>"              # Provide the container name
+			$storageAccountKey = Get-AzureStorageAccountKey -Name $storageAccountName -ResourceGroupName $resourceGroupName | %{ $_.Key1 }
+
+			# Set these variables
+			$clusterName = $containerName           		# As a best practice, have the same name for the cluster and container
+			$clusterNodes = <ClusterSizeInNodes>    		# The number of nodes in the HDInsight cluster
+			$credentials = Get-Credential
+			$sshCredentials = Get-Credential
+
+			# The location of the HDInsight cluster. It must be in the same data center as the Storage account.
+			$location = Get-AzureStorageAccount -ResourceGroupName $resourceGroupName -StorageAccountName $storageAccountName | %{$_.Location}
+
+			# Create a new HDInsight cluster
+			New-AzureHDInsightCluster -ClusterName $clusterName -ResourceGroupName $resourceGroupName -HttpCredential $credentials -Location $location -DefaultStorageAccountName "$storageAccountName.blob.core.windows.net" -DefaultStorageAccountKey $storageAccountKey -DefaultStorageContainer $containerName  -ClusterSizeInNodes $clusterNodes -ClusterType Hadoop -OSType Linux -Version "3.2" -SshCredential $sshCredentials
 
 
 >[AZURE.NOTE]Les valeurs que vous spécifiez pour **$clusterCredentials** sont utilisées pour créer le compte d’utilisateur Hadoop pour le cluster. Vous utiliserez ce compte pour vous connecter au cluster. Les valeurs que vous spécifiez pour **$sshCredentials** sont utilisées pour créer le compte d’utilisateur SSH pour le cluster. Vous utilisez ce compte pour démarrer une session SSH à distance sur le cluster et pour exécuter des tâches. Si vous utilisez l’option Création rapide à partir du portail Azure pour approvisionner un cluster, le nom d’utilisateur Hadoop par défaut est « admin » et le nom d’utilisateur SSH par défaut est « hdiuser ».
@@ -522,75 +263,8 @@ L’approvisionnement du cluster peut prendre plusieurs minutes.
 
 ![HDI.CLI.Provision][image-hdi-ps-provision]
 
-**Approvisionnement d’un cluster HDInsight au moyen d’options de configuration personnalisées**
-
-Lorsque vous approvisionnez un cluster, vous pouvez utiliser d’autres options de configuration, telles qu’une connexion à plusieurs conteneurs de stockage d’objets blob Azure ou l’utilisation d’une base de données SQL Azure pour les metastores Hive et Oozie. Ceci vous permet de séparer la durée de vie de vos données et métadonnées de celle du cluster.
-
-Les deux paramètres les plus importants que vous devez définir pour approvisionner les clusters Linux sont ceux où vous spécifiez le type de système d’exploitation et les détails de l’utilisateur SSH :
-
-- Vérifiez que le paramètre **-OSType** est défini sur **Linux**.
-- Pour utiliser le protocole SSH pour les sessions à distance sur les clusters, vous pouvez spécifier le mot de passe utilisateur SSH ou la clé publique SSH. Si vous spécifiez le mot de passe utilisateur SSH et la clé publique SSH, la clé sera ignorée. Si vous souhaitez utiliser la clé SSH pour les sessions à distance, vous devez spécifier un mot de passe SSH vide lorsque vous y êtes invité.
-
-
-		$subscriptionName = "<AzureSubscriptionName>"	  # The Azure subscription used for the HDInsight cluster to be created
-		$clusterName = "<HDInsightClusterName>"			  # The name for the HDInsight cluster to be created
-		$clusterNodes = <ClusterSizeInNodes>              # The number of nodes in the HDInsight cluster
-
-		# Get the credentials for HTTP user, SSH user, and Hive/Oozie metastore databases for the cluster
-		$clusterCredentials = Get-Credential            	  # Make sure you specify the username as "admin". This is the Hadoop user name and password for the cluster. You will use this account to connect to the cluster.
-        $sshCredentials = Get-Credential				      # SSH user name for the cluster. You will use this account to start an SSH session on the remote cluster.
-		$sshPublicKey = "<SSH public key>"
-		$oozieCreds = Get-Credential -Message "Oozie metastore"
-		$hiveCreds = Get-Credential -Message "Hive metastore"
-
-		$storageAccountName_Default = "<DefaultFileSystemStorageAccountName>"
-		$containerName_Default = $clusterName
-		$storageAccountName_Add1 = "<AdditionalStorageAccountName>"
-
-		$hiveSQLDatabaseServerName = "<SQLDatabaseServerNameForHiveMetastore>"
-		$hiveSQLDatabaseName = "<SQLDatabaseDatabaseNameForHiveMetastore>"
-		$oozieSQLDatabaseServerName = "<SQLDatabaseServerNameForOozieMetastore>"
-		$oozieSQLDatabaseName = "<SQLDatabaseDatabaseNameForOozieMetastore>"
-
-		# Get the Storage account keys
-		Select-AzureSubscription $subscriptionName
-		$storageAccountKey_Default = Get-AzureStorageKey $storageAccountName_Default | %{ $_.Primary }
-		$storageAccountKey_Add1 = Get-AzureStorageKey $storageAccountName_Add1 | %{ $_.Primary }
-
-		# The location of the HDInsight cluster. It must be in the same data center as the Storage account.
-        $location = Get-AzureStorageAccount -StorageAccountName $storageAccountName_Default | %{$_.Location}
-
-		# Create a cluster configuration file
-		$config = New-AzureHDInsightClusterConfig -ClusterSizeInNodes $clusterNodes | Set-AzureHDInsightDefaultStorage -StorageAccountName "$storageAccountName_Default.blob.core.windows.net" -StorageAccountKey $storageAccountKey_Default -StorageContainerName $containerName_Default | Add-AzureHDInsightStorage -StorageAccountName "$storageAccountName_Add1.blob.core.windows.net" -StorageAccountKey $storageAccountKey_Add1 | Add-AzureHDInsightMetastore -SqlAzureServerName "$hiveSQLDatabaseServerName.database.windows.net" -DatabaseName $hiveSQLDatabaseName -Credential $hiveCreds -MetastoreType HiveMetastore | Add-AzureHDInsightMetastore -SqlAzureServerName "$oozieSQLDatabaseServerName.database.windows.net" -DatabaseName $oozieSQLDatabaseName -Credential $oozieCreds -MetastoreType OozieMetastore
-
-		# Create the cluster
-		New-AzureHDInsightCluster -Name $clusterName -Config $config -Credential $clusterCredentials -Location $clusterLocation -Version "3.2" -OSType Linux -SshCredential $sshCredentials -SshPublicKey $sshPublicKey
-
->[AZURE.NOTE]La base de données SQL Azure utilisée pour le metastore doit autoriser la connectivité aux autres services Azure, y compris Azure HDInsight. Sur le côté droit du tableau de bord de la base de données Azure SQL, cliquez sur le nom du serveur. Il s'agit du serveur sur lequel l'instance de base de données SQL est exécutée. Une fois sur l’écran du serveur, cliquez sur **Configurer**, puis pour **Services Azure**, cliquez sur **Oui**, puis sur **Enregistrer**.
-
-L’approvisionnement du cluster peut prendre plusieurs minutes.
-
-![HDI.CLI.Provision][image-hdi-ps-config-provision]
-
 ###<a id="sdk"></a> Utilisation du Kit de développement logiciel (SDK) HDInsight .NET
-Le Kit de développement logiciel (SDK) .NET HDInsight fournit des bibliothèques clientes .NET facilitant l'utilisation de HDInsight à partir d'une application .NET.
-
-Les procédures suivantes sont nécessaires pour approvisionner un cluster HDInsight sur Linux en utilisant le Kit de développement logiciel (SDK) :
-
-- Installation du Kit de développement logiciel (SDK) HDInsight
-- Créer un certificat auto-signé
-- Création d'une application console
-- Exécution de l'application
-
-
-**Pour installer le Kit de développement logiciel (SDK) .NET HDInsight**
-
-Vous pouvez installer la dernière version publiée du Kit de développement logiciel (SDK) disponible sur [NuGet](http://nuget.codeplex.com/wikipage?title=Getting%20Started). Vous pourrez consulter les instructions dans la procédure suivante.
-
-**Pour créer un certificat auto-signé**
-
-Créez un certificat auto-signé, installez-le sur votre poste de travail et téléchargez-le dans votre abonnement Azure. Pour obtenir des instructions, consultez la page [Création d'un certificat auto-signé](http://go.microsoft.com/fwlink/?LinkId=511138).
-
+Le Kit de développement logiciel (SDK) .NET HDInsight fournit des bibliothèques clientes .NET facilitant l'utilisation de HDInsight à partir d'une application .NET. Suivez les instructions ci-dessous pour créer une application de console Visual Studio et collez le code pour la création d'un cluster.
 
 **Pour créer une application console Visual Studio**
 
@@ -617,94 +291,120 @@ Créez un certificat auto-signé, installez-le sur votre poste de travail et té
 
 4. Cliquez sur **OK** pour créer le projet.
 
-5. Dans le menu **Outils**, cliquez sur **Gestionnaire de package NuGet**, puis sur **Console du Gestionnaire de package**.
+5. Dans le menu **Outils**, cliquez sur **gestionnaire de packages NuGet**, puis sur **Manage NuGet Packages for Solution**. Dans la zone de texte de recherche de la boîte de dialogue, recherchez **HDInsight**. À partir des résultats qui s'affichent, vous devez installer les éléments suivants :
 
-6. Exécutez la commande suivante dans la console pour installer les packages :
+	 * Microsoft.Azure.Management.HDInsight
+	 * Microsoft.Azure.Management.HDInsight.Job
 
-		Install-Package Microsoft.WindowsAzure.Management.HDInsight
+	Rechercher l'authentification Azure et, parmi les résultats qui s'affichent, installer **Microsoft.Azure.Common.Authentication**.
 
-	Cette commande ajoute des bibliothèques .NET et leurs références nécessaires au projet Visual Studio en cours.
-
-7. Dans l'Explorateur de solutions, double-cliquez sur **Program.cs** pour l'ouvrir.
-
-8. Ajoutez les instructions using suivantes au début du fichier :
-
-		using System.Security.Cryptography.X509Certificates;
-		using Microsoft.WindowsAzure.Management.HDInsight;
-		using Microsoft.WindowsAzure.Management.HDInsight.ClusterProvisioning;
+6. Dans l'Explorateur de solutions, double-cliquez sur **Program.cs** pour l'ouvrir, coller le code suivant et fournir des valeurs pour les variables :
 
 
-9. Dans la fonction **Main()**, copiez et collez le code suivant :
-
-	> [AZURE.NOTE]Vérifiez que les régions que vous avez indiquées figurent parmi les suivantes, car ce sont les seules pouvant héberger des clusters HDInsight Linux : **Asie du Sud-Est**, **Europe du Nord**, **Est des États-Unis** et **Sud du centre des États-Unis**. Le compte de stockage que vous fournissez doit également être dans la même région.
-
-        string thumbprint = "<CertificateThumbprint>";  
-        string subscriptionid = "<AzureSubscriptionID>";
-        string clustername = "<HDInsightClusterName>";
-        string location = "<MicrosoftDataCenter>";
-        string storageaccountname = "<AzureStorageAccountName>.blob.core.windows.net";
-        string storageaccountkey = "<AzureStorageAccountKey>";
-        string containername = "<HDInsightDefaultContainerName>";
-        string username = "<HDInsightUsername>";		# Make sure you specify this username as "admin"
-        string password = "<HDInsightUserPassword>";
-        int clustersize = <NumberOfNodesInTheCluster>;
-		string version = "<version>";
-        string sshusername = "<ssh user name>";
-        string sshpublickey = "<ssh public key>;
-
-
-		// If required, provide details of the Hive and Oozie metastore that you want to configure. ServerName is the name of the server on which the SQL databases are provisioned. HiveStoreSqlDatabaseName and OozieStoreSqlDatabaseName are the names of databases created on the server. You can also use the same database for both Hive and Oozie metastores
-
-		Metastore hiveMetastore = new Metastore("<ServerName>.database.windows.net", "<HiveStoreSqlDatabaseName>", "<SqlDatabaseUser>", "<SqlDatabasePassword>");
-        Metastore oozieMetastore = new Metastore("<ServerName>.database.windows.net", "<OozieStoreSqlDatabaseName>", "<SqlDatabaseUser>", "<SqlDatabasePassword>");
-
-        // Get the certificate object from certificate store by using the friendly name to identify it
-        X509Store store = new X509Store();
-        store.Open(OpenFlags.ReadOnly);
-        X509Certificate2 cert = store.Certificates.Cast<X509Certificate2>().First(item => item.Thumbprint == thumbprint);
-
-        // Create an HDInsightClient object
-        HDInsightCertificateCredential creds = new HDInsightCertificateCredential(new Guid(subscriptionid), cert);
-        var client = HDInsightClient.Connect(creds);
-
-		// Supply the cluster information
-        ClusterCreateParametersV2 clusterInfo = new ClusterCreateParametersV2()
-        {
-            Name = clustername,
-            Location = location,
-            DefaultStorageAccountName = storageaccountname,
-            DefaultStorageAccountKey = storageaccountkey,
-            DefaultStorageContainer = containername,
-            UserName = username,
-            Password = password,
-            ClusterSizeInNodes = clustersize
-			Version = version,
-            OSType = OSType.Linux,
-            SshUserName = sshusername,
-            SshPublicKey = sshpublickey,
-			HiveMetastore = hiveMetastore,		//Only if you created a hivemetastore object earlier
-            OozieMetastore = oozieMetastore		//Only if you created an ooziemetastore object earlier
-        };
-
-		// Configure Hive and Oozie if you opted for the metastores earlier
-		clusterInfo.HiveConfiguration.ConfigurationCollection.Add(new KeyValuePair<string, string>("datanucleus.connectionPoolingType", "none"));
-		clusterInfo.OozieConfiguration.ConfigurationCollection.Add(new KeyValuePair<string, string>("oozie.service.AuthorizationService.security.enabled", "false"));
+        using System;
+		using System.Collections.Generic;
+		using System.Diagnostics;
+		using System.Linq;
+		using System.Security;
+		using System.Text;
+		using System.Threading.Tasks;
+		using Hyak.Common;
+		using Microsoft.Azure;
+		using Microsoft.Azure.Common.Authentication;
+		using Microsoft.Azure.Common.Authentication.Models;
+		using Microsoft.Azure.Management.HDInsight;
+		using Microsoft.Azure.Management.HDInsight.Job;
+		using Microsoft.Azure.Management.HDInsight.Job.Models;
+		using Microsoft.Azure.Management.HDInsight.Models;
+		using Newtonsoft.Json;
 
 
-		// Create the cluster
-        Console.WriteLine("Creating the HDInsight cluster ...");
+		namespace CreateHDICluster
+		{
+		    internal class Program
+		    {
+		        private static ProfileClient _profileClient;
+		        private static SubscriptionCloudCredentials _cloudCredentials;
+		        private static HDInsightManagementClient _hdiManagementClient;
 
-        ClusterDetails cluster = client.CreateCluster(clusterInfo);
+		        private static Guid SubscriptionId = new Guid("<SubscriptionID>");
+		        private const string ResourceGroupName = "<ResourceGroupName>";
+		        private const string ExistingStorageName = "<storageaccountname>.blob.core.windows.net";
+		        private const string ExistingStorageKey = "<account key>";
+		        private const string ExistingContainer = "<container name>";
+		        private const string NewClusterName = "<cluster name>";
+		        private const int NewClusterNumNodes = <number of nodes>;
+		        private const string NewClusterLocation = "<location>";		//should be same as the storage account
+		        private const OSType NewClusterOsType = OSType.Linux;
+		        private const HDInsightClusterType NewClusterType = HDInsightClusterType.Hadoop;
+		        private const string NewClusterVersion = "3.2";
+		        private const string NewClusterUsername = "admin";
+		        private const string NewClusterPassword = "<password>";
+				private const string NewClusterSshUserName = "sshuser";
+        		private const string NewClusterSshPublicKey = "<ssh public key>";
 
-        Console.WriteLine("Created cluster: {0}.", cluster.ConnectionUrl);
-        Console.WriteLine("Press ENTER to continue.");
-        Console.ReadKey();
+		        private static void Main(string[] args)
+		        {
+		            System.Console.WriteLine("Start cluster provisioning");
 
-10. Remplacez les variables au début de la fonction **Main()**.
+		            _profileClient = GetProfile();
+		            _cloudCredentials = GetCloudCredentials();
+		            _hdiManagementClient = new HDInsightManagementClient(_cloudCredentials);
 
-**Pour exécuter l’application**
+		            System.Console.WriteLine(String.Format("Creating the cluster {0}...", NewClusterName));
+		            CreateCluster();
+		            System.Console.WriteLine("Done. Press any key to continue.");
+		            System.Console.ReadKey(true);
+		        }
 
-Lorsque l'application est ouverte dans Visual Studio, appuyez sur **F5** pour l'exécuter. Une fenêtre de console doit s'ouvrir et afficher l'état de l'application. La création d'un cluster HDInsight peut prendre plusieurs minutes.
+		        private static void CreateCluster()
+		        {
+		            var parameters = new ClusterCreateParameters
+		            {
+		                ClusterSizeInNodes = NewClusterNumNodes,
+		                UserName = NewClusterUsername,
+		                Password = NewClusterPassword,
+		                Location = NewClusterLocation,
+		                DefaultStorageAccountName = ExistingStorageName,
+		                DefaultStorageAccountKey = ExistingStorageKey,
+		                DefaultStorageContainer = ExistingContainer,
+		                ClusterType = NewClusterType,
+		                OSType = NewClusterOsType,
+						SshUserName = NewClusterSshUserName,
+                		SshPublicKey = NewClusterSshPublicKey
+		            };
+
+		            _hdiManagementClient.Clusters.Create(ResourceGroupName, NewClusterName, parameters);
+		        }
+
+		        private static ProfileClient GetProfile(string username = null, SecureString password = null)
+		        {
+		            var profileClient = new ProfileClient(new AzureProfile());
+		            var env = profileClient.GetEnvironmentOrDefault(EnvironmentName.AzureCloud);
+		            var acct = new AzureAccount { Type = AzureAccount.AccountType.User };
+
+		            if (username != null && password != null)
+		                acct.Id = username;
+
+		            profileClient.AddAccountAndLoadSubscriptions(acct, env, password);
+
+		            return profileClient;
+		        }
+
+		        private static SubscriptionCloudCredentials GetCloudCredentials()
+		        {
+		            var sub = _profileClient.Profile.Subscriptions.Values.FirstOrDefault(s => s.Id.Equals(SubscriptionId));
+
+		            Debug.Assert(sub != null, "subscription != null");
+		            _profileClient.SetSubscriptionAsDefault(sub.Id, sub.Account);
+
+		            return AzureSession.AuthenticationFactory.GetSubscriptionCloudCredentials(_profileClient.Profile.Context);
+		        }
+
+		    }
+		}
+
+7. Appuyez sur **F5** pour exécuter l'application. Une fenêtre de console doit s'ouvrir et afficher l'état de l'application. Vous êtes invité à saisir les informations d'identification de votre compte Azure. La création d'un cluster HDInsight peut prendre plusieurs minutes.
 
 
 
@@ -766,6 +466,5 @@ Cet article vous a présenté différentes méthodes pour configurer un cluster 
 [img-hdi-cluster]: ./media/hdinsight-hadoop-provision-linux-clusters/HDI.Cluster.png
 
   [89e2276a]: /documentation/articles/hdinsight-use-sqoop/ "Utilisation de Sqoop avec HDInsight"
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

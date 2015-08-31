@@ -1,20 +1,20 @@
 <properties
    pageTitle="Utilisation du connecteur Box dans votre application logique"
-   description="Utilisation du connecteur Box dans votre application logique"
-   services="app-service\logic"
-   documentationCenter=".net,nodejs,java"
-   authors="rajeshramabathiran"
-   manager="dwrede"
-   editor=""/>
+	description="Utilisation du connecteur Box dans votre application logique"
+	services="app-service\logic"
+	documentationCenter=".net,nodejs,java"
+	authors="rajeshramabathiran"
+	manager="dwrede"
+	editor=""/>
 
 <tags
    ms.service="app-service-logic"
-   ms.devlang="multiple"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="integration"
-   ms.date="08/10/2015"
-   ms.author="andalmia"/>
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="integration"
+	ms.date="08/19/2015"
+	ms.author="andalmia"/>
 
 # Connecteur Box
 
@@ -65,7 +65,7 @@ Un connecteur peut être créé dans une application logique ou directement à p
 
 1. Dans le tableau d'accueil Azure, sélectionnez **Marketplace**.
 2. Recherchez « Connecteur Box », sélectionnez-le et sélectionnez **Créer**.
-3. Entrez le nom, le plan App Service et d'autres propriétés : 
+3. Entrez le nom, le plan App Service et d'autres propriétés :
 	![][1]
 4. Sélectionnez **Créer**.
 
@@ -78,21 +78,22 @@ Une fois votre application API créée, vous pouvez utiliser le connecteur Box c
 
 	> [AZURE.NOTE]Si le connecteur Box est sélectionné au début de l'application logique, il agit comme un déclencheur. Dans le cas contraire, les actions pourraient être effectuées sur le compte Box à l'aide du connecteur. À l'heure actuelle, le connecteur Box ne comporte pas de déclencheurs.
 
-2. Authentifier et autoriser des applications logiques pour effectuer des opérations en votre nom. Sélectionnez **Autoriser** sur le connecteur Box : ![][2]
+2. Authentifier et autoriser des applications logiques pour effectuer des opérations en votre nom. Sélectionnez **Autoriser** sur le connecteur Box :
+	![][2]
 
-3. Entrez les détails de connexion du compte Box sur lequel vous voulez effectuer les opérations : 
+3. Entrez les détails de connexion du compte Box sur lequel vous voulez effectuer les opérations :
 	![][3]
 
-4. Octroyez aux applications logiques l'accès à votre compte pour effectuer l'opération en votre nom : 
+4. Octroyez aux applications logiques l'accès à votre compte pour effectuer l'opération en votre nom :
 	![][4]
 
-5. Une liste des actions s'affiche dans laquelle vous pouvez choisir l'opération appropriée à exécuter : 
+5. Une liste des actions s'affiche dans laquelle vous pouvez choisir l'opération appropriée à exécuter :
 	![][5]
 
 ## En faire plus avec votre connecteur
 Maintenant que le connecteur est créé, vous pouvez l'ajouter à un flux d'entreprise à l'aide d'une application logique. Voir [Que sont les applications logiques ?](app-service-logic-what-are-logic-apps.md).
 
-Créez les applications API à l’aide des API REST. Pour plus d'informations, consultez [Référence de connecteurs et d'applications API](http://go.microsoft.com/fwlink/p/?LinkId=529766).
+Affichez la référence d’API REST Swagger sur [Référence de connecteurs et d’applications API](http://go.microsoft.com/fwlink/p/?LinkId=529766).
 
 Vous pouvez également consulter les statistiques de performances et contrôler la sécurité du connecteur. Pour plus d'informations, consultez [Gestion et contrôle de vos connecteurs et applications API intégrés](app-service-logic-monitor-your-connectors.md).
 
@@ -103,4 +104,4 @@ Vous pouvez également consulter les statistiques de performances et contrôler 
 [4]: ./media/app-service-logic-connector-box/image_3.jpg
 [5]: ./media/app-service-logic-connector-box/image_4.jpg
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

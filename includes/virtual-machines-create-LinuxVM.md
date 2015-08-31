@@ -1,4 +1,5 @@
 1. Connectez-vous à votre abonnement Azure en suivant les étapes indiquées dans [Se connecter à un abonnement Azure à partir de l’interface de ligne de commande Azure (Azure CLI)](../articles/xplat-cli-connect.md).
+
 2. Assurez-vous que vous êtes en mode de gestion des services, en utilisant :
 
         azure config mode asm
@@ -36,6 +37,6 @@
 
 7. La machine virtuelle nouvellement créée est prête à démarrer avec la commande `azure vm start`.
 
-Pour plus d'informations sur toutes les commandes des machines virtuelles Azure CLI, consultez [Utilisation de l’interface de ligne de commande Azure avec Microsoft Azure Service Management](../articles/virtual-machines/virtual-machines-command-line-tools.md).
+Pour plus d’informations sur toutes les commandes des machines virtuelles Azure CLI, consultez [Utilisation de l’interface de ligne de commande Azure avec l’API Service Management](../articles/virtual-machines/virtual-machines-command-line-tools.md).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

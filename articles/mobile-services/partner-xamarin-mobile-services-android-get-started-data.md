@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Ajouter Mobile Services à une application existante (Xamarin.Android) | Microsoft Azure" 
-	description="Découvrez comment stocker des données et y accéder à partir de votre application Azure Mobile Services Xamarin.Android." 
-	documentationCenter="xamarin" 
-	authors="ggailey777" 
-	manager="dwrede" 
-	services="mobile-services" 
+<properties
+	pageTitle="Ajouter Mobile Services à une application existante (Xamarin.Android) | Microsoft Azure"
+	description="Découvrez comment stocker des données et y accéder à partir de votre application Azure Mobile Services Xamarin.Android."
+	documentationCenter="xamarin"
+	authors="ggailey777"
+	manager="dwrede"
+	services="mobile-services"
 	editor=""/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-xamarin-android" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="04/24/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-xamarin-android"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="08/18/2015" 
 	ms.author="ggailey777"/>
 
 # Ajout de services mobiles à une application existante
@@ -26,7 +26,7 @@ Cette rubrique montre comment utiliser Azure Mobile Services pour tirer parti de
 
 Ce didacticiel vous familiarise avec ces étapes de base :
 
-1. [Télécharger le projet d'application Xamarin.Android][GitHub] 
+1. [Télécharger le projet d'application Xamarin.Android][GitHub]
 2. [Créer le service mobile]
 3. [Ajouter une table de données pour le stockage]
 4. [Mettre à jour l'application pour utiliser Mobile Services]
@@ -42,7 +42,7 @@ Ce didacticiel requiert le [composant Azure Mobile Services], [Xamarin.Android] 
 
 Ce didacticiel est basé sur l'[application GetStartedWithData][GitHub], qui est une application Xamarin.Android. L'interface utilisateur de cette application est identique à l'application générée par le démarrage rapide Android de Mobile Services, sauf que les éléments ajoutés sont stockés en local dans la mémoire.
 
-1. Téléchargez l'exemple d'application `GetStartedWithData`, puis décompressez les fichiers sur votre ordinateur. 
+1. Téléchargez l'exemple d'application `GetStartedWithData`, puis décompressez les fichiers sur votre ordinateur.
 
 2. Dans Xamarin Studio, cliquez sur **File**, puis **Open**, accédez au dossier où vous avez décompressé l'exemple de projet GetStartedWithData, puis sélectionnez **XamarinTodoQuickStart.Android.sln** et ouvrez-le.
 
@@ -53,7 +53,7 @@ Ce didacticiel est basé sur l'[application GetStartedWithData][GitHub], qui est
 5. À partir du menu **Exécuter**, cliquez sur **Exécuter sans débogage**. Vous êtes invité à choisir un émulateur ou un appareil USB Android attaché.
 
 	> [AZURE.IMPORTANT]Vous pouvez exécuter ce projet à l'aide d'un téléphone Android ou de l'émulateur Android. L'exécution avec un téléphone Android requiert le téléchargement d'un pilote USB propre au téléphone.
-	> 
+	>
 	> Pour exécuter le projet dans l'émulateur Android, vous devez définir au moins un AVD (appareil virtuel Android). Utilisez le gestionnaire AVD pour créer et gérer ces appareils.
 
 6. Dans l'application, tapez un texte explicite, comme _Suivre le didacticiel_, puis cliquez sur **Ajouter**.
@@ -113,7 +113,7 @@ Votre service mobile étant prêt, vous pouvez mettre à jour l'application pour
 3. Dans la fenêtre **Solution**, ouvrez la classe **TodoActivity**, puis annulez les marques de commentaire sur la ligne de code suivante :
 
 		using Microsoft.WindowsAzure.MobileServices;
- 
+
 4. Nous allons supprimer la liste en mémoire actuellement utilisée par l'application pour la remplacer par un service mobile. Dans la classe **TodoActivity**, placez la ligne de code suivante en commentaire, qui définit la liste **todoItemList** existante.
 
 		public List<TodoItem> todoItemList = new ArrayList<TodoItem>();
@@ -123,7 +123,7 @@ Votre service mobile étant prêt, vous pouvez mettre à jour l'application pour
 6. Nous ajoutons maintenant notre service mobile. Annulez les marques de commentaire sur les lignes de code suivantes :
 
         private MobileServiceClient client; // Mobile Service Client references
-        private IMobileServiceTable<TodoItem> todoTable; // Mobile Service Table used to access data   
+        private IMobileServiceTable<TodoItem> todoTable; // Mobile Service Table used to access data
 
 7. Dans le portail de gestion, cliquez sur **Mobile Services**, puis sur le service mobile que vous venez de créer.
 
@@ -137,7 +137,7 @@ Votre service mobile étant prêt, vous pouvez mettre à jour l'application pour
 
         public const string ApplicationURL = @"AppUrl";
         public const string ApplicationKey = @"AppKey";
-        
+
 10. Remplacez **AppUrl** et **AppKey** dans les variables ci-dessus par les valeurs extraites du portail de gestion plus haut.
 
 11. Dans la méthode **OnCreate**, annulez les marques de commentaire sur les lignes de code suivantes qui définissent la variable **MobileServiceClient** :
@@ -149,7 +149,7 @@ Votre service mobile étant prêt, vous pouvez mettre à jour l'application pour
 			Constants.ApplicationKey).WithFilter(filter);
 
 		// Get the Mobile Service Table instance to use
-		todoTable = client.GetTable<TodoItem>();    
+		todoTable = client.GetTable<TodoItem>();
 
   	Cela crée une instance de MobileServiceClient utilisée pour accéder au service mobile. Cela crée également l'instance de MobileServiceTable utilisée pour traiter par proxy le stockage des données dans le service mobile.
 
@@ -166,21 +166,21 @@ Votre service mobile étant prêt, vous pouvez mettre à jour l'application pour
 		}
 
    	Cela permet d'envoyer une mise à jour de l'élément au service mobile et de supprimer les éléments cochés de l'adaptateur.
-    
+
 14. Annulez les marques de commentaire sur ces lignes de la méthode **AddItem** :
-	
-		try 
+
+		try
 		{
 			// Insert the new item
 			await todoTable.InsertAsync(item);
 
-			if (!item.Complete) 
-				adapter.Add(item);			
-		} 
-		catch (Exception e) 
+			if (!item.Complete)
+				adapter.Add(item);
+		}
+		catch (Exception e)
 		{
 			CreateAndShowDialog(e, "Error");
-		}   		
+		}
 
   	Ce code permet de créer un élément et de l'insérer dans la table du service mobile distant.
 
@@ -194,14 +194,14 @@ Votre service mobile étant prêt, vous pouvez mettre à jour l'application pour
 
 			foreach (TodoItem current in list)
 				adapter.Add(current);
-		} 
-        catch (Exception e) 
+		}
+        catch (Exception e)
         {
 			CreateAndShowDialog(e, "Error");
 		}
 
 	Cela permet d'interroger le service mobile et de renvoyer tous les éléments qui ne sont pas marqués comme Complete. Les éléments sont ajoutés à l'adaptateur pour la liaison.
-		
+
 
 Maintenant que l'application a été mise à jour pour utiliser Mobile Services pour le stockage principal, le moment est venu de tester l'application avec Mobile Services.
 
@@ -220,7 +220,7 @@ Maintenant que l'application a été mise à jour pour utiliser Mobile Services 
 4. Cliquez sur l'onglet **Données**, puis sur **Parcourir**.
 
    	![][9]
-  
+
    	La table **TodoItem** contient à présent des données, dont les valeurs d'ID ont été générées par Mobile Services, et les colonnes ont été automatiquement ajoutées à la table de manière à correspondre à la classe TodoItem au sein de l'application.
 
 Cela conclut le didacticiel **Prise en main des données** pour Xamarin.Android.
@@ -281,6 +281,5 @@ Une fois que vous avez terminé les séries de données, essayez ces autres dida
 [Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=280125
 
 [projet d'exemple terminé]: http://go.microsoft.com/fwlink/p/?LinkId=331302
- 
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

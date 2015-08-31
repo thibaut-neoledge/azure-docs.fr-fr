@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Prise en main de la diffusion de contenus vidéo à la demande (VoD) à l’aide des API REST" 
-	description="Ce didacticiel vous guide à travers les étapes d’implémentation d’une application de diffusion de contenu vidéo à la demande (VoD) avec Azure Media Services à l’aide des API REST." 
-	services="media-services" 
-	documentationCenter="" 
-	authors="Juliako" 
-	manager="dwrede" 
+	pageTitle="Prise en main de la diffusion de contenus vidéo à la demande (VoD) à l’aide des API REST"
+	description="Ce didacticiel vous guide à travers les étapes d’implémentation d’une application de diffusion de contenu vidéo à la demande (VoD) avec Azure Media Services à l’aide des API REST."
+	services="media-services"
+	documentationCenter=""
+	authors="Juliako"
+	manager="dwrede"
 	editor=""/>
 
 <tags 
-	ms.service="media-services" 
-	ms.workload="media" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/11/2015" 
+	ms.service="media-services"
+	ms.workload="media"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/14/2015"
 	ms.author="juliako"/>
 
 #Prise en main de la diffusion de contenus vidéo à la demande (VoD) à l’aide des API REST 
@@ -40,7 +40,6 @@ Ce document de démarrage rapide présente les tâches suivantes.
 1.  Création d’une ressource et téléchargement d’un fichier vidéo à l’aide de l’API REST
 1.  Configuration des unités de diffusion en continu avec l’API REST
 2.  Encodage du fichier source en un ensemble de fichiers MP4 à débit adaptatif avec l’API REST
-1.  Configuration de la stratégie de remise pour la ressource encodée avec l’API REST
 1.  Publication des éléments et obtention des URL de diffusion et de téléchargement progressif avec l’API REST 
 1.  Lecture de votre contenu 
 
@@ -668,7 +667,7 @@ Comme mentionné précédemment, lorsque vous travaillez avec Azure Media Servic
 Pour tirer parti de l’empaquetage dynamique, vous devez effectuer les opérations suivantes :
 
 - Coder ou transcoder vos fichiers votre fichier mezzanine (source) en un ensemble de fichiers mp4 à débit adaptatif ou de fichiers Smooth Streaming à débit adaptatif.  
-- Obtenir au moins une unité de diffusion pour le point de terminaison de diffusion à partir duquel vous envisagez de distribuer votre contenu. 
+- Obtenir au moins une unité de diffusion pour le point de terminaison de diffusion à partir duquel vous prévoyez de distribuer votre contenu. 
 
 La section suivante montre comment créer un travail contenant une tâche d’encodage. La tâche spécifie de transcoder le fichier mezzanine en un ensemble de MP4 à débit adaptatif à l’aide de l’**Encodeur multimédia Azure**. La section indique également comment surveiller la progression du traitement du travail. Une fois le travail terminé, vous pourrez créer les localisateurs nécessaires pour accéder à vos ressources.
 
@@ -908,7 +907,7 @@ Si l’opération réussit, un code de réponse 204 est retourné, sans corps d
 
 ### Obtention de la ressource de sortie 
 
-Dans la section suivante, nous allons configurer la stratégie de remise pour la ressource de sortie du travail (la ressource encodée). Le code suivant montre comment demander l’ID de la ressource de sortie
+Le code suivant montre comment demander l’ID de la ressource de sortie
 
 
 **Demande HTTP**
@@ -956,85 +955,6 @@ Dans la section suivante, nous allons configurer la stratégie de remise pour la
 	   ]
 	}
 
-
-## <a id="configure_delivery_method"></a>Configurer la stratégie de distribution de l’élément encodé
-
-Une des étapes du processus de distribution de contenu Media Services est la configuration des stratégies de distribution des éléments multimédias. Voici ce que comprend la configuration de stratégie de distribution de l’élément : les types de protocoles qui peuvent être utilisés pour la distribution (par exemple, MPEG DASH, TLS, HDS, Smooth Streaming ou tous), si vous souhaitez chiffrer dynamiquement votre élément multimédia et comment (enveloppe ou chiffrement commun).
-
-Les demandes HTTP **AssetDeliveryPolicies** suivantes spécifient de ne pas appliquer de chiffrement dynamique (AssetDeliveryPolicyType peut être une des valeurs suivantes : None = 0, Blocked = 1, NoDynamicEncryption = 2, DynamicEnvelopeEncryption = 3, DynamicCommonEncryption = 4) et pour fournir le flux dans un des protocoles suivants : MPEG DASH, HLS et Smooth Streaming (AssetDeliveryProtocol peut être une combinaison des valeurs suivantes : None = 0, SmoothStreaming = 1, Dash = 2, HLS = 4, Hds = 8, All = 65535).
-
-
-### Création d’AssetDeliveryPolicies
-
-
-**Demande HTTP**
-		
-	POST https://wamsbayclus001rest-hs.cloudapp.net/api/AssetDeliveryPolicies HTTP/1.1
-	Content-Type: application/json
-	DataServiceVersion: 1.0;NetFx
-	MaxDataServiceVersion: 3.0;NetFx
-	Accept: application/json
-	Accept-Charset: UTF-8
-	Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstestaccount001&urn%3aSubscriptionId=f7f09258-6753-4ca2-b1ae-193798e2c9d8&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1421679198&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=aUvBcDwRAFk1JLxceWu%2bf9dVrCZM7PrTRbZd0TtoKvU%3d
-	x-ms-version: 2.11
-	Host: wamsbayclus001rest-hs.cloudapp.net
-	Content-Length: 83
-	
-	{"Name":"Clear Policy", "AssetDeliveryPolicyType":"2","AssetDeliveryProtocol":"7"} 
-
-
-**Réponse HTTP**
-	
-	HTTP/1.1 201 Created
-	Cache-Control: no-cache
-	Content-Length: 361
-	Content-Type: application/json;odata=minimalmetadata;streaming=true;charset=utf-8
-	Location: https://wamsbayclus001rest-hs.cloudapp.net/api/AssetDeliveryPolicies('nb%3Aadpid%3AUUID%3Aef97ae36-b898-4b8a-b427-7819ee726276')
-	Server: Microsoft-IIS/8.5
-	request-id: 7391a4b2-995d-4fc5-aca5-a398786ea38e
-	x-ms-request-id: 7391a4b2-995d-4fc5-aca5-a398786ea38e
-	X-Content-Type-Options: nosniff
-	DataServiceVersion: 3.0;
-	X-Powered-By: ASP.NET
-	Strict-Transport-Security: max-age=31536000; includeSubDomains
-	Date: Mon, 19 Jan 2015 09:13:18 GMT
-
-	{  
-	   "odata.metadata":"https://wamsbayclus001rest-hs.cloudapp.net/api/$metadata#AssetDeliveryPolicies/@Element",
-	   "Id":"nb:adpid:UUID:ef97ae36-b898-4b8a-b427-7819ee726276",
-	   "Name":"Clear Policy",
-	   "AssetDeliveryProtocol":7,
-	   "AssetDeliveryPolicyType":2,
-	   "AssetDeliveryConfiguration":null,
-	   "Created":"2015-01-19T09:13:18.911615Z",
-	   "LastModified":"2015-01-19T09:13:18.911615Z"
-	}
-    
-
-### Liaison de la stratégie de remise de ressource avec une ressource
-
-La demande HTTP suivante associe la stratégie de remise spécifiée à la ressource spécifiée.
-
-**Demande HTTP**
-
-	POST https://wamsbayclus001rest-hs.cloudapp.net/api/Assets('nb%3Acid%3AUUID%3A71d2dd33-efdf-ec43-8ea1-136a110bd42c')/$links/DeliveryPolicies HTTP/1.1
-	DataServiceVersion: 1.0;NetFx
-	MaxDataServiceVersion: 3.0;NetFx
-	Accept: application/json
-	Accept-Charset: UTF-8
-	Content-Type: application/json
-	Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstestaccount001&urn%3aSubscriptionId=z7f09258-2233-4ca2-b1ae-193798e2c9d8&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1421679198&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=aUvBcDwRAFk1JLxceWu%2bf9dVrCZM7PrTRbZd0TtoKvU%3d
-	x-ms-version: 2.11
-	Host: wamsbayclus001rest-hs.cloudapp.net
-	Content-Length: 140
-	
-	{ "uri":"https://wamsbayclus001rest-hs.cloudapp.net/api/AssetDeliveryPolicies('nb%3Aadpid%3AUUID%3Aef97ae36-b898-4b8a-b427-7819ee726276')" }
-
-
-**Réponse HTTP**
-
-	HTTP/1.1 204 No Content
-    . . . 
 
 
 ## <a id="publish_get_urls"></a>Publication des éléments et obtention des URL de diffusion et de téléchargement progressif avec l’API REST
@@ -1275,4 +1195,4 @@ Pour tester le téléchargement progressif, collez l’URL dans un navigateur (p
 
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

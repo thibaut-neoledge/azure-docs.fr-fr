@@ -1,21 +1,19 @@
 <properties 
-   pageTitle="Ressources de certificats dans Azure Automation"
-   description="Les certificats peuvent être stockés en toute sécurité dans Azure Automation afin d’y accéder par Runbooks pour s’authentifier auprès des ressources Azure et tierces. Cet article présente les certificats et leur utilisation dans la création textuelle et graphique."
-   services="automation"
-   documentationCenter=""
-   authors="bwren"
-   manager="stevenka"
-   editor="tysonn" />
-
+   pageTitle="Ressources de certificats dans Azure Automation | Microsoft Azure"
+	description="Les certificats peuvent être stockés en toute sécurité dans Azure Automation afin d’y accéder par Runbooks pour s’authentifier auprès des ressources Azure et tierces. Cet article présente les certificats et leur utilisation dans la création textuelle et graphique."
+	services="automation"
+	documentationCenter=""
+	authors="bwren"
+	manager="stevenka"
+	editor="tysonn"/>
 <tags 
    ms.service="automation"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="06/14/2015"
-   ms.author="bwren" />
-
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="infrastructure-services"
+	ms.date="08/18/2015"
+	ms.author="bwren"/>
 
 # Ressources de certificats dans Azure Automation
 
@@ -109,4 +107,4 @@ Cet exemple utilise le paramètre **UseConnectionObject** défini pour l’activ
 
 - [Liens de création graphique](automation-graphical-authoring-intro.md#links-and-workflow) 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

@@ -12,14 +12,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/14/2015"
+   ms.date="08/14/2015"
    ms.author="alkohli" />
 
 # Sécurité de votre appareil
 
 ![Icône Avertissement](./media/storsimple-safety/IC740879.png)![Icône Lire l’avis de sécurité](./media/storsimple-safety/IC740885.png)**LIRE LES INFORMATIONS SUR LA SANTÉ ET LA SÉCURITÉ**
 
-Prenez connaissance de toutes les informations sur la santé et la sécurité relatives à votre appareil Microsoft Azure StorSimple présentées dans cet article. Conservez tous les guides imprimés fournis avec votre appareil StorSimple pour pouvoir vous y reporter ultérieurement. Le non-respect des instructions et une configuration, une utilisation et un entretien inappropriés de ce produit peuvent augmenter le risque de blessure grave ou de mort, ou de dommages à l’appareil ou à d’autres appareils. Une [version téléchargeable de ce guide](http://www.microsoft.com/fr-fr/download/details.aspx?id=44233) est également disponible.
+Prenez connaissance de toutes les informations sur la santé et la sécurité relatives à votre appareil Microsoft Azure StorSimple présentées dans cet article. Conservez tous les guides imprimés fournis avec votre appareil StorSimple pour pouvoir vous y reporter ultérieurement. Le non-respect des instructions et une configuration, une utilisation et un entretien inappropriés de ce produit peuvent augmenter le risque de blessure grave ou de mort, ou de dommages à l’appareil ou à d’autres appareils. Une [version téléchargeable de ce guide](http://www.microsoft.com/download/details.aspx?id=44233) est également disponible.
 
 ## Conventions des icônes de sécurité
 
@@ -175,8 +175,8 @@ Une fois que vous avez lu attentivement ces consignes de sécurité, les étapes
 
 ## Étapes suivantes
 
-- Pour un appareil 8100, accédez à la page [Déballage, montage en rack et branchement des câbles de votre appareil 8600](storsimple-8600-hardware-installation)
+- Pour un appareil 8100, consultez la rubrique [Installation de votre appareil StorSimple 8100](storsimple-8100-hardware-installation.md).
 
-- Pour un appareil 8600, accédez à la page [Déballage, montage en rack et branchement des câbles de votre appareil 8600](storsimple-8600-hardware-installation)
+- Pour un appareil 8600, consultez la rubrique [Installation de votre appareil StorSimple 8600](storsimple-8600-hardware-installation.md).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

@@ -1,18 +1,18 @@
 <properties 
-	pageTitle="Gestion de la tarification et du quota pour Application Insights" 
-	description="Choisissez le plan de tarification dont vous avez besoin" 
-	services="application-insights" 
-    documentationCenter=""
-	authors="alancameronwills" 
+	pageTitle="Gestion de la tarification et du quota pour Application Insights"
+	description="Choisissez le plan de tarification dont vous avez besoin"
+	services="application-insights"
+	documentationCenter=""
+	authors="alancameronwills"
 	manager="douge"/>
 
 <tags 
-	ms.service="application-insights" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/11/2015" 
+	ms.service="application-insights"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="ibiza"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/11/2015"
 	ms.author="awills"/>
 
 # Gestion de la tarification et du quota pour Application Insights
@@ -53,7 +53,10 @@ Vous pouvez à tout moment passer à la version d’évaluation Premium gratuite
 * Le quota varie selon le niveau de tarification que vous avez choisi.
 * Le quota est calculé à partir de minuit (UTC), le premier jour de chaque mois.
 * Le graphique de points de données indique la quantité de quota utilisée ce mois-ci.
-* Le quota est mesuré en *points de données.* Un point de données est un appel à une des méthodes de suivi, qu’elle soit appelée explicitement dans votre code ou par l’un des modules standard de télémétrie. Chaque ligne affichée dans la recherche diagnostic correspond à un point de données. Chaque mesure d’une métrique, comme un compteur de performance, correspond à un point de données. 
+* Le quota est mesuré en *points de données.* Un point de données est un appel à une des méthodes de suivi, qu’elle soit appelée explicitement dans votre code ou par l’un des modules standard de télémétrie. Les points de données incluent :
+ * Chaque ligne affichée dans la [recherche de diagnostic](app-insights-diagnostic-search.md). 
+ * Chaque mesure brute d’une [métrique](app-insights-metrics-explorer.md), comme un compteur de performances. (Les points que vous voyez sur les graphiques sont généralement des agrégats de plusieurs points de données brutes).
+ * Chaque point sur les graphiques de [test web (disponibilité)](app-insights-monitor-web-app-availability.md). 
 * Les *données de session* ne sont pas comptabilisées dans le quota. Cela inclut le nombre d’utilisateurs, de sessions et les données relatives à l’environnement et aux appareils.
 
 
@@ -72,7 +75,7 @@ Le graphique au bas du panneau de tarification illustre le volume des points de 
 
 ![Au bas du panneau de tarification](./media/app-insights-pricing/03-allocation.png)
 
-Cliquez sur le graphique pour plus d’informations ou sélectionnez une partie de ce dernier pour obtenir des informations sur une période.
+Cliquez sur le graphique pour plus d’informations ou sélectionnez une partie de ce dernier et cliquez sur (+) pour obtenir des informations sur une période.
 
 
 ## Débit de données
@@ -83,7 +86,7 @@ Il existe trois compartiments qui sont comptabilisés séparément :
 
 * [appels TrackTrace](app-insights-api-custom-events-metrics.md#track-trace) et [journaux capturés](app-insights-asp-net-trace-logs.md) ;
 * [exceptions](app-insights-api-custom-events-metrics.md#track-exception), limitées à 50 points/s ;
-* toutes les autres données de télémétrie (pages consultées, sessions, demandes, dépendances, métriques, événements personnalisés).
+* toutes les autres données de télémétrie (pages consultées, sessions, demandes, dépendances, métriques, événements personnalisés et résultats des tests web).
 
 Si le volume de données envoyées par votre application dépasse cette limite, certaines de ces données sont supprimées. Si tel est le cas, vous en êtes informé par un avertissement.
 
@@ -118,7 +121,9 @@ Les frais liés à Application Insights sont ajoutés à votre facture Azure. Le
 
 ![Dans le menu latéral, choisissez Facturation.](./media/app-insights-pricing/02-billing.png)
 
+## Synthèse des limites
 
+[AZURE.INCLUDE [application-insights-limits](../../includes/application-insights-limits.md)]
 
 
 <!--Link references-->
@@ -130,4 +135,4 @@ Les frais liés à Application Insights sont ajoutés à votre facture Azure. Le
 
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

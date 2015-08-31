@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Configuration de l'équilibrage de charge pour SQL Always On | Microsoft Azure"
-   description="Configuration de l'équilibrage de charge pour fonctionner avec SQL Alway On et procédure d’exploitation de Powershell pour créer l'équilibrage de charge pour l'implémentation de SQL"
-   services="load-balancer"
-   documentationCenter="na"
-   authors="joaoma"
-   manager="adinah"
-   editor="tysonn" />
+	description="Configuration de l'équilibrage de charge pour fonctionner avec SQL Alway On et procédure d’exploitation de Powershell pour créer l'équilibrage de charge pour l'implémentation de SQL"
+	services="load-balancer"
+	documentationCenter="na"
+	authors="joaoma"
+	manager="adinah"
+	editor="tysonn"/>
 <tags 
    ms.service="load-balancer"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="05/01/2015"
-   ms.author="joaoma" />
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="infrastructure-services"
+	ms.date="08/12/2015"
+	ms.author="joaoma"/>
 
 # Configuration de l'équilibrage de charge pour SQL Always On
 
@@ -51,6 +51,10 @@ Dans l'exemple suivant, nous allons configurer un réseau virtuel qui contient u
 
  	Get-AzureVM -ServiceName SqlSvc -Name sqlsvc2 | Add-AzureEndpoint -Name "LisEUep" -LBSetName "ILBSet1" -Protocol tcp -LocalPort 1433 -PublicPort 1433 -ProbePort 59999 -ProbeProtocol tcp -ProbeIntervalInSeconds 10 –DirectServerReturn $true -InternalLoadBalancerName ILB_SQL_AO | Update-AzureVM
 
+Dans l'exemple ci-dessus, la machine virtuelle 2 est appelée « sqlsvc1 » et « sqlsvc2 » en cours d'exécution dans le service de cloud « Sqlsvc ». Après avoir créé l'équilibre de charge avec le commutateur « DirectServerReturn », vous allez ajouter des points de terminaison d'équilibrage de charge pour permettre à SQL de configurer les écouteurs pour les groupes de disponibilité.
+
+Vous trouverez plus de détails sur la création d'un SQL Alwayson dans [Didacticiel : groupes de disponibilité AlwaysOn dans Azure](https://msdn.microsoft.com/library/dn249504.aspx) ou [Utilisation de la galerie de portail](http://blogs.technet.com/b/dataplatforminsider/archive/2014/08/25/sql-server-alwayson-offering-in-microsoft-azure-portal-gallery.aspx).
+
 
 ## Voir aussi
 
@@ -63,4 +67,4 @@ Dans l'exemple suivant, nous allons configurer un réseau virtuel qui contient u
 [Configuration des paramètres du délai d’expiration TCP inactif pour votre équilibrage de charge](load-balancer-tcp-idle-timeout.md)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

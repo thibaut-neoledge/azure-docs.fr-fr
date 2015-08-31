@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Contrôle d'accès en fonction du rôle dans Mobile Services et Azure Active Directory (Windows Store) | Microsoft Azure" 
-	description="Découvrez comment contrôler l'accès en fonction des rôles Azure Active Directory dans votre application Windows Store." 
+	pageTitle="Contrôle d&#39;accès en fonction du rôle dans Mobile Services et Azure Active Directory (Windows Store) | Microsoft Azure" 
+	description="Découvrez comment contrôler l&#39;accès en fonction des rôles Azure Active Directory dans votre application Windows Store." 
 	documentationCenter="windows" 
 	authors="wesmc7777" 
 	manager="dwrede" 
@@ -286,4 +286,4 @@ La procédure suivante montre comment déployer un contrôle d'accès en fonctio
 [IsMemberOf]: http://msdn.microsoft.com/library/azure/dn151601.aspx
 [Accès aux informations Azure Active Directory Graph]: mobile-services-javascript-backend-windows-store-dotnet-aad-graph-info.md
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

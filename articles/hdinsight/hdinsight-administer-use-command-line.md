@@ -5,6 +5,7 @@
 	editor="cgronlun"
 	manager="paulettm"
 	authors="mumian"
+	tags="azure-portal"
 	documentationCenter=""/>
 
 <tags
@@ -17,6 +18,8 @@
 	ms.author="jgao"/>
 
 # Gestion des clusters Hadoop dans HDInsight à l’aide de l’interface de ligne de commande Azure (CLI Azure)
+
+[AZURE.INCLUDE [sélecteur](../../includes/hdinsight-portal-management-selector.md)]
 
 Utiliser l’interface de ligne de commande Azure pour gérer des clusters Hadoop dans Azure HDInsight. L’interface de ligne de commande Azure est implémentée dans Node.js. Elle peut être utilisée sur toute plateforme prenant en charge Node.js, y compris Windows, Mac et Linux.
 
@@ -52,9 +55,9 @@ Après avoir importé le fichier de paramètres de publication, vous pouvez util
 > [AZURE.NOTE]Il doit se trouver dans le même centre de données que le cluster HDInsight.
 
 
-Pour plus d’informations sur la création d’un compte Azure Storage au moyen du portail Azure, consultez la rubrique [Création, gestion ou suppression d’un compte de stockage][azure-create-storageaccount].
+Pour plus d'informations sur la création d'un compte Azure Storage au moyen de la version préliminaire du portail Azure, consultez la rubrique [Création, gestion ou suppression d'un compte de stockage][azure-create-storageaccount].
 
-Si vous disposez déjà d’un compte de stockage, mais que vous ne connaissez ni le nom ni la clé du compte, vous pouvez utiliser les commandes suivantes pour récupérer les informations :
+Si vous disposez déjà d’un compte de stockage mais que vous ne connaissez ni le nom ni la clé du compte, vous pouvez utiliser les commandes suivantes pour récupérer les informations :
 
 	-- Lists Storage accounts
 	azure account storage list
@@ -63,7 +66,7 @@ Si vous disposez déjà d’un compte de stockage, mais que vous ne connaissez n
 	-- Lists the keys for a Storage account
 	azure account storage keys list <StorageAccountName>
 
-Pour plus d’informations sur l’obtention d’informations au moyen du portail Azure, consultez la section « Affichage, copie et régénération des clés d’accès de stockage » de la rubrique [Création, gestion ou suppression d’un compte de stockage][azure-create-storageaccount].
+Pour plus d'informations sur l'obtention d'informations au moyen de la version préliminaire du portail Azure, consultez la section « Affichage, copie et régénération des clés d'accès de stockage » de la rubrique [Création, gestion ou suppression d'un compte de stockage][azure-create-storageaccount].
 
 
 La commande **azure hdinsight cluster create** crée le conteneur s'il n'existe pas. Si vous avez choisi de créer le conteneur au préalable, vous pouvez utiliser la commande suivante :
@@ -135,7 +138,7 @@ Utilisez les commandes suivantes pour supprimer un cluster :
 ##Étapes suivantes
 Dans cet article, vous avez appris comment effectuer différentes tâches d'administration sur un cluster HDInsight. Pour en savoir plus, consultez les articles suivants :
 
-* [Administration de HDInsight à l’aide du portail Azure][hdinsight-admin-portal]
+* [Administration de HDInsight à l'aide de la version préliminaire du portail Azure][hdinsight-admin-portal]
 * [Administration de HDInsight à l’aide d’Azure PowerShell][hdinsight-admin-powershell]
 * [Prise en main d'Azure HDInsight][hdinsight-get-started]
 * [Utilisation de l’interface de ligne de commande Azure][azure-command-line-tools]
@@ -156,6 +159,5 @@ Dans cet article, vous avez appris comment effectuer différentes tâches d'admi
 [image-cli-clustercreation]: ./media/hdinsight-administer-use-command-line/HDI.CLIClusterCreation.png
 [image-cli-clustercreation-config]: ./media/hdinsight-administer-use-command-line/HDI.CLIClusterCreationConfig.png
 [image-cli-clusterlisting]: ./media/hdinsight-administer-use-command-line/HDI.CLIListClusters.png "Énumération et affichage des clusters"
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

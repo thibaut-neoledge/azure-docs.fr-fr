@@ -1,18 +1,18 @@
-<properties 
-	pageTitle="Envoi de notifications interplateformes aux utilisateurs avec Notification Hubs (ASP.NET)" description="Découvrez comment utiliser des modèles Notification Hubs pour envoyer, dans une même demande, une notification indépendante de la plateforme qui cible toutes les plateformes." 
-	services="notification-hubs" 
-	documentationCenter="" 
-	authors="wesmc7777" 
-	manager="dwrede" 
+<properties
+	pageTitle="Envoi de notifications interplateformes aux utilisateurs avec Notification Hubs (ASP.NET)" description="Découvrez comment utiliser des modèles Notification Hubs pour envoyer, dans une même demande, une notification indépendante de la plateforme qui cible toutes les plateformes."
+	services="notification-hubs"
+	documentationCenter=""
+	authors="wesmc7777"
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="notification-hubs" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-windows" 
-	ms.devlang="multiple" 
-	ms.topic="article" 
-	ms.date="04/27/2015" 
+<tags
+	ms.service="notification-hubs"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-windows"
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.date="08/18/2015" 
 	ms.author="wesmc"/>
 
 # Envoi de notifications interplateforme aux utilisateurs avec Notification Hubs
@@ -24,7 +24,7 @@ Dans le didacticiel précédent [Notification des utilisateurs avec Notification
 
 Pour envoyer des notifications interplateforme à l'aide de modèles, procédez comme suit :
 
-1. Dans l'Explorateur de solutions de Visual Studio, développez le dossier **Controllers**, puis ouvrez le fichier RegisterController.cs. 
+1. Dans l'Explorateur de solutions de Visual Studio, développez le dossier **Controllers**, puis ouvrez le fichier RegisterController.cs.
 
 2. Recherchez le bloc de code dans la méthode **Post** qui crée une inscription. Remplacez le contenu de `switch` par le code suivant :
 
@@ -54,7 +54,7 @@ Pour envoyer des notifications interplateforme à l'aide de modèles, procédez 
             default:
                 throw new HttpResponseException(HttpStatusCode.BadRequest);
         }
-	
+
 	Ce code permet d’appeler la méthode propre à la plateforme pour créer une inscription de modèle et non une inscription native. Les inscriptions existantes n'ont pas besoin d'être modifiées, car les inscriptions de modèle sont dérivées d'inscriptions natives.
 
 3. Dans le contrôleur **Notifications**, remplaez la méthode **sendNotification** par le code suivant :
@@ -65,7 +65,7 @@ Pour envoyer des notifications interplateforme à l'aide de modèles, procédez 
             var userTag = "username:" + user;
 
             var notification = new Dictionary<string, string> { { "message", "Hello, " + user } };
-            await Notifications.Instance.Hub.SendTemplateNotificationAsync(notification, userTag);   
+            await Notifications.Instance.Hub.SendTemplateNotificationAsync(notification, userTag);
 
             return Request.CreateResponse(HttpStatusCode.OK);
         }
@@ -84,7 +84,7 @@ Pour envoyer des notifications interplateforme à l'aide de modèles, procédez 
 
 Maintenant que vous avez terminé ce didacticiel, vous trouverez des informations supplémentaires sur Notification Hubs et les modèles dans les rubriques suivantes :
 
-+ **[Utilisation de Notification Hubs pour envoyer les dernières nouvelles]** <br/>Présente un autre scénario d'utilisation des modèles. 
++ **[Utilisation de Notification Hubs pour envoyer les dernières nouvelles]** <br/>Présente un autre scénario d'utilisation des modèles.
 
 +  **[Vue d'ensemble d'Azure Notification Hubs][Templates]**<br/>Rubrique générale offrant des informations plus détaillées sur les modèles.
 
@@ -110,6 +110,5 @@ Maintenant que vous avez terminé ce didacticiel, vous trouverez des information
 [Notification des utilisateurs avec Notification Hubs]: notification-hubs-aspnet-backend-windows-dotnet-notify-users.md
 [Templates]: http://go.microsoft.com/fwlink/p/?LinkId=317339
 [Procédures Notification Hubs pour Windows Store]: http://msdn.microsoft.com/library/windowsazure/jj927172.aspx
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

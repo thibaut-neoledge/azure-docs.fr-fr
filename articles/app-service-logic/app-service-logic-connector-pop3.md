@@ -1,20 +1,20 @@
 <properties
    pageTitle="Application API du connecteur POP3"
-   description="Utilisation du connecteur POP3"
-   services="app-service\logic"
-   documentationCenter=".net,nodejs,java"
-   authors="anuragdalmia"
-   manager="dwrede"
-   editor=""/>
+	description="Utilisation du connecteur POP3"
+	services="app-service\logic"
+	documentationCenter=".net,nodejs,java"
+	authors="anuragdalmia"
+	manager="dwrede"
+	editor=""/>
 
 <tags
    ms.service="app-service-logic"
-   ms.devlang="multiple"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="integration"
-   ms.date="07/02/2015"
-   ms.author="sameerch"/>
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="integration"
+	ms.date="08/19/2015"
+	ms.author="sameerch"/>
 
 
 # Utilisation du connecteur POP3 dans votre application logique #
@@ -62,12 +62,18 @@ Une fois votre application API créée, vous pouvez utiliser le connecteur POP3 
 
 5.	Vous pouvez maintenant utiliser le connecteur POP3 dans le flux. Sélectionnez le déclencheur « Obtenir le message électronique » et configurez la fréquence et l’intervalle. Vous pouvez utiliser le message électronique récupéré du déclencheur POP3 dans d’autres actions du flux.
 		 
-	
+
 	![][5]
 	![][6]
+## En faire plus avec votre connecteur
+Maintenant que le connecteur est créé, vous pouvez l'ajouter à un flux d'entreprise à l'aide d'une application logique. Voir [Que sont les applications logiques ?](app-service-logic-what-are-logic-apps.md).
+
+Affichez la référence d’API REST Swagger sur [Référence de connecteurs et d’applications API](http://go.microsoft.com/fwlink/p/?LinkId=529766).
+
+Vous pouvez également consulter les statistiques de performances et contrôler la sécurité du connecteur. Consultez la page [Gestion et contrôle de vos connecteurs et applications API intégrés](app-service-logic-monitor-your-connectors.md).
 
 
-	<!--Image references-->
+<!--Image references-->
 [1]: ./media/app-service-logic-connector-pop3/img1.PNG
 [2]: ./media/app-service-logic-connector-pop3/img2.PNG
 [3]: ./media/app-service-logic-connector-pop3/img3.png
@@ -75,4 +81,4 @@ Une fois votre application API créée, vous pouvez utiliser le connecteur POP3 
 [5]: ./media/app-service-logic-connector-pop3/img5.PNG
 [6]: ./media/app-service-logic-connector-pop3/img6.PNG
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

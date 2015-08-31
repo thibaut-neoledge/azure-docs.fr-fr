@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Importation du fichier de paramètres de publication dans Visual Studio 2013 | Microsoft Azure" 
-	description="Découvrez comment importer un fichier de paramètres de publication d'abonnement pour votre application Azure Mobile Services dans Visual Studio 2013." 
-	documentationCenter="" 
-	services="mobile-services" 
-	manager="dwrede" 
-	editor="" 
+<properties
+	pageTitle="Importation du fichier de paramètres de publication dans Visual Studio 2013 | Microsoft Azure"
+	description="Découvrez comment importer un fichier de paramètres de publication d&#39;abonnement pour votre application Azure Mobile Services dans Visual Studio 2013."
+	documentationCenter=""
+	services="mobile-services"
+	manager="dwrede"
+	editor=""
 	authors="ggailey777"/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="multiple" 
-	ms.topic="article" 
-	ms.date="04/13/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="na"
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.date="08/18/2015" 
 	ms.author="glenga"/>
 
 # Importation du fichier de paramètres de publication de votre abonnement dans Visual Studio 2013
@@ -22,7 +22,7 @@ Avant de créer le service mobile, vous devez importer le fichier de paramètres
 
 >[AZURE.NOTE]Depuis Visual Studio 2013 Update 2, aucun fichier de paramètres de publication n'est requis. Visual Studio est en mesure de se connecter directement à Azure à l'aide des informations d'identification que vous indiquez.
 
-1. Dans Visual Studio 2013, ouvrez l’Explorateur de solutions, cliquez avec le bouton droit sur le projet, cliquez sur **Ajouter**, puis sur **Service connecté...**. 
+1. Dans Visual Studio 2013, ouvrez l’Explorateur de solutions, cliquez avec le bouton droit sur le projet, cliquez sur **Ajouter**, puis sur **Service connecté...**.
 
 	![ajouter un service connecté](./media/mobile-services-windows-how-to-import-publishsettings/mobile-add-connected-service.png)
 
@@ -60,6 +60,5 @@ Avant de créer le service mobile, vous devez importer le fichier de paramètres
 [JavaScript and HTML]: /develop/mobile/tutorials/get-started-with-users-js/
 
 [Azure Management Portal]: https://manage.windowsazure.com/
- 
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

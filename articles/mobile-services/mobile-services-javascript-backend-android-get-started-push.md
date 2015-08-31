@@ -36,7 +36,7 @@ Cette rubrique montre comment utiliser Azure Mobile Services pour envoyer des no
 
 ##<a id="register"></a>Activation de Google Cloud Messaging
 
-[AZURE.INCLUDE [mobile-services-enable-Google-cloud-messaging](../../includes/mobile-services-enable-Google-cloud-messaging.md)]
+[AZURE.INCLUDE [mobile-services-enable-Google-cloud-messaging](../../includes/mobile-services-enable-google-cloud-messaging.md)]
 
 ##<a id="configure"></a>Configuration de Mobile Services pour l'envoi de requêtes Push
 
@@ -52,7 +52,7 @@ Si vous envisagez de procéder à un test avec un appareil ancien, consultez la 
 
 ###Ajout de services Google Play au projet
 
-[AZURE.INCLUDE [Ajout de services Google Play](../../includes/mobile-services-add-Google-play-services.md)]
+[AZURE.INCLUDE [Ajout de services Google Play](../../includes/mobile-services-add-google-play-services.md)]
 
 ###Ajout de code
 
@@ -153,10 +153,10 @@ Découvrez Mobile Services et Notification Hubs dans les rubriques suivantes :
 
 
 <!-- URLs. -->
-[Prise en main des notifications Push (Eclipse)]: mobile-services-javascript-backend-android-get-started-push-EC.md
+[Prise en main des notifications Push (Eclipse)]: mobile-services-javascript-backend-android-get-started-push-ec.md
 [Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
-[Prise en main de Mobile Services]: mobile-services-android-get-started.md
+[Get started with Mobile Services]: mobile-services-android-get-started.md
 [Prise en main des données]: mobile-services-android-get-started-data.md
 [Prise en main de l'authentification]: mobile-services-android-get-started-users.md
 [Get started with push notifications]: /develop/mobile/tutorials/get-started-with-push-js
@@ -178,4 +178,4 @@ Découvrez Mobile Services et Notification Hubs dans les rubriques suivantes :
 [Send template-based notifications to subscribers]: ../notification-hubs-android-send-localized-breaking-news.md
  
 
-<!-----HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

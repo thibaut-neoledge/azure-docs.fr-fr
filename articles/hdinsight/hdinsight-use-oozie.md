@@ -3,10 +3,10 @@
 	description="Utilisation de Hadoop Oozie dans HDInsight, un service pour les données volumineuses. Découvrez comment définir un workflow Oozie et envoyer une tâche Oozie."
 	services="hdinsight"
 	documentationCenter=""
+	tags="azure-portal"
 	authors="mumian"
 	manager="paulettm"
 	editor="cgronlun"/>
-
 
 <tags
 	ms.service="hdinsight"
@@ -14,9 +14,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/30/2015"
+	ms.date="07/28/2015"
 	ms.author="jgao"/>
-
 
 
 # Utilisation d'Oozie avec Hadoop pour définir et exécuter un workflow dans HDInsight
@@ -34,7 +33,7 @@ Le workflow que vous allez implémenter en suivant les instructions de ce didact
 
 ![Diagramme du workflow][img-workflow-diagram]
 
-1. Une action Hive exécute un script HiveQL pour compter les occurrences de chaque type de niveau de journalisation dans un fichier log4j. Chaque fichier log4j est constitué d’une ligne de champs qui contient un champ [LOG LEVEL\] pour indiquer le type et la gravité, par exemple :
+1. Une action Hive exécute un script HiveQL pour compter les occurrences de chaque type de niveau de journalisation dans un fichier log4j. Chaque fichier log4j est constitué d’une ligne de champs qui contient un champ [LOG LEVEL] pour indiquer le type et la gravité, par exemple :
 
 		2012-02-03 18:35:34 SampleClass6 [INFO] everything normal for id 577725851
 		2012-02-03 18:35:34 SampleClass4 [FATAL] system problem at id 1991281254
@@ -130,7 +129,6 @@ Il existe un problème connu de chemin d'accès à Hive. Vous le rencontrerez lo
 		<workflow-app name="useooziewf" xmlns="uri:oozie:workflow:0.2">
 		    <start to = "RunHiveScript"/>
 
-
 		    <action name="RunHiveScript">
 		        <hive xmlns="uri:oozie:hive-action:0.2">
 		            <job-tracker>${jobTracker}</job-tracker>
@@ -147,9 +145,7 @@ Il existe un problème connu de chemin d'accès à Hive. Vous le rencontrerez lo
 		            <param>hiveOutputFolder=${hiveOutputFolder}</param>
 		        </hive>
 		        <ok to="RunSqoopExport"/>
-
 		        <error to="fail"/>
-
 		    </action>
 
 		    <action name="RunSqoopExport">
@@ -175,9 +171,7 @@ Il existe un problème connu de chemin d'accès à Hive. Vous le rencontrerez lo
 			    <arg>"\001"</arg>
 		        </sqoop>
 		        <ok to="end"/>
-
 		        <error to="fail"/>
-
 		    </action>
 
 		    <kill name="fail">
@@ -185,7 +179,6 @@ Il existe un problème connu de chemin d'accès à Hive. Vous le rencontrerez lo
 		    </kill>
 
 		   <end name="end"/>
-
 		</workflow-app>
 
 	Voici les deux actions définies dans le workflow : l'action de démarrage est *RunHiveScript*. Si cette action fonctionne correctement, l'action suivante est *RunSqoopExport*.
@@ -527,7 +520,7 @@ Azure PowerShell ne fournit actuellement aucune cmdlet pour la définition de t�
 
 **Vérification du journal des erreurs de la tâche**
 
-Pour résoudre les problèmes d'un workflow, le fichier journal Oozie se trouve à l'emplacement *C:\\apps\\dist\\oozie-3.3.2.1.3.2.0-05\\oozie-win-distro\\logs\\Oozie.log* ou *C:\\apps\\dist\\oozie-4.0.0.2.0.7.0-1528\\oozie-win-distro\\logs\\Oozie.log* à partir du nœud principal du cluster. Pour plus d’informations, consultez la rubrique [Gestion des clusters Hadoop dans HDInsight au moyen du portail de gestion Azure][hdinsight-admin-portal].
+Pour résoudre les problèmes d'un workflow, le fichier journal Oozie se trouve à l'emplacement *C:\\apps\\dist\\oozie-3.3.2.1.3.2.0-05\\oozie-win-distro\\logs\\Oozie.log* ou *C:\\apps\\dist\\oozie-4.0.0.2.0.7.0-1528\\oozie-win-distro\\logs\\Oozie.log* à partir du nœud principal du cluster. Pour plus d'informations sur RDP, consultez la rubrique [Gestion des clusters Hadoop dans HDInsight au moyen du portail de gestion Azure][hdinsight-admin-portal].
 
 **Réexécution du didacticiel**
 
@@ -609,7 +602,7 @@ Dans ce didacticiel, vous avez appris à définir un workflow Oozie et à exécu
 [sqldatabase-create-configue]: ../sql-database-create-configure.md
 [sqldatabase-get-started]: ../sql-database-get-started.md
 
-[azure-management-portal]: https://manage.windowsazure.com/
+[azure-management-portal]: https://portal.azure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account.md
 
 [apache-hadoop]: http://hadoop.apache.org/
@@ -630,4 +623,4 @@ Dans ce didacticiel, vous avez appris à définir un workflow Oozie et à exécu
 
 [technetwiki-hive-error]: http://social.technet.microsoft.com/wiki/contents/articles/23047.hdinsight-hive-error-unable-to-rename.aspx
 
-<!------HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

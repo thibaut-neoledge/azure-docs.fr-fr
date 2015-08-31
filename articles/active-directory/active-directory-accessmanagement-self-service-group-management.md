@@ -1,12 +1,20 @@
-<properties pageTitle="Configuration d’Azure AD pour gérer l’accès aux applications en libre-service| Microsoft Azure" description="Rubrique qui explique comment gérer les groupes dans Azure AD." services="active-directory" documentationCenter="" authors="femila" manager="swadhwa"" editor="" tags="azure-classic-portal"/>
+<properties
+	pageTitle="Configuration d’Azure AD pour gérer l’accès aux applications en libre-service| Microsoft Azure"
+	description="Une rubrique qui explique comment gérer les mots de passe dans Azure AD."
+	services="active-directory"
+	documentationCenter=""
+	authors="femila"
+	manager="swadhwa"
+	editor=""
+	tags="azure-classic-portal"/>
 
-<tags 
-	ms.service="active-directory" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/13/2015" 
+<tags
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/13/2015"
 	ms.author="femila"/>
 
 #Configuration d’Azure AD pour gérer l’accès aux applications en libre-service
@@ -27,7 +35,7 @@ La gestion de groupes en libre-service se compose actuellement de deux scénario
 
 Sous l’onglet Configurer du portail de gestion Azure, définissez le commutateur Gestion déléguée des groupes avec la valeur Activé, puis le commutateur Les utilisateurs peuvent créer des groupes avec la valeur Activé.
 
-Quand le commutateur **Les utilisateurs peuvent créer des groupes** est défini avec la valeur **Activé**, tous les utilisateurs présents dans votre annuaire sont autorisés à créer des groupes de sécurité et à ajouter des membres à ces groupes. Notez que ces nouveaux groupes apparaissent également dans le panneau d’accès pour tous les autres utilisateurs et que les autres utilisateurs peuvent créer des demandes d’adhésion à ces groupes si le paramètre de stratégie sur les groupes le permet. Si ce commutateur a la valeur Désactivé, les utilisateurs ne peuvent pas créer de groupes, ni modifier les groupes existants dont ils sont propriétaires, mais ils peuvent toujours gérer les appartenances à ces groupes et approuver les demandes d’adhésion à leurs groupes provenant d’autres utilisateurs.
+Quand le commutateur **Les utilisateurs peuvent créer des groupes** est défini avec la valeur **Activé**, tous les utilisateurs présents dans votre répertoire sont autorisés à créer des groupes de sécurité et à ajouter des membres à ces groupes. Notez que ces nouveaux groupes apparaissent également dans le panneau d’accès pour tous les autres utilisateurs et que les autres utilisateurs peuvent créer des demandes d’adhésion à ces groupes si le paramètre de stratégie sur les groupes le permet. Si ce commutateur a la valeur Désactivé, les utilisateurs ne peuvent pas créer de groupes, ni modifier les groupes existants dont ils sont propriétaires, mais ils peuvent toujours gérer les appartenances à ces groupes et approuver les demandes d’adhésion à leurs groupes provenant d’autres utilisateurs.
 
 Vous pouvez également utiliser le commutateur Utilisateurs pouvant utiliser le libre-service pour les groupes de sécurité pour obtenir un contrôle d’accès plus fin des fonctionnalités de gestion de groupes en libre-service pour vos utilisateurs. Quand le commutateur Les utilisateurs peuvent créer des groupes a la valeur Activé, tous les utilisateurs présents dans votre annuaire sont autorisés à créer des groupes de sécurité et à ajouter des membres à ces groupes. Par ailleurs, en définissant le commutateur Utilisateurs pouvant utiliser le libre-service pour les groupes de sécurité avec la valeur Certains, vous limitez la gestion des groupes de sécurité à un groupe d’utilisateurs défini. Quand ce commutateur a la valeur Certains, un groupe appelé SSGMSecurityGroupsUsers est créé dans votre annuaire et seuls les utilisateurs désignés comme membres de ce groupe peuvent alors créer des groupes de sécurité et ajouter des membres aux groupes figurant dans votre annuaire. En définissant le commutateur Utilisateurs pouvant utiliser le libre-service pour les groupes de sécurité avec la valeur Tous, vous autorisez tous les utilisateurs de votre annuaire à créer des groupes de sécurité.
 
@@ -35,10 +43,10 @@ Vous pouvez également utiliser le champ Groupe pouvant utiliser le libre-servic
 
 Voici des rubriques qui fournissent des informations supplémentaires sur Azure Active Directory.
 
-* [Gestion de l’accès aux ressources avec les groupes Azure Active Directory](active-directory-manage-groups.md)
+* [Gestion de l’accès aux ressources avec les groupes Azure Active Directory](active-directory-manage-groups.md)
 
 * [Qu’est-ce qu’Azure Active Directory ?](active-directory-whatis.md)
 
-* [Intégration des identités locales dans Azure Active Directory](active-directory-aadconnect.md)
+* [Intégration de vos identités locales avec Azure Active Directory](active-directory-aadconnect.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Ajout de l'authentification à votre application Windows Phone Silverlight | Microsoft Azure" 
-	description="Découvrez comment utiliser Mobile Services pour authentifier les utilisateurs de votre application Windows Phone Silverlight via divers fournisseurs d'identité, notamment Google, Facebook, Twitter et un compte Microsoft." 
+	pageTitle="Ajout de l&#39;authentification à votre application Windows Phone Silverlight | Microsoft Azure" 
+	description="Découvrez comment utiliser Mobile Services pour authentifier les utilisateurs de votre application Windows Phone Silverlight via divers fournisseurs d&#39;identité, notamment Google, Facebook, Twitter et un compte Microsoft." 
 	services="mobile-services" 
 	documentationCenter="windows" 
 	authors="ggailey777" 
@@ -76,4 +76,4 @@ Dans le didacticiel suivant, [Autorisation côté service des utilisateurs Mobil
 [Register your Windows Store app package for Microsoft authentication]: ../mobile-services-how-to-register-store-app-package-microsoft-authentication.md
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

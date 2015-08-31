@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Méthodes de routage de Traffic Manager"
+   pageTitle="Traffic Manager - Méthodes de routage du trafic | Microsoft Azure"
    description="Cet article vous aide à comprendre les différentes méthodes de routage du trafic utilisées par Traffic Manager."
    services="traffic-manager"
    documentationCenter=""
@@ -12,16 +12,16 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="07/10/2015"
+   ms.date="08/19/2015"
    ms.author="joaoma" />
 
 # Méthodes de routage de Traffic Manager
 
-Trois méthodes de routage sont disponibles dans Traffic Manager. Chaque profil Traffic Manager ne peut utiliser qu’une seule méthode de routage à la fois, mais vous pouvez sélectionner une autre méthode de routage pour votre profil à tout moment.
+Trois méthodes de routage de trafic sont disponibles dans Traffic Manager. Chaque profil Traffic Manager ne peut utiliser qu’une seule méthode de routage du trafic à la fois, mais vous pouvez sélectionner une autre méthode de routage du trafic pour votre profil à tout moment.
 
-Il est important de noter que toutes les méthodes de routage incluent la surveillance des points de terminaison. Après avoir configuré votre profil Traffic Manager pour spécifier la méthode de routage qui répond le mieux à vos besoins, configurez vos paramètres de surveillance. Quand la surveillance est correctement configurée, Traffic Manager surveille l'état de vos points de terminaison, composés de services cloud et de sites web, et n'envoie pas de trafic vers les points de terminaison qui lui semblent indisponibles. Pour plus d’informations sur la surveillance de Traffic Manager, consultez [À propos de la surveillance avec Traffic Manager](traffic-manager-monitoring.md).
+Il est important de noter que toutes les méthodes de routage du trafic incluent la surveillance des points de terminaison. Après avoir configuré votre profil Traffic Manager pour spécifier la méthode de routage du trafic qui répond le mieux à vos besoins, configurez vos paramètres de surveillance. Quand la surveillance est correctement configurée, Traffic Manager surveille l'état de vos points de terminaison, composés de services cloud et de sites web, et n'envoie pas de trafic vers les points de terminaison qui lui semblent indisponibles. Pour plus d’informations sur la surveillance de Traffic Manager, consultez [À propos de la surveillance avec Traffic Manager](traffic-manager-monitoring.md).
 
-Les trois méthodes de routage de Traffic Manager sont :
+Les trois méthodes de routage du trafic de Traffic Manager sont :
 
 - **Basculement **: sélectionnez cette méthode quand vos points de terminaison se trouvent dans le même centre de données Azure (appelé région dans le portail de gestion) ou dans des centres de données Azure différents, et que vous voulez utiliser un point de terminaison principal pour tout le trafic, tout en fournissant des sauvegardes au cas où le point de terminaison principal ou les points de terminaison de sauvegarde ne seraient pas disponibles. Pour plus d’informations, consultez la section [Méthode de routage du trafic par basculement](#failover-traffic-routing-method).
 
@@ -123,7 +123,7 @@ Si vous souhaitez récupérer les figures de cette rubrique sous forme de diapos
 
 ## Étapes suivantes
 
-[Vue d’ensemble de Traffic Manager](traffic-manager-overview.md)
+[Qu’est-ce que Traffic Manager ?](traffic-manager-overview.md)
 
 [À propos de la surveillance avec Traffic Manager](traffic-manager-monitoring.md)
 
@@ -137,4 +137,4 @@ Si vous souhaitez récupérer les figures de cette rubrique sous forme de diapos
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

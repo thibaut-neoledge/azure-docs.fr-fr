@@ -1,18 +1,18 @@
 <properties 
-	pageTitle="Surveillez l'intégrité et l'utilisation de votre application avec Application Insights" 
-	description="Prise en main d'Application Insights. Analyze usage, availability and performance of your on-premises or Microsoft Azure applications." 
-	services="application-insights" 
-    documentationCenter=""
-	authors="alancameronwills" 
+	pageTitle="Surveillez l'intégrité et l'utilisation de votre application avec Application Insights"
+	description="Prise en main d'Application Insights. Analyze usage, availability and performance of your on-premises or Microsoft Azure applications."
+	services="application-insights"
+	documentationCenter=""
+	authors="alancameronwills"
 	manager="keboyd"/>
 
 <tags 
-	ms.service="application-insights" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="04/02/2015" 
+	ms.service="application-insights"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="ibiza"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="04/02/2015"
 	ms.author="awills"/>
  
 # Analyse des performances dans les applications web
@@ -102,11 +102,16 @@ Pour savoir quelles autres métriques vous pouvez afficher, cliquez sur un graph
 
 La sélection d'une métrique désactive les autres métriques qui peuvent s'afficher sur le même graphique.
 
-## Collecte de compteurs de performances supplémentaires
+## Compteurs de performances système
 
 Certaines mesures utilisables peuvent provenir de [compteurs de performances](http://www.codeproject.com/Articles/8590/An-Introduction-To-Performance-Counters). Windows offre un large éventail de compteurs de ce type ; vous pouvez également définir les vôtres.
 
-Si les compteurs requis ne figurent pas dans la liste, vous pouvez les ajouter à l’ensemble collecté par le Kit de développement logiciel (SDK). Ouvrez le fichier ApplicationInsights.config et modifiez la directive du collecteur de performances :
+Cet exemple montre les compteurs de performance disponibles par défaut. Nous avons [ajouté un graphique distinct](app-insights-metrics-explorer.md#editing-charts-and-grids) pour chaque compteur et nommé le graphique en [l’enregistrant en tant que favori](app-insights-metrics-explorer.md#editing-charts-and-grids) :
+
+![](./media/app-insights-web-monitor-performance/sys-perf.png)
+
+
+Si les compteurs requis ne figurent pas dans la liste de propriétés, vous pouvez les ajouter à l’ensemble collecté par le Kit de développement logiciel (SDK). Ouvrez le fichier ApplicationInsights.config et modifiez la directive du collecteur de performances :
 
     <Add Type="Microsoft.ApplicationInsights.Extensibility.PerfCollector.PerformanceCollectorModule, Microsoft.ApplicationInsights.Extensibility.PerfCollector">
       <Counters>
@@ -115,7 +120,7 @@ Si les compteurs requis ne figurent pas dans la liste, vous pouvez les ajouter �
       </Counters>
     </Add>
 
-Le format est le suivant : `\Category(instance)\Counter"` ou, pour les catégories qui ne présentent aucune instance : `\Category\Counter`, tout simplement.
+Le format est le suivant : `\Category(instance)\Counter"` ou, pour les catégories qui ne présentent aucune instance : `\Category\Counter`, tout simplement. Pour découvrir les compteurs disponibles avec votre système, lisez [cette présentation](http://www.codeproject.com/Articles/8590/An-Introduction-To-Performance-Counters).
 
 L’élément `ReportAs` est requis pour les noms des compteurs qui contiennent des caractères autres que ceux-ci : lettres, parenthèses, barres obliques, tirets, traits de soulignement, espaces et points.
 
@@ -178,4 +183,4 @@ Voici quelques conseils pour identifier et diagnostiquer les problèmes de perfo
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

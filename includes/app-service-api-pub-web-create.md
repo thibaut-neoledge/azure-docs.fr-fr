@@ -25,12 +25,10 @@
 
 	Comme ce processus peut prendre quelques minutes, Visual Studio affiche une boîte de dialogue de confirmation.
 
-	![Message de confirmation de la création du service de l’API](./media/app-service-api-pub-web-create/25-api-provisioning-started-v3.png)
-
 6. Cliquez sur **OK** dans la boîte de dialogue de confirmation.
  
 	Le processus de configuration crée le groupe de ressources et l'application API dans votre abonnement Azure. Visual Studio affiche la progression dans la fenêtre **Activité d’Azure App Service**.
 
 	![Notification d’état via la fenêtre Activité d’Azure App Service](./media/app-service-api-pub-web-create/26-provisioning-success-v3.png)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

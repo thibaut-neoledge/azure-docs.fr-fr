@@ -1,21 +1,19 @@
 <properties 
-   pageTitle="Gestion du compte de stockage StorSimple"
+   pageTitle="Gérer votre compte de stockage StorSimple Microsoft Azure | Microsoft Azure"
    description="Explique comment utiliser la page Configurer pour ajouter, modifier ou supprimer les clés de sécurité d’un compte de stockage ou effectuer une rotation de ces clés."
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
    manager="carolz"
    editor="" />
-
 <tags 
    ms.service="storsimple"
    ms.devlang="NA"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="06/25/2015"
+   ms.date="08/14/2015"
    ms.author="v-sharos" />
-
 
 # Gestion du compte de stockage StorSimple
 
@@ -52,7 +50,7 @@ Les tâches les plus courantes que vous pouvez effectuer sur les comptes de stoc
 
 Vous pouvez utiliser trois types de compte de stockage avec votre appareil StorSimple.
 
-- **Comptes de stockage générés automatiquement** : comme son nom l’indique, ce type de compte de stockage est généré automatiquement à la création du service. Pour en savoir plus sur la création de ces comptes de stockage, consultez « Étape 1 : création d’un nouveau service » dans [Déploiement de l’appareil StorSimple](storsimple-deployment-walkthrough.md). 
+- **Comptes de stockage générés automatiquement** : comme son nom l’indique, ce type de compte de stockage est généré automatiquement à la création du service. Pour en savoir plus sur la création de ces comptes de stockage, consultez l’[Étape 1 : création d’un nouveau service](storsimple-deployment-walkthrough-u1.md#step-1-create-a-new-service) dans [Déploiement de l’appareil local StorSimple](storsimple-deployment-walkthrough.md). 
 - **Comptes de stockage de l’abonnement au service** : il s’agit des comptes de stockage Azure associés à l’abonnement au service. Pour en savoir plus sur la création de ces comptes de stockage, consultez la rubrique [À propos des comptes de stockage Azure](../storage/storage-create-storage-account.md). 
 - **Comptes de stockage hors abonnement au service** : il s’agit des comptes de stockage Azure qui ne sont pas associés à votre service et existaient probablement avant sa création.
 
@@ -147,11 +145,11 @@ Pour informer le service StorSimple Manager de la modification, vous devez accé
 3. Dans la boîte de dialogue qui s’affiche, procédez comme suit :
 
   1. Sélectionnez le compte de stockage associé à la clé que vous souhaitez mettre à jour.
-  2. Vous devrez mettre la clé d’accès de stockage à jour dans le service StorSimple Manager. Dans ce cas, vous pouvez voir la clé d’accès de stockage. Entrez la nouvelle clé dans le champ **Clé d’accès au compte de stockage**. 
+  2. Vous devrez mettre la clé d’accès de stockage à jour dans le service StorSimple Manager. Dans ce cas, vous pouvez voir la clé d’accès de stockage. Entrez la nouvelle clé dans la zone **Clé d’accès au compte de stockage**. 
   3. Enregistrez vos modifications. La clé d’accès de votre compte de stockage doit maintenant être à jour.
 
 ## Étapes suivantes
 
-En savoir plus sur la [sécurité StorSimple](storsimple-security.md)
+En savoir plus sur la [sécurité StorSimple](storsimple-security.md).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Affichage et gestion des alertes StorSimple"
+   pageTitle="Affichage et gestion des alertes StorSimple | Microsoft Azure"
    description="Décrit les alertes StorSimple et la procédure d’utilisation du service StorSimple Manager pour les afficher et les effacer."
    services="storsimple"
    documentationCenter="NA"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="07/30/2015"
+   ms.date="08/14/2015"
    ms.author="v-sharos" />
 
 # Affichage et gestion des alertes StorSimple
@@ -137,8 +137,24 @@ Les tableaux suivants répertorient certaines des alertes Microsoft Azure StorSi
 
 |Texte d'alerte|Événement|Plus d'informations/actions recommandées|
 |:---|:---|:---|
-|La connectivité à <*nom des informations d’identification cloud*> ne peut pas être établie.|Impossible de se connecter au compte de stockage.|Il se peut qu'il y ait un problème de connectivité avec votre appareil. Exécutez l’applet de commande **Test-HcsmConnection** à partir de l’interface Windows PowerShell pour StorSimple sur votre appareil pour identifier et résoudre le problème. Si les paramètres sont corrects, le problème peut provenir des informations d'identification du compte de stockage pour lequel l'alerte a été déclenchée. Dans ce cas, utilisez l’applet de commande **Test-HcsStorageAccountCredential** pour déterminer s’il existe des problèmes que vous pouvez résoudre.<ul><li>Vérifiez vos paramètres réseau.</li><li>Vérifiez les informations d’identification de votre compte de stockage.</li></ul>|
-|Nous n’avons pas reçu de pulsation de votre appareil au cours des <*nombre*> dernières minutes.|Impossible de se connecter à l’appareil.|Il semble qu'il y ait un problème de connectivité avec votre appareil. Veuillez utiliser l’applet de commande **Test-HcsmConnection** à partir de l'interface Windows PowerShell pour StorSimple sur votre appareil pour identifier et résoudre le problème, ou contactez votre administrateur réseau.|
+|La connectivité à <*nom des informations d’identification cloud*> ne peut pas être établie.|Impossible de se connecter au compte de stockage.|Il se peut qu'il y ait un problème de connectivité avec votre appareil. Exécutez l’applet de commande `Test-HcsmConnection` à partir de l’interface Windows PowerShell pour StorSimple sur votre appareil pour identifier et résoudre le problème. Si les paramètres sont corrects, le problème peut provenir des informations d'identification du compte de stockage pour lequel l'alerte a été déclenchée. Dans ce cas, utilisez l’applet de commande `Test-HcsStorageAccountCredential` pour déterminer s’il existe des problèmes que vous pouvez résoudre.<ul><li>Vérifiez vos paramètres réseau.</li><li>Vérifiez les informations d’identification de votre compte de stockage.</li></ul>|
+|Nous n’avons pas reçu de pulsation de votre appareil au cours des <*nombre*> dernières minutes.|Impossible de se connecter à l’appareil.|Il semble qu'il y ait un problème de connectivité avec votre appareil. Veuillez utiliser l’applet de commande `Test-HcsmConnection` à partir de l'interface Windows PowerShell pour StorSimple sur votre appareil pour identifier et résoudre le problème, ou contactez votre administrateur réseau.|
+
+### Comportement de StorSimple en cas d’échec de connexion au cloud
+
+Que se passe-t-il en cas d'échec de connexion au cloud pour mon appareil StorSimple en cours d'exécution en production ?
+
+En cas d'échec de la connexion au cloud sur votre appareil de production StorSimple, en fonction de l'état de votre périphérique, les événements suivants peuvent se produire :
+
+- **Pour les données locales sur votre appareil** : il n’y a pas d’interruption de service et les lectures sont servies. Toutefois, lorsque les E/S en attente augmentent et dépassent la limite, les lectures peuvent commencer à échouer. 
+
+	Selon la quantité de données sur les couches locales de votre appareil, les écritures continuent également à se produire pendant les premières heures suivant l'interruption de la connexion au cloud. Puis, les écritures ralentissent et finissent par échouer si l'interruption de la connexion au cloud dure plusieurs heures.
+
+ 
+- **Pour les données dans le cloud** : pour la plupart des erreurs de connectivité au cloud, une erreur est renvoyée. Une fois que la connectivité est rétablie, les E/S reprennent sans que l'utilisateur doive mettre le volume en ligne. Dans de rares cas, l'intervention de l'utilisateur peut être nécessaire pour ramener le volume en ligne à partir du portail Azure.
+ 
+- **Pour les instantanés cloud en cours** : l'opération est retentée plusieurs fois pendant 4 à 5 heures et si la connectivité n'est pas restaurée, les instantanés cloud échouent.
+
 
 ### Alertes de cluster
 
@@ -155,21 +171,21 @@ Les tableaux suivants répertorient certaines des alertes Microsoft Azure StorSi
 
 |Texte d'alerte|Événement|Plus d'informations/actions recommandées|
 |:---|:---|:---|
-|Les opérations de récupération n'ont pas pu restaurer tous les paramètres pour ce service. Les données de configuration d’appareil sont dans un état incohérent pour certains appareils.|Incohérence de données détectée après la récupération d'urgence.|Les données chiffrées sur le service ne sont pas synchronisées avec celles sur l’appareil. Autorisez l’appareil <*nom appareil*> de StorSimple Manager à démarrer le processus de synchronisation. Utilisez l’interface Windows PowerShell pour StorSimple pour exécuter l’applet de commande **Restore-HcsmEncryptedServiceData sur l’appareil <*nom appareil*>**, en fournissant l’ancien mot de passe comme entrée à cette applet de commande pour restaurer le profil de sécurité. Exécutez ensuite l’applet de commande **Invoke-HcsmServiceDataEncryptionKeyChange** pour mettre à jour la clé de chiffrement de données du service. Après avoir pris les mesures appropriées, effacez cette alerte de la page des alertes.|
-|Le service a basculé vers un centre de données secondaire en raison d'une défaillance inattendue.|Autre cause/cause inconnue.|Vous devez vérifier vos paramètres de configuration dans StorSimple Manager avant de continuer. Après avoir pris les mesures appropriées, effacez cette alerte de la page des alertes. Pour plus d’informations sur StorSimple Manager, consultez le [Guide de l’administrateur de StorSimple Manager](https://msdn.microsoft.com/library/azure/dn772401.aspx).|
+|Les opérations de récupération n'ont pas pu restaurer tous les paramètres pour ce service. Les données de configuration d’appareil sont dans un état incohérent pour certains appareils.|Incohérence de données détectée après la récupération d'urgence.|Les données chiffrées sur le service ne sont pas synchronisées avec celles sur l’appareil. Dans StorSimple Manager, autorisez l’appareil <*nom de l’appareil*> à démarrer le processus de synchronisation. Utilisez l’interface Windows PowerShell pour StorSimple pour exécuter l’applet de commande `Restore-HcsmEncryptedServiceData` sur <*nom de l’appareil*>, en fournissant l’ancien mot de passe comme entrée à cette applet de commande pour restaurer le profil de sécurité. Puis exécutez l’applet de commande `Invoke-HcsmServiceDataEncryptionKeyChange` pour mettre à jour la clé de chiffrement des données du service. Après avoir pris les mesures appropriées, effacez cette alerte de la page des alertes.|
+|Le service a basculé vers un centre de données secondaire en raison d'une défaillance inattendue.|Autre cause/cause inconnue.|Vous devez vérifier vos paramètres de configuration dans StorSimple Manager avant de continuer. Après avoir pris les mesures appropriées, effacez cette alerte de la page des alertes. Pour plus d'informations relatives à StorSimple Manager, consultez [Utilisation du service StorSimple Manager pour gérer votre appareil StorSimple](storsimple-manager-service-administration.md).|
 
 ### Alertes de matériel
 
 |Texte d'alerte|Événement|Plus d'informations/actions recommandées|
 |:---|:---|:---|
-|Le composant matériel <*ID composant*> indique que l’état <*état*>.||Les conditions temporaires peuvent parfois provoquer ces alertes. Dans ce cas, l’alerte est automatiquement effacée après un certain temps. Si le problème persiste, contactez le support technique Microsoft.|
+|Le composant matériel <*ID du composant*> indique l’état <*état*>.||Les conditions temporaires peuvent parfois provoquer ces alertes. Dans ce cas, l’alerte est automatiquement effacée après un certain temps. Si le problème persiste, contactez le support technique Microsoft.|
 |Dysfonctionnement du contrôleur passif.|Le contrôleur passif (secondaire) ne fonctionne pas.|Votre appareil est opérationnel, mais l’un de vos contrôleurs est défectueux. Essayez de redémarrer ce contrôleur. Si le problème persiste, contactez le Support Microsoft.|
 
 ### Alertes d'échec de tâche
 
 |Texte d'alerte|Événement|Plus d'informations/actions recommandées|
 |:---|:---|:---|
-|Échec de la sauvegarde de <*ID groupe de volumes source*>.|Échec de la sauvegarde de la tâche.|Des problèmes de connectivité peuvent empêcher la réalisation de l'opération de sauvegarde. S'il n'y a aucun problème de connectivité, vous avez peut-être atteint le nombre maximal de sauvegardes. Supprimez toutes les sauvegardes qui ne sont plus nécessaires et recommencez l'opération. Après avoir pris les mesures appropriées, effacez cette alerte de la page des alertes.|
+|Échec de la sauvegarde de <*ID du groupe de volumes source*>.|Échec de la sauvegarde de la tâche.|Des problèmes de connectivité peuvent empêcher la réalisation de l'opération de sauvegarde. S'il n'y a aucun problème de connectivité, vous avez peut-être atteint le nombre maximal de sauvegardes. Supprimez toutes les sauvegardes qui ne sont plus nécessaires et recommencez l'opération. Après avoir pris les mesures appropriées, effacez cette alerte de la page des alertes.|
 |Le clonage de <*ID des éléments de sauvegarde source*> vers <*numéros de série des volumes de destination*> a échoué.|Échec du clonage de la tâche.|Actualisez la liste de sauvegarde pour vérifier que la sauvegarde est toujours valide. Si la sauvegarde est valide, il est possible que les problèmes de connectivité au cloud empêchent l'opération de clonage de se terminer correctement. S'il n'y a aucun problème de connectivité, vous avez peut-être atteint la limite de stockage. Supprimez toutes les sauvegardes qui ne sont plus nécessaires et recommencez l'opération. Après avoir pris les mesures appropriées pour résoudre le problème, effacez cette alerte de la page des alertes.|
 |La restauration de <*ID des éléments de sauvegarde source*> a échoué.|Échec de la restauration de la tâche.|Actualisez la liste de sauvegarde pour vérifier que la sauvegarde est toujours valide. Si la sauvegarde est valide, il est possible que des problèmes de connectivité au cloud empêchent l'opération de restauration de se terminer correctement. S'il n'y a aucun problème de connectivité, vous avez peut-être atteint la limite de stockage. Supprimez toutes les sauvegardes qui ne sont plus nécessaires et recommencez l'opération. Après avoir pris les mesures appropriées pour résoudre le problème, effacez cette alerte de la page des alertes.|
 
@@ -185,9 +201,9 @@ Les tableaux suivants répertorient certaines des alertes Microsoft Azure StorSi
 |:---|:---|:---|
 |La session du Support Microsoft a commencé.|Session du support accédée par des tiers.|Veuillez confirmer que cet accès est autorisé. Après avoir pris les mesures appropriées, effacez cette alerte de la page des alertes.|
 |Le mot de passe pour <*élément*> expirera dans <*période de temps*>.||Modifiez votre mot de passe avant son expiration.|
-|Les informations de configuration de sécurité sont manquantes pour <*ID élément*>.||Les volumes associés à ce conteneur de volume ne peuvent pas être utilisés pour répliquer votre configuration StorSimple. Pour vous assurer que vos données sont stockées en toute sécurité, nous vous invitons à supprimer le conteneur de volumes et les volumes associés à ce conteneur de volume. Après avoir pris les mesures appropriées, effacez cette alerte de la page des alertes.|
-|<*nombre*> tentatives de connexion ont échoué pour <*ID élément*>.|Échec de plusieurs tentatives de connexion.|Il se peut que votre appareil soit attaqué ou qu’un utilisateur autorisé tente de se connecter avec un mot de passe incorrect.<ul><li>Contactez vos utilisateurs autorisés et vérifiez que ces tentatives proviennent d’une source légitime. Si vous continuez à voir un grand nombre de tentatives de connexion échouées, envisagez de désactiver la gestion à distance et contactez votre administrateur réseau. Après avoir pris les mesures appropriées, effacez cette alerte de la page des alertes.</li><li>Vérifiez que vos instances du gestionnaire d’instantanés sont configurées avec le bon mot de passe. Après avoir pris les mesures appropriées, effacez cette alerte de la page des alertes.</li></ul>|
-|Une ou plusieurs défaillances se sont produites lors de la modification de la clé de chiffrement de données du service.||Des erreurs sont survenues lors de la modification de la clé de chiffrement de données du service. Une fois que vous avez résolu les conditions d’erreur, exécutez l’applet de commande **Invoke-HcsmServiceDataEncryptionKeyChange** à partir de l’interface Windows PowerShell pour StorSimple sur votre appareil pour mettre à jour le service. Si le problème persiste, veuillez contacter le support Microsoft. Une fois que le problème est résolu, effacez cette alerte de la page des alertes.|
+|Les informations de configuration de sécurité sont manquantes pour <*ID de l’élément*>.||Les volumes associés à ce conteneur de volume ne peuvent pas être utilisés pour répliquer votre configuration StorSimple. Pour vous assurer que vos données sont stockées en toute sécurité, nous vous invitons à supprimer le conteneur de volumes et les volumes associés à ce conteneur de volume. Après avoir pris les mesures appropriées, effacez cette alerte de la page des alertes.|
+|<*nombre*> tentatives de connexion ont échoué pour <*ID de l’élément*>.|Échec de plusieurs tentatives de connexion.|Il se peut que votre appareil soit attaqué ou qu’un utilisateur autorisé tente de se connecter avec un mot de passe incorrect.<ul><li>Contactez vos utilisateurs autorisés et vérifiez que ces tentatives proviennent d’une source légitime. Si vous continuez à voir un grand nombre de tentatives de connexion échouées, envisagez de désactiver la gestion à distance et contactez votre administrateur réseau. Après avoir pris les mesures appropriées, effacez cette alerte de la page des alertes.</li><li>Vérifiez que vos instances du gestionnaire d’instantanés sont configurées avec le bon mot de passe. Après avoir pris les mesures appropriées, effacez cette alerte de la page des alertes.</li></ul>|
+|Une ou plusieurs défaillances se sont produites lors de la modification de la clé de chiffrement de données du service.||Des erreurs sont survenues lors de la modification de la clé de chiffrement de données du service. Une fois que vous avez résolu les conditions d’erreur, exécutez l’applet de commande `Invoke-HcsmServiceDataEncryptionKeyChange` à partir de l’interface Windows PowerShell pour StorSimple sur votre appareil pour mettre à jour le service. Si le problème persiste, veuillez contacter le support Microsoft. Une fois que le problème est résolu, effacez cette alerte de la page des alertes.|
 
 ### Alertes du package de prise en charge
 
@@ -199,7 +215,7 @@ Les tableaux suivants répertorient certaines des alertes Microsoft Azure StorSi
 
 |Texte d'alerte|Événement|Plus d'informations/actions recommandées|
 |:---|:---|:---|
-|Il s'agit d'un message de test envoyé à partir de votre appareil StorSimple. Votre administrateur StorSimple vous a ajouté comme destinataire de notifications d’alertes pour l’appareil : <*nom appareil*>.|Tester l’e-mail de notification d'alerte.|Si vous pensez que vous avez reçu ce message par erreur, veuillez contacter votre administrateur StorSimple.|
+|Il s'agit d'un message de test envoyé à partir de votre appareil StorSimple. Votre administrateur StorSimple vous a ajouté comme destinataire de notifications d’alertes pour l’appareil : <*nom de l’appareil*>.|Tester l’e-mail de notification d'alerte.|Si vous pensez que vous avez reçu ce message par erreur, veuillez contacter votre administrateur StorSimple.|
 
 ### Alertes de mise à jour
 
@@ -207,14 +223,14 @@ Les tableaux suivants répertorient certaines des alertes Microsoft Azure StorSi
 |:---|:---|:---|
 |Correctif logiciel installé.|Mise à jour du logiciel ou du microprogramme terminée.|Le correctif logiciel est installé correctement sur votre appareil.|
 |Mises à jour manuelles disponibles.|Notification des mises à jour disponibles.|Utilisez l'interface Windows PowerShell pour StorSimple sur votre appareil pour installer ces mises à jour.|
-|Nouvelles mises à jour disponibles.|Notification des mises à jour disponibles.|Vous pouvez installer ces mises à jour à partir de la page **Maintenance** ou en utilisant l’interface de Windows PowerShell pour StorSimple sur votre appareil.|
-|Échec de l’installation des mises à jour.|Les mises à jour n'ont pas été correctement installées.|Votre système n'a pas pu installer les mises à jour. Vous pouvez installer ces mises à jour à partir de la page **Maintenance** ou en utilisant l’interface de Windows PowerShell pour StorSimple sur votre appareil. Si le problème persiste, contactez le support technique Microsoft.|
-|Impossible de vérifier automatiquement les nouvelles mises à jour.|Échec de la vérification automatique.|Vous pouvez rechercher manuellement les nouvelles mises à jour à partir de la page **Maintenance**.|
+|Nouvelles mises à jour disponibles.|Notification des mises à jour disponibles.|Vous pouvez installer ces mises à jour à partir de la page **Maintenance** ou en utilisant l’interface de Windows PowerShell pour StorSimple sur votre appareil.|
+|Échec de l’installation des mises à jour.|Les mises à jour n'ont pas été correctement installées.|Votre système n'a pas pu installer les mises à jour. Vous pouvez installer ces mises à jour à partir de la page **Maintenance** ou en utilisant l’interface de Windows PowerShell pour StorSimple sur votre appareil. Si le problème persiste, contactez le support technique Microsoft.|
+|Impossible de vérifier automatiquement les nouvelles mises à jour.|Échec de la vérification automatique.|Vous pouvez rechercher manuellement les nouvelles mises à jour à partir de la page **Maintenance**.|
 |Nouvel agent WUA disponible.|Notification de la mise à jour disponible.|Téléchargez l’agent Windows Update le plus récent et installez-le à partir de l'interface Windows PowerShell.|
-|La version du composant de microprogramme <*ID composant*> ne correspond pas au matériel.|Les mises à jour de microprogramme n'ont pas été correctement installées.|Veuillez contacter le Support Microsoft.|
+|La version du composant de microprogramme <*ID du composant*> ne correspond pas au matériel.|Les mises à jour de microprogramme n'ont pas été correctement installées.|Veuillez contacter le Support Microsoft.|
 
 ## Étapes suivantes
 
-[En savoir plus sur les erreurs StorSimple](storsimple-troubleshoot-operational-device.md)
+[En savoir plus sur les erreurs StorSimple](storsimple-troubleshoot-operational-device.md).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

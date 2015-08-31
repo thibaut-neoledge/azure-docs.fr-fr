@@ -1,11 +1,12 @@
 <properties
-	pageTitle="Création d'une application HBase à l'aide de Maven | Microsoft Azure"
+	pageTitle="Création d&#39;une application HBase à l&#39;aide de Maven | Microsoft Azure"
 	description="Découvrez comment utiliser Apache Maven pour créer une application Java Apache HBase, puis la déployer dans Azure HDInsight."
 	services="hdinsight"
 	documentationCenter=""
 	authors="Blackmist"
 	manager="paulettm"
-	editor=""/>
+	editor="cgronlun"
+	tags="azure-portal"/>
 
 <tags
 	ms.service="hdinsight"
@@ -591,4 +592,4 @@ Remplacez __hdinsightclustername__ par le nom de votre cluster HDInsight.
 
 Utilisez le paramètre `-showErr` pour afficher l’erreur standard (STDERR) produite lors de l'exécution de la tâche.
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

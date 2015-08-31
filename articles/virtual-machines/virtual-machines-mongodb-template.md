@@ -1,6 +1,6 @@
 <properties
-  pageTitle="Création d'un cluster MongoDB sous Ubuntu à l'aide d'un modèle Resource Manager"
-  description="Création d'un cluster MongoDB sous Ubuntu à l'aide d'un modèle Resource Manager par le biais de PowerShell ou de l'interface de ligne de commande Azure"
+  pageTitle="Création d'un cluster MongoDB sous Ubuntu à l'aide d'un modèle Azure Resource Manager"
+  description="Création d'un cluster MongoDB sous Ubuntu à l'aide d'un modèle Azure Resource Manager à l’aide de PowerShell ou de l'interface de ligne de commande Azure"
   services="virtual-machines"
   documentationCenter=""
   authors="karthmut"
@@ -16,17 +16,17 @@
   ms.date="04/29/2015"
   ms.author="karthmut"/>
 
-# Création d'un cluster MongoDB sous Ubuntu à l'aide d'un modèle Resource Manager
+# Création d'un cluster MongoDB sous Ubuntu à l'aide d'un modèle Azure Resource Manager
 
-MongoDB est une base de données de documents open source qui fournit de hautes performances, une disponibilité élevée et la mise à l'échelle automatique. MongoDB peut être installé en mode autonome ou au sein d'un cluster, tirant parti des fonctionnalités de réplication intégrées. Dans certains cas, vous pouvez utiliser la réplication pour augmenter la capacité de lecture. Les clients ont la possibilité d'envoyer des opérations de lecture et d'écriture sur différents serveurs. Vous pouvez également conserver des copies dans différents centres de données pour augmenter la localité et la disponibilité des données pour les applications distribuées. Avec MongoDB, la réplication assure également la redondance et optimise la disponibilité des données. Avec plusieurs copies des données sur des serveurs de bases de données différents, la réplication protège une base de données contre la perte d'un seul serveur. La réplication vous permet également de récupérer suite à une défaillance matérielle et des interruptions de service. Avec des copies supplémentaires des données, vous pouvez en dédier une à la récupération d'urgence, la création de rapports ou la sauvegarde.
+MongoDB est une base de données de documents open source qui fournit de hautes performances, une disponibilité élevée et la mise à l'échelle automatique. MongoDB peut être installé en base de données autonome ou dans un cluster, tirant ainsi parti des fonctionnalités de réplication intégrées. Dans certains cas, vous pouvez utiliser la réplication pour augmenter la capacité de lecture. Les clients ont la possibilité d'envoyer des opérations de lecture et d'écriture sur différents serveurs. Vous pouvez également conserver des copies dans différents centres de données pour augmenter la localité et la disponibilité des données pour les applications distribuées. Avec MongoDB, la réplication assure également la redondance et optimise la disponibilité des données. Avec plusieurs copies des données sur des serveurs de bases de données différents, la réplication protège une base de données contre la perte d'un seul serveur. La réplication vous permet également de récupérer suite à une défaillance matérielle et des interruptions de service. Avec des copies supplémentaires des données, vous pouvez en dédier une à la récupération d'urgence, la création de rapports ou la sauvegarde.
 
-En plus des différentes versions qui étaient déjà disponibles dans Azure Marketplace, vous pouvez maintenant déployer facilement un nouveau cluster MongoDB sur des machines virtuelles Ubuntu à l'aide d'un modèle Resource Manager déployé par le biais d'[Azure PowerShell](../powershell-install-configure.md) ou de [l'interface de ligne de commande Azure](../xplat-cli.md).
+En plus des différentes versions qui étaient déjà disponibles dans Azure Marketplace, vous pouvez maintenant déployer facilement un nouveau cluster MongoDB sur des machines virtuelles Ubuntu à l'aide d'un modèle Azure Resource Manager déployé avec [Azure PowerShell](../powershell-install-configure.md) ou [l'interface de ligne de commande Azure](../xplat-cli.md).
 
-Les clusters récemment déployés basés sur ce modèle disposent de la topologie décrite dans le schéma suivant, bien que d'autres topologies puissent être obtenues facilement grâce à la personnalisation du modèle présenté dans cet article :
+Les clusters récemment déployés basés sur ce modèle disposent de la topologie décrite dans le schéma suivant, bien que d’autres topologies puissent être obtenues facilement grâce à la personnalisation du modèle présenté dans cet article.
 
 ![cluster-architecture](media/virtual-machines-mongodb-template/cluster-architecture.png)
 
-Grâce à un paramètre, vous pouvez définir le nombre de nœuds qui seront déployés dans le nouveau cluster MongoDB et, en fonction d'un autre paramètre, une instance de machine virtuelle (Jumpbox) avec une adresse IP publique peut également être déployée dans le même réseau virtuel, ce qui vous donne la possibilité de vous connecter au cluster à partir du réseau Internet public et d'effectuer toute tâche d'administration liée à ce cluster. Une autre option disponible en tant que paramètre est la possibilité d'ajouter un nœud Arbiter au jeu de réplicas, qui est généralement suggéré en cas de nombre pair de membres. Pour plus d'informations sur les topologies de réplication MongoDB et plus de détails, reportez-vous à la [documentation MongoDB](http://docs.mongodb.org/manual/core/replication-introduction/) officielle.
+Grâce à un paramètre, vous pouvez définir le nombre de nœuds qui seront déployés dans le nouveau cluster MongoDB et, en fonction d'un autre paramètre, une instance de machine virtuelle (Jumpbox) avec une adresse IP publique peut également être déployée dans le même réseau virtuel. Cela vous donne la possibilité de vous connecter au cluster à partir du réseau Internet public et d'effectuer toute tâche d'administration liée à ce cluster. Une autre option disponible en tant que paramètre est la possibilité d'ajouter un nœud Arbiter au jeu de réplicas, qui est généralement suggéré en cas de nombre pair de membres. Pour plus d'informations sur les topologies de réplication MongoDB et plus de détails, reportez-vous à la [documentation MongoDB](http://docs.mongodb.org/manual/core/replication-introduction/) officielle.
 
 Une fois le déploiement terminé, vous pouvez accéder à la Jumpbox en utilisant l'adresse DNS configurée sur le port SSH 22.
 
@@ -44,7 +44,7 @@ Procédez comme suit pour créer un cluster MongoDB en utilisant un modèle Reso
 
 Créez un dossier local pour le modèle JSON et autres fichiers associés (par exemple, C:\\Azure\\Templates\\MongoDB).
 
-Incluez le nom de votre dossier local et exécutez ces commandes :
+Dans l’exemple suivant, remplacez le nom de votre dossier local et exécutez les commandes.
 
     $folderName="C:\Azure\Templates\MongoDB"
     $webclient = New-Object System.Net.WebClient
@@ -99,17 +99,17 @@ Incluez le nom de votre dossier local et exécutez ces commandes :
 
 ### Étape 1-b : télécharger les fichiers de modèle à l’aide de l’interface de ligne de commande Azure
 
-Clonez le référentiel de modèles entier à l'aide d'un client git de votre choix, par exemple :
+Les exemples suivants montrent comment cloner tout le référentiel de modèles à l'aide d'un client Git de votre choix.
 
     git clone https://github.com/Azure/azure-quickstart-templates C:\Azure\Templates
 
-Lorsque vous avez terminé, recherchez le dossier **mongodb-high-availability** dans votre répertoire C:\\Azure\\Templates.
+Lorsque vous avez terminé, recherchez le dossier mongodb-high-availability dans votre répertoire C:\\Azure\\Templates.
 
 ### Étape 2 : (facultatif) comprendre les paramètres du modèle
 
-Lorsque vous déployez des solutions importantes comme un cluster MongoDB, vous devez spécifier un ensemble de paramètres de configuration pour gérer un nombre de paramètres requis. En déclarant ces paramètres dans la définition du modèle, vous pouvez spécifier des valeurs pendant l'exécution du déploiement au moyen d'un fichier externe ou dans la ligne de commande.
+Lorsque vous déployez des solutions importantes comme un cluster MongoDB, vous devez spécifier un ensemble de paramètres de configuration pour gérer un certain nombre de paramètres requis. En déclarant ces paramètres dans la définition du modèle, vous pouvez spécifier des valeurs pendant l'exécution du déploiement au moyen d’un fichier externe ou dans la ligne de commande.
 
-Dans la section « paramètres » en haut du fichier **azuredeploy.json**, vous trouverez l'ensemble de paramètres requis par le modèle pour configurer un cluster MongoDB. Voici un exemple de la section des paramètres dans le fichier azuredeploy.json de ce modèle :
+Dans la section des paramètres en haut du fichier azuredeploy.json, vous trouverez l'ensemble de paramètres requis par le modèle pour configurer un cluster MongoDB. L’exemple suivant montre la section des paramètres du fichier azuredeploy.json de ce modèle.
 
     "parameters": {
       "adminUsername": {
@@ -128,7 +128,7 @@ Dans la section « paramètres » en haut du fichier **azuredeploy.json**, vou
           "type": "string",
           "defaultValue": "",
           "metadata": {
-            "Description": "Unique namespace for the Storage Account where the Virtual Machine's disks will be placed (this name will be used as a prefix to create one or more storage accounts as per t-shirt size)"
+            "Description": "Unique namespace for the storage account where the Virtual Machine's disks will be placed (this name will be used as a prefix to create one or more storage accounts as per t-shirt size)"
           }
         },
         "region": {
@@ -230,13 +230,13 @@ Dans la section « paramètres » en haut du fichier **azuredeploy.json**, vou
         }
       },
 
-Chaque paramètre contient des détails, tels que le type de données et les valeurs autorisées. Ceci permet la validation des paramètres passés pendant l'exécution du modèle en mode interactif (par exemple, PowerShell ou interface de ligne de commande Azure), ainsi qu'une interface utilisateur à détection automatique, qui peut être construite de manière dynamique par l'analyse de la liste des paramètres requis et leurs descriptions.
+Chaque paramètre contient des détails, tels que le type de données et les valeurs autorisées. Cela permet la validation des paramètres passés pendant l’exécution du modèle en mode interactif (par exemple, PowerShell ou l’interface de ligne de commande Azure), ainsi qu’une interface utilisateur à détection automatique, qui peut être construite de manière dynamique par l’analyse de la liste des paramètres requis et leurs descriptions.
 
 ### Étape 3-a : déployer un cluster MongoDB avec un modèle à l'aide de PowerShell
 
 Préparez un fichier de paramètres pour votre déploiement en créant un fichier JSON contenant des valeurs d'exécution pour tous les paramètres. Ce fichier est ensuite transmis en tant qu’entité unique à la commande de déploiement. Si vous n'incluez pas de fichier de paramètres, PowerShell utilisera les valeurs par défaut spécifiées dans le modèle et vous invitera à renseigner les valeurs restantes.
 
-Voici un exemple de jeu de paramètres issu du fichier **azuredeploy-parameters.json** :
+L’exemple suivant montre l’ensemble des paramètres du fichier azuredeploy-parameters.json.
 
     {
       "adminUsername": {
@@ -286,7 +286,7 @@ Voici un exemple de jeu de paramètres issu du fichier **azuredeploy-parameters.
       }
     }
 
-Entrez un nom de déploiement Azure, un nom de groupe de ressources, un emplacement Azure et le dossier du fichier de déploiement JSON enregistré. Exécutez ensuite ces commandes :
+Entrez un nom de déploiement Azure, un nom de groupe de ressources, un emplacement Azure et le dossier du fichier de déploiement JSON enregistré. Exécutez ensuite les commande suivantes.
 
     $deployName="<deployment name>"
     $RGName="<resource group name>"
@@ -299,54 +299,53 @@ Entrez un nom de déploiement Azure, un nom de groupe de ressources, un emplacem
 
     New-AzureResourceGroupDeployment -Name $deployName -ResourceGroupName $RGName -TemplateParameterFile $templateParameterFile -TemplateFile $templateFile
 
-Lorsque vous exécutez la commande **New-AzureResourceGroupDeployment**, elle extrait les valeurs de paramètre à partir du fichier de paramètres JSON et démarre l'exécution du modèle correspondant. Le fait de définir et d’utiliser plusieurs fichiers de paramètres sur vos différents environnements (par exemple, Test, Production, etc.) favorise la réutilisation du modèle et simplifie les solutions contenant plusieurs environnements complexes.
+Lorsque vous exécutez la commande **New-AzureResourceGroupDeployment**, elle extrait les valeurs de paramètre à partir du fichier de paramètres JSON et démarre l’exécution du modèle correspondant. La définition et l’utilisation de différents fichiers de paramètres sur vos différents environnements (par exemple, Test, Production, etc.) favorise la réutilisation du modèle et simplifie les solutions contenant plusieurs environnements complexes.
 
-Lors du déploiement, n'oubliez pas qu'un nouveau compte Azure Storage doit être créé. Le nom fourni en tant que paramètre de compte de stockage doit donc être unique et respecter la configuration requise pour un compte Azure Storage (lettres en minuscules et chiffres uniquement).
+Lors du déploiement, n’oubliez pas qu’un nouveau compte de stockage Azure doit être créé. Le nom fourni en tant que paramètre du compte de stockage doit donc être unique et respecter la configuration requise pour un compte de stockage Azure (minuscules et chiffres uniquement).
 
 Pendant et après le déploiement, vous pouvez vérifier toutes les requêtes effectuées durant la configuration et notamment toutes les erreurs survenues.
 
-Pour ce faire, accédez au [Portail Azure](https://portal.azure.com), puis procédez comme suit :
+Pour ce faire, accédez au [portail Azure](https://portal.azure.com), puis procédez comme suit :
 
-- Dans la barre de navigation située sur la gauche, cliquez sur « Parcourir », faites défiler les options vers le bas, puis cliquez sur « Groupes de ressources ».
-- Après avoir cliqué sur le groupe de ressources que vous venez de créer, le volet « Groupe de ressources » s'affiche.
-- En cliquant sur l'histogramme « Événements » dans la partie « Surveillance » du volet « Groupe de ressources », les événements de votre déploiement s'affichent :
-- En cliquant sur les différents événements, vous pouvez accéder à des informations plus détaillées sur chaque opération menée pour le compte du modèle.
+- Dans la barre de navigation de gauche, cliquez sur **Parcourir**, faites défiler vers le bas, puis cliquez sur **Groupes de ressources**.
+- Une fois que vous avez cliqué sur le groupe de ressources que vous venez de créer, le panneau du groupe de ressources s’affiche.
+- En cliquant sur l’histogramme « Événements » dans la partie « Surveillance » du panneau du groupe de ressources, vous pouvez voir les événements de votre déploiement. En cliquant sur chaque événement, vous pouvez accéder à des informations plus détaillées sur chaque opération menée pour le compte du modèle.
 
-Après vos tests, si vous devez supprimer ce groupe de ressources et toutes ses ressources (le compte de stockage, la machine virtuelle et le réseau virtuel), utilisez cette commande unique :
+Après vos tests, si vous devez supprimer ce groupe de ressources et toutes ses ressources (le compte de stockage, la machine virtuelle et le réseau virtuel), utilisez la commande suivante.
 
     Remove-AzureResourceGroup –Name "<resource group name>" -Force
 
 ### Étape 3-b : déployer un cluster MongoDB avec un modèle à l'aide de l'interface de ligne de commande Azure
 
-Pour déployer un cluster MongoDB par le biais de l'interface de ligne de commande Azure, commencez par créer un groupe de ressources en spécifiant un nom et un emplacement :
+Pour déployer un cluster MongoDB via l'interface de ligne de commande Azure, commencez par créer un groupe de ressources en spécifiant un nom et un emplacement à l’aide de la commande suivante.
 
     azure group create mdbc "West US"
 
-Transmettez ce nom de groupe de ressources, l'emplacement du fichier de modèle JSON et l'emplacement du fichier de paramètres (voir la section PowerShell ci-dessus pour plus de détails) dans la commande suivante :
+Transmettez ce nom de groupe de ressources, l'emplacement du fichier de modèle JSON et l'emplacement du fichier de paramètres (voir la section PowerShell ci-dessus pour plus de détails) dans la commande suivante.
 
     azure group deployment create mdbc -f .\azuredeploy.json -e .\azuredeploy-parameters.json
 
-Vous pouvez vérifier l'état des déploiements de ressources individuels avec la commande suivante :
+Vous pouvez vérifier l’état des différents déploiements de ressources à l’aide de la commande suivante.
 
     azure group deployment list mdbc
 
 ## Visite guidée de l'organisation des fichiers et la structure de modèle MongoDB
 
-Pour créer un modèle Resource Manager robuste et réutilisable, vous devez également prendre en compte l'organisation d'une série de tâches complexes et interdépendantes requises durant le déploiement d'une solution complexe telle que MongoDB. En tirant parti des capacités de **liaison de modèles** et de **l'itération de ressource** ARM en plus de l'exécution de scripts via les extensions associées, vous pouvez implémenter une approche modulaire qui peut être réutilisée lors de n'importe quel déploiement basé sur un modèle complexe.
+Pour créer un modèle Azure Resource Manager robuste et réutilisable, vous devez également prendre en compte l'organisation d'une série de tâches complexes et interdépendantes requises durant le déploiement d'une solution complexe telle que MongoDB. En tirant parti des capacités de *liaison des modèles* et de l’*itération des ressources* d’Azure Resource Manager en plus de l’exécution de scripts via les extensions associées, vous pouvez implémenter une approche modulaire qui peut être réutilisée lors de n’importe quel déploiement basé sur un modèle complexe.
 
-Ce schéma décrit les relations entre tous les fichiers téléchargés à partir de GitHub pour ce déploiement :
+Ce schéma décrit les relations entre tous les fichiers téléchargés à partir de GitHub pour ce déploiement.
 
 ![mongodb-fichiers](media/virtual-machines-mongodb-template/mongodb-files.png)
 
-Cette section vous guide dans la structure du fichier **azuredeploy.json** pour le cluster MongoDB.
+Cette section vous guide dans la structure du fichier azuredeploy.json pour le cluster MongoDB.
 
-### section « paramètres »
+### Section Paramètres
 
-La section « paramètres » du fichier **azuredeploy.json** indique les paramètres modifiables utilisés dans ce modèle. Le fichier **azuredeploy-parameters.json** décrit précédemment dans cet article est utilisé pour transmettre des valeurs dans la section « paramètres » du fichier azuredeploy.json pendant l'exécution du modèle.
+La section Paramètres du fichier azuredeploy.json indique les paramètres modifiables utilisés dans ce modèle. Le fichier azuredeploy-parameters.json décrit précédemment dans cet article est utilisé pour transmettre des valeurs dans la section des paramètres du fichier azuredeploy.json pendant l'exécution du modèle.
 
-### section « variables »
+### Section Variables
 
-La section « variables » indique les variables qui peuvent être utilisées dans ce modèle. Cette section contient un certain nombre de champs (types de données ou fragments JSON) définis sur des valeurs constantes ou calculées lors de l'exécution. Voici la section « variables » pour ce modèle MongoDB :
+La section Variables indique les variables qui peuvent être utilisées dans ce modèle. Cette section contient un certain nombre de champs (types de données ou fragments JSON) définis sur des valeurs constantes ou calculées lors de l’exécution. L’exemple suivant montre la section des variables pour ce modèle MongoDB.
 
     "variables": {
           "_comment0": "/* T-shirt sizes may vary for different reasons, and some customers may want to modify these - so feel free to go ahead and define your favorite t-shirts */",
@@ -517,7 +516,7 @@ La section « variables » indique les variables qui peuvent être utilisées 
           "storageAccountForXXLarge_15": "7"
       },
 
-En étudiant cet exemple plus en détail, vous pouvez voir deux approches différentes. Dans ce premier fragment, la variable « osFamilyUbuntu » est définie sur un élément JSON contenant 6 paires clé-valeur :
+Dans l’exemple précédent, vous pouvez voir deux approches différentes. Dans ce premier fragment, la variable « osFamilyUbuntu » est définie sur un élément JSON contenant 6 paires clé-valeur.
 
     "osFamilyUbuntu": {
       "osName": "ubuntu",
@@ -528,7 +527,7 @@ En étudiant cet exemple plus en détail, vous pouvez voir deux approches diffé
       "imageSKU": "14.04.2-LTS"
     },
 
-Dans ce deuxième fragment, la variable « vmScripts » est attribuée à un tableau JSON où les éléments uniques sont calculés lors de l'exécution en utilisant une fonction de langage du modèle (concat) et la valeur d'une autre variable ainsi que des constantes de chaîne :
+Dans ce deuxième fragment, la variable « vmScripts » est attribuée à un tableau JSON où les éléments uniques sont calculés lors de l'exécution en utilisant une fonction de langage du modèle (concat) et la valeur d'une autre variable ainsi que des constantes de chaîne.
 
     "vmScripts": {
       "scriptsToDownload": [
@@ -536,7 +535,7 @@ Dans ce deuxième fragment, la variable « vmScripts » est attribuée à un t
       "[concat(variables('sharedScriptUrl'), 'vm-disk-utils-0.1.sh')]"
     ],
 
-Un concept important dans ce modèle est la façon dont les différentes « tailles de t-shirt » pour les clusters MongoDB sont définies. En examinant une de ces variables « tshirtSizeXXXX », vous pouvez remarquer qu'elle décrit des caractéristiques importantes sur la manière dont un cluster est déployé. Examinons la taille moyenne (« Medium ») à titre d'exemple :
+Un concept important dans ce modèle est la façon dont les différentes « tailles de t-shirt » pour les clusters MongoDB sont définies. En examinant une de ces variables « tshirtSizeXXXX », vous pouvez remarquer qu'elle décrit des caractéristiques importantes sur la manière dont un cluster est déployé. Examinons la taille moyenne (« Medium ») à titre d'exemple.
 
     "tshirtSizeMedium": {
       "vmSizeMember": "Standard_D2",
@@ -549,11 +548,11 @@ Un concept important dans ce modèle est la façon dont les différentes « tail
       "dataDiskSize": 250
     },
 
-Un cluster MongoDB « Medium » utilisera D2 comme taille de MV pour les 3 nœuds MongoDB hébergeant des données, ainsi qu'une quatrième MV A1 qui sera utilisée comme arbitre pour la réplication. Le sous-modèle correspondant appelé pour déployer des nœuds de données sera **membre-ressources-D2.json** et les fichiers de données (250 Go) seront stockés dans 2 comptes de stockage. Ces variables seront utilisées dans la section « ressources » pour organiser les déploiements de nœuds et d'autres tâches.
+Un cluster MongoDB « Medium » utilisera D2 comme taille de machine virtuelle pour les trois nœuds MongoDB hébergeant des données, ainsi qu'une quatrième machine virtuelle A1 qui sera utilisée comme arbitre pour la réplication. Le sous-modèle correspondant appelé pour déployer des nœuds de données sera `member-resources-D2.json` et les fichiers de données (250 Go chacun) seront stockés dans deux comptes de stockage. Ces variables seront utilisées dans la section des ressources pour organiser les déploiements de nœuds et d'autres tâches.
 
-### section « ressources »
+### Section Ressources
 
-La plupart des actions se déroulent dans la section **« ressources »**. En effectuant une recherche minutieuse dans cette section, vous pouvez immédiatement identifier deux cas distincts : le premier est un élément défini de type `Microsoft.Resources/deployments` qui correspond principalement à l'appel d'un déploiement imbriqué au déploiement principal. L'élément « templateLink » et la propriété de version associée permettent de spécifier un fichier de modèle lié qui sera appelé en transmettant un ensemble de paramètres en tant que résultat, comme vous pouvez le voir dans ce fragment :
+La plupart des actions se déroulent dans la section des ressources. En effectuant une recherche minutieuse dans cette section, vous pouvez immédiatement identifier deux cas distincts : le premier est un élément défini de type `Microsoft.Resources/deployments` qui correspond principalement à l’appel d’un déploiement imbriqué au déploiement principal. L’élément « templateLink » (et la propriété de version associée) permettent de spécifier un fichier de modèle lié qui sera appelé en transmettant un ensemble de paramètres en entrée, comme vous pouvez le voir dans l’exemple suivant.
 
     {
       "name": "shared-resources",
@@ -579,23 +578,23 @@ La plupart des actions se déroulent dans la section **« ressources »**. En 
       }
     },
 
-Ce premier exemple présente clairement la façon dont **azuredeploy.json** est organisé en mécanisme d'orchestration, pour appeler un certain nombre d'autres fichiers de modèle, chacun d'eux étant responsable d'une partie des activités de déploiement requises.
+L’exemple précédent présente clairement la façon dont azuredeploy.json est organisé en mécanisme d'orchestration, pour appeler un certain nombre d'autres fichiers de modèle, chacun d'eux étant responsable d'une partie des activités de déploiement requises.
 
 Vous pouvez notamment remarquer les modèles liés suivants qui sont utilisés pour ce déploiement :
 
--	**shared-resource.json** : contient la définition de toutes les ressources partagées lors du déploiement. Par exemple, c'est le cas des comptes de stockage utilisés pour stocker des disques de système d'exploitation et des réseaux virtuels de machines virtuelles.
--	**jumpbox-resources.json**: lorsque ce modèle est activé, il est responsable du déploiement de toutes les ressources liées à la machine virtuelle Jumpbox, celle disposant d'une adresse IP publique qui peut être utilisée pour accéder au cluster MongoDB à partir d'un réseau public.
--	**arbiter-resources.json** : lorsque ce modèle est activé, il déploie un membre arbitre dans le cluster MongoDB. Un arbitre ne contient aucune donnée, mais est utilisé lorsqu'un jeu de réplicas contient un nombre pair de nœuds pour gérer les élections principales.
--	**membre-ressources-Dx.json** : ces modèles de ressources déploient les nœuds MongoDB. Un fichier spécifique sera utilisé en fonction de la définition de taille de t-shirt sélectionnée. La seule différence entre les fichiers étant le nombre de disques liés pour chaque nœud.
--	**mongodb-ubuntu-install.sh** : un fichier de script d'interpréteur de commandes appelé par l'extension CustomScriptForLinux sur chaque nœud du cluster. Responsable du montage et de la mise en forme des disques de données, ainsi que l'installation de bits MongoDB sur le nœud.
+-	**Shared-resource.json** : contient la définition de toutes les ressources partagées lors du déploiement. Par exemple, c'est le cas des comptes de stockage utilisés pour stocker des disques de système d'exploitation et des réseaux virtuels de machines virtuelles.
+-	**Jumpbox-resources.json** : lorsque ce modèle est activé, il est responsable du déploiement de toutes les ressources liées à la machine virtuelle Jumpbox, celle disposant d'une adresse IP publique qui peut être utilisée pour accéder au cluster MongoDB à partir d'un réseau public.
+-	**Arbiter-resources.json** : lorsque ce modèle est activé, il déploie un membre arbitre dans le cluster MongoDB. Un arbitre ne contient aucune donnée, mais est utilisé lorsqu'un jeu de réplicas contient un nombre pair de nœuds pour gérer les élections principales.
+-	**Membre-ressources-Dx.json** : indique des modèles de ressources qui déploient les nœuds MongoDB. Un fichier spécifique sera utilisé en fonction de la définition de taille de t-shirt sélectionnée. La seule différence entre les fichiers étant le nombre de disques liés pour chaque nœud.
+-	**Mongodb-ubuntu-install.sh** : un fichier de script d'interpréteur de commandes appelé par l'extension CustomScriptForLinux sur chaque nœud du cluster. Responsable du montage et de la mise en forme des disques de données, ainsi que l'installation de bits MongoDB sur le nœud.
 
-Pour déployer un cluster MongoDB, une logique spécifique est requise pour pouvoir configurer correctement un jeu de réplicas. La séquence spécifique que vous devez utiliser au cours du déploiement est la suivante :
+Pour déployer un cluster MongoDB, une logique spécifique est requise pour pouvoir configurer correctement un jeu de réplicas. L’exemple suivant montre la séquence spécifique que vous devez utiliser au cours du déploiement.
 
 DÉPLOYER MEMBRES DE DONNÉES (en parallèle) => DÉPLOYER DERNIER MEMBRE DE DONNÉES => (facultatif) DÉPLOYER ARBITRE
 
 Dans cette séquence, le déploiement de plusieurs nœuds de données aura lieu en parallèle, à l'exception du dernier nœud. C'est là que le cluster sera formé et qu'un nouveau jeu de réplicas sera déployé. Donc, tous les nœuds précédents devront être opérationnels avant cela. La dernière étape consiste à déployer le nœud arbitre facultatif (uniquement pour les tailles de t-shirt pour lesquelles cela est nécessaire).
 
-En consultant à nouveau notre modèle principal (azuredeploy.json), observons comment cette logique est implémentée, à partir de tous les membres de données :
+En consultant à nouveau notre modèle principal (azuredeploy.json), observons dans l’exemple suivant comment cette logique est implémentée, à partir de tous les membres de données.
 
     {
       "type": "Microsoft.Resources/deployments",
@@ -645,19 +644,19 @@ En consultant à nouveau notre modèle principal (azuredeploy.json), observons c
       }
     },
 
-Un concept important à retenir est la façon dont il est possible de déployer plusieurs copies d'un type de ressource unique et, pour chaque instance, définir des valeurs uniques pour les paramètres requis. Ce concept est appelé **itération de ressource**.
+Un concept important à retenir est la façon dont il est possible de déployer plusieurs copies d'un type de ressource unique et, pour chaque instance, de définir des valeurs uniques pour les paramètres requis. Ce concept est appelé *itération de ressource*.
 
-Dans le fragment précédent, un paramètre (nombre de nœuds à déployer dans le cluster) est utilisé pour définir une variable (« numberOfMembers ») qui est ensuite transmise à l'élément **« copie »** pour déclencher un nombre (boucle) de déploiements enfants, chacun d'eux entraînant l'instanciation du modèle pour chaque membre du cluster. Pour pouvoir définir tous les paramètres où des valeurs uniques entre différentes instances sont requises, vous pouvez utiliser la fonction **copyindex()** pour obtenir une valeur numérique indiquant l'index actuel dans cette création d'itération de ressource particulière.
+Dans l’exemple précédent, un paramètre (nombre de nœuds à déployer dans le cluster) est utilisé pour définir une variable (« numberOfMembers ») qui est ensuite transmise à l'élément **« copie »** pour déclencher un nombre (boucle) de déploiements enfants, chacun d'eux entraînant l'instanciation du modèle pour chaque membre du cluster. Pour pouvoir définir tous les paramètres où des valeurs uniques entre différentes instances sont requises, vous pouvez utiliser la fonction **copyindex()** pour obtenir une valeur numérique indiquant l'index actuel dans cette création d'itération de ressource particulière.
 
 Un autre concept important pour la création de ressources est la possibilité de spécifier les dépendances et priorités entre les ressources, comme vous pouvez le constater dans le tableau JSON **dependsOn**. Dans ce modèle particulier, le déploiement de chaque nœud dépend de la réussite du déploiement précédent des **ressources partagées**.
 
-Les disques liés sont formatés durant les activités de préparation du nœud déclenchées par l'exécution du fichier de script **mongodb-ubuntu-install.sh**. En fait, dans ce fichier, vous trouverez une instance de cet appel :
+Les disques liés sont formatés durant les activités de préparation du nœud déclenchées par l'exécution du fichier de script mongodb-ubuntu-install.sh. En fait, dans ce fichier, vous trouverez une instance de cet appel.
 
     bash ./vm-disk-utils-0.1.sh -b $DATA_DISKS -s
 
-**vm-disk-utils-0.1.sh** appartient au dossier **shared\_scripts\\ubuntu**, dans le référentiel github azure-quickstart-tempates et contient des fonctions très utiles pour le montage, la mise en forme et la troncation de disque qui peuvent être réutilisées lorsque que vous devez exécuter des tâches similaires lors de la création de votre modèle.
+vm-disk-utils-0.1.sh appartient au dossier shared\_scripts\\ubuntu, dans le référentiel Github azure-quickstart-tempates et contient des fonctions très utiles pour le montage, la mise en forme et la troncation de disque qui peuvent être réutilisées lorsque que vous devez exécuter des tâches similaires lors de la création de votre modèle.
 
-Le fragment associé aux extensions de machines virtuelles CustomScriptForLinux est également intéressant à étudier. Celles-ci sont installées en tant que type distinct de ressources, avec une dépendance sur chaque modèle de déploiement de nœud du cluster. Consultez ce fragment à la fin de chaque fichier **member-resources-Dx.json** :
+Le fragment associé aux extensions de machines virtuelles CustomScriptForLinux est également intéressant à étudier. Celles-ci sont installées en tant que type de ressources distinct, avec une dépendance sur chaque modèle de déploiement de nœud du cluster. Pour obtenir un exemple, consultez le fragment suivant à la fin de chaque fichier member-resources-Dx.json.
 
     {
       "type": "Microsoft.Compute/virtualMachines/extensions",
@@ -677,19 +676,18 @@ Le fragment associé aux extensions de machines virtuelles CustomScriptForLinux 
       }
     }
 
-En vous familiarisant avec les autres fichiers inclus dans ce déploiement, vous serez en mesure de comprendre tous les détails et les meilleures pratiques requises pour organiser et orchestrer des stratégies de déploiement complexes pour les solutions à nœuds multiples, basées sur n'importe quelle technologie, en exploitant les modèles Azure Resource Manager. Il existe une approche recommandée (mais nullement obligatoire) consistant à structurer vos fichiers de modèle comme l'indique le schéma suivant :
+En vous familiarisant avec les autres fichiers inclus dans ce déploiement, vous serez en mesure de comprendre tous les détails et les meilleures pratiques requises pour organiser et orchestrer des stratégies de déploiement complexes pour les solutions à nœuds multiples, basées sur n’importe quelle technologie, en exploitant les modèles Azure Resource Manager. Il existe une approche recommandée (mais nullement obligatoire) consistant à structurer vos fichiers de modèle comme l'indique le schéma suivant.
 
 ![mongodb-modèle-structure](media/virtual-machines-mongodb-template/mongodb-template-structure.png)
 
-Pour résumer, cette approche suggère de :
+En résumé, cette approche suggère de :
 
 -	définir votre fichier de modèle principal comme le point d'orchestration central pour toutes les activités de déploiement spécifiques, en exploitant les liaisons de modèles pour appeler les exécutions de modèles secondaires ;
--	créer un fichier de modèle spécifique déployant toutes les ressources partagées entre toutes les autres tâches du déploiement (par exemple, les comptes de stockage, la configuration de réseau virtuel, etc.). Cette méthode peut être régulièrement réutilisée entre les déploiements ayant des exigences similaires en termes d'infrastructure commune ;
+-	créer un fichier de modèle spécifique déployant toutes les ressources partagées entre toutes les autres tâches du déploiement spécifiques (par exemple, les comptes de stockage et la configuration du réseau virtuel, etc.). Cette méthode peut être régulièrement réutilisée entre les déploiements ayant des exigences similaires en termes d'infrastructure commune ;
 -	inclure des modèles de ressource facultatifs pour répondre aux besoins directs d'une ressource donnée ;
--	créer des modèles spécifiques pour les mêmes membres d'un groupe de ressources (nœuds dans un cluster, etc.) afin d'exploiter l'itération de ressource pour déployer plusieurs instances ayant des propriétés uniques ;
+-	créer des modèles spécifiques pour les mêmes membres d’un groupe de ressources (nœuds dans un cluster, etc.) afin d’exploiter l’itération de ressources pour déployer plusieurs instances ayant des propriétés uniques ;
 -	exploiter les extensions de déploiement de script et créer des scripts propres à chaque technologie pour toutes les tâches de post-déploiement (par exemple, l'installation du produit, les configurations, etc.).
 
-Pour plus d'informations, consultez [Langage du modèle Azure Resource Manager](https://msdn.microsoft.com/library/azure/dn835138.aspx).
- 
+Pour plus d’informations, consultez [Langage du modèle Azure Resource Manager](https://msdn.microsoft.com/library/azure/dn835138.aspx).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

@@ -1,30 +1,24 @@
 <properties 
-	pageTitle="Utilisation d'un service mobile de backend Javascript" 
-	description="Fournit des exemples sur la façon de définir, enregistrer et utiliser des scripts serveurs dans Azure Mobile Services." 
-	services="mobile-services" 
-	documentationCenter="" 
-	authors="RickSaling" 
-	manager="dwrede" 
+	pageTitle="Utilisation d'un service mobile de backend Javascript"
+	description="Fournit des exemples sur la façon de définir, enregistrer et utiliser des scripts serveurs dans Azure Mobile Services."
+	services="mobile-services"
+	documentationCenter=""
+	authors="RickSaling"
+	manager="dwrede"
 	editor=""/>
 
-
 <tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="javascript" 
-	ms.devlang="multiple" 
-	ms.topic="article" 
-	ms.date="06/05/2015" 
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="javascript"
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.date="08/17/2015"
 	ms.author="ricksal"/>
-
 
 
 # Utilisation d'un service mobile de backend Javascript
 
-> [AZURE.SELECTOR]
-[.NET backend](mobile-services-dotnet-backend-how-to-use.md)
-[JavaScript backend](mobile-services-how-to-use-server-scripts.md)
- 
 Cet article fournit des informations détaillées et des exemples sur l'utilisation d'un backend JavaScript dans Azure Mobile Services.
 
 ##<a name="intro"></a>Introduction
@@ -232,7 +226,7 @@ Si une application fournit la valeur d’un ID, Mobile Services la stocke en l�
 
 La valeur pour le `id` doit être unique et ne contenir aucun caractère présent dans les ensembles suivants :
 
-+ Caractères de contrôle : [0x0000-0x001F\] et [0x007F-0x009F\]. Pour plus d'informations, consultez la page [Codes de contrôle ASCII C0 et C1](http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set).
++ Caractères de contrôle : [0x0000-0x001F] et [0x007F-0x009F]. Pour plus d'informations, consultez la page [Codes de contrôle ASCII C0 et C1](http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set).
 +  Caractères imprimables : **"**(0x0022), **+** (0x002B), **/** (0x002F), **?** (0x003F), **\** (0x005C), **`** (0x0060)
 +  Les ID « . » et « .. »
 
@@ -372,8 +366,7 @@ La fonction de l'API personnalisée **OrderPizza** renvoie un document XML simpl
 
 		exports.get = function(request, response) {
 		  response.set('content-type', 'application/xml');
-		  var xml = '<?xml version="1.0"?><PizzaOrderForm><PizzaOrderForm/>
-';
+		  var xml = '<?xml version="1.0"?><PizzaOrderForm><PizzaOrderForm/>';
 		  response.send(200, xml);
 		};
 
@@ -1059,4 +1052,4 @@ Pour éviter de surcharger votre journal, il est conseillé de supprimer ou de d
 [Prise en charge de package.json dans Azure Mobile Services]: http://go.microsoft.com/fwlink/p/?LinkId=391036
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

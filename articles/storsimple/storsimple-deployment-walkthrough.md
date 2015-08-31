@@ -12,7 +12,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="08/12/2015"
+   ms.date="08/14/2015"
    ms.author="alkohli" />
 
 # Déploiement de votre appareil StorSimple local
@@ -123,30 +123,30 @@ Avant de configurer l’appareil, assurez-vous que :
 
 - Votre appareil est correctement décompacté, monté en rack et câblé à l’alimentation, au réseau et au port série comme cela est indiqué dans les articles suivants :
 
-	-  [Décompactage de votre appareil 8100](storsimple-8100-hardware-installation.md)
-	-  [Décompactage de votre appareil 8600](storsimple-8600-hardware-installation.md)
+	-  [Décompacter, monter en rack et câbler votre appareil 8100](storsimple-8100-hardware-installation.md)
+	-  [Décompacter, monter en rack et câbler votre appareil 8600](storsimple-8600-hardware-installation.md)
 
 
 ### Pour le réseau dans le centre de données
 
 Avant de commencer, assurez-vous que :
 
-- Les ports du pare-feu de votre centre de données sont ouverts pour autoriser le trafic iSCSI et du cloud, comme décrit dans la section [Configuration réseau requise pour un appareil StorSimple]().
+- Les ports du pare-feu de votre centre de données sont ouverts pour autoriser le trafic iSCSI et du cloud, comme décrit dans la section [Configuration réseau requise pour un appareil StorSimple](storsimple-system-requirements.md#networking-requirements-for-your-storsimple-device).
 - L'appareil dans votre centre de données peut se connecter au réseau externe. Exécutez les applets de commande [Windows PowerShell 4.0](http://www.microsoft.com/download/details.aspx?id=40855) (sous forme de tableau ci-dessous) pour valider la connectivité au réseau externe. Effectuez cette validation sur un ordinateur (dans le réseau du centre de données) qui dispose d'une connectivité à Azure et où vous déploierez votre appareil StorSimple.  
 
 | Pour ce paramètre... | Pour vérifier la validité... | Exécutez ces commandes/applets de commande. |
 |---------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **IP**</br>\*\*Sous-réseau\*\*</br>\*\*Passerelle\*\* | Est-ce une adresse IPv4 ou IPv6 valide ?</br>Est-ce un sous-réseau valide ?</br>Est-ce une passerelle valide ?</br>Est-ce une adresse IP dupliquée sur le réseau ? | `ping ip`</br>`arp -a`</br>Les commandes `ping` et `arp` doivent échouer, indiquant qu'il n'existe aucun appareil sur le réseau du centre de données qui utilise cette adresse IP.
+| **IP**</br>**Sous-réseau**</br>**Passerelle** | Est-ce une adresse IPv4 ou IPv6 valide ?</br>Est-ce un sous-réseau valide ?</br>Est-ce une passerelle valide ?</br>Est-ce une adresse IP dupliquée sur le réseau ? | `ping ip`</br>`arp -a`</br>Les commandes `ping` et `arp` doivent échouer, indiquant qu'il n'existe aucun appareil sur le réseau du centre de données qui utilise cette adresse IP.
 | | | |
 | **DNS** | Est-ce un nom DNS valide qui peut résoudre des URL Azure ? | `Resolve-DnsName -Name www.bing.com -Server <DNS server IP address>` </br>Une autre commande qui peut être utilisée est la suivante :</br>`nslookup --dns-ip=<DNS server IP address> www.bing.com` |
-| | Vérifiez si le port 53 est ouvert. Ceci s'applique uniquement si vous utilisez un DNS externe pour votre appareil. Le DNS interne doit résoudre automatiquement les URL externes. | `Test-Port -comp dc1 -port 53 -udp -UDPtimeout 10000` </br>[Plus d'informations sur cette applet de commande]()|
+| | Vérifiez si le port 53 est ouvert. Ceci s'applique uniquement si vous utilisez un DNS externe pour votre appareil. Le DNS interne doit résoudre automatiquement les URL externes. | `Test-Port -comp dc1 -port 53 -udp -UDPtimeout 10000` </br>[Plus d'informations sur cette applet de commande](http://learn-powershell.net/2011/02/21/querying-udp-ports-with-powershell/)|
 | | | |
-| **NTP** | Nous déclenche une synchronisation horaire dès que le serveur NTP est en entrée. Vérifiez que le port UDP 123 est ouvert lorsque vous entrez `time.windows.com` ou des serveurs horaires publics. | [Télécharger et utiliser ce script](). |
+| **NTP** | Nous déclenche une synchronisation horaire dès que le serveur NTP est en entrée. Vérifiez que le port UDP 123 est ouvert lorsque vous entrez `time.windows.com` ou des serveurs horaires publics. | [Télécharger et utiliser ce script](https://gallery.technet.microsoft.com/scriptcenter/Get-Network-NTP-Time-with-07b216ca). |
 | | | |
-| **Proxy (facultatif)** | S'agit-il d'un URI et d'un port de proxy valides ? </br> Le mode d'authentification est-il correct ? | `wget http://bing.com % {$_.StatusCode}`</br>Cette commande doit être exécutée immédiatement après la configuration du proxy web. Si 200 est retourné, cela indique que la connexion est établie. |
+| **Proxy (facultatif)** | S'agit-il d'un URI et d'un port de proxy valides ? </br> Le mode d'authentification est-il correct ? | <code>wget http://bing.com &\#124; % {$\_.StatusCode}</code></br>Cette commande doit être exécutée immédiatement après la configuration du proxy Web. Si un code d’état de 200 est retourné, cela indique que la connexion est établie. |
 | | Le trafic est-il acheminé via le proxy ? | Exécutez la validation DNS, la vérification NTP ou la vérification HTTP une fois après la configuration du proxy sur votre appareil. Ceci vous indique clairement si le trafic est bloqué au niveau du proxy ou ailleurs. |
 | | | |
-| **Inscription** | Vérifiez si les ports TCP sortants 443, 80, 9354 sont ouverts. | `Test-NetConnection -Port   443 -InformationLevel Detailed`</br>[Plus d'informations sur l'applet de commande Test-NetConnection]() |
+| **Inscription** | Vérifiez si les ports TCP sortants 443, 80, 9354 sont ouverts. | `Test-NetConnection -Port   443 -InformationLevel Detailed`</br>[Plus d'informations sur l'applet de commande Test-NetConnection](https://technet.microsoft.com/library/dn372891.aspx) |
 
 ## Déploiement étape par étape
 
@@ -164,7 +164,7 @@ Procédez comme suit pour créer une instance du service StorSimple Manager.
 
 > [AZURE.IMPORTANT]Si vous n’avez pas activé la création automatique d’un compte de stockage avec votre service, vous devez créer au moins un compte de stockage après avoir créé un service. Ce compte de stockage est utilisé lorsque vous créez un conteneur de volumes.
 >
-> Si vous n’avez pas créé de compte de stockage automatiquement, accédez à la page [Configuration d’un compte de stockage pour le service](#Configure-a-new-storage-account-for-the-service) pour obtenir des instructions détaillées. Si vous avez activé la création automatique d’un compte de stockage, passez à l’[étape 2 : Obtention de la clé d’inscription](#step-2:-get-the-service-registration-key).
+> Si vous n’avez pas créé de compte de stockage automatiquement, accédez à la page [Configuration d’un compte de stockage pour le service](#configure-a-new-storage-account-for-the-service) pour obtenir des instructions détaillées. Si vous avez activé la création automatique d’un compte de stockage, passez à l’[étape 2 : Obtention de la clé d’inscription](#step-2:-get-the-service-registration-key).
 
 ## Étape 2 : Obtention de la clé d’inscription
 
@@ -220,7 +220,7 @@ Après avoir créé un conteneur de volumes, vous pouvez configurer un volume de
 
 > - Pour une haute disponibilité de votre solution StorSimple, nous vous recommandons de configurer MPIO sur votre hôte Windows Server (facultatif) avant de configurer iSCSI sur votre hôte Windows Server. La configuration de MPIO sur les serveurs hôtes permet de s'assurer que les serveurs peuvent tolérer une panne de liaison, de réseau ou d'interface.
 
-> - Pour obtenir les instructions d'installation et de configuration de la solution MPIO et d'iSCSI, consultez [Configuration de la solution MPIO pour votre appareil StorSimple](storsimple-configure-mpio-windows-server.md). Ces instructions incluent également les étapes pour monter, initialiser et formater des volumes StorSimple.
+> - Pour obtenir les instructions d'installation et de configuration de la solution MPIO et d'iSCSI, consultez la rubrique [Configuration de la solution MPIO pour votre appareil StorSimple](storsimple-configure-mpio-windows-server.md). Ces instructions incluent également les étapes pour monter, initialiser et formater des volumes StorSimple.
 
 Si vous décidez de ne pas configurer MPIO, procédez comme suit pour monter, initialiser et formater vos volumes StorSimple.
 
@@ -242,7 +242,7 @@ Il s’agit d’une étape facultative que vous devez exécuter uniquement si vo
 
 Si vous devez créer un compte de stockage Azure dans une autre région, consultez la page [À propos des comptes de stockage Azure](../storage/storage-create-storage-account.md) pour obtenir des instructions détaillées.
 
-Procédez comme suit dans le portail Azure, sur la page **Service StorSimple Manager**.
+Procédez comme suit dans le portail Azure, sur la page **Service StorSimple Manager**.
 
 [AZURE.INCLUDE [storsimple-configure-new-storage-account](../../includes/storsimple-configure-new-storage-account.md)]
 
@@ -257,12 +257,12 @@ Pour vous connecter à Windows PowerShell pour StorSimple, vous devez utiliser u
 
 La mise à jour de votre appareil peut prendre entre 1 et 4 heures. Procédez comme suit pour rechercher et appliquer des mises à jour sur votre appareil.
 
-> [AZURE.NOTE]Si vous avez une passerelle configurée sur une interface réseau différente de Data 0, vous devrez désactiver les interfaces réseau Data 2 et Data 3 avant d'installer la mise à jour. Accédez à **Périphériques > Configurer** et désactivez les interfaces Data 2 et Data 3. Vous devrez réactiver ces interfaces après la mise à jour de l'appareil.
+> [AZURE.NOTE]Si vous avez une passerelle configurée sur une interface réseau différente de Data 0, vous devrez désactiver les interfaces réseau Data 2 et Data 3 avant d'installer la mise à jour. Accédez à **Périphériques > Configurer** et désactivez les interfaces Data 2 et Data 3. Vous devrez réactiver ces interfaces après la mise à jour de l'appareil.
 
 #### Mise à jour de votre appareil
 1.	Sur la page **Démarrage rapide** de l'appareil, cliquez sur **Périphériques**. Sélectionnez l'appareil physique, cliquez sur **Maintenance**, puis cliquez sur **Rechercher les mises à jour**.  
 2.	La tâche créée recherche les mises à jour disponibles. Si des mises à jour sont disponibles, l'option **Rechercher les mises à jour** devient **Installer les mises à jour**. Cliquez sur **Installer les mises à jour**. Vous serez peut-être invité à désactiver Data 2 et Data 3 avant d'installer les mises à jour. Vous devez désactiver ces interfaces réseau ou les mises à jour peuvent échouer.
-3.	Une tâche de mise à jour est créée. Surveillez l'état de la mise à jour en accédant à **Travaux**.
+3.	Une tâche de mise à jour est créée. Surveillez l'état de la mise à jour en accédant à **Tâches**.
 
 	> [AZURE.NOTE]Lorsque la tâche de mise à jour démarre, elle affiche immédiatement l'état de 50 %. L'état passe ensuite à 100 % uniquement lorsque la tâche de mise à jour est terminée. Il n'existe aucun état en temps réel du processus de mise à jour.
 
@@ -290,4 +290,4 @@ Procédez comme suit dans le portail Azure pour créer une sauvegarde manuelle �
 
 - Utilisez le [service StorSimple Manager](https://msdn.microsoft.com/library/azure/dn772396.aspx) pour gérer votre appareil StorSimple.
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

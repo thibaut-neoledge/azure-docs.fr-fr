@@ -7,7 +7,6 @@
 	manager="swadhwa" 
 	editor="curtand"/>
 
-
 <tags 
 	ms.service="active-directory"  
 	ms.workload="identity" 
@@ -17,13 +16,12 @@
 	ms.date="05/28/2015" 
 	ms.author="billmath"/>
 
-
 # Installation personnalisée d’Azure AD Connect
 
 
 La documentation suivante explique comment utiliser l’option d’installation personnalisée pour Azure AD Connect. Vous pouvez utiliser cette option si vous avez des options de configuration supplémentaires ou si vous avez besoin de fonctionnalités facultatives qui ne sont pas traitées par l’installation rapide.
 
-Pour plus d’informations sur l’installation rapide, consultez la page [Installation rapide](active-directory-aadconnect/#getting-started-with-azure-ad-connect). Pour plus d’informations sur la mise à niveau depuis DirSync vers Azure AD Connect, consultez [Mise à niveau de DirSync pour Azure Active Directory Connect.](active-directory-aadconnect-dirsync-upgrade-get-started.md)
+Pour plus d’informations sur l’installation rapide, consultez la page [Installation rapide](active-directory-aadconnect.md#getting-started-with-azure-ad-connect). Pour plus d’informations sur la mise à niveau depuis DirSync vers Azure AD Connect, consultez [Mise à niveau de DirSync pour Azure Active Directory Connect.](active-directory-aadconnect-dirsync-upgrade-get-started.md)
 
 
 
@@ -292,4 +290,4 @@ Vous pouvez personnaliser l’illustration et l’image de logo de vos pages de 
 	
 	Set-AdfsWebTheme -TargetName default -Logo @{path="c:\Contoso\logo.png"} –Illustration @{path=”c:\Contoso\illustration.png”}
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="07/27/2015"
+   ms.date="08/17/2015"
    ms.author="alkohli" />
 
 # Matériel pris en charge pour les interfaces réseau 10 Gigabit Ethernet sur votre appareil StorSimple
@@ -110,6 +110,6 @@ Le tableau suivant répertorie les commutateurs pris en charge par Mellanox. Ils
 
 ## Étapes suivantes
 
-En savoir plus sur les [composants matériels StorSimple](https://msdn.microsoft.com/library/azure/dn757755.aspx)
+[En savoir plus sur les composants matériels StorSimple et leur état](storsimple-monitor-hardware-status.md).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

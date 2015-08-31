@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD" 
-   ms.date="08/11/2015"
+   ms.date="08/13/2015"
    ms.author="v-sharos"/>
 
 
@@ -226,4 +226,4 @@ En savoir plus sur la [sécurité StorSimple](storsimple-security.md).
 
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

@@ -3,8 +3,8 @@
 	description="Un rapport indiquant les utilisateurs qui se sont connectés à votre annuaire à partir d’une adresse IP anonyme."
 	services="active-directory"
 	documentationCenter=""
-	authors="kenhoff"
-	manager="ilanas"
+	authors="SSalahAhmed"
+	manager="gchander"
 	editor=""/>
 
 <tags
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/01/2015"
-	ms.author="kenhoff"/>
+	ms.date="08/17/2015"
+	ms.author="saah;kenhoff"/>
 
 # Connexions à partir de sources inconnues
 
@@ -24,4 +24,4 @@
 
 ![Connexions à partir de sources inconnues](./media/active-directory-reporting-sign-ins-from-unknown-sources/signInsFromUnknownSources.PNG)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

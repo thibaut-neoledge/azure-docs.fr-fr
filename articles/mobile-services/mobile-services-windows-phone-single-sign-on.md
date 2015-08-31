@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Authentification de votre application avec Live Connect (Windows Phone) | Microsoft Azure" 
-	description="Découvrez comment utiliser l'authentification unique Live Connect dans Azure Mobile Services à partir d'une application Windows Phone." 
-	services="mobile-services" 
-	documentationCenter="windows" 
-	authors="ggailey777" 
-	manager="dwrede" 
+<properties
+	pageTitle="Authentification de votre application avec Live Connect (Windows Phone) | Microsoft Azure"
+	description="Découvrez comment utiliser l&#39;authentification unique Live Connect dans Azure Mobile Services à partir d&#39;une application Windows Phone."
+	services="mobile-services"
+	documentationCenter="windows"
+	authors="ggailey777"
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-windows-phone" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="04/09/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-windows-phone"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="08/18/2015" 
 	ms.author="glenga"/>
 
 # Authentifier votre application Windows Phone avec l'authentification gérée par le client à l'aide du compte Microsoft
@@ -30,11 +30,11 @@ Ce didacticiel requiert les éléments suivants :
 + Microsoft Visual Studio 2013 Update 3, ou version ultérieure
 + Vous devez d'abord suivre le didacticiel [Ajouter Mobile Services à une application existante].
 
-##Inscrire votre application pour utiliser un compte Microsoft 
+##Inscrire votre application pour utiliser un compte Microsoft
 
 Pour pouvoir authentifier les utilisateurs, vous devez inscrire votre application auprès du Centre des développeurs de compte Microsoft. Vous devez ensuite connecter cette inscription à votre service mobile. Effectuez les étapes décrites dans la rubrique suivante pour créer une inscription de compte Microsoft et la connecter à votre service mobile.
 
-+ [Inscrire votre application pour utiliser les informations de connexion d'un compte Microsoft](mobile-services-how-to-register-microsoft-authentication.md) 
++ [Inscrire votre application pour utiliser les informations de connexion d'un compte Microsoft](mobile-services-how-to-register-microsoft-authentication.md)
 
 ##<a name="permissions"></a>Restreindre les autorisations aux utilisateurs authentifiés
 
@@ -54,10 +54,10 @@ Enfin, ajoutez le Kit de développement logiciel (SDK) Live et utilisez-le pour 
 
 5. Ouvrez le fichier projet mainpage.xaml.cs et ajoutez les instructions using suivantes :
 
-        using Microsoft.Live;      
+        using Microsoft.Live;
 
 6. Ajoutez l'extrait de code suivant à la classe MainPage :
-	
+
         private LiveConnectSession session;
         private static string clientId = "<microsoft-account-client-id>";
         private async System.Threading.Tasks.Task AuthenticateAsync()
@@ -107,12 +107,12 @@ Enfin, ajoutez le Kit de développement logiciel (SDK) Live et utilisez-le pour 
             this.ButtonLogin.Visibility = System.Windows.Visibility.Collapsed;
             RefreshTodoItems();
         }
-		
+
 7. Dans le projet d'application, ouvrez le fichier projet MainPage.xaml et ajoutez l'élément **Button** suivant au **TitlePanel**, après l'élément **TextBlock** :
 
-		<Button Name="ButtonLogin" Click="ButtonLogin_Click" 
+		<Button Name="ButtonLogin" Click="ButtonLogin_Click"
                         Visibility="Visible">Sign in</Button>
-		
+
 9. Appuyez sur la touche F5 pour exécuter l'application et connectez-vous avec votre compte Microsoft.
 
    Lorsque vous êtes connecté, l'application doit s'exécuter sans erreur et vous devez pouvoir interroger Mobile Services et mettre à jour les données.
@@ -140,6 +140,5 @@ Dans le didacticiel suivant, [Autorisation des utilisateurs avec des scripts], v
 [Autorisation des utilisateurs avec des scripts]: ../mobile-services-windows-phone-authorize-users-in-scripts.md
 
 [Azure Management Portal]: https://manage.windowsazure.com/
- 
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

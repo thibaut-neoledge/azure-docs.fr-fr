@@ -108,7 +108,7 @@ Contactez votre administrateur réseau pour corriger les paramètres de vos appa
 
 ### Source 3 : Point de terminaison de service cloud et liste de contrôle d’accès
 
-Pour vérifier que le point de terminaison du service cloud et la liste de contrôle d’accès ne sont pas la source des problèmes ou de la configuration incorrecte des machines virtuelles créées dans la gestion des services, vérifiez qu’une autre machine virtuelle Azure du même réseau virtuel peut établir des connexions SSH avec votre machine virtuelle Azure.
+Pour vérifier que le point de terminaison du service cloud et la liste de contrôle d’accès ne sont pas la source des problèmes ou de la configuration incorrecte des machines virtuelles créées à l’aide de l’API Service Management, vérifiez qu’une autre machine virtuelle Azure du même réseau virtuel peut établir des connexions SSH avec votre machine virtuelle Azure.
 
 ![](./media/virtual-machines-troubleshoot-ssh-connections/ssh-tshoot4.png)
 
@@ -165,4 +165,4 @@ Pour plus d’informations sur l’utilisation du support Azure, consultez le [F
 
 [Résoudre les problèmes d’accès à une application exécutée sur une machine virtuelle Azure](virtual-machines-troubleshoot-access-application.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

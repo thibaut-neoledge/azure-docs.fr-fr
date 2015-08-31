@@ -1,22 +1,21 @@
-<properties 
-	pageTitle="Envoi de tâches Hadoop dans HDInsight | Microsoft Azure" 
-	description="Apprenez à envoyer des tâches Hadoop à Azure HDInsight Hadoop." 
-	editor="cgronlun" 
-	manager="paulettm" 
-	services="hdinsight" 
-	documentationCenter="" 
+<properties
+	pageTitle="Envoi de tâches Hadoop dans HDInsight | Microsoft Azure"
+	description="Apprenez à envoyer des tâches Hadoop à Azure HDInsight Hadoop."
+	editor="cgronlun"
+	manager="paulettm"
+	services="hdinsight"
+	documentationCenter=""
+	tags="azure-portal"
 	authors="mumian"/>
 
-
-<tags 
-	ms.service="hdinsight" 
-	ms.workload="big-data" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/15/2015" 
+<tags
+	ms.service="hdinsight"
+	ms.workload="big-data"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/28/2015"
 	ms.author="jgao"/>
-
 
 # Envoi de tâches Hadoop dans HDInsight
 
@@ -49,12 +48,12 @@ L'un des exemples suivants permet de compter les fréquences des mots dans les f
 1.	Ouvrez **Azure PowerShell**. Pour savoir comment ouvrir la fenêtre de la console Azure PowerShell, consultez [Installation et configuration d'Azure PowerShell][powershell-install-configure].
 
 3. Configurez les variables suivantes en exécutant ces commandes Azure PowerShell :
-		
-		$subscriptionName = "<SubscriptionName>"   
-		$clusterName = "<HDInsightClusterName>"    
+
+		$subscriptionName = "<SubscriptionName>"
+		$clusterName = "<HDInsightClusterName>"
 
 	Le nom de l’abonnement est celui que vous avez utilisé pour créer le cluster HDInsight. Vous allez utiliser le cluster HDInsight pour exécuter la tâche MapReduce.
-	
+
 5. Exécutez les commandes suivantes pour créer une définition de tâche MapReduce :
 
 		# Define the word count MapReduce job
@@ -66,34 +65,34 @@ L'un des exemples suivants permet de compter les fréquences des mots dans les f
 
 		# Submit the MapReduce job
 		Select-AzureSubscription $subscriptionName
-		$wordCountJob = Start-AzureHDInsightJob -Cluster $clusterName -JobDefinition $wordCountJobDefinition 
+		$wordCountJob = Start-AzureHDInsightJob -Cluster $clusterName -JobDefinition $wordCountJobDefinition
 
 	En plus de la définition de la tâche MapReduce, vous devez également fournir le nom du cluster HDInsight sur lequel vous souhaitez exécuter la tâche MapReduce.
 
 7. Exécutez la commande suivante pour vérifier que la tâche MapReduce est terminée :
 
 		# Wait for the job to complete
-		Wait-AzureHDInsightJob -Job $wordCountJob -WaitTimeoutInSeconds 3600 
-		
+		Wait-AzureHDInsightJob -Job $wordCountJob -WaitTimeoutInSeconds 3600
+
 
 8. Exécutez la commande suivante pour vérifier si l'exécution de la tâche MapReduce génère des erreurs :
 
 		# Get the job standard error output
-		Get-AzureHDInsightJobOutput -Cluster $clusterName -JobId $wordCountJob.JobId -StandardError 
-					
+		Get-AzureHDInsightJobOutput -Cluster $clusterName -JobId $wordCountJob.JobId -StandardError
+
 	La capture d'écran ci-dessous présente la sortie d'une exécution réussie. En cas d'échec, elle aurait comporté des messages d'erreur.
 
 	![HDI.GettingStarted.RunMRJob][image-hdi-gettingstarted-runmrjob]
 
-		
+
 **Pour récupérer les résultats de la tâche MapReduce**
 
 1. Ouvrez **Azure PowerShell**.
 2. Configurez les variables suivantes en exécutant ces commandes Azure PowerShell :
 
-		$subscriptionName = "<SubscriptionName>"       
+		$subscriptionName = "<SubscriptionName>"
 		$storageAccountName = "<StorageAccountName>"
-		$containerName = "<ContainerName>"			
+		$containerName = "<ContainerName>"
 
 	Le nom du compte de stockage est le compte de stockage Azure que vous avez indiqué lors de l’approvisionnement du cluster HDInsight. Le compte de stockage sert à héberger le conteneur d'objets blob utilisé comme système de fichiers par défaut du cluster HDInsight. Le nom du conteneur a généralement le même nom que celui du cluster HDInsight, sauf si vous indiquez un autre nom lors de l’approvisionnement du cluster.
 
@@ -272,9 +271,9 @@ Les clusters HDInsight sont fournis avec un exemple de table Hive nommé *hivesa
 1.	Ouvrez **Azure PowerShell**. Pour savoir comment ouvrir la fenêtre de la console Azure PowerShell, consultez [Installation et configuration d'Azure PowerShell][powershell-install-configure].
 
 2. Définissez les deux variables dans les commandes suivantes, puis exécutez-les :
-		
-		$subscriptionName = "<SubscriptionName>"   
-		$clusterName = "<HDInsightClusterName>"             
+
+		$subscriptionName = "<SubscriptionName>"
+		$clusterName = "<HDInsightClusterName>"
 		$querystring = "SELECT * FROM hivesampletable WHERE Country='United Kingdom';"
 
 	$querystring est la requête HiveQL.
@@ -356,10 +355,10 @@ Les procédures suivantes sont nécessaires pour approvisionner un cluster HDIns
 		using System.IO;
 		using System.Threading;
 		using System.Security.Cryptography.X509Certificates;
-		
+
 		using Microsoft.WindowsAzure.Storage;
 		using Microsoft.WindowsAzure.Storage.Blob;
-		
+
 		using Microsoft.WindowsAzure.Management.HDInsight;
 		using Microsoft.Hadoop.Client;
 
@@ -374,26 +373,26 @@ Les procédures suivantes sont nécessaires pour approvisionner un cluster HDIns
                 Thread.Sleep(TimeSpan.FromSeconds(10));
             }
         }
-	
+
 10. Dans la fonction **Main()**, collez le code suivant :
-		
+
 		// Set the variables
 		string subscriptionID = "<Azure subscription ID>";
 		string certFriendlyName = "<certificate friendly name>";
 
 		string clusterName = "<HDInsight cluster name>";
-		
+
 		string storageAccountName = "<Azure storage account name>";
 		string storageAccountKey = "<Azure storage account key>";
 		string containerName = "<Blob container name>";
-		
-	
+
+
 	Vous devez définir toutes ces variables pour le programme. Vous pouvez obtenir le nom de l'abonnement Azure à partir du [portail Azure][azure-management-portal].
 
 	Pour plus d'informations sur le certificat, consultez [Créer et télécharger un certificat de gestion pour Azure][azure-certificate]. Pour configurer facilement les certificats, exécutez les cmdlets PowerShell **Get-AzurePublishSettingsFile** et **Import-AzurePublishSettingsFile**. Elles vont créer le certificat de gestion et le télécharger automatiquement. Après avoir exécuté ces cmdlets, ouvrez **certmgr.msc** sur le poste de travail puis recherchez le certificat en développant **Personnel** > **Certificats** Le certificat qui est créé par les cmdlets d’Azure PowerShell dispose des outils Azure pour les champs **Émis à** et **Émis par**.
 
 	Le nom du compte Azure est celui que vous avez indiqué lors de l’approvisionnement du cluster HDInsight. Par défaut, le nom du conteneur est identique à celui du cluster HDInsight.
-	
+
 11. Dans la fonction **Main()**, ajoutez le code suivant pour définir la tâche MapReduce :
 
 
@@ -408,7 +407,7 @@ Les procédures suivantes sont nécessaires pour approvisionner un cluster HDIns
         mrJobDefinition.Arguments.Add("wasb:///example/data/WordCountOutput");
 
 	Il y a deux arguments. Le premier est le nom du fichier source ; le deuxième est le chemin d'accès au fichier de sortie. Pour plus d'informations sur le préfixe wasb://, consultez [Utilisation du stockage d'objets blob Azure avec HDInsight][hdinsight-storage].
-		
+
 12. Dans la fonction **Main()**, ajoutez le code suivant pour créer un objet JobSubmissionCertificateCredential :
 
         // Get the certificate object from certificate store using the friendly name to identify it
@@ -416,7 +415,7 @@ Les procédures suivantes sont nécessaires pour approvisionner un cluster HDIns
         store.Open(OpenFlags.ReadOnly);
         X509Certificate2 cert = store.Certificates.Cast<X509Certificate2>().First(item => item.FriendlyName == certFriendlyName);
         JobSubmissionCertificateCredential creds = new JobSubmissionCertificateCredential(new Guid(subscriptionID), cert, clusterName);
-		
+
 13. Dans la fonction **Main()**, ajoutez le code suivant pour exécuter la tâche et attendre qu'elle soit terminée :
 
         // Create a hadoop client to connect to HDInsight
@@ -432,18 +431,18 @@ Les procédures suivantes sont nécessaires pour approvisionner un cluster HDIns
 
 		// Print the MapReduce job output
 		Stream stream = new MemoryStream();
-		
+
 		CloudStorageAccount storageAccount = CloudStorageAccount.Parse("DefaultEndpointsProtocol=https;AccountName=" + storageAccountName + ";AccountKey=" + storageAccountKey);
 		CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
 		CloudBlobContainer blobContainer = blobClient.GetContainerReference(containerName);
 		CloudBlockBlob blockBlob = blobContainer.GetBlockBlobReference("example/data/WordCountOutput/part-r-00000");
-		
+
 		blockBlob.DownloadToStream(stream);
 		stream.Position = 0;
-		
+
 		StreamReader reader = new StreamReader(stream);
 		Console.WriteLine(reader.ReadToEnd());
-		
+
         Console.WriteLine("Press ENTER to continue.");
 		Console.ReadLine();
 
@@ -465,14 +464,14 @@ Pour plus d'informations sur le développement et le déploiement de tâches de 
 	using System.Linq;
 	using System.Text;
 	using System.Threading.Tasks;
-	
+
 	using System.IO;
 	using System.Threading;
 	using System.Security.Cryptography.X509Certificates;
-	
+
 	using Microsoft.WindowsAzure.Management.HDInsight;
 	using Microsoft.Hadoop.Client;
-	
+
 	namespace SubmitStreamingJob
 	{
 	    class Program
@@ -483,7 +482,7 @@ Pour plus d'informations sur le développement et le déploiement de tâches de 
 				// Set the variables
 				string subscriptionID = "<Azure subscription ID>";
 				string certFriendlyName = "<certificate friendly name>";
-		
+
 				string clusterName = "<HDInsight cluster name>";
 				string statusFolderName = @"/tutorials/wordcountstreaming/status";
 
@@ -497,28 +496,28 @@ Pour plus d'informations sur le développement et le déploiement de tâches de 
 	                Reducer = "wc.exe",
 	                Mapper = "cat.exe"
 	            };
-	
+
 	            myJobDefinition.Files.Add("/example/apps/wc.exe");
 	            myJobDefinition.Files.Add("/example/apps/cat.exe");
-	
+
 	            // Get the certificate object from certificate store using the friendly name to identify it
 	            X509Store store = new X509Store();
 	            store.Open(OpenFlags.ReadOnly);
 	            X509Certificate2 cert = store.Certificates.Cast<X509Certificate2>().First(item => item.FriendlyName == certFriendlyName);
-	
+
 	            JobSubmissionCertificateCredential creds = new JobSubmissionCertificateCredential(new Guid(subscriptionID), cert, clusterName);
-	
+
 	            // Create a hadoop client to connect to HDInsight
 	            var jobClient = JobSubmissionClientFactory.Connect(creds);
-	
+
 	            // Run the MapReduce job
 	            Console.WriteLine("----- Submit the Hadoop streaming job ...");
 	            JobCreationResults mrJobResults = jobClient.CreateStreamingJob(myJobDefinition);
-	
+
 	            // Wait for the job to complete
 	            Console.WriteLine("----- Wait for the Hadoop streaming job to complete ...");
 	            WaitForJobCompletion(mrJobResults, jobClient);
-	
+
 	            // Display the error log
 	            Console.WriteLine("----- The hadoop streaming job error log.");
 	            using (Stream stream = jobClient.GetJobErrorLogs(mrJobResults.JobId))
@@ -526,7 +525,7 @@ Pour plus d'informations sur le développement et le déploiement de tâches de 
 	                var reader = new StreamReader(stream);
 	                Console.WriteLine(reader.ReadToEnd());
 	            }
-	
+
 	            // Display the output log
 	            Console.WriteLine("----- The hadoop streaming job output log.");
 	            using (Stream stream = jobClient.GetJobOutput(mrJobResults.JobId))
@@ -534,11 +533,11 @@ Pour plus d'informations sur le développement et le déploiement de tâches de 
 	                var reader = new StreamReader(stream);
 	                Console.WriteLine(reader.ReadToEnd());
 	            }
-	
+
 	            Console.WriteLine("----- Press ENTER to continue.");
 	            Console.ReadLine();
 	        }
-	
+
 	        private static void WaitForJobCompletion(JobCreationResults jobResults, IJobSubmissionClient client)
 	        {
 	            JobDetails jobInProgress = client.GetJob(jobResults.JobId);
@@ -556,7 +555,7 @@ Pour plus d'informations sur le développement et le déploiement de tâches de 
 
 
 
-##Envoi de tâches Hive avec le Kit de développement logiciel (SDK) .NET HDInsight 
+##Envoi de tâches Hive avec le Kit de développement logiciel (SDK) .NET HDInsight
 Les clusters HDInsight sont fournis avec un exemple de table Hive nommé *hivesampletable*. Dans cette session, vous allez créer une application .NET pour exécuter une tâche Hive afin de répertorier les tables Hive créées dans un cluster HDInsight. Pour plus d'informations sur l’utilisation de Hive, consultez [Utilisation de Hive avec HDInsight][hdinsight-use-hive].
 
 Les procédures suivantes sont nécessaires pour approvisionner un cluster HDInsight en utilisant le Kit de développement logiciel (SDK) :
@@ -625,19 +624,19 @@ Les procédures suivantes sont nécessaires pour approvisionner un cluster HDIns
                 Thread.Sleep(TimeSpan.FromSeconds(10));
             }
         }
-	
+
 10. Dans la fonction **Main()**, collez le code suivant :
-		
+
 		// Set the variables
 		string subscriptionID = "<Azure subscription ID>";
 		string clusterName = "<HDInsight cluster name>";
-		string certFriendlyName = "<certificate friendly name>";		
-		
-	
+		string certFriendlyName = "<certificate friendly name>";
+
+
 	Vous devez définir toutes ces variables pour le programme. Vous pouvez obtenir l'ID d'abonnement Azure auprès de votre administrateur système.
 
 	Pour plus d'informations sur le certificat, consultez [Créer et télécharger un certificat de gestion pour Azure][azure-certificate]. Pour configurer facilement les certificats, exécutez les cmdlets PowerShell **Get-AzurePublishSettingsFile** et **Import-AzurePublishSettingsFile**. Elles vont créer le certificat de gestion et le télécharger automatiquement. Après avoir exécuté ces cmdlets, ouvrez **certmgr.msc** sur le poste de travail puis recherchez le certificat en développant **Personnel** > **Certificats** Le certificat qui est créé par les cmdlets d’Azure PowerShell dispose des outils Azure pour les champs **Émis à** et **Émis par**.
-	
+
 11. Dans la fonction **Main()**, ajoutez le code suivant pour définir la tâche Hive :
 
         // define the Hive job
@@ -658,15 +657,15 @@ Les procédures suivantes sont nécessaires pour approvisionner un cluster HDIns
             File = "/user/admin/showtables.hql"
         };
 
-		
+
 12. Dans la fonction **Main()**, ajoutez le code suivant pour créer un objet **JobSubmissionCertificateCredential** :
-	
+
         // Get the certificate object from certificate store using the friendly name to identify it
         X509Store store = new X509Store();
         store.Open(OpenFlags.ReadOnly);
         X509Certificate2 cert = store.Certificates.Cast<X509Certificate2>().First(item => item.FriendlyName == certFriendlyName);
         JobSubmissionCertificateCredential creds = new JobSubmissionCertificateCredential(new Guid(subscriptionID), cert, clusterName);
-		
+
 13. Dans la fonction **Main()**, ajoutez le code suivant pour exécuter la tâche et attendre qu'elle soit terminée :
 
         // Submit the Hive job
@@ -675,7 +674,7 @@ Les procédures suivantes sont nécessaires pour approvisionner un cluster HDIns
 
         // Wait for the job to complete
         WaitForJobCompletion(jobResults, jobClient);
-		
+
 14. Dans la fonction **Main()**, ajoutez le code suivant pour imprimer le résultat de la tâche Hive :
 
         // Print the Hive job output
@@ -693,7 +692,9 @@ Lorsque l'application est ouverte dans Visual Studio, appuyez sur **F5** pour l'
 
 	hivesampletable
 
+##Exécution de travaux Hive à l'aide des outils HDInsight pour Visual Studio
 
+Vous pouvez exécuter des requêtes Hive et Pig à l'aide des outils HDInsight pour Visual Studio Consultez [Prise en main des outils Hadoop pour Visual Studio HDInsight](hdinsight-hadoop-visual-studio-tools-get-started.md).
 
 
 ##Étapes suivantes
@@ -708,7 +709,7 @@ Cet article vous a présenté différentes méthodes pour configurer un cluster 
 
 
 [azure-certificate]: http://msdn.microsoft.com/library/windowsazure/gg551722.aspx
-[azure-management-portal]: http://manage.windowsazure.com/
+[azure-management-portal]: https://portal.azure.com/
 
 [hdinsight-visual-studio-tools]: ../HDInsight/hdinsight-hadoop-visual-studio-tools-get-started.md
 [hdinsight-use-sqoop]: hdinsight-use-sqoop.md
@@ -729,6 +730,5 @@ Cet article vous a présenté différentes méthodes pour configurer un cluster 
 [image-hdi-gettingstarted-mrjoboutput]: ./media/hdinsight-submit-hadoop-jobs-programmatically/HDI.GettingStarted.MRJobOutput.png
 
 [apache-hive]: http://hive.apache.org/
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

@@ -212,4 +212,4 @@ Découvrez Mobile Services et Notification Hubs dans les rubriques suivantes :
 [Send template-based notifications to subscribers]: ../notification-hubs-android-send-localized-breaking-news.md
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

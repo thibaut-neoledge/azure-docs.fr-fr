@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Présentation d’Azure Backup"
+	pageTitle="Présentation d’Azure Backup | Microsoft Azure"
 	description="Cet article fournit une vue d’ensemble du service Azure Backup qui permet aux clients de sauvegarder des données au niveau local et dans Azure."
 	services="backup"
 	documentationCenter=""
@@ -7,14 +7,7 @@
 	manager="shreeshd"
 	editor="tysonn"/>
 
-<tags
-	ms.service="backup"
-	ms.workload="storage-backup-recovery"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/13/2015"
-	ms.author="trinadhk"/>
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/18/2015" ms.author="trinadhk"; "jimpark"/>
 
 # Présentation d’Azure Backup
 Cet article fournit une vue d’ensemble générale de la solution de sauvegarde intégrée au cloud de Microsoft qui permet aux clients de sauvegarder leurs données présentes au niveau local ou dans Azure.
@@ -25,15 +18,13 @@ Azure Backup est un service Azure mutualisé qui vous permet de sauvegarder vos 
 > [AZURE.VIDEO what-is-azure-backup]
 
 ## Point de conception cloud
-Les solutions de sauvegarde traditionnelles ont évolué et considèrent désormais le cloud comme un point de terminaison similaire aux disques ou bandes. Bien que cette approche soit simple, facile à déployer et qu’elle offre une expérience cohérente, elle présente des utilisations limitées et ne tire pas pleinement parti de la plateforme sous-jacente. Cela se traduit par une solution inefficace et coûteuse pour les clients finaux. En réduisant Azure à un « simple point de terminaison de stockage », les solutions de sauvegarde ne peuvent pas tirer parti de la richesse et la puissance de la plateforme cloud publique. En revanche, Azure Backup propose un véritable service qui utilise les constructions du cloud pour offrir une solution puissante et abordable. Il s’intègre à votre solution de sauvegarde locale (SCDPM) pour fournir une solution hybride de bout en bout.
+Les solutions de sauvegarde traditionnelles ont évolué et considèrent désormais le cloud comme un point de terminaison similaire aux disques ou bandes. Bien que cette approche soit simple, facile à déployer et qu’elle offre une expérience cohérente, elle présente des utilisations limitées et ne tire pas pleinement parti de la plateforme sous-jacente. Cela se traduit par une solution inefficace et coûteuse pour les clients finaux. En réduisant Azure à un « simple point de terminaison de stockage », les solutions de sauvegarde ne peuvent pas tirer parti de la richesse et la puissance de la plateforme cloud publique. En revanche, Azure Backup propose un véritable service qui utilise le cloud pour offrir une solution de sauvegarde puissante et abordable. Il s’intègre à votre solution de sauvegarde locale (SCDPM) pour fournir une solution hybride de bout en bout.
 
 Les avantages de cette approche sont les suivants :
 
-+ Architecture de stockage cloud efficace qui fournit un stockage de données abordable et résilient
-
-+ Mise à l’échelle automatique non intrusive du service avec des garanties de haute disponibilité
-
-+ Sauvegarde de déploiements locaux, hybrides et IaaS de manière cohérente
+- Architecture de stockage cloud efficace qui fournit un stockage de données abordable et résilient
+- Mise à l’échelle automatique non intrusive du service avec des garanties de haute disponibilité
+- Sauvegarde de déploiements locaux, hybrides et IaaS de manière cohérente
 
 Les fonctionnalités clés de cette solution sont les suivantes :
 
@@ -66,7 +57,8 @@ Les fonctionnalités clés de cette solution sont les suivantes :
 | Machines virtuelles IaaS Azure (Windows)| - | Azure Backup | | Machines virtuelles IaaS Azure (Linux) | - | Azure Backup |
 
 ## Étapes suivantes
-+ Le Forum Aux Questions sur le service Azure Backup se trouve [ici](backup-azure-backup-faq.md).
-+ Consultez le [forum Azure Backup](http://go.microsoft.com/fwlink/p/?LinkId=290933).
+- [Test d’Azure Backup](backup-try-azure-backup-in-10-mins.md)
+- Le Forum Aux Questions sur le service Azure Backup se trouve [ici](backup-azure-backup-faq.md).
+- Consultez le [forum Azure Backup](http://go.microsoft.com/fwlink/p/?LinkId=290933).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

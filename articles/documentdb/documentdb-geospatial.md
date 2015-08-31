@@ -1,20 +1,20 @@
 <properties 
-    pageTitle="Utilisation de données géographiques dans Azure DocumentDB | Microsoft Azure" 
-    description="Comprendre comment créer, indexer et interroger les objets spatiaux avec Azure DocumentDB." 
-    services="documentdb" 
-    documentationCenter="" 
-    authors="arramac" 
-    manager="jhubbard" 
-    editor="monicar"/>
+    pageTitle="Utilisation de données géographiques dans Azure DocumentDB | Microsoft Azure"
+	description="Comprendre comment créer, indexer et interroger les objets spatiaux avec Azure DocumentDB."
+	services="documentdb"
+	documentationCenter=""
+	authors="arramac"
+	manager="jhubbard"
+	editor="monicar"/>
 
 <tags 
-    ms.service="documentdb" 
-    ms.devlang="na" 
-    ms.topic="article" 
-    ms.tgt_pltfrm="na" 
-    ms.workload="data-services" 
-    ms.date="08/11/2015" 
-    ms.author="arramac"/>
+    ms.service="documentdb"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="data-services"
+	ms.date="08/11/2015"
+	ms.author="arramac"/>
     
 # Utilisation de données géospatiales dans Azure DocumentDB
 
@@ -159,7 +159,7 @@ DocumentDB prend en charge les fonctions intégrées Open Geospatial Consortiu
 </tr>
 <tr>
   <td>ST_ISVALIDDETAILED</td>
-  <td>Renvoie une valeur&#160;JSON contenant une valeur booléenne si l'expression de points ou de polygones&#160;GeoJSON spécifiée est valide et si elle est non valide, le motif sous forme de valeur de chaîne.</td>
+  <td>Renvoie une valeur JSON contenant une valeur booléenne si l'expression de points ou de polygones&#160;GeoJSON spécifiée est valide et si elle est non valide, le motif sous forme de valeur de chaîne.</td>
 </tr>
 </table>
 
@@ -179,7 +179,7 @@ Les fonctions spatiales peuvent être utilisées pour effectuer des requêtes de
 
 Si vous incluez l'indexation spatiale dans votre stratégie d'indexation, les « requêtes à distance » seront servies efficacement dans l'index. Pour plus d'informations sur l'indexation spatiale, consultez la section ci-dessous. Si vous n'avez pas un index spatial pour les chemins d'accès spécifiés, vous pouvez quand même effectuer des requêtes spatiales en spécifiant l’en-tête de requête `x-ms-documentdb-query-enable-scan` avec la valeur définie sur « true ». Dans .NET, cela est possible en passant l’argument facultatif **FeedOptions** aux requêtes avec [EnableScanInQuery](https://msdn.microsoft.com/library/microsoft.azure.documents.client.feedoptions.enablescaninquery.aspx#P:Microsoft.Azure.Documents.Client.FeedOptions.EnableScanInQuery) défini sur true.
 
-ST\_WITHIN peut être utilisé pour vérifier si un point se trouve dans un polygone. Généralement, les polygones sont utilisés pour représenter des limites comme les codes postaux, les frontières d'états ou les formations naturelles. Si vous incluez l'indexation spatiale dans votre stratégie d'indexation, les requêtes « within » seront servies efficacement dans l'index.
+ST\_WITHIN peut être utilisé pour vérifier si un point se trouve dans un polygone. Généralement, les polygones sont utilisés pour représenter des limites comme les codes postaux, les frontières d'États ou les formations naturelles. Si vous incluez l'indexation spatiale dans votre stratégie d'indexation, les requêtes « within » seront servies efficacement dans l'index.
 
 Les arguments de polygone dans ST\_WITHIN peuvent contenir un seul cercle, cela signifie que les polygones ne doivent pas contenir de trous. Vérifiez les [limites DocumentDB](documentdb-limits.md) pour obtenir le nombre maximal de points autorisés dans un polygone pour une requête ST\_WITHIN.
 
@@ -202,7 +202,7 @@ Les arguments de polygone dans ST\_WITHIN peuvent contenir un seul cercle, cela
 
 ST\_ISVALID et ST\_ISVALIDDETAILED peuvent être utilisés pour vérifier si un objet spatial est valide. Par exemple, la requête suivante vérifie la validité d'un point avec une valeur de latitude hors limites (-132.8). ST\_ISVALID retourne simplement une valeur booléenne et ST\_ISVALIDDETAILED renvoie la valeur booléenne et une chaîne contenant la raison pour laquelle il est non valide.
 
-\*\* Requête \*\*
+** Requête **
 
     SELECT ST_ISVALID({ "type": "Point", "coordinates": [31.9, -132.8] })
 
@@ -274,7 +274,7 @@ Comme décrit dans le livre [Schema Agnostic Indexing with Azure DocumentDB](ht
 
 En bref, la géométrie est projetée à partir des coordonnées géodésiques sur un plan 2D, puis divisée progressivement en cellules à l'aide un **quadtree**. Ces cellules sont mappées en 1D selon l'emplacement de la cellule dans une **courbe de remplissage d'espace de Hilbert** qui permet de préserver la localité des points. En outre lorsque les données d'emplacement sont indexées, il passe par un processus connu sous le nom de **pavage**, c'est-à-dire que toutes les cellules qui se croisent à un emplacement sont identifiées et stockées en tant que clés dans l'index DocumentDB. Au moment de la requête, des arguments comme les points et les polygones sont également fractionnés pour extraire les plages d'ID de cellule appropriées, puis utilisés pour récupérer des données à partir de l'index.
 
-Si vous spécifiez une stratégie d'indexation qui inclut un index spatial pour /\* (tous les chemins d'accès), tous les points trouvés dans la collection sont indexés pour des requêtes spatiales efficaces (ST\_WITHIN et ST\_DISTANCE). Les index spatiaux n'ont pas une valeur de précision et utilisent toujours une valeur de précision par défaut.
+Si vous spécifiez une stratégie d'indexation qui inclut un index spatial pour /* (tous les chemins d'accès), tous les points trouvés dans la collection sont indexés pour des requêtes spatiales efficaces (ST\_WITHIN et ST\_DISTANCE). Les index spatiaux n'ont pas une valeur de précision et utilisent toujours une valeur de précision par défaut.
 
 L'extrait JSON suivant montre une politique d'indexation avec l’indexation spatiale activée, c'est-à-dire n'importe quel point GeoJSON trouvé au sein de documents pour l'interrogation spatiale d'index. Si vous modifiez la stratégie d'indexation à l'aide du portail Azure en version préliminaire, vous pouvez spécifier le JSON suivant pour la stratégie d'indexation pour activer l’indexation spatiale pour votre collection.
 
@@ -351,8 +351,8 @@ Voici comment vous pouvez modifier un regroupement existant pour tirer parti de 
 Maintenant que vous avez appris à utiliser la prise en charge géographique dans DocumentDB, vous pouvez :
 
 - Commencer à coder avec les [exemples de code .NET Geospatial sur Github](https://github.com/Azure/azure-documentdb-net/tree/master/samples/code-samples/Queries.Spatial)
-- Découvrir l’interrogation géographique sur le [DocumentDB Query Playground](www.documentdb.com/sql/demo)
+- Découvrir l’interrogation géographique sur le [DocumentDB Query Playground](http://www.documentdb.com/sql/demo#geospatial)
 - En savoir plus sur les [requêtes DocumentDB](documentdb-sql-query.md)
 - En savoir plus sur les [stratégies d'indexation DocumentDB](documentdb-indexing-policies.md).
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

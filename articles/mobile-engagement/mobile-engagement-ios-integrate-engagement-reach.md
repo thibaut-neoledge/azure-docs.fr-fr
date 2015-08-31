@@ -5,8 +5,7 @@
 	documentationCenter="mobile"
 	authors="MehrdadMzfr"
 	manager="dwrede"
-	editor="" />
-
+	editor=""/>
 
 <tags
 	ms.service="mobile-engagement"
@@ -15,8 +14,7 @@
 	ms.devlang="objective-c"
 	ms.topic="article"
 	ms.date="08/05/2015"
-	ms.author="MehrdadMzfr" />
-
+	ms.author="MehrdadMzfr"/>
 
 #Comment intégrer Engagement Reach sur iOS
 
@@ -118,9 +116,13 @@ Enfin, vous devez informer le Kit de développement logiciel (SDK) Engagement lo
 		[[EngagementAgent shared] applicationDidReceiveRemoteNotification:userInfo fetchCompletionHandler:handler];
 	}
 
-> [AZURE.NOTE]La méthode ci-dessus est introduite dans iOS 7. Si vous ciblez iOS < 7, assurez-vous d'implémenter la méthode `application:applicationDidReceiveRemoteNotification:` dans votre délégué d'application et d'appeler `applicationDidReceiveRemoteNotification`sur EngagementAgent en transmettant nil au lieu de l’argument `handler` :
+> [AZURE.NOTE]La méthode ci-dessus est introduite dans iOS 7. Si vous ciblez iOS < 7, assurez-vous d'implémenter la méthode `application:didReceiveRemoteNotification:` dans votre délégué d'application et d'appeler `applicationDidReceiveRemoteNotification` sur EngagementAgent en transmettant nil au lieu de l'argument `handler` :
 
-	[[EngagementAgent shared] applicationDidReceiveRemoteNotification:userInfo fetchCompletionHandler:nil];
+	- (void)application:(UIApplication*)application
+	didReceiveRemoteNotification:(NSDictionary*)userInfo
+	{
+		[[EngagementAgent shared] applicationDidReceiveRemoteNotification:userInfo fetchCompletionHandler:nil];
+	}
 
 > [AZURE.IMPORTANT]Par défaut, Engagement Reach contrôle le completionHandler. Si vous souhaitez répondre manuellement au bloc `handler` de votre code, vous pouvez utiliser nil pour l’argument `handler` et contrôler le bloc de fin vous-même. Consultez le type `UIBackgroundFetchResult` d'une liste de valeurs possibles.
 
@@ -281,7 +283,7 @@ Pour créer une catégorie d'annonce, vous devez étendre **AEAnnouncementViewCo
 	AEReachModule* reach = [AEReachModule moduleWithNotificationIcon:[UIImage imageNamed:@"icon.png"]];
 	[reach registerAnnouncementController:[MyCustomAnnouncementViewController class] forCategory:@"my_category"];
 
-> [AZURE.NOTE]Chaque fois qu'un utilisateur clique sur une notification pour une annonce avec la catégorie « my\\\_category », votre contrôleur d'affichage enregistré (dans ce cas `MyCustomAnnouncementViewController`) sera initialisé en appelant la méthode `initWithAnnouncement:` et l'affichage sera ajouté à la fenêtre de l'application actuelle.
+> [AZURE.NOTE]Chaque fois qu'un utilisateur clique sur une notification pour une annonce avec la catégorie « my\\_category », votre contrôleur d'affichage enregistré (dans ce cas `MyCustomAnnouncementViewController`) sera initialisé en appelant la méthode `initWithAnnouncement:` et l'affichage sera ajouté à la fenêtre de l'application actuelle.
 
 Dans votre implémentation de la classe `AEAnnouncementViewController`, vous devez lire la propriété `announcement` pour initialiser vos sous-vues. Prenons l'exemple ci-dessous, dans lequel deux étiquettes sont initialisées à l'aide des propriétés `title` et `body` de la classe `AEReachAnnouncement` :
 
@@ -414,4 +416,4 @@ Comme pour la personnalisation de notification avancée, il est recommandé d'ex
 
 	@end
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

@@ -1,24 +1,24 @@
 <properties
-	pageTitle="Prise en main d'Azure Search dans Java"
-	description="Guide de création d'une application Azure Search personnalisée, avec Java comme langage de programmation."
+	pageTitle="Prise en main d’Azure Search dans Java | Microsoft Azure"
+	description="Comment créer une application Azure Search personnalisée, avec Java comme langage de programmation."
 	services="search"
 	documentationCenter=""
 	authors="HeidiSteen"
 	manager="mblythe"
-	editor=""/>
+	editor="v-lincan"/>
 
 <tags
 	ms.service="search"
 	ms.devlang="na"
 	ms.workload="search"
-	ms.topic="hero-article" 
+	ms.topic="hero-article"
 	ms.tgt_pltfrm="na"
 	ms.date="06/24/2015"
 	ms.author="heidist"/>
 
-#Prise en main d'Azure Search dans Java#
+# Prise en main d'Azure Search dans Java
 
-Apprenez à créer une application Java personnalisée, qui utilise Azure Search pour ses fonctionnalités de recherche. Ce didacticiel utilise l’[API REST du service Azure Search](https://msdn.microsoft.com/library/dn798935.aspx) pour créer les objets et opérations utilisés dans cet exercice.
+Apprenez à créer une application Java personnalisée, qui utilise Azure Search pour ses fonctionnalités de recherche. Ce didacticiel utilise l’[API REST du service Azure Search](https://msdn.microsoft.com/library/dn798935.aspx) pour créer les objets et opérations utilisés dans cet exercice.
 
 Nous avons utilisé les logiciels suivants pour générer et tester cet exemple :
 
@@ -28,7 +28,7 @@ Nous avons utilisé les logiciels suivants pour générer et tester cet exemple 
 
 - [Apache Tomcat 8.0](http://tomcat.apache.org/download-80.cgi)
 
-Pour exécuter cet exemple, vous devez disposer d'un service Azure Search, auquel vous pouvez vous connecter dans le [portail de gestion Azure](https://portal.azure.com).
+Pour exécuter cet exemple, vous devez disposer d'un service Azure Search, auquel vous pouvez vous connecter dans le [portail de gestion Azure](https://portal.azure.com).
 
 > [AZURE.TIP]Téléchargez le code source de ce didacticiel dans la [démonstration Java d'Azure Search](http://go.microsoft.com/fwlink/p/?LinkId=530197).
 
@@ -57,7 +57,7 @@ La liste suivante décrit les fichiers qui sont pertinents pour cet exemple.
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
 
-2. Dans la barre de lancement, cliquez sur **Nouveau** | **Données + stockage** | **Recherche**.
+2. Dans la barre de lancement, cliquez sur **Nouveau** > **Données + stockage** > **Recherche**.
 
      ![][1]
 
@@ -107,7 +107,7 @@ Toutes les modifications et instructions d'exécution ultérieures seront effect
 
 ## Importer le projet
 
-1. Dans Eclipse, choisissez **File** | **Import** | **General** | **Existing Projects into Workspace**.
+1. Dans Eclipse, choisissez **File** > **Import** > **General** > **Existing Projects into Workspace**.
 
     ![][4]
 
@@ -117,7 +117,7 @@ Toutes les modifications et instructions d'exécution ultérieures seront effect
 
 3. Cliquez sur **Terminer**.
 
-4. Utilisez **Project Explorer** pour afficher et modifier les fichiers. Si l’explorateur n’est pas ouvert, cliquez sur **Window** | **Show View** | **Project Explorer** ou utilisez le raccourci.
+4. Utilisez **Project Explorer** pour afficher et modifier les fichiers. Si l’explorateur n’est pas ouvert, cliquez sur **Window** > **Show View** > **Project Explorer** ou utilisez le raccourci.
 
 ## Configurer l'URL et la clé API du service
 
@@ -131,7 +131,7 @@ Toutes les modifications et instructions d'exécution ultérieures seront effect
 
 ## Configuration des environnements de projet, de génération et d'exécution
 
-1. Dans Project Explorer dans Eclipse, cliquez avec le bouton droit de la souris sur le projet, puis cliquez sur **Properties** | **Project Facets**.
+1. Dans Project Explorer dans Eclipse, cliquez avec le bouton droit sur le projet, puis cliquez sur **Properties** > **Project Facets**.
 
 2. Sélectionnez **Dynamic Web Module**, **Java** et **JavaScript**.
 
@@ -139,7 +139,7 @@ Toutes les modifications et instructions d'exécution ultérieures seront effect
 
 3. Cliquez sur **Apply**.
 
-4. Sélectionnez **Window** | **Preferences** | **Server** | **Runtime Environments** | **Add...**.
+4. Sélectionnez **Window** > **Preferences** > **Server** > **Runtime Environments** > **Add...**.
 
 5. Développez Apache et sélectionnez la version du serveur Apache Tomcat que vous avez précédemment installée. Sur notre système, nous avons installé la version 8.
 
@@ -149,7 +149,7 @@ Toutes les modifications et instructions d'exécution ultérieures seront effect
 
 6. Cliquez sur **Terminer**.
 
-7. Sélectionnez **Window** | **Preferences** | **Java** | **Installed JREs** | **Add**.
+7. Sélectionnez **Window** > **Preferences** > **Java** > **Installed JREs** > **Add**.
 
 8. Dans **Add JRE**, sélectionnez **Standard VM**.
 
@@ -157,13 +157,13 @@ Toutes les modifications et instructions d'exécution ultérieures seront effect
 
 11. Dans JRE Definition de la page d’accueil de JRE, cliquez sur **Directory**.
 
-12. Accédez à **Program Files** | **Java** et sélectionnez le JDK que vous avez installé précédemment. Il est important de sélectionner le JDK comme JRE.
+12. Accédez à **Program Files** > **Java** et sélectionnez le JDK que vous avez installé précédemment. Il est important de sélectionner le JDK comme JRE.
 
 13. Dans Installed JREs, sélectionnez le **JDK**. Vos paramètres doivent être similaires au contenu de la capture d'écran suivante.
 
     ![][9]
 
-14. Si vous le souhaitez, sélectionnez **Window** | **Web Browser** | **Internet Explorer** pour ouvrir l’application dans un navigateur externe. Un navigateur externe vous donne une meilleure expérience de l’application Web.
+14. Si vous le souhaitez, sélectionnez **Window** > **Web Browser** > **Internet Explorer** pour ouvrir l’application dans un navigateur externe. Un navigateur externe vous donne une meilleure expérience de l’application Web.
 
     ![][8]
 
@@ -171,7 +171,7 @@ La phase de configuration est maintenant terminée. Vous allez maintenant créer
 
 ## Créer le projet
 
-1. Dans Project Explorer, cliquez avec le bouton droit de la souris sur le nom du projet et sélectionnez **Run As** | **Maven build...** pour configurer le projet.
+1. Dans Project Explorer, cliquez avec le bouton droit sur le nom du projet et sélectionnez **Run As** > **Maven build...** pour configurer le projet.
 
     ![][10]
 
@@ -187,9 +187,9 @@ Si ce n’est déjà fait, vous devez spécifier un environnement d'exécution d
 
 1. Dans Project Explorer, développez **WebContent**.
 
-5. Cliquez avec le bouton droit de la souris sur **Search.jsp**, puis sélectionnez **Run As** | **Run on Server**. Sélectionnez le serveur Apache Tomcat, puis cliquez sur **Run**.
+5. Cliquez avec le bouton droit sur **Search.jsp**, puis sélectionnez **Run As** > **Run on Server**. Sélectionnez le serveur Apache Tomcat, puis cliquez sur **Run**.
 
-> [AZURE.TIP]Si vous avez stocké votre projet dans un espace de travail personnalisé, vous devrez probablement désigner cet emplacement dans **Run Configuration** pour éviter une erreur lors du démarrage du serveur. Dans Project Explorer, cliquez avec le bouton droit de la souris sur **Search.jsp**, puis cliquez sur **Run As** | **Run Configurations**. Sélectionnez le serveur Apache Tomcat. Cliquez sur **Arguments**. Cliquez sur **Workspace** ou **File System** pour définir le dossier contenant le projet.
+> [AZURE.TIP]Si vous avez stocké votre projet dans un espace de travail personnalisé, vous devrez désigner cet emplacement dans **Run Configuration** pour éviter une erreur lors du démarrage du serveur. Dans Project Explorer, cliquez avec le bouton droit sur **Search.jsp**, puis cliquez sur **Run As** > **Run Configurations**. Sélectionnez le serveur Apache Tomcat. Cliquez sur **Arguments**. Cliquez sur **Workspace** ou **File System** pour définir le dossier contenant le projet.
 
 Lorsque vous exécutez l'application, une fenêtre de navigateur affiche un champ de recherche permettant d'entrer des termes.
 
@@ -230,6 +230,5 @@ Vous découvrez Azure Search ? Nous vous recommandons de suivre les autres dida
 [10]: ./media/search-get-started-java/AzSearch-Java-BuildProject1.PNG
 [11]: ./media/search-get-started-java/rogerwilliamsschool1.PNG
 [12]: ./media/search-get-started-java/AzSearch-Java-SelectProject.png
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

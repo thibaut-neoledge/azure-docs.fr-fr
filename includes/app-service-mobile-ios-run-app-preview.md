@@ -1,18 +1,12 @@
 
+1. Sur votre Mac, accédez au [portail Azure]. Cliquez sur **Parcourir tout** > **Applications mobiles** > serveur principal que vous venez de créer. Dans les paramètres de l’application mobile, cliquez sur **Démarrage rapide** > **iOS (Objective-C)**. Si vous préférez Swift, cliquez sur **Démarrage rapide** > **iOS (Swift)**. Sous **Télécharger et exécuter votre projet iOS**, cliquez sur **Télécharger**. Un projet Xcode complet pour une application préconfigurée pour se connecter à votre serveur principal est téléchargé. Ouvrez le projet à l’aide de Xcode.
 
+2. Appuyez sur le bouton **Exécuter** pour générer le projet et démarrer l’application dans le simulateur iOS.
 
-La dernière étape de ce didacticiel consiste à générer et à exécuter votre nouvelle application.
-
-1. Accédez à l’emplacement où vous avez enregistré les fichiers projet compressés, développez les fichiers sur votre ordinateur et ouvrez le fichier projet à l’aide de Xcode.
-
-2. Appuyez sur le bouton **Exécuter** pour créer le projet et démarrer l’application dans l’émulateur iPhone.
-
-3. Dans l'application, tapez un texte explicite, comme _Suivre le didacticiel_ , puis cliquez sur l'icône plus (**+**).
+3. Dans l’application, tapez un texte explicite, comme _Suivre le didacticiel_ , puis cliquez sur l’icône plus (**+**). Cette action envoie une requête POST au serveur principal Azure déployé précédemment. Le backend insère les données de la requête dans la table SQL TodoItem et renvoie des informations sur les éléments récemment stockés à l’application mobile. L’application mobile affiche ces données dans la liste.
 
    	![](./media/mobile-services-ios-run-app/mobile-quickstart-startup-ios.png)
 
-   	Ceci envoie une requête POST vers la nouvelle application mobile hébergée dans Azure. Les données de la demande sont insérées dans la table TodoItem. Les éléments stockés dans la table sont renvoyés par l’application mobile, et les données sont affichées dans la liste.
+[portail Azure]: https://portal.azure.com/
 
- 	</div>
-
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

@@ -1,19 +1,20 @@
 <properties 
-	pageTitle="Utiliser des outils de BI avec Apache Spark sur HDInsight | Microsoft Azure" 
-	description="Des instructions pas à pas expliquent comment utiliser des blocs-notes avec Apache Spark pour créer des schémas basés sur les données brutes, comment les enregistrer dans des tables Hive, et comment utiliser des outils décisionnels dans la table Hive pour analyser les données." 
-	services="hdinsight" 
-	documentationCenter="" 
-	authors="nitinme" 
-	manager="paulettm" 
-	editor="cgronlun"/>
+	pageTitle="Utiliser des outils de BI avec Apache Spark sur HDInsight | Microsoft Azure"
+	description="Des instructions pas à pas expliquent comment utiliser des blocs-notes avec Apache Spark pour créer des schémas basés sur les données brutes, comment les enregistrer dans des tables Hive, et comment utiliser des outils décisionnels dans la table Hive pour analyser les données."
+	services="hdinsight"
+	documentationCenter=""
+	authors="nitinme"
+	manager="paulettm"
+	editor="cgronlun"
+	tags="azure-portal"/>
 
 <tags 
-	ms.service="hdinsight" 
-	ms.workload="big-data" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/19/2015" 
+	ms.service="hdinsight"
+	ms.workload="big-data"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/31/2015"
 	ms.author="nitinme"/>
 
 
@@ -39,7 +40,9 @@ Dans cette section, nous allons utiliser le bloc-notes [Jupyter](https://jupyter
 
 Une fois vos données enregistrées dans une table Hive, nous allons nous connecter, dans la prochaine section, à la table Hive à l’aide d’outils décisionnels comme Power BI et Tableau.
 
-1. Lancez le bloc-notes Jupyter. Sélectionnez votre cluster Spark dans le portail Azure, puis, dans la barre des tâches du portail située dans la partie inférieure, cliquez sur **Bloc-notes Jupyter**. Lorsque vous y êtes invité, entrez les informations d’identification d’administrateur pour le cluster Spark.
+1. Dans le tableau d’accueil du [portail Azure en version préliminaire](https://ms.portal.azure.com/), cliquez sur la vignette de votre cluster Spark (si vous avez épinglé ce dernier au tableau d’accueil). Vous pouvez également accéder à votre cluster sous **Parcourir tout** > **Clusters HDInsight**. 
+ 
+2. Lancez le bloc-notes [Jupyter](https://jupyter.org). Dans le panneau du cluster Spark, cliquez sur **Liens rapides**, puis dans le panneau **Tableau de bord du cluster**, cliquez sur **Bloc-notes Jupyter**. Lorsque vous y êtes invité, entrez les informations d’identification d’administrateur pour le cluster Spark.
 
 2. Créer un nouveau bloc-notes. Cliquez sur **Nouveau**, puis sur **Python 2**.
 
@@ -59,13 +62,13 @@ Une fois vos données enregistrées dans une table Hive, nous allons nous connec
 		sc = SparkContext('spark://headnodehost:7077', 'pyspark')
 		hiveCtx = HiveContext(sc)
 
-	À chaque exécution d’un travail dans Jupyter, le titre de la fenêtre du navigateur web affiche l’état **(Busy)** ainsi que le titre du bloc-notes. Un cercle plein s’affiche également en regard du texte **Python 2** dans le coin supérieur droit. Une fois le travail terminé, ce cercle est remplacé par un cercle vide.
+	À chaque exécution d’une tâche dans Jupyter, le titre de la fenêtre du navigateur web affiche l’état **(Occupé)** ainsi que le titre du bloc-notes. Un cercle plein s’affiche également en regard du texte **Python 2** dans le coin supérieur droit. Une fois le travail terminé, ce cercle est remplacé par un cercle vide.
 
 	 ![État d’un travail de bloc-notes Jupyter](./media/hdinsight-apache-spark-use-bi-tools/HDI.Spark.Jupyter.Job.Status.png "État d’un travail de bloc-notes Jupyter")
 
-4. Chargez un exemple de données dans une table temporaire. Lorsque vous approvisionnez un cluster Spark dans HDInsight, le fichier exemple de données, **hvac.csv**, est copié vers le compte de stockage associé dans **\\HdiSamples\\SensorSampleData\\hvac**.
+4. Chargez un exemple de données dans une table temporaire. Lorsque vous approvisionnez un cluster Spark dans HDInsight, le fichier exemple de données, **hvac.csv**, est copié vers le compte de stockage associé dans **\\HdiSamples\\SensorSampleData\\hvac**.
 
-	Collez l’extrait suivant dans une cellule vide, puis appuyez sur **MAJ + ENTRÉE**. Cet extrait enregistre les données dans une table Hive appelée **hvac**.
+	Collez l’extrait suivant dans une cellule vide, puis appuyez sur **MAJ + ENTRÉE**. Cet extrait enregistre les données dans une table Hive appelée **hvac**.
 
 
 		# Create an RDD from sample data
@@ -91,7 +94,7 @@ Une fois vos données enregistrées dans une table Hive, nous allons nous connec
 		hivesampletable false      
 		hvac            false
 
-	Seules les tables dont la colonne **isTemporary** est définie sur False sont des tables Hive qui sont stockées dans le metastore et qui sont accessibles à partir des outils décisionnels. Dans ce didacticiel, nous allons nous connecter à la table **hvac** que nous venons de créer.
+	Seules les tables dont la colonne **isTemporary** est définie sur False sont des tables Hive qui sont stockées dans le metastore et qui sont accessibles à partir des outils décisionnels. Dans ce didacticiel, nous allons nous connecter à la table **hvac** que nous venons de créer.
 
 6. Vérifiez que la table contient les données prévues. Collez l’extrait suivant dans une cellule vide du bloc-notes, puis appuyez sur **MAJ + ENTRÉE**.
 
@@ -113,7 +116,7 @@ Une fois que vous avez enregistré les données dans une table Hive, vous pouvez
 
 3. Dans l’écran suivant, cliquez sur **Spark**, puis sur **Se connecter**.
 
-4. Dans la page Spark sur Azure HDInsight, indiquez les valeurs pour vous connecter à votre cluster Spark, puis cliquez sur **Se connecter**.
+4. Dans la page Spark sur Azure HDInsight, indiquez les valeurs pour vous connecter à votre cluster Spark, puis cliquez sur **Se connecter**.
 
 	![Se connecter à un cluster Spark sur HDInsight](./media/hdinsight-apache-spark-use-bi-tools/HDI.Spark.PowerBI.Connect.Spark.png "Se connecter à un cluster Spark sur HDInsight")
 
@@ -123,11 +126,11 @@ Une fois que vous avez enregistré les données dans une table Hive, vous pouvez
 
 	![Vignette Spark dans le tableau de bord Power BI](./media/hdinsight-apache-spark-use-bi-tools/HDI.Spark.PowerBI.Tile.png "Vignette Spark dans le tableau de bord Power BI")
 
-6. Notez que la liste **Champs** qui figure à droite répertorie la table **hvac** que vous avez créée précédemment. Développez la table pour en afficher les champs, comme vous les avez définis précédemment dans le bloc-notes.
+6. Notez que la liste **Champs** sur la droite répertorie la table **hvac** créée précédemment. Développez la table pour en afficher les champs, comme vous les avez définis précédemment dans le bloc-notes.
 
 	  ![Répertorier les tables Hive](./media/hdinsight-apache-spark-use-bi-tools/HDI.Spark.PowerBI.Display.Tables.png "Répertorier les tables Hive")
 
-7. Générez une visualisation pour afficher l’écart entre la température cible et la température réelle de chaque bâtiment. Pour ce faire, effectuez un glisser-déplacer du champ **BuildingID** situé sous **Axe** et des champs **ActualTemp**/\*\*TargetTemp\*\* situés sous **Valeur**.
+7. Générez une visualisation pour afficher l’écart entre la température cible et la température réelle de chaque bâtiment. Pour ce faire, effectuez un glisser-déplacer du champ **BuildingID** situé sous **Axe** et des champs **ActualTemp**/**TargetTemp** situés sous **Valeur**.
 
 	![Créer des visualisations](./media/hdinsight-apache-spark-use-bi-tools/HDI.Spark.PowerBI.Visual.1.png "Créer des visualisations")
 
@@ -153,13 +156,13 @@ Une fois que vous avez enregistré les données dans une table Hive, vous pouvez
 
 	![Se connecter à un cluster Spark](./media/hdinsight-apache-spark-use-bi-tools/HDI.Spark.Tableau.Connect.png "Se connecter à un cluster Spark")
 
-	La liste déroulante d’authentification contient l’option **Windows** **Azure HDInsight Service** uniquement si vous avez installé le [Pilote ODBC de Microsoft Spark](http://go.microsoft.com/fwlink/?LinkId=616229) sur l’ordinateur.
+	La liste déroulante d’authentification contient l’option **Windows** **Azure HDInsight Service** uniquement si vous avez installé le [Pilote ODBC de Microsoft Spark](http://go.microsoft.com/fwlink/?LinkId=616229) sur l’ordinateur.
 
 3. Dans l’écran suivant, dans la liste déroulante **Schema**, cliquez sur l’icône **Find**, puis sur **default**.
 
 	![Rechercher un schéma](./media/hdinsight-apache-spark-use-bi-tools/HDI.Spark.Tableau.Find.Schema.png "Rechercher un schéma")
 
-4. Pour le champ **Table**, cliquez de nouveau sur l’icône **Find** pour dresser la liste de toutes les tables Hive disponibles dans le cluster. La table **hvac** que vous avez créée précédemment à l’aide du bloc-notes doit être indiquée.
+4. Pour le champ **Table**, cliquez de nouveau sur l’icône **Find** pour dresser la liste de toutes les tables Hive disponibles dans le cluster. La table **hvac** que vous avez créée précédemment à l’aide du bloc-notes doit être indiquée.
 
 	![Rechercher des tables](./media/hdinsight-apache-spark-use-bi-tools/HDI.Spark.Tableau.Find.Table.png "Rechercher des tables")
 
@@ -167,7 +170,7 @@ Une fois que vous avez enregistré les données dans une table Hive, vous pouvez
 
 	![Ajouter des tables à Tableau](./media/hdinsight-apache-spark-use-bi-tools/HDI.Spark.Tableau.Drag.Table.png "Ajouter des tables à Tableau")
 
-6. Cliquez sur l’onglet **Sheet1** en bas à gauche. Réalisez une visualisation qui affiche la moyenne des températures cibles et réelles de tous les bâtiments à chaque date. Faites glisser **Date** et **Building ID** vers **Columns**, et **Actual Temp**/\*\*Target Temp\*\* vers **Rows**. Sous **Marks**, sélectionnez **Area** pour utiliser une visualisation par carte des zones.
+6. Cliquez sur l’onglet **Sheet1** en bas à gauche. Réalisez une visualisation qui affiche la moyenne des températures cibles et réelles de tous les bâtiments à chaque date. Faites glisser **Date** et **Building ID** vers **Columns**, et **Actual Temp**/**Target Temp** vers **Rows**. Sous **Marks**, sélectionnez **Area** pour utiliser une visualisation par carte des zones.
 
 	 ![Ajouter des champs pour la visualisation](./media/hdinsight-apache-spark-use-bi-tools/HDI.Spark.Tableau.Drag.Fields.png "Ajouter des champs pour la visualisation")
 
@@ -205,4 +208,4 @@ Une fois que vous avez enregistré les données dans une table Hive, vous pouvez
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

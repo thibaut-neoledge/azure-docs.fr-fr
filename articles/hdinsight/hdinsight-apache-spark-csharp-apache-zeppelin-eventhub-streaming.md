@@ -1,19 +1,20 @@
 <properties 
-	pageTitle="Utilisation des hubs d'événements Azure avec Apache Spark dans HDInsight pour traiter les données de diffusion en continu | Microsoft Azure" 
-	description="Des instructions étape par étape sur l'envoi d’un flux de données vers un concentrateur d'événements Azure et la réception de ces événements dans Spark à l’aide d’un bloc-notes Zeppelin" 
-	services="hdinsight" 
-	documentationCenter="" 
-	authors="nitinme" 
-	manager="paulettm" 
-	editor="cgronlun"/>
+	pageTitle="Utilisation des hubs d'événements Azure avec Apache Spark dans HDInsight pour traiter les données de diffusion en continu | Microsoft Azure"
+	description="Des instructions étape par étape sur l'envoi d’un flux de données vers un concentrateur d'événements Azure et la réception de ces événements dans Spark à l’aide d’un bloc-notes Zeppelin"
+	services="hdinsight"
+	documentationCenter=""
+	authors="nitinme"
+	manager="paulettm"
+	editor="cgronlun"
+	tags="azure-portal"/>
 
 <tags 
-	ms.service="hdinsight" 
-	ms.workload="big-data" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/10/2015" 
+	ms.service="hdinsight"
+	ms.workload="big-data"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/31/2015"
 	ms.author="nitinme"/>
 
 
@@ -23,13 +24,15 @@ La diffusion en continu de Spark développe l'API Spark de base pour générer d
 
 Dans ce didacticiel, vous allez apprendre à créer un concentrateur d'événements Azure, à recevoir des messages dans un concentrateur d'événements à l'aide d'une application console en C# et à les récupérer en parallèle à l'aide d'un bloc-notes Zeppelin configuré pour Apache Spark dans HDInsight.
 
+> [AZURE.NOTE]Pour suivre les instructions de cet article, vous devez utiliser les deux versions du portail Azure. Pour créer un concentrateur d'événements, vous allez utiliser le [portail Azure](https://manage.windowsazure.com). Pour travailler avec le cluster HDInsight Spark, vous allez utiliser la [version préliminaire du portail Azure](https://ms.portal.azure.com/).
+
 **Configuration requise :**
 
 Vous devez disposer des éléments suivants :
 
 - Un abonnement Azure. Consultez [Obtenir une version d'évaluation gratuite d'Azure](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-- Un cluster Apache Spark. Pour obtenir des instructions, consultez[Approvisionnement de clusters Apache Spark dans Azure HDInsight](hdinsight-apache-spark-provision-clusters.md).
-- Un [concentrateur d’événements Azure](service-bus-event-hubs-csharp-ephcs-getstarted.md)
+- Un cluster Apache Spark. Pour obtenir les instructions, consultez [Approvisionner les clusters Apache Spark dans Azure HDInsight](hdinsight-apache-spark-provision-clusters.md).
+- Un [concentrateur d'événements Azure](service-bus-event-hubs-csharp-ephcs-getstarted.md).
 - Une station de travail avec Microsoft Visual Studio 2013. Pour les instructions, consultez [Installation de Visual Studio](https://msdn.microsoft.com/library/e2h7fzkw.aspx).
 
 ##<a name="createeventhub"></a>Créer le concentrateur d'événements Azure
@@ -42,7 +45,7 @@ Vous devez disposer des éléments suivants :
 
 	> [AZURE.NOTE]Vous devez sélectionner le même**emplacement** que celui de votre cluster Apache Spark dans HDInsight pour réduire la latence et les coûts.
 
-3. Sur l’écran **Configuration du concentrateur d'événements**, entrez le**nombre de partitions** et les valeurs de **rétention des messages**, puis cliquez sur la coche. Pour cet exemple, entrez 10 pour le nombre de partitions et 1 pour la conservation des messages. Notez le nombre de partitions, car vous en aurez besoin ultérieurement.
+3. Sur l'écran **Configuration du concentrateur d'événements**, entrez le**nombre de partitions** et les valeurs de **rétention des messages**, puis cliquez sur la coche. Pour cet exemple, entrez 10 pour le nombre de partitions et 1 pour la conservation des messages. Notez le nombre de partitions, car vous en aurez besoin ultérieurement.
 
 	![page 2 de l’assistant](./media/hdinsight-apache-spark-csharp-apache-zeppelin-eventhub-streaming/HDI.Spark.Streaming.Create.Event.Hub2.png "Spécifiez la taille des partitions et les jours de rétention du concentrateur d'événements")
 
@@ -61,7 +64,7 @@ Vous devez disposer des éléments suivants :
 
 	![clés de stratégies](./media/hdinsight-apache-spark-csharp-apache-zeppelin-eventhub-streaming/HDI.Spark.Streaming.Event.Hub.Policy.Keys.png "Enregistrer les clés de stratégie")
 
-6. Sur la page **Tableau de bord**, cliquez sur **Informations de connexion** en bas pour récupérer et enregistrer les chaînes de connexion pour le concentrateur d'événements à l’aide des deux stratégies.
+6. Sur la page **Tableau de bord**, cliquez sur **Informations de connexion** en bas pour récupérer et enregistrer les chaînes de connexion pour le concentrateur d'événements à l'aide des deux stratégies.
 
 	![clés de stratégies](./media/hdinsight-apache-spark-csharp-apache-zeppelin-eventhub-streaming/HDI.Spark.Streaming.Event.Hub.Policy.Connection.Strings.png "Enregistrer les chaînes de connexion de stratégie")
 
@@ -71,15 +74,17 @@ Vous devez disposer des éléments suivants :
 
 Dans cette section, vous allez créer un bloc-notes [Zeppelin](https://zeppelin.incubator.apache.org) pour recevoir des messages à partir du concentrateur d'événements dans le cluster Spark dans HDInsight.
 
-1. Lancez le bloc-notes Zeppelin. Sélectionnez votre cluster Spark sur le portail Azure et, à partir de la barre des tâches du portail en bas, cliquez sur **bloc-notes Zeppelin**. Lorsque vous y êtes invité, entrez les informations d'identification d'administrateur pour le cluster Spark. Suivez les instructions sur la page qui s'ouvre pour lancer le bloc-notes.
+1. Dans le tableau d'accueil du [portail Azure en version préliminaire](https://ms.portal.azure.com/), cliquez sur la vignette de votre cluster Spark (si vous avez épinglé ce dernier au tableau d'accueil). Vous pouvez également accéder à votre cluster sous **Parcourir tout** > **Clusters HDInsight**.   
+
+2. Lancez le bloc-notes Zeppelin. Dans le panneau du cluster Spark, cliquez sur **Liens rapides**, puis dans le panneau **Tableau de bord du cluster**, cliquez sur **Bloc-notes Zeppelin**. Lorsque vous y êtes invité, entrez les informations d’identification d’administrateur pour le cluster. Pour lancer le bloc-notes, suivez les instructions indiquées dans la page qui s’ouvre.
 
 2. Créer un nouveau bloc-notes. Dans le volet d'en-tête, cliquez sur **Bloc-notes** et, à partir de la liste déroulante, cliquez sur **Créer un nouveau bloc-notes**.
 
 	![Créer un nouveau bloc-notes Zeppelin](./media/hdinsight-apache-spark-csharp-apache-zeppelin-eventhub-streaming/HDI.Spark.CreateNewNote.png "Créer un nouveau bloc-notes Zeppelin")
 
-	Dans la même page, sous le titre **Bloc-notes**, un nouveau bloc-notes dont le nom commence par **Note XXXXXXXXX** doit s’afficher. Cliquez sur le nouveau bloc-notes.
+	Dans la même page, sous le titre **Bloc-notes**, un nouveau bloc-notes dont le nom commence par **Note XXXXXXXXX** doit s'afficher. Cliquez sur le nouveau bloc-notes.
 
-3. Sur la page web du nouveau bloc-notes, cliquez sur l'en-tête et modifiez le nom du bloc-notes si vous le souhaitez. Appuyez sur ENTRÉE pour enregistrer la modification de nom. Vérifiez également que l’en-tête du bloc-notes indique l’état **Connecté** dans le coin supérieur droit.
+3. Sur la page web du nouveau bloc-notes, cliquez sur l'en-tête et modifiez le nom du bloc-notes si vous le souhaitez. Appuyez sur ENTRÉE pour enregistrer la modification de nom. Vérifiez également que l'en-tête du bloc-notes indique l'état **Connected** dans le coin supérieur droit.
 
 	![État du bloc-notes Zeppelin](./media/hdinsight-apache-spark-csharp-apache-zeppelin-eventhub-streaming/HDI.Spark.NewNote.Connected.png "État du bloc-notes Zeppelin")
 
@@ -122,13 +127,14 @@ Dans cette section, vous allez créer un bloc-notes [Zeppelin](https://zeppelin.
 
 3. À partir du bloc-notes Zeppelin, dans un nouveau paragraphe, entrez l'extrait de code suivant pour lire les messages reçus dans Spark.
 
-		%sql select * from mytemptable limit 10
+		%sql 
+		select * from mytemptable limit 10
 
 	La capture d'écran suivante montre les messages reçus dans **mytemptable**.
 
 	![Recevoir les messages dans Zeppelin](./media/hdinsight-apache-spark-csharp-apache-zeppelin-eventhub-streaming/HDI.Spark.Streaming.Event.Hub.Zeppelin.Output.png "Recevoir des messages dans le bloc-notes Zeppelin")
 
-4. Redémarrez l'interpréteur SQL de Spark pour quitter l'application. Cliquez sur l’onglet **Interpreter** en haut et, pour l’interpréteur Spark, cliquez sur **Restart**.
+4. Redémarrez l'interpréteur SQL de Spark pour quitter l'application. Cliquez sur l'onglet **Interpreter** en haut de l'écran et, pour l'interpréteur Spark, cliquez sur **Restart**.
 
 	![Redémarrez l'interpréteur Zeppelin](./media/hdinsight-apache-spark-csharp-apache-zeppelin-eventhub-streaming/HDI.Spark.Zeppelin.Restart.Interpreter.png "Redémarrez l'interpréteur Zeppelin")
 
@@ -147,8 +153,8 @@ Les instructions sur la procédure de réalisation de ces étapes et un exemple 
 ##<a name="seealso"></a>Voir aussi
 
 
-* [Vue d'ensemble : Apache Spark sur Azure HDInsight](hdinsight-apache-spark-overview.md)
-* [Démarrage rapide : approvisionnement Apache Spark sur HDInsight et exécution des requêtes interactives à l'aide de Spark SQL](hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql.md)
+* [Vue d’ensemble : Apache Spark sur Azure HDInsight](hdinsight-apache-spark-overview.md)
+* [Démarrage rapide : Approvisionner Apache Spark sur HDInsight et exécuter des requêtes interactives à l’aide de Spark SQL](hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql.md)
 * [Utilisez Spark dans HDInsight pour la création d'applications pour l’apprentissage automatique](hdinsight-apache-spark-ipython-notebook-machine-learning.md)
 * [Effectuez une analyse interactive des données à l'aide de Spark dans HDInsight avec les outils décisionnels](hdinsight-apache-spark-use-bi-tools.md)
 * [Gérer les ressources du cluster Apache Spark dans Azure HDInsight](hdinsight-apache-spark-resource-manager.md)
@@ -164,4 +170,4 @@ Les instructions sur la procédure de réalisation de ces étapes et un exemple 
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

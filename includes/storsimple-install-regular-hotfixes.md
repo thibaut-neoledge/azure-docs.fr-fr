@@ -1,7 +1,6 @@
-
 #### Pour installer des correctifs logiciels périodiques via Windows PowerShell pour StorSimple
 
-1. Connectez-vous à la console série de l’appareil. Pour plus d'informations, consultez [Se connecter à la console série](#connect-to-the-serial-console).
+1. Connectez-vous à la console série de l’appareil. Pour plus d’informations, consultez l’[Étape 1 : Connexion à la console série](storsimple-update-device.md#step1).
 
 2. Dans le menu de la console série, sélectionnez l’option 1, **Ouvrir une session avec un accès total**. Saisissez le mot de passe. Le mot de passe par défaut est **Password1**.
 
@@ -15,4 +14,4 @@
 
 5. Vous êtes invité à confirmer l’opération. Saisissez **O** pour poursuivre l’installation du correctif logiciel.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

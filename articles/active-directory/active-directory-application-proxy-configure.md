@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="Utilisation d’un proxy d’application pour publier des applications pour un accès à distance sécurisé" 
-	description="Cette rubrique explique comment publier des applications, telles que les sites SharePoint, Outlook Web Access et les applications IIS, à l’intérieur de votre réseau privé et offre un accès sécurisé aux utilisateurs en dehors de votre réseau." 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="Justinha" 
-	manager="TerryLan" 
+<properties
+	pageTitle="Utilisation d’un proxy d’application pour publier des applications pour un accès à distance sécurisé"
+	description="Cette rubrique explique comment publier des applications, telles que les sites SharePoint, Outlook Web Access et les applications IIS, à l’intérieur de votre réseau privé et offre un accès sécurisé aux utilisateurs en dehors de votre réseau."
+	services="active-directory"
+	documentationCenter=""
+	authors="rkarlin"
+	manager="stevenpo"
 	editor="LisaToft"/>
 
-<tags 
-	ms.service="active-directory" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/04/2015" 
-	ms.author="Justinha"/>
+<tags
+	ms.service="active-directory"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/14/2015" 
+	ms.author="rkarlin"/>
 
 
 # Utilisation d’un proxy d’application pour publier des applications pour un accès à distance sécurisé
@@ -30,6 +30,5 @@ Pour commencer à utiliser le proxy d’application, procédez comme suit : 1. 
 ## Étapes suivantes
 
 [Blog Microsoft Azure](http://azure.microsoft.com/blog/) [Activation des services de proxy d’application](https://msdn.microsoft.com/library/azure/dn768214.aspx) [Publier des applications avec le proxy d’application](https://msdn.microsoft.com/library/azure/dn768220.aspx) [Résolution des problèmes du proxy d’application](https://msdn.microsoft.com/library/azure/dn768218.aspx)
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

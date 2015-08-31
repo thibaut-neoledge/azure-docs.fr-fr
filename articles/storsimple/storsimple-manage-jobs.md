@@ -1,21 +1,19 @@
 <properties 
    pageTitle="Affichage et gestion des tâches StorSimple | Microsoft Azure"
-   description="Décrit la page Tâches du service StorSimple Manager et explique comment l'utiliser."
+   description="Décrit la page Tâches du service StorSimple Manager et explique comment l’utiliser pour effectuer le suivi des tâches de sauvegarde planifiées, actuelles et récentes."
    services="storsimple"
    documentationCenter="NA"
    authors="alkohli"
    manager="carolz"
    editor=""/>
-
 <tags 
    ms.service="storsimple"
    ms.devlang="NA"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="07/20/2015"
+   ms.date="08/13/2015"
    ms.author="alkohli" />
-
 
 # Affichage et gestion des tâches StorSimple
 
@@ -91,4 +89,4 @@ Cette tâche est à présent annulée.
 
 [En savoir plus sur la gestion de vos stratégies de sauvegarde StorSimple](storsimple-manage-backup-policies.md).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

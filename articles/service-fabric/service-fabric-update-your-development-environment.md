@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Mise à jour de votre environnement de développement Service Fabric"
+   pageTitle="Mettre à jour votre environnement de développement Service Fabric | Microsoft Azure"
    description="Mettez à jour votre environnement de développement Service Fabric pour utiliser le runtime, le SDK et les outils les plus récents."
    services="service-fabric"
    documentationCenter=".net"
@@ -29,7 +29,7 @@
  Vous pouvez nettoyer votre cluster local comme suit :
 
 
- 1. Fermez toutes les autres fenêtres PowerShell et lancez-en une nouvelle en tant qu'administrateur.
+ 1. Fermez toutes les autres fenêtres PowerShell et démarrez-en une nouvelle en tant qu'administrateur.
 
  2. Accédez au répertoire d'installation du cluster avec `cd "$env:ProgramW6432\Microsoft SDKs\Service Fabric\ClusterSetup"`.
 
@@ -41,16 +41,16 @@
  Une fois que vous avez nettoyé avec succès votre cluster existant, vous pouvez poursuivre la mise à niveau comme suit :
 
 
- 1. Lancez Web Platform Installer pour la [mise à jour vers la nouvelle version][1].
+ 1. Démarrez Web Platform Installer pour la [mise à jour vers la nouvelle version][1].
 
- 2. Une fois celle-ci terminée, lancez une nouvelle fenêtre PowerShell en tant qu'administrateur et accédez au répertoire d'installation du cluster avec `cd "$ENV:ProgramFiles\Microsoft SDKs\ServiceFabric\ClusterSetup"`.
+ 2. Une fois celle-ci terminée, démarrez une nouvelle fenêtre PowerShell en tant qu'administrateur et accédez au répertoire d'installation du cluster avec `cd "$ENV:ProgramFiles\Microsoft SDKs\ServiceFabric\ClusterSetup"`.
 
  3. Exécutez `.\DevClusterSetup.ps1` pour configurer votre cluster local.
 
-Et voilà ! Vous pouvez maintenant lancer Visual Studio et poursuivre la création d'applications Service Fabric.
+Et voilà ! Vous pouvez maintenant démarrer Visual Studio et poursuivre la création d'applications Service Fabric.
 
 >[AZURE.NOTE]La structure de projet par défaut a changé dans cette version. Vous devriez être capable d'ouvrir et d'exécuter des projets existants dans Visual Studio. Toutefois, si vous rencontrez des problèmes liés à la création, au déploiement ou au débogage de vos applications, vous devriez envisager de créer un nouveau projet et de migrer votre code.
 
  [1]: http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric "Lien WebPI"
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

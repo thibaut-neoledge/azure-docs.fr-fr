@@ -14,4 +14,4 @@ Vous devez ensuite modifier la méthode d'enregistrement des notifications Push 
             RefreshTodoItems();
         }
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

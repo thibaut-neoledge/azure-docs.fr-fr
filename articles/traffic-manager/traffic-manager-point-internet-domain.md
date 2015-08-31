@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Rediriger un domaine Internet d’entreprise vers un domaine Traffic Manager"
+   pageTitle="Rediriger un domaine Internet d’entreprise vers un domaine Traffic Manager | Microsoft Azure"
    description="Cet article vous aide à rediriger votre nom de domaine d’entreprise vers un nom de domaine Traffic Manager."
    services="traffic-manager"
    documentationCenter=""
@@ -12,8 +12,8 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/27/2015"
-   ms.author="joaoma;cherylmc" />
+   ms.date="08/19/2015"
+   ms.author="joaoma" />
 
 # Rediriger un domaine Internet d’entreprise vers un domaine Traffic Manager
 
@@ -27,13 +27,15 @@ L’intégralité des demandes de trafic pour *www.contoso.com* est alors rediri
 
 >[AZURE.IMPORTANT]Vous ne pouvez pas rediriger un domaine de second niveau tel que *contoso.com* vers le domaine Traffic Manager. Il s’agit d’une limitation du protocole DNS qui n’autorise pas les enregistrements CNAME pour les noms de domaine de deuxième niveau.
 
-## Voir aussi
+## Étapes suivantes
 
-[À propos des méthodes d’équilibrage de charge de Traffic Manager](traffic-manager-load-balancing-methods.md)
+[À propos des méthodes de routage du trafic de Traffic Manager](traffic-manager-load-balancing-methods.md)
 
-[Tâches de configuration de Traffic Manager](https://msdn.microsoft.com/library/azure/hh744830.aspx)
+[Traffic Manager - Désactiver, activer ou supprimer un profil](disable-enable-or-delete-a-profile.md)
 
-[Vue d’ensemble de Traffic Manager](traffic-manager-overview.md)
+[Traffic Manager - Désactiver ou activer un point de terminaison](disable-or-enable-an-endpoint.md)
+
+[Qu’est-ce que Traffic Manager ?](traffic-manager-overview.md)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

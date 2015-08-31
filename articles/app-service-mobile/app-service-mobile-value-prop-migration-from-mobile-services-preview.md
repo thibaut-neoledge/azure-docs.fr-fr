@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/30/2015"
+	ms.date="08/05/2015"
 	ms.author="kirillg"/>
 
 # <a name="getting-started"> </a>J'utilise Mobile Services. Comment App Service peut-il m'aider ?
@@ -35,10 +35,12 @@ Votre service Mobile Service existant est sécurisé et restera pris en charge. 
 ## Nouvelles fonctionnalités d'hébergement
 Dans *Azure App Service*, le code de backend de la fonctionnalité *Applications mobiles* s'exécute dans le même conteneur que l'application web et l'application API. Par conséquent, vous pouvez tirer parti de toutes les fonctionnalités dans ce conteneur, y compris de certaines qui ne figurent pas actuellement dans Mobile Services :
 
-- ajoutez une logique de backend qui s'exécute en permanence via les tâches web ;
-- assurez-vous que votre code de backend est toujours en cours d'exécution ;
-- utilisez des enregistrements CName personnalisés pour fournir des noms conviviaux et stables aux points de terminaison de votre backend mobile ;
-- dimensionnez géographiquement votre application avec Traffic Manager.
+- Ajoutez une logique de backend qui s’exécute en permanence via les tâches web.
+- Assurez-vous que votre code de backend est toujours en cours d’exécution.
+- Utilisez des enregistrements CName personnalisés pour fournir des noms conviviaux et stables aux points de terminaison de votre backend mobile.
+- Dimensionnez géographiquement votre application avec Traffic Manager.
+- Incluez les bibliothèques et les packages que vous souhaitez. Dans .NET, les assemblys que vous déployez sont les assemblys qui sont utilisés au moment de l’exécution ; il n’y a jamais de conflit avec les versions de l’environnement d’hébergement.
+- (Pour .NET) Tirez parti des fonctionnalités d’ASP.NET, y compris MVC.
 
 
 ##Connectez votre *application mobile* à des API SaaS
@@ -67,4 +69,4 @@ Sauvegardez automatiquement votre backend et votre base de données. Votre code 
 D'ici à ce que la fonctionnalité *Azure App Service Mobile Apps* devienne disponible pour tous, nous vous fournirons une expérience de migration transparente pour vos applications Mobile Services vers App Service, si vous choisissez d'effectuer une migration. En attendant, vous pouvez commencer à explorer *App Service* et à tirer parti d'*App Service* pour votre application Mobile Service existante en suivant ce [didacticiel](app-service-mobile-dotnet-backend-migrating-from-mobile-services-preview.md).
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

@@ -1,19 +1,19 @@
 <properties 
-   pageTitle="Ressources d’informations d’identification dans Azure Automation"
-   description="Les ressources d’informations d’identification dans Azure Automation contiennent des informations d’identification de sécurité qui peuvent être utilisées pour s’authentifier auprès des ressources auxquelles le Runbook a accès. Cet article décrit comment créer des ressources d’informations d’identification et les utiliser dans un Runbook."
-   services="automation"
-   documentationCenter=""
-   authors="bwren"
-   manager="stevenka"
-   editor="tysonn" />
+   pageTitle="Ressources d’informations d’identification dans Azure Automation | Microsoft Azure"
+	description="Les ressources d’informations d’identification dans Azure Automation contiennent des informations d’identification de sécurité qui peuvent être utilisées pour s’authentifier auprès des ressources auxquelles le Runbook a accès. Cet article décrit comment créer des ressources d’informations d’identification et les utiliser dans un Runbook."
+	services="automation"
+	documentationCenter=""
+	authors="bwren"
+	manager="stevenka"
+	editor="tysonn"/>
 <tags 
    ms.service="automation"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="05/21/2015"
-   ms.author="bwren" />
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="infrastructure-services"
+	ms.date="08/18/2015"
+	ms.author="bwren"/>
 
 # Ressources d’informations d’identification dans Azure Automation
 
@@ -103,4 +103,4 @@ L’image suivante montre un exemple d’utilisation d’informations d’identi
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

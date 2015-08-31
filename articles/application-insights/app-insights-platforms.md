@@ -1,18 +1,18 @@
 <properties 
-	pageTitle="Application Insights : plateformes" 
-	description="Puis-je utiliser Application Insights avec... ?" 
-	services="application-insights" 
-    documentationCenter=""
-	authors="alancameronwills" 
+	pageTitle="Application Insights : plateformes"
+	description="Puis-je utiliser Application Insights avec... ?"
+	services="application-insights"
+	documentationCenter=""
+	authors="alancameronwills"
 	manager="douge"/>
 
 <tags 
-	ms.service="application-insights" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="na" 
-	ms.topic="get-started-article" 
-	ms.date="08/05/2015" 
+	ms.service="application-insights"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="ibiza"
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.date="08/05/2015"
 	ms.author="awills"/>
  
 # Application Insights : plateformes
@@ -52,7 +52,7 @@
 + [SharePoint](app-insights-sharepoint.md)
 + [Windows Store C#|VB](app-insights-windows-get-started.md)
 + [Windows Store C++](app-insights-windows-cpp.md)
-+ [Services et applications de bureau Windows](app-insights-windows-desktop.md)
++ [Rôles de travail, services et applications de bureau Windows](app-insights-windows-desktop.md)
 + [WordPress](https://wordpress.org/plugins/application-insights/)
 + [Tout autre élément](#projects)
 
@@ -77,4 +77,4 @@ S’il n’existe pas encore de kit de développement logiciel (SDK) pour votre 
 
 <!--Link references-->
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

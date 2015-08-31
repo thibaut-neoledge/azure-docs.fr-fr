@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Prise en main d'Azure Automation"
-	description="Découvrez comment importer et exécuter une tâche d'automatisation dans Azure."
+	pageTitle="Prise en main d&#39;Azure Automation"
+	description="Découvrez comment importer et exécuter une tâche d&#39;automatisation dans Azure."
 	services="automation"
 	documentationCenter=""
 	authors="bwren"
@@ -29,6 +29,12 @@ Le didacticiel vous guide dans la création d'un compte Automation, l'importatio
 Pour suivre le didacticiel, vous devez disposer d'un abonnement Azure. Si vous n'avez pas encore d'abonnement, vous pouvez [activer vos avantages abonnés MSDN](../pricing/member-offers/msdn-benefits-details/) ou vous [inscrire pour un essai gratuit](../pricing/free-trial.md)</a>.
 
 [AZURE.INCLUDE [automation-note-authentication](../../includes/automation-note-authentication.md)]
+
+## Vidéo de procédure pas à pas
+
+Voici une procédure pas à pas de ce didacticiel.
+
+[AZURE.VIDEO get-started-with-azure-automation]
 
 ## <a name="automationaccount"></a>Créer un compte Automation
 
@@ -141,4 +147,4 @@ Microsoft et la communauté Azure Automation fournissent des exemples de Runbook
 **Envoyez-nous vos commentaires !** Si vous recherchez un module d'intégration ou une solution de Runbook Azure Automation, envoyez une demande de script au Centre de scripts. Le cas échéant, publiez vos commentaires ou demandes de fonctionnalités pour Azure Automation sur [User Voice](http://feedback.windowsazure.com/forums/34192--general-feedback). Merci !
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

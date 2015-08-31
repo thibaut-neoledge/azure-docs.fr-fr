@@ -1,6 +1,6 @@
 
 <properties 
-	pageTitle="Prise en main d'Azure Mobile Services pour les applications Android" 
+	pageTitle="Prise en main d&#39;Azure Mobile Services pour les applications Android" 
 	description="Suivez ce didacticiel pour commencer à utiliser Azure Mobile Services pour le développement Android." 
 	services="mobile-services" 
 	documentationCenter="android" 
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="mobile-android" 
 	ms.devlang="java" 
 	ms.topic="article" 
-	ms.date="05/13/2015" 
+	ms.date="08/18/2015" 
 	ms.author="ricksal"/>
 
 
@@ -117,7 +117,7 @@ Vous avez terminé les étapes de démarrage rapide. Découvrez ensuite comment 
 [15]: ./media/mobile-services-dotnet-backend-android-get-started/mobile-services-import-android-project.png
 
 <!-- URLs. -->
-[Prise en main (Eclipse)]: mobile-services-dotnet-backend-android-get-started-EC.md
+[Prise en main (Eclipse)]: mobile-services-dotnet-backend-android-get-started-ec.md
 [Get started with data]: mobile-services-dotnet-backend-android-get-started-data.md
 [Prise en main de l'authentification]: mobile-services-dotnet-backend-android-get-started-users.md
 [Prise en main des notifications Push]: mobile-services-dotnet-backend-android-get-started-push.md
@@ -129,4 +129,4 @@ Vous avez terminé les étapes de démarrage rapide. Découvrez ensuite comment 
 [portail de gestion]: https://manage.windowsazure.com/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

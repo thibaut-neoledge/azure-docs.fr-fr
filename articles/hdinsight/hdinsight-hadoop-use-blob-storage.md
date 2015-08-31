@@ -1,23 +1,21 @@
 <properties
 	pageTitle="Interrogation des données depuis un stockage d’objets blob compatible avec HDFS | Microsoft Azure"
 	description="HDInsight utilise le stockage d’objets blob comme magasin de données volumineuses pour HDFS. Apprenez à interroger des données depuis un stockage d’objets blob et à stocker les résultats de votre analyse."
-	keywords="blob storage,hdfs,structured data,unstructured data"
 	services="hdinsight,storage"
 	documentationCenter=""
+	tags="azure-portal"
 	authors="mumian"
 	manager="paulettm"
 	editor="cgronlun"/>
-
 
 <tags
 	ms.service="hdinsight"
 	ms.workload="big-data"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.date="06/10/2015"
+	ms.topic="article"
+	ms.date="07/28/2015"
 	ms.author="jgao"/>
-
 
 
 #Utilisation du stockage d’objets blob Azure compatible avec HDFS avec Hadoop dans HDInsight
@@ -79,7 +77,7 @@ Voici les avantages offerts par le stockage de données dans un stockage d'objet
 * **Archivage des données** : le stockage de données dans le stockage d'objets blob Azure permet de supprimer les clusters HDInsight ayant servi aux calculs, sans perte de données utilisateur.
 * **Coût de stockage des données :** le stockage à long terme des données dans DFS est plus coûteux que le stockage des données dans un stockage d'objets blob Azure, car le coût d'un cluster de calcul est plus élevé que celui d'un conteneur de stockage d'objets blob Azure. De plus, comme vous n'avez pas à recharger les données pour chaque génération de cluster de calcul, vous faites également des économies sur les chargements de données.
 * **Montée en charge élastique :** même si le système HDFS offre un système de fichiers monté en charge, cette capacité est déterminée par le nombre de nœuds que vous configurez pour votre cluster. Au lieu de procéder ainsi, il est parfois plus simple de profiter des capacités d'évolution flexible que vous obtenez automatiquement dans le stockage d’objets blob Azure.
-* **Géo-réplication :** vous pouvez géo-répliquer vos conteneurs de stockage d'objets blob Azure via le portail Azure. Si cette fonctionnalité permet la récupération géographique et la redondance des données, un basculement vers un emplacement géo-répliqué affecte sérieusement les performances et peut entraîner des frais supplémentaires. Nous vous recommandons donc de peser sérieusement le pour et le contre avant de choisir la géo-réplication.
+* **Géo-réplication :** vous pouvez géo-répliquer vos conteneurs de stockage d'objets blob Azure. Si cette fonctionnalité permet la récupération géographique et la redondance des données, un basculement vers un emplacement géo-répliqué affecte sérieusement les performances et peut entraîner des frais supplémentaires. Nous vous recommandons donc de peser sérieusement le pour et le contre avant de choisir la géo-réplication.
 
 Certains packages et tâches MapReduce peuvent créer des résultats intermédiaires que vous ne voulez pas stocker dans un stockage d'objets blob Azure. Dans ce cas, vous pouvez choisir de stocker les données dans un système HDFS local. En fait, HDInsight utilise DFS pour plusieurs de ces résultats intermédiaires dans les tâches Hive et d'autres processus.
 
@@ -94,23 +92,11 @@ Où qu’il réside, chaque objet blob que vous créez appartient à un conteneu
 Ne partagez pas un conteneur de stockage par défaut avec plusieurs clusters HDInsight. Si vous devez utiliser un conteneur partagé pour fournir l'accès aux données à plusieurs clusters HDInsight, vous devez l'ajouter comme compte de stockage supplémentaire dans la configuration du cluster. Pour plus d’informations, consultez la rubrique [Configuration de clusters HDInsight][hdinsight-provision]. Vous pouvez, toutefois, réutiliser un conteneur de stockage par défaut une fois le cluster HDInsight d'origine supprimé. Pour les clusters HBase, vous pouvez conserver le schéma de la table HBase et les données en configurant un nouveau cluster HBase à l'aide du conteneur de stockage d’objets blob par défaut qui est utilisé par un cluster HBase qui a été supprimé.
 
 
-###Utilisation du portail Azure
+###Utilisation de la version préliminaire du portail Azure
 
-Lorsque vous configurez un cluster HDInsight à partir du portail Azure, vous disposez de deux options : **Création rapide** et **Création personnalisée**. L'option Création rapide requiert un compte de stockage Azure. Pour obtenir des instructions, consultez le guide [Création d'un compte de stockage][azure-storage-create].
+Lorsque vous configurez un cluster HDInsight à partir de la version préliminaire du portail, vous avez la possibilité d'utiliser un compte de stockage existant ou de créer un nouveau compte de stockage :
 
-En utilisant l'option Création rapide, vous pouvez sélectionner un compte de stockage existant. Le processus de configuration crée un conteneur ayant le même nom que le cluster HDInsight. S'il existe déjà un conteneur de même nom, <clusterName>-<x> sera utilisé. Par exemple, *myHDIcluster-1*. Ce conteneur sert de système de fichiers par défaut.
-
-![Utilisation de la création rapide pour un nouveau cluster Hadoop de HDInsight dans le portail Azure.][img-hdi-quick-create]
-
-Avec la Création personnalisée, vous avez le choix entre les options suivantes pour le compte de stockage par défaut :
-
-- utiliser un stockage existant ;
-- créer un stockage ;
-- Utiliser le stockage associé à un autre abonnement,
-
-Vous avez également la possibilité de créer votre propre conteneur ou d'utiliser un conteneur existant.
-
-![Possibilité d'utiliser un compte de stockage existant pour votre cluster HDInsight.][img-hdi-custom-create-storage-account]
+![source de données de configuration hadoop hdinsight](./media/hdinsight-hadoop-use-blob-storage/hdinsight.provision.data.source.png)
 
 ###Utilisation de l’interface de ligne de commande Azure
 
@@ -328,6 +314,5 @@ Pour en savoir plus, consultez les articles suivants :
 [img-hdi-powershell-blobcommands]: ./media/hdinsight-hadoop-use-blob-storage/HDI.PowerShell.BlobCommands.png
 [img-hdi-quick-create]: ./media/hdinsight-hadoop-use-blob-storage/HDI.QuickCreateCluster.png
 [img-hdi-custom-create-storage-account]: ./media/hdinsight-hadoop-use-blob-storage/HDI.CustomCreateStorageAccount.png
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

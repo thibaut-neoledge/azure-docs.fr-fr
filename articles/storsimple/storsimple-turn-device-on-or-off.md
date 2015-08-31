@@ -1,6 +1,6 @@
 <properties 
    pageTitle="Activation ou désactivation de votre appareil StorSimple | Microsoft Azure"
-   description="Explique comment activer un nouvel appareil StorSimple, comment activer un appareil qui a été arrêté ou qui a subi une panne de courant, et comment désactiver un appareil en cours d'exécution."
+   description="Explique comment activer un nouvel appareil StorSimple, comment activer un appareil qui a été arrêté ou qui a subi une panne de courant, et comment désactiver un appareil en cours d&#39;exécution."
    services="storsimple"
    documentationCenter=""
    authors="alkohli"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="08/06/2015"
+   ms.date="08/19/2015"
    ms.author="alkohli" />
 
 # Activation ou désactivation de votre appareil StorSimple 
@@ -28,7 +28,7 @@ Le tableau suivant répertorie les différents scénarios de mise sous tension e
 |Activer un nouvel appareil|[Activer un nouvel appareil](#turn-on-a-new-device)<ul><li>[Nouvel appareil avec boîtier principal uniquement](#new-device-with-primary-enclosure-only)</li><li>[Nouvel appareil avec boîtier EBOD](#new-device-with-ebod-enclosure)</li></ul>|
 |Activer un appareil après l'arrêt|[Activer un appareil après l'arrêt](#turn-on-a-device-after-shutdown)<ul><li>[Appareil avec boîtier principal uniquement](#device-with-primary-enclosure-only)</li><li>[Appareil avec boîtier EBOD](#device-with-ebod-enclosure)</li></ul>|
 |Activer un appareil après une panne de courant|[Activer un appareil après une panne de courant](#turn-on-a-device-after-a-power-loss)<ul><li>[Appareil avec boîtier principal uniquement](#8100)</li><li>[Appareil avec boîtier EBOD](#8600)</li></ul>|
-|Activer un appareil après la perte de connexion au boîtier principal et à EBOD|[Activer un appareil après la perte de connexion au boîtier principal et EBOD](turn-on-a-device-after-the-primary-and-EBOD-enclosure-connection-is-lost)|
+|Activer un appareil après la perte de connexion au boîtier principal et à EBOD|[Activer un appareil après la perte de connexion au boîtier principal et EBOD](#turn-on-a-device-after-the-primary-and-EBOD-enclosure-connection-is-lost)|
 |Arrêter un appareil en cours d'exécution|[Arrêter un appareil en cours d'exécution](#turn-off-a-running-device)<ul><li>[Appareil avec boîtier principal uniquement](#8100a)</li><li>[Appareil avec boîtier EBOD](#8600a)</li></ul>|
 
 ## Activer un nouvel appareil
@@ -37,7 +37,7 @@ Les étapes pour activer un appareil Microsoft Azure StorSimple pour la premièr
 
 - [Nouvel appareil avec boîtier principal uniquement](#new-device-with-primary-enclosure-only)
 
-- [Nouvel appareil avec boîtier EBOD](#new-device-with-EBOD-enclosure)
+- [Nouvel appareil avec boîtier EBOD](#new-device-with-ebod-enclosure)
 
 ### Nouvel appareil avec boîtier principal uniquement
 
@@ -241,4 +241,4 @@ Vous pouvez vous connecter à Windows PowerShell pour StorSimple avec la consol
 
 [Contactez le support Microsoft](storsimple-contact-microsoft-support.md) si vous rencontrez des problèmes lors de l'activation ou l'arrêt d'un appareil StorSimple.
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

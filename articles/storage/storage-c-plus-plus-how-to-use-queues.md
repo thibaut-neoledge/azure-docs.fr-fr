@@ -20,7 +20,7 @@
 
 [AZURE.INCLUDE [storage-selector-queue-include](../../includes/storage-selector-queue-include.md)]
 
-## Vue d’ensemble
+## Vue d'ensemble
 Ce guide décrit le déroulement de scénarios courants dans le cadre de l'utilisation du service de stockage des files d'attente Azure. Les exemples ont été écrits en C++ et utilisent la [bibliothèque cliente Azure Storage pour C++](https://github.com/Azure/azure-storage-cpp/blob/v1.0.0/README.md). Les scénarios traités incluent l'**insertion**, la **lecture furtive**, la **récupération** et la **suppression** des messages de file d'attente, ainsi que la **création et suppression des files d'attente**.
 
 >[AZURE.NOTE]Ce guide cible la bibliothèque cliente Azure Storage pour C++ version 1.0.0 et les versions ultérieures. La version recommandée est la bibliothèque cliente de stockage version 1.0.0, disponible via [NuGet](http://www.nuget.org/packages/wastorage) ou [GitHub](https://github.com/).
@@ -233,10 +233,9 @@ Maintenant que vous connaissez les bases du stockage de files d'attente, consult
 -	[Utilisation du stockage d'objets blob à partir de C++](storage-c-plus-plus-how-to-use-blobs.md)
 -	[Utilisation du stockage de tables à partir de C++](storage-c-plus-plus-how-to-use-tables.md)
 -	[Listage des ressources Azure Storage en C++](storage-c-plus-plus-enumeration.md)
--	[Bibliothèque cliente de stockage pour C++](https://msdn.microsoft.com/library/azure/gg433040.aspx) 
--	[Référence MSDN d’Azure Storage](https://msdn.microsoft.com/library/azure/gg433040.aspx)
+-	[Référence de la bibliothèque cliente de stockage pour C++](http://azure.github.io/azure-storage-cpp)
 -	[Documentation d'Azure Storage](http://azure.microsoft.com/documentation/services/storage/)
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

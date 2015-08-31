@@ -1,23 +1,20 @@
-<properties 
-	pageTitle="Administration de votre annuaire Azure AD" 
-	description="Cette rubrique explique ce qu’est un client Azure AD et comment gérer un annuaire Azure AD" 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="Justinha" 
-	writer="Justinha" 
-	manager="TerryLan" 
+<properties
+	pageTitle="Administration de votre annuaire Azure AD"
+	description="Cette rubrique explique ce qu’est un client Azure AD et comment gérer un annuaire Azure AD"
+	services="active-directory"
+	documentationCenter=""
+	authors="Markusvi"
+	manager="stevenpo"
 	editor="LisaToft"/>
 
-
-<tags 
-	ms.service="active-directory" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="get-started-article" 
-	ms.date="05/05/2015" 
-	ms.author="Justinha"/>
-
+<tags
+	ms.service="active-directory"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.date="05/05/2015"
+	ms.author="markvi"/>
 
 # Administration de votre annuaire Azure AD
 
@@ -100,17 +97,17 @@ Vous pouvez ajouter un annuaire Azure AD dans le portail de gestion Azure. Séle
 
 Vous pouvez gérer chaque annuaire comme une ressource entièrement indépendante : chaque annuaire est un homologue complet et logiquement indépendant des autres annuaires que vous gérez ; il n’existe aucune relation parent-enfant entre les annuaires. Cette indépendance entre les annuaires vaut pour les ressources, l’administration et la synchronisation.
 
-- **Indépendance des ressources**. Si vous créez ou supprimez une ressource dans un annuaire, cela n’a aucun effet sur les ressources d’un autre annuaire, si l’on excepte le cas des utilisateurs externes, comme décrit ci-dessous. Si vous utilisez un domaine personnalisé (par exemple, « contoso.com ») pour un annuaire, il ne peut être utilisé avec aucun autre annuaire. 
-- **Indépendance de l’administration**. Si un utilisateur non administrateur de l’annuaire « Contoso » crée l’annuaire de test « Test », alors : 
-    - ◦l’outil de synchronisation d’annuaires, pour synchroniser les données avec une seule forêt Active Directory ; 
-    - ◦les administrateurs de l’annuaire « Contoso » n’ont pas de privilèges d’administration directs sur l’annuaire « Test », à moins qu’un administrateur de « Test » leur ait spécifiquement accordé ces privilèges. Les administrateurs de « Contoso » peuvent contrôler l’accès à l’annuaire « Test » en vertu du contrôle qu’ils exercent sur le compte d’utilisateur qui a créé « Test ». 
+- **Indépendance des ressources**. Si vous créez ou supprimez une ressource dans un annuaire, cela n’a aucun effet sur les ressources d’un autre annuaire, si l’on excepte le cas des utilisateurs externes, comme décrit ci-dessous. Si vous utilisez un domaine personnalisé (par exemple, « contoso.com ») pour un annuaire, il ne peut être utilisé avec aucun autre annuaire.
+- **Indépendance de l’administration**. Si un utilisateur non administrateur de l’annuaire « Contoso » crée l’annuaire de test « Test », alors :
+    - ◦l’outil de synchronisation d’annuaires, pour synchroniser les données avec une seule forêt Active Directory ;
+    - ◦les administrateurs de l’annuaire « Contoso » n’ont pas de privilèges d’administration directs sur l’annuaire « Test », à moins qu’un administrateur de « Test » leur ait spécifiquement accordé ces privilèges. Les administrateurs de « Contoso » peuvent contrôler l’accès à l’annuaire « Test » en vertu du contrôle qu’ils exercent sur le compte d’utilisateur qui a créé « Test ».
 
     Et si vous modifiez le rôle d’administrateur d’un utilisateur dans un annuaire (ou que vous l’ajoutez ou le modifiez), la modification n’affecte pas le rôle d’administrateur que l’utilisateur peut avoir dans un autre annuaire.
 
 
 - **Indépendance de la synchronisation**. Vous pouvez configurer chaque annuaire Azure AD de manière indépendante pour obtenir la synchronisation des données depuis une même instance de l’un des éléments suivants :
     - l’outil de synchronisation d’annuaires, pour synchroniser les données avec une seule forêt Active Directory ;
-    - le connecteur Azure Active Directory pour Forefront Identity Manager, pour synchroniser les données avec une ou plusieurs forêts locales et/ou des sources de données non AD. 
+    - le connecteur Azure Active Directory pour Forefront Identity Manager, pour synchroniser les données avec une ou plusieurs forêts locales et/ou des sources de données non AD.
 
 De même, sachez qu’à la différence des autres ressources Azure, vos annuaires ne sont pas des ressources enfants d’un abonnement Azure. Ainsi, si vous annulez votre abonnement ou si vous le laissez expirer, vous pouvez toujours accéder à vos données d’annuaire à l’aide d’Azure AD PowerShell, de l’API Graph Azure ou d’autres interfaces, telles que le Centre d’administration Office 365. Vous pouvez également associer un autre abonnement à l’annuaire.
 
@@ -126,8 +123,8 @@ Azure AD nécessite que certaines conditions soient remplies pour supprimer un a
 Les conditions à remplir sont les suivantes :
 
 - Il ne reste qu’un seul utilisateur dans l’annuaire : l’administrateur général chargé de supprimer l’annuaire. Tous les autres utilisateurs doivent être supprimés avant de pouvoir supprimer le répertoire. Si les utilisateurs sont synchronisés en local, la synchronisation doit être désactivée et les utilisateurs supprimés dans l’annuaire cloud via le portail de gestion ou le module Azure pour Windows PowerShell. Il n’est pas nécessaire de supprimer des groupes ou des contacts, tels que les contacts ajoutés à partir du centre d’administration Office 365.
-- Aucune application ne doit se trouver dans l’annuaire. Elles doivent toutes être supprimées avant de pouvoir supprimer l’annuaire. 
-- L’annuaire ne doit être associé à aucun abonnement Microsoft Online Services, tel que Microsoft Azure, Office 365 ou Azure AD. Par exemple, si un annuaire par défaut a été créé pour vous dans Azure, vous ne pouvez pas le supprimer si votre abonnement Azure utilise toujours cet annuaire à des fins d’authentification. De même, vous ne pouvez pas supprimer un annuaire auquel un autre utilisateur a associé un abonnement. Pour associer votre abonnement à un autre annuaire, connectez-vous au portail de gestion Azure et cliquez sur **Paramètres** dans le volet de navigation gauche. Puis au bas de la page **Abonnements**, cliquez sur **Modifier l’annuaire**. Pour plus d’informations sur les abonnements Azure, consultez la page [Comment sont associés les abonnements Azure et Azure AD ?](active-directory-how-subscriptions-associated-directory.md). 
+- Aucune application ne doit se trouver dans l’annuaire. Elles doivent toutes être supprimées avant de pouvoir supprimer l’annuaire.
+- L’annuaire ne doit être associé à aucun abonnement Microsoft Online Services, tel que Microsoft Azure, Office 365 ou Azure AD. Par exemple, si un annuaire par défaut a été créé pour vous dans Azure, vous ne pouvez pas le supprimer si votre abonnement Azure utilise toujours cet annuaire à des fins d’authentification. De même, vous ne pouvez pas supprimer un annuaire auquel un autre utilisateur a associé un abonnement. Pour associer votre abonnement à un autre annuaire, connectez-vous au portail de gestion Azure et cliquez sur **Paramètres** dans le volet de navigation gauche. Puis au bas de la page **Abonnements**, cliquez sur **Modifier l’annuaire**. Pour plus d’informations sur les abonnements Azure, consultez la page [Comment sont associés les abonnements Azure et Azure AD ?](active-directory-how-subscriptions-associated-directory.md).
 
     > [AZURE.NOTE]Si l’utilisateur s’est connecté avec un compte professionnel ou scolaire, il ne doit pas essayer de supprimer son annuaire de base. Par exemple, si l’utilisateur s’est connecté avec le compte joe@contoso.onmicrosoft.com, il ne peut pas supprimer l’annuaire dont le domaine par défaut est contoso.onmicrosoft.com.
 
@@ -147,7 +144,4 @@ Les conditions à remplir sont les suivantes :
 [1]: ./media/active-directory-administer/aad_portals.png
 [2]: ./media/active-directory-administer/azure_tenants.png
 
-
- 
-
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

@@ -13,10 +13,20 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="08/10/2015" 
+	ms.date="08/20/2015" 
 	ms.author="jeffstok"/>
 
 #Notes de publication sur Microsoft Stream Analytics
+
+## Notes relatives à la version du 20/08/2015 de Stream Analytics ##
+
+Cette version contient les mises à jour suivantes.
+
+Intitulé|Description
+---|---
+Ajout de la fonction LAST |La fonction [LAST](http://msdn.microsoft.com/library/mt421186.aspx) est désormais disponible dans les tâches Stream Analytics, ce qui vous permet de récupérer l'événement le plus récent d’un flux d'événements dans une période donnée.
+Nouvelles fonctions de tableau|Les fonctions de tableau [GetArrayElement](http://msdn.microsoft.com/library/mt270218.aspx), [GetArrayElements](http://msdn.microsoft.com/library/mt298451.aspx) et [GetArrayLength](http://msdn.microsoft.com/library/mt270226.aspx) sont désormais disponibles.
+Nouvelles fonctions d'enregistrement|Les fonctions d’enregistrement [GetRecordProperties](http://msdn.microsoft.com/library/mt270221.aspx) et [GetRecordPropertyValue](http://msdn.microsoft.com/library/mt270220.aspx) sont désormais disponibles.
 
 ## Notes relatives à la version du 30/07/2015 de Stream Analytics ##
 
@@ -25,7 +35,7 @@ Cette version contient les mises à jour suivantes.
 Intitulé|Description
 ---|---
 ID d'organisation Power BI dissocié de l'ID Azure|Cette fonctionnalité permet la [sortie Power BI](stream-analytics-power-bi-dashboard.md) pour les tâches ASA dans tout type de compte Azure (Live ID ou ID d'organisation). En outre, vous pouvez avoir un ID d'organisation pour votre compte Azure et en utiliser un autre pour autoriser la sortie de Power BI.
-Prise en charge de la sortie de files d'attente de Service Bus|Les sorties de [files d'attente Service Bus](stream-analytics-connect-data-event-outputs.md#service-bus-queues) sont maintenant disponibles dans les tâches Stream Analytics.
+Prise en charge de la sortie de files d'attente de Service Bus|Les sorties de [files d'attente Service Bus](stream-analytics-connect-data-event-outputs.md#service-bus-queues) sont maintenant disponibles dans les tâches Stream Analytics.
 Prise en charge de la sortie de rubriques de Service Bus|Les sorties de [rubriques Service Bus](stream-analytics-connect-data-event-outputs.md#service-bus-topics) sont maintenant disponibles dans les tâches Stream Analytics.
 
 ## Notes relatives à la version du 09/07/2015 de Stream Analytics ##
@@ -63,7 +73,7 @@ Limitation du volume d'événements de base de données SQL|Lorsque vous utilise
 Les jeux de données Power BI ne peuvent contenir qu’une seule table|Power BI ne peut pas prendre en charge plus d’une table dans un jeu de données.
 
 ## Obtenir de l'aide
-Pour obtenir une assistance, essayez notre [forum Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
+Pour obtenir une assistance, essayez notre [forum Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/fr-fr/home?forum=AzureStreamAnalytics)
 
 ## Étapes suivantes
 
@@ -74,4 +84,4 @@ Pour obtenir une assistance, essayez notre [forum Azure Stream Analytics](https:
 - [Références sur l’API REST de gestion d’Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

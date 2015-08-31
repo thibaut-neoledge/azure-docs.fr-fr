@@ -1,22 +1,20 @@
-<properties 
-	pageTitle="Ajout de votre propre domaine à Azure AD" 
-	description="Cette rubrique explique comment ajouter votre propre nom de domaine à Azure AD et comporte des informations connexes." 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="Justinha" 
-	manager="TerryLan" 
-	editor="LisaToft"/>
+<properties
+	pageTitle="Ajout de votre propre domaine à Azure AD | Microsoft Azure"
+	description="Cette rubrique explique comment ajouter votre propre nom de domaine à Azure AD et comporte des informations connexes."
+	services="active-directory"
+	documentationCenter=""
+	authors="curtand"
+	manager="msStevenPo"
+	editor=""/>
 
-
-<tags 
-	ms.service="active-directory" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="get-started-article" 
-	ms.date="05/12/2015" 
-	ms.author="Justinha"/>
-
+<tags
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.date="08/14/2015"
+	ms.author="curtand"/>
 
 # Ajout de votre propre domaine à Azure AD
 
@@ -43,7 +41,7 @@ Si votre organisation possède déjà un nom de domaine personnalisé, en tant q
 Vous pouvez ajouter jusqu’à 900 noms de domaine à votre client Azure AD à l’aide :
 
 - du portail de gestion Azure, du portail Office 365 ou du portail Microsoft Intune ;
-- du module Azure Active Directory pour Windows PowerShell. Pour plus d’informations sur les applets de commande à utiliser, consultez la page [Gérer les domaines](https://msdn.microsoft.com/library/azure/dn919677.aspx).
+- du module Azure Active Directory pour Windows PowerShell. Pour plus d’informations sur les applets de commande à utiliser, consultez la page [Gérer les domaines dans Azure AD](https://msdn.microsoft.com/library/azure/dn919677.aspx).
 
 Vous devez déjà avoir enregistré un nom de domaine et disposer des informations de connexion nécessaires pour le bureau d’enregistrement de votre nom de domaine (par exemple, Go Daddy ou Register.com).
 
@@ -64,11 +62,11 @@ Pour utiliser l’authentification unique avec le service cloud, nous vous recom
 2. Cliquez sur **Domaines**, puis sur **Ajouter un domaine client** ou sur le bouton **Ajouter**.
 2. Sur la page **Ajouter un domaine**, tapez le nom de domaine que vous souhaitez ajouter et effectuez l’une des opérations suivantes :
     1. Si vous ne souhaitez pas intégrer votre Active Directory local à Azure AD, procédez comme suit :
-        1. Laissez la case **Je prévois de configurer ce domaine pour la connexion unique à mon annuaire Active Directory local** décochée, puis cliquez sur le bouton **Ajouter**.
+        1. Laissez la case **Je prévois de configurer ce domaine pour la connexion unique à mon répertoire Active Directory local** vide, puis cliquez sur le bouton **Ajouter**.
         2. Une fois que votre domaine a été correctement ajouté à Azure AD, cliquez sur la flèche pour passer à la page suivante afin de vérifier votre domaine.
         3. Suivez alors les instructions pour vérifier que le nom de domaine que vous avez ajouté dans les étapes précédentes vous appartient. Pour obtenir des instructions détaillées, consultez la section Vérifier un domaine auprès de n’importe quel bureau d’enregistrement de noms de domaine.
     2. Si vous souhaitez intégrer votre Active Directory local à Azure AD, procédez comme suit :
-        1. Veuillez cocher la case **Je prévois de configurer ce domaine pour la connexion unique à mon annuaire Active Directory local**, puis cliquez sur le bouton **Ajouter**.
+        1. Sélectionnez la case **Je prévois de configurer ce domaine pour la connexion unique à mon répertoire Active Directory local**, puis cliquez sur le bouton **Ajouter**.
         2. Une fois votre domaine correctement ajouté à Azure AD, cliquez sur la flèche pour passer à la page suivante, puis suivez les instructions pour configurer le domaine que vous avez ajouté pour l’authentification unique.
 
 > [AZURE.NOTE]Une fois votre nom de domaine ajouté à Azure AD, vous pouvez modifier le nom de domaine par défaut pour les nouvelles adresses de messagerie. Pour plus d’informations, consultez [Comment puis-je modifier le nom de domaine principal pour les utilisateurs ?](#how-can-i-change-the-primary-domain-name-for-users?) Vous pouvez également modifier le profil d’un compte d’utilisateur existant pour mettre à jour l’adresse de messagerie (qui est également votre ID d’utilisateur) afin d’utiliser votre nom de domaine personnalisé à la place du domaine onmicrosoft.com.
@@ -98,7 +96,7 @@ Si vous disposez déjà d’un domaine enregistré auprès d’un bureau d’enr
 
 Avant de pouvoir vérifier votre domaine, vous devez ajouter un domaine personnalisé à Azure AD. Si vous avez ajouté un domaine personnalisé, mais que le domaine n’a pas encore été vérifié, l’état indique **Cliquez pour vérifier le domaine** ou **Non vérifié**.
 
-#### Collecter des informations sur votre domaine 
+#### Collecter des informations sur votre domaine
 
 Selon le portail que vous utilisez pour administrer votre annuaire Azure AD, vous devez collecter des informations sur votre domaine pour pouvoir créer ultérieurement un enregistrement DNS qui est utilisé pendant le processus de vérification.
 
@@ -114,12 +112,12 @@ Si vous utilisez Microsoft Intune ou le portail de compte Azure :
 
 Si vous utilisez le portail de gestion :
 
-1. Dans le portail, cliquez sur **Active Directory**, sur le nom de votre annuaire, puis sur **Domaines**. 
+1. Dans le portail, cliquez sur **Active Directory**, sur le nom de votre annuaire, puis sur **Domaines**.
 2. Sur la page **Domaines**, dans la liste des noms de domaine, cliquez sur le domaine que vous souhaitez vérifier, puis sur **Vérifier**.
 2. Sur la page **Vérifier**, dans la liste déroulante **Type d’enregistrement**, sélectionnez **Enregistrement TXT** ou **Enregistrement MX**.
 3. Copiez ou enregistrez les informations qu’il contient.
 
-#### Ajouter un enregistrement DNS à votre bureau d’enregistrement de noms de domaine 
+#### Ajouter un enregistrement DNS à votre bureau d’enregistrement de noms de domaine
 
 Azure AD utilise un enregistrement DNS que vous créez auprès de votre bureau d’enregistrement de noms de domaine pour confirmer que vous possédez le domaine. Utilisez les instructions ci-dessous pour créer un type d’enregistrement TXT ou MX pour un domaine inscrit auprès de votre bureau d’enregistrement.
 
@@ -133,7 +131,7 @@ Pour obtenir des instructions générales, procédez comme suit pour ajouter un 
 2. Dans la zone de gestion DNS de votre compte, sélectionnez l’option Ajouter un enregistrement TXT ou MX pour votre domaine.
 3. Dans la zone **TXT** ou **MX** du domaine, tapez ce qui suit : @
 4. Dans la zone **Nom de domaine complet (FQDN)** ou **Pointe vers** tapez ou collez l’**Adresse de destination ou de pointage** que vous avez enregistrée à l’étape précédente.
-5. Pour un enregistrement TXT, les informations **TTL** sont demandées, tapez **1** pour définir TTL sur une heure. 
+5. Pour un enregistrement TXT, les informations **TTL** sont demandées, tapez **1** pour définir TTL sur une heure.
 
     Pour un enregistrement MX, une priorité (ou préférence) est demandée, tapez un nombre supérieur au nombre que vous avez spécifié pour les enregistrements MX existants. Vous pouvez ainsi empêcher le nouvel enregistrement MX d’interférer avec le routage du courrier du domaine. Au lieu d’une priorité, vous pouvez voir les options suivantes : **Faible**, **Moyen**, **Élevé**. Dans ce cas, choisissez **Faible**.
 
@@ -141,7 +139,7 @@ Pour obtenir des instructions générales, procédez comme suit pour ajouter un 
 
 Une fois créé l’enregistrement TXT ou l’enregistrement MX et une fois effectuée l’authentification sur le site web, revenez au service cloud pour vérifier le domaine. Généralement, il faut environ 15 minutes pour que vos modifications prennent effet. Toutefois, il peut s’écouler 72 heures pour que l’enregistrement DNS créé soit propagé dans le système DNS.
 
-#### Vérification de votre domaine 
+#### Vérification de votre domaine
 
 Une fois l’enregistrement que vous avez créé pour votre domaine propagé dans le système DNS, procédez comme suit pour terminer la vérification de votre domaine avec Azure AD.
 
@@ -167,7 +165,7 @@ Après avoir ajouté votre nom de domaine à Azure AD, vous pouvez modifier le n
 
 Avant de supprimer un nom de domaine, nous vous recommandons de lire les informations suivantes :
 
-- Le nom de domaine contoso.onmicrosoft.com d’origine qui a été fourni pour votre annuaire au moment de l’inscription ne peut pas être supprimé. 
+- Le nom de domaine contoso.onmicrosoft.com d’origine qui a été fourni pour votre annuaire au moment de l’inscription ne peut pas être supprimé.
 - Vous ne pouvez pas supprimer un domaine de niveau supérieur ayant des sous-domaines associés tant que les sous-domaines n’ont pas été supprimés. Par exemple, vous ne pouvez pas supprimer adatum.com si corp.adatum.com ou un autre sous-domaine utilise le nom de domaine de niveau supérieur. Pour plus d’informations, consultez l’[article de support](https://support.microsoft.com/kb/2787792/).
 - Avez-vous activé la synchronisation d’annuaires ? Si oui, un domaine a été automatiquement ajouté à votre compte et ressemble à ceci : contoso.mail.onmicrosoft.com. Ce nom de domaine ne peut pas être supprimé.
 - Avant de pouvoir supprimer un nom de domaine, vous devez d’abord supprimer le nom de domaine de tous les utilisateurs ou les comptes de messagerie électronique associés à ce domaine. Vous pouvez supprimer tous les comptes ou réaliser des modifications en bloc sur les comptes d’utilisateurs pour changer leurs informations de nom de domaine et leurs adresses électroniques. Pour plus d’informations, consultez la rubrique [Création ou modification d’utilisateurs dans Azure AD](active-directory-create-users.md).
@@ -181,7 +179,7 @@ Pour supprimer un nom de domaine :
 
 Si le nom de votre domaine ne peut pas être supprimé à ce stade, l’état du nom de domaine est Suppression en attente sur la page Domaines. Si vous continuez à voir cet état, réessayez de supprimer le nom de domaine.
 
-## Résolution des problèmes après avoir modifié votre nom de domaine 
+## Résolution des problèmes après avoir modifié votre nom de domaine
 
 ### J’ai modifié mon domaine, mais il n’affiche pas encore les modifications.
 
@@ -191,19 +189,19 @@ En outre, les modifications que vous apportez au niveau du bureau d’enregistre
 
 Combien de temps faut-il ? Cela dépend en partie de la durée de vie du paramètre (TTL, Time To Live) que vous avez spécifié pour l’enregistrement DNS que vous remplacez ou mettez à jour. Jusqu’à l’expiration de la durée de vie, les serveurs Internet qui ont mis en cache les données précédentes n’interrogent pas le serveur de noms faisant autorité pour demander la nouvelle valeur.
 
-### J’ai ajouté un domaine, l’ai vérifié et ai configuré les enregistrements DNS sur le site du bureau d’enregistrement de domaines. Pourquoi les nouveaux comptes de messagerie ne reçoivent-ils pas encore de courrier ? 
+### J’ai ajouté un domaine, l’ai vérifié et ai configuré les enregistrements DNS sur le site du bureau d’enregistrement de domaines. Pourquoi les nouveaux comptes de messagerie ne reçoivent-ils pas encore de courrier ?
 
 Une fois que vous avez terminé d’ajouter ou de mettre à jour des enregistrements DNS pour votre domaine, il peut s’écouler jusqu’à 72 heures pour que les modifications prennent effet.
 
 En outre, les informations des paramètres doivent être réellement correctes sur le site du bureau d’enregistrement de domaines. Vérifiez vos paramètres et assurez-vous d’avoir prévu suffisamment de temps pour que les enregistrements DNS modifiés soient propagés dans le système.
 
-### Je ne peux pas vérifier mon nom de domaine. Comment puis-je savoir ce qui ne va pas ? 
+### Je ne peux pas vérifier mon nom de domaine. Comment puis-je savoir ce qui ne va pas ?
 
 Pour détecter les problèmes, vous pouvez utiliser l’Assistant Résolution des problèmes des domaines. Pour démarrer l’Assistant, procédez comme suit : dans le portail du service cloud, sur la page Admin, cliquez sur **Domaines**, puis double-cliquez sur le nom de domaine que vous souhaitez vérifier. Ensuite, sous **Résolution des problèmes**, cliquez sur **Dépanner le domaine**.
 
 L’Assistant Résolution des problèmes vous demande où vous vous trouvez dans le processus de vérification, puis fournit des informations pour vous permettre de terminer la vérification.
 
-### J’ai ajouté et vérifié mon domaine, mais le nouveau nom de domaine ne fonctionne pas pour les adresses de messagerie existantes des utilisateurs. 
+### J’ai ajouté et vérifié mon domaine, mais le nouveau nom de domaine ne fonctionne pas pour les adresses de messagerie existantes des utilisateurs.
 
 Si vous ajoutez votre nom de domaine personnalisé au service cloud après avoir ajouté des comptes d’utilisateurs, vous devrez effectuer des mises à jour pour utiliser le nouveau nom de domaine. Par exemple, vous devez modifier les comptes d’utilisateurs pour définir leurs adresses de messagerie afin qu’elles utilisent votre domaine personnalisé.
 
@@ -212,6 +210,6 @@ Si vous ajoutez votre nom de domaine personnalisé au service cloud après avoir
 - [Forum Azure AD](https://social.msdn.microsoft.com/Forums/home?forum=WindowsAzureAD)
 - [Stackoverflow](http://stackoverflow.com/questions/tagged/azure)
 - [Inscription à Azure en tant qu’organisation](sign-up-organization.md)
-- [Gestion de domaines dans Azure AD](https://msdn.microsoft.com/library/azure/dn919677.aspx) 
+- [Gestion de domaines dans Azure AD](https://msdn.microsoft.com/library/azure/dn919677.aspx)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

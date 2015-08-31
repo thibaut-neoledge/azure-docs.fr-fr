@@ -13,8 +13,9 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="06/02/2015"
+   ms.date="08/19/2015"
    ms.author="joaoma" />
+
 # Résolution des problèmes liés à l’état détérioré d’Azure Traffic Manager
 Cette page décrit comment résoudre le problème du profil Azure Traffic Manager qui affiche un état détérioré et fournit quelques points importants à connaître sur les sondes du gestionnaire de trafic.
 
@@ -66,11 +67,11 @@ Si votre sonde utilise le protocole HTTPs, vous devez ajouter le paramètre « 
 ## Étapes suivantes
 
 
-[À propos des méthodes d’équilibrage de charge de Traffic Manager](traffic-manager-load-balancing-methods.md)
+[À propos des méthodes de routage du trafic de Traffic Manager](traffic-manager-load-balancing-methods.md)
 
-[Vue d’ensemble de Traffic Manager](../traffic-manmager-overview.md)
+[Qu’est-ce que Traffic Manager ?](../traffic-manmager-overview.md)
 
-[Services Cloud](http://go.microsoft.com/fwlink/?LinkId=314074)
+[Cloud Services](http://go.microsoft.com/fwlink/?LinkId=314074)
 
 [Sites Web](http://go.microsoft.com/fwlink/p/?LinkId=393327)
 
@@ -79,4 +80,4 @@ Si votre sonde utilise le protocole HTTPs, vous devez ajouter le paramètre « 
 [Applets de commande Azure Traffic Manager](http://go.microsoft.com/fwlink/p/?LinkId=400769)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

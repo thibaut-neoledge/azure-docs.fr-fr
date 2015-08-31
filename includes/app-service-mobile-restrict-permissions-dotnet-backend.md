@@ -1,22 +1,16 @@
 
+Par défaut, les API d’un backend d’application mobile peuvent être appelées de manière anonyme. Vous devez ensuite restreindre l’accès aux clients authentifiés uniquement.
 
-Par défaut, les points de terminaison définis dans votre application mobile sont exposés publiquement. Pour sécuriser vos ressources, vous devez limiter l'accès aux clients authentifiés.
+1. Sur votre ordinateur, ouvrez le projet du serveur dans Visual Studio et accédez à **Contrôleurs** > **TodoItemController.cs**.
 
-1. Dans Visual Studio, ouvrez le projet qui contient le code de votre application mobile. 
+2. Ajoutez l’attribut `[Authorize]` à la classe **TodoItemController**, comme suit : Cela exige que toutes les opérations effectuées sur la table TodoItem le soient par un utilisateur authentifié. Pour restreindre l’accès à des méthodes spécifiques, vous pouvez également appliquer cet attribut à ces méthodes uniquement au lieu de la classe.
 
-2. Dans l'Explorateur de solutions de Visual Studio, développez le dossier Contrôleurs et ouvrez le fichier projet TodoItemController.cs.
-
-	La classe **TodoItemController** implémente l'accès aux données pour la table TodoItem.
-
-3. Appliquez l'attribut `Authorize` à la classe **TodoItemController** :
 
         [Authorize]
         public class TodoItemController : TableController<TodoItem>
+   
+    Cela exige que toutes les opérations effectuées sur la table TodoItem le soient par un utilisateur authentifié. Pour restreindre l’accès à des méthodes spécifiques, vous pouvez également appliquer cet attribut à ces méthodes uniquement au lieu de la classe.
+   
+3. Publiez à nouveau votre projet de serveur.
 
-	Cela permet de s'assurer que toutes les opérations effectuées sur la table **TodoItem** requièrent un utilisateur authentifié.
-
-	>[AZURE.NOTE]Appliquez l’attribut Authorize aux méthodes individuelles pour définir des niveaux d’autorisation spécifiques sur les méthodes exposées par le contrôleur.
-
-4. Republiez votre projet d’application mobile.
-
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

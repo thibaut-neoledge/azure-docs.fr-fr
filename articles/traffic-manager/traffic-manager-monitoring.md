@@ -12,8 +12,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/27/2015"
-   ms.author="joaoma;cherylmc" />
+   ms.date="08/19/2015"
+   ms.author="joaoma" />
 
 # À propos de la surveillance avec Traffic Manager
 
@@ -27,7 +27,7 @@ Azure Traffic Manager surveille vos points de terminaison, y compris les service
 
 ## À propos de la surveillance de l’état d’intégrité
 
-Azure Traffic Manager indique l’intégrité du service du point de terminaison et du profil dans le Portail de gestion. La colonne d’état affiche l’état d’analyse le plus récent pour le profil et le point de terminaison. Cet état vous permet de connaître l’intégrité de vos profils en fonction de vos paramètres de surveillance Traffic Manager. Lorsque votre profil est intègre, les requêtes DNS sont distribuées à vos services selon les paramètres d’équilibrage de charge du profil (tourniquet (round robin), performances ou basculement). Lorsque le système de surveillance de Traffic Manager détecte une modification de l’état d’analyse, il met à jour l’entrée d’état dans le Portail de gestion. L’actualisation de l’état peut prendre jusqu’à cinq minutes.
+Azure Traffic Manager indique l’intégrité du service du point de terminaison et du profil dans le Portail de gestion. La colonne d’état affiche l’état d’analyse le plus récent pour le profil et le point de terminaison. Cet état vous permet de connaître l’intégrité de vos profils en fonction de vos paramètres de surveillance Traffic Manager. Lorsque votre profil est intègre, les requêtes DNS sont distribuées à vos services selon les paramètres de routage du trafic du profil (tourniquet (round robin), performances ou basculement). Lorsque le système de surveillance de Traffic Manager détecte une modification de l’état d’analyse, il met à jour l’entrée d’état dans le Portail de gestion. L’actualisation de l’état peut prendre jusqu’à cinq minutes.
 
 ### État d’analyse des points de terminaison
 
@@ -89,7 +89,7 @@ Un exemple illustrant, de façon de chronologique, le processus de surveillance 
 
 ## État des points de terminaison parents et enfants pour les profils imbriqués
 
-Le tableau suivant décrit le comportement de surveillance de Traffic Manager pour les profils parents et enfants d’un profil imbriqué et le paramètre minChildEndpoints. Pour plus d’informations, consultez [Vue d’ensemble de Traffic Manager](traffic-manager-overview.md).
+Le tableau suivant décrit le comportement de surveillance de Traffic Manager pour les profils parents et enfants d’un profil imbriqué et le paramètre minChildEndpoints. Pour plus d'informations, consultez la rubrique [Qu’est-ce que Traffic Manager ?](traffic-manager-overview.md).
 
 |État d’analyse des profils enfants|État d’analyse des points de terminaison parents|Remarques|
 |---|---|---|
@@ -108,9 +108,9 @@ Le tableau suivant décrit le comportement de surveillance de Traffic Manager po
 
 ## Voir aussi
 
-[Vue d’ensemble de Traffic Manager](traffic-manager-overview.md)
+[Qu’est-ce que Traffic Manager ?](traffic-manager-overview.md)
 
-[À propos des méthodes d’équilibrage de charge de Traffic Manager](traffic-manager-load-balancing-methods.md)
+[À propos des méthodes de routage du trafic de Traffic Manager](traffic-manager-load-balancing-methods.md)
 
 [Cloud Services](http://go.microsoft.com/fwlink/p/?LinkId=314074)
 
@@ -119,4 +119,4 @@ Le tableau suivant décrit le comportement de surveillance de Traffic Manager po
 [Résolution des problèmes liés à l’état détérioré d’Azure Traffic Manager](traffic-manager-troubleshooting-degraded.md)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

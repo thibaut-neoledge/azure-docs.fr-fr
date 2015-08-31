@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Vue d’ensemble de Traffic Manager"
+   pageTitle="Présentation de Traffic Manager | Microsoft Azure"
    description="Cet article vous aidera à comprendre le principe et le fonctionnement de Traffic Manager."
    services="traffic-manager"
    documentationCenter=""
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="07/10/2015"
+   ms.date="08/19/2015"
    ms.author="joaoma" />
 
 # Qu’est-ce que Traffic Manager ?
@@ -39,11 +39,11 @@ La *figure 1* indique comment Traffic Manager dirige les utilisateurs vers l’
 1. **Trafic des données utilisateur vers le nom de domaine d’entreprise** : le client demande des informations à l’aide du nom de domaine d’entreprise. L’objectif est de résoudre un nom DNS en adresse IP. Les domaines d’entreprise doivent être réservés via des inscriptions de nom de domaine Internet standard qui sont gérées de façon externe à Traffic Manager. Dans la figure 1, le domaine d’entreprise indiqué en exemple est *www.contoso.com*.
 2. **Depuis le nom de domaine d’entreprise vers le nom de domaine Traffic Manager** : l’enregistrement de ressource DNS associé au domaine d’entreprise pointe vers un nom de domaine Traffic Manager géré dans Azure Traffic Manager. Pour cela, un enregistrement de ressource CNAME mappe le nom de domaine d’entreprise au nom de domaine Traffic Manager. Dans cet exemple, le nom de domaine Traffic Manager est *contoso.trafficmanager.net*.
 3. **Nom de domaine et profil Traffic Manager** : le nom de domaine Traffic Manager fait partie du profil Traffic Manager. Le serveur DNS de l’utilisateur envoie une nouvelle requête DNS pour le nom de domaine Traffic Manager (dans notre exemple, *contoso.trafficmanager.net*), laquelle est reçue par les serveurs de noms DNS de Traffic Manager.
-4. **Traitement des règles de profil Traffic Manager** : Traffic Manager utilise la méthode d’équilibrage de charge et l’état de la surveillance spécifiés pour déterminer quel point de terminaison (Azure ou autre) doit traiter la demande.
+4. **Traitement des règles de profil Traffic Manager** : Traffic Manager utilise la méthode de routage du trafic et l’état de la surveillance spécifiés pour déterminer quel point de terminaison (Azure ou autre) doit traiter la demande.
 5. **Nom de domaine du point de terminaison envoyé à l’utilisateur** : Traffic Manager renvoie un enregistrement CNAME qui mappe le nom de domaine Traffic Manager au nom de domaine du point de terminaison. Le serveur DNS de l’utilisateur résout le nom de domaine du point de terminaison selon son adresse IP et l’envoie à l’utilisateur.
 6. **Appel du point de terminaison par l’utilisateur** : l’utilisateur appelle directement le point de terminaison renvoyé à l’aide de son adresse IP.
 
-Dans la mesure où le domaine d’entreprise et l’adresse IP résolue sont mis en cache sur l’ordinateur client, l’utilisateur continue à interagir avec le point de terminaison choisi jusqu’à ce que son entrée de cache DNS locale expire. Il est important de noter que le client DNS met en cache les entrées d’hôte DNS pendant leur durée de vie (TTL, Time-to-Live). Le profil Traffic Manager n’est pas pris en compte lors de la récupération des entrées d’hôte à partir du cache du client DNS. Aussi, des retards de connexion peuvent se produire si le point de terminaison devient indisponible avant l’expiration de la TTL. Si la TTL d’une entrée d’hôte DNS dans le cache expire et que l’ordinateur client doit résoudre une nouvelle fois le nom de domaine d’entreprise, il envoie une nouvelle requête DNS. L’ordinateur client peut recevoir l’adresse IP d’un autre point de terminaison selon la méthode d’équilibrage de charge appliquée et l’intégrité des points de terminaison au moment de la requête.
+Dans la mesure où le domaine d’entreprise et l’adresse IP résolue sont mis en cache sur l’ordinateur client, l’utilisateur continue à interagir avec le point de terminaison choisi jusqu’à ce que son entrée de cache DNS locale expire. Il est important de noter que le client DNS met en cache les entrées d’hôte DNS pendant leur durée de vie (TTL, Time-to-Live). Le profil Traffic Manager n’est pas pris en compte lors de la récupération des entrées d’hôte à partir du cache du client DNS. Aussi, des retards de connexion peuvent se produire si le point de terminaison devient indisponible avant l’expiration de la TTL. Si la TTL d’une entrée d’hôte DNS dans le cache expire et que l’ordinateur client doit résoudre une nouvelle fois le nom de domaine d’entreprise, il envoie une nouvelle requête DNS. L’ordinateur client peut recevoir l’adresse IP d’un autre point de terminaison selon la méthode de routage du trafic appliquée et l’intégrité des points de terminaison au moment de la requête.
 
 ## Mise en œuvre de Traffic Manager
 
@@ -55,17 +55,17 @@ La *figure 2* illustre les étapes nécessaires à l’implémentation de Traff
 
 1. **Déployez vos services cloud et sites web Microsoft Azure ou d’autres points de terminaison dans votre environnement de production**. Lorsque vous créez un profil Traffic Manager, il doit être associé à un abonnement. Vous ajoutez ensuite les points de terminaison pour les services cloud et sites web de niveau Standard en production, qui font partie du même abonnement. Si un point de terminaison est dans un état intermédiaire et n’est pas dans un environnement de production Azure ou ne fait pas partie du même abonnement, il peut être ajouté comme point de terminaison externe. Pour en savoir plus sur les services cloud, voir [Services cloud](http://go.microsoft.com/fwlink/p/?LinkId=314074). Pour en savoir plus sur les services cloud, voir [Applications web](http://go.microsoft.com/fwlink/p/?LinkId=393327).
 2. **Choisissez un nom pour votre domaine Traffic Manager**. Utilisez de préférence un préfixe unique pour le nom de votre domaine. La dernière partie du domaine, trafficmanager.net, est fixe. Pour en savoir plus, voir [Vue d’ensemble de Traffic Manager](#best-practices).
-3. **Choisissez la configuration de surveillance que vous souhaitez utiliser**. Traffic Manager surveille les points de terminaison pour vérifier qu’ils sont en ligne, quelle que soit la méthode d’équilibrage de charge. Une fois que vous avez configuré les paramètres de surveillance, Traffic Manager ne dirige plus le trafic vers les points de terminaison considérés comme hors connexion par le système de surveillance, sauf s’il détecte que tous les points de terminaison sont hors connexion ou s’il ne peut pas détecter l’état des points de terminaison contenus dans le profil. Pour en savoir plus sur la surveillance, voir [Surveillance avec Traffic Manager](traffic-manager-monitoring.md).
-4. **Choisissez la méthode d’équilibrage de charge à utiliser**. Trois méthodes d’équilibrage de charge sont disponibles. Prenez le temps de déterminer celle qui conviendra le mieux à vos besoins. Par la suite, vous pourrez changer de méthode à tout moment. Notez également que chaque méthode implique des étapes de configuration légèrement différentes. Pour en savoir plus sur les méthodes d’équilibrage de charge, voir [À propos des méthodes d’équilibrage de charge dans Traffic Manager](traffic-manager-load-balancing-methods.md).
+3. **Choisissez la configuration de surveillance que vous souhaitez utiliser**. Traffic Manager surveille les points de terminaison pour vérifier qu’ils sont en ligne, quelle que soit la méthode de routage du trafic. Une fois que vous avez configuré les paramètres de surveillance, Traffic Manager ne dirige plus le trafic vers les points de terminaison considérés comme hors connexion par le système de surveillance, sauf s’il détecte que tous les points de terminaison sont hors connexion ou s’il ne peut pas détecter l’état des points de terminaison contenus dans le profil. Pour en savoir plus sur la surveillance, voir [Surveillance avec Traffic Manager](traffic-manager-monitoring.md).
+4. **Choisissez la méthode de routage du trafic à utiliser**. Trois méthodes de routage de trafic sont disponibles. Prenez le temps de déterminer celle qui conviendra le mieux à vos besoins. Par la suite, vous pourrez changer de méthode à tout moment. Notez également que chaque méthode implique des étapes de configuration légèrement différentes. Pour plus d’informations sur les différentes méthodes de routage du trafic, consultez [À propos des méthodes de routage du trafic de Traffic Manager](traffic-manager-load-balancing-methods.md).
 5. **Créez votre profil et configurez les paramètres**. Vous pouvez utiliser les API REST, Windows PowerShell ou le Portail de gestion pour créer votre profil Traffic Manager et configurer les paramètres. Pour en savoir plus, voir [Configuration des paramètres Traffic Manager](#how-to-configure-traffic-manager-settings). Les étapes suivantes supposent que vous utiliserez l’option **Création rapide** du Portail de gestion. 
    - **Créer votre profil Traffic Manager** : pour créer un profil à l’aide de l’option Création rapide du Portail de gestion, voir [Gérer des profils Traffic Manager](traffic-manager-manage-profiles.md).
-   - **Configurer les paramètres de la méthode d’équilibrage de charge** : via l’option Création rapide, vous devez sélectionner la méthode d’équilibrage de charge pour votre profil. Ce paramètre peut être modifié à tout moment, une fois réalisées les étapes de l’option Création rapide. Pour connaître la procédure de configuration, consultez la rubrique qui correspond à votre méthode d’équilibrage de charge : [Configurer l’équilibrage de charge basé sur les performances](traffic-manager-configure-performance-load-balancing.md), [Configurer l’équilibrage de charge par basculement](traffic-manager-configure-failover-load-balancing.md), [Configurer l’équilibrage de charge de tourniquet](traffic-manager-configure-round-robin-load-balancing.md).
+   - **Configurer les paramètres de la méthode de routage du trafic** : avec l’option Création rapide, vous devez sélectionner la méthode de routage du trafic pour votre profil. Ce paramètre peut être modifié à tout moment, une fois réalisées les étapes de l’option Création rapide. Pour les étapes de configuration, consultez la rubrique qui correspond à votre méthode de routage du trafic : [Configuration des performances de la méthode de routage du trafic](traffic-manager-configure-performance-load-balancing.md), [Configuration du basculement de la méthode de routage du trafic](traffic-manager-configure-failover-load-balancing.md), [Configuration du tourniquet (round robin) de la méthode de routage du trafic](traffic-manager-configure-round-robin-load-balancing.md).
    
-   >[AZURE.NOTE]La méthode d’équilibrage de charge tourniquet (round robin) prend désormais en charge la distribution pondérée du trafic réseau. Toutefois, pour le moment, vous devez utiliser les API REST ou Windows PowerShell pour configurer la pondération. Pour en savoir plus et obtenir un exemple de configuration, consultez la page [Azure Traffic Manager External Endpoints and Weighted Round Robin via PowerShell](http://azure.microsoft.com/blog/2014/06/26/azure-traffic-manager-external-endpoints-and-weighted-round-robin-via-powershell/) sur le blog Azure.
+   >[AZURE.NOTE]La méthode de routage du trafic tourniquet (round robin) prend désormais en charge la distribution pondérée du trafic réseau. Toutefois, pour le moment, vous devez utiliser les API REST ou Windows PowerShell pour configurer la pondération. Pour en savoir plus et obtenir un exemple de configuration, consultez la page [Azure Traffic Manager External Endpoints and Weighted Round Robin via PowerShell](http://azure.microsoft.com/blog/2014/06/26/azure-traffic-manager-external-endpoints-and-weighted-round-robin-via-powershell/) sur le blog Azure.
 
-   - **Configurer les points de terminaison** : les points de terminaison ne sont pas configurés à l’aide de l’option Création rapide. Après avoir créé votre profil et spécifié votre méthode d’équilibrage de charge, vous devez indiquer à Traffic Manager les points de terminaison. Pour connaître la procédure de configuration des points de terminaison, voir [Gérer des points de terminaison dans Traffic Manager](traffic-manager-endpoints.md).
+   - **Configurer les points de terminaison** : les points de terminaison ne sont pas configurés à l’aide de l’option Création rapide. Après avoir créé votre profil et spécifié votre méthode de routage du trafic, vous devez indiquer à Traffic Manager les points de terminaison. Pour connaître la procédure de configuration des points de terminaison, voir [Gérer des points de terminaison dans Traffic Manager](traffic-manager-endpoints.md).
 
-   - **Configurer les paramètres de surveillance** : les paramètres de surveillance ne sont pas configurés à l’aide de l’option Création rapide. Après avoir créé votre profil et spécifié votre méthode d’équilibrage de charge, vous devez indiquer à Traffic Manager les éléments à surveiller. Pour connaître la procédure de configuration de la surveillance, voir [Surveillance avec Traffic Manager](traffic-manager-monitoring.md).
+   - **Configurer les paramètres de surveillance** : les paramètres de surveillance ne sont pas configurés à l’aide de l’option Création rapide. Après avoir créé votre profil et spécifié votre méthode de routage du trafic, vous devez indiquer à Traffic Manager les éléments à surveiller. Pour connaître la procédure de configuration de la surveillance, voir [Surveillance avec Traffic Manager](traffic-manager-monitoring.md).
 6. **Testez votre profil Traffic Manager**. Vérifiez que votre profil et votre domaine fonctionnent comme prévu. Pour savoir comment procéder, voir [Test des paramètres de Traffic Manager](traffic-manager-testing-settings.md).
 7. **Redirigez l’enregistrement de ressource DNS du nom de domaine d’entreprise vers le profil pour le rendre actif**. Pour plus d’informations, consultez la page [Redirection d’un domaine Internet d’entreprise vers un domaine Traffic Manager](traffic-manager-point-internet-domain.md).
 
@@ -79,7 +79,7 @@ Même si tous les éléments d’API REST ne sont pas visibles dans le Portail d
 
 Pour en savoir plus sur les applets de commande Windows PowerShell pour Traffic Manager, consultez la page [Applets de commande Azure Traffic Manager](http://go.microsoft.com/fwlink/p/?LinkId=400769).
 
->[AZURE.NOTE]Il n’existe actuellement aucune prise en charge pour la configuration des points de terminaison externes (type = « Any »), des pondérations pour la méthode d’équilibrage de charge tourniquet (round robin) et des profils imbriqués avec le Portail de gestion. Vous devez utiliser REST (consultez la page [Créer une définition](http://go.microsoft.com/fwlink/p/?LinkId=400772)) ou Windows PowerShell (consultez la page [Add-AzureTrafficManagerEndpoint](https://msdn.microsoft.com/library/azure/dn690257.aspx)).
+>[AZURE.NOTE]Il n’existe actuellement aucune prise en charge pour la configuration des points de terminaison externes (type = « Any »), des pondérations pour la méthode de routage du trafic tourniquet (round robin) et des profils imbriqués avec le Portail de gestion. Vous devez utiliser REST (consultez la page [Créer une définition](http://go.microsoft.com/fwlink/p/?LinkId=400772)) ou Windows PowerShell (consultez la page [Add-AzureTrafficManagerEndpoint](https://msdn.microsoft.com/library/azure/dn690257.aspx)).
 
 ### Configuration des paramètres dans le Portail de gestion
 
@@ -90,8 +90,8 @@ Vous pouvez configurer les paramètres suivants dans le Portail de gestion :
 - **Préfixe DNS** : un préfixe unique que vous créez. Les profils sont affichés par préfixe dans le Portail de gestion.
 - **TTL du DNS** : la durée de vie (TTL, Time-to-Live) du DNS contrôle la fréquence à laquelle le serveur de noms cache local du client interroge le système DNS Azure Traffic Manager pour obtenir les entrées DNS mises à jour.
 - **Abonnement** : sélectionnez l’abonnement auquel correspond votre profil. Notez que cette option apparaît uniquement si vous avez plusieurs abonnements.
-- **Méthode d’équilibrage de charge** : méthode que Traffic Manager doit utiliser pour gérer l’équilibrage de charge.
-- **Ordre de basculement** : ordre des points de terminaison appliqué lorsque vous utilisez la méthode d’équilibrage de charge de basculement.
+- **Méthode de routage du trafic** : méthode que Traffic Manager doit utiliser pour gérer le routage du trafic.
+- **Ordre de basculement** : ordre des points de terminaison appliqué lorsque vous utilisez la méthode de basculement du routage du trafic.
 - **Surveillance** : les paramètres de surveillance incluent le protocole (HTTP ou HTTPS), le port, le chemin d’accès relatif et le nom de fichier.
 
 ### Configuration des paramètres à l’aide des API REST
@@ -102,7 +102,7 @@ Vous pouvez créer et configurer votre profil Traffic Manager à l’aide des AP
 - **Définition** : une définition inclut des paramètres de stratégie et d’analyse. Une définition correspond à un profil. Vous ne pouvez avoir qu’une définition par profil. La définition proprement dite n’est pas visible dans le Portail de gestion, même si de nombreux paramètres contenus dans la définition sont visibles et peuvent être configurés dans le Portail de gestion.
 - **Options DNS** : chaque définition inclut des options DNS. C’est à ce niveau que la TTL du DNS est configurée.
 - **Analyseur** : chaque définition inclut des paramètres d’analyse. C’est à ce niveau que le protocole et le port, ainsi que le chemin d’accès relatif et le nom du fichier sont configurés. Les paramètres d’analyse sont visibles et peuvent être configurés dans le Portail de gestion. Pour plus d’informations, consultez [Surveillance avec Traffic Manager](traffic-manager-monitoring.md).
-- **Stratégie** : chaque définition inclut des paramètres de stratégie. C’est dans le cadre de la stratégie que sont spécifiés les méthodes d’équilibrage de charge et les points de terminaison. La stratégie proprement dite n’est pas visible dans le Portail de gestion, même si certains paramètres connexes sont visibles et peuvent être configurés dans le Portail de gestion. Pour plus d'informations, consultez la page [À propos des méthodes d'équilibrage de charge dans Traffic Manager](traffic-manager-load-balancing-methods.md).
+- **Stratégie** : chaque définition inclut des paramètres de stratégie. C’est dans le cadre de la stratégie que sont spécifiés les méthodes de routage du trafic et les points de terminaison. La stratégie proprement dite n’est pas visible dans le Portail de gestion, même si certains paramètres connexes sont visibles et peuvent être configurés dans le Portail de gestion. Pour plus d'informations, consultez la page [À propos des méthodes de routage du trafic dans Traffic Manager](traffic-manager-load-balancing-methods.md).
 
 ## Configuration des paramètres à l’aide de Windows PowerShell
 
@@ -136,12 +136,12 @@ Cela vous permet de configurer Traffic Manager de manière à ce que les requêt
 
 **Figure 3**
 
-Vous pouvez imbriquer jusqu’à 10 niveaux, et chaque profil peut être configuré avec une méthode d’équilibrage de charge différente.
+Vous pouvez imbriquer jusqu’à 10 niveaux, et chaque profil peut être configuré avec une méthode de routage du trafic différente.
 
 Par exemple, vous pouvez créer une configuration selon les niveaux suivants :
 
-- Au niveau supérieur (le profil Traffic Manager mappé à votre nom DNS externe), vous pouvez configurer le profil avec la méthode d’équilibrage de charge des performances.
-- Au niveau intermédiaire, un ensemble de profils Traffic Manager représente différents centres de données et utilise la méthode d’équilibrage de charge tourniquet (round robin).
+- Au niveau supérieur (le profil Traffic Manager mappé à votre nom DNS externe), vous pouvez configurer le profil avec la méthode de routage du trafic des performances.
+- Au niveau intermédiaire, un ensemble de profils Traffic Manager représente différents centres de données et utilise la méthode de routage du trafic tourniquet (round robin).
 - Au niveau inférieur, un ensemble de points de terminaison de service cloud dans chaque service de centre de données demandé par le trafic de l’utilisateur.
 
 En conséquence, les utilisateurs sont dirigés vers un centre de données approprié sur le plan régional selon la performance et vers un service cloud de ce centre de données selon une distribution de charge identique ou pondérée. Par exemple, la pondération peut être utilisée pour distribuer un faible pourcentage du trafic vers un déploiement nouveau ou d’évaluation à des fins de test ou pour les commentaires client.
@@ -172,4 +172,4 @@ Si vous souhaitez récupérer les figures de cette rubrique sous forme de diapos
 
 [Applets de commande Azure Traffic Manager](http://go.microsoft.com/fwlink/p/?LinkId=400769)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

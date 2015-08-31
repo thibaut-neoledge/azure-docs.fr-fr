@@ -1,10 +1,10 @@
 <properties 
-	pageTitle="Qu'est-ce qu'une application logique ?" 
-	description="En savoir plus sur les applications logiques App Service" 
-	authors="kevinlam1" 
-	manager="dwrede" 
-	editor="" 
-	services="app-service\logic" 
+	pageTitle="Qu'est-ce qu'une application logique ?"
+	description="En savoir plus sur les applications logiques App Service"
+	authors="kevinlam1"
+	manager="dwrede"
+	editor=""
+	services="app-service\logic"
 	documentationCenter=""/>
 
 <tags
@@ -17,6 +17,12 @@
 	ms.author="klam"/>
 
 #Qu'est-ce qu'une application logique ?
+
+| Référence rapide |
+| --------------- |
+| [Langage de définition des applications logiques](https://msdn.microsoft.com/library/azure/dn948512.aspx?f=255&MSPPError=-2147217396) |
+| [Documentation du connecteur des applications logiques](https://azure.microsoft.com/fr-fr/documentation/articles/app-service-logic-connectors-list/) |
+| [Forum Logic Apps](https://social.msdn.microsoft.com/Forums/fr-fr/home?forum=azurelogicapps) |
 
 Azure App Service est une plateforme PaaS entièrement gérée (plateforme en tant que service) pour les développeurs. Elle les aide à créer des applications web, mobiles et d’intégration. Logic Apps fait partie de cette suite et permet à n’importe quel utilisateur technique ou développeur d’automatiser l’exécution des processus d’entreprise et des flux de travail via un concepteur visuel facile à utiliser.
 
@@ -69,4 +75,4 @@ Pour plus d’informations sur la plateforme Azure App Service, consultez [Azure
 [templates]: app-service-logic-use-logic-app-templates.md
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

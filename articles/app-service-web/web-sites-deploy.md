@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/21/2015"
+	ms.date="08/14/2015"
 	ms.author="tdykstra"/>
 
 #Déployer une application web dans Azure App Service
@@ -135,7 +135,6 @@ Pour plus d’informations sur le déploiement vers Web Apps depuis WebMatrix, c
 Pour plus d'informations, consultez les ressources suivantes :
 
 * [Créer une application Web PHP-MySQL dans Azure App Service et la déployer à l’aide de FTP](web-sites-php-mysql-deploy-use-ftp.md).
-* [Gérer les applications Web](web-sites-manage.md#ftp-credentials). Contient des informations supplémentaires non incluses dans le didacticiel sur la configuration des informations d'identification FTP.
 
 ##<a name="tfs"></a>Team Foundation Server (TFS)
 
@@ -178,8 +177,11 @@ Pour plus d'informations, consultez les ressources suivantes :
 
 Vous pouvez utiliser des fonctions de déploiement MSBuild ou FTP à partir de [Windows PowerShell](http://msdn.microsoft.com/library/dd835506.aspx). Ce faisant, vous pouvez également utiliser une collection de cmdlets Windows PowerShell facilitant l'appel de l'API de gestion REST Azure.
 
-Pour plus d'informations, consultez les ressources suivantes :
+Pour plus d’informations, consultez les ressources suivantes :
 
+* [Déployer une application Web liée à un référentiel GitHub](app-service-web-arm-from-github-provision.md)
+* [Mettre en service une application Web avec une base de données SQL](app-service-web-arm-with-sql-database-provision.md)
+* [Mise en service et déploiement de microservices de manière prévisible dans Azure](app-service-deploy-complex-application-predictably.md)
 * [Tout automatiser (développement d'applications de cloud concrètes avec Azure)](http://asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/automate-everything). Chapitre d'un livre électronique expliquant comment l'exemple d'application contenu dans le livre utilise des scripts Windows PowerShell pour créer un environnement de test Azure et y procéder à un déploiement. Consultez la section [Ressources](http://asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/automate-everything#resources) pour obtenir des liens vers une documentation Azure PowerShell supplémentaire.
 * [Utilisation des scripts Windows PowerShell pour la publication dans des environnements de développement et de test](http://msdn.microsoft.com/library/dn642480.aspx). Explique comment utiliser les scripts Windows PowerShell générés par Visual Studio.
 
@@ -226,4 +228,4 @@ Pour plus d’informations concernant d’autres rubriques de déploiement, cons
 * Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre l'ancien et le nouveau portail, consultez : [Références sur la navigation dans le portail Azure](http://go.microsoft.com/fwlink/?LinkId=529715)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

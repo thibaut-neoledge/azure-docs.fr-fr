@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Phase 2 de la charge de travail de la batterie de serveurs SharePoint intranet : configuration de contrôleurs de domaine"
-	description="Au cours de cette seconde phase de déploiement d'une batterie de serveurs SharePoint 2013 intranet avec des groupes de disponibilité SQL Server AlwaysOn dans les services d’infrastructure Azure, vous créez et configurez les deux contrôleurs de domaine Active Directory."
+	description="Au cours de cette seconde phase de déploiement d&#39;une batterie de serveurs SharePoint 2013 intranet avec des groupes de disponibilité SQL Server AlwaysOn dans les services d’infrastructure Azure, vous créez et configurez les deux contrôleurs de domaine Active Directory."
 	documentationCenter=""
 	services="virtual-machines"
 	authors="JoeDavies-MSFT"
@@ -244,4 +244,6 @@ Pour poursuivre la configuration de cette charge de travail, passez à la [Phase
 
 [Instructions d’implémentation des services d’infrastructure Azure](virtual-machines-infrastructure-services-implementation-guidelines.md)
 
-<!---HONumber=August15_HO6-->
+[Charge de travail des services d’infrastructure Azure : applications métier à haute disponibilité](virtual-machines-workload-high-availability-lob-application.md)
+
+<!---HONumber=August15_HO8-->

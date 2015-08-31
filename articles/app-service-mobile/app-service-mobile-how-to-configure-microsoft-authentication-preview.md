@@ -13,22 +13,26 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="05/26/2015"
+	ms.date="07/27/2015"
 	ms.author="mahender"/>
 
 # Comment configurer votre application pour utiliser une connexion par compte Microsoft
 
 [AZURE.INCLUDE [app-service-mobile-note-mobile-services-preview](../../includes/app-service-mobile-note-mobile-services-preview.md)]
 
-Cette rubrique montre comment configurer Azure App Services pour utiliser un compte Microsoft comme fournisseur d'authentification.
+Cette rubrique montre comment configurer Azure Mobile Apps pour utiliser un compte Microsoft comme fournisseur d’authentification.
 
 ## <a name="register"> </a>Inscrivez votre application avec un compte Microsoft
 
-1. Accédez à la page [Mes applications] dans le Centre des développeurs de compte Microsoft, puis connectez-vous avec votre compte Microsoft si nécessaire.
+1. Connectez-vous au [portail de gestion Azure] et accédez à votre application Mobile App.
 
-2. Cliquez sur **Créer une application**, puis tapez le **Nom de l'application** et cliquez sur **J'accepte**.
+2. Cliquez sur **Paramètres**, **Authentification utilisateur**, puis cliquez sur **Compte Microsoft**. Copiez l’**URL de redirection**. Vous l’utiliserez pour configurer une nouvelle application pour votre compte Microsoft.
 
-3. Cliquez sur **Paramètres de l’API**. Sélectionnez **Oui** pour **Application cliente mobile ou de bureau**. Dans le champ **URL de redirection**, entrez l’URL de votre passerelle en y ajoutant le chemin d’accès _/signin-microsoft_. Par exemple : `https://contosogateway.azurewebsites.net/signin-microsoft`. Assurez-vous d'utiliser le schéma HTTPS. Après avoir entré l’URL de redirection, cliquez sur **Enregistrer**.
+3. Accédez à la page [Mes applications] dans le Centre des développeurs de compte Microsoft, puis connectez-vous avec votre compte Microsoft si nécessaire.
+
+4. Cliquez sur **Créer une application**, puis tapez le **Nom de l'application** et cliquez sur **J'accepte**.
+
+5. Cliquez sur **Paramètres de l’API**. Sélectionnez **Oui** pour **Application cliente mobile ou de bureau**. Dans le champ **URL de redirection**, entrez l’**URL de redirection** que vous avez copiée précédemment. Il s’agit de la passerelle d’application Mobile App suivie de _/signin-microsoft_. Par exemple, `https://contosogateway.azurewebsites.net/signin-microsoft`. Assurez-vous d'utiliser le schéma HTTPS. Après avoir entré l’URL de redirection, cliquez sur **Enregistrer**.
 
 	![][0]
 
@@ -41,9 +45,7 @@ Cette rubrique montre comment configurer Azure App Services pour utiliser un com
 
 ## <a name="secrets"> </a>Ajout des informations de compte Microsoft à votre application Mobile App
 
-5. Connectez-vous au [portail de gestion Azure] et accédez à votre passerelle App Services.
-
-6. Sous **Paramètres**, choisissez **Identité**, puis sélectionnez **Compte Microsoft**. Collez-y les valeurs d'ID d'application et de clé secrète d'application que vous avez obtenues précédemment. Cliquez ensuite sur **Enregistrer**.
+1. Dans le [portail de gestion Azure], dans le panneau des paramètres du compte Microsoft pour votre application Mobile App, collez les valeurs d’identifiant client et de code secret du client que vous avez obtenues précédemment. Cliquez ensuite sur **Enregistrer**.
 
     ![][1]
 
@@ -60,7 +62,7 @@ Vous êtes maintenant prêt à utiliser un compte Microsoft pour l’authentific
 <!-- Images. -->
 
 [0]: ./media/app-service-mobile-how-to-configure-microsoft-authentication-preview/app-service-microsoftaccount-redirect.png
-[1]: ./media/app-service-mobile-how-to-configure-microsoft-authentication-preview/app-service-microsoftaccount-settings.png
+[1]: ./media/app-service-mobile-how-to-configure-microsoft-authentication-preview/mobile-app-microsoftaccount-settings.png
 
 <!-- URLs. -->
 
@@ -68,4 +70,4 @@ Vous êtes maintenant prêt à utiliser un compte Microsoft pour l’authentific
 [portail de gestion Azure]: https://portal.azure.com/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

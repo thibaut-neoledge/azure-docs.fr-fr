@@ -1,29 +1,29 @@
 <properties
-   pageTitle="Utilisation du Cache Redis Azure avec Node.js"
-   description="Prise en main du Cache Redis Azure avec Node.js et node_redis"
-   services="redis-cache"
-   documentationCenter=""
-   authors="MikeWasson"
-   manager="wpickett"
-   editor=""/>
+	pageTitle="Utilisation du Cache Redis Azure avec Node.js | Microsoft Azure"
+	description="Prise en main du Cache Redis Azure avec Node.js et node_redis"
+	services="redis-cache"
+	documentationCenter=""
+	authors="steved0x"
+	manager="dwrede"
+	editor="v-lincan"/>
 
 <tags
-   ms.service="cache"
-   ms.devlang="nodejs"
-   ms.topic="hero-article"
-   ms.tgt_pltfrm="cache-redis"
-   ms.workload="required"
-   ms.date="08/04/2015"
-   ms.author="mwasson"/>
+	ms.service="cache"
+	ms.devlang="nodejs"
+	ms.topic="hero-article"
+	ms.tgt_pltfrm="cache-redis"
+	ms.workload="tbd"
+	ms.date="08/17/2015"
+	ms.author="sdanie"/>
 
 # Utilisation du Cache Redis Azure avec Node.js
 
 Le Cache Redis Azure permet d'accéder à un cache Redis sécurisé et dédié, géré par Microsoft. Votre cache est accessible à partir de n'importe quelle application dans Microsoft Azure.
 
-Cette rubrique montre comment utiliser le Cache Redis Azure avec Node.js. Pour obtenir un autre exemple d’utilisation du Cache Redis Azure avec Node.js, consultez la rubrique [Développement d’une application de conversation instantanée Node.js avec Socket.IO sur un site web Azure][].
+Cette rubrique montre comment utiliser le Cache Redis Azure avec Node.js. Pour obtenir un autre exemple d'utilisation du Cache Redis Azure avec Node.js, consultez la rubrique [Développement d'une application de conversation instantanée Node.js avec Socket.IO sur un site web Azure][].
 
 
-## Composants requis
+## Conditions préalables
 
 Installez [node\_redis](https://github.com/mranney/node_redis) :
 
@@ -42,7 +42,7 @@ Entrez un nom d'hôte DNS. Il se présente comme suit : `<name>.redis.cache.win
   ![][2]
 
 
-Une fois le cache créé, cliquez dessus dans le portail pour afficher ses paramètres. Cliquez sur le lien en dessous de **Clés**, puis copiez la clé primaire. Vous en aurez besoin pour authentifier les demandes.
+Une fois le cache créé, cliquez dessus dans le portail Azure pour afficher ses paramètres. Cliquez sur le lien en dessous de **Clés**, puis copiez la clé primaire. Vous en aurez besoin pour authentifier les demandes.
 
   ![][4]
 
@@ -50,7 +50,7 @@ Une fois le cache créé, cliquez dessus dans le portail pour afficher ses param
 ## Activer le point de terminaison non SSL
 
 
-Cliquez sur le lien en dessous de **Ports**, puis cliquez sur **Non** pour l'option « Autoriser l'accès uniquement via SSL ». Cela activera le port non SSL pour le cache. Le client node\_redis ne prend pas en charge le SSL.
+Cliquez sur le lien en dessous de **Ports**, puis cliquez sur **Non** pour l'option « Autoriser l'accès uniquement via SSL ». Cela active le port non SSL pour le cache. Le client node\_redis ne prend pas en charge le SSL.
 
   ![][3]
 
@@ -59,7 +59,7 @@ Cliquez sur le lien en dessous de **Ports**, puis cliquez sur **Non** pour l'opt
 
 	var redis = require("redis");
 
-    // Put in your cache name and access key.
+    // Add your cache name and access key.
 	var client = redis.createClient(6379,'<name>.redis.cache.windows.net', {auth_pass: '<key>' });
 
 	client.set("foo", "bar", function(err, reply) {
@@ -79,7 +79,7 @@ Output:
 
 ## Étapes suivantes
 
-- [Activez les diagnostics du cache](https://msdn.microsoft.com/library/azure/dn763945.aspx#EnableDiagnostics) afin de pouvoir [surveiller](https://msdn.microsoft.com/library/azure/dn763945.aspx) l’intégrité de votre cache.
+- [Activez les diagnostics du cache](cache-how-to-monitor.md#enable-cache-diagnostics) afin de pouvoir [surveiller](cache-how-to-monitor.md) l’intégrité de votre cache.
 - Lisez la [documentation Redis](http://redis.io/documentation) officielle.
 
 
@@ -89,6 +89,6 @@ Output:
 [3]: ./media/cache-nodejs-get-started/cache03.png
 [4]: ./media/cache-nodejs-get-started/cache04.png
 
-[Développement d’une application de conversation instantanée Node.js avec Socket.IO sur un site web Azure]: ../app-service-web/web-sites-nodejs-chat-app-socketio.md
+[Développement d'une application de conversation instantanée Node.js avec Socket.IO sur un site web Azure]: ../app-service-web/web-sites-nodejs-chat-app-socketio.md
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

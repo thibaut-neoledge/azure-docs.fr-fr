@@ -1,22 +1,21 @@
 <properties
    pageTitle="Conseils sur l’utilisation de Hadoop sur un cluster HDInsight basé sur Linux | Microsoft Azure"
-   description="Obtenez des conseils d’implémentation concernant l’utilisation de clusters HDInsight (Hadoop) basés sur Linux dans un environnement Linux familier, exécuté dans le cloud Azure."
-   services="hdinsight"
-   documentationCenter=""
-   authors="Blackmist"
-   manager="paulettm"
-   editor="cgronlun"/>
-
+	description="Obtenez des conseils d’implémentation concernant l’utilisation de clusters HDInsight (Hadoop) basés sur Linux dans un environnement Linux familier, exécuté dans le cloud Azure."
+	services="hdinsight"
+	documentationCenter=""
+	authors="Blackmist"
+	manager="paulettm"
+	editor="cgronlun"
+	tags="azure-portal"/>
 
 <tags
    ms.service="hdinsight"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="big-data"
-   ms.date="07/24/2015"
-   ms.author="larryfr"/>
-
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="big-data"
+	ms.date="07/24/2015"
+	ms.author="larryfr"/>
 
 # Informations sur l’utilisation de HDInsight sur Linux (version préliminaire)
 
@@ -54,13 +53,16 @@ Le nom de domaine complet (FQDN) à utiliser pour se connecter au cluster est **
 	>
 	> L’authentification est en clair. Utilisez toujours HTTPS pour vous assurer que la connexion est sécurisée.
 
-* **SSH** - &lt;clustername>-ssh.azurehdinsight.net sur le port 22
+* **SSH** - &lt;clustername>-ssh.azurehdinsight.net sur le port 22 ou 23. Le port 22 est utilisé pour se connecter à headnode0, le 23 est utilisé pour se connecter à headnode1. Consultez la rubrique [Disponibilité et fiabilité des clusters Hadoop dans HDInsight](hdinsight-high-availability-linux.md) pour plus d'informations sur les noeuds principaux.
 
-	> [AZURE.NOTE]Vous pouvez accéder au nœud principal du cluster uniquement via SSH depuis une machine cliente. Une fois connecté, vous pouvez ensuite accéder aux nœuds de travail à l’aide de SSH depuis le nœud principal.
+	> [AZURE.NOTE]Vous pouvez accéder aux nœuds principaux du cluster uniquement via SSH depuis une machine cliente. Une fois connecté, vous pouvez ensuite accéder aux nœuds de travail à l’aide de SSH depuis le nœud principal.
 
 ## Emplacements des fichiers
 
-Les fichiers relatifs à Hadoop se trouvent sur les nœuds du cluster dans `/usr/hdp/current`.
+Les fichiers relatifs à Hadoop se trouvent sur les nœuds du cluster dans `/usr/hdp`. Le répertoire contient les sous-répertoires suivants :
+
+* __2.2.4.9-1__ : ce répertoire est nommé en fonction de la version de la plate-forme de données Hortonworks utilisée par HDInsight. Le numéro de votre cluster peut être différent de celui qui figure ici.
+* __En cours__ : ce répertoire contient des liens vers des répertoires sous le répertoire __2.2.4.9-1__ et existe afin que vous n'ayez pas à saisir de numéro de version (qui peut changer) à chaque fois que vous souhaitez accéder à un fichier.
 
 Vous trouverez des exemples de données et de fichiers JAR sur le système HDSF (Hadoop HDFS Distributed File System) ou le stockage d’objets blob Azure dans ’/example’ ou ’wasb:///example’.
 
@@ -141,4 +143,4 @@ Outre la commande Hadoop depuis le cluster, vous pouvez accéder aux objets blob
 * [Utilisation de Pig avec HDInsight](hdinsight-use-pig.md)
 * [Utilisation des tâches MapReduce avec HDInsight](hdinsight-use-mapreduce.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

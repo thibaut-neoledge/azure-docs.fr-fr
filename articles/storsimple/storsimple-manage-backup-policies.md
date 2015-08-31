@@ -1,10 +1,10 @@
 <properties 
    pageTitle="Gestion de vos stratégies de sauvegarde StorSimple | Microsoft Azure"
-   description="Explique comment utiliser le service du gestionnaire d’instantanés StorSimple pour créer et gérer des tâches de sauvegarde et des planifications de sauvegarde."
+   description="Explique comment utiliser le service StorSimple Manager pour créer et gérer des sauvegardes manuelles, des planifications de sauvegarde et une rétention de sauvegarde."
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
-   manager="adinah"
+   manager="carolz"
    editor=""/>
 <tags 
    ms.service="storsimple"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="06/17/2015"
+   ms.date="08/13/2015"
    ms.author="v-sharos"/>
 
 # Gérer vos stratégies de sauvegarde StorSimple
@@ -82,6 +82,6 @@ Pour créer une stratégie de sauvegarde personnalisée présentant plusieurs vo
 
 ## Étapes suivantes
 
-Découvrez comment gérer les sauvegardes StorSimple avec le [Gestionnaire d’instantanés StorSimple](https://msdn.microsoft.com/library/azure/dn772365.aspx).
+Découvrez comment [utiliser le Gestionnaire d’instantanés StorSimple pour afficher et gérer les tâches de sauvegarde](storsimple-snapshot-manager-manage-backup-jobs.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

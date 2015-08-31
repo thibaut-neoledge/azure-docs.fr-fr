@@ -7,16 +7,14 @@
 	manager="wpickett" 
 	editor=""/>
 
-
 <tags 
 	ms.service="app-service-web" 
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/12/2015" 
+	ms.date="08/18/2015" 
 	ms.author="mwasson"/>
-
 
 #Configuration d’un nom de domaine personnalisé pour une application web dans Azure App Service utilisant Traffic Manager
 
@@ -72,4 +70,4 @@ Pour associer votre domaine personnalisé à une application web dans Azure App
  
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

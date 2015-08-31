@@ -1,12 +1,11 @@
 <properties
    pageTitle="API de recherche de journaux Operational Insights"
-   description="Fournit une vue d'ensemble de l'API de recherche Operational Insights et inclut des exemples qui vous indiquent comment l'utiliser."
+   description="Fournit une vue d&#39;ensemble de l&#39;API de recherche Operational Insights et inclut des exemples qui vous indiquent comment l&#39;utiliser."
    services="operational-insights"
    documentationCenter=""
    authors="bandersmsft"
    manager="jwhit"
    editor="" />
-
 <tags
    ms.service="operational-insights"
    ms.devlang="na"
@@ -15,7 +14,6 @@
    ms.workload="tbd"
    ms.date="07/21/2015"
    ms.author="banders" />
-
 
 
 
@@ -348,4 +346,4 @@ Vous pouvez spécifier les marqueurs de début et de fin qui seront utilisés pa
 
 Notez que le résultat ci-dessus contient un message d'erreur qui a été préfixé et ajouté.
 
-<!------HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

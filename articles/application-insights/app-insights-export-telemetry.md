@@ -1,18 +1,18 @@
 <properties 
-	pageTitle="Exportation continue de télémétrie depuis Application Insights" 
-	description="Exportez les données de diagnostic et les données d’utilisation dans le stockage Microsoft Azure et téléchargez-les à partir de là." 
-	services="application-insights" 
-    documentationCenter=""
-	authors="alancameronwills" 
+	pageTitle="Exportation continue de télémétrie depuis Application Insights"
+	description="Exportez les données de diagnostic et les données d’utilisation dans le stockage Microsoft Azure et téléchargez-les à partir de là."
+	services="application-insights"
+	documentationCenter=""
+	authors="alancameronwills"
 	manager="douge"/>
 
 <tags 
-	ms.service="application-insights" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/08/2015" 
+	ms.service="application-insights"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="ibiza"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/13/2015"
 	ms.author="awills"/>
  
 # Exporter la télémétrie depuis Application Insights
@@ -55,12 +55,9 @@ Pour arrêter définitivement le flux de données, supprimez l’exportation. Ce
 
 ## <a name="analyze"></a> Quels sont les événements que vous obtenez ?
 
-Les données exportées sont celles de la télémétrie brute que nous recevons de votre application, à quelques exceptions près :
+Les données exportées sont les données de télémétrie brutes que nous recevons de votre application. Toutefois, nous ajoutons les données d’emplacement que nous calculons à partir de l’adresse IP du client.
 
-* Les résultats des tests web ne sont pas actuellement inclus. 
-* Nous ajoutons les données d’emplacement que nous calculons à partir de l’adresse IP du client.  
-
-Les mesures calculées ne sont pas incluses. Par exemple, nous n’exportons pas l’utilisation moyenne du processeur, mais nous exportons la télémétrie brute à partir de laquelle la moyenne est calculée.
+Les autres mesures calculées ne sont pas incluses. Par exemple, nous n’exportons pas l’utilisation moyenne du processeur, mais nous exportons la télémétrie brute à partir de laquelle la moyenne est calculée.
 
 ## <a name="get"></a> Inspection des données
 
@@ -85,7 +82,7 @@ Les durées sont exprimées en nombre de cycles, où 10 000 cycles = 1 ms. Pa
 	"receiveRequest": {"value": 30000.0},
 	"clientProcess": {"value": 17970000.0}
 
-
+[Référence de modèle de données détaillé pour les valeurs et types de propriétés.](app-insights-export-data-model.md)
 
 ## Traitement des données
 
@@ -185,6 +182,13 @@ Nous disposons d’exemples illustrant deux autres méthodes de déplacement des
 
     Oui. Cliquez sur Désactiver.
 
+## Exemples de code
+
+* [Diffusion d’Application Insights vers Power BI](app-insights-export-power-bi.md)
+* [Analyse de JSON exporté à l’aide d’un rôle de travail][exportcode]
+* [Exporter vers SQL à l’aide de Stream Analytics][exportasa]
+
+* [Référence de modèle de données détaillé pour les valeurs et types de propriétés.](app-insights-export-data-model.md)
 
 <!--Link references-->
 
@@ -194,4 +198,4 @@ Nous disposons d’exemples illustrant deux autres méthodes de déplacement des
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

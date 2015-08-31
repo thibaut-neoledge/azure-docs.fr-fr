@@ -4,18 +4,16 @@
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
-   manager="adinah"
+   manager="carolz"
    editor="" />
-
 <tags 
    ms.service="storsimple"
    ms.devlang="NA"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="07/09/2015"
+   ms.date="08/17/2015"
    ms.author="v-sharos" />
-
 
 # Utiliser le Gestionnaire d’instantanés StorSimple pour afficher et gérer les volumes
 
@@ -267,9 +265,9 @@ Appliquez la procédure suivante pour configurer un volume dynamique mis en miro
 
 ## Étapes suivantes
 
-[Utiliser le Gestionnaire d’instantanés StorSimple pour gérer des groupes de volumes](storsimple-snapshot-manager-manage-volume-groups.md).
+[Utiliser le Gestionnaire d’instantanés StorSimple pour créer et gérer des groupes de volumes](storsimple-snapshot-manager-manage-volume-groups.md).
 
 <!--Reference links-->
 [1]: https://msdn.microsoft.com/library/ee338480(v=ws.10).aspx
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

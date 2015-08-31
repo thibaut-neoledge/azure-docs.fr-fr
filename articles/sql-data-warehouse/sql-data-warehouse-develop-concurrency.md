@@ -5,7 +5,7 @@
    documentationCenter="NA"
    authors="jrowlandjones"
    manager="barbkess"
-   editor=""/>
+   editor="jrowlandjones"/>
 
 <tags
    ms.service="sql-data-warehouse"
@@ -24,30 +24,33 @@ Cet article vous présente les concepts de gestion de la concurrence et de gesti
 ## Accès concurrentiel
 Il est important de noter que la concurrence dans SQL Data Warehouse est régie par deux concepts : **requêtes concurrentes** et **emplacements de concurrence**.
 
-Les requêtes concurrentes correspondent au nombre de requêtes s’exécutant simultanément. SQL Data Warehouse prend en charge jusqu’à 32 **requêtes concurrentes**. Chaque exécution de requête est considérée comme une requête, qu’il s’agisse d’une requête en série (monothread) ou d’une requête parallèle (multithread). Il s’agit là d’une limite fixe qui s’applique à tous les niveaux de service.
+Les requêtes concurrentes correspondent au nombre de requêtes s’exécutant simultanément. SQL Data Warehouse prend en charge jusqu’à 32 **requêtes concurrentes**. Chaque exécution de requête est considérée comme une requête, qu’il s’agisse d’une requête en série (monothread) ou d’une requête parallèle (multithread). Il s’agit là d’une limite fixe qui s’applique à tous les niveaux de service et à toutes les requêtes.
 
 La notion d’emplacement de concurrence est un concept plus dynamique lié à l’objectif de niveau de service Data Warehouse Unit (DWU) pour votre entrepôt de données. Lorsque vous augmentez le nombre de DWU alloué à SQL Data Warehouse, cette opération a une incidence sur d’autres ressources de calcul. Toutefois, l’augmentation du nombre de DWU augmente également le nombre d’**emplacements de concurrence** disponibles.
 
-SQL Data Warehouse doit respecter les deux seuils. S’il existe plus de 32 requêtes concurrentes ou que vous dépassez le nombre d’emplacements de concurrence, la requête est mise en file d’attente jusqu’à ce que les deux seuils puissent être satisfaits.
-
-Chaque requête concurrente consomme un ou plusieurs emplacements de concurrence. Le nombre exact d’emplacements dépend de deux facteurs :
+En règle générale, chaque requête concurrente consomme un ou plusieurs emplacements de concurrence. Le nombre exact d’emplacements dépend de trois facteurs :
 
 1. Valeur DWU pour SQL Data Warehouse
-2. **Classe de ressource** à laquelle appartient l’utilisateur 
+2. **Classe de ressource** à laquelle appartient l’utilisateur
+3. Si la requête ou l'opération est régie par le modèle d'emplacement d'accès concurrentiel ou non 
+
+> [AZURE.NOTE]Il est important de noter que toutes les requêtes ne sont pas régies par la règle de requête d'emplacement d'accès concurrentiel. Toutefois, la plupart des requêtes utilisateur le sont. Certaines requêtes et opérations n'utilisent pas les emplacements de concurrence. Ces requêtes et opérations restent limitées par la limite de requêtes simultanées, c'est pourquoi les deux règles sont décrites. Reportez-vous à la section [exceptions de classe de ressource](#exceptions) ci-dessous pour plus de détails.
+
+Le tableau ci-dessous décrit les limites de requêtes simultanées et d’emplacements de concurrence ; en supposant que votre requête est régie par les ressources.
 
 <!--
 | Concurrency Slot Consumption | DW100 | DW200 | DW300 | DW400 | DW500 | DW600 | DW1000 | DW1200 | DW1500 | DW2000 | DW3000 | DW6000 |
 | :--------------------------- | :---- | :---- | :---- | :---- | :---- | :---- | :----- | :----- | :----- | :----- | :----- | :----- |
 | Max Concurrent Queries       | 32    | 32    | 32    | 32    | 32    | 32    | 32     | 32     | 32     | 32     | 32     | 32     |
-| Max Concurrency Slots        | 4     | 8     | 12    | 16    | 20    | 24    | 32     | 32     | 32     | 32     | 32    | 32     |
+| Max Concurrency Slots        | 4     | 8     | 12    | 16    | 20    | 24    | 40     | 48     | 60     | 80     | 120    | 240    |
 -->
 
 | Consommation des emplacements de concurrence | DW100 | DW200 | DW300 | DW400 | DW500 | DW600 | DW1000 | DW1200 | DW1500 | DW2000 |
 | :--------------------------- | :---- | :---- | :---- | :---- | :---- | :---- | :----- | :----- | :----- | :----- | 
 | Nombre maximal de requêtes concurrentes | 32 | 32 | 32 | 32 | 32 | 32 | 32 | 32 | 32 | 32 | 
-| Nombre maximal d’emplacements de concurrence | 4 | 8 | 12 | 16 | 20 | 24 | 32 | 32 | 32 | 32 | 
+| Nombre maximal d’emplacements de concurrence | 4 | 8 | 12 | 16 | 20 | 24 | 40 | 48 | 60 | 80 |
 
-Les classes de ressource constituent un élément essentiel de la gestion des charges de travail SQL Data Warehouse, car elles régissent également les ressources de calcul allouées à la requête. Ces classes sont abordées dans la section ci-dessous consacrée à la gestion des charges de travail.
+Les charges de travail de requête SQL Data Warehouse doivent respecter ces seuils. S’il existe plus de 32 requêtes concurrentes ou que vous dépassez le nombre d’emplacements de concurrence, la requête est mise en file d’attente jusqu’à ce que les deux seuils puissent être satisfaits.
 
 ## Gestion des charges de travail
 
@@ -60,15 +63,21 @@ Ces rôles sont les suivants :
 - largerc
 - xlargerc
 
-Par défaut, chaque utilisateur appartient à la classe de ressource smallrc. Toutefois, tout utilisateur peut être ajouté à une ou plusieurs classes de ressource supérieures. SQL Data Warehouse prend en compte l’appartenance au rôle le plus élevé pour l’exécution des requêtes. L’ajout d’un utilisateur à une classe de ressource plus élevée augmente les ressources pour cet utilisateur, mais consomme également davantage d’emplacements de concurrence, ce qui risque de limiter votre capacité de concurrence. Ceci est dû au fait que lorsque le nombre de ressources alloué à une requête augmente, le système doit limiter les ressources consommées par les autres requêtes. Rien n’est jamais gratuit.
+Les classes de ressource sont une partie essentielle de la gestion de la charge de travail de SQL Data Warehouse. Elles déterminent les ressources de calcul allouées à la requête.
+
+Par défaut, chaque utilisateur appartient à la classe de ressource smallrc. Toutefois, tout utilisateur peut être ajouté à une ou plusieurs classes de ressource supérieures. En règle générale, SQL Data Warehouse prend en compte l’appartenance au rôle le plus élevé pour l’exécution des requêtes. L’ajout d’un utilisateur à une classe de ressource plus élevée augmente les ressources pour cet utilisateur, mais consomme également davantage d’emplacements de concurrence, ce qui risque de limiter votre capacité de concurrence. Ceci est dû au fait que lorsque le nombre de ressources alloué à une requête augmente, le système doit limiter les ressources consommées par les autres requêtes. Rien n’est jamais gratuit.
 
 La ressource la plus importante régie par la classe de ressource supérieure est la mémoire. La plupart des tables d’entrepôt de données d’une taille significative utilisent des index columnstore cluster. Bien que cette approche offre généralement les meilleures performances pour les charges de travail d’entrepôt de données, la gestion de ces index est une opération qui utilise beaucoup de mémoire. Il est souvent très avantageux d’utiliser les classes de ressource supérieures pour les opérations de gestion des données, comme les reconstructions d’index.
 
-Pour augmenter votre mémoire, il vous suffit d’ajouter l’utilisateur de votre base de données à l’un des rôles/l’une des classes de ressources mentionnés ci-dessus.
+SQL Data Warehouse implémente les classes de ressource au moyen de rôles de base de données. Pour devenir membre d'une classe de ressource supérieure et augmenter votre mémoire de façon simple et en priorité, il suffit d’ajouter votre utilisateur de base de données à l'un des rôles/classes de ressources mentionnés ci-dessus.
 
-Vous pouvez ajouter ou supprimer votre nom au niveau du rôle de base de données de gestion des charges de travail en utilisant les procédures `sp_addrolemember` et `sp_droprolemember`. Notez que vous devez disposer d’une autorisation `ALTER ROLE` pour effectuer cette opération. Vous n’avez pas la possibilité d’utiliser la syntaxe DDL ALTER ROLE. Vous devez utiliser les procédures stockées mentionnées ci-dessus.
+### Membres de classe de ressource
+
+Vous pouvez ajouter ou supprimer votre nom au niveau du rôle de base de données de gestion des charges de travail en utilisant les procédures `sp_addrolemember` et `sp_droprolemember`. Notez que vous devez disposer d’une autorisation `ALTER ROLE` pour effectuer cette opération. Vous n’avez pas la possibilité d’utiliser la syntaxe DDL ALTER ROLE. Vous devez utiliser les procédures stockées mentionnées ci-dessus. Un exemple complet montrant comment créer des connexions et des utilisateurs est fourni dans la section [gestion des utilisateurs)[\#gestion-des-utilisateurs] à la fin de cet article.
 
 > [AZURE.NOTE]Plutôt que d’ajouter ou de supprimer un utilisateur dans un groupe de gestion des charges de travail, il est souvent plus simple de lancer ces opérations plus intensives par le biais d’une connexion ou d’un utilisateur distincts affectés en permanence à la classe de ressource supérieure.
+
+### Allocation de mémoire
 
 Le tableau ci-après détaille l’augmentation de mémoire disponible pour chaque requête, tributaire de la classe de ressource appliquée à l’utilisateur qui exécute cette requête :
 
@@ -97,10 +106,12 @@ Le tableau ci-après détaille l’augmentation de mémoire disponible pour chaq
 | largerc (l) | 200 Mo | 400 Mo | 400 Mo | 800 Mo | 800 Mo | 800 Mo | 1 600 Mo | 1 600 Mo | 1 600 Mo | 3 200 Mo |
 | xlargerc (xl) | 400 Mo | 800 Mo | 800 Mo | 1 600 Mo | 1 600 Mo | 1 600 Mo | 3 200 Mo | 3 200 Mo | 3 200 Mo | 6 400 Mo |
 
+### Consommation des emplacements de concurrence
+
 En outre, comme indiqué ci-dessus, plus la classe de ressource affectée à l’utilisateur est élevée, plus la consommation des emplacements de concurrence est importante. Le tableau ci-dessous présente la consommation des emplacements de concurrence par les requêtes pour une classe de ressource donnée.
 
 <!--
-| Concurrency slot consumption | DW100 | DW200 | DW300 | DW400 | DW500 | DW600 | DW1000 | DW1200 | DW1500 | DW2000 | DW3000 | DW6000 |
+| Consumption | DW100 | DW200 | DW300 | DW400 | DW500 | DW600 | DW1000 | DW1200 | DW1500 | DW2000 | DW3000 | DW6000 |
 | :--------------------------- | :---- | :---- | :---- | :---- | :---- | :---- | :----- | :----- | :----- | :----- | :----- | :----- |
 | Max Concurrent Queries       | 32    | 32    | 32    | 32    | 32    | 32    | 32     | 32     | 32     | 32     | 32     | 32     |
 | Max Concurrency Slots        | 4     | 8     | 12    | 16    | 20    | 24    | 40     | 48     | 60     | 80     | 120    | 240    |
@@ -110,7 +121,7 @@ En outre, comme indiqué ci-dessus, plus la classe de ressource affectée à l�
 | xlargerc (xl)                | 4     | 8     | 8     | 16    | 16    | 16    | 32     | 32     | 32     | 64     | 64     | 128    |
 -->
 
-| Consommation des emplacements de concurrence | DW100 | DW200 | DW300 | DW400 | DW500 | DW600 | DW1000 | DW1200 | DW1500 | DW2000 |
+| Consommation | DW100 | DW200 | DW300 | DW400 | DW500 | DW600 | DW1000 | DW1200 | DW1500 | DW2000 |
 | :--------------------------- | :---- | :---- | :---- | :---- | :---- | :---- | :----- | :----- | :----- | :----- |
 | Nombre maximal de requêtes concurrentes | 32 | 32 | 32 | 32 | 32 | 32 | 32 | 32 | 32 | 32 |
 | Nombre maximal d’emplacements de concurrence | 4 | 8 | 12 | 16 | 20 | 24 | 40 | 48 | 60 | 80 |
@@ -119,9 +130,36 @@ En outre, comme indiqué ci-dessus, plus la classe de ressource affectée à l�
 | largerc (l) | 2 | 4 | 4 | 8 | 8 | 8 | 16 | 16 | 16 | 32 |
 | xlargerc (xl) | 4 | 8 | 8 | 16 | 16 | 16 | 32 | 32 | 32 | 64 |
 
-Il est important de garder à l’esprit que la charge de travail des requêtes active doit respecter les seuils de requêtes concurrentes et d’emplacements de concurrence. Dès que l’un de ces seuils est dépassé, les requêtes sont placées en file d’attente. Les requêtes mises en file d’attente sont alors traitées dans l’ordre de priorité suivi par l’heure de la requête.
+### Exceptions
 
-En coulisse, les choses sont un peu plus compliquées. Les classes de ressources sont mappées dynamiquement à un ensemble générique de groupes de gestion des charges de travail au sein du gouverneur de ressources. Les groupes utilisés dépendent de la valeur DWU de l’entrepôt. Toutefois, il existe un total de huit groupes de charges de travail utilisés par SQL Data Warehouse. Il s’agit des étapes suivantes :
+Il existe des cas où l'appartenance à une classe de ressource plus élevée ne modifie pas les ressources affectées à la requête ou l'opération. Cela se produit généralement lorsque les ressources nécessaires pour accomplir l'action sont faibles. Dans ces cas, la classe de ressource par défaut ou small (smallrc) est toujours utilisée, quelle que soit la classe de ressource affectée à l'utilisateur. Par exemple, `CREATE LOGIN` s'exécute toujours en smallrc. Les ressources nécessaires pour accomplir cette opération sont très faibles. Par conséquent, il serait inutile d'inclure la requête dans le modèle d'emplacement d'accès concurrentiel. Il serait contre-productif de pré-allouer de grandes quantités de mémoire pour cette action. En excluant `CREATE LOGIN` du modèle d'emplacement d'accès concurrentiel, SQL Data Warehouse peut être beaucoup plus efficace.
+
+Vous trouverez ci-dessous une liste des instructions et des opérations qui **sont** régies par les classes de ressource :
+
+- INSERT-SELECT
+- UPDATE
+- SUPPRIMER
+- SELECT (lorsque la requête ne s’adresse pas exclusivement aux DMV)
+- ALTER INDEX REBUILD
+- ALTER INDEX REORGANIZE
+- ALTER TABLE REBUILD
+- CREATE CLUSTERED INDEX
+- CREATE CLUSTERED COLUMNSTORE INDEX
+- CREATE TABLE AS SELECT 
+- Chargement de données 
+
+<!--
+Removed as these two are not confirmed / supported under SQLDW
+- CREATE REMOTE TABLE AS SELECT
+- CREATE EXTERNAL TABLE AS SELECT 
+-->
+> [AZURE.NOTE]Il est important de souligner que les requêtes `SELECT` s'exécutant exclusivement sur les affichages catalogue et de gestion dynamique ne sont **pas** régies par les classes de ressource.
+
+Il est important de noter que la majorité des requêtes utilisateur sont susceptibles d'être régies par les classes de ressource. La règle générale est que la charge de travail de la requête active doit respecter les seuils de requêtes simultanées et d’emplacement d’accès concurrentiel, sauf si elle a été spécifiquement exclue par la plateforme. En tant qu'utilisateur final, vous ne pouvez pas choisir d'exclure une requête du modèle d'emplacement d'accès concurrentiel. Dès que l’un de ces seuils est dépassé, les requêtes sont placées en file d’attente. Les requêtes mises en file d’attente sont alors traitées dans l’ordre de priorité suivi par l’heure de la requête.
+
+### Éléments internes 
+
+En réalité, la gestion de la charge de travail de SQL Data Warehouse est un peu plus compliquée. Les classes de ressources sont mappées dynamiquement à un ensemble générique de groupes de gestion des charges de travail au sein du gouverneur de ressources. Les groupes utilisés dépendent de la valeur DWU de l’entrepôt. Toutefois, il existe un total de huit groupes de charges de travail utilisés par SQL Data Warehouse. Il s’agit des étapes suivantes :
 
 - SloDWGroupC00
 - SloDWGroupC01
@@ -203,6 +241,10 @@ ORDER BY
 
 ## Exemples de gestion des charges de travail
 
+Cette section fournit quelques exemples supplémentaires à étudier pour la gestion des utilisateurs et la détection de requêtes en file d’attente.
+
+### Gestion des utilisateurs
+
 Un utilisateur a d’abord besoin d’une connexion pour que vous puissiez lui accorder l’accès à SQL Data Warehouse.
 
 Ouvrez une connexion à la base de données MASTER de votre SQL Data Warehouse et exécutez les commandes suivantes :
@@ -213,8 +255,8 @@ CREATE LOGIN newperson WITH PASSWORD = 'mypassword'
 CREATE USER newperson for LOGIN newperson
 ```
 
-[AZURE.NOTE]Il est judicieux de créer des utilisateurs pour vos connexions dans la base de données MASTER lorsque vous utilisez la base de données SQL Azure et SQL Data Warehouse. Deux rôles de serveur sont disponibles à ce niveau et nécessitent que la connexion ait un utilisateur dans la base de données MASTER afin d’accorder l’appartenance. Il s’agit des rôles `Loginmanager` et `dbmanager`. Dans la base de données SQL Azure et SQL Data Warehouse, ces rôles octroient des droits de gestion des connexions et de création des bases de données. Ce n’est pas le cas de SQL Server. Pour plus d’informations, consultez l’article [Gestion des bases de données et des connexions dans la base de données SQL Microsoft Azure].
- 
+[AZURE.NOTE]Il est judicieux de créer des utilisateurs pour vos connexions dans la base de données MASTER lorsque vous utilisez la base de données SQL Azure et SQL Data Warehouse. Deux rôles de serveur sont disponibles à ce niveau et nécessitent que la connexion ait un utilisateur dans la base de données MASTER afin d’accorder l’appartenance. Il s’agit des rôles `Loginmanager` et `dbmanager`. Dans la base de données SQL Azure et SQL Data Warehouse, ces rôles octroient des droits de gestion des connexions et de création des bases de données. Ce n’est pas le cas de SQL Server. Pour plus d’informations, consultez l’article [Gestion des bases de données et des connexions dans la base de données SQL Microsoft Azure].
+
 Une fois que la connexion a été créée, un compte d’utilisateur doit être ajouté.
 
 Ouvrez une connexion à la base de données SQL Data Warehouse et exécutez la commande suivante :
@@ -223,7 +265,7 @@ Ouvrez une connexion à la base de données SQL Data Warehouse et exécutez l
 CREATE USER newperson FOR LOGIN newperson
 ```
 
-Lorsque vous avez terminé, vous devez accorder des autorisations à l’utilisateur. L’exemple indiqué ci-dessous accorde `CONTROL` dans la base de données SQL Data Warehouse. Au niveau de la base de données, `CONTROL` est l’équivalent de db\_owner dans SQL Server.
+Lorsque vous avez terminé, vous devez accorder des autorisations à l’utilisateur. L’exemple indiqué ci-dessous accorde `CONTROL` dans la base de données SQL Data Warehouse. Au niveau de la base de données, `CONTROL` est l’équivalent de db\_owner dans SQL Server.
 
 ```
 GRANT CONTROL ON DATABASE::MySQLDW to newperson
@@ -250,9 +292,12 @@ Pour supprimer un utilisateur d’un rôle de gestion des charges de travail, ut
 ``` 
 EXEC sp_droprolemember 'largerc', 'newperson' 
 ```
+
 > [AZURE.NOTE]Il n’est pas possible de supprimer un utilisateur dans la classe smallrc.
 
-Pour afficher les utilisateurs membres d’un rôle donné, utilisez la requête suivante : ```
+Pour afficher les utilisateurs membres d’un rôle donné, utilisez la requête suivante :
+
+```
 SELECT	r.name AS role_principal_name
 ,		m.name AS member_principal_name
 FROM	sys.database_role_members rm
@@ -262,7 +307,7 @@ WHERE	r.name IN ('mediumrc','largerc', 'xlargerc')
 ;
 ```
 
-## Détection des requêtes en file d’attente
+### Détection des requêtes en file d’attente
 Pour identifier les requêtes qui sont placées dans une file d’attente de concurrence, vous pouvez toujours consulter la vue de gestion dynamique (DMV) `sys.dm_pdw_exec_requests`.
 
 ```
@@ -373,8 +418,8 @@ Pour obtenir des conseils supplémentaires en matière de développement, voir l
 [vue d’ensemble sur le développement]: sql-data-warehouse-overview-develop.md
 
 <!--MSDN references-->
-[Gestion des bases de données et des connexions dans la base de données SQL Microsoft Azure]: https://msdn.microsoft.com/fr-fr/library/azure/ee336235.aspx
+[Gestion des bases de données et des connexions dans la base de données SQL Microsoft Azure]: https://msdn.microsoft.com/fr-fr/library/azure/ee336235.aspx
 
 <!--Other Web references-->
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

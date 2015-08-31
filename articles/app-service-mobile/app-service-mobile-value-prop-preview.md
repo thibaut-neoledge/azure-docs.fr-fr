@@ -13,19 +13,19 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/30/2015"
+	ms.date="08/05/2015"
 	ms.author="kirillg"/>
 
-# <a name="getting-started"> </a>Qu'est ce que la fonctionnalité Applications mobiles ?
+# <a name="getting-started"> </a>Qu’est ce que la fonctionnalité Mobile Apps ?
 
->[AZURE.NOTE]**La documentation Mobile Services est disponible [ici.](http://azure.microsoft.com/documentation/services/mobile-services/)**
+[AZURE.INCLUDE [app-service-mobile-note-mobile-services-preview](../../includes/app-service-mobile-note-mobile-services-preview.md)]
 
-Azure App Service est une offre PaaS (Platform as a Service) entièrement gérée, destinée aux développeurs professionnels, qui permet de bénéficier d'un ensemble complet de fonctionnalités pour les scénarios web, mobiles et d'intégration. La fonctionnalité *Applications mobiles* dans *Azure App Service* offre une plateforme de développement d'applications mobiles hautement évolutive pour les développeurs d'entreprise et les intégrateurs système. Disponible pour tous, elle fournit un ensemble complet de fonctionnalités pour les applications mobiles.
+Azure App Service est une offre PaaS (Platform as a Service) entièrement gérée, destinée aux développeurs professionnels, qui permet de bénéficier d'un ensemble complet de fonctionnalités pour les scénarios web, mobiles et d'intégration. La fonctionnalité *Mobile Apps* dans *Azure App Service* offre une plateforme de développement d’applications mobiles hautement évolutive pour les développeurs d’entreprise et les intégrateurs système. Disponible pour tous, elle fournit un ensemble complet de fonctionnalités pour les développeurs d’applications mobiles.
 
 ![Mobile Apps](./media/app-service-mobile-value-prop-preview/overview.png)
 
 ##Pourquoi Mobile Apps ?
-La fonctionnalité *Applications mobiles* dans *Azure App Service* offre une plateforme de développement d'applications mobiles hautement évolutive pour les développeurs d'entreprise et les intégrateurs système. Disponible pour tous, elle fournit un ensemble complet de fonctionnalités pour les applications mobiles. Mobile Apps vous permet d'effectuer les opérations suivantes :
+La fonctionnalité *Mobile Apps* dans *Azure App Service* offre une plateforme de développement d’applications mobiles hautement évolutive pour les développeurs d’entreprise et les intégrateurs système. Disponible pour tous, elle fournit un ensemble complet de fonctionnalités pour les développeurs d’applications mobiles. Mobile Apps vous permet d'effectuer les opérations suivantes :
 
 - **Générer des applications natives et multiplateformes** : que vous génériez des applications natives iOS, Android et Windows ou des applications multiplateformes Xamarin ou Cordova (Phonegap), vous pouvez tirer parti d'App Service à l'aide de Kits de développement logiciel (SDK) natifs.  
 - **Se connecter aux systèmes de votre entreprise** : la fonctionnalité Applications mobiles vous permet d'ajouter une authentification d'entreprise en quelques minutes et de vous connecter à vos ressources locales et cloud de votre entreprise.
@@ -42,8 +42,9 @@ La fonctionnalité *Applications mobiles* dans *Azure App Service* offre une pla
 ## Mise en route ##
 Pour prendre en main la fonctionnalité Applications mobiles, suivez le didacticiel [Prise en main].
 
-Pour plus d'informations sur la plateforme Azure App Service, consultez [Azure App Service].
+Pour plus d’informations sur la plateforme Azure App Service, consultez [Azure App Service].
 
+>[AZURE.NOTE]Si vous voulez vous familiariser avec Azure App Service avant d’ouvrir un compte Azure, accédez à la page [Essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751). Vous pourrez créer immédiatement et gratuitement une application de départ temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
 
 <!-- URLs. -->
 [Migrate your Mobile Service to App Service]: app-service-mobile-dotnet-backend-migrating-from-mobile-services-preview.md
@@ -56,4 +57,4 @@ Pour plus d'informations sur la plateforme Azure App Service, consultez [Azure A
 [JavaScript backend version]: ../mobile-services-ios-get-started.md
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

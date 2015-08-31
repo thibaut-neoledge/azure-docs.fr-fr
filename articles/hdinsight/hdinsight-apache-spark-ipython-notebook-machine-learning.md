@@ -1,19 +1,20 @@
 <properties 
-	pageTitle="Utilisation d'Apache Spark pour créer des applications d'apprentissage automatique sur HDInsight | Microsoft Azure" 
-	description="Instructions pas à pas sur l’utilisation de blocs-notes avec Apache Spark pour créer des applications d’apprentissage automatique" 
-	services="hdinsight" 
-	documentationCenter="" 
-	authors="nitinme" 
-	manager="paulettm" 
-	editor="cgronlun"/>
+	pageTitle="Utilisation d'Apache Spark pour créer des applications d'apprentissage automatique sur HDInsight | Microsoft Azure"
+	description="Instructions pas à pas sur l’utilisation de blocs-notes avec Apache Spark pour créer des applications d’apprentissage automatique"
+	services="hdinsight"
+	documentationCenter=""
+	authors="nitinme"
+	manager="paulettm"
+	editor="cgronlun"
+	tags="azure-portal"/>
 
 <tags 
-	ms.service="hdinsight" 
-	ms.workload="big-data" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/19/2015" 
+	ms.service="hdinsight"
+	ms.workload="big-data"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/31/2015"
 	ms.author="nitinme"/>
 
 
@@ -42,7 +43,9 @@ Nous utilisons ces données pour prédire si un bâtiment sera plus chaud ou plu
 
 ##<a name="app"></a>Écrire une application d’apprentissage automatique à l’aide de Spark MLlib
 
-1. Lancez le bloc-notes [Jupyter](https://jupyter.org). Sélectionnez votre cluster Spark dans le portail Azure, puis, dans la barre des tâches du portail située dans la partie inférieure, cliquez sur **Bloc-notes Jupyter**. Lorsque vous y êtes invité, entrez les informations d’identification d’administrateur pour le cluster Spark.
+1. Dans le tableau d’accueil du [portail Azure en version préliminaire](https://ms.portal.azure.com/), cliquez sur la vignette de votre cluster Spark (si vous avez épinglé ce dernier au tableau d’accueil). Vous pouvez également accéder à votre cluster sous **Parcourir tout** > **Clusters HDInsight**. 
+ 
+2. Lancez le bloc-notes [Jupyter](https://jupyter.org). Dans le panneau du cluster Spark, cliquez sur **Liens rapides**, puis dans le panneau **Tableau de bord du cluster**, cliquez sur **Bloc-notes Jupyter**. Lorsque vous y êtes invité, entrez les informations d’identification d’administrateur pour le cluster Spark.
 
 2. Créer un nouveau bloc-notes. Cliquez sur **Nouveau**, puis sur **Python 2**.
 
@@ -83,11 +86,11 @@ Nous utilisons ces données pour prédire si un bâtiment sera plus chaud ou plu
 		sc = SparkContext(conf=conf)
 		sqlContext = SQLContext(sc)
 
-	À chaque exécution d’un travail dans Jupyter, le titre de la fenêtre du navigateur web affiche l’état **(Busy)** ainsi que le titre du bloc-notes. Un cercle plein s’affiche également en regard du texte **Python 2** dans le coin supérieur droit. Une fois le travail terminé, ce cercle est remplacé par un cercle vide.
+	À chaque exécution d’une tâche dans Jupyter, le titre de la fenêtre du navigateur web affiche l’état **(Occupé)** ainsi que le titre du bloc-notes. Un cercle plein s’affiche également en regard du texte **Python 2** dans le coin supérieur droit. Une fois le travail terminé, ce cercle est remplacé par un cercle vide.
 
 	 ![État d’un travail de bloc-notes Jupyter](./media/hdinsight-apache-spark-ipython-notebook-machine-learning/HDI.Spark.Jupyter.Job.Status.png "État d’un travail de bloc-notes Jupyter")
  
-4. À présent, vous devez charger les données (hvac.csv), les analyser et les utiliser pour effectuer l’apprentissage du modèle. Pour ce faire, vous devez définir une fonction qui vérifie si la température réelle du bâtiment est supérieure à la température cible. Si la température réelle est supérieure, le bâtiment est chaud, comme l’indique la valeur **1.0**. Si la température réelle est inférieure, le bâtiment est froid, comme l’indique la valeur **0.0**.
+4. À présent, vous devez charger les données (hvac.csv), les analyser et les utiliser pour effectuer l’apprentissage du modèle. Pour ce faire, vous devez définir une fonction qui vérifie si la température réelle du bâtiment est supérieure à la température cible. Si la température réelle est supérieure, le bâtiment est chaud, ce qui est indiqué par la valeur **1.0**. Si la température réelle est inférieure, le bâtiment est froid, ce qui est indiqué par la valeur **0.0**.
 
 	Collez l’extrait suivant dans une cellule vide, puis appuyez sur **MAJ + ENTRÉE**.
 
@@ -126,7 +129,7 @@ Nous utilisons ces données pour prédire si un bâtiment sera plus chaud ou plu
 		training = documents.toDF()
 
 
-5. Configurez le pipeline Spark ML qui est composé de trois étapes : Tokenizer, HashingTF et LogisticRegression. Pour plus d’informations sur le pipeline et sur son fonctionnement, consultez <a href="http://spark.apache.org/docs/latest/ml-guide.html#how-it-works" target="_blank">Spark machine learning pipeline</a> (en anglais).
+5. Configurez le pipeline Spark ML qui est composé de trois étapes : Tokenizer, HashingTF et LogisticRegression. Pour plus d’informations sur le pipeline et sur son fonctionnement, consultez le <a href="http://spark.apache.org/docs/latest/ml-guide.html#how-it-works" target="_blank">pipeline d’apprentissage automatique Spark</a> (en anglais).
 
 	Collez l’extrait suivant dans une cellule vide, puis appuyez sur **MAJ + ENTRÉE**.
 
@@ -171,7 +174,7 @@ Nous utilisons ces données pour prédire si un bâtiment sera plus chaud ou plu
 
 	![HVAC, instantané des données](./media/hdinsight-apache-spark-ipython-notebook-machine-learning/HDI.Spark.ML.Show.Data.First.Row.png "Instantané des données HVAC")
 
-	Notez que la température réelle est inférieure à la température cible, suggérant que le bâtiment est froid. De ce fait, dans le résultat, la valeur de l’**étiquette** dans la première ligne correspond à **0.0**, ce qui signifie que le bâtiment n’est pas chaud.
+	Notez que la température réelle est inférieure à la température cible, suggérant que le bâtiment est froid. De ce fait, dans le résultat, l’**étiquette** de la première ligne a pour valeur **0.0**, ce qui signifie que le bâtiment n’est pas chaud.
 
 8.  Préparez un jeu de données sur lequel exécuter le modèle d’apprentissage. Pour ce faire, nous allons transmettre un ID système et une ancienneté du système (indiqués en tant que **SystemInfo** dans le résultat). Le modèle prédira si le bâtiment pourvu de cet ID système et de cette ancienneté du système sera plus chaud (indiqué par la valeur 1.0) ou plus froid (indiqué par la valeur 0.0).
 
@@ -211,7 +214,7 @@ Nous utilisons ces données pour prédire si un bâtiment sera plus chaud ou plu
 	![Redémarrer le noyau Jupyter](./media/hdinsight-apache-spark-ipython-notebook-machine-learning/HDI.Spark.Jupyter.Restart.Kernel.png "Redémarrer le noyau Jupyter")
 	  	   
 
-##<a name="anaconda"></a>Utiliser la bibliothèque scikit-learn Anaconda pour Machine Learning
+##<a name="anaconda"></a>Utiliser la bibliothèque scikit-learn Anaconda pour l’apprentissage automatique
 
 Les clusters Apache Spark sur HDInsight incluent des bibliothèques Anaconda, notamment la bibliothèque **scikit-learn** pour l’apprentissage automatique. Cette bibliothèque contient également différents jeux de données qui vous permettent de créer des exemples d’application directement à partir d’un bloc-notes Jupyter. Pour obtenir des exemples d’utilisation de la bibliothèque scikit-learn, reportez-vous à [http://scikit-learn.org/stable/auto\_examples/index.html](http://scikit-learn.org/stable/auto_examples/index.html).
 
@@ -240,4 +243,4 @@ Les clusters Apache Spark sur HDInsight incluent des bibliothèques Anaconda, 
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

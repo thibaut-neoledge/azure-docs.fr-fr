@@ -1,22 +1,24 @@
- Limits depend on the [pricing tier](http://azure.microsoft.com/pricing/details/application-insights/) that you choose.
+ Les limites varient selon le [niveau de tarification](http://azure.microsoft.com/pricing/details/application-insights/) que vous choisissez.
 
-**Resource** | **Default Limit** | **Maximum Limit**
+**Ressource** | **Limite par défaut** | **Limite maximale**
 -------- | ------------- | -------------
-Session data points<sup>1</sup> per month | unlimited | unlimited
-Other data points per month | 5 million | 50 million<sup>2</sup>
-Trace or Log data rate | 200 dp/s | 500 dp/s
-Exception data rate | 50 dp/s | 50 dp/s
-Other telemetry data rate | 200 dp/s | 500 dp/s
-Raw  data retention |7 days| 30 days
-Aggregated data retention | 13 months | unlimited
-Property name count across the app | 100 | 100
-Property name length | 100 | 100
-Property value length | 1000 | 1000
-Trace and Exception message length | 10000 | 10000
-Metric name length |  100 | 100
+Points de données de session<sup>1</sup> par mois | illimitée | illimitée
+Autres points de données par mois | 5 millions | 50 millions<sup>2</sup>
+Débit de données de trace ou de journal | 200 dp/s | 500 dp/s
+Débit de données d’exceptions | 50 dp/s | 50 dp/s
+Autre débit de données de télémétrie | 200 dp/s | 500 dp/s
+Conservation des données brutes |7 jours| 30 jours
+Conservation des données agrégées | 13 mois | illimitée
+Nombre de noms de propriété dans l’application | 100 | 100
+Longueur du nom de propriété | 100 | 100
+Longueur de la valeur de propriété | 1 000 | 1 000
+Longueur des messages de trace et d’exception | 10000 | 10000
+Longueur du nom de la mesure | 100 | 100
 
-<sup>1</sup> A data point is an individual metric value or event, with attached properties and measurements.
+<sup>1</sup> Un point de données est une valeur métrique individuelle ou un événement, avec les mesures et les propriétés jointes.
 
-<sup>2</sup> You can purchase additional capacity beyond 50 million.
+<sup>2</sup> Vous pouvez acheter une capacité supplémentaire au-delà de 50 millions.
  
-[About pricing and quotas in Application Insights](app-insights-pricing.md)
+[Tarification et quotas dans Application Insights](app-insights-pricing.md)
+
+<!---HONumber=August15_HO8-->

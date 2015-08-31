@@ -12,8 +12,8 @@
 	ms.workload="data-services"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article" 
-	ms.date="07/27/2015"
+	ms.topic="article"
+	ms.date="08/18/2015"
 	ms.author="spelluru"/>
 
 # Concevez votre premier pipeline en utilisant Azure Data Factory
@@ -109,15 +109,14 @@ Vous allez maintenant créer un service lié pour le cluster HDInsight à la dem
 3. Remplacez le code **JSON** par ce qui suit :
 
 		{
-		    "name": "HDInsightOnDemandLinkedService",
-		    "properties": {
-		        "version": "3.1",
-		        "clusterSize": 1,
-		        "timeToLive": "00:05:00",
-		        "jobsContainer": "adfjobs",
-		        "linkedServiceName": "StorageLinkedService",
-		        "type": "HDInsightOnDemandLinkedService"
-		    }
+		  "name": "HDInsightOnDemandLinkedService",
+		  "properties": {
+	        "type": "HDInsightOnDemandLinkedService",
+            "version": "3.1",
+	        "clusterSize": 1,
+	        "timeToLive": "00:05:00",
+	        "linkedServiceName": "AzureStorageLinkedService1"
+		  }
 		}
 	
 	Le tableau suivant décrit les propriétés JSON utilisées dans l'extrait de code :
@@ -149,7 +148,7 @@ Vous allez maintenant créer le jeu de données de sortie pour représenter les 
 		                "type": "TextFormat",
 		                "columnDelimiter": ","
 		            },
-		            "linkedServiceName": "StorageLinkedService"
+		            "linkedServiceName": "AzureStorageLinkedService1"
 		        },
 		        "availability": {
 		            "frequency": "Month",
@@ -169,15 +168,15 @@ Dans cette étape, vous allez créer votre premier pipeline.
 3. Remplacez le code **JSON** par l'extrait de code suivant et remplacez **storageaccountname** par le nom de votre compte de stockage.
 
 		{
-			"name": "MyFirstPipeline",
-			"properties": {
-			"description": "My first Azure Data Factory pipeline",
-		 	"activities": [
+		    "name": "MyFirstPipeline",
+		    "properties": {
+		    "description": "My first Azure Data Factory pipeline",
+		    "activities": [
 		      {
 		            "type": "HDInsightActivity",
 		            "transformation": {
 		                    "scriptPath": "script/partitionweblogs.hql",
-		                    "scriptLinkedService": "StorageLinkedService",
+		                    "scriptLinkedService": "AzureStorageLinkedService1",
 		                    "type": "Hive",
 		                    "extendedProperties": {
 		                        "partitionedtable": "wasb://data@<storageaccountname>.blob.core.windows.net/partitioneddata"
@@ -187,7 +186,7 @@ Dans cette étape, vous allez créer votre premier pipeline.
 		                "policy": {  
 		                    "concurrency": 1,
 		                    "retry": 3
-						},
+		                },
 		                "name": "RunSampleHiveActivity",
 		                "linkedServiceName": "HDInsightOnDemandLinkedService"
 		            }
@@ -199,14 +198,21 @@ Dans cette étape, vous allez créer votre premier pipeline.
  
 	Dans l'extrait de code JSON, vous créez un pipeline qui se compose d'une seule activité utilisant Hive pour traiter des données sur un cluster HDInsight.
 	
-	Le fichier de script Hive, **partitionweblogs.hql**, est stocké dans le compte de stockage Azure (spécifié par le scriptLinkedService, appelé **StorageLinkedService**) et dans un conteneur appelé **script**.
+	Le fichier de script Hive, **partitionweblogs.hql**, est stocké dans le compte de stockage Azure (spécifié par le scriptLinkedService, appelé **AzureStorageLinkedService1**) et dans un conteneur appelé **script**.
 
 	La section **extendedProperties** permet de spécifier les paramètres d'exécution qui seront transmis au script Hive en tant que valeurs de configuration Hive (par ex. ${hiveconf:PartitionedData}).
 
 	Les propriétés **start** et **end** du pipeline spécifient la période active du pipeline.
 
 	Dans l'activité JSON, vous spécifiez que le script Hive s'exécute sur le calcul spécifié par le service lié **HDInsightOnDemandLinkedService**.
-3. Enregistrez le fichier **HiveActivity1.json**. 
+3. Enregistrez le fichier **HiveActivity1.json**.
+
+### Ajouter partitionweblogs.hql en tant que dépendance 
+
+1. Dans la fenêtre **Explorateur de solutions**, cliquez avec le bouton droit sur Dépendances, pointez sur **Ajouter**, puis cliquez sur **Élément existant**.  
+2. Accédez au dossier **C:\\ADFGettingStarted**, sélectionnez le fichier **partitionweblogs.hql**, puis cliquez sur **Ajouter**. 
+
+Lorsque vous publierez la solution à l’étape suivante, le fichier HQL sera chargé vers le conteneur de scripts de votre stockage d’objets blob.
 
 ### Publier/Déployer des entités Data Factory
   
@@ -243,7 +249,7 @@ Consultez [Surveiller les jeux de données et le pipeline](data-factory-monitor-
  
 
 ## Étapes suivantes
-Dans cet article, vous avez créé un pipeline avec une activité de transformation (Activité HDInsight) qui exécute un script Hive sur un cluster HDInsight à la demande. Pour apprendre à utiliser une activité de copie pour copier des données à partir d'un objet blob Azure dans Azure SQL, consultez le [didacticiel : copie de données depuis un objet blob Azure vers Azure SQL](data-factory-get-started.md).
+Dans cet article, vous avez créé un pipeline avec une activité de transformation (Activité HDInsight) qui exécute un script Hive sur un cluster HDInsight à la demande. Pour apprendre à utiliser une activité de copie pour copier des données à partir d’un objet blob Azure dans Azure SQL, consultez le [didacticiel : copie de données depuis un objet blob Azure vers Azure SQL](data-factory-get-started.md).
   
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

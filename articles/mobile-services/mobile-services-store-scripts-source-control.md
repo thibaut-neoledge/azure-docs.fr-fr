@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Stockage du code de projet dans le contrôle de code source | Microsoft Azure" 
-	description="Découvrez comment stocker vos fichiers et modules de script serveur dans un référentiel Git local sur votre ordinateur." 
-	services="mobile-services" 
-	documentationCenter="" 
-	authors="ggailey777" 
-	manager="dwrede" 
+<properties
+	pageTitle="Stockage du code de projet dans le contrôle de code source | Microsoft Azure"
+	description="Découvrez comment stocker vos fichiers et modules de script serveur dans un référentiel Git local sur votre ordinateur."
+	services="mobile-services"
+	documentationCenter=""
+	authors="ggailey777"
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="multiple" 
-	ms.topic="article" 
-	ms.date="04/24/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="na"
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.date="08/18/2015"
 	ms.author="ggailey777"/>
 
 # Stockage du code de projet dans le contrôle de code source
@@ -32,7 +32,7 @@ Pour suivre ce didacticiel, vous devez avoir créé un service mobile en suivant
 
 ##<a name="clone-repo"></a>Installer Git et créer le référentiel local
 
-1. Installez Git sur votre ordinateur local. 
+1. Installez Git sur votre ordinateur local.
 
 	La procédure requise pour installer Git diffère selon les systèmes d'exploitation. Consultez la rubrique [Installation de Git] pour accéder aux distributions et consignes d'installation propres aux différents systèmes d'exploitation.
 
@@ -75,13 +75,13 @@ Pour suivre ce didacticiel, vous devez avoir créé un service mobile en suivant
 		    request.execute();
 		    console.log(JSON.stringify(item, null, 4));
 		}
-	
+
 	Ce code écrit simplement l'élément inséré dans le journal. Si ce fichier contient déjà du code, ajoutez-lui simplement un extrait de code JavaScript valide, tel qu'un appel à `console.log()`, puis enregistrez vos modifications.
 
 3. Dans l'invite de commandes Git, tapez la commande suivante pour commencer le suivi du nouveau fichier de script :
 
 		$ git add .
-	
+
 
 4. Tapez la commande suivante pour valider les modifications :
 
@@ -90,7 +90,7 @@ Pour suivre ce didacticiel, vous devez avoir créé un service mobile en suivant
 5. Tapez la commande suivante pour télécharger les modifications sur le référentiel distant :
 
 		$ git push origin master
-	
+
 	Une série de commandes indiquant le déploiement de la validation sur le service mobile doit s'afficher.
 
 6. De retour dans le portail de gestion, cliquez sur l’onglet **Données**, puis sur la table **TodoItem**, cliquez sur **Script**, puis sélectionnez l’opération **Insérer**.
@@ -103,7 +103,7 @@ Mobile Services fournit un accès au jeu complet de modules principaux de Node.j
 
 Pour ajouter des modules Node.js à votre service mobile, il est recommandé d'ajouter des références au fichier package.json du service. Ajoutez ensuite le module Node.js [node-uuid] à votre service mobile en mettant à jour le fichier package.json. Une fois la mise à jour transmise à Azure, le service mobile est redémarré et le module est installé. Ce module est ensuite utilisé pour générer une nouvelle valeur GUID pour la propriété **uuid** sur les éléments insérés.
 
-2. Accédez au dossier `.\service` du référentiel Git local, puis ouvrez le fichier package.json dans un éditeur de texte et ajoutez le champ suivant à l’objet **dependencies** :
+2. Accédez au dossier `.\service` du référentiel Git local, puis ouvrez le fichier package.json dans un éditeur de texte et ajoutez le champ suivant à l'objet **dependencies** :
 
 		"node-uuid": "~1.4.3"
 
@@ -125,7 +125,7 @@ Pour ajouter des modules Node.js à votre service mobile, il est recommandé d'a
 		$ git add .
 		$ git commit -m "added node-uuid module"
 		$ git push origin master
-		
+
 	Ce code ajoute le nouveau fichier, valide vos modifications, transfère le nouveau module node-uuid et les modifications vers le script todoitem.insert.js sur votre service mobile.
 
 ## <a name="next-steps"> </a>Étapes suivantes
@@ -160,6 +160,5 @@ Explique comment utiliser les scripts serveur, le planificateur de travaux et le
 [Appel d'une API personnalisée à partir du client]: mobile-services-ios-call-custom-api.md
 [Modules]: http://nodejs.org/api/modules.html
 [node-uuid]: https://npmjs.org/package/node-uuid
- 
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

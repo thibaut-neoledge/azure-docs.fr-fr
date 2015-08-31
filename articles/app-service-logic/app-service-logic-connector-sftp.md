@@ -7,16 +7,14 @@
 	services="app-service\logic"
 	documentationCenter=""/>
 
-
 <tags
 	ms.service="app-service-logic"
 	ms.workload="integration"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/02/2015"
+	ms.date="08/19/2015"
 	ms.author="sameerch"/>
-
 
 # Utilisation du connecteur SFTP dans votre application logique #
 
@@ -99,8 +97,12 @@ Une fois votre application API créée, vous pouvez utiliser le connecteur SFTP 
 	![][11]
 	![][12]
 
+## En faire plus avec votre connecteur
+Maintenant que le connecteur est créé, vous pouvez l'ajouter à un flux d'entreprise à l'aide d'une application logique. Voir [Que sont les applications logiques ?](app-service-logic-what-are-logic-apps.md).
 
+Affichez la référence d’API REST Swagger sur [Référence de connecteurs et d’applications API](http://go.microsoft.com/fwlink/p/?LinkId=529766).
 
+Vous pouvez également consulter les statistiques de performances et contrôler la sécurité du connecteur. Consultez la page [Gestion et contrôle de vos connecteurs et applications API intégrés](app-service-logic-monitor-your-connectors.md).
 
 
 <!-- Image reference -->
@@ -117,4 +119,4 @@ Une fois votre application API créée, vous pouvez utiliser le connecteur SFTP 
 [11]: ./media/app-service-logic-connector-sftp/img11.PNG
 [12]: ./media/app-service-logic-connector-sftp/img12.PNG
 
-<!----HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

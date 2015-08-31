@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Intégration de vos identités locales avec Azure Active Directory" 
-	description="Cette page décrit Azure AD Connect et vous explique pourquoi l’utiliser." 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="swadhwa" 
+	pageTitle="Intégration de vos identités locales avec Azure Active Directory"
+	description="Cette page décrit Azure AD Connect et vous explique pourquoi l’utiliser."
+	services="active-directory"
+	documentationCenter=""
+	authors="billmath"
+	manager="swadhwa"
 	editor="curtand"/>
 
 <tags 
-	ms.service="active-directory" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="get-started-article" 
-	ms.date="07/13/2015" 
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.date="07/13/2015"
 	ms.author="billmath"/>
 
 # Intégration de vos identités locales avec Azure Active Directory
@@ -103,8 +103,23 @@ Avant d’installer Azure AD Connect avec les paramètres Express, voici ce don
 - Azure Active Directory Connect doit être installé sur Windows Server 2008 ou version ultérieure. Ce serveur peut être un contrôleur de domaine ou un serveur membre.
 - La version de schéma Active Directory et le niveau de forêt doit être Windows Server 2003 ou version ultérieure. Les contrôleurs de domaine peuvent exécuter n’importe quelle version aussi longtemps que les exigences relatives au schéma et le niveau de forêt sont remplies.
 - Si les services de fédération Active Directory sont dépoloyés, les serveurs sur lesquels AD FS doivent être installés doivent être Windows Server 2012 ou version ultérieure.
+- Azure AD Connect nécessite une base de données SQL Server pour stocker les données d’identité. Une base de données SQL Server 2012 Express LocalDB (version légère de SQL Server Express) est installée par défaut et le compte du service est créé sur l'ordinateur local. SQL Server Express a une limite de 10 Go qui vous permet de gérer environ 100 000 objets.
+- Si vous avez besoin de gérer un volume plus important d’objets du répertoire, vous devez pointer le processus d'installation vers une autre version de SQL Server. Azure AD Connect prend en charge toutes les versions de Microsoft SQL Server à partir de SQL Server 2008 (SP4) et jusqu’à SQL Server 2014.
 - Un compte d’administrateur d’entreprise pour votre Active Directory local
-- Facultatif : un compte d’utilisateur test pour vérifier la synchronisation. 
+- Si vous utilisez un serveur proxy sortant, le paramètre suivant dans le fichier **C:\\Windows\\Microsoft.NET\\Framework64\\v4.0.30319\\Config\\machine.config** doit être ajouté pour terminer l'installation. <code>
+		
+		<system.net>
+    		<defaultProxy>
+      		<proxy
+        	usesystemdefault="true"
+        	proxyaddress=http://<PROXYIP>:80"
+        	bypassonlocal="true"
+     		 />
+    		</defaultProxy>
+  		</system.net>
+</code> Ce texte doit être entré en bas du fichier. Dans ce code, &lt;PROXYIP&gt; représente l'adresse IP réelle du proxy.
+
+- Facultatif : un compte d’utilisateur test pour vérifier la synchronisation.
 
 #### Configuration matérielle requise pour Azure AD Connect
 Le tableau ci-dessous présente la configuration minimale requise pour l’ordinateur Azure AD Connect.
@@ -142,7 +157,7 @@ La sélection des paramètres Express est l’option par défaut et s’applique
 8. Sur l’écran Connexion à AD DS, entrez le nom d'utilisateur et le mot de passe d’un compte d'administrateur d’entreprise. Cliquez sur **Next**.
 <center>![Bienvenu dans Azure AD Connect](./media/active-directory-aadconnect-get-started/install4.png)</center>
 9. Sur l’écran Prêt à configurer, cliquez sur **Installer**.
-	- Sur la page Prêt à configurer, vous pouvez éventuellement la case à cocher « \*\*Démarrer le processus de synchronisation dès que la configuration est terminée\*\* ». Si vous faites cela, l'assistant configurera la synchronisation, mais laissera la tâche désactivée afin qu'elle ne s’exécute pas avant que vous ne l'activiez manuellement dans le Planificateur de tâches. Une fois que la tâche est activée, la synchronisation s'exécute toutes les trois heures.
+	- Sur la page Prêt à configurer, vous pouvez éventuellement la case à cocher « **Démarrer le processus de synchronisation dès que la configuration est terminée** ». Si vous faites cela, l'assistant configurera la synchronisation, mais laissera la tâche désactivée afin qu'elle ne s’exécute pas avant que vous ne l'activiez manuellement dans le Planificateur de tâches. Une fois que la tâche est activée, la synchronisation s'exécute toutes les trois heures.
 	- Éventuellement, vous pouvez également choisir de configurer les services de synchronisation pour le **déploiement hybride Exchange** en cochant la case à cocher correspondante. Si vous n'envisagez pas d'avoir des boîtes aux lettres Exchange dans le cloud et en local, vous n’avez pas besoin de cela.
 
 <center>![Bienvenue dans Azure AD Connect](./media/active-directory-aadconnect-get-started/readyinstall.png)</center>
@@ -249,7 +264,7 @@ Présentation d’Ignite 2015 sur l'extension de vos répertoires locaux dans l
 
 [Azure AD Connect Health](active-directory-aadconnect-health.md) : analysez le fonctionnement de votre infrastructure AD FS locale.
 
-[FAQ Azure D Connect](active-directory-aadconnect-faq.md) - Forum aux questions sur Azure AD Connect.
+[FAQ Azure AD Connect](active-directory-aadconnect-faq.md) - Forum aux questions sur Azure AD Connect.
 
 
 
@@ -258,4 +273,4 @@ Présentation d’Ignite 2015 sur l'extension de vos répertoires locaux dans l
 
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

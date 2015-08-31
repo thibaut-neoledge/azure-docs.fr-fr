@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="Attribution de rôles d’administrateur dans Azure AD" 
-	description="Cette rubrique décrit les rôles d’administrateur disponibles avec Azure AD et leur utilisation." 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="Justinha" 
-	manager="TerryLan" 
+<properties
+	pageTitle="Attribution de rôles d’administrateur dans Azure AD"
+	description="Cette rubrique décrit les rôles d’administrateur disponibles avec Azure AD et leur utilisation."
+	services="active-directory"
+	documentationCenter=""
+	authors="curtand" 
+	manager="stevenpo"
 	editor="LisaToft"/>
 
-<tags 
-	ms.service="active-directory" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/05/2015" 
-	ms.author="Justinha"/>
+<tags
+	ms.service="active-directory"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/14/2015"
+	ms.author="curtand"/>
 
 # Attribution de rôles d’administrateur dans Azure AD
 
@@ -85,7 +85,4 @@ L’administrateur général a accès à toutes les fonctionnalités d’adminis
 - [Gestion des mots de passe](active-directory-manage-passwords.md)
 - [Gestion des groupes](active-directory-manage-groups.md)
 
-
- 
-
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

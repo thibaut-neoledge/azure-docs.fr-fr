@@ -4,7 +4,6 @@
 | Nombre maximal d'informations d'identification du compte de stockage | 64 | |
 | Nombre maximal de conteneurs de volumes | 64 | |
 | Nombre maximal de volumes | 255 | |
-| Nombre maximal de modèles de bande passante | 25 | |
 | Nombre maximal de planifications par modèle de bande passante | 168 | Une planification par heure, tous les jours de la semaine (24*7). |
 | Taille maximale d'un volume | 64 To | |
 | Nombre maximal de connexions iSCSI | 512 | |
@@ -24,4 +23,4 @@
 
 &#42; Le débit maximal par type d’E/S a été mesuré avec des scénarios de lecture et d’écriture de 100 pour cent. Le débit réel peut être inférieur et varie en fonction du mélange d’E/S et des conditions réseau.
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

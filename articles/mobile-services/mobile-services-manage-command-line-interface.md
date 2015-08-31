@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Administration d'un service mobile à partir d'une invite de commandes | Microsoft Azure" 
-	description="Découvrez comment créer, déployer et gérer votre service mobile Azure à l'aide des outils en ligne de commande." 
+	pageTitle="Administration d&#39;un service mobile à partir d&#39;une invite de commandes | Microsoft Azure" 
+	description="Découvrez comment créer, déployer et gérer votre service mobile Azure à l&#39;aide des outils en ligne de commande." 
 	services="mobile-services" 
 	documentationCenter="Mobile" 
 	authors="ggailey777" 
@@ -184,4 +184,4 @@ Pour plus d'informations sur l'enregistrement des scripts, consultez la page [R�
 
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

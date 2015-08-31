@@ -1,11 +1,11 @@
 <properties
    pageTitle="Téléchargement des informations d’identification de coffre dans Azure Backup | Microsoft Azure"
-   description="Découvrez comment utiliser les informations d’identification de coffre pour authentifier votre ordinateur auprès de l’archivage de sauvegarde et du service Azure Backup."
-   services="backup"
-   documentationCenter=""
-   authors="Jim-Parker"
-   manager="shreeshd"
-   editor=""/>
+	description="Découvrez comment utiliser les informations d’identification de coffre pour authentifier votre ordinateur auprès de l’archivage de sauvegarde et du service Azure Backup."
+	services="backup"
+	documentationCenter=""
+	authors="Jim-Parker"
+	manager="shreeshd"
+	editor=""/>
 <tags  ms.service="backup" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="storage-backup-recovery" ms.date="08/11/2015" ms.author="jimpark"; "aashishr"/>
 
 # Utilisation des informations d’identification de coffre pour s’authentifier auprès du service Azure Backup
@@ -37,7 +37,13 @@ Le fichier d’informations d’identification de coffre est téléchargé via u
 - Le fichier d’informations d’identification de coffre expire au bout de 48 heures et peut être téléchargé à partir du portail.
 - Reportez-vous au [Forum Aux Questions](backup-azure-backup-faq.md) Azure Backup pour toute question sur le flux de travail.
 
+##Vidéo de procédure pas à pas
+
+Voici une vidéo de procédure pas à pas de ce didacticiel.
+
+[AZURE.VIDEO using-vault-credentials-to-authenticate-with-the-azure-backup-service]
+
 ## Étapes suivantes
 [Téléchargement, inscription et installation de l’agent Azure Backup](backup-azure-backup-download-register)
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

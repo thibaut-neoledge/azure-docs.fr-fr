@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="06/17/2015"
+   ms.date="08/19/2015"
    ms.author="joaoma" />
 
 
@@ -85,11 +85,11 @@ Au vu des informations ci-dessus, nous savons que le seul impact sur les perform
 ## Étapes suivantes
 
 
-[À propos des méthodes d’équilibrage de charge de Traffic Manager](traffic-manager-load-balancing-methods.md)
+[À propos des méthodes de routage du trafic de Traffic Manager](traffic-manager-load-balancing-methods.md)
 
-[Vue d’ensemble de Traffic Manager](../traffic-manmager-overview.md)
+[Qu’est-ce que Traffic Manager ?](../traffic-manmager-overview.md)
 
-[Services Cloud](http://go.microsoft.com/fwlink/?LinkId=314074)
+[Cloud Services](http://go.microsoft.com/fwlink/?LinkId=314074)
 
 [Sites Web](http://go.microsoft.com/fwlink/p/?LinkId=393327)
 
@@ -98,4 +98,4 @@ Au vu des informations ci-dessus, nous savons que le seul impact sur les perform
 [Applets de commande Azure Traffic Manager](http://go.microsoft.com/fwlink/p/?LinkId=400769)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

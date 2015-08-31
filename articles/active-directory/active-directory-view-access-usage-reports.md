@@ -107,11 +107,11 @@ Pour plus d’informations sur ce rapport, consultez [Connexions provenant de so
 
 ### Connexions après plusieurs échecs
 
-Pour plus d’informations sur ce rapport, consultez [Connexions après plusieurs échecs](active-directory-sign-ins-after-multiple-failures.md).
+Pour plus d’informations sur ce rapport, consultez [Connexions après plusieurs échecs](active-directory-reporting-sign-ins-after-multiple-failures.md).
 
 ### Connexions depuis plusieurs zones géographiques
 
-Pour plus d’informations sur ce rapport, consultez [Connexions depuis plusieurs zones géographiques](active-directory-sign-ins-from-multiple-geographies.md).
+Pour plus d’informations sur ce rapport, consultez [Connexions depuis plusieurs zones géographiques](active-directory-reporting-sign-ins-from-multiple-geographies.md).
 
 ### Connexions à partir d’adresses IP affichant une activité suspecte
 
@@ -302,4 +302,4 @@ Pour plus d’informations sur les notifications de création de rapport Azure A
 - [Prise en main d’Azure Active Directory Premium (AD)](active-directory-get-started-premium.md)
 - [Ajouter des stratégies de promotion professionnelles aux pages du volet d’accès et de connexion](active-directory-add-company-branding.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

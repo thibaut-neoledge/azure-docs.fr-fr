@@ -1,10 +1,10 @@
 <properties 
-	pageTitle="Utiliser les fonctionnalités des applications logiques" 
-	description="Découvrez comment utiliser les fonctionnalités avancées des applications logiques." 
-	authors="stepsic-microsoft-com" 
-	manager="dwrede" 
-	editor="" 
-	services="app-service\logic" 
+	pageTitle="Utiliser les fonctionnalités des applications logiques"
+	description="Découvrez comment utiliser les fonctionnalités avancées des applications logiques."
+	authors="stepsic-microsoft-com"
+	manager="dwrede"
+	editor=""
+	services="app-service\logic"
 	documentationCenter=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/23/2015"
+	ms.date="08/19/2015"
 	ms.author="stepsic"/>
 	
 # Utiliser les fonctionnalités des applications logiques
@@ -26,6 +26,15 @@ Dans la [rubrique précédente][Create a new logic app], vous avez créé votre 
 - options de démarrage d'un flux de travail.
 
 Avant d’effectuer les étapes de cette rubrique, vous devez effectuer celles de la rubrique [Créer une application logique]. Dans le [portail Azure], accédez à votre application logique, cliquez sur **Déclencheurs et actions** dans le résumé pour modifier la définition de l’application logique.
+
+## Documents de référence
+
+Les documents suivants peuvent vous être utiles :
+
+- [API REST de gestion et d’exécution](https://msdn.microsoft.com/library/azure/dn948513.aspx) - notamment comment appeler directement des applications logiques
+- [Référence sur le langage](https://msdn.microsoft.com/library/azure/dn948512.aspx) - liste complète de toutes les fonctions/expressions prises en charge
+- [Types de déclencheurs et d'actions](https://msdn.microsoft.com/library/azure/dn948511.aspx) - les différents types d'actions et ce qu’elles prennent en entrée
+- [Vue d'ensemble d’App Service](app-service-value-prop-what-is.md) - description des composants à choisir pour la création d’une solution
 
 ## Ajout d'une logique conditionnelle et d'une répétition
 
@@ -112,8 +121,9 @@ Les services peuvent appeler un point de terminaison d'application logique pour 
 
 Vous pouvez utiliser ce rappel pour appeler une application logique depuis votre application personnalisée. Vous devez utiliser l’authentification **De base**. Le nom d’utilisateur `default` est créé pour vous et le mot de passe est le champ **Clé d’accès primaire** dans le panneau **Propriétés**. Par exemple :
 
-        POST https://default:<<your primary access key>>@<< your endpoint>>/run?api-version=2015-02-01-preview
+        POST https://<< your endpoint >>/run?api-version=2015-02-01-preview
         Content-type: application/json
+        Authorization: Basic << base-64 encoded string of default:<access key> >>
         {
             "name" : "nameOfTrigger",
             "outputs" : { "property" : "value" }
@@ -133,4 +143,4 @@ Pour démarrer l’application logique à la demande, cliquez sur le bouton **Ex
 [Créer une application logique]: app-service-logic-create-a-logic-app.md
 [portail Azure]: https://portal.azure.com
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

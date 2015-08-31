@@ -147,7 +147,14 @@ Les types pris en charge dans une formule sont les suivants :
 - double
 - doubleVec
 - string
-- timestamp
+- Horodatage : il s’agit d’une structure composée qui inclut les éléments suivants.
+	- year
+	- mois (1-12)
+	- jour (1-31)
+	- jour de la semaine (sous forme de chiffre. Par exemple, 1 pour lundi)
+	- heure (au format 24 heures. Par exemple, 13 pour 13h)
+	- minute (00-59)
+	- seconde (00-59)
 - timeinterval
 	- TimeInterval\_Zero
 	- TimeInterval\_100ns
@@ -355,8 +362,8 @@ Ces méthodes sont ensuite utilisables pour obtenir des échantillons de donnée
           <li><p><b>doubleVec GetSample(double count)</b>&#160;: spécifie le nombre d’échantillons requis à partir des échantillons les plus récents.</p>
 				  <p>Un échantillon correspond à 5&#160;secondes de données de métrique. GetSample(1) renvoie le dernier échantillon disponible, mais pour les métriques comme $CPUPercent, vous ne devez pas utiliser cette méthode, car il est impossible de déterminer le moment où l’échantillon a été collecté. Il peut s’agir d’un événement récent ou plus ancien en raison de problèmes système. Il est préférable d’utiliser un intervalle de temps, comme indiqué ci-dessous.</p></li>
           <li><p><b>doubleVec GetSample((timestamp | timeinterval) startTime [, double samplePercent])</b>&#160;: indique un délai d’exécution pour la collecte des échantillons de données et spécifie en option le pourcentage d’échantillons devant correspondre à la plage demandée.</p>
-          <p>$CPUPercent.GetSample(TimeInterval\_Minute\*10) doit renvoyer 200&#160;échantillons si tous les échantillons des dix dernières minutes sont présents dans l’historique CPUPercent. Si la dernière minute de l’historique n’est pas présente, seuls 180&#160;échantillons sont renvoyés.</p>
-					<p>$CPUPercent.GetSample(TimeInterval\_Minute\*10, 80) aboutit, et $CPUPercent.GetSample(TimeInterval_Minute\*10,95) échoue.</p></li>
+          <p>$CPUPercent.GetSample(TimeInterval\_Minute*10) doit renvoyer 200&#160;échantillons si tous les échantillons des dix dernières minutes sont présents dans l’historique CPUPercent. Si la dernière minute de l’historique n’est pas présente, seuls 180&#160;échantillons sont renvoyés.</p>
+					<p>$CPUPercent.GetSample(TimeInterval\_Minute*10, 80) aboutit, et $CPUPercent.GetSample(TimeInterval_Minute*10,95) échoue.</p></li>
           <li><p><b>doubleVec GetSample((timestamp | timeinterval) startTime, (timestamp | timeinterval) endTime [, double samplePercent])</b>&#160;: spécifie un délai d’exécution pour la collecte des données avec une heure de début et une heure de fin.</p></li></ul></td>
   </tr>
   <tr>
@@ -403,9 +410,9 @@ Les métriques définissables dans une formule sont les suivants :
       <li>$NetworkInBytes</li>
       <li>$NetworkOutBytes</li></ul></p>
     <p>Cet exemple présente une formule permettant de définir le nombre de nœuds de calcul dans le pool sur 110&#160;% du nombre cible actuel de nœuds si l’utilisation moyenne minimale du processeur des 10&#160;dernières minutes est supérieure à 70&#160;%&#160;:</p>
-    <p><b>totalTVMs = (min($CPUPercent.GetSample(TimeInterval\_Minute\*10)) > 0.7) ? ($CurrentDedicated \* 1.1) : $CurrentDedicated;</b></p>
+    <p><b>totalTVMs = (min($CPUPercent.GetSample(TimeInterval\_Minute*10)) > 0.7) ? ($CurrentDedicated * 1.1) : $CurrentDedicated;</b></p>
     <p>Cet exemple présente une formule permettant de définir le nombre de nœuds de calcul dans le pool sur 90&#160;% du nombre cible actuel de nœuds si l’utilisation moyenne du processeur des 60&#160;dernières minutes est inférieure à 20&#160;%&#160;:</p>
-    <p><b>totalTVMs = (avg($CPUPercent.GetSample(TimeInterval\_Minute\*60)) &lt; 0.2) ? ($CurrentDedicated \* 0.9) : totalTVMs;</b></p>
+    <p><b>totalTVMs = (avg($CPUPercent.GetSample(TimeInterval\_Minute*60)) &lt; 0.2) ? ($CurrentDedicated * 0.9) : totalTVMs;</b></p>
     <p>Cet exemple définit le nombre cible de nœuds de calcul dédiés sur un maximum de 400&#160;:</p>
     <p><b>$TargetDedicated = min(400, totalTVMs);</b></p></td>
   </tr>
@@ -420,7 +427,7 @@ Les métriques définissables dans une formule sont les suivants :
       <li>$FailedTasks</li>
       <li>$CurrentDedicated</li></ul></p>
     <p>Cet exemple présente une formule qui détecte si 70&#160;% des échantillons ont été enregistrés au cours des 15&#160;dernières minutes. Si ce n’est pas le cas, l’exemple utilise le dernier échantillon. Il essaie d’augmenter le nombre de nœuds de calcul pour le faire correspondre au nombre de tâches actives, avec un maximum de 3. Il définit le nombre de nœuds sur un quart du nombre de tâches actives, car la propriété MaxTasksPerVM du pool est définie sur 4. Il définit également l’option Deallocation sur «&#160;taskcompletion&#160;» pour conserver la machine jusqu’à ce que les tâches soient terminées.</p>
-    <p><b>$Samples = $ActiveTasks.GetSamplePercent(TimeInterval\_Minute \* 15); $Tasks = $Samples &lt; 70 ? max(0,$ActiveTasks.GetSample(1)) : max( $ActiveTasks.GetSample(1),avg($ActiveTasks.GetSample(TimeInterval\_Minute \* 15))); $Cores = $TargetDedicated \* 4; $ExtraVMs = ($Tasks - $Cores) / 4; $TargetVMs = ($TargetDedicated+$ExtraVMs);$TargetDedicated = max(0,min($TargetVMs,3)); $NodeDeallocationOption = taskcompletion;</b></p></td>
+    <p><b>$Samples = $ActiveTasks.GetSamplePercent(TimeInterval\_Minute * 15); $Tasks = $Samples &lt; 70 ? max(0,$ActiveTasks.GetSample(1)) : max( $ActiveTasks.GetSample(1),avg($ActiveTasks.GetSample(TimeInterval\_Minute * 15))); $Cores = $TargetDedicated * 4; $ExtraVMs = ($Tasks - $Cores) / 4; $TargetVMs = ($TargetDedicated+$ExtraVMs);$TargetDedicated = max(0,min($TargetVMs,3)); $NodeDeallocationOption = taskcompletion;</b></p></td>
   </tr>
 </table>
 
@@ -457,6 +464,36 @@ Vous devez vérifier régulièrement les résultats des exécutions de mise à l
 - [Propriété ICloudPool.AutoScaleRun](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.icloudpool.autoscalerun.aspx) : lors de l’utilisation de la bibliothèque .NET, cette propriété d’un pool fournit une instance de la [classe AutoScaleRun](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.autoscalerun.aspx), qui fournit une [propriété AutoScaleRun.Error](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.autoscalerun.error.aspx), une [propriété AutoScaleRun.Results](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.autoscalerun.results.aspx) et une [propriété AutoScaleRun.Timestamp](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.autoscalerun.timestamp.aspx).
 - [Obtention d’informations sur un pool](https://msdn.microsoft.com/library/dn820165.aspx) : cette API REST renvoie des informations sur le pool, y compris la dernière exécution de mise à l’échelle automatique.
 
+## Exemples
+
+### Exemple 1.
+
+Vous souhaitez ajuster la taille du pool selon le jour et l’heure.
+
+    curTime=time();
+    workhours=curTime.hour>=8 && curTime.hour <18;
+    isweekday=curTime.weekday>=1 && curTime.weekday<=5;
+    isworkingweekdayhour = workhours && isweekday;
+    $TargetDedicated=workhours?20:10;
+    
+Cette formule détectera l’heure actuelle. Aux jours de semaine (1..5) et aux heures de travail (8h... 18h), la taille cible du pool est définie sur 20. À tout autre moment, la taille cible du pool est définie sur 10.
+
+### Exemple 2.
+
+Autre exemple d’ajustement de la taille du pool selon les tâches en file d’attente.
+
+    // Get pending tasks for the past 15 minutes
+    $Samples = $ActiveTasks.GetSamplePercent(TimeInterval_Minute * 15); 
+    // If we have less than 70% data points, we use the last sample point, otherwise we use the maximum of last sample point and the history average
+    $Tasks = $Samples < 70 ? max(0,$ActiveTasks.GetSample(1)) : max( $ActiveTasks.GetSample(1), avg($ActiveTasks.GetSample(TimeInterval_Minute * 15)));
+    // If number of pending task is not 0, set targetVM to pending tasks, otherwise half of current dedicated
+    $TargetVMs = $Tasks > 0? $Tasks:max(0, $TargetDedicated/2);
+    // The pool size is capped at 20, if target vm value is more than that, set it to 20. This value should be adjusted according to your case.
+    $TargetDedicated = max(0,min($TargetVMs,20));
+    // optionally, set vm Deallocation mode - shrink VM after task is done.
+    $TVMDeallocationOption = taskcompletion;
+    
+
 ## Étapes suivantes
 
 1.	Vous pouvez avoir besoin d’accéder au nœud de calcul pour parvenir à évaluer intégralement l’efficacité de votre application. Pour tirer parti de l’accès à distance, vous devez ajouter un compte d’utilisateur au nœud de calcul auquel vous souhaitez accéder, et récupérer un fichier RDP à partir de ce nœud. Ajoutez le compte d’utilisateur de l’une des manières suivantes :
@@ -472,4 +509,4 @@ Vous devez vérifier régulièrement les résultats des exécutions de mise à l
 	- [Get-AzureBatchRDPFile](https://msdn.microsoft.com/library/mt149851.aspx) : cette applet de commande obtient le fichier RDP à partir du nœud de calcul spécifié et l’enregistre à l’emplacement de fichier spécifié ou dans un flux de données.
 2.	Certaines applications génèrent de grandes quantités de données qui peuvent se révéler difficiles à traiter. L’un des moyens de contourner ce problème consiste à utiliser des [requêtes de liste efficaces](batch-efficient-list-queries.md).
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

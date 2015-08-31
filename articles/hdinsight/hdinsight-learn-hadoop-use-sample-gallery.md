@@ -1,20 +1,21 @@
 <properties
    pageTitle="Découverte de Hadoop dans HDInsight à l’aide de la galerie d’exemples | Microsoft Azure"
-   description="Apprenez rapidement à utiliser Hadoop en exécutant des exemples d’applications dans la galerie de prise en main de HDInsight. Utilisez les exemples de données ou vos propres données."
-   services="hdinsight"
-   documentationCenter=""
-   authors="mumian"
-   manager="paulettm"
-   editor="cgronlun"/>
+	description="Apprenez rapidement à utiliser Hadoop en exécutant des exemples d’applications dans la galerie de prise en main de HDInsight. Utilisez les exemples de données ou vos propres données."
+	services="hdinsight"
+	documentationCenter=""
+	tags="azure-portal"
+	authors="mumian"
+	manager="paulettm"
+	editor="cgronlun"/>
 
 <tags
    ms.service="hdinsight"
-   ms.workload="big-data"
-   ms.tgt_pltfrm="na"
-   ms.devlang="na"
-   ms.topic="get-started-article" 
-   ms.date="07/09/2015"
-   ms.author="jgao"/>
+	ms.workload="big-data"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.date="07/09/2015"
+	ms.author="jgao"/>
 
 # Découverte de Hadoop à l’aide de la galerie de prise en main de HDInsight
 
@@ -29,20 +30,24 @@ La galerie de prise en main de HDInsight fournit un moyen facile et rapide de d�
 	- Analyse du journal de site web
 	- Recommandation de films Mahout
 
+[AZURE.INCLUDE [version-préliminaire-hgindight-azure](../../includes/hdinsight-azure-preview-portal.md)]
+
+* [Découverte de Hadoop à l’aide de la galerie de prise en main de HDInsight](hdinsight-learn-hadoop-use-sample-gallery-v1.md)
+
 ![Solutions de la galerie de prise en main HDInsight, Hadoop, Storm et HBase, y compris des exemples de données.][hdinsight.sample.gallery]
 
 Le clip vidéo suivant montre comment exécuter l’exemple d’analyse de tendances Twitter :
 
 <center><a href="https://www.youtube.com/embed/7ePbHot1SN4">https://www.youtube.com/embed/7ePbHot1SN4></a></center>
 
+Le tableau de bord est accessible si l'on accède à http://<YourHDInsightClusterName>.azurehdinsight.net/ ou depuis la version préliminaire du portail Azure.
 
 **Exécution d’un exemple depuis la galerie de prise en main**
 
-1.	Connectez-vous au [portail Azure][azure.portal].
-2.	Cliquez sur **HDInsight** dans le menu de gauche. Vous verrez une liste de clusters HDInsight existants, y compris les clusters Hadoop, Storm et HBase.
-3.	Cliquez sur le cluster où vous voulez exécuter l’exemple.
-4.	En bas de la page, sélectionnez **CONSOLE DE REQUÊTES**.
-5.	Entrez le nom d’utilisateur Hadoop et le mot de passe pour le cluster.
+1. Connectez-vous à la [version préliminaire du portail Azure][azure.portal].
+2. Cliquez sur **Parcourir tout** dans le menu de gauche, sur **Clusters HDInsight**, puis sur votre nom de cluster.
+3. Cliquez sur **Tableau de bord** dans le menu du haut.
+4. Saisissez le nom d'utilisateur et le mot de passe HTTP (également appelé utilisateur de cluster).
 6.	Cliquez sur **Galerie de prise en main** en haut de la page.
 7.	Cliquez sur un des exemples. Chaque exemple fournit des instructions détaillées pour son exécution. L’image suivante montre l’exemple d’analyse de tendances Twitter :
 
@@ -61,7 +66,6 @@ D’autres façons d’apprendre à utiliser HDInsight comprennent :
 <!--Link references-->
 [hdinsight.learn.map]: hdinsight-learn-map.md
 [hdinsight.infographic]: http://go.microsoft.com/fwlink/?linkid=523960
-[azure.portal]: https://manage.windowsazure.com
- 
+[azure.portal]: https://portal.azure.com
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

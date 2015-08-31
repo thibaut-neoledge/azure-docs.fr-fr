@@ -9,12 +9,12 @@
 
 <tags
    ms.service="hdinsight"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="big-data"
-   ms.date="05/11/2015"
-   ms.author="cgronlun"/>
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="big-data"
+	ms.date="07/27/2015"
+	ms.author="cgronlun"/>
 
 
 # Présentation de Hadoop dans HDInsight : traitement et analyse des données volumineuses dans le cloud
@@ -52,7 +52,7 @@ Catégorie | Hadoop sur Linux | Hadoop sur Windows
 ---------| -------------------| --------------------
 **Système d’exploitation du cluster** | Prise en charge à long terme (LTS) de Ubuntu 12.04 | Windows Server 2012 R2
 **Type de cluster** | Hadoop | Hadoop, Hbase, Storm
-**Déploiement** | Portail de gestion Azure, interface de ligne de commande Azure, Azure PowerShell | Portail de gestion Azure, interface de ligne de commande Azure, Azure PowerShell, Kit de développement logiciel (SDK) HDInsight .NET
+**Déploiement** | Portail Azure, interface de ligne de commande Azure, Azure PowerShell | Portail Azure, interface de ligne de commande Azure, Azure PowerShell, Kit de développement logiciel (SDK) HDInsight .NET
 **IU du cluster** | Ambari | Tableau de bord du cluster
 **Accès à distance** | Secure Shell (SSH) | Remote Desktop Protocol (RDP)
 
@@ -60,7 +60,7 @@ Catégorie | Hadoop sur Linux | Hadoop sur Windows
 
 ### Clusters Hadoop, HBase, Storm et personnalisés
 
-HDInsight fournit des configurations de cluster pour des charges de travail spécifiques : Hadoop, HBase ou Storm. Vous pouvez également <a href="http://azure.microsoft.com/documentation/articles/hdinsight-hadoop-customize-cluster/" target="_blank">personnaliser les clusters avec des actions de script</a>.
+HDInsight fournit des configurations de cluster pour Hadoop, HBase ou Storm. Vous pouvez également <a href="http://azure.microsoft.com/documentation/articles/hdinsight-hadoop-customize-cluster/" target="_blank">personnaliser les clusters avec des actions de script</a>.
 
 * **Hadoop** (charge de travail de requête) : fournit un stockage fiable des données avec [HDFS](#HDFS) et un simple modèle de programmation [MapReduce](#mapreduce) pour traiter et analyser les données en parallèle.
 
@@ -177,7 +177,7 @@ Créez sur cette présentation de Hadoop sur HDInsight et l'analyse de données 
 
 * [Prise en main de HDInsight sur Linux](hdinsight-hadoop-linux-tutorial-get-started.md) : didacticiel de démarrage rapide pour l’approvisionnement de clusters HDInsight Hadoop sous Linux et l’exécution d’exemples de requêtes Hive.
 
-* [Approvisionnement de HDInsight sur Linux à l’aide d’options personnalisées](hdinsight-hadoop-provision-linux-clusters.md) : apprenez à approvisionner un cluster Hadoop HDInsight sous Linux à l’aide d’options personnalisées via le portail de gestion Azure, l’interface de ligne de commande Azure ou Azure PowerShell.
+* [Approvisionnement de HDInsight sur Linux à l'aide d'options personnalisées](hdinsight-hadoop-provision-linux-clusters.md) : apprenez à configurer un cluster Hadoop HDInsight sous Linux à l'aide d'options personnalisées via le portail Azure, l'interface de ligne de commande Azure ou Azure PowerShell.
 
 * [Utilisation de HDInsight sur Linux](hdinsight-hadoop-linux-information.md) : obtenez quelques conseils rapides sur l’utilisation de clusters Linux Hadoop approvisionnés sur Azure.
 
@@ -246,4 +246,4 @@ Utilisez l’analyse de données volumineuses sur les données de votre organisa
 [zookeeper]: http://zookeeper.apache.org/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

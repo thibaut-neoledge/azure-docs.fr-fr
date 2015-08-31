@@ -1,7 +1,4 @@
-
-
-1. Ouvrez **QSTodoListViewController.m** et ajoutez la méthode suivante :
-
+1. Sur votre Mac, ouvrez **QSTodoListViewController.m** dans Xcode et ajoutez la méthode suivante. Remplacez _facebook_ par _microsoftaccount_, _twitter_, _google_ ou _windowsazureactivedirectory_ si vous n’utilisez pas Facebook comme fournisseur d’identité.
 
         - (void) loginAndGetData
         {
@@ -15,14 +12,10 @@
             }];
         }
 
-
-    > [AZURE.NOTE]Si vous utilisez un fournisseur d’identité autre que Facebook, modifiez la valeur transmise à **loginWithProvider**. Les valeurs prises en charge sont _microsoftaccount_, _facebook_, _twitter_, _google_ ou _windowsazureactivedirectory_.
-
-
-2. Modifiez `viewDidLoad` en remplaçant `[self refresh]` à la fin par ce qui suit :
+2. Remplacez `[self refresh]` dans `viewDidLoad` par ceci :
 
         [self loginAndGetData];
 
-3. Appuyez sur **Exécuter** pour démarrer l’application, puis connectez-vous avec votre fournisseur d’identité choisi. Une fois connecté, vous devez être en mesure d’afficher la liste des tâches et d’effectuer des mises à jour.
+3. Appuyez sur **Exécuter** pour démarrer l’application, puis ouvrez une session. Une fois connecté, vous devez être en mesure d’afficher la liste des tâches et d’effectuer des mises à jour.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

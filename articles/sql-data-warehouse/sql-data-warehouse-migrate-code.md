@@ -22,20 +22,20 @@ Afin de vérifier la conformité de votre code avec SQL Data Warehouse, il vou
 
 ## Modifications du code Transact-SQL
 
-La liste suivante répertorie les fonctionnalités principales qui ne sont pas prises en charge dans Microsoft Azure SQL Data Warehouse :
+La liste suivante répertorie les fonctionnalités principales qui ne sont pas prises en charge dans Microsoft Azure SQL Data Warehouse. Les liens fournis vous présentent des solutions de contournement pour la fonctionnalité non prise en charge :
 
-- Jointures ANSI sur les opérations UPDATE
-- Jointures ANSI sur les opérations DELETE
-- Instruction MERGE
+- [Jointures ANSI sur les opérations UPDATE][]
+- [Jointures ANSI sur les opérations DELETE][]
+- [Instruction MERGE][]
 - Jonctions entre plusieurs bases de données
 - [Curseurs][]
 - [SELECT..INTO][]
-- INSERT..EXEC
+- [INSERT..EXEC][]
 - Clause OUTPUT
 - Fonctions en ligne définies par l’utilisateur
 - Fonctions à instructions multiples
-- Expressions récursives de table commune (CTE)
-- Mises à jour via les CTE
+- [Expressions récursives de table commune (CTE)](\#Expressions-récursives-de-table-commune-(CTE)
+- [Mises à jour via les CTE](#Updates-through-CTEs)
 - Fonctions et procédures CLR
 - Fonction $partition
 - Variables de table
@@ -51,6 +51,16 @@ La liste suivante répertorie les fonctionnalités principales qui ne sont pas p
 - [Type de données no MAX pour les chaînes dynamiques SQL][]
 
 Fort heureusement, la plupart de ces restrictions peuvent être contournées. Des explications ont été incluses dans les articles de développement référencés ci-dessus.
+
+### Expressions récursives de table commune (CTE)
+
+Il s'agit d'un scénario complexe sans solution rapide. Les CTE doivent être décomposées et gérées étape par étape. Vous pouvez généralement utiliser une boucle assez complexe, afin de remplir une table temporaire pendant que vous parcourez les requêtes intermédiaires récursives. Une fois la table temporaire remplie, vous pouvez renvoyer les données sous forme d’un seul jeu de résultats. Une approche similaire a été utilisée pour résoudre `GROUP BY WITH CUBE` dans l’article [Regroupement par clause à l’aide des options rollup/cube/grouping sets][].
+
+### Mises à jour via les CTE
+
+Si la CTE est non récursive, vous pouvez réécrire la requête pour utiliser des sous-requêtes. Pour les CTE récursives, vous devez d'abord créer le jeu de résultats comme décrit ci-dessus, puis joindre un jeu de résultats final à la table cible et effectuer la mise à jour.
+
+### Fonctions système
 
 Certaines fonctions système ne sont pas prises en charge. Voici les principales fonctions habituellement associées aux entrepôts de données :
 
@@ -85,7 +95,11 @@ Pour bénéficier de recommandation sur le développement de votre code, consult
 <!--Image references-->
 
 <!--Article references-->
-[pivot and unpivot statements]: sql-data-warehouse-develop-pivot-unpivot.md
+[Jointures ANSI sur les opérations UPDATE]: sql-data-warehouse-develop-ctas.md
+[Jointures ANSI sur les opérations DELETE]: sql-data-warehouse-develop-ctas.md
+[Instruction MERGE]: sql-data-warehouse-develop-ctas.md
+[INSERT..EXEC]: sql-data-warehouse-develop-temporary-tables.md
+
 [Curseurs]: sql-data-warehouse-develop-loops.md
 [SELECT..INTO]: sql-data-warehouse-develop-ctas.md
 [Regroupement par clause à l’aide des options rollup/cube/grouping sets]: sql-data-warehouse-develop-group-by-options.md
@@ -99,4 +113,4 @@ Pour bénéficier de recommandation sur le développement de votre code, consult
 
 <!--Other Web references-->
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

@@ -1,4 +1,11 @@
-<properties pageTitle="Connexions depuis plusieurs zones géographiques" description="Un rapport indiquant aux utilisateurs que deux connexions ont eu lieu depuis des régions différentes tandis que le temps écoulé entre chaque connexion n’est pas compatible avec le temps nécessaire à l’utilisateur pour se rendre d’une de ses régions à l’autre."" services="active-directory" documentationCenter="" authors="kenhoff" manager="ilanas" editor=""/>
+<properties
+	pageTitle="Connexions depuis plusieurs zones géographiques"
+	description="Un rapport qui indique les utilisateurs lorsque deux connexions semblent être issues de régions différentes, alors que le laps de temps constaté entre ces connexions ne permet pas à l'utilisateur de se rendre d'une région à une autre."
+	services="active-directory"
+	documentationCenter=""
+	authors="SSalahAhmed"
+	manager="gchander"
+	editor=""/>
 
 <tags
 	ms.service="active-directory"
@@ -6,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/01/2015"
-	ms.author="kenhoff"/>
+	ms.date="08/17/2015"
+	ms.author="saah;kenhoff"/>
 
 # Connexions depuis plusieurs zones géographiques
 
@@ -17,4 +24,4 @@
 
 ![Connexions depuis plusieurs zones géographiques](./media/active-directory-reporting-sign-ins-from-multiple-geographies/signInsFromMultipleGeographies.PNG)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

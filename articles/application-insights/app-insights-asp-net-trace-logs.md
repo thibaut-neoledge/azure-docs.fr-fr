@@ -1,29 +1,27 @@
 <properties 
-	pageTitle="Exploration des journaux .NET dans Application Insights" 
-	description="Effectuez une recherche dans les journaux générés avec Trace, NLog ou Log4Net." 
-	services="application-insights" 
-    documentationCenter=".net"
-	authors="alancameronwills" 
+	pageTitle="Exploration des journaux .NET dans Application Insights"
+	description="Effectuez une recherche dans les journaux générés avec Trace, NLog ou Log4Net."
+	services="application-insights"
+	documentationCenter=".net"
+	authors="alancameronwills"
 	manager="douge"/>
 
-
 <tags 
-	ms.service="application-insights" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/04/2015" 
+	ms.service="application-insights"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="ibiza"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/19/2015"
 	ms.author="awills"/>
-
  
 # Exploration des journaux .NET dans Application Insights  
 
 Si vous utilisez NLog, log4Net ou System.Diagnostics.Trace pour le suivi de diagnostic dans votre application ASP.NET, les journaux peuvent être envoyés à [Visual Studio Application Insights][start], où vous pouvez les explorer et les rechercher. Les journaux sont fusionnés avec la télémétrie provenant de votre application, afin que vous puissiez identifier les traces associées au traitement des demandes de l’utilisateur et les mettre en corrélation avec d’autres événements et des rapports d’exception.
 
-Vous pouvez également écrire le suivi de journal, les rapports d’événements et d’exceptions à l’aide du Kit de développement logiciel (SDK) Application Insights.
+> [AZURE.NOTE]Avez-vous besoin du module de collecte de journaux ? Il s’agit d’un adaptateur très utile pour les enregistreurs d’événements tiers. Cependant, si vous n’utilisez pas déjà NLog, log4Net ou System.Diagnostics.Trace, vous pouvez appeler [Application Insights TrackTrace()](app-insights-api-custom-events-metrics.md#track-trace) directement.
 
-Si vous ne l’avez pas encore fait, [configurez Application Insights pour votre projet][start].
+Si vous ne l’avez pas encore fait, [configurez Application Insights pour votre projet][start]. Votre projet doit disposer du fichier `ApplicationInsights.config` et du package NuGet `Microsoft.ApplicationInsights.Web`.
 
 
 ##  Installation d’un adaptateur pour votre infrastructure de journalisation
@@ -32,7 +30,7 @@ Si vous utilisez une infrastructure de journalisation, comme log4Net, NLog ou Sy
 
 1. Si vous prévoyez d'utiliser log4Net ou NLog, installez-le dans votre projet. 
 2. Dans l’Explorateur de solutions, cliquez avec le bouton droit sur le projet, puis sélectionnez **Gérer les packages NuGet**.
-3. Sélectionnez En ligne > Tout, puis **Inclure la version préliminaire** et recherchez « Microsoft.ApplicationInsights »
+3. Recherchez « Application Insights »
 
     ![Get the prerelease version of the appropriate adapter](./media/app-insights-asp-net-trace-logs/appinsights-36nuget.png)
 
@@ -126,4 +124,4 @@ Jusqu'à 500 événements par seconde pour chaque application. Les événements
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

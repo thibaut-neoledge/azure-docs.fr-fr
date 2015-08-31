@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Didacticiel Utilisation de Notification Hubs pour diffuser les dernières nouvelles - Android" 
-	description="Découvrez comment utiliser Azure Service Bus Notification Hubs pour envoyer des notifications de dernières nouvelles aux appareils Android." 
-	services="notification-hubs" 
-	documentationCenter="android" 
-	authors="wesmc7777" 
-	manager="dwrede" 
+<properties
+	pageTitle="Didacticiel Utilisation de Notification Hubs pour diffuser les dernières nouvelles - Android"
+	description="Découvrez comment utiliser Azure Service Bus Notification Hubs pour envoyer des notifications de dernières nouvelles aux appareils Android."
+	services="notification-hubs"
+	documentationCenter="android"
+	authors="wesmc7777"
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="notification-hubs" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-android" 
-	ms.devlang="java" 
-	ms.topic="article" 
-	ms.date="04/24/2015" 
+<tags
+	ms.service="notification-hubs"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-android"
+	ms.devlang="java"
+	ms.topic="article"
+	ms.date="08/18/2015" 
 	ms.author="wesmc"/>
 
 
@@ -37,7 +37,7 @@ Cette rubrique s'appuie sur l'application que vous avez créée dans [Prise en m
 La première étape consiste à ajouter des éléments de l’interface utilisateur à l’activité principale existante qui permettent à l’utilisateur de sélectionner des catégories auxquelles s’inscrire. Les catégories sélectionnées par un utilisateur sont stockées sur l'appareil. Lorsque l'application démarre, une inscription d'appareil est créée dans votre Notification Hub avec les catégories sélectionnées sous forme de balises.
 
 1. Ouvrez votre fichier res/layout/activity\_main.xml et remplacez le contenu par ce qui suit :
-			
+
 		<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
 		    xmlns:tools="http://schemas.android.com/tools"
 		    android:layout_width="match_parent"
@@ -48,7 +48,7 @@ La première étape consiste à ajouter des éléments de l’interface utilisat
 		    android:paddingTop="@dimen/activity_vertical_margin"
 		    tools:context="com.example.breakingnews.MainActivity"
 		    android:orientation="vertical">
-		
+
 		        <CheckBox
 		            android:id="@+id/worldBox"
 		            android:layout_width="wrap_content"
@@ -104,38 +104,38 @@ La première étape consiste à ajouter des éléments de l’interface utilisat
 
 		import java.util.HashSet;
 		import java.util.Set;
-		
+
 		import android.content.Context;
 		import android.content.SharedPreferences;
 		import android.os.AsyncTask;
 		import android.util.Log;
 		import android.widget.Toast;
-		
+
 		import com.google.android.gms.gcm.GoogleCloudMessaging;
-		import com.microsoft.windowsazure.messaging.NotificationHub;		
-		
+		import com.microsoft.windowsazure.messaging.NotificationHub;
+
 		public class Notifications {
 			private static final String PREFS_NAME = "BreakingNewsCategories";
 			private GoogleCloudMessaging gcm;
 			private NotificationHub hub;
 			private Context context;
 			private String senderId;
-			
+
 			public Notifications(Context context, String senderId) {
 				this.context = context;
 				this.senderId = senderId;
-				
+
 				gcm = GoogleCloudMessaging.getInstance(context);
 		        hub = new NotificationHub(<hub name>, <connection string with listen access>, context);
 			}
-			
+
 			public void storeCategoriesAndSubscribe(Set<String> categories)
 			{
 				SharedPreferences settings = context.getSharedPreferences(PREFS_NAME, 0);
 			    settings.edit().putStringSet("categories", categories).commit();
 			    subscribeToCategories(categories);
 			}
-			
+
 			public void subscribeToCategories(final Set<String> categories) {
 				new AsyncTask<Object, Object, Object>() {
 					@Override
@@ -149,7 +149,7 @@ La première étape consiste à ajouter des éléments de l’interface utilisat
 						}
 						return null;
 					}
-		
+
 					protected void onPostExecute(Object result) {
 						String message = "Subscribed for categories: "
 								+ categories.toString();
@@ -158,7 +158,7 @@ La première étape consiste à ajouter des éléments de l’interface utilisat
 					}
 				}.execute(null, null, null);
 			}
-			
+
 		}
 
 	Cette classe utilise le stockage local pour stocker les catégories de nouvelles que cet appareil doit recevoir. Elle comporte également des méthodes pour s’inscrire à ces catégories.
@@ -172,25 +172,25 @@ La première étape consiste à ajouter des éléments de l’interface utilisat
 		// private GoogleCloudMessaging gcm;
 		// private NotificationHub hub;
 		private Notifications notifications;
- 
+
 5. Ensuite, dans la méthode **onCreate**, supprimez l'initialisation du champ **hub** et de la méthode **registerWithNotificationHubs**. Ajoutez ensuite les lignes suivantes, qui initialisent une instance de la classe **Notifications**. La méthode doit contenir les lignes qui suivent :
 
 		@Override
 		protected void onCreate(Bundle savedInstanceState) {
 			super.onCreate(savedInstanceState);
 			setContentView(R.layout.activity_main);
-	
+
 			NotificationsManager.handleNotifications(this, SENDER_ID,
 					MyHandler.class);
-	
+
 			notifications = new Notifications(this, SENDER_ID);
 		}
 
 6. Ajoutez ensuite la méthode suivante :
-	
+
 	    public void subscribe(View sender) {
 			final Set<String> categories = new HashSet<String>();
-	
+
 			CheckBox world = (CheckBox) findViewById(R.id.worldBox);
 			if (world.isChecked())
 				categories.add("world");
@@ -209,10 +209,10 @@ La première étape consiste à ajouter des éléments de l’interface utilisat
 			CheckBox sports = (CheckBox) findViewById(R.id.sportsBox);
 			if (sports.isChecked())
 				categories.add("sports");
-	
+
 			notifications.storeCategoriesAndSubscribe(categories);
 	    }
-	
+
 	Cette méthode crée une liste de catégories et utilise la classe **Notifications** pour stocker la liste dans le stockage local et inscrire les balises correspondantes auprès du Notification Hub. Lorsque des catégories sont modifiées, l'inscription est à nouveau créée avec les nouvelles catégories.
 
 Votre application peut désormais stocker un ensemble de catégories dans le stockage local sur l’appareil et s’inscrire auprès du concentrateur de notification lorsque l’utilisateur modifie la sélection des catégories.
@@ -243,9 +243,9 @@ Les étapes suivantes permettent l’inscription auprès du concentrateur de not
 		@Override
 		protected void onStart() {
 			super.onStart();
-			
+
 			Set<String> categories = notifications.retrieveCategories();
-			
+
 			CheckBox world = (CheckBox) findViewById(R.id.worldBox);
 			world.setChecked(categories.contains("world"));
 			CheckBox politics = (CheckBox) findViewById(R.id.politicsBox);
@@ -271,7 +271,7 @@ L'application est désormais terminée et peut stocker un ensemble de catégorie
 ##Exécution de l’application et génération de notifications
 
 1. Dans Eclipse, générez l’application et lancez-la sur un appareil ou un émulateur.
-	
+
 	Notez que l'interface utilisateur de l'application fournit un ensemble de bascules qui vous permet de choisir les catégories auxquelles vous abonner.
 
 2. Activez une ou plusieurs bascules de catégories, puis cliquez sur **S'abonner**.
@@ -317,6 +317,5 @@ Dans ce didacticiel, nous avons appris à diffuser les dernières nouvelles par 
 
 [Azure Management Portal]: https://manage.windowsazure.com/
 [wns object]: http://go.microsoft.com/fwlink/p/?LinkId=260591
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

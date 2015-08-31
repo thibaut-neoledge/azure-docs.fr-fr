@@ -5,7 +5,7 @@ Cloud Services est un exemple de plateforme en tant que service (PaaS). Tout co
 
 ![cs_diagram](./media/cloud-services-choose-me-content/diagram.png)
 
-Plus de contrôle signifie également moins de facilité d’utilisation. Si vous n’avez pas besoin d’options de contrôle supplémentaires, il est généralement plus rapide et plus facile d’exécuter une application Web avec les sites Web qu’avec Cloud Services.
+Plus de contrôle signifie également moins de facilité d’utilisation. Si vous n’avez pas besoin d’options de contrôle supplémentaires, il est généralement plus rapide et plus facile de faire fonctionner une application Web dans Web Apps dans App Services qu’avec Cloud Services.
 
 La technologie fournit deux options de machine virtuelle légèrement différentes : les instances de *rôles Web* exécutent une variante de Windows Server avec IIS, tandis que les instances de *rôles de travail* exécutent la même variante de Windows Server sans IIS. Une application Cloud Services repose sur une combinaison de ces deux options.
 
@@ -32,4 +32,4 @@ Cloud Services fournit également la surveillance. À l'instar d'Azure Virtual M
 
 La nature PaaS de Cloud Services a également d'autres implications. L'une des principales est le fait que les applications basées sur cette technologie doivent être écrites pour s'exécuter correctement en cas d'échec d'un rôle Web ou de travail. Cela nécessite qu'une application Cloud Services ne conserve pas l'état dans le système de fichiers de ses propres machines virtuelles. Les écritures dans les machines virtuelles Cloud Services ne sont pas persistantes, comme elles le sont dans les machines virtuelles créées avec Azure Virtual Machines ; il n'existe rien de tel qu'un disque de données des machines virtuelles. En revanche, une application Cloud Services doit écrire explicitement tous les états dans la base de données SQL, les objets blob, les tables ou un autre stockage externe. Les applications créées de la sorte sont plus faciles à mettre à l'échelle et davantage résistantes aux défaillances, deux objectifs importants de Cloud Services.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

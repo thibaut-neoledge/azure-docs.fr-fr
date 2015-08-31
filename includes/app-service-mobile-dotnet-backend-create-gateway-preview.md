@@ -1,11 +1,13 @@
 
-Follow these steps to create a new App Service gateway to handle authentication. If you already have a gateway in the same resource group, you do not need to complete this section.
+Suivez ces étapes pour créer une passerelle App Service pour gérer l’authentification. Si vous avez déjà une passerelle dans le même groupe de ressources, cette section est inutile.
 
-1. Visit the [Azure Portal]. Click **Browse All** > **Mobile Apps** > the backend that you just created. Click **Settings** > **Mobile** > **User authentication**. 
+1. Visitez le [portail Azure]. Cliquez sur **Parcourir tout** > **Applications mobiles** > serveur principal que vous venez de créer. Cliquez sur **Paramètres** > **Mobile** > **Authentification utilisateur**. 
 
-2. You will be presented with a blade for creating your gateway. You do not need to enter any information, and the name of this gateway is automatically generated for you. Click **Create**.
+2. Un panneau permettant de créer votre passerelle apparaît. Vous n’avez pas besoin d’entrer d’informations, et le nom de cette passerelle est généré automatiquement. Cliquez sur **Create**.
 
-Next, you will use this gateway with an authentication provider.
+Vous allez ensuite utiliser cette passerelle avec un fournisseur d’authentification.
 
 <!-- URLs. -->
-[Azure Portal]: https://portal.azure.com/
+[portail Azure]: https://portal.azure.com/
+
+<!---HONumber=August15_HO8-->

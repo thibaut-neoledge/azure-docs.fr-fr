@@ -1,20 +1,20 @@
 <properties
    pageTitle="Application API du connecteur Twilio"
-   description="Utilisation du connecteur Twilio"
-   services="app-service\logic"
-   documentationCenter=".net,nodejs,java"
-   authors="anuragdalmia"
-   manager="dwrede"
-   editor=""/>
+	description="Utilisation du connecteur Twilio"
+	services="app-service\logic"
+	documentationCenter=".net,nodejs,java"
+	authors="anuragdalmia"
+	manager="dwrede"
+	editor=""/>
 
 <tags
    ms.service="app-service-logic"
-   ms.devlang="multiple"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="integration"
-   ms.date="07/02/2015"
-   ms.author="sameerch"/>
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="integration"
+	ms.date="08/19/2015"
+	ms.author="sameerch"/>
 
 
 # Utilisation du connecteur Twilio dans votre application logique #
@@ -43,33 +43,37 @@ Pour utiliser le connecteur Twilio, vous devez d’abord créer une instance de 
 
 
 4.	Cliquez sur Créer. Un connecteur Twilio est créé.
-5.	Une fois l’instance de l’application API créée, vous pouvez créer une application logique dans le même groupe de ressources pour utiliser le connecteur Twilio. 
+5.	Une fois l’instance de l’application API créée, vous pouvez créer une application logique dans le même groupe de ressources pour utiliser le connecteur Twilio.
 
 ## Utilisation du connecteur Twilio dans votre application logique ##
 Une fois votre application API créée, vous pouvez utiliser le connecteur Twilio comme action dans votre application logique. Pour cela, vous devez procéder comme suit :
 
 1.	Créez une application logique et choisissez le groupe de ressources qui contient le connecteur Twilio.
- 
+
 	![][2]
-2.	Ouvrez « Déclencheurs et actions » pour ouvrir le concepteur d’applications logiques et configurer votre flux. 
- 
+2.	Ouvrez « Déclencheurs et actions » pour ouvrir le concepteur d’applications logiques et configurer votre flux.
+
 	![][3]
 3.	Le connecteur Twilio apparaît dans la section « Applications API dans ce groupe de ressources » de la galerie située à droite.
- 
+
 	![][4]
 4. Vous pouvez déposer l’application API du connecteur Twilio dans l’éditeur en cliquant sur « Connecteur Twilio ».
- 
+
 5.	Vous pouvez maintenant utiliser le connecteur Twilio dans le flux. Vous pouvez utiliser l’action « Envoyer un message » dans le flux pour envoyer un message. Configurez les propriétés d’entrée de l’action « Envoyer un message » comme suit :
 	- **À partir du numéro de téléphone** : saisissez un numéro de téléphone Twilio autorisant le type de message que vous souhaitez envoyer. Seuls les numéros de téléphone ou les codes courts achetés auprès de Twilio fonctionnent avec ce connecteur.
 	- **Vers le numéro de téléphone** : numéro de téléphone de destination. Le format accepté est : + suivi du préfixe du pays et du numéro de téléphone. Par exemple, +16175551212. Si vous oubliez le +, Twilio utilise le préfixe de pays que vous avez saisi dans le champ « À partir ».
 	- **Texte** : texte du message à envoyer.
- 
+
 	![][5]
 	![][6]
+## En faire plus avec votre connecteur
+Maintenant que le connecteur est créé, vous pouvez l'ajouter à un flux d'entreprise à l'aide d'une application logique. Voir [Que sont les applications logiques ?](app-service-logic-what-are-logic-apps.md).
 
+Affichez la référence d’API REST Swagger sur [Référence de connecteurs et d’applications API](http://go.microsoft.com/fwlink/p/?LinkId=529766).
 
+Vous pouvez également consulter les statistiques de performances et contrôler la sécurité du connecteur. Consultez la page [Gestion et contrôle de vos connecteurs et applications API intégrés](app-service-logic-monitor-your-connectors.md).
 
-	<!--Image references-->
+<!--Image references-->
 [1]: ./media/app-service-logic-connector-twilio/img1.PNG
 [2]: ./media/app-service-logic-connector-twilio/img2.PNG
 [3]: ./media/app-service-logic-connector-twilio/img3.png
@@ -77,4 +81,4 @@ Une fois votre application API créée, vous pouvez utiliser le connecteur Twili
 [5]: ./media/app-service-logic-connector-twilio/img5.PNG
 [6]: ./media/app-service-logic-connector-twilio/img6.PNG
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

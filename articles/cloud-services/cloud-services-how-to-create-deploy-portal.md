@@ -19,20 +19,20 @@
 
 
 
-# Création et déploiement d'un service cloud
+# Création et déploiement d’un service cloud
 
 > [AZURE.SELECTOR]
-- [Azure Portal](cloud-services-how-to-create-deploy.md)
-- [Azure Preview Portal](cloud-services-how-to-create-deploy-portal.md)
+- [Azure portal](cloud-services-how-to-create-deploy.md)
+- [Azure preview portal](cloud-services-how-to-create-deploy-portal.md)
 
-Le portail Azure vous permet de créer et de déployer un service cloud de deux manières : **Création rapide** et **Création personnalisée**.
+Le portail Azure vous permet de créer et de déployer un service cloud de deux manières : *Création rapide* et *Création personnalisée*.
 
-Cette rubrique explique comment utiliser la méthode Quick Create pour créer un service cloud et comment utiliser ensuite **Upload** pour télécharger et déployer un package de service cloud dans Azure. Si vous utilisez cette méthode, le portail Azure met à votre disposition tous les liens nécessaires pour remplir les conditions requises au fur et à mesure. Si vous êtes prêt à déployer votre service cloud lorsque vous le créez, vous pouvez effectuer ces deux opérations en même temps à l'aide de **Custom Create**.
+Cet article explique comment utiliser la méthode Quick Create pour créer un service cloud et comment utiliser ensuite **Upload** pour télécharger et déployer un package de service cloud dans Azure. Si vous utilisez cette méthode, le portail Azure met à votre disposition tous les liens nécessaires pour remplir les conditions requises au fur et à mesure. Si vous êtes prêt à déployer votre service cloud lorsque vous le créez, vous pouvez effectuer ces deux opérations en même temps à l'aide de Création personnalisée.
 
-> [AZURE.NOTE]Si vous prévoyez de publier votre service cloud depuis Visual Studio Online (VSO), utilisez Création rapide, puis configurez la publication VSO dans **Création rapide** ou dans le tableau de bord. Pour plus d'informations, consultez la page [Livraison continue sur Azure au moyen de Visual Studio Online][TFSTutorialForCloudService] ou **Quick Start**.
+> [AZURE.NOTE]Si vous prévoyez de publier votre service cloud depuis Visual Studio Online (VSO), utilisez Création rapide, puis configurez la publication VSO via l’outil de démarrage rapide Azure ou le tableau de bord. Pour plus d'informations, consultez la page [Livraison continue sur Azure au moyen de Visual Studio Online][TFSTutorialForCloudService] ou **Quick Start**.
 
 ## Concepts
-trois composants sont nécessaires pour déployer une application en tant que service cloud dans Azure :
+Trois composants sont nécessaires pour déployer une application en tant que service cloud dans Azure :
 
 - **Définition de service** Le fichier de définition de service cloud (.csdef) définit le modèle de service, notamment le nombre de rôles.
 
@@ -51,9 +51,9 @@ Trois fonctions du service cloud nécessitent une configuration spécifique avan
 
 - Si vous voulez configurer les connexions Bureau à distance aux instances de rôle, configurez les rôles pour le Bureau à distance. Pour plus d'informations sur la préparation du fichier de définition du service pour l'accès à distance, consultez la page [Configuration d'une connexion Bureau à distance pour un rôle dans Azure](http://msdn.microsoft.com/library/hh124107.aspx).
 
-- Si vous voulez configurer la surveillance détaillée pour votre service cloud, activez Azure Diagnostics pour le service cloud. *Surveillance minimale* (niveau de surveillance par défaut) utilise des compteurs de performances récupérés sur le système d'exploitation hôte des instances de rôle (machine virtuelle). La surveillance détaillée recueille des mesures supplémentaires sur les données de performances dans les instances de rôle, afin de permettre une analyse plus fine des problèmes qui surviennent au cours du traitement de l'application. Pour savoir comment activer Azure Diagnostics, consultez la page [Activation des diagnostics dans Azure](cloud-services-dotnet-diagnostics.md).
+- Si vous voulez configurer la surveillance détaillée pour votre service cloud, activez Azure Diagnostics pour le service cloud. *Surveillance minimale* (niveau de surveillance par défaut) utilise des compteurs de performances récupérés sur le système d'exploitation hôte des instances de rôle (machine virtuelle). La *surveillance détaillée* recueille des mesures supplémentaires sur les données de performances dans les instances de rôle, afin de permettre une analyse plus fine des problèmes qui surviennent au cours du traitement de l'application. Pour savoir comment activer Azure Diagnostics, consultez la page [Activation des diagnostics dans Azure](cloud-services-dotnet-diagnostics.md).
 
-- Pour créer un service cloud avec des déploiements de rôles web ou de rôles de travail, vous devez créer le package de service. Plus d'informations sur les fichiers du package, consultez la page [Configurer un service cloud pour Azure](http://msdn.microsoft.com/library/hh124108.aspx). Pour créer le fichier de package, consultez la page [Création d’un package d’application Azure](http://msdn.microsoft.com/library/hh403979.aspx). Si vous utilisez Visual Studio pour développer votre application, consultez la page [Publication d'un service cloud en utilisant les outils Azure](http://msdn.microsoft.com/library/ff683672.aspx).
+Pour créer un service cloud avec des déploiements de rôles web ou de rôles de travail, vous devez créer le package de service. Plus d'informations sur les fichiers du package, consultez la page [Configurer un service cloud pour Azure](http://msdn.microsoft.com/library/hh124108.aspx). Pour créer le fichier de package, consultez la page [Création d’un package d’application Azure](http://msdn.microsoft.com/library/hh403979.aspx). Si vous utilisez Visual Studio pour développer votre application, consultez la page [Publication d'un service cloud en utilisant les outils Azure](http://msdn.microsoft.com/library/ff683672.aspx).
 
 ## Avant de commencer
 
@@ -61,13 +61,13 @@ Trois fonctions du service cloud nécessitent une configuration spécifique avan
 
 - Si des instances de rôle nécessitent des certificats, créez ces certificats. Les services cloud requièrent un fichier .pfx avec une clé privée. Vous pouvez télécharger les certificats sur Azure lorsque vous créez et déployez le service cloud. Pour plus d'informations sur les certificats Azure, consultez la page [Gérer les certificats](http://msdn.microsoft.com/library/gg981929.aspx).
 
-- Si vous prévoyez de déployer le service cloud dans un groupe d'affinités, créez le groupe d'affinités. Vous pouvez utiliser un groupe d'affinités pour déployer votre service cloud et d'autres services Azure dans le même emplacement dans une région. Vous pouvez créer le groupe d'affinités dans la zone **Networks** du portail de gestion, sur la page **Affinity Groups**. Pour plus d'informations consultez la page [Créer un groupe d'affinités dans le portail de gestion](http://msdn.microsoft.com/library/jj156209.aspx).
+- Si vous prévoyez de déployer le service cloud dans un groupe d'affinités, créez le groupe d'affinités. Vous pouvez utiliser un groupe d'affinités pour déployer votre service cloud et d'autres services Azure dans le même emplacement dans une région. Vous pouvez créer le groupe d’affinités dans la zone **Networks** du portail Azure, sur la page **Affinity Groups**. Pour plus d'informations consultez la page [Créer un groupe d'affinités dans le portail de gestion](http://msdn.microsoft.com/library/jj156209.aspx).
 
 
 ## Étape 3 : création d’un service cloud et chargement du package de déploiement
 
-1. Connectez-vous au [portail Azure en version préliminaire][]. 
-2. Cliquez sur **Nouveau** et sur **Compute**, faites défiler la page vers le bas, puis cliquez sur **Service cloud**.
+1. Connectez-vous au [portail Azure en version préliminaire][].
+2. Cliquez sur **Nouveau >Compute**, faites défiler la page vers le bas, puis cliquez sur **Service cloud**.
 
     ![Publier votre service cloud](media/cloud-services-how-to-create-deploy-portal/create-cloud-service.png)
 
@@ -75,11 +75,11 @@ Trois fonctions du service cloud nécessitent une configuration spécifique avan
 4. Créez un **groupe de ressources** ou sélectionnez-en un.
 5. Sélectionnez un **emplacement**.
 6. Sélectionnez **Package**, puis, dans le panneau **Télécharger un package**, renseignez les champs obligatoires.  
-      
-     Si l’un de vos rôles contient une seule et même instance, assurez-vous que la case **Déployer même si un ou plusieurs rôles ne contiennent qu’une seule et même instance** est cochée.
 
-7. Vérifiez que la case **Démarrer le déploiement** est *cochée*.
-8. Cliquez sur **OK**. 
+     Si l’un de vos rôles contient une seule et même instance, assurez-vous que l’option **Déployer même si un ou plusieurs rôles ne contiennent qu’une seule et même instance** est sélectionnée.
+
+7. Vérifiez que l’option **Démarrer le déploiement** est sélectionnée.
+8. Cliquez sur **OK**.
 
     ![Publier votre service cloud](media/cloud-services-how-to-create-deploy-portal/select-package.png)
 
@@ -87,7 +87,7 @@ Trois fonctions du service cloud nécessitent une configuration spécifique avan
 
 Si votre package de déploiement a été [configuré pour utiliser des certificats](cloud-services-configure-ssl-certificate-portal.md#modify), vous pouvez charger le certificat maintenant.
 
-9. Sélectionnez **Certificats**, puis, dans le panneau **Ajouter des certificats**, sélectionnez le fichier .pfx du certificat SSL et indiquez le **Mot de passe** pour le certificat. 
+9. Sélectionnez **Certificats**, puis, dans le panneau **Ajouter des certificats**, sélectionnez le fichier .pfx du certificat SSL et indiquez le **Mot de passe** pour le certificat.
 10. Cliquez sur **Joindre un certificat**, puis sur **OK** dans le panneau **Ajouter des certificats**.
 11. Cliquez sur **Créer** dans le panneau **Service cloud**. Lorsque le déploiement atteint l'état **Ready**, vous pouvez passer aux étapes suivantes.
 
@@ -106,6 +106,5 @@ Si votre package de déploiement a été [configuré pour utiliser des certifica
 
 
 [TFSTutorialForCloudService]: http://go.microsoft.com/fwlink/?LinkID=251796&clcid=0x409
- 
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

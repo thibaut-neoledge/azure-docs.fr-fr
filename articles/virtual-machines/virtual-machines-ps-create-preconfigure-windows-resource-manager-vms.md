@@ -104,9 +104,11 @@ Pour tester si une étiquette de nom de domaine choisie est globalement unique, 
 
 	$domName="<domain name label to test>"
 	$loc="<short name of an Azure location, for example, for West US, the short name is westus>"
-	Get-AzureCheckDnsAvailability -DomainQualifiedName $domName -Location $loc
+	Test-AzureDnsAvailability -DomainQualifiedName $domName -Location $loc
 
 Si DNSNameAvailability a la valeur « True », c’est que le nom proposé est globalement unique.
+
+>[AZURE.NOTE]L’applet de commande Test-AzureDnsAvailability était nommée Get-AzureCheckDnsAvailability dans les versions d’Azure PowerShell antérieures à la version 0.9.5. Si vous utilisez la version 0.9.4 ou antérieure, remplacez Test-AzureDnsAvailability par Get-AzureCheckDnsAvailability dans la commande illustrée ci-dessus.
 
 Les machines virtuelles basées sur Resource Manager peuvent être placées dans un groupe à haute disponibilité basé sur Resource Manager. Si nécessaire, créez un groupe à haute disponibilité pour votre nouvelle machine virtuelle avec ces commandes.
 
@@ -211,7 +213,7 @@ Copiez ces lignes dans votre jeu de commandes et spécifiez les noms et numéros
 	$lbName="<name of the load balancer instance>"
 	$bePoolIndex=<index of the back end pool, starting at 0>
 	$natRuleIndex=<index of the inbound NAT rule, starting at 0>
-	$lb=Get-AzureLoadBalancer -Name $lbName -ResourceGroupName $rgName 
+	$lb=Get-AzureLoadBalancer -Name $lbName -ResourceGroupName $rgName
 	$nic=New-AzureNetworkInterface -Name $nicName -ResourceGroupName $rgName -Location $locName -Subnet $vnet.Subnets[$subnetIndex].Id -LoadBalancerBackendAddressPool $lb.BackendAddressPools[$bePoolIndex] -LoadBalancerInboundNatRule $lb.InboundNatRules[$natRuleIndex]
 
 La chaîne $nicName doit être unique pour le groupe de ressources. Une meilleure pratique consiste à incorporer le nom de la machine virtuelle dans la chaîne, comme « LOB07-NIC ».
@@ -230,7 +232,7 @@ Copiez ces lignes dans votre jeu de commandes et spécifiez les noms et numéros
 	$nicName="<name of the NIC of the VM>"
 	$lbName="<name of the load balancer instance>"
 	$bePoolIndex=<index of the back end pool, starting at 0>
-	$lb=Get-AzureLoadBalancer -Name $lbName -ResourceGroupName $rgName 
+	$lb=Get-AzureLoadBalancer -Name $lbName -ResourceGroupName $rgName
 	$nic=New-AzureNetworkInterface -Name $nicName -ResourceGroupName $rgName -Location $locName -Subnet $vnet.Subnets[$subnetIndex].Id -LoadBalancerBackendAddressPool $lb.BackendAddressPools[$bePoolIndex]
 
 Ensuite, créez un objet de machine virtuelle locale et éventuellement, ajoutez-le à un groupe à haute disponibilité. Copiez une des deux options suivantes dans votre jeu de commandes, et spécifiez le nom, la taille et le nom du groupe à haute disponibilité.
@@ -387,4 +389,4 @@ Voici le jeu de commandes Azure PowerShell correspondant pour créer cette machi
 
 [Installation et configuration d’Azure PowerShell](../install-configure-powershell.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

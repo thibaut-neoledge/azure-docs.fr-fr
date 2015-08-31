@@ -1,20 +1,20 @@
 <properties
    pageTitle="Concepts de développeur Azure Data Catalog"
-   description="Concepts de développeur dans Azure Data Catalog : catalogue, utilisateurs, ressources, crowdsourcing."
-   services="data-catalog"
-   documentationCenter=""
-   authors="dvana"
-   manager="mblythe"
-   editor=""
-   tags=""/>
+	description="Concepts de développeur dans Azure Data Catalog : catalogue, utilisateurs, ressources, crowdsourcing."
+	services="data-catalog"
+	documentationCenter=""
+	authors="dvana"
+	manager="mblythe"
+	editor=""
+	tags=""/>
 <tags 
    ms.service="data-catalog"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="data-catalog"
-   ms.date="07/13/2015"
-   ms.author="derrickv"/>
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="data-catalog"
+	ms.date="07/13/2015"
+	ms.author="derrickv"/>
 
 # Concepts de développeur Azure Data Catalog
 
@@ -46,19 +46,19 @@ Azure Data Catalog utilise Azure Active Directory pour la gestion des identit�
 
 ### Éléments multimédias
 
-Un **catalogue** contient des ressources de données . Les **ressources** sont l'unité d'élément géré par le catalogue.
+Un **catalogue** contient des ressources de données . Les **ressources** représentent l’unité de granularité gérée par le catalogue.
 
-La granularité d'une ressource varie selon la source de données. Pour SQL Server ou une base de données Oracle, une ressource peut être une table ou un affichage. Pour SQL Server Analysis Services, une ressource peut être une mesure, une dimension ou un indicateur de performance clé (KPI). Pour SQL Server Reporting Services, une ressource peut être un rapport.
+La granularité d'une ressource varie selon la source de données. Pour SQL Server ou une base de données Oracle, une ressource peut être une table ou un affichage. Pour SQL Server Analysis Services, une ressource peut être une mesure, une dimension ou un indicateur de performance clé (KPI). Pour SQL Server Reporting Services, une ressource est un rapport.
 
-Une **ressource** est l'élément que vous ajoutez ou supprimez d’un catalogue. C’est l'unité de résultat que vous récupérez lors d’une **recherche**.
+Une **ressource** est l’élément que vous ajoutez ou supprimez d’un catalogue. C’est l'unité de résultat que vous récupérez lors d’une **recherche**.
 
-Une **ressource** est constituée d’informations de base, de son emplacement et de son type ainsi que d’annotations apportant une description supplémentaire.
+Une **ressource** est constituée de son nom, de son emplacement et de son type ainsi que d’annotations apportant une description supplémentaire.
 
 ### Annotations
 
 Les annotations sont des éléments qui représentent des métadonnées sur les ressources.
 
-La description, les balises, le schéma, la documentation, etc. sont des exemples d’annotations. Une liste complète des types de ressources et des types d'annotations est disponible dans la section de modèle d’objet de ressource.
+La description, les balises, le schéma, la documentation, etc. sont des exemples d’annotations. Une liste complète des types de ressources et des types d’annotations est disponible dans la section de modèle d’objet de ressource.
 
 ## Annotations de crowdsourcing et perspective de l'utilisateur (multiplicité d'opinions)
 
@@ -80,21 +80,7 @@ L'expérience utilisateur permet alors l’affichage de la combinaison. Il exist
 
 -	Le plus simple est « Tout afficher ». Dans ce modèle, tous les objets sont affichés dans une sorte d’affichage de liste. Voilà ce que fait l’expérience utilisateur du portail Azure Data Catalog comme description.
 -	Un autre modèle est « Fusionner ». Dans ce modèle, toutes les valeurs des différents utilisateurs sont fusionnées et les doublons supprimés. Les propriétés des balises et des experts sont des exemples de ce modèle dans l’expérience utilisateur du portail Azure Data Catalog.
--	Un troisième modèle est la « règle de Thomas ». Dans ce modèle, seule la dernière valeur saisie est indiquée. Le nom convivial est un exemple de ce modèle. Certains types ne sont pas autorisés à avoir plusieurs instances.
-
-Vous trouverez ci-dessous la liste des types qui sont autorisés ou non à avoir plusieurs instances :
-
-Les types suivants sont autorisés à avoir plusieurs instances :
-
-- Description
-- Experts
-- Description du schéma
-
-Les types suivants ne sont **pas** autorisés à avoir plusieurs instances :
-
-- Types racines
-- Schéma
-- VERSION PRÉLIMINAIRE
+-	Un troisième modèle est la « règle de Thomas ». Dans ce modèle, seule la dernière valeur saisie est indiquée. Le nom convivial est un exemple de ce modèle.
 
 ## Modèle d'objet de ressource
 
@@ -157,30 +143,30 @@ Il existe 3 rôles : **administrateur**, **propriétaire** et **collaborateur*
 
 > [AZURE.NOTE]Les droits de **Lecture**, **Mise à jour**, **Suppression**, **ViewRoles** sont applicables à tout élément (ressource ou annotation), tandis que **TakeOwnership**, **ChangeOwnership**, **ChangeVisibility** et **ViewPermissions** sont uniquement applicables à la ressource racine.
 >
->Le droit de **Suppression** s'applique à un élément et à tout sous-élément ou élément unique inférieur. Par exemple, la suppression d'une ressource supprime également toutes les annotations pour cette ressource.
+>Le droit de **Suppression** s’applique à un élément et à tout sous-élément ou élément unique inférieur. Par exemple, la suppression d'une ressource supprime également toutes les annotations pour cette ressource.
 
 ### Autorisations
 
 L'autorisation est une liste d'entrées de contrôle d'accès. Chaque entrée de contrôle d'accès affecte l'ensemble de droits à un principal de sécurité. Les autorisations ne peuvent être spécifiées que sur une ressource (c’est à dire, l'élément racine) et s'appliquent à la ressource et aux sous-éléments.
 
-Pour la version préliminaire d’**Azure Data Catalog**, seul le droit de **lecture** est pris en charge dans la liste des autorisations pour activer le scénario de limitation de la visibilité d'une ressource.
+Pour la version préliminaire d’**Azure Data Catalog**, seul le droit de **lecture** est pris en charge dans la liste des autorisations pour activer le scénario de limitation de la visibilité d’une ressource.
 
 Par défaut, tout utilisateur authentifié a un droit de **lecture** sur tout élément dans le catalogue, sauf si la visibilité est limitée au jeu de principaux dans les autorisations.
 
 ## API REST
 
-Les demandes d’éléments d’affichage **PUT** et **POST** peuvent être utilisées pour contrôler les rôles et les autorisations : en plus de la charge utile de l’élément, deux propriétés système peuvent être spécifiées : \*\*\_\_rôles\*\* et \*\*\_\_autorisations\*\*.
+Les demandes d’éléments d’affichage **PUT** et **POST** peuvent être utilisées pour contrôler les rôles et les autorisations : en plus de la charge utile de l’élément, deux propriétés système peuvent être spécifiées : **\_\_rôles** et **\_\_autorisations**.
 
 > [AZURE.NOTE]
 >
-> **__Les \*\*\_\_autorisations\*\* sont uniquement applicables à un élément racine.
+> **__Les **\_\_autorisations** sont uniquement applicables à un élément racine.
 >
 > Le rôle **Propriétaire** est uniquement applicable à un élément racine.
 >
-> Par défaut, lorsqu'un élément est créé dans le catalogue, son **collaborateur** est défini sur l'utilisateur actuellement authentifié. Si l'élément doit pouvoir être mis à jour par tout le monde, le **collaborateur** doit être défini sur le principal de sécurité spécial <Everyone> dans la propriété de \*\*\_\_rôles\*\* lors de la première publication de l’élément (reportez-vous à l'exemple ci-dessous). Le **collaborateur** ne peut pas être modifié et reste identique pendant la durée de vie d'un élément (cela signifie que même l’**administrateur** ou le **propriétaire** n'a pas le droit de modifier le **collaborateur**). La seule valeur prise en charge pour l'affectation explicite de **collaborateur** est <Everyone> : cela signifie que le **collaborateur** peut uniquement être un utilisateur qui a créé un élément ou <Everyone>.
+> Par défaut, lorsqu’un élément est créé dans le catalogue, son **collaborateur** est défini sur l’utilisateur actuellement authentifié. Si l’élément doit pouvoir être mis à jour par tout le monde, le **collaborateur** doit être défini sur le principal de sécurité spécial <Everyone> dans la propriété de **\_\_rôles** lors de la première publication de l’élément (reportez-vous à l’exemple ci-dessous). Le **collaborateur** ne peut pas être modifié et reste identique pendant la durée de vie d’un élément (cela signifie que même l’**administrateur** ou le **propriétaire** n’a pas le droit de modifier le **collaborateur**). La seule valeur prise en charge pour l’affectation explicite de **collaborateur** est <Everyone> : cela signifie que le **collaborateur** peut uniquement être un utilisateur qui a créé un élément ou <Everyone>.
 
 ###Exemples
-**Définissez collaborateur comme <Everyone> lors de la publication d'un élément.** Le principal de sécurité spécial <Everyone> a l’objectId « 00000000-0000-0000-0000-000000000201 ». **Corps** **POST** https://123154bb...6aad6370ee14.datacatalog.azure.com/default/views/tables/?api-version=2015-07.1.0-Preview
+**Définissez collaborateur comme <Everyone> lors de la publication d’un élément.** Le principal de sécurité spécial <Everyone> a l’objectId « 00000000-0000-0000-0000-000000000201 ». **Corps** https://123154bb...6aad6370ee14.datacatalog.azure.com/default/views/tables/?api-version=2015-07.1.0-Preview **POST**
 
 	{
 	    "__roles": [
@@ -245,4 +231,4 @@ Les demandes d’éléments d’affichage **PUT** et **POST** peuvent être util
 <!--Image references-->
 [1]: ./media/data-catalog-developer-concepts/concept.png
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

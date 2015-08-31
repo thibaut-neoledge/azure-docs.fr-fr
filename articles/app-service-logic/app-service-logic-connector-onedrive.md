@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/02/2015"
+	ms.date="08/19/2015"
 	ms.author="andalmia"/>
 
 # Utilisation du connecteur OneDrive dans votre application logique #
@@ -78,6 +78,13 @@ Une fois votre application API créée, vous pouvez utiliser le connecteur OneDr
 
 9. Pour plus d'informations sur les API, consultez la rubrique [Définition des API OneDrive].
 
+## En faire plus avec votre connecteur
+Maintenant que le connecteur est créé, vous pouvez l'ajouter à un flux d'entreprise à l'aide d'une application logique. Voir [Que sont les applications logiques ?](app-service-logic-what-are-logic-apps.md).
+
+Affichez la référence d’API REST Swagger sur [Référence de connecteurs et d’applications API](http://go.microsoft.com/fwlink/p/?LinkId=529766).
+
+Vous pouvez également consulter les statistiques de performances et contrôler la sécurité du connecteur. Consultez la page [Gestion et contrôle de vos connecteurs et applications API intégrés](app-service-logic-monitor-your-connectors.md).
+
 <!-- Image reference -->
 [1]: ./media/app-service-logic-connector-onedrive/img1.PNG
 [2]: ./media/app-service-logic-connector-onedrive/img2.PNG
@@ -89,6 +96,6 @@ Une fois votre application API créée, vous pouvez utiliser le connecteur OneDr
 
 <!-- Links -->
 [Création d'une application logique]: app-service-logic-create-a-logic-app.md
-[Définition des API OneDrive]: https://msdn.microsoft.com/fr-fr/library/dn974227.aspx
+[Définition des API OneDrive]: https://msdn.microsoft.com/library/dn974227.aspx
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

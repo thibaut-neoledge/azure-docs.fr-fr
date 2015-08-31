@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="06/24/2015"
+   ms.date="08/13/2015"
    ms.author="v-sharos" />
 
 # Gérer votre catalogue de sauvegarde StorSimple
@@ -109,7 +109,7 @@ Supprimez une sauvegarde quand vous ne souhaitez plus conserver les données qui
 
     Les sauvegardes associées au volume ou à la stratégie de sauvegarde sélectionné doivent figurer dans la liste des jeux de sauvegarde.
 
-3. Sélectionnez un jeu de sauvegarde et développez-le. Les options **Restaurer et Supprimer** apparaissent en bas de la page. Cliquez sur **Supprimer**. Le jeu de sauvegarde est maintenant supprimé.
+3. Sélectionnez un jeu de sauvegarde et développez-le. Les options **Restaurer et Supprimer** apparaissent en bas de la page. Cliquez sur **Supprimer**.
 
 4. Vous serez informé de la progression de la suppression et de son issue. Une fois la suppression terminée, actualisez la requête dans cette page. Le jeu de sauvegarde supprimé n’apparaîtra plus dans la liste des jeux de sauvegarde.
 
@@ -117,4 +117,4 @@ Supprimez une sauvegarde quand vous ne souhaitez plus conserver les données qui
 
 Découvrez comment utiliser le catalogue de sauvegarde pour [restaurer l’appareil à partir d’un jeu de sauvegarde](storsimple-restore-from-backup-set.md).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

@@ -26,7 +26,7 @@ Microsoft Azure traite ce modèle comme une image et le stocke sous **Images**.
 
 ## Avant de commencer
 
-Ces étapes partent du principe que vous avez déjà créé une machine virtuelle Azure, configuré le système d'exploitation et attaché les disques de données. Si vous ne l’avez pas encore fait, consultez ces instructions :
+Ces étapes partent du principe que vous avez déjà créé une machine virtuelle Azure à l’aide du modèle de déploiement classique, configuré le système d'exploitation et attaché les disques de données. Si vous ne l’avez pas encore fait, consultez ces instructions :
 
 - [Création d’une machine virtuelle exécutant Linux][]
 
@@ -86,7 +86,7 @@ Ces étapes partent du principe que vous avez déjà créé une machine virtuell
 
 
 ## Étapes suivantes
-L'image est prête à être utilisée comme modèle pour la création de machines virtuelles. Vous pouvez utiliser la commande `azure vm create` de la CLI Azure et fournir le nom de l’image que vous venez de créer. Consultez [Utilisation de l’interface de ligne de commande Azure avec Microsoft Azure Service Management](virtual-machines-command-line-tools.md) pour plus d'informations sur la commande. Vous pouvez également utiliser le [portail de gestion][] pour créer une machine virtuelle personalisée en utilisant la méthode **From Gallery** et en sélectionnant l'image que vous venez de créer. Pour plus d’informations, consultez le guide [Création d’une machine virtuelle personnalisée][].
+L'image est prête à être utilisée comme modèle pour la création de machines virtuelles. Vous pouvez utiliser la commande `azure vm create` de la CLI Azure et fournir le nom de l’image que vous venez de créer. Consultez la rubrique [Utilisation de l’interface de ligne de commande Azure avec l’API de gestion des services](virtual-machines-command-line-tools.md) pour plus d'informations sur la commande. Vous pouvez également utiliser le [portail de gestion][] pour créer une machine virtuelle personalisée en utilisant la méthode **From Gallery** et en sélectionnant l'image que vous venez de créer. Pour plus d’informations, consultez le guide [Création d’une machine virtuelle personnalisée][].
 
 **Voir aussi :** [Guide d’utilisateur de l’agent Linux Azure](virtual-machines-linux-agent-user-guide.md)
 
@@ -97,4 +97,4 @@ L'image est prête à être utilisée comme modèle pour la création de machine
 [How to Attach a Data Disk to a Virtual Machine]: storage-windows-attach-disk.md
 [Création d’une machine virtuelle exécutant Linux]: virtual-machines-linux-tutorial.md
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

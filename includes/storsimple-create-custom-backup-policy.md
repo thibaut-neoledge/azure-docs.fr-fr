@@ -1,4 +1,3 @@
-
 #### Pour créer une stratégie de sauvegarde personnalisée
 
 1. Dans la page **Appareils**, cliquez sur **Stratégies de sauvegarde**, puis sur **Ajouter**.
@@ -39,4 +38,4 @@
 
     ![Stratégie de sauvegarde personnalisée](./media/storsimple-create-custom-backup-policy/HCS_CustomBackupPolicyM-include.png).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

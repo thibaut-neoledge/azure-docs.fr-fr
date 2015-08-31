@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="Qu’est-ce qu’une inscription libre-service à Azure ?" 
-	description="Présentation de l’inscription libre-service à Azure, gestion du processus d'inscription et ." 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="Justinha" 
-	manager="TerryLan" 
+<properties
+	pageTitle="Qu’est-ce qu’une inscription libre-service à Azure ?"
+	description="Présentation de l’inscription libre-service à Azure, gestion du processus d&#39;inscription et ."
+	services="active-directory"
+	documentationCenter=""
+	authors="curtand"
+	manager="stevenpo"
 	editor="LisaToft"/>
 
-<tags 
-	ms.service="active-directory" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.tgt_pltfrm="na" 
-	ms.workload="identity" 
-	ms.date="05/13/2015" 
-	ms.author="Justinha"/>
+<tags
+	ms.service="active-directory"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="identity"
+	ms.date="08/14/2015" 
+	ms.author="stevenpo"/>
 
 
 # Qu’est-ce qu’une inscription libre-service à Azure ?
@@ -26,12 +26,12 @@ Cette rubrique vous explique le processus d'inscription libre-service (parfois a
 - Permettre aux clients de bénéficier très rapidement de services dont ils ont besoin.
 - Créer des offres (virales) envoyées par e-mail pour un service.
 - Créer des flux d’inscription par e-mail permettant aux utilisateurs de créer très rapidement des identités à l'aide de leurs alias de messagerie professionnelle, faciles à mémoriser.
-- Les locataires Azure non gérés peuvent évoluer et devenir par la suite des locataires gérés qui peuvent être réutilisés pour d'autres services. 
+- Les locataires Azure non gérés peuvent évoluer et devenir par la suite des locataires gérés qui peuvent être réutilisés pour d'autres services.
 
 ## Termes et définitions
 
-+ **Inscription libre-service** : méthode via laquelle un utilisateur s'abonne à un service cloud et bénéficie automatiquement d’une identité créée pour lui dans Azure Active Directory en fonction de son domaine de messagerie. 
-+ **Locataire Azure non géré** : répertoire dans lequel cette identité est créée. Un locataire non géré est un répertoire qui ne possède aucun administrateur général. 
++ **Inscription libre-service** : méthode via laquelle un utilisateur s'abonne à un service cloud et bénéficie automatiquement d’une identité créée pour lui dans Azure Active Directory en fonction de son domaine de messagerie.
++ **Locataire Azure non géré** : répertoire dans lequel cette identité est créée. Un locataire non géré est un répertoire qui ne possède aucun administrateur général.
 + **Utilisateur vérifié par e-mail** : type de compte d'utilisateur dans Azure AD. Un utilisateur qui possède une identité créée automatiquement après s’être abonné à une offre libre-service est considéré comme un utilisateur vérifié par e-mail. Un utilisateur vérifié par e-mail est un membre ordinaire d'un répertoire marqué par la valeur creationmethod=EmailVerified.
 
 ## Expérience client
@@ -46,8 +46,8 @@ Si Dan est le premier utilisateur disposant d’une adresse e-mail BellowsColleg
 
 Un administrateur qui possède le nom de domaine DNS d'un locataire Azure non géré peut prendre en charge ou fusionner le locataire après avoir prouvé qu’il en est le propriétaire. Les sections suivantes vous expliquent plus en détail l'expérience administrateur, mais en voici un résumé :
 
-- Lorsque vous prenez en charge un locataire Azure non géré, vous devenez tout simplement l'administrateur général du locataire non géré. On appelle parfois cela une prise en charge interne. 
-- Lorsque vous fusionnez un locataire Azure non géré, vous ajoutez le nom de domaine DNS du locataire non géré à votre locataire Azure géré. Un mappage des utilisateurs jusqu’aux ressources est de ce fait créé pour que les utilisateurs puissent continuer à accéder aux services sans interruption. On appelle parfois cela une prise en charge externe. 
+- Lorsque vous prenez en charge un locataire Azure non géré, vous devenez tout simplement l'administrateur général du locataire non géré. On appelle parfois cela une prise en charge interne.
+- Lorsque vous fusionnez un locataire Azure non géré, vous ajoutez le nom de domaine DNS du locataire non géré à votre locataire Azure géré. Un mappage des utilisateurs jusqu’aux ressources est de ce fait créé pour que les utilisateurs puissent continuer à accéder aux services sans interruption. On appelle parfois cela une prise en charge externe.
 
 ### Quels éléments ont été créés dans Microsoft Azure Active ?
 
@@ -103,13 +103,13 @@ Supposons qu'un administrateur informatique de Bellows College découvre que les
 Lors d’une prise en charge externe, vous disposez déjà d'un locataire géré et vous souhaitez que tous les utilisateurs et groupes d'un locataire non géré rejoignent ce locataire géré, plutôt que de posséder deux locataires différents.
 
 En tant qu'administrateur d'un locataire géré, vous ajoutez un domaine qui possède un locataire non géré qui lui est associé.
-	
+
 Supposons par exemple que vous êtes un administrateur informatique et que vous disposez déjà d'un locataire géré pour Contoso.com, un nom de domaine qui a été créé pour votre société. Vous découvrez que les utilisateurs de votre société ont réalisé une inscription libre-service à une offre à l'aide du nom de domaine de messagerie user@contoso.co.uk, qui est un autre nom de domaine appartenant à votre société. Ces utilisateurs possèdent actuellement des comptes dans un locataire non géré pour contoso.co.uk.
 
 Vous ne souhaitez pas gérer deux locataires différents, alors vous fusionnez le locataire non géré pour contoso.co.uk avec votre locataire informatique géré existant pour contoso.com.
-	
+
 La prise en charge externe suit le même processus de validation DNS que la prise en charge interne. La seule différence étant que les utilisateurs et services sont remappés vers le locataire informatique géré.
-	
+
 #### Quel est l'impact de l'exécution d'une prise en charge externe ?
 
 Lors d’une prise en charge externe, un mappage des utilisateurs jusqu’aux ressources est créé pour que les utilisateurs puissent continuer à accéder aux services sans interruption. De nombreuses applications, y compris RMS pour les particuliers, gèrent le mappage des utilisateurs jusqu’aux ressources, et les utilisateurs peuvent continuer à accéder à ces services sans la moindre modification. Si une application ne gère pas efficacement le mappage des utilisateurs jusqu’aux ressources, la prise en charge externe peut être explicitement interrompue pour que les utilisateurs ne vivent pas une mauvaise expérience.
@@ -160,7 +160,7 @@ Certaines options vous permettent d’effectuer une validation de domaine (et de
 Par exemple :
 
 1. Connectez-vous à Azure AD à l’aide des informations d'identification qui ont été utilisées pour répondre à l'offre libre-service : import-module MSOnline $msolcred = get-credential connect-msolservice -credential $msolcred
-		
+
 2. Obtenez une liste de domaines :
 
 	Get-MsolDomain
@@ -205,8 +205,8 @@ Les administrateurs peuvent désormais effectuer deux vérifications libre-servi
 
 Un administrateur peut configurer ces fonctionnalités à l'aide des paramètres Set-MsolCompanySettings de cet applet de commande Azure AD :
 
-+ **AllowEmailVerifiedUsers** vérifie si un utilisateur peut créer ou rejoindre un locataire non géré. Si vous définissez ce paramètre sur $false, aucun utilisateur vérifié par e-mail ne peut rejoindre le locataire. 
-+ **AllowAdHocSubscriptions** vérifie la capacité des utilisateurs à réaliser une inscription libre-service. Si vous définissez ce paramètre sur $false, aucun utilisateur ne peut effectuer une inscription libre-service. 
++ **AllowEmailVerifiedUsers** vérifie si un utilisateur peut créer ou rejoindre un locataire non géré. Si vous définissez ce paramètre sur $false, aucun utilisateur vérifié par e-mail ne peut rejoindre le locataire.
++ **AllowAdHocSubscriptions** vérifie la capacité des utilisateurs à réaliser une inscription libre-service. Si vous définissez ce paramètre sur $false, aucun utilisateur ne peut effectuer une inscription libre-service.
 
 
 ### Comment les vérifications parviennent-elles à fonctionner ensemble ?
@@ -234,6 +234,4 @@ Pour en savoir plus et obtenir des exemples d'utilisation de ces paramètres, co
 <!--Image references-->
 [1]: ./media/active-directory-self-service-signup/SelfServiceSignUpControls.png
 
- 
-
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

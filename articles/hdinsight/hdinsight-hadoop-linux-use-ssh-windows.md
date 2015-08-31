@@ -1,20 +1,21 @@
 <properties
    pageTitle="Utilisation de clés SSH avec Hadoop sur des clusters Linux à partir de Windows | Microsoft Azure"
-   description="Apprenez à créer et utiliser des clés SSH pour l'authentification dans les clusters HDInsight sous Linux. Connectez des clusters à partir de clients Windows en utilisant le client SSH PuTTY."
-   services="hdinsight"
-   documentationCenter=""
-   authors="Blackmist"
-   manager="paulettm"
-   editor="cgronlun"/>
+	description="Apprenez à créer et utiliser des clés SSH pour l'authentification dans les clusters HDInsight sous Linux. Connectez des clusters à partir de clients Windows en utilisant le client SSH PuTTY."
+	services="hdinsight"
+	documentationCenter=""
+	authors="Blackmist"
+	manager="paulettm"
+	editor="cgronlun"
+	tags="azure-portal"/>
 
 <tags
    ms.service="hdinsight"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="big-data"
-   ms.date="07/06/2015"
-   ms.author="larryfr"/>
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="big-data"
+	ms.date="07/24/2015"
+	ms.author="larryfr"/>
 
 #Utilisation de SSH avec Hadoop Linux dans HDInsight à partir de Windows (aperçu)
 
@@ -28,7 +29,7 @@ Les clusters HDInsight Azure sous Linux permettent d’utiliser l’accès SSH (
 
 ##Configuration requise
 
-* **PuTTY** et **PuTTYGen** pour les clients Windows. Ces utilitaires sont disponibles à l’adresse suivante : [http://www.chiark.greenend.org.uk/\~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
+* **PuTTY** et **PuTTYGen** pour les clients Windows. Ces utilitaires sont disponibles à l’adresse suivante : [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
 
 * Un navigateur web moderne qui prend en charge HTML5.
 
@@ -68,21 +69,23 @@ En créant un cluster HDInsight sous Linux, vous pouvez utiliser un mot de passe
 
 6. Cliquez sur **Enregistrer la clé publique** pour enregistrer la clé en fichier **.txt**. Cela vous permet de réutiliser la clé publique par la suite lorsque vous créez des clusters supplémentaires HDInsight sous Linux.
 
-	> [AZURE.NOTE]La clé publique est également affiché en haut de PuTTYGen. Vous pouvez cliquer avec le bouton droit dans ce champ, copier la valeur, puis la coller dans un formulaire tel que l’assistant HDInsight dans le portail Azure.
+	> [AZURE.NOTE]La clé publique est également affiché en haut de PuTTYGen. Vous pouvez cliquer avec le bouton droit dans ce champ, copier la valeur, puis la coller dans un formulaire au moment de la création d'un cluster dans la version préliminaire du portail Azure.
 
 ##Création d'un cluster HDInsight sous Linux
 
 À la création d'un cluster HDInsight sous Linux, vous devez fournir la clé publique précédemment créée. À partir des clients Windows, il existe deux façons de créer un cluster HDInsight sous Linux :
 
-* **Portail Azure** : utilise un portail web pour créer le cluster.
+* **Version préliminaire du portail Azure** : utilise un portail web pour créer le cluster.
 
 * **Interface de ligne de commande Azure pour Mac, Linux et Windows** : utilise des commandes de ligne de commande pour créer le cluster.
 
 Chacune de ces méthodes nécessite une clé publique. Pour plus d’informations sur la création d’un cluster HDInsight sur Linux, consultez la rubrique [Approvisionnement de clusters HDInsight sur Linux](hdinsight-hadoop-provision-linux-clusters.md).
 
-###Portail Azure
+###Portail Azure en version préliminaire
 
-Lorsque vous utilisez le portail pour créer un cluster HDInsight sous Linux, vous devez entrer un nom d’utilisateur et un mot de passe ou une clé publique dans le formulaire suivant :
+Quand vous utilisez la [version préliminaire du portail Azure][preview-portal] pour créer un cluster HDInsight sous Linux, vous devez saisir un **nom d'utilisateur SSH**, puis sélectionner cette option pour entrer un **MOT DE PASSE** ou une **CLÉ PUBLIQUE SSH**.
+
+Si vous sélectionnez **Clé publique SSH**, vous pouvez soit coller la clé publique (affichée dans le champ de __clé publique pour le coller dans le fichier OpenSSH authorized\_keys__ dans PuttyGen) dans le champ __SSH PublicKey__ champ ou sélectionnez __Sélectionner un fichier__ pour parcourir et sélectionner le fichier qui contient la clé publique.
 
 ![Image du formulaire de demande de clé publique](./media/hdinsight-hadoop-linux-use-ssh-windows/ssh-key.png)
 
@@ -92,7 +95,7 @@ Cela crée une connexion pour l'utilisateur indiqué et active l'authentificatio
 
 Vous pouvez utiliser l’[interface de ligne de commande Azure pour Mac, Linux et Windows](../xplat-cli.md) afin de créer un cluster en utilisant la commande `azure hdinsight cluster create`.
 
-Pour plus d’informations sur l’utilisation de cette commande, consultez la rubrique [Approvisionnement de clusters Hadoop sur Linux dans HDInsight à l’aide d’options personnalisées￼](hdinsight-hadoop-provision-linux-clusters.md).
+Pour plus d'informations sur l'utilisation de cette commande, consultez la rubrique [Configuration de clusters Hadoop sur Linux dans HDInsight à l'aide d'options personnalisées￼](hdinsight-hadoop-provision-linux-clusters.md).
 
 ##Connexion à un cluster HDInsight sous Linux
 
@@ -118,13 +121,15 @@ Pour plus d’informations sur l’utilisation de cette commande, consultez la r
 
 6. Lorsque vous y êtes invité, entrez le nom d'utilisateur que vous avez entré lors la création du cluster. Si vous avez donné un mot de passe pour le compte d'utilisateur, il vous sera demandé d'entrer le mot de passe.
 
+> [AZURE.NOTE]Les étapes ci-dessus supposent que vous utilisez le port 22, qui se connecte à headnode0 sur le cluster HDInsight. Si vous utilisez le port 23, vous allez vous connecter au headnode1. Consultez la rubrique [Disponibilité et fiabilité des clusters Hadoop dans HDInsight](hdinsight-high-availability-linux.md) pour plus d'informations sur les noeuds principaux.
+
 ###Connexion à des nœuds de travail
 
 Les nœuds de travail ne sont pas directement accessibles de l’extérieur du centre de données Azure, mais ils sont accessibles à partir du nœud principal du cluster via le protocole SSH.
 
 Si vous avez fourni une clé SSH lors de la création de votre compte d’utilisateur, vous devez effectuer les étapes suivantes pour utiliser la clé privée lors de l’authentification au cluster si vous souhaitez vous connecter aux nœuds de travail.
 
-1. Installez Pageant à partir de l’adresse suivante : [http://www.chiark.greenend.org.uk/\~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html). Cet utilitaire permet de mettre en cache des clés SSH pour PuTTY.
+1. Installez Pageant à partir de l'adresse suivante : [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html). Cet utilitaire permet de mettre en cache des clés SSH pour PuTTY.
 
 2. Exécutez Pageant. Il est réduit à une icône dans la barre d’état. Cliquez avec le bouton droit sur l’icône et sélectionnez **Ajouter une clé**.
 
@@ -194,9 +199,9 @@ Si vous devez ajouter des comptes à votre cluster, procédez comme suit :
 
 ##<a id="tunnel"></a>Tunneling SSH
 
-Vous pouvez aussi utiliser SSH pour transférer des requêtes locales, telles que des demandes web, vers le cluster HDInsight. La requête sera ensuite acheminée vers la ressource demandée comme si elle provenait du nœud principal du cluster HDInsight.
+Vous pouvez utiliser SSH pour transférer des requêtes locales, telles que des demandes web, vers le cluster HDInsight. La requête sera ensuite acheminée vers la ressource demandée comme si elle provenait du nœud principal du cluster HDInsight.
 
-Cela peut être très utile pour accéder aux services Web sur le cluster HDInsight qui utilise des noms de domaine internes pour le nœud principal ou le nœud de travail dans le cluster. Par exemple, certaines sections de la page web Ambari utilisent des noms de domaine internes, tels que **headnode0.mycluster.d1.internal.cloudapp.net**. Ces noms ne peuvent pas être résolus en dehors du cluster. Toutefois, les requêtes tunnelées par SSH proviennent de l’intérieur du cluster et seront correctement résolues.
+> [AZURE.IMPORTANT]Un tunnel SSH est requis pour accéder à l'interface utilisateur web correspondant aux services Hadoop sopme. Par exemple, l'interface utilisateur de l'historique des travaux ou de l'interface utilisateur du Gestionnaire de ressources est uniquement accessible à l'aide d'un tunnel SSH.
 
 Suivez les étapes suivantes pour créer un tunnel SSH et configurer son utilisation par votre navigateur afin de vous connecter au cluster :
 
@@ -228,7 +233,7 @@ Suivez les étapes suivantes pour créer un tunnel SSH et configurer son utilisa
 
 ###Extensions du navigateur
 
-Si la configuration du navigateur pour utiliser le tunnel fonctionne, en principe vous n'avez pas besoin d'acheminer tout le trafic via le tunnel. Les extensions de navigateur telles que [FoxyProxy](http://getfoxyproxy.org/) prennent en charge la correspondance des requêtes URL (FoxyProxy Standard ou Plus uniquement) pour que seules les requêtes d’URL spécifiques soient envoyées via le tunnel.
+Si la configuration du navigateur pour utiliser le tunnel fonctionne, en principe vous n'avez pas besoin d'acheminer tout le trafic via le tunnel. Les extensions de navigateur telles que [FoxyProxy](http://getfoxyproxy.org/) prennent en charge la correspondance des requêtes URL (FoxyProxy Standard ou Plus uniquement) pour que seules les requêtes d'URL spécifiques soient envoyées via le tunnel.
 
 Si vous avez installé FoxyProxy Standard, suivez les étapes suivantes pour configurer celui-ci uniquement pour le trafic de transfert de HDInsight via le tunnel.
 
@@ -278,4 +283,6 @@ Maintenant que vous savez comment vous authentifier avec une clé SSH, apprenez 
 
 * [Utilisation des tâches MapReduce avec HDInsight](hdinsight-use-mapreduce.md)
 
-<!---HONumber=August15_HO6-->
+[preview-portal]: https://portal.azure.com/
+
+<!---HONumber=August15_HO8-->

@@ -5,8 +5,8 @@
 	manager="paulettm"
 	services="hdinsight"
 	documentationCenter=""
+	tags="azure-portal"
 	authors="mumian"/>
-
 
 <tags
 	ms.service="hdinsight"
@@ -14,9 +14,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/11/2015"
+	ms.date="07/28/2015"
 	ms.author="jgao"/>
-
 
 #Utilisation de Sqoop avec Hadoop dans HDInsight (Windows)
 
@@ -224,7 +223,7 @@ Vous allez créer deux tables dans la base de données SQL Azure ou dans SQL S
 		Write-Host "Done" -ForegroundColor Green
 
 5. Cliquez sur **Exécuter le script** ou appuyez sur **F5** pour exécuter le script.
-6. Contrôlez les tables et les index cluster dans le [portail Azure][azure-management-portal].
+6. Contrôlez les tables et les index de cluster dans la [version préliminaire du portail Azure][azure-management-portal].
 
 **Pour SQL Server**
 
@@ -347,7 +346,7 @@ Cela convient pour d'autres exemples qui utilisent ces données, mais nous devon
 		$destBlob.UploadFromStream($memStream)
 
 5. Cliquez sur **Exécuter le script** ou appuyez sur **F5** pour exécuter le script.
-6. Pour examiner le fichier de données modifiées, vous pouvez utiliser le portail Azure, un outil d’exploration Azure Storage, ou Azure PowerShell. Le didacticiel [Prise en main de HDInsight][hdinsight-get-started] inclut un exemple de code présentant l’utilisation de Azure PowerShell pour télécharger un fichier et afficher son contenu.
+6. Pour examiner le fichier de données modifiées, vous pouvez utiliser la version préliminaire du portail Azure, un outil d'exploration Azure Storage, ou Azure PowerShell. Le didacticiel [Prise en main de HDInsight][hdinsight-get-started] inclut un exemple de code présentant l’utilisation de Azure PowerShell pour télécharger un fichier et afficher son contenu.
 
 
 ##Exécution d'une commande Sqoop export à l'aide de PowerShell
@@ -412,7 +411,7 @@ Dans cette section, vous allez utiliser Azure PowerShell pour exécuter la comm
 	Notez que le délimiteur de champ est **\\0x20**, qui est un espace. Le délimiteur est défini dans le fichier sample.log du script Azure PowerShell. Pour plus d'informations sur **-m 1**, consultez le [Guide d'utilisation de Sqoop][sqoop-user-guide-1.4.4].
 
 5. Cliquez sur **Exécuter le script** ou appuyez sur **F5** pour exécuter le script.
-6. Examinez les données exportées dans le [portail Azure][azure-management-portal].
+6. Examinez les données exportées dans la [version préliminaire du portail Azure][azure-management-portal].
 
 **Pour exporter la table Hive hivesampletable**
 
@@ -463,7 +462,7 @@ Dans cette section, vous allez utiliser Azure PowerShell pour exécuter la comm
 		Get-AzureHDInsightJobOutput -Cluster $clusterName -JobId $sqoopJob.JobId -StandardOutput
 
 5. Cliquez sur **Exécuter le script** ou appuyez sur **F5** pour exécuter le script.
-6. Examinez les données exportées dans le [portail Azure][azure-management-portal].
+6. Examinez les données exportées dans la [version préliminaire du portail Azure][azure-management-portal].
 
 
 
@@ -615,7 +614,7 @@ Dans cette section, vous allez importer à nouveau les journaux log4j (que vous 
 		Get-AzureHDInsightJobOutput -Cluster $clusterName -JobId $sqoopJob.JobId -StandardOutput
 
 5. Cliquez sur **Exécuter le script** ou appuyez sur **F5** pour exécuter le script.
-6. Pour examiner le fichier de données modifiées, vous pouvez utiliser le portail Azure, un outil d’exploration Azure Storage, ou Azure PowerShell. Le didacticiel [Prise en main de HDInsight][hdinsight-get-started] inclut un exemple de code présentant l'utilisation de Azure PowerShell pour télécharger un fichier et afficher son contenu.
+6. Pour examiner le fichier de données modifiées, vous pouvez utiliser la version préliminaire du portail Azure, un outil d'exploration Azure Storage, ou Azure PowerShell. Le didacticiel [Prise en main de HDInsight][hdinsight-get-started] inclut un exemple de code présentant l'utilisation de Azure PowerShell pour télécharger un fichier et afficher son contenu.
 
 ##Étapes suivantes
 
@@ -628,7 +627,7 @@ Vous maîtrisez à présent l'utilisation de Sqoop. Pour plus d'informations, co
 
 
 
-[azure-management-portal]: https://manage.windowsazure.com/
+[azure-management-portal]: https://portal.azure.com/
 
 [hdinsight-versions]: hdinsight-component-versioning.md
 [hdinsight-provision]: hdinsight-provision-clusters.md
@@ -647,6 +646,5 @@ Vous maîtrisez à présent l'utilisation de Sqoop. Pour plus d'informations, co
 [powershell-script]: http://technet.microsoft.com/library/ee176949.aspx
 
 [sqoop-user-guide-1.4.4]: https://sqoop.apache.org/docs/1.4.4/SqoopUserGuide.html
- 
 
-<!------HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

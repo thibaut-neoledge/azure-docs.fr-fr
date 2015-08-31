@@ -1,10 +1,10 @@
 <properties
 	pageTitle="Contrôle d’accès basé sur les rôles dans le portail Azure de Microsoft"
-	description="Décrit le fonctionnement du contrôle d'accès en fonction du rôle et comment configurer ce dernier"
+	description="Décrit le fonctionnement du contrôle d&#39;accès en fonction du rôle et comment configurer ce dernier"
 	services=""
 	documentationCenter=""
-	authors="Justinha"
-	manager="terrylan"
+	authors="IHenkel"
+	manager="stevenpo"
 	editor=""/>
 
 <tags
@@ -13,8 +13,8 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="Ibiza"
 	ms.workload="infrastructure-services"
-	ms.date="06/29/2015"
-	ms.author="justinha"/>
+	ms.date="08/14/2015"
+	ms.author="inhenk"/>
 
 # Contrôle d’accès basé sur les rôles dans le portail Azure de Microsoft
 
@@ -84,7 +84,7 @@ Commençons par ajouter l'accès en Lecture pour toutes les ressources de l'abon
 
 ![][3]
 
-Cliquez sur le *nom de l'abonnement* \*\* > Lecteur > Ajouter\*\*. Dans la liste des utilisateurs et des groupes, sélectionnez ou entrez le nom du groupe Active Directory.
+Cliquez sur le *nom de l'abonnement* ** > Lecteur > Ajouter**. Dans la liste des utilisateurs et des groupes, sélectionnez ou entrez le nom du groupe Active Directory.
 
 ![][4]
 
@@ -1293,4 +1293,4 @@ Voici quelques ressources supplémentaires destinées à faciliter votre utilisa
 [9]: ./media/role-based-access-control-configure/RBACInviteExtUser_NEW.png
 [10]: ./media/role-based-access-control-configure/RBACDirConfigTab.png
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

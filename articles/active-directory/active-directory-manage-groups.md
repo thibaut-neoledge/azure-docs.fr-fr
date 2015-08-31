@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Gestion de l’accès aux ressources avec les groupes Azure Active Directory | Microsoft Azure" 
-	description="Rubrique qui explique comment utiliser des groupes de gestion des accès dans Azure AD." 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="femila" 
-	manager="swadhwa" 
+	pageTitle="Gestion de l’accès aux ressources avec les groupes Azure Active Directory | Microsoft Azure"
+	description="Rubrique qui explique comment utiliser des groupes de gestion des accès dans Azure AD."
+	services="active-directory"
+	documentationCenter=""
+	authors="femila"
+	manager="swadhwa"
 	editor=""
 	tags="azure-classic-portal"/>
 
 <tags 
-	ms.service="active-directory" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/13/2015" 
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/14/2015"
 	ms.author="femila"/>
 
 
@@ -90,6 +90,8 @@ Voici des rubriques qui fournissent des informations supplémentaires sur Azure 
 
 * [Qu’est-ce qu’Azure Active Directory ?](active-directory-whatis.md)
 
-* [Intégration des identités locales avec Azure Active Directory](active-directory-aadconnect.md)
+* [Intégration de vos identités locales avec Azure Active Directory](active-directory-aadconnect.md)
 
-<!---HONumber=August15_HO6-->
+* [Référence de l’API Graph pour les groupes](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/groups-operations#GroupFunctions)
+
+<!---HONumber=August15_HO8-->

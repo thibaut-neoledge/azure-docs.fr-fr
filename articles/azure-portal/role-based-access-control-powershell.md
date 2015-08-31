@@ -1,10 +1,10 @@
 <properties
-	pageTitle="Gestion du contrôle d'accès basé sur un rôle à l'aide de Windows PowerShell"
-	description="Gestion du contrôle d'accès basé sur un rôle à l'aide de Windows PowerShell"
+	pageTitle="Gestion du contrôle d&#39;accès basé sur un rôle à l&#39;aide de Windows PowerShell"
+	description="Gestion du contrôle d&#39;accès basé sur un rôle à l&#39;aide de Windows PowerShell"
 	services="azure-portal"
 	documentationCenter="na"
-	authors="Justinha"
-	manager="terrylan"
+	authors="IHenkel"
+	manager="stevenpo"
 	editor="mollybos"/>
 
 <tags
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="powershell"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/11/2015"
-	ms.author="justinha"/>
+	ms.date="08/14/2015"
+	ms.author="inhenk"/>
 
 # Gestion du contrôle d'accès basé sur un rôle à l'aide de Windows PowerShell #
 
@@ -163,6 +163,5 @@ Pour en savoir plus sur le contrôle d'accès en fonction du rôle à l'aide de 
 - [Blog « Hey, Scripting Guy! »](http://blogs.technet.com/b/heyscriptingguy/) : bénéficiez des conseils et astuces de la communauté Windows PowerShell.
 - [Configurer le contrôle d'accès en fonction du rôle à l'aide de l'interface de ligne de commande Azure](role-based-access-control-xplat-cli.md)
 - [Résolution des problèmes de contrôle d'accès basé sur les rôles](role-based-access-control-troubleshooting.md)
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

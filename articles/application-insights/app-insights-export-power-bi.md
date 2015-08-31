@@ -1,21 +1,19 @@
 <properties 
-	pageTitle="Afficher des données Application Insights dans Power BI" 
-	description="Utilisez Power BI pour analyser les performances et l’utilisation de votre application." 
-	services="application-insights" 
-    documentationCenter=""
-	authors="alancameronwills" 
+	pageTitle="Afficher des données Application Insights dans Power BI"
+	description="Utilisez Power BI pour analyser les performances et l’utilisation de votre application."
+	services="application-insights"
+	documentationCenter=""
+	authors="noamben"
 	manager="douge"/>
 
-
 <tags 
-	ms.service="application-insights" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/04/2015" 
+	ms.service="application-insights"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="ibiza"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/04/2015"
 	ms.author="awills"/>
-
  
 # Vues Power BI des données Application Insights
 
@@ -120,7 +118,7 @@ Dans cet exemple :
 
 * `webapplication27` est le nom de la ressource Application Insights. 
 * `1000...` est la clé d’instrumentation de la ressource Application Insights. 
-* `PageViews` est le type de données que nous souhaitons analyser. Les types disponibles varient selon le filtre que vous définissez dans l’exportation continue. Examinez les données exportées pour voir les autres types disponibles.
+* `PageViews` est le type de données que nous souhaitons analyser. Les types disponibles varient selon le filtre que vous définissez dans l’exportation continue. Examinez les données exportées pour voir les autres types disponibles, et consultez le [modèle d’exportation de données](app-insights-export-data-model.md).
 * `/{date}/{time}` est une séquence écrite de manière littérale.
 
 Pour obtenir le nom et l’iKey de votre ressource Application Insights, ouvrez Essentials sur sa page de présentation ou ouvrez Paramètres.
@@ -199,4 +197,4 @@ Noam Ben Zeev montre comment exporter vers Power BI.
 * [Application Insights](app-insights-overview.md)
 * [Plus d'exemples et de procédures pas à pas](app-insights-code-samples.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

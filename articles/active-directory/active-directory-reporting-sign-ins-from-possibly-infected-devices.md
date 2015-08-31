@@ -3,8 +3,8 @@
 	description="Un rapport incluant des tentatives de connexion effectuées à partir d’appareils sur lesquels des logiciels malveillants peuvent être exécutés."
 	services="active-directory"
 	documentationCenter=""
-	authors="kenhoff"
-	manager="ilanas"
+	authors="SSalahAhmed"
+	manager="gchander"
 	editor=""/>
 
 <tags
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/13/2015"
-	ms.author="kenhoff"/>
+	ms.date="08/17/2015"
+	ms.author="saah;kenhoff"/>
 
 # Connexions à partir de périphériques potentiellement infectés
 
@@ -24,4 +24,4 @@
 
 ![Connexions à partir de périphériques potentiellement infectés](./media/active-directory-reporting-sign-ins-from-possibly-infected-devices/signInsFromPossiblyInfectedDevices.PNG)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

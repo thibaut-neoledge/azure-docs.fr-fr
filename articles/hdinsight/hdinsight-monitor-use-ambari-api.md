@@ -3,6 +3,7 @@
 	description="Utilisez les API Apache Ambari pour l'approvisionnement, la gestion et la surveillance des clusters Hadoop. Les outils intuitifs pour opérateurs et les API masquent la complexité de Hadoop."
 	services="hdinsight"
 	documentationCenter=""
+	tags="azure-portal"
 	authors="mumian"
 	editor="cgronlun"
 	manager="paulettm"/>
@@ -13,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/08/2015"
+	ms.date="07/28/2015"
 	ms.author="jgao"/>
 
 # Surveillance des clusters Hadoop dans HDInsight à l'aide des API Ambari
@@ -39,7 +40,7 @@ Avant de commencer ce didacticiel, vous devez disposer des éléments suivants 
 
 - [cURL][curl] est facultatif. Pour l’installer, consultez [Versions et téléchargements de cURL][curl-download].
 
-	>[AZURE.NOTE] Lorsque vous utilisez la commande cURL sous Windows, remplacez les guillemets simples par des guillemets doubles pour exprimer la valeur des options.
+	>[AZURE.NOTE]Lorsque vous utilisez la commande cURL sous Windows, remplacez les guillemets simples par des guillemets doubles pour exprimer la valeur des options.
 
 - Un **cluster Azure HDInsight**. Pour obtenir des instructions sur l’approvisionnement des clusters, consultez la rubrique [Prise en main de HDInsight][hdinsight-get-started] ou [Approvisionnement de clusters HDInsight][hdinsight-provision]. Vous aurez besoin des données suivantes pour suivre ce didacticiel :
 
@@ -146,7 +147,7 @@ Obtenir des infos sur la configuration|`/api/v1/clusters/&lt;ClusterName&gt;.azu
 
 Vous avez appris à utiliser les appels d'API de surveillance Ambari. Pour plus d'informations, consultez les rubriques suivantes :
 
-- [Gestion des clusters HDInsight au moyen du portail de gestion Azure][hdinsight-admin-portal]
+- [Gestion des clusters HDInsight au moyen de la version préliminaire du portail Azure][hdinsight-admin-portal]
 - [Gestion des clusters HDInsight à l’aide d’Azure PowerShell][hdinsight-admin-powershell]
 - [Gestion de clusters HDInsight à l’aide de l’interface de ligne de commande][hdinsight-admin-cli]
 - [Documentation HDInsight][hdinsight-documentation]
@@ -173,6 +174,5 @@ Vous avez appris à utiliser les appels d'API de surveillance Ambari. Pour plus 
 [hdinsight-provision]: hdinsight-provision-clusters.md
 
 [img-jobtracker-output]: ./media/hdinsight-monitor-use-ambari-api/hdi.ambari.monitor.jobtracker.output.png
- 
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

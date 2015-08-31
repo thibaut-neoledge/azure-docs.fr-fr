@@ -5,15 +5,16 @@
 	documentationCenter=""
 	authors="dsk-2015"
 	manager="timlt"
-	editor=""/>
+	editor=""
+	tags="azure-service-management,azure-resource-manager"/>
 
 <tags
-ms.service="virtual-machines"
+	ms.service="virtual-machines"
 	ms.devlang="na"
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-linux"
 	ms.workload="infrastructure-services"
-	ms.date="07/20/2015"
+	ms.date="08/12/2015"
 	ms.author="dkshir"/>
 
 # Différentes façons de créer une machine virtuelle Linux
@@ -26,13 +27,13 @@ Les modèles Microsoft Azure Resource Manager ont été récemment introduits 
 
 ### Interface utilisateur graphique : le portail ou le portail en version préliminaire Microsoft Azure
 
-L’interface utilisateur graphique du portail Microsoft Azure constitue un moyen simple de tester une machine virtuelle, en particulier si vous venez de démarrer avec Microsoft Azure. Pour créer la machine virtuelle, utilisez le portail Microsoft Azure ou le portail Microsoft Azure en version préliminaire. Pour plus d'informations, consultez [Création d’une machine virtuelle personnalisée][] et sélectionnez une image Linux à partir de la **galerie**.
+L’interface utilisateur graphique du portail Microsoft Azure constitue un moyen simple de tester une machine virtuelle, en particulier si vous venez de démarrer avec Microsoft Azure. Pour créer la machine virtuelle, utilisez le [portail Azure](http://manage.windowsazure.com) ou la [version préliminaire du portail Azure](http://portal.azure.com). Pour plus d'informations, consultez la rubrique [Création d’une machine virtuelle personnalisée][] et sélectionnez une image Linux à partir de la **galerie**. Notez que le [portail Azure](http://manage.windowsazure.com) crée des machines virtuelles en utilisant uniquement le modèle de déploiement classique.
 
 ### Interface de commande : interface de ligne de commande Microsoft Azure ou Microsoft Azure PowerShell
 
 Si vous préférez travailler dans une interface de commande, choisissez l’interface de ligne de commande Microsoft Azure ou Microsoft Azure PowerShell, qui comporte des applets de commande Windows PowerShell pour Microsoft Azure et une console personnalisée.
 
-Pour la CLI Azure, consultez la page [Création d’une machine virtuelle exécutant Linux][]. Pour utiliser un modèle, consultez [Déploiement et gestion de machines virtuelles à l’aide des modèles Azure Resource Manager et de l’interface de ligne de commande Azure][].
+Pour l’interface de ligne de commande Azure, consultez la page [Création d’une machine virtuelle exécutant Linux][]. Pour utiliser un modèle, consultez [Déploiement et gestion de machines virtuelles à l’aide des modèles Azure Resource Manager et de l’interface de ligne de commande Azure][].
 
 Pour Microsoft Azure PowerShell, consultez la page [Utilisation de Microsoft Azure PowerShell pour créer et préconfigurer les machines virtuelles Linux][]. Pour utiliser un modèle, consultez la page [Déploiement et gestion de machines virtuelles à l’aide de modèles Azure Resource Manager et de PowerShell][].
 
@@ -102,4 +103,4 @@ Utilisez une image basée sur une machine virtuelle Microsoft Azure existante, 
 [Création d’une machine virtuelle exécutant Linux]: virtual-machines-linux-tutorial.md
 [Création d’une machine virtuelle personnalisée]: virtual-machines-create-custom.md
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

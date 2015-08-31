@@ -1,31 +1,46 @@
 <properties 
-   pageTitle="Liste des mises à jour appliquées au SE invité d'Azure | Microsoft Azure" 
-   description="Publications de la liste des mises à jour appliquées au SE invité" 
-   services="cloud-services" 
-   documentationCenter="na" 
-   authors="yuemlu" 
-   manager="markkie" 
-   editor=""/>
+   pageTitle="Liste des mises à jour appliquées au SE invité d'Azure | Microsoft Azure"
+	description="Publications de la liste des mises à jour appliquées au SE invité"
+	services="cloud-services"
+	documentationCenter="na"
+	authors="yuemlu"
+	manager="markkie"
+	editor=""/>
 
 <tags
    ms.service="cloud-services"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="tbd" 
-   ms.date="04/17/2015"
-   ms.author="adegeo"/>
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="tbd"
+	ms.date="04/17/2015"
+	ms.author="adegeo"/>
 
 # SE invité d'Azure 
 
 Les tableaux suivants indiquent les mises à jour de Microsoft Security Response Center (MSRC) appliquées au SE invité d'Azure. Parcourez cet article pour déterminer si une mise à jour spécifique s'applique au SE invité que vous utilisez. Les mises à jour vont toujours de l'avant pour la [famille][family-explain] spécifique avec laquelle elles ont été présentées.
+
+## SE invité août
+
+| ID de bulletin | Article de la base de connaissances parent | Description de la vulnérabilité | SE invité | Date de première présentation |
+| ----------- | ------------------- | --------------------------------------------------------------------------- | ---------------- | --------------------- |
+| MS15-079 | [3082442] | Mise à jour de sécurité cumulative pour Internet Explorer | 4\.23, 3.30, 2.42 | 11 août 2015 |
+| MS15-080 | [3078662] | Des vulnérabilités dans le composant des graphiques Microsoft pourraient permettre l’exécution du code à distance | 4\.23, 3.30, 2.42 | 11 août 2015 |
+| MS15-082 | [3080348] | Des vulnérabilités dans RDP pourraient permettre l’exécution de code à distance | 4\.23, 3.30, 2.42 | 11 août 2015 |
+| MS15-084 | [3080129] | Des vulnérabilités dans les services de base XML pourraient permettre la divulgation d’informations | 4\.23, 3.30, 2.42 | 11 août 2015 |
+| MS15-085 | [3082487] | Une vulnérabilité dans Mount Manager pourrait permettre une élévation des privilèges | 4\.23, 3.30, 2.42 | 11 août 2015 |
+| MS15-088 | [3082458] | Une transmission de paramètres de ligne de commande non sécurisée pourrait permettre la divulgation d’informations | 4\.23, 3.30, 2.42 | 11 août 2015 |
+| MS15-089 | [3060716] | Des vulnérabilités dans Microsoft Windows pourraient permettre une élévation des privilèges | 4\.23, 3.30, 2.42 | 11 août 2015 |
+| MS15-090 | [3076949] | Une vulnérabilité dans WebDAV pourrait permettre la divulgation d’informations | 4\.23, 3.30, 2.42 | 11 août 2015 |
+| MS15-092 | [3086251] | Des vulnérabilités dans .NET Framework pourraient permettre une élévation des privilèges | 4\.23, 3.30, 2.42 | 11 août 2015 |
+
 
 ## SE invité juillet
 
 | ID de bulletin | Article de la base de connaissances parent | Description de la vulnérabilité | SE invité | Date de première présentation |
 | ----------- | ------------------- | --------------------------------------------------------------------------- | ---------------- | --------------------- |
 | MS15-065 | [3076321] | Mise à jour de sécurité cumulative pour Internet Explorer | 4\.22, 3.29, 2.41 | 14 juillet 2015 |
-| MS15-066 | [3072604] | Une vulnérabilité dans VBScript pouvait permettre l’exécution de code à distance | 4\.22, 3.29, 2.41 | 14 juillet 2015 |
+| MS15-066 | [3072604] | Une vulnérabilité dans VBScript pouvait permettre l’exécution de code à distance | 2\.41 | 14 juillet 2015 |
 | MS15-067 | [3073094] | Une vulnérabilité dans RDP pouvait permettre l’exécution de code à distance | 4\.22, 3.29, 2.41 | 14 juillet 2015 |
 | MS15-068 | [3072000] | Une vulnérabilité dans Windows Hyper-V pouvait permettre l’exécution de code à distance | 4\.22, 3.29, 2.41 | 14 juillet 2015 |
 | MS15-069 | [3072631] | Des vulnérabilités dans Windows pouvaient permettre l’exécution de code à distance | 4\.22, 3.29, 2.41 | 14 juillet 2015 |
@@ -108,7 +123,7 @@ Les tableaux suivants indiquent les mises à jour de Microsoft Security Response
 | MS15-014 | [3004361][3004361] | Une vulnérabilité dans SMB pourrait permettre de contourner la fonctionnalité de sécurité | 4\.17, 3.24, 2.36 | N/A |
 | MS15-015 | [3031432][3031432] | Une vulnérabilité dans Microsoft Windows pourrait permettre une élévation des privilèges | 4\.17, 3.24, 2.36 | N/A |
 | MS15-016 | [3029944][3029944] | Une vulnérabilité dans le composant des graphiques Windows pourrait permettre la divulgation d'informations | 4\.17, 3.24, 2.36 | N/A |
-| N/A | [3004375][3004375] | Mise à jour permettant d’améliorer l'audit de la ligne de commande Windows<p/>\*\* Remarque\*\* : elle est installée, mais la clé de registre permettant de l’activer est désactivée | 4\.17, 3.24, 2.36 | N/A |
+| N/A | [3004375][3004375] | Mise à jour permettant d’améliorer l'audit de la ligne de commande Windows<p/>** Remarque** : elle est installée, mais la clé de registre permettant de l’activer est désactivée | 4\.17, 3.24, 2.36 | N/A |
  
 
 ## SE invité janvier
@@ -142,6 +157,17 @@ Les tableaux suivants indiquent les mises à jour de Microsoft Security Response
 | N/A | [3007054][3007054] | Option d'impression protégée par code PIN toujours présente lors de l'impression d'un document dans une application Windows Store dans Windows | 4\.15, 3.22, 2.34 | 13 janvier 2015 |
 | N/A | [2999802][2999802] | Des lignes pleines sont imprimées dans Windows au lieu de lignes en pointillés | 4\.15, 3.22, 2.34 | 13 janvier 2015 |
 | N/A | [2896881][2896881] | Durée d'ouverture de session importante lorsque vous utilisez la commande AddPrinterConnection VBScript pour mapper des imprimantes pour les utilisateurs lors du processus d'ouverture de session dans Windows | 4\.15, 3.22, 2.34 | 13 janvier 2015 |
+
+[3082442]: http://support.microsoft.com/kb/3082442
+[3078662]: http://support.microsoft.com/kb/3078662
+[3080348]: http://support.microsoft.com/kb/3080348
+[3080129]: http://support.microsoft.com/kb/3080129
+[3082487]: http://support.microsoft.com/kb/3082487
+[3082458]: http://support.microsoft.com/kb/3082458
+[3060716]: http://support.microsoft.com/kb/3060716
+[3076949]: http://support.microsoft.com/kb/3076949
+[3086251]: http://support.microsoft.com/kb/3086251
+
 
 [3076321]: http://support.microsoft.com/kb/3076321
 [3072604]: http://support.microsoft.com/kb/3072604
@@ -239,4 +265,4 @@ Les tableaux suivants indiquent les mises à jour de Microsoft Security Response
 [family-explain]: cloud-services-guestos-update-matrix.md#guest-os-family-version-and-release-explanation
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

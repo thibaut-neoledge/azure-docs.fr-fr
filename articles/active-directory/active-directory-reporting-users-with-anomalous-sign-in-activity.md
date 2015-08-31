@@ -3,8 +3,8 @@
 	description="Un rapport indiquant tous les comptes d’utilisateurs pour lesquels une activité de connexion anormale a été identifiée."
 	services="active-directory"
 	documentationCenter=""
-	authors="kenhoff"
-	manager="ilanas"
+	authors="SSalahAhmed"
+	manager="gchander"
 	editor=""/>
 
 <tags
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/13/2015"
-	ms.author="kenhoff"/>
+	ms.date="08/17/2015"
+	ms.author="saah;kenhoff"/>
 
 # Utilisateurs ayant une activité de connexion anormale
 
@@ -24,4 +24,4 @@
 
 ![Utilisateurs ayant une activité de connexion anormale](./media/active-directory-reporting-users-with-anomalous-sign-in-activity/usersWithAnomalousSignInActivity.PNG)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

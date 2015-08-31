@@ -1,20 +1,20 @@
 <properties
    pageTitle="Application API du connecteur Chatter"
-   description="Utilisation du connecteur Chatter"
-   services="app-service\logic"
-   documentationCenter=".net,nodejs,java"
-   authors="anuragdalmia"
-   manager="dwrede"
-   editor=""/>
+	description="Utilisation du connecteur Chatter"
+	services="app-service\logic"
+	documentationCenter=".net,nodejs,java"
+	authors="anuragdalmia"
+	manager="dwrede"
+	editor=""/>
 
 <tags
    ms.service="app-service-logic"
-   ms.devlang="multiple"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="integration"
-   ms.date="08/09/2015"
-   ms.author="sameerch"/>
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="integration"
+	ms.date="08/19/2015"
+	ms.author="sameerch"/>
 
 
 # Utilisation du connecteur Chatter dans votre application logique
@@ -39,7 +39,7 @@ Un connecteur peut être créé dans une application logique ou directement à p
 
 1. Dans le tableau d'accueil Azure, sélectionnez **Marketplace**.
 2. Recherchez « Connecteur Chatter », sélectionnez-le et sélectionnez **Créer**.
-3. Entrez le nom, le plan App Service et d'autres propriétés : 
+3. Entrez le nom, le plan App Service et d'autres propriétés :
 	![][1]  
 	- **Emplacement** : choisissez l’emplacement géographique dans lequel vous voulez déployer le connecteur.
 	- **Abonnement** : choisissez un abonnement dans lequel vous souhaitez créer ce connecteur.
@@ -56,27 +56,30 @@ Une fois votre application API créée, vous pouvez utiliser le connecteur Chatt
 
 1. Dans votre application logique, ouvrez **Déclencheurs et actions** pour ouvrir le concepteur d'applications logiques et configurer votre flux.
 
-2. Le connecteur Chatter est répertorié dans la galerie : 
+2. Le connecteur Chatter est répertorié dans la galerie :
+
 	![][4]
-3. Sélectionnez le connecteur Chatter pour l'ajouter automatiquement dans le concepteur. Sélectionnez **Autoriser**, entrez vos informations d'identification, puis sélectionnez **Autoriser** : 
-	![][5] 
-	![][6] 
+3. Sélectionnez le connecteur Chatter pour l'ajouter automatiquement dans le concepteur. Sélectionnez **Autoriser**, entrez vos informations d'identification, puis sélectionnez **Autoriser** :
+	![][5]
+	![][6]
 	![][7]
 
 Vous pouvez maintenant utiliser le connecteur Chatter dans le flux. Vous pouvez utiliser le nouveau message récupéré du déclencheur Chatter (« Nouveau message ») dans d’autres actions du flux. Configurez les propriétés d’entrée du déclencheur Chatter comme suit :
 
-**ID de groupe** : entrez l'ID du groupe à partir duquel le nouveau message doit être récupéré. Si l'ID de groupe n'est pas spécifié, le nouveau message est récupéré du flux de l'utilisateur : ![][8] ![][9]
+**ID de groupe** : entrez l'ID du groupe à partir duquel le nouveau message doit être récupéré. Si l'ID de groupe n'est pas spécifié, le nouveau message est récupéré du flux de l'utilisateur :
+	![][8]
+	![][9]
 
 
 De même, vous pouvez utiliser l’action Chatter dans le flux pour publier un message en sélectionnant l’action « Publier le message ». Configurez les propriétés d'entrée pour l'action « Publier le message » comme suit : - **Texte du message** : contenu texte du message à publier - **ID de groupe** : spécifiez l'ID du groupe où le nouveau message doit être publié. Si l'ID de groupe n'est pas indiqué, le message sera publié dans le flux de l'utilisateur. - **Nom de fichier** : nom du fichier à associer à ce message - **Données de contenu** : données de contenu de la pièce jointe - **Type de contenu** : type de contenu de la pièce jointe - **Encodage du transfert de contenu** : encodage du transfert du contenu de la pièce jointe (« none » | « Base64 ») - **Mentions** : tableau des noms d'utilisateur à baliser dans ce message - **Hashtags** : tableau des hashtags à publier avec le message.
 
-	![][10] 
+	![][10]
 	![][11]
 
 ## En faire plus avec votre connecteur
 Maintenant que le connecteur est créé, vous pouvez l'ajouter à un flux d'entreprise à l'aide d'une application logique. Voir [Que sont les applications logiques ?](app-service-logic-what-are-logic-apps.md).
 
-Créez les applications API à l’aide des API REST. Pour plus d'informations, consultez [Référence de connecteurs et d'applications API](http://go.microsoft.com/fwlink/p/?LinkId=529766).
+Affichez la référence d’API REST Swagger sur [Référence de connecteurs et d’applications API](http://go.microsoft.com/fwlink/p/?LinkId=529766).
 
 Vous pouvez également consulter les statistiques de performances et contrôler la sécurité du connecteur. Pour plus d'informations, consultez [Gestion et contrôle de vos connecteurs et applications API intégrés](app-service-logic-monitor-your-connectors.md).
 
@@ -94,4 +97,4 @@ Vous pouvez également consulter les statistiques de performances et contrôler 
 [10]: ./media/app-service-logic-connector-chatter/img10.PNG
 [11]: ./media/app-service-logic-connector-chatter/img11.PNG
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

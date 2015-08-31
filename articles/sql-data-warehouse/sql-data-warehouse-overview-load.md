@@ -5,8 +5,7 @@
    documentationCenter="NA"
    authors="lodipalm"
    manager="barbkess"
-   editor=""/>
-
+   editor="jrowlandjones"/>
 
 <tags
    ms.service="sql-data-warehouse"
@@ -16,7 +15,6 @@
    ms.workload="data-services"
    ms.date="06/21/2015"
    ms.author="lodipalm;barbkess"/>
-
 
 # Charger des données dans SQL Data Warehouse
 SQL Data Warehouse comporte de nombreuses options permettant de charger des données, notamment :
@@ -45,16 +43,19 @@ Dans les sections suivantes, nous examinons chaque étape et fournissons des exe
 
 En vue de déplacer vos fichiers vers Azure, vous devez les exporter dans des fichiers plats. Pour ce faire, privilégiez l’utilitaire de ligne de commande BCP. Si vous ne possédez pas l’utilitaire, vous pouvez le télécharger avec les [utilitaires de ligne de commande Microsoft pour SQL Server][]. Un exemple de commande BCP peut se présenter comme suit :
 
-	bcp "<Directory><File>" -c -T -S <Server Name> -d <Database Name>
+```
+bcp "<Directory><File>" -c -T -S <Server Name> -d <Database Name>
+```
 
 Cette commande récupère les résultats d’une requête et les exporte vers un fichier dans le répertoire de votre choix. Vous pouvez paralléliser le processus en exécutant plusieurs commandes BCP pour des tables distinctes simultanément. Cela vous permet d’exécuter jusqu’à un processus BCP par cœur de votre serveur. Vous pouvez commencer par effectuer quelques opérations de moindre envergure sur différentes configurations pour voir ce qui convient le mieux à votre environnement.
 
 En outre, comme nous chargerons les données à l’aide de PolyBase, tous les fichiers doivent être au format UTF-8, car PolyBase ne prend pas encore en charge le format UTF-16. Vous pouvez aisément effectuer cette opération en incluant l’indicateur « -c » dans votre commande BCP ou vous pouvez également convertir les fichiers plats UTF-16 au format UTF-8 avec le code ci-dessous :
 
-		Get-Content <input_file_name> -Encoding Unicode | Set-Content <output_file_name> -Encoding utf8
+```
+Get-Content <input_file_name> -Encoding Unicode | Set-Content <output_file_name> -Encoding utf8
+```
  
 Une fois que vous avez exporté vos données dans des fichiers, il est temps de les déplacer vers Azure. Pour ce faire, vous pouvez utiliser AZCopy ou le service Import/Export, comme décrit dans la section suivante.
-
 
 ## Chargement dans Azure avec AZCopy ou Import/Export
 Si le volume de données à déplacer est compris entre 5 et 10 téraoctets, voire plus, nous vous recommandons d’utiliser notre service d’expédition de disque [Import/Export][] pour effectuer le déplacement. Toutefois, nos études ont révélé qu’il est possible de déplacer aisément quelques téraoctets de données au moyen d’une connexion Internet publique avec AZCopy. Ce processus peut également être accéléré ou étendu avec ExpressRoute.
@@ -65,7 +66,9 @@ La procédure suivante décrit comment déplacer des données locales vers un co
 
 Une fois créé un ensemble de fichiers à l’aide de BCP, AzCopy peut simplement être exécuté à partir d’Azure PowerShell ou à l’aide d’un script PowerShell. De façon générale, l’invite de commandes nécessaire à l’exécution d’AZCopy se présente comme suit :
 
-	 AZCopy /Source:<File Location> /Dest:<Storage Container Location> /destkey:<Storage Key> /Pattern:<File Name> /NC:256
+```
+AZCopy /Source:<File Location> /Dest:<Storage Container Location> /destkey:<Storage Key> /Pattern:<File Name> /NC:256
+```
 
 En outre, nous recommandons les meilleures pratiques suivantes pour le chargement avec AZCopy :
 
@@ -89,31 +92,38 @@ Les données se trouvant désormais dans des objets blob Azure Storage, nous all
 
 4. **Créez une source de données externe.** Quand l’opération pointe vers un compte de stockage, une source de données externe peut être utilisée si le chargement s’effectue à partir du même conteneur. Pour le paramètre « LOCATION », utilisez un emplacement qui présente le format suivant : « wasbs://mycontainer@ test.blob.core.windows.net/path ».
 
-		-- Creating master key
-		CREATE MASTER KEY;
+```
+-- Creating master key
+CREATE MASTER KEY;
 
-		-- Creating a database scoped credential
-		CREATE DATABASE SCOPED CREDENTIAL <Credential Name> WITH IDENTITY = '<User Name>', 
-    	Secret = '<Azure Storage Key>';
+-- Creating a database scoped credential
+CREATE DATABASE SCOPED CREDENTIAL <Credential Name> 
+WITH 
+    IDENTITY = '<User Name>'
+,   Secret = '<Azure Storage Key>'
+;
 
-		-- Creating external file format (delimited text file)
-		CREATE EXTERNAL FILE FORMAT text_file_format 
-		WITH (
-		    FORMAT_TYPE = DELIMITEDTEXT, 
-		    FORMAT_OPTIONS (
-		        FIELD_TERMINATOR ='|', 
-		        USE_TYPE_DEFAULT = TRUE
-		    )
-		);
+-- Creating external file format (delimited text file)
+CREATE EXTERNAL FILE FORMAT text_file_format 
+WITH 
+(
+    FORMAT_TYPE = DELIMITEDTEXT 
+,   FORMAT_OPTIONS  (
+                        FIELD_TERMINATOR ='|' 
+                    ,   USE_TYPE_DEFAULT = TRUE
+                    )
+);
 
-		--Creating an external data source
-		CREATE EXTERNAL DATA SOURCE azure_storage 
-		WITH (
-	    	TYPE = HADOOP, 
-	        LOCATION ='wasbs://<Container>@<Blob Path>’,
-	        CREDENTIAL = <Credential Name>
-		;
-
+--Creating an external data source
+CREATE EXTERNAL DATA SOURCE azure_storage 
+WITH 
+(
+    TYPE = HADOOP 
+,   LOCATION ='wasbs://<Container>@<Blob Path>'
+,   CREDENTIAL = <Credential Name>
+)
+;
+```
 
 Votre compte de stockage étant correctement configuré, vous pouvez procéder au chargement de vos données dans SQL Data Warehouse.
 
@@ -122,26 +132,36 @@ Après avoir configuré PolyBase, vous pouvez charger les données directement d
 
 1. Utilisez la commande « CREATE EXTERNAL TABLE » pour définir la structure de vos données. Pour capturer l’état de vos données rapidement et efficacement, nous vous recommandons de générer la table SQL Server avec un script dans SSMS, puis d’effectuer des ajustements manuels en fonction de la table externe. Une fois une table externe créée dans Azure, elle continue de pointer vers le même emplacement, même si les données sont mises à jour ou que des données sont ajoutées.  
 
-		-- Creating external table pointing to file stored in Azure Storage
-		CREATE EXTERNAL TABLE <External Table Name> (
-		    <Column name>, <Column type>, <NULL/NOT NULL>
-		)
-		WITH (LOCATION='<Folder Path>',
-		      DATA_SOURCE = <Data Source>,
-		      FILE_FORMAT = <File Format>,      
-		);
+```
+-- Creating external table pointing to file stored in Azure Storage
+CREATE EXTERNAL TABLE <External Table Name> 
+(
+    <Column name>, <Column type>, <NULL/NOT NULL>
+)
+WITH 
+(   LOCATION='<Folder Path>'
+,   DATA_SOURCE = <Data Source>
+,   FILE_FORMAT = <File Format>      
+);
+```
 
-2. Chargez les données avec une instruction « CREATE TABLE...AS SELECT ».
+2. Chargez les données avec une instruction « CREATE TABLE...AS SELECT ». 
 
-		CREATE TABLE <Table Name> 
-		WITH (
-    		CLUSTERED COLUMNSTORE INDEX
-    		)
-		AS SELECT * from <External Table Name>;
+```
+CREATE TABLE <Table Name> 
+WITH 
+(
+	CLUSTERED COLUMNSTORE INDEX
+)
+AS 
+SELECT  * 
+FROM    <External Table Name>
+;
+```
 
-	Notez que vous pouvez également charger une partie des lignes d’une table à l’aide d’une instruction SELECT plus détaillée. Toutefois, comme PolyBase n’envoie pas de calcul supplémentaire aux comptes de stockage à ce stade, si vous chargez une partie des lignes avec une instruction SELECT, cette opération n’est pas plus rapide que le chargement de la totalité du jeu de données.
+Notez que vous pouvez également charger une partie des lignes d’une table à l’aide d’une instruction SELECT plus détaillée. Toutefois, comme PolyBase n’envoie pas de calcul supplémentaire aux comptes de stockage à ce stade, si vous chargez une partie des lignes avec une instruction SELECT, cette opération n’est pas plus rapide que le chargement de la totalité du jeu de données.
 
-En plus de l’instruction « CREATE TABLE...AS SELECT », vous pouvez également charger des données à partir de tables externes dans des tables préexistantes avec une instruction « INSERT...INTO ».
+En plus de l’instruction `CREATE TABLE...AS SELECT`, vous pouvez également charger des données à partir de tables externes dans des tables préexistantes avec une instruction « INSERT...INTO ».
 
 ## Étapes suivantes
 Pour obtenir des conseils supplémentaires sur le développement, consultez la [vue d’ensemble sur le développement][].
@@ -169,4 +189,4 @@ Pour obtenir des conseils supplémentaires sur le développement, consultez la [
 [documentation Azure Storage]: https://azure.microsoft.com/fr-fr/documentation/articles/storage-create-storage-account/
 [documentation sur ExpressRoute]: http://azure.microsoft.com/documentation/services/expressroute/
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

@@ -1,22 +1,20 @@
 <properties
    pageTitle="Connecteur QuickBooks"
-   description="Utilisation du connecteur QuickBooks"
-   services="app-service\logic"
-   documentationCenter=".net,nodejs,java"
-   authors="anuragdalmia"
-   manager="dwrede"
-   editor=""/>
-
+	description="Utilisation du connecteur QuickBooks"
+	services="app-service\logic"
+	documentationCenter=".net,nodejs,java"
+	authors="anuragdalmia"
+	manager="dwrede"
+	editor=""/>
 
 <tags
    ms.service="app-service-logic"
-   ms.devlang="multiple"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="integration"
-   ms.date="07/02/2015"
-   ms.author="sameerch"/>
-
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="integration"
+	ms.date="08/19/2015"
+	ms.author="sameerch"/>
 
 
 #Utilisation du connecteur QuickBooks dans votre application logique#
@@ -121,6 +119,13 @@ Créons une application logique simple qui crée un compte dans QuickBooks et me
 
 18. Vous pouvez vérifier qu'un compte nommé « Contoso » est créé dans votre compte QuickBooks.
 
+## En faire plus avec votre connecteur
+Maintenant que le connecteur est créé, vous pouvez l'ajouter à un flux d'entreprise à l'aide d'une application logique. Voir [Que sont les applications logiques ?](app-service-logic-what-are-logic-apps.md).
+
+Affichez la référence d’API REST Swagger sur [Référence de connecteurs et d’applications API](http://go.microsoft.com/fwlink/p/?LinkId=529766).
+
+Vous pouvez également consulter les statistiques de performances et contrôler la sécurité du connecteur. Consultez la page [Gestion et contrôle de vos connecteurs et applications API intégrés](app-service-logic-monitor-your-connectors.md).
+
 <!--Image references-->
 [1]: ./media/app-service-logic-connector-quickbooks/1_New_Logic_App.png
 [2]: ./media/app-service-logic-connector-quickbooks/2_Logic_App_Settings.png
@@ -136,4 +141,4 @@ Créons une application logique simple qui crée un compte dans QuickBooks et me
 [12]: ./media/app-service-logic-connector-quickbooks/12_Update_Account_Address.png
 [13]: ./media/app-service-logic-connector-quickbooks/13_Create_new_quickbooks_connector.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

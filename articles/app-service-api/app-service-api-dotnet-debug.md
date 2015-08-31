@@ -1,50 +1,54 @@
 <properties 
-	pageTitle="Déboguer une application API dans Azure App Service" 
-	description="Découvrez comment déboguer une application API dans Azure App Service avec Visual Studio." 
-	services="app-service\api" 
-	documentationCenter=".net" 
-	authors="bradygaster" 
-	manager="wpickett" 
+	pageTitle="Déboguer une application API dans Azure App Service"
+	description="Découvrez comment déboguer une application API dans Azure App Service avec Visual Studio."
+	services="app-service\api"
+	documentationCenter=".net"
+	authors="bradygaster"
+	manager="wpickett"
 	editor="jimbe"/>
 
 <tags 
-	ms.service="app-service-api" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="dotnet" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/08/2015" 
-	ms.author="bradyg;tarcher"/>
+	ms.service="app-service-api"
+	ms.workload="web"
+	ms.tgt_pltfrm="dotnet"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/14/2015"
+	ms.author="tdykstra"/>
 
 # Déboguer une application API dans Azure App Service
 
 ## Vue d'ensemble
 
-Dans ce didacticiel, vous allez déboguer le code de l’API web ASP.NET configuré pour une exécution au sein d’une [application API](app-service-api-apps-why-best-platform.md) dans [Azure App Service](../app-service/app-service-value-prop-what-is.md). Vous allez déboguer ce code en local et à distance (lors de son exécution dans Microsoft Azure). Le didacticiel fonctionne avec l’application API que vous avez [créée](app-service-dotnet-create-api-app.md) et [déployée](app-service-dotnet-deploy-api-app.md) dans les didacticiels précédents de cette série.
+Dans ce didacticiel, vous allez déboguer le code de l’API web ASP.NET configuré pour une exécution au sein d’une [application API](app-service-api-apps-why-best-platform.md) dans [Azure App Service](../app-service/app-service-value-prop-what-is.md). Vous allez déboguer ce code en local et à distance (lors de son exécution dans Microsoft Azure).
+
+Le didacticiel fonctionne avec l’application API que vous avez [créée](app-service-dotnet-create-api-app.md) et [déployée](app-service-dotnet-deploy-api-app.md) dans les didacticiels précédents de cette série.
 
 ## Déboguer une application API à distance 
 
-Les étapes suivantes vous permettent de déboguer votre application API lorsqu’elle s’exécute dans le cloud, en utilisant l’interface utilisateur Swagger en tant que client de test.
+Pour activer le débogage à distance, vous devez déployer une version de débogage dans Azure.
 
-1. Dans l’**Explorateur de solutions** de Visual Studio, cliquez avec le bouton droit de la souris sur le projet que vous avez [déployé dans le cadre du didacticiel précédent](app-service-dotnet-deploy-api-app.md), puis sélectionnez **Publier**.
+1. Dans l’**Explorateur de solutions** de Visual Studio, cliquez avec le bouton droit de la souris sur le projet que vous avez déployé dans le cadre du [didacticiel précédent](app-service-dotnet-deploy-api-app.md), puis sélectionnez **Publier**.
 
-	![Publier le projet](./media/app-service-api-dotnet-debug/rd-publish.png)
+2. Dans la boîte de dialogue **Publier le site Web**, sélectionnez l’onglet **Paramètres** et sélectionnez la configuration de version **Debug**.
 
-2. Dans la boîte de dialogue **Publier le site Web**, sélectionnez l’onglet Paramètres et vérifiez que la configuration de build **Debug** est sélectionnée. Lorsque vous avez terminé, cliquez sur **Publier** pour envoyer les modifications à votre abonnement Microsoft Azure.
+4. Cliquez sur **Publier**.
 
 	![Publier le projet](./media/app-service-api-dotnet-debug/rd-debug-publish.png)
 
-3. Une fenêtre de navigateur doit s’ouvrir et afficher un message confirmant que votre application API a bien été créée.
+	Une fenêtre de navigateur s'ouvre sur l'URL de base de votre application API.
 
-4. Dans la barre d’adresse du navigateur, ajoutez « swagger/ » à la fin de l’URL et appuyez sur &lt;Entrée>. Le client de l’interface utilisateur Swagger s’affiche.
+4. Dans la barre d’adresse du navigateur, ajoutez swagger/ à la fin de l’URL et appuyez sur Entrée.
+
+	Cette étape suppose que vous avez activé l'interface utilisateur Swagger comme indiqué dans le didacticiel [Créer](app-service-dotnet-create-api-app.md).
 
 	![Interface utilisateur Swagger](./media/app-service-api-dotnet-debug/rd-swagger-ui.png)
 
-5. Accédez à Visual Studio. Ensuite, dans le menu **Afficher**, choisissez **Explorateur de serveurs**.
+5. Revenez à Visual Studio, puis cliquez sur **Affichage > Explorateur de serveurs**.
 
 6. Dans l’**Explorateur de serveurs**, développez le nœud **Azure > App Service**.
 
-7. Recherchez le groupe de ressources que vous avez créé quand vous avez déployé votre application API.
+7. Recherchez le groupe de ressources que vous avez créé ou sélectionné quand vous avez déployé votre application API.
 
 8. Dans ce groupe de ressources, cliquez avec le bouton droit sur le nœud de votre application API et sélectionnez **Attacher le débogueur**.
 
@@ -54,21 +58,19 @@ Les étapes suivantes vous permettent de déboguer votre application API lorsqu
 
 	![Attachement du débogueur](./media/app-service-api-dotnet-debug/rd-attaching.png)
 
-9. Une fois la connexion établie, ouvrez le fichier **ContactsController.cs** dans le projet d’application API, puis ajoutez des points d’arrêt au niveau des méthodes `Get` et `Post`. Ils peuvent apparaître comme inactifs dans un premier temps mais, si le débogueur distant est attaché, vous êtes prêt à déboguer.
+9. Une fois la connexion établie, ouvrez le fichier **ContactsController.cs** dans le projet d’application API, puis ajoutez un point d’arrêt dans la méthode `Get`.
 
 	![Application des points d’arrêt au contrôleur](./media/app-service-api-dotnet-debug/rd-breakpoints.png)
 
-10. Revenez à la session de navigateur, cliquez sur le terme **Get** pour afficher le schéma de l’objet *Contact*, puis cliquez sur **Faire un essai**. Si vous définissez un point d’arrêt dans la méthode **Get** du contrôleur, Visual Studio arrête l’exécution du programme et vous pouvez déboguer la logique de votre contrôleur.
+10. Revenez à la session de navigateur, cliquez sur le terme **Get** pour afficher le schéma de l’objet *Contact*, puis cliquez sur **Faire un essai**. Visual Studio arrête l'exécution du programme au point d'arrêt et vous pouvez déboguer la logique de votre contrôleur.
 
 	![Faites un essai](./media/app-service-api-dotnet-debug/rd-try-it-out.png)
 
 ## Déboguer une application API en local 
 
-Il peut arriver lorsque vous souhaitiez déboguer votre application API en local, par exemple pour éviter des allers-retours potentiellement lents lors du cycle de test/débogage. Les étapes suivantes indiquent comment déboguer votre application API en local, en utilisant l’interface utilisateur Swagger en tant que client de test.
+Il peut arriver lorsque vous souhaitiez déboguer votre application API localement ; par exemple, si des allers-retours vers le serveur Azure ralentissent le débogage. Cette section indique comment déboguer votre application API en local, en utilisant l’interface utilisateur Swagger en tant que client de test.
 
-1. Dans Visual Studio, ouvrez le fichier *web.config* du projet d’application API. 
- 
-2. Dans votre navigateur, accédez au [portail Azure en version préliminaire](https://portal.azure.com).
+2. Dans votre navigateur, accédez au [portail Azure en version préliminaire](https://portal.azure.com). 
 
 3. Cliquez sur le bouton **Parcourir** dans la barre latérale et sélectionnez **API Apps**.
 
@@ -94,7 +96,9 @@ Il peut arriver lorsque vous souhaitiez déboguer votre application API en loca
 
 	![Hôte d’application API - Paramètres d’application pour le débogage local](./media/app-service-api-dotnet-debug/ld-app-settings-for-local-debugging.png)
 
-9. Dans **Paramètres de l’application**, recherchez chacune des valeurs suivantes et ajoutez-les dans la section **appSettings** du fichier *web.config*.
+1. Dans Visual Studio, ouvrez le fichier *web.config* du projet d’application API.
+
+9. Dans **Paramètres de l’application**, ajoutez chacune des clés et des valeurs suivantes dans la section **appSettings** du fichier *web.config*.
 	- **EMA\_MicroserviceId**
 	- **EMA\_Secret**
 	- **EMA\_RuntimeUrl**
@@ -103,23 +107,19 @@ Il peut arriver lorsque vous souhaitiez déboguer votre application API en loca
 
 	![Hôte d’application API - Paramètres d’application pour le débogage local](./media/app-service-api-dotnet-debug/ld-debug-settings.png)
 
-	**Remarque :** les valeurs *EMA\_* que vous avez ajoutées à votre fichier *web.config* dans cette section contiennent des données sensibles sur les autorisations. Par conséquent, soyez prudent lorsque vous validez ce fichier via un support de contrôle de code source public (tel que *github*), car ces secrets seront visibles pour des tiers. Pour en savoir plus, voir [Meilleures pratiques portant sur le déploiement de mots de passe et autres données sensibles dans ASP.NET et Microsoft Azure App Service](http://www.asp.net/identity/overview/features-api/best-practices-for-deploying-passwords-and-other-sensitive-data-to-aspnet-and-azure).
+	**Remarque :** les valeurs *EMA\_* que vous avez ajoutées à votre fichier *web.config* dans cette section contiennent des données sensibles sur les autorisations. Par conséquent, il est recommandé d'éviter d'enregistrer ces valeurs dans un référentiel de contrôle de code source public. Pour en savoir plus, consultez la section [Meilleures pratiques portant sur le déploiement de mots de passe et autres données sensibles dans ASP.NET et Azure App Service](http://www.asp.net/identity/overview/features-api/best-practices-for-deploying-passwords-and-other-sensitive-data-to-aspnet-and-azure).
 
-10. Placez un ou plusieurs points d’arrêt dans le code du contrôleur de votre application API (dans les méthodes `Get` et `Post`).
-
-	![Définition de points d’arrêt](./media/app-service-api-dotnet-debug/ld-breakpoints.png)
+10. Placez un point d’arrêt dans le code du contrôleur de votre application API dans la méthode `Get`.
 
 11. Appuyez sur F5 pour démarrer une session de débogage Visual Studio.
  
 13.  Si le niveau d’accès de l’application API est défini sur **Public (anonyme)**, vous pouvez utiliser la page de l’interface utilisateur Swagger à tester.
 
-	* Lorsque le navigateur charge la page, vous voyez un message d’erreur. Dans la barre d’adresse du navigateur, ajoutez */swagger* à la fin de l’URL et appuyez sur Entrée.
+	* Lorsque le navigateur charge la page, vous voyez une page d’erreur HTTP 403. Dans la barre d’adresse du navigateur, ajoutez */swagger* à la fin de l’URL et appuyez sur Entrée.
 
 	* Une fois l’interface utilisateur Swagger chargée, cliquez sur le terme **Get** pour afficher le schéma de l’objet Contact, puis cliquez sur **Faire un essai**.
 
-		Visual Studio arrête l’exécution du programme au niveau des points d’arrêt que vous avez définis précédemment et vous pouvez déboguer la logique de votre contrôleur.
-
-		![Faites un essai](./media/app-service-api-dotnet-debug/ld-try-it-out.png)
+		Visual Studio arrête l'exécution du programme à votre point d'arrêt et vous pouvez déboguer la logique de votre contrôleur.
 
 14.	Si le niveau d’accès de l’application API a la valeur **Public (authentifié)**, vous avez besoin de vous authentifier et d’utiliser un outil de navigation en suivant les procédures indiquées dans [Protéger une application API](app-service-api-dotnet-add-authentication.md#use-postman-to-send-a-post-request) pour une demande POST, comme suit :
 
@@ -132,11 +132,8 @@ Il peut arriver lorsque vous souhaitiez déboguer votre application API en loca
 
 ## Étapes suivantes
 
-Le débogage distant pour les applications API vous permet de mieux voir l'exécution du code dans Azure App Service. Des données complètes de diagnostic et de débogage sont disponibles directement dans l’IDE de Visual Studio pour vos applications API Azure.
+Dans ce didacticiel, vous avez vu comment déboguer des applications API. Pour plus d’informations sur la résolution des problèmes, consultez la section [Dépanner une application web dans Azure App Service à l’aide de Visual Studio](../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md). Les applications API sont des applications web qui présentent des fonctionnalités supplémentaires pour l’hébergement des services web. Vous pouvez donc utiliser les mêmes outils de débogage et de résolution des problèmes pour les applications API que ceux que vous utilisez pour les applications web.
 
-Les applications API App Service sont des applications web App Service qui présentent des fonctionnalités supplémentaires pour l’hébergement des services web. Vous pouvez donc utiliser les mêmes outils de débogage et de résolution des problèmes pour les applications API que ceux que vous utilisez pour les applications web. Pour plus d’informations, consultez [Dépanner une application web dans Azure App Service à l’aide de Visual Studio](../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md).
-
-L’application API que vous avez créée dans cette série est disponible publiquement pour tous les appelants. Pour en savoir plus sur la protection des applications API de manière à ce que seuls les utilisateurs authentifiés puissent les appeler, consultez la page [Authentification pour les applications API et les applications mobiles dans Azure App Service](../app-service/app-service-authentication-overview.md).
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

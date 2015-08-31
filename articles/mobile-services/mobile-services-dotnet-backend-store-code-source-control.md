@@ -103,4 +103,4 @@ Pour suivre ce didacticiel, vous devez avoir créé un service mobile en suivant
 [Modifications des modèles de données pour un service mobile de backend .NET]: mobile-services-dotnet-backend-how-to-use-code-first-migrations.md
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

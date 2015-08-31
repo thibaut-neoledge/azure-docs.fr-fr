@@ -1,25 +1,25 @@
-<properties 
-	pageTitle="Ajout d’une marque de société aux pages de connexion et du volet d’accès" 
-	description="Rubrique qui explique comment une entreprise peut appliquer une même apparence à tous les sites web et à tous les services qu’elle gère pour que les utilisateurs ne soient pas trop déroutés chaque fois qu’ils doivent utiliser ces différents sites." 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="Justinha" 
-	manager="TerryLan" 
+<properties
+	pageTitle="Ajout d’une marque de société aux pages de connexion et du volet d’accès"
+	description="Rubrique qui explique comment une entreprise peut appliquer une même apparence à tous les sites web et à tous les services qu’elle gère pour que les utilisateurs ne soient pas trop déroutés chaque fois qu’ils doivent utiliser ces différents sites."
+	services="active-directory"
+	documentationCenter=""
+	authors="MarkusVi"
+	manager="stevenpo"
 	editor="LisaToft"/>
 
-<tags 
-	ms.service="active-directory" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="get-started-article" 
-	ms.date="05/05/2015" 
-	ms.author="Justinha"/>
+<tags
+	ms.service="active-directory"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.date="08/11/2015" 
+	ms.author="MarkVi"/>
 
 # Ajout d’une marque de société aux pages de connexion et du volet d’accès
 
 > [AZURE.NOTE]
-> 
+>
 - La promotion de la marque de société est une fonctionnalité disponible uniquement si vous avez effectué une mise à niveau vers l’édition Premium ou De base d’Azure Active Directory. Pour plus d’informations, consultez la page [Éditions d’Azure Active Directory](active-directory-editions.md).
 - Les clients vivant en Chine peuvent accéder aux éditions De base et Premium d’Azure Active Directory à l’aide de l’instance mondiale d’Azure Active Directory. Actuellement, les éditions De base et Premium d’Azure Active Directory ne sont pas prises en charge dans le service Microsoft Azure utilisé par 21Vianet en Chine. Pour plus d’informations, contactez-nous via le [Forum Azure Active Directory](http://feedback.azure.com/forums/169401-azure-active-directory).
 
@@ -44,7 +44,7 @@ Les utilisateurs verront la page de connexion personnalisée lorsqu’ils visite
 S’ils visitent un service avec une URL non spécifique (par exemple https://mail.office365.com), ils verront une page de connexion non personnalisée. La page de connexion s’actualise pour afficher votre marque une fois que les utilisateurs ont entré leur ID utilisateur ou sélectionné une vignette d’utilisateur.
 
 > [AZURE.NOTE]
-> 
+>
 - Votre nom de domaine doit apparaître « Actif » dans la section **Active Directory** > **Annuaire** > **Domaines** du portail de gestion Azure où vous avez effectué la personnalisation.
 - La personnalisation de la page de connexion ne s’étend pas à la page de connexion client de Microsoft. Ce qui veut dire que les utilisateurs qui se connectent avec un compte Microsoft personnel (anciennement Windows Live ID) peuvent voir une liste personnalisée de vignettes utilisateur générées par Azure AD, mais la marque de votre organisation ne s’applique pas à la page de connexion du compte Microsoft.
 
@@ -185,6 +185,4 @@ Couleur d’arrière-plan de la page de connexion | La couleur d’arrière-plan
 [7]: ./media/active-directory-add-company-branding/SignInPage_aftercustomization_croppedtop.png
 [8]: ./media/active-directory-add-company-branding/APBranding.png
 
- 
-
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

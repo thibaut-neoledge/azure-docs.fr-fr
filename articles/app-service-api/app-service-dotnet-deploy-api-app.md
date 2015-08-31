@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Déployer une application API dans Azure App Service" 
-	description="Découvrez comment déployer un projet d’application API dans votre abonnement Azure." 
-	services="app-service\api" 
-	documentationCenter=".net" 
-	authors="bradygaster" 
-	manager="wpickett" 
+	pageTitle="Déployer une application API dans Azure App Service"
+	description="Découvrez comment déployer un projet d’application API dans votre abonnement Azure."
+	services="app-service\api"
+	documentationCenter=".net"
+	authors="bradygaster"
+	manager="wpickett"
 	editor="jimbe"/>
 
 <tags 
-	ms.service="app-service-api" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="dotnet" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/31/2015" 
-	ms.author="bradyg"/>
+	ms.service="app-service-api"
+	ms.workload="web"
+	ms.tgt_pltfrm="dotnet"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/14/2015"
+	ms.author="tdykstra"/>
 
 # Déployer une application API dans Azure App Service 
 
@@ -34,17 +34,33 @@ Dans cette section, vous utilisez l’Assistant **Publier le site Web** de Visua
 
 [AZURE.INCLUDE [app-service-api-pub-web-create](../../includes/app-service-api-pub-web-create.md)]
 
-## <a id="deploy"></a>Déploiement de votre code dans la nouvelle application API
+## <a id="deploy"></a>Déploiement de votre code dans la nouvelle application API Azure
 
 Vous utilisez le même Assistant **Publier le site Web** pour déployer votre code vers la nouvelle application API.
 
 [AZURE.INCLUDE [app-service-api-pub-web-deploy](../../includes/app-service-api-pub-web-deploy.md)]
 
-## Afficher l’application dans le portail Azure en version préliminaire
+## Appeler l'application API Azure 
 
-Dans cette section, vous consultez les paramètres de base disponibles pour les applications API dans le portail et apportez des modifications itératives à votre application API. Avec chaque déploiement, le portail reflète les modifications que vous apportez à votre application API.
+Étant donné que vous avez activé l'interface utilisateur Swagger dans le didacticiel précédent, vous pouvez utiliser ceci pour vérifier que l'application API s'exécute dans Azure.
 
 1. Dans le [portail Azure en version préliminaire](https://portal.azure.com), accédez au panneau **Application API** de l’application API que vous avez déployée.
+
+2. Cliquez sur l’URL de l’application API.
+
+	![Cliquez sur l'URL](./media/app-service-dotnet-deploy-api-app/clickurl.png)
+
+	Une page « Application API créée avec succès » s'affiche.
+
+3. Ajoutez « /swagger » à la fin de l’URL dans la barre d’adresse du navigateur.
+
+4. Sur la page Swagger qui s'affiche, cliquez sur **Contacts > Obtenir > Faire un essai**.
+
+	![Faites un essai](./media/app-service-dotnet-deploy-api-app/swaggerui.png)
+
+## Afficher la définition d’API dans le portail
+
+1. Dans le [portail Azure en version préliminaire](https://portal.azure.com), revenez au panneau **Application API** de l’application API que vous avez déployée.
 
 4. Cliquez sur **Définition d’API**.
  
@@ -52,7 +68,9 @@ Dans cette section, vous consultez les paramètres de base disponibles pour les 
 
 	![Définition de l’API](./media/app-service-dotnet-deploy-api-app/29-api-definition-v3.png)
 
-5. Maintenant, revenez au projet dans Visual Studio et ajoutez le code suivant au fichier **ContactsController.cs**.
+Ensuite, vous apporterez une modification à la définition de l'API et vous visualiserez les modifications répercutées dans le portail.
+
+5. Revenez au projet dans Visual Studio et ajoutez le code suivant au fichier **ContactsController.cs**.   
 
 		[HttpPost]
 		public HttpResponseMessage Post([FromBody] Contact contact)
@@ -61,27 +79,41 @@ Dans cette section, vous consultez les paramètres de base disponibles pour les 
 			return Request.CreateResponse(HttpStatusCode.Created);
 		}
 
-	![Ajout de la méthode Post au contrôleur](./media/app-service-dotnet-deploy-api-app/30-post-method-added-v3.png)
-
 	Ce code ajoute une méthode **Post** qui peut être utilisée pour publier de nouvelles instances `Contact` dans l’API.
 
-6. Dans l’**Explorateur de solutions**, cliquez avec le bouton droit sur le projet, puis sélectionnez **Publier**.
+	Le code de la classe de Contacts ressemble maintenant à l'exemple suivant.
 
-	![Menu contextuel de publication du projet](./media/app-service-dotnet-deploy-api-app/31-publish-gesture-v3.png)
+		public class ContactsController : ApiController
+		{
+		    [HttpGet]
+		    public IEnumerable<Contact> Get()
+		    {
+		        return new Contact[]{
+		                    new Contact { Id = 1, EmailAddress = "barney@contoso.com", Name = "Barney Poland"},
+		                    new Contact { Id = 2, EmailAddress = "lacy@contoso.com", Name = "Lacy Barrera"},
+		                    new Contact { Id = 3, EmailAddress = "lora@microsoft.com", Name = "Lora Riggs"}
+		                };
+		    }
+		
+		    [HttpPost]
+		    public HttpResponseMessage Post([FromBody] Contact contact)
+		    {
+		        // todo: save the contact somewhere
+		        return Request.CreateResponse(HttpStatusCode.Created);
+		    }
+		}
 
-7. Cliquez sur l'onglet **Paramètres**.
-
-8. Dans la liste déroulante **Configuration**, sélectionnez **Déboguer**.
-
-	![Paramètres Publier le site web](./media/app-service-dotnet-deploy-api-app/36.5-select-debug-option-v3.png)
+7. Dans l’**Explorateur de solutions**, cliquez avec le bouton droit sur le projet, puis sélectionnez **Publier**.
 
 9. Cliquez sur l’onglet **Aperçu**
 
-10. Cliquez sur **Démarrer l’aperçu** pour afficher les modifications qui seront apportées.
+10. Cliquez sur **Démarrer l'aperçu** pour voir quel(s) fichier(s) seront copiés vers Azure.
 
 	![Boîte de dialogue Publier le site web](./media/app-service-dotnet-deploy-api-app/39-re-publish-preview-step-v2.png)
 
 11. Cliquez sur **Publier**.
+
+6. Redémarrez la passerelle comme la première fois que vous avez effectué une publication.
 
 12. Une fois le processus de publication terminé, revenez au portail, puis fermez et rouvrez le panneau **Définition d’API**. Vous verrez le nouveau point de terminaison d'API que vous venez de créer et de déployer directement dans votre abonnement Azure.
 
@@ -92,4 +124,4 @@ Dans cette section, vous consultez les paramètres de base disponibles pour les 
 Vous avez vu comment les fonctionnalités de déploiement direct dans Visual Studio facilitent l'itération et le déploiement rapide de votre API ainsi que le test permettant de vérifier qu'elle fonctionne correctement. Dans le [didacticiel suivant](../app-service-dotnet-remotely-debug-api-app.md), vous verrez comment déboguer votre application API pendant son exécution dans Azure.
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

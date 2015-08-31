@@ -1,7 +1,6 @@
 <properties
 	pageTitle="Modèle d’application v2.0 | Microsoft Azure"
-	description="Génération d’une application web MVC .NET qui accepte les jetons des comptes Microsoft personnels et des comptes professionnels ou scolaires."
-	that signs users in with both personal Microsoft Account and work or school accounts.
+	description="Génération d’une application web .NET MVC qui connecte les utilisateurs à l’aide de leur compte Microsoft personnel et de leur compte professionnel ou scolaire."
 	services="active-directory"
 	documentationCenter=".net"
 	authors="dstrockis"
@@ -202,4 +201,4 @@ Vous pouvez maintenant aborder des rubriques plus sophistiquées. Par exemple :
 
 Pour obtenir des ressources supplémentaires, consultez : - [Version préliminaire du modèle d’application v2.0 >>](active-directory-appmodel-v2-overview.md) - [Balise azure-active-directory StackOverflow >>](http://stackoverflow.com/questions/tagged/azure-active-directory)
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

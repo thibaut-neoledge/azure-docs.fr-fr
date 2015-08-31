@@ -12,7 +12,7 @@ ms.service="virtual-machines"
  ms.topic="article"
  ms.tgt_pltfrm="vm-windows"
  ms.workload="big-compute"
- ms.date="07/27/2015"
+ ms.date="08/18/2015"
  ms.author="danlep"/>
 
 # Prise en main d’un cluster HPC Pack dans Azure pour exécuter des charges de travail Excel et SOA
@@ -26,7 +26,6 @@ Le diagramme général suivant montre le cluster HPC Pack que vous allez créer.
 ## Composants requis
 
 * **Un ordinateur client** : vous aurez besoin d'un ordinateur client Windows pour exécuter le script de déploiement de cluster Azure PowerShell (si vous choisissez cette méthode de déploiement) et pour soumettre des exemples de tâches Excel et SOA au cluster.
-
 
 * **Un abonnement Azure** : si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](http://azure.microsoft.com/pricing/free-trial/).
 
@@ -61,7 +60,7 @@ Utilisez un modèle de démarrage rapide Azure pour déployer rapidement et faci
     >
     >Les machines virtuelles du nœud de calcul sont créées à partir de la dernière image de la famille de nœuds de calcul sélectionnée. Sélectionnez l’option **ComputeNode** pour l’image de calcul à des fins générales HPC Pack 2012 R2 Update 2 la plus récente. Sélectionnez l’option **ComputeNodeWithExcel** pour la dernière image de nœud de calcul comprenant une version d’évaluation de Microsoft Excel Professional Plus 2013. Si vous souhaitez déployer un cluster pour les sessions SOA générales ou pour le déchargement Excel UDF, choisissez l’option **ComputeNode** (sans Excel installé).
     >
-    >En cas d’utilisation de **ComputeNodeWithExcel** pour les charges de travail de production, vous devez fournir une licence Excel valide pour activer Excel sur les nœuds de calcul. Sinon, la version d'évaluation de Microsoft Excel expire après 60 jours et les charges de travail Excel ne s'exécutent plus.
+    >En cas d’utilisation de **ComputeNodeWithExcel** pour les charges de travail de production, vous devez fournir une licence Excel valide pour activer Excel sur les nœuds de calcul. Sinon, la version d'évaluation de Microsoft Excel expire après 30 jours et les charges de travail Excel ne s'exécutent plus.
 
     c. Choisissez l’abonnement.
 
@@ -377,4 +376,4 @@ L'application cliente SOA ne nécessite aucune modification à l'exception de la
 [endpoint]: ./media/virtual-machines-excel-cluster-hpcpack/endpoint.png
 [udf]: ./media/virtual-machines-excel-cluster-hpcpack/udf.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

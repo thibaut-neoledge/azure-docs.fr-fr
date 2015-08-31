@@ -1,6 +1,6 @@
 <properties 
    pageTitle="Utilisation du service StorSimple Manager pour gérer votre appareil StorSimple"
-   description="Gestion de votre appareil StorSimple à l'aide du service StorSimple Manager dans le portail de gestion Azure."
+   description="Gestion de votre appareil StorSimple à l'aide du service StorSimple Manager dans le portail de gestion Azure."
    services="storsimple"
    documentationCenter=""
    authors="alkohli"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/27/2015"
+   ms.date="08/13/2015"
    ms.author="alkohli" />
 
 # Utilisation du service StorSimple Manager pour gérer votre appareil StorSimple
@@ -72,7 +72,7 @@ Pour plus d'informations sur chaque flux de travail, cliquez sur la procédure a
 |---|---|---|
 |Création d’un service</br>Suppression d’un service</br>Obtention d’une clé d'inscription de service</br>Régénération d’une clé d'inscription de service|Service StorSimple Manager|[Déploiement du service StorSimple Manager](storsimple-manage-service.md)
 |Modification de la clé de chiffrement des données de service</br>Affichage des journaux des opérations|Service StorSimple Manager → Tableau de bord|[Utilisation du tableau de bord du service StorSimple Manager](storsimple-service-dashboard.md)|
-|Désactivation d’un appareil</br>Suppression d’un appareil|Service StorSimple Manager → Appareil|[Désactivation ou suppression d’un appareil]()|
+|Désactivation d’un appareil</br>Suppression d’un appareil|Service StorSimple Manager → Appareil|[Désactivation ou suppression d’un appareil](storsimple-deactivate-and-delete-device.md)|
 |En savoir plus sur le basculement entre appareils et la récupération d'urgence</br>Basculement vers un appareil physique</br>Basculement vers un appareil virtuel</br>Récupération BCDR|Service StorSimple Manager → Appareil|[Basculement et récupération d’urgence pour votre appareil StorSimple](storsimple-device-failover-disaster-recovery.md)|
 |Liste des sauvegardes d'un volume</br>Sélection d’un jeu de sauvegarde</br>Suppression d’un jeu de sauvegarde|Service StorSimple Manager → Catalogue de sauvegarde|[Gestion des sauvegardes](storsimple-manage-backup-catalog.md)|
 |Clonage d’un volume|Service StorSimple Manager → Catalogue de sauvegarde|[Clonage d’un volume](storsimple-clone-volume.md)|
@@ -83,7 +83,7 @@ Pour plus d'informations sur chaque flux de travail, cliquez sur la procédure a
 |Affichage des détails d'une tâche</br>Annulation d’un travail|Service StorSimple Manager → Tâches|[Gestion des travaux](storsimple-manage-jobs.md)
 |Réception de notifications d'alerte</br>Gestion d’alertes</br>Consultation d’alertes|Service StorSimple Manager → Alertes|[Affichage et gestion des alertes StorSimple](storsimple-manage-alerts.md)
 |Affichage des initiateurs connectés</br>Recherche du numéro de série d’un appareil</br>Recherche de l'IQN cible|Service StorSimple Manager → Appareils → Tableau de bord|[Utilisation du tableau de bord d’un appareil StorSimple](storsimple-device-dashboard.md)|
-|Création de graphiques d’analyse|Service StorSimple Manager → Appareils → Surveillance|[Surveillance de votre appareil StorSimple](https://msdn.microsoft.com/library/azure/dn757759.aspx)|
+|Création de graphiques d’analyse|Service StorSimple Manager → Appareils → Surveillance|[Surveillance de votre appareil StorSimple](storsimple-monitor-device.md)|
 |Ajout d’un conteneur de volumes</br>Modification d’un conteneur de volumes</br>Suppression d’un conteneur de volumes|Service StorSimple Manager → Appareils → Conteneurs de volume|[Gestion de conteneurs de volume](storsimple-manage-volume-containers.md)|
 |Ajout d’un volume</br>Modification d’un volume</br>Déconnexion d’un volume</br>Suppression d’un volume</br>Surveillance d’un volume|Service StorSimple Manager → Appareils → Conteneurs de volume → Volumes|[Gestion de volumes](storsimple-manage-volumes.md)|
 |Modification des paramètres d’un appareil</br>Modification des paramètres temporels</br>Modification des paramètres DNS.md</br>Configuration d’interfaces réseau|Service StorSimple Manager → Appareils → Configuration|[Modification de la configuration de votre appareil StorSimple](storsimple-modify-device-config.md)|
@@ -107,6 +107,6 @@ Si vous rencontrez des problèmes de fonctionnement quotidien de votre appareil 
 
 Si vous ne parvenez pas à résoudre les problèmes et vous devez générer une demande d’intervention, consultez :
 
--  [Contacter le support technique Microsoft](https://msdn.microsoft.com/library/azure/dn757750.aspx)
+-  [Contacter le support technique Microsoft](storsimple-contact-microsoft-support.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

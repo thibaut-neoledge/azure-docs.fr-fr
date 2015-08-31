@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Utilisation de CDN | Microsoft Azure" 
-	description="Découvrez comment utiliser le réseau de distribution de contenu (CDN) Azure pour diffuser du contenu haut débit en mettant en cache les objets blob et le contenu statique." 
-	services="cdn" 
-	documentationCenter=".net" 
-	authors="zhangmanling" 
-	manager="dwrede" 
+	pageTitle="Utilisation de CDN | Microsoft Azure"
+	description="Découvrez comment utiliser le réseau de distribution de contenu (CDN) Azure pour diffuser du contenu haut débit en mettant en cache les objets blob et le contenu statique."
+	services="cdn"
+	documentationCenter=".net"
+	authors="zhangmanling"
+	manager="dwrede"
 	editor=""/>
 
 <tags 
-	ms.service="cdn" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/05/2015" 
+	ms.service="cdn"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/18/2015"
 	ms.author="mazha"/>
 
 
@@ -33,7 +33,7 @@ Pour créer un compte de stockage, vous devez être l’administrateur de servic
 **Pour créer un compte de stockage pour un abonnement Azure**
 
 1.  Connectez-vous au [portail de gestion Azure].
-2.  Dans le coin inférieur gauche, cliquez sur **Nouveau**. Dans la boîte de dialogue **Nouveau**, sélectionnez **Data Services**, cliquez sur **Stockage**, puis sur **Création rapide**.
+2.  Dans le coin inférieur gauche, sélectionnez **Nouveau**. Dans la boîte de dialogue **Nouveau**, sélectionnez **Data Services**, cliquez sur **Stockage**, puis sur **Création rapide**.
 
     La boîte de dialogue **Create Storage Account** s’affiche.
 
@@ -120,4 +120,4 @@ La capacité à purger immédiatement le contenu n’est actuellement pas prise 
 
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

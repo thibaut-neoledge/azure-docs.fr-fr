@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="04/22/2015"
+   ms.date="08/17/2015"
    ms.author="telmos" />
 
 # Vue d’ensemble des adresses IP réservées
@@ -32,8 +32,6 @@ Pour empêcher la modification des adresses IP, vous pouvez réserver une adress
   - Pour le moment, tous les abonnements Azure peuvent utiliser 20 adresses IP réservées. Toutefois, vous pouvez demander à obtenir des adresses IP réservées supplémentaires. Pour en savoir plus, consultez la page [Abonnement Azure et limites du service](../azure-subscription-service-limits/).
 1. L’obtention d’adresses IP réservées est-elle payante ? 
   - Pour plus d’informations sur la tarification, consultez la page [Tarification des adresses IP réservées](http://go.microsoft.com/fwlink/?LinkID=398482).
-1. Combien d’adresses IP réservées puis-je attribuer à un service cloud ? 
-  - Vous pouvez attribuer une seule adresse IP par point de terminaison dans un service cloud, qu’elle soit réservée ou non. Réserver une adresse IP ne vous permet pas d'ajouter des adresses IP supplémentaires à un service cloud.
 1. Comment réserver une adresse IP ? 
   - Vous pouvez utiliser PowerShell ou l’[API REST de gestion Azure](https://msdn.microsoft.com/library/azure/dn722420.aspx) pour demander une adresse IP réservée à une région particulière. Azure réservera une adresse IP à partir de cette région et l'associera à votre abonnement. Vous pouvez ensuite utiliser l'adresse IP réservée dans cette région. Vous ne pouvez pas réserver une adresse IP à l'aide du portail de gestion.
 1. Puis-je l'utiliser avec des réseaux virtuels basés sur un groupe d'affinités ? 
@@ -121,4 +119,4 @@ Vous pouvez aussi associer une adresse réservée à un service cloud à l’ai
 
 - Consultez les [API REST d’adresse IP réservée](https://msdn.microsoft.com/library/azure/dn722420.aspx)
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

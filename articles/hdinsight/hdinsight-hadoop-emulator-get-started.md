@@ -1,23 +1,21 @@
 <properties
 	pageTitle="Prise en main de l'émulateur Hadoop pour HDInsight | Microsoft Azure"
 	description="Utiliser un émulateur installé avec un didacticiel MapReduce et d'autres exemples pour en savoir plus l'écosystème Hadoop. L'émulateur HDInsight fonctionne comme un bac à sable (sandbox) Hadoop."
-	keywords="emulator,hadoop ecosystem,hadoop sandbox,mapreduce tutorial"
 	editor="cgronlun"
 	manager="paulettm"
 	services="hdinsight"
 	authors="nitinme"
-	documentationCenter=""/>
-
+	documentationCenter=""
+	tags="azure-portal"/>
 
 <tags
 	ms.service="hdinsight"
 	ms.workload="big-data"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="get-started-article" 
-	ms.date="05/07/2015"
+	ms.topic="article"
+	ms.date="08/07/2015"
 	ms.author="nitinme"/>
-
 
 # Prise en main de l'écosystème Hadoop avec l'émulateur HDInsight, un bac à sable (sandbox) Hadoop
 
@@ -398,13 +396,17 @@ Avant de commencer à suivre les instructions ci-dessous, vous devez créer un c
 
 **Création d’un conteneur**
 
-1. Connectez-vous au [portail Azure][azure-management-portal].
-2. Cliquez sur **STORAGE** à gauche. Une liste des comptes de stockage s’affiche sous votre abonnement.
-3. Cliquez sur le compte de stockage dans lequel vous souhaitez créer le conteneur dans la liste.
-4. Cliquez sur **CONTAINERS** en haut de la page.
-5. Cliquez sur **ADD** en bas de la page.
-6. Entrez **NAME** et sélectionnez **ACCESS**. Vous pouvez utiliser un des trois niveaux d’accès. Le niveau par défaut est **Private**.
-7. Cliquez sur **OK** pour enregistrer les modifications. Le nouveau conteneur est à présent répertorié sur le portail.
+1. Connectez-vous à la [version préliminaire du portail Azure](https://ms.portal.azure.com/).
+2. Cliquez sur **NOUVEAU** dans le volet gauche, cliquez sur **Données + Stockage**, puis cliquez sur **Stockage**.
+3. Dans le panneau Compte de stockage, configurez les propriétés, comme indiqué dans la capture d'écran ci-dessous.
+	
+	![Créer un compte de stockage](./media/hdinsight-hadoop-emulator-get-started/hdi.emulator.create.storage.png)
+
+	Sélectionnez **Épingler au tableau d'accueil**, puis cliquez sur **Créer**.
+4. Une fois le compte de stockage créé, à partir du nouveau panneau de compte de stockage, cliquez sur **Conteneurs** pour ouvrir le panneau de conteneurs, puis cliquez sur **Ajouter**.
+5. Saisissez le nom du conteneur, puis cliquez sur **Sélectionner**.
+
+	![Créez un conteneur.](./media/hdinsight-hadoop-emulator-get-started/hdi.emulator.create.container.png)
 
 Avant de pouvoir accéder à un compte de stockage Azure, vous devez ajouter le nom de compte et la clé de compte au fichier de configuration.
 
@@ -495,4 +497,4 @@ Dans ce didacticiel MapReduce, vous avez installé l'émulateur HDInsight, un ba
 [image-hdi-emulator-services]: ./media/hdinsight-hadoop-emulator-get-started/HDI.Emulator.Services.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

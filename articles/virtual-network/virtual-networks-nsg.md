@@ -12,14 +12,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="06/08/2015"
+   ms.date="08/13/2015"
    ms.author="telmos" />
 
 # Présentation du groupe de sécurité réseau
 
 Vous pouvez utiliser un groupe de sécurité réseau pour contrôler le trafic vers une ou plusieurs instances de machine virtuelle dans votre réseau virtuel. Un groupe de sécurité réseau est un objet de niveau supérieur qui est associé à votre abonnement. Un groupe de sécurité réseau contient les règles de contrôle d'accès qui autorisent ou refusent le trafic vers des instances de machine virtuelle. Les règles d'un groupe de sécurité réseau peuvent être modifiées à tout moment et les modifications sont appliquées à toutes les instances associées. Pour utiliser un groupe de sécurité réseau, vous devez disposer d'un réseau virtuel associé à une région (emplacement).
 
->[AZURE.WARNING]Les groupes de sécurité réseau ne sont pas compatibles avec les réseaux virtuels associés à un groupe d'affinités. Si vous ne disposez pas d’un réseau virtuel régional et que vous souhaitez contrôler le trafic vers vos points de terminaison, consultez [Présentation d’une liste de contrôle d'accès (ACL) au réseau ?](../virtual-networks-acl).
+>[AZURE.WARNING]Les groupes de sécurité réseau ne sont pas compatibles avec les réseaux virtuels associés à un groupe d'affinités. Si vous ne disposez pas d’un réseau virtuel régional et que vous souhaitez contrôler le trafic vers vos points de terminaison, consultez [Présentation d’une liste de contrôle d'accès (ACL) au réseau ?](./virtual-networks-acl.md). Vous pouvez également [migrer votre réseau virtuel vers un réseau virtuel régional](./virtual-networks-migrate-to-regional-vnet.md).
 
 Vous pouvez associer un groupe de sécurité réseau à une machine virtuelle ou à un sous-réseau dans un réseau virtuel. Associé à une machine virtuelle, le groupe de sécurité réseau s'applique à tout le trafic envoyé et reçu par l'instance de la machine virtuelle. Lorsqu'il est appliqué à un sous-réseau au sein de votre réseau virtuel, il s'applique à tout le trafic envoyé et reçu par TOUTES les instances de la machine virtuelle dans le sous-réseau. Une machine virtuelle ou un sous-réseau peut être associé à un seul groupe de sécurité réseau et chaque groupe de sécurité réseau peut contenir jusqu'à 200 règles. Vous pouvez avoir 100 groupes de sécurité réseau par abonnement.
 
@@ -138,7 +138,7 @@ Imaginez la règle de groupe de sécurité réseau suivante pour un tel scénari
 
 | Nom | Priorité | IP Source | Port source | IP de destination | Port de destination | Protocole | Access |
 |------|----------|-----------|-------------|----------------|------------------|----------|--------|
-|PAS D’INTERNET|100| VIRTUAL\_NETWORK|&#42;|INTERNET|&#42;|TCP|REFUSER| 
+|PAS D’INTERNET|100| VIRTUAL\_NETWORK|&\#42;|INTERNET|&\#42;|TCP|REFUSER| 
 
 Étant donné que la règle bloque tout accès de ce réseau virtuel à Internet , les machines virtuelles ne pourront pas accéder aux services PaaS Azure qui nécessitent un point de terminaison Internet public, comme les bases de données SQL.
 
@@ -146,9 +146,10 @@ Au lieu d’utiliser une règle de refus, envisagez d’utiliser une règle auto
 
 | Nom | Priorité | IP Source | Port source | IP de destination | Port de destination | Protocole | Access |
 |------|----------|-----------|-------------|----------------|------------------|----------|--------|
-|VERS INTERNET|100| VIRTUAL\_NETWORK|&#42;|INTERNET|&#42;|TCP|AUTORISER|
-|À PARTIR D’INTERNET|110| INTERNET|&#42;|VIRTUAL\_NETWORK|&#42;|TCP|REFUSER| 
+|VERS INTERNET|100| VIRTUAL\_NETWORK|&\#42;|INTERNET|&\#42;|TCP|AUTORISER|
+|À PARTIR D’INTERNET|110| INTERNET|&\#42;|VIRTUAL\_NETWORK|&\#42;|TCP|REFUSER| 
 
+>[AZURE.WARNING]Azure utilise un sous-réseau spécial appelé sous-réseau **Passerelle** pour gérer la passerelle VPN sur d’autres réseaux virtuels et réseaux locaux. Si vous associez un NSG à ce sous-réseau, votre passerelle VPN cessera de fonctionne normalement. N’associez pas de NSG aux sous-réseaux de passerelle.
 
 ## Planification : flux de travail du groupe de sécurité réseau
 
@@ -248,4 +249,4 @@ Voici les étapes de flux de travail de base pour l'utilisation de groupes de s�
 
 	Get-Command *azurenetworksecuritygroup*
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

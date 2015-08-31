@@ -1,9 +1,9 @@
 <properties
-	pageTitle="Prise en main de l'authentification pour Mobile Apps dans iOS"
-	description="Découvrez comment utiliser Mobile Apps pour authentifier les utilisateurs de votre application iOS via divers fournisseurs d'identité, notamment AAD, Google, Facebook, Twitter et Microsoft."
+	pageTitle="Ajout de l’authentification sur iOS avec Azure Mobile Apps"
+	description="Découvrez comment utiliser Azure Mobile Apps pour authentifier les utilisateurs de votre application iOS via divers fournisseurs d'identité, notamment AAD, Google, Facebook, Twitter et Microsoft."
 	services="app-service\mobile"
 	documentationCenter="ios"
-	authors="mattchenderson" 
+	authors="krisragh"
 	manager="dwrede"
 	editor=""/>
 
@@ -13,24 +13,24 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="06/16/2015"
-	ms.author="mahender"/>
+	ms.date="08/12/2015"
+	ms.author="krisragh"/>
 
-# Ajout de l'authentification à votre application iOS
+# Authentification iOS avec Azure Mobile Apps
 
-[AZURE.INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
+[AZURE.INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]&nbsp;[AZURE.INCLUDE [app-service-mobile-note-mobile-services-preview](../../includes/app-service-mobile-note-mobile-services-preview.md)]
 
-[AZURE.INCLUDE [app-service-mobile-note-mobile-services-preview](../../includes/app-service-mobile-note-mobile-services-preview.md)]
-
-Cette rubrique montre comment authentifier les utilisateurs d'une application App Service Mobile App à partir de votre application cliente. Dans ce didacticiel, vous allez ajouter l'authentification au projet de démarrage rapide à l'aide d'un fournisseur d'identité pris en charge par App Service. Une fois l'utilisateur authentifié et autorisé par votre application Mobile App, la valeur de l'ID utilisateur s'affiche.
-
-Ce didacticiel est basé sur le démarrage rapide de Mobile App. Vous devez également commencer par suivre le didacticiel [Création d’une application iOS].
+Dans ce didacticiel, vous allez ajouter l'authentification au projet de [Démarrage rapide iOS] en faisant appel à un fournisseur d'identité pris en charge. Ce didacticiel est basé sur le didacticiel [Démarrage rapide iOS], que vous devez effectuer en premier.
 
 ##<a name="review"></a>Examiner la configuration de votre projet de serveur (facultatif)
 
 [AZURE.INCLUDE [app-service-mobile-dotnet-backend-enable-auth-preview](../../includes/app-service-mobile-dotnet-backend-enable-auth-preview.md)]
 
-##<a name="register"></a>Inscription de votre application pour l’authentification et configuration d’App Services
+##<a name="create-gateway"></a>Créer une passerelle App Service
+
+[AZURE.INCLUDE [app-service-mobile-dotnet-backend-create-gateway-preview](../../includes/app-service-mobile-dotnet-backend-create-gateway-preview.md)]
+
+##<a name="register"></a>Inscription de votre application pour l’authentification et configuration d’App Service
 
 [AZURE.INCLUDE [app-service-mobile-register-authentication](../../includes/app-service-mobile-register-authentication.md)]
 
@@ -38,28 +38,18 @@ Ce didacticiel est basé sur le démarrage rapide de Mobile App. Vous devez éga
 
 [AZURE.INCLUDE [app-service-mobile-restrict-permissions-dotnet-backend](../../includes/app-service-mobile-restrict-permissions-dotnet-backend.md)]
 
-<ol start="5">
-<li><p>Dans Xcode, ouvrez le projet. Appuyez sur le bouton <b>Exécuter</b> pour démarrer l’application. Vérifiez qu'une exception avec le code d'état&#160;401 (Non autorisé) est générée après le démarrage de l'application.</p>
+Dans Xcode, appuyez sur **Exécuter** pour démarrer l'application. Une exception se déclenche car l'application essaye d'accéder au backend en tant qu'utilisateur non authentifié alors que la table _TodoItem_ requiert désormais l'authentification.
 
-   	<p>Cette exception se produit, car l’application tente d’accéder à votre code Mobile App en tant qu’utilisateur non authentifié, alors que la table <em>TodoItem</em> requiert désormais une authentification.</p></li>
-</ol>
-
-Ensuite, vous allez mettre à jour l'application pour authentifier les utilisateurs avant de demander des ressources à partir de votre service App Service.
-
-##<a name="add-authentication"></a>Ajout de l’authentification à l’application
+##<a name="add-authentication"></a>Ajout de l'authentification à l'application
 
 [AZURE.INCLUDE [app-service-mobile-ios-authenticate-app](../../includes/app-service-mobile-ios-authenticate-app.md)]
-
-##<a name="store-authentication"></a>Stockage de jetons d’authentification dans l’application
-
-[AZURE.INCLUDE [app-service-mobile-ios-authenticate-app-with-token](../../includes/app-service-mobile-ios-authenticate-app-with-token.md)]
 
 
 <!-- URLs. -->
 
-[Création d’une application iOS]: app-service-mobile-dotnet-backend-ios-get-started-preview.md
+[Démarrage rapide iOS]: app-service-mobile-dotnet-backend-ios-get-started-preview.md
 
 [Azure Management Portal]: https://portal.azure.com
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

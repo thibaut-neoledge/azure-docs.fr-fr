@@ -12,27 +12,28 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/27/2015"
+   ms.date="08/19/2015"
    ms.author="joaoma" />
 
 # Gestion d’un profil Azure Traffic Manager
 
-Un profil Traffic Manager vous permet de spécifier les services cloud ou les points de terminaison de site web qui seront surveillés par Traffic Manager et la méthode d’équilibrage de charge à utiliser pour distribuer les connexions à ces points de terminaison.
+Un profil Traffic Manager vous permet de spécifier les services cloud ou les points de terminaison de site web qui seront surveillés par Traffic Manager et la méthode de routage du trafic à utiliser pour distribuer les connexions à ces points de terminaison.
 
 ## Création d’un profil Traffic Manager avec l’option Création rapide
 
-Vous pouvez créer un profil Traffic Manager rapidement à l’aide de l’option Création rapide du portail Azure. Cette option vous permet de créer des profils dotés de paramètres de configuration de base. Toutefois, vous ne pouvez pas l’utiliser pour définir des paramètres tels que l’ensemble de points de terminaison (services cloud et sites web), l’ordre de basculement pour la méthode d’équilibrage de charge de basculement ou la surveillance. Après avoir créé votre profil, vous pouvez configurer ces paramètres dans le portail Azure. Traffic Manager prend en charge jusqu’à 200 points de terminaison par profil. Toutefois, la plupart des scénarios d’utilisation requièrent uniquement un petit nombre de points de terminaison. Consultez la page [Tâches de configuration de Traffic Manager](https://msdn.microsoft.com/library/azure/hh744830.aspx) pour obtenir la liste des procédures de configuration.
+Vous pouvez créer un profil Traffic Manager rapidement à l’aide de l’option Création rapide du portail Azure. Cette option vous permet de créer des profils dotés de paramètres de configuration de base. Toutefois, vous ne pouvez pas utiliser la Création rapide pour définir des paramètres tels que l’ensemble de points de terminaison (services cloud et sites web), l’ordre de basculement pour la méthode de routage du trafic de basculement ou la surveillance. Après avoir créé votre profil, vous pouvez configurer ces paramètres dans le portail Azure. Traffic Manager prend en charge jusqu’à 200 points de terminaison par profil. Toutefois, la plupart des scénarios d’utilisation requièrent uniquement un petit nombre de points de terminaison.
 
 ### Création d’un profil Traffic Manager
 
-1. **Déployez vos services cloud et sites web vers votre environnement de production.** Pour en savoir plus sur les services cloud, voir [Services cloud](http://go.microsoft.com/fwlink/p/?LinkId=314074). Pour obtenir des informations sur les services cloud, consultez la page [Meilleures pratiques](https://msdn.microsoft.com/library/azure/5229dd1c-5a91-4869-8522-bed8597d9cf5#bkmk_TrafficManagerBestPracticesProfile). Pour en savoir plus sur les sites web, voir [Sites web](http://go.microsoft.com/fwlink/p/?LinkId=393327).
+1. **Déployez vos services cloud et sites web vers votre environnement de production.** Pour en savoir plus sur les services cloud, consultez [Cloud Services](http://go.microsoft.com/fwlink/p/?LinkId=314074). Pour en savoir plus sur les services cloud, consultez la page [Meilleures pratiques](https://msdn.microsoft.com/library/azure/5229dd1c-5a91-4869-8522-bed8597d9cf5#bkmk_TrafficManagerBestPracticesProfile). Pour en savoir plus sur les sites web, consultez [Sites web](http://go.microsoft.com/fwlink/p/?LinkId=393327).
 
-2. **Connectez-vous au portail Azure.** Pour créer un profil Traffic Manager, cliquez sur **Nouveau** dans l’angle inférieur gauche du portail, puis cliquez sur **Services réseau > Traffic Manager**, puis **Création rapide** pour commencer à configurer votre profil.
+2. **Connectez-vous au portail Azure.** Pour créer un profil Traffic Manager, cliquez sur **Nouveau** dans l’angle inférieur gauche du portail, puis cliquez sur **Network Services > Traffic Manager**, puis **Création rapide** pour commencer à configurer votre profil.
 3. **Configurez le préfixe DNS.** Donnez un nom de préfixe DNS unique à votre profil Traffic Manager. Vous pouvez spécifier uniquement le préfixe d’un nom de domaine Traffic Manager.
 4. **Sélectionnez l’abonnement.** Sélectionnez l’abonnement Azure approprié. Chaque profil est associé à un seul abonnement. Si vous ne disposez que d’un abonnement, cette option n’apparaît pas.
-5. **Sélectionnez la méthode d’équilibrage de charge.** Sélectionnez la méthode d’équilibrage de charge dans **Stratégie d’équilibrage de charge**. Pour plus d’informations sur les méthodes d’équilibrage de charge, consultez [À propos des méthodes d’équilibrage de charge de Traffic Manager](traffic-manager-load-balancing-methods.md).
-6. **Cliquez sur Créer pour créer votre profil**. Lorsque la configuration du profil est terminée, recherchez votre profil dans le volet Traffic Manager du portail Azure.
-7. **Configurez des points de terminaison, la surveillance et des paramètres supplémentaires dans le portail Azure.** Comme vous ne pouvez configurer que des paramètres de base à l’aide de l’option Création rapide, il est nécessaire de configurer d’autres paramètres, par exemple la liste des points de terminaison et l’ordre de basculement des points de terminaison afin de terminer la configuration de votre choix. Consultez la page [Tâches de configuration de Traffic Manager](https://msdn.microsoft.com/library/azure/hh744830.aspx) pour obtenir la liste des procédures afin de vous aider à effectuer la configuration.
+5. **Sélection de la méthode de routage du trafic** Sélectionnez la méthode de routage du trafic dans la **stratégie de routage du trafic**. Pour plus d’informations sur les différentes méthodes de routage du trafic, consultez [À propos des méthodes de routage du trafic de Traffic Manager](traffic-manager-load-balancing-methods.md).
+6. **Cliquez sur « Créer » pour créer votre profil**. Lorsque la configuration du profil est terminée, recherchez votre profil dans le volet Traffic Manager du portail Azure.
+7. **Configurez des points de terminaison, la surveillance et des paramètres supplémentaires dans le portail Azure.** Comme vous ne pouvez configurer que des paramètres de base à l’aide de l’option Création rapide, il est nécessaire de configurer d’autres paramètres, par exemple la liste des points de terminaison et l’ordre de basculement des points de terminaison afin de terminer la configuration de votre choix. 
+
 
 ## Désactiver, activer ou supprimer un profil
 
@@ -74,13 +75,15 @@ Vous pouvez afficher l’historique des modifications de votre profil Traffic Ma
 
 ## Ressources supplémentaires
 
-[Vue d’ensemble de Traffic Manager](traffic-manager-overview.md)
+[Qu’est-ce que Traffic Manager ?](traffic-manager-overview.md)
 
 [Gérer des points de terminaison dans Traffic Manager](traffic-manager-endpoints.md)
 
 [À propos de la surveillance avec Traffic Manager](traffic-manager-monitoring.md)
 
-[Tâches de configuration de Traffic Manager](https://msdn.microsoft.com/library/azure/hh744830.aspx)
+[Traffic Manager : désactiver, activer ou supprimer un profil](disable-enable-or-delete-a-profile.md)
+
+[Traffic Manager : désactiver ou activer un point de terminaison](disable-or-enable-an-endpoint.md)
 
 [Opérations sur Traffic Manager (Référence sur l’API REST)](http://go.microsoft.com/fwlink/p/?LinkID=313584)
 
@@ -88,4 +91,4 @@ Vous pouvez afficher l’historique des modifications de votre profil Traffic Ma
 
 [Sites Web](http://go.microsoft.com/fwlink/p/?LinkId=393327)
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

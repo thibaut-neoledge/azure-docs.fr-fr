@@ -1,9 +1,9 @@
 <properties
-	pageTitle="Prise en main des backends d'applications mobiles pour les applications du Windows Store | Microsoft Azure"
+	pageTitle="Créer une application universelle Windows Runtime 8.1 sur Azure Mobile Apps"
 	description="Suivez ce didacticiel pour commencer à utiliser des backends d'applications mobiles Azure pour le développement d'applications Windows Store en C#, VB ou JavaScript."
 	services="app-service\mobile"
 	documentationCenter="windows"
-	authors="christopheranderson"
+	authors="ggailey777"
 	manager="dwrede"
 	editor=""/>
 
@@ -13,79 +13,87 @@
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="06/16/2015"
-	ms.author="chrande"/>
+	ms.date="08/14/2015"
+	ms.author="glenga"/>
 
+#Créer une application Windows
 
-# <a name="getting-started"> </a>Création d'une application Windows
+[AZURE.INCLUDE [app-service-mobile-selector-get-started-preview](../../includes/app-service-mobile-selector-get-started-preview.md)]&nbsp;[AZURE.INCLUDE [app-service-mobile-note-mobile-services-preview](../../includes/app-service-mobile-note-mobile-services-preview.md)]
 
-[AZURE.INCLUDE [app-service-mobile-selector-get-started-preview](../../includes/app-service-mobile-selector-get-started-preview.md)]
+##Vue d'ensemble
 
-Ce didacticiel montre comment ajouter un backend cloud à une application Windows universelle à l'aide d'un backend d'applications mobiles Azure. Les solutions d'application Windows universelles incluent des projets pour Windows Store 8.1 et Windows Phone Store 8.1, et un projet partagé commun.
+Ce didacticiel montre comment ajouter un backend cloud à une application universelle Windows Runtime 8.1 à l'aide d'un backend d'applications mobiles Azure. Les solutions d'application Windows universelles incluent des projets pour Windows Store 8.1 et Windows Phone Store 8.1, et un projet partagé commun.
 
 [AZURE.INCLUDE [app-service-mobile-windows-universal-get-started-preview](../../includes/app-service-mobile-windows-universal-get-started-preview.md)]
 
-Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
+##Composants requis
+
+Pour réaliser ce didacticiel, vous avez besoin des éléments suivants :
 
 * Un compte Azure actif. Si vous n'avez pas de compte, vous pouvez vous inscrire pour une évaluation d'Azure et obtenir jusqu'à 10 applications mobiles gratuites que vous pourrez conserver après l'expiration de votre période d'évaluation. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](http://azure.microsoft.com/pricing/free-trial/).
-* <a href="https://go.microsoft.com/fwLink/p/?LinkID=257546" target="_blank">Visual Studio Professional 2013</a>.
 
->[AZURE.NOTE]Si vous voulez prendre en main Azure App Service avant de créer un compte Azure, accédez à la page [Essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751&appServiceName=mobile), où vous pouvez créer immédiatement une première application mobile temporaire dans App Service. Aucune carte de crédit n'est requise ; vous ne prenez aucun engagement.
+* [Visual Studio Community 2013] ou version ultérieure.
 
-## <a name="create-new-service"> </a>Création d'un backend d'application mobile
+>[AZURE.NOTE]Si vous voulez prendre en main Azure App Service avant de créer un compte Azure, accédez à la page [Essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751&appServiceName=mobile), où vous pouvez créer immédiatement une première application mobile temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
+
+##Créer un backend Azure Mobile App
 
 [AZURE.INCLUDE [app-service-mobile-dotnet-backend-create-new-service-preview](../../includes/app-service-mobile-dotnet-backend-create-new-service-preview.md)]
 
-## Création d'une application Windows universelle
+## Télécharger le projet de serveur
 
-Une fois que vous avez créé votre backend d'application mobile, vous pouvez suivre un démarrage rapide facile dans le portail Azure pour créer une application ou modifier une application existante à connecter à votre backend d'application mobile.
+1. Dans le [portail Azure], cliquez sur **Parcourir tout** > **Web Apps**, puis sur le backend Mobile App que vous venez de créer. 
 
-Dans cette section, vous allez créer une application Windows universelle connectée à votre backend d'application mobile.
+2. Dans le backend Mobile App, cliquez sur **Tous les paramètres** et sous **Mobile App** cliquez sur **Démarrage rapide** > **Windows (C#)**.
 
-1. Dans le portail Azure, cliquez sur **Application mobile**, puis sur l'application mobile que vous venez de créer.
+3. Sous **Télécharger et exécuter votre projet de serveur** dans **Création d'une application**, cliquez sur **Télécharger**, extrayez les fichiers du projet compressés sur votre ordinateur local et ouvrez la solution dans Visual Studio.
 
-2. En haut du panneau, cliquez sur **Ajouter un client** et développez **Windows (C#)**.
+4. Développez le projet pour restaurer les packages NuGet.
 
-    ![Étapes du démarrage rapide avec les applications mobiles](./media/app-service-mobile-dotnet-backend-windows-store-dotnet-get-started-preview/windows-quickstart.png)
-
-    Cette opération affiche les trois étapes faciles permettant de créer une application du Windows Store connectée à votre backend d'application mobile.
-
-3. Si ce n'est déjà fait, téléchargez et installez <a href="https://go.microsoft.com/fwLink/p/?LinkID=257546" target="_blank">Visual Studio Professional 2013</a> sur votre ordinateur local ou sur votre machine virtuelle.
-
-4. Sous **Télécharger et exécuter votre application et votre service en local**, sélectionnez la langue de votre application Windows Store, puis cliquez sur **Télécharger**.
-
-    Cette opération lance le téléchargement d'une solution contenant les projets du backend d'application mobile et de l'exemple d'application _To do list_ connecté à votre backend d'application mobile. Enregistrez le fichier projet compressé sur votre ordinateur local et notez l'emplacement où vous l'avez enregistré.
-
-## Test de l'application mobile
-
-[AZURE.INCLUDE [app-service-mobile-dotnet-backend-test-local-service-preview](../../includes/app-service-mobile-dotnet-backend-test-local-service-preview.md)]
-
-## Publication de votre backend d'application mobile
+##Publier le projet de serveur sur Azure
 
 [AZURE.INCLUDE [app-service-mobile-dotnet-backend-publish-service-preview](../../includes/app-service-mobile-dotnet-backend-publish-service-preview.md)]
 
-## Exécution de l'application Windows
+##Télécharger et exécuter le projet client
 
-Maintenant que le backend d'application mobile est publié et que le client est connecté au backend d'application mobile distant hébergé dans Azure, nous pouvons exécuter l'application à l'aide d'Azure pour le stockage des éléments.
+Une fois que vous avez créé votre backend d'application mobile, vous pouvez suivre un démarrage rapide facile dans le portail Azure pour créer une application ou modifier une application existante à connecter à votre backend d'application mobile.
 
-[AZURE.INCLUDE [app-service-mobile-windows-universal-test-app-preview](../../includes/app-service-mobile-windows-universal-test-app-preview.md)]
+Dans cette section, vous téléchargez un projet de modèle d’application Windows universelle, personnalisé pour se connecter à votre backend Azure Mobile App.
+
+1. Revenez dans le panneau de votre backend Mobile App, cliquez sur **Tous les paramètres** et sous **Mobile App** cliquez sur **Démarrage rapide** > **Windows (C#)**. 
+
+2.  Sous **Télécharger et exécuter votre projet Windows** dans **Création d'une application**, cliquez sur **Télécharger**, extrayez les fichiers du projet compressés sur votre ordinateur local.
+  
+3. (Facultatif) Ajoutez le projet d'application Windows universelle à la solution avec le projet de serveur. Cela rend plus facile le débogage et les tests de l'application et du backend dans la même solution Visual Studio, si vous choisissez de le faire.
+
+4. Une fois l’application Windows Store définie comme projet de démarrage, appuyez sur la touche F5 pour régénérer le projet et démarrer l’application Windows Store.
+
+5. Dans l'application, tapez un texte explicite, comme *Suivre le didacticiel*, dans la zone de texte **Insérer un TodoItem**, puis cliquez sur **Enregistrer**.
+
+	![](./media/app-service-mobile-dotnet-backend-windows-store-dotnet-get-started-preview/mobile-quickstart-startup.png)
+
+	Ceci envoie une demande POST vers le nouveau backend d'application mobile hébergé dans Azure.
+
+6. Arrêtez le débogage, cliquez avec le bouton droit sur le projet `<your app name>.WindowsPhone`, cliquez sur **Définir comme projet de démarrage**, puis appuyez de nouveau sur F5.
+
+	![](./media/app-service-mobile-dotnet-backend-windows-store-dotnet-get-started-preview/mobile-quickstart-completed-wp8.png)
+
+	Notez que les données enregistrées à l’étape précédente sont chargées à partir de l’application mobile après le démarrage de l’application Windows.
+
+##Étapes suivantes
+
+* [Ajouter l'authentification à votre application](app-service-mobile-dotnet-backend-windows-store-dotnet-get-started-users-preview.md) <br/>Découvrez comment authentifier les utilisateurs de votre application avec un fournisseur d'identité.
+
+* [Ajouter les notifications push à votre application](app-service-mobile-dotnet-backend-windows-store-dotnet-get-started-push-preview.md) <br/>En savoir plus sur l’envoi d’une notification Push très basique à votre application.
 
 <!-- Anchors. -->
-
-[Getting started with mobile app backends]: #getting-started
-[Create a new mobile app backend]: #create-new-service
-[Define the mobile app backend instance]: #define-mobile-app-backend-instance
-[Next Steps]: #next-steps
-
 <!-- Images. -->
-
-
-
 <!-- URLs. -->
 [Get started with authentication]: app-service-mobile-dotnet-backend-windows-store-dotnet-get-started-users-preview.md
-[Visual Studio Professional 2013]: https://go.microsoft.com/fwLink/p/?LinkID=257546
 [Mobile App SDK]: http://go.microsoft.com/fwlink/?LinkId=257545
-[Azure Portal]: https://portal.azure.com/
+[portail Azure]: https://portal.azure.com/
+
+[Visual Studio Community 2013]: https://go.microsoft.com/fwLink/p/?LinkID=534203
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

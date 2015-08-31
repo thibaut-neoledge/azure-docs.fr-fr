@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Prise en main de la diffusion de contenus vidéo à la demande (VoD) à l’aide de du Kit de développement logiciel (SDK) .NET"
+	pageTitle="Prise en main de la diffusion de contenus vidéo à la demande (VoD) à l'aide de du Kit de développement logiciel (SDK) .NET"
 	description="Ce didacticiel vous présente les étapes d'implémentation d'une application de diffusion de contenu vidéo à la demande (VoD) avec Azure Media Services pour .NET."
 	services="media-services"
 	documentationCenter=""
@@ -12,12 +12,12 @@
 	ms.workload="media"
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
-	ms.topic="hero-article" 
-	ms.date="08/11/2015" 
+	ms.topic="hero-article"
+	ms.date="08/18/2015"
 	ms.author="juliako"/>
 
 
-# Prise en main de la diffusion de contenus vidéo à la demande (VoD) à l’aide de du Kit de développement logiciel (SDK) .NET
+# Prise en main de la diffusion de contenus vidéo à la demande (VoD) à l'aide de du Kit de développement logiciel (SDK) .NET
 
 [AZURE.INCLUDE [media-services-selector-get-started](../../includes/media-services-selector-get-started.md)]
 
@@ -32,27 +32,26 @@ Il présente le workflow Media Services de base et les objets et tâches de prog
 ## Conditions préalables
 Les conditions préalables suivantes sont requises pour commencer à développer avec le Kit de développement logiciel (SDK) Media Services pour .NET.
 
-- Systèmes d’exploitation : Windows 7, Windows 2008 R2, Windows 8 ou version ultérieure.
+- Systèmes d'exploitation : Windows 8 ou ultérieur, Windows 2008 R2, Windows 7.
 - .NET Framework 4.5 ou .NET Framework 4.0
 - Visual Studio 2013, Visual Studio 2012 Visual Studio 2010 SP1 (Professional, Premium, Ultimate ou Express).
 
 
 Ce document de démarrage rapide présente les tâches suivantes.
 
-1.  Créer un compte Media Services grâce à la méthode Création rapide (à l’aide du portail)
-2.  Configurer un point de terminaison de diffusion en continu (à l’aide du portail)
+1.  Création d'un compte Media Services (avec le portail Azure).
+2.  Configurer un point de terminaison de diffusion en continu (à l'aide du portail).
 3.  Créer et configurer un projet Visual Studio
-5.  Se connecter au compte Media Services
-1.  Créer un nouvel élément et charger un fichier vidéo
-1.  Encoder le fichier source en un ensemble de fichiers MP4 à débit adaptatif
-1.  Configurer la stratégie de distribution de l’élément encodé
-1.  Publier les éléments et obtenir les URL de diffusion et de téléchargement progressif  
-1.  Lecture de votre contenu
+5.  Se connecter au compte Media Services.
+6.  Créer un nouvel élément et charger un fichier vidéo.
+7.  Encoder le fichier source en un ensemble de fichiers MP4 à débit adaptatif.
+8.  Publier les éléments et obtenir les URL de diffusion et de téléchargement progressif  
+9.  Lecture de votre contenu
 
 
-##Création d’un compte Media Services grâce à la méthode Création rapide
+##Création d'un compte Media Services grâce au portail
 
-1. Dans le [portail de gestion][], cliquez sur **New**, sur **Service de média**, puis sur **Création rapide**.
+1. Dans le portail Azure, cliquez sur **Nouveau**, sur **Service de média**, puis sur **Création rapide**.
 
 	![Media Services - Création rapide](./media/media-services-dotnet-get-started/wams-QuickCreate.png)
 
@@ -68,19 +67,17 @@ Ce document de démarrage rapide présente les tâches suivantes.
 
 	Vous pouvez surveiller l’état du processus dans la zone de message en bas de la fenêtre.
 
-	Une fois que le compte est créé, l’état devient actif.
+	Une fois que votre compte est créé, l'état devient **Actif**.
 
-	Au bas de la page, le bouton **GÉRER LES CLÉS** s’affiche. Lorsque vous cliquez sur ce bouton, une boîte de dialogue avec le nom du compte Media Services et les clés primaires et secondaires s’affiche. Vous devez disposer du nom de compte et des informations de clé primaire pour accéder par programme au compte Media Services.
-
+	Au bas de la page, le bouton **GÉRER LES CLÉS** s’affiche. Lorsque vous cliquez sur ce bouton, une boîte de dialogue avec le nom du compte Services de médias et les clés primaire et secondaire s'affiche. Vous devez disposer du nom de compte et des informations de clé primaire pour accéder par programme au compte Media Services.
 
 	![Media Services Page](./media/media-services-dotnet-get-started/wams-mediaservices-page.png)
 
-	Lorsque vous double-cliquez sur le nom de compte, la page Démarrage rapide s’affiche par défaut. Elle vous permet d'effectuer des tâches de gestion également disponibles sur d'autres pages du portail. Par exemple, vous pouvez télécharger un fichier vidéo depuis cette page ou depuis la page CONTENU.
+	Lorsque vous double-cliquez sur le nom de compte, la page **Démarrage rapide** s'affiche par défaut. Elle vous permet d'effectuer des tâches de gestion également disponibles sur d'autres pages du portail. Par exemple, vous pouvez télécharger un fichier vidéo depuis cette page ou depuis la page CONTENU.
 
+##Configurer un point de terminaison de diffusion en continu à l'aide du portail
 
-##Configurer un point de terminaison de diffusion en continu à l’aide du portail
-
-Lorsque vous travaillez avec Azure Media Services, un des scénarios les plus courants est la diffusion de contenu à débit adaptatif à vos clients. Avec la diffusion à débit binaire adaptatif, le client peut basculer vers un flux à débit binaire supérieur ou inférieur, car la vidéo est affichée en fonction de la bande passante réseau actuelle, de l’utilisation de l’UC et d’autres facteurs. Media Services prend en charge les technologies de diffusion en continu à débit binaire adaptatif suivantes : HTTP Live Streaming (HLS), Smooth Streaming, MPEG DASH et HDS (pour licences Adobe PrimeTime/Access uniquement).
+Lorsque vous utilisez Azure Media Services, l’un des scénarios les plus courants est la diffusion de contenu en continu à débit binaire adaptatif à vos clients. Avec la diffusion à débit binaire adaptatif, le client peut basculer vers un flux à débit binaire supérieur ou inférieur, car la vidéo est affichée en fonction de la bande passante réseau actuelle, de l’utilisation de l’UC et d’autres facteurs. Media Services prend en charge les technologies de diffusion en continu à débit binaire adaptatif suivantes : HTTP Live Streaming (HLS), Smooth Streaming, MPEG DASH et HDS (pour licences Adobe PrimeTime/Access uniquement).
 
 Media Services fournit l’empaquetage dynamique qui permet de distribuer un contenu en diffusion continue en MP4 ou Smooth Streaming dans un format pris en charge par Media Services (MPEG DASH, HLS, Smooth Streaming, HDS) sans avoir à recréer de nouveaux packages dans ces formats.
 
@@ -89,24 +86,23 @@ Pour tirer parti de l’empaquetage dynamique, vous devez effectuer les opérati
 - Coder ou transcoder vos fichiers votre fichier mezzanine (source) en un ensemble de fichiers mp4 à débit adaptatif ou de fichiers Smooth Streaming à débit adaptatif (les étapes de codage sont décrites plus loin dans ce didacticiel).  
 - Obtenir au moins une unité de diffusion pour le **point de terminaison de diffusion** à partir duquel vous envisagez de distribuer votre contenu.
 
-Avec l’empaquetage dynamique, vous devez stocker et payer les fichiers dans un seul format de stockage. Ensuite, Media Services crée et fournit la réponse appropriée en fonction des demandes des clients.
+Avec l'empaquetage dynamique, vous devez stocker et payer les fichiers dans un seul format de stockage. Ensuite, Media Services crée et fournit la réponse appropriée en fonction des demandes des clients.
 
 Pour changer le nombre d’unités réservées de diffusion en continu, procédez comme suit :
 
-1. Dans le [portail de gestion](https://manage.windowsazure.com/), cliquez sur **Media Services**. Cliquez ensuite sur le nom du service multimédia.
+1. Dans le [portail](https://manage.windowsazure.com/), cliquez sur **Services de média**. Cliquez ensuite sur le nom du service multimédia.
 
 2. Sélectionnez la page POINTS DE TERMINAISON DE DIFFUSION EN CONTINU. Cliquez ensuite sur le point de terminaison de diffusion en continu que vous souhaitez modifier.
 
-3. Pour spécifier le nombre d'unités de diffusion en continu, sélectionnez l'onglet METTRE À L'ÉCHELLE et déplacez le curseur de **capacité réservée**.
+3. Pour spécifier le nombre d'unités de diffusion en continu, cliquez sur l'onglet METTRE À L'ÉCHELLE et déplacez le curseur de **capacité réservée**.
 
 	![Scale page](./media/media-services-dotnet-get-started/media-services-origin-scale.png)
 
-4. Appuyez sur le bouton ENREGISTRER pour enregistrer vos modifications.
+4. Sélectionnez **ENREGISTRER** pour enregistrer vos modifications.
 
 	L’allocation de nouvelles unités prend environ 20 minutes.
 
-
-	>[AZURE.NOTE]Actuellement, le fait de passer d’une valeur positive à zéro pour le nombre d’unités de diffusion en continu peut désactiver la diffusion en continu pendant une heure.
+	>[AZURE.NOTE]Actuellement, le fait de passer d'une valeur positive à zéro pour le nombre d'unités de diffusion en continu peut désactiver la diffusion en continu pendant une heure.
 	>
 	> C’est le plus grand nombre d’unités spécifiées sur 24 heures qui est utilisé pour calculer le coût. Pour des informations détaillées sur la tarification, consultez la page [Détails de la tarification des services de média](http://go.microsoft.com/fwlink/?LinkId=275107).
 
@@ -114,16 +110,15 @@ Pour changer le nombre d’unités réservées de diffusion en continu, procéde
 
 ##Créer et configurer un projet Visual Studio
 
-1. Créez une nouvelle application console C# dans Visual Studio 2013, Visual Studio 2012 ou Visual Studio 2010 SP1. Entrez le **nom**, l'**emplacement** et le **nom de solution**, puis cliquez sur OK.
+1. Créez une nouvelle application console C# dans Visual Studio 2013, Visual Studio 2012 ou Visual Studio 2010 SP1. Entrez le **nom**, l'**emplacement** et le **nom de solution**, puis cliquez sur **OK**.
 
 2. Utilisez le package Nuget [windowsazure.mediaservices.extensions](https://www.nuget.org/packages/windowsazure.mediaservices.extensions) pour installer les **extensions du Kit de développement logiciel (SDK) Azure Media Services pour .NET**. Les extensions du Kit de développement logiciel (SDK) Media Services pour .NET sont un ensemble de méthodes d'extension et de fonctions d'assistance qui simplifient votre code et le développement avec les Services de média. L'installation de ce package installe également le **Kit de développement logiciel (SDK) Media Services pour .NET** et ajoute toutes les autres dépendances requises.
 
-3. Ajoutez une référence à l’assembly System.Configuration. Cet assembly contient la classe System.Configuration.ConfigurationManager qui est utilisée pour accéder aux fichiers de configuration (par exemple, App.config).
+3. Ajoutez une référence à l’assembly System.Configuration. Cet assembly contient la classe **System.Configuration.ConfigurationManager** qui est utilisée pour accéder aux fichiers de configuration, par exemple, App.config.
 
-4. Ouvrez le fichier App.config (ajoutez le fichier à votre projet s'il n'a pas été ajouté par défaut) et ajoutez une section *appSettings* au fichier. Définissez les valeurs pour le nom et la clé de votre compte Azure Media Services, comme illustré dans l’exemple suivant. Pour obtenir le nom de compte et les informations sur la clé, ouvrez le portail de gestion Azure, sélectionnez votre compte Media Services et cliquez sur le bouton **GÉRER LES CLÉS**.
+4. Ouvrez le fichier App.config (ajoutez le fichier à votre projet s'il n'a pas été ajouté par défaut) et ajoutez une section *appSettings* au fichier. Définissez les valeurs pour le nom et la clé de votre compte Azure Media Services, comme illustré dans l’exemple suivant. Pour obtenir le nom de compte et les informations sur la clé, ouvrez le portail de gestion Azure, sélectionnez votre compte services de média et cliquez sur le bouton **GÉRER LES CLÉS**.
 
-
-	<pre><code>
+	 <pre><code>
 &lt;configuration>
     &lt;appSettings>
 	&lt;add key="MediaServicesAccountName" value="Media-Services-Account-Name" />
@@ -132,8 +127,7 @@ Pour changer le nombre d’unités réservées de diffusion en continu, procéde
 &lt;/configuration>
 </code></pre>
 
-
-5. Remplacez les instructions using existantes au début du fichier Program.cs par le code suivant.
+5. Remplacez les instructions d'**utilisation** existantes au début du fichier Program.cs par le code suivant.
 
 		using System;
 		using System.Collections.Generic;
@@ -150,9 +144,9 @@ Pour changer le nombre d’unités réservées de diffusion en continu, procéde
 
 ##Se connecter au compte Media Services
 
-Lorsque vous utilisez Media Services avec .NET, vous devez utiliser la classe **CloudMediaContext** pour la plupart des tâches de programmation Media Services : connexion au compte Media Services, création, mise à jour, accès et suppression des objets suivants : éléments multimédia, fichiers multimédias, travaux, stratégies d’accès, localisateurs, etc.
+Lorsque vous utilisez Media Services avec .NET, vous devez utiliser la classe **CloudMediaContext** pour la plupart des tâches de programmation Media Services : connexion au compte Media Services, création, mise à jour, accès et suppression des objets suivants : éléments multimédia, fichiers multimédias, travaux, stratégies d'accès, localisateurs, etc.
 
-Remplacez la classe Program par défaut par le code ci-dessous. Le code montre comment lire les valeurs de connexion à partir du fichier App.config et comment créer l'objet CloudMediaContext pour se connecter aux Services de média. Pour plus d’informations sur la connexion à Media Services, consultez la page [Connexion à Media Services avec le Kit de développement logiciel (SDK) Media Services pour .NET](http://msdn.microsoft.com/library/azure/jj129571.aspx).
+Remplacez la classe Program par défaut par le code ci-dessous. Le code montre comment lire les valeurs de connexion à partir du fichier App.config et comment créer l'objet **CloudMediaContext** pour se connecter aux Services de média. Pour plus d'informations sur la connexion à Media Services, consultez la page [Connexion à Media Services avec le Kit de développement logiciel (SDK) Media Services pour .NET](http://msdn.microsoft.com/library/azure/jj129571.aspx).
 
 La fonction **Main** appelle des méthodes qui seront définies ultérieurement dans cette section.
 
@@ -187,8 +181,6 @@ La fonction **Main** appelle des méthodes qui seront définies ultérieurement 
                 IAsset encodedAsset =
                     EncodeToAdaptiveBitrateMP4s(inputAsset, AssetCreationOptions.None);
 
-                ConfigureClearAssetDeliveryPolicy(encodedAsset);
-
                 PublishAssetGetURLs(encodedAsset);
             }
             catch (Exception exception)
@@ -213,14 +205,14 @@ La méthode **UploadFile** définie ci-dessous appelle **CreateFromFile** (défi
 
 La méthode **CreateFromFile** prend **AssetCreationOptions**, qui vous permet de spécifier les options de création suivantes :
 
-- **None** : aucun chiffrement. Il s’agit de la valeur par défaut. À noter que quand vous utilisez cette option, votre contenu n’est pas protégé pendant le transit ou le repos dans le stockage. Si vous prévoyez de fournir un MP4 sous forme de téléchargement progressif, utilisez cette option.
-- **StorageEncrypted** : permet de chiffrer votre contenu en clair localement en utilisant le chiffrement AES-256 bits, puis de le télécharger vers Azure Storage où il est chiffré pour le stockage, au repos. Les éléments multimédias protégés par le chiffrement de stockage sont automatiquement déchiffrés et placés dans un système de fichiers chiffré avant d’être encodés, puis éventuellement rechiffrés avant d’être rechargés sous la forme d’un nouvel élément multimédia de sortie. Le principal cas d’utilisation du chiffrement de stockage concerne la sécurisation de fichiers multimédias d’entrée de haute qualité avec un chiffrement renforcé au repos sur le disque.
+- **None** : aucun chiffrement. Il s’agit de la valeur par défaut. À noter que quand vous utilisez cette option, votre contenu n'est pas protégé pendant le transit ou le repos dans le stockage. Si vous prévoyez de fournir un MP4 sous forme de téléchargement progressif, utilisez cette option.
+- **StorageEncrypted** : utilisez cette option pour chiffrer votre contenu localement à l'aide du chiffrement Advanced Encryption Standard AES 256 bits, qui est ensuite chargé vers Azure Storage, où il est stocké au repos sous forme chiffrée. Les éléments multimédias protégés par le chiffrement de stockage sont automatiquement déchiffrés et placés dans un système de fichiers chiffré avant d’être encodés, puis éventuellement rechiffrés avant d’être rechargés sous la forme d’un nouvel élément multimédia de sortie. Le principal cas d'utilisation du chiffrement de stockage concerne la sécurisation de fichiers multimédias d'entrée de haute qualité avec un chiffrement renforcé au repos sur le disque.
 - **CommonEncryptionProtected** : utilisez cette option lorsque vous téléchargez du contenu qui a déjà été chiffré et protégé par chiffrement commun ou gestion des droits numériques (DRM) PlayReady (par exemple, une diffusion en continu lisse protégée par gestion des droits numériques (DRM) PlayReady).
 - **EnvelopeEncryptionProtected** : utilisez cette option lorsque vous téléchargez un contenu au format TLS chiffré avec AES. Notez que les fichiers doivent avoir été encodés et chiffrés par le gestionnaire de transformation Transform Manager.
 
 La méthode **CreateFromFile** vous permet également de spécifier un rappel pour signaler la progression du téléchargement du fichier.
 
-Dans l’exemple suivant, nous spécifions **aucun** pour les options de l’élément multimédia.
+Dans l'exemple suivant, nous spécifions **aucun** pour les options de l'élément multimédia.
 
 Ajoutez la méthode suivante à la classe Program.
 
@@ -242,7 +234,7 @@ Ajoutez la méthode suivante à la classe Program.
 
 ##Encoder le fichier source en un ensemble de fichiers MP4 à débit adaptatif
 
-Après avoir reçu des éléments multimédias dans Media Services, vous pouvez encoder un média, modifier le format de ce dernier, lui appliquer un filigrane, etc. avant de le livrer à des clients. Afin de garantir des performances et une disponibilité optimales, ces activités sont planifiées et exécutées dans de nombreuses instances de rôle en arrière-plan. Ces activités s’appellent des travaux et chaque travail se compose de tâches atomiques qui effectuent le travail à proprement parler sur le fichier de ressource.
+Après avoir reçu des éléments multimédias dans Media Services, vous pouvez encoder un média, modifier le format de ce dernier, lui appliquer un filigrane, etc. avant de le livrer à des clients. Afin de garantir des performances et une disponibilité optimales, ces activités sont planifiées et exécutées dans de nombreuses instances de rôle en arrière-plan. Ces activités s'appellent des travaux et chaque travail se compose de tâches atomiques qui effectuent le travail à proprement parler sur le fichier de ressource.
 
 Comme mentionné précédemment, lorsque vous travaillez avec Azure Media Services, un des scénarios les plus courants est la diffusion de contenu à débit adaptatif à vos clients. Media Services peut regrouper de façon dynamique un ensemble de fichiers MP4 à débit adaptatif dans un des formats suivants :HTTP Live Streaming (HLS), Smooth Streaming, MPEG DASH et HDS (pour licences Adobe PrimeTime/Access uniquement).
 
@@ -251,10 +243,9 @@ Pour tirer parti de l’empaquetage dynamique, vous devez effectuer les opérati
 - Coder ou transcoder vos fichiers votre fichier mezzanine (source) en un ensemble de fichiers mp4 à débit adaptatif ou de fichiers Smooth Streaming à débit adaptatif.  
 - Obtenir au moins une unité de diffusion pour le point de terminaison de diffusion à partir duquel vous envisagez de distribuer votre contenu.
 
-Le code suivant vous explique comment effectuer envoyer une tâche d'encodage. La tâche contient une tâche qui spécifie le fichier mezzanine à transcoder en un ensemble de MP4 à débit adaptatif à l’aide d’**Azure Media Encoder**. Le code envoie la tâche et attend qu'elle soit terminée.
+Le code suivant vous explique comment effectuer envoyer une tâche d'encodage. La tâche contient une tâche qui spécifie le fichier mezzanine à transcoder en un ensemble de MP4 à débit adaptatif à l'aide d'**Azure Media Encoder**. Le code envoie la tâche et attend qu'elle soit terminée.
 
 Une fois la tâche terminée, vous pourrez diffuser votre élément multimédia ou télécharger progressivement les fichiers MP4 qui ont été créés après le transcodage. Notez que vous n’avez pas besoin d’unité de diffusion en continu pour télécharger progressivement les fichiers MP4.
-
 
 Ajoutez la méthode suivante à la classe Program.
 
@@ -291,39 +282,20 @@ Ajoutez la méthode suivante à la classe Program.
 	    return outputAsset;
 	}
 
-##Configurer la stratégie de distribution de l’élément encodé
+##Publier l'élément et obtenir les URL de diffusion et de téléchargement progressif
 
-Une des étapes du processus de distribution de contenu Media Services est la configuration des stratégies de distribution des éléments multimédias. Voici ce que comprend la configuration de stratégie de distribution de l’élément : les types de protocoles qui peuvent être utilisés pour la distribution (par exemple, MPEG DASH, TLS, HDS, Smooth Streaming ou tous), si vous souhaitez chiffrer dynamiquement votre élément multimédia et comment (enveloppe ou chiffrement commun).
-
-La méthode **ConfigureClearAssetDeliveryPolicy** qui suit indique de ne pas appliquer le chiffrement dynamique et de distribuer le flux via un des protocoles suivants : MPEG DASH, HLS et Smooth Streaming.
-
-Ajoutez la méthode suivante à la classe Program.
-
-    static public void ConfigureClearAssetDeliveryPolicy(IAsset asset)
-    {
-        IAssetDeliveryPolicy policy =
-            _context.AssetDeliveryPolicies.Create("Clear Policy",
-            AssetDeliveryPolicyType.NoDynamicEncryption,
-            AssetDeliveryProtocol.HLS | AssetDeliveryProtocol.SmoothStreaming | AssetDeliveryProtocol.Dash, null);
-
-        asset.DeliveryPolicies.Add(policy);
-    }
-
-
-##Publier les éléments et obtenir les URL de diffusion et de téléchargement progressif
-
-Pour diffuser en continu ou télécharger un élément multimédia, vous devez tout d’abord le « publier » en créant un localisateur. Les localisateurs assurent l’accès aux fichiers contenus dans l’élément multimédia. Media Services prend en charge deux types de localisateurs : les localisateurs OnDemandOrigin, utilisés pour diffuser du contenu multimédia (par exemple, MPEG DASH, HLS ou Smooth Streaming) et les localisateurs d’URL SAS (signature d’accès partagé), utilisés pour télécharger des fichiers multimédias.
+Pour diffuser en continu ou télécharger un élément multimédia, vous devez tout d'abord le « publier » en créant un localisateur. Les localisateurs assurent l’accès aux fichiers contenus dans l’élément multimédia. Media Services prend en charge deux types de localisateurs : les localisateurs OnDemandOrigin, utilisés pour diffuser du contenu multimédia (par exemple, MPEG DASH, HLS ou Smooth Streaming) et les localisateurs d’URL SAS (signature d’accès partagé), utilisés pour télécharger des fichiers multimédias.
 
 Une fois que vous avez créé les localisateurs, vous pouvez générer les URL utilisées pour transmettre en continu ou télécharger les fichiers.
 
 
 Les URL de diffusion en continu pour Smooth Streaming ont le format suivant :
 
-	{streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest
+	 {streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest
 
 Les URL de diffusion en continu pour HLS ont le format suivant :
 
-	{streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=m3u8-aapl)
+	 {streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=m3u8-aapl)
 
 Les URL de diffusion en continu pour MPEG DASH ont le format suivant :
 
@@ -368,7 +340,7 @@ Ajoutez la méthode suivante à la classe Program.
         Uri hlsUri = asset.GetHlsUri();
         Uri mpegDashUri = asset.GetMpegDashUri();
 
-        // Get progressive download URLs for each MP4 file that was generated as a result
+        // Get the URls for progressive download for each MP4 file that was generated as a result
 		// of encoding.
 		List<Uri> mp4ProgressiveDownloadUris = mp4AssetFiles.Select(af => af.GetSasUri()).ToList();
 
@@ -380,7 +352,7 @@ Ajoutez la méthode suivante à la classe Program.
         Console.WriteLine(mpegDashUri);
         Console.WriteLine();
 
-		// Display the progressive download URLs.
+		// Display the URLs for progressive download.
         Console.WriteLine("Use the following URLs for progressive download.");
         mp4ProgressiveDownloadUris.ForEach(uri => Console.WriteLine(uri + "\n"));
         Console.WriteLine();
@@ -443,11 +415,11 @@ URL de téléchargement progressif (audio et vidéo).
 
 Pour tester votre vidéo, utilisez le [lecteur Azure Media Services](http://amsplayer.azurewebsites.net/azuremediaplayer.html).
 
-Pour tester le téléchargement progressif, collez l’URL dans un navigateur (par exemple, Internet Explorer, Chrome ou Safari).
+Pour tester le téléchargement progressif, collez l'URL dans un navigateur (par exemple, Internet Explorer, Chrome ou Safari).
 
 ##Étape suivante
 
-Pour en savoir plus sur la création d’applications de vidéo à la demande, consultez la page [Création d’applications de vidéo à la demande](media-services-video-on-demand-workflow.md).
+Pour en savoir plus sur la création d'applications de vidéo à la demande, consultez la page [Création d'applications de vidéo à la demande](media-services-video-on-demand-workflow.md).
 
 ###Ressources supplémentaires
 - <a href="http://channel9.msdn.com/Shows/Azure-Friday/Azure-Media-Services-101-Get-your-video-online-now-">Azure Media Services 101 - Mettez votre vidéo en ligne dès maintenant.</a>
@@ -459,7 +431,6 @@ Pour en savoir plus sur la création d’applications de vidéo à la demande, c
 
 <!-- URLs. -->
   [Web Platform Installer]: http://go.microsoft.com/fwlink/?linkid=255386
-  [portail de gestion]: http://manage.windowsazure.com/
- 
+  [Portal]: http://manage.windowsazure.com/
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

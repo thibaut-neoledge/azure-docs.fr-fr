@@ -1,21 +1,21 @@
 <properties 
-	pageTitle="Application Insights pour les services et applications de bureau Windows" 
-	description="Analysez l’utilisation et les performances de votre application de bureau Windows avec Application Insights." 
-	services="application-insights" 
-    documentationCenter="windows"
-	authors="alancameronwills" 
+	pageTitle="Application Insights pour les services et applications de bureau Windows"
+	description="Analysez l’utilisation et les performances de votre application de bureau Windows avec Application Insights."
+	services="application-insights"
+	documentationCenter="windows"
+	authors="alancameronwills"
 	manager="douge"/>
 
 <tags 
-	ms.service="application-insights" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/12/2015" 
+	ms.service="application-insights"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="ibiza"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/19/2015"
 	ms.author="awills"/>
 
-# Application Insights sur des services et applications de bureau Windows
+# Application Insights sur des rôles de travail, des services et des applications de bureau Windows
 
 *Application Insights est à l'état de version préliminaire.*
 
@@ -23,7 +23,7 @@
 
 Application Insights vous permet d'analyser l’utilisation et les performances de vos applications déployées.
 
-La prise en charge des services et applications de bureau Windows est assurée par le kit de développement logiciel (SDK) principal du logiciel Application Insights. Ce kit assure la prise en charge complète de l’API pour toutes les données de télémétrie, mais n’offre aucune collecte automatique de ces données.
+Toutes les applications Windows (y compris les applications de bureau, les services d’arrière-plan et les rôles de travail) peuvent utiliser le Kit de développement logiciel (SDK) principal du logiciel Application Insights pour envoyer des données de télémétrie à Application Insights. La Kit de développement logiciel (SDK) principal fournit simplement une API : contrairement aux Kits de développement logiciel (SDK) web ou pour appareil, il n’inclut pas tous les modules qui collectent les données automatiquement. Vous devez donc écrire du code pour envoyer vos propres données de télémétrie.
 
 
 ## <a name="add"></a> Création d’une ressource Application Insights
@@ -42,11 +42,15 @@ La prise en charge des services et applications de bureau Windows est assurée 
 ## <a name="sdk"></a>Installation du Kit de développement logiciel (SDK) dans votre application
 
 
-1. Dans Visual Studio, modifiez les packages NuGet de votre projet d'application de bureau. ![Cliquez avec le bouton droit sur le projet et sélectionnez Gérer les packages NuGet](./media/app-insights-windows-desktop/03-nuget.png)
+1. Dans Visual Studio, modifiez les packages NuGet de votre projet d’application de bureau.
+
+    ![Cliquez avec le bouton droit sur le projet et sélectionnez Gérer les packages NuGet](./media/app-insights-windows-desktop/03-nuget.png)
 
 2. Installez le package d’API Core Application Insights.
 
     ![Recherchez « Application Insights »](./media/app-insights-windows-desktop/04-core-nuget.png)
+
+    Vous pouvez installer d’autres packages tels que le compteur de performances ou des packages de collecte de journaux si vous souhaitez utiliser les fonctionnalités correspondantes.
 
 3. Définissez votre élément InstrumentationKey dans le code, par exemple dans main().
 
@@ -55,16 +59,17 @@ La prise en charge des services et applications de bureau Windows est assurée 
 *Pourquoi n’existe-t-il aucun fichier ApplicationInsights.config ?*
 
 * Le fichier .config n’est pas installé par le package d’API Core, qui permet uniquement de configurer les collecteurs de télémétrie. Vous écrivez donc votre propre code pour définir la clé d’instrumentation et envoyer les données de télémétrie.
+* Si vous avez installé l’un des autres packages, vous disposerez d’un fichier .config. Vous pouvez y placer votre clé d’instrumentation au lieu de la définir dans le code.
 
 *Puis-je utiliser un autre package NuGet ?*
 
-* Oui, vous pouvez utiliser le package de serveur web, qui installe des collecteurs pour les compteurs de performances. Dans ce cas, vous devez [désactiver le collecteur de demande HTTP](app-insights-configuration-with-applicationinsights-config.md). Ce package installe un fichier .config dans lequel vous devrez placer votre clé d’instrumentation.
+* Oui, vous pouvez utiliser le package de serveur web (Microsoft.ApplicationInsights.Web), qui installe des collecteurs pour différents modules de collecte, tels que les compteurs de performances. Ce package installe un fichier .config dans lequel vous devrez placer votre clé d’instrumentation. Utilisez [ApplicationInsights.config pour désactiver les modules que vous ne souhaitez pas utiliser](app-insights-configuration-with-applicationinsights-config.md), par exemple le collecteur de demande HTTP. 
+* Si vous souhaitez utiliser les [packages de collecteurs de journaux ou de traces](app-insights-asp-net-trace-logs.md), démarrez avec le package de serveur web. 
 
 ## <a name="telemetry"></a>Insertion d’appels de télémétrie
 
 Créez une instance de `TelemetryClient` puis [utilisez-la pour envoyer des données de télémétrie][api].
 
-Utilisez `TelemetryClient.Flush()` pour envoyer des messages avant de fermer l'application. Le Kit de développement logiciel Core utilise une mémoire tampon. La méthode de vidage veillera à vider cette mémoire tampon pour éviter toute perte de données lors de la fermeture du processus. (Cette méthode est déconseillée pour les autres types d’application). Les kits de développement logiciel des plateformes implémentent automatiquement ce comportement.)
 
 Par exemple, dans une application Windows Forms, vous pouvez écrire :
 
@@ -108,6 +113,10 @@ Utilisez l’une des [API Application Insights][api] pour envoyer des données d
 * TrackMetric(name, value) dans une tâche en arrière-plan pour envoyer des rapports de métriques réguliers qui ne sont pas liés à des événements spécifiques.
 * TrackTrace(logEvent) pour la [journalisation des diagnostics][diagnostic]
 * TrackException(exception) dans des clauses Catch
+
+
+Pour vous assurer que toutes les données de télémétrie sont envoyées avant la fermeture de l’application, utilisez `TelemetryClient.Flush()`. Les données de télémétrie sont généralement traitées par lot et envoyées à intervalles réguliers. (Le vidage est recommandé uniquement si vous utilisez simplement l’API de base). Les Kits de développement logiciel (SDK) web et pour appareil implémentent automatiquement ce comportement.)
+
 
 #### Initialiseurs de contexte
 
@@ -181,4 +190,4 @@ Si vous avez utilisé TrackMetric ou le paramètre de mesure de TrackEvent, ouvr
 [CoreNuGet]: https://www.nuget.org/packages/Microsoft.ApplicationInsights
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

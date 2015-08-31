@@ -4,7 +4,7 @@
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
-   manager="adinah"
+   manager="carolz"
    editor="" />
 <tags 
    ms.service="storsimple"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="07/09/2015"
+   ms.date="08/17/2015"
    ms.author="v-sharos" />
 
 # Déploiement du Gestionnaire d’instantanés StorSimple
@@ -35,8 +35,8 @@ Avant d’installer ou de mettre à niveau le composant logiciel enfichable Gest
 
 Les étapes suivantes fournissent une vue d’ensemble des tâches de configuration requises avant d’installer le Gestionnaire d’instantanés StorSimple. Pour obtenir des informations complètes sur la configuration et l’installation de Microsoft Azure StorSimple, y compris la configuration système requise et des instructions pas à pas, consultez la page [Déploiement de votre appareil StorSimple local](storsimple-deployment-walkthrough.md).
 
->[AZURE.IMPORTANT]Avant de commencer, lisez la [liste de contrôle préalable à l’installation](storsimple-deployment-walkthrough.md#pre-installation-checklist)
-> et les [conditions préalables au déploiement](storsimple-deployment-walkthrough.md#deployment-prerequisites) dans l’article [Déploiement de votre appareil StorSimple local](storsimple-deployment-walkthrough.md).
+>[AZURE.IMPORTANT]Avant de commencer, lisez la [liste de contrôle de déploiement](storsimple-deployment-walkthrough.md#deployment-configuration-checklist) 
+et les [conditions préalables au déploiement](storsimple-deployment-walkthrough.md#deployment-prerequisites) dans l’article [Déploiement de votre appareil StorSimple local](storsimple-deployment-walkthrough.md).
 <br>
  
 ### Avant d’installer le Gestionnaire d’instantanés StorSimple
@@ -63,11 +63,11 @@ Les étapes suivantes fournissent une vue d’ensemble des tâches de configurat
     - Volumes dynamiques en miroir (RAID 1)
     - Volumes partagés de cluster
  
-    Pour plus d’informations sur la création de volumes sur l’appareil StorSimple ou l’appareil virtuel StorSimple, consultez la section « Étape 6 : création d’un volume » de l’article [Déploiement de votre appareil StorSimple local](storsimple-deployment-walkthrough.md).
+    Pour plus d’informations sur la création de volumes sur l’appareil StorSimple ou l’appareil virtuel StorSimple, consultez la section [« Étape 6 : création d’un volume »](storsimple-deployment-walkthrough.md#step-6-create-a-volume) de l’article [Déploiement de votre appareil StorSimple local](storsimple-deployment-walkthrough.md).
 
 ## Installation d’un nouveau Gestionnaire d’instantanés StorSimple
 
-Avant d’installer le Gestionnaire d’instantanés StorSimple, assurez-vous que les volumes que vous avez créés sur l’appareil StorSimple ou l’appareil virtuel StorSimple sont montés, initialisés et formatés comme indiqué dans la section [Configuration préalable requise](#configure-prerequisites).
+Avant d’installer le Gestionnaire d’instantanés StorSimple, assurez-vous que les volumes que vous avez créés sur l’appareil StorSimple ou l’appareil virtuel StorSimple sont montés, initialisés et formatés comme indiqué dans la section [Configuration préalable requise](#configure-prerequisites).
 
 >[AZURE.IMPORTANT]
 >
@@ -77,7 +77,7 @@ Avant d’installer le Gestionnaire d’instantanés StorSimple, assurez-vous qu
 >
 >- Vous devez configurer une connexion iSCSI de l’hôte vers l’appareil StorSimple avant de pouvoir connecter l’appareil au Gestionnaire d’instantanés StorSimple.
 
-Pour effectuer une nouvelle installation du Gestionnaire d’instantanés StorSimple, suivez les étapes ci-dessous. Si vous installez une mise à niveau, accédez à la section [Mise à niveau ou réinstallation du Gestionnaire d’instantanés StorSimple](#upgrade-or-reinstall-storsimple-snapshot-manager).
+Pour effectuer une nouvelle installation du Gestionnaire d’instantanés StorSimple, suivez les étapes ci-dessous. Si vous installez une mise à niveau, accédez à la section [Mise à niveau ou réinstallation du Gestionnaire d’instantanés StorSimple](#upgrade-or-reinstall-storsimple-snapshot-manager).
 
 - Étape 1 : installation du Gestionnaire d’instantanés StorSimple 
 - Étape 2 : connexion du Gestionnaire d’instantanés StorSimple à un appareil 
@@ -89,7 +89,7 @@ Pour installer le Gestionnaire d’instantanés StorSimple, procédez comme suit
 
 #### Pour installer le Gestionnaire d’instantanés StorSimple
 
-1. Téléchargez le logiciel Gestionnaire d’instantanés StorSimple (accédez à [Gestionnaire d’instantanés StorSimple](https://www.microsoft.com/download/details.aspx?id=44220) dans le Centre de téléchargement Microsoft) et enregistrez-le localement sur l’hôte.
+1. Téléchargez le logiciel Gestionnaire d’instantanés StorSimple (accédez à [Gestionnaire d’instantanés StorSimple](https://www.microsoft.com/download/details.aspx?id=44220) dans le Centre de téléchargement Microsoft) et enregistrez-le localement sur l’hôte.
 
 2. Dans l’Explorateur de fichiers, cliquez avec le bouton droit sur le dossier compressé, puis cliquez sur **Extraire tout**.
 
@@ -113,29 +113,29 @@ Pour connecter le Gestionnaire d’instantanés StorSimple à un appareil StorSi
 
 #### Pour connecter le Gestionnaire d’instantanés StorSimple à un appareil
 
-1. Cliquez sur l’icône du Gestionnaire d’instantanés StorSimple sur votre bureau. La fenêtre du Gestionnaire d’instantanés StorSimple s’affiche. Cette fenêtre contient un volet **Étendue**, un volet **Résultats** et un volet **Actions**. 
+1. Cliquez sur l’icône du Gestionnaire d’instantanés StorSimple sur votre bureau. La fenêtre du Gestionnaire d’instantanés StorSimple s’affiche. Cette fenêtre contient un volet **Étendue**, un volet **Résultats** et un volet **Actions**. 
 
     ![Interface utilisateur du Gestionnaire d’instantanés StorSimple](./media/storsimple-snapshot-manager-deployment/HCS_SSM_gui_panes.png)
 
-    - Le volet **Étendue** (volet gauche) contient une liste de nœuds organisée en arborescence. Vous pouvez développer certains nœuds pour sélectionner une vue ou des données spécifiques relatives à ce nœud. Cliquez sur l’icône en forme de flèche en regard d’un nœud pour le développer ou le réduire. Cliquez avec le bouton droit sur un élément du volet **Étendue** pour afficher la liste des actions disponibles pour cet élément. 
+    - Le volet **Étendue** (volet gauche) contient une liste de nœuds organisée en arborescence. Vous pouvez développer certains nœuds pour sélectionner une vue ou des données spécifiques relatives à ce nœud. Cliquez sur l’icône en forme de flèche en regard d’un nœud pour le développer ou le réduire. Cliquez avec le bouton droit sur un élément du volet **Étendue** pour afficher la liste des actions disponibles pour cet élément. 
 
-    - Le volet **Résultats** (volet central) contient des informations d’état détaillées sur le nœud, la vue ou les données que vous avez sélectionnés dans le volet **Étendue**.
+    - Le volet **Résultats** (volet central) contient des informations d’état détaillées sur le nœud, la vue ou les données que vous avez sélectionnés dans le volet **Étendue**.
 
-    - Le volet **Actions** répertorie les opérations que vous pouvez effectuer sur le nœud, la vue ou les données que vous avez sélectionnés dans le volet **Étendue**.
+    - Le volet **Actions** répertorie les opérations que vous pouvez effectuer sur le nœud, la vue ou les données que vous avez sélectionnés dans le volet **Étendue**.
 
-    Pour obtenir une description complète de l’interface utilisateur du Gestionnaire d’instantanés StorSimple, consultez l’article [Interface utilisateur du Gestionnaire d’instantanés StorSimple](storsimple-use-snapshot-manager.md).
+    Pour obtenir une description complète de l’interface utilisateur du Gestionnaire d’instantanés StorSimple, consultez l’article [Interface utilisateur du Gestionnaire d’instantanés StorSimple](storsimple-use-snapshot-manager.md).
 
-2. Dans le volet **Étendue**, cliquez avec le bouton droit sur le nœud **Appareils**, puis cliquez sur **Configurer un appareil**. La boîte de dialogue **Configurer un appareil** s’affiche.
+2. Dans le volet **Étendue**, cliquez avec le bouton droit sur le nœud **Appareils**, puis cliquez sur **Configurer un appareil**. La boîte de dialogue **Configurer un appareil** apparaît.
 
     ![Configurer un appareil](./media/storsimple-snapshot-manager-deployment/HCS_SSM_config_device.png)
 
-3. Dans la zone de liste **Appareil**, sélectionnez l’adresse IP de l’appareil ou de l’appareil virtuel Microsoft Azure StorSimple. Dans la zone de texte **Mot de passe**, tapez le mot de passe du Gestionnaire d’instantanés StorSimple que vous avez créé pour l’appareil dans le portail de gestion Microsoft Azure. Cliquez sur **OK**.
+3. Dans la zone de liste **Appareil**, sélectionnez l’adresse IP de l’appareil ou de l’appareil virtuel Microsoft Azure StorSimple. Dans la zone de texte **Mot de passe**, tapez le mot de passe du Gestionnaire d’instantanés StorSimple que vous avez créé pour l’appareil dans le portail de gestion Microsoft Azure. Cliquez sur **OK**.
 
 4. Le Gestionnaire d’instantanés StorSimple recherche l’appareil que vous avez identifié. Si l’appareil est disponible, le Gestionnaire d’instantanés StorSimple ajoute une connexion. Vous pouvez [vérifier la connexion à l’appareil](#to-verify-the-connection) pour confirmer que la connexion a bien été ajoutée.
 
-    Si, pour une raison quelconque, l’appareil est indisponible, le Gestionnaire d’instantanés StorSimple retourne un message d’erreur. Cliquez sur **OK** pour fermer le message d’erreur, puis sur **Annuler** pour fermer la boîte de dialogue **Configurer un appareil**.
+    Si, pour une raison quelconque, l’appareil est indisponible, le Gestionnaire d’instantanés StorSimple retourne un message d’erreur. Cliquez sur **OK** pour fermer le message d’erreur, puis cliquez sur **Annuler** pour fermer la boîte de dialogue **Configurer un appareil**.
 
-5. Au moment de se connecter à un appareil, le Gestionnaire d’instantanés StorSimple importe chaque groupe de volumes configuré pour cet appareil, à condition que le groupe de volumes soit associé à des sauvegardes. Les groupes de volumes qui ne sont associés à aucune sauvegarde ne sont pas importés. De plus, les stratégies de sauvegarde créées pour un groupe de volumes ne sont pas importées. Pour afficher les groupes importés, cliquez avec le bouton droit sur le nœud **Groupes de volumes** situé le plus haut dans le volet **Étendue**, puis cliquez sur **Activer/Désactiver les groupes importés**.
+5. Au moment de se connecter à un appareil, le Gestionnaire d’instantanés StorSimple importe chaque groupe de volumes configuré pour cet appareil, à condition que le groupe de volumes soit associé à des sauvegardes. Les groupes de volumes qui ne sont associés à aucune sauvegarde ne sont pas importés. De plus, les stratégies de sauvegarde créées pour un groupe de volumes ne sont pas importées. Pour afficher les groupes importés, cliquez avec le bouton droit sur le nœud **Groupes de volumes** situé le plus haut dans le volet **Étendue**, puis cliquez sur **Activer/Désactiver les groupes importés**.
 
 ### Étape 3 : vérification de la connexion à l’appareil
 
@@ -143,17 +143,17 @@ Pour vérifier que le Gestionnaire d’instantanés StorSimple est connecté à 
 
 #### Pour vérifier la connexion
 
-1. Dans le volet **Étendue**, cliquez sur le nœud **Appareils**.
+1. Dans le volet **Étendue**, cliquez sur le nœud **Appareils**.
 
     ![État de l’appareil dans le Gestionnaire d’instantanés StorSimple](./media/storsimple-snapshot-manager-deployment/HCS_SSM_Device_status.png)
 
-2. Vérifiez le volet **Résultats** :
+2. Vérifiez le volet **Résultats** :
 
-   - Si un indicateur vert est affiché sur l’icône de l’appareil et **Disponible** est indiqué dans la colonne **État**, cela signifie que l’appareil est connecté. 
+   - Si un indicateur vert est affiché sur l’icône de l’appareil et si **Disponible** est indiqué dans la colonne **État**, cela signifie que l’appareil est connecté. 
 
-   - Si un indicateur rouge est affiché sur l’icône de l’appareil et Non disponible est indiqué dans la colonne **État**, cela signifie que l’appareil n’est pas connecté.
+   - Si un indicateur rouge est affiché sur l’icône de l’appareil et Non disponible est indiqué dans la colonne **État**, cela signifie que l’appareil n’est pas connecté.
 
-   - Si **Actualisation** s’affiche dans la colonne **État**, cela signifie que le Gestionnaire d’instantanés StorSimple récupère les groupes de volumes et les sauvegardes associées pour un appareil connecté.
+   - Si **Actualisation** s’affiche dans la colonne **État**, cela signifie que le Gestionnaire d’instantanés StorSimple récupère les groupes de volumes et les sauvegardes associées pour un appareil connecté.
 
 ## Mise à niveau ou réinstallation du Gestionnaire d’instantanés StorSimple
 
@@ -177,7 +177,7 @@ Pour désinstaller le Gestionnaire d’instantanés StorSimple, procédez comme 
 
 2. Dans le volet gauche, cliquez sur **Désinstaller ou modifier un programme**.
 
-3. Cliquez avec le bouton droit sur **Gestionnaire d’instantanés StorSimple**, puis cliquez sur**Désinstaller**.
+3. Cliquez avec le bouton droit sur **Gestionnaire d’instantanés StorSimple**, puis cliquez sur**Désinstaller**.
 
 4. Le programme d’installation du Gestionnaire d’instantanés StorSimple démarre. Cliquez sur **Modifier l’installation**, puis sur **Désinstaller**.
 
@@ -195,11 +195,11 @@ Pour créer et enregistrer une copie de la base de données du Gestionnaire d’
 
    1. Démarrez le Gestionnaire de serveur.
 
-   2. Dans le tableau de bord du Gestionnaire de serveur, dans le menu **Outils**, sélectionnez **Services**.
+   2. Sur le tableau de bord du Gestionnaire de serveur, dans le menu **Outils**, sélectionnez **Services**.
 
-   3. Dans la page **Services**, sélectionnez **Service de gestion Microsoft StorSimple**.
+   3. Dans la page **Services**, sélectionnez **Service de gestion Microsoft StorSimple**.
 
-   4. Dans le volet droit, sous **Service de gestion Microsoft StorSimple**, cliquez sur **Arrêter le service**.
+   4. Dans le volet droit, sous **Service de gestion Microsoft StorSimple**, cliquez sur **Arrêter le service**.
 
         ![Stop the StorSimple Manager service](./media/storsimple-snapshot-manager-deployment/HCS_SSM_stop_service.png)
 
@@ -213,15 +213,15 @@ Pour créer et enregistrer une copie de la base de données du Gestionnaire d’
 
 4. Redémarrez le service de gestion Microsoft StorSimple :
 
-    1. Dans le tableau de bord du Gestionnaire de serveur, dans le menu **Outils**, sélectionnez **Services**.
+    1. Sur le tableau de bord du Gestionnaire de serveur, dans le menu **Outils**, sélectionnez **Services**.
 
-    2. Dans la page **Services**, sélectionnez **Service de gestion Microsoft StorSimple**.
+    2. Dans la page **Services**, sélectionnez **Service de gestion Microsoft StorSimple**.
 
-    3. Dans le volet droit, sous **Service de gestion Microsoft StorSimple**, cliquez sur **Redémarrer le service**.
+    3. Dans le volet droit, sous **Service de gestion Microsoft StorSimple**, cliquez sur **Redémarrer le service**.
 
 ### Étape 3 : réinstallation du Gestionnaire d’instantanés StorSimple et restauration de la base de données
 
-Pour réinstaller le Gestionnaire d’instantanés StorSimple, suivez les étapes de la section [Installation d’un nouveau gestionnaire d’instantanés StorSimple](#install-a-new-storsimple-snapshot-manager). Appliquez ensuite la procédure suivante pour restaurer la base de données du Gestionnaire d’instantanés StorSimple.
+Pour réinstaller le Gestionnaire d’instantanés StorSimple, suivez les étapes de la section [Installation d’un nouveau gestionnaire d’instantanés StorSimple](#install-a-new-storsimple-snapshot-manager). Appliquez ensuite la procédure suivante pour restaurer la base de données du Gestionnaire d’instantanés StorSimple.
 
 #### Pour restaurer la base de données
 
@@ -229,13 +229,13 @@ Pour réinstaller le Gestionnaire d’instantanés StorSimple, suivez les étape
 
     1. Démarrez le Gestionnaire de serveur.
 
-    2. Dans le tableau de bord du Gestionnaire de serveur, dans le menu **Outils**, sélectionnez **Services**.
+    2. Sur le tableau de bord du Gestionnaire de serveur, dans le menu **Outils**, sélectionnez **Services**.
 
-    3. Dans la page **Services**, sélectionnez **Service de gestion Microsoft StorSimple**.
+    3. Dans la page **Services**, sélectionnez **Service de gestion Microsoft StorSimple**.
 
-    4. Dans le volet droit, sous **Service de gestion Microsoft StorSimple**, cliquez sur **Arrêter le service**.
+    4. Dans le volet droit, sous **Service de gestion Microsoft StorSimple**, cliquez sur **Arrêter le service**.
 
-2. Accédez à C:\ProgramData\Microsoft\StorSimple\BACatalog.
+2. Accédez à C:\\ProgramData\\Microsoft\\StorSimple\\BACatalog.
 
      >[AZURE.NOTE]ProgramData est un dossier masqué.
 
@@ -243,16 +243,16 @@ Pour réinstaller le Gestionnaire d’instantanés StorSimple, suivez les étape
 
 4. Redémarrez le service de gestion Microsoft StorSimple :
 
-    1. Dans le tableau de bord du Gestionnaire de serveur, dans le menu **Outils**, sélectionnez **Services**.
+    1. Sur le tableau de bord du Gestionnaire de serveur, dans le menu **Outils**, sélectionnez **Services**.
 
-    2. Dans la page **Services**, sélectionnez **Service de gestion Microsoft StorSimple**.
+    2. Dans la page **Services**, sélectionnez **Service de gestion Microsoft StorSimple**.
 
-    3. Dans le volet droit, sous **Service de gestion Microsoft StorSimple**, cliquez sur **Redémarrer le service**.
+    3. Dans le volet droit, sous **Service de gestion Microsoft StorSimple**, cliquez sur **Redémarrer le service**.
 
 ## Étapes suivantes
 
-Pour en savoir plus sur le Gestionnaire d’instantanés StorSimple, accédez à la page [Qu’est-ce que le Gestionnaire d’instantanés StorSimple ?](storsimple-what-is-snapshot-manager.md)
+Pour en savoir plus sur le Gestionnaire d’instantanés StorSimple, accédez à la page [Qu’est-ce que le Gestionnaire d’instantanés StorSimple ?](storsimple-what-is-snapshot-manager.md)
 
-Pour en savoir plus sur l’interface utilisateur du Gestionnaire d’instantanés StorSimple, accédez à la page [Interface utilisateur du Gestionnaire d’instantanés StorSimple](storsimple-use-snapshot-manager.md).
+Pour en savoir plus sur l’interface utilisateur du Gestionnaire d’instantanés StorSimple, accédez à la page [Interface utilisateur du Gestionnaire d’instantanés StorSimple](storsimple-use-snapshot-manager.md).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

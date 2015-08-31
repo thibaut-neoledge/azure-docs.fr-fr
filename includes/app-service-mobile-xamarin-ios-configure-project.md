@@ -1,39 +1,41 @@
-###In Xamarin Studio
+###Dans Xamarin Studio
 
-1. In Xamarin.Studio, open **Info.plist**, and update the **Bundle Identifier** with the ID that you created earlier.
+1. Dans Xamarin.Studio, ouvrez **Info.plist** et mettez à jour la valeur de **Bundle Identifier** avec l’ID que vous avez créé précédemment.
 
     ![][121]
 
-2. Scroll down to **Background Modes** and check the **Enable Background Modes** box and the **Remote notifications** box. 
+2. Descendez jusqu’à **Background Modes**, puis activez les cases à cocher **Enable Background Modes** et **Remote notifications**.
 
     ![][122]
 
-3. Double click your project in the Solution Panel to open **Project Options**.
+3. Double-cliquez sur votre projet dans Solution Panel pour ouvrir les **options de projet**.
 
-4.  Choose **iOS Bundle Signing** under **Build**, and select the corresponding **Identity** and **Provisioning profile** you had just set up for this project. 
+4.  Sélectionnez **iOS Bundle Signing** sous **Build**, puis sélectionnez les éléments **Identity** et **Provisioning profile** que vous venez de configurer pour ce projet.
 
     ![][120]
 
-    This ensures that the project uses the new profile for code signing. For the official Xamarin device provisioning documentation, see [Xamarin Device Provisioning].
+    Cela permet de vérifier que le projet utilise le nouveau profil pour la signature du code. Pour obtenir la documentation officielle de l’approvisionnement des appareils Xamarin, consultez la page [Approvisionnement des appareils Xamarin].
 
-### In Visual Studio
+### Dans Visual Studio
 
-1. In Visual Studio, right-click the project, and then click **Properties**.
+1. Dans Visual Studio, cliquez avec le bouton droit sur le projet, puis cliquez sur **Propriétés**.
 
-3. In the properties pages, click the **iOS Application** tab, and update the **Identifier** with the ID that you created earlier.
+3. Dans les pages de propriétés, cliquez sur l’onglet **iOS Application** et mettez à jour la valeur de **Identifier** avec l’ID que vous avez créé précédemment.
 
     ![][123]
 
-4. In the **iOS Bundle Signing** tab, select the corresponding **Identity** and **Provisioning profile** you had just set up for this project. 
+4. Sous l’onglet **iOS Bundle Signing**, sélectionnez les éléments **Identity** et **Provisioning profile** correspondants que vous venez de configurer pour ce projet.
 
     ![][124]
 
-    This ensures that the project uses the new profile for code signing. For the official Xamarin device provisioning documentation, see [Xamarin Device Provisioning].
+    Cela permet de vérifier que le projet utilise le nouveau profil pour la signature du code. Pour obtenir la documentation officielle de l’approvisionnement des appareils Xamarin, consultez la page [Approvisionnement des appareils Xamarin].
 
-[120]:./media/app-service-mobile-xamarin-ios-configure-project/mobile-services-ios-push-20.png
-[121]:./media/app-service-mobile-xamarin-ios-configure-project/mobile-services-ios-push-21.png
-[122]:./media/app-service-mobile-xamarin-ios-configure-project/mobile-services-ios-push-22.png
-[123]:./media/app-service-mobile-xamarin-ios-configure-project/mobile-services-ios-push-23.png
-[124]:./media/app-service-mobile-xamarin-ios-configure-project/mobile-services-ios-push-24.png
+[120]: ./media/app-service-mobile-xamarin-ios-configure-project/mobile-services-ios-push-20.png
+[121]: ./media/app-service-mobile-xamarin-ios-configure-project/mobile-services-ios-push-21.png
+[122]: ./media/app-service-mobile-xamarin-ios-configure-project/mobile-services-ios-push-22.png
+[123]: ./media/app-service-mobile-xamarin-ios-configure-project/mobile-services-ios-push-23.png
+[124]: ./media/app-service-mobile-xamarin-ios-configure-project/mobile-services-ios-push-24.png
 
-[Xamarin Device Provisioning]: http://developer.xamarin.com/guides/ios/getting_started/installation/device_provisioning/
+[Approvisionnement des appareils Xamarin]: http://developer.xamarin.com/guides/ios/getting_started/installation/device_provisioning/
+
+<!---HONumber=August15_HO8-->

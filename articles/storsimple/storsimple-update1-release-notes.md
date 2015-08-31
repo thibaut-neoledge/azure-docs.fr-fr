@@ -1,18 +1,18 @@
 <properties 
-    pageTitle="Notes de publication de StorSimple série 8000 Update 1"
+    pageTitle="Notes de publication de StorSimple série 8000 Update 1 | Microsoft Azure"
     description="Décrit les nouvelles fonctionnalités, les problèmes et les solutions de contournement associés à StorSimple série 8000 Update 1."
     services="storsimple"
     documentationCenter="NA"
     authors="alkohli"
-    manager="adinah"
-    editor="tysonn" />
+    manager="carolz"
+    editor="" />
  <tags 
     ms.service="storsimple"
     ms.devlang="NA"
     ms.topic="article"
     ms.tgt_pltfrm="NA"
     ms.workload="TBD"
-    ms.date="08/12/2015"
+    ms.date="08/19/2015"
     ms.author="alkohli" />
 
 # Notes de publication de StorSimple série 8000 Update 1  
@@ -45,7 +45,7 @@ Cette mise à jour contient les nouvelles fonctionnalités et améliorations sui
 
     Consultez le [guide de migration](http://www.microsoft.com/download/details.aspx?id=47322) pour en savoir plus sur la migration des données des appareils StorSimple série 5000-7000 vers les appareils de la série 8000.
 
-- **Disponibilité sur le portail d’administration de Microsoft Azure** - StorSimple est désormais disponible sur le portail d’administration de Microsoft Azure. Consultez la section relative au [déploiement d’un appareil StorSimple sur le portail d’administration de Microsoft Azure](storsimple-deployment-walkthrough-gov.md).
+- **Disponibilité sur le portail d’administration de Microsoft Azure** - StorSimple est désormais disponible sur le portail d’administration de Microsoft Azure. Consultez la section relative au [déploiement d’un appareil StorSimple sur le portail d’administration d’Azure](storsimple-deployment-walkthrough-gov.md).
 
 - **Prise en charge d’autres fournisseurs de services cloud** - Les autres fournisseurs de services cloud pris en charge sont Amazon S3, Amazon S3 with RRS, HP et OpenStack (bêta).
 
@@ -82,10 +82,10 @@ Le tableau suivant récapitule les problèmes connus de cette version.
 | 3 | Comptes de stockage | La suppression du compte de stockage à l’aide du service de stockage n’est pas prise en charge. En effet, cette opération donnerait lieu à une situation dans laquelle il serait impossible de récupérer les données utilisateur. | Oui | Oui |
 | 4 | Basculement de l’appareil | Le basculement multiple d’un conteneur de volumes d’un même appareil source vers différents appareils cibles n’est pas pris en charge. Si un appareil inactif est basculé vers plusieurs appareils, les conteneurs de volumes du premier appareil basculé perdent la propriété des données. Après un basculement de ce type, les conteneurs de volumes concernés apparaissent ou se comportent différemment lorsque vous les affichez dans le portail de gestion. | | Oui | Non |
 | 5 | Installation | Lors de l’installation de l’adaptateur StorSimple pour SharePoint, vous devez fournir une adresse IP d’appareil pour que l’installation s’effectue correctement. | | Oui | Non |
-| 6 | Proxy web | Si HTTPS est défini comme protocole dans la configuration du proxy web, la communication appareil-service est altérée et l’appareil se met hors connexion. Des packages de prise en charge sont également générés, ce qui consomme de nombreuses ressources de l’appareil. | Vérifiez que le protocole défini pour l’URL du proxy web est bien HTTP. Pour plus d’informations, consultez la section [Configuration du proxy web pour votre appareil](https://msdn.microsoft.com/library/azure/dn764937.aspx). | Oui | Non |
+| 6 | Proxy web | Si HTTPS est défini comme protocole dans la configuration du proxy web, la communication appareil-service est altérée et l’appareil se met hors connexion. Des packages de prise en charge sont également générés, ce qui consomme de nombreuses ressources de l’appareil. | Vérifiez que le protocole défini pour l’URL du proxy web est bien HTTP. Pour plus d’informations, consultez la section [Configuration du proxy web pour votre appareil](storsimple-configure-web-proxy.md). | Oui | Non |
 | 7 | Proxy web | Si vous configurez et activez le proxy web sur un appareil inscrit, vous devez redémarrer le contrôleur actif sur votre appareil. | | Oui | Non |
 | 8 | Latence de cloud élevée et charge de travail d’E/S élevée | Lorsque l’appareil StorSimple doit gérer à la fois des latences de cloud très élevées (de l’ordre de quelques secondes) et une charge de travail d’E/S élevée, ses volumes se détériorent et une défaillance peut se produire au niveau des E/S, avec l’erreur « appareil non prêt ». | Vous devez redémarrer les contrôleurs de l’appareil manuellement ou effectuer un basculement d’appareil pour résoudre ce problème. | Oui | Non |
-| 9 | Azure PowerShell | Lorsque vous utilisez l’applet de commande StorSimple **Get-AzureStorSimpleStorageAccountCredential | Select-Object -First 1 -Wait** pour sélectionner le premier objet afin de créer un objet **contrôleur de volumes**, l’applet de commande renvoie l’ensemble des objets. | Encapsulez l’applet de commande entre parenthèses comme suit : **(Get-Azure-StorSimpleStorageAccountCredential) | Select-Object -First 1 -Wait** | Oui | Oui |
+| 9 | Azure PowerShell | Lorsque vous utilisez l’applet de commande StorSimple **Get-AzureStorSimpleStorageAccountCredential &\#124; Select-Object -First 1 -Wait** pour sélectionner le premier objet afin de créer un objet **contrôleur de volumes**, l’applet de commande renvoie l’ensemble des objets. | Encapsulez l’applet de commande entre parenthèses comme suit : **(Get-Azure-StorSimpleStorageAccountCredential) &\#124; Select-Object -First 1 -Wait** | Oui | Oui |
 | 10| Migration | Lorsque plusieurs conteneurs de volumes sont transmis pour migration, l’heure prévue de la dernière sauvegarde est exacte uniquement pour le premier conteneur de volumes. Par ailleurs, la migration parallèle démarre après la migration des quatre premières sauvegardes du premier conteneur de volumes. | Nous vous recommandons de migrer un seul conteneur de volumes à la fois. | Oui | Non |
 | 11| Migration | Après la restauration, les volumes ne sont pas ajoutés à la stratégie de sauvegarde ni au groupe de disques virtuels. | Pour créer les sauvegardes, il vous faudra ajouter ces volumes à une stratégie de sauvegarde. | Oui | Oui |
 | 12| Migration | Une fois la migration terminée, l’appareil de série 5000/7000 ne doit pas accéder aux conteneurs de données migrées. | Nous vous recommandons de supprimer les conteneurs de données migrées une fois que la migration est terminée et validée. | Oui | Non |
@@ -112,7 +112,7 @@ Cette mise à jour ne peut pas être appliquée à l’appareil virtuel. Toutefo
 
 ## Étapes suivantes
 
-- [Installer Update 1 sur votre appareil](storsimple-install-update-1.md)
+- [Installer Update 1 sur votre appareil](storsimple-install-update-1.md).
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

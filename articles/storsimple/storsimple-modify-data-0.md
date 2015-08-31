@@ -1,21 +1,19 @@
 <properties 
    pageTitle="Modification des paramètres de l’interface réseau DATA 0 sur votre périphérique StorSimple"
-   description="Découvrez comment reconfigurer l'interface réseau DATA 0 sur votre appareil StorSimple"
+   description="Découvrez comment reconfigurer l'interface réseau DATA 0 sur votre appareil StorSimple."
    services="storsimple"
    documentationCenter=""
    authors="alkohli"
    manager="carolz"
-   editor="tysonn" />
-
+   editor="" />
 <tags 
    ms.service="storsimple"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/30/2015"
+   ms.date="08/14/2015"
    ms.author="alkohli" />
-
 
 # Modification des paramètres de l’interface réseau DATA 0 sur votre périphérique StorSimple
 
@@ -42,22 +40,21 @@ Vous pouvez reconfigurer les paramètres réseau de DATA 0 en vous connectant �
 
 1. Un Assistant Installation s’affiche pour vous aider à configurer l’interface DATA 0 de votre appareil. Indiquez les nouvelles valeurs de l'adresse IP, de la passerelle et du masque réseau.
 
-> [AZURE.NOTE]Les contrôleurs d’adresses IP fixes devront être reconfigurés via la page Configurer de l’appareil StorSimple dans le portail de gestion Azure. Pour plus d'informations, consultez la page [Modification de l’interface réseau via la page Configurer (appareil)](storsimple-modify-device-config.md#modify-network-interfaces).
+> [AZURE.NOTE]Les contrôleurs d’adresses IP fixes devront être reconfigurés via la page **Configurer** de l’appareil StorSimple dans le portail de gestion Azure. Pour plus d'informations, consultez la rubrique [Modification des interfaces réseau](storsimple-modify-device-config.md#modify-network-interfaces).
 
 
 ## Modification des paramètres réseau de DATA 0 via l’applet de commande Set-HcsNetInterface
-vous pouvez également reconfigurer l’interface réseau DATA 0 via l’applet de commande `Set-HcsNetInterface`. L’applet de commande est exécutée à partir de l’interface Windows PowerShell de votre appareil StorSimple. Pour modifier les paramètres de DATA 0, procédez comme suit :
+Vous pouvez également reconfigurer l’interface réseau DATA 0 via l’applet de commande `Set-HcsNetInterface`. L’applet de commande est exécutée à partir de l’interface Windows PowerShell de votre appareil StorSimple. Pour modifier les paramètres de DATA 0, procédez comme suit :
 
 #### Pour modifier les paramètres réseau de DATA 0 via l’applet de commande Set-HcsNetInterface
 
-1. Dans le menu de la console série, sélectionnez l’option 1, **Ouvrir une session avec un accès total**. Lorsque vous y êtes invité, fournissez le **mot de passe administrateur de l’appareil**. Le mot de passe par défaut est `Password1`.
+1. Dans le menu de la console série, sélectionnez l’option 1, **Ouvrir une session avec un accès total**. Lorsque vous y êtes invité, fournissez le mot de passe administrateur de l’appareil. Le mot de passe par défaut est `Password1`.
 
-1.  À l’invite de commandes, tapez :
+2.  À l’invite de commandes, tapez :
 
 	`Set-HCSNetInterface -InterfaceAlias Data0 -IPv4Address <> -IPv4Netmask <> -IPv4Gateway <> -Controller0IPv4Address <> -Controller1IPv4Address <> -IsiScsiEnabled 1 -IsCloudEnabled 1`
-
 	
-1. Entrez les valeurs de DATA 0 entre crochets (< >) pour les éléments suivants :
+    Entrez, entre crochets, les valeurs suivantes de DATA 0 :
 											
 	- Adresse IPv4
 	
@@ -70,6 +67,7 @@ vous pouvez également reconfigurer l’interface réseau DATA 0 via l’applet 
 	- Adresse IPv4 fixe du contrôleur 1
 
 ## Étapes suivantes
+
 Pour configurer les interfaces réseau autres que DATA 0, utilisez la [page Configurer du portail de gestion](storsimple-modify-device-config.md). Si vous rencontrez des problèmes lors de la configuration de vos interfaces réseau, consultez la page [Résolution des problèmes de déploiement](storsimple-troubleshoot-deployment.md).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

@@ -3,10 +3,10 @@
 	description="Utilisez le coordinateur Hadoop Oozie basé sur le temps dans HDInsight, un service pour les données volumineuses. Découvrez comment définir des workflows et des coordinateurs Oozie, et envoyer des tâches."
 	services="hdinsight"
 	documentationCenter=""
+	tags="azure-portal"
 	authors="mumian"
 	manager="paulettm"
 	editor="cgronlun"/>
-
 
 <tags
 	ms.service="hdinsight"
@@ -14,9 +14,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/09/2015"
+	ms.date="07/28/2015"
 	ms.author="jgao"/>
-
 
 
 # Utilisez le coordinateur Oozie basé sur le temps avec Hadoop dans HDInsight pour définir des workflows et coordonner des tâches
@@ -35,7 +34,7 @@ L’image suivante montre le workflow que vous allez implémenter :
 
 Le workflow contient deux actions :
 
-1. Une action Hive exécute un script HiveQL pour compter les occurrences de chaque type de niveau de journalisation dans un fichier journal log4j. Chaque journal log4j est constitué d’une ligne de champs qui contient un champ [LOG LEVEL\] pour indiquer le type et la gravité, par exemple :
+1. Une action Hive exécute un script HiveQL pour compter les occurrences de chaque type de niveau de journalisation dans un fichier journal log4j. Chaque journal log4j est constitué d’une ligne de champs qui contient un champ [LOG LEVEL] pour indiquer le type et la gravité, par exemple :
 
 		2012-02-03 18:35:34 SampleClass6 [INFO] everything normal for id 577725851
 		2012-02-03 18:35:34 SampleClass4 [FATAL] system problem at id 1991281254
@@ -84,7 +83,7 @@ Avant de commencer ce didacticiel, vous devez disposer des éléments suivants 
 <tr><td>Nom de connexion à la base de données&#160;SQL</td><td>$sqlDatabaseLogin</td><td></td><td>Nom de connexion à la base de données&#160;SQL.</td></tr>
 <tr><td>Mot de passe de connexion à la base de données&#160;SQL</td><td>$sqlDatabaseLoginPassword</td><td></td><td>Mot de passe de connexion à la base de données&#160;SQL.</td></tr>
 <tr><td>Nom de la base de données&#160;SQL</td><td>$sqlDatabaseName</td><td></td><td>Base de données SQL Azure vers laquelle Sqoop exporte des données. </td></tr>
-</table>> [AZURE.NOTE]Par défaut, une base de données SQL Azure autorise des connexions aux services Azure tels que Azure HDinsight. Si ce paramètre de pare-feu est désactivé, vous devez l’activer depuis le portail de gestion Azure. Pour obtenir des instructions sur la création d’une base de données SQL et la configuration des règles de pare-feu, consultez [Création et configuration d’une base de données SQL\][sqldatabase-create-configure\].
+</table>> [AZURE.NOTE]Par défaut, une base de données SQL Azure autorise des connexions aux services Azure tels que Azure HDinsight. Si ce paramètre de pare-feu est désactivé, vous devez l'activer depuis la version préliminaire du portail Azure. Pour obtenir des instructions sur la création d’une base de données SQL et la configuration des règles de pare-feu, consultez [Création et configuration d’une base de données SQL][sqldatabase-create-configure].
 
 
 > [AZURE.NOTE]Remplissez les valeurs dans les tables. Cela vous sera utile pour ce didacticiel.
@@ -130,7 +129,6 @@ L'action Hive dans le workflow appelle un fichier de script HiveQL. Le fichier d
 		<workflow-app name="useooziewf" xmlns="uri:oozie:workflow:0.2">
 		    <start to = "RunHiveScript"/>
 
-
 		    <action name="RunHiveScript">
 		        <hive xmlns="uri:oozie:hive-action:0.2">
 		            <job-tracker>${jobTracker}</job-tracker>
@@ -147,9 +145,7 @@ L'action Hive dans le workflow appelle un fichier de script HiveQL. Le fichier d
 		            <param>hiveOutputFolder=${hiveOutputFolder}</param>
 		        </hive>
 		        <ok to="RunSqoopExport"/>
-
 		        <error to="fail"/>
-
 		    </action>
 
 		    <action name="RunSqoopExport">
@@ -175,9 +171,7 @@ L'action Hive dans le workflow appelle un fichier de script HiveQL. Le fichier d
 			    <arg>"\001"</arg>
 		        </sqoop>
 		        <ok to="end"/>
-
 		        <error to="fail"/>
-
 		    </action>
 
 		    <kill name="fail">
@@ -185,7 +179,6 @@ L'action Hive dans le workflow appelle un fichier de script HiveQL. Le fichier d
 		    </kill>
 
 		   <end name="end"/>
-
 		</workflow-app>
 
 	Voici les deux actions définies dans le workflow : l'action de démarrage est *RunHiveScript*. Si cette action fonctionne *correctement*, l'action suivante est *RunSqoopExport*.
@@ -642,7 +635,7 @@ Azure PowerShell ne fournit actuellement aucune cmdlet pour la définition de t�
 
 **Vérification du journal des erreurs de la tâche**
 
-Pour résoudre les problèmes d'un workflow, vous pouvez consulter le fichier journal Oozie dans C:\\apps\\dist\\oozie-3.3.2.1.3.2.0-05\\oozie-win-distro\\logs\\Oozie.log depuis le nœud principal du cluster. Pour plus d'informations sur le protocole RDP, consultez la rubrique [Administration de clusters HDInsight à l'aide du portail de gestion][hdinsight-admin-portal].
+Pour résoudre les problèmes d'un workflow, vous pouvez consulter le fichier journal Oozie dans C:\\apps\\dist\\oozie-3.3.2.1.3.2.0-05\\oozie-win-distro\\logs\\Oozie.log depuis le nœud principal du cluster. Pour plus d'informations sur le protocole RDP, consultez la rubrique [Administration de clusters HDInsight à l'aide de la version préliminaire du portail Azure][hdinsight-admin-portal].
 
 **Réexécution du didacticiel**
 
@@ -720,7 +713,7 @@ Dans ce didacticiel, vous avez appris à définir un workflow Oozie et un coordi
 [sqldatabase-create-configue]: ../sql-database-create-configure.md
 [sqldatabase-get-started]: ../sql-database-get-started.md
 
-[azure-management-portal]: https://manage.windowsazure.com/
+[azure-management-portal]: https://portal.azure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account.md
 
 [apache-hadoop]: http://hadoop.apache.org/
@@ -741,4 +734,4 @@ Dans ce didacticiel, vous avez appris à définir un workflow Oozie et un coordi
 
 [technetwiki-hive-error]: http://social.technet.microsoft.com/wiki/contents/articles/23047.hdinsight-hive-error-unable-to-rename.aspx
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

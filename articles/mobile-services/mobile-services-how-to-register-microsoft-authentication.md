@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Inscription pour l'authentification Microsoft | Microsoft Azure" 
-	description="Découvrez comment vous inscrire pour l'authentification Microsoft dans votre application Azure Mobile Services." 
+	pageTitle="Inscription pour l&#39;authentification Microsoft | Microsoft Azure" 
+	description="Découvrez comment vous inscrire pour l&#39;authentification Microsoft dans votre application Azure Mobile Services." 
 	authors="ggailey777" 
 	services="mobile-services" 
 	documentationCenter="Mobile" 
@@ -103,4 +103,4 @@ Votre service mobile et votre application sont désormais configurés pour utili
 [portail de gestion Azure]: https://manage.windowsazure.com/
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

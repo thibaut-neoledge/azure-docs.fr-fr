@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Création d'une application web Node.js sur Azure avec MongoDB à l'aide du module complémentaire MongoLab"
+	pageTitle="Création d&#39;une application web Node.js sur Azure avec MongoDB à l&#39;aide du module complémentaire MongoLab"
 	description="Apprenez à créer une application web Node.js dans Azure App Service qui se connecte à une instance MongoDB hébergée sur MongoLab."
 	tags="azure-classic-portal"
 	services="app-service\web, virtual-machines"
@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="nodejs"
 	ms.topic="article"
-	ms.date="08/10/2014"
-	ms.author="mwasson"/>
+	ms.date="08/18/2015"
+	ms.author="tdykstra"/>
 
 
 
@@ -575,4 +575,4 @@ Félicitations ! Vous venez de lancer une application Node.js utilisant une bas
 [mongolab-view]: ./media/store-mongolab-web-sites-nodejs-store-data-mongodb/mongolab-view.png
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

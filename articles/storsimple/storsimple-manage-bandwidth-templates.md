@@ -1,21 +1,19 @@
 <properties 
-   pageTitle="Gérer vos modèles de bande passante StorSimple"
+   pageTitle="Gérer vos modèles de bande passante StorSimple | Microsoft Azure"
    description="Décrit comment gérer les modèles de bande passante StorSimple, ce qui vous permet de contrôler la consommation de bande passante."
    services="storsimple"
    documentationCenter=""
    authors="alkohli"
    manager="carolz"
-   editor="tysonn" />
-
+   editor="" />
 <tags 
    ms.service="storsimple"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/10/2015"
+   ms.date="08/13/2015"
    ms.author="alkohli" />
-
 
 # Gérer vos modèles de bande passante StorSimple
 
@@ -178,4 +176,4 @@ Suivez ces meilleures pratiques pour votre appareil StorSimple :
 
 En savoir plus sur les [composants StorSimple](storsimple-components.md).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

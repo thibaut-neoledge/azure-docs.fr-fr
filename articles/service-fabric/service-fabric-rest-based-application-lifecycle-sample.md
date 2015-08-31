@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/06/2015"
+   ms.date="08/17/2015"
    ms.author="ryanwi"/>
 
 # Échantillon de cycle de vie des applications basé sur REST
@@ -49,7 +49,7 @@ Cet exemple utilise l’[échantillon WordCount](https://github.com/azure/servi
 
 Pour créer les packages d’application et les copier dans le magasin d’images, procédez comme suit :
 
-1. Copiez l’élément C:\\Samples\\Services\\VS2015\\WordCountUpgrade\\WordCount\\pkg\\Debug vers C:\\Temp\\WordCount. Cette opération permet de créer le package de l’application WordCount. 
+1. Copiez l’élément C:\\Samples\\Services\\VS2015\\WordCountUpgrade\\WordCount\\pkg\\Debug vers C:\\Temp\\WordCount. Cette opération permet de créer le package de l’application WordCount.
 2. Copiez l’élément C:\\Temp\\WordCount vers C:\\Temp\\WordCountUpgrade. Cette opération permet de créer le package de l’application WordCountUpgrade.
 3. Ouvrez le fichier C:\\Temp\\WordCountUpgrade\\ApplicationManifest.xml dans un éditeur de texte.
 4. Dans l’élément ApplicationManifest, modifiez l’attribut ApplicationTypeVersion et affectez-lui la valeur « 1.1.0.0 ». Cette opération permet de mettre à jour le numéro de version de l’application.
@@ -710,6 +710,4 @@ namespace ServiceFabricRestCaller
 
 [Cycle de vie des applications de la structure du service](service-fabric-application-lifecycle.md)
 
- 
-
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

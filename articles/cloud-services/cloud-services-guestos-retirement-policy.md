@@ -1,22 +1,22 @@
 <properties 
-   pageTitle="Guide de prise en charge et de stratégie de suppression pour le SE invité d'Azure | Microsoft Azure" 
-   description="Fournit des informations sur les éléments pris en charge par Microsoft en ce qui concerne le SE invité d'Azure utilisé par les services cloud." 
-   services="cloud-services" 
-   documentationCenter="na" 
-   authors="Thraka" 
-   manager="timlt" 
-   editor=""/>
+   pageTitle="Guide de prise en charge et de stratégie de suppression pour le SE invité d'Azure | Microsoft Azure"
+	description="Fournit des informations sur les éléments pris en charge par Microsoft en ce qui concerne le SE invité d'Azure utilisé par les services cloud."
+	services="cloud-services"
+	documentationCenter="na"
+	authors="Thraka"
+	manager="timlt"
+	editor=""/>
 
 <tags
    ms.service="cloud-services"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="tbd" 
-   ms.date="05/19/2015"
-   ms.author="adegeo"/>
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="tbd"
+	ms.date="08/18/2015"
+	ms.author="adegeo"/>
 
-# Prise en charge et stratégie de suppression du SE invité d'Azure
+# Prise en charge et stratégie de suppression du SE invité d’Azure
 Les informations de cette page concernent le système d'exploitation invité Azure ([SE invité](https://msdn.microsoft.com/library/azure/ff729422.aspx)) pour les rôles Web et de travail Cloud Services (PaaS). Elles ne s'appliquent pas aux machines virtuelles (IaaS).
 
 Microsoft a publié sa [politique de support pour le SE invité](http://support.microsoft.com/gp/azure-cloud-lifecycle-faq). La page que vous êtes en train de lire décrit l'implémentation de cette politique.
@@ -81,11 +81,13 @@ Vous devez utiliser la famille la plus récente de SE invités pour concevoir vo
 
 1. Commencez à planifier votre migration vers une famille plus récente au plus tôt. 
 2. Configurez des déploiements de test temporaires pour tester votre service cloud en cours d'exécution sur la nouvelle famille. 
-3. [Définissez votre version de SE invité](https://msdn.microsoft.com/library/azure/gg433101.aspx) sur « Automatique » (osVersion=\* dans le fichier [.CSCFG](https://msdn.microsoft.com/library/azure/gg456324.aspx)) pour que la migration vers de nouvelles versions de système d'exploitation invité s'effectue automatiquement.
+3. [Définissez votre version de SE invité](https://msdn.microsoft.com/library/azure/gg433101.aspx) sur « Automatique » (osVersion=* dans le fichier [.CSCFG](https://msdn.microsoft.com/library/azure/gg456324.aspx)) pour que la migration vers de nouvelles versions de système d'exploitation invité s'effectue automatiquement.
 
 **Que se passe-t-il si mon application Web nécessite une intégration plus avancée au système d'exploitation ?**
 
 Si l'architecture de votre application Web nécessite une intégration plus avancée au système d'exploitation sous-jacent, utilisez les fonctionnalités de plateforme prise en charge telles que les « [Tâches de démarrage](https://msdn.microsoft.com/library/windowsazure/gg456327.aspx) » ou d'autres mécanismes d'extensibilité qui peuvent exister par la suite. Sinon, vous pouvez également utiliser les [machines virtuelles Azure](http://azure.microsoft.com/documentation/scenarios/virtual-machines/) (IaaS – Infrastructure en tant que Service), qui vous permettent d'être responsable de la maintenance du système d'exploitation sous-jacent.
  
+## Étapes suivantes
+Consultez les dernières [versions du système d’exploitation invité](cloud-services-guestos-update-matrix.md).
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

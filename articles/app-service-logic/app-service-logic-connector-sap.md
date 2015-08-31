@@ -1,20 +1,20 @@
 <properties
    pageTitle="Connecteur SAP"
-   description="Utilisation du connecteur SAP"
-   services="app-service\logic"
-   documentationCenter=".net,nodejs,java"
-   authors="harishkragarwal"
-   manager="dwrede"
-   editor=""/>
+	description="Utilisation du connecteur SAP"
+	services="app-service\logic"
+	documentationCenter=".net,nodejs,java"
+	authors="harishkragarwal"
+	manager="dwrede"
+	editor=""/>
 
 <tags
    ms.service="app-service-logic"
-   ms.devlang="multiple"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="integration"
-   ms.date="07/02/2015"
-   ms.author="sameerch"/>
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="integration"
+	ms.date="08/19/2015"
+	ms.author="sameerch"/>
 
 
 # Connecteur SAP #
@@ -52,7 +52,7 @@ Accédez à l’application API tout juste créée via Parcourir -> API Apps -> 
 
 ![][2]
 
-Pour l’établir, procédez comme suit :
+Le connecteur SAP nécessite une connectivité hybride pour se connecter à un point de terminaison SAP, *quel qu’il soit*. Pour l’établir, procédez comme suit :
 
 1. Copiez la chaîne de connexion principale.
 2. Cliquez sur le lien Télécharger et configurer.
@@ -85,6 +85,13 @@ L'étape/action apparaît à présent comme étant configurée dans l'applicatio
 
 Complétez l'application logique pour définir le processus d'entreprise, puis exécutez-la pour atteindre l'objectif voulu.
 
+## En faire plus avec votre connecteur
+Maintenant que le connecteur est créé, vous pouvez l'ajouter à un flux d'entreprise à l'aide d'une application logique. Voir [Que sont les applications logiques ?](app-service-logic-what-are-logic-apps.md).
+
+Affichez la référence d’API REST Swagger sur [Référence de connecteurs et d’applications API](http://go.microsoft.com/fwlink/p/?LinkId=529766).
+
+Vous pouvez également consulter les statistiques de performances et contrôler la sécurité du connecteur. Consultez la page [Gestion et contrôle de vos connecteurs et applications API intégrés](app-service-logic-monitor-your-connectors.md).
+
 <!--Image references-->
 [1]: ./media/app-service-logic-connector-sap/Create.jpg
 [2]: ./media/app-service-logic-connector-sap/BrowseSetupIncomplete.jpg
@@ -94,4 +101,4 @@ Complétez l'application logique pour définir le processus d'entreprise, puis e
 [6]: ./media/app-service-logic-connector-sap/LogicApp2.jpg
 [7]: ./media/app-service-logic-connector-sap/LogicApp3.jpg
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

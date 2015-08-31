@@ -5,8 +5,7 @@
 	documentationCenter="mobile"
 	authors="MehrdadMzfr"
 	manager="dwrede"
-	editor="" />
-
+	editor=""/>
 
 <tags
 	ms.service="mobile-engagement"
@@ -15,8 +14,7 @@
 	ms.devlang="objective-c"
 	ms.topic="article"
 	ms.date="08/05/2015"
-	ms.author="MehrdadMzfr" />
-
+	ms.author="MehrdadMzfr"/>
 
 #Procédures de mise à niveau
 
@@ -27,9 +25,9 @@ Pour chaque nouvelle version du Kit de développement logiciel, vous devez d'abo
 ##Migration de 2.0.0 vers 3.0.0
 Si vous utilisez Reach dans votre application, vous devez ajouter la valeur `remote-notification` au tableau `UIBackgroundModes` dans votre fichier Info.plist pour recevoir des notifications à distance.
 
-La méthode `application:applicationDidReceiveRemoteNotification:` doit être remplacé par `application:applicationDidReceiveRemoteNotification:fetchCompletionHandler:` dans votre délégué d'application.
+La méthode `application:didReceiveRemoteNotification:` doit être remplacée par `application:didReceiveRemoteNotification:fetchCompletionHandler:` dans votre délégué d'application.
 
-Les méthodes de délégué suivantes ont été déconseillée et vous devez les supprimer de votre délégué d'application :
+« AEPushDelegate.h » est une interface déconseillée et vous devez supprimer toutes les références. Cela inclut notamment la suppression `[[EngagementAgent shared] setPushDelegate:self]` et les méthodes de délégation depuis votre délégué d'application :
 
 	-(void)willRetrieveLaunchMessage;
 	-(void)didFailToRetrieveLaunchMessage;
@@ -72,4 +70,4 @@ Exemples :
 -   La classe `CapptainUtils` est renommée `EngagementUtils`.
 -   La classe `CapptainViewController` est renommée `EngagementViewController`.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

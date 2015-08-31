@@ -1,11 +1,12 @@
 <properties
-   pageTitle="Gérer les clusters HDInsight à l'aide d’Ambari | Microsoft Azure"
+   pageTitle="Gérer les clusters HDInsight à l&#39;aide d’Ambari | Microsoft Azure"
    description="Découvrez comment utiliser Ambari pour gérer et surveiller des clusters HDInsight Linux."
    services="hdinsight"
    documentationCenter=""
    authors="Blackmist"
    manager="paulettm"
-   editor="cgronlun"/>
+   editor="cgronlun"
+	tags="azure-portal"/>
 
 <tags
    ms.service="hdinsight"
@@ -250,4 +251,4 @@ Ambari Web utilise une API REST sous-jacente, que vous pouvez exploiter pour cr
 
 Pour obtenir une référence complète de l'API REST, consultez la page [Référence V1 de l'API d'Ambari](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

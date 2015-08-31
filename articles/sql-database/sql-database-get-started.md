@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Prise en main d’une base de données SQL"
-	description="Créez votre première base de données cloud en quelques minutes grâce à la base de données SQL Microsoft Azure, au système de gestion de base de données relationnelle de Microsoft (SGBDR) dans le cloud, au portail Microsoft Azure et à l’échantillon de base de données AdventureWorks."
+	pageTitle="Prise en main de la base de données SQL | Microsoft Azure"
+	description="Créez votre première base de données cloud en quelques minutes grâce à la base de données SQL Microsoft Azure, au système de gestion de base de données relationnelle de Microsoft (SGBDR) dans le cloud, au portail Azure et à l’exemple de base de données AdventureWorks."
 	services="sql-database"
 	documentationCenter=""
 	authors="MightyPen"
@@ -29,7 +29,7 @@ Cet article vous explique comment créer un exemple de base de données SQL Micr
 - Définition d’une règle de pare-feu pour configurer les adresses IP autorisées à accéder à votre base de données
 
 
-Ce didacticiel part du principe que vous disposez d’un abonnement Microsoft Azure. Le cas échéant, vous pouvez vous inscrire afin d’accéder à une version d’[essai gratuit](http://azure.microsoft.com/pricing/free-trial/) dès aujourd’hui.
+Ce didacticiel part du principe que vous disposez d’un abonnement Azure. Le cas échéant, vous pouvez vous inscrire afin d’accéder à une version d’[essai gratuit](http://azure.microsoft.com/pricing/free-trial/) dès aujourd’hui.
 
 
 ## Étape 1 : Connexion
@@ -46,7 +46,7 @@ Ce didacticiel part du principe que vous disposez d’un abonnement Microsoft A
 
 
 
-1. Dans le panneau Base de données SQL, choisissez un **Nom** pour votre base de données (dans cet exemple, le nom utilisé est **AdventureWorks**).
+1. Dans le panneau **Base de données SQL**, choisissez un **Nom** pour votre base de données (dans cet exemple, le nom utilisé est **AdventureWorks**).
 2. Pour créer un serveur logique pour votre base de données, cliquez sur **Serveur**, puis sur **Créer un serveur**.
 
 
@@ -66,7 +66,7 @@ Ce didacticiel part du principe que vous disposez d’un abonnement Microsoft A
 ## Étape 4 : Création de votre base de données
 
 
-1. Dans le panneau Base de données SQL, spécifiez la source de la base de données en cliquant sur **Sélectionner une source**.
+1. Dans le panneau **Base de données SQL**, spécifiez la source de la base de données en cliquant sur **Sélectionner une source**.
  - Si vous ignorez cette étape, une base de données vide est créée.
 2. Sélectionnez **Échantillon**.
  - Cela crée une base de données, qui est une copie de l’échantillon de base de données standard appelé **AdventureWorks**.
@@ -86,7 +86,7 @@ Les étapes suivantes indiquent comment spécifier les plages d’adresses IP a
 1. Dans le ruban figurant sur le côté gauche de l’écran, cliquez sur **Parcourir**, puis sur **Serveurs SQL**.
 2. Parmi les options disponibles, sélectionnez le serveur SQL que vous avez créé précédemment.
 3. Cliquez sur **Paramètres**, puis sur **Pare-feu**.
-4. Cliquez sur ce lien pour obtenir l’adresse IP actuelle à partir de [Bing](http://www.bing.com/search?q=my%20ip%20address).
+4. Obtenez votre adresse IP actuelle à partir de [Bing](http://www.bing.com/search?q=my%20ip%20address).
 5. Dans Paramètres de pare-feu, saisissez un nom dans **Nom de la règle** et collez l’adresse IP publique obtenue à l’étape précédente dans les champs **Adresse IP de début** et **Adresse IP de fin**.
 6. Lorsque vous avez terminé, cliquez sur l’option **Enregistrer** figurant en haut de la page.
 
@@ -100,7 +100,7 @@ Les étapes suivantes indiquent comment spécifier les plages d’adresses IP a
 À présent, vous êtes prêt à écrire un petit programme client capable de se connecter à votre base de données. Pour obtenir un exemple de code, afin de démarrer rapidement, cliquez sur l’un des liens suivants :
 
 
-- [Se connecter et interroger une base de données SQL avec C#](sql-database-connect-query.md)
+- [Se connecter et interroger une base de données SQL avec C\#](sql-database-connect-query.md)
 - *Bientôt disponible :* Développement de clients et échantillons de démarrage rapide pour une base de données SQL
 
 
@@ -109,6 +109,5 @@ Les étapes suivantes indiquent comment spécifier les plages d’adresses IP a
 [2]: ./media/sql-database-get-started/GettingStarted_CreateServer.png
 [3]: ./media/sql-database-get-started/GettingStarted_BrowseServer.png
 [4]: ./media/sql-database-get-started/GettingStarted_FireWall.png
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

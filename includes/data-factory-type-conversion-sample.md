@@ -6,7 +6,7 @@ Supposons que le jeu de données d’objets blob soit au format CSV et contienn
 Vous allez définir le jeu de données source d’objets blob source comme suit, ainsi que des définitions de type pour les colonnes.
 
 	{
-	    "name": " AzureBlobTypeSystemInput",
+	    "name": "AzureBlobTypeSystemInput",
 	    "properties":
 	    {
 	         "structure": 
@@ -30,7 +30,7 @@ Vous allez définir le jeu de données source d’objets blob source comme suit,
 	        "availability":
 	        {
 	            "frequency": "Hour",
-	            "interval": 1,
+	            "interval": 1
 	        },
 			"policy": {
 	            "externalData": {
@@ -69,4 +69,4 @@ Ensuite, vous allez définir le jeu de données SQL Azure comme suit. Remarque 
 
 Dans ce cas, Data Factory effectuera automatiquement les conversions de type, y compris pour le champ Datetime avec son format date/heure personnalisé, en utilisant la culture fr-fr lors du déplacement des données à partir de l’objet blob vers SQL Azure.
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

@@ -1,18 +1,18 @@
 <properties 
-	pageTitle="Exploration des mesures dans Application Insights" 
-	description="Analysez l'utilisation, la disponibilité et les performances de votre application web locale ou Microsoft Azure avec Application Insights." 
-	services="application-insights" 
-    documentationCenter=""
-	authors="alancameronwills" 
+	pageTitle="Exploration des mesures dans Application Insights"
+	description="Analysez l'utilisation, la disponibilité et les performances de votre application web locale ou Microsoft Azure avec Application Insights."
+	services="application-insights"
+	documentationCenter=""
+	authors="alancameronwills"
 	manager="douge"/>
 
 <tags 
-	ms.service="application-insights" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/07/2015" 
+	ms.service="application-insights"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="ibiza"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/07/2015"
 	ms.author="awills"/>
  
 # Exploration des mesures dans Application Insights
@@ -21,7 +21,7 @@ Les mesures dans [Application Insights][start] sont des mesures et le nombre des
 
 Les mesures et le nombre des événements sont affichés dans des graphiques présentant les valeurs agrégées, comme la somme, la moyenne ou le décompte.
 
-Par exemple, si vous ajoutez Application Insights à une application web, voici ce que vous voyez en haut de la vue d'ensemble :
+Voici un exemple de graphique :
 
 ![Ouvrez le panneau Vue d'ensemble de votre application dans le portail Azure](./media/app-insights-metrics-explorer/01-overview.png)
 
@@ -40,10 +40,11 @@ Vous pouvez modifier l’intervalle de temps sur lequel portent les graphiques e
 
 Si vous attendez des données qui ne sont pas encore affichées, cliquez sur Actualiser. Les graphiques s’actualisent régulièrement, mais plus les intervalles de temps sur lesquels ils portent sont étendus, plus les intervalles d’actualisation sont longs. Dans la version finale, les données peuvent mettre un certain temps pour passer du pipeline d'analyse au graphique.
 
-Dans le panneau Vue d'ensemble, sélectionnez une partie du graphique pour l'ouvrir en plus grand dans un nouveau graphique.
-
+Pour effectuer un zoom sur une partie d’un graphique, sélectionnez la partie souhaitée, puis cliquez sur l’icône de loupe :
 
 ![Sélectionnez une partie d'un graphique.](./media/app-insights-metrics-explorer/12-drag.png)
+
+
 
 ## Valeurs de granularité et de point
 
@@ -53,15 +54,15 @@ Pointez votre souris sur le graphique pour afficher les valeurs des mesures à c
 
 La valeur de la mesure à un moment donné est agrégée à l'intervalle d'échantillonnage précédent.
 
-L'intervalle d'échantillonnage, ou « grain », s'affiche en haut du panneau.
+L’intervalle d’échantillonnage, ou « granularité », s’affiche en haut du panneau.
 
 ![En-tête du panneau.](./media/app-insights-metrics-explorer/11-grain.png)
 
-Vous pouvez ajuster le niveau de granularité dans le panneau Période :
+Vous pouvez ajuster le niveau de granularité dans le panneau Période :
 
 ![En-tête du panneau.](./media/app-insights-metrics-explorer/grain.png)
 
-Les niveaux de granularité disponibles dépendent de la période que vous sélectionnez. Les niveaux de granularité explicites sont des alternatives à la granularité « automatique » pour la période.
+Les niveaux de granularité disponibles dépendent de la période que vous sélectionnez. Les niveaux de granularité explicites sont des alternatives à la granularité « automatique » pour la période.
 
 ## Metrics Explorer
 
@@ -76,7 +77,7 @@ Par exemple, parcourez le graphique des demandes ayant échoué pour l'applicati
 
 La légende sur le côté affiche par défaut la valeur agrégée sur la période couverte par le graphique.
 
-Chaque point de données du graphique est également un agrégat des valeurs de données reçues dans l'intervalle d'échantillonnage précédent, encore appelé « grain ». Le grain est indiqué en haut du panneau et varie en fonction de l'échelle de temps globale du graphique.
+Chaque point de données du graphique est également un agrégat des valeurs de données reçues dans l’intervalle d’échantillonnage précédent, encore appelé « granularité ». La granularité est indiquée en haut du panneau et varie en fonction de l’échelle de temps globale du graphique.
 
 Les différentes mesures sont agrégées de différentes façons :
 
@@ -197,8 +198,8 @@ Si vous souhaitez obtenir des vues enrichies de vos données, vous pouvez [expor
 
 [alerts]: app-insights-alerts.md
 [start]: app-insights-get-started.md
-[track]: app-insights-custom-events-metrics-api.md
+[track]: app-insights-api-custom-events-metrics.md
 
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

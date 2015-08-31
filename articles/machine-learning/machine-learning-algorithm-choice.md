@@ -1,9 +1,9 @@
 <properties
-	pageTitle="Comment choisir les algorithmes d'apprentissage automatique | Microsoft Azure"
-	description="Comment choisir les algorithmes Azure Machine Learning pour l'apprentissage supervisé et non supervisé dans les expériences de clustering, classification ou régression."
+	pageTitle="Comment choisir les algorithmes d&#39;apprentissage automatique | Microsoft Azure"
+	description="Comment choisir les algorithmes Azure Machine Learning pour l&#39;apprentissage supervisé et non supervisé dans les expériences de clustering, classification ou régression."
 	services="machine-learning"
 	documentationCenter=""
-	authors="garyericson"
+	authors="brohrer"
 	manager="paulettm"
 	editor="cgronlun"
     tags=""/>
@@ -222,4 +222,4 @@ Azure Machine Learning inclut également l'accès à une puissante infrastruct
 [9]: ./media/machine-learning-algorithm-choice/image9.png
 [10]: ./media/machine-learning-algorithm-choice/image10.png
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

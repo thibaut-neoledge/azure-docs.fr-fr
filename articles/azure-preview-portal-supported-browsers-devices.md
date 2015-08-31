@@ -3,7 +3,7 @@
 	description="" 
 	services="" 
 	documentationCenter="" 
-	authors="micflan" 
+	authors="flanakin" 
 	manager="lwelicki" 
 	editor=""/>
 
@@ -32,4 +32,4 @@ Les versions les plus récentes des navigateurs suivants sont prises en charge 
 
 *Safari 6 et les versions antérieures ne sont pas pris en charge. Si vous utilisez OS X, vous avez le choix entre Chrome et Firefox, ou vous pouvez passer à OS X Mavericks pour utiliser Safari 7.*
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

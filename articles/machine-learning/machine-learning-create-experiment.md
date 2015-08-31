@@ -12,7 +12,7 @@
 	ms.workload="data-services"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="hero-article" 
+	ms.topic="hero-article"
 	ms.date="07/09/2015"
 	ms.author="garye"/>
 
@@ -22,9 +22,9 @@ Dans ce premier didacticiel sur l'apprentissage automatique, nous allons créer 
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
-Une expérience Machine Learning Studio comprend le glisser-déplacer de composants sur une zone de dessin, ainsi que leur connexion pour *créer un modèle*, *le former*, puis *le noter et le tester*. L'expérience utilise des techniques de modélisation prédictive sous la forme de modules Machine Learning Studio qui ingèrent des données, forment un modèle par rapport à celles-ci et appliquent le modèle aux nouvelles données. Vous pouvez également ajouter des modules pour traiter des données au préalable et sélectionner des fonctionnalités, diviser des données en ensembles de formation et de test ou évaluer ou effectuer une validation croisée de la qualité de votre modèle.
+Une expérience Machine Learning Studio consiste à glisser-déplacer de composants sur une zone de dessin, ainsi que leur connexion pour *créer un modèle*, *le former*, puis *l'évaluer et le tester*. L'expérience utilise des techniques de modélisation prédictive sous la forme de modules Machine Learning Studio qui ingèrent des données, forment un modèle par rapport à celles-ci et appliquent le modèle aux nouvelles données. Vous pouvez également ajouter des modules pour traiter des données au préalable et sélectionner des fonctionnalités, diviser des données en ensembles de formation et de test ou évaluer ou effectuer une validation croisée de la qualité de votre modèle.
 
-Entrez dans Machine Learning Studio : [https://studio.azureml.net](https://studio.azureml.net), puis cliquez sur le bouton Get started. Vous pouvez choisir l’accès invité ou vous connecter à l’aide de votre compte Microsoft.
+Saisissez dans Machine Learning Studio : [https://studio.azureml.net](https://studio.azureml.net), puis cliquez sur le bouton **Get started**. Vous pouvez choisir l'accès invité ou vous connecter à l'aide de votre compte Microsoft.
 
 Pour des informations générales sur Machine Learning Studio, consultez [Présentation de Machine Learning Studio](machine-learning-what-is-ml-studio.md).
 
@@ -51,9 +51,9 @@ Dans ce didacticiel sur l'apprentissage automatique, vous allez suivre cinq éta
 
 ## Étape 1 : obtention des données
 
-Plusieurs exemples de jeux de données sont inclus dans ML Studio. Vous pouvez importer des données à partir de nombreuses sources. Pour les besoins de cet exemple, nous allons utiliser un jeu de données inclus, **Données sur le prix des véhicules automobiles (brutes)**. Ce jeu de données comprend des entrées pour plusieurs véhicules, notamment des informations sur la marque, le modèle, les caractéristiques techniques et le prix.
+Vous avez le choix entre plusieurs exemples de jeux de données sont inclus dans ML Studio. Vous pouvez importer des données à partir de nombreuses sources. Pour les besoins de cet exemple, nous allons utiliser un jeu de données inclus, **Données sur le prix des véhicules automobiles (brutes)**. Ce jeu de données comprend des entrées pour plusieurs véhicules, notamment des informations sur la marque, le modèle, les caractéristiques techniques et le prix.
 
-1. Démarrez une nouvelle expérience en cliquant sur l’option **+ NOUVEAU** située en bas de la fenêtre de Machine Learning Studio, sélectionnez **EXPÉRIENCE**, puis « Expérience vide ». Sélectionnez le nom d’expérience par défaut, situé en haut de la zone de dessin, et remplacez-le par un nom significatif, par exemple : **Prédiction de prix d’une voiture**.
+1. Démarrez une nouvelle expérience en cliquant sur l'option **+ NOUVEAU** située en bas de la fenêtre de Machine Learning Studio, sélectionnez **EXPÉRIENCE**, puis **Expérience vide**. Sélectionnez le nom d’expérience par défaut, situé en haut de la zone de dessin, et remplacez-le par un nom significatif, par exemple : **Prédiction de prix d’une voiture**.
 
 2. Sur la gauche de la zone de dessin de l’expérience se trouve une palette de jeux de données et de modules. Saisissez la valeur **automobile** dans la zone de recherche se trouvant en haut de cette palette, afin de rechercher le jeu de données **Données sur le prix des véhicules automobiles (brutes)**.
 
@@ -63,7 +63,7 @@ Plusieurs exemples de jeux de données sont inclus dans ML Studio. Vous pouvez i
 
 	![Dataset][screen1]
 
-Pour voir à quoi ressemblent ces données, cliquez sur le port de sortie situé en bas du jeu de données d’automobile et sélectionnez **Visualiser**. Les variables du jeu de données sont affichées sous forme de colonnes, tandis que les types d’automobiles sont affichés sous forme de lignes. La colonne située le plus à droite (colonne 26, intitulée « Price ») est la variable cible, dont nous allons essayer de prédire la valeur.
+Pour voir à quoi ressemblent ces données, cliquez sur le port de sortie situé en bas du jeu de données d'automobile, puis sélectionnez **Visualiser**. Les variables du jeu de données sont affichées sous forme de colonnes, tandis que les types d’automobiles sont affichés sous forme de lignes. La colonne située le plus à droite (colonne 26, intitulée « Price ») est la variable cible, dont nous allons essayer de prédire la valeur.
 
 ![Dataset visualization][screen1b]
 
@@ -71,15 +71,15 @@ Fermez la fenêtre de visualisation en cliquant sur le symbole « **x** » dan
 
 ## Étape 2 : traitement préalable des données
 
-Pour pouvoir être analysé, un jeu de données nécessite généralement un traitement préalable. Vous avez peut-être remarqué l’absence de certaines valeurs dans les colonnes des différentes lignes. Pour que vous puissiez analyser les données efficacement, ces valeurs manquantes doivent être nettoyées. Dans le cas qui nous occupe, nous allons supprimer toutes les lignes dans lesquelles des valeurs sont manquantes. De plus, la colonne **normalized-losses** contient une grande quantité de valeurs manquantes. Nous allons donc l’exclure du modèle.
+Pour pouvoir être analysé, un jeu de données nécessite généralement un traitement préalable. Vous avez peut-être remarqué l'absence de certaines valeurs dans les colonnes des différentes lignes. Pour que vous puissiez analyser les données correctement, ces valeurs manquantes doivent être nettoyées. Dans le cas qui nous occupe, nous allons supprimer toutes les lignes dans lesquelles des valeurs sont manquantes. De plus, la colonne **normalized-losses** contient une grande quantité de valeurs manquantes. Nous allons donc l’exclure du modèle.
 
 > [AZURE.TIP]Le nettoyage des valeurs manquantes des données d’entrée est un prérequis pour l’utilisation de la plupart des modules.
 
 Commençons par supprimer la colonne **normalized-losses**, puis chaque ligne ayant des données manquantes.
 
-1. Dans la zone de recherche située sur la partie supérieure de la palette de modules, saisissez la chaîne **project columns** afin de rechercher le module [Project Columns][project-columns], puis faites-le glisser vers la zone de dessin de l’expérience et connectez-le au jeu de données **Données sur le prix des véhicules automobiles (brutes)**. Ce module permet de sélectionner les colonnes de données à inclure ou exclure du modèle.
+1. Dans la zone de recherche située sur la partie supérieure de la palette de modules, saisissez la chaîne **project columns** afin de rechercher le module [Project Columns][project-columns], puis faites-le glisser vers la zone de dessin de l'expérience et connectez-le au jeu de données **Données sur le prix des véhicules automobiles (brutes)**. Ce module permet de sélectionner les colonnes de données à inclure ou exclure du modèle.
 
-2. Sélectionnez le module [Colonnes de projet][project-columns] et cliquez sur **Lancer le sélecteur de colonne** dans le volet Propriétés.
+2. Sélectionnez le module [Colonnes de projet][project-columns] et cliquez sur **Lancer le sélecteur de colonne** dans le volet **Propriétés**.
 
 	- Assurez-vous que l’option **Toutes les colonnes** est sélectionnée dans la liste déroulante de filtres, **Commencer par**. Vous indiquez ainsi au module [Project Columns][project-columns] de transmettre toutes les colonnes, sauf celles que nous nous apprêtons à exclure.
 	- Dans la ligne suivante, sélectionnez **Exclure** et **Noms des colonnes**, puis cliquez dans la zone de texte. Une liste de colonnes s’affiche. Sélectionnez la colonne **normalized-losses**, qui est alors ajoutée à la zone de texte.
@@ -99,7 +99,7 @@ Commençons par supprimer la colonne **normalized-losses**, puis chaque ligne ay
 
 4. Démarrez l’expérience en cliquant sur l’option **DÉMARRER** sous la zone de dessin de l’expérience.
 
-Une fois l’expérience terminée, une coche verte s’affiche en regard de chaque module pour indiquer la réussite de leurs opérations. Notez que le statut **Exécution terminée** s’affiche dans le coin supérieur droit de la fenêtre.
+Une fois l'expérience terminée, une coche verte s'affiche en regard de chaque module pour indiquer la réussite de leurs opérations. Notez que le statut **Exécution terminée** s’affiche dans le coin supérieur droit de la fenêtre.
 
 ![First experiment run][screen5]
 
@@ -109,7 +109,7 @@ Maintenant que les données sont nettoyées, nous pouvons indiquer les fonctionn
 
 ## Étape 3 : définition des fonctionnalités
 
-Dans Machine Learning, les *fonctionnalités* sont des propriétés individuelles mesurables d’un élément qui vous intéresse. Dans notre jeu de données, chaque ligne représente un véhicule et chaque colonne une fonctionnalité de ce véhicule. La recherche du jeu de fonctionnalités adéquat pour la création d’un modèle de prévision requiert certaines expériences et des connaissances sur le problème qui se pose. Certaines fonctionnalités sont mieux adaptées à la prévision que d’autres. De même, certaines fonctionnalités présentent une forte corrélation avec d’autres fonctionnalités, comme city-mpg par rapport à highway-mpg. Elles n’apporteront donc pas beaucoup de nouvelles informations au modèle. Vous pouvez les supprimer.
+Dans Machine Learning, les *fonctionnalités* sont des propriétés individuelles mesurables d’un élément qui vous intéresse. Dans notre jeu de données, chaque ligne représente un véhicule et chaque colonne une fonctionnalité de ce véhicule. La recherche du jeu de fonctionnalités adéquat pour la création d’un modèle de prévision requiert certaines expériences et des connaissances sur le problème qui se pose. Certaines fonctionnalités sont mieux adaptées à la prévision que d’autres. De même, certaines fonctionnalités présentent une forte corrélation avec d'autres fonctionnalités, comme city-mpg par rapport à highway-mpg. Elles n'apporteront donc pas beaucoup de nouvelles informations au modèle. Vous pouvez les supprimer.
 
 Nous allons développer un modèle utilisant un sous-ensemble de ces fonctionnalités pour notre jeu de données. Vous pouvez revenir en arrière et sélectionner différentes fonctionnalités, relancer l'expérience et voir si vous obtenez de meilleurs résultats. En guise de test, sélectionnez les fonctionnalités suivantes (colonnes) avec le module [Colonnes de projet][project-columns]. Notez que pour l’apprentissage du modèle, nous devons inclure la valeur *price*, car c’est ce que nous voulons prévoir.
 
@@ -147,9 +147,9 @@ Nous voulons prévoir le prix d’une automobile, qui peut être de n’importe 
 
 	Pour les besoins de cet exemple, sélectionnez le module [Régression linéaire][linear-regression] sous la catégorie **Régression** (vous pouvez également rechercher le module en saisissant l’expression « linear regression » dans la zone de recherche de la palette), puis faites-le glisser vers la zone de dessin de l’expérience.
 
-4. Recherchez et faites glisser le module [Effectuer le traitement de données pour apprentissage du modèle][train-model] vers l'expérience. Connectez le port d’entrée de gauche à la sortie du module [Régression linéaire][linear-regression]. Connectez le port d’entrée de droite à la sortie des données d’apprentissage (port de gauche) du module [Split][split].
+4. Recherchez et faites glisser le module [Effectuer le traitement de données pour apprentissage du modèle][train-model] vers la zone de dessin de l'expérience. Connectez le port d’entrée de gauche à la sortie du module [Régression linéaire][linear-regression]. Connectez le port d’entrée de droite à la sortie des données d’apprentissage (port de gauche) du module [Split][split].
 
-5. Sélectionnez le module [Train Model][train-model], cliquez sur l’option **Lancer le sélecteur de colonne** du volet **Propriétés** et sélectionnez la colonne **Price**. Il s’agit de la valeur que notre modèle va prévoir.
+5. Sélectionnez le module [Effectuer le traitement de données pour apprentissage du modèle][train-model], cliquez sur l'option **Lancer le sélecteur de colonne** du volet **Propriétés** et sélectionnez la colonne **Price**. Il s’agit de la valeur que notre modèle va prévoir.
 
 	![Select "price" column][screen7]
 
@@ -161,19 +161,19 @@ Le résultat est un modèle de régression formé qui permet de noter de nouveau
 
 ## Étape 5 : prédiction des nouveaux prix des voitures
 
-À présent que nous avons formé le modèle à l’aide de 75 % de nos données, nous pouvons l’utiliser pour la notation du reste de nos données (25 %), afin de voir s’il fonctionne correctement.
+À présent que nous avons formé le modèle à l'aide de 75 % de nos données, nous pouvons l'utiliser pour la notation du reste de nos données (25 %), afin de voir s'il fonctionne correctement.
 
 1. Recherchez et faites glisser le module [Score Model][score-model] vers la zone de dessin de l’expérience, puis connectez le port d’entrée de gauche de ce dernier à la sortie du module [Train Model][train-model]. Connectez le port d’entrée de droite à la sortie des données de test (port de droite) du module [Split][split].  
 
 	![Score Model module][screen8a]
 
-2. Pour exécuter l’expérience et afficher la sortie du module [Score Model][score-model], cliquez sur le port de sortie et sélectionnez **Visualiser**. La sortie affiche les valeurs de prévision associées au prix, ainsi que les valeurs connues des données de test.
+2. Pour exécuter l'expérience et afficher la sortie du module [Score Model][score-model], cliquez sur le port de sortie, puis sélectionnez **Visualiser**. La sortie affiche les valeurs de prévision associées au prix, ainsi que les valeurs connues des données de test.
 
 3. Enfin, pour tester la qualité des résultats, sélectionnez et faites glisser le module [Evaluate Model][evaluate-model] vers la zone de dessin de l’expérience, puis connectez le port d’entrée de gauche à la sortie du module [Score Model][score-model]. (Il existe deux ports d’entrée, car le module [Evaluate Model][evaluate-model] peut être utilisé pour comparer deux modèles.)
 
 4. Exécutez l’expérience.
 
-Pour afficher la sortie du module [Evaluate Model][evaluate-model], cliquez sur le port de sortie et sélectionnez **Visualiser**. Les statistiques suivantes s’affichent pour notre modèle :
+Pour afficher la sortie du module [Evaluate Model][evaluate-model], cliquez sur le port de sortie, puis sélectionnez **Visualiser**. Les statistiques suivantes s’affichent pour notre modèle :
 
 - **Erreur d’absolue moyenne** (EAM) : la moyenne des erreurs absolues (une *erreur* correspond à la différence entre la valeur prévue et la valeur réelle).
 - **Racine de l’erreur quadratique moyenne** (RMSE) : la racine carrée de la moyenne des erreurs carrées des prévisions effectuées sur le jeu de données de test.
@@ -189,7 +189,7 @@ Au final, l’expérience doit ressembler à ceci :
 
 ![Didacticiel sur l'apprentissage automatique : effectuer une expérience de régression linéaire qui utilise des techniques de modélisation prédictive.][screen10]
 
-## Et ensuite ?
+## Étapes suivantes
 
 À présent que vous avez terminé un premier didacticiel sur l'apprentissage automatique et que vous avez configuré votre expérience, vous pouvez répéter l'expérience pour essayer d'améliorer le modèle. Par exemple, vous pouvez modifier les fonctionnalités que vous utilisez pour votre prévision. Ou vous pouvez modifier les propriétés de l'algorithme [Régression linéaire][linear-regression], ou essayer un autre algorithme. Vous pouvez même ajouter plusieurs algorithmes d'apprentissage automatique à la fois à votre expérience et les comparer (deux par deux) à l'aide du module [Evaluate Model][evaluate-model].
 
@@ -230,6 +230,5 @@ Pour obtenir un guide pas à pas plus complet et détaillé des techniques de mo
 [score-model]: https://msdn.microsoft.com/library/azure/401b4f92-e724-4d5a-be81-d5b0ff9bdb33/
 [split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
 [train-model]: https://msdn.microsoft.com/library/azure/5cc7053e-aa30-450d-96c0-dae4be720977/
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

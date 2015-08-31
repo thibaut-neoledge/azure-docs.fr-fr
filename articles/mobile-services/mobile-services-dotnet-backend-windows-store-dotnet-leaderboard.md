@@ -588,7 +588,7 @@ Enfin, ajoutez des méthodes effectuant un appel dans la couche de service.
 
 ## Ajout d'une instance MobileServiceClient
 
-Ouvrez le fichier App.xaml.cs\* et ajoutez une instance **MobileServiceClient** à la classe `App`.
+Ouvrez le fichier App.xaml.cs* et ajoutez une instance **MobileServiceClient** à la classe `App`.
 
 	// New code:
 	using Microsoft.WindowsAzure.MobileServices;
@@ -762,4 +762,4 @@ Transmettez l'URL de service et la clé d'application au constructeur **MobileSe
 
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

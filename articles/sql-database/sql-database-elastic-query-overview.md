@@ -55,7 +55,7 @@ Au fil du temps, des topologies supplémentaires seront prises en charge par la 
 
 La création d’une solution de requête de base de données élastique nécessite que la [**carte de partitions**](sql-database-elastic-scale-shard-map-management.md) des outils de base de données élastique représente les bases de données à distance en fonction d’une requête de base de données élastique. Si vous utilisez déjà la bibliothèque cliente de base de données élastique, vous pouvez utiliser votre carte de partitions existante. Autrement, vous devez créer une carte de partitions à l’aide d’outils de base de données élastique.
 
-L’exemple de code C# suivant illustre comment créer une carte de partitions avec une seule base de données à distance ajoutée comme partition.
+L’exemple de code C#suivant illustre comment créer une carte de partitions avec une seule base de données à distance ajoutée comme partition.
 
     ShardMapManagerFactory.CreateSqlShardMapManager(
       "yourconnectionstring",
@@ -88,11 +88,13 @@ La fonctionnalité de requête de base de données élastique repose sur ces qua
 Les informations d’identification sont constituées de l’ID utilisateur et du mot de passe que la requête de base de données élastique utilise pour se connecter à votre carte de partitions de l’infrastructure élastique et à vos bases de données distantes dans Azure SQL DB. Vous pouvez créer la clé principale requise et les informations d’identification à l’aide de la syntaxe suivante :
 
     CREATE MASTER KEY ENCRYPTION BY PASSWORD = 'password';  
-    CREATE CREDENTIAL <credential_name> ON DATABASE
+    CREATE DATABASE SCOPED CREDENTIAL <credential_name>
     WITH IDENTITY = '<shard_map_username>',
     SECRET = '<shard_map_password>'
      [;]
 Veillez à ce que &lt;shard\_map\_username> ne contienne pas le suffixe « @servername ».
+
+Les informations d'identification sont visibles dans la vue de catalogue sys.database\_scoped.credentials.
 
 Vous pouvez utiliser la syntaxe suivante pour supprimer la clé principale et les informations d’identification :
 
@@ -155,7 +157,7 @@ La stratégie de partitionnement vérifie si une table est traitée comme une ta
 
     DROP EXTERNAL TABLE [ database_name . [ dbo ] . | dbo. ] table_name[;]
 
-Les autorisations **CREATE/DROP EXTERNAL TABLE**: ALTER ANY EXTERNAL DATA SOURCE sont nécessaires. Elles le sont également pour faire référence à la source de données sous-jacente.
+Les autorisations **CREATE/DROP EXTERNAL TABLE** : ALTER ANY EXTERNAL DATA SOURCE sont nécessaires. Elles le sont également pour faire référence à la source de données sous-jacente.
 
 **Exemple** : l’exemple suivant montre comment créer une table externe :
 
@@ -227,7 +229,7 @@ Notez que les mêmes informations d’identification sont utilisées pour se con
 Vous pouvez utiliser des chaînes de connexion SQL DB familières pour votre base de données de requête de base de données élastique qui vous permettront de connecter vos outils d’intégration BI et de données. Assurez-vous que SQL Server est pris en charge comme source de données pour votre outil. Puis utilisez les objets externes dans la base de données de requête la base de données élastique, comme pour n’importe quelle autre base de données SQL Server à laquelle vous vous connecteriez avec votre outil.
 
 ## Meilleures pratiques
-*    Assurez-vous que la base de données du Gestionnaire de cartes de partitions et les bases de données définies dans la carte de partitions permettent l’accès à partir de Microsoft Azure dans leurs règles de pare-feu. Cela est nécessaire pour que la base de données de la requête de base de données élastique puisse s’y connecter. Pour en savoir plus, consultez [Pare-feu Azure SQL DB](https://msdn.microsoft.com/library/azure/ee621782.aspx).
+*    Assurez-vous que la base de données du Gestionnaire de cartes de partitions et les bases de données définies dans la carte de partitions permettent l’accès à partir de Microsoft Azure dans leurs règles de pare-feu. Cela est nécessaire pour que la base de données de la requête de base de données élastique puisse s’y connecter. Pour en savoir plus, consultez la rubrique [Pare-feu de la base de données Azure SQL](https://msdn.microsoft.com/library/azure/ee621782.aspx).
 *    Une requête de base de données élastique ne valide ni n’applique la distribution de données définie par la table externe. Si la distribution réelle des données est différente de la distribution spécifiée dans la définition de votre table, vos requêtes peuvent donner des résultats inattendus.
 *    Une requête de base de données élastique est mieux adaptée aux requêtes dont la plus grande partie du calcul peut être effectuée sur les partitions. De manière générale, vous obtenez les meilleures performances de requête avec des prédicats de filtres sélectifs pouvant être évalués sur des partitions ou des jonctions via les clés de partitionnement qui peuvent être effectuées de manière alignée sur toutes les partitions. D’autres modèles de requête peuvent nécessiter le chargement de grandes quantités de données dans le nœud principal, à partir des partitions, ce qui peut nuire aux performances.
 
@@ -252,7 +254,7 @@ La version préliminaire nécessite de tenir compte de certains éléments :
 Veuillez nous faire part de vos commentaires et de votre expérience sur Disqus ou Stackoverflow. Nous souhaitons connaître votre avis concernant le service (défauts, améliorations possibles, lacunes).
 
 ## Étapes suivantes
-Pour commencer à explorer une requête élastique, essayez notre didacticiel par étape et découvrez un exemple opérationnel complet en quelques minutes : [Prise en main des requêtes de base de données élastique](sql-database-elastic-query-getting-started.md).
+Pour commencer à explorer une requête de base de données élastique, essayez notre didacticiel par étape et découvrez un exemple opérationnel complet en quelques minutes : [Prise en main des requêtes de base de données élastique](sql-database-elastic-query-getting-started.md).
 
 
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
@@ -263,4 +265,4 @@ Pour commencer à explorer une requête élastique, essayez notre didacticiel pa
 
 <!--anchors-->
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

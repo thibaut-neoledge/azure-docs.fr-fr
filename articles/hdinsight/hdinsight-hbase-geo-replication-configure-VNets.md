@@ -29,7 +29,7 @@ La connexion de site à site entre réseaux virtuels Azure utilise une passerell
 - Applications multiniveaux régionales avec une forte limite d'isolement 
 - Communication interorganisationnelle entre plusieurs abonnements dans Azure
 
-Pour plus d'informations, consultez [Configuration d'une connexion de réseau virtuel à réseau virtuel](../vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md).
+Pour plus d'informations, consultez [Configuration d'une connexion de réseau virtuel à réseau virtuel](https://msdn.microsoft.com/library/azure/dn690122.aspx).
 
 Pour voir la vidéo associée :
 
@@ -256,8 +256,7 @@ Dans ce didacticiel, vous avez vu comment configurer une connexion VPN entre deu
 [azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
 [azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
 [azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
-[azure-portal]: http://manage.windowsazure.com
-
+[azure-portal]: https://portal.azure.com
 
 [powershell-install]: ../install-configure-powershell
 
@@ -271,4 +270,4 @@ Dans ce didacticiel, vous avez vu comment configurer une connexion VPN entre deu
 [img-vnet-lnet-diagram]: ./media/hdinsight-hbase-geo-replication-configure-VNets/HDInsight.HBase.VPN.LNet.diagram.png
 [img-vpn-status]: ./media/hdinsight-hbase-geo-replication-configure-VNets/HDInsight.HBase.VPN.status.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

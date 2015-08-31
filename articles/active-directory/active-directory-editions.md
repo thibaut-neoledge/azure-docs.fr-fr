@@ -1,19 +1,19 @@
 <properties
-	pageTitle="Éditions d’Azure Active Directory"
+	pageTitle="Éditions d’Azure Active Directory | Microsoft Azure"
 	description="Rubrique qui détaille les éditions gratuite et payantes d’Azure Active Directory."
 	services="active-directory"
 	documentationCenter=""
 	authors="curtand"
-	manager="TerryLan"
+	manager="msStevenPo"
 	editor=""/>
 
 <tags
 	ms.service="active-directory"
-	ms.workload="infrastructure-services"
+	ms.workload="identity"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/01/2015"
+	ms.date="08/14/2015"
 	ms.author="curtand"/>
 
 # Éditions d’Azure Active Directory
@@ -66,6 +66,7 @@ L’édition Azure Active Directory Premium est une offre payante d’Azure Acti
 
 - **Réinitialisation du mot de passe en écriture différée** : la réinitialisation libre-service des mots de passe peut être écrite en différé pour les annuaires locaux.
 
+- [Azure Active Directory Connect Health](https://msdn.microsoft.com/library/azure/dn906722.aspx) : surveillez l’intégrité de votre infrastructure locale Active Directory et bénéficiez d’une analyse de l’utilisation.
 
 
 
@@ -98,6 +99,7 @@ L’édition Azure Active Directory Premium est une offre payante d’Azure Acti
 - Rapport avancé sur l’utilisation des applications
 - Service Multi-Factor Authentication pour les utilisateurs du cloud
 - Service Multi-Factor Authentication pour les utilisateurs locaux
+- Azure Active Directory Connect Health
 
 ## Fonctionnalités actuellement présentes dans la version préliminaire publique
 
@@ -105,7 +107,6 @@ Les fonctionnalités suivantes sont actuellement intégrées dans la version pr�
 
 - [Unités administratives](https://msdn.microsoft.com/library/azure/dn832057.aspx) : il s’agit d’un nouveau conteneur de ressources Azure Active Directory qui peut être utilisé pour déléguer des autorisations administratives à des sous-ensembles d’utilisateurs et appliquer des stratégies à un sous-ensemble d’utilisateurs.
 - [Ajoutez vos propres applications SaaS](https://msdn.microsoft.com/library/azure/dn893637.aspx) dans Azure Active Directory.
-- [Azure Active Directory Connect Health](https://msdn.microsoft.com/library/azure/dn906722.aspx) : surveillez l’intégrité de votre infrastructure locale Active Directory et bénéficiez d’une analyse de l’utilisation.
 - Substitution du mot de passe pour Facebook, Twitter et LinkedIn. Pour plus d’informations, consultez [cet article](http://blogs.technet.com/b/ad/archive/2015/02/20/azure-ad-automated-password-roll-over-for-facebook-twitter-and-linkedin-now-in-preview.aspx).
 - Appartenance au groupe dynamique. Pour plus d’informations, consultez [cet article](https://msdn.microsoft.com/library/azure/dn913807.aspx).
 - [Accès conditionnel](https://msdn.microsoft.com/library/azure/dn906877.aspx) : authentification multifacteur par application.
@@ -120,6 +121,5 @@ Les fonctionnalités suivantes sont actuellement intégrées dans la version pr�
 - [Prise en main d’Azure Active Directory Premium (AD)](active-directory-get-started-premium.md)
 - [Ajout d’une marque de société aux pages de connexion et du volet d’accès](active-directory-add-company-branding.md)
 - [Affichage de vos rapports d’accès et d’utilisation](active-directory-view-access-usage-reports.md)
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

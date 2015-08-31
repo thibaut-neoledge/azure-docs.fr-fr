@@ -171,7 +171,7 @@ Contactez votre administrateur réseau pour corriger les paramètres de votre p�
 
 ### Source 3 : Point de terminaison de service cloud et liste de contrôle d’accès
 
-Pour vérifier que le point de terminaison de service cloud et la liste de contrôle d’accès ne sont pas la source de votre problème ou de votre erreur de configuration des machines virtuelles créées dans la gestion des services, vérifiez qu’une autre machine virtuelle Azure du même service cloud ou réseau virtuel peut établir des connexions Bureau à distance avec votre machine virtuelle Azure.
+Pour éviter que le point de terminaison de service cloud et les ACL entraînent des problèmes ou des défauts de configuration sur des machines virtuelles créées à l’aide de l’API Gestion des services, vérifiez qu’une autre machine virtuelle Azure du même service cloud ou réseau virtuel peut établir des connexions Bureau à distance avec votre machine virtuelle Azure.
 
 ![](./media/virtual-machines-troubleshoot-remote-desktop-connections/tshootrdp_3.png)
 
@@ -210,7 +210,7 @@ Essayez une nouvelle fois de vous connecter à partir de votre ordinateur. Si vo
 - Le pare-feu Windows ou un autre pare-feu local comporte une règle sortante qui empêche le trafic du Bureau à distance.
 - Le logiciel de détection d’intrusion ou de surveillance réseau s’exécutant sur la machine virtuelle Azure empêche les connexions Bureau à distance.
 
-Pour corriger ces problèmes éventuels des machines virtuelles créées dans la gestion des services, vous pouvez utiliser une session Azure PowerShell distante pour la machine virtuelle Azure. Tout d’abord, vous devez installer un certificat correspondant au service cloud d’hébergement de la machine virtuelle. Accédez à [Configure l’accès à distance sécurisé de PowerShell vers les machines virtuelles Azure](http://gallery.technet.microsoft.com/scriptcenter/Configures-Secure-Remote-b137f2fe) et téléchargez le fichier de script **InstallWinRMCertAzureVM.ps1** dans un dossier de votre ordinateur local.
+Pour corriger ces problèmes éventuels des machines virtuelles créées à l’aide de l’API de gestion des services, vous pouvez utiliser une session Azure PowerShell distante pour la machine virtuelle Azure. Tout d’abord, vous devez installer un certificat correspondant au service cloud d’hébergement de la machine virtuelle. Accédez à [Configure l’accès à distance sécurisé de PowerShell vers les machines virtuelles Azure](http://gallery.technet.microsoft.com/scriptcenter/Configures-Secure-Remote-b137f2fe) et téléchargez le fichier de script **InstallWinRMCertAzureVM.ps1** dans un dossier de votre ordinateur local.
 
 Installez ensuite Azure PowerShell si ce n’est pas déjà fait. Consultez [Installation et configuration d’Azure PowerShell](../install-configure-powershell.md).
 
@@ -287,4 +287,4 @@ Pour plus d’informations sur l’utilisation du support Azure, consultez le [F
 
 [Résolution des problèmes d’accès à une application exécutée sur une machine virtuelle Azure](virtual-machines-troubleshoot-access-application.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

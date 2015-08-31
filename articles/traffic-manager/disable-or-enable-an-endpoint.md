@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Désactiver ou activer un point de terminaison Traffic Manager"
+   pageTitle="Désactiver ou activer un point de terminaison Traffic Manager | Microsoft Azure"
    description="Cet article vous aide à désactiver ou activer vos points de terminaison du profil Traffic Manager."
    services="traffic-manager"
    documentationCenter="na"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="07/10/2015"
+   ms.date="08/19/2015"
    ms.author="joaoma" />
 
 # Désactiver ou activer un point de terminaison Traffic Manager
@@ -38,11 +38,11 @@ Vous pouvez également désactiver des points de terminaison individuels qui fon
 
 ## Étapes suivantes
 
-[Tâches de configuration de Traffic Manager](https://msdn.microsoft.com/library/azure/hh744830.aspx)
+[Traffic Manager - Désactiver, activer ou supprimer un profil](disable-enable-or-delete-a-profile.md)
 
-[Vue d’ensemble de Traffic Manager](../traffic-manager.md)
+[Qu’est-ce que Traffic Manager ?](../traffic-manager.md)
 
-[Services Cloud](http://go.microsoft.com/fwlink/?LinkId=314074)
+[Cloud Services](http://go.microsoft.com/fwlink/?LinkId=314074)
 
 [Sites Web](http://go.microsoft.com/fwlink/p/?LinkId=393327)
 
@@ -50,4 +50,4 @@ Vous pouvez également désactiver des points de terminaison individuels qui fon
 [Opérations sur Traffic Manager (Référence sur l’API REST)](http://go.microsoft.com/fwlink/?LinkId=313584)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

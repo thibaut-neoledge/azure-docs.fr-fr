@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Utilisation de Mobile Services pour télécharger des images dans le stockage d'objets blob (Windows Store) | Microsoft Azure" 
-	description="Découvrez comment utiliser Mobile Services pour télécharger des images dans le stockage d'objets blob Azure." 
+	pageTitle="Utilisation de Mobile Services pour télécharger des images dans le stockage d&#39;objets blob (Windows Store) | Microsoft Azure" 
+	description="Découvrez comment utiliser Mobile Services pour télécharger des images dans le stockage d&#39;objets blob Azure." 
 	documentationCenter="windows" 
 	authors="ggailey777" 
 	services="mobile-services,storage" 
@@ -81,4 +81,4 @@ Dans la prochaine étape, vous allez mettre à jour l'application de démarrage 
 
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Désactiver, activer ou supprimer un profil Traffic Manager"
+   pageTitle="Désactiver, activer ou supprimer un profil Traffic Manager | Microsoft Azure"
    description="Cet article vous aide à utiliser vos profils Traffic Manager."
    services="traffic-manager"
    documentationCenter="na"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="07/09/2015"
+   ms.date="08/19/2015"
    ms.author="joaoma" />
 
 # Désactiver, activer ou supprimer un profil
@@ -31,7 +31,7 @@ Vous pouvez désactiver un profil Traffic Manager existant afin qu’il ne renvo
 
 1. Sélectionnez le profil que vous souhaitez activer. Sélectionnez le profil dans la page Traffic Manager en cliquant sur la colonne en regard du nom de profil. Ne cliquez pas sur le nom du profil ou sur la flèche en regard du nom. Sinon, vous serez dirigé vers la page de paramètres du profil.
 1. Après avoir sélectionné le profil, cliquez sur Activer en bas de la page.
-1. Modifiez l’enregistrement de ressource DNS sur votre serveur DNS Internet afin d’utiliser le type d’enregistrement CNAME, qui mappe votre nom de domaine d’entreprise au nom de domaine de votre profil Traffic Manager. Pour plus d’informations, consultez la page [Redirection d’un domaine Internet d’entreprise vers un domaine Traffic Manager](../point-a-company-internet-domain-to-a-traffic-manager-domain.md).
+1. Modifiez l’enregistrement de ressource DNS sur votre serveur DNS Internet afin d’utiliser le type d’enregistrement CNAME, qui mappe votre nom de domaine d’entreprise au nom de domaine de votre profil Traffic Manager. Pour plus d’informations, consultez la page [Redirection d’un domaine Internet d’entreprise vers un domaine Traffic Manager](traffic-manager-point-internet-domain.md).
 1. Le trafic est de nouveau dirigé vers les points de terminaison.
 
 ## Supprimer un profil
@@ -44,11 +44,10 @@ Vous pouvez désactiver un profil Traffic Manager existant afin qu’il ne renvo
 
 ## Étapes suivantes
 
-[Traffic Manager](../traffic-manager.md)
+[Traffic Manager - Désactiver ou activer un point de terminaison](disable-or-enable-an-endpoint.md)
 
-[Tâches de configuration de Traffic Manager](https://msdn.microsoft.com/library/azure/hh744830.aspx)
-
+[Qu’est-ce que Traffic Manager ?](traffic-manager-overview.md)
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

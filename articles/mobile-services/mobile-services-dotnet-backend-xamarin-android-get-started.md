@@ -9,11 +9,11 @@
 
 <tags
 	ms.service="mobile-services"
-	ms.workload="mobile" 
+	ms.workload="mobile"
 	ms.tgt_pltfrm="mobile-xamarin-android"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="04/24/2015"
+	ms.date="08/18/2015"
 	ms.author="donnam"/>
 
 # <a name="getting-started"> </a>Prise en main de Mobile Services
@@ -84,7 +84,7 @@ La dernière étape de ce didacticiel consiste à générer et à exécuter votr
 
 	> [AZURE.NOTE]Afin d'exécuter le projet dans l'émulateur Android, vous devez définir au moins un AVD (appareil virtuel Android). Utilisez le gestionnaire AVD pour créer et gérer ces appareils.
 
-3. Dans l'application, tapez un texte explicite, comme _Suivre le didacticiel_ puis cliquez sur l'icône plus (**+**).
+3. Dans l'application, tapez un texte explicite, comme _Suivre le didacticiel_, puis cliquez sur l'icône plus (**+**).
 
 	![][10]
 
@@ -134,6 +134,5 @@ Vous avez terminé les étapes de démarrage rapide. Découvrez ensuite comment 
 [Xamarin Studio]: http://xamarin.com/download
 [Xcode]: https://go.microsoft.com/fwLink/?LinkID=266532&clcid=0x409
 [Xamarin for Windows]: https://go.microsoft.com/fwLink/?LinkID=330242&clcid=0x409
- 
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

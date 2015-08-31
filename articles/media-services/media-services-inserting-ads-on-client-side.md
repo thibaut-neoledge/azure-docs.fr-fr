@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Insertion de publicités du côté client" 
-	description="Cette rubrique montre comment insérer des publicités du côté client." 
-	services="media-services" 
-	documentationCenter="" 
-	authors="juliako" 
-	manager="dwrede" 
+	pageTitle="Insertion de publicités du côté client"
+	description="Cette rubrique montre comment insérer des publicités du côté client."
+	services="media-services"
+	documentationCenter=""
+	authors="juliako"
+	manager="dwrede"
 	editor=""/>
 
 <tags 
-	ms.service="media-services" 
-	ms.workload="media" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/11/2015"  
+	ms.service="media-services"
+	ms.workload="media"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/17/2015"
 	ms.author="juliako"/>
 
 
@@ -356,9 +356,7 @@ Une publicité exécutable peut être initialisée à l’aide de l’élément 
 
 ##Implémentation d’un lecteur Windows ou Windows Phone 8 avec prise en charge de publicités
 
-Plateforme multimédia Microsoft : infrastructure de lecteur pour Windows 8 et Windows Phone 8 contient une collection d’exemples d’applications qui vous montrent comment implémenter une application de lecteur vidéo à l’aide de l’infrastructure. Vous pouvez télécharger l’infrastructure de lecteur et les exemples depuis la page [Player Framework for Windows 8 and Windows Phone 8](https://playerframework.codeplex.com/releases/view/105214).
-
-Pour plus d’informations sur l’insertion de publicités, consultez [Insertion de publicités dans vos supports](media-services-inserting-ads-on-client-side.md#insert_ads_into_media).
+Plateforme multimédia Microsoft : infrastructure de lecteur pour Windows 8 et Windows Phone 8 contient une collection d’exemples d’applications qui vous montrent comment implémenter une application de lecteur vidéo à l’aide de l’infrastructure. Vous pouvez télécharger l'infrastructure depuis la page [Player Framework pour Windows 8 et Windows Phone 8](https://playerframework.codeplex.com).
 
 Lorsque vous ouvrez la solution Microsoft.PlayerFramework.Xaml.Samples, vous découvrez un certain nombre de dossiers au sein du projet. Le dossier Advertising contient l’exemple de code permettant la création d’un lecteur vidéo avec prise en charge de publicités. Le dossier Advertising renferme plusieurs fichiers XAML/cs, chacun d’eux montrant comment insérer des publicités d’une manière particulière. Le tableau ci-dessous décrit chaque fichier :
 
@@ -376,7 +374,7 @@ Chacun de ces exemples utilise la classe MediaPlayer définie par l’infrastruc
 
 ###Exemple AdPodPage
 
-Cet exemple utilise AdSchedulerPlugin pour définir quand afficher une publicité. Dans cet exemple, une publicité mi-bande est planifiée pour être diffusée après un délai de 5 secondes. Le bloc publicitaire (groupe de publicités à afficher dans un ordre précis) est spécifié dans un fichier VAST renvoyé depuis un serveur publicitaire. L’URI vers le fichier VAST est spécifié dans l’élément <RemoteAdSource>.
+Cet exemple utilise AdSchedulerPlugin pour définir quand afficher une publicité. Dans cet exemple, une publicité mi-bande est planifiée pour être diffusée après un délai de 5 secondes. Le bloc publicitaire (groupe de publicités à afficher dans un ordre précis) est spécifié dans un fichier VAST renvoyé depuis un serveur publicitaire. L'URI vers le fichier VAST est spécifiée dans l'élément <RemoteAdSource>.
 
 	<mmppf:MediaPlayer x:Name="player" Source="http://smf.blob.core.windows.net/samples/videos/bigbuck.mp4">
 	
@@ -396,11 +394,11 @@ Cet exemple utilise AdSchedulerPlugin pour définir quand afficher une publicit�
 	    </mmppf:MediaPlayer.Plugins>
 	</mmppf:MediaPlayer>
 
-Pour plus d’informations sur AdSchedulerPlugin, consultez [Publicités dans l’infrastructure de lecteur sous Windows 8 et Windows Phone 8](http://playerframework.codeplex.com/wikipage?title=Advertising&referringTitle=Windows%208%20Player%20Documentation).
+Pour plus d'informations sur AdSchedulerPlugin, consultez [Publicités dans l'infrastructure de lecteur sous Windows 8 et Windows Phone 8](http://playerframework.codeplex.com/wikipage?title=Advertising&referringTitle=Windows%208%20Player%20Documentation).
 
 ###AdSchedulingPage
 
-Cet exemple utilise également AdSchedulerPlugin. Il planifie trois publicités, une publicité de début de bande, une publicité mi-bande et une publicité de fin de bande. L’URI vers le fichier VAST de chaque publicité est spécifié dans un élément <RemoteAdSource>.
+Cet exemple utilise également AdSchedulerPlugin. Il planifie trois publicités, une publicité de début de bande, une publicité mi-bande et une publicité de fin de bande. L'URI vers le fichier VAST de chaque publicité est spécifié dans un élément <RemoteAdSource>.
 	
 	<mmppf:MediaPlayer x:Name="player" Source="http://smf.blob.core.windows.net/samples/videos/bigbuck.mp4">
 	            <mmppf:MediaPlayer.Plugins>
@@ -517,7 +515,7 @@ Cet exemple utilise AdSchedulerPlugin pour planifier une publicité mi-bande en 
 
 ###VastLinearCompanionPage
 
-Cet exemple montre comment utiliser AdSchedulerPlugin pour planifier une publicité mi-bande linéaire avec une publicité d’accompagnement. L’élément <RemoteAdSource> spécifie l’emplacement du fichier VAST.
+Cet exemple montre comment utiliser AdSchedulerPlugin pour planifier une publicité mi-bande linéaire avec une publicité d’accompagnement. L'élément <RemoteAdSource> spécifie l'emplacement du fichier VAST.
 	
 	<mmppf:MediaPlayer Grid.Row="1"  x:Name="player" Source="http://smf.blob.core.windows.net/samples/videos/bigbuck.mp4">
 	            <mmppf:MediaPlayer.Plugins>
@@ -538,7 +536,7 @@ Cet exemple montre comment utiliser AdSchedulerPlugin pour planifier une publici
 
 ###VastLinearNonLinearPage
 
-Cet exemple utilise AdSchedulerPlugin pour planifier une publicité linéaire et non linéaire. L’emplacement du fichier VAST est spécifié avec l’élément <RemoteAdSource>.
+Cet exemple utilise AdSchedulerPlugin pour planifier une publicité linéaire et non linéaire. L'emplacement du fichier VAST est spécifié avec l'élément <RemoteAdSource>.
 	
 	<mmppf:MediaPlayer x:Name="player" Source="http://smf.blob.core.windows.net/samples/videos/bigbuck.mp4">
 	            <mmppf:MediaPlayer.Plugins>
@@ -559,7 +557,7 @@ Cet exemple utilise AdSchedulerPlugin pour planifier une publicité linéaire et
 
 ###VMAPPage
 
-Cet exemple utilise VmapSchedulerPlugin pour planifier des publicités à l’aide d’un fichier VMAP. L’URI vers le fichier VMAP est spécifié dans l’attribut Source de l’élément <VmapSchedulerPlugin>.
+Cet exemple utilise VmapSchedulerPlugin pour planifier des publicités à l’aide d’un fichier VMAP. L'URI vers le fichier VMAP est spécifié dans l'attribut Source de l'élément <VmapSchedulerPlugin>.
 	
 	<mmppf:MediaPlayer x:Name="player" Source="http://smf.blob.core.windows.net/samples/videos/bigbuck.mp4">
 	            <mmppf:MediaPlayer.Plugins>
@@ -571,9 +569,8 @@ Cet exemple utilise VmapSchedulerPlugin pour planifier des publicités à l’ai
 ##Implémentation d'un lecteur vidéo iOS avec prise en charge de publicités
 
 
-Plateforme multimédia Microsoft : infrastructure de lecteur pour iOS contient une collection d’exemples d’applications qui vous montrent comment implémenter une application de lecteur vidéo à l’aide de l’infrastructure. Vous pouvez télécharger l’infrastructure de lecteur et les exemples depuis la page [Azure Media Player Framework](https://github.com/Azure/azure-media-player-framework). La page github comporte un lien vers un site Wiki qui contient des informations supplémentaires sur l’infrastructure de lecteur, ainsi qu’une présentation de l’exemple de lecteur : [Azure Media Player Wiki](https://github.com/Azure/azure-media-player-framework/wiki/How-to-use-Azure-media-player-framework).
+Plateforme multimédia Microsoft : infrastructure de lecteur pour iOS contient une collection d’exemples d’applications qui vous montrent comment implémenter une application de lecteur vidéo à l’aide de l’infrastructure. Vous pouvez télécharger l'infrastructure de lecteur et les exemples depuis la page [Azure Media Player Framework](https://github.com/Azure/azure-media-player-framework). La page github comporte un lien vers un site Wiki qui contient des informations supplémentaires sur l'infrastructure de lecteur, ainsi qu'une présentation de l'exemple de lecteur : [Azure Media Player Wiki](https://github.com/Azure/azure-media-player-framework/wiki/How-to-use-Azure-media-player-framework).
 
-Pour plus d’informations sur l’insertion de publicités, consultez [Insertion de publicités dans vos supports](media-services-inserting-ads-on-client-side.md#insert_ads_into_media).
 
 ###Planification de publicités avec VMAP
 
@@ -802,6 +799,6 @@ L’exemple ci-dessous montre comment planifier une publicité mi-bande de recou
  
 ##Voir aussi
 
-[Développer des applications de lecteur vidéo](media-services-develop-video-players.md) [Présentation de l’infrastructure de lecteur Azure Media Player Framework pour iOS](https://channel9.msdn.com/Series/Windows-Azure-Media-Services-Tutorials/An-introduction-to-Azure-Media-Player-Framework-for-IOS)
+[Développement d'applications de lecteur vidéo](media-services-develop-video-players.md)
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

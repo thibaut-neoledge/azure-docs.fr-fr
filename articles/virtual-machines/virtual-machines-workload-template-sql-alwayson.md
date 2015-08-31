@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Déployer SQL Server AlwaysOn à l’aide d’un modèle Azure Resource Manager"
+	pageTitle="Déployer SQL Server AlwaysOn à l’aide d’un modèle Azure Resource Manager | Microsoft Azure"
 	description="Déployez facilement cinq serveurs qui prennent en charge SQL Server AlwaysOn à l’aide d’un modèle Resource Manager et du portail Azure en version préliminaire, d’Azure PowerShell et de l’interface de ligne de commande Azure."
 	services="virtual-machines"
 	documentationCenter=""
@@ -19,7 +19,7 @@
 
 # Déployer SQL Server AlwaysOn à l’aide d’un modèle Azure Resource Manager
 
-Suivez les instructions de cette section pour déployer SQL Server AlwaysOn à l’aide d’un modèle Resource Manager. Ce modèle crée cinq machines virtuelles dans un nouveau réseau virtuel, sur deux sous-réseaux différents.
+Suivez les instructions de cet article pour déployer SQL Server AlwaysOn à l’aide d’un modèle Resource Manager Azure. Ce modèle crée cinq machines virtuelles dans un nouveau réseau virtuel, sur deux sous-réseaux différents.
 
 ![](./media/virtual-machines-workload-template-sql-alwayson/five-server-sqlao.png)
 
@@ -27,7 +27,7 @@ Vous pouvez exécuter le modèle avec le portail Azure en version préliminaire
 
 ## Portail Azure en version préliminaire
 
-Pour déployer cette charge de travail à l’aide d’un modèle Resource Manager et du portail Azure en version préliminaire, cliquez [ici](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsql-server-2014-alwayson-dsc%2Fazuredeploy.json).
+Pour déployer cette charge de travail à l’aide d’un modèle Resource Manager Azure et du portail Azure en version préliminaire, cliquez [ici](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsql-server-2014-alwayson-dsc%2Fazuredeploy.json).
 
 ![](./media/virtual-machines-workload-template-sql-alwayson/azure-portal-template.png)
 
@@ -97,7 +97,7 @@ Lorsque l’exécution du modèle est terminée, vous disposez d’une nouvelle 
 
 [Fournisseurs de calcul, de réseau et de stockage Azure dans Azure Resource Manager](virtual-machines-azurerm-versus-azuresm.md)
 
-[Présentation d’Azure Resource Manager](../resource-group-overview.md)
+[Présentation d’Azure Resource Manager](../resource-group-overview.md)
 
 [Déploiement et gestion de machines virtuelles à l’aide des modèles Azure Resource Manager et de l’interface de ligne de commande Azure](virtual-machines-deploy-rmtemplates-azure-cli.md)
 
@@ -105,4 +105,4 @@ Lorsque l’exécution du modèle est terminée, vous disposez d’une nouvelle 
 
 [Installation et configuration d’Azure PowerShell](../install-configure-powershell.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

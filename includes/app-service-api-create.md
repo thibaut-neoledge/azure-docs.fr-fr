@@ -1,6 +1,6 @@
-1. Ouvrez Visual Studio 2013.
+1. Ouvrez Visual Studio 2015 ou Visual Studio 2013.
 
-2. Sélectionnez **Fichier > Nouveau projet**.
+2. Sélectionnez **Fichier > Nouveau > Projet**.
 
 3. Sélectionnez le modèle **Application web ASP.NET**.
 
@@ -20,4 +20,4 @@
 
 Visual Studio crée un projet d’API web configuré pour le déploiement sous forme d’application API.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

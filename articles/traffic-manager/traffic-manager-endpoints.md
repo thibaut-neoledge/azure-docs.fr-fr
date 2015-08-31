@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Gérer des points de terminaison dans Traffic Manager"
+   pageTitle="Gérer des points de terminaison dans Traffic Manager | Microsoft Azure"
    description="Cet article vous aide à ajouter, supprimer, activer et désactiver des points de terminaison dans Traffic Manager."
    services="traffic-manager"
    documentationCenter=""
@@ -12,12 +12,12 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/27/2015"
-   ms.author="joaoma;cherylmc" />
+   ms.date="08/19/2015"
+   ms.author="joaoma" />
 
 # Ajouter, désactiver, activer ou supprimer des points de terminaison
 
-Azure Websites fournit déjà des fonctionnalités d'équilibrage de charge de tourniquet et par basculement pour les sites web dans un centre de données, indépendamment du mode de site web. Traffic Manager vous permet de spécifier l'équilibrage de charge de tourniquet et par basculement pour des sites web et des services cloud dans différents centres de données. La première étape nécessaire pour fournir cette fonctionnalité consiste à ajouter le point de terminaison de service cloud ou de site web à Traffic Manager.
+Azure Websites fournit déjà des fonctionnalités de routage du trafic par basculement et tourniquet pour les sites web d’un centre de données, indépendamment du mode de site Web. Traffic Manager vous permet de spécifier le routage du trafic par basculement et tourniquet pour des sites web et des services cloud de différents centres de données. La première étape nécessaire pour fournir cette fonctionnalité consiste à ajouter le point de terminaison de service cloud ou de site web à Traffic Manager.
 
 >[AZURE.NOTE]Vous ne pouvez pas ajouter des emplacements externes ou des profils Traffic Manager en tant que points de terminaison à l'aide du portail de gestion. Vous devez utilisez l’API REST [Create Definition](http://go.microsoft.com/fwlink/p/?LinkId=400772) ou l’applet de commande Windows PowerShell [Add-AzureTrafficManagerEndpoint](http://go.microsoft.com/fwlink/p/?LinkId=400774).
 
@@ -36,7 +36,7 @@ Vous pouvez également désactiver des points de terminaison individuels qui fon
 6. Dans la liste, sélectionnez les sites web pour les ajouter en tant que points de terminaison pour ce profil. L'effacement du nom de site web le supprime de la liste des points de terminaison. Notez que vous ne pouvez sélectionner qu'un seul site web par centre de données Azure (également appelé région). Dans un centre de données qui héberge plusieurs sites web, si vous sélectionnez un site web, les autres ne peuvent pas être sélectionnés. Notez également que seuls les sites web standard sont répertoriés.
 7. Après avoir sélectionné les points de terminaison pour ce profil, cliquez sur la coche dans le coin inférieur droit pour enregistrer vos modifications.
 
->[AZURE.NOTE]Si vous utilisez la méthode d’équilibrage de charge *Basculement*, une fois que vous avez ajouté ou supprimé un point de terminaison, veillez à ajuster la liste prioritaire de basculement dans la page Configuration pour refléter l’ordre de basculement de votre configuration. Pour plus d’informations, consultez [Configurer l’équilibrage de charge par basculement](traffic-manager-configure-failover-load-balancing.md).
+>[AZURE.NOTE]Si vous utilisez la méthode de routage du trafic par *Basculement*, une fois que vous avez ajouté ou supprimé un point de terminaison, veillez à ajuster la liste prioritaire de basculement dans la page Configuration pour refléter l’ordre de basculement de votre configuration. Pour plus d’informations, consultez la rubrique [Configurer le routage du trafic par basculement](traffic-manager-configure-failover-load-balancing.md).
 
 ## Pour désactiver un point de terminaison
 
@@ -68,7 +68,9 @@ Vous pouvez également désactiver des points de terminaison individuels qui fon
 
 [À propos de la surveillance avec Traffic Manager](traffic-manager-monitoring.md)
 
-[Tâches de configuration de Traffic Manager](https://msdn.microsoft.com/library/azure/hh744830.aspx)
+[Traffic Manager - Désactiver, activer ou supprimer un profil](disable-enable-or-delete-a-profile.md)
+
+[Traffic Manager - Désactiver ou activer un point de terminaison](disable-or-enable-an-endpoint.md)
 
 [Opérations sur Traffic Manager (Référence sur l’API REST)](http://go.microsoft.com/fwlink/p/?LinkID=313584)
 
@@ -77,4 +79,4 @@ Vous pouvez également désactiver des points de terminaison individuels qui fon
 [Sites Web](http://go.microsoft.com/fwlink/p/?LinkId=393327)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

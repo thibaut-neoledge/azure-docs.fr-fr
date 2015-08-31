@@ -1,7 +1,6 @@
 <properties
 	pageTitle="Prise en main des requêtes de base de données élastique"
 	description="comment utiliser la requête de base de données élastique"
-	services="sql-database"
 	documentationCenter=""  
 	manager="jeffreyg"
 	authors="sidneyh"/>
@@ -62,12 +61,11 @@ Celles-ci sont utilisées pour se connecter au gestionnaire des cartes de partit
 
 		CREATE MASTER KEY ENCRYPTION BY PASSWORD = '<password>';
 
-		CREATE CREDENTIAL ElasticDBQueryCred ON DATABASE
+		CREATE DATABASE SCOPED CREDENTIAL ElasticDBQueryCred
 		WITH IDENTITY = '<username>',
 		SECRET = '<password>';
 
 	le nom d’utilisateur et le mot de passe doivent être les mêmes que les informations de connexion utilisées à l’étape 6 de la rubrique [Télécharger et exécuter l’exemple d’application](sql-database-elastic-scale-get-started.md#Getting-started-with-elastic-database-tools) dans [Prise en main des outils de base de données élastique](sql-database-elastic-scale-get-started.md).
-
 
 ### Sources de données externes
 
@@ -143,4 +141,4 @@ Pour plus d’informations sur la tarification, consultez la page [Tarification 
 [5]: ./media/sql-database-elastic-query-getting-started/exel-sources.png
 <!--anchors-->
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

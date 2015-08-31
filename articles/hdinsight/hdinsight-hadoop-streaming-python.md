@@ -1,26 +1,29 @@
 <properties
    pageTitle="Développement de travaux MapReduce Python avec HDInsight | Microsoft Azure"
-   description="Découvrez comment créer et exécuter des tâches MapReduce Python sur des clusters HDInsight Linux."
-   services="hdinsight"
-   documentationCenter=""
-   authors="Blackmist"
-   manager="paulettm"
-   editor="cgronlun"/>
+	description="Découvrez comment créer et exécuter des tâches MapReduce Python sur des clusters HDInsight Linux."
+	services="hdinsight"
+	documentationCenter=""
+	authors="Blackmist"
+	manager="paulettm"
+	editor="cgronlun"
+	tags="azure-portal"/>
 
 <tags
    ms.service="hdinsight"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="big-data"
-   ms.date="07/13/2015"
-   ms.author="larryfr"/>
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="big-data"
+	ms.date="08/04/2015"
+	ms.author="larryfr"/>
 
 #Développement de programmes de diffusion en continu Python pour HDInsight
 
 Hadoop fournit une API de diffusion en continu pour MapReduce qui vous permet d'écrire des fonctions de mappage et de réduction dans d'autres langages que Java. Cet article explique comment utiliser Python pour effectuer des opérations MapReduce.
 
-> [AZURE.NOTE]Il est basé sur des informations et des exemples publiés par Michael Noll à l’adresse [http://www.michael-noll.com/tutorials/writing-an-hadoop-mapreduce-program-in-python/](Rédaction d’un programme MapReduce Hadoop dans Python).
+> [AZURE.NOTE]Si le code Python dans ce document peut être utilisé avec un cluster HDInsight basés sur Windows, les étapes décrites dans ce document sont spécifiques aux clusters basés sur Linux.
+
+Il est basé sur des informations et des exemples publiés par Michael Noll à l’adresse [http://www.michael-noll.com/tutorials/writing-an-hadoop-mapreduce-program-in-python/](Rédaction d’un programme MapReduce Hadoop dans Python).
 
 ##Composants requis
 
@@ -133,7 +136,7 @@ Créez un fichier nommé **reducer.py** et utilisez le code suivant comme conten
 
 ##Téléchargement des fichiers
 
-Les deux fichiers **mapper.py** et **reducer.py** doivent se trouver sur le nœud principal du cluster pour pouvoir être exécutés. Pour les télécharger, nous vous recommandons d’utiliser **scp** (**pscp** si vous utilisez un client Windows).
+Les deux fichiers **mapper.py** et **reducer.py** doivent se trouver sur le nœud principal du cluster pour pouvoir être exécutés. Le meilleur moyen pour les télécharger consiste à utiliser **scp** (**pscp** si vous utilisez un client Windows).
 
 À partir du client, dans le même répertoire que **mapper.py** et **reducer.py**, utilisez la commande suivante : Remplacez **username** par un utilisateur SSH et **clustername** par le nom de votre cluster.
 
@@ -202,4 +205,4 @@ Maintenant que vous avez découvert comment utiliser des travaux de diffusion en
 * [Utilisation de Pig avec HDInsight](hdinsight-use-pig.md)
 * [Utilisation des tâches MapReduce avec HDInsight](hdinsight-use-mapreduce.md)
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

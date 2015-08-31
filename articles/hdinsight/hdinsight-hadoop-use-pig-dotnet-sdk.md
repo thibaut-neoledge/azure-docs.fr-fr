@@ -1,20 +1,21 @@
 <properties
    pageTitle="Utilisation de Hadoop Pig avec .NET dans HDInsight | Microsoft Azure"
-   description="Apprenez à utiliser le Kit de développement logiciel (SDK) .NET pour Hadoop afin de soumettre des tâches Pig vers Hadoop sur HDInsight."
-   services="hdinsight"
-   documentationCenter=".net"
-   authors="Blackmist"
-   manager="paulettm"
-   editor="cgronlun"/>
+	description="Apprenez à utiliser le Kit de développement logiciel (SDK) .NET pour Hadoop afin de soumettre des tâches Pig vers Hadoop sur HDInsight."
+	services="hdinsight"
+	documentationCenter=".net"
+	authors="Blackmist"
+	manager="paulettm"
+	editor="cgronlun"
+	tags="azure-portal"/>
 
 <tags
    ms.service="hdinsight"
-   ms.devlang="dotnet"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="big-data"
-   ms.date="07/06/2015"
-   ms.author="larryfr"/>
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="big-data"
+	ms.date="07/24/2015"
+	ms.author="larryfr"/>
 
 #Exécution de tâches Pig à l’aide du Kit de développement logiciel (SDK) .NET pour Hadoop dans HDInsight
 
@@ -23,6 +24,10 @@
 Ce document fournit un exemple d’utilisation du Kit de développement logiciel (SDK) .NET pour Hadoop afin de soumettre des tâches Pig à un Hadoop sur un cluster HDInsight.
 
 Le Kit de développement logiciel (SDK) .NET HDInsight fournit des bibliothèques clientes .NET facilitant l'utilisation des clusters HDInsight à partir de .NET. Pig permet de créer des opérations MapReduce en modélisant une série de transformations de données. Vous apprendrez à utiliser une application de base C# pour soumettre un travail Pig sur un cluster HDInsight.
+
+[AZURE.INCLUDE [azure-portal](../../includes/hdinsight-azure-portal.md)]
+
+* [Exécution de tâches Pig à l’aide du Kit de développement logiciel (SDK) .NET pour Hadoop dans HDInsight](hdinsight-hadoop-use-pig-dotnet-sdk-v1.md)
 
 ##<a id="prereq"></a>Configuration requise
 
@@ -36,7 +41,7 @@ Pour effectuer les étapes présentées dans cet article, vous avez besoin des �
 
 Pour authentifier l’application sur Azure HDInsight, vous devez créer un certificat auto-signé, l’installer sur votre station de travail de développement et le télécharger sur votre abonnement Azure.
 
-Pour obtenir des instructions, consultez la page [Création d’un certificat auto-signé](http://go.microsoft.com/fwlink/?LinkId=511138).
+Pour obtenir des instructions, consultez la page [Création d'un certificat auto-signé](http://go.microsoft.com/fwlink/?LinkId=511138).
 
 > [AZURE.NOTE]Lors de la création du certificat, veillez à noter le nom convivial que vous utilisez, car il vous sera utile ultérieurement.
 
@@ -44,11 +49,11 @@ Pour obtenir des instructions, consultez la page [Création d’un certificat au
 
 Chaque abonnement Azure est identifié par une valeur GUID, appelée ID d’abonnement. Procédez comme suit pour trouver cette valeur.
 
-1. Accédez à la [Console de gestion Azure](https://manage.windowsazure.com/).
+1. Visitez la [version préliminaire du portail Azure] [version préliminaire du portail].
 
-2. Dans la barre gauche du portail, sélectionnez **Paramètres**.
+2. Dans la barre située sur la gauche du portail, sélectionnez __Parcourir tout__, puis sélectionnez __Abonnements__ dans le panneau __Parcourir__.
 
-3. Dans les informations présentées sur la droite de la page, recherchez l’abonnement que vous souhaitez utiliser et notez la valeur dans la colonne **ID d’abonnement**.
+3. Dans les informations présentées sur le panneau __Abonnements__, recherchez l'abonnement que vous souhaitez utiliser et notez la valeur dans la colonne **ID d'abonnement**.
 
 Enregistrez l’ID d’abonnement, car il sera utilisé ultérieurement.
 
@@ -227,6 +232,6 @@ Pour plus d’informations sur d’autres méthodes de travail avec Hadoop sur H
 
 * [Utilisation de Hive avec Hadoop sur HDInsight](hdinsight-use-hive.md)
 
-* [Utilisation de MapReduce avec Hadoop sur HDInsight](hdinsight-use-mapreduce.md)
+* [Utilisation de MapReduce avec Hadoop sur HDInsight](hdinsight-use-mapreduce.md) [version préliminaire du portail] : https://portal.azure.com/
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

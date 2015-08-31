@@ -1,11 +1,12 @@
 <properties
 	pageTitle="Détachement du disque d’une machine virtuelle Linux dans Azure"
-	description="Apprenez à détacher un disque de données d'une machine virtuelle Azure."
+	description="Apprenez à détacher un disque de données d'une machine virtuelle Azure créée à l'aide du modèle de déploiement classique."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="dsk-2015"
 	manager="timlt"
-	editor=""/>
+	editor=""
+	tags="azure-service-management"/>
 
 <tags
 	ms.service="virtual-machines"
@@ -25,6 +26,6 @@
 
 [Association d’un disque de données à une machine virtuelle Linux](virtual-machines-linux-how-to-attach-disk.md)
 
-[Utilisation de l'interface de ligne de commande Azure avec la gestion des services Azure](virtual-machines-command-line-tools.md)
+[Utilisation de l'interface de ligne de commande Azure avec l’API de gestion des services](virtual-machines-command-line-tools.md)
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

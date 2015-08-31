@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Prise en main de l'authentification (Xamarin.Android) - Mobile Services" 
-	description="Découvrez comment utiliser l'authentification dans votre application Azure Mobile Services pour Xamarin.Android." 
-	services="mobile-services" 
-	documentationCenter="xamarin" 
-	manager="dwrede" 
-	authors="lindydonna" 
+<properties
+	pageTitle="Prise en main de l&#39;authentification (Xamarin.Android) - Mobile Services"
+	description="Découvrez comment utiliser l&#39;authentification dans votre application Azure Mobile Services pour Xamarin.Android."
+	services="mobile-services"
+	documentationCenter="xamarin"
+	manager="dwrede"
+	authors="lindydonna"
 	editor=""/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-xamarin-android" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="05/14/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-xamarin-android"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="08/18/2015" 
 	ms.author="donnam"/>
 
 # Ajout de l'authentification à votre application Mobile Services
@@ -42,7 +42,7 @@ Xamarin.Android et le Kit de développement logiciel (SDK) Android 4.2 ou une v
 [AZURE.INCLUDE [mobile-services-restrict-permissions-javascript-backend](../../includes/mobile-services-restrict-permissions-javascript-backend.md)]
 
 
-3. Dans Eclipse, ouvrez le projet que vous avez créé avec le didacticiel [Prise en main de Mobile Services]. 
+3. Dans Eclipse, ouvrez le projet que vous avez créé avec le didacticiel [Prise en main de Mobile Services].
 
 4. Dans le menu **Exécuter**, cliquez sur **Exécuter** pour démarrer l'application ; vérifiez qu'une exception non prise en charge avec le code d'état 401 (Non autorisé) est générée après le démarrage de l'application.
 
@@ -85,7 +85,7 @@ Ensuite, vous allez mettre à jour l'application pour authentifier les utilisate
 
         private async Task CreateTable()
         {
-            
+
             await InitLocalStoreAsync();
 
             // Get the Mobile Service Table instance to use
@@ -136,6 +136,5 @@ Dans le didacticiel suivant, [Autorisation des utilisateurs avec des scripts], v
 [Autorisation des utilisateurs avec des scripts]: mobile-services-javascript-backend-service-side-authorization.md
 [Azure Management Portal]: https://manage.windowsazure.com/
 [projet d'exemple terminé]: http://go.microsoft.com/fwlink/p/?LinkId=331328
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

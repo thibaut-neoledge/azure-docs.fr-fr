@@ -5,8 +5,8 @@
 	documentationCenter=""
 	authors="Blackmist"
 	manager="paulettm"
-	editor="cgronlun"/>
-
+	editor="cgronlun"
+	tags="azure-portal"/>
 
 <tags
 	ms.service="hdinsight"
@@ -14,15 +14,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/03/2015"
+	ms.date="08/05/2015"
 	ms.author="larryfr"/>
-
 
 # Analyse des données Twitter avec Hive dans HDInsight
 
 Dans ce document, vous allez recevoir des tweets à l’aide de l’API de diffusion Twitter, puis utiliser Apache Hive sur un cluster HDInsight sous Linux (version préliminaire) pour traiter les données au format JSON. Une liste des utilisateurs de Twitter ayant envoyé le plus de tweets contenant un mot donné vous sera ensuite retournée.
 
-> [AZURE.NOTE]Les étapes décrites dans cet article sont basées sur l’utilisation d’un cluster HDInsight sous Linux. Pour les étapes spécifiques à un cluster Windows, consultez la rubrique [Analyse des données Twitter avec Hive dans HDInsight](hdinsight-analyze-twitter-data.md).
+> [AZURE.NOTE]Bien que des éléments individuels de ce document puissent être utilisés avec des clusters HDInsight Windows (Python et Hive, par exemple), plusieurs étapes de ce document sont basées sur les clusters HDInsight Linux. Pour les étapes spécifiques à un cluster Windows, consultez la rubrique [Analyse des données Twitter avec Hive dans HDInsight](hdinsight-analyze-twitter-data.md).
 
 ###Configuration requise
 
@@ -94,7 +93,7 @@ Le code Python suivant téléchargera 10 000 tweets à partir de Twitter et les
 		sudo apt-get remove python-openssl
 		sudo pip install tweepy==3.2.0 progressbar pyOpenSSL requests[security]
 		
-	> [AZURE.NOTE]Les bits concernant la suppression de python-openssl, l'installation de python-dev, libffi-dev, libssl-dev, pyOpenSSL et requests[security\] permettent d’éviter qu’un avertissement InsecurePlatform survienne lors de la connexion à Twitter via SSL à partir de Python.
+	> [AZURE.NOTE]Les bits concernant la suppression de python-openssl, l'installation de python-dev, libffi-dev, libssl-dev, pyOpenSSL et requests[security] permettent d’éviter qu’un avertissement InsecurePlatform survienne lors de la connexion à Twitter via SSL à partir de Python.
 	>
 	> Tweepy v3.2.0 vous permet d’éviter qu’[une erreur](https://github.com/tweepy/tweepy/issues/576) se produise lors du traitement des tweets.
 
@@ -320,4 +319,4 @@ Dans ce didacticiel, nous avons vu comment transformer le jeu de données JSON n
 [twitter-streaming-api]: https://dev.twitter.com/docs/streaming-apis
 [twitter-statuses-filter]: https://dev.twitter.com/docs/api/1.1/post/statuses/filter
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

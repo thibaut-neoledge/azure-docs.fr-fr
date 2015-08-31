@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Automatisation de la protection entre un site local VMM et Azure à l’aide de PowerShell"
-	description="Automatisation du déploiement d'Azure Site Recovery à l'aide de PowerShell."
+	description="Automatisation du déploiement d&#39;Azure Site Recovery à l&#39;aide de PowerShell."
 	services="site-recovery"
 	documentationCenter=""
 	authors="csilauraa"
@@ -45,7 +45,7 @@ Assurez-vous que les conditions préalables sont remplies :
 - Vous aurez besoin d'au moins un cloud sur le serveur VMM que vous souhaitez protéger. Le coud doit contenir :
 	- un ou plusieurs groupes hôtes VMM ;
 	- un ou plusieurs serveurs hôtes Hyper-V ou clusters dans chaque groupe hôte ;
-	- une ou plusieurs machines virtuelles sur le serveur Hyper-V source. Les machines virtuelles doivent être de la génération 1.
+	- une ou plusieurs machines virtuelles sur le serveur Hyper-V source.
 - Pour en savoir plus sur la configuration des clouds VMM :
 	- Lisez la documentation sur les clouds privés VMM dans les sections [Nouveautés sur le cloud privé dans System Center 2012 R2 VMM](http://go.microsoft.com/fwlink/?LinkId=324952) et [VMM 2012 et les clouds](http://go.microsoft.com/fwlink/?LinkId=324956).
 	- En savoir plus sur la [Configuration de l'infrastructure de cloud VMM](https://msdn.microsoft.com/library/azure/dn469075.aspx#BKMK_Fabric)
@@ -461,4 +461,4 @@ if($isJobLeftForProcessing)
 
 <LI>Pour toute question, visitez le <a href="http://go.microsoft.com/fwlink/?LinkId=313628">Forum Azure Recovery Services</a>.</LI></UL>
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

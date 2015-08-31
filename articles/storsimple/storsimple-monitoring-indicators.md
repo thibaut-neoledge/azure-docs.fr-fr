@@ -1,18 +1,18 @@
 <properties 
-    pageTitle="Indicateurs de surveillance de StorSimple"
+    pageTitle="Indicateurs de surveillance de StorSimple | Microsoft Azure" 
     description="Décrit les voyants LED et les alarmes utilisés pour analyser l’état de l’appareil StorSimple."
     services="storsimple"
     documentationCenter="NA"
     authors="SharS"
     manager="adinah"
-    editor="tysonn" />
+    editor="" />
  <tags 
     ms.service="storsimple"
     ms.devlang="NA"
     ms.topic="article"
     ms.tgt_pltfrm="NA"
     ms.workload="TBD"
-    ms.date="06/11/2015"
+    ms.date="08/14/2015"
     ms.author="v-sharos" />
 
 # Indicateurs de surveillance de StorSimple   
@@ -45,7 +45,7 @@ Le panneau avant comprend les indicateurs suivants :
 4. Voyant LED d’erreur logique (ALLUMÉ rouge-orange/ÉTEINT)
 5. Affichage de l’ID de l’unité  
 
-La principale différence entre les LED du panneau avant de l’appareil et celles du boîtier EBOD est le **numéro d’identification de l’unité système** indiqué sur l’affichage à LED. L’ID d’unité par défaut affiché sur l’appareil est **00**, alors que l’ID d’unité par défaut affiché sur le boîtier EBOD est **01**. Cela vous permet de faire rapidement la différence entre l’appareil et le boîtier EBOD lorsque l’appareil est mis sous tension. Si votre appareil est hors tension, utilisez les informations fournies sous [Mise sous tension d’un nouvel appareil](https://msdn.microsoft.com/library/azure/dn772378.aspx) pour différencier l’appareil du boîtier EBOD.
+La principale différence entre les LED du panneau avant de l’appareil et celles du boîtier EBOD est le **numéro d’identification de l’unité système** indiqué sur l’affichage à LED. L’ID d’unité par défaut affiché sur l’appareil est **00**, alors que l’ID d’unité par défaut affiché sur le boîtier EBOD est **01**. Cela vous permet de faire rapidement la différence entre l’appareil et le boîtier EBOD lorsque l’appareil est mis sous tension. Si votre appareil est hors tension, utilisez les informations fournies sous [Activer un nouvel appareil](storsimple-turn-device-on-or-off.md#turn-on-a-new-device) pour différencier l’appareil du boîtier EBOD.
 
 ## État des LED du panneau avant  
 
@@ -148,7 +148,7 @@ Utilisez le tableau suivant pour déterminer si le module de contrôleur fonctio
 
 | LED | Description                                                                            
 |---- | ----------- |
-| LED d’ID (bleue) | Indique que le module est en cours d’identification. Si la LED bleue clignote sur un contrôleur en marche, cela signifie que ce contrôleur est le contrôleur actif et que l’autre est le contrôleur de secours. Pour plus d’informations, consultez la page [Identification d’un contrôleur actif sur votre appareil](https://msdn.microsoft.com/library/azure/dn790262.aspx). |
+| LED d’ID (bleue) | Indique que le module est en cours d’identification. Si la LED bleue clignote sur un contrôleur en marche, cela signifie que ce contrôleur est le contrôleur actif et que l’autre est le contrôleur de secours. Pour plus d’informations, consultez la page [Identifier un contrôleur actif sur votre appareil](storsimple-controller-replacement.md#identify-the-active-controller-on-your-device). |
 | LED de panne (orange) | Indique une panne du contrôleur.        
 | LED OK (verte) | Une LED verte indique que le contrôleur est OK. Une LED verte clignotante indique une erreur de configuration de données VPD du contrôleur. |
 | LED d’activité SAS (vertes) | Le vert fixe indique une connexion sans activité en cours. Le vert clignotant indique une activité continue sur la connexion. |
@@ -255,6 +255,10 @@ Le tableau suivant décrit les différentes conditions d’alarme.
 | Lecture retiré | Avertissement | Aucun | Panne de module |
 | Alimentation insuffisante | Avertissement | (aucun) | Panne de module |
 
+## Étapes suivantes
+
+En savoir plus sur [les composants matériels StorSimple et leur état](storsimple-monitor-hardware-status.md).
+
 [1]: ./media/storsimple-monitoring-indicators/storsimple-monitoring-indicators-IMAGE01.png
 [2]: ./media/storsimple-monitoring-indicators/storsimple-monitoring-indicators-IMAGE02.png
 [3]: ./media/storsimple-monitoring-indicators/storsimple-monitoring-indicators-IMAGE03.png
@@ -264,4 +268,4 @@ Le tableau suivant décrit les différentes conditions d’alarme.
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

@@ -1,24 +1,24 @@
 <properties 
-   pageTitle="Informations relatives à la suppression de la famille 1 des systèmes d'exploitation invités | Microsoft Azure" 
-   description="Fournit des informations sur la suppression de la famille 1 des SE invités d'Azure et sur la façon de déterminer si vous êtes concerné" 
-   services="cloud-services" 
-   documentationCenter="na" 
-   authors="Thraka" 
-   manager="timlt" 
-   editor=""/>
+   pageTitle="Informations relatives à la suppression de la famille 1 des systèmes d'exploitation invités | Microsoft Azure"
+	description="Fournit des informations sur la suppression de la famille 1 des SE invités d'Azure et sur la façon de déterminer si vous êtes concerné"
+	services="cloud-services"
+	documentationCenter="na"
+	authors="Thraka"
+	manager="timlt"
+	editor=""/>
 
 <tags
    ms.service="cloud-services"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="tbd" 
-   ms.date="06/16/2015"
-   ms.author="adegeo"/>
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="tbd"
+	ms.date="08/18/2015"
+	ms.author="adegeo"/>
 
 
 
-# Informations relatives à la suppression de la famille 1 des systèmes d'exploitation invités
+# Informations relatives à la suppression de la famille 1 des systèmes d’exploitation invités
 
 La suppression de la famille 1 des systèmes d'exploitation a été annoncée le 1er juin 2013.
 
@@ -78,4 +78,7 @@ Nous vous recommandons de migrer vos rôles de service cloud vers l'une des fami
 ## Fin de la prise en charge étendue pour la famille 1 des SE invités depuis le 3 novembre 2014
 Les services cloud de la famille 1 des SE invités ne sont plus pris en charge. Veuillez quitter la famille 1 dès que possible pour éviter toute interruption de service.
 
-<!---HONumber=August15_HO7-->
+## Étapes suivantes
+Consultez les dernières [versions du système d’exploitation invité](cloud-services-guestos-update-matrix.md).
+
+<!---HONumber=August15_HO8-->

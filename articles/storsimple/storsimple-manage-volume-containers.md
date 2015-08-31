@@ -1,18 +1,18 @@
 <properties 
-   pageTitle="Gérer vos conteneurs de volumes StorSimple"
+   pageTitle="Gérer vos conteneurs de volumes StorSimple | Microsoft Azure"
    description="Explique comment utiliser la page des conteneurs de volumes du service StorSimple Manager pour ajouter, modifier ou supprimer un conteneur de volumes."
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
-   manager="adinah"
-   editor="tysonn" />
+   manager="carolz"
+   editor="" />
 <tags 
    ms.service="storsimple"
    ms.devlang="NA"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="05/13/2015"
+   ms.date="08/14/2015"
    ms.author="v-sharos" />
 
 # Gérer vos conteneurs de volumes StorSimple
@@ -66,4 +66,4 @@ Un conteneur de volumes comporte plusieurs volumes. Il peut être supprimé uniq
 Élargissez vos connaissances en matière de [gestion des volumes StorSimple](storsimple-manage-volumes.md).
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

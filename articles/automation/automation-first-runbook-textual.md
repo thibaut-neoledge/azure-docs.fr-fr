@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Mon premier Runbook textuel dans Azure Automation"
+	pageTitle="Mon premier Runbook textuel dans Azure Automation | Microsoft Azure"
 	description="Ce didacticiel vous familiarise avec les procédures de création, de test et de publication d’un Runbook textuel simple à l’aide de PowerShell Workflow. Plusieurs concepts y sont abordés, notamment l’authentification auprès de ressources Azure et les paramètres d’entrée."
 	services="automation"
 	documentationCenter=""
@@ -12,8 +12,8 @@
 	ms.workload="tbd"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="get-started-article" 
-	ms.date="08/13/2015"
+	ms.topic="get-started-article"
+	ms.date="08/18/2015"
 	ms.author="bwren"/>
 
 
@@ -82,14 +82,14 @@ Le Runbook que nous venons de créer est toujours en mode brouillon. Nous devons
 
 ## Étape 5 : Ajout d’une authentification pour gérer les ressources Azure
 
-Nous avons testé et publié notre Runbook, mais jusqu'à présent, il ne fait rien d'utile. Nous voulons qu’il gère les ressources Azure. Il ne pourra le faire que si nous le configurons pour qu’il s’authentifie à l’aide des informations d’identification mentionnées dans les [composants requis](#prerequisites). Nous utilisons pour cela l’applet de commande **Set-AzureAccount**.
+Nous avons testé et publié notre Runbook, mais jusqu'à présent, il ne fait rien d'utile. Nous voulons qu’il gère les ressources Azure. Il ne pourra le faire que si nous le configurons pour qu’il s’authentifie à l’aide des informations d’identification mentionnées dans les [composants requis](#prerequisites). Nous utilisons pour cela l’applet de commande **Add-AzureAccount**.
 
 1.  Ouvrez l’éditeur textuel en cliquant sur **Modifier** dans le volet MyFirstRunbook-Textual.<br> ![Modifier un Runbook](media/automation-first-runbook-textual/runbook-toolbar-edit.png) 
 2.  La ligne **Write-Output** ne nous est plus utile. Vous pouvez donc la supprimer.
 3.  Positionnez le curseur sur une ligne vide entre les accolades.
 3.  Dans le contrôle Bibliothèque, développez **Actifs**, puis **Informations d’identification**.
-4.  Cliquez avec le bouton droit sur vos informations d’identification, puis cliquez sur **Ajouter au canevas**. Cette opération ajoute une activité **Get-AutomationCredential** pour vos informations d’identification.
-5.  Devant la chaîne **Get-AutomationCredential**, tapez *$Credential =* pour affecter les informations d’identification à une variable. 
+4.  Cliquez avec le bouton droit sur vos informations d’identification, puis cliquez sur **Ajouter au canevas**. Cette opération ajoute une activité **Get-AutomationPSCredential** pour vos informations d’identification.
+5.  Devant la chaîne **Get-AutomationPSCredential**, tapez *$Credential =* pour affecter les informations d’identification à une variable. 
 3.  Sur la ligne suivante, tapez *Add-AzureAccount -Credential $Credential*. <br> ![Authentifier](media/automation-first-runbook-textual/authentication.png) 
 3. Cliquez sur **Volet de test** afin de tester le Runbook.
 10. Cliquez sur **Démarrer** pour démarrer le test. Une fois le test terminé, vous devriez obtenir une sortie semblable à celle illustrée ci-dessous et renvoyant les informations de l’utilisateur dans les informations d’identification. Cette sortie confirme la validité des informations d’identification.<br>![Authentifier](media/automation-first-runbook-textual/authentication-test.png) 
@@ -122,4 +122,4 @@ Pour l’instant, notre Runbook démarre la machine virtuelle que nous avons cod
 
 - [Mon premier Runbook graphique](automation-first-runbook-graphical.md)
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

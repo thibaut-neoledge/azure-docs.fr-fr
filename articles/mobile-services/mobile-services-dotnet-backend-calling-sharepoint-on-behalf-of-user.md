@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Accès à SharePoint pour l'utilisateur | Microsoft Azure" 
-	description="Découvrez comment appeler SharePoint pour l'utilisateur" 
+	pageTitle="Accès à SharePoint pour l&#39;utilisateur | Microsoft Azure" 
+	description="Découvrez comment appeler SharePoint pour l&#39;utilisateur" 
 	documentationCenter="" 
 	authors="mattchenderson" 
 	manager="dwrede" 
@@ -219,4 +219,4 @@ Pour créer un document Word, vous allez utiliser le package NuGet OpenXML. Inst
 [Authentification de votre application avec le service d'authentification unique de la bibliothèque d'authentification Active Directory]: http://azure.microsoft.com/documentation/articles/mobile-services-windows-store-dotnet-adal-sso-authentication/
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

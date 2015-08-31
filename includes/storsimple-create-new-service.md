@@ -1,7 +1,7 @@
 
 #### Création d’un service
 
-1. À l’aide de votre compte Microsoft, connectez-vous au portail de gestion à cette URL : [http://azure.microsoft.com/](http://azure.microsoft.com/)
+1. À l’aide de votre compte Microsoft, connectez-vous au portail de gestion à cette URL : [http://azure.microsoft.com/](http://azure.microsoft.com/).
 
 2. Dans le portail de gestion, cliquez sur **Nouveau** > **Data Services** > **StorSimple Manager** > **Création rapide**.
 
@@ -10,7 +10,7 @@
   2. Indiquez un **emplacement** pour votre service. De manière générale, choisissez un emplacement plus proche de la région géographique dans laquelle vous souhaitez déployer votre appareil. Vous pouvez également prendre en compte les éléments suivants : 
 	 
 		- If you have existing workloads in Azure that you also intend to deploy with your StorSimple device, you should use that datacenter.
-		- Your StorSimple Manager service and Azure storage can be in two separate locations. In such a case, you are required to create the StorSimple Manager and Azure storage account separately. To create an Azure storage account, go to the Azure Storage service in Management Portal and follow the steps in [Create an Azure Storage account](storage-create-storage-account.md#create-a-storage-account). After this account is created, add this account to the StorSimple Manager service by following the steps in [Configure a new storage account for the service](#Configure-a-new-storage-account-for-the-service).
+		- Your StorSimple Manager service and Azure storage can be in two separate locations. In such a case, you are required to create the StorSimple Manager and Azure storage account separately. To create an Azure storage account, go to the Azure Storage service in the Management Portal and follow the steps in [Create an Azure Storage account](storage-create-storage-account.md#create-a-storage-account). After you create this account, add it to the StorSimple Manager service by following the steps in [Configure a new storage account for the service](storsimple-deployment-walkthrough.md#configure-a-new-storage-account-for-the-service).
 		 
   3. Choisissez un **abonnement** dans la liste déroulante. L’abonnement est lié à votre compte de facturation. Ce champ n’est pas présent si vous n’avez qu’un seul abonnement.
   4. Sélectionnez **Créer un nouveau compte de stockage** pour créer automatiquement un compte de stockage avec le service. Ce compte de stockage possédera un nom spécial, tel que « storsimplebwv8c6dcnf ». Si vous avez besoin de vos données dans un autre emplacement, désactivez cette case à cocher. 
@@ -22,4 +22,4 @@
  
    ![création du service](./media/storsimple-create-new-service/HCS_StorSimpleManagerServicePage-include.png)
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

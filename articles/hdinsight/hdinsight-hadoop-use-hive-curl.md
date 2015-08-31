@@ -1,11 +1,12 @@
 <properties
    pageTitle="Utiliser Hadoop Hive avec Curl dans HDInsight | Microsoft Azure"
-   description="Découvrez comment transmettre à distance des tâches Pig vers HDInsight à l'aide de Curl."
+   description="Découvrez comment transmettre à distance des tâches Pig vers HDInsight à l&#39;aide de Curl."
    services="hdinsight"
    documentationCenter=""
    authors="Blackmist"
    manager="paulettm"
-   editor="cgronlun"/>
+   editor="cgronlun"
+	tags="azure-portal"/>
 
 <tags
    ms.service="hdinsight"
@@ -189,4 +190,4 @@ Pour plus d’informations sur d’autres méthodes de travail avec Hadoop sur H
 [img-hdi-hive-powershell-output]: ./media/hdinsight-use-hive/HDI.Hive.PowerShell.Output.png
 [image-hdi-hive-architecture]: ./media/hdinsight-use-hive/HDI.Hive.Architecture.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

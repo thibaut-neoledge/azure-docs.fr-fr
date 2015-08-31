@@ -5,7 +5,7 @@
    documentationCenter="NA"
    authors="barbkess"
    manager="jhubbard"
-   editor=""/>
+   editor="jrowlandjones"/>
 
 <tags
    ms.service="sql-data-warehouse"
@@ -56,21 +56,23 @@ Pour voir s’il existe déjà des informations d’identification de base de do
 SELECT * FROM sys.database_credentials;
 
 -- Create a database scoped credential
-CREATE DATABASE SCOPED CREDENTIAL ASBSecret WITH IDENTITY = 'joe', 
-	Secret = 'myazurestoragekey==';
+CREATE DATABASE SCOPED CREDENTIAL ASBSecret 
+WITH IDENTITY = 'joe'
+,    Secret = 'myazurestoragekey=='
+;
 ```
 
 Rubrique de référence : [CREATE CREDENTIAL (Transact-SQL)][].
 
-Lorsque vous changez de clés de compte Microsoft Azure Storage, vous devez abandonner les informations d’identification et les recréer à l’aide de la nouvelle clé secrète.
+Pour supprimer un fichier d’informations d’identification de niveau base de données, utilisez simplement la syntaxe suivante :
 
 ```
 -- Dropping credential
-DROP DATABASE SCOPED CREDENTIAL ASBSecret;
+DROP DATABASE SCOPED CREDENTIAL ASBSecret
+;
 ```
 
 Rubrique de référence : [DROP CREDENTIAL (Transact-SQL)][].
-
 
 ## Créer une source de données externe
 La source de données externe est un objet de base de données qui stocke l’emplacement des données des objets Blob Microsoft Azure Storage et vos informations d’accès. Vous devez définir une source de données externes pour chacun des conteneurs Microsoft Azure Storage auquel vous souhaitez accéder.
@@ -78,14 +80,26 @@ La source de données externe est un objet de base de données qui stocke l’em
 ```
 -- Creating external data source (Azure Blob Storage) 
 CREATE EXTERNAL DATA SOURCE azure_storage 
-WITH (
-	TYPE = HADOOP, 
-       LOCATION ='wasbs://mycontainer@ test.blob.core.windows.net/path’,
-      CREDENTIAL = ASBSecret
-);
+WITH
+(
+    TYPE = HADOOP
+,   LOCATION ='wasbs://mycontainer@ test.blob.core.windows.net/path'
+,   CREDENTIAL = ASBSecret
+)
+;
 ```
 
 Rubrique de référence : [CREATE EXTERNAL DATA SOURCE (Transact-SQL)][].
+
+Pour supprimer la source de données externes, la syntaxe est la suivante :
+
+```
+-- Dropping external data source
+DROP EXTERNAL DATA SOURCE azure_storage
+;
+```
+
+Rubrique de référence : [DROP EXTERNAL DATA SOURCE (Transact-SQL)][].
 
 ## Créer un format de fichier externe
 Le format de fichier externe est un objet de base de données qui spécifie le format des données externes. Dans cet exemple, nous avons décompressé les données dans un fichier texte et les champs sont séparés par une barre verticale (« | »).
@@ -93,47 +107,92 @@ Le format de fichier externe est un objet de base de données qui spécifie le f
 ```
 -- Creating external file format (delimited text file)
 CREATE EXTERNAL FILE FORMAT text_file_format 
-WITH (
-	FORMAT_TYPE = DELIMITEDTEXT, 
-	FORMAT_OPTIONS (
-		FIELD_TERMINATOR ='|', 
-		USE_TYPE_DEFAULT = TRUE
-	)
-);
+WITH 
+(   
+    FORMAT_TYPE = DELIMITEDTEXT 
+,	FORMAT_OPTIONS  (
+                        FIELD_TERMINATOR ='|'
+                    ,   USE_TYPE_DEFAULT = TRUE
+                    )
+)
+;
 ```
 
 PolyBase peut utiliser les données compressées et non compressées dans du texte délimité, les formats Hive RCFILE et HIVE ORC.
 
 Rubrique de référence : [CREATE EXTERNAL FILE FORMAT (Transact-SQL)][].
 
+Pour supprimer un format de fichier externe, la syntaxe est la suivante :
+
+```
+-- Dropping external file format...
+DROP EXTERNAL FILE FORMAT text_file_format
+;
+```
+Rubrique de référence : [DROP EXTERNAL FILE FORMAT (Transact-SQL)][].
+
 ## Créer une table externe
 
-La définition de table externe est similaire à la définition d’une table relationnelle. Les principales différences sont l’emplacement et le format des données. La définition de la table externe est stockée dans la base de données SQL Data Warehouse. Les données sont stockées à l’emplacement spécifié par la source de données.
+La définition de table externe est similaire à la définition d’une table relationnelle. Les principales différences sont l’emplacement et le format des données. La définition de la table externe est stockée dans la base de données SQL Data Warehouse. Les données sont stockées à l’emplacement spécifié par la source de données.
 
 L’option LOCATION spécifie le chemin d’accès aux données à partir de la racine de la source de données. Dans cet exemple, les données sont conservées à l’emplacement « wasbs://mycontainer@ test.blob.core.windows.net/path/Demo/ ». L’ensemble des fichiers d’une table doivent être stockés dans le même dossier logique du stockage d’objets Blob Microsoft Azure.
 
 ```
 -- Creating external table pointing to file stored in Azure Storage
-CREATE EXTERNAL TABLE [ext].[CarSensor_Data] (
-    [SensorKey] int NOT NULL, 
-    [CustomerKey] int NOT NULL, 
-    [GeographyKey] int NULL, 
-    [Speed] float NOT NULL, 
-    [YearMeasured] int NOT NULL
+CREATE EXTERNAL TABLE [ext].[CarSensor_Data] 
+(
+     [SensorKey]     int    NOT NULL 
+,    [CustomerKey]   int    NOT NULL 
+,    [GeographyKey]  int        NULL 
+,    [Speed]         float  NOT NULL 
+,    [YearMeasured]  int    NOT NULL
 )
-WITH (LOCATION='/Demo/',
-      DATA_SOURCE = azure_storage,
-      FILE_FORMAT = text_file_format,      
-);
+WITH 
+(
+    LOCATION    = '/Demo/'
+,   DATA_SOURCE = azure_storage
+,   FILE_FORMAT = text_file_format      
+)
+;
 ```
 
 > [AZURE.NOTE]Notez qu’à ce stade il est impossible de générer des statistiques sur une table externe.
-
 
 Rubrique de référence : [CREATE EXTERNAL TABLE (Transact-SQL)][].
 
 Les objets que vous venez de créer sont stockés dans la base de données SQL Data Warehouse. Vous pouvez les consulter dans l’Explorateur d’objets SQL Server Data Tools (SSDT).
 
+Pour supprimer une table externe, vous devez utiliser la syntaxe suivante :
+
+```
+--Dropping external table
+DROP EXTERNAL TABLE [ext].[CarSensor_Data]
+;
+```
+
+> [AZURE.NOTE]Lors de la suppression d'une table externe, vous devez utiliser `DROP EXTERNAL TABLE`. Vous **ne pouvez pas** utiliser `DROP TABLE`.
+
+Rubrique de référence : [DROP EXTERNAL TABLE (Transact-SQL)][].
+
+Il est également important de noter que les tables externes sont visibles dans les affichages catalogue `sys.tables` et plus particulièrement `sys.external_tables`.
+
+## Rotation des clés de stockage
+
+De temps à autre, vous devez modifier la clé d'accès à votre stockage d'objets blob pour des raisons de sécurité.
+
+La façon la plus élégante d’effectuer cette tâche consiste à suivre un processus appelé « rotation des clés ». Vous avez peut-être remarqué que vous disposez de deux clés de stockage pour votre compte de stockage d'objets blob. Cela permet une transition.
+
+La rotation de vos clés de compte de stockage Azure est un processus simple en trois étapes.
+
+1. Créez le deuxième fichier d’informations d’identification de niveau base de données en fonction de la clé d'accès de stockage secondaire.
+2. Créez la deuxième source de données externe en fonction de ces nouvelles informations d'identification.
+3. Supprimez et créez la ou les tables externes pointant vers la nouvelle source de données externes.
+
+Lorsque vous avez migré toutes vos tables externes vers la nouvelle source de données externes, vous pouvez effectuer les tâches de nettoyage :
+ 
+1. suppression de la première source de données externe ;
+2. suppression du premier fichier d’informations d’identification de niveau base de données en fonction de la clé d'accès de stockage secondaire ;
+3. connexion à Azure et régénération de la clé d'accès primaire, pour la prochaine fois.
 
 ## Interroger des données de l’espace de stockage d’objets Blob Microsoft Azure
 Les requêtes dirigées vers les tables externes utilisent le nom de table, comme s’il s’agissait d’une table relationnelle.
@@ -143,14 +202,15 @@ Il s’agit d’une requête ad hoc qui rassemble les données d’assurance du 
 ```
 -- Join SQL Data Warehouse relational data with Azure storage data. 
 SELECT 
-    [Insured_Customers].[FirstName],
-    [Insured_Customers].[LastName],
-    [Insured_Customers].[YearlyIncome],
-    [CarSensor_Data].[Speed]
-FROM [dbo].[Insured_Customers] INNER JOIN [ext].[CarSensor_Data]
-ON [Insured_Customers].[CustomerKey] = [CarSensor_Data].[CustomerKey]
+      [Insured_Customers].[FirstName]
+,     [Insured_Customers].[LastName]
+,     [Insured_Customers].[YearlyIncome]
+,     [CarSensor_Data].[Speed]
+FROM  [dbo].[Insured_Customers] 
+JOIN  [ext].[CarSensor_Data]         ON [Insured_Customers].[CustomerKey] = [CarSensor_Data].[CustomerKey]
 WHERE [CarSensor_Data].[Speed] > 60 
-ORDER BY [CarSensor_Data].[Speed] desc;
+ORDER BY [CarSensor_Data].[Speed] DESC
+;
 ```
 
 ## Charger des données à partir d’objets Blob Microsoft Azure Storage
@@ -166,18 +226,74 @@ CREATE TABLE AS SELECT est une instruction Transact-SQL très performante qui re
 -- Load data from Azure blob storage to SQL Data Warehouse 
 
 CREATE TABLE [dbo].[Customer_Speed]
-WITH (
-	CLUSTERED COLUMNSTORE INDEX
-	DISTRIBUTION = HASH([CarSensor_Data].[CustomerKey])
-	)
-AS SELECT * from [ext].[CarSensor_Data];
+WITH 
+(   
+    CLUSTERED COLUMNSTORE INDEX
+,	DISTRIBUTION = HASH([CarSensor_Data].[CustomerKey])
+)
+AS 
+SELECT * 
+FROM   [ext].[CarSensor_Data]
+;
 ```
 
 Voir [CREATE TABLE AS SELECT (Transact-SQL)][].
 
 
-## Limitations
-Le chargement avec PolyBase prend en charge uniquement le style d’encodage UTF-8. Pour les autres styles d’encodage, comme UTF-16, envisagez de recourir à l’utilitaire bcp, à SSIS ou à Azure Data Factory pour charger les données dans la base de données SQL Data Warehouse.
+## Contournement de la nécessité du codage UTF-8 de PolyBase
+À présent PolyBase prend en charge le chargement des fichiers de données encodés en UTF-8. Étant donné que UTF-8 utilise le même codage de caractères que ASCII, PolyBase prend également en charge le chargement de données encodées en ASCII. Toutefois, PolyBase ne gère pas d’autre encodage de caractères, comme UTF-16/Unicode ou les caractères ASCII étendus. ASCII étendu inclut les caractères accentués tels que le umlaut, courant en allemand.
+
+Pour contourner cette exigence, la meilleure solution consiste à réécrire au format UTF-8.
+
+Il existe plusieurs façons de le faire. Voici deux méthodes utilisant Powershell :
+
+### Exemple simple pour les petits fichiers
+
+Voici un script Powershell simple d'une ligne qui crée le fichier.
+ 
+```
+Get-Content <input_file_name> -Encoding Unicode | Set-Content <output_file_name> -Encoding utf8
+```
+
+Toutefois, si c'est un moyen simple de ré-encoder les données, ce n'est en aucun cas le plus efficace. L'exemple de diffusion en continu d'E/S ci-dessous est beaucoup plus rapide et donne le même résultat.
+
+### Exemple de diffusion d’E/S pour les plus gros fichiers
+
+L'exemple de code ci-dessous est plus complexe, mais il est beaucoup plus efficace, car il diffuse les lignes de données de la source à la cible. Utilisez cette approche pour les fichiers plus volumineux.
+
+```
+#Static variables
+$ascii = [System.Text.Encoding]::ASCII
+$utf16le = [System.Text.Encoding]::Unicode
+$utf8 = [System.Text.Encoding]::UTF8
+$ansi = [System.Text.Encoding]::Default
+$append = $False
+
+#Set source file path and file name
+$src = [System.IO.Path]::Combine("C:\input_file_path","input_file_name.txt")
+
+#Set source file encoding (using list above)
+$src_enc = $ansi
+
+#Set target file path and file name
+$tgt = [System.IO.Path]::Combine("C:\output_file_path","output_file_name.txt")
+
+#Set target file encoding (using list above)
+$tgt_enc = $utf8
+
+$read = New-Object System.IO.StreamReader($src,$src_enc)
+$write = New-Object System.IO.StreamWriter($tgt,$append,$tgt_enc)
+
+while ($read.Peek() -ne -1)
+{
+    $line = $read.ReadLine();
+    $write.WriteLine($line);
+}
+$read.Close()
+$read.Dispose()
+$write.Close()
+$write.Dispose()
+```
 
 ## Étapes suivantes
 Pour obtenir des conseils supplémentaires en matière de développement, voir la [vue d’ensemble sur le développement][].
@@ -201,9 +317,14 @@ Pour obtenir des conseils supplémentaires en matière de développement, voir l
 [CREATE EXTERNAL DATA SOURCE (Transact-SQL)]: https://msdn.microsoft.com/library/dn935022(v=sql.130).aspx
 [CREATE EXTERNAL FILE FORMAT (Transact-SQL)]: https://msdn.microsoft.com/library/dn935026(v=sql.130).aspx
 [CREATE EXTERNAL TABLE (Transact-SQL)]: https://msdn.microsoft.com/library/dn935021(v=sql.130).aspx
+
+[DROP EXTERNAL DATA SOURCE (Transact-SQL)]: https://msdn.microsoft.com/fr-fr/library/mt146367.aspx
+[DROP EXTERNAL FILE FORMAT (Transact-SQL)]: https://msdn.microsoft.com/fr-fr/library/mt146379.aspx
+[DROP EXTERNAL TABLE (Transact-SQL)]: https://msdn.microsoft.com/fr-fr/library/mt130698.aspx
+
 [CREATE TABLE AS SELECT (Transact-SQL)]: https://msdn.microsoft.com/library/mt204041.aspx
 [CREATE MASTER KEY (Transact-SQL)]: https://msdn.microsoft.com/fr-fr/library/ms174382.aspx
 [CREATE CREDENTIAL (Transact-SQL)]: https://msdn.microsoft.com/fr-fr/library/ms189522.aspx
 [DROP CREDENTIAL (Transact-SQL)]: https://msdn.microsoft.com/fr-fr/library/ms189450.aspx
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

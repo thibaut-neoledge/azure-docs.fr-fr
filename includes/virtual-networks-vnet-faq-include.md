@@ -20,7 +20,7 @@ Utilisez les réseaux virtuels pour effectuer les actions suivantes :
 
 ### Comment savoir si j’ai besoin d’un réseau virtuel ?
 
-Voir [Présentation du réseau virtuel](http://go.microsoft.com/fwlink/?LinkId=296649) pour afficher la table des décisions qui vous aidera à déterminer la meilleure option de conception de réseau pour vous.
+Consultez la page [Présentation du réseau virtuel](https://azure.microsoft.com/documentation/articles/virtual-networks-overview/) pour afficher la table des décisions qui vous aidera à déterminer la meilleure option de conception de réseau pour vous.
 
 ### Comment faire pour démarrer ?
 
@@ -264,4 +264,4 @@ Oui. Vous pouvez utiliser l’API REST pour gérer la connectivité des réseaux
 
 Oui. Vous pouvez utiliser les outils PowerShell et de ligne de commande pour une variété de plateformes. Des informations supplémentaires sont disponibles [ici](http://go.microsoft.com/fwlink/?LinkId=317721).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

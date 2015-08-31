@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Envoi de notifications interplateformes à un utilisateur spécifique à l'aide du client Windows Store"
-	description="Découvrez comment envoyer des notifications push à tous les appareils d'un utilisateur spécifique."
+	pageTitle="Envoi de notifications interplateformes à un utilisateur spécifique à l&#39;aide du client Windows Store"
+	description="Découvrez comment envoyer des notifications push à tous les appareils d&#39;un utilisateur spécifique."
 	services="app-service\mobile" 
 	documentationCenter="windows" 
 	authors="ysxu" 
@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="mobile-windows" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="06/23/2015"
+	ms.date="08/14/2015"
 	ms.author="yuaxu"/>
 
 # Envoi de notifications interplateformes à un utilisateur spécifique
 
-[AZURE.INCLUDE [app-service-mobile-selector-push-users-preview](../../includes/app-service-mobile-selector-push-users-preview.md)]
+[AZURE.INCLUDE [app-service-mobile-selector-push-users-preview](../../includes/app-service-mobile-selector-push-users-preview.md)]&nbsp;[AZURE.INCLUDE [app-service-mobile-note-mobile-services-preview](../../includes/app-service-mobile-note-mobile-services-preview.md)]
 
 Cette rubrique montre comment envoyer des notifications à tous les appareils inscrits d'un utilisateur spécifique à partir de votre backend mobile. Elle introduit le concept de [modèles], qui donne aux applications clientes la liberté de spécifier des formats de charge utile et divers emplacements réservés lors de l’inscription. L'envoi atteint alors chaque plateforme dotée de ces espaces réservés, générant ainsi des notifications interplateformes.
 
@@ -107,4 +107,4 @@ Publiez à nouveau votre projet de backend mobile et exécutez les applications 
 [modèles]: https://msdn.microsoft.com/fr-fr/library/dn530748.aspx
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

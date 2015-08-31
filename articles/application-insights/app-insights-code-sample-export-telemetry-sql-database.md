@@ -1,18 +1,18 @@
 <properties 
-	pageTitle="Exemple de code : exporter vers SQL à partir d’Application Insights à l’aide d’un rôle de travail" 
-	description="Codez votre propre analyse des données de télémétrie dans Application Insights à l’aide de la fonctionnalité d’exportation continue." 
-	services="application-insights" 
-    documentationCenter=""
-	authors="mazharmicrosoft" 
+	pageTitle="Exemple de code : exporter vers SQL à partir d’Application Insights à l’aide d’un rôle de travail"
+	description="Codez votre propre analyse des données de télémétrie dans Application Insights à l’aide de la fonctionnalité d’exportation continue."
+	services="application-insights"
+	documentationCenter=""
+	authors="mazharmicrosoft"
 	manager="douge"/>
 
 <tags 
-	ms.service="application-insights" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/04/2015" 
+	ms.service="application-insights"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="ibiza"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/04/2015"
 	ms.author="awills"/>
  
 # Exemple de code : exporter vers SQL à partir d’Application Insights à l’aide d’un rôle de travail
@@ -104,6 +104,8 @@ Assurez-vous que le serveur de base de données permet d’accéder aux services
 ## Créer un rôle de travail 
 
 Nous pouvons maintenant écrire du [code](https://sesitai.codeplex.com/) pour analyser le JSON dans les objets blob exportés et créer des enregistrements dans la base de données. Étant donné que la banque d’exportation et la base de données se trouvent toutes deux dans Azure, nous allons exécuter le code dans un rôle de travail Azure.
+
+Ce code extrait automatiquement toutes les propriétés présentes dans le JSON. Pour obtenir une description des propriétés, voir [Modèle d’exportation de données](app-insights-export-data-model.md).
 
 
 #### Créer un projet de rôle de travail
@@ -356,6 +358,8 @@ Remplacez la méthode d’exécution existante, puis choisissez l’intervalle q
 
 #### Fichier de classe PageViewPerformance généré à partir du document JSON
 
+
+
     public class PageViewPerformance
     {
     	[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
@@ -519,6 +523,7 @@ Pour voir cet exemple en action, [téléchargez](https://sesitai.codeplex.com/) 
 * [Exportation vers SQL à l’aide d’un rôle de travail](app-insights-code-sample-export-telemetry-sql-database.md)
 * [Exportation continue dans Application Insights](app-insights-export-telemetry.md)
 * [Application Insights](https://azure.microsoft.com/services/application-insights/)
+* [Modèle d’exportation de données](app-insights-export-data-model.md)
 * [Plus d'exemples et de procédures pas à pas](app-insights-code-samples.md)
 
 <!--Link references-->
@@ -531,4 +536,4 @@ Pour voir cet exemple en action, [téléchargez](https://sesitai.codeplex.com/) 
 
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

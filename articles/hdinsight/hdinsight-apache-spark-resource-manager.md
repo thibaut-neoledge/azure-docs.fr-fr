@@ -1,19 +1,20 @@
 <properties 
-	pageTitle="Utiliser le gestionnaire de ressources pour allouer des ressources au cluster Apache Spark dans HDInsight | Microsoft Azure" 
-	description="Découvrez comment utiliser le gestionnaire de ressources pour les clusters Spark sur HDInsight pour obtenir de meilleures performances." 
-	services="hdinsight" 
-	documentationCenter="" 
-	authors="nitinme" 
-	manager="paulettm" 
-	editor="cgronlun"/>
+	pageTitle="Utiliser le gestionnaire de ressources pour allouer des ressources au cluster Apache Spark dans HDInsight | Microsoft Azure"
+	description="Découvrez comment utiliser le gestionnaire de ressources pour les clusters Spark sur HDInsight pour obtenir de meilleures performances."
+	services="hdinsight"
+	documentationCenter=""
+	authors="nitinme"
+	manager="paulettm"
+	editor="cgronlun"
+	tags="azure-portal"/>
 
 <tags 
-	ms.service="hdinsight" 
-	ms.workload="big-data" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/19/2015" 
+	ms.service="hdinsight"
+	ms.workload="big-data"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/31/2015"
 	ms.author="nitinme"/>
 
 
@@ -23,9 +24,11 @@ Le gestionnaire de ressources est un composant du tableau de bord du cluster Spa
 
 ## <a name="launchrm"></a>Comment lancer le gestionnaire de ressources ?
 
-1. Sélectionnez votre cluster Spark dans le portail Azure, puis, à partir de la barre des tâches du portail située en bas, cliquez sur **Tableau de bord Spark**.
+1. Dans le tableau d’accueil du [portail Azure en version préliminaire](https://ms.portal.azure.com/), cliquez sur la vignette de votre cluster Spark (si vous avez épinglé ce dernier au tableau d’accueil). Vous pouvez également accéder à votre cluster sous **Parcourir tout** > **Clusters HDInsight**. 
+ 
+2. Dans le panneau du cluster Spark, cliquez sur **Tableau de bord**. Lorsque vous y êtes invité, entrez les informations d’identification d’administrateur pour le cluster Spark.
 
-2. Dans le volet supérieur du tableau de bord, cliquez sur l’onglet **Gestionnaire de ressources**.
+	![Lancer le gestionnaire de ressources](./media/hdinsight-apache-spark-resource-manager/HDI.Cluster.Launch.Dashboard.png "Démarrer le gestionnaire de ressources")
 
 ##<a name="scenariosrm"></a>Comment résoudre ces problèmes à l’aide du gestionnaire de ressources ?
 
@@ -55,7 +58,7 @@ Le cluster Apache Spark dans HDInsight est conçu pour une architecture mutuali
 
 ### Je n’utilise pas d’outils décisionnels avec le cluster Spark. Comment puis-je reprendre des ressources ? 
 
-Indiquez 0 pour le nombre de cœurs et la mémoire d’exécution du serveur Thrift. Sans cœur ni mémoire alloués, le serveur Thrift passe à l’état **ATTENTE**.
+Indiquez 0 pour le nombre de cœurs et la mémoire d’exécution du serveur Thrift. Sans cœur ni mémoire alloués, le serveur Thrift passe à l’état **ATTENTE**.
 
 ![Allocation des ressources](./media/hdinsight-apache-spark-resource-manager/HDI.Spark.UI.No.Thrift.png "Aucune ressource allouée au serveur Thrift")
 
@@ -79,4 +82,4 @@ Indiquez 0 pour le nombre de cœurs et la mémoire d’exécution du serveur Th
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

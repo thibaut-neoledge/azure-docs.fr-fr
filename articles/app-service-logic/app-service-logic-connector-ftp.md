@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/01/2015"
+	ms.date="08/19/2015"
 	ms.author="rajram"/>
 
-#Connecteur FTP
+# Connecteur FTP
 
-##Vue d'ensemble
+## Vue d'ensemble
 Le connecteur FTP vous permet de déplacer des données depuis/vers un serveur FTP. Les principales fonctionnalités du connecteur FTP sont :
 
 - Extraction de fichiers du serveur FTP à la demande
@@ -28,20 +28,14 @@ Le connecteur FTP vous permet de déplacer des données depuis/vers un serveur F
 - Possibilité d'exécuter des envois à la demande
 - Possibilité de supprimer des fichiers sur le serveur FTP à la demande
 
-##Créer un connecteur FTP
-Pour créer un connecteur FTP, suivez les étapes mentionnées ci-dessous. - Lancez le portail Azure - Ouvrez Azure Marketplace à l’aide de +Nouveau (en bas de la page) -> Web+Mobile --> Azure Marketplace.
-
-	![Launch Azure Marketplace][1]
+## Créer un connecteur FTP
+Pour créer un connecteur FTP, suivez les étapes mentionnées ci-dessous. - Lancez le portail Azure - Ouvrez Azure Marketplace à l’aide de +Nouveau (en bas de la page) -> Web+Mobile --> Azure Marketplace : ![Lancez Azure Marketplace][1]
 
 - Cliquez sur API Apps.
-- Recherchez FTP et sélectionnez le connecteur FTP.
-
-	![Sélectionnez le connecteur FTP][2]
+- Recherchez FTP et sélectionnez le connecteur FTP : ![Sélectionnez le connecteur FTP][2]
 
 - Cliquez sur Créer.
-- Dans le panneau du connecteur FTP qui s'ouvre, fournissez les données suivantes.
-
-	![Créez le connecteur FTP][3]
+- Dans le panneau du connecteur FTP qui s'ouvre, fournissez les données suivantes : ![Créez le connecteur FTP][3]
 
 - **Emplacement** : choisissez l’emplacement géographique dans lequel vous voulez déployer le connecteur.
 - **Abonnement** : choisissez un abonnement dans lequel vous souhaitez créer ce connecteur.
@@ -59,63 +53,49 @@ Pour créer un connecteur FTP, suivez les étapes mentionnées ci-dessous. - Lan
 	- **Port du serveur** : spécifiez le numéro de port du serveur FTP.
 - Cliquez sur Créer. Un nouveau connecteur FTP est créé.
 
-##Utiliser le connecteur FTP dans une application logique
+## Utiliser le connecteur FTP dans une application logique
 Une fois le connecteur FTP créé, il peut être consommé à partir du flux.
 
-Créez un flux via +Nouveau -> Web+Mobile -> LogicApp. Fournissez les métadonnées pour le flux, y compris le groupe de ressources.
+Créez un flux via +Nouveau -> Web+Mobile -> LogicApp. Fournissez les métadonnées pour le flux, y compris le groupe de ressources : ![Créer une application logique][4]
 
-![Créer une application logique][4]
-
-Cliquez sur *Déclencheurs et actions*. Le concepteur de flux s'ouvre.
-
-![Concepteur de flux d’application logique vide][5]
+Cliquez sur *Déclencheurs et actions*. Le concepteur de flux s'ouvre : ![Concepteur de flux d’application logique vide][5]
 
 Le connecteur FTP peut être utilisé en tant que déclencheur et action.
 
-###Déclencheur
-Dans le concepteur de flux vide, cliquez sur le connecteur FTP dans le panneau droit de la galerie.
+### Déclencheur
+Dans le concepteur de flux vide, cliquez sur le connecteur FTP dans le panneau droit de la galerie : ![Cliquez sur Déclencheur FTP][6]
 
-![Cliquez sur Déclencheur FTP][6]
-
-Le connecteur FTP a un déclencheur - « File Available (Read then Delete) ». Ce déclencheur
+Le connecteur FTP a un déclencheur - « File Available (Read then Delete) ». Ce déclencheur :
 
 - recherche de nouveaux fichiers dans le chemin du dossier ;
 - instancie le flux logique à chaque nouveau fichier ;
 - supprime le fichier du chemin du dossier une fois le flux logique instancié.
 
-Cliquez sur le déclencheur « File Available (Read then Delete) ».
-
-![Entrées de base du déclencheur FTP][7]
+Cliquez sur le déclencheur « File Available (Read then Delete) »: ![Entrées de base du déclencheur FTP][7]
 
 Les entrées vous aident à configurer un chemin de dossier spécifique à interroger selon une fréquence planifiée. Les entrées de base sont les suivantes. Fréquence : spécifie la fréquence de l’interrogation FTP. Intervalle : spécifie l’intervalle de fréquence planifiée. Chemin du dossier : spécifie le chemin d’accès du dossier sur le serveur FTP. Type de fichier : indique si le type de fichier est binaire ou texte.
 
-Cliquez sur les ellipses « ... » pour voir les entrées avancées.
+Cliquez sur les ellipses « ... » pour voir les entrées avancées : ![Entrées de base du déclencheur FTP][8]
 
-![Entrées de base du déclencheur FTP][8]
+Parmi les entrées avancées figurent les suivantes : - Masque de fichier : spécifie le masque de fichier lors de l’interrogation - Masque de fichiers à exclure : spécifie les masques de fichier à exclure lors de l’interrogation
 
-Les entrées avancées sont les suivantes. Masque de fichier : spécifie le masque de fichier lors de l’interrogation. Masque de fichiers à exclure : spécifie les masques de fichier à exclure lors de l’interrogation.
-
-Indiquez les entrées et cochez la case pour terminer leur configuration.
-
-![Entrées de base du déclencheur FTP][9]
+Indiquez les entrées et cochez la case pour terminer leur configuration : ![Entrées de base du déclencheur FTP][9]
 
 Notez que le déclencheur FTP configuré présente à la fois des paramètres d'entrée configurés ainsi que des paramètres de sortie.
 
-####Utilisation de la sortie du déclencheur FTP dans les actions consécutives
+#### Utilisation de la sortie du déclencheur FTP dans les actions consécutives
 La sortie du déclencheur FTP peut servir d'entrée à certaines autres actions dans le flux.
 
 Vous pouvez cliquer sur « ... » dans la boîte de dialogue d'entrée d'une action et sélectionner directement la sortie FTP dans la zone de liste déroulante.
 
-Vous pouvez également écrire une expression directement dans la zone d'entrée de l'action. L'expression du flux à référencer dans la sortie du déclencheur FTP est donnée ci-dessous.
+Vous pouvez également écrire une expression directement dans la zone d'entrée de l'action. L'expression du flux à référencer dans la sortie du déclencheur FTP est donnée ci-dessous :
 
 	@triggers('ftpconnector').outputs.body.Content
 
-###Actions
-Cliquez sur le connecteur FTP dans le panneau droit. Le connecteur FTP répertorie les actions prises en charge.
+### Actions
+Cliquez sur le connecteur FTP dans le panneau droit. Le connecteur FTP répertorie les actions prises en charge : ![Liste des actions FTP][10]
 
-![Liste des actions FTP][10]
-
-Le connecteur FTP prend en charge quatre actions. Les voici :
+Le connecteur FTP prend en charge les actions suivantes :
 
 - **Obtenir un fichier** : obtient le contenu d’un fichier spécifique.
 - **Télécharger un fichier** : télécharge un fichier vers le chemin du dossier FTP.
@@ -124,34 +104,28 @@ Le connecteur FTP prend en charge quatre actions. Les voici :
 
 Prenons un exemple : Télécharger un fichier. Cliquez sur Télécharger un fichier.
 
-Les entrées de base sont affichées en premier.
-
-![Entrées de base de l’action Télécharger un fichier][11]
+Les entrées de base sont affichées en premier : ![Entrées de base de l’action Télécharger un fichier][11]
 
 
 - **Contenu** : spécifie le contenu du fichier à télécharger.
 - **Encodage de transfert de contenu** : spécifiez none ou base64.
 - **Chemin du fichier** : spécifie le chemin du fichier à télécharger.
 
-Cliquez sur ... pour voir les entrées avancées.
-
-![Entrées de base de l’action Télécharger un fichier][12]
+Cliquez sur ... pour voir les entrées avancées : ![Entrées de base de l’action Télécharger un fichier][12]
 
 
 - **Ajouter si le fichier existe** : True ou False. Quand cette entrée est activée, les données sont ajoutées au fichier s'il existe. Quand elle est désactivée, le fichier est remplacé s'il existe.
 - **Dossier temporaire** : facultatif. Si cette propriété est définie, l’adaptateur charge le fichier dans le Chemin du dossier temporaire. Une fois le chargement terminé, le fichier est déplacé vers le dossier spécifié dans Chemin du dossier. Le Chemin du dossier temporaire doit résider sur le même disque physique que le Chemin du dossier pour que l’opération de déplacement soit rapide. Le dossier temporaire n’est utilisable que lorsque la propriété Ajouter à la fin si existant est désactivée.
 
-Indiquez les entrées et cochez la case pour terminer leur configuration.
+Indiquez les entrées et cochez la case pour terminer leur configuration : ![Action de télécharger un fichier configurée][13]
 
-![Action de télécharger un fichier configurée][13]
-
-Le paramètre « Chemin d'accès du fichier » est défini sur
+Le paramètre « Chemin d'accès du fichier » est défini sur :
 
 	@concat('/Output/',triggers().outputs.body.FileName)
 
 Notez que l'action de téléchargement de fichier FTP configurée montre à la fois les paramètres d'entrée et les paramètres de sortie.
 
-####Utilisation des sorties des actions précédentes en tant qu'entrée de l'action FTP
+#### Utilisation des sorties des actions précédentes en tant qu'entrée de l'action FTP
 Notez que dans la capture d'écran configurée, la valeur du contenu est définie par une expression.
 
 	@triggers().outputs.body.Content
@@ -161,6 +135,12 @@ Vous pouvez définir n'importe quelle valeur souhaitée. Il s'agit simplement d'
 
 	@actions('transformservice').outputs.body.OutputXML
 
+## En faire plus avec votre connecteur
+Maintenant que le connecteur est créé, vous pouvez l'ajouter à un flux d'entreprise à l'aide d'une application logique. Voir [Que sont les applications logiques ?](app-service-logic-what-are-logic-apps.md).
+
+Affichez la référence d’API REST Swagger sur [Référence de connecteurs et d’applications API](http://go.microsoft.com/fwlink/p/?LinkId=529766).
+
+Vous pouvez également consulter les statistiques de performances et contrôler la sécurité du connecteur. Consultez la page [Gestion et contrôle de vos connecteurs et applications API intégrés](app-service-logic-monitor-your-connectors.md).
 
 <!-- Image reference -->
 [1]: ./media/app-service-logic-connector-ftp/LaunchAzureMarketplace.PNG
@@ -178,4 +158,4 @@ Vous pouvez définir n'importe quelle valeur souhaitée. Il s'agit simplement d'
 [13]: ./media/app-service-logic-connector-ftp/ConfiguredUploadFile.PNG
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

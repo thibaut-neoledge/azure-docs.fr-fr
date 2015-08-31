@@ -1,20 +1,20 @@
 <properties 
-   pageTitle="Utilisation du connecteur AS2 dans Microsoft Azure App Service" 
-   description="Utilisation du connecteur AS2" 
-   services="app-service\logic" 
-   documentationCenter=".net,nodejs,java" 
-   authors="rajeshramabathiran" 
-   manager="dwrede" 
-   editor=""/>
+   pageTitle="Utilisation du connecteur AS2 dans Microsoft Azure App Service"
+	description="Utilisation du connecteur AS2"
+	services="app-service\logic"
+	documentationCenter=".net,nodejs,java"
+	authors="rajeshramabathiran"
+	manager="dwrede"
+	editor=""/>
 
 <tags
    ms.service="app-service-logic"
-   ms.devlang="multiple"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="integration" 
-   ms.date="08/09/2015"
-   ms.author="rajram"/>
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="integration"
+	ms.date="08/19/2015"
+	ms.author="rajram"/>
 
 # Connecteur Microsoft AS2
 Le connecteur Microsoft Azure AS2 vous permet de recevoir et d’envoyer des messages par le biais du protocole de transport AS2 (Applicability Statement 2) dans les communications interentreprises. Les données sont transportées de manière fiable et sécurisée sur Internet. Le chiffrement et les certificats numériques garantissent la sécurité.
@@ -33,9 +33,9 @@ Vous devez créer les éléments ci-après pour qu’ils puissent être utilisé
 
 Prérequis | Description
 --- | ---
-Application API TPM | Avant de créer un connecteur AS2, vous devez créer un [connecteur de gestion des partenaires commerciaux BizTalk][1]. <br/><br/>\*\*Remarque\*\* Vous devez connaître le nom de votre application API TPM. 
-Base de données SQL Azure | Stocke les éléments B2B, notamment les partenaires, les schémas, les certificats et les accords. Chacune des applications API B2B requiert sa propre base de données SQL Azure. <br/><br/>\*\*Remarque\*\* Copiez la chaîne de connexion dans cette base de données.<br/><br/>[Créer une base de données SQL Azure](../sql-database-get-started.md)
-Conteneur de stockage d'objets blob Azure | Stocke les propriétés de message quand l'archivage AS2 est activé. Si vous n’avez pas besoin de l’archivage des messages AS2, le conteneur de stockage n’est pas utile. <br/><br/>\*\*Remarque\*\* Si vous activez l’archivage, copiez la chaîne de connexion dans ce stockage d’objets blob.<br/><br/>[À propos des comptes de stockage Azure](../storage-create-storage-account.md).
+Application API TPM | Avant de créer un connecteur AS2, vous devez créer un [connecteur de gestion des partenaires commerciaux BizTalk][1]. <br/><br/>**Remarque** Vous devez connaître le nom de votre application API TPM. 
+Base de données SQL Azure | Stocke les éléments B2B, notamment les partenaires, les schémas, les certificats et les accords. Chacune des applications API B2B requiert sa propre base de données SQL Azure. <br/><br/>**Remarque** Copiez la chaîne de connexion dans cette base de données.<br/><br/>[Créer une base de données SQL Azure](../sql-database-get-started.md)
+Conteneur de stockage d'objets blob Azure | Stocke les propriétés de message quand l'archivage AS2 est activé. Si vous n’avez pas besoin de l’archivage des messages AS2, le conteneur de stockage n’est pas utile. <br/><br/>**Remarque** Si vous activez l’archivage, copiez la chaîne de connexion dans ce stockage d’objets blob.<br/><br/>[À propos des comptes de stockage Azure](../storage-create-storage-account.md).
 
 ## Créer le connecteur AS2
 
@@ -97,7 +97,7 @@ L'action retourne un code de réponse HTTP 200 en cas de réussite.
 ## En faire plus avec votre connecteur
 Pour plus d'informations sur les applications logiques, consultez [Qu'est-ce qu'une application logique ?](app-service-logic-what-are-logic-apps.md).
 
-Créez les applications API à l’aide des API REST. Pour plus d'informations, consultez [Référence de connecteurs et d'applications API](http://go.microsoft.com/fwlink/p/?LinkId=529766).
+Affichez la référence d’API REST Swagger sur [Référence de connecteurs et d’applications API](http://go.microsoft.com/fwlink/p/?LinkId=529766).
 
 Vous pouvez également consulter les statistiques de performances et contrôler la sécurité du connecteur. Pour plus d'informations, consultez [Gestion et contrôle de vos connecteurs et applications API intégrés](app-service-logic-monitor-your-connectors.md).
 
@@ -113,4 +113,4 @@ Vous pouvez également consulter les statistiques de performances et contrôler 
 [9]: ./media/app-service-logic-connector-as2/EncodeAndSendInput.PNG
 [10]: ./media/app-service-logic-connector-as2/EncodeAndSendConfigured.PNG
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

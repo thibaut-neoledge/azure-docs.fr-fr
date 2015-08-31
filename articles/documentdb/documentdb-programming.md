@@ -1,22 +1,20 @@
 <properties 
-	pageTitle="Programmation DocumentDB : procédures stockées, déclencheurs et fonctions définies par l’utilisateur | Microsoft Azure" 
-	description="Découvrez comment utiliser Microsoft Azure DocumentDB pour écrire des procédures stockées, des déclencheurs et des fonctions définies par l'utilisateur en mode natif dans JavaScript." 
-	services="documentdb" 
-	documentationCenter="" 
-	authors="mimig1" 
-	manager="jhubbard" 
+	pageTitle="Programmation DocumentDB : procédures stockées, déclencheurs et fonctions définies par l’utilisateur | Microsoft Azure"
+	description="Découvrez comment utiliser Microsoft Azure DocumentDB pour écrire des procédures stockées, des déclencheurs et des fonctions définies par l'utilisateur en mode natif dans JavaScript."
+	services="documentdb"
+	documentationCenter=""
+	authors="aliuy"
+	manager="jhubbard"
 	editor="cgronlun"/>
 
-
 <tags 
-	ms.service="documentdb" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/10/2015" 
-	ms.author="mimig"/>
-
+	ms.service="documentdb"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/18/2015"
+	ms.author="andrl"/>
 
 # Programmation DocumentDB côté serveur : Procédures stockées, déclencheurs et fonctions définies par l’utilisateur
 
@@ -51,7 +49,7 @@ Cette approche du *« JavaScript en tant que langage T-SQL actualisé »* lib�
 	-	Une couche d'abstraction est ajoutée aux données brutes, ce qui permet aux architectes de données de faire évoluer leurs applications indépendamment des données. Ceci est particulièrement avantageux lorsque les données ne présentent pas de schéma, en raison des hypothèses fragiles devant être intégrées à l'application si elles doivent gérer des données directement.  
 	-	Cette abstraction permet aux entreprises d'assurer la sécurité de leurs données en simplifiant l'accès à partir des scripts.  
 
-La création et l’exécution de déclencheurs, de procédures stockées et d’opérateurs de requête personnalisés sont prises en charge par le biais de l’[API REST](https://msdn.microsoft.com/library/azure/dn781481.aspx) et de [Kits de développement logiciel (SDK) clients](https://msdn.microsoft.com/library/azure/dn781482.aspx) dans de nombreuses plateformes, dont .NET, Node.js et JavaScript. **Ce didacticiel utilise le** **[Kit de développement logiciel (SDK) Node.js](http://dl.windowsazure.com/documentDB/nodedocs/)** pour illustrer la syntaxe et l’utilisation des procédures stockées, des déclencheurs et des fonctions définies par l’utilisateur.
+La création et l’exécution de déclencheurs, de procédures stockées et d’opérateurs de requête personnalisés sont prises en charge par le biais de l’[API REST](https://msdn.microsoft.com/library/azure/dn781481.aspx) et de [Kits de développement logiciel (SDK) clients](https://msdn.microsoft.com/library/azure/dn781482.aspx) dans de nombreuses plateformes, dont .NET, Node.js et JavaScript. **Ce didacticiel utilise le [Kit de développement logiciel (SDK) Node.js](http://dl.windowsazure.com/documentDB/nodedocs/)** pour illustrer la syntaxe et l’utilisation des procédures stockées, des déclencheurs et des fonctions définies par l’utilisateur.
 
 ## Procédures stockées
 
@@ -473,6 +471,90 @@ La fonction définie par l'utilisateur peut ensuite être utilisée dans des req
 	    console.log("Error" , error);
 	});
 
+## API de requête intégrée au langage JavaScript
+En plus de l’émission de requêtes à l’aide de la grammaire SQL de DocumentDB, le kit de développement logiciel (SDK) côté serveur vous permet d’effectuer des requêtes optimisées à l’aide d’une interface JavaScript fluide sans aucune connaissance de SQL. L’API de requête JavaScript permet de créer des requêtes par programme en transmettant des fonctions de prédicat dans des appels de fonction chaînables, avec une syntaxe connue des types prédéfinis de Array ECMAScript5 et des bibliothèques JavaScript courantes, telles que lodash. Les requêtes sont analysées par le runtime JavaScript pour être exécutées efficacement à l’aide d’index DocumentDB.
+
+> [AZURE.NOTE]`__` (trait de soulignement double) est un alias pour `getContext().getCollection()`. <br/> En d’autres termes, vous pouvez utiliser `__` ou `getContext().getCollection()` pour accéder à l’API de requête JavaScript.
+
+Les fonctions prises en charge incluent : <ul> <li> <b>chain() ... .value([callback] [, options])</b> <ul> <li> commence un appel chaîné qui doit se terminer par la valeur (). </li> </ul> </li> <li> <b>filter(predicateFunction [, options] [, callback])</b> <ul> <li> Filtre l’entrée à l’aide d’une fonction de prédicat renvoyant True/False pour filtrer les documents d’entrée/de sortie dans le jeu de résultats. Ce comportement est semblable à celui d’une clause WHERE dans SQL. </li> </ul> </li> <li> <b>map(transformationFunction [, options] [, callback])</b> <ul> <li> Applique la projection d’une fonction de transformation qui mappe chaque élément d’entrée à une valeur ou un objet JavaScript. Ce comportement est semblable à celui d’une clause SELECT dans SQL. </li> </ul> </li> <li> <b>pluck([propertyName] [, options] [, callback])</b> <ul> <li> il s’agit d’un raccourci vers un mappage qui extrait la valeur d’une propriété unique de chaque élément d’entrée. </li> </ul> </li> <li> <b>flatten([isShallow] [, options] [, callback])</b> <ul> <li> Combine et regroupe les tableaux à partir de chaque élément d’entrée en un tableau unique. Ce comportement est semblable à SelectMany dans LINQ. </li> </ul> </li> <li> <b>sortBy([predicate] [, options] [, callback])</b> <ul> <li> Produit un nouvel ensemble de documents en les triant dans le flux du document d’entrée dans l’ordre croissant à l’aide du prédicat donné. Ce comportement est semblable à une clause ORDER BY dans SQL. </li> </ul> </li> <li> <b>sortByDescending([predicate] [, options] [, callback])</b> <ul> <li> Produit un nouvel ensemble de documents en les triant dans le flux du document d’entrée dans l’ordre décroissant à l’aide du prédicat donné. Ce comportement est semblable à celui d’une clause ORDER BY x DESC dans SQL. </li> </ul> </li> </ul>
+
+
+Lorsqu’elles sont incluses dans les fonctions de prédicat et/ou de sélecteur, les constructions JavaScript suivantes sont automatiquement optimisées pour s’exécuter directement sur les index DocumentDB :
+
+* Opérateurs simples : = + - * / % | ^ &amp; == != === !=== &lt; &gt; &lt;= &gt;= || &amp;&amp; &lt;&lt; &gt;&gt; &gt;&gt;&gt;! ~
+* Littéraux, y compris le littéral d’objet : {}
+* var, return
+
+Les constructions JavaScript suivantes ne sont pas optimisées pour les index DocumentDB :
+
+* Flux de contrôle (par exemple, if, for, while)
+* Appels de fonction
+
+Pour plus d’informations, voir [JSDocs côté serveur](http://dl.windowsazure.com/documentDB/jsserverdocs/).
+
+### Exemple : Écrire une procédure stockée à l’aide de l’API de requête JavaScript
+
+L’exemple de code suivant illustre comment l’API de requête JavaScript peut être utilisée dans le contexte d’une procédure stockée. La procédure stockée insère un document donné par un paramètre d’entrée et met à jour les métadonnées de document, à l’aide de la méthode `__.filter()` avec minSize, maxSize et totalSize basées sur la propriété de taille du document d’entrée.
+
+    /**
+     * Insert actual doc and update metadata doc: minSize, maxSize, totalSize based on doc.size.
+     */
+    function insertDocumentAndUpdateMetadata(doc) {
+      // HTTP error codes sent to our callback funciton by DocDB server.
+      var ErrorCode = {
+        RETRY_WITH: 449,
+      }
+
+      var isAccepted = __.createDocument(__.getSelfLink(), doc, {}, function(err, doc, options) {
+        if (err) throw err;
+
+        // Check the doc (ignore docs with invalid/zero size and metaDoc itself) and call updateMetadata.
+        if (!doc.isMetadata && doc.size > 0) {
+          // Get the meta document. We keep it in the same collection. it's the only doc that has .isMetadata = true.
+          var result = __.filter(function(x) {
+            return x.isMetadata === true
+          }, function(err, feed, options) {
+            if (err) throw err;
+
+            // We assume that metadata doc was pre-created and must exist when this script is called.
+            if (!feed || !feed.length) throw new Error("Failed to find the metadata document.");
+
+            // The metadata document.
+            var metaDoc = feed[0];
+
+            // Update metaDoc.minSize:
+            // for 1st document use doc.Size, for all the rest see if it's less than last min.
+            if (metaDoc.minSize == 0) metaDoc.minSize = doc.size;
+            else metaDoc.minSize = Math.min(metaDoc.minSize, doc.size);
+
+            // Update metaDoc.maxSize.
+            metaDoc.maxSize = Math.max(metaDoc.maxSize, doc.size);
+
+            // Update metaDoc.totalSize.
+            metaDoc.totalSize += doc.size;
+
+            // Update/replace the metadata document in the store.
+            var isAccepted = __.replaceDocument(metaDoc._self, metaDoc, function(err) {
+              if (err) throw err;
+              // Note: in case concurrent updates causes conflict with ErrorCode.RETRY_WITH, we can't read the meta again 
+              //       and update again because due to Snapshot isolation we will read same exact version (we are in same transaction).
+              //       We have to take care of that on the client side.
+            });
+            if (!isAccepted) throw new Error("replaceDocument(metaDoc) returned false.");
+          });
+          if (!result.isAccepted) throw new Error("filter for metaDoc returned false.");
+        }
+      });
+      if (!isAccepted) throw new Error("createDocument(actual doc) returned false.");
+    }
+
+## Aide-mémoire SQL vers Javascript
+Le tableau suivant présente différentes requêtes SQL et les requêtes JavaScript correspondantes.
+
+Comme pour les requêtes SQL, les clés de propriété de document (par exemple, `doc.id`) respectent la casse.
+
+<br/> <table border="1" width="100%"> <colgroup> <col span="1" style="width: 40%;"> <col span="1" style="width: 40%;"> <col span="1" style="width: 20%;"> </colgroup> <tbody> <tr> <th>SQL</th> <th>API de requête JavaScript</th> <th>Détails</th> </tr> <tr> <td> <pre> Documents SELECT * FROM </pre> </td> <td> <pre> \_\_.map(function(doc) { return doc; }); </pre> </td> <td>Conserve tous les documents (paginés avec le jeton de continuation) tels quels.</td> </tr> <tr> <td> <pre> SELECT docs.id, docs.message AS msg, docs.actions FROM docs </pre> </td> <td> <pre> \_\_.map(function(doc) { return { id: doc.id, msg: doc.message, actions: doc.actions }; }); </pre> </td> <td>Projette l’ID, le message (doté de l’alias msg) et l’action à partir de tous les documents.</td> </tr> <tr> <td> <pre> SELECT * FROM docs WHERE docs.id="X998\_Y998" </pre> </td> <td> <pre> \_\_.filter(function(doc) { return doc.id === "X998\_Y998"; }); </pre> </td> <td>Demande au système de renvoyer les documents avec le prédicat : id = "X998\_Y998".</td> </tr> <tr> <td> <pre> SELECT * FROM docs WHERE ARRAY\_CONTAINS(docs.Tags, 123) </pre> </td> <td> <pre> \_\_.filter(function(x) { return x.Tags && x.Tags.indexOf(123) > -1; }); </pre> </td> <td>Demande au système de renvoyer les documents comportant la propriété Tags sous forme de tableau contenant la valeur 123.</td> </tr> <tr> <td> <pre> SELECT docs.id, docs.message AS msg FROM docs WHERE docs.id="X998\_Y998" </pre> </td> <td> <pre> \_\_.chain() .filter(function(doc) { return doc.id === "X998\_Y998"; }) .map(function(doc) { return { id: doc.id, msg: doc.message }; }) .value(); </pre> </td> <td>Demande au système de renvoyer les documents avec un prédicat, id = "X998\_Y998", puis projette l’ID et le message (doté de l’alias msg).</td> </tr> <tr> <td> <pre> SELECT VALUE tag FROM docs JOIN tag IN docs.Tags ORDER BY docs.\_ts </pre> </td> <td> <pre> \_\_.chain() .filter(function(doc) { return doc.Tags && Array.isArray(doc.Tags); }) .sortBy(function(doc) { return doc.\_ts; }) .pluck("Tags") .flatten() .value() </pre> </td> <td>Filtre les documents comportant la propriété de tableau Tags, trie les documents trouvés en fonction de la propriété système \_ts timestamp, puis projette et regroupe le tableau Tags.</td> </tr> </tbody> </table>
+
 ## Prise en charge du runtime
 Le [Kit de développement logiciel (SDK) côté serveur JavaScript DocumentDB](http://dl.windowsazure.com/documentDB/jsserverdocs/) offre la prise en charge de la plupart des fonctionnalités de langage JavaScript répondant à la norme [ECMA-262](documentdb-interactions-with-resources.md).
 
@@ -643,4 +725,4 @@ Pour en savoir plus sur la programmation DocumentDB côté serveur, vous pouvez 
 -	[Architecture de base de données orientée services](http://dl.acm.org/citation.cfm?id=1066267&coll=Portal&dl=GUIDE) 
 -	[Hébergement du Runtime .NET dans Microsoft SQL Server](http://dl.acm.org/citation.cfm?id=1007669)  
 
-<!-----HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

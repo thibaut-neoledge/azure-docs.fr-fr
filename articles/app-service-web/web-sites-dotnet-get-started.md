@@ -52,9 +52,9 @@ Dans cette vidéo, Scott Hanselman montre combien il est facile de s’inscrire
 
 La première étape consiste à créer un projet web dans Visual Studio et une application web dans Azure App Service. Lorsque cette opération effectuée, vous allez déployer le projet vers l'application web pour le rendre disponible sur Internet.
 
-Les diagrammes illustrent ce que vous faites dans les étapes de création et de déploiement.
+Le diagramme illustre ce que vous faites dans les étapes de création et de déploiement.
 
-![Créer](./media/web-sites-dotnet-get-started/Create_App.png)
+![Création et déploiement](./media/web-sites-dotnet-get-started/Create_App.png)
 
 1. Ouvrez Visual Studio 2015 ou Visual Studio 2013. 
 
@@ -62,11 +62,11 @@ Les diagrammes illustrent ce que vous faites dans les étapes de création et de
 
 2. Dans le menu **Fichier**, cliquez sur **Nouveau > Projet**.
 
-3. Dans la boîte de dialogue **Nouveau projet**, cliquez sur **C#** > **Web** > **Application Web ASP.NET**. Vous pouvez, si vous préférez, sélectionner **Visual Basic**.
+3. Dans la boîte de dialogue **Nouveau projet**, cliquez sur **C\#** > **Web** > **Application Web ASP.NET**. Vous pouvez, si vous préférez, sélectionner **Visual Basic**.
 
 3. Vérifiez que la version cible sélectionnée est **.NET Framework 4.5.2**.
 
-4.  [Application Insights](app-insights-overview.md) surveille la disponibilité, les performances et l'utilisation. Désactivez la case à cocher **Ajouter Application Insights au projet** si vous ne voulez pas l'essayer.
+4.  [Application Insights](app-insights-overview.md) surveille la disponibilité, les performances et l’utilisation de votre application web. Désactivez la case à cocher **Ajouter Application Insights au projet** si vous ne voulez pas l’essayer.
 
 4. Nommez l’application **MonExemple**.
 
@@ -76,7 +76,7 @@ Les diagrammes illustrent ce que vous faites dans les étapes de création et de
 
 5. Dans la boîte de dialogue **Nouveau projet ASP.NET**, sélectionnez le modèle **MVC**.
 
-	[MVC](http://www.asp.net/mvc) est une infrastructure ASP.NET pour le développement d'applications web.
+	[MVC](http://www.asp.net/mvc) est une infrastructure ASP.NET pour le développement d’applications web.
 
 7. Cliquez sur **Modifier l'authentification**.
 
@@ -100,7 +100,7 @@ Les diagrammes illustrent ce que vous faites dans les étapes de création et de
 
 	![Connecté à Azure](./media/web-sites-dotnet-get-started/configuresitesettings.png)
 
-3. Dans la boîte de dialogue **Configurer les paramètres de l'application web Microsoft Azure**, entrez un **nom d'application web** qui est unique dans le domaine *azurewebsites.net*. Par exemple, vous pouvez le nommer MonExemple avec des chiffres à droite pour le rendre unique, comme MonExemple810. Si un nom web par défaut est créé pour vous, il sera unique et vous pouvez l'utiliser.
+3. Dans la boîte de dialogue **Configurer les paramètres de l’application web Microsoft Azure**, entrez un **nom d’application web** qui est unique dans le domaine *azurewebsites.net*. Par exemple, vous pouvez le nommer MonExemple avec des chiffres à droite pour le rendre unique, comme MonExemple810. Si un nom web par défaut est créé pour vous, il sera unique et vous pouvez l'utiliser.
 
 	Si une autre personne a déjà utilisé le nom que vous avez entré, un point d’exclamation rouge s’affiche à droite au lieu d’une coche verte, et vous devez entrer un autre nom.
 
@@ -154,7 +154,7 @@ Les diagrammes illustrent ce que vous faites dans les étapes de création et de
 
 	Les paramètres dont Visual Studio a besoin pour déployer votre projet vers Azure ont été enregistrés dans un *profil de publication*. L'Assistant vous permet de passer en revue et de modifier ces paramètres.
 
-8. Dans l'onglet **Connexion** de l'Assistant **Publier le site web**, cliquez sur **Suivant**.
+8. Dans l’onglet **Connexion** de l’Assistant **Publier le site web**, cliquez sur **Suivant**.
 
 	Visual Studio fournit tous les paramètres nécessaires au déploiement de votre application web Azure.
 
@@ -168,9 +168,9 @@ Les diagrammes illustrent ce que vous faites dans les étapes de création et de
 
 	![Onglet Paramètres](./media/web-sites-dotnet-get-started/GS13SettingsTab.png)
 
-11. Dans l'onglet **Aperçu**, cliquez sur **Publier**.
+11. Dans l’onglet **Aperçu**, cliquez sur **Publier**.
 
-	Si vous souhaitez voir quels fichiers seront copiés vers Azure, vous pouvez cliquer sur **Démarrer l'aperçu** avant de cliquer sur **Publier**.
+	Si vous souhaitez voir quels fichiers seront copiés vers Azure, vous pouvez cliquer sur **Démarrer l’aperçu** avant de cliquer sur **Publier**.
 
 	![](./media/web-sites-dotnet-get-started/GS13previewoutput.png)
 
@@ -188,7 +188,7 @@ Les diagrammes illustrent ce que vous faites dans les étapes de création et de
 
 ## Modification et redéploiement
 
-Cette section du didacticiel est facultative. Vous allez modifier le titre **h1** de la page d'accueil, exécuter le projet en local sur votre ordinateur de développement pour vérifier les modifications apportées, puis déployer la version modifiée vers Azure.
+Cette section du didacticiel est facultative. Vous allez modifier le titre **h1** de la page d’accueil, exécuter le projet en local sur votre ordinateur de développement pour vérifier les modifications apportées, puis déployer la version modifiée vers Azure.
 
 2. Ouvrez le fichier *Views/Home/Index.cshtml* ou *.vbhtml* dans l'**Explorateur de solutions**, remplacez le titre **h1** « ASP.NET » par « ASP.NET et Azure », puis enregistrez le fichier.
 
@@ -208,7 +208,7 @@ Cette section du didacticiel est facultative. Vous allez modifier le titre **h1*
 
 	![Sélectionner Publier](./media/web-sites-dotnet-get-started/choosepublish.png)
 
-	L'onglet **Aperçu** de l'Assistant **Publier le site Web** apparaît. Si vous devez modifier des paramètres de publication, vous pouvez choisir un autre onglet. Mais à présent, nous partons du principe que vous voulez procéder à un redéploiement sans modifier les paramètres.
+	L’onglet **Aperçu** de l’Assistant **Publier le site Web** apparaît. Si vous devez modifier des paramètres de publication, vous pouvez choisir un autre onglet. Mais à présent, nous partons du principe que vous voulez procéder à un redéploiement sans modifier les paramètres.
 
 2. Dans l’Assistant **Publier le site Web** cliquez sur **Publier**.
 
@@ -218,7 +218,7 @@ Cette section du didacticiel est facultative. Vous allez modifier le titre **h1*
 
 	![Application web modifié déployée](./media/web-sites-dotnet-get-started/deployedandazure.png)
 
-**Conseil :** vous pouvez activer la barre d'outils **Publication Web en un clic** pour accélérer encore le déploiement. Cliquez sur **Affichage > Barres d'outils**, puis sélectionnez **Publication Web en un clic**. La barre d'outils vous permet de sélectionner un profil, de cliquer sur un bouton pour publier ou de cliquer sur un bouton pour ouvrir l'Assistant **Publier le site Web**.
+**Conseil :** vous pouvez activer la barre d'outils **Publication Web en un clic** pour accélérer encore le déploiement. Cliquez sur **Affichage > Barres d’outils**, puis sélectionnez **Publication Web en un clic**. La barre d'outils vous permet de sélectionner un profil, de cliquer sur un bouton pour publier ou de cliquer sur un bouton pour ouvrir l'Assistant **Publier le site Web**.
 
 ![Barre d’outil Publication Web en un clic](./media/web-sites-dotnet-get-started/weboneclickpublish.png)
 
@@ -230,7 +230,7 @@ Le [portail Azure en version préliminaire](/services/management-portal/) est un
 
 2. Cliquez sur **Parcourir tout > Web Apps**, puis cliquez sur le nom de votre application web.
 
-	Le panneau **Application web** affiche une vue d'ensemble des paramètres et des statistiques d'utilisation pour votre application web.
+	Le panneau **Application web** affiche une vue d’ensemble des paramètres et des statistiques d’utilisation pour votre application web.
 
 	![Panneau Application web](./media/web-sites-dotnet-get-started/portaldashboard.png)
 
@@ -281,7 +281,7 @@ Dans ce didacticiel, vous avez appris à créer une application web simple et à
 
 * Manière d'éviter les délais de sortie de veille après les périodes d'inactivité
 
-	Par défaut, les applications web sont déchargées si elles sont inactives depuis un certain temps. La première requête après le déchargement d'une application web doit patienter jusqu’à ce que l’application web soit rechargée. Pour éviter ce temps d'attente, vous pouvez activer la fonction AlwaysOn. Pour plus d'informations, consultez les options de configuration dans [Configuration des applications web](web-sites-configure.md).
+	Par défaut, les applications web sont déchargées si elles sont inactives depuis un certain temps. La première requête après le déchargement d'une application web doit patienter jusqu’à ce que l’application web soit rechargée. Pour éviter ce temps d'attente, vous pouvez activer la fonction AlwaysOn. Pour plus d’informations, consultez les options de configuration dans [Configuration des applications web](web-sites-configure.md).
 
 * Ajout de fonctions en temps réel telles que la conversation instantanée
 
@@ -301,4 +301,4 @@ Dans ce didacticiel, vous avez appris à créer une application web simple et à
 * Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre l’ancien et le nouveau portail, consultez la page [Références sur la navigation dans le portail Azure](http://go.microsoft.com/fwlink/?LinkId=529715).
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

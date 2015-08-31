@@ -28,7 +28,7 @@ Cette rubrique présente un exemple de code Ruby qui s’exécute sur un ordinat
 
 Ouvrez votre terminal et procédez aux installations suivantes :
 
-**1) Ruby :** si votre ordinateur ne dispose pas de Ruby, veuillez l'installer. Si vous utilisez Ruby pour la première fois, nous vous recommandons d’exécuter les programmes d’installation Ruby 2.1.X. Ceux-ci fournissent un langage stable et une liste complète des packages (maillons) compatibles et mis à jour. [Accédez à la page de téléchargement de Ruby]() et téléchargez le programme d'installation 2.1.x approprié. Si vous utilisez un ordinateur 64 bits, téléchargez le programme d’installation **Ruby 2.1.6 (x 64)**. <br/><br/>Une fois le programme d'installation téléchargé, procédez comme suit :
+**1) Ruby :** si votre ordinateur ne dispose pas de Ruby, veuillez l'installer. Si vous utilisez Ruby pour la première fois, nous vous recommandons d’exécuter les programmes d’installation Ruby 2.1.X. Ceux-ci fournissent un langage stable et une liste complète des packages (maillons) compatibles et mis à jour. [Accédez à la page de téléchargement de Ruby](http://rubyinstaller.org/downloads/) et téléchargez le programme d'installation 2.1.x approprié. Si vous utilisez un ordinateur 64 bits, téléchargez le programme d’installation **Ruby 2.1.6 (x 64)**. <br/><br/>Une fois le programme d'installation téléchargé, procédez comme suit :
 
 
 - Double-cliquez sur le fichier pour démarrer le programme d'installation.
@@ -131,4 +131,4 @@ Pour être en harmonie avec le format [datetime](http://msdn.microsoft.com/libra
     puts row
     end
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

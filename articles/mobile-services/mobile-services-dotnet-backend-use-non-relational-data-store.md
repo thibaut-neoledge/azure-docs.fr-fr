@@ -121,4 +121,4 @@ Vous savez désormais qu’il est facile d’utiliser le stockage de table avec 
 [page dédiée au module complémentaire MongoLab]: /gallery/store/mongolab/mongolab
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

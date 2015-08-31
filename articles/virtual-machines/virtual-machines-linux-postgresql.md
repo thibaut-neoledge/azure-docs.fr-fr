@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Installer et configurer PostgreSQL sur une machine virtuelle Microsoft Azure exécutant Linux"
-	description="Découvrez comment installer et configurer PostgreSQL sur une machine virtuelle Ubuntu ou CentOS dans Azure."
+	description="Découvrez comment installer et configurer PostgreSQL sur une machine virtuelle Linux dans Azure."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="SuperScottz"
@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="linux"
 	ms.workload="infrastructure-services"
-	ms.date="06/04/2015"
+	ms.date="08/10/2015"
 	ms.author="mingzhan"/>
 
 
@@ -24,7 +24,7 @@ PostgreSQL est une base de données open source avancée similaire à Oracle et 
 
 Dans cet article, vous allez apprendre à installer et à configurer PostgreSQL sur une machine virtuelle Azure exécutant Linux.
 
-> [Azure.NOTE]Vous devez déjà disposer d’une machine virtuelle Microsoft Azure exécutant Linux pour effectuer ce didacticiel. Consultez le [didacticiel sur les machines virtuelles Linux Azure](virtual-machines-linux-tutorial.md) pour créer et configurer une machine virtuelle Linux avant de continuer.
+> [AZURE.NOTE]Vous devez déjà disposer d’une machine virtuelle Microsoft Azure exécutant Linux pour effectuer ce didacticiel. Consultez le [didacticiel sur les machines virtuelles Linux Azure](virtual-machines-linux-tutorial.md) pour créer et configurer une machine virtuelle Linux avant de continuer.
 
 [Dans ce cas, utilisez le port 1999 comme port PostgreSQL.]
 
@@ -34,19 +34,19 @@ Connectez-vous à la machine virtuelle Linux que vous avez créée via putty. Si
 
 1. Exécutez la commande suivante pour passer à l’utilisateur root (admin) :
 
-		$ sudo su -
+		# sudo su -
 
 2. Certaines distributions ont des dépendances à installer avant d’installer PostgreSQL. Recherchez votre distribution dans cette liste et exécutez la commande appropriée :
 
-	- Redhat :
+	- Red Hat Linux :
 
 			# yum install readline-devel gcc make zlib-devel openssl openssl-devel libxml2-devel pam-devel pam  libxslt-devel tcl-devel python-devel -y  
 
-	- Debian :
+	- Debian Linux :
 
  			# apt-get install readline-devel gcc make zlib-devel openssl openssl-devel libxml2-devel pam-devel pam libxslt-devel tcl-devel python-devel -y  
 
-	- Suse :
+	- SUSE Linux :
 
 			# zypper install readline-devel gcc make zlib-devel openssl openssl-devel libxml2-devel pam-devel pam  libxslt-devel tcl-devel python-devel -y  
 
@@ -90,7 +90,7 @@ Connectez-vous à la machine virtuelle Linux que vous avez créée via putty. Si
 
 		# su - postgres
 
-    >[Azure.NOTE]Pour des raisons de sécurité, PostgreSQL utilise un utilisateur non-root pour initialiser, démarrer ou arrêter la base de données.
+   >[AZURE.NOTE]Pour des raisons de sécurité, PostgreSQL utilise un utilisateur non-root pour initialiser, démarrer ou arrêter la base de données.
 
 
 4. Modifiez le fichier *bash\_profile* en entrant les commandes ci-dessous. Ces lignes seront ajoutées à la fin du fichier *bash\_profile* :
@@ -251,4 +251,4 @@ Utilisez les commandes suivantes pour mettre à jour des données dans une table
 ##Plus d’informations sur PostgreSQL
 Vous venez de terminer l’installation de PostgreSQL dans la machine virtuelle Linux Microsoft Azure et vous pouvez maintenant l’utiliser dans Microsoft Azure. Plus d’informations sur PostgreSQL, cliquez [ici](http://www.postgresql.org/).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

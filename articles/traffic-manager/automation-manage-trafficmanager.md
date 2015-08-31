@@ -1,10 +1,10 @@
 <properties 
- pageTitle="Gérer Azure Traffic Manager à l'aide d'Azure Automation" 
+ pageTitle="Gérer Azure Traffic Manager à l&#39;aide d&#39;Azure Automation" 
  description="Découvrez comment utiliser le service Azure Automation pour gérer Azure Traffic Manager." 
  services="traffic-manager, automation" 
  documentationCenter="" 
  authors="eamonoreilly" 
- manager="jwinter" 
+ manager="adinah" 
  editor=""/>
 
 <tags 
@@ -13,8 +13,8 @@
  ms.tgt_pltfrm="na" 
  ms.devlang="na" 
  ms.topic="article" 
- ms.date="04/13/2015" 
- ms.author="eamono"/>
+ ms.date="08/12/2015" 
+ ms.author="joaoma"/>
 
 
 #Gestion d'Azure Traffic Manager à l'aide d'Azure Automation
@@ -42,4 +42,4 @@ Maintenant que vous connaissez les bases d'Azure Automation et que vous savez l'
 * Consultez le [Guide de prise en main](http://go.microsoft.com/fwlink/?LinkId=390560) d'Azure Automation.
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

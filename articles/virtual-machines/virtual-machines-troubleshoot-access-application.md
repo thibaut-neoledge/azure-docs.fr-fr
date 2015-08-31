@@ -29,7 +29,7 @@ La résolution des problèmes d’accès à une application exécutée sur une m
 
 1.	L’application exécutée sur la machine virtuelle Azure.
 2.	La machine virtuelle Azure.
-3.	Les points de terminaison Azure pour le service cloud qui contient la machine virtuelle (pour les machines virtuelles créées dans la gestion des services), les règles NAT entrantes (pour les machines virtuelles créées dans Resource Manager) et les groupes de sécurité réseau.
+3.	Les points de terminaison Azure pour le service cloud qui contient la machine virtuelle (pour les machines virtuelles créées à l’aide de l’API Service Management), les règles NAT entrantes (pour les machines virtuelles créées dans Resource Manager) et les groupes de sécurité réseau.
 4.	Votre périphérique de périmètre Internet.
 
 Pour les ordinateurs clients qui accèdent à l’application par le biais d’une connexion de réseau privé virtuel de site à site ou d’une connexion ExpressRoute, les principaux éléments susceptibles de poser problème sont l’application et la machine virtuelle Azure. Pour déterminer la source du problème et sa correction, procédez comme suit.
@@ -53,7 +53,7 @@ Sur les machines virtuelles Windows et Linux, utilisez la commande **netstat** p
 
 ## <a id="step2"></a>Étape2 : pouvez-vous accéder à l’application à partir d’une autre machine virtuelle dans le même réseau virtuel ?
 
-Essayez d’accéder à l’application à partir d’une machine virtuelle différente dans le même réseau virtuel que la machine virtuelle sur laquelle l’application s’exécute à l’aide du nom d’hôte de la machine virtuelle, de son adresse IP publique ou privée affectée par Azure ou de l’adresse IP du fournisseur. Pour les machines virtuelles créées dans la gestion des services, n’utilisez pas l’adresse IP publique du service cloud.
+Essayez d’accéder à l’application à partir d’une machine virtuelle différente dans le même réseau virtuel que la machine virtuelle sur laquelle l’application s’exécute à l’aide du nom d’hôte de la machine virtuelle, de son adresse IP publique ou privée affectée par Azure ou de l’adresse IP du fournisseur. Pour les machines virtuelles créées à l’aide de l’API Service Management, n’utilisez pas l’adresse IP publique du service cloud.
 
 ![](./media/virtual-machines-troubleshoot-access-application/tshoot_app_access3.png)
 
@@ -80,9 +80,9 @@ Par exemple, si l’application est un serveur web, essayez d’accéder à la p
 
 Si vous ne pouvez pas accéder à l’application, vérifiez les éléments suivants :
 
-- Pour les machines virtuelles créées dans la gestion des services, que la configuration de points de terminaison pour la machine virtuelle autorise le trafic entrant, notamment le protocole (TCP ou UDP) et les numéros de port public et privé. Pour plus d’informations, voir l’article [Configuration des points de terminaison sur une machine virtuelle](virtual-machines-set-up-endpoints.md).
-- Pour les machines virtuelles créées dans la gestion des services, que les listes de contrôle d’accès sur le point de terminaison n’empêchent pas le trafic entrant à partir d’Internet. Pour plus d’informations, voir l’article [Configuration des points de terminaison sur une machine virtuelle](virtual-machines-set-up-endpoints.md).
-- Pour les machines virtuelles créées dans Resource Manager, que la configuration de règles NAT entrantes pour la machine virtuelle autorise le trafic entrant, notamment le protocole (TCP ou UDP) et les numéros de port public et privé. 
+- Pour les machines virtuelles créées à l’aide de l’API Service Management, que la configuration de points de terminaison pour la machine virtuelle autorise le trafic entrant, notamment le protocole (TCP ou UDP) et les numéros de port public et privé. Pour plus d’informations, voir l’article [Configuration des points de terminaison sur une machine virtuelle](virtual-machines-set-up-endpoints.md).
+- Pour les machines virtuelles à l’aide de l’API Service Management, que les listes de contrôle d’accès sur le point de terminaison n’empêchent pas le trafic entrant à partir d’Internet. Pour plus d’informations, voir l’article [Configuration des points de terminaison sur une machine virtuelle](virtual-machines-set-up-endpoints.md).
+- Pour les machines virtuelles créées dans Resource Manager, que la configuration de règles NAT entrantes pour la machine virtuelle autorise le trafic entrant, notamment le protocole (TCP ou UDP) et les numéros de port public et privé.
 - Que les groupes de sécurité réseau autorisent le trafic de demandes entrantes et de réponses sortantes. Pour plus d’informations, consultez la page [Présentation du groupe de sécurité réseau](virtual-networks-nsg.md).
 
 Si la machine virtuelle ou le point de terminaison est membre d’un jeu à charge équilibrée :
@@ -110,4 +110,4 @@ Si vous avez effectué les étapes 1 à 3 dans cet article et que vous avez bes
 
 [Résolution des problèmes des connexions SSH avec une machine virtuelle Azure Linux](virtual-machines-troubleshoot-ssh-connections.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

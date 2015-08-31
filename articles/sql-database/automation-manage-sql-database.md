@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Gérer des bases de données SQL Azure à l'aide d'Azure Automation"
+	pageTitle="Gérer des bases de données SQL Azure à l&#39;aide d&#39;Azure Automation"
 	description="Découvrez comment le service Azure Automation peut être utilisé pour gérer les bases de données SQL Azure à grande échelle."
 	services="sql-database, automation"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/20/2015"
+	ms.date="08/11/2015"
 	ms.author="jolevy"/>
 
 
@@ -53,4 +53,4 @@ Maintenant que vous avez appris les bases d'Azure Automation et la manière de l
  * Lire le billet de blog [Azure Automation : votre agent SQL dans le Cloud](http://azure.microsoft.com/blog/2014/06/26/azure-automation-your-sql-agent-in-the-cloud/)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

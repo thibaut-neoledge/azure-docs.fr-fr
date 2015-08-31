@@ -3,7 +3,7 @@
 
 > [AZURE.IMPORTANT]En mode Maintenance, vous devez appliquer le correctif logiciel d’abord à un contrôleur, puis à l’autre.
 
-1. Mettez l’appareil en mode Maintenance. Pour des instructions sur le passage en mode Maintenance, consultez [Passer en mode Maintenance](#enter-maintenance-mode).
+1. Mettez l’appareil en mode Maintenance. Consultez l’[Étape 2 : Passage en mode Maintenance](storsimple-update-device.md#step2) pour obtenir des instructions sur le passage en mode Maintenance.
 
 2. Pour appliquer le correctif logiciel, tapez :
 
@@ -15,6 +15,6 @@
 
 5. Après avoir appliqué le correctif logiciel à un contrôleur, ouvrez une session sur l’autre contrôleur. Appliquez le correctif logiciel comme vous l’avez fait pour le contrôleur précédent.
 
-6. Une fois les correctifs logiciels appliqués, quittez le mode Maintenance. Pour obtenir des instructions, consultez [Quitter le mode Maintenance](#exit-maintenance-mode).
+6. Une fois les correctifs logiciels appliqués, quittez le mode Maintenance. Pour obtenir des instructions, consultez l’[Étape 4 : Quitter le mode Maintenance](storsimple-update-device.md#step4).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

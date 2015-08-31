@@ -1,19 +1,19 @@
 <properties 
-   pageTitle="Ressources de variables dans Azure Automation"
-   description="Les ressources de variables sont des valeurs disponibles pour tous les Runbooks d'Azure Automation. Cet article présente les variables de façon détaillée et comment les utiliser dans une création textuelle ou graphique."
-   services="automation"
-   documentationCenter=""
-   authors="bwren"
-   manager="stevenka"
-   editor="tysonn" />
+   pageTitle="Ressources de variables dans Azure Automation | Microsoft Azure"
+	description="Les ressources de variables sont des valeurs disponibles pour tous les Runbooks d'Azure Automation. Cet article présente les variables de façon détaillée et comment les utiliser dans une création textuelle ou graphique."
+	services="automation"
+	documentationCenter=""
+	authors="bwren"
+	manager="stevenka"
+	editor="tysonn"/>
 <tags 
    ms.service="automation"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="05/21/2015"
-   ms.author="bwren" />
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="infrastructure-services"
+	ms.date="08/18/2015"
+	ms.author="bwren"/>
 
 # Ressources de variables dans Azure Automation
 
@@ -188,4 +188,4 @@ L'illustration suivante montre comment filtrer les objets qui sont stockés dans
 - [Liens de création graphique](automation-graphical-authoring-intro.md#links-and-workflow)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

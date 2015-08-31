@@ -4,16 +4,16 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="curtand"
-	manager="TerryLan"
+	manager="stevenpo"
 	editor=""/>
 
 <tags
 	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/13/2015"
+	ms.tgt_pltfrm="na"
+	ms.workload="identity"
+	ms.date="08/12/2015"
 	ms.author="curtand"/>
 
 # Restrictions et limites du service Azure Active Directory
@@ -27,4 +27,4 @@
 - [Association des abonnements Azure avec Azure AD](active-directory-how-subscriptions-associated-directory.md)
 - [Terminologie Azure AD](active-directory-terminology.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

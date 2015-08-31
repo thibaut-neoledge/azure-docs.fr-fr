@@ -18,7 +18,7 @@
 
 # Ajout de services mobiles à une application existante
 
-[AZURE.INCLUDE [mobile-services-selector-get-started-data](../../includes/mobile-services-selector-get-started-data-EC.md)]
+[AZURE.INCLUDE [mobile-services-selector-get-started-data](../../includes/mobile-services-selector-get-started-data-ec.md)]
 
 <div class="dev-onpage-video-clear clearfix">
 <div class="dev-onpage-left-content">
@@ -29,7 +29,7 @@
 <div class="dev-onpage-video-wrapper"><a href="http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Android-Getting-Started-With-Data-Connecting-your-app-to-Windows-Azure-Mobile-Services" target="_blank" class="label">regarder le didacticiel</a> <a style="background-image: url('/media/devcenter/mobile/videos/mobile-android-get-started-data-180x120.png') !important;" href="http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Android-Getting-Started-With-Data-Connecting-your-app-to-Windows-Azure-Mobile-Services" target="_blank" class="dev-onpage-video"><span class="icon">Lire la vidéo</span></a><span class="time">15:32:00</span></div>
 </div>
 
-> [AZURE.NOTE]Ce didacticiel est conçu pour vous aider à mieux comprendre comment Mobile Services vous permet d'utiliser Azure pour stocker et récupérer des données à partir d'une application Android. À cet effet, elle vous guide tout au long des nombreuses étapes exécutées automatiquement dans le démarrage rapide Mobile Services. Si vous n'avez aucune expérience de Mobile Services, nous vous invitons à suivre d'abord le didacticiel [Prise en main de Mobile Services](../get-started-android-EC.md).
+> [AZURE.NOTE]Ce didacticiel est conçu pour vous aider à mieux comprendre comment Mobile Services vous permet d'utiliser Azure pour stocker et récupérer des données à partir d'une application Android. À cet effet, elle vous guide tout au long des nombreuses étapes exécutées automatiquement dans le démarrage rapide Mobile Services. Si vous n'avez aucune expérience de Mobile Services, nous vous invitons à suivre d'abord le didacticiel [Prise en main de Mobile Services](../get-started-android-ec.md).
 > 
 > Pour consulter le code source de l'application terminée, cliquez [ici](https://github.com/RickSaling/mobile-services-samples/tree/futures/GettingStartedWithData/Android/GetStartedWithData).
 
@@ -49,16 +49,16 @@ Pour réaliser ce didacticiel, vous avez besoin des éléments suivants :
 
 ###Obtention de l'exemple de code
 
-[AZURE.INCLUDE [download-android-sample-code](../../includes/download-android-sample-code-EC.md)]
+[AZURE.INCLUDE [download-android-sample-code](../../includes/download-android-sample-code-ec.md)]
 
 ###Vérification de la version du Kit de développement logiciel (SDK) Android
 
-[AZURE.INCLUDE [Vérification du Kit de développement logiciel (SDK)](../../includes/mobile-services-verify-android-sdk-version-EC.md)]
+[AZURE.INCLUDE [Vérification du Kit de développement logiciel (SDK)](../../includes/mobile-services-verify-android-sdk-version-ec.md)]
 
 
 ###Inspection et exécution de l'exemple de code
 
-[AZURE.INCLUDE [mobile-services-android-run-sample-code](../../includes/mobile-services-android-run-sample-code-EC.md)]
+[AZURE.INCLUDE [mobile-services-android-run-sample-code](../../includes/mobile-services-android-run-sample-code-ec.md)]
 
 ##<a name="create-service"></a>Création d'un service mobile dans portail de gestion
 
@@ -70,7 +70,7 @@ Pour réaliser ce didacticiel, vous avez besoin des éléments suivants :
 
 ##<a name="update-app"></a>Mise à jour de l'application afin d'utiliser le service mobile pour l'accès aux données
 
-[AZURE.INCLUDE [mobile-services-android-getting-started-with-data](../../includes/mobile-services-android-getting-started-with-data-EC.md)]
+[AZURE.INCLUDE [mobile-services-android-getting-started-with-data](../../includes/mobile-services-android-getting-started-with-data-ec.md)]
 
 ##<a name="test-app"></a>Test de l'application sur base de votre nouveau service mobile
 
@@ -123,7 +123,7 @@ Ensuite, essayez ces autres didacticiels Android :
 
 <!-- URLs. -->
 [Prise en main de l'authentification]: mobile-services-android-get-started-users.md
-[Prise en main des notifications Push]: mobile-services-javascript-backend-android-get-started-push-EC.md
+[Prise en main des notifications Push]: mobile-services-javascript-backend-android-get-started-push-ec.md
 
 [Azure Management Portal]: https://manage.windowsazure.com/
 [portail de gestion]: https://manage.windowsazure.com/
@@ -132,4 +132,4 @@ Ensuite, essayez ces autres didacticiels Android :
 [Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=280125
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Résolution des problèmes du backend .NET Mobile Services | Microsoft Azure" 
-	description="Découvrez comment diagnostiquer et résoudre les problèmes liés à vos services mobiles à l'aide du backend .NET" 
-	services="mobile-services" 
-	documentationCenter="" 
-	authors="wesmc7777" 
-	manager="dwrede" 
+<properties
+	pageTitle="Résolution des problèmes du backend .NET Mobile Services | Microsoft Azure"
+	description="Découvrez comment diagnostiquer et résoudre les problèmes liés à vos services mobiles à l&#39;aide du backend .NET"
+	services="mobile-services"
+	documentationCenter=""
+	authors="wesmc7777"
+	manager="dwrede"
 	editor="mollybos"/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="multiple" 
-	ms.devlang="multiple" 
-	ms.topic="article" 
-	ms.date="04/20/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="multiple"
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.date="08/18/2015" 
 	ms.author="wesmc;ricksal"/>
 
 # Résolution des problèmes du backend .NET Mobile Services
@@ -34,7 +34,7 @@ Lorsque vous développez des applications avec Mobile Services, vous tirez gén�
 Vous pouvez utiliser n'importe quel débogueur HTTP pour envoyer et inspecter du trafic HTTP. [Fiddler](http://www.telerik.com/fiddler) est un outil populaire, couramment utilisé par les développeurs à cet effet. Pour faciliter la vie des développeurs, Mobile Services intègre un débogueur HTTP basé sur le web (également appelé « client test ») directement à votre service mobile, réduisant ainsi le besoin d'outils externes. Quand votre service mobile est hébergé localement, il est accessible à partir d'un URI similaire à [http://localhost:59233](http://localhost:59233) ; quand il est hébergé dans le cloud, l'URI prend la forme suivante : [http://todo-list.azure-mobile.net](http://todo-list.azure-mobile.net). Les étapes suivantes fonctionnent de la même manière quel que soit l'emplacement où le service est hébergé :
 
 1. Partez d'un projet de serveur Mobile Services ouvert dans **Visual Studio 2013 Update 2** ou une version ultérieure. Si vous n'avez pas de projet sous la main, vous pouvez en créer un en sélectionnant **Fichier**, **Nouveau**, **Projet**, puis en sélectionnant le nœud **Cloud** et ensuite le modèle **Microsoft Azure Mobile Services**.
-2. Appuyez sur **F5** pour créer et exécuter le projet. Sur la page de démarrage, sélectionnez **faire un essai**. 
+2. Appuyez sur **F5** pour créer et exécuter le projet. Sur la page de démarrage, sélectionnez **faire un essai**.
 
     >[AZURE.NOTE]Si le service est hébergé localement, un clic sur le lien vous permet d'accéder à la page suivante. Mais si l'hébergement se fait dans le cloud, un ensemble d'informations d'identification vous est demandé. Le but est de veiller à ce que les utilisateurs non authentifiés n'aient pas accès aux informations sur votre API et vos charges utiles. Pour afficher la page, vous devez vous connecter avec un **nom d'utilisateur vide** et votre **clé d'application** comme mot de passe. Vous pouvez accéder à votre clé d'application dans le **portail de gestion Azure**, sous l'onglet **Tableau de bord** de votre service mobile, en sélectionnant **Gérer les clés**.
     >
@@ -69,7 +69,7 @@ L'une des caractéristiques essentielles du backend .NET est la possibilité de 
     ![Configure symbol loading][SymbolLoading]
 
 3. Sélectionnez le nœud **Symboles** sur la gauche et ajoutez une référence au serveur (SymbolSource)[http://symbolsource.org] avec l'URI [http://srv.symbolsource.org/pdb/Public](http://srv.symbolsource.org/pdb/Public). Les symboles pour le service principal .NET de Mobile Services sont disponibles à cet emplacement avec chaque nouvelle version.
- 
+
     ![Configure symbol server][SymbolServer]
 
 4. Définissez un point d'arrêt dans le bloc de code que vous voulez déboguer. Par exemple, définissez un point d'arrêt dans la méthode **GetAllTodoItems()** de la classe **TodoItemController** qui est fournie avec le modèle de projet Mobile Services dans Visual Studio.
@@ -118,7 +118,7 @@ Lorsque vous publiez votre service mobile dans Azure, il est chargé par l'envir
 
 Il est parfois possible d'introduire des conflits de versions en référençant *différentes versions principales* des assemblys requis (différentes versions *mineures* sont autorisées). Le problème se produit souvent lorsque NuGet vous invite à effectuer une mise à niveau vers la dernière version de l'un des packages utilisés par le backend .NET Mobile Services.
 
->[AZURE.NOTE]Mobile Services est compatible uniquement avec ASP.NET 5.1 ; ASP.NET 5.2 n'est pas pris en charge actuellement. La mise à niveau de vos packages NuGet ASP.NET vers 5.2.\* peut provoquer une erreur après le déploiement.
+>[AZURE.NOTE]Mobile Services est compatible uniquement avec ASP.NET 5.1 ; ASP.NET 5.2 n'est pas pris en charge actuellement. La mise à niveau de vos packages NuGet ASP.NET vers 5.2.* peut provoquer une erreur après le déploiement.
 
 Si vous mettez à niveau l'un de ces packages, lorsque vous publiez le service mis à jour dans Azure, une page d'avertissement vous signale le conflit :
 
@@ -154,4 +154,4 @@ Les migrations peuvent être complexes et nécessitent que l'état de la base de
 [LogsPortal]: ./media/mobile-services-dotnet-backend-how-to-troubleshoot/13.png
 [HelpConflict]: ./media/mobile-services-dotnet-backend-how-to-troubleshoot/14.png
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

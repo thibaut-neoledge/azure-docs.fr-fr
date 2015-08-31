@@ -1,22 +1,21 @@
-<properties 
-	pageTitle="Disponibilité des clusters Hadoop dans HDInsight | Microsoft Azure" 
-	description="HDInsight déploie des clusters hautement disponibles et fiables avec un nœud principal supplémentaire." 
-	services="hdinsight" 
-	editor="cgronlun" 
-	manager="paulettm" 
-	authors="mumian" 
+<properties
+	pageTitle="Disponibilité des clusters Hadoop dans HDInsight | Microsoft Azure"
+	description="HDInsight déploie des clusters hautement disponibles et fiables avec un nœud principal supplémentaire."
+	services="hdinsight"
+	tags="azure-portal"
+	editor="cgronlun"
+	manager="paulettm"
+	authors="mumian"
 	documentationCenter=""/>
 
-
-<tags 
-	ms.service="hdinsight" 
-	ms.workload="big-data" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="multiple" 
-	ms.topic="article" 
-	ms.date="07/10/2015" 
+<tags
+	ms.service="hdinsight"
+	ms.workload="big-data"
+	ms.tgt_pltfrm="na"
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.date="07/28/2015"
 	ms.author="jgao"/>
-
 
 
 #Disponibilité et fiabilité des clusters Hadoop dans HDInsight
@@ -39,7 +38,7 @@ HDInsight permet aux clients de déployer de nombreux types de cluster pour diff
 	- Nœuds Nimbus (2 nœuds)
 	- Serveurs Supervisor (au moins 1 nœud)
 	- Nœuds Zookeeper (3 nœuds)
- 
+
 Les implémentations standard des clusters Hadoop ont normalement un seul nœud principal. HDInsight supprime ce point de défaillance unique avec l’ajout d’un nœud principal/serveur principal/nœud Nimbus secondaire pour augmenter la disponibilité et la fiabilité du service nécessaire à la gestion des charges de travail. Ces nœuds principaux/serveurs principaux/nœuds Nimbus sont conçus pour gérer en douceur la défaillance des nœuds de travail, mais toute interruption des services principaux exécutés sur le nœud principal provoquera l’arrêt du fonctionnement du cluster.
 
 
@@ -51,7 +50,7 @@ Les nœuds [ZooKeeper](http://zookeeper.apache.org/) (ZK) ont été ajoutés et 
 
 
 ## Vérifier l’état des services du nœud principal actif
-Pour déterminer quel est le nœud principal actif et vérifier le statut des services en cours d’exécution sur ce nœud principal, vous devez vous connecter au cluster Hadoop avec le protocole RDP (Remote Desktop Protocol). Pour obtenir des instructions sur le protocole RDP, consultez la page [Gestion des clusters Hadoop dans HDInsight au moyen du portail Azure](hdinsight-administer-use-management-portal.md/#connect-to-hdinsight-clusters-by-using-rdp). Une fois que vous avez accédé à distance au cluster, double-cliquez sur l’icône **Hadoop Service Available ** située sur le Bureau pour obtenir l’état concernant le nœud principal sur lequel les services Namenode, Jobtracker, Templeton, Oozieservice, Metastore et Hiveserver2 s’exécutent ou, pour HDI 3.0, les services Namenode, Resource Manager, History Server, Templeton, Oozieservice, Metastore et Hiveserver2.
+Pour déterminer quel est le nœud principal actif et vérifier le statut des services en cours d’exécution sur ce nœud principal, vous devez vous connecter au cluster Hadoop avec le protocole RDP (Remote Desktop Protocol). Pour obtenir des instructions sur le protocole RDP, consultez la page [Gestion des clusters Hadoop dans HDInsight au moyen de la version préliminaire du portail Azure](hdinsight-administer-use-management-portal.md#connect-to-hdinsight-clusters-by-using-rdp). Une fois que vous avez accédé à distance au cluster, double-cliquez sur l’icône **Hadoop Service Available ** située sur le Bureau pour obtenir l’état concernant le nœud principal sur lequel les services Namenode, Jobtracker, Templeton, Oozieservice, Metastore et Hiveserver2 s’exécutent ou, pour HDI 3.0, les services Namenode, Resource Manager, History Server, Templeton, Oozieservice, Metastore et Hiveserver2.
 
 ![](./media/hdinsight-high-availability/Hadoop.Service.Availability.Status.png)
 
@@ -97,14 +96,6 @@ Pour le Kit de développement logiciel (SDK), le scénario est similaire. La cr�
 
 - [ZooKeeper](http://zookeeper.apache.org/)
 - [Connexion à des clusters HDInsight à l’aide de RDP](hdinsight-administer-use-management-portal.md#rdp)
-- [Utilisation du Kit de développement logiciel (SDK) HDInsight .NET](hdinsight-provision-clusters.md#sdk) 
+- [Utilisation du Kit de développement logiciel (SDK) HDInsight .NET](hdinsight-provision-clusters.md#sdk)
 
-
-
-
-
-
-
- 
-
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

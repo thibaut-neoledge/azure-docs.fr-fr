@@ -5,28 +5,26 @@
 	documentationCenter=""
 	authors="HeidiSteen"
 	manager="mblythe"
-	editor=""/>
-
+	editor="v-lincan"/>
 
 <tags
 	ms.service="search"
 	ms.devlang="rest-api"
 	ms.workload="search"
-	ms.topic="hero-article" 
+	ms.topic="hero-article"
 	ms.tgt_pltfrm="na"
-	ms.date="07/08/2015"
+	ms.date="08/18/2015"
 	ms.author="heidist"/>
 
+# Prise en main de votre première application Azure Search dans .NET
 
-#Prise en main de votre première application Azure Search dans .NET#
+Apprenez à créer une application de recherche .NET personnalisée dans Visual Studio 2013 ou version ultérieure qui utilise Azure Search pour son expérience de recherche. Ce didacticiel utilise le [Kit de développement logiciel (SDK) .NET Azure Search](https://msdn.microsoft.com/library/azure/dn951165.aspx) pour générer des classes pour les objets et les opérations utilisés dans cet exercice, ainsi que l'API REST du service Azure Search.
 
-Apprenez à créer une application de recherche .NET personnalisée dans Visual Studio 2013 ou version ultérieure qui utilise Azure Search pour son expérience de recherche. Le didacticiel utilise le [kit de développement logiciel (SDK) .NET Azure Search](https://msdn.microsoft.com/library/azure/dn951165.aspx) pour générer des classes pour les objets et les opérations utilisés dans cet exercice, ainsi que l'API REST du service Azure Search.
+Pour exécuter cet exemple, vous devez disposer d'un service Azure Search, auquel vous pouvez vous connecter dans le [portail Azure](https://portal.azure.com).
 
-Pour exécuter cet exemple, vous devez disposer d'un service Azure Search, auquel vous pouvez vous connecter dans le [portail Azure](https://portal.azure.com).
+> [AZURE.TIP]Téléchargez le code source pour ce didacticiel dans les [exemples d'Azure Search .NET](http://go.microsoft.com/fwlink/p/?LinkId=530196). Apprenez à configurer les connexions et envoyer des demandes en consultant la rubrique [Comment utiliser Azure Search à partir d'une application .NET](search-howto-dotnet-sdk.md).
 
-> [AZURE.TIP]Téléchargez le code source pour ce didacticiel dans les [exemples d'Azure Search .NET](http://go.microsoft.com/fwlink/p/?LinkId=530196).
-
-##À propos des données##
+## À propos des données
 
 Cet exemple d'application utilise des données de l’[USGS (United States Geological Services)](http://geonames.usgs.gov/domestic/download_data.htm), concernant l'État de Rhode Island pour réduire la taille du jeu de données. Nous allons utiliser ces données pour créer une application de recherche qui renvoie des bâtiments repères, tels que les hôpitaux et les écoles, ainsi que des caractéristiques géologiques, telles que les ruisseaux, les lacs et les sommets.
 
@@ -34,11 +32,11 @@ Dans cette application, le programme **DataIndexer** crée et charge l'index à 
 
 > [AZURE.NOTE]Nous avons appliqué un filtre à ce jeu de données pour ne pas dépasser la limite de 10 000 documents du niveau de tarification gratuit. Si vous utilisez le niveau standard, cette limite ne s'applique pas. Pour plus d'informations sur la capacité de chaque niveau de tarification, consultez la section [Limites et contraintes](https://msdn.microsoft.com/library/azure/dn798934.aspx).
 
-##Créer le service##
+## Créer le service d’Azure Search
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
 
-2. Dans la barre de lancement, cliquez sur **Nouveau** | **Données + stockage** | **Recherche**.
+2. Dans la barre de lancement, cliquez sur **Nouveau** > **Données + stockage** > **Recherche**.
 
      ![][1]
 
@@ -64,9 +62,9 @@ Dans cette application, le programme **DataIndexer** crée et charge l'index à 
 Surveillez les notifications dans la barre de lancement. Une notification s'affiche lorsque le service est prêt à être utilisé.
 
 <a id="sub-2"></a>
-##Recherche du nom du service et des clés api de votre service Azure Search
+## Recherche du nom du service et des clés api de votre service Azure Search ##
 
-Une fois le service créé, vous pouvez revenir au portail pour obtenir l'URL ou la `api-key`. Pour vous connecter à votre service de recherche, vous devez saisir l'URL et une `api-key` afin d’authentifier l'appel.
+Une fois le service créé, revenez au portail pour obtenir l'URL ou `api-key`. Pour vous connecter à votre service de recherche, vous devez saisir l'URL et une `api-key` afin d’authentifier l'appel.
 
 1. Dans la barre de lancement, cliquez sur **Accueil** puis sur le service de recherche pour ouvrir le tableau de bord du service.
 
@@ -74,20 +72,20 @@ Une fois le service créé, vous pouvez revenir au portail pour obtenir l'URL ou
 
   	![][3]
 
-3. Copiez l'URL du service et une clé administrateur. Vous en aurez besoin plus tard, lorsque vous les ajouterez aux fichiers app.config et web.config dans vos projets Visual Studio.
+3. Copiez l'URL du service et une clé d’administration. Vous en aurez besoin plus tard, lorsque vous les ajouterez aux fichiers app.config et web.config dans vos projets Visual Studio.
 
-##Lancement d'un nouveau projet et solution##
+## Lancement d'un nouveau projet et solution
 
-Cette solution incluera deux projets :
+Cette solution inclut deux projets :
 
-- **DataIndexer**, une application console Visual C#, utilisée pour charger des données.
-- **SimpleSearchMVCApp**, une application Web Visual C# ASP.NET MVC, utilisée pour interroger et renvoyer les résultats de la recherche.
+- **DataIndexer**, une application console Visual C\#, utilisée pour charger des données.
+- **SimpleSearchMVCApp**, une application Web Visual C#ASP.NET MVC, utilisée pour interroger et renvoyer les résultats de la recherche.
 
 Dans cette étape, vous allez créer les deux projets.
 
-1. Démarrez **Visual Studio** | **Nouveau projet** | **Visual C#** | **Application console**.
+1. Démarrez **Visual Studio** > **Nouveau projet** > **Visual C\#** > **Application console**.
 2. Nommez le projet **DataIndexer** puis nommez la solution **AzureSearchDotNetDemo**.
-3. Dans l'Explorateur de solutions, cliquez avec le bouton droit de la souris sur la solution et sélectionnez **Ajouter** | **Nouveau projet** | **Visual C#** | **Application Web ASP.NET**.
+3. Dans l'Explorateur de solutions, cliquez avec le bouton droit sur la solution et sélectionnez **Ajouter** > **Nouveau projet** > **Visual C\#** > **Application Web ASP.NET**.
 4. Nommez le projet **SimpleSearchMVCApp**.
 5. Dans le nouveau projet ASP.NET, choisissez le modèle MVC et désactivez les options pour éviter de créer des artefacts de programme que vous n'utiliserez pas dans ce didacticiel.
 
@@ -99,10 +97,10 @@ Lorsque vous avez terminé la création des projets, votre solution doit ressemb
 
    ![][4]
 
-##Installation de la bibliothèque cliente .NET et mise à jour d'autres packages
+## Installation de la bibliothèque cliente .NET et mise à jour d'autres packages
 
 1. Dans l'Explorateur de solutions, cliquez avec le bouton droit sur la solution, puis cliquez sur **Gérer les packages NuGet**.
-2. Spécifiez **Mises à jour** | **Stable uniquement** | **Tout mettre à jour**.
+2. Spécifiez **Mises à jour** > **Stable uniquement** > **Tout mettre à jour**.
 
    ![][11]
 
@@ -110,7 +108,7 @@ Lorsque vous avez terminé la création des projets, votre solution doit ressemb
 
 4. Ensuite, installez la bibliothèque cliente .NET Azure Search. Veillez à spécifier la recherche correctement ou vous ne trouverez pas facilement le package. Cliquez de nouveau avec le bouton droit sur **Gérer les packages NuGet**.
 
-5. Spécifiez **En ligne** | **nuget.org** | **Inclure la version préliminaire**, puis recherchez *azure.search* et installez la bibliothèque.
+5. Spécifiez **En ligne** > **nuget.org** > **Inclure la version préliminaire**, puis recherchez *azure.search*. Cliquez sur **Installer** pour installer la bibliothèque.
 
    ![][12]
 
@@ -118,154 +116,116 @@ Vous trouverez ci-dessous une liste partielle des assemblages utilisés dans cet
 
    ![][5]
 
-##Ajout d'une référence d'assemblage pour System.Configuration
+## Ajout d'une référence d'assemblage pour System.Configuration
 
 **DataIndexer** utilise **System.Configuration** pour lire les paramètres de configuration dans app.config.
 
-1. Cliquez avec le bouton droit sur **DataIndexer** | **Ajouter** | **Référence** | **Framework** | **System.Configuration**. Activez la case à cocher.
+1. Cliquez avec le bouton droit sur **DataIndexer** > **Ajouter** > **Référence** > **Framework** | **System.Configuration**. Activez la case à cocher.
 2. Cliquez sur **OK**.
 
-##Mise à jour des fichiers de configuration
+## Mise à jour des fichiers de configuration
 
 Chaque projet inclut des fichiers de configuration qui spécifient le nom du service et la clé d'api.
 
-1. Dans **DataIndexer**, remplacez App.config par l'exemple suivant, en mettant à jour le [NOM DE SERVICE\] et la [CLÉ du SERVICE\] avec des valeurs qui sont valides pour votre service.
-
-   Le nom du service n'est pas l'URL complète. Par exemple, si le point de terminaison de votre service de recherche est **https://mysearchsrv.search.microsoft.net*, le nom de service à entrer dans App.config est *mysearchsrv*.
+1. Dans **DataIndexer**, remplacez App.config par l'exemple suivant, en mettant à jour le [NOM DE SERVICE] et la [CLÉ DU SERVICE] avec des valeurs qui sont valides pour votre service. Notez que le nom du service n'est pas l'URL complète. Par exemple, si le point de terminaison de votre service de recherche est **https://mysearchsrv.search.microsoft.net*, le nom de service à entrer dans App.config est *mysearchsrv*.
 
 	    <?xml version="1.0" encoding="utf-8"?>
 	    <configuration>
 	      <startup>
 	         <supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.5" />
-
 	      </startup>
 	      <appSettings>
 	        <add key="SearchServiceName" value="[SERVICE NAME]" />
-
 	        <add key="SearchServiceApiKey" value="[SERVICE KEY]" />
-
 	      </appSettings>
 	    </configuration>
 
-2. Dans **SimpleSearchMVCApp**, remplacez Web.config par l'exemple suivant, en mettant de nouveau à jour le [NOM DE SERVICE\] et la [CLÉ du SERVICE\] avec des valeurs qui sont valides pour votre service.
+2. Dans **SimpleSearchMVCApp**, remplacez Web.config par l'exemple suivant, en mettant de nouveau à jour le [NOM DE SERVICE] et la [CLÉ du SERVICE] avec des valeurs qui sont valides pour votre service.
 
 		<?xml version="1.0" encoding="utf-8"?>
 		<!--
-		  For more information on how to configure your ASP.NET application, please visit
+		  For more information on how to configure your ASP.NET application, visit
 		  http://go.microsoft.com/fwlink/?LinkId=152368
 		  -->
 		<configuration>
 		  <configSections>
 		    <!-- For more information on Entity Framework configuration, visit http://go.microsoft.com/fwlink/?LinkID=237468 -->
 		    <section name="entityFramework" type="System.Data.Entity.Internal.ConfigFile.EntityFrameworkSection, EntityFramework, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" requirePermission="false" />
-
 		  </configSections>
 		  <connectionStrings>
 		    <add name="DefaultConnection" providerName="System.Data.SqlClient" connectionString="Data Source=(LocalDb)\v11.0;Initial Catalog=aspnet-SimpleMVCApp-20150303114355;Integrated Security=SSPI;AttachDBFilename=|DataDirectory|\aspnet-SimpleMVCApp-20150303114355.mdf" />
-
 		  </connectionStrings>
 		  <appSettings>
 		    <add key="SearchServiceName" value="[SEARCH SERVICE NAME]" />
-
 		    <add key="SearchServiceApiKey" value="[API KEY]" />
 
-
 		    <add key="webpages:Version" value="2.0.0.0" />
-
 		    <add key="webpages:Enabled" value="false" />
-
 		    <add key="PreserveLoginUrl" value="true" />
-
 		    <add key="ClientValidationEnabled" value="true" />
-
 		    <add key="UnobtrusiveJavaScriptEnabled" value="true" />
-
 		  </appSettings>
 		  <system.web>
 		    <httpRuntime targetFramework="4.5" />
-
 		    <compilation debug="true" targetFramework="4.5" />
-
 		    <authentication mode="Forms">
 		      <forms loginUrl="~/Account/Login" timeout="2880" />
-
 		    </authentication>
 		    <pages>
 		      <namespaces>
 		        <add namespace="System.Web.Helpers" />
-
 		        <add namespace="System.Web.Mvc" />
-
 		        <add namespace="System.Web.Mvc.Ajax" />
-
 		        <add namespace="System.Web.Mvc.Html" />
-
 		        <add namespace="System.Web.Optimization" />
-
 		        <add namespace="System.Web.Routing" />
-
 		        <add namespace="System.Web.WebPages" />
-
 		      </namespaces>
 		    </pages>
 		    <profile defaultProvider="DefaultProfileProvider">
 		      <providers>
 		        <add name="DefaultProfileProvider" type="System.Web.Providers.DefaultProfileProvider, System.Web.Providers, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" connectionStringName="DefaultConnection" applicationName="/" />
-
 		      </providers>
 		    </profile>
 		    <membership defaultProvider="DefaultMembershipProvider">
 		      <providers>
 		        <add name="DefaultMembershipProvider" type="System.Web.Providers.DefaultMembershipProvider, System.Web.Providers, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" connectionStringName="DefaultConnection" enablePasswordRetrieval="false" enablePasswordReset="true" requiresQuestionAndAnswer="false" requiresUniqueEmail="false" maxInvalidPasswordAttempts="5" minRequiredPasswordLength="6" minRequiredNonalphanumericCharacters="0" passwordAttemptWindow="10" applicationName="/" />
-
 		      </providers>
 		    </membership>
 		    <roleManager defaultProvider="DefaultRoleProvider">
 		      <providers>
 		        <add name="DefaultRoleProvider" type="System.Web.Providers.DefaultRoleProvider, System.Web.Providers, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" connectionStringName="DefaultConnection" applicationName="/" />
-
 		      </providers>
 		    </roleManager>
 		    <!--
 		            If you are deploying to a cloud environment that has multiple web server instances,
 		            you should change session state mode from "InProc" to "Custom". In addition,
 		            change the connection string named "DefaultConnection" to connect to an instance
-		            of SQL Server (including SQL Azure and SQL  Compact) instead of to SQL Server Express.
+		            of SQL Server (including SQL Azure and SQL Compact) instead of to SQL Server Express.
 		      -->
 		    <sessionState mode="InProc" customProvider="DefaultSessionProvider">
 		      <providers>
 		        <add name="DefaultSessionProvider" type="System.Web.Providers.DefaultSessionStateProvider, System.Web.Providers, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" connectionStringName="DefaultConnection" />
-
 		      </providers>
 		    </sessionState>
 		  </system.web>
 		  <system.webServer>
 		    <validation validateIntegratedModeConfiguration="false" />
-
 		    <handlers>
 		      <remove name="ExtensionlessUrlHandler-ISAPI-4.0_32bit" />
-
 		      <remove name="ExtensionlessUrlHandler-ISAPI-4.0_64bit" />
-
 		      <remove name="ExtensionlessUrlHandler-Integrated-4.0" />
-
 		      <add name="ExtensionlessUrlHandler-ISAPI-4.0_32bit" path="*." verb="GET,HEAD,POST,DEBUG,PUT,DELETE,PATCH,OPTIONS" modules="IsapiModule" scriptProcessor="%windir%\Microsoft.NET\Framework\v4.0.30319\aspnet_isapi.dll" preCondition="classicMode,runtimeVersionv4.0,bitness32" responseBufferLimit="0" />
-
 		      <add name="ExtensionlessUrlHandler-ISAPI-4.0_64bit" path="*." verb="GET,HEAD,POST,DEBUG,PUT,DELETE,PATCH,OPTIONS" modules="IsapiModule" scriptProcessor="%windir%\Microsoft.NET\Framework64\v4.0.30319\aspnet_isapi.dll" preCondition="classicMode,runtimeVersionv4.0,bitness64" responseBufferLimit="0" />
-
 		      <add name="ExtensionlessUrlHandler-Integrated-4.0" path="*." verb="GET,HEAD,POST,DEBUG,PUT,DELETE,PATCH,OPTIONS" type="System.Web.Handlers.TransferRequestHandler" preCondition="integratedMode,runtimeVersionv4.0" />
-
 		      <remove name="OPTIONSVerbHandler" />
-
 		      <remove name="TRACEVerbHandler" />
-
 		    </handlers>
 		  </system.webServer>
 		  <entityFramework>
 		    <defaultConnectionFactory type="System.Data.Entity.Infrastructure.LocalDbConnectionFactory, EntityFramework">
 		      <parameters>
 		        <parameter value="v12.0" />
-
 		      </parameters>
 		    </defaultConnectionFactory>
 		  </entityFramework>
@@ -273,54 +233,40 @@ Chaque projet inclut des fichiers de configuration qui spécifient le nom du ser
 		    <assemblyBinding xmlns="urn:schemas-microsoft-com:asm.v1">
 		      <dependentAssembly>
 		        <assemblyIdentity name="Newtonsoft.Json" publicKeyToken="30ad4fe6b2a6aeed" culture="neutral" />
-
 		        <bindingRedirect oldVersion="0.0.0.0-6.0.0.0" newVersion="6.0.0.0" />
-
 		      </dependentAssembly>
 		      <dependentAssembly>
 		        <assemblyIdentity name="WebGrease" publicKeyToken="31bf3856ad364e35" culture="neutral" />
-
 		        <bindingRedirect oldVersion="0.0.0.0-1.6.5135.21930" newVersion="1.6.5135.21930" />
-
 		      </dependentAssembly>
 		      <dependentAssembly>
 		        <assemblyIdentity name="Antlr3.Runtime" publicKeyToken="eb42632606e9261f" culture="neutral" />
-
 		        <bindingRedirect oldVersion="0.0.0.0-3.5.0.2" newVersion="3.5.0.2" />
-
 		      </dependentAssembly>
 		      <dependentAssembly>
 		        <assemblyIdentity name="System.Web.Helpers" publicKeyToken="31bf3856ad364e35" />
-
 		        <bindingRedirect oldVersion="1.0.0.0-3.0.0.0" newVersion="3.0.0.0" />
-
 		      </dependentAssembly>
 		      <dependentAssembly>
 		        <assemblyIdentity name="System.Web.WebPages" publicKeyToken="31bf3856ad364e35" />
-
 		        <bindingRedirect oldVersion="1.0.0.0-3.0.0.0" newVersion="3.0.0.0" />
-
 		      </dependentAssembly>
 		      <dependentAssembly>
 		        <assemblyIdentity name="System.Web.Mvc" publicKeyToken="31bf3856ad364e35" />
-
 		        <bindingRedirect oldVersion="1.0.0.0-5.2.3.0" newVersion="5.2.3.0" />
-
 		      </dependentAssembly>
 		      <dependentAssembly>
 		        <assemblyIdentity name="System.Web.WebPages.Razor" publicKeyToken="31bf3856ad364e35" />
-
 		        <bindingRedirect oldVersion="1.0.0.0-3.0.0.0" newVersion="3.0.0.0" />
-
 		      </dependentAssembly>
 		    </assemblyBinding>
 		  </runtime>
 		</configuration>
 
 
-##Modification de DataIndexer
+## Modification de DataIndexer
 
-Ce programme est une application de console qui se connecte à votre service de recherche, comme spécifié dans app.config, crée l'index et charge ensuite le jeu de données USGS stocké dans une base de données SQL Azure.
+Ce programme est une application de console qui se connecte à votre service de recherche, comme spécifié dans app.config, crée l'index et charge ensuite le jeu de données USGS stocké dans une base de données SQL Azure.
 
 Actuellement, la version préliminaire de la bibliothèque cliente ne prend pas en charge les indexeurs. Nous allons donc utiliser l'API REST pour créer et utiliser un indexeur pour cette partie du didacticiel.
 
@@ -330,11 +276,11 @@ Avant de pouvoir exécuter ce programme, vous allez effectuer deux modifications
 
 - Remplacer **Program.cs**, utilisé pour créer l'index, l'indexeur, charger les données et écrire des messages.
 
-###Création de AzureSearchHelper.cs
+### Création de AzureSearchHelper.cs
 
 Le code qui appelle l'API REST doit inclure une classe qui gère les connexions, ainsi que la sérialisation et la désérialisation des requêtes et des réponses JSON. Dans les exemples fournis avec Azure Search, cette classe est généralement appelée **AzureSearchHelper.cs**. Vous pouvez créer cette classe et l'ajouter à **DataIndexer**, en utilisant le code suivant.
 
-1. Dans l'Explorateur de solutions, cliquez avec le bouton droit sur **DataIndexer** | **Ajouter** | **Nouvel élément** | **Code** | **Classe**.
+1. Dans l'Explorateur de solutions, cliquez avec le bouton droit sur **DataIndexer** > **Ajouter** > **Nouvel élément** > **Code** > **Classe**.
 2. Nommez la classe **AzureSearchHelper**.
 3. Remplacez le code par défaut par le code suivant.
 
@@ -418,9 +364,9 @@ Le code qui appelle l'API REST doit inclure une classe qui gère les connexions,
 
 
 
-###Mise à jour de Program.cs
+### Mise à jour de Program.cs
 
-1. Dans l'Explorateur de solutions, ouvrez **DataIndexer** | **Program.cs**
+1. Dans l'Explorateur de solutions, ouvrez **DataIndexer** > **Program.cs**.
 2. Remplacez le contenu de Program.cs par le code suivant.
 
 		using Microsoft.Azure;
@@ -446,7 +392,7 @@ Le code qui appelle l'API REST doit inclure une classe qui gère les connexions,
 		        private static SearchServiceClient _searchClient;
 		        private static SearchIndexClient _indexClient;
 
-		        // This Sample shows how to delete, create, upload documents and query an index
+		        // This sample shows how to delete, create, upload documents and query an index
 		        static void Main(string[] args)
 		        {
 		            string searchServiceName = ConfigurationManager.AppSettings["SearchServiceName"];
@@ -487,8 +433,7 @@ Le code qui appelle l'API REST doit inclure une classe qui gère les connexions,
 
 		        private static void CreateIndex()
 		        {
-		            // Create the Azure Search index based on the included schema
-		            try
+		            // Create the Azure Search index based on the included schema            try
 		            {
 		                var definition = new Index()
 		                {
@@ -597,7 +542,7 @@ Le code qui appelle l'API REST doit inclure une classe qui gère les connexions,
 
 
 
-##Création et exécution de DataIndexer
+## Création et exécution de DataIndexer
 
 1. Cliquez avec le bouton droit sur le projet **DataIndexer**.
 2. Créez le projet.
@@ -611,9 +556,9 @@ Dans le portail, un nouvel index **geonames** doit s'afficher. La mise à jour d
 
 ![][7]
 
-##Modification de SimpleSearchMVCApp
+## Modification de SimpleSearchMVCApp
 
-**SimpleSearchMVC** est une application Web qui s'exécute localement dans IIS Express. Elle fournit une zone de recherche et affiche les résultats de la recherche dans une table.
+**SimpleSearchMVC** est une application Web qui s'exécute localement dans IIS Express. Elle fournit une zone de recherche et affiche les résultats de la recherche dans une table.
 
 Avant de pouvoir exécuter ce programme, vous allez effectuer trois modifications :
 
@@ -623,7 +568,7 @@ Avant de pouvoir exécuter ce programme, vous allez effectuer trois modification
 
 - Ajouter **FeatureSearch.cs**, une classe qui crée le client de recherche et exécute la recherche.
 
-###Mise à jour du fichier HomeController.cs
+### Mise à jour du fichier HomeController.cs
 
 Remplacez le code par défaut par le code suivant.
 
@@ -665,7 +610,7 @@ Remplacez le code par défaut par le code suivant.
 	}
 
 
-###Mise à jour du fichier Index.cshtml
+### Mise à jour du fichier Index.cshtml
 
 Remplacez le code par défaut par le code suivant.
 
@@ -730,11 +675,9 @@ Remplacez le code par défaut par le code suivant.
 	<h2>USGS Search for Rhode Island</h2>
 
 	<div class="container">
-	    <input type="search" name="q" id="q" autocomplete="off" size="100" />
- <button onclick="Search();">Search</button>
+	    <input type="search" name="q" id="q" autocomplete="off" size="100" /> <button onclick="Search();">Search</button>
 	</div>
 	<br />
-
 	<div class="container">
 	    <div class="row">
 	        <table id="searchResults" border="1"></table>
@@ -742,11 +685,11 @@ Remplacez le code par défaut par le code suivant.
 	</div>
 
 
-###Ajout de FeaturesSearch.cs
+### Ajout de FeaturesSearch.cs
 
 Ajoutez une classe qui fournit des fonctionnalités de recherche à votre application.
 
-1. Dans l'Explorateur de solutions, cliquez avec le bouton droit sur **SimpleSearchMVCApp** | **Ajouter** | **Nouvel élément** | **Code** | **Classe**.
+1. Dans l'Explorateur de solutions, cliquez avec le bouton droit sur **SimpleSearchMVCApp** > **Ajouter** > **Nouvel élément** > **Code** > **Classe**.
 2. Nommez la classe **FeaturesSearch**.
 3. Remplacez le code par défaut par le code suivant.
 
@@ -802,17 +745,17 @@ Ajoutez une classe qui fournit des fonctionnalités de recherche à votre applic
 		    }
 		}
 
-###Définition de SimpleSearchMVCApp comme projet de démarrage
+### Définition de SimpleSearchMVCApp comme projet de démarrage
 
 Cliquez avec le bouton droit sur le projet **SimpleSearchMVCApp** pour le définir comme projet de démarrage.
 
-##Création et exécution de SimpleSearchMVCApp
+## Création et exécution de SimpleSearchMVCApp
 
 Lorsque vous créez et exécutez ce programme, une page Web doit s'afficher dans votre navigateur par défaut. Elle doit contenir une zone de recherche pour accéder aux données USGS stockées dans l'index dans votre service Azure Search.
 
 ![][8]
 
-###Exécution d'une recherche sur les données USGS
+### Exécution d'une recherche sur les données USGS
 
 Le jeu de données USGS comprend les enregistrements qui correspondent à l'État de Rhode Island. Si vous cliquez sur **Recherche** dans une zone de recherche vide, vous obtiendrez les 50 premières entrées, ce qui correspond à la valeur par défaut.
 
@@ -826,9 +769,9 @@ Vous pouvez également essayer les requêtes suivantes, en ajoutant ou en suppri
 - dinde +cape -cou
 
 
-##Étapes suivantes##
+## Étapes suivantes
 
-Ceci est le premier didacticiel Azure Search basé sur .NET et le jeu de données USGS. Au fil du temps, nous étendrons ce didacticiel pour illustrer des fonctionnalités de recherche supplémentaires que vous souhaiterez peut-être utiliser dans vos solutions personnalisées.
+Ceci est le premier didacticiel Azure Search basé sur .NET et le jeu de données USGS. Au fil du temps, nous le compléterons avec des fonctionnalités de recherche supplémentaires que vous souhaiterez peut-être utiliser dans vos solutions personnalisées.
 
 Si vous connaissez déjà Azure Search, vous pouvez utiliser cet exemple comme tremplin pour tester des générateurs de suggestions (requêtes prédictives ou à saisie semi-automatique), des filtres et la navigation à facettes. Vous pouvez également améliorer la page des résultats de la recherche en ajoutant des décomptes et en traitant les documents par lots afin que les utilisateurs puissent parcourir les résultats.
 
@@ -850,6 +793,5 @@ Vous découvrez Azure Search ? Nous vous recommandons de suivre les autres dida
 [10]: ./media/search-get-started-dotnet/AzSearch-DotNet-MVCOptions.PNG
 [11]: ./media/search-get-started-dotnet/AzSearch-DotNet-NuGet-1.PNG
 [12]: ./media/search-get-started-dotnet/AzSearch-DotNet-NuGet-2.PNG
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

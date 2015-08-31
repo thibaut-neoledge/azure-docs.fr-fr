@@ -1,18 +1,18 @@
 <properties 
-	pageTitle="Application Insights pour les applications Web JavaScript" 
-	description="Obtention des décomptes de sessions et d’affichages de pages, des données de client web et suivi des modèles d’utilisation. Détection des problèmes de performances et des exceptions dans les pages Web JavaScript." 
-	services="application-insights" 
-    documentationCenter=""
-	authors="alancameronwills" 
+	pageTitle="Application Insights pour les applications Web JavaScript"
+	description="Obtention des décomptes de sessions et d’affichages de pages, des données de client web et suivi des modèles d’utilisation. Détection des problèmes de performances et des exceptions dans les pages Web JavaScript."
+	services="application-insights"
+	documentationCenter=""
+	authors="alancameronwills"
 	manager="douge"/>
 
 <tags 
-	ms.service="application-insights" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="na" 
-	ms.topic="get-started-article" 
-	ms.date="07/10/2015" 
+	ms.service="application-insights"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="ibiza"
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.date="07/10/2015"
 	ms.author="awills"/>
  
 # Application Insights pour les applications Web JavaScript
@@ -24,6 +24,10 @@ Apprenez-en plus sur les performances et l’utilisation de votre page web. Ajou
 ![Cliquez sur Nouveau, Services de développement, Application Insights.](./media/app-insights-javascript/16-page-views.png)
 
 Si vous avez déjà configuré une télémétrie de serveur pour votre application web [ASP.NET][greenbrown] ou [Java][java], vous obtiendrez des informations du point de vue client et serveur. Les deux flux de données seront intégrés dans le portail Application Insights.
+
+#### Démonstration rapide
+
+Si vous n’avez pas d’abonnement Azure et que vous souhaitez essayer Application Insights sur votre page web, visitez la page d’[essai d’Application Insights](http://aka.ms/ainow) (en anglais).
 
 ## Création d’une ressource Application Insights dans Azure
 
@@ -44,7 +48,7 @@ Dans Démarrage rapide, récupérez le script pour les pages Web :
 
 Insérez-le juste avant la balise &lt;/head&gt; de chaque page que vous souhaitez suivre. Si votre site Web possède une page maître, vous pouvez y placer le script. Par exemple :
 
-* Dans un projet ASP.NET MVC, vous devez placer le script dans View\\Shared\\\_Layout.cshtml
+* Dans un projet ASP.NET MVC, vous devez placer le script dans View\\Shared\\_Layout.cshtml
 * Dans un site SharePoint, dans le panneau de configuration, ouvrez [Paramètres du site/Page maître](app-insights-sharepoint.md).
 
 Le script contient la clé d’instrumentation qui dirige les données vers votre ressource Application Insights.
@@ -143,7 +147,7 @@ Sélectionnez n'importe quel événement pour afficher plus de détails. Dans la
 
 ### Propriétés d'affichage de la page
 
-* **Durée d'affichage de la page** Le temps nécessaire pour charger la page et lancer l’exécution des scripts. Plus précisément, l'intervalle entre le début du chargement de la page et l'exécution de l’élément trackPageView. Si vous avez déplacé trackPageView de sa position habituelle après l'initialisation du script, il affiche une autre valeur. 
+* **Durée d’affichage de la page** Le temps nécessaire pour charger la page et lancer l’exécution des scripts. Plus précisément, l'intervalle entre le début du chargement de la page et l'exécution de l’élément trackPageView. Si vous avez déplacé trackPageView de sa position habituelle après l'initialisation du script, il affiche une autre valeur. 
 
 ## Suivi personnalisé de l’utilisation
 
@@ -182,4 +186,4 @@ Si vous n’avez pas effectué cette opération, vous pouvez obtenir des informa
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

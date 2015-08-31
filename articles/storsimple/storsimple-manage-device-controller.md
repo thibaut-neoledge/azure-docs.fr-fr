@@ -5,14 +5,14 @@
    documentationCenter=""
    authors="alkohli"
    manager="carolz"
-   editor="tysonn" />
+   editor="" />
 <tags 
    ms.service="storsimple"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/23/2015"
+   ms.date="08/13/2015"
    ms.author="alkohli" />
 
 # Gestion des contrôleurs d’appareil StorSimple
@@ -25,7 +25,7 @@ Ce didacticiel inclut des instructions détaillées pour gérer les contrôleurs
 - la section **Contrôleurs** de la page **Maintenance** dans le service StorSimple Manager
 - Windows PowerShell pour StorSimple 
 
-Nous recommandons à l'utilisateur de gérer les contrôleurs d’appareil via le service StorSimple Manager. Si une action ne peut être effectuée qu’à l'aide de Windows PowerShell pour StorSimple, le didacticiel l’indique.
+Nous vous recommandons de gérer les contrôleurs d’appareil via le service StorSimple Manager. Si une action ne peut être effectuée qu’à l'aide de Windows PowerShell pour StorSimple, le didacticiel l’indique.
 
 Après avoir lu ce didacticiel, vous pourrez :
 
@@ -59,26 +59,26 @@ Pour gérer vos contrôleurs d’appareil à partir du portail de gestion, proc�
 
 1. Accédez à l’**état du matériel** et vérifiez que l'état des contrôleurs de votre appareil est considéré comme **Sain**.
 
-	![Vérifiez que les contrôleurs d’appareil StorSimple sont en bon état de fonctionnement](./media/storsimple-manage-device-controller/IC766017.png)
+	![Vérifiez que les contrôleurs d’appareil StorSimple sont en bon état de fonctionnement](./media/storsimple-manage-device-controller/IC766017.png)
 
 1. En bas de la page **Maintenance**, cliquez sur **Gestion des contrôleurs de**.
 
 	![Gestion des contrôleurs d’appareil StorSimple](./media/storsimple-manage-device-controller/IC766018.png)</br>
 
-	> [AZURE.NOTE]Si cette option n’apparaît pas sur votre écran, vous devez installer les mises à jour. Consultez la rubrique [Mise à jour de votre appareil](storsimple-update-device.md) pour plus d'informations.
+	>[AZURE.NOTE]Si cette option n’apparaît pas sur votre écran, vous devez installer les mises à jour. Consultez la rubrique [Mise à jour de votre appareil StorSimple](storsimple-update-device.md) pour plus d'informations.
 
 1. Dans la boîte de dialogue **Modifier les paramètres du contrôleur**, procédez comme suit :
 
 
 	- Dans la liste déroulante **Sélectionner un contrôleur**, sélectionnez le contrôleur que vous souhaitez gérer. Les options sont Contrôleur 0 et Contrôleur 1. Ces contrôleurs sont également identifiés comme actifs ou passifs.
 
-		> [AZURE.NOTE]Un contrôleur ne peut pas être géré s’il est indisponible ou désactivé, et il n'apparaîtra pas dans la liste déroulante.
+		>[AZURE.NOTE]Un contrôleur ne peut pas être géré s’il est indisponible ou désactivé, et il n'apparaîtra pas dans la liste déroulante.
 	
 
 
-	- Dans la liste déroulante **Sélectionner une action**, sélectionnez **Redémarrer le contrôleur**ou **Arrêter le contrôleur**.
+	- Dans la liste déroulante **Sélectionner une action**, sélectionnez **Redémarrer le contrôleur** ou **Arrêter le contrôleur**.
 	
-		![Redémarrage du contrôleur passif de l’appareil StorSimple](./media/storsimple-manage-device-controller/IC766020.png)
+		![Redémarrage du contrôleur passif de l’appareil StorSimple](./media/storsimple-manage-device-controller/IC766020.png)
  
 
 	- Cliquez sur l’icône en forme de coche ![Icône en forme de coche](./media/storsimple-manage-device-controller/IC740895.png).
@@ -86,9 +86,9 @@ Pour gérer vos contrôleurs d’appareil à partir du portail de gestion, proc�
 Ceci redémarrera ou arrêtera le contrôleur. Le tableau ci-dessous récapitule les détails de ce qui se passe en fonction des sélections effectuées dans la boîte de dialogue **Modifier les paramètres du contrôleur**.
 													
 
-|Sélection #|Si vous choisissez de...|Ceci se produira.|
+|Sélection \#|Si vous choisissez de...|Ceci se produira.|
 |---|---|---|
-|1\.|Redémarrer le contrôleur passif.|Un travail sera créé pour procéder au redémarrage du contrôleur, et un message s’affichera une fois l’opération terminée. Ceci lancera le redémarrage du contrôleur. Vous pouvez analyser le processus de redémarrage en accédant à **Service > Tableau de bord > Afficher les journaux des opérations**, puis en définissant un filtre en utilisant des paramètres spécifiques à votre service.|
+|1\.|Redémarrer le contrôleur passif.|Un travail sera créé pour procéder au redémarrage du contrôleur, et un message s’affichera une fois l’opération terminée. Ceci lancera le redémarrage du contrôleur. Vous pouvez analyser le processus de redémarrage en accédant à **Service > Tableau de bord > Afficher les journaux des opérations**, puis en définissant un filtre en utilisant des paramètres spécifiques à votre service.|
 |2\.|Redémarrer le contrôleur actif.|L'avertissement suivant s'affiche : « Si vous redémarrez le contrôleur actif, l’appareil basculera vers le contrôleur passif. Voulez-vous continuer ? » </br>Si vous choisissez d’effectuer cette opération, la procédure sera identique à celle utilisée pour redémarrer le contrôleur passif (voir sélection 1).|
 |3\.|Arrêter le contrôleur passif.|Le message suivant s’affiche: « Une fois arrêté, vous devrez appuyer sur le bouton d'alimentation de votre contrôleur pour l'activer. Voulez-vous vraiment arrêter ce contrôleur ? » </br>Si vous choisissez d’effectuer cette opération, la procédure sera identique à celle utilisée pour redémarrer le contrôleur passif (voir sélection 1).|
 |4\.|Arrêter le contrôleur actif.|Le message suivant s’affiche: « Une fois arrêté, vous devrez appuyer sur le bouton d'alimentation de votre contrôleur pour l'activer. Voulez-vous vraiment arrêter ce contrôleur ? » </br>Si vous choisissez d’effectuer cette opération, la procédure sera identique à celle utilisée pour redémarrer le contrôleur passif (voir sélection 1).|
@@ -98,7 +98,7 @@ Ceci redémarrera ou arrêtera le contrôleur. Le tableau ci-dessous récapitule
 Pour arrêter ou redémarrer un contrôleur unique sur votre appareil StorSimple à partir du portail de gestion, procédez comme suit.
 
 
-1. Accédez à l’appareil à l'aide de la console série ou d’une session telnet à partir d'un ordinateur distant. Connectez-vous au Contrôleur 0 ou Contrôleur 1 en suivant la procédure décrite dans la rubrique [Utilisation de PuTTY pour se connecter à la console série de l’appareil](storsimple-deployment-walkthrough.md#step-3-configure-and-register-the-device-through-windows-powershell-for-storsimple).
+1. Accédez à l’appareil à l'aide de la console série ou d’une session telnet à partir d'un ordinateur distant. Connectez-vous au Contrôleur 0 ou Contrôleur 1 en suivant la procédure décrite dans la rubrique [Utilisation de PuTTY pour se connecter à la console série de l’appareil](storsimple-deployment-walkthrough.md#use-putty-to-connect-to-the-device-serial-console).
 
 1. Dans le menu de la console série, sélectionnez l’option 1, **Ouvrir une session avec un accès total**.
 
@@ -123,7 +123,7 @@ Pour arrêter ou redémarrer un contrôleur unique sur votre appareil StorSimple
 
 Cette section vous explique comment arrêter un appareil StorSimple en cours d’exécution ou défaillant à partir d’un ordinateur distant. Un appareil est désactivé dès lors que les contrôleurs d’appareil sont arrêtés. L’arrêt d’un appareil est effectué lorsque l’appareil a été physiquement déplacé ou mis hors service.
 
-> [AZURE.IMPORTANT]Avant d'arrêter l’appareil, vérifiez l'intégrité des composants de l’appareil. Accédez à **Appareils > Maintenance > État du matériel** et assurez-vous que l’état des LED des composants est vert. Un appareil en bon état de fonctionnement aura un état vert. Si votre appareil est sur le point d’être arrêté pour procéder au remplacement d’un composant défaillant, vous verrez s’afficher un état Échec (rouge) ou un état Détérioré (jaune) pour les composants respectifs.
+> [AZURE.IMPORTANT]Avant d'arrêter l’appareil, vérifiez l'intégrité des composants de l’appareil. Accédez à **Appareils > Maintenance > État du matériel** et assurez-vous que l’état des LED des composants est vert. Un appareil en bon état de fonctionnement aura un état vert. Si votre appareil est sur le point d’être arrêté pour procéder au remplacement d’un composant défaillant, vous verrez s’afficher un état Échec (rouge) ou un état Détérioré (jaune) pour les composants respectifs.
 
 #### Pour arrêter un appareil StorSimple
 
@@ -134,7 +134,7 @@ Cette section vous explique comment arrêter un appareil StorSimple en cours d�
 
 <!--#### To shut down a StorSimple device in Windows PowerShell for StorSimple
 
-1. Connect to the serial console of the StorSimple device by following the steps in [Use PuTTY to connect to the device serial console](storsimple-deployment-walkthrough.md#step-3-configure-and-register-the-device-through-windows-powershell-for-storsimple).
+1. Connect to the serial console of the StorSimple device by following the steps in [Use PuTTY to connect to the device serial console](storsimple-deployment-walkthrough.md#use-putty-to-connect-to-the-serial-console).
 
 1. In the serial console menu, verify from the banner message that the controller you are connected to is the passive controller. If you are connected to the active controller, disconnect from this controller and connect to the other controller.
 
@@ -172,8 +172,7 @@ Pour rétablir les paramètres d’usine de votre appareil Microsoft Azure Sto
 	
 	> - Utilisez la commande `Reset-HcsFactoryDefault –SkipFirmwareVersionCheck` pour ignorer la vérification de la version du microprogramme si l’applet de commande de réinitialisation aux paramètres d’usine (comme celle utilisée ci-dessus) signale une erreur d'incompatibilité du microprogramme : la réinitialisation aux paramètres d’usine ne peut pas se poursuivre en raison d'une incohérence dans les versions du microprogramme. Vous devez ignorer la vérification du microprogramme (à l'aide de l’option `–SkipFirmwareCheck`) lors de l'exécution de la réinitialisation aux paramètres d’usine sur un appareil qui a été précédemment mis à jour à l'aide de Microsoft Update ou de l’installation d’un correctif.
 	
-	> - Pour plus d’informations sur l’utilisation de cette applet de commande, reportez-vous au [document de référence des applets de commande Windows PowerShell pour StorSimple](https://technet.microsoft.com/fr-fr/library/dn688168.aspx).  
-
+	> - Pour plus d’informations sur l’utilisation de cette applet de commande, reportez-vous au [document de référence des applets de commande Windows PowerShell pour StorSimple](https://technet.microsoft.com/library/dn688168.aspx).
 
 
 ## Questions et réponses sur la gestion des contrôleurs d’appareil
@@ -214,12 +213,12 @@ Dans cette section, vous trouverez des réponses à certaines questions fréquem
 
 **A.** Les connexions TCP entre les initiateurs et le contrôleur actif sont réinitialisées à la suite du basculement du contrôleur, mais elles seront rétablies lorsque le contrôleur passif effectuera l'opération. Une interruption temporaire (moins de 30 secondes) peut survenir dans l'activité E/S entre les initiateurs et l’appareil au cours de cette opération.
 
-**Q.** Comment puis-je remettre mon contrôleur en service une fois qu'il a été arrêté et supprimé du service ?
+**Q.** Comment puis-je remettre mon contrôleur en service une fois qu'il a été arrêté et supprimé ?
 
-**A.** Pour remettre en service un contrôleur, vous devez l'insérer dans le châssis, comme décrit dans le [Guide de remplacement de composants matériels](https://msdn.microsoft.com/library/azure/dn757736.aspx).
+**A.** Pour remettre en service un contrôleur, vous devez l'insérer dans le châssis, comme décrit dans [Remplacer un module de contrôleur sur votre appareil StorSimple](storsimple-controller-replacement.md).
 
 ## Étapes suivantes
 
-Si vous rencontrez des problèmes avec vos contrôleurs d’appareil StorSimple que vous ne pouvez pas résoudre en suivant les procédures décrites dans ce didacticiel, [contactez le support technique Microsoft](https://msdn.microsoft.com/library/azure/dn757750.aspx).
+Si vous rencontrez des problèmes avec vos contrôleurs d’appareil StorSimple que vous ne pouvez pas résoudre en suivant les procédures décrites dans ce didacticiel, [contactez le support technique Microsoft](storsimple-contact-microsoft-support.md).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

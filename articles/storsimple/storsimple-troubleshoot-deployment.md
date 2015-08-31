@@ -1,18 +1,18 @@
 <properties 
-   pageTitle="Résolution des problèmes de déploiement d’un appareil StorSimple"
+   pageTitle="Résolution des problèmes de déploiement d’un appareil StorSimple | Microsoft Azure"
    description="Décrit comment diagnostiquer et corriger les erreurs qui se produisent lorsque vous déployez StorSimple pour la première fois."
    services="storsimple"
    documentationCenter="NA"
    authors="alkohli"
-   manager="adinah"
-   editor="tysonn" />
+   manager="carolz"
+   editor="" />
 <tags 
    ms.service="storsimple"
    ms.devlang="NA"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="07/17/2015"
+   ms.date="08/18/2015"
    ms.author="alkohli" />
 
 # Résolution des problèmes de déploiement d’un appareil StorSimple
@@ -29,17 +29,17 @@ Cet article décrit également les outils de résolution des problèmes de dépl
 
 Si vous rencontrez un problème lors du premier déploiement de votre appareil, procédez comme suit :
 
-- Si vous dépannez un appareil physique, assurez-vous que le matériel a été installé et configuré comme décrit à la page [Installation matérielle de votre appareil](https://msdn.microsoft.com/library/azure/dn772375.aspx).
-- Vérifiez les conditions préalables pour le déploiement. Assurez-vous de disposer de toutes les informations décrites dans la [liste de vérification du déploiement](storsimple-deployment-walkthrough.md#pre-installation-checklist).
+- Si vous dépannez un appareil physique, assurez-vous que le matériel a été installé et configuré comme décrit à la page [Installation de votre appareil StorSimple 8100](storsimple-8100-hardware-installation.md) ou [Installation de votre appareil StorSimple 8600](storsimple-8600-hardware-installation.md).
+- Vérifiez les conditions préalables pour le déploiement. Assurez-vous de disposer de toutes les informations décrites dans la [liste de vérification de la configuration de déploiement](storsimple-deployment-walkthrough.md#deployment-configuration-checklist).
 - Passez en revue les notes de publication de StorSimple pour voir si le problème est décrit. Les notes de publication incluent des solutions de contournement concernant les problèmes d’installation connus. 
 
-Lors du déploiement d’un appareil, les problèmes les plus courants auxquels les utilisateurs sont confrontés se produisent lorsqu’ils exécutent l’Assistant Installation et lorsqu’ils inscrivent l’appareil via Windows PowerShell pour StorSimple. (Vous utilisez Windows PowerShell pour StorSimple pour inscrire et configurer votre appareil StorSimple. Pour plus d’informations sur l’inscription d’un appareil, consultez la page [Inscription de votre appareil](https://msdn.microsoft.com/library/azure/dn757742.aspx).)
+Lors du déploiement d’un appareil, les problèmes les plus courants auxquels les utilisateurs sont confrontés se produisent lorsqu’ils exécutent l’Assistant Installation et lorsqu’ils inscrivent l’appareil via Windows PowerShell pour StorSimple. (Vous utilisez Windows PowerShell pour StorSimple pour inscrire et configurer votre appareil StorSimple. Pour plus d'informations sur l’inscription des appareils, consultez l’[Étape 3 : configuration et inscription de votre appareil via Windows PowerShell pour StorSimple](storsimple-deployment-walkthrough.md#step-3-configure-and-register-the-device-through-windows-powershell-for-storsimple).)
 
 Les sections suivantes peuvent vous aider à résoudre les problèmes que vous rencontrez lorsque vous configurez l’appareil StorSimple pour la première fois.
 
 ## Processus de l’Assistant Première installation
 
-Les étapes suivantes résument le processus de l’Assistant Installation. Pour obtenir des informations de configuration détaillées, consultez [Déploiement de votre appareil StorSimple local](storsimple-deployment-walkthrough.md).
+Les étapes suivantes résument le processus de l’Assistant Installation. Pour obtenir des informations de configuration détaillées, consultez [Déploiement de votre appareil StorSimple local](storsimple-deployment-walkthrough.md).
 
 1. Exécutez l’applet de commande [Invoke-HcsSetupWizard](https://technet.microsoft.com/library/dn688135.aspx) pour démarrer l’Assistant Installation qui vous guidera tout au long des étapes restantes. 
 2. Configurez le réseau : l’Assistant Installation vous permet de configurer les paramètres réseau de l’interface réseau DATA 0 sur votre appareil StorSimple. Les paramètres suivants sont inclus :
@@ -53,7 +53,7 @@ Les étapes suivantes résument le processus de l’Assistant Installation. Pour
  
     > [AZURE.IMPORTANT]Les mots de passe sont collectés avant l’inscription, mais appliqués seulement après que vous avez inscrit correctement l’appareil. En cas de non-application d’un mot de passe, vous devez fournir le mot de passe à nouveau jusqu’à ce que les mots de passe requis (qui répondent aux exigences de complexité) soient collectés.
 
-4. Inscrivez l’appareil : la dernière étape consiste à inscrire l’appareil auprès du service StorSimple Manager en cours d’exécution dans Microsoft Azure. L’inscription vous oblige à [obtenir la clé d’inscription](https://msdn.microsoft.com/library/azure/cd4dee49-6ae8-4ff0-b79b-74b2027cb694#sec03) à partir du portail de gestion Azure et à l’indiquer dans l’Assistant Installation. Une fois que l’appareil est inscrit correctement, une clé de chiffrement des données du service vous est fournie. Veillez à conserver cette clé de chiffrement dans un emplacement sûr, car elle sera nécessaire pour inscrire tous les autres appareils auprès du service.
+4. Inscrivez l’appareil : la dernière étape consiste à inscrire l’appareil auprès du service StorSimple Manager en cours d’exécution dans Microsoft Azure. L’inscription vous oblige à [obtenir la clé d’inscription](storsimple-manage-service.md#get-the-service-registration-key) à partir du portail de gestion Azure et à le fournir dans l’Assistant Installation. Une fois que l’appareil est inscrit correctement, une clé de chiffrement des données du service vous est fournie. Veillez à conserver cette clé de chiffrement dans un emplacement sûr, car elle sera nécessaire pour inscrire tous les autres appareils auprès du service.
 
 ## Erreurs courantes lors du déploiement de l’appareil
 
@@ -99,7 +99,7 @@ Assurez-vous que vos mots de passe répondent aux exigences suivantes :
 - Les mots de passe doivent contenir 3 des 4 types de caractères suivants : minuscules, majuscules, numériques et spéciaux. 
 - Votre mot de passe ne peut pas être identique aux 24 derniers mots de passe.
 
-En outre, n’oubliez pas que les mots de passe expirent chaque année et qu’ils peuvent être modifiés uniquement après l’inscription correcte de l’appareil. Si l’inscription échoue pour une raison quelconque, les mots de passe ne sont pas modifiés. Pour plus d’informations sur les mots de passe de l’administrateur de l’appareil et du Gestionnaire d’instantanés StorSimple, consultez la section [Mots de passe](https://msdn.microsoft.com/library/azure/00fb2b46-e29e-4c4d-90a8-1dbb7db3672e#sec_02).
+En outre, n’oubliez pas que les mots de passe expirent chaque année et qu’ils peuvent être modifiés uniquement après l’inscription correcte de l’appareil. Si l’inscription échoue pour une raison quelconque, les mots de passe ne sont pas modifiés. Pour plus d’informations relatives aux mots de passe du Gestionnaire d'instantanés StorSimple et d’administrateur de l’appareil, consultez [Utilisation du service StorSimple Manager pour modifier vos mots de passe StorSimple](storsimple-change-passwords.md).
 
 Vous pouvez rencontrer une ou plusieurs des erreurs suivantes lorsque vous configurez les mots de passe de l’administrateur de l’appareil et du Gestionnaire d’instantanés StorSimple.
 
@@ -119,10 +119,10 @@ Les mots de passe sont collectés avant l’inscription de l’appareil, mais ap
 
 > [AZURE.IMPORTANT]En général, si une tentative d’application d’un mot de passe échoue, le logiciel essaie à plusieurs reprises de collecter le mot de passe jusqu’à ce que son application réussisse. Dans de rares circonstances, le mot de passe ne peut pas être appliqué. Dans ce cas, vous pouvez inscrire l’appareil et continuer ; cependant, les mots de passe ne sont pas modifiés. Vous ne recevez aucune indication spécifiant quel mot de passe n’a pas été modifié : le mot de passe Administrateur ou le mot de passe du Gestionnaire d’instantanés StorSimple. Si cette situation se produit, nous vous recommandons de modifier les deux mots de passe.
 
-Vous pouvez réinitialiser les mots de passe à partir du portail de gestion de votre service StorSimple Manager. Pour plus d'informations, consultez les pages suivantes :
+Vous pouvez réinitialiser les mots de passe à partir du portail de gestion de votre service StorSimple Manager. Pour plus d’informations, consultez :
 
-- [Configuration du mot de passe Administrateur de l’appareil](https://msdn.microsoft.com/library/azure/02f1412f-e196-4a88-8eda-2113247ea47c#sec09)
-- [Configuration du mot de passe du gestionnaire d’instantanés StorSimple](https://msdn.microsoft.com/library/azure/02f1412f-e196-4a88-8eda-2113247ea47c#sec08)
+- [Modification du mot de passe d’administrateur de l’appareil](storsimple-change-passwords.md#change-the-device-administrator-password).
+- [Modification du mot de passe du Gestionnaire d’instantanés StorSimple](storsimple-change-passwords.md#change-the-storsimple-snapshot-manager-password).
 
 ## Erreurs pendant l'inscription d’un appareil
 
@@ -130,14 +130,14 @@ Vous utilisez le service StorSimple Manager en cours d’exécution dans Microso
 
 | Non.| Message d’erreur | Causes possibles | Action recommandée |
 | ---| ------------- | --------------- | ------------------ |
-| 1 | Erreur 350027 : Impossible d’inscrire l’appareil auprès de StorSimple Manager. | | Patientez quelques minutes et recommencez l’opération. Si le problème persiste, [contactez le support technique Microsoft](https://msdn.microsoft.com/library/azure/dn757750.aspx).|
-| 2 | Erreur 350013 : Une erreur s’est produite lors de l’inscription de l’appareil. Cela peut résulter d’une clé d’inscription du service incorrecte. | | Inscrivez à nouveau l’appareil avec la clé d’inscription de service appropriée. Pour plus d’informations, consultez la section [Obtenir la clé d’inscription de service.](https://msdn.microsoft.com/library/azure/cd4dee49-6ae8-4ff0-b79b-74b2027cb694#sec03) |
-| 3 | Erreur 350063 : l’authentification auprès du service StorSimple Manager a réussi, mais l’inscription a échoué. Veuillez réessayer l’opération après un certain temps. | Cette erreur indique que l’authentification avec ACS a réussi, mais que l’appel pour l’inscription au service a échoué. Cela peut résulter d’un problème réseau sporadique. | Si le problème persiste, contactez le [support technique Microsoft](https://msdn.microsoft.com/library/azure/dn757750.aspx). |
-| 4 | Erreur 350049 : Le service n’a pas pu être atteint lors de l’inscription. | Lorsque l’appel au service est effectué, une exception web est reçue. Dans certains cas, ce problème peut être résolu avec une nouvelle tentative ultérieure de l’opération. | Vérifiez votre adresse IP et le nom DNS, puis réessayez l’opération. Si le problème persiste, [contactez le support technique Microsoft](https://msdn.microsoft.com/library/azure/dn757750.aspx). | 
+| 1 | Erreur 350027 : Impossible d’inscrire l’appareil auprès de StorSimple Manager. | | Patientez quelques minutes et recommencez l’opération. Si le problème persiste, [contactez le support technique Microsoft](storsimple-contact-microsoft-support.md).|
+| 2 | Erreur 350013 : Une erreur s’est produite lors de l’inscription de l’appareil. Cela peut résulter d’une clé d’inscription du service incorrecte. | | Inscrivez à nouveau l’appareil avec la clé d’inscription de service appropriée. Pour plus d’informations, consultez la section [Obtenir la clé d’inscription de service.](storsimple-manage-service.md#get-the-service-registration-key) |
+| 3 | Erreur 350063 : l’authentification auprès du service StorSimple Manager a réussi, mais l’inscription a échoué. Veuillez réessayer l’opération après un certain temps. | Cette erreur indique que l’authentification avec ACS a réussi, mais que l’appel pour l’inscription au service a échoué. Cela peut résulter d’un problème réseau sporadique. | Si le problème persiste, contactez le [support technique Microsoft](storsimple-contact-microsoft-support.md). |
+| 4 | Erreur 350049 : Le service n’a pas pu être atteint lors de l’inscription. | Lorsque l’appel au service est effectué, une exception web est reçue. Dans certains cas, ce problème peut être résolu avec une nouvelle tentative ultérieure de l’opération. | Vérifiez votre adresse IP et le nom DNS, puis réessayez l’opération. Si le problème persiste, [contactez le support technique Microsoft](storsimple-contact-microsoft-support.md). | 
 | 5. | Erreur 350031 : L’appareil a déjà été inscrit. | | Aucune action requise. |
 | 6. | Erreur 350016 : Échec de l’inscription de l’appareil. | |Vérifiez que la clé d’inscription est correcte. |
-| 7. | Invoke-HcsSetupWizard : Une erreur s’est produite lors de l’inscription de votre appareil ; cela peut être dû à une adresse IP ou un nom DNS incorrect. Vérifiez vos paramètres réseau et réessayez. Si le problème persiste, [contactez le support technique Microsoft](https://msdn.microsoft.com/library/azure/dn757750.aspx). (Erreur 350050) | Assurez-vous que votre appareil peut tester le réseau externe (avec une commande ping). Si vous n’avez pas de connectivité vers le réseau externe, l’inscription peut échouer avec cette erreur. Cette erreur peut être une combinaison d’un ou plusieurs des éléments suivants :<ul><li>Adresse IP incorrecte</li><li>Sous-réseau incorrect</li><li>Passerelle incorrecte</li><li>Paramètres DNS incorrects</li></ul> | Pour les étapes, consultez la page [Exemple de résolution de problème pas à pas](#step-by-step-storsimple-troubleshooting-example). |
-| 8 | Invoke-HcsSetupWizard : échec de l’opération en cours en raison d’une erreur de service interne [0x1FBE2]. Veuillez réessayer l’opération après un certain temps. Si le problème persiste, contactez le support technique Microsoft. | Il s’agit d’une erreur générique levée pour toutes les erreurs du service ou de l’agent invisibles pour l’utilisateur. La raison la plus courante est un échec de l’authentification ACS. Une cause possible de l’échec est l’existence de problèmes avec la configuration du serveur NTP et un paramétrage incorrect de l’heure sur l’appareil. | Corrigez l’heure (s’il existe des problèmes), puis réessayez l’opération d’inscription. Si le problème persiste, contactez le [support technique Microsoft](https://msdn.microsoft.com/library/azure/dn757750.aspx) pour les étapes suivantes. |
+| 7. | Invoke-HcsSetupWizard : Une erreur s’est produite lors de l’inscription de votre appareil ; cela peut être dû à une adresse IP ou un nom DNS incorrect. Vérifiez vos paramètres réseau et réessayez. Si le problème persiste, [contactez le support technique Microsoft](storsimple-contact-microsoft-support.md). (Erreur 350050) | Assurez-vous que votre appareil peut tester le réseau externe (avec une commande ping). Si vous n’avez pas de connectivité vers le réseau externe, l’inscription peut échouer avec cette erreur. Cette erreur peut être une combinaison d’un ou plusieurs des éléments suivants :<ul><li>Adresse IP incorrecte</li><li>Sous-réseau incorrect</li><li>Passerelle incorrecte</li><li>Paramètres DNS incorrects</li></ul> | Pour les étapes, consultez la page [Exemple de résolution de problème pas à pas](#step-by-step-storsimple-troubleshooting-example). |
+| 8 | Invoke-HcsSetupWizard : échec de l’opération en cours en raison d’une erreur de service interne [0x1FBE2]. Veuillez réessayer l’opération après un certain temps. Si le problème persiste, contactez le support technique Microsoft. | Il s’agit d’une erreur générique levée pour toutes les erreurs du service ou de l’agent invisibles pour l’utilisateur. La raison la plus courante est un échec de l’authentification ACS. Une cause possible de l’échec est l’existence de problèmes avec la configuration du serveur NTP et un paramétrage incorrect de l’heure sur l’appareil. | Corrigez l’heure (s’il existe des problèmes), puis réessayez l’opération d’inscription. Si le problème persiste, contactez le [support technique Microsoft](storsimple-contact-microsoft-support.md) pour les étapes suivantes. |
 | 9. | Avertissement : impossible d’activer l’appareil. Les mots de passe de l’administrateur de l’appareil et du Gestionnaire d’instantanés StorSimple n’ont pas été modifiés. | Si l’inscription échoue, les mots de passe de l’administrateur de l’appareil et du Gestionnaire d’instantanés StorSimple ne sont pas modifiés. |
 
 ## Outils de résolution des problèmes de déploiement de StorSimple
@@ -153,11 +153,11 @@ Un package de prise en charge contient tous les journaux pertinents qui peuvent 
 
 ### Pour afficher les journaux ou le contenu du package de prise en charge
 
-1. Utilisez Windows PowerShell pour StorSimple pour générer un package de prise en charge, comme décrit à la page [Générer un package de prise en charge](https://msdn.microsoft.com/library/azure/dn772348.aspx).
+1. Utilisez Windows PowerShell pour StorSimple pour générer un package de support, comme décrit à la page [Création et gestion d'un package de support](storsimple-create-manage-support-package.md).
 
 2. Téléchargez le [script de déchiffrement](https://gallery.technet.microsoft.com/scriptcenter/Script-to-decrypt-a-a8d1ed65) localement sur votre ordinateur client.
 
-3. Utilisez cette [procédure pas à pas](https://msdn.microsoft.com/library/azure/dn762117.aspx) pour ouvrir et déchiffrer le package de prise en charge.
+3. Utilisez cette [procédure pas à pas](storsimple-create-manage-support-package.md#edit-a-support-package) pour ouvrir et déchiffrer le package de prise en charge.
 
 4. Les journaux du package de prise en charge déchiffré sont au format etw/etvx. Vous pouvez afficher ces fichiers dans l’Observateur d’événements Windows en procédant comme suit :
   1. Exécutez la commande **eventvwr** sur votre client Windows. L’Observateur d’événements démarre.
@@ -172,37 +172,37 @@ Un package de prise en charge contient tous les journaux pertinents qui peuvent 
 
 6. Dans les fichiers journaux, recherchez les chaînes relatives aux applets de commande appelées par l’Assistant Installation. Pour obtenir la liste de ces applets de commande, consultez la section [Processus de l’Assistant Première installation](#first-time-setup-wizard-process). 
 
-7. Si vous n’êtes pas en mesure de déterminer la cause du problème, vous pouvez [contacter le support technique Microsoft](https://msdn.microsoft.com/library/azure/dn757750.aspx) pour connaître les étapes suivantes. Suivez la procédure décrite à la page [Démarrage d’une session de support](https://msdn.microsoft.com/library/azure/dn757804.aspx) pour demander de l’aide au support technique Microsoft.
+7. Si vous n’êtes pas en mesure de déterminer la cause du problème, vous pouvez [contacter le support technique Microsoft](storsimple-contact-microsoft-support.md) pour connaître les étapes suivantes. Suivez la procédure décrite à la page [Création d’une demande de support](storsimple-contact-microsoft-support.md#create-a-support-request) pour demander de l’aide au support technique Microsoft.
 
 ## Applets de commande disponibles pour la résolution des problèmes
 
 Utilisez les applets de commande Windows PowerShell suivantes pour détecter les erreurs de connectivité.
 
-- Get-NetAdapter : utilisez cette applet de commande pour détecter l’intégrité des interfaces réseau. 
+- `Get-NetAdapter` : utilisez cette applet de commande pour détecter l’intégrité des interfaces réseau. 
 
-- Test-Connection : utilisez cette applet de commande pour vérifier la connectivité réseau à l’intérieur et à l’extérieur du réseau.
+- `Test-Connection` : utilisez cette applet de commande pour vérifier la connectivité réseau à l’intérieur et à l’extérieur du réseau.
 
-- Test-HcsmConnection : utilisez cette applet de commande pour vérifier la connectivité d’un appareil correctement inscrit.
+- `Test-HcsmConnection` : utilisez cette applet de commande pour vérifier la connectivité d’un appareil correctement inscrit.
 
 Si vous utilisez Update 1 sur votre appareil StorSimple, les applets de commande de diagnostic suivantes sont également disponibles.
 
-- Sync-HcsTime : utilisez cette applet de commande pour afficher l’heure de l’appareil et forcer une synchronisation avec le serveur NTP.
+- `Sync-HcsTime` : utilisez cette applet de commande pour afficher l’heure de l’appareil et forcer une synchronisation avec le serveur NTP.
 
-- Enable-HcsPing et Disable-HcsPing : utilisez ces applets de commande pour autoriser les hôtes à effectuer un test ping sur les interfaces réseau de votre appareil StorSimple. Par défaut, les interfaces réseau de StorSimple ne répondent pas aux requêtes ping.
+- `Enable-HcsPing` et `Disable-HcsPing` : utilisez ces applets de commande pour autoriser les hôtes à effectuer un test ping sur les interfaces réseau de votre appareil StorSimple. Par défaut, les interfaces réseau de StorSimple ne répondent pas aux requêtes ping.
 
-- Trace-HcsRoute : utilisez cette applet de commande comme un outil de suivi d’itinéraire. Elle envoie des paquets à chaque routeur jusqu’à une destination finale pendant une période donnée, puis calcule les résultats en fonction des paquets renvoyés par chaque tronçon. Comme l’applet de commande Trace-HcsRoute indique le degré de perte de paquets au niveau d’un routeur ou d’un lien donné, vous pouvez identifier les routeurs ou liens susceptibles de provoquer des problèmes de réseau.
+- `Trace-HcsRoute` : utilisez cette applet de commande comme un outil de suivi d’itinéraire. Elle envoie des paquets à chaque routeur jusqu’à une destination finale pendant une période donnée, puis calcule les résultats en fonction des paquets renvoyés par chaque tronçon. Comme l’applet de commande `Trace-HcsRoute` indique le degré de perte de paquets au niveau d’un routeur ou d’un lien donné, vous pouvez identifier les routeurs ou liens susceptibles de provoquer des problèmes de réseau.
 
-- Get-HcsRoutingTable : utilisez cette applet de commande pour afficher la table de routage IP locale.
+- `Get-HcsRoutingTable` : utilisez cette applet de commande pour afficher la table de routage IP locale.
 
 ## Résolution des problèmes avec l’applet de commande Get-NetAdapter
 
-Au moment de configurer des interfaces réseau pour un premier déploiement d’appareil, l’état du matériel n’est pas disponible dans l’interface utilisateur du service StorSimple Manager, car l’appareil n’est pas encore inscrit auprès du service. De plus, la page Statut du matériel ne reflète pas toujours correctement l’état de l’appareil, surtout si des problèmes empêchent la synchronisation du service. En pareil cas, vous pouvez utiliser l’applet de commande Get-NetAdapter pour déterminer l’intégrité et l’état des interfaces réseau.
+Au moment de configurer des interfaces réseau pour un premier déploiement d’appareil, l’état du matériel n’est pas disponible dans l’interface utilisateur du service StorSimple Manager, car l’appareil n’est pas encore inscrit auprès du service. De plus, la page Statut du matériel ne reflète pas toujours correctement l’état de l’appareil, surtout si des problèmes empêchent la synchronisation du service. En pareil cas, vous pouvez utiliser l’applet de commande `Get-NetAdapter` pour déterminer l’intégrité et l’état des interfaces réseau.
 
 ### Pour afficher la liste de toutes les cartes réseau de votre appareil
 
 1. Démarrez Windows PowerShell pour StorSimple, puis tapez **Get-NetAdapter**. 
 
-2. Utilisez la sortie de l’applet de commande Get-NetAdapter et les instructions suivantes pour comprendre l’état de votre interface réseau.
+2. Utilisez la sortie de l’applet de commande `Get-NetAdapter` et les instructions suivantes pour comprendre l’état de votre interface réseau.
   - Si l’interface est intègre et activée, l’état d’**ifIndex** indique **Activé**.
   - Si l’interface est intègre, mais qu’elle n’est pas physiquement connectée (par un câble réseau), l’état d’**ifIndex** indique **Désactivé**.
   - Si l’interface est intègre mais pas activée, l’état d’**ifIndex** indique **Absent**.
@@ -211,7 +211,7 @@ Au moment de configurer des interfaces réseau pour un premier déploiement d’
 Pour plus d’informations sur l’utilisation de cette applet de commande, accédez à la page [GetNetAdapter](https://technet.microsoft.com/library/jj130867.aspx) dans le document de référence des applets de commande Windows PowerShell.  
 
 
-Les sections suivantes présentent des exemples de sortie de l’applet de commande Get-NetAdapter.
+Les sections suivantes présentent des exemples de sortie de l’applet de commande `Get-NetAdapter`.
 
  Dans ces exemples, le contrôleur 0 était le contrôleur passif et a été configuré comme suit :
 
@@ -257,9 +257,9 @@ Voici la sortie du contrôleur 1 (le contrôleur actif). Seule l’interface ré
 ## Résolution des problèmes avec l’applet de commande Test-Connection  
 
 
-Vous pouvez utiliser l’applet de commande Test-Connection pour déterminer si votre appareil StorSimple peut se connecter au réseau externe. Si tous les paramètres réseau, y compris le DNS, sont correctement configurés dans l’Assistant Installation, vous pouvez utiliser l’applet de commande Test-Connection pour effectuer un test ping sur une adresse connue à l’extérieur du réseau, comme outlook.com.
+Vous pouvez utiliser l’applet de commande `Test-Connection` pour déterminer si votre appareil StorSimple peut se connecter au réseau externe. Si tous les paramètres réseau, y compris le DNS, sont correctement configurés dans l’Assistant Installation, vous pouvez utiliser l’applet de commande `Test-Connection` pour effectuer un test ping sur une adresse connue à l’extérieur du réseau, comme outlook.com.
 
-Consultez ci-dessous les exemples de sortie de l’applet de commande Test-Connection.
+Consultez ci-dessous les exemples de sortie de l’applet de commande `Test-Connection`.
 
 > [AZURE.NOTE]Dans le premier exemple, l’appareil est configuré avec un paramètre DNS incorrect. Dans le deuxième exemple, le paramètre DNS est correct.
  
@@ -287,7 +287,7 @@ Dans l’exemple suivant, le DNS renvoie l’adresse IPV4, ce qui indique que le
 
 ## Résolution des problèmes avec l’applet de commande Test-HcsmConnection
 
-Utilisez l’applet de commande Test-HcsmConnection pour un appareil qui est déjà connecté et inscrit auprès du service StorSimple Manager. Cette applet de commande permet de vérifier la connectivité entre un appareil inscrit et le service StorSimple Manager correspondant. Vous pouvez exécuter cette commande sur Windows PowerShell pour StorSimple.
+Utilisez l’applet de commande `Test-HcsmConnection` pour un appareil qui est déjà connecté et inscrit auprès du service StorSimple Manager. Cette applet de commande permet de vérifier la connectivité entre un appareil inscrit et le service StorSimple Manager correspondant. Vous pouvez exécuter cette commande sur Windows PowerShell pour StorSimple.
 
 ### Pour exécuter l’applet de commande Test-HcsmConnection
 
@@ -326,11 +326,11 @@ Utilisez l’applet de commande Test-HcsmConnection pour un appareil qui est dé
  
 Les fichiers journaux CiSCommandletLog0Curr.errlog et CiSAgentsvc0Curr.errlog comporteront plus d’informations, notamment les détails de l’exception.
 
-Pour plus d’informations sur l’utilisation de l’applet de commande, accédez à la page [Test-HcsmConnection](https://technet.microsoft.com/library/dn715782.aspx) dans la documentation de référence de Windows PowerShell.
+Pour plus d’informations sur l’utilisation de l’applet de commande, accédez à la page [Test-HcsmConnection](https://technet.microsoft.com/library/dn715782.aspx) dans la documentation de référence de Windows PowerShell.
 
 > [AZURE.IMPORTANT]Vous pouvez exécuter cette applet de commande pour le contrôleur passif et actif.
  
-Consultez les exemples de sortie de l’applet de commande Test-HcsmConnection.
+Consultez ci-dessous les exemples de sortie de l’applet de commande `Test-HcsmConnection`.
 
 **Exemple de sortie : appareil inscrit exécutant StorSimple Release (juillet 2014)**
 
@@ -346,7 +346,7 @@ Le premier exemple concerne un appareil qui est inscrit auprès du service StorS
      Checking connectivity from StorSimple Manager service to StorSimple device. .... Success.
      Controller1>
 
-**Exemple de sortie : appareil inscrit exécutant StorSimple Update 1 (mai 2015)**
+**Exemple de sortie : appareil inscrit exécutant StorSimple Update 1**
 
 Si vous utilisez Update 1 sur votre appareil StorSimple, vous n’avez pas besoin de l’utiliser avec le commutateur verbose.
 
@@ -449,7 +449,7 @@ Exemple : vous avez 2 interfaces réseau, DATA 2 et DATA 3, connectées à I
 
 Si vous utilisez Update 1 sur votre appareil StorSimple, votre interface réseau DATA 0 a la préférence la plus élevée pour le trafic de cloud. Cela signifie que même s’il existe d’autres interfaces compatibles avec le cloud, le trafic de cloud est acheminé via l’interface DATA 0.
 
-Si vous exécutez l’applet de commande Get-HcsRoutingTable sans spécifier de paramètres (comme dans l’exemple suivant), l’applet de commande génère en sortie des tables de routage IPv4 et IPv6. Vous pouvez également spécifier `Get-HcsRoutingTable -IPv4` ou `Get-HcsRoutingTable -IPv6` pour obtenir une table de routage pertinente.
+Si vous exécutez l’applet de commande `Get-HcsRoutingTable` sans spécifier de paramètres (comme dans l’exemple suivant), l’applet de commande génère en sortie des tables de routage IPv4 et IPv6. Vous pouvez également spécifier `Get-HcsRoutingTable -IPv4` ou `Get-HcsRoutingTable -IPv6` pour obtenir une table de routage pertinente.
 
       Controller0>
       Controller0>Get-HcsRoutingTable
@@ -537,9 +537,9 @@ L’erreur peut provenir des éléments suivants :
 
 1. Vérifiez la configuration de l’appareil : sur le contrôleur actif, exécutez **Invoke-HcsSetupWizard**.
 
-     >[AZURE.NOTE]L’Assistant Installation doit s’exécuter sur le contrôleur actif. Pour vérifier que vous êtes connecté au contrôleur actif, examinez la bannière présentée dans la console série. La bannière indique si vous êtes connecté au contrôleur 0 ou 1, et si le contrôleur est actif ou passif. Pour plus d’informations, consultez la page [Identification d’un contrôleur actif sur votre appareil](https://msdn.microsoft.com/library/azure/dn790262.aspx).
+     >[AZURE.NOTE]L’Assistant Installation doit s’exécuter sur le contrôleur actif. Pour vérifier que vous êtes connecté au contrôleur actif, examinez la bannière présentée dans la console série. La bannière indique si vous êtes connecté au contrôleur 0 ou 1, et si le contrôleur est actif ou passif. Pour plus d’informations, consultez la page [Identification d’un contrôleur actif sur votre appareil](storsimple-controller-replacement.md#identify-the-active-controller-on-your-device).
  
-2. Assurez-vous que l’appareil est câblé correctement : vérifiez le câblage sur le panneau arrière de l’appareil. Le câblage est spécifique au modèle d’appareil. Pour plus d’informations, consultez la page [Câbler votre appareil 8100](https://msdn.microsoft.com/library/azure/dn757738.aspx) ou [Câbler votre appareil 8600](https://msdn.microsoft.com/library/azure/dn757762.aspx).
+2. Assurez-vous que l’appareil est câblé correctement : vérifiez le câblage sur le panneau arrière de l’appareil. Le câblage est spécifique au modèle d’appareil. Pour plus d’informations, consultez [Installation de votre appareil StorSimple 8100](storsimple-8100-hardware-installation.md) ou [Installation de votre appareil StorSimple 8600](storsimple-8600-hardware-installation.md).
 
      >[AZURE.NOTE]Si vous utilisez des ports réseau 10 GbE, vous devez utiliser les adaptateurs QSFP-SFP et les câbles SFP fournis. Pour plus d’informations, consultez la [liste des câbles, commutateurs et transmetteurs recommandés par le fournisseur OEM pour les ports Mellanox](http://www.mellanox.com/page/cables?mtag=cable_overview).
  
@@ -547,7 +547,7 @@ L’erreur peut provenir des éléments suivants :
 
    - Utilisez l’applet de commande Get-NetAdapter pour détecter l’intégrité des interfaces réseau pour DATA 0. 
    - Si le lien ne fonctionne pas, l’état **ifindex** indique que l’interface est arrêtée. Vous devez ensuite vérifier la connexion réseau du port au matériel et au commutateur. Vous devez également écarter les câbles défectueux. 
-   - Si vous pensez que le port DATA 0 sur le contrôleur actif est défectueux, vous pouvez le vérifier en vous connectant au port DATA 0 sur le contrôleur 1. Pour vérifier cela, débranchez le câble réseau du contrôleur 0 au dos de l’appareil, raccordez le câble au contrôleur 1, puis réexécutez l’applet de commande Get-NetAdapter. Si le port DATA 0 sur un contrôleur échoue, [contactez le support technique Microsoft](https://msdn.microsoft.com/library/azure/dn757750.aspx) pour les étapes suivantes. Vous devrez peut-être remplacer le contrôleur sur votre système.
+   - Si vous pensez que le port DATA 0 sur le contrôleur actif est défectueux, vous pouvez le vérifier en vous connectant au port DATA 0 sur le contrôleur 1. Pour vérifier cela, débranchez le câble réseau du contrôleur 0 au dos de l’appareil, raccordez le câble au contrôleur 1, puis réexécutez l’applet de commande Get-NetAdapter. Si le port DATA 0 sur un contrôleur échoue, [contactez le support technique Microsoft](storsimple-contact-microsoft-support.md) pour les étapes suivantes. Vous devrez peut-être remplacer le contrôleur sur votre système.
  
 4. Vérifiez la connectivité au commutateur :
    - Assurez-vous que les interfaces réseau DATA 0 sur le contrôleur 0 et le contrôleur 1 dans votre boîtier principal sont sur le même sous-réseau. 
@@ -557,24 +557,24 @@ L’erreur peut provenir des éléments suivants :
 5. Éliminez les erreurs utilisateur :
 
   - Réexécutez l’Assistant Installation (exécutez **Invoke-HcsSetupWizard**), puis entrez de nouveau les valeurs pour vous assurer qu’il n’y a pas d’erreur. 
-  - Vérifiez la clé d’inscription utilisée. La même clé d’inscription peut servir à connecter plusieurs appareils à un service StorSimple Manager. Utilisez la procédure décrite dans la section [Obtenir la clé d’inscription](https://msdn.microsoft.com/library/azure/cd4dee49-6ae8-4ff0-b79b-74b2027cb694#sec03) pour vous assurer que vous utilisez la clé d’inscription correcte.
+  - Vérifiez la clé d’inscription utilisée. La même clé d’inscription peut servir à connecter plusieurs appareils à un service StorSimple Manager. Utilisez la procédure décrite dans la section [Obtenir la clé d’inscription](storsimple-manage-service.md#get-the-service-registration-key) pour vous assurer que vous utilisez la clé d’inscription correcte.
 
-    > [AZURE.IMPORTANT]Si vous avez plusieurs services en cours d’exécution, vous devez vous assurer que la clé d’inscription du service approprié est utilisée pour inscrire l’appareil. Si vous avez inscrit un appareil avec le service StorSimple Manager incorrect, vous devez [contacter le support technique Microsoft](https://msdn.microsoft.com/library/azure/dn757750.aspx) pour connaître les étapes suivantes. Vous devrez peut-être rétablir les paramètres d’usine de l’appareil (ce qui peut entraîner une perte de données) pour le connecter ensuite au service prévu.
+    > [AZURE.IMPORTANT]Si vous avez plusieurs services en cours d’exécution, vous devez vous assurer que la clé d’inscription du service approprié est utilisée pour inscrire l’appareil. Si vous avez inscrit un appareil avec le service StorSimple Manager incorrect, vous devez [contacter le support technique Microsoft](storsimple-contact-microsoft-support.md) pour connaître les étapes suivantes. Vous devrez peut-être rétablir les paramètres d’usine de l’appareil (ce qui peut entraîner une perte de données) pour le connecter ensuite au service prévu.
 
 6. Utilisez l’applet de commande Test-Connection pour vérifier que vous disposez d’une connectivité vers le réseau externe. Pour plus d’informations, consultez la section [Dépannage avec l’applet de commande Test-Connection](#troubleshoot-with-the-test-connection-cmdlet).
 
-7. Vérifiez les interférences avec le pare-feu. Si vous avez vérifié que les paramètres d’adresse IP virtuelle, de sous-réseau, de passerelle et DNS sont tous corrects et que vous rencontrez encore des problèmes de connectivité, il est possible que votre pare-feu bloque les communications entre votre appareil et le réseau externe. Vérifiez que les ports 80 et 443 sont disponibles pour la communication sortante sur l’appareil StorSimple. Pour plus d’informations, consultez la page [Configuration réseau requise pour un appareil StorSimple](https://msdn.microsoft.com/library/azure/dn772371.aspx).
+7. Vérifiez les interférences avec le pare-feu. Si vous avez vérifié que les paramètres d’adresse IP virtuelle, de sous-réseau, de passerelle et DNS sont tous corrects et que vous rencontrez encore des problèmes de connectivité, il est possible que votre pare-feu bloque les communications entre votre appareil et le réseau externe. Vérifiez que les ports 80 et 443 sont disponibles pour la communication sortante sur l’appareil StorSimple. Pour plus d’informations, consultez la page [Configuration réseau requise pour votre appareil StorSimple](storsimple-system-requirements.md#networking-requirements-for-your-storsimple-device).
 
 8. Examinez les journaux. Consultez la page [Packages de support et journaux des appareils disponibles pour la résolution des problèmes](#support-packages-and-device-logs-available-for-troubleshooting).
 
-9. Si les étapes précédentes ne permettent pas de résoudre le problème, [contactez le support technique Microsoft](https://msdn.microsoft.com/library/azure/dn757750.aspx) pour obtenir une assistance.
+9. Si les étapes précédentes ne permettent pas de résoudre le problème, [contactez le support technique Microsoft](storsimple-contact-microsoft-support.md) pour obtenir une assistance.
 
 ## Étapes suivantes
-[Résolution des problèmes d’un appareil opérationnel](storsimple-troubleshoot-operational-device.md)
+[Apprenez à résoudre les problèmes d’un appareil opérationnel](storsimple-troubleshoot-operational-device.md).
 
 <!--Link references-->
 
 [1]: https://technet.microsoft.com/library/dd379547(v=ws.10).aspx
 [2]: https://technet.microsoft.com/library/dd392266(v=ws.10).aspx
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

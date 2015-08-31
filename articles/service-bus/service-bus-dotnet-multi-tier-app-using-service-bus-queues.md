@@ -16,28 +16,28 @@
 	ms.date="07/02/2015"
 	ms.author="sethm"/>
 
-# Application multiniveau .NET avec les files d'attente Service Bus
+# Application multiniveau .NET avec les files d’attente Azure Service Bus
 
 ## Introduction
 
-Le développement pour Microsoft Azure est simple grâce à Visual Studio 2013 et au Kit de développement logiciel (SDK) Azure gratuit pour .NET. Si vous n'avez pas déjà installé Visual Studio 2013, le Kit de développement logiciel (SDK) va automatiquement installer Visual Studio Express pour que vous puissiez commencer à développer gratuitement pour Azure. Ce guide part du principe que vous n'avez pas d'expérience en tant qu'utilisateur d'Azure. Une fois que vous aurez terminé ce didacticiel, vous disposerez d'une application qui utilise plusieurs ressources Azure qui s'exécutent dans votre environnement local et qui illustrent le fonctionnement d'une application multiniveau.
+Le développement pour Microsoft Azure est simple grâce à Visual Studio 2013 et au Kit de développement logiciel (SDK) Azure gratuit pour .NET. Si vous n'avez pas déjà installé Visual Studio 2013, le Kit de développement logiciel (SDK) va automatiquement installer Visual Studio Express pour que vous puissiez commencer à développer gratuitement pour Azure. Cet article part du principe que vous n’avez pas d’expérience en tant qu’utilisateur d’Azure. Une fois que vous aurez terminé ce didacticiel, vous disposerez d’une application qui utilise plusieurs ressources Azure qui s’exécutent dans votre environnement local et qui illustrent le fonctionnement d’une application multiniveau.
 
 Vous apprendrez à effectuer les opérations suivantes :
 
--   configurer votre ordinateur pour le développement Azure avec un seul téléchargement et une seule installation ;
--   utiliser Visual Studio pour développer pour Azure ;
--   créer une application multiniveau dans Azure avec les rôles Web et les rôles de travail ;
--   communiquer entre niveaux à l'aide des files d'attente Service Bus.
+-   configuration de votre ordinateur pour le développement Azure avec un seul téléchargement et une seule installation ;
+-   utilisation de Visual Studio pour développer pour Azure ;
+-   création d'une application multiniveau dans Azure avec les rôles Web et les rôles de travail ;
+-   Communication entre niveaux à l’aide des files d’attente Service Bus.
 
 [AZURE.INCLUDE [create-account-note](../../includes/create-account-note.md)]
 
-Dans ce didacticiel, vous allez générer et exécuter l'application multiniveau dans un service cloud Azure. Le composant frontal sera un rôle Web ASP.NET MVC et le composant principal sera un rôle de travail. Vous pouvez créer la même application multiniveau avec le composant frontal comme projet web à déployer sur un site web Azure au lieu d'un service cloud. Pour obtenir des instructions sur les différences à appliquer pour le composant frontal d'un site Web Azure, consultez la section [Étapes suivantes](#nextsteps).
+Dans ce didacticiel, vous allez générer et exécuter l'application multiniveau dans un service cloud Azure. Le composant frontal sera un rôle Web ASP.NET MVC et le composant principal sera un rôle de travail. Vous pouvez créer la même application multiniveau avec le composant frontal comme projet web déployé sur un site web Azure au lieu d’un service cloud. Pour obtenir des instructions sur les différences à appliquer sur le composant frontal d’un site Web Azure, consultez la section [Étapes suivantes](#nextsteps).
 
-Voici une capture d'écran de l'application terminée :
+Les captures d’écran suivantes présentent l’application terminée :
 
 ![][0]
 
-**Remarque** : Azure offre également la fonction de file d'attente de stockage. Pour plus d'informations sur les files d'attente de stockage Azure et les files d'attente Service Bus, consultez la page [Files d'attente Windows Azure et files d'attente Windows Azure Service Bus - comparaison et différences][sbqueuecomparison].
+> [AZURE.NOTE]Azure offre également la fonction de file d’attente de stockage. Pour plus d'informations sur les files d'attente de stockage Azure et les files d'attente Service Bus, consultez la page [Files d'attente Windows Azure et files d'attente Windows Azure Service Bus - comparaison et différences][sbqueuecomparison].
 
 ## Vue d’ensemble du scénario : communication entre les rôles
 
@@ -45,7 +45,7 @@ Pour envoyer une commande en traitement, le composant frontal d'interface utilis
 
 L'utilisation de la messagerie répartie entre les niveaux Web et central découple les deux composants. À l'inverse de la messagerie directe (TCP ou HTTP), le niveau Web ne se connecte pas directement au niveau central. En effet, il envoie des unités de travail, sous forme de messages, à Service Bus, qui les retient jusqu'à ce que le niveau central soit prêt à les traiter.
 
-Service Bus contient deux entités pour prendre en charge la messagerie répartie : les files d'attente et les rubriques. Avec les files d'attente, chaque message envoyé à la file d'attente est utilisé par un seul destinataire. Les rubriques prennent en charge le modèle de publication/d'abonnement, dans lequel chaque message publié est mis à disposition d'un abonnement inscrit auprès de la rubrique. Chaque abonnement gère de façon logique sa propre file de messages. Les abonnements peuvent également être configurés avec des règles de filtrage, qui limitent les messages transmis à la file d'attente d'abonnement à ceux correspondant aux critères du filtre. Cet exemple utilise les files d'attente Service Bus.
+Service Bus contient deux entités pour prendre en charge la messagerie répartie : les files d'attente et les rubriques. Avec les files d'attente, chaque message envoyé à la file d'attente est utilisé par un seul destinataire. Les rubriques prennent en charge le modèle de publication/d'abonnement, dans lequel chaque message publié est mis à disposition d'un abonnement inscrit auprès de la rubrique. Chaque abonnement gère de façon logique sa propre file de messages. Les abonnements peuvent également être configurés avec des règles de filtrage, qui limitent les messages transmis à la file d'attente d'abonnement à ceux correspondant aux critères du filtre. L’exemple suivant utilise les files d’attente Service Bus.
 
 ![][1]
 
@@ -65,45 +65,47 @@ Les sections qui suivent présentent le code de mise en œuvre de cette architec
 
 Avant de commencer à développer votre application Azure, téléchargez les outils et configurez votre environnement de développement.
 
-1.  Pour installer le Kit de développement logiciel (SDK) Azure pour .NET, cliquez sur le bouton ci-dessous :
+1.  Pour installer le Kit de développement logiciel (SDK) Azure pour .NET, cliquez sur le lien suivant.
 
     [Obtenir les outils et le Kit de développement logiciel (SDK)][]
 
-2. 	Cliquez sur le lien correspondant à votre version de Visual Studio. Les étapes de ce didacticiel utilisent Visual Studio 2013 :
+2. 	Cliquez sur le lien correspondant à votre version de Visual Studio. Les étapes de ce didacticiel utilisent Visual Studio 2013.
 
 	![][32]
 
-4. 	Lorsque vous êtes invité à exécuter ou à enregistrer le fichier d'installation, cliquez sur **Exécuter** :
+4. 	Lorsque vous êtes invité à exécuter ou à enregistrer le fichier d’installation, cliquez sur **Exécuter**.
 
     ![][3]
 
-5.  Dans Web Platform Installer, cliquez sur **Installer**, puis poursuivez l'installation :
+5.  Dans Web Platform Installer, cliquez sur **Installer**, puis poursuivez l’installation.
 
     ![][33]
 
-6.  Une fois l'installation terminée, vous disposez de tous les éléments nécessaires pour commencer le développement. Le Kit de développement logiciel (SDK) comprend des outils qui vous permettent de développer des applications Azure dans Visual Studio. Si Visual Studio n'est pas installé, Visual Studio Express pour Web est installé gratuitement.
+6.  Une fois l’installation terminée, vous disposez de tous les éléments nécessaires pour commencer le développement de l’application. Le Kit de développement logiciel (SDK) comprend des outils qui vous permettent de développer des applications Azure dans Visual Studio. Si Visual Studio n'est pas installé, Visual Studio Express pour Web est installé gratuitement.
 
 ## Configuration de l'espace de noms Service Bus
 
 L’étape suivante consiste à créer l’espace de noms de service et à obtenir une clé de signature d’accès partagé (SAP). Un espace de noms de service fournit une limite d'application pour chaque application exposée via Service Bus. Une clé SAP est automatiquement générée par le système lors de la création d'un espace de noms de service. La combinaison de l'espace de noms de service et de la clé SAP fournit à Service Bus des informations d'identification permettant d'authentifier l'accès à une application.
 
-Notez que vous pouvez également gérer les espaces de noms et les entités de messagerie Service Bus à l'aide de l'explorateur de serveurs Visual Studio, mais vous ne pouvez créer d'espaces de noms que depuis le portail.
+> [AZURE.NOTE]Vous pouvez également gérer les espaces de noms et les entités de messagerie Service Bus à l’aide de l’explorateur de serveurs Visual Studio, mais vous ne pouvez créer d’espaces de noms que depuis le portail Azure.
 
-### Configuration de l'espace de noms avec le portail de gestion
+### Configuration de l’espace de noms avec le portail Azure
 
-1.  Connectez-vous au [portail de gestion Azure][].
+1.  Connectez-vous au [portail Azure][].
 
-2.  Dans le volet de navigation gauche du portail de gestion, cliquez sur **Service Bus**.
+2.  Dans le volet de navigation gauche du portail Azure, cliquez sur **Service Bus**.
 
-3.  Dans le volet inférieur du portail de gestion, cliquez sur **Créer**.
+3.  Dans le volet inférieur du portail Azure, cliquez sur **Créer**.
 
     ![][6]
 
-4.  Dans la boîte de dialogue **Add a new namespace**, entrez un nom d’espace de noms. Le système vérifie immédiatement si le nom est disponible. ![][7]
+4.  Sur la page **Ajouter un nouvel espace de noms**, entrez un nom d’espace de noms. Le système vérifie immédiatement si le nom est disponible.
+
+    ![][7]
 
 5.  Après vous être assuré que le nom de l’espace de noms est disponible, choisissez le pays ou la région où votre espace de noms doit être hébergé (veillez à utiliser le même pays ou la même région que celui ou celle où vous déployez vos ressources de calcul). Assurez-vous également que vous sélectionnez **Messagerie** dans le champ d'espace de noms **Type** et **Standard** dans le champ **Couche de messagerie**.
 
-    IMPORTANT : choisissez la **même région** que celle que vous prévoyez de sélectionner pour le déploiement de votre application. Vous bénéficiez ainsi des meilleures performances.
+    > [AZURE.IMPORTANT]Choisissez la **même région** que celle que vous prévoyez de sélectionner pour déployer votre application. Vous bénéficiez ainsi des meilleures performances.
 
 6.  Cliquez sur la coche. Le système crée l’espace de noms de service et l’active. Vous devrez peut-être attendre plusieurs minutes afin que le système approvisionne des ressources pour votre compte.
 
@@ -129,14 +131,13 @@ Dans cette section, vous allez générer le composant frontal de votre applicati
 
 ### Création du projet
 
-1.  Avec les privilèges d'administrateur, démarrez Microsoft Visual Studio 2013 ou Microsoft Visual Studio Express. Pour démarrer Visual Studio avec les privilèges d'administrateur, cliquez avec le bouton droit sur **Microsoft Visual Studio 2013 (ou Microsoft Visual Studio Express)**, puis cliquez sur **Exécuter en tant qu'administrateur**. L'émulateur de calcul Azure, présenté plus loin dans ce guide, nécessite que Visual Studio soit démarré avec les privilèges d'administrateur.
+1.  Avec les privilèges d'administrateur, démarrez Microsoft Visual Studio 2013 ou Microsoft Visual Studio Express. Pour démarrer Visual Studio avec les privilèges d'administrateur, cliquez avec le bouton droit sur **Microsoft Visual Studio 2013 (ou Microsoft Visual Studio Express)**, puis cliquez sur **Exécuter en tant qu'administrateur**. L’émulateur de calcul Azure, présenté plus loin dans cet article , nécessite que Visual Studio soit démarré avec les privilèges d’administrateur.
 
     Dans Visual Studio, dans le menu **Fichier**, cliquez sur **Nouveau**, puis sur **Projet**.
 
     ![][8]
 
-
-2.  Dans **Modèles installés**, sous **Visual C#**, cliquez sur **Cloud**, puis sur **Azure Cloud Services**. Nommez ce projet **MultiTierApp**. Cliquez ensuite sur **OK**.
+2.  Dans **Modèles installés**, sous **Visual C\#**, cliquez sur **Cloud**, puis sur **Azure Cloud Services**. Nommez ce projet **MultiTierApp**. Cliquez ensuite sur **OK**.
 
     ![][9]
 
@@ -152,9 +153,9 @@ Dans cette section, vous allez générer le composant frontal de votre applicati
 
     ![][12]
 
-6.  Dans **Explorateur de solutions**, cliquez avec le bouton droit sur **Références**, puis cliquez sur **Gérer les packages NuGet...** ou **Ajouter une référence au package de bibliothèques**.
+6.  Dans **Explorateur de solutions**, cliquez avec le bouton droit sur **Références**, puis cliquez sur **Gérer les packages NuGet** ou **Ajouter une référence au package de bibliothèques**.
 
-7.  Sélectionnez **En ligne** dans la partie gauche de la boîte de dialogue. Recherchez « **Service Bus** » et sélectionnez l’élément **Microsoft Azure Service Bus**. Ensuite, terminez l'installation et fermez cette boîte de dialogue.
+7.  Sélectionnez **En ligne** dans la partie gauche de la boîte de dialogue. Recherchez « **Service Bus** » et sélectionnez l’élément **Microsoft Azure Service Bus**. Ensuite, terminez l’installation et fermez cette boîte de dialogue.
 
     ![][13]
 
@@ -166,7 +167,7 @@ Dans cette section, vous allez générer le composant frontal de votre applicati
 
 Dans cette section, vous allez créer les différentes pages affichées par votre application.
 
-1.  Dans le fichier **OnlineOrder.cs** dans Visual Studio, remplacez la définition d'espace de noms existante par le code suivant :
+1.  Dans le fichier OnlineOrder.cs dans Visual Studio, remplacez la définition d'espace de noms existante par le code suivant :
 
         namespace FrontendWebRole.Models
         {
@@ -177,13 +178,13 @@ Dans cette section, vous allez créer les différentes pages affichées par votr
             }
         }
 
-2.  Dans **Explorateur de solutions**, double-cliquez sur **Controllers\\HomeController.cs**. Ajoutez les instructions **using** suivantes au début du fichier pour inclure les espaces de noms au modèle que vous venez de créer, ainsi que Service Bus :
+2.  Dans **Explorateur de solutions**, double-cliquez sur **Controllers\\HomeController.cs**. Ajoutez les instructions d’**utilisation** suivantes au début du fichier pour inclure les espaces de noms au modèle que vous venez de créer, ainsi que Service Bus.
 
         using FrontendWebRole.Models;
         using Microsoft.ServiceBus.Messaging;
         using Microsoft.ServiceBus;
 
-3.  Également dans le fichier **HomeController.cs** dans Visual Studio, remplacez la définition d'espace de noms existante par le code suivant. Ce code contient des méthodes pour gérer l'envoi d'éléments dans la file d'attente :
+3.  Également dans le fichier HomeController.cs dans Visual Studio, remplacez la définition d'espace de noms existante par le code suivant. Ce code contient des méthodes pour gérer l’envoi d’éléments dans la file d’attente.
 
         namespace FrontendWebRole.Controllers
         {
@@ -192,7 +193,7 @@ Dans cette section, vous allez créer les différentes pages affichées par votr
                 public ActionResult Index()
                 {
                     // Simply redirect to Submit, since Submit will serve as the
-                    // front page of this application
+                    // front page of this application.
                     return RedirectToAction("Submit");
                 }
 
@@ -201,9 +202,9 @@ Dans cette section, vous allez créer les différentes pages affichées par votr
                     return View();
                 }
 
-                // GET: /Home/Submit
+                // GET: /Home/Submit.
                 // Controller method for a view you will create for the submission
-                // form
+                // form.
                 public ActionResult Submit()
                 {
                     // Will put code for displaying queue message count here.
@@ -211,12 +212,12 @@ Dans cette section, vous allez créer les différentes pages affichées par votr
                     return View();
                 }
 
-                // POST: /Home/Submit
+                // POST: /Home/Submit.
                 // Controller method for handling submissions from the submission
-                // form
+                // form.
                 [HttpPost]
 				// Attribute to help prevent cross-site scripting attacks and
-				// cross-site request forgery  
+				// cross-site request forgery.  
     			[ValidateAntiForgeryToken]
                 public ActionResult Submit(OnlineOrder order)
                 {
@@ -236,17 +237,17 @@ Dans cette section, vous allez créer les différentes pages affichées par votr
 
 4.  Dans le menu **Générer**, cliquez sur **Générer la solution** pour vérifier si votre travail est correct.
 
-5.  Maintenant, vous allez créer l'affichage de la méthode **Submit()** que vous avez créée plus haut. Cliquez avec le bouton droit sur la méthode Submit() et choisissez **Add View**
+5.  Maintenant, vous allez créer l’affichage de la méthode **Submit()** que vous avez créée plus tôt. Cliquez avec le bouton droit sur la méthode **Submit()** et choisissez **Ajouter une vue**.
 
     ![][14]
 
-6.  La boîte de dialogue qui s'affiche permet de créer l'affichage. Dans la liste déroulante **Modèle**, choisissez **Créer**. Dans la liste déroulante **Classe de modèle**, cliquez sur la classe **OnlineOrder**.
+6.  La boîte de dialogue qui s’affiche permet de créer l’affichage. Dans la liste **Modèle**, choisissez **Créer**. Dans la liste **Classe de modèle**, cliquez sur la classe **OnlineOrder**.
 
     ![][15]
 
 7.  Cliquez sur **Ajouter**.
 
-8.  À présent, modifiez le nom affiché de votre application. Dans l'**Explorateur de solutions**, double-cliquez sur le fichier \*\*Views\\Shared\\\\\_Layout.cshtml\*\* pour l'ouvrir dans l'éditeur de Visual Studio.
+8.  À présent, modifiez le nom affiché de votre application. Dans l’**Explorateur de solutions**, double-cliquez sur le fichier **Views\\Shared\\\\\_Layout.cshtml** pour l’ouvrir dans l’éditeur de Visual Studio.
 
 9.  Remplacez toutes les occurrences d'**Application ASP.NET** par **LITWARE'S Products**.
 
@@ -258,20 +259,19 @@ Dans cette section, vous allez créer les différentes pages affichées par votr
 
         <p>Current number of orders in queue waiting to be processed: @ViewBag.MessageCount</p>
 
-
 12. Vous avez maintenant implémenté votre interface utilisateur. Vous pouvez appuyer sur **F5** pour exécuter votre application et vérifier qu'elle apparaît bien comme vous le souhaitez.
 
     ![][17]
 
 ### Écriture de code pour l'envoi d'éléments dans une file d'attente Service Bus
 
-Maintenant, vous allez ajouter le code pour envoyer des éléments dans une file d'attente. Vous allez d'abord créer une classe qui contient les informations de connexion à votre file d'attente Service Bus. Ensuite, vous allez initialiser votre connexion à partir de **Global.aspx.cs**. Enfin, vous allez mettre à jour le code d'envoi que vous avez créé précédemment dans **HomeController.cs** pour qu'il envoie réellement les éléments dans une file d'attente Service Bus.
+Maintenant, vous allez ajouter le code pour envoyer des éléments dans une file d'attente. Vous allez d'abord créer une classe qui contient les informations de connexion à votre file d'attente Service Bus. Ensuite, vous allez initialiser votre connexion à partir de Global.aspx.cs. Enfin, vous allez mettre à jour le code d’envoi que vous avez créé précédemment dans HomeController.cs pour qu’il envoie réellement les éléments dans une file d’attente Service Bus.
 
-1.  Dans Explorateur de solutions, cliquez avec le bouton droit sur **FrontendWebRole** (sur le projet, et non sur le rôle). Cliquez sur **Add**, puis sur **Class**.
+1.  Dans **Explorateur de solutions**, cliquez avec le bouton droit sur **FrontendWebRole** (sur le projet, et non sur le rôle). Cliquez sur **Add**, puis sur **Class**.
 
-2.  Donnez le nom **QueueConnector.cs** à la classe. Cliquez sur **Add** pour créer la classe.
+2.  Donnez le nom QueueConnector.cs à la classe. Cliquez sur **Add** pour créer la classe.
 
-3.  Vous allez maintenant ajouter le code qui encapsule les informations de connexion et initialise la connexion à une file d’attente Service Bus. Dans QueueConnector.cs, ajoutez le code suivant, puis entrez des valeurs pour **Namespace** (votre espace de noms de service) et **yourKey**, qui est la clé SAP obtenue dans le [Portail de gestion Azure][Azure Management Portal] précédemment.
+3.  Vous allez maintenant ajouter le code qui encapsule les informations de connexion et initialise la connexion à une file d’attente Service Bus. Dans QueueConnector.cs, ajoutez le code suivant, puis entrez des valeurs pour **Espace de noms** (votre espace de noms de service) et **Votre clé**, qui est la clé SAP obtenue dans le [Portail Azure][Azure portal] précédemment.
 
         using System;
         using System.Collections.Generic;
@@ -288,16 +288,16 @@ Maintenant, vous allez ajouter le code pour envoyer des éléments dans une file
                 // on every request.
                 public static QueueClient OrdersQueueClient;
 
-                // Obtain these values from the Management Portal
+                // Obtain these values from the Azure portal.
                 public const string Namespace = "your service bus namespace";
 
-                // The name of your queue
+                // The name of your queue.
                 public const string QueueName = "OrdersQueue";
 
                 public static NamespaceManager CreateNamespaceManager()
                 {
                     // Create the namespace manager which gives you access to
-                    // management operations
+                    // management operations.
                     var uri = ServiceBusEnvironment.CreateServiceUri(
                         "sb", Namespace, String.Empty);
                     var tP = TokenProvider.CreateSharedAccessSignatureTokenProvider(
@@ -307,21 +307,21 @@ Maintenant, vous allez ajouter le code pour envoyer des éléments dans une file
 
                 public static void Initialize()
                 {
-                    // Using Http to be friendly with outbound firewalls
+                    // Using Http to be friendly with outbound firewalls.
                     ServiceBusEnvironment.SystemConnectivity.Mode =
                         ConnectivityMode.Http;
 
                     // Create the namespace manager which gives you access to
-                    // management operations
+                    // management operations.
                     var namespaceManager = CreateNamespaceManager();
 
-                    // Create the queue if it does not exist already
+                    // Create the queue if it does not exist already.
                     if (!namespaceManager.QueueExists(QueueName))
                     {
                         namespaceManager.CreateQueue(QueueName);
                     }
 
-                    // Get a client to the queue
+                    // Get a client to the queue.
                     var messagingFactory = MessagingFactory.Create(
                         namespaceManager.Address,
                         namespaceManager.Settings.TokenProvider);
@@ -331,17 +331,17 @@ Maintenant, vous allez ajouter le code pour envoyer des éléments dans une file
             }
         }
 
-    Remarque : plus tard dans ce didacticiel, vous verrez comment stocker le **nom de votre espace de noms** et la valeur de votre clé SAP dans un fichier de configuration.
+    Remarque : plus tard dans ce didacticiel, vous verrez comment stocker le nom de votre **Espace de noms** et la valeur de votre clé SAP dans un fichier de configuration.
 
 4.  Maintenant, assurez-vous que votre méthode **Initialize** est bien appelée. Dans **Explorateur de solutions**, double-cliquez sur **Global.asax\\Global.asax.cs**.
 
-5.  Ajoutez la ligne suivante en bas de la méthode **Application\_Start** :
+5.  Ajoutez la ligne suivante en bas de la méthode **Application\_Start**.
 
         FrontendWebRole.QueueConnector.Initialize();
 
 6.  Enfin, mettez à jour le code web que vous avez créé précédemment, pour envoyer des éléments dans la file d'attente. Dans **Explorateur de solutions**, double-cliquez sur **Controllers\\HomeController.cs**.
 
-7.  Mettez à jour la méthode **Submit()** comme suit pour obtenir le nombre de messages de la file d'attente :
+7.  Mettez à jour la méthode **Submit()** comme suit pour obtenir le nombre de messages de la file d’attente.
 
         public ActionResult Submit()
         {
@@ -356,16 +356,16 @@ Maintenant, vous allez ajouter le code pour envoyer des éléments dans une file
             return View();
         }
 
-8.  Mettez à jour la méthode **Submit(OnlineOrder order)** comme suit pour envoyer des informations de commande à la file d'attente :
+8.  Mettez à jour la méthode **Submit(OnlineOrder order)** comme suit pour envoyer des informations de commande à la file d’attente.
 
         public ActionResult Submit(OnlineOrder order)
         {
             if (ModelState.IsValid)
             {
-                // Create a message from the order
+                // Create a message from the order.
                 var message = new BrokeredMessage(order);
 
-                // Submit the order
+                // Submit the order.
                 QueueConnector.OrdersQueueClient.Send(message);
                 return RedirectToAction("Submit");
             }
@@ -381,7 +381,7 @@ Maintenant, vous allez ajouter le code pour envoyer des éléments dans une file
 
 ## Gestionnaire de configuration cloud
 
-La méthode **GetSettings** dans la classe **Microsoft.WindowsAzure.Configuration.CloudConfigurationManager** vous permet de lire les paramètres de configuration du magasin de configuration pour votre plateforme. Par exemple, si votre code s'exécute dans un rôle web ou de travail, la méthode **GetSettings** lit le fichier ServiceConfiguration.cscfg et si votre code s'exécute dans une application de console standard, la méthode **GetSettings** lit le fichier app.config.
+La méthode **GetSettings** dans la classe **Microsoft.WindowsAzure.Configuration.CloudConfigurationManager** vous permet de lire les paramètres de configuration du magasin de configuration pour votre plateforme. Par exemple, si votre code s’exécute dans un rôle web ou de travail, la méthode **GetSettings** lit le fichier ServiceConfiguration.cscfg et si votre code s’exécute dans une application de console standard, la méthode **GetSettings** lit le fichier app.config.
 
 Si vous stockez une chaîne de connexion pour votre espace de noms Service Bus dans un fichier de configuration, vous pouvez utiliser la méthode **GetSettings** pour lire une chaîne de connexion que vous pouvez utiliser pour instancier un objet **NamespaceMananger**. Vous pouvez utiliser une instance **NamespaceMananger** pour configurer votre espace de noms Service Bus par programme. Vous pouvez utiliser la même chaîne de connexion pour instancier des objets clients (comme les objets **QueueClient**, **TopicClient** et **EventHubClient**) que pour effectuer des opérations d'exécution comme l'envoi et la réception de messages.
 
@@ -394,7 +394,7 @@ Pour instancier un client (par exemple, un client Service Bus **QueueClient**), 
     	<Setting name="Microsoft.ServiceBus.ConnectionString" value="Endpoint=sb://[yourServiceNamespace].servicebus.windows.net/;SharedSecretIssuer=RootManageSharedAccessKey;SharedSecretValue=[yourKey]" />
 	</ConfigurationSettings>
 
-Le code qui suit récupère la chaîne de connexion, crée une file d'attente et initialise la connexion à la file d'attente :
+Le code qui suit récupère la chaîne de connexion, crée une file d’attente et initialise la connexion à la file d’attente.
 
 	QueueClient Client;
 
@@ -409,7 +409,7 @@ Le code qui suit récupère la chaîne de connexion, crée une file d'attente et
         namespaceManager.CreateQueue(QueueName);
     }
 
-	// Initialize the connection to Service Bus Queue
+	// Initialize the connection to Service Bus queue.
 	Client = QueueClient.CreateFromConnectionString(connectionString, QueueName);
 
 Le code dans la section suivante utilise la classe **CloudConfigurationManager**.
@@ -418,47 +418,47 @@ Le code dans la section suivante utilise la classe **CloudConfigurationManager**
 
 Vous allez maintenant créer le rôle de travail qui traite les commandes envoyées. Cet exemple utilise le modèle de projet Visual Studio **Worker Role with Service Bus Queue**. Utilisez d'abord l'Explorateur de serveurs dans Visual Studio pour obtenir les informations de connexion nécessaires.
 
-1. Assurez-vous que vous avez connecté Visual Studio à votre compte Azure comme décrit dans la section « Gestion des espaces de noms et des entités de messagerie à l'aide de l'Explorateur de serveurs Visual Studio ».
+1. Assurez-vous d’avoir connecté Visual Studio à votre compte Azure.
 
 2.  Dans Visual Studio, dans **Explorateur de solutions**, cliquez avec le bouton droit sur le dossier **Rôles** sous le projet **MultiTierApp**.
 
-3.  Cliquez sur **Ajouter**, puis sur **Nouveau projet de rôle de travail**. La boîte de dialogue **Ajouter un nouveau projet de rôle** s'affiche.
+3.  Cliquez sur **Ajouter**, puis sur **Nouveau projet de rôle de travail**. La boîte de dialogue **Ajouter un nouveau projet de rôle** s’affiche.
 
 	![][26]
 
-4.  Dans la boîte de dialogue **Ajouter un nouveau projet de rôle**, cliquez sur **Worker Role with Service Bus Queue**, comme dans la figure suivante :
+4.  Dans la boîte de dialogue **Ajouter un nouveau projet de rôle**, cliquez sur **Worker Role with Service Bus Queue**.
 
 	![][23]
 
 5.  Dans la boîte de dialogue **Nom**, entrez le nom du projet **OrderProcessingRole**. Cliquez ensuite sur **Add**.
 
-6.  Dans l'Explorateur de serveurs, cliquez avec le bouton droit sur l'espace de noms de votre service, puis cliquez sur **Propriétés**. Dans le volet **Propriétés** de Visual Studio, la première entrée contient une chaîne de connexion qui est remplie avec le point de terminaison de l'espace de noms, qui contient les informations d'identification nécessaires. Par exemple, reportez-vous à la figure suivante. Double-cliquez sur **ConnectionString** et appuyez sur **Ctrl+C** pour copier cette chaîne dans le Presse-papiers.
+6.  Dans **Explorateur de serveurs**, cliquez avec le bouton droit sur l’espace de noms de votre service, puis cliquez sur **Propriétés**. Dans le volet **Propriétés** de Visual Studio, la première entrée contient une chaîne de connexion qui est remplie avec le point de terminaison de l'espace de noms, qui contient les informations d'identification nécessaires. Par exemple, consultez la capture d’écran suivante : Double-cliquez sur **ConnectionString** et appuyez sur **Ctrl+C** pour copier cette chaîne dans le Presse-papiers.
 
 	![][24]
 
-7.  Dans l'Explorateur de solutions, cliquez avec le bouton droit sur **OrderProcessingRole**, créé à l'étape 5 (assurez-vous de bien cliquer avec le bouton droit sur **OrderProcessingRole** sous **Rôles**, et pas dans la classe). Cliquez ensuite sur **Propriétés**.
+7.  Dans **Explorateur de solutions**, cliquez avec le bouton droit sur **OrderProcessingRole**, créé à l’étape 5 (assurez-vous de bien cliquer avec le bouton droit sur **OrderProcessingRole** sous **Rôles**, et pas dans la classe). Cliquez ensuite sur **Propriétés**.
 
-8.  Sous l'onglet **Paramètres** de la boîte de dialogue **Propriétés**, cliquez dans la zone **Valeur** pour **Microsoft.ServiceBus.ConnectionString**, puis copiez la valeur du point de terminaison que vous avez copiée à l'étape 6.
+8.  Sous l’onglet **Paramètres** de la boîte de dialogue **Propriétés**, cliquez dans la zone **Valeur** pour **Microsoft.ServiceBus.ConnectionString**, puis copiez la valeur du point de terminaison que vous avez copiée à l’étape 6.
 
 	![][25]
 
-9.  Créez une classe **OnlineOrder** pour représenter les commandes à mesure que vous les traitez dans la file d'attente. Vous pouvez réutiliser une classe que vous avez déjà créée. Dans Explorateur de solutions, cliquez avec le bouton droit sur **OrderProcessingRole** (sur le projet, et non sur le rôle). Cliquez sur **Ajouter**, puis sur **Élément existant**.
+9.  Créez une classe **OnlineOrder** pour représenter les commandes à mesure que vous les traitez dans la file d'attente. Vous pouvez réutiliser une classe que vous avez déjà créée. Dans **Explorateur de solutions**, cliquez avec le bouton droit sur **OrderProcessingRole** (sur le projet, et non sur le rôle). Cliquez sur **Ajouter**, puis sur **Élément existant**.
 
-10. Accédez au sous-dossier **FrontendWebRole\\Models**, puis double-cliquez sur **OnlineOrder.cs** pour l'ajouter au projet.
+10. Accédez au sous-dossier **FrontendWebRole\\Models**, puis double-cliquez sur **OnlineOrder.cs** pour l’ajouter au projet.
 
-11. Dans WorkerRole.cs, remplacez la valeur `"ProcessingQueue"` de la variable **QueueName** dans **WorkerRole.cs** par la valeur `"OrdersQueue"`, comme dans le code suivant :
+11. Dans WorkerRole.cs, remplacez la valeur `"ProcessingQueue"` de la variable **QueueName** dans **WorkerRole.cs** par la valeur `"OrdersQueue"`, comme dans le code suivant.
 
-		// The name of your queue
+		// The name of your queue.
 		const string QueueName = "OrdersQueue";
 
-12. Ajoutez l'instruction using suivante au début du fichier WorkerRole.cs :
+12. Ajoutez l’instruction d’utilisation suivante au début du fichier WorkerRole.cs.
 
 		using FrontendWebRole.Models;
 
-13. Dans la fonction `Run()`, dans l'appel `OnMessage`, ajoutez le code suivant dans la clause `try` :
+13. Dans la fonction `Run()`, dans l’appel `OnMessage`, ajoutez le code suivant dans la clause `try`.
 
 		Trace.WriteLine("Processing", receivedMessage.SequenceNumber.ToString());
-		// View the message as an OnlineOrder
+		// View the message as an OnlineOrder.
 		OnlineOrder order = receivedMessage.GetBody<OnlineOrder>();
 		Trace.WriteLine(order.Customer + ": " + order.Product, "ProcessingMessage");
 		receivedMessage.Complete();
@@ -481,7 +481,7 @@ Pour plus d'informations sur les scénarios multiniveau ou pour savoir comment d
 
 * [Application ASP.NET multiniveau avec tables, files d'attente et objets blob de stockage Azure][mutitierstorage].  
 
-Vous pouvez mettre en œuvre le composant frontal d'une application multiniveau dans un site Web Azure au lieu d'un service cloud Azure. Pour plus d'informations sur les différences entre les sites web et les services cloud, consultez la page [Modèles d'exécution Azure][executionmodels].
+Vous pouvez mettre en œuvre le composant frontal d’une application multiniveau dans un site Web Azure au lieu d’un service cloud Azure. Pour plus d'informations sur les différences entre les sites web et les services cloud, consultez la page [Modèles d'exécution Azure][executionmodels].
 
 Pour mettre en œuvre l'application que vous créez dans ce didacticiel en tant que projet Web standard au lieu d'un rôle Web d'un service cloud, suivez les étapes de ce didacticiel en appliquant les différences suivantes :
 
@@ -491,20 +491,20 @@ Pour mettre en œuvre l'application que vous créez dans ce didacticiel en tant 
 
 3. Vous pouvez tester le composant frontal et le composant principal simultanément, ou vous pouvez les exécuter en même temps dans des instances séparées de Visual Studio.
 
-Pour plus d'informations sur le déploiement du composant frontal sur un site Web Azure, consultez la page [Déploiement d'une application Web ASP.NET sur un site Web Azure](http://azure.microsoft.com/develop/net/tutorials/get-started/). Pour plus d'informations sur le déploiement du composant principal dans Azure Cloud Services, consultez la page [Application ASP.NET multiniveau avec tables, files d'attente et objets blob de stockage][mutitierstorage].
+Pour plus d’informations sur le déploiement du composant frontal sur un site Web Azure, consultez la page [Déploiement d’une application Web ASP.NET sur un site Web Azure](http://azure.microsoft.com/develop/net/tutorials/get-started/). Pour plus d’informations sur le déploiement du composant principal dans Azure Cloud Services, consultez la page [Application ASP.NET multiniveau avec tables, files d’attente et objets blob de stockage][mutitierstorage].
 
 
   [0]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-01.png
   [1]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-100.png
-  [sbqueuecomparison]: http://msdn.microsoft.com/library/hh767287.aspx
+  [sbqueuecomparison]: service-bus-azure-and-service-bus-queues-compared-contrasted.md
   [2]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-101.png
   [Obtenir les outils et le Kit de développement logiciel (SDK)]: http://go.microsoft.com/fwlink/?LinkId=271920
   [3]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-3.png
 
 
 
-  [Azure Management Portal]: http://manage.windowsazure.com
-  [portail de gestion Azure]: http://manage.windowsazure.com
+  [Azure portal]: http://manage.windowsazure.com
+  [portail Azure]: http://manage.windowsazure.com
   [6]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/sb-queues-03.png
   [7]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/sb-queues-04.png
   [8]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-09.png
@@ -534,9 +534,8 @@ Pour plus d'informations sur le déploiement du composant frontal sur un site We
   [35]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/multi-web-45.png
   [sbmsdn]: http://msdn.microsoft.com/library/azure/ee732537.aspx
   [sbwacom]: /documentation/services/service-bus/
-  [sbwacomqhowto]: /develop/net/how-to-guides/service-bus-queues/
-  [mutitierstorage]: /develop/net/tutorials/multi-tier-web-site/1-overview/
-  [executionmodels]: http://azure.microsoft.com/develop/net/fundamentals/compute/
- 
+  [sbwacomqhowto]: service-bus-dotnet-how-to-use-queues.md
+  [mutitierstorage]: https://code.msdn.microsoft.com/Windows-Azure-Multi-Tier-eadceb36
+  [executionmodels]: ../cloud-services/fundamentals-application-models.md
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="07/09/2015"
+   ms.date="08/18/2015"
    ms.author="v-sharos" />
 
 # Utiliser le Gestionnaire d’instantanés StorSimple pour connecter et gérer des appareils StorSimple
@@ -252,7 +252,7 @@ Si un appareil StorSimple défaillant est remplacé par un appareil de secours 
 
 5. Démarrez le Gestionnaire d’instantanés StorSimple.
 
-6. Pour configurer le nouvel appareil StorSimple, exécutez la procédure décrite dans [Étape 2 : Connexion d’un appareil StorSimple](storsimple-snapshot-manager-deployment.md#step-2:-connect-a-storsimple-device) de la page [Déployer le Gestionnaire d’instantanés StorSimple](storsimple-snapshot-manager-deployment.md).
+6. Pour configurer le nouvel appareil StorSimple, exécutez la procédure décrite dans Étape 2 : Connexion d’un appareil StorSimple de la page [Déployer le Gestionnaire d’instantanés StorSimple](storsimple-snapshot-manager-deployment.md).
 
 7. Cliquez avec le bouton droit sur le nœud de niveau supérieur du volet **Étendue** (Gestionnaire d’instantanés StorSimple dans l’exemple), puis cliquez sur **Basculer l’affichage des importations**.
 
@@ -262,4 +262,4 @@ Si un appareil StorSimple défaillant est remplacé par un appareil de secours 
 
 [Utiliser le Gestionnaire d’instantanés StorSimple pour afficher et gérer les volumes](storsimple-snapshot-manager-manage-volumes.md).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

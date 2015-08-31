@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="FAQ Azure Machine Learning Studio | Microsoft Azure" 
-	description="Présentation d'Azure Machine Learning : FAQ portant sur la facturation, les fonctionnalités et les limitations d'un service cloud pour la modélisation prédictive rationalisée." 
-	services="machine-learning" 
-	documentationCenter="" 
-	authors="pablissima" 
-	manager="paulettm" 
+	pageTitle="FAQ Azure Machine Learning Studio | Microsoft Azure"
+	description="Présentation d'Azure Machine Learning : FAQ portant sur la facturation, les fonctionnalités et les limitations d'un service cloud pour la modélisation prédictive rationalisée."
+	services="machine-learning"
+	documentationCenter=""
+	authors="pablissima"
+	manager="paulettm"
 	editor="cgronlun"/>
 
 <tags 
-	ms.service="machine-learning" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/07/2015" 
+	ms.service="machine-learning"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/18/2015"
 	ms.author="paulettm"/>
 
 #Forum Aux Questions (FAQ) Azure Machine Learning : facturation, fonctionnalités, limitations et support
@@ -92,10 +92,9 @@ Pour les tailles de jeux de données supérieures à quelques gigaoctets, télé
 
 **Puis-je lire les données à partir d’Amazon S3 ?**
 
-Si vous avez une petite quantité de données et que vous souhaitez l’exposer via une URL http, vous pouvez utiliser le module [Reader][reader]. Transférez les grandes quantités de données vers Azure Storage, puis utilisez le module [Reader][reader] pour les importer dans votre expérience. 
-<!--
+Si vous avez une petite quantité de données et que vous souhaitez l’exposer via une URL http, vous pouvez utiliser le module [Reader][reader]. Transférez les grandes quantités de données vers Azure Storage, puis utilisez le module [Reader][reader] pour les importer dans votre expérience. <!--
 <SEE CLOUD DS PROCESS>
---> 
+-->
 
 **Existe-t-il une capacité d’entrée d’image intégrée ?**
 
@@ -178,7 +177,7 @@ Actuellement non. Toutefois, le module Python standard ou un jeu de modules per
 
 **Existe-t-il un environnement REPL pour Python ?**
 
-Non. Il n’existe aucun environnement REPL pour Python dans Studio.
+Vous pouvez utiliser les blocs-notes Jupyter dans Machine Learning Studio. Pour plus d'informations, consultez [Présentation des ordinateurs portables Jupyter dans Azure ML Studio](http://blogs.technet.com/b/machinelearning/archive/2015/07/24/introducing-jupyter-notebooks-in-azure-ml-studio.aspx)
 
 ## Service Web
 ###Recyclage de modèles par programme
@@ -203,6 +202,8 @@ Le service de requête-réponse (RRS, Request-Response Service) est un service W
 
 Pour mettre à jour un modèle prédictif pour un service déjà déployé, il suffit de modifier et de réexécuter l'expérience utilisée pour créer et enregistrer le modèle formé. Une fois que la nouvelle version du modèle formé est disponible, ML Studio vous invite à indiquer si vous voulez mettre à jour votre service web en phase intermédiaire. Lorsque la mise à jour est appliquée au service Web en phase intermédiaire, la même mise à jour est disponible pour vous permettre de l’appliquer au service Web de production également. Consultez la rubrique [Publication d’un service Web Azure Machine Learning](machine-learning-publish-a-machine-learning-web-service.md) pour plus d’informations sur la mise à jour d’un service Web déployé.
 
+Vous pouvez également utiliser les API de recyclage. Un exemple de code est disponible [ici](https://azuremlretrain.codeplex.com/).
+
 
 **Comment puis-je surveiller mon service Web déployé en production ?**
 
@@ -210,15 +211,16 @@ Une fois qu’un modèle prédictif a été mis en production, vous pouvez le su
 
 **Existe-t-il un endroit où je peux voir le résultat de mon service RRS/BES ?**
 
-Oui. Vous devez fournir un emplacement de stockage d’objets blob où sera placée la sortie de RRS/BES.
-
-
+Pour les enregistrements de ressources, c'est généralement dans la réponse du service web que vous voyez le résultat. Vous pouvez également écrire un objet blob. Pour les environnements d'initialisation, la sortie est écrite dans un objet blob par défaut. Vous pouvez également écrire la sortie dans une base de données ou une table à l'aide du module Writer.
+ 
+ **** Puis-je créer des services web uniquement à partir de modèles créés dans Studio ? Non. Vous pouvez également créer des services web directement à partir de notebooks Jupyter et RStudio.
+ 
 
 ##Extensibilité 
 
 **Quelle est l’évolutivité du service Web ?**
 
-Actuellement, la valeur maximale est de 20 demandes simultanées par point de terminaison, même si elle peut s’adapter à 80 points de terminaison. Cela se traduit par 4 800 demandes simultanées si nous utilisons toutes les ressources (300 travaux).
+Actuellement, la valeur maximale est de 20 demandes simultanées par point de terminaison, même si elle peut s'adapter à 10,000 points de terminaison. Cela se traduit par 4 800 demandes simultanées si nous utilisons toutes les ressources (300 travaux).
 
 
 **Les travaux R sont-ils répartis entre les nœuds ?**
@@ -260,7 +262,8 @@ Non.
 
 **Qui a accès au point de terminaison HTTP pour le service Web déployé en production par défaut ? Comment puis-je limiter les accès au point de terminaison ?**
 
-Une fois qu'un modèle prédictif a été mis en production, le portail Azure répertorie l'URL pour les services web déployés. Les URL de service en phase intermédiaire sont accessibles à partir de l’environnement Machine Learning Studio sous la section des services Web, et les URL de service de production sont accessibles à partir du portail Azure, sous la section Machine Learning. Des clés d’accès sont fournies pour les services Web de phase intermédiaire et de production pour le tableau de bord du service Web, respectivement dans Machine Learning Studio et l’environnement de portail Azure. Elles sont nécessaires pour effectuer des appels au service web en production et en phase intermédiaire. Pour plus d’informations, voir [Connexion à un service Web Machine Learning](machine-learning-connect-to-azure-machine-learning-web-service.md).
+Après la publication d'un service web, nous créons un point de terminaison par défaut pour ce service. Ce point de terminaison par défaut est déployé en production et peut être appelé à l'aide de sa clé d'API. Il est possible d'ajouter des points de terminaison supplémentaires à leurs propres clés à partir du portail Azure ou par le biais d'un programme à l'aide des API de gestion de service web. Elles sont nécessaires pour effectuer des appels au service web en production et en phase intermédiaire. Pour plus d’informations, voir [Connexion à un service Web Machine Learning](machine-learning-connect-to-azure-machine-learning-web-service.md).
+
 
 **Que se passe-t-il si mon compte de stockage est introuvable ?**
 
@@ -304,4 +307,4 @@ Azure Machine Learning dispose également d'un forum communautaire sur MSDN, où
 [split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

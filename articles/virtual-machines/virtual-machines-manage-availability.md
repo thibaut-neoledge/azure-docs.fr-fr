@@ -60,7 +60,7 @@ Combinez l'équilibrage de charge Azure avec un groupe à haute disponibilité p
 Si l'équilibrage de charge n'est pas configuré pour équilibrer le trafic entre plusieurs machines virtuelles, tout événement de maintenance planifié aura un effet sur l'unique machine virtuelle en charge du trafic, ce qui entraînera une panne de votre couche application. Placer plusieurs machines virtuelles de la même couche dans le même équilibrage de charge et groupe à haute disponibilité permet de toujours avoir au moins une instance disponible pour le trafic.
 
 ### Éviter les instances uniques de machines virtuelles dans les groupes à haute disponibilité
-Évitez de laisser une instance unique de machine virtuelle dans un groupe à haute disponibilité. Les machines virtuelles ayant adopté cette configuration ne sont pas sous la garantie des contrats de niveau de service et connaissent des interruptions de service au cours des événements de maintenance planifiés. De plus, si vous déployez une instance unique de machine virtuelle dans un groupe à haute disponibilité, vous ne recevez pas d’avertissement ou de notification de maintenance de plateforme. Dans cette configuration, votre instance unique de machine virtuelle sera redémarrée sans avertissement pendant la maintenance de la plateforme.
+Évitez de laisser une instance unique de machine virtuelle dans un groupe à haute disponibilité. Les machines virtuelles ayant adopté cette configuration ne sont pas sous la garantie des contrats de niveau de service et connaissent des interruptions de service au cours des événements de maintenance planifiés. Veuillez noter que, si vous déployez une instance unique de machine virtuelle dans un groupe à haute disponibilité, vous recevrez également, à l’avance par e-mail, une notification de maintenance planifiée des machines virtuelles à instances multiples.
 
 <!-- Link references -->
 [Configuration de plusieurs machines virtuelles dans un groupe à haute disponibilité pour assurer la redondance]: #configure-multiple-virtual-machines-in-an-availability-set-for-redundancy
@@ -69,4 +69,4 @@ Si l'équilibrage de charge n'est pas configuré pour équilibrer le trafic entr
 [Éviter les instances uniques de machines virtuelles dans les groupes à haute disponibilité]: #avoid-single-instance-virtual-machines-in-availability-sets
 [Configuration d’un groupe à haute disponibilité pour des machines virtuelles]: virtual-machines-how-to-configure-availability.md
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

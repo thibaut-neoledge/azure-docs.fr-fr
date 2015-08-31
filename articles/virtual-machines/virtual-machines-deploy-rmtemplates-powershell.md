@@ -18,6 +18,12 @@
 
 # Déploiement et gestion des machines virtuelles à l’aide de modèles Azure Resource Manager et de PowerShell
 
+> [AZURE.SELECTOR]
+- [Azure preview portal](virtual-machines-windows-tutorial.md)
+- [Azure portal](virtual-machines-windows-tutorial-classic-portal.md)
+- [PowerShell: Resource Manager deployment](virtual-machines-deploy-rmtemplates-powershell.md)
+- [PowerShell: Classic deployment](virtual-machines-ps-create-preconfigure-windows-vms.md)
+
 Cet article montre comment utiliser des modèles Azure Resource Manager et PowerShell pour automatiser les tâches courantes de déploiement et de gestion de machines virtuelles Microsoft Azure. Pour connaître les modèles supplémentaires utilisables, consultez les pages [Modèles de démarrage rapide Microsoft Azure](http://azure.microsoft.com/documentation/templates/) et [Infrastructures d’application](virtual-machines-app-frameworks.md).
 
 - [Déploiement d'une machine virtuelle Windows](#windowsvm)
@@ -41,7 +47,7 @@ La plupart des applications déployées et exécutées dans Microsoft Azure son
 
 Une fois que vous avez défini un modèle de ressource basé sur JSON, vous pouvez l'exécuter et utiliser une commande PowerShell pour déployer les ressources définies dans Azure. Vous pouvez exécuter ces commandes séparément dans l'interface de commande PowerShell ou les intégrer dans un script qui contient une logique d'automatisation supplémentaire.
 
-Les ressources que vous créez à l’aide de modèles Azure Resource Manager seront déployées sur un groupe de ressources Azure nouveau ou existant. Un *groupe de ressources Azure* vous permet de gérer plusieurs ressources déployées ensemble sous forme de groupe logique. Cela vous permet de gérer le cycle de vie global de l'application/du groupe et de fournir des API de gestion qui vous donnent la possibilité d'effectuer les actions suivantes :
+Les ressources que vous créez à l’aide de modèles Azure Resource Manager seront déployées sur un groupe de ressources Azure nouveau ou existant. Un *groupe de ressources Azure* vous permet de gérer plusieurs ressources déployées ensemble sous forme de groupe logique. Cela vous permet de gérer le cycle de vie global de l’application/du groupe et de fournir des API de gestion qui vous donnent la possibilité d’effectuer les actions suivantes :
 
 - arrêter, démarrer ou supprimer d’un coup toutes les ressources au sein du groupe ;
 - appliquer des règles de contrôle d’accès en fonction du rôle (RBAC) pour le verrouillage des autorisations de sécurité ;
@@ -50,7 +56,7 @@ Les ressources que vous créez à l’aide de modèles Azure Resource Manager 
 
 Pour en savoir plus sur Azure Resource Manager, cliquez [ici](virtual-machines-azurerm-versus-azuresm.md). Si vous êtes intéressé par la création de modèles, consultez la page [Création de modèles Azure Resource Manager](resource-group-authoring-templates.md).
 
-## <a id="windowsvm"></a>TÂCHE : déploiement d'une machine virtuelle Windows
+## <a id="windowsvm"></a>TÂCHE : déploiement d’une machine virtuelle Windows
 
 Utilisez les instructions de cette section pour déployer une nouvelle machine virtuelle Azure à l'aide d'un modèle du Resource Manager et d'Azure PowerShell. Ce modèle crée une machine virtuelle unique dans un nouveau réseau virtuel avec un seul sous-réseau.
 
@@ -301,7 +307,7 @@ Le résultat suivant doit s’afficher :
 
 Vous disposez maintenant d’une nouvelle machine virtuelle Windows nommée MyWindowsVM dans votre nouveau groupe de ressources.
 
-## <a id="customvm"></a>TÂCHE : création d'une image de machine virtuelle personnalisée
+## <a id="customvm"></a>TÂCHE : création d’une image de machine virtuelle personnalisée
 
 Utilisez les instructions de cette section pour créer une image de machine virtuelle personnalisée dans Azure avec un modèle du Resource Manager à l'aide d'Azure PowerShell. Ce modèle crée une seule machine virtuelle à partir d’un disque dur virtuel (VHD) spécifié.
 
@@ -426,7 +432,7 @@ Le type d'information suivant s'affiche :
 	vmSize: Standard_A3
 	...
 
-## <a id="multivm"></a>TÂCHE : déploiement d'une application à plusieurs machines virtuelles utilisant un réseau virtuel et un équilibrage de charge externe
+## <a id="multivm"></a>TÂCHE : déploiement d’une application à plusieurs machines virtuelles utilisant un réseau virtuel et un équilibrage de charge externe
 
 Suivez les instructions fournies dans ces sections pour déployer une application à plusieurs machines virtuelles utilisant un réseau virtuel et un équilibrage de charge à l'aide d'un modèle du Resource Manager avec Azure PowerShell. Ce modèle crée deux machines virtuelles dans un réseau virtuel avec un seul sous-réseau dans un nouveau service cloud et les ajoute à un jeu d’équilibrage de charge externe pour le trafic entrant vers le port|TCP 80.
 
@@ -868,7 +874,7 @@ Les informations suivantes relatives à votre machine virtuelle s’affichent.
 
 ## <a id="start"></a>TÂCHE : Démarrer une machine virtuelle
 
-Vous pouvez démarrer une machine virtuelle à l'aide de la commande **Start-AzureVM**. Remplacez tous les éléments entre guillemets, y compris les caractères < and >, par les noms appropriés.
+Vous pouvez démarrer une machine virtuelle à l’aide de la commande **Start-AzureVM**. Remplacez tous les éléments entre guillemets, y compris les caractères < and >, par les noms appropriés.
 
 	Start-AzureVM -ResourceGroupName "<resource group name>" -Name "<VM name>"
 
@@ -885,7 +891,7 @@ Les informations suivantes s’affichent :
 
 ## <a id="stop"></a>TÂCHE : Arrêter une machine virtuelle
 
-Vous pouvez arrêter une machine virtuelle à l'aide de la commande **Stop-AzureVM**. Remplacez tous les éléments entre guillemets, y compris les caractères < and >, par les noms appropriés.
+Vous pouvez arrêter une machine virtuelle à l’aide de la commande **Stop-AzureVM**. Remplacez tous les éléments entre guillemets, y compris les caractères < and >, par les noms appropriés.
 
 	Stop-AzureVM -ResourceGroupName "<resource group name>" -Name "<VM name>"
 
@@ -907,7 +913,7 @@ Les informations suivantes s’affichent :
 
 ## <a id="restart"></a>TÂCHE : Redémarrer une machine virtuelle
 
-Vous pouvez redémarrer une machine virtuelle à l'aide de la commande **Restart-AzureVM**. Remplacez tous les éléments entre guillemets, y compris les caractères < and >, par les noms appropriés.
+Vous pouvez redémarrer une machine virtuelle à l’aide de la commande **Restart-AzureVM**. Remplacez tous les éléments entre guillemets, y compris les caractères < and >, par les noms appropriés.
 
 	Restart-AzureVM -ResourceGroupName "<resource group name>" -Name "<VM name>"
 
@@ -924,7 +930,7 @@ Les informations suivantes s’affichent :
 
 ## <a id="delete"></a>TÂCHE : Supprimer une machine virtuelle
 
-Vous pouvez supprimer une machine virtuelle à l'aide de la commande **Remove-AzureVM**. Remplacez tous les éléments entre guillemets, y compris les caractères < and >, par les noms appropriés. Utilisez le paramètre **-Force** pour ignorer l’invite de confirmation.
+Vous pouvez supprimer une machine virtuelle à l’aide de la commande **Remove-AzureVM**. Remplacez tous les éléments entre guillemets, y compris les caractères < and >, par les noms appropriés. Utilisez le paramètre **-Force** pour ignorer l’invite de confirmation.
 
 	Remove-AzureVM -ResourceGroupName "<resource group name>" –Name "<VM name>"
 
@@ -956,4 +962,4 @@ Les informations suivantes s’affichent :
 
 [Installation et configuration d’Azure PowerShell](install-configure-powershell.md)
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

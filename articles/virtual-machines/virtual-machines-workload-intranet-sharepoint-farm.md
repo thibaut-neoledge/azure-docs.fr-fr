@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Charge de travail des services d'infrastructure Azure : batterie de serveurs SharePoint Intranet"
+	pageTitle="Charge de travail des services d&#39;infrastructure Azure : batterie de serveurs SharePoint Intranet"
 	description="Découvrez la valeur d’une batterie de serveurs SharePoint intranet déployée dans Azure, comment configurer un environnement de développement/test et comment déployer une configuration de production à haute disponibilité."
 	services="virtual-machines"
 	documentationCenter=""
@@ -122,4 +122,6 @@ Une fois la configuration terminée, vous pouvez développer cette batterie de s
 
 [Instructions d'implémentation des services d'infrastructure Azure](virtual-machines-infrastructure-services-implementation-guidelines.md)
 
-<!---HONumber=August15_HO7-->
+[Charge de travail des services d’infrastructure Azure : applications métier à haute disponibilité](virtual-machines-workload-high-availability-lob-application.md)
+
+<!---HONumber=August15_HO8-->

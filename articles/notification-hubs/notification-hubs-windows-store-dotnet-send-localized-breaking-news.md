@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Didacticiel sur l’utilisation de Notification Hubs pour envoyer les dernières nouvelles localisées" 
-	description="Découvrez comment utiliser Azure Service Bus Notification Hubs pour envoyer des notifications de dernières nouvelles localisées." 
-	services="notification-hubs" 
-	documentationCenter="windows" 
-	authors="wesmc7777" 
-	manager="dwrede" 
+<properties
+	pageTitle="Didacticiel sur l’utilisation de Notification Hubs pour envoyer les dernières nouvelles localisées"
+	description="Découvrez comment utiliser Azure Service Bus Notification Hubs pour envoyer des notifications de dernières nouvelles localisées."
+	services="notification-hubs"
+	documentationCenter="windows"
+	authors="wesmc7777"
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="notification-hubs" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-windows" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="04/27/2015" 
+<tags
+	ms.service="notification-hubs"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-windows"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="08/18/2015" 
 	ms.author="wesmc"/>
 
 # Utilisation de Notification Hubs pour envoyer les dernières nouvelles localisées
@@ -29,7 +29,7 @@ Cette rubrique montre comment utiliser la fonctionnalité de **modèle** d'Azure
 
 Ce scénario comporte deux parties :
 
-- L'application Windows Store permet aux appareils clients de spécifier une langue et de s'abonner à différentes catégories de dernières nouvelles. 
+- L'application Windows Store permet aux appareils clients de spécifier une langue et de s'abonner à différentes catégories de dernières nouvelles.
 
 - Le serveur principal diffuse les notifications à l'aide des fonctionnalités de **balise** et de **modèle** d'Azure Notification Hubs.
 
@@ -146,7 +146,7 @@ Modifiez le fichier MainPage.xaml pour qu’il inclue une zone de liste modifiab
 3. Dans le fichier MainPage.xaml.cs, mettez le gestionnaire de clics de bouton à jour en extrayant la valeur actuelle de la zone de liste modifiable Paramètres régionaux et en la fournissant à l’appel de la classe Notifications, comme indiqué ci-après :
 
 		 var locale = (string)Locale.SelectedItem;
-            
+
          var categories = new HashSet<string>();
          if (WorldToggle.IsOn) categories.Add("World");
          if (PoliticsToggle.IsOn) categories.Add("Politics");
@@ -230,6 +230,5 @@ Pour plus d'informations sur l'utilisation des modèles, consultez [Notification
 [Recommandations relatives à Notification Hubs]: http://msdn.microsoft.com/library/jj927170.aspx
 [Notification Hubs How-To for iOS]: http://msdn.microsoft.com/library/jj927168.aspx
 [Notification Hubs, procédures pour Windows Store]: http://msdn.microsoft.com/library/jj927172.aspx
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

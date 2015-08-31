@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Inscription pour l'authentification Google | Microsoft Azure" 
-	description="Découvrez comment inscrire vos applications afin d'utiliser Google pour l'authentification auprès d'Azure Mobile Services." 
+	pageTitle="Inscription pour l&#39;authentification Google | Microsoft Azure" 
+	description="Découvrez comment inscrire vos applications afin d&#39;utiliser Google pour l&#39;authentification auprès d&#39;Azure Mobile Services." 
 	services="mobile-services" 
 	documentationCenter="android" 
 	authors="ggailey777" 
@@ -62,4 +62,4 @@ Vous êtes désormais prêt à configurer votre service mobile pour utiliser l'a
 [Azure Management Portal]: https://manage.windowsazure.com/
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

@@ -5,8 +5,8 @@
 	manager="paulettm"
 	services="hdinsight"
 	documentationCenter=""
-	authors="Blackmist"/>
-
+	authors="Blackmist"
+	tags="azure-portal"/>
 
 <tags
 	ms.service="hdinsight"
@@ -16,7 +16,6 @@
 	ms.topic="article"
 	ms.date="06/15/2015"
 	ms.author="larryfr"/>
-
 
 #Utilisation de Sqoop avec Hadoop dans HDInsight (SSH)
 
@@ -264,4 +263,4 @@ Vous maîtrisez à présent l'utilisation de Sqoop. Pour plus d'informations, co
 
 [sqoop-user-guide-1.4.4]: https://sqoop.apache.org/docs/1.4.4/SqoopUserGuide.html
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

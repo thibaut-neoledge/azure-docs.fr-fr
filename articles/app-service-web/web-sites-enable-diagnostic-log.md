@@ -38,7 +38,7 @@ Vous pouvez activer ou désactiver les types de journaux suivants :
 
 ### Diagnostic d'application
 
-Le diagnostic d'application vous permet de capturer des informations générées par une application Web. Les applications ASP.NET peuvent utiliser la classe [System.Diagnostics.Trace](http://msdn.microsoft.com/fr-fr/library/36hhw2t6.aspx) pour enregistrer des informations dans le journal de diagnostic d'application. Par exemple :
+Le diagnostic d'application vous permet de capturer des informations générées par une application Web. Les applications ASP.NET peuvent utiliser la classe [System.Diagnostics.Trace](http://msdn.microsoft.com/library/36hhw2t6.aspx) pour enregistrer des informations dans le journal de diagnostic d'application. Par exemple :
 
 	System.Diagnostics.Trace.TraceError("If you're seeing this, something bad happened");
 
@@ -82,7 +82,7 @@ La structure de répertoires dans laquelle les journaux sont stockés est la sui
 
 * **Journaux d'application** : /LogFiles/Application/. Ce dossier contient un ou plusieurs fichiers texte contenant des informations générées dans le cadre de la journalisation des applications.
 
-* **Suivi des demandes ayant échoué** : /LogFiles/W3SVC#########/. Ce dossier contient un fichier XSL et un ou plusieurs fichiers XML. Assurez-vous de télécharger le fichier XSL dans le même répertoire que le(s) fichier(s) XML, car le fichier XSL possède des attributs permettant de formater et de filtrer le contenu de fichiers XML lorsqu'ils sont affichés dans Internet Explorer.
+* **Suivi des demandes ayant échoué** : /LogFiles/W3SVC\#\#\#\#\#\#\#\#\#/. Ce dossier contient un fichier XSL et un ou plusieurs fichiers XML. Assurez-vous de télécharger le fichier XSL dans le même répertoire que le(s) fichier(s) XML, car le fichier XSL possède des attributs permettant de formater et de filtrer le contenu de fichiers XML lorsqu'ils sont affichés dans Internet Explorer.
 
 * **Journaux d'erreurs détaillés** : /LogFiles/DetailedErrors/. Ce dossier contient un ou plusieurs fichiers .htm fournissant des informations détaillées sur toute erreur HTTP qui s'est produite.
 
@@ -236,7 +236,7 @@ Les données stockées dans un objet blob se présentent comme suit :
 
 ### Suivi des demandes ayant échoué
 
-Le suivi des demandes ayant échoué est stocké dans des fichiers XML nommés __fr######.xml__. Pour faciliter la consultation des informations consignées, une feuille de style XSL nommée __freb.xsl__ est fournie dans le même répertoire que les fichiers XML. Lorsque vous ouvrez l'un des fichiers XML dans Internet Explorer, la feuille de style XSL est utilisée afin de fournir un affichage formaté des informations de suivi. Les informations se présentent alors comme suit :
+Le suivi des demandes ayant échoué est stocké dans des fichiers XML nommés __fr\#\#\#\#\#\#.xml__. Pour faciliter la consultation des informations consignées, une feuille de style XSL nommée __freb.xsl__ est fournie dans le même répertoire que les fichiers XML. Lorsque vous ouvrez l'un des fichiers XML dans Internet Explorer, la feuille de style XSL est utilisée afin de fournir un affichage formaté des informations de suivi. Les informations se présentent alors comme suit :
 
 ![affichage d'une demande ayant échoué dans le navigateur](./media/web-sites-enable-diagnostic-log/tws-failedrequestinbrowser.png)
 
@@ -253,7 +253,7 @@ Les journaux de serveur Web utilisent le [format de fichier journal étendu W3C]
 ##<a name="nextsteps"></a>Étapes suivantes
 
 - [Surveillance d’applications Web](/fr-fr/manage/services/web-sites/how-to-monitor-websites/)
-- [Résolution des problèmes des applications Web Azure dans Visual Studio](/fr-fr/develop/net/tutorials/troubleshoot-web-sites-in-visual-studio/)
+- [Résolution des problèmes des applications web Azure dans Visual Studio](web-sites-dotnet-troubleshoot-visual-studio.md)
 - [Analyse des journaux d’application Web dans HDInsight](http://gallery.technet.microsoft.com/scriptcenter/Analyses-Windows-Azure-web-0b27d413) (en anglais)
 
 > [AZURE.NOTE]Si vous voulez vous familiariser avec Azure App Service avant d’ouvrir un compte Azure, accédez à la page [Essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751). Vous pourrez créer immédiatement et gratuitement une application de départ temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
@@ -263,4 +263,4 @@ Les journaux de serveur Web utilisent le [format de fichier journal étendu W3C]
 * Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre l'ancien et le nouveau portail, consultez : [Références sur la navigation dans le portail Azure](http://go.microsoft.com/fwlink/?LinkId=529715)
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

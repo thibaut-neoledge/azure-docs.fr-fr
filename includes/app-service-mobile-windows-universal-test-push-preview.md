@@ -1,15 +1,16 @@
 
-1. Right-click the Windows Store project, click **Set as StartUp Project**, then press the F5 key to run the Windows Store app.
+1. Cliquez avec le bouton droit sur le projet Windows Store, cliquez sur **Définir comme projet de démarrage**, puis appuyez sur la touche F5 pour exécuter l'application Windows Store.
 	
-	After the app starts, the device is registered for push notifications.
+	Une fois l'application démarrée, l'appareil est enregistré pour les notifications Push.
 
-2. Stop the Windows Store app and repeat the previous step for the Windows Phone Store app.
+2. Arrêtez l’application Windows Store et répétez l’étape précédente pour l’application Windows Phone Store.
 
-	At this point, both devices are registered to receive push notifications.
+	À cette étape, les deux appareils sont enregistrés pour recevoir des notifications Push.
 
-3. Run the Windows Store app again, and type text in **Insert a TodoItem**, and then click **Save**.
+3. Exécutez à nouveau l'application Windows Store, tapez du texte dans **Insert a TodoItem**, puis cliquez sur **Enregistrer**.
 
-   	Note that after the insert completes, both the Windows Store and the Windows Phone apps receive a push notification from WNS. The notification is displayed on Windows Phone even when the app isn't running.
+   	Notez qu'une fois l'insertion terminée, l'application Windows Store et l'application Windows Phone reçoivent toutes les deux une notification Push de WNS. La notification est affichée sur le Windows Phone, même si l'application n'est pas en cours d'exécution.
 
    	![](./media/app-service-mobile-windows-universal-test-push-preview/mobile-quickstart-push5-wp8.png)
 
+<!---HONumber=August15_HO8-->

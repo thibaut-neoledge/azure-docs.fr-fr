@@ -1,11 +1,10 @@
 <properties 
-	pageTitle="Analyse de la disponibilité et de la réactivité d'un site Web" 
+	pageTitle="Analyse de la disponibilité et de la réactivité d&#39;un site Web" 
 	description="Configurez des tests web dans Application Insights. Recevez des alertes si un site web devient indisponible ou répond lentement." 
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
 	manager="douge"/>
-
 
 <tags 
 	ms.service="application-insights" 
@@ -15,7 +14,6 @@
 	ms.topic="get-started-article" 
 	ms.date="07/08/2015" 
 	ms.author="awills"/>
-
  
 # Analyse de la disponibilité et de la réactivité d'un site Web
 
@@ -31,8 +29,6 @@ Il existe deux types de tests web :
 
 * [Test ping d’URL](#set-up-a-url-ping-test) : un test simple que vous pouvez créer dans le portail Azure.
 * [Test web multi-étapes](#multi-step-web-tests) : que vous créez dans Visual Studio Ultimate ou Visual Studio Enterprise et que vous chargez sur le portail.
-
-*S’agit-il d’une application web Azure ? Il vous suffit de [créer le test web dans le panneau de l’application web][azure-availability].*
 
 
 
@@ -241,4 +237,4 @@ Vous pouvez par exemple désactiver des tests web lorsque vous effectuez des op�
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

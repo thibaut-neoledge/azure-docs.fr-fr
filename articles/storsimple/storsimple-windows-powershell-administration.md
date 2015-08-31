@@ -1,18 +1,18 @@
 <properties 
-   pageTitle="Administrer votre appareil en utilisant Windows PowerShell pour StorSimple"
+   pageTitle="Administrer votre appareil StorSimple à l’aide de Windows PowerShell pour StorSimple | Microsoft Azure"
    description="Découvrez comment gérer votre appareil StorSimple en utilisant Windows PowerShell pour StorSimple"
    services="storsimple"
    documentationCenter="NA"
    authors="alkohli"
    manager="carolz"
-   editor="tysonn" />
+   editor="" />
 <tags 
    ms.service="storsimple"
    ms.devlang="NA"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="08/04/2015"
+   ms.date="08/19/2015"
    ms.author="alkohli@microsoft.com" />
 
 # Utiliser Windows PowerShell pour StorSimple pour appliquer votre appareil
@@ -37,15 +37,13 @@ Après avoir lu cet article, vous pourrez :
 
 >- Les applets de commande d’Azure PowerShell StorSimple sont une autre collection d’applets de commande qui vous permettent d’automatiser des tâches de niveau service et de migration StorSimple à partir de la ligne de commande. Pour plus d’informations sur les applets de commande d’Azure PowerShell pour StorSimple, consultez [Informations de référence sur les applets de commande d’Azure StorSimple](https://msdn.microsoft.com/library/azure/dn920427.aspx).
 
-
-
 Vous pouvez accéder à Windows PowerShell pour StorSimple selon une des méthodes suivantes :
 
-- [Se connecter à la console série de l’appareil StorSimple](#connect-to-windows-powershell-for-storsimple-via-device-serial-console)
+- [Se connecter à la console série de l’appareil StorSimple](#connect-to-windows-powershell-for-storsimple-via-the-device-serial-console)
 - [Se connecter à distance à StorSimple en utilisant Windows PowerShell](#connect-remotely-to-storsimple-using-windows-powershell-for-storsimple)
 	
 
-## Se connecter à Windows PowerShell pour StorSimple via la console série de l’appareil
+## Se connecter à Windows PowerShell pour StorSimple via la console série de l’appareil
 
 Vous pouvez [télécharger PuTTY](http://www.putty.org/) ou un logiciel d’émulation de terminal similaire pour vous connecter à Windows PowerShell pour StorSimple. Vous devez configurer PuTTY de façon spécifique pour accéder à l’appareil Microsoft Azure StorSimple. Les rubriques suivantes contiennent des étapes détaillant comment configurer PuTTy et se connecter à l’appareil. Différentes options de menu de la console série sont également expliquées.
 
@@ -160,7 +158,7 @@ Le tableau suivant présente un résumé de toutes les tâches de gestion couran
 |Installer des mises à jour et des correctifs en mode maintenance|[Mettre à jour votre appareil](storsimple-update-device.md)|
 |Entrer en mode maintenance </br>Quitter le mode maintenance|[Modes de l’appareil StorSimple](storsimple-device-modes.md)|
 |Créer un package de support </br>Déchiffrer et modifier un package de support|[Création et gestion d’un package de prise en charge](storsimple-create-manage-support-package.md)|
-|Démarrer une session de support</br>|[Démarrer une session de support dans Windows PowerShell pour StorSimple](/storsimple-contact-microsoft-support.md#start-a-support-session-in-windows-powershell-for-storsimple)
+|Démarrer une session de support</br>|[Démarrage d’une session de support dans Windows PowerShell pour StorSimple](/storsimple-contact-microsoft-support.md#start-a-support-session-in-windows-powershell-for-storsimple)
  
 
 ## Obtenir de l’aide dans Windows PowerShell pour StorSimple
@@ -194,9 +192,9 @@ Vous pouvez facilement mettre à jour l’aide de l’interface Windows PowerShe
 1. Une fois les fichiers d’aide sont installés, tapez : `Get-Help Get-Command`. Ceci affiche une liste des applets de commande pour lesquelles de l’aide est disponible.
 
 
->[AZURE.NOTE]**Pour obtenir une liste de toutes les applets de commande disponibles dans les instances d’exécution, connectez-vous à l’option de menu correspondante et exécutez l’applet de commande `Get-Command`.**
+>[AZURE.NOTE]Pour obtenir une liste de toutes les applets de commande disponibles dans les instances d’exécution, connectez-vous à l’option de menu correspondante et exécutez l’applet de commande `Get-Command`.
 
 ## Étapes suivantes
-Si vous rencontrez des problèmes avec votre appareil StorSimple lors de l’exécution d’un des flux de travail ci-dessus, reportez-vous à [Résolution des problèmes avec les applets de commande](storsimple-troubleshoot-deployment.md#cmdlets-available-for-troubleshooting).
+Si vous rencontrez des problèmes avec votre appareil StorSimple lors de l’exécution d’un des flux de travail ci-dessus, reportez-vous à la rubrique [Outils de résolution des problèmes de déploiement de StorSimple](storsimple-troubleshoot-deployment.md#tools-for-troubleshooting-storsimple-deployments).
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

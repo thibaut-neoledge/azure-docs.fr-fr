@@ -1,19 +1,19 @@
 <properties
-   pageTitle="Migration des Runbooks et des packs d'intégration à partir d'Orchestrator"
-   description="Décrit comment migrer des Runbooks et des packs d'intégration de System Center Orchestrator vers Azure Automation."
-   services="automation"
-   documentationCenter=""
-   authors="bwren"
-   manager="stevenka"
-   editor="tysonn" />
+   pageTitle="Migration d’Orchestrator vers Azure Automation | Microsoft Azure"
+	description="Décrit comment migrer des Runbooks et des packs d'intégration de System Center Orchestrator vers Azure Automation."
+	services="automation"
+	documentationCenter=""
+	authors="bwren"
+	manager="stevenka"
+	editor="tysonn"/>
 <tags
    ms.service="automation"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="05/22/2015"
-   ms.author="bwren" />
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="infrastructure-services"
+	ms.date="08/18/2015"
+	ms.author="bwren"/>
 
 
 # Migration d'Orchestrator vers Azure Automation
@@ -81,4 +81,4 @@ Cet outil convertira les Runbooks Orchestrator en Runbooks graphiques qui peuven
 - [Activités standard d'Orchestrator](http://technet.microsoft.com/library/hh403832.aspx)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

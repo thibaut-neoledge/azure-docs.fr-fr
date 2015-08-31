@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-html" 
 	ms.devlang="javascript" 
 	ms.topic="article" 
-	ms.date="05/02/2015" 
+	ms.date="08/16/2015" 
 	ms.author="glenga"/>
 
 # Ajout de services mobiles à une application existante
@@ -257,4 +257,4 @@ Ce didacticiel a présenté les bases de l'activation d'une application HTML pou
 
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->
