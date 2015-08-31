@@ -51,7 +51,7 @@ Si vous envisagez de procéder à un test avec un appareil ancien, consultez la 
 
 ###Ajout de services Google Play au projet
 
-[AZURE.INCLUDE [Ajout de services Google Play](../../includes/mobile-services-add-Google-play-services.md)]
+[AZURE.INCLUDE [Ajout de services Google Play](../../includes/mobile-services-add-google-play-services.md)]
 
 ###Ajout de code
 
@@ -105,7 +105,7 @@ Découvrez Mobile Services et Notification Hubs dans les rubriques suivantes :
 <!-- Images. -->
 
 <!-- URLs. -->
-[Prise en main des notifications Push (Eclipse)]: mobile-services-dotnet-backend-android-get-started-push-EC.md
+[Prise en main des notifications Push (Eclipse)]: mobile-services-dotnet-backend-android-get-started-push-ec.md
 [Prise en main de Mobile Services]: mobile-services-dotnet-backend-android-get-started.md
 [Prise en main des données]: mobile-services-dotnet-backend-android-get-started-data.md
 [Get started with authentication]: mobile-services-dotnet-backend-android-get-started-users.md

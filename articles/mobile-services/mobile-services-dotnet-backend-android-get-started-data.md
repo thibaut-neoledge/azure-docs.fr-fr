@@ -122,7 +122,7 @@ Ensuite, essayez l'un de ces autres didacticiels :
 <!-- Images. -->
 
 <!-- URLs. -->
-[Prise en main des données (Eclipse)]: mobile-services-dotnet-backend-android-get-started-data-EC.md
+[Prise en main des données (Eclipse)]: mobile-services-dotnet-backend-android-get-started-data-ec.md
 [Get started with Mobile Services]: mobile-services-dotnet-backend-windows-store-dotnet-get-started.md
 [Prise en main de l'authentification]: mobile-services-dotnet-backend-android-get-started-users.md
 [Prise en main des notifications Push]: mobile-services-dotnet-backend-android-get-started-push.md

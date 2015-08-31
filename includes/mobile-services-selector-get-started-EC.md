@@ -5,7 +5,7 @@
 - [(Windows Runtime 8.1 universal C# | Javascript)](../articles/mobile-services-javascript-backend-windows-store-dotnet-get-started.md)
 - [(Windows Runtime 8.1 universal JavaScript | .NET)](../articles/mobile-services-dotnet-backend-windows-store-javascript-get-started.md)
 - [(Windows Runtime 8.1 universal JavaScript | Javascript)](../articles/mobile-services-javascript-backend-windows-store-javascript-get-started.md)
-- [(Android | .NET)](../articles/mobile-services-dotnet-backend-android-get-started-EC.md)
+- [(Android | .NET)](../articles/mobile-services-dotnet-backend-android-get-started-ec.md)
 - [(Android | Javascript)](../articles/mobile-services-android-get-started-EC.md)
 - [(Xamarin.iOS | .NET)](../articles/mobile-services-dotnet-backend-xamarin-ios-get-started.md)
 - [(Xamarin.iOS | Javascript)](../articles/partner-xamarin-mobile-services-ios-get-started.md)

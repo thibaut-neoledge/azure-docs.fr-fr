@@ -34,7 +34,7 @@ Ce didacticiel vous explique les procédures suivantes :
 
 ## Création d’une machine virtuelle exécutant Windows Server
 
-[AZURE.INCLUDE [virtual-machines-create-WindowsVM](../../includes/virtual-machines-create-WindowsVM.md)]
+[AZURE.INCLUDE [virtual-machines-create-WindowsVM](../../includes/virtual-machines-create-windowsvm.md)]
 
 ## Association d’un disque de données
 

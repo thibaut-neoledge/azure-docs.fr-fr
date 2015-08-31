@@ -32,6 +32,6 @@ Une machine virtuelle *personnalisée* correspond à une machine virtuelle que v
 
 ##Création de la machine virtuelle
 
-[AZURE.INCLUDE [virtual-machines-create-WindowsVM](../../includes/virtual-machines-create-WindowsVM.md)]
+[AZURE.INCLUDE [virtual-machines-create-WindowsVM](../../includes/virtual-machines-create-windowsvm.md)]
 
 <!---HONumber=August15_HO7-->
