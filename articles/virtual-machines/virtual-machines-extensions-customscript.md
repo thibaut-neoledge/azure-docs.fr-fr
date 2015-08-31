@@ -1,6 +1,6 @@
 <properties
    pageTitle="Extension de script personnalisé pour Windows"
-   description="Automatisation des tâches de configuration de machine virtuelle Azure à l&#39;aide de l&#39;extension de script personnalisé pour Windows"
+   description="Automatisation des tâches de configuration de machine virtuelle Azure à l'aide de l'extension de script personnalisé pour Windows"
    services="virtual-machines"
    documentationCenter=""
    authors="kundanap"
@@ -79,4 +79,4 @@ Pour en savoir plus sur l'utilisation de l'extension de script personnalisé ave
 <!--Image references-->
 [5]: ./media/virtual-machines-extensions-customscript/addcse.png
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO7-->
