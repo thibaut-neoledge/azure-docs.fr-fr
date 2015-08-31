@@ -41,7 +41,7 @@ Vous devez suivre ce didacticiel avant de pouvoir suivre tous les autres didacti
 
 ##Créer un projet qui prend en charge Google Cloud Messaging
 
-[AZURE.INCLUDE [mobile-services-enable-Google-cloud-messaging](../../includes/mobile-services-enable-Google-cloud-messaging.md)]
+[AZURE.INCLUDE [mobile-services-enable-Google-cloud-messaging](../../includes/mobile-services-enable-google-cloud-messaging.md)]
 
 
 ##Configurer un nouveau concentrateur de notification
