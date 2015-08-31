@@ -39,7 +39,7 @@ Ce didacticiel vous familiarise avec les étapes de base permettant d'activer le
 
 ##<a id="register"></a>Activation de Google Cloud Messaging
 
-[AZURE.INCLUDE [Activation de GCM](../../includes/mobile-services-enable-Google-cloud-messaging.md)]
+[AZURE.INCLUDE [Activation de GCM](../../includes/mobile-services-enable-google-cloud-messaging.md)]
 
 ##<a id="configure"></a>Configuration de Mobile Services pour l'envoi de requêtes Push
 
