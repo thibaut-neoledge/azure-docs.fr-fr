@@ -28,7 +28,7 @@ Ce didacticiel est basé sur le démarrage rapide de Mobile Services. Avant de l
  
 ##<a id="register"></a>Activation de Google Cloud Messaging
 
-[AZURE.INCLUDE [mobile-services-enable-Google-cloud-messaging](../../includes/mobile-services-enable-Google-cloud-messaging.md)]
+[AZURE.INCLUDE [mobile-services-enable-Google-cloud-messaging](../../includes/mobile-services-enable-google-cloud-messaging.md)]
 
 ##<a id="configure"></a>Configurer votre service mobile pour l'envoi de demandes push
 

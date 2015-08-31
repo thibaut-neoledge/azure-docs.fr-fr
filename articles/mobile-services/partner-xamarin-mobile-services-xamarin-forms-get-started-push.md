@@ -379,7 +379,7 @@ Vous allez ajouter des notifications Push à l’application Android en utilisan
 
 ###<a id="register"></a>Activation de Google Cloud Messaging
 
-[AZURE.INCLUDE [mobile-services-enable-Google-cloud-messaging](../../includes/mobile-services-enable-Google-cloud-messaging.md)]
+[AZURE.INCLUDE [mobile-services-enable-Google-cloud-messaging](../../includes/mobile-services-enable-google-cloud-messaging.md)]
 
 ###<a id="configure"></a>Configurer votre service mobile pour l'envoi de demandes push
 
