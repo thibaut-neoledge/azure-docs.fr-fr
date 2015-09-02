@@ -73,8 +73,8 @@ Vous pouvez maintenant utiliser le connecteur Chatter dans le flux. Vous pouvez 
 
 De même, vous pouvez utiliser l’action Chatter dans le flux pour publier un message en sélectionnant l’action « Publier le message ». Configurez les propriétés d'entrée pour l'action « Publier le message » comme suit : - **Texte du message** : contenu texte du message à publier - **ID de groupe** : spécifiez l'ID du groupe où le nouveau message doit être publié. Si l'ID de groupe n'est pas indiqué, le message sera publié dans le flux de l'utilisateur. - **Nom de fichier** : nom du fichier à associer à ce message - **Données de contenu** : données de contenu de la pièce jointe - **Type de contenu** : type de contenu de la pièce jointe - **Encodage du transfert de contenu** : encodage du transfert du contenu de la pièce jointe (« none » | « Base64 ») - **Mentions** : tableau des noms d'utilisateur à baliser dans ce message - **Hashtags** : tableau des hashtags à publier avec le message.
 
-	![][10]
-	![][11]
+![][10]
+![][11]
 
 ## En faire plus avec votre connecteur
 Maintenant que le connecteur est créé, vous pouvez l'ajouter à un flux d'entreprise à l'aide d'une application logique. Voir [Que sont les applications logiques ?](app-service-logic-what-are-logic-apps.md).
@@ -97,4 +97,4 @@ Vous pouvez également consulter les statistiques de performances et contrôler 
 [10]: ./media/app-service-logic-connector-chatter/img10.PNG
 [11]: ./media/app-service-logic-connector-chatter/img11.PNG
 
-<!---HONumber=August15_HO8-->
+<!----HONumber=August15_HO8-->

@@ -3,7 +3,7 @@
 
 2. Connectez-vous avec le fournisseur d'identité sélectionné et vérifiez que l'authentification réussit.
 
-3. Dans l'application, tapez du texte dans **Insert a TodoItem**, puis cliquez sur **Enregistrer**.
+3. Dans l'application, tapez du texte dans **Insérer une table TodoItem**, puis cliquez sur **Enregistrer**.
 
    	Notez qu'une fois l'insertion terminée, l'application reçoit une notification Push de WNS.
 
@@ -11,4 +11,4 @@
 
 	Vérifiez que la notification est reçue seulement sur cet appareil, car l'appareil précédent n'a pas été balisé avec l'identifiant de l'utilisateur actuel.
 
-<!---HONumber=August15_HO6-->
+<!----HONumber=August15_HO6-->

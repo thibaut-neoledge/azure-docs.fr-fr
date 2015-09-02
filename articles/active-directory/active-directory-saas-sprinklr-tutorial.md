@@ -78,7 +78,7 @@ Si cette procédure ne vous est pas familière, consultez [Comment convertir un 
 
 5.  Dans une autre fenêtre de navigateur web, connectez-vous au site de votre entreprise Sprinklr en tant qu’administrateur.
 
-6.  Accédez à **Administration > Settings**.
+6.  Accédez à **Administration > Paramètres**.
 
     ![Administration](./media/active-directory-saas-sprinklr-tutorial/IC782907.png "Administration")
 
@@ -124,11 +124,11 @@ Cette section décrit comment créer des comptes d’utilisateur AAD dans Sprink
 
 1.  Connectez-vous à votre site d’entreprise Sprinklr en tant qu’administrateur.
 
-2.  Accédez à **Administration > Settings**.
+2.  Accédez à **Administration > Paramètres**.
 
     ![Administration](./media/active-directory-saas-sprinklr-tutorial/IC782907.png "Administration")
 
-3.  Accédez à **Manage Client > Utilisateurs** dans le volet gauche.
+3.  Accédez à **Gérer les clients > Utilisateurs** dans le volet gauche.
 
     ![Paramètres](./media/active-directory-saas-sprinklr-tutorial/IC782914.png "Paramètres")
 
@@ -175,4 +175,4 @@ Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure
   
 Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le panneau d’accès. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](https://msdn.microsoft.com/library/dn308586).
 
-<!-----HONumber=August15_HO7-->
+<!------HONumber=August15_HO7-->
