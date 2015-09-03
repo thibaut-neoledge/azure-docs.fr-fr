@@ -162,7 +162,9 @@ Lorsque vous utilisez un magasin de données de base hors connexion, vous devez 
     | id | Chaîne, marquée requise | clé primaire dans le magasin distant |
     | terminé | Boolean | champ d'élément todo |
     | texte | String | champ d'élément todo |
-    | ms\_createdAt | Date | (facultatif) mappe vers \_\_createdAt system property | | ms\_updatedAt | Date | (facultatif) mappe vers \_\_updatedAt system property | | ms\_version | String | (facultatif) permet de détecter les conflits, mappe vers \_\_version |
+    | ms\_createdAt | Date | (facultatif) mappe vers \_\_createdAt system property | 
+	| ms\_updatedAt | Date | (facultatif) mappe vers \_\_updatedAt system property | 
+	| ms\_version | String | (facultatif) permet de détecter les conflits, mappe vers \_\_version |
 
 
 ## <a name="setup-sync"></a>Modification du comportement de synchronisation de l’application
@@ -251,4 +253,4 @@ Lorsque nous avons voulu synchroniser le magasin local avec le serveur, nous avo
 [Azure Friday: Offline-enabled apps in Azure Mobile Services]: http://azure.microsoft.com/documentation/videos/azure-mobile-services-offline-enabled-apps-with-donna-malayeri/
  
 
-<!---HONumber=August15_HO8-->
+<!----HONumber=August15_HO8-->

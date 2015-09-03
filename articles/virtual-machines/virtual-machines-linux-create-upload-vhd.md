@@ -150,7 +150,7 @@ Depuis la fenêtre Azure PowerShell utilisée lors de l'étape précédente, tap
 
 		Add-AzureVhd -Destination <BlobStorageURL>/<YourImagesFolder>/<VHDName> -LocalFilePath <PathToVHDFile>
 
-Pour plus d'informations, consultez la page Add-AzureVhd((https://msdn.microsoft.com/library/azure/dn495173.aspx).
+Pour plus d'informations, consultez la page [Add-AzureVhd](https://msdn.microsoft.com/library/azure/dn495173.aspx).
 
 
 
@@ -159,4 +159,4 @@ Pour plus d'informations, consultez la page Add-AzureVhd((https://msdn.microsof
 [Step 2: Prepare the connection to Azure]: #connect
 [Step 3: Upload the image to Azure]: #upload
 
-<!---HONumber=August15_HO8-->
+<!----HONumber=August15_HO8-->

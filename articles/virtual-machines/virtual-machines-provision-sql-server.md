@@ -70,7 +70,7 @@ Pour obtenir les informations les plus récentes concernant les images SQL Serve
 	- Dans la zone **Service cloud**, sélectionnez **Créer un nouveau service de cloud computing**.
 	- Dans la zone **Nom du cloud Service DNS**, entrez la première partie d'un nom DNS de votre choix, pour qu'il complète un nom au format **TESTNAME.cloudapp.net** 
 	- Sélectionnez un **ABONNEMENT** s’il en existe plusieurs. Ce choix détermine les **comptes de stockage **disponibles.
-- Dans la zone **REGION/AFFINITY GROUP/VIRTUAL NETWORK**, sélectionnez une région d'hébergement pour cette image virtuelle.
+	- Dans la zone **REGION/AFFINITY GROUP/VIRTUAL NETWORK**, sélectionnez une région d'hébergement pour cette image virtuelle.
 	- Dans la zone **Compte de stockage**, générez automatiquement un compte ou sélectionnez-en un dans la liste. Modifiez l’**ABONNEMENT** pour voir plus de comptes. 
 	- Dans la zone **AVAILABILITY SET**, sélectionnez **(none)**.
 	- Lisez et acceptez les conditions juridiques.
@@ -150,4 +150,4 @@ Outre ces ressources, nous vous recommandons de consulter [les autres sujets li�
 
 - [Modèles d'application et stratégies de développement pour SQL Server dans les machines virtuelles Azure](http://msdn.microsoft.com/library/azure/dn574746.aspx)
 
-<!---HONumber=August15_HO8-->
+<!----HONumber=August15_HO8-->
