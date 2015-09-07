@@ -13,8 +13,8 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="tbd"
-	ms.date="04/17/2015"
-	ms.author="adegeo"/>
+	ms.date="08/24/2015"
+	ms.author="yuemlu"/>
 
 # SE invité d'Azure 
 
@@ -32,7 +32,6 @@ Les tableaux suivants indiquent les mises à jour de Microsoft Security Response
 | MS15-088 | [3082458] | Une transmission de paramètres de ligne de commande non sécurisée pourrait permettre la divulgation d’informations | 4\.23, 3.30, 2.42 | 11 août 2015 |
 | MS15-089 | [3060716] | Des vulnérabilités dans Microsoft Windows pourraient permettre une élévation des privilèges | 4\.23, 3.30, 2.42 | 11 août 2015 |
 | MS15-090 | [3076949] | Une vulnérabilité dans WebDAV pourrait permettre la divulgation d’informations | 4\.23, 3.30, 2.42 | 11 août 2015 |
-| MS15-092 | [3086251] | Des vulnérabilités dans .NET Framework pourraient permettre une élévation des privilèges | 4\.23, 3.30, 2.42 | 11 août 2015 |
 
 
 ## SE invité juillet
@@ -265,4 +264,4 @@ Les tableaux suivants indiquent les mises à jour de Microsoft Security Response
 [family-explain]: cloud-services-guestos-update-matrix.md#guest-os-family-version-and-release-explanation
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

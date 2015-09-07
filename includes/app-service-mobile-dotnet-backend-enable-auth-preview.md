@@ -1,9 +1,4 @@
-L’authentification est déjà activée dans le projet de serveur téléchargé à partir du portail.
 
-Dans votre projet ASP.NET, vous devez voir les éléments suivants :
+>[AZURE.TIP]Le package d'extension d'authentification est inclus dans le package d'extension quickstart. L'authentification est déjà activée dans le projet de serveur téléchargé à partir du portail. Pour savoir comment installer et initialiser l'authentification lorsque vous n'utilisez pas l'extension quickstart, consultez [Ajout de notifications Push à un projet de serveur](../articles/app-service-mobile/app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#how-to-add-authentication-to-a-server-project).
 
-* Le package NuGet `Microsoft.Azure.Mobile.Server.Authentication` est installé.
-
-* Dans WebApiConfig.cs, la méthode `UseDefaultConfiguration()` est appelée sur l'objet MobileAppConfiguration. Cela appelle alors la méthode d'extension `AddAppServiceAuthentication()` fournie par le package NuGet ci-dessus. Cela enregistre également un intergiciel (middleware) OWIN nécessaire pour l'authentification, en appelant `app.UseAppServiceAuthentication()` lors du démarrage d’OWIN.
-
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Présentation du groupe de sécurité réseau"
-   description="En savoir plus sur les groupes de sécurité réseau"
-   services="virtual-network"
-   documentationCenter="na"
-   authors="telmosampaio"
-   manager="carolz"
-   editor="tysonn" />
+	description="En savoir plus sur les groupes de sécurité réseau"
+	services="virtual-network"
+	documentationCenter="na"
+	authors="telmosampaio"
+	manager="carolz"
+	editor="tysonn"/>
 <tags 
    ms.service="virtual-network"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="08/13/2015"
-   ms.author="telmos" />
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="infrastructure-services"
+	ms.date="08/13/2015"
+	ms.author="telmos"/>
 
 # Présentation du groupe de sécurité réseau
 
@@ -23,7 +23,7 @@ Vous pouvez utiliser un groupe de sécurité réseau pour contrôler le trafic v
 
 Vous pouvez associer un groupe de sécurité réseau à une machine virtuelle ou à un sous-réseau dans un réseau virtuel. Associé à une machine virtuelle, le groupe de sécurité réseau s'applique à tout le trafic envoyé et reçu par l'instance de la machine virtuelle. Lorsqu'il est appliqué à un sous-réseau au sein de votre réseau virtuel, il s'applique à tout le trafic envoyé et reçu par TOUTES les instances de la machine virtuelle dans le sous-réseau. Une machine virtuelle ou un sous-réseau peut être associé à un seul groupe de sécurité réseau et chaque groupe de sécurité réseau peut contenir jusqu'à 200 règles. Vous pouvez avoir 100 groupes de sécurité réseau par abonnement.
 
->[AZURE.NOTE]Les contrôles d’accès réseau basés sur le point de terminaison et les groupes de sécurité réseau ne sont pas pris en charge sur la même instance de machine virtuelle. Si vous souhaitez utiliser un groupe de sécurité réseau et une ACL de point de terminaison déjà en place, supprimez d'abord l’ACL de point de terminaison. Pour en savoir plus sur cette procédure, consultez [Gestion des listes de contrôle d’accès (ACL) pour les points de terminaison à l’aide de PowerShell](https://msdn.microsoft.com/library/azure/dn376543.aspx).
+>[AZURE.NOTE]Les contrôles d’accès réseau basés sur le point de terminaison et les groupes de sécurité réseau ne sont pas pris en charge sur la même instance de machine virtuelle. Si vous souhaitez utiliser un groupe de sécurité réseau et une ACL de point de terminaison déjà en place, supprimez d'abord l’ACL de point de terminaison. Pour en savoir plus sur cette procédure, consultez [Gestion des listes de contrôle d’accès (ACL) pour les points de terminaison à l’aide de PowerShell](virtual-networks-acl-powershell.md).
 
 ## Fonctionnement du groupe de sécurité réseau
 
@@ -138,7 +138,7 @@ Imaginez la règle de groupe de sécurité réseau suivante pour un tel scénari
 
 | Nom | Priorité | IP Source | Port source | IP de destination | Port de destination | Protocole | Access |
 |------|----------|-----------|-------------|----------------|------------------|----------|--------|
-|PAS D’INTERNET|100| VIRTUAL\_NETWORK|&\#42;|INTERNET|&\#42;|TCP|REFUSER| 
+|PAS D’INTERNET|100| VIRTUAL\_NETWORK|&#42;|INTERNET|&#42;|TCP|REFUSER| 
 
 Étant donné que la règle bloque tout accès de ce réseau virtuel à Internet , les machines virtuelles ne pourront pas accéder aux services PaaS Azure qui nécessitent un point de terminaison Internet public, comme les bases de données SQL.
 
@@ -146,8 +146,8 @@ Au lieu d’utiliser une règle de refus, envisagez d’utiliser une règle auto
 
 | Nom | Priorité | IP Source | Port source | IP de destination | Port de destination | Protocole | Access |
 |------|----------|-----------|-------------|----------------|------------------|----------|--------|
-|VERS INTERNET|100| VIRTUAL\_NETWORK|&\#42;|INTERNET|&\#42;|TCP|AUTORISER|
-|À PARTIR D’INTERNET|110| INTERNET|&\#42;|VIRTUAL\_NETWORK|&\#42;|TCP|REFUSER| 
+|VERS INTERNET|100| VIRTUAL\_NETWORK|&#42;|INTERNET|&#42;|TCP|AUTORISER|
+|À PARTIR D’INTERNET|110| INTERNET|&#42;|VIRTUAL\_NETWORK|&#42;|TCP|REFUSER| 
 
 >[AZURE.WARNING]Azure utilise un sous-réseau spécial appelé sous-réseau **Passerelle** pour gérer la passerelle VPN sur d’autres réseaux virtuels et réseaux locaux. Si vous associez un NSG à ce sous-réseau, votre passerelle VPN cessera de fonctionne normalement. N’associez pas de NSG aux sous-réseaux de passerelle.
 
@@ -249,4 +249,4 @@ Voici les étapes de flux de travail de base pour l'utilisation de groupes de s�
 
 	Get-Command *azurenetworksecuritygroup*
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Azure Multi-Factor Authentication - Étapes suivantes" 
-	description="Voici la page Multi-Factor Authentication qui vous indique ce qu’il faut faire avec MFA. Cela inclut les rapports, l’alerte de fraude, le contournement à usage unique, les messages vocaux personnalisés, la mise en cache, les adresses IP approuvées et les mots de passe d’application." 
-	services="multi-factor-authentication" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="swadhwa" 
+	pageTitle="Azure Multi-Factor Authentication - Étapes suivantes"
+	description="Voici la page Multi-Factor Authentication qui vous indique ce qu’il faut faire avec MFA. Cela inclut les rapports, l’alerte de fraude, le contournement à usage unique, les messages vocaux personnalisés, la mise en cache, les adresses IP approuvées et les mots de passe d’application."
+	services="multi-factor-authentication"
+	documentationCenter=""
+	authors="billmath"
+	manager="stevenpo"
 	editor="curtand"/>
 
 <tags 
-	ms.service="multi-factor-authentication" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/02/2015" 
+	ms.service="multi-factor-authentication"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/24/2015"
 	ms.author="billmath"/>
 
 # Configuration d’Azure Multi-Factor Authentication
@@ -228,6 +228,8 @@ Dans certaines applications, telles qu’Office 2010 (ou version antérieure) e
 >
 > Les clients Office 2013 (y compris Outlook) prennent désormais en charge de nouveaux protocoles d’authentification et ils peuvent être activés pour prendre en charge Multi-Factor Authentication. Ainsi, une fois activés, les mots de passe d’application ne sont pas obligatoires avec les clients Office 2013. Pour plus d'informations, consultez la rubrique [Version préliminaire publique de l'authentification moderne Office 2013 annoncée](https://blogs.office.com/2015/03/23/office-2013-modern-authentication-public-preview-announced/).
 
+
+
 ### Informations à connaître sur les mots de passe d’application
 
 Voici ce qu’il faut absolument savoir sur les mots de passe d'application.
@@ -240,6 +242,11 @@ Expérience d'authentification|Pour les applications avec navigateur|Pour les ap
 - Les applications qui mettent en cache des mots de passe et les utilisent dans des scénarios locaux, peuvent échouer, car le mot de passe d'application ne sera pas connu en dehors de l'id d'organisation. Des courriers électroniques Exchange sont, par exemple, stockés localement, mais la messagerie archivée se trouve dans le cloud. Le même mot de passe ne fonctionnera pas.
 - Le mot de passe est généré automatiquement et il n'est pas fourni par l'utilisateur. Le mot de passe automatiquement généré est en effet beaucoup plus difficile à pirater et bien mieux sécurisé.
 - À l’heure actuelle, un utilisateur peut posséder jusqu’à 40 mots de passe. Il vous faudra supprimer l’un de vos mots de passe d’application existants pour pouvoir en créer un nouveau.
+- Une fois l’authentification multifacteur activée sur un compte d’utilisateur, les mots de passe d’application peuvent être utilisés avec la plupart des clients sans navigateur tels qu’Outlook et Lync, mais les actions d’administration ne peuvent pas être effectuées à l’aide de mots de passe d’application via des applications sans navigateur telles que Windows PowerShell, même si l’utilisateur dispose d’un compte d’administrateur. Vérifiez que vous créez un compte de service avec un mot de passe fort pour exécuter des scripts PowerShell et que vous n’activez pas ce compte pour l’authentification multifacteur.
+
+>[AZURE.WARNING]Les mots de passe d’application ne fonctionnent pas dans les environnements hybrides où les clients communiquent avec les points de terminaison locaux et les points de terminaison à découverte automatique de cloud.
+>
+>N’oubliez pas que les mots de passe d’application ne fonctionneront pas dans les environnements hybrides où les clients communiquent avec à la fois avec les points de terminaison locaux et de découverte automatique, car les mots de passe de domaine sont tenus de s’authentifier sur le site et les mots de passe d’application doivent s’authentifier avec le cloud.
 
 
 ### Recommandations en matière d'affectation de noms pour les mots de passe d'application
@@ -306,7 +313,7 @@ Les utilisateurs pourront également créer des mots de passe d’application pa
 4. Sur la droite, sélectionnez **Mettre à jour mes numéros de téléphone utilisés pour la sécurité du compte**
 5. En haut de la page de vérification, sélectionnez les mots de passe d'application
 6. Cliquez sur **Créer**
-7. Saisissez un nom pour le mot de passe d’application et cliquez sur **Suivant**
+7. Saisissez un nom pour le mot de passe d’application, puis cliquez sur **Suivant**
 8. Copiez le mot de passe d’application dans le Presse-papiers et collez-le dans votre application.
 
 <center>![Cloud](./media/multi-factor-authentication-whats-next/security.png)</center>
@@ -318,7 +325,7 @@ Les utilisateurs pourront également créer des mots de passe d’application pa
 3. En haut de la page, cliquez avec le bouton droit sur votre nom d’utilisateur et sélectionnez Vérification de sécurité supplémentaire.
 5. En haut de la page de vérification, sélectionnez les mots de passe d'application
 6. Cliquez sur **Créer**
-7. Saisissez un nom pour le mot de passe d’application et cliquez sur **Suivant**
+7. Saisissez un nom pour le mot de passe d’application, puis cliquez sur **Suivant**
 8. Copiez le mot de passe d’application dans le Presse-papiers et collez-le dans votre application.
 
 
@@ -331,7 +338,7 @@ Les utilisateurs pourront également créer des mots de passe d’application pa
 3. Cliquez avec le bouton droit sur votre nom d'utilisateur et sélectionnez Vérification de sécurité supplémentaire.
 5. En haut de la page de vérification, sélectionnez les mots de passe d'application
 6. Cliquez sur **Créer**
-7. Saisissez un nom pour le mot de passe d’application et cliquez sur **Suivant**
+7. Saisissez un nom pour le mot de passe d’application, puis cliquez sur **Suivant**
 8. Copiez le mot de passe d’application dans le Presse-papiers et collez-le dans votre application.
 
 <center>![Cloud](./media/multi-factor-authentication-whats-next/myapp.png)</center>
@@ -358,4 +365,4 @@ Pour vous assurer que les comptes d'utilisateur sont sécurisés, vous devez res
 <li>Dans la page Paramètres de service, sous Gérer les paramètres des appareils de l’utilisateur, sélectionnez/désélectionnez l’option **Permettre aux utilisateurs d’interrompre l'authentification multifacteur pour qu’un appareil puisse être mémorisé**.</li>
 ![Interrompre les appareils](./media/multi-factor-authentication-manage-users-and-devices/suspend.png) <li>Définir le nombre de jours pendant lesquels vous souhaitez autoriser l’interruption. La valeur par défaut est de 14 jours.</li> <li>Cliquez sur Enregistrer.</li> <li>Cliquez sur Fermer.</li>
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

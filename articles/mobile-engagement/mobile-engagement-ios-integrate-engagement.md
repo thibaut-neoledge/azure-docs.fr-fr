@@ -5,7 +5,7 @@
 	documentationCenter="mobile"
 	authors="MehrdadMzfr"
 	manager="dwrede"
-	editor="" />
+	editor=""/>
 
 <tags
 	ms.service="mobile-engagement"
@@ -14,7 +14,7 @@
 	ms.devlang="objective-c"
 	ms.topic="article"
 	ms.date="08/05/2015"
-	ms.author="MehrdadMzfr" />
+	ms.author="MehrdadMzfr"/>
 
 #Intégration d'Engagement sur iOS
 
@@ -26,13 +26,13 @@
 
 Cette procédure décrit la méthode la plus simple pour activer les fonctions d'analyse et de contrôle d'Engagement dans votre application iOS.
 
-> [AZURE.IMPORTANT]Le SDK Engagement requiert iOS5+ : la version cible de déploiement de votre application doit être au moins iOS 5.
+> [AZURE.IMPORTANT]Le SDK Engagement requiert iOS6+ : la version de déploiement de votre application doit être au moins iOS 6.
 
 Les étapes suivantes permettent d'activer la génération des journaux nécessaires pour calculer toutes les statistiques concernant les utilisateurs, les sessions, les activités, les incidents et les informations techniques. Le rapport des journaux nécessaire pour calculer d’autres statistiques telles que les événements, les erreurs et les tâches, doit être généré manuellement à l’aide de l’API Engagement (consultez la rubrique [Utilisation de l’API de balisage Mobile Engagement avancée dans vos applications iOS](mobile-engagement-ios-use-engagement-api.md) étant donné que ces statistiques dépendent de l’application.
 
 ##Incorporer le SDK Engagement à votre projet iOS
 
-Ajoutez le Kit de développement logiciel (SDK) Engagement à votre projet iOS : dans Xcode 4, cliquez avec le bouton droit sur votre projet, puis sélectionnez **« Ajouter des fichiers à... »** et choisissez le dossier `EngagementSDK`.
+Ajoutez le Kit de développement logiciel (SDK) Engagement à votre projet iOS : dans Xcode, cliquez avec le bouton droit sur votre projet, puis sélectionnez **Ajouter des fichiers à...** et choisissez le dossier `EngagementSDK`.
 
 Engagement nécessite des infrastructures supplémentaires pour fonctionner : dans l'Explorateur de projets, ouvrez le volet de votre projet et sélectionnez la cible appropriée. Ouvrez ensuite l'onglet **« Build phases »** et, dans le menu **« Link Binary With Libraries »**, ajoutez ces infrastructures :
 
@@ -43,7 +43,7 @@ Engagement nécessite des infrastructures supplémentaires pour fonctionner : d
 > -   `CoreLocation.framework`
 > -   `libxml2.dylib`
 
-> [AZURE.NOTE]L'infrastructure AdSupport peut être supprimée. Engagement en a besoin pour collecter l'IDFA. Toutefois, il est possible de désactiver la collection de l'IDFA \<ios-sdk-engagement-idfa\> pour se conformer à la nouvelle politique d'Apple concernant cet ID.
+> [AZURE.NOTE]L'infrastructure AdSupport peut être supprimée. Engagement en a besoin pour collecter l'IDFA. Toutefois, il est possible de désactiver la collection de l'IDFA <ios-sdk-engagement-idfa> pour se conformer à la nouvelle politique d'Apple concernant cet ID.
 
 ##Initialiser le SDK Engagement
 
@@ -188,7 +188,6 @@ L'exemple suivant de `Settings.bundle` montre comment l'implémenter :
 	        <dict>
 	            <key>DefaultValue</key>
 	            <true/>
-
 	            <key>Key</key>
 	            <string>engagement_agent_enabled</string>
 	            <key>Title</key>
@@ -208,4 +207,4 @@ L'exemple suivant de `Settings.bundle` montre comment l'implémenter :
 [startMonitoringSignificantLocationChanges]: http://developer.apple.com/library/IOs/#documentation/CoreLocation/Reference/CLLocationManager_Class/CLLocationManager/CLLocationManager.html#//apple_ref/occ/instm/CLLocationManager/startMonitoringSignificantLocationChanges
 [IDFA]: https://developer.apple.com/library/ios/documentation/AdSupport/Reference/ASIdentifierManager_Ref/ASIdentifierManager.html#//apple_ref/occ/instp/ASIdentifierManager/advertisingIdentifier
 
-<!----HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

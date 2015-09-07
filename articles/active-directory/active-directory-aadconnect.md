@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="billmath"
-	manager="swadhwa"
+	manager="stevenpo"
 	editor="curtand"/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="07/13/2015"
+	ms.date="08/24/2015"
 	ms.author="billmath"/>
 
 # Intégration de vos identités locales avec Azure Active Directory
@@ -249,7 +249,7 @@ Consultez les liens suivants pour obtenir de la documentation supplémentaire su
 - [Utilisation de l’éditeur de règles de synchronisation Azure AD Connect](active-directory-aadconnect-whats-next-synch-rules-editor.md)
 - [Utilisation de l’approvisionnement déclaratif](active-directory-aadconnect-whats-next-declarative-prov.md)
 
-Une partie de la documentation qui a été créée pour Azure AD Sync est toujours adaptée et s’applique à Azure AD Connect. Bien que nous nous efforcions de transférer cette documentation sur Azure.com, une partie se trouve encore dans la bibliothèque MSDN. Pour plus de documentation, consultez [Azure AD Connect sur MSDN](https://msdn.microsoft.com/library/azure/dn832695.aspx) et [Azure AD Sync sur MSDN](https://msdn.microsoft.com/library/azure/dn790204.aspx).
+Une partie de la documentation qui a été créée pour Azure AD Sync est toujours adaptée et s’applique à Azure AD Connect. Bien que nous nous efforcions de transférer cette documentation sur Azure.com, une partie se trouve encore dans la bibliothèque MSDN. Pour plus de documentation, consultez [Azure AD Connect sur MSDN](active-directory-aadconnect.md) et [Azure AD Sync sur MSDN](https://msdn.microsoft.com/library/azure/dn790204.aspx).
 
 
 **Ressources supplémentaires**
@@ -273,4 +273,4 @@ Présentation d’Ignite 2015 sur l'extension de vos répertoires locaux dans l
 
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

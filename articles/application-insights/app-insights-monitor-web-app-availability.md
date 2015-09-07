@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="Analyse de la disponibilité et de la réactivité d&#39;un site Web" 
-	description="Configurez des tests web dans Application Insights. Recevez des alertes si un site web devient indisponible ou répond lentement." 
-	services="application-insights" 
-    documentationCenter=""
-	authors="alancameronwills" 
+<properties
+	pageTitle="Analyse de la disponibilité et de la réactivité d’un site Web | Microsoft Azure"
+	description="Configurez des tests web dans Application Insights. Recevez des alertes si un site web devient indisponible ou répond lentement."
+	services="application-insights"
+	documentationCenter=""
+	authors="alancameronwills"
 	manager="douge"/>
 
-<tags 
-	ms.service="application-insights" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="na" 
-	ms.topic="get-started-article" 
-	ms.date="07/08/2015" 
+<tags
+	ms.service="application-insights"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="ibiza"
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.date="07/08/2015"
 	ms.author="awills"/>
- 
+
 # Analyse de la disponibilité et de la réactivité d'un site Web
 
 [AZURE.INCLUDE [app-insights-selector-get-started](../../includes/app-insights-selector-get-started.md)]
@@ -42,7 +42,7 @@ Inscrivez-vous à [Microsoft Azure](http://azure.com), accédez au [portail Azur
 
 ![New > Application Insights](./media/app-insights-monitor-web-app-availability/11-new-app.png)
 
-Le panneau Vue d’ensemble de la nouvelle ressource s’ouvre. Pour le trouver à tout moment dans le [portail Azure](https://portal.azure.com), cliquez sur Parcourir.
+Le panneau Vue d’ensemble de la nouvelle ressource s’ouvre. Pour le trouver à tout moment dans le [portail Azure](https://portal.azure.com), cliquez sur **Parcourir**.
 
 ### <a name="setup"></a>2. Créer un test web
 
@@ -50,7 +50,7 @@ Dans votre ressource Application Insights, recherchez la vignette de disponibili
 
 ![Fill at least the URL of your website](./media/app-insights-monitor-web-app-availability/13-availability.png)
 
-- **L’URL** doit être visible à partir de l’Internet public. Elle peut inclure une chaîne de requête, par exemple pour vous permettre de tester un peu votre base de données. Si l'URL correspond à une redirection, nous allons la suivre, jusqu'à 10 redirections.
+- **L’URL** doit être visible à partir de l’Internet public. Elle peut inclure une chaîne de requête, par exemple pour vous permettre de tester un peu votre base de données. Si l’URL correspond à une redirection, nous allons la suivre, jusqu’à 10 redirections.
 
 - Si l’option **Autoriser de nouvelles tentatives** est sélectionnée, une nouvelle tentative de test sera effectuée après un court intervalle en cas d’échec du test. L’échec est signalé uniquement après trois tentatives infructueuses. Les tests suivants sont ensuite effectués selon l’intervalle habituel. La nouvelle tentative est temporairement suspendue jusqu’à la réussite de la tentative suivante. Cette règle est appliquée indépendamment à chaque emplacement de test.
 
@@ -67,12 +67,12 @@ Dans votre ressource Application Insights, recherchez la vignette de disponibili
 
 #### Test d'autres URL
 
-Ajoutez d’autres tests. Exemple : outre le test de votre page d'accueil, vous pouvez vérifier que votre base de données fonctionne correctement en testant une recherche sur l'URL.
+Ajoutez d’autres tests. Exemple : outre le test de votre page d’accueil, vous pouvez vérifier que votre base de données fonctionne correctement en testant une recherche sur l’URL.
 
 
 ### <a name="monitor"></a>3. Afficher les rapports de disponibilité
 
-Après 1 à 2 minutes, cliquez sur Actualiser dans le panneau de disponibilité/tests web. Il n’est pas automatiquement actualisé.
+Après 1 à 2 minutes, cliquez sur **Actualiser** dans le panneau de disponibilité/tests web. Il n’est pas automatiquement actualisé.
 
 ![Summary results on the home blade](./media/app-insights-monitor-web-app-availability/14-availSummary.png)
 
@@ -123,9 +123,11 @@ Vous pouvez aussi télécharger le fichier de résultats et l’examiner dans Vi
 
 ## Tests web à plusieurs étapes
 
-Vous pouvez analyser un scénario qui implique une séquence d'URL. Par exemple, si vous analysez un site web commercial, vous pouvez vérifier que l'ajout d'articles au panier d'achat fonctionne correctement.
+Vous pouvez analyser un scénario qui implique une séquence d'URL. Par exemple, si vous analysez un site Web commercial, vous pouvez vérifier que l’ajout d’articles au panier d’achat fonctionne correctement.
 
 Pour créer un test à plusieurs étapes, vous enregistrez le scénario à l'aide de Visual Studio et téléchargez ensuite l'enregistrement dans Application Insights. Application Insights relit le scénario à intervalles réguliers et vérifie les réponses.
+
+Notez que vous ne pouvez pas utiliser de fonctions codées dans vos tests : les étapes du scénario doivent figurer sous forme de script dans le fichier .webtest.
 
 #### 1\. Enregistrement d’un scénario
 
@@ -147,12 +149,12 @@ Utilisez Visual Studio Ultimate pour enregistrer une session web.
 
 4. Exécutez le test dans Visual Studio pour vérifier qu'il fonctionne.
 
-    Le test runner web ouvre un navigateur web et répète les actions enregistrées. Assurez-vous qu'il fonctionne comme prévu.
+    Le test runner web ouvre un navigateur web et répète les actions enregistrées. Assurez-vous qu’il fonctionne comme prévu.
 
     ![Dans Visual Studio, ouvrez le fichier .webtest et cliquez sur Exécuter.](./media/app-insights-monitor-web-app-availability/appinsights-71webtest-multi-vs-run.png)
- 
 
-(N'insérez pas de boucles dans votre code de test web.)
+
+(N’insérez pas de boucles dans votre test web.)
 
 #### 2\. Chargement du test web dans Application Insights
 
@@ -169,6 +171,8 @@ Affichez les résultats de votre test et les échecs éventuels de la même mani
 Un échec est souvent dû à un test trop long. Le test ne doit pas durer plus de deux minutes.
 
 N’oubliez pas que toutes les ressources d’une page doivent se charger correctement pour que le test réussisse, y compris les scripts, les feuilles de style, les images etc.
+
+Notez que le test web doit être entièrement contenu dans le fichier .webtest : vous ne pouvez pas utiliser de fonctions codées dans le test.
 
 
 ### Ajout de plug-ins de temps et de nombres aléatoires à votre test à plusieurs étapes
@@ -207,13 +211,14 @@ Vous pouvez par exemple désactiver des tests web lorsque vous effectuez des op�
 
 ## Des questions ? Des problèmes ?
 
-* J'obtiens une erreur de « caractères non valides » lorsque je 
 
-* **Quelle est la différence entre « tests Web » et « disponibilité » ?
+* *Quelle est la différence entre « tests Web » et « disponibilité » ?*
 
     Nous utilisons ces deux termes indifféremment.
 
+* *Puis-je appeler du code à partir de mon test web ?*
 
+    Non. Les étapes du test doivent se trouver dans le fichier .webtest.
 
 ## <a name="video"></a>Vidéo
 
@@ -235,6 +240,4 @@ Vous pouvez par exemple désactiver des tests web lorsque vous effectuez des op�
 [qna]: app-insights-troubleshoot-faq.md
 [start]: app-insights-get-started.md
 
- 
-
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

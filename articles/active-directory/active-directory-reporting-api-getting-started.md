@@ -1,22 +1,20 @@
 <properties
    pageTitle="Prise en main de l'API de création de rapports Azure AD"
-   description="Prise en main de l'API de création de rapports Active Directory Azure"
-   services="active-directory"
-   documentationCenter=""
-   authors="kenhoff"
-   manager="mbaldwin"
-   editor=""/>
-
+	description="Prise en main de l'API de création de rapports Active Directory Azure"
+	services="active-directory"
+	documentationCenter=""
+	authors="kenhoff"
+	manager="mbaldwin"
+	editor=""/>
 
 <tags
    ms.service="active-directory"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="identity"
-   ms.date="07/17/2015"
-   ms.author="kenhoff;yossib"/>
-
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="identity"
+	ms.date="07/17/2015"
+	ms.author="kenhoff;yossib"/>
 
 
 # Prise en main de l'API de création de rapports Azure AD
@@ -75,7 +73,9 @@ Les étapes ci-dessous vous guideront pour l'obtention de l'ID de client de votr
 
 
 ## Modification du script
-Pour modifier le script PowerShell ci-dessous afin de travailler avec votre répertoire, remplacez $ClientID, $ClientSecret et $tenantdomain avec les valeurs correctes de « Délégation de l'accès dans Azure AD ».
+Modifiez l’un des scripts ci-dessous afin qu’il fonctionne avec votre répertoire, en remplaçant $ClientID, $ClientSecret et $tenantdomain avec les valeurs correctes de « Délégation de l'accès dans Azure AD ».
+
+### Script PowerShell
 
     # This script will require the Web Application and permissions setup in Azure Active Directory
     $ClientID      = "<<YOUR CLIENT ID HERE>>"                # Should be a ~35 character string insert your info here
@@ -127,6 +127,30 @@ Pour modifier le script PowerShell ci-dessous afin de travailler avec votre rép
         Write-Host "ERROR: No Access Token"
         }
 
+### Script Bash
+
+    #!/bin/bash
+
+    # Author: Ken Hoff (kenhoff@microsoft.com)
+    # Date: 2015.08.20
+    # NOTE: This script requires jq (https://stedolan.github.io/jq/)
+
+    CLIENT_ID="<<YOUR CLIENT ID HERE>>"			# Should be a ~35 character string insert your info here
+    CLIENT_SECRET="<<YOUR CLIENT SECRET HERE>>"	# Should be a ~44 character string insert your info here
+    LOGIN_URL="https://login.windows.net"
+    TENANT_DOMAIN="<<YOUR TENANT NAME HERE>>"	 # For example, contoso.onmicrosoft.com
+
+    TOKEN_INFO=$(curl -s --data-urlencode "grant_type=client_credentials" --data-urlencode "client_id=$CLIENT_ID" --data-urlencode "client_secret=$CLIENT_SECRET" "$LOGIN_URL/$TENANT_DOMAIN/oauth2/token?api-version=1.0")
+
+    TOKEN_TYPE=$(echo $TOKEN_INFO | jq -r '.token_type')
+    ACCESS_TOKEN=$(echo $TOKEN_INFO | jq -r '.access_token')
+
+    REPORT=$(curl -s --header "Authorization: $TOKEN_TYPE $ACCESS_TOKEN" https://graph.windows.net/$TENANT_DOMAIN/reports/auditEvents?api-version=beta)
+
+    echo $REPORT | jq -r '.value' | jq -r ".[]"
+
+
+
 
 ## Exécution du script
 Une fois que vous avez terminé la modification du script, exécutez-le, puis vérifiez que les données attendues dans le rapport AuditEvents sont retournées.
@@ -139,4 +163,4 @@ Le script renvoie des listes qui répertorient tous les rapports disponibles et 
 - Consultez [Événements de rapport d'audit d'Azure AD](active-directory-reporting-audit-events.md) pour plus d'informations sur le rapport d'audit
 - Consultez [Rapports et événements Azure AD (aperçu)](https://msdn.microsoft.com/library/azure/mt126081.aspx) pour plus d'informations sur le service REST d'API Graph
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Data Factory - Créer des pipelines prédictifs à l’aide de Data Factory et Machine Learning | Microsoft Azure" 
-	description="Describes how to create create predictive pipelines using Azuer Data Factory and Azure Machine Learning" 
-	services="data-factory" 
-	documentationCenter="" 
-	authors="spelluru" 
-	manager="jhubbard" 
+	pageTitle="Data Factory - Créer des pipelines prédictifs à l’aide de Data Factory et Machine Learning | Microsoft Azure"
+	description="Describes how to create create predictive pipelines using Azuer Data Factory and Azure Machine Learning"
+	services="data-factory"
+	documentationCenter=""
+	authors="spelluru"
+	manager="jhubbard"
 	editor="monicar"/>
 
 <tags 
-	ms.service="data-factory" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/04/2015" 
+	ms.service="data-factory"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/04/2015"
 	ms.author="spelluru"/>
 
 # Créer des pipelines prédictifs à l'aide d'Azure Data Factory et Azure Machine Learning 
@@ -38,7 +38,7 @@ Un **pipeline prédictif** se compose des éléments suivants :
 ## Exemple
 Cet exemple utilise Azure Storage pour stocker les données d'entrée et de sortie. Vous pouvez également utiliser Azure SQL Database à la place d'Azure Storage.
 
-Nous vous recommandons de passer en revue le didacticiel [Prise en main d'Azure Data Factory][adf-getstarted] avant de lire cet exemple et d'utiliser Data Factory Editor pour créer des artefacts Data Factory (services liés, tables, pipeline).
+Nous vous recommandons de passer en revue le didacticiel [Concevez votre premier pipeline en utilisant Azure Data Factory][adf-build-1st-pipeline] avant de lire cet exemple et d’utiliser Data Factory Editor pour créer des artefacts Data Factory (services liés, tables, pipeline).
  
 
 1. Créez un **service lié** pour votre service **Azure Storage**. Si les fichiers d'entrée et de sortie de notation sont dans des comptes de stockage distincts, vous aurez besoin de deux services liés. Voici un exemple JSON :
@@ -179,13 +179,12 @@ Nous vous recommandons de passer en revue le didacticiel [Prise en main d'Azure 
 		  }
 		}
 
-	Les dates/heures de **début** et de **fin** doivent toutes deux être au [format ISO](http://en.wikipedia.org/wiki/ISO_8601). Par exemple : 2014-10-14T16:32:41Z. L’heure de **fin** est facultative. Si vous ne spécifiez aucune valeur pour la propriété **end**, cette dernière est calculée comme suit : « **start + 48 heures** ». Pour exécuter le pipeline indéfiniment, spécifiez **9999-09-09** comme valeur pour la propriété **end**. Pour en savoir plus sur les propriétés JSON, voir [Référence de script JSON](https://msdn.microsoft.com/library/dn835050.aspx).
 
 ## Paramètres de service web
 Vous pouvez utiliser les paramètres de service web qui sont exposés par un service web Azure Machine Learning publié dans les pipelines Azure Data Factory (ADF). Vous pouvez créer une expérience dans Azure Machine Learning et la publier sous la forme d'un service web, puis utiliser ce service web dans plusieurs pipelines ou activités ADF, en transmettant différentes entrées via les paramètres de service web.
 
 ### Transmission de valeurs pour les paramètres de service web
-Ajoutez une section **typeProperties** à la section **AzureMLBatchScoringActivty** dans le script JSON du pipeline pour spécifier les valeurs des paramètres de service web dans cette section, comme indiqué dans l'exemple suivant :
+Ajoutez une section **typeProperties** à la section **AzureMLBatchScoringActivty** dans le script JSON du pipeline pour spécifier les valeurs des paramètres de service web dans cette section, comme indiqué dans l’exemple suivant :
 
 	"typeProperties": {
 		"webServiceParameters": {
@@ -199,7 +198,7 @@ Vous pouvez également utiliser les [fonctions de Data Factory](https://msdn.mic
 
 	"typeProperties": {
     	"webServiceParameters": {
-    	   "Database query": "$$Text.Format('SELECT * FROM myTable WHERE timeColumn = \\'{0:yyyy-MM-dd HH:mm:ss}\\'', Time.AddHours(WindowStart, 0))"
+    	   "Database query": "$$Text.Format('SELECT * FROM myTable WHERE timeColumn = \'{0:yyyy-MM-dd HH:mm:ss}\'', Time.AddHours(WindowStart, 0))"
     	}
   	}
  
@@ -239,7 +238,7 @@ Comme pour le lecteur SQL Azure, les propriétés de l'enregistreur SQL Azure pe
 
 #### Objet blob Azure comme source
 
-Lorsque vous utilisez le module Lecteur d'une Azure Machine Learning, vous pouvez spécifier un objet blob Azure comme entrée. Les fichiers du stockage blob Azure peuvent être les fichiers de sortie (par exemple, 000000\_0) qui sont générés par un script Pig et Hive exécuté sur HDInsight. Le module Lecteur vous permet de lire des fichiers (sans extension) en configurant le **chemin d'accès au conteneur, au répertoire ou à la propriété blob** du module Lecteur pour pointer vers le dossier/conteneur où figurent les fichiers, comme indiqué ci-dessous. Notez que l'astérisque (\*)**spécifie que tous les fichiers du dossier/conteneur (par exemple, data/aggregateddata/year=2014/month-6/\*)** seront lus dans le cadre de l'expérience.
+Lorsque vous utilisez le module Lecteur d'une Azure Machine Learning, vous pouvez spécifier un objet blob Azure comme entrée. Les fichiers du stockage blob Azure peuvent être les fichiers de sortie (par exemple, 000000\_0) qui sont générés par un script Pig et Hive exécuté sur HDInsight. Le module Lecteur vous permet de lire des fichiers (sans extension) en configurant la propriété **Chemin d’accès au conteneur, répertoire ou blob** du module lecteur pour pointer vers le dossier/conteneur où figurent les fichiers, comme indiqué ci-dessous. Notez que l’astérisque (*) **spécifie que tous les fichiers du dossier/conteneur (par exemple, data/aggregateddata/year=2014/month-6/*)** seront lus dans le cadre de l’expérience.
 
 ![Propriétés des objets blob Azure](./media/data-factory-create-predictive-pipelines/azure-blob-properties.png)
 
@@ -306,25 +305,12 @@ Dans l'exemple JSON ci-dessus :
 
 
 
-## Voir aussi
 
-Article | Description
------- | ---------------
-[Référence du développeur Azure Data Factory][developer-reference] | Ces informations de référence pour les développeurs incluent des références complètes sur les applets de commande, le script JSON, la bibliothèque de classes .NET, les fonctions, etc. 
-
-[adf-introduction]: data-factory-introduction.md
-[adf-getstarted]: data-factory-get-started.md
-[use-onpremises-datasources]: data-factory-use-onpremises-datasources.md
-[use-pig-and-hive-with-data-factory]: data-factory-pig-hive-activities.md
-[adf-tutorial]: data-factory-tutorial.md
-[use-custom-activities]: data-factory-use-custom-activities.md
-[troubleshoot]: data-factory-troubleshoot.md
-[data-factory-introduction]: data-factory-introduction.md
-[developer-reference]: http://go.microsoft.com/fwlink/p/?LinkId=516908
+[adf-build-1st-pipeline]: data-factory-build-your-first-pipeline.md
 
 [azure-machine-learning]: http://azure.microsoft.com/services/machine-learning/
 [machine-learning-dashboard]: ./media/data-factory-create-predictive-pipelines/AzureMLDashboard.png
 
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

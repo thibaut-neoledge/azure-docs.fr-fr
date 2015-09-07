@@ -487,7 +487,7 @@ Si vous souhaitez personnaliser la taille du déploiement de Redis Cluster, vous
 
 Remarque : les propriétés `totalMemberCountExcludingLast` et `totalMemberCount` sont nécessaires car la langue du modèle ne dispose pas actuellement d’opérations « math ».
 
-Vous trouverez plus d'informations sur la langue du modèle dans MSDN sous [Langue du modèle Azure Resource Manager](https://msdn.microsoft.com/library/azure/dn835138.aspx).
+Vous trouverez plus d'informations sur la langue du modèle dans MSDN sous [Langue du modèle Azure Resource Manager](../resource-group-authoring-templates.md).
 
 ### section "resources"
 
@@ -664,6 +664,6 @@ Pour résumer, cette approche suggère de :
 - créer des modèles spécifiques pour les mêmes membres d’un groupe de ressources (nœuds dans un cluster, etc.) afin d’exploiter l’itération de ressources pour déployer plusieurs instances ayant des propriétés uniques ;
 - exploiter les extensions de déploiement de script et créer des scripts propres à chaque technologie pour toutes les tâches de post-déploiement (installation de produits, configurations, etc.).
 
-Pour plus d’informations, consultez [Langage du modèle Azure Resource Manager](https://msdn.microsoft.com/library/azure/dn835138.aspx).
+Pour plus d’informations, consultez [Langage du modèle Azure Resource Manager](../resource-group-authoring-templates.md).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

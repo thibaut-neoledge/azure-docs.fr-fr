@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Connecteur de ressources Azure"
-	description="Connecteur de ressources Azure"
+   pageTitle="Utilisation du connecteur de ressources Azure dans des applications logiques | Microsoft Azure App Service"
+	description="Comment créer et configurer le connecteur de ressources Azure ou une application API et l'utiliser dans une application logique d’Azure App Service"
 	services="app-service\logic"
 	documentationCenter=".net,nodejs,java"
 	authors="stepsic-microsoft-com"
@@ -13,11 +13,11 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="integration"
-	ms.date="08/19/2015"
+	ms.date="08/23/2015"
 	ms.author="stepsic"/>
 
-# Connecteur de ressources Azure
-Le connecteur de ressources Azure vous offre un moyen simple de gérer des ressources Azure à l’intérieur de votre application logique.
+# Utilisation et ajout du connecteur de ressources Azure dans votre application logique 
+Utilisez le connecteur de ressources Azure pour gérer facilement des ressources Azure à l’intérieur de votre application logique.
 
 ## Création du connecteur de ressources Azure
 Pour utiliser l’application API du connecteur de ressources Azure, vous devez commencer par en créer une instance. Vous pouvez effectuer cette opération inline lorsque vous créez une application logique ou en sélectionnant l’application API du connecteur de ressources Azure à partir d’Azure Marketplace.
@@ -96,4 +96,4 @@ Vous pouvez également consulter les statistiques de performances et contrôler 
 <!--Links -->
 [Creating a Logic App]: app-service-logic-create-a-logic-app.md
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

@@ -291,7 +291,7 @@ Découvrez comment [appliquer les méthodologies agiles et publier en continu vo
 <a name="resources"></a>
 ## Autres ressources ##
 
--	[Langue du modèle Azure Resource Manager](http://msdn.microsoft.com/library/azure/dn835138.aspx)
+-	[Langue du modèle Azure Resource Manager](../resource-group-authoring-templates.md)
 -	[Création de modèles Azure Resource Manager](../resource-group-authoring-templates.md)
 -	[Fonctions des modèles Azure Resource Manager](../resource-group-template-functions.md)
 -	[Déploiement d’une application avec un modèle Azure Resource Manager](../resource-group-template-deploy.md)
@@ -303,4 +303,4 @@ Découvrez comment [appliquer les méthodologies agiles et publier en continu vo
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

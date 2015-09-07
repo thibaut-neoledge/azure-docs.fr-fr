@@ -17,11 +17,9 @@
 	ms.author="saah; kenhoff"/>
 
 # Connexions à partir d’adresses IP affichant une activité suspecte
+<p>Ce rapport affiche les connexions à partir d'adresses&#160;IP où une activité suspecte a été détectée. Dans ce cas, les activités suspectes sont définies comme un rapport entre échecs et réussites de connexion anormalement élevé, ce qui peut indiquer qu'une adresse&#160;IP est utilisée à des fins malveillantes.</p>
 
-| Description | Emplacement du rapport |
-| :-------------     | :-------        |
-| <p>Ce rapport inclut les tentatives de connexion qui ont été effectuées à partir d'adresses IP depuis lesquelles une activité suspecte a été observée. L’activité suspecte inclut plusieurs tentatives de connexion infructueuses à partir de la même adresse IP sur une période relativement courte, et toute autre activité considérée comme suspecte. Cela peut signifier qu'un pirate a essayé de se connecter à partir de cette adresse IP.</p><p>Les résultats de ce rapport vous indiqueront les tentatives de connexion qui proviennent d'une adresse IP depuis laquelle une activité suspecte a été détectée, ainsi que l'horodatage associé à la connexion.</p> | Répertoire > onglet Rapports |
 
 ![Connexions à partir d’adresses IP affichant une activité suspecte](./media/active-directory-reporting-sign-ins-from-ip-addresses-with-suspicious-activity/signInsFromIPAddressesWithSuspiciousActivity.PNG)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

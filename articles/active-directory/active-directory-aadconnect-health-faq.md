@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Forum Aux Questions (FAQ) Azure AD Connect Health" 
-	description="Ce FAQ répond aux questions que vous pouvez vous poser au sujet d’Azure AD Connect. Ce FAQ couvre les questions sur l'utilisation du service, notamment le modèle de facturation, les fonctionnalités, les limitations et le support." 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="swadhwa" 
+	pageTitle="Forum Aux Questions (FAQ) Azure AD Connect Health"
+	description="Ce FAQ répond aux questions que vous pouvez vous poser au sujet d’Azure AD Connect. Ce FAQ couvre les questions sur l'utilisation du service, notamment le modèle de facturation, les fonctionnalités, les limitations et le support."
+	services="active-directory"
+	documentationCenter=""
+	authors="billmath"
+	manager="stevenpo"
 	editor="curtand"/>
 
 <tags 
-	ms.service="active-directory" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/12/2015"
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/14/2015"
 	ms.author="billmath"/>
 
 
@@ -71,7 +71,6 @@ Effectuer ceci à tout moment avant l’exécution de Register-AdHealthAgent (é
 Recherchez le fichier machine.config. Le fichier est stocké à l’emplacement %windir%\Microsoft.NET\Framework64[version]\config\machine.config</li>.
 
 Ajoutez l’entrée suivante sous l’élément <configuration></configuration> dans votre fichier machine.config.
- 
 		
 	<system.net>  
 			<defaultProxy useDefaultCredentials="true">
@@ -128,4 +127,11 @@ Les alertes Azure AD Connect Health sont résolues en cas de condition de succ�
 
 Les ports TCP/UDP 80 et 443 doivent être ouverts pour permettre à l’agent Azure AD Connect Health de communiquer avec les points de terminaison de service Azure AD Health.
 
-<!---HONumber=August15_HO6-->
+## Liens connexes
+
+* [Azure AD Connect Health](active-directory-aadconnect-health.md)
+* [Installation de l’agent Azure AD Connect Health pour AD FS](active-directory-aadconnect-health-agent-install-adfs.md)
+* [Utilisation d’Azure AD Connect Health avec AD FS](active-directory-aadconnect-health-adfs.md)
+* [Opérations Azure AD Connect Health](active-directory-aadconnect-health-operations.md)
+
+<!---HONumber=August15_HO9-->

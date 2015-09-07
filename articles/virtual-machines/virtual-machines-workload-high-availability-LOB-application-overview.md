@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Déployer une application métier à haute disponibilité dans Azure" 
-	description="Vous pouvez déployer une application métier à haute disponibilité basée sur le Web avec des groupes de haute disponibilité SQL Server AlwaysOn SQL Server dans Azure en cinq phases." 
+	pageTitle="Déploiement d'une application métier | Microsoft Azure"
+	description="Déployez une application métier à haute disponibilité basée sur le web avec des groupes de haute disponibilité SQL Server AlwaysOn dans Azure en cinq phases."
 	documentationCenter=""
-	services="virtual-machines" 
-	authors="JoeDavies-MSFT" 
-	manager="timlt" 
+	services="virtual-machines"
+	authors="JoeDavies-MSFT"
+	manager="timlt"
 	editor=""
 	tags="azure-resource-manager"/>
 
 <tags 
-	ms.service="virtual-machines" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/11/2015" 
+	ms.service="virtual-machines"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/11/2015"
 	ms.author="josephd"/>
 
 # Déployer une application métier à haute disponibilité dans Azure
@@ -66,4 +66,4 @@ Pour démarrer la configuration de cette charge de travail, passez à la [Phase�
 
 [Charge de travail des services d’infrastructure Azure : batterie de serveurs SharePoint Server 2013](virtual-machines-workload-intranet-sharepoint-farm.md)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

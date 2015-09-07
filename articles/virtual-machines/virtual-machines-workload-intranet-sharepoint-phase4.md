@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Phase 4 de la charge de travail de la batterie de serveurs SharePoint intranet : Configuration de serveurs SharePoint"
-	description="Au cours de cette quatrième phase de déploiement d’une batterie de serveurs SharePoint 2013 intranet uniquement, vous créez les machines virtuelles du serveur SharePoint ainsi qu’une batterie de serveurs SharePoint."
+	pageTitle="Batterie de serveurs SharePoint Server 2013 - Phase 4 | Microsoft Azure"
+	description="Créez les machines virtuelles du serveur SharePoint et une batterie de serveurs SharePoint dans la phase 4 de la batterie de serveurs SharePoint Server 2013 dans Azure."
 	documentationCenter=""
 	services="virtual-machines"
 	authors="JoeDavies-MSFT"
@@ -193,4 +193,4 @@ Pour poursuivre la configuration de cette charge de travail, passez à la [Phase
 
 [Charge de travail des services d’infrastructure Azure : applications métier à haute disponibilité](virtual-machines-workload-high-availability-lob-application.md)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

@@ -1,19 +1,19 @@
 <properties
    pageTitle="Exécution d'un Runbook dans Azure Automation"
-   description="Décrit les détails du traitement d'un Runbook dans Azure Automation."
-   services="automation"
-   documentationCenter=""
-   authors="bwren"
-   manager="stevenka"
-   editor="tysonn" />
+	description="Décrit les détails du traitement d'un Runbook dans Azure Automation."
+	services="automation"
+	documentationCenter=""
+	authors="bwren"
+	manager="stevenka"
+	editor="tysonn"/>
 <tags
    ms.service="automation"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="07/22/2015"
-   ms.author="bwren" />
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="infrastructure-services"
+	ms.date="07/22/2015"
+	ms.author="bwren"/>
 
 # Exécution d'un Runbook dans Azure Automation
 
@@ -89,7 +89,7 @@ Les exemples de commandes suivants récupèrent la dernière tâche d'un exemple
 
 ## Répartition de charge équilibrée
 
-Afin de partager les ressources entre tous les Runbooks du cloud, Azure Automation décharge temporairement toute tâche après qu'elle a été exécutée pendant 3 heures, puis la redémarre à partir de son dernier [point de contrôle](http://aka.ms/runbookauthor/checkpoints). Pendant ce temps, la tâche affiche l'état En cours d'exécution, en attente de ressources. Si le Runbook n'a aucun point de contrôle ou que la tâche n'a pas atteint le premier point de contrôle avant d'être déchargée, il redémarre à partir du début.
+Afin de partager les ressources entre tous les Runbooks du cloud, Azure Automation décharge temporairement toute tâche après qu'elle a été exécutée pendant 3 heures, puis la redémarre à partir de son dernier [point de contrôle](http://technet.microsoft.com/library/dn469257.aspx#bk_Checkpoints). Pendant ce temps, la tâche affiche l'état En cours d'exécution, en attente de ressources. Si le Runbook n'a aucun point de contrôle ou que la tâche n'a pas atteint le premier point de contrôle avant d'être déchargée, il redémarre à partir du début.
 
 Si le Runbook redémarre à partir du même point de contrôle ou du début du Runbook trois fois de suite, il se termine avec l'état Échec, en attente de ressources. L'objectif est d'empêcher que les Runbooks ne s'exécutent indéfiniment sans s'achever, car ils ne sont pas en mesure d'accéder au point de contrôle suivant sans être à nouveau déchargés. Dans ce cas, vous recevez l'exception suivante avec l'échec.
 
@@ -101,8 +101,6 @@ Lorsque vous créez un Runbook, vous devez vous assurer que la durée d'exécuti
 
 ## Articles connexes
 
-- [Démarrage d'un Runbook dans Azure Automation](automation-starting-a-runbook)
-- [Affichage de l'état d'une tâche du Runbook dans Azure Automation](automation-viewing-the-status-of-a-runbook-job)
- 
+- [Démarrage d'un Runbook dans Azure Automation](automation-starting-a-runbook.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

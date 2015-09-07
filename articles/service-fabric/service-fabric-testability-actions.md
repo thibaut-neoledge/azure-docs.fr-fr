@@ -1,20 +1,20 @@
 <properties
    pageTitle="Action de testabilité."
-   description="Cet article présente les actions de testabilité de Microsoft Azure Service Fabric."
-   services="service-fabric"
-   documentationCenter=".net"
-   authors="heeldin"
-   manager="timlt"
-   editor=""/>
+	description="Cet article présente les actions de testabilité de Microsoft Azure Service Fabric."
+	services="service-fabric"
+	documentationCenter=".net"
+	authors="heeldin"
+	manager="timlt"
+	editor=""/>
 
 <tags
    ms.service="service-fabric"
-   ms.devlang="dotnet"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="NA"
-   ms.date="03/17/2015"
-   ms.author="heeldin;motanv"/>
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="NA"
+	ms.date="03/17/2015"
+	ms.author="heeldin;motanv"/>
 
 # Actions de testabilité
 Pour simuler une infrastructure non fiable, Service Fabric procure aux développeurs des moyens d’intégrer des défaillances et des transitions d’état réalistes. Elles sont exposées en tant qu’actions de testabilité. Les actions sont les API de bas niveau provoquant l’injection des erreurs, la transition entre les états ou la validation. En combinant ces actions, un développeur de service est en mesure d’écrire des scénarios de test complets pour vos services.
@@ -211,6 +211,7 @@ Pour ce faire, créez un objet ReplicaSelector, puis définissez la méthode de 
 
 Guid partitionIdGuid = new Guid("8fb7ebcc-56ee-4862-9cc0-7c6421e68829"); PartitionSelector partitionSelector = PartitionSelector.PartitionIdOf(serviceName, partitionIdGuid); long replicaId = 130559876481875498;
 
+
 ```csharp
 // Select Random replica
 ReplicaSelector randomReplicaSelector = ReplicaSelector.RandomOf(partitionSelector);
@@ -233,4 +234,4 @@ ReplicaSelector secondaryReplicaSelector = ReplicaSelector.RandomSecondaryOf(par
    - [Échecs de communication de service à service](service-fabric-testability-scenarios-service-communication.md)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

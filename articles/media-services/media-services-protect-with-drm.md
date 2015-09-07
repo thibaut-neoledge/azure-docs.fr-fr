@@ -12,11 +12,15 @@
 	ms.workload="media"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="get-started-article" 
-	ms.date="08/06/2015"
+	ms.topic="get-started-article"
+	ms.date="08/14/2015"
 	ms.author="juliako"/>
 
 #Utilisation du chiffrement dynamique et du service de distribution des licences PlayReady DRM
+
+> [AZURE.SELECTOR]
+- [.NET](media-services-protect-with-drm.md)
+- [Java](https://github.com/southworkscom/azure-sdk-for-media-services-java-samples)
 
 Microsoft Azure Media Services vous permet de fournir des flux MPEG-DASH, Smooth Streaming et HLS (Http-Live-Streaming) protégés par [Microsoft PlayReady DRM](https://www.microsoft.com/playready/overview/).
 
@@ -96,7 +100,7 @@ L'extrait de code suivant montre comment créer un élément multimédia et tél
 
 ##Encoder l'élément multimédia contenant le fichier selon le débit binaire MP4 défini
 
-Avec le chiffrement dynamique, il vous suffit de créer un élément multimédia qui contient un ensemble de fichiers MP4 à débit binaire multiple ou de fichiers sources de diffusion en continu lisse à débit binaire multiple. Ensuite, en fonction du format spécifié dans le manifeste ou la demande de fragment, le serveur de diffusion en continu à la demande s'assure que vous recevez le flux conforme au protocole choisi. Par conséquent, il vous suffit de stocker et de payer les fichiers dans un seul format de stockage. Le service Media Services se charge de créer et de fournir la réponse appropriée en fonction des demandes des clients. Pour plus d’informations, consultez [Vue d'ensemble de l'empaquetage dynamique](media-services-dynamic-packaging-overview.md).
+Avec le chiffrement dynamique, il vous suffit de créer un élément multimédia qui contient un ensemble de fichiers MP4 à débit binaire multiple ou de fichiers sources de diffusion en continu lisse à débit binaire multiple. Ensuite, en fonction du format spécifié dans le manifeste ou la demande de fragment, le serveur de diffusion en continu à la demande s'assure que vous recevez le flux conforme au protocole choisi. Par conséquent, il vous suffit de stocker et de payer les fichiers dans un seul format de stockage. Le service Media Services se charge de créer et de fournir la réponse appropriée en fonction des demandes des clients. Pour plus d’informations, consultez [Vue d’ensemble de l’empaquetage dynamique](media-services-dynamic-packaging-overview.md).
 
 L'extrait de code suivant montre comment encoder un élément multimédia selon le débit binaire MP4 adaptatif défini :
 
@@ -135,20 +139,20 @@ L'extrait de code suivant montre comment encoder un élément multimédia selon 
 	        DateTime.UtcNow.ToString(@"yyyy_M_d__hh_mm_ss")));
 	}
 
-##<a id="create_contentkey"></a>Créer une clé de contenu et l'associer à l'élément multimédia encodé
+##<a id="create_contentkey"></a>Créer une clé de contenu et l’associer à l’élément multimédia encodé
 
 Dans Media Services, la clé de contenu contient la clé que vous souhaitez utiliser pour chiffrer un élément multimédia.
 
-Pour plus d'informations, consultez [Créer une clé de contenu](media-services-dotnet-create-contentkey.md).
+Pour plus d’informations, consultez [Créer une clé de contenu](media-services-dotnet-create-contentkey.md).
 
 
-##<a id="configure_key_auth_policy"></a>Configurer la stratégie d'autorisation de la clé de contenu
+##<a id="configure_key_auth_policy"></a>Configurer la stratégie d’autorisation de clé de contenu
 
 Media Services prend en charge plusieurs méthodes d’authentification des utilisateurs effectuant des demandes de clé. La stratégie d'autorisation de la clé de contenu doit être configurée par vous et respectée par le client (lecteur) afin que la clé soit remise au client. La stratégie d’autorisation des clés de contenu peut avoir une ou plusieurs restrictions d’autorisations : ouvert, restriction par jeton ou restriction IP.
 
-Pour plus d'informations, consultez [Configurer la stratégie d'autorisation de la clé de contenu](media-services-dotnet-configure-content-key-auth-policy.md#playready-dynamic-encryption).
+Pour plus d’informations, consultez [Configurer la stratégie d’autorisation de clé de contenu](media-services-dotnet-configure-content-key-auth-policy.md#playready-dynamic-encryption).
 
-##<a id="configure_asset_delivery_policy"></a>Configurer la stratégie de remise d'éléments multimédias 
+##<a id="configure_asset_delivery_policy"></a>Configurer la stratégie de distribution d’éléments multimédia 
 
 Configurez la stratégie de remise pour votre élément multimédia. Certains éléments que la configuration de la stratégie de remise de l'élément multimédia inclut :
 
@@ -156,9 +160,9 @@ Configurez la stratégie de remise pour votre élément multimédia. Certains é
 - Le protocole de remise de l'élément multimédia (par exemple, MPEG DASH, HLS, HDS, Smooth Streaming ou tous). 
 - Le type de chiffrement dynamique (dans ce cas, chiffrement commun). 
 
-Pour plus d'informations, consultez [Configurer la stratégie de remise d'éléments multimédias](media-services-rest-configure-asset-delivery-policy.md).
+Pour plus d’informations, consultez [Configurer la stratégie de distribution d’éléments multimédia](media-services-rest-configure-asset-delivery-policy.md).
 
-##<a id="create_locator"></a>Créer un localisateur de diffusion en continu à la demande afin d'obtenir une URL de diffusion en continu
+##<a id="create_locator"></a>Créer un localisateur de diffusion en continu à la demande afin d’obtenir une URL de diffusion en continu
 
 Vous devrez fournir aux utilisateurs l'URL de diffusion en continu pour Smooth, DASH ou HLS.
 
@@ -575,4 +579,4 @@ Vous pouvez utiliser le [lecteur AMS](http://amsplayer.azurewebsites.net/azureme
 		    }
 		}
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

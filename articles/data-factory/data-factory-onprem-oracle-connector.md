@@ -1,24 +1,22 @@
 <properties 
-	pageTitle="Connecteur Oracle - Déplacement de données depuis et vers une base de données Oracle" 
-	description="En savoir plus sur le connecteur Oracle pour le service Data Factory qui vous permet de déplacer des données vers/depuis une base de données Oracle locale." 
-	services="data-factory" 
-	documentationCenter="" 
-	authors="spelluru" 
-	manager="jhubbard" 
+	pageTitle="Déplacer des données vers et depuis Oracle | Azure Data Factory"
+	description="Découvrez comment déplacer des données vers et depuis une base de données Oracle locale à l’aide d’Azure Data Factory."
+	services="data-factory"
+	documentationCenter=""
+	authors="spelluru"
+	manager="jhubbard"
 	editor="monicar"/>
 
-
 <tags 
-	ms.service="data-factory" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/29/2015" 
+	ms.service="data-factory"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/26/2015"
 	ms.author="spelluru"/>
 
-
-# Connecteur Oracle - Déplacement de données vers une base de données Oracle locale 
+# Déplacement des données vers Oracle en local à l’aide d’Azure Data Factory 
 
 Cet article explique comment utiliser l’activité de copie Data factory pour déplacer des données depuis Oracle vers un autre magasin de données. Cet article s'appuie sur l'article des [activités de déplacement des données](data-factory-data-movement-activities.md) qui présente une vue d'ensemble du déplacement des données avec l'activité de copie et les combinaisons de magasins de données prises en charge.
 
@@ -26,11 +24,11 @@ Cet article explique comment utiliser l’activité de copie Data factory pour d
 
 L’exemple ci-dessous présente les éléments suivants :
 
-1.	Un service lié de type OnPremisesOracle
-2.	Un service lié de type AzureStorage.
-3.	Un jeu de données d'entrée de type OracleTable. 
-4.	Un jeu de données de sortie de type AzureBlob.
-5.	Un pipeline avec une activité de copie qui utilise OracleSource comme source et BlobSink comme récepteur.
+1.	Un service lié de type [OnPremisesOracle](data-factory-onprem-oracle-connector.md#oracle-linked-service-properties).
+2.	Un service lié de type [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties).
+3.	Un [jeu de données](data-factory-create-datasets.md) d’entrée de type [OracleTable](data-factory-onprem-oracle-connector.md#oracle-dataset-type-properties). 
+4.	Un [jeu de données](data-factory-create-datasets.md) de sortie de type [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties).
+5.	Un [pipeline](data-factory-create-pipelines.md) avec une activité de copie qui utilise [OracleSource](data-factory-onprem-oracle-connector.md#oracle-copy-activity-type-properties) comme source et [BlobSink](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties) comme récepteur.
 
 L'exemple copie toutes les heures les données d’une table d’une base de données Oracle locale vers un objet blob. Pour plus d'informations sur les diverses propriétés utilisées dans l'exemple ci-dessous, consultez la documentation sur ces différentes propriétés dans les sections qui suivent les exemples.
 
@@ -91,7 +89,7 @@ La définition de « external » : « true » et la spécification de la stra
 	}
 
 
-**Jeu de données de sortie Azure Blob :**
+**Jeu de données de sortie d'objet Blob Azure :**
 
 Les données sont écrites dans un nouvel objet blob toutes les heures (fréquence : heure, intervalle : 1). Le nom du chemin d'accès et du fichier de dossier pour l'objet blob sont évalués dynamiquement en fonction de l'heure de début du segment en cours de traitement. Le chemin d'accès du dossier utilise l'année, le mois, le jour et l'heure de l'heure de début.
 	
@@ -179,7 +177,7 @@ Le pipeline contient une activité de copie qui est configurée pour utiliser le
 	        "typeProperties": {
 	          "source": {
 	            "type": "OracleSource",
-	            "oracleReaderQuery": "$$Text.Format('select * from MyTable where timestampcolumn >= \\'{0:yyyy-MM-dd HH:mm}\\' AND timestampcolumn < \\'{1:yyyy-MM-dd HH:mm}\\'', WindowStart, WindowEnd)"
+	            "oracleReaderQuery": "$$Text.Format('select * from MyTable where timestampcolumn >= \'{0:yyyy-MM-dd HH:mm}\' AND timestampcolumn < \'{1:yyyy-MM-dd HH:mm}\'', WindowStart, WindowEnd)"
 	          },
 	          "sink": {
 	            "type": "BlobSink"
@@ -206,13 +204,14 @@ Le tableau suivant fournit la description des éléments JSON spécifiques au se
 
 Propriété | Description | Requis
 -------- | ----------- | --------
-type | Le type de propriété doit être défini sur : **OnPremisesOracle** | Oui
+type | Le type de propriété doit être défini sur : **OnPremisesOracle** | Oui
 connectionString | Spécifier les informations requises pour la connexion à l’instance de base de données Oracle pour la propriété connectionString. | Oui 
 gatewayName | Nom de la passerelle qui sera utilisée pour se connecter au serveur Oracle local | Oui
 
+Pour plus d’informations sur la définition des informations d’identification pour une source de données Oracle locale, consultez [Configuration des informations d’identification et de la sécurité](data-factory-move-data-between-onprem-and-cloud.md#setting-credentials-and-security)
 ## Propriétés de type du jeu de données Oracle
 
-Pour obtenir une liste complète des sections et propriétés disponibles pour la définition de jeux de données, consultez l'article [Création de jeux de données](data-factory-create-datasets.md). Les sections comme la structure, la disponibilité et la stratégie d'un jeu de données JSON sont similaires pour tous les types de jeux de données (Oracle, Azure Blob, Azure Table, etc.).
+Pour obtenir une liste complète des sections et propriétés disponibles pour la définition de jeux de données, consultez l’article [Création de jeux de données](data-factory-create-datasets.md). Les sections comme la structure, la disponibilité et la stratégie d'un jeu de données JSON sont similaires pour tous les types de jeux de données (Oracle, Azure Blob, Azure Table, etc.).
  
 La section typeProperties est différente pour chaque type de jeu de données et fournit des informations sur l'emplacement des données dans le magasin de données. La section typeProperties pour le jeu de données de type OracleTable a les propriétés suivantes.
 
@@ -222,9 +221,9 @@ TableName | Nom de la table dans la base de données Oracle à laquelle le servi
 
 ## Propriétés de type de l'activité de copie Oracle
 
-Pour obtenir la liste complète des sections et des propriétés disponibles pour la définition des activités, consultez l'article [Création de pipelines](data-factory-create-pipelines.md). Des propriétés telles que le nom, la description, les tables d’entrée et de sortie, différentes stratégies, etc. sont disponibles pour tous les types d'activités.
+Pour obtenir la liste complète des sections et des propriétés disponibles pour la définition des activités, consultez l’article [Création de pipelines](data-factory-create-pipelines.md). Des propriétés telles que le nom, la description, les tables d’entrée et de sortie, différentes stratégies, etc. sont disponibles pour tous les types d'activités.
 
-**Remarque :** l'activité de copie accepte uniquement une entrée et produit une seule sortie.
+**Remarque :** l’activité de copie accepte uniquement une entrée et produit une seule sortie.
 
 Par contre, les propriétés disponibles dans la section typeProperties de l'activité varient avec chaque type d'activité et dans le cas de l'activité de copie, elles varient selon les types de sources et de récepteurs.
 
@@ -233,15 +232,15 @@ Dans le cas d'une activité de copie, lorsque la source est de type SqlSource, l
 Propriété | Description |Valeurs autorisées | Requis
 -------- | ----------- | ------------- | --------
 oracleReaderQuery | Utilise la requête personnalisée pour lire des données. | Chaîne de requête SQL. 
-Par exemple : select * from MyTable <p>Si non spécifié, l'instruction SQL exécutée : select from MyTable.</p> | Non
+Par exemple : select * from MyTable <p>Si non spécifié, l’instruction SQL exécutée : select from MyTable.</p> | Non
 
 [AZURE.INCLUDE [data-factory-structure-for-rectangualr-datasets](../../includes/data-factory-structure-for-rectangualr-datasets.md)]
 
 ### Mappage de type pour Oracle
 
-Comme mentionné dans l’article consacré aux [activités de déplacement des données](data-factory-data-movement-activities.md), l’activité de copie convertit automatiquement des types source en types récepteur à l’aide de l’approche en 2 étapes suivante :
+Comme mentionné dans l’article consacré aux [activités de déplacement des données](data-factory-data-movement-activities.md), l’activité de copie convertit automatiquement des types source en types récepteur à l’aide de l’approche en 2 étapes suivante :
 
-1. Conversion de types natifs source en types .NET
+1. Conversion à partir de types de source natifs en types .NET
 2. Conversion de types .NET en types récepteur natifs
 
 Lors du déplacement de données à partir d’Oracle, les mappages suivants seront utilisés pour convertir le type de données Oracle en type .NET et vice versa.
@@ -275,4 +274,4 @@ XML | String
 
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

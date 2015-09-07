@@ -1,64 +1,60 @@
-<properties 
-   pageTitle="Migration d’une base de données vers Azure SQL Database" 
-   description="Microsoft Azure SQL Database, déployer base de données, migration base de données, importer base de données, exporter base de données, assistant de migration" 
-   services="sql-database" 
-   documentationCenter="" 
-   authors="pehteh" 
-   manager="jeffreyg" 
-   editor="monicar"/>
+<properties
+   pageTitle="Migration d’une base de données vers Azure SQL Database"
+	description="Microsoft Azure SQL Database, déployer base de données, migration base de données, importer base de données, exporter base de données, assistant de migration"
+	services="sql-database"
+	documentationCenter=""
+	authors="carlrabeler"
+	manager="jeffreyg"
+	editor=""/>
 
 <tags
    ms.service="sql-database"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="data-management" 
-   ms.date="07/17/2015"
-   ms.author="pehteh"/>
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="data-management"
+	ms.date="08/26/2015"
+	ms.author="carlrab"/>
 
-# Migration d’une base de données vers Azure SQL Database
+# Migration d’une base de données vers Base de données SQL Azure
 
-Azure SQL Database V12 offre une compatibilité moteur presque entière avec SQL Server 2014. Par conséquent, il simplifie considérablement la tâche de migration de la plupart des bases de données depuis SQL Server vers Azure SQL Database. La migration de plusieurs bases de données est une opération de déplacement simple nécessitant peu voire aucune modification du schéma et peu ou pas de nouvelle ingénierie des applications. Et si les bases de données doivent être modifiées, l’étendue de ces modifications est plus limitée.
+Azure SQL Database V12 offre une compatibilité moteur presque entière avec SQL Server 2014 et versions ultérieures. Par conséquent, la tâche de migration de la plupart des bases de données à partir d’une instance locale de SQL Server 2005 ou supérieure à une base de données SQL Azure est beaucoup plus simple. La migration de plusieurs bases de données est une opération simple et l’opération de déplacement de données nécessite peu, voire aucune, modification du schéma ou pas de nouvelle ingénierie des applications. Si les bases de données doivent être modifiées, l’étendue de ces modifications est plus limitée.
 
-De par leur conception, les fonctionnalités de portée serveur de SQL Server ne sont pas prises en charge par SQL Database. Ainsi, les bases de données et les applications qui reposent sur ces fonctionnalités nécessiteront une réingénierie supplémentaire avant de pouvoir être migrées. Bien qu’Azure SQL Database V12 améliore la compatibilité avec SQL Server, la migration doit malgré tout être planifiée et exécutée avec précaution, en particulier pour les bases de données volumineuses plus complexes.
+Par conception, les fonctions de d’étendue de serveur SQL Server ne sont pas prises en charge par la base de données V12 SQL Azure. Les bases de données et applications qui reposent sur ces fonctionnalités ont besoin d’une nouvelle ingénierie avant de pouvoir être migrées. Bien que la base de données Azure SQL V12 améliore la compatibilité avec la base de données SQL Server locale, la migration doit malgré tout être planifiée et exécutée avec précaution, en particulier pour ce qui concerne les bases de données volumineuses et complexes.
 
-## Aperçu
-Il existe différentes approches pour la migration d'une base de données SQL Server vers Azure et chaque approche utilise un ou plusieurs outils. Certaines approches sont simples et rapides, tandis que d’autres sont plus longues à préparer. N’oubliez pas que la migration d’une base de données volumineuse complexe peut prendre plusieurs heures.
+## Détermination de la compatibilité
+Pour déterminer si votre base de données SQL Server locale est compatible Base de données SQL Azure V12, vous pouvez commencer la migration à l’aide d’une des deux méthodes décrites sous l’option n° 1 ci-dessous et voir si les routines de validation de schéma détectent une incompatibilité, ou vous pouvez utiliser des outils de données SQL Server dans Visual Studio comme indiqué dans l’option n° 2 ci-dessous afin de valider la compatibilité. Si votre base de données SQL Server locale présente des problèmes de compatibilité, vous pouvez utiliser les outils de données SQL Server dans Visual Studio ou SQL Server Management Studio pour corriger et résoudre les problèmes de compatibilité.
+
+## Méthodes de migration
+Il existe plusieurs méthodes permettant la migration d’une base de données utilisateur SQL Server locale vers une base de données SQL Server Azure V12.
+
+- Pour les bases de données petites à moyennes, la migration de bases de données SQL Server 2005 compatibles ou ultérieures revient à exécuter l’Assistant de déploiement de base de données base de données vers Microsoft Azure dans SQL Server Management Studio, à condition que vous n’ayez pas de problèmes de connectivité (aucune connectivité, faible bande passante ou problèmes de délai d’attente).
+- Pour les bases de données moyennes à grandes ou lorsque vous avez des problèmes de connectivité, vous pouvez utiliser SQL Server Management Studio pour exporter les données et le schéma vers un fichier BACPAC (stocké localement ou dans un objet blob Azure), puis importer le fichier BACPAC dans votre instance de SQL Azure. Si vous stockez le fichier BACPAC dans un objet blob Azure, vous pouvez également importer le fichier BACPAC à partir de l’intérieur du portail Azure.  
+- Pour les bases de données plus volumineuses, vous obtiendrez les meilleures performances en faisant migrer séparément le schéma et les données. Vous pouvez extraire le schéma dans un projet de base de données à l’aide de SQL Server Management Studio ou de Visual Studio, puis déployer le schéma pour créer la base de données SQL Azure. Vous pouvez ensuite extraire les données à l’aide de BCP et utiliser BCP pour importer les données à l’aide de flux parallèles dans la base de données SQL Azure. La migration d’une base de données volumineuse et complexe peut prendre plusieurs heures, quelle que soit la méthode que vous choisissez.
 
 ### Option 1
-***Migrer une base de données compatible à l'aide de SQL Server Management Studio (SSMS)***
+******Migrer une base de données compatible à l’aide de SQL Server Management Studio (SSMS) ***
 
-La base de données est déployée sur Azure SQL Database à l’aide de SSMS. La base de données peut être déployé directement ou exportée vers un fichier BACPAC, qui est ensuite importé pour créer une nouvelle base de données SQL Azure. Utilisez cette méthode lorsque la base de données source est entièrement compatible avec Azure SQL Database.
+SQL Server Management Studio fournit deux méthodes pour migrer votre base de données SQL Server locale compatible avec une base de données SQL Azure. Vous pouvez soit utiliser l’Assistant de déploiement de base de données SQL Microsoft Azure, soit exporter la base de données vers un fichier BACPAC, qui peut ensuite être importé pour créer une nouvelle base de données SQL Azure. L’Assistant valide la compatibilité de base de données SQL V12 Azure, extrait le schéma et les données dans un fichier BACPA, puis importe ce dernier dans l’instance de base de données SQL Azure spécifiée.
 
 ### Option 2
-***Migrer une base de données presque compatible à l'aide de l'Assistant Migration SQL Azure (SAMW)***
+***Mettre à jour le schéma de base de données hors connexion à l’aide de Visual Studio, puis le déployer avec SQL Server Management Studio (SSMS)***
 
-La base de données est traitée à l’aide de l’Assistant Migration SQL Azure pour générer un script de migration contenant un schéma ou un schéma et des données au format BCP. Utilisez cette méthode lorsque le schéma de base de données nécessite une mise à niveau et que les modifications peuvent être gérées par l’Assistant.
-
-### Option 3
-***Mettre à jour le schéma de base de données hors connexion à l’aide de Visual Studio et de l’Assistant Migration SQL Azure, et déployer avec SSMS***
-
-La base de données source est importée dans un projet de base de données Visual Studio pour le traitement hors connexion. L’Assistant Migration SQL Azure est alors exécuté sur tous les scripts du projet pour appliquer une série de transformations et de corrections. Le projet est ciblé sur Azure SQL Database V12 et généré ; les erreurs restantes sont signalées. Ces erreurs sont ensuite résolues manuellement à l’aide de SQL Server Data Tools dans Visual Studio. Une fois le projet généré avec succès, il est republié sur une copie de la base de données source. Cette base de données mise à jour est ensuite déployée vers Azure SQL Database à l'aide de l'option 1. Si seule la migration de schéma est requise, vous pouvez publier le schéma directement depuis Visual Studio vers Azure SQL Database. Utilisez cette méthode lorsque le schéma de base de données nécessite un plus grand nombre de modifications qui peuvent être gérées par l’Assistant seul.
+Si votre base de données SQL Server locale n’est pas compatible ou pour déterminer si elle l’est, vous pouvez importer le schéma de base de données dans un projet de base de données de Visual Studio pour analyse. Pour l’analyse, vous devez désigner la plate-forme cible du projet en tant que base de données V12, puis réalisez le projet. Si la version est réussie, la base de données est compatible. Si la version échoue, vous pouvez résoudre les erreurs dans SQL Server Data Tools pour Visual Studio (« SSDT »). Une fois la génération du projet réussie, vous pouvez de nouveau publier ce dernier en tant que copie de base de données source, puis utiliser la fonction de comparaison des données de SSDT pour copier les données de la base de données source vers la base de données Azure SQL V12 compatible. Cette base de données mise à jour est ensuite déployée vers Azure SQL Database à l'aide de l'option 1. Si seule la migration de schéma est requise, vous pouvez publier le schéma directement depuis Visual Studio vers la base de données SQL Azure. Utilisez cette méthode lorsque le schéma de base de données nécessite un plus grand nombre de modifications qui peuvent être gérées par l’Assistant seul.
 
 ## Choix des options à utiliser
 - Si vous pensez qu’une base de données peut être migrée sans modification, nous vous conseillons d’utiliser l’option 1 qui est simple et rapide. Si vous avez des doutes, commencez par exporter un BACPAC de schéma uniquement à partir de la base de données, comme indiqué dans l’option 1. Si l’exportation réussit sans erreur, vous pouvez utiliser l’option 1 pour migrer la base de données avec ses données.  
-- Si vous rencontrez des erreurs lors de l’exportation de l’option 1, utilisez l’Assistant Migration SQL Azure (SAMW) pour traiter la base de données en mode schéma uniquement comme décrit dans l’option 2. Si l’Assistant ne signale aucune erreur, utilisez l’option 2. 
-- Si l’Assistant indique que le schéma doit être retravaillé, nous vous recommandons d’utiliser l’option 3 (à moins que les modifications requises ne soient simples) et de corriger le schéma de base de données hors connexion dans Visual Studio à l’aide de l’Assistant Migration et de modifications du schéma appliquées manuellement. Une copie de la base de données source est ensuite mise à jour sur place et migrée vers Azure à l’aide de l’option 1.
+- Si vous rencontrez des erreurs lors de l’exportation de l’option n ° 1, utilisez l’option n ° 2 et corrigez le schéma de base de données hors connexion dans Visual Studio en utilisant une combinaison de l’Assistant migration et de modifications de schéma appliquées manuellement. Une copie de la base de données source est ensuite mise à jour sur place et migrée vers Azure à l’aide de l’option 1.
 
 ## Outils de migration
-Les outils utilisés incluent SQL Server Management Studio (SSMS), les outils SQL Server dans Visual Studio (VS, SSDT) et l’Assistant Migration SQL Azure (SAMW), ainsi que le portail Azure.
+Les outils utilisés incluent SQL Server Management Studio (SSMS), les outils SQL Server dans Visual Studio (VS, SSDT) ainsi que le portail Azure.
 
-> Veillez à installer les dernières versions des outils clients, car les versions antérieures ne sont pas compatibles avec Azure SQL Database v12.
+> Veillez à installer les dernières versions des outils clients, car les versions antérieures ne sont pas compatibles avec les bases de données SQL Azure V12.
 
 ### SQL Server Management Studio (SSMS)
 SSMS peut être utilisé pour déployer une base de données compatible directement vers Azure SQL Database ou pour exporter une sauvegarde logique de la base de données sous forme de fichier BACPAC, qui peut ensuite être importé, toujours à l’aide de SSMS, pour créer une nouvelle base de données SQL Azure.
 
-[Télécharger la dernière version de SSMS](https://msdn.microsoft.com/library/mt238290.aspx) ou veillez à utiliser CU6 dans SQL Server 2013 ou version ultérieure.
-
-### Assistant Migration SQL Azure (SAMW)
-SAMW peut être utilisé pour analyser le schéma d’une base de données existante en termes de compatibilité avec Azure SQL Database. Dans de nombreux cas, il peut être utilisé pour générer et déployer un script Transact-SQL contenant le schéma et les données. S'il rencontre du contenu de schéma qu'il ne peut pas transformer, l'Assistant signale les erreurs au cours de la transformation. Le cas échéant, le script généré nécessitera une édition supplémentaire avant de pouvoir être déployé avec succès. SAMW traite le corps des fonctions ou des procédures stockées qui est normalement exclu de la validation effectuée par les outils SQL Server dans Visual Studio (voir ci-dessous). Il est donc susceptible de trouver des problèmes qui ne seraient pas signalés par la validation dans Visual Studio uniquement. L'utilisation de SAMW en association avec les outils SQL Server dans Visual Studio peut réduire considérablement la quantité de travail nécessaire pour migrer un schéma complexe.
-
-Veillez à utiliser la dernière version de l'[Assistant Migration SQL Azure](http://sqlazuremw.codeplex.com/) de CodePlex.
+[Téléchargez la dernière version de SSMS](https://msdn.microsoft.com/library/mt238290.aspx).
 
 ### Outils SQL Server dans Visual Studio (VS, SSDT)
 Vous pouvez utiliser les outils SQL Server dans Visual Studio pour créer et gérer un projet de base de données comprenant un ensemble de fichiers Transact-SQL pour chaque objet du schéma. Le projet peut être importé à partir d'une base de données ou d'un fichier de script. Une fois le projet créé, il peut être importé vers Azure SQL Database v12. La création du projet valide ensuite la compatibilité du schéma. Le fait de cliquer sur une erreur ouvre le fichier Transact-SQL correspondant, ce qui permet de l’éditer et de corriger l’erreur. Une fois que toutes les erreurs sont corrigées, le projet peut être publié, soit directement vers SQL Database pour créer une base de données vide, soit vers (une copie de) la base de données SQL Server d'origine pour en mettre à jour le schéma, ce qui permet de déployer la base de données avec ses données à l'aide de SSMS, comme indiqué ci-dessus.
@@ -66,20 +62,14 @@ Vous pouvez utiliser les outils SQL Server dans Visual Studio pour créer et g
 Utilisez la [dernière version de SQL Server Data Tools pour Visual Studio](https://msdn.microsoft.com/library/mt204009.aspx) avec Visual Studio 2013 Update 4 ou version ultérieure.
 
 ## Comparaisons
-| Option 1 | Option 2 | Option 3 |
+| Option 1 | Option 2 |
 | ------------ | ------------ | ------------ |
-| Déployer une base de données compatible vers Azure SQL Database | Générer un script de migration avec des modifications et l’exécuter sur Azure SQL Database | Mettre à jour la base de données existante et la déployer vers Azure SQL Database |
-|![SSMS](./media/sql-database-cloud-migrate/01SSMSDiagram.png)| ![SAMW](./media/sql-database-cloud-migrate/02SAMWDiagram.png) | ![Modification hors connexion](./media/sql-database-cloud-migrate/03VSSSDTDiagram.png) |
-| Utilise SSMS | Utilise SAMW | Utilise SAMW, VS, SSMS |
-|Processus simple nécessitant que le schéma soit compatible. Le schéma est migré inchangé. | Le script Transact-SQL est généré par SAMW et inclut les modifications requises pour assurer la compatibilité. Certaines fonctionnalités non prises en charge sont supprimées du schéma, la plupart est signalée comme des erreurs. | Le schéma est importé dans un projet de base de données dans Visual Studio et (éventuellement) transformé avec SAMW. Des mises à jour supplémentaires sont effectuées à l’aide de SQL Server Data Tools dans Visual Studio et le schéma final est utilisé pour mettre à jour la base de données sur place. |
-| En cas d'exportation d'un fichier BACPAC, il est possible de choisir de migrer uniquement le schéma. | Possibilité de configurer l'Assistant pour créer un script de schéma ou un schéma et des données. | Possibilité de publier uniquement le schéma directement vers Azure à partir de Visual Studio. La base de données est mise à jour avec les modifications requises pour permettre le déploiement/l’exportation du schéma et des données. |
-| Déploie ou exporte toujours la base de données entière. | Peut choisir d'exclure des objets spécifiques de la migration. | Contrôle total des objets qui sont inclus dans la migration. |
-| Aucune disposition pour modifier la sortie en cas d'erreur, le schéma source doit être compatible. | Le script généré monolithique unique peut s'avérer difficile à modifier si nécessaire. Le script peut être ouvert et modifié dans SSMS ou Visual Studio avec SQL Server Data Tools. Toutes les erreurs doivent être corrigées avant que le script puisse être déployé sur Azure SQL Database.| Toutes les fonctionnalités de SQL Server Data Tools dans Visual Studio sont disponibles. Le schéma est modifié hors connexion. |
-| La validation de l'application se produit dans Azure. Doit être minime car le schéma est migré sans modification. | La validation de l'application se produit dans Azure après la migration. Le script généré peut également être installé sur site pour la validation de l'application initiale. | La validation de l'application peut être effectuée dans SQL Server avant le déploiement de la base de données vers Azure. |
-| Outil pris en charge par Microsoft. | Outil communautaire pris en charge téléchargé à partir de CodePlex. | Outils pris en charge par Microsoft avec utilisation facultative de l'outil communautaire pris en charge téléchargé à partir de CodePlex. |
-| Processus à une ou deux étapes, simple et facile à configurer. | La transformation de schéma, la génération et le déploiement dans le cloud sont orchestrés à partir d’un assistant unique facile à utiliser. | Processus en plusieurs étapes, plus complexe (plus simple en cas de déploiement du schéma uniquement). |
+| Déployer une base de données compatible vers Azure SQL Database | Mettre à jour la base de données existante et la déployer vers Azure SQL Database |
+|![SSMS](./media/sql-database-cloud-migrate/01SSMSDiagram.png)| ![Modification hors connexion](./media/sql-database-cloud-migrate/03VSSSDTDiagram.png) |
+| Utilise SSMS | Utilise Visual Studio et SSMS |
+|Processus simple nécessitant que le schéma soit compatible. Le schéma est migré inchangé. | Le schéma est importé dans un projet de base de données dans Visual Studio. Des mises à jour supplémentaires sont effectuées à l’aide de SQL Server Data Tools pour Visual Studio et le schéma final est utilisé pour mettre à jour la base de données sur place. |
+| Déploie ou exporte toujours la base de données entière. | Contrôle total des objets qui sont inclus dans la migration. |
+| Aucune disposition pour modifier la sortie en cas d'erreur, le schéma source doit être compatible. | Toutes les fonctions de SSDT pour Visual Studio sont disponibles. Le schéma est modifié hors connexion. | La validation de l'application se produit dans Azure. Doit être minime car le schéma est migré sans modification. | La validation de l'application peut être effectuée dans SQL Server avant le déploiement de la base de données vers Azure. |
+| Processus à une ou deux étapes, simple et facile à configurer. | Processus en plusieurs étapes, plus complexe (plus simple en cas de déploiement du schéma uniquement). |
 
-
- 
-
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

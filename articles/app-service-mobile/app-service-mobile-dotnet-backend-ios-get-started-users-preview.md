@@ -13,18 +13,14 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="08/12/2015"
+	ms.date="08/27/2015"
 	ms.author="krisragh"/>
 
 # Authentification iOS avec Azure Mobile Apps
 
 [AZURE.INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]&nbsp;[AZURE.INCLUDE [app-service-mobile-note-mobile-services-preview](../../includes/app-service-mobile-note-mobile-services-preview.md)]
 
-Dans ce didacticiel, vous allez ajouter l'authentification au projet de [Démarrage rapide iOS] en faisant appel à un fournisseur d'identité pris en charge. Ce didacticiel est basé sur le didacticiel [Démarrage rapide iOS], que vous devez effectuer en premier.
-
-##<a name="review"></a>Examiner la configuration de votre projet de serveur (facultatif)
-
-[AZURE.INCLUDE [app-service-mobile-dotnet-backend-enable-auth-preview](../../includes/app-service-mobile-dotnet-backend-enable-auth-preview.md)]
+Dans ce didacticiel, vous allez ajouter l'authentification au projet de [Démarrage rapide iOS] en faisant appel à un fournisseur d'identité pris en charge. Ce didacticiel est basé sur le didacticiel [Démarrage rapide iOS], que vous devez effectuer en premier. Si vous n’utilisez pas le projet de serveur du démarrage rapide téléchargé, vous devez ajouter le package d’extension d’authentification à votre projet. Pour plus d'informations sur les packages d'extension de serveur, consultez [Fonctionnement avec le Kit de développement logiciel (SDK) du serveur principal .NET pour Azure Mobile Apps](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md).
 
 ##<a name="create-gateway"></a>Créer une passerelle App Service
 
@@ -38,7 +34,7 @@ Dans ce didacticiel, vous allez ajouter l'authentification au projet de [Démarr
 
 [AZURE.INCLUDE [app-service-mobile-restrict-permissions-dotnet-backend](../../includes/app-service-mobile-restrict-permissions-dotnet-backend.md)]
 
-Dans Xcode, appuyez sur **Exécuter** pour démarrer l'application. Une exception se déclenche car l'application essaye d'accéder au backend en tant qu'utilisateur non authentifié alors que la table _TodoItem_ requiert désormais l'authentification.
+Dans Xcode, appuyez sur **Exécuter** pour démarrer l'application. Une exception se déclenche, car l'application essaye d'accéder au serveur principal en tant qu'utilisateur non authentifié alors que la table _TodoItem_ requiert désormais l'authentification.
 
 ##<a name="add-authentication"></a>Ajout de l'authentification à l'application
 
@@ -52,4 +48,4 @@ Dans Xcode, appuyez sur **Exécuter** pour démarrer l'application. Une exceptio
 [Azure Management Portal]: https://portal.azure.com
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

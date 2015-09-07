@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Raisons pour lesquelles un compte d’administrateur général Azure AD est requis pour configurer Azure AD Connect" 
-	description="Description de la configuration personnalisée et des raisons pour lesquelles nous demandons un compte d’administrateur général." 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="swadhwa" 
+	pageTitle="Raisons pour lesquelles un compte d’administrateur général Azure AD est requis pour configurer Azure AD Connect"
+	description="Description de la configuration personnalisée et des raisons pour lesquelles nous demandons un compte d’administrateur général."
+	services="active-directory"
+	documentationCenter=""
+	authors="billmath"
+	manager="stevenpo"
 	editor="curtand"/>
 
 <tags 
-	ms.service="active-directory" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/28/2015" 
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/24/2015"
 	ms.author="billmath"/>
 
 # Raisons pour lesquelles un compte d’administrateur général Azure AD est requis pour configurer Azure AD Connect
@@ -32,6 +32,5 @@ Pour la configuration personnalisée | Nous activons la synchronisation dans vot
 
 * [Informations supplémentaires sur les autorisations et les comptes Azure AD Connect](active-directory-aadconnect-account-summary.md)
 * [Installation personnalisée d’Azure AD Connect](active-directory-aadconnect-get-started-custom.md)
-* [Azure AD Connect sur MSDN](https://msdn.microsoft.com/library/azure/dn832695.aspx) 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

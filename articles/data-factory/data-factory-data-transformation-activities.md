@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Activités de transformation de données | Microsoft Azure" 
-	description="Découvrez comment utiliser le service Azure Data Factory pour transformer et analyser des données." 
-	services="data-factory" 
-	documentationCenter="" 
-	authors="spelluru" 
-	manager="jhubbard" 
+	pageTitle="Activités de transformation de données | Microsoft Azure"
+	description="Découvrez comment utiliser le service Azure Data Factory pour transformer et analyser des données."
+	services="data-factory"
+	documentationCenter=""
+	authors="spelluru"
+	manager="jhubbard"
 	editor="monicar"/>
 
 <tags 
-	ms.service="data-factory" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/26/2015" 
+	ms.service="data-factory"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/26/2015"
 	ms.author="spelluru"/>
 
 # Transformation et analyse en utilisant Azure Data Factory
@@ -37,4 +37,4 @@ Vous devez créer un service lié à l'environnement de calcul puis l’utiliser
 
 Consultez l’article [Services liés de calcul](data-factory-compute-linked-services.md) pour en savoir plus sur les services de calcul liés pris en charge par Data Factory.
 
-<!-----HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

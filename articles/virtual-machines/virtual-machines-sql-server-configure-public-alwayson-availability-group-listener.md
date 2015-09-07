@@ -5,15 +5,15 @@
 	documentationCenter="na"
 	authors="rothja"
 	manager="jeffreyg"
-	editor="mo	nicar" />
+	editor="mo	nicar"/>
 <tags 
 	ms.service="virtual-machines"
 	ms.devlang="na"
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="08/11/2015"
-	ms.author="jroth" />
+	ms.date="08/24/2015"
+	ms.author="jroth"/>
 
 # Configuration d'un écouteur externe pour des groupes de disponibilité AlwaysOn dans Azure
 
@@ -58,7 +58,7 @@ L'équilibrage de charge externe utilise l'adresse IP virtuelle publique du serv
 		# Configure a load balanced endpoint for each node in $AGNodes, with direct server return enabled
 		ForEach ($node in $AGNodes)
 		{
-		    Get-AzureVM -ServiceName $ServiceName -Name $node | Add-AzureEndpoint -Name "ListenerEndpoint" -Protocol "TCP" -PublicPort $EndpointPort -LocalPort 1433 -LBSetName "ListenerEndpointLB" -ProbePort 59999 -ProbeProtocol "TCP" -DirectServerReturn $true | Update-AzureVM
+		    Get-AzureVM -ServiceName $ServiceName -Name $node | Add-AzureEndpoint -Name "ListenerEndpoint" -Protocol "TCP" -PublicPort 1433 -LocalPort 1433 -LBSetName "ListenerEndpointLB" -ProbePort 59999 -ProbeProtocol "TCP" -DirectServerReturn $true | Update-AzureVM
 		}
 
 1. Après avoir défini les variables, copiez le script de l'éditeur de texte dans votre session Azure PowerShell pour l'exécuter. Si l'invite affiche >>, appuyez sur Entrée pour vous assurer que le script s'exécute.
@@ -124,4 +124,4 @@ Si les réplicas AlwaysOn se situent dans des sous-réseaux différents, les cli
 
 [AZURE.INCLUDE [Listener-Next-Steps](../../includes/virtual-machines-ag-listener-next-steps.md)]
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

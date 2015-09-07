@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Création d'un réseau virtuel intersite à l'aide de tables de configuration"
-	description="Cette rubrique décrit comment configurer un réseau virtuel intersite à l'aide de tables de configuration prédéterminées."
+	pageTitle="Réseau virtuel utilisant des tables de configuration | Microsoft Azure"
+	description="Découvrez comment configurer un réseau virtuel Azure intersite avec des paramètres issus d'une table de configuration contenant des paramètres prédéfinis."
 	documentationCenter=""
 	services="virtual-machines"
 	authors="JoeDavies-MSFT"
@@ -30,7 +30,7 @@ Ces tables sont généralement remplies dans une rubrique qui décrit la configu
 
 La procédure suivante référencie les informations contenues dans ces tables pour vous guider tout au long du processus de configuration du réseau virtuel. Si vous n’avez pas encore spécifié les paramètres de ces tables dans une autre rubrique, mais que vous voulez toujours configurer un réseau virtuel intersite, consultez [Configurer une connexion de site à site intersite sur un réseau virtuel Azure](../vpn-gateway/vpn-gateway-site-to-site-create.md).
 
-> [AZURE.NOTE]Cette procédure vous guide tout au long de la création d'un réseau virtuel qui utilise une connexion VPN de site à site. Pour en savoir plus sur l’utilisation d’ExpressRoute pour votre connexion de site à site, consultez [Présentation technique d’ExpressRoute](https://msdn.microsoft.com/library/dn606309.aspx).
+> [AZURE.NOTE]Cette procédure vous guide tout au long de la création d'un réseau virtuel qui utilise une connexion VPN de site à site. Pour en savoir plus sur l'utilisation d'ExpressRoute pour votre connexion de site à site, consultez [Présentation technique d'ExpressRoute](../expressroute/expressroute-introduction.md).
 
 ## Création d’un nouveau réseau virtuel intersite Azure avec vos paramètres de configuration de table
 
@@ -61,10 +61,10 @@ La procédure suivante référencie les informations contenues dans ces tables p
 
 ## Ressources supplémentaires
 
-[Présentation du réseau virtuel](https://msdn.microsoft.com/library/jj156007.aspx)
+[Présentation du réseau virtuel](../virtual-network/virtual-networks-overview.md)
 
-[Tâches de configuration du réseau virtuel](https://msdn.microsoft.com/library/jj156206.aspx)
+[Tâches de configuration du réseau virtuel](../documentation/services/virtual-machines/)
 
 [Configurer une connexion de site à site intersite sur un réseau virtuel Azure](../vpn-gateway/vpn-gateway-site-to-site-create.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

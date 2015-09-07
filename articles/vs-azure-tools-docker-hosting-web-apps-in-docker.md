@@ -1,19 +1,19 @@
 <properties
    pageTitle="Hébergement d’applications web dans Docker | Microsoft Azure"
-   description="Apprenez à utiliser Visual Studio pour héberger une application web dans un conteneur Docker."
-   services="visual-studio-online"
-   documentationCenter="na"
-   authors="kempb"
-   manager="douge"
-   editor="tglee" />
+	description="Apprenez à utiliser Visual Studio pour héberger une application web dans un conteneur Docker."
+	services="visual-studio-online"
+	documentationCenter="na"
+	authors="kempb"
+	manager="douge"
+	editor="tglee"/>
 <tags
    ms.service="multiple"
-   ms.devlang="dotnet"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="multiple"
-   ms.date="08/17/2015"
-   ms.author="kempb" />
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="multiple"
+	ms.date="08/20/2015"
+	ms.author="kempb"/>
 
 # Hébergement d’applications web dans Docker
 
@@ -25,11 +25,11 @@ Vous pouvez publier l’application sur un nouvel hôte Docker hébergé sur Azu
 
 ## Créer un conteneur Docker et y publier un projet
 
-En suivant ces procédures, vous allez créer un projet d’application web ASP.NET 5, créer un hôte conteneur, puis publier et exécuter le projet d’application web dans le conteneur Docker. Pour commencer, téléchargez et installez [Visual Studio 2015 Tools pour Docker](aka.ms/DockerToolsForVS).
+En suivant ces procédures, vous allez créer un projet d’application web ASP.NET 5, créer un hôte conteneur, puis publier et exécuter le projet d’application web dans le conteneur Docker. Pour commencer, téléchargez et installez [Visual Studio 2015 Tools pour Docker](https://aka.ms/DockerToolsForVS).
 
 ### Ajouter un projet d’application web ASP.NET 5
 
-1. Créez un projet d’application web ASP.NET. Dans le menu principal, choisissez **Fichier**, **Nouveau projet**. Sous **C\#**, **Web**, choisissez **Application web ASP.NET**.
+1. Créez un projet d’application web ASP.NET. Dans le menu principal, choisissez **Fichier**, **Nouveau projet**. Sous **C#**, **Web**, choisissez **Application web ASP.NET**.
 
 1. Dans la liste **Modèles ASP.NET 5 en version préliminaire**, choisissez **Site web**.
 
@@ -63,7 +63,7 @@ En suivant ces procédures, vous allez créer un projet d’application web ASP.
 
     Notez que vous pouvez également choisir d’utiliser un hôte Docker existant. Pour cela, sélectionnez l’hôte dans la liste déroulante **Machines virtuelles Docker Azure existantes** au lieu de choisir le bouton **Nouveau**. Cette liste affiche les hôtes conteneurs, mais aussi toutes les machines virtuelles de votre client Azure.
 
-    La publication sur un hôte Docker personnalisé est une autre option possible. Pour plus d’informations, consultez la section [Spécifier un hôte Docker personnalisé](#BKMK_CustomHost), plus loin dans cette rubrique.
+    La publication sur un hôte Docker personnalisé est une autre option possible. Pour plus d’informations, consultez la section **Spécifier un hôte Docker personnalisé**, plus loin dans cette rubrique.
 
 1. Entrez les informations suivantes dans la boîte de dialogue **Créer une machine virtuelle sur Microsoft Azure**. Lorsque vous avez terminé, choisissez le bouton **OK**. Cette action crée une machine virtuelle Linux avec une extension Docker configurée.
 
@@ -80,7 +80,7 @@ En suivant ces procédures, vous allez créer un projet d’application web ASP.
     |Image|Choisissez une image du système d’exploitation à utiliser dans l’hôte Docker, le cas échéant. Pour cet exemple, choisissez une image Ubuntu Server. (Notez qu’une image Windows Server est désormais proposée dans la liste des images disponibles).|
     |Nom d’utilisateur|Entrez un nom d’utilisateur unique pour la machine virtuelle.|
     |Mot de passe|Entrez un mot de passe pour l’utilisateur, puis confirmez-le.|
-    |Répertoire des certificats |Spécifie le dossier où sont stockés vos certificats Docker. Vous pouvez spécifier un nouveau dossier ou un dossier existant, mais il est recommandé d’utiliser le dossier de certificats par défaut (C:\\Users\\[*username*]\\.docker). Sinon, les options d’authentification ne peuvent pas être automatiquement récupérées quand vous utilisez le même hôte sur un autre projet ou système.|
+    |Répertoire des certificats |Spécifie le dossier où sont stockés vos certificats Docker. Vous pouvez spécifier un nouveau dossier ou un dossier existant, mais il est recommandé d’utiliser le dossier de certificats par défaut (C:\\Users\[*username*]\\.docker). Sinon, les options d’authentification ne peuvent pas être automatiquement récupérées quand vous utilisez le même hôte sur un autre projet ou système.|
 
 1. Cliquez sur le bouton de sélection (...) à côté de l’entrée **Répertoire des certificats**, puis créez un dossier pour les certificats Docker ou accédez à un dossier de certificats Docker existant.
 
@@ -92,7 +92,7 @@ En suivant ces procédures, vous allez créer un projet d’application web ASP.
 
     ![][7]
 
-    Vous pouvez suivre la progression de cette opération dans la fenêtre **Sortie**. Visual Studio appelle un script PowerShell pour déployer la machine virtuelle. Le script utilise des applets de commande Azure PowerShell pour déployer le groupe de ressources Azure. Ensuite, un autre script PowerShell utilise les commandes Docker émises pour la publication, comme vous le feriez si vous deviez créer manuellement l’hôte Docker.
+    Visual Studio affiche la progression de cette opération dans la fenêtre **Sortie**. Visual Studio appelle un script PowerShell pour déployer la machine virtuelle. Le script utilise des applets de commande Azure PowerShell pour déployer le groupe de ressources Azure. Ensuite, un autre script PowerShell utilise les commandes Docker émises pour la publication, comme vous le feriez si vous deviez créer manuellement l’hôte Docker.
 
     L’approvisionnement de l’hôte Docker peut prendre du temps. Vérifiez l’état dans la fenêtre Sortie pour savoir quand la tâche est terminée.
 
@@ -126,7 +126,7 @@ Lors de la procédure précédente, vous avez créé une machine virtuelle Docke
 
 1. Après avoir entré toutes les valeurs nécessaires, choisissez le bouton **Valider la connexion** pour vérifier que la connexion à l’hôte Docker fonctionne correctement.
 
-1. Si c’est le cas, choisissez le bouton **Suivant** pour afficher une liste des composants à publier, ou le bouton **Publier** pour publier immédiatement le projet.
+1. Si c’est le cas, choisissez le bouton **Suivant** pour afficher la liste des composants à publier, ou le bouton **Publier** pour publier immédiatement le projet.
 
 ## Tester l’hôte Docker
 
@@ -151,19 +151,21 @@ La procédure ci-dessous permet de communiquer avec un hôte Docker déployé su
 
     |Ligne de commande|Description|
     |---|---|
-    |docker info|Affiche des informations sur la version de Docker.|
-    |docker ps|Affiche la liste des conteneurs actuellement exécutés.|
-    |docker ps –a|Affiche la liste de tous les conteneurs, y compris ceux qui sont arrêtés.|
-    |docker logs <Docker container name>|Crée un journal pour le conteneur spécifié.|
-    |docker images|Affiche une liste des images.|
+    |`docker info`|Affiche des informations sur la version de Docker.|
+    |`docker ps`|Affiche la liste des conteneurs actuellement exécutés.|
+    |`docker ps –a`|Affiche la liste de tous les conteneurs, y compris ceux qui sont arrêtés.|
+    |`docker logs <Docker container name>`|Crée un journal pour le conteneur spécifié.|
+    |`docker images`|Affiche une liste des images.|
 
-    Pour obtenir la liste complète des commandes Docker, entrez simplement la commande `docker` à l’invite de commandes. Pour plus d’informations, consultez la page sur l’[utilisation de la ligne de commande Docker](https://docs.docker.com/reference/commandline/cli/).
+    Pour obtenir la liste complète des commandes Docker, entrez simplement la commande `docker` dans l’invite de commandes. Pour plus d’informations, consultez la page sur la [ligne de commande Docker](https://docs.docker.com/reference/commandline/cli/).
 
 ## Étapes suivantes
 
 Maintenant que vous disposez d’un hôte Docker, vous pouvez lui envoyer des commandes Docker. Pour plus d’informations sur Docker, consultez la [documentation Docker](https://docs.docker.com/) et le [didacticiel en ligne Docker](https://www.docker.com/tryit/).
 
-Pour résoudre les problèmes d’utilisation de Docker dans Visual Studio, consultez [Dépannage d’erreurs Docker](vs-docker-troubleshooting-docker-errors.md).
+Pour en savoir plus sur l'utilisation de l'extension Docker VM pour Linux dans Azure, consultez [Extension Docker VM pour Linux dans Azure](virtual-machines-docker-vm-extension.md).
+
+Pour résoudre les problèmes d’utilisation de Docker dans Visual Studio, consultez [Dépannage d’erreurs client sur Windows avec Visual Studio](vs-azure-tools-docker-troubleshooting-docker-errors.md).
 
 [0]: ./media/vs-azure-tools-docker-hosting-web-apps-in-docker/IC796678.png
 [1]: ./media/vs-azure-tools-docker-hosting-web-apps-in-docker/IC796679.png
@@ -175,4 +177,4 @@ Pour résoudre les problèmes d’utilisation de Docker dans Visual Studio, cons
 [7]: ./media/vs-azure-tools-docker-hosting-web-apps-in-docker/IC796685.png
 [8]: ./media/vs-azure-tools-docker-hosting-web-apps-in-docker/IC796686.png
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

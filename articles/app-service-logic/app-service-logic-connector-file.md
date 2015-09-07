@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Connecteur File"
-	description="Prise en main du connecteur File"
+	pageTitle="Utilisation du connecteur File dans des applications logiques | Microsoft Azure App Service"
+	description="Comment créer et configurer le connecteur File ou une application API et l'utiliser dans une application logique d’Azure App Service"
 	authors="anuragdalmia"
 	manager="dwrede"
 	editor=""
@@ -13,14 +13,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/19/2015"
+	ms.date="08/23/2015"
 	ms.author="andalmia"/>
 
-# Utilisation du connecteur File dans votre application logique #
+# Utilisation et ajout du connecteur File dans votre application logique
+Connectez-vous à un système de fichiers pour, entre autres, charger, télécharger vos fichiers sur un ordinateur hôte. Les applications logiques peuvent se déclencher selon diverses sources de données et proposent des connecteurs pour obtenir et traiter les données. Vous pouvez ajouter le connecteur File à votre flux d’entreprise et traiter les données dans le cadre de ce flux de travail dans une application logique.
 
-Les applications logiques peuvent se déclencher selon diverses sources de données et proposent des connecteurs pour obtenir et traiter les données dans le cadre du flux.
-
-Le connecteur File vous permet de télécharger et de supprimer des fichiers sur un ordinateur hôte. Il utilise le Gestionnaire de connexion hybride pour la connectivité hybride vers l'ordinateur hôte.
+Le connecteur File utilise le Gestionnaire de connexion hybride pour la connectivité hybride vers le système de fichiers hôte.
 
 ## Création d’un connecteur File pour votre application logique ##
 Pour utiliser le connecteur File, vous devez d’abord créer une instance de l’application API de ce connecteur. Pour cela, procédez comme suit :
@@ -84,4 +83,4 @@ Vous pouvez également consulter les statistiques de performances et contrôler 
 [Définition des API du connecteur File]: https://msdn.microsoft.com/library/dn936296.aspx
 [Utilisation du Gestionnaire de connexion hybride]: app-service-logic-hybrid-connection-manager.md
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

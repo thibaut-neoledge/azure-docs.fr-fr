@@ -85,10 +85,10 @@ Dans tous les cas, essayez de désactiver temporairement le logiciel concerné e
 
 Si vous utilisez l’authentification par certificat, vérifiez que vous avez ces autorisations sur le dossier .ssh dans votre répertoire de base :
 
-- Chmod 700 \~/.ssh
-- Chmod 644 \~/.ssh/*.pub
-- Chmod 600 \~/.ssh/id\_rsa (ou les autres fichiers où vous pouvez avoir stocké vos clés privées)
-- Chmod 644 \~/.ssh/known\_hosts (contient les hôtes auxquels vous vous êtes connecté via SSH)
+- Chmod 700 ~/.ssh
+- Chmod 644 ~/.ssh/*.pub
+- Chmod 600 ~/.ssh/id\_rsa (ou les autres fichiers où vous pouvez avoir stocké vos clés privées)
+- Chmod 644 ~/.ssh/known\_hosts (contient les hôtes auxquels vous vous êtes connecté via SSH)
 
 ### Source 2 : appareil du périmètre de l’organisation
 
@@ -119,7 +119,7 @@ Si vous ne disposez pas d’une autre machine virtuelle dans le même réseau vi
 Si vous pouvez créer une connexion SSH avec une machine virtuelle dans le même réseau virtuel, vérifiez :
 
 - la configuration du point de terminaison pour le trafic SSH sur la machine virtuelle cible ; le port TCP privé du point de terminaison doit correspondre au port TCP sur lequel le service SSH de la machine virtuelle est à l’écoute. Par défaut, il s’agit du port 22. Pour les machines virtuelles créées dans Azure Resource Manager à l’aide de modèles, vérifiez le numéro du port TCP de SSH dans le portail Azure en version préliminaire en accédant à **Parcourir** > **Machines virtuelles (v2)** > *Nom de la machine virtuelle* > **Paramètres** > **Points de terminaison**.
-- La liste de contrôle d’accès du point de terminaison du trafic SSH sur la machine virtuelle cible. Les listes de contrôle d’accès vous permettent de spécifier le trafic Internet entrant autorisé ou interdit en fonction de l’adresse IP source. Une mauvaise configuration des listes de contrôle d’accès peut empêcher le trafic SSH entrant d’accéder au point de terminaison. Examinez vos listes de contrôle d’accès pour vous assurer que le trafic entrant provenant des adresses IP publiques de votre proxy ou d’un autre serveur Edge est autorisé. Pour plus d’informations, consultez [À propos des listes de contrôle d’accès (ACL) réseau](https://msdn.microsoft.com/library/azure/dn376541.aspx).
+- La liste de contrôle d’accès du point de terminaison du trafic SSH sur la machine virtuelle cible. Les listes de contrôle d’accès vous permettent de spécifier le trafic Internet entrant autorisé ou interdit en fonction de l’adresse IP source. Une mauvaise configuration des listes de contrôle d’accès peut empêcher le trafic SSH entrant d’accéder au point de terminaison. Examinez vos listes de contrôle d’accès pour vous assurer que le trafic entrant provenant des adresses IP publiques de votre proxy ou d’un autre serveur Edge est autorisé. Pour plus d'informations, consultez [À propos des listes de contrôle d'accès (ACL) réseau](../virtual-network/virtual-networks-acl.md).
 
 Pour vérifier que le point de terminaison n’est pas la source du problème, supprimez le point de terminaison actuel et créez un autre point de terminaison, en spécifiant le nom **SSH** (port TCP 22 pour le numéro du port public et privé). Pour plus d’informations, consultez [Configuration des points de terminaison sur une machine virtuelle dans Azure](virtual-machines-set-up-endpoints.md).
 
@@ -165,4 +165,4 @@ Pour plus d’informations sur l’utilisation du support Azure, consultez le [F
 
 [Résoudre les problèmes d’accès à une application exécutée sur une machine virtuelle Azure](virtual-machines-troubleshoot-access-application.md)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

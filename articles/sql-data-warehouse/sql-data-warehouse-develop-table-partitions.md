@@ -1,20 +1,20 @@
 <properties
    pageTitle="Partitions de tables dans SQL Data Warehouse | Microsoft Azure"
-   description="Conseils relatifs à l’utilisation de partitions de tables dans Microsoft Azure SQL Data Warehouse, dans le cadre du développement de solutions."
-   services="sql-data-warehouse"
-   documentationCenter="NA"
-   authors="jrowlandjones"
-   manager="barbkess"
-   editor=""/>
+	description="Conseils relatifs à l’utilisation de partitions de tables dans Microsoft Azure SQL Data Warehouse, dans le cadre du développement de solutions."
+	services="sql-data-warehouse"
+	documentationCenter="NA"
+	authors="jrowlandjones"
+	manager="barbkess"
+	editor=""/>
 
 <tags
    ms.service="sql-data-warehouse"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="data-services"
-   ms.date="06/22/2015"
-   ms.author="JRJ@BigBangData.co.uk;barbkess"/>
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="data-services"
+	ms.date="06/22/2015"
+	ms.author="JRJ@BigBangData.co.uk;barbkess"/>
 
 # Partitions de tables dans SQL Data Warehouse
 
@@ -24,9 +24,16 @@ Pour migrer les définitions des partitions SQL Server vers SQL Data Warehous
 - Définissez les partitions lorsque vous créez la table. Il vous suffit d’indiquer les points de limite des partitions, en précisant s’ils doivent correspondre à un paramètre `RANGE RIGHT` ou `RANGE LEFT` effectif.
 
 ### Dimensionnement des partitions
-Le dimensionnement des partitions est un aspect important à prendre en compte dans SQL Data Warehouse. En général, les opérations de gestion des données et les routines de chargement des données ciblent des partitions individuelles, et non toute la table directement. Cela est particulièrement utile pour les index columnstore cluster (CCI). Ce type d’index peut consommer une grande quantité de mémoire. Pour cette raison, nous pouvons être amenés à modifier la granularité du plan de partitionnement, mais nous voulons éviter d’affecter aux partitions une taille qui entraînerait une trop grande sollicitation de la mémoire lors de l’exécution des tâches de gestion.
+SQL DW offre à un DBA plusieurs options pour les types de table : du segment de mémoire, index cluster (CI) et index de la banque des colonnes (CCI). Pour chacun de ces types de table, l’administrateur peut également partitionner la table, ce qui signifie le diviser en plusieurs sections afin d’améliorer les performances. Toutefois, la création d’une table comportant un nombre de partitions trop élevé peut entraîner la dégradation de performances ou d’échecs de requêtes dans certaines circonstances. Ces inquiétudes sont particulièrement vrais dans le cadre de tables CCI. Pour que le partitionnement soit utile, il est important pour un administrateur de savoir quand utiliser le partitionnement et le nombre de partitions à créer. Ces instructions sont destinées à aider les administrateurs à faire les bons choix en matière de scénarios.
 
-Lorsque vous choisissez la granularité des partitions, vous ne devez pas oublier que SQL Data Warehouse distribue automatiquement les données dans des distributions. Par conséquent, les données qui devraient se trouver dans une table, au sein d’une partition d’une base de données SQL Server, se trouvent désormais dans une autre partition, distribuées dans différentes tables de la base de données SQL Data Warehouse. Pour garantir un nombre pertinent de lignes dans chaque partition, vous devez généralement modifier la taille des limites des partitions. Par exemple, si vous avez appliqué un partitionnement sur une période d’une journée aux données de votre entrepôt, vous pouvez envisager une période plus étendue (par exemple, un moins ou un trimestre).
+Normalement, les partitions de table sont utiles de deux manières principales :
+
+1. Utilisation d’un basculement de partition pour tronquer rapidement une section de table. Un modèle couramment utilisé se compose d’une table de faits contenant des lignes uniquement pendant une période prédéterminée achevée. Par exemple, une table de faits des ventes peut contenir des données uniquement pour les 36 derniers mois. À la fin de chaque mois, le mois de données de ventes le plus ancien est supprimé de la table. Cette opération peut être réalisée simplement en supprimant l’ensemble des lignes correspondant au mois le plus ancien. Cependant, la suppression d’une grande quantité de données ligne par ligne peut prendre énormément de temps. Pour optimiser pour ce scénario, SQL DW prend en charge le remplacement de partitions, ce qui permet à l’ensemble des lignes d’une partition d’être supprimées en une fois, de façon rapide.   
+
+2. Le partitionnement permet aux requêtes d’exclure facilement le traitement d’un grand ensemble de lignes (c’est-à-dire une partition) si les requêtes placent un prédicat sur la colonne de partitionnement. Par exemple, si la table de faits de ventes est partagée en 36 mois grâce au champ de date, puis les requêtes filtrées par date de vente peuvent ignorer les partitions de traitement qui ne correspondent pas au filtre. En effet, le partitionnement utilisé de cette façon est une grossière index de granularité.
+
+Lors de la création d’index de colonne en cluster dans SQL DW, un administrateur doit prendre en compte un facteur supplémentaire : nombre de lignes. Les tables ICC peuvent atteindre un degré élevé de compression et permet d’accélérer l’exécution des requêtes SQL DW. En raison du fonctionnement de la compression en interne dans SQL DW, chaque table CCI doit comporter un grand nombre de lignes avant que les données sont compressées. En outre, SQL DW répartit les données sur un grand nombre de distributions et chaque distribution est divisée en partitions. Pour obtenir une compression et des performances optimales, un minimum de 100 000 lignes de distribution et de partition sont nécessaires. Dans l’exemple ci-dessus, si la table de faits de ventes contient 36 partitions mensuelles, et étant donné que SQL DW comporte 60 distributions, la table de faits de ventes doit contenir des lignes 6 millions de lignes par mois, ou 216 millions de ligne lorsque tous les mois sont remplis. Si une table contient beaucoup moins de lignes que la valeur minimale recommandée, l’administrateur doit envisager la création de la table avec moins de partitions afin d’augmenter le nombre de lignes par distribution.
+
 
 Pour dimensionner la taille de la base de données actuelle au niveau de la partition, utilisez une requête similaire à ce qui suit :
 
@@ -319,4 +326,4 @@ Une fois que vous avez migré le schéma de base de données vers SQL Data Ware
 
 <!-- Other web references -->
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

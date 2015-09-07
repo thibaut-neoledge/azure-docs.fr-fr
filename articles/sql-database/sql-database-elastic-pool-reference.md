@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Référence du pool de bases de données élastique SQL Microsoft Azure" 
-	description="Ce document de référence fournit des liens et des informations sur les articles relatifs aux pools de bases de données élastiques, ainsi que sur la programmabilité." 
-	services="sql-database" 
-	documentationCenter="" 
-	authors="stevestein" 
-	manager="jeffreyg" 
+	pageTitle="Référence du pool de bases de données élastique SQL Microsoft Azure"
+	description="Ce document de référence fournit des liens et des informations sur les articles relatifs aux pools de bases de données élastiques, ainsi que sur la programmabilité."
+	services="sql-database"
+	documentationCenter=""
+	authors="stevestein"
+	manager="jeffreyg"
 	editor=""/>
 
 <tags 
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="08/13/2015" 
-	ms.author="sstein" 
-	ms.workload="data-management" 
-	ms.topic="article" 
+	ms.date="08/25/2015"
+	ms.author="sstein"
+	ms.workload="data-management"
+	ms.topic="article"
 	ms.tgt_pltfrm="NA"/>
 
 
@@ -33,7 +33,9 @@ Un pool de bases de données élastique est un ensemble d’unités de débit de
 
 
 - Les pools de bases de données élastiques sont uniquement disponibles sur les serveurs de base de données SQL Azure version 12.   
-- La création et la gestion des pools de bases de données élastiques sont prises en charge à l’aide de la [version préliminaire du portail](https://portal.azure.com), de PowerShell et de la bibliothèque cliente .NET (wrapper des API REST) pour Azure Resource Manager uniquement ; le [portail](https://manage.windowsazure.com/) et les commandes de gestion de service ne sont pas pris en charge. 
+- La création et la gestion des pools de bases de données élastiques sont prises en charge à l’aide de la [version préliminaire du portail](https://portal.azure.com), de PowerShell et de la bibliothèque cliente .NET (wrapper des API REST) pour Azure Resource Manager uniquement ; le [portail](https://manage.windowsazure.com/) et les commandes de gestion de service ne sont pas pris en charge.
+- En outre, la création de nouvelles bases de données élastiques et le déplacement de bases de données existantes dans et hors des pools de base de données élastique sont prises en charge à l’aide de Transact-SQL.
+
 
 
 ## Considérations relatives à la version préliminaire actuelle
@@ -62,7 +64,7 @@ Les articles suivants vous aideront à vous familiariser avec l’utilisation de
 | [Considérations sur les prix et performances](sql-database-elastic-pool-guidance.md) | Déterminer si l’utilisation d’un pool élastique de bases de données est économique. |
 | [Créer et gérer un pool élastique de bases de données SQL à l’aide du portail Azure](sql-database-elastic-pool-portal.md) | Créer et gérer un pool élastique de bases de données avec le portail Azure |
 | [Créer et gérer un pool de base de données SQL élastique à l’aide de PowerShell](sql-database-elastic-pool-powershell.md) | Créer et gérer un pool élastique de bases de données avec des applets de commande PowerShell |
-| [Créer et gérer une base de données SQL avec la bibliothèque de base de données SQL Azure pour .NET](sql-database-elastic-pool-powershell.md) | Créer et gérer un pool élastique de bases de données avec C#|
+| [Créer et gérer une base de données SQL avec la bibliothèque de base de données SQL Azure pour .NET](sql-database-elastic-pool-powershell.md) | Créer et gérer un pool élastique de bases de données avec C# |
 | [Vue d’ensemble des tâches de base de données élastique](sql-database-elastic-jobs-overview.md) | Vue d’ensemble du service de tâches élastiques, qui permet l’exécution de scripts T-SQL sur toutes les bases de données élastiques dans un pool. |
 | [Installation du composant de tâche de base de données élastique](sql-database-elastic-jobs-service-installation.md) | Comment installer le service de tâche de base de données élastique. |
 | [Création de l’utilisateur requis pour le service de tâches élastiques](sql-database-elastic-jobs-add-logins-to-dbs.md) | Pour exécuter un script de tâche de base de données élastique, vous devez ajouter les autorisations appropriées à chaque base de données du pool. |
@@ -100,10 +102,10 @@ La limite de stockage du pool est déterminée par le nombre d’eDTU de ce dern
 
 | Propriété | De base | Standard | Premium |
 | :-- | :-- | :-- | :-- |
-| dtu | **100**, 200, 400, 800, 1 200 | **100**, 200, 400, 800, 1 200 | **125**, 250, 500, 1 000, 1 500 |
-| databaseDtuMax | **5** | 10, 20, 50, **100** | **125**, 250, 500, 1 000 |
-| databaseDtuMin | **0**, 5 | **0**, 10, 20, 50, 100 | **0**, 125, 250, 500, 1 000 |
-| storageMB* | **10 000 Mo**, 20 000 Mo, 40 000 Mo, 80 000 Mo, 120 000 Mo | **100 Go**, 200 Go, 400 Go, 800 Go, 1 200 Go | **62,5 GB**, 125 Go, 250 Go, 500 Go, 750 Go |
+| dtu | **100**, 200, 400, 800, 1 200 | **100**, 200, 400, 800, 1200 | **125**, 250, 500, 1000, 1500 |
+| databaseDtuMax | **5** | 10, 20, 50, **100** | **125**, 250, 500, 1000 |
+| databaseDtuMin | **0**, 5 | **0**, 10, 20, 50, 100 | **0**, 125, 250, 500, 1000 |
+| storageMB* | **10 000 Mo**, 20 000 Mo, 40 000 Mo, 80 000 Mo, 120 000 Mo | **100 Go**, 200 Go, 400 Go, 800 Go, 1200 Go | **62,5 Go**, 125 Go, 250 Go, 500 Go, 750 Go |
 | stockage par DTU | 100 Mo | 1 Go | 5 Go |
 | bases de données max. par pool | 200 | 200 | 50 |
 
@@ -143,32 +145,31 @@ Les serveurs de base de données SQL Azure version 12 sont situés dans des gr
 
 
 
-## Applets de commande PowerShell et commandes d’API REST du pool de bases de données élastiques (Microsoft Azure Resource Manager uniquement)
+## PowerShell, API REST et la bibliothèque cliente .NET
 
-Les applets de commande PowerShell et commandes d’API REST ci-après permettent de créer et de gérer des pools élastiques :
+Plusieurs applets de commande PowerShell et commandes d’API REST ci-après permettent de créer et de gérer des pools élastiques. Pour plus d’informations et des exemples de code, consultez [Créer et gérer un pool élastique de la base de données de base de données SQL à l’aide de PowerShell](sql-database-elastic-pool-powershell.md) et [Créer et gérer la base de données SQL avec C#](sql-database-client-library.md).
 
-| [Applets de commande PowerShell](https://msdn.microsoft.com/library/mt125356.aspx) | [Commandes d’API REST](https://msdn.microsoft.com/library/azure/mt163571.aspx) |
+
+
+| [Applets de commande PowerShell](https://msdn.microsoft.com/library/mt163521.aspx) | [Commandes d’API REST](https://msdn.microsoft.com/library/mt163571.aspx) |
 | :-- | :-- |
-| Get-AzureSqlDatabase | Get Azure SQL database |
-| Get-AzureSqLElasticPool | Get Azure SQL Database elastic database pool |
-| Get-AzureSqlElasticPoolActivity | Get Azure SQL Database elastic database pool operations |
-| Get-AzureSqlElasticPoolDatabase | Get Azure SQL Database elastic database |
-| Get-AzureSqlElasticPoolDatabaseActivity | Get Azure SQL Database elastic database operations |
-| Get-AzureSqlServer | Get Azure SQL Database server |
-| Get-AzureSqlServerFirewallRule | Get Azure SQL Database server firewall rule |
-| Get-AzureSqlServerServiceObjective | Get Azure SQL Database server service objective |
-| New-AzureSqlDatabase | Create Azure SQL database |
-| New-AzureSqlElasticPool | Create Azure SQL Database elastic database pool |
-| New-AzureSqlServer | Create Azure SQL Database server |
-| New-AzureSqlServerFirewallRule | Create Azure SQL Database server firewall rule) |
-| Remove-AzureSqlDatabase | Remove Azure SQL database |
-| Remove-AzureSqlElasticPool | Remove Azure SQL Database elastic database pool |
-| Remove-AzureSqlServer | Remove Azure SQL Database server |
-| Set-AzureSqlDatabase | Set Azure SQL database |
-| Set-AzureSqlElasticPool | Set Azure SQL Database elastic database pool |
-| Set-AzureSqlServer | Set Azure SQL Database server |
-| Set-AzureSqlServerFirewallRule | Set Azure SQL Database server firewall rule |
-| Get-Metrics | Get Metrics |
+| [New-AzureSqlElasticPool](https://msdn.microsoft.com/library/mt125987.aspx) | [Créer un pool de base de données élastique](https://msdn.microsoft.com/library/mt163596.aspx) |
+| [Set-AzureSqlElasticPool](https://msdn.microsoft.com/library/mt125994.aspx) | [Définir les paramètres de performances d’un Pool de base de données élastique](https://msdn.microsoft.com/library/mt163641.aspx) |
+| [Remove-AzureSqlElasticPool](https://msdn.microsoft.com/library/mt125830.aspx) | [Supprimer un pool de base de données élastique](https://msdn.microsoft.com/library/mt163672.aspx) |
+| [Get-AzureSqlElasticPool](https://msdn.microsoft.com/library/mt126017.aspx) | [Obtient les pools de base de données élastique et les valeurs de propriété](https://msdn.microsoft.com/fr-FR/library/mt163646.aspx) |
+| [Get-AzureSqlElasticPoolActivity](https://msdn.microsoft.com/library/mt125837.aspx) | [Obtenir l’état des opérations de pool élastique de bases de données](https://msdn.microsoft.com/library/mt163669.aspx) |
+| [Get-AzureSqlElasticPoolDatabase](https://msdn.microsoft.com/library/mt125960.aspx) | [Obtenir toutes les bases de données dans un pool de base de données élastique](https://msdn.microsoft.com/library/mt163646.aspx) |
+| [Get-AzureSqlElasticPoolDatabaseActivity](https://msdn.microsoft.com/library/mt125973.aspx) | [Obtient l’état du déplacement de bases de données dans et hors d’un pool](https://msdn.microsoft.com/library/mt163669.aspx) |
+
+## Transact-SQL
+
+Vous pouvez utiliser Transact-SQL pour exécuter les tâches de gestion de la base de données élastique suivante :
+
+| Task | Détails |
+| :-- | :-- |
+| Pour créer une base de données élastique (directement dans un pool) | [CRÉER UNE BASE DE DONNÉES (Base de données SQL Azure)](https://msdn.microsoft.com/library/dn268335.aspx) |
+| Déplacer des bases de données existante dans et hors d’un pool | [MODIFIER LA BASE DE DONNÉES (Transact-SQL)](https://msdn.microsoft.com/library/ms174269.aspx). |
+| Obtenir les statistiques d’utilisation de ressources d’un pool. | [sys.elastic\_pool\_resource\_stats (Base de données SQL Azure)](https://msdn.microsoft.com/library/mt280062.aspx) |
 
 
 ## Informations sur la tarification et la facturation
@@ -180,7 +181,7 @@ Les pools de bases de données élastiques sont facturés en fonction des caract
 - Si un pool élastique est redimensionné en fonction d’un nouveau nombre d’eDTU, ce pool n’est pas facturé selon ce nouveau nombre, tant que l’opération de redimensionnement n’est pas terminée. Le processus est le même que lors de la modification du niveau de performances des bases de données autonomes. 
 
 
-- Le prix d’un pool élastique est basé sur le nombre d’eDTU de ce pool, ainsi que le nombre de bases de données qu’il inclut.
+- Le prix d’un pool élastique est basé sur le nombre d’eDTU de ce pool, ainsi que le nombre de bases de données qu’il inclut. Le prix d’un pool élastique est indépendant de l’utilisation des bases de données élastiques qu’il contient.
 - Voici le calcul appliqué : (nombre d’eDTU du pool) x (prix de chaque eDTU) + (nombre de bases de données) x (prix de chaque base de données)
 
 Le prix unitaire des eDTU d’un pool élastique est supérieur au prix unitaire des DTU d’une base de données autonome au sein du même niveau de service. Pour en savoir plus, voir [Tarification de la base de données SQL](http://azure.microsoft.com/pricing/details/sql-database/).
@@ -198,4 +199,4 @@ Le prix unitaire des eDTU d’un pool élastique est supérieur au prix unitaire
 | 40860 | EX\_USER | La combinaison du pool élastique '%ls' et de l’objectif de service '%ls' n’est pas valide. | Nom du pool élastique, nom de l’objectif de niveau de service | L’objectif de service et le pool élastique peuvent être spécifiés ensemble uniquement si le premier est indiqué en tant que « ElasticPool ». | Spécifiez la combinaison de pool élastique et d’objectif de service adéquate. |
 | 40861 | EX\_USER | L’édition de base de données '%.*ls' ne peut pas être différente du niveau de service du pool élastique, qui correspond à '%.*ls'. | Édition de base de données, niveau de service du pool élastique | L’édition de base de données est différente du niveau de service du pool élastique. | Indiquez une édition de base de données identique au niveau de service du pool élastique. Remarque : l’édition de base de données n’a pas besoin d’être spécifiée. | | 40862 | EX\_USER | Si l’objectif de service du pool élastique est spécifié, le nom du pool élastique doit l’être également. | Aucun | L’objectif de service du pool élastique n’identifie pas de manière unique un pool élastique. | Si vous utilisez l’objectif de service du pool élastique, spécifiez le nom du pool élastique. | | 40864 | EX\_USER | Le nombre de DTU du pool élastique doit se monter au minimum à (%d) pour le niveau de service '%.*ls'. | Nombre de DTU du pool élastique, niveau de service du pool élastique. | Tentative de définition du nombre de DTU du pool élastique au-dessous de la limite minimale. | Essayez à nouveau de définir le nombre de DTU du pool élastique sur la limite minimale ou plus. | | 40865 | EX\_USER | Le nombre de DTU du pool élastique ne doit pas dépasser (%d) pour le niveau de service '%.*ls'. | Nombre de DTU du pool élastique, niveau de service du pool élastique. | Tentative de définition du nombre de DTU du pool élastique au-dessus de la limite maximale. | Essayez à nouveau de définir le nombre de DTU du pool élastique sur la limite maximale ou moins. | | 40867 | EX\_USER | Le nombre maximal de DTU par base de données doit être au minimum (%d) pour le niveau de service '%.*ls'. | Nombre maximal de DTU par base de données, niveau de service du pool élastique | Tentative de définition du nombre maximal de DTU par base de données en dessous de la limite prise en charge. | Envisagez d’utiliser le niveau de service du pool élastique prenant en charge le paramètre souhaité. | | 40868 | EX\_USER | Le nombre maximal de DTU par base de données ne peut pas dépasser (%d) pour le niveau de service '%.*ls'. | Nombre maximal de DTU par base de données, niveau de service du pool élastique. | Tentative de définition du nombre maximal de DTU par base de données au-delà de la limite prise en charge. | Envisagez d’utiliser le niveau de service du pool élastique prenant en charge le paramètre souhaité. | | 40870 | EX\_USER | Le nombre minimal de DTU par base de données ne peut pas dépasser (%d) pour le niveau de service '%.*ls'. | Nombre minimal de DTU par base de données, niveau de service du pool élastique. | Tentative de définition du nombre minimal de DTU par base de données au-delà de la limite prise en charge. | Envisagez d’utiliser le niveau de service du pool élastique prenant en charge le paramètre souhaité. | | 40873 | EX\_USER | Le nombre de bases de données (%d) et le nombre minimal de DTU par base de données (%d) ne peuvent pas dépasser le nombre de DTU du pool élastique (%d). | Nombre de bases de données dans le pool élastique ; nombre minimal de DTU par base de données ; DTU du pool élastique. | Tentative de spécification d’un nombre minimal de DTU pour les bases de données dans le pool élastique dépassant le nombre de DTU du pool élastique. | Envisagez d’augmenter le nombre de DTU du pool élastique, ou de réduire le nombre minimal de DTU par base de données ou le nombre de bases de données dans le pool élastique. | | 40877 | EX\_USER | Impossible de supprimer un pool élastique, sauf s’il ne contient aucune base de données. | Aucun | Le pool élastique contient une ou plusieurs bases de données et ne peut donc pas être supprimé. | Supprimez les bases de données du pool élastique afin de pouvoir supprimer ce dernier. | | 40881 | EX\_USER | Le pool élastique '%.*ls' a atteint le nombre limite de bases de données. Le nombre limite de bases de données ne peut pas dépasser (%d) pour un pool élastique incluant (%d) DTU. | Nom du pool élastique, nombre limite de bases de données du pool élastique, eDTU du pool de ressources. | Tentative de création ou d’ajout d’une base de données au pool élastique alors que le nombre limite de bases de données du pool élastique a été atteint. | Envisagez d’augmenter le nombre de DTU du pool élastique, le cas échéant, afin d’accroître le nombre limite de bases de données, ou de supprimer des bases de données du pool élastique. | | 40889 | EX\_USER | La limite de stockage ou relative aux DTU pour le pool élastique '%.*ls' ne peut pas être abaissée, car l’espace de stockage risque de ne pas être suffisant pour les bases de données de ce pool. | Nom du pool élastique. | Tentative de définition de la limite de stockage du pool élastique en dessous du taux d’utilisation de son espace de stockage. | Envisagez de réduire le taux d’utilisation du stockage des bases de données dans le pool élastique, ou de supprimer des bases de données du pool afin de réduire sa limite de stockage ou relative aux DTU. | | 40891 | EX\_USER | Le nombre minimal de DTU par base de données (%d) ne peut pas dépasser le nombre maximal de DTU par base de données (%d). | Nombre minimal de DTU par base de données, nombre maximal de DTU par base de données. | Tentative de définition d’un nombre minimal de DTU par base de données supérieur au nombre maximal de DTU par base de données. | Vérifiez que le nombre minimal de DTU par base de données ne dépasse pas le nombre maximal de DTU par base de données. | | TBD | EX\_USER | La taille de l’espace de stockage d’une base de données individuelle dans un pool élastique ne peut pas dépasser la taille maximale autorisée par le pool élastique de niveau de service '%.*ls'. | Niveau de service du pool élastique | La taille maximale de la base de données dépasse la taille maximale autorisée par le niveau de service du pool élastique. | Définissez la taille maximale de la base de données dans les limites de la taille maximale autorisée par le niveau de service du pool élastique. |
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

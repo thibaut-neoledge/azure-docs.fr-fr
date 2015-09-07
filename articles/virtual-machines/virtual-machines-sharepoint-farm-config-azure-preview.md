@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Informations de configuration de la batterie de serveurs SharePoint"
-	description="Cet article décrit la configuration par défaut des batteries de serveurs SharePoint quand vous utilisez la fonctionnalité Batterie de serveurs SharePoint du portail Azure en version préliminaire."
+	pageTitle="Configuration de la batterie de serveurs SharePoint | Microsoft Azure"
+	description="Découvrez la configuration par défaut des batteries de serveurs SharePoint quand vous utilisez la fonctionnalité Batterie de serveurs SharePoint du portail Azure en version préliminaire."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="JoeDavies-MSFT"
@@ -139,4 +139,4 @@ La fonctionnalité Batterie de serveurs SharePoint du portail Azure en version p
 
 [Configuration d’une batterie de serveurs SharePoint intranet dans un cloud hybride à des fins de test](../virtual-network/virtual-networks-setup-sharepoint-hybrid-cloud-testing.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

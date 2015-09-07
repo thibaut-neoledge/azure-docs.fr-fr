@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Configuration de la synchronisation d'annuaires Office 365 (DirSync) dans un cloud hybride pour le test" 
-	description="Apprenez à configurer un serveur de synchronisation d'annuaires (DirSync) Office 365 dans un cloud hybride pour les professionnels de l'informatique ou le test des développements." 
-	services="virtual-network" 
-	documentationCenter="" 
-	authors="JoeDavies-MSFT" 
-	manager="timlt" 
+	pageTitle="Environnement de test Office 365 DirSync | Microsoft Azure"
+	description="Apprenez à configurer un serveur de synchronisation d'annuaires (DirSync) Office 365 dans un cloud hybride pour les professionnels de l'informatique ou le test des développements."
+	services="virtual-network"
+	documentationCenter=""
+	authors="JoeDavies-MSFT"
+	manager="timlt"
 	editor=""
 	tags="azure-service-management"/>
 
 <tags 
-	ms.service="virtual-network" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/08/2015" 
+	ms.service="virtual-network"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/08/2015"
 	ms.author="josephd"/>
 
 # Configuration de la synchronisation d'annuaires Office 365 (DirSync) dans un cloud hybride pour le test
@@ -197,4 +197,4 @@ Cet environnement est maintenant prêt à exécuter le test des applications Off
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

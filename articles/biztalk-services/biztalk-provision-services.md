@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="06/03/2015"
+	ms.date="08/26/2015"
 	ms.author="mandia"/>
 
 
@@ -28,9 +28,9 @@ Cet article décrit la procédure de création de services Azure BizTalk Service
 Selon l'édition que vous choisissez, tous les paramètres du service BizTalk peuvent ne pas être disponibles.
 
 1. Connectez-vous au [portail Azure](http://go.microsoft.com/fwlink/p/?LinkID=213885).
-2. En bas du volet de navigation, sélectionnez **NEW** : <br/> ![Sélectionner le bouton New][NEWButton]
+2. En bas du volet de navigation, sélectionnez **NEW** : ![Sélectionner le bouton New][NEWButton]
 
-3. Sélectionnez **APP SERVICES** > **SERVICE BIZTALK** > **CRÉATION PERSONNALISÉE** : <br/> ![Sélectionner BizTalk Services, puis Custom Create][NewBizTalkService]
+3. Sélectionnez **APP SERVICES** > **SERVICE BIZTALK** > **CRÉATION PERSONNALISÉE** : ![Sélectionner BizTalk Services, puis Custom Create][NewBizTalkService]
 
 4. Entrez les paramètres du service BizTalk :
 
@@ -107,11 +107,11 @@ Sélectionnez un serveur de base de données SQL existant ou créez un serveur d
 </tr>
 </table>
 
-Cliquez sur la coche pour terminer l'Assistant. L’icône de progression s’affiche : <br/> ![Icône d'avancement affichée à la fin de l'opération][ProgressComplete]
+Cliquez sur la coche pour terminer l'Assistant. L’icône de progression s’affiche : ![Icône d'avancement affichée à la fin de l'opération][ProgressComplete]
 
-Une fois que vous avez terminé, le service Azure BizTalk est créé et prêt pour vos applications. Les paramètres par défaut sont suffisants. Si vous souhaitez modifier les paramètres par défaut, cliquez sur **BIZTALK SERVICES** dans le volet de navigation gauche, puis sélectionnez votre service BizTalk. Des paramètres supplémentaires sont affichés sous les onglets [Tableau de bord, Surveiller et Mettre à l'échelle](http://go.microsoft.com/fwlink/p/?LinkID=302281) situés en haut.
+Une fois que vous avez terminé, le service Azure BizTalk est créé et prêt pour vos applications. Les paramètres par défaut sont suffisants. Si vous souhaitez modifier les paramètres par défaut, cliquez sur **BIZTALK SERVICES** dans le volet de navigation gauche, puis sélectionnez votre service BizTalk. Des paramètres supplémentaires sont affichés sous les onglets [Tableau de bord, Surveiller et Mettre à l'échelle](biztalk-dashboard-monitor-scale-tabs.md) situés en haut.
 
-Selon l'état du service BizTalk, certaines opérations ne peuvent pas être effectuées. Pour en obtenir la liste, consultez [BizTalk Services : Tableau comparatif des états](http://go.microsoft.com/fwlink/p/?LinkID=329870).
+Selon l'état du service BizTalk, certaines opérations ne peuvent pas être effectuées. Pour en obtenir la liste, consultez [BizTalk Services : Tableau comparatif des états](biztalk-service-state-chart.md).
 
 
 ## Étapes postérieures à l’approvisionnement
@@ -126,7 +126,7 @@ Dans le cadre de l'approvisionnement du service BizTalk, un certificat auto-sign
 1. Connectez-vous au [portail Azure](http://go.microsoft.com/fwlink/p/?LinkID=213885).
 2. Cliquez sur **BIZTALK SERVICES** dans le volet de navigation gauche, puis sélectionnez votre abonnement au service BizTalk.
 3. Sélectionnez l'onglet **Tableau de bord**.
-4. Sélectionnez **Télécharger le certificat SSL**. <br/> ![Modifier le certificat SSL][QuickGlance]
+4. Sélectionnez **Télécharger le certificat SSL**. ![Modifier le certificat SSL][QuickGlance]
 5. Double-cliquez sur le certificat et suivez les étapes de l'Assistant pour installer le certificat. Veillez à installer le certificat dans le magasin **Autorités de certification racines de confiance**.
 
 #### <a name="AddCert"></a>Ajouter un certificat prêt pour la production
@@ -139,7 +139,7 @@ Le certificat auto-signé qui est créé automatiquement lors de la création de
 
 1. Connectez-vous au [portail Azure](http://go.microsoft.com/fwlink/p/?LinkID=213885).
 2. Cliquez sur **BIZTALK SERVICES** dans le volet de navigation gauche, puis sélectionnez votre service BizTalk.
-3. Dans la barre des tâches, sélectionnez **Informations de connexion** : <br/> ![Sélectionner les informations de connexion][ACSConnectInfo]
+3. Dans la barre des tâches, sélectionnez **Informations de connexion** : ![Sélectionner les informations de connexion][ACSConnectInfo]
 
 4. Copiez les valeurs Access Control.
 
@@ -147,13 +147,13 @@ Lorsque vous déployez un projet BizTalk Services à partir de Visual Studio, vo
 
 Les valeurs Access Control values peuvent être utilisées avec n'importe quelle application. Lorsqu'Azure BizTalk Services est créé, cet espace de noms Access Control contrôle l'authentification avec votre déploiement de service BizTalk. Si vous souhaitez modifier l'abonnement ou gérer l'espace de noms, sélectionnez **ACTIVE DIRECTORY** dans le volet de navigation gauche, puis votre espace de noms. La barre des tâches affiche la liste des options.
 
-Cliquez sur **Manage** pour ouvrir le portail de gestion Access Control. Dans le portail de gestion Access Control, le service BizTalk utilise les **identités de service** : <br/> ![Identités de service ACS dans le portail de gestion de contrôle d'accès][ACSServiceIdentities]
+Cliquez sur **Manage** pour ouvrir le portail de gestion Access Control. Dans le portail de gestion Access Control, le service BizTalk utilise les **identités de service** : ![Identités de service ACS dans le portail de gestion de contrôle d'accès][ACSServiceIdentities]
 
 L'identité de service Access Control est un ensemble d'informations d'identification qui permet aux applications ou aux clients de s'authentifier directement auprès du contrôle d'accès et de recevoir un jeton.
 
-> [AZURE.IMPORTANT]Le service BizTalk utilise **Propriétaire** comme identité de service par défaut et la valeur **Mot de passe**. Si vous utilisez la valeur de clé symétrique plutôt que la valeur de mot de passe, l’erreur ci-après peut survenir.<br/><br/>\*Impossible de se connecter au compte de service de gestion de contrôle d’accès avec les informations d’identification spécifiées.\*
+> [AZURE.IMPORTANT]Le service BizTalk utilise **Propriétaire** comme identité de service par défaut et la valeur **Mot de passe**. Si vous utilisez la valeur de clé symétrique plutôt que la valeur de mot de passe, l’erreur ci-après peut survenir.<br/><br/>*Impossible de se connecter au compte de service de gestion de contrôle d’accès avec les informations d’identification spécifiées.*
 
-La rubrique [Gestion de votre espace de noms ACS](http://go.microsoft.com/fwlink/p/?LinkID=285670) répertorie quelques instructions et recommandations.
+La rubrique [Gestion de votre espace de noms ACS](https://msdn.microsoft.com/library/azure/hh674478.aspx) répertorie quelques instructions et recommandations.
 
 ## Explication des exigences
 
@@ -216,21 +216,21 @@ Quand vous créez un service Azure BizTalk, l'onglet **Connexions hybrides** est
 
 Les connexions hybrides permettent de connecter un site web Azure ou un service mobile Azure à toute ressource locale utilisant un port TCP statique, par exemple SQL Server, MySQL, les API web HTTP, Mobile Services et la plupart des services web personnalisés. Les connexions hybrides et le service d'adaptateur BizTalk sont différents. Le service d'adaptateur BizTalk permet de connecter Azure BizTalk Services à un système métier local.
 
- Pour en savoir plus, en particulier sur la création et la gestion des connexions hybrides, consultez [Connexions hybrides](http://go.microsoft.com/fwlink/p/?LinkID=397274).
+ Pour en savoir plus, en particulier sur la création et la gestion des connexions hybrides, consultez [Connexions hybrides](integration-hybrid-connection-overview.md).
 
 
 ## Étapes suivantes
 
-Après avoir créé un service BizTalk, passez en revue les différents [onglets de BizTalk Services : Tableau de bord, Surveiller et Mettre à l’échelle](http://go.microsoft.com/fwlink/p/?LinkID=302281). Votre service BizTalk est prêt pour vos applications. Pour commencer à créer des applications, consultez la page [Azure BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=235197).
+Après avoir créé un service BizTalk, passez en revue les différents [onglets de BizTalk Services : Tableau de bord, Surveiller et Mettre à l’échelle](biztalk-dashboard-monitor-scale-tabs.md). Votre service BizTalk est prêt pour vos applications. Pour commencer à créer des applications, consultez la page [Azure BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=235197).
 
 ## Voir aussi
-- [Tableau comparatif des éditions de BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=302279)<br/>
-- [Tableau comparatif des états du service BizTalk](http://go.microsoft.com/fwlink/p/?LinkID=329870)<br/>
-- [Sauvegarde et restauration de BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=329873)<br/>
-- [Limitation BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=302282)<br/>
-- [Nom et clé de l'émetteur dans BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=303941)<br/>
-- [Utilisation du Kit de développement logiciel (SDK) Azure BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=302335)
-- [Connexions hybrides](http://go.microsoft.com/fwlink/p/?LinkID=397274)
+- [Tableau comparatif des éditions de BizTalk Services](biztalk-editions-feature-chart.md)<br/>
+- [Tableau comparatif des états du service BizTalk](biztalk-service-state-chart.md)<br/>
+- [Sauvegarde et restauration de BizTalk Services](biztalk-backup-restore.md)<br/>
+- [Limitation BizTalk Services](biztalk-throttling-thresholds.md)<br/>
+- [Nom et clé de l'émetteur dans BizTalk Services](biztalk-issuer-name-issuer-key.md)<br/>
+- [Utilisation du Kit de développement logiciel (SDK) Azure BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=302335)<br/>
+- [Connexions hybrides](integration-hybrid-connection-overview.md)
 
 [NewBizTalkService]: ./media/biztalk-provision-services/WABS_NewBizTalkService.png
 [NEWButton]: ./media/biztalk-provision-services/WABS_New.png
@@ -240,4 +240,4 @@ Après avoir créé un service BizTalk, passez en revue les différents [onglets
 [ACSServiceIdentities]: ./media/biztalk-provision-services/WABS_ACSServiceIdentities.png
 [HybridConnectionTab]: ./media/biztalk-provision-services/WABS_HybridConnectionTab.png
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

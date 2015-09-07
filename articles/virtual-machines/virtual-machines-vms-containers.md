@@ -1,22 +1,20 @@
 <properties 
-	pageTitle="Machines virtuelles et conteneurs dans Azure" 
-	description="Décrit les machines virtuelles, Docker et les conteneurs Linux, ainsi que leur utilisation dans des groupes dans Azure, y compris les avantages de chacun et les scénarios dans lesquels chaque approche fonctionne bien." 
-	services="virtual-machines" 
-	documentationCenter="virtual-machines" 
-	authors="squillace" 
-	manager="timlt" 
-/>
+	pageTitle="Machines virtuelles et conteneurs dans Azure"
+	description="Décrit les machines virtuelles, Docker et les conteneurs Linux, ainsi que leur utilisation dans des groupes dans Azure, y compris les avantages de chacun et les scénarios dans lesquels chaque approche fonctionne bien."
+	services="virtual-machines"
+	documentationCenter="virtual-machines"
+	authors="squillace"
+	manager="timlt"/>
 	
 
 <tags 
-	ms.service="virtual-machines" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.tgt_pltfrm="infrastructure" 
-	ms.workload="infrastructure" 
-	ms.date="07/02/2015" 
-	ms.author="rasquill" 
-/>
+	ms.service="virtual-machines"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="infrastructure"
+	ms.workload="infrastructure"
+	ms.date="07/02/2015"
+	ms.author="rasquill"/>
 
 <!--The next line, with one pound sign at the beginning, is the page title-->
 # Machines virtuelles et conteneurs dans Azure
@@ -123,7 +121,7 @@ Souvent, ces capacités sont ensuite migrées vers des outils tels que [Puppet](
 
 ### Modèles de groupes de ressources Azure
 
-Plus récemment, Azure a publié l’API REST de [gestion des ressources Azure](virtual-machines-azurerm-versus-azuresm.md) et a mis à jour outils PowerShell et les outils de l’interface de commande de ligne Azure pour une utilisation facile. Vous pouvez déployer, modifier ou redéployer des topologies d’application intégrales à l’aide de [modèles Azure Resource Manager ](https://msdn.microsoft.com/library/azure/dn835138.aspx) avec l’API de gestion des ressources Azure en utilisant :
+Plus récemment, Azure a publié l’API REST de [gestion des ressources Azure](virtual-machines-azurerm-versus-azuresm.md) et a mis à jour outils PowerShell et les outils de l’interface de commande de ligne Azure pour une utilisation facile. Vous pouvez déployer, modifier ou redéployer des topologies d'application intégrales à l'aide de [modèles Azure Resource Manager ](../resource-group-authoring-templates.md) avec l'API de gestion des ressources Azure en utilisant :
 
 - le [Portail Azure en version préliminaire en utilisant des modèles](https://github.com/Azure/azure-quickstart-templates)  ; astuce : utilisez le bouton « DeployToAzure » ;
 - l’[interface de ligne de commande Azure](virtual-machines-deploy-rmtemplates-azure-cli.md)
@@ -236,4 +234,4 @@ Découvrez [Docker](https://www.docker.com) et les [conteneurs Windows Server](h
 [microservices]: http://martinfowler.com/articles/microservices.html
 <!--Image references-->
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

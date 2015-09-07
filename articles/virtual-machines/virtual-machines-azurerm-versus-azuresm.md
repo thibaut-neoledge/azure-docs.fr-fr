@@ -1,21 +1,21 @@
 <properties
    pageTitle="Fournisseurs de calcul, de réseau et de stockage Azure dans le Gestionnaire de ressources Azure"
-   description="Vue d’ensemble des concepts relatifs aux fournisseurs de calcul, de réseau et de ressources de stockage (CRP, NRP et SRP)"
-   services="virtual-machines"
-   documentationCenter="dev-center-name"
-   authors="mahthi"
-   manager="coreysa"
-   editor=""
+	description="Vue d’ensemble des concepts relatifs aux fournisseurs de calcul, de réseau et de ressources de stockage (CRP, NRP et SRP)"
+	services="virtual-machines"
+	documentationCenter="dev-center-name"
+	authors="mahthi"
+	manager="timlt"
+	editor=""
 	tags="azure-resource-manager,azure-service-management"/>
 
 <tags
    ms.service="virtual-machines"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="04/29/2015"
-   ms.author="mahthi"/>
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="infrastructure-services"
+	ms.date="04/29/2015"
+	ms.author="mahthi"/>
 
 # Fournisseurs de calcul, de réseau et de stockage Azure dans le Gestionnaire de ressources Azure
 
@@ -110,4 +110,4 @@ Toutes les automatisations et tous les scripts que vous avez créés continueron
 Cette opération n’est pas possible pour le moment. Vous ne pouvez pas connecter les réseaux virtuels créés avec les nouvelles API Gestionnaire de ressources Azure à un circuit Express Route. Cette opération sera possible à l’avenir.
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

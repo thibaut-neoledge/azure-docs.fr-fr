@@ -1,20 +1,20 @@
 <properties 
-   pageTitle="Vue d'ensemble d'Azure Automation DSC" 
-   description="Vue d'ensemble de la configuration d'état souhaité (DSC) Azure Automation, les termes s'y rapportant et les problèmes connus" 
-   services="automation" 
-   documentationCenter="dev-center-name" 
-   authors="coreyp-at-msft" 
-   manager="stevenka" 
-   editor="tysonn"/>
+   pageTitle="Vue d'ensemble d'Azure Automation DSC"
+	description="Vue d'ensemble de la configuration d'état souhaité (DSC) Azure Automation, les termes s'y rapportant et les problèmes connus"
+	services="automation"
+	documentationCenter="dev-center-name"
+	authors="coreyp-at-msft"
+	manager="stevenka"
+	editor="tysonn"/>
 
 <tags
    ms.service="automation"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="powershell"
-   ms.workload="TBD" 
-   ms.date="07/09/2015"
-   ms.author="coreyp"/>
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="powershell"
+	ms.workload="TBD"
+	ms.date="08/18/2015"
+	ms.author="coreyp"/>
 
 # Vue d'ensemble d'Azure Automation DSC #
 
@@ -57,7 +57,7 @@ PowerShell DSC a introduit un nouveau concept appelé « configurations ». Le
 
 ![texte de remplacement](./media/automation-dsc-overview/AADSC_1.png)
 
-Dans le bloc de configuration, vous pouvez définir des blocs de configuration de nœuds qui spécifient la configuration souhaitée pour un ensemble de nœuds (machines) de votre environnement qui doivent être configurés exactement de la même manière. De cette façon, une configuration de nœuds représente un « rôle » qu'un ou plusieurs nœuds doivent adopter. Un bloc de configuration de nœuds commence par le mot clé « node ». Faites suivre ce mot clé du nom du rôle, qui peut être une variable. Après le nom de la machine, utiliser des accolades {} pour délimiter le bloc de configuration de nœuds.
+Dans le bloc de configuration, vous pouvez définir des blocs de configuration de nœuds qui spécifient la configuration souhaitée pour un ensemble de nœuds (machines) de votre environnement qui doivent être configurés exactement de la même manière. De cette façon, une configuration de nœuds représente un « rôle » qu'un ou plusieurs nœuds doivent adopter. Un bloc de configuration de nœuds commence par le mot clé « node ». Faites suivre ce mot clé du nom du rôle, qui peut être une variable ou une expression. Après le nom du rôle, utilisez des accolades {} pour délimiter le bloc de configuration de nœuds.
 
 ![alt text](./media/automation-dsc-overview/AADSC_2.png)
  
@@ -89,7 +89,7 @@ Azure Automation DSC fournit actuellement les applets de commande suivantes dans
 
 ###Nœud###
 
-Un nœud DSC est une machine dont la configuration est gérée par DSC. Il peut s'agir d'une machine virtuelle Azure ou bien d'une machine virtuelle locale/d'un physique hôte. Les nœuds adoptent des configurations de nœuds pour devenir conformes et assurer leur conformité avec l'état souhaité qu'ils définissent. Ils peuvent également envoyer un rapport sur leur état de configuration et leur conformité à un serveur de rapports.
+Un nœud DSC est une machine dont la configuration est gérée par DSC. Il peut s'agir d'une machine virtuelle Azure ou bien d'une machine virtuelle locale/d'un hôte physique. Les nœuds adoptent des configurations de nœuds pour devenir conformes et assurer leur conformité avec l'état souhaité qu'ils définissent. Ils peuvent également envoyer un rapport sur leur état de configuration et leur conformité à un serveur de rapports.
 
 Azure Automation DSC facilite l'intégration de nœuds en vue de leur gestion par Azure Automation DSC, et permet de changer la configuration de nœud affectée à chaque nœud côté serveur, de sorte que la prochaine fois qu'un nœud recherchera des instructions sur le serveur, il adoptera un rôle différent et modifiera sa configuration afin de s'y conformer. Les nœuds signalent également à Azure Automation DSC leur état et leur conformité à la configuration.
 
@@ -170,7 +170,7 @@ Il est également possible d'importer des ressources DSC dans le cadre des modul
 
 Azure Automation DSC est fourni avec exactement les mêmes ressources DSC intégrées que PS DSC. Des ressources supplémentaires peuvent être ajoutées à Azure Automation DSC en important dans Azure Automation des modules PowerShell contenant les ressources.
 
-Azure Automation DSC fournit actuellement les applets de commande suivantes dans le [module PowerShell Azure Resource Manager](https://msdn.microsoft.com/library/mt244122.aspx) pour la gestion des nœuds DSC :
+Azure Automation DSC fournit actuellement les applets de commande suivantes dans le [module PowerShell Azure Resource Manager](https://msdn.microsoft.com/library/mt244122.aspx) pour la gestion des modules PowerShell :
 
 - `New-AzureAutomationModule`
 - `Remove-AzureAutomationModule`
@@ -195,7 +195,7 @@ Azure Automation DSC fournit actuellement les applets de commande suivantes dans
 
 ##Pièges/Problèmes connus :##
 
-- Dans la mesure où Azure Automation DSC est en version préliminaire, lorsque vous utilisez cette fonctionnalité pour la première fois, vous devez vous y inscrire à l'aide d'applets de commande PowerShell Azure. Vous pouvez vous inscrire en appelant les deux applets de commande suivantes :
+- Dans la mesure où Azure Automation DSC est en version préliminaire, lorsque vous utilisez cette fonctionnalité pour la première fois, vous devez vous y inscrire à l'aide d'applets de commande PowerShell Azure ou via le portail en version préliminaire Azure. Vous pouvez vous inscrire en appelant les deux applets de commande suivantes :
 
  - `Register-AzureProvider –ProviderNamespace Microsoft.Automation`
  - `Register-AzureProviderFeature -FeatureName dsc -ProviderNamespace Microsoft.Automation` 
@@ -226,4 +226,4 @@ Azure Automation DSC fournit actuellement les applets de commande suivantes dans
 
 - Les nœuds DSC intégrés à Azure Automation DSC affichent initialement un état « Conforme », même s’ils ne sont pas réellement conformes à la configuration du nœud DSC à laquelle ils sont mappés. Lorsqu’un nœud effectue sa première extraction et envoie son premier rapport DSC à Azure Automation DSC, l'état du nœud doit être correct.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

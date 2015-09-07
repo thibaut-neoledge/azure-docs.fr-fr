@@ -220,9 +220,9 @@ Vous pouvez installer des composants supplémentaires ou personnaliser la config
 
 	![diagram of point-to-site configuration](./media/hdinsight-provision-clusters-v1/hdinsight-vnet-point-to-site.png)
 
-Pour plus d'informations sur les fonctions, les avantages et les capacités d'Azure Virtual Network, consultez la page [Vue d'ensemble d'Azure Virtual Network](http://msdn.microsoft.com/library/azure/jj156007.aspx).
+Pour plus d'informations sur les fonctions, les avantages et les capacités d'Azure Virtual Network, consultez la page [Vue d'ensemble d'Azure Virtual Network](../virtual-network/virtual-networks-overview.md).
 
-> [AZURE.NOTE]Vous devez créer le réseau Azure Virtual Network avant d’approvisionner un cluster HDInsight. Pour plus d'informations, consultez [Tâches de configuration de réseau virtuel](http://msdn.microsoft.com/library/azure/jj156206.aspx).
+> [AZURE.NOTE]Vous devez créer le réseau Azure Virtual Network avant d’approvisionner un cluster HDInsight. Pour plus d'informations, consultez [Tâches de configuration de réseau virtuel](../services/virtual-machines/).
 >
 >[AZURE.NOTE]Azure HDInsight prend uniquement en charge les réseaux virtuels basés sur l'emplacement et ne fonctionne pas pour le moment avec les réseaux virtuels basés sur des groupes d'affinités. Utilisez l’applet de commande Get-AzureVNetConfig d’Azure PowerShell pour vérifier si un réseau virtuel Azure est basé sur l'emplacement. Si votre réseau virtuel n'est pas basé sur l'emplacement, vous disposez des options suivantes :
 >
@@ -296,7 +296,7 @@ Vous pouvez vous référer aux [options de configuration de base] et aux [option
 ### Utilisation d'Azure PowerShell
 Azure PowerShell est un environnement de création de scripts vous permettant de contrôler et d'automatiser le déploiement et la gestion de vos charges de travail dans Azure. Cette section fournit des instructions sur la configuration d’un cluster HDInsight à l’aide d’Azure PowerShell. Pour plus d’informations sur la configuration d’un poste de travail pour exécuter des cmdlets HDInsight Windows Powershell, consultez la rubrique [Installation et configuration d’Azure PowerShell](../install-configure-powershell.md). Pour plus d’informations sur l’utilisation d’Azure PowerShell avec HDInsight, consultez [Administration de HDInsight avec PowerShell](hdinsight-administer-use-powershell.md). Pour la liste des cmdlets Windows PowerShell pour HDInsight, consultez la rubrique [Référence des cmdlets HDInsight](https://msdn.microsoft.com/library/azure/dn858087.aspx).
 
-> [AZURE.NOTE]Bien que vous puissiez utiliser les scripts de cette section pour configurer un cluster HDInsight sur un réseau virtuel Azure, ceux-ci ne permettent pas de créer un réseau de ce type. Pour plus d’informations sur la création d’un réseau Azure Virtual Network, consultez la rubrique [Tâches de configuration d’un réseau virtuel](http://msdn.microsoft.com/library/azure/jj156206.aspx).
+> [AZURE.NOTE]Bien que vous puissiez utiliser les scripts de cette section pour configurer un cluster HDInsight sur un réseau virtuel Azure, ceux-ci ne permettent pas de créer un réseau de ce type. Pour plus d’informations sur la création d’un réseau Azure Virtual Network, consultez la rubrique [Tâches de configuration d’un réseau virtuel](../services/virtual-machines/).
 
 Les procédures suivantes sont nécessaires pour mettre en service un cluster HDInsight en utilisant Azure PowerShell :
 
@@ -786,4 +786,4 @@ Cet article vous a présenté différentes méthodes pour configurer un cluster 
 [hdinsight-sdk-documentation]: http://msdn.microsoft.com/library/dn479185.aspx
 [azure-management-portal]: https://manage.windowsazure.com
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

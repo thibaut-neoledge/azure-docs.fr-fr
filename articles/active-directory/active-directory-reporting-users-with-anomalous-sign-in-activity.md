@@ -17,11 +17,9 @@
 	ms.author="saah;kenhoff"/>
 
 # Utilisateurs ayant une activité de connexion anormale
+Il s'agit d'un rapport global qui combine les connexions suspectes des rapports suivants : <ul><li>connexions à partir de sources inconnues</li><li>connexions après plusieurs échecs</li><li>connexions depuis plusieurs zones géographiques</li><li>connexions à partir d'adresses IP affichant une activité suspecte</li><li>connexions à partir de périphériques potentiellement infectés</li><li>activité de connexion anormale</li></ul>
 
-| Description | Emplacement du rapport |
-| :-------------     | :-------        |
-| <p>Utilisez ce rapport lorsque vous souhaitez afficher tous les comptes d'utilisateurs pour lesquels une activité de connexion anormale a été identifiée. Ce rapport inclut des données provenant de tout autre rapport d'activité anormale. Les résultats de ce rapport vous fourniront plus d'informations sur l'utilisateur et vous indiqueront pourquoi l'événement de connexion a été identifié comme anormal, de même que la date et l’heure, et d’autres informations pertinentes au sujet de l'événement.</p> | Répertoire > onglet Rapports |
 
 ![Utilisateurs ayant une activité de connexion anormale](./media/active-directory-reporting-users-with-anomalous-sign-in-activity/usersWithAnomalousSignInActivity.PNG)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Comparaison des outils d’intégration de répertoire" 
-	description="Cette page vous donne accès à des tableaux complets de comparaison des différents outils d’intégration de répertoire." 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="swadhwa" 
+	pageTitle="Comparaison des outils d’intégration de répertoire"
+	description="Cette page vous donne accès à des tableaux complets de comparaison des différents outils d’intégration de répertoire."
+	services="active-directory"
+	documentationCenter=""
+	authors="billmath"
+	manager="stevenpo"
 	editor="curtand"/>
 
 <tags 
-	ms.service="active-directory" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/24/2015" 
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/24/2015"
 	ms.author="billmath"/>
 
 # Comparaison des outils d’intégration de répertoire
@@ -88,4 +88,4 @@ Autorisation de différents modèles de service à appliquer pour les flux d’a
 Autorisation du blocage des attributs circulant d’AD vers Azure AD | ● | ● | |  
 Autorisation de la personnalisation avancée pour les flux d’attributs | ● | ● | | ●  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

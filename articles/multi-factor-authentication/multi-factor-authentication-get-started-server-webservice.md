@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Mise en route du service Web de l’application mobile du serveur MFA" 
-	description="L'application Azure Multi-Factor Authentication offre une option d'authentification hors bande supplémentaire. Il permet au serveur MFA d’utiliser des notifications Push pour les utilisateurs." 
-	services="multi-factor-authentication" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="terrylan" 
-	editor="bryanla"/>
+	pageTitle="Mise en route du service Web de l’application mobile du serveur MFA"
+	description="L'application Azure Multi-Factor Authentication offre une option d'authentification hors bande supplémentaire. Il permet au serveur MFA d’utiliser des notifications Push pour les utilisateurs."
+	services="multi-factor-authentication"
+	documentationCenter=""
+	authors="billmath"
+	manager="stevenpo"
+	editor="curtland"/>
 
 <tags 
-	ms.service="multi-factor-authentication" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/02/2015" 
+	ms.service="multi-factor-authentication"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/24/2015"
 	ms.author="billmath"/>
 
 # Mise en route du service Web de l’application mobile du serveur MFA
@@ -89,4 +89,4 @@ Maintenant que le service Web de l’application mobile est installé, vous deve
 
 <center>![Setup](./media/multi-factor-authentication-get-started-server-webservice/mobile.png)</center>
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

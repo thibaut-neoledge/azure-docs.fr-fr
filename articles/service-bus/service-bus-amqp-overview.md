@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Vue d'ensemble d’AMQP de Service Bus | Microsoft Azure" 
-	description="Découvrez comment utiliser le protocole Advanced Message Queuing Protocol (AMQP) 1.0 dans Azure." 
-	services="service-bus" 
-	documentationCenter=".net" 
-	authors="sethmanheim" 
-	manager="timlt" 
+	pageTitle="Vue d'ensemble d’AMQP de Service Bus | Microsoft Azure"
+	description="Découvrez comment utiliser le protocole Advanced Message Queuing Protocol (AMQP) 1.0 dans Azure."
+	services="service-bus"
+	documentationCenter=".net"
+	authors="sethmanheim"
+	manager="timlt"
 	editor="mattshel"/>
 
 <tags 
-	ms.service="service-bus" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="multiple" 
-	ms.topic="article" 
-	ms.date="07/21/2015" 
+	ms.service="service-bus"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="na"
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.date="07/21/2015"
 	ms.author="sethm"/>
 
 
@@ -77,7 +77,7 @@ Les bibliothèques clientes suivantes fonctionnent actuellement avec Service Bus
 | C | Apache Qpid Proton-C |
 | PHP | Apache Qpid Proton-PHP |
 | Python | Apache Qpid Proton-Python |
-
+| C# | AMQP .Net Lite |
 
 **Figure 2 : tableau des bibliothèques clientes d’AMQP 1.0**
 
@@ -98,4 +98,4 @@ Pour plus d’informations sur l’obtention et l’utilisation de ces biblioth�
 [0]: ./media/service-bus-amqp-overview/Example1.png
 [Guide du développeur AMPQ Service Bus]: http://msdn.microsoft.com/library/jj841071.aspx
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

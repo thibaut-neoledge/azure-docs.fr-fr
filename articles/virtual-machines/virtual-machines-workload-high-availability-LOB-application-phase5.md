@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Charge de travail des applications métier, phase 5 : création du groupe de disponibilité et ajout des bases de données d'application" 
-	description="Dans cette phase finale du déploiement d'une application métier à haute disponibilité, vous créez un groupe de disponibilité et lui ajoutez vos bases de données d'applications." 
+	pageTitle="Application métier - Phase 5 | Microsoft Azure"
+	description="Créez un groupe de disponibilité et ajoutez vos bases de données d'applications dans la phase 5 de l'application métier dans Azure."
 	documentationCenter=""
-	services="virtual-machines" 
-	authors="JoeDavies-MSFT" 
-	manager="timlt" 
+	services="virtual-machines"
+	authors="JoeDavies-MSFT"
+	manager="timlt"
 	editor=""
 	tags="azure-resource-manager"/>
 
 <tags 
-	ms.service="virtual-machines" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/11/2015" 
+	ms.service="virtual-machines"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/11/2015"
 	ms.author="josephd"/>
 
 # Charge de travail des applications métier, phase 5 : création du groupe de disponibilité et ajout des bases de données d'application
@@ -125,4 +125,4 @@ Une fois l'écouteur configuré, vous devez configurer toutes les machines virtu
 
 [Charge de travail des services d’infrastructure Azure : batterie de serveurs SharePoint Server 2013](virtual-machines-workload-intranet-sharepoint-farm.md)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/02/2015"
+	ms.date="08/25/2015"
 	ms.author="davidmu"/>
 
 # Déploiement et gestion des machines virtuelles à l’aide de modèles Azure Resource Manager et de PowerShell
@@ -962,4 +962,4 @@ Les informations suivantes s’affichent :
 
 [Installation et configuration d’Azure PowerShell](install-configure-powershell.md)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

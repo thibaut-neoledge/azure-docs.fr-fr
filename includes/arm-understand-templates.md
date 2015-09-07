@@ -1,6 +1,6 @@
 ## Présentation des groupes et des modèles de ressources Azure
 
-La plupart des applications déployées et s’exécutant dans Microsoft Azure sont basées sur une combinaison de différents types de ressources cloud (par exemple, au moins une machine virtuelle et un compte de stockage, une base de données SQL, un réseau virtuel ou un CDN, etc.). [Les modèles Microsoft Azure Resource Manager](https://msdn.microsoft.com/library/azure/dn835138.aspx) permettent de déployer et de gérer ces différentes ressources en même temps à l’aide d’une description JSON des ressources et des paramètres de configuration et de déploiement associés.
+La plupart des applications déployées et s’exécutant dans Microsoft Azure sont basées sur une combinaison de différents types de ressources cloud (par exemple, au moins une machine virtuelle et un compte de stockage, une base de données SQL, un réseau virtuel ou un CDN, etc.). [Les modèles Microsoft Azure Resource Manager](../resource-group-authoring-templates.md) permettent de déployer et de gérer ces différentes ressources en même temps à l’aide d’une description JSON des ressources et des paramètres de configuration et de déploiement associés.
 
 Une fois que vous avez défini un modèle de ressource basé sur JSON, vous pouvez l’exécuter de sorte que les ressources qui y sont définies soient déployées dans Azure à l’aide d’une commande PowerShell. Vous pouvez exécuter ces commandes PowerShell de manière autonome dans l’interface de commande PowerShell, ou vous pouvez les intégrer dans un script PowerShell qui contient la logique d’automatisation supplémentaire.
 
@@ -8,4 +8,4 @@ Les ressources que vous créez à l’aide de modèles Azure Resource Manager 
 
 Les exemples d’automatisation suivants montrent comment utiliser les modèles Azure Resource Manager et déployer des groupes de ressources en utilisant PowerShell ou une interface en ligne de commande.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Didacticiel : création d’un réseau virtuel dans le cloud uniquement" 
-	description="Ce didacticiel vous explique comment créer un exemple de Azure Virtual Network pour le cloud uniquement." 
-	services="virtual-machines, virtual-network" 
-	documentationCenter="" 
-	authors="cherylmc" 
-	manager="adinah" 
+	pageTitle="Didacticiel : création d’un réseau virtuel dans le cloud uniquement"
+	description="Ce didacticiel vous explique comment créer un exemple de Azure Virtual Network pour le cloud uniquement."
+	services="virtual-machines, virtual-network"
+	documentationCenter=""
+	authors="cherylmc"
+	manager="adinah"
 	editor=""/>
 
 <tags 
-	ms.service="virtual-network" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/18/2015" 
+	ms.service="virtual-network"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/17/2015"
 	ms.author="cherylmc"/>
 
 # Didacticiel : Création d’un réseau virtuel cloud uniquement dans Azure
@@ -24,7 +24,7 @@ Ce didacticiel décrit les étapes à effectuer dans le portail de gestion Azure
 
 Par exemple, FrontEndSubnet pourrait être utilisé pour les serveurs web tandis que BackEndSubnet pourrait être utilisé pour les serveurs SQL ou les contrôleurs de domaine.
 
-Ce didacticiel part du principe que vous n'avez jamais utilisé Azure. Il a pour but de vous familiariser avec la procédure qui vous permettra de créer votre propre réseau virtuel en décrivant étape par étape un exemple de configuration. Si vous voulez créer un réseau virtuel cloud uniquement qui fonctionne pour votre configuration spécifique, consultez [Configuration d'un réseau virtuel cloud uniquement dans le Portail de gestion](http://msdn.microsoft.com/library/azure/dn631643.aspx). Si vous recherchez des scénarios de conception et des informations avancées sur Virtual Network, consultez la page [Vue d'ensemble d'Azure Virtual Network](http://msdn.microsoft.com/library/windowsazure/jj156007.aspx).
+Ce didacticiel part du principe que vous n'avez jamais utilisé Azure. Il a pour but de vous familiariser avec la procédure qui vous permettra de créer votre propre réseau virtuel en décrivant étape par étape un exemple de configuration. Si vous voulez créer un réseau virtuel cloud uniquement qui fonctionne pour votre configuration spécifique, consultez [Configuration d'un réseau virtuel cloud uniquement dans le Portail de gestion](../virtual-network/virtual-networks-create-vnet.md). Si vous recherchez des scénarios de conception et des informations avancées sur Virtual Network, consultez la page [Vue d'ensemble d'Azure Virtual Network](../virtual-network/virtual-networks-overview.md).
 
 
 > [AZURE.NOTE]Ce didacticiel ne décrit pas comment créer une configuration entre différents locaux, dans laquelle le réseau virtuel est connecté au réseau de votre organisation. Pour accéder à un didacticiel présentant les étapes de création d'un réseau virtuel avec une connexion entre différents locaux et une connexion VPN de site à site (par exemple, une connexion à Active Directory ou SharePoint au sein de votre société), consultez [Didacticiel : Création d'un réseau virtuel pour une connectivité entre différents locaux de site à site](../virtual-network/virtual-networks-create-site-to-site-cross-premises-connectivity.md).
@@ -90,9 +90,9 @@ Vous pouvez continuer à découvrir les services d'infrastructure Azure en consu
 
 Pour supprimer ce réseau virtuel, sélectionnez-le, cliquez sur **Supprimer**, puis cliquez sur **Oui**.
 
-Quand vous êtes prêt à créer un réseau virtuel cloud uniquement qui fonctionne pour votre propre configuration, consultez [Configuration d'un réseau virtuel cloud uniquement dans le Portail de gestion](http://msdn.microsoft.com/library/azure/dn631643.aspx).
+Quand vous êtes prêt à créer un réseau virtuel cloud uniquement qui fonctionne pour votre propre configuration, consultez [Configuration d'un réseau virtuel cloud uniquement dans le Portail de gestion](../virtual-network/virtual-networks-create-vnet.md).
 
-Si vous recherchez des scénarios de conception et des informations avancées sur le réseau virtuel, consultez [Présentation du réseau virtuel](http://msdn.microsoft.com/library/windowsazure/jj156007.aspx).
+Si vous recherchez des scénarios de conception et des informations avancées sur le réseau virtuel, consultez [Présentation du réseau virtuel](../virtual-network/virtual-networks-overview.md).
 
 Pour plus d'informations sur les paramètres et procédures de configuration du réseau virtuel, consultez [Tâches de configuration du réseau virtuel](http://go.microsoft.com/fwlink/p/?linkid=296652&clcid=0x409).
 
@@ -118,4 +118,4 @@ Pour plus d'informations sur les paramètres et procédures de configuration du 
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

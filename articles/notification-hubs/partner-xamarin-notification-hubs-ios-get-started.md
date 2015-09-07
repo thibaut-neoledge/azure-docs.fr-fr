@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Prise en main de Notification Hubs pour les applications Xamarin iOS"
-	description="Découvrez comment utiliser Azure Notification Hubs pour envoyer des notifications Push à une application Xamarin iOS."
+	pageTitle="Prise en main de Notification Hubs pour les applications Xamarin iOS | Microsoft Azure"
+	description="Ce didacticiel vous apprend à utiliser Azure Notification Hubs pour envoyer des notifications Push vers une application Xamarin iOS."
 	services="notification-hubs"
 	documentationCenter="xamarin"
 	authors="ysxu"
@@ -20,15 +20,15 @@
 
 [AZURE.INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
 
-##Vue d'ensemble
+##Vue d’ensemble
 
-Cette rubrique vous présente l'utilisation d'Azure Notification Hubs pour envoyer des notifications Push vers une application iOS. Le didacticiel vous apprend à créer une application Xamarin.iOS vide qui reçoit des notifications Push à l'aide du service de notification Push Apple (APN, Apple Push Notification). Une fois la création terminée, vous pouvez diffuser des notifications Push sur tous les appareils sur lesquels votre application est installée au moyen de votre concentrateur de notification. Le code finalisé est disponible dans l'exemple [Application NotificationHubs][GitHub].
+Ce didacticiel vous montre comment utiliser Azure Notification Hubs pour envoyer des notifications Push vers une application iOS. Vous allez créer une application Xamarin.iOS vide qui reçoit des notifications Push à l’aide du service de notification Push Apple (APN, Apple Push Notification). Une fois l’opération terminée, vous pouvez utiliser votre hub de notification pour diffuser des notifications Push sur tous les appareils exécutant votre application. Le code finalisé est disponible dans l'exemple [Application NotificationHubs][GitHub].
 
-Ce didacticiel présente un scénario de diffusion simple utilisant les concentrateurs de notification.
+Ce didacticiel présente un scénario de diffusion simple utilisant les Notification Hubs.
 
 ##Configuration requise
 
-Ce didacticiel requiert les composants requis suivants :
+Ce didacticiel requiert les éléments suivants :
 
 + [XCode 6.0][Install Xcode]
 + Un appareil compatible iOS 7.0 (ou version ultérieure)
@@ -36,13 +36,13 @@ Ce didacticiel requiert les composants requis suivants :
 + [Xamarin.iOS]
 + [Composant Azure Mobile Services]
 
-   >[AZURE.NOTE]En raison de la configuration requise pour les notifications Push, vous devez déployer et tester les notifications Push sur un appareil compatible iOS (iPhone ou iPad) au lieu d'un simulateur.
+   >[AZURE.NOTE]En raison des exigences de configuration requise pour les notifications Push, vous devez déployer et tester les notifications Push sur un appareil compatible iOS (iPhone ou iPad) au lieu d’un simulateur.
 
 Vous devez suivre ce didacticiel avant de pouvoir suivre tous les autres didacticiels Notification Hubs pour les applications Xamarin.iOS.
 
-> [AZURE.IMPORTANT]Pour suivre ce didacticiel, vous avez besoin d'un compte Azure actif. Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A643EE910&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Ffr-fr%2Fdocumentation%2Farticles%2Fpartner-xamarin-notification-hubs-ios-get-started).
+> [AZURE.IMPORTANT]Pour suivre ce didacticiel, vous avez besoin d'un compte Azure actif. Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A643EE910&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Ffr-FR%2Fdocumentation%2Farticles%2Fpartner-xamarin-notification-hubs-ios-get-started).
 
-Le service de notification Push Apple (APNS) utilise des certificats pour authentifier votre service mobile. Suivez ces instructions pour créer les certificats requis et les télécharger dans votre service mobile. Pour obtenir la documentation complète des fonctionnalités APNS, consultez la page [Service de notification Push Apple].
+Le service de notification Push Apple utilise des certificats pour authentifier votre service mobile. Suivez ces instructions pour créer les certificats requis et les télécharger dans votre service mobile. Pour obtenir la documentation complète des fonctionnalités APNS, consultez la page [Service de notification Push Apple].
 
 
 ##<a name="certificates"></a>Génération du fichier de demande de signature de certificat
@@ -51,7 +51,7 @@ Vous devez d'abord générer le fichier de demande de signature de certificat (C
 
 1. Dans le dossier Utilitaires, exécutez l'outil Trousseaux d'accès.
 
-2. Cliquez sur **Trousseaux d'accès**, développez **Assistant de certification**, puis cliquez sur **Demander un certificat à une autorité de certification**.
+2. Cliquez sur **Trousseaux d’accès**, développez **Assistant de certification**, puis cliquez sur **Demander un certificat à une autorité de certification**.
 
   	![][5]
 
@@ -59,23 +59,23 @@ Vous devez d'abord générer le fichier de demande de signature de certificat (C
 
   	![][6]
 
-4. Entrez un nom pour le fichier de demande de signature de certificat dans **Enregistrer sous**, sélectionnez l'emplacement dans **Où**, puis cliquez sur **Enregistrer**.
+4. Saisissez un nom pour le fichier de demande de signature de certificat dans **Enregistrer sous**, sélectionnez l’emplacement dans **Où**, puis cliquez sur **Enregistrer**.
 
   	![][7]
 
-  	Ceci enregistre le fichier de demande de signature de certificat dans l'emplacement sélectionné, l'emplacement par défaut étant situé sur le Bureau. Notez l'emplacement sélectionné pour ce fichier.
+  	Cette opération enregistre le fichier CSR dans l’emplacement sélectionné. L’emplacement par défaut est sur le bureau. Notez l’emplacement que vous avez sélectionné pour ce fichier.
 
 Ensuite, inscrivez votre application auprès d'Apple, activez les notifications Push, puis téléchargez ce fichier de demande de signature de certificat exporté pour créer un certificat Push.
 
 ##<a name="register"></a>Inscription de votre application pour les notifications Push
 
-Pour pouvoir envoyer des notifications Push vers une application iOS à partir des services mobiles, vous devez inscrire votre application auprès d'Apple, ainsi qu'aux notifications Push.
+Pour pouvoir envoyer des notifications Push vers une application iOS depuis Mobile Services, vous devez inscrire votre application auprès d’Apple, ainsi qu’aux notifications Push.
 
-1. Si vous n’avez pas encore inscrit votre application, accédez au <a href="http://go.microsoft.com/fwlink/p/?LinkId=272456" target="_blank">Portail de mise en service iOS</a> du centre de développement Apple, connectez-vous avec votre ID Apple, cliquez sur **Identifiers**, sur **App IDs**, puis sur le signe **+** pour inscrire une nouvelle application.
+1. Si vous n’avez pas encore inscrit votre application, accédez au <a href="http://go.microsoft.com/fwlink/p/?LinkId=272456" target="_blank">Portail de mise en service iOS</a> du centre de développement Apple, connectez-vous avec votre ID Apple, cliquez sur **Identifiers**, sur **App IDs**, et enfin sur le signe **+** pour inscrire une nouvelle application.
 
    	![][105]
 
-2. Entrez le nom de votre application dans **Description**, entrez une valeur dans **Bundle Identifier**, activez l'option « Push Notifications » dans la section « App Services », puis cliquez sur **Continue**.
+2. Saisissez le nom de votre application dans **Description** et une valeur dans **Bundle Identifier**, activez l’option **Notifications push** dans la section **App Services**, puis cliquez sur **Continue**.
 
    	![][106]
 
@@ -94,25 +94,25 @@ Pour pouvoir envoyer des notifications Push vers une application iOS à partir 
 
 	> [AZURE.NOTE]Si vous choisissez d’entrer une valeur **Bundle Identifier** autre que **MobileServices.Quickstart**, vous devez également mettre à jour la valeur d’identificateur de lot dans votre projet Xcode.
 
-3. Recherchez l’ID de l’application que vous venez de créer, puis cliquez sur sa ligne.
+3. Recherchez l’ID de l’application que vous venez de créer, puis cliquez sur la ligne correspondante.
 
    	![][111]
 
-	Le fait de cliquer sur l’ID de l’application affiche les informations détaillées de cette application et de l’ID d’application.
+	Le fait de cliquer sur l’ID de l’application affiche des informations détaillées de cette application et de l’ID d’application.
 
    	![][112]
 
    	![][113]
 
-4. Cliquez sur **Edit**, faites défiler jusqu'au bas de l'écran, puis cliquez sur le bouton **Create Certificate…** sous la section **Development Push SSL Certificate**.
+4. Cliquez sur **Edit**, faites défiler l’écran jusqu’en bas, puis cliquez sur le bouton **Create Certificate…** sous la section **Development Push SSL Certificate**.
 
    	![][114]
 
-	Ceci affiche l’Assistant « Add iOS Certificate ».
+	Cette opération permet d’afficher l’Assistant d’ajout de certificat iOS.
 
    	![][115]
 
-	> [AZURE.NOTE]Ce didacticiel utilise un certificat de développement. Le même processus est utilisé lors de l'inscription d'un certificat de production. Assurez-vous simplement que vous avez défini le même type de certificat lorsque vous avez téléchargé le certificat vers Mobile Services.
+	> [AZURE.NOTE]Ce didacticiel utilise un certificat de développement. Le même processus est utilisé lors de l’inscription d’un certificat de production. Assurez-vous simplement que vous avez défini le même type de certificat lorsque vous avez téléchargé le certificat vers Mobile Services.
 
 5. Cliquez sur **Choose File**, accédez à l’emplacement où vous avez enregistré le fichier de demande de signature de certificat que vous avez créé lors de la première tâche, puis cliquez **Generate**.
 
@@ -138,11 +138,11 @@ Pour pouvoir envoyer des notifications Push vers une application iOS à partir 
 
 	> [AZURE.NOTE]Il se peut que le nom de votre certificat soit différent. Il portera toutefois le préfixe <strong>Apple Development iOS Push Notification Services</strong>.
 
-	Plus tard, vous devrez utiliser ce certificat pour générer un fichier .p12 et le télécharger sur votre concentrateur de notification pour activer les notifications Push avec APNS.
+	Plus tard, vous devrez utiliser ce certificat pour générer un fichier .p12 et le télécharger sur votre concentrateur de notification pour activer les notifications Push avec APN.
 
-##<a name="profile"></a>Créer un profil de mise en service pour l’application
+##<a name="profile"></a>Créer un profil de mise en service pour l'application
 
-1. Une fois de retour dans le <a href="http://go.microsoft.com/fwlink/p/?LinkId=272456" target="_blank">Portail de mise en service iOS</a>, sélectionnez **Provisioning Profiles**, **All**, puis cliquez sur le bouton **+** pour créer un profil. Ainsi, l'Assistant **Add iOS Provisioning Profile** s'affiche.
+1. Une fois de retour dans le <a href="http://go.microsoft.com/fwlink/p/?LinkId=272456" target="_blank">Portail de mise en service iOS</a>, sélectionnez **Provisioning Profiles**, **All**, puis cliquez sur le bouton **+** pour créer un profil. Ainsi, l’Assistant **Ajout du profil de mise en service d’iOS** s’affiche.
 
    	![][120]
 
@@ -150,15 +150,15 @@ Pour pouvoir envoyer des notifications Push vers une application iOS à partir 
 
    	![][121]
 
-3. Ensuite, sélectionnez l'ID de l'application de démarrage rapide Mobile Services dans la liste déroulante **App ID**, puis cliquez sur **Continue**.
+3. Sélectionnez l’ID de l’application de démarrage rapide Mobile Services dans la liste déroulante **App ID**, puis cliquez sur **Continue**.
 
    	![][122]
 
-4. Dans l'écran **Select certificates**, sélectionnez le certificat créé plus tôt, puis cliquez sur **Continue**.
+4. Dans l’écran **Select certificates**, sélectionnez le certificat créé plus tôt, puis cliquez sur **Continue**.
 
    	![][123]
 
-5. Ensuite, sélectionnez les appareils (**Devices**) à utiliser pour le test, puis cliquez sur **Continue**.
+5. Sélectionnez les appareils à utiliser pour le test, puis cliquez sur **Continue**.
 
    	![][124]
 
@@ -170,7 +170,7 @@ Pour pouvoir envoyer des notifications Push vers une application iOS à partir 
 
   	Ceci entraîne la création d'un profil de mise en service.
 
-7. Dans Xcode, ouvrez l'Organisateur, sélectionnez la vue Devices, puis **Provisioning Profiles** dans la section **Library** du volet de gauche et importez le profil de mise en service que vous venez de créer.
+7. Dans Xcode, ouvrez l’Organisateur, sélectionnez la vue Devices, puis **Provisioning Profiles** dans la section **Library** du volet de gauche et importez le profil d’approvisionnement que vous venez de créer.
 
 8. Sur la gauche, sélectionnez votre appareil et importez à nouveau le profil de mise en service.
 
@@ -182,27 +182,27 @@ Pour pouvoir envoyer des notifications Push vers une application iOS à partir 
 
 Ceci vérifie que le projet Xcode utilise le nouveau profil pour la signature du code. Ensuite, vous devez télécharger le certificat vers votre concentrateur de notification.
 
-##<a name="configure-hub"></a>Configuration de votre concentrateur de notification
+##<a name="configure-hub"></a>Configuration de votre hub de notification
 
-1. Connectez-vous au [portail de gestion Azure] et cliquez sur **+NEW** en bas de l'écran.
+1. Connectez-vous au [portail Azure] et cliquez sur **+NOUVEAU** en bas de l’écran.
 
-2. Cliquez sur **Services d'application**, puis sur **Service Bus**, **Concentrateur de notification**, **Création rapide**.
+2. Cliquez sur **Services d’application**, sur **Service Bus**, sur **Notification Hub**, puis cliquez sur **Création rapide**.
 
    	![][27]
 
-3. Tapez un nom pour votre concentrateur de notification, sélectionnez la région souhaitée, puis cliquez sur **Créer un concentrateur de notification**.
+3. Tapez un nom pour votre hub de notification, sélectionnez la région souhaitée, puis cliquez sur **Créer un hub de notification**.
 
    	![][28]
 
-4. Cliquez sur l'espace de noms que vous venez de créer (en général ***nom du concentrateur de notification*-ns**), puis cliquez sur l'onglet **Configurer** en haut.
+4. Cliquez sur l’espace de noms que vous venez de créer (en général ***nom du hub de notification*-ns**), puis cliquez sur l’onglet **Configurer** en haut de l’écran.
 
    	![][29]
 
-5. Cliquez sur l'onglet **Concentrateurs de notification** en haut de la page, puis cliquez sur celui que vous venez de créer.
+5. Cliquez sur l’onglet **Notifications Hubs** en haut de la page, puis cliquez sur le hub de notification que vous venez de créer.
 
    	![][210]
 
-6. Cliquez sur l'onglet **Configurer** en haut de la page, puis cliquez sur **Télécharger** dans les paramètres de notification d'Apple. Sélectionnez ensuite le certificat **.p12** exporté précédemment ainsi que le mot de passe du certificat. Assurez-vous de choisir si vous souhaitez utiliser la **Production** (si vous souhaitez envoyer des notifications Push aux utilisateurs qui ont acheté votre application depuis le store) ou le service Push **Bac à sable (sandbox)** (au cours du développement).
+6. Cliquez sur l'onglet **Configurer** en haut de la page, puis cliquez sur **Télécharger** dans les paramètres de notification d'Apple. Sélectionnez ensuite le certificat **.p12** exporté précédemment, ainsi que le mot de passe du certificat. Assurez-vous de déterminer si vous souhaitez utiliser la **Production** (si vous souhaitez envoyer des notifications Push aux utilisateurs qui ont acheté votre application depuis le magasin) ou le service Push **Bac à sable (Sandbox)** (au cours du développement).
 
    	![][211]
 
@@ -212,15 +212,15 @@ Ceci vérifie que le projet Xcode utilise le nouveau profil pour la signature du
 
 Votre Notification Hub est configuré pour APNS, et vous disposez des chaînes de connexion pour inscrire votre application et envoyer des notifications.
 
-##<a name="connecting-app"></a>Connexion de votre application au concentrateur de notification
+##<a name="connecting-app"></a>Connexion de votre application au hub de notification
 
 ### Création d'un projet
 
-1. Dans Xamarin Studio, créez un projet iOS et sélectionnez le modèle **Unified API > Single View Application**.
+1. Dans Xamarin Studio, créez un projet iOS et sélectionnez le modèle **Unified API** > **Single View Application**.
 
    	![][31]
 
-2. Commencez par ajouter une référence au composant Azure Messaging. Dans la vue Solution, cliquez avec le bouton droit sur le dossier **Components** de votre projet, puis choisissez **Get More Components**. Recherchez le composant **Azure Messaging** et ajoutez-le à votre projet.
+2. Ajoutez une référence au composant Azure Messaging. Dans la vue Solution, cliquez avec le bouton droit sur le dossier **Components** de votre projet, puis choisissez **Get More Components**. Recherchez le composant **Azure Messaging** et ajoutez-le à votre projet.
 
 3. Dans **AppDelegate.cs**, ajoutez l'instruction using suivante :
 
@@ -232,12 +232,12 @@ Votre Notification Hub est configuré pour APNS, et vous disposez des chaînes d
 
 5. Créez une classe **Constants.cs** avec les variables suivantes :
 
-        // Azure app specific connection string and hub path
+        // Azure app-specific connection string and hub path
         public const string ConnectionString = "<Azure connection string>";
         public const string NotificationHubPath = "<Azure hub path>";
 
 
-6. Dans **AppDelegate.cs**, mettez à jour **FinishedLaunching()** afin qu'il corresponde à ce qui suit :
+6. Dans **AppDelegate.cs**, mettez à jour **FinishedLaunching()** afin qu’il corresponde à ce qui suit :
 
         public override bool FinishedLaunching(UIApplication application, NSDictionary launchOptions)
         {
@@ -290,10 +290,10 @@ Votre Notification Hub est configuré pour APNS, et vous disposez des chaînes d
 
                 //Extract the alert text
                 // NOTE: If you're using the simple alert by just specifying
-                // "  aps:{alert:"alert msg here"}  " this will work fine.
+                // "  aps:{alert:"alert msg here"}  ", this will work fine.
                 // But if you're using a complex alert with Localization keys, etc.,
                 // your "alert" object from the aps dictionary will be another NSDictionary.
-                // Basically the json gets dumped right into a NSDictionary,
+                // Basically the JSON gets dumped right into a NSDictionary,
                 // so keep that in mind.
                 if (aps.ContainsKey(new NSString("alert")))
                     alert = (aps [new NSString("alert")] as NSString).ToString();
@@ -312,14 +312,14 @@ Votre Notification Hub est configuré pour APNS, et vous disposez des chaînes d
             }
         }
 
-    > [AZURE.NOTE]Vous pouvez choisir de remplacer **FailedToRegisterForRemoteNotifications()** pour gérer les situations impliquant une absence de connexion réseau, etc.
+    > [AZURE.NOTE]Vous pouvez choisir de remplacer **FailedToRegisterForRemoteNotifications()** pour gérer les situations, par exemple, l’absence de connexion réseau, etc.
 
 
 10. Exécutez l'application sur votre appareil.
 
 ##<a name="send"></a>Envoi de notifications à partir de votre serveur principal
 
-Vous pouvez envoyer des notifications en utilisant Notification Hubs à partir de tous les serveurs principaux à l’aide de l’<a href="http://msdn.microsoft.com/library/windowsazure/dn223264.aspx">interface REST</a>. Dans ce didacticiel, vous envoyez des notifications avec une application console .NET et un Mobile Service à l'aide d'un script Node.
+Vous pouvez envoyer des notifications en utilisant Notification Hubs à partir d’un serveur principal utilisant notre <a href="http://msdn.microsoft.com/library/windowsazure/dn223264.aspx">interface REST</a>. Dans ce didacticiel, vous allez envoyer des notifications en utilisant une application console .NET et un service mobile à l’aide d’un script de noeud.
 
 Pour envoyer des notifications en utilisant une application .NET :
 
@@ -327,11 +327,11 @@ Pour envoyer des notifications en utilisant une application .NET :
 
    	![][213]
 
-2. Ajoutez une référence au Kit de développement logiciel (SDK) Azure Service Bus à l’aide du <a href="http://nuget.org/packages/WindowsAzure.ServiceBus/">package NuGet WindowsAzure.ServiceBus</a>. Dans le menu principal de Visual Studio, cliquez sur **Outils**, sur **Library Package Manager**, puis sur **Console du Gestionnaire de package**. Dans la fenêtre de la console, tapez :
+2. Ajoutez une référence au Kit de développement logiciel (SDK) Azure Service Bus est ajoutée à l’aide du <a href="http://nuget.org/packages/WindowsAzure.ServiceBus/">package NuGet WindowsAzure.ServiceBus</a>. Dans le menu principal de Visual Studio, cliquez sur **Outils**, **Library Package Manager**, puis sur **Console du gestionnaire de package**. Puis, dans la fenêtre de la console, saisissez le code suivant et appuyez sur Entrée :
 
-        Install-Package WindowsAzure.ServiceBus and press Enter.
+        Install-Package WindowsAzure.ServiceBus
 
-2. Ouvrez le fichier Program.cs et ajoutez l'instruction using suivante :
+2. Ouvrez le fichier Program.cs et ajoutez l’instruction using suivante :
 
         using Microsoft.ServiceBus.Notifications;
 
@@ -344,7 +344,7 @@ Pour envoyer des notifications en utilisant une application .NET :
             await hub.SendAppleNativeNotificationAsync(alert);
         }
 
-4. Ajoutez ensuite la ligne suivante dans votre méthode `Main` :
+4. Ajoutez ensuite les lignes suivantes dans votre méthode `Main` :
 
          SendNotificationAsync();
 		 Console.ReadLine();
@@ -355,9 +355,9 @@ Vous trouverez toutes les charges utiles possibles dans le [Guide de programmati
 
 Pour envoyer une notification en utilisant un service mobile, suivez les instructions de la rubrique [Prise en main de Mobile Services], puis :
 
-1. Connectez-vous au [portail de gestion Azure] et sélectionnez votre service mobile.
+1. Connectez-vous au [portail Azure] et sélectionnez votre service mobile.
 
-2. Sélectionnez l'onglet **Scheduler** dans la partie supérieure.
+2. Sélectionnez l’onglet **Planificateur** dans la partie supérieure.
 
    	![][215]
 
@@ -365,7 +365,7 @@ Pour envoyer une notification en utilisant un service mobile, suivez les instruc
 
    	![][216]
 
-4. Lorsque le travail est créé, cliquez sur son nom. Cliquez ensuite sur l'onglet **Script** dans la barre supérieure.
+4. Lorsque le travail est créé, cliquez sur son nom. Cliquez ensuite sur l’onglet **Script** dans la barre supérieure.
 
 5. Insérez le script suivant dans votre fonction Scheduler. Remplacez les espaces réservés par le nom de votre concentrateur de notification et la chaîne de connexion pour *DefaultFullSharedAccessSignature* obtenue précédemment. Cliquez sur **Enregistrer**.
 
@@ -391,7 +391,7 @@ Pour envoyer une notification en utilisant un service mobile, suivez les instruc
 
 ## <a name="next-steps"> </a>Étapes suivantes
 
-Dans cet exemple simple, vous avez envoyé des notifications à tous vos appareils iOS. Afin de cibler des utilisateurs spécifiques, consultez le didacticiel [Utilisation de Notification Hubs pour envoyer des notifications Push aux utilisateurs], et, si vous souhaitez segmenter vos utilisateurs par groupes d'intérêt, vous pouvez lire [Utilisation de Notification Hubs pour envoyer les dernières nouvelles]. Pour plus d'informations sur l'utilisation de Notification Hubs, consultez les pages [Vue d'ensemble des concentrateurs de notification] et [Procédures Notification Hubs pour iOS].
+Dans cet exemple simple, vous avez envoyé des notifications à tous vos appareils iOS. Pour cibler certains utilisateurs, reportez-vous au didacticiel [Utilisation des Notification Hubs pour envoyer des notifications Push aux utilisateurs]. Pour segmenter vos utilisateurs par groupes d'intérêt, consultez la page [Utilisation des Notification Hubs pour diffuser les dernières nouvelles]. Pour plus d’informations sur l’utilisation de Notification Hubs, consultez les pages [Guide de Notifications Hubs] et [Procédures Notification Hubs pour iOS].
 
 <!-- Anchors. -->
 [Generate the certificate signing request]: #certificates
@@ -462,14 +462,14 @@ Dans cet exemple simple, vous avez envoyé des notifications à tous vos apparei
 [Live SDK for Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
 
 [Prise en main de Mobile Services]: /develop/mobile/tutorials/get-started-xamarin-ios
-[portail de gestion Azure]: https://manage.windowsazure.com/
-[Vue d'ensemble des concentrateurs de notification]: http://msdn.microsoft.com/library/jj927170.aspx
+[portail Azure]: https://manage.windowsazure.com/
+[Guide de Notifications Hubs]: http://msdn.microsoft.com/library/jj927170.aspx
 [Procédures Notification Hubs pour iOS]: http://msdn.microsoft.com/library/jj927168.aspx
 [Install Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [iOS Provisioning Portal]: http://go.microsoft.com/fwlink/p/?LinkId=272456
 
-[Utilisation de Notification Hubs pour envoyer des notifications Push aux utilisateurs]: /manage/services/notification-hubs/notify-users-aspnet
-[Utilisation de Notification Hubs pour envoyer les dernières nouvelles]: /manage/services/notification-hubs/breaking-news-dotnet
+[Utilisation des Notification Hubs pour envoyer des notifications Push aux utilisateurs]: /manage/services/notification-hubs/notify-users-aspnet
+[Utilisation des Notification Hubs pour diffuser les dernières nouvelles]: /manage/services/notification-hubs/breaking-news-dotnet
 
 [Guide de programmation des notifications locales et Push]: http://developer.apple.com/library/mac/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW1
 [Service de notification Push Apple]: http://go.microsoft.com/fwlink/p/?LinkId=272584
@@ -478,6 +478,5 @@ Dans cet exemple simple, vous avez envoyé des notifications à tous vos apparei
 [GitHub]: http://go.microsoft.com/fwlink/p/?LinkId=331329
 [Xamarin.iOS]: http://xamarin.com/download
 [WindowsAzure.Messaging]: https://github.com/infosupport/WindowsAzure.Messaging.iOS
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

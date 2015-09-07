@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Gérer les applications API" 
-	description="Découvrez comment gérer des applications API Microsoft Azure App Service en utilisant le portail Azure et l’Explorateur de serveurs de Visual Studio." 
-	services="app-service\api" 
-	documentationCenter="" 
-	authors="tdykstra" 
-	manager="wpickett" 
+	pageTitle="Gérer les applications API"
+	description="Découvrez comment gérer des applications API Microsoft Azure App Service en utilisant le portail Azure et l’Explorateur de serveurs de Visual Studio."
+	services="app-service\api"
+	documentationCenter=""
+	authors="tdykstra"
+	manager="wpickett"
 	editor="jimbe"/>
 
 <tags 
-	ms.service="app-service-api" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="na" 
+	ms.service="app-service-api"
+	ms.workload="web"
+	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article" 
-	ms.date="06/17/2015" 
+	ms.topic="article"
+	ms.date="06/17/2015"
 	ms.author="tdykstra"/>
 
 # Gérer des applications web dans Azure App Service
@@ -65,7 +65,7 @@ Les seules fonctions fournies sur le panneau **Application API** qui ne sont pas
 
 ### Tâches que vous pouvez effectuer sur le panneau Hôte d’application API uniquement
 
-Vous utilisez le panneau **Hôte d’application API** pour toutes les tâches applicables à n’importe quelle application web. Pour plus d’informations, consultez [Gérer les applications web dans le portail](../app-service-web/web-sites-manage.md).
+Vous utilisez le panneau **Hôte d’application API** pour toutes les tâches applicables à n’importe quelle application web.
 
 ### Tâches que vous pouvez effectuer sur le panneau Passerelle uniquement
 
@@ -80,7 +80,7 @@ Les panneaux Passerelle et Hôte de passerelle partagent l’interface utilisate
 
 ### Tâches que vous pouvez effectuer sur le panneau Hôte de passerelle uniquement
 
-Vous utilisez le panneau **Hôte de passerelle** pour toutes les tâches applicables à n’importe quelle application web. Pour plus d’informations, consultez [Gérer les applications web dans le portail](web-sites-manage.md).
+Vous utilisez le panneau **Hôte de passerelle** pour toutes les tâches applicables à n’importe quelle application web.
 
 ## <a id="navigate"></a>Accéder aux panneaux Application API et Passerelle 
 
@@ -134,4 +134,4 @@ Cet article vous a montré comment utiliser le portail Azure pour effectuer des 
 
 Pour en savoir plus sur la gestion des applications API via la ligne de commande, consultez les articles de la section **Automatiser** du menu affiché à gauche de l’article (sur les fenêtres de navigation agrandies) ou sur sa partie supérieure (sur les fenêtres de navigation réduites).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

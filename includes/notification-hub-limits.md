@@ -1,9 +1,11 @@
 
-| TIER: | FREE | BASIC | STANDARD |
+| NIVEAU : | GRATUIT | DE BASE | STANDARD |
 |----|----|----|----|
-| Included Pushes | 1 Million | 10 Million | 10 Million |
-| Active Devices | 500 | Unlimited | Unlimited |
-| Broadcast Tag Size | 10K | 10K | Unlimited |
-| # of tags (broadcast groups) | 3K | 3K unless broadcasted to less than 5 devices | Unlimited |
+| Notifications Push incluses | 1 million | 10 millions | 10 millions |
+| Appareils actifs | 500 | Illimité | Illimité |
+| Taille de la balise de diffusion | 10 Ko | 10 Ko | Illimité |
+| Nombre de balises (groupes de diffusion) | 3K | 3K sauf diffusion sur moins de 5 périphériques | Illimité |
 
-For additional details on these limits and for information on pricing, see [Notification Hubs Pricing](http://azure.microsoft.com/pricing/details/notification-hubs/). 
+Pour plus d'informations sur ces limites et sur la tarification, voir [Tarification des concentrateurs de notification](http://azure.microsoft.com/pricing/details/notification-hubs/).
+
+<!---HONumber=August15_HO9-->

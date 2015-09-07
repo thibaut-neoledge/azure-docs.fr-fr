@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Application API du connecteur SMTP"
-	description="Utilisation du connecteur SMTP"
+   pageTitle="Utilisation du connecteur SMTP dans des applications logiques | Microsoft Azure App Service"
+	description="Comment créer et configurer le connecteur SMTP ou une application API et l'utiliser dans une application logique d’Azure App Service"
 	services="app-service\logic"
 	documentationCenter=".net,nodejs,java"
 	authors="anuragdalmia"
@@ -13,15 +13,15 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="integration"
-	ms.date="08/19/2015"
+	ms.date="08/23/2015"
 	ms.author="andalmia"/>
 
 
-# Connecteur SMTP
+# Prise en main du connecteur SMTP et ajout de celui-ci à votre application logique
+Connexion à un serveur SMTP et envoie d’e-mails avec des pièces jointes. Avec l’action « Envoyer le message électronique » du connecteur SMTP, vous pouvez envoyer un message électronique à une ou plusieurs adresses électroniques.
 
-Les applications logiques peuvent se déclencher selon diverses sources de données et proposent des connecteurs pour obtenir et traiter les données dans le cadre d’un flux de travail.
+Les applications logiques peuvent se déclencher selon diverses sources de données et proposent des connecteurs pour obtenir et traiter les données dans le cadre d’un flux de travail. Vous pouvez ajouter le connecteur SMTP à votre flux de travail professionnel et traiter les données dans le cadre de ce flux de travail dans une application logique.
 
-Le connecteur SMTP vous permet de vous connecter à un serveur SMTP et d’exécuter une action pour envoyer un message électronique avec des pièces jointes. Avec l’action « Envoyer le message électronique » du connecteur SMTP, vous pouvez envoyer un message électronique à une ou plusieurs adresses électroniques.
 
 ## Déclencheurs et actions
 Les *déclencheurs* sont des événements qui se produisent. Par exemple, lorsqu'une commande est mise à jour ou lorsqu'un nouveau client est ajouté. Une *action* est le résultat du déclencheur. Par exemple, lorsqu’une commande est mise à jour ou si un nouveau client est ajouté, un courrier électronique est envoyé au nouveau client.
@@ -57,18 +57,15 @@ Un connecteur peut être créé dans une application logique ou directement à p
 ## Utilisation du connecteur SMTP dans votre application logique
 Une fois votre connecteur créé, vous pouvez utiliser le connecteur SMTP comme action pour votre application logique. Pour ce faire :
 
-1.	Création d’une application logique :
-
+1.	Créer une application logique :
 	![][2]
-2.	Ouvrez **Déclencheurs et actions** pour ouvrir le concepteur d’applications logiques et configurer votre flux de travail :
-
+2.	Ouvrez **Déclencheurs et actions** pour ouvrir le concepteur d'applications logiques et configurer votre flux de travail :
 	![][3]
 3.	Le connecteur SMTP apparaît dans la section « Applications API dans ce groupe de ressources » de la galerie située à droite. Sélectionnez-le :
-
 	![][4]
 4.	Sélectionnez le connecteur SMTP pour l’ajouter automatiquement au Concepteur de flux de travail.
 
-Vous pouvez maintenant configurer le connecteur SMTP à utiliser dans votre flux de travail. Sélectionnez l’action **Envoyer le message électronique** et configurez les propriétés d’entrée :
+Vous pouvez maintenant configurer le connecteur SMTP à utiliser dans votre flux de travail. Sélectionnez l’action **Envoyer l’e-mail** et configurez les propriétés d’entrée :
 
 	Property | Description
 	--- | ---
@@ -99,4 +96,4 @@ Vous pouvez également consulter les statistiques de performances et contrôler 
 [5]: ./media/app-service-logic-connector-smtp/img5.PNG
 [6]: ./media/app-service-logic-connector-smtp/img6.PNG
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

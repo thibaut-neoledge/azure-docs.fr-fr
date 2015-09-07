@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Utilisation de Fiddler pour évaluer et tester les API REST Azure Search"
+	pageTitle="Utilisation de Fiddler pour évaluer et tester les API REST Azure Search | Microsoft Azure"
 	description="Utilisation de Fiddler dans une approche sans code pour vérifier la disponibilité d'Azure Search et tester les API REST."
 	services="search"
 	documentationCenter=""
@@ -20,26 +20,26 @@
 
 Cet article explique comment utiliser Fiddler, disponible en tant que [téléchargement gratuit de Telerik](http://www.telerik.com/fiddler), pour émettre des requêtes HTTP vers et afficher les réponses à l'aide de l'API REST Azure Search, sans avoir à écrire de code. Les API REST de service Azure Search sont documentées dans [MSDN](https://msdn.microsoft.com/library/azure/dn798935.aspx).
 
-Dans la procédure ci-dessous, vous allez créer un index, télécharger des documents, interroger l'index, puis interroger le système pour obtenir des informations de service.
+Dans les opérations qui suivent, vous allez créer un index, télécharger des documents, interroger l’index, puis interroger le système pour obtenir des informations de service.
 
 Pour effectuer cette procédure, vous avez besoin d'un service Azure Search et `api-key`. Consultez [Création d'un service Azure Search dans le portail](search-create-service-portal.md) pour obtenir des instructions sur la procédure de mise en route.
 
 ## Création d'un index
 
-1. Démarrez Fiddler. Dans le menu Fichier, désactivez **Capturer le trafic** pour masquer les activités HTTP externes qui ne sont pas en rapport avec la tâche actuelle.
+1. Démarrez Fiddler. Dans le menu **Fichier**, désactivez **Capturer le trafic** pour masquer l’activité HTTP externe sans rapport avec la tâche actuelle.
 
-3. Sous l'onglet Éditeur, formulez une demande similaire à la suivante :
+3. Sous l’onglet **Compositeur** , formulez une demande comparable à la capture d’écran qui suit :
 
   	![][1]
 
 2. Sélectionnez **PUT**.
 
-3. Entrez une URL qui spécifie l'URL de service, les attributs de la demande et la version de l'API. Voici quelques points à garder à l'esprit :
+3. Saisissez une URL qui spécifie l’URL de service, les attributs de la demande et la version de l’API. Voici quelques points à garder à l'esprit :
    + Utilisez le préfixe HTTPS.
    + L'attribut de demande est « /indexes/hotels ». Cela indique à Search de créer un index intitulé « hotels ».
-   + La version d'API est en minuscules et elle est spécifiée comme suit : ?api-version=2015-02-28. Les versions d'API sont importantes, car Azure Search déploie régulièrement des mises à jour. En de rares cas, une mise à jour de service peut introduire une modification avec rupture dans l'API. À l'aide de versions d'API, vous pouvez continuer à utiliser votre version existante et la mettre à niveau avec une version plus récente le cas échéant.
+   + La version d’API est en minuscules et elle est spécifiée comme suit : « ?api-version=2015-02-28 ». Les versions d'API sont importantes, car Azure Search déploie régulièrement des mises à jour. En de rares cas, une mise à jour de service peut introduire une modification avec rupture dans l'API. À l'aide de versions d'API, vous pouvez continuer à utiliser votre version existante et la mettre à niveau avec une version plus récente le cas échéant.
 
-    L'URL complète doit être semblable à celle figurant dans l'exemple suivant :
+    L’URL complète doit être semblable à celle figurant dans l’exemple suivant :
 
          https://my-app.search.windows.net/indexes/hotels?api-version=2015-02-28
 
@@ -77,13 +77,13 @@ Si vous obtenez HTTP 504, vérifiez que l'URL spécifie HTTPS. Si vous voyez HT
 
 ## Chargement de documents
 
-Sous l'onglet Éditeur, votre demande de publication de documents se présente comme suit. Le corps de la demande contient les données de recherche pour 4 hôtels.
+Sous l’onglet **Compositeur**, votre demande de publication de documents se présente comme suit. Le corps de la demande contient les données de recherche pour 4 hôtels.
 
    ![][2]
 
 1. Sélectionnez **POST**.
 
-2.	Entrez une URL qui commence par HTTPS, suivie de votre URL de service, suivie de « /indexes/<'indexname'>/docs/index?api-version=2015-02-28 ». L'URL complète doit être semblable à celle figurant dans l'exemple suivant :
+2.	Entrez une URL qui commence par HTTPS, suivie de votre URL de service, suivie de « /indexes/<'indexname'>/docs/index?api-version=2015-02-28 ». L’URL complète doit être semblable à celle figurant dans l’exemple suivant :
 
         https://my-app.search.windows.net/indexes/hotels/docs/index?api-version=2015-02-28
 
@@ -163,7 +163,7 @@ Après quelques secondes, la réponse HTTP 200 apparaît dans la liste de sessi
 
 ## Interrogation de l'index
 
-Maintenant qu'un index et des documents sont chargés, vous pouvez émettre des requêtes les concernant. Sous l'onglet Éditeur, une commande GET qui interroge votre service se présentera comme suit :
+Maintenant qu'un index et des documents sont chargés, vous pouvez émettre des requêtes les concernant. Sous l’onglet **Compositeur**, une commande **GET** qui interroge votre service se présentera comme la capture d’écran qui suit :
 
    ![][3]
 
@@ -182,11 +182,11 @@ Maintenant qu'un index et des documents sont chargés, vous pouvez émettre des 
         content-type: application/json
         api-key: 1111222233334444
 
-Le code de réponse doit correspondre à 200 et la sortie de réponse doit se présenter comme suit.
+Le code de réponse doit correspondre à 200 et la sortie de réponse doit se présenter comme la capture d’écran qui suit.
 
    ![][4]
 
-L'exemple de requête suivant provient de la page [Opération d'index de recherche (API Azure Search)](http://msdn.microsoft.com/library/dn798927.aspx) sur MSDN. Plusieurs des exemples de requêtes dans cette rubrique comportent des espaces, qui ne sont pas autorisés dans Fiddler. Remplacez chaque espace par un caractère + avant de coller la chaîne de requête et d'essayer la requête dans Fiddler :
+L'exemple de requête suivant provient de la page [Opération d'index de recherche (API Azure Search)](http://msdn.microsoft.com/library/dn798927.aspx) sur MSDN. Plusieurs des exemples de requêtes dans cette rubrique comportent des espaces, qui ne sont pas autorisés dans Fiddler. Remplacez chaque espace par un caractère + avant de coller la chaîne de requête et d’essayer la requête dans Fiddler.
 
 **Avant le remplacement des espaces :**
 
@@ -198,7 +198,7 @@ L'exemple de requête suivant provient de la page [Opération d'index de recherc
 
 ## Interrogation du système
 
-Vous pouvez également interroger le système pour connaître le nombre de documents et l'espace de stockage utilisé. Sous l'onglet Éditeur, votre demande se présentera comme suit et la réponse renverra un nombre correspondant au nombre de documents et à l'espace utilisé.
+Vous pouvez également interroger le système pour connaître le nombre de documents et l'espace de stockage utilisé. Sous l’onglet **Compositeur**, votre demande se présentera comme suit et la réponse renverra un nombre correspondant au nombre de documents et à l’espace utilisé.
 
  ![][5]
 
@@ -219,7 +219,7 @@ Vous pouvez également interroger le système pour connaître le nombre de docum
 
 5.	Cliquez sur **Exécuter**. Le code d'état HTTP 200 doit s'afficher dans la liste de sessions. Sélectionnez l'entrée publiée pour votre commande.
 
-6.	Cliquez sur l'onglet **Inspecteurs** | **En-têtes**, puis sélectionnez le format JSON. Le nombre de documents et la taille de stockage (en Ko) doivent s'afficher.
+6.	Cliquez sur l’onglet **Inspecteurs**, sur l’onglet **En-têtes**, puis sélectionnez le format JSON. Le nombre de documents et la taille de stockage (en Ko) doivent s'afficher.
 
 ## Étapes suivantes
 
@@ -234,6 +234,5 @@ Les liens suivants fournissent des informations supplémentaires pour une approc
 [3]: ./media/search-fiddler/AzureSearch_Fiddler3_Query.png
 [4]: ./media/search-fiddler/AzureSearch_Fiddler4_QueryResults.png
 [5]: ./media/search-fiddler/AzureSearch_Fiddler5_QueryStats.png
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Utilisation du connecteur AS2 dans Microsoft Azure App Service"
-	description="Utilisation du connecteur AS2"
+   pageTitle="Utilisation du connecteur AS2 dans des applications logiques | Microsoft Azure App Service"
+	description="Comment créer et configurer le connecteur AS2 ou une application API et l'utiliser dans une application logique d’Azure App Service"
 	services="app-service\logic"
 	documentationCenter=".net,nodejs,java"
 	authors="rajeshramabathiran"
@@ -13,11 +13,13 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="integration"
-	ms.date="08/19/2015"
+	ms.date="08/23/2015"
 	ms.author="rajram"/>
 
-# Connecteur Microsoft AS2
-Le connecteur Microsoft Azure AS2 vous permet de recevoir et d’envoyer des messages par le biais du protocole de transport AS2 (Applicability Statement 2) dans les communications interentreprises. Les données sont transportées de manière fiable et sécurisée sur Internet. Le chiffrement et les certificats numériques garantissent la sécurité.
+# Utilisation et ajout du connecteur AS2 dans votre application logique
+Utilisez le connecteur AS2 pour recevoir et envoyer des messages par le biais du protocole de transport AS2 (Applicability Statement 2) dans les communications interentreprises. Les données sont transportées de manière fiable et sécurisée sur Internet. Le chiffrement et les certificats numériques garantissent la sécurité.
+
+Vous pouvez ajouter le connecteur AS2 à votre flux d’entreprise et traiter les données dans le cadre d'un flux de travail business-to-business dans une application de logique.
 
 ## Déclencheurs et actions
 Un déclencheur démarre une nouvelle instance en fonction d’un événement spécifique, comme l’arrivée d’un message AS2 provenant d’un partenaire. Une action correspond au résultat : par exemple, après la réception d’un message AS2, le message est envoyé avec AS2.
@@ -99,7 +101,7 @@ Pour plus d'informations sur les applications logiques, consultez [Qu'est-ce qu'
 
 Affichez la référence d’API REST Swagger sur [Référence de connecteurs et d’applications API](http://go.microsoft.com/fwlink/p/?LinkId=529766).
 
-Vous pouvez également consulter les statistiques de performances et contrôler la sécurité du connecteur. Pour plus d'informations, consultez [Gestion et contrôle de vos connecteurs et applications API intégrés](app-service-logic-monitor-your-connectors.md).
+Vous pouvez également consulter les statistiques de performances et contrôler la sécurité du connecteur. Consultez la page [Gestion et contrôle de vos connecteurs et applications API intégrés](app-service-logic-monitor-your-connectors.md).
 
 <!--References -->
 [1]: app-service-logic-connector-tpm.md
@@ -113,4 +115,4 @@ Vous pouvez également consulter les statistiques de performances et contrôler 
 [9]: ./media/app-service-logic-connector-as2/EncodeAndSendInput.PNG
 [10]: ./media/app-service-logic-connector-as2/EncodeAndSendConfigured.PNG
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

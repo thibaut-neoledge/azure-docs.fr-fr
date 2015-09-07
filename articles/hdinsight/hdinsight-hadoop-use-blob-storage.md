@@ -18,7 +18,7 @@
 	ms.author="jgao"/>
 
 
-#Utilisation du stockage d’objets blob Azure compatible avec HDFS avec Hadoop dans HDInsight
+# Utilisation du stockage d’objets blob Azure compatible avec HDFS avec Hadoop dans HDInsight
 
 Ce didacticiel permet d’apprendre à utiliser le stockage d’objets blob Azure à faible coût avec HDInsight, à créer un compte de stockage Azure et un conteneur de stockage d’objets blob, puis à y envoyer des données.
 
@@ -35,7 +35,7 @@ Le stockage de données dans le stockage d’objets blob vous permet de supprime
 Pour plus d'informations sur la configuration d'un cluster HDInsight, consultez la rubrique [Prise en main de HDInsight][hdinsight-get-started] ou [Configuration des clusters HDInsight][hdinsight-provision].
 
 
-##<a id="architecture"></a>Architecture de stockage HDInsight
+## <a id="architecture"></a>Architecture de stockage HDInsight
 Le schéma suivant résume l'architecture de stockage HDInsight :
 
 ![Les clusters Hadoop utilisent l’API HDFS pour accéder aux données structurées et non structurées et les stocker dans le stockage d’objets blob.](./media/hdinsight-hadoop-use-blob-storage/HDI.WASB.Arch.png "Architecture de stockage HDInsight")
@@ -77,13 +77,13 @@ Voici les avantages offerts par le stockage de données dans un stockage d'objet
 * **Archivage des données** : le stockage de données dans le stockage d'objets blob Azure permet de supprimer les clusters HDInsight ayant servi aux calculs, sans perte de données utilisateur.
 * **Coût de stockage des données :** le stockage à long terme des données dans DFS est plus coûteux que le stockage des données dans un stockage d'objets blob Azure, car le coût d'un cluster de calcul est plus élevé que celui d'un conteneur de stockage d'objets blob Azure. De plus, comme vous n'avez pas à recharger les données pour chaque génération de cluster de calcul, vous faites également des économies sur les chargements de données.
 * **Montée en charge élastique :** même si le système HDFS offre un système de fichiers monté en charge, cette capacité est déterminée par le nombre de nœuds que vous configurez pour votre cluster. Au lieu de procéder ainsi, il est parfois plus simple de profiter des capacités d'évolution flexible que vous obtenez automatiquement dans le stockage d’objets blob Azure.
-* **Géo-réplication :** vous pouvez géo-répliquer vos conteneurs de stockage d'objets blob Azure. Si cette fonctionnalité permet la récupération géographique et la redondance des données, un basculement vers un emplacement géo-répliqué affecte sérieusement les performances et peut entraîner des frais supplémentaires. Nous vous recommandons donc de peser sérieusement le pour et le contre avant de choisir la géo-réplication.
+* **Géo-réplication :** vous pouvez géo-répliquer vos conteneurs de stockage d’objets blob Azure. Si cette fonctionnalité permet la récupération géographique et la redondance des données, un basculement vers un emplacement géo-répliqué affecte sérieusement les performances et peut entraîner des frais supplémentaires. Nous vous recommandons donc de peser sérieusement le pour et le contre avant de choisir la géo-réplication.
 
 Certains packages et tâches MapReduce peuvent créer des résultats intermédiaires que vous ne voulez pas stocker dans un stockage d'objets blob Azure. Dans ce cas, vous pouvez choisir de stocker les données dans un système HDFS local. En fait, HDInsight utilise DFS pour plusieurs de ces résultats intermédiaires dans les tâches Hive et d'autres processus.
 
 
 
-##<a id="preparingblobstorage"></a>Création d’un conteneur d’objets blob
+## <a id="preparingblobstorage"></a>Création d’un conteneur d’objets blob
 
 Pour utiliser des objets blob, commencez par créer un [compte de stockage Azure][azure-storage-create]. Durant cette opération, vous devez indiquer un centre de données Azure qui stockera les objets que vous créez en utilisant ce compte. Le cluster et le compte de stockage doivent être hébergés dans le même centre de données. La base de données SQL Server de metastore Hive et la base de données SQL Server de metastore Oozie doivent également se trouver dans le même centre de données.
 
@@ -92,7 +92,7 @@ Où qu’il réside, chaque objet blob que vous créez appartient à un conteneu
 Ne partagez pas un conteneur de stockage par défaut avec plusieurs clusters HDInsight. Si vous devez utiliser un conteneur partagé pour fournir l'accès aux données à plusieurs clusters HDInsight, vous devez l'ajouter comme compte de stockage supplémentaire dans la configuration du cluster. Pour plus d’informations, consultez la rubrique [Configuration de clusters HDInsight][hdinsight-provision]. Vous pouvez, toutefois, réutiliser un conteneur de stockage par défaut une fois le cluster HDInsight d'origine supprimé. Pour les clusters HBase, vous pouvez conserver le schéma de la table HBase et les données en configurant un nouveau cluster HBase à l'aide du conteneur de stockage d’objets blob par défaut qui est utilisé par un cluster HBase qui a été supprimé.
 
 
-###Utilisation de la version préliminaire du portail Azure
+### Utilisation de la version préliminaire du portail Azure
 
 Lorsque vous configurez un cluster HDInsight à partir de la version préliminaire du portail, vous avez la possibilité d'utiliser un compte de stockage existant ou de créer un nouveau compte de stockage :
 
@@ -116,7 +116,7 @@ Pour créer un conteneur, utilisez la commande suivante :
 
 	azure storage container create <containername> --account-name <storageaccountname> --account-key <storageaccountkey>
 
-###Utilisation de Microsoft Azure PowerShell
+### Utilisation de Microsoft Azure PowerShell
 
 Si vous avez [installé et configuré Azure PowerShell][powershell-install], vous pouvez utiliser la commande suivante dans l’invite Azure PowerShell pour créer un compte de stockage et un conteneur :
 
@@ -136,7 +136,7 @@ Si vous avez [installé et configuré Azure PowerShell][powershell-install], vou
 	New-AzureStorageContainer -Name $containerName -Context $destContext
 
 
-##<a id="addressing"></a>Adressage des fichiers dans le stockage d’objets blob
+## <a id="addressing"></a>Adressage des fichiers dans le stockage d’objets blob
 
 Le modèle d’URI pour accéder aux fichiers du stockage d’objets blob à partir de HDInsight est le suivant :
 
@@ -166,7 +166,7 @@ Si ni &lt;BlobStorageContainerName&gt; ni &lt;StorageAccountName&gt n'a été sp
 
 > [AZURE.NOTE]Lorsque vous utilisez des objets blob hors de HDInsight, la plupart des utilitaires ne reconnaissent pas le format WASB et attendent plutôt un format de chemin d’accès basique, comme `example/jars/hadoop-mapreduce-examples.jar`.
 
-##<a id="azurecli"></a>Accès aux objets blob avec l’interface de ligne de commande Azure
+## <a id="azurecli"></a>Accès aux objets blob avec l’interface de ligne de commande Azure
 
 Utilisez la commande suivante pour répertorier les commandes relatives aux objets blob :
 
@@ -188,7 +188,7 @@ Utilisez la commande suivante pour répertorier les commandes relatives aux obje
 
 	azure storage blob list <containername> <blobname|prefix> --account-name <storageaccountname> --account-key <storageaccountkey>
 
-##<a id="powershell"></a>Accès aux objets blob avec Azure PowerShell
+## <a id="powershell"></a>Accès aux objets blob avec Azure PowerShell
 
 > [AZURE.NOTE]Les commandes de cette section présentent des exemples basiques d’utilisation de PowerShell pour accéder aux données stockées dans des objets blob. Pour un exemple plus complet personnalisé pour une utilisation avec HDInsight, consultez la section [Outils HDInsight](https://github.com/Blackmist/hdinsight-tools).
 
@@ -290,11 +290,11 @@ Cet exemple montre comment lister le contenu d'un dossier d'un compte de stockag
 
 	Invoke-Hive -Defines $defines -Query "dfs -ls wasb://$undefinedContainer@$undefinedStorageAccount.blob.core.windows.net/;"
 
-##<a id="nextsteps"></a>Étapes suivantes
+## <a id="nextsteps"></a>Étapes suivantes
 
 Dans cet article, vous avez appris comment utiliser le stockage d’objets blob Azure compatible avec HDFS avec HDInsight, mais aussi, que le stockage d’objets blob Azure est un élément essentiel de HDInsight. Ceci vous permet de créer des solutions à long terme et évolutives pour acquérir des données d’archivage avec le stockage d’objets blob Azure et d’utiliser HDInsight pour déverrouiller les informations des données structurées et non structurées stockées.
 
-Pour en savoir plus, consultez les articles suivants :
+Pour plus d'informations, consultez les pages suivantes :
 
 * [Prise en main d'Azure HDInsight][hdinsight-get-started]
 * [Téléchargement de données vers HDInsight][hdinsight-upload-data]
@@ -315,4 +315,4 @@ Pour en savoir plus, consultez les articles suivants :
 [img-hdi-quick-create]: ./media/hdinsight-hadoop-use-blob-storage/HDI.QuickCreateCluster.png
 [img-hdi-custom-create-storage-account]: ./media/hdinsight-hadoop-use-blob-storage/HDI.CustomCreateStorageAccount.png
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

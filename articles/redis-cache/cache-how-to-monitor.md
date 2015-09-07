@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Surveillance du cache Redis Azure" 
-	description="Découvrez comment surveiller l’état et les performances de vos instances de cache Redis Azure" 
-	services="redis-cache" 
-	documentationCenter="" 
-	authors="steved0x" 
-	manager="dwrede" 
+	pageTitle="Surveillance du cache Redis Azure"
+	description="Découvrez comment surveiller l’état et les performances de vos instances de cache Redis Azure"
+	services="redis-cache"
+	documentationCenter=""
+	authors="steved0x"
+	manager="dwrede"
 	editor=""/>
 
 <tags 
-	ms.service="cache" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="cache-redis" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/29/2015" 
+	ms.service="cache"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="cache-redis"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/25/2015"
 	ms.author="sdanie"/>
 
 # Surveillance du cache Redis Azure
@@ -24,11 +24,11 @@ Lorsque les diagnostics du cache sont activés, les mesures des instances de cac
 
 Les mesures de cache sont collectées à l’aide de la commande Redis [INFO](http://redis.io/commands/info). Pour plus d’informations sur les différentes commandes INFO utilisées pour chaque mesure de cache, consultez la section [Mesures disponibles et intervalles de création des rapports](#available-metrics-and-reporting-intervals).
 
-Pour voir les mesures de cache, [accédez](https://msdn.microsoft.com/library/azure/cbe6d113-7bdc-4664-a59d-ff0df6f4e214#CacheSettings) à votre instance de cache dans le [portail Azure](https://portal.azure.com). Les mesures des instances de cache Redis Azure sont accessibles dans le panneau **Cache Redis**.
+Pour voir les mesures de cache, [accédez](https://msdn.microsoft.com/library/azure/cbe6d113-7bdc-4664-a59d-ff0df6f4e214#CacheSettings) à votre instance de cache dans la [version préliminaire du portail Azure](https://portal.azure.com). Les mesures des instances de cache Redis Azure sont accessibles dans le panneau **Cache Redis**.
 
 ![Surveiller][redis-cache-monitor-overview]
 
->[AZURE.IMPORTANT]Si le message suivant s’affiche dans le portail Azure, suivez les étapes de la section [Activer les diagnostics du cache](#enable-cache-diagnostics) pour activer les diagnostics du cache.
+>[AZURE.IMPORTANT]Si le message suivant s’affiche dans la version préliminaire du portail, suivez les étapes de la section [Activer les diagnostics du cache](#enable-cache-diagnostics) pour activer le diagnostic du cache.
 >
 >`Monitoring may not be enabled. Click here to turn on Diagnostics.`
 
@@ -58,9 +58,9 @@ Une fois les paramètres de diagnostic configurés, cliquez sur **Enregistrer** 
 
 >[AZURE.IMPORTANT]Les caches de la même région et du même abonnement partagent le même compte de stockage de diagnostics, et lorsque la configuration est modifiée, elle s’applique à tous les caches de l’abonnement qui se trouvent dans cette région.
 
-Pour voir les mesures stockées, examinez les tables de votre compte de stockage dont le nom commence par `WADMetrics`. Pour plus d’informations sur l’accès aux mesures stockées en dehors du portail Azure, consultez l’exemple [Access Redis cache Monitoring data](https://github.com/rustd/RedisSamples/tree/master/CustomMonitoring).
+Pour voir les mesures stockées, examinez les tables de votre compte de stockage dont le nom commence par `WADMetrics`. Pour plus d’informations sur l’accès aux mesures stockées hors de la version préliminaire du portail, consultez l’exemple [Access Redis cache Monitoring data](https://github.com/rustd/RedisSamples/tree/master/CustomMonitoring).
 
->[AZURE.NOTE]Seules les mesures qui sont stockées dans le compte de stockage sélectionné sont affichées dans le portail. Si vous changez de compte de stockage, les données du compte de stockage configuré précédemment restent disponibles en téléchargement, mais elles ne sont pas affichées dans le portail et ne sont pas purgées à la fin de la période de rétention.
+>[AZURE.NOTE]Seules les mesures qui sont stockées dans la version préliminaire du portail sélectionné sont affichées dans le portail. Si vous changez de compte de stockage, les données du compte de stockage configuré précédemment restent disponibles en téléchargement, mais elles ne sont pas affichées dans la version préliminaire du portail et ne sont pas purgées à la fin de la période de rétention.
 
 ## Mesures disponibles et intervalles de création des rapports
 
@@ -80,7 +80,7 @@ Les mesures de cache font l’objet de rapports à différents intervalles, **De
 | Sets | Nombre d’opérations set dans le cache au cours de l’intervalle de création des rapports spécifié. Cette valeur est la somme des valeurs suivantes obtenues de toutes les commandes Redis INFO : `cmdstat_set`, `cmdstat_hset`, `cmdstat_hmset`, `cmdstat_hsetnx`, `cmdstat_lset`, `cmdstat_mset`, `cmdstat_msetnx`, `cmdstat_setbit`, `cmdstat_setex`, `cmdstat_setrange` et `cmdstat_setnx`. |
 | Total des opérations | Nombre total de commandes traitées par le serveur de cache au cours de l’intervalle spécifié. Cette valeur correspond à la commande Redis INFO `total_commands_processed`. Notez que lorsque le cache Redis Azure est uniquement utilisé pour publication et téléchargement, il n’y a aucune mesure pour `Cache Hits`, `Cache Misses`, `Gets` ou `Sets`, mais il y aura des mesures de `Total Operations` qui reflètent l’utilisation du cache pour ces opérations. |
 | Mémoire utilisée | Quantité de mémoire cache utilisée (exprimée en Mo) au cours de l’intervalle de création des rapports. Cette valeur correspond à la commande Redis INFO `used_memory`. |
-| UC | Utilisation du processeur du serveur de cache Redis Azure sous forme de pourcentage au cours de l’intervalle de création des rapports spécifiée. Cette valeur correspond au compteur de performances `\Processor(_Total)\% Processor Time` du système d’exploitation. |
+| UC | Utilisation du processeur du serveur de cache Redis Azure sous forme de pourcentage au cours de l’intervalle de création des rapports spécifiée. Cette valeur correspond au compteur de performances `\Processor(_Total)% Processor Time` du système d’exploitation. |
 | Lecture du cache | Quantité de données lues dans le cache en kbit/s au cours de l’intervalle de création des rapports. Cette valeur est dérivée des cartes réseau qui prennent en charge la machine virtuelle qui héberge le cache. Elle n’est pas spécifique de Redis. |
 | Cache d’écriture | Quantité de données écrites dans le cache en kbit/s au cours de l’intervalle de création des rapports. Cette valeur est dérivée des cartes réseau qui prennent en charge la machine virtuelle qui héberge le cache. Elle n’est pas spécifique de Redis. |
 
@@ -221,4 +221,4 @@ Pour plus d’informations sur les alertes dans Azure, consultez la page [Récep
 
 [redis-cache-add-alert]: ./media/cache-how-to-monitor/redis-cache-add-alert.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

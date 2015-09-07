@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Présentation des technologies NoSQL sur Azure | Microsoft Azure" 
-	description="Apprenez comment les technologies NoSQL sur HDInsight peuvent vous aider à gérer des données ne convenant pas aux bases de données relationnelles, telles que les jeux de données volumineux et les documents ou les graphiques JSON." 
-	editor="cgronlun" 
-	manager="jhubbard" 
-	services="documentdb, storage, hdinsight" 
-	documentationCenter="" 
+	pageTitle="Présentation des technologies NoSQL sur Azure | Microsoft Azure"
+	description="Apprenez comment les technologies NoSQL sur HDInsight peuvent vous aider à gérer des données ne convenant pas aux bases de données relationnelles, telles que les jeux de données volumineux et les documents ou les graphiques JSON."
+	editor="cgronlun"
+	manager="jhubbard"
+	services="documentdb, storage, hdinsight"
+	documentationCenter=""
 	authors="mimig1"/>
 
 <tags 
-	ms.service="multiple" 
-	ms.workload="multiple" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/13/2015" 
+	ms.service="multiple"
+	ms.workload="multiple"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/21/2015"
 	ms.author="mimig"/>
 
 # Présentation de NoSQL sur Microsoft Azure
@@ -31,4 +31,4 @@ Il vous familiarise avec les concepts suivants :
 
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

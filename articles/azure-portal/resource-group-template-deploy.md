@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="na"
-	ms.date="07/24/2015"
+	ms.date="08/20/2015"
 	ms.author="tomfitz"/>
 
 # Déployer une application avec un modèle Azure Resource Manager
@@ -256,6 +256,8 @@ Si vous utilisez un fichier de paramètres pour passer les valeurs de paramètre
        }
     }
 
+La taille du fichier de paramètre ne peut pas être supérieure à 64 Ko.
+
 ## Étapes suivantes
 - Pour obtenir un exemple de déploiement de ressources par le biais de la bibliothèque cliente .NET, consultez [Déployer des ressources à l’aide de bibliothèques .NET et d’un modèle](../arm-template-deployment.md).
 - Pour obtenir un exemple détaillé de déploiement d’une application, consultez [Mise en service et déploiement de microservices de manière prévisible dans Azure](../app-service-web/app-service-deploy-complex-application-predictably.md).
@@ -264,4 +266,4 @@ Si vous utilisez un fichier de paramètres pour passer les valeurs de paramètre
 
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

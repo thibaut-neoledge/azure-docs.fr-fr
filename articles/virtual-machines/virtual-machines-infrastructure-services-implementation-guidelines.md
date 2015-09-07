@@ -25,7 +25,7 @@ Ce guide identifie les nombreux domaines pour lesquels la planification est un �
 
 Cet article est une adaptation du contenu du billet de blog [Instructions pour la mise en œuvre d'Azure](http://blogs.msdn.com/b/thecolorofazure/archive/2014/05/13/azure-implementation-guidelines.aspx). Merci à Santiago Cánepa et Hugo Salcedo (responsables du développement d’applications chez Microsoft) pour leur documentation d’origine.
 
-> [AZURE.NOTE]Groupes d'affinités sont déconseillés. Leur utilisation n'est pas décrite ici. Pour en savoir plus, consultez [À propos des réseaux virtuels régionaux et des groupes d'affinités](https://msdn.microsoft.com/library/azure/jj156085.aspx).
+> [AZURE.NOTE]Groupes d'affinités sont déconseillés. Leur utilisation n'est pas décrite ici. Pour en savoir plus, consultez [À propos des réseaux virtuels régionaux et des groupes d’affinités](../virtual-network/virtual-networks-migrate-to-regional-vnet.md).
 
 ## 1\. Conventions d'affectation de noms
 
@@ -440,4 +440,4 @@ Cette configuration comprend :
 
 [Fournisseurs de calcul, de réseau et de stockage Azure dans Azure Resource Manager](../articles/virtual-machines/virtual-machines-azurerm-versus-azuresm.md)
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

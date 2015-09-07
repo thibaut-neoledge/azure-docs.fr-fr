@@ -1,28 +1,28 @@
 <properties
    pageTitle="Création de modèles Azure Resource Manager"
-   description="Créez des modèles Azure Resource Manager à l'aide de la syntaxe JSON déclarative pour déployer des applications sur Azure."
-   services="azure-resource-manager"
-   documentationCenter="na"
-   authors="tfitzmac"
-   manager="wpickett"
-   editor=""/>
-
+	description="Créez des modèles Azure Resource Manager à l'aide de la syntaxe JSON déclarative pour déployer des applications sur Azure."
+	services="azure-resource-manager"
+	documentationCenter="na"
+	authors="tfitzmac"
+	manager="wpickett"
+	editor=""/>
 
 <tags
    ms.service="azure-resource-manager"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="07/24/2015"
-   ms.author="tomfitz"/>
-
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="na"
+	ms.date="08/20/2015"
+	ms.author="tomfitz"/>
 
 # Création de modèles Azure Resource Manager
 
 Les applications Azure requièrent généralement une combinaison de ressources (comme un serveur de base de données, une base de données ou un site Web) pour atteindre les objectifs voulus. Au lieu de déployer et gérer chaque ressource séparément, vous pouvez créer un modèle Azure Resource Manager qui déploie et approvisionne toutes les ressources de votre application en une seule opération coordonnée. Dans le modèle, vous définissez les ressources nécessaires à l'application et vous spécifiez les paramètres de déploiement pour entrer des valeurs pour différents environnements. Le modèle se compose de JSON et d'expressions que vous pouvez utiliser pour construire des valeurs pour votre déploiement.
 
 Cette rubrique décrit les sections du modèle. Pour obtenir les schémas réels, consultez la page [Schémas Azure Resource Manager](https://github.com/Azure/azure-resource-manager-schemas).
+
+Vous devez limiter la taille de votre modèle à 1 Mo et celle de chaque fichier de paramètres à 64 Ko. La limite de 1 Mo s'applique à l'état final du modèle une fois développé avec les définitions des ressources itératives et les valeurs des variables et des paramètres.
 
 ## Format de modèle
 
@@ -50,9 +50,9 @@ Nous allons examiner les sections du modèle de manière plus approfondie plus l
 
 ## Expressions et fonctions
 
-La syntaxe de base du modèle est JSON. Toutefois, des expressions et fonctions étendent la syntaxe JSON disponible dans le modèle et vous permettent de créer des valeurs qui ne sont pas des valeurs littérales strictes. Les expressions sont placées entre crochets ([ et \]) et sont évaluées au moment où le modèle est déployé. Les expressions peuvent apparaître n'importe où dans une valeur de chaîne JSON et retournent toujours une autre valeur JSON. Si vous avez besoin d'utiliser une chaîne littérale qui commence par un crochet [, vous devez utiliser deux crochets [[.
+La syntaxe de base du modèle est JSON. Toutefois, des expressions et fonctions étendent la syntaxe JSON disponible dans le modèle et vous permettent de créer des valeurs qui ne sont pas des valeurs littérales strictes. Les expressions sont placées entre crochets ([ et ]) et sont évaluées au moment où le modèle est déployé. Les expressions peuvent apparaître n'importe où dans une valeur de chaîne JSON et retournent toujours une autre valeur JSON. Si vous avez besoin d'utiliser une chaîne littérale qui commence par un crochet [, vous devez utiliser deux crochets [[.
 
-En général, vous utilisez des expressions avec des fonctions pour effectuer des opérations de configuration du déploiement. Comme en JavaScript, les appels de fonctions sont formatés ainsi : **functionName(arg1,arg2,arg3)**. Pour référencer des propriétés, vous utilisez les opérateurs point et [index\].
+En général, vous utilisez des expressions avec des fonctions pour effectuer des opérations de configuration du déploiement. Comme en JavaScript, les appels de fonctions sont formatés ainsi : **functionName(arg1,arg2,arg3)**. Pour référencer des propriétés, vous utilisez les opérateurs point et [index].
 
 La liste suivante vous indique les fonctions courantes.
 
@@ -76,7 +76,7 @@ La liste suivante vous indique les fonctions courantes.
 
     Retourne un objet structuré (avec ID, nom et propriétés de l’emplacement) qui représente le groupe de ressources actuel.
 
-- **resourceId([nom\_groupe\_ressources\], type\_ressource, nom\_ressource1, [nom\_ressource2\]...)**
+- **resourceId([nom\_groupe\_ressources], type\_ressource, nom\_ressource1, [nom\_ressource2]...)**
 
     Retourne l'identificateur unique d'une ressource. Peut être utilisé pour récupérer une ressource d'un autre groupe de ressources.
 
@@ -404,7 +404,7 @@ Le modèle suivant déploie une application web et l'approvisionne avec le code 
 ## Étapes suivantes
 - Pour plus d'informations sur les fonctions que vous pouvez utiliser dans un modèle, consultez [Fonctions des modèles Azure Resource Manager](resource-group-template-functions.md)
 - Pour savoir comment déployer le modèle que vous avez créé, consultez [Déploiement d'une application avec un modèle Azure Resource Manager](azure-portal/resource-group-template-deploy.md)
-- Pour obtenir un exemple détaillé de déploiement d'une application, consultez [Mise en service et déploiement de microservices de manière prévisible dans Azure](app-service-web/app-service-deploy-complex-application-predictably.md)
-- Pour voir les schémas disponibles, consultez [Schémas Azure Resource Manager](https://github.com/Azure/azure-resource-manager-schemas).
+- Pour obtenir un exemple détaillé de déploiement d’une application, consultez [Mise en service et déploiement de microservices de manière prévisible dans Azure](app-service-web/app-service-deploy-complex-application-predictably.md)
+- Pour voir les schémas disponibles, consultez [Schémas Azure Resource Manager](https://github.com/Azure/azure-resource-manager-schemas)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

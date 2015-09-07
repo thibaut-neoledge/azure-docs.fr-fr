@@ -1,22 +1,20 @@
 <properties
    pageTitle="Utilisation de modèles d’extension de script personnalisé avec des modèles Azure Resource Manager"
-   description="Automatisation des tâches de configuration de machine virtuelle Azure à l’aide d’un script personnalisé avec des modèles ARM"
-   services="virtual-machines"
-   documentationCenter=""
-   authors="kundanap"
-   manager="madhana"
-   editor=""/>
-
+	description="Automatisation des tâches de configuration de machine virtuelle Azure à l’aide d’un script personnalisé avec des modèles ARM"
+	services="virtual-machines"
+	documentationCenter=""
+	authors="kundanap"
+	manager="timlt"
+	editor=""/>
 
 <tags
    ms.service="virtual-machines"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="07/01/2015"
-   ms.author="kundanap"/>
-
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="infrastructure-services"
+	ms.date="07/01/2015"
+	ms.author="kundanap"/>
 
 # Utilisation de l’extension de script personnalisé avec les modèles Azure Resource Manager
 
@@ -30,9 +28,7 @@ Depuis son lancement, l’extension de Script personnalisé a été largement ut
 
 Le modèle Azure Resource Manager vous permet de spécifier de manière déclarative l’infrastructure IaaS Azure dans le langage Json en définissant les dépendances entre ressources. Pour obtenir une présentation détaillée des modèles Azure Resource Manager, consultez les articles suivants :
 
-<a href="https://azure.microsoft.com/fr-fr/documentation/articles/resource-group-overview/" target="_blank">Présentation du groupe de ressources</a>. <br/>
-<a href="https://azure.microsoft.com/fr-fr/documentation/articles/virtual-machines-deploy-rmtemplates-azure-cli/" target="_blank">Déploiement de modèles avec Azure CLI (Interface de ligne de commande)</a>. <br/>
- <a href="https://azure.microsoft.com/fr-fr/documentation/articles/virtual-machines-deploy-rmtemplates-powershell/" target="_blank">Déploiement de modèles avec Azure Powershell</a>.
+<a href="https://azure.microsoft.com/fr-fr/documentation/articles/resource-group-overview/" target="_blank">Présentation du groupe de ressources</a>. <br/><a href="https://azure.microsoft.com/fr-fr/documentation/articles/virtual-machines-deploy-rmtemplates-azure-cli/" target="_blank">Déploiement de modèles avec Azure CLI (Interface de ligne de commande)</a>. <br/> <a href="https://azure.microsoft.com/fr-fr/documentation/articles/virtual-machines-deploy-rmtemplates-powershell/" target="_blank">Déploiement de modèles avec Azure Powershell</a>.
 
 ### Conditions préalables pour exécuter l'extension de script personnalisé
 
@@ -101,4 +97,4 @@ Reportez-vous aux exemples ci-dessous pour obtenir des exemples complets de conf
 
 <a href="https://github.com/Azure/azure-quickstart-templates/blob/b1908e74259da56a92800cace97350af1f1fc32b/mongodb-on-ubuntu/azuredeploy.json/" target="_blank">Extension de script personnalisé sur une machine virtuelle Linux</a>. </br> <a href="https://github.com/Azure/azure-quickstart-templates/blob/b1908e74259da56a92800cace97350af1f1fc32b/201-list-storage-keys-windows-vm/azuredeploy.json/" target="_blank">Extension de script personnalisé sur une machine virtuelle Windows</a>.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

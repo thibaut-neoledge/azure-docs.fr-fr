@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Activité de procédure stockée SQL Server" 
-	description="Découvrez comment utiliser l’activité de procédure stockée SQL Server pour appeler une procédure stockée dans une base de données SQL Azure à partir d’un pipeline Data Factory." 
-	services="data-factory" 
-	documentationCenter="" 
-	authors="spelluru" 
-	manager="jhubbard" 
+	pageTitle="Activité de procédure stockée SQL Server"
+	description="Découvrez comment utiliser l’activité de procédure stockée SQL Server pour appeler une procédure stockée dans une base de données SQL Azure à partir d’un pipeline Data Factory."
+	services="data-factory"
+	documentationCenter=""
+	authors="spelluru"
+	manager="jhubbard"
 	editor="monicar"/>
 
 <tags 
-	ms.service="data-factory" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/04/2015" 
+	ms.service="data-factory"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/04/2015"
 	ms.author="spelluru"/>
 
 # Activité de procédure stockée SQL Server
@@ -45,13 +45,10 @@ Propriété | Description | Requis
 name | Nom de l’activité | Oui
 description | Texte décrivant la raison motivant l’activité. | Non
 type | SqlServerStoredProcedure | Oui
-inputs | Entrées qui doivent être disponibles (à l’état Prêt) pour l’activité de procédure stockée à exécuter. | Non
-outputs | Sorties produites par l’activité de procédure stockée. Vérifiez que la table de sortie utilise un service lié qui lie une base de données SQL Azure à la fabrique de données. | Oui
+inputs | Jeux de données d’entrée qui doivent être disponibles (à l’état Prêt) pour l’activité de procédure stockée à exécuter. Les entrées pour l’activité de procédure stockée sont utilisées uniquement pour la gestion des dépendances lors du chaînage de cette activité avec d’autres activités. Les jeux de données d’entrée ne peuvent pas être utilisés dans la procédure stockée en tant que paramètres. | Non
+outputs | Jeux de données de sortie produits par l’activité de procédure stockée. Vérifiez que la table de sortie utilise un service lié qui lie une base de données SQL Azure à la fabrique de données. Les sorties de l’activité de la procédure stockée peuvent servir à valider le résultat de l’activité de la procédure stockée à des fins de traitement ultérieur ou pour la gestion des dépendances lors du chaînage de cette activité avec d’autres activités | Oui
 storedProcedureName | Spécifiez le nom de la procédure stockée dans la base de données SQL Azure qui est représentée par le service lié utilisé par la table de sortie. | Oui
 storedProcedureParameters | Spécifiez les valeurs des paramètres de procédure stockée. | Non
-
-> [AZURE.NOTE]Les entrées pour l’activité de procédure stockée sont utilisées uniquement pour la gestion des dépendances et le chaînage de cette activité avec d’autres activités. Les entrées ne peuvent pas être utilisées dans la procédure stockée en tant que paramètres.
- 
 
 ## Exemple
 
@@ -106,7 +103,7 @@ Pour exécuter cette procédure stockée dans un pipeline Data Factory, vous de
 5.	Déployez le [pipeline](data-factory-create-pipelines.md).
 6.	[Surveillez le pipeline](data-factory-monitor-manage-pipelines.md) à l’aide des vues de gestion et de surveillance Data Factory.
 
-> [AZURE.NOTE]Dans l’exemple ci-dessus, l’activité SprocActivitySample est dépourvue d’entrées. Si vous souhaitez chaîner cette activité avec une activité en amont, les sorties de cette dernière peuvent servir d’entrées dans cette activité. Dans ce cas, cette activité n’est pas exécutée tant que l’activité en amont n’est pas terminée, et les sorties sont disponibles (à l’état Prêt). Les entrées ne peuvent pas servir directement de paramètres pour l’activité de procédure stockée.
+> [AZURE.NOTE]Dans l’exemple ci-dessus, l’activité SprocActivitySample est dépourvue d’entrées. Si vous souhaitez chaîner cette activité avec une activité en amont (par exemple, un traitement antérieur), les sorties de cette dernière peuvent servir d’entrées dans cette activité. Dans ce cas, cette activité n’est pas exécutée tant que l’activité en amont n’est pas terminée, et les sorties des activités en amont sont disponibles (à l’état Prêt). Les entrées ne peuvent pas servir directement de paramètres pour l’activité de procédure stockée.
 > 
 > Les noms et la casse (majuscule/minuscule) des paramètres de procédure stockée dans le fichier JSON doivent correspondre aux noms des paramètres de procédure stockée dans la base de données cible.
 
@@ -135,4 +132,4 @@ Pour ce faire, transmettez le paramètre Scénario et la valeur de l’activité
 		}
 	}
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

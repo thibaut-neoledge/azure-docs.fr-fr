@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Découvrez Hive et comment utiliser HiveQL | Microsoft Azure"
-	description="Découvrez Apache Hive et comment l&#39;utiliser avec Hadoop dans HDInsight. Choisissez comment exécuter votre tâche Hive et utilisez HiveQL pour analyser un exemple de fichier Apache log4j."
+	description="Découvrez Apache Hive et comment l'utiliser avec Hadoop dans HDInsight. Choisissez comment exécuter votre tâche Hive et utilisez HiveQL pour analyser un exemple de fichier Apache log4j."
 	services="hdinsight"
 	documentationCenter=""
 	authors="Blackmist"
@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-data"
-	ms.date="07/06/2015"
+	ms.date="08/21/2015"
 	ms.author="larryfr"/>
 
 # Utilisation de Hive et HiveQL avec Hadoop dans HDInsight pour l’analyse d’un exemple de fichier Apache log4j
@@ -119,13 +119,26 @@ HDInsight peut exécuter des tâches HiveQL à l’aide de différentes méthode
 | [Windows PowerShell](hdinsight-hadoop-use-hive-powershell.md) | &nbsp; | ✔ | Linux ou Windows | Windows |
 | [Bureau à distance](hdinsight-hadoop-use-hive-remote-desktop.md) | ✔ | ✔ | Windows | Windows |
 
+## Exécute des tâches Hive sur Azure HDInsight à l’aide de services SQL Server Integration Services locaux
+
+Vous pouvez également utiliser les services SQL Server Integration Services (SSIS) pour exécuter une tâche Hive. Le pack de fonctionnalités Azure pour SSIS fournit les composants suivants, compatibles avec les tâches Hive sur HDInsight.
+
+
+- [Tâche Hive d’Azure HDInsight][hivetask]
+- [Gestionnaire de connexions d’abonnement Azure][connectionmanager]
+
+
+Pour en savoir plus sur le pack de fonctionnalités Azure pour SSIS, cliquez [ici][ssispack].
+
+
 ##<a id="nextsteps"></a>Étapes suivantes
 
 Maintenant que vous connaissez Hive et que vous avez vu comment l’utiliser avec Hadoop dans HDInsight, utilisez les liens suivants pour découvrir d'autres façons d'utiliser Azure HDInsight.
 
-* [Téléchargement de données vers HDInsight][hdinsight-upload-data]
-* [Utilisation de Pig avec HDInsight][hdinsight-use-pig]
-* [Utilisation des tâches MapReduce avec HDInsight][hdinsight-use-mapreduce]
+
+- [Téléchargement de données vers HDInsight][hdinsight-upload-data]
+- [Utilisation de Pig avec HDInsight][hdinsight-use-pig]
+- [Utilisation des tâches MapReduce avec HDInsight][hdinsight-use-mapreduce]
 
 [check]: ./media/hdinsight-use-hive/hdi.checkmark.png
 
@@ -142,6 +155,9 @@ Maintenant que vous connaissez Hive et que vous avez vu comment l’utiliser ave
 [apache-log4j]: http://en.wikipedia.org/wiki/Log4j
 [hive-on-tez-wiki]: https://cwiki.apache.org/confluence/display/Hive/Hive+on+Tez
 [import-to-excel]: http://azure.microsoft.com/documentation/articles/hdinsight-connect-excel-power-query/
+[hivetask]: http://msdn.microsoft.com/fr-FR/library/mt146771(v=sql.120).aspx
+[connectionmanager]: http://msdn.microsoft.com/fr-FR/library/mt146773(v=sql.120).aspx
+[ssispack]: http://msdn.microsoft.com/fr-FR/library/mt146770(v=sql.120).aspx
 
 [hdinsight-use-pig]: hdinsight-use-pig.md
 [hdinsight-use-oozie]: hdinsight-use-oozie.md
@@ -163,4 +179,4 @@ Maintenant que vous connaissez Hive et que vous avez vu comment l’utiliser ave
 [img-hdi-hive-powershell-output]: ./media/hdinsight-use-hive/HDI.Hive.PowerShell.Output.png
 [image-hdi-hive-architecture]: ./media/hdinsight-use-hive/HDI.Hive.Architecture.png
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

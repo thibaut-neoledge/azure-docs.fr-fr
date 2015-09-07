@@ -1,25 +1,25 @@
 <properties 
-	pageTitle="Tableau de bord, Surveiller, Mettre à l’échelle, Configurer et Connexions hybrides dans BizTalk Services | Microsoft Azure" 
-	description="Découvrez les commandes et surveillez les performances sous les onglets du portail de gestion de BizTalk Services : Tableau de bord, Surveiller, Mettre à l’échelle, Configurer et Connexions hybrides. MABS, WABS" 
-	services="biztalk-services" 
-	documentationCenter="" 
-	authors="MandiOhlinger" 
-	manager="dwrede" 
+	pageTitle="Tableau de bord, Surveiller, Mettre à l’échelle, Configurer et Connexions hybrides dans BizTalk Services | Microsoft Azure"
+	description="Découvrez les commandes et surveillez les performances sous les onglets du portail de gestion de BizTalk Services : Tableau de bord, Surveiller, Mettre à l’échelle, Configurer et Connexions hybrides. MABS, WABS"
+	services="biztalk-services"
+	documentationCenter=""
+	authors="MandiOhlinger"
+	manager="dwrede"
 	editor="cgronlun"/>
 
 <tags 
-	ms.service="biztalk-services" 
-	ms.workload="integration" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/07/2015" 
+	ms.service="biztalk-services"
+	ms.workload="integration"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/26/2015"
 	ms.author="mandia"/>
 
 
 
 
-# BizTalk Services : onglets Tableau de bord, Surveiller, Mettre à l’échelle, Configurer et Connexion hybride
+# Passer en revue les onglets Tableau de bord, Surveiller, Mettre à l’échelle, Configurer et Connexion hybride
 
 Après avoir créé votre service BizTalk et déployé votre application, vous pouvez modifier certains paramètres du service BizTalk et surveiller les performances de l'application.
 
@@ -242,14 +242,11 @@ Vous pouvez également spécifier les valeurs **Relatif** ou **Absolu** et l'**i
 3. Vérifiez les mesures de performances que vous souhaitez afficher.
 4. Sélectionnez la coche pour revenir à l'onglet **Surveiller**.
 5. Sélectionnez le cercle en regard de la mesure pour afficher la valeur associée dans le graphique.
-<br/>
-Par exemple, la mesure **Utilisation du processeur** apparaît en grisé. Son résultat n’est pas affiché dans le graphique :
-<br/>
-![La mesure Utilisation du processeur apparaît en grisé][GrayedMetric]
-<br/>
-Cliquez sur le cercle en grisé pour permettre à la mesure **Utilisation du processeur** d'afficher son résultat dans le graphique :
-<br/>
-![La mesure Utilisation du processeur est activée][EnabledMetric]
+
+	Par exemple, la mesure **Utilisation du processeur** apparaît en grisé ; son résultat n’apparaît pas dans le graphique :
+	![La mesure Utilisation du processeur apparaît en grisé][GrayedMetric]
+
+	Sélectionnez le cercle en grisé pour activer la mesure **Utilisation du processeur** et afficher son résultat dans le graphique :![La mesure Utilisation du processeur est activée][EnabledMetric]
 
 6. Pour supprimer une mesure du graphique affiché et de la liste, sélectionnez **Supprimer une métrique** dans la barre des tâches. Pour réintégrer la mesure dans la liste, sélectionnez **Ajouter des métriques** dans la barre des tâches, vérifiez la mesure et cochez la case pour revenir à l'onglet **Surveiller**. Sélectionnez le cercle en grisé pour activer la mesure.
 
@@ -322,11 +319,11 @@ Dans un scénario de réponse à la demande, la mesure est incrémentée lorsque
 ## Mise à l'échelle
 Dans l'onglet Mettre à l'échelle, vous pouvez ajouter ou soustraire le nombre d'unités utilisées par votre service BizTalk. Par défaut, une seule unité est configurée. Vous pouvez ajouter des unités supplémentaires afin de mettre à l'échelle votre service BizTalk. Lorsque vous augmentez la mise à l'échelle, vous augmentez le débit. La quantité de ressources augmente également, y compris les ponts déployés, les contrats, les connexions métier et la puissance de traitement. Par exemple, vous augmentez la mise à l'échelle de 1 à 2 unités. Dans ce cas, vous pouvez doubler le nombre de ponts, les contrats, les connexions métier et la puissance de traitement.
 
-Certaines éditions BizTalk n'offrent pas de possibilité de mise à l'échelle. Dans ce cas, une seule unité est autorisée. Pour déterminer le nombre d'unités auquel votre édition peut être mise à l'échelle, consultez le [Tableau comparatif des éditions de BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=302279).
+Certaines éditions BizTalk n'offrent pas de possibilité de mise à l'échelle. Dans ce cas, une seule unité est autorisée. Pour déterminer le nombre d'unités auquel votre édition peut être mise à l'échelle, consultez le [Tableau comparatif des éditions de BizTalk Services](biztalk-editions-feature-chart.md).
 
 L'augmentation du nombre d'unités peut avoir un impact sur les tarifs. Si vous augmentez les unités, sélectionnez **Enregistrer** pour afficher un message indiquant s'il y a un impact sur la facturation. Vous choisissez ensuite de continuer. Lorsque vous augmentez le nombre d'unités, le statut du service BizTalk passe d'Actif à Mis à jour. En état de mise à jour, votre service BizTalk continue de s'exécuter.
 
-Le [Tableau comparatif des éditions de BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=302279) définit une « unité ».
+Le [Tableau comparatif des éditions de BizTalk Services](biztalk-editions-feature-chart.md) définit une « unité ».
 
 
 ## Configuration
@@ -334,7 +331,7 @@ Ne s'applique pas aux connexions hybrides.
 
 Définit l'état de la sauvegarde sur Aucun ou Automatique. Lorsqu'il est défini sur Aucun, aucune sauvegarde n'est automatiquement créée. Lorsqu'il est défini sur Automatique, vous configurez l'emplacement de la sauvegarde, la fréquence de la sauvegarde et la durée de conservation des fichiers de sauvegarde.
 
-[Sauvegarde et restauration de BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=329873) fournit les détails.
+[Sauvegarde et restauration de BizTalk Services](biztalk-backup-restore.md) fournit les détails.
 
 
 ## <a name="HybridConnections"></a>Connexions hybrides
@@ -344,22 +341,22 @@ Pour créer des connexions hybrides à l'aide de Sites Web, Azure, consultez la 
 
 Pour utiliser les connexions hybrides dans Azure Mobile Services, consultez [Azure Mobile Services et connexions hybrides](../mobile-services-dotnet-backend-hybrid-connections-get-started.md).
 
-Pour créer ou gérer des connexions hybrides dans Azure BizTalk Services, consultez [Connexions hybrides](http://go.microsoft.com/fwlink/p/?LinkID=397274).
+Pour créer ou gérer des connexions hybrides dans Azure BizTalk Services, consultez [Connexions hybrides](integration-hybrid-connection-overview.md).
 
 
 
 ## Suivant
 À présent que vous connaissez bien les différents onglets, vous pouvez accéder à davantage d'informations sur les fonctionnalités Azure BizTalk Services :
 
-- [Limitation BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=302282)<br/>
-- [Nom et clé de l'émetteur dans BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=303941)
-- [Sauvegarde et restauration de BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=329873)<br/>
+- [Limitation dans BizTalk Services](biztalk-throttling-thresholds.md)  
+- [Nom et clé de l'émetteur dans BizTalk Services](biztalk-issuer-name-issuer-key.md)  
+- [Sauvegarde et restauration de BizTalk Services](biztalk-backup-restore.md)
 
 ## Voir aussi
-- [Connexions hybrides](http://go.microsoft.com/fwlink/p/?LinkID=397274)
-- [Tableau comparatif des éditions Développeur, De base, Standard et Premium de BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=302279)<br/>
-- [Approvisionnement de BizTalk Services avec le portail de gestion Azure](http://go.microsoft.com/fwlink/p/?LinkID=302280)<br/>
-- [BizTalk Services : tableau comparatif des états du service BizTalk](http://go.microsoft.com/fwlink/p/?LinkID=329870)<br/>
+- [Connexions hybrides](integration-hybrid-connection-overview.md)  
+- [Tableau comparatif des éditions Développeur, De base, Standard et Premium de BizTalk Services](biztalk-editions-feature-chart.md)  
+- [Approvisionnement de BizTalk Services avec le portail de gestion Azure](biztalk-provision-services.md)  
+- [BizTalk Services : tableau comparatif des états du service BizTalk](biztalk-service-state-chart.md)  
 - [Utilisation du Kit de développement logiciel (SDK) Azure BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=302335)
 
 [QuickStart]: ./media/biztalk-dashboard-monitor-scale-tabs/QuickStartIcon.png
@@ -368,4 +365,4 @@ Pour créer ou gérer des connexions hybrides dans Azure BizTalk Services, consu
 [EnabledMetric]: ./media/biztalk-dashboard-monitor-scale-tabs/WABS_EnabledMetric.png
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

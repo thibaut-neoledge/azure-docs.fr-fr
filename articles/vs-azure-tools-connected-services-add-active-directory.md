@@ -1,19 +1,20 @@
 <properties 
-   pageTitle="Ajout d’un annuaire Azure Active Directory à l’aide de services connectés dans Visual Studio"
-   description="Ajouter un annuaire Azure Active Directory à l’aide de la boîte de dialogue Visual Studio Ajouter des services connectés"
-   services="visual-studio-online"
-   documentationCenter="n/a"
-   authors="patshea123"
-   manager="douge"
-   editor="tlee" />
-<tags  ms.service="visual-studio-online"" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="na" ms.date="08/12/2015" ms.author="patshea" />
+   pageTitle="Ajout d’un répertoire Azure Active Directory à l’aide de services connectés dans Visual Studio | Microsoft Azure"
+	description="Ajouter un annuaire Azure Active Directory à l’aide de la boîte de dialogue Visual Studio Ajouter des services connectés"
+	services="visual-studio-online"
+	documentationCenter="na"
+	authors="patshea123"
+	manager="douge"
+	editor="tlee"/>
+
+<tags  ms.service="visual-studio-online"" ms.devlang="multiple" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="visual-studio-online" ms.date="08/12/2015" ms.author="patshea"/>
 
 # Ajout d’un annuaire Azure Active Directory à l’aide de services connectés dans Visual Studio 
 
 ##Vue d’ensemble
 En utilisant Azure Active Directory (Azure AD), vous pouvez prendre en charge l’authentification unique pour les applications web ASP.NET MVC ou l’authentification Active Directory dans les services API web. Avec l’authentification Azure AD, vos utilisateurs peuvent se servir de leurs comptes depuis Azure AD pour se connecter à vos applications web. Grâce à l’authentification Azure AD avec l’API web, la sécurité des données pendant l’exposition d’une API à partir d’une application web est renforcée. Avec Azure AD, vous n’avez pas besoin de gérer un système d’authentification distinct doté de ses propres dispositifs de gestion de comptes et d’utilisateurs.
 
-## Types de projets pris en charge
+## Types de projet pris en charge
 
 Vous pouvez utiliser la boîte de dialogue Services connectés pour vous connecter à Azure AD dans les types de projets suivants.
 
@@ -48,9 +49,7 @@ Vous pouvez utiliser la boîte de dialogue Services connectés pour vous connect
 
 1. Choisissez le bouton **Terminer**. La boîte de dialogue ajoute le code de configuration et les références nécessaires pour activer votre projet pour l’authentification Azure AD. Vous pouvez voir le domaine Active Directory dans le portail Azure.
 
-    ![Rechercher le domaine dans le portail de gestion Azure](./media/vs-azure-tools-connected-services-add-active-directory/IC765882.png)
-
-1. Examinez la page Prise en main qui s’affiche dans votre navigateur pour obtenir des idées sur les prochaines étapes, et la page Que s’est-il passé pour voir comment votre projet a été modifié. Pour savoir si tout s’est bien passé, ouvrez un des fichiers de configuration modifiés et vérifiez que les paramètres mentionnés dans la page Que s’est-il passé sont présents. Par exemple, le fichier web.config principal d’un projet ASP.NET MVC contient les paramètres supplémentaires suivants :
+1. Examinez la page Prise en main qui s'affiche dans votre navigateur pour obtenir des idées sur les prochaines étapes, et la page Que s'est-il passé pour voir comment votre projet a été modifié. Pour savoir si tout s’est bien passé, ouvrez un des fichiers de configuration modifiés et vérifiez que les paramètres mentionnés sur la page Que s’est-il passé sont présents. Par exemple, le fichier web.config principal d’un projet ASP.NET MVC contient les paramètres supplémentaires suivants :
 
         <appSettings> 
             <add key="ida:ClientId" value="ClientId from the new Azure AD App" />
@@ -74,4 +73,4 @@ Posez des questions et obtenez de l’aide.
 
  - [Billet de blog : Intro to Azure AD](http://blogs.msdn.com/b/brunoterkaly/archive/2014/03/03/introduction-to-windows-azure-active-directory.aspx)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Installation personnalisée d’Azure AD Connect" 
-	description="Ce document présente les options de l’installation personnalisée d’Azure AD Connect." 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="swadhwa" 
+	pageTitle="Installation personnalisée d’Azure AD Connect"
+	description="Ce document présente les options de l’installation personnalisée d’Azure AD Connect."
+	services="active-directory"
+	documentationCenter=""
+	authors="billmath"
+	manager="stevenpo"
 	editor="curtand"/>
 
 <tags 
-	ms.service="active-directory"  
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/28/2015" 
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/24/2015"
 	ms.author="billmath"/>
 
 # Installation personnalisée d’Azure AD Connect
@@ -83,9 +83,9 @@ Mon propre attribut|Cette option vous permet de sélectionner votre propre attri
 
 - **Point d’ancrage** : l’attribut sourceAnchor ne varie pas pendant la durée de vie d’un objet utilisateur. Il s’agit de la clé primaire liant l’utilisateur local avec l’utilisateur dans Azure AD. Comme l’attribut ne peut pas être modifié, vous devez prévoir l’attribut adéquat à utiliser. Pour cela, nous vous recommandons objectGUID. Cet attribut ne change pas, sauf si le compte de l’utilisateur est déplacé entre les forêts/domaines. Dans un environnement à plusieurs forêts où vous déplacez des comptes entre des forêts, vous devez utiliser un autre attribut, comme un attribut avec l’employeeID. Les attributs à éviter sont ceux susceptibles de changer si une personne se marie ou si son affectation est modifiée. Vous ne pouvez pas utiliser d’attributs avec un signe @, donc les adresses de messagerie et userPrincipalName et ne peuvent pas être utilisées. L’attribut est également sensible à la casse, donc si vous déplacez un objet entre des forêts, veillez à conserver ses minuscules/majuscules. La valeur des attributs binaires est codée en base64, mais pour d’autres types, elle ne sera pas codée. Dans les scénarios de fédération et dans certaines interfaces Azure AD, cet attribut est également appelé immutableID.
 
-- **UserPrincipalName** : l’attribut userPrincipalName est utilisé par les utilisateurs lorsqu’ils se connectent à Azure AD et Office 365. Les domaines utilisés, également nommés « Suffixe UPN » doivent être vérifiés dans Azure AD avant la synchronisation des utilisateurs. Il est fortement recommandé de conserver l’userPrincipalName de l’attribut par défaut. Si cet attribut ne peut pas être acheminé ni vérifié, vous pouvez sélectionner un autre attribut, par exemple une adresse de messagerie électronique, comme attribut contenant l’ID de connexion.
+- **UserPrincipalName** : l’attribut userPrincipalName est utilisé par les utilisateurs lorsqu’ils se connectent à Azure AD et Office 365. Les domaines utilisés, également nommés « Suffixe UPN » doivent être vérifiés dans Azure AD avant la synchronisation des utilisateurs. Il est fortement recommandé de conserver l’userPrincipalName de l’attribut par défaut. Si cet attribut ne peut pas être acheminé ni vérifié, vous pouvez sélectionner un autre attribut, par exemple une adresse de messagerie électronique, comme attribut contenant l’ID de connexion. Ceci est connu sous le nom d’**ID secondaire**. La valeur de l’attribut ID secondaire doit suivre la norme RFC822. Un ID secondaire peut être utilisé avec l’authentification unique par mot de passe et avec l’authentification unique de fédération comme solution de connexion.
 
->[AZURE.WARNING]L’utilisation d’un ID secondaire n’est pas compatible avec toutes les charges de travail Office 365. Pour plus d'informations, reportez-vous à la section [Configuration d'un ID secondaire de connexion](https://technet.microsoft.com/library/dn659436.aspx.).
+>[AZURE.WARNING]L’utilisation d’un ID secondaire n’est pas compatible avec toutes les charges de travail Office 365. Pour plus d’informations, consultez [Configuration d’un ID secondaire de connexion](https://technet.microsoft.com/library/dn659436.aspx.).
 
 
 
@@ -103,7 +103,7 @@ Le filtrage de la fonctionnalité Groupes vous permet d’exécuter un pilote r�
 
 Cet écran vous permet de sélectionner des fonctionnalités facultatives pour vos scénarios spécifiques. Voici une brève explication de chaque fonctionnalité.
 
-<center>![Express Installation](./media/active-directory-aadconnect-get-started-custom/of.png)</center>
+<center>![Installation express](./media/active-directory-aadconnect-get-started-custom/optional.png)</center>
 
 
 Fonctionnalités facultatives | Description
@@ -111,7 +111,6 @@ Fonctionnalités facultatives | Description
 Déploiement Exchange hybride |La fonctionnalité de déploiement Exchange hybride permet la coexistence de boîtes aux lettres Exchange locales et dans Azure grâce à la synchronisation d’un jeu d’attributs spécifique d’Azure AD Connect dans votre répertoire local.
 Application Azure AD et filtrage des attributs|En activant l’application Azure AD et le filtrage des attributs, l’ensemble des attributs synchronisés peut être adapté à un ensemble spécifique dans une page à venir de l’Assistant. Deux pages de configuration supplémentaires s’ouvrent dans l’Assistant.  
 Écriture différée du mot de passe|En activant l’écriture différée du mot de passe, les modifications de mot de passe provenant d’Azure AD Connect sont réécrites dans votre annuaire local.
-Écriture différée de l’utilisateur|En activant l’écriture différée de l’utilisateur, les utilisateurs créés dans Azure AD Connect sont réécrits dans votre annuaire local. Une page de configuration supplémentaire s’ouvre dans l’Assistant.  
 Synchronisation des attributs des extensions d’annuaire|En activant la synchronisation des attributs des extensions d’annuaire, les attributs spécifiés seront synchronisés avec Azure AD. Une page de configuration supplémentaire s’ouvre dans l’Assistant.  
 
 Pour plus d’options de configuration, comme la modification de la configuration par défaut, l’utilisation de l’éditeur de règles de synchronisation et l’approvisionnement déclaratif, voir [Gestion d’Azure AD Connect](active-directory-aadconnect-whats-next.md).
@@ -137,17 +136,7 @@ Ces attributs sont désormais disponibles via l’API Graph :
 ![Filtrage de la synchronisation](./media/active-directory-aadconnect-get-started-custom/extension4.png)
 
 
-## Écriture différée d’utilisateur (version préliminaire)
 
-> [AZURE.WARNING]Si DirSync ou Azure AD Sync sont actuellement actifs, n’activez aucune des fonctionnalités d’écriture différée dans Azure AD Connect.
-
-L’écriture différée d’utilisateur vous permet de récupérer un utilisateur créé dans Azure AD (via le portail, l’API Graph, PowerShell ou toute autre méthode), pour le réécrire vers une version locale d’AD DS. Pour activer la fonctionnalité, sélectionnez « Écriture différée d’utilisateur » dans la page Fonctionnalités facultatives. L’emplacement où les utilisateurs sont créés est à présent affiché. La configuration par défaut crée tous les utilisateurs dans un seul emplacement dans AD DS.
-
-![Filtrage de la synchronisation](./media/active-directory-aadconnect-get-started-custom/writeback2.png)
-
-Les utilisateurs sont créés avec un mot de passe aléatoire. Vous devez donc réinitialiser ce mot de passe dans AD DS pour que les utilisateurs puissent se connecter.
-
->[AZURE.NOTE]La synchronisation de mot de passe et l’écriture différée de mot de passe ne sont pas compatibles avec cette fonctionnalité préliminaire.
 
 ## Écriture différée de groupe (version préliminaire)
 
@@ -290,4 +279,4 @@ Vous pouvez personnaliser l’illustration et l’image de logo de vos pages de 
 	
 	Set-AdfsWebTheme -TargetName default -Logo @{path="c:\Contoso\logo.png"} –Illustration @{path=”c:\Contoso\illustration.png”}
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

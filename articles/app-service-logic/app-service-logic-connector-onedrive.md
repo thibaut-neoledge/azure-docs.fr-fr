@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Connecteur OneDrive"
-	description="Prise en main du connecteur OneDrive"
+	pageTitle="Utilisation du connecteur OneDrive dans des applications logiques | Microsoft Azure App Service"
+	description="Comment créer et configurer le connecteur OneDrive ou une application API et l'utiliser dans une application logique d’Azure App Service"
 	authors="anuragdalmia"
 	manager="dwrede"
 	editor=""
@@ -13,14 +13,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/19/2015"
+	ms.date="08/23/2015"
 	ms.author="andalmia"/>
 
-# Utilisation du connecteur OneDrive dans votre application logique #
-
-Les applications logiques peuvent se déclencher selon diverses sources de données et proposent des connecteurs pour obtenir et traiter les données dans le cadre du flux.
-
-Le connecteur OneDrive vous permet de télécharger et de supprimer des fichiers de votre compte OneDrive.
+# Utilisation et ajout du connecteur OneDrive dans votre application logique
+Connectez-vous à votre compte OneDrive pour charger, télécharger et supprimer des fichiers. Les applications logiques peuvent se déclencher selon diverses sources de données et proposent des connecteurs pour obtenir et traiter les données dans le cadre du flux. Vous pouvez ajouter le connecteur OneDrive à votre flux d’entreprise et traiter les données dans le cadre de ce flux de travail dans une application logique.
 
 ## Création d’un connecteur OneDrive pour votre application logique ##
 Pour utiliser le connecteur OneDrive, vous devez d’abord créer une instance de l’application API de ce connecteur. Cette opération est possible à partir du concepteur d'application logique, directement ou de l'extérieur. Vous pouvez créer une instance de l'extérieur du concepteur en procédant comme suit :
@@ -96,6 +93,6 @@ Vous pouvez également consulter les statistiques de performances et contrôler 
 
 <!-- Links -->
 [Création d'une application logique]: app-service-logic-create-a-logic-app.md
-[Définition des API OneDrive]: https://msdn.microsoft.com/library/dn974227.aspx
+[Définition des API OneDrive]: https://msdn.microsoft.com/fr-fr/library/dn974227.aspx
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

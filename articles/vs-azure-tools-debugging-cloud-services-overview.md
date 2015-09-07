@@ -1,25 +1,25 @@
 <properties 
-   pageTitle="Débogage de services cloud"
-   description="Débogage de services cloud"
-   services="visual-studio-online"
-   documentationCenter="n/a"
-   authors="patshea123"
-   manager="douge"
-   editor="tlee" />
+   pageTitle="Débogage d’Azure Cloud Services | Microsoft Azure"
+	description="Débogage d’Azure Cloud Services"
+	services="visual-studio-online"
+	documentationCenter="n/a"
+	authors="patshea123"
+	manager="douge"
+	editor="tlee"/>
 <tags 
    ms.service="visual-studio-online"
-   ms.devlang="multiple"
-   ms.topic="article"
-   ms.workload="na"
-   ms.tgt_pltfrm="na"
-   ms.date="08/12/2015"
-   ms.author="patshea" />
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.tgt_pltfrm="multiple"
+	ms.workload="na"
+	ms.date="08/14/2015"
+	ms.author="patshea"/>
 
 # Débogage de services cloud
 
 Vous pouvez utiliser différentes approches pour déboguer une application Azure à l’aide des outils Azure pour Microsoft Visual Studio et du Kit de développement logiciel (SDK) Azure :
 
-- Vous pouvez déboguer une application Azure à partir de Visual Studio quand vous la développez, de la même façon qu’une application Visual C#ou Visual Basic. Pour plus d’informations, consultez [Débogage d’un service cloud ou d’une machine virtuelle dans Visual Studio](http://go.microsoft.com/fwlink/p/?LinkID=623018).
+- Vous pouvez déboguer une application Azure à partir de Visual Studio quand vous la développez, de la même façon qu’une application Visual C# ou Visual Basic. Pour plus d’informations, consultez [Débogage d’un service cloud ou d’une machine virtuelle dans Visual Studio](http://go.microsoft.com/fwlink/p/?LinkID=623018).
 
 - Vous pouvez utiliser les diagnostics Azure pour consigner des informations détaillées à partir du code en cours d’exécution dans des rôles, que ces derniers s’exécutent dans l’environnement de développement ou dans Azure. Pour plus d’informations, consultez [Collecte des données de journalisation avec les diagnostics Azure](http://go.microsoft.com/fwlink/p/?LinkId=400450).
 
@@ -27,4 +27,4 @@ Vous pouvez utiliser différentes approches pour déboguer une application Azure
 
 - Vous pouvez activer le débogage distant sur vos services cloud au moment où vous les déployez depuis Visual Studio. Si vous choisissez d’activer le débogage distant pour un déploiement, les services de débogage distant sont installés sur les machines virtuelles qui exécutent chaque instance de rôle. Ces services, tels que msvsmon.exe, n’affectent pas les performances et n’entraînent pas de coûts supplémentaires. Pour plus d’informations, consultez [Débogage d’un service cloud ou d’une machine virtuelle dans Visual Studio](http://go.microsoft.com/fwlink/p/?LinkID=623018).
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

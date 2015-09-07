@@ -3,10 +3,9 @@
 	description="Découvrez comment utiliser le service BLOB Azure à partir de Python pour charger, répertorier, télécharger et supprimer des objets blob."
 	services="storage"
 	documentationCenter="python"
-	authors="huguesv"
+	authors="emgerner-msft"
 	manager="wpickett"
 	editor=""/>
-
 
 <tags
 	ms.service="storage"
@@ -14,9 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="python"
 	ms.topic="article"
-	ms.date="05/11/2015"
-	ms.author="huvalo"/>
-
+	ms.date="08/25/2015"
+	ms.author="emgerner"/>
 
 # Utilisation du stockage d’objets blob Azure à partir de Python
 
@@ -24,7 +22,7 @@
 
 ## Vue d'ensemble
 
-Cet article décrit le déroulement de scénarios courants dans le cadre de l’utilisation du service de stockage d’objets blob. Les exemples sont écrits en Python et utilisent le [package Azure Python][]. Les scénarios traités incluent le chargement, l'énumération, le téléchargement et la suppression d'objets blob.
+Cet article décrit le déroulement de scénarios courants dans le cadre de l’utilisation du service de stockage d’objets blob. Les exemples sont écrits en Python et utilisent le [package Python Azure Storage][]. Les scénarios traités incluent le chargement, l'énumération, le téléchargement et la suppression d'objets blob.
 
 [AZURE.INCLUDE [storage-blob-concepts-include](../../includes/storage-blob-concepts-include.md)]
 
@@ -36,7 +34,7 @@ Cet article décrit le déroulement de scénarios courants dans le cadre de l’
 
 L'objet **BlobService** permet d'utiliser des conteneurs et des objets blob. Le code suivant crée un objet **BlobService**. Ajoutez ce qui suit vers le début de tout fichier Python dans lequel vous souhaitez accéder à Azure Storage par programme.
 
-	from azure.storage import BlobService
+	from azure.storage.blob import BlobService
 
 Le code suivant crée un objet **BlobService** en utilisant le nom et la clé du compte de stockage. Remplacez « myaccount » et « mykey » par le compte et la clé réels.
 
@@ -75,7 +73,7 @@ L’exemple suivant charge le contenu du fichier **sunset.png** dans l’objet b
 
 ## Création d'une liste d'objets blob dans un conteneur
 
-Pour répertorier les objets blob dans un conteneur, utilisez la méthode **list\\\_blobs**. Chaque appel à **list\_blobs** renvoie un segment de résultats. Pour obtenir tous les résultats, recherchez **next\_marker** dans les résultats et appelez **list\_blobs** à nouveau si nécessaire. Le code suivant sort le **nom** de chaque objet blob d'un conteneur sur la console.
+Pour répertorier les objets blob dans un conteneur, utilisez la méthode **list\\_blobs**. Chaque appel à **list\_blobs** renvoie un segment de résultats. Pour obtenir tous les résultats, recherchez **next\_marker** dans les résultats et appelez **list\_blobs** à nouveau si nécessaire. Le code suivant sort le **nom** de chaque objet blob d'un conteneur sur la console.
 
 	blobs = []
 	marker = None
@@ -114,5 +112,6 @@ Maintenant que vous connaissez les bases du stockage des objets blob, consultez 
 [Stockage et accessibilité des données dans Azure]: http://msdn.microsoft.com/library/azure/gg433040.aspx
 [blog de l'équipe Azure Storage]: http://blogs.msdn.com/b/windowsazurestorage/
 [package Azure Python]: https://pypi.python.org/pypi/azure
+[package Python Azure Storage]: https://pypi.python.org/pypi/azure-storage
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

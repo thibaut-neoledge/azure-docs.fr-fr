@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Utilisation du service StorSimple Manager pour surveiller votre appareil StorSimple | Microsoft Azure"
-   description="Décrit comment utiliser le service StorSimple Manager pour surveiller les performances E/S, l'utilisation de la capacité, le débit du réseau et les performances de l'appareil."
-   services="storsimple"
-   documentationCenter="NA"
-   authors="alkohli"
-   manager="carolz"
-   editor="" />
+	description="Décrit comment utiliser le service StorSimple Manager pour surveiller les performances E/S, l'utilisation de la capacité, le débit du réseau et les performances de l'appareil."
+	services="storsimple"
+	documentationCenter="NA"
+	authors="alkohli"
+	manager="carolz"
+	editor=""/>
 <tags 
    ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="08/14/2015"
-   ms.author="alkohli" />
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="TBD"
+	ms.date="08/25/2015"
+	ms.author="alkohli"/>
 
 # Utilisation du service StorSimple Manager pour surveiller votre appareil StorSimple 
 
@@ -61,7 +61,7 @@ La capacité de stockage principale, de cloud et de l’appareil peut être déc
 	![Utilisation de la capacité cloud après l'instantané cloud](./media/storsimple-monitor-device/StorSimple_CloudCapacityUtil_For_AllVolumeContainers1M.png)
 
 
-- **Utilisation de la capacité de stockage de l'appareil** : cette option affiche l'utilisation totale pour l'appareil, qui sera supérieure à l'utilisation du stockage principal car elle inclut le niveau linéaire SSD. Ce niveau contient une quantité de données qui existe également sur les autres niveaux de l'appareil. La capacité du niveau linéaire SSD est cyclique, de sorte que lors de la réception de nouvelles données, les anciennes données sont déplacées vers le cloud (elles sont alors dédupliquées et compressées).
+- **Utilisation de la capacité de stockage de l'appareil** : cette option affiche l'utilisation totale pour l'appareil, qui sera supérieure à l'utilisation du stockage principal car elle inclut le niveau linéaire SSD. Ce niveau contient une quantité de données qui existe également sur les autres niveaux de l’appareil. La capacité du niveau linéaire SSD est cyclique, de sorte que lors de la réception de nouvelles données, les anciennes données sont déplacées vers le niveau HDD (elles sont alors dédupliquées et compressées).
 
 	Au fil du temps, l'utilisation de la capacité principale et l'utilisation de la capacité de l'appareil augmenteront en parallèle jusqu'à ce que les données commencent à être transférées vers le cloud. À ce stade, l'utilisation de la capacité de l'appareil commencera sans doute à stagner, mais l'utilisation de la capacité principale augmentera à mesure que davantage de données sont écrites.
 
@@ -93,4 +93,4 @@ Les graphiques ci-dessous montrent le débit du réseau pour Data 0 et Data 4,
 
 [Découvrez comment utiliser le tableau de bord de l'appareil du service StorSimple Manager](storsimple-device-dashboard.md).
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

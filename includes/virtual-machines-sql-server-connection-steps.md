@@ -18,7 +18,7 @@ Le chemin de connexion est résumé dans le schéma suivant :
 
 Pour accéder à SQL Server depuis Internet, la machine virtuelle doit avoir un point de terminaison pour écouter les communications TCP entrantes. Dans cette étape de configuration Azure, le trafic du port TCP entrant est dirigé vers un port TCP accessible à la machine virtuelle.
 
->[AZURE.NOTE]Si vous vous connectez dans le même service cloud ou réseau virtuel, vous n’avez pas besoin de créer un point de terminaison accessible publiquement. Dans ce cas, vous pouvez passer à l’étape suivante. Pour plus d’informations, consultez [Considérations relatives à la connectivité de SQL Server sur les machines virtuelles Azure](https://msdn.microsoft.com/library/azure/dn133152.aspx).
+>[AZURE.NOTE]Si vous vous connectez dans le même service cloud ou réseau virtuel, vous n’avez pas besoin de créer un point de terminaison accessible publiquement. Dans ce cas, vous pouvez passer à l’étape suivante. Pour plus d'informations, consultez [Scénarios de connexion](../articles/virtual-machines/virtual-machines-sql-server-connectivity.md#connection-scenarios).
 
 1. Dans le portail de gestion Azure, cliquez sur **VIRTUAL MACHINES**.
 	
@@ -183,4 +183,4 @@ Pour vous connecter au moteur de base de données SQL Server à partir d'un autr
 
 	![Connexion en utilisant SSMS](./media/virtual-machines-sql-server-connection-steps/33Connect-SSMS.png)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

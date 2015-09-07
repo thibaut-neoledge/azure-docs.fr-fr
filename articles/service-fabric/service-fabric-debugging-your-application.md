@@ -1,20 +1,20 @@
 <properties
    pageTitle="Débogage de votre application Service Fabric dans Visual Studio à l'aide de F5"
-   description="Améliorez la fiabilité et les performances de vos services à l'aide de Visual Studio et d'un cluster de développement local."
-   services="service-fabric"
-   documentationCenter=".net"
-   authors="jessebenson"
-   manager="timlt"
-   editor=""/>
+	description="Améliorez la fiabilité et les performances de vos services à l'aide de Visual Studio et d'un cluster de développement local."
+	services="service-fabric"
+	documentationCenter=".net"
+	authors="jessebenson"
+	manager="timlt"
+	editor=""/>
 
 <tags
    ms.service="service-fabric"
-   ms.devlang="dotnet"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="05/18/2015"
-   ms.author="jesseb"/>
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="na"
+	ms.date="08/26/2015"
+	ms.author="jesseb"/>
 
 # Débogage de votre application Service Fabric dans Visual Studio à l'aide de F5
 
@@ -28,7 +28,7 @@ Vous pouvez économiser du temps et de l'argent en déployant et déboguant votr
 
 3. Définissez des points d'arrêt dans votre code et parcourez l'application en cliquant sur les commandes du menu **Déboguer**.
 
-    > [AZURE.NOTE]Visual Studio s'attache à toutes les instances de votre application. Pendant le parcours du code, les points d'arrêt peuvent être visités par plusieurs processus résultant de sessions simultanées. Essayez de désactiver le ou les points d'arrêt une fois qu'ils ont été atteints : définissez le point d'arrêt comme étant conditionnel sur l'ID de thread ou utilisez des événements de diagnostic.
+    > [AZURE.NOTE]Visual Studio s'attache à toutes les instances de votre application. Pendant le parcours du code, les points d'arrêt peuvent être visités par plusieurs processus résultant de sessions simultanées. Essayez de désactiver le ou les points d’arrêt une fois qu’ils ont été atteints : définissez le point d’arrêt comme étant conditionnel sur l’ID de thread ou utilisant Événements de diagnostic.
 
 4. La fenêtre **Événements de diagnostic** s'ouvre automatiquement pour afficher les événements de diagnostic en temps réel.
 
@@ -66,4 +66,4 @@ Vous pouvez économiser du temps et de l'argent en déployant et déboguant votr
 [breakpoint]: ./media/service-fabric-debugging-your-application/breakpoint.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

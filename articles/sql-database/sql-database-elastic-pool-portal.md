@@ -10,7 +10,7 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="08/13/2015"
+	ms.date="08/25/2015"
 	ms.author="sstein"
 	ms.workload="data-management"
 	ms.topic="article"
@@ -117,9 +117,11 @@ Il existe trois paramètres configurables qui définissent les performances pou
 | **eDTU MAX** : nombre d’eDTU maximal par base de données | L’eDTU MAX par base de données est le nombre maximum d'eDTU qu'une base de données unique peut utiliser. Définissez un nombre d'eDTU maximal par base de données suffisamment élevé pour gérer les rafales ou les pics que vos bases de données peuvent rencontrer. Vous pouvez définir ce seuil jusqu'à la limite du système, qui dépend du niveau de tarification du pool (1 000 eDTU en mode Premium) Le niveau spécifique de ce seuil doit tenir compte de modèles de pic d'utilisation des bases de données au sein du groupe. Une certaine allocation excessive du groupe est attendue dans la mesure où le pool prend généralement en compte des modèles de creux et de pics d'utilisation des bases de données dans lesquels toutes les bases de données ne connaissent pas simultanément des pics d'utilisation.<br> **Quelle valeur définir pour le nombre d'eDTU maximal par base de données ?** <br> Définissez eDTU MAX (nombre maximal d’eDTU par base de données) sur le ([pic d’utilisation de la base de données]). Par exemple, supposons que le pic d'utilisation par base de données est 50 UDBD et que 20 % des 100 bases de données du groupe connaissent simultanément un pic d'utilisation. Si le nombre d'eDTU maximal par base de données est défini sur 50 eDTU, vous pouvez envisager une allocation 5 fois plus élevée du pool et définir le nombre d'eDTU garanti pour le groupe (POOL eDTU) sur 1 000 eDTU. Il est également à noter que le nombre d'eDTU maximal n'est pas une garantie de ressource pour une base de données. Il s'agit d'un plafond du nombre d'eDTU qui peut être atteint s'il est défini. |
 
 
-## Ajout de bases de données dans un pool élastique de bases de données
+## Ajout de bases de données dans un pool et suppression des bases de données élastiques d’un pool
 
 Une fois le pool créé, vous pouvez ajouter des bases de données au pool ou en supprimer en sélectionnant ou en supprimant des bases de données sur la page **Ajouter des bases de données**.
+
+*Après la création d’un pool, vous pouvez également utiliser Transact-SQL pour la création de nouvelles bases de données élastiques dans le pool et le déplacement de bases de données existantes dans ou hors d’un pool. Pour plus d’informations, consultez [élastique de base de pool de référence - Transact-SQL](sql-database-elastic-pool-reference.md#Transact-SQL).*
 
 
 ## Surveiller et gérer un pool élastique de bases de données
@@ -128,7 +130,7 @@ Après avoir créé un pool élastique de bases de données, vous pouvez surveil
 
 Après avoir créé un pool, vous pouvez :
 
-- Sélectionner **Configurer le pool** pour modifier les paramètres d'eDTU par pool et par base de données.
+- Sélectionner **Configurer le pool** pour modifier les paramètres d’eDTU par pool et par base de données.
 - Sélectionner **Créer une tâche** et gérer les bases de données dans le pool en créant des tâches élastiques. Les tâches élastiques facilitent l'exécution de scripts Transact-SQL, quel que soit le nombre de bases de données dans le pool. Pour en savoir plus, consultez [Vue d'ensemble des tâches de base de données élastiques](sql-database-elastic-jobs-overview.md).
 - Sélectionner **Gérer les tâches** pour gérer les travaux élastiques existants.
 
@@ -163,7 +165,7 @@ Après avoir créé un pool élastique de bases de données, vous pouvez gérer 
 
 - [Pools élastiques de bases de données SQL](sql-database-elastic-pool.md)
 - [Créer un pool de bases de données SQL avec PowerShell](sql-database-elastic-pool-powershell.md)
-- [Créer et gérer la base de données SQL avec C\#](sql-database-client-library.md)
+- [Créer et gérer la base de données SQL avec C#](sql-database-client-library.md)
 - [Référence de base de données élastique](sql-database-elastic-pool-reference.md)
 
 
@@ -179,4 +181,4 @@ Après avoir créé un pool élastique de bases de données, vous pouvez gérer 
 [9]: ./media/sql-database-elastic-pool-portal/pricing-tier.png
 [10]: ./media/sql-database-elastic-pool-portal/star.png
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

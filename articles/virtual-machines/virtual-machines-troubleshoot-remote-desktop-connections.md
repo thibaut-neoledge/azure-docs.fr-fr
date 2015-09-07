@@ -72,7 +72,7 @@ Solutions possibles à ce problème :
 
 Cause : la machine virtuelle à laquelle vous vous connectez ne peut pas localiser l’autorité de sécurité indiquée dans la partie nom d’utilisateur de vos informations d’identification.
 
-Quand votre nom d’utilisateur est au format *SecurityAuthority*\*UserName* (par exemple : CORP\\User1), la partie *SecurityAuthority* est soit le nom d’ordinateur de la machine virtuelle (pour l’autorité de sécurité locale), soit un nom de domaine Active Directory.
+Quand votre nom d’utilisateur est au format *SecurityAuthority**UserName* (par exemple : CORP\\User1), la partie *SecurityAuthority* est soit le nom d’ordinateur de la machine virtuelle (pour l’autorité de sécurité locale), soit un nom de domaine Active Directory.
 
 Solutions possibles à ce problème :
 
@@ -86,8 +86,8 @@ Cause : Le nom de compte et le mot de passe que vous avez indiqués ne peuvent 
 
 Un ordinateur Windows peut valider les informations d’identification d’un compte local ou d’un compte de domaine.
 
-- Pour les comptes locaux, utilisez la syntaxe *ComputerName*\*UserName* (par exemple : SQL1\\Admin4798).
-- Pour les comptes de domaine, utilisez la syntaxe *DomainName*\*UserName* (par exemple : CONTOSO\\johndoe).
+- Pour les comptes locaux, utilisez la syntaxe *ComputerName**UserName* (par exemple : SQL1\\Admin4798).
+- Pour les comptes de domaine, utilisez la syntaxe *DomainName**UserName* (par exemple : CONTOSO\\johndoe).
 
 Pour les ordinateurs que vous promouvez vers les contrôleurs de domaine d’une nouvelle forêt Active Directory, le compte administrateur local auquel vous êtes connecté lorsque vous effectuez la promotion se transforme en un compte équivalent avec le même mot de passe dans la nouvelle forêt et le nouveau domaine. Le compte administrateur local précédent est supprimé. Par exemple, si vous vous connectez au compte administrateur local DC1\\DCAdmin et promouvez la machine virtuelle en tant que contrôleur de domaine dans une nouvelle forêt du domaine corp.contoso.com, le compte local DC1\\DCAdmin est supprimé et un compte de domaine (CORP\\DCAdmin) est créé avec le même mot de passe.
 
@@ -182,7 +182,7 @@ Si vous ne disposez pas d’une autre machine virtuelle dans le même service cl
 Si vous pouvez créer une connexion Bureau à distance avec une machine virtuelle dans le même service cloud ou réseau virtuel, vérifiez les paramètres suivants :
 
 - La configuration du point de terminaison pour le trafic de Bureau à distance sur la machine virtuelle cible. Le port TCP privé du point de terminaison doit correspondre au port TCP sur lequel le service Services Bureau à distance de la machine virtuelle procède à l’écoute. Par défaut, il s’agit du port 3389.
-- La liste de contrôle d’accès du point de terminaison du trafic de Bureau à distance sur la machine virtuelle cible. Les listes de contrôle d’accès vous permettent de spécifier le trafic Internet entrant autorisé et interdit en fonction de l’adresse IP source. Une mauvaise configuration des listes de contrôle d’accès peut empêcher le trafic du Bureau à distance d’accéder au point de terminaison. Examinez vos listes de contrôle d’accès pour vous assurer que le trafic entrant provenant des adresses IP publiques de votre proxy ou d’un autre serveur Edge est autorisé. Pour plus d’informations, consultez [Qu’est-ce qu’une liste de contrôle d’accès (ACL) réseau ?](https://msdn.microsoft.com/library/azure/dn376541.aspx).
+- La liste de contrôle d’accès du point de terminaison du trafic de Bureau à distance sur la machine virtuelle cible. Les listes de contrôle d’accès vous permettent de spécifier le trafic Internet entrant autorisé et interdit en fonction de l’adresse IP source. Une mauvaise configuration des listes de contrôle d’accès peut empêcher le trafic du Bureau à distance d’accéder au point de terminaison. Examinez vos listes de contrôle d’accès pour vous assurer que le trafic entrant provenant des adresses IP publiques de votre proxy ou d’un autre serveur Edge est autorisé. Pour plus d'informations, consultez [Qu'est-ce qu'une liste de contrôle d'accès (ACL) réseau ?](../virtual-network/virtual-networks-acl.md).
 
 Pour vérifier que le point de terminaison n’est pas la source du problème, supprimez le point de terminaison actuel et créez un autre point de terminaison en choisissant un port aléatoire dont le numéro externe se situe entre 49152 et 65535. Pour plus d’informations, consultez [Configuration des points de terminaison sur une machine virtuelle](virtual-machines-set-up-endpoints.md).
 
@@ -287,4 +287,4 @@ Pour plus d’informations sur l’utilisation du support Azure, consultez le [F
 
 [Résolution des problèmes d’accès à une application exécutée sur une machine virtuelle Azure](virtual-machines-troubleshoot-access-application.md)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

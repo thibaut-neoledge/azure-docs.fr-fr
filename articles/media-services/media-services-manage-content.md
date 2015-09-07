@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Gestion de contenu avec Azure Media Services à l’aide du portail de gestion Azure" 
-	description="Apprenez à gérer votre contenu multimédia dans Azure Media Services. Notamment : le téléchargement, l’indexation, l’encodage, le chiffrement et la publication." 
-	services="media-services" 
-	documentationCenter="" 
-	authors="Juliako" 
-	manager="dwrede" 
+	pageTitle="Gestion de contenu avec Azure Media Services à l’aide du portail de gestion Azure"
+	description="Apprenez à gérer votre contenu multimédia dans Azure Media Services. Notamment : le téléchargement, l’indexation, l’encodage, le chiffrement et la publication."
+	services="media-services"
+	documentationCenter=""
+	authors="Juliako"
+	manager="dwrede"
 	editor=""/>
 
 <tags 
-	ms.service="media-services" 
-	ms.workload="media" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/11/2015"
+	ms.service="media-services"
+	ms.workload="media"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/23/2015"
 	ms.author="juliako"/>
 
 
@@ -105,7 +105,7 @@ Cette section décrit les étapes à suivre pour encoder votre contenu avec l’
 	![Process2][process2]
 
 		
-	La rubrique [Chaînes de présélection des tâches pour Encodeur multimédia Azure](https://msdn.microsoft.com/library/azure/dn619392.aspx) explique ce que signifie chaque présélection des catégories **Présélections de diffusion adaptative (empaquetage dynamique)**, **Présélections pour le téléchargement progressif** et **Présélections héritées pour la diffusion adaptative**.
+	La rubrique [Chaînes de présélection des tâches pour Azure Media Encoder](https://msdn.microsoft.com/library/azure/dn619392.aspx) explique ce que signifie chaque présélection des catégories **Présélections de diffusion adaptative (empaquetage dynamique)**, **Présélections pour le téléchargement progressif** et **Présélections héritées pour la diffusion adaptative**.
 
 
 	Les **Autres** configurations sont décrites ci-après :
@@ -129,6 +129,7 @@ Cette section décrit les étapes à suivre pour encoder votre contenu avec l’
 
 ##<a id="encrypt"></a>Chiffrement du contenu
 
+
 Si vous souhaitez que Media Services chiffre dynamiquement votre ressource avec une clé AES ou la DRM PlayReady, veillez à effectuer les opérations suivantes :
 
 - encoder vos fichiers votre fichier mezzanine (source) en un ensemble de fichiers mp4 à débit adaptatif ou de fichiers Smooth Streaming à débit adaptatif (les étapes de codage sont décrites dans la section [Encodage](#encode)).
@@ -141,6 +142,11 @@ Si vous souhaitez que Media Services chiffre dynamiquement votre ressource avec 
 	![Chiffrer][encrypt]
 
 	Après avoir activé le chiffrement, lorsqu’un lecteur demande un flux de données, Media Services utilise la clé spécifiée pour chiffrer dynamiquement votre contenu à l’aide du chiffrement AES ou PlayReady. Pour déchiffrer le flux de données, le lecteur demande la clé au service de remise de clé. Pour déterminer si l’utilisateur est autorisé à obtenir la clé, le service évalue les stratégies d’autorisation que vous avez spécifiées pour la clé.
+
+Consultez également :
+
+- [Protéger avec composant DRM PlayReady](media-services-rest-deliver-streaming-content.md)
+- [Protéger avec clé AES-128](media-services-protect-with-aes128.md)
 
 ##<a id="publish"></a>Publication de contenu
 
@@ -215,4 +221,4 @@ Certaines considérations s’appliquent :
 [encrypt]: ./media/media-services-manage-content/media-services-encrypt-content.png
 [AMSPlayer]: ./media/media-services-manage-content/media-services-portal-player.png
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

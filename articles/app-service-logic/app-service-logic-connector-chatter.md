@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Application API du connecteur Chatter"
-	description="Utilisation du connecteur Chatter"
+   pageTitle="Utilisation du connecteur Chatter dans des applications logiques | Microsoft Azure App Service"
+	description="Comment créer et configurer le connecteur Chatter ou une application API et l'utiliser dans une application logique d’Azure App Service"
 	services="app-service\logic"
 	documentationCenter=".net,nodejs,java"
 	authors="anuragdalmia"
@@ -13,15 +13,14 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="integration"
-	ms.date="08/19/2015"
+	ms.date="08/23/2015"
 	ms.author="sameerch"/>
 
 
-# Utilisation du connecteur Chatter dans votre application logique
+# Utilisation et ajout du connecteur Chatter dans votre application logique 
+Connectez-vous à Chatter pour publier un message ou effectuer une recherche dans un flux de données. Par exemple, vous pouvez rechercher un flux Chatter et lorsque vous trouvez un élément spécifique, vous pouvez publier ce message Chatter vers un groupe de ventes.
 
-Le connecteur Chatter vous permet de vous connecter à Chatter et d'exécuter des tâches courantes, comme publier un message. Par exemple, vous pouvez rechercher un flux Chatter et lorsque vous trouvez un élément spécifique, vous pouvez publier ce message Chatter vers un groupe de ventes.
-
-Vous pouvez ajouter le connecteur Chatter à flux de travail professionnel et traiter les données dans le cadre de ce flux de travail.
+Vous pouvez ajouter le connecteur Chatter à votre flux d’entreprise et traiter les données dans le cadre de ce flux de travail dans une application logique.
 
 ## Déclencheurs et actions
 
@@ -57,8 +56,7 @@ Une fois votre application API créée, vous pouvez utiliser le connecteur Chatt
 1. Dans votre application logique, ouvrez **Déclencheurs et actions** pour ouvrir le concepteur d'applications logiques et configurer votre flux.
 
 2. Le connecteur Chatter est répertorié dans la galerie :
-
-	![][4]
+![][4]
 3. Sélectionnez le connecteur Chatter pour l'ajouter automatiquement dans le concepteur. Sélectionnez **Autoriser**, entrez vos informations d'identification, puis sélectionnez **Autoriser** :
 	![][5]
 	![][6]
@@ -97,4 +95,4 @@ Vous pouvez également consulter les statistiques de performances et contrôler 
 [10]: ./media/app-service-logic-connector-chatter/img10.PNG
 [11]: ./media/app-service-logic-connector-chatter/img11.PNG
 
-<!----HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

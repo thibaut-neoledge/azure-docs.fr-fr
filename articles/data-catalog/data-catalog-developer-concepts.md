@@ -1,6 +1,6 @@
 <properties
    pageTitle="Concepts de développeur Azure Data Catalog"
-	description="Concepts de développeur dans Azure Data Catalog : catalogue, utilisateurs, ressources, crowdsourcing."
+	description="Présentation des concepts clés du modèle conceptuel d’Azure Data Catalog, tels qu’ils sont exposés via l’API REST Catalog."
 	services="data-catalog"
 	documentationCenter=""
 	authors="dvana"
@@ -231,4 +231,4 @@ Les demandes d’éléments d’affichage **PUT** et **POST** peuvent être util
 <!--Image references-->
 [1]: ./media/data-catalog-developer-concepts/concept.png
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

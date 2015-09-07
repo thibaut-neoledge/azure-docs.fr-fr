@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/26/2015"
+	ms.date="08/24/2015"
 	ms.author="aashishr"/>
 
 # Sauvegarde des machines virtuelles Azure - Introduction
@@ -111,7 +111,7 @@ En savoir plus sur l’[agent de machine virtuelle](https://go.microsoft.com/fwL
 
 ## Limitations de la version préliminaire
 
-- La sauvegarde de machines virtuelles ayant plus de 5 disques n’est pas prise en charge.
+- La sauvegarde de machines virtuelles ayant plus de 16 disques de données n’est pas prise en charge.
 - La sauvegarde de machines virtuelles à l’aide du stockage Premium n’est pas prise en charge.
 - La sauvegarde de machines virtuelles à l’aide de plusieurs cartes réseau ou dans une configuration à charge équilibrée n’est pas prise en charge.
 - Le remplacement d’une machine virtuelle existante pendant la restauration n’est pas pris en charge. Commencez par supprimer la machine virtuelle existante et tous les disques associés, puis restaurez les données de sauvegarde.
@@ -136,4 +136,4 @@ Pour bien démarrer avec la sauvegarde des machines virtuelles, découvrez comme
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

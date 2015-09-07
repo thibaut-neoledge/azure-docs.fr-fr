@@ -490,7 +490,7 @@ La section « variables » indique les variables qui peuvent être utilisées 
 
 Si vous souhaitez personnaliser la taille du déploiement du cluster Spark, vous pouvez modifier les propriétés des variables **tshirtSizeS**, **tshirtSizeM** et **tshirtSizeL** dans le modèle azuredeploy.json.
 
-Vous trouverez plus d’informations sur le langage des modèles sur MSDN, dans [Langage des modèles Azure Resource Manager](https://msdn.microsoft.com/library/azure/dn835138.aspx).
+Vous trouverez plus d’informations sur le langage des modèles sur MSDN, dans [Langage des modèles Azure Resource Manager](../resource-group-authoring-templates.md).
 
 
 ### section "resources"
@@ -833,7 +833,7 @@ Pour résumer, cette approche suggère de :
 -	créer des modèles spécifiques pour les mêmes membres d’un groupe de ressources (nœuds dans un cluster, etc.) afin d’exploiter l’itération de ressources pour déployer plusieurs instances ayant des propriétés uniques ;
 -	exploiter les extensions de déploiement de script et créer des scripts propres à chaque technologie pour toutes les tâches de post-déploiement (installation de produits, configurations, etc.).
 
-Pour plus d’informations, consultez [Langage du modèle Azure Resource Manager](https://msdn.microsoft.com/library/azure/dn835138.aspx).
+Pour plus d’informations, consultez [Langage du modèle Azure Resource Manager](../resource-group-authoring-templates.md).
 
 ## Étapes suivantes
 
@@ -843,4 +843,4 @@ Découvrez plus d’informations sur les [infrastructures d’application](virtu
 
 [Résolution des problèmes des déploiements de modèle](resource-group-deploy-debug.md).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

@@ -1,10 +1,10 @@
 <properties
-	pageTitle="Azure Active Directory Connect Sync : attributs synchronisés avec Azure Active Directory"
+	pageTitle="Azure Active Directory Connect Sync : attributs synchronisés avec Azure Active Directory | Microsoft Azure"
 	description="Répertorie les attributs qui sont synchronisés avec Azure Active Directory."
 	services="active-directory"
 	documentationCenter=""
 	authors="markusvi"
-	manager="swadhwa"
+	manager="stevenpo"
 	editor=""/>
 
 <tags
@@ -13,37 +13,34 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/27/2015"
-	ms.author="markusvi"/>
+	ms.date="08/24/2015"
+	ms.author="markusvi;andkjell"/>
 
 
 # Azure Active Directory Connect Sync : attributs synchronisés avec Azure Active Directory
 
-Cette rubrique répertorie les attributs synchronisés par Azure AD Connect Sync.<br> Les attributs sont regroupés par les applications Azure AD.
- 
-
-
+Cette rubrique répertorie les attributs synchronisés par Azure AD Connect Sync.<br> Les attributs sont regroupés selon l’application Azure AD associée.
 
 
 ## Office 365 ProPlus
 
-| Nom de l'attribut| Utilisateur| Commentaire |
+| Nom de l’attribut| Utilisateur| Commentaire |
 | --- | :-: | --- |
-| accountEnabled| X| Dérivé de userAccountControl|
+| accountEnabled| X| Détermine si un compte est activé.|
 | cn| X| |
 | displayName| X| |
-| objectSID| X| |
-| pwdLastSet| X| |
-| sourceAnchor| X| L’attribut utilisé pour les utilisateurs est configuré dans le guide d’installation.|
-| usageLocation| X| msExchUsageLocation dans AD DS|
-| userPrincipalName| X| |
+| objectSID| X| propriété mécanique. Identificateur d’utilisateur Active Directory utilisé pour maintenir la synchronisation entre Azure AD et Active Directory.|
+| pwdLastSet| X| propriété mécanique. Permet de savoir quand invalider les jetons déjà émis. Utilisé par la synchronisation de mot de passe et par la fédération.|
+| sourceAnchor| X| propriété mécanique. Identificateur immuable pour maintenir la relation entre ADDS et Azure AD.|
+| usageLocation| X| propriété mécanique. Pays de l’utilisateur. Utilisé pour l’attribution de licence.|
+| userPrincipalName| X| Le nom UPN est l’ID de connexion de l’utilisateur. Le plus souvent, identique à la valeur [mail].|
 
 
 ## Exchange Online
 
-| Nom de l'attribut| Utilisateur| Contact| Groupe| Commentaire |
+| Nom de l’attribut| Utilisateur| Contact| Groupe| Commentaire |
 | --- | :-: | :-: | :-: | --- |
-| accountEnabled| X| | | Dérivé de userAccountControl|
+| accountEnabled| X| | | Détermine si un compte est activé.|
 | assistant| X| X| | |
 | authOrig| X| X| X| |
 | c| X| X| | |
@@ -132,7 +129,7 @@ Cette rubrique répertorie les attributs synchronisés par Azure AD Connect Sync
 | msExchTeamMailboxSharePointUrl| X| | | |
 | msExchUserHoldPolicies| X| | | |
 | msOrg-IsOrganizational| | | X| |
-| objectSID| X| | X| |
+| objectSID| X| | X| propriété mécanique. Identificateur d’utilisateur Active Directory utilisé pour maintenir la synchronisation entre Azure AD et Active Directory.|
 | oOFReplyToOriginator| | | X| |
 | otherFacsimileTelephone| X| X| | |
 | otherHomePhone| X| X| | |
@@ -142,12 +139,12 @@ Cette rubrique répertorie les attributs synchronisés par Azure AD Connect Sync
 | postalCode| X| X| | |
 | proxyAddresses| X| X| X| |
 | publicDelegates| X| X| X| |
-| pwdLastSet| X| | | |
+| pwdLastSet| X| | | propriété mécanique. Permet de savoir quand invalider les jetons déjà émis. Utilisé par la synchronisation de mot de passe et par la fédération.|
 | reportToOriginator| | | X| |
 | reportToOwner| | | X| |
 | securityEnabled| | | X| Dérivé de groupType|
 | sn| X| X| | |
-| sourceAnchor| X| X| X| L’attribut utilisé pour les utilisateurs est configuré dans le guide d’installation.|
+| sourceAnchor| X| X| X| propriété mécanique. Identificateur immuable pour maintenir la relation entre ADDS et Azure AD.|
 | st| X| X| | |
 | streetAddress| X| X| | |
 | targetAddress| X| X| | |
@@ -156,18 +153,19 @@ Cette rubrique répertorie les attributs synchronisés par Azure AD Connect Sync
 | thumbnailPhoto| X| X| | |
 | title| X| X| | |
 | unauthOrig| X| X| X| |
-| usageLocation| X| | | msExchUsageLocation dans AD DS|
+| usageLocation| X| | | propriété mécanique. Pays de l’utilisateur. Utilisé pour l’attribution de licence.|
 | userCertificate| X| X| | |
-| userPrincipalName| X| | | |
+| userPrincipalName| X| | | Le nom UPN est l’ID de connexion de l’utilisateur. Le plus souvent, identique à la valeur [mail].|
 | userSMIMECertificates| X| X| | |
 | wWWHomePage| X| X| | |
 
 
+
 ## SharePoint Online
 
-| Nom de l'attribut| Utilisateur| Contact| Groupe| Commentaire |
+| Nom de l’attribut| Utilisateur| Contact| Groupe| Commentaire |
 | --- | :-: | :-: | :-: | --- |
-| accountEnabled| X| | | Dérivé de userAccountControl|
+| accountEnabled| X| | | Détermine si un compte est activé.|
 | authOrig| X| X| X| |
 | c| X| X| | |
 | cn| X| | X| |
@@ -213,7 +211,7 @@ Cette rubrique répertorie les attributs synchronisés par Azure AD Connect Sync
 | msExchTeamMailboxOwners| X| | | |
 | msExchTeamMailboxSharePointLinkedBy| X| | | |
 | msExchTeamMailboxSharePointUrl| X| | | |
-| objectSID| X| | X| |
+| objectSID| X| | X| propriété mécanique. Identificateur d’utilisateur Active Directory utilisé pour maintenir la synchronisation entre Azure AD et Active Directory.|
 | oOFReplyToOriginator| | | X| |
 | otherFacsimileTelephone| X| X| | |
 | otherHomePhone| X| X| | |
@@ -227,12 +225,12 @@ Cette rubrique répertorie les attributs synchronisés par Azure AD Connect Sync
 | postOfficeBox| X| X| | |
 | preferredLanguage| X| | | |
 | proxyAddresses| X| X| X| |
-| pwdLastSet| X| | | |
+| pwdLastSet| X| | | propriété mécanique. Permet de savoir quand invalider les jetons déjà émis. Utilisé par la synchronisation de mot de passe et par la fédération.|
 | reportToOriginator| | | X| |
 | reportToOwner| | | X| |
 | securityEnabled| | | X| Dérivé de groupType|
 | sn| X| X| | |
-| sourceAnchor| X| X| X| L’attribut utilisé pour les utilisateurs est configuré dans le guide d’installation.|
+| sourceAnchor| X| X| X| propriété mécanique. Identificateur immuable pour maintenir la relation entre ADDS et Azure AD.|
 | st| X| X| | |
 | streetAddress| X| X| | |
 | targetAddress| X| X| | |
@@ -242,15 +240,15 @@ Cette rubrique répertorie les attributs synchronisés par Azure AD Connect Sync
 | title| X| X| | |
 | unauthOrig| X| X| X| |
 | url| X| X| | |
-| usageLocation| X| | | msExchUsageLocation dans AD DS|
-| userPrincipalName| X| | | |
+| usageLocation| X| | | propriété mécanique. Pays de l’utilisateur. Utilisé pour l’attribution de licence.|
+| userPrincipalName| X| | | Le nom UPN est l’ID de connexion de l’utilisateur. Le plus souvent, identique à la valeur [mail].|
 | wWWHomePage| X| X| | |
 
 ## Lync Online
 
-| Nom de l'attribut| Utilisateur| Contact| Groupe| Commentaire |
+| Nom de l’attribut| Utilisateur| Contact| Groupe| Commentaire |
 | --- | :-: | :-: | :-: | --- |
-| accountEnabled| X| | | Dérivé de userAccountControl|
+| accountEnabled| X| | | Détermine si un compte est activé.|
 | c| X| X| | |
 | cn| X| | X| |
 | co| X| X| | |
@@ -277,29 +275,29 @@ Cette rubrique répertorie les attributs synchronisés par Azure AD Connect Sync
 | msRTCSIP-OwnerUrn| X| | | |
 | msRTCSIP-PrimaryUserAddress| X| X| | |
 | msRTCSIP-UserEnabled| X| X| | |
-| objectSID| X| | X| |
+| objectSID| X| | X| propriété mécanique. Identificateur d’utilisateur Active Directory utilisé pour maintenir la synchronisation entre Azure AD et Active Directory.|
 | otherTelephone| X| X| | |
 | physicalDeliveryOfficeName| X| X| | |
 | postalCode| X| X| | |
 | preferredLanguage| X| | | |
 | proxyAddresses| X| X| X| |
-| pwdLastSet| X| | | |
+| pwdLastSet| X| | | propriété mécanique. Permet de savoir quand invalider les jetons déjà émis. Utilisé par la synchronisation de mot de passe et par la fédération.|
 | securityEnabled| | | X| Dérivé de groupType|
 | sn| X| X| | |
-| sourceAnchor| X| X| X| L’attribut utilisé pour les utilisateurs est configuré dans le guide d’installation.|
+| sourceAnchor| X| X| X| propriété mécanique. Identificateur immuable pour maintenir la relation entre ADDS et Azure AD.|
 | st| X| X| | |
 | streetAddress| X| X| | |
 | telephoneNumber| X| X| | |
 | thumbnailPhoto| X| X| | |
 | title| X| X| | |
-| usageLocation| X| | | msExchUsageLocation dans AD DS|
-| userPrincipalName| X| | | |
+| usageLocation| X| | | propriété mécanique. Pays de l’utilisateur. Utilisé pour l’attribution de licence.|
+| userPrincipalName| X| | | Le nom UPN est l’ID de connexion de l’utilisateur. Le plus souvent, identique à la valeur [mail].|
 | wWWHomePage| X| X| | |
 
 
 ## Azure RMS
 
-| Nom de l'attribut| Utilisateur| Contact| Groupe| Commentaire |
+| Nom de l’attribut| Utilisateur| Contact| Groupe| Commentaire |
 | --- | :-: | :-: | :-: | --- |
 | accountEnabled| X| | | Détermine si un compte est activé.|
 | cn| X| | X| Nom commun ou alias. Le plus souvent, il s’agit du préfixe de valeur [mail].|
@@ -317,9 +315,9 @@ Cette rubrique répertorie les attributs synchronisés par Azure AD Connect Sync
 
 ## Intune
 
-| Nom de l'attribut| Utilisateur| Contact| Groupe| Commentaire |
+| Nom de l’attribut| Utilisateur| Contact| Groupe| Commentaire |
 | --- | :-: | :-: | :-: | --- |
-| accountEnabled| X| | | Dérivé de userAccountControl|
+| accountEnabled| X| | | Détermine si un compte est activé.|
 | c| X| X| | |
 | cn| X| | X| |
 | description| X| X| X| |
@@ -327,20 +325,21 @@ Cette rubrique répertorie les attributs synchronisés par Azure AD Connect Sync
 | mail| X| X| X| |
 | mailnickname| X| X| X| |
 | member| | | X| |
-| objectSID| X| | X| |
+| objectSID| X| | X| propriété mécanique. Identificateur d’utilisateur Active Directory utilisé pour maintenir la synchronisation entre Azure AD et Active Directory.|
 | proxyAddresses| X| X| X| |
-| pwdLastSet| X| | | |
+| pwdLastSet| X| | | propriété mécanique. Permet de savoir quand invalider les jetons déjà émis. Utilisé par la synchronisation de mot de passe et par la fédération.|
 | securityEnabled| | | X| Dérivé de groupType|
-| sourceAnchor| X| X| X| L’attribut utilisé pour les utilisateurs est configuré dans le guide d’installation.|
-| usageLocation| X| | | msExchUsageLocation dans AD DS|
-| userPrincipalName| X| | | |
+| sourceAnchor| X| X| X| propriété mécanique. Identificateur immuable pour maintenir la relation entre ADDS et Azure AD.|
+| usageLocation| X| | | propriété mécanique. Pays de l’utilisateur. Utilisé pour l’attribution de licence.|
+| userPrincipalName| X| | | Le nom UPN est l’ID de connexion de l’utilisateur. Le plus souvent, identique à la valeur [mail].|
+
 
 
 ## Dynamics CRM
 
-| Nom de l'attribut| Utilisateur| Contact| Groupe| Commentaire |
+| Nom de l’attribut| Utilisateur| Contact| Groupe| Commentaire |
 | --- | :-: | :-: | :-: | --- |
-| accountEnabled| X| | | Dérivé de userAccountControl|
+| accountEnabled| X| | | Détermine si un compte est activé.|
 | c| X| X| | |
 | cn| X| | X| |
 | co| X| X| | |
@@ -355,27 +354,66 @@ Cette rubrique répertorie les attributs synchronisés par Azure AD Connect Sync
 | manager| X| X| | |
 | member| | | X| |
 | mobile| X| X| | |
-| objectSID| X| | X| |
+| objectSID| X| | X| propriété mécanique. Identificateur d’utilisateur Active Directory utilisé pour maintenir la synchronisation entre Azure AD et Active Directory.|
 | physicalDeliveryOfficeName| X| X| | |
 | postalCode| X| X| | |
 | preferredLanguage| X| | | |
-| pwdLastSet| X| | | |
+| pwdLastSet| X| | | propriété mécanique. Permet de savoir quand invalider les jetons déjà émis. Utilisé par la synchronisation de mot de passe et par la fédération.|
 | securityEnabled| | | X| Dérivé de groupType|
 | sn| X| X| | |
-| sourceAnchor| X| X| X| L’attribut utilisé pour les utilisateurs est configuré dans le guide d’installation.|
+| sourceAnchor| X| X| X| propriété mécanique. Identificateur immuable pour maintenir la relation entre ADDS et Azure AD.|
 | st| X| X| | |
 | streetAddress| X| X| | |
 | telephoneNumber| X| X| | |
 | title| X| X| | |
-| usageLocation| X| | | msExchUsageLocation dans AD DS|
-| userPrincipalName| X| | | |
+| usageLocation| X| | | propriété mécanique. Pays de l’utilisateur. Utilisé pour l’attribution de licence.|
+| userPrincipalName| X| | | Le nom UPN est l’ID de connexion de l’utilisateur. Le plus souvent, identique à la valeur [mail].|
+
+## Applications tierces
+Il s’agit d’un ensemble d’attributs qui peut être utilisé si l’annuaire Azure AD n’est pas utilisé pour prendre en charge Office 365, Dynamics ou Intune. Il comporte un petit ensemble d’attributs de base.
+
+| Nom de l’attribut| Utilisateur| Contact| Groupe| Commentaire |
+| --- | :-: | :-: | :-: | --- |
+| accountEnabled| X| | | Détermine si un compte est activé.|
+| cn| X| | X| |
+| displayName| X| X| X| |
+| givenName| X| X| | |
+| mail| X| | X| |
+| managedBy| | | X| |
+| mailNickName| X| X| X| |
+| member| | | X| |
+| objectSID| X| | | propriété mécanique. Identificateur d’utilisateur Active Directory utilisé pour maintenir la synchronisation entre Azure AD et Active Directory.|
+| proxyAddresses| X| X| x| |
+| pwdLastSet| X| | | propriété mécanique. Permet de savoir quand invalider les jetons déjà émis. Utilisé par la synchronisation de mot de passe et par la fédération.|
+| sn| X| X| | |
+| sourceAnchor| X| X| X| propriété mécanique. Identificateur immuable pour maintenir la relation entre ADDS et Azure AD.|
+| usageLocation| X| | | propriété mécanique. Pays de l’utilisateur. Utilisé pour l’attribution de licence.|
+| userPrincipalName| X| | | Le nom UPN est l’ID de connexion de l’utilisateur. Le plus souvent, identique à la valeur [mail].|
+
+
+## Écriture différée d’Exchange hybride
+Ces attributs sont écrits en différé depuis Azure AD vers Active Directory local quand vous choisissez d’activer Exchange hybride. Selon votre version d’Exchange, il est possible que moins d’attributs soient synchronisés.
+
+| Nom de l’attribut| Utilisateur| Contact| Groupe| Commentaire |
+| --- | :-: | :-: | :-: | --- |
+| msDS-ExternalDirectoryObject| X| | | Dérivé de cloudAnchor dans Azure AD.|
+| msExchArchiveStatus| X| | | Archive en ligne : permet aux clients d’archiver le courrier.|
+| msExchBlockedSendersHash| X| | | Filtrage : écrit en différé le filtrage local, les données sécurisées en ligne et les données des expéditeurs bloqués provenant des clients.|
+| msExchSafeRecipientsHash| X| | | Filtrage : écrit en différé le filtrage local, les données sécurisées en ligne et les données des expéditeurs bloqués provenant des clients.|
+| msExchSafeSenderHash| X| | | Filtrage : écrit en différé le filtrage local, les données sécurisées en ligne et les données des expéditeurs bloqués provenant des clients.|
+| msExchUCVoiceMailSettings| X| | | Activer la messagerie unifiée (MU) - messagerie vocale en ligne : utilisée par l’intégration de Microsoft Lync Server pour indiquer à Lync Server local que l’utilisateur dispose de la messagerie vocale dans les services en ligne.|
+| msExchUserHoldPolicies| X| | | Conservation pour litige : permet aux services cloud de déterminer quels utilisateurs sont sous conservation pour litige.|
+| proxyAddresses| X| X| X| Seule l’adresse x500 d’Exchange Online est insérée.|
+
+## Remarques sur les attributs
+- Quand vous utilisez un ID secondaire, l’attribut local userPrincipalName est synchronisé avec l’attribut Azure AD onPremisesUserPrincipalName. L’attribut de l’ID secondaire, par exemple mail, sera synchronisé avec l’attribut Azure AD userPrincipalName.
 
 
 ## Ressources supplémentaires
 
 * [Azure AD Connect Sync : personnalisation des options de synchronisation](active-directory-aadconnectsync-whatis.md)
 * [Intégration de vos identités locales avec Azure Active Directory](active-directory-aadconnect.md)
- 
+
 <!--Image references-->
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

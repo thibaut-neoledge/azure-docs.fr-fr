@@ -67,14 +67,14 @@ Avec HDInsight Tools pour Visual Studio, vous pouvez vous connecter à vos clust
 2.	Dans le menu **Affichage**, cliquez sur **Explorateur de serveurs** pour ouvrir la fenêtre du même nom.
 3.	Développez **Azure**, puis **HDInsight**.
 
-	>[AZURE.NOTE]Notez que la fenêtre **Liste des tâches HDInsight** doit s’ouvrir. Si vous ne la voyez pas, cliquez sur **Autres fenêtres** dans le menu **Affichage**, puis sur la **fenêtre Liste des tâches HDInsight** pour l’ouvrir.  
+	>[AZURE.NOTE]Notez que la fenêtre **Liste des tâches HDInsight** doit s’ouvrir. Si vous ne le voyez pas, cliquez sur **Autres fenêtres** à partir du menu **Affichage**, puis cliquez sur **Fenêtre de liste des tâches HDInsight**.  
 4.	Entrez les informations d’identification de votre abonnement Azure, puis cliquez sur **Connexion**. Cette étape n’est nécessaire que si vous ne vous êtes jamais connecté à l’abonnement Azure à partir de Visual Studio sur cette station de travail.
-5.	L’Explorateur de serveurs dresse la liste des clusters HDInsight existants. Si vous ne possédez aucun cluster, vous pouvez en configurer un dans la version préliminaire du portail Azure, avec Azure PowerShell ou à l'aide du Kit de développement logiciel (SDK) HDInsight. Pour plus d’informations, consultez la rubrique [Approvisionnement de clusters HDInsight][hdinsight-provision].
+5.	Dans l’explorateur de serveurs, vous verrez une liste des clusters HDInsight existants. Si vous ne voyez aucun cluster, vous pouvez en configurer un à l’aide du portail Aperçu d’Azure, d’Azure PowerShell ou du kit de développement logiciel (SDK) HDInsight. Pour plus d’informations, consultez la rubrique [Approvisionnement de clusters HDInsight][hdinsight-provision].
 
 	![Outils Hadoop : liste de clusters de l’explorateur de serveurs de HDInsight Tools pour Visual Studio][5]
-6.	Développez un cluster HDInsight. Vous verrez alors les **Bases de données Hive**, un compte de stockage par défaut, les comptes de stockage liés et le **journal du service Hadoop**. Vous pouvez développer davantage les entités.
+6.	Développez un cluster HDInsight. Vous verrez les **bases de données Hive**, un compte de stockage par défaut, les comptes de stockage et le **journal Hadoop Service**. Vous pouvez développer davantage les entités.
 
-Une fois connecté à votre abonnement Azure, vous pouvez effectuer les tâches suivantes :
+Une fois connecté à votre abonnement Azure, vous serez en mesure d’effectuer les opérations suivantes :
 
 **Pour vous connecter au Portail de gestion à partir de Visual Studio**
 
@@ -97,8 +97,8 @@ Le test du script Hive sur un cluster HDInsight est chronophage. Il peut durer p
 
 HDInsight Tools pour Visual Studio permet également aux utilisateurs de consulter le contenu de la tâche Hive en collectant et en exposant les journaux YARN de tâches Hive données.
 
-###Afficher la table Hive **hivesampletable**
-Les clusters HDInsight sont fournis avec un exemple de table Hive qui porte le nom *hivesampletable*. Nous allons utiliser cette table pour vous montrer comment répertorier les tables Hive, afficher les schémas de table et examiner les lignes de la table Hive.
+### Afficher la table Hive **hivesampletable**
+Les clusters HDInsight sont fournis avec un exemple de table Hive qui porte le nom *hivesampletable*. Nous allons utiliser ce tableau pour vous montrer comment répertorier des tables Hive, afficher des schémas de table et répertorier les lignes de la table Hive.
 
 
 
@@ -113,7 +113,7 @@ Les clusters HDInsight sont fournis avec un exemple de table Hive qui porte le n
 
 	![Outils Hadoop : requête de schéma Hive HDinsight Visual Studio][6]
 
-###Créer des tables Hive
+### Créer des tables Hive
 
 Vous pouvez utiliser des requêtes Hive ou utiliser la GUI pour créer une table Hive. Pour plus d’informations relatives à l’utilisation de requêtes Hive, consultez [Exécution de requêtes Hive](#run.queries).
 
@@ -125,7 +125,7 @@ Vous pouvez utiliser des requêtes Hive ou utiliser la GUI pour créer une table
 
 	![Outils Hadoop : outils HDInsight Visual Studio pour la création d’une table Hive][7]
 
-###<a name="run.queries"></a>Validation et exécution de requêtes Hive
+### <a name="run.queries"></a>Validation et exécution de requêtes Hive
 Vous pouvez créer et exécuter des requêtes Hive de deux manières :
 
 - Création de requêtes ad hoc
@@ -135,7 +135,7 @@ Vous pouvez créer et exécuter des requêtes Hive de deux manières :
 
 1. Dans l’**Explorateur de serveurs**, développez **Azure**, puis **Clusters HDInsight**.
 2. Cliquez avec le bouton droit sur le cluster dans lequel vous souhaitez exécuter la requête, puis cliquez sur **Écrire une requête Hive**.
-3. Entrez les requêtes Hive. Notez que l’éditeur Hive prend en charge IntelliSense. Les outils HDInsight pour Visual Studio prennent en charge le chargement des métadonnées distantes pendant la modification d’un script Hive. Par exemple, lorsque vous tapez « SELECT * FROM », IntelliSense répertorie tous les noms de table suggérés. Lorsqu’un nom de table est spécifié, les noms de colonne sont répertoriés par IntelliSense. Cet outil prend en charge pratiquement toutes les instructions DML Hive, les sous-requêtes et les fonctions UDF intégrées.
+3. Entrez les requêtes Hive. Notez que l’éditeur Hive prend en charge IntelliSense. Les outils HDInsight pour Visual Studio prennent en charge le chargement des métadonnées distantes pendant la modification d’un script Hive. Par exemple, lorsque vous tapez « SELECT * FROM », IntelliSense répertorie tous les noms de table suggérés. Lorsqu’un nom de table est spécifié, les noms de colonne sont répertoriés par IntelliSense. L’outil prend en charge quasiment toutes les instructions DML, sous-requêtes et fonctions définies par l’utilisateur intégrées de Hive.
 
 	![Outils Hadoop : IntelliSense dans Visual Studio Tools pour HDInsight][13]
 
@@ -146,11 +146,11 @@ Vous pouvez créer et exécuter des requêtes Hive de deux manières :
 
 	![Outils Hadoop : validation locale des outils HDInsight pour Visual Studio.][10]
 
-4. Cliquez sur **Envoyer** ou sur **Envoyer (Avancé)**. Avec l’option d’envoi avancé, vous configurez le **Nom de la tâche**, les **Arguments**, des **Configurations supplémentaires** et le **Répertoire d’état** pour le script :
+4. Cliquez sur **Envoyer** ou sur **Envoyer (Avancé)**. Avec l’option d’envoi avancé, vous allez configurer les éléments **Nom de la tâche**, **Arguments**, **Configurations supplémentaires** et **Répertoire d’états** pour le script :
 
 	![requête hdinsight hadoop hive][9]
 
-	Une fois la tâche envoyée, la fenêtre **Résumé des tâches Hive** apparaît.
+	Après avoir soumis la tâche, la fenêtre **Récapitulatif de la tâche Hive** s’affiche.
 
 	![Résumé d'une requête HDInsight Hadoop Hive][8]
 5. Utilisez le bouton **Actualiser** pour mettre à jour l’état jusqu’à ce qu’il passe à **Terminé**.
@@ -168,7 +168,7 @@ Vous pouvez créer et exécuter des requêtes Hive de deux manières :
 4. Pour valider le script Hive, vous pouvez cliquer sur le bouton **Valider le script**, ou cliquer avec le bouton droit sur le script dans l’éditeur Hive, puis sur **Valider le script** dans le menu contextuel.
 
 
-###Afficher les tâches Hive
+### Afficher les tâches Hive
 Vous pouvez afficher les requêtes, la sortie, le journal et le journal Yarn des tâches Hive. Pour plus d'informations, consultez la capture d’écran précédente.
 
 La version la plus récente de l’outil permet de consulter le contenu de vos tâches Hive en collectant et en exposant les journaux YARN. Le journal YARN peut vous aider à examiner les problèmes de performances. Pour plus d’informations sur la collection des journaux YARN par HDInsight, consultez [Accès par programme aux journaux des applications HDInsight][hdinsight.access.application.logs].
@@ -176,14 +176,14 @@ La version la plus récente de l’outil permet de consulter le contenu de vos t
 **Pour afficher les tâches Hive**
 
 1. Dans l’**Explorateur de serveurs**, développez **Azure**, puis **HDInsight**.
-2. Cliquez avec le bouton droit sur un cluster HDInsight, puis cliquez sur **Afficher les tâches Hive**. La liste des tâches Hive exécutées sur le cluster s’affiche.
+2. Cliquez avec le bouton droit sur un cluster HDInsight, puis cliquez sur **Afficher les tâches Hive**. Vous verrez une liste des tâches Hive exécutées sur le cluster.
 3. Cliquez sur une tâche dans la liste des tâches pour la sélectionner, puis utilisez la fenêtre **Résumé des tâches Hive** pour ouvrir **Requête de tâche**, **Sortie de la tâche**, **Journal de la tâche** ou **Journal Yarn**.
 
 	![Outils Hadoop : affichage des tâches Hive dans HDInsight Visual Studio][12]
 
 ### Graphique de performances des travaux Hive sur Tez
 
-Visual Studio Tools pour HDInsight prend en charge l’affichage des graphiques de performances pour les travaux Hive exécutés par le moteur d’exécution Tez. Pour plus d’informations sur l’activation de Tez, consultez [Utiliser Hive dans HDInsight][hdinsight.hive]. Après que vous avez soumis un travail Hive dans Visual Studio, Visual Studio vous affiche le graphique lorsque ce travail est terminé. Vous devrez peut-être cliquer sur le bouton Actualiser pour obtenir le dernier état du travail.
+Visual Studio Tools pour HDInsight prend en charge l’affichage des graphiques de performances pour les travaux Hive exécutés par le moteur d’exécution Tez. Pour plus d’informations sur l’activation de Tez, consultez [Utiliser Hive dans HDInsight][hdinsight.hive]. Après avoir soumis une tâche Hive dans Visual Studio, ce dernier affiche le graphique lorsque cette tâche est terminée. Vous devrez peut-être cliquer sur le bouton **Actualiser** pour obtenir le dernier état du travail.
 
 > [AZURE.NOTE]Cette fonctionnalité est uniquement disponible pour les clusters HDInsight dont la version est supérieure à la version 3.2.4.593 et elle ne peut fonctionner que pour les travaux terminés. Elle fonctionne pour les clusters basés sur Windows et Linux.
 
@@ -236,4 +236,4 @@ Dans cet article, vous avez appris à établir une connexion à des clusters HDI
 
 [apache.hive]: http://hive.apache.org
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

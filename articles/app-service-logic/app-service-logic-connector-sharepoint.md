@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Créer un connecteur SharePoint à utiliser dans votre application logique"
-	description="Créer un connecteur SharePoint ; Utilisation du connecteur SharePoint dans votre application logique"
+   pageTitle="Utilisation du connecteur SharePoint dans des applications logiques | Microsoft Azure App Service"
+	description="Comment créer et configurer le connecteur SharePoint ou une application API et l'utiliser dans une application logique d’Azure App Service"
 	services="app-service\logic"
 	documentationCenter=".net,nodejs,java"
 	authors="anuragdalmia"
@@ -13,14 +13,15 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="integration"
-	ms.date="08/19/2015"
+	ms.date="08/23/2015"
 	ms.author="sameerch"/>
 
-# Utilisation du connecteur SharePoint dans votre application logique
-
-Les applications logiques peuvent se déclencher selon diverses sources de données et proposent des connecteurs pour obtenir et traiter les données dans le cadre du flux. Le connecteur Microsoft SharePoint vous permet de vous connecter à Microsoft SharePoint Server ou SharePoint Online et de gérer des documents et des éléments de liste. Vous pouvez effectuer diverses actions, comme créer, mettre à jour, obtenir et supprimer des documents et éléments de liste. Avec un serveur SharePoint local, vous entrez la chaîne de connexion Service Bus dans le cadre de la configuration du connecteur et installer l'agent détecteur local pour la connexion au serveur.
+# Prise en main du connecteur SharePoint et ajout de celui-ci à votre application logique
+Connexion à SharePoint Server ou à SharePoint Online et permet de gérer des documents et des éléments de liste. Vous pouvez effectuer diverses actions, comme créer, mettre à jour, obtenir et supprimer des documents et éléments de liste. Avec un serveur SharePoint local, vous entrez la chaîne de connexion Service Bus dans le cadre de la configuration du connecteur et installer l'agent détecteur local pour la connexion au serveur.
 
 L'application de la galerie des connecteurs SharePoint Online et SharePoint Server vous propose des déclencheurs et des actions en tant que mécanismes pour interagir avec SharePoint.
+
+Les applications logiques peuvent se déclencher selon diverses sources de données et proposent des connecteurs pour obtenir et traiter les données dans le cadre du flux. Vous pouvez ajouter le connecteur SharePoint à votre flux de travail professionnel et traiter les données dans le cadre de ce flux de travail dans une application logique.
 
 ## Créer un connecteur SharePoint Online
 
@@ -89,11 +90,13 @@ Une fois votre application API créée, vous pouvez utiliser le connecteur Share
 6. Octroyez aux applications logiques l'accès à votre compte pour effectuer l'opération en votre nom : <br/>
  ![][5]
 
-7. Si le connecteur SharePoint est configuré en tant que déclencheur, les déclencheurs sont affichés. Sinon, une liste des actions s'affiche et vous pouvez choisir l'opération appropriée à effectuer : <br/>
- ![][6] <br/>
- **URL relative configurée pour la bibliothèque de documents** <br/>
- ![][7] <br/>
- **URL relative configurée pour la liste de documents**
+7. Si le connecteur SharePoint est configuré en tant que déclencheur, les déclencheurs sont affichés. Sinon, une liste des actions s'affiche dans laquelle vous pouvez choisir l'opération appropriée à exécuter :
+![][6]
+  
+**URL relative configurée pour la bibliothèque de documents**
+![][7]
+
+**URL relative configurée pour la liste de documents**
 
 > [AZURE.NOTE]Pour les déclencheurs suivants, l'utilisateur est supposé avoir spécifié « Documents partagés, Listes/Tâches » dans les paramètres de package du connecteur, où « Documents partagés » est une bibliothèque de documents et « Listes/Tâches » est une liste.
 
@@ -486,4 +489,4 @@ Vous pouvez également consulter les statistiques de performances et contrôler 
 [6]: ./media/app-service-logic-connector-sharepoint/image_5.png
 [7]: ./media/app-service-logic-connector-sharepoint/image_6.png
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

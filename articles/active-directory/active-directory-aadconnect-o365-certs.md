@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Instructions de renouvellement des certificats pour les utilisateurs Office 365 et Azure AD." 
-	description="Cet article explique aux utilisateurs d’Office 365 comment procéder s’ils reçoivent un e-mail les invitant à renouveler un certificat." 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="swadhwa" 
+	pageTitle="Instructions de renouvellement des certificats pour les utilisateurs Office 365 et Azure AD."
+	description="Cet article explique aux utilisateurs d’Office 365 comment procéder s’ils reçoivent un e-mail les invitant à renouveler un certificat."
+	services="active-directory"
+	documentationCenter=""
+	authors="billmath"
+	manager="stevenpo"
 	editor="curtand"/>
 
 <tags 
-	ms.service="active-directory" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/10/2015" 
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/24/2015"
 	ms.author="billmath"/>
 
 
@@ -85,4 +85,4 @@ Vous devez alors voir apparaître deux certificats, dont l’un présente une da
 
 >[AZURE.NOTE]Si vous avez besoin de prendre en charge plusieurs domaines de premier niveau, par exemple contoso.com et fabrikam.com, vous devez utiliser le commutateur SupportMultipleDomain avec les applets de commande. Pour plus d’informations, voir l’article concernant la prise en charge de plusieurs domaines de premier niveau. Pour finir, vérifiez que tous les serveurs Proxy d’application Web sont mis à jour avec le correctif cumulatif de [mai 2014 pour Windows Server](http://support.microsoft.com/kb/2955164) ; dans le cas contraire, les proxys risquent de ne pas se mettre à jour avec le nouveau certificat, ce qui entraînera une panne.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

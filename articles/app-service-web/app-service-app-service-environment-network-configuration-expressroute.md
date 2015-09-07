@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Détails de la configuration réseau pour travailler avec ExpressRoute" 
-	description="Détails de la configuration réseau pour exécuter des environnements App Service sur des réseaux virtuels connectés à un circuit ExpressRoute." 
-	services="app-service\web" 
-	documentationCenter="" 
-	authors="stefsch" 
-	manager="nirma" 
+	pageTitle="Détails de la configuration réseau pour travailler avec ExpressRoute"
+	description="Détails de la configuration réseau pour exécuter des environnements App Service sur des réseaux virtuels connectés à un circuit ExpressRoute."
+	services="app-service\web"
+	documentationCenter=""
+	authors="stefsch"
+	manager="nirma"
 	editor=""/>
 
 <tags 
-	ms.service="app-service-web" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/30/2015" 
+	ms.service="app-service-web"
+	ms.workload="web"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="06/30/2015"
 	ms.author="stefsch"/>
 
 # Détails de la configuration réseau pour les environnements App Service avec ExpressRoute 
@@ -113,12 +113,12 @@ Pour plus d’informations sur la plateforme Azure App Service, consultez la rub
 [UDRHowTo]: http://azure.microsoft.com/documentation/articles/virtual-networks-udr-how-to/
 [HowToCreateAnAppServiceEnvironment]: http://azure.microsoft.com/documentation/articles/app-service-web-how-to-create-an-app-service-environment/
 [AzureDownloads]: http://azure.microsoft.com/downloads/
-[DownloadCenterAddressRanges]: http://www.microsoft.com/fr-fr/download/details.aspx?id=41653
-[NetworkSecurityGroups]: https://msdn.microsoft.com/library/azure/dn848316.aspx
+[DownloadCenterAddressRanges]: http://www.microsoft.com/download/details.aspx?id=41653
+[NetworkSecurityGroups]: https://azure.microsoft.com/documentation/articles/virtual-networks-nsg/
 [AzureAppService]: http://azure.microsoft.com/documentation/articles/app-service-value-prop-what-is/
 [IntroToAppServiceEnvironment]: http://azure.microsoft.com/documentation/articles/app-service-app-service-environment-intro/
  
 
 <!-- IMAGES -->
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

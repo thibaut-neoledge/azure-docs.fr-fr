@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Intégration d'annuaires entre Azure Multi-Factor Authentication et Active Directory" 
-	description="Il s'agit de la page d'authentification multifacteur Azure qui décrit comment intégrer le serveur Azure Multi-Factor Authentication avec Active Directory afin de pouvoir synchroniser les annuaires." 
-	services="multi-factor-authentication" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="swadhwa" 
+	pageTitle="Intégration d'annuaires entre Azure Multi-Factor Authentication et Active Directory"
+	description="Il s'agit de la page d'authentification multifacteur Azure qui décrit comment intégrer le serveur Azure Multi-Factor Authentication avec Active Directory afin de pouvoir synchroniser les annuaires."
+	services="multi-factor-authentication"
+	documentationCenter=""
+	authors="billmath"
+	manager="stevenpo"
 	editor="curtand"/>
 
 <tags 
-	ms.service="multi-factor-authentication" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/14/2015" 
+	ms.service="multi-factor-authentication"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/24/2015"
 	ms.author="billmath"/>
 
 # Intégration d'annuaires entre le serveur Azure MFA et Active Directory
@@ -137,4 +137,4 @@ Il est possible de configurer des serveurs MFA supplémentaires en tant que prox
 
 ![Serveurs MFA](./media/multi-factor-authentication-get-started-server-dirint/dirint6.png)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Raisons de la nécessité d’un compte administrateur d’entreprise" 
-	description="Description de la configuration personnalisée." 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="swadhwa" 
+	pageTitle="Raisons de la nécessité d’un compte administrateur d’entreprise"
+	description="Description de la configuration personnalisée."
+	services="active-directory"
+	documentationCenter=""
+	authors="billmath"
+	manager="stevenpo"
 	editor="curtand"/>
 
 <tags 
-	ms.service="active-directory" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/28/2015" 
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/24/2015"
 	ms.author="billmath"/>
 
 # Raisons de la nécessité d’un compte administrateur d’entreprise pour se connecter à AD DS lors de la configuration d’Azure AD Connect
@@ -31,6 +31,6 @@ Pour la configuration rapide et la mise à niveau de la synchronisation d’annu
 
 * [Informations supplémentaires sur les autorisations et les comptes Azure AD Connect](active-directory-aadconnect-account-summary.md)
 * [Installation personnalisée d’Azure AD Connect](active-directory-aadconnect-get-started-custom.md)
-* [Azure AD Connect sur MSDN](https://msdn.microsoft.com/library/azure/dn832695.aspx) 
+* [Azure AD Connect sur MSDN](active-directory-aadconnect.md) 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

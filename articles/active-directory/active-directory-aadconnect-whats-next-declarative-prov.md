@@ -1,21 +1,21 @@
 
 
 <properties 
-	pageTitle="Utilisation de l’approvisionnement déclaratif d’Azure AD Connect" 
-	description="Apprenez à utiliser l’approvisionnement déclaratif d’Azure AD Connect." 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="swadhwa" 
+	pageTitle="Utilisation de l’approvisionnement déclaratif d’Azure AD Connect"
+	description="Apprenez à utiliser l’approvisionnement déclaratif d’Azure AD Connect."
+	services="active-directory"
+	documentationCenter=""
+	authors="billmath"
+	manager="stevenpo"
 	editor="curtand"/>
 
 <tags 
-	ms.service="active-directory" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/28/2015" 
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/24/2015"
 	ms.author="billmath"/>
 
 # Approvisionnement déclaratif d’Azure AD Connect
@@ -28,4 +28,4 @@ Le langage d’expression utilisé dans le flux d’attributs constitue une part
 
 Pour plus d’informations sur le langage d’expression, consultez [Présentation des expressions de l’approvisionnement déclaratif](https://msdn.microsoft.com/library/azure/dn801048.aspx)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

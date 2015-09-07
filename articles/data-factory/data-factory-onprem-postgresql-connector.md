@@ -1,24 +1,22 @@
 <properties 
-	pageTitle="Connecteur PostgreSQL - Déplacement de données à partir de PostgreSQL" 
-	description="En savoir plus sur le connecteur PostgreSQL pour le service Data Factory qui vous permet de déplacer des données depuis une base de données PostgreSQL" 
-	services="data-factory" 
-	documentationCenter="" 
-	authors="spelluru" 
-	manager="jhubbard" 
+	pageTitle="Déplacer des données depuis PostgreSQL | Azure Data Factory"
+	description="Découvrez comment déplacer des données depuis une base de données PostgreSQL à l’aide d’Azure Data Factory."
+	services="data-factory"
+	documentationCenter=""
+	authors="spelluru"
+	manager="jhubbard"
 	editor="monicar"/>
 
-
 <tags 
-	ms.service="data-factory" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/29/2015" 
+	ms.service="data-factory"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/26/2015"
 	ms.author="spelluru"/>
 
-
-# Connecteur PostgreSQL - Déplacement de données à partir de PostgreSQL à l’aide d’Azure Data Factory
+# Déplacer des données depuis PostgreSQL à l’aide d’Azure Data Factory
 
 Cet article explique comment utiliser l'activité de copie d’une fabrique de données Azure pour déplacer des données de PostgreSQL vers un autre magasin de données. Cet article s'appuie sur l'article des [activités de déplacement des données](data-factory-data-movement-activities.md) qui présente une vue d'ensemble du déplacement des données avec l'activité de copie et les combinaisons de magasins de données prises en charge.
 
@@ -36,11 +34,11 @@ Pour que la passerelle de gestion des données puisse se connecter à la base de
 
 L’exemple ci-dessous présente les éléments suivants :
 
-1.	Un service lié de type OnPremisesPostgreSql.
-2.	Un service lié de type AzureStorage.
-3.	Un jeu de données d'entrée de type RelationalTable.
-4.	Un jeu de données de sortie de type BlobSink.
-4.	Le pipeline avec une activité de copie qui utilise RelationalSource et BlobSink. 
+1.	Un service lié de type [OnPremisesPostgreSql](data-factory-onprem-postgresql-connector.md#postgresql-linked-service-properties).
+2.	Un service lié de type [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties).
+3.	Un [jeu de données](data-factory-create-datasets.md) d’entrée de type [RelationalTable](data-factory-onprem-postgresql-connector.md#postgresql-dataset-type-properties).
+4.	Un [jeu de données](data-factory-create-datasets.md) de sortie de type [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties).
+4.	Le [pipeline](data-factory-create-pipelines.md) avec une activité de copie qui utilise [RelationalSource](data-factory-onprem-postgresql-connector.md#postgresql-copy-activity-type-properties) et [BlobSink](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties). 
 
 L'exemple copie toutes les heures les données de résultat d’une requête de base de données PostgreSQL vers un objet blob. Les propriétés JSON utilisées dans ces exemples sont décrites dans les sections suivant les exemples.
 
@@ -216,18 +214,20 @@ Le tableau suivant fournit la description des éléments JSON spécifiques au se
 
 Propriété | Description | Requis
 -------- | ----------- | --------
-type | Le type de propriété doit être défini sur : **OnPremisesPostgreSql** | Oui
+type | Le type de propriété doit être défini sur : **OnPremisesPostgreSql** | Oui
 server | Nom du serveur PostgreSQL. | Oui 
 database | Nom de la base de données PostgreSQL. | Oui 
 schema | Nom du schéma dans la base de données. | Non 
 authenticationType | Type d'authentification utilisé pour se connecter à la base de données PostgreSQL. Les valeurs possibles sont : Anonyme, De base et Windows. | Oui 
 username | Spécifiez le nom d'utilisateur si vous utilisez l'authentification de base ou Windows. | Non 
-password | Spécifiez le mot de passe du compte d’utilisateur que vous avez spécifié pour le nom d'utilisateur. | Non 
+password | Spécifiez le mot de passe du compte d’utilisateur que vous avez spécifié pour le nom d’utilisateur. | Non 
 gatewayName | Nom de la passerelle que le service Data Factory doit utiliser pour se connecter à la base de données PostgreSQL locale. | Oui 
+
+Pour plus d’informations sur la définition des informations d’identification pour une source de données PostgreSQL locale, consultez [Configuration des informations d’identification et de la sécurité](data-factory-move-data-between-onprem-and-cloud.md#setting-credentials-and-security)
 
 ## Propriétés de type du jeu de données PostgreSQL
 
-Pour obtenir une liste complète des sections et propriétés disponibles pour la définition de jeux de données, consultez l'article [Création de jeux de données](data-factory-create-datasets.md). Les sections comme la structure, la disponibilité et la stratégie d'un jeu de données JSON sont similaires pour tous les types de jeux de données (SQL Azure, Azure Blob, Azure Table, etc.).
+Pour obtenir une liste complète des sections et propriétés disponibles pour la définition de jeux de données, consultez l’article [Création de jeux de données](data-factory-create-datasets.md). Les sections comme la structure, la disponibilité et la stratégie d'un jeu de données JSON sont similaires pour tous les types de jeux de données (SQL Azure, Azure Blob, Azure Table, etc.).
 
 La section typeProperties est différente pour chaque type de jeu de données et fournit des informations sur l'emplacement des données dans le magasin de données. La section typeProperties pour le jeu de données de type **RelationalTable** (qui inclut le jeu de données PostgreSQL) a les propriétés suivantes.
 
@@ -237,11 +237,11 @@ TableName | Nom de la table dans l'instance de base de données PostgreSQL à la
 
 ## Propriétés de type de l'activité de copie PostgreSQL.
 
-Pour obtenir la liste complète des sections et des propriétés disponibles pour la définition des activités, consultez l'article [Création de pipelines](data-factory-create-pipelines.md). Les propriétés telles que le nom, la description, les tables d'entrée et de sortie, les différentes stratégies, etc. sont disponibles pour tous les types d'activités.
+Pour obtenir la liste complète des sections et des propriétés disponibles pour la définition des activités, consultez l’article [Création de pipelines](data-factory-create-pipelines.md). Les propriétés telles que le nom, la description, les tables d'entrée et de sortie, les différentes stratégies, etc. sont disponibles pour tous les types d'activités.
 
 Par contre, les propriétés disponibles dans la section typeProperties de l'activité varient avec chaque type d'activité et dans le cas de l'activité de copie, elles varient selon les types de sources et de récepteurs.
 
-Dans le cas d’une activité de copie, lorsque la source est de type **RelationalSource**(qui inclut PostgreSQL), les propriétés suivantes sont disponibles dans la section typeProperties :
+Dans le cas d’une activité de copie, lorsque la source est de type **RelationalSource**(qui inclut PostgreSQL), les propriétés suivantes sont disponibles dans la section type Properties :
 
 Propriété | Description | Valeurs autorisées | Requis
 -------- | ----------- | -------------- | --------
@@ -251,9 +251,9 @@ query | Utilise la requête personnalisée pour lire des données. | Chaîne de 
 
 ## Mappage de type pour PostgreSQL
 
-Comme mentionné dans l’article consacré aux [activités de déplacement des données](data-factory-data-movement-activities.md), l’activité de copie convertit automatiquement des types source en types récepteur à l’aide de l’approche en 2 étapes suivante :
+Comme mentionné dans l’article consacré aux [activités de déplacement des données](data-factory-data-movement-activities.md), l’activité de copie convertit automatiquement des types source en types récepteur à l’aide de l’approche en 2 étapes suivante :
 
-1. Conversion de types natifs source en types .NET
+1. Conversion à partir de types de source natifs en types .NET
 1. Conversion de types .NET en types récepteur natifs
 
 Lors du déplacement de données vers PostgreSQL, les mappages suivants seront utilisés pour passer du type PostgreSQL au type .NET.
@@ -263,13 +263,13 @@ Type de base de données PostgreSQL |	Alias PostgresSQL | Type de .NET Framework
 abstime | | Datetime
 bigint | int8 | Int64
 bigserial | serial8 | Int64
-bit [ (n) \] | | Byte, String
-bit varying [ (n) \] | varbit | Byte, String
+bit [ (n) ] | | Byte, String
+bit varying [ (n) ] | varbit | Byte, String
 booléenne | valeur booléenne | Boolean
 box | | Byte, String
 bytea | | Byte, String
-character [ (n) \] | char [ (n) \] | String
-character varying [ (n) \] | varchar [ (n) \] | String
+character [ (n) ] | char [ (n) ] | String
+character varying [ (n) ] | varchar [ (n) ] | String
 cid | | String
 cidr | | String
 circle | | Byte, String
@@ -281,14 +281,14 @@ intarry | | String
 int4range | | String
 int8range | | String
 integer | int, int4 | Int32
-interval [ fields \] [ (p) \] | | Timespan
+interval [ fields ] [ (p) ] | | Timespan
 json | | String
 jsonb | | Byte
 line | | Byte, String
 lseg | | Byte, String
 macaddr | | Byte, String
 money | | Décimal
-numeric [ (p, s) \] | decimal [ (p, s) \] | Décimal
+numeric [ (p, s) ] | decimal [ (p, s) ] | Décimal
 numrange | | String
 oid | | Int32
 path | | Byte, String
@@ -306,4 +306,4 @@ texte | | String
 
 [AZURE.INCLUDE [data-factory-type-repeatability-for-relational-sources](../../includes/data-factory-type-repeatability-for-relational-sources.md)]
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

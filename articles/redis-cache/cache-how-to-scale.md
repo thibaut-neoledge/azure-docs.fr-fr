@@ -1,26 +1,26 @@
 <properties 
-	pageTitle="Mise à l’échelle du cache Azure Redis" 
-	description="Apprenez comment mettre à l’échelle vos instances de cache Redis Azure." 
-	services="redis-cache" 
-	documentationCenter="" 
-	authors="steved0x" 
-	manager="dwrede" 
+	pageTitle="Mise à l’échelle du cache Azure Redis"
+	description="Apprenez comment mettre à l’échelle vos instances de cache Redis Azure."
+	services="redis-cache"
+	documentationCenter=""
+	authors="steved0x"
+	manager="dwrede"
 	editor=""/>
 
 <tags 
-	ms.service="cache" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="cache-redis" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/18/2015" 
+	ms.service="cache"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="cache-redis"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/25/2015"
 	ms.author="sdanie"/>
 
 # Mise à l’échelle du cache Azure Redis
 
 >[AZURE.NOTE]La fonctionnalité de mise à l’échelle du cache Redis Azure est actuellement en version préliminaire.
 
-Le cache Redis Azure offre différents types de caches, permettant de choisir parmi plusieurs tailles et fonctionnalités de caches en toute flexibilité. Si les prérequis de votre application changent après la création d’un cache, vous pouvez mettre à l’échelle la taille du cache en utilisant le panneau **Changer le niveau de tarification** dans le [Portail Azure](https://portal.azure.com).
+Le cache Redis Azure offre différents types de caches, permettant de choisir parmi plusieurs tailles et fonctionnalités de caches en toute flexibilité. Si les prérequis de votre application changent après la création d’un cache, vous pouvez mettre à l’échelle la taille du cache en utilisant le panneau **Changer le niveau de tarification** dans la [version préliminaire du portail Azure](https://portal.azure.com).
 
 >[AZURE.NOTE]Lorsque vous mettez à l’échelle un cache Redis Azure, vous pouvez modifier sa taille, mais vous ne pouvez pas passer d’un cache Standard à un cache De base et vice versa.
 
@@ -38,7 +38,7 @@ Vous pouvez surveiller les mesures suivantes pour déterminer si vous avez besoi
 Si vous déterminez que votre cache ne répond plus aux besoins de votre application, vous pouvez passer à un niveau de tarification de cache plus important ou plus réduit, adapté à votre application. Pour plus d’informations sur la détermination des niveaux de tarification de cache à utiliser, consultez la section [Quelle offre et quelle taille de cache Redis utiliser ?](cache-faq.md#what-redis-cache-offering-and-size-should-i-use).
 
 ## Mise à l’échelle d’un cache
-Pour mettre à l’échelle votre cache, [accédez au cache](https://msdn.microsoft.com/library/azure/dn793612.aspx#RedisCacheConfiguration) dans le [portail Azure](https://portal.azure.com) et cliquez sur la section **Niveau Standard** ou **Niveau De base** du panneau **Cache Redis**.
+Pour mettre à l’échelle votre cache, [accédez au cache](cache-configure.md#configure-redis-cache-settings) dans la [version préliminaire du portail](https://portal.azure.com) et cliquez sur la section **Niveau Standard** ou **Niveau De base** du panneau **Cache Redis**.
 
 ![Niveau de tarification][redis-cache-pricing-tier-part]
 
@@ -58,12 +58,12 @@ Une fois la mise à l’échelle terminée, le statut passe de **Mise à l’éc
 
 ## Automatisation d’une opération de mise à l’échelle
 
-En plus de la mise à l’échelle de votre instance de cache Redis Azure dans le portail Azure, vous pouvez effectuer une mise à l’échelle en utilisant les [Bibliothèques de gestion Microsoft Azure](http://azure.microsoft.com/updates/management-libraries-for-net-release-announcement/). Pour mettre à l’échelle votre cache, appelez la méthode `IRedisOperations.CreateOrUpdate` et transmettez la nouvelle taille pour la `RedisProperties.SKU.Capacity`.
+En plus de la mise à l’échelle de votre instance de cache Redis Azure dans la version préliminaire du portail, vous pouvez effectuer une mise à l’échelle en utilisant les [Bibliothèques de gestion Microsoft Azure](http://azure.microsoft.com/updates/management-libraries-for-net-release-announcement/). Pour mettre à l’échelle votre cache, appelez la méthode `IRedisOperations.CreateOrUpdate` et transmettez la nouvelle taille pour la `RedisProperties.SKU.Capacity`.
 
     static void Main(string[] args)
     {
         // For instructions on getting the access token, see
-        // https://msdn.microsoft.com/fr-fr/library/azure/dn790557.aspx#bk_portal
+        // https://azure.microsoft.com/documentation/articles/cache-configure/#access-keys
         string token = GetAuthorizationHeader();
 
         TokenCloudCredentials creds = new TokenCloudCredentials(subscriptionId,token);
@@ -120,7 +120,7 @@ Une mise à l’échelle prend environ 20 minutes, selon la quantité de donné
 
 ## Comment savoir quand la mise à l’échelle est terminée ?
 
-Le déroulement de l’opération de mise à l’échelle est affiché dans le portail. Une fois la mise à l’échelle terminée, le statut passe à **En cours d’exécution**.
+Le déroulement de l’opération de mise à l’échelle est affiché dans la version préliminaire du portail. Une fois la mise à l’échelle terminée, le statut passe à **En cours d’exécution**.
 
 ## Pourquoi cette fonctionnalité est-elle en version préliminaire ?
 
@@ -138,4 +138,4 @@ Nous publions cette fonctionnalité pour obtenir des commentaires. Selon les com
 
 [redis-cache-scaling]: ./media/cache-how-to-scale/redis-cache-scaling.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

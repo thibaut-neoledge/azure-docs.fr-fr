@@ -1,23 +1,21 @@
 <properties
    pageTitle="Recommandations relatives à l’implémentation de l’API | Microsoft Azure"
-   description="Conseils sur l’implémentation d’une API."
-   services=""
-   documentationCenter="na"
-   authors="dragon119"
-   manager="masimms"
-   editor=""
-   tags=""/>
-
+	description="Conseils sur l’implémentation d’une API."
+	services=""
+	documentationCenter="na"
+	authors="dragon119"
+	manager="masimms"
+	editor=""
+	tags=""/>
 
 <tags
    ms.service="best-practice"
-   ms.devlang="rest-api"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="05/13/2015"
-   ms.author="masashin"/>
-
+	ms.devlang="rest-api"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="na"
+	ms.date="05/13/2015"
+	ms.author="masashin"/>
 
 # Recommandations relatives à l’implémentation de l’API
 
@@ -1063,7 +1061,7 @@ Microsoft Azure offre le [service de gestion des API](http://azure.microsoft.co
 
 Vous trouverez les informations détaillées sur l’exécution de cette tâche sur la page [Gestion des API](http://azure.microsoft.com/services/api-management/) du site Web Microsoft. Le service de gestion des API Microsoft Azure offre également sa propre interface REST. Cette dernière vous permet de développer une interface personnalisée afin de simplifier le processus de configuration d’une API Web. Pour en savoir plus, consultez la page [Informations de référence sur l’API REST de gestion des API Azure](https://msdn.microsoft.com/library/azure/dn776326.aspx) du site Web Microsoft.
 
-> [AZURE.TIP]Microsoft Azure fournit Traffic Manager, à l’aide duquel vous implémentez les fonctionnalités de basculement et d’équilibrage de charge et réduisez la latence sur de multiples instances d’un site Web hébergées dans différentes zones géographiques. Vous pouvez utiliser Microsoft Azure Manager conjointement avec le service de gestion des API, qui peut router les requêtes vers des instances d’un site Web via Microsoft Azure Manager, le cas échéant. Pour plus d’informations, consultez la page [À propos des méthodes d’équilibrage de charge de Traffic Manager](https://msdn.microsoft.com/library/azure/dn339010.aspx) du site Web Microsoft.
+> [AZURE.TIP]Microsoft Azure fournit Traffic Manager, à l’aide duquel vous implémentez les fonctionnalités de basculement et d’équilibrage de charge et réduisez la latence sur de multiples instances d’un site Web hébergées dans différentes zones géographiques. Vous pouvez utiliser Microsoft Azure Manager conjointement avec le service de gestion des API, qui peut router les requêtes vers des instances d’un site Web via Microsoft Azure Manager, le cas échéant. Pour plus d’informations, consultez la page [À propos des méthodes d’équilibrage de charge de Traffic Manager](../traffic-manager/traffic-manager-load-balancing-methods.md) du site Web Microsoft.
 
 > Dans cette structure, si vous utilisez des noms DNS personnalisés pour vos sites Web, vous devez configurer l’enregistrement CNAME approprié afin que chaque site Web pointe sur le nom DNS du site Web Microsoft Azure Traffic Manager.
 
@@ -1149,9 +1147,9 @@ Ces informations peuvent être mises à profit pour déterminer si une API Web 
 - La page [Notification des utilisateurs via Azure Notification Hubs](notification-hubs-aspnet-backend-windows-dotnet-notify-users/) du site Web Microsoft vous indique comment utiliser une unité Microsoft Azure Notification Hub pour transmettre des réponses asynchrones aux applications clientes.
 - La page [Gestion des API](http://azure.microsoft.com/services/api-management/) du site Web Microsoft décrit comment publier un produit procurant un accès contrôlé et sécurisé à une API Web.
 - La page [Informations de référence sur l’API REST de gestion des API Azure](https://msdn.microsoft.com/library/azure/dn776326.aspx) du site Web Microsoft vous décrit comment utiliser une API REST de gestion des API pour développer des applications de gestion personnalisées.
-- La page [À propos des méthodes d’équilibrage de charge de Traffic Manager](https://msdn.microsoft.com/library/azure/dn339010.aspx) du site Web Microsoft décrit succinctement comme Microsoft Azure Traffic Manager peut être utilisé pour équilibrer la charge des requêtes sur plusieurs instances d’un site Web hébergeant une API Web.
+- La page [À propos des méthodes d’équilibrage de charge de Traffic Manager](../traffic-manager/traffic-manager-load-balancing-methods.md) du site Web Microsoft décrit succinctement comme Microsoft Azure Traffic Manager peut être utilisé pour équilibrer la charge des requêtes sur plusieurs instances d’un site Web hébergeant une API Web.
 - La page [Application Insights - Commencer à analyser l’état d’intégrité et l’utilisation de votre application](app-insights-start-monitoring-app-health-usage.md) du site Web Microsoft fournit des informations détaillées sur l’installation et la configuration d’Application Insights dans un projet d’API Web ASP.NET.
 - La page [Vérification du code à l’aide de tests unitaires](https://msdn.microsoft.com/library/dd264975.aspx) du site Web Microsoft fournit des informations détaillées sur la création et la gestion de tests unitaires à l’aide de Visual Studio.
 - La page [Exécuter des tests de performances sur votre application](https://msdn.microsoft.com/library/dn250793.aspx) du site Web Microsoft explique comment utiliser Visual Studio Ultimate pour créer un projet de test de performances Web et de chargement.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

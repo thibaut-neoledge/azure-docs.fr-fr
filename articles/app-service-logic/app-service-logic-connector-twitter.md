@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Utilisation du connecteur Twitter dans Microsoft Azure App Service"
-	description="Utilisation de l’application API du connecteur Twitter"
+   pageTitle="Utilisation du connecteur Twitter dans des applications logiques | Microsoft Azure App Service"
+	description="Comment créer et configurer le connecteur Twitter ou une application API et l'utiliser dans une application logique d’Azure App Service"
 	services="app-service\logic"
 	documentationCenter=".net,nodejs,java"
 	authors="anuragdalmia"
@@ -13,12 +13,11 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="integration"
-	ms.date="08/19/2015"
+	ms.date="08/23/2015"
 	ms.author="sameerch"/>
 
 
-# Connecteur Twitter
-
+# Prise en main du connecteur Twitter et ajout de celui-ci dans votre application logique
 Connectez-vous à votre flux Twitter pour publier des tweets, lire ceux publiés sur votre fil d’actualités et celui de vos amis et découvrir les abonnés à votre compte Twitter. Les connecteurs peuvent être utilisés dans les applications logiques pour extraire, traiter ou placer des données dans le cadre d'un « flux ». En utilisant le connecteur Twitter dans votre flux de travail, vous pouvez obtenir une multitude de scénarios. Vous pouvez, par exemple :
 
 - Lire les nouveaux tweets associés à un mot-clé ou à un texte donné. Lorsqu’un nouveau tweet est récupéré, il déclenche une nouvelle instance de votre flux de travail et transfère les données vers le connecteur suivant dans votre flux de travail. Par exemple, vous créez un connecteur Twitter et utilisez le déclencheur « Nouveau tweet après recherche » pour surveiller #peanutbutterandjelly. Chaque fois qu’un nouveau tweet contenant #peanutbutterandjelly est publié, votre flux de travail (c’est-à-dire l’application logique) démarre automatiquement.
@@ -49,12 +48,10 @@ Un connecteur peut être créé dans une application logique ou directement à p
 1. Créez une application Twitter gratuite à l'adresse [http://apps.twitter.com](http://apps.twitter.com)
     * Lors de l'inscription de l'application, vous pouvez saisir n'importe quelle URL pour le site Web et laisser vide l'URL de rappel.
 2. Dans le tableau d'accueil Azure, sélectionnez **Marketplace**.
-2. Recherchez « Connecteur Twitter ».
-3. Sélectionnez le « Connecteur Twitter » et cliquez sur « Créer ». Cette action ouvre le panneau Créer.
-3. Cliquez sur les « Paramètres du package » et copiez-collez la « Clé du client » de votre application Twitter dans le champ « clientId ». Copiez-collez la « Question secrète du client » de votre application Twitter dans le champ « clientSecret ». ![][10]
-4. Entrez les autres paramètres requis : nom du connecteur, App Service et groupe de ressources.
-	![][1]
-5.	Cliquez sur **Create**.
+3. Recherchez « Connecteur Twitter », sélectionnez-le et sélectionnez **Créer**.
+4. Cliquez sur les « Paramètres du package » et copiez-collez la « Clé du client » de votre application Twitter dans le champ « clientId ». Copiez-collez la « Question secrète du client » de votre application Twitter dans le champ « clientSecret » : ![][10]
+5. Entrez les autres paramètres requis : nom du connecteur, App Service et groupe de ressources.
+6.	Cliquez sur **Create**.
 
 > [AZURE.NOTE]Si vous souhaitez renforcer la sécurité de votre API Twitter avec l'URL de redirection, vous pouvez consultez la procédure [ici](app-service-logic-oauth-security.md)
 
@@ -62,34 +59,22 @@ Un connecteur peut être créé dans une application logique ou directement à p
 ## Utilisation du connecteur Twitter dans votre application logique
 Une fois votre application API créée, vous pouvez utiliser le connecteur Twitter comme déclencheur/action pour votre application logique. Pour ce faire :
 
-1.	Créez une application logique ou ouvrez une application logique existante :
-
-	![][2]
-2.	Ouvrez **Déclencheurs et actions** pour ouvrir le concepteur Logic Apps :
-
-	![][3]
-3.	Le connecteur Twitter est répertorié sur le côté droit. Sélectionnez-le pour l’ajouter automatiquement à votre application logique :
-
-	![][4]
-4.	Sélectionnez **Autoriser**, entrez vos informations d’identification Twitter, puis sélectionnez **Autoriser l’application** :
-
-	![][5]
+1.	Créez une application logique ou ouvrez une application logique existante : ![][2]
+2.	Ouvrez **Déclencheurs et actions** pour ouvrir le concepteur d’applications logiques : ![][3]
+3.	Le connecteur Twitter est répertorié sur le côté droit. Sélectionnez-le pour l’ajouter automatiquement à votre application logique : ![][4]
+4.	Sélectionnez **Autoriser**, entrez vos informations d’identification Twitter, puis sélectionnez **Autoriser l’application** : ![][5]
 
 
-Vous pouvez maintenant configurer le connecteur Twitter pour créer votre flux de travail. Vous pouvez utiliser les tweets récupérés par le déclencheur Twitter dans d’autres actions du flux :
+Vous pouvez maintenant configurer le connecteur Twitter pour créer votre flux de travail. Vous pouvez utiliser les tweets récupérés par le déclencheur Twitter dans d’autres actions du flux : ![][6]
 
-![][6]
-
-De la même façon, vous pouvez utiliser les actions Twitter dans votre flux. Sélectionnez une action Twitter et configurez les entrées de cette action :
-
-![][7] ![][8]
+De la même façon, vous pouvez utiliser les actions Twitter dans votre flux. Sélectionnez une action Twitter et configurez les entrées de cette action : ![][7] ![][8]
 
 ## En faire plus avec votre connecteur
 Maintenant que le connecteur est créé, vous pouvez l'ajouter à un flux d'entreprise à l'aide d'une application logique. Voir [Que sont les applications logiques ?](app-service-logic-what-are-logic-apps.md).
 
 Affichez la référence d’API REST Swagger sur [Référence de connecteurs et d’applications API](http://go.microsoft.com/fwlink/p/?LinkId=529766).
 
-Vous pouvez également consulter les statistiques de performances et contrôler la sécurité du connecteur. Consultez la page [Gestion et contrôle de vos connecteurs et applications API intégrés](app-service-logic-monitor-your-connectors.md).
+Vous pouvez également consulter les statistiques de performances et contrôler la sécurité du connecteur. Pour plus d'informations, consultez [Gestion et contrôle de vos connecteurs et applications API intégrés](app-service-logic-monitor-your-connectors.md).
 
 <!--Image references-->
 [1]: ./media/app-service-logic-connector-twitter/img1.png
@@ -103,4 +88,4 @@ Vous pouvez également consulter les statistiques de performances et contrôler 
 [9]: ./media/app-service-logic-connector-twitter/settings.PNG
 [10]: ./media/app-service-logic-connector-twitter/TwitterAPISettings.png
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

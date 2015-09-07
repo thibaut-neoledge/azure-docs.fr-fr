@@ -1,20 +1,20 @@
 <properties 
    pageTitle="Configuration d’ExpressRoute avec des fournisseurs de services réseau (NSP)"
-   description="Ce didacticiel vous guide dans la configuration d’ExpressRoute via des NSP"
-   documentationCenter="na"
-   services="expressroute"
-   authors="cherylmc"
-   manager="adinah"
-   editor="tysonn"/>
+	description="Ce didacticiel vous guide dans la configuration d’ExpressRoute via des NSP"
+	documentationCenter="na"
+	services="expressroute"
+	authors="cherylmc"
+	manager="adinah"
+	editor="tysonn"/>
 
 <tags 
    ms.service="expressroute"
-   ms.devlang="na"
-   ms.topic="article" 
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services" 
-   ms.date="06/29/2015"
-   ms.author="cherylmc"/>
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="infrastructure-services"
+	ms.date="06/29/2015"
+	ms.author="cherylmc"/>
 
 #  Configuration d’une connexion ExpressRoute via un fournisseur de services réseau
 
@@ -134,7 +134,7 @@ Windows PowerShell est un environnement de création de scripts vous permettant 
 
 4. **Configurez votre réseau virtuel et votre passerelle.**
 
-	Consultez [Configuration d’un réseau virtuel et d’une passerelle pour ExpressRoute](https://msdn.microsoft.com/library/azure/dn643737.aspx). Notez que le sous-réseau de la passerelle doit être/28 pour pouvoir fonctionner avec une connexion ExpressRoute.
+	Consultez [Configuration d’un réseau virtuel et d’une passerelle pour ExpressRoute](../expressroute/expressroute-configuring-vnet-gateway.md). Notez que le sous-réseau de la passerelle doit être/28 pour pouvoir fonctionner avec une connexion ExpressRoute.
 
 5. **Liez votre réseau à un circuit.**
 
@@ -150,4 +150,4 @@ Windows PowerShell est un environnement de création de scripts vous permettant 
 		
 		Provisioned 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

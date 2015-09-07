@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="08/18/2015" 
+	ms.date="08/18/2015"
 	ms.author="glenga"/>
 
 # Utilisation d'un client .NET pour Azure Mobile Services
@@ -22,7 +22,7 @@
 
 ##Vue d'ensemble
 
-Ce guide vous montre comment exécuter les scénarios courants à l'aide d'un client .NET pour Azure Mobile Services, dans les applications Windows Store et Windows Phone. Les scénarios traités incluent l'interrogation des données, l'insertion, la mise à jour et la suppression des données, l'authentification des utilisateurs et la gestion des erreurs. Si vous débutez avec Mobile Services, suivez l'un des deux didacticiels [Démarrage rapide Mobile Services]() ou [Ajouter Mobile Services à une application existante]().
+Ce guide vous montre comment exécuter les scénarios courants à l'aide d'un client .NET pour Azure Mobile Services, dans les applications Windows Store et Windows Phone. Les scénarios traités incluent l'interrogation des données, l'insertion, la mise à jour et la suppression des données, l'authentification des utilisateurs et la gestion des erreurs. Si vous débutez avec Mobile Services, suivez l'un des deux didacticiels [Démarrage rapide Mobile Services](mobile-services-dotnet-backend-windows-store-dotnet-get-started.md) ou [Ajouter Mobile Services à une application existante](mobile-services-dotnet-backend-windows-universal-dotnet-get-started-data.md).
 
 [AZURE.INCLUDE [mobile-services-concepts](../../includes/mobile-services-concepts.md)]
 
@@ -698,4 +698,4 @@ Cette propriété convertit toutes les propriétés en minuscules lors de la sé
 [Appel d'une API personnalisée à partir du client]: mobile-services-dotnet-backend-windows-store-dotnet-call-custom-api.md
 [InvokeApiAsync]: http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.invokeapiasync.aspx
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

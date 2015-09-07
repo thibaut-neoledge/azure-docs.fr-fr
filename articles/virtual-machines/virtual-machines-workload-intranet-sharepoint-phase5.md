@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Phase 5 de la charge de travail de la batterie de serveurs  SharePoint intranet : Création du groupe de disponibilité et ajout des bases de données SharePoint"
-	description="Dans cette phase finale du déploiement d’une batterie de serveurs SharePoint 2013 intranet uniquement, vous allez créer un groupe de disponibilité et lui ajouter vos bases de données SharePoint."
+	pageTitle="Batterie de serveurs SharePoint Server 2013 - Phase 5 | Microsoft Azure"
+	description="Créez un groupe de disponibilité et ajoutez vos bases de données SharePoint dans la phase 5 de la batterie de serveurs SharePoint Server 2013 dans Azure."
 	documentationCenter=""
 	services="virtual-machines"
 	authors="JoeDavies-MSFT"
@@ -126,4 +126,4 @@ Pour plus d’informations sur SharePoint avec les groupes de disponibilité SQL
 
 [Charge de travail des services d’infrastructure Azure : applications métier à haute disponibilité](virtual-machines-workload-high-availability-lob-application.md)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

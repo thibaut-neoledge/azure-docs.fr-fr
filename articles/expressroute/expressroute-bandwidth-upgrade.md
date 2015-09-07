@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Mettre à niveau dynamiquement la bande passante ExpressRoute | Microsoft Azure"
-   description="Comment augmenter dynamiquement la bande passante d'un circuit ExpressRoute sans interruption de service."
-   services="expressroute"
-   documentationCenter="na"
-   authors="cherylmc"
-   manager="jdial"
-   editor="tysonn" />
+	description="Comment augmenter dynamiquement la bande passante d'un circuit ExpressRoute sans interruption de service."
+	services="expressroute"
+	documentationCenter="na"
+	authors="cherylmc"
+	manager="carolz"
+	editor=""/>
 <tags 
    ms.service="expressroute"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="06/03/2015"
-   ms.author="cherylmc" />
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="infrastructure-services"
+	ms.date="08/25/2015"
+	ms.author="cherylmc"/>
 
 # Mettre à niveau de la bande passante du circuit ExpressRoute de façon dynamique et sans interruption de service
 
@@ -85,4 +85,4 @@ Windows PowerShell est un environnement de création de scripts vous permettant 
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Exemple de code : Logique C# de reconnexion à SQL Database | Microsoft Azure" 
-	description="L’exemple C# inclut une logique de nouvelle tentative robuste permettant d'interagir avec la base de données SQL Azure." 
-	services="sql-database" 
-	documentationCenter="" 
-	authors="MightyPen" 
-	manager="jeffreyg" 
+	pageTitle="Exemple de code : Logique C# de reconnexion à SQL Database | Microsoft Azure"
+	description="L’exemple C# inclut une logique de nouvelle tentative robuste permettant d'interagir avec la base de données SQL Azure."
+	services="sql-database"
+	documentationCenter=""
+	authors="MightyPen"
+	manager="jeffreyg"
 	editor=""/>
 
 
 <tags 
-	ms.service="sql-database" 
-	ms.workload="data-management" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/04/2015" 
+	ms.service="sql-database"
+	ms.workload="data-management"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/04/2015"
 	ms.author="genemi"/>
 
 
@@ -174,7 +174,7 @@ La méthode `Main` se trouve dans `Program.cs`. La pile d'appels s'exécute comm
 	        {
 	            int connectionTimeoutSeconds = 30;  // Default of 15 seconds is too short over the Internet, sometimes.
 	            int maxCountTriesConnectAndQuery = 3;  // You can adjust the various retry count values.
-	            int secondsBetweenRetries = 4;  // Simple retry strategy.
+	            int secondsBetweenRetries = 6;  // Simple retry strategy.
 	
 	            // [A.1] Prepare the connection string to Azure SQL Database.
 	            this.scsBuilder = new C.SqlConnectionStringBuilder();
@@ -496,4 +496,4 @@ La version abrégée permet d’afficher facilement les appels ADO.NET, sachant 
 
 - [Exemples de code de démarrage rapide pour SQL Database](sql-database-develop-quick-start-client-code-samples.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

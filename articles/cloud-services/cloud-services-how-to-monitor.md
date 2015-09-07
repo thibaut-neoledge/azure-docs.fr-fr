@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Surveillance d'un service cloud | Microsoft Azure" 
-	description="Découvrez comment surveiller des services cloud dans le portail de gestion Azure." 
-	services="cloud-services" 
-	documentationCenter="" 
-	authors="rboucher" 
-	manager="jwhit" 
+	pageTitle="Surveillance d'un service cloud | Microsoft Azure"
+	description="Découvrez comment surveiller des services cloud dans le portail de gestion Azure."
+	services="cloud-services"
+	documentationCenter=""
+	authors="rboucher"
+	manager="jwhit"
 	editor=""/>
 
 <tags 
-	ms.service="cloud-services" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/04/2014" 
+	ms.service="cloud-services"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/04/2015"
 	ms.author="robb"/>
 
 
@@ -192,4 +192,4 @@ Par exemple, les tables suivantes stockent les données de la surveillance déta
 	WAD8b7c4233802442b494d0cc9eb9d8dd9fPT1HRITable (hourly aggregations for role instances)
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

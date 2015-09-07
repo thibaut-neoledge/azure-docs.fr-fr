@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Charge de travail des applications métier, phase 1 : configurer Azure" 
-	description="Au cours de cette première phase de déploiement d'une application métier à haute disponibilité dans des services d'infrastructure Azure, vous créez le réseau virtuel Azure et d'autres éléments d'infrastructure Azure." 
+	pageTitle="Application métier - Phase 1 | Microsoft Azure"
+	description="Créez le réseau virtuel et d'autres éléments de l'infrastructure Azure dans la phase 1 de l'application métier dans Azure."
 	documentationCenter=""
-	services="virtual-machines" 
-	authors="JoeDavies-MSFT" 
-	manager="timlt" 
+	services="virtual-machines"
+	authors="JoeDavies-MSFT"
+	manager="timlt"
 	editor=""/>
 
 <tags 
-	ms.service="virtual-machines" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/11/2015" 
+	ms.service="virtual-machines"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/11/2015"
 	ms.author="josephd"/>
 
 # Charge de travail des applications métier, phase 1 : configurer Azure
@@ -60,7 +60,7 @@ Consultez votre service informatique afin de déterminer ces espaces d'adressage
 
 **Table S : sous-réseaux du réseau virtuel**
 
-> [AZURE.NOTE]Cette architecture prédéfinie utilise un sous-réseau unique par souci de simplicité. Si vous voulez superposer un ensemble de filtres de trafic pour émuler l'isolation du sous-réseau, vous pouvez utiliser des [groupes de sécurité réseau](https://msdn.microsoft.com/library/azure/dn848316.aspx) Azure.
+> [AZURE.NOTE]Cette architecture prédéfinie utilise un sous-réseau unique par souci de simplicité. Si vous voulez superposer un ensemble de filtres de trafic pour émuler l'isolation du sous-réseau, vous pouvez utiliser des [groupes de sécurité réseau](virtual-networks-nsg.md) Azure.
 
 Pour les deux serveurs DNS locaux que vous souhaitez utiliser lors de la configuration initiale des contrôleurs de domaine de votre réseau virtuel, remplissez la table D. Donnez à chaque serveur DNS un nom convivial et une adresse IP unique. Ce nom convivial ne doit pas nécessairement correspondre au nom d'hôte ou au nom d'ordinateur du serveur DNS. Notez que deux entrées vides sont répertoriées, mais vous pouvez en ajouter d'autres. Consultez votre service informatique pour déterminer cette liste.
 
@@ -248,4 +248,4 @@ Pour poursuivre la configuration de cette charge de travail, passez à la [Phase
 
 [Charge de travail des services d’infrastructure Azure : batterie de serveurs SharePoint Server 2013](virtual-machines-workload-intranet-sharepoint-farm.md)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

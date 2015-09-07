@@ -1,20 +1,20 @@
 <properties
    pageTitle="Sécuriser une base de données dans SQL Data Warehouse | Microsoft Azure"
-   description="Conseils relatifs à la sécurisation d’une base de données dans Microsoft Azure SQL Data Warehouse, dans le cadre du développement de solutions."
-   services="sql-data-warehouse"
-   documentationCenter="NA"
-   authors="sahaj08"
-   manager="barbkess"
-   editor=""/>
+	description="Conseils relatifs à la sécurisation d’une base de données dans Microsoft Azure SQL Data Warehouse, dans le cadre du développement de solutions."
+	services="sql-data-warehouse"
+	documentationCenter="NA"
+	authors="sahaj08"
+	manager="barbkess"
+	editor=""/>
 
 <tags
    ms.service="sql-data-warehouse"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="data-services"
-   ms.date="06/22/2015"
-   ms.author="sahajs"/>
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="data-services"
+	ms.date="06/22/2015"
+	ms.author="sahajs"/>
 
 # Sécuriser une base de données dans SQL Data Warehouse
 
@@ -58,6 +58,28 @@ Il existe des moyens supplémentaires permettant de limiter les actions de l’u
 La gestion des bases de données et serveurs logiques à partir du portail de gestion Microsoft Azure et l’utilisation de l’API Azure Resource Manager sont contrôlées par les affectations associées au rôle de votre compte d’utilisateur sur le portail. Pour en savoir plus à ce sujet, voir [Contrôle d’accès en fonction du rôle dans la version préliminaire du portail Azure][].
 
 
+
+## Chiffrement
+
+Azure SQL Data Warehouse peut vous aider à protéger vos données en les chiffrant lorsqu’elles sont « au repos » ou stockées dans des fichiers de base de données et des sauvegardes, à l’aide du [chiffrement transparent des données][]. Pour chiffrer votre base de données, connectez-vous en tant que propriétaire de la base de données et exécutez la commande suivante :
+
+
+```
+
+ALTER DATABASE [AdventureWorks] SET ENCRYPTION ON;
+
+```
+
+Vous pouvez également activer le chiffrement transparent des données à partir des paramètres de base de données dans le [Portail Azure][].
+
+
+
+## Audit
+
+Les fonctions d’audit et de suivi des événements de la base de données peuvent vous aider à assurer la conformité aux normes et à identifier toute activité suspecte. La fonction d’audit de SQL Data Warehouse vous permet d’enregistrer les événements survenus dans votre base de données dans un journal d’audit au sein de votre compte Microsoft Azure Storage. Cette fonction s’intègre également dans Microsoft Power BI, afin de faciliter la création d’analyses et de rapports approfondis. Pour en savoir plus, voir [Prise en main de l’audit de base de données SQL][].
+
+
+
 ## Étapes suivantes
 Pour obtenir des conseils supplémentaires en matière de développement, voir la [vue d’ensemble sur le développement][].
 
@@ -73,9 +95,11 @@ Pour obtenir des conseils supplémentaires en matière de développement, voir l
 [Gestion des bases de données et des connexions dans la base de données SQL Microsoft Azure]: https://msdn.microsoft.com/library/ee336235.aspx
 [autorisations]: https://msdn.microsoft.com/library/ms191291.aspx
 [procédures stockées]: https://msdn.microsoft.com/library/ms190782.aspx
-[Transparent Data Encryption]: http://go.microsoft.com/fwlink/?linkid=526242&clcid=0x409
+[chiffrement transparent des données]: http://go.microsoft.com/fwlink/?LinkId=526242
+[Prise en main de l’audit de base de données SQL]: sql-database-auditing-get-started.md
+[Portail Azure]: https://portal.azure.com/
 
 <!--Other Web references-->
 [Contrôle d’accès en fonction du rôle dans la version préliminaire du portail Azure]: http://azure.microsoft.com/documentation/articles/role-based-access-control-configure.aspx
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

@@ -1,12 +1,12 @@
-<properties pageTitle="Déploiement de ressources Azure à l’aide d’un modèle" description="Apprenez à utiliser quelques-uns des clients disponibles dans la bibliothèque Azure Resource Management pour déployer une machine virtuelle, un réseau virtuel et un compte de stockage" services="virtual-machines,virtual-networks,storage" documentationCenter="" authors="davidmu1" manager="timlt" editor="tysonn" tags="azure-resource-manager/>
+<properties pageTitle="Déploiement de ressources Azure à l’aide d’un modèle" description="Apprenez à utiliser quelques-uns des clients disponibles dans la bibliothèque Azure Resource Management pour déployer une machine virtuelle, un réseau virtuel et un compte de stockage" services="virtual-machines,virtual-networks,storage" documentationCenter="" authors="davidmu1" manager="timlt" editor="tysonn" tags="azure-resource-manager"/>
 
 <tags
-	ms.service="multiple"
+	ms.service="azure-resource-manager"
 	ms.workload="multiple"
 	ms.tgt_pltfrm="vm-windows"
-	ms.devlang="na" 
+	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/15/2015"
+	ms.date="08/25/2015"
 	ms.author="davidmu"/>
 
 # Déploiement de ressources Azure à l’aide de bibliothèques .NET et d’un modèle
@@ -75,7 +75,7 @@ Avec un modèle Azure Resource Manager, vous pouvez déployer et gérer des re
             "contentVersion": "1.0.0.0",
         }
 
-6. Les [paramètres](https://msdn.microsoft.com/library/azure/dn835138.aspx#parameters) ne sont pas toujours requis, mais ils facilitent la gestion de modèle. Ils décrivent le type de la valeur, la valeur par défaut le cas échéant, et éventuellement les valeurs autorisées du paramètre. Pour ce didacticiel, les paramètres utilisés pour créer une machine virtuelle, un compte de stockage et un réseau virtuel sont ajoutés au modèle.
+6. Les [paramètres](../resource-group-authoring-templates.md#parameters) ne sont pas toujours requis, mais ils facilitent la gestion de modèle. Ils décrivent le type de la valeur, la valeur par défaut le cas échéant, et éventuellement les valeurs autorisées du paramètre. Pour ce didacticiel, les paramètres utilisés pour créer une machine virtuelle, un compte de stockage et un réseau virtuel sont ajoutés au modèle.
 
     Ajoutez l’élément parameters et ses éléments enfants après l’élément contentVersion :
 
@@ -106,7 +106,7 @@ Avec un modèle Azure Resource Manager, vous pouvez déployer et gérer des re
           },
         }
 
-7.	Les [variables](https://msdn.microsoft.com/library/azure/dn835138.aspx#variables) peuvent être utilisées dans un modèle pour spécifier des valeurs qui changent fréquemment ou qui doivent être créées à partir d’une combinaison de valeurs de paramètres.
+7.	Les [variables](../resource-group-authoring-templates.md#variables) peuvent être utilisées dans un modèle pour spécifier des valeurs qui changent fréquemment ou qui doivent être créées à partir d’une combinaison de valeurs de paramètres.
 
     Ajoutez l’élément variables après la section parameters :
 
@@ -142,7 +142,7 @@ Avec un modèle Azure Resource Manager, vous pouvez déployer et gérer des re
           },
         }
 
-8.	Les [ressources](https://msdn.microsoft.com/library/azure/dn835138.aspx#resources) telles que la machine virtuelle, le réseau virtuel et le compte de stockage sont ensuite définis dans le modèle.
+8.	Les [ressources](../resource-group-authoring-templates.md#resources) telles que la machine virtuelle, le réseau virtuel et le compte de stockage sont ensuite définis dans le modèle.
 
     Ajoutez la section resources après la section variables :
 
@@ -443,4 +443,4 @@ Les ressources sont toujours déployées à partir d’un modèle dans un groupe
 
 	![Création d'une application Active Directory](./media/arm-template-deployment/crpportal.png)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

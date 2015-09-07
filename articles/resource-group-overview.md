@@ -1,22 +1,20 @@
 <properties
    pageTitle="Présentation d’Azure Resource Manager"
-   description="Explique comment utiliser Azure Resource Manager pour les tâches de déploiement, de gestion et de contrôle d’accès des ressources sur Azure."
-   services="azure-resource-manager"
-   documentationCenter="na"
-   authors="tfitzmac"
-   manager="wpickett"
-   editor=""/>
-
+	description="Explique comment utiliser Azure Resource Manager pour les tâches de déploiement, de gestion et de contrôle d’accès des ressources sur Azure."
+	services="azure-resource-manager"
+	documentationCenter="na"
+	authors="tfitzmac"
+	manager="wpickett"
+	editor=""/>
 
 <tags
    ms.service="azure-resource-manager"
-   ms.devlang="na"
-   ms.topic="get-started-article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="07/24/2015"
-   ms.author="tomfitz"/>
-
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.tgt_pltfrm="na"
+	ms.workload="na"
+	ms.date="08/20/2015"
+	ms.author="tomfitz"/>
 
 # Présentation d’Azure Resource Manager
 
@@ -24,7 +22,9 @@ Les applications sont généralement constituées de nombreux composants, par ex
 
 Azure Resource Manager intègre en mode natif un contrôle d’accès à la plate-forme de gestion pour vous permettre de spécifier les actions qu’un utilisateur de votre organisation est autorisé à effectuer sur un groupe de ressources.
 
-Voici une illustration de cette vue d'ensemble.
+Resource Manager propose une nouvelle façon de déployer et de gérer vos solutions. Pour obtenir des informations sur les modifications apportées à ce nouveau modèle de déploiement, consultez [Présentation du déploiement de Resource Manager et du déploiement classique](resource-manager-deployment-model.md).
+
+Voici une vidéo de cette présentation :
 
 [AZURE.VIDEO azure-resource-manager-overview]
 
@@ -110,7 +110,7 @@ Pour plus d’informations sur le contrôle d’accès en fonction du rôle, voi
 
 Pour découvrir des exemples de définition de stratégies d’accès, voir [Gestion et audit d’accès aux ressources](azure-portal/resource-group-rbac.md).
 
-Pour les meilleures pratiques, consultez [Questions de sécurité relatives à Azure Resource Manager](best-practices-resource-manager-security.md)
+Pour connaître les meilleures pratiques, consultez [Questions de sécurité relatives à Azure Resource Manager](best-practices-resource-manager-security.md)
 
 ## Couche de gestion cohérente
 
@@ -126,9 +126,9 @@ Pour plus d'informations sur l'utilisation du portail en version préliminaire, 
 
 ## Étapes suivantes
 
-- Pour en savoir plus sur la création de modèles, consultez[Création de modèles](./resource-group-authoring-templates.md).
+- Pour en savoir plus sur la création de modèles, consultez [Création de modèles](./resource-group-authoring-templates.md)
 - Pour déployer le modèle créé, consultez [Déploiement de modèles](azure-portal/resource-group-template-deploy.md)
 - Pour comprendre les fonctions que vous pouvez utiliser dans un modèle, consultez [Fonctions de modèle](./resource-group-template-functions.md)
-- Pour obtenir des instructions sur la conception de vos modèles, consultez [Meilleures pratiques relatives à la conception des modèles Azure Resource Manager](best-practices-resource-manager-design-templates.md).
+- Pour obtenir des instructions sur la conception de vos modèles, consultez [Meilleures pratiques relatives à la conception des modèles Azure Resource Manager](best-practices-resource-manager-design-templates.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

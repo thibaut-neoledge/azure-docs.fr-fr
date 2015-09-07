@@ -1,21 +1,21 @@
 <properties
    pageTitle="Créer un réseau virtuel avec une connexion VPN de site à site en utilisant Azure Resource Manager et PowerShell | Microsoft Azure"
-   description="Créer une connexion VPN de site à site de votre réseau virtuel à votre emplacement local en utilisant Azure Resource Manager et PowerShell"
-   services="vpn-gateway"
-   documentationCenter="na"
-   authors="cherylmc"
-   manager="carolz"
-   editor=""
-   tags="azure-resource-manager"/>
+	description="Créer une connexion VPN de site à site de votre réseau virtuel à votre emplacement local en utilisant Azure Resource Manager et PowerShell"
+	services="vpn-gateway"
+	documentationCenter="na"
+	authors="cherylmc"
+	manager="carolz"
+	editor=""
+	tags="azure-resource-manager"/>
 
 <tags
    ms.service="vpn-gateway"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="07/28/2015"
-   ms.author="cherylmc"/>
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="infrastructure-services"
+	ms.date="08/21/2015"
+	ms.author="cherylmc"/>
 
 # Créer un réseau virtuel avec une connexion VPN de site à site en utilisant Azure Resource Manager et PowerShell
 
@@ -96,9 +96,26 @@ Vous allez également spécifier le préfixe de l’espace d’adressage pour le
 - *GatewayIPAddress* est l’adresse IP de votre périphérique VPN local. Votre périphérique VPN ne peut pas se trouver derrière un NAT. 
 - *AddressPrefix* est votre espace d’adressage local.
 
-Utilisez cet exemple pour ajouter votre site local :
+Cet exemple permet d'ajouter un site local avec un préfixe d'adresse unique.
 
 		New-AzureLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg -Location 'West US' -GatewayIpAddress '23.99.221.164' -AddressPrefix '10.5.51.0/24'
+
+Si vous souhaitez ajouter un site local avec plusieurs préfixes d'adresse, utilisez cet exemple.
+
+		New-AzureLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg -Location 'West US' -GatewayIpAddress '23.99.221.164' -AddressPrefix @('10.0.0.0/24','20.0.0.0/24')
+
+
+Pour ajouter des préfixes d'adresses supplémentaires à un site local déjà créé, utilisez l'exemple ci-dessous.
+
+		$local = Get-AzureLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg
+		Set-AzureLocalNetworkGateway -LocalNetworkGateway $local -AddressPrefix @('10.0.0.0/24','20.0.0.0/24','30.0.0.0/24')
+
+
+Pour supprimer un préfixe d'adresse d'un site local, utilisez l'exemple ci-dessous. Abandonnez les préfixes dont vous n'avez plus besoin. Dans cet exemple, le préfixe 20.0.0.0/24 (de l'exemple précédent) n'est plus nécessaire. Nous allons donc modifier le site local et exclure ce préfixe.
+
+		local = Get-AzureLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg
+		Set-AzureLocalNetworkGateway -LocalNetworkGateway $local -AddressPrefix @('10.0.0.0/24','30.0.0.0/24')
+
 
 ## Demander une adresse IP publique de la passerelle de réseau virtuel
 
@@ -123,14 +140,14 @@ La configuration de la passerelle définit le sous-réseau et l’adresse IP pub
 Dans cette étape, vous allez créer la passerelle de réseau virtuel. Utilisez les valeurs suivantes :
 
 - Le type de passerelle est *Vpn*.
-- Le type Vpn peut être Basé sur des routes* (appelé passerelle dynamique dans certaines documentations) ou *Basé sur des stratégies* (appelé passerelle statique dans certaines documentations). Pour plus d’informations sur les types de passerelles VPN, consultez [À propos des passerelles VPN](vpn-gateway-about-vpngateways.md). 	
+- Le type Vpn peut être Basé sur des routes* (appelé passerelle dynamique dans certaines documentations) ou *Basé sur des stratégies* (appelé passerelle statique dans certaines documentations). Pour plus d'informations sur les types de passerelles VPN, consultez [À propos des passerelles VPN](vpn-gateway-about-vpngateways.md). 	
 
 		New-AzureVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg -Location 'West US' -IpConfigurations $gwipconfig -GatewayType Vpn -VpnType RouteBased
 
 
 ## Configuration de votre périphérique VPN
 
-À ce stade, vous aurez besoin de l’adresse IP publique de la passerelle de réseau virtuel pour configurer votre périphérique VPN local. Consultez le fabricant de votre périphérique pour des informations de configuration spécifiques. Vous pouvez aussi vous reporter à [Périphériques VPN](http://go.microsoft.com/fwlink/p/?linkid=615099)pour plus d’informations.
+À ce stade, vous aurez besoin de l’adresse IP publique de la passerelle de réseau virtuel pour configurer votre périphérique VPN local. Consultez le fabricant de votre périphérique pour des informations de configuration spécifiques. Vous pouvez aussi vous reporter à [Périphériques VPN](http://go.microsoft.com/fwlink/p/?linkid=615099) pour plus d'informations.
 
 Pour trouver l’adresse IP publique de votre passerelle de réseau virtuel, utilisez l’exemple suivant :
 
@@ -150,6 +167,6 @@ Après quelques minutes, la connexion doit être établie. À ce stade, les conn
 
 ## Étapes suivantes
 
-Ajoutez une machine virtuelle à votre réseau virtuel. [Créez une machine virtuelle](../virtual-machines/virtual-machines-windows-tutorial.md).
+Ajoutez une machine virtuelle à votre réseau virtuel. [Créer une machine virtuelle](../virtual-machines/virtual-machines-windows-tutorial.md).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

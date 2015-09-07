@@ -7,7 +7,6 @@
 	manager="timlt"
 	editor=""/>
 
-
 <tags
 	ms.service="virtual-machines"
 	ms.workload="infrastructure-services"
@@ -16,7 +15,6 @@
 	ms.topic="article"
 	ms.date="04/29/2015"
 	ms.author="kathydav"/>
-
 
 #Comment configurer des points de terminaison sur une machine virtuelle
 
@@ -31,7 +29,7 @@ Chaque point de terminaison possède un port public et un port privé :
 
 Les valeurs par défaut pour le protocole IP et les ports TCP ou UDP pour des protocoles réseau bien connus sont fournies quand vous créez des points de terminaison avec le portail. Pour les points de terminaison personnalisés, vous devez spécifier le protocole IP correct (TCP ou UDP) et les ports publics et privés. Pour distribuer le trafic entrant au hasard entre plusieurs machines virtuelles, vous devez créer un jeu d'équilibrage de la charge composé de plusieurs points de terminaison.
 
-Après avoir créé un point de terminaison, vous pouvez utiliser une liste de contrôle d’accès (ACL) pour définir des règles permettant d’autoriser ou de refuser le trafic entrant vers le port public du point de terminaison en fonction de son adresse IP source. Toutefois, si la machine virtuelle se trouve dans un réseau virtuel Azure, vous devez utiliser à la place les groupes de sécurité réseau. Pour plus d’informations, consultez [À propos des groupes de sécurité réseau](https://msdn.microsoft.com/library/azure/dn848316.aspx).
+Après avoir créé un point de terminaison, vous pouvez utiliser une liste de contrôle d’accès (ACL) pour définir des règles permettant d’autoriser ou de refuser le trafic entrant vers le port public du point de terminaison en fonction de son adresse IP source. Toutefois, si la machine virtuelle se trouve dans un réseau virtuel Azure, vous devez utiliser à la place les groupes de sécurité réseau. Pour plus d'informations, consultez [À propos des groupes de sécurité réseau](virtual-networks-nsg.md).
 
 **Important** : la configuration du pare-feu pour les machines virtuelles Azure est effectuée automatiquement pour les ports associés au Bureau à distance et à Secure Shell (SSH) ainsi que pour l’accès distant Windows PowerShell dans la plupart des cas. Pour les ports spécifiés pour tous les autres points de terminaison, aucune configuration n'est effectuée automatiquement pour le pare-feu de la machine virtuelle. Lorsque vous créez un point de terminaison pour la machine virtuelle, vous devez vous assurer que le pare-feu de la machine autorise également le trafic du protocole et le port privé correspondant à la configuration du point de terminaison.
 
@@ -67,7 +65,7 @@ Pour définir l'ensemble des ordinateurs qui peuvent envoyer du trafic, l'ACL su
 
 > [AZURE.NOTE]si le point de terminaison fait partie d’un jeu d’équilibrage de charge, chaque modification faite sur l’ACL pour un point de terminaison est appliquée à tous les points de terminaison du jeu.
 
-Si la machine virtuelle se trouve dans un réseau virtuel Azure, vous devez utiliser à la place les groupes de sécurité réseau. Pour plus d’informations, consultez [À propos des groupes de sécurité réseau](https://msdn.microsoft.com/library/azure/dn848316.aspx).
+Si la machine virtuelle se trouve dans un réseau virtuel Azure, vous devez utiliser à la place les groupes de sécurité réseau. Pour plus d'informations, consultez [À propos des groupes de sécurité réseau](virtual-networks-nsg.md).
 
 
 1.	Si ce n’est pas déjà fait, connectez-vous au portail.
@@ -87,7 +85,7 @@ Vous pouvez utiliser des règles pour autoriser uniquement le trafic provenant d
 
 Les règles sont évaluées dans l’ordre, en commençant par la première règle et en terminant par la dernière. Cela signifie que les règles doivent être répertoriées de la moins restrictive à la plus restrictive. Pour plus d’informations et obtenir des exemples, consultez [À propos des listes de contrôle d’accès réseau](http://go.microsoft.com/fwlink/p/?linkid=303816).
 
-Pour effectuer cette configuration avec une applet de commande Azure PowerShell, consultez [Gestion des listes de contrôle d’accès(ACL) pour les points de terminaison à l’aide de PowerShell](https://msdn.microsoft.com/library/azure/dn376543.aspx).
+Pour effectuer cette configuration avec une applet de commande Azure PowerShell, consultez [Gestion des listes de contrôle d'accès(ACL) pour les points de terminaison à l'aide de PowerShell](../virtual-network/virtual-networks-acl-powershell.md).
 
 ## Ressources supplémentaires
 
@@ -95,6 +93,6 @@ Pour effectuer cette configuration avec une applet de commande Azure PowerShell,
 
 [À propos des listes de contrôle d’accès réseau](http://go.microsoft.com/fwlink/p/?linkid=303816)
 
-[À propos des groupes de sécurité réseau](https://msdn.microsoft.com/library/azure/dn848316.aspx)
+[À propos des groupes de sécurité réseau](virtual-networks-nsg.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

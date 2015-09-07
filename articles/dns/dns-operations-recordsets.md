@@ -1,22 +1,27 @@
 <properties 
-   pageTitle="Gestion des jeux d'enregistrements DNS et des enregistrements dans Azure DNS | Microsoft Azure" 
-   description="Gestion des jeux d'enregistrements DNS et des enregistrements dans Azure DNS lorsque votre domaine est hébergé dans Azure DNS. Toutes les commandes PowerShell pour les opérations sur les jeux d'enregistrements et les enregistrements." 
-   services="dns" 
-   documentationCenter="na" 
-   authors="joaoma" 
-   manager="Adinah" 
-   editor=""/>
+   pageTitle="Gestion des jeux d'enregistrements DNS et des enregistrements dans Azure DNS | Microsoft Azure"
+	description="Gestion des jeux d'enregistrements DNS et des enregistrements dans Azure DNS lorsque votre domaine est hébergé dans Azure DNS. Toutes les commandes PowerShell pour les opérations sur les jeux d'enregistrements et les enregistrements."
+	services="dns"
+	documentationCenter="na"
+	authors="joaoma"
+	manager="Adinah"
+	editor=""/>
 
 <tags
    ms.service="dns"
-   ms.devlang="en"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services" 
-   ms.date="08/02/2015"
-   ms.author="joaoma"/>
+	ms.devlang="en"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="infrastructure-services"
+	ms.date="08/02/2015"
+	ms.author="joaoma"/>
 
 # Gestion des enregistrements DNS
+
+
+> [AZURE.SELECTOR]
+- [Azure CLI](dns-operations-recordsets-cli.md)
+- [Azure Powershell](dns-operations-recordsets.md)
 
 
 Ce guide explique comment gérer des jeux d'enregistrements et des enregistrements pour votre zone DNS.
@@ -46,7 +51,7 @@ New-AzureDnsRecordSet retourne un objet local qui représente le jeu d'enregistr
 >[AZURE.NOTE]Les jeux d'enregistrements CNAME ne peuvent pas coexister avec d'autres jeux d'enregistrements portant le même nom. Par exemple, vous ne pouvez pas créer un CNAME avec le nom relatif « www » et un enregistrement A avec le nom relatif « www » en même temps. Étant donné que l’extrémité de la zone (nom = « @ ») contient toujours les jeux d’enregistrements NS et SOA créés lors de la création de la zone, cela signifie que vous ne pouvez pas créer un jeu d’enregistrements CNAME au niveau de l’extrémité de la zone. Ces contraintes sont dues aux normes DNS, il ne s’agit pas de limites d'Azure DNS.
 
 ### Enregistrements génériques
-Azure DNS prend en charge les [enregistrements génériques](https://en.wikipedia.org/wiki/Wildcard_DNS_record). Ces derniers sont retournés pour toute requête avec un nom correspondant (à moins qu’une correspondance plus proche provienne d'un jeu d'enregistrements non génériques).
+Azure DNS prend en charge les [enregistrements de caractères génériques](https://en.wikipedia.org/wiki/Wildcard_DNS_record). Ces derniers sont retournés pour toute requête avec un nom correspondant (à moins qu’une correspondance plus proche provienne d'un jeu d'enregistrements non génériques).
 
 >[AZURE.NOTE]Pour créer un jeu d'enregistrements génériques, utilisez le nom de jeu d'enregistrements « * », ou un nom dont la première étiquette est « * », par exemple, « *.foo ».
 
@@ -266,4 +271,4 @@ L'objet du jeu d'enregistrements peut également être envoyé au lieu d’être
 [Prise en main de la création de jeux d'enregistrements et des enregistrements](../dns-getstarted-create-recordset)<BR> [Réalisation d’opérations sur des zones DNS](../dns-operations-dnszones)<BR> [Automatisation d’opérations à l'aide du Kit de développement (SDK) .NET](../dns-sdk)
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

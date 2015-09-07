@@ -1,20 +1,20 @@
 <properties
    pageTitle="Définition et gestion de l'état"
-   description="Comment définir et gérer l'état de service dans Service Fabric"
-   services="service-fabric"
-   documentationCenter=".net"
-   authors="appi101"
-   manager="timlt"
-   editor=""/>
+	description="Comment définir et gérer l'état de service dans Service Fabric"
+	services="service-fabric"
+	documentationCenter=".net"
+	authors="appi101"
+	manager="timlt"
+	editor=""/>
 
 <tags
    ms.service="service-fabric"
-   ms.devlang="dotnet"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="NA"
-   ms.date="04/13/2015"
-   ms.author="aprameyr"/>
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="NA"
+	ms.date="08/26/2015"
+	ms.author="aprameyr"/>
 
 # État du service
 L'**état du service** correspond aux données que le service requiert pour fonctionner. Il s'agit des variables et des structures de données que le service lit et écrit afin d'effectuer du travail.
@@ -41,4 +41,4 @@ Pour plus d'informations sur les concepts propres à Service Fabric, consultez l
 - [Partitionnement des services Service Fabric](service-fabric-concepts-partitioning.md)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

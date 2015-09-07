@@ -75,7 +75,7 @@ Les options disponibles incluent :
 
 
 ### Inscription auprès du service Azure Backup
-Avant de pouvoir vous inscrire auprès du service Azure Backup, vous devez vous assurer que les [conditions préalables](backup-try-azure-backup-in-10-mins.md) sont remplies. Vous devez respecter les consignes suivantes :
+Avant de pouvoir vous inscrire auprès du service Azure Backup, vous devez vous assurer que les [conditions préalables](backup-configure-vault.md) sont remplies. Vous devez respecter les consignes suivantes :
 
 - Avoir un abonnement Azure valide
 - Disposer d’un coffre de sauvegarde
@@ -103,7 +103,7 @@ Region              : West US
 Machine registration succeeded.
 ```
 
-> [AZURE.IMPORTANT]N’utilisez pas de chemins relatifs pour spécifier le fichier des informations d’identification du coffre. Vous devez fournir un chemin absolu dans la cmdlet.
+> [AZURE.IMPORTANT] N’utilisez pas de chemins relatifs pour spécifier le fichier des informations d’identification du coffre. Vous devez fournir un chemin absolu dans la cmdlet.
 
 ### Paramètres de mise en réseau
 Lorsque l’ordinateur Windows accède à Internet via un serveur proxy, les paramètres proxy peuvent également être fournis à l’agent. Dans cet exemple, il n’y a aucun serveur proxy. Nous effaçons donc explicitement toutes informations concernant un proxy.
@@ -128,7 +128,7 @@ PS C:\> ConvertTo-SecureString -String "Complex!123_STRING" -AsPlainText -Force 
 Server properties updated successfully
 ```
 
-> [AZURE.IMPORTANT]Conservez les informations de phrase secrète en lieu sûr après les avoir définies. Vous ne pourrez pas restaurer les données à partir d’Azure sans ce mot de passe.
+> [AZURE.IMPORTANT] Conservez les informations de phrase secrète en lieu sûr après les avoir définies. Vous ne pourrez pas restaurer les données à partir d’Azure sans ce mot de passe.
 
 ## Sauvegarde des fichiers et dossiers
 Toutes les sauvegardes de serveurs et clients Windows vers Azure Backup sont régies par une stratégie. Cette dernière comprend trois parties :
@@ -170,7 +170,7 @@ La stratégie de rétention définit la durée de conservation des points de ré
 PS C:\> $retentionpolicy = New-OBRetentionPolicy -RetentionDays 7
 ```
 
-> [AZURE.NOTE]Les applets de commande PowerShell ne prennent actuellement pas en charge la configuration de stratégies de rétention à long terme. Pour définir ces dernières, utilisez la console de l'interface utilisateur Azure Backup.
+> [AZURE.NOTE] Les applets de commande PowerShell ne prennent actuellement pas en charge la configuration de stratégies de rétention à long terme. Pour définir ces dernières, utilisez la console de l'interface utilisateur Azure Backup.
 
 La stratégie de rétention doit être associée à la stratégie principale à l'aide de l'applet de commande [Set-OBRetentionPolicy](https://technet.microsoft.com/library/hh770405) :
 
@@ -568,8 +568,8 @@ PS C:\> Set-ExecutionPolicy unrestricted -force
 L’ordinateur peut maintenant être géré à distance, en commençant par l’installation de l’agent. Par exemple, le script suivant copie et installe l’agent sur l’ordinateur distant.
 
 ```
-PS C:\> $dloc = "\\REMOTESERVER01\c$\Windows\Temp"
-PS C:\> $agent = "\\REMOTESERVER01\c$\Windows\Temp\MARSAgentInstaller.exe"
+PS C:\> $dloc = "\REMOTESERVER01\c$\Windows\Temp"
+PS C:\> $agent = "\REMOTESERVER01\c$\Windows\Temp\MARSAgentInstaller.exe"
 PS C:\> $args = "/q"
 PS C:\> Copy-Item "C:\Downloads\MARSAgentInstaller.exe" -Destination $dloc - force
 
@@ -578,6 +578,9 @@ PS C:\> Invoke-Command -Session $s -Script { param($d, $a) Start-Process -FilePa
 ```
 
 ## Étapes suivantes
-Pour en savoir plus sur Azure Backup pour client/serveur Windows, consultez la rubrique [Présentation d’Azure Backup](backup-introduction-to-azure-backup.md)
+Pour plus d’informations sur Azure Backup pour client/serveur Windows, consultez
 
-<!---HONumber=August15_HO8-->
+- [Présentation d’Azure Backup](backup-introduction-to-azure-backup.md)
+- [Sauvegarder des serveurs Windows](backup-azure-backup-windows-server.md)
+
+<!---HONumber=August15_HO9-->

@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Configuration d’une application métier web dans un cloud hybride pour le test" 
-	description="Apprenez à créer une application métier basée sur le web dans un environnement de cloud hybride et destinée aux professionnels de l'informatique ou au test des développements." 
-	services="virtual-network" 
-	documentationCenter="" 
-	authors="JoeDavies-MSFT" 
-	manager="timlt" 
+	pageTitle="Environnement de test d'application métier | Microsoft Azure"
+	description="Apprenez à créer une application métier basée sur le web dans un environnement de cloud hybride et destinée aux professionnels de l'informatique ou au test des développements."
+	services="virtual-network"
+	documentationCenter=""
+	authors="JoeDavies-MSFT"
+	manager="timlt"
 	editor=""
 	tags="azure-service-management"/>
 
 <tags 
-	ms.service="virtual-network" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/08/2015" 
+	ms.service="virtual-network"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/08/2015"
 	ms.author="josephd"/>
 
 # Configuration d’une application métier web dans un cloud hybride pour le test
@@ -80,7 +80,7 @@ Ensuite, connectez-vous à la nouvelle machine virtuelle SQL1 *à l’aide du c
 3.	Lorsque vous êtes invité à ouvrir SQL1.rdp, cliquez sur **Ouvrir**.
 4.	Lorsque le message Connexion Bureau à distance s’affiche, cliquez sur **Connecter**.
 5.	Si des informations d’identification vous sont demandées, utilisez celles-ci :
-	- Nom : **SQL1\**[Nom du compte de l’administrateur local]
+	- Nom : **SQL1**[Nom du compte de l’administrateur local]
 	- Mot de passe : [Mot de passe de compte d’administrateur local]
 6.	Lorsqu’une zone de message de connexion Bureau à distance faisant référence aux certificats s’ouvre, cliquez sur **Oui**.
 
@@ -196,4 +196,4 @@ Cet environnement est maintenant prêt pour le déploiement de votre application
 [Instructions d’implémentation des services d’infrastructure Azure](../virtual-machines/virtual-machines-infrastructure-services-implementation-guidelines.md)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

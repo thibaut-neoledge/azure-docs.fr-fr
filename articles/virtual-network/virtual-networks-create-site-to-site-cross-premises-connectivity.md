@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Didacticiel : créer un réseau virtuel entre différents locaux pour une connectivité de site à site" 
-	description="Ce didacticiel vous permet de découvrir comment créer un Azure Virtual Network avec la connectivité entre différents locaux." 
-	services="virtual-network" 
-	documentationCenter="" 
-	authors="cherylmc" 
-	manager="adinah" 
+	pageTitle="Didacticiel : créer un réseau virtuel entre différents locaux pour une connectivité de site à site"
+	description="Ce didacticiel vous permet de découvrir comment créer un Azure Virtual Network avec la connectivité entre différents locaux."
+	services="virtual-network"
+	documentationCenter=""
+	authors="cherylmc"
+	manager="adinah"
 	editor="tysonn"/>
 
 <tags 
-	ms.service="virtual-network" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="04/28/2015" 
+	ms.service="virtual-network"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/17/2015"
 	ms.author="cherylmc"/>
 
 
@@ -24,7 +24,7 @@ Ce didacticiel vous familiarise avec les étapes visant à créer un réseau vir
 
 Si vous souhaitez créer un réseau virtuel cloud uniquement, consultez l’article [Didacticiel : Création d’un réseau virtuel cloud uniquement dans Azure](../virtual-machines/create-virtual-network.md). Si vous voulez créer un VPN pointant vers un site en utilisant des certificats et un client VPN, consultez la page [Configuration d'un VPN pointant vers un site dans le portail de gestion](http://go.microsoft.com/fwlink/p/?LinkId=296653).
 
-Ce didacticiel part du principe que vous n'avez pas d'expérience en tant qu'utilisateur d'Azure. Il a pour but de vous familiariser avec la procédure requise pour créer un exemple de réseau virtuel entre différents locaux. Si vous recherchez des scénarios de conception et des informations supplémentaires sur Virtual Network, consultez l'article [Présentation d'Azure Virtual Network](http://msdn.microsoft.com/library/windowsazure/jj156007.aspx).
+Ce didacticiel part du principe que vous n'avez pas d'expérience en tant qu'utilisateur d'Azure. Il a pour but de vous familiariser avec la procédure requise pour créer un exemple de réseau virtuel entre différents locaux. Si vous recherchez des scénarios de conception et des informations supplémentaires sur Virtual Network, consultez l'article [Présentation d'Azure Virtual Network](../virtual-network/virtual-networks-overview.md).
 
 Après avoir terminé ce didacticiel, vous aurez un exemple de réseau virtuel intersite. La figure suivante en illustre les détails, selon les paramètres de l’exemple de didacticiel.
 
@@ -253,9 +253,9 @@ Si vous voulez exporter les paramètres de votre réseau virtuel dans un fichier
 
 ## Voir aussi
 
--  [Présentation du réseau virtuel](http://msdn.microsoft.com/library/windowsazure/jj156007.aspx)
+-  [Présentation du réseau virtuel](../virtual-network/virtual-networks-overview.md)
 
--  [FAQ sur le réseau virtuel](http://msdn.microsoft.com/library/windowsazure/dn133803.aspx)
+-  [FAQ sur le réseau virtuel](virtual-networks-faq.md)
 
 -  [Configuration d’un réseau virtuel à l’aide d’un fichier de configuration réseau](virtual-networks-using-network-configuration-file.md)
 
@@ -272,4 +272,4 @@ Si vous voulez exporter les paramètres de votre réseau virtuel dans un fichier
 
  
 
-<!-----HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

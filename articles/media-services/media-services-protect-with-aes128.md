@@ -12,17 +12,21 @@
 	ms.workload="media"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="get-started-article" 
-	ms.date="08/06/2015"
+	ms.topic="get-started-article"
+	ms.date="08/14/2015"
 	ms.author="juliako"/>
 
 #Utilisation du chiffrement dynamique AES-128 et du service de distribution des clés
+
+> [AZURE.SELECTOR]
+- [.NET](media-services-protect-with-aes128.md)
+- [Java](https://github.com/southworkscom/azure-sdk-for-media-services-java-samples)
 
 ##Vue d’ensemble
 
 Microsoft Azure Media Services permet de transmettre du contenu HLS (Http-Live-Streaming) et des flux lisses (Smooth Streams) chiffrés avec la norme AES (Advanced Encryption Standard) (à l’aide de clés de chiffrement 128 bits). Media Services assure également le service de distribution des clés qui fournit des clés de chiffrement aux utilisateurs autorisés. Si vous souhaitez que Media Services chiffre un élément multimédia, vous devez associer une clé de chiffrement à l'élément multimédia et configurer des stratégies d'autorisation pour la clé. Lorsqu’un lecteur demande un flux de données, Media Services utilise la clé spécifiée pour chiffrer dynamiquement votre contenu à l’aide du chiffrement AES. Pour déchiffrer le flux de données, le lecteur demande la clé au service de remise de clé. Pour déterminer si l’utilisateur est autorisé à obtenir la clé, le service évalue les stratégies d’autorisation que vous avez spécifiées pour la clé.
 
-Media Services prend en charge plusieurs méthodes d’authentification des utilisateurs effectuant des demandes de clé. La stratégie d’autorisation des clés de contenu peut avoir une ou plusieurs restrictions d’autorisations : ouvert, restriction par jeton ou restriction IP. La stratégie de restriction à jeton doit être accompagnée d’un jeton émis par un service de jeton sécurisé (STS). Media Services prend en charge les jetons aux formats SWT ([Simple Web Tokens](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_2)) et JWT ([JSON Web Token](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_3)). Pour plus d’informations, consultez [Configuration de la stratégie d’autorisation de clé de contenu](media-services-protect-with-aes128.md#configure_key_auth_policy).
+Media Services prend en charge plusieurs méthodes d’authentification des utilisateurs effectuant des demandes de clé. La stratégie d’autorisation des clés de contenu peut avoir une ou plusieurs restrictions d’autorisations : ouvert, restriction par jeton ou restriction IP. La stratégie de restriction à jeton doit être accompagnée d’un jeton émis par un service de jeton sécurisé (STS). Media Services prend en charge les jetons aux formats SWT ([Simple Web Tokens](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_2)) et JWT ([JSON Web Token](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_3)). Pour plus d’informations, consultez [Configurer la stratégie d’autorisation de clé de contenu](media-services-protect-with-aes128.md#configure_key_auth_policy).
 
 Pour tirer parti du chiffrement dynamique, vous devez avoir un élément multimédia qui contient un ensemble de fichiers MP4 à débit binaire multiple ou de fichiers sources de diffusion en continu lisse (Smooth Streaming) à débit binaire multiple. Vous devez également configurer la stratégie de remise pour l'élément multimédia (décrite plus loin dans cette rubrique). Ensuite, en fonction du format spécifié dans l'URL de diffusion, le serveur de streaming à la demande s'assure que le flux est livré conformément au protocole choisi. Par conséquent, il vous suffit de stocker et de payer les fichiers dans un seul format de stockage. Le service Media Services se charge de créer et de fournir la réponse appropriée en fonction des demandes des clients.
 
@@ -34,15 +38,15 @@ Cette rubrique peut être utile pour les développeurs travaillant sur des appli
 
 Voici les étapes générales que vous aurez à exécuter lors du chiffrement de vos éléments multimédias avec AES, en utilisant le service de distribution des clés Media Services, ainsi que le chiffrement dynamique.
 
-1. [Créer un élément multimédia et télécharger des fichiers dans l'élément multimédia](media-services-protect-with-aes128.md#create_asset). 
-1. [Encoder l'élément multimédia contenant le fichier selon le débit binaire MP4 défini](media-services-protect-with-aes128.md#encode_asset).
-1. [Créer une clé de contenu et l'associer à l'élément multimédia encodé](media-services-protect-with-aes128.md#create_contentkey). Dans Media Services, la clé de contenu contient la clé de chiffrement de l'élément multimédia.
-1. [Configurer la stratégie d'autorisation de la clé de contenu](media-services-protect-with-aes128.md#configure_key_auth_policy). La stratégie d'autorisation de la clé de contenu doit être configurée par vous et respectée par le client afin que la clé de contenu soit remise au client. 
+1. [Créer un élément multimédia et télécharger des fichiers dans l’élément multimédia](media-services-protect-with-aes128.md#create_asset). 
+1. [Encoder l’élément multimédia contenant le fichier selon le débit binaire MP4 défini](media-services-protect-with-aes128.md#encode_asset).
+1. [Créer une clé de contenu et l’associer à l’élément multimédia encodé](media-services-protect-with-aes128.md#create_contentkey). Dans Media Services, la clé de contenu contient la clé de chiffrement de l'élément multimédia.
+1. [Configurer la stratégie d’autorisation de la clé de contenu](media-services-protect-with-aes128.md#configure_key_auth_policy). La stratégie d'autorisation de la clé de contenu doit être configurée par vous et respectée par le client afin que la clé de contenu soit remise au client. 
 1. [Configurer la stratégie de remise pour un élément multimédia](media-services-protect-with-aes128.md#configure_asset_delivery_policy). La configuration de la stratégie de remise inclut : l'URL d'acquisition de clé et le vecteur d'initialisation (IV) (AES 128 nécessite que le vecteur d'initialisation fourni pour le chiffrement et le déchiffrement soit similaire), le protocole de remise (par exemple, MPEG DASH, HLS, HDS, Smooth Streaming ou tous), le type de chiffrement dynamique (par exemple, enveloppe ou aucun chiffrement dynamique). 
 
 	Vous pouvez appliquer des stratégies différentes à chaque protocole dans le même élément multimédia. Par exemple, vous pouvez appliquer le chiffrement PlayReady à Smooth/DASH et AES Envelope à HLS. Tous les protocoles qui ne sont pas définis dans une stratégie de remise (par exemple, en cas d’ajout d’une stratégie unique qui spécifie uniquement TLS comme protocole) seront bloqués de la diffusion en continu. Cela ne s’applique toutefois pas si vous n’avez défini aucune stratégie de remise de ressources. Tous les protocoles seront alors autorisés.
 
-1. [Créer un localisateur à la demande](media-services-protect-with-aes128.md#create_locator) afin d'obtenir une URL de diffusion en continu.
+1. [Créer un localisateur à la demande](media-services-protect-with-aes128.md#create_locator) afin d’obtenir une URL de diffusion en continu.
 
 La rubrique présente également [comment une application cliente peut demander une clé au service de distribution des clés](media-services-protect-with-aes128.md#client_request).
 
@@ -58,7 +62,7 @@ Le reste de cette rubrique fournit des explications détaillées, des exemples d
 
 Si vous ajoutez ou mettez à jour la stratégie de remise de votre ressource, vous devez supprimer le localisateur existant (le cas échéant) et en créer un nouveau.
 
-##<a id="create_asset"></a>Créer un élément multimédia et télécharger des fichiers dans l'élément multimédia
+##<a id="create_asset"></a>Créer un élément multimédia et télécharger des fichiers dans l’élément multimédia
 
 Pour gérer, encoder et diffuser vos vidéos, vous devez d'abord télécharger votre contenu dans Microsoft Azure Media Services. Une fois téléchargé, votre contenu est stocké en toute sécurité dans le cloud et peut faire l’objet d’un traitement et d’une diffusion en continu.
 
@@ -97,9 +101,9 @@ L'extrait de code suivant montre comment créer un élément multimédia et tél
 	    return inputAsset;
 	}
 
-##<a id="encode_asset"></a>Encoder l'élément multimédia contenant le fichier selon le débit binaire MP4 défini
+##<a id="encode_asset"></a>Encoder l’élément multimédia contenant le fichier selon le débit binaire MP4 défini
 
-Avec le chiffrement dynamique, il vous suffit de créer un élément multimédia qui contient un ensemble de fichiers MP4 à débit binaire multiple ou de fichiers sources de diffusion en continu lisse à débit binaire multiple. Ensuite, en fonction du format spécifié dans le manifeste ou la demande de fragment, le serveur de diffusion en continu à la demande s'assure que vous recevez le flux conforme au protocole choisi. Par conséquent, il vous suffit de stocker et de payer les fichiers dans un seul format de stockage. Le service Media Services se charge de créer et de fournir la réponse appropriée en fonction des demandes des clients. Pour plus d’informations, consultez [Vue d'ensemble de l'empaquetage dynamique](media-services-dynamic-packaging-overview.md).
+Avec le chiffrement dynamique, il vous suffit de créer un élément multimédia qui contient un ensemble de fichiers MP4 à débit binaire multiple ou de fichiers sources de diffusion en continu lisse à débit binaire multiple. Ensuite, en fonction du format spécifié dans le manifeste ou la demande de fragment, le serveur de diffusion en continu à la demande s'assure que vous recevez le flux conforme au protocole choisi. Par conséquent, il vous suffit de stocker et de payer les fichiers dans un seul format de stockage. Le service Media Services se charge de créer et de fournir la réponse appropriée en fonction des demandes des clients. Pour plus d’informations, consultez [Vue d’ensemble de l’empaquetage dynamique](media-services-dynamic-packaging-overview.md).
 
 L'extrait de code suivant montre comment encoder un élément multimédia selon le débit binaire MP4 adaptatif défini :
 	
@@ -138,19 +142,19 @@ L'extrait de code suivant montre comment encoder un élément multimédia selon 
 	        DateTime.UtcNow.ToString(@"yyyy_M_d__hh_mm_ss")));
 	}
 
-##<a id="create_contentkey"></a>Créer une clé de contenu et l'associer à l'élément multimédia encodé
+##<a id="create_contentkey"></a>Créer une clé de contenu et l’associer à l’élément multimédia encodé
 
 Dans Media Services, la clé de contenu contient la clé que vous souhaitez utiliser pour chiffrer un élément multimédia.
 
-Pour plus d'informations, consultez [Créer une clé de contenu](media-services-dotnet-create-contentkey.md).
+Pour plus d’informations, consultez [Créer une clé de contenu](media-services-dotnet-create-contentkey.md).
 
-##<a id="configure_key_auth_policy"></a>Configurer la stratégie d'autorisation de la clé de contenu
+##<a id="configure_key_auth_policy"></a>Configurer la stratégie d’autorisation de clé de contenu
 
 Media Services prend en charge plusieurs méthodes d’authentification des utilisateurs effectuant des demandes de clé. La stratégie d'autorisation de la clé de contenu doit être configurée par vous et respectée par le client (lecteur) afin que la clé soit remise au client. La stratégie d’autorisation des clés de contenu peut avoir une ou plusieurs restrictions d’autorisations : ouvert, restriction par jeton ou restriction IP.
 
-Pour plus d'informations, consultez [Configurer la stratégie d'autorisation de la clé de contenu](media-services-dotnet-configure-content-key-auth-policy.md).
+Pour plus d’informations, consultez [Configurer la stratégie d’autorisation de clé de contenu](media-services-dotnet-configure-content-key-auth-policy.md).
 
-##<a id="configure_asset_delivery_policy"></a>Configurer la stratégie de remise d'éléments multimédias 
+##<a id="configure_asset_delivery_policy"></a>Configurer la stratégie de distribution d’éléments multimédia 
 
 Configurez la stratégie de remise pour votre élément multimédia. Certains éléments que la configuration de la stratégie de remise de l'élément multimédia inclut :
 
@@ -159,9 +163,9 @@ Configurez la stratégie de remise pour votre élément multimédia. Certains é
 - Le protocole de remise de l'élément multimédia (par exemple, MPEG DASH, HLS, HDS, Smooth Streaming ou tous).
 - Le type de chiffrement dynamique (par exemple, AES Envelope) ou aucun chiffrement dynamique. 
 
-Pour plus d'informations, consultez [Configurer la stratégie de remise d'éléments multimédias](media-services-rest-configure-asset-delivery-policy.md).
+Pour plus d’informations, consultez [Configurer la stratégie de distribution d’éléments multimédia](media-services-rest-configure-asset-delivery-policy.md).
 
-##<a id="create_locator"></a>Créer un localisateur de diffusion en continu à la demande afin d'obtenir une URL de diffusion en continu
+##<a id="create_locator"></a>Créer un localisateur de diffusion en continu à la demande afin d’obtenir une URL de diffusion en continu
 
 Vous devrez fournir aux utilisateurs l'URL de diffusion en continu pour Smooth, DASH ou HLS.
 
@@ -192,7 +196,7 @@ Dans l'étape précédente, vous avez construit l'URL qui pointe vers un fichier
 
 ###Fichiers manifeste
 
-Le client doit extraire la valeur de l'URL (qui contient également l'ID de la clé de contenu (kid)) à partir du fichier manifeste. Ensuite, le client doit essayer d'obtenir la clé de chiffrement à partir du service de distribution des clés. Le client doit également extraire la valeur IV et l'utiliser pour déchiffrer le flux. L'extrait de code suivant montre l'élément <Protection> du manifeste de diffusion en continu lisse (Smooth Streaming).
+Le client doit extraire la valeur de l'URL (qui contient également l'ID de la clé de contenu (kid)) à partir du fichier manifeste. Ensuite, le client doit essayer d'obtenir la clé de chiffrement à partir du service de distribution des clés. Le client doit également extraire la valeur IV et l’utiliser pour déchiffrer le flux. L’extrait de code suivant montre l’élément <Protection> du manifeste Smooth Streaming.
 
 	<Protection>
 	  <ProtectionHeader SystemID="B47B251A-2409-4B42-958E-08DBAE7B4EE9">
@@ -217,7 +221,7 @@ Par exemple, le manifeste racine est : http://test001.origin.mediaservices.wind
 	QualityLevels(842459)/Manifest(video,format=m3u8-aapl)
 	…
 
-Si vous ouvrez l'un des fichiers de segment dans un éditeur de texte (par exemple,http://test001.origin.mediaservices.windows.net/8bfe7d6f-34e3-4d1a-b289-3e48a8762490/BigBuckBunny.ism/QualityLevels(514369)/Manifest(video,format=m3u8-aapl)), il doit contenir #EXT-X-KEY qui indique que le fichier est chiffré.
+Si vous ouvrez l’un des fichiers de segment dans un éditeur de texte (par exemple,http://test001.origin.mediaservices.windows.net/8bfe7d6f-34e3-4d1a-b289-3e48a8762490/BigBuckBunny.ism/QualityLevels(514369)/Manifest(video,format=m3u8-aapl)), il doit contenir #EXT-X-KEY qui indique que le fichier est chiffré.
 	
 	#EXTM3U
 	#EXT-X-VERSION:4
@@ -659,4 +663,4 @@ Le code suivant montre comment envoyer une requête au service de distribution d
 		    }
 		}
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

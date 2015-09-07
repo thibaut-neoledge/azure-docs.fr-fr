@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Passerelle des services Bureau à distance et serveur Multi-Factor Authentication avec RADIUS" 
-	description="Il s'agit de la page d'authentification multifacteur Azure qui facilite le déploiement de la passerelle Bureau à distance (RD) et le serveur Azure Multi-Factor Authentication à l’aide de RADIUS." 
-	services="multi-factor-authentication" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="swadhwa" 
+	pageTitle="Passerelle des services Bureau à distance et serveur Multi-Factor Authentication avec RADIUS"
+	description="Il s'agit de la page d'authentification multifacteur Azure qui facilite le déploiement de la passerelle Bureau à distance (RD) et le serveur Azure Multi-Factor Authentication à l’aide de RADIUS."
+	services="multi-factor-authentication"
+	documentationCenter=""
+	authors="billmath"
+	manager="stevenpo"
 	editor="curtand"/>
 
 <tags 
-	ms.service="multi-factor-authentication" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/14/2015" 
+	ms.service="multi-factor-authentication"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/24/2015"
 	ms.author="billmath"/>
 
 # Passerelle des services Bureau à distance et serveur Multi-Factor Authentication avec RADIUS
@@ -59,4 +59,4 @@ Le serveur Azure Multi-Factor Authentication est configuré en tant que proxy RA
 
 ![Authentification RADIUS](./media/multi-factor-authentication-get-started-server-rdg/radius.png)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

@@ -1,35 +1,33 @@
 <properties 
-	pageTitle="Connecteur Table Azure - Déplacer des données vers et à partir de Table Azure" 
-	description="En savoir plus sur le connecteur Table Azure pour le service Data Factory qui vous permet de déplacer des données vers/depuis le stockage Table Azure" 
-	services="data-factory" 
-	documentationCenter="" 
-	authors="spelluru" 
-	manager="jhubbard" 
+	pageTitle="Déplacer des données vers et depuis Azure Table | Azure Data Factory"
+	description="Découvrez comment déplacer des données depuis et vers le stockage Azure Table à l’aide d’Azure Data Factory."
+	services="data-factory"
+	documentationCenter=""
+	authors="spelluru"
+	manager="jhubbard"
 	editor="monicar"/>
 
-
 <tags 
-	ms.service="data-factory" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/29/2015" 
+	ms.service="data-factory"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/26/2015"
 	ms.author="spelluru"/>
 
-
-# Connecteur Table Azure - Déplacer des données vers et à partir de Table Azure
+# Déplacer des données vers et depuis Azure Table à l’aide d’Azure Data Factory
 
 Cet article décrit comment vous pouvez utiliser l'activité de copie dans une fabrique Azure Data Factory pour déplacer des données vers Table Azure à partir d'un magasin de données et vice versa. Cet article s'appuie sur l'article des [activités de déplacement des données](data-factory-data-movement-activities.md) qui présente une vue d'ensemble du déplacement des données avec l'activité de copie et les combinaisons de magasin de données prises en charge.
 
 ## Exemple : copie de données à partir de Table Azure vers un objet Blob Azure
 
-L'exemple ci-dessous présente les éléments suivants :
+L’exemple ci-dessous présente les éléments suivants :
 
-1.	Un service lié de type AzureStorage (utilisé pour la table et l'objet blob).
-2.	Un jeu de données d'entrée de type AzureTable.
-3.	Un jeu de données de sortie de type AzureBlob. 
-3.	Le pipeline avec une activité de copie qui utilise AzureTableSource et BlobSink. 
+1.	Un service lié de type [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties) (utilisé pour la table et l’objet blob).
+2.	Un [jeu de données](data-factory-create-datasets.md) d’entrée de type [AzureTable](#azure-table-dataset-type-properties).
+3.	Un [jeu de données](data-factory-create-datasets.md) de sortie de type [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties). 
+3.	Le [pipeline](data-factory-create-pipelines.md) avec une activité de copie qui utilise [AzureTableSource](#azure-table-copy-activity-type-properties) et [BlobSink](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties). 
 
 L'exemple copie des données appartenant à la partition par défaut dans une Table Azure vers un objet Blob, toutes les heures. Les propriétés JSON utilisées dans ces exemples sont décrites dans les sections suivant les exemples.
 
@@ -76,7 +74,7 @@ La définition de « external » : « true » et la spécification de la stra
 
 **Jeu de données de sortie d'objet Blob Azure :**
 
-Les données sont écrites dans un nouvel objet blob toutes les heures (fréquence : heure, intervalle : 1). Le chemin d'accès du dossier pour l'objet blob est évalué dynamiquement en fonction de l'heure de début du segment en cours de traitement. Le chemin d'accès du dossier utilise l'année, le mois, le jour et l'heure de l'heure de début.
+Les données sont écrites dans un nouvel objet blob toutes les heures (fréquence : heure, intervalle : 1). Le chemin d’accès du dossier pour l’objet blob est évalué dynamiquement en fonction de l’heure de début du segment en cours de traitement. Le chemin d'accès du dossier utilise l'année, le mois, le jour et l'heure de l'heure de début.
 
 	{
 	  "name": "AzureBlobOutput",
@@ -183,12 +181,13 @@ Le pipeline contient une activité de copie qui est configurée pour utiliser le
 
 ## Exemple : copie de données à partir d'un objet Blob Azure vers Table Azure
 
-L'exemple ci-dessous présente les éléments suivants :
+L’exemple ci-dessous présente les éléments suivants :
 
-1.	Un service lié de type AzureStorage (utilisé pour la table et l'objet blob).
-3.	Un jeu de données d'entrée de type AzureBlob.
-4.	Un jeu de données de sortie de type AzureTable. 
-4.	Le pipeline avec une activité de copie qui utilise BlobSource et AzureTableSink. 
+1.	Un service lié de type [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties) (utilisé pour la table et l’objet blob).
+3.	Un [jeu de données](data-factory-create-datasets.md) d’entrée de type [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties).
+4.	Un [jeu de données](data-factory-create-datasets.md) de sortie de type [AzureTable](#azure-table-dataset-type-properties). 
+4.	Le [pipeline](data-factory-create-pipelines.md) avec une activité de copie qui utilise [BlobSource](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties) et [AzureTableSink](#azure-table-copy-activity-type-properties). 
+
 
 L'exemple copie des données appartenant à une série horaire à partir d'un objet Blob Azure vers une table dans une base de données Table Azure, toutes les heures. Les propriétés JSON utilisées dans ces exemples sont décrites dans les sections suivant les exemples.
 
@@ -206,7 +205,7 @@ L'exemple copie des données appartenant à une série horaire à partir d'un ob
 
 **Jeu de données d'entrée d'objet Blob Azure :**
 
-Les données sont récupérées à partir d'un nouvel objet blob toutes les heures (fréquence : heure, intervalle : 1). Le nom du chemin d'accès et du fichier de dossier pour l'objet blob sont évalués dynamiquement en fonction de l'heure de début du segment en cours de traitement. Le chemin d'accès du dossier utilise l'année, le mois et le jour de l'heure de début et le nom de fichier utilise la partie heure de l'heure de début. Le paramètre « external » : « true » informe le service Data Factory que cette table est externe à la Data Factory et non produite par une activité dans la Data Factory.
+Les données sont récupérées à partir d'un nouvel objet Blob toutes les heures (fréquence : heure, intervalle : 1). Le nom du chemin d’accès et du fichier de dossier pour l’objet Blob sont évalués dynamiquement en fonction de l’heure de début du segment en cours de traitement. Le chemin d'accès du dossier utilise l'année, le mois et le jour de l'heure de début et le nom de fichier utilise la partie heure de l'heure de début. Le paramètre « external » : « true » informe le service Data Factory que cette table est externe à la Data Factory et non produite par une activité dans la Data Factory.
 	
 	{
 	  "name": "AzureBlobInput",
@@ -353,7 +352,7 @@ Vous pouvez lier un compte de stockage Azure à une Azure Data Factory avec un s
 
 ## Propriétés de type du jeu de données Table Azure
 
-Pour obtenir une liste complète des sections et propriétés disponibles pour la définition de jeux de données, consultez l'article [Création de jeux de données](data-factory-create-datasets.md). Les sections comme la structure, la disponibilité et la stratégie d'un jeu de données JSON sont similaires pour tous les types de jeux de données (SQL Azure, objet Blob Azure, table Azure, etc...).
+Pour obtenir une liste complète des sections et propriétés disponibles pour la définition de jeux de données, consultez l’article [Création de jeux de données](data-factory-create-datasets.md). Les sections comme la structure, la disponibilité et la stratégie d'un jeu de données JSON sont similaires pour tous les types de jeux de données (SQL Azure, Azure Blob, Azure Table, etc.).
 
 La section typeProperties est différente pour chaque type de jeu de données et fournit des informations sur l'emplacement des données dans le magasin de données. La section **typeProperties** pour le jeu de données de type **AzureTable** a les propriétés suivantes.
 
@@ -363,7 +362,7 @@ La section typeProperties est différente pour chaque type de jeu de données et
 
 ## Propriétés de type de l'activité de copie Table Azure
 
-Pour obtenir la liste complète des sections et des propriétés disponibles pour la définition des activités, consultez l'article [Création de pipelines](data-factory-create-pipelines.md). Des propriétés telles que le nom, la description, les tables d’entrée et de sortie, différentes stratégies, etc. sont disponibles pour tous les types d'activités.
+Pour obtenir la liste complète des sections et des propriétés disponibles pour la définition des activités, consultez l’article [Création de pipelines](data-factory-create-pipelines.md). Des propriétés telles que le nom, la description, les tables d’entrée et de sortie, différentes stratégies, etc. sont disponibles pour tous les types d’activités.
 
 Par contre, les propriétés disponibles dans la section typeProperties de l'activité varient avec chaque type d'activité et dans le cas de l'activité de copie, elles varient selon les types de sources et de récepteurs.
 
@@ -372,8 +371,7 @@ Par contre, les propriétés disponibles dans la section typeProperties de l'act
 Propriété | Description | Valeurs autorisées | Requis
 -------- | ----------- | -------------- | -------- 
 azureTableSourceQuery | Utilise la requête personnalisée pour lire des données. | Chaîne de requête de table Azure. Exemple : **ColumnA eq ValueA** | Non
-azureTableSourceIgnoreTableNotFound | Indiquer si l'exception de la table n'existe pas. | TRUE<br/>
-FALSE | Non |
+azureTableSourceIgnoreTableNotFound | Indiquer si l'exception de la table n'existe pas. | TRUE<br/>FALSE | Non |
 
 **AzureTableSink** prend en charge les propriétés suivantes dans la section typeProperties :
 
@@ -383,8 +381,7 @@ Propriété | Description | Valeurs autorisées | Requis
 azureTableDefaultPartitionKeyValue | Valeur de clé de partition par défaut qui peut être utilisée par le récepteur. | Valeur de chaîne. | Non 
 azureTablePartitionKeyName | Nom de colonne spécifié par l'utilisateur, dont les valeurs de colonne sont utilisées comme clé de partition. Si aucune valeur n'est spécifiée, AzureTableDefaultPartitionKeyValue est utilisée comme clé de partition. | Nom de colonne. | Non |
 azureTableRowKeyName | Nom de colonne spécifié par l'utilisateur, dont les valeurs de colonne sont utilisées comme clé de ligne. Si aucune valeur n'est spécifiée, un GUID est utilisé pour chaque ligne. | Nom de colonne. | Non  
-azureTableInsertType | Mode d'insertion des données dans une table Azure. | merge<br/>
-replace | Non 
+azureTableInsertType | Mode d'insertion des données dans une table Azure. | merge<br/>replace | Non 
 writeBatchSize | Insère des données dans la table Azure lorsque la valeur de writeBatchSize ou writeBatchTimeout est atteinte. | Entier compris entre 1 et 100 (unité = nombre de lignes) | Non (Valeur par défaut = 100) 
 writeBatchTimeout | Insère des données dans la table Azure lorsque la valeur de writeBatchSize ou writeBatchTimeout est atteinte | (Unité = intervalle de temps) Exemple : « 00:20:00 » (20 minutes) | Non (Valeur par défaut du délai d'attente du stockage client par défaut : 90 secondes)
 
@@ -392,12 +389,12 @@ writeBatchTimeout | Insère des données dans la table Azure lorsque la valeur d
 
 ### Mappage de type de Table Azure
 
-Comme mentionné dans l'article consacré aux [activités de déplacement des données](data-factory-data-movement-activities.md), l'activité de copie convertit automatiquement des types source en types récepteur à l'aide de l'approche en 2 étapes suivante.
+Comme mentionné dans l’article consacré aux [activités de déplacement des données](data-factory-data-movement-activities.md), l’activité de copie convertit automatiquement des types source en types récepteur à l’aide de l’approche en 2 étapes suivante.
 
 1. Conversion à partir de types de source natifs en types .NET
 2. Conversion à partir du type .NET en type de récepteur natif
 
-Lors du déplacement de données à partir de et vers Table Azure, les [mappages suivants définis par le service Table Azure](https://msdn.microsoft.com/library/azure/dd179338.aspx) seront utilisés à partir des types OData Table Azure vers le type .NET et vice versa.
+Pendant le déplacement de données à partir de et vers Table Azure, les [mappages suivants définis par le service Table Azure](https://msdn.microsoft.com/library/azure/dd179338.aspx) sont utilisés à partir des types OData Table Azure vers le type .NET et vice versa.
 
 | Type de données OData | Type .NET | Détails |
 | --------------- | --------- | ------- |
@@ -488,4 +485,4 @@ Dans ce cas, Data Factory effectuera automatiquement les conversions de type, y
 
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

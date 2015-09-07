@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Connecteur Office 365"
-	description="Utilisation du connecteur Office 365"
+   pageTitle="Utilisation du connecteur Office 365 dans des applications logiques | Microsoft Azure App Service"
+	description="Comment créer et configurer le connecteur Office 365 ou une application API et l'utiliser dans une application logique d’Azure App Service"
 	services="app-service\logic"
 	documentationCenter=".net,nodejs,java"
 	authors="anuragdalmia"
@@ -13,13 +13,14 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="integration"
-	ms.date="08/19/2015"
+	ms.date="08/23/2015"
 	ms.author="sameerch"/>
 
 
-#Utilisation du connecteur Office 365 dans votre application logique#
+# Utilisation et ajout du connecteur Office 365 dans votre application logique
+Connectez-vous à votre compte Office 365 pour envoyer et recevoir du courrier électronique et gérer votre calendrier et vos contacts. Vous pouvez effectuer diverses actions comme envoyer, recevoir et obtenir des messages messages électroniques, créer et supprimer des événements dans votre calendrier et créer, mettre à jour, obtenir et supprimer vos contacts.
 
-Les applications logiques peuvent se déclencher selon diverses sources de données et proposent des connecteurs pour obtenir et traiter les données dans le cadre du flux. Le connecteur Office 365 vous permet d'envoyer et recevoir des messages électroniques, de gérer un calendrier et des contacts dans votre compte Office 365. Vous pouvez effectuer diverses actions comme envoyer, recevoir et obtenir des messages messages électroniques, créer et supprimer des événements dans votre calendrier et créer, mettre à jour, obtenir et supprimer vos contacts.
+Les applications logiques peuvent se déclencher selon diverses sources de données et proposent des connecteurs pour obtenir et traiter les données dans le cadre du flux. Vous pouvez ajouter le connecteur Office 365 à votre flux d’entreprise et traiter les données dans le cadre de ce flux de travail dans une application logique.
 
 **Actions de base**
 
@@ -42,7 +43,7 @@ Créons une application logique simple qui se déclenche quand un message élect
 
 1.	Connectez-vous au portail Azure et cliquez sur Nouveau -> Web + mobile -> Application logique : ![][1]
 
-2.	Sur la page Créer une application logique, fournissez les informations requises, telles que le nom, le plan de service de l'application et l'emplacement : ![][2]
+2.	Dans la page Créer une application logique, fournissez les informations requises, telles que le nom, le plan de service de l'application et l'emplacement : ![][2]
 
 3.	Cliquez sur Déclencheurs et actions. L'éditeur d'application logique s'ouvre : ![][3]
 
@@ -126,4 +127,4 @@ Vous pouvez également consulter les statistiques de performances et contrôler 
 [20]: ./media/app-service-logic-connector-office365/20_Office365_Send_Configured.png
 [21]: ./media/app-service-logic-connector-office365/21-create-new-o365-api-app.png
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

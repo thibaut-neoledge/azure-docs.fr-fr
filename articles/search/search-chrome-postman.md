@@ -1,25 +1,25 @@
 <properties
-	pageTitle="Utilisation de Chrome Postman avec Azure Search"
-	description="Utilisation de Chrome Postman avec Azure Search"
+	pageTitle="Utilisation de Chrome Postman avec Azure Search | Microsoft Azure"
+	description="Utilisation de Chrome Postman avec Azure Search Installez et configurez Postman. Création d'un index Azure Search Validez des documents et l’index de requête avec Postman."
 	services="search"
 	documentationCenter=""
 	authors="HeidiSteen"
 	manager="mblythe"
 	editor=""
-    tags="azure-portal"/>
+	tags="azure-portal"/>
 
 <tags
 	ms.service="search"
 	ms.devlang="rest-api"
 	ms.workload="search"
-	ms.topic="get-started-article" 
+	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.date="07/08/2015"
 	ms.author="heidist"/>
 
 # Utilisation de Chrome Postman avec Azure Search #
 
-[Postman](https://chrome.google.com/webstore/detail/postman-rest-client/fdmmgilgnpjigdojojpjoooidkmcomcm "Chrome Postman") est un outil fourni avec Google Chrome, permettant aux développeurs de travailler efficacement avec des services API REST comme Azure Search. Vous pouvez utiliser Postman pour rapidement créer et interroger vos index de recherche en envoyant des appels API via Postman sans être obligé d'écrire du code. Cette approche est un moyen efficace d'apprendre l'API et de tester de nouvelles fonctionnalités.
+[Postman](https://chrome.google.com/webstore/detail/postman-rest-client/fdmmgilgnpjigdojojpjoooidkmcomcm "Chrome Postman") est un outil fourni avec Google Chrome, permettant aux développeurs de travailler efficacement avec des services API REST comme Azure Search. Vous pouvez utiliser Postman pour rapidement créer et interroger vos index de recherche en envoyant des appels API via Postman sans être obligé d’écrire du code. Cette approche est un moyen efficace d'apprendre l'API et de tester de nouvelles fonctionnalités.
 
 ![][1]
 
@@ -27,8 +27,8 @@
 
 Vous devez disposer d'un service Azure Search. Comme avec toute application personnalisée qui utilise Azure Search, vous aurez besoin de l'URL pointant vers votre service ainsi que d'un administrateur `api-key` pour pouvoir créer l'index. Pour savoir comment obtenir les valeurs de votre service de recherche, consultez [Créer un service dans le portail](search-create-service-portal.md).
 
-## Installation de Postman ##
-Pour télécharger Postman, visitez le [Google Chrome Store](https://chrome.google.com/webstore/detail/postman-rest-client/fdmmgilgnpjigdojojpjoooidkmcomcm). Le lien de cette page vous permet de télécharger et d'installer le client REST pour Postman. Une fois installé, vous pouvez lancer Postman à partir du lanceur d'applications Chrome.
+## Pour installer Postman ##
+Pour télécharger Postman, visitez le [Google Chrome Store](https://chrome.google.com/webstore/detail/postman-rest-client/fdmmgilgnpjigdojojpjoooidkmcomcm). Le lien de cette page vous permet de télécharger et d'installer le client REST pour Postman. Après l’installation, vous pouvez lancer Postman à partir du lanceur d’applications Chrome.
 
 ![][2]
 
@@ -36,19 +36,19 @@ Pour télécharger Postman, visitez le [Google Chrome Store](https://chrome.goog
 Pour configurer Postman, procédez comme suit :
 
 1. Entrez l'URL de votre service Azure Search dans le champ « Enter request URL here ».  
-2. Ajoutez à l'URL : `?api-version=2015-02-28`. Vous pouvez également spécifier une version d'API différente. Pour plus d'informations, consultez [Contrôle de version du service Azure Search](https://msdn.microsoft.com/library/azure/dn864560.aspx).
+2. Ajoutez à l'URL : `?api-version=2015-02-28`. Vous pouvez également spécifier une version d'API différente. Pour plus d’informations, consultez [Contrôle de version du service Azure Search](https://msdn.microsoft.com/library/azure/dn864560.aspx).
 3. Vérifiez que `GET` est sélectionné.
 4. Cliquez sur le bouton **En-têtes**.
-5. Entrez les valeurs suivantes :
+5. Saisissez les valeurs suivantes :
 	- `api-key` : [clé administrateur]
 	- `Content-Type` : `application/json; charset=utf-8`
-6. Cliquez sur **Envoyer** pour transmettre l'appel REST à Azure Search et afficher la réponse JSON.
+6. Cliquez sur **Envoyer** pour transmettre l’appel REST à Azure Search et afficher la réponse JSON.
 
 ![][3]
 
-## Création d'un index Azure Search avec Postman ##
+## Pour créer un index Azure Search avec Postman ##
 
-Nous allons maintenant développer ce que nous effectué à la dernière étape en envoyant un appel REST pour créer un index Azure Search. Contrairement à l'appel précédent, la création de l'index nécessite un élément HTTP PUT ainsi qu'un document JSON contenant la définition du schéma d'index. Pour cet exemple, nous allons créer un index de différents chemins de randonnée (trails). Pour ce faire :
+Nous allons maintenant développer ce que nous effectué à la dernière étape en envoyant un appel REST pour créer un index Azure Search. Contrairement à l’appel précédent, la création de l’index nécessite un élément HTTP PUT et un document JSON contenant la définition du schéma d’index. Pour cet exemple, nous allons créer un index de différents chemins de randonnée (trails). Pour ce faire :
 
 1. Remplacez l'URL par `https://[SEARCH SERVICE].search.windows.net/indexes/trails?api-version=2015-02-28` en utilisant le nom de votre service de recherche.
 2. Remplacez le type de requête `GET` par `PUT`.
@@ -68,7 +68,7 @@ Nous allons maintenant développer ce que nous effectué à la dernière étape 
 
 ![][4]
 
-## Envoi de documents vers un index Azure Search avec Postman ##
+## Pour envoyer des documents vers un index Azure Search avec Postman ##
 Maintenant que l'index est créé, nous pouvons y charger des documents. Pour cela, nous allons envoyer un groupe de documents dans un lot en utilisant les données de cinq trails du jeu de données United States Geological Survey (USGS) :
 
 1. Remplacez l'URL par `https://[SEARCH SERVICE].windows.net/indexes/trails/docs/index?api-version=2015-02-28` en utilisant le nom de votre service de recherche. Notez que l'URL contient le chemin vers l'index que vous venez de créer.
@@ -89,7 +89,7 @@ Maintenant que l'index est créé, nous pouvons y charger des documents. Pour ce
 
 ![][5]
 
-## Interrogation de l'index avec Postman ##
+## Pour interroger l’index avec Postman ##
 L'étape finale consiste à interroger l'index et à envoyer une simple requête de recherche en texte intégral pour le mot *trail*.
 
 1. Entrez les informations suivantes dans l'URL : `https://[SEARCH SERVICE].search.windows.net/indexes/trails/docs?api-version=2015-02-28&search=trail` en utilisant le nom de votre service de recherche. Notez que l'URL inclut le paramètre de requête `search` et le terme de recherche *trail*.
@@ -117,6 +117,5 @@ Vous pouvez également obtenir d'autres exemples grâce aux [vidéos et didactic
 [4]: ./media/search-chrome-postman/create_index.png
 [5]: ./media/search-chrome-postman/upload_documents.png
 [6]: ./media/search-chrome-postman/query.png
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

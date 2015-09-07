@@ -1,23 +1,23 @@
 <properties 
-	pageTitle="Utilisation du Gestionnaire de connexion hybride pour Azure App Service" 
-	description="Installer et configurer le Gestionnaire de connexion hybride dans Azure App Service ; architecture des microservices" 
-	services="app-service\logic" 
+	pageTitle="Utilisation du Gestionnaire de connexion hybride dans Azure App Service | Microsoft Azure App Service"
+	description="Installation et configuration du gestionnaire de connexion hybride et connexion à des connecteurs locaux dans Azure App Service"
+	services="app-service\logic"
 	documentationCenter=".net,nodejs,java"
-	authors="MandiOhlinger" 
-	manager="dwrede" 
+	authors="MandiOhlinger"
+	manager="dwrede"
 	editor="cgronlun"/>
 
 <tags 
-	ms.service="app-service-logic" 
-	ms.workload="integration" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/08/2015" 
+	ms.service="app-service-logic"
+	ms.workload="integration"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/23/2015"
 	ms.author="mandia"/>
 
-# Utilisation du Gestionnaire de connexion hybride dans Azure App Service
-Certains connecteurs peuvent se connecter à un système local, tels que SQL Server, SAP, SharePoint, etc. Pour utiliser un système local, Azure App Service utilise le Gestionnaire de connexion hybride.
+# Connexion à des connecteurs locaux dans Azure App Services à l’aide du gestionnaire de connexion hybride
+Pour utiliser un système local, Azure App Service utilise le Gestionnaire de connexion hybride. Certains connecteurs peuvent se connecter à un système local, tels que SQL Server, SAP, SharePoint, etc.
 
 Le Gestionnaire de connexion hybride (ou HCM) est un programme d'installation en un seul clic qui est installé sur un serveur IIS au sein de votre réseau, derrière le pare-feu. À l'aide d'un relais Azure Service Bus, HCM authentifie le système local avec le connecteur dans Azure.
 
@@ -133,4 +133,4 @@ Si votre API personnalisée utilise un port TCP ou HTTP, vous pouvez utiliser le
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

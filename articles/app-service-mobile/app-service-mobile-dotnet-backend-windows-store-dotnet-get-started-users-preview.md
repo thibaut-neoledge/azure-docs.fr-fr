@@ -3,7 +3,7 @@
 	description="Découvrez comment utiliser Azure App Service Mobile Apps pour authentifier les utilisateurs de votre application Windows à l’aide de divers fournisseurs d'identité, notamment AAD, Google, Facebook, Twitter et Microsoft."
 	services="app-service\mobile"
 	documentationCenter="windows"
-	authors="mattchenderson" 
+	authors="mattchenderson"
 	manager="dwrede"
 	editor=""/>
 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="08/14/2015"
+	ms.date="08/22/2015"
 	ms.author="glenga"/>
 
 # Ajout de l'authentification à votre application Windows
@@ -22,11 +22,7 @@
 
 Cette rubrique montre comment authentifier les utilisateurs d'une application App Service Mobile App à partir de votre application cliente. Dans ce didacticiel, vous allez ajouter l'authentification au projet de démarrage rapide à l'aide d'un fournisseur d'identité pris en charge par App Service. Une fois l'utilisateur authentifié et autorisé par votre application Mobile App, la valeur de l'ID utilisateur s'affiche.
 
-Ce didacticiel est basé sur le démarrage rapide de Mobile App. Vous devez commencer par suivre le didacticiel [Prise en main de votre application mobile].
-
-##<a name="review"></a>Examiner la configuration de votre projet de serveur (facultatif)
-
-[AZURE.INCLUDE [app-service-mobile-dotnet-backend-enable-auth-preview](../../includes/app-service-mobile-dotnet-backend-enable-auth-preview.md)]
+Ce didacticiel est basé sur le démarrage rapide de Mobile App. Vous devez commencer par suivre le didacticiel [Prise en main de votre application mobile]. http://acom-sandbox.azurewebsites.net/documentation/articles/app-service-mobile-dotnet-backend-windows-store-dotnet-get-started-push-preview/?rnd=1
 
 ##<a name="create-gateway"></a>Créer une passerelle App Service
 
@@ -64,4 +60,4 @@ Ensuite, vous allez mettre à jour l'application pour authentifier les utilisate
 [Prise en main de votre application mobile]: app-service-mobile-dotnet-backend-windows-store-dotnet-get-started-preview.md
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

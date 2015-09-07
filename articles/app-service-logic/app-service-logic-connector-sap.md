@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Connecteur SAP"
-	description="Utilisation du connecteur SAP"
+   pageTitle="Utilisation du connecteur SAP dans des applications logiques | Microsoft Azure App Service"
+	description="Comment créer et configurer le connecteur SAP ou une application API et l'utiliser dans une application logique d’Azure App Service"
 	services="app-service\logic"
 	documentationCenter=".net,nodejs,java"
 	authors="harishkragarwal"
@@ -13,17 +13,19 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="integration"
-	ms.date="08/19/2015"
+	ms.date="08/23/2015"
 	ms.author="sameerch"/>
 
 
-# Connecteur SAP #
-
-Les connecteurs peuvent être utilisés dans les applications logiques pour extraire, traiter ou placer des données dans le cadre d’un flux. Dans certains scénarios, vous pouvez être amené à utiliser SAP, installé localement et derrière le pare-feu. En exploitant le connecteur SAP dans votre flux, vous pouvez couvrir un large éventail de scénarios. Quelques exemples :
+# Prise en main du connecteur SAP et ajout de celui-ci à votre application logique
+Se connecter au SAP local pour appeler RFC ou obtenir des métadonnées. Dans certains scénarios, vous pouvez être amené à utiliser SAP, installé localement et derrière le pare-feu. En exploitant le connecteur SAP dans votre flux, vous pouvez couvrir un large éventail de scénarios. Quelques exemples :
 
 1.	Exposer une section des données résidant dans votre SAP via un frontal web ou d'utilisateur mobile.
 2.	Publier des données sur votre SAP après leur traitement approprié.
 3.	Extraire des données de SAP pour les utiliser dans un processus d'entreprise.
+
+Les connecteurs peuvent être utilisés dans les applications logiques pour extraire, traiter ou placer des données dans le cadre d’un flux. Vous pouvez ajouter le connecteur SAP à votre flux de travail professionnel et traiter les données dans le cadre de ce flux de travail dans une application logique.
+
 
 Pour ces scénarios, vous devez effectuer ce qui suit :
 
@@ -31,12 +33,13 @@ Pour ces scénarios, vous devez effectuer ce qui suit :
 2. Établissez une connectivité hybride pour que l’application API puisse communiquer localement avec SAP.
 3. Utilisez l’application API créée dans une application logique pour accomplir le processus d’entreprise souhaité.
 
+
 ## Créez une instance de l'application API du connecteur SAP. ##
 
-Pour utiliser le connecteur SAP, vous devez créer une instance de l’application API de ce connecteur. Pour cela, procédez comme suit :
+Un connecteur peut être créé dans une application logique ou directement à partir d'Azure Marketplace. Pour créer un connecteur à partir de Marketplace :
 
-1. Ouvrez Azure Marketplace à l'aide de l'option « + NOUVEAU » en bas à gauche du portail Azure.
-2. Accédez à « Web et mobile > API Apps » et recherchez « SAP Connector ».
+1. Dans le tableau d'accueil Azure, sélectionnez **Marketplace**.
+2. Recherchez « Connecteur SAP », sélectionnez-le et sélectionnez **Créer**.
 3. Configurez-le comme suit :
 	1. Fournissez les détails génériques comme le nom, le plan de service de l’application, etc. dans le premier panneau.
 
@@ -48,22 +51,16 @@ Pour utiliser le connecteur SAP, vous devez créer une instance de l’applicati
 
 ## Configurez l'application API du connecteur SAP que vous venez de créer. ##
 
-Accédez à l’application API tout juste créée via Parcourir -> API Apps -> <Name of the API App just created>. Le comportement suivant est visible. L’installation n’est pas terminée puisque la connexion hybride n’est pas encore établie.
+Accédez à l’application API tout juste créée via Parcourir -> API Apps -> <Name of the API App just created>. Le comportement suivant est visible. L’installation n’est pas terminée puisque la connexion hybride n’est pas encore établie : ![][2]
 
-![][2]
-
-Le connecteur SAP nécessite une connectivité hybride pour se connecter à un point de terminaison SAP, *quel qu’il soit*. Pour l’établir, procédez comme suit :
+Le connecteur SAP nécessite une connectivité hybride pour se connecter à un point de terminaison SAP, *quel qu’il soit*. Pour l’établir une connectivité hybride, procédez comme suit :
 
 1. Copiez la chaîne de connexion principale.
 2. Cliquez sur le lien Télécharger et configurer.
 3. Suivez le processus d’installation qui se lance et fournissez la chaîne de connexion principale quand vous y êtes invité.
-4. Une fois le processus d’installation terminé, une boîte de dialogue similaire à celle-ci apparaît.
+4. Une fois le processus d’installation terminé, une boîte de dialogue similaire à celle-ci apparaît : ![][3]
 
-![][3]
-
-Maintenant, quand vous accédez de nouveau à l’application API créée, vous pouvez observer que l’état de la connexion hybride est Connecté.
-
-![][4]
+Maintenant, quand vous accédez de nouveau à l’application API créée, vous pouvez observer que l’état de la connexion hybride est Connecté : ![][4]
 
 Remarque : si vous voulez basculer vers la chaîne de connexion secondaire, il vous suffit de recommencer la configuration et de fournir la chaîne de connexion secondaire à la place de la chaîne de connexion principale.
 
@@ -71,17 +68,11 @@ Remarque : si vous voulez basculer vers la chaîne de connexion secondaire, il 
 
 Le connecteur SAP peut être utilisé en tant qu'action/étape uniquement dans une application logique.
 
-Quand vous créez/modifiez une application logique, choisissez l'application API du connecteur SAP que vous avez créée ci-dessus. Toutes les actions permises que vous pouvez choisir sont alors répertoriées.
+Quand vous créez/modifiez une application logique, choisissez l'application API du connecteur SAP que vous avez créée ci-dessus. Toutes les actions permises que vous pouvez choisir sont alors répertoriées : ![][5]
 
-![][5]
+Dès que vous sélectionnez une action, la liste des paramètres d'entrée de cette action apparaît. Fournissez les valeurs appropriées, puis cliquez sur l'icône représentant une coche : ![][6]
 
-Dès que vous sélectionnez une action, la liste des paramètres d'entrée de cette action apparaît. Fournissez les valeurs appropriées, puis cliquez sur l'icône représentant une coche.
-
-![][6]
-
-L'étape/action apparaît à présent comme étant configurée dans l'application logique. Les sorties de l'opération s'affichent et peuvent être utilisées comme entrées dans une étape ultérieure.
-
-![][7]
+L’étape/l’action s'affiche maintenant comme configurée dans l'application logique. Les sorties de l'opération s'affichent et peuvent être utilisées comme entrées dans une étape ultérieure : ![][7]
 
 Complétez l'application logique pour définir le processus d'entreprise, puis exécutez-la pour atteindre l'objectif voulu.
 
@@ -101,4 +92,4 @@ Vous pouvez également consulter les statistiques de performances et contrôler 
 [6]: ./media/app-service-logic-connector-sap/LogicApp2.jpg
 [7]: ./media/app-service-logic-connector-sap/LogicApp3.jpg
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

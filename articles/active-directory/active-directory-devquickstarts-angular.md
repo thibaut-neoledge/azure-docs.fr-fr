@@ -34,7 +34,7 @@ Pour les applications javascript s’exécutant dans un navigateur, Azure AD fou
 
 Pour générer l’application fonctionnelle complète, vous devez :
 
-2. inscrire votre application dans Azure AD ;
+2. inscrire votre application auprès d’Azure AD ;
 3. installer la bibliothèque ADAL et configurer l’application à page unique ;
 5. utiliser la bibliothèque ADAL pour sécuriser les pages de l’application à page unique.
 
@@ -151,4 +151,4 @@ Pour référence, l’exemple terminé (sans vos valeurs de configuration) est f
 
 [AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

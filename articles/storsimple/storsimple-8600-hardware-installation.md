@@ -1,23 +1,23 @@
 <properties 
    pageTitle="Installation de votre appareil StorSimple 8600 | Microsoft Azure"
-   description="Explique comment déballer, monter en rack et brancher les câbles de votre appareil StorSimple 8600."
-   services="storsimple"
-   documentationCenter="NA"
-   authors="alkohli"
-   manager="carolz"
-   editor="" />
+	description="Explique comment déballer, monter en rack et câbler votre appareil StorSimple 8600 avant de déployer et de configurer le logiciel."
+	services="storsimple"
+	documentationCenter="NA"
+	authors="alkohli"
+	manager="carolz"
+	editor=""/>
 <tags 
    ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="08/06/2015"
-   ms.author="alkohli" />
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="TBD"
+	ms.date="08/06/2015"
+	ms.author="alkohli"/>
 
-# Installation de votre appareil StorSimple 8600
+# Déballer, monter en rack et câbler votre appareil StorSimple 8600
 
-## Vue d'ensemble
+## Vue d’ensemble
 Microsoft Azure StorSimple 8600 est un appareil composé d’un boîtier principal et d’un boîtier EBOD. Ce didacticiel explique comment déballer, monter en rack et brancher les câbles de votre appareil StorSimple 8600 avant de configurer son logiciel.
 
 ## Déballage de votre appareil StorSimple 8600
@@ -289,4 +289,4 @@ Vous avez terminé le branchement des câbles d’alimentation, d’accès rése
 Vous êtes maintenant prêt à procéder au [Déploiement de votre appareil StorSimple local](storsimple-deployment-walkthrough.md).
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Configuration d’une simulation d’environnement de cloud hybride à des fins de test" 
-	description="Découvrez comment créer un environnement de cloud hybride simulé pour exécuter des tests informatiques ou des tests de développement, à l'aide de deux réseaux virtuels Azure et d'une connexion de réseau virtuel à réseau virtuel." 
-	services="virtual-network" 
-	documentationCenter="" 
-	authors="JoeDavies-MSFT" 
-	manager="timlt" 
+	pageTitle="Simulation d'environnement de test de cloud hybride | Microsoft Azure"
+	description="Créez une simulation d'environnement de cloud hybride pour exécuter des tests informatiques ou de développement, à l'aide de deux réseaux virtuels Azure et d'une connexion de réseau virtuel à réseau virtuel."
+	services="virtual-network"
+	documentationCenter=""
+	authors="JoeDavies-MSFT"
+	manager="timlt"
 	editor=""
 	tags="azure-service-management"/>
 
 <tags 
-	ms.service="virtual-network" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/08/2015" 
+	ms.service="virtual-network"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/08/2015"
 	ms.author="josephd"/>
 
 # Configuration d’une simulation d’environnement de cloud hybride à des fins de test
@@ -171,7 +171,7 @@ Ensuite, connectez-vous à la machine virtuelle DC2.
 3.	Lorsque vous êtes invité à ouvrir DC2.rdp, cliquez sur **Ouvrir**.
 4.	Lorsque le message Connexion Bureau à distance s’affiche, cliquez sur **Connecter**.
 5.	Si des informations d’identification vous sont demandées, utilisez celles-ci :
-- Nom : **DC2\**[Nom de compte d’administrateur local]
+- Nom : **DC2**[Nom de compte d’administrateur local]
 - Mot de passe : [Mot de passe de compte d’administrateur local]
 6.	Lorsqu’une zone de message de connexion Bureau à distance faisant référence aux certificats s’ouvre, cliquez sur **Oui**.
 
@@ -273,4 +273,4 @@ Ensuite, vous configurez la clé prépartagée pour que les deux passerelles uti
 Ensuite, dans la page Réseau du portail de gestion Azure, cliquez sur le réseau virtuel **TestLab**, puis cliquez sur **Connexion** dans la barre des tâches. Attendez que le réseau virtuel TestLab soit connecté au réseau local TestVNET.
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

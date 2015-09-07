@@ -1,25 +1,24 @@
 <properties 
-   pageTitle="Utilisation de l’émulateur express pour exécuter et déboguer un service cloud localement"
-   description="Utilisation de l’émulateur express pour exécuter et déboguer un service cloud localement"
-   services="visual-studio-online"
-   documentationCenter="n/a"
-   authors="patshea123"
-   manager="douge"
-   editor="tlee" />
+   pageTitle="Utilisation de l’émulateur express pour exécuter et déboguer un service cloud sur une machine locale | Microsoft Azure"
+	description="Utilisation de l’émulateur express pour exécuter et déboguer un service cloud sur une machine locale"
+	services="visual-studio-online"
+	documentationCenter="n/a"
+	authors="patshea123"
+	manager="douge"
+	editor="tlee"/>
 <tags 
    ms.service="visual-studio-online"
-   ms.devlang="multiple"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="08/12/2015"
-   ms.author="patshea" />
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.tgt_pltfrm="multiple"
+	ms.workload="na"
+	ms.date="08/14/2015"
+	ms.author="patshea"/>
 
-# Utilisation de l’émulateur express pour exécuter et déboguer un service cloud localement
 
-##Vue d’ensemble
+# Utilisation de l’émulateur express pour exécuter et déboguer un service cloud sur une machine locale
 
-Avec l’émulateur express, vous testez et déboguez un service cloud sans avoir à exécuter Visual Studio en tant qu’administrateur. Vous pouvez définir les paramètres du projet pour utiliser l’émulateur express ou l’émulateur complet selon la configuration requise de votre service cloud. Pour plus d’informations sur l’émulateur complet, consultez [Exécuter une application Azure dans l’émulateur de calcul]http://go.microsoft.com/fwlink/p/?LinkId=623050). L’émulateur express a été introduit dans le Kit de développement logiciel (SDK) Azure 2.1 et, depuis le Kit de développement logiciel (SDK) Azure 2.3, il s’agit de l’émulateur par défaut.
+Avec l’émulateur express, vous testez et déboguez un service cloud sans avoir à exécuter Visual Studio en tant qu’administrateur. Vous pouvez définir les paramètres du projet pour utiliser l’émulateur express ou l’émulateur complet selon la configuration requise de votre service cloud. Pour plus d’informations sur l’émulateur complet, consultez [Exécuter une application Azure dans l’émulateur de calcul](https://msdn.microsoft.com/library/azure/hh403990.aspx). L’émulateur express a été introduit dans le Kit de développement logiciel (SDK) Azure 2.1 et, depuis le Kit de développement logiciel (SDK) Azure 2.3, il s’agit de l’émulateur par défaut.
 
 ## Utilisation de l’émulateur express dans l’IDE Visual Studio
 
@@ -49,10 +48,10 @@ Avant d’utiliser l’émulateur express, prenez connaissance des limitations c
 
 - Vous n’avez pas accès aux numéros de port inférieurs à 1 000. Par exemple, si vous faites appel à un fournisseur d’authentification qui utilise habituellement un numéro de port inférieur à 1 000, vous devrez peut-être remplacer cette valeur par un numéro de port supérieur à 1 000.
 
-- Les limitations qui s’appliquent à l’émulateur de calcul Azure s’appliquent aussi à l’émulateur express. Par exemple, il ne peut pas y avoir plus de 50 instances de rôle par déploiement. Consultez [Exécuter une application Azure dans l’émulateur de calcul](http://go.microsoft.com/fwlink/p/?LinkId=623050).
+- Les limitations qui s’appliquent à l’émulateur de calcul Azure s’appliquent aussi à l’émulateur express. Par exemple, il ne peut pas y avoir plus de 50 instances de rôle par déploiement. Consultez [Exécuter une application Azure dans l’émulateur de calcul](http://go.microsoft.com/fwlink/p/?LinkId=623050)
 
 ## Étapes suivantes
 
-[Débogage de Cloud Services](http://go.microsoft.com/fwlink/p/?LinkId=623041)
+[Débogage de Cloud Services](https://msdn.microsoft.com/library/azure/ee405479.aspx)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

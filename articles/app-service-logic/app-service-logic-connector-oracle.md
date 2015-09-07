@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Utilisation du connecteur Oracle dans Microsoft Azure App Service"
-	description="Utilisation du connecteur Oracle"
+   pageTitle="Utilisation du connecteur de base de données Oracle dans des applications logiques | Microsoft Azure App Service"
+	description="Comment créer et configurer le connecteur de base de données Oracle ou une application API et l'utiliser dans une application logique d’Azure App Service"
 	services="app-service\logic"
 	documentationCenter=".net,nodejs,java"
 	authors="anuragdalmia"
@@ -13,12 +13,11 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="integration"
-	ms.date="08/19/2015"
+	ms.date="08/23/2015"
 	ms.author="sameerch"/>
 
 
-# Connecteur de base de données Oracle
-
+# Utilisation et ajout du connecteur de base de données Oracle dans votre application logique
 Connectez-vous à un serveur de base de données Oracle en local pour créer et modifier vos informations ou données. Les connecteurs peuvent être utilisés dans les applications logiques pour extraire, traiter ou placer des données dans le cadre d'un « flux ». En utilisant le connecteur Oracle dans votre flux, vous pouvez effectuer une multitude d'opérations. Vous pouvez, par exemple :
 
 - Exposer une partie des données résidant dans votre base de données Oracle via une application web ou mobile.
@@ -117,4 +116,4 @@ Vous pouvez également consulter les statistiques de performances et contrôler 
 [11]: ./media/app-service-logic-connector-oracle/LogicApp7.png
 [12]: ./media/app-service-logic-connector-oracle/LogicApp8.png
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

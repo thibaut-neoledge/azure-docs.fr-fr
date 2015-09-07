@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="07/29/2015"
+	ms.date="08/22/2015"
 	ms.author="krisragh"/>
 
 
@@ -21,7 +21,9 @@
 
 [AZURE.INCLUDE [app-service-mobile-selector-get-started-push-preview](../../includes/app-service-mobile-selector-get-started-push-preview.md)]&nbsp;[AZURE.INCLUDE [app-service-mobile-note-mobile-services-preview](../../includes/app-service-mobile-note-mobile-services-preview.md)]
 
-Dans ce didacticiel, vous ajoutez des notifications Push au projet [Démarrage rapide iOS] afin qu’une notification Push soit envoyée chaque fois qu'un enregistrement est inséré. Ce didacticiel est basé sur le didacticiel [Démarrage rapide iOS], que vous devez effectuer en premier. Le [simulateur iOS ne prend pas en charge les notifications Push](https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/iOS_Simulator_Guide/TestingontheiOSSimulator.html) donc, pour ce didacticiel, vous avez besoin d'un périphérique iOS physique et d’une [adhésion au programme de développement Apple](https://developer.apple.com/programs/ios/).
+Dans ce didacticiel, vous ajoutez des notifications Push au projet [Démarrage rapide iOS] afin qu’une notification Push soit envoyée chaque fois qu'un enregistrement est inséré. Ce didacticiel est basé sur le didacticiel [Démarrage rapide iOS], que vous devez effectuer en premier. Si vous n’utilisez pas le projet de serveur du démarrage rapide téléchargé, vous devez ajouter le package d’extension de notification Push à votre projet. Pour plus d'informations sur les packages d'extension de serveur, consultez [Fonctionnement avec le Kit de développement logiciel (SDK) du serveur principal .NET pour Azure Mobile Apps](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md).
+
+Le [simulateur iOS ne prend pas en charge les notifications Push](https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/iOS_Simulator_Guide/TestingontheiOSSimulator.html) donc, pour ce didacticiel, vous avez besoin d'un périphérique iOS physique et d’une [adhésion au programme de développement Apple](https://developer.apple.com/programs/ios/).
 
 ## <a id="register"></a>Inscrire une application pour les notifications Push
 
@@ -31,10 +33,6 @@ Dans ce didacticiel, vous ajoutez des notifications Push au projet [Démarrage r
 
 [AZURE.INCLUDE [app-service-mobile-apns-configure-push-preview](../../includes/app-service-mobile-apns-configure-push-preview.md)]
 
-##<a name="review"></a>Examiner la configuration de votre projet de serveur (facultatif)
-
-[AZURE.INCLUDE [app-service-mobile-dotnet-backend-enable-push-preview](../../includes/app-service-mobile-dotnet-backend-enable-push-preview.md)]
-
 ##<a id="update-server"></a>Mettre à jour le projet de serveur pour l'envoi de notifications Push
 
 [AZURE.INCLUDE [app-service-mobile-dotnet-backend-configure-push-apns](../../includes/app-service-mobile-dotnet-backend-configure-push-apns.md)]
@@ -43,7 +41,7 @@ Dans ce didacticiel, vous ajoutez des notifications Push au projet [Démarrage r
 
 [AZURE.INCLUDE [app-service-mobile-dotnet-backend-publish-service-preview](../../includes/app-service-mobile-dotnet-backend-publish-service-preview.md)]
 
-## <a id="add-push"></a>Ajouter des notifications Push à l’application
+## <a id="add-push"></a>Ajout de notifications Push à l’application
 
 [AZURE.INCLUDE [Ajout de notifications push à l’application](../../includes/app-service-add-push-notifications-to-app.md)]
 
@@ -111,4 +109,4 @@ Dans ce didacticiel, vous ajoutez des notifications Push au projet [Démarrage r
 [apns object]: http://go.microsoft.com/fwlink/p/?LinkId=272333
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

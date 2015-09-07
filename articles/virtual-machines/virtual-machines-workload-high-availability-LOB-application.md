@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Charge de travail des services d’infrastructure Azure : applications métier à haute disponibilité" 
-	description="Découvrez la valeur d’une application métier basée sur le Web déployée dans Azure, comment configurer un environnement de développement/test et comment déployer une configuration de production à haute disponibilité." 
-	services="virtual-machines" 
-	documentationCenter="" 
-	authors="JoeDavies-MSFT" 
-	manager="timlt" 
+	pageTitle="Application métier dans Azure | Microsoft Azure"
+	description="Découvrez la valeur d'une application métier dans Azure, configurez un environnement de test et déployez une configuration à haute disponibilité."
+	services="virtual-machines"
+	documentationCenter=""
+	authors="JoeDavies-MSFT"
+	manager="timlt"
 	editor=""
 	tags="azure-resource-manager"/>
 
 <tags 
-	ms.service="virtual-machines" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/11/2015" 
+	ms.service="virtual-machines"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/11/2015"
 	ms.author="josephd"/>
 
 # Charge de travail des services d’infrastructure Azure : applications métier à haute disponibilité
@@ -103,4 +103,4 @@ Une fois la configuration effectuée, vous pouvez étendre cette application mé
 
 [Charge de travail des services d’infrastructure Azure : batterie de serveurs SharePoint Server 2013](virtual-machines-workload-intranet-sharepoint-farm.md)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

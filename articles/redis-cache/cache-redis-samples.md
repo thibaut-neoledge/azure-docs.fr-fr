@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Exemples de Cache Redis Azure" 
-	description="Découvrez comment utiliser le Cache Redis Azure" 
-	services="redis-cache" 
-	documentationCenter="" 
-	authors="steved0x" 
-	manager="dwrede" 
+	pageTitle="Exemples de Cache Redis Azure"
+	description="Découvrez comment utiliser le Cache Redis Azure"
+	services="redis-cache"
+	documentationCenter=""
+	authors="steved0x"
+	manager="dwrede"
 	editor=""/>
 
 <tags 
-	ms.service="cache" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="cache-redis" 
-	ms.devlang="multiple" 
-	ms.topic="article" 
-	ms.date="08/11/2015" 
+	ms.service="cache"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="cache-redis"
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.date="08/25/2015"
 	ms.author="sdanie"/>
 
 # Exemples de Cache Redis Azure 
@@ -42,7 +42,7 @@ L’exemple [How to use Azure Redis Cache with Python](cache-python-get-started.
 
 L’[exemple PHP](https://msdn.microsoft.com/library/azure/dn690470.aspx#PHPExample) montre comment utiliser le cache Redis Azure avec PHP et le client [predis](https://github.com/nrk/predis).
 
-L’exemple [Work with .NET objects in the cache](https://msdn.microsoft.com/library/azure/dn690521.aspx#Objects) montre comment sérialiser des objets .NET afin de pouvoir les lire et les écrire depuis une instance du cache Redis Azure.
+L’exemple [Utilisation d'objets .NET dans le cache](https://msdn.microsoft.com/library/azure/dn690521.aspx#Objects) montre comment sérialiser des objets .NET afin de pouvoir les lire et les écrire depuis une instance du cache Redis Azure.
 
 ## Utiliser le Cache Redis comme un fond de panier de montée en puissance pour ASP.NET SignalR
 
@@ -65,7 +65,7 @@ L’exemple [Manage Azure Redis Cache using Azure Management Libraries](https://
 
 ## Exemple de surveillance personnalisée
 
-L’exemple [Access Redis Cache Monitoring data](https://github.com/rustd/RedisSamples/tree/master/CustomMonitoring) montre comment accéder aux données de surveillance de votre cache Redis Azure en dehors du portail Azure.
+L’exemple [Access Redis Cache Monitoring data](https://github.com/rustd/RedisSamples/tree/master/CustomMonitoring) montre comment accéder aux données de surveillance de votre cache Redis Azure hors du portail Azure.
 
 ## Un clone de style Twitter écrit avec PHP et Redis
 
@@ -75,4 +75,4 @@ L’exemple [Retwis](https://github.com/SyntaxC4-MSFT/retwis) est Redis Hello Wo
 
 L’exemple [Bandwidth monitor](https://github.com/JonCole/SampleCode/tree/master/BandWidthMonitor) vous permet de surveiller la bande passante utilisée sur le client. Pour mesurer la bande passante, exécutez l’exemple sur l’ordinateur client du cache, effectuez des appels au cache et observez la bande passante signalée par l’exemple de surveillance de la bande passante.
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

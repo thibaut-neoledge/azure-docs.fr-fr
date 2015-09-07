@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Vue d'ensemble technique d'Azure Batch"
+	pageTitle="Vue d’ensemble technique d’Azure Batch | Microsoft Azure"
 	description="Découvrez les concepts, les flux de travail et les scénarios du service Azure Batch"
 	services="batch"
 	documentationCenter=""
@@ -17,7 +17,7 @@
 	ms.author="danlep"/>
 
 
-#Vue d'ensemble technique d'Azure Batch
+# Vue d'ensemble technique d'Azure Batch
 Azure Batch vous permet d'exécuter des applications de calculs complexes parallèles à grande échelle efficacement dans le cloud. Il s’agit d’un service de plateforme qui fournit la planification des tâches et la mise à l'échelle automatique d'une collection gérée de machines virtuelles pour exécuter les tâches. En utilisant le service Batch, vous pouvez configurer des charges de travail par lots à exécuter dans Azure à la demande ou sur planification, sans vous préoccuper de la complexité de la configuration et de la gestion d’un cluster HPC, de machines virtuelles ou d’un planificateur de travaux.
 
 >[AZURE.NOTE]Pour utiliser Batch, vous avez besoin d'un compte Azure. Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d’informations, consultez la page [Création d’un compte Azure](http://azure.microsoft.com/develop/php/tutorials/create-a-windows-azure-account/).
@@ -29,7 +29,7 @@ Batch utilise l'élasticité et l'échelle du cloud pour vous aider avec le *tra
 
 Le calcul par lots est un modèle courant pour les organisations qui traitent, transforment et analysent de grandes quantités de données, de manière planifiée ou à la demande. Cela inclut le traitement de fin de cycle tel que la création de rapports sur les risques quotidiens auxquels doit faire face une banque ou une paie qui doit être effectuée sur la base d'une planification. Cela comprend également les applications d'ingénierie, scientifiques et d'entreprise à grande échelle qui ont généralement besoin des outils et ressources d'une grille ou d'un cluster de calcul. Il s'agit d'applications HPC traditionnelles telles que les simulations de dynamiques de fluides, ainsi que des charges de travail spécialisées dans des domaines allant de la création de contenu numérique aux services financiers, en passant par la recherche en sciences de la vie.
 
-Le service Batch fonctionne bien avec des applications ou charges de travail intrinsèquement parallèles, qui se prêtent à l'exécution de tâches en parallèle sur plusieurs ordinateurs, comme des machines virtuelles de calcul gérées par le service Batch. Voir la Figure 1.
+Le service Batch fonctionne bien avec des applications ou charges de travail intrinsèquement parallèles, qui se prêtent à l'exécution de tâches en parallèle sur plusieurs ordinateurs, comme des machines virtuelles de calcul gérées par le service Batch.
 
 ![Tâches parallèles][parallel]
 
@@ -49,13 +49,13 @@ Vous pouvez également utiliser le service Batch pour effectuer des calculs para
 
 ## Scénarios pour les développeurs
 
-Batch prend en charge plusieurs scénarios de développement pour vous aider à configurer et à exécuter vos charges de travail parallèles à grande échelle avec le service Batch. Ces scénarios tirent parti des API pour créer et gérer les pools de machines virtuelles (les nœuds de calcul) et planifier les projets et les tâches qui s'y exécutent. Consultez [Concepts de base concernant les API dans Azure Batch](batch-api-basics.md) pour en savoir plus sur les concepts relatifs à Batch.
+Batch prend en charge plusieurs scénarios de développement pour vous aider à configurer et à exécuter vos charges de travail parallèles à grande échelle avec le service Batch. Ces scénarios utilisent des API pour créer et gérer les pools de machines virtuelles (les nœuds de calcul) et planifier les projets et les tâches qui s’y exécutent. Consultez [Concepts de base concernant les API dans Azure Batch](batch-api-basics.md) pour en savoir plus sur les concepts relatifs à Batch.
 
 Des scénarios développeur Batch habituels sont présentés dans les sections suivantes.
 
 ### Montée en charge d’une charge de travail parallèle
 
-Utilisez l'API Batch pour une montée en charge d’un travail intrinsèquement parallèle comme le rendu d’image sur un pool comportant jusqu’à plusieurs milliers de cœurs de calcul. Au lieu de configurer un cluster de calcul ou d'écrire du code pour mettre en file d'attente et planifier vos travaux et de déplacer les données d’entrée et de sortie nécessaires, vous automatisez la planification des grands travaux de calcul et mettez à l'échelle un pool de machines virtuelles de calcul pour les exécuter. Vous pouvez écrire des applications clientes ou frontales pour exécuter des travaux et des tâches à la demande, selon une planification ou dans le cadre d'un plus grand flux de travail, géré par des outils tels qu’[Azure Data Factory](https://azure.microsoft.com/documentation/services/data-factory/).
+Utilisez l'API Batch pour une montée en charge d’un travail intrinsèquement parallèle comme le rendu d’image sur un pool comportant jusqu’à plusieurs milliers de cœurs de calcul. Au lieu de configurer un cluster de calcul ou d’écrire du code pour mettre en file d’attente et planifier vos travaux et de déplacer les données d’entrée et de sortie nécessaires, vous automatisez la planification des grands travaux de calcul et mettez à l’échelle un pool de machines virtuelles de calcul pour les exécuter. Vous pouvez écrire des applications clientes ou frontales pour exécuter des travaux et des tâches à la demande, selon une planification ou dans le cadre d'un plus grand flux de travail, géré par des outils tels qu’[Azure Data Factory](https://azure.microsoft.com/documentation/services/data-factory/).
 
 La Figure 2 présente un flux de travail simplifié pour soumettre une application à un pool Batch dans lequel elle est distribuée pour le traitement.
 
@@ -73,9 +73,9 @@ La Figure 2 présente un flux de travail simplifié pour soumettre une applicat
 
 ### Activation du cloud pour une application nécessitant beaucoup de ressources
 
-Vous pouvez utiliser l'API Batch Apps en version préliminaire pour encapsuler une application existante afin qu’elle s'exécute en tant que service sur un pool de nœuds de calcul, que Batch gère en arrière-plan. Il peut s’agir d’une application qui s'exécute aujourd'hui sur les stations de travail clientes ou d’un cluster de calcul. Vous pouvez développer le service pour permettre aux utilisateurs de décharger le pic de travail sur le cloud, ou exécuter leur travail entièrement dans le cloud. L'infrastructure Batch Apps gère le déplacement des fichiers d'entrée et de sortie, le fractionnement des travaux en tâches, le traitement des tâches et des travaux et la persistance des données.
+Vous pouvez utiliser l’API Batch Apps en version préliminaire pour encapsuler une application existante afin qu’elle s’exécute en tant que service sur un pool de nœuds de calcul, que Batch gère en arrière-plan. Il peut s’agir d’une application qui s'exécute aujourd'hui sur les stations de travail clientes ou d’un cluster de calcul. Vous pouvez développer le service pour permettre aux utilisateurs de décharger le pic de travail sur le cloud, ou exécuter leur travail entièrement dans le cloud. L'infrastructure Batch Apps gère le déplacement des fichiers d'entrée et de sortie, le fractionnement des travaux en tâches, le traitement des tâches et des travaux et la persistance des données.
 
->[AZURE.IMPORTANT]Azure propose uniquement l'API Batch Apps sous forme de version préliminaire. Utilisez-la uniquement pour les projets de test ou de validation technique. Les fonctionnalités clés de Batch Apps seront intégrées dans l’API Batch dans les prochaines versions du service.
+>[AZURE.IMPORTANT]Azure propose uniquement l’API Batch Apps sous forme de version préliminaire. Utilisez-la uniquement pour les projets de test ou de validation technique. Les fonctionnalités clés de Batch Apps seront intégrées à l’API Batch dans les prochaines versions du service.
 
 La Figure 3 illustre un flux de travail de base pour publier une application à l'aide de l'API Batch Apps, puis permettre à un utilisateur d’envoyer des travaux à l'application.
 
@@ -84,11 +84,11 @@ La Figure 3 illustre un flux de travail de base pour publier une application à
 **Figure 3 : Flux de travail pour la publication et l’exécution d’une application avec Batch Apps**
 
 1.	Préparation d’une **image d'application** : un fichier zip contenant les exécutables de votre application existante et les fichiers de support dont ils ont besoin. Il peut s'agir des mêmes exécutables que ceux que vous exécutez dans une batterie de serveurs ou un cluster classique.
-2.	Créez un fichier zip de l’**assembly cloud** qui appellera et distribuera vos charges de travail pour le service Batch. Il contient deux composants :
+2.	Créez un fichier zip de l’**assembly cloud** qui appelle et distribue vos charges de travail pour le service Batch. Il contient deux composants :
 
 	a. **Fractionnement du travail** : décompose un travail en tâches qui peuvent être traitées indépendamment. Par exemple, dans un scénario d'animation, l'outil de fractionnement du travail prend un travail de rendu vidéo et le décompose en images individuelles.
 
-	b. **Processeur de tâches** : appelle l'exécutable de l’application pour une tâche donnée. Par exemple, dans un scénario d'animation, le processeur de tâches appelle un programme de rendu pour restituer l'image unique spécifiée par la tâche.
+	b. **Processeur de tâches** : appelle l’exécutable de l’application pour une tâche donnée. Par exemple, dans un scénario d'animation, le processeur de tâches appelle un programme de rendu pour restituer l'image unique spécifiée par la tâche.
 
 3.	Utilisez les outils de développement ou l’API Batch Apps pour télécharger les fichiers .zip préparés durant les deux étapes précédentes vers un compte de stockage Azure. Ils doivent être situés dans le compte de stockage afin que le service Batch puisse y accéder. Cela est généralement effectué une seule fois par application, par un administrateur de services fédérés.
 4.	Fournissez un moyen d'envoyer des travaux au service d'application activé dans Azure. Il peut s'agir d'un plug-in dans l'interface utilisateur de votre application, un portail web ou un service sans assistance au sein de votre système principal.
@@ -153,4 +153,4 @@ Une fois le compte créé, il apparaît dans le portail et vous pouvez gérer le
 [work_item_workflow]: ./media/batch-technical-overview/work_item_workflow.png
 [app_pub_workflow]: ./media/batch-technical-overview/app_pub_workflow.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

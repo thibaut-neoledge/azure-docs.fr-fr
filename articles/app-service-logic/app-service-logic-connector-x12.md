@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Connecteur BizTalk X12"
-	description="Connecteur BizTalk X12"
+   pageTitle="Utilisation du connecteur BizTalk X12 dans des applications logiques | Microsoft Azure App Service"
+	description="Comment créer et configurer le connecteur BizTalk X12 ou une application API et l'utiliser dans une application logique d’Azure App Service"
 	services="app-service\logic"
 	documentationCenter=".net,nodejs,java"
 	authors="rajeshramabathiran"
@@ -13,57 +13,44 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="integration"
-	ms.date="08/19/2015"
+	ms.date="08/23/2015"
 	ms.author="rajram"/>
 
-#Connecteur BizTalk X12
-Le service Microsoft Azure X12 permet de recevoir et d'envoyer des messages selon le protocole X12 dans les communications interentreprises. X12 est également communément appelé ASC X12 ou Accredited Standards Committee X12. Il est largement utilisé dans les entreprises.
+# Prise en main de l’application API BizTalk X12 et ajout de celle-ci à votre application logique
+Utilisez le service BizTalk X12 pour recevoir et envoyer des messages par le biais du protocole X12 dans les communications interentreprises. Le protocole X12 est également communément appelé ASC X12 (Accredited Standards Committee X12) et son utilisation est très répandue dans le monde de l'industrie.
 
-##Conditions préalables
+Vous pouvez ajouter l’application API BizTalk X12 à votre flux d’entreprise et traiter les données dans le cadre d'un flux de travail interentreprises dans une application de logique.
+
+
+## Configuration requise
 - Application API TPM : avant de créer un connecteur X12, vous devez créer un [connecteur de gestion des partenaires commerciaux BizTalk][1].
 - Base de données SQL Azure : chacune des applications API B2B requiert sa propre base de données SQL Azure.
 - Azure Service Bus : facultatif et utilisé uniquement dans le cas de traitement par lot.
 
-##Utilisation du connecteur BizTalk X12
+## Utilisation du connecteur BizTalk X12
 Pour utiliser le Connecteur BizTalk X12, vous devez d'abord créer une instance de l'application API du Connecteur BizTalk X12. Cela est possible inline, lors de la création d'une application logique ou en sélectionnant l'application API du Connecteur BizTalk X12 à partir d'Azure Marketplace.
 
-##Configuration du connecteur BizTalk X12
+## Configuration du connecteur BizTalk X12
 Les partenaires commerciaux sont des entités impliquées dans des communications B2B (entreprise à entreprise). Lorsque deux partenaires établissent une relation, il est question d'un « accord ». L’accord défini est basé sur le type de communication dont les deux partenaires souhaitent bénéficier. Il est propre au protocole ou au transport.
 
-Les étapes de création d'un accord de partenariat commercial sont documentées [ici][2].
+Les étapes de création d’un accord de partenariat commercial sont documentées [ici][2].
 
-##Utilisation du connecteur X12 dans l'aire du concepteur d'applications logiques
+## Utilisation du connecteur X12 dans l'aire du concepteur d'applications logiques
 Vous pouvez utiliser le connecteur X12 comme un déclencheur ou une action.
 
-###Déclencheur
+### Déclencheur
 - Lancez le concepteur de flux des applications logiques Azure
-- Cliquez sur le connecteur X12 dans le panneau de droite
-
-	![Paramètres du déclencheur][3]
-- Cliquez sur ->
-
-	![Options du déclencheur][4]
-- Le connecteur BizTalk X12 expose un seul déclencheur. Sélectionnez *Publier lot*
-
-	![Entrée Publier lot][5]
-- Ce déclencheur ne possède aucune entrée. Cliquez sur ->
-
-	![Option Publier lot configurée][6]
+- Cliquez sur le connecteur X12 dans le panneau de droite : ![Paramètres du déclencheur][3]
+- Cliquez sur -> : ![Options du déclencheur][4]
+- Le connecteur BizTalk X12 expose un seul déclencheur. Sélectionnez *Publier lot* : ![Entrée Publier lot][5]
+- Ce déclencheur ne possède aucune entrée. Cliquez sur -> : ![Option Publier lot configurée][6]
 - Dans le cadre de la sortie, le connecteur renvoie la charge utile X12, l'ID de l'accord, ainsi que des informations indiquant si le message est traité par lot ou non.
 
-###Action
-- Cliquez sur le connecteur X12 dans le panneau de droite
-
-	![Paramètres d'action][7]
-- Cliquez sur ->
-
-	![Liste d'actions][8]
-- Le connecteur X12 prend en charge de nombreuses actions. Sélectionnez *Encoder*
-
-	![Codage d'entrée][9]
-- Indiquez les entrées de l'action et configurez celle-ci
-
-	![Codage configuré][10]
+### Action
+- Cliquez sur le connecteur X12 dans le panneau de droite : ![Paramètres d'action][7]
+- Cliquez sur -> : ![Liste d'actions][8]
+- Le connecteur X12 prend en charge de nombreuses actions. Sélectionnez *Encoder* : ![Codage d'entrée][9]
+- Indiquez les entrées de l'action et configurez celle-ci : ![Codage configuré][10]
 
 Paramètre|Type|Description du paramètre
 ---|---|---
@@ -94,4 +81,4 @@ Vous pouvez également consulter les statistiques de performances et contrôler 
 [10]: ./media/app-service-logic-connector-x12/EncodeConfigured.PNG
 [11]: ./media/app-service-logic-connector-x12/TriggerSettings.PNG
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

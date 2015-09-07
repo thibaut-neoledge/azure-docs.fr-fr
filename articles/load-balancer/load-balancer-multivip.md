@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Plusieurs adresses IP virtuelles par service cloud"
-   description="Vue d’ensemble de multiVIP et définition de plusieurs adresses IP virtuelles sur un service cloud"
-   services="load-balancer"
-   documentationCenter="na"
-   authors="joaoma"
-   manager="adinah"
-   editor="tysonn" />
+	description="Vue d’ensemble de multiVIP et définition de plusieurs adresses IP virtuelles sur un service cloud"
+	services="load-balancer"
+	documentationCenter="na"
+	authors="joaoma"
+	manager="adinah"
+	editor="tysonn"/>
 <tags 
    ms.service="load-balancer"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="07/23/2015"
-   ms.author="joaoma" />
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="infrastructure-services"
+	ms.date="07/23/2015"
+	ms.author="joaoma"/>
 
 # Plusieurs adresses IP virtuelles par service cloud
 Vous pouvez accéder aux services cloud Azure via Internet à l’aide d’une adresse IP fournie par Azure. Cette adresse IP publique est appelée adresse IP virtuelle, car elle est liée à l’équilibrage de charge Azure et non aux instances de la machine virtuelle dans le service cloud. Vous pouvez accéder à une instance de machine virtuelle dans un service cloud à l’aide d’une adresse IP virtuelle unique.
@@ -150,9 +150,9 @@ Vous pouvez également mettre à jour votre équilibrage de charge pour utiliser
 
 [Prise en main de l’équilibrage de charge accessible sur Internet](load-balancer-internet-getstarted.md)
 
-[Présentation du réseau virtuel](https://msdn.microsoft.com/library/azure/jj156007.aspx).
+[Présentation du réseau virtuel](../virtual-network/virtual-networks-overview.md).
 
 [API REST d’adresse IP réservée](https://msdn.microsoft.com/library/azure/dn722420.aspx)
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

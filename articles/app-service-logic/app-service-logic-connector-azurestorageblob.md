@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Connecteur d'objet blob de stockage Azure"
-	description="Prise en main du connecteur d'objet blob de stockage Azure"
+   pageTitle="Utilisation du connecteur d’objet blob de stockage Azure dans des applications logiques | Microsoft Azure App Service"
+	description="Comment créer et configurer le connecteur d’objet blob de stockage Azure ou une application API et l'utiliser dans une application logique d’Azure App Service"
 	services="app-service\logic"
 	documentationCenter=".net,nodejs,java"
 	authors="anuragdalmia"
@@ -13,11 +13,11 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="integration"
-	ms.date="08/19/2015"
+	ms.date="08/23/2015"
 	ms.author="rajram"/>
    
-# Connecteur d'objet blob de stockage Azure
-Connectez-vous à votre objet blob de stockage Azure pour télécharger et supprimer des objets blob dans le conteneur d’objets blob. Les connecteurs peuvent être utilisés dans les applications logiques dans le cadre d’un « flux de travail ».
+# Utilisation et ajout du connecteur d’objet blob de stockage Azure dans votre application logique 
+Connectez-vous à votre objet blob de stockage Azure pour télécharger et supprimer des objets blob dans le conteneur d’objets blob. Les connecteurs sont utilisés dans les applications logiques dans le cadre d’un « flux de travail ».
 
 ## Déclencheurs et actions
 Les *déclencheurs* sont des événements qui se produisent. Par exemple, lorsqu'une commande est mise à jour ou lorsqu'un nouveau client est ajouté. Une *action* est le résultat du déclencheur. Par exemple, lorsqu'une commande est mise à jour, envoyer une alerte au vendeur. Ou bien, lorsqu'un nouveau client est ajouté, lui envoyer un message de bienvenue.
@@ -102,4 +102,4 @@ Vous pouvez également consulter les statistiques de performances et contrôler 
 [11]: ./media/app-service-logic-connector-azurestorageblob/BasicInputsUploadBlob.PNG
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

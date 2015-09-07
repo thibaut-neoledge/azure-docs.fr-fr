@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Phase 1 de la charge de travail de la batterie de serveurs SharePoint intranet : configuration d&#39;Azure"
-	description="Au cours de cette première phase de déploiement d&#39;une batterie de serveurs SharePoint 2013 intranet avec des groupes de disponibilité SQL Server AlwaysOn dans des services d&#39;infrastructure Azure, vous créez le réseau virtuel Azure et d&#39;autres éléments d&#39;infrastructure Azure."
+	pageTitle="Batterie de serveurs SharePoint Server 2013 - Phase 1 | Microsoft Azure"
+	description="Créez le réseau virtuel et d'autres éléments de l'infrastructure Azure dans la phase 1 de la batterie de serveurs SharePoint Server 2013 dans Azure."
 	documentationCenter=""
 	services="virtual-machines"
 	authors="JoeDavies-MSFT"
@@ -53,7 +53,7 @@ Remplissez la Table S pour le sous-réseau de cette solution. Donnez au sous-ré
 
 **Table S : sous-réseaux du réseau virtuel**
 
-> [AZURE.NOTE]Cette architecture prédéfinie utilise un sous-réseau unique par souci de simplicité. Si vous voulez superposer un ensemble de filtres de trafic pour émuler l'isolation du sous-réseau, vous pouvez utiliser des [groupes de sécurité réseau](https://msdn.microsoft.com/library/azure/dn848316.aspx) Azure.
+> [AZURE.NOTE]Cette architecture prédéfinie utilise un sous-réseau unique par souci de simplicité. Si vous voulez superposer un ensemble de filtres de trafic pour émuler l'isolation du sous-réseau, vous pouvez utiliser des [groupes de sécurité réseau](virtual-networks-nsg.md) Azure.
 
 Pour les deux serveurs DNS locaux que vous souhaitez utiliser lors de la configuration initiale des contrôleurs de domaine de votre réseau virtuel, remplissez la table D. Donnez à chaque serveur DNS un nom convivial et une adresse IP unique. Ce nom convivial ne doit pas nécessairement correspondre au nom d'hôte ou au nom d'ordinateur du serveur DNS. Notez que deux entrées vides sont répertoriées, mais vous pouvez en ajouter d'autres. Consultez votre service informatique pour déterminer cette liste.
 
@@ -78,7 +78,7 @@ Pour l'ensemble des espaces d'adressage du réseau local, remplissez la table L.
 
 Pour créer le réseau virtuel avec les paramètres des tables V, S, D et L, suivez les instructions figurant dans [Créer un réseau virtuel intersite à l'aide de tables de configuration](virtual-machines-workload-deploy-vnet-config-tables.md).
 
-> [AZURE.NOTE]Cette procédure vous guide tout au long de la création d'un réseau virtuel qui utilise une connexion VPN de site à site. Pour en savoir plus sur l'utilisation d'ExpressRoute pour votre connexion de site à site, consultez [Présentation technique d'ExpressRoute](http://msdn.microsoft.com/library/dn606309.aspx).
+> [AZURE.NOTE]Cette procédure vous guide tout au long de la création d'un réseau virtuel qui utilise une connexion VPN de site à site. Pour en savoir plus sur l'utilisation d'ExpressRoute pour votre connexion de site à site, consultez [Présentation technique d'ExpressRoute](../expressroute/expressroute-introduction.md).
 
 Après la création du réseau virtuel Azure, le portail de gestion Azure détermine les éléments suivants :
 
@@ -87,9 +87,9 @@ Après la création du réseau virtuel Azure, le portail de gestion Azure déter
 
 Pour afficher ces éléments dans le portail de gestion Azure une fois le réseau virtuel créé, cliquez sur **Réseaux**, puis sur le nom du réseau virtuel, et enfin sur l'option de menu **Tableau de bord**.
 
-Ensuite, vous devez configurer la passerelle du réseau virtuel pour créer une connexion VPN de site à site sécurisée. Vous trouverez les instructions détaillées sous [Configurer une passerelle de réseau virtuel dans le Portail de gestion](http://msdn.microsoft.com/library/jj156210.aspx).
+Ensuite, vous devez configurer la passerelle du réseau virtuel pour créer une connexion VPN de site à site sécurisée. Vous trouverez les instructions détaillées sous [Configurer une passerelle de réseau virtuel dans le Portail de gestion](../vpn-gateway/vpn-gateway-configure-vpn-gateway-mp.md).
 
-Créez ensuite la connexion VPN de site à site entre le nouveau réseau virtuel et un périphérique VPN local. Pour en savoir plus sur les instructions, consultez [Configurer une passerelle de réseau virtuel dans le Portail de gestion](http://msdn.microsoft.com/library/jj156210.aspx).
+Créez ensuite la connexion VPN de site à site entre le nouveau réseau virtuel et un périphérique VPN local. Pour en savoir plus sur les instructions, consultez [Configurer une passerelle de réseau virtuel dans le Portail de gestion](../vpn-gateway/vpn-gateway-configure-vpn-gateway-mp.md).
 
 Ensuite, assurez-vous que l'espace d'adressage du réseau virtuel est accessible à partir de votre réseau local. Pour cela, il vous suffit généralement d'ajouter un itinéraire correspondant à l'espace d'adressage du réseau virtuel à votre périphérique VPN, puis de transmettre cet itinéraire au reste de l'infrastructure de routage du réseau de votre organisation. Consultez votre service informatique pour déterminer la procédure à suivre.
 
@@ -171,4 +171,4 @@ Pour poursuivre la configuration de cette charge de travail, passez à la [Phase
 
 [Charge de travail des services d’infrastructure Azure : applications métier à haute disponibilité](virtual-machines-workload-high-availability-lob-application.md)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

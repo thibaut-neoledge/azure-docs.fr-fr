@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Prise en main du serveur Azure Multi-Factor Authentication" 
-	description="Ceci est la page d'authentification multifacteur Azure qui explique la prise en main du serveur Azure MFA." 
-	services="multi-factor-authentication" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="stevenpo" 
+	pageTitle="Prise en main du serveur Azure Multi-Factor Authentication"
+	description="Ceci est la page d'authentification multifacteur Azure qui explique la prise en main du serveur Azure MFA."
+	services="multi-factor-authentication"
+	documentationCenter=""
+	authors="billmath"
+	manager="stevenpo"
 	editor="curtand"/>
 
 <tags 
-	ms.service="multi-factor-authentication" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="get-started-article" 
-	ms.date="08/10/2015" 
+	ms.service="multi-factor-authentication"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.date="08/24/2015"
 	ms.author="billmath"/>
 
 # Prise en main du serveur Azure Multi-Factor Authentication
@@ -165,4 +165,4 @@ Méthode|Description
 [Synchronisation avec Windows Server Active Directory](multi-factor-authentication-get-started-server-dirint.md)|Informations sur l’installation et la configuration de la synchronisation entre Active Directory et le serveur Azure MFA.
 [Déploiement du service Web de l’application mobile du serveur Azure Multi-Factor Authentication](multi-factor-authentication-get-started-server-webservice.md)|Informations sur l'installation et la configuration du service Web du serveur Azure MFA.
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

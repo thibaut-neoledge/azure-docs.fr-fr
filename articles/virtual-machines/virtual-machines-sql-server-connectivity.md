@@ -1,22 +1,22 @@
 <properties 
    pageTitle="Se connecter à une machine virtuelle SQL Server sur Azure"
-   description="Cette rubrique décrit comment se connecter à SQL Server exécuté sur une machine virtuelle dans Azure. Les scénarios diffèrent selon la configuration réseau et l’emplacement du client."
-   services="virtual-machines"
-   documentationCenter="na"
-   authors="rothja"
-   manager="jeffreyg"
-   editor="monicar" />
+	description="Cette rubrique décrit comment se connecter à SQL Server exécuté sur une machine virtuelle dans Azure. Les scénarios diffèrent selon la configuration réseau et l’emplacement du client."
+	services="virtual-machines"
+	documentationCenter="na"
+	authors="rothja"
+	manager="jeffreyg"
+	editor="monicar"/>
 <tags 
    ms.service="virtual-machines"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="vm-windows-sql-server"
-   ms.workload="infrastructure-services"
-   ms.date="08/18/2015"
-   ms.author="jroth" />
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="vm-windows-sql-server"
+	ms.workload="infrastructure-services"
+	ms.date="08/18/2015"
+	ms.author="jroth"/>
 
 # Se connecter à une machine virtuelle SQL Server sur Azure
-
+ 
 ## Vue d'ensemble
 
 La configuration de la connectivité à un serveur SQL Server exécuté sur une machine virtuelle Azure n’est pas très différente de la procédure requise pour une instance de serveur SQL Server locale. Les étapes de configuration impliquant le pare-feu, l’authentification et les connexions à une base de données sont également nécessaires.
@@ -79,8 +79,8 @@ Pour obtenir des instructions de configuration en plus de ces étapes de connect
 
 Si vous envisagez également d’utiliser des groupes de disponibilité AlwaysOn pour la haute disponibilité et la récupération d’urgence, nous vous recommandons d’implémenter un écouteur. Les clients de base de données se connectent à l’écouteur plutôt que directement à l’une des instances SQL Server. L’écouteur achemine les clients vers le réplica principal du groupe de disponibilité. Pour plus d’informations, consultez la page [Configuration d’un écouteur à équilibrage de charge interne pour des groupes de disponibilité AlwaysOn dans Azure](virtual-machines-sql-server-configure-ilb-alwayson-availability-group-listener.md).
 
-Il est important d’examiner toutes les recommandations de sécurité pour SQL Server exécuté sur une machine virtuelle Azure. Pour plus d’informations, consultez la page [Considérations relatives à la sécurité de SQL Server sur les machines virtuelles Azure](https://msdn.microsoft.com/library/azure/dn133147.aspx).
+Il est important d’examiner toutes les recommandations de sécurité pour SQL Server exécuté sur une machine virtuelle Azure. Pour plus d'informations, consultez la page [Considérations relatives à la sécurité de SQL Server sur les machines virtuelles Azure](virtual-machines-sql-server-security-considerations.md).
 
 Pour d’autres rubriques relatives à l’utilisation de SQL Server sur des machines virtuelles Azure, consultez la rubrique [SQL Server sur les machines virtuelles Azure](virtual-machines-sql-server-infrastructure-services.md).
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

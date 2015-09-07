@@ -1,24 +1,24 @@
 <properties 
-   pageTitle="Sécurité StorSimple | Microsoft Azure" 
-   description="Décrit les fonctionnalités de sécurité et de confidentialité qui protègent votre service, vos appareils et vos données StorSimple." 
-   services="storsimple" 
-   documentationCenter="NA" 
-   authors="SharS" 
-   manager="AdinaH" 
-   editor=""/>
+   pageTitle="Sécurité StorSimple | Microsoft Azure"
+	description="Décrit les fonctionnalités de sécurité et de confidentialité qui protègent votre service, votre appareil et vos données StorSimple en local et dans le cloud."
+	services="storsimple"
+	documentationCenter="NA"
+	authors="SharS"
+	manager="Carolz"
+	editor=""/>
 
 <tags
    ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD" 
-   ms.date="08/17/2015"
-   ms.author="v-sharos"/>
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="TBD"
+	ms.date="08/26/2015"
+	ms.author="v-sharos"/>
 
-# Sécurité StorSimple 
+# Sécurité et protection des données StorSimple
 
-## Vue d'ensemble
+## Vue d’ensemble
 
 La sécurité est une préoccupation majeure pour toute personne adoptant une nouvelle technologie, surtout lorsque cette technologie est utilisée avec des données confidentielles ou propriétaires. Lorsque vous évaluez différentes technologies, vous devez tenir compte des risques et des coûts relatifs à la protection des données. Microsoft Azure StorSimple fournit une solution de sécurité et de confidentialité pour la protection des données, afin de garantir :
 
@@ -253,4 +253,4 @@ Voici quelques questions et réponses relatives à la sécurité et à Microsoft
 [Déploiement de votre appareil StorSimple](storsimple-deployment-walkthrough.md).
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

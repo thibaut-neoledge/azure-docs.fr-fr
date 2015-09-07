@@ -1,12 +1,12 @@
 <properties
-	pageTitle="Installer et configurer PostgreSQL sur une machine virtuelle Microsoft Azure exécutant Linux"
-	description="Découvrez comment installer et configurer PostgreSQL sur une machine virtuelle Linux dans Azure."
+	pageTitle="Installer et configurer PostgreSQL sur une machine virtuelle Microsoft Azure exécutant Linux | Microsoft Azure"
+	description="Découvrez comment installer et configurer PostgreSQL sur une machine virtuelle Linux dans Microsoft Azure."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="SuperScottz"
 	manager="timlt"
 	editor=""
-  tags=""/>
+	tags=""/>
 
 <tags
 	ms.service="virtual-machines"
@@ -26,11 +26,11 @@ Dans cet article, vous allez apprendre à installer et à configurer PostgreSQL 
 
 > [AZURE.NOTE]Vous devez déjà disposer d’une machine virtuelle Microsoft Azure exécutant Linux pour effectuer ce didacticiel. Consultez le [didacticiel sur les machines virtuelles Linux Azure](virtual-machines-linux-tutorial.md) pour créer et configurer une machine virtuelle Linux avant de continuer.
 
-[Dans ce cas, utilisez le port 1999 comme port PostgreSQL.]
+Dans ce cas, utilisez le port 1999 comme port PostgreSQL.
 
 ## Installation de PostgreSQL
 
-Connectez-vous à la machine virtuelle Linux que vous avez créée via putty. Si c’est la première fois que vous utilisez la machine virtuelle Linux Azure, découvrez comment utiliser putty pour se connecter à une machine virtuelle Linux [ici](virtual-machines-linux-use-ssh-key.md).
+Connectez-vous à la machine virtuelle Linux que vous avez créée via PuTTY. S’il s’agit de la première fois que vous utilisez une machine virtuelle Azure Linux, consultez la page [Utilisation de SSH avec Linux sur Azure](virtual-machines-linux-use-ssh-key.md) pour apprendre comment utiliser PuTTY pour vous connecter à une machine virtuelle Linux.
 
 1. Exécutez la commande suivante pour passer à l’utilisateur root (admin) :
 
@@ -56,7 +56,7 @@ Connectez-vous à la machine virtuelle Linux que vous avez créée via putty. Si
 
 		# tar jxvf  postgresql-9.3.5.tar.bz2
 
-	Voici un exemple ci-dessus. Vous pouvez trouver l’adresse de téléchargement détaillée [ici](https://ftp.postgresql.org/pub/source/).
+	Voici un exemple ci-dessus. Vous pouvez trouver l’adresse de téléchargement détaillée dans l’[Index de /pub/source/](https://ftp.postgresql.org/pub/source/).
 
 4. Pour démarrer la génération, exécutez ces commandes :
 
@@ -166,9 +166,9 @@ Vous devez normalement voir la sortie suivante.
 
 ![image](./media/virtual-machines-linux-postgresql/no3.png)
 
-## Connexion à la base de données Postgres
+## Connectez-vous à la base de données Postgres
 
-Continuez et repassez à l’utilisateur postgres :
+Repassez à l’utilisateur postgres :
 
 	# su - postgres
 
@@ -180,15 +180,15 @@ Connectez-vous à la base de données d’événements que vous venez de créer�
 
 	$ psql -d events
 
-## Comment créer et supprimer une table Postgres
+## Créer et supprimer une table Postgres
 
-Maintenant que nous nous sommes connectés à la base de données, nous pouvons y créer des tables.
+Maintenant que vous vous êtes connectés à la base de données, vous pouvez y créer des tables.
 
 Par exemple, créez un exemple de table Postgres avec la commande suivante :
 
 	CREATE TABLE potluck (name VARCHAR(20),	food VARCHAR(30),	confirmed CHAR(1), signup_date DATE);
 
-Nous avons maintenant configuré une table de 4 colonnes avec ces noms de colonnes et ces restrictions :
+Vous avez maintenant configuré une table de quatre colonnes avec ces noms de colonnes et ces restrictions :
 
 1. La colonne « name » a été limitée par la commande VARCHAR à une longueur de 20 caractères.
 2. La colonne « food » indique l’aliment que chaque personne emporte. VARCHAR limite ce texte à moins de 30 caractères.
@@ -237,7 +237,7 @@ Utilisez les commandes suivantes pour supprimer des données dans une table :
 
 	delete from potluck where name=’John’;
 
-Cette opération va supprimer toutes les informations dans la ligne « John ». La sortie est la suivante :
+Cela supprime toutes les informations dans la ligne « John ». La sortie est la suivante :
 
 ![image](./media/virtual-machines-linux-postgresql/no8.png)
 
@@ -248,7 +248,7 @@ Utilisez les commandes suivantes pour mettre à jour des données dans une table
  	UPDATE potluck set confirmed = 'Y' WHERE name = 'Sandy';
 
 
-##Plus d’informations sur PostgreSQL
-Vous venez de terminer l’installation de PostgreSQL dans la machine virtuelle Linux Microsoft Azure et vous pouvez maintenant l’utiliser dans Microsoft Azure. Plus d’informations sur PostgreSQL, cliquez [ici](http://www.postgresql.org/).
+##Obtenez davantage d’informations sur PostgreSQL
+Maintenant que vous avez terminé l’installation de PostgreSQL dans une machine virtuelle Azure Linux, vous pouvez ne profiter dans Microsoft Azure. Pour en savoir plus sur PostgreSQL, consultez le [site Web PostgreSQL](http://www.postgresql.org/).
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

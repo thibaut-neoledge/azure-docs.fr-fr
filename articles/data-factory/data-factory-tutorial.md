@@ -1,22 +1,20 @@
 <properties 
-	pageTitle="Déplacement et traitement des fichiers journaux à l’aide d’Azure Data Factory" 
-	description="Ce didacticiel avancé décrit un scénario proche de la réalité et l’implémente à l’aide du service Microsoft Azure Data Factory et de Data Factory Editor." 
-	services="data-factory" 
-	documentationCenter="" 
-	authors="spelluru" 
-	manager="jhubbard" 
+	pageTitle="Déplacement et traitement des fichiers journaux à l’aide d’Azure Data Factory"
+	description="Ce didacticiel avancé décrit un scénario proche de la réalité et l’implémente à l’aide du service Microsoft Azure Data Factory et de Data Factory Editor."
+	services="data-factory"
+	documentationCenter=""
+	authors="spelluru"
+	manager="jhubbard"
 	editor="monicar"/>
 
-
 <tags 
-	ms.service="data-factory" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/04/2015" 
+	ms.service="data-factory"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/25/2015"
 	ms.author="spelluru"/>
-
 
 # Didacticiel : Mesure de l’efficacité d’une campagne marketing  
 Contoso est une société qui crée des jeux pour plusieurs plateformes : des consoles de jeux, des appareils portatifs et des ordinateurs personnels (PC). Ces jeux génèrent beaucoup de journaux. L’objectif de Contoso est de collecter et d’analyser ces journaux pour connaître les préférences des clients, des données démographiques, des comportements d’utilisation, etc., afin d’identifier des opportunités de vente incitative et de vente croisée et de développer de nouvelles fonctionnalités intéressantes visant à optimiser la croissance et à fournir une meilleure expérience aux clients.
@@ -318,7 +316,7 @@ Dans cette étape, vous allez créer les pipelines suivants :
 
 1. Dans **Data Factory Editor**, cliquez sur **Nouveau pipeline** dans la barre d’outils. Si ce bouton n’est pas affiché dans la barre d’outils, cliquez sur **... (points de suspension)**. Vous pouvez également cliquer sur **Pipelines** dans l’arborescence, puis sur **Nouveau pipeline**.
 2. Remplacez le script JSON du volet de droite par le script JSON du fichier **PartitionGameLogsPipeline.json** dans le dossier **C:\\ADFWalkthrough\\Pipelines**.
-3. Ajoutez une **virgule (« , »)** à la fin du **crochet fermant (« \] »)** dans le script JSON puis ajoutez les trois lignes suivantes après le crochet fermant. 
+3. Ajoutez une **virgule (« , »)** à la fin du **crochet fermant (« ] »)** dans le script JSON puis ajoutez les trois lignes suivantes après le crochet fermant. 
 
         "start": "2014-05-01T00:00:00Z",
         "end": "2014-05-05T00:00:00Z",
@@ -431,8 +429,7 @@ Suivez la [procédure pas à pas sur l’utilisation d’une source de données 
 [adfgetstarted]: data-factory-get-started.md
 [adftutorial-using-powershell]: data-factory-tutorial-using-powershell.md
 [adfintroduction]: data-factory-introduction.md
-[useonpremisesdatasources]: data-factory-use-onpremises-datasources.md
-[usepigandhive]: data-factory-pig-hive-activities.md
+[usepigandhive]: data-factory-data-transformation-activities.md
 [tutorial-onpremises]: data-factory-tutorial-extend-onpremises.md
 [download-azure-powershell]: ../powershell-install-configure.md
 
@@ -529,4 +526,4 @@ Suivez la [procédure pas à pas sur l’utilisation d’une source de données 
 
 [image-data-factory-new-datafactory-create-button]: ./media/data-factory-tutorial/DataFactoryCreateButton.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

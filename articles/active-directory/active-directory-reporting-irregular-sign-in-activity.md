@@ -18,8 +18,6 @@
 
 # Activité de connexion anormale
 
-| Description | Emplacement du rapport |
-| :-------------     | :-------        |
-| <p>Ce rapport inclut les connexions qui ont été identifiées comme « anormales » par nos algorithmes d'apprentissage automatique. Une tentative de connexion peut être considérée comme anormale si celle-ci a été effectuée depuis un emplacement inattendu et/ou à une heure également suspecte. Cela peut signifier qu'un pirate a essayé de se connecter à l'aide de ce compte. L'algorithme d'apprentissage automatique considère les événements comme « anormaux » ou « suspects », où « suspects » indique une probabilité plus élevée de violation de la sécurité.</p><p>Les résultats de ce rapport vous indiqueront ces connexions, ainsi que la classification, l’emplacement et l’horodatage associé à chaque connexion.</p><p>Nous enverrons une notification par courrier électronique aux administrateurs généraux si nous constatons 10 événements de connexion ou plus en l’espace de 30 jours. Veillez à inclure aad-alerts-noreply@mail.windowsazure.com dans votre liste d'expéditeurs approuvés.</p> | Répertoire > onglet Rapports |
+Les connexions irrégulières sont celles qui ont été identifiées par nos algorithmes d’apprentissage automatique, sur la base d'une condition de « déplacement impossible » associée à un emplacement et un périphérique de connexion anormaux. Cela peut signifier qu'un pirate est parvenu à se connecter à l'aide de ce compte. Nous envoyons une notification par courrier électronique aux administrateurs globaux si nous trouvons au moins 10 événements de connexion anormaux dans un intervalle de moins de 30 jours. Veillez à inclure aad-alerts-noreply@mail.windowsazure.com dans votre liste d'expéditeurs approuvés.
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

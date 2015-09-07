@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Utiliser Azure CDN dans Azure App Service" 
-	description="Didacticiel qui explique comment déployer une application web sur Azure App Service qui traite le contenu à partir d'un point de terminaison CDN Azure intégré" 
-	services="app-service\web" 
-	documentationCenter=".net" 
-	authors="cephalin" 
-	manager="wpickett" 
+	pageTitle="Utiliser Azure CDN dans Azure App Service"
+	description="Didacticiel qui explique comment déployer une application web sur Azure App Service qui traite le contenu à partir d'un point de terminaison CDN Azure intégré"
+	services="app-service\web"
+	documentationCenter=".net"
+	authors="cephalin"
+	manager="wpickett"
 	editor="jimbe"/>
 
 <tags 
-	ms.service="app-service-web" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="06/25/2015" 
+	ms.service="app-service-web"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="na"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="06/25/2015"
 	ms.author="cephalin"/>
 
 
@@ -39,8 +39,8 @@ Ce didacticiel nécessite les éléments suivants :
 -	Un [compte Microsoft Azure](/account/) actif.
 -	Visual Studio 2013 avec le [Kit de développement logiciel (SDK) Azure pour .NET](http://go.microsoft.com/fwlink/p/?linkid=323510&clcid=0x409)
 
-> [AZURE.NOTE]Vous avez besoin d’un compte Azure pour suivre ce didacticiel :
-> + Vous pouvez [ouvrir un compte Azure gratuitement](/pricing/free-trial/?WT.mc_id=A261C142F) : vous obtenez alors des crédits dont vous pouvez vous servir pour essayer les services Azure payants et, une fois vos crédits épuisés, vous pouvez conserver le compte et utiliser les services Azure gratuits, notamment Web Apps.
+> [AZURE.NOTE]Vous avez besoin d’un compte Azure pour suivre ce didacticiel : 
+> + Vous pouvez [ouvrir un compte Azure gratuitement](/pricing/free-trial/?WT.mc_id=A261C142F) : vous obtenez alors des crédits dont vous pouvez vous servir pour essayer les services Azure payants et, une fois vos crédits épuisés, vous pouvez conserver le compte et utiliser les services Azure gratuits, notamment Web Apps. 
 > + Vous pouvez [activer les avantages d’abonnement MSDN](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F) : votre abonnement MSDN vous octroie des crédits chaque mois que vous pouvez utiliser pour des services Azure payants.
 >
 > Si vous voulez vous familiariser avec Azure App Service avant d’ouvrir un compte Azure, accédez à la page [Essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751). Vous pourrez créer immédiatement et gratuitement une application de départ temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
@@ -99,7 +99,7 @@ Dans cette section, vous allez déployer le modèle d'application ASP.NET MVC p
 
 	![](media/cdn-websites-with-cdn/11-access-success.png)
 
-1. Ensuite, essayez d’accéder au fichier **\~/Content/bootstrap.cs** de votre projet ASP.NET. Dans la fenêtre du navigateur, accédez à **http://*&lt;cdnName>*.vo.msecnd.net/Content/bootstrap.css**. Dans ma configuration, cette URL est la suivante :
+1. Ensuite, essayez d’accéder au fichier **~/Content/bootstrap.cs** de votre projet ASP.NET. Dans la fenêtre du navigateur, accédez à **http://*&lt;cdnName>*.vo.msecnd.net/Content/bootstrap.css**. Dans ma configuration, cette URL est la suivante :
 
 		http://az673227.vo.msecnd.net/Content/bootstrap.css
 
@@ -123,7 +123,7 @@ Notez que ce n'est pas toujours une bonne idée de fournir l'intégralité d'une
 
 -	Cette approche nécessite que l'ensemble de votre site soit public, car Azure CDN ne peut pas traiter du contenu privé.
 -	Si le point de terminaison CDN passe hors connexion quelle qu’en soit la raison (maintenance prévue ou erreur utilisateur), l’ensemble de votre application web passe hors connexion à moins qu’il soit possible de rediriger les clients vers l’URL d’origine **http://*&lt;sitename>*.azurewebsites.net/**. 
--	Même avec les paramètres Cache-Control personnalisés (voir [Configuration des options de mise en cache des fichiers statiques dans votre application web Azure](#caching)), un point de terminaison CDN n’améliore pas les performances des contenus très dynamiques. Si vous avez essayé de charger la page d'accueil depuis votre point de terminaison CDN (voir ci-dessus), notez qu'il faut environ 5 secondes pour charger la page d'accueil par défaut la première fois, alors qu'il s'agit d'une page relativement simple. Imaginez ce qui se passe du côté client si cette page comporte un contenu dynamique qui doit s'actualiser toutes les minutes. Le traitement du contenu dynamique depuis un point de terminaison CDN nécessite une brève expiration du cache qui se traduit en fréquentes erreurs dans le cache au niveau du point de terminaison. Cela nuit aux performances ou à votre application web Azure et va à l'encontre de la fonction d'un réseau de distribution de contenu (CDN).
+-	Même avec les paramètres Cache-Control personnalisés (voir [Configuration des options de mise en cache des fichiers statiques dans votre application web Azure](#configure-caching-options-for-static-files-in-your-azure-web-app)), un point de terminaison CDN n’améliore pas les performances des contenus très dynamiques. Si vous avez essayé de charger la page d'accueil depuis votre point de terminaison CDN (voir ci-dessus), notez qu'il faut environ 5 secondes pour charger la page d'accueil par défaut la première fois, alors qu'il s'agit d'une page relativement simple. Imaginez ce qui se passe du côté client si cette page comporte un contenu dynamique qui doit s'actualiser toutes les minutes. Le traitement du contenu dynamique depuis un point de terminaison CDN nécessite une brève expiration du cache qui se traduit en fréquentes erreurs dans le cache au niveau du point de terminaison. Cela nuit aux performances ou à votre application web Azure et va à l'encontre de la fonction d'un réseau de distribution de contenu (CDN).
 
 La solution alternative consiste à déterminer au cas par cas le contenu à traiter à partir d'Azure CDN dans votre application web. À cette fin, vous avez déjà vu comment accéder à des fichiers de contenu individuels depuis le point de terminaison CDN. Je vais vous montrer comment traiter une action sur un contrôleur donné via le point de terminaison CDN dans la section [Distribution de contenu à partir d'actions de contrôleur via Azure CDN](#serve-content-from-controller-actions-through-azure-cdn).
 
@@ -285,7 +285,7 @@ Procédez comme ci-dessus pour configurer cette action de contrôleur :
 		    <input class="btn" type="submit" value="Generate meme" />
 		</form>
 
-5. Republiez l’application web Azure et accédez à l’adresse **http://*&lt;serviceName>\*.cloudapp.net/MemeGenerator/Index** dans votre navigateur.
+5. Republiez l’application web Azure et accédez à l’adresse **http://*&lt;serviceName>*.cloudapp.net/MemeGenerator/Index** dans votre navigateur.
 
 Quand vous envoyez les valeurs du formulaire dans `/MemeGenerator/Index`, la méthode d’action `Index_Post` renvoie un lien vers la méthode d’action `Show` avec l’identificateur d’entrée respectif. Quand vous cliquez sur ce lien, vous accédez au code suivant :
 
@@ -407,7 +407,7 @@ Procédez comme suit pour l'intégration du regroupement et de la minimisation 
 	
 	- L’origine de cette URL CDN est `http://<yourSiteName>.azurewebsites.net/bundles/jquery?v=<W.X.Y.Z>`, qui est en vérité le répertoire virtuel du regroupement de script dans votre application web.
 	- Comme vous utilisez un constructeur CDN, la balise du script CDN pour le regroupement ne contient plus la chaîne de caractères de la version automatiquement générée dans l'URL restituée. Vous devez créer manuellement une chaîne de version unique à chaque modification du regroupement de script pour forcer une erreur dans le cache de votre réseau de distribution de contenu (CDN) Azure. En même temps, cette chaîne de version unique doit rester constante tout au long du déploiement pour un accès maximal au cache de votre réseau de distribution de contenu (CDN) Azure après le déploiement du regroupement.
-	- La chaîne de requête v=<W.X.Y.Z> est extraite de *Properties\\AssemblyInfo.cs* dans votre projet ASP.NET. Vous pouvez avoir un flux de travail de déploiement qui inclut l'incrémentation de la version de l'assembly chaque fois que vous publiez dans Azure. Vous pouvez également modifier *Properties\\AssemblyInfo.cs* dans votre projet pour incrémenter automatiquement la chaîne de caractères de la version à chaque génération en utilisant le caractère générique '\*'. Par exemple :
+	- La chaîne de requête v=<W.X.Y.Z> est extraite de *Properties\\AssemblyInfo.cs* dans votre projet ASP.NET. Vous pouvez avoir un flux de travail de déploiement qui inclut l'incrémentation de la version de l'assembly chaque fois que vous publiez dans Azure. Vous pouvez également modifier *Properties\\AssemblyInfo.cs* dans votre projet pour incrémenter automatiquement la chaîne de caractères de la version à chaque génération en utilisant le caractère générique '*'. Par exemple :
 
 			[assembly: AssemblyVersion("1.0.0.*")]
 	
@@ -507,8 +507,27 @@ La classe [Bundle](http://msdn.microsoft.com/library/system.web.optimization.bun
 4. Republiez votre application web Azure et accédez à la page d'accueil.
 5. Affichez le code HTML de la page. Vous devez trouver des scripts injectés similaires à ce qui suit :    
 	
-	``` ... <link href="http://az673227.vo.msecnd.net/Content/css?v=1.0.0.25474" rel="stylesheet"/>
-<script>(function() { var loadFallback, len = document.styleSheets.length; for (var i = 0; i < len; i++) { var sheet = document.styleSheets[i]; if (sheet.href.indexOf('http://az673227.vo.msecnd.net/Content/css?v=1.0.0.25474') !== -1) { var meta = document.createElement('meta'); meta.className = 'sr-only'; document.head.appendChild(meta); var value = window.getComputedStyle(meta).getPropertyValue('width'); document.head.removeChild(meta); if (value !== '1px') { document.write('<link href="/Content/css" rel="stylesheet" type="text/css" />'); } } } return true; }())||document.write('<script src="/Content/css"><\\/script>');</script>
+	``` 
+	... 
+	<link href="http://az673227.vo.msecnd.net/Content/css?v=1.0.0.25474" rel="stylesheet"/>
+	<script>(function() { 
+	var loadFallback, 
+		len = document.styleSheets.length; 
+	for (var i = 0; i < len; i++) { 
+	var sheet = document.styleSheets[i]; 
+	if (sheet.href.indexOf('http://az673227.vo.msecnd.net/Content/css?v=1.0.0.25474') !== -1) { 
+		var meta = document.createElement('meta'); 
+		meta.className = 'sr-only'; 
+		document.head.appendChild(meta); 
+		var value = window.getComputedStyle(meta).getPropertyValue('width'); 
+		document.head.removeChild(meta); 
+		if (value !== '1px') { 
+			document.write('<link href="/Content/css" rel="stylesheet" type="text/css" />'); 
+			}
+		}
+	} 
+	return true; 
+	}())||document.write('<script src="/Content/css"><\\/script>');</script>
 
 	<script src="http://az673227.vo.msecnd.net/bundles/modernizer?v=1.0.0.25474"></script>
  	<script>(window.Modernizr)||document.write('<script src="/bundles/modernizr"><\/script>');</script>
@@ -545,4 +564,4 @@ La classe [Bundle](http://msdn.microsoft.com/library/system.web.optimization.bun
 * Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre l’ancien et le nouveau portail, consultez la page [Références sur la navigation dans le portail Azure](http://go.microsoft.com/fwlink/?LinkId=529715)
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

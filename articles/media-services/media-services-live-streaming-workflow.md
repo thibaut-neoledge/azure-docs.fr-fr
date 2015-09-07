@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Diffusion vidéo en flux continu avec Azure Media Services" 
-	description="Cette rubrique présente une vue d’ensemble des principaux composants impliqués dans la vidéo en flux continu." 
-	services="media-services" 
-	documentationCenter="" 
-	authors="Juliako" 
-	manager="dwrede" 
+	pageTitle="Diffusion vidéo en flux continu avec Azure Media Services"
+	description="Cette rubrique présente une vue d’ensemble des principaux composants impliqués dans la vidéo en flux continu."
+	services="media-services"
+	documentationCenter=""
+	authors="Juliako"
+	manager="dwrede"
 	editor=""/>
 
 <tags 
-	ms.service="media-services" 
-	ms.workload="media" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/11/2015"  
+	ms.service="media-services"
+	ms.workload="media"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/20/2015"
 	ms.author="juliako"/>
 
 
@@ -85,4 +85,4 @@ Pour plus d’informations, consultez [Utilisation des canaux recevant un flux d
 [live-overview2]: ./media/media-services-live-streaming-workflow/media-services-live-streaming-current.png
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

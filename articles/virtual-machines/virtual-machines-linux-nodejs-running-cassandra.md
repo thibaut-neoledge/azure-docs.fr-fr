@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Exécution de Cassandra avec Linux sur Azure" 
-	description="Comment exécuter un cluster Cassandra sous Linux, à partir d’une application Node.js dans Microsoft Azure Virtual Machines" 
-	services="virtual-machines" 
-	documentationCenter="nodejs" 
-	authors="MikeWasson" 
-	manager="wpickett" 
+	pageTitle="Exécution de Cassandra avec Linux sur Azure"
+	description="Comment exécuter un cluster Cassandra sous Linux, à partir d’une application Node.js dans Microsoft Azure Virtual Machines"
+	services="virtual-machines"
+	documentationCenter="nodejs"
+	authors="MikeWasson"
+	manager="wpickett"
 	editor=""/>
 
 <tags 
-	ms.service="virtual-machines" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="vm-linux" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/30/2015" 
+	ms.service="virtual-machines"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="vm-linux"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="06/30/2015"
 	ms.author="MikeWasson"/>
 
 
@@ -53,7 +53,7 @@ Figure 1 : Déploiement dans une seule région
 
 Notez qu'à la date de rédaction de cet article, Azure n'autorise pas le mappage explicite d'un groupe de machines virtuelles à un domaine d'erreur spécifique ; par conséquent, même avec le modèle de déploiement illustré à la Figure 1, il est statistiquement probable que toutes les machines virtuelles puissent être mappées à deux domaines d'erreur au lieu de quatre.
 
-**Équilibrage de la charge du trafic Thift :** les bibliothèques clientes Thrift sur le serveur Web se connectent au cluster via un équilibreur de charge interne. Cela nécessite d’ajouter l’équilibrage de la charge interne au sous-réseau de « données » (voir la figure 1) dans le contexte de l’hébergement, par le service cloud, du cluster Cassandra. Une fois l’équilibrage de la charge interne défini, chaque nœud nécessite que le point de terminaison à charge équilibrée soit ajouté avec les annotations d’un jeu d’équilibrage de la charge avec le nom d’équilibrage de charge défini précédemment. Consultez [Équilibrage de la charge interne Azure ](http://msdn.microsoft.com/library/azure/dn690121.aspx) pour plus de détails.
+**Équilibrage de la charge du trafic Thift :** les bibliothèques clientes Thrift sur le serveur Web se connectent au cluster via un équilibreur de charge interne. Cela nécessite d’ajouter l’équilibrage de la charge interne au sous-réseau de « données » (voir la figure 1) dans le contexte de l’hébergement, par le service cloud, du cluster Cassandra. Une fois l’équilibrage de la charge interne défini, chaque nœud nécessite que le point de terminaison à charge équilibrée soit ajouté avec les annotations d’un jeu d’équilibrage de la charge avec le nom d’équilibrage de charge défini précédemment. Consultez [Équilibrage de la charge interne Azure ](../load-balancer/load-balancer-internal-overview.md) pour plus de détails.
 
 **Semences de cluster :** il est important de sélectionner les nœuds les plus disponibles pour les valeurs de départ, car les nouveaux nœuds communiqueront avec les nœuds de départ pour découvrir la topologie du cluster. Un nœud de chaque groupe à haute disponibilité est désigné comme nœud de départ afin d’éviter tout point de défaillance unique.
 
@@ -124,7 +124,7 @@ Les versions logicielles suivantes sont utilisées lors du déploiement :
 
 Étant donné que le téléchargement de JRE nécessite l'acceptation manuelle de la licence Oracle, pour simplifier le déploiement, téléchargez tous les logiciels nécessaires sur le bureau en vue de leur chargement ultérieur dans l'image du modèle Ubuntu que nous créerons préalablement au déploiement du cluster.
 
-Téléchargez les logiciels ci-dessus dans un répertoire de téléchargements connu (par exemple, %TEMP%/downloads sur Windows ou \~/downloads sur Linux ou Mac) sur le bureau local.
+Téléchargez les logiciels ci-dessus dans un répertoire de téléchargements connu (par exemple, %TEMP%/downloads sur Windows ou ~/downloads sur Linux ou Mac) sur le bureau local.
 
 ### CRÉATION D’UNE MACHINE VIRTUELLE UBUNTU
 Lors de cette étape du processus, nous allons créer une image Ubuntu avec les logiciels prérequis pour que l'image puisse être réutilisée pour l'approvisionnement de plusieurs nœuds Cassandra.
@@ -165,7 +165,7 @@ Cliquez sur la flèche droite, conservez les valeurs par défaut dans l'écran n
 
 ###INSTALLATION DU LOGICIEL NÉCESSAIRE
 ####ÉTAPE 1 : Téléchargement de tarballs 
-À l'aide de scp ou pscp, copiez les logiciels téléchargés précédemment dans le répertoire \~/downloads en utilisant le format de commande suivant :
+À l'aide de scp ou pscp, copiez les logiciels téléchargés précédemment dans le répertoire ~/downloads en utilisant le format de commande suivant :
 
 #####pscp server-jre-8u5-linux-x64.tar.gz localadmin@hk-cas-template.cloudapp.net:/home/localadmin/downloads/server-jre-8u5-linux-x64.tar.gz
 
@@ -301,7 +301,7 @@ Assurez-vous que la machine virtuelle est sélectionnée et cliquez sur le lien 
 Cela prendra quelques secondes et l'image devrait être disponible dans la section Mes images de la galerie d'images. La machine virtuelle source sera automatiquement supprimée une fois l'image capturée correctement.
 
 ##Processus de déploiement dans une seule région
-**Étape 1 : Créer le réseau virtuel** Connectez-vous au portail de gestion, puis créez un réseau virtuel avec les attributs représentés dans le tableau. Pour connaître les étapes détaillées du processus, consultez [Configuration d’un réseau virtuel de cloud uniquement dans le portail de gestion](http://msdn.microsoft.com/library/azure/dn631643.aspx).
+**Étape 1 : Créer le réseau virtuel** Connectez-vous au portail de gestion, puis créez un réseau virtuel avec les attributs représentés dans le tableau. Pour connaître les étapes détaillées du processus, consultez [Configuration d’un réseau virtuel de cloud uniquement dans le portail de gestion](../virtual-network/virtual-networks-create-vnet.md).
 
 <table>
 <tr><th>Nom d'attribut de machine virtuelle</th><th>Valeur</th><th>Remarques</th></tr>
@@ -467,7 +467,7 @@ Notez que le keyspace créé à l'étape 4 utilise SimpleStrategy avec un replic
 Nous allons tirer parti du déploiement à une seule région que nous venons d'effectuer et répéter la même procédure pour installer la deuxième région. La principale différence entre le déploiement dans une seule région et dans plusieurs régions concerne la configuration du tunnel VPN pour la communication inter-région ; nous allons commencer par l'installation du réseau, puis approvisionner les machines virtuelles et configurer Cassandra.
 
 ###Étape 1 : Création du réseau virtuel dans la seconde région
-Connectez-vous au portail de gestion et créez un réseau virtuel avec les attributs indiqués dans le tableau. Pour connaître les étapes détaillées du processus, consultez [Configuration d’un réseau virtuel de cloud uniquement dans le portail de gestion](http://msdn.microsoft.com/library/azure/dn631643.aspx).
+Connectez-vous au portail de gestion et créez un réseau virtuel avec les attributs indiqués dans le tableau. Pour connaître les étapes détaillées du processus, consultez [Configuration d’un réseau virtuel de cloud uniquement dans le portail de gestion](../virtual-network/virtual-networks-create-vnet.md).
 
 <table>
 <tr><th>Nom de l'attribut    </th><th>Valeur	</th><th>Remarques</th></tr>
@@ -700,4 +700,4 @@ Microsoft Azure est une plateforme flexible qui autorise l'exécution de logicie
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

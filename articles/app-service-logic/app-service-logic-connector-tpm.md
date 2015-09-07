@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Gestion des partenaires commerciaux BizTalk"
-	description="Gestion des partenaires commerciaux BizTalk"
+   pageTitle="Utilisation du connecteur de gestion des partenaires commerciaux BizTalk dans des applications logiques | Microsoft Azure App Service"
+	description="Comment créer et configurer le connecteur de gestion des partenaires commerciaux BizTalk ou une application API et l'utiliser dans une application logique d’Azure App Service"
 	services="app-service\logic"
 	documentationCenter=".net,nodejs,java"
 	authors="rajeshramabathiran"
@@ -13,18 +13,18 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="integration"
-	ms.date="08/19/2015"
+	ms.date="08/23/2015"
 	ms.author="rajram"/>
 
-#Gestion des partenaires commerciaux BizTalk
-Le service de gestion des partenaires commerciaux (GPC) de Microsoft Azure permet de définir et de conserver les relations interentreprises, comme les partenaires et les accords, ainsi que les artefacts associés tels que les schémas et les certificats. Ces relations peuvent alors être appliquées par les services API associés tels que AS2, EDIFACT et X12.
+# Prise en main du service de gestion des partenaires commerciaux BizTalk et ajout de celui-ci à votre application logique
+Le service de gestion des partenaires commerciaux (TPM) BizTalk vous permet de définir et de conserver des relations interentreprises, comme les partenaires et les accords, ainsi que les artefacts associés tels que les schémas et les certificats. Ces relations peuvent alors être appliquées par les services API associés tels que AS2, EDIFACT et X12.
 
-L'application API TPM (Gestion des partenaires commerciaux) est la configuration de base requise du connecteur AS2 et des applications API X12 or EDIFACT.
+L'application API TPM (Gestion des partenaires commerciaux) est la configuration de base requise du connecteur AS2 et des applications API X12 et EDIFACT. Vous pouvez ajouter le service de gestion des partenaires commerciaux à votre flux d’entreprise et traiter les données dans le cadre d'un flux de travail interentreprises dans une application logique.
 
-##Conditions préalables
+## Configuration requise
 - Base de données SQL Azure vide : vous devez créer une base de données SQL Azure vide avant de créer une application d'API TPM.
 
-##Compréhension des partenaires, accords et profils
+## Compréhension des partenaires, accords et profils
 Pour en savoir plus sur l'accord de partenariat commercial, cliquez [ici][1]
 
 ## En faire plus avec votre connecteur
@@ -37,4 +37,4 @@ Vous pouvez également consulter les statistiques de performances et contrôler 
 <!--References-->
 [1]: app-service-logic-create-a-trading-partner-agreement.md
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

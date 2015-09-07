@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Fournisseur de ressources réseau"
-   description="Fournisseur de ressources réseau"
-   services="virtual-network"
-   documentationCenter="na"
-   authors="telmosampaio"
-   manager="adinah"
-   editor="tysonn" />
+	description="Fournisseur de ressources réseau"
+	services="virtual-network"
+	documentationCenter="na"
+	authors="telmosampaio"
+	manager="adinah"
+	editor="tysonn"/>
 <tags 
    ms.service="virtual-network"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="04/22/2015"
-   ms.author="telmos" />
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="infrastructure-services"
+	ms.date="08/23/2015"
+	ms.author="telmos"/>
 
 # Fournisseur de ressources réseau
 Un besoin sous-jacent dans la réussite des entreprises aujourd'hui est la possibilité de créer et de gérer des applications prenant en charge des réseaux à grande échelle d'une manière flexible, souple, sécurisée et reproductible. Le gestionnaire des ressources Azure (ARM, Azure Resource Manager) vous permet de créer de telles applications, sous la forme d'une collection unique de ressources dans des groupes de ressources. Ces ressources sont gérées via divers fournisseurs de ressources sous ARM.
@@ -210,7 +210,7 @@ Les principaux avantages de l'utilisation de modèles sont les suivants :
 
 Pour obtenir des exemples de modèles, consultez [Modèles de démarrage rapide Azure](https://github.com/Azure/azure-quickstart-templates).
 
-Pour plus d'informations sur la langue du modèle ARM, consultez [Langue de modèle de gestionnaire des ressources Azure](https://msdn.microsoft.com/library/azure/dn835138.aspx).
+Pour plus d'informations sur la langue du modèle ARM, consultez [Langue de modèle de gestionnaire des ressources Azure](../resource-group-authoring-templates.md).
 
 L'exemple de modèle ci-dessus utilise le réseau virtuel et des ressources de sous-réseau. Il existe d'autres ressources réseau que vous pouvez utiliser, comme indiqué ci-dessous :
 
@@ -267,6 +267,19 @@ Les équilibrages de charge contiennent les ressources enfants suivantes :
 - **Sondes** : les sondes vous permettent d'effectuer le suivi de l'intégrité des instances de machine virtuelle. En cas d'échec d'une sonde d'intégrité, l'instance de machine virtuelle est automatiquement mise hors service.
 - **Règles NAT de trafic entrant** : règles NAT définissant le trafic entrant transitant via l'adresse IP frontale et distribué à l'adresse IP principale.
 
+## Application Gateway
+
+Application Gateway fournit une solution d'équilibrage de la charge HTTP gérée par Azure et basée sur l'équilibrage de la charge de couche 7. L'équilibrage de la charge de l'application permet l'utilisation de règles de routage pour le trafic réseau basé sur HTTP.
+
+Les passerelles Application Gateway contiennent les ressources enfant suivantes :
+
+- **Pool de serveurs principaux :** liste des adresses IP des serveurs principaux. Les adresses IP répertoriées doivent appartenir au sous-réseau de réseau virtuel ou elles doivent être une adresse IP/VIP publique. 
+- **Paramètres du pool de serveurs principaux :** chaque pool comporte des paramètres comme le port, le protocole et une affinité basée sur les cookies. Ces paramètres sont liés à un pool et sont appliqués à tous les serveurs du pool.
+- **Port frontal :** il s'agit du port public ouvert sur la passerelle Application Gateway. Le trafic atteint ce port, puis il est redirigé vers l’un des serveurs principaux.
+- **Écouteur :** l'écouteur a un port frontal, un protocole (Http ou Https, avec respect de la casse) et le nom du certificat SSL (en cas de configuration du déchargement SSL). 
+- **Règle :** la règle lie l'écouteur et le pool de serveurs principaux et définit vers quel pool de serveurs principaux le trafic doit être dirigé quand il atteint un écouteur spécifique. Actuellement, seule la règle de base est prise en charge. La règle de base est la distribution de charge par tourniquet (round robin).
+
+
 ## Adresse IP publique
 Une ressource d'adresse IP publique fournit une adresse IP publique réservée ou une adresse IP publique dynamique. Une adresse IP publique peut être affectée à un équilibrage de charge, à une adresse IP NAT ou être associée à une adresse IP privée sur une carte d'interface réseau d'une machine virtuelle.
 
@@ -307,6 +320,8 @@ Les propriétés clés d'une passerelle VPN sont les suivantes :
 - **Type de passerelle** : passerelle acheminée de manière dynamique ou de manière statique. 
 - **Préfixe du pool d'adresses du client VPN** : adresses IP à affecter aux clients qui se connectent dans une configuration de point à site.
 
+
+
 ## Profil Traffic Manager
 Traffic Manager et ses ressources de point de terminaison enfant activent la répartition de votre trafic vers les points de terminaison dans Azure et en dehors d'Azure. Cette répartition du trafic est régie par des stratégies. Traffic Manager permet également de surveiller l'intégrité des points de terminaison, ainsi que le trafic dévié de manière appropriée en fonction de l'intégrité d'un point de terminaison.
 
@@ -329,6 +344,16 @@ Les propriétés clé d'un point de terminaison sont les suivantes :
 - **Poids** : poids du point de terminaison utilisé dans la gestion du trafic. 
 - **Priorité** : priorité du point de terminaison, utilisée pour définir une action de basculement. 
 
+## DNS Azure
+
+Azure DNS est un service d'hébergement pour les domaines DNS et qui offre une résolution de noms à l'aide de l'infrastructure Microsoft Azure.
+
+Les propriétés clés d'un DNS Azure sont les suivantes :
+
+- **Zones DNS** - Informations relatives à la zone du domaine pour l'hébergement des enregistrements DNS d'un domaine particulier.
+- **Jeux d'enregistrements DNS** - Ensemble d'enregistrements d'un type particulier. Les types pris en charge sont A, AAAA, CNAME, MX, NS, SOA,SRV et TXT.
+
+
 ## Utilisation d’un modèle
 
 Vous pouvez déployer des services dans Azure à partir d’un modèle à l’aide de PowerShell, AzureCLI, ou en cliquant pour les déployer à partir de GitHub. Pour déployer des services à partir d’un modèle dans GitHub, procédez comme suit :
@@ -343,13 +368,14 @@ Vous pouvez déployer des services dans Azure à partir d’un modèle à l’ai
 
 ![Exemple de déploiement de modèle](./media/resource-groups-networking/Figure6.png)
 
+
 ## Voir aussi
 
 [Référence des API de réseau Azure](https://msdn.microsoft.com/library/azure/dn948464.aspx)
 
 [Référence d'Azure PowerShell pour la mise en réseau](https://msdn.microsoft.com/library/azure/mt163510.aspx)
 
-[Langue du modèle Azure Resource Manager](https://msdn.microsoft.com/library/azure/dn835138.aspx)
+[Langue du modèle Azure Resource Manager](../resource-group-authoring-templates.md)
 
 [Mise en réseau Azure : modèles couramment utilisés](https://github.com/Azure/azure-quickstart-templates)
 
@@ -363,4 +389,4 @@ Vous pouvez déployer des services dans Azure à partir d’un modèle à l’ai
 
 [Déploiements de modèles](https://msdn.microsoft.com/library/azure/dn790549.aspx)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

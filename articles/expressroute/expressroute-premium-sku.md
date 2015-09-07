@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Activer ou désactiver le module complémentaire Premium ExpressRoute | Microsoft Azure"
-   description="Activer ou désactiver le module complémentaire ExpressRoute Premium pour un circuit ExpressRoute. ExpressRoute Premium vous permet d'ajouter jusqu'à 10 000 itinéraires pour l'homologation publique et privée et jusqu'à 10 réseaux virtuels à votre circuit ExpressRoute. Vous pouvez également associer un réseau virtuel d’une région à un circuit ExpressRoute d’une autre région."
-   services="expressroute"
-   documentationCenter="na"
-   authors="cherylmc"
-   manager="jdial"
-   editor="tysonn" />
+	description="Activer ou désactiver le module complémentaire ExpressRoute Premium pour un circuit ExpressRoute. ExpressRoute Premium vous permet d'ajouter jusqu'à 10 000 itinéraires pour l'homologation publique et privée et jusqu'à 10 réseaux virtuels à votre circuit ExpressRoute. Vous pouvez également associer un réseau virtuel d’une région à un circuit ExpressRoute d’une autre région."
+	services="expressroute"
+	documentationCenter="na"
+	authors="cherylmc"
+	manager="carolz"
+	editor=""/>
 <tags 
    ms.service="expressroute"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="06/02/2015"
-   ms.author="cherylmc" />
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="infrastructure-services"
+	ms.date="08/25/2015"
+	ms.author="cherylmc"/>
 
 # Configurer le module complémentaire ExpressRoute Premium pour votre circuit ExpressRoute
 
@@ -172,9 +172,9 @@ Vous pouvez désactiver le module complémentaire ExpressRoute Premium pour un c
 		Sku                              : Premium
 		Status                           : Standard
 
-	Les fonctionnalités du module complémentaire ExpressRoute Premium seront désactivées sur votre circuit.
+	Le composant additionnel Premium est maintenant désactivé pour votre circuit.
 
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

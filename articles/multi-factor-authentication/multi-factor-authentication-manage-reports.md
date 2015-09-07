@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Rapports Azure Multi-Factor Authentication" 
-	description="Cette section décrit comment utiliser la fonctionnalité de rapports d’Azure Multi-Factor Authentication." 
-	services="multi-factor-authentication" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="swadhwa" 
+	pageTitle="Rapports Azure Multi-Factor Authentication"
+	description="Cette section décrit comment utiliser la fonctionnalité de rapports d’Azure Multi-Factor Authentication."
+	services="multi-factor-authentication"
+	documentationCenter=""
+	authors="billmath"
+	manager="stevenpo"
 	editor="curtand"/>
 
 <tags 
-	ms.service="multi-factor-authentication" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/02/2015" 
+	ms.service="multi-factor-authentication"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/24/2015"
 	ms.author="billmath"/>
 
 # Rapports dans Azure Multi-Factor Authentication
@@ -50,4 +50,4 @@ Mis en file d'attente.|Répertorie les rapports en file d'attente de traitement 
 * [Azure Multi-Factor Authentication sur MSDN](https://msdn.microsoft.com/library/azure/dn249471.aspx)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

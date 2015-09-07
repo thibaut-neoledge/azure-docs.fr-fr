@@ -17,11 +17,11 @@
 	ms.author="saah;kenhoff"/>
 
 # Connexions à partir de périphériques potentiellement infectés
+<p>Ce rapport tente d'identifier les appareils des utilisateurs qui ont été infectés et font à présent partie d'un botnet (également appelé armée de zombies). Nous mettons en corrélation les adresses&#160;IP des connexions utilisateur et les adresses&#160;IP déterminées comme étant en contact avec des serveurs botnet.</p>
+<p>Recommandation&#160;: ce rapport suit les adresses&#160;IP et non les appareils des utilisateurs. Nous vous recommandons de contacter l'utilisateur et d'analyser tous ses appareils afin d’en acquérir la certitude. Il est également possible que les appareils personnels d'un utilisateur soient infectés, ou qu'une tierce personne utilisant la même adresse&#160;IP possède un appareil infecté. </p>
+<p>Pour plus d'informations sur le traitement des infections de logiciels malveillants, consultez le [Centre de protection contre les programmes malveillants] (http://go.microsoft.com/fwlink/?linkid=335773). </p>
 
-| Description | Emplacement du rapport |
-| :-------------     | :-------        |
-| <p>Utilisez ce rapport lorsque vous souhaitez découvrir les connexions effectuées depuis des périphériques sur lesquels des logiciels malveillants peuvent s’exécuter. Nous mettons en corrélation les adresses IP des connexions et les adresses IP à partir desquelles une tentative a été effectuée pour contacter un serveur de logiciels malveillants.</p><p>Recommandation : ce rapport considère qu'une adresse IP a été associée au même périphérique dans les deux cas. Nous vous recommandons donc de contacter l'utilisateur et d'analyser le périphérique de l'utilisateur pour vous en assurer.</p><p>Pour plus d'informations sur le traitement des infections de logiciels malveillants, consultez le [Centre de protection contre les logiciels malveillants](http://go.microsoft.com/fwlink/?linkid=335773). </p> | Répertoire > onglet Rapports |
 
 ![Connexions à partir de périphériques potentiellement infectés](./media/active-directory-reporting-sign-ins-from-possibly-infected-devices/signInsFromPossiblyInfectedDevices.PNG)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

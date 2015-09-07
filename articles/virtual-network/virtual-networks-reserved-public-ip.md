@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Adresse IP réservée"
-   description="Fonctionnement et gestion des adresses IP réservées, virtuelles et publiques de niveau d’instance"
-   services="virtual-network"
-   documentationCenter="na"
-   authors="telmosampaio"
-   manager="adinah"
-   editor="tysonn" />
+	description="Fonctionnement et gestion des adresses IP réservées, virtuelles et publiques de niveau d’instance"
+	services="virtual-network"
+	documentationCenter="na"
+	authors="telmosampaio"
+	manager="adinah"
+	editor="tysonn"/>
 <tags 
    ms.service="virtual-network"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="08/17/2015"
-   ms.author="telmos" />
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="infrastructure-services"
+	ms.date="08/17/2015"
+	ms.author="telmos"/>
 
 # Vue d’ensemble des adresses IP réservées
 Il existe deux catégories d’adresses IP dans Azure, les réservées et les dynamiques. Les adresses IP publiques gérées par Azure sont dynamiques par défaut. Cela signifie que l'adresse IP utilisée pour un service cloud donné (adresse IP virtuelle) ou pour accéder à une machine virtuelle ou à une instance de rôle directement (ILPIP) peut changer à tout moment, lorsque les ressources sont arrêtées ou désallouées.
@@ -35,7 +35,7 @@ Pour empêcher la modification des adresses IP, vous pouvez réserver une adress
 1. Comment réserver une adresse IP ? 
   - Vous pouvez utiliser PowerShell ou l’[API REST de gestion Azure](https://msdn.microsoft.com/library/azure/dn722420.aspx) pour demander une adresse IP réservée à une région particulière. Azure réservera une adresse IP à partir de cette région et l'associera à votre abonnement. Vous pouvez ensuite utiliser l'adresse IP réservée dans cette région. Vous ne pouvez pas réserver une adresse IP à l'aide du portail de gestion.
 1. Puis-je l'utiliser avec des réseaux virtuels basés sur un groupe d'affinités ? 
-  - Les adresses IP réservées sont uniquement prises en charge dans les réseaux virtuels régionaux. Elles ne sont pas prises en charge dans les réseaux virtuels associés à des groupes d’affinités. Pour plus d'informations sur l'association d'un réseau virtuel à une région ou un groupe d'affinités, consultez la page [À propos des réseaux virtuels et groupes d’affinités régionaux](https://msdn.microsoft.com/library/azure/jj156085.aspx). 
+  - Les adresses IP réservées sont uniquement prises en charge dans les réseaux virtuels régionaux. Elles ne sont pas prises en charge dans les réseaux virtuels associés à des groupes d’affinités. Pour plus d'informations sur l'association d'un réseau virtuel à une région ou un groupe d'affinités, consultez la page [À propos des réseaux virtuels et groupes d’affinités régionaux](virtual-networks-migrate-to-regional-vnet.md). 
 
 ## Gestion des adresses IP virtuelles réservées
 
@@ -119,4 +119,4 @@ Vous pouvez aussi associer une adresse réservée à un service cloud à l’ai
 
 - Consultez les [API REST d’adresse IP réservée](https://msdn.microsoft.com/library/azure/dn722420.aspx)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

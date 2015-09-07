@@ -1,18 +1,18 @@
 <properties 
-	pageTitle="Utilisation des données hors connexion dans Mobile Services (Xamarin iOS) | Microsoft Azure" 
-	description="Learn how to use Azure Mobile Services to cache and sync offline data in your Xamarin iOS application" 
-	documentationCenter="xamarin" 
-	authors="lindydonna" 
-	editor="wesmc" 
-	manager="dwrede" 
+	pageTitle="Utilisation des données hors connexion dans Mobile Services (Xamarin iOS) | Microsoft Azure"
+	description="Learn how to use Azure Mobile Services to cache and sync offline data in your Xamarin iOS application"
+	documentationCenter="xamarin"
+	authors="lindydonna"
+	editor="wesmc"
+	manager="dwrede"
 	services="mobile-services"/>
 
 <tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="na"
+	ms.devlang="dotnet"
+	ms.topic="article"
 	ms.date="07/01/2015"
 	ms.author="donnam"/>
 
@@ -66,7 +66,7 @@ La synchronisation hors connexion d'Azure Mobile Services permet aux utilisateur
             await client.SyncContext.InitializeAsync(store);
         }
 
-    Ceci crée un magasin local à l'aide de la classe `MobileServiceSQLiteStore`, qui est fournie dans le Kit de développement logiciel (SDK) Mobile Services. Vous pouvez également fournir une implémentation de magasin local différente en implémentant `IMobileServiceLocalStore`.
+    Ceci crée un magasin local à l'aide de la classe `MobileServiceSQLiteStore`, qui est fournie dans le Kit de développement logiciel (SDK) Mobile Services. Vous pouvez également fournir une autre implémentation de magasin local en mettant en œuvre `IMobileServiceLocalStore`.
 
     La méthode `DefineTable` crée une table dans le magasin local qui correspond aux champs dans le type fourni, `ToDoItem` ici. Ce type n'a pas besoin d'inclure toutes les colonnes qui se trouvent dans la base de données distante, il est possible de stocker uniquement un sous-ensemble de colonnes.
 
@@ -183,4 +183,4 @@ Dans cette section, vous allez reconnecter l'application au service mobile. Cett
 [extension Xamarin]: http://xamarin.com/visual-studio
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

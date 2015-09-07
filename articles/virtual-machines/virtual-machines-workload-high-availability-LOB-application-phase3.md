@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Charge de travail des applications métier, phase 3 : configurer l'infrastructure SQL Server" 
-	description="Au cours de cette troisième phase de déploiement d'une application métier à haute disponibilité dans les services d'infrastructure Azure, vous créez les ordinateurs du cluster SQL Server et le cluster en lui-même." 
+	pageTitle="Application métier - Phase 3 | Microsoft Azure"
+	description="Créez les ordinateurs et le cluster SQL Server, et activez les groupes de disponibilité dans la phase 3 de l'application métier dans Azure."
 	documentationCenter=""
-	services="virtual-machines" 
-	authors="JoeDavies-MSFT" 
-	manager="timlt" 
+	services="virtual-machines"
+	authors="JoeDavies-MSFT"
+	manager="timlt"
 	editor=""
 	tags="azure-resource-manager"/>
 
 <tags 
-	ms.service="virtual-machines" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/11/2015" 
+	ms.service="virtual-machines"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/11/2015"
 	ms.author="josephd"/>
 
 # Charge de travail des applications métier, phase 3 : configurer l'infrastructure SQL Server
@@ -177,7 +177,7 @@ Le service SQL Server requiert un port permettant aux clients d'accéder au ser
 
 Pour chacune des machines virtuelles SQL Server, fermez votre session en tant qu'administrateur local.
 
-Pour plus d’informations sur l’optimisation des performances de SQL Server dans Azure, consultez [Meilleures pratiques relatives aux performances de SQL Server sur les machines virtuelles Azure](https://msdn.microsoft.com/library/azure/dn133149.aspx). Vous pouvez également désactiver le stockage géo-redondant (GRS) associé au compte de stockage d'applications métier et utiliser des espaces de stockage afin d'optimiser les E/S.
+Pour plus d’informations sur l’optimisation des performances de SQL Server dans Azure, consultez [Meilleures pratiques relatives aux performances de SQL Server sur les machines virtuelles Azure](virtual-machines-sql-server-performance-best-practices.md). Vous pouvez également désactiver le stockage géo-redondant (GRS) associé au compte de stockage d'applications métier et utiliser des espaces de stockage afin d'optimiser les E/S.
 
 ## Configuration du serveur de nœud majoritaire du cluster
 
@@ -268,4 +268,4 @@ Pour poursuivre la configuration de cette charge de travail, passez à la [Phase
 
 [Charge de travail des services d’infrastructure Azure : batterie de serveurs SharePoint Server 2013](virtual-machines-workload-intranet-sharepoint-farm.md)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

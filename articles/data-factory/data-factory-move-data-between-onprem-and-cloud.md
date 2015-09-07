@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Déplacement de données entre des emplacements locaux et le cloud à l'aide d’Azure Data Factory" 
-	description="Découvrez comment déplacer des données entre des emplacements locaux et le cloud à l'aide de la passerelle de gestion des données et d’Azure Data Factory." 
-	services="data-factory" 
-	documentationCenter="" 
-	authors="spelluru" 
-	manager="jhubbard" 
+	pageTitle="Déplacement de données entre des emplacements locaux et le cloud à l'aide d’Azure Data Factory"
+	description="Découvrez comment déplacer des données entre des emplacements locaux et le cloud à l'aide de la passerelle de gestion des données et d’Azure Data Factory."
+	services="data-factory"
+	documentationCenter=""
+	authors="spelluru"
+	manager="jhubbard"
 	editor="monicar"/>
 
 <tags 
-	ms.service="data-factory" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/29/2015" 
+	ms.service="data-factory"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/29/2015"
 	ms.author="spelluru"/>
 
 # Déplacement de données entre des sources locales et le cloud à l’aide de la passerelle de gestion des données
@@ -193,25 +193,14 @@ Dans cette étape, vous allez créer deux services liés : **StorageLinkedServi
 5. Cliquez sur **OK** dans le panneau **Nouveau magasin de données**. 	
 6. Vérifiez que l'état de **SqlServerLinkedService** est défini sur En ligne dans le panneau Services liés.![État du service SQL Server lié](./media/data-factory-move-data-between-onprem-and-cloud/sql-server-linked-service-status.png)
 
-Si vous accédez au portail à partir d’un ordinateur différent de l’ordinateur de passerelle, vous devrez peut-être vous assurer que l’application Gestionnaire d’informations d’identification peut se connecter à l’ordinateur de passerelle. Sinon, vous ne pourrez pas définir les informations d’identification de la source de données, ni tester la connexion à la source de données.
-
-##### Configuration des informations d'identification et de la sécurité
-Lorsque vous utilisez la méthode décrite ci-dessus avec l’application « Configuration des informations d'identification » lancée à partir du portail Azure pour définir les informations d'identification d’une source de données locale, le portail chiffre les informations d'identification avec le certificat que vous avez spécifié dans l'onglet Certificat du gestionnaire de configuration de la passerelle de gestion des données sur l'ordinateur de passerelle.
-
-Si vous recherchez une approche basée sur une API pour chiffrer les informations d'identification, vous pouvez utiliser l’applet de commande PowerShell [New-AzureDataFactoryEncryptValue](https://msdn.microsoft.com/library/azure/dn834940.aspx) pour chiffrer les informations d'identification. L'applet de commande utilise le certificat qui a servi à configurer la passerelle pour chiffrer les informations d'identification. Les informations d'identification chiffrées retournées par cette applet de commande peuvent être ajoutées à l'élément EncryptedCredential de connectionString dans le fichier JSON que vous utiliserez avec l’applet de commande [New-AzureDataFactoryLinkedService](https://msdn.microsoft.com/library/azure/dn820246.aspx) ou dans l'extrait de code JSON dans Data Factory Editor sur le portail.
-
-	"connectionString": "Data Source=<servername>;Initial Catalog=<databasename>;Integrated Security=True;EncryptedCredential=<encrypted credential>",
-
-**Remarque :** si vous utilisez l'application « Configuration des informations d'identification », celle-ci définit automatiquement les informations d'identification chiffrées dans le service lié, comme indiqué ci-dessus.
-
-Il existe une autre approche pour définir les informations d'identification à l'aide de Data Factory Editor. Si vous créez un service SQL Server lié à l'aide de l'éditeur et entrez les informations d'identification en texte brut, ces informations d'identification sont chiffrées à l'aide d'un certificat appartenant au service Data Factory et NON le certificat qui a servi à configurer la passerelle. Bien que cette approche puisse être un peu plus rapide dans certains cas, elle reste moins sécurisée. Par conséquent, nous vous recommandons de suivre cette approche uniquement à des fins de développement/test.
+Pour plus d’informations sur la définition des informations d’identification, consultez la section [Configuration des informations d’identification et de la sécurité](#setting-credentials-and-security).
 
 #### Ajout d’un service lié pour un compte de stockage Azure
  
 1. Dans le panneau **Services liés**, cliquez sur **Nouveau magasin de données** dans la barre d’outils. 
 2. Entrez **StorageLinkedService** dans le champ **Nom**. 
 3. Cliquez sur la flèche en regard du **type**, puis sélectionnez **Azure Storage**.
-4. De nouveaux champs devraient apparaître : **Nom du compte** et **Clé du compte**, sous le paramètre **Type**. 
+4. De nouveaux champs devraient apparaître : **Nom du compte** et **Clé du compte**, sous le paramètre **Type**. 
 3. Entrez le nom de votre compte de stockage Azure dans le champ **Nom du compte**.
 4. Entrez la clé de votre compte de stockage Azure dans le champ **Clé du compte**. 
 5. Cliquez sur **OK** pour fermer la boîte de dialogue. 
@@ -221,7 +210,7 @@ Il existe une autre approche pour définir les informations d'identification à 
 Dans cette étape, vous allez créer des jeux de données d’entrée et de sortie qui représentent les données d’entrée et de sortie pour l’opération de copie (base de données SQL Server locale = > stockage d’objets blob Azure). Avant de créer des jeux de données ou des tables (jeux de données rectangulaires), vous devez effectuer les opérations suivantes (les étapes sont détaillées après la liste) :
 
 - Créez une table nommée **emp** dans la base de données SQL Server que vous avez ajoutée en tant que service lié à la fabrique de données et insérez quelques exemples d’entrées dans la table.
-- Créez un conteneur d'objets blob nommé **adftutorial** dans le compte de stockage Azure blob que vous avez ajouté comme service lié à la fabrique de données.
+- Créez un conteneur d’objets blob nommé **adftutorial** dans le compte de stockage d’objets blob Azure que vous avez ajouté comme service lié à la fabrique de données.
 
 ### Préparation du serveur SQL Server local pour le didacticiel
 
@@ -282,7 +271,7 @@ Dans cette étape, vous allez créer des jeux de données d’entrée et de sort
 	- Le **type** est défini sur **SqlServerTable**.
 	- Le paramètre **tablename** est défini sur **emp**.
 	- Le paramètre **linkedServiceName** est défini sur **SqlServerLinkedService** (vous avez créé ce service lié à l’étape 2).
-	- Pour une table d’entrée qui n’est pas générée par un autre pipeline dans Azure Data Factory, vous devez définir **external** sur **true**. Cela signifie que les données d’entrée sont produites à l’extérieur du service Azure Data Factory. Vous pouvez éventuellement spécifier des stratégies de données externes à l'aide de l’élément **externalData** dans la section **Stratégie**.    
+	- Pour une table d’entrée qui n’est pas générée par un autre pipeline dans Azure Data Factory, vous devez définir **external** sur **true**. Cela signifie que les données d’entrée sont produites à l’extérieur du service Azure Data Factory. Vous pouvez éventuellement spécifier des stratégies de données externes à l’aide de l’élément **externalData** dans la section **Stratégie**.    
 
 	Pour plus d'informations sur les propriétés JSON, consultez la rubrique [Référence de script JSON][json-script-reference].
 
@@ -318,9 +307,9 @@ Dans cette étape, vous allez créer des jeux de données d’entrée et de sort
 	- Le **type** est défini sur **AzureBlob**.
 	- Le paramètre **linkedServiceName** est défini sur **StorageLinkedService** (vous avez créé ce service lié à l’étape 2).
 	- Le paramètre **folderPath** est défini sur **adftutorial/outfromonpremdf**, où « outfromonpremdf » est le dossier dans le conteneur adftutorial. Vous devez simplement créer le conteneur **adftutorial**.
-	- **availability** est défini sur **hourly** (**frequency** a la valeur **hour** et **interval** à la valeur **1**). Le service Data Factory génère une tranche de données de sortie toutes les heures dans la table **emp** de la base de données SQL Microsoft Azure. 
+	- **availability** est défini sur **hourly** (**frequency** a la valeur **hour** et **interval** est défini sur **1**). Le service Data Factory génère une tranche de données de sortie toutes les heures dans la table **emp** de la base de données SQL Microsoft Azure. 
 
-	Si vous ne spécifiez pas de nom (**fileName**) pour une **table d'entrée**, tous les fichiers/objets blob du dossier d'entrée (**folderPath**) sont considérés comme des entrées. Si vous spécifiez un fileName dans le JSON, seul le fichier/objet blob spécifié est considéré comme une entrée. Pour en savoir plus, consultez les fichiers d'exemple du [didacticiel][adf-tutorial].
+	Si vous ne spécifiez pas de nom (**fileName**) pour une **table d’entrée**, tous les fichiers/objets blob du dossier d’entrée (**folderPath**) sont considérés comme des entrées. Si vous spécifiez un fileName dans le JSON, seul le fichier/objet blob spécifié est considéré comme une entrée. Pour en savoir plus, consultez les fichiers d'exemple du [didacticiel][adf-tutorial].
  
 	Si vous ne spécifiez pas de **fileName** pour une **table de sortie**, les fichiers générés dans le **folderPath** sont nommés selon le format suivant : Data.<Guid>.txt (par exemple : Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt).
 
@@ -468,12 +457,26 @@ Dans cette étape, vous allez utiliser le portail Azure pour surveiller ce qui s
 
 	![Panneau Détails sur l’exécution d’activité][image-data-factory-activity-run-details]
 
-11. Cliquez sur **X** pour fermer tous les panneaux jusqu'à ce que vous
+11. Cliquez sur **X** pour fermer tous les panneaux jusqu’à ce que vous
 12. reveniez au panneau d’accueil de l’élément **ADFTutorialOnPremDF**.
 14. (facultatif) Cliquez sur **Pipelines**, puis sur **ADFTutorialOnPremDF**, et accédez aux tables d’entrée (**Consommé**) ou aux tables de sortie (**Produit**).
 15. Utilisez des outils tels que l’**Explorateur de stockage Azure** pour contrôler la sortie.
 
 	![Explorateur du stockage Azure](./media/data-factory-move-data-between-onprem-and-cloud/OnPremAzureStorageExplorer.png)
+
+
+## Configuration des informations d'identification et de la sécurité
+Si vous accédez au portail à partir d’un ordinateur différent de l’ordinateur de passerelle, vous devrez peut-être vous assurer que l’application Gestionnaire d’informations d’identification peut se connecter à l’ordinateur de passerelle. Sinon, vous ne pourrez pas définir les informations d’identification de la source de données, ni tester la connexion à la source de données.
+
+Quand vous utilisez l’application « Configuration des informations d’identification » lancée à partir du portail Azure pour définir les informations d’identification d’une source de données locale, le portail chiffre les informations d’identification avec le certificat que vous avez spécifié sous l’onglet Certificat du gestionnaire de configuration de la passerelle de gestion des données sur l’ordinateur de passerelle.
+
+Si vous recherchez une approche basée sur une API pour chiffrer les informations d’identification, vous pouvez utiliser l’applet de commande PowerShell [New-AzureDataFactoryEncryptValue](https://msdn.microsoft.com/library/azure/dn834940.aspx) pour chiffrer les informations d’identification. L'applet de commande utilise le certificat qui a servi à configurer la passerelle pour chiffrer les informations d'identification. Les informations d’identification chiffrées retournées par cette applet de commande peuvent être ajoutées à l’élément EncryptedCredential de connectionString dans le fichier JSON que vous utiliserez avec l’applet de commande [New-AzureDataFactoryLinkedService](https://msdn.microsoft.com/library/azure/dn820246.aspx) ou dans l’extrait de code JSON dans Data Factory Editor sur le portail.
+
+	"connectionString": "Data Source=<servername>;Initial Catalog=<databasename>;Integrated Security=True;EncryptedCredential=<encrypted credential>",
+
+**Remarque :** si vous utilisez l’application « Configuration des informations d’identification », celle-ci définit automatiquement les informations d’identification chiffrées dans le service lié, comme indiqué ci-dessus.
+
+Il existe une autre approche pour définir les informations d’identification à l’aide de Data Factory Editor. Si vous créez un service SQL Server lié à l’aide de l’éditeur et entrez les informations d’identification en texte brut, ces informations d’identification sont chiffrées à l’aide d’un certificat appartenant au service Data Factory et NON le certificat qui a servi à configurer la passerelle. Bien que cette approche puisse être un peu plus rapide dans certains cas, elle reste moins sécurisée. Par conséquent, nous vous recommandons de suivre cette approche uniquement à des fins de développement/test.
 
 
 ## Création et enregistrement d’une passerelle à l’aide d’Azure PowerShell 
@@ -517,7 +520,7 @@ Cette section décrit comment créer et enregistrer une passerelle à l’aide d
 		PS C:\> $Key = New-AzureDataFactoryGatewayKey -GatewayName MyGateway -ResourceGroupName ADF -DataFactoryName $df 
 
 	
-4. Dans Azure PowerShell, accédez au dossier suivant : C:\\Program Files\\Microsoft Data Management Gateway\\1.0\\PowerShellScrip** et exécutez le script **RegisterGateway.ps1** associé à la variable locale **$Key**, comme indiqué dans la commande suivante pour enregistrer l’agent client installé sur votre ordinateur avec la passerelle logique que vous avez créée précédemment.
+4. Dans Azure PowerShell, accédez au dossier suivant : **C:\\Program Files\\Microsoft Data Management Gateway\\1.0\\PowerShellScript** et exécutez le script **RegisterGateway.ps1** associé à la variable locale **$Key**, comme indiqué dans la commande suivante pour enregistrer l’agent client installé sur votre ordinateur avec la passerelle logique que vous avez créée précédemment.
 
 		PS C:\> .\RegisterGateway.ps1 $Key.GatewayKey
 		
@@ -533,9 +536,9 @@ Vous pouvez supprimer une passerelle à l’aide de l’applet de commande **Rem
 ## Flux de données pour la copie à l’aide de la passerelle de gestion s données
 Lorsque vous utilisez une activité de copie dans un pipeline de données pour recevoir des données locales vers le cloud en vue d’un traitement ultérieur, ou exportez les données de résultat du cloud vers un magasin de données local, l'activité de copie utilise en interne une passerelle pour transférer les données de la source de données locale vers le cloud et vice versa.
 
-Voici un flux de données de haut niveau et un résumé des étapes pour la copie à l’aide de la passerelle de données : ![Flux de données à l'aide de la passerelle](./media/data-factory-move-data-between-onprem-and-cloud/data-flow-using-gateway.png)
+Voici un flux de données global et un résumé des étapes pour la copie à l’aide de la passerelle de données : ![Flux de données à l'aide de la passerelle](./media/data-factory-move-data-between-onprem-and-cloud/data-flow-using-gateway.png)
 
-1.	Le développeur des données crée une passerelle pour une fabrique de données Azure à l'aide du [portail Azure](http://portal.azure.com)ou d’une [applet de commande PowerShell](https://msdn.microsoft.com/library/dn820234.aspx). 
+1.	Le développeur des données crée une passerelle pour une fabrique de données Azure à l’aide du [portail Azure](http://portal.azure.com)ou d’une [applet de commande PowerShell](https://msdn.microsoft.com/library/dn820234.aspx). 
 2.	Le développeur des données utilise le panneau « Services liés » afin de définir un nouveau service lié pour un magasin de données local à l’aide de la passerelle. Dans le cadre de la configuration du service lié, le développeur des données utilise l'application de configuration des informations d’identification comme indiqué dans la procédure étape par étape pour spécifier les types d'authentification et les informations d’identification. La boîte de dialogue de l’application de configuration des informations d'identification communiquera avec le magasin de données pour tester la connexion et la passerelle afin d’enregistrer les informations d'identification.
 3.	La passerelle chiffrera les informations d'identification avec le certificat associé à la passerelle (fourni par le développeur des données) avant d'enregistrer les informations d'identification dans le cloud.
 4.	Le service de déplacement de Data Factory communique avec la passerelle pour la planification et la gestion des tâches via un canal de contrôle qui utilise une file d'attente de bus de service Azure partagé. Lorsque la tâche de l’activité de copie doit être lancée, Data Factory place en file d'attente la requête ainsi que les informations d'identification. La passerelle lance la tâche après avoir interrogé la file d'attente.
@@ -546,14 +549,14 @@ Voici un flux de données de haut niveau et un résumé des étapes pour la copi
 
 1. Comme mentionné ci-dessus dans la procédure étape par étape, il existe plusieurs façons de configurer les informations d’identification de magasins de données locaux à l’aide de Data Factory. Les considérations liées aux ports varient selon ces options.	
 
-	- À l'aide de l’application **Configuration des informations d'identification** : le programme d'installation de la passerelle de gestion des données ouvre par défaut ouvre les ports **8050** et **8051** sur le pare-feu Windows pour l'ordinateur de passerelle. Ces ports sont utilisés par l'application Configuration des informations d’identification pour transmettre ces informations d'identification à la passerelle. Ces ports sont ouverts uniquement pour l'ordinateur sur le pare-feu Windows local. Ils ne sont pas accessibles depuis Internet et il n’est pas nécessaire de les ouvrir dans le pare-feu d’entreprise.
-	2.	Utilisation de l’applet de commande PowerShell [New-AzureDataFactoryEncryptValue](https://msdn.microsoft.com/library/dn834940.aspx) : a. Si vous utilisez une commande PowerShell pour chiffrer les informations d'identification et par conséquent ne souhaitez pas que l'installation de la passerelle ouvre les ports entrants sur l'ordinateur de passerelle dans le pare-feu Windows, vous pouvez le faire en utilisant la commande suivante lors de l’installation :
+	- À l’aide de l’application **Configuration des informations d’identification** : le programme d’installation de la passerelle de gestion des données ouvre par défaut les ports **8050** et **8051** sur le pare-feu Windows pour l’ordinateur de passerelle. Ces ports sont utilisés par l'application Configuration des informations d’identification pour transmettre ces informations d'identification à la passerelle. Ces ports sont ouverts uniquement pour l'ordinateur sur le pare-feu Windows local. Ils ne sont pas accessibles depuis Internet et il n’est pas nécessaire de les ouvrir dans le pare-feu d’entreprise.
+	2.	Utilisation de l’applet de commande PowerShell [New-AzureDataFactoryEncryptValue](https://msdn.microsoft.com/library/dn834940.aspx) : a. Si vous utilisez une commande PowerShell pour chiffrer les informations d'identification et par conséquent ne souhaitez pas que l'installation de la passerelle ouvre les ports entrants sur l'ordinateur de passerelle dans le pare-feu Windows, vous pouvez le faire en utilisant la commande suivante lors de l’installation :
 	
 			msiexec /q /i DataManagementGateway.msi NOFIREWALL=1
 3.	Si vous utilisez l’application **Configuration des informations d’identification**, vous devez la lancer sur un ordinateur en mesure de se connecter à la passerelle de gestion des données pour pouvoir définir les informations d’identification de la source de données et tester la connexion à cette dernière.
 4.	Lors de la copie des données depuis/vers une base de données SQL Server locale vers/à partir d’une base de données SQL Azure, vérifiez les points suivants :	
 	- 	Le pare-feu sur l’ordinateur de passerelle autorise les communications TCP sortantes sur le port **TCP** **1433**.
-	- 	Configurez les [paramètres de pare-feu SQL Azure](https://msdn.microsoft.com/library/azure/jj553530.aspx) pour ajouter l’**adresse IP de l’ordinateur de passerelle** aux **adresses IP autorisées**.
+	- 	Configurez les [paramètres de pare-feu SQL Azure](https://msdn.microsoft.com/library/azure/jj553530.aspx) pour ajouter l’**adresse IP de l’ordinateur de passerelle** aux **adresses IP autorisées**.
 5.	Lors de la copie des données depuis ou vers le serveur SQL Server local vers une destination, si la passerelle et les ordinateurs SQL Server sont différents, procédez comme suit : [configurez le pare-feu Windows](https://msdn.microsoft.com/library/ms175043.aspx) sur l’ordinateur SQL Server, afin que la passerelle puisse accéder à la base de données via les ports qu’écoute l’instance de SQL Server. Pour l’instance par défaut, il s’agit du port 1433.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

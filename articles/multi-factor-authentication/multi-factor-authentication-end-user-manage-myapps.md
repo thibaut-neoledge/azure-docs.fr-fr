@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Gestion de vos paramètres Azure MFA dans le portail Myapps" 
-	description="Cette page montre aux utilisateurs où se rendre dans le portail Myapps pour gérer leurs paramètres Azure MFA." 
-	services="multi-factor-authentication" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="terrylan" 
-	editor="bryanla"/>
+	pageTitle="Gestion de vos paramètres Azure MFA dans le portail Myapps"
+	description="Cette page montre aux utilisateurs où se rendre dans le portail Myapps pour gérer leurs paramètres Azure MFA."
+	services="multi-factor-authentication"
+	documentationCenter=""
+	authors="billmath"
+	manager="stevenpo"
+	editor="curtland"/>
 
 <tags 
-	ms.service="multi-factor-authentication" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/02/2015" 
+	ms.service="multi-factor-authentication"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/24/2015"
 	ms.author="billmath"/>
 
 # Gestion des paramètres Azure Multi-Factor Authentication dans le portail Myapps
@@ -33,4 +33,4 @@ Si vous utilisez l’authentification multifacteur avec Office 365, vous souhai
 
 <center>![Setup](./media/multi-factor-authentication-end-user-manage-myapps/proofup.png)</center>
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

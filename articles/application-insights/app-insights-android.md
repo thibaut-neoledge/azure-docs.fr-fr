@@ -1,19 +1,19 @@
-<properties 
-    pageTitle="Application Insights pour les applications Android" 
-    description="Analysez l'utilisation et les performances de votre application Android avec Application Insights." 
-    services="application-insights" 
-    documentationCenter="android"
-    authors="alancameronwills" 
-    manager="ronmart"/>
+<properties
+    pageTitle="Application Insights pour les applications Android | Microsoft Azure"
+	description="Analysez l'utilisation et les performances de votre application Android avec Application Insights."
+	services="application-insights"
+	documentationCenter="android"
+	authors="alancameronwills"
+	manager="ronmart"/>
 
-<tags 
-    ms.service="application-insights" 
-    ms.workload="mobile" 
-    ms.tgt_pltfrm="mobile-android" 
-    ms.devlang="na" 
-    ms.topic="get-started-article" 
-	ms.date="04/28/2015" 
-    ms.author="awills"/>
+<tags
+    ms.service="application-insights"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-android"
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.date="04/28/2015"
+	ms.author="awills"/>
 
 # Application Insights pour les applications Android
 
@@ -39,7 +39,7 @@ Dans le panneau qui s’ouvre, vous trouverez des données relatives à l’util
 
 (Si vous ne l’avez pas encore fait.)
 
-1.  Démarrez Studio Android et configurez les plug-ins
+1.  Démarrez Studio Android et configurez les plug-ins.
 
     ![Choisissez Configurer](./media/app-insights-android/01-configure.png)
 
@@ -50,10 +50,10 @@ Dans le panneau qui s’ouvre, vous trouverez des données relatives à l’util
 ## <a name="sdk"></a>Installation du Kit de développement logiciel (SDK) dans votre application
 
 
-1.  Sélectionnez Outils -> intégrer Application Insights.
+1.  Sélectionnez **Outils** > **Intégrer le Kit de développement logiciel (SDK) Application Insights**.
 
     ![Intégrez Application Insights](./media/app-insights-android/04-tools-integrate.png)
-    
+
 3.  Créez un composant de votre abonnement
 
     ![Créez un composant](./media/app-insights-android/07-create-component.png)
@@ -63,10 +63,10 @@ Dans le panneau qui s’ouvre, vous trouverez des données relatives à l’util
 4.  Synchronisez Gradle pour télécharger le Kit de développement logiciel (SDK) et l’intégrer à votre projet
 
     ![Synchronisez les fichiers Gradle pour télécharger le Kit de développement logiciel (SDK)](./media/app-insights-android/08-successful-integration.png)
-    
+
     (Des informations supplémentaires sont disponibles sur la [page d’utilisation](http://go.microsoft.com/fwlink/?LinkID=533220).)
-    
-À ce stade, la référence suivante a été ajoutée aux modules build.gradle, et des autorisations pour `INTERNET` et `ACCESS_NETWORK_STATE`, ainsi qu’une balise de métadonnées contenant la clé d'instrumentation du composant ont été ajoutés aux `AndroidManifest.xml` des modules
+
+À ce stade, la référence suivante a été ajoutée aux modules build.gradle, et des autorisations pour `INTERNET` et `ACCESS_NETWORK_STATE`, ainsi qu’une balise de métadonnées contenant la clé d'instrumentation du composant ont été ajoutées aux `AndroidManifest.xml` des modules
 
 ```java
 
@@ -80,7 +80,7 @@ Dans le panneau qui s’ouvre, vous trouverez des données relatives à l’util
     <manifest>
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    
+
     <application>
         <meta-data
             android:name="com.microsoft.applicationinsights.instrumentationKey"
@@ -104,14 +104,14 @@ Il est également possible de configurer la clé d'instrumentation dans le code.
 
 Initialisez le Kit de développement logiciel et lancez le suivi télémétrique.
 
-Ajoutez l’importation suivante à votre activité racine d’applications.
+Ajoutez l’importation suivante à votre activité racine d’applications :
 
 ```java
 
      import com.microsoft.applicationinsights.library.ApplicationInsights;
 ```
 
-Et ajoutez la ligne suivante au rappel `onCreate` de l’activité.
+Et ajoutez la ligne suivante au rappel `onCreate` de l’activité :
 
 ```java
 
@@ -121,16 +121,16 @@ Et ajoutez la ligne suivante au rappel `onCreate` de l’activité.
 
 Dès lors que `ApplicationInsights.start()` est appelé, le Kit de développement logiciel (SDK) démarre l’activité de suivi du cycle de vie Android et les exceptions non gérées.
 
-> [AZURE.NOTE]Les événements du cycle de vie de l’application ne sont collectés que dans la version 15 ou ultérieure du Kit de développement logiciel (SDK) Android (Ice Cream Sandwich+).
+> [AZURE.NOTE]Les événements du cycle de vie de l’application ne sont collectés que dans la version 15 ou ultérieure du Kit de développement logiciel (SDK) Android (Ice Cream Sandwich+).
 
 De plus, les événements personnalisés, les suivis, les métriques et les exceptions gérées peuvent être collectés. Utilisez l’une des [API Application Insights][api] pour envoyer des données de télémétrie.
 
 * TrackEvent(eventName) pour d'autres actions utilisateur
 * TrackTrace(logEvent) pour la [journalisation des diagnostics][diagnostic]
 * TrackException(exception) dans des clauses Catch
-* TrackMetric(name, value) dans une tâche en arrière-plan pour envoyer des rapports de métriques réguliers qui ne sont pas liés à des événements spécifiques.
+* TrackMetric(name, value) dans une tâche en arrière-plan pour envoyer des rapports de métriques réguliers qui ne sont pas liés à des événements spécifiques
 
-Voici un exemple d'initialisation et de collecte télémétrique manuelle.
+Le code suivant est un exemple d'initialisation et de collecte télémétrique manuelle :
 
 ```java
 
@@ -138,11 +138,11 @@ Voici un exemple d'initialisation et de collecte télémétrique manuelle.
 
       @Override
       protected void onCreate(Bundle savedInstanceState) {
-        
+
         ApplicationInsights.setup(this);
         //... other initialization code ...//
         ApplicationInsights.start();
-        
+
         // track telemetry data
         TelemetryClient client = TelemetryClient.getInstance();
         HashMap<String, String> properties = new HashMap<String, String>();
@@ -163,7 +163,7 @@ Exécutez votre application (MAJ + F10 sous Windows, CTRL + R sous OS X) pour g
 
 Revenez à http://portal.azure.com et accédez à vos ressources Application Insights.
 
-Cliquez sur Rechercher pour ouvrir [Recherche de diagnostic][diagnostic] : les premiers événements y apparaissent. Si vous ne voyez rien, attendez une minute ou deux et cliquez sur Actualiser.
+Cliquez sur **Rechercher** pour ouvrir [Recherche de diagnostic][diagnostic] : les premiers événements y apparaissent. Si vous ne voyez rien, attendez une minute ou deux et cliquez sur **Actualiser**.
 
 ![Cliquez sur Recherche de diagnostic](./media/app-insights-android/21-search.png)
 
@@ -195,8 +195,6 @@ Cliquez sur n’importe quel graphique pour obtenir plus de détails. Par exempl
 [metrics]: app-insights-metrics-explorer.md
 [portal]: http://portal.azure.com/
 [qna]: app-insights-troubleshoot-faq.md
-[track]: app-insights-custom-events-metrics-api.md
+[track]: app-insights-api-custom-events-metrics.md
 
- 
-
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

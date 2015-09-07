@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Azure Data Factory - Forum aux Questions" 
-	description="Forum aux Questions sur Azure Data Factory." 
-	services="data-factory" 
-	documentationCenter="" 
-	authors="spelluru" 
-	manager="jhubbard" 
+	pageTitle="Azure Data Factory - Forum aux Questions"
+	description="Forum aux Questions sur Azure Data Factory."
+	services="data-factory"
+	documentationCenter=""
+	authors="spelluru"
+	manager="jhubbard"
 	editor="monicar"/>
 
 <tags 
-	ms.service="data-factory" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/16/2015" 
+	ms.service="data-factory"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="06/16/2015"
 	ms.author="spelluru"/>
 
 # Azure Data Factory - Forum aux Questions
@@ -90,17 +90,6 @@ Consultez les articles [Activités de déplacement des données](data-factory-da
 Les paramètres de configuration de la **disponibilité** présents dans la table de données de sortie déterminent quand l'activité doit être exécutée. L'activité vérifie si toutes les dépendances de données d'entrée sont satisfaites (par exemple, état **prêt**) avant de s'exécuter.
 
 ## Activité de copie - Forum Aux Questions
-### quelles sont les régions prises en charge par l'activité de copie ?
-
-L'activité de copie prend en charge la copie des données dans les régions suivantes : est des États-Unis, est des États-Unis 2, ouest des États-Unis, centre des États-Unis, centre-nord des États-Unis, centre-sud des États-Unis, Europe du Nord, Europe de l'Ouest, Asie du Sud-Est, est du Japon et sud du Brésil.
-
-La copie de données est également prise en charge dans d'autres régions, en utilisant l'une des régions ci-dessus pour le routage des données. L'opération de copie est mesurée en fonction de la région via laquelle les données sont acheminées.
-
-Région de destination de la copie | Région utilisée pour le routage
--------------------------- | -----------------------
-Asie de l'Est | Asie du Sud-Est
-Ouest du Japon | Est du Japon
- 
 ### Est-il préférable d'avoir un pipeline avec plusieurs activités ou un pipeline distinct pour chaque activité ? 
 Les pipelines sont censés regrouper des activités connexes. Logiquement, vous pouvez conserver les activités dans un seul pipeline si les tables qui les relient ne sont pas utilisées par d'autres activités extérieures au pipeline. De cette façon, vous n'aurez pas besoin de relier les périodes actives du pipeline pour qu'elles s'accordent les unes avec les autres. En outre, l'intégrité des données dans les tables internes au pipeline est mieux préservée lors de la mise à jour du pipeline. La mise à jour d'un pipeline arrête toutes les activités du pipeline, les supprime et les crée de nouveau. En termes de création, il peut être plus facile de voir le flux de données au sein des activités connexes dans un seul fichier JSON pour le pipeline.
 
@@ -192,4 +181,4 @@ Si vous voulez vraiment arrêter immédiatement toutes les exécutions, le seul 
 [hdinsight-alternate-storage-2]: http://blogs.msdn.com/b/cindygross/archive/2014/05/05/use-additional-storage-accounts-with-hdinsight-hive.aspx
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

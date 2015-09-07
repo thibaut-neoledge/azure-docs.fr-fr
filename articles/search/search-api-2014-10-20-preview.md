@@ -1,8 +1,8 @@
-<properties pageTitle="API REST du service Azure Search Version 2014-10-20-Preview" description="API REST du service Azure Search Version 2014-10-20-Preview" services="search" documentationCenter="" authors="HeidiSteen" manager="mblythe" editor="" />
+<properties pageTitle="API REST du service Azure Search Version 2014-10-20-Preview" description="API REST du service Azure Search Version 2014-10-20-Preview" services="search" documentationCenter="" authors="HeidiSteen" manager="mblythe" editor=""/>
 
-<tags ms.service="search" ms.devlang="rest-api" ms.workload="search" ms.topic="article"  ms.tgt_pltfrm="na" ms.date="07/22/2015" ms.author="heidist" />
+<tags ms.service="search" ms.devlang="rest-api" ms.workload="search" ms.topic="article"  ms.tgt_pltfrm="na" ms.date="08/25/2015" ms.author="heidist"/>
 
-# API REST du service Azure Search : version 2014-10-20-Preview #
+#API REST du service Azure Search : version 2014-10-20-Preview
 
 Ce document décrit la version préliminaire **2014-10-20-Preview** de l'API REST du service Azure Search, publiée en tant que mise à jour de la première version préliminaire publique d'Azure Search. Étant donné que cette version sera bientôt supprimée, nous vous recommandons d'utiliser plutôt la version associée à la version disponible sur le marché. Pour obtenir des instructions sur la migration du code, consultez la rubrique [Transition de la version préliminaire vers la version d'API disponible sur le marché](search-transition-from-preview.md).
 
@@ -12,7 +12,7 @@ Autre contenu d'API relatif à la version **2014-10-20-Preview** :
 
 La documentation de l’actuelle version disponible sur le marché de l'API REST du service Azure Search est disponible sur MSDN. Consultez la page [API REST de service Azure Search](http://msdn.microsoft.com/library/azure/dn798935.aspx) pour plus d'informations.
 
-##À propos de l'API REST du service##
+##À propos de l'API REST du service
 
 Azure Search est un service cloud que vous pouvez utiliser pour générer des applications de recherche personnalisées. Azure Search utilise les concepts de *services de recherche* et d'*index*, où un service de recherche contient un ou plusieurs index. Votre service de recherche est identifié de façon unique par un nom de domaine complet (par exemple : `mysearchservice.search.windows.net`). Une clé API est générée lors de la configuration du service. Elle est utilisée pour authentifier les requêtes adressées à votre service Azure Search.
 
@@ -126,7 +126,7 @@ L'exemple suivant illustre un schéma utilisé pour rechercher des informations 
       {"name": "hotelId", "type": "Edm.String", "key": true, "searchable": false},
       {"name": "baseRate", "type": "Edm.Double"},
       {"name": "description", "type": "Edm.String", "filterable": false, "sortable": false, "facetable": false},
-	  {"name": "description_fr", "type": "Edm.String", "filterable": false, "sortable": false, "facetable": false, analyzer: "fr.lucene"},
+	  {"name": "description_fr", "type": "Edm.String", "filterable": false, "sortable": false, "facetable": false, "analyzer": "fr.lucene"},
       {"name": "hotelName", "type": "Edm.String"},
       {"name": "category", "type": "Edm.String"},
       {"name": "tags", "type": "Collection(Edm.String)"},
@@ -649,7 +649,7 @@ Actuellement, vous pouvez ne pouvez avoir qu'un seul générateur de suggestions
         {"name": "hotelId", "type": "Edm.String", "key": true, "searchable": false},
         {"name": "baseRate", "type": "Edm.Double"},
         {"name": "description", "type": "Edm.String", "filterable": false, "sortable": false, "facetable": false},
-	    {"name": "description_fr", "type": "Edm.String", "filterable": false, "sortable": false, "facetable": false, analyzer="fr.lucene"},
+	    {"name": "description_fr", "type": "Edm.String", "filterable": false, "sortable": false, "facetable": false, "analyzer"="fr.lucene"},
         {"name": "hotelName", "type": "Edm.String"},
         {"name": "category", "type": "Edm.String"},
         {"name": "tags", "type": "Collection(Edm.String)"},
@@ -1455,4 +1455,4 @@ Récupérer 5 suggestions pour lesquelles l'entrée de recherche partielle est 
 
     GET /indexes/hotels/docs/suggest?search=lux&$top=5&suggesterName=sg&api-version=2014-10-20-Preview
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

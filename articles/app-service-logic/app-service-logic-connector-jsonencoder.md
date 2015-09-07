@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Encodeur JSON BizTalk"
-	description="Encodeur JSON BizTalk"
+   pageTitle="Utilisation du connecteur Encodeur JSON Biztalk dans des applications logiques | Microsoft Azure App Service"
+	description="Comment créer et configurer le connecteur Encodeur JSON BizTalk ou une application API et l'utiliser dans une application logique d’Azure App Service"
 	services="app-service\logic"
 	documentationCenter=".net,nodejs,java"
 	authors="rajeshramabathiran"
@@ -13,11 +13,13 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="integration"
-	ms.date="08/19/2015"
+	ms.date="08/23/2015"
 	ms.author="rajram"/>
 
-# Encodeur JSON BizTalk
+# Utilisation et ajout de l’encodeur JSON BizTalk dans votre application logique 
 Le connecteur Encodeur Décodeur JSON BizTalk facilite l'interopérabilité de votre application entre les données JSON et XML. Il peut convertir une instance JSON donnée au format XML et vice versa.
+
+Vous pouvez ajouter l’encodeur JSON BizTalk à votre flux d’entreprise et traiter les données dans le cadre de ce flux de travail dans une application logique.
 
 ## Utilisation de l'encodeur JSON BizTalk
 Pour utiliser l'encodeur JSON BizTalk, vous devez d'abord créer une instance de l'application API d'encodeur JSON BizTalk. Cela est possible inline, lors de la création d'une application logique, ou en sélectionnant l'application API d'encodeur JSON BizTalk dans Azure Marketplace.
@@ -64,4 +66,4 @@ Vous pouvez également consulter les statistiques de performances et contrôler 
 <!--Links -->
 [Création d’une application logique]: app-service-logic-create-a-logic-app.md
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

@@ -1,20 +1,20 @@
 <properties
    pageTitle="Notes de publication sur Azure Data Catalog"
-   description="Notes de publication pour la version du 13 juillet 2015 d’Azure Data Catalog"
-   services="data-catalog"
-   documentationCenter=""
-   authors="dvana"
-   manager="mblythe"
-   editor=""
-   tags=""/>
+	description="Notes de publication pour la version préliminaire publique du 13 juillet 2015 d’Azure Data Catalog."
+	services="data-catalog"
+	documentationCenter=""
+	authors="dvana"
+	manager="mblythe"
+	editor=""
+	tags=""/>
 <tags
    ms.service="data-catalog"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="data-catalog"
-   ms.date="07/13/2015"
-   ms.author="derrickv"/>
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="data-catalog"
+	ms.date="07/13/2015"
+	ms.author="derrickv"/>
 
 # Notes pour la version du 13 juillet 2015 d’Azure Data Catalog
 
@@ -35,7 +35,7 @@ La prise en charge des sources de données SQL Server Reporting Services (SSR
 
 Lors de l’ouverture des ressources de données dans Microsoft Excel à partir du portail Azure Data Catalog, les utilisateurs peuvent voir apparaître la boîte de dialogue **Avis de sécurité Microsoft Excel**. Il s’agit là d’un comportement attendu, et les utilisateurs peuvent sélectionner **Activer** pour continuer.
 
-Pour plus d’informations, consultez l’article [Activer ou désactiver les alertes de sécurité relatives aux liens et aux fichiers de sites web suspects](https://support.office.com/fr-fr/article/Enable-or-disable-security-alerts-about-links-and-files-from-suspicious-websites-A1AC6AE9-5C4A-4EB3-B3F8-143336039BBE).
+Pour plus d’informations, consultez l’article [Activer ou désactiver les alertes de sécurité relatives aux liens et aux fichiers de sites web suspects](https://support.office.com/fr-FR/article/Enable-or-disable-security-alerts-about-links-and-files-from-suspicious-websites-A1AC6AE9-5C4A-4EB3-B3F8-143336039BBE).
 
 ## Colonnes BLOB et UDT manquantes dans les versions préliminaires
 
@@ -67,4 +67,4 @@ Pour plus d’informations, consultez la page [Configuring intranet forms-based 
 
 Pour localiser le fichier RegistrationTool.exe.config, lancez l'outil d'inscription, puis ouvrez l'utilitaire Gestionnaire des tâches de Windows. Sous l'onglet Détails du Gestionnaire des tâches, cliquez avec le bouton droit sur RegistrationTool.exe et choisissez Ouvrir l'emplacement du fichier dans le menu contextuel.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

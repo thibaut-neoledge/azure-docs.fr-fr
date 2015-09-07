@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Charge de travail des applications métier, phase 4 : configurer des serveurs Web" 
-	description="Au cours de cette quatrième phase de déploiement d'une application métier à haute disponibilité dans des services d'infrastructure Azure, vous créez les serveurs Web et y chargez votre application métier." 
+	pageTitle="Application métier - Phase 4 | Microsoft Azure"
+	description="Créez les serveurs web et chargez votre application métier dessus dans la phase 4 de l'application métier dans Azure."
 	documentationCenter=""
-	services="virtual-machines" 
-	authors="JoeDavies-MSFT" 
-	manager="timlt" 
+	services="virtual-machines"
+	authors="JoeDavies-MSFT"
+	manager="timlt"
 	editor=""
 	tags="azure-resource-manager"/>
 
 <tags 
-	ms.service="virtual-machines" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/11/2015" 
+	ms.service="virtual-machines"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/11/2015"
 	ms.author="josephd"/>
 
 # Charge de travail des applications métier, phase 4 : configurer des serveurs Web
@@ -168,4 +168,4 @@ Pour poursuivre la configuration de cette charge de travail, passez à la [Phase
 
 [Charge de travail des services d’infrastructure Azure : batterie de serveurs SharePoint Server 2013](virtual-machines-workload-intranet-sharepoint-farm.md)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

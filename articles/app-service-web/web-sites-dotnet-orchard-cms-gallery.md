@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Création d’une application Web avec système de gestion de contenu Orchard à partir d’Azure Marketplace" 
-	description="Didacticiel qui explique comment créer une application Web dans Azure. Apprenez également à utiliser le portail Azure pour lancer et gérer votre application Web." 
+	pageTitle="Création d’une application Web avec système de gestion de contenu Orchard à partir d’Azure Marketplace"
+	description="Didacticiel qui explique comment créer une application Web dans Azure. Apprenez également à utiliser le portail Azure pour lancer et gérer votre application Web."
 	tags="azure-portal"
-	services="app-service\web" 
-	documentationCenter=".net" 
-	authors="tfitzmac" 
-	manager="wpickett" 
+	services="app-service\web"
+	documentationCenter=".net"
+	authors="tfitzmac"
+	manager="wpickett"
 	editor=""/>
 
 <tags 
-	ms.service="app-service-web" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="08/03/2015" 
+	ms.service="app-service-web"
+	ms.workload="web"
+	ms.tgt_pltfrm="na"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="08/03/2015"
 	ms.author="tomfitz"/>
 
 # Création d’une application Web avec système de gestion de contenu Orchard à partir d’Azure Marketplace
@@ -73,7 +73,6 @@ Vous allez configurer une application Web Orchard CMS avec un modèle par défau
 
 ## Étapes suivantes
 
-* [Développement et déploiement d’une application Web avec Microsoft WebMatrix](web-sites-dotnet-using-webmatrix.md) : apprenez à modifier une application Web App Service dans WebMatrix. 
 * [Création d’une application ASP.NET MVC avec authentification et base de données SQL et déploiement dans Azure App Service](web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md) : apprenez à créer une application Web dans Azure App Service à partir de Visual Studio.
 
 ## Changements apportés
@@ -92,4 +91,4 @@ Vous allez configurer une application Web Orchard CMS avec un modèle par défau
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

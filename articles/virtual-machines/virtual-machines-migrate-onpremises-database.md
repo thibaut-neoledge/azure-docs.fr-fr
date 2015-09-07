@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Migrer de la base de données sur site vers SQL Server dans la machine virtuelle Azure"
+	pageTitle="Migration d'une base de données vers SQL Server sur une machine virtuelle Azure"
 	description="Découvrez comment migrer une base de données utilisateur sur site de SQL Server dans une machine virtuelle Azure."
 	services="virtual-machines"
 	documentationCenter=""
@@ -17,7 +17,7 @@
 	ms.author="carlrab"/>
 
 
-# Migration d’une base de données vers SQL Server sur une machine virtuelle Azure
+# Migration d'une base de données vers SQL Server sur une machine virtuelle Azure
 
 Il existe plusieurs méthodes permettant la migration d’une base de données utilisateur SQL Server locale vers SQL Server sur une machine virtuelle Azure. Cet article aborde brièvement les différentes méthodes, recommande la mieux adaptée en fonction de différents scénarios et inclut un didacticiel qui vous guide dans l’utilisation de l’assistant de déploiement d’une base de données SQL Server vers une machine virtuelle Microsoft Azure.
 
@@ -161,4 +161,4 @@ Cette méthode permet de migrer toutes les bases de données système et utilisa
 
 Vous pouvez utiliser la [méthode de service Import/Export Azure](../storage-import-export-service/) pour transférer de grandes quantités de données de fichiers vers le stockage d’objets blob Azure lorsque le coût de l’opération de téléchargement via le réseau est prohibitif, voire irréalisable. Avec ce service, vous envoyez un ou plusieurs disques durs contenant ces données à un centre de données Azure, où vos données seront téléchargées sur votre compte de stockage.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

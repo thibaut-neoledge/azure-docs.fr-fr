@@ -1,19 +1,19 @@
 <properties 
    pageTitle="FAQ sur la passerelle VPN de Virtual Network | Microsoft Azure"
-   description="Le FAQ sur la passerelle VPN FAQ sur les connexions entre différents locaux de Microsoft Azure Virtual Network, les connexions de configuration hybride et les passerelles VPN"
-   services="vpn-gateway"
-   documentationCenter="na"
-   authors="cherylmc"
-   manager="jdial"
-   editor="tysonn" />
+	description="Le FAQ sur la passerelle VPN FAQ sur les connexions entre différents locaux de Microsoft Azure Virtual Network, les connexions de configuration hybride et les passerelles VPN"
+	services="vpn-gateway"
+	documentationCenter="na"
+	authors="cherylmc"
+	manager="carolz"
+	editor=""/>
 <tags 
    ms.service="vpn-gateway"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="07/16/2015"
-   ms.author="cherylmc" />
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="infrastructure-services"
+	ms.date="08/20/2015"
+	ms.author="cherylmc"/>
 
 # FAQ sur la passerelle VPN
 
@@ -22,6 +22,7 @@
 ### Puis-je me connecter à des réseaux virtuels dans différentes régions Azure ?
 
 Oui. En fait, il n'existe aucune contrainte de région. Un réseau virtuel peut se connecter à un autre réseau virtuel dans la même région ou dans une autre région Azure.
+
 ### Puis-je me connecter à des réseaux virtuels avec différents abonnements ?
 
 Oui.
@@ -30,17 +31,17 @@ Oui.
 Vous pouvez vous connecter à plusieurs sites à l'aide de Windows PowerShell et des API REST Azure. Consultez la rubrique FAQ sur la[Connectivité multisite et de réseau virtuel à réseau virtuel](#multi-site-and-vnet-to-vnet-connectivity).
 ## Quelles sont mes options de connexion entre différents locaux ?
 
-Virtual Network prend en charge les connexions entre différents locaux suivantes :
+Les connexions intersites suivantes sont prises en charge :
 
 - [Site à Site](vpn-gateway-site-to-site-create.md) : connexion VPN sur IPsec (IKE v1 et IKE v2). Ce type de connexion requiert un périphérique VPN ou le service RRAS.
 
 - [Point à site](vpn-gateway-point-to-site-create.md) : connexion VPN sur SSTP (Secure Socket Tunneling Protocol). Cette connexion ne nécessite pas un périphérique VPN.
 
-- [Réseau virtuel à réseau virtuel](../virtual-networks-vnet-to-vnet-connection.md) : ce type de connexion est identique à une configuration de site à site. La connexion de réseau virtuel à réseau virtuel est une connexion VPN sur IPsec (IKE v1 et IKE v2). Cette connexion ne nécessite pas un périphérique VPN.
+- [Réseau virtuel à réseau virtuel](virtual-networks-configure-vnet-to-vnet-connection.md) : ce type de connexion est identique à une configuration de site à site. La connexion de réseau virtuel à réseau virtuel est une connexion VPN sur IPsec (IKE v1 et IKE v2). Cette connexion ne nécessite pas un périphérique VPN.
 
-- [Multisite](http://go.microsoft.com/fwlink/?LinkID=615106) : il s'agit d'une variante d'une configuration de site à site qui vous permet de connecter plusieurs sites locaux à un réseau virtuel.
+- [Multisite](vpn-gateway-multi-site.md) : il s'agit d'une variante d'une configuration de site à site qui vous permet de connecter plusieurs sites locaux à un réseau virtuel.
 
-- [ExpressRoute](../expressroute-overview.md) : ExpressRoute est une connexion directe à Azure à partir de votre WAN, pas sur l'Internet public. Pour plus d'informations, consultez[ Vue d’ensemble technique d’ExpressRoute](../expressroute-overview.md) et le [FAQ ExpressRoute](../expressroute-faqs.md).
+- [ExpressRoute](../expressroute/expressroute-introduction.md) : ExpressRoute est une connexion directe à Azure à partir de votre WAN, pas sur l'Internet public. Pour plus d'informations, consultez[ Vue d’ensemble technique d’ExpressRoute](../expressroute/expressroute-introduction.md) et le [FAQ ExpressRoute](../expressroute/expressroute-faqs.md).
 
 ### Quelle est la différence entre une connexion de site à site et de point à site ?
 
@@ -48,7 +49,9 @@ Les connexions de **site à site** vous permettent de vous connecter à partir d
 
 Les connexions de **point à site** vous permettent de vous connecter à partir d'un seul ordinateur depuis n’importe où vers n’importe quel emplacement sur votre réseau virtuel. Ces connexions utilisent le client VPN fourni avec Windows. Dans le cadre de la configuration de point à site, vous installez un certificat et un package de configuration client VPN qui contient les paramètres permettant à votre ordinateur de se connecter à une machine virtuelle ou à une instance de rôle au sein du réseau virtuel. Cela est très intéressant lorsque vous souhaitez vous connecter à un réseau virtuel mais que vous ne vous trouvez pas en local. Il s’agit également d’une solution intéressante lorsque vous n'avez pas accès au matériel VPN ou à une adresse IPv4 externe, tous deux étant nécessaires pour une connexion de site à site.
 
-Remarque : vous pouvez configurer votre réseau virtuel pour utiliser la connexion de site à site et de point à site simultanément, à condition de créer votre connexion de site à site à l'aide d'une passerelle de routage dynamique. Pour plus d'informations, consultez [À propos de la connectivité entre différents locaux sécurisée Virtual Network](http://go.microsoft.com/fwlink/p/?LinkID=532884&clcid=0x409).
+Remarque : vous pouvez configurer votre réseau virtuel pour utiliser la connexion de site à site et de point à site simultanément, à condition de créer votre connexion de site à site à l'aide d'une passerelle de routage dynamique.
+
+Pour plus d'informations, consultez [À propos de la connectivité intersite sécurisée pour les réseaux virtuels](vpn-gateway-cross-premises-options.md).
 
 ### Présentation d’ExpressRoute
 
@@ -56,17 +59,17 @@ ExpressRoute vous permet de créer des connexions privées entre les centres de 
 
 Les connexions ExpressRoute offrent une meilleure sécurité, une plus grande fiabilité, une bande passante plus élevée et des latences moindres par rapport aux connexions classiques sur Internet. Dans certains cas, l’utilisation de connexions ExpressRoute pour le transfert de données entre des réseaux locaux et Azure peut également avoir des avantages significatifs en matière de coûts. Si vous avez déjà créé une connexion entre les locaux de votre réseau local vers Azure, vous pouvez migrer vers une connexion ExpressRoute tout en conservant votre réseau virtuel tel qu’il est.
 
-Pour plus d’informations, consultez le [Forum Aux Questions sur ExpressRoute](../expressroute-faqs.md).
+Pour plus d’informations, consultez le [Forum Aux Questions sur ExpressRoute](../expressroute/expressroute-faqs.md).
 
-## Périphériques VPN et connexions de site à site
+## Connexions de site à site et périphériques VPN
 
 ### Que dois-je prendre en compte lors de la sélection d'un périphérique VPN ?
 
-Nous avons validé un ensemble de périphériques VPN de site à site standard en partenariat avec des fournisseurs de périphériques. Vous trouverez une liste de périphériques VPN compatibles, leurs instructions de configuration correspondantes ainsi que les caractéristiques du périphérique [ici](http://go.microsoft.com/fwlink/p/?LinkID=248098). Tous les périphériques des familles de périphériques répertoriées et reconnus comme compatibles doivent fonctionner avec Virtual Network. Pour aider à configurer votre périphérique VPN, reportez-vous à l'exemple de configuration de périphérique ou au lien qui correspond à la famille de périphériques appropriée.
+Nous avons validé un ensemble de périphériques VPN de site à site standard en partenariat avec des fournisseurs de périphériques. Vous trouverez une liste de périphériques VPN compatibles, leurs instructions de configuration correspondantes ainsi que les caractéristiques du périphérique [ici](vpn-gateway-about-vpn-devices.md). Tous les périphériques des familles de périphériques répertoriées et reconnus comme compatibles doivent fonctionner avec Virtual Network. Pour aider à configurer votre périphérique VPN, reportez-vous à l'exemple de configuration de périphérique ou au lien qui correspond à la famille de périphériques appropriée.
 
 ### Que faire si je dispose d'un périphérique VPN qui ne figure pas dans la liste de périphériques compatibles connus ?
 
-Si votre périphérique n’est pas répertorié comme un périphérique VPN compatible connu et que vous souhaitez l'utiliser pour votre connexion VPN, vous devez vérifier qu'il offre les paramètres et les options de configuration IPsec/IKE pris en charge [ici](http://go.microsoft.com/fwlink/p/?LinkID=615099). Les périphériques qui répondent à la configuration requise minimum sont supposés fonctionner avec Virtual Network. Contactez le fabricant de votre périphérique pour obtenir une prise en charge et des instructions de configuration supplémentaires.
+Si votre périphérique n’est pas répertorié comme un périphérique VPN compatible connu et que vous souhaitez l'utiliser pour votre connexion VPN, vous devez vérifier qu'il offre les paramètres et les options de configuration IPsec/IKE pris en charge [ici](vpn-gateway-about-vpn-devices.md#devices-not-on-the-compatible-list). Les périphériques qui répondent à la configuration requise minimale sont censés fonctionner avec les passerelles VPN. Contactez le fabricant de votre périphérique pour obtenir une prise en charge et des instructions de configuration supplémentaires.
 
 ### Puis-je utiliser le logiciel des VPN logiciels pour me connecter à Azure ?
 
@@ -152,17 +155,17 @@ Nous sommes limités à l'utilisation de clés prépartagées (PSK) pour l'authe
 
 ### Qu’est-ce que le « sous-réseau de passerelle » et pourquoi est-il nécessaire ?
 
-Nous avons un service de passerelle que nous exécutons pour activer la connectivité entre différents locaux. Nous avons besoin de deux adresses IP de votre domaine de routage pour nous permettre d’activer le routage entre vos serveurs locaux et le cloud. Nous vous demandons de spécifier au moins un réseau /29 à partir duquel nous pouvons choisir des adresses IP pour la configuration d'itinéraires.
+Nous avons un service de passerelle que nous exécutons pour activer la connectivité entre différents locaux. Nous avons besoin de deux adresses IP de votre domaine de routage pour nous permettre d’activer le routage entre vos serveurs locaux et le cloud. Nous vous demandons de spécifier au moins un réseau /29 à partir duquel nous pouvons choisir des adresses IP pour la configuration d'itinéraires. Même si vous pouvez créer un sous-réseau /29, notez que certaines fonctionnalités exigent une taille de passerelle spécifique. Veillez à respecter la configuration requise de sous-réseau de passerelle pour la fonctionnalité que vous voulez configurer.
 
 Veuillez noter que vous ne devez pas déployer des machines virtuelles ou des instances de rôle dans le sous-réseau de passerelle.
 
 ### Comment puis-je indiquer quel trafic traverse la passerelle VPN ?
 
-Ajoutez chaque plage que vous souhaitez envoyer via la passerelle pour votre réseau virtuel dans la page Réseaux sous Réseaux locaux.
+Si vous utilisez le portail Azure, ajoutez chaque plage que vous souhaitez envoyer via la passerelle pour votre réseau virtuel dans la page Réseaux sous Réseaux locaux.
 
 ### Puis-je configurer un tunneling forcé ?
 
-Oui. Consultez [À propos du tunneling forcé](vpn-gateway-about-forced-tunneling.md).
+Oui. Consultez [Configurer un tunneling forcé](vpn-gateway-about-forced-tunneling.md).
 
 ### Puis-je configurer mon propre serveur VPN dans Azure et l'utiliser pour me connecter à mon réseau local ?
 
@@ -186,6 +189,10 @@ Non, les deux réseaux virtuels DOIVENT utiliser des VPN de routage dynamique.
 
 Oui, il est protégé par le chiffrement IPsec/IKE.
 
+### Le trafic de réseau virtuel à réseau virtuel circule-t-il sur la dorsale principale d'Azure ?
+
+Oui.
+
 ### À combien de sites locaux et de réseaux virtuels peut se connecter un réseau virtuel ?
 
 Bande passante 10 combinés pour les passerelles de routage dynamique de base et standard ; 30 pour les passerelles VPN de performances élevées.
@@ -200,7 +207,7 @@ Non, les tunnels redondants entre un réseau virtuel Azure et un site local ne s
 
 ### Des espaces d'adressage peuvent-ils se chevaucher entre les réseaux virtuels connectés et les sites locaux ?
 
-Non. Le chevauchement des espaces d'adressage entraîne le téléchargement du fichier NETCFG ou l’échec de la création d’un réseau virtuel.
+Non. Le chevauchement des espaces d'adressage entraîne le téléchargement du fichier netcfg ou l'échec de la création d'un réseau virtuel.
 
 ### Puis-je obtenir plus de bande passante avec plus de VPN de site à site à obtenir que pour un seul réseau virtuel ?
 
@@ -208,7 +215,7 @@ Non, tous les tunnels VPN, y compris les VPN de point à site, partagent la mêm
 
 ### Puis-je utiliser une passerelle VPN Azure pour faire transiter le trafic entre mes sites locaux ou vers un autre réseau virtuel ?
 
-Il est possible de faire transiter le trafic via la passerelle VPN Azure mais cela dépend des espaces d'adressage définis statiquement dans le fichier de configuration NETCFG. BGP n'est pas encore pris en charge avec les réseaux virtuels Azure et les passerelles VPN. Sans BGP, la définition manuelle des espaces d'adressage de transit dans le fichier NETCFG peut entraîner des erreurs et n’est pas recommandée.
+Il est possible de faire transiter le trafic via la passerelle VPN Azure, mais cela dépend des espaces d'adressage définis statiquement dans le fichier de configuration netcfg. BGP n'est pas encore pris en charge avec les réseaux virtuels Azure et les passerelles VPN. Sans BGP, la définition manuelle des espaces d'adressage de transit dans le fichier netcfg peut entraîner des erreurs et n'est pas recommandée.
 
 ### Azure génère-t-il la même clé prépartagée IPsec/IKE pour toutes les connexions VPN d'un même réseau virtuel ?
 
@@ -216,11 +223,12 @@ Non, Azure génère par défaut différentes clés prépartagées pour différen
 
 ### Le trafic entre les réseaux virtuels est-il facturé par Azure ?
 
-Pour le trafic entre différents réseaux virtuels Azure, seul le trafic passant d'une région Azure à une autre est facturé par Azure. Le tarif facturé est répertorié dans la page de [Tarification](https://azure.microsoft.com/pricing/details/vpn-gateway/) de la passerelle VPN Azure.
+Pour le trafic entre différents réseaux virtuels Azure, seul le trafic passant d'une région Azure à une autre est facturé par Azure. Le tarif facturé est répertorié dans la page de [Tarification de la passerelle VPN](https://azure.microsoft.com/pricing/details/vpn-gateway/) Azure.
+
 
 ### Puis-je me connecter à un réseau virtuel avec les VPN IPsec sur mon circuit ExpressRoute ?
 
-Non, cela n’est pas pris en charge.
+Oui, cette méthode est prise en charge. Pour plus d'informations, consultez [Configurer des connexions ExpressRoute et VPN de site à site coexistantes](../expressroute/expressroute-coexist.md).
 
 ## Connectivité et machines virtuelles
 
@@ -238,10 +246,10 @@ Non. Seul le trafic qui possède une IP de destination contenue dans les plages 
 
 Afficher plus de FAQ relatifs à la mise en réseau pour plus de détails :
 
-- [FAQ sur le réseau virtuel](http://go.microsoft.com/fwlink/p/?LinkId=615155)
+- [FAQ sur le réseau virtuel](../virtual-network/virtual-networks-faq.md)
 
-- [FAQ sur ExpressRoute](../expressroute-faqs.md)
+- [FAQ sur ExpressRoute](../expressroute/expressroute-faqs.md)
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

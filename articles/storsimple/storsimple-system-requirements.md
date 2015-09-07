@@ -1,22 +1,22 @@
 <properties 
-   pageTitle="Configuration requise du système StorSimple | Microsoft Azure" 
-   description="Décrit la configuration système requise et les meilleures pratiques pour les logiciels, la haute disponibilité et la mise en réseau d’une solution Azure StorSimple." 
-   services="storsimple" 
-   documentationCenter="NA" 
-   authors="alkohli" 
-   manager="carolz" 
-   editor=""/>
+   pageTitle="Configuration requise du système StorSimple | Microsoft Azure"
+	description="Décrit la configuration système requise et les meilleures pratiques pour les logiciels, la haute disponibilité et la mise en réseau d’une solution Azure StorSimple."
+	services="storsimple"
+	documentationCenter="NA"
+	authors="alkohli"
+	manager="carolz"
+	editor=""/>
 
 <tags
    ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD" 
-   ms.date="08/17/2015"
-   ms.author="alkohli"/>
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="TBD"
+	ms.date="08/26/2015"
+	ms.author="alkohli"/>
 
-# Configuration StorSimple requise
+# Configuration requise logicielle, de haute disponibilité et de réseau StorSimple
 
 ## Vue d’ensemble
 
@@ -194,4 +194,4 @@ Outre les exigences de mise en réseau ci-dessus, pour obtenir des performances 
 <!--Reference links-->
 [1]: https://technet.microsoft.com/library/cc731844(v=WS.10).aspx
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

@@ -1,6 +1,6 @@
 <properties
    pageTitle="Forum Aux Questions Azure Data Catalog"
-	description="Azure Data Catalog : forum aux questions Catalog"
+	description="Forum Aux Questions sur la version préliminaire d’Azure Data Catalog, y compris les fonctionnalités de détection de source de données, d’annotation et de gestion."
 	services="data-catalog"
 	documentationCenter=""
 	authors="steelanddata"
@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="NA"
 	ms.workload="data-catalog"
-	ms.date="08/19/2015"
+	ms.date="08/21/2015"
 	ms.author="maroche"/>
 
 # Forum Aux Questions Azure Data Catalog
@@ -160,4 +160,4 @@ Si vous rencontrez des problèmes ou si vous avez besoin d’assistance avec la 
 
 Rendez-vous sur le [forum Azure Data Catalog](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409). Les questions qui y sont posées se retrouveront ici.
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

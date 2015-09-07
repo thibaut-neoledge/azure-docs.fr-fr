@@ -5,8 +5,8 @@
 	documentationCenter=""
 	authors="karthmut"
 	manager="timlt"
-	editor="tysonn"/>
-<!-- In pageTitle, to follow corporate style (sentence-case caps), s/b lowercase "template", correct? This matches what is used later in article too. Also, precede first mention of "Azure" with "Microsoft" -->
+	editor="tysonn"/> 
+<!-- In pageTitle, to follow corporate style (sentence-case caps), s/b lowercase "template", correct? This matches what is used later in article too. Also, precede first mention of "Azure" with "Microsoft" --> 
 <tags
 	ms.service="virtual-machines"
 	ms.workload="multiple"
@@ -498,6 +498,6 @@ Cette approche suggère de :
 -	créer des modèles spécifiques pour les mêmes membres d'un groupe de ressources (par exemple des nœuds dans un cluster) afin d'exploiter l'itération de ressource pour déployer plusieurs instances ayant des propriétés uniques ;
 -	exploiter les extensions de déploiement de script et créer des scripts propres à chaque technologie pour toutes les tâches de post-déploiement (par exemple, l'installation du produit et les configurations).
 
-Pour plus d’informations, consultez [Langage du modèle Azure Resource Manager](https://msdn.microsoft.com/library/azure/dn835138.aspx).
+Pour plus d’informations, consultez [Langage du modèle Azure Resource Manager](../resource-group-authoring-templates.md).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

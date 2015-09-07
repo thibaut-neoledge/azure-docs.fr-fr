@@ -1,22 +1,20 @@
 <properties 
-	pageTitle="Comment contrôler le trafic entrant vers un environnement App Service" 
-	description="Découvrez comment configurer des règles de sécurité réseau pour contrôler le trafic entrant vers un environnement App Service." 
-	services="app-service\web" 
-	documentationCenter="" 
-	authors="ccompy" 
-	manager="wpickett" 
+	pageTitle="Comment contrôler le trafic entrant vers un environnement App Service"
+	description="Découvrez comment configurer des règles de sécurité réseau pour contrôler le trafic entrant vers un environnement App Service."
+	services="app-service\web"
+	documentationCenter=""
+	authors="ccompy"
+	manager="wpickett"
 	editor=""/>
 
-
 <tags 
-	ms.service="app-service-web" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/30/2015" 
+	ms.service="app-service-web"
+	ms.workload="web"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="06/30/2015"
 	ms.author="stefsh"/>
-
 
 # Comment contrôler le trafic entrant vers un environnement App Service
 
@@ -123,13 +121,13 @@ Pour plus d’informations sur la plateforme Azure App Service, consultez la rub
 [AZURE.INCLUDE [app-service-web-try-app-service](../../includes/app-service-web-try-app-service.md)]
 
 <!-- LINKS -->
-[virtualnetwork]: https://msdn.microsoft.com/library/azure/dn133803.aspx
+[virtualnetwork]: https://azure.microsoft.com/documentation/articles/virtual-networks-faq/
 [HowToCreateAnAppServiceEnvironment]: http://azure.microsoft.com/documentation/articles/app-service-web-how-to-create-an-app-service-environment/
-[NetworkSecurityGroups]: https://msdn.microsoft.com/library/azure/dn848316.aspx
+[NetworkSecurityGroups]: https://azure.microsoft.com/documentation/articles/virtual-networks-nsg/
 [AzureAppService]: http://azure.microsoft.com/documentation/articles/app-service-value-prop-what-is/
 [IntroToAppServiceEnvironment]: http://azure.microsoft.com/documentation/articles/app-service-app-service-environment-intro/
 [SecurelyConnecttoBackend]: http://azure.microsoft.com/documentation/articles/app-service-app-service-environment-securely-connecting-to-backend-resources/
 
 <!-- IMAGES -->
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

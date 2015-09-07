@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Déploiement de SharePoint avec des groupe de disponibilité SQL Server AlwaysOn dans Azure"
-	description="Vous pouvez déployer SharePoint avec des groupes de disponibilité SQL Server AlwaysOn dans Azure en cinq phases."
+	pageTitle="Déploiement d'une batterie de serveurs SharePoint Server 2013 | Microsoft Azure"
+	description="Déployez une batterie de serveurs SharePoint Server 2013 avec des groupes de disponibilité SQL Server AlwaysOn dans Azure en cinq phases."
 	documentationCenter=""
 	services="virtual-machines"
 	authors="JoeDavies-MSFT"
@@ -49,7 +49,7 @@ N'oubliez pas les éléments suivants :
 
 - Si vous êtes un responsable d'implémentation expérimenté de SharePoint, n'hésitez pas à adapter les instructions dans les étapes 3 à 5 et créez la batterie de serveurs qui correspond le mieux à vos besoins.
 - Si vous avez déjà une implémentation de cloud hybride Azure, n'hésitez pas à adapter ou ignorer les instructions des étapes 1 et 2 pour héberger la nouvelle batterie de serveurs SharePoint sur le sous-réseau approprié.
-- Tous les serveurs se situent sur un seul sous-réseau dans le réseau virtuel Azure. Si vous souhaitez une sécurité supplémentaire équivalente à l'isolation de sous-réseaux, vous pouvez utiliser des [Groupes de sécurité réseau](https://msdn.microsoft.com/library/azure/dn848316.aspx).
+- Tous les serveurs se situent sur un seul sous-réseau dans le réseau virtuel Azure. Si vous souhaitez une sécurité supplémentaire équivalente à l'isolation de sous-réseaux, vous pouvez utiliser des [groupes de sécurité réseau](virtual-networks-nsg.md).
 
 Pour créer un environnement de développement/test ou une preuve de concept de cette configuration, consultez [Configuration d’une batterie de serveurs SharePoint intranet dans un cloud hybride à des fins de test](../virtual-network/virtual-networks-setup-sharepoint-hybrid-cloud-testing.md).
 
@@ -72,4 +72,4 @@ Pour démarrer la configuration de cette charge de travail, passez à la [Phase�
 
 [Charge de travail des services d’infrastructure Azure : applications métier à haute disponibilité](virtual-machines-workload-high-availability-lob-application.md)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

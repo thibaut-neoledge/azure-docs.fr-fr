@@ -127,7 +127,6 @@ Pour plus d’informations sur le déploiement vers Web Apps depuis Visual Studi
 
 Pour plus d’informations sur le déploiement vers Web Apps depuis WebMatrix, consultez les ressources suivantes :
 
-* [Développer et déployer un site Web avec Microsoft WebMatrix](web-sites-dotnet-using-webmatrix.md). Montre comment créer une application web ASP.NET simple en utilisant un modèle WebMatrix et la déployer sur Web Apps en utilisant WebMatrix et Web Deploy.
 * [Génération et déploiement d'un site Web Node.js dans Azure avec WebMatrix](web-sites-nodejs-use-webmatrix.md).
 * [Création et déploiement d’un site Web Azure PHP-MySQL avec WebMatrix](web-sites-php-mysql-use-webmatrix.md).
 * [WebMatrix 3 : Git intégré et déploiement dans Azure](http://www.codeproject.com/Articles/577581/Webmatrixplus3-3aplusIntegratedplusGitplusandplusD). Utilisation de WebMatrix pour procéder au déploiement depuis un référentiel de contrôle de code source Git.
@@ -228,4 +227,4 @@ Pour plus d’informations concernant d’autres rubriques de déploiement, cons
 * Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre l'ancien et le nouveau portail, consultez : [Références sur la navigation dans le portail Azure](http://go.microsoft.com/fwlink/?LinkId=529715)
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

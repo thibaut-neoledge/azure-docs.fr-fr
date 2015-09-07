@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Connecteur QuickBooks"
-	description="Utilisation du connecteur QuickBooks"
+   pageTitle="Utilisation du connecteur QuickBooks dans des applications logiques | Microsoft Azure App Service"
+	description="Comment créer et configurer le connecteur QuickBooks ou une application API et l'utiliser dans une application logique d’Azure App Service"
 	services="app-service\logic"
 	documentationCenter=".net,nodejs,java"
 	authors="anuragdalmia"
@@ -13,13 +13,12 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="integration"
-	ms.date="08/19/2015"
+	ms.date="08/23/2015"
 	ms.author="sameerch"/>
 
 
-#Utilisation du connecteur QuickBooks dans votre application logique#
-
-Les applications logiques peuvent se déclencher selon diverses sources de données et proposent des connecteurs pour obtenir et traiter les données dans le cadre du flux. Le connecteur QuickBooks vous permet de créer et de modifier différentes entités QuickBooks. Voici la liste des entités QuickBooks que le connecteur QuickBooks prend en charge.
+# Utilisation et ajout du connecteur QuickBooks dans votre application logique
+Utilisez le connecteur QuickBooks pour créer et modifier différentes entités QuickBooks. Le tableau suivant répertorie les entités prises en charge.
 
 Entités|Description
 ---|---
@@ -31,7 +30,7 @@ Facture|Une facture formalise une vente dans laquelle le client règle un produi
 Élément|Un élément est une chose que votre entreprise achète, vend ou revend, comme des produits, des frais d’expédition et de manutention, des remises et des taxes (le cas échéant). Un élément figure sur une ligne d’une facture ou d’un autre document de vente.
 Ticket|Cette entité représente le ticket remis au client.
 
-
+Les applications logiques peuvent se déclencher selon diverses sources de données et proposent des connecteurs pour obtenir et traiter les données dans le cadre du flux. Vous pouvez ajouter le connecteur QuickBooks à votre flux d’entreprise et traiter les données dans le cadre de ce flux de travail dans une application logique.
 
 ##Actions QuickBooks ##
 Voici les différentes actions disponibles dans le connecteur QuickBooks.
@@ -141,4 +140,4 @@ Vous pouvez également consulter les statistiques de performances et contrôler 
 [12]: ./media/app-service-logic-connector-quickbooks/12_Update_Account_Address.png
 [13]: ./media/app-service-logic-connector-quickbooks/13_Create_new_quickbooks_connector.png
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

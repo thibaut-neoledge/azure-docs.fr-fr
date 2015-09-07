@@ -7,7 +7,6 @@
 	manager="timlt"
 	editor="tysonn"/>
 
-
 <tags
 	ms.service="virtual-machines"
 	ms.workload="multiple"
@@ -16,7 +15,6 @@
 	ms.topic="article"
 	ms.date="04/29/2015"
 	ms.author="karthmut"/>
-
 
 # DataStax sous Ubuntu avec un modèle Microsoft Azure Resource Manager
 
@@ -481,7 +479,7 @@ Pour résumer, cette approche suggère de :
 -	créer des modèles spécifiques pour les mêmes membres d'un groupe de ressources (nœuds dans un cluster, etc.) afin d'exploiter l'itération de ressource pour déployer plusieurs instances ayant des propriétés uniques ;
 -	exploiter les extensions de déploiement de script et créer des scripts propres à chaque technologie pour toutes les tâches de post-déploiement (par exemple, l'installation du produit, les configurations, etc.).
 
-Pour plus d'informations, consultez [Langage des modèles du gestionnaire de ressources Azure](https://msdn.microsoft.com/library/azure/dn835138.aspx).
+Pour plus d'informations, consultez [Langage des modèles du gestionnaire de ressources Azure](../resource-group-authoring-templates.md).
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

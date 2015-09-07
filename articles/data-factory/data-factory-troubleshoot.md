@@ -1,22 +1,20 @@
 <properties 
-	pageTitle="Résolution des problèmes liés à Azure Data Factory" 
-	description="Découvrez comment résoudre les problèmes liés à l'utilisation de Azure Data Factory." 
-	services="data-factory" 
-	documentationCenter="" 
-	authors="spelluru" 
-	manager="jhubbard" 
+	pageTitle="Résolution des problèmes liés à Azure Data Factory"
+	description="Découvrez comment résoudre les problèmes liés à l'utilisation de Azure Data Factory."
+	services="data-factory"
+	documentationCenter=""
+	authors="spelluru"
+	manager="jhubbard"
 	editor="monicar"/>
 
-
 <tags 
-	ms.service="data-factory" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/04/2015" 
+	ms.service="data-factory"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/25/2015"
 	ms.author="spelluru"/>
-
 
 # Résolution des problèmes liés à Data Factory
 Vous pouvez résoudre les problèmes Azure Data Factory à l'aide du portail Azure ou des cmdlets PowerShell. Cette rubrique contient des procédures pas à pas qui vous montrent comment utiliser le portail Azure pour résoudre rapidement les erreurs Data Factory.
@@ -353,8 +351,6 @@ Dans ce scénario, le jeu de données est associé à un état d'erreur dû à u
 
 
 [adfgetstarted]: data-factory-get-started.md
-[use-onpremises-datasources]: data-factory-use-onpremises-datasources.md
-[use-pig-and-hive-with-data-factory]: data-factory-pig-hive-activities.md
 [adf-tutorial]: data-factory-tutorial.md
 [use-custom-activities]: data-factory-use-custom-activities.md
 [monitor-manage-using-powershell]: data-factory-monitor-manage-using-powershell.md
@@ -386,4 +382,4 @@ Dans ce scénario, le jeu de données est associé à un état d'erreur dû à u
 [image-data-factory-troubleshoot-activity-run-details]: ./media/data-factory-troubleshoot/Walkthrough2ActivityRunDetails.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

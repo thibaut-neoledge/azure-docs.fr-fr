@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Utilisation des diagnostics (.NET) | Microsoft Azure" 
-	description="Découvrez comment utiliser les données de diagnostic dans Azure pour le débogage, la mesure des performances, la surveillance, l'analyse du trafic, etc." 
-	services="cloud-services" 
-	documentationCenter=".net" 
-	authors="rboucher" 
-	manager="jwhit" 
+	pageTitle="Utilisation des diagnostics (.NET) | Microsoft Azure"
+	description="Découvrez comment utiliser les données de diagnostic dans Azure pour le débogage, la mesure des performances, la surveillance, l'analyse du trafic, etc."
+	services="cloud-services"
+	documentationCenter=".net"
+	authors="rboucher"
+	manager="jwhit"
 	editor=""/>
 
 <tags 
-	ms.service="cloud-services" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="04/27/2015" 
+	ms.service="cloud-services"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="na"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="08/25/2015"
 	ms.author="robb"/>
 
 
@@ -174,7 +174,7 @@ Remplacez le contenu de WorkerRole.cs par le code suivant : La classe SampleEve
   			<WadCfg>
     			<DiagnosticMonitorConfiguration overallQuotaInMB="25000">
       			<PerformanceCounters scheduledTransferPeriod="PT1M">
-        			<PerformanceCounterConfiguration counterSpecifier="\Processor(_Total)\% Processor Time" sampleRate="PT1M" unit="percent" />
+        			<PerformanceCounterConfiguration counterSpecifier="\Processor(_Total)% Processor Time" sampleRate="PT1M" unit="percent" />
         			<PerformanceCounterConfiguration counterSpecifier="\Memory\Committed Bytes" sampleRate="PT1M" unit="bytes"/>
       				</PerformanceCounters>
       				<EtwProviders>
@@ -300,7 +300,7 @@ Cette procédure pas à pas part du principe que vous disposez d'un abonnement A
 
 ### Étape 3 : déploiement de votre application
 1.	Cliquez avec le bouton droit sur le projet **WadExampleVM** dans l’**Explorateur de solutions**, puis choisissez **Ouvrir un dossier dans l’Explorateur de fichiers**.
-2.	Naviguez vers le dossier *bin\\Debug* et copiez tous les fichiers (WadExampleVM.\*)
+2.	Naviguez vers le dossier *bin\\Debug* et copiez tous les fichiers (WadExampleVM.*)
 3.	Dans l'**Explorateur de serveurs**, cliquez avec le bouton droit sur la machine virtuelle, puis sélectionnez **Se connecter à l'aide du Bureau à distance**.
 4.	Une fois connecté à la machine virtuelle, créez un dossier nommé WadExampleVM, puis collez vos fichiers d'application dans le dossier.
 5.	Lancez l'application WadExampleVM.exe. Une fenêtre de console vide doit apparaître.
@@ -320,7 +320,7 @@ Cette procédure pas à pas part du principe que vous disposez d'un abonnement A
   			<WadCfg>
     			<DiagnosticMonitorConfiguration overallQuotaInMB="25000">
       			<PerformanceCounters scheduledTransferPeriod="PT1M">
-        			<PerformanceCounterConfiguration counterSpecifier="\Processor(_Total)\% Processor Time" sampleRate="PT1M" unit="percent" />
+        			<PerformanceCounterConfiguration counterSpecifier="\Processor(_Total)% Processor Time" sampleRate="PT1M" unit="percent" />
         			<PerformanceCounterConfiguration counterSpecifier="\Memory\Committed Bytes" sampleRate="PT1M" unit="bytes"/>
       				</PerformanceCounters>
       				<EtwProviders>
@@ -373,24 +373,24 @@ Les codes d'erreur suivants sont renvoyés par le plug-in :
 Code de sortie|Description
 ---|---
 0|Vous avez réussi !
-\-1|Erreur générique.
-\-2|Impossible de charger le fichier rcf.<p>Il s'agit d'une erreur interne qui ne peut se produire que si le lanceur du plug-in d'agent invité est appelé manuellement et de manière incorrecte sur la machine virtuelle.
-\-3|Impossible de charger le fichier de configuration Diagnostics. <p><p>Solution : cette erreur se produit quand un fichier de configuration ne réussit pas la validation de schéma. La solution consiste à fournir un fichier de configuration qui est conforme au schéma.
-\-4|Une autre instance de l'agent de surveillance Diagnostics utilise déjà le répertoire de ressources local. <p><p>Solution : indiquez une autre valeur pour **LocalResourceDirectory**.
-\-6|Le lanceur du plug-in d'agent invité a tenté de démarrer Diagnostics avec une ligne de commande non valide.<p><p>Il s'agit d'une erreur interne qui ne peut se produire que si le lanceur du plug-in d'agent invité est appelé manuellement, de manière incorrecte, sur la machine virtuelle.
-\-10|Le plug-in Diagnostics s'est terminé avec une exception non prise en charge.
-\-11|L'agent invité n'a pas pu créer le processus responsable du lancement et de la surveillance de l'agent de surveillance.<p><p>Solution : vérifiez que les ressources système disponibles sont suffisantes pour lancer de nouveaux processus.<p>
-\-101|Arguments non valides lors de l’appel du plug-in Diagnostics. <p><p>Il s'agit d'une erreur interne qui ne peut se produire que si le lanceur du plug-in d'agent invité est appelé manuellement et de manière incorrecte sur la machine virtuelle.
-\-102|Le processus du plug-in ne peut pas démarrer tout seul.<p><p>Solution : vérifiez que les ressources système disponibles sont suffisantes pour lancer de nouveaux processus.
-\-103|Le processus du plug-in n'arrive pas à s'initialiser. Plus précisément, il n’est pas en mesure de créer l’objet de journalisation. <p><p>Solution : vérifiez que les ressources système disponibles sont suffisantes pour lancer de nouveaux processus.
-\-104|Impossible de charger le fichier rcf fourni par l’agent invité. <p><p>Il s'agit d'une erreur interne qui ne peut se produire que si le lanceur du plug-in d'agent invité est appelé manuellement et de manière incorrecte sur la machine virtuelle.
-\-105|Le plug-in Diagnostics ne parvient pas à ouvrir le fichier de configuration Diagnostics. <p><p>Il s'agit d'une erreur interne qui ne peut se produire que si le plug-in Diagnostics est appelé manuellement et de manière incorrecte sur la machine virtuelle.
-\-106|Impossible de lire le fichier de configuration Diagnostics. <p><p>Solution : cette erreur se produit quand un fichier de configuration ne réussit pas la validation de schéma. La solution consiste alors à fournir un fichier de configuration qui est conforme au schéma. Le XML qui est fourni à l'extension Diagnostics est présent dans le dossier *%SystemDrive%\\WindowsAzure\\Config* sur la machine virtuelle. Ouvrez le fichier XML approprié et recherchez **Microsoft.Azure.Diagnostics**, puis le champ **xmlCfg**. Les données sont encodées en base64. Vous devrez donc [les décoder](http://www.bing.com/search?q=base64+decoder) pour afficher le XML qui a été chargé par Diagnostics.<p>
-\-107|La transmission du répertoire de ressources à l’agent de surveillance n’est pas valide. <p><p>Il s'agit d'une erreur interne qui ne peut se produire que si l'agent de surveillance est appelé manuellement et de manière incorrecte sur la machine virtuelle.</p>
-\-108 |Impossible de convertir le fichier de configuration Diagnostics dans le fichier de configuration de l'agent de surveillance.<p><p>Il s'agit d'une erreur interne qui doit se produire uniquement si le plug-in Diagnostics est appelé manuellement avec un fichier de configuration non valide.
-\-110|Erreur de configuration générale de Diagnostics.<p><p>Il s'agit d'une erreur interne qui ne peut se produire que si le plug-in Diagnostics est appelé manuellement avec un fichier de configuration non valide.
-\-111|Impossible de démarrer l’agent de surveillance.<p><p>Solution : vérifiez que les ressources système disponibles sont suffisantes pour lancer de nouveaux processus.
-\-112|Erreur générale
+-1|Erreur générique.
+-2|Impossible de charger le fichier rcf.<p>Il s'agit d'une erreur interne qui ne peut se produire que si le lanceur du plug-in d'agent invité est appelé manuellement et de manière incorrecte sur la machine virtuelle.
+-3|Impossible de charger le fichier de configuration Diagnostics. <p><p>Solution : cette erreur se produit quand un fichier de configuration ne réussit pas la validation de schéma. La solution consiste à fournir un fichier de configuration qui est conforme au schéma.
+-4|Une autre instance de l'agent de surveillance Diagnostics utilise déjà le répertoire de ressources local. <p><p>Solution : indiquez une autre valeur pour **LocalResourceDirectory**.
+-6|Le lanceur du plug-in d'agent invité a tenté de démarrer Diagnostics avec une ligne de commande non valide.<p><p>Il s'agit d'une erreur interne qui ne peut se produire que si le lanceur du plug-in d'agent invité est appelé manuellement, de manière incorrecte, sur la machine virtuelle.
+-10|Le plug-in Diagnostics s'est terminé avec une exception non prise en charge.
+-11|L'agent invité n'a pas pu créer le processus responsable du lancement et de la surveillance de l'agent de surveillance.<p><p>Solution : vérifiez que les ressources système disponibles sont suffisantes pour lancer de nouveaux processus.<p>
+-101|Arguments non valides lors de l’appel du plug-in Diagnostics. <p><p>Il s'agit d'une erreur interne qui ne peut se produire que si le lanceur du plug-in d'agent invité est appelé manuellement et de manière incorrecte sur la machine virtuelle.
+-102|Le processus du plug-in ne peut pas démarrer tout seul.<p><p>Solution : vérifiez que les ressources système disponibles sont suffisantes pour lancer de nouveaux processus.
+-103|Le processus du plug-in n'arrive pas à s'initialiser. Plus précisément, il n’est pas en mesure de créer l’objet de journalisation. <p><p>Solution : vérifiez que les ressources système disponibles sont suffisantes pour lancer de nouveaux processus.
+-104|Impossible de charger le fichier rcf fourni par l’agent invité. <p><p>Il s'agit d'une erreur interne qui ne peut se produire que si le lanceur du plug-in d'agent invité est appelé manuellement et de manière incorrecte sur la machine virtuelle.
+-105|Le plug-in Diagnostics ne parvient pas à ouvrir le fichier de configuration Diagnostics. <p><p>Il s'agit d'une erreur interne qui ne peut se produire que si le plug-in Diagnostics est appelé manuellement et de manière incorrecte sur la machine virtuelle.
+-106|Impossible de lire le fichier de configuration Diagnostics. <p><p>Solution : cette erreur se produit quand un fichier de configuration ne réussit pas la validation de schéma. La solution consiste alors à fournir un fichier de configuration qui est conforme au schéma. Le XML qui est fourni à l'extension Diagnostics est présent dans le dossier *%SystemDrive%\\WindowsAzure\\Config* sur la machine virtuelle. Ouvrez le fichier XML approprié et recherchez **Microsoft.Azure.Diagnostics**, puis le champ **xmlCfg**. Les données sont encodées en base64. Vous devrez donc [les décoder](http://www.bing.com/search?q=base64+decoder) pour afficher le XML qui a été chargé par Diagnostics.<p>
+-107|La transmission du répertoire de ressources à l’agent de surveillance n’est pas valide. <p><p>Il s'agit d'une erreur interne qui ne peut se produire que si l'agent de surveillance est appelé manuellement et de manière incorrecte sur la machine virtuelle.</p>
+-108 |Impossible de convertir le fichier de configuration Diagnostics dans le fichier de configuration de l'agent de surveillance.<p><p>Il s'agit d'une erreur interne qui doit se produire uniquement si le plug-in Diagnostics est appelé manuellement avec un fichier de configuration non valide.
+-110|Erreur de configuration générale de Diagnostics.<p><p>Il s'agit d'une erreur interne qui ne peut se produire que si le plug-in Diagnostics est appelé manuellement avec un fichier de configuration non valide.
+-111|Impossible de démarrer l’agent de surveillance.<p><p>Solution : vérifiez que les ressources système disponibles sont suffisantes pour lancer de nouveaux processus.
+-112|Erreur générale
 
 
 ### Les données de Diagnostics ne sont pas journalisées dans le stockage
@@ -512,4 +512,4 @@ ETW basé sur les manifestes|Non|Table|Événements ETW générés par n'importe
 [Remove-AzureServiceDiagnosticsExtension]: http://msdn.microsoft.com/library/dn495168.aspx
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

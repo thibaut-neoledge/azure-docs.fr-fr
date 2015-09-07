@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Créer une application ASP.NET MVC avec authentification et base de données SQL et la déployer dans Azure App Service" 
-	description="Découvrez comment développer une application ASP.NET MVC 5 avec une base de données SQL principale, ajouter l’authentification et l’autorisation et la déployer dans Azure." 
-	services="app-service\web" 
-	documentationCenter=".net" 
-	authors="Rick-Anderson" 
-	manager="wpickett" 
+	pageTitle="Créer une application ASP.NET MVC avec authentification et base de données SQL et la déployer dans Azure App Service"
+	description="Découvrez comment développer une application ASP.NET MVC 5 avec une base de données SQL principale, ajouter l’authentification et l’autorisation et la déployer dans Azure."
+	services="app-service\web"
+	documentationCenter=".net"
+	authors="Rick-Anderson"
+	manager="wpickett"
 	editor=""/>
 
 <tags 
-	ms.service="app-service-web" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="08/07/2015" 
+	ms.service="app-service-web"
+	ms.workload="web"
+	ms.tgt_pltfrm="na"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="08/07/2015"
 	ms.author="riande"/>
 
 
@@ -36,7 +36,9 @@ Vous développerez une application web de liste de contacts simple basée sur AS
 
 ![page de connexion][rxb]
 
->[AZURE.NOTE]Pour effectuer ce didacticiel, vous avez besoin d’un compte Microsoft Azure. Si vous ne possédez pas de compte, vous pouvez [activer les avantages de votre abonnement MSDN](../fr-fr/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F) ou [obtenir une évaluation gratuite](../fr-fr/pricing/free-trial/?WT.mc_id=A261C142F).
+>[AZURE.NOTE]Pour créer des boutons de connexion conviviaux dans la capture d’écran ci-dessus, consultez le billet de blog intitulé [Boutons de connexion conviviaux pour ASP.NET MVC 5](http://www.jerriepelser.com/blog/pretty-social-login-buttons-for-asp-net-mvc-5)
+
+>[AZURE.NOTE]Pour effectuer ce didacticiel, vous avez besoin d’un compte Microsoft Azure. Si vous ne possédez pas de compte, vous pouvez [activer les avantages de votre abonnement MSDN](../fr-FR/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F) ou [obtenir une évaluation gratuite](../fr-FR/pricing/free-trial/?WT.mc_id=A261C142F).
 
 >Si vous voulez vous familiariser avec Azure App Service avant d’ouvrir un compte Azure, accédez à la page [Essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751). Vous pourrez créer immédiatement et gratuitement une application de départ temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
 
@@ -94,7 +96,7 @@ Pour configurer votre environnement de développement, vous devez installer [Vis
 		
 		</head>
 		<body>
-		    <div class="navbar navbar-inverse navbar-fixed-top">
+		    <div class="navbar navbar-inverase navbar-fixed-top">
 		        <div class="container">
 		            <div class="navbar-header">
 		                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -401,7 +403,7 @@ Dans cette section, vous allez ajouter un utilisateur local, ainsi que le rôle 
 
 	![image du code](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/ss24.PNG)
 
-	Ce code crée un rôle nommé *canEdit*, créé un utilisateur local nommé \**user1@contoso.com* et ajoute \**user1@contoso.com* au rôle *canEdit*. Pour plus d'informations, consultez les didacticiels [ASP.NET Identity](http://www.asp.net/identity/overview/features-api) (en anglais).
+	Ce code crée un rôle nommé *canEdit*, créé un utilisateur local nommé **user1@contoso.com* et ajoute **user1@contoso.com* au rôle *canEdit*. Pour plus d'informations, consultez les didacticiels [Identité ASP.NET](http://www.asp.net/identity/overview/features-api).
 
 ## Utilisation de code temporaire pour ajouter de nouveaux utilisateurs de réseaux sociaux au rôle peutModifier  ##
 Dans cette section, vous allez modifier temporairement la méthode **ExternalLoginConfirmation** dans le contrôleur Account afin d’ajouter des utilisateurs se connectant avec un fournisseur OAuth au rôle *canEdit*. Nous allons modifier temporairement la méthode **ExternalLoginConfirmation** pour ajouter automatiquement de nouveaux utilisateurs à un rôle d’administration. Tant que nous n’avons pas fourni un outil pour ajouter et gérer des rôles, nous allons utiliser le code d’inscription automatique. Nous espérons fournir un outil similaire à [WSAT](http://msdn.microsoft.com/library/ms228053.aspx) à l’avenir pour vous permettre de créer et de modifier les comptes et les rôles des utilisateurs.
@@ -455,7 +457,7 @@ Dans la **Console du Gestionnaire de package**, actionnez la touche Haut pour af
 
 		Update-Database
 
-Exécutez la commande **Update-Database** qui exécutera la méthode **Seed**, qui exécutera la méthode **AddUserAndRole** que vous venez d’ajouter. **AddUserAndRole** crée l'utilisateur \**user1@contoso.com* et l'ajoute au rôle *canEdit*.
+Exécutez la commande **Update-Database** qui exécutera la méthode **Seed**, qui exécutera la méthode **AddUserAndRole** que vous venez d’ajouter. **AddUserAndRole** crée l'utilisateur **user1@contoso.com* et l'ajoute au rôle *canEdit*.
 
 ## Protection de l’application à l’aide du protocole SSL et de l’attribut Authorize ##
 
@@ -528,13 +530,13 @@ Dans cette section, vous allez appliquer l’attribut [Authorize](http://msdn.mi
 		
 1. Si vous êtes toujours connecté depuis une session précédente, cliquez sur le lien **Se déconnecter**.
 1. Cliquez sur le lien **À propos de** ou **Contact**. Vous serez redirigé vers la page de connexion, car les utilisateurs anonymes ne peuvent pas afficher ces pages. 
-1. Cliquez sur le lien **Enregistrer comme nouvel utilisateur** et ajoutez un utilisateur local avec l'adresse de messagerie \**joe@contoso.com*. Vérifiez que *Jerome* peut afficher les pages Accueil, Contact et À propos de.
+1. Cliquez sur le lien **Enregistrer comme nouvel utilisateur** et ajoutez un utilisateur local avec l'adresse e-mail **joe@contoso.com*. Vérifiez que *Jerome* peut afficher les pages Accueil, Contact et À propos de.
 
 	![se connecter](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/ss14.PNG)
 
 1. Cliquez sur le lien *Démo de GC* et vérifiez que les données s’affichent correctement.
 1. Cliquez sur le lien Modifier de la page. Vous serez redirigé vers la page de connexion (car un nouvel utilisateur local n’est pas ajouté au rôle *peutModifier*).
-1. Connectez-vous en tant que \**user1@contoso.com* avec le mot de passe « P\_assw0rd1 » (le « 0 » de « word » est un zéro). Vous serez redirigé vers la page de modification que vous aviez sélectionnée. <br/> Si vous ne pouvez pas vous connecter avec ce compte et ce mot de passe, essayez de copier le mot de passe à partir du code source, puis de le coller ici. Si vous ne pouvez toujours pas vous connecter, vérifiez la colonne **UserName** de la table **AspNetUsers** pour être sûr que \**user1@contoso.com* a été ajoutée.
+1. Connectez-vous en tant que **user1@contoso.com* avec le mot de passe « P\_assw0rd1 » (le « 0 » de « word » est un zéro). Vous serez redirigé vers la page de modification que vous aviez sélectionnée. <br/> Si vous ne pouvez pas vous connecter avec ce compte et ce mot de passe, essayez de copier le mot de passe à partir du code source, puis de le coller ici. Si vous ne pouvez toujours pas vous connecter, vérifiez la colonne **UserName** de la table **AspNetUsers** pour être sûr que **user1@contoso.com* a été ajoutée.
 
 1. Vérifiez que vous pouvez effectuer des modifications.
 
@@ -556,7 +558,7 @@ Dans cette section, vous allez appliquer l’attribut [Authorize](http://msdn.mi
 	![paramètres](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/rrc3.png)
 
 1. Cliquez sur **Publier**.
-1. Connectez-vous en tant que \**user1@contoso.com* (avec le mot de passe « P\_assw0rd1 ») et vérifiez que vous pouvez modifier les données.
+1. Connectez-vous en tant que **user1@contoso.com* (avec le mot de passe « P\_assw0rd1 ») et vérifiez que vous pouvez modifier les données.
 1. Déconnectez-vous.
 1. Accédez à la [Google Developers Console](https://console.developers.google.com/) et, sur l’onglet, **Informations d’identification**, mettez à jour les URI de redirection et les origines JavaScript pour utiliser l’URL Azure.
 1. Connectez-vous en utilisant votre compte Google ou Facebook. Cela ajoutera votre compte Google ou Facebook au rôle **peutModifier**. Si vous obtenez une erreur HTTP 400 avec le message *L’URI de redirection dans la demande : https://contactmanager{my version}.azurewebsites.net/signin-google ne correspond pas à une URI de redirection enregistrée.*, vous devrez patienter jusqu’à ce que les modifications apportées soient répercutées. Si vous obtenez cette erreur après plus de quelques minutes, vérifiez que les URI sont corrects.
@@ -623,7 +625,7 @@ Si vous n'avez pas indiqué le prénom et le nom de vos informations de compte G
 
 	![Page CM](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/rrr8.png)
  
-1. Notez l'ID du compte Google utilisé pour votre inscription afin de lui attribuer le rôle **canEdit**, ainsi que l'ID de \**user1@contoso.com*. Ces ID doivent être les seuls à avoir le rôle **peutModifier**. Nous allons vérifier cela à l’étape suivante.
+1. Notez l'ID du compte Google utilisé pour votre inscription afin de lui attribuer le rôle **canEdit**, ainsi que l'ID de **user1@contoso.com*. Ces ID doivent être les seuls à avoir le rôle **peutModifier**. Nous allons vérifier cela à l’étape suivante.
 
 	![Page CM](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/s2.png)
  
@@ -715,4 +717,4 @@ Ce didacticiel et son exemple d'application ont été écrits par [Rick Anderson
 [ImportPublishSettings]: ./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/ImportPublishSettings.png
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

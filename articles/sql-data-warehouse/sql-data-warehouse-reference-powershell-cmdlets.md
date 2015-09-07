@@ -1,20 +1,20 @@
 <properties
    pageTitle="Prise en main avec les applets de commande dans SQL Data Warehouse"
-   description="Interrompre et redémarrer SQL Data Warehouse à l’aide d’applets de commande PowerShell"
-   services="sql-data-warehouse"
-   documentationCenter="NA"
-   authors="sidneyh"
-   manager="jhubbard"
-   editor=""/>
+	description="Interrompre et redémarrer SQL Data Warehouse à l’aide d’applets de commande PowerShell"
+	services="sql-data-warehouse"
+	documentationCenter="NA"
+	authors="sidneyh"
+	manager="jhubbard"
+	editor=""/>
 
 <tags
    ms.service="sql-data-warehouse"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="data-services"
-   ms.date="06/29/2015"
-   ms.author="sidneyh;barbkess"/>
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="data-services"
+	ms.date="06/29/2015"
+	ms.author="sidneyh;barbkess"/>
 
 # Prise en main avec les applets de commande Azure Data Warehouse et les API REST
 
@@ -90,6 +90,10 @@ Dans cet exemple, une base de données appelée « Database02 » est récupér
 	$restorePoints = $database | Get-AzureSqlDatabaseRestorePoints
 
 
+
+> [AZURE.NOTE]Notez que si votre serveur est nommé foo.database.windows.net, utilisez « foo » en tant que nom du serveur dans les applets de commande powershell.
+
+
 ## Étapes suivantes
 Pour plus d’informations, consultez la [vue d’ensemble de référence de SQL Data Warehouse][].
 
@@ -106,4 +110,4 @@ Pour plus d’informations, consultez la [vue d’ensemble de référence de SQL
 [yah]: http://search.yahoo.com/
 [msn]: http://search.msn.com/
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

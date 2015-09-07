@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Utilisation des canaux recevant un flux dynamique à débit binaire multiple provenant d’encodeurs locaux" 
-	description="Cette rubrique explique comment configurer un canal qui reçoit un flux dynamique à débit binaire multiple en provenance d’un encodeur local. Le flux peut ensuite être distribué aux applications de lecture clientes via un ou plusieurs points de terminaison de diffusion en continu à l’aide d’un des protocoles de diffusion en continu adaptatifs suivants : HLS, Smooth Stream, MPEG DASH et HDS." 
-	services="media-services" 
-	documentationCenter="" 
-	authors="Juliako" 
-	manager="dwrede" 
+	pageTitle="Utilisation des canaux recevant un flux dynamique à débit binaire multiple provenant d’encodeurs locaux"
+	description="Cette rubrique explique comment configurer un canal qui reçoit un flux dynamique à débit binaire multiple en provenance d’un encodeur local. Le flux peut ensuite être distribué aux applications de lecture clientes via un ou plusieurs points de terminaison de diffusion en continu à l’aide d’un des protocoles de diffusion en continu adaptatifs suivants : HLS, Smooth Stream, MPEG DASH et HDS."
+	services="media-services"
+	documentationCenter=""
+	authors="Juliako"
+	manager="dwrede"
 	editor=""/>
 
 <tags 
-	ms.service="media-services" 
-	ms.workload="media" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="ne" 
-	ms.topic="article" 
-	ms.date="08/11/2015"
+	ms.service="media-services"
+	ms.workload="media"
+	ms.tgt_pltfrm="na"
+	ms.devlang="ne"
+	ms.topic="article"
+	ms.date="08/20/2015"
 	ms.author="juliako"/>
 
 #Utilisation des canaux recevant un flux dynamique à débit binaire multiple provenant d’encodeurs locaux
@@ -238,86 +238,13 @@ Autres considérations liées à l’utilisation des canaux et des composants as
 - Vous ne pouvez pas modifier le protocole d’entrée pendant l’exécution du canal ou de ses programmes associés. Si vous avez besoin d’autres protocoles, vous devez créer des canaux distincts pour chaque protocole d’entrée. 
 - Vous êtes facturé uniquement lorsque votre canal est à l’état **En cours d’exécution**. Pour plus d’informations, reportez-vous à [cette](media-services-manage-channels-overview.md#states) section.
 
-##<a id="tasks"></a>Tâches liées à la diffusion en continu dynamique
+##Création de canaux recevant un flux continu à débit binaire multiple provenant d’encodeurs locaux
 
-###Création d’un compte Media Services
-
-[Créez un compte Azure Media Services](media-services-create-account.md).
-
-###Configuration de points de terminaison de diffusion en continu
-
-Pour une présentation des points de terminaison de diffusion en continu et pour obtenir des informations sur leur gestion, consultez la rubrique [Gestion des points de terminaison de diffusion en continu dans un compte Media Services](media-services-manage-origins.md)
-
-###Configuration d’un environnement de développement  
-
-Choisissez **.NET** ou **API REST** comme environnement de développement.
-
-[AZURE.INCLUDE [media-services-selector-setup](../../includes/media-services-selector-setup.md)]
-
-###Connexion par programme  
-
-Choisissez **.NET** ou **API REST** pour vous connecter par programme à Azure Media Services.
-
-[AZURE.INCLUDE [media-services-selector-connect](../../includes/media-services-selector-connect.md)]
-
-###Création de canaux recevant un flux dynamique à débit binaire multiple provenant d’encodeurs locaux
-
-Pour plus d’informations sur les encodeurs en temps réel locaux, consultez [Utilisation d’encodeurs tiers en temps réel avec Azure Media Services](https://msdn.microsoft.com/library/azure/dn783464.aspx).
+Pour plus d’informations sur les encodeurs en direct locaux, consultez [Utilisation d’encodeurs tiers en direct avec Azure Media Services](https://msdn.microsoft.com/library/azure/dn783464.aspx).
 
 Choisissez **Portail**, **.NET**, **API REST** pour voir comment créer et gérer des canaux et des programmes.
 
 [AZURE.INCLUDE [media-services-selector-manage-channels](../../includes/media-services-selector-manage-channels.md)]
-
-###Protection des ressources
-
-**Vue d’ensemble** :
-
-[Vue d’ensemble de la protection du contenu](media-services-content-protection-overview.md)
-
-
-Si vous souhaitez chiffrer une ressource associée à un programme avec la norme AES (Advanced Encryption Standard) (à l’aide de clés de chiffrement 128 bits) ou avec PlayReady DRM, vous devez créer une clé de contenu.
-
-Utilisez **.NET** ou l’**API REST** pour créer des clés.
-
-[AZURE.INCLUDE [media-services-selector-create-contentkey](../../includes/media-services-selector-create-contentkey.md)]
-
-Une fois que vous avez créé la clé de contenu, vous pouvez configurer la stratégie d’autorisation des clés à l’aide de **.NET** ou de l’**API REST**.
-
-[AZURE.INCLUDE [media-services-selector-content-key-auth-policy](../../includes/media-services-selector-content-key-auth-policy.md)]
-
-####Intégration avec des partenaires
-
-[Utilisation de castLabs pour fournir des licences DRM à Azure Media Services](media-services-castlabs-integration.md)
-
-###Publication et distribution de ressources
-
-**Vue d’ensemble** :
-
-- [Vue d’ensemble de l’empaquetage dynamique](media-services-dynamic-packaging-overview.md)
-
-Configurez la stratégie de remise de ressources à l’aide de **.NET** ou de l’**API REST**.
-
-[AZURE.INCLUDE [media-services-selector-asset-delivery-policy](../../includes/media-services-selector-asset-delivery-policy.md)]
-
-Publiez des ressources (en créant des localisateurs) à l’aide du **portail de gestion Azure** ou de **.NET**.
-
-[AZURE.INCLUDE [media-services-selector-publish](../../includes/media-services-selector-publish.md)]
-
-Distribution de contenu
-
-> [AZURE.SELECTOR]
-- [Overview](media-services-deliver-content-overview.md)
-
-
-###Activation du CDN Azure
-
-Media Services prend en charge l’intégration avec le CDN d’Azure. Pour plus d’informations sur l’activation du CDN Azure, voir [Gestion des points de terminaison de diffusion en continu dans un compte Media Services](media-services-manage-origins.md#enable_cdn).
-
-###Mise à l’échelle d’un compte Media Services
-
-Vous pouvez mettre à l’échelle **Media Services** en spécifiant le nombre d’**Unités réservées de diffusion en continu** avec lesquelles vous voulez que votre compte soit approvisionné.
-
-Pour plus d’informations sur la mise à l’échelle des unités de diffusion en continu, voir : [Mise à l’échelle des unités de diffusion en continu](media-services-manage-origins.md#scale_streaming_endpoints.md).
 
 ##Rubriques connexes
 
@@ -330,4 +257,4 @@ Pour plus d’informations sur la mise à l’échelle des unités de diffusion 
 [live-overview]: ./media/media-services-manage-channels-overview/media-services-live-streaming-current.png
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Présentation concrète de Multi-Factor Authentication Azure" 
-	description="Il s'agit de la page d'authentification multifacteur Azure qui aide les utilisateurs à prendre en main Azure Multi-Factor Authentication." 
-	services="multi-factor-authentication" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="terrylan" 
-	editor="bryanla"/>
+	pageTitle="Présentation concrète de Multi-Factor Authentication Azure"
+	description="Il s'agit de la page d'authentification multifacteur Azure qui aide les utilisateurs à prendre en main Azure Multi-Factor Authentication."
+	services="multi-factor-authentication"
+	documentationCenter=""
+	authors="billmath"
+	manager="stevenpo"
+	editor="curtland"/>
 
 <tags 
-	ms.service="multi-factor-authentication" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/30/2015" 
+	ms.service="multi-factor-authentication"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/24/2015"
 	ms.author="billmath"/>
 
 
@@ -49,4 +49,4 @@ Rubrique|Description
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

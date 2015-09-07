@@ -1,26 +1,26 @@
 <properties
-   pageTitle="Création de plusieurs instances de ressources"
-   description="Ce didacticiel explique comment utiliser l’opération de copie dans un modèle Azure Resource Manager pour effectuer une itération à plusieurs reprises lors du déploiement de ressources."
-   services="azure-resource-manager"
-   documentationCenter="na"
-   authors="tfitzmac"
-   manager="wpickett"
-   editor=""/>
+   pageTitle="Déploiement de plusieurs instances de ressources | Microsoft Azure"
+	description="Utilisez l’opération de copie et les tableaux dans un modèle Azure Resource Manager pour effectuer une itération à plusieurs reprises lors du déploiement de ressources."
+	services="azure-resource-manager"
+	documentationCenter="na"
+	authors="tfitzmac"
+	manager="wpickett"
+	editor=""/>
 
 <tags
    ms.service="azure-resource-manager"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="07/14/2015"
-   ms.author="tomfitz"/>
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="na"
+	ms.date="08/21/2015"
+	ms.author="tomfitz"/>
 
 # Création de plusieurs instances de ressources dans Azure Resource Manager
 
 Cette rubrique explique comment procéder à une itération dans votre modèle Azure Resource Manager pour créer plusieurs instances d’une ressource.
 
-## copy et copyIndex()
+## copy, copyIndex et length
 
 Dans la ressource que vous souhaitez créer à plusieurs reprises, vous pouvez définir un objet **copy** qui indique le nombre d’itérations à effectuer. La copie respecte le format suivant :
 
@@ -32,6 +32,13 @@ Dans la ressource que vous souhaitez créer à plusieurs reprises, vous pouvez d
 Vous pouvez accéder à la valeur de l’itération avec la fonction **copyIndex()**, comme illustré ci-dessous dans la fonction concaténée.
 
     [concat('examplecopy-', copyIndex())]
+
+Lorsque vous créez plusieurs ressources à partir d'un tableau de valeurs, vous pouvez utiliser la fonction **length** pour spécifier le nombre. Vous passez le tableau en paramètre de la fonction length.
+
+    "copy": {
+        "name": "websitescopy",
+        "count": "[length(parameters('siteNames'))]"
+    }
 
 ## Utilisation de la valeur d’index dans le nom
 
@@ -89,11 +96,7 @@ Utilisez le modèle suivant :
              "Fabrikam", 
              "Coho" 
           ] 
-      },
-      "count": { 
-         "type": "int", 
-         "defaultValue": 3 
-      } 
+      }
     }, 
     "resources": [ 
       { 
@@ -103,15 +106,15 @@ Utilisez le modèle suivant :
           "apiVersion": "2014-06-01",
           "copy": { 
              "name": "websitescopy", 
-             "count": "[parameters('count')]" 
+             "count": "[length(parameters('org'))]" 
           }, 
           "properties": {} 
       } 
     ]
 
 ## Étapes suivantes
-- [Création de modèles Azure Resource Manager](./resource-group-authoring-templates.md)
-- [Fonctions des modèles Azure Resource Manager](./resource-group-template-functions.md)
-- [Déploiement d’une application avec un modèle Azure Resource Manager](azure-portal/resource-group-template-deploy.md)
+- Pour en savoir plus sur les sections d’un modèle, consultez [Création de modèles Azure Resource Manager](./resource-group-authoring-templates.md).
+- Pour obtenir la liste des fonctions que vous pouvez utiliser dans un modèle, consultez [Fonctions des modèles Azure Resource Manager](./resource-group-template-functions.md).
+- Pour savoir comment déployer votre modèle, consultez [Déploiement d'une application avec un modèle Azure Resource Manager](azure-portal/resource-group-template-deploy.md).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

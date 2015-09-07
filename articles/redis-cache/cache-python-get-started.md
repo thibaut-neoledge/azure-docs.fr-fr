@@ -13,7 +13,7 @@
 	ms.topic="hero-article"
 	ms.tgt_pltfrm="cache-redis"
 	ms.workload="tbd"
-	ms.date="08/17/2015"
+	ms.date="08/25/2015"
 	ms.author="sdanie"/>
 
 # Utilisation du Cache Redis Azure avec Python
@@ -28,7 +28,7 @@ Installez [redis-py](https://github.com/andymccurdy/redis-py).
 
 ## Créer un Cache Redis sur Azure
 
-Dans le [Portail Azure en version préliminaire](http://go.microsoft.com/fwlink/?LinkId=398536), cliquez sur **Nouveau**, sur **Stockage + Données**, puis sélectionnez **Cache Redis**.
+Dans la [version préliminaire du portail Azure](http://go.microsoft.com/fwlink/?LinkId=398536), cliquez sur **Nouveau**, sur **Stockage + Données**, puis sélectionnez **Cache Redis**.
 
   ![][1]
 
@@ -36,7 +36,7 @@ Entrez un nom d'hôte DNS. Il se présente comme suit : `<name>.redis.cache.win
 
   ![][2]
 
-Une fois le cache créé, cliquez dessus dans le portail Azure pour afficher ses paramètres. Vous aurez besoin de ce qui suit :
+Une fois le cache créé, cliquez dessus dans la version préliminaire du portail pour afficher ses paramètres. Vous aurez besoin de ce qui suit :
 
 - **Nom d’hôte.** Vous avez saisi ce nom que vous avez entré au moment de la création du cache.
 - **Port.** Cliquez sur le lien en dessous de **Ports** pour afficher les ports. Utilisez le port SSL.
@@ -59,4 +59,4 @@ Remplacez *&lt;name&gt;* par le nom de votre cache, et *&lt;key&gt;* par votre c
 [1]: ./media/cache-python-get-started/cache01.png
 [2]: ./media/cache-python-get-started/cache02.png
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

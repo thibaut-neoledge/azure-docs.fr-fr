@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Encodage d’une ressource à l’aide d’Azure Media Encoder" 
-	description="Apprenez à utiliser Azure Media Encoder pour encoder un contenu multimédia sur Media Services. Les exemples de code sont écrits en C# et utilisent le Kit de développement logiciel (SDK) Media Services pour .NET." 
-	services="media-services" 
-	documentationCenter="" 
-	authors="Juliako" 
-	manager="dwrede" 
+	pageTitle="Encodage d’une ressource à l’aide d’Azure Media Encoder"
+	description="Apprenez à utiliser Azure Media Encoder pour encoder un contenu multimédia sur Media Services. Les exemples de code sont écrits en C# et utilisent le Kit de développement logiciel (SDK) Media Services pour .NET."
+	services="media-services"
+	documentationCenter=""
+	authors="Juliako"
+	manager="dwrede"
 	editor=""/>
 
 <tags 
-	ms.service="media-services" 
-	ms.workload="media" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="08/11/2015" 
+	ms.service="media-services"
+	ms.workload="media"
+	ms.tgt_pltfrm="na"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="08/24/2015"
 	ms.author="juliako"/>
 
 
@@ -31,7 +31,7 @@ Pour fournir une vidéo numérique sur Internet, vous devez compresser le conten
 
 Les tâches d’encodage sont une des opérations de traitement les plus courantes dans Media Services. Vous créez des tâches d’encodage pour convertir des fichiers multimédias d’un encodage à un autre. Lorsque vous les encodez, vous pouvez utiliser l’encodeur multimédia intégré de Media Services. Vous pouvez aussi utiliser un encodeur fourni par un partenaire Media Services. Ces encodeurs tiers sont disponibles sur Azure Marketplace. Vous pouvez spécifier les détails des tâches d’encodage à l’aide de chaînes de présélection définies pour votre encodeur ou en utilisant des fichiers de configuration prédéfinis. Pour voir les types de présélections disponibles, consultez [Présélections de tâches pour Azure Media Services](https://msdn.microsoft.com/library/azure/dn619392.aspx). Si vous avez utilisé un encodeur tiers, [validez vos fichiers](https://msdn.microsoft.com/library/azure/dn750842.aspx).
 
-Nous vous recommandons de toujours encoder vos fichiers mezzanine sous forme de jeu de fichiers MP4 à débit adaptatif, puis de convertir ce jeu au format souhaité au moyen de l'[empaquetage dynamique](https://msdn.microsoft.com/library/azure/jj889436.aspx). Pour tirer parti de l'empaquetage dynamique, vous devez d'abord obtenir au moins une unité de diffusion en continu à la demande pour le point de terminaison de diffusion en continu à partir duquel vous envisagez de distribuer votre contenu. Pour plus d’informations, voir [Mise à l’échelle de Media Services](media-services-manage-origins.md#scale_streaming_endpoints).
+Nous vous recommandons de toujours encoder vos fichiers mezzanine sous forme de jeu de fichiers MP4 à débit adaptatif, puis de convertir ce jeu au format souhaité au moyen de l'[empaquetage dynamique](media-services-dynamic-packaging-overview.md). Pour tirer parti de l'empaquetage dynamique, vous devez d'abord obtenir au moins une unité de diffusion en continu à la demande pour le point de terminaison de diffusion en continu à partir duquel vous envisagez de distribuer votre contenu. Pour plus d’informations, voir [Mise à l’échelle de Media Services](media-services-manage-origins.md#scale_streaming_endpoints).
 
 Si votre ressource de sortie est stockée sous forme chiffrée, vous devez configurer une stratégie de remise de ressources. Pour plus d'informations, consultez [Configuration de la stratégie de remise de ressources](media-services-dotnet-configure-asset-delivery-policy.md).
 
@@ -211,15 +211,10 @@ La méthode **CreateChainedTaskEncodingJob** suivante crée un travail qui conti
     }
 
 
-##Étapes suivantes
+##Voir aussi 
 
-[Azure Marketplace]: https://datamarket.azure.com/
-[Encoder Preset]: http://msdn.microsoft.com/library/dn619392.aspx
-[How to: Get a Media Processor Instance]: http://go.microsoft.com/fwlink/?LinkId=301732
-[How to: Upload an Encrypted Asset]: http://go.microsoft.com/fwlink/?LinkId=301733
-[How to: Deliver an Asset by Download]: http://go.microsoft.com/fwlink/?LinkId=301734
-[How to Check Job Progress]: http://go.microsoft.com/fwlink/?LinkId=301737
-[Task Preset for Azure Media Packager]: http://msdn.microsoft.com/library/windowsazure/hh973635.aspx
+[Vue d’ensemble de l’encodage de Media Services](media-services-encode-asset.md)
+
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

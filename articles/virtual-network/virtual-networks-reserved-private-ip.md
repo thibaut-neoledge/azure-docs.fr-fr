@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Définition d’une adresse IP privée interne statique"
-   description="Fonctionnement et gestion des adresses IP internes statiques (adresses IP dynamiques)"
-   services="virtual-network"
-   documentationCenter="na"
-   authors="telmosampaio"
-   manager="adinah"
-   editor="tysonn" />
+	description="Fonctionnement et gestion des adresses IP internes statiques (adresses IP dynamiques)"
+	services="virtual-network"
+	documentationCenter="na"
+	authors="telmosampaio"
+	manager="adinah"
+	editor="tysonn"/>
 <tags 
    ms.service="virtual-network"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="04/22/2015"
-   ms.author="telmos" />
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="infrastructure-services"
+	ms.date="08/17/2015"
+	ms.author="telmos"/>
 
 # Définition d’une adresse IP privée interne statique
 Dans la plupart des cas, il n’est pas nécessaire de spécifier une adresse IP interne statique pour votre machine virtuelle. Les machines virtuelles dans un réseau virtuel recevront automatiquement une adresse IP interne à partir d'une plage que vous spécifiez. Toutefois, dans certains cas, il peut être bon de spécifier une adresse IP statique pour une machine virtuelle en particulier. Par exemple, si votre machine virtuelle doit exécuter DNS ou fait office de contrôleur de domaine.
@@ -31,7 +31,7 @@ Pour vérifier si l'adresse IP *10.0.0.7* est disponible dans un réseau virtuel
 	OperationId          : fd3097e1-5f4b-9cac-8afa-bba1e3492609
 	OperationStatus      : Succeeded
 
->[AZURE.NOTE]Si vous souhaitez tester la commande ci-dessus dans un environnement sécurisé, suivez les instructions de l’article [Créer un réseau virtuel](https://msdn.microsoft.com/library/azure/dn631643.aspx) pour créer un réseau virtuel nommé *TestVnet* et assurez-vous qu'il utilise l’espace d’adressage *10.0.0.0/8*.
+>[AZURE.NOTE]Si vous souhaitez tester la commande ci-dessus dans un environnement sécurisé, suivez les instructions de l’article [Créer un réseau virtuel](../virtual-network/virtual-networks-create-vnet.md) pour créer un réseau virtuel nommé *TestVnet* et assurez-vous qu'il utilise l’espace d’adressage *10.0.0.0/8*.
 
 ## Spécification d’une adresse IP interne statique lors de la création d'une machine virtuelle
 Le script PowerShell ci-dessous crée un service cloud nommé *TestService*, extrait une image à partir d'Azure, puis crée une machine virtuelle nommée *TestVM* dans le nouveau service cloud à l'aide de l'image récupérée, définit la machine virtuelle dans un sous-réseau nommé *Subnet-1* et définit *10.0.0.7* comme adresse IP interne statique pour la machine virtuelle :
@@ -99,4 +99,4 @@ Pour ajouter une adresse IP interne statique à la machine virtuelle créée à 
 [API REST d’adresse IP réservée](https://msdn.microsoft.com/library/azure/dn722420.aspx)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Utilisation du connecteur Slack dans Azure App Service"
-	description="Prise en main du connecteur Slack"
+	pageTitle="Utilisation du connecteur Slack dans des applications logiques | Microsoft Azure App Service"
+	description="Comment créer et configurer le connecteur Slack ou une application API et l'utiliser dans une application logique d’Azure App Service"
 	authors="anuragdalmia"
 	manager="dwrede"
 	editor=""
@@ -13,11 +13,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/19/2015"
+	ms.date="08/23/2015"
 	ms.author="andalmia"/>
 
-# Connecteur Slack
-
+# Prise en main du connecteur Slack et ajout de celui-ci à votre application logique
 Connectez-vous aux canaux Slack et publiez des messages à l’attention de votre équipe. Les connecteurs peuvent être utilisés dans les applications logiques dans le cadre d’un « flux de travail » pour effectuer différentes tâches. En utilisant le connecteur Slack dans votre flux de travail, vous pouvez effectuez une multitude d’opérations à l’aide des autres connecteurs. Par exemple, vous pouvez utiliser le [connecteur Facebook](app-service-logic-connector-facebook.md) dans votre flux de travail pour envoyer un message à votre canal Slack.
 
 ## Déclencheurs et actions
@@ -36,8 +35,8 @@ Un connecteur peut être créé dans une application logique ou directement à p
 
 1. Dans le tableau d'accueil Azure, sélectionnez **Marketplace**.
 2. Sélectionnez **API Apps** et recherchez « Connecteur Slack ».
-3. Indiquez le nom, le plan App Service et d’autres propriétés : <br/>
- ![][1] 
+3. Entrez le nom, le plan App Service et d'autres propriétés :
+![][1] 
 
 4. Cliquez sur **Create**.
 
@@ -49,19 +48,21 @@ Une fois le connecteur Slack créé, vous pouvez l’ajouter en tant qu’action
 
 1.	Dans votre application logique, ouvrez **Déclencheurs et actions**. [Créer une application logique](app-service-logic-create-a-logic-app.md)
 
-2.	Le connecteur Slack est répertorié dans la galerie sur le côté droit : <br/>
+2.	Le connecteur Slack est répertorié dans la galerie sur le côté droit :
 ![][2]
 
 3.	Sélectionnez le connecteur Slack que vous avez créé pour l’ajouter automatiquement à votre application logique.
-4.	Sélectionnez **Autoriser**. Connectez-vous à votre compte Slack. À la fin, vous êtes invité à autoriser votre connecteur à accéder à votre compte Slack. Sélectionnez **Autoriser** : <br/>
- ![][3] ![][4] ![][5] ![][6]
+4.	Sélectionnez **Autoriser**. Connectez-vous à votre compte Slack. À la fin, vous êtes invité à autoriser votre connecteur à accéder à votre compte Slack. Sélectionnez **Autoriser** :
+![][3]
+![][4]
+![][5]
+![][6]
 	
-5.	Vous pouvez maintenant utiliser le connecteur Slack dans le flux. L’action Publier un message est disponible : <br/>
- ![][7]
+5.	Vous pouvez maintenant utiliser le connecteur Slack dans le flux. L’action Publier un message est disponible :
+![][7]
 
 
 Testons l'action « Publier le message ». Vous pouvez utiliser cette action pour publier un message vers n’importe quel canal Slack :
- 
 ![][8]
 
 Configurez les propriétés d’entrée de l’action « Publier un message » :
@@ -74,7 +75,6 @@ Propriétés avancées | **Nom d’utilisateur du robot** : nom du robot à uti
 
 
 Le connecteur Slack dispose d’API REST afin que vous puissiez l’utiliser en dehors d’une application logique. Ouvrez votre connecteur Slack et sélectionnez **Définition d’API** :
-
 ![][9]
 
 
@@ -83,7 +83,7 @@ Maintenant que le connecteur est créé, vous pouvez l'ajouter à un flux d'entr
 
 Affichez la référence d’API REST Swagger sur [Référence de connecteurs et d’applications API](http://go.microsoft.com/fwlink/p/?LinkId=529766).
 
-Vous pouvez également consulter les statistiques de performances et contrôler la sécurité du connecteur. Pour plus d’informations, voir l’article [Gestion et contrôle de vos connecteurs et applications API intégrés](app-service-logic-monitor-your-connectors.md).
+Vous pouvez également consulter les statistiques de performances et contrôler la sécurité du connecteur. Consultez la page [Gestion et contrôle de vos connecteurs et applications API intégrés](app-service-logic-monitor-your-connectors.md).
 
 
 <!-- Image reference -->
@@ -97,4 +97,4 @@ Vous pouvez également consulter les statistiques de performances et contrôler 
 [8]: ./media/app-service-logic-connector-slack/img8.PNG
 [9]: ./media/app-service-logic-connector-slack/img9.PNG
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

@@ -1,26 +1,27 @@
-<properties 
- pageTitle="À propos de l'agent de machine virtuelle et des extensions | Microsoft Azure" 
- description="Propose une vue d'ensemble de l'agent et des extensions et indique comment installer l'agent." 
- services="virtual-machines" 
- documentationCenter="" 
- authors="squillace" 
- manager="timlt" 
- editor=""/>
-<tags 
-ms.service="virtual-machines" 
- ms.devlang="na" 
- ms.topic="article" 
- ms.tgt_pltfrm="vm-multiple" 
- ms.workload="infrastructure-services"
- ms.date="03/10/2015" 
- ms.author="kathydav"/>
+<properties
+ pageTitle="À propos de l'agent de machine virtuelle et des extensions | Microsoft Azure"
+	description="Propose une vue d'ensemble de l'agent et des extensions et indique comment installer l'agent."
+	services="virtual-machines"
+	documentationCenter=""
+	authors="squillace"
+	manager="timlt"
+	editor=""/>
+<tags
+ms.service="virtual-machines"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="vm-multiple"
+	ms.workload="infrastructure-services"
+	ms.date="03/10/2015"
+	ms.author="rasquill"/>
+ 
 #À propos de l'agent de machine virtuelle et des extensions
 L'Agent de machine virtuelle Azure (VM Agent) est utilisé pour installer, configurer, gérer et exécuter des extensions de machine virtuelle Azure (VM Extensions). Les extensions de machine virtuelle fournissent des fonctionnalités dynamiques fournies par Microsoft et des fournisseurs tiers. L'agent et les extensions sont ajoutées principalement dans le portail de gestion, mais vous pouvez également utiliser les applets de commande [Powershell](../install-configure-powershell.md) ou [xplat-cli](virtual-machines-command-line-tools.md) pour les ajouter et les configurer lorsque vous créez une machine virtuelle ou travaillez avec des machines virtuelles existantes. Les extensions de machine virtuelle prennent en charge entre autres [le débogage distant avec Visual Studio](https://msdn.microsoft.com/library/y7f5zaaa.aspx), [System Center 2012](http://social.technet.microsoft.com/wiki/contents/articles/18274.system-center-2012-r2-virtual-machine-role-authoring-guide-resource-extension-package.aspx), [les diagnostics Microsoft Azure](http://azure.microsoft.com/blog/2014/09/02/windows-azure-virtual-machine-monitoring-with-wad-extension/) et [Docker](virtual-machines-docker-vm-extension.md) .
 
 Les extensions de machine virtuelle peuvent vous aider à :
 
--   modifier les fonctionnalités de sécurité et d'identité telles que la réinitialisation des valeurs de compte et l'utilisation de logiciels anti-programmes malveillants ; 
--   démarrer, arrêter ou configurer la surveillance et les diagnostics ; 
+-   modifier les fonctionnalités de sécurité et d'identité telles que la réinitialisation des valeurs de compte et l'utilisation de logiciels anti-programmes malveillants ;
+-   démarrer, arrêter ou configurer la surveillance et les diagnostics ;
 -   réinitialiser ou installer des fonctionnalités de connectivité, telles que RDP et SSH ;
 -   diagnostiquer, surveiller et gérer vos machines virtuelles.
 
@@ -58,4 +59,4 @@ L'agent de machine virtuelle est activé dans les situations suivantes :
 
 Pour plus d'informations sur ces tâches, consultez [Ajouter, rechercher et supprimer des extensions de machines virtuelles Azure](https://msdn.microsoft.com/library/dn850373.aspx).
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

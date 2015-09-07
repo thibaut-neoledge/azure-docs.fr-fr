@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Introduction à Azure | Microsoft Azure" 
-	description="Vous débutez avec Microsoft Azure ? Consultez une présentation générale des services fournis, ainsi que des exemples démontrant leur efficacité." 
-	services=" " 
-	documentationCenter=".net" 
-	authors="Rboucher" 
+	pageTitle="Introduction à Azure | Microsoft Azure"
+	description="Vous débutez avec Microsoft Azure ? Consultez une présentation générale des services fournis, ainsi que des exemples démontrant leur efficacité."
+	services=" "
+	documentationCenter=".net"
+	authors="Rboucher"
 	manager="jwhit"
 	editor=""/>
 
 <tags 
-	ms.service="multiple" 
-	ms.workload="multiple" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/30/2015"  
+	ms.service="multiple"
+	ms.workload="multiple"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="06/30/2015"
 	ms.author="robb"/>
 
 # Présentation de Microsoft Azure
@@ -179,9 +179,9 @@ Vous serez peut-être amené à transférer de gros volumes de données dans Azu
 
 
 ### Service de fichiers
-![Azure File Services](./media/fundamentals-introduction-to-azure/FileServiceIntroNew.png) *Figure : Azure File Services fournit des chemins SMB \\\\serveur\\partage aux applications exécutées dans le cloud.*
+![Azure File Services](./media/fundamentals-introduction-to-azure/FileServiceIntroNew.png) *Figure : Azure File Services fournit des chemins SMB \\\serveur\\partage aux applications exécutées dans le cloud.*
 
-Localement, les gros volumes de stockage de fichiers sont généralement accessibles grâce au protocole Server Message Block (SMB) via un format \\\\Serveur\\partage. Azure propose désormais un service qui vous permet d'utiliser ce protocole dans le cloud. Les applications exécutées sous Azure peuvent utiliser ce service pour partager des fichiers entre les machines virtuelles à l'aide d'API de systèmes de fichiers connus, comme ReadFile et WriteFile. En outre, les fichiers sont accessibles simultanément via une interface REST, ce qui vous permet d'accéder aux partages en local lorsque vous configurez un réseau virtuel. Azure Files se trouve au sommet du service d'objets blob, ce qui lui permet d'hériter des mêmes caractéristiques de disponibilité, de durabilité, d'extensibilité et de géo-redondance qu'Azure Storage.
+Localement, les gros volumes de stockage de fichiers sont généralement accessibles grâce au protocole Server Message Block (SMB) via un format \\\Serveur\\partage. Azure propose désormais un service qui vous permet d'utiliser ce protocole dans le cloud. Les applications exécutées sous Azure peuvent utiliser ce service pour partager des fichiers entre les machines virtuelles à l'aide d'API de systèmes de fichiers connus, comme ReadFile et WriteFile. En outre, les fichiers sont accessibles simultanément via une interface REST, ce qui vous permet d'accéder aux partages en local lorsque vous configurez un réseau virtuel. Azure Files se trouve au sommet du service d'objets blob, ce qui lui permet d'hériter des mêmes caractéristiques de disponibilité, de durabilité, d'extensibilité et de géo-redondance qu'Azure Storage.
 
 **Scénarios relatifs à Azure Files Services**
 
@@ -212,7 +212,7 @@ Comme vous pouvez créer des machines virtuelles à la demande, puis les supprim
 
 Pour que ceci soit réellement utile, vos utilisateurs doivent pouvoir traiter ces applications comme si elles étaient exécutées sur votre propre centre de données. C’est exactement ce que propose le réseau virtuel Azure. Avec une passerelle VPN, un administrateur peut configurer un réseau privé virtuel (VPN) entre votre réseau local et les machines virtuelles déployées sur un réseau virtuel Azure. Comme vous attribuez vos propres adresses IP v4 aux machines virtuelles du cloud, elles semblent se trouver sur votre réseau. Les utilisateurs de votre entreprise peuvent accéder aux applications contenues sur ces machines virtuelles de la même façon que si elles étaient exécutées en local.
 
-Pour plus d'informations sur la planification et la création d'un réseau virtuel, consultez la rubrique [Virtual Network](http://msdn.microsoft.com/library/azure/jj156007.aspx).
+Pour plus d'informations sur la planification et la création d'un réseau virtuel, consultez la rubrique [Virtual Network](../virtual-network/virtual-networks-overview.md).
 
 ### ExpressRoute
 
@@ -224,7 +224,7 @@ Si vous avez besoin de bande passante supplémentaire ou si vous souhaitez bén�
 
 La configuration d'une connexion ExpressRoute nécessite du temps et une certaine planification, aussi est-il préférable de commencer avec un VPN de site à site avant de migrer vers une connexion ExpressRoute.
 
-Pour plus d'informations sur ExpressRoute, consultez la rubrique [ExpressRoute - Aperçu technique](http://msdn.microsoft.com/library/azure/dn606309.aspx).
+Pour plus d'informations sur ExpressRoute, consultez la rubrique [ExpressRoute - Aperçu technique](../expressroute/expressroute-introduction.md).
 
 ### Traffic Manager
 
@@ -592,4 +592,4 @@ Maintenant que vous connaissez les grandes lignes, la prochaine étape est de cr
 
 [Azure Media Services Poster]: http://azure.microsoft.com/documentation/infographics/media-services/
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

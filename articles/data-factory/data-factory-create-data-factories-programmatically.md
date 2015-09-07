@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Créer, surveiller et gérer des fabriques de données Azure à l'aide du Kit de développement logiciel (SDK) Data Factory" 
-	description="Learn how to programmatically create, monitor, and manage Azure data factories by using Data Factory SDK." 
-	services="data-factory" 
-	documentationCenter="" 
-	authors="spelluru" 
-	manager="jhubbard" 
+	pageTitle="Créer, surveiller et gérer des fabriques de données Azure à l'aide du Kit de développement logiciel (SDK) Data Factory"
+	description="Learn how to programmatically create, monitor, and manage Azure data factories by using Data Factory SDK."
+	services="data-factory"
+	documentationCenter=""
+	authors="spelluru"
+	manager="jhubbard"
 	editor="monicar"/>
 
 <tags 
-	ms.service="data-factory" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/06/2015" 
+	ms.service="data-factory"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/25/2015"
 	ms.author="spelluru"/>
 
 # Créer, surveiller et gérer des fabriques de données Azure à l'aide du Kit de développement logiciel (SDK) Data Factory .NET
@@ -384,7 +384,6 @@ Article | Description
 
 [data-factory-introduction]: data-factory-introduction.md
 [adf-getstarted]: data-factory-get-started.md
-[use-onpremises-datasources]: data-factory-use-onpremises-datasources.md
 [adf-tutorial]: data-factory-tutorial.md
 [use-custom-activities]: data-factory-use-custom-activities.md
 [developer-reference]: http://go.microsoft.com/fwlink/?LinkId=516908
@@ -393,4 +392,4 @@ Article | Description
 [azure-developer-center]: http://azure.microsoft.com/downloads/
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

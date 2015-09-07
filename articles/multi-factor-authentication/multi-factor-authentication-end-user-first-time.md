@@ -1,21 +1,20 @@
 <properties 
-	pageTitle="Première connexion Azure Multi-Factor Authentication" 
-	description="Cette page décrit l’expérience de l’utilisateur quand il se connecte pour la première fois." 
-	services="multi-factor-authentication" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="terrylan" 
-	editor="bryanla"/>
+	pageTitle="Première connexion Azure Multi-Factor Authentication"
+	description="Cette page décrit l’expérience de l’utilisateur quand il se connecte pour la première fois."
+	services="multi-factor-authentication"
+	documentationCenter=""
+	authors="billmath"
+	manager="stevenp"
+	editor="curtland"/>
 
 <tags 
-	ms.service="multi-factor-authentication" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/30/2015" 
+	ms.service="multi-factor-authentication"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/24/2015"
 	ms.author="billmath"/>
-
 # Configuration de l’expérience Azure Multi-Factor Authentication
 
  Les paramètres de vérification de sécurité supplémentaires sont utilisés quand un administrateur a configuré votre compte pour que votre mot de passe et une réponse de votre téléphone soient obligatoires pour vérifier votre identité. Si un administrateur a configuré votre compte pour exiger la vérification de sécurité supplémentaire, **vous ne pouvez pas vous connecter tant que vous n’avez pas terminé le processus d’inscription automatique**.
@@ -37,4 +36,4 @@ Méthode|Description
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

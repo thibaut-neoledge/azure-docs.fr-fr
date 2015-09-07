@@ -1,25 +1,25 @@
 <properties 
    pageTitle="Création d’un réseau virtuel"
-   description="En savoir plus sur la création d’un réseau virtuel"
-   services="virtual-network"
-   documentationCenter="na"
-   authors="telmosampaio"
-   manager="carolz"
-   editor="tysonn" />
+	description="En savoir plus sur la création d’un réseau virtuel"
+	services="virtual-network"
+	documentationCenter="na"
+	authors="telmosampaio"
+	manager="carolz"
+	editor="tysonn"/>
 <tags 
    ms.service="virtual-network"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="06/08/2015"
-   ms.author="telmos" />
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="infrastructure-services"
+	ms.date="06/08/2015"
+	ms.author="telmos"/>
 
 # Création d’un réseau virtuel
 
 Quand vous créez un réseau virtuel, les services et les machines virtuelles au sein du réseau virtuel peuvent communiquer entre eux en toute sécurité sans passer par Internet. La création d’un réseau virtuel Azure est un processus relativement simple et rapide si le réseau virtuel n’est pas destiné à être connecté à d’autres réseaux virtuels ou à votre réseau local. En effet, vous n’aurez pas besoin d’acquérir et de configurer un périphérique VPN, ou de coordonner les adresses IP que vous choisissez avec d’autres réseaux virtuels ou le réseau local.
 
->[AZURE.WARNING]N’utilisez pas cette procédure pour créer un réseau virtuel qui sera ensuite connecté à d’autres réseaux virtuels ou votre réseau local. Si vous voulez créer une connexion hybride ou entre locaux sécurisée, consultez [À propos de la connectivité intersite sécurisée de réseau virtuel](https://msdn.microsoft.com/library/azure/dn133798.aspx). Si vous voulez créer un réseau virtuel qui se connecte à un autre réseau virtuel, consultez [Configuration d’une connexion de réseau virtuel à réseau virtuel](../vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md).
+>[AZURE.WARNING]N’utilisez pas cette procédure pour créer un réseau virtuel qui sera ensuite connecté à d’autres réseaux virtuels ou votre réseau local. Si vous voulez créer une connexion hybride ou entre locaux sécurisée, consultez [À propos de la connectivité intersite sécurisée de réseau virtuel](vpn-gateway-cross-premises-options.md). Si vous voulez créer un réseau virtuel qui se connecte à un autre réseau virtuel, consultez [Configuration d’une connexion de réseau virtuel à réseau virtuel](../vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md).
 
 ## Configuration de votre réseau virtuel
 
@@ -35,7 +35,7 @@ Quand vous créez un réseau virtuel, les services et les machines virtuelles au
 
 	- **Emplacement** : sélectionnez l’emplacement (région) dans la liste déroulante. L’emplacement est directement associé à l’emplacement physique où vous souhaitez que vos ressources (machines virtuelles) résident quand vous les déployez sur ce réseau virtuel. Par exemple, si vous souhaitez que vos machines virtuelles soient physiquement situées dans la région *Ouest des États-Unis*, sélectionnez cette région. Une fois votre réseau virtuel créé, vous ne pouvez plus modifier la région qui lui est associée.
 
-1. Dans la page **Serveurs DNS et connectivité VPN**, n’apportez aucune modification. Passez simplement à la page suivante en cliquant sur la flèche. Par défaut, Azure assure une résolution de noms de base pour votre réseau virtuel. Il est possible que vos besoins en matière de résolution de noms soient trop complexes au regard des capacités de traitement de la résolution de noms de base d’Azure. Dans ce cas, vous pouvez par la suite ajouter une machine virtuelle qui exécute DNS sur votre réseau virtuel. Pour plus d’informations sur la résolution de noms Azure et DNS, consultez [Résolution de noms (DNS)](https://msdn.microsoft.com/library/azure/jj156088.aspx).
+1. Dans la page **Serveurs DNS et connectivité VPN**, n’apportez aucune modification. Passez simplement à la page suivante en cliquant sur la flèche. Par défaut, Azure assure une résolution de noms de base pour votre réseau virtuel. Il est possible que vos besoins en matière de résolution de noms soient trop complexes au regard des capacités de traitement de la résolution de noms de base d’Azure. Dans ce cas, vous pouvez par la suite ajouter une machine virtuelle qui exécute DNS sur votre réseau virtuel. Pour plus d’informations sur la résolution de noms Azure et DNS, consultez [Résolution de noms (DNS)](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).
 
 1. Dans la page **Espaces d’adresses du réseau virtuel**, vous entrez l’espace d’adresses que vous voulez utiliser pour ce réseau virtuel. À moins que vous ayez besoin d’une certaine plage d’adresses IP internes pour vos machines virtuelles ou que vous vouliez créer un sous-réseau spécifique pour les machines virtuelles destinées à recevoir une adresse DIP statique, vous n’avez pas besoin d’apporter de modifications dans cette page. Si vous voulez créer plusieurs sous-réseaux, vous pouvez le faire dans cette page en cliquant sur **Ajouter un sous-réseau**.
 
@@ -66,4 +66,4 @@ Après avoir créé votre réseau virtuel, vous pouvez lui ajouter de nouvelles 
 [Suppression d’un réseau virtuel](../virtual-networks-delete-vnet)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

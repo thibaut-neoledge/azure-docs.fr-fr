@@ -15,25 +15,11 @@
 	ms.topic="article"
 	ms.date="06/11/2015"
 	ms.author="szark"/>
-
-
-
-
-
 #Présentation de Linux sous Azure
 
 Cette rubrique présente quelques aspects de l'utilisation de machines virtuelles Linux dans le cloud Azure. Le déploiement d'une machine virtuelle Linux est un processus simple qui fait appel à une image de la galerie.
 
-## Sommaire ##
-
-* [Authentification : noms d’utilisateurs, mots de passe et clés SSH](#authentication)
-* [Obtention de privilèges de superutilisateur avec sudo](#superuserprivileges)
-* [Configuration du pare-feu](#firewallconfiguration)
-* [Changements de nom d’hôte](#hostnamechanges)
-* [Capture d’une image de machine virtuelle](#virtualmachine)
-* [Attachement de disques](#attachingdisks)
-
-## <a id="authentication"></a>Authentification : noms d’utilisateurs, mots de passe et clés SSH
+## Authentification : noms d’utilisateurs, mots de passe et clés SSH
 
 Lorsque vous créez une machine virtuelle Linux avec le portail de gestion Azure, il vous est demandé de fournir un nom d’utilisateur, un mot de passe et (éventuellement) une clé publique SSH. Le choix de nom d'utilisateur pour le déploiement d'une machine virtuelle Linux sur Azure est soumis à la contrainte suivante : les noms des comptes système (UID <100) déjà présents sur la machine virtuelle ne sont pas autorisés ('root', par exemple).
 
@@ -42,7 +28,7 @@ Lorsque vous créez une machine virtuelle Linux avec le portail de gestion Azure
  - Consultez la rubrique [Utilisation de SSH avec Linux sur Azure](../linux-use-ssh-key.md).
 
 
-## <a id="superuserprivileges"></a>Obtention de privilèges de superutilisateur avec `sudo`
+## Obtention de privilèges de superutilisateur avec `sudo`
 
 Le compte utilisateur qui est spécifié pendant le déploiement de l'instance de machine virtuelle dans Azure est un compte privilégié. Ce compte est configuré par l’agent Linux Azure pour pouvoir élever les privilèges au niveau root (compte superutilisateur) avec l’utilitaire `sudo`. Une fois connecté avec ce compte utilisateur, vous êtes en mesure d'exécuter les commandes en tant que root avec la syntaxe de commande.
 
@@ -53,7 +39,7 @@ Vous pouvez éventuellement obtenir un interpréteur de commandes root avec **su
 - Consultez la rubrique [Utilisation des privilèges root sur les machines virtuelles Linux dans Azure](virtual-machines-linux-use-root-privileges.md)
 
 
-## <a id="firewallconfiguration"></a>Configuration du pare-feu
+## Configuration du pare-feu
 
 Azure fournit un filtre de paquets entrants qui limite la connectivité aux ports spécifiés dans le portail de gestion. Par défaut, le seul port autorisé est SSH. Vous pouvez ouvrir l'accès à d'autres ports sur votre machine virtuelle Linux en configurant des points de terminaison dans le portail de gestion :
 
@@ -62,7 +48,7 @@ Azure fournit un filtre de paquets entrants qui limite la connectivité aux port
 Les images Linux de la galerie Azure n'activent pas le pare-feu *iptables* par défaut. Si besoin est, le pare-feu peut être configuré pour fournir un filtrage supplémentaire.
 
 
-## <a id="hostnamechanges"></a>Changements de nom d’hôte
+## Changements de nom d’hôte
 
 Lorsque vous déployez initialement une instance d'une image Linux, vous devez fournir un nom d'hôte pour la machine virtuelle. Une fois que la machine virtuelle est en cours d'exécution, ce nom d'hôte est publié sur les serveurs DNS de la plateforme, si bien que plusieurs machines virtuelles interconnectées peuvent effectuer des recherches d'adresse IP avec des noms d'hôte.
 
@@ -83,7 +69,7 @@ Les images **Ubuntu** et **CoreOS** utilisent cloud-init pn Azure, qui fournit d
  - [Utilisation de CoreOS dans Azure](virtual-machines-linux-coreos-how-to.md)
 
 
-## <a id="virtualmachine"></a>Capture d’une image de machine virtuelle
+## Capture d’une image de machine virtuelle
 
 Azure vous permet de capturer l'état d'une machine virtuelle existante dans une image qui peut ensuite servir au déploiement d'autres instances de machine virtuelle. L'agent Linux Azure peut être utilisé pour restaurer une partie de la personnalisation réalisée pendant le processus de déploiement. Pour capturer une machine virtuelle en tant qu'image, vous pouvez procéder comme suit :
 
@@ -96,7 +82,7 @@ Azure vous permet de capturer l'état d'une machine virtuelle existante dans une
  - Consultez la page [Capture d’une machine virtuelle Linux à utiliser comme modèle](virtual-machines-linux-capture-image.md).
 
 
-## <a id="attachingdisks"></a>Attachement de disques
+## Attachement de disques
 
 Chaque machine virtuelle est associée à un *disque de ressources* local temporaire. Étant donné que les données qui y figurent risquent de ne pas résister aux redémarrages, le disque de ressources est souvent utilisé par les applications et les processus exécutés dans la machine virtuelle pour le stockage **temporaire** des données, ainsi que pour stocker les fichiers de pagination ou d'échange du système d'exploitation.
 
@@ -110,4 +96,4 @@ Sous Linux, le disque de données peut être nommé `/dev/sdc` par le noyau et 
  - **Voir aussi :** [Configuration d’un RAID logiciel sur Linux](virtual-machines-linux-configure-raid.md)
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

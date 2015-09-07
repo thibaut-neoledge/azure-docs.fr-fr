@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Écouteur et connecteur HTTP"
-	description="Utilisation de l'écouteur HTTP et de l'action HTTP dans votre logique d'application"
+   pageTitle="Utilisation de l’écouteur HTTP et de l’action HTTP dans des applications logiques | Microsoft Azure App Service"
+	description="Comment créer et configurer l’écouteur HTTP et l’action HTTP ou une application API et l'utiliser dans une application logique d’Azure App Service"
 	services="app-service\logic"
 	documentationCenter=".net,nodejs,java"
 	authors="anuragdalmia"
@@ -13,23 +13,23 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="integration"
-	ms.date="08/19/2015"
+	ms.date="08/23/2015"
 	ms.author="prkumar"/>
 
 
-#Utilisation de l'écouteur HTTP et de l'action HTTP dans votre logique d'application#
-
-Les applications logiques peuvent se déclencher selon diverses sources de données et proposent des connecteurs pour obtenir et traiter les données dans le cadre du flux. Toutefois, il existe certains scénarios où vous devez travailler avec des connexions HTTP directes, notamment :
+# Utilisation et ajout de l’écouteur HTTP et de l’action HTTP dans votre application logique
+Connectez-vous directement aux ressources HTTP pour écouter les demandes HTTP et configurer des demandes web HTTP. Il existe certains scénarios où vous devez travailler avec des connexions HTTP directes, notamment :
 
 1.	pour développer une application logique qui prend en charge un frontal interactif d'utilisateur web ou mobile,
 2.	pour obtenir et traiter les données d'un service web qui n'a pas de connecteur prêt à l'emploi,
 3.	pour effectuer des actions déjà exposées en tant que service web, mais non disponibles sous forme d'application API.
 
-
-Pour ces scénarios, la galerie fournit deux options :
+Dans ces cas de figure, il existe deux options :
 
 1. **Écouteur HTTP** : ce connecteur sert de déclencheur et écoute les requêtes HTTP sur un point de terminaison configuré. Quand un appel est reçu sur le point de terminaison configuré, il déclenche une nouvelle instance du flux et transfère les données reçues dans la requête au flux à des fins de traitement. Il peut également être configuré pour répondre automatiquement à la demande entrante quand le flux a démarré ou vous permettre de construire une réponse basée sur l'exécution du flux et d'envoyer une réponse à l'appelant.
 2. **Action HTTP** : celle-ci vous permet de configurer une demande web pour n’importe quel point de terminaison disponible sur Internet. Elle obtient une réponse en retour, et la met à disposition des actions supplémentaires du flux pour utilisation.
+
+Les applications logiques peuvent se déclencher selon diverses sources de données et proposent des connecteurs pour obtenir et traiter les données dans le cadre du flux. Vous pouvez ajouter le connecteur HTTP à votre flux d’entreprise et traiter les données dans le cadre de ce flux de travail dans une application logique.
 
 ## Création d'un écouteur HTTP pour votre application logique
 Un connecteur peut être créé dans une application logique ou directement à partir d'Azure Marketplace. Pour créer un connecteur à partir de Marketplace :
@@ -70,7 +70,7 @@ Maintenant que le connecteur est créé, vous pouvez l'ajouter à un flux d'entr
 
 Affichez la référence d’API REST Swagger sur [Référence de connecteurs et d’applications API](http://go.microsoft.com/fwlink/p/?LinkId=529766).
 
-Vous pouvez également consulter les statistiques de performances et contrôler la sécurité du connecteur. Consultez la page [Gestion et contrôle de vos connecteurs et applications API intégrés](app-service-logic-monitor-your-connectors.md).
+Vous pouvez également consulter les statistiques de performances et contrôler la sécurité du connecteur. Pour plus d'informations, consultez [Gestion et contrôle de vos connecteurs et applications API intégrés](app-service-logic-monitor-your-connectors.md).
 
 <!--Image references-->
 [1]: ./media/app-service-logic-connector-http/1.png
@@ -84,4 +84,4 @@ Vous pouvez également consulter les statistiques de performances et contrôler 
 [9]: ./media/app-service-logic-connector-http/9.png
 [10]: ./media/app-service-logic-connector-http/10.png
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

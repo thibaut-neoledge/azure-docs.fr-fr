@@ -1,13 +1,13 @@
 <properties
    pageTitle="Azure Backup - Forum aux questions | Microsoft Azure"
-   description="Forum aux questions sur le service Azure Backup"
-   services="backup"
-   documentationCenter=""
-   authors="Jim-Parker"
-   manager="shreeshd"
-   editor=""/>
+	description="Forum aux questions sur le service Azure Backup"
+	services="backup"
+	documentationCenter=""
+	authors="Jim-Parker"
+	manager="shreeshd"
+	editor=""/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/07/2015" ms.author="arunak"; "jimpark"; "aashishr"/>
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/26/2015" ms.author="giridham"; "arunak"; "jimpark"; "aashishr"/>
 
 # Azure Backup - Forum Aux Questions
 Voici une liste de questions fréquemment posées sur Azure Backup. Si vous avez d’autres questions sur Azure Backup, veuillez accéder au [forum de discussion](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup) et publier vos questions. Un membre de notre communauté vous aidera à obtenir vos réponses. Si une question est fréquemment posée, nous l’ajoutons à cet article pour qu’elle puisse être trouvée rapidement et facilement.
@@ -16,11 +16,12 @@ Voici une liste de questions fréquemment posées sur Azure Backup. Si vous avez
 **Q1. Quelle est la liste des systèmes d’exploitation pris en charge à partir desquels je peux sauvegarder des fichiers dans Azure à l’aide d’Azure Backup ?** <br/> R1. La liste suivante de systèmes d’exploitation est prise en charge par Azure Backup
 
 
-| Système d'exploitation | Plateforme | SKU |
+| Système d’exploitation | Plateforme | SKU |
 | :------------- |-------------| :-----|
 | Windows 8 et derniers Service Packs | 64 bits | Entreprise, Professionnel |
 | Windows 7 et derniers Service Packs | 64 bits | Édition Intégrale, Entreprise, Professionnel, Édition Familiale Premium, Édition Familiale Basique, Édition Starter |
 | Windows 8.1 et derniers Service Packs | 64 bits | Entreprise, Professionnel |
+| Windows 10 | 64 bits | Entreprise, Professionnel, Familiale |
 |Windows Server 2012 R2 et derniers Service Packs|	64 bits|	Standard, Datacenter, Foundation|
 |Windows Server 2012 et derniers Service Packs|	64 bits|	Datacenter, Foundation, Standard|
 |Windows Storage Server 2012 R2 et derniers Service Packs |64 bits|	Standard, Workgroup|
@@ -77,29 +78,41 @@ Voici une liste de questions fréquemment posées sur Azure Backup. Si vous avez
 
 **Question 16. Puis-je « migrer » mon archivage de sauvegarde entre les abonnements ?** <br/> R16 : non. L’archivage est créé au niveau de l’abonnement et ne peut pas être réaffecté à un autre abonnement une fois créé.
 
-**Question 17. L’agent Azure Backup fonctionne-t-il sur un serveur qui utilise la déduplication Windows Server 2012 ?** <br/>R17 : Oui. Le service de l’agent convertit les données dédupliquées en données normales lorsqu'il prépare l'opération de sauvegarde. Il optimise ensuite les données pour la sauvegarde, chiffre les données, puis envoie les données chiffrées au service de sauvegarde en ligne.
+**Question 17. L’agent Azure Backup fonctionne-t-il sur un serveur qui utilise la déduplication Windows Server 2012 ?** <br/>R17 : oui. Le service de l’agent convertit les données dédupliquées en données normales lorsqu'il prépare l'opération de sauvegarde. Il optimise ensuite les données pour la sauvegarde, chiffre les données, puis envoie les données chiffrées au service de sauvegarde en ligne.
 
-**Question 18. Les données de sauvegarde sont-elles supprimées si j’annule une sauvegarde après qu’elle a démarré ?** <br/>R18 : Non. L’archivage de sauvegarde stocke les données sauvegardées qui avaient été transférées jusqu'au moment de l'annulation. Azure Backup utilise un mécanisme de point de contrôle afin que les données de sauvegarde soient régulièrement contrôlées pendant la sauvegarde avant que le processus de sauvegarde suivant puisse valider l'intégrité des fichiers. La sauvegarde suivante est déclenchée de manière incrémentielle sur les données qui avaient été sauvegardées précédemment. Cette procédure optimise l’utilisation de la bande passante, ce qui vous évite d’avoir à transférer les mêmes données à plusieurs reprises.
+**Question 18. Les données de sauvegarde sont-elles supprimées si j’annule une sauvegarde après qu’elle a démarré ?** <br/>R18 : non. L’archivage de sauvegarde stocke les données sauvegardées qui avaient été transférées jusqu’au moment de l’annulation. Azure Backup utilise un mécanisme de point de contrôle afin que les données de sauvegarde soient régulièrement contrôlées pendant la sauvegarde avant que le processus de sauvegarde suivant puisse valider l'intégrité des fichiers. La sauvegarde suivante est déclenchée de manière incrémentielle sur les données qui avaient été sauvegardées précédemment. Cette procédure optimise l’utilisation de la bande passante, ce qui vous évite d’avoir à transférer les mêmes données à plusieurs reprises.
 
-**Question 19. Pourquoi l’avertissement « Les sauvegardes Azure n’ont pas été configurées pour ce serveur » apparaît-il alors que j’avais planifié des sauvegardes standard ?** <br/>R19 : Cela peut se produire lorsque les paramètres de planification de la sauvegarde stockés sur le serveur local diffèrent des paramètres stockés dans l’archivage de sauvegarde. Lorsque le serveur ou les paramètres ont été restaurés à un état correct connu, les planifications de sauvegarde peuvent se désynchroniser. Si cela s'est produit, vous devez reconfigurer la stratégie de sauvegarde, puis **exécuter la sauvegarde** pour resynchroniser le serveur local avec Azure.
+**Question 19. Pourquoi l’avertissement « Les sauvegardes Azure n’ont pas été configurées pour ce serveur » apparaît-il alors que j’avais planifié des sauvegardes standard ?** <br/>R19 : cela peut se produire quand les paramètres de planification de la sauvegarde stockés sur le serveur local diffèrent des paramètres stockés dans l’archivage de sauvegarde. Lorsque le serveur ou les paramètres ont été restaurés à un état correct connu, les planifications de sauvegarde peuvent se désynchroniser. Si cela s’est produit, vous devez reconfigurer la stratégie de sauvegarde, puis **exécuter la sauvegarde** pour resynchroniser le serveur local avec Azure.
 
-**Question 20. Quelles règles de pare-feu doivent être configurées pour la sauvegarde d’Azure Backup ?** <br/>Réponse 20. Vérifiez que les règles de pare-feu permettent la communication avec les URL ci-dessous pour la sauvegarde transparente du serveur local vers Azure et la protection de la charge de travail sur Azure :
+**Question 20. Quelles règles de pare-feu doivent être configurées pour la sauvegarde d’Azure Backup ?** <br/>R20. Vérifiez que les règles de pare-feu permettent la communication avec les URL ci-dessous pour la sauvegarde transparente du serveur local vers Azure et la protection de la charge de travail sur Azure :
 
 - www.msftncsi.com
-- \*.Microsoft.com
-- \*.MicrosoftAzure.com
-- \*.microsoftonline.com
-- \*.windows.net
+- *.Microsoft.com
+- *.MicrosoftAzure.com
+- *.microsoftonline.com
+- *.windows.net
 
 
 ## Sauvegarde et rétention
-**Q1. La taille de chaque source de données sauvegardée est-elle limitée ?** <br/> R1. Depuis juillet 2015, la taille de chaque source de données doit être inférieure ou égale à 1,7 To. Une source de données peut être l’un des éléments suivants :
+**Q1. La taille de chaque source de données sauvegardée est-elle limitée ?** <br/> R1. Depuis août 2015, la taille maximale de la source de données est comme indiqué ci-dessous pour les différents systèmes d’exploitation.
 
-- Volume de fichier/dossier
-- Base de données SQL
-- Batterie de serveurs SharePoint
-- Serveur Exchange
-- Machine virtuelle Hyper-V
+|N° |	Système d’exploitation |	Taille maximale de la source de données |
+| :-------------: |:-------------| :-----|
+|1| Windows Server 2012 ou version ultérieure| 54 400 Go|
+|2| Windows Server 8 ou version ultérieure| 54 400 Go|
+|3| Windows Server 2008, Windows Server 2008 R2 | 1 700 Go|
+|4| Windows 7 | 1 700 Go|
+ 
+La taille de la source de données est mesurée comme indiqué ci-dessous.
+
+|	Source de données |	Détails |
+| :-------------: |:-------------|
+|Volume |Quantité de données sauvegardées à partir d’un volume unique d’un ordinateur. Ceci s’applique pour les volumes protégés sur les ordinateurs serveur et client.|
+|Machine virtuelle Hyper-V|Somme des données de tous les disques durs virtuels de la machine virtuelle en cours de sauvegarde|
+|Base de données Microsoft SQL Server|Taille d’une base de données SQL unique en cours de sauvegarde |
+|Microsoft SharePoint|Somme des bases de données de contenu et de configuration dans une batterie de serveurs SharePoint en cours de sauvegarde|
+|Microsoft Exchange|Somme de toutes les bases de données Exchange sur un serveur Exchange en cours de sauvegarde|
+|État système/récupération complète|Chaque copie individuelle de l’état système/récupération complète de l’ordinateur en cours de sauvegarde|
 
 **Q2. Le nombre de planifications de sauvegarde par jour est-il limité ?**<br/> R2. Oui, Azure Backup permet 3 copies de sauvegarde par jour via un client/serveur Windows et 2 copies de sauvegarde par jour via SCDPM.
 
@@ -166,4 +179,4 @@ Voici une liste de questions fréquemment posées sur Azure Backup. Si vous avez
 
 Une fois les sauvegardes correctement effectuées avec le nouvel emplacement de cache, vous pouvez supprimer le dossier de cache d’origine.
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

@@ -17,11 +17,9 @@
 	ms.author="saah;kenhoff"/>
 
 # Connexions à partir de sources inconnues
+<p>Ce rapport indique les utilisateurs qui sont parvenus à se connecter à votre répertoire avec affectation d’une adresse IP client qui a été reconnue par Microsoft en tant qu'adresse IP proxy anonyme (IP Tor). Ces proxys sont souvent utilisés par les utilisateurs qui souhaitent masquer l'adresse IP de leur ordinateur, et peuvent également être utilisés dans un but malveillant. </p><p> Les résultats de ce rapport indiquent le nombre de fois où un utilisateur est parvenu à se connecter à votre répertoire à partir de cette adresse et de l'adresse IP du proxy.</p>
 
-| Description | Emplacement du rapport |
-| :-------------     | :-------        |
-| <p>Ce rapport indique les utilisateurs qui sont parvenus à se connecter à votre répertoire lors de l’affectation d’une adresse IP client qui a été reconnue par Microsoft en tant qu'adresse IP proxy anonyme. Ces proxys sont souvent utilisés par les utilisateurs qui souhaitent masquer l'adresse IP de leur ordinateur, et peuvent également être utilisés dans un but malveillant : les pirates utilisent parfois ces proxys. </p><p> Les résultats de ce rapport indiquent le nombre de fois où un utilisateur est parvenu à se connecter à votre répertoire à partir de cette adresse et de l'adresse IP du proxy.</p> | Répertoire > onglet Rapports |
 
 ![Connexions à partir de sources inconnues](./media/active-directory-reporting-sign-ins-from-unknown-sources/signInsFromUnknownSources.PNG)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

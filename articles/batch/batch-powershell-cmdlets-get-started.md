@@ -1,20 +1,20 @@
 <properties
    pageTitle="Prise en main des applets de commande Azure Batch PowerShell | Microsoft Azure"
-   description="Présente les applets de commande Azure PowerShell utilisées pour gérer le service Azure Batch"
-   services="batch"
-   documentationCenter=""
-   authors="dlepow"
-   manager="timlt"
-   editor=""/>
+	description="Présente les applets de commande Azure PowerShell utilisées pour gérer le service Azure Batch"
+	services="batch"
+	documentationCenter=""
+	authors="dlepow"
+	manager="timlt"
+	editor=""/>
 
 <tags
    ms.service="batch"
-   ms.devlang="NA"
-   ms.topic="get-started-article"
-   ms.tgt_pltfrm="powershell"
-   ms.workload="big-compute"
-   ms.date="08/07/2015"
-   ms.author="danlep"/>
+	ms.devlang="NA"
+	ms.topic="get-started-article"
+	ms.tgt_pltfrm="powershell"
+	ms.workload="big-compute"
+	ms.date="08/07/2015"
+	ms.author="danlep"/>
 
 # Prise en main des applets de commande Azure Batch PowerShell
 Cet article est une présentation rapide des applets de commande Azure PowerShell que vous pouvez utiliser pour gérer vos comptes Batch et obtenir des informations sur vos travaux et tâches Batch notamment.
@@ -39,6 +39,12 @@ Utilisez les procédures standard pour démarrer Azure PowerShell et [vous conne
 
     ```
     Switch-AzureMode -Name AzureResourceManager
+    ```
+
+* **S’inscrire auprès de l’espace de noms de fournisseur Batch (opération ponctuelle)** - Avant de pouvoir gérer vos comptes Batch, vous devez vous inscrire auprès de l’espace de noms de fournisseur Batch. Cette opération ne doit être effectuée qu’une fois par abonnement.
+
+    ```
+    Register-AzureProvider -ProviderNamespace Microsoft.Batch
     ```
 
 ## Gestion des clés et des comptes Batch
@@ -90,7 +96,7 @@ Quand vous y êtes invité, confirmez que vous voulez supprimer le compte. La su
 
 ## Requête pour les travaux, tâches et autres détails
 
-Utilisez les cmdlets tels que **Get-AzureBatchJob**, **Get-AzureBatchTask** et **Get-AzureBatchPool** pour interroger les entités créées sous un compte Batch.
+Utilisez les applets de commande telles que **Get-AzureBatchJob**, **Get-AzureBatchTask** et **Get-AzureBatchPool** pour interroger les entités créées sous un compte Batch.
 
 Pour utiliser ces applets de commande, vous devez d'abord créer un objet AzureBatchContext pour stocker le nom et les clés de votre compte :
 
@@ -105,7 +111,7 @@ Vous transmettez ce contexte aux applets de commande qui interagissent avec le s
 
 ### Interrogation des données
 
-Par exemple, utilisez **Get-AzureBatchPools** pour rechercher vos pools. Par défaut, cette demande interroge tous les pools sous votre compte, en supposant que vous avez déjà stocké l'objet BatchAccountContext dans *$context* :
+Par exemple, utilisez **Get-AzureBatchPools** pour rechercher vos pools. Par défaut, cette demande interroge tous les pools sous votre compte, en supposant que vous avez déjà stocké l’objet BatchAccountContext dans *$context* :
 
 ```
 Get-AzureBatchPool -BatchContext $context
@@ -156,4 +162,4 @@ Pour supprimer la limite supérieure, définissez **MaxCount** sur 0 ou une val
 * [Informations de référence sur les applets de commande Azure Batch](https://msdn.microsoft.com/library/azure/mt125957.aspx)
 * [Requêtes de liste efficaces](batch-efficient-list-queries.md)
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

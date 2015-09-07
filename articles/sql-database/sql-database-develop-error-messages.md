@@ -5,16 +5,16 @@
 	documentationCenter=""
 	authors="MightyPen"
 	manager="jeffreyg"
-	editor="" />
+	editor=""/>
 
 
 <tags 
-	ms.service="sql-database" 
-	ms.workload="data-management" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/27/2015" 
+	ms.service="sql-database"
+	ms.workload="data-management"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/21/2015"
 	ms.author="genemi"/>
 
 
@@ -60,9 +60,11 @@ Les erreurs temporaires sont également appelées des défaillances temporaires.
 |40197|17|Le service a rencontré une erreur lors du traitement de votre demande. Réessayez. Code d’erreur % d.<br/><br/>Vous recevez cette erreur lorsque le service est arrêté en raison de mises à niveau logicielles ou matérielles, de pannes de matériel ou tout autre problème de basculement. Le code d'erreur (%d) incorporé au message d'erreur 40197 fournit des informations supplémentaires sur le type de défaillance ou de basculement survenu. 40020, 40143, 40166 et 40540 sont des exemples de codes d’erreur incorporés au message d’erreur 40197.<br/><br/>La reconnexion à votre serveur de base de données SQL vous reconnectera automatiquement à une copie saine de votre base de données. Votre application doit détecter l'erreur 40197, consigner le code d'erreur incorporé (%d) dans le message pour la résolution des problèmes, et essayer de se reconnecter à la base de données SQL jusqu'à ce que les ressources soient disponibles et que votre connexion soit rétablie.|
 |40501|20|Le service est actuellement occupé. Relancez la demande dans 10 secondes. ID de l'incident : %ls. Code : % d.<br/><br/>*Remarque :* pour plus d'informations sur cette erreur et sa résolution, voir :<br/>•[Limitation de la base de données SQL Azure](http://msdn.microsoft.com/library/azure/dn338079.aspx).
 |40613|17|La base de données ’%.&#x2a;ls’ sur le serveur ’%.&#x2a;ls’ n’est pas disponible actuellement. Veuillez réessayer la connexion ultérieurement. Si le problème persiste, contactez le support technique en indiquant l'ID de suivi de session ’%.&#x2a;ls’’.|
+|49918|16|Impossible de traiter la requête. Ressources insuffisantes pour traiter la demande.<br/><br/>Le service est actuellement occupé. Relancez la requête ultérieurement. |
+|49919|16|Processus ne peut pas créer ou mettre à jour de la demande. Opérations de mise à jour ou de création en cours pour l’abonnement « % ld  » trop nombreuses.<br/><br/>Le service est occupé à traiter plusieurs demandes de création et de mise à jour pour votre abonnement ou le serveur. Les requêtes sont actuellement bloquées pour l’optimisation des ressources. Requête [sys.dm\_operation\_stats](https://msdn.microsoft.com/library/dn270022.aspx) pour les opérations en attente. Patientez jusqu’à ce que les demandes de création ou de mise à jour soient terminées ou supprimez l’une de vos requêtes en cours et réessayez votre requête ultérieurement. |
+|49920|16|Impossible de traiter la requête. Opérations en cours pour l’abonnement « % ld  » trop nombreuses.<br/><br/>Le service est occupé à traiter plusieurs demandes pour cet abonnement. Les requêtes sont actuellement bloquées pour l’optimisation des ressources. Requête [sys.dm\_operation\_stats](https://msdn.microsoft.com/library/dn270022.aspx) pour les stats d’opération. Patientez jusqu’à ce que les requêtes soient terminées ou supprimez l’une de vos requêtes en cours et réessayez votre requête ultérieurement. |
 
-
-**Remarque :** les erreurs de fédération 10053 et 10054 peuvent également être incluses dans votre logique de nouvelle tentative.
+**Remarque :** les erreurs de fédération 10053 et 10054 peuvent également être incluses dans la logique de votre nouvelle tentative.
 
 
 ## Erreurs de copie de base de données
@@ -100,7 +102,7 @@ Le tableau suivant décrit les erreurs causées par une utilisation excessive de
 - Votre programme consomme peut-être trop d’espace `TempDb`.
 
 
-**Conseil :** Le lien suivant fournit des informations supplémentaires qui s'appliquent à la plupart voire toutes les erreurs de cette section :
+**Conseil :** Le lien suivant fournit des informations supplémentaires qui s’appliquent à la plupart voire toutes les erreurs de cette section :
 
 
 - [Limites de ressources de base de données SQL Azure](http://msdn.microsoft.com/library/azure/dn338081.aspx).
@@ -111,8 +113,8 @@ Le tableau suivant décrit les erreurs causées par une utilisation excessive de
 |40544|20|La base de données a atteint son quota de taille. Partitionnez ou supprimez des données, supprimez des index ou consultez la documentation pour connaître les résolutions possibles.|
 |40549|16|La session est arrêtée, car l’une des transactions est de longue durée. Essayez de la raccourcir.|
 |40550|16|La session a été arrêtée, car elle a acquis trop de verrous. Essayez de lire ou de modifier moins de lignes dans une transaction unique.|
-|40551|16|La session a été arrêtée en raison de l’utilisation excessive de `TEMPDB`. Essayez de modifier votre requête pour réduire l’espace utilisé par la table temporaire.<br/><br/>*Conseil :* Si vous utilisez des objets temporaires, conservez l'espace dans la base de données `TEMPDB` en supprimant des objets temporaires une fois qu'ils ne sont plus nécessaires à la session.|
-|40552|16|La session a été arrêtée en raison de l’utilisation excessive de l’espace réservé au journal des transactions. Essayez de modifier moins de lignes dans une transaction unique.<br/><br/>*Conseil :* Si vous effectuez des insertions en bloc à l'aide de l’utilitaire `bcp.exe` ou de la classe `System.Data.SqlClient.SqlBulkCopy`, essayez d'utiliser les options `-b batchsize` ou `BatchSize` permettant de limiter le nombre de lignes copiées sur le serveur à chaque transaction. Si vous reconstruisez un index avec l’instruction `ALTER INDEX`, essayez d'utiliser l’option `REBUILD WITH ONLINE = ON`.|
+|40551|16|La session a été arrêtée en raison de l’utilisation excessive de `TEMPDB`. Essayez de modifier votre requête pour réduire l’espace utilisé par la table temporaire.<br/><br/>*Conseil :* Si vous utilisez des objets temporaires, conservez de l’espace dans la base de données `TEMPDB` en supprimant des objets temporaires une fois qu’ils ne sont plus nécessaires à la session.|
+|40552|16|La session a été arrêtée en raison de l’utilisation excessive de l’espace réservé au journal des transactions. Essayez de modifier moins de lignes dans une transaction unique.<br/><br/>*Conseil :* Si vous effectuez des insertions en bloc à l’aide de l’utilitaire `bcp.exe` ou de la classe `System.Data.SqlClient.SqlBulkCopy`, essayez d’utiliser les options `-b batchsize` ou `BatchSize` permettant de limiter le nombre de lignes copiées sur le serveur à chaque transaction. Si vous reconstruisez un index en utilisant l’instruction `ALTER INDEX`, essayez d’utiliser l’option `REBUILD WITH ONLINE = ON`.|
 |40553|16|La session a été arrêtée en raison d’une utilisation excessive de la mémoire. Essayez de modifier votre requête pour traiter moins de lignes.<br/><br/>*Conseil :* La diminution du nombre d’opérations `ORDER BY` et `GROUP BY` dans votre code Transact-SQL réduit les besoins en mémoire de votre requête.|
 
 
@@ -132,30 +134,30 @@ Le tableau suivant décrit les erreurs que vous pouvez rencontrer lorsque vous t
 > 
 > La fonctionnalité de mise à l’échelle élastique est conçue pour créer des applications de partitionnement avec un minimum d'effort.
 > 
-> Pour plus d'informations sur la mise à l’échelle élastique, voir [Rubriques de mise à l'échelle élastique d’une base de données Azure SQL](sql-database-elastic-scale-documentation-map.md). Considérez le déploiement de solutions de partitionnement personnalisées pour optimiser les performances, la flexibilité et l'évolutivité. Pour plus d'informations sur le partitionnement personnalisé, voir [Montée en charge d’une base de données Azure SQL](http://msdn.microsoft.com/library/azure/dn495641.aspx).
+> Pour plus d’informations sur la mise à l’échelle élastique, voir [Rubriques de mise à l’échelle élastique d’une base de données Azure SQL](sql-database-elastic-scale-documentation-map.md). Considérez le déploiement de solutions de partitionnement personnalisées pour optimiser les performances, la flexibilité et l'évolutivité. Pour plus d’informations sur le partitionnement personnalisé, consultez [Montée en puissance parallèle de bases de données SQL Azure](http://msdn.microsoft.com/library/azure/dn495641.aspx).
 
 
 |Numéro d'erreur|Niveau de gravité|Description|Atténuation|
 |---:|---:|:---|:---|
-|266|16|Instruction <statement> non autorisée dans une transaction à instructions multiples|Vérifiez que `@@trancount` est égal à 0 lors de la connexion avant d'émettre l'instruction.|
-|2072|16|La base de données ’%.&#x2a;ls’ n'existe pas|Consultez `sys.databases` pour connaître l'état de la base de données avant d'émettre `USE FEDERATION`.|
+|266|16|Instruction <statement> non autorisée dans une transaction à instructions multiples|Vérifiez que `@@trancount` est égal à 0 lors de la connexion avant d’émettre l’instruction.|
+|2072|16|La base de données ’%.&#x2a;ls’ n'existe pas|Consultez `sys.databases` pour connaître l’état de la base de données avant d’émettre `USE FEDERATION`.|
 |2209|16|Erreur de syntaxe %s près de ‘%ls’|`FEDERATED ON` peut uniquement servir à la création de tables dans les membres de la fédération.|
 |2714|16|Il existe déjà un objet nommé ’%.&#x2a;ls’ dans la base de données|Ce nom de fédération existe déjà.|
 |10054, 10053|20|Une erreur de niveau du transport s'est produite lors de la réception des résultats à partir du serveur. Une connexion établie a été abandonnée par le logiciel sur votre ordinateur hôte|Mettez en place la logique de nouvelle tentative dans votre application.|
 |40530|15|<statement> doit être la seule instruction du lot|Vérifiez qu'aucune autre instruction ne figure dans le lot|
-|40604|16|Opération `CREATE DATABASE` impossible car elle dépasse le quota du serveur|Augmentez le quota du nombre de bases de données serveur|
-|45000|16|L’opération <statement> a échoué. Le nom de fédération spécifié <federation_name> n'est pas valide|Federation\_name ne respecte pas les règles de nom de fédération ou n'est pas un identificateur valide|
+|40604|16|Opération `CREATE DATABASE` impossible, car elle dépasse le quota du serveur|Augmentez le quota du nombre de bases de données serveur|
+|45000|16|L’opération <statement> a échoué. Le nom de fédération spécifié <federation_name> n’est pas valide|Federation\_name ne respecte pas les règles de nom de fédération ou n'est pas un identificateur valide|
 |45001|16|L’opération <statement> a échoué. Le nom de fédération spécifié n’existe pas|Le nom de fédération n’existe pas|
-|45002|16|L’opération <statement> a échoué. Le nom de la clé de fédération spécifié <distribution_name> n'est pas valide|Clé de fédération inexistante ou non valide|
-|45004|16|L’opération <statement> a échoué. La valeur spécifiée n'est pas valide pour la clé de fédération <distribution_name> et la fédération <federation_name>|`USE FEDERATION` : Utilisez une valeur limite figurant dans le domaine du type de données de la clé de fédération, ou qui n'est pas NULL.<br/><br/>`ALTER FEDERATION SPLIT` : Utilisez une valeur valide dans le domaine de la clé de fédération qui n'est pas déjà un point de fractionnement existant.<br/><br/>`ALTER FEDERATION DROP` : Utilisez une valeur valide dans le domaine de la clé de fédération qui est déjà un point de fractionnement.|
-|45005|16|L’opération <statement> ne peut pas être exécutée si une autre opération de fédération est en cours sur la fédération <federation_name> avec l'Id de membre <member_id>|Attendez la fin de l'opération exécutée en parallèle.|
+|45002|16|L’opération <statement> a échoué. Le nom de la clé de fédération spécifié <distribution_name> n’est pas valide|Clé de fédération inexistante ou non valide|
+|45004|16|L’opération <statement> a échoué. La valeur spécifiée n’est pas valide pour la clé de fédération <distribution_name> et la fédération <federation_name>|`USE FEDERATION` : utilisez une valeur limite figurant dans le domaine du type de données de la clé de fédération, ou qui n’est pas NULL.<br/><br/>`ALTER FEDERATION SPLIT` : utilisez une valeur valide dans le domaine de la clé de fédération qui n’est pas déjà un point de fractionnement existant.<br/><br/>`ALTER FEDERATION DROP` : utilisez une valeur valide dans le domaine de la clé de fédération qui est déjà un point de fractionnement.|
+|45005|16|L’opération <statement> ne peut pas être exécutée si une autre opération de fédération est en cours sur la fédération <federation_name> avec l’id de membre <member_id>|Attendez la fin de l'opération exécutée en parallèle.|
 |45006|16|Les opérations <statement> ont échoué. Les relations de clé étrangère dans les tables de référence désignant des tables fédérées ne sont pas autorisées dans les membres de la fédération|Non pris en charge.|
 |45007|16|L’opération <statement> a échoué. Les relations de clé étrangère entre des tables fédérées doivent inclure les colonnes de clé de fédération.|Non pris en charge|
 |45008|16|L’opération <statement> a échoué. Le type de données de clé de fédération ne correspond pas au type de données de la colonne|Non pris en charge.|
 |45009|16|L’opération <statement> a échoué. L'opération n'est pas prise en charge sur le filtrage des connexions|Non pris en charge.|
 |45010|16|L’opération <statement> a échoué. La clé de fédération ne peut pas être mise à jour|Non pris en charge.|
 |45011|16|L’opération <statement> a échoué. Le schéma de la clé de fédération ne peut pas être mis à jour|Non pris en charge.|
-|45012|16|La valeur spécifiée pour la clé de fédération n'est pas valide|La valeur doit figurer dans la plage utilisée par la connexion.<br/><br/>Si filtrée, il s’agit de la valeur de la clé de fédération spécifiée.<br/><br/>Si non filtrée, il s’agit de la plage couverte par le membre de la fédération.|
+|45012|16|La valeur spécifiée pour la clé de fédération n'est pas valide|La valeur doit figurer dans la plage utilisée par la connexion.<br/><br/>Si elle est filtrée, il s’agit de la valeur de la clé de fédération spécifiée.<br/><br/>Si elle est non filtrée, il s’agit de la plage couverte par le membre de la fédération.|
 |45013|16|Le SID existe déjà sous un autre nom d'utilisateur|Le SID d'un utilisateur dans un membre de la fédération est copié à partir du SID du même compte utilisateur dans la racine de fédération. Dans certaines conditions, le SID peut déjà être en cours d'utilisation.|
 |45014|16|%ls n’est pas pris en charge sur %ls|Opération non prise en charge.|
 |45022|16|L’opération <statement> a échoué. La valeur limite spécifiée existe déjà pour la clé de la fédération <distribution_name> et la fédération <federation_name>|Spécifiez une valeur qui est déjà une valeur limite.|
@@ -170,7 +172,7 @@ Le tableau suivant répertorie toutes les erreurs générales qui n'appartiennen
 
 |Numéro d'erreur|Niveau de gravité|Description|
 |---:|---:|:---|
-|15006|16|<AdministratorLogin> n'est pas un nom valide car il contient des caractères non valides.|
+|15006|16|<AdministratorLogin> n’est pas un nom valide car il contient des caractères non valides.|
 |18452|14|La connexion a échoué. La connexion provient d'un domaine non approuvé et ne peut pas être utilisée avec l’authentification Windows.%.&#x2a;ls (Les connexions Windows ne sont pas prises en charge dans cette version de SQL Server.)|
 |18456|14|Échec de la connexion pour l'utilisateur ’%.&#x2a;ls’.%.&#x2a;ls%.&#x2a;ls(Échec de la connexion pour l’utilisateur "%.&#x2a;ls". La modification du mot de passe a échoué. La modification du mot de passe lors de la connexion n'est pas prise en charge dans cette version de SQL Server.)|
 |18470|14|Échec de la connexion pour l'utilisateur '%.&#x2a;ls'. Raison : le compte est désactivé.%.&#x2a;ls|
@@ -215,8 +217,8 @@ Le tableau suivant répertorie toutes les erreurs générales qui n'appartiennen
 |40631|16|Le mot de passe que vous avez spécifié est trop long. Le mot de passe doit avoir au maximum 128 caractères.|
 |40632|16|Échec de la validation de mot de passe. Le mot de passe ne respecte pas les exigences de la stratégie car il n'est pas assez complexe.|
 |40636|16|Impossible d'utiliser un nom de base de données réservé '%.&#x2a;ls' dans cette opération.|
-|40638|16|ID d'abonnement <subscription-id> non valide. L'abonnement n'existe pas.|
-|40639|16|La demande n'est pas conforme au schéma :<schema error>.|
+|40638|16|ID d’abonnement <subscription-id> non valide. L'abonnement n'existe pas.|
+|40639|16|La demande n’est pas conforme au schéma : <schema error>.|
 |40640|20|Le serveur a rencontré une exception inattendue.|
 |40641|16|L'emplacement spécifié n'est pas valide.|
 |40642|17|Le serveur est actuellement trop occupé. Veuillez réessayer plus tard.|
@@ -227,9 +229,9 @@ Le tableau suivant répertorie toutes les erreurs générales qui n'appartiennen
 |40647|16|L'abonnement <subscription-id ne contient pas de nom de serveur.|
 |40648|17|Trop de demandes ont été effectuées. Veuillez réessayer ultérieurement.|
 |40649|16|Un type de contenu non valide est spécifié. Seul application/xml est pris en charge.|
-|40650|16|L'abonnement <subscription-id> n'existe pas ou n'est pas prêt pour l'opération.|
-|40651|16|Impossible de créer le serveur car l'abonnement <subscription-id> est désactivé.|
-|40652|16|Impossible de déplacer ou de créer le serveur. L'abonnement <subscription-id> dépassera le quota du serveur.|
+|40650|16|L’abonnement <subscription-id> n’existe pas ou n’est pas prêt pour l’opération.|
+|40651|16|Impossible de créer le serveur car l’abonnement <subscription-id> est désactivé.|
+|40652|16|Impossible de déplacer ou de créer le serveur. L’abonnement <subscription-id> va dépasser le quota du serveur.|
 |40671|17|Échec de la communication entre la passerelle et le service de gestion. Veuillez réessayer ultérieurement.|
 |45168|16|Le système Azure SQL est en cours de chargement et place une limite supérieure sur les opérations DB CRUD simultanées pour un serveur unique (par exemple, créer la base de données). Le serveur spécifié dans le message d'erreur a dépassé le nombre maximal de connexions simultanées. Réessayez ultérieurement.|
 |45169|16|Le système Azure SQL est en cours de chargement et place une limite supérieure sur les opérations CRUD simultanées pour un abonnement unique (par exemple, créer le serveur). L'abonnement spécifié dans le message d'erreur a dépassé le nombre maximal de connexions simultanées, et la demande a été rejetée. Réessayez ultérieurement.|
@@ -240,4 +242,4 @@ Le tableau suivant répertorie toutes les erreurs générales qui n'appartiennen
 - [Consignes et limitations générales de base de données Azure SQL](http://msdn.microsoft.com/library/azure/ee336245.aspx)
 - [Gestion des ressources](http://msdn.microsoft.com/library/azure/dn338083.aspx)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

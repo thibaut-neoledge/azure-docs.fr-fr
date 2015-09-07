@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Configuration d’un environnement de cloud hybride pour le test" 
-	description="Apprenez à créer un environnement de cloud hybride pour les professionnels de l'informatique ou le test des développements." 
-	services="virtual-network" 
-	documentationCenter="" 
-	authors="JoeDavies-MSFT" 
-	manager="timlt" 
+	pageTitle="Environnement de test de cloud hybride | Microsoft Azure"
+	description="Apprenez à créer un environnement de cloud hybride complet avec un réseau local simplifié pour les professionnels de l'informatique ou le test des développements."
+	services="virtual-network"
+	documentationCenter=""
+	authors="JoeDavies-MSFT"
+	manager="timlt"
 	editor=""
 	tags="azure-service-management"/>
 
 <tags 
-	ms.service="virtual-network" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/08/2015" 
+	ms.service="virtual-network"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/08/2015"
 	ms.author="josephd"/>
 
 # Configuration d’un environnement de cloud hybride pour le test
@@ -239,7 +239,7 @@ Ensuite, connectez-vous à la machine virtuelle DC2.
 3.	Lorsque vous êtes invité à ouvrir DC2.rdp, cliquez sur **Ouvrir**.
 4.	Lorsque le message Connexion Bureau à distance s’affiche, cliquez sur **Connecter**.
 5.	À l'invite vous demandant des informations d'identification, utilisez ce qui suit :
-	- Nom : **DC2\**[Nom de compte d’administrateur local]
+	- Nom : **DC2**[Nom de compte d’administrateur local]
 	- Mot de passe : [Mot de passe de compte d’administrateur local]
 6.	Lorsqu’une zone de message de connexion Bureau à distance faisant référence aux certificats s’ouvre, cliquez sur **Oui**.
 
@@ -326,4 +326,4 @@ Ensuite, connectez-vous à RRAS1 en tant qu'administrateur local et exécutez le
 Ensuite, accédez au portail de gestion Azure sur votre ordinateur local et attendez que le réseau virtuel TestVNET affiche un état connecté.
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

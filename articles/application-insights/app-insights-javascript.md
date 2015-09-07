@@ -1,12 +1,12 @@
-<properties 
-	pageTitle="Application Insights pour les applications Web JavaScript"
+<properties
+	pageTitle="Application Insights pour les applications Web JavaScript | Microsoft Azure"
 	description="Obtention des décomptes de sessions et d’affichages de pages, des données de client web et suivi des modèles d’utilisation. Détection des problèmes de performances et des exceptions dans les pages Web JavaScript."
 	services="application-insights"
 	documentationCenter=""
 	authors="alancameronwills"
 	manager="douge"/>
 
-<tags 
+<tags
 	ms.service="application-insights"
 	ms.workload="tbd"
 	ms.tgt_pltfrm="ibiza"
@@ -14,7 +14,7 @@
 	ms.topic="get-started-article"
 	ms.date="07/10/2015"
 	ms.author="awills"/>
- 
+
 # Application Insights pour les applications Web JavaScript
 
 [AZURE.INCLUDE [app-insights-selector-get-started](../../includes/app-insights-selector-get-started.md)]
@@ -55,12 +55,12 @@ Le script contient la clé d’instrumentation qui dirige les données vers votr
 
 *(Si vous utilisez une infrastructure de page web connue, cherchez des adaptateurs Application Insights. Par exemple, il existe [un module AngularJS](http://ngmodules.org/modules/angular-appinsights).)*
 
- 
+
 ## <a name="run"></a>Exécution de votre application
 
-Exécutez votre application web, utilisez-la un certain temps pour générer de la télémétrie et attendez quelques secondes. Vous pouvez l’exécuter en appuyant sur F5 sur votre machine de développement, ou la publier et laisser les utilisateurs s’en servir.
+Exécutez votre application web, utilisez-la un certain temps pour générer de la télémétrie et attendez quelques secondes. Vous pouvez l’exécuter en appuyant sur la touche **F5** sur votre machine de développement, ou la publier et laisser les utilisateurs s’en servir.
 
-Si vous souhaitez vérifier la télémétrie qu’une application web envoie à Application Insights, utilisez les outils de débogage de votre navigateur (F12 sur de nombreux navigateurs). Les données sont envoyées à dc.services.visualstudio.com.
+Si vous souhaitez vérifier la télémétrie qu’une application web envoie à Application Insights, utilisez les outils de débogage de votre navigateur (**F12** sur de nombreux navigateurs). Les données sont envoyées à dc.services.visualstudio.com.
 
 ## Exploration de vos données
 
@@ -96,7 +96,7 @@ Si vous souhaitez voir les performances des pages au fil du temps, double-clique
 
 ## Vue d’ensemble de l’utilisation du client
 
-Dans le panneau Vue d’ensemble, cliquez sur Utilisation :
+Dans le panneau Vue d’ensemble, cliquez sur **Utilisation** :
 
 ![](./media/app-insights-javascript/14-usage.png)
 
@@ -133,7 +133,7 @@ Le nom d'une page peut contenir les mêmes caractères qu'une URL, mais tout ce 
 
 ## Inspection des événements d’affichage de page individuels
 
-La télémétrie de l'affichage de page est généralement analysée par Application Insights, et vous ne consultez que des rapports cumulés, avec une moyenne entre tous les utilisateurs. Toutefois, à des fins de débogage, vous pouvez également consulter des événements d'affichage de page individuels.
+La télémétrie de l'affichage de page est généralement analysée par Application Insights, et vous ne consultez que des rapports cumulés, avec une moyenne entre tous les utilisateurs. Toutefois, à des fins de débogage, vous pouvez également consulter des événements d'affichage de page individuels.
 
 Dans le volet Recherche de diagnostic, définissez Filtres sur Affichage de page.
 
@@ -147,7 +147,7 @@ Sélectionnez n'importe quel événement pour afficher plus de détails. Dans la
 
 ### Propriétés d'affichage de la page
 
-* **Durée d’affichage de la page** Le temps nécessaire pour charger la page et lancer l’exécution des scripts. Plus précisément, l'intervalle entre le début du chargement de la page et l'exécution de l’élément trackPageView. Si vous avez déplacé trackPageView de sa position habituelle après l'initialisation du script, il affiche une autre valeur. 
+* **Durée d’affichage de la page** : le temps nécessaire pour charger la page et lancer l’exécution des scripts. Plus précisément, l'intervalle entre le début du chargement de la page et l'exécution de l’élément trackPageView. Si vous avez déplacé trackPageView de sa position habituelle après l'initialisation du script, il affiche une autre valeur.
 
 ## Suivi personnalisé de l’utilisation
 
@@ -184,6 +184,4 @@ Si vous n’avez pas effectué cette opération, vous pouvez obtenir des informa
 [qna]: app-insights-troubleshoot-faq.md
 [track]: app-insights-api-custom-events-metrics.md
 
- 
-
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

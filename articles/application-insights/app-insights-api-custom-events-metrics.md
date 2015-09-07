@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="08/18/2015"
+	ms.date="08/26/2015"
 	ms.author="awills"/>
 
 # API Application Insights pour les événements et les mesures personnalisés 
@@ -411,6 +411,36 @@ N’oubliez pas que les Kits de développement logiciel (SDK) de serveur incluen
 
 Pour désactiver le module de suivi des dépendances standard, modifiez le fichier [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md) et supprimez la référence à `DependencyCollector.DependencyTrackingTelemetryModule`.
 
+
+## Utilisateurs authentifiés
+
+Dans une application Web, les utilisateurs sont identifiés par des cookies par défaut. Un utilisateur peut être compté plusieurs fois s’il accède à votre application à partir d’un autre ordinateur ou navigateur, ou s’il supprime des cookies.
+
+Mais si les utilisateurs se connectent à votre application, vous pouvez obtenir un nombre plus précis en définissant l’ID de l’utilisateur authentifié dans le code du navigateur :
+
+*JavaScript*
+
+```JS
+    // Called when my app has identified the user.
+    function Authenticated(signInId) {
+      var validatedId = signInId.replace(/[,;=| ]+/g, "_");
+      appInsights.setAuthenticatedUserContext(validatedId);
+      ...
+    }
+```
+
+Il n’est pas nécessaire d’utiliser le nom de connexion réel de l’utilisateur. Il doit uniquement s’agir d’un ID unique pour cet utilisateur. Il ne doit pas inclure d’espaces ou un des caractères `,;=|`.
+
+L’ID d’utilisateur est également défini dans un cookie de session et envoyé au serveur. Si le Kit de développement logiciel (SDK) de serveur est installé, l’ID d’utilisateur authentifié est envoyé dans le cadre des propriétés de contexte de télémétrie client et serveur, afin que vous puissiez filtrer et rechercher sur celui-ci.
+
+Si votre application regroupe les utilisateurs par comptes, vous pouvez également fournir un identificateur pour ce compte (avec les mêmes restrictions de caractères).
+
+
+      appInsights.setAuthenticatedUserContext(validatedId, accountId);
+
+Dans [Metrics Explorer](app-insights-metrics-explorer.md), vous pouvez créer un graphique des **Utilisateurs authentifiés** et des **Comptes**.
+
+
 ## <a name="defaults"></a>Définir les paramètres par défaut de la télémétrie personnalisée sélectionnée
 
 Si vous souhaitez simplement définir des valeurs de propriété par défaut pour certains des événements personnalisés que vous écrivez, vous pouvez les définir dans un TelemetryClient. Ils sont associés à chaque élément de télémétrie envoyée à partir de ce client.
@@ -443,10 +473,12 @@ Si vous souhaitez simplement définir des valeurs de propriété par défaut pou
     context.getProperties().put("Game", currentGame.Name);
     
     gameTelemetry.TrackEvent("WinGame");
+
+
     
 Les appels de télémétrie individuels peuvent remplacer les valeurs par défaut dans leurs dictionnaires de propriété.
 
-
+**Pour les clients web JavaScript**, [utilisez des initialiseurs de télémétrie JavaScript](#js-initializer).
 
 
 ## <a name="ikey"></a> Définir la clé d'instrumentation pour la télémétrie personnalisée sélectionnée
@@ -540,7 +572,10 @@ Vous pouvez *également* instancier l'initialiseur dans le code :
     TelemetryConfiguration.getActive().getContextInitializers().add(new MyContextInitializer());
 ```
 
-Le client Web JavaScript ne propose actuellement aucune méthode de définition des propriétés par défaut.
+
+### Client Web JavaScript
+
+Pour les clients Web JavaScript, [utilisez des initialiseurs de télémétrie JavaScript](#js-initializer).
 
 ## Initialiseurs de télémétrie
 
@@ -617,6 +652,55 @@ Vous pouvez *également* instancier l'initialiseur dans le code, par exemple dan
 
 
 [Voir l’intégralité de cet exemple.](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/AzureEmailService/MvcWebRole)
+
+<a name="js-initializer"></a>
+### Initialiseurs de télémétrie JavaScript
+
+*JavaScript*
+
+Insérer un initialiseur de télémétrie immédiatement après le code d’initialisation obtenu à partir du portail :
+
+```JS
+
+    <script type="text/javascript">
+        // ... initialization code
+        ...({
+            instrumentationKey: "your instrumentation key"
+        });
+        window.appInsights = appInsights;
+
+
+        // Adding telemetry initializer.
+        // This is called whenever a new telemetry item
+        // is created.
+
+        appInsights.queue.push(function () {
+            appInsights.context.addTelemetryInitializer(function (envelope) {
+                var telemetryItem = envelope.data.baseData;
+
+                // To check the telemetry item’s type - for example PageView:
+                if (envelope.name == Microsoft.ApplicationInsights.Telemetry.PageView.envelopeType) {
+                    // this statement removes url from all page view documents
+                    telemetryItem.url = "URL CENSORED";
+                }
+
+                // To set custom properties:
+                telemetryItem.properties = telemetryItem.properties || {};
+                telemetryItem.properties["globalProperty"] = "boo";
+
+                // To set custom metrics:
+                telemetryItem.measurements = telemetryItem.measurements || {};
+                telemetryItem.measurements["globalMetric"] = 100;
+            });
+        });
+
+        // End of inserted code.
+
+        appInsights.trackPageView();
+    </script>
+```
+
+Pour obtenir un résumé des propriétés non personnalisées disponibles sur le telemetryItem, consultez le [modèle de données](app-insights-export-data-model.md/#lttelemetrytypegt).
 
 ## <a name="dynamic-ikey"></a>Clé d'instrumentation dynamique
 
@@ -704,7 +788,7 @@ Si vous définissez une de ces valeurs vous-même, supprimez la ligne approprié
  * **SyntheticSource** : si elle est non nulle ou vide, cette chaîne indique que la source de la requête a été identifiée en tant que robot ou test web. Par défaut, celle-ci sera exclue des calculs dans Metrics Explorer.
 * **Propriétés** : ce sont les propriétés qui sont envoyées avec toutes les données de télémétrie. Elles peuvent être remplacées dans les appels Track* individuels.
 * **Session** : identifie la session de l’utilisateur. L'ID est définie sur une valeur générée qui est modifiée lorsque l'utilisateur n'a pas été actif pendant un certain temps.
-* **Utilisateur** : permet aux utilisateurs d'être comptés. Dans une application web, s'il existe un cookie, l'ID d'utilisateur est supprimé de celui-ci. S'il n'en existe pas, un nouveau est généré. Si vos utilisateurs doivent se connecter à votre application, vous pouvez définir l’ID depuis leur ID d’authentification, afin de fournir un nombre plus fiable qui est juste même si l'utilisateur se connecte à partir d'une autre machine. 
+* **Utilisateur** Informations utilisateur 
 
 
 
@@ -781,4 +865,4 @@ Il existe certaines limites au nombre de mesures et d’événements par applica
 
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

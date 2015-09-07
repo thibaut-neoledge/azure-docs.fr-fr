@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Présentation d’Azure SQL Database et de SQL Server dans les machines virtuelles Azure" 
-	description="Présentation d'Azure SQL Database et de SQL Server dans les machines virtuelles Azure. Passez en revue les motivations métier courantes permettant de déterminer la technologie SQL qui convient le mieux à votre application." 
-	services="sql-database, virtual-machines" 
-	documentationCenter="" 
-	authors="Selcin" 
-	manager="jeffreyg" 
+	pageTitle="Présentation d’Azure SQL Database et de SQL Server dans les machines virtuelles Azure"
+	description="Présentation d'Azure SQL Database et de SQL Server dans les machines virtuelles Azure. Passez en revue les motivations métier courantes permettant de déterminer la technologie SQL qui convient le mieux à votre application."
+	services="sql-database, virtual-machines"
+	documentationCenter=""
+	authors="Selcin"
+	manager="jeffreyg"
 	editor="tysonn"/>
 
 <tags 
-	ms.service="sql-database" 
-	ms.workload="data-management" 
-	ms.tgt_pltfrm="vm-windows-sql-server" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/15/2015" 
+	ms.service="sql-database"
+	ms.workload="data-management"
+	ms.tgt_pltfrm="vm-windows-sql-server"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/26/2015"
 	ms.author="selcint"/>
 
 # Présentation d'Azure SQL Datatabase et de SQL Server dans les machines virtuelles Azure
@@ -60,7 +60,7 @@ Les sections suivantes offrent de plus amples informations sur ces deux derniers
 En général, ces deux options SQL sont optimisées à différentes fins :
 
 - **Azure SQL Database** est optimisé pour l’approvisionnement et la gestion de nombreuses bases de données à moindre coût. Il réduit les coûts d'administration en cours, car vous n'avez pas à gérer les machines virtuelles, le système d'exploitation ni le logiciel de base de données, notamment les mises à niveau, la haute disponibilité et les sauvegardes. En règle générale, SQL Database peut augmenter considérablement le nombre de bases de données gérées par une seule personne du service informatique ou du développement.
-- **SQL Server dans les machines virtuelles Azure** est optimisé pour étendre les applications SQL Server locales sur Azure dans un scénario hybride ou déployer une application existante sur Azure dans un scénario de migration ou de développement/test. Un scénario hybride, par exemple, consiste à conserver les réplicas de bases de données secondaires dans Azure via[ Azure Virtual Network](http://msdn.microsoft.com/library/azure/jj156007.aspx). Avec SQL Server dans les machines virtuelles Azure, vous disposez des droits d'administration complets sur une instance dédiée de SQL Server et sur une machine virtuelle dans le cloud. C'est le choix idéal lorsqu'une organisation possède déjà les ressources informatiques disponibles pour maintenir les machines virtuelles. Avec SQL Server sur une machine virtuelle, vous pouvez créer un système hautement personnalisé pour répondre aux demandes de performances spécifiques et aux exigences de disponibilité de votre application.
+- **SQL Server dans les machines virtuelles Azure** est optimisé pour étendre les applications SQL Server locales sur Azure dans un scénario hybride ou déployer une application existante sur Azure dans un scénario de migration ou de développement/test. Un scénario hybride, par exemple, consiste à conserver les réplicas de bases de données secondaires dans Azure via[ Azure Virtual Network](../virtual-network/virtual-networks-overview.md). Avec SQL Server dans les machines virtuelles Azure, vous disposez des droits d'administration complets sur une instance dédiée de SQL Server et sur une machine virtuelle dans le cloud. C'est le choix idéal lorsqu'une organisation possède déjà les ressources informatiques disponibles pour maintenir les machines virtuelles. Avec SQL Server sur une machine virtuelle, vous pouvez créer un système hautement personnalisé pour répondre aux demandes de performances spécifiques et aux exigences de disponibilité de votre application.
 
 Le tableau suivant résume les principales caractéristiques d’Azure SQL Database et de SQL Server dans les machines virtuelles Azure :
 
@@ -90,7 +90,7 @@ Le tableau suivant résume les principales caractéristiques d’Azure SQL Datab
       <li type=round>Applications SQL Server qui nécessitent l'accès aux ressources locales (par exemple, Active Directory) à partir d'Azure via un tunnel sécurisé. 
       <li type=round>Si vous avez besoin d'un environnement informatique personnalisé avec des droits d'administration complets.
       <li type=round>Scénarios de développement et de test rapides lorsque vous ne souhaitez pas acheter du matériel SQL Server local hors production.
-      <li type=round>Récupération d’urgence pour les applications SQL Server locales utilisant la <a href="http://msdn.microsoft.com/library/jj919148.aspx">sauvegarde sur Azure Storage</a> ou les <a href="http://msdn.microsoft.com/library/azure/jj870962.aspx">réplicas AlwaysOn dans les machines virtuelles Azure</a>.
+      <li type=round>Récupération d’urgence pour les applications SQL Server locales utilisant la <a href="http://msdn.microsoft.com/library/jj919148.aspx">sauvegarde sur Azure Storage</a> ou les <a href="https://azure.microsoft.com/documentation/articles/virtual-machines-sql-server-high-availability-and-disaster-recovery-solutions">réplicas AlwaysOn dans les machines virtuelles Azure</a>.
       <li type=round>Bases de données volumineuses de plus de 1&#160;To.
       </ul></td>
    
@@ -114,15 +114,15 @@ Le tableau suivant résume les principales caractéristiques d’Azure SQL Datab
 <tr>
    <td valign="middle"><p><b>Continuité des activités</b></p></td>
    <td valign="middle"><ul><li type=round>Outre les fonctionnalités intégrées d'infrastructure de tolérance de panne, Azure SQL Database fournit des fonctionnalités telles que la limite de restauration dans le temps, la géorestauration et la géoréplication afin d'améliorer la continuité de l'activité. Pour plus d’informations, consultez la rubrique <a href="http://msdn.microsoft.com/library/azure/hh852669.aspx">Continuité des activités de l'entreprise dans Azure SQL Database</a>.</ul></td>
-   <td valign="middle"><ul><li type=round>SQL&#160;Server dans les machines virtuelles Azure vous permet de configurer une solution haute disponibilité et de récupération d'urgence pour les besoins spécifiques de votre base de données. Vous pouvez donc disposer d'un système hautement optimisé pour votre application. Vous pouvez tester et exécuter des basculements par vous-même si nécessaire. Pour plus d’informations, consultez <a href="http://msdn.microsoft.com/library/azure/jj870962.aspx">Haute disponibilité et récupération d’urgence pour SQL Server sur des machines virtuelles Azure</a>.</ul></td>
+   <td valign="middle"><ul><li type=round>SQL&#160;Server dans les machines virtuelles Azure vous permet de configurer une solution haute disponibilité et de récupération d'urgence pour les besoins spécifiques de votre base de données. Vous pouvez donc disposer d'un système hautement optimisé pour votre application. Vous pouvez tester et exécuter des basculements par vous-même si nécessaire. Pour plus d’informations, consultez <a href="https://azure.microsoft.com/documentation/articles/virtual-machines-sql-server-high-availability-and-disaster-recovery-solutions">Haute disponibilité et récupération d’urgence pour SQL Server sur des machines virtuelles Azure</a>.</ul></td>
    
 </tr>
 <tr>
    <td valign="middle"><p><b>Cloud hybride</b></p></td>
    <td valign="middle"><ul><li type=round>Votre application locale peut accéder aux données d’Azure SQL Database.</ul></td>
    <td valign="middle"><ul>
-      <li type=round>Avec SQL&#160;Server dans les machines virtuelles Azure, vous pouvez disposer d'applications qui s'exécutent en partie dans le cloud et en partie localement. Par exemple, vous pouvez étendre le réseau local et le domaine Active Directory sur le cloud via <a href="http://msdn.microsoft.com/library/azure/gg433091.aspx">Azure Network Services</a>. En outre, vous pouvez stocker des fichiers de données locaux dans Azure Storage en utilisant les <a href="http://msdn.microsoft.com/library/dn385720.aspx">fichiers de données SQL Server dans la fonctionnalité Azure</a>. Pour plus d’informations, consultez la rubrique <a href="http://msdn.microsoft.com/library/dn606154.aspx">Introduction au cloud hybride SQL Server&#160;2014</a>.
-      <li type=round>Prise en charge de la récupération d’urgence pour les applications SQL Server locales utilisant la <a href="http://msdn.microsoft.com/library/jj919148.aspx">sauvegarde sur Azure Storage</a> ou les <a href="http://msdn.microsoft.com/library/azure/jj870962.aspx">réplicas AlwaysOn dans les machines virtuelles Azure</a>.
+      <li type=round>Avec SQL&#160;Server dans les machines virtuelles Azure, vous pouvez disposer d'applications qui s'exécutent en partie dans le cloud et en partie localement. Par exemple, vous pouvez étendre le réseau local et le domaine Active Directory sur le cloud via <a href="https://azure.microsoft.com/documentation/articles/virtual-networks-overview/">Azure Network Services</a>. En outre, vous pouvez stocker des fichiers de données locaux dans Azure Storage en utilisant les <a href="http://msdn.microsoft.com/library/dn385720.aspx">fichiers de données SQL Server dans la fonctionnalité Azure</a>. Pour plus d’informations, consultez la rubrique <a href="http://msdn.microsoft.com/library/dn606154.aspx">Introduction au cloud hybride SQL Server&#160;2014</a>.
+      <li type=round>Prise en charge de la récupération d’urgence pour les applications SQL Server locales utilisant la <a href="http://msdn.microsoft.com/library/jj919148.aspx">sauvegarde sur Azure Storage</a> ou les <a href="https://azure.microsoft.com/documentation/articles/virtual-machines-sql-server-high-availability-and-disaster-recovery-solutions">réplicas AlwaysOn dans les machines virtuelles Azure</a>.
       </ul></td>
    
 </tr>
@@ -173,7 +173,7 @@ Pour plus d'informations sur la tarification, consultez les ressources suivantes
 
 Si vous êtes déjà débordé, vous ne souhaitez sans doute pas vous charger en plus de l'administration du serveur et de la base de données. Pour de nombreuses entreprises, la décision d'adopter un service cloud repose sur la possibilité de se décharger des tâches d'administration complexes. Avec **Azure SQL Database**, Microsoft administre le matériel physique, comme les disques durs, les serveurs et le stockage, réplique automatiquement toutes les données pour assurer la haute disponibilité, configure et met à niveau le logiciel de base de données, gère l’équilibrage de charge et procède au basculement transparent en cas de défaillance du serveur. Vous pouvez continuer à administrer vos instances Azure SQL Database, mais sans contrôler les ressources physiques de l'instance SQL Server sous-jacente et de la plateforme Azure. Par exemple, vous pouvez administrer les bases de données et les connexions, paramétrer l'index et optimiser les requêtes, mais vous ne pouvez pas administrer les tables système et la gestion de groupe de fichiers. Pour plus d’informations, voir [Instructions et limitations d’Azure SQL Database](http://msdn.microsoft.com/library/ff394102.aspx).
 
-En revanche, vous pouvez avoir du savoir-faire en interne et le souhait de conserver le contrôle de l'emplacement de la base de données jusqu'à la machine. Avec **SQL Server s’exécutant dans des machines virtuelles Azure**, vous avez le contrôle intégral du système d’exploitation et de la configuration de l’instance SQL Server. Avec une machine virtuelle, c'est à vous de décider quand mettre à jour/à niveau le système d'exploitation et les logiciels de base de données et installer d'autres logiciels tels que les outils de sauvegarde et de protection antivirus. En outre, vous pouvez contrôler la taille de la machine virtuelle, le nombre de disques et leurs configurations de stockage. Par exemple, Azure vous permet de modifier la taille d'une machine virtuelle en cours d'exécution en fonction des besoins. Pour plus d’informations, voir [Tailles de machines virtuelles et de services cloud pour Azure](http://msdn.microsoft.com/library/azure/dn197896.aspx).
+En revanche, vous pouvez avoir du savoir-faire en interne et le souhait de conserver le contrôle de l'emplacement de la base de données jusqu'à la machine. Avec **SQL Server s’exécutant dans des machines virtuelles Azure**, vous avez le contrôle intégral du système d’exploitation et de la configuration de l’instance SQL Server. Avec une machine virtuelle, c'est à vous de décider quand mettre à jour/à niveau le système d'exploitation et les logiciels de base de données et installer d'autres logiciels tels que les outils de sauvegarde et de protection antivirus. En outre, vous pouvez contrôler la taille de la machine virtuelle, le nombre de disques et leurs configurations de stockage. Par exemple, Azure vous permet de modifier la taille d'une machine virtuelle en cours d'exécution en fonction des besoins. Pour plus d’informations, voir [Tailles de machines virtuelles et de services cloud pour Azure](https://azure.microsoft.com/documentation/articles/virtual-machines-size-specs).
 
 ###<a name="sla"></a>Contrat de niveau de service (SLA)
 
@@ -188,7 +188,7 @@ Pour les **machines virtuelles hébergées dans Azure**, Microsoft fournit un co
 
 **Azure SQL Database** est la solution idéale pour les applications conçues pour le cloud lorsque la productivité des développeurs et la rapidité de mise sur marché sont essentielles. Avec les fonctionnalités de programmation comme le DBA, il est parfait pour les architectes et les développeurs du cloud, car il tempère la nécessité de gérer le système d'exploitation et la base de données sous-jacents. Il permet aux développeurs de comprendre et de configurer les tâches liées à la base de données. Par exemple, vous pouvez utiliser l’[API REST](http://msdn.microsoft.com/library/azure/dn505719.aspx) et des [applets de commande PowerShell](http://msdn.microsoft.com/library/azure/dn546726.aspx) pour automatiser et gérer des opérations d’administration pour des milliers de bases de données. Avec la [mise à l’échelle élastique](sql-database-elastic-pool.md) dans le cloud, vous pouvez facilement vous concentrer sur la couche Application et mettre votre application sur le marché plus rapidement.
 
-**SQL Server s’exécutant sur les machines virtuelles Azure** est idéal si vos applications, existantes et nouvelles, accèdent à toutes les fonctionnalités d’une instance SQL Server et les contrôlent, et lorsque vous souhaitez migrer telles quelles des applications et des bases de données locales sur le cloud. Étant donné que vous n'avez pas besoin de modifier la présentation, l'application et les couches de données, vous économisez en temps et en budget sur le remaniement de votre solution existante. Vous pouvez ainsi vous concentrer sur la migration de tous les packages de votre solution vers les machines virtuelles et effectuer certaines optimisations de performances requises par la plateforme Azure. Pour plus d’informations, voir [Meilleures pratiques relatives aux performances de SQL Server sur les machines virtuelles Azure](http://msdn.microsoft.com/library/azure/dn133149.aspx).
+**SQL Server s’exécutant sur les machines virtuelles Azure** est idéal si vos applications, existantes et nouvelles, accèdent à toutes les fonctionnalités d’une instance SQL Server et les contrôlent, et lorsque vous souhaitez migrer telles quelles des applications et des bases de données locales sur le cloud. Étant donné que vous n'avez pas besoin de modifier la présentation, l'application et les couches de données, vous économisez en temps et en budget sur le remaniement de votre solution existante. Vous pouvez ainsi vous concentrer sur la migration de tous les packages de votre solution vers les machines virtuelles et effectuer certaines optimisations de performances requises par la plateforme Azure. Pour plus d’informations, voir [Meilleures pratiques relatives aux performances de SQL Server sur les machines virtuelles Azure](https://azure.microsoft.com/documentation/articles/virtual-machines-sql-server-performance-best-practices).
 
 ##<a name="summary"></a>Résumé
 
@@ -234,13 +234,13 @@ Merci à tous pour votre participation !
 </tr>
 <tr>
    <td valign="middle"><p><a href="http://msdn.microsoft.com/library/azure/ee336279.aspx">MSDN&#160;: Azure SQL Database</a></p>
-<p><a href="http://msdn.microsoft.com/library/azure/jj823132.aspx">MSDN&#160;: SQL Server dans des machines virtuelles Azure</a></p>
+<p><a href="https://azure.microsoft.com/documentation/articles/virtual-machines-sql-server-infrastructure-services/">Présentation de SQL Server dans des machines virtuelles Azure</a></p>
 
 <p><a href="http://azure.microsoft.com/services/sql-database/">Azure.com&#160;: Azure SQL Database</a></p></td>
    <td valign="middle">Liens vers la documentation de la bibliothèque.</td>   
 </tr>
 <tr>
-   <td valign="middle"><p><a href="http://msdn.microsoft.com/library/dn574746.aspx">Modèles d’application et stratégies de développement pour SQL Server dans les machines virtuelles Azure</p></td>
+   <td valign="middle"><p><a href="https://azure.microsoft.com/documentation/articles/virtual-machines-sql-server-application-patterns-and-development-strategies/">Modèles d’application et stratégies de développement pour SQL Server dans les machines virtuelles Azure</p></td>
    <td valign="middle">Cet article décrit les modèles d'application courants qui s'appliquent à SQL Server dans les machines virtuelles Azure et dans les scénarios hybrides incluant Azure SQL Database. </td>   
 </tr>
 <tr>
@@ -253,4 +253,4 @@ Merci à tous pour votre participation !
 [1]: ./media/data-management-azure-sql-database-and-sql-server-iaas/SQLIAAS_SQL_Server_Cloud_Continuum.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

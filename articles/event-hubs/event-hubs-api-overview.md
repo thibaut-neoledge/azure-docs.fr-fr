@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Présentation de l’API des concentrateurs d’événements"
-   description="Un résumé de certaines API clientes .NET des concentrateurs d'événement."
-   services="event-hubs"
-   documentationCenter="na"
-   authors="sethmanheim"
-   manager="timlt"
-   editor="" />
+	description="Un résumé de certaines API clientes .NET des concentrateurs d'événement."
+	services="event-hubs"
+	documentationCenter="na"
+	authors="sethmanheim"
+	manager="timlt"
+	editor=""/>
 <tags 
    ms.service="event-hubs"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="tbd"
-   ms.date="07/10/2015"
-   ms.author="sethm" />
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="tbd"
+	ms.date="07/10/2015"
+	ms.author="sethm"/>
 
 # Présentation de l'API des concentrateurs d’événements
 
@@ -186,6 +186,5 @@ Les informations de référence de l'API .NET se trouvent ici :
 
 - [Informations de référence des API .NET de Service Bus et des concentrateurs d'événements](https://msdn.microsoft.com/library/jj933424.aspx)
 - [Informations de référence des API hôtes du processeur d'événements](https://msdn.microsoft.com/library/microsoft.servicebus.messaging.eventprocessorhost.aspx)
-- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

@@ -1,18 +1,18 @@
 <properties 
-	pageTitle="Dépannage et questions : Application Insights" 
-	description="Un aspect de Visual Studio Application Insights vous semble abscons ou ne fonctionne pas correctement ? Essayez ici." 
-	services="application-insights" 
-    documentationCenter=".net"
-	authors="alancameronwills" 
+	pageTitle="Dépannage et questions : Application Insights"
+	description="Un aspect de Visual Studio Application Insights vous semble abscons ou ne fonctionne pas correctement ? Essayez ici."
+	services="application-insights"
+	documentationCenter=".net"
+	authors="alancameronwills"
 	manager="douge"/>
 
 <tags 
-	ms.service="application-insights" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/22/2015" 
+	ms.service="application-insights"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="ibiza"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/24/2015"
 	ms.author="awills"/>
  
 # Dépannage et questions : Application Insights pour ASP.NET
@@ -217,9 +217,9 @@ Voir [Rétention de données et confidentialité][data].
 <tr><td>Télémétrie des dépendances</td><td><a href="../app-insights-monitor-performance-live-website-now/">Installation d'AI Status Monitor sur le serveur</a></td><td>Diagnostiquer les problèmes relatifs à des bases de données ou à d'autres composants externes</td></tr>
 <tr><td>Obtention de l'arborescence des appels de procédure à partir des exceptions</td><td><a href="../app-insights-search-diagnostic-logs/#exceptions">Insertion d'appels&#160;TrackException dans votre code</a> (certains d'entre eux sont cependant signalés automatiquement)</td><td>Détecter et diagnostiquer les exceptions</td></tr>
 <tr><td>Recherche des données de suivi des journaux</td><td><a href="../app-insights-search-diagnostic-logs/">Ajout d'un enregistreur de données</a></td><td>Diagnostiquer les exceptions et problèmes de performances</td></tr>
-<tr><td>Principes fondamentaux d'utilisation des clients (vues de page, sessions, etc.)</td><td><a href="../app-insights-start-monitoring-app-health-usage/#webclient">Initialiseur&#160;JavaScript dans les pages&#160;web</a></td><td>Analyse de l'utilisation</td></tr>
-<tr><td>Mesures personnalisées des clients</td><td><a href="../app-insights-web-track-usage-custom-events-metrics/">Appels de suivi dans les pages&#160;web</a></td><td>Améliorer l'expérience utilisateur</td></tr>
-<tr><td>Mesures personnalisées des serveurs</td><td><a href="../app-insights-web-track-usage-custom-events-metrics/">Appels de suivi dans le code serveur</a></td><td>Décisionnel</td></tr>
+<tr><td>Principes fondamentaux d'utilisation des clients (vues de page, sessions, etc.)</td><td><a href="../app-insights-javascript/">Initialiseur&#160;JavaScript dans les pages&#160;web</a></td><td>Analyse de l'utilisation</td></tr>
+<tr><td>Mesures personnalisées des clients</td><td><a href="../app-insights-api-custom-events-metrics/">Appels de suivi dans les pages&#160;web</a></td><td>Améliorer l'expérience utilisateur</td></tr>
+<tr><td>Mesures personnalisées des serveurs</td><td><a href="../app-insights-api-custom-events-metrics/">Appels de suivi dans le code serveur</a></td><td>Décisionnel</td></tr>
 </table>
 
 Si votre service web est exécuté dans une machine virtuelle Azure, vous pouvez également [obtenir des diagnostics][azurediagnostic] ici.
@@ -239,4 +239,4 @@ Vous pouvez [écrire un script PowerShell](app-insights-powershell-script-create
 
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

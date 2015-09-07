@@ -59,7 +59,7 @@ Si elles ressemblent sur de nombreux points aux machines virtuelles Hyper-V de p
 
 ## Ces machines virtuelles peuvent-elles utiliser mon infrastructure réseau existante locale ?
 
-Pour les machines virtuelles créées dans la gestion des services, vous pouvez utiliser Azure Virtual Network pour étendre votre infrastructure existante. L’approche est comparable à l’installation d’une filiale. Vous pouvez configurer et gérer des réseaux privés virtuels (VPN) dans Azure et les lier à l’infrastructure informatique locale en toute sécurité. Pour plus d’informations, consultez la page [Présentation du réseau virtuel](https://msdn.microsoft.com/library/jj156007.aspx).
+Pour les machines virtuelles créées dans la gestion des services, vous pouvez utiliser Azure Virtual Network pour étendre votre infrastructure existante. L’approche est comparable à l’installation d’une filiale. Vous pouvez configurer et gérer des réseaux privés virtuels (VPN) dans Azure et les lier à l’infrastructure informatique locale en toute sécurité. Pour plus d'informations, consultez la page [Présentation du réseau virtuel](../virtual-network/virtual-networks-overview.md).
 
 Vous devrez indiquer le réseau auquel vous voulez que la machine virtuelle appartienne au moment de la création de celle-ci. Cela signifie que vous ne pouvez par exemple pas joindre une machine virtuelle existante à un réseau virtuel. Toutefois, vous pouvez contourner ce problème en détachant le disque dur virtuel (VHD) d’une machine virtuelle existante, puis l’utiliser pour créer une machine virtuelle avec la configuration réseau de votre choix.
 
@@ -148,4 +148,4 @@ Pour assurer la redondance, placez au moins deux machines virtuelles configurée
 
 [Les différentes façons de créer une machine virtuelle Windows](virtual-machines-windows-choices-create-vm.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

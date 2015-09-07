@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Environnements de test de cloud hybride Azure"
-	description="Accédez aux rubriques essentielles qui décrivent comment créer des environnements de test que vous pouvez utiliser à des fins de développement/test ou de validation technique pour votre cloud hybride Azure."
+	pageTitle="Environnement de test de cloud hybride dans Azure| Microsoft Azure"
+	description="Recherchez des articles décrivant comment concevoir des environnements professionnels de développement/de test ou de validation technique pour votre cloud hybride Azure."
 	documentationCenter=""
 	services="virtual-machines"
 	authors="JoeDavies-MSFT"
@@ -58,4 +58,4 @@ Pour les organisations et les personnes ne disposant pas d’une connexion direc
 
 [Instructions d’implémentation des services d’infrastructure Azure](virtual-machines-infrastructure-services-implementation-guidelines.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

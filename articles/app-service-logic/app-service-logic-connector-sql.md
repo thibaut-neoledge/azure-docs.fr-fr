@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Utilisation du connecteur SQL dans Microsoft Azure App Service"
-	description="Utilisation du connecteur SQL"
+   pageTitle="Utilisation du connecteur SQL dans des applications logiques | Microsoft Azure App Service"
+	description="Comment créer et configurer le connecteur SQL ou une application API et l'utiliser dans une application logique d’Azure App Service"
 	services="app-service\logic"
 	documentationCenter=".net,nodejs,java"
 	authors="anuragdalmia"
@@ -13,17 +13,18 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="integration"
-	ms.date="08/19/2015"
+	ms.date="08/23/2015"
 	ms.author="sameerch"/>
 
 
-# Connecteur SQL Microsoft
-
+# Prise en main du connecteur SQL de Microsoft et ajout de celui-ci à votre application logique
 Connectez-vous à une base de données SQL Server ou Azure SQL en local pour créer et modifier vos informations ou données. Les connecteurs peuvent être utilisés dans les applications logiques pour extraire, traiter ou placer des données dans le cadre d'un « flux ». En utilisant le connecteur SQL dans votre flux, vous pouvez effectuer une multitude d'opérations. Vous pouvez, par exemple :
 
 - Exposer une partie des données résidant dans votre base de données SQL via une interface utilisateur web ou mobile.
 - Insérer des données dans une table de stockage de votre base de données SQL. Par exemple, vous pouvez entrer des dossiers d'employés, mettre à jour des bons de commande, et ainsi de suite.
 - Extraire des données SQL et les exploiter dans un processus métier. Par exemple, vous pouvez obtenir les dossiers de clients et les placer dans SalesForce.
+
+Vous pouvez ajouter le connecteur SQL à votre flux de travail professionnel et traiter les données dans le cadre de ce flux de travail dans une application logique.
 
 ## Déclencheurs et actions
 Les *déclencheurs* sont des événements qui se produisent. Par exemple, lorsqu'une commande est mise à jour ou lorsqu'un nouveau client est ajouté. Une *action* est le résultat du déclencheur. Par exemple, lorsqu'une commande est mise à jour, envoyer une alerte au vendeur. Ou bien, lorsqu'un nouveau client est ajouté, lui envoyer un message de bienvenue.
@@ -41,7 +42,7 @@ Interrogation des données | <ul><li>Insérer dans la table</li><li>Mettre à jo
 Un connecteur peut être créé dans une application logique ou directement à partir d'Azure Marketplace. Pour créer un connecteur à partir de Marketplace :
 
 1. Dans le tableau d'accueil Azure, sélectionnez **Marketplace**.
-2. Recherchez « Connecteur SQL », sélectionnez-le et sélectionnez **Créer**.
+2. Recherchez « Connecteur SQL », sélectionnez-le et sélectionnez **Créer**.
 3. Entrez le nom, le plan App Service et d'autres propriétés.
 4. Entrez les paramètres de package suivants :
 
@@ -125,8 +126,8 @@ Vous pouvez tester l'application logique en ajoutant un nouvel enregistrement da
 
 Requête SQL | Pris en charge | Non pris en charge
 --- | --- | ---
-Clause Where | <ul><li>Opérateurs : AND, OR, =, <>, <, <=, >, >= et LIKE</li><li>Plusieurs sous-conditions peuvent être associées à l’aide de ‘(‘ et ‘)’</li><li>Littéraux de chaîne, Datetime (entre guillemets simples), nombres (ne doivent contenir que des caractères numériques)</li><li>Strictement au format d’expression binaire, comme ((opérande opérateur opérande) AND/OR (opérande opérateur opérande))**</li></ul> | <ul><li>Opérateurs : Between, IN</li><li>Toutes les fonctions intégrées comme ADD(), MAX() NOW(), POWER(), etc.</li><li>Opérateurs mathématiques comme *, -, +, etc.</li><li>Concaténations de chaînes utilisant +.</li><li>Toutes les jointures</li><li>IS NULL et IS NOT Null</li><li>Tous les nombres avec des caractères non numériques, comme les nombres hexadécimaux</li></ul> 
-Champs (dans une requête Select) | <ul><li>Noms de colonne valides séparés par une virgule. Aucun préfixe de nom de table n’est autorisé (le connecteur fonctionne sur une seule table à la fois).</li><li>Les noms peuvent être insérés entre crochets ‘[‘ et ‘\]’</li></ul> | <ul><li>Mots-clés comme TOP, DISTINCT, etc.</li><li>Alias comme Rue + Ville + Code postal AS Adresse</li><li>Toutes les fonctions intégrées comme ADD(), MAX() NOW(), POWER(), etc.</li><li>Opérateurs mathématiques comme *, -, +, etc.</li><li>Concaténations de chaînes utilisant +</li></ul>
+Clause Where | <ul><li>Opérateurs : ET, OU, =, <>, <, < =, >, > = et LIKE</li><li>Plusieurs sous-conditions peuvent être combinées par « ( » et « ) »</li><li>Littéraux de chaîne, Datetime (encadrée de guillemets simples), les nombres (ne doit contenir que des caractères numériques)</li><li>Doit être strictement dans un format d'expression binaire, comme ((operand operator operand) ET/OU (operand operator operand)) **</li></ul> | <ul><li>Opérateurs : entre, IN</li><li>Toutes les fonctions intégrées comme ADD(), MAX() NOW(), POWER() et ainsi de suite</li><li>Opérateurs mathématiques tels que *, -, +, et ainsi de suite</li><li>Concaténations de chaînes à l'aide de +.</li><li>Toutes les jointures</li><li>IS NULL et IS NOT Null</li><li>Des nombres avec des caractères non numériques, comme des nombres hexadécimaux</li></ul>
+Champs (dans une requête Select) | <ul><li>Noms de colonne valides séparés par des virgules. Aucun préfixe de nom de table n’est autorisé (le connecteur fonctionne sur une seule table à la fois).</li><li>Les noms peuvent être insérés entre crochets ‘[‘ et ‘]’</li></ul> | <ul><li>Mots-clés comme TOP, DISTINCT, etc.</li><li>Alias comme Rue + Ville + Code postal AS Adresse</li><li>Toutes les fonctions intégrées comme ADD(), MAX() NOW(), POWER(), etc.</li><li>Opérateurs mathématiques comme *, -, +, etc.</li><li>Concaténations de chaînes utilisant +</li></ul>
 
 #### Conseils
 
@@ -148,7 +149,7 @@ Maintenant que le connecteur est créé, vous pouvez l'ajouter à un flux d'entr
 
 Affichez la référence d’API REST Swagger sur [Référence de connecteurs et d’applications API](http://go.microsoft.com/fwlink/p/?LinkId=529766).
 
-Vous pouvez également consulter les statistiques de performances et contrôler la sécurité du connecteur. Pour plus d'informations, consultez [Gestion et contrôle de vos connecteurs et applications API intégrés](app-service-logic-monitor-your-connectors.md).
+Vous pouvez également consulter les statistiques de performances et contrôler la sécurité du connecteur. Consultez la page [Gestion et contrôle de vos connecteurs et applications API intégrés](app-service-logic-monitor-your-connectors.md).
 
 
 <!--Image references-->
@@ -162,4 +163,4 @@ Vous pouvez également consulter les statistiques de performances et contrôler 
 [11]: ./media/app-service-logic-connector-sql/LogicApp7.png
 [12]: ./media/app-service-logic-connector-sql/LogicApp8.png
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

@@ -46,7 +46,7 @@ Voici une liste d’articles relatifs au travail avec les machines virtuelles da
 
 [Instructions d’implémentation des services d’infrastructure Azure](virtual-machines-infrastructure-services-implementation-guidelines.md)
 
-[Ai-je besoin d’un réseau virtuel ?](https://msdn.microsoft.com/library/azure/jj156007.aspx)
+[Ai-je besoin d’un réseau virtuel ?](../virtual-network/virtual-networks-overview.md)
 
 ## Créer
 
@@ -150,4 +150,4 @@ Voici une liste d’articles relatifs au travail avec les machines virtuelles da
 
 [Utilisation de l’interface de ligne de commande Microsoft Azure pour Mac, Linux et Windows avec Microsoft Azure Service Management.](virtual-machines-command-line-tools.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

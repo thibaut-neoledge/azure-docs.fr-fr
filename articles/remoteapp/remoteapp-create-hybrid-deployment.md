@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Création d'une collection hybride pour Azure RemoteApp" 
-	description="Découvrez comment créer un déploiement de RemoteApp qui se connecte à votre réseau interne." 
-	services="remoteapp" 
-	documentationCenter="" 
-	authors="lizap" 
-	manager="mbaldwin" 
+	pageTitle="Création d'une collection hybride pour Azure RemoteApp"
+	description="Découvrez comment créer un déploiement de RemoteApp qui se connecte à votre réseau interne."
+	services="remoteapp"
+	documentationCenter=""
+	authors="lizap"
+	manager="mbaldwin"
 	editor=""/>
 
 <tags 
-	ms.service="remoteapp" 
-	ms.workload="compute" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/12/2015" 
+	ms.service="remoteapp"
+	ms.workload="compute"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/12/2015"
 	ms.author="elizapo"/>
 
 # Création d'une collection hybride pour Azure RemoteApp
@@ -53,9 +53,9 @@ Vous pouvez déployer une collection RemoteApp hybride qui utilise un réseau vi
 
 ### Création d'un réseau virtuel Azure et jonction à votre déploiement Active Directory
 
-Commencez par créer un [réseau virtuel](https://msdn.microsoft.com/library/azure/dn631643.aspx). Cette opération s'effectue sous l'onglet **Réseau** dans le portail de gestion Azure. Vous devez connecter votre réseau virtuel au déploiement Active Directory qui est synchronisé avec votre locataire Azure Active Directory.
+Commencez par créer un [réseau virtuel](../virtual-network/virtual-networks-create-vnet.md). Cette opération s'effectue sous l'onglet **Réseau** dans le portail de gestion Azure. Vous devez connecter votre réseau virtuel au déploiement Active Directory qui est synchronisé avec votre locataire Azure Active Directory.
 
-Consultez [À propos des paramètres de réseau virtuel dans le portail de gestion](https://msdn.microsoft.com/library/azure/jj156074.aspx) pour plus d'informations.
+Consultez [À propos des paramètres de réseau virtuel dans le portail de gestion](../virtual-network/virtual-networks-settings.md) pour plus d'informations.
 
 ### Vérification que votre réseau virtuel est prêt pour RemoteApp
 Avant de créer votre collection RemoteApp, assurez-vous que votre nouveau réseau virtuel est prêt. Vous pouvez le confirmer en procédant comme suit :
@@ -136,4 +136,4 @@ Félicitations ! Vous avez créé et déployé correctement votre collection hy
 
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

@@ -23,11 +23,13 @@ Si vous avez déjà intégré une version antérieure d'Engagement dans votre ap
 Pour chaque nouvelle version du Kit de développement logiciel, vous devez d'abord remplacer (supprimer et importer de nouveau dans xcode) les dossiers EngagementSDK et EngagementReach.
 
 ##Migration de 2.0.0 vers 3.0.0
+Prise en charge d’iOS 4.X abandonnée. À partir de cette version, la cible de déploiement de votre application doit être au moins iOS 6.
+
 Si vous utilisez Reach dans votre application, vous devez ajouter la valeur `remote-notification` au tableau `UIBackgroundModes` dans votre fichier Info.plist pour recevoir des notifications à distance.
 
-La méthode `application:didReceiveRemoteNotification:` doit être remplacée par `application:didReceiveRemoteNotification:fetchCompletionHandler:` dans votre délégué d'application.
+La méthode `application:didReceiveRemoteNotification:` doit être remplacée par `application:didReceiveRemoteNotification:fetchCompletionHandler:` dans votre délégué d’application.
 
-« AEPushDelegate.h » est une interface déconseillée et vous devez supprimer toutes les références. Cela inclut notamment la suppression `[[EngagementAgent shared] setPushDelegate:self]` et les méthodes de délégation depuis votre délégué d'application :
+« AEPushDelegate.h » est une interface déconseillée et vous devez supprimer toutes les références. Cela inclut notamment la suppression `[[EngagementAgent shared] setPushDelegate:self]` et les méthodes de délégation depuis votre délégué d’application :
 
 	-(void)willRetrieveLaunchMessage;
 	-(void)didFailToRetrieveLaunchMessage;
@@ -70,4 +72,4 @@ Exemples :
 -   La classe `CapptainUtils` est renommée `EngagementUtils`.
 -   La classe `CapptainViewController` est renommée `EngagementViewController`.
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

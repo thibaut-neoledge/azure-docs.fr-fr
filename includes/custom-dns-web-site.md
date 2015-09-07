@@ -57,8 +57,7 @@ Seuls les modes Partagé et Standard autorisent la définition d'un nom de domai
 5. Cliquez sur **Save**.
 6. Un message vous informe de l'augmentation des coûts en mode Partagé (ou en mode Standard si vous avez sélectionné cette option). Cliquez sur **Yes** si vous acceptez.
 
-	<!--![][standardmode4]-->**Remarque**<br />
- Si un message d'erreur indiquant l'échec de la mise à l'échelle du site web choisi s'affiche, vous pouvez cliquer sur le bouton des détails pour obtenir plus d'informations.
+	<!--![][standardmode4]-->**Remarque**<br /> Si un message d'erreur indiquant l'échec de la mise à l'échelle du site web choisi s'affiche, vous pouvez cliquer sur le bouton des détails pour obtenir plus d'informations.
 
 <a name="trafficmanager"></a><h2>(Facultatif) Ajouter vos sites web à Traffic Manager</h2>
 
@@ -293,9 +292,9 @@ Une fois la configuration terminée, le nom de domaine personnalisé est répert
 [portal]: http://manage.windowsazure.com
 [digweb]: http://www.digwebinterface.com/
 [cloudservicedns]: ../articles/custom-dns.md
-[trafficmanager]: ../article/app-service-web/web-sites-traffic-manager.md
-[addendpoint]: http://msdn.microsoft.com/library/windowsazure/hh744839.aspx
-[createprofile]: http://msdn.microsoft.com/library/windowsazure/dn339012.aspx
+[trafficmanager]: ../articles/app-service-web/web-sites-traffic-manager.md
+[addendpoint]: ../articles/traffic-manager/traffic-manager-endpoints.md
+[createprofile]: ../articles/traffic-manager/traffic-manager-manage-profiles.md
 
 <!-- images -->
 
@@ -312,4 +311,4 @@ Une fois la configuration terminée, le nom de domaine personnalisé est répert
 [setcname2]: ./media/custom-dns-web-site/dncmntask-cname-6.png
 [setcname3]: ./media/custom-dns-web-site/dncmntask-cname-7.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

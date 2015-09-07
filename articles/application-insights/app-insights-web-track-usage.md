@@ -1,18 +1,18 @@
 <properties 
-	pageTitle="Analyse de l’utilisation des applications web avec Application Insights" 
-	description="Présentation de l'analyse de l'utilisation avec Application Insights" 
-	services="application-insights" 
-    documentationCenter=""
-	authors="alancameronwills" 
+	pageTitle="Analyse de l’utilisation des applications web avec Application Insights"
+	description="Présentation de l'analyse de l'utilisation avec Application Insights"
+	services="application-insights"
+	documentationCenter=""
+	authors="alancameronwills"
 	manager="douge"/>
 
 <tags 
-	ms.service="application-insights" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/19/2015" 
+	ms.service="application-insights"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="ibiza"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/24/2015"
 	ms.author="awills"/>
  
 # Analyse de l’utilisation des applications web avec Application Insights
@@ -109,13 +109,33 @@ Toutefois, lorsque vous explorez des périodes plus courtes comme une session ho
 
 ## Utilisateurs et nombre d'utilisateurs
 
+
 Chaque session utilisateur est associée à un ID d’utilisateur unique.
 
-Par défaut, l'utilisateur est identifié en plaçant un cookie. Dans ce cas, un utilisateur qui utilise plusieurs navigateurs ou périphériques sera compté plusieurs fois.
+Par défaut, l'utilisateur est identifié en plaçant un cookie. Un utilisateur qui utilise plusieurs navigateurs ou périphériques sera compté plus d’une fois. (Mais consultez [Utilisateurs authentifiés](#authenticated-users)
+
 
 La métrique du **nombre d'utilisateurs** dans un certain intervalle est définie comme le nombre d'utilisateurs uniques avec des activités enregistrées pendant cet intervalle. Par conséquent, les utilisateurs avec de longues sessions peuvent être pris en compte plusieurs fois, lorsque vous définissez une plage de temps afin que la granularité soit inférieure à une heure environ.
 
-La valeur **Nouveaux utilisateurs** compte les utilisateurs dont les premières sessions avec l'application se sont produites au cours de cet intervalle. Si la méthode par défaut de comptabilisation par utilisateurs et par cookies est utilisée, elle inclura les utilisateurs qui ont désactivé leurs cookies ou qui utilisent un nouveau périphérique ou navigateur pour accéder à votre application pour la première fois. ![Dans le panneau d’utilisation, cliquez sur le graphique Utilisateurs pour examiner les nouveaux utilisateurs.](./media/app-insights-web-track-usage/031-dual.png)
+La valeur **Nouveaux utilisateurs** compte les utilisateurs dont les premières sessions avec l'application se sont produites au cours de cet intervalle. Si la méthode par défaut de comptabilisation par utilisateurs et par cookies est utilisée, elle inclura également les utilisateurs qui ont désactivé leurs cookies ou qui utilisent un nouveau périphérique ou navigateur pour accéder à votre application pour la première fois. ![Dans le panneau d’utilisation, cliquez sur le graphique Utilisateurs pour examiner les nouveaux utilisateurs.](./media/app-insights-web-track-usage/031-dual.png)
+
+### Utilisateurs authentifiés
+
+Si votre application web permet aux utilisateurs de se connecter, vous pouvez obtenir un nombre plus précis en fournissant à Application Insights un identificateur d’utilisateur unique. Il ne s’agit pas nécessairement de leur nom ou du même ID que vous utilisez dans votre application. Dès que votre application a identifié l'utilisateur, utilisez ce code :
+
+
+*JavaScript côté client*
+
+      appInsights.setAuthenticatedUserContext(userId);
+
+Si votre application regroupe les utilisateurs par comptes, vous pouvez également fournir un identificateur pour ce compte.
+
+      appInsights.setAuthenticatedUserContext(userId, accountId);
+
+Les ID utilisateur et de compte ne doivent pas contenir des espaces ou les caractères `,;=|`
+
+
+Dans [Metrics Explorer](app-insights-metrics-explorer.md), vous pouvez créer un graphique des **Utilisateurs authentifiés** et des **Comptes**.
 
 ## Trafic synthétique
 
@@ -144,7 +164,7 @@ Supposons qu'au lieu d'implémenter chaque jeu sur une page web distincte, vous 
 
 Mais vous voulez qu'Application Insights continue de consigner le nombre de fois où chaque jeu est ouvert, de la même façon que lorsqu'ils se trouvaient sur des pages web distinctes. C'est très simple : insérez simplement un appel au module de télémétrie dans votre code JavaScript où vous souhaitez enregistrer l'ouverture d'une « page » :
 
-	telemetryClient.trackPageView(game.Name);
+	appInsights.trackPageView(game.Name);
 
 ## Événements personnalisés
 
@@ -152,7 +172,7 @@ Utilisez des événements personnalisés pour Vous pouvez les envoyer à partir 
 
 *JavaScript*
 
-    telemetryClient.trackEvent("GameEnd");
+    appInsights.trackEvent("GameEnd");
 
 *C#*
 
@@ -371,4 +391,4 @@ Lorsque vous utilisez l'analyse, elle devient partie intégrante de votre cycle 
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

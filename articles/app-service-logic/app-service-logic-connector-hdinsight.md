@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Connecteur HDInsight"
-	description="Utilisation du connecteur HDInsight dans Azure App Service"
+   pageTitle="Utilisation du connecteur HDInsight dans des applications logiques | Microsoft Azure App Service"
+	description="Comment créer et configurer le connecteur HDInsight ou une application API et l'utiliser dans une application logique d’Azure App Service"
 	services="app-service\logic"
 	documentationCenter=".net,nodejs,java"
 	authors="anuragdalmia"
@@ -13,13 +13,14 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="integration"
-	ms.date="08/19/2015"
+	ms.date="08/23/2015"
 	ms.author="sameerch"/>
 
 
-# Connecteur Microsoft HDInsight #
+# Utilisation et ajout du connecteur HDInsight dans votre application logique
+Le connecteur HDInsight vous permet de créer un cluster Hadoop sur Azure et de soumettre plusieurs tâches Hadoop telles que Hive, Pig, MapReduce et Streaming MapReduce. Le service Azure HDInsight déploie et approvisionne des clusters Hadoop Apache dans le cloud, en apportant une infrastructure logicielle conçue pour gérer et analyser des données volumineuses, et générer des rapports à leur sujet. Hadoop Core fournit un mode de stockage de données fiable grâce au système HDFS (Hadoop Distributed File System), ainsi qu'un modèle de programmation simple MapReduce destiné à traiter et à analyser, en parallèle, les données stockées dans ce système distribué. Grâce au connecteur HDInsight, vous pouvez créer ou supprimer un cluster, soumettre un travail et attendre que ce travail soit terminé.
 
-Les connecteurs peuvent être utilisés dans les applications logiques pour extraire, traiter ou placer des données dans le cadre d’un flux. Le connecteur HDInsight vous permet de créer un cluster Hadoop sur Azure et de soumettre plusieurs tâches Hadoop telles que Hive, Pig, MapReduce et Streaming MapReduce. Le service Azure HDInsight déploie et approvisionne des clusters Hadoop Apache dans le cloud, en apportant une infrastructure logicielle conçue pour gérer et analyser des données volumineuses, et générer des rapports à leur sujet. Hadoop Core fournit un mode de stockage de données fiable grâce au système HDFS (Hadoop Distributed File System), ainsi qu'un modèle de programmation simple MapReduce destiné à traiter et à analyser, en parallèle, les données stockées dans ce système distribué. Grâce au connecteur HDInsight, vous pouvez créer ou supprimer un cluster, soumettre un travail et attendre que ce travail soit terminé.
+Les connecteurs peuvent être utilisés dans les applications logiques pour extraire, traiter ou placer des données dans le cadre d’un flux. Vous pouvez ajouter le connecteur HDInsight à votre flux d’entreprise et traiter les données dans le cadre de ce flux de travail dans une application logique.
 
 ### Actions de base
 
@@ -40,7 +41,7 @@ Un connecteur peut être créé dans une application logique ou directement à p
 2. Recherchez « Connecteur HDInsight », sélectionnez-le et sélectionnez **Créer**.
 3. Entrez le nom, le plan App Service et d'autres propriétés.
 4. Dans les paramètres du package, entrez le nom d’utilisateur et le mot de passe du cluster HDInsight. Sélectionnez **OK**.
-5. Sélectionnez **Créer** : ![][1]  
+5. Sélectionnez **Créer** : ![][1]  
 
 ## Configuration de certificat (facultatif) ##
 
@@ -103,4 +104,4 @@ Vous pouvez également consulter les statistiques de performances et contrôler 
 [10]: ./media/app-service-logic-connector-hdinsight/LogicApp6.jpg
 [11]: ./media/app-service-logic-connector-hdinsight/LogicApp7.jpg
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

@@ -14,15 +14,55 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/28/2015"
+	ms.date="08/21/2015"
 	ms.author="jgao"/>
 
 # Développer des scripts d’action de script pour HDInsight
 
 L’action de script permet d’installer des logiciels supplémentaires s’exécutant sur un cluster Hadoop ou de modifier la configuration des applications installées sur un cluster. Les actions de script sont des scripts qui s'exécutent sur des nœuds de cluster lors du déploiement des clusters HDInsight. Elles sont exécutées une fois la configuration de HDInsight terminée dans le cluster. Une action de script est exécutée avec les privilèges d'un compte d'administrateur système qui fournissent des droits d'accès complets aux nœuds du cluster. Chaque cluster peut recevoir une liste d'actions de script qui sont exécutées dans l'ordre spécifié.
 
+## Méthodes d'assistance pour les scripts personnalisés
 
+L’action de script fournit des méthodes d’assistance que vous pouvez utiliser lors de l’écriture de scripts personnalisés. Ceux-ci sont définis dans [https://hdiconfigactions.blob.core.windows.net/configactionmodulev05/HDInsightUtilities-v05.psm1](https://hdiconfigactions.blob.core.windows.net/configactionmodulev05/HDInsightUtilities-v05.psm1), et peuvent être inclus dans vos scripts à l’aide des éléments suivants :
 
+    # Download config action module from a well-known directory.
+	$CONFIGACTIONURI = "https://hdiconfigactions.blob.core.windows.net/configactionmodulev05/HDInsightUtilities-v05.psm1";
+	$CONFIGACTIONMODULE = "C:\apps\dist\HDInsightUtilities.psm1";
+	$webclient = New-Object System.Net.WebClient;
+	$webclient.DownloadFile($CONFIGACTIONURI, $CONFIGACTIONMODULE);
+	
+	# (TIP) Import config action helper method module to make writing config action easy.
+	if (Test-Path ($CONFIGACTIONMODULE))
+	{ 
+		Import-Module $CONFIGACTIONMODULE;
+	} 
+	else
+	{
+		Write-Output "Failed to load HDInsightUtilities module, exiting ...";
+		exit;
+	}
+
+Voici les méthodes d’assistance fournies par ce script :
+
+Méthode d'assistance | Description
+-------------- | -----------
+**Save-HDIFile** | Télécharger un fichier à partir de l'URI spécifié vers un emplacement du disque local qui est associé au nœud de machine virtuelle Azure affecté au cluster.
+**Expand-HDIZippedFile** | Décompresser un fichier zippé.
+**Invoke-HDICmdScript** | Exécuter un script à partir de cmd.exe.
+**HDILog d'écriture** | Écrire la sortie du script personnalisé utilisé pour une action de script.
+**Get-Services** | Obtenir la liste des services s'exécutant sur l'ordinateur où s'exécute le script.
+**Get-Service** | En utilisant le nom de service spécifique comme entrée, obtenir des informations détaillées pour un service spécifique (nom du service, ID de processus, état, etc.) sur l'ordinateur où s'exécute le script.
+**Get-HDIServices** | Obtenir la liste des services HDInsight en cours d'exécution sur l'ordinateur où s'exécute le script.
+**Get-HDIService** | En utilisant le nom de service HDInsight spécifique comme entrée, obtenir des informations détaillées pour un service spécifique (nom du service, l'identificateur de processus, état, etc.) sur l'ordinateur où s'exécute le script.
+**Get-ServicesRunning** | Obtenir la liste des services en cours d'exécution sur l'ordinateur où s'exécute le script.
+**Get-ServiceRunning** | Vérifier si un service spécifique (par nom) est en cours d'exécution sur l'ordinateur où s'exécute le script.
+**Get-HDIServicesRunning** | Obtenir la liste des services HDInsight en cours d'exécution sur l'ordinateur où s'exécute le script.
+**Get-HDIServiceRunning** | Vérifier si un service HDInsight spécifique (par nom) est en cours d'exécution sur l'ordinateur où s'exécute le script.
+**Get-HDIHadoopVersion** | Obtenir la version de Hadoop installée sur l'ordinateur où s'exécute le script.
+**Test-IsHDIHeadNode** | Vérifier si l'ordinateur où s'exécute le script est un nœud principal.
+**Test-IsActiveHDIHeadNode** | Vérifier si l'ordinateur où s'exécute le script est un nœud principal actif.
+**Test-IsHDIDataNode** | Vérifier si l'ordinateur où s'exécute le script est un nœud de données.
+**Edit-HDIConfigFile** | Modifier les fichiers de configuration hive-site.xml, core-site.xml, hdfs-site.xml, mapred-site.xml ou yarn-site.xml.
 
 ## Appeler des actions de script
 
@@ -126,30 +166,6 @@ Quand vous développez un script personnalisé pour un cluster HDInsight, tenez 
 - Configurer les composants personnalisés pour utiliser le stockage d’objets blob Azure
 
 	Les composants personnalisés que vous installez sur les nœuds de cluster peuvent être configurés par défaut pour utiliser le stockage HDFS (Hadoop Distributed File System). Vous devez modifier la configuration de façon à utiliser plutôt le stockage d'objets blob Azure. Sur un réimageage de cluster, le système de fichiers HDFS est formaté et vous perdrez alors toutes les données qui y sont stockées. L'utilisation du stockage d'objets blob Azure au lieu du stockage HDFS garantit que vos données seront conservées.
-
-## Méthodes d'assistance pour les scripts personnalisés
-
-L'action de script fournit les méthodes d'assistance suivantes que vous pouvez utiliser lors de l'écriture de scripts personnalisés.
-
-Méthode d'assistance | Description
--------------- | -----------
-**Save-HDIFile** | Télécharger un fichier à partir de l'URI spécifié vers un emplacement du disque local qui est associé au nœud de machine virtuelle Azure affecté au cluster.
-**Expand-HDIZippedFile** | Décompresser un fichier zippé.
-**Invoke-HDICmdScript** | Exécuter un script à partir de cmd.exe.
-**HDILog d'écriture** | Écrire la sortie du script personnalisé utilisé pour une action de script.
-**Get-Services** | Obtenir la liste des services s'exécutant sur l'ordinateur où s'exécute le script.
-**Get-Service** | En utilisant le nom de service spécifique comme entrée, obtenir des informations détaillées pour un service spécifique (nom du service, ID de processus, état, etc.) sur l'ordinateur où s'exécute le script.
-**Get-HDIServices** | Obtenir la liste des services HDInsight en cours d'exécution sur l'ordinateur où s'exécute le script.
-**Get-HDIService** | En utilisant le nom de service HDInsight spécifique comme entrée, obtenir des informations détaillées pour un service spécifique (nom du service, l'identificateur de processus, état, etc.) sur l'ordinateur où s'exécute le script.
-**Get-ServicesRunning** | Obtenir la liste des services en cours d'exécution sur l'ordinateur où s'exécute le script.
-**Get-ServiceRunning** | Vérifier si un service spécifique (par nom) est en cours d'exécution sur l'ordinateur où s'exécute le script.
-**Get-HDIServicesRunning** | Obtenir la liste des services HDInsight en cours d'exécution sur l'ordinateur où s'exécute le script.
-**Get-HDIServiceRunning** | Vérifier si un service HDInsight spécifique (par nom) est en cours d'exécution sur l'ordinateur où s'exécute le script.
-**Get-HDIHadoopVersion** | Obtenir la version de Hadoop installée sur l'ordinateur où s'exécute le script.
-**Test-IsHDIHeadNode** | Vérifier si l'ordinateur où s'exécute le script est un nœud principal.
-**Test-IsActiveHDIHeadNode** | Vérifier si l'ordinateur où s'exécute le script est un nœud principal actif.
-**Test-IsHDIDataNode** | Vérifier si l'ordinateur où s'exécute le script est un nœud de données.
-**Edit-HDIConfigFile** | Modifier les fichiers de configuration hive-site.xml, core-site.xml, hdfs-site.xml, mapred-site.xml ou yarn-site.xml.
 
 ## Modes d’utilisation courants
 
@@ -304,4 +320,4 @@ En cas d'échec de l'exécution, la sortie décrivant cet échec est également 
 <!--Reference links in article-->
 [1]: https://msdn.microsoft.com/library/96xafkes(v=vs.110).aspx
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

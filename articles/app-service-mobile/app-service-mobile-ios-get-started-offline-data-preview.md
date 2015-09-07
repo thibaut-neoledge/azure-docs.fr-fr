@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="08/11/2015"
+	ms.date="08/22/2015"
 	ms.author="krisragh"/>
 
 # Activation de la synchronisation hors connexion pour votre application mobile iOS
@@ -24,17 +24,13 @@
 
 Ce didacticiel traite de la fonctionnalité de synchronisation hors connexion d’Azure Mobile Apps pour iOS. La synchronisation hors connexion permet aux utilisateurs finaux d'interagir avec une application mobile pour afficher, ajouter ou modifier des données, même lorsqu'il n'existe aucune connexion réseau. Les modifications sont stockées dans une base de données locale. Une fois l'appareil de nouveau en ligne, ces modifications sont synchronisées avec le backend distant.
 
-Si vous n’avez aucune expérience d’Azure Mobile Apps, vous devez commencer par suivre le didacticiel [Création d’une application iOS].
+Si vous n’avez aucune expérience d’Azure Mobile Apps, vous devez commencer par suivre le didacticiel [Création d’une application iOS]. Si vous n’utilisez pas le projet de serveur du démarrage rapide téléchargé, vous devez ajouter les packages d’extension d’accès aux données à votre projet. Pour plus d'informations sur les packages d'extension de serveur, consultez [Fonctionnement avec le Kit de développement logiciel (SDK) du serveur principal .NET pour Azure Mobile Apps](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md).
 
-Pour plus d'informations sur la fonctionnalité de synchronisation hors connexion, consultez la rubrique [Synchronisation des données hors connexion dans Azure Mobile Apps].
-
-##<a name="review"></a>Examiner la configuration de votre projet de serveur (facultatif)
-
-[AZURE.INCLUDE [app-service-mobile-dotnet-backend-enable-offline-preview](../../includes/app-service-mobile-dotnet-backend-enable-offline-preview.md)]
+Pour plus d’informations sur la fonctionnalité de synchronisation hors connexion, consultez la rubrique [Synchronisation des données hors connexion dans Azure Mobile Apps].
 
 ## <a name="review-sync"></a>Examiner le code de synchronisation client 
 
-Le projet client que vous avez téléchargé pour le didacticiel [Création d'une application iOS] contient déjà du code prenant en charge la synchronisation hors connexion à l'aide d'une base de données Core Data locale. Cette section résume ce qui est déjà inclus dans le code du didacticiel. Pour obtenir une vue d'ensemble conceptuelle de la fonctionnalité, consultez [Synchronisation des données hors connexion dans Azure Mobile Apps].
+Le projet client que vous avez téléchargé pour le didacticiel [Création d'une application iOS] contient déjà du code prenant en charge la synchronisation hors connexion à l'aide d'une base de données Core Data locale. Cette section résume ce qui est déjà inclus dans le code du didacticiel. Pour obtenir une vue d’ensemble conceptuelle de la fonctionnalité, consultez [Synchronisation des données hors connexion dans Azure Mobile Apps].
 
 La fonctionnalité de synchronisation hors connexion des données d'Azure Mobile Apps permet aux utilisateurs d'interagir avec une base de données locale lorsque le réseau n'est pas accessible. Pour pouvoir utiliser ces fonctionnalités dans votre application, vous devez initialiser le contexte de synchronisation de `MSClient` et référencer un magasin local. Ensuite, vous référencez votre table par le biais de l'interface `MSSyncTable`.
 
@@ -109,7 +105,7 @@ Lorsque vous utilisez un magasin de données de base hors connexion, vous devez 
       * MS\_TableConfig : pour le suivi de la dernière mise à jour de la dernière opération de synchronisation pour toutes les opérations d’extraction.
       * TodoItem : pour le stockage des actions. Les colonnes système **ms\_createdAt**, **ms\_updatedAt** et **ms\_version** sont des propriétés système facultatives.
 
->[AZURE.NOTE]Le kit de développement logiciel d’Azure Mobile Apps réserve les noms de colonnes commençant par « **`ms_`** ». Vous ne devez pas utiliser ce préfixe sur autre chose que les colonnes système. Dans le cas contraire, vos noms de colonnes seront modifiés lors de l'utilisation du backend distant.
+>[AZURE.NOTE]Le kit de développement logiciel (SDK) d’Azure Mobile Apps réserve les noms de colonnes commençant par « **`ms_`** ». Vous ne devez pas utiliser ce préfixe sur autre chose que les colonnes système. Dans le cas contraire, vos noms de colonnes seront modifiés lors de l'utilisation du backend distant.
 
 - Lorsque vous utilisez la fonctionnalité de synchronisation hors connexion, vous devez définir les tables système comme illustré ci-dessous.
 
@@ -162,9 +158,7 @@ Lorsque vous utilisez un magasin de données de base hors connexion, vous devez 
     | id | Chaîne, marquée requise | clé primaire dans le magasin distant |
     | terminé | Boolean | champ d'élément todo |
     | texte | String | champ d'élément todo |
-    | ms\_createdAt | Date | (facultatif) mappe vers \_\_createdAt system property | 
-	| ms\_updatedAt | Date | (facultatif) mappe vers \_\_updatedAt system property | 
-	| ms\_version | String | (facultatif) permet de détecter les conflits, mappe vers \_\_version |
+    | ms\_createdAt | Date | (facultatif) mappe vers \_\_createdAt system property | | ms\_updatedAt | Date | (facultatif) mappe vers \_\_updatedAt system property | | ms\_version | String | (facultatif) permet de détecter les conflits, mappe vers \_\_version |
 
 
 ## <a name="setup-sync"></a>Modification du comportement de synchronisation de l’application
@@ -253,4 +247,4 @@ Lorsque nous avons voulu synchroniser le magasin local avec le serveur, nous avo
 [Azure Friday: Offline-enabled apps in Azure Mobile Services]: http://azure.microsoft.com/documentation/videos/azure-mobile-services-offline-enabled-apps-with-donna-malayeri/
  
 
-<!----HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

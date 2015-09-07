@@ -1,20 +1,20 @@
 
 <properties 
-	pageTitle="Utilisation de l’éditeur de règles de synchronisation Azure AD Connect" 
-	description="Découvrez comment utiliser l’éditeur de règles de synchronisation Azure AD Connect." 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="swadhwa" 
+	pageTitle="Utilisation de l’éditeur de règles de synchronisation Azure AD Connect"
+	description="Découvrez comment utiliser l’éditeur de règles de synchronisation Azure AD Connect."
+	services="active-directory"
+	documentationCenter=""
+	authors="billmath"
+	manager="stevenpo"
 	editor="curtand"/>
 
 <tags 
-	ms.service="active-directory" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/28/2015" 
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/24/2015"
 	ms.author="billmath"/>
 
 # Éditeur de règles de synchronisation Azure AD Connect
@@ -74,4 +74,4 @@ Pour mettre tout cela en contexte, dans un déploiement de forêt Account-Resour
 Les transformations couvrent de nombreux aspects et constituent une large partie de la configuration personnalisée possible avec Azure AD Connect. La configuration personnalisée n’est pas traitée dans ce document de vue d’ensemble, mais nous examinerons certains flux d’attributs supplémentaires plus loin dans ce document.
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

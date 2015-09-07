@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Comment configurer un environnement App Service" 
-	description="Configuration, gestion et surveillance d'environnements App Service" 
-	services="app-service\web" 
-	documentationCenter="" 
-	authors="ccompy" 
-	manager="stefsch" 
+	pageTitle="Comment configurer un environnement App Service"
+	description="Configuration, gestion et surveillance d'environnements App Service"
+	services="app-service\web"
+	documentationCenter=""
+	authors="ccompy"
+	manager="stefsch"
 	editor=""/>
 
 <tags 
-	ms.service="app-service-web" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="04/27/2015" 
+	ms.service="app-service-web"
+	ms.workload="web"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="04/27/2015"
 	ms.author="ccompy"/>
 
 # Configuration d'un environnement App Service #
@@ -126,9 +126,9 @@ Pour plus d’informations sur la plateforme Azure App Service, consultez la rub
 [HowtoCreateASE]: http://azure.microsoft.com/documentation/articles/app-service-web-how-to-create-an-app-service-environment/
 [HowtoScale]: http://azure.microsoft.com/documentation/articles/app-service-web-scale-a-web-app-in-an-app-service-environment/
 [ControlInbound]: http://azure.microsoft.com/documentation/articles/app-service-app-service-environment-control-inbound-traffic/
-[virtualnetwork]: https://msdn.microsoft.com/library/azure/dn133803.aspx
+[virtualnetwork]: https://azure.microsoft.com/documentation/articles/virtual-networks-faq/
 [AppServicePricing]: http://azure.microsoft.com/pricing/details/app-service/
 [AzureAppService]: http://azure.microsoft.com/documentation/articles/app-service-value-prop-what-is/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

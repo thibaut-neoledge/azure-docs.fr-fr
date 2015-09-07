@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Liste des connecteurs et des applications API | Microsoft Azure"
-	description="En savoir plus sur les connecteurs et les applications API dans Azure App Service ; architecture microservices"
+	pageTitle="Liste des connecteurs et applications API disponibles | Microsoft Azure App Service"
+	description="En savoir plus sur les connecteurs et les applications API dans Azure App Service"
 	services="app-service\logic"
 	documentationCenter=""
 	authors="MandiOhlinger"
@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/09/2015"
+	ms.date="08/23/2015"
 	ms.author="mandia"/>
 
 
-# Liste des connecteurs et applications API dans Microsoft Azure App Service
-Cette rubrique répertorie tous les connecteurs et toutes les applications API disponibles créés par Microsoft.
+# Connecteurs et liste des applications API à utiliser dans vos applications logiques
+Découvrez tous les connecteurs et les applications API disponibles créés par Microsoft et à utiliser dans votre application logique.
 
 Pour plus d’informations sur la tarification et une liste de ce qui est inclus dans chaque niveau de service, consultez la page [Tarification Azure App Service](http://azure.microsoft.com/pricing/details/app-service/).
 
@@ -97,4 +97,4 @@ Vous pouvez aussi utiliser des connecteurs comme actions au sein de votre applic
  [Utilisation du Gestionnaire des connexions hybrides dans Azure App Service](app-service-logic-hybrid-connection-manager.md)<br/>
  [Gestion et contrôle de vos connecteurs et applications API intégrés](app-service-logic-monitor-your-connectors.md)
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

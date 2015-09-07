@@ -1,26 +1,23 @@
 <properties 
-	pageTitle="Prise en main d’Azure AD Connect" 
-	description="Découvrez comment télécharger, installer et exécuter l’Assistant d’installation d’Azure AD Connect." 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="swadhwa" 
+	pageTitle="Prise en main d’Azure AD Connect"
+	description="Découvrez comment télécharger, installer et exécuter l’Assistant d’installation d’Azure AD Connect."
+	services="active-directory"
+	documentationCenter=""
+	authors="billmath"
+	manager="stevenpo"
 	editor="curtand"/>
 
 <tags 
-	ms.service="active-directory" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/28/2015" 
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/24/2015"
 	ms.author="billmath"/>
 
 # Prise en main d’Azure AD Connect
 
-<div class="dev-center-tutorial-selector sublanding">
-<a href="../active-directory-aadconnect/" title="Présentation">Présentation</a> <a href="../active-directory-aadconnect-how-it-works/" title="Fonctionnement">Fonctionnement</a> <a href="../active-directory-aadconnect-get-started/" title="Prise en main" class="current">Prise en main</a> <a href="../active-directory-aadconnect-whats-next/" title="Étapes suivantes">Étapes suivantes</a> <a href="../active-directory-aadconnect-learn-more/" title="En savoir plus">En savoir plus</a>
-</div>
 
 
 La documentation suivante vous aide à faire vos premiers pas avec Azure Active Directory Connect. Cette documentation traite de l’installation rapide d’Azure AD Connect. Pour plus d'informations sur une installation personnalisée, consultez [Installation personnalisée pour Azure AD Connect](active-directory-aadconnect-get-started-custom.md). Pour plus d’informations sur la mise à niveau depuis DirSync vers Azure AD Connect, consultez [Mise à niveau de DirSync pour Azure Active Directory Connect.](active-directory-aadconnect-dirsync-upgrade-get-started.md)
@@ -114,4 +111,4 @@ Maintenant que vous avez Azure AD Connect installé, vous pouvez utiliser le li
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

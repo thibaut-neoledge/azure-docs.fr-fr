@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Azure AD Connect - Configuration requise des certificats SSL" 
-	description="Conditions requises des certificats SSL Azure AD Connect pour une utilisation avec AD FS." 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="swadhwa" 
+	pageTitle="Azure AD Connect - Configuration requise des certificats SSL"
+	description="Conditions requises des certificats SSL Azure AD Connect pour une utilisation avec AD FS."
+	services="active-directory"
+	documentationCenter=""
+	authors="billmath"
+	manager="stevenpo"
 	editor="curtand"/>
 
 <tags 
-	ms.service="active-directory" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/28/2015" 
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/24/2015"
 	ms.author="billmath"/>
 
 # Azure AD Connect - Configuration requise des certificats SSL
@@ -32,4 +32,4 @@
 Les certificats utilisant des caractères génériques sont pris en charge.
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

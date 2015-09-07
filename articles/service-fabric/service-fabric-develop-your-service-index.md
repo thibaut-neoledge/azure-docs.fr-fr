@@ -1,20 +1,20 @@
 <properties
    pageTitle="Développer un service Service Fabric"
-   description="Informations conceptuelles et didacticiels qui vous permettent de comprendre comment développer un service Service Fabric à l'aide des modèles de programmation d'acteur fiable et de services fiables."
-   services="service-fabric"
-   documentationCenter=".net"
-   authors="rwike77"
-   manager="timlt"
-   editor=""/>
+	description="Informations conceptuelles et didacticiels qui vous permettent de comprendre comment développer un service Service Fabric à l'aide des modèles de programmation d'acteur fiable et de services fiables."
+	services="service-fabric"
+	documentationCenter=".net"
+	authors="rwike77"
+	manager="timlt"
+	editor=""/>
 
 <tags
    ms.service="service-fabric"
-   ms.devlang="dotnet"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="NA"
-   ms.date="05/14/2015"
-   ms.author="ryanwi"/>
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="NA"
+	ms.date="08/20/2015"
+	ms.author="ryanwi"/>
 
 # Développer un service Service Fabric
 Cette page contient des liens vers des articles de vue d'ensemble et conceptuels ainsi qu'un didacticiel pour vous aider à développer un service Service Fabric. Service Fabric propose deux modèles de programmation de haut niveau pour la création de services : les API d'acteurs fiables et les API de services fiables. Si les deux modèles reposent sur le même noyau Service Fabric, ils offrent différents compromis entre simplicité et flexibilité en termes de concurrence, partitionnement et communication. Vous devez comprendre les deux modèles pour choisir l'infrastructure appropriée pour un service particulier dans votre application.
@@ -53,7 +53,7 @@ Un simple accès concurrentiel en alternance est fourni pour les méthodes d'act
 - [Événements et compteurs de performance liés à l'accès concurrentiel](service-fabric-reliable-actors-diagnostics.md)
 - [Réentrance des acteurs](service-fabric-reliable-actors-reentrancy.md)
 - [Minuteries des acteurs](service-fabric-reliable-actors-timers-reminders.md)
- 
+
 Pour plus d'informations sur la configuration des acteurs fiables, consultez les articles suivants :
 
 - [Configuration de KVSActorStateProvider](../Service-Fabric/service-fabric-reliable-actors-KVSActorstateprovider-configuration.md)  
@@ -86,6 +86,5 @@ La communication avec des services fiables et les abstractions que les clients p
 Les services fiables émettent des événements et des compteurs de performance, qui peuvent être utilisés pour diagnostiquer et surveiller votre service :
 
 - [Diagnostics de service fiable avec état](service-fabric-reliable-services-diagnostics.md)
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

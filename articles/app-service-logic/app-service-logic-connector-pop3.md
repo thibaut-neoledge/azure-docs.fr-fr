@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Application API du connecteur POP3"
-	description="Utilisation du connecteur POP3"
+   pageTitle="Utilisation du connecteur POP3 dans des applications logiques | Microsoft Azure App Service"
+	description="Comment créer et configurer le connecteur POP3 ou une application API et l'utiliser dans une application logique d’Azure App Service"
 	services="app-service\logic"
 	documentationCenter=".net,nodejs,java"
 	authors="anuragdalmia"
@@ -13,15 +13,15 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="integration"
-	ms.date="08/19/2015"
+	ms.date="08/23/2015"
 	ms.author="sameerch"/>
 
 
-# Utilisation du connecteur POP3 dans votre application logique #
+# Utilisation et ajout du connecteur POP3 dans votre application logique
+Connectez-vous à un serveur POP3 pour récupérer des e-mails y compris ceux contenant des pièces jointes.
 
-Les applications logiques peuvent se déclencher selon diverses sources de données et proposent des connecteurs pour obtenir et traiter les données dans le cadre du flux.
+Les applications logiques peuvent se déclencher selon diverses sources de données et proposent des connecteurs pour obtenir et traiter les données dans le cadre du flux. Vous pouvez ajouter le connecteur POP3 à votre flux d’entreprise et traiter les données dans le cadre de ce flux de travail dans une application logique.
 
-Le connecteur POP3 vous permet de vous connecter au serveur POP3 et fournit un déclencheur qui récupère les messages électroniques avec des pièces jointes.
 
 ## Création d’un connecteur POP3 pour votre application logique ##
 Pour utiliser le connecteur POP3, vous devez d'abord créer une instance de l'application API de ce connecteur. Cette opération est possible à partir du concepteur d'application logique, directement ou de l'extérieur. Vous pouvez créer une instance de l'extérieur du concepteur en procédant comme suit :
@@ -81,4 +81,4 @@ Vous pouvez également consulter les statistiques de performances et contrôler 
 [5]: ./media/app-service-logic-connector-pop3/img5.PNG
 [6]: ./media/app-service-logic-connector-pop3/img6.PNG
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

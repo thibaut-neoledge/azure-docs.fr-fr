@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Intégration du SDK Android d'Azure Mobile Engagement" 
+	pageTitle="Intégration du SDK Android d'Azure Mobile Engagement"
 	description="Dernières mises à jour et procédures du SDK Android pour Azure Mobile Engagement"
-	services="mobile-engagement" 
-	documentationCenter="mobile" 
-	authors="piyushjo" 
-	manager="dwrede" 
-	editor="" />
+	services="mobile-engagement"
+	documentationCenter="mobile"
+	authors="piyushjo"
+	manager="dwrede"
+	editor=""/>
 
 <tags 
-	ms.service="mobile-engagement" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-android" 
-	ms.devlang="Java" 
-	ms.topic="article" 
-	ms.date="08/10/2015" 
-	ms.author="piyushjo" />
+	ms.service="mobile-engagement"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-android"
+	ms.devlang="Java"
+	ms.topic="article"
+	ms.date="08/10/2015"
+	ms.author="piyushjo"/>
 
 
 #Procédures de mise à niveau
@@ -25,17 +25,40 @@ Vous devrez peut-être suivre quelques procédures si vous avez manqué plusieur
 
 Quelle que soit la version que vous mettez à niveau, vous devez remplacer `mobile-engagement-VERSION.jar`.
 
+##Migration de 4.0.0 vers 4.1.0
+
+Le SDK gère maintenant un nouveau modèle d’autorisation à partir d’Android M.
+
+Si vous utilisez des fonctionnalités de localisation ou des notifications BigPicture, veuillez lire [cette section](mobile-engagement-android-integrate-engagement.md#android-m-permissions).
+
+Outre le nouveau modèle d’autorisation, nous prenons désormais en charge les fonctionnalités de localisation lors de l’exécution. Nous sommes toujours compatibles avec les paramètres du manifeste pour la localisation, mais ils sont à présent obsolètes. Pour utiliser la configuration lors de l’exécution, supprimez les sections suivantes à partir de votre ``AndroidManifest.xml`` :
+
+    <meta-data
+      android:name="engagement:locationReport:lazyArea"
+      android:value="true"/>
+    <meta-data
+      android:name="engagement:locationReport:realTime"
+      android:value="true"/>
+    <meta-data
+      android:name="engagement:locationReport:realTime:background"
+      android:value="true"/>
+    <meta-data
+      android:name="engagement:locationReport:realTime:fine"
+      android:value="true"/>
+
+et lisez [cette procédure mise à jour](mobile-engagement-android-integrate-engagement.md#location-reporting) pour utiliser à la place une configuration lors de l’exécution.
+
 ##Migration de 3.0.0 vers 4.0.0
 
 ### Native Push
 
 Native Push (GCM/ADM) est désormais également utilisé pour les notifications dans l’application. Vous devez donc configurer les informations d’identification Native Push pour tout type de campagne push.
 
-Si ce n'est déjà fait, suivez [cette procédure](mobile-engagement-android-integrate-engagement-reach.md#native-push).
+Si ce n’est déjà fait, suivez [cette procédure](mobile-engagement-android-integrate-engagement-reach.md#native-push).
 
 ### AndroidManifest.xml
 
-L’intégration de Reach a été modifiée dans ``AndroidManifest.xml``.
+L’intégrationReach a été modifiée dans ``AndroidManifest.xml``.
 
 Remplacez ceci :
 
@@ -86,7 +109,7 @@ Il se peut désormais qu’un écran de chargement s’affiche lorsque vous cliq
 
 ### Ressources
 
-Incorporez le nouveau fichier `res/layout/engagement_loading.xml` dans votre projet.
+Intégrez le nouveau fichier `res/layout/engagement_loading.xml` dans votre projet.
 
 ##Migration de 2.4.0 vers 3.0.0
 
@@ -363,4 +386,4 @@ La configuration de Proguard peut être affectée par le changement de nom, les 
 			}
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

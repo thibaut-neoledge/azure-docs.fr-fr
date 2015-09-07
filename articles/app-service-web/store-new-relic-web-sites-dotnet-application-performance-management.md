@@ -1,22 +1,20 @@
 <properties 
-	pageTitle="Application web .NET dans Azure App Service avec gestion des performances des applications New Relic" 
-	description="Apprenez à utiliser la surveillance des performances de New Relic pour les applications ASP.NET s'exécutant sur Azure App Service." 
-	services="app-service\web" 
-	documentationCenter=".net" 
-	authors="cephalin" 
-	manager="wpickett" 
+	pageTitle="Application web .NET dans Azure App Service avec gestion des performances des applications New Relic"
+	description="Apprenez à utiliser la surveillance des performances de New Relic pour les applications ASP.NET s'exécutant sur Azure App Service."
+	services="app-service\web"
+	documentationCenter=".net"
+	authors="cephalin"
+	manager="wpickett"
 	editor=""/>
 
-
 <tags 
-	ms.service="app-service-web" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="07/30/2015" 
+	ms.service="app-service-web"
+	ms.workload="web"
+	ms.tgt_pltfrm="na"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="07/30/2015"
 	ms.author="stepsic"/>
-
 
 
 
@@ -79,7 +77,7 @@ Pour vous inscrire à New Relic directement depuis Azure Marketplace, procédez
 
 ## Étape 3. Publier l'application web ASP.NET
 
-Publiez votre application web grâce à Visual Studio ou WebMatrix. Si vous avez précédemment publié votre application web, publiez-la à nouveau pour que l'instance des applications web ajoute le package NuGet New Relic requis afin d'activer la surveillance New Relic.
+Publiez votre application web à l’aide de Visual Studio. Si vous avez précédemment publié votre application web, publiez-la à nouveau pour que l'instance des applications web ajoute le package NuGet New Relic requis afin d'activer la surveillance New Relic.
 
 ## Étape 4. Vérification des performances de votre application dans New Relic.
 
@@ -123,8 +121,7 @@ En plus des fonctions de l'<a href="https://newrelic.com/docs/site/the-new-relic
     </tr>
     <tr>
        <td>Afficher les détails Apdex du monde entier</td>
-       <td>Depuis la vue <b>Navigateur</b> du tableau de bord Présentation, pointez le curseur n'importe où sur la carte Global Apdex.<br />
-<b>Conseil&#160;:</b> pour accéder directement au tableau de bord <a href="https://newrelic.com/docs/site/geography" target="_blank">Géographie</a> de l'application sélectionnée, cliquez sur le titre <b>Global Apdex</b> ou n'importe où dans la carte Global Apdex.</td>
+       <td>Depuis la vue <b>Navigateur</b> du tableau de bord Présentation, pointez le curseur n'importe où sur la carte Global Apdex.<br /><b>Conseil&#160;:</b> pour accéder directement au tableau de bord <a href="https://newrelic.com/docs/site/geography" target="_blank">Géographie</a> de l'application sélectionnée, cliquez sur le titre <b>Global Apdex</b> ou n'importe où dans la carte Global Apdex.</td>
     </tr>
     <tr>
        <td>Afficher le tableau de bord <a href="https://docs.newrelic.com/docs/applications-menu/transactions-dashboard" target="_blank">Web Transactions</a></td>
@@ -132,8 +129,7 @@ En plus des fonctions de l'<a href="https://newrelic.com/docs/site/the-new-relic
     </tr>
     <tr>
        <td>Afficher le tableau de bord <a href="https://newrelic.com/docs/site/errors" target="_blank">Erreurs</a></td>
-       <td>Cliquez sur le titre du graphique de taux d'erreur du tableau de bord Vue d'ensemble des applications.<br />
-<b>Conseil&#160;:</b> vous pouvez également afficher le tableau de bord Erreurs depuis <b>Applications</b>&#160;> (votre application)&#160;> Événements&#160;> Erreurs.</td>
+       <td>Cliquez sur le titre du graphique de taux d'erreur du tableau de bord Vue d'ensemble des applications.<br /><b>Conseil&#160;:</b> vous pouvez également afficher le tableau de bord Erreurs depuis <b>Applications</b>&#160;> (votre application)&#160;> Événements&#160;> Erreurs.</td>
     </tr>
     <tr>
        <td>Afficher les détails du serveur de l'application</td>
@@ -171,7 +167,6 @@ Pour plus d'informations, consultez les ressources supplémentaires suivantes :
 * Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre le portail Azure et le portail Azure en version préliminaire, consultez la page [Références sur la navigation dans le portail Azure](http://go.microsoft.com/fwlink/?LinkId=529715).
 
 
-[webmatrixwebsite]: web-sites-dotnet-using-webmatrix.md
 [vswebsite]: web-sites-dotnet-get-started.md
 
 [wmnugetbutton]: ./media/store-new-relic-web-sites-dotnet-application-performce-management/nrwmnugetbutton.png
@@ -183,4 +178,4 @@ Pour plus d'informations, consultez les ressources supplémentaires suivantes :
 [custom]: ./media/store-new-relic-web-sites-dotnet-application-performce-management/nrcustom.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

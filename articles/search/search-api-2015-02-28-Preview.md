@@ -1,20 +1,20 @@
 <properties
    pageTitle="API REST du service Azure Search : version 2015-02-28-Preview | Microsoft Azure"
-   description="L'API REST du service Azure Search version 2015-02-28-Preview comprend des fonctionnalités expérimentales telles que des analyseurs de langage naturel et des recherches moreLikeThis."
-   services="search"
-   documentationCenter="na"
-   authors="HeidiSteen"
-   manager="mblythe"
-   editor=""/>
+	description="L'API REST du service Azure Search version 2015-02-28-Preview comprend des fonctionnalités expérimentales telles que des analyseurs de langage naturel et des recherches moreLikeThis."
+	services="search"
+	documentationCenter="na"
+	authors="HeidiSteen"
+	manager="mblythe"
+	editor=""/>
 
 <tags
    ms.service="search"
-   ms.devlang="rest-api"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="search"
-   ms.date="07/22/2015"
-   ms.author="heidist"/>
+	ms.devlang="rest-api"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="search"
+	ms.date="08/25/2015"
+	ms.author="heidist"/>
 
 # API REST du service Azure Search : version 2015-02-28-Preview
 
@@ -95,7 +95,7 @@ L'exemple suivant illustre un schéma utilisé pour rechercher des informations 
       {"name": "hotelId", "type": "Edm.String", "key": true, "searchable": false},
       {"name": "baseRate", "type": "Edm.Double"},
       {"name": "description", "type": "Edm.String", "filterable": false, "sortable": false, "facetable": false},
-	  {"name": "description_fr", "type": "Edm.String", "filterable": false, "sortable": false, "facetable": false, analyzer: "fr.lucene"},
+	  {"name": "description_fr", "type": "Edm.String", "filterable": false, "sortable": false, "facetable": false, "analyzer": "fr.lucene"},
       {"name": "hotelName", "type": "Edm.String"},
       {"name": "category", "type": "Edm.String"},
       {"name": "tags", "type": "Collection(Edm.String)"},
@@ -262,7 +262,7 @@ Lors de la création d'un index, les attributs suivants peuvent être définis. 
 
   - **Remarque** : si aucun des attributs ci-dessus dans un champ n'est défini avec la valeur `true` (`searchable`, `filterable`, `sortable` ou `facetable`), le champ est exclu de l'index inversé. Cette option est utile pour les champs qui ne sont pas utilisés dans les requêtes, mais qui sont nécessaires dans les résultats de recherche. L'exclusion de ces champs de l'index améliore les performances.
 
-  - `suggestions` : les versions précédentes de l'API incluaient une propriété `suggestions`. Cette propriété booléenne est maintenant déconseillée et n'est plus disponible dans `2015-02-28` ni `2015-02-28-Preview`. Utilisez l'[API Suggesters](#Suggesters) à la place. Dans la version `2014-07-31`, la propriété `suggestions` était utilisée pour spécifier si la saisie semi-automatique en cours de frappe pouvait être utilisée pour les champs de type `Edm.String` ou `Collection(Edm.String)`. La propriété `suggestions` avait la valeur `false` par défaut, car elle nécessitait un espace supplémentaire dans votre index mais, si vous l'avez activée, consultez [Transition de la version préliminaire à la version générale dans Azure Search](search-transition-from-preview.md) pour obtenir des instructions sur la transition vers la nouvelle API.
+`suggestions` : les versions précédentes de l'API incluaient une propriété `suggestions`. Cette propriété booléenne est maintenant déconseillée et n'est plus disponible dans `2015-02-28` ni `2015-02-28-Preview`. Utilisez l'[API Suggesters](#Suggesters) à la place. Dans la version `2014-07-31`, la propriété `suggestions` était utilisée pour spécifier si la saisie semi-automatique en cours de frappe pouvait être utilisée pour les champs de type `Edm.String` ou `Collection(Edm.String)`. La propriété `suggestions` avait la valeur `false` par défaut, car elle nécessitait un espace supplémentaire dans votre index mais, si vous l’avez activée, consultez [Transition de la version préliminaire vers la version générale dans Azure Search](search-transition-from-preview.md) pour obtenir des instructions sur la transition vers la nouvelle API.
 
 `key` : indique que le champ contient des identificateurs uniques pour les documents de l'index. Un seul champ doit être choisi comme champ `key` et il doit être de type `Edm.String`. Les champs de clés peuvent servir à rechercher des documents directement via l'[API de recherche](#LookupAPI).
 
@@ -270,7 +270,7 @@ Lors de la création d'un index, les attributs suivants peuvent être définis. 
 
 `analyzer` : définit le nom de l'analyseur de texte à utiliser pour le champ. Pour connaître l'ensemble des valeurs autorisées, consultez la rubrique [Support multilingue](#LanguageSupport). Cette option peut être utilisée uniquement avec les champs `searchable`. Une fois l'analyseur choisi, il ne peut pas être modifié pour le champ.
 
-`sugggesters` : définit le mode de recherche et les champs constituant la source du contenu pour obtenir des suggestions. Pour plus d'informations, consultez [Générateurs de suggestions](#Suggesters).
+`suggesters` : définit le mode de recherche et les champs constituant la source du contenu pour obtenir des suggestions. Pour plus d'informations, consultez [Générateurs de suggestions](#Suggesters).
 
 `scoringProfiles` : définit les comportements de calcul de score personnalisés qui vous permettent de choisir les éléments qui s'affichent en haut des résultats de recherche. Les profils de calcul de score sont constitués de pondérations et de fonctions de champ. Pour plus d'informations sur les attributs utilisés dans un profil de calcul de score, consultez [Ajout de profils de calcul de score ](https://msdn.microsoft.com/library/azure/dn798928.aspx).
 
@@ -279,894 +279,316 @@ Lors de la création d'un index, les attributs suivants peuvent être définis. 
 
 Les champs pouvant faire l'objet d'une recherche subissent une analyse qui implique la plupart du temps une analyse lexicale, la normalisation du texte et le filtrage des termes. Par défaut, les champs pouvant faire l'objet d'une recherche dans Azure Search sont analysés par l'[Analyseur Apache Lucene Standard](http://lucene.apache.org/core/4_9_0/analyzers-common/index.html), qui découpe le texte en éléments selon les règles de [« Segmentation du texte Unicode »](http://unicode.org/reports/tr29/). Par ailleurs, l'analyseur standard convertit tous les caractères en minuscules. Les documents indexés et les termes de recherche sont analysés pendant l'indexation et le traitement des requêtes.
 
-Azure Search prend en charge l'indexation des champs dans plusieurs langues. Chaque langue requiert un analyseur de texte non standard qui tient compte des caractéristiques d'une langue donnée. Azure Search propose deux types d'analyseurs :
+Azure Search prend en charge l’indexation des champs dans plusieurs langues. Chaque langue requiert un analyseur de texte non standard qui tient compte des caractéristiques d'une langue donnée. Azure Search propose deux types d'analyseurs :
 
-- 28 analyseurs pris en charge par Lucene.
+- 35 analyseurs pris en charge par Lucene.
 - 50 analyseurs pris en charge par la technologie de traitement du langage naturel Microsoft propriétaire utilisée dans Office et Bing.
 
-Certains développeurs peuvent préférer la solution open source, plus familière et simple de Lucene. Lucene est plus rapide, mais les analyseurs Microsoft disposent de fonctionnalités avancées, telles que la lemmatisation. Si possible, vous devez comparer les analyseurs Microsoft et Lucene pour savoir lequel vous convient le mieux.
+Certains développeurs peuvent préférer la solution open source, plus familière et simple de Lucene. Les analyseurs Lucene sont plus rapides, mais les analyseurs Microsoft bénéficient de fonctionnalités avancées, telles que la lemmatisation, la décomposition des mots (dans les langues comme l’allemand, le danois, le néerlandais, le suédois, le norvégien, l’estonien, le finnois, le hongrois, et le slovaque) et la reconnaissance d’entité (URL, courriers électroniques, dates, numéros). Si possible, vous devez comparer les analyseurs Microsoft et Lucene pour savoir lequel vous convient le mieux.
 
 ***Comparatif***
 
-L'analyseur Lucene pour l'anglais est une extension de l'analyseur standard. Il supprime la marque du possessif (le « 's ») à la fin des mots, applique la recherche de radical conformément à l'[algorithme de recherche de radical de Porter](http://tartarus.org/~martin/PorterStemmer/) et supprime les [mots vides](http://en.wikipedia.org/wiki/Stop_words) de l'anglais. L'interrogation et l'indexation avec les analyseurs Lucene sont très rapides.
+L'analyseur Lucene pour l'anglais est une extension de l'analyseur standard. Il supprime la marque du possessif (le « 's ») à la fin des mots, applique la recherche de radical conformément à l'[algorithme de recherche de radical de Porter](http://tartarus.org/~martin/PorterStemmer/) et supprime les [mots vides](http://en.wikipedia.org/wiki/Stop_words) de l'anglais.
 
-En comparaison, l'analyseur Microsoft implémente un outil de recherche de radical élargie qui génère au moment de la requête toutes les formes de mots possibles de chaque terme de la requête, ce qui entraîne une plus grande précision des résultats, mais également plus de latence. Des performances en matière de requête réduites sont courantes pour les outils de recherche de radical élargie. L'indexation avec les analyseurs Microsoft est en moyenne trois fois plus lente qu'avec leurs équivalents Lucene.
+En comparaison, l’analyseur Microsoft procède par lemmatisation plutôt que par recherche de radical. Cela signifie qu’il peut bien mieux gérer des mots sous de formes irrégulières, ce qui donne des résultats de recherche plus pertinents (module espion 7 de [présentation MVA d’Azure Search](http://www.microsoftvirtualacademy.com/training-courses/adding-microsoft-azure-search-to-your-websites-and-apps) pour plus de détails).
+
+L’indexation avec les analyseurs Microsoft est en moyenne trois fois plus lente qu’avec leurs équivalents Lucene, en fonction de la langue. Les performances de recherche ne doivent pas être trop affectées pour les requêtes de taille moyenne.
 
 ***Configuration***
 
-Pour chaque champ dans la définition d'index, vous pouvez affecter à la propriété `analyzer` un nom d'analyseur qui spécifie la langue et le fournisseur. Par exemple, vous pouvez avoir des champs distincts pour des descriptions d'hôtel en anglais, français et espagnol qui existent côte à côte dans le même index. La requête spécifie le champ propre à la langue qui doit être retourné dans vos requêtes de recherche. Vous pouvez consulter des exemples de requêtes qui incluent la propriété `analyzer` dans [Recherche dans des documents](#SearchDocs).
+Pour chaque champ dans la définition d'index, vous pouvez affecter à la propriété `analyzer` un nom d'analyseur qui spécifie la langue et le fournisseur. Le même analyseur sera appliqué lors de l’indexation et de la recherche pour ce champ. Par exemple, vous pouvez avoir des champs distincts pour des descriptions d'hôtel en anglais, français et espagnol qui existent côte à côte dans le même index. Utilisez le [paramètre de requête « searchFields »](#SearchQueryParameters) pour spécifier le champ de langue spécifique à rechercher dans vos requêtes. Vous pouvez consulter des exemples de requêtes qui incluent la propriété `analyzer` dans [Recherche dans des documents](#SearchDocs).
 
 ***Liste d'analyseurs***
 
-Voici la liste des analyseurs pris en charge avec une brève description de leurs fonctionnalités :
+Voici la liste des langues prises en charge avec les noms d’analyseur Lucene et Microsoft.
 
 <table style="font-size:12">
     <tr>
 		<th>Langage</th>
-		<th>Nom de l'analyseur</th>
-		<th>Description</th>
-	</tr>
-    <tr>
-		<td>Arabe</td>
-		<td>ar.lucene</td>
-		<td>
-		<ul>
-			<li>Implémente la normalisation orthographique de l'arabe</li>
-			<li>Applique la recherche de radical algorithmique légère</li>
-			<li>Retire les mots vides de l'arabe</li>
-		</ul>
-		</td>
+		<th>Nom de l’analyseur Microsoft</th>
+		<th>Nom de l’analyseur Lucene</th>
 	</tr>
     <tr>
 		<td>Arabe</td>
 		<td>ar.microsoft</td>
-		<td>
-		<ul>
-			<li>Outil de recherche de radical réduite</li>
-			<li>Retire les mots vides de l’arabe</li>
-		</ul>
-		</td>
+		<td>ar.lucene</td>		
 	</tr>
     <tr>
     	<td>Arménien</td>
+		<td></td>
     	<td>hy.lucene</td>
-    	<td>
-    	<ul>
-      		<li>Applique la racinisation algorithmique légère</li>
-    		<li>Retire les mots vides de l’arménien</li>
-	    </ul>
-    	</td>
   	</tr>
     <tr>
 		<td>Bangla</td>
-		<td>bg.microsoft</td>
-		<td>
-		<ul>
-			<li>Outil de recherche de radical élargie (lemmatisation)</li>
-		</ul>
-		</td>
+		<td>bn.microsoft</td>
+		<td></td>
 	</tr>
   	<tr>
     	<td>Basque</td>
+		<td></td>
     	<td>eu.lucene</td>
-    	<td>
-    	<ul>
-      		<li>Applique la racinisation algorithmique légère</li>
-    		<li>Retire les mots vides du basque</li>
-	    </ul>
-    	</td>
     </tr>
   	<tr>
- 	   <td>Bulgare</td>
+ 		<td>Bulgare</td>
+		<td>bg.microsoft</td>
     	<td>bg.lucene</td>
-    	<td>
-    	<ul>
-      		<li>Applique la racinisation algorithmique légère</li>
-    		<li>Retire les mots vides du bulgare</li>
-	    </ul>
-    	</td>
   	</tr>
-    <tr>
-		<td>Bulgare</td>
-		<td>bn.microsoft</td>
-		<td>
-		<ul>
-			<li>Outil de recherche de radical élargie (lemmatisation)</li>
-		</ul>
-		</td>
-	</tr>
   	<tr>
     	<td>Catalan</td>
-    	<td>ca.lucene</td>
-    	<td>
-    	<ul>
-      		<li>Applique la racinisation algorithmique légère</li>
-      		<li>Retire les mots vides du catalan</li>
-      		<li>Supprime les élisions</li>
-   		</ul>
-    	</td>
+    	<td>ca.microsoft</td>
+		<td>ca.lucene</td>  		
   	</tr>
-    <tr>
-		<td>Catalan</td>
-		<td>ca.microsoft</td>
-		<td>
-		<ul>
-			<li>Outil de recherche de radical élargie (lemmatisation)</li>
-			<li>Supprime les signes diacritiques</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>Chinois simplifié</td>
-		<td>zh-Hans.lucene</td>
-		<td>
-		<ul>
-			<li>Utilise des modèles de connaissances probabilistes pour trouver la segmentation optimale des mots</li>
-			<li>Retire les mots vides du chinois</li>
-		</ul>
-		</td>
-	</tr>
     <tr>
 		<td>Chinois simplifié</td>
 		<td>zh-Hans.microsoft</td>
-		<td>
-		<ul>
-			<li>Utilise des modèles de connaissances probabilistes pour trouver la segmentation optimale des mots</li>
-		</ul>
-		</td>
+		<td>zh-Hans.lucene</td>		
 	</tr>
     <tr>
 		<td>Chinois traditionnel</td>
-		<td>zh-Hant.lucene</td>
-		<td>
-		<ul>
-			<li>Indexe les bigrammes (chevauchement des groupes de deux caractères chinois adjacents)</li>
-			<li>Normalise les différences de largeur de caractère</li>
-		</ul>
-		</td>
-	<tr>
-    <tr>
-		<td>Chinois traditionnel</td>
 		<td>zh-Hant.microsoft</td>
-		<td>
-		<ul>
-			<li>Utilise des modèles de connaissances probabilistes pour trouver la segmentation optimale des mots</li>
-		</ul>
-		</td>
+		<td>zh-Hant.lucene</td>		
 	<tr>
     <tr>
 		<td>Croate</td>
 		<td>hr.microsoft</td>
-		<td>
-		<ul>
-			<li>Outil de recherche de radical élargie (lemmatisation)</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>Tchèque</td>
-		<td>cs.lucene</td>
-		<td>
-		<ul>
-			<li>Applique la racinisation légère</li>
-			<li>Retire les mots vides du tchèque</li>
-		</ul>
-		</td>
+		<td/></td>
 	</tr>
     <tr>
 		<td>Tchèque</td>
 		<td>cs.microsoft</td>
-		<td>
-		<ul>
-			<li>Outil de recherche de radical élargie (lemmatisation)</li>
-			<li>Retire les mots vides du tchèque</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>Danois</td>
-		<td>da.lucene</td>
-		<td>
-		<ul>
-			<li>Applique la racinisation légère</li>
-			<li>Retire les mots vides du danois</li>
-		</ul>
-		</td>
-	</tr>
+		<td>cs.lucene</td>		
+	</tr>    
     <tr>
 		<td>Danois</td>
 		<td>da.microsoft</td>
-		<td>
-		<ul>
-			<li>Outil de recherche de radical élargie (lemmatisation)</li>
-			<li>Retire les mots vides du danois</li>
-			<li>Décomposition</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>Néerlandais</td>
-		<td>nl.lucene</td>
-		<td>
-		<ul>
-			<li>Applique la racinisation légère</li>
-			<li>Retire les mots vides du néerlandais</li>
-		</ul>
-		</td>
-	</tr>
+		<td>da.lucene</td>		
+	</tr>    
     <tr>
 		<td>Néerlandais</td>
 		<td>nl.microsoft</td>
-		<td>
-		<ul>
-			<li>Outil de recherche de radical élargie (lemmatisation)</li>
-			<li>Retire les mots vides du néerlandais</li>
-			<li>Décomposition</li>
-			<li>Supprime les signes diacritiques</li>
-		</ul>
-		</td>
-	</tr>
+		<td>nl.lucene</td>	
+	</tr>    
     <tr>
-		<td>Français</td>
-		<td>en.lucene</td>
-		<td>
-		<ul>
-			<li>Applique la racinisation légère</li>
-			<li>Retire les mots vides de l'anglais</li>
-			<li>Supprime la marque du possessif</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>Français</td>
+		<td>Français</td>		
 		<td>en.microsoft</td>
-		<td>
-		<ul>
-			<li>Outil de recherche de radical élargie (lemmatisation)</li>
-			<li>Retire les mots vides de l'anglais</li>
-			<li>Supprime la marque du possessif et les signes diacritiques</li>
-		</ul>
-		</td>
+		<td>en.lucene</td>		
 	</tr>
     <tr>
 		<td>Estonien</td>
 		<td>et.Microsoft</td>
-		<td>
-		<ul>
-			<li>Outil de recherche de radical réduite</li>
-			<li>Décomposition</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>Finnois</td>
-		<td>fi.lucene</td>
-		<td>
-		<ul>
-			<li>Applique la racinisation légère</li>
-			<li>Retire les mots vides du finnois</li>
-		</ul>
-		</td>
+		<td></td>
 	</tr>
     <tr>
 		<td>Finnois</td>
 		<td>fi.microsoft</td>
-		<td>
-		<ul>
-			<li>Outil de recherche de radical réduite</li>
-			<li>Retire les mots vides du finnois</li>
-			<li>Décomposition</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>Français</td>
-		<td>fr.lucene</td>
-		<td>
-		<ul>
-			<li>Applique la racinisation légère</li>
-			<li>Retire les mots vides du français</li>
-			<li>Supprime les élisions</li>
-		</ul>
-		</td>
-	</tr>
+		<td>fi.lucene</td>		
+	</tr>    
     <tr>
 		<td>Français</td>
 		<td>fr.Microsoft</td>
-		<td>
-		<ul>
-			<li>Outil de recherche de radical élargie (lemmatisation)</li>
-			<li>Retire les mots vides du français</li>
-			<li>Supprime les signes diacritiques</li>
-		</ul>
-		</td>
+		<td>fr.lucene</td>		
 	</tr>
     <tr>
     	<td>Galicien</td>
-	    <td>gl.lucene</td>
-    	<td>
-    	<ul>
-    		<li>Applique la racinisation légère</li>
-      		<li>Retire les mots vides du galicien</li>
-    	</ul>
-    	</td>
+	    <td></td>
+		<td>gl.lucene</td>    	
   	</tr>
     <tr>
 		<td>Allemand</td>
-		<td>de.lucene</td>
-		<td>
-		<ul>
-			<li>Applique la racinisation légère</li>
-			<li>Retire les mots vides de l'allemand</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>Allemand</td>
 		<td>de.Microsoft</td>
-		<td>
-		<ul>
-			<li>Outil de recherche de radical élargie (lemmatisation)</li>
-			<li>Retire les mots vides de l'allemand</li>
-			<li>Décomposition</li>
-			<li>Supprime les signes diacritiques</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>Grec</td>
-		<td>el.lucene</td>
-		<td>
-		<ul>
-			<li>Applique la racinisation légère</li>
-			<li>Retire les mots vides du grec</li>
-		</ul>
-		</td>
+		<td>de.lucene</td>		
 	</tr>
     <tr>
 		<td>Grec</td>
 		<td>el.microsoft</td>
-		<td>
-		<ul>
-			<li>Outil de recherche de radical élargie (lemmatisation)</li>
-			<li>Retire les mots vides du grec</li>
-		</ul>
-		</td>
+		<td>el.lucene</td>		
 	</tr>
     <tr>
 		<td>Goudjrati</td>
 		<td>gu.microsoft</td>
-		<td>
-		<ul>
-			<li>Outil de recherche de radical élargie (lemmatisation)</li>
-		</ul>
-		</td>
+		<td></td>
 	</tr>
     <tr>
 		<td>Hébreu</td>
 		<td>he.microsoft</td>
-		<td>
-		<ul>
-			<li>Outil de recherche de radical réduite</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>Hindi</td>
-		<td>hi.lucene</td>
-		<td>
-		<ul>
-			<li>Applique la racinisation légère</li>
-			<li>Retire les mots vides de l'hindi</li>
-			<li>Supprime certaines différences dans les variations d'orthographe</li>
-			<li>Normalise la représentation Unicode du texte dans les langues indiennes.</li>
-		</ul>
-		</td>
+		<td></td>
 	</tr>
     <tr>
 		<td>Hindi</td>
 		<td>hi.microsoft</td>
-		<td>
-		<ul>
-			<li>Outil de recherche de radical élargie (lemmatisation)</li>
-			<li>Retire les mots vides de l'hindi</li>
-		</ul>
-		</td>
+		<td>hi.lucene</td>		
 	</tr>
     <tr>
-		<td>Hongrois</td>
-		<td>hu.lucene</td>
-		<td>
-		<ul>
-			<li>Applique la racinisation légère</li>
-			<li>Retire les mots vides du hongrois</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>Hongrois</td>
+		<td>Hongrois</td>		
 		<td>hu.microsoft</td>
-		<td>
-		<ul>
-			<li>Outil de recherche de radical réduite</li>
-			<li>Retire les mots vides du hongrois</li>
-			<li>Décomposition</li>
-		</ul>
-		</td>
+		<td>hu.lucene</td>
 	</tr>
     <tr>
 		<td>Islandais</td>
 		<td>is.microsoft</td>
-		<td>
-		<ul>
-			<li>Outil de recherche de radical élargie (lemmatisation)</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>Indonésien (Bahasa)</td>
-		<td>id.lucene</td>
-		<td>
-		<ul>
-			<li>Applique la racinisation légère</li>
-			<li>Retire les mots vides de l'indonésien</li>
-		</ul>
-		</td>
+		<td></td>
 	</tr>
     <tr>
 		<td>Indonésien (Bahasa)</td>
 		<td>id.microsoft</td>
-		<td>
-		<ul>
-			<li>Outil de recherche de radical élargie (lemmatisation)</li>
-			<li>Retire les mots vides de l’indonésien</li>
-		</ul>
-		</td>
+		<td>id.lucene</td>		
 	</tr>
     <tr>
     	<td>Irlandais</td>
+		<td></td>
       	<td>ga.lucene</td>
-      	<td>
-      	<ul>
-        	<li>Applique la racinisation légère</li>
-        	<li>Retire les mots vides de l’irlandais</li>
-      	</ul>
-      	</td>
     </tr>
     <tr>
 		<td>Italien</td>
-		<td>it.lucene</td>
-		<td>
-		<ul>
-			<li>Applique la racinisation légère</li>
-			<li>Retire les mots vides de l'italien</li>
-			<li>Supprime les élisions</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>Italien</td>
 		<td>it.microsoft</td>
-		<td>
-		<ul>
-			<li>Outil de recherche de radical élargie (lemmatisation)</li>
-			<li>Retire les mots vides de l'italien</li>
-			<li>Supprime les signes diacritiques</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>Japonais</td>
-		<td>ja.lucene</td>
-		<td>
-		<ul>
-			<li>Utilise l'analyse morphologique</li>
-			<li>Normalise les variations d'orthographe katakana courantes</li>
-			<li>Suppression légère des mots vides/balises d'arrêt</li>
-			<li>Normalisation de la largeur des caractères</li>
-			<li>Lemmatisation - réduit les verbes et adjectifs formatifs à leur forme de base</li>
-		</ul>
-		</td>
+		<td>it.lucene</td>		
 	</tr>
     <tr>
 		<td>Japonais</td>
 		<td>ja.Microsoft</td>
-		<td>
-		<ul>
-			<li>Utilise l'analyse morphologique</li>
-		</ul>
-		</td>
+		<td>ja.lucene</td>
+		
 	</tr>
     <tr>
 		<td>Kannada</td>
 		<td>ka.microsoft</td>
-		<td>
-		<ul>
-			<li>Outil de recherche de radical élargie (lemmatisation)</li>
-		</ul>
-		</td>
+		<td></td>
 	</tr>
     <tr>
 		<td>Coréen</td>
+		<td></td>
 		<td>ko.lucene</td>
-		<td>
-		<ul>
-			<li>Indexe les bigrammes (chevauchement des groupes de deux caractères hangûl adjacents)</li>
-			<li>Normalise les différences de largeur de caractère</li>
-		</ul>
-		</td>
-	</tr>
-  	<tr>
-		<td>Coréen</td>
-		<td>ko.microsoft</td>
-		<td>
-		<ul>
-			<li>Outil de recherche de radical réduite (lemmatisation)</li>
-		</ul>
-		</td>
 	</tr>
     <tr>
-		<td>Letton</td>
-		<td>lv.lucene</td>
-		<td>
-		<ul>
-			<li>Applique la racinisation légère</li>
-			<li>Retire les mots vides du letton</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>Letton</td>
+		<td>Letton</td>		
 		<td>lv.microsoft</td>
-		<td>
-		<ul>
-			<li>Outil de recherche de radical réduite</li>
-			<li>Retire les mots vides du letton</li>
-		</ul>
-		</td>
+		<td>lv.lucene</td>	
 	</tr>
     <tr>
 		<td>Lituanien</td>
 		<td>lt.microsoft</td>
-		<td>
-		<ul>
-			<li>Outil de recherche de radical réduite</li>
-		</ul>
-		</td>
+		<td></td>
 	</tr>
     <tr>
 		<td>Malayalam</td>
 		<td>ml.microsoft</td>
-		<td>
-		<ul>
-			<li>Outil de recherche de radical élargie (lemmatisation)</li>
-		</ul>
-		</td>
+		<td></td>
 	</tr>
     <tr>
 		<td>Malais (latin)</td>
 		<td>ms.microsoft</td>
-		<td>
-		<ul>
-			<li>Outil de recherche de radical élargie (lemmatisation)</li>
-		</ul>
-		</td>
+		<td></td>
 	</tr>
     <tr>
 		<td>Marathi</td>
 		<td>mr.microsoft</td>
-		<td>
-		<ul>
-			<li>Outil de recherche de radical élargie (lemmatisation)</li>
-		</ul>
-		</td>
+		<td></td>
 	</tr>
     <tr>
 		<td>Norvégien</td>
-		<td>no.lucene</td>
-		<td>
-		<ul>
-			<li>Applique la racinisation légère</li>
-			<li>Retire les mots vides du norvégien</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>Norvégien</td>
-		<td>no.microsoft</td>
-		<td>
-		<ul>
-			<li>Outil de recherche de radical élargie (lemmatisation)</li>
-			<li>Retire les mots vides du norvégien</li>
-			<li>Décomposition</li>
-		</ul>
-		</td>
+		<td>nb.Microsoft</td>
+		<td>no.lucene</td>		
 	</tr>
   	<tr>
     	<td>Persan</td>
-		<td>fa.lucene</td>
-    	<td>
-    	<ul>
-      		<li>Applique la recherche de radical algorithmique</li>
-      		<li>Retire les mots vides du persan</li>
-      		<li>Implémente la normalisation orthographique de l’arabe et du persan</li>
-    	</ul>
-    	</td>
+		<td></td>
+		<td>fa.lucene</td>    	
   	</tr>
     <tr>
 		<td>Polonais</td>
-		<td>pl.lucene</td>
-		<td>
-		<ul>
-			<li>Applique la racinisation algorithmique (Stempel)</li>
-			<li>Retire les mots vides du polonais</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>Polonais</td>
 		<td>pl.microsoft</td>
-		<td>
-		<ul>
-			<li>Outil de recherche de radical élargie (lemmatisation)</li>
-			<li>Retire les mots vides du polonais</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>Portugais (Brésil)</td>
-		<td>pt-Br.lucene</td>
-		<td>
-		<ul>
-			<li>Applique la racinisation légère</li>
-			<li>Retire les mots vides du brésilien</li>
-		</ul>
-		</td>
+		<td>pl.lucene</td>		
 	</tr>
     <tr>
 		<td>Portugais (Brésil)</td>
 		<td>pt-Br.microsoft</td>
-		<td>
-		<ul>
-			<li>Outil de recherche de radical élargie (lemmatisation)</li>
-			<li>Retire les mots vides du brésilien</li>
-		</ul>
-		</td>
+		<td>pt-Br.lucene</td>		
 	</tr>
     <tr>
 		<td>Portugais (Portugal)</td>
+		<td>pt-Pt.microsoft</td>		
 		<td>pt-Pt.lucene</td>
-		<td>
-		<ul>
-			<li>Applique la racinisation légère</li>
-			<li>Retire les mots vides du portugais</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>Portugais (Portugal)</td>
-		<td>pt-Pt.microsoft</td>
-		<td>
-		<ul>
-			<li>Outil de recherche de radical élargie (lemmatisation)</li>
-			<li>Retire les mots vides du portugais</li>
-			<li>Supprime les signes diacritiques</li>
-		</ul>
-		</td>
 	</tr>
     <tr>
 		<td>Pendjabi</td>
 		<td>pa.microsoft</td>
-		<td>
-		<ul>
-			<li>Outil de recherche de radical élargie (lemmatisation)</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>Roumain</td>
-		<td>ro.lucene</td>
-		<td>
-		<ul>
-			<li>Applique la racinisation légère</li>
-			<li>Retire les mots vides du roumain</li>
-		</ul>
-		</td>
+		<td></td>
 	</tr>
     <tr>
 		<td>Roumain</td>
 		<td>ro.microsoft</td>
-		<td>
-		<ul>
-			<li>Outil de recherche de radical élargie (lemmatisation)</li>
-			<li>Retire les mots vides du roumain</li>
-			<li>Supprime les signes diacritiques</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>Russe</td>
-		<td>ru.lucene</td>
-		<td>
-		<ul>
-			<li>Applique la racinisation légère</li>
-			<li>Retire les mots vides du russe</li>
-		</ul>
-		</td>
+		<td>ro.lucene</td>
 	</tr>
     <tr>
 		<td>Russe</td>
 		<td>ru.microsoft</td>
-		<td>
-		<ul>
-			<li>Outil de recherche de radical élargie (lemmatisation)</li>
-			<li>Retire les mots vides du russe</li>
-		</ul>
-		</td>
+		<td>ru.lucene</td>	
 	</tr>
     <tr>
 		<td>Serbe (cyrillique)</td>
 		<td>sr-cyrillic.microsoft</td>
-		<td>
-		<ul>
-			<li>Outil de recherche de radical élargie (lemmatisation)</li>
-		</ul>
-		</td>
+		<td></td>
 	</tr>
     <tr>
 		<td>Serbe (latin)</td>
 		<td>sr-latin.microsoft</td>
-		<td>
-		<ul>
-			<li>Outil de recherche de radical élargie (lemmatisation)</li>
-		</ul>
-		</td>
+		<td></td>
 	</tr>
     <tr>
 		<td>Slovaque</td>
 		<td>sk.microsoft</td>
-		<td>
-		<ul>
-			<li>Outil de recherche de radical réduite</li>
-			<li>Décomposition</li>
-		</ul>
-		</td>
+		<td></td>
 	</tr>
     <tr>
 		<td>Slovène</td>
-		<td>sk.microsoft</td>
-		<td>
-		<ul>
-			<li>Outil de recherche de radical élargie (lemmatisation)</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>Espagnol</td>
-		<td>es.lucene</td>
-		<td>
-		<ul>
-			<li>Applique la racinisation légère</li>
-			<li>Retire les mots vides de l'espagnol</li>
-		</ul>
-		</td>
+		<td>sl.microsoft</td>
+		<td></td>
 	</tr>
     <tr>
 		<td>Espagnol</td>
 		<td>es.Microsoft</td>
-		<td>
-		<ul>
-			<li>Outil de recherche de radical élargie (lemmatisation)</li>
-			<li>Retire les mots vides de l'espagnol</li>
-			<li>Supprime les signes diacritiques</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>Suédois</td>
-		<td>sv.lucene</td>
-		<td>
-		<ul>
-			<li>Applique la racinisation légère</li>
-			<li>Retire les mots vides du suédois</li>
-		</ul>
-		</td>
+		<td>es.lucene</td>
 	</tr>
     <tr>
 		<td>Suédois</td>
 		<td>sv.microsoft</td>
-		<td>
-		<ul>
-			<li>Outil de recherche de radical élargie (lemmatisation)</li>
-			<li>Retire les mots vides du suédois</li>
-			<li>Décomposition</li>
-		</ul>
-		</td>
+		<td>sv.lucene</td>
 	</tr>
+
     <tr>
 		<td>Tamoul</td>
 		<td>ta.microsoft</td>
-		<td>
-		<ul>
-			<li>Outil de recherche de radical élargie (lemmatisation)</li>
-		</ul>
-		</td>
+		<td></td>
 	</tr>
     <tr>
 		<td>Télougou</td>
 		<td>te.microsoft</td>
-		<td>
-		<ul>
-			<li>Outil de recherche de radical élargie (lemmatisation)</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>Thaï</td>
-		<td>th.lucene</td>
-		<td>
-		<ul>
-			<li>Applique la racinisation légère</li>
-			<li>Retire les mots vides du thaï</li>
-		</ul>
-		</td>
+		<td></td>
 	</tr>
     <tr>
 		<td>Thaï</td>
 		<td>th.microsoft</td>
-		<td>
-		<ul>
-			<li>Retire les mots vides du thaï</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>Turc</td>
-		<td>tr.lucene</td>
-		<td>
-		<ul>
-			<li>Supprime tous les caractères après une apostrophe (y compris l'apostrophe elle-même)</li>
-			<li>Applique la racinisation légère</li>
-			<li>Retire les mots vides du turc</li>
-		</ul>
-		</td>
+		<td>th.lucene</td>
 	</tr>
     <tr>
 		<td>Turc</td>
 		<td>tr.microsoft</td>
-		<td>
-		<ul>
-			<li>Outil de recherche de radical réduite</li>
-			<li>Retire les mots vides du turc</li>
-		</ul>
-		</td>
+		<td>tr.lucene</td>		
 	</tr>
     <tr>
 		<td>Ukrainien</td>
 		<td>uk.microsoft</td>
-		<td>
-		<ul>
-		<li>Outil de recherche de radical élargie (lemmatisation)</li>
-		</ul>
-		</td>
+		<td></td>
 	</tr>
     <tr>
 		<td>Ourdou</td>
 		<td>ur.microsoft</td>
-		<td>
-		<ul>
-		<li>Outil de recherche de radical élargie (lemmatisation)</li>
-		</ul>
-		</td>
+		<td></td>
 	</tr>
     <tr>
 		<td>Vietnamien</td>
 		<td>vi.microsoft</td>
-		<td>
-		<ul>
-
-		</ul>
-		</td>
+		<td></td>
 	</tr>
 	<td colspan="3">En outre, Azure Search fournit des configurations d'analyseur sans langage spécifié</td>
     <tr>
@@ -1211,7 +633,7 @@ Le code Javascript côté client ne peut pas appeler les API par défaut, car le
         {"name": "hotelId", "type": "Edm.String", "key": true, "searchable": false},
         {"name": "baseRate", "type": "Edm.Double"},
         {"name": "description", "type": "Edm.String", "filterable": false, "sortable": false, "facetable": false},
-	    {"name": "description_fr", "type": "Edm.String", "filterable": false, "sortable": false, "facetable": false, analyzer="fr.lucene"},
+	    {"name": "description_fr", "type": "Edm.String", "filterable": false, "sortable": false, "facetable": false, "analyzer"="fr.lucene"},
         {"name": "hotelName", "type": "Edm.String"},
         {"name": "category", "type": "Edm.String"},
         {"name": "tags", "type": "Collection(Edm.String)"},
@@ -1282,7 +704,7 @@ Un générateur de suggestions fait partie de l’index. Un seul générateur de
 		  ]
 		}
 
-> [AZURE.NOTE]Si vous avez utilisé la version préliminaire publique d’Azure Search, `suggesters` remplace une propriété booléenne (`"suggestions": false`) plus ancienne qui prenait en charge uniquement des suggestions de préfixe pour les chaînes courtes (de 3 à 25 caractères). Son remplacement, `suggesters`, prend en charge la correspondance infixe qui recherche des termes correspondants au début ou au milieu du contenu du champ, avec une meilleure tolérance pour les erreurs dans les chaînes recherchées. À partir de la version disponible sur le marché, il s'agit de la seule implémentation de l'API des suggestions. La propriété `suggestions` plus ancienne introduite dans `api-version=2014-07-31-Preview` continue de fonctionner dans cette version, mais n'est pas opérationnelle dans la version `2015-02-28` ou les version ultérieures d'Azure Search.
+> [AZURE.NOTE]Si vous avez utilisé la version préliminaire publique d’Azure Search, `suggesters` remplace une propriété booléenne (`"suggestions": false`) plus ancienne qui prenait en charge uniquement des suggestions de préfixe pour les chaînes courtes (de 3 à 25 caractères). Son remplacement, `suggesters`, prend en charge la correspondance infixe qui recherche des termes correspondants au début ou au milieu du contenu du champ, avec une meilleure tolérance pour les erreurs dans les chaînes recherchées. À partir de la version disponible sur le marché, il s'agit de la seule implémentation de l'API des suggestions. La propriété `suggestions` plus ancienne introduite dans `api-version=2014-07-31-Preview` continue de fonctionner dans cette version, mais n’est pas opérationnelle dans la version `2015-02-28` ou les version ultérieures d’Azure Search.
 
 <a name="UpdateIndex"></a>
 ## Mise à jour d'index
@@ -1565,11 +987,11 @@ Le corps de la réponse a le format suivant :
 
 ________________________________________
 <a name="DocOps"></a>
-## Opérations de document #
+## Opérations de document
 
 Dans Azure Search, un index est stocké dans le cloud et rempli à l'aide de documents JSON que vous téléchargez sur le service. Tous les documents que vous téléchargez comprennent le corpus de vos données de recherche. Les documents contiennent des champs, dont certains sont tokenisés dans les termes de recherche à mesure qu'ils sont téléchargés. Le segment d'URL `/docs` dans l'API d'Azure Search représente la collection de documents d'un index. Toutes les opérations sur la collection, telles que le chargement, la fusion, la suppression ou l'interrogation de documents, sont effectuées dans un contexte d'index unique, les URL pour ces opérations commencent donc toujours par `/indexes/[index name]/docs` pour un nom d'index donné.
 
-Votre code d'application doit générer des documents JSON à télécharger vers Azure Search ou vous pouvez utiliser un [indexeur](https://msdn.microsoft.com/library/dn946891.aspx) pour charger des documents si la source de données est la base de données SQL Azure ou DocumentDB. En règle générale, les index sont remplis à partir d'un jeu de données unique que vous fournissez.
+Votre code d’application doit générer des documents JSON à télécharger vers Azure Search ou vous pouvez utiliser un [indexeur](https://msdn.microsoft.com/library/dn946891.aspx) pour charger des documents si la source de données est la base de données SQL Azure ou DocumentDB. En règle générale, les index sont remplis à partir d'un jeu de données unique que vous fournissez.
 
 Vous devez prévoir un document pour chaque élément dans lequel vous voulez effectuer la recherche. Une application de location de films peut avoir un document par film, une application vitrine peut avoir un document par référence, une application de formation en ligne peut avoir un document par cours, un cabinet de recherche peut avoir un document pour chaque document académique de son référentiel, etc.
 
@@ -1709,7 +1131,7 @@ ________________________________________
 <a name="SearchDocs"></a>
 ## Recherche dans des documents
 
-Une opération **Search** est émise en tant que requête GET ou POST et spécifie les paramètres qui donnent les critères de sélection des documents correspondants.
+Une opération **Search** est émise sous forme de requête GET ou POST et spécifie les paramètres qui donnent les critères de sélection des documents correspondants.
 
     GET https://[service name].search.windows.net/indexes/[index name]/docs?[query parameters]
     api-key: [admin or query key]
@@ -1720,15 +1142,15 @@ Une opération **Search** est émise en tant que requête GET ou POST et spécif
 
 **Utilisation de POST au lieu de GET**
 
-Lorsque vous utilisez HTTP GET pour appeler l'API de **recherche**, vous devez savoir que la longueur de l'URL de requête ne peut pas dépasser 8 Ko. Cela est généralement suffisamment pour la plupart des applications. Toutefois, certaines applications produisent des requêtes très volumineuses, en particulier les expressions de filtre OData. Pour ces applications, l'utilisation de HTTP POST est plus adaptée. La limite de taille de requête pour POST est proche de 17 Mo, ce qui est suffisant même pour les requêtes les plus complexes.
+Lorsque vous utilisez HTTP GET pour appeler l’API de **recherche**, vous devez savoir que la longueur de l’URL de requête ne peut pas excéder 8 Ko. Cela est généralement suffisamment pour la plupart des applications. Toutefois, certaines applications produisent des requêtes très volumineuses, en particulier les expressions de filtre OData. Pour ces applications, l'utilisation de HTTP POST est plus adaptée. La limite de taille de requête pour POST est proche de 17 Mo, ce qui est suffisant même pour les requêtes les plus complexes.
 
 **Requête**
 
-Le protocole HTTPS est requis pour les requêtes de service. La requête **Search** peut être construite à l'aide des méthodes GET ou POST.
+Le protocole HTTPS est requis pour les requêtes de service. La requête **Search** peut être construite à l’aide des méthodes GET ou POST.
 
 L'URI de la requête spécifie l'index à interroger, pour tous les documents qui correspondent aux paramètres. Les paramètres sont spécifiés dans la chaîne de requête pour les requêtes GET et dans le corps de la requête pour les requêtes POST.
 
-Lors de la création de requêtes GET, il est recommandé d'[encoder par URL](https://msdn.microsoft.com/library/system.uri.escapedatastring.aspx) les paramètres de requête spécifiques lors de l'appel direct de l'API REST. Pour les opérations de **recherche**, cela inclut :
+Lors de la création de requêtes GET, il est recommandé d’[encoder par URL](https://msdn.microsoft.com/library/system.uri.escapedatastring.aspx) les paramètres de requête spécifiques lors de l’appel direct de l’API REST. Pour les opérations de **recherche**, cela inclut :
 
 - `$filter`
 - `facet`
@@ -1739,11 +1161,11 @@ Lors de la création de requêtes GET, il est recommandé d'[encoder par URL](ht
 
 L'encodage des URL est recommandé uniquement pour les paramètres de requête ci-dessus. Si vous encodez par URL par inadvertance la chaîne de requête entière (tout ce qui figure après ?), les requêtes sont interrompues.
 
-En outre, l'encodage des URL est nécessaire uniquement lors de l'appel direct de l'API REST à l'aide de GET. Aucun encodage des URL n'est nécessaire lors de l'appel de **Search** à l'aide de POST ou lorsque vous utilisez la [bibliothèque cliente .NET](https://msdn.microsoft.com/library/dn951165.aspx) qui gère l'encodage des URL pour vous.
+En outre, l'encodage des URL est nécessaire uniquement lors de l'appel direct de l'API REST à l'aide de GET. Aucun encodage des URL n’est nécessaire lors de l’appel de **Search** à l’aide de POST ou lorsque vous utilisez la [bibliothèque cliente .NET](https://msdn.microsoft.com/library/dn951165.aspx) qui gère l’encodage des URL pour vous.
 
-**Paramètres de requête**
+<a name="SearchQueryParameters"></a> **Paramètres de requête**
 
-La requête **Search** accepte plusieurs paramètres qui fournissent les critères de la requête et qui spécifient également le comportement de la recherche. Vous fournissez ces paramètres dans la chaîne de requête de l'URL lors de l'appel de **Search** via GET et en tant que propriétés JSON dans le corps de la requête lors de l'appel de **Search** via POST. La syntaxe de certains paramètres est légèrement différente entre GET et POST. Ces différences sont indiquées ci-dessous :
+La requête **Search** accepte plusieurs paramètres qui fournissent les critères de la requête et qui spécifient également le comportement de la recherche. Vous fournissez ces paramètres dans la chaîne de requête de l’URL lors de l’appel de **Search** via GET et en tant que propriétés JSON dans le corps de la requête lors de l’appel de **Search** via POST. La syntaxe de certains paramètres est légèrement différente entre GET et POST. Ces différences sont indiquées ci-dessous :
 
 `search=[string]` (facultatif) - le texte à rechercher. Tous les champs `searchable` sont interrogés par défaut, sauf si `searchFields` est spécifié. Lors de l'interrogation des champs `searchable`, le texte de recherche est tokenisé, plusieurs termes peuvent donc être séparés par un espace blanc (par exemple : `search=hello world`). Pour faire correspondre n'importe quel terme, utilisez `*` (qui peut être utile pour les requêtes de filtre booléen). L'omission de ce paramètre a le même effet que s'il est défini avec la valeur `*`. Pour obtenir des détails sur la syntaxe de recherche, consultez la section [Syntaxe de requête simple](https://msdn.microsoft.com/library/dn798920.aspx).
 
@@ -1757,25 +1179,25 @@ La requête **Search** accepte plusieurs paramètres qui fournissent les critèr
 
 `$skip=#` (facultatif) : nombre de résultats de recherche à ignorer. Ne peut pas être supérieur à 100 000. Si vous avez besoin d'analyser des documents dans l'ordre, mais que vous ne pouvez pas utiliser `$skip` en raison de cette limitation, utilisez plutôt `$orderby` sur une clé totalement ordonnée et `$filter` avec une requête de plage de données.
 
-> [AZURE.NOTE]Lors de l'appel de **Search** à l'aide de POST, ce paramètre est nommé `skip` au lieu de `$skip`.
+> [AZURE.NOTE]Lors de l’appel de **Search** à l’aide de POST, ce paramètre est nommé `skip` au lieu de `$skip`.
 
 `$top=#` (facultatif) : nombre de résultats de recherche à récupérer. Ceci peut être utilisé conjointement avec `$skip` pour implémenter la pagination côté client des résultats de la recherche.
 
-> [AZURE.NOTE]Azure Search utilise la ***pagination côté serveur*** pour empêcher les requêtes de récupérer trop de documents à la fois. La taille de page par défaut est 50, tandis que la taille de page maximale est 1 000. Cela signifie que par défaut, **Search** retourne 50 résultats maximum si vous ne spécifiez pas `$top`. S'il existe plus de 50 résultats, la réponse inclut des informations pour récupérer la page suivante de 50 résultats maximum (voir `@odata.nextLink` et `@search.nextPageParameters` dans l'[exemple ci-dessous](#SearchResponse)). De même, si vous spécifiez une valeur supérieure à 1 000 pour `$top` et qu'il existe plus de 1 000 résultats, seuls les 1 000 premiers résultats sont retournés, ainsi que des informations pour récupérer la page suivante de 1 000 résultats maximum.
+> [AZURE.NOTE]Azure Search utilise la ***pagination côté serveur*** pour empêcher les requêtes de récupérer trop de documents à la fois. La taille de page par défaut est 50, tandis que la taille de page maximale est 1 000. Cela signifie que par défaut, **Search** retourne 50 résultats maximum si vous ne spécifiez pas `$top`. S’il existe plus de 50 résultats, la réponse inclut des informations pour récupérer la page suivante de 50 résultats maximum (voir `@odata.nextLink` et `@search.nextPageParameters` dans l’[exemple ci-dessous](#SearchResponse)). De même, si vous spécifiez une valeur supérieure à 1 000 pour `$top` et qu’il existe plus de 1 000 résultats, seuls les 1 000 premiers résultats sont retournés, ainsi que des informations pour récupérer la page suivante de 1 000 résultats maximum.
 
-> [AZURE.NOTE]Lors de l'appel de **Search** à l'aide de POST, ce paramètre est nommé `top` au lieu de `$top`.
+> [AZURE.NOTE]Lors de l’appel de **Search** à l’aide de POST, ce paramètre est nommé `top` au lieu de `$top`.
 
 `$count=true|false` (facultatif, la valeur par défaut est `false`) : indique s'il faut extraire le nombre total de résultats. La valeur `true` peut avoir un impact sur les performances. Notez que le nombre retourné est une approximation.
 
-> [AZURE.NOTE]Lors de l'appel de **Search** à l'aide de POST, ce paramètre est nommé `count` au lieu de `$count`.
+> [AZURE.NOTE]Lors de l’appel de **Search** à l’aide de POST, ce paramètre est nommé `count` au lieu de `$count`.
 
 `$orderby=[string]` (facultatif) : liste d'expressions séparées par des virgules selon lesquelles les résultats doivent être triés. Chaque expression peut être un nom de champ ou un appel à la fonction `geo.distance()`. Chaque expression peut être suivie par `asc` pour indiquer l'ordre croissant, et par `desc` pour indiquer l'ordre décroissant. La valeur par défaut est l'ordre croissant. Les liens seront rompus par les scores de correspondance des documents. Si aucun `$orderby` n'est spécifié, l'ordre de tri par défaut est décroissant par score de correspondance de documents. Il existe une limite de 32 clauses pour `$orderby`.
 
-> [AZURE.NOTE]Lors de l'appel de **Search** à l'aide de POST, ce paramètre est nommé `orderby` au lieu de `$orderby`.
+> [AZURE.NOTE]Lors de l’appel de **Search** à l’aide de POST, ce paramètre est nommé `orderby` au lieu de `$orderby`.
 
 `$select=[string]` (facultatif) : liste de champs séparés par des virgules à récupérer. Si aucune valeur n'est spécifiée, tous les champs marqués comme récupérables dans le schéma sont inclus. Vous pouvez demander explicitement tous les champs en définissant ce paramètre avec la valeur `*`.
 
-> [AZURE.NOTE]Lors de l'appel de **Search** à l'aide de POST, ce paramètre est nommé `select` au lieu de `$select`.
+> [AZURE.NOTE]Lors de l’appel de **Search** à l’aide de POST, ce paramètre est nommé `select` au lieu de `$select`.
 
 `facet=[string]` (zéro ou plus) : champ à utiliser pour les facettes. La chaîne peut éventuellement contenir des paramètres pour personnaliser les facettes exprimées sous forme de paires `name:value` séparées par des virgules. Les paramètres valides sont les suivants :
 
@@ -1793,27 +1215,27 @@ La requête **Search** accepte plusieurs paramètres qui fournissent les critèr
   - Par exemple : `facet=lastRenovationDate,interval:year` génère un compartiment pour chaque année de rénovation des hôtels.
 - **Remarque** : `count` et `sort` peuvent être combinés dans la même spécification de facette, mais ils ne peuvent pas être combinés avec `interval` ou `values`, et `interval` et `values` ne peuvent pas être combinés ensemble.
 
-> [AZURE.NOTE]Lors de l'appel de **Search** à l'aide de POST, ce paramètre est nommé `facets` au lieu de `facet`. En outre, vous le spécifiez sous forme de tableau JSON de chaînes où chaque chaîne est une expression de facette distincte.
+> [AZURE.NOTE]Lors de l’appel de **Search** à l’aide de POST, ce paramètre est nommé `facets` au lieu de `facet`. En outre, vous le spécifiez sous forme de tableau JSON de chaînes où chaque chaîne est une expression de facette distincte.
 
 `$filter=[string]` (facultatif) : expression de recherche structurée avec une syntaxe OData standard. Consultez la section [Syntaxe d'expression OData](#ODataExpressionSyntax) pour plus d'informations sur le sous-ensemble de la grammaire d'expression OData pris en charge par Azure Search.
 
-> [AZURE.NOTE]Lors de l'appel de **Search** à l'aide de POST, ce paramètre est nommé `filter` au lieu de `$filter`.
+> [AZURE.NOTE]Lors de l’appel de **Search** à l’aide de POST, ce paramètre est nommé `filter` au lieu de `$filter`.
 
 `highlight=[string]` (facultatif) : ensemble de noms de champ séparés par des virgules pour la mise en surbrillance des correspondances. Seuls les champs `searchable` peuvent être utilisés pour la mise en surbrillance des correspondances.
 
 `highlightPreTag=[string]` (facultatif, la valeur par défaut est `<em>`) : balise de chaîne qui ajoute un préfixe aux mises en surbrillance des correspondances. Doit être défini avec `highlightPostTag`.
 
-> [AZURE.NOTE]Lors de l'appel de **Search** à l'aide de GET, les caractères réservés dans l'URL doivent être codés en pourcentage (par exemple, %23 au lieu de #).
+> [AZURE.NOTE]Lors de l’appel de **Search** à l’aide de GET, les caractères réservés dans l’URL doivent être codés en pourcentage (par exemple, %23 au lieu de #).
 
 `highlightPostTag=[string]` (facultatif, la valeur par défaut est `</em>`) : balise de chaîne qui ajoute un élément aux mises en surbrillance des correspondances. Doit être défini avec `highlightPreTag`.
 
-> [AZURE.NOTE]Lors de l'appel de **Search** à l'aide de GET, les caractères réservés dans l'URL doivent être codés en pourcentage (par exemple, %23 au lieu de #).
+> [AZURE.NOTE]Lors de l’appel de **Search** à l’aide de GET, les caractères réservés dans l’URL doivent être codés en pourcentage (par exemple, %23 au lieu de #).
 
 `scoringProfile=[string]` (facultatif) : nom d'un profil de calcul de score pour évaluer les scores de correspondance des documents afin de trier les résultats.
 
 `scoringParameter=[string]` (zéro ou plus) : indique la valeur de chaque paramètre défini dans une fonction de calcul de score (par exemple, `referencePointParameter`) au format nom:valeur. Par exemple, si le profil de calcul de score définit une fonction avec un paramètre appelé « mylocation » l’option de chaîne de requête est &scoringParameter=mylocation:-122.2,44.8
 
-> [AZURE.NOTE]Lors de l'appel de **Search** à l'aide de POST, ce paramètre est nommé `scoringParameters` au lieu de `scoringParameter`. En outre, vous le spécifiez sous forme de tableau JSON de chaînes où chaque chaîne est une paire nom:valeur distincte.
+> [AZURE.NOTE]Lors de l’appel de **Search** à l’aide de POST, ce paramètre est nommé `scoringParameters` au lieu de `scoringParameter`. En outre, vous le spécifiez sous forme de tableau JSON de chaînes où chaque chaîne est une paire nom:valeur distincte.
 
 `minimumCoverage` (facultatif, valeur par défaut 100) : nombre compris entre 0 et 100 indiquant le pourcentage de l’index qui doit être couvert par une requête de recherche afin que la requête soit déclarée comme un succès. Par défaut, la totalité de l’index doit être disponible ou `Search` retourne le code d’état HTTP 503. Si vous définissez `minimumCoverage` et que `Search` réussit, le code HTTP 200 est retourné et inclut une valeur `@search.coverage` dans la réponse indiquant le pourcentage de l’index inclus dans la requête.
 
@@ -1821,7 +1243,7 @@ La requête **Search** accepte plusieurs paramètres qui fournissent les critèr
 
 `api-version=[string]` (obligatoire). La version préliminaire est `api-version=2015-02-28-Preview`. Pour plus d'informations, y compris sur d'autres versions, consultez [Contrôle de version de service Azure Search](http://msdn.microsoft.com/library/azure/dn864560.aspx).
 
-Remarque : pour cette opération, la `api-version` est spécifiée comme paramètre de requête dans l'URL que vous appeliez **Search** à l'aide de POST ou de GET.
+Remarque : pour cette opération, la `api-version` est spécifiée comme paramètre de requête dans l’URL que vous appeliez **Search** à l’aide de POST ou de GET.
 
 **En-têtes de requête**
 
@@ -2049,7 +1471,7 @@ Notez que vous pouvez interroger uniquement un index à la fois. Ne créez pas p
       "scoringParameters": [ "currentLocation:-122.123,44.77233", "lastLocation:-121.499,44.2113" ]
     }
 
-14) Rechercher des documents dans l'index à l'aide d'une [syntaxe de requête simple](https://msdn.microsoft.com/library/dn798920.aspx). Cette requête renvoie les hôtels où les champs pouvant faire l'objet d'une recherche contiennent les termes « confort » et « emplacement », mais pas « motel » :
+14) Rechercher des documents dans l’index à l’aide d’une [syntaxe de requête simple](https://msdn.microsoft.com/library/dn798920.aspx). Cette requête renvoie les hôtels où les champs pouvant faire l'objet d'une recherche contiennent les termes « confort » et « emplacement », mais pas « motel » :
 
     GET /indexes/hotels/docs?search=comfort +location -motel&searchMode=all&api-version=2015-02-28-Preview
 
@@ -2174,15 +1596,15 @@ Une opération **Suggestions** est publiée en tant que requête GET ou POST.
 
 **Utilisation de POST au lieu de GET**
 
-Lorsque vous utilisez HTTP GET pour appeler l'API **Suggestions**, vous devez savoir que la longueur de l'URL de requête ne peut pas dépasser 8 Ko. Cela est généralement suffisamment pour la plupart des applications. Toutefois, certaines applications produisent des requêtes très volumineuses, en particulier les expressions de filtre OData. Pour ces applications, l'utilisation de HTTP POST est plus adaptée. La limite de taille de requête pour POST est proche de 17 Mo, ce qui est suffisant même pour les requêtes les plus complexes.
+Lorsque vous utilisez HTTP GET pour appeler l’API **Suggestions**, vous devez savoir que la longueur de l’URL de requête ne peut pas dépasser 8 Ko. Cela est généralement suffisamment pour la plupart des applications. Toutefois, certaines applications produisent des requêtes très volumineuses, en particulier les expressions de filtre OData. Pour ces applications, l'utilisation de HTTP POST est plus adaptée. La limite de taille de requête pour POST est proche de 17 Mo, ce qui est suffisant même pour les requêtes les plus complexes.
 
 **Requête**
 
-Le protocole HTTPS est requis pour les requêtes de service. La requête **Suggestions** peut être construite à l'aide des méthodes GET ou POST.
+Le protocole HTTPS est requis pour les requêtes de service. La requête **Suggestions** peut être construite à l’aide des méthodes GET ou POST.
 
 L'URI de la requête spécifie le nom de l'index à interroger. Les paramètres, tels que le terme de recherche partiellement entré, sont spécifiés dans la chaîne de requête pour les requêtes GET et dans le corps de la requête pour les requêtes POST.
 
-Lors de la création de requêtes GET, il est recommandé d'[encoder par URL](https://msdn.microsoft.com/library/system.uri.escapedatastring.aspx) les paramètres de requête spécifiques lors de l'appel direct de l'API REST. Pour les opérations **Suggestions**, cela inclut :
+Lors de la création de requêtes GET, il est recommandé d’[encoder par URL](https://msdn.microsoft.com/library/system.uri.escapedatastring.aspx) les paramètres de requête spécifiques lors de l’appel direct de l’API REST. Pour les opérations **Suggestions**, cela inclut :
 
 - `$filter`
 - `highlightPreTag`
@@ -2191,21 +1613,21 @@ Lors de la création de requêtes GET, il est recommandé d'[encoder par URL](ht
 
 L'encodage des URL est recommandé uniquement pour les paramètres de requête ci-dessus. Si vous encodez par URL par inadvertance la chaîne de requête entière (tout ce qui figure après ?), les requêtes sont interrompues.
 
-En outre, l'encodage des URL est nécessaire uniquement lors de l'appel direct de l'API REST à l'aide de GET. Aucun encodage des URL n'est nécessaire lors de l'appel de **Suggestions** à l'aide de POST, ou lorsque vous utilisez la [bibliothèque cliente .NET](https://msdn.microsoft.com/library/dn951165.aspx) qui gère l'encodage des URL pour vous.
+En outre, l'encodage des URL est nécessaire uniquement lors de l'appel direct de l'API REST à l'aide de GET. Aucun encodage des URL n’est nécessaire lors de l’appel de **Suggestions** à l’aide de POST, ou lorsque vous utilisez la [bibliothèque cliente .NET](https://msdn.microsoft.com/library/dn951165.aspx) qui gère l’encodage des URL pour vous.
 
 **Paramètres de requête**
 
-La requête **Suggestions** accepte plusieurs paramètres qui fournissent les critères de la requête et qui spécifient également le comportement de la recherche. Vous fournissez ces paramètres dans la chaîne de requête de l'URL lors de l'appel de **Suggestions** via GET et en tant que propriétés JSON dans le corps de la requête lors de l'appel de **Suggestions** via POST. La syntaxe de certains paramètres est légèrement différente entre GET et POST. Ces différences sont indiquées ci-dessous :
+La requête **Suggestions** accepte plusieurs paramètres qui fournissent les critères de la requête et qui spécifient également le comportement de la recherche. Vous fournissez ces paramètres dans la chaîne de requête de l’URL lors de l’appel de **Suggestions** via GET et en tant que propriétés JSON dans le corps de la requête lors de l’appel de **Suggestions** via POST. La syntaxe de certains paramètres est légèrement différente entre GET et POST. Ces différences sont indiquées ci-dessous :
 
 `search=[string]` : texte de recherche à utiliser pour suggérer des requêtes. Doit comprendre 1 caractère au minimum et 100 caractères au maximum.
 
 `highlightPreTag=[string]` (facultatif) : balise de chaîne qui ajoute un préfixe aux résultats de la recherche. Doit être défini avec `highlightPostTag`.
 
-> [AZURE.NOTE]Lors de l'appel de **Suggestions** à l'aide de GET, les caractères réservés dans l'URL doivent être codés en pourcentage (par exemple, %23 au lieu de #).
+> [AZURE.NOTE]Lors de l’appel de **Suggestions** à l’aide de GET, les caractères réservés dans l’URL doivent être codés en pourcentage (par exemple, %23 au lieu de #).
 
 `highlightPostTag=[string]` (facultatif) : balise de chaîne qui ajoute un élément aux résultats de la recherche. Doit être défini avec `highlightPreTag`.
 
-> [AZURE.NOTE]Lors de l'appel de **Suggestions** à l'aide de GET, les caractères réservés dans l'URL doivent être codés en pourcentage (par exemple, %23 au lieu de #).
+> [AZURE.NOTE]Lors de l’appel de **Suggestions** à l’aide de GET, les caractères réservés dans l’URL doivent être codés en pourcentage (par exemple, %23 au lieu de #).
 
 `suggesterName=[string]` : nom du générateur de suggestions, comme spécifié dans la collection `suggesters` qui fait partie de la définition d'index. Un `suggester` détermine les champs qui sont analysés pour les termes de requête suggérés. Pour plus d'informations, consultez [Générateurs de suggestions](#Suggesters).
 
@@ -2215,19 +1637,19 @@ La requête **Suggestions** accepte plusieurs paramètres qui fournissent les cr
 
 `$top=#` (facultatif, valeur par défaut = 5) : nombre de suggestions à récupérer. Doit être un nombre compris entre 1 et 100.
 
-> [AZURE.NOTE]Lors de l'appel de **Suggestions** à l'aide de POST, ce paramètre est nommé `top` au lieu de `$top`.
+> [AZURE.NOTE]Lors de l’appel de **Suggestions** à l’aide de POST, ce paramètre est nommé `top` au lieu de `$top`.
 
 `$filter=[string]` (facultatif) : expression qui filtre les documents considérés comme des suggestions.
 
-> [AZURE.NOTE]Lors de l'appel de **Suggestions** à l'aide de POST, ce paramètre est nommé `filter` au lieu de `$filter`.
+> [AZURE.NOTE]Lors de l’appel de **Suggestions** à l’aide de POST, ce paramètre est nommé `filter` au lieu de `$filter`.
 
 `$orderby=[string]` (facultatif) : liste d'expressions séparées par des virgules selon lesquelles les résultats doivent être triés. Chaque expression peut être un nom de champ ou un appel à la fonction `geo.distance()`. Chaque expression peut être suivie par `asc` pour indiquer l'ordre croissant, et par `desc` pour indiquer l'ordre décroissant. La valeur par défaut est l'ordre croissant. Il existe une limite de 32 clauses pour `$orderby`.
 
-> [AZURE.NOTE]Lors de l'appel de **Suggestions** à l'aide de POST, ce paramètre est nommé `orderby` au lieu de `$orderby`.
+> [AZURE.NOTE]Lors de l’appel de **Suggestions** à l’aide de POST, ce paramètre est nommé `orderby` au lieu de `$orderby`.
 
 `$select=[string]` (facultatif) : liste de champs séparés par des virgules à récupérer. Si aucune valeur n’est spécifiée, seuls la clé du document et le texte de suggestion sont retournés.
 
-> [AZURE.NOTE]Lors de l'appel de **Suggestions** à l'aide de POST, ce paramètre est nommé `select` au lieu de `$select`.
+> [AZURE.NOTE]Lors de l’appel de **Suggestions** à l’aide de POST, ce paramètre est nommé `select` au lieu de `$select`.
 
 `minimumCoverage` (facultatif, valeur par défaut 80) : nombre compris entre 0 et 100 indiquant le pourcentage de l’index qui doit être couvert par une requête de suggestions afin que la requête soit déclarée comme un succès. Par défaut, au moins 80 % de l’index doit être disponible ou `Suggest` retourne le code d’état HTTP 503. Si vous définissez `minimumCoverage` et que `Suggest` réussit, le code HTTP 200 est retourné et inclut une valeur `@search.coverage` dans la réponse indiquant le pourcentage de l’index inclus dans la requête.
 
@@ -2235,7 +1657,7 @@ La requête **Suggestions** accepte plusieurs paramètres qui fournissent les cr
 
 `api-version=[string]` (obligatoire). La version préliminaire est `api-version=2015-02-28-Preview`. Pour plus d'informations, y compris sur d'autres versions, consultez [Contrôle de version de service Azure Search](http://msdn.microsoft.com/library/azure/dn864560.aspx).
 
-Remarque : pour cette opération, la `api-version` est spécifiée comme paramètre de requête dans l'URL que vous appeliez **Suggestions** à l'aide de POST ou de GET.
+Remarque : pour cette opération, la `api-version` est spécifiée comme paramètre de requête dans l’URL que vous appeliez **Suggestions** à l’aide de POST ou de GET.
 
 **En-têtes de requête**
 
@@ -2307,4 +1729,4 @@ Récupérer 5 suggestions pour lesquelles l'entrée de recherche partielle est 
       "suggesterName": "sg"
     }
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

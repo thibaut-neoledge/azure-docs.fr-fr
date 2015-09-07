@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Créer une machine virtuelle avec plusieurs cartes d’interface réseau"
-   description="Découvrir comment créer et configurer des machines virtuelles avec plusieurs cartes réseau"
-   services="virtual-network, virtual-machines"
-   documentationCenter="na"
-   authors="telmosampaio"
-   manager="carolz"
-   editor="tysonn" />
+	description="Découvrir comment créer et configurer des machines virtuelles avec plusieurs cartes réseau"
+	services="virtual-network, virtual-machines"
+	documentationCenter="na"
+	authors="telmosampaio"
+	manager="carolz"
+	editor="tysonn"/>
 <tags 
    ms.service="virtual-network"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="08/10/2015"
-   ms.author="telmos" />
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="infrastructure-services"
+	ms.date="08/10/2015"
+	ms.author="telmos"/>
 
 # Créer une machine virtuelle avec plusieurs cartes d’interface réseau
 
@@ -81,9 +81,9 @@ Actuellement, les exigences et contraintes liées à la fonctionnalité Multi-NI
 ## Groupes de sécurité réseau (NSG)
 Les NIC d’une machine virtuelle peuvent être associées à un groupe de sécurité réseau (NSG), y compris les NIC d’une machine virtuelle sur laquelle la fonctionnalité Multi-NIC est activée. Si une NIC reçoit une adresse d’un sous-réseau associé à un NSG, les règles qui régissent le NSG du sous-réseau s’appliquent également à cette NIC. Outre l’association de sous-réseaux à des NSG, vous pouvez également associer une NIC à un NSG.
 
-Si un sous-réseau est associé à un NSG,et qu’une NIC de ce sous-réseau est liée individuellement à un NSG, les règles du NSG associé sont appliquées dans l’« \*\*ordre du flux de trafic\*\* » en fonction de la direction du trafic entrant ou sortant de la NIC :
+Si un sous-réseau est associé à un NSG,et qu’une NIC de ce sous-réseau est liée individuellement à un NSG, les règles du NSG associé sont appliquées dans l’« **ordre du flux de trafic** » en fonction de la direction du trafic entrant ou sortant de la NIC :
 
-- **Le \*\*trafic entrant\*\* dont la destination est la NIC en question passe d’abord par le sous-réseau, en déclenchant les règles du NSG du sous-réseau, puis transite par la NIC et déclenche les règles du NSG de la NIC.
+- **Le **trafic entrant** dont la destination est la NIC en question passe d’abord par le sous-réseau, en déclenchant les règles du NSG du sous-réseau, puis transite par la NIC et déclenche les règles du NSG de la NIC.
 - Le **trafic sortant** dont la source est la NIC en question commence par sortir de la NIC, en déclenchant les règles du NSG du sous-réseau, puis transite par le sous-réseau, et déclenche alors les règles du NSG du sous-réseau. 
 
 La figure ci-dessus représente le mode d’application des règles du NSG en fonction du flux de trafic (de la machine virtuelle vers le sous-réseau, ou du sous-réseau vers la machine virtuelle).
@@ -117,7 +117,7 @@ Les instructions ci-dessous expliquent comment créer une machine virtuelle mult
 La configuration requise pour l’exécution des commandes PowerShell de cet exemple est la suivante :
 
 - Un abonnement Azure.
-- Un réseau virtuel configuré. Pour plus d’informations sur les réseaux virtuels, voir l’article [Présentation du réseau virtuel](https://msdn.microsoft.com/library/azure/jj156007.aspx).
+- Un réseau virtuel configuré. Pour plus d’informations sur les réseaux virtuels, voir l’article [Présentation du réseau virtuel](virtual-networks-overview.md).
 - La dernière version d’Azure PowerShell téléchargée et installée. Consultez [Installation et configuration d’Azure PowerShell](../install-configure-powershell).
 
 Pour créer une machine virtuelle avec plusieurs cartes réseau, suivez la procédure ci-dessous :
@@ -249,4 +249,4 @@ Pour ajouter un itinéraire par défaut à la carte réseau secondaire, suivez l
 
 Pour les machines virtuelles Linux, dans la mesure où le comportement par défaut valorise un modèle de routage d’hôte faible, nous vous recommandons de limiter les cartes réseau secondaires au flux de trafic au sein du même sous-réseau. Toutefois, si certains scénarios nécessitent une connectivité à l’extérieur du sous-réseau, les utilisateurs doivent configurer un routage basé sur une stratégie afin de garantir que les trafics entrant et sortant utilisent la même carte réseau.
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

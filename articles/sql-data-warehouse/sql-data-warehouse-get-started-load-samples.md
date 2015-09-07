@@ -1,22 +1,20 @@
 <properties
    pageTitle="Charger des exemples de données dans SQL Data Warehouse | Microsoft Azure"
-   description="Charger des exemples de données dans SQL Data Warehouse"
-   services="sql-data-warehouse"
-   documentationCenter="NA"
-   authors="lodipalm"
-   manager="barbkess"
-   editor=""/>
-
+	description="Charger des exemples de données dans SQL Data Warehouse"
+	services="sql-data-warehouse"
+	documentationCenter="NA"
+	authors="lodipalm"
+	manager="barbkess"
+	editor=""/>
 
 <tags
    ms.service="sql-data-warehouse"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="data-services"
-   ms.date="08/05/2015"
-   ms.author="lodipalm;barbkess"/>
-
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="data-services"
+	ms.date="08/05/2015"
+	ms.author="lodipalm;barbkess"/>
 
 #Charger des exemples de données dans SQL Data Warehouse
 
@@ -26,14 +24,25 @@ Une instance de SQL Data Warehouse étant configurée, vous pouvez facilement y 
 
 2. Une fois le fichier téléchargé, extrayez le contenu du fichier AdventureWorksPDW2012.zip et ouvrez le nouveau dossier AdventureWorksPDW2012.
 
-3. Modifiez le fichier aw\_create.bat et définissez les valeurs suivantes au début du fichier : a. **Server** : nom complet du serveur où réside SQL Data Warehouse ; b. **User** : utilisateur associé au serveur ci-dessus ; c. **Password** : mot de passe d’accès au serveur ; d. **Database** : nom de l’instance de SQL Data Warehouse sur laquelle charger des données.
+3. Modifiez le fichier aw\_create.bat et définissez les valeurs suivantes au début du fichier :
+
+   a. **Server** : nom complet du serveur sur lequel réside SQL Data Warehouse
+
+   b. **User** : utilisateur du serveur ci-dessus
+   
+   c. **Password** : mot de passe de la connexion serveur fournie
+   
+   d. **Database** : nom de l’instance SQL Data Warehouse sur laquelle vous souhaitez charger des données.
+   
+   Assurez-vous qu’il n’existe aucun espace entre le « = » et ces paramètres.
+   
 
 4. Exécutez aw\_create.bat à partir du répertoire dans lequel il se trouve. Cela crée le schéma et charge les données dans toutes les tables à l’aide de BCP.
 
 
 ## Connexion à votre exemple et interrogation de ce dernier
 
-Comme décrit dans la documentation sur [la connexion et l’interrogation][], vous pouvez vous connecter à cette base de données à l’aide de Visual Studio et de SSDT. Des exemples de données étant chargés dans SQL Data Warehouse, vous pouvez exécuter rapidement quelques requêtes pour commencer.
+Comme l’indique la documentation sur [la connexion et la requête][], vous pouvez vous connecter à cette base de données à l’aide de Visual Studio et de SSDT. Des exemples de données étant chargés dans SQL Data Warehouse, vous pouvez exécuter rapidement quelques requêtes pour commencer.
 
 Nous pouvons exécuter une instruction select simple pour obtenir toutes les informations des employés :
 
@@ -54,7 +63,7 @@ Nous pouvons même utiliser la clause WHERE pour filtrer les commandes antérieu
 	GROUP BY OrderDateKey
 	ORDER BY OrderDateKey;
 
-De fait, SQL Data Warehouse prend en charge pratiquement les mêmes constructions T-SQL que SQL Server ; certaines des différences sont indiquées dans notre documentation sur la [migration du code][].
+De fait, SQL Data Warehouse prend parfaitement en charge presque toutes les constructions T-SQL de SQL Server. Certaines des différences sont indiquées dans notre documentation sur la [code de migration][].
 
 ## Étapes suivantes
 Après vous être familiarisé avec les exemples de données, vous pouvez découvrir les opérations de [développement][], de [chargement][] ou de [migration][].
@@ -62,16 +71,16 @@ Après vous être familiarisé avec les exemples de données, vous pouvez décou
 <!--Image references-->
 
 <!--Article references-->
-[migration]: https://azure.microsoft.com/fr-fr/documentation/articles/sql-data-warehouse-overview-migrate/
-[développement]: https://azure.microsoft.com/fr-fr/documentation/articles/sql-data-warehouse-overview-develop/
-[chargement]: https://azure.microsoft.com/fr-fr/documentation/articles/sql-data-warehouse-overview-load/
-[la connexion et l’interrogation]: https://azure.microsoft.com/fr-fr/documentation/articles/sql-data-warehouse-get-started-connect-query/
-[migration du code]: https://azure.microsoft.com/fr-fr/documentation/articles/sql-data-warehouse-migrate-code/
+[migration]: https://azure.microsoft.com/fr-FR/documentation/articles/sql-data-warehouse-overview-migrate/
+[développement]: https://azure.microsoft.com/fr-FR/documentation/articles/sql-data-warehouse-overview-develop/
+[chargement]: https://azure.microsoft.com/fr-FR/documentation/articles/sql-data-warehouse-overview-load/
+[la connexion et la requête]: https://azure.microsoft.com/fr-FR/documentation/articles/sql-data-warehouse-get-started-connect-query/
+[code de migration]: https://azure.microsoft.com/fr-FR/documentation/articles/sql-data-warehouse-migrate-code/
 
 <!--MSDN references-->
-[utilitaires de ligne de commande Microsoft pour SQL Server]: http://www.microsoft.com/fr-fr/download/details.aspx?id=36433
+[utilitaires de ligne de commande Microsoft pour SQL Server]: http://www.microsoft.com/fr-FR/download/details.aspx?id=36433
 
 <!--Other Web references-->
 [exemples de scripts de données]: https://migrhoststorage.blob.core.windows.net/sqldwsample/AdventureWorksPDW2012.zip
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

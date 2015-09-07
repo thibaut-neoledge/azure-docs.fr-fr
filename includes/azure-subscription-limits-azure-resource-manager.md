@@ -8,7 +8,7 @@ Lectures API Resource Manager|32 000 par heure|32 000 par heure
 Écritures API Resource Manager|1 200 par heure|1 200 par heure
 Taille de la demande d’API Resource Manager|4 194 304 octets|4 194 304 octets
 [Services cloud](cloud-services-what-is.md) par abonnement|Déconseillé<sup>3</sup>|Déconseillé<sup>3</sup>
-[Groupes d'affinités](http://msdn.microsoft.com/library/azure/jj156085.aspx) par abonnement|Déconseillé<sup>3</sup>|Déconseillé<sup>3</sup>
+[Groupes d'affinités](../virtual-network/virtual-networks-migrate-to-regional-vnet.md) par abonnement|Déconseillé<sup>3</sup>|Déconseillé<sup>3</sup>
 
 <sup>1</sup>Les limites par défaut varient selon le type de catégorie d'offre, comme Version d'évaluation gratuite, Paiement à l'utilisation, etc.
 
@@ -16,4 +16,4 @@ Taille de la demande d’API Resource Manager|4 194 304 octets|4 194 304 
 
 <sup>3</sup>Ces fonctionnalités ne sont plus nécessaires avec les groupes de ressources Azure et Azure Resource Manager.
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

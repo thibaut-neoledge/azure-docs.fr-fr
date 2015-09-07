@@ -1,24 +1,22 @@
 <properties 
-	pageTitle="Déplacement et traitement des fichiers journaux à l’aide d’Azure Data Factory" 
-	description="Ce didacticiel avancé décrit un scénario proche de la réalité et l’implémente à l’aide du service Azure Data Factory." 
-	services="data-factory" 
-	documentationCenter="" 
-	authors="spelluru" 
-	manager="jhubbard" 
+	pageTitle="Déplacement et traitement des fichiers journaux à l’aide d’Azure Data Factory"
+	description="Ce didacticiel avancé décrit un scénario proche de la réalité et l’implémente à l’aide du service Azure Data Factory."
+	services="data-factory"
+	documentationCenter=""
+	authors="spelluru"
+	manager="jhubbard"
 	editor="monicar"/>
 
-
 <tags 
-	ms.service="data-factory" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/04/2015" 
+	ms.service="data-factory"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/25/2015"
 	ms.author="spelluru"/>
 
-
-# Didacticiel : déplacer et traiter des fichiers journaux à l’aide de Data Factory [PowerShell\]
+# Didacticiel : déplacer et traiter des fichiers journaux à l’aide de Data Factory [PowerShell]
 Cet article fournit une procédure pas à pas pour un scénario de traitement de journaux à l’aide d’Azure Data Factory pour transformer les données des fichiers journaux en informations.
 
 ## Scénario
@@ -468,8 +466,7 @@ Suivez la [procédure pas à pas sur l’utilisation d’une source de données 
 
 [adfgetstarted]: data-factory-get-started.md
 [adfintroduction]: data-factory-introduction.md
-[useonpremisesdatasources]: data-factory-use-onpremises-datasources.md
-[usepigandhive]: data-factory-pig-hive-activities.md
+[usepigandhive]: data-factory-data-transformation-activities.md
 [tutorial-onpremises-using-powershell]: data-factory-tutorial-extend-onpremises-using-powershell.md
 [download-azure-powershell]: ../powershell-install-configure.md
 
@@ -561,4 +558,4 @@ Suivez la [procédure pas à pas sur l’utilisation d’une source de données 
 
 [image-data-factory-new-datafactory-create-button]: ./media/data-factory-tutorial-using-powershell/DataFactoryCreateButton.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

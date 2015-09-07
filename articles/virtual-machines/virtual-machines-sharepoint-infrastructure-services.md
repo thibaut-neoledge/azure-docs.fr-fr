@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Batteries de serveurs SharePoint hébergées dans des services d’infrastructure Azure"
-	description="Retrouvez les articles essentiels décrivant la configuration d’une batterie de serveurs SharePoint 2013 de développement/test ou de production dans les services d’infrastructure Microsoft Azure."
+	pageTitle="Batteries de serveurs SharePoint Server 2013 dans Azure | Microsoft Azure"
+	description="Retrouvez les articles décrivant la configuration d'un environnement de développement/test ou d'une batterie de serveurs SharePoint 2013 de production dans Microsoft Azure."
 	documentationCenter=""
 	services="virtual-machines"
 	authors="JoeDavies-MSFT"
@@ -63,4 +63,4 @@ Consultez ces ressources pour des informations SharePoint supplémentaires relat
 
 - [Déploiement de la synchronisation d’annuaires (DirSync) d’Office 365 dans Microsoft Azure](https://technet.microsoft.com/library/dn635310.aspx)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

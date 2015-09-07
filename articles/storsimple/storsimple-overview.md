@@ -1,24 +1,24 @@
 <properties 
-   pageTitle="Présentation de StorSimple" 
-   description="Décrit l'architecture et les fonctionnalités StorSimple et présente les composants StorSimple." 
-   services="storsimple" 
-   documentationCenter="NA" 
-   authors="SharS" 
-   manager="carolz" 
-   editor=""/>
+   pageTitle="Présentation de StorSimple | Microsoft Azure"
+	description="Décrit le processus de gestion et de protection des données StorSimple, les avantages, l’architecture et présente les composants de StorSimple."
+	services="storsimple"
+	documentationCenter="NA"
+	authors="SharS"
+	manager="carolz"
+	editor=""/>
 
 <tags
    ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD" 
-   ms.date="08/14/2015"
-   ms.author="v-sharos@microsoft.com"/>
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="TBD"
+	ms.date="08/26/2015"
+	ms.author="v-sharos@microsoft.com"/>
 
-# Présentation de StorSimple 
+# StorSimple série 8000 : une solution de stockage de cloud hybride 
 
-## Vue d'ensemble
+## Vue d’ensemble
 
 Microsoft Azure StorSimple est une solution efficace, rentable et facile à gérer qui élimine la plupart des problèmes et des frais liés à la protection des données et du stockage d’entreprise. Il utilise un appareil propriétaire (l’appareil Microsoft Azure StorSimple), une intégration avec des services cloud et un ensemble d’outils de gestion pour fournir une vue claire de tout le stockage d’entreprise, y compris le stockage cloud.
 
@@ -66,11 +66,11 @@ La solution Microsoft Azure StorSimple comprend les composants suivants :
 
 ## Étapes suivantes
 
-Lisez la [Vue d’ensemble des solutions StorSimple série 8000](http://www.microsoft.com/server-cloud/products/storsimple/resources.aspx) et consultez la [présentation de StorSimple](http://www.microsoft.com/server-cloud/products/storsimple/Features.aspx).
+En savoir plus sur [StorSimple](https://azure.microsoft.com/documentation/services/storsimple/).
 
 En savoir plus sur [les composants et la terminologie de StorSimple](storsimple-components.md).
 
 
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

@@ -1,12 +1,12 @@
-<properties 
-	pageTitle="Application Insights : plateformes"
-	description="Puis-je utiliser Application Insights avec... ?"
+<properties
+	pageTitle="Application Insights : langages et plateformes | Microsoft Azure"
+	description="Langages et plateformes disponibles pour Application Insights"
 	services="application-insights"
 	documentationCenter=""
 	authors="alancameronwills"
 	manager="douge"/>
 
-<tags 
+<tags
 	ms.service="application-insights"
 	ms.workload="tbd"
 	ms.tgt_pltfrm="ibiza"
@@ -14,8 +14,8 @@
 	ms.topic="get-started-article"
 	ms.date="08/05/2015"
 	ms.author="awills"/>
- 
-# Application Insights : plateformes
+
+# Application Insights : langages et plateformes
 
 [AZURE.INCLUDE [app-insights-selector-get-started](../../includes/app-insights-selector-get-started.md)]
 
@@ -30,7 +30,7 @@
 + [Objective-C](app-insights-ios.md)
 + [PHP](https://github.com/Microsoft/ApplicationInsights-PHP)
 + [Python](https://pypi.python.org/pypi/applicationinsights/0.1.0)
-+ [Ruby](https://rubygems.org/gems/application_insights) 
++ [Ruby](https://rubygems.org/gems/application_insights)
 + [Tout autre élément](#projects)
 
 ## Plateformes
@@ -41,7 +41,7 @@
 + [ASP.NET 5](app-insights-asp-net-five.md)
 + [Android](https://github.com/Microsoft/ApplicationInsights-Android)
 + [Applications web Azure et machines virtuelles](../insights-perf-analytics.md)
-+ [Azure Cloud Services](app-insights-cloudservices.md) incluant les rôles Web et de travail
++ [Azure Cloud Services](app-insights-cloudservices.md) incluant les rôles web et de travail
 + [iOS](https://github.com/Microsoft/ApplicationInsights-iOS)
 + [J2EE](app-insights-java-get-started.md)
 + [J2EE - Déjà actif](app-insights-java-live.md)
@@ -77,4 +77,4 @@ S’il n’existe pas encore de kit de développement logiciel (SDK) pour votre 
 
 <!--Link references-->
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

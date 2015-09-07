@@ -1,24 +1,22 @@
 <properties 
-	pageTitle="Connecteur de système de fichiers - déplacement de données vers et depuis le système de fichiers" 
-	description="En savoir plus sur le connecteur Système de fichiers pour le service Data Factory qui vous permet de déplacer des données vers/depuis un système de fichiers local" 
-	services="data-factory" 
-	documentationCenter="" 
-	authors="spelluru" 
-	manager="jhubbard" 
+	pageTitle="Déplacer des données vers et depuis le système de fichiers | Azure Data Factory"
+	description="Apprenez à déplacer des données vers et depuis le système de fichiers local à l’aide d’Azure Data Factory."
+	services="data-factory"
+	documentationCenter=""
+	authors="spelluru"
+	manager="jhubbard"
 	editor="monicar"/>
 
-
 <tags 
-	ms.service="data-factory" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/27/2015" 
+	ms.service="data-factory"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/26/2015"
 	ms.author="spelluru"/>
 
-
-# Connecteur de système de fichiers - déplacement de données vers et depuis le système de fichiers local
+# Déplacement de données vers et depuis le système de fichiers local à l’aide d’Azure Data Factory
 
 Cet article explique comment utiliser l’activité de copie Data factory pour déplacer des données vers et depuis le système de fichiers local. Cet article s'appuie sur l'article des [activités de déplacement des données](data-factory-data-movement-activities.md) qui présente une vue d'ensemble du déplacement des données avec l'activité de copie et les combinaisons de magasins de données prises en charge.
 
@@ -37,11 +35,11 @@ Effectuez les deux étapes suivantes pour utiliser un partage de fichiers Linux 
 
 L’exemple ci-dessous présente les éléments suivants :
 
-1.	Un service lié de type OnPremisesFileServer
-2.	Un service lié de type AzureStorage
-3.	Un jeu de données d'entrée de type FileShare.
-4.	Un jeu de données de sortie de type AzureBlob.
-4.	Le pipeline avec activité de copie qui utilise FileSystemSource et BlobSink. 
+1.	Un service lié de type [OnPremisesFileServer](data-factory-onprem-file-system-connector.md#onpremisesfileserver-linked-service-properties).
+2.	Un service lié de type [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties)
+3.	Un [jeu de données](data-factory-create-datasets.md) d’entrée de type [FileShare](data-factory-onprem-file-system-connector.md#on-premises-file-system-dataset-type-properties).
+4.	Un [jeu de données](data-factory-create-datasets.md) de sortie de type [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties).
+4.	Le [pipeline](data-factory-create-pipelines.md) avec activité de copie qui utilise [FileSystemSource](data-factory-onprem-file-system-connector.md#file-share-copy-activity-type-properties) et [BlobSink](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties). 
 
 L'exemple ci-dessous copie toutes les heures des données appartenant à une série horaire d'un système de fichiers local vers Azure Blob. Les propriétés JSON utilisées dans ces exemples sont décrites dans les sections suivant les exemples.
 
@@ -54,7 +52,7 @@ Dans un premier temps, configurez la passerelle de gestion des données en suiva
 	  "properties": {
 	    "type": "OnPremisesFileServer",
 	    "typeProperties": {
-	      "host": "\\\\Contosogame-Asia",
+	      "host": "\\\Contosogame-Asia",
 	      "userid": "Admin",
 	      "password": "123456",
 	      "gatewayName": "mygateway"
@@ -140,7 +138,7 @@ La définition de « external » : « true » et la spécification de la st
 
 **Jeu de données de sortie Azure Blob :**
 
-Les données sont écrites dans un nouvel objet blob toutes les heures (fréquence : heure, intervalle : 1). Le chemin d'accès du dossier pour l'objet blob est évalué dynamiquement en fonction de l'heure de début du segment en cours de traitement. Le chemin d'accès du dossier utilise l'année, le mois, le jour et l'heure de l'heure de début.
+Les données sont écrites dans un nouvel objet blob toutes les heures (fréquence : heure, intervalle : 1). Le chemin d’accès du dossier pour l’objet blob est évalué dynamiquement en fonction de l’heure de début du segment en cours de traitement. Le chemin d'accès du dossier utilise l'année, le mois, le jour et l'heure de l'heure de début.
 
 	{
 	  "name": "AzureBlobOutput",
@@ -275,7 +273,7 @@ L'exemple copie toutes les heures des données appartenant à une série horaire
 	  "properties": {
 	    "type": "OnPremisesFileServer",
 	    "typeProperties": {
-	      "host": "\\\\Contosogame-Asia",
+	      "host": "\\\Contosogame-Asia",
 	      "userid": "Admin",
 	      "password": "123456",
 	      "gatewayName": "mygateway"
@@ -374,7 +372,7 @@ Les données sont copiées vers un nouveau fichier toutes les heures. Le chemin 
 	  }
 	}
 
-**Pipeline avec une activité de copie :** le pipeline contient une activité de copie qui est configurée pour utiliser les jeux de données d'entrée et de sortie ci-dessus, et qui est planifiée pour s'exécuter toutes les heures. Dans la définition du pipeline JSON, le type **source** est défini sur **SqlSource** et le type **sink** est défini sur **FileSystemSink**. La requête SQL spécifiée pour la propriété **SqlReaderQuery** sélectionne les données de la dernière heure à copier.
+**Pipeline avec une activité de copie :** le pipeline contient une activité de copie qui est configurée pour utiliser les jeux de données d’entrée et de sortie ci-dessus, et qui est planifiée pour s’exécuter toutes les heures. Dans la définition du pipeline JSON, le type **source** est défini sur **SqlSource** et le type **sink** est défini sur **FileSystemSink**. La requête SQL spécifiée pour la propriété **SqlReaderQuery** sélectionne les données de la dernière heure à copier.
 
 	
 	{  
@@ -401,7 +399,7 @@ Les données sont copiées vers un nouveau fichier toutes les heures. Le chemin 
 	        "typeProperties": {
 	          "source": {
 	            "type": "SqlSource",
-	            "SqlReaderQuery": "$$Text.Format('select * from MyTable where timestampcolumn >= \\'{0:yyyy-MM-dd}\\' AND timestampcolumn < \\'{1:yyyy-MM-dd}\\'', WindowStart, WindowEnd)"
+	            "SqlReaderQuery": "$$Text.Format('select * from MyTable where timestampcolumn >= \'{0:yyyy-MM-dd}\' AND timestampcolumn < \'{1:yyyy-MM-dd}\'', WindowStart, WindowEnd)"
 	          },
 	          "sink": {
 	            "type": "FileSystemSink"
@@ -429,11 +427,13 @@ Vous pouvez lier un système de fichiers local à une fabrique de données Azure
 Propriété | Description | Requis
 -------- | ----------- | --------
 type | La propriété Type doit être définie sur **OnPremisesFileServer**. | Oui 
-host | Nom d'hôte du serveur. Utilisez ’\\’ comme caractère d'échappement dans l'exemple suivant : si le partage est : \\servername, spécifiez \\\\servername.<p>Si le système de fichiers est local sur l'ordinateur de passerelle, utilisez Local ou localhost. Si le système de fichiers figure sur un serveur différent de l'ordinateur de passerelle, utilisez \\\\servername.</p> | Oui
+host | Nom d'hôte du serveur. Utilisez ’\\’ comme caractère d’échappement dans l’exemple suivant : si le partage est \\servername, spécifiez \\\servername.<p>Si le système de fichiers est local sur l’ordinateur de passerelle, utilisez Local ou localhost. Si le système de fichiers figure sur un serveur différent de l’ordinateur de passerelle, utilisez \\\servername.</p> | Oui
 userid | Spécifiez l'ID de l'utilisateur qui a accès au serveur | Non (si vous choisissez encryptedcredential)
-Mot de passe | Spécifiez le mot de passe de l’utilisateur (userid). | Non (si vous choisissez encryptedcredential) 
-Encryptedcredential | Spécifiez les informations d'identification chiffrées que vous pouvez obtenir en exécutant l'applet de commande New-AzureDataFactoryEncryptValue<p>**Remarque :** vous devez utiliser Azure PowerShell version 0.8.14 ou supérieure pour utiliser des applets de commande telles que New-AzureDataFactoryEncryptValue avec le paramètre de type OnPremisesFileSystemLinkedService</p> | Non (si vous choisissez de spécifier un nom d'utilisateur et un mot de passe en texte brut)
-Gatewayname | Nom de la passerelle que le service Data Factory doit utiliser pour se connecter au serveur de fichiers local. | Oui
+password | Spécifiez le mot de passe de l’utilisateur (userid). | Non (si vous choisissez encryptedcredential) 
+Encryptedcredential | Spécifiez les informations d’identification chiffrées que vous pouvez obtenir en exécutant l’applet de commande New-AzureDataFactoryEncryptValue<p>**Remarque :** vous devez utiliser Azure PowerShell version 0.8.14 ou supérieure pour utiliser des applets de commande telles que New-AzureDataFactoryEncryptValue avec le paramètre de type OnPremisesFileSystemLinkedService</p> | Non (si vous choisissez de spécifier un nom d'utilisateur et un mot de passe en texte brut)
+gatewayName | Nom de la passerelle que le service Data Factory doit utiliser pour se connecter au serveur de fichiers local. | Oui
+
+Pour plus d’informations sur la définition des informations d’identification pour une source de données d’un système de fichiers local, consultez [Configuration des informations d’identification et de la sécurité](data-factory-move-data-between-onprem-and-cloud.md#setting-credentials-and-security)
 
 **Exemple : utilisation d’un nom d'utilisateur et d’un mot de passe en texte brut**
 	
@@ -442,7 +442,7 @@ Gatewayname | Nom de la passerelle que le service Data Factory doit utiliser pou
 	  "properties": {
 	    "type": "OnPremisesFileServer",
 	    "typeProperties": {
-	      "host": "\\\\Contosogame-Asia",
+	      "host": "\\\Contosogame-Asia",
 	      "userid": "Admin",
 	      "password": "123456",
 	      "gatewayName": "mygateway"
@@ -458,7 +458,7 @@ Gatewayname | Nom de la passerelle que le service Data Factory doit utiliser pou
 	    "type": "OnPremisesFileServer",
 	    "typeProperties": {
 	      "host": "localhost",
-	      "encryptedcredential": "WFuIGlzIGRpc3Rpbmd1aXNoZWQsIG5vdCBvbmx5IGJ5xxxxxxxxxxxxxxxxx",
+	      "encryptedCredential": "WFuIGlzIGRpc3Rpbmd1aXNoZWQsIG5vdCBvbmx5IGJ5xxxxxxxxxxxxxxxxx",
 	      "gatewayName": "mygateway"
 	    }
 	  }
@@ -466,17 +466,17 @@ Gatewayname | Nom de la passerelle que le service Data Factory doit utiliser pou
 
 ## Propriétés du type de jeu de données de système de fichiers local
 
-Pour obtenir une liste complète des sections et propriétés disponibles pour la définition de jeux de données, consultez l'article [Création de jeux de données](data-factory-create-datasets.md). Les sections comme la structure, la disponibilité et la stratégie d'un jeu de données JSON sont similaires pour tous les types de jeux de données (Azure SQL, Azure Blob, Azure Table, Système de fichiers local, etc.).
+Pour obtenir une liste complète des sections et propriétés disponibles pour la définition de jeux de données, consultez l’article [Création de jeux de données](data-factory-create-datasets.md). Les sections comme la structure, la disponibilité et la stratégie d'un jeu de données JSON sont similaires pour tous les types de jeux de données (Azure SQL, Azure Blob, Azure Table, Système de fichiers local, etc.).
 
 La section typeProperties est différente pour chaque type de jeu de données et fournit des informations sur l'emplacement, le format, etc. des données dans le magasin de données. La section typeProperties pour le jeu de données de type **FileShare** a les propriétés suivantes.
 
 Propriété | Description | Requis
 -------- | ----------- | --------
-folderPath | Chemin d'accès au dossier. Exemple : myfolder<p>Utilisez le caractère d'échappement '\\' pour les caractères spéciaux dans la chaîne. Par exemple : pour folder\\subfolder, spécifiez folder\\subfolder et pour d:\\samplefolder, spécifiez d:\\samplefolder.</p><p>Vous pouvez combiner ceci avec **partitionBy** pour avoir des chemins de dossiers basés sur un segment heure/date de début/fin.</p> | Oui
-fileName | Spécifiez le nom du fichier dans l’élément **folderPath** si vous souhaitez que la table se réfère à un fichier spécifique du dossier. Si vous ne spécifiez aucune valeur pour cette propriété, le tableau pointe vers tous les fichiers du dossier.<p>Lorsque fileName n'est pas spécifié pour un jeu de données de sortie, le nom du fichier généré aura ce format dans l'exemple suivant : </p><p>Data.<Guid>.txt (par exemple : Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt</p> | Non
+folderPath | Chemin d'accès au dossier. Exemple : myfolder<p>Utilisez le caractère d’échappement ’\\’ pour les caractères spéciaux dans la chaîne. Par exemple : pour folder\\subfolder, spécifiez folder\\subfolder et pour d:\\samplefolder, spécifiez d:\\samplefolder.</p><p>Vous pouvez combiner ceci avec **partitionBy** pour avoir des chemins de dossiers basés sur un segment heure/date de début/fin.</p> | Oui
+fileName | Spécifiez le nom du fichier dans l’élément **folderPath** si vous souhaitez que la table se réfère à un fichier spécifique du dossier. Si vous ne spécifiez aucune valeur pour cette propriété, le tableau pointe vers tous les fichiers du dossier.<p>Lorsque fileName n’est pas spécifié pour un jeu de données de sortie, le nom du fichier généré aura ce format dans l’exemple suivant : </p><p>Data.<Guid>.txt (par exemple : Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt</p> | Non
 partitionedBy | partitionedBy peut être utilisé pour spécifier un folderPath dynamique, fileName pour les données de série chronologique. Par exemple, folderPath peut être paramétré pour toutes les heures de données. | Non
 Format | Deux types de formats sont pris en charge : **FormatTexte**, **AvroFormat**. Vous devez définir la propriété de type sous format sur l'une de cette valeur. Lorsque le format AvroFormat est le format du texte, vous pouvez spécifier des propriétés facultatives supplémentaires pour le format. Consultez la section format ci-dessous pour plus de détails. | Non
-fileFilter | Spécifiez un filtre à utiliser pour sélectionner un sous-ensemble de fichiers dans le folderPath plutôt que tous les fichiers. <p>Les valeurs autorisées sont les suivantes : * (plusieurs caractères) et ? (caractère unique).</p><p>Exemples 1 : "fileFilter": "*.log"</p>Exemple 2 : "fileFilter": 2014-1-?.txt"</p><p>**Remarque** : fileFilter s’applique à un jeu de données d’entrée FileShare</p> | Non
+fileFilter | Spécifiez un filtre à utiliser pour sélectionner un sous-ensemble de fichiers dans le folderPath plutôt que tous les fichiers. <p>Les valeurs autorisées sont les suivantes : * (plusieurs caractères) et ? (caractère unique).</p><p>Exemples 1 : "fileFilter": "*.log"</p>Exemple 2 : "fileFilter": 2014-1-?.txt"</p><p>**Remarque** : fileFilter s’applique à un jeu de données d’entrée FileShare</p> | Non
 
 > [AZURE.NOTE]fileName et fileFilter ne peuvent pas être utilisés simultanément.
 
@@ -517,15 +517,15 @@ Si le format est défini sur **TextFormat**, vous pouvez spécifier les proprié
 Propriété | Description | Requis
 -------- | ----------- | --------
 columnDelimiter | Caractère(s) utilisé(s) comme séparateur de colonnes dans un fichier. La valeur par défaut est virgule (,). | Non
-rowDelimiter | Caractère(s) utilisé(s) comme séparateur de lignes dans un fichier. La valeur par défaut est : [« \\r\\n », « \\r », « \\n »\]. | Non
-escapeChar | Caractère spécial utilisé pour échapper au délimiteur de colonnes indiqué dans le contenu. Aucune valeur par défaut. Vous ne devez pas spécifier plusieurs caractères pour cette propriété.<p>Par exemple, si vous avez une virgule (,) comme séparateur de colonnes mais que vous voulez avoir le caractère virgule dans le texte (exemple : « Hello, world »), vous pouvez définir « $ » comme caractère d'échappement et utiliser la chaîne « $Hello, world » dans la source.</p><p>Notez que vous ne pouvez pas spécifier escapeChar et quoteChar pour une table.</p> | Non
-quoteChar | Caractère spécial utilisé pour entourer de guillemets la valeur de la chaîne. Les séparateurs de colonnes et de lignes à l'intérieur des caractères de guillemets sont considérés comme faisant partie de la valeur de la chaîne. Aucune valeur par défaut. Vous ne devez pas spécifier plusieurs caractères pour cette propriété.<p>Par exemple, si vous avez une virgule (,) comme séparateur de colonnes mais que vous voulez avoir le caractère virgule dans le texte (exemple : <Hello  world>), vous pouvez définir « " » comme caractère de guillemet et utiliser la chaîne <"Hello, world"> dans la source. Cette propriété s'applique aux tables d'entrée et de sortie.</p><p>Notez que vous ne pouvez pas spécifier escapeChar et quoteChar pour une table.</p> | Non
+rowDelimiter | Caractère(s) utilisé(s) comme séparateur de lignes dans un fichier. La valeur par défaut est : [« \\r\\n », « \\r », « \\n »]. | Non
+escapeChar | Caractère spécial utilisé pour échapper au délimiteur de colonnes indiqué dans le contenu. Aucune valeur par défaut. Vous ne devez pas spécifier plusieurs caractères pour cette propriété.<p>Par exemple, si vous avez une virgule (,) comme séparateur de colonnes mais que vous voulez avoir le caractère virgule dans le texte (exemple : « Hello, world »), vous pouvez définir « $ » comme caractère d’échappement et utiliser la chaîne « $Hello, world » dans la source.</p><p>Notez que vous ne pouvez pas spécifier escapeChar et quoteChar pour une table.</p> | Non
+quoteChar | Caractère spécial utilisé pour entourer de guillemets la valeur de la chaîne. Les séparateurs de colonnes et de lignes à l'intérieur des caractères de guillemets sont considérés comme faisant partie de la valeur de la chaîne. Aucune valeur par défaut. Vous ne devez pas spécifier plusieurs caractères pour cette propriété.<p>Par exemple, si vous avez une virgule (,) comme séparateur de colonnes mais que vous voulez avoir le caractère virgule dans le texte (exemple : <Hello  world>), vous pouvez définir « " » comme caractère de guillemet et utiliser la chaîne <"Hello, world"> dans la source. Cette propriété s’applique aux tables d’entrée et de sortie.</p><p>Notez que vous ne pouvez pas spécifier escapeChar et quoteChar pour une table.</p> | Non
 nullValue | Caractère(s) utilisé(s) pour représenter la valeur null dans le contenu du fichier blob. La valeur par défaut est « \\N ».> | Non
-encodingName | Spécifiez le nom du codage. Pour obtenir une liste des noms de d’encodage valides, consultez : Propriété Encoding.EncodingName. <p>Par exemple : windows-1250 ou shift\_jis. La valeur par défaut est : UTF-8. </p> | Non
+encodingName | Spécifiez le nom du codage. Pour obtenir une liste des noms de d’encodage valides, consultez : Propriété Encoding.EncodingName. <p>Par exemple : windows-1250 ou shift\_jis. La valeur par défaut est : UTF-8.</p> | Non
 
 #### Exemples :
 
-L'exemple suivant illustre certaines des propriétés de format pour **TextFormat**.
+L’exemple suivant illustre certaines des propriétés de format pour **TextFormat**.
 
 	"typeProperties":
 	{
@@ -573,4 +573,4 @@ Pour utiliser AvroFormat dans une table Hive ultérieure, vous pouvez faire réf
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

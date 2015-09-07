@@ -5,7 +5,7 @@
 	documentationCenter="na"
 	authors="rothja"
 	manager="jeffreyg"
-	editor="monicar" />
+	editor="monicar"/>
 <tags 
 	ms.service="virtual-machines"
 	ms.devlang="na"
@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
 	ms.date="08/19/2015"
-	ms.author="jroth" />
+	ms.author="jroth"/>
 
 # Entreposage de données et charges de travail transactionnelles de SQL Server dans des machines virtuelles Azure
 
-Pour utiliser SQL Server pour l’entreposage de données ou les charges de travail transactionnelles dans une machine virtuelle Azure, nous vous recommandons d’utiliser l’une des images de machine virtuelle préconfigurées dans la galerie de machines virtuelles Azure. Ces images ont été optimisées conformément aux recommandations figurant dans [Meilleures pratiques relatives aux performances de SQL Server sur les machines virtuelles Azure](https://msdn.microsoft.com/library/azure/dn133149.aspx).
+Pour utiliser SQL Server pour l’entreposage de données ou les charges de travail transactionnelles dans une machine virtuelle Azure, nous vous recommandons d’utiliser l’une des images de machine virtuelle préconfigurées dans la galerie de machines virtuelles Azure. Ces images ont été optimisées conformément aux recommandations figurant dans [Meilleures pratiques relatives aux performances de SQL Server sur les machines virtuelles Azure](virtual-machines-sql-server-performance-best-practices.md).
 
 Cet article porte sur l’exécution de ces charges de travail sur Azure Virtual Machines (également appelé IaaS ou « Infrastructure-as-a-Service »). Vous pouvez également exécuter l’entreposage de données et les charges de travail transactionnelles en tant que service dans Azure. Pour plus d’informations, consultez [Azure SQL Data Warehouse (version préliminaire)](http://azure.microsoft.com/documentation/services/sql-data-warehouse/) et [Base de données SQL Azure](http://azure.microsoft.com/documentation/services/sql-database/).
 
@@ -75,33 +75,36 @@ Pour plus d’informations sur la création d’images avec PowerShell, consulte
 
 ## Configurations spécifiques incluses dans les images transactionnelles/d’entreposage de données
 
-Ces images ont été optimisées conformément aux recommandations de la page [Meilleures pratiques relatives aux performances de SQL Server sur les machines virtuelles Azure](https://msdn.microsoft.com/library/azure/dn133149.aspx). Plus précisément, la configuration de ces images comprend les optimisations suivantes.
+Ces images ont été optimisées conformément aux recommandations de la page [Meilleures pratiques relatives aux performances de SQL Server sur les machines virtuelles Azure](virtual-machines-sql-server-performance-best-practices.md). Plus précisément, la configuration de ces images comprend les optimisations suivantes.
 
 >[AZURE.NOTE]Si vous utilisez votre propre licence et que vous créez une machine virtuelle d’entreposage de données ou transactionnelle en partant de zéro, vous pouvez baser vos optimisations sur l’article relatif aux performances et les exemples d’optimisations présentés dans les images de galerie préconfigurées ci-dessous.
 
 ### Configurations de disque
 
-
+|Configuration|Paramètre|
 |---|---|
 |Nombre de disques de données associés|15|
-|Espaces de stockage|Deux pools de stockage :<br/>-- 1 pool de données avec 12 disques de données ; taille fixe de 12 To ; Colonne = 12<br/>-- 1 pool de journal avec 3 disques de données ; taille fixe 3 To ; Colonne = 3<br/><br/>Un disque de données restant que l’utilisateur doit associer et dont il doit définir l’utilisation.<br/><br/>**DW** : taille de bande = 256 Ko<br/>**Transactionnelle** : taille de bande = 64 Ko|
-|Tailles de disques, mise en cache, taille d’allocation|1 To chacun, HostCache = aucun, taille d’unité d’allocation NTFS = 64 Ko|
+|Espaces de stockage|Deux pools de stockage :<br/>-- 1 pool de données avec 12 disques de données ; taille fixe de 12 To ; Colonne = 12<br/>--1 pool de journal avec 3 disques de données ; taille fixe 3 To ; Colonne = 3<br/><br/>Un disque de données restant que l'utilisateur doit associer et dont il doit définir l'utilisation.<br/><br/>**DW** : taille de bande = 256 Ko<br/>**Transactionnelle** : taille de bande = 64 Ko|
+|Tailles du disque|1 To chacun|
+|Mise en cache|HostCache = aucun|
+|Taille d'allocation|Taille d'unité d'allocation NTFS = 64 Ko|
 
 ### Configurations de SQL Server
 
+|Configuration|Paramètre|
 |---|---|
-|Paramètres de démarrage|-T1117 pour conserver la taille des fichiers de données en cas de croissance automatique de la base de données<br/><br/>-T1118 pour faciliter l’extensibilité de tempdb (pour plus d’informations, consultez la page [Utilisation de l’indicateur de suivi 1118 (-T1118) SQL Server (2005 et 2008)](http://blogs.msdn.com/b/psssql/archive/2008/12/17/sql-server-2005-and-2008-trace-flag-1118-t1118-usage.aspx?WT.mc_id=Blog_SQL_Announce_Announce).)|
+|Paramètres de démarrage|-T1117 pour conserver la taille des fichiers de données en cas de croissance automatique de la base de données<br/><br/>-T1118 pour faciliter l'extensibilité de tempdb (pour plus d'informations, consultez la page [Utilisation de l'indicateur de suivi 1118 (-T1118) SQL Server (2005 et 2008)](http://blogs.msdn.com/b/psssql/archive/2008/12/17/sql-server-2005-and-2008-trace-flag-1118-t1118-usage.aspx?WT.mc_id=Blog_SQL_Announce_Announce).)|
 |Modèle de récupération|**DW** : définir sur SIMPLE pour une base de données de modèle utilisant ALTER DATABASE<br/>**Transactionnelle** : aucune modification|
 |Emplacements par défaut de l’installation|Déplacer les répertoires du journal d’erreurs et du fichier de trace SQL Server vers les disques de données|
-|Emplacements par défaut pour les bases de données|Bases de données système déplacées vers les disques de données.<br/><br/>L’emplacement de création de bases de données utilisateur devient celui des disques de données.|
+|Emplacements par défaut pour les bases de données|Bases de données système déplacées vers les disques de données.<br/><br/>L'emplacement de création de bases de données utilisateur devient celui des disques de données.|
 |Initialisation instantanée des fichiers|Activé|
-|Verrouillage des pages en mémoire|Activé (pour plus d’informations, consultez la page [Activer l’option Verrouillage des pages en mémoire (Windows)](https://msdn.microsoft.com/library/ms190730.aspx).|
+|Verrouillage des pages en mémoire|Activé (pour plus d'informations, consultez la page [Activer l'option Verrouillage des pages en mémoire (Windows)](https://msdn.microsoft.com/library/ms190730.aspx).|
 
 ## Forum Aux Questions
 
 - Le prix des images optimisées est-il différent de celui des images non optimisées ?
 
-	Non. Les images optimisées suivent le même modèle de tarification ([plus d’infos](http://azure.microsoft.com/pricing/details/virtual-machines/)) sans coût supplémentaire. Notez qu’un tarif supérieur est appliqué aux tailles d’instances de machine virtuelle plus importantes.
+	Non. Les images optimisées suivent le même modèle de tarification ([plus d'infos](http://azure.microsoft.com/pricing/details/virtual-machines/)) sans coût supplémentaire. Notez qu’un tarif supérieur est appliqué aux tailles d’instances de machine virtuelle plus importantes.
 
 - Dois-je prendre en compte d’autres correctifs de performances ?
 
@@ -113,7 +116,7 @@ Ces images ont été optimisées conformément aux recommandations de la page [M
 
 - Où trouver des informations supplémentaires sur les espaces de stockage ?
 
-	Pour plus d’informations sur les espaces de stockage, consultez le [Forum aux questions sur les espaces de stockage](http://social.technet.microsoft.com/wiki/contents/articles/11382.storage-spaces-frequently-asked-questions-faq.aspx).
+	Pour plus d'informations sur les espaces de stockage, consultez le [Forum aux questions sur les espaces de stockage](http://social.technet.microsoft.com/wiki/contents/articles/11382.storage-spaces-frequently-asked-questions-faq.aspx).
 
 - Quelle est la différence entre la nouvelle image DW et la précédente ?
 
@@ -121,7 +124,7 @@ Ces images ont été optimisées conformément aux recommandations de la page [M
 
 - Que se passe-t-il si je dois utiliser l’image DW précédente ? Existe-t-il un moyen d’y accéder ?
 
-	Les images de machine virtuelle précédentes sont toujours disponibles, mais pas directement accessibles à partir de la galerie. Vous pouvez continuer à utiliser les applets de commande Powershell. Par exemple, vous pouvez utiliser **Get-AzureVMImage** pour répertorier toutes les images et, lorsque vous repérez l’image DW précédente d’après la description et la date de publication, vous pouvez utiliser **New-AzureVM** pour la configurer.
+	Les images de machine virtuelle précédentes sont toujours disponibles, mais pas directement accessibles à partir de la galerie. Vous pouvez continuer à utiliser les applets de commande Powershell. Par exemple, vous pouvez utiliser **Get-AzureVMImage** pour répertorier toutes les images et, lorsque vous repérez l'image DW précédente d'après la description et la date de publication, vous pouvez utiliser **New-AzureVM** pour la configurer.
 
 ## Étapes suivantes
 
@@ -130,6 +133,6 @@ Après avoir installé une machine virtuelle avec SQL Server, vous allez sans do
 - [Migrer vos données](virtual-machines-migrate-onpremises-database.md)
 - [Configurer la connectivité](virtual-machines-sql-server-connectivity.md)
 
-Pour d’autres rubriques relatives à l’utilisation de SQL Server sur des machines virtuelles Azure, consultez la rubrique [SQL Server sur les machines virtuelles Azure](virtual-machines-sql-server-infrastructure-services.md).
+Pour d'autres rubriques relatives à l'utilisation de SQL Server sur des machines virtuelles Azure, consultez la rubrique [SQL Server sur les machines virtuelles Azure](virtual-machines-sql-server-infrastructure-services.md).
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

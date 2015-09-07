@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Déployer des batteries de serveurs avec des modèles Azure Resource Manager"
-	description="Déployez facilement une batterie SharePoint à trois ou neuf serveurs à l’aide de modèles Resource Manager et du portail Azure en version préliminaire, d’Azure PowerShell ou de l’interface de ligne de commande Azure."
+	pageTitle="Déployer des batteries de serveurs SharePoint avec des modèles Azure Resource Manager | Microsoft Azure"
+	description="Déployez facilement une batterie SharePoint à trois ou neuf serveurs à l'aide de modèles Resource Manager et du portail Azure en version préliminaire, d'Azure PowerShell ou de l'interface de ligne de commande Azure."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="davidmu1"
@@ -31,7 +31,7 @@ Vous pouvez exécuter le modèle avec le portail Azure en version préliminaire
 
 ### Portail Azure en version préliminaire
 
-Pour déployer cette charge de travail à l’aide d’un modèle Resource Manager et du portail Azure en version préliminaire, cliquez [ici](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsharepoint-three-vm%2Fazuredeploy.json).
+Pour déployer cette charge de travail à l'aide d'un modèle Resource Manager et du portail Azure en version préliminaire, cliquez [ici](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsharepoint-three-vm%2Fazuredeploy.json).
 
 ![](./media/virtual-machines-workload-template-sharepoint/azure-portal-template.png)
 
@@ -94,7 +94,7 @@ Lorsque vous exécutez la commande **azure group deployment create**, vous êtes
 
 Vous disposez désormais d’une nouvelle batterie SharePoint à trois serveurs dans votre nouveau groupe de ressources.
 
-##Déployer une batterie SharePoint à neuf serveurs
+## Déployer une batterie SharePoint à neuf serveurs
 
 Pour une batterie de base SharePoint Server 2013 à haute disponibilité, un modèle Resource Manager crée neuf machines virtuelles dans un nouveau réseau virtuel, sur quatre sous-réseaux différents.
 
@@ -102,7 +102,7 @@ Pour une batterie de base SharePoint Server 2013 à haute disponibilité, un 
 
 ### Portail Azure en version préliminaire
 
-Pour déployer cette charge de travail à l’aide d’un modèle Resource Manager et du portail Azure en version préliminaire, cliquez [ici](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsharepoint-server-farm-ha%2Fazuredeploy.json).
+Pour déployer cette charge de travail à l'aide d'un modèle Resource Manager et du portail Azure en version préliminaire, cliquez [ici](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsharepoint-server-farm-ha%2Fazuredeploy.json).
 
 ![](./media/virtual-machines-workload-template-sharepoint/azure-portal-template.png)
 
@@ -111,14 +111,14 @@ Pour déployer cette charge de travail à l’aide d’un modèle Resource Man
 3.	Si nécessaire, cliquez sur **Abonnement**, puis sélectionnez l’abonnement Azure approprié.
 4.	Cliquez sur **Groupe de ressources**, puis sélectionnez un groupe de ressources existant. Sinon, cliquez sur **Ou créer nouveau** pour créer un nouveau groupe de ressources pour cette charge de travail.
 5.	Si nécessaire, cliquez sur **Emplacement du groupe de ressources**, puis sélectionnez l’emplacement Azure approprié.
-6.	Si nécessaire, cliquez sur Mentions légales afin de passer en revue les conditions d’utilisation de ce modèle.
+6.	Si nécessaire, cliquez sur **Mentions légales** afin de passer en revue les conditions d'utilisation de ce modèle.
 7.	Cliquez sur **Create**.
 
 Selon le modèle, la génération de la charge de travail par Azure peut prendre un certain temps. Lorsque vous avez terminé, vous disposez d’une nouvelle batterie SharePoint à neuf serveurs dans votre groupe de ressource nouveau ou existant.
 
 ### Azure PowerShell
 
-Avant de commencer, assurez-vous de disposer de la version appropriée d’Azure PowerShell, d’être connecté et d’être passé sur le nouveau mode Resource Manager. Pour plus d’informations, cliquez [ici](virtual-machines-deploy-rmtemplates-powershell.md#setting-up-powershell-for-resource-manager-templates).
+Avant de commencer, assurez-vous de disposer de la version appropriée d’Azure PowerShell, d’être connecté et d’être passé sur le nouveau mode Resource Manager. Pour plus d'informations, cliquez [ici](virtual-machines-deploy-rmtemplates-powershell.md#setting-up-powershell-for-resource-manager-templates).
 
 Saisissez un nom de déploiement Azure, un nouveau nom de groupe de ressources et un emplacement de centre de données Azure dans l’ensemble de commandes suivant. Supprimez les éléments entre guillemets, notamment les caractères < and >.
 
@@ -138,15 +138,15 @@ Voici un exemple.
 	New-AzureResourceGroup -Name $RGName -Location $locName
 	New-AzureResourceGroupDeployment -Name $deployName -ResourceGroupName $RGName -TemplateUri $templateURI
 
-Ensuite, exécutez votre bloc de commande dans l’invite Azure PowerShell.
+Ensuite, exécutez votre bloc de commande dans l'invite de commande Azure PowerShell.
 
-Lorsque vous exécutez la commande **New-AzureResourceGroupDeployment**, vous êtes invité à renseigner les valeurs d’une série de paramètres. Une fois que vous avez spécifié l’ensemble des valeurs de paramètres, la commande **New-AzureResourceGroupDeployment** crée et configure les machines virtuelles.
+Lors de l'exécution de la commande **New-AzureResourceGroupDeployment**, vous serez invité à renseigner les valeurs d'une série de paramètres. Une fois que vous avez spécifié l'ensemble des valeurs de paramètres, la commande **New-AzureResourceGroupDeployment** crée et configure les machines virtuelles.
 
 Une fois que l’exécution du modèle est terminée, vous disposez d’une nouvelle batterie SharePoint à neuf serveurs dans votre nouveau groupe de ressources.
 
 ### Interface de ligne de commande Azure
 
-Avant de commencer, assurez-vous de disposer de la version appropriée de l’interface de ligne de commande Azure, d’être connecté et d’être passé sur le nouveau mode Resource Manager. Pour plus d’informations, cliquez [ici](virtual-machines-deploy-rmtemplates-azure-cli.md#getting-ready).
+Avant de commencer, assurez-vous de disposer de la version appropriée de l’interface de ligne de commande Azure, d’être connecté et d’être passé sur le nouveau mode Resource Manager. Pour plus d'informations, cliquez [ici](virtual-machines-deploy-rmtemplates-azure-cli.md#getting-ready).
 
 Dans un premier temps, créez un nouveau groupe de ressources. Exécutez la commande suivante et définissez le nom du groupe et l’emplacement du centre de données Azure dans lequel vous souhaitez effectuer le déploiement.
 
@@ -161,7 +161,7 @@ Voici un exemple.
 	azure group create sphaserverfarm eastus2
 	azure group deployment create --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/sharepoint-server-farm-ha/azuredeploy.json sphaserverfarm spdevtest
 
-Lorsque vous exécutez la commande **azure group deployment create**, vous êtes invité à renseigner les valeurs d’une série de paramètres. Une fois que vous avez défini l’ensemble des valeurs de paramètres, Azure crée et configure les machines virtuelles.
+Lors de l'exécution de la commande **azure group deployment create**, vous serez invité à renseigner les valeurs d'une série de paramètres. Une fois que vous avez défini l’ensemble des valeurs de paramètres, Azure crée et configure les machines virtuelles.
 
 Une fois que l’exécution du modèle est terminée, vous disposez d’une nouvelle batterie SharePoint Server 2013 à neuf serveurs dans votre nouveau groupe de ressources.
 
@@ -172,7 +172,7 @@ Une fois que l’exécution du modèle est terminée, vous disposez d’une nouv
 
 [Fournisseurs de calcul, de réseau et de stockage Azure dans Azure Resource Manager](virtual-machines-azurerm-versus-azuresm.md)
 
-[Présentation d’Azure Resource Manager](../resource-group-overview.md)
+[Présentation d’Azure Resource Manager](../resource-group-overview.md)
 
 [Déploiement et gestion de machines virtuelles à l’aide des modèles Azure Resource Manager et de l’interface de ligne de commande Azure](virtual-machines-deploy-rmtemplates-azure-cli.md)
 
@@ -180,4 +180,4 @@ Une fois que l’exécution du modèle est terminée, vous disposez d’une nouv
 
 [Installation et configuration d’Azure PowerShell](../install-configure-powershell.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

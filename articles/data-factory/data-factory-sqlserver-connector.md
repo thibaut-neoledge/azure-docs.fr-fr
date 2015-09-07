@@ -1,24 +1,22 @@
 <properties 
-	pageTitle="Connecteur SQL Server - Déplacement des données vers et depuis SQL Server" 
-	description="En savoir plus sur le connecteur SQL Server pour le service Data Factory qui vous permet de déplacer des données vers/depuis une base de données SQL Server locale ou une machine virtuelle Azure." 
-	services="data-factory" 
-	documentationCenter="" 
-	authors="spelluru" 
-	manager="jhubbard" 
+	pageTitle="Déplacer des données vers et depuis SQL Server | Azure Data Factory"
+	description="Apprendre à déplacer des données vers/depuis une base de données SQL Server locale ou une machine virtuelle Azure à l’aide d’Azure Data Factory."
+	services="data-factory"
+	documentationCenter=""
+	authors="spelluru"
+	manager="jhubbard"
 	editor="monicar"/>
 
-
 <tags 
-	ms.service="data-factory" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/04/2015" 
+	ms.service="data-factory"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/26/2015"
 	ms.author="spelluru"/>
 
-
-# Connecteur SQL Server : déplacement des données vers et depuis SQL Server local ou sur IaaS (Machine virtuelle Azure)
+# Déplacement des données vers et depuis SQL Server local ou sur IaaS (Machine virtuelle Azure) à l’aide d’Azure Data Factory
 
 Cet article décrit comment vous pouvez utiliser l’activité de copie dans une Azure Data Factory pour déplacer des données vers SQL Azure à partir d’un magasin de données et vice versa. Cet article s’appuie sur l’article des [activités de déplacement des données](data-factory-data-movement-activities.md) qui présente une vue d’ensemble du déplacement des données avec l’activité de copie et les combinaisons de magasins de données prises en charge.
 
@@ -34,11 +32,11 @@ Vous pouvez installer la passerelle sur la même machine locale ou l’instance 
 
 L’exemple ci-dessous présente les éléments suivants :
 
-1.	Service lié de type OnPremisesSqlServer.
-2.	Service lié de type AzureStorage.
-3.	Un jeu de données d’entrée de type SqlServerTable. 
-4.	Un jeu de données de sortie de type AzureBlob.
-4.	Un pipeline avec une activité de copie qui utilise SqlSource et BlobSink.
+1.	Service lié de type [OnPremisesSqlServer](data-factory-sqlserver-connector.md#sql-server-linked-service-properties).
+2.	Un service lié de type [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties).
+3.	Un [jeu de données](data-factory-create-datasets.md) d’entrée de type [SqlServerTable](data-factory-sqlserver-connector.md#sql-server-dataset-type-properties). 
+4.	Un [jeu de données](data-factory-create-datasets.md) de sortie de type [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties).
+4.	Un [pipeline](data-factory-create-pipelines.md) avec une activité de copie qui utilise [SqlSource](data-factory-sqlserver-connector.md#sql-server-copy-activity-type-properties) et [BlobSink](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties).
 
 L’exemple copie des données appartenant à une série chronologique à partir d’une table de base de données SQL Server vers un objet Blob toutes les heures. Les propriétés JSON utilisées dans ces exemples sont décrites dans les sections suivant les exemples.
 
@@ -185,7 +183,7 @@ Le pipeline contient une activité de copie qui est configurée pour utiliser le
 	        "typeProperties": {
 	          "source": {
 	            "type": "SqlSource",
-	            "SqlReaderQuery": "$$Text.Format('select * from MyTable where timestampcolumn >= \\'{0:yyyy-MM-dd HH:mm}\\' AND timestampcolumn < \\'{1:yyyy-MM-dd HH:mm}\\'', WindowStart, WindowEnd)"
+	            "SqlReaderQuery": "$$Text.Format('select * from MyTable where timestampcolumn >= \'{0:yyyy-MM-dd HH:mm}\' AND timestampcolumn < \'{1:yyyy-MM-dd HH:mm}\'', WindowStart, WindowEnd)"
 	          },
 	          "sink": {
 	            "type": "BlobSink"
@@ -210,11 +208,11 @@ Le pipeline contient une activité de copie qui est configurée pour utiliser le
 
 L’exemple ci-dessous présente les éléments suivants :
 
-1.	Service lié de type OnPremisesSqlServer.
-2.	Service lié de type AzureStorage.
-3.	Un jeu de données d’entrée de type AzureBlob.
-4.	Un jeu de données de sortie de type SqlServerTable.
-4.	Un pipeline avec une activité de copie qui utilise BlobSource et SqlSink.
+1.	Service lié de type [OnPremisesSqlServer](data-factory-sqlserver-connector.md#sql-server-linked-service-properties).
+2.	Service lié de type [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties).
+3.	Un [jeu de données](data-factory-create-datasets.md) d’entrée de type [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties).
+4.	Un [jeu de données](data-factory-create-datasets.md) de sortie de type [SqlServerTable](data-factory-sqlserver-connector.md#sql-server-dataset-type-properties).
+4.	Un [pipeline](data-factory-create-pipelines.md) avec une activité de copie qui utilise [BlobSource](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties) et [SqlSink](data-factory-sqlserver-connector.md#sql-server-copy-activity-type-properties).
 
 L’exemple copie des données appartenant à une série horaire à partir d’un objet Blob Azure vers une table dans une base de données SQL Server, toutes les heures. Les propriétés JSON utilisées dans ces exemples sont décrites dans les sections suivant les exemples.
 
@@ -243,7 +241,7 @@ L’exemple copie des données appartenant à une série horaire à partir d’u
 	  }
 	}
 
-**Jeu de données d’entrée d’objet Blob Azure**
+**Jeu de données d'entrée d'objet Blob Azure**
 
 Les données sont récupérées à partir d’un nouvel objet blob toutes les heures (fréquence : heure, intervalle : 1). Le nom du chemin d’accès et du fichier de dossier pour l’objet Blob sont évalués dynamiquement en fonction de l’heure de début du segment en cours de traitement. Le chemin d’accès du dossier utilise l’année, le mois et le jour de l’heure de début et le nom de fichier utilise la partie heure de l’heure de début. Le paramètre « external » : « true » informe le service Data Factory que cette table est externe à la Data Factory et non produite par une activité dans la Data Factory.
 	
@@ -390,6 +388,10 @@ Le tableau suivant fournit la description des éléments JSON spécifiques au se
 | username | Spécifiez le nom d’utilisateur si vous utilisez l’authentification Windows. | Non |
 | password | Spécifiez le mot de passe du compte d’utilisateur que vous avez spécifié pour le nom d’utilisateur. | Non |
 
+Vous pouvez chiffrer les informations d’identification à l’aide de l’applet de commande **New-AzureDataFactoryEncryptValue** et les utiliser dans la chaîne de connexion comme indiqué dans l’exemple suivant (propriété **EncryptedCredential**) :
+
+	"connectionString": "Data Source=<servername>;Initial Catalog=<databasename>;Integrated Security=True;EncryptedCredential=<encrypted credential>",
+
 ### Exemples
 
 **JSON pour utilisation de l’authentification SQL**
@@ -420,6 +422,8 @@ Si le nom d’utilisateur et le mot de passe sont spécifiés, la passerelle les
 	     } 
 	}
 
+Pour plus d’informations sur la définition des informations d’identification pour une source de données SQL Server, consultez [Configuration des informations d’identification et de la sécurité](data-factory-move-data-between-onprem-and-cloud.md#setting-credentials-and-security)
+
 ## Propriétés de type du jeu de données SQL Server
 
 Pour obtenir une liste complète des sections et propriétés disponibles pour la définition de jeux de données, consultez l’article [Création de jeux de données](data-factory-create-datasets.md). Les sections comme la structure, la disponibilité et la stratégie d’un jeu de données JSON sont similaires pour tous les types de jeux de données (SQL Server, objet Blob Azure, table Azure, etc...).
@@ -436,13 +440,13 @@ Pour obtenir la liste complète des sections et des propriétés disponibles pou
 
 Par contre, les propriétés disponibles dans la section typeProperties de l’activité varient avec chaque type d’activité et dans le cas de l’activité de copie, elles varient selon les types de sources et de récepteurs.
 
-Dans le cas d’une activité de copie, lorsque la source est de type **SqlSource**, les propriétés suivantes sont disponibles dans la section **typeProperties** :
+Dans le cas d’une activité de copie, lorsque la source est de type **SqlSource**, les propriétés suivantes sont disponibles dans la section **typeProperties** :
 
 | Propriété | Description | Valeurs autorisées | Requis |
 | -------- | ----------- | -------------- | -------- |
 | sqlReaderQuery | Utilise la requête personnalisée pour lire des données. | Chaîne de requête SQL. Par exemple : select * from MyTable. S’il n’est pas spécifié, l’instruction SQL est exécutée : select from MyTable. | Non |
 
-**SqlSink** prend en charge les propriétés suivantes :
+**SqlSink** prend en charge les propriétés suivantes :
 
 | Propriété | Description | Valeurs autorisées | Requis |
 | -------- | ----------- | -------------- | -------- |
@@ -464,12 +468,12 @@ Dans le cas d’une activité de copie, lorsque la source est de type **SqlSourc
 
 ### Mappage de type pour SQL server et Azure SQL
 
-Comme mentionné dans l’article consacré aux [activités de déplacement des données](data-factory-data-movement-activities.md), l’activité de copie convertit automatiquement des types source en types récepteur à l’aide de l’approche en 2 étapes suivante :
+Comme mentionné dans l’article consacré aux [activités de déplacement des données](data-factory-data-movement-activities.md), l’activité de copie convertit automatiquement des types source en types récepteur à l’aide de l’approche en 2 étapes suivante :
 
 1. Conversion de types natifs source en types .NET
 2. Conversion à partir du type .NET en type de récepteur natif
 
-Lors du déplacement de données vers et à partir de SQL Azure, SQL server, Sybase, les mappages suivants seront utilisés à partir du type SQL en type .NET et vice versa.
+Lors du déplacement de données vers et à partir de SQL Azure, SQL Server, Sybase, les mappages suivants seront utilisés à partir du type SQL en type .NET et vice versa.
 
 Le mappage est identique au mappage du type de données SQL Server pour ADO.NET.
 
@@ -514,4 +518,4 @@ Le mappage est identique au mappage du type de données SQL Server pour ADO.NET.
 
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

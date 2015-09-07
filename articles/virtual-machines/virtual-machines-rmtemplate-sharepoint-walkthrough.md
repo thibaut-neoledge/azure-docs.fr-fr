@@ -364,7 +364,7 @@ Vous devez suivre les mêmes étapes pour votre propre modèle JSON visant à cr
 1.	Créez les éléments communs (compte de stockage, réseau virtuel), propres au niveau (groupes à haute disponibilité) et propres à la machine virtuelle (adresses IP publiques, groupes à haute disponibilité, interfaces réseau, instances d’équilibreur de charge) de l’infrastructure Azure requis pour votre déploiement.
 2.	Pour chaque niveau de votre application (par exemple l’authentification, la base de données, le web), créez et configurez les serveurs de ce niveau à l’aide des éléments communs (compte de stockage, réseau virtuel), propres au niveau (groupes à haute disponibilité) et propres à la machine virtuelle (adresses IP publiques, interfaces réseau et instances d’équilibreur de charge).
 
-Pour plus d’informations, consultez [Langage du modèle Azure Resource Manager](https://msdn.microsoft.com/library/azure/dn835138.aspx).
+Pour plus d'informations, consultez [Langage du modèle Azure Resource Manager](../resource-group-authoring-templates.md).
 
 ## Ressources supplémentaires
 
@@ -374,4 +374,4 @@ Pour plus d’informations, consultez [Langage du modèle Azure Resource Manag
 
 [Documentation sur les machines virtuelles](http://azure.microsoft.com/documentation/services/virtual-machines/)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

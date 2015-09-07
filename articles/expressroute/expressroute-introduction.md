@@ -1,21 +1,19 @@
 <properties 
    pageTitle="Présentation d’ExpressRoute | Microsoft Azure"
-   description="Cette page fournit une vue d’ensemble du service ExpressRoute, notamment du fonctionnement d’une connexion ExpressRoute, de la collaboration avec des fournisseurs Exchange et des fournisseurs de services réseau, et des homologations publiques ExpressRoute, privées et Microsoft."
-   documentationCenter="na"
-   services="expressroute"
-   authors="cherylmc"
-   manager="adinah"
-   editor="tysonn"/>
-
+	description="Cette page fournit une vue d’ensemble du service ExpressRoute, notamment du fonctionnement d’une connexion ExpressRoute, de la collaboration avec des fournisseurs Exchange et des fournisseurs de services réseau, et des homologations publiques ExpressRoute, privées et Microsoft."
+	documentationCenter="na"
+	services="expressroute"
+	authors="cherylmc"
+	manager="carolz"
+	editor=""/>
 <tags 
    ms.service="expressroute"
-   ms.devlang="na"
-   ms.topic="article" 
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services" 
-   ms.date="06/15/2015"
-   ms.author="cherylmc"/>
-
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="infrastructure-services"
+	ms.date="08/25/2015"
+	ms.author="cherylmc"/>
 
 # Présentation technique d’ExpressRoute
 
@@ -106,4 +104,4 @@ Si vous choisissez d’avoir les trois sessions d’homologation, vous devez di
 - Recherchez un fournisseur de services. Consultez la rubrique [Emplacements et fournisseurs de services ExpressRoute](expressroute-locations.md).
 - Configurez votre connexion ExpressRoute. Pour connaître les instructions, consultez la rubrique [Configuration d’une connexion ExpressRoute via un fournisseur de services réseau](expressroute-configuring-nsps.md) ou [Configuration d’une connexion ExpressRoute via un fournisseur Exchange](expressroute-configuring-exps.md). 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

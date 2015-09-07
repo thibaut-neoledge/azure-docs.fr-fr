@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Azure Data Factory - Terminologie" 
-	description="Cet article vous présente la terminologie utilisée dans la création de fabriques de données à l’aide du service Azure Data Factory" 
-	services="data-factory" 
-	documentationCenter="" 
-	authors="spelluru" 
-	manager="jhubbard" 
+	pageTitle="Azure Data Factory - Terminologie"
+	description="Cet article vous présente la terminologie utilisée dans la création de fabriques de données à l’aide du service Azure Data Factory"
+	services="data-factory"
+	documentationCenter=""
+	authors="spelluru"
+	manager="jhubbard"
 	editor="monicar"/>
 
 <tags 
-	ms.service="data-factory" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/07/2015" 
+	ms.service="data-factory"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/25/2015"
 	ms.author="spelluru"/>
 
 #Azure Data Factory - Terminologie
@@ -47,7 +47,7 @@ Les étapes classiques pour créer une instance Azure Data Factory sont les suiv
 Le service Azure Data Factory prend en charge les activités suivantes dans un pipeline :
 
 - L’**activité de copie** copie les données d’un magasin de données vers un autre magasin de données.  
-- L’**activité HDInsight** traite les données en exécutant des scripts Hive/Pig ou des programmes MapReduce sur un cluster HDInsight. Pour plus d’informations, consultez les pages [Utilisation de Pig et Hive avec Data Factory][use-pig-hive] et [Appel de programmes MapReduce à partir de Data Factory][run-map-reduce]. 
+- L’**activité HDInsight** traite les données en exécutant des scripts Hive/Pig ou des programmes MapReduce sur un cluster HDInsight.  
 - L’**activité d’évaluation par lots Azure Machine Learning** appelle l’API d’évaluation par lots Azure Machine Learning. Pour plus d’informations, consultez la page [Créer des pipelines prédictifs à l’aide d’Azure Data Factory et Azure Machine Learning][azure-ml-adf]. 
 - L’**activité de procédure stockée** appelle une procédure stockée dans une base de données SQL Azure. Pour plus d’informations, consultez l’[activité de procédure stockée][msdn-stored-procedure-activity] dans la bibliothèque MSDN.   
 
@@ -82,8 +82,6 @@ Un pipeline s'exécute sur un concentrateur unique ce qui constitue une caracté
 
 [adf-faq]: data-factory-faq.md
 [adf-intro]: data-factory-introduction.md
-[use-pig-hive]: data-factory-pig-hive-activities.md
-[run-map-reduce]: data-factory-map-reduce.md
 [azure-ml-adf]: data-factory-create-predictive-pipelines.md
 [adf-common-scenarios]: data-factory-common-scenarios.md
 [create-factory-using-dotnet-sdk]: data-factory-create-data-factories-programmatically.md
@@ -112,4 +110,4 @@ Un pipeline s'exécute sur un concentrateur unique ce qui constitue une caracté
 
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

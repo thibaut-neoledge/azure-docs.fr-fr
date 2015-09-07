@@ -1,22 +1,20 @@
 <properties 
-	pageTitle="Modélisation des données dans Azure DocumentDB | Microsoft Azure" 
-	description="Apprenez à modéliser les données d'une base de données de documents NoSQL comme DocumentDB Azure." 
-	services="documentdb" 
-	authors="ryancrawcour" 
-	manager="jhubbard" 
-	editor="mimig1" 
+	pageTitle="Modélisation des données dans Azure DocumentDB | Microsoft Azure"
+	description="Apprenez à modéliser les données d'une base de données de documents NoSQL comme DocumentDB Azure."
+	services="documentdb"
+	authors="ryancrawcour"
+	manager="jhubbard"
+	editor="mimig1"
 	documentationCenter=""/>
 
-
 <tags 
-	ms.service="documentdb" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/21/2015" 
+	ms.service="documentdb"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/24/2015"
 	ms.author="ryancraw"/>
-
 
 #Modélisation des données dans DocumentDB#
 Bien que les bases de données exemptes de schéma, comme DocumentDB, rendent très facile l'adoption des modifications apportées à votre modèle de données, vous devez quand même prendre le temps de réfléchir à vos données.
@@ -394,4 +392,4 @@ Pour comprendre la répartition de vos données entre plusieurs partitions, cons
 Et enfin, pour obtenir des conseils sur la modélisation et le partitionnement des données pour les applications mutualisées, consultez l’article [Mise à l’échelle d’une application mutualisée avec Azure DocumentDB](http://blogs.msdn.com/b/documentdb/archive/2014/12/03/scaling-a-multi-tenant-application-with-azure-documentdb.aspx).
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

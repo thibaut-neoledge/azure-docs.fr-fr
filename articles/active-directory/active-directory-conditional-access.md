@@ -1,19 +1,19 @@
 <properties
 	pageTitle="Gestion des risques avec accès conditionnel"
-	description="Rubrique qui explique comment autoriser n’importe où l’accès à des ressources spécifiques à partir d’appareils connus, conformément aux stratégies et interdire l’accès à partir d’appareils perdus, volés, non conformes."
+	description="Autoriser partout l’accès à des ressources spécifiques au sein du réseau d’entreprise à partir d’appareils connus, conformément aux stratégies et interdire l’accès à partir d’appareils perdus, volés, non conformes."
 	services="active-directory, virtual-network"
 	documentationCenter=""
 	authors="femila"
-	manager="stevepo"
+	manager="stevenpo"
 	editor=""/>
 
 <tags
 	ms.service="active-directory"
 	ms.devlang="na"
 	ms.topic="article"
-  ms.tgt_pltfrm="na"
-  ms.workload="identity" 
-	ms.date="07/31/2015"
+	ms.tgt_pltfrm="na"
+	ms.workload="identity"
+	ms.date="08/19/2015"
 	ms.author="femila"/>
 
 
@@ -35,13 +35,13 @@ Avec les diverses fonctionnalités d’accès conditionnel offertes par Azure Ac
 
 Les rubriques suivantes décrivent les différents mécanismes disponibles pour la définition de stratégies d’accès conditionnel dans votre organisation.
 
-- [Vue d’ensemble du service d’inscription d’appareil Azure Active Directory](https://msdn.microsoft.com/library/azure/dn903763.aspx)
-- [Configuration d’un accès conditionnel en local à l’aide du service d’inscription d’appareils Azure Active Directory](https://msdn.microsoft.com/library/azure/dn788908.aspx)
-- [Stratégies d’accès conditionnel basées sur les appareils pour les services Office 365](https://msdn.microsoft.com/library/azure/dn903766.aspx)
-- [Vue d’ensemble de l’accès conditionnel Azure pour les applications SaaS](https://msdn.microsoft.com/library/azure/dn906877.aspx)
+- [Vue d’ensemble du service d’inscription d’appareil Azure Active Directory](active-directory-conditional-access-device-registration-overview.md)
+- [Configuration d’un accès conditionnel en local à l’aide du service d’inscription d’appareils Azure Active Directory](active-directory-conditional-access-on-premises-setup.md)
+- [Stratégies d’accès conditionnel basées sur les appareils pour les services Office 365](active-directory-conditional-access-device-policies.md)
+- [Vue d’ensemble de l’accès conditionnel Azure pour les applications SaaS](active-directory-conditional-access-azuread-connected-apps.md)
 
 
 <!--Image references-->
 [1]: ./media/active-directory-conditional-access/condaccoverviewvsdx1.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

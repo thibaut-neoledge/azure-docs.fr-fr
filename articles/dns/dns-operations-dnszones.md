@@ -1,22 +1,26 @@
 <properties 
-   pageTitle="Opérations sur les zones DNS | Microsoft Azure" 
-   description="Vous pouvez gérer les zones DNS à l’aide d’applets de commande Azure Powershell. Mise à jour, suppression et création des zones DNS sur Azure DNS" 
-   services="dns" 
-   documentationCenter="na" 
-   authors="joaoma" 
-   manager="Adinah" 
-   editor=""/>
+   pageTitle="Opérations sur les zones DNS | Microsoft Azure"
+	description="Vous pouvez gérer les zones DNS à l’aide d’applets de commande Azure Powershell ou de l’interface de ligne de commande. Mise à jour, suppression et création des zones DNS sur Azure DNS"
+	services="dns"
+	documentationCenter="na"
+	authors="joaoma"
+	manager="Adinah"
+	editor=""/>
 
 <tags
    ms.service="dns"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services" 
-   ms.date="07/30/2015"
-   ms.author="joaoma"/>
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="infrastructure-services"
+	ms.date="08/12/2015"
+	ms.author="joaoma"/>
 
 # Gestion des zones DNS
+
+> [AZURE.SELECTOR]
+- [Azure CLI](dns-operations-dnszones-cli.md)
+- [Azure Powershell](dns-operations-dnszones.md)
 
 
 Ce guide explique comment gérer votre zone DNS. Il vous permettra de comprendre la séquence des opérations à effectuer pour administrer votre zone DNS.
@@ -27,11 +31,11 @@ Pour créer une zone DNS pour héberger votre domaine, utilisez l’applet de co
 
 		PS C:\> $zone = New-AzureDnsZone -Name contoso.com -ResourceGroupName MyAzureResourceGroup [–Tag $tags] 
 
-L’opération crée une zone DNS dans Azure DNS et renvoie un objet local correspondant à cette zone. Vous pouvez éventuellement spécifier un tableau de balises Azure Resource Manager. Pour plus d’informations, consultez la section [Balises et Etags](../dns-getstarted-create-dnszone#Etags-and-tags).
+L’opération crée une zone DNS dans Azure DNS et renvoie un objet local correspondant à cette zone. Vous pouvez éventuellement spécifier un tableau de balises Azure Resource Manager. Pour plus d’informations, consultez la section [Balises et Etags](../dns-getstarted-create-dnszone.md#Etags-and-tags).
 
 Le nom de la zone doit être unique dans le groupe de ressources et la zone ne doit pas déjà exister. Sinon, l’opération échoue.
 
-Le même nom de zone peut être réutilisé dans un autre groupe de ressources ou abonnement Azure. Lorsque plusieurs zones partagent le même nom, chaque instance se voit affecter différentes adresses de serveur de noms, et une seule instance peut être déléguée à partir du domaine parent. Pour plus d’informations, consultez la page [Délégation d’un domaine Azure DNS](../dns-domain-delegation).
+Le même nom de zone peut être réutilisé dans un autre groupe de ressources ou abonnement Azure. Lorsque plusieurs zones partagent le même nom, chaque instance se voit affecter différentes adresses de serveur de noms, et une seule instance peut être déléguée à partir du domaine parent. Pour plus d’informations, consultez la page [Délégation d’un domaine Azure DNS](dns-domain-delegation.md).
 
 ## Obtention d’une zone DNS
 
@@ -48,7 +52,7 @@ En omettant le nom de la zone dans Get-AzureDnsZone, vous pouvez énumérer tout
 Cette opération renvoie un tableau d’objets de la zone.
 
 ## Mise à jour d’une zone DNS
-Vous pouvez apporter des modifications à une ressource de zone DNS à l’aide de Set-AzureDnsZone. Cette commande ne met pas à jour les jeux d’enregistrements DNS dans la zone (voir [Gestion des enregistrements DNS](../dns-operations-recordsets)). Elle est utilisée uniquement pour mettre à jour les propriétés de la ressource de zone elle-même. Elle est actuellement limitée aux balises Azure Resource Manager de la ressource de zone. Pour plus d’informations, consultez la section [Balises et Etags](../dns-getstarted-create-dnszone#Etags-and-tags).
+Vous pouvez apporter des modifications à une ressource de zone DNS à l’aide de Set-AzureDnsZone. Cette commande ne met pas à jour les jeux d’enregistrements DNS dans la zone (voir [Gestion des enregistrements DNS](dns-operations-recordsets.md)). Elle est utilisée uniquement pour mettre à jour les propriétés de la ressource de zone elle-même. Elle est actuellement limitée aux balises Azure Resource Manager de la ressource de zone. Pour plus d’informations, consultez la section [Balises et Etags](dns-getstarted-create-dnszone.md#Etags-and-tags).
 
 Utilisez une des options suivantes pour mettre à jour la zone DNS :
 
@@ -65,7 +69,7 @@ Spécifiez la zone à l’aide d’un objet $zone à partir de Get-AzureDnsZone�
 	PS C:\> <..modify $zone.Tags here...>
 	PS C:\> Set-AzureDnsZone -Zone $zone [-Overwrite]
 
-Lors de l’utilisation de Set-AzureDnsZone avec un objet $zone, les vérifications « Etag » sont utilisées afin de s’assurer que les modifications simultanées ne sont pas remplacées. Vous pouvez utiliser le commutateur facultatif « -Overwrite » pour supprimer ces vérifications. Pour plus d’informations, consultez la section [Balises et Etags](../dns-getstarted-create-dnszone#Etags-and-tags).
+Lors de l’utilisation de Set-AzureDnsZone avec un objet $zone, les vérifications « Etag » sont utilisées afin de s’assurer que les modifications simultanées ne sont pas remplacées. Vous pouvez utiliser le commutateur facultatif « -Overwrite » pour supprimer ces vérifications. Pour plus d’informations, consultez la section [Balises et Etags](dns-getstarted-create-dnszone.md#Etags-and-tags).
 
 ## Suppression d’une zone DNS
 
@@ -91,7 +95,7 @@ Spécifiez la zone à l’aide d’un objet $zone à partir de Get-AzureDnsZone�
 
 Le commutateur « -Force » est identique à celui de l’option 1.
 
-Comme avec Set-AzureDnsZone, la spécification de la zone à l’aide d’un objet $zone permet aux vérifications « etag » de s’assurer que les modifications simultanées ne sont pas supprimées. <BR> L’indicateur facultatif « -Overwrite » supprime ces vérifications. Pour plus d’informations, consultez la section [Balises et Etags](../dns-getstarted-create-dnszone#Etags-and-tags).
+Comme avec Set-AzureDnsZone, la spécification de la zone à l’aide d’un objet $zone permet aux vérifications « etag » de s’assurer que les modifications simultanées ne sont pas supprimées. <BR> L’indicateur facultatif « -Overwrite » supprime ces vérifications. Pour plus d’informations, consultez la section [Balises et Etags](dns-getstarted-create-dnszone.md#Etags-and-tags).
 
 L’objet de zone peut également être redirigé au lieu d’être transmis en tant que paramètre :
 
@@ -100,8 +104,8 @@ L’objet de zone peut également être redirigé au lieu d’être transmis en 
 ## Étapes suivantes
 
 
-[Gestion des enregistrements DNS](../dns-operations-recordsets)
+[Gestion des enregistrements DNS](dns-operations-recordsets.md)
 
-[Automatisation des opérations à l’aide du Kit de développement (SDK) .NET](../dns-sdk)
+[Automatisation des opérations à l’aide du Kit de développement (SDK) .NET](dns-sdk.md)
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

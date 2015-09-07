@@ -1,83 +1,140 @@
 <properties 
-	pageTitle="Encodage de contenu à la demande avec Azure Media Services" 
-	description="Cette rubrique offre une vue d’ensemble de l’encodage de contenu à la demande avec Media Services." 
-	services="media-services" 
-	documentationCenter="" 
-	authors="juliako" 
-	manager="dwrede" 
+	pageTitle="Vue d’ensemble et comparaison d’encodeurs multimédia à la demande Azure"
+	description="Cette rubrique donne une vue d’ensemble des encodeurs multimédia à la demande Azure et les compare."
+	services="media-services"
+	documentationCenter=""
+	authors="juliako"
+	manager="dwrede"
 	editor=""/>
 
 <tags 
-	ms.service="media-services" 
-	ms.workload="media" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/11/2015"  
+	ms.service="media-services"
+	ms.workload="media"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/24/2015"
 	ms.author="juliako"/>
 
-#Encodage de contenu à la demande avec Azure Media Services
+#Vue d’ensemble et comparaison d’encodeurs multimédia à la demande Azure
 
-Cette rubrique fait partie de la série [Flux de travail de vidéo à la demande Media Services](media-services-video-on-demand-workflow.md).
+##Vue d’ensemble de l’encodage
 
-##Vue d'ensemble
+Les encodeurs compressent du contenu multimédia numérique à l'aide de codecs. Ils proposent généralement différents paramètres qui vous permettent de spécifier les propriétés du contenu multimédia généré, par exemple les codecs utilisés, le format de fichier, la résolution et la vitesse de transmission. Les formats de fichiers sont des conteneurs qui contiennent la vidéo compressée, ainsi que des informations sur les codecs qui ont été utilisés pour compresser la vidéo.
 
-Media Services prend en charge les encodeurs suivants :
+Les codecs possèdent deux composants : un pour compresser les fichiers multimédias numériques pour la transmission et l’autre pour décompresser les fichiers multimédias numériques pour la lecture. Il existe des codecs audio qui compressent et décompressent le contenu audio et des codecs vidéo qui compressent et décompressent le contenu vidéo. Les codecs peuvent utiliser la compression avec ou sans perte. Les codecs sans perte conservent l’ensemble des informations lors de la compression. Lorsque le fichier est décompressé, le résultat est un fichier qui est identique au contenu d’entrée, ce qui rend les codecs sans perte particulièrement adaptés à l’archivage et au stockage. Les codecs avec perte perdent certaines des informations lors de l’encodage et génèrent des fichiers plus petits (que l’original) au détriment de la qualité vidéo. Ils conviennent à la diffusion en continu via internet.
 
-- [Media Encoder Standard](#media_encoder_standard)
-- [Encodeur multimédia Azure](#azure_media_encoder)
-- [Media Encoder Premium Workflow](#media_encoder_premium_workflow)
+Il est important de bien comprendre la différence entre les codecs et les formats de fichiers. Les codecs sont les logiciels qui implémentent les algorithmes de compression/décompression, tandis que les formats de fichiers sont des conteneurs qui contiennent la vidéo compressée. Pour plus d’informations, voir [Encodage versus Empaquetage](http://blog-ndrouin.azurewebsites.net/streaming-media-terminology-explained/).
 
-La [section suivante](#compare_encoders) compare les fonctionnalités d'encodage des encodeurs pris en charge.
+Media Services fournit l’empaquetage dynamique qui permet de distribuer un contenu en diffusion continue en MP4 ou Smooth Streaming dans un format pris en charge par Media Services (MPEG DASH, HLS, Smooth Streaming, HDS) sans avoir à recréer de nouveaux packages dans ces formats.
 
-Par défaut, chaque compte Media Services peut avoir une tâche d’encodage active à la fois. Vous pouvez réserver des unités d’encodage qui vous permettent d’exécuter plusieurs tâches d’encodage simultanément, une pour chaque unité réservée d’encodage que vous achetez. Pour plus d’informations sur la mise à l’échelle des unités d’encodage, consultez les rubriques **Portail** et **.NET** suivantes.
+Pour tirer parti de [l’empaquetage dynamique](media-services-dynamic-packaging-overview.md), vous devez effectuer les opérations suivantes :
 
-[AZURE.INCLUDE [media-services-selector-scale-encoding-units](../../includes/media-services-selector-scale-encoding-units.md)]
+- encoder votre fichier mezzanine (source) dans un ensemble de fichiers mp4 à débit adaptatif ou de fichiers Smooth Streaming à débit adaptatif (les étapes de codage sont décrites plus loin dans ce didacticiel).
+- obtenir au moins une unité de diffusion à la demande pour le point de terminaison de diffusion à partir duquel vous envisagez de distribuer votre contenu. Pour plus d’informations, consultez la page [Extension des unités réservées de diffusion en continu à la demande](media-services-manage-origins.md#scale_streaming_endpoints/).
 
-##<a id="media_encoder_standard"></a>Media Encoder Standard
+Media Services prend en charge les éléments suivants sur les encodeurs à la demande décrits dans cet article :
 
-[Formats pris en charge par Media Encoder Standard](media-services-media-encoder-standard-formats.md) : décrit les formats de fichiers et de flux pris en charge par **Media Encoder Standard**.
+- **Media Encoder Standard**
+- **Encodeur multimédia Azure** 
+- **Media Encoder Premium Workflow**
 
-**Media Encoder Standard** se configure à l'aide d'une des présélections d'encodeur décrites [ici](http://go.microsoft.com/fwlink/?LinkId=618336) ou de paramètres prédéfinis personnalisés basés sur [ces](http://go.microsoft.com/fwlink/?LinkId=618336) présélections.
+Cet article donne un bref aperçu des encodeurs multimédia à la demande et fournit des liens vers des articles fournissant des informations plus détaillées. Cette rubrique compare également les encodeurs.
 
-Pour plus d'informations, consultez [ce blog](http://azure.microsoft.com/blog/2015/07/16/announcing-the-general-availability-of-media-encoder-standard/).
+Remarque : par défaut, chaque compte Media Services peut avoir une tâche d’encodage active à la fois. Vous pouvez réserver des unités d’encodage qui vous permettent d’exécuter plusieurs tâches d’encodage simultanément, une pour chaque unité réservée d’encodage que vous achetez. Pour plus d’informations, voir [Mise à l’échelle des unités d’encodage](media-services-portal-encoding-units.md).
 
-##<a id="azure_media_encoder"></a>Encodeur multimédia Azure
+##Media Encoder Standard
 
-[Formats pris en charge par l'encodeur multimédia Azure](media-services-azure-media-encoder-formats.md) : décrit les formats de fichiers et de flux pris en charge par l'**Encodeur multimédia Azure**.
+###Vue d’ensemble
 
-L'**Encodeur multimédia Azure** se configure à l'aide d'une des chaînes de présélection d'encodeur décrites [ici](https://msdn.microsoft.com/library/azure/dn619392.aspx). Vous pouvez également obtenir les fichiers de présélection de l'Encodeur multimédia Azure [ici](https://github.com/Azure/azure-media-services-samples/tree/master/Encoding%20Presets/VoD/Azure%20Media%20Encoder).
+Il est recommandé d’utiliser l’encodeur Media Encoder Standard. Toutefois, il ne figure pas actuellement sur le portail Azure.
 
-###Exemple
+Par rapport à Azure Media Encoder, cet encodeur prend en charge plusieurs formats d’entrée et de sortie et plusieurs codecs. Autres avantages :
 
-Procédez à l’encodage à l’aide de l’**Encodeur multimédia Azure** en utilisant le **portail de gestion Azure**, **.NET** ou l’**API REST**.
+- Plus grande tolérance par rapport au mode de création du fichier d’entrée
+- Meilleure qualité de codec H.264 qu’Azure Media Encoder
+- Repose sur un pipeline plus flexible et plus récent
+- Robustesse/résilience accrues
+
+###Utilisation
+
+[Encodage avec Media Encoder Standard](media-services-dotnet-encode-with-media-encoder-standard.md)
+
+###Formats
+
+[Formats et codecs](media-services-media-encoder-standard-formats.md)
+
+###Présélections
+
+Media Encoder Standard se configure à l’aide d’une des présélections d’encodeur décrites [ici](http://go.microsoft.com/fwlink/?linkid=618336&clcid=0x409).
+
+###Métadonnées d’entrée et de sortie
+
+Les métadonnées d’entrée des encodeurs sont décrites [ici](http://msdn.microsoft.com/library/azure/dn783120.aspx) (identiques à Azure Media Encoder).
+
+Les métadonnées de sortie des encodeurs sont décrites [ici](http://msdn.microsoft.com/library/azure/dn783217.aspx) (identiques à Azure Media Encoder).
+
+###Miniature
+
+Fonctionnalité non prise en charge actuellement.
+
+###Superpositions audio et/ou vidéo
+
+Fonctionnalité non prise en charge actuellement.
+
+###Voir aussi
+
+[Blog sur Media Services](https://azure.microsoft.com/blog/2015/07/16/announcing-the-general-availability-of-media-encoder-standard/)
  
-[AZURE.INCLUDE [media-services-selector-encode](../../includes/media-services-selector-encode.md)]
+##Encodeur multimédia Azure
 
-####Autres rubriques connexes
+###Vue d’ensemble
 
-[Empaquetage dynamique](https://msdn.microsoft.com/library/azure/jj889436.aspx) : explique comment encoder des fichiers MP4 à débit adaptatif et fournir dynamiquement du contenu aux formats Smooth Streaming, Apple HLS ou MPEG-DASH.
+Azure Media Encoder est l’un des encodeurs pris en charge par Media Services. Depuis juillet 2015, il est recommandé d’utiliser [Media Encoder Standard](media-services-encode-asset.md#media_encoder_standard).
 
-[Contrôle des noms de fichier de sortie de l'encodeur Media Services](https://msdn.microsoft.com/library/azure/dn303341.aspx) : explique les conventions d'affectation de noms de fichiers utilisés par l'Azure Media Encoder et comment modifier les noms de fichier de sortie.
+###Utilisation
 
-[Encodage de vos médias avec Dolby Digital Plus](media-services-encode-with-dolby-digital-plus.md) : explique comment encoder les pistes audio à l'aide de l'encodage Dolby Digital Plus.
+[Encodage avec Azure Media Encoder](media-services-dotnet-encode-asset.md)
 
+###Formats
 
-##<a id="media_encoder_premium_wokrflow"></a>Media Encoder Premium Workflow 
+[Formats et codecs](media-services-azure-media-encoder-formats.md)
 
-**Remarque** : le processeur multimédia Media Encoder Premium Workflow présenté dans cette rubrique n’est pas disponible en Chine.
+###Présélections
 
-[Formats pris en charge par Media Encoder Premium Workflow](media-services-premium-workflow-encoder-formats.md) : présente les formats de fichiers et les codecs pris en charge par **Media Encoder Premium Workflow**.
+Azure Media Encoder se configure à l’aide d’une des présélections d’encodeur décrites [ici](https://msdn.microsoft.com/library/azure/dn619392.aspx). Vous pouvez également obtenir les fichiers de présélection d’Azure Media Encoder [ici](https://github.com/Azure/azure-media-services-samples/tree/master/Encoding%20Presets/VoD/Azure%20Media%20Encoder).
 
-### Concepteur de flux de travail
+###Métadonnées d’entrée et de sortie
 
-**Media Encoder Premium Workflow** se configure à l'aide de flux de travail complexes. Les fichiers de flux de travail peuvent être créés à l'aide de l'outil [Concepteur de flux de travail](media-services-workflow-designer.md).
+Les métadonnées d’entrée des encodeurs sont décrites [ici](http://msdn.microsoft.com/library/azure/dn783120.aspx).
 
-Vous pouvez vous procurer les fichiers de flux de travail par défaut [ici](https://github.com/Azure/azure-media-services-samples/tree/master/Encoding%20Presets/VoD/MediaEncoderPremiumWorkfows). Le dossier contient aussi la description de ces fichiers.
+Les métadonnées de sortie des encodeurs sont décrites [ici](http://msdn.microsoft.com/library/azure/dn783217.aspx).
 
-###Exemple
-Encodez avec **Media Encoder Premium Workflow** à l'aide de **.NET**. Pour plus d'informations, consultez [Encodage avancé avec Media Encoder Premium Workflow](media-services-encode-with-premium-workflow.md).
- 
+###Miniature
+
+[Création d’une miniature](https://msdn.microsoft.com/library/azure/Dn673581.aspx)
+
+###Superpositions audio et/ou vidéo
+
+[Création de superpositions](media-services-azure-media-customize-ame-presets.md#creating-overlays).
+
+###Conventions d’affectation de noms
+
+[Modification des noms de fichier de sortie](media-services-azure-media-customize-ame-presets.md#controlling-azure-media-encoder-output-file-names)
+
+###Voir aussi
+
+[Encodage de vos médias avec Dolby Digital Plus](media-services-encode-with-dolby-digital-plus.md)
+
+##Media Encoder Premium Workflow
+	
+Media Encoder Premium Workflow se configure à l’aide de flux de travail complexes. Les fichiers de flux de travail peuvent être créés et mis à jour à l’aide de l’outil [Concepteur de flux de travail](media-services-workflow-designer.md).
+
+Pour plus d'informations, consultez les pages suivantes :
+
+- [Présentation de l’encodage Premium dans Azure Media Services](http://azure.microsoft.com/blog/2015/03/05/introducing-premium-encoding-in-azure-media-services)
+- [Utilisation de l’encodage Premium dans Azure Media Services](http://azure.microsoft.com/blog/2015/03/06/how-to-use-premium-encoding-in-azure-media-services)
+
 
 ##<a id="compare_encoders"></a>Comparaison des encodeurs
 
@@ -85,115 +142,108 @@ Encodez avec **Media Encoder Premium Workflow** à l'aide de **.NET**. Pour plus
 
 Nom du processeur multimédia|Tarification applicable|Remarques
 ---|---|---
-**Encodeur multimédia Windows Azure** |ENCODEUR HÉRITÉ|Les tâches d'encodage seront facturées en fonction de la somme des tailles des actifs d'entrée et de l'actif de sortie, en gigaoctets, à la vitesse spécifiée [ici][1], sous la colonne ENCODEUR HÉRITÉ.
-**Encodeur multimédia Azure** |ENCODEUR|Les tâches d'encodage seront facturées en fonction de la taille de l'actif de sortie, en gigaoctets, à la vitesse spécifiée [ici][1], sous la colonne ENCODEUR.
-**Media Encoder Standard** |ENCODEUR|Les tâches d'encodage seront facturées en fonction de la taille de l'actif de sortie, en gigaoctets, à la vitesse spécifiée [ici][1], sous la colonne ENCODEUR.
-**Media Encoder Premium Workflow** |ENCODEUR PREMIUM|Les tâches d'encodage seront facturées en fonction de la taille de l'actif de sortie, en gigaoctets, à la vitesse spécifiée [ici][1], sous la colonne ENCODEUR PREMIUM.
+**Media Encoder Standard** |ENCODEUR|Les tâches d’encodage seront facturées en fonction de la taille de l’élément multimédia de sortie, en gigaoctets, à la vitesse spécifiée [ici][1], sous la colonne ENCODEUR.
+**Encodeur multimédia Azure** |ENCODEUR|Les tâches d’encodage seront facturées en fonction de la taille de l’élément multimédia de sortie, en gigaoctets, à la vitesse spécifiée [ici][1], sous la colonne ENCODEUR.
+**Media Encoder Premium Workflow** |ENCODEUR PREMIUM|Les tâches d’encodage seront facturées en fonction de la taille de l’élément multimédia de sortie, en gigaoctets, à la vitesse spécifiée [ici][1], sous la colonne ENCODEUR PREMIUM.
 
 
+Cette section compare les fonctionnalités d’encodage de **Media Encoder Standard**, **Azure Media Encoder** et **Media Encoder Premium Worfklow**.
 
-Cette section compare les fonctionnalités d'encodage de l'**Azure Media Encoder**, **Media Encoder Premium Workflow** et **Media Encoder Standard**.
 
+###Formats de conteneurs/fichiers d’entrée
 
-###Formats d’entrée
-
-Formats de conteneurs/fichiers d’entrée
-
-Formats de conteneurs/fichiers d’entrée|Media Encoder Premium Workflow|Encodeur multimédia Azure|Media Encoder Standard
+Formats de conteneurs/fichiers d’entrée|Media Encoder Standard|Encodeur multimédia Azure|Media Encoder Premium Workflow
 ---|---|---|---
-Adobe® Flash® F4V|Oui|Non|Oui
-MXF/SMPTE 377M|Oui|Limité|Oui
-GXF|Oui|Non|Oui
-MPEG-2 Transport Streams|Oui|Oui|Oui
-MPEG-2 Program Streams|Oui|Oui|Oui
-MPEG-4/MP4|Oui|Oui|Oui
-Windows Media/ASF|Oui|Oui|Oui
-AVI (8 bits/10 bits non compressé)|Oui|Oui|Oui
-3GPP/3GPP2|Non|Oui|Oui
-Format de fichier de diffusion en continu lisse (PIFF 1.3)|Non|Oui|Oui
-[Enregistrement vidéo numérique Microsoft (DVR-MS)](https://msdn.microsoft.com/library/windows/desktop/dd692984)|Non|Non|Oui
-Matroska/WebM|Non|Non|Oui
+Adobe® Flash® F4V |Oui|Non |Oui
+MXF/SMPTE 377M |Oui|Limité|Oui
+GXF |Oui|Non |Oui
+MPEG-2 Transport Streams |Oui|Oui |Oui
+MPEG-2 Program Streams |Oui|Oui |Oui
+MPEG-4/MP4 |Oui|Oui |Oui
+Windows Media/ASF |Oui|Oui |Oui
+AVI (8 bits/10 bits non compressé)|Oui|Oui |Oui
+3GPP/3GPP2 |Oui|Oui |Non
+Format de fichier de diffusion en continu lisse (PIFF 1.3)|Oui|Oui|Non
+[Enregistrement vidéo numérique Microsoft (DVR-MS)](https://msdn.microsoft.com/library/windows/desktop/dd692984)|Oui|Non|Non
+Matroska/WebM |Oui|Non|Non
 
-Codecs vidéo d’entrée
+###Codecs vidéo d’entrée
 
-Codecs vidéo d’entrée|Media Encoder Premium Workflow|Encodeur multimédia Azure|Media Encoder Standard
+Codecs vidéo d’entrée|Media Encoder Standard|Encodeur multimédia Azure|Media Encoder Premium Workflow
 ---|---|---|---
-AVC 8 bits/10 bits, jusqu'à 4:2:2, y compris AVCIntra|Oui|Uniquement 8 bits 4:2:0|8 bits 4:2:0 et 4:2:2
-Avid DNxHD (dans MXF)|Oui|Non|Oui
-DVCPro/DVCProHD (dans MXF)|Oui|Non|Oui
-JPEG2000|Oui|Non|Oui
-MPEG-2 (jusqu’au profil 422 et haut niveau ; y compris les variantes telles que XDCAM, XDCAM HD, XDCAM IMX, CableLabs® et D10)|Oui|Jusqu’à un profil de 422|Jusqu’à un profil de 422
-MPEG-1|Oui|Oui|Oui
-Windows Media Video/VC-1|Oui|Oui|Oui
-Canopus HQ/HQX|Non|Oui|Non
-MPEG-4 partie 2|Non|Non|Oui
-[Theora](https://en.wikipedia.org/wiki/Theora)|Non|Non|Oui
+AVC 8 bits/10 bits, jusqu'à 4:2:2, y compris AVCIntra |8 bits 4:2:0 et 4:2:2|Uniquement 8 bits 4:2:0|Oui
+Avid DNxHD (dans MXF) |Oui|Non|Oui
+DVCPro/DVCProHD (dans MXF) |Oui|Non|Oui
+JPEG2000 |Oui|Non|Oui
+MPEG-2 (jusqu’au profil 422 et haut niveau ; y compris les variantes telles que XDCAM, XDCAM HD, XDCAM IMX, CableLabs® et D10)|Jusqu’à un profil de 422|Jusqu’à un profil de 422|Oui
+MPEG-1 |Oui|Oui|Oui
+Windows Media Video/VC-1 |Oui|Oui|Oui
+Canopus HQ/HQX |Non|Oui|Non
+MPEG-4 partie 2 |Oui|Non|Non
+[Theora](https://en.wikipedia.org/wiki/Theora) |Oui|Non|Non
 
-Codecs audio d’entrée
+###Codecs audio d’entrée
 
-Codecs audio d’entrée|Media Encoder Premium Workflow|Encodeur multimédia Azure|Media Encoder Standard
+Codecs audio d’entrée|Media Encoder Standard|Encodeur multimédia Azure|Media Encoder Premium Workflow
 ---|---|---|---
-AES (SMPTE 331M et 302M, AES3-2003)|Oui|Non|Non
-Dolby® E|Oui|Non|Non
-Dolby® Digital (AC3)|Oui|Oui|Non
-Dolby® Digital Plus (E-AC3)|Oui|Non|Non
+AES (SMPTE 331M et 302M, AES3-2003) |Non|Non|Oui
+Dolby® E |Non|Non|Oui
+Dolby® Digital (AC3) |Non|Oui|Oui
+Dolby® Digital Plus (E-AC3) |Non|Non|Oui
 AAC (AAC-LC, AAC-HE et AAC-HEv2 ; jusqu’à 5.1)|Oui|Oui|Oui
 MPEG Layer 2|Oui|Oui|Oui
 MP3 (MPEG-1 Audio Layer 3)|Oui|Oui|Oui
 Windows Media Audio|Oui|Oui|Oui
 WAV/PCM|Oui|Oui|Oui
-[FLAC](https://en.wikipedia.org/wiki/FLAC)</a>|Non|Non|Oui
-[Opus](https://en.wikipedia.org/wiki/Opus_(audio_format) |Non|Non|Oui
-[Vorbis](https://en.wikipedia.org/wiki/Vorbis)</a>|Non|Non|Oui
+[FLAC](https://en.wikipedia.org/wiki/FLAC)</a>|Oui|Non|Non
+[Opus](https://en.wikipedia.org/wiki/Opus_(audio_format) |Oui|Non|Non
+[Vorbis](https://en.wikipedia.org/wiki/Vorbis)</a>|Oui|Non|Non
 
-###Formats de sortie
 
-Formats de conteneurs/fichiers de sortie
+###Formats de conteneurs/fichiers de sortie
 
-Formats de conteneurs/fichiers de sortie|Media Encoder Premium Workflow|Encodeur multimédia Azure|Media Encoder Standard
+Formats de conteneurs/fichiers de sortie|Media Encoder Standard|Encodeur multimédia Azure|Media Encoder Premium Workflow
 ---|---|---|---
-Adobe® Flash® F4V|Oui|Non|Non
-MXF (OP1a, XDCAM et AS02)|Oui|Non|Non
-DPP (y compris AS11)|Oui|Non|Non
-GXF|Oui|Non|Non
+Adobe® Flash® F4V|Non|Non|Oui
+MXF (OP1a, XDCAM et AS02)|Non|Non|Oui
+DPP (y compris AS11)|Non|Non|Oui
+GXF|Non|Non|Oui
 MPEG-4/MP4|Oui|Oui|Oui
 MPEG-TS|Oui|Non|Oui
-Windows Media/ASF|Oui|Oui|Non
-AVI (8 bits/10 bits non compressé)|Oui|Non|Non
-Format de fichier de diffusion en continu lisse (PIFF 1.3)|Oui|Oui|Non
+Windows Media/ASF|Non|Oui|Oui
+AVI (8 bits/10 bits non compressé)|Non|Non|Oui
+Format de fichier de diffusion en continu lisse (PIFF 1.3)|Non|Oui|Oui
 
-Codecs vidéo de sortie
+###Codecs vidéo de sortie
 
-Codecs vidéo de sortie|Media Encoder Premium Workflow|Encodeur multimédia Azure|Media Encoder Standard
+Codecs vidéo de sortie|Media Encoder Standard|Encodeur multimédia Azure|Media Encoder Premium Workflow
 ---|---|---|---
-AVC (H.264 ; 8 bits ; jusqu'au profil High, niveau 5.2 ; Ultra HD 4K ; AVC Intra)|Oui|Uniquement 8 bits 4:2:0 jusqu’à 1080p|Uniquement 8 bits 4:2:0
-Avid DNxHD (dans MXF)|Oui|Non|Non
-DVCPro/DVCProHD (dans MXF)|Oui|Non|Non
-MPEG-2 (jusqu’au profil 422 et haut niveau ; y compris les variantes telles que XDCAM, XDCAM HD, XDCAM IMX, CableLabs® et D10)|Oui|Non|Non
-MPEG-1|Oui|Non|Non
-Windows Media Video/VC-1|Oui|Oui|Non
-Création de miniatures JPEG|Oui|Oui|Non
+AVC (H.264 ; 8 bits ; jusqu'au profil High, niveau 5.2 ; Ultra HD 4K ; AVC Intra)|Uniquement 8 bits 4:2:0|Uniquement 8 bits 4:2:0 jusqu’à 1080p|Oui
+Avid DNxHD (dans MXF)|Non|Non|Oui
+DVCPro/DVCProHD (dans MXF)|Non|Non|Oui
+MPEG-2 (jusqu’au profil 422 et haut niveau ; y compris les variantes telles que XDCAM, XDCAM HD, XDCAM IMX, CableLabs® et D10)|Non|Non|Oui
+MPEG-1|Non|Non|Oui
+Windows Media Video/VC-1|Non|Oui|Oui
+Création de miniatures JPEG|Non|Oui|Oui
 
-Codecs audio de sortie
+###Codecs audio de sortie
 
-Codecs audio de sortie|Media Encoder Premium Workflow|Encodeur multimédia Azure|Media Encoder Standard
+Codecs audio de sortie|Media Encoder Standard|Encodeur multimédia Azure|Media Encoder Premium Workflow
 ---|---|---|---
-AES (SMPTE 331M et 302M, AES3-2003)|Oui|Non|Non
-Dolby® Digital (AC3)|Oui|Oui|Non
-Dolby® Digital Plus (E-AC3) jusqu'à 7.1|Oui|Jusqu’à 5.1|Non
+AES (SMPTE 331M et 302M, AES3-2003)|Non|Non|Oui
+Dolby® Digital (AC3)|Non|Oui|Oui
+Dolby® Digital Plus (E-AC3) jusqu'à 7.1|Non|Jusqu’à 5.1|Oui
 AAC (AAC-LC, AAC-HE et AAC-HEv2 ; jusqu’à 5.1)|Oui|Oui|Oui
-MPEG Layer 2|Oui|Non|Non
-MP3 (MPEG-1 Audio Layer 3)|Oui|Non|Non
-Windows Media Audio|Oui|Oui|Non
+MPEG Layer 2|Non|Non|Oui
+MP3 (MPEG-1 Audio Layer 3)|Non|Non|Oui
+Windows Media Audio|Non|Oui|Oui
 
 ##Articles connexes
 
-- [Présentation de l’encodage Premium dans Azure Media Services](http://azure.microsoft.com/blog/2015/03/05/introducing-premium-encoding-in-azure-media-services)
-- [Utilisation de l’encodage Premium dans Azure Media Services](http://azure.microsoft.com/blog/2015/03/06/how-to-use-premium-encoding-in-azure-media-services)
 - [Quotas et limitations](media-services-quotas-and-limitations.md)
 
  
 <!--Reference links in article-->
 [1]: http://azure.microsoft.com/pricing/details/media-services/
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

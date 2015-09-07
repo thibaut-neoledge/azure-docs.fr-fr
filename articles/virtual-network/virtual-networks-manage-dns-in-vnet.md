@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Gestion des serveurs DNS utilisés par un réseau virtuel"
-   description="En savoir plus sur l’ajout et la suppression de serveurs DNS dans un réseau virtuel"
-   services="virtual-network"
-   documentationCenter="na"
-   authors="telmosampaio"
-   manager="carolz"
-   editor="tysonn" />
+	description="En savoir plus sur l’ajout et la suppression de serveurs DNS dans un réseau virtuel"
+	services="virtual-network"
+	documentationCenter="na"
+	authors="telmosampaio"
+	manager="carolz"
+	editor="tysonn"/>
 <tags 
    ms.service="virtual-network"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="06/08/2015"
-   ms.author="telmos" />
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="infrastructure-services"
+	ms.date="06/08/2015"
+	ms.author="telmos"/>
 
 # Gestion des serveurs DNS utilisés par un réseau virtuel
 
@@ -49,11 +49,11 @@ Vous pouvez gérer la liste des serveurs DNS utilisés dans un réseau virtuel �
 
 Pour modifier une liste de serveurs DNS à l’aide d’un fichier de configuration réseau, vous devez d’abord exporter vos paramètres de configuration à partir du portail de gestion. Ensuite, vous modifiez le fichier de configuration réseau et le réimportez via le portail de gestion. Voici une liste globale des étapes de ce processus.
 
-1. Exportez vos paramètres de réseau virtuel dans un fichier de configuration réseau. Pour plus d’informations et pour connaître les étapes d’exportation de vos paramètres de configuration réseau, consultez [Exportation de paramètres du réseau virtuel dans un fichier de configuration réseau](https://msdn.microsoft.com/library/azure/dn133804.aspx).
+1. Exportez vos paramètres de réseau virtuel dans un fichier de configuration réseau. Pour plus d’informations et pour connaître les étapes d’exportation de vos paramètres de configuration réseau, consultez [Exportation de paramètres du réseau virtuel dans un fichier de configuration réseau](virtual-networks-using-network-configuration-file.md).
 
-1. Spécifiez les informations du serveur DNS pour votre réseau virtuel. Pour plus d’informations sur la spécification d’un serveur DNS, consultez [Spécification de paramètres DNS dans un fichier de configuration de réseau virtuel](https://msdn.microsoft.com/library/windowsazure/jj156098.aspx). Pour plus d’informations sur les fichiers de configuration réseau, consultez [Schéma de configuration du réseau virtuel Azure](https://msdn.microsoft.com/library/azure/jj157100.aspx) et [Configuration d’un réseau virtuel à l’aide d’un fichier de configuration réseau](https://msdn.microsoft.com/library/azure/jj156097.aspx).
+1. Spécifiez les informations du serveur DNS pour votre réseau virtuel. Pour plus d’informations sur la spécification d’un serveur DNS, consultez [Spécification de paramètres DNS dans un fichier de configuration de réseau virtuel](virtual-networks-specifying-a-dns-settings-in-a-virtual-network-configuration-file.md). Pour plus d’informations sur les fichiers de configuration réseau, consultez [Schéma de configuration du réseau virtuel Azure](https://msdn.microsoft.com/library/azure/jj157100.aspx) et [Configuration d’un réseau virtuel à l’aide d’un fichier de configuration réseau](virtual-networks-using-network-configuration-file.md).
 
-1. Importez le fichier de configuration réseau. Pour plus d’informations et pour connaître les étapes d’importation de votre fichier de configuration réseau, consultez [Importation de fichier de configuration réseau](https://msdn.microsoft.com/library/azure/jj156213.aspx).
+1. Importez le fichier de configuration réseau. Pour plus d’informations et pour connaître les étapes d’importation de votre fichier de configuration réseau, consultez [Importation de fichier de configuration réseau](virtual-networks-using-network-configuration-file.md).
 
 1. Redémarrez les machines virtuelles situées sur le réseau virtuel pour leur permettre d’acquérir les nouveaux paramètres DNS.
 
@@ -65,4 +65,4 @@ Pour modifier une liste de serveurs DNS à l’aide d’un fichier de configurat
 
 [Suppression d’un réseau virtuel](../virtual-networks-delete-vnet)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

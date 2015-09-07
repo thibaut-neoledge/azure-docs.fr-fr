@@ -5,8 +5,7 @@
 	documentationCenter="mobile"
 	authors="piyushjo"
 	manager="dwrede"
-	editor="" />
-
+	editor=""/>
 
 <tags
 	ms.service="mobile-engagement"
@@ -15,8 +14,7 @@
 	ms.devlang="objective-c"
 	ms.topic="article"
 	ms.date="08/05/2015"
-	ms.author="MehrdadMzfr" />
-
+	ms.author="MehrdadMzfr"/>
 
 #Kit de développement logiciel (SDK) iOS pour Azure Mobile Engagement
 
@@ -34,9 +32,9 @@ Cliquez pour voir le [contenu du Kit de développement logiciel (SDK)](mobile-en
 
 ##Notes de publication
 
-##3\.0.0 (05/08/2015)
+###3\.1.0 (26/08/2015)
 
--   Mobile Engagement utilise des notifications Push Silent.
+-   Résolution d’un bogue de compatibilité iOS 9 avec une bibliothèque tierce. Ce bogue provoquait des blocages pendant l’envoi des résultats des sondages, d’informations sur l’application ou de données supplémentaires.
 
 Pour les versions antérieures, consultez les [notes de publication complètes](mobile-engagement-ios-release-notes.md)
 
@@ -48,7 +46,17 @@ Si vous avez manqué plusieurs versions du Kit de développement logiciel (SDK),
 
 Pour chaque nouvelle version du Kit de développement logiciel, vous devez d'abord remplacer (supprimer et importer de nouveau dans xcode) les dossiers EngagementSDK et EngagementReach.
 
-###Migration de 2.0.0 vers 2.1.0
-Aucun.
+###Migration de 2.0.0 vers 3.0.0
+Prise en charge d’iOS 4.X abandonnée. À partir de cette version, la cible de déploiement de votre application doit être au moins iOS 6.
 
-<!---HONumber=August15_HO6-->
+Si vous utilisez Reach dans votre application, vous devez ajouter la valeur `remote-notification` au tableau `UIBackgroundModes` dans votre fichier Info.plist pour recevoir des notifications à distance.
+
+La méthode `application:didReceiveRemoteNotification:` doit être remplacée par `application:didReceiveRemoteNotification:fetchCompletionHandler:` dans votre délégué d’application.
+
+« AEPushDelegate.h » est une interface déconseillée et vous devez supprimer toutes les références. Cela inclut notamment la suppression `[[EngagementAgent shared] setPushDelegate:self]` et les méthodes de délégation depuis votre délégué d’application :
+
+	-(void)willRetrieveLaunchMessage;
+	-(void)didFailToRetrieveLaunchMessage;
+	-(void)didReceiveLaunchMessage:(AEPushMessage*)launchMessage;
+
+<!---HONumber=August15_HO9-->

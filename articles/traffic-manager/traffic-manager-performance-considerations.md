@@ -1,20 +1,20 @@
 <properties
    pageTitle="Considérations sur les performances d’Azure Traffic Manager | Microsoft Azure"
-   description="Comprendre les performances sur Traffic Manager et comment tester les performances de votre site Web lors de l’utilisation de Traffic Manager"
-   services="traffic-manager"
-   documentationCenter=""
-   authors="kwill-MSFT"
-   manager="adinah"
-   editor="joaoma" />
+	description="Comprendre les performances sur Traffic Manager et comment tester les performances de votre site Web lors de l’utilisation de Traffic Manager"
+	services="traffic-manager"
+	documentationCenter=""
+	authors="kwill-MSFT"
+	manager="adinah"
+	editor="joaoma"/>
 
 <tags 
    ms.service="traffic-manager"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="08/19/2015"
-   ms.author="joaoma" />
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="infrastructure-services"
+	ms.date="08/19/2015"
+	ms.author="joaoma"/>
 
 
 # Considérations sur les performances de Traffic Manager
@@ -28,7 +28,7 @@ Cette page évoque l’impact direct sur les performances que Traffic Manager pe
 
 ## Remarque importante sur le fonctionnement de Traffic Manager
 
-http://msdn.microsoft.com/library/windowsazure/hh744833.aspx est une excellente ressource pour apprendre comment Traffic Manager fonctionne, mais il y a beaucoup d’informations sur cette page et il peut être difficile de repérer les informations clés relatives aux performances. Les points importants à examiner dans la documentation MSDN sont l’étape 5 et 6 d’Image 3, que j’aborderai plus en détail ici :
+[Traffic Manager Overview](traffic-manager-overview.md) est une excellente ressource pour apprendre comment Traffic Manager fonctionne, mais il y a beaucoup d’informations sur cette page et il peut être difficile de repérer les informations clés relatives aux performances. Les points importants à examiner dans la documentation MSDN sont l’étape 5 et 6 d’Image 3, que j’aborderai plus en détail ici :
 
 - Traffic Manager ne fait pour l’essentiel qu’une seule chose : la résolution DNS. Cela signifie que le seul impact sur les performances que Traffic Manager peut avoir sur votre site Web est la recherche DNS initiale.
 - Point de clarification sur la recherche DNS de Traffic Manager. Traffic Manager renseigne et met régulièrement à jour les serveurs racine Microsoft DNS normaux en fonction de votre stratégie et des résultats de la sonde. Donc, même pendant la recherche DNS initiale, il n’y a aucune implication de Traffic Manager, dans la mesure où la requête DNS est gérée par les serveurs racine Microsoft DNS normaux. Si Traffic Manager s’arrête (autrement dit, si une défaillance survient dans les machines virtuelles exécutant la détection de la stratégie et la mise à jour DNS), il y n’a aucun impact sur votre nom DNS Traffic Manager dans la mesure où les entrées des serveurs DNS Microsoft seront toujours conservées. La seule conséquence sera que la détection et la mise à jour basées sur la stratégie ne se produiront pas (si votre site principal tombe en panne, Traffic Manager ne sera pas en mesure de mettre à jour DNS pour pointer vers votre site de basculement).
@@ -98,4 +98,4 @@ Au vu des informations ci-dessus, nous savons que le seul impact sur les perform
 [Applets de commande Azure Traffic Manager](http://go.microsoft.com/fwlink/p/?LinkId=400769)
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

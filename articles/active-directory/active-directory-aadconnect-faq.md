@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="FAQ Azure AD Connect" 
-	description="Cette page comporte le Forum Aux Questions relatif à Azure AD Connect." 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="swadhwa" 
+	pageTitle="FAQ Azure AD Connect"
+	description="Cette page comporte le Forum Aux Questions relatif à Azure AD Connect."
+	services="active-directory"
+	documentationCenter=""
+	authors="billmath"
+	manager="stevenpo"
 	editor="curtand"/>
 
 <tags 
-	ms.service="active-directory" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/02/2015" 
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/24/2015"
 	ms.author="billmath"/>
 
 # FAQ Azure Active Directory Connect
@@ -40,4 +40,4 @@
 
 Utilisez les instructions décrites [ici](active-directory-aadconnect-o365-certs.md) pour renouveler le certificat.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

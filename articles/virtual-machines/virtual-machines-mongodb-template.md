@@ -1,20 +1,20 @@
 <properties
   pageTitle="Création d'un cluster MongoDB sous Ubuntu à l'aide d'un modèle Azure Resource Manager"
-  description="Création d'un cluster MongoDB sous Ubuntu à l'aide d'un modèle Azure Resource Manager à l’aide de PowerShell ou de l'interface de ligne de commande Azure"
-  services="virtual-machines"
-  documentationCenter=""
-  authors="karthmut"
-  manager="timlt"
-  editor="tysonn"/>
+	description="Création d'un cluster MongoDB sous Ubuntu à l'aide d'un modèle Azure Resource Manager à l’aide de PowerShell ou de l'interface de ligne de commande Azure"
+	services="virtual-machines"
+	documentationCenter=""
+	authors="karthmut"
+	manager="timlt"
+	editor="tysonn"/>
 
 <tags
   ms.service="virtual-machines"
-  ms.workload="multiple"
-  ms.tgt_pltfrm="vm-windows"
-  ms.devlang="na"
-  ms.topic="article"
-  ms.date="04/29/2015"
-  ms.author="karthmut"/>
+	ms.workload="multiple"
+	ms.tgt_pltfrm="vm-windows"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="04/29/2015"
+	ms.author="karthmut"/>
 
 # Création d'un cluster MongoDB sous Ubuntu à l'aide d'un modèle Azure Resource Manager
 
@@ -688,6 +688,6 @@ En résumé, cette approche suggère de :
 -	créer des modèles spécifiques pour les mêmes membres d’un groupe de ressources (nœuds dans un cluster, etc.) afin d’exploiter l’itération de ressources pour déployer plusieurs instances ayant des propriétés uniques ;
 -	exploiter les extensions de déploiement de script et créer des scripts propres à chaque technologie pour toutes les tâches de post-déploiement (par exemple, l'installation du produit, les configurations, etc.).
 
-Pour plus d’informations, consultez [Langage du modèle Azure Resource Manager](https://msdn.microsoft.com/library/azure/dn835138.aspx).
+Pour plus d’informations, consultez [Langage du modèle Azure Resource Manager](../resource-group-authoring-templates.md).
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Charge de travail des applications métier, phase 2 : configurer des contrôleurs de domaine" 
-	description="Dans cette deuxième phase, vous créez et configurez les deux contrôleurs de domaine Active Directory." 
+	pageTitle="Application métier - Phase 2 | Microsoft Azure"
+	description="Créez et configurez les deux contrôleurs de domaine de réplica Active Directory dans la phase 2 de l'application métier dans Azure."
 	documentationCenter=""
-	services="virtual-machines" 
-	authors="JoeDavies-MSFT" 
-	manager="timlt" 
+	services="virtual-machines"
+	authors="JoeDavies-MSFT"
+	manager="timlt"
 	editor=""
 	tags="azure-resource-manager"/>
 
 <tags 
-	ms.service="virtual-machines" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/11/2015" 
+	ms.service="virtual-machines"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/11/2015"
 	ms.author="josephd"/>
 
 # Charge de travail des applications métier, phase 2 : configurer des contrôleurs de domaine
@@ -206,4 +206,4 @@ Pour poursuivre la configuration de cette charge de travail, passez à la [Phase
 
 [Charge de travail des services d’infrastructure Azure : batterie de serveurs SharePoint Server 2013](virtual-machines-workload-intranet-sharepoint-farm.md)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

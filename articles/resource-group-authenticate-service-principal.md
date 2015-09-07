@@ -1,20 +1,20 @@
 <properties
    pageTitle="Authentification d’un principal du service à l’aide d’Azure Resource Manager"
-   description="Explique comment authentifier un principal du service et lui accorder l’accès via le contrôle d’accès en fonction du rôle. Explique comment effectuer ces tâches avec PowerShell et Azure CLI."
-   services="azure-resource-manager"
-   documentationCenter="na"
-   authors="tfitzmac"
-   manager="wpickett"
-   editor=""/>
+	description="Explique comment authentifier un principal du service et lui accorder l’accès via le contrôle d’accès en fonction du rôle. Explique comment effectuer ces tâches avec PowerShell et Azure CLI."
+	services="azure-resource-manager"
+	documentationCenter="na"
+	authors="tfitzmac"
+	manager="wpickett"
+	editor=""/>
 
 <tags
    ms.service="azure-resource-manager"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="multiple"
-   ms.workload="na"
-   ms.date="08/14/2015"
-   ms.author="tomfitz"/>
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="multiple"
+	ms.workload="na"
+	ms.date="08/25/2015"
+	ms.author="tomfitz"/>
 
 # Authentification d'un principal du service à l'aide d'Azure Resource Manager
 
@@ -32,6 +32,11 @@ Vous pouvez utiliser Azure PowerShell ou Azure CLI pour Mac, Linux et Windows. S
 ## Authentifier le principal du service avec mot de passe - PowerShell
 
 Dans cette section, vous allez effectuer les étapes pour créer un principal du service pour une application Azure Active Directory, attribuer un rôle au principal du service et vous authentifier en tant que principal du service en fournissant l’identificateur d’application et un mot de passe.
+
+1. Basculez en mode Azure Resource Manager et connectez-vous à votre compte.
+
+        PS C:\> Switch-AzureMode AzureResourceManager
+        PS C:\> Add-AzureAccount
 
 1. Créez une application AAD à l’aide de la commande **New-AzureADApplication**. Indiquez le nom d’affichage de votre application, l’URI vers une page décrivant votre application (le lien n’est pas vérifié), les URI identifiant votre application et le mot de passe correspondant à l’identité de votre application.
 
@@ -98,6 +103,24 @@ Dans cette section, vous allez effectuer les étapes pour créer un principal du
 
      Vous devriez maintenant être authentifié en tant que principal du service pour l’application AAD que vous avez créée.
 
+7. Pour l’authentification à partir d’une application, incluez le code .NET suivant. Après avoir récupéré le jeton, vous pouvez accéder aux ressources dans l’abonnement.
+
+        public static string GetAToken()
+        {
+          var authenticationContext = new AuthenticationContext("https://login.windows.net/{tenantId or tenant name}");  
+          var credential = new ClientCredential(clientId: "{application id}", clientSecret: {application password}");
+          var result = authenticationContext.AcquireToken(resource: "https://management.core.windows.net/", clientCredential:credential);
+
+          if (result == null) {
+            throw new InvalidOperationException("Failed to obtain the JWT token");
+          }
+
+          string token = result.AccessToken;
+
+          return token;
+        }
+
+
 
 ## Authentifier le principal du service avec certificat - PowerShell
 
@@ -106,6 +129,11 @@ Dans cette section, vous allez effectuer les étapes pour créer un principal du
 Elle montre deux façons d’utiliser des certificats : informations d’identification de clé et valeurs de clés. Vous pouvez utiliser les deux approches.
 
 Tout d’abord, vous devez configurer certaines valeurs dans PowerShell que vous allez utiliser ultérieurement lors de la création de l’application.
+
+1. Basculez en mode Azure Resource Manager et connectez-vous à votre compte.
+
+        PS C:\> Switch-AzureMode AzureResourceManager
+        PS C:\> Add-AzureAccount
 
 1. Pour les deux approches, créez un objet X509Certificate à partir de votre certificat et récupérez la valeur de clé. Utilisez le chemin d’accès à votre certificat et le mot de passe pour ce certificat.
 
@@ -172,11 +200,11 @@ Tout d’abord, vous devez configurer certaines valeurs dans PowerShell que vous
 
         PS C:\> New-AzureRoleAssignment -RoleDefinitionName Reader -ServicePrincipalName $azureAdApplication.ApplicationId
 
-6. Pour l’authentification à partir d’une application, incluez le code suivant. Après avoir récupéré le client, vous pouvez accéder aux ressources dans l’abonnement.
+6. Pour l’authentification à partir d’une application, incluez le code .NET suivant. Après avoir récupéré le client, vous pouvez accéder aux ressources dans l’abonnement.
 
-        string clientId = "<Client ID for your AAD app>"; 
+        string clientId = "<Application ID for your AAD app>"; 
         var subscriptionId = "<Your Azure SubscriptionId>"; 
-        string tenant = "<AAD tenant name>.onmicrosoft.com"; 
+        string tenant = "<Tenant id or tenant name>"; 
 
         var authContext = new AuthenticationContext(string.Format("https://login.windows.net/{0}", tenant)); 
 
@@ -205,7 +233,12 @@ Tout d’abord, vous devez configurer certaines valeurs dans PowerShell que vous
 
 Commencez par créer un principal du service. Pour ce faire, nous allons utiliser la fonction Créer une application dans le répertoire. Cette section vous guidera à travers les étapes de création d’une application dans le répertoire.
 
-1. Créez une application AAD en exécutant la commande **azure ad app create**. Indiquez le nom d’affichage de votre application, l’URI vers une page décrivant votre application (le lien n’est pas vérifié), les URI identifiant votre application et le mot de passe correspondant à l’identité de votre application.
+1. Basculez en mode Azure Resource Manager et connectez-vous à votre compte.
+
+        azure config mode arm
+        azure login
+
+2. Créez une application AAD en exécutant la commande **azure ad app create**. Indiquez le nom d’affichage de votre application, l’URI vers une page décrivant votre application (le lien n’est pas vérifié), les URI identifiant votre application et le mot de passe correspondant à l’identité de votre application.
 
         azure ad app create --name "<Your Application Display Name>" --home-page "<https://YourApplicationHomePage>" --identifier-uris "<https://YouApplicationUri>" --password <Your_Password>
         
@@ -221,7 +254,7 @@ Commencez par créer un principal du service. Pour ce faire, nous allons utilise
         ...
         info:    ad app create command OK
 
-2. Créez un principal du service pour votre application. Indiquez l’ID d’application renvoyé à l’étape précédente.
+3. Créez un principal du service pour votre application. Indiquez l’ID d’application renvoyé à l’étape précédente.
 
         azure ad sp create b57dd71d-036c-4840-865e-23b71d8098ec
         
@@ -236,15 +269,15 @@ Commencez par créer un principal du service. Pour ce faire, nous allons utilise
 
     Vous avez désormais créé un principal du service dans le répertoire, mais aucune autorisation ni étendue n’a encore été attribuée au service. Vous devez autoriser explicitement le principal du service à effectuer des opérations dans une étendue donnée.
 
-3. Accordez des autorisations au principal du service sur votre abonnement. Dans cet exemple, vous allez permettre au principal du service de lire toutes les ressources de l’abonnement. Pour le paramètre **ServicePrincipalName**, indiquez la propriété **ApplicationId** ou **IdentifierUris** que vous avez utilisée lors de la création de l’application. Pour plus d’informations sur le contrôle d’accès en fonction du rôle, consultez la page [Gestion et audit d’accès aux ressources](azure-portal/resource-group-rbac.md)
+4. Accordez des autorisations au principal du service sur votre abonnement. Dans cet exemple, vous allez permettre au principal du service de lire toutes les ressources de l’abonnement. Pour le paramètre **ServicePrincipalName**, indiquez la propriété **ApplicationId** ou **IdentifierUris** que vous avez utilisée lors de la création de l’application. Pour plus d’informations sur le contrôle d’accès en fonction du rôle, consultez la page [Gestion et audit d’accès aux ressources](azure-portal/resource-group-rbac.md)
 
         azure role assignment create --objectId 47193a0a-63e4-46bd-9bee-6a9f6f9c03cb -o Reader -c /subscriptions/{subscriptionId}/
 
-4. Déterminez le paramètre **TenantId** du client correspondant à l’attribution de rôle du principal du service en affichant les comptes sous forme de liste et en recherchant la propriété **TenantId** dans la sortie.
+5. Déterminez le paramètre **TenantId** du client correspondant à l’attribution de rôle du principal du service en affichant les comptes sous forme de liste et en recherchant la propriété **TenantId** dans la sortie.
 
         azure account list
 
-5. Connectez-vous en vous identifiant en tant que principal du service. Pour le nom d’utilisateur, utilisez le paramètre **ApplicationId** que vous avez utilisé lors de la création de l’application. Utilisez le mot de passe que vous avez indiqué lors de la création du compte.
+6. Connectez-vous en vous identifiant en tant que principal du service. Pour le nom d’utilisateur, utilisez le paramètre **ApplicationId** que vous avez utilisé lors de la création de l’application. Utilisez le mot de passe que vous avez indiqué lors de la création du compte.
 
         azure login -u "<ApplicationId>" -p "<password>" --service-principal --tenant "<TenantId>"
 
@@ -254,10 +287,10 @@ Commencez par créer un principal du service. Pour ce faire, nous allons utilise
   
 - Pour obtenir une vue d’ensemble du contrôle d’accès en fonction du rôle, consultez [Gestion et audit d’accès aux ressources](azure-portal/resource-group-rbac.md)  
 - Pour en savoir plus sur l’utilisation du portail avec les principaux du service, consultez [Création d’un principal du service Azure à l’aide du portail Azure](./resource-group-create-service-principal-portal.md)  
-- Pour obtenir des instructions sur l’implémentation de la sécurité avec Azure Resource Manager, consultez [Questions de sécurité relatives à Azure Resource Manager](best-practices-resource-manager-security.md).
+- Pour obtenir des instructions sur l’implémentation de la sécurité avec Azure Resource Manager, consultez [Questions de sécurité relatives à Azure Resource Manager](best-practices-resource-manager-security.md)
 
 
 <!-- Images. -->
 [1]: ./media/resource-group-authenticate-service-principal/arm-get-credential.png
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

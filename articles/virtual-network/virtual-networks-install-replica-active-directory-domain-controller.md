@@ -51,12 +51,12 @@ Il est judicieux de créer un site dans Active Directory qui représente la rég
     Sur cette page de l'Assistant... | Spécifiez les valeurs suivantes
 	------------- | -------------
 	**Détails du réseau virtuel** | <p>Nom : attribuez un nom au réseau virtuel, comme WestUSVNet.</p><p>Région : sélectionnez la région la plus proche.</p>
-	**Connectivité DNS et VPN** | <p>Serveurs DNS : spécifiez le nom et l’adresse IP d’un ou de plusieurs serveurs DNS locaux.</p><p>Connectivité : sélectionnez **Configurer un réseau VPN de site à site**.</p><p>Réseau local : définissez un nouveau réseau local.</p><p>Si vous utilisez ExpressRoute en lieu et place d’un réseau VPN, consultez la section [Configurer une connexion ExpressRoute via un fournisseur Exchange](https://msdn.microsoft.com/library/azure/dn606306.aspx).</p>
+	**Connectivité DNS et VPN** | <p>Serveurs DNS : spécifiez le nom et l'adresse IP d'un ou de plusieurs serveurs DNS locaux.</p><p>Connectivité : sélectionnez **Configurer un réseau VPN de site à site**.</p><p>Réseau local : définissez un nouveau réseau local.</p><p>Si vous utilisez ExpressRoute en lieu et place d'un réseau VPN, consultez la section [Configurer une connexion ExpressRoute via un fournisseur Exchange](../expressroute/expressroute-configuring-exps.md).</p>
 	**Connectivité de site à site** | <p>Nom : attribuez un nom au réseau local.</p><p>Adresse IP de l’appareil VPN : définissez l’adresse IP publique de l’appareil à connecter au réseau virtuel. L’appareil VPN ne peut pas être placé derrière un processus NAT.</p><p>Adresse : définissez les plages d’adresses associées à votre réseau local (comme 192.168.0.0/16 dans le schéma de scénario).</p>
 	**Espaces d’adressage du réseau virtuel** | <p>Espace d’adressage : spécifiez la plage d’adresses IP pour les machines virtuelles que vous souhaitez exécuter sur le réseau virtuel Azure (par exemple, 10.1.0.0/16 dans le schéma du scénario). Cette plage d’adresses et les plages d’adresses du réseau local ne peuvent pas se chevaucher.</p><p>Sous-réseau : définissez un nom et une adresse pour un sous-réseau associé aux serveurs d’application (par exemple, sous réseau frontal 10.1.1.0/24) et pour les contrôleurs de domaine (par exemple, sous-réseau principal 10.1.2.0/24).</p><p>Cliquez sur **Ajoutez un sous-réseau de passerelle**.</p>
 
-2. Ensuite, vous devez configurer la passerelle du réseau virtuel pour créer une connexion VPN de site à site sécurisée. Suivez les instructions de la rubrique [Configurer une passerelle de réseau virtuel dans le Portail de gestion](https://msdn.microsoft.com/library/azure/jj156210.aspx).
-3. Créez la connexion VPN de site à site entre le nouveau réseau virtuel et un périphérique VPN local. Suivez les instructions de la rubrique [Configurer une passerelle de réseau virtuel dans le Portail de gestion](https://msdn.microsoft.com/library/azure/jj156210.aspx).
+2. Ensuite, vous devez configurer la passerelle du réseau virtuel pour créer une connexion VPN de site à site sécurisée. Consultez les instructions décrites dans la rubrique [Configurer une passerelle de réseau virtuel](../vpn-gateway/vpn-gateway-configure-vpn-gateway-mp.md).
+3. Créez la connexion VPN de site à site entre le nouveau réseau virtuel et un périphérique VPN local. Consultez les instructions décrites dans la rubrique [Configurer une passerelle de réseau virtuel](../vpn-gateway/vpn-gateway-configure-vpn-gateway-mp.md).
 
 
 
@@ -86,7 +86,7 @@ Connectez-vous à une machine virtuelle et vérifiez que vous disposez d'une con
 
 ## reconfiguration du serveur DNS pour le réseau virtuel
 
-1. Dans le portail Azure classique, cliquez sur le nom du réseau virtuel, puis cliquez sur l’onglet **Configurer** pour [reconfigurer les adresses IP du serveur DNS pour votre réseau virtuel](https://msdn.microsoft.com/library/azure/dn275925.aspx) afin d’utiliser les adresses IP statiques attribuées aux réplicas de contrôleurs de domaines au lieu des adresses IP de serveurs DNS local.
+1. Dans le portail Azure classique, cliquez sur le nom du réseau virtuel, puis cliquez sur l'onglet **Configurer** pour [reconfigurer les adresses IP du serveur DNS pour votre réseau virtuel](virtual-networks-manage-dns-in-vnet.md) afin d'utiliser les adresses IP statiques attribuées aux contrôleurs de domaines de réplica au lieu des adresses IP des serveurs DNS locaux.
 
 2. Pour vous assurer que toutes les réplicas de machines virtuelles de contrôleur de domaine sur le réseau virtuel sont configurées pour utiliser des serveurs DNS sur le réseau virtuel, cliquez sur **Machines virtuelles** et cliquez sur la colonne d’état pour chaque machine virtuelle, puis cliquez sur **Redémarrer**. Attendez que la machine virtuelle affiche l’état **En cours d’exécution** avant d’essayer de vous y connecter.
 
@@ -113,7 +113,7 @@ Pour plus d'informations sur l'utilisation de Windows PowerShell, consultez [Pr
 -  [Instructions pour le déploiement de Windows Server Active Directory sur Azure Virtual Machines](https://msdn.microsoft.com/library/azure/jj156090.aspx)
 -  [Comment télécharger des contrôleurs de domaine Hyper-V locaux existants vers Azure à l’aide de PowerShell Azure](http://support.microsoft.com/kb/2904015)
 -  [Installer une nouvelle forêt Active Directory sur un réseau virtuel Azure](../active-directory-new-forest-virtual-machine.md)
--  [Azure Virtual Network](https://msdn.microsoft.com/library/azure/jj156007.aspx)
+-  [Azure Virtual Network](../virtual-network/virtual-networks-overview.md)
 -  [Iaas des professionnels de l’informatique Microsoft Azure : principes de base des machines virtuelles (01)](http://channel9.msdn.com/Series/Windows-Azure-IT-Pro-IaaS/01)
 -  [Iaas des professionnels de l’informatique Microsoft Azure :(05) Création de réseaux virtuels pour la connectivité entre différents locaux](http://channel9.msdn.com/Series/Windows-Azure-IT-Pro-IaaS/05)
 -  [Azure PowerShell](https://msdn.microsoft.com/library/azure/jj156055.aspx)
@@ -122,4 +122,4 @@ Pour plus d'informations sur l'utilisation de Windows PowerShell, consultez [Pr
 <!--Image references-->
 [1]: ./media/virtual-networks-install-replica-active-directory-domain-controller/ReplicaDCsOnAzureVNet.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

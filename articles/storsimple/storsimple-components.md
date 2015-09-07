@@ -1,23 +1,25 @@
 <properties 
-   pageTitle="Présentation des composants StorSimple | Microsoft Azure" 
-   description="Décrit l’appareil, les services et les technologies de gestion StorSimple." 
-   services="storsimple" 
-   documentationCenter="NA" 
-   authors="SharS" 
-   manager="AdinaH" 
-   editor=""/>
+   pageTitle="Présentation des composants StorSimple | Microsoft Azure"
+	description="Décrit l’appareil StorSimple, l’appareil virtuel, les services ainsi que les technologies de gestion, et définit les termes clés utilisés dans la solution."
+	services="storsimple"
+	documentationCenter="NA"
+	authors="SharS"
+	manager="AdinaH"
+	editor=""/>
 
 <tags
    ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD" 
-   ms.date="08/13/2015"
-   ms.author="v-sharos"/>
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="TBD"
+	ms.date="08/26/2015"
+	ms.author="v-sharos"/>
 
 
-# Présentation des composants StorSimple 
+# Quels sont les composants StorSimple et comment fonctionnent-ils ? 
+
+## Vue d’ensemble
 
 Bienvenue dans Microsoft Azure StorSimple, solution de stockage intégrée qui gère les tâches de stockage entre les appareils locaux et le stockage cloud Microsoft Azure. StorSimple est conçu pour réduire les coûts de stockage, simplifier la gestion du stockage, améliorer l’efficacité et les capacités de reprise après sinistre et fournir une mobilité des données.
 
@@ -110,7 +112,7 @@ Windows PowerShell pour StorSimple fournit une interface de ligne de commande q
 
 Vous pouvez accéder à Windows PowerShell pour StorSimple à partir d’une console série (sur un ordinateur hôte connecté directement à l’appareil) ou à distance, à l’aide de l’accès distant Windows PowerShell. Notez que certains travaux Windows PowerShell pour StorSimple, comme l’inscription initiale de l’appareil, peuvent uniquement être effectués sur la console série.
 
-Pour plus d'informations, consultez [Utiliser Windows PowerShell pour StorSimple pour gérer votre appareil](storsimple-windows-powershell-administration.md).
+Pour plus d’informations, consultez [Utiliser Windows PowerShell pour StorSimple pour gérer votre appareil](storsimple-windows-powershell-administration.md).
 
 ## Applets de commande Azure PowerShell StorSimple
 
@@ -131,7 +133,7 @@ Microsoft Azure StorSimple fournit une interface utilisateur web (le service Sto
 
 Vous pouvez utiliser le service StorSimple Manager pour effectuer toutes les tâches d’administration, à l’exception de celles nécessitant un temps d’arrêt du système, comme la configuration initiale et l’installation de mises à jour.
 
-Pour plus d'informations, consultez [Utilisation du service StorSimple Manager pour gérer votre appareil StorSimple](storsimple-manager-service-administration.md).
+Pour plus d’informations, consultez [Utilisation du service StorSimple Manager pour gérer votre appareil StorSimple](storsimple-manager-service-administration.md).
 
 ## StorSimple Snapshot Manager
 
@@ -146,7 +148,7 @@ Les sauvegardes sont capturées sous forme d’instantanés, qui enregistrent un
 
 Si un incident se produit ou si vous devez restaurer des données pour une autre raison, StorSimple Snapshot Manager les restaure de façon incrémentielle, selon les besoins. La restauration des données ne nécessite pas d’arrêter l’ensemble du système lorsque vous restaurez un fichier, remplacez un équipement ou déplacez des opérations vers un autre site.
 
-Pour plus d'informations, consultez [Qu'est-ce que StorSimple Snapshot Manager ?](storsimple-what-is-snapshot-manager.md).
+Pour plus d’informations, consultez [Qu’est-ce que StorSimple Snapshot Manager ?](storsimple-what-is-snapshot-manager.md).
 
 ## StorSimple Adapter for SharePoint
 
@@ -167,7 +169,7 @@ Avant de déployer votre solution Microsoft Azure StorSimple, nous vous recomman
 | ------------------------------ | ---------------- |
 | enregistrement de contrôle d’accès (ACR) | Enregistrement associé à un volume sur votre appareil Microsoft Azure StorSimple et qui détermine quels sont les hôtes qui peuvent s’y connecter. Ce choix est basé sur le nom complet iSCSI (IQN) des hôtes (dans l’enregistrement de contrôle d’accès) qui se connectent à votre appareil StorSimple.|
 | AES-256 | Algorithme AES (Advanced Encryption Standard) 256 bits de chiffrement des données en provenance et à destination du cloud. |
-| taille d’unité d’allocation | Plus petite quantité d’espace disque pouvant être allouée pour la conservation d’un fichier sur les systèmes de fichiers Windows. Si la taille d’un fichier n’est pas un multiple pair de la taille du cluster, l’espace supplémentaire doit être utilisé pour la conservation du fichier (jusqu’au prochain multiple de la taille du cluster), ce qui entraîne une perte d’espace et la fragmentation du disque dur. <br>La taille d'unité d'allocation recommandée pour les volumes Azure StorSimple est de 64 Ko, car elle convient aux algorithmes de déduplication.|
+| taille d’unité d’allocation | Plus petite quantité d’espace disque pouvant être allouée pour la conservation d’un fichier sur les systèmes de fichiers Windows. Si la taille d’un fichier n’est pas un multiple pair de la taille du cluster, l’espace supplémentaire doit être utilisé pour la conservation du fichier (jusqu’au prochain multiple de la taille du cluster), ce qui entraîne une perte d’espace et la fragmentation du disque dur. <br>La taille d’unité d’allocation recommandée pour les volumes Azure StorSimple est de 64 Ko, car cela convient aux algorithmes de déduplication.|
 | hiérarchisation du stockage automatisé | Déplacement automatique des données moins actives vers un certain niveau du cloud, puis activation de la gestion de l’ensemble du stockage à partir d’une interface utilisateur centrale.|
 | catalogue de sauvegarde | Ensemble de sauvegardes habituellement liées par le type d’application utilisé. Cet ensemble est affiché dans la page Catalogue de sauvegarde de l’interface utilisateur du service StorSimple Manager.|
 | fichier de catalogue de sauvegarde | Fichier contenant une liste des instantanés disponibles actuellement stockés dans la base de données de sauvegarde de StorSimple Snapshot Manager. |
@@ -226,4 +228,4 @@ En savoir plus sur la [sécurité StorSimple](storsimple-security.md).
 
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

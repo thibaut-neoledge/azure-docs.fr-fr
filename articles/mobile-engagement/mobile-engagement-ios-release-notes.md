@@ -5,8 +5,7 @@
 	documentationCenter="mobile"
 	authors="MehrdadMzfr"
 	manager="dwrede"
-	editor="" />
-
+	editor=""/>
 
 <tags
 	ms.service="mobile-engagement"
@@ -15,14 +14,18 @@
 	ms.devlang="objective-c"
 	ms.topic="article"
 	ms.date="08/05/2015"
-	ms.author="MehrdadMzfr" />
-
+	ms.author="MehrdadMzfr"/>
 
 #Notes de publication
+
+##3\.1.0 (26/08/2015)
+
+-   Résolution d’un bogue de compatibilité iOS 9 avec une bibliothèque tierce. Ce bogue provoquait des blocages pendant l’envoi des résultats des sondages, d’informations sur l’application ou de données supplémentaires.
 
 ##3\.0.0 (19/06/2015)
 
 -   Mobile Engagement utilise des notifications Push Silent.
+-   Prise en charge d’iOS 4.X abandonnée. À partir de cette version, la cible de déploiement de votre application doit être au moins iOS 6.
 
 ##2\.2.0 (21/05/2015)
 
@@ -44,4 +47,4 @@
 -   Améliorations de sécurité.
 -   Suppression du suivi SmartAd.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

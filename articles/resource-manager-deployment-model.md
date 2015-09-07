@@ -1,20 +1,20 @@
 <properties
    pageTitle="Comprendre les différences entre les modèles de déploiement classique et de Resource Manager"
-   description="Décrit les différences entre le modèle de déploiement de Resource Manager et le modèle de déploiement classique (ou de gestion des services)."
-   services="azure-resource-manager"
-   documentationCenter="na"
-   authors="tfitzmac"
-   manager="wpickett"
-   editor=""/>
+	description="Décrit les différences entre le modèle de déploiement de Resource Manager et le modèle de déploiement classique (ou de gestion des services)."
+	services="azure-resource-manager"
+	documentationCenter="na"
+	authors="tfitzmac"
+	manager="wpickett"
+	editor=""/>
 
 <tags
    ms.service="azure-resource-manager"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="08/13/2015"
-   ms.author="tomfitz"/>
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="na"
+	ms.date="08/20/2015"
+	ms.author="tomfitz"/>
 
 # Présentation du déploiement de Resource Manager et du déploiement classique
 
@@ -151,9 +151,11 @@ Pour obtenir une liste des commandes Azure CLI équivalentes lors de la transiti
 
 Pour plus d’informations sur la transition des ressources de calcul, de réseau et de stockage, consultez [Fournisseurs de calcul, de réseau et de stockage Azure dans Azure Resource Manager](./virtual-machines/virtual-machines-azurerm-versus-azuresm.md).
 
+Pour en savoir plus sur la connexion de réseaux virtuels à partir de modèles de déploiement différents, consultez [Connexion de réseaux virtuels classiques aux nouveaux réseaux virtuels](./virtual-network/virtual-networks-arm-asm-s2s.md).
+
 ## Étapes suivantes
 
 - Pour en savoir plus sur la création de modèles de déploiement déclaratifs, consultez [Création de modèles Azure Resource Manager](resource-group-authoring-templates.md).
 - Pour connaître les commandes permettant de déployer un modèle, consultez [Déploiement d’une application avec un modèle Azure Resource Manager](resource-group-template-deploy.md).
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

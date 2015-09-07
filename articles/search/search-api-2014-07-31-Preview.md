@@ -1,6 +1,6 @@
 <properties pageTitle="API REST du service Azure Search, version 2014-07-31-Preview" description="API REST du service Azure Search : version 2014-07-31-Preview" services="search" documentationCenter="" authors="HeidiSteen" manager="mblythe" editor=""/>
 
-<tags ms.service="search" ms.devlang="rest-api" ms.workload="search" ms.topic="article"  ms.tgt_pltfrm="na" ms.date="07/22/2015" ms.author="heidist" />
+<tags ms.service="search" ms.devlang="rest-api" ms.workload="search" ms.topic="article"  ms.tgt_pltfrm="na" ms.date="08/26/2015" ms.author="heidist"/>
 
 # API REST du service Azure Search : version 2014-07-31-Preview
 
@@ -125,8 +125,7 @@ L'exemple suivant illustre un schéma utilisé pour rechercher des informations 
     "fields": [
       {"name": "hotelId", "type": "Edm.String", "key": true, "searchable": false},
       {"name": "baseRate", "type": "Edm.Double"},
-      {"name": "description", "type": "Edm.String", "filterable": false, "sortable": false, "facetable": false, "suggestions": true},
-	  {"name": "description_fr", "type": "Edm.String", "filterable": false, "sortable": false, "facetable": false, "suggestions": true, analyzer="fr.lucene"},
+      {"name": "description", "type": "Edm.String", "filterable": false, "sortable": false, "facetable": false, "suggestions": true}
       {"name": "hotelName", "type": "Edm.String", "suggestions": true},
       {"name": "category", "type": "Edm.String"},
       {"name": "tags", "type": "Collection(Edm.String)"},
@@ -164,7 +163,7 @@ Le protocole HTTPS est requis pour toutes les requêtes de service. La requête 
 
 Le nom d'index doit être en minuscules, commencer par une lettre ou un chiffre, ne contenir ni barres obliques ni points, et comprendre moins de 128 caractères. Après la lettre ou le chiffre du début, le nom d'index peut comprendre des lettres, des chiffres et des tirets (non consécutifs).
 
-`api-version` est obligatoire. Les valeurs valides sont `2014-07-31-Preview` ou `2014-10-20-Preview`. Vous pouvez spécifier la valeur à utiliser sur chaque requête pour obtenir des comportements propres à la version, mais la meilleure pratique consiste à utiliser la même version dans tout le code. La version recommandée est `2014-07-31-Preview` pour une utilisation générale. Vous pouvez également utiliser `2014-10-20-Preview` pour tester les fonctionnalités expérimentales, comme la prise en charge des analyseurs de langue exprimée via l'attribut d'index de l'analyseur. Pour plus d'informations sur les versions d'API, consultez [Contrôle de version du service Azure Search](http://msdn.microsoft.com/library/azure/dn864560.aspx). Consultez la section [Support multilingue](#LanguageSupport) pour plus d'informations sur les analyseurs de langue.
+`api-version` est obligatoire. Les valeurs valides sont `2014-07-31-Preview` ou `2014-10-20-Preview`. Vous pouvez spécifier la valeur à utiliser sur chaque requête pour obtenir des comportements propres à la version, mais la meilleure pratique consiste à utiliser la même version dans tout le code. La version recommandée est `2014-07-31-Preview` pour une utilisation générale. Vous pouvez également utiliser `2014-10-20-Preview` pour tester les fonctionnalités expérimentales, comme la prise en charge des analyseurs de langue exprimée via l'attribut d'index de l'analyseur.
 
 **En-têtes de requête**
 
@@ -274,321 +273,6 @@ Lors de la création d'un index, les attributs suivants peuvent être définis. 
 
 `scoringProfiles` : définit les comportements de score personnalisés qui vous permettent de faire monter certains éléments en haut des résultats de recherche. Les profils de score sont constitués de fonctions et de champs pondérés. Consultez la page [Ajout de profils de calcul de score à un index de recherche](http://msdn.microsoft.com/library/azure/dn798928.aspx) pour plus d'informations sur les attributs utilisés dans un profil de score.
 
-`analyzer` : définit le nom de l'analyseur de texte à utiliser pour le champ. Pour connaître l'ensemble des valeurs autorisées, consultez la rubrique [Support multilingue](#LanguageSupport). Cette option peut être utilisée uniquement avec les champs `searchable`. Une fois l'analyseur choisi, il ne peut pas être modifié pour le champ.
-
-
-<a name="LanguageSupport"></a> **Support multilingue**
-
-Les champs pouvant faire l'objet d'une recherche subissent une analyse qui implique la plupart du temps une analyse lexicale, la normalisation du texte et le filtrage des termes. Par défaut, les champs pouvant faire l'objet d'une recherche dans Azure Search sont analysés par l'[Analyseur Apache Lucene Standard](http://lucene.apache.org/core/4_9_0/analyzers-common/index.html), qui découpe le texte en éléments selon les règles de [« Segmentation du texte Unicode »](http://unicode.org/reports/tr29/). Par ailleurs, l'analyseur standard convertit tous les caractères en minuscules. Les documents indexés et les termes de recherche sont analysés pendant l'indexation et le traitement des requêtes.
-
-Azure Search permet l'indexation des champs dans plusieurs langues. Chacune de ces langues requiert un analyseur de texte non standard qui tient compte des caractéristiques d'une langue donnée. Par exemple, l'analyseur du français applique un [Raciniseur léger du français](http://lucene.apache.org/core/4_9_0/analyzers-common/org/apache/lucene/analysis/fr/FrenchLightStemmer.html) pour réduire les mots à leur [racine](http://en.wikipedia.org/wiki/Stemming). En outre, il supprime les [élisions](http://en.wikipedia.org/wiki/Elision) et les mots vides du français dans le texte analysé. L'analyseur de l'anglais est une extension de l'analyseur standard. Il supprime la marque du possessif (le « 's ») à la fin des mots, applique la racinisation conformément à l'[algorithme de racinisation de Porter](http://tartarus.org/~martin/PorterStemmer/) et supprime les [mots vides](http://en.wikipedia.org/wiki/Stop_words) de l'anglais.
-
-L'analyseur peut être configuré indépendamment pour chaque champ dans la définition d'index en définissant la propriété `analyzer`. Par exemple, vous pouvez avoir des champs distincts pour des descriptions d'hôtel en anglais, français et espagnol qui existent côte à côte dans le même index. La requête spécifie le champ propre à la langue qui doit être retourné dans vos requêtes de recherche.
-
-Voici la liste des analyseurs pris en charge avec une brève description de leurs fonctionnalités :
-
-<table style="font-size:12">
-    <tr>
-		<th>Langage</th>
-		<th>Nom de l'analyseur</th>
-		<th>Description</th>
-	</tr>
-    <tr>
-		<td>Arabe</td>
-		<td>ar.lucene</td>
-		<td>
-		<ul>
-			<li>Implémente la normalisation orthographique de l'arabe</li>
-			<li>Applique la racinisation algorithmique légère</li>
-			<li>Retire les mots vides de l'arabe</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>Brésilien</td>
-		<td>pt-Br.lucene</td>
-		<td>
-		<ul>
-			<li>Applique la racinisation légère</li>
-			<li>Retire les mots vides du brésilien</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>Chinois simplifié</td>
-		<td>zh-Hans.lucene</td>
-		<td>
-		<ul>
-			<li>Utilise des modèles de connaissances probabilistes pour trouver la segmentation optimale des mots</li>
-			<li>Retire les mots vides du chinois</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>Chinois traditionnel</td>
-		<td>zh-Hant.lucene</td>
-		<td>
-		<ul>
-			<li>Indexe les bigrammes (chevauchement des groupes de deux caractères chinois adjacents)</li>
-			<li>Normalise les différences de largeur de caractère</li>
-		</ul>
-		</td>
-	<tr>
-    <tr>
-		<td>Tchèque</td>
-		<td>cs.lucene</td>
-		<td>
-		<ul>
-			<li>Applique la racinisation légère</li>
-			<li>Retire les mots vides du tchèque</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>Danois</td>
-		<td>da.lucene</td>
-		<td>
-		<ul>
-			<li>Applique la racinisation légère</li>
-			<li>Retire les mots vides du danois</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>Néerlandais</td>
-		<td>nl.lucene</td>
-		<td>
-		<ul>
-			<li>Applique la racinisation légère</li>
-			<li>Retire les mots vides du néerlandais</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>Allemand</td>
-		<td>de.lucene</td>
-		<td>
-		<ul>
-			<li>Applique la racinisation légère</li>
-			<li>Retire les mots vides de l'allemand</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>Grec</td>
-		<td>el.lucene</td>
-		<td>
-		<ul>
-			<li>Applique la racinisation légère</li>
-			<li>Retire les mots vides du grec</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>Français</td>
-		<td>en.lucene</td>
-		<td>
-		<ul>
-			<li>Applique la racinisation légère</li>
-			<li>Retire les mots vides de l'anglais</li>
-			<li>Supprime la marque du possessif</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>Finnois</td>
-		<td>fi.lucene</td>
-		<td>
-		<ul>
-			<li>Applique la racinisation légère</li>
-			<li>Retire les mots vides du finnois</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>Français</td>
-		<td>fr.lucene</td>
-		<td>
-		<ul>
-			<li>Applique la racinisation légère</li>
-			<li>Retire les mots vides du français</li>
-			<li>Supprime les élisions</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>Hindi</td>
-		<td>hi.lucene</td>
-		<td>
-		<ul>
-			<li>Applique la racinisation légère</li>
-			<li>Retire les mots vides de l'hindi</li>
-			<li>Supprime certaines différences dans les variations d'orthographe</li>
-			<li>Normalise la représentation Unicode du texte dans les langues indiennes.</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>Hongrois</td>
-		<td>hu.lucene</td>
-		<td>
-		<ul>
-			<li>Applique la racinisation légère</li>
-			<li>Retire les mots vides du hongrois</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>Indonésien</td>
-		<td>id.lucene</td>
-		<td>
-		<ul>
-			<li>Applique la racinisation légère</li>
-			<li>Retire les mots vides de l'indonésien</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>Italien</td>
-		<td>it.lucene</td>
-		<td>
-		<ul>
-			<li>Applique la racinisation légère</li>
-			<li>Retire les mots vides de l'italien</li>
-			<li>Supprime les élisions</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>Japonais</td>
-		<td>ja.lucene</td>
-		<td>
-		<ul>
-			<li>Utilise l'analyse morphologique</li>
-			<li>Normalise les variations d'orthographe katakana courantes</li>
-			<li>Suppression légère des mots vides/balises d'arrêt</li>
-			<li>Normalisation de la largeur des caractères</li>
-			<li>Lemmatisation - réduit les verbes et adjectifs formatifs à leur forme de base</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>Coréen</td>
-		<td>ko.lucene</td>
-		<td>
-		<ul>
-			<li>Indexe les bigrammes (chevauchement des groupes de deux caractères chinois adjacents)</li>
-			<li>Normalise les différences de largeur de caractère</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>Letton</td>
-		<td>lv.lucene</td>
-		<td>
-		<ul>
-			<li>Applique la racinisation légère</li>
-			<li>Retire les mots vides du letton</li>
-		</ul>
-		</td>
-	</tr>
-
-    <tr>
-		<td>Norvégien</td>
-		<td>no.lucene</td>
-		<td>
-		<ul>
-			<li>Applique la racinisation légère</li>
-			<li>Retire les mots vides du norvégien</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>Polonais</td>
-		<td>pl.lucene</td>
-		<td>
-		<ul>
-			<li>Applique la racinisation algorithmique (Stempel)</li>
-			<li>Retire les mots vides du polonais</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>Portugais</td>
-		<td>pt-Pt.lucene</td>
-		<td>
-		<ul>
-			<li>Applique la racinisation légère</li>
-			<li>Retire les mots vides du portugais</li>
-		</ul>
-		</td>
-	</tr>
-
-    <tr>
-		<td>Roumain</td>
-		<td>ro.lucene</td>
-		<td>
-		<ul>
-			<li>Applique la racinisation légère</li>
-			<li>Retire les mots vides du roumain</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>Russe</td>
-		<td>ru.lucene</td>
-		<td>
-		<ul>
-			<li>Applique la racinisation légère</li>
-			<li>Retire les mots vides du russe</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>Espagnol</td>
-		<td>es.lucene</td>
-		<td>
-		<ul>
-			<li>Applique la racinisation légère</li>
-			<li>Retire les mots vides de l'espagnol</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>Suédois</td>
-		<td>sv.lucene</td>
-		<td>
-		<ul>
-			<li>Applique la racinisation légère</li>
-			<li>Retire les mots vides du suédois</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>Turc</td>
-		<td>tr.lucene</td>
-		<td>
-		<ul>
-			<li>Supprime tous les caractères après une apostrophe (y compris l'apostrophe elle-même)</li>
-			<li>Applique la racinisation légère</li>
-			<li>Retire les mots vides du turc</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>Thaï</td>
-		<td>th.lucene</td>
-		<td>
-		<ul>
-			<li>Applique la racinisation légère</li>
-			<li>Retire les mots vides du thaï</li>
-		</ul>
-		</td>
-	</tr>
-</table>
-
-Tous les analyseurs dont les noms sont annotés avec <i>lucene</i> sont optimisés par les [analyseurs de langue d'Apache Lucene](http://lucene.apache.org/core/4_9_0/analyzers-common/overview-summary.html).
-
 **Options CORS**
 
 Le code Javascript côté client ne peut pas appeler les API par défaut, car le navigateur empêche toutes les requêtes cross-origin. Activez CORS (partage des ressources cross-origin) en définissant l'attribut `corsOptions` pour autoriser les requêtes cross-origin dans l'index. Notez que, pour des raisons de sécurité, seules les API de requête prennent en charge CORS. Les options suivantes peuvent être définies pour CORS :
@@ -605,7 +289,6 @@ Le code Javascript côté client ne peut pas appeler les API par défaut, car le
         {"name": "hotelId", "type": "Edm.String", "key": true, "searchable": false},
         {"name": "baseRate", "type": "Edm.Double"},
         {"name": "description", "type": "Edm.String", "filterable": false, "sortable": false, "facetable": false, "suggestions": true},
-	    {"name": "description_fr", "type": "Edm.String", "filterable": false, "sortable": false, "facetable": false, "suggestions": true, analyzer="fr.lucene"},
         {"name": "hotelName", "type": "Edm.String", "suggestions": true},
         {"name": "category", "type": "Edm.String"},
         {"name": "tags", "type": "Collection(Edm.String)"},
@@ -632,7 +315,7 @@ Vous pouvez mettre à jour un index existant dans Azure Search à l'aide d'une r
     Content-Type: application/json
     api-key: [admin key]
 
-**Important :** dans la version préliminaire publique d'Azure Search, un nombre limité de mises à jour de schéma d'index est pris en charge. Les mises à jour de schéma qui nécessitent une réindexation telle que la modification des types de champ ne sont pas prises en charge pour le moment. De nouveaux champs peuvent être ajoutés à tout moment, mais les champs existants ne peuvent pas être modifiés ou supprimés.
+**Important :** dans Azure Search Public Preview, il n’existe pas de prise en charge des mises à jour de schéma qui nécessiteraient la réindexation, notamment les types de champ de modifié. De nouveaux champs peuvent être ajoutés à tout moment, mais les champs existants ne peuvent pas être modifiés ni supprimés.
 
 Quand vous ajoutez un nouveau champ à un index, tous les documents existants de l'index auront automatiquement une valeur null pour ce champ. Aucun espace de stockage supplémentaire n'est consommé jusqu'à ce que de nouveaux documents soient ajoutés à l'index.
 
@@ -907,7 +590,7 @@ Les documents sont constitués d'un ou de plusieurs champs. Les champs peuvent c
 
 Avant de pouvoir télécharger des documents, vous devez avoir déjà créé l'index sur le service. Consultez la section [Création d'index](#CreateIndex) pour plus d'informations sur cette première étape.
 
-**Remarque** : cette version de l'API fournit la recherche en texte intégral en anglais uniquement.
+**Remarque** : cette version de l’API fournit la recherche en texte intégral en anglais uniquement.
 
 <a name="AddOrUpdateDocuments"></a>
 ## Ajout, mise à jour ou suppression de documents
@@ -999,7 +682,6 @@ Code d'état : 429 indique que vous avez dépassé votre quota du nombre de doc
           "hotelId": "1",
           "baseRate": 199.0,
           "description": "Best hotel in town",
-		  "description_fr": "Meilleur hôtel en ville",
           "hotelName": "Fancy Stay",
 		  "category": "Luxury",
           "tags": ["pool", "view", "wifi", "concierge"],
@@ -1014,7 +696,6 @@ Code d'état : 429 indique que vous avez dépassé votre quota du nombre de doc
           "hotelId": "2",
           "baseRate": 79.99,
           "description": "Cheapest hotel in town",
-	      "description_fr": "Hôtel le moins cher en ville",
           "hotelName": "Roach Motel",
 		  "category": "Budget",
           "tags": ["motel", "budget"],
@@ -1381,4 +1062,4 @@ Récupérer 5 suggestions pour lesquelles l'entrée de recherche partielle est 
 
     GET /indexes/hotels/docs/suggest?search=lux&$top=5&api-version=2014-07-31-Preview
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

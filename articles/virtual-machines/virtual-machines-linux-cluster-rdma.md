@@ -1,19 +1,19 @@
 <properties
  pageTitle="Configuration d’un cluster Linux RDMA pour exécuter des applications MPI | Microsoft Azure"
- description="Apprenez à créer un cluster Linux de taille A8 ou A9 pour utiliser RDMA afin d'exécuter des applications MPI."
- services="virtual-machines"
- documentationCenter=""
- authors="dlepow"
- manager="timlt"
- editor=""/>
+	description="Apprenez à créer un cluster Linux de taille A8 ou A9 pour utiliser RDMA afin d'exécuter des applications MPI."
+	services="virtual-machines"
+	documentationCenter=""
+	authors="dlepow"
+	manager="timlt"
+	editor=""/>
 <tags
 ms.service="virtual-machines"
- ms.devlang="na"
- ms.topic="article"
- ms.tgt_pltfrm="vm-linux"
- ms.workload="infrastructure-services"
- ms.date="07/17/2015"
- ms.author="danlep"/>
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="vm-linux"
+	ms.workload="infrastructure-services"
+	ms.date="07/17/2015"
+	ms.author="danlep"/>
 
 # Configuration d’un cluster Linux RDMA pour exécuter des applications MPI
 
@@ -137,7 +137,7 @@ Enregistrez la clé publique dans un emplacement par défaut et n'oubliez pas la
 $ cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
 ```
 
-Dans le répertoire \~/.ssh, modifiez ou créez le fichier ssh\_config. Fournissez la plage d'adresses IP du réseau privé que vous utiliserez dans Azure :
+Dans le répertoire ~/.ssh, modifiez ou créez le fichier ssh\_config. Fournissez la plage d'adresses IP du réseau privé que vous utiliserez dans Azure :
 
 ```
 host 10.32.0.*
@@ -190,7 +190,7 @@ Modifiez le script suivant avec les valeurs appropriées pour votre environnemen
 ### Select a region where A8 and A9 VMs are available, such as West US
 ### See Azure Pricing pages for prices and availability of A8 and A9 VMs
 
-azure network vnet create -l "West US" –e 10.32.0.0 <network-name>
+azure network vnet create -l "West US" -e 10.32.0.0 <network-name>
 
 ### Create a cloud service. All the A8 and A9 instances need to be in the same cloud service for Linux RDMA to work across InfiniBand.
 ### Note: The current maximum number of VMs in a cloud service is 50. If you need to provision more than 50 VMs in the same cloud service in your cluster, contact Azure Support.
@@ -339,4 +339,4 @@ Vous devez voir une sortie similaire à ce qui suit sur un cluster opérationnel
 
 * Consultez la [documentation de la bibliothèque Intel MPI](https://software.intel.com/fr-fr/articles/intel-mpi-library-documentation/) pour obtenir des conseils sur Intel MPI.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

@@ -1,20 +1,19 @@
 <properties      
-    pageTitle="Partitionnement des données dans DocumentDB | Microsoft Azure"      
-    description="Découvrez comment partitionner les données dans DocumentDB et quand utiliser le partitionnement par hachage, par plage et par recherche."          
-    services="documentdb"      
-    authors="arramac"      
-    manager="jhubbard"      
-    editor="monicar"      
-    documentationCenter=""/>
- <tags      
-    ms.service="documentdb"      
-    ms.workload="data-services"      
-    ms.tgt_pltfrm="na"      
-    ms.devlang="na"      
-    ms.topic="article"      
-    ms.date="05/28/2015"      
-    ms.author="arramac"/>
-
+    pageTitle="Partitionnement des données dans DocumentDB | Microsoft Azure"
+	description="Découvrez comment partitionner les données dans DocumentDB et quand utiliser le partitionnement par hachage, par plage et par recherche."
+	services="documentdb"
+	authors="arramac"
+	manager="jhubbard"
+	editor="monicar"
+	documentationCenter=""/>
+<tags       
+    ms.service="documentdb"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="05/28/2015"
+	ms.author="arramac"/>
 
 # Partitionnement des données dans DocumentDB
 
@@ -93,7 +92,7 @@ Sinon, vous pouvez la stocker dans n'importe quel magasin persistant. Un modèle
 
 ## Ajout et suppression de partitions
 
-Avec DocumentDB, vous pouvez ajouter et supprimer à tout moment des collections de créations, et les utiliser pour stocker les nouvelles données entrantes ou rééquilibrer les données disponibles sur les collections existantes. Pour connaître le nombre de collections, consultez la page [Limites](documentdb-limits.md). Vous pouvez toujours nous contacter pour augmenter ces limites.
+Avec DocumentDB, vous pouvez ajouter et supprimer à tout moment des collections, et les utiliser pour stocker les nouvelles données entrantes ou rééquilibrer les données disponibles sur les collections existantes. Pour connaître le nombre de collections, consultez la page [Limites](documentdb-limits.md). Vous pouvez toujours nous contacter pour augmenter ces limites.
 
 L'ajout et la suppression d'une nouvelle partition avec le partitionnement par recherche et par plage sont des opérations simples. Par exemple, pour ajouter une nouvelle région géographique ou une nouvelle plage de temps pour les données récentes, il vous suffit d'ajouter les nouvelles partitions au mappage de partitions. Le fractionnement d'une partition existante en plusieurs partitions ou la fusion de deux partitions nécessitent un petit effort supplémentaire. Vous devez
 
@@ -115,4 +114,4 @@ Dans cet article, nous avons introduit certaines techniques courantes pour le pa
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

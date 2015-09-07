@@ -1,20 +1,20 @@
 <properties
    pageTitle="Disponibilité des services Service Fabric"
-   description="Décrit la détection des erreurs, le basculement et la récupération pour des services"
-   services="service-fabric"
-   documentationCenter=".net"
-   authors="appi101"
-   manager="timlt"
-   editor=""/>
+	description="Décrit la détection des erreurs, le basculement et la récupération pour des services"
+	services="service-fabric"
+	documentationCenter=".net"
+	authors="appi101"
+	manager="timlt"
+	editor=""/>
 
 <tags
    ms.service="service-fabric"
-   ms.devlang="dotnet"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="NA"
-   ms.date="04/13/2015"
-   ms.author="aprameyr"/>
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="NA"
+	ms.date="08/26/2015"
+	ms.author="aprameyr"/>
 
 # Disponibilité des services Service Fabric
 Les services Service Fabric peuvent être avec ou sans état. Cet article offre une vue d'ensemble de la manière dont Service Fabric maintient la disponibilité d'un service en cas de défaillance.
@@ -51,4 +51,4 @@ Pour plus d'informations sur les concepts propres à Service Fabric, consultez l
 - [Définition et gestion de l'état](service-fabric-concepts-state.md)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

@@ -1,27 +1,27 @@
 
 <properties 
     pageTitle="Configuration requise des applications dans Azure RemoteApp"
-    description="En savoir plus sur la configuration requise pour les applications que vous souhaitez utiliser dans Azure RemoteApp" 
-    services="remoteapp" 
-    documentationCenter="" 
-    authors="lizap" 
-    manager="mbaldwin" />
+	description="En savoir plus sur la configuration requise pour les applications que vous souhaitez utiliser dans Azure RemoteApp"
+	services="remoteapp"
+	documentationCenter=""
+	authors="lizap"
+	manager="mbaldwin"/>
 
 <tags 
-    ms.service="remoteapp" 
-    ms.workload="compute" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="article" 
-    ms.date="08/12/2015" 
-    ms.author="elizapo" />
+    ms.service="remoteapp"
+	ms.workload="compute"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/12/2015"
+	ms.author="elizapo"/>
 
 
 
 # Configuration requise des applications
 Azure RemoteApp prend en charge la diffusion en continu des applications Windows 32 bits ou 64 bits à partir d’une image de Windows Server 2012 R2. La plupart des applications Windows 32 bits ou 64 bits existantes s’exécutent « tel quel » dans l’environnement Azure RemoteApp (Services Bureau à distance ou anciennement Services Terminal Server). Toutefois, il existe une différence entre s’exécuter et fonctionner correctement : certaines applications fonctionnent bien et correctement, d’autres non. Les informations suivantes fournissent des conseils pour le développement d’applications dans un environnement de Services Bureau à distance et le test, afin de garantir la compatibilité.
 
-Conseil : nous travaillons sur la création de quelques exemples d'utilisation des applications pour vous. Vous verrez de nouvelles rubriques qui décrivent l'utilisation de Microsoft Access, QuickBooks et App-V dans RemoteApp.
+Info : nous travaillons sur la création de quelques exemples d’applications fonctionnelles pour vous. Vous verrez de nouvelles rubriques décrivant l’utilisation de Microsoft Access, QuickBooks et App-V dans RemoteApp.
 
 ## Configuration requise
 Si ces trois conditions sont réunies, votre application s’exécutera correctement dans RemoteApp :
@@ -56,4 +56,4 @@ Utilisez les instructions suivantes pour développer des applications pour Remot
 - Pour optimiser les performances, il est recommandé que les applications [détectent](https://msdn.microsoft.com/library/aa380798.aspx) si elles s’exécutent dans une session client. 
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

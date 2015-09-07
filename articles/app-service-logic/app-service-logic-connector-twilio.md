@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Application API du connecteur Twilio"
-	description="Utilisation du connecteur Twilio"
+   pageTitle="Utilisation du connecteur Twilio dans des applications logiques | Microsoft Azure App Service"
+	description="Comment créer et configurer le connecteur Twilio ou une application API et l'utiliser dans une application logique d’Azure App Service"
 	services="app-service\logic"
 	documentationCenter=".net,nodejs,java"
 	authors="anuragdalmia"
@@ -13,50 +13,39 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="integration"
-	ms.date="08/19/2015"
+	ms.date="08/23/2015"
 	ms.author="sameerch"/>
 
 
-# Utilisation du connecteur Twilio dans votre application logique #
-
-Les applications logiques peuvent se déclencher selon diverses sources de données et proposent des connecteurs pour obtenir et traiter les données dans le cadre du flux.
-
-Le connecteur Twilio vous permet d’envoyer et de recevoir des SMS à l’aide de votre compte Twilio. Il vous permet également de récupérer des numéros de téléphone et des données d'utilisation.
+# Prise en main du connecteur Twilio et ajout de celui-ci à votre application logique
+Connectez-vous à votre compte Twilio pour envoyer et recevoir des messages SMS. Vous pouvez également de récupérer des numéros de téléphone et des données d'utilisation. Les applications logiques peuvent se déclencher selon diverses sources de données et proposent des connecteurs pour obtenir et traiter les données dans le cadre du flux. Vous pouvez ajouter le connecteur Twilio à votre flux de travail professionnel et traiter les données dans le cadre de ce flux de travail dans une application logique.
 
 ## Création d’un connecteur Twilio pour votre application logique ##
-Pour utiliser le connecteur Twilio, vous devez d’abord créer une instance de l’application API de ce connecteur. Pour cela, procédez comme suit :
+Un connecteur peut être créé dans une application logique ou directement à partir d'Azure Marketplace. Pour créer un connecteur à partir de Marketplace :
 
-1.	Ouvrez Azure Marketplace à l’aide de l’option + NOUVEAU en bas à gauche du portail Azure.
-2.	Accédez à « API Apps » et recherchez « Connecteur Twilio ».
-3.	Configurez le connecteur Twilio comme suit :
- 
-	![][1]
-	- **Emplacement** : choisissez l'emplacement géographique dans lequel vous voulez déployer le connecteur
-	- **Abonnement** : choisissez un abonnement dans lequel vous souhaitez créer ce connecteur
-	- **Groupe de ressources** : sélectionnez ou créez un groupe de ressources où le connecteur doit résider
-	- **Plan d’hébergement Web** : sélectionnez ou créez un plan d’hébergement Web
-	- **Niveau de tarification** : choisissez un niveau de tarification pour le connecteur
-	- **Nom** : donnez un nom à votre connecteur Twilio
+1. Dans le tableau d'accueil Azure, sélectionnez **Marketplace**.
+2. Recherchez « Connecteur Twilio », sélectionnez-le et sélectionnez **Créer**.
+3. Configurez le connecteur Twilio comme suit : ![][1]  
+	- **Emplacement** : choisissez l’emplacement géographique dans lequel vous voulez déployer le connecteur.
+	- **Abonnement** : choisissez un abonnement dans lequel vous souhaitez créer ce connecteur.
+	- **Groupe de ressources** : sélectionnez ou créez un groupe de ressources où doit résider le connecteur.
+	- **Plan d’hébergement web** : sélectionnez ou créez un plan d’hébergement web.
+	- **Niveau de tarification** : choisissez un niveau de tarification pour le connecteur.
+	- **Nom** : indiquez le nom de votre connecteur Twilio.
 	- **Paramètres du package**
-		- **SID du compte** : identificateur unique du compte. Le SID de votre compte peut être récupéré à partir de <https://www.twilio.com/user/account/settings>
-		- **Jeton d'autorisation** : jeton d'autorisation associé au compte. Vous pouvez récupérer ce jeton à l'adresse <https://www.twilio.com/user/account/settings>
+		- **SID de compte** : identifiant unique du compte. Vous pouvez récupérer le SID de votre compte à l'adresse <https://www.twilio.com/user/account/settings>
+		- **Jeton d’autorisation** : jeton d’autorisation associé au compte. Vous pouvez récupérer ce jeton à l'adresse <https://www.twilio.com/user/account/settings>
 
 
 4.	Cliquez sur Créer. Un connecteur Twilio est créé.
-5.	Une fois l’instance de l’application API créée, vous pouvez créer une application logique dans le même groupe de ressources pour utiliser le connecteur Twilio.
+5.	Une fois l’instance de l’application API créée, vous pouvez créer une application logique pour utiliser le connecteur Twilio.
 
 ## Utilisation du connecteur Twilio dans votre application logique ##
 Une fois votre application API créée, vous pouvez utiliser le connecteur Twilio comme action dans votre application logique. Pour cela, vous devez procéder comme suit :
 
-1.	Créez une application logique et choisissez le groupe de ressources qui contient le connecteur Twilio.
-
-	![][2]
-2.	Ouvrez « Déclencheurs et actions » pour ouvrir le concepteur d’applications logiques et configurer votre flux.
-
-	![][3]
-3.	Le connecteur Twilio apparaît dans la section « Applications API dans ce groupe de ressources » de la galerie située à droite.
-
-	![][4]
+1.	Créez une application logique et choisissez le même groupe de ressources qui contient le connecteur Twilio : ![][2]
+2.	Ouvrez « Déclencheurs et actions » pour ouvrir le concepteur d’applications logiques et configurer votre flux : ![][3]
+3.	Le connecteur Twilio apparaît dans la section « Applications API dans ce groupe de ressources » de la galerie située à droite : ![][4]
 4. Vous pouvez déposer l’application API du connecteur Twilio dans l’éditeur en cliquant sur « Connecteur Twilio ».
 
 5.	Vous pouvez maintenant utiliser le connecteur Twilio dans le flux. Vous pouvez utiliser l’action « Envoyer un message » dans le flux pour envoyer un message. Configurez les propriétés d’entrée de l’action « Envoyer un message » comme suit :
@@ -64,8 +53,8 @@ Une fois votre application API créée, vous pouvez utiliser le connecteur Twili
 	- **Vers le numéro de téléphone** : numéro de téléphone de destination. Le format accepté est : + suivi du préfixe du pays et du numéro de téléphone. Par exemple, +16175551212. Si vous oubliez le +, Twilio utilise le préfixe de pays que vous avez saisi dans le champ « À partir ».
 	- **Texte** : texte du message à envoyer.
 
-	![][5]
-	![][6]
+	![][5] ![][6]
+
 ## En faire plus avec votre connecteur
 Maintenant que le connecteur est créé, vous pouvez l'ajouter à un flux d'entreprise à l'aide d'une application logique. Voir [Que sont les applications logiques ?](app-service-logic-what-are-logic-apps.md).
 
@@ -81,4 +70,4 @@ Vous pouvez également consulter les statistiques de performances et contrôler 
 [5]: ./media/app-service-logic-connector-twilio/img5.PNG
 [6]: ./media/app-service-logic-connector-twilio/img6.PNG
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

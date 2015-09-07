@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Azure Multi-Factor Authentication - Prise en main" 
-	description="Choisissez la solution de sécurité d'authentification multifacteur la plus appropriée pour vous en définissant les éléments à protéger et l’emplacement des utilisateurs. Choisissez ensuite le cloud, le serveur MFA ou AD FS." 
-	services="multi-factor-authentication" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="terrylan" 
-	editor="bryanla"/>
+	pageTitle="Azure Multi-Factor Authentication - Prise en main"
+	description="Choisissez la solution de sécurité d'authentification multifacteur la plus appropriée pour vous en définissant les éléments à protéger et l’emplacement des utilisateurs. Choisissez ensuite le cloud, le serveur MFA ou AD FS."
+	services="multi-factor-authentication"
+	documentationCenter=""
+	authors="billmath"
+	manager="stevenpo"
+	editor="curtland"/>
 
 <tags 
-	ms.service="multi-factor-authentication" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="get-started-article" 
-	ms.date="06/02/2015" 
+	ms.service="multi-factor-authentication"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.date="08/24/2015"
 	ms.author="billmath"/>
 
 #Choix de la solution de sécurité multifacteur la plus appropriée pour vous
@@ -87,4 +87,4 @@ Maintenant que nous avons déterminé s'il faut utiliser l'authentification mult
 * [Pour les utilisateurs](multi-factor-authentication-end-user.md)
 * [Azure Multi-Factor Authentication sur MSDN](https://msdn.microsoft.com/library/azure/dn249471.aspx) 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

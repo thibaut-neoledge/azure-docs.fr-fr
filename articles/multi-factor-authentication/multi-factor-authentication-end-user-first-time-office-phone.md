@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Utilisation du téléphone professionnel comme méthode de contact avec Azure MFA" 
-	description="Cette page montre aux utilisateurs comment utiliser leur téléphone professionnel comme méthode de contact principale pour Azure MFA." 
-	services="multi-factor-authentication" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="terrylan" 
-	editor="bryanla"/>
+	pageTitle="Utilisation du téléphone professionnel comme méthode de contact avec Azure MFA"
+	description="Cette page montre aux utilisateurs comment utiliser leur téléphone professionnel comme méthode de contact principale pour Azure MFA."
+	services="multi-factor-authentication"
+	documentationCenter=""
+	authors="billmath"
+	manager="stevenp"
+	editor="curtland"/>
 
 <tags 
-	ms.service="multi-factor-authentication" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/02/2015" 
+	ms.service="multi-factor-authentication"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/24/2015"
 	ms.author="billmath"/>
 
 # Utilisation du téléphone professionnel comme méthode de contact avec Azure Multi-Factor Authentication
@@ -40,4 +40,4 @@ Si vous souhaitez utiliser votre téléphone professionnel comme méthode de con
 
 <center>![Setup](./media/multi-factor-authentication-end-user-first-time-office-phone/app.png)</center>
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

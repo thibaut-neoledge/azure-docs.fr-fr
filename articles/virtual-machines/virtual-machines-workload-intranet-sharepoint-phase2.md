@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Phase 2 de la charge de travail de la batterie de serveurs SharePoint intranet : configuration de contrôleurs de domaine"
-	description="Au cours de cette seconde phase de déploiement d&#39;une batterie de serveurs SharePoint 2013 intranet avec des groupes de disponibilité SQL Server AlwaysOn dans les services d’infrastructure Azure, vous créez et configurez les deux contrôleurs de domaine Active Directory."
+	pageTitle="Batterie de serveurs SharePoint Server 2013 - Phase 2 | Microsoft Azure"
+	description="Créez et configurez les deux contrôleurs de domaine de réplica Active Directory dans la phase 2 de la batterie de serveurs SharePoint Server 2013 dans Azure."
 	documentationCenter=""
 	services="virtual-machines"
 	authors="JoeDavies-MSFT"
@@ -113,7 +113,7 @@ Ouvrez une session sur le premier contrôleur de domaine en utilisant les inform
 5.	La boîte de dialogue de navigateur s'affiche et vous demande « Voulez-vous ouvrir ou enregistrer ComputerName.rdp depuis manage.windowsazure.com ? » Cliquez sur **Ouvrir**.
 6.	Dans la boîte de dialogue **Connexion Bureau à distance**, cliquez sur **Connecter**.
 7.	Dans la boîte de dialogue **Sécurité de Windows**, cliquez sur **Utiliser un autre compte**.
-8.	Sous **Nom d'utilisateur**, saisissez le nom de la machine virtuelle et le nom d'utilisateur du compte administrateur local créé avec la machine virtuelle (un compte d'ordinateur local). Utilisez le format suivant : *ComputerName*\*LocalAdministratorAccountName*
+8.	Sous **Nom d'utilisateur**, saisissez le nom de la machine virtuelle et le nom d'utilisateur du compte administrateur local créé avec la machine virtuelle (un compte d'ordinateur local). Utilisez le format suivant : *ComputerName**LocalAdministratorAccountName*
 9.	Sous **Mot de passe**, tapez le mot de passe pour le compte administrateur local.
 10.	Cliquez sur **OK**.
 11.	Dans la boîte de dialogue **Connexion Bureau à distance**, cliquez sur **Oui**. Le bureau de la nouvelle machine s'affiche dans une fenêtre de session Bureau à distance.
@@ -246,4 +246,4 @@ Pour poursuivre la configuration de cette charge de travail, passez à la [Phase
 
 [Charge de travail des services d’infrastructure Azure : applications métier à haute disponibilité](virtual-machines-workload-high-availability-lob-application.md)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

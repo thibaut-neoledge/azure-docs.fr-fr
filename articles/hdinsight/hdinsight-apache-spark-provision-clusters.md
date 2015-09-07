@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Approvisionner des clusters Apache Spark dans HDInsight | Microsoft Azure"
+   	pageTitle="Approvisionner des clusters Apache Spark dans HDInsight | Microsoft Azure"
 	description="Découvrez comment configurer des clusters Spark pour Azure HDInsight à l’aide du portail Azure, d’Azure PowerShell, d’une ligne de commande ou du Kit de développement logiciel (SDK) .NET HDInsight."
 	services="hdinsight"
 	documentationCenter=""
@@ -8,7 +8,7 @@
 	editor="cgronlun"
 	tags="azure-portal"/>
 <tags
-    ms.service="hdinsight"
+	ms.service="hdinsight"
 	ms.devlang="na"
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
@@ -66,7 +66,7 @@ Vous pouvez installer des composants supplémentaires ou personnaliser la config
 
 	![diagram of point-to-site configuration](./media/hdinsight-apache-spark-provision-clusters/hdinsight-vnet-point-to-site.png)
 
-Pour plus d'informations sur les fonctions, les avantages et les capacités d'Azure Virtual Network, consultez la page [Vue d'ensemble d'Azure Virtual Network](http://msdn.microsoft.com/library/azure/jj156007.aspx).
+Pour plus d'informations sur les fonctions, les avantages et les capacités d'Azure Virtual Network, consultez la page [Vue d'ensemble d'Azure Virtual Network](../virtual-network/virtual-networks-overview.md).
 
 > [AZURE.NOTE]Vous devez créer le réseau Azure Virtual Network avant d’approvisionner un cluster. Pour plus d’informations, consultez [Création d’un réseau virtuel](virtual-networks-create-vnet.md).
 >
@@ -83,9 +83,9 @@ Les clusters Spark sur HDInsight utilisent un conteneur de stockage d’objets b
 1. Connectez-vous à la [version préliminaire du portail Azure](https://portal.azure.com).
 2. Cliquez sur **NOUVEAU**, sur **Données + analyse**, puis sur **HDInsight**.
 
-    ![Création d’un cluster dans le portail Azure en version préliminaire](./media/hdinsight-apache-spark-provision-clusters/HDI.CreateCluster.1.png "Création d’un cluster dans le portail Azure en version préliminaire")
+    ![Création d’un cluster dans le portail Azure en version préliminaire](./media/hdinsight-apache-spark-provision-clusters/HDI.CreateCluster.1.png "Création d'un nouveau cluster dans la version préliminaire du portail Azure")
 
-3. Entrez une valeur dans le champ **Nom de cluster**, sélectionnez **Hadoop** pour **Type de cluster**, et à partir du menu déroulant **Système d’exploitation du cluster**, sélectionnez **Windows Server 2012 R2 Datacenter**. Une coche verte s’affiche en regard du nom de cluster s’il est disponible.
+3. Entrez une valeur dans le champ **Nom de cluster**, sélectionnez **Hadoop** pour **Type de cluster**, et à partir du menu déroulant **Système d’exploitation du cluster**, sélectionnez **Windows Server 2012 R2 Datacenter**. Une coche verte apparaît en regard du nom de cluster s'il est disponible.
 
 	![Saisir le nom et le type du cluster](./media/hdinsight-apache-spark-provision-clusters/HDI.CreateCluster.2.png "Saisir le nom et le type du cluster")
 
@@ -93,7 +93,7 @@ Les clusters Spark sur HDInsight utilisent un conteneur de stockage d’objets b
 
 5. Cliquez sur **Groupe de ressources** pour afficher une liste des groupes de ressources existants, puis sélectionnez celui dans lequel créer le cluster. Vous pouvez également cliquer sur **Créer un nouveau**, puis saisir le nom du nouveau groupe de ressources. Une coche verte s’affiche pour indiquer si le nouveau nom de groupe est disponible.
 
-	> [AZURE.NOTE]Cette entrée ira par défaut dans l’un des groupes de ressources existants, si l’un d’eux est disponible.
+	> [AZURE.NOTE]Cette entrée ira par défaut dans l'un des groupes de ressources existants, si l'un d'eux est disponible.
 
 6. Cliquez sur **Informations d’identification**, puis saisissez une valeur dans les champs **Nom de connexion au cluster** et **Mot de passe de connexion au cluster**. Si vous souhaitez activer le Bureau à distance sur le nœud de cluster, cliquez sur l’option **Oui** pour **Activer le Bureau à distance**. Sélectionnez une date d’expiration pour l’accès au cluster via le Bureau à distance et fournissez le nom d’utilisateur/mot de passe de l’utilisateur du Bureau à distance. Cliquez sur **Sélectionner** au bas de l’écran pour enregistrer la configuration des informations d’identification.
 
@@ -113,11 +113,11 @@ Les clusters Spark sur HDInsight utilisent un conteneur de stockage d’objets b
 
 	- **Emplacement** : zone géographique dans laquelle le compte de stockage se trouve ou dans laquelle il sera créé.
 
-		> [AZURE.IMPORTANT]La sélection de l’emplacement de la source de données par défaut définira également l’emplacement du cluster HDInsight. Le cluster et la source de données par défaut doivent se trouver dans la même zone géographique.
+		> [AZURE.IMPORTANT]La sélection de l’emplacement de la source de données par défaut définira également l’emplacement du cluster HDInsight. Le cluster et la source de données par défaut doivent se trouver dans la même région.
 
 	Cliquez sur **Sélectionner** pour enregistrer la configuration de la source de données.
 
-8. Cliquez sur **Niveaux de tarification du nœud** pour afficher des informations sur les nœuds qui seront créés pour ce cluster. Définissez le nombre de nœuds de travail dont vous avez besoin pour le cluster. Le coût estimé du cluster s’affiche dans le panneau.
+8. Cliquez sur **Niveaux de tarification du nœud** pour afficher des informations sur les nœuds qui seront créés pour ce cluster. Définissez le nombre de nœuds Worker dont vous avez besoin pour le cluster. Le coût estimé du cluster s’affiche dans le panneau.
 
 	![Panneau Niveaux de tarification du nœud](./media/hdinsight-apache-spark-provision-clusters/HDI.CreateCluster.5.png "Spécifier le nombre de nœuds de cluster")
 
@@ -133,7 +133,7 @@ Les clusters Spark sur HDInsight utilisent un conteneur de stockage d’objets b
 
 	* Cliquez sur **Metastores externes** pour spécifier la base de données SQL à utiliser pour enregistrer les métadonnées Hive et Oozie associées au cluster.
 
-		![Panneau Metastores personnalisés](./media/hdinsight-apache-spark-provision-clusters/HDI.CreateCluster.7.png "Spécifier des metastores externes")
+		![Panneau de metastores personnalisés](./media/hdinsight-apache-spark-provision-clusters/HDI.CreateCluster.7.png "Spécification des metastores externes")
 
 		Pour **Utiliser une base de données SQL existante pour les métadonnées Hive**, cliquez sur **Oui**, sélectionnez une base de données SQL, puis indiquez le nom d’utilisateur/mot de passe pour la base de données. Répétez ces étapes si vous souhaitez **utiliser une base de données SQL existante pour les métadonnées Oozie**. Cliquez sur **Sélectionner** jusqu’à ce que vous reveniez au panneau **Configuration facultative**.
 
@@ -141,7 +141,7 @@ Les clusters Spark sur HDInsight utilisent un conteneur de stockage d’objets b
 
 	* Cliquez sur **Actions de script** si vous souhaitez utiliser un script personnalisé pour personnaliser un cluster au moment de sa création. Pour plus d’informations sur les actions de script, consultez l’article [Personnaliser des clusters HDInsight à l’aide d’une d’action de script](hdinsight-hadoop-customize-cluster.md). Dans le panneau Actions de script, saisissez les informations requises, comme illustré dans la capture d’écran ci-dessous.
 
-		![Panneau Action de script](./media/hdinsight-apache-spark-provision-clusters/HDI.CreateCluster.8.png "Spécifier l’action de script")
+		![Panneau Action de script](./media/hdinsight-apache-spark-provision-clusters/HDI.CreateCluster.8.png "Spécifier l'action de script")
 
 		Cliquez sur **Sélectionner** pour enregistrer les modifications apportées à la configuration d’action de script.
 
@@ -151,15 +151,15 @@ Les clusters Spark sur HDInsight utilisent un conteneur de stockage d’objets b
 
 		Cliquez sur **Sélectionner** jusqu’à ce que vous reveniez au panneau **Nouveau cluster HDInsight **.
 
-10. Dans le panneau **Nouveau cluster HDInsight**, assurez-vous que l’option **Épingler au tableau d’accueil** est sélectionnée, puis cliquez sur **Créer**. Le cluster est créé et la vignette correspondante ajoutée au tableau d’accueil de votre portail Azure. L’icône indique que le cluster est en cours d’approvisionnement ; elle affichera l’icône HDInsight une fois l’approvisionnement terminé.
+10. Dans le panneau **Nouveau cluster HDInsight**, assurez-vous que l’option **Épingler au tableau d’accueil** est sélectionnée, puis cliquez sur **Créer**. Le cluster est créé et la vignette correspondante ajoutée au tableau d’accueil de votre portail Azure. L'icône indique que le cluster est en cours de configuration et sera modifiée pour représenter l'icône HDInsight une fois la configuration terminée.
 
 	| Pendant l’approvisionnement | Approvisionnement terminé |
 	| ------------------ | --------------------- |
 	| ![Indicateur d’approvisionnement sur le tableau d’accueil](./media/hdinsight-apache-spark-provision-clusters/provisioning.png) | ![Vignette de cluster approvisionné](./media/hdinsight-apache-spark-provision-clusters/provisioned.png) |
 
-	> [AZURE.NOTE]La création du cluster prend un certain temps (généralement, environ 15 minutes). Utilisez la vignette du tableau d’accueil ou l’entrée **Notifications** à gauche de la page pour suivre la progression du processus d’approvisionnement.
+	> [AZURE.NOTE]La création du cluster prend un certain temps (en règle générale, environ 15 minutes). Utilisez la vignette du tableau d’accueil ou l’entrée **Notifications** à gauche de la page pour suivre la progression du processus d’approvisionnement.
 
-11. Une fois l’approvisionnement terminé, cliquez sur la vignette du cluster dans le tableau d’accueil pour lancer le panneau du cluster. Le panneau du cluster fournit des informations essentielles sur le cluster, notamment son nom, le groupe de ressources auquel il appartient, son emplacement, le système d’exploitation, l’URL de son tableau de bord, etc.
+11. Une fois la configuration terminée, cliquez sur la vignette du cluster dans le tableau d'accueil pour lancer le panneau du cluster. Le panneau de cluster fournit des informations essentielles sur le cluster, notamment son nom, le groupe de ressources auquel il appartient, son emplacement, le système d'exploitation, l'URL vers le tableau de bord de cluster, etc.
 
 	![Panneau Cluster](./media/hdinsight-apache-spark-provision-clusters/HDI.Cluster.Blade.png "Propriétés du cluster")
 
@@ -437,4 +437,4 @@ Le Kit de développement logiciel (SDK) .NET HDInsight fournit des bibliothèque
 
 [89e2276a]: /documentation/articles/hdinsight-use-sqoop/ "Utilisation de Sqoop avec HDInsight"
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

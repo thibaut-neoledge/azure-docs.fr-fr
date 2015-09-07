@@ -1,25 +1,25 @@
 <properties
    pageTitle="Rediriger un domaine Internet d’entreprise vers un domaine Traffic Manager | Microsoft Azure"
-   description="Cet article vous aide à rediriger votre nom de domaine d’entreprise vers un nom de domaine Traffic Manager."
-   services="traffic-manager"
-   documentationCenter=""
-   authors="joaoma"
-   manager="adinah"
-   editor="tysonn" />
+	description="Cet article vous aide à rediriger votre nom de domaine d’entreprise vers un nom de domaine Traffic Manager."
+	services="traffic-manager"
+	documentationCenter=""
+	authors="joaoma"
+	manager="adinah"
+	editor="tysonn"/>
 <tags
    ms.service="traffic-manager"
-   ms.devlang="na"
-   ms.topic="get-started-article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="08/19/2015"
-   ms.author="joaoma" />
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.tgt_pltfrm="na"
+	ms.workload="infrastructure-services"
+	ms.date="08/19/2015"
+	ms.author="joaoma"/>
 
-# Rediriger un domaine Internet d’entreprise vers un domaine Traffic Manager
+# Rediriger d’un domaine Internet d’entreprise vers un domaine Azure Traffic Manager
 
 Pour rediriger votre nom de domaine d’entreprise vers un nom de domaine Traffic Manager, modifiez l’enregistrement de ressource DNS sur votre serveur DNS Internet afin d’utiliser le type d’enregistrement CNAME, qui mappe votre nom de domaine d’entreprise au nom de domaine de votre profil Traffic Manager. Vous pouvez voir le nom de domaine Traffic Manager dans la section **Général** de la page Configuration du profil Traffic Manager.
 
-Par exemple, pour rediriger le nom de domaine d’entreprise **www.contoso.com** vers le nom de domaine Traffic Manager **contoso.trafficmanager.net**, vous devez mettre à jour votre enregistrement de ressource DNS comme suit :
+Par exemple, pour rediriger le nom de domaine d’entreprise www.contoso.com vers le nom de domaine Traffic Manager contoso.trafficmanager.net, vous devez mettre à jour votre enregistrement de ressource DNS comme suit :
 
     www.contoso.com IN CNAME contoso.trafficmanager.net
 
@@ -36,6 +36,5 @@ L’intégralité des demandes de trafic pour *www.contoso.com* est alors rediri
 [Traffic Manager - Désactiver ou activer un point de terminaison](disable-or-enable-an-endpoint.md)
 
 [Qu’est-ce que Traffic Manager ?](traffic-manager-overview.md)
- 
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

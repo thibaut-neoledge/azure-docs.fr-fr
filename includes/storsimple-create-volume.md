@@ -1,4 +1,3 @@
-
 #### Pour créer un volume
 
 1. Sur la page **Démarrage rapide** de l’appareil, cliquez sur **Ajouter un volume**. L’assistant Ajouter un volume se lance.
@@ -6,7 +5,7 @@
 2. Dans l’Assistant Ajouter un volume, sous **Paramètres de base** :
    1. Saisissez un **nom** pour le volume.
    2. Indiquez la **capacité allouée** pour votre volume. **La capacité du volume doit être comprise entre 1 et 64 To.**
-   3. Dans la liste déroulante, sélectionnez le **Type d’utilisation** pour le volume. Pour les données d’archivage moins fréquemment sollicitées, sélectionnez un **Volume d’archive**. Pour tous les autres types de données, sélectionnez **Volume principal**.
+   3. Dans la liste déroulante, sélectionnez le **Type d’utilisation** pour le volume. Pour les données d’archivage moins fréquemment sollicitées, sélectionnez un **Volume d’archive**. Pour tous les autres types de données, sélectionnez **Volume à plusieurs niveaux**. (Les volumes à plusieurs niveaux étaient appelés volumes principaux).
    4. Cliquez sur l’icône en forme de flèche ![icône-flèche](./media/storsimple-create-volume/HCS_ArrowIcon-include.png) pour passer à la page suivante.
 
      ![Ajouter un volume](./media/storsimple-create-volume/HCS_AddVolume1M-include.png)
@@ -22,4 +21,4 @@
 
 4. Cliquez sur l’icône en forme de coche ![icône en forme de coche](./media/storsimple-create-volume/HCS_CheckIcon-include.png). Un volume est créé avec les paramètres spécifiés.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

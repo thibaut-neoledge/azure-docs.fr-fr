@@ -1,20 +1,20 @@
 <properties 
-   pageTitle="Vue d’ensemble d’Azure DNS | Microsoft Azure" 
-   description="Vue d'ensemble des services d’hébergement Azure DNS dans Microsoft Azure et hébergement de votre domaine sur Microsoft Azure" 
-   services="dns" 
-   documentationCenter="na" 
-   authors="joaoma" 
-   manager="adinah" 
-   editor=""/>
+   pageTitle="Vue d’ensemble d’Azure DNS | Microsoft Azure"
+	description="Vue d'ensemble des services d’hébergement Azure DNS dans Microsoft Azure et hébergement de votre domaine sur Microsoft Azure"
+	services="dns"
+	documentationCenter="na"
+	authors="joaoma"
+	manager="adinah"
+	editor=""/>
 
 <tags
    ms.service="dns"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services" 
-   ms.date="05/01/2015"
-   ms.author="joaoma"/>
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="infrastructure-services"
+	ms.date="08/12/2015"
+	ms.author="joaoma"/>
 
 # Vue d’ensemble d’Azure DNS
 
@@ -31,7 +31,7 @@ Le service est basé sur Azure Resource Manager (ARM). Vos domaines et vos enreg
 
 [Prise en main de la création de zones DNS](dns-getstarted-create-dnszone.md)
 
-[Automatisation des opérations Azure avec le Kit de développement (SDK) .NET](../dns-sdk)
+[Automatisation des opérations Azure avec le Kit de développement (SDK) .NET](dns-sdk.md)
 
 [Référence de l'API REST d’Azure DNS](https://msdn.microsoft.com/library/azure/mt163862.aspx)
 
@@ -40,4 +40,4 @@ Le service est basé sur Azure Resource Manager (ARM). Vos domaines et vos enreg
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

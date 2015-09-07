@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Copie des données de sortie du didacticiel vers une base de données SQL Server locale" 
+	pageTitle="Copie des données de sortie du didacticiel vers une base de données SQL Server locale"
 	description="La procédure pas à pas de ce didacticiel étend le didacticiel de fabrique des données pour copier des données sur l’efficacité d’une campagne marketing vers une base de données SQL Server locale."
-	services="data-factory" 
-	documentationCenter="" 
-	authors="spelluru" 
-	manager="jhubbard" 
+	services="data-factory"
+	documentationCenter=""
+	authors="spelluru"
+	manager="jhubbard"
 	editor="monicar"/>
 
 <tags 
-	ms.service="data-factory" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/07/2015" 
+	ms.service="data-factory"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/25/2015"
 	ms.author="spelluru"/>
 
 
@@ -152,8 +152,7 @@ Félicitations ! Vous avez terminé la procédure pas à pas pour utiliser votr
 [datafactorytutorial]: data-factory-tutorial-using-powershell.md
 [adfgetstarted]: data-factory-get-started.md
 [adfintroduction]: data-factory-introduction.md
-[useonpremisesdatasources]: data-factory-use-onpremises-datasources.md
-[usepigandhive]: data-factory-pig-hive-activities.md
+[useonpremisesdatasources]: data-factory-move-data-between-onprem-and-cloud.md
 
 [azure-preview-portal]: http://portal.azure.com
 [azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
@@ -171,4 +170,4 @@ Félicitations ! Vous avez terminé la procédure pas à pas pour utiliser votr
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

@@ -1,26 +1,26 @@
 <properties 
-	pageTitle="Installation d'une forêt Active Directory sur un réseau virtuel Azure" 
-	description="Didacticiel qui explique comment créer une forêt Active Directory sur une machine virtuelle dans Azure Virtual Network." 
-	services="active-directory, virtual-network" 
-	documentationCenter="" 
-	authors="markusvi" 
-	manager="TerryLan" 
+	pageTitle="Installation d'une forêt Active Directory sur un réseau virtuel Azure"
+	description="Didacticiel qui explique comment créer une forêt Active Directory sur une machine virtuelle dans Azure Virtual Network."
+	services="active-directory, virtual-network"
+	documentationCenter=""
+	authors="markusvi"
+	manager="TerryLan"
 	editor="LisaToft"
 	tags="azure-classic-portal"/>
 
 <tags 
-	ms.service="active-directory" 
-	ms.devlang="na" 
-	ms.topic="article" 
-    ms.tgt_pltfrm="na" 
-    ms.workload="identity" 
-	ms.date="07/23/2015" 
+	ms.service="active-directory"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="identity"
+	ms.date="07/23/2015"
 	ms.author="markusvi"/>
 
 
 # Installation d'une nouvelle forêt Active Directory sur un réseau virtuel Azure
 
-Cette rubrique explique comment créer un nouvel environnement Windows Server Active Directory sur un réseau virtuel Azure sur une machine virtuelle sur un [réseau virtuel Azure](https://msdn.microsoft.com/library/azure/jj156007.aspx). Dans ce cas, le réseau virtuel Azure n'est pas connecté à un réseau local.
+Cette rubrique explique comment créer un nouvel environnement Windows Server Active Directory sur un réseau virtuel Azure sur une machine virtuelle sur un [réseau virtuel Azure](../virtual-network/virtual-networks-overview.md). Dans ce cas, le réseau virtuel Azure n'est pas connecté à un réseau local.
 
 Les rubriques suivantes peuvent également vous intéresser :
 
@@ -32,8 +32,7 @@ Les rubriques suivantes peuvent également vous intéresser :
 
 Dans ce scénario, des utilisateurs externes doivent accéder à des applications qui s'exécutent sur des serveurs appartenant à un domaine. Les machines virtuelles qui exécutent les serveurs d'applications et les machines virtuelles qui exécutent des contrôleurs de domaine sont installées dans leur propre service cloud dans un réseau virtuel Azure. Elles sont également incluses dans un groupe à haute disponibilité pour une meilleure tolérance de panne.
 
-![][1]
-
+![][1] 7
 ## Quelles sont les différences par rapport à une installation locale ?
 
 Les différences entre l'installation d'un contrôleur de domaine dans Azure ou localement sont minimes. Le tableau suivant répertorie les principales différences.
@@ -120,12 +119,12 @@ Pour plus d'informations sur l'utilisation de Windows PowerShell, consultez [Pr
 
 -  [Installation d'une nouvelle forêt Active Directory sur un réseau virtuel Azure](http://channel9.msdn.com/Series/Microsoft-Azure-Tutorials/How-to-install-a-new-Active-Directory-forest-on-an-Azure-virtual-network)
 -  [Instructions pour le déploiement de Windows Server Active Directory sur des machines virtuelles Azure](https://msdn.microsoft.com/library/azure/jj156090.aspx)
--  [Configuration d’un réseau virtuel uniquement dans le cloud](https://msdn.microsoft.com/library/dn631643.aspx)
+-  [Configuration d’un réseau virtuel uniquement dans le cloud](../virtual-network/virtual-networks-create-vnet.md)
 -  [Configuration d’un réseau VPN de site à site](../vpn-gateway/vpn-gateway-site-to-site-create.md)
 -  [Installation d’un réplica de contrôleur de domaine Active Directory dans un réseau virtuel Azure](../virtual-networks-install-replica-active-directory-domain-controller.md)
 -  [Iaas des professionnels de l’informatique Microsoft Azure : principes de base des machines virtuelles (01)](http://channel9.msdn.com/Series/Windows-Azure-IT-Pro-IaaS/01)
 -  [Iaas des professionnels de l’informatique Microsoft Azure :(05) Création de réseaux virtuels pour la connectivité entre différents locaux](http://channel9.msdn.com/Series/Windows-Azure-IT-Pro-IaaS/05)
--  [Présentation du réseau virtuel](https://msdn.microsoft.com/library/azure/jj156007.aspx).
+-  [Présentation du réseau virtuel](../virtual-network/virtual-networks-overview.md).
 -  [Installation et configuration d’Azure PowerShell](../powershell-install-configure.md)
 -  [Azure PowerShell](https://msdn.microsoft.com/library/azure/jj156055.aspx)
 -  [Guide de référence des cmdlets Azure](https://msdn.microsoft.com/library/azure/jj554330.aspx)
@@ -139,4 +138,4 @@ Pour plus d'informations sur l'utilisation de Windows PowerShell, consultez [Pr
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

@@ -1,22 +1,20 @@
 <properties 
-	pageTitle="Copie des données de sortie du didacticiel vers une base de données SQL Server locale" 
+	pageTitle="Copie des données de sortie du didacticiel vers une base de données SQL Server locale"
 	description="La procédure pas à pas de ce didacticiel étend le didacticiel de fabrique des données pour copier des données sur l’efficacité d’une campagne marketing vers une base de données SQL Server locale."
-	services="data-factory" 
-	documentationCenter="" 
-	authors="spelluru" 
-	manager="jhubbard" 
+	services="data-factory"
+	documentationCenter=""
+	authors="spelluru"
+	manager="jhubbard"
 	editor="monicar"/>
 
-
 <tags 
-	ms.service="data-factory" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/04/2015" 
+	ms.service="data-factory"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/25/2015"
 	ms.author="spelluru"/>
-
 
 
 # Procédure pas à pas : copier des données sur l’efficacité d’une campagne vers une base de données SQL Server locale. 
@@ -126,7 +124,7 @@ Pour commencer, vous devez créer la base de données SQL Server, la table, les 
 
 1.	1. Dans **Data Factory Editor**, cliquez sur **Nouveau pipeline** dans la barre d'outils. Si ce bouton n’est pas affiché dans la barre d’outils, cliquez sur **... (points de suspension)**. Vous pouvez également cliquer sur **Pipelines** dans l'arborescence, puis sur **Nouveau pipeline**.
 2. Remplacez le script JSON du volet de droite par le script JSON du fichier **EgressDataToOnPremPipeline.json** à partir du dossier **C:\\ADFWalkthrough\\OnPremises**.
-3. Ajoutez une **virgule (« , »)** à la fin du **crochet fermant (« \] »)** dans le script JSON puis ajoutez les trois lignes suivantes après le crochet fermant. 
+3. Ajoutez une **virgule (« , »)** à la fin du **crochet fermant (« ] »)** dans le script JSON puis ajoutez les trois lignes suivantes après le crochet fermant. 
 
         "start": "2014-05-01T00:00:00Z",
         "end": "2014-05-05T00:00:00Z",
@@ -153,8 +151,7 @@ Félicitations ! Vous avez terminé la procédure pas à pas pour utiliser votr
 [datafactorytutorial]: data-factory-tutorial.md
 [adfgetstarted]: data-factory-get-started.md
 [adfintroduction]: data-factory-introduction.md
-[useonpremisesdatasources]: data-factory-use-onpremises-datasources.md
-[usepigandhive]: data-factory-pig-hive-activities.md
+[useonpremisesdatasources]: data-factory-move-data-between-onprem-and-cloud.md
 
 [azure-preview-portal]: http://portal.azure.com
 [azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
@@ -172,4 +169,4 @@ Félicitations ! Vous avez terminé la procédure pas à pas pour utiliser votr
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

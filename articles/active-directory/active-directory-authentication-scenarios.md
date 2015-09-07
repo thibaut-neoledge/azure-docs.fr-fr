@@ -1,21 +1,21 @@
 
 <properties
    pageTitle="Scénarios d’authentification pour Azure AD"
-   description="Vue d’ensemble des cinq scénarios d’authentification les plus courants pour Azure Active Directory (AAD)"
-   services="active-directory"
-   documentationCenter="dev-center-name"
-   authors="msmbaldwin"
-   manager="mbaldwin"
-   editor=""/>
+	description="Vue d’ensemble des cinq scénarios d’authentification les plus courants pour Azure Active Directory (AAD)"
+	services="active-directory"
+	documentationCenter="dev-center-name"
+	authors="msmbaldwin"
+	manager="mbaldwin"
+	editor=""/>
 
 <tags
    ms.service="active-directory"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="identity"
-   ms.date="06/01/2015"
-   ms.author="mbaldwin"/>
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="identity"
+	ms.date="06/01/2015"
+	ms.author="mbaldwin"/>
 
 # Scénarios d’authentification pour Azure AD
 
@@ -60,7 +60,7 @@ Voici ce que vous devez savoir sur les divers composants du diagramme ci-dessus�
 - Les développeurs peuvent utiliser les bibliothèques d’authentification open source d’Azure AD pour simplifier l’authentification en gérant les détails du protocole pour vous. Pour plus d’informations, consultez la rubrique [Bibliothèques d’authentification d’Azure Active Directory](https://msdn.microsoft.com/library/azure/dn151135.aspx).
 
 
-• Une fois qu’un utilisateur a été authentifié, l’application doit valider son jeton de sécurité pour s’assurer que l’authentification a réussi pour les parties concernées. Les développeurs peuvent utiliser les bibliothèques d’authentification fournies pour gérer la validation d’un jeton d’Azure AD, y compris les jetons Web JSON (JWT) ou SAML 2.0. Pour effectuer la validation manuellement, consultez la documentation sur le [gestionnaire de jeton JWT](https://msdn.microsoft.com/library/dn205065(v=vs.110).aspx).
+• Une fois qu’un utilisateur a été authentifié, l’application doit valider son jeton de sécurité pour s’assurer que l’authentification a réussi pour les parties concernées. Les développeurs peuvent utiliser les bibliothèques d’authentification fournies pour gérer la validation d’un jeton d’Azure AD, y compris les jetons Web JSON (JWT) ou SAML 2.0. Pour effectuer la validation manuellement, consultez la documentation sur le [gestionnaire de jeton JWT](<https://msdn.microsoft.com/library/dn205065(v=vs.110).aspx>).
 
 
 > [AZURE.IMPORTANT]Azure AD utilise le chiffrement à clé publique pour signer les jetons et vérifier leur validité. Consultez la rubrique [Informations importantes sur la substitution des clés de signature dans Azure AD](https://msdn.microsoft.com/library/azure/dn641920.aspx) pour plus d’informations sur la logique dont vous devez disposer dans votre application pour vous assurer qu’elle est systématiquement mise à jour avec les clés les plus récentes.
@@ -338,7 +338,7 @@ L’identité d’application et l’identité d’utilisateur délégué sont d
 
 ##### Identité d’application avec octroi d’informations d’identification client OAuth 2.0
 
-1. Un utilisateur est connecté à Azure AD dans l’application web (voir la section « Navigateur web vers application web » ci-dessus).
+1. Un utilisateur est connecté à Azure AD dans l’application web (voir la section [Navigateur web vers application web](#web-browser-to-web-application) ci-dessus).
 
 
 2. L’application web doit obtenir un jeton d’accès pour pouvoir s’authentifier auprès de l’API web et extraire la ressource souhaitée. Elle envoie une demande au point de terminaison de jeton d’Azure AD, avec les informations d’identification, l’ID client et l’URI ID d’application de l’API web.
@@ -466,4 +466,4 @@ Quand la première application utilise son code d’autorisation pour obtenir un
 [OAuth 2.0 dans Azure AD](https://msdn.microsoft.com/library/azure/dn645545.aspx)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Utilisation des files d’attente Service Bus (Node.js) | Microsoft Azure" 
-	description="Découvrez comment utiliser les files d'attente Service Bus dans Azure à partir d’une application Node.js." 
-	services="service-bus" 
-	documentationCenter="nodejs" 
-	authors="MikeWasson" 
-	manager="wpickett" 
+	pageTitle="Utilisation des files d’attente Service Bus (Node.js) | Microsoft Azure"
+	description="Découvrez comment utiliser les files d'attente Service Bus dans Azure à partir d’une application Node.js."
+	services="service-bus"
+	documentationCenter="nodejs"
+	authors="MikeWasson"
+	manager="wpickett"
 	editor=""/>
 
 <tags 
-	ms.service="service-bus" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="nodejs" 
-	ms.topic="article" 
-	ms.date="07/06/2015" 
+	ms.service="service-bus"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="na"
+	ms.devlang="nodejs"
+	ms.topic="article"
+	ms.date="07/06/2015"
 	ms.author="mwasson"/>
 
 # Utilisation des files d’attente Service Bus
@@ -24,7 +24,7 @@ Ce guide décrit l’utilisation des files d’attente Service Bus. Les exemples
 
 ## Création d'une application Node.js
 
-Créez une application Node.js vide. Pour obtenir les instructions permettant de créer une application Node.js, consultez les pages [Création et déploiement d'une application Node.js dans un site Web Azure], [Service cloud Node.js][Node.js Cloud Service] (avec Windows PowerShell) ou [Site Web avec WebMatrix].
+Créez une application Node.js vide. Pour obtenir les instructions permettant de créer une application Node.js, consultez les pages [Création et déploiement d’une application Node.js dans un site Web Azure], [Service cloud Node.js][Node.js Cloud Service] (avec Windows PowerShell).
 
 ## Configuration de votre application pour l'utilisation de Service Bus
 
@@ -34,7 +34,7 @@ Pour utiliser Azure Service Bus, téléchargez et utilisez le package Azure Node
 
 1.  Utilisez la fenêtre de commande **Windows PowerShell pour Node.js** pour accéder au dossier **c:\\node\\sbqueues\\WebRole1** dans lequel vous avez créé votre exemple d’application.
 
-2.  Tapez **npm install azure** dans la fenêtre de commande, ce qui génère un résultat similaire à ce qui suit :
+2.  Saisissez **npm install azure** dans la fenêtre de commande, ce qui génère un résultat similaire à ce qui suit :
 
         azure@0.7.5 node_modules\azure
 		├── dateformat@1.0.2-1.2.3
@@ -58,7 +58,7 @@ Pour utiliser Azure Service Bus, téléchargez et utilisez le package Azure Node
 
 ### Configuration d’une connection Service Bus Azure
 
-Le module Azure lit les variables d'environnement AZURE\_SERVICEBUS\_NAMESPACE et AZURE\_SERVICEBUS\_ACCESS\_KEY pour obtenir les informations nécessaires à la connexion à Service Bus. Si ces variables d'environnement ne sont pas définies, vous devez spécifier les informations de compte lors de l'appel de **createServiceBusService**.
+Le module Azure lit les variables d'environnement AZURE\_SERVICEBUS\_NAMESPACE et AZURE\_SERVICEBUS\_ACCESS\_KEY pour obtenir les informations nécessaires à la connexion à Service Bus. Si ces variables d’environnement ne sont pas définies, vous devez spécifier les informations de compte lors de l’appel de **createServiceBusService**.
 
 Pour consulter un exemple de paramétrage de variables d'environnement dans un fichier de configuration pour un service cloud Azure, consultez la page [Service cloud Node.js avec stockage].
 
@@ -66,7 +66,7 @@ Pour obtenir un exemple de configuration des variables d'environnement dans le p
 
 ## Création d’une file d’attente
 
-L’objet **ServiceBusService** permet d’utiliser des files d’attente. Le code suivant crée un objet **ServiceBusService**. Ajoutez-le vers le début du fichier **server.js**, après l'instruction relative à l'importation du module Azure :
+L’objet **ServiceBusService** permet d’utiliser des files d’attente. Le code suivant crée un objet **ServiceBusService**. Ajoutez-le vers le début du fichier **server.js**, après l’instruction relative à l’importation du module Azure :
 
     var serviceBusService = azure.createServiceBusService();
 
@@ -101,7 +101,7 @@ Après le prétraitement des options de la requête, la méthode doit appeler `n
 
 		function (returnObject, finalCallback, next)
 
-Dans ce rappel, et après le traitement de **returnObject** (la réponse à la requête du serveur), le rappel doit appeler `next`, s'il existe, pour continuer à traiter d'autres filtres ou appeler `finalCallback` pour terminer l'appel du service.
+Dans ce rappel, et après le traitement de **returnObject** (la réponse à la requête du serveur), le rappel doit appeler `next`, s’il existe, pour continuer à traiter d’autres filtres ou appeler `finalCallback` pour terminer l’appel du service.
 
 Deux filtres qui implémentent la logique de relance sont inclus dans le Kit de développement logiciel (SDK) Azure pour Node.js : **ExponentialRetryPolicyFilter** et **LinearRetryPolicyFilter**. Le code suivant crée un objet **ServiceBusService** qui utilise le filtre **ExponentialRetryPolicyFilter** :
 
@@ -135,7 +135,7 @@ Le comportement par défaut de lecture et de suppression du message dans le cadr
 
 Si le paramètre **isPeekLock** est défini sur **true**, la réception devient une opération en deux étapes, qui autorise une prise en charge des applications qui ne peuvent pas tolérer les messages manquants. Lorsque Service Bus reçoit une demande, il recherche le prochain message à consommer, le verrouille pour empêcher d'autres consommateurs de le recevoir, puis le renvoie à l'application. Dès lors que l'application a terminé le traitement du message (ou qu'elle l'a stocké de manière fiable pour un traitement ultérieur), elle accomplit la deuxième étape du processus de réception en appelant la méthode **deleteMessage** et en fournissant le message à supprimer sous la forme d'un paramètre. La méthode **deleteMessage** marque le message comme étant consommé et le supprime de la file d'attente.
 
-L'exemple suivant montre comment recevoir et traiter des messages à l'aide de **receiveQueueMessage**. L’exemple reçoit et supprime d’abord un message, puis reçoit un message en utilisant **isPeekLock** défini sur **true**, puis supprime le message au moyen de **deleteMessage** :
+L’exemple suivant montre comment recevoir et traiter des messages à l’aide de **receiveQueueMessage**. L’exemple reçoit et supprime d’abord un message, puis reçoit un message en utilisant **isPeekLock** défini sur **true**, puis supprime le message au moyen de **deleteMessage** :
 
     serviceBusService.receiveQueueMessage('myqueue', function(error, receivedMessage){
         if(!error){
@@ -165,7 +165,7 @@ Si l'application subit un incident après le traitement du message, mais avant l
 
 Maintenant que vous avez appris les principes de base des files d'attente Service Bus, consultez ces liens pour en savoir plus :
 
--   Consultez la référence MSDN suivante : [Files d'attente, rubriques et abonnements][].
+-   Consultez la référence MSDN suivante : [Files d’attente, rubriques et abonnements][].
 -   Accédez au référentiel du [Kit de développement logiciel (SDK) Azure pour Node] sur GitHub.
 
   [Kit de développement logiciel (SDK) Azure pour Node]: https://github.com/Azure/azure-sdk-for-node
@@ -183,11 +183,10 @@ Maintenant que vous avez appris les principes de base des files d'attente Servic
   [Azure Management Portal]: http://manage.windowsazure.com
   
   [Node.js Cloud Service]: ../cloud-services/cloud-services-nodejs-develop-deploy-app.md
-  [Files d'attente, rubriques et abonnements]: http://msdn.microsoft.com/library/azure/hh367516.aspx
-  [Site Web avec WebMatrix]: ../app-service-web/web-sites-dotnet-using-webmatrix.md
-  [Création et déploiement d'une application Node.js dans un site Web Azure]: ../app-service-web/web-sites-nodejs-develop-deploy-mac.md
+  [Files d’attente, rubriques et abonnements]: http://msdn.microsoft.com/library/azure/hh367516.aspx
+  [Création et déploiement d’une application Node.js dans un site Web Azure]: ../app-service-web/web-sites-nodejs-develop-deploy-mac.md
   [Service cloud Node.js avec stockage]: ../cloud-services/storage-nodejs-use-table-storage-cloud-service-app.md
   [Application web Node.js avec stockage]: ../storage/storage-nodejs-how-to-use-table-storage.md
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

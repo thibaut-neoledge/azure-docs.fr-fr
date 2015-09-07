@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Utilisation du stockage de files d’attente à partir de Python | Microsoft Azure" 
-	description="Découvrez comment utiliser le service de File d’attente Azure à partir de Python pour créer et supprimer des files d’attente, ainsi que pour insérer, récupérer et supprimer des messages." 
-	services="storage" 
-	documentationCenter="python" 
-	authors="huguesv" 
-	manager="wpickett" 
+	pageTitle="Utilisation du stockage de files d’attente à partir de Python | Microsoft Azure"
+	description="Découvrez comment utiliser le service de File d’attente Azure à partir de Python pour créer et supprimer des files d’attente, ainsi que pour insérer, récupérer et supprimer des messages."
+	services="storage"
+	documentationCenter="python"
+	authors="emgerner-msft"
+	manager="wpickett"
 	editor=""/>
 
 <tags 
-	ms.service="storage" 
-	ms.workload="storage" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="python" 
-	ms.topic="article" 
-	ms.date="03/11/2015" 
-	ms.author="huvalo"/>
+	ms.service="storage"
+	ms.workload="storage"
+	ms.tgt_pltfrm="na"
+	ms.devlang="python"
+	ms.topic="article"
+	ms.date="08/25/2015"
+	ms.author="emgerner"/>
 
 # Utilisation du stockage de files d'attente à partir de Python
 
@@ -22,7 +22,7 @@
 
 ## Vue d'ensemble
 
-Ce guide décrit le déroulement de scénarios courants dans le cadre de l'utilisation du service de stockage de files d'attente Azure. Les exemples sont écrits en Python et utilisent le [package Azure Python][]. Les scénarios traités incluent l'**insertion**, la **lecture furtive**, la **récupération** et la **suppression** des messages de file d'attente, ainsi que la **création et suppression des files d'attente**. Pour plus d’informations sur les files d’attente, consultez la section [Étapes suivantes][].
+Ce guide décrit le déroulement de scénarios courants dans le cadre de l'utilisation du service de stockage de files d'attente Azure. Les exemples sont écrits en Python et utilisent le [package Python Azure Storage][]. Les scénarios traités incluent l'**insertion**, la **lecture furtive**, la **récupération** et la **suppression** des messages de file d'attente, ainsi que la **création et suppression des files d'attente**. Pour plus d’informations sur les files d’attente, consultez la section [Étapes suivantes][].
 
 [AZURE.INCLUDE [storage-queue-concepts-include](../../includes/storage-queue-concepts-include.md)]
 
@@ -35,7 +35,7 @@ Ce guide décrit le déroulement de scénarios courants dans le cadre de l'utili
 
 L'objet **QueueService** permet d'utiliser des files d'attente. Le code suivant permet de créer un objet **QueueService**. Ajoutez ce qui suit vers le début de chaque fichier Python dans lequel vous souhaitez accéder à Azure Storage par programme :
 
-	from azure.storage import QueueService
+	from azure.storage.queue import QueueService
 
 Le code suivant permet de créer un objet **QueueService** en utilisant le nom et la clé du compte de stockage. Remplacez « myaccount » et « mykey » par le compte et la clé réels.
 
@@ -110,6 +110,7 @@ Maintenant que vous connaissez les bases du stockage des files d'attente, consul
 [Stockage et accessibilité des données dans Azure]: http://msdn.microsoft.com/library/azure/gg433040.aspx
 [blog de l'équipe Azure Storage]: http://blogs.msdn.com/b/windowsazurestorage/
 [package Azure Python]: https://pypi.python.org/pypi/azure
+[package Python Azure Storage]: https://pypi.python.org/pypi/azure-storage
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

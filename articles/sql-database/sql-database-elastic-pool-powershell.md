@@ -1,20 +1,20 @@
 <properties 
-   pageTitle="Créer et gérer un pool élastique de bases de données SQL à l'aide de PowerShell" 
-   description="Créer et gérer un pool élastique de bases de données SQL Azure à l'aide de PowerShell" 
-   services="sql-database" 
-   documentationCenter="" 
-   authors="stevestein" 
-   manager="jeffreyg" 
-   editor=""/>
+   pageTitle="Créer et gérer un pool élastique de bases de données SQL à l'aide de PowerShell"
+	description="Créer et gérer un pool élastique de bases de données SQL Azure à l'aide de PowerShell"
+	services="sql-database"
+	documentationCenter=""
+	authors="stevestein"
+	manager="jeffreyg"
+	editor=""/>
 
 <tags
    ms.service="sql-database"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="powershell"
-   ms.workload="data-management" 
-   ms.date="08/12/2015"
-   ms.author="adamkr; sstein"/>
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="powershell"
+	ms.workload="data-management"
+	ms.date="08/25/2015"
+	ms.author="adamkr; sstein"/>
 
 # Créer et gérer un pool élastique de bases de données SQL à l'aide de PowerShell
 
@@ -105,10 +105,11 @@ Vous disposez maintenant d'un groupe de ressources, d'un serveur et d'une règle
 
 Le pool créé à l'étape précédente est vide. Il ne comporte aucune base de données élastique. Les sections suivantes indiquent comment créer des bases de données élastiques dans le pool et comment ajouter des bases de données existantes au pool.
 
+*Après la création d’un pool, vous pouvez également utiliser Transact-SQL pour la création de nouvelles bases de données élastiques dans le pool et le déplacement de bases de données existantes dans ou hors d’un pool. Pour plus d’informations, consultez [élastique de base de pool de référence - Transact-SQL](sql-database-elastic-pool-reference.md#Transact-SQL).*
 
 ### Créer une base de données élastique dans un pool élastique de bases de données
 
-Pour créer une base de données directement dans un pool, utilisez la cmdlet **New-AzureSqlDatabase** et définissez le paramètre **ElasticPoolName**.
+Pour créer une base de données directement à l’intérieur d’un pool, utilisez l’applet de commande **New-AzureSqlDatabase** et définissez le paramètre **ElasticPoolName**.
 
 
 	New-AzureSqlDatabase -ResourceGroupName "resourcegroup1" -ServerName "server1" -DatabaseName "database1" -ElasticPoolName "elasticpool1"
@@ -117,7 +118,7 @@ Pour créer une base de données directement dans un pool, utilisez la cmdlet **
 
 ### Déplacer une base de données existante vers un pool élastique de bases de données
 
-Pour déplacer une base de données existante dans un pool, utilisez la cmdlet **Set-AzurSqlDatabase** et définissez le paramètre **ElasticPoolName**.
+Pour déplacer une base de données existante dans un pool, utilisez l’applet de commande **Set-AzurSqlDatabase** et définissez le paramètre **ElasticPoolName**.
 
 
 À des fins d'exemple, créez une base de données qui ne se trouve pas dans un pool élastique de bases de données.
@@ -239,4 +240,4 @@ Après avoir créé un pool élastique de bases de données, vous pouvez gérer 
 
 Pour en savoir plus sur les bases de données et les pools de bases de données élastiques, y compris les détails des API et des erreurs, consultez [Référence du pool de bases de données élastique](sql-database-elastic-pool-reference.md).
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

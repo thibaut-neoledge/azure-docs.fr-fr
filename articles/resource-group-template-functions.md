@@ -1,24 +1,36 @@
 <properties
    pageTitle="Fonctions des modèles de gestionnaire des ressources Azure"
-   description="Décrit les fonctions à utiliser dans un modèle Azure Resource Manager pour récupérer des valeurs, mettre en forme des chaînes et récupérer des informations sur le déploiement."
-   services="azure-resource-manager"
-   documentationCenter="na"
-   authors="tfitzmac"
-   manager="wpickett"
-   editor=""/>
+	description="Décrit les fonctions à utiliser dans un modèle Azure Resource Manager pour récupérer des valeurs, mettre en forme des chaînes et récupérer des informations sur le déploiement."
+	services="azure-resource-manager"
+	documentationCenter="na"
+	authors="tfitzmac"
+	manager="wpickett"
+	editor=""/>
 
 <tags
    ms.service="azure-resource-manager"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="07/27/2015"
-   ms.author="tomfitz"/>
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="na"
+	ms.date="08/21/2015"
+	ms.author="tomfitz"/>
 
 # Fonctions des modèles de gestionnaire des ressources Azure
 
 Cette rubrique décrit toutes les fonctions que vous pouvez utiliser dans un modèle de gestionnaire des ressources Azure.
+
+## ajouter
+
+**add(operand1, operand2)**
+
+Retourne la somme des deux entiers fournis.
+
+| Paramètre | Requis | Description
+| :--------------------------------: | :------: | :----------
+| operand1 | Oui | Premier opérande à utiliser.
+| operand2 | Oui | Deuxième opérande à utiliser.
+
 
 ## base64
 
@@ -85,6 +97,23 @@ L’exemple ci-après indique comment renvoyer les informations de déploiement 
       }
     }
 
+## div
+
+**div(operand1, operand2)**
+
+Retourne la division entière des deux entiers fournis.
+
+| Paramètre | Requis | Description
+| :--------------------------------: | :------: | :----------
+| operand1 | Oui | Nombre à diviser.
+| operand2 | Oui | Nombre utilisé pour diviser. Doit être différent de 0.
+
+## length
+
+**length(array)**
+
+Retourne le nombre d'éléments dans un tableau. En règle générale, utilisé pour spécifier le nombre d'itérations lors de la création de ressources. Pour obtenir un exemple d'utilisation de cette fonction, consultez [Création de plusieurs instances de ressources dans Azure Resource Manager](resource-group-create-multiple.md).
+
 ## listKeys
 
 **listKeys (nom\_ressource ou identificateur\_ressource, [version\_api])**
@@ -104,6 +133,30 @@ L'exemple suivant montre comment retourner les clés à partir d'un compte de st
         "type" : "object" 
       } 
     } 
+
+## mod
+
+**mod(operand1, operand2)**
+
+Retourne le reste de la division entière des deux entiers fournis.
+
+| Paramètre | Requis | Description
+| :--------------------------------: | :------: | :----------
+| operand1 | Oui | Nombre à diviser.
+| operand2 | Oui | Nombre utilisé pour diviser. Doit être différent de 0.
+
+
+## mul
+
+**mul(operand1, operand2)**
+
+Retourne la multiplication des deux entiers fournis.
+
+| Paramètre | Requis | Description
+| :--------------------------------: | :------: | :----------
+| operand1 | Oui | Premier opérande à utiliser.
+| operand2 | Oui | Deuxième opérande à utiliser.
+
 
 ## padLeft
 
@@ -311,6 +364,37 @@ Souvent, vous devez utiliser cette fonction lorsque vous utilisez un compte de s
       }]
     }
 
+## split
+
+**split(inputString, delimiter)** **split(inputString, [delimiters])**
+
+Retourne un tableau de chaînes qui contient les sous-chaînes de la chaîne d'entrée séparées par les délimiteurs envoyés.
+
+| Paramètre | Requis | Description
+| :--------------------------------: | :------: | :----------
+| chaîne\_entrée | Oui | La chaîne à fractionner.
+| delimiter | Oui | Le séparateur à utiliser. Peut être une chaîne unique ou un tableau de chaînes.
+
+L'exemple suivant fractionne la chaîne d'entrée en la séparant par une virgule.
+
+    "parameters": {
+        "inputString": { "type": "string" }
+    },
+    "variables": { 
+        "stringPieces": "[split(parameters('inputString'), ',')]"
+    }
+
+## sub
+
+**sub(operand1, operand2)**
+
+Retourne la soustraction des deux entiers fournis.
+
+| Paramètre | Requis | Description
+| :--------------------------------: | :------: | :----------
+| operand1 | Oui | Nombre auquel sera appliquée la soustraction.
+| operand2 | Oui | Nombre à soustraire.
+
 
 ## subscription
 
@@ -383,9 +467,9 @@ Retourne la valeur de la variable. Le nom de variable spécifié doit être déf
 
 
 ## Étapes suivantes
-- Pour obtenir une description des sections dans un modèle Azure Resource Manager, consultez [Création de modèles Azure Resource Manager](resource-group-authoring-templates.md).
-- Pour fusionner plusieurs modèles, consultez [Utilisation de modèles liés avec Azure Resource Manager](resource-group-linked-templates.md).
-- Pour itérer un nombre de fois spécifié lors de la création d'un type de ressource, consultez [Création de plusieurs instances de ressources dans Azure Resource Manager](resource-group-create-multiple.md).
-- Pour savoir comment déployer le modèle que vous avez créé, consultez [Déploiement d'une application avec un modèle Azure Resource Manager](azure-portal/resource-group-template-deploy.md).
+- Pour obtenir une description des sections dans un modèle Azure Resource Manager, consultez [Création de modèles Azure Resource Manager](resource-group-authoring-templates.md)
+- Pour fusionner plusieurs modèles, consultez [Utilisation de modèles liés avec Azure Resource Manager](resource-group-linked-templates.md)
+- Pour itérer un nombre de fois spécifié lors de la création d'un type de ressource, consultez [Création de plusieurs instances de ressources dans Azure Resource Manager](resource-group-create-multiple.md)
+- Pour savoir comment déployer le modèle que vous avez créé, consultez [Déploiement d'une application avec un modèle Azure Resource Manager](azure-portal/resource-group-template-deploy.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

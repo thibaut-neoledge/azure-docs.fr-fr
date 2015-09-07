@@ -60,7 +60,7 @@ Avant la configuration d’un cluster HBase, vous devez disposer d’un réseau 
 	- **Espace d’adressage** : choisissez un espace d’adressage pour le réseau virtuel qui est suffisant grand pour fournir des adresses pour tous les nœuds du cluster. Si ce n'est pas le cas, l'approvisionnement échoue. Pour parcourir ce didacticiel, vous pouvez choisir l'une des trois options suivantes.
 	- **Nombre maximal de machines virtuelles** : choisissez l’un des nombres maximaux de machines virtuelles (VM). Cette valeur détermine le nombre d'hôtes (machines virtuelles) qu'il est possible de créer sous l'espace d'adressage. Pour parcourir ce didacticiel, **4096 [CIDR: /20]** est suffisant.
 	- **Emplacement** : l’emplacement doit être le même que celui du cluster HBase que vous allez créer.
-	- **Serveur DNS** : ce didacticiel utilise un serveur de système de nom de domaine (DNS) interne fourni par Azure, vous pouvez donc choisir **Aucun**. Des configurations de réseau plus avancées avec des serveurs DNS personnalisés sont également prises en charge. Pour obtenir des instructions détaillées, consultez la page [Résolution de noms (DNS)](http://msdn.microsoft.com/library/azure/jj156088.aspx).
+	- **Serveur DNS** : ce didacticiel utilise un serveur de système de nom de domaine (DNS) interne fourni par Azure, vous pouvez donc choisir **Aucun**. Des configurations de réseau plus avancées avec des serveurs DNS personnalisés sont également prises en charge. Pour obtenir des instructions détaillées, consultez la page [Résolution de noms (DNS)](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).
 4. Cliquez sur **CRÉER UN RÉSEAU VIRTUEL** dans le coin inférieur droit. Le nom du nouveau réseau virtuel apparaît dans la liste. Attendez que la valeur **Créé** apparaisse dans la colonne Statut.
 5. Dans le volet principal, cliquez sur le réseau virtuel que vous venez de créer.
 6. Cliquez sur **TABLEAU DE BORD** en haut de la page.
@@ -132,9 +132,7 @@ Un serveur DNS est facultatif, mais il est nécessaire dans certains cas. La pro
 	<tr><td>Taille du nœud principal</td><td><p>Sélectionnez une taille de machine virtuelle pour le nœud principal.</p></td></tr>
 	<tr><td>Taille du nœud de données</td><td><p>Sélectionnez une taille de machine virtuelle pour le nœud de données.</p></td></tr>
 	<tr><td>Taille du nœud Zookeeper</td><td><p>Sélectionnez une taille de machine virtuelle pour le nœud Zookeeper.</p></td></tr>
-	</table>
-
-	>[AZURE.NOTE]Selon votre choix de machines virtuelles, les coûts peuvent varier. HDInsight utilise toutes les machines virtuelles de niveau standard pour les nœuds de cluster. Pour plus d’informations sur les répercussions de la taille des machines virtuelles sur les prix, consultez <a href="http://azure.microsoft.com/pricing/details/hdinsight/" target="_blank">Tarification HDInsight</a>.
+</table>>[AZURE.NOTE]Selon votre choix de machines virtuelles, les coûts peuvent varier. HDInsight utilise toutes les machines virtuelles de niveau standard pour les nœuds de cluster. Pour plus d’informations sur les répercussions de la taille des machines virtuelles sur les prix, consultez <a href="http://azure.microsoft.com/pricing/details/hdinsight/" target="_blank">Tarification HDInsight</a>.
 
 	Cliquez avec le bouton droit.
 
@@ -150,7 +148,7 @@ Un serveur DNS est facultatif, mais il est nécessaire dans certains cas. La pro
 		<td>Spécifiez le mot de passe de cluster HDInsight.</td></tr>
 	<tr><td>Activation du Bureau à distance pour le cluster</td>
 		<td>Cochez cette case pour spécifier une date d’expiration, un nom d’utilisateur et un mot de passe pour un utilisateur de bureau à distance pouvant se connecter aux nœuds de cluster à distance, après configuration. Vous pouvez également activer le Bureau à distance ultérieurement, une fois le cluster configuré. Pour la marche à suivre, consultez <a href="hdinsight-administer-use-management-portal/#rdp" target="_blank">Connexion à des clusters HDInsight à l’aide de RDP</a>.</td></tr>
-	</table>
+</table>
 
 6. Sur la page **Compte de stockage**, entrez les valeurs suivantes :
 
@@ -334,7 +332,7 @@ Pour utiliser ces informations dans une application Java, vous pouvez suivre la 
     	<value>zookeeper0.<dns suffix>,zookeeper1.<dns suffix>,zookeeper2.<dns suffix></value>
 	</property>
 
-> [AZURE.NOTE]Pour plus d’informations sur la résolution de noms sur des réseaux virtuels Azure, y compris la façon d’utiliser votre propre serveur DNS, consultez la rubrique [Résolution de noms (DNS)](http://msdn.microsoft.com/library/azure/jj156088.aspx).
+> [AZURE.NOTE]Pour plus d’informations sur la résolution de noms sur des réseaux virtuels Azure, y compris la façon d’utiliser votre propre serveur DNS, consultez la rubrique [Résolution de noms (DNS)](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).
 
 ##Approvisionnement d’un cluster HBase au moyen d’Azure PowerShell
 
@@ -393,7 +391,7 @@ Dans ce didacticiel, vous avez appris à approvisionner un cluster HBase. Pour p
 
 [hbase-get-started]: ../hdinsight-hbase-get-started.md
 [hbase-twitter-sentiment]: ../hdinsight-hbase-twitter-sentiment.md
-[vnet-overview]: http://msdn.microsoft.com/library/azure/jj156007.aspx
+[vnet-overview]: ../virtual-network/virtual-networks-overview.md
 [vm-create]: ../virtual-machines-windows-tutorial.md
 
 [azure-portal]: https://management.windowsazure.com
@@ -431,4 +429,4 @@ Dans ce didacticiel, vous avez appris à approvisionner un cluster HBase. Pour p
 [img-provision-cluster-page1]: ./media/hdinsight-hbase-provision-vnet/hbasewizard1.png "Détails de configuration pour le nouveau cluster HBase"
 [img-provision-cluster-page5]: ./media/hdinsight-hbase-provision-vnet/hbasewizard5.png "Utilisation de l’action de script pour personnaliser un cluster HBase"
 
-<!-----HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

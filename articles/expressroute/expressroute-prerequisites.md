@@ -1,31 +1,31 @@
 <properties
-   pageTitle="Configuration requise pour l'adoption du service ExpressRoute"
-   description="Cette page fournit une liste des exigences à respecter avant de commander un circuit ExpressRoute"
-   documentationCenter="na"
-   services="expressroute"
-   authors="cherylmc"
-   manager="carolz"
-   editor="tysonn"/>
+   pageTitle="Configuration requise pour l’adoption du service ExpressRoute | Microsoft Azure"
+	description="Cette page fournit une liste des exigences à respecter avant de commander un circuit Azure ExpressRoute."
+	documentationCenter="na"
+	services="expressroute"
+	authors="cherylmc"
+	manager="carolz"
+	editor="tysonn"/>
 <tags
    ms.service="expressroute"
-   ms.devlang="na"
-   ms.topic="get-started-article" 
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="07/28/2015"
-   ms.author="cherylmc"/>
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.tgt_pltfrm="na"
+	ms.workload="infrastructure-services"
+	ms.date="07/28/2015"
+	ms.author="cherylmc"/>
 
 
-# Configuration requise pour ExpressRoute  
+# Configuration requise pour Azure ExpressRoute  
 
-Pour vous connecter aux services cloud de Microsoft en utilisant ExpressRoute, vous devez vérifier que les conditions préalables suivantes sont remplies :
+Pour vous connecter aux services cloud de Microsoft en utilisant ExpressRoute, vous devez vérifier que les conditions préalables suivantes sont remplies.
 
 ## Configuration requise pour la connectivité
 
-- Un compte Microsoft Azure actif et valide
+- Un compte Microsoft Azure actif et valide.
 - Un partenariat avec un fournisseur de services réseau ou un fournisseur Exchange à partir de la [liste prise en charge](expressroute-locations.md) par l'intermédiaire duquel la connectivité doit être facilitée. Vous devez avoir établi une relation commerciale avec le fournisseur de services réseau ou le fournisseur Exchange. Vous devez vous assurer que le service que vous utilisez est compatible avec ExpressRoute.
-- Si vous souhaitez faire appel à un fournisseur de services réseau qui ne figure pas sur cette liste, vous pouvez toujours établir une connexion à Azure.
-	- Vérifiez si votre fournisseur de services réseau est présent dans l’un des emplacements Exchange répertoriés ci-dessus.
+- Si vous souhaitez faire appel à un fournisseur de services réseau qui ne figure pas sur la liste prise en charge, vous pouvez toujours établir une connexion à Azure.
+	- Vérifiez si votre fournisseur de services réseau est présent dans l’un des emplacements Exchange apparaissant dans la liste prise en charge.
 	- Demandez à votre fournisseur de services réseau d’étendre votre réseau à l’emplacement Exchange de votre choix.
 	- Commandez un circuit ExpressRoute via le fournisseur Exchange pour vous connecter à Azure.
 - Une connectivité à l'infrastructure de votre fournisseur de services. Votre situation doit correspondre à un (ou plusieurs) des points suivants :
@@ -41,8 +41,7 @@ Pour vous connecter aux services cloud de Microsoft en utilisant ExpressRoute, v
 
 - Pour plus d'informations sur ExpressRoute, consultez le [FAQ sur ExpressRoute](expressroute-faqs.md).
 - Pour plus d'informations sur la façon de configurer votre connexion ExpressRoute, consultez :
-	- [Configuration d’une connexion ExpressRoute via un fournisseur de services réseau](expressroute-configuring-nsps.md)
-	- [Configuration d’une connexion ExpressRoute via un fournisseur Exchange](expressroute-configuring-exps.md)
- 
+	- [Configuration d’une connexion ExpressRoute via un fournisseur de services réseau](expressroute-configuring-nsps.md).
+	- [Configuration d’une connexion ExpressRoute via un fournisseur Exchange](expressroute-configuring-exps.md).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

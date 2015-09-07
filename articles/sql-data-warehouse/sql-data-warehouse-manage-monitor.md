@@ -1,20 +1,20 @@
 <properties
    pageTitle="Surveiller votre charge de travail à l'aide de vues de gestion dynamique | Microsoft Azure"
-   description="Comment surveiller votre charge de travail à l'aide de vues de gestion dynamique"
-   services="sql-data-warehouse"
-   documentationCenter="NA"
-   authors="sahaj08"
-   manager="barbkess"
-   editor=""/>
+	description="Comment surveiller votre charge de travail à l'aide de vues de gestion dynamique"
+	services="sql-data-warehouse"
+	documentationCenter="NA"
+	authors="sahaj08"
+	manager="barbkess"
+	editor=""/>
 
 <tags
    ms.service="sql-data-warehouse"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="data-services"
-   ms.date="08/06/2015"
-   ms.author="sahajs"/>
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="data-services"
+	ms.date="08/06/2015"
+	ms.author="sahajs"/>
 
 # Surveiller votre charge de travail à l'aide de vues de gestion dynamique
 
@@ -135,7 +135,11 @@ ORDER BY step_index;
 
 Enregistrez l'Index d'étape de l’étape la plus longue.
 
-Vérifiez la colonne *operation\_type* de l'étape la plus longue de la requête : - suivez l'étape 4a pour les **opérations SQL** : OnOperation, RemoteOperation, ReturnOperation - suivez l'étape 4b pour **les opérations de déplacement de données** : ShuffleMoveOperation, BroadcastMoveOperation, TrimMoveOperation, PartitionMoveOperation, MoveOperation, CopyOperation
+Vérifier la colonne *type\_opération* de l’exécution de l’étape de requête longue :
+
+- Passez à l’étape 4a pour les **opérations SQL** : OnOperation, RemoteOperation, ReturnOperation.
+- Passez à l’étape 4b pour **les opérations de déplacement des données** : ShuffleMoveOperation, BroadcastMoveOperation, TrimMoveOperation, PartitionMoveOperation, MoveOperation, CopyOperation.
+
 
 
 
@@ -181,8 +185,8 @@ WHERE request_id = 'QID33209' AND step_index = 2;
 
 ```
 
-- Vérifiez la colonne *total\_elapsed\_time* pour voir si une des distributions prend beaucoup plus de temps que les autres pour le déplacement des données. 
-- Consultez la colonne *rows\_processed* de la distribution la plus longue pour voir si le nombre de lignes déplacées à partir de cette distribution est nettement plus volumineux que d'autres. Cela indique que votre requête présente une inclinaison de données.
+- Vérifiez la colonne *total\_elapsed\_time* pour voir si une distribution particuière prend beaucoup plus de temps que les autres pour le déplacement des données. 
+- Consultez la colonne *rows\_processed* de la distribution la plus longue pour voir si le nombre de lignes déplacées dans le cadre de cette distribution est nettement plus élevé que d’autres. Cela indique que votre requête présente une inclinaison de données.
 
 
 
@@ -203,14 +207,14 @@ Le résultat de cette requête affiche le nombre de lignes de la table stockées
 
 
 ## Étapes suivantes
-Pour plus d'informations sur la gestion de SQL Data Warehouse, consultez la page [Gestion de la vue d'ensemble][].
+Pour plus d’informations sur la gestion de SQL Data Warehouse, consultez la page [Gestion de la vue d’ensemble][].
 
 <!--Image references-->
 
 <!--Article references-->
-[Gestion de la vue d'ensemble]: sql-data-warehouse-overview-manage.md
+[Gestion de la vue d’ensemble]: sql-data-warehouse-overview-manage.md
 [Conception de table]: sql-data-warehouse-develop-table-design.md
 
 <!--MSDN references-->
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

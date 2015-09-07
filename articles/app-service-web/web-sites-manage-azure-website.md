@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Gérer une application web dans Azure App Service" 
-	description="Liens vers des ressources permettant de gérer une application web dans Azure App Service." 
-	services="app-service\web" 
-	documentationCenter="" 
-	authors="erikre" 
-	manager="wpickett" 
+	pageTitle="Gérer une application web dans Azure App Service"
+	description="Liens vers des ressources permettant de gérer une application web dans Azure App Service."
+	services="app-service\web"
+	documentationCenter=""
+	authors="erikre"
+	manager="wpickett"
 	editor=""/>
 
 <tags 
-	ms.service="app-service-web" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/31/2015" 
+	ms.service="app-service-web"
+	ms.workload="web"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/31/2015"
 	ms.author="erikre"/>
 
 # Gérer une application web dans Azure App Service
@@ -22,7 +22,7 @@ Cette rubrique contient des liens vers des ressources permettant de gérer une a
 
 Pendant la durée de vie d’une application web, vous effectuez différentes tâches de gestion, depuis le déploiement initial jusqu’au fonctionnement normal, en passant par la maintenance et les mises à jour.
 
-De nombreuses tâches de gestion d’application web peuvent être effectuées dans le portail Azure. Pour plus d’informations, consultez la page [Gérer des applications web dans le portail Azure](web-sites-manage.md).
+De nombreuses tâches de gestion d’application web peuvent être effectuées dans le portail Azure.
 
 ## Avant de déployer votre application web en production
 
@@ -103,4 +103,4 @@ Si vous utilisez Visual Studio Online, vous pouvez configurer un déploiement co
 
   
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

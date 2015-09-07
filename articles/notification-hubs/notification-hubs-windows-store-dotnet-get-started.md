@@ -12,8 +12,8 @@
 	ms.workload="mobile"
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="dotnet"
-	ms.topic="hero-article" 
-	ms.date="06/09/2015"
+	ms.topic="hero-article"
+	ms.date="08/24/2015"
 	ms.author="wesmc"/>
 
 # Prise en main de Notification Hubs
@@ -35,21 +35,20 @@ Ce didacticiel requiert les éléments suivants :
 
 + Un compte Windows Store actif
 
-+ Un compte Azure actif. <br/>Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Ffr-fr%2Fdocumentation%2Farticles%2Fnotification-hubs-windows-store-dotnet-get-started%2F).
++ Un compte Azure actif. <br/>Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Ffr-FR%2Fdocumentation%2Farticles%2Fnotification-hubs-windows-store-dotnet-get-started%2F).
 
 Vous devez suivre ce didacticiel avant de pouvoir suivre tous les autres didacticiels Notification Hubs pour les applications Windows Store.
 
 ##Inscription de votre application pour le Windows Store
 
-Pour envoyer des notifications Push vers des applications Windows Store à partir de Mobile Services, vous devez soumettre votre application au Windows Store. Vous devez ensuite configurer votre Notification Hub pour l'intégrer à WNS.
+Pour envoyer des notifications Push vers des applications Windows Store, vous devez associer votre application à Windows Store. Vous devez ensuite configurer votre Notification Hub pour l'intégrer à WNS.
 
-1. Si vous n’avez pas encore inscrit votre application, accédez à la page <a href="http://go.microsoft.com/fwlink/p/?LinkID=266582" target="_blank">Soumettre une application</a> du Centre de développement pour les applications du Windows Store, connectez-vous avec votre compte Microsoft, puis cliquez sur **Nom de l’application**.
+1. Si vous n’avez pas déjà inscrit votre application, accédez à la page <a href="http://go.microsoft.com/fwlink/p/?LinkID=266582" target="_blank">Centre de développement Windows</a>, connectez-vous à votre compte Microsoft, puis cliquez sur le **Créer une application**.
 
-   	![][0]
 
-2. Tapez un nom pour l'application dans **Nom de l'application**, cliquez sur **Réserver le nom d'application**, puis sur **Enregistrer**.
+2. Tapez un nom pour votre application et cliquez sur **Réserver le nom d’application**.
 
-   	![][1]
+   	![](./media/notification-hubs-windows-store-dotnet-get-started/notification-hubs-win8-app-name.png)
 
    	La nouvelle inscription au Windows Store pour votre application est créée.
 
@@ -73,13 +72,9 @@ Pour envoyer des notifications Push vers des applications Windows Store à parti
 
 7. (Facultatif) Répétez les étapes 4 à 6 pour le projet d'application Windows Phone Store.
 
-7. De retour sur la page du centre de développement Windows pour la nouvelle application, cliquez sur **Services**.
+8. De retour sur la page Centre de développement Windows de votre nouvelle application, cliquez sur **Services**, sur **Notifications Push**, puis cliquez sur **Site des services Microsoft Live** sous **Windows Push Notification Services (WNS) et Microsoft Azure Mobile Services**.
 
-   	![][5]
-
-8. Sur la page **Services**, cliquez sur **Live Services site** sous **Microsoft Azure Mobile Services**.
-
-   	![][17]
+   	![](./media/notification-hubs-windows-store-dotnet-get-started/notification-hubs-win8-app-live-services.png)
 
 9. Dans l'onglet **Paramètres de l'application**, notez les valeurs des options **Clé secrète client** et **Identificateur de sécurité (SID) du package**.
 
@@ -129,7 +124,7 @@ Votre Notification Hub est désormais configuré pour WNS, et vous disposez des 
 
 	Une référence à la bibliothèque Messagerie Azure pour Windows est téléchargée, installée et ajoutée dans tous les projets à l’aide du <a href="http://nuget.org/packages/WindowsAzure.Messaging.Managed/">package NuGet WindowsAzure.Messaging.Managed</a>.
 
-3. Ouvrez le fichier projet App.xaml.cs et ajoutez les instructions `using` suivantes : Dans un projet universel, ce fichier se trouve dans le dossier `<project_name>.Shared`.
+3. Ouvrez le fichier projet App.xaml.cs et ajoutez les instructions `using` qui suivent. Dans un projet universel, ce fichier se trouve dans le dossier `<project_name>.Shared`.
 
         using Windows.Networking.PushNotifications;
         using Microsoft.WindowsAzure.Messaging;
@@ -198,13 +193,13 @@ Vous pouvez envoyer des notifications en utilisant Notification Hubs à partir d
 
 6. Dans la fenêtre Console du gestionnaire de package, affectez votre nouveau projet d’application console comme **Projet par défaut**, puis exécutez la commande suivante :
 
-        Install-Package WindowsAzure.ServiceBus
+        Install-Package Microsoft.Azure.NotificationHubs
 
-	Une référence est ajoutée au Kit de développement logiciel (SDK) Azure Service Bus à l’aide du <a href="http://nuget.org/packages/WindowsAzure.ServiceBus/">package NuGet WindowsAzure.ServiceBus</a>.
+	Cette opération ajoute une référence au Kit de développement logiciel Azure Notification Hubs à l’aide du package <a href="http://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/">Microsoft.Azure.Notification Hubs NuGet </a>.
 
 5. Ouvrez le fichier Program.cs et ajoutez l’instruction `using` suivante :
 
-        using Microsoft.ServiceBus.Notifications;
+        using Microsoft.Azure.NotificationHubs;
 
 6. Dans la classe **Program**, ajoutez la méthode suivante :
 
@@ -240,12 +235,9 @@ Dans cet exemple simple, vous avez envoyé des notifications à tous vos apparei
 
 
 <!-- Images. -->
-[0]: ./media/notification-hubs-windows-store-dotnet-get-started/mobile-services-submit-win8-app.png
-[1]: ./media/notification-hubs-windows-store-dotnet-get-started/mobile-services-win8-app-name.png
 [2]: ./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-create-windows-universal-app.png
 [3]: ./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-associate-win8-app.png
 [4]: ./media/notification-hubs-windows-store-dotnet-get-started/mobile-services-select-app-name.png
-[5]: ./media/notification-hubs-windows-store-dotnet-get-started/mobile-services-win8-edit-app.png
 [6]: ./media/notification-hubs-windows-store-dotnet-get-started/mobile-services-win8-app-push-auth.png
 [7]: ./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-create-from-portal.png
 [8]: ./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-create-from-portal2.png
@@ -257,7 +249,6 @@ Dans cet exemple simple, vous avez envoyé des notifications à tous vos apparei
 [14]: ./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-windows-toast.png
 [15]: ./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-scheduler1.png
 [16]: ./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-scheduler2.png
-[17]: ./media/notification-hubs-windows-store-dotnet-get-started/mobile-services-win8-edit2-app.png
 [18]: ./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-win8-app-toast.png
 [19]: ./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-windows-reg.png
 [20]: ./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-windows-universal-app-install-package.png
@@ -274,4 +265,4 @@ Dans cet exemple simple, vous avez envoyé des notifications à tous vos apparei
 [vue d'ensemble des badges]: http://msdn.microsoft.com/library/windows/apps/hh779719.aspx
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

@@ -1,22 +1,20 @@
 <properties 
-	pageTitle="Autorisations et informations d’identification Azure AD Connect" 
-	description="Description de la configuration personnalisée des informations d’identification et autorisations Azure AD Connect." 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="swadhwa" 
+	pageTitle="Autorisations et informations d’identification Azure AD Connect"
+	description="Description de la configuration personnalisée des informations d’identification et autorisations Azure AD Connect."
+	services="active-directory"
+	documentationCenter=""
+	authors="billmath"
+	manager="stevenpo"
 	editor="curtand"/>
 
-
 <tags 
-	ms.service="active-directory" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/02/2015" 
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/24/2015"
 	ms.author="billmath"/>
-
 
 
 
@@ -90,7 +88,7 @@ AD FS :compte de service administré de groupe (gMSA) (aadcsvc$)|Utilisateur de
 * [Autorisations pour Exchange hybride](https://msdn.microsoft.com/library/azure/dn757602.aspx#exchange)
 * [Autorisations d’écriture différée du mot de passe](https://msdn.microsoft.com/library/azure/dn757602.aspx#pwriteback)
 * [Installation personnalisée d’Azure AD Connect](active-directory-aadconnect-get-started-custom.md)
-* [Azure AD Connect sur MSDN](https://msdn.microsoft.com/library/azure/dn832695.aspx)
+* [Azure AD Connect sur MSDN](active-directory-aadconnect.md)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

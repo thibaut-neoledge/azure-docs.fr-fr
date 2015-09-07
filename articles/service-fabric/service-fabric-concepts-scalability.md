@@ -1,20 +1,20 @@
 <properties
    pageTitle="Disponibilité des services Service Fabric"
-   description="Décrit comment mettre à l'échelle les services Service Fabric"
-   services="service-fabric"
-   documentationCenter=".net"
-   authors="appi101"
-   manager="timlt"
-   editor=""/>
+	description="Décrit comment mettre à l'échelle les services Service Fabric"
+	services="service-fabric"
+	documentationCenter=".net"
+	authors="appi101"
+	manager="timlt"
+	editor=""/>
 
 <tags
    ms.service="service-fabric"
-   ms.devlang="dotnet"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="NA"
-   ms.date="04/23/2015"
-   ms.author="aprameyr"/>
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="NA"
+	ms.date="08/26/2015"
+	ms.author="aprameyr"/>
 
 # Mise à l'échelle d'applications Fabric Service
 Service Fabric facilite la création d'applications évolutives en équilibrant la charge des services, des partitions et des réplicas entre tous les nœuds d'un cluster. Cela permet d'optimiser l'utilisation des ressources.
@@ -61,4 +61,4 @@ Pour plus d'informations sur les concepts propres à Service Fabric, consultez l
 - [Définition et gestion de l'état](service-fabric-concepts-state.md)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

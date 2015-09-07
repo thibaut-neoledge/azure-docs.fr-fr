@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Déplacer les ressources vers un nouveau groupe de ressources" 
-	description="Utilisez Azure PowerShell ou une API REST pour déplacer des ressources vers un nouveau groupe de ressources pour Azure Resource Manager." 
-	services="azure-resource-manager" 
-	documentationCenter="" 
-	authors="tfitzmac" 
-	manager="wpickett" 
+	pageTitle="Déplacer les ressources vers un nouveau groupe de ressources"
+	description="Utilisez Azure PowerShell ou une API REST pour déplacer des ressources vers un nouveau groupe de ressources pour Azure Resource Manager."
+	services="azure-resource-manager"
+	documentationCenter=""
+	authors="tfitzmac"
+	manager="wpickett"
 	editor=""/>
 
 <tags 
-	ms.service="azure-resource-manager" 
-	ms.workload="multiple" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/14/2015" 
+	ms.service="azure-resource-manager"
+	ms.workload="multiple"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/20/2015"
 	ms.author="tomfitz"/>
 
 # Déplacer des ressources vers un nouveau groupe de ressource ou un nouvel abonnement
@@ -54,6 +54,11 @@ Les services qui prennent en charge le déplacement des ressources vers un nouve
 Les services qui ne prennent actuellement pas en charge le déplacement d’une ressource sont les suivants :
 
 - Réseaux virtuels
+
+Lorsque vous travaillez avec des applications web, vous ne pouvez pas déplacer uniquement un plan App Service. Pour déplacer des applications web, les options disponibles sont :
+
+- Déplacer toutes les ressources d'un groupe de ressources à un autre, si le groupe de ressources de destination n'a pas déjà de ressources Microsoft.Web.
+- Déplacer les applications web vers un autre groupe de ressources, mais conserver le plan App Service dans le groupe de ressources d'origine.
 
 ## Utilisation de PowerShell pour déplacer des ressources
 
@@ -96,4 +101,4 @@ Dans la requête, incluez un objet JSON qui définit le groupe de ressources ci
 - [Utilisation du portail Azure en version préliminaire pour gérer les ressources Azure](azure-portal/resource-group-portal.md)
 - [Organisation des ressources Azure à l’aide de balises](./resource-group-using-tags.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

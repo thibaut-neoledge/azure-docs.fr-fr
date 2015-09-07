@@ -1,20 +1,20 @@
 <properties 
-   pageTitle="Microsoft Azure AD Connect : mise à niveau à partir de l’outil de synchronisation Windows Azure AD (synchronisation d’annuaires)" 
-   description="Découvrez comment mettre à niveau la synchronisation d’annuaires vers Azure AD Connect. Cet article décrit les étapes de la mise à niveau de votre outil de synchronisation Windows Azure AD (synchronisation d’annuaires) vers Azure AD Connect." 
-   services="active-directory" 
-   documentationCenter="" 
-   authors="shoatman" 
-   manager="terrylanfear" 
-   editor="billmath"/>
+   pageTitle="Microsoft Azure AD Connect : mise à niveau à partir de l’outil de synchronisation Windows Azure AD (synchronisation d’annuaires)"
+	description="Découvrez comment mettre à niveau la synchronisation d’annuaires vers Azure AD Connect. Cet article décrit les étapes de la mise à niveau de votre outil de synchronisation Windows Azure AD (synchronisation d’annuaires) vers Azure AD Connect."
+	services="active-directory"
+	documentationCenter=""
+	authors="shoatman"
+	manager="terrylanfear"
+	editor="billmath"/>
 
 <tags 
-   ms.service="active-directory" 
-   ms.workload="identity" 
-   ms.tgt_pltfrm="na" 
-   ms.devlang="na" 
-   ms.topic="article" 
-   ms.date="05/26/2015" 
-   ms.author="shoatman"/>
+   ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="05/26/2015"
+	ms.author="shoatman"/>
 
 # Mise à niveau de la synchronisation Windows Azure Active Directory (synchronisation d’annuaires) vers Azure Active Directory Connect
 
@@ -203,7 +203,7 @@ Voici une liste de prérequis et de composants de prise en charge qu’Azure AD
 * [Fonctionnement d’Azure AD Connect](active-directory-aadconnect-how-it-works.md)
 * [Étapes suivantes d’Azure AD Connect](active-directory-aadconnect-whats-next.md)
 * [En savoir plus](active-directory-aadconnect-learn-more.md)
-* [Azure AD Connect sur MSDN](https://msdn.microsoft.com/library/azure/dn832695.aspx)
+* [Azure AD Connect sur MSDN](active-directory-aadconnect.md)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

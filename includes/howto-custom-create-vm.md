@@ -1,4 +1,3 @@
-
 #Création d'une machine virtuelle personnalisée
 
 Une machine virtuelle *personnalisée* fait référence à une machine virtuelle créée via la méthode **From Gallery**, qui vous permet de configurer plus d'options que la méthode **Quick Create**. Ces options sont les suivantes :
@@ -37,7 +36,7 @@ Une machine virtuelle *personnalisée* fait référence à une machine virtuelle
 
 	**Remarque** : pour plus d'informations sur le placement des machines virtuelles dans le même service cloud, consultez la rubrique [Connexion des machines virtuelles dans un service cloud](http://www.windowsazure.com/manage/windows/how-to-guides/connect-to-a-cloud-service/).
 
-12. Dans **Region/Affinity Group/Virtual Network**, sélectionnez la région, le groupe d'affinités ou le réseau virtuel à utiliser pour la machine virtuelle. Pour plus d'informations sur les groupes d'affinités, consultez la page [À propos des groupes d'affinités de réseau virtuel](http://msdn.microsoft.com/library/azure/jj156085.aspx).
+12. Dans **Region/Affinity Group/Virtual Network**, sélectionnez la région, le groupe d'affinités ou le réseau virtuel à utiliser pour la machine virtuelle. Pour plus d'informations sur les groupes d'affinités, consultez la page [À propos des groupes d'affinités de réseau virtuel](../virtual-network/virtual-networks-migrate-to-regional-vnet.md).
 
 13. Dans **Storage Account**, sélectionnez un compte de stockage existant pour le fichier de disque dur virtuel ou utilisez un compte de stockage automatiquement généré. Un seul compte de stockage est automatiquement créé par région. Toutes les autres machines virtuelles créées avec ce paramètre sont placées dans ce compte de stockage. Vous êtes limité à 20 comptes de stockage.
 
@@ -60,4 +59,4 @@ Une fois créée, la machine virtuelle démarre automatiquement. Lorsque le port
 - [Connexion à une machine virtuelle exécutant Linux](../articles/virtual-machines/virtual-machines-linux-how-to-log-on.md)
 - [Connexion à une machine virtuelle exécutant Windows Server](../articles/virtual-machines/virtual-machines-log-on-windows-server.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

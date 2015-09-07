@@ -1,20 +1,20 @@
 <properties 
-   pageTitle="Opérations d'automatisation DNS et de jeux d’enregistrement à l'aide du Kit de développement logiciel (SDK) .net | Microsoft Azure" 
-   description="Utilisation du Kit de développement logiciel (SDK) .NET pour l’automatisation de toutes les opérations dans Azure DNS." 
-   services="dns" 
-   documentationCenter="na" 
-   authors="joaoma" 
-   manager="adinah" 
-   editor=""/>
+   pageTitle="Opérations d'automatisation DNS et de jeux d’enregistrement à l'aide du Kit de développement logiciel (SDK) .net | Microsoft Azure"
+	description="Utilisation du Kit de développement logiciel (SDK) .NET pour l’automatisation de toutes les opérations dans Azure DNS."
+	services="dns"
+	documentationCenter="na"
+	authors="joaoma"
+	manager="adinah"
+	editor=""/>
 
 <tags
    ms.service="dns"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services" 
-   ms.date="05/20/2015"
-   ms.author="joaoma"/>
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="infrastructure-services"
+	ms.date="08/20/2015"
+	ms.author="joaoma"/>
 # Création des zones DNS et de jeux d’enregistrements à l’aide du Kit de développement logiciel (SDK) .NET
 Vous pouvez automatiser les opérations de création, de suppression ou de mise à jour des zones DNS, des recordsets et des enregistrements à l'aide du Kit de développement logiciel (SDK) DNS avec la bibliothèque de gestion DNS de .NET. Un projet Visual Studio complet est disponible [ici.](http://download.microsoft.com/download/2/A/C/2AC64449-1747-49E9-B875-C71827890126/AzureDnsSDKExample_2015_05_05.zip)
 
@@ -54,7 +54,7 @@ Création d’une zone DNS :
 	dnsClient.Zones.CreateOrUpdate("myresgroup", "myzone.com", zoneParams);
 
 
-Azure DNS prend en charge l'accès concurrentiel optimiste appelé [Etags](../dns-getstarted-create-dnszone#Etags-and-tags). L'Etag est une propriété de la zone et IfNoneMatch est une propriété dans ZoneCreateOrUpdateParameters.
+Azure DNS prend en charge l'accès concurrentiel optimiste appelé [Etags](dns-getstarted-create-dnszone.md#Etags-and-tags). L'Etag est une propriété de la zone et IfNoneMatch est une propriété dans ZoneCreateOrUpdateParameters.
 
 ## Création ou mise à jour d'enregistrements DNS
 Les enregistrements DNS sont gérés en tant que jeu d'enregistrements. Un jeu d'enregistrements est l’ensemble d'enregistrements ayant le même nom et le même type d'enregistrement dans une zone. Pour créer ou mettre à jour un jeu d'enregistrements, un objet RecordSet est créé et transmis à dnsClient.RecordSets.CreateOrUpdate. Notez que le nom du jeu d'enregistrements est lié au nom de zone et ne constitue pas le nom DNS complet. Une fois de plus, l'emplacement est défini sur « global ».
@@ -74,7 +74,7 @@ Réalisation de certains jeux d'enregistrements
 	"myzone.com", "www", RecordType.A, recordParams);
 	
     
-Azure DNS prend en charge l'accès concurrentiel optimiste [Etags](../dns-getstarted-create-dnszone#Etags-and-tags). L'Etag est une propriété de RecordSet et IfNoneMatch est une propriété dans RecordSetCreateOrUpdateParameters.
+Azure DNS prend en charge l'accès concurrentiel optimiste [Etags](dns-getstarted-create-dnszone.md#Etags-and-tags). L'Etag est une propriété de RecordSet et IfNoneMatch est une propriété dans RecordSetCreateOrUpdateParameters.
 
 ## Obtention de zones et de jeux d'enregistrements
 Les collections de zones et de recordsets permettent d'obtenir respectivement des zones et des jeux d'enregistrements. Les jeux d'enregistrements sont identifiés par leur type, leur nom et la zone (ainsi que le groupe de ressources) dans laquelle ils sont présents. Les zones sont identifiées par leur nom et le groupe de ressources dans lequel elles sont présentes.
@@ -100,11 +100,12 @@ L'exemple suivant montre comment obtenir une liste de zones DNS et des jeux d’
 
     // do something like write out each record set
 	}
-## Voir aussi 
-[Vue d’ensemble de Traffic Manager](../traffic-manager-overview)
+## Étapes suivantes
 
-[Vue d'ensemble d’Azure DNS](../dns-overview)
+[Qu’est-ce que Traffic Manager ?](traffic-manager-overview.md)
+
+[Présentation d’Azure DNS](dns-overview.md)
 
 [Exemple de projet du Kit de développement logiciel (SDLK) Visual Studio](http://download.microsoft.com/download/2/A/C/2AC64449-1747-49E9-B875-C71827890126/AzureDnsSDKExample_2015_05_05.zip)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

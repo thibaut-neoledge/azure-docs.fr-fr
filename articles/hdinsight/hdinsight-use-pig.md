@@ -1,21 +1,21 @@
 <properties
    pageTitle="Utilisation de Hadoop Pig dans HDInsight | Microsoft Azure"
-   description="Utilisation de Pig avec Hadoop sur HDInsight."
-   services="hdinsight"
-   documentationCenter=""
-   authors="Blackmist"
-   manager="paulettm"
-   editor="cgronlun"
+	description="Utilisation de Pig avec Hadoop sur HDInsight."
+	services="hdinsight"
+	documentationCenter=""
+	authors="Blackmist"
+	manager="paulettm"
+	editor="cgronlun"
 	tags="azure-portal"/>
 
 <tags
    ms.service="hdinsight"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="big-data"
-   ms.date="07/06/2015"
-   ms.author="larryfr"/>
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="big-data"
+	ms.date="08/21/2015"
+	ms.author="larryfr"/>
 
 # Utilisation de Pig avec Hadoop sur HDInsight
 
@@ -94,6 +94,19 @@ HDInsight peut exécuter des tâches Pig Latin de différentes façons. Utilise
 | [Windows PowerShell](hdinsight-hadoop-use-pig-powershell.md) | &nbsp; | ✔ | Linux ou Windows | Windows |
 | [Bureau à distance](hdinsight-hadoop-use-pig-remote-desktop.md) | ✔ | ✔ | Windows | Windows |
 
+
+## Exécute des tâches Pig sur Azure HDInsight à l’aide de services SQL Server Integration Services locaux
+
+Vous pouvez également utiliser les services SQL Server Integration Services (SSIS) pour exécuter une tâche Pig. Le pack de fonctionnalités Azure pour SSIS fournit les composants suivants, compatibles avec les tâches Pig sur HDInsight.
+
+
+- [Tâche d’Azure HDInsight Pig][pigtask]
+- [Gestionnaire de connexions d’abonnement Azure][connectionmanager]
+
+
+Pour en savoir plus sur le pack de fonctionnalités Azure pour SSIS, cliquez [ici][ssispack].
+
+
 ##<a id="nextsteps"></a>Étapes suivantes
 
 Maintenant que vous avez vu comment utiliser Pig avec HDInsight, utilisez les liens suivants pour découvrir d'autres façons d'utiliser Azure HDInsight.
@@ -107,6 +120,9 @@ Maintenant que vous avez vu comment utiliser Pig avec HDInsight, utilisez les li
 [apachepig-home]: http://pig.apache.org/
 [putty]: http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html
 [curl]: http://curl.haxx.se/
+[pigtask]: http://msdn.microsoft.com/fr-FR/library/mt146781(v=sql.120).aspx
+[connectionmanager]: http://msdn.microsoft.com/fr-FR/library/mt146773(v=sql.120).aspx
+[ssispack]: http://msdn.microsoft.com/fr-FR/library/mt146770(v=sql.120).aspx
 
 [hdinsight-storage]: ../hdinsight-use-blob-storage.md
 [hdinsight-upload-data]: hdinsight-upload-data.md
@@ -128,4 +144,4 @@ Maintenant que vous avez vu comment utiliser Pig avec HDInsight, utilisez les li
 [image-hdi-pig-powershell]: ./media/hdinsight-use-pig/hdi.pig.powershell.png
 [image-hdi-pig-architecture]: ./media/hdinsight-use-pig/HDI.Pig.Architecture.png
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

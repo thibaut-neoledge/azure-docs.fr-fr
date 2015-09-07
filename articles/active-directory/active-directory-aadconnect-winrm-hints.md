@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Azure AD Connect - Conseils sur la gestion à distance Windows" 
-	description="Azure AD Connect - Conseils sur la gestion à distance Windows dans le cadre de l’utilisation d’AD FS." 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="swadhwa" 
+	pageTitle="Azure AD Connect - Conseils sur la gestion à distance Windows"
+	description="Azure AD Connect - Conseils sur la gestion à distance Windows dans le cadre de l’utilisation d’AD FS."
+	services="active-directory"
+	documentationCenter=""
+	authors="billmath"
+	manager="stevenpo"
 	editor="curtand"/>
 
 <tags 
-	ms.service="active-directory" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/28/2015" 
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/24/2015"
 	ms.author="billmath"/>
 
 # Azure AD Connect - Conseils sur la gestion à distance Windows
@@ -43,6 +43,6 @@ Lorsque vous utilisez Azure AD Connect pour déployer Active Directory Federatio
 
 * [Informations supplémentaires sur les autorisations et les comptes Azure AD Connect](active-directory-aadconnect-account-summary.md)
 * [Installation personnalisée d’Azure AD Connect](active-directory-aadconnect-get-started-custom.md)
-* [Azure AD Connect sur MSDN](https://msdn.microsoft.com/library/azure/dn832695.aspx) 
+* [Azure AD Connect sur MSDN](active-directory-aadconnect.md) 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

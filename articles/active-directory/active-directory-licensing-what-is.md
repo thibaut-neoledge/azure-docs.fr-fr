@@ -1,45 +1,48 @@
 <properties
    pageTitle="Qu’est-ce que la gestion des licences Microsoft Azure Active Directory ? | Microsoft Azure"
-   description="Description de la gestion des licences Microsoft Azure AD, de son mode de fonctionnement, de sa mise en route et des meilleures pratiques associées concernant les éditions Office 365, Microsoft Intune et Azure Active Directory Premium et Standard."
-   services="active-directory"
-   documentationCenter=""
-   authors="curtand"
-   manager="swadhwa"
-   editor=""/>
+	description="Description de la gestion des licences Microsoft Azure AD, de son mode de fonctionnement, de sa mise en route et des meilleures pratiques associées concernant les éditions Office 365, Microsoft Intune et Azure Active Directory Premium et Standard"
+	services="active-directory"
+	documentationCenter=""
+	authors="curtand"
+	manager="swadhwa"
+	editor=""/>
 
 <tags
    ms.service="active-directory"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="identity"
-   ms.date="07/16/2015"
-   ms.author="curtand"/>
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="identity"
+	ms.date="07/16/2015"
+	ms.author="curtand"/>
 
 # Qu’est-ce que la gestion des licences Microsoft Azure Active Directory ?
 
 ##Description
 Azure Active Directory (AD) est une plateforme et une solution Microsoft de type IDaaS (Identity as a Service). Azure AD est proposé en différentes versions fonctionnelles et techniques, depuis la version Azure AD gratuite, disponible avec n’importe quel service Microsoft tel qu’Office 365, Dynamics, Microsoft Intune et Azure (Azure AD ne génère aucun frais de consommation dans ce mode), jusqu’aux versions Azure AD payantes comme Enterprise Mobility Suite (EMS), Azure AD Premium et Standard, ainsi qu’Azure Multi-Factor Authentication (MFA). À l’instar de nombreux services en ligne Microsoft, la plupart des versions Azure AD payantes sont fournies par le biais de droits par utilisateur, comme dans Office 365, Microsoft Intune et Azure AD. Dans ces cas-là, l’achat de services est représenté par un ou plusieurs abonnements incluant chacun un certain nombre de licences prépayées dans votre client. Les droits par utilisateur sont obtenus par l’attribution de licences, entraînant ainsi la création d’un lien entre l’utilisateur et le produit, l’activation des composants de service pour l’utilisateur et la consommation de l’une des licences prépayées.
 
-Le portail d’administration d’Azure AD fait partie intégrante du Portail de gestion Azure. Alors que l’utilisation d’Azure AD ne nécessite pas l’achat d’Azure, l’accès à ce portail requiert un abonnement Azure actif ou un[abonnement à la version d’évaluation d’Azure](http://azure.microsoft.com/pricing/free-trial/).
+[Essayez Azure AD Premium maintenant.](https://portal.office.com/Signup/Signup.aspx?OfferId=01824d11-5ad8-447f-8523-666b0848b381&ali=1#0)
 
-Pour découvrir une présentation détaillée des fonctionnalités des services Azure AD, voir l’article [Qu’est-ce qu’Azure Active Directory ?](active-directory-whatis.md).
+> [AZURE.NOTE]Le portail d’administration d’Azure AD fait partie intégrante du Portail de gestion Azure. Alors que l’utilisation d’Azure AD ne nécessite pas l’achat d’Azure, l’accès à ce portail requiert un abonnement Azure actif ou un [abonnement à la version d’évaluation d’Azure](http://azure.microsoft.com/pricing/free-trial/).
+
+Pour découvrir une présentation détaillée des fonctionnalités des services Azure AD, consultez l’article [Qu’est-ce qu’Azure Active Directory ?](active-directory-whatis.md). [En savoir plus sur les niveaux de service Azure AD](http://azure.microsoft.com/support/legal/sla/)
 
 > [AZURE.NOTE]Les abonnements Azure de type paiement à l’utilisation sont différents : bien qu’ils soient également représentés dans votre annuaire, ces abonnements activent la création de ressources Azure et les mappent sur votre mode de paiement. Dans ce cas, AUCUN nombre de licences n’est associé à l’abonnement. L’association d’utilisateurs à l’abonnement, qui définit l’accès des utilisateurs à la gestion des ressources d’abonnement, s’effectue en leur octroyant des autorisations de manipulation des ressources Azure mappées sur l’abonnement.
 
-> [En savoir plus sur les niveaux de service Azure AD](http://azure.microsoft.com/support/legal/sla/)
 
 ##Comment la gestion des licences Azure AD fonctionne-t-elle ?
 
-Les services Azure AD basés sur des droits ou sur des licences reposent sur l’activation d’un abonnement dans votre annuaire/client de service Azure AD. Une fois que l’abonnement est actif, les fonctionnalités de service peuvent être gérées par les administrateurs d’annuaire/de service et utilisées par les utilisateurs sous licence.
+Les services Azure AD basés sur des licences (sur des droits) reposent sur l’activation d’un abonnement dans votre annuaire/client de service Azure AD. Une fois que l’abonnement est actif, les fonctionnalités de service peuvent être gérées par les administrateurs d’annuaire/de service et utilisées par les utilisateurs sous licence.
 
 Lorsque vous achetez ou activez Enterprise Mobility Suite, Azure AD Premium ou Azure AD Standard, votre annuaire est mis à jour avec l’abonnement, y compris sa période de validité et les licences prépayées. Les informations de votre abonnement, notamment l’état, les événements de cycle de vie suivants et le nombre de licences attribuées ou disponibles, sont accessibles par l’intermédiaire du Portail de gestion Azure AD sous l’onglet Licences de l’annuaire considéré. Cet onglet constitue également l’emplacement idéal pour gérer vos attributions de licence.
 
-Chaque abonnement se compose d’un ou de plusieurs plans de services représentant chacun le niveau fonctionnel inclus du type de service ; par exemple, Azure AD, Azure MFA, Microsoft Intune, Exchange Online ou SharePoint Online. La gestion des licences Azure AD ne nécessite AUCUNE gestion au niveau des plans de services. Cette approche diffère de celle d’Office 365, qui s’appuie sur ce mode de configuration avancée pour gérer l’accès aux services inclus. Azure AD repose sur la configuration des services pour activer les fonctionnalités et gérer les autorisations individuelles.
+Chaque abonnement se compose d’un ou de plusieurs plans de services, mappant chacun le niveau fonctionnel inclus du type de service ; par exemple, Azure AD, Azure MFA, Microsoft Intune, Exchange Online ou SharePoint Online. La gestion des licences Azure AD ne nécessite AUCUNE gestion au niveau des plans de services. Cette approche diffère de celle d’Office 365, qui s’appuie sur ce mode de configuration avancée pour gérer l’accès aux services inclus. Azure AD repose sur la configuration des services pour activer les fonctionnalités et gérer les autorisations individuelles.
 
 En général, les informations d’abonnement Azure AD sont gérées par l’intermédiaire du Portail de gestion Azure, sous l’onglet Licences de l’annuaire considéré. À l’exception d’Azure AD Premium, les abonnements Azure AD n’apparaissent PAS dans le portail Office.
 
-> [AZURE.IMPORTANT]Les abonnements Azure AD Premium et Standard, ainsi que les abonnements Enterprise Mobility Suite, sont confinés à leur annuaire/client approvisionné. Les abonnements ne peuvent pas être fractionnés entre plusieurs annuaires, ni utilisés pour habiliter des utilisateurs à exploiter d’autres annuaires. Le déplacement d’un abonnement entre annuaires est possible, mais nécessite l’envoi d’un ticket de support ou une annulation et un rachat dans le cas des achats directs.
+> [AZURE.IMPORTANT]Les abonnements Azure AD Premium et Standard, ainsi que les abonnements Enterprise Mobility Suite, sont confinés à leur annuaire/client alloué. Les abonnements ne peuvent pas être fractionnés entre plusieurs annuaires, ni utilisés pour habiliter des utilisateurs à exploiter d’autres annuaires. Le déplacement d’un abonnement entre annuaires est possible, mais nécessite l’envoi d’un ticket de support ou une annulation et un rachat dans le cas des achats directs.
+
+> [AZURE.IMPORTANT]Lors de l'achat d'Azure AD ou Enterprise Mobility Suite via la licence en volume, l’activation de l'abonnement se produit automatiquement lorsque l'accord comprend d’autres services Microsoft Online, comme Office 365.
 
 Les fonctionnalités Azure AD payantes couvrent l’étendue de l’annuaire. Exemples : - Fonctionnalité d’attribution par groupe aux applications, activée sous l’application que vous gérez. - Fonctionnalités de gestion de groupe avancées et en libre service, disponibles sous la configuration de l’annuaire ou au sein du groupe concerné. - Rapports de sécurité Premium, accessibles dans l’onglet Génération de rapports. - Découverte des applications cloud, accessible dans le portail Azure en version préliminaire sous Identité.
 
@@ -77,7 +80,7 @@ Comme indiqué précédemment, Azure AD existe en différentes versions payante
 ![Plans de licence de version d’évaluation actifs](./media/active-directory-licensing-what-is/active_license_trials.png)
 
 ###Attribuer des licences
-Une fois la version d’évaluation active, vous devez vous attribuer une licence et actualiser le navigateur pour être en mesure de visualiser toutes les fonctionnalités. L’étape suivante consiste à attribuer des licences aux utilisateurs qui devront accéder aux fonctionnalités Azure AD payantes ou être inclus dans ces dernières. Comme nous l’avons indiqué plus haut à la section « Attribution de licences », le meilleur moyen de procéder consiste à identifier le groupe représentant l’audience souhaitée et à l’attribuer à la licence ; de cette façon, si des utilisateurs sont ajoutés au groupe ou en sont supprimés pendant son cycle de vie, la licence leur sera également attribuée ou retirée.
+Une fois l’inscription active, vous devez vous attribuer une licence et actualiser le navigateur pour être en mesure de visualiser toutes les fonctionnalités. L’étape suivante consiste à attribuer des licences aux utilisateurs qui devront accéder aux fonctionnalités Azure AD payantes ou être inclus dans ces dernières. Comme nous l’avons indiqué plus haut à la section « Attribution de licences », le meilleur moyen de procéder consiste à identifier le groupe représentant l’audience souhaitée et à l’attribuer à la licence ; de cette façon, si des utilisateurs sont ajoutés au groupe ou en sont supprimés pendant son cycle de vie, la licence leur sera également attribuée ou retirée.
 
 Pour attribuer une licence à un groupe ou à des utilisateurs spécifiques, sélectionnez le plan de licence que vous souhaitez attribuer, puis cliquez sur**Attribuer** sur la barre de commandes.
 
@@ -97,7 +100,7 @@ Lors de l’attribution des licences de portail Azure AD, des erreurs d’attri
 
 ###Visualiser les licences attribuées
 
-L’onglet **Licences** présente une vue récapitulative des licences attribuées, indiquant le nombre de licences disponibles et attribuées et l’événement de cycle de vie d’abonnement suivant.
+L’onglet **Licences** présente une vue récapitulative des licences attribuées, indiquant le nombre de licences disponibles et attribuées, et l’événement de cycle de vie d’abonnement suivant.
 
 ![Visualiser le nombre de licences attribuées](./media/active-directory-licensing-what-is/view_assigned_licenses.png)
 
@@ -128,4 +131,4 @@ Vous voilà prêt à configurer et à utiliser certaines fonctionnalités d’Az
 - [Azure Multi-Factor Authentication](multi-factor-authentication.md)
 - [Achat direct de licences Azure AD Premium](http://aka.ms/buyaadp)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

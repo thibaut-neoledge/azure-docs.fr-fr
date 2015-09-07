@@ -133,13 +133,13 @@ Toutefois, si vous avez une clé existante dans un fichier .pem enregistré sous
 
     azure keyvault key import --vaultName 'ContosoKeyVault' --key-name 'ContosoFirstKey' --pem-file './softkey.pem' –-password 'PaSSWORD' --destination software
 
-Vous pouvez maintenant référencer la clé que vous avez créée ou téléchargée dans Azure Key Vault à l’aide de son URI. Utilisez \*\***https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey**pour toujours obtenir la version actuelle, utilisez \*\***https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey/cgacf4f763ar42ffb0a1gca546aygd87** pour obtenir cette version spécifique.
+Vous pouvez maintenant référencer la clé que vous avez créée ou téléchargée dans Azure Key Vault à l’aide de son URI. Utilisez ****https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey**pour toujours obtenir la version actuelle, utilisez ****https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey/cgacf4f763ar42ffb0a1gca546aygd87** pour obtenir cette version spécifique.
 
 Pour ajouter un secret dans le coffre, c’est-à-dire un mot de passe nommé SQLPassword avec la valeur Pa$$w0rd dans Azure Key Vault, tapez le code suivant :
 
     azure keyvault secret set --vault-name 'ContosoKeyVault' --secret-name 'SQLPassword' --value 'Pa$$w0rd'
 
-Vous pouvez maintenant référencer ce mot de passe que vous avez ajouté dans Azure Key Vault à l’aide de son URI. Utilisez \*\***https://ContosoVault.vault.azure.net/secrets/SQLPassword**pour toujours obtenir la version actuelle, utilisez \*\***https://ContosoVault.vault.azure.net/secrets/SQLPassword/90018dbb96a84117a0d2847ef8e7189d** pour obtenir cette version spécifique.
+Vous pouvez maintenant référencer ce mot de passe que vous avez ajouté dans Azure Key Vault à l’aide de son URI. Utilisez ****https://ContosoVault.vault.azure.net/secrets/SQLPassword**pour toujours obtenir la version actuelle, utilisez ****https://ContosoVault.vault.azure.net/secrets/SQLPassword/90018dbb96a84117a0d2847ef8e7189d** pour obtenir cette version spécifique.
 
 Examinons la clé ou le secret que vous venez de créer :
 
@@ -185,7 +185,10 @@ Pour autoriser l’application à accéder à la clé ou au secret dans le coffr
 Par exemple, si le nom de votre coffre est ContosoKeyVault, que l’application que vous souhaitez autoriser a l’ID client 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed et que vous souhaitez autoriser l’application à déchiffrer et à signer avec des clés dans le coffre, exécutez la commande suivante :
 
     azure keyvault set-policy --vault-name 'ContosoKeyVault' --spn 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed --perm-to-keys '[“decrypt”,”sign”]'
+    
+Si vous souhaitez autoriser cette même application à lire les éléments secrets de votre coffre, exécutez la commande suivante :
 
+	azure keyvault set-policy --vault-name 'ContosoKeyVault' --spn 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed --perm-to-secrets '["Get"]'
 
 ## Si vous souhaitez utiliser un module de sécurité matériel (HSM) ##
 
@@ -252,4 +255,4 @@ Voici un exemple montrant comment supprimer un secret spécifique :
 
 Pour les références de programmation, consultez les pages [API REST de coffre de clés](https://msdn.microsoft.com/library/azure/dn903609.aspx) et [Référence de l’API cliente C# du coffre de clés](https://msdn.microsoft.com/library/azure/dn903628.aspx).
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

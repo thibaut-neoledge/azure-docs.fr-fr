@@ -1,19 +1,19 @@
 <properties
    pageTitle="Azure Backup en 10 minutes | Microsoft Azure"
-   description="Prise en main d'Azure Backup en 10 minutes"
-   services="backup"
-   documentationCenter=""
-   authors="Jim-Parker"
-   manager="shreeshd"
-   editor=""/>
+	description="Prise en main d'Azure Backup en 10 minutes"
+	services="backup"
+	documentationCenter=""
+	authors="Jim-Parker"
+	manager="shreeshd"
+	editor=""/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="get-started-article" ms.date="07/06/2015" ms.author="aashishr"; "jimpark"/>
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="get-started-article" ms.date="08/20/2015" ms.author="aashishr"; "jimpark"/>
 
 # Essayer Azure Backup en 10 minutes
 Il est très facile de configurer Azure Backup et les vidéos pratiques suivantes vous aideront à le prendre en main.
 
 ## Étape 1 : obtenir un abonnement Azure
-- Si vous n'avez pas d'abonnement Azure, vous pouvez commencer par une version d'évaluation gratuite qui vous permet d'accéder à n'importe quel service Azure. Consultez le lien suivant [http://azure.microsoft.com/pricing/free-trial/](http://azure.microsoft.com/pricing/free-trial) pour en savoir plus.
+- Si vous n’avez pas d’abonnement Azure, vous pouvez commencer par une offre d’essai gratuit qui vous permet d’accéder à n’importe quel service Azure. Consultez le lien suivant [http://azure.microsoft.com/pricing/free-trial/](http://azure.microsoft.com/pricing/free-trial) pour en savoir plus.
 - Vous pouvez ignorer cette étape si vous disposez d'un abonnement Azure.
 
 ## Étape 2 : configurer le service Azure Backup
@@ -42,7 +42,8 @@ Passez en revue les étapes présentées dans la vidéo [Prise en main d’Azure
 > [AZURE.VIDEO getting-started-with-azure-backup-3-of-3-start-backing-up-your-production-server]
 
 ## Étapes suivantes
-- Pour en savoir plus sur Azure Backup, consultez la page [Présentation de la Sauvegarde Windows Azure](backup-introduction-to-azure-backup.md).
+- Pour en savoir plus sur Azure Backup, consultez la [vue d’ensemble d’Azure Backup](backup-introduction-to-azure-backup.md).
+- [Sauvegarder Windows Server](backup-azure-backup-windows-server.md)
 - Consultez le [forum Azure Backup](http://go.microsoft.com/fwlink/p/?LinkId=290933).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

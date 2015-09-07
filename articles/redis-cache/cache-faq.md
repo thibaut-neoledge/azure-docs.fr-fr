@@ -1,22 +1,20 @@
 <properties 
-	pageTitle="Forum aux questions sur le Cache Redis Azure" 
-	description="Découvrez les réponses aux questions les plus fréquentes, les modèles et les meilleures pratiques pour Cache Redis Azure." 
-	services="redis-cache" 
-	documentationCenter="" 
-	authors="steved0x" 
-	manager="dwrede" 
+	pageTitle="Forum aux questions sur le Cache Redis Azure"
+	description="Découvrez les réponses aux questions les plus fréquentes, les modèles et les meilleures pratiques pour Cache Redis Azure."
+	services="redis-cache"
+	documentationCenter=""
+	authors="steved0x"
+	manager="dwrede"
 	editor=""/>
 
-
 <tags 
-	ms.service="cache" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="cache-redis" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/24/2015" 
+	ms.service="cache"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="cache-redis"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/25/2015"
 	ms.author="sdanie"/>
-
 
 # Forum aux questions sur le Cache Redis Azure
 
@@ -70,7 +68,7 @@ L’expiration du délai se produit dans le client que vous utilisez pour commun
 <a name="cache-monitor"></a>
 ## Comment surveiller l’intégrité et les performances de mon cache ?
 
-Les instances de Cache Redis Microsoft Azure peuvent être surveillées dans le [portail Azure en version préliminaire](https://portal.azure.com). Vous pouvez afficher les mesures, épingler des graphiques de mesure au Tableau d’accueil, personnaliser la plage de date et d’heure des graphiques de surveillance, ajouter et supprimer des mesures dans les graphiques et définir des alertes lorsque certaines conditions sont remplies. Ces outils vous permettent de surveiller l’intégrité de vos instances Cache Redis Azure et vous aident à gérer vos applications de mise en cache. Pour plus d’informations sur la surveillance de vos caches, consultez la page [Surveillance du Cache Redis Azure](https://msdn.microsoft.com/library/azure/dn763945.aspx).
+Les instances de Cache Redis Microsoft Azure peuvent être surveillées dans la [version préliminaire du portail Azure](https://portal.azure.com). Vous pouvez afficher les mesures, épingler des graphiques de mesure au Tableau d’accueil, personnaliser la plage de date et d’heure des graphiques de surveillance, ajouter et supprimer des mesures dans les graphiques et définir des alertes lorsque certaines conditions sont remplies. Ces outils vous permettent de surveiller l’intégrité de vos instances Cache Redis Azure et vous aident à gérer vos applications de mise en cache. Pour plus d’informations sur la surveillance de vos caches, consultez la page [Surveillance du Cache Redis Azure](https://msdn.microsoft.com/library/azure/dn763945.aspx).
 
 <a name="cache-disconnect"></a>
 ## Pourquoi mon client a-t-il été déconnecté du cache ?
@@ -143,7 +141,7 @@ Pour obtenir des instructions sur le téléchargement des outils Redis, consulte
 <a name="cache-benchmarking"></a>
 ## Comment puis-je évaluer et tester les performances de mon cache ?
 
--	[Activez les diagnostics du cache](https://msdn.microsoft.com/library/azure/dn763945.aspx#EnableDiagnostics) afin de pouvoir [surveiller](https://msdn.microsoft.com/library/azure/dn763945.aspx) l’intégrité de votre cache. Vous pouvez afficher les mesures dans le portail, ainsi que les [télécharger et les analyser](https://github.com/rustd/RedisSamples/tree/master/CustomMonitoring) à l’aide des outils de votre choix.
+-	[Activez les diagnostics du cache](https://msdn.microsoft.com/library/azure/dn763945.aspx#EnableDiagnostics) afin de pouvoir [surveiller](https://msdn.microsoft.com/library/azure/dn763945.aspx) l’intégrité de votre cache. Vous pouvez afficher les mesures dans la version préliminaire du portail, ainsi que les [télécharger et les analyser](https://github.com/rustd/RedisSamples/tree/master/CustomMonitoring) à l’aide des outils de votre choix.
 -	Vous pouvez utiliser redis-benchmark.exe pour tester la charge de votre serveur Redis.
 	-	Assurez-vous que le client de test de la charge et le cache Redis se trouvent dans la même région.
 -	Utilisez redis-cli.exe et surveillez le cache à l’aide de la commande INFO.
@@ -155,7 +153,7 @@ Pour obtenir des instructions sur le téléchargement des outils Redis, consulte
 
 Vous pouvez utiliser les commandes répertoriées sur [Commandes Redis](http://redis.io/commands#), hors commandes répertoriées sur [Commandes Redis non prises en charge dans le Cache Redis Azure](cache-configure.md#redis-commands-not-supported-in-azure-redis-cache). Vous disposez de plusieurs options pour exécuter des commandes Redis.
 
--	Si vous avez un cache standard, vous pouvez exécuter les commandes Redis à l'aide de la [console Redis](cache-configure.md#redis-console). Elle offre un moyen sécurisé d'exécuter des commandes Redis dans le portail Azure.
+-	Si vous avez un cache standard, vous pouvez exécuter les commandes Redis à l'aide de la [console Redis](cache-configure.md#redis-console). Elle offre un moyen sécurisé d’exécuter des commandes Redis dans la version préliminaire du portail.
 -	Vous pouvez aussi utiliser les outils en ligne de commande Redis. Pour ce faire, effectuez les étapes suivantes.
 	-	Téléchargez les [outils en ligne de commande Redis](https://github.com/MSOpenTech/redis/releases/download/win-2.8.19.1/redis-2.8.19.zip).
 	-	Connectez-vous au cache avec `redis-cli.exe`. Transmettez le point de terminaison du cache à l’aide du commutateur -h et la clé à l’aide de -a, comme indiqué dans l’exemple suivant.
@@ -177,4 +175,4 @@ Le Cache Redis Microsoft Azure est basé sur le logiciel open source Cache Redis
 
 Étant donné que chaque client est différent, il n’y a pas de référence centralisée au sujet des classes sur MSDN. Chaque client a sa propre documentation de référence. En plus de la documentation de référence, il existe plusieurs didacticiels sur Azure.com qui montrent comment débuter avec le Cache Redis Azure avec plusieurs langages et clients de cache sur la page [Documentation Cache Redis](http://azure.microsoft.com/documentatgion/services/redis-cache/).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

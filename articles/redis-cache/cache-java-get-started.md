@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Utilisation du Cache Redis Azure avec Java"
+   pageTitle="Utilisation du Cache Redis Azure avec Java | Microsoft Azure"
 	description="Prise en main du Cache Redis Azure avec Java"
 	services="redis-cache"
 	documentationCenter=""
@@ -13,12 +13,12 @@
 	ms.topic="hero-article"
 	ms.tgt_pltfrm="cache-redis"
 	ms.workload="tbd"
-	ms.date="08/17/2015"
+	ms.date="08/25/2015"
 	ms.author="sdanie"/>
 
 # Utilisation du Cache Redis Azure avec Java
 
-Le Cache Redis Azure permet d'accéder à un cache Redis sécurisé et dédié, géré par Microsoft. Votre cache est accessible à partir de n'importe quelle application dans Microsoft Azure.
+Le Cache Redis Azure permet d’accéder à un cache Redis dédié géré par Microsoft. Votre cache est accessible à partir de n'importe quelle application dans Microsoft Azure.
 
 Cette rubrique montre comment utiliser le Cache Redis Azure avec Java.
 
@@ -32,7 +32,7 @@ Ce didacticiel utilise Jedis, mais vous pouvez utiliser n'importe quel client Ja
 
 ## Créer un Cache Redis sur Azure
 
-Dans le [Portail Azure en version préliminaire](http://go.microsoft.com/fwlink/?LinkId=398536), cliquez sur **Nouveau**, sur **Stockage + Données**, puis sélectionnez **Cache Redis**.
+Dans la [version préliminaire du portail Azure](http://go.microsoft.com/fwlink/?LinkId=398536), cliquez sur **Nouveau**, sur **Stockage + Données**, puis sélectionnez **Cache Redis**.
 
   ![][1]
 
@@ -41,7 +41,7 @@ Entrez un nom d'hôte DNS. Il se présente comme suit : `<name>.redis.cache.win
   ![][2]
 
 
-Une fois le cache créé, cliquez dessus dans le portail pour afficher ses paramètres. Cliquez sur le lien en dessous de **Clés**, puis copiez la clé primaire. Vous en aurez besoin pour authentifier les demandes.
+Une fois le cache créé, cliquez dessus dans la version préliminaire du portail pour afficher ses paramètres. Cliquez sur le lien en dessous de **Clés**, puis copiez la clé primaire. Vous en aurez besoin pour authentifier les demandes.
 
   ![][4]
 
@@ -49,7 +49,7 @@ Une fois le cache créé, cliquez dessus dans le portail pour afficher ses param
 ## Activer le point de terminaison non SSL
 
 
-Cliquez sur le lien en dessous de **Ports**, puis cliquez sur **Non** pour l'option « Autoriser l'accès uniquement via SSL ». Cela activera le port non SSL pour le cache. Le client Jedis ne prend pas en charge le SSL.
+Cliquez sur le lien en dessous de **Ports**, puis cliquez sur **Non** pour l'option « Autoriser l'accès uniquement via SSL ». Cela active le port non SSL pour le cache. Le client Jedis ne prend pas en charge le SSL.
 
   ![][3]
 
@@ -60,7 +60,7 @@ Cliquez sur le lien en dessous de **Ports**, puis cliquez sur **Non** pour l'opt
 	import redis.clients.jedis.Jedis;
 	import redis.clients.jedis.JedisShardInfo;
 
-	/* Make sure your turn on non SSL port in Azure Redis using the Configuration section in the Azure portal */
+	/* Make sure you turn on non-SSL port in Azure Redis using the Configuration section in the preview portal */
 	public class App
 	{
 	  public static void main( String[] args )
@@ -87,4 +87,4 @@ Cliquez sur le lien en dessous de **Ports**, puis cliquez sur **Non** pour l'opt
 [3]: ./media/cache-java-get-started/cache03.png
 [4]: ./media/cache-java-get-started/cache04.png
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

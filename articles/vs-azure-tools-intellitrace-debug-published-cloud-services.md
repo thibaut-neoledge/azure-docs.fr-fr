@@ -1,19 +1,21 @@
 <properties 
-   pageTitle="Débogage d’un service cloud publié avec IntelliTrace et Visual Studio"
-   description="Débogage d’un service cloud publié avec IntelliTrace et Visual Studio"
-   services="visual-studio-online"
-   documentationCenter="n/a"
-   authors="patshea123"
-   manager="douge"
-   editor="tlee" />
+   pageTitle="Débogage d’un service cloud publié avec IntelliTrace et Visual Studio | Microsoft Azure"
+	description="Débogage d’un service cloud publié avec IntelliTrace et Visual Studio"
+	services="visual-studio-online"
+	documentationCenter="n/a"
+	authors="patshea123"
+	manager="douge"
+	editor="tlee"/>
 <tags 
    ms.service="visual-studio-online"
-   ms.devlang="multiple"
-   ms.topic="article"
-   ms.workload="na"
-   ms.tgt_pltfrm="na"
-   ms.date="08/12/2015"
-   ms.author="patshea" />
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.tgt_pltfrm="multiple"
+	ms.workload="na"
+	ms.date="08/14/2015"
+	ms.author="patshea"/>
+
+
 
 # Débogage d’un service cloud publié avec IntelliTrace et Visual Studio
 
@@ -31,7 +33,9 @@ Pour activer IntelliTrace pour une application Azure, vous devez créer et publi
 
 1. Quand vous êtes prêt à déployer votre application Azure, vérifiez que les cibles de publication de votre projet sont définies sur **Debug**.
 
-1. Dans l’Explorateur de solutions, ouvrez le menu contextuel pour le projet Azure, puis choisissez **Publier**. L’Assistant Publication d’application Azure s’affiche.
+1. Dans l’Explorateur de solutions, ouvrez le menu contextuel pour le projet Azure, puis choisissez **Publier**.
+ 
+    L’Assistant Publication d’application Azure s’affiche.
 
 1. Pour collecter des journaux IntelliTrace pour votre application publiée dans le cloud, cochez la case **Activer IntelliTrace**.
 
@@ -61,8 +65,8 @@ Vous pouvez continuer à utiliser Visual Studio pendant le téléchargement des 
 
 >[AZURE.NOTE]Les journaux IntelliTrace peuvent contenir des exceptions que l’infrastructure génère et gère par la suite. Le code de l’infrastructure interne génère ces exceptions dans le cadre normal du démarrage d’un rôle. Vous pouvez donc les ignorer en toute sécurité.
 
-## Étapes suivantes
+## Voir aussi
 
-[Débogage de Cloud Services](http://go.microsoft.com/fwlink/p/?LinkID=62304)
+[Débogage de Cloud Services](https://msdn.microsoft.com/library/ee405479.aspx)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

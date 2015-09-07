@@ -1,20 +1,20 @@
 <properties
    pageTitle="Architecture d’Azure Resource Manager"
-   description="Découvrez l’architecture de Resource Manager et les relations entre les fournisseurs de ressources relatives au calcul, au réseau et au stockage."
-   services="virtual-machines"
-   documentationCenter=""
-   authors="davidmu1"
-   manager="timlt"
-   editor=""
-   tags="azure-resource-manager"/>
+	description="Découvrez l’architecture de Resource Manager et les relations entre les fournisseurs de ressources relatives au calcul, au réseau et au stockage."
+	services="virtual-machines"
+	documentationCenter=""
+	authors="davidmu1"
+	manager="timlt"
+	editor=""
+	tags="azure-resource-manager"/>
 
 <tags
-	ms.service="virtual-machines"
+	ms.service="azure-resource-manager"
 	ms.workload="infrastructure-services"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/07/2015"
+	ms.date="08/25/2015"
 	ms.author="davidmu"/>
 
 # Architecture d’Azure Resource Manager
@@ -79,4 +79,4 @@ Vous pouvez également observer la modularité et les relations dépendantes ent
 
 [Présentation d’Azure Resource Manager](resource-group-overview.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

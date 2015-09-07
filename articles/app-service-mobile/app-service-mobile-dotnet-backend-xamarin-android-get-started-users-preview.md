@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Prise en main de l'authentification pour Mobile Apps dans Xamarin Android" 
-	description="Découvrez comment utiliser Mobile Apps pour authentifier les utilisateurs de votre application Xamarin Android via divers fournisseurs d'identité, notamment AAD, Google, Facebook, Twitter et Microsoft." 
-	services="app-service\mobile" 
-	documentationCenter="xamarin" 
-	authors="mattchenderson" 
-	manager="dwrede" 
+	pageTitle="Prise en main de l'authentification pour Mobile Apps dans Xamarin Android"
+	description="Découvrez comment utiliser Mobile Apps pour authentifier les utilisateurs de votre application Xamarin Android via divers fournisseurs d'identité, notamment AAD, Google, Facebook, Twitter et Microsoft."
+	services="app-service\mobile"
+	documentationCenter="xamarin"
+	authors="mattchenderson"
+	manager="dwrede"
 	editor=""/>
 
 <tags 
-	ms.service="app-service" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-xamarin-android" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="08/03/2015" 
+	ms.service="app-service"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-xamarin-android"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="08/27/2015"
 	ms.author="mahender"/>
 
 # Ajout de l'authentification à votre application Xamarin.Android
@@ -22,11 +22,7 @@
 
 Cette rubrique montre comment authentifier les utilisateurs d'une application Mobile App à partir de votre application cliente. Dans ce didacticiel, vous allez ajouter l'authentification au projet de démarrage rapide à l'aide d'un fournisseur d'identité pris en charge par Azure Mobile Apps. Une fois l'utilisateur authentifié et autorisé dans l’application Mobile App, la valeur de l'ID utilisateur s'affiche.
 
-Ce didacticiel est basé sur le démarrage rapide de Mobile App. Vous devez également commencer par suivre le didacticiel [Création d’une application Xamarin.Android].
-
-##<a name="review"></a>Examiner la configuration de votre projet de serveur (facultatif)
-
-[AZURE.INCLUDE [app-service-mobile-dotnet-backend-enable-auth-preview](../../includes/app-service-mobile-dotnet-backend-enable-auth-preview.md)]
+Ce didacticiel est basé sur le démarrage rapide de Mobile App. Vous devez également commencer par suivre le didacticiel [Création d’une application Xamarin.Android]. Si vous n’utilisez pas le projet de serveur du démarrage rapide téléchargé, vous devez ajouter le package d’extension d’authentification à votre projet. Pour plus d'informations sur les packages d'extension de serveur, consultez [Fonctionnement avec le Kit de développement logiciel (SDK) du serveur principal .NET pour Azure Mobile Apps](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md).
 
 ##<a name="create-gateway"></a>Créer une passerelle App Service
 
@@ -98,4 +94,4 @@ Ensuite, vous mettrez à jour l’application cliente pour demander des ressourc
 [Azure Management Portal]: https://portal.azure.com
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

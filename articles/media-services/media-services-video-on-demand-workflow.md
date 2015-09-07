@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Diffusion multimédia à la demande avec Azure Media Services" 
-	description="Cette rubrique traite des scénarios courants de diffusion multimédia à la demande avec Azure Media Services." 
-	services="media-services" 
-	documentationCenter="" 
-	authors="Juliako" 
-	manager="dwrede" 
+	pageTitle="Diffusion multimédia à la demande avec Azure Media Services"
+	description="Cette rubrique traite des scénarios courants de diffusion multimédia à la demande avec Azure Media Services."
+	services="media-services"
+	documentationCenter=""
+	authors="Juliako"
+	manager="dwrede"
 	editor=""/>
 
 <tags 
-	ms.service="media-services" 
-	ms.workload="media" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/11/2015" 
+	ms.service="media-services"
+	ms.workload="media"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/11/2015"
 	ms.author="juliako"/>
 
 
@@ -27,7 +27,7 @@ Notez que vous pouvez intégrer Media Services à vos outils et processus exista
 
 Le diagramme suivant présente les principaux composants de la plateforme Media Services impliqués dans le workflow de vidéo à la demande. ![Flux de travail VOD][vod-overview]
 
-##<a id="vod_scenarios"></a>Scénarios courants : diffusion multimédia à la demande. 
+##<a id="vod_scenarios"></a>Scénarios courants : diffusion multimédia à la demande.
 
 ###Protéger le contenu stocké et assurer une diffusion multimédia en continu en clair (sans chiffrement)
 
@@ -220,4 +220,4 @@ Pour plus d’informations, consultez [Lecture de votre contenu avec les lecteur
 [vod-overview]: ./media/media-services-video-on-demand-workflow/media-services-video-on-demand.png
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

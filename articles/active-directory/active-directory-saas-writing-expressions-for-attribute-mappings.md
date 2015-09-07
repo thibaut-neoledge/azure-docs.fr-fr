@@ -44,13 +44,13 @@ La syntaxe des expressions pour les mappages d’attributs rappelle celle des fo
    3. D’autres fonctions. Par exemple : fonction\_une (<<argument1>>, fonction\_deux(<<argument2>>))
 
 
-- Pour les constantes de chaîne, si vous avez besoin d’une barre oblique inverse (\\) ou d’un guillemet (") dans la chaîne, vous devez le faire précéder du symbole de barre oblique inverse (\\). Par exemple : "Nom de la société : "Contoso""
+- Pour les constantes de chaîne, si vous avez besoin d’une barre oblique inverse (\) ou d’un guillemet (") dans la chaîne, vous devez le faire précéder du symbole de barre oblique inverse (\). Par exemple : "Nom de la société : "Contoso""
 
 
 
 ## Liste des fonctions
 
-[Append](#append) &nbsp;&nbsp;&nbsp;&nbsp; [Coalesce](#coalesce) &nbsp;&nbsp;&nbsp;&nbsp; [FormatDateTime](#formatdatetime) &nbsp;&nbsp;&nbsp;&nbsp; [Join](#join) &nbsp;&nbsp;&nbsp;&nbsp; [MatchRegex](#matchregex) &nbsp;&nbsp;&nbsp;&nbsp; [Mid](#mid) &nbsp;&nbsp;&nbsp;&nbsp; [Not](#not) &nbsp;&nbsp;&nbsp;&nbsp; [ObsoleteReplace](#obsoletereplace) &nbsp;&nbsp;&nbsp;&nbsp; [Replace](#replace) &nbsp;&nbsp;&nbsp;&nbsp; [ReplaceRegex](#replaceregex) &nbsp;&nbsp;&nbsp;&nbsp; [StripSpaces](#stripspaces) &nbsp;&nbsp;&nbsp;&nbsp; [Switch](#switch)
+[Append](#append) &nbsp;&nbsp;&nbsp;&nbsp; [FormatDateTime](#formatdatetime) &nbsp;&nbsp;&nbsp;&nbsp; [Join](#join) &nbsp;&nbsp;&nbsp;&nbsp; [Mid](#mid) &nbsp;&nbsp;&nbsp;&nbsp; [Not](#not) &nbsp;&nbsp;&nbsp;&nbsp; [Replace](#replace) &nbsp;&nbsp;&nbsp;&nbsp; [StripSpaces](#stripspaces) &nbsp;&nbsp;&nbsp;&nbsp; [Switch](#switch)
 
 
 
@@ -59,7 +59,7 @@ La syntaxe des expressions pour les mappages d’attributs rappelle celle des fo
 ----------
 ### Append
 
-**Fonction :**<br> Append(source, suffix)
+**Fonction :**<br> Append(source, suffixe)
 
 **Description :**<br> prend une valeur de chaîne source et ajoute le suffixe à la fin de celle-ci.
  
@@ -69,21 +69,6 @@ La syntaxe des expressions pour les mappages d’attributs rappelle celle des fo
 |--- | ---                 | ---  | ---   |
 | **source** | Requis | String | Généralement le nom de l’attribut de l’objet source |
 | **suffix** | Requis | String | Chaîne que vous souhaitez ajouter à la fin de la valeur source. |
-
-
-----------
-### Coalesce
-
-**Fonction :**<br> Coalesce(source1, source2, …)
-
-**Description :**<br> retourne la première valeur non vide figurant dans la liste des paramètres sources.
- 
-**Paramètres :**<br>
-
-|Nom| Requis / Répétition | Type | Remarques |
-|--- | ---                 | ---  | ---   |
-| ****source1... sourceN ** | Requis, nombre de fois variable | String |valeurs **sources** parmi lesquelles choisir |
-
 
 
 ----------
@@ -106,9 +91,9 @@ La syntaxe des expressions pour les mappages d’attributs rappelle celle des fo
 ----------
 ### Join
 
-**Fonction :**<br> Join(separator, source1, source2, …)
+**Fonction :**<br> Join(séparateur, source1, source2, …)
 
-**Description :**<br> Join() est similaire à Append(), mais elle peut combiner plusieurs valeurs de chaîne **sources** dans une même chaîne et chaque valeur sera séparée par une chaîne **separator**.
+**Description :**<br> Join() est similaire à Append(), mais elle peut combiner plusieurs valeurs de chaîne **sources** dans une même chaîne et chaque valeur sera séparée par une chaîne de **séparation**.
 
 Si l’une des valeurs sources est un attribut à valeurs multiples, toutes les valeurs de cet attribut seront jointes, séparées par la valeur de séparation.
 
@@ -122,30 +107,10 @@ Si l’une des valeurs sources est un attribut à valeurs multiples, toutes les 
 
 
 
-
-
-----------
-### MatchRegex
-
-**Fonction :**<br> MatchRegex(source, find, group)
-
-**Description :**<br> retourne la sous-chaîne à l’intérieur de la valeur source qui correspond au modèle d’expression régulière spécifié dans le paramètre find. Si group est spécifié, retourne uniquement la valeur de ce groupe RegEx.
-
-
-**Paramètres :**<br>
-
-|Nom| Requis / Répétition | Type | Remarques |
-|--- | ---                 | ---  | ---   |
-| **source** | Requis | String | Valeur **source** dans laquelle rechercher. |
-| **find** | Requis | String | Expression régulière à mettre en correspondance dans la valeur **source**. |
-| **group** | Facultatif | String | Nom du groupe à l’intérieur de la correspondance d’expression régulière dont nous souhaitons utiliser la valeur. |
-
-
-
 ----------
 ### Mid
 
-**Fonction :**<br> Mid(source, start, length)
+**Fonction :**<br> Mid(source, début, longueur)
 
 **Description :**<br> retourne une sous-chaîne de la valeur source. Une sous-chaîne est une chaîne qui ne contient que certains des caractères de la chaîne source.
 
@@ -178,14 +143,11 @@ Si l’une des valeurs sources est un attribut à valeurs multiples, toutes les 
 
 
 ----------
-### ObsoleteReplace
+### Replace
 
 **Fonction :**<br> ObsoleteReplace(source, oldValue, regexPattern, regexGroupName, replacementValue, replacementAttributeName, template)
 
-**Description :**<br>
-> [AZURE.NOTE]Cette fonction sera déconseillée dans un avenir proche et remplacée par des versions plus simples.
-
-Remplace les valeurs dans une chaîne. Elle fonctionne différemment selon les paramètres fournis :
+**Description :**<br> Remplace les valeurs dans une chaîne. Elle fonctionne différemment selon les paramètres fournis :
 
 - Quand **oldValue** et **replacementValue** sont fournis :
 
@@ -203,7 +165,7 @@ Remplace les valeurs dans une chaîne. Elle fonctionne différemment selon les p
 
    - Si **source** a une valeur, **source** est retourné.
 
-- Si **source** n’a aucune valeur, la fonction utilise **oldValueRegexPattern** et **oldValueRegexGroupName** pour extraire la valeur de remplacement de la propriété avec **replacementPropertyName**. La valeur de remplacement est retournée comme résultat.
+   - Si **source** n’a aucune valeur, la fonction utilise **oldValueRegexPattern** et **oldValueRegexGroupName** pour extraire la valeur de remplacement de la propriété avec **replacementPropertyName**. La valeur de remplacement est retournée comme résultat.
 
 
 **Paramètres :**<br>
@@ -216,43 +178,7 @@ Remplace les valeurs dans une chaîne. Elle fonctionne différemment selon les p
 | **regexGroupName** | Facultatif | String | Nom du groupe à l’intérieur de **regexPattern**. Uniquement quand replacementPropertyName est utilisé, nous extrayons la valeur de ce groupe comme replacementValue à partir de la propriété de remplacement. |
 | **replacementValue** | Facultatif | String | Nouvelle valeur par laquelle remplacer l’ancienne. |
 | **replacementAttributeName** | Facultatif | String | Nom de l’attribut à utiliser pour la valeur de remplacement, quand la source n’a aucune valeur. |
-| **template** | Facultatif | String | Quand la valeur **template** est fournie, nous recherchons **oldValue** dans le modèle et la remplaçons par la valeur source. |
-
-
-
-----------
-### Replace
-
-**Fonction :**<br> Replace(source, find, replace)
-
-**Description :**<br> remplace toutes les occurrences de la valeur **find** dans la chaîne **source** par la valeur du paramètre **replace**.
-
-**Paramètres :**<br>
-
-|Nom| Requis / Répétition | Type | Remarques |
-|--- | ---                 | ---  | ---   |
-| **source** | Requis | String | Valeur **source** dans laquelle rechercher. |
-| **find** | Requis | String | Valeur à rechercher. |
-| **replace** | Requis | String | Valeur de remplacement. |
-
-
-
-----------
-### ReplaceRegex
-
-**Fonction :**<br> ReplaceRegex(source, find, replace, group)
-
-**Description :**<br> dans la chaîne **source**, remplace toutes les sous-chaînes correspondant à l’expression régulière **find** par la valeur **replace**. Si un paramètre **group** est spécifié, il remplace uniquement la valeur de ce groupe d’expressions régulières.
-
-**Paramètres :**<br>
-
-|Nom| Requis / Répétition | Type | Remarques |
-|--- | ---                 | ---  | ---   |
-| **source** | Requis | String | Valeur **source** dans laquelle rechercher. |
-| **find** | Requis | String | Expression régulière à mettre en correspondance dans la valeur **source**. |
-| **replace** | Requis | String | Valeur de remplacement. |
-| **group** | Facultatif | String | Nom du groupe à l’intérieur de la correspondance d’expression régulière dont nous souhaitons utiliser la valeur. |
-
+| **template** | Facultatif | String | Lorsque la valeur **template** est fournie, nous recherchons **oldValue** dans le modèle et la remplaçons par la valeur source. |
 
 
 
@@ -296,14 +222,13 @@ Remplace les valeurs dans une chaîne. Elle fonctionne différemment selon les p
 Vous devez supprimer un nom de domaine connu de l’adresse de messagerie d’un utilisateur pour obtenir un nom d’utilisateur. <br> Par exemple, si le domaine est « contoso.com », vous pouvez utiliser l’expression suivante :
 
 
-**Expression :** <br> `Replace([mail], "@contoso.com", "")`
+**Expression :** <br> `Replace([mail], "@contoso.com", , ,"", ,)`
 
 **Exemple d’entrée/sortie :** <br>
 
 - **ENTRÉE** (mail) : « john.doe@contoso.com »
 
 - **SORTIE** : « john.doe »
-
 
 
 ### Ajouter un suffixe de constante à un nom d’utilisateur
@@ -382,4 +307,4 @@ Vous devez définir le fuseau horaire de l’utilisateur en fonction du code d�
 
 [AZURE.INCLUDE [saas-toc](../../includes/active-directory-saas-toc.md)]
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

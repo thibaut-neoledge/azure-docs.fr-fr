@@ -3,10 +3,9 @@
 	description="Découvrez comment utiliser le service de Table de Python pour créer, supprimer, insérer et interroger une table."
 	services="storage"
 	documentationCenter="python"
-	authors="huguesv"
+	authors="emgerner-msft"
 	manager="wpickett"
 	editor=""/>
-
 
 <tags
 	ms.service="storage"
@@ -14,9 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="python"
 	ms.topic="article"
-	ms.date="03/11/2015"
-	ms.author="huvalo"/>
-
+	ms.date="08/25/2015"
+	ms.author="emgerner"/>
 
 
 # Utilisation du stockage de tables à partir de Python
@@ -25,7 +23,7 @@
 
 ## Vue d'ensemble
 
-Ce guide décrit le déroulement de scénarios courants dans le cadre de l’utilisation du service de stockage de Tables Azure. Les exemples sont écrits en Python et utilisent le [package Azure Python][]. Les scénarios traités incluent la création et la suppression d’une table, en plus de l’insertion et de l’interrogation d’entités dans une table.
+Ce guide décrit le déroulement de scénarios courants dans le cadre de l’utilisation du service de stockage de Tables Azure. Les exemples sont écrits en Python et utilisent le [package Python Azure Storage][]. Les scénarios traités incluent la création et la suppression d’une table, en plus de l’insertion et de l’interrogation d’entités dans une table.
 
 [AZURE.INCLUDE [storage-table-concepts-include](../../includes/storage-table-concepts-include.md)]
 
@@ -38,7 +36,7 @@ Ce guide décrit le déroulement de scénarios courants dans le cadre de l’uti
 
 L'objet **TableService** permet d'utiliser les services de Table. Le code suivant permet de créer un objet **TargetService**. Ajoutez ce code vers le début de tout fichier Python dans lequel vous souhaitez accéder à Azure Storage par programme :
 
-	from azure.storage import TableService, Entity
+	from azure.storage.table import TableService, Entity
 
 Le code suivant crée un objet **TableService** en utilisant le nom et la clé du compte de stockage. Remplacez « myaccount » et « mykey » par le compte et la clé réels.
 
@@ -141,5 +139,6 @@ Maintenant que vous connaissez les bases du stockage de tables, consultez les li
 [Azure Storage]: http://msdn.microsoft.com/library/azure/gg433040.aspx
 [blog de l’équipe Azure Storage]: http://blogs.msdn.com/b/windowsazurestorage/
 [package Azure Python]: https://pypi.python.org/pypi/azure
+[package Python Azure Storage]: https://pypi.python.org/pypi/azure-storage
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

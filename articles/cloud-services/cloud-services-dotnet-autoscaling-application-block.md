@@ -1,44 +1,25 @@
 <properties 
-	pageTitle="Utilisation du bloc applicatif de mise à l'échelle automatique (.NET) | Microsoft Azure" 
-	description="Découvrez comment utiliser l'application de mise à l'échelle automatique pour Azure. Les exemples de code sont écrits en C# et utilisent l'API .NET." 
-	services="cloud-services" 
-	documentationCenter=".net" 
-	authors="squillace" 
-	manager="timlt" 
+	pageTitle="Utilisation du bloc applicatif de mise à l'échelle automatique (.NET) | Microsoft Azure"
+	description="Découvrez comment utiliser l'application de mise à l'échelle automatique pour Azure. Les exemples de code sont écrits en C# et utilisent l'API .NET."
+	services="cloud-services"
+	documentationCenter=".net"
+	authors="squillace"
+	manager="timlt"
 	editor=""/>
 
 <tags 
-	ms.service="cloud-services" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="05/18/2015" 
+	ms.service="cloud-services"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="na"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="05/18/2015"
 	ms.author="rasquill"/>
-
-
-
-
-
-
-
 # Utilisation du bloc applicatif de mise à l'échelle automatique
 
-Ce guide explique le déroulement des scénarios courants dans le cadre de l’utilisation du bloc applicatif de mise à l’échelle automatique de [Microsoft Enterprise Library 5.0 Integration Pack for Azure][]. Les exemples sont écrits en C# et utilisent l'API .NET. Les scénarios traités incluent l'**hébergement du bloc**, l'**utilisation de règles de contrainte** et l'**utilisation de règles réactives**. Pour plus d’informations sur le bloc applicatif de mise à l’échelle automatique, consultez la section [Étapes suivantes][].
+Ce guide explique le déroulement des scénarios courants dans le cadre de l’utilisation du bloc applicatif de mise à l’échelle automatique de [Microsoft Enterprise Library 5.0 Integration Pack for Azure][]. Les exemples sont écrits en C# et utilisent l'API .NET. Les scénarios traités incluent l'**hébergement du bloc**, l'**utilisation de règles de contrainte** et l'**utilisation de règles réactives**. Pour plus d’informations sur le bloc applicatif de mise à l’échelle automatique, consultez la section [Étapes suivantes](#next-steps).
 
-## Sommaire
-
-[Présentation du bloc applicatif de mise à l’échelle automatique][]   
-[Concepts][]   
-[Collecte de données de compteurs de performances à partir de votre application Azure cible][]   
-[Configuration d’une application hôte pour le bloc applicatif de mise à l’échelle automatique][]   
-[Instanciation et exécution de la classe Autoscaler][]   
-[Définition d’un modèle de service][]   
-[Définition de règles de mise à l’échelle automatique][]   
-[Configuration du bloc applicatif de mise à l’échelle automatique][]   
-[Étapes suivantes][]   
-
-## <a id="WhatIs"> </a>Présentation du bloc applicatif de mise à l’échelle automatique
+## Présentation du bloc applicatif de mise à l'échelle automatique
 
 Le bloc applicatif de mise à l'échelle automatique vous permet de mettre automatiquement à l'échelle votre application Azure en fonction de règles que vous définissez spécifiquement pour cette application. Vous pouvez utiliser ces règles pour préserver le rendement de votre application Azure face à l'évolution de sa charge de travail, tout en contrôlant les coûts liés à l'hébergement de votre application dans Azure. Outre la mise à l'échelle par augmentation ou diminution du nombre d'instances de rôle dans votre application, le bloc vous permet également d'utiliser d'autres actions de mise à l'échelle telles que la limitation de certaines fonctionnalités dans votre application ou l'utilisation d'actions personnalisées.
 
@@ -46,7 +27,7 @@ Vous pouvez choisir d'héberger le bloc dans un rôle Azure ou dans une applicat
 
 Le bloc applicatif de mise à l'échelle automatique fait partie intégrante de [Microsoft Enterprise Library 5.0 Integration Pack for Azure][].
 
-## <a id="Concepts"> </a>Concepts
+## Concepts
 
 Dans le schéma suivant, le trait vert représente le nombre d'instances exécutées d'un rôle Azure sur deux jours. Le nombre d'instances change automatiquement dans le temps sous l'effet d'un ensemble de règles de mise à l'échelle automatique.
 
@@ -64,13 +45,13 @@ Le bloc stocke ses paramètres de configuration dans deux magasins :
 
 -   **Magasin d’informations de service :** ce magasin stocke votre configuration opérationnelle, à savoir, le modèle de service de votre application Azure. Il contient toutes les informations sur votre application Azure (telles que les noms de rôle et les détails de compte de stockage) dont a besoin le bloc pour pouvoir collecter les points de données de l'application Azure cible et effectuer les opérations de mise à l'échelle.
 
-## <a id="PerfCounter"> </a>Collecte de données de compteurs de performances à partir de votre application Azure cible
+## Collecte de données de compteurs de performances à partir de votre application Azure cible
 
 Les règles réactives peuvent utiliser les données de compteurs de performances des rôles dans le cadre de la définition des règles. Par exemple, une règle réactive peut surveiller l'utilisation processeur d'un rôle Azure pour déterminer si le bloc doit lancer une opération de mise à l'échelle. Le bloc lit les données de compteurs de performances de la table de diagnostics Azure nommée **WADPerformanceCountersTable** dans le stockage Azure.
 
 Par défaut, Azure n'écrit pas les données de compteurs de performances dans la table de diagnostics dans Azure Storage. Par conséquent, pour enregistrer ces données, vous devez modifier les rôles à partir desquels vous devez collecter les données de compteurs de performances. Pour plus d’informations sur l’activation des compteurs de performances dans votre application, consultez la page [Utilisation de compteurs de performances dans Azure][].
 
-## <a id="CreateHost"> </a>Configuration d’une application hôte pour le bloc applicatif de mise à l’échelle automatique
+## Configuration d'une application hôte pour le bloc applicatif de mise à l'échelle automatique
 
 Vous pouvez héberger le bloc applicatif de mise à l'échelle automatique dans un rôle Azure ou dans une application locale. Il est généralement hébergé dans une application distincte de l'application cible que vous souhaitez mettre automatiquement à l'échelle. Cette section fournit des indications sur la configuration de votre application hôte.
 
@@ -109,7 +90,7 @@ Ajoutez les déclarations d'espace de noms de code suivantes en haut de chaque f
     using Microsoft.Practices.EnterpriseLibrary.Common.Configuration;
     using Microsoft.Practices.EnterpriseLibrary.WindowsAzure.Autoscaling;
 
-## <a id="Instantiate"> </a>Instanciation et exécution de la classe Autoscaler
+## Instanciation et exécution de la classe Autoscaler
 
 Utilisez la méthode **IServiceLocator.GetInstance** pour instancier la classe Autoscaler, puis appelez la méthode **Autoscaler.Start** pour exécuter **Autoscaler**.
 
@@ -117,7 +98,7 @@ Utilisez la méthode **IServiceLocator.GetInstance** pour instancier la classe A
         EnterpriseLibraryContainer.Current.GetInstance<Autoscaler>();
     scaler.Start();
 
-## <a id="DefineServiceModel"> </a>Définition d’un modèle de service
+## Définition d'un modèle de service
 
 En règle générale, les modèles de service (description de l'environnement Azure avec notamment des informations sur les abonnements, les services hébergés, les rôles et les comptes de stockage) sont stockés dans un fichier XML. Vous pouvez trouver une copie du schéma de ce fichier XML dans le fichier **AutoscalingServiceModel.xsd** de votre projet. Dans Visual Studio, ce schéma propose Intellisense et assure la validation lors de la modification d'un fichier XML de modèle de service.
 
@@ -134,14 +115,31 @@ Dans Visual Studio, vous devez vous assurer que le fichier de modèle de service
 
 	L'exemple de code suivant montre un exemple de modèle de service dans un fichier **services.xml** :
 
-    <?xml version="1.0" encoding="utf-8" ?> <serviceModel xmlns="http://schemas.microsoft.com/practices/2011/entlib/autoscaling/serviceModel"> <subscriptions> <subscription name="[subscriptionname]"
+    <?xml version="1.0" encoding="utf-8" ?>
+    <serviceModel xmlns="http://schemas.microsoft.com/practices/2011/entlib/autoscaling/serviceModel">
+      <subscriptions>
+        <subscription name="[subscriptionname]"
                       certificateThumbprint="[managementcertificatethumbprint]"
                       subscriptionId="[subscriptionid]"
                       certificateStoreLocation="CurrentUser"
-                      certificateStoreName="My"> <services> <service dnsPrefix="[hostedservicednsprefix]" slot="Staging"> <roles> <role alias="AutoscalingApplicationRole"
+                      certificateStoreName="My">
+          <services>
+            <service dnsPrefix="[hostedservicednsprefix]" slot="Staging">
+              <roles>
+                <role alias="AutoscalingApplicationRole"
                       roleName="[targetrolename]"
-                      wadStorageAccountName="targetstorage"/> </roles> </service> </services> <storageAccounts> <storageAccount alias="targetstorage"
-              connectionString="DefaultEndpointsProtocol=https;AccountName=[storageaccountname];AccountKey=[storageaccountkey]"> </storageAccount> </storageAccounts> </subscription> </subscriptions> </serviceModel>
+                      wadStorageAccountName="targetstorage"/>
+              </roles>
+            </service>
+          </services>
+          <storageAccounts>
+            <storageAccount alias="targetstorage"
+              connectionString="DefaultEndpointsProtocol=https;AccountName=[storageaccountname];AccountKey=[storageaccountkey]">
+            </storageAccount>
+          </storageAccounts>
+        </subscription>
+      </subscriptions>
+    </serviceModel>
 
 Vous devez remplacer les valeurs entre crochets par des valeurs propres à votre environnement et à votre application cible. Pour trouver la plupart de ces valeurs, vous devez vous connecter au [portail de gestion Azure][].
 
@@ -170,7 +168,7 @@ Connectez-vous au portail de gestion.
 
     1.  Dans le portail de gestion Azure, cliquez sur **Cloud Services**.
 
-    2.  Dans la liste Cloud Services, cliquez sur le service qui héberge l'application dans laquelle vous souhaitez utiliser la mise à l'échelle automatique, puis cliquez sur **Instances**. La colonne \*\*Role\* affiche le nom de votre rôle cible.
+    2.  Dans la liste Cloud Services, cliquez sur le service qui héberge l'application dans laquelle vous souhaitez utiliser la mise à l'échelle automatique, puis cliquez sur **Instances**. La colonne **Role* affiche le nom de votre rôle cible.
 
         ![image](./media/cloud-services-dotnet-autoscaling-application-block/autoscaling07.png)
 
@@ -197,7 +195,7 @@ Connectez-vous au portail de gestion.
 
 Pour plus d’informations sur le contenu du fichier de modèle de service, consultez la page [Stockage de vos données d’informations de service][].
 
-## <a id="DefineAutoscalingRules"> </a>Définition de règles de mise à l’échelle automatique
+## Définition de règles de mise à l'échelle automatique
 
 En principe, les règles de mise à l'échelle automatique qui contrôlent le nombre d'instances de rôle dans une application cible sont stockées dans un fichier XML. Vous pouvez trouver une copie du schéma de ce fichier XML dans le fichier **AutoscalingRules.xsd** de votre projet. Dans Visual Studio, ce schéma propose Intellisense et assure la validation lors de la modification d'un fichier XML.
 
@@ -244,7 +242,7 @@ L'exemple de code suivant montre un exemple de règle définie dans un fichier *
       </reactiveRules>
       <operands>
         <performanceCounter alias="WebRoleA_CPU_Avg_5m"
-          performanceCounterName="\Processor(_Total)\% Processor Time"
+          performanceCounterName="\Processor(_Total)% Processor Time"
           source ="AutoscalingApplicationRole"
           timespan="00:05:00" aggregate="Average"/>
       </operands>
@@ -260,7 +258,7 @@ Dans cet exemple, les règles de mise à l'échelle automatique sont au nombre d
 
 -   La règle réactive nommée **ScaleDownOnLowUtilization** décrémente le nombre d'instances du rôle cible d'une unité si l'utilisation UC moyenne au cours des cinq dernières minutes a été inférieure à 60 %.
 
-## <a id="Configure"> </a>Configuration du bloc applicatif de mise à l’échelle automatique
+## Configuration du bloc applicatif de mise à l'échelle automatique
 
 Après avoir défini le modèle de service et les règles de mise à l'échelle automatique, vous devez configurer le bloc applicatif de mise à l'échelle automatique pour qu'il les utilise. Ces informations de configuration opérationnelle sont stockées dans le fichier de configuration de l'application.
 
@@ -349,7 +347,7 @@ Vous pouvez à présent exécuter votre application console hôte de bloc applic
     "InstanceChanges":{"AutoscalingApplicationRole":{"CurrentValue":1,"DesiredValue":2}},
     "SettingChanges":{},"RequestID":"f8ca3ada07c24559b1cb075534f02d44"}
 
-## <a id="NextSteps"> </a>Étapes suivantes
+## Étapes suivantes
 
 Maintenant que vous avez appris les principes de base de l'utilisation du bloc applicatif de mise à l'échelle automatique, suivez ces liens pour savoir comment implémenter des scénarios de mise à l'échelle plus complexes :
 
@@ -366,15 +364,6 @@ Maintenant que vous avez appris les principes de base de l'utilisation du bloc a
 -   [Réduction des coûts d’hébergement et de l’impact environnemental de TechNet et MSDN grâce à la mise à l’échelle automatique Azure][]
 
   [Microsoft Enterprise Library 5.0 Integration Pack for Azure]: http://go.microsoft.com/fwlink/?LinkID=235134
-  [Étapes suivantes]: #NextSteps
-  [Présentation du bloc applicatif de mise à l’échelle automatique]: #WhatIs
-  [Concepts]: #Concepts
-  [Collecte de données de compteurs de performances à partir de votre application Azure cible]: #PerfCounter
-  [Configuration d’une application hôte pour le bloc applicatif de mise à l’échelle automatique]: #CreateHost
-  [Instanciation et exécution de la classe Autoscaler]: #Instantiate
-  [Définition d’un modèle de service]: #DefineServiceModel
-  [Définition de règles de mise à l’échelle automatique]: #DefineAutoscalingRules
-  [Configuration du bloc applicatif de mise à l’échelle automatique]: #Configure
   [Utilisation de compteurs de performances dans Azure]: http://www.windowsazure.com/develop/net/common-tasks/performance-profiling/
   [NuGet]: http://nuget.org/
   [portail de gestion Azure]: http://manage.windowsazure.com
@@ -392,4 +381,4 @@ Maintenant que vous avez appris les principes de base de l'utilisation du bloc a
   [Réduction des coûts d’hébergement et de l’impact environnemental de TechNet et MSDN grâce à la mise à l’échelle automatique Azure]: http://msdn.microsoft.com/library/jj838718(PandP.50).aspx
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

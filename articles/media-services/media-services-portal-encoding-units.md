@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Comment mettre à l’échelle des unités réservées d’encodage" 
-	description="Apprenez à mettre à l’échelle Media Services en spécifiant le nombre d’unités réservées de diffusion en continu à la demande et d’unités réservées d’encodage que vous voulez attribuer à votre compte." 
-	services="media-services" 
-	documentationCenter="" 
-	authors="juliako" 
-	manager="dwrede" 
+	pageTitle="Comment mettre à l’échelle des unités réservées d’encodage"
+	description="Apprenez à mettre à l’échelle Media Services en spécifiant le nombre d’unités réservées de diffusion en continu à la demande et d’unités réservées d’encodage que vous voulez attribuer à votre compte."
+	services="media-services"
+	documentationCenter=""
+	authors="juliako"
+	manager="dwrede"
 	editor=""/>
 
 <tags 
-	ms.service="media-services" 
-	ms.workload="media" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/11/2015"  
+	ms.service="media-services"
+	ms.workload="media"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/11/2015"
 	ms.author="juliako"/>
 
 
@@ -23,6 +23,7 @@
 - [.NET](media-services-dotnet-encoding-units.md)
 - [Portal](media-services-portal-encoding-units.md)
 - [REST](https://msdn.microsoft.com/library/azure/dn859236.aspx)
+- [Java](https://github.com/southworkscom/azure-sdk-for-media-services-java-samples)
 
 ##Vue d’ensemble
 
@@ -61,4 +62,4 @@ Pour plus d’informations sur les quotas et les limitations et pour savoir comm
 
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

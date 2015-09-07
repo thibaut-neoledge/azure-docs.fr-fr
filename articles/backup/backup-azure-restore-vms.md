@@ -1,4 +1,3 @@
-
 <properties
 	pageTitle="Azure Backup - Restaurer une machine virtuelle | Microsoft Azure"
 	description="Découvrez comment restaurer une machine virtuelle Azure."
@@ -8,7 +7,7 @@
 	manager="shreeshd"
 	editor=""/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="07/17/2015" ms.author="trinadhk"; "jimpark"/>
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/11/2015" ms.author="trinadhk"; "jimpark"/>
 
 # Restaurer une machine virtuelle
 Vous pouvez restaurer une machine virtuelle sur une nouvelle machine virtuelle à partir des sauvegardes stockées dans l’archivage de sauvegarde Azure à l’aide de la tâche de restauration.
@@ -50,7 +49,7 @@ Vous pouvez restaurer une machine virtuelle sur une nouvelle machine virtuelle �
 
         Whatever cloud service name is picked should be globally unique. Typically, the cloud service name gets associated with a public-facing URL in the form of [cloudservice].cloudapp.net. Azure will not allow you to create a new cloud service if the name has already been used. If you choose to create select create a new cloud service, it will be given the same name as the virtual machine – in which case the VM name picked should be unique enough to be applied to the associated cloud service.
 
-        We only display cloud services and virtual networks that are not associated with any affinity groups in the restore instance details. [Learn More](https://msdn.microsoft.com/fr-fr/library/azure/jj156085.aspx).
+        We only display cloud services and virtual networks that are not associated with any affinity groups in the restore instance details. [Learn More](../virtual-network/virtual-networks-migrate-to-regional-vnet.md).
 
 2. Sélectionnez un compte de stockage pour la machine virtuelle : ce champ est obligatoire pour la création de la machine virtuelle. Vous pouvez sélectionner un compte de stockage existant dans la même région que l’archivage de sauvegarde Azure. Nous ne prenons pas en charge les comptes de stockage redondants dans une zone ou de type Premium.
 
@@ -64,7 +63,7 @@ Vous pouvez restaurer une machine virtuelle sur une nouvelle machine virtuelle �
 
     ![Sélectionner un réseau virtuel](./media/backup-azure-restore-vms/restore-cs-vnet.png)
 
-4. Sélectionnez un sous-réseau : si le réseau virtuel possède des sous-réseaux, le premier sous-réseau est sélectionné par défaut. Choisissez le sous-réseau de votre choix parmi les options de liste déroulante. Pour plus d’informations sur les sous-réseaux, accédez à la page d’accueil du [portail d’extension de réseaux](https://manage.windowsazure.com/), accédez à Réseaux virtuels, puis sélectionnez un réseau virtuel et explorez les détails des sous-réseaux en cliquant sur Configurer.
+4. Sélectionnez un sous-réseau : si le réseau virtuel possède des sous-réseaux, le premier sous-réseau est sélectionné par défaut. Choisissez le sous-réseau de votre choix parmi les options de liste déroulante. Pour plus d’informations sur les sous-réseaux, accédez à la [page d’accueil du portail](https://manage.windowsazure.com/) d’extension de réseaux, accédez à **Réseaux virtuels**, puis sélectionnez un réseau virtuel et explorez les détails des sous-réseaux en cliquant sur Configurer.
 
     ![Sélectionner un sous-réseau](./media/backup-azure-restore-vms/select-subnet.png)
 
@@ -95,4 +94,4 @@ Pour la plupart des erreurs, vous pouvez suivre l’action recommandée suggér�
 ## Étapes suivantes
 - [Gestion des machines virtuelles](backup-azure-manage-vms.md)
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

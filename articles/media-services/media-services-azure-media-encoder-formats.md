@@ -1,109 +1,119 @@
 <properties 
-	pageTitle="Codecs et formats Azure Media Encoder" 
-	description="Cette rubrique fournit une vue d’ensemble des codecs et formats Azure Media Encoder." 
-	services="media-services" 
-	documentationCenter="" 
-	authors="juliako" 
-	manager="dwrede" 
+	pageTitle="Codecs et formats Azure Media Encoder"
+	description="Cette rubrique fournit une vue d’ensemble des codecs et formats Azure Media Encoder."
+	services="media-services"
+	documentationCenter=""
+	authors="juliako"
+	manager="dwrede"
 	editor=""/>
 
 <tags 
-	ms.service="media-services" 
-	ms.workload="media" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/11/2015" 
+	ms.service="media-services"
+	ms.workload="media"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/24/2015"
 	ms.author="juliako"/>
 
 #Codecs et formats Azure Media Encoder
 
-Les encodeurs compressent du contenu multimédia numérique à l'aide de codecs. Ils proposent généralement différents paramètres qui vous permettent de spécifier les propriétés du contenu multimédia généré, par exemple les codecs utilisés, le format de fichier, la résolution et la vitesse de transmission. Les formats de fichiers sont des conteneurs qui contiennent la vidéo compressée, ainsi que des informations sur les codecs qui ont été utilisés pour compresser la vidéo.
-
-Les codecs possèdent deux composants : un pour compresser les fichiers multimédias numériques pour la transmission et l’autre pour décompresser les fichiers multimédias numériques pour la lecture. Il existe des codecs audio qui compressent et décompressent le contenu audio et des codecs vidéo qui compressent et décompressent le contenu vidéo. Les codecs peuvent utiliser la compression avec ou sans perte. Les codecs sans perte conservent l’ensemble des informations lors de la compression. Lorsque le fichier est décompressé, le résultat est un fichier qui est identique au contenu d’entrée, ce qui rend les codecs sans perte particulièrement adaptés à l’archivage et au stockage. Les codecs avec perte perdent certaines des informations lors de l’encodage et génèrent des fichiers plus petits (que l’original) au détriment de la qualité vidéo. Ils conviennent à la diffusion en continu via internet. Les deux principaux codecs utilisés par Encodeur multimédia Azure pour l’encodage sont H.264 et VC-1. D’autres codecs peuvent être disponibles dans notre écosystème d’encodeurs partenaires.
-
-Il est important de bien comprendre la différence entre les codecs et les formats de fichiers. Les codecs sont les logiciels qui implémentent les algorithmes de compression/décompression, tandis que les formats de fichiers sont des conteneurs qui contiennent la vidéo compressée. Pour plus d’informations, consultez le billet [Encoding versus Packaging](http://blog-ndrouin.azurewebsites.net/streaming-media-terminology-explained/).
-
-Ce document contient une liste des formats de fichiers d'importation et d'exportation les plus courants que vous pouvez utiliser avec Azure Media Encoder.
+Ce document contient une liste des formats de fichiers d’entrée et de sortie et de codecs les plus courants que vous pouvez utiliser avec Azure Media Encoder.
 
 
-[Formats d'importation Azure Media Encoder ](#import_formats)
-
-[Formats d'exportation Azure Media Encoder](#export_formats)
-
-
-##<a id="import_formats"></a>Formats d'importation Azure Media Encoder 
-
-La section suivante répertorie les codecs et les formats de fichiers pris en charge pour l'importation.
-
-###Codecs vidéo
-
-- H.264 (profils Baseline, Main et High)
-- MPEG-1 (y compris MPEG-PS)
-- MPEG-2 (profils Simple et Main et profil 4:2:2)
-- MPEG-4 v2 (profil Simple Visual et profil Advanced Simple)
-- VC-1 (profils Simple, Main et Advanced)
-- Windows Media Video (profils Simple, Main et Advanced)
-- DV (DVC, DVHD, DVSD, DVSL)
-- Grass Valley HQ/HQX
+##Formats de fichier vidéo d’entrée (conteneurs)
  
-###Codecs audio
+Format de fichier (extensions de fichier)|Pris en charge
+---|---
+3GPP, 3GPP2 (.3gp, .3g2, .3gp2) |Oui
+Advanced Systems Format (ASF) (.asf) |Oui
+Advanced Video Coding High Definition (AVCHD) [MPEG-2 Transport Stream] (.mts, .m2ts) |Oui
+Audio-Video Interleaved (AVI) (.avi) |Oui
+Magnétoscope numérique MPEG-2 (MOD) (.mod) |Oui
+Fichier de flux de transport (TS) DVD (.ts) |Oui
+Fichier d’objet vidéo (VOB) DVD (.vob) |Oui
+Fichier de codec Expression Encoder Screen Capture (.xesc) |Oui
+MP4 (.mp4) |Oui
+Flux système MPEG-1 (.mpeg, .mpg) |Oui
+Fichier vidéo MPEG-2 (.m2v) |Oui
+Format de fichier de diffusion en continu lisse (PIFF 1.3) (.ismv) |Oui
+Windows Media Video (WMV) (.wmv) |Oui
+Adobe® Flash® F4V |Non		
+MXF/SMPTE 377M |Limité 
+GXF |Non		 
+[Enregistrement vidéo numérique Microsoft (DVR-MS)](https://msdn.microsoft.com/library/windows/desktop/dd692984)|Non
+Matroska/WebM |Non
 
-- AC-3 (Dolby Digital audio)
-- AAC (AAC-LC, HE-AAC v1 avec AAC-LC core et HE-AAC v2 avec AAC-LC core)
-- MP3
-- Windows Media Audio 9 (Windows Media Audio Standard, Windows Media Audio Professionnel et Windows Media Audio sans perte)
+Certains formats non compressés sont pris en charge. Pour plus d’informations, voir [Formats vidéo non compressés pris en charge](#uncompressed)
 
-###Formats de fichiers vidéo
+##Formats de fichiers audio d’entrée
+
+Format de fichier (extensions de fichier)|Pris en charge
+---|---
+AC-3 (Dolby Digital audio) (.ac3)|Oui
+Audio Interchange File Format (AIFF) (.aiff)|Oui
+Broadcast Wave Format (.bwf)|Oui
+MP3 (MPEG-1 Audio Layer 3) (.mp3)|Oui
+MP4 audio (.m4A)|Oui
+Livre audio MPEG-4 (.m4b)|Oui
+Fichier WAVE (.wav)|Oui
+Windows Media Audio (.wma)|Oui
+
+
+##Codecs vidéo d’entrée
+
+Codecs vidéo d’entrée|Pris en charge
+---|--- 
+H.264 (profils Baseline, Main et High) |Oui
+AVC 8 bits/10 bits, jusqu'à 4:2:2, y compris AVCIntra |Uniquement 8 bits 4:2:0
+Avid DNxHD (dans MXF) |Non
+DVCPro/DVCProHD (dans MXF) |Non
+JPEG2000 |Non
+MPEG-2 (profils Simple et Main et profil 4:2:2) |Jusqu’à un profil de 4:2:2
+MPEG-1 (y compris MPEG-PS) |Oui
+Windows Media Video/VC-1 |Oui
+Canopus HQ/HQX |Oui
+MPEG-4 v2 (profil Simple Visual et profil Advanced Simple) |Oui
+[Theora](https://en.wikipedia.org/wiki/Theora) |Non
+VC-1 (profils Simple, Main et Advanced) |Oui
+Windows Media Video (profils Simple, Main et Advanced) |Oui
+DV (DVC, DVHD, DVSD, DVSL) |Oui
+Grass Valley HQ/HQX |Oui
  
-Format de fichier|Extensions de fichiers
+
+##Codecs audio d’entrée
+
+Codecs audio d’entrée|Pris en charge
 ---|---
-3GPP, 3GPP2|.3gp, .3g2, .3gp2
-Advanced Systems Format (ASF)|.asf
-Advanced Video Coding High Definition (AVCHD) [MPEG-2 Transport Stream]|.mts, .m2ts
-Audio-Video Interleaved (AVI)|.avi
-Magnétoscope numérique MPEG-2 (MOD)|.mod
-Fichier de flux de transport (TS) DVD|.ts
-Fichier d'objet vidéo (VOB) DVD|.vob
-Fichier de codec Expression Encoder Screen Capture|.xesc
-MP4|.mp4
-Flux système MPEG-1|.mpeg, .mpg
-Fichier vidéo MPEG-2|.m2v
-Format de fichier de diffusion en continu lisse (PIFF 1.3)|.ismv
-Windows Media Video (WMV)|.wmv
+AES (SMPTE 331M et 302M, AES3-2003) |Non
+Dolby® E |Non
+Dolby® Digital (AC3) |Oui
+Dolby® Digital Plus (E-AC3) |Non
+AAC (AAC-LC, HE-AAC v1 avec AAC-LC core et HE-AAC v2 avec AAC-LC core, jusqu’à 5.1)|Oui
+MPEG Layer 2|Oui|Oui|Oui
+MP3 (MPEG-1 Audio Layer 3)|Oui
+Windows Media Audio 9 (Windows Media Audio Standard, Windows Media Audio Professionnel et Windows Media Audio sans perte) |Oui
+WAV/PCM|Oui
+[FLAC](https://en.wikipedia.org/wiki/FLAC)|Non
+[Opus](https://en.wikipedia.org/wiki/Opus_(audio_format) |Non
+[Vorbis](https://en.wikipedia.org/wiki/Vorbis)|Non
 
 
-Certains formats non compressés sont pris en charge. Pour plus d’informations, consultez [Formats vidéo non compressés pris en charge](#uncompressed)
+##Formats de fichiers image d’entrée
 
-###Formats de fichiers audio
-
-Format de fichier|Extensions de fichiers
+Format de fichier (extensions de fichier) | Pris en charge
 ---|---
-Audio AC-3 (Dolby Digital)|.ac3
-Audio Interchange File Format (AIFF)|.aiff
-Broadcast Wave Format|.bwf
-MP3 (MPEG-1 Audio Layer 3)|.mp3
-MP4 audio|.m4A
-Livre audio MPEG-4|.m4b
-Fichier WAVE|.wav
-Windows Media Audio|.wma
-
-###Formats de fichiers image
-
-Format de fichier|Extensions de fichiers
----|---
-Bitmap|.bmp
-GIF, GIF animé|.gif
-JPEG|.jpeg, .jpg
-PNG|.png
-TIFF|.tif
-WPF Canvas XAML|.xaml
+Bitmap (.bmp) | Oui
+GIF, GIF animé (.gif)| Oui
+JPEG (.jpeg, .jpg)| Oui
+PNG (.png)| Oui
+TIFF (.tif)| Oui
+WPF Canvas XAML (.xaml)| Oui
 
 
-##<a id="export_formats"></a>Formats d'exportation Azure Media Encoder
+##Formats de sortie et codecs
 
 Le tableau suivant répertorie les codecs et les formats de fichiers pris en charge pour l'exportation.
-
 
 Format de fichier|Codec vidéo|Codec audio
 ---|---|---
@@ -131,4 +141,4 @@ Données au format YUV 211|Format YUV compressé. Un échantillon Y à chaque pi
 Format Cirrus Logic Jr YUV 411|Format Cirrus Logic Jr YUV 411 avec moins de 8 bits par échantillon Y, U et V. Un échantillon Y à chaque pixel, un échantillon U et V à chaque quatrième pixel horizontalement sur chaque ligne ; chaque ligne verticale échantillonnée.
 Format Indeo-produced YVU9|Format Indeo-produced YVU9 avec informations supplémentaires sur les différences par rapport au dernier frame. 9,5 bits par pixel mais déclaré comme 9.
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

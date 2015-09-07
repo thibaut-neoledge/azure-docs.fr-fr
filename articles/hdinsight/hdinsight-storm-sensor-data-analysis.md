@@ -1,22 +1,20 @@
 <properties
    pageTitle="Analyse des données de capteur avec Apache Storm et HBase | Microsoft Azure"
-   description="Découvrez comment vous connecter à Apache Storm à l’aide d’un réseau virtuel. Utilisez Storm avec HBase pour traiter des données de capteur à partir d'un concentrateur d'événements et les visualiser avec D3.js."
-   services="hdinsight"
-   documentationCenter=""
-   authors="Blackmist"
-   manager="paulettm"
-   editor="cgronlun"/>
-
+	description="Découvrez comment vous connecter à Apache Storm à l’aide d’un réseau virtuel. Utilisez Storm avec HBase pour traiter des données de capteur à partir d'un concentrateur d'événements et les visualiser avec D3.js."
+	services="hdinsight"
+	documentationCenter=""
+	authors="Blackmist"
+	manager="paulettm"
+	editor="cgronlun"/>
 
 <tags
    ms.service="hdinsight"
-   ms.devlang="java"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="big-data"
-   ms.date="07/06/2015"
-   ms.author="larryfr"/>
-
+	ms.devlang="java"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="big-data"
+	ms.date="07/06/2015"
+	ms.author="larryfr"/>
 
 # Analyser les données de capteur avec Apache Storm, Event Hub, et HBase dans HDInsight (Hadoop)
 
@@ -302,7 +300,7 @@ Si vous prévoyez d'utiliser HBase avec cet exemple, vous devez créer un résea
 
 	- **Emplacement** : l’emplacement doit être le même que celui du cluster HBase que vous allez créer.
 
-	- **Serveur DNS** : étant donné que cet article utilise le serveur DNS interne fourni par Azure, vous pouvez choisir **Aucun**. Des configurations de réseau plus avancées avec des serveurs DNS personnalisés sont également prises en charge. Pour obtenir des instructions détaillées, consultez la page [Résolution de noms (DNS)](http://msdn.microsoft.com/library/azure/jj156088.aspx).
+	- **Serveur DNS** : étant donné que cet article utilise le serveur DNS interne fourni par Azure, vous pouvez choisir **Aucun**. Des configurations de réseau plus avancées avec des serveurs DNS personnalisés sont également prises en charge. Pour obtenir des instructions détaillées, consultez la page [Résolution de noms (DNS)](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).
 
 4. Cliquez sur **Créer un réseau virtuel**. Le nom du nouveau réseau virtuel apparaît dans la liste. Attendez que la valeur **Créé** apparaisse dans la colonne Statut.
 
@@ -422,4 +420,4 @@ Vous avez à présent appris à utiliser Storm pour lire des données à partir 
 
 [azure-portal]: https://manage.windowsazure.com/
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

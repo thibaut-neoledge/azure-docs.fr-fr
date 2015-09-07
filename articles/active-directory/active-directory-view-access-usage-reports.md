@@ -100,36 +100,8 @@ Dans le portail de gestion Azure, les rapports sont classés comme suit :
 
 
 ## Rapports d’activités anormales
+Les rapports d’activité de connexion anormale contiennent les activités de connexion suspectes vers le portail de gestion Azure, le panneau d’accès Azure AD, Office 365, Sharepoint Online, Dynamics CRM Online et d’autres services en ligne Microsoft, quel que soit le fournisseur de fédération. <p>Les rapports suivants sont disponibles : </p><ul> <li>[connexions provenant de sources inconnues](active-directory-reporting-sign-ins-from-unknown-sources.md).</li> <li>[Connexions après plusieurs échecs](active-directory-reporting-sign-ins-after-multiple-failures.md).</li> <li>[Connexions depuis plusieurs zones géographiques](active-directory-reporting-sign-ins-from-multiple-geographies.md).</li> <li>[Connexions à partir d’adresses IP affichant une activité suspecte](active-directory-reporting-sign-ins-from-ip-addresses-with-suspicious-activity.md).</li> <li>[Activité de connexion anormale](active-directory-reporting-irregular-sign-in-activity.md).</li> <li>[Connexions à partir de périphériques potentiellement infectés](active-directory-reporting-sign-ins-from-possibly-infected-devices.md).</li> <li>[Utilisateurs ayant une activité de connexion anormale](active-directory-reporting-users-with-anomalous-sign-in-activity.md).</li> <li>Utilisateurs avec des informations d’identification volées</li></ul>
 
-### Connexions à partir de sources inconnues
-
-Pour plus d’informations sur ce rapport, consultez [Connexions provenant de sources inconnues](active-directory-reporting-sign-ins-from-unknown-sources.md).
-
-### Connexions après plusieurs échecs
-
-Pour plus d’informations sur ce rapport, consultez [Connexions après plusieurs échecs](active-directory-reporting-sign-ins-after-multiple-failures.md).
-
-### Connexions depuis plusieurs zones géographiques
-
-Pour plus d’informations sur ce rapport, consultez [Connexions depuis plusieurs zones géographiques](active-directory-reporting-sign-ins-from-multiple-geographies.md).
-
-### Connexions à partir d’adresses IP affichant une activité suspecte
-
-Pour plus d’informations sur ce rapport, consultez [Connexions provenant d’adresses IP avec une activité suspecte](active-directory-reporting-sign-ins-from-ip-addresses-with-suspicious-activity.md).
-
-### Activité de connexion anormale
-
-Pour plus d’informations sur ce rapport, consultez [Activités de connexion anormales](active-directory-reporting-irregular-sign-in-activity.md).
-
-### Connexions à partir de périphériques potentiellement infectés
-
-Pour plus d’informations sur ce rapport, consultez [Connexions à partir de périphériques potentiellement infectés](active-directory-reporting-sign-ins-from-possibly-infected-devices.md).
-
-### Utilisateurs ayant une activité de connexion anormale
-
-Pour plus d’informations sur ce rapport, consultez [Utilisateurs ayant une activité de connexion anormale](active-directory-reporting-users-with-anomalous-sign-in-activity.md).
-
-<!-- Users with leaked credentials goes here -->
 
 
 
@@ -254,7 +226,7 @@ Seuls certains types d'événements de connexion apparaîtront dans le rapport d
 | Connexions à une application métier personnalisée qui a été ajoutée au répertoire | Non (bientôt disponible) |
 | Connexions à une application de proxy de l'application Azure AD qui a été ajoutée au répertoire | Non (bientôt disponible) |
 
-> Remarque : Pour limiter le nombre de parasites dans ce rapport, les connexions à l’application native [Lync/Skype Entreprise](http://products.office.com/fr-fr/skype-for-business/online-meetings) et celles effectuées via l’[Assistant de connexion de Microsoft Online Services](http://community.office365.com/fr-fr/w/sso/534.aspx) ne sont pas indiquées.
+> Remarque : Pour limiter le nombre de parasites dans ce rapport, les connexions à l’application native [Lync/Skype Entreprise](http://products.office.com/fr-FR/skype-for-business/online-meetings) et celles effectuées via l’[Assistant de connexion de Microsoft Online Services](http://community.office365.com/fr-FR/w/sso/534.aspx) ne sont pas indiquées.
 
 
 
@@ -295,11 +267,11 @@ Si vous affichez des rapports d'anomalie, vous remarquerez peut-être que vous p
 
 ## Notifications automatiques par courrier électronique
 
-Pour plus d’informations sur les notifications de création de rapport Azure AD, consultez [Notifications de création de rapport Azure Active Directory](active-directory-reporting-notifications.md).
+Pour plus d’informations sur les notifications de création de rapport Azure AD, consultez [Notifications de création de rapport Azure Active Directory](active-directory-reporting-notifications.md).
 
 ## Étapes suivantes
 
 - [Prise en main d’Azure Active Directory Premium (AD)](active-directory-get-started-premium.md)
 - [Ajouter des stratégies de promotion professionnelles aux pages du volet d’accès et de connexion](active-directory-add-company-branding.md)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

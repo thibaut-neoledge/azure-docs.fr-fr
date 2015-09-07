@@ -1,30 +1,31 @@
 <properties 
-	pageTitle="Gestion des points de terminaison de diffusion en continu dans un compte Media Services" 
-	description="Cette rubrique montre comment gérer les points de terminaison de diffusion en continu à l’aide du portail de gestion Azure." 
-	services="media-services" 
-	documentationCenter="" 
-	authors="Juliako" 
-	manager="dwrede" 
+	pageTitle="Gestion des points de terminaison de diffusion en continu dans un compte Media Services"
+	description="Cette rubrique montre comment gérer les points de terminaison de diffusion en continu à l’aide du portail de gestion Azure."
+	services="media-services"
+	documentationCenter=""
+	authors="Juliako"
+	manager="dwrede"
 	editor=""/>
 
 <tags 
-	ms.service="media-services" 
-	ms.workload="media" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/11/2015"
+	ms.service="media-services"
+	ms.workload="media"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/20/2015"
 	ms.author="juliako"/>
 
 
 #<a id="managemediaservicesorigins"></a>Gestion des points de terminaison de diffusion en continu dans un compte Media Services
 
-Cet article fait partie des séries [workflow de vidéo à la demande Media Services](media-services-video-on-demand-workflow.md) et [workflow de vidéo en flux continu Media Services](media-services-live-streaming-workflow.md).
-
+> [AZURE.SELECTOR]
+- [Portal](media-services-manage-origins.md)
+- [Java](https://github.com/southworkscom/azure-sdk-for-media-services-java-samples)
 
 Dans Microsoft Azure Media Services, un **point de terminaison de diffusion en continu** représente un service de diffusion en continu qui peut fournir du contenu directement à une application de lecteur cliente ou à un réseau de diffusion de contenu (CDN) pour être redistribué. Media Services fournit également une intégration transparente au CDN Azure. Le flux sortant d’un service StreamingEndpoint peut être un flux dynamique ou un élément multimédia de vidéo à la demande dans votre compte Media Services.
 
-En outre, vous pouvez contrôler la capacité du service de point de terminaison de diffusion en continu afin de gérer les besoins croissants en matière de bande passante en ajustant les unités d’échelle (également appelées unités de diffusion). Il est recommandé d’allouer une ou plusieurs unités d’échelle pour les applications dans un environnement de production. Les unités d’échelle fournissent à la fois une capacité de sortie dédiée que vous pouvez acquérir par incréments de 200 Mbit/s et des fonctionnalités supplémentaires incluant : l’[empaquetage dynamique](https://msdn.microsoft.com/library/azure/jj889436.aspx), l’intégration au CDN et la configuration avancée.
+En outre, vous pouvez contrôler la capacité du service de point de terminaison de diffusion en continu afin de gérer les besoins croissants en matière de bande passante en ajustant les unités d’échelle (également appelées unités de diffusion). Il est recommandé d’allouer une ou plusieurs unités d’échelle pour les applications dans un environnement de production. Les unités d’échelle fournissent à la fois une capacité de sortie dédiée que vous pouvez acquérir par incréments de 200 Mbits/s et des fonctionnalités supplémentaires incluant : l’[empaquetage dynamique](media-services-dynamic-packaging-overview.md), l’intégration au CDN et la configuration avancée.
 
 Notez que vous êtes facturé uniquement lorsque votre StreamingEndpoint est en cours d’exécution.
 
@@ -46,11 +47,11 @@ Pour ajouter/supprimer un point de terminaison de diffusion en continu à l’ai
 	![Page du point de terminaison de diffusion en continu][streaming-endpoint]
 
 
-Par défaut, vous bénéficiez au maximum de deux points de terminaison de diffusion en continu. Si vous avez besoin de points de terminaisons supplémentaires, consultez la rubrique [Quotas et limitations](media-services-quotas-and-limitations/).
+Par défaut, vous bénéficiez au maximum de deux points de terminaison de diffusion en continu. Si vous avez besoin de points de terminaisons supplémentaires, voir [Quotas et limitations](media-services-quotas-and-limitations.md).
 
 ##<a id="scale_streaming_endpoints"></a>Mise à l’échelle du point de terminaison
 
-Les unités de diffusion en continu fournissent à la fois une capacité de sortie dédiée que vous pouvez acquérir par incréments de 200 Mbps et une fonctionnalité supplémentaire qui inclut actuellement des [capacités d’empaquetage dynamique](http://go.microsoft.com/fwlink/?LinkId=276874). Par défaut, la diffusion en continu est configurée dans un modèle d’instance partagée, pour lequel les ressources du serveur (calcul, sortie, capacité, etc.) sont partagées avec tous les autres utilisateurs. Afin d’améliorer la vitesse de diffusion en continu=, il est recommandé d’acheter des unités de diffusion en continu.
+Les unités de diffusion en continu fournissent à la fois une capacité de sortie dédiée que vous pouvez acquérir par incréments de 200 Mbits/s et une fonctionnalité supplémentaire qui inclut actuellement des [capacités d’empaquetage dynamique](media-services-dynamic-packaging-overview.md). Par défaut, la diffusion en continu est configurée dans un modèle d’instance partagée, pour lequel les ressources du serveur (calcul, sortie, capacité, etc.) sont partagées avec tous les autres utilisateurs. Afin d’améliorer la vitesse de diffusion en continu=, il est recommandé d’acheter des unités de diffusion en continu.
 
 Vous pouvez effectuer la mise à l’échelle à l’aide du Kit de développement .NET, de l’API REST ou du portail de gestion Azure.
 
@@ -69,7 +70,7 @@ Pour changer le nombre d’unités de diffusion en continu à l’aide du portai
 
 	>[AZURE.NOTE]C’est le plus grand nombre d’unités spécifiées sur 24 heures qui est utilisé pour calculer le coût. Pour des informations détaillées sur la tarification, consultez la page [Détails de la tarification des services de média](http://go.microsoft.com/fwlink/?LinkId=275107).
 	
-##<a id="configure_streaming_endpoints"></a>Configuration du point de terminaison
+##<a id="configure_streaming_endpoints"></a>Configuration du point de terminaison de diffusion en continu
 
 Lorsque vous disposez d’au moins une unité d’échelle, le point de terminaison de diffusion en continu vous permet de configurer les propriétés suivantes :
 
@@ -130,7 +131,7 @@ Une fois l’intégration activée, les configurations suivantes sont désactiv�
 - Pour les nouveaux points de terminaison de diffusion en continu, vous pouvez simplement activer le CDN en créant un nouveau point de terminaison. Pour les points de terminaison existants, vous devez d’abord arrêter le point de terminaison, puis activer le CDN.
  
 
-Pour plus d’informations, consultez la page [Annonce de l’intégration d’Azure Media Services avec Azure CDN](http://azure.microsoft.com/blog/2015/03/17/announcing-azure-media-services-integration-with-azure-cdn-content-delivery-network/).
+Pour plus d’informations, consultez le blog [Announcing Azure Media Services integration with Azure CDN (Content Delivery Network)](http://azure.microsoft.com/blog/2015/03/17/announcing-azure-media-services-integration-with-azure-cdn-content-delivery-network/) (Annonce de l’intégration d’Azure Media Services avec Azure CDN).
 
 
 [streaming-endpoint-enable-cdn]: ./media/media-services-manage-origins/media-services-origins-enable-cdn.png
@@ -139,4 +140,4 @@ Pour plus d’informations, consultez la page [Annonce de l’intégration d’A
 [configure-origin-configure-custom-host-names]: ./media/media-services-manage-origins/media-services-configure-custom-host-names.png
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

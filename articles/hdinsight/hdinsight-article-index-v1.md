@@ -63,11 +63,11 @@ Pour obtenir un ensemble complet d'articles au sujet de Linux et des clusters Li
 * [Utilisation des fonctions définies par l'utilisateur C# avec la diffusion en continu Hive et Pig](hdinsight-hadoop-hive-pig-udf-dotnet-csharp.md)
 * [Développement de programmes de diffusion en continu Hadoop en C#](hdinsight-hadoop-develop-deploy-streaming-jobs.md)
 
-## HBase : analyse de NoSQL
+## HBase : base de données NoSQL
 
 * [Configurer la géo-réplication HBase](hdinsight-hbase-geo-replication.md)
 * [Utilisation de Maven pour créer des applications Java utilisant HBase](hdinsight-hbase-build-java-maven.md)
-* [Analyse de sentiments Twitter en temps réel avec HBase](hdinsight-hbase-analyze-twitter-sentiment.md)
+* [Analyse de sentiments Twitter en temps réel sur HBase](hdinsight-hbase-analyze-twitter-sentiment.md)
 
 ## Storm Apache : requête de flux
 
@@ -132,4 +132,4 @@ Pour obtenir des articles relatifs à l'utilisation des clusters Apache Spark na
 * [Interprétation des messages d'erreur](hdinsight-debug-jobs.md)
 * [Obtenir de l'aide sur le forum](https://social.msdn.microsoft.com/forums/azure/home?forum=hdinsight)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

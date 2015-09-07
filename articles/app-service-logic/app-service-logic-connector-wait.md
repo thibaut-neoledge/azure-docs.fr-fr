@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Connecteur Wait"
-	description="Connecteur Wait"
+   pageTitle="Utilisation du connecteur Wait dans des applications logiques | Microsoft Azure App Service"
+	description="Comment créer et configurer le connecteur Wait ou une application API et l'utiliser dans une application logique d’Azure App Service"
 	services="app-service\logic"
 	documentationCenter=".net,nodejs,java"
 	authors="rajeshramabathiran"
@@ -13,32 +13,26 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="integration"
-	ms.date="08/19/2015"
+	ms.date="08/23/2015"
 	ms.author="rajram"/>
 
-#Connecteur Wait
-Le connecteur Wait permet à une application de retarder son exécution pour une durée spécifiée ou jusqu’à une heure spécifiée. Lorsqu’il est utilisé dans un flux, il permet de différer l’exécution.
+# Prise en main du connecteur Wait et ajout de celui-ci à votre application logique
+Le connecteur Wait permet à une application de retarder son exécution pour une durée spécifiée ou jusqu’à une heure spécifiée. Vous pouvez ajouter le connecteur Wait à votre flux de travail professionnel et traiter les données dans le cadre de ce flux de travail dans une application logique. Lorsqu’il est utilisé dans une application logique, il permet de différer l’exécution.
 
-##Utilisation du connecteur Wait
+## Utilisation du connecteur Wait
 Pour utiliser le connecteur Wait, vous devez d’abord créer une instance de l’application API de ce connecteur. Cela est possible inline, lors de la création d’une application logique ou en sélectionnant l’application API du connecteur Wait à partir d’Azure Marketplace.
 
-##Utilisation du connecteur Wait dans l’aire du concepteur Logic Apps
+## Utilisation du connecteur Wait dans l’aire du concepteur Logic Apps
 Le connecteur Wait peut être utilisé en tant qu’action. Il ne possède aucun déclencheur.
 
-###Action
-- Cliquez sur le connecteur Wait dans le volet de droite.
-
-	![Liste d'actions][1]
+### Action
+- Cliquez sur le connecteur Wait dans le volet de droite : ![Liste d'actions][1]
 - Le connecteur Wait prend en charge deux actions : 
 	- Retarder
 	- Retarder jusqu’à
 	 
-- Sélectionnez *Retarder*.
-
-	![Valeur du retard][2]
-- Indiquez la valeur de l’action et configurez-la.
-
-	![Action configurée][3]
+- Sélectionnez *Retarder* : ![Valeur du retard][2]
+- Indiquez les entrées de l'action et configurez celle-ci : ![Action configurée][3]
 
 Paramètre|Type|Description du paramètre
 ---|---|---
@@ -57,4 +51,4 @@ Vous pouvez également consulter les statistiques de performances et contrôler 
 [2]: ./media/app-service-logic-wait/DelayInput.PNG
 [3]: ./media/app-service-logic-wait/ActionConfigured.PNG
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Batterie de serveurs SharePoint"
-	description="Vous pouvez créer une batterie de serveurs SharePoint Server 2013 en un clin d’œil à l’aide de la fonctionnalité Batterie de serveurs SharePoint du Portail Azure en version préliminaire."
+	pageTitle="Batterie de serveurs SharePoint | Microsoft Azure"
+	description="Créez rapidement une batterie de serveurs SharePoint Server 2013 simple ou à haute disponibilité à l'aide de la fonctionnalité Batterie de serveurs SharePoint du portail Azure en version préliminaire."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="JoeDavies-MSFT"
@@ -95,4 +95,4 @@ La fonctionnalité Batterie de serveurs SharePoint du Portail Azure en version p
 
 [Batteries de serveurs SharePoint hébergés dans des services d’infrastructure Azure](virtual-machines-sharepoint-infrastructure-services.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

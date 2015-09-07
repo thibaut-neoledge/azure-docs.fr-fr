@@ -7,14 +7,7 @@
 	manager="jwhit"
 	editor=""/>
 
-<tags
-	ms.service="backup"
-	ms.workload="storage-backup-recovery"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/12/2015"
-	ms.author="jimpark"/>
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/21/2015" ms.author="jimpark"; "aashishr"/>
 
 # Configurer Azure Backup pour préparer la sauvegarde de Windows Server
 
@@ -28,7 +21,7 @@ Pour sauvegarder les fichiers et les données de votre serveur Windows Server ve
 - **Télécharger les informations d'identification de l'archivage** : dans Azure Backup, téléchargez dans l'archivage le certificat de gestion que vous avez créé.
 - **Installer l’agent Azure Backup et inscrire le serveur** : à partir d’Azure Backup, installez l’agent et inscrivez le serveur dans le coffre de sauvegarde.
 
-[AZURE.INCLUDE [backup-create-vault](../../includes/backup-create-vault.md)]
+[AZURE.INCLUDE [backup-create-vault-wgif](../../includes/backup-create-vault-wgif.md)]
 
 [AZURE.INCLUDE [backup-download-credentials](../../includes/backup-download-credentials.md)]
 
@@ -41,4 +34,4 @@ Pour sauvegarder les fichiers et les données de votre serveur Windows Server ve
 - [Azure Backup - Forum Aux Questions](backup-azure-backup-faq.md)
 - [Forum Azure Backup](http://go.microsoft.com/fwlink/p/?LinkId=290933)
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

@@ -4,7 +4,7 @@
 	services="virtual-machines"
 	documentationCenter=""
 	authors="karthmut"
-	manager="madhana"
+	manager="timlt"
 	editor="tysonn"/>
 
 <tags
@@ -162,4 +162,4 @@ Pour obtenir plus d’informations et découvrir des commandes supplémentaires,
 [Association d’un disque de données à une machine virtuelle]: storage-windows-attach-disk.md
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

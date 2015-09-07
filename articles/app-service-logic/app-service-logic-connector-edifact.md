@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Connecteur BizTalk Edifact"
-	description="Connecteur BizTalk Edifact"
+   pageTitle="Utilisation du connecteur BizTalk Edifact dans des applications logiques | Microsoft Azure App Service"
+	description="Comment créer et configurer le connecteur BizTalk Edifact ou une application API et l'utiliser dans une application logique d’Azure App Service"
 	services="app-service\logic"
 	documentationCenter=".net,nodejs,java"
 	authors="rajeshramabathiran"
@@ -13,13 +13,15 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="integration"
-	ms.date="08/19/2015"
+	ms.date="08/23/2015"
 	ms.author="rajram"/>
 
-# Connecteur BizTalk Edifact
-Le service Microsoft Azure Edifact permet de recevoir et d'envoyer des messages selon le protocole Edifact dans les communications interentreprises. Edifact est également communément appelé ASC Edifact ou Accredited Standards Committee Edifact. Il est largement utilisé dans les entreprises.
+# Utilisation et ajout du connecteur BizTalk Edifact dans votre application logique  
+Utilisez le service Edifact pour recevoir et envoyer des messages par le biais du protocole Edifact dans les communications interentreprises. Le protocole Edifact est également communément appelé ASC Edifact ou Accredited Standards Committee Edifact et son utilisation est très répandue dans le monde de l'industrie.
 
-## Conditions préalables
+Vous pouvez ajouter le connecteur BizTalk Edifact à votre flux d’entreprise et traiter les données dans le cadre de ce flux de travail dans une application logique.
+
+## Composants requis
 - Application API TPM : avant de créer un connecteur Edifact, vous devez créer un [connecteur de gestion des partenaires commerciaux BizTalk][1].
 - Base de données SQL Azure : chacune des applications API B2B requiert sa propre base de données SQL Azure.
 - Azure Service Bus : facultatif et utilisé uniquement dans le cas de traitement par lot.
@@ -37,25 +39,17 @@ Vous pouvez utiliser le connecteur Edifact comme un déclencheur ou une action.
 
 ### Déclencheur
 - Lancez le concepteur de flux des applications logiques Azure
-- Cliquez sur le connecteur Edifact dans le panneau de droite :  
-![Paramètres du déclencheur][3]
-- Cliquez sur -> :  
-![Options du déclencheur][4]
-- Le connecteur EDIFACT expose un seul déclencheur. Sélectionnez *Publier lot* :  
-![Entrée Publier lot][5]
-- Ce déclencheur ne possède aucune entrée. Cliquez sur -> :  
-![Option Publier lot configurée][6]
+- Cliquez sur le connecteur Edifact dans le panneau de droite : ![Paramètres du déclencheur][3]
+- Cliquez sur -> : ![Options du déclencheur][4]
+- Le connecteur EDIFACT expose un seul déclencheur. Sélectionnez *Publier lot* : ![Entrée Publier lot][5]
+- Ce déclencheur ne possède aucune entrée. Cliquez sur -> : ![Option Publier lot configurée][6]
 - Dans le cadre de la sortie, le connecteur renvoie la charge utile Edifact, l'ID de l'accord, ainsi que des informations indiquant si le message est traité par lot ou non.
 
 ### Action
-- Cliquez sur le connecteur Edifact dans le panneau de droite :  
-![Paramètres d'action][7]
-- Cliquez sur -> :  
-![Liste d'actions][8]
-- Le connecteur Edifact prend en charge de nombreuses actions. Sélectionnez *Encoder* :  
-![Codage d'entrée][9]
-- Indiquez les entrées de l'action et configurez celle-ci :  
-![Codage configuré][10]
+- Cliquez sur le connecteur Edifact dans le panneau de droite : ![Paramètres d'action][7]
+- Cliquez sur -> : ![Liste d'actions][8]
+- Le connecteur Edifact prend en charge de nombreuses actions. Sélectionnez *Encoder* : ![Codage d'entrée][9]
+- Indiquez les entrées de l’action et configurez celle-ci : ![Codage configuré][10]
 
 	Paramètre|Type|Description du paramètre
 ---|---|---
@@ -93,4 +87,4 @@ Vous pouvez également consulter les statistiques de performances et contrôler 
 [9]: ./media/app-service-logic-connector-edifact/EncodeInput.PNG
 [10]: ./media/app-service-logic-connector-edifact/EncodeConfigured.PNG
 
-<!----HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

@@ -1,23 +1,27 @@
-
 <properties 
-	pageTitle="Création de filtres avec l'API REST Media Services" 
-	description="Cette rubrique décrit comment créer des filtres pour que votre client puisse les utiliser pour diffuser des sections spécifiques d'un flux. Media Services crée des manifestes dynamiques pour l'archivage de cette diffusion sélective." 
-	services="media-services" 
-	documentationCenter="" 
-	authors="Juliako" 
-	manager="dwrede" 
+	pageTitle="Création de filtres avec l'API REST Media Services"
+	description="Cette rubrique décrit comment créer des filtres pour que votre client puisse les utiliser pour diffuser des sections spécifiques d'un flux. Media Services crée des manifestes dynamiques pour obtenir cette diffusion sélective."
+	services="media-services"
+	documentationCenter=""
+	authors="Juliako"
+	manager="dwrede"
 	editor=""/>
 
 <tags 
-	ms.service="media-services" 
-	ms.workload="media" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="ne" 
-	ms.topic="article" 
-	ms.date="08/11/2015" 
+	ms.service="media-services"
+	ms.workload="media"
+	ms.tgt_pltfrm="na"
+	ms.devlang="ne"
+	ms.topic="article"
+	ms.date="08/24/2015"
 	ms.author="juliako"/>
 
 #Création de filtres avec l'API REST Media Services
+
+> [AZURE.SELECTOR]
+- [.NET](media-services-dotnet-dynamic-manifest.md)
+- [REST](media-services-rest-dynamic-manifest.md)
+
 
 À partir de la version 2.11, Media Services vous permet de définir des filtres pour vos éléments multimédias. Ces filtres sont des règles côté serveur qui permettent à vos clients de choisir d'effectuer des opérations comme les suivantes : lecture d'une section d'une vidéo uniquement (au lieu de la vidéo entière), spécification d'un seul sous-ensemble de rendus audio et vidéo pouvant être gérés par l'appareil de votre client (au lieu de tous les rendus associés à l'élément multimédia). Ce filtrage de vos éléments multimédias est obtenu via des **manifestes dynamiques** créés à la demande de votre client pour diffuser une vidéo selon des filtres spécifiés.
 
@@ -29,10 +33,10 @@ Cette rubrique montre comment utiliser les API REST pour créer, mettre à jour 
 
 Les types suivants sont utilisés lors de la création de filtres :
 
-- [Filter](https://msdn.microsoft.com/library/azure/hh973617.aspx)
-- [AssetFilter](https://msdn.microsoft.com/library/azure/hh973617.aspx)
-- [PresentationTimeRange](https://msdn.microsoft.com/library/azure/hh973617.aspx)
-- [FilterTrackSelect et FilterTrackPropertyCondition](https://msdn.microsoft.com/library/azure/hh973617.aspx)
+- [Filter](http://msdn.microsoft.com/library/azure/mt149056.aspx)
+- [AssetFilter](http://msdn.microsoft.com/library/azure/mt149053.aspx)
+- [PresentationTimeRange](http://msdn.microsoft.com/library/azure/mt149052.aspx)
+- [FilterTrackSelect et FilterTrackPropertyCondition](http://msdn.microsoft.com/library/azure/mt149055.aspx)
 
 
 
@@ -41,7 +45,6 @@ Les types suivants sont utilisés lors de la création de filtres :
 >Lors de l’accès aux entités dans Media Services, vous devez définir les valeurs et les champs d’en-tête spécifiques dans vos requêtes HTTP. Pour plus d'informations, consultez [Installation pour le développement REST API de Media Services](media-services-rest-how-to-use.md).
 
 >Après vous être connecté à https://media.windows.net, vous recevrez une redirection 301 spécifiant un autre URI Media Services. Vous devez effectuer les appels suivants au nouvel URI comme décrit dans [Connexion à Media Services à l'aide de l'API REST](media-services-rest-connect_programmatically.md).
-
 
 
 ##Création de filtres
@@ -250,7 +253,7 @@ Corps de la requête :
 	   ] 
 	} 
 
-###Téléchargement d'AssetFilters locaux
+###Mise à jour d’AssetFilters locaux
 
 Pour mettre à jour un filtre local, utilisez les requêtes HTTP suivantes :
 
@@ -363,4 +366,4 @@ Les exemples suivants montrent comment ajouter des filtres à vos URL de diffusi
 
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

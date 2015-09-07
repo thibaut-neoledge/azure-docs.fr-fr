@@ -1,27 +1,29 @@
 <properties 
-   pageTitle="Configuration d'une passerelle VPN dans le portail de gestion | Microsoft Azure"
-   description="Cet article vous indique comment configurer votre passerelle VPN de réseau virtuel et comment modifier un type de routage de passerelle VPN, de statique à dynamique ou de dynamique à statique."
-   services="vpn-gateway"
-   documentationCenter="na"
-   authors="cherylmc"
-   manager="jdial"
-   editor="tysonn" />
+   pageTitle="Configuration d'une passerelle VPN dans le portail Azure | Microsoft Azure"
+	description="Cet article vous indique comment configurer votre passerelle VPN de réseau virtuel et comment modifier un type de routage de passerelle VPN, de statique à dynamique ou de dynamique à statique."
+	services="vpn-gateway"
+	documentationCenter="na"
+	authors="cherylmc"
+	manager="carolz"
+	editor=""/>
 <tags 
    ms.service="vpn-gateway"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="06/12/2015"
-   ms.author="cherylmc" />
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="infrastructure-services"
+	ms.date="08/25/2015"
+	ms.author="cherylmc"/>
 
-# Configuration d'une passerelle VPN dans le portail de gestion
+# Configuration d'une passerelle VPN dans le portail Azure
 
 Si vous voulez créer une connexion intersite sécurisée entre Azure et votre emplacement local, vous devrez configurer une passerelle VPN. Il existe différents types de passerelles et le type de passerelle que vous allez créer dépend à la fois de votre plan de conception de réseau et du périphérique VPN local que vous souhaitez utiliser. Par exemple, certaines options de connectivité, telles qu'une connexion de point à site, nécessitent une passerelle de routage dynamique. Si vous souhaitez configurer votre passerelle pour prendre en charge les connexions de point à site (P2S) et une connexion de site à site (S2S), vous devrez configurer une passerelle de routage dynamique, même si le site à site peut être configuré avec un type de routage de passerelle. De plus, vous devrez vous assurer que le périphérique que vous souhaitez utiliser pour votre connexion de site à site prendra en charge le type de passerelle que vous souhaitez créer. Consultez la rubrique [À propos des passerelles VPN](vpn-gateway-about-vpngateways.md).
 
 ## Présentation de la configuration
 
-Avant de configurer votre passerelle, vous devrez tout d'abord créer votre réseau virtuel. Pour connaître la procédure de création d’un réseau virtuel pour la connectivité intersite, consultez la rubrique [Configuration d’un réseau virtuel avec un VPN de site à site](vpn-gateway-site-to-site-create.md), ou [Configuration d’un réseau virtuel avec un VPN de point à site](vpn-gateway-point-to-site-create.md). Suivez ensuite la procédure ci-dessous pour configurer la passerelle VPN et rassemblez les informations qui vous seront nécessaires pour configurer votre périphérique VPN.
+La procédure suivante vous guidera dans la configuration de votre passerelle VPN dans le portail Azure. Ces étapes s'appliquent aux passerelles des réseaux virtuels créés à l'aide du mode de gestion des services et sont visibles dans le portail Azure. Elles ne s'appliquent pas à l'utilisation du portail en version préliminaire ou aux réseaux virtuels configurés à l'aide du mode Resource Manager. Des informations sur la création de passerelles de réseau virtuel pour les réseaux virtuels créés à l'aide du mode Resource Manager sont disponibles dans la section [Création d'un réseau virtuel avec une connexion de site à site à l'aide d'Azure Resource Manager et de PowerShell ](vpn-gateway-create-site-to-site-rm-powershell.md).
+
+Avant de configurer votre passerelle, vous devrez tout d'abord créer votre réseau virtuel. Pour connaître la procédure de création d'un réseau virtuel pour la connectivité intersite, consultez la rubrique [Configuration d'un réseau virtuel avec une connexion VPN de site à site](vpn-gateway-site-to-site-create.md), ou [Configuration d'un réseau virtuel avec une connexion VPN de point à site](vpn-gateway-point-to-site-create.md). Suivez ensuite la procédure ci-dessous pour configurer la passerelle VPN et rassemblez les informations qui vous seront nécessaires pour configurer votre périphérique VPN.
 
 Si vous disposez déjà d'une passerelle VPN et que vous souhaitez modifier le type de routage, consultez la rubrique [Modification du type de passerelle VPN](#how-to-change-your-vpn-gateway-type).
 
@@ -35,7 +37,7 @@ Si vous disposez déjà d'une passerelle VPN et que vous souhaitez modifier le t
 
 ## Créer une passerelle VPN
 
-1. Dans la page **Réseaux**, vérifiez que la colonne d’état de votre réseau virtuel est définie sur **Créé**.
+1. Dans le portail Azure, sur la page **Réseaux**, vérifiez que la colonne d'état de votre réseau virtuel est définie sur **Créé**.
 
 1. Dans la colonne **Nom**, cliquez sur le nom de votre réseau virtuel.
 
@@ -44,7 +46,7 @@ Si vous disposez déjà d'une passerelle VPN et que vous souhaitez modifier le t
 ![Passerelle non créée](./media/vpn-gateway-configure-vpn-gateway-mp/IC717025.png)
 
 
-Cliquez ensuite sur **Créer une passerelle** en bas de la page. Vous pouvez sélectionner *Routage statique* ou *Routage dynamique*. Le type de routage que vous sélectionnez dépend de plusieurs facteurs. Par exemple, ce que votre périphérique VPN prend en charge et si vous devez prendre en charge des connexions de point à site. Pour vérifier le type de routage requis, consultez la rubrique [À propos des périphériques VPN pour Virtual Network Connectivity](http://go.microsoft.com/fwlink/p/?LinkId=615934). Si vous souhaitez changer de type de passerelle une fois celle-ci créée, il vous faudra la supprimer et en recréer une nouvelle. Lorsque le système vous demande de confirmer la création de la passerelle, cliquez sur **Oui**.
+Cliquez ensuite sur **Créer une passerelle** en bas de la page. Vous pouvez sélectionner *Routage statique* ou *Routage dynamique*. Le type de routage que vous sélectionnez dépend de plusieurs facteurs. Par exemple, ce que votre périphérique VPN prend en charge et si vous devez prendre en charge des connexions de point à site. Pour vérifier le type de routage requis, consultez la rubrique [À propos des périphériques VPN pour Virtual Network Connectivity](vpn-gateway-about-vpn-devices.md). Si vous souhaitez changer de type de passerelle une fois celle-ci créée, il vous faudra la supprimer et en recréer une nouvelle. Lorsque le système vous demande de confirmer la création de la passerelle, cliquez sur **Oui**.
 
 ![Type de passerelle](./media/vpn-gateway-configure-vpn-gateway-mp/IC717026.png)
 
@@ -69,7 +71,7 @@ Une fois la passerelle créée, collectez les informations de configuration de v
 
 ## Configuration de votre périphérique VPN
 
-A l’issue de ces étapes, vous ou votre administrateur réseau devrez configurer le périphérique VPN pour créer la connexion. Pour plus d’informations sur les périphériques VPN, consultez la rubrique [À propos des périphériques VPN pour Virtual Network Connectivity](http://go.microsoft.com/fwlink/p/?LinkID=615934).
+A l’issue de ces étapes, vous ou votre administrateur réseau devrez configurer le périphérique VPN pour créer la connexion. Pour plus d’informations sur les périphériques VPN, consultez la rubrique [À propos des périphériques VPN pour Virtual Network Connectivity](vpn-gateway-about-vpn-devices.md).
 
 Une fois le périphérique VPN configuré, vous pouvez afficher vos informations de connexion mises à jour sur la page Tableau de bord de votre réseau virtuel.
 
@@ -126,7 +128,7 @@ Sur la page **Tableau de bord**, vous pouvez afficher les informations suivantes
 
 Si vous avez besoin de modifier un type de routage de passerelle VPN, vous supprimerez la passerelle existante et vous la recréerez ensuite avec le nouveau type de routage. Vous n'avez pas besoin de supprimer le réseau virtuel entier pour modifier le type de routage de passerelle.
 
-Avant de modifier votre passerelle, vérifiez que votre périphérique VPN prend en charge le type de passerelle que vous voulez utiliser. Pour télécharger de nouveaux exemples de configuration de routage et vérifier les spécifications de périphérique VPN, consultez la rubrique [À propos des périphériques VPN pour Virtual Network Connectivity](http://go.microsoft.com/fwlink/p/?LinkID=615934).
+Avant de modifier votre passerelle, vérifiez que votre périphérique VPN prend en charge le type de passerelle que vous voulez utiliser. Pour télécharger de nouveaux exemples de configuration de routage et vérifier les spécifications de périphérique VPN, consultez la rubrique [À propos des périphériques VPN pour Virtual Network Connectivity](vpn-gateway-about-vpn-devices.md).
 
 >[AZURE.IMPORTANT]Lorsque vous supprimez une passerelle VPN de réseau virtuel, l'adresse IP virtuelle attribuée à la passerelle est de nouveau disponible. Lorsque vous recréez la passerelle, une nouvelle adresse VIP lui est attribuée.
 
@@ -141,12 +143,12 @@ Avant de modifier votre passerelle, vérifiez que votre périphérique VPN prend
 
 ## Étapes suivantes
 
-Pour plus d’informations sur la connectivité de réseau virtuel intersite, consultez la rubrique [À propos de la connectivité intersite sécurisée de réseau virtuel](http://go.microsoft.com/fwlink/p/?LinkID=532884).
+Pour plus d'informations sur les connexions intersites de réseau virtuel, voir l'article [À propos des connexions intersites sécurisées pour les réseaux virtuels](vpn-gateway-cross-premises-options.md).
 
-Vous pouvez ajouter des machines virtuelles à votre réseau virtuel. Pour plus d’informations, consultez la rubrique [Création d’une machine virtuelle personnalisée](../virtual-machines/virtual-machines-create-custom.md).
+Vous pouvez ajouter des machines virtuelles à votre réseau virtuel. Pour plus d'informations, voir l'article [Création d'une machine virtuelle personnalisée](../virtual-machines/virtual-machines-create-custom.md).
 
-Si vous souhaitez configurer une connexion VPN de point à site, consultez la rubrique [Configurer une connexion VPN de point à site](vpn-gateway-point-to-site-create.md).
+Si vous souhaitez configurer une connexion VPN de point à site, consultez l'article [Configuration d'une connexion VPN de point à site](vpn-gateway-point-to-site-create.md).
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

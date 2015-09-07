@@ -1,22 +1,20 @@
 <properties
    pageTitle="Azure Data Catalog prise en main du catalogue de données"
-   description="Didacticiel de bout en bout des scénarios et des fonctionnalités d’Azure Data Catalog"
-   documentationCenter=""
-   services="data-catalog"
-   authors="dvana"
-   manager="mblythe"
-   editor=""
-   tags=""/>
-
+	description="Didacticiel de bout en bout des scénarios et des fonctionnalités d’Azure Data Catalog."
+	documentationCenter=""
+	services="data-catalog"
+	authors="dvana"
+	manager="mblythe"
+	editor=""
+	tags=""/>
 <tags
    ms.service="data-catalog"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="data-catalog"
-   ms.date="07/13/2015"
-   ms.author="derrickv"/>
-
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="data-catalog"
+	ms.date="07/13/2015"
+	ms.author="derrickv"/>
 
 # Prise en main d’Azure Data Catalog
 
@@ -40,7 +38,7 @@ Dans cet exercice, vous installez l’exemple Adventure Works pour le moteur de
 
 La base de données Adventure Works OLTP prend en charge les scénarios de traitement des transactions en ligne standard pour un fabricant fictif de bicyclettes (Adventure Works Cycles), y compris la fabrication, les ventes et les achats. La base de données Adventure Works DW montre comment construire un entrepôt de données.
 
-Les bases de données se trouvent dans http://msftdbprodsamples.codeplex.com/ et peuvent être installées en suivant les étapes décrites dans [Installation des exemples de bases de données Adventure Works 2014\].
+Les bases de données se trouvent dans http://msftdbprodsamples.codeplex.com/ et peuvent être installées en suivant les étapes décrites dans [Installation des exemples de bases de données Adventure Works 2014].
 
 Dans cet exercice, vous avez installé les exemples de bases de données Adventure Works qui sont utilisés dans les exercices restants. Si vous avez choisi d’ignorer cet exercice et d’utiliser vos propres sources de données d’entreprise, préparez-vous à mémoriser des noms, des balises et d’autres métadonnées.
 
@@ -64,7 +62,7 @@ Dans cet exercice, vous allez utiliser l’outil d’enregistrement d’Azure Da
     ![register3][3]
 6.	Entrez votre **Nom du serveur**, puis cliquez sur **CONNEXION**.
 7.	La page suivante est celle où vous enregistrerez les métadonnées de votre source de données. Dans cet exemple, vous allez enregistrer les objets **Product** à partir de l’espace de noms AdventureWorks Production. Voici comment procéder :
-    
+
     a. Dans l’arborescence, cliquez sur **Production**.
 
     b. Appuyez sur la touche CTRL et cliquez sur Product, ProductCategory, ProductDescription et ProductPhoto.
@@ -78,7 +76,7 @@ Dans cet exercice, vous allez utiliser l’outil d’enregistrement d’Azure Da
     d. **Facultatif** : vous pouvez **Inclure un aperçu** et **Ajouter un expert de source de données**.
 
     e. Dans le champ **Ajouter des balises**, entrez une description, joignez une photo. Vous ajouterez ainsi des balises de recherche à ces ressources de données. Les balises sont un excellent moyen d’aider les utilisateurs à trouver une source de données enregistrée.
- 
+
     f. Cliquez sur **ENREGISTRER**. Azure Data Catalog enregistre les objets que vous avez sélectionnés. Dans cet exercice, les objets sélectionnés à partir d’Adventure Works sont enregistrés.
 
     ![register6][6]
@@ -117,9 +115,9 @@ Dans cet exemple, vous effectuez un **regroupement** pour rechercher des ressour
 
 1.	Connectez-vous au portail **Azure Data Catalog**.
 2.	Cliquez sur **Découvrir**.
-3.	Dans la zone **Recherche**, entrez une requête de type **Regroupement** : (tags:description OR tags:photo). 
+3.	Dans la zone **Recherche**, entrez une requête de type **Regroupement** : (tags:description OR tags:photo).
 4.	Cliquez sur l’icône de recherche ou appuyez sur Entrée. **Azure Data Catalog** affichera les ressources de données correspondant à cette requête de recherche.
-    
+
     ![recherche][8]
 
 Dans cet exercice, vous avez utilisé le portail **Azure Data Catalog** pour détecter et afficher les ressources de données enregistrées dans le catalogue.
@@ -224,4 +222,4 @@ Dans ce didacticiel, vous avez exploré les fonctionnalités essentielles de la 
 [11]: ./media/data-catalog-get-started/connect2.png
 [12]: ./media/data-catalog-get-started/ownership.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

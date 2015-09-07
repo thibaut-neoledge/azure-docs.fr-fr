@@ -1,20 +1,20 @@
 <properties
    pageTitle="Récupérer une base de données après une erreur de l’utilisateur dans SQL Data Warehouse | Microsoft Azure"
-   description="Procédure de récupération d’une base de données après une erreur de l’utilisateur dans SQL Data Warehouse."
-   services="sql-data-warehouse"
-   documentationCenter="NA"
-   authors="sahaj08"
-   manager="barbkess"
-   editor=""/>
+	description="Procédure de récupération d’une base de données après une erreur de l’utilisateur dans SQL Data Warehouse."
+	services="sql-data-warehouse"
+	documentationCenter="NA"
+	authors="sahaj08"
+	manager="barbkess"
+	editor=""/>
 
 <tags
    ms.service="sql-data-warehouse"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="data-services"
-   ms.date="06/26/2015"
-   ms.author="sahajs"/>
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="data-services"
+	ms.date="06/26/2015"
+	ms.author="sahajs"/>
 
 # Récupérer une base de données après une erreur de l’utilisateur dans SQL Data Warehouse
 
@@ -58,6 +58,8 @@ $RestoreRequest = Start-AzureSqlDatabaseRestore -SourceServerName "<YourServerNa
 # Monitor progress of restore operation
 Get-AzureSqlDatabaseOperation -ServerName "<YourServerName>" –OperationGuid $RestoreRequest.RequestID
 ```
+
+Notez que si votre serveur est nommé foo.database.windows.net, utilisez « foo » en tant que nom du serveur dans les applets de commande powershell.
 
 ### API REST
 Utilisez REST pour exécuter par programmation la restauration des bases de données.
@@ -116,8 +118,8 @@ Pour plus d’informations sur les fonctionnalités de continuité d’activité
 [Statut d’opération de base de données]: http://msdn.microsoft.com/library/azure/dn720371.aspx
 [Obtention de base de données supprimée pouvant être restaurée]: http://msdn.microsoft.com/library/azure/dn509574.aspx
 [Liste des bases de données supprimées pouvant être restaurées]: http://msdn.microsoft.com/library/azure/dn509562.aspx
-[Start-AzureSqlDatabaseRestore]: https://msdn.microsoft.com/fr-fr/library/dn720218.aspx
+[Start-AzureSqlDatabaseRestore]: https://msdn.microsoft.com/fr-FR/library/dn720218.aspx
 
 <!--Other Web references-->
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

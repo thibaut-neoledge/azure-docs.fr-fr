@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Utilisation du connecteur Facebook dans votre application logique dans Azure App Service"
-	description="Utilisation du connecteur Facebook dans une application logique"
+   pageTitle="Utilisation du connecteur Facebook dans des applications logiques | Microsoft Azure App Service"
+	description="Comment créer et configurer le connecteur Facebook ou une application API et l'utiliser dans une application logique d’Azure App Service"
 	services="app-service\logic"
 	documentationCenter=".net,nodejs,java"
 	authors="anuragdalmia"
@@ -13,16 +13,19 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="integration"
-	ms.date="08/19/2015"
+	ms.date="08/23/2015"
 	ms.author="andalmia"/>
 
 
-# Connecteur Facebook
+# Utilisation et ajout du connecteur Facebook dans votre application logique
+Connectez-vous à un compte Facebook pour publier des messages ou des photos. Les applications logiques peuvent se déclencher selon diverses sources de données et proposent des connecteurs pour obtenir et traiter les données dans le cadre du flux.
 
-Les applications logiques peuvent se déclencher selon diverses sources de données et proposent des connecteurs pour obtenir et traiter les données dans le cadre du flux.
+Avec le connecteur de Facebook, vous pouvez :
 
-- Le déclencheur du connecteur Facebook récupère la nouvelle publication sur le fil d'actualité d'un utilisateur ou la nouvelle publication sur une page. Quand un nouveau tweet est récupéré, il déclenche une nouvelle instance du flux et transfère les données reçues dans la requête au flux à des fins de traitement.
-- Les actions du connecteur Facebook vous permettent de publier un commentaire, une photo, etc. Ces actions obtiennent à leur tour une réponse et la rendent disponible pour les actions dans le flux à consommer.
+- utiliser des déclencheurs pour récupérer la nouvelle publication sur le fil d'actualité d'un utilisateur ou la nouvelle publication sur une page. Quand une nouvelle publication est récupérée, elle déclenche une nouvelle instance du flux et transfère les données reçues dans la requête au flux à des fins de traitement.
+- utiliser des actions qui vous permettent de publier un commentaire, une photo, etc. Ces actions obtiennent à leur tour une réponse et la rendent disponible pour les actions dans le flux à consommer.
+
+Vous pouvez ajouter le connecteur Facebook à votre flux d’entreprise et traiter les données dans le cadre de ce flux de travail dans une application logique.
 
 ## Déclencheurs et actions
 
@@ -33,7 +36,7 @@ Déclencheurs | Actions
 
 
 ## Création d'un connecteur Facebook pour votre application logique
-Pour utiliser le connecteur Facebook, vous devez d'abord créer une instance de l'application API du connecteur Facebook. Pour cela, procédez comme suit :
+Un connecteur peut être créé dans une application logique ou directement à partir d'Azure Marketplace. Pour créer un connecteur à partir de Marketplace :
 
 1. Dans le tableau d'accueil Azure, sélectionnez **Marketplace**.
 2. Recherchez « Connecteur Facebook », sélectionnez-le et sélectionnez **Créer**.
@@ -75,4 +78,4 @@ Vous pouvez également consulter les statistiques de performances et contrôler 
 [10]: ./media/app-service-logic-connector-facebook/img10.png
 [11]: ./media/app-service-logic-connector-facebook/img11.png
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

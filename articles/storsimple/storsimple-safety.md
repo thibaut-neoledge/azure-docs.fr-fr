@@ -1,21 +1,21 @@
 <properties 
-   pageTitle="Sécurité de votre appareil StorSimple"
-   description="Prenez connaissance des recommandations de sécurité pour le déploiement et l’utilisation de votre appareil StorSimple"
-   services="storsimple"
-   documentationCenter=""
-   authors="alkohli"
-   manager="carolz"
-   editor="tysonn" />
+   pageTitle="Sécurité de votre appareil StorSimple| Microsoft Azure"
+	description="Décrit les conventions, les instructions et les considérations de sécurité, et explique comment installer et utiliser en toute sécurité votre appareil StorSimple."
+	services="storsimple"
+	documentationCenter=""
+	authors="alkohli"
+	manager="carolz"
+	editor=""/>
 <tags 
    ms.service="storsimple"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="08/14/2015"
-   ms.author="alkohli" />
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="na"
+	ms.date="08/26/2015"
+	ms.author="alkohli"/>
 
-# Sécurité de votre appareil
+# Installer et utiliser en toute sécurité votre appareil StorSimple
 
 ![Icône Avertissement](./media/storsimple-safety/IC740879.png)![Icône Lire l’avis de sécurité](./media/storsimple-safety/IC740885.png)**LIRE LES INFORMATIONS SUR LA SANTÉ ET LA SÉCURITÉ**
 
@@ -179,4 +179,4 @@ Une fois que vous avez lu attentivement ces consignes de sécurité, les étapes
 
 - Pour un appareil 8600, consultez la rubrique [Installation de votre appareil StorSimple 8600](storsimple-8600-hardware-installation.md).
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

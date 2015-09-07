@@ -1,22 +1,20 @@
 <properties 
-   authors="danielceckert" 
-   documentationCenter="dev-center-name" 
-   editor=""
-   manager="jefco" 
-   pageTitle="Gérer : délai d’inactivité de l’équilibrage de charge" 
-   description="Fonctionnalités de gestion du délai d'inactivité de l'équilibrage de charge Azure" 
-   services="virtual-network" 
-   />
+   authors="danielceckert"
+	documentationCenter="dev-center-name"
+	editor=""
+	manager="jefco"
+	pageTitle="Gérer : délai d’inactivité de l’équilibrage de charge"
+	description="Fonctionnalités de gestion du délai d'inactivité de l'équilibrage de charge Azure"
+	services="virtual-network"/>
 
 <tags
    ms.author="danecke"
-   ms.date="05/27/2015"
-   ms.devlang="na"
-   ms.service="virtual-network"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   />
+	ms.date="05/27/2015"
+	ms.devlang="na"
+	ms.service="virtual-network"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="infrastructure-services"/>
    
 # Gérer un réseau virtuel : délai d’inactivité TCP de l’équilibrage de charge
 
@@ -34,8 +32,8 @@ Pour supporter les scénarios d'appareil mobile, l'équilibrage de charge Azure 
 
 Le délai d'inactivité TCP peut être configuré pour les éléments suivants :
 
-* [Adresses IP publiques de niveau d’instance](http://msdn.microsoft.com/library/azure/dn690118.aspx)
-* [Jeux de points de terminaison soumis à l’équilibrage de charge](http://msdn.microsoft.com/library/azure/dn655055.aspx)
+* [Adresses IP publiques de niveau d’instance](virtual-networks-instance-level-public-ip.md)
+* [Jeux de points de terminaison soumis à l’équilibrage de charge](../load-balancer/load-balancer-overview.md)
 * [Points de terminaison sur une machine virtuelle](../virtual-machines/virtual-machines-set-up-endpoints.md)
 * [Rôles web](http://msdn.microsoft.com/library/windowsazure/ee758711.aspx)
 * [Rôles de travail](http://msdn.microsoft.com/library/windowsazure/ee758711.aspx)
@@ -152,4 +150,4 @@ La valeur de LoadBalancerDistribution peut être sourceIP pour une affinité à 
     </LoadBalancedEndpointList>
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

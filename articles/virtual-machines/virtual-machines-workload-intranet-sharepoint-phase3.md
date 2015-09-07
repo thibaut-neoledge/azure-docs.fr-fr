@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Phase 3 de la charge de travail de la batterie de serveurs SharePoint intranet : Configuration de l’infrastructure SQL Server"
-	description="Au cours de cette troisième phase de déploiement d’une batterie de serveurs SharePoint 2013 intranet uniquement avec les groupes de disponibilité SQL Server AlwaysOn dans les services d’infrastructure Azure, vous créez les ordinateurs du cluster SQL Server et le cluster en lui-même."
+	pageTitle="Batterie de serveurs SharePoint Server 2013 - Phase 3 | Microsoft Azure"
+	description="Créez les ordinateurs et le cluster SQL Server, et activez les groupes de disponibilité dans la phase 3 de la batterie de serveurs SharePoint Server 2013 dans Azure."
 	documentationCenter=""
 	services="virtual-machines"
 	authors="JoeDavies-MSFT"
@@ -44,7 +44,7 @@ Une fois que vous avez fourni toutes les valeurs requises, exécutez le bloc ré
 	$vmSize="<Table M – Item 3 - Minimum size column, specify one: Small, Medium, Large, ExtraLarge, A5, A6, A7, A8, A9>"
 	$availSet="<Table A – Item 2 – Availability set name column>"
 
-	$image= Get-AzureVMImage | where { $_.ImageFamily -eq "SQL Server 2014 RTM Standard on Windows Server 2012 R2" } | sort PublishedDate -Descending | select -ExpandProperty ImageName -First 1
+	$image= Get-AzureVMImage | where { $_.ImageFamily -eq "SQL Server 2014 RTM Enterprise on Windows Server 2012 R2" } | sort PublishedDate -Descending | select -ExpandProperty ImageName -First 1
 	$vm1=New-AzureVMConfig -Name $vmName -InstanceSize $vmSize -ImageName $image -AvailabilitySetName $availSet
 
 	$cred1=Get-Credential –Message "Type the name and password of the local administrator account for the first SQL Server computer."
@@ -143,7 +143,7 @@ SQL Server nécessite un port permettant d’accéder au serveur de base de don
 
 Pour chacune des machines virtuelles SQL Server, déconnectez-vous en tant qu’administrateur local.
 
-Pour plus d’informations sur l’optimisation des performances de SQL Server dans Azure, consultez [Meilleures pratiques relatives aux performances de SQL Server sur les machines virtuelles Azure](https://msdn.microsoft.com/library/azure/dn133149.aspx). Vous pouvez également désactiver le stockage géo-redondant (GRS) associé au compte de stockage de la batterie de serveurs SharePoint et utiliser des espaces de stockage pour optimiser les E/S.
+Pour plus d’informations sur l’optimisation des performances de SQL Server dans Azure, consultez [Meilleures pratiques relatives aux performances de SQL Server sur les machines virtuelles Azure](virtual-machines-sql-server-performance-best-practices.md). Vous pouvez également désactiver le stockage géo-redondant (GRS) associé au compte de stockage de la batterie de serveurs SharePoint et utiliser des espaces de stockage pour optimiser les E/S.
 
 ## Configuration du serveur de nœud majoritaire du cluster
 
@@ -228,4 +228,4 @@ Pour poursuivre la configuration de cette charge de travail, passez à la [Phase
 
 [Charge de travail des services d’infrastructure Azure : applications métier à haute disponibilité](virtual-machines-workload-high-availability-lob-application.md)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->
