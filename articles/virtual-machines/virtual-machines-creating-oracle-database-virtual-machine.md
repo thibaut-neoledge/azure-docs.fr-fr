@@ -1,5 +1,19 @@
-<properties title="Creating an Oracle Database virtual machine in Azure" pageTitle="Création d’une machine virtuelle Oracle Database dans Azure" description="Parcourez un exemple vous indiquant comment créer une machine virtuelle Oracle dans Microsoft Azure, puis comment créer une base de données Oracle au sein de cette machine." services="virtual-machines" authors="bbenz" documentationCenter=""/>
-<tags ms.service="virtual-machines" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="infrastructure-services" ms.date="06/22/2015" ms.author="bbenz"/>
+<properties
+	title="Creating an Oracle Database virtual machine in Azure"
+	pageTitle="Création d’une machine virtuelle Oracle Database dans Azure"
+	description="Parcourez un exemple vous indiquant comment créer une machine virtuelle Oracle dans Microsoft Azure, puis comment créer une base de données Oracle au sein de cette machine."
+	services="virtual-machines"
+	authors="bbenz"
+	documentationCenter=""/>
+
+<tags
+	ms.service="virtual-machines"
+	ms.devlang="na" ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="infrastructure-services"
+	ms.date="06/22/2015"
+	ms.author="bbenz"/>
+
 #Création d’une machine virtuelle Oracle Database dans Azure
 L’exemple suivant vous indique comment créer une machine virtuelle sur la base d’une image Oracle Database fournie par Microsoft et exécutée sur Windows Server 2012 dans Azure. La procédure à suivre implique deux étapes. Tout d’abord, créez la machine virtuelle, puis créez l’instance Oracle Database dans la machine virtuelle. L’exemple présenté concerne Oracle Database version 12c, mais les étapes sont presque identiques pour la version 11g.
 
@@ -181,4 +195,4 @@ Maintenant que vous avez configuré votre machine virtuelle et créé votre base
 
 -	[Oracle Database 2 Day DBA 12c Release 1](http://docs.oracle.com/cd/E16655_01/server.121/e17643/toc.htm)
 
-<!----HONumber=August15_HO9-->
+<!-----HONumber=August15_HO9-->
