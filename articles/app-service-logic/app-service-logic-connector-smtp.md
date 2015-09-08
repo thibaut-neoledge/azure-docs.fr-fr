@@ -67,16 +67,16 @@ Une fois votre connecteur créé, vous pouvez utiliser le connecteur SMTP comme 
 
 Vous pouvez maintenant configurer le connecteur SMTP à utiliser dans votre flux de travail. Sélectionnez l’action **Envoyer l’e-mail** et configurez les propriétés d’entrée :
 
-	Property | Description
+	Propriété | Description
 	--- | ---
-	To | Enter the email address of recipient(s). Separate multiple email addresses using a semicolon (;). For example, enter: *recipient1@domain.com;recipient2@domain.com*.
-	Cc | Enter the email address of the carbon copy recipient(s). Separate multiple email addresses using a semicolon (;). For example, enter: *recipient1@domain.com;recipient2@domain.com*.
-	Subject | Enter the subject of the email.
-	Body | Enter body of the email.
-	Is HTML | When this property is set to true, the contents of the body are sent as HTML.
-	Bcc | Enter the email address of recipient(s) for blind carbon copy. Separate multiple email addresses using a semicolon (;). For example, enter: *recipient1@domain.com;recipient2@domain.com*.
-	Importance | Enter the Importance of the email. The options are Normal, Low, and High.
-	Attachments | Attachments to be sent along with the email. It contains the following fields: <ul><li>Content (String)</li><li>Content transfer Encoding (Enum) (“none”|”base64”)</li><li>Content Type (String)</li><li>Content ID (String)</li><li>File Name (String)</li></ul>
+	À | Entrez l'adresse e-mail du ou des destinataire(s). Séparez les adresses e-mail par un point-virgule (;). Par exemple, entrez: *recipient1@domain.com;recipient2@domain.com*.
+	Cc | Entrez l'adresse e-mail du ou des destinataire(s) de la copie carbone. Séparez les adresses e-mail par un point-virgule (;). Par exemple, entrez: *recipient1@domain.com;recipient2@domain.com*.
+	Objet | Entrez l'objet de l'e-mail.
+	Corps | Entrez le corps de l'e-mail.
+	Is HTML | Lorsque cette proriété est définie sur true, le contenu du corps est envoyé en HTML.
+	Cci | Entrez l'adresse e-mail du ou des destintaire(s) pour la copie carbone invisible. Séparez les adresses e-mail par un point-virgule (;). Par exemple, entrez: *recipient1@domain.com;recipient2@domain.com*.
+	Importance | Entrez l'importance de l'e-mail. Les options sont Normale, Faible et Élevée.
+	Pièces jointes | Les pièces jointes à envoyer avec l'e-mail. Cette section contient les champs suivants: <ul><li>Contenu (Chaîne)</li><li>Codage du transfert du contenu (Enum) (“none”|”base64”)</li><li>Type de contenu (Chaîne)</li><li>ID du contenu (Chaîne)</li><li>Nom de fichier (Chaîne)</li></ul>
 
 	![][5]
 	![][6]
