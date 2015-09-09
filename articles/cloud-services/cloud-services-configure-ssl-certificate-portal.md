@@ -155,4 +155,4 @@ Maintenant que votre déploiement est opérationnel dans Azure, vous pouvez vous
 
 [Azure Portal]: http://portal.azure.com/
 
-<!-----HONumber=August15_HO7-->
+<!------HONumber=August15_HO7-->

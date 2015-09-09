@@ -78,8 +78,8 @@ Vous pouvez maintenant configurer le connecteur SMTP à utiliser dans votre flux
 	Importance | Entrez l'importance de l'e-mail. Les options sont Normale, Faible et Élevée.
 	Pièces jointes | Les pièces jointes à envoyer avec l'e-mail. Cette section contient les champs suivants: <ul><li>Contenu (Chaîne)</li><li>Codage du transfert du contenu (Enum) (“none”|”base64”)</li><li>Type de contenu (Chaîne)</li><li>ID du contenu (Chaîne)</li><li>Nom de fichier (Chaîne)</li></ul>
 
-	![][5]
-	![][6]
+![][5]
+![][6]
 
 ## En faire plus avec votre connecteur
 Maintenant que le connecteur est créé, vous pouvez l'ajouter à un flux d'entreprise à l'aide d'une application logique. Voir [Que sont les applications logiques ?](app-service-logic-what-are-logic-apps.md).
@@ -96,4 +96,4 @@ Vous pouvez également consulter les statistiques de performances et contrôler 
 [5]: ./media/app-service-logic-connector-smtp/img5.PNG
 [6]: ./media/app-service-logic-connector-smtp/img6.PNG
 
-<!---HONumber=August15_HO9-->
+<!----HONumber=August15_HO9-->
