@@ -40,7 +40,7 @@ Pour effectuer la procédure décrite dans cette rubrique, vous devez disposer d
 
    	Cette opération inscrit l'application et affiche les détails de la demande.
 
-6. Cliquez sur l'onglet **Keys and Access Tokens** dans le tableau de bord de votre application et prenez note des valeurs **Consumer key** et **Consumer secret**.
+6. Cliquez sur l'onglet **Clés et jetons d'accès** dans le tableau de bord de votre application et prenez note des valeurs **clé du client** et **Secret du client**.
 
     > [AZURE.NOTE] La clé secrète consommateur est une information d'identification de sécurité importante. Ne partagez pas cette clé secrète avec quiconque et ne la distribuez pas avec votre application.
 
@@ -62,4 +62,4 @@ Vous pouvez désormais utiliser une connexion Twitter pour l'authentification da
 [Azure Management Portal]: https://manage.windowsazure.com/
  
 
-<!----HONumber=August15_HO8-->
+<!-----HONumber=August15_HO8-->
