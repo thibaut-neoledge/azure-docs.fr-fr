@@ -510,24 +510,24 @@ La classe [Bundle](http://msdn.microsoft.com/library/system.web.optimization.bun
 	``` 
 	... 
 	<link href="http://az673227.vo.msecnd.net/Content/css?v=1.0.0.25474" rel="stylesheet"/>
-	<script>(function() { 
-	var loadFallback, 
-		len = document.styleSheets.length; 
-	for (var i = 0; i < len; i++) { 
-	var sheet = document.styleSheets[i]; 
-	if (sheet.href.indexOf('http://az673227.vo.msecnd.net/Content/css?v=1.0.0.25474') !== -1) { 
-		var meta = document.createElement('meta'); 
-		meta.className = 'sr-only'; 
-		document.head.appendChild(meta); 
-		var value = window.getComputedStyle(meta).getPropertyValue('width'); 
-		document.head.removeChild(meta); 
-		if (value !== '1px') { 
-			document.write('<link href="/Content/css" rel="stylesheet" type="text/css" />'); 
-			}
-		}
-	} 
-	return true; 
-	}())||document.write('<script src="/Content/css"><\\/script>');</script>
+<script>(function() {
+                var loadFallback,
+                    len = document.styleSheets.length;
+                for (var i = 0; i < len; i++) {
+                    var sheet = document.styleSheets[i];
+                    if (sheet.href.indexOf('http://az673227.vo.msecnd.net/Content/css?v=1.0.0.25474') !== -1) {
+                        var meta = document.createElement('meta');
+                        meta.className = 'sr-only';
+                        document.head.appendChild(meta);
+                        var value = window.getComputedStyle(meta).getPropertyValue('width');
+                        document.head.removeChild(meta);
+                        if (value !== '1px') {
+                            document.write('<link href="/Content/css" rel="stylesheet" type="text/css" />');
+                        }
+                    }
+                }
+                return true;
+            }())||document.write('<script src="/Content/css"><\/script>');</script>
 
 	<script src="http://az673227.vo.msecnd.net/bundles/modernizer?v=1.0.0.25474"></script>
  	<script>(window.Modernizr)||document.write('<script src="/bundles/modernizr"><\/script>');</script>
@@ -564,4 +564,4 @@ La classe [Bundle](http://msdn.microsoft.com/library/system.web.optimization.bun
 * Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre l’ancien et le nouveau portail, consultez la page [Références sur la navigation dans le portail Azure](http://go.microsoft.com/fwlink/?LinkId=529715)
  
 
-<!---HONumber=August15_HO9-->
+<!-------HONumber=August15_HO9-->

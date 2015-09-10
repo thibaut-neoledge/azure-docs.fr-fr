@@ -71,7 +71,9 @@ Le nom et la clé de l'émetteur Service Bus sont utilisés par BizTalk Adapter 
 2. Dans le volet de navigation de gauche, sélectionnez **Service Bus**.
 3. Sélectionnez votre espace de noms. Dans la barre des tâches, sélectionnez **Informations de connexion**. Cette action affiche l'**Émetteur par défaut** (Nom de l'émetteur) et la **Clé par défaut** (Clé de l'émetteur). Leurs valeurs peuvent être copiées.  
 
-En résumé : Nom de l’émetteur = Émetteur par défaut Clé de l’émetteur = Clé par défaut
+En résumé : 
+Nom de l’émetteur = Émetteur par défaut 
+Clé de l’émetteur = Clé par défaut
 
 ## Suivant
 Autres rubriques Azure BizTalk Services :
@@ -92,4 +94,4 @@ Autres rubriques Azure BizTalk Services :
 - [Limitation BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=302282)<br/>
  
 
-<!---HONumber=August15_HO9-->
+<!----HONumber=August15_HO9-->

@@ -28,9 +28,9 @@ Azure BizTalk Services met en place un service de limitation basé sur deux cond
 
 Le tableau suivant répertorie les sources et seuils de limitation :
 
-||Description|Seuil minimum|Seuil maximum| 
-|---|---|---|---| 
-|Mémoire|% de la mémoire système totale disponible/PageFileBytes. <p><p>Le total de PageFileBytes disponible correspond environ à 2 fois la mémoire RAM du système.|60 %|70 %| 
+||Description|Seuil minimum|Seuil maximum|
+|---|---|---|---|
+|Mémoire|% de la mémoire système totale disponible/PageFileBytes. <p><p>Le total de PageFileBytes disponible correspond environ à 2 fois la mémoire RAM du système.|60 %|70 %|
 |Traitement de message|Nombre de messages traités simultanément|40 * nombre de cœurs|100 * nombre de cœurs|
 
 Lorsqu'un seuil maximal est atteint, Azure BizTalk Services active les limitations. La limitation s'arrête une fois le seuil minimal atteint. Par exemple, votre service utilise 65 % de la mémoire système. Dans ce cas, le service n'utilise pas de limitation. Votre service monte à 70 % d'utilisation de mémoire système. Dans ce cas, le service lance une limitation et continue de l'appliquer jusqu'à ce que le service utilise 60 % (seuil minimal) de la mémoire système.
@@ -72,4 +72,4 @@ l'instance RoleInstanceA est limitée. L'instance RoleInstanceB ne l'est pas. Da
 - [Nom et clé de l'émetteur dans BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=303941)<br/>
  
 
-<!---HONumber=August15_HO9-->
+<!----HONumber=August15_HO9-->
