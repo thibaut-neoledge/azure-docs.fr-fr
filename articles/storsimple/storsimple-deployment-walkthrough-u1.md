@@ -241,7 +241,7 @@ Pour vous connecter à Windows PowerShell pour StorSimple, vous devez utiliser u
 La mise à jour de votre appareil peut prendre plusieurs heures. Procédez comme suit pour rechercher et appliquer des mises à jour sur votre appareil.
 <!-- > can take 1-4 hours-->
 
-<!-- > [AZURE.NOTE] If you have a gateway configured on a network interface other than Data 0, you will need to disable Data 2 and Data 3 network interfaces before installing the update. Go to **Devices > Configure** and disable Data 2 and Data 3 interfaces. You should re-enable these interfaces after the device is updated.-->
+<!-- > [AZURE.NOTE] Si vous avez une passerelle configurée sur une interface réseau différente de Data 0, vous devrez désactiver les interfaces réseau Data 2 et Data 3 avant d'installer la mise à jour. Accédez à **Périphériques > Configurer** et désactivez les interfaces Data 2 et Data 3. Vous devrez réactiver ces interfaces après la mise à jour de l'appareil.-->
 
 #### Mise à jour de votre appareil
 
@@ -255,7 +255,7 @@ La mise à jour de votre appareil peut prendre plusieurs heures. Procédez comme
 
 4.	Lorsque l'appareil est correctement mis à jour, activez les interfaces réseau Data 2 et Data 3 si elles ont été désactivées.
 
-<!-- In step 2, you may be requested to disable Data 2 and Data 3 prior to installing the updates. You must disable these network interfaces or the updates may fail.-->
+<!-- Vous serez peut-être invité à désactiver Data 2 et Data 3 avant d'installer les mises à jour. Vous devez désactiver ces interfaces réseau ou les mises à jour peuvent échouer.-->
 
 ## Obtention du nom qualifié d’un hôte Windows Server
 
@@ -287,4 +287,4 @@ Configuration d’un [appareil virtuel](storsimple-virtual-device.md).
 Utilisez le [service StorSimple Manager](storsimple-manager-service-administration.md) pour gérer votre appareil StorSimple.
  
 
-<!---HONumber=September15_HO1-->
+<!----HONumber=September15_HO1-->

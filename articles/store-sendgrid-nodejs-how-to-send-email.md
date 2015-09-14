@@ -188,4 +188,4 @@ Maintenant que vous avez appris les bases du service de messagerie SendGrid, con
   [service de messagerie dans le cloud]: https://sendgrid.com/email-solutions
   [remise de courrier électronique transactionnelle]: https://sendgrid.com/transactional-email
 
-<!---HONumber=September15_HO1-->
+<!----HONumber=September15_HO1-->

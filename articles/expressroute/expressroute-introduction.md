@@ -110,4 +110,4 @@ Si vous choisissez d’avoir les trois sessions d’homologation, vous devez di
 - Recherchez un fournisseur de services. Consultez la rubrique [Emplacements et fournisseurs de services ExpressRoute](expressroute-locations.md).
 - Configurez votre connexion ExpressRoute. Pour connaître les instructions, consultez la rubrique [Configuration d’une connexion ExpressRoute via un fournisseur de services réseau](expressroute-configuring-nsps.md) ou [Configuration d’une connexion ExpressRoute via un fournisseur Exchange](expressroute-configuring-exps.md). 
 
-<!----HONumber=August15_HO9-->
+<!-----HONumber=August15_HO9-->
