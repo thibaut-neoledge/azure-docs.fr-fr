@@ -1,22 +1,20 @@
 <properties 
-	pageTitle="Utilisation du stockage de tables à partir de Node.js | Microsoft Azure" 
-	description="Découvrez comment utiliser le service de stockage de tables dans Azure. Les exemples de code sont écrits à l'aide de l'API Node.js." 
-	services="storage" 
-	documentationCenter="nodejs" 
-	authors="MikeWasson" 
-	manager="wpickett" 
+	pageTitle="Utilisation du stockage de tables à partir de Node.js | Microsoft Azure"
+	description="Découvrez comment utiliser le service de stockage de tables dans Azure. Les exemples de code sont écrits à l'aide de l'API Node.js."
+	services="storage"
+	documentationCenter="nodejs"
+	authors="MikeWasson"
+	manager="wpickett"
 	editor=""/>
 
-
 <tags 
-	ms.service="storage" 
-	ms.workload="storage" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="nodejs" 
-	ms.topic="article" 
-	ms.date="03/11/2015" 
+	ms.service="storage"
+	ms.workload="storage"
+	ms.tgt_pltfrm="na"
+	ms.devlang="nodejs"
+	ms.topic="article"
+	ms.date="09/01/2015"
 	ms.author="mwasson"/>
-
 
 
 # Utilisation du stockage de tables à partir de Node.js
@@ -48,17 +46,18 @@ Pour utiliser le stockage Azure, vous avez besoin du Kit de développement logic
 
 1.  Utilisez une interface de ligne de commande telle que **PowerShell** (Windows) **Terminal** (Mac) ou **Bash** (Unix) pour accéder au dossier dans lequel vous avez créé votre application.
 
-2.  Tapez **npm install azure-storage** dans la fenêtre de commande, ce qui doit aboutir à la sortie suivante :
+2.  Tapez **npm install azure-storage** dans la fenêtre de commande. Le résultat de la commande ressemble à l’exemple suivant.
 
-        azure-storage@0.1.0 node_modules\azure-storage
-		├── extend@1.2.1
-		├── xmlbuilder@0.4.3
-		├── mime@1.2.11
-		├── underscore@1.4.4
-		├── validator@3.1.0
-		├── node-uuid@1.4.1
-		├── xml2js@0.2.7 (sax@0.5.2)
-		└── request@2.27.0 (json-stringify-safe@5.0.0, tunnel-agent@0.3.0, aws-sign@0.3.0, forever-agent@0.5.2, qs@0.6.6, oauth-sign@0.3.0, cookie-jar@0.3.0, hawk@1.0.0, form-data@0.1.3, http-signature@0.10.0)
+		azure-storage@0.5.0 node_modules\azure-storage
+		+-- extend@1.2.1
+		+-- xmlbuilder@0.4.3
+		+-- mime@1.2.11
+		+-- node-uuid@1.4.3
+		+-- validator@3.22.2
+		+-- underscore@1.4.4
+		+-- readable-stream@1.0.33 (string_decoder@0.10.31, isarray@0.0.1, inherits@2.0.1, core-util-is@1.0.1)
+		+-- xml2js@0.2.7 (sax@0.5.2)
+		+-- request@2.57.0 (caseless@0.10.0, aws-sign2@0.5.0, forever-agent@0.6.1, stringstream@0.0.4, oauth-sign@0.8.0, tunnel-agent@0.4.1, isstream@0.1.2, json-stringify-safe@5.0.1, bl@0.9.4, combined-stream@1.0.5, qs@3.1.0, mime-types@2.0.14, form-data@0.2.0, http-signature@0.11.0, tough-cookie@2.0.0, hawk@2.3.1, har-validator@1.8.0)
 
 3.  Vous pouvez exécuter manuellement la commande **ls** pour vérifier que le dossier **node\_modules** a été créé. Dans ce dossier, recherchez le dossier **azure-storage**, qui contient les bibliothèques dont vous avez besoin pour accéder au stockage.
 
@@ -186,7 +185,7 @@ L'exemple suivant illustre la mise à jour d'une entité avec **updateEntity** 
 >    
 > 3. Effectuez l'opération de mise à jour. Si l’entité a été modifiée depuis que vous avez extrait la valeur ETag, par exemple avec une autre instance de votre application, une `error` est renvoyée, indiquant que la condition de mise à jour spécifiée dans la requête n’est pas remplie.
     
-Avec **updateEntity** et **mergeEntity**, si l'entité mise à jour n'existe pas, l'opération échoue. Si vous voulez stocker une entité, qu'elle existe déjà ou non, utilisez plutôt **insertOrReplaceEntity** ou **insertOrMergeEntity**.
+Avec **updateEntity** et **mergeEntity**, si l'entité mise à jour n'existe pas, l'opération échoue. Si vous voulez stocker une entité, qu'elle existe déjà ou non, utilisez **insertOrReplaceEntity** ou **insertOrMergeEntity**.
 
 Le `result` des opérations de mise à jour réussies contient l’**Etag** de l’entité mise à jour.
 
@@ -222,7 +221,7 @@ Il est parfois intéressant de soumettre un lot d'opérations simultanément pou
 
 Pour les opérations de traitement par lot réussies, `result` contient les informations de chaque opération du lot.
 
-### Utilisation des opérations de traitement par lot
+### Ultiliser des opérations de traitement par lot
 
 Les opérations ajoutées à un traitement par lot peuvent être inspectées en affichant la propriété `operations`. Vous pouvez également utiliser les méthodes suivantes avec les opérations.
 
@@ -277,9 +276,9 @@ Comme **select** n'est pas utilisé, tous les champs sont renvoyés. Pour exécu
 	  }
 	});
 
-En cas de réussite, `result.entries` contient un tableau d’entités qui correspondent à la requête. Si la requête n’a pas pu renvoyer toutes les entités, `result.continuationToken` est non-*null* et peut servir de troisième paramètre de **queryEntities** pour obtenir davantage de résultats. Pour la requête initiale, le troisième paramètre doit être *null*.
+En cas de réussite, `result.entries` contient un tableau d’entités qui correspondent à la requête. Si la requête n’a pas pu renvoyer toutes les entités, `result.continuationToken` est non-*null* et peut servir de troisième paramètre de **queryEntities** pour obtenir davantage de résultats. Pour la requête initiale, utilisez *null* comme troisième paramètre.
 
-### Interrogation d’un sous-ensemble de propriétés d’entité
+### Interrogation d'un sous-ensemble de propriétés d'entité
 
 Vous pouvez utiliser une requête de table pour extraire uniquement quelques champs d'une entité. Ceci permet de réduire la consommation de bande passante et peut améliorer les performances des requêtes, notamment pour les entités volumineuses. Utilisez la clause **select** et transmettez les noms des champs à renvoyer. Par exemple, la requête suivante renvoie uniquement les champs **description** et **dueDate**.
 
@@ -303,7 +302,7 @@ Vous pouvez supprimer une entité en utilisant ses clés de partition et de lign
 	  }
 	});
 
-> [AZURE.NOTE]Vous avez intérêt à utiliser les ETag pour supprimer des éléments afin de vous assurer que les éléments n'ont pas été modifiés par un autre processus. Pour plus d’informations sur l’utilisation des ETags, consultez la rubrique [Procédure : mise à jour d’une entité\][\].
+> [AZURE.NOTE]Vous avez intérêt à utiliser les ETag pour supprimer des éléments afin de vous assurer que les éléments n'ont pas été modifiés par un autre processus. Consultez [Mise à jour d'une entité](#update-an-entity) pour plus d'informations sur l'utilisation des ETags.
 
 ## Suppression d'une table
 
@@ -317,9 +316,9 @@ Le code suivant permet de supprimer une table d'un compte de stockage.
 
 Si vous ne savez pas si la table existe, utilisez **deleteTableIfExists**.
 
-## Procédure : utilisation de jetons de liaison
+## Utiliser des jetons de liaison
 
-Si vous interrogez des tables et que les résultats peuvent être volumineux, vous devez rechercher des jetons de liaison. Sans que vous en ayez vraiment conscience, de grandes quantités de données peuvent être disponibles pour votre requête si elle n’est pas en mesure de détecter la présence d’un jeton de liaison.
+Si vous interrogez des tables et que les résultats peuvent être volumineux, recherchez des jetons de liaison. Sans que vous en ayez vraiment conscience, de grandes quantités de données peuvent être disponibles pour votre requête si elle n’est pas en mesure de détecter la présence d’un jeton de liaison.
 
 L’objet de résultats renvoyé après l’interrogation des entités définit une propriété `continuationToken` si ce jeton est présent. Vous pouvez ensuite utiliser cette propriété pour exécuter une requête sur l’ensemble des entités de table et de partition.
 
@@ -346,7 +345,7 @@ L’objet `continuationToken` contient des propriétés telles que `nextPartitio
 
 Un exemple de liaison est également disponible dans le référentiel Node.js Azure Storage sur GitHub (consultez `examples/samples/continuationsample.js`).
 
-## Procédure : utilisation des signatures d’accès partagé
+## Utilisation des signatures d'accès partagé
 
 Les signatures d'accès partagé sont un moyen sécurisé de fournir un accès précis aux tables sans fournir le nom ni les clés de votre compte de stockage. Elles servent souvent à fournir un accès limité à vos données, par exemple pour autoriser une application mobile à interroger des enregistrements.
 
@@ -451,4 +450,4 @@ Maintenant que vous connaissez les bases du stockage de tables, consultez les li
   [Create and deploy a Node.js application to an Azure Web Site]: ../web-sites-nodejs-develop-deploy-mac.md
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

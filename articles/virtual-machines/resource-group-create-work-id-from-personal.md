@@ -1,20 +1,20 @@
 <properties
    pageTitle="Création d’une identité professionnelle ou scolaire dans Azure Active Directory"
-   description="Décrit comment créer une identité professionnelle ou scolaire à partir de votre identité personnelle à utiliser avec les modèles de groupes de ressources ou l'accès basé sur les rôles, entre autres fonctionnalités."
-   services="virtual-machines"
-   documentationCenter=""
-   authors="squillace"
-   manager="timlt"
-   editor=""/>
+	description="Décrit comment créer une identité professionnelle ou scolaire à partir de votre identité personnelle à utiliser avec les modèles de groupes de ressources ou l'accès basé sur les rôles, entre autres fonctionnalités."
+	services="virtual-machines"
+	documentationCenter=""
+	authors="squillace"
+	manager="timlt"
+	editor=""/>
 
 <tags
    ms.service="virtual-machines"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure"
-   ms.date="05/05/2015"
-   ms.author="rasquill"/>
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="infrastructure"
+	ms.date="09/01/2015"
+	ms.author="rasquill"/>
 
 # Création d’une identité professionnelle ou scolaire dans Azure Active Directory
 
@@ -140,4 +140,4 @@ Vous pouvez maintenant vous servir de votre nouvelle identité Azure Active Dire
     data:
     info:    group create command OK
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

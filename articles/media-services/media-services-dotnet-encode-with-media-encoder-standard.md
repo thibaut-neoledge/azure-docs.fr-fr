@@ -17,7 +17,7 @@
 	ms.author="juliako"/>
 
 
-#Vue d’ensemble
+#Encodage d’un élément multimédia à l’aide de Media Encoder Standard
 
 Les tâches d’encodage sont une des opérations de traitement les plus courantes dans Media Services. Vous créez des tâches d’encodage pour convertir des fichiers multimédias d’un encodage à un autre. Lorsque vous les encodez, vous pouvez utiliser l’encodeur multimédia intégré de Media Services. Vous pouvez aussi utiliser un encodeur fourni par un partenaire Media Services. Ces encodeurs tiers sont disponibles sur Azure Marketplace.
 
@@ -120,4 +120,4 @@ Le code suivant utilise le Kit de développement logiciel (SDK) .NET de Media Se
 
 [Vue d’ensemble de l’encodage de Media Services](media-services-encode-asset.md)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

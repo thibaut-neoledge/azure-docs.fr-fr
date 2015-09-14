@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="08/14/2015" 
+	ms.date="08/14/2015"
 	ms.author="curtand"/>
 
 # Association des abonnements Azure avec Azure AD
@@ -88,7 +88,7 @@ Si vous avez créé, à un moment donné, un compte consommateur Microsoft à l'
 
 ![][3]
 
-Vous disposez, sous le même nom, de comptes utilisateur, un dans Azure AD et l'autre dans le système de comptes Microsoft consommateur. Vous devez sélectionner le compte qui est associé à l'abonnement Azure que vous souhaitez utiliser. Si une erreur s’affiche et vous indique qu'un abonnement n'existe pas pour cet utilisateur, cela veut certainement dire que vous avez sélectionné la mauvaise option. Déconnectez-vous et réessayez. Pour découvrir les raisons pour lesquelles vous ne parvenez pas à vous connecter, consultez la rubrique [Résolutions des problèmes vous indiquant qu’il est « impossible de trouver un abonnement associé à votre compte »](https://social.msdn.microsoft.com/Forums/fr-fr/f952f398-f700-41a1-8729-be49599dd7e2/troubleshooting-we-were-unable-to-find-any-subscriptions-associated-with-your-account-errors-in?forum=windowsazuremanagement).
+Vous disposez, sous le même nom, de comptes utilisateur, un dans Azure AD et l'autre dans le système de comptes Microsoft consommateur. Vous devez sélectionner le compte qui est associé à l'abonnement Azure que vous souhaitez utiliser. Si une erreur s’affiche et vous indique qu'un abonnement n'existe pas pour cet utilisateur, cela veut certainement dire que vous avez sélectionné la mauvaise option. Déconnectez-vous et réessayez. Pour découvrir les raisons pour lesquelles vous ne parvenez pas à vous connecter, consultez la rubrique [Résolutions des problèmes vous indiquant qu’il est « impossible de trouver un abonnement associé à votre compte »](https://social.msdn.microsoft.com/Forums/fr-FR/f952f398-f700-41a1-8729-be49599dd7e2/troubleshooting-we-were-unable-to-find-any-subscriptions-associated-with-your-account-errors-in?forum=windowsazuremanagement).
 
 ## Gestion du répertoire de l’abonnement Office 365 dans Azure
 
@@ -124,4 +124,4 @@ Pour gérer les deux répertoires dans le portail de gestion, procédez comme su
 [2]: ./media/active-directory-how-subscriptions-associated-directory/WAAD_OrgAccountSubscription.png
 [3]: ./media/active-directory-how-subscriptions-associated-directory/WAAD_SignInDisambiguation.PNG
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=September15_HO1-->

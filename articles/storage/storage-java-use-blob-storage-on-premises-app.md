@@ -7,16 +7,14 @@
 	manager="wpickett"
 	editor="jimbe"/>
 
-
 <tags
 	ms.service="storage"
 	ms.workload="storage"
 	ms.tgt_pltfrm="na"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="06/03/2015"
+	ms.date="08/31/2015"
 	ms.author="robmcm"/>
-
 
 # Application locale avec stockage d’objets blob
 
@@ -28,8 +26,8 @@ L’exemple suivant montre comment utiliser le stockage Azure pour stocker des i
 
 - Le Kit de développement logiciel Java (JDK) version 1.6 ou ultérieure est installé.
 - Le Kit de développement logiciel (SDK) Azure est installé.
-- L'archive Java (JAR) des bibliothèques Azure pour Java et les dépendances applicables JAR sont installées et se trouvent dans le chemin d'accès de build utilisé par votre compilateur Java. Pour plus d’informations sur l’installation des bibliothèques Azure pour Java, consultez la page [Téléchargement du Kit de développement logiciel (SDK) Azure pour Java\].
-- Un compte de stockage Azure a été configuré. Le nom et la clé du compte de stockage sont utilisés par le code figurant dans cet article. Consultez la page [Création d'un compte de stockage] pour des informations sur la création d'un compte de stockage et la page [Gestion des comptes de stockage] pour des informations sur la récupération de la clé de compte.
+- L'archive Java (JAR) des bibliothèques Azure pour Java et les dépendances applicables JAR sont installées et se trouvent dans le chemin d'accès de build utilisé par votre compilateur Java. Pour plus d’informations sur l’installation des bibliothèques Azure pour Java, consultez la page [Téléchargement du Kit de développement logiciel (SDK) Azure pour Java][].
+- Un compte de stockage Azure a été configuré. Le nom et la clé du compte de stockage sont utilisés par le code figurant dans cet article. Consultez la page [Création d'un compte de stockage] pour des informations sur la création d'un compte de stockage et la page [Gestion des comptes de stockage][] pour des informations sur la récupération de la clé de compte.
 - Vous avez créé un fichier image local nommé et stocké sous le chemin d'accès c:\\myimages\\image1.jpg. Vous pouvez également modifier le constructeur **FileInputStream** dans l'exemple pour utiliser un chemin d'accès à l'image et un nom de fichier différents.
 
 [AZURE.INCLUDE [create-account-note](../../includes/create-account-note.md)]
@@ -174,8 +172,7 @@ Créez un fichier local nommé **index.html**.
 Dans le fichier local, ajoutez du contenu aux éléments **&lt;html&gt;**, **&lt;header&gt;** et **&lt;body&gt;**.
 
     stream.println("<html>");
-    stream.println("<header/>
-");
+    stream.println("<header/>");
     stream.println("<body>");
 
 Effectuez une itération dans la liste des objets blob chargés. Pour chaque objet blob, créez dans la page HTML un élément **&lt;img&gt;** dont l’attribut **src** est envoyé à l’URI de l’objet blob tel qu’il existe dans votre compte de stockage Azure. Dans cet exemple, vous avez ajouté une seule image, mais si vous en ajoutiez plus, ce code effectuerait une itération pour chacune d’entre elles.
@@ -185,9 +182,7 @@ Par souci de simplification, cet exemple part du principe que chaque objet blob 
     // Enumerate the uploaded blobs.
     for (ListBlobItem blobItem : container.listBlobs()) {
     // List each blob as an <img> element in the HTML body.
-    stream.println("<img src='" + blobItem.getUri() + "'/>
-<br/>
-");
+    stream.println("<img src='" + blobItem.getUri() + "'/><br/>");
     }
 
 Fermez les éléments **&lt;body&gt;** et **&lt;html&gt;**.
@@ -280,16 +275,13 @@ Voici le code complet pour cet exemple. N'oubliez pas de modifier les valeurs de
 
             // Create the opening <html>, <header>, and <body> elements.
             stream.println("<html>");
-            stream.println("<header/>
-");
+            stream.println("<header/>");
             stream.println("<body>");
 
             // Enumerate the uploaded blobs.
             for (ListBlobItem blobItem : container.listBlobs()) {
                 // List each blob as an <img> element in the HTML body.
-                stream.println("<img src='" + blobItem.getUri() + "'/>
-<br/>
-");
+                stream.println("<img src='" + blobItem.getUri() + "'/><br/>");
             }
 
             stream.println("</body>");
@@ -361,12 +353,12 @@ Pour une présentation d’autres classes et méthodes de stockage d’objets bl
 
 Pour en savoir plus sur les tâches de stockage plus complexes, cliquez sur les liens ci-dessous.
 
-- [Kit de développement logiciel (SDK) Azure Storage pour Java]
-- [Référence du Kit de développement logiciel (SDK) du client Azure Storage]
-- [API REST d’Azure Storage]
-- [Blog de l'équipe Azure Storage]
+- [Kit de développement logiciel (SDK) Azure Storage pour Java][]
+- [Référence du Kit de développement logiciel (SDK) du client Azure Storage][]
+- [API REST d’Azure Storage][]
+- [Blog de l'équipe Azure Storage][]
 
-  [Download the Azure SDK for Java]: http://azure.microsoft.com/develop/java/
+  [Download the Azure SDK for Java]: http://go.microsoft.com/fwlink/?LinkID=525671
   [Création d'un compte de stockage]: storage-create-storage-account.md#create-a-storage-account
   [Gestion des comptes de stockage]: storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys
   [Utilisation du service de stockage d’objets blob à partir de Java]: storage-java-how-to-use-blob-storage.md
@@ -375,4 +367,4 @@ Pour en savoir plus sur les tâches de stockage plus complexes, cliquez sur les 
   [API REST d’Azure Storage]: http://msdn.microsoft.com/library/azure/gg433040.aspx
   [Blog de l'équipe Azure Storage]: http://blogs.msdn.com/b/windowsazurestorage/
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

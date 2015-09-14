@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="c"
 	ms.devlang="csharp"
 	ms.topic="article"
-	ms.date="07/21/2015"
+	ms.date="09/01/2015"
 	ms.author="sethm"/>
 
 # Prise en main des concentrateurs d’événements
@@ -34,11 +34,11 @@ Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
 
 + Microsoft Visual Studio Express 2013 pour Windows ;
 
-+ Un compte Azure actif. <br/>Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d’informations, consultez la page <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Ffr-fr%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Version d’évaluation gratuite d’Azure</a>.
++ Un compte Azure actif. <br/>Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d’informations, consultez la page <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Ffr-FR%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Version d’évaluation gratuite d’Azure</a>.
 
 ## Création d’un concentrateur d’événements
 
-1. Connectez-vous au [portail de gestion Azure] et cliquez sur **NOUVEAU** en bas de l'écran.
+1. Connectez-vous au [portail Azure] et cliquez sur **NOUVEAU** en bas de l'écran.
 
 2. Cliquez successivement sur **App Services**, **Service Bus**, **Concentrateur d’événements**, puis sur **Création rapide**.
 
@@ -94,6 +94,7 @@ Vous avez conçu une application opérationnelle qui crée un concentrateur d’
 - Un [exemple d'application complet qui utilise des hubs d’événements].
 - L’exemple de [montée en puissance du traitement des événements avec Event Hubs].
 - Une [solution de messages de file d'attente] utilisant les files d'attente Service Bus.
+- [Vue d’ensemble des concentrateurs d’événements]
 
 <!-- Images. -->
 [1]: ./media/event-hubs-c-ephcs-getstarted/create-event-hub1.png
@@ -109,11 +110,11 @@ Vous avez conçu une application opérationnelle qui crée un concentrateur d’
 [24]: ./media/event-hubs-c-ephcs-getstarted/receive-eph-c.png
 
 <!-- Links -->
-[portail de gestion Azure]: https://manage.windowsazure.com/
+[portail Azure]: https://manage.windowsazure.com/
 [hôte du processeur d’événements]: https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost
-[Vue d’ensemble des concentrateurs d’événements]: http://msdn.microsoft.com/library/azure/dn836025.aspx
+[Vue d’ensemble des concentrateurs d’événements]: event-hubs-overview.md
 [exemple d'application complet qui utilise des hubs d’événements]: https://code.msdn.microsoft.com/windowsazure/Service-Bus-Event-Hub-286fd097
 [montée en puissance du traitement des événements avec Event Hubs]: https://code.msdn.microsoft.com/windowsazure/Service-Bus-Event-Hub-45f43fc3
 [solution de messages de file d'attente]: ../service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

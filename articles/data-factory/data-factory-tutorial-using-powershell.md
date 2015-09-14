@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Déplacement et traitement des fichiers journaux à l’aide d’Azure Data Factory"
-	description="Ce didacticiel avancé décrit un scénario proche de la réalité et l’implémente à l’aide du service Azure Data Factory."
+	pageTitle="Déplacement et traitement des fichiers journaux à l'aide d'Azure Data Factory (Azure PowerShell)"
+	description="Ce didacticiel avancé décrit un scénario proche de la réalité et l’implémente à l’aide du service Azure Data Factory et d'Azure PowerShell."
 	services="data-factory"
 	documentationCenter=""
 	authors="spelluru"
@@ -558,4 +558,4 @@ Suivez la [procédure pas à pas sur l’utilisation d’une source de données 
 
 [image-data-factory-new-datafactory-create-button]: ./media/data-factory-tutorial-using-powershell/DataFactoryCreateButton.png
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

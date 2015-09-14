@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Distribution de contenu depuis Azure CDN dans votre application web" 
-	description="Un didacticiel qui explique comment utiliser le contenu d'un CDN pour améliorer les performances de votre application web." 
-	services="cdn" 
-	documentationCenter=".net" 
-	authors="cephalin" 
-	manager="wpickett" 
+	pageTitle="Distribution de contenu depuis Azure CDN dans votre application web"
+	description="Un didacticiel qui explique comment utiliser le contenu d'un CDN pour améliorer les performances de votre application web."
+	services="cdn"
+	documentationCenter=".net"
+	authors="cephalin"
+	manager="wpickett"
 	editor="jimbe"/>
 
 <tags 
-	ms.service="cdn" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="08/06/2015" 
+	ms.service="cdn"
+	ms.workload="web"
+	ms.tgt_pltfrm="na"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="09/01/2015"
 	ms.author="cephalin"/>
 
 # Distribution de contenu depuis Azure CDN dans votre application web #
@@ -271,4 +271,4 @@ Sans intégration avec les services Azure App Service Web Apps ou Azure Clo
 - [Utilisation du réseau de distribution de contenu (CDN) Azure](cdn-how-to-use-cdn.md)
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=September15_HO1-->

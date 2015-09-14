@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Présentation de Microsoft Azure DocumentDB : version d’évaluation gratuite | Microsoft Azure" 
-	description="Découvrez Azure DocumentDB, une base de données de documents NoSQL, et ses bénéfices pour les applications cloud et mobiles. Découvrez également comment l'utiliser pour gérer les données et développer des applications." 
-	services="documentdb" 
-	authors="mimig1" 
-	manager="jhubbard" 
-	editor="monicar" 
+	pageTitle="Présentation de Microsoft Azure DocumentDB : version d’évaluation gratuite | Microsoft Azure"
+	description="Découvrez Azure DocumentDB, une base de données de documents NoSQL, et ses bénéfices pour les applications cloud et mobiles. Découvrez également comment l'utiliser pour gérer les données et développer des applications."
+	services="documentdb"
+	authors="mimig1"
+	manager="jhubbard"
+	editor="monicar"
 	documentationCenter=""/>
 
 <tags 
-	ms.service="documentdb" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/13/2015" 
+	ms.service="documentdb"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/01/2015"
 	ms.author="mimig"/>
 
 # Présentation de Microsoft Azure DocumentDB
@@ -103,7 +103,6 @@ Si vous n'avez pas de compte Azure, vous pouvez :
 
 - vous inscrire pour bénéficier d’une [version d'évaluation gratuite d’Azure](https://azure.microsoft.com/pricing/free-trial/), qui vous offre 30 jours et 200 USD pour essayer tous les services Azure. 
 - Si vous possédez un abonnement MSDN, vous pouvez bénéficier de [150 USD de crédits Azure gratuits par mois](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/), à utiliser sur n'importe quel service Azure. 
-- Ou, si vous souhaitez essayer gratuitement DocumentDB pendant 30 jours, sans utiliser votre carte de crédit, envoyez un message électronique à askdocdb@microsoft.com avec pour objet « Documentation Introduction, Azure Trial » et vous bénéficierez d’un code promotionnel (dans la limite des stocks disponibles).
 
 Ensuite, lorsque vous êtes prêt à en savoir plus, visitez notre [cursus](http://azure.microsoft.com/documentation/learning-paths/documentdb/) pour explorer toutes les ressources de formation à votre disposition.
 
@@ -111,4 +110,4 @@ Ensuite, lorsque vous êtes prêt à en savoir plus, visitez notre [cursus](http
 [1]: ./media/documentdb-introduction/resources1.png
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=September15_HO1-->

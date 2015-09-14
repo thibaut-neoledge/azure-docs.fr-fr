@@ -1,19 +1,19 @@
 <properties
     pageTitle="Que contiennent les images de modèle Azure RemoteApp ?"
-    description="Découvrez les images de modèle incluses dans Azure RemoteApp."
-    services="remoteapp"
-    documentationCenter=""
-    authors="lizap"
-    manager="mbaldwin" />
+	description="Découvrez les images de modèle incluses dans Azure RemoteApp."
+	services="remoteapp"
+	documentationCenter=""
+	authors="lizap"
+	manager="mbaldwin"/>
 
 <tags
     ms.service="remoteapp"
-    ms.workload="compute"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="get-started-article"
-    ms.date="08/12/2015" 
-    ms.author="elizapo" />
+	ms.workload="compute"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.date="09/02/2015"
+	ms.author="elizapo"/>
 
 # Que contiennent les images de modèle Azure RemoteApp ?
 
@@ -64,10 +64,10 @@ Cette image est une extension de l'image vanille et inclut les composants suivan
 - OneDrive Entreprise
 - Outlook
 - PowerPoint
-- projet
-- Visio
 - Word
 - Outils de vérification linguistique Microsoft Office
+
+L'image inclut également Visio Pro et Project Pro.
 
 Et les applications suivantes, également :
 
@@ -80,7 +80,9 @@ Et les applications suivantes, également :
 - PowerMap
 
 
-Toutes les fonctionnalités des applications Office 365 ProPlus sont disponibles uniquement pour les utilisateurs qui disposent d'une offre Office 365 ProPlus. Pour plus d'informations sur les offres d'abonnement Office 365, consultez [Plans de service Office 365](http://technet.microsoft.com/library/office-365-plan-options.aspx). Des questions supplémentaires ? Consultez les informations sur [Office 365 + RemoteApp](remoteapp-o365.md).
+Toutes les fonctionnalités des applications Office 365 ProPlus sont disponibles uniquement pour les utilisateurs qui disposent d'une offre Office 365 ProPlus. Pour plus d'informations sur les offres d'abonnement Office 365, consultez [Plans de service Office 365](http://technet.microsoft.com/library/office-365-plan-options.aspx). Des questions supplémentaires ? Consultez les informations sur [Office 365 + RemoteApp](remoteapp-o365.md). Consultez également le nouvel article, [Utilisation de votre abonnement Office 365 avec Azure RemoteApp](remoteapp-officesubscription.md).
+
+Notez que vous devez obtenir une licence Office 365 ProPlus, Visio Pro et Project Pro séparément : ils ont chacun leur propre licence.
 
 ## Microsoft Office Professionnel Plus 2013 (version d'évaluation uniquement)
 Pendant la durée de la version d'évaluation gratuite, vous pouvez tester le service avec l'image Office 2013.
@@ -100,7 +102,7 @@ Cette image est une extension de l'image vanille et inclut les composants suivan
 - Word
 - Outils de vérification linguistique Microsoft Office
 
-> [AZURE.IMPORTANT]\*\*Informations légales :\*\* cette image n'inclut pas de licence Microsoft Office et *ne peut pas être utilisée en production*. L'image Office 2013 Professionnel Plus peut uniquement être utilisée à des fins d'évaluation. Si vous voulez utiliser des applications Office dans Azure RemoteApp pour la production, vous devez utiliser l'image Office 365 ProPlus. Pour plus d'informations sur la licence Office, consultez [Utilisation d'Office 365 avec Azure RemoteApp](remoteapp-o365.md)
+> [AZURE.IMPORTANT]**Informations légales :** cette image n'inclut pas de licence Microsoft Office et *ne peut pas être utilisée en production*. L'image Office 2013 Professionnel Plus peut uniquement être utilisée à des fins d'évaluation. Si vous voulez utiliser des applications Office dans Azure RemoteApp pour la production, vous devez utiliser l'image Office 365 ProPlus. Pour plus d'informations sur la licence Office, consultez [Utilisation d'Office 365 avec Azure RemoteApp](remoteapp-o365.md)
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=September15_HO1-->

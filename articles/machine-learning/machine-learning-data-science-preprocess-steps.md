@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="bradsev"
 	manager="paulettm"
-	editor="cgronlun" />
+	editor="cgronlun"/>
 
 <tags
 	ms.service="machine-learning"
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/29/2015"
-	ms.author="msolhab;bradsev" />
+	ms.date="09/01/2015"
+	ms.author="msolhab;bradsev"/>
 
 
 # Préparation des données pour Azure Machine Learning
@@ -104,4 +104,4 @@ Plusieurs méthodes permettent de réduire la taille des données pour en facili
 >_Data Mining : Concepts et Techniques_, 3e édition, Morgan Kaufmann, 2011, Jiawei Han, Micheline Kamber et Jian Pei
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

@@ -1,20 +1,20 @@
 <properties 
-   pageTitle="Création et téléchargement d’un disque dur virtuel FreeBSD dans Azure" 
-   description="Apprenez à créer et à télécharger un disque dur virtuel (VHD) Azure contenant le système d'exploitation Linux." 
-   services="virtual-machines" 
-   documentationCenter="" 
-   authors="KylieLiang" 
-   manager="timlt" 
-   editor=""/>
+   pageTitle="Création et téléchargement d’un disque dur virtuel FreeBSD dans Azure"
+	description="Apprenez à créer et à télécharger un disque dur virtuel (VHD) Azure contenant le système d'exploitation Linux."
+	services="virtual-machines"
+	documentationCenter=""
+	authors="KylieLiang"
+	manager="timlt"
+	editor=""/>
 
 <tags
    ms.service="virtual-machines"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="vm-linux"
-   ms.workload="infrastructure-services" 
-   ms.date="05/19/2015"
-   ms.author="kyliel"/>
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="vm-linux"
+	ms.workload="infrastructure-services"
+	ms.date="05/19/2015"
+	ms.author="kyliel"/>
 
 # Création et téléchargement d’un disque dur virtuel FreeBSD dans Azure 
 
@@ -23,7 +23,7 @@ Cet article vous montre comment créer et télécharger un disque dur virtuel (V
 ##Composants requis##
 Cet article part du principe que vous disposez des éléments suivants :
 
-- **Un abonnement Azure** - Si vous n'en possédez pas, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d’informations, consultez la page [Création d’un compte Azure](../php-create-account.md). 
+- **Un abonnement Azure** - Si vous n'en possédez pas, vous pouvez créer un compte en quelques minutes. Si vous avez un abonnement MSDN, consultez la page [Avantage Azure pour les abonnés MSDN](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/). Dans le cas contraire, consultez [créer un compte d'évaluation gratuit](http://azure.microsoft.com/pricing/free-trial/).  
 
 - **Outils Microsoft Azure PowerShell** : le module Microsoft Azure PowerShell est installé et configuré de façon à utiliser votre abonnement. Pour télécharger le module, consultez la page [Téléchargements Azure](http://azure.microsoft.com/downloads/). Un didacticiel sur l'installation et la configuration du module est disponible ici. Vous utiliserez l’applet de commande [Téléchargements Azure](http://azure.microsoft.com/downloads/) pour télécharger le disque dur virtuel.
 
@@ -143,7 +143,7 @@ Pour télécharger vers Azure un fichier .vhd permettant de créer une machine v
 
 Avant de pouvoir télécharger un fichier .vhd, vous devez établir une connexion sécurisée entre votre ordinateur et votre abonnement Azure. Pour ce faire, vous pouvez utiliser la méthode Microsoft Azure Active Directory ou la méthode par certificat.
 
-<h3>Utilisation de la méthode Microsoft Azure AD</h3>
+###Utilisation de la méthode Microsoft Azure AD
 
 1. Ouvrez la console Azure PowerShell.
 
@@ -155,7 +155,7 @@ Avant de pouvoir télécharger un fichier .vhd, vous devez établir une connexio
 
 3. Azure authentifie et enregistre les informations d’identification, puis ferme la fenêtre.
 
-<h3>Utilisation de la méthode par certificat</h3>
+###Utilisation de la méthode par certificat
 
 1. Ouvrez la console Azure PowerShell. 
 
@@ -206,4 +206,4 @@ Après avoir téléchargé le fichier .vhd, vous pouvez l'ajouter en tant qu'ima
 	![image FreeBSD dans Microsoft Azure](./media/virtual-machines-freebsd-create-upload-vhd/freebsdimageinazure.png)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

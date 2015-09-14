@@ -29,7 +29,7 @@ Les tâches de démarrage sont des actions qui sont effectuées avant le début 
 
 Les variables d’environnement passent des informations dans une tâche de démarrage et le stockage local peut être utilisé pour transmettre des informations hors d’une tâche de démarrage. Par exemple, une variable d’environnement peut spécifier le chemin d’accès à un programme que vous voulez installer, et des fichiers peuvent être écrits dans le stockage local qui peuvent être lus ultérieurement par vos rôles.
 
-Votre tâche de démarrage peut enregistrer des informations et des erreurs dans un répertoire spécifié par la variable d’environnement **TEMP**. Pendant la tâche de démarrage, la variable d’environnement **TEMP** est résolue dans le répertoire *C:\\Resources\\temp\[guid].[nom\_rôle]\\RoleTemp* au moment de l’exécution sur le cloud.
+Votre tâche de démarrage peut enregistrer des informations et des erreurs dans un répertoire spécifié par la variable d’environnement **TEMP**. Pendant la tâche de démarrage, la variable d’environnement **TEMP** est résolue dans le répertoire *C:\\Resources\\temp\\[guid].[nom\_rôle]\\RoleTemp* au moment de l’exécution sur le cloud.
 
 Les tâches de démarrage peuvent également être exécutées plusieurs fois entre des redémarrages. Par exemple, la tâche de démarrage est exécutée chaque fois que le rôle est recyclé, et les recyclages de rôle n’incluent pas toujours un redémarrage. Les tâches de démarrage doivent être écrites de façon à pouvoir s’exécuter de façon répétée sans problèmes.
 
@@ -68,9 +68,9 @@ Dans cet exemple, une variable d’environnement **MyVersionNumber**, est créé
 ```xml
 <Startup>
     <Task commandLine="Startup.cmd" executionContext="limited" taskType="simple" >
-    <Environment>
-        <Variable name="MyVersionNumber" value="1.0.0.0" />
-    </Environment>
+        <Environment>
+            <Variable name="MyVersionNumber" value="1.0.0.0" />
+        </Environment>
     </Task>
 </Startup>
 ```
@@ -132,24 +132,24 @@ Par exemple, pour créer une variable d’environnement qui a la valeur « **tr
 ```xml
 <Startup>
     <Task commandLine="Startup.cmd" executionContext="limited" taskType="simple">
-    <Environment>
-
-        <!-- Create the environment variable that informs the startup task whether it is running
-            in the Compute Emulator or in the cloud. "%ComputeEmulatorRunning%"=="true" when
-            running in the Compute Emulator, "%ComputeEmulatorRunning%"=="false" when running
-            in the cloud. -->
-
-        <Variable name="ComputeEmulatorRunning">
-            <RoleInstanceValue xpath="/RoleEnvironment/Deployment/@emulated" />
-        </Variable>
-
-    </Environment>
+        <Environment>
+    
+            <!-- Create the environment variable that informs the startup task whether it is running
+                in the Compute Emulator or in the cloud. "%ComputeEmulatorRunning%"=="true" when
+                running in the Compute Emulator, "%ComputeEmulatorRunning%"=="false" when running
+                in the cloud. -->
+    
+            <Variable name="ComputeEmulatorRunning">
+                <RoleInstanceValue xpath="/RoleEnvironment/Deployment/@emulated" />
+            </Variable>
+    
+        </Environment>
     </Task>
 </Startup>
 ```
 
 ## Étapes suivantes
-Découvrez comment effectuer certaines [tâches de démarrage courantes](cloud-services-common-startup-tasks.md) avec votre service cloud.
+Découvrez comment effectuer certaines [tâches de démarrage courantes](cloud-services-startup-tasks-common.md) avec votre service cloud.
 
 [Créez un package](cloud-services-model-and-package.md) de votre service cloud.
 
@@ -163,4 +163,4 @@ Découvrez comment effectuer certaines [tâches de démarrage courantes](cloud-s
 [RoleInstanceValue]: https://msdn.microsoft.com/library/azure/gg557552.aspx#RoleInstanceValue
 [RoleEnvironment]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.aspx
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

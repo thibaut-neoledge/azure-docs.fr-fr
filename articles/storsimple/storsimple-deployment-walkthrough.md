@@ -1,19 +1,19 @@
 <properties
-   pageTitle="Déploiement de votre appareil StorSimple local | Microsoft Azure"
-   description="Procédures et meilleures pratiques de déploiement du service et de l’appareil StorSimple."
-   services="storsimple"
-   documentationCenter="NA"
-   authors="alkohli"
-   manager="adinah"
-   editor="tysonn" />
+   pageTitle="Déploiement d’un appareil StorSimple local | Microsoft Azure"
+	description="Décrit les procédures et meilleures pratiques de déploiement du service et de l’appareil StorSimple. (S'applique à Microsoft Azure StorSimple version .3 et versions antérieures.)"
+	services="storsimple"
+	documentationCenter="NA"
+	authors="alkohli"
+	manager="adinah"
+	editor=""/>
 <tags
    ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="hero-article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="08/14/2015"
-   ms.author="alkohli" />
+	ms.devlang="NA"
+	ms.topic="hero-article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="TBD"
+	ms.date="09/02/2015"
+	ms.author="alkohli"/>
 
 # Déploiement de votre appareil StorSimple local
 
@@ -143,7 +143,7 @@ Avant de commencer, assurez-vous que :
 | | | |
 | **NTP** | Nous déclenche une synchronisation horaire dès que le serveur NTP est en entrée. Vérifiez que le port UDP 123 est ouvert lorsque vous entrez `time.windows.com` ou des serveurs horaires publics. | [Télécharger et utiliser ce script](https://gallery.technet.microsoft.com/scriptcenter/Get-Network-NTP-Time-with-07b216ca). |
 | | | |
-| **Proxy (facultatif)** | S'agit-il d'un URI et d'un port de proxy valides ? </br> Le mode d'authentification est-il correct ? | <code>wget http://bing.com &\#124; % {$\_.StatusCode}</code></br>Cette commande doit être exécutée immédiatement après la configuration du proxy Web. Si un code d’état de 200 est retourné, cela indique que la connexion est établie. |
+| **Proxy (facultatif)** | S'agit-il d'un URI et d'un port de proxy valides ? </br> Le mode d'authentification est-il correct ? | <code>wget http://bing.com | % {$\_.StatusCode}</code></br>Cette commande doit être exécutée immédiatement après la configuration du proxy Web. Si un code d’état de 200 est retourné, cela indique que la connexion est établie. |
 | | Le trafic est-il acheminé via le proxy ? | Exécutez la validation DNS, la vérification NTP ou la vérification HTTP une fois après la configuration du proxy sur votre appareil. Ceci vous indique clairement si le trafic est bloqué au niveau du proxy ou ailleurs. |
 | | | |
 | **Inscription** | Vérifiez si les ports TCP sortants 443, 80, 9354 sont ouverts. | `Test-NetConnection -Port   443 -InformationLevel Detailed`</br>[Plus d'informations sur l'applet de commande Test-NetConnection](https://technet.microsoft.com/library/dn372891.aspx) |
@@ -290,4 +290,4 @@ Procédez comme suit dans le portail Azure pour créer une sauvegarde manuelle �
 
 - Utilisez le [service StorSimple Manager](https://msdn.microsoft.com/library/azure/dn772396.aspx) pour gérer votre appareil StorSimple.
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=September15_HO1-->

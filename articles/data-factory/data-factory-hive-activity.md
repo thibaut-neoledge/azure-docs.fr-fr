@@ -1,22 +1,20 @@
 <properties 
-	pageTitle="Activité Hive" 
-	description="Découvrez comment vous pouvez utiliser l'activité Hive d’une fabrique de données Azure pour exécuter des requêtes Hive sur un cluster HDInsight à la demande/ou votre propre cluster." 
-	services="data-factory" 
-	documentationCenter="" 
-	authors="spelluru" 
-	manager="jhubbard" 
+	pageTitle="Activité Hive"
+	description="Découvrez comment vous pouvez utiliser l'activité Hive d’une fabrique de données Azure pour exécuter des requêtes Hive sur un cluster HDInsight à la demande/ou votre propre cluster."
+	services="data-factory"
+	documentationCenter=""
+	authors="spelluru"
+	manager="jhubbard"
 	editor="monicar"/>
 
-
 <tags 
-	ms.service="data-factory" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/26/2015" 
+	ms.service="data-factory"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/26/2015"
 	ms.author="spelluru"/>
-
 
 # Activité Hive
 
@@ -56,7 +54,7 @@ L'activité HDInsight Hive d’un [pipeline](data-factory-create-pipelines.md) D
 
 Propriété | Description | Requis
 -------- | ----------- | --------
-name | Nom de l'activité | Oui
+name | Nom de l’activité | Oui
 description | Texte décrivant la raison motivant l’activité. | Non
 type | HDinsightHive | Oui
 inputs | Entrée(s) utilisée(s) par l'activité Hive | Non
@@ -105,7 +103,7 @@ Le **script Hive** pour traiter ces données se présente comme suit :
 
 Pour exécuter ce script Hive dans un pipeline Data Factory, vous devez effectuer les opérations suivantes :
 
-1. Créez un service lié pour inscrire [votre propre cluster de calcul HDInsight](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) ou configurer un [cluster de calcul HDInsight à la demande](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service). Appelons ce service lié « HDInsightLinkedService ».
+1. Créez un service lié pour inscrire [votre propre cluster de calcul HDInsight](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) ou configurer un [cluster de calcul HDInsight à la demande](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service). Appelons ce service lié « HDInsightLinkedService ».
 2. Créez un [service lié](data-factory-azure-storage-connector.md) pour configurer la connexion au stockage d'objets blob Azure qui héberge les données. Appelons ce service lié « StorageLinkedService ».
 3. Créez des [jeux de données](data-factory-create-datasets.md) pointant vers les données d'entrée et de sortie. Appelons le jeu de données d'entrée « HiveSampleIn » et le jeu de données de sortie « HiveSampleOut »
 4. Copiez la requête Hive en tant que fichier vers le stockage d'objets blob Azure configuré à l'étape 2 ci-dessus. Si le service lié pour l'hébergement des données est différent de celui qui héberge ce fichier de requête, créez un service de stockage Azure lié distinct et référencez-le dans la configuration de l'activité. Utilisez **scriptPath** pour spécifier le chemin d'accès au fichier de requête Hive et à **scriptLinkedService** afin de spécifier le stockage Azure qui contient le fichier de script.
@@ -178,8 +176,8 @@ Pour paramétrer le script Hive, procédez comme suit :
 		          		"scriptPath": "adfwalkthrough\\scripts\\samplehive.hql",
 		          		"scriptLinkedService": "StorageLinkedService",
 		          		"defines": {
-		            		"Input": "$Text.Format('wasb://adfwalkthrough@<storageaccountname>.blob.core.windows.net/samplein/yearno={0:yyyy}/monthno={0:%M}/dayno={0:%d}/', SliceStart)",
-		            		"Output": "$Text.Format('wasb://adfwalkthrough@<storageaccountname>.blob.core.windows.net/sampleout/yearno={0:yyyy}/monthno={0:%M}/dayno={0:%d}/', SliceStart)"
+		            		"Input": "$$Text.Format('wasb://adfwalkthrough@<storageaccountname>.blob.core.windows.net/samplein/yearno={0:yyyy}/monthno={0:%M}/dayno={0:%d}/', SliceStart)",
+		            		"Output": "$$Text.Format('wasb://adfwalkthrough@<storageaccountname>.blob.core.windows.net/sampleout/yearno={0:yyyy}/monthno={0:%M}/dayno={0:%d}/', SliceStart)"
 		          		},
        					"scheduler": {
           					"frequency": "Hour",
@@ -216,4 +214,9 @@ Pour paramétrer le script Hive, procédez comme suit :
 			SUM(Duration)
 		FROM HiveSampleIn Group by ProfileID
 
-<!---HONumber=August15_HO6-->
+
+
+## Envoyer des commentaires
+Nous souhaiterions vraiment obtenir vos commentaires sur cet article. Prenez quelques minutes pour nous envoyer vos commentaires par [courrier électronique](mailto:adfdocfeedback@microsoft.com?subject=data-factory-hive-activity.md).
+
+<!---HONumber=September15_HO1-->

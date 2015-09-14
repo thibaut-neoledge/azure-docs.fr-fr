@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Concevez votre premier pipeline en utilisant Azure Data Factory"
-	description="Ce didacticiel vous montre comment créer un pipeline de données d’exemple qui transforme des données à l'aide d'Azure HDInsight, en utilisant Data Factory Editor"
+	pageTitle="Concevez votre premier pipeline en utilisant Azure Data Factory"
+	description="Ce didacticiel vous montre comment créer un pipeline de données d'exemple qui transforme des données à l'aide d'Azure HDInsight."
 	services="data-factory"
 	documentationCenter=""
 	authors="spelluru"
@@ -12,7 +12,7 @@
 	ms.workload="data-services"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="get-started-article" 
+	ms.topic="get-started-article"
 	ms.date="07/27/2015"
 	ms.author="spelluru"/>
 
@@ -173,4 +173,7 @@ Effectuez les actions suivantes :
 - Cliquez sur le lien [Utilisation de PowerShell](data-factory-build-your-first-pipeline-using-powershell.md) situé dans la partie supérieure pour effectuer le didacticiel à l'aide d'Azure PowerShell.
 - Cliquez sur le lien [Utilisation de Visual Studio](data-factory-build-your-first-pipeline-using-vs.md) situé dans la partie supérieure pour suivre le didacticiel à l’aide de Visual Studio. 
 
-<!---HONumber=August15_HO7-->
+## Envoyer des commentaires
+Nous souhaiterions vraiment obtenir vos commentaires sur cet article. Prenez quelques minutes pour nous envoyer vos commentaires par [courrier électronique](mailto:adfdocfeedback@microsoft.com?subject=data-factory-build-your-first-pipeline.md).
+
+<!---HONumber=September15_HO1-->

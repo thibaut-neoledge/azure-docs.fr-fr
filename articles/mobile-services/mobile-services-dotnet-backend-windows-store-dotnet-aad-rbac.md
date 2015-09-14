@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Contrôle d&#39;accès en fonction du rôle dans Mobile Services et Azure Active Directory (Windows Store) | Microsoft Azure" 
-	description="Découvrez comment contrôler l&#39;accès en fonction des rôles Azure Active Directory dans votre application Windows Store." 
-	documentationCenter="windows" 
-	authors="wesmc7777" 
-	manager="dwrede" 
-	editor="" 
+<properties
+	pageTitle="Contrôle d'accès en fonction du rôle dans Mobile Services et Azure Active Directory (Windows Store) | Microsoft Azure"
+	description="Découvrez comment contrôler l'accès en fonction des rôles Azure Active Directory dans votre application Windows Store."
+	documentationCenter="windows"
+	authors="wesmc7777"
+	manager="dwrede"
+	editor=""
 	services="mobile-services"/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-multiple" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="06/09/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-multiple"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="06/16/2015"
 	ms.author="wesmc"/>
 
 # Contrôle d'accès en fonction du rôle dans Mobile Services et Azure Active Directory
@@ -36,7 +36,7 @@ Ce didacticiel requiert les éléments suivants :
 * Visual Studio 2013 s'exécutant sous Windows 8.1.
 * Achèvement du didacticiel [Ajout de l'authentification à votre application] à l'aide du fournisseur d'authentification Azure Active Directory.
 
- 
+
 
 
 ##Génération d'une clé pour l'application intégrée
@@ -56,7 +56,7 @@ Si vous êtes arrivé au terme du didacticiel [Accès aux informations Azure Act
 
 
 
-##Création d'un attribut d'autorisation personnalisé pour le service mobile 
+##Création d'un attribut d'autorisation personnalisé pour le service mobile
 
 Dans cette section, vous allez créer un attribut d'autorisation personnalisé pouvant être utilisé pour exécuter des contrôles d'accès sur les opérations de service mobile. L'attribut recherchera un groupe Active Directory en fonction du nom de rôle transmis, puis procèdera aux contrôles d'accès d'après l'appartenance à ce groupe.
 
@@ -101,18 +101,18 @@ Dans cette section, vous allez créer un attribut d'autorisation personnalisé p
             private bool isInitialized;
             private bool isHosted;
 	        private ApiServices services = null;
-	
+
 	        // Constants used with ADAL and the Graph REST API for AAD
 	        private const string AadInstance = "https://login.windows.net/{0}";
 	        private const string GraphResourceId = "https://graph.windows.net/";
 	        private const string APIVersion = "?api-version=2013-04-05";
-	
+
 	        // App settings pulled from the Mobile Service
 	        private string tenantdomain;
 	        private string clientid;
 	        private string clientkey;
 	        private Dictionary<int, string> groupIds = new Dictionary<int, string>();
-	
+
 	        private string token = null;
 
             public AuthorizeAadRole(AadRoles role)
@@ -128,13 +128,13 @@ Dans cette section, vous allez créer un attribut d'autorisation personnalisé p
 
             public AadRoles Role { get; private set; }
 
-            // Generate a local dictionary for the role group ids configured as 
+            // Generate a local dictionary for the role group ids configured as
             // Mobile Service app settings
             private void InitGroupIds()
             {
             }
 
-            // Use ADAL and the authentication app settings from the Mobile Service to 
+            // Use ADAL and the authentication app settings from the Mobile Service to
             // get an AAD access token
             private string GetAADToken()
             {
@@ -253,7 +253,7 @@ Dans cette section, vous allez créer un attribut d'autorisation personnalisé p
 
             services = new ApiServices(actionContext.ControllerContext.Configuration);
 
-            // Check whether we are running in a mode where local host access is allowed 
+            // Check whether we are running in a mode where local host access is allowed
             // through without authentication.
             if (!this.isInitialized)
             {
@@ -392,4 +392,4 @@ Dans cette section, vous allez créer un attribut d'autorisation personnalisé p
 [Accès aux informations Azure Active Directory Graph]: mobile-services-dotnet-backend-windows-store-dotnet-aad-graph-info.md
 [Bibliothèque d'authentification Azure AD pour .NET]: https://msdn.microsoft.com/library/azure/jj573266.aspx
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=September15_HO1-->

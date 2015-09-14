@@ -1,27 +1,27 @@
-<properties 
-	pageTitle="Planification des tâches du backend avec le planificateur | Microsoft Azure" 
-	description="Azure Mobile Services Scheduler permet de planifier des tâches pour votre application mobile." 
-	services="mobile-services" 
-	documentationCenter="" 
-	authors="ggailey777" 
-	manager="dwrede" 
+<properties
+	pageTitle="Planification des tâches du backend avec le planificateur | Microsoft Azure"
+	description="Azure Mobile Services Scheduler permet de planifier des tâches pour votre application mobile."
+	services="mobile-services"
+	documentationCenter=""
+	authors="ggailey777"
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-multiple" 
-	ms.devlang="multiple" 
-	ms.topic="article" 
-	ms.date="06/04/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-multiple"
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.date="06/16/2015"
 	ms.author="glenga"/>
 
-# Planification des travaux récurrents dans Mobile Services 
+# Planification des travaux récurrents dans Mobile Services
 
 > [AZURE.SELECTOR-LIST (Platform | Backend)]
 - [(Any | .NET)](mobile-services-dotnet-backend-schedule-recurring-tasks.md)
 - [(Any | Javascript)](mobile-services-schedule-recurring-tasks.md)
- 
+
 Cette rubrique explique comment utiliser la fonctionnalité de planification de travaux dans le portail de gestion pour définir le code de script serveur exécuté selon une planification que vous définissez. Dans ce cas, le script effectue régulièrement une vérification auprès d'un service distant, Twitter en l'occurrence, et stocke les résultats dans une nouvelle table. D'autres tâches périodiques peuvent être planifiées, notamment les tâches suivantes :
 
 + Archivage des enregistrements de données anciens ou en double.
@@ -46,7 +46,7 @@ Ensuite, vous devez créer une nouvelle table pour y stocker les tweets.
 
 Vous pouvez maintenant créer le travail planifié qui accède à Twitter et stocke les données des tweets dans la nouvelle table Updates.
 
-2. Cliquez sur l'onglet **Scheduler**, puis sur **+Créer**. 
+2. Cliquez sur l'onglet **Scheduler**, puis sur **+Créer**.
 
     >[AZURE.NOTE]Lorsque vous exécutez votre service mobile en mode <em>Gratuit</em>, vous ne pouvez exécuter qu'une tâche planifiée à la fois. Aux niveaux payants, vous pouvez exécuter jusqu'à dix travaux planifiés à la fois.
 
@@ -62,23 +62,23 @@ Vous pouvez maintenant créer le travail planifié qui accède à Twitter et sto
 
 		// Get the service configuration module.
 		var config = require('mobileservice-config');
-		
-		// Get the stored Twitter consumer key and secret. 
+
+		// Get the stored Twitter consumer key and secret.
 		var consumerKey = config.twitterConsumerKey,
 		    consumerSecret = config.twitterConsumerSecret
-		// Get the Twitter access token from app settings.    
+		// Get the Twitter access token from app settings.
 		var accessToken= config.appSettings.TWITTER_ACCESS_TOKEN,
 		    accessTokenSecret = config.appSettings.TWITTER_ACCESS_TOKEN_SECRET;
-		
-		function getUpdates() {   
+
+		function getUpdates() {
 		    // Check what is the last tweet we stored when the job last ran
 		    // and ask Twitter to only give us more recent tweets
 		    appendLastTweetId(
-		        twitterUrl, 
-		        function twitterUrlReady(url){            
+		        twitterUrl,
+		        function twitterUrlReady(url){
 		            // Create a new request with OAuth credentials.
 		            request.get({
-		                url: url,                
+		                url: url,
 		                oauth: {
 		                    consumer_key: consumerKey,
 		                    consumer_secret: consumerSecret,
@@ -89,7 +89,7 @@ Vous pouvez maintenant créer le travail planifié qui accède à Twitter et sto
 		                if (!error && response.statusCode == 200) {
 		                    var results = JSON.parse(body).statuses;
 		                    if(results){
-		                        console.log('Fetched ' + results.length + ' new results from Twitter');                       
+		                        console.log('Fetched ' + results.length + ' new results from Twitter');
 		                        results.forEach(function (tweet){
 		                            if(!filterOutTweet(tweet)){
 		                                var update = {
@@ -101,12 +101,12 @@ Vous pouvez maintenant créer le travail planifié qui accède à Twitter et sto
 		                                updatesTable.insert(update);
 		                            }
 		                        });
-		                    }            
-		                } else { 
+		                    }
+		                } else {
 		                    console.error('Could not contact Twitter');
 		                }
 		            });
-		
+
 		        });
 		 }
 		// Find the largest (most recent) tweet ID we have already stored
@@ -117,13 +117,13 @@ Vous pouvez maintenant créer le travail planifié qui accède à Twitter et sto
 		    .orderByDescending('twitterId')
 		    .read({success: function readUpdates(updates){
 		        if(updates.length){
-		            callback(url + '&since_id=' + (updates[0].twitterId + 1));           
+		            callback(url + '&since_id=' + (updates[0].twitterId + 1));
 		        } else {
 		            callback(url);
 		        }
 		    }});
 		}
-		
+
 		function filterOutTweet(tweet){
 		    // Remove retweets and replies
 		    return (tweet.text.indexOf('RT') === 0 || tweet.to_user_id);
@@ -165,6 +165,5 @@ Félicitations, vous avez créé un nouveau travail planifié dans votre service
 [Register your apps for Twitter login with Mobile Services]: /develop/mobile/how-to-guides/register-for-twitter-authentication
 [Twitter Developers]: http://go.microsoft.com/fwlink/p/?LinkId=268300
 [App settings]: http://msdn.microsoft.com/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
- 
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=September15_HO1-->

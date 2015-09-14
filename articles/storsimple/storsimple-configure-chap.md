@@ -1,25 +1,23 @@
 <properties 
    pageTitle="Configuration de CHAP pour votre appareil StorSimple | Microsoft Azure"
-   description="Décrit comment configurer Challenge Handshake Authentication Protocol sur un appareil StorSimple."
-   services="storsimple"
-   documentationCenter=""
-   authors="alkohli"
-   manager="carolz"
-   editor="" />
+	description="Décrit comment configurer le protocole Challenge Handshake Authentication Protocol (CHAP) sur un appareil StorSimple."
+	services="storsimple"
+	documentationCenter=""
+	authors="alkohli"
+	manager="carolz"
+	editor=""/>
 <tags 
    ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="TBD"
-   ms.date="08/11/2015"
-   ms.author="alkohli" />
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="TBD"
+	ms.date="09/01/2015"
+	ms.author="alkohli"/>
 
 # Configuration de CHAP pour votre appareil StorSimple
 
-Ce didacticiel explique comment configurer CHAP pour votre appareil StorSimple.
-
-CHAP est l'abréviation de Challenge Handshake Authentication Protocol. Il s’agit d’un schéma d’authentification utilisé par les serveurs pour valider l’identité des clients distants. La vérification repose sur un mot de passe partagé ou un secret.
+Ce didacticiel explique comment configurer CHAP pour votre appareil StorSimple. CHAP est l'abréviation de Challenge Handshake Authentication Protocol. Il s’agit d’un schéma d’authentification utilisé par les serveurs pour valider l’identité des clients distants. La vérification repose sur un mot de passe partagé ou un secret.
 
 Le protocole CHAP peut être à sens unique (unidirectionnel) ou mutuel (bidirectionnel). Le protocole CHAP est unidirectionnel lorsque la cible authentifie un initiateur. Par opposition, l’authentification CHAP mutuelle ou inverse nécessite que la cible authentifie l’initiateur, puis que l’initiateur authentifie la cible. L’authentification de l'initiateur peut être implémentée sans authentification cible. Toutefois, l'authentification cible peut être implémentée uniquement si l'authentification de l'initiateur est également implémentée.
 
@@ -57,7 +55,7 @@ Dans l'authentification unidirectionnelle, la cible authentifie l'initiateur. Ce
 
 1. Sur le serveur hôte Windows, démarrez l'initiateur iSCSI.
 
-2. Dans la fenêtre **iSCSI Initiator Properties**, procédez comme suite :
+2. Dans la fenêtre **iSCSI Initiator Properties**, procédez comme suit :
 													
 	1. Cliquez sur l’onglet **Discovery**.
 
@@ -79,13 +77,13 @@ Dans l'authentification unidirectionnelle, la cible authentifie l'initiateur. Ce
 
 	2. Dans le champ **Name**, fournissez le nom d'utilisateur que vous avez spécifié pour l'initiateur CHAP dans le portail de gestion.
 
-	3. Dans le **Target secret**, fournissez le mot de passe que vous avez spécifié pour l'initiateur CHAP dans le portail de gestion.
+	3. Dans le champ **Target secret**, fournissez le mot de passe que vous avez spécifié pour l'initiateur CHAP dans le portail de gestion.
 
 	4. Cliquez sur **OK**.
 
 		![Paramètres avancés - généralités](./media/storsimple-configure-chap/IC740946.png)
 
-5. Sur l’onglet **Targets** de la fenêtre **iSCSI Initiator Properties**, l'état de l’appareil devrait indiquer **Connected**.
+5. Dans l’onglet **Targets** de la fenêtre **iSCSI Initiator Properties**, l'état de l’appareil devrait indiquer **Connected**.
 
     > [AZURE.IMPORTANT]Si vous modifiez le nom iSCSI, le nouveau nom sera utilisé pour les nouvelles sessions iSCSI. Les nouveaux paramètres ne sont pas appliqués aux sessions existantes tant que vous n’avez pas quitté puis relancé la session.
 
@@ -114,7 +112,7 @@ Dans l’authentification bidirectionnelle, la cible authentifie l’initiateur,
 												
 	1. Indiquez un **nom d'utilisateur** pour votre appareil.
 
-	1. Indiquez un**mot de passe** pour votre appareil.
+	1. Indiquez un **mot de passe** pour votre appareil.
 
 	3. Confirmez le mot de passe.
 
@@ -124,7 +122,7 @@ Dans l’authentification bidirectionnelle, la cible authentifie l’initiateur,
 
 1. Sur le serveur hôte Windows, démarrez l'initiateur iSCSI.
 
-2. Dans la fenêtre **iSCSI Initiator Properties**fenêtre, cliquez sur l’onglet **Configuration**.
+2. Dans la fenêtre **iSCSI Initiator Properties**, cliquez sur l’onglet **Configuration**.
 
 3. Cliquez sur **CHAP**.
 
@@ -148,7 +146,7 @@ Dans l’authentification bidirectionnelle, la cible authentifie l’initiateur,
 
 	2. Dans le champ **Name**, fournissez le nom d'utilisateur que vous avez spécifié pour l'initiateur CHAP dans le portail de gestion.
 
-	3. Dans le **Target secret**, fournissez le mot de passe que vous avez spécifié pour l'initiateur CHAP dans le portail de gestion.
+	3. Dans le champ **Target secret**, fournissez le mot de passe que vous avez spécifié pour l'initiateur CHAP dans le portail de gestion.
 
 	4. Cochez la case **Perform mutual authentication**.
 
@@ -192,4 +190,4 @@ Vous pouvez vérifier que le protocole CHAP est utilisé en procédant comme sui
 
 En savoir plus sur la [sécurité StorSimple](storsimple-security.md).
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=September15_HO1-->

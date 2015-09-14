@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/04/2015"
+	ms.date="09/01/2015"
 	ms.author="awills"/>
  
 # Vues Power BI des données Application Insights
@@ -74,9 +74,17 @@ L’[exportation continue](app-insights-export-telemetry.md) déplace les donné
 
     ![Choisissez les types d’événements.](./media/app-insights-export-power-bi/080.png)
 
-À présent, installez-vous confortablement et laissez les utilisateurs utiliser votre application pendant un certain temps. Les données de télémétrie vont vous être transmises et vous permettre d’afficher des graphiques statistiques dans [Metrics explorer](app-insights-metrics-explorer.md) et des événements dans [Recherche de diagnostic](app-insights-diagnostic-search.md).
+3. Laissez les données s'accumuler. Installez-vous confortablement et laissez les utilisateurs utiliser votre application pendant un certain temps. Les données de télémétrie vont vous être transmises et vous permettre d’afficher des graphiques statistiques dans [Metrics explorer](app-insights-metrics-explorer.md) et des événements dans [Recherche de diagnostic](app-insights-diagnostic-search.md).
 
-Les données seront également exportées vers votre stockage.
+    Les données seront également exportées vers votre stockage.
+
+4. Inspectez les données exportées. Dans Visual Studio, sélectionnez **Afficher / Cloud Explorer** et ouvrez Azure / Stockage. (Si vous n'avez pas cette option, vous devez installer le SDK Azure : Ouvrez la boîte de dialogue Nouveau projet et ouvrez Visual C# / Cloud / Obtenir Microsoft Azure SDK pour .NET.)
+
+    ![](./media/app-insights-export-power-bi/04-data.png)
+
+    Prenez note de la partie commune du nom du chemin d'accès, qui est dérivée du nom de l'application et de la clé d'instrumentation.
+
+Les événements sont écrits dans des fichiers blob au format JSON. Chaque fichier peut contenir un ou plusieurs événements. Donc, nous devons lire les données d’événement et filtrer les champs voulus. Nous pourrions effectuer toutes sortes d'opérations avec les données, mais notre objectif aujourd'hui est d'utiliser Stream Analytics pour transmettre les données vers Power BI.
 
 ## Création d’une instance Azure Stream Analytics
 
@@ -108,20 +116,21 @@ Vous devez maintenant disposer de la clé d’accès principale issue de votre c
 
 ![](./media/app-insights-export-power-bi/140.png)
 
+
 Veillez à définir le format de date sur AAAA-MM-JJ (avec des tirets).
 
-La séquence d’octets préfixe du chemin d’accès spécifie la manière dont Stream Analytics recherche les fichiers d’entrée dans le stockage. Vous devez la configurer pour qu’il corresponde au mode de stockage des données de l’exportation continue. Définissez-la comme suit :
+La séquence d'octets préfixe du chemin d'accès spécifie où Stream Analytics recherche les fichiers d'entrée dans le stockage. Vous devez la configurer pour correspondre au mode de stockage des données de l'exportation continue. Définissez-la comme suit :
 
-    webapplication27_100000000-0000-0000-0000-000000000000/PageViews/{date}/{time}
+    webapplication27_12345678123412341234123456789abcdef0/PageViews/{date}/{time}
 
 Dans cet exemple :
 
-* `webapplication27` est le nom de la ressource Application Insights. 
-* `1000...` est la clé d’instrumentation de la ressource Application Insights. 
-* `PageViews` est le type de données que nous souhaitons analyser. Les types disponibles varient selon le filtre que vous définissez dans l’exportation continue. Examinez les données exportées pour voir les autres types disponibles, et consultez le [modèle d’exportation de données](app-insights-export-data-model.md).
+* `webapplication27` est le nom de la ressource Application Insights, **tout en minuscules**.
+* `1234...` est la clé d'instrumentation de la ressource Application Insights, **sans les tirets**. 
+* `PageViews` est le type de données que vous souhaitez analyser. Les types disponibles varient selon le filtre que vous définissez dans l’exportation continue. Examinez les données exportées pour voir les autres types disponibles et consultez le [modèle d'exportation de données](app-insights-export-data-model.md).
 * `/{date}/{time}` est une séquence écrite de manière littérale.
 
-Pour obtenir le nom et l’iKey de votre ressource Application Insights, ouvrez Essentials sur sa page de présentation ou ouvrez Paramètres.
+> [AZURE.NOTE]Vérifiez le stockage pour être sûr d'avoir le chemin d'accès approprié.
 
 #### Fin de l’installation initiale
 
@@ -180,7 +189,7 @@ Ouvrez Power BI et sélectionnez le dataset et la table que vous avez définis c
 
 ![Dans Power BI, sélectionnez votre dataset et vos champs.](./media/app-insights-export-power-bi/200.png)
 
-Vous pouvez maintenant utiliser ce dataset dans des rapports et des tableaux de bord dans [Power BI](https://powerbi.microsoft.com).
+Vous pouvez maintenant utiliser ce jeu de données dans des rapports et des tableaux de bord dans [Power BI](https://powerbi.microsoft.com).
 
 
 ![Dans Power BI, sélectionnez votre dataset et vos champs.](./media/app-insights-export-power-bi/210.png)
@@ -194,7 +203,8 @@ Noam Ben Zeev montre comment exporter vers Power BI.
 ## Rubriques connexes
 
 * [Exportation continue](app-insights-export-telemetry.md)
+* [Référence de modèle de données détaillé pour les valeurs et types de propriétés.](app-insights-export-data-model.md)
 * [Application Insights](app-insights-overview.md)
 * [Plus d'exemples et de procédures pas à pas](app-insights-code-samples.md)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=September15_HO1-->

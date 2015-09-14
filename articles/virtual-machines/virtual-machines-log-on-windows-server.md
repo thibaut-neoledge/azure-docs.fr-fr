@@ -24,6 +24,8 @@ Vous utilisez le bouton **Connecter** dans le portail Azure pour démarrer une s
 
 ## Comment ouvrir une session
 
+[AZURE.VIDEO logging-on-to-vm-running-windows-server-on-azure]
+
 [AZURE.INCLUDE [virtual-machines-log-on-win-server](../../includes/virtual-machines-log-on-win-server.md)]
 
 ## Conseils de dépannage
@@ -36,4 +38,4 @@ Si votre mot de passe pose problème, essayez de le réinitialiser à partir du 
 
 Si ces actions ne fonctionnent pas, vous devez effectuer un dépannage plus étendu. Pour obtenir des instructions, consultez la rubrique [Résolution des problèmes de connexion Bureau à distance avec une machine virtuelle Azure Windows](virtual-machines-troubleshoot-remote-desktop-connections.md).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

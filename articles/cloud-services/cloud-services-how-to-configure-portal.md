@@ -1,18 +1,18 @@
 <properties 
-	pageTitle="Configuration d'un service cloud | Microsoft Azure" 
-	description="Découvrez comment configurer des services cloud dans Azure. Apprenez à mettre à jour la configuration d'un service cloud et à configurer l'accès distant aux instances de rôle." 
-	services="cloud-services" 
-	documentationCenter="" 
-	authors="Thraka" 
-	manager="timlt" 
+	pageTitle="Configuration d'un service cloud | Microsoft Azure"
+	description="Découvrez comment configurer des services cloud dans Azure. Apprenez à mettre à jour la configuration d'un service cloud et à configurer l'accès distant aux instances de rôle."
+	services="cloud-services"
+	documentationCenter=""
+	authors="Thraka"
+	manager="timlt"
 	editor=""/>
 
 <tags 
-	ms.service="cloud-services" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
+	ms.service="cloud-services"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
 	ms.date="06/29/2015"
 	ms.author="adegeo"/>
 
@@ -85,8 +85,8 @@ Azure ne peut garantir que 99,95 % de disponibilité du service pendant les mis
 
 ## Configuration de l'accès à distance aux instances de rôle
 
-L’accès à distance ne peut pas être configuré à l'aide du **portail Azure en version préliminaire**, vous pouvez modifier ce paramètre uniquement via la [version non-préliminaire du portail](http://manage.windowsazure.com/). Cela est détaillé [ici](cloud-services-how-to-configure.md#configure-remote-access-to-role-instances).
+L’accès à distance ne peut pas être configuré à l'aide du **portail Azure en version préliminaire**, vous pouvez modifier ce paramètre uniquement via la [version non-préliminaire du portail](http://manage.windowsazure.com/). Cela est détaillé [ici](cloud-services-role-enable-remote-desktop.md).
 			
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=September15_HO1-->

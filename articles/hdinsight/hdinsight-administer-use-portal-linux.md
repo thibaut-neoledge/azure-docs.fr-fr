@@ -69,7 +69,7 @@ Vous pouvez approvisionner des clusters HDInsight à partir du portail Azure en 
 
 	![Panneau Informations d’identification du cluster](./media/hdinsight-administer-use-portal-linux/clustercredentials.png)
 
-	Pour plus d’informations sur l’utilisation de SSH avec HDInsight, consultez l’un des articles suivants :
+	Pour plus d'informations sur l'utilisation de SSH avec HDInsight, consultez l'un des articles suivants :
 
 	* [Utilisation de SSH avec Hadoop Linux sur HDInsight à partir de Linux, Unix ou OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
 
@@ -93,30 +93,30 @@ Vous pouvez approvisionner des clusters HDInsight à partir du portail Azure en 
 		
 	- __Sélectionner__ : utilisez cette option pour enregistrer la configuration de la source de données.
 	
-7. Sélectionnez __Niveaux de tarification du nœud__ pour afficher des informations sur les nœuds qui seront créés pour ce cluster. Par défaut, le nombre de nœuds de travail est fixé à __4__. Affectez la valeur __1__. Cela suffira pour ce didacticiel et réduira le coût du cluster. Vous pouvez également modifier le nombre de nœuds dans un cluster une fois que ce dernier a été provisionné.
+7. Sélectionnez __Niveaux de tarification du nœud__ pour afficher des informations sur les nœuds qui seront créés pour ce cluster. Par défaut, le nombre de nœuds de travail est fixé à __4__.
 
 	Le coût estimé du cluster s’affiche au bas de ce panneau.
 
 	![Panneau Niveaux de tarification du nœud](./media/hdinsight-administer-use-portal-linux/nodepricingtiers.png)
 	
-	Utilisez le bouton __Sélectionner__ pour enregistrer les __Niveaux de tarification de nœud__.
+	Utilisez le bouton __Sélectionner__ pour enregistrer les informations de __Niveaux de tarification de nœud__.
 
 8. Sélectionnez __Configuration facultative__. Ce panneau vous permet de configurer les éléments suivants :
 
-	* __HDInsight Version__ : version de HDInsight utilisée pour le cluster. Pour plus d’informations sur le contrôle de version HDInsight, voir [Contrôle de version des composants HDInsight](hdinsight-component-versioning.md)
-	* __Metastores externes__ : cela vous permet de sélectionner une base de données SQL, qui sera utilisée pour stocker les informations de configuration pour Oozie et Hive. Cela vous permet de réutiliser la configuration lors de la suppression et la recréation d’un cluster, au lieu d’avoir à recréer la configuration Hive et Oozie chaque fois. **__Clés de stockage Azure__ : cela vous permet d’associer des comptes de stockage supplémentaires avec le serveur HDInsight.
+	* __HDInsight Version__ : version de HDInsight utilisée pour le cluster. Pour plus d'informations sur le contrôle de version HDInsight, consultez [Contrôle de version des composants HDInsight](hdinsight-component-versioning.md)
+	* __Metastores externes__ : cela vous permet de sélectionner une base de données SQL, qui sera utilisée pour stocker les informations de configuration pour Oozie et Hive. Cela vous permet de réutiliser la configuration lors de la suppression et la recréation d'un cluster, au lieu d'avoir à recréer la configuration Hive et Oozie chaque fois. **__Clés de stockage Azure__ : cela vous permet d'associer des comptes de stockage supplémentaires avec le serveur HDInsight.
 
 		> [AZURE.NOTE]HDInsight peut accéder uniquement aux comptes de stockage Azure utilisés comme magasin de données par défaut, ajoutés à cette section de configuration, ou publiquement accessibles.
 
 	![Panneau Configuration facultative](./media/hdinsight-administer-use-portal-linux/optionalconfiguration.png)
 
-9. Vérifiez que l’option __Épingler au tableau d’accueil__ est cochée, puis sélectionnez __Créer__. Le cluster est créé et la vignette correspondante ajoutée au tableau d’accueil de votre portail Azure. L’icône indique que le cluster est en cours d’approvisionnement ; elle affichera l’icône HDInsight une fois l’approvisionnement terminé.
+9. Vérifiez que l'option __Épingler au tableau d'accueil__ est sélectionnée, puis sélectionnez __Créer__. Le cluster est créé et la vignette correspondante ajoutée au tableau d’accueil de votre portail Azure. L'icône indique que le cluster est en cours de configuration et sera modifiée pour représenter l'icône HDInsight une fois la configuration terminée.
 
 	| Pendant l’approvisionnement | Approvisionnement terminé |
 	| ------------------ | --------------------- |
 	| ![Indicateur d’approvisionnement sur le tableau d’accueil](./media/hdinsight-administer-use-portal-linux/provisioning.png) | ![Vignette de cluster approvisionné](./media/hdinsight-administer-use-portal-linux/provisioned.png) |
 
-	> [AZURE.NOTE]La création du cluster prend un certain temps (généralement, environ 15 minutes). Utilisez la vignette du tableau d’accueil ou l’entrée __Notifications__ à gauche de la page pour suivre la progression du processus d’approvisionnement.
+	> [AZURE.NOTE]La création du cluster prend un certain temps (en règle générale, environ 15 minutes). Utilisez la vignette du tableau d'accueil ou l'entrée __Notifications__ à gauche de la page pour vérifier le processus d'approvisionnement.
 
 ##Gérer un cluster
 
@@ -124,29 +124,29 @@ Sélectionnez un cluster à partir du portail Azure en version préliminaire pou
 
 ![Détails du cluster](./media/hdinsight-administer-use-portal-linux/clusterdetails.png)
 
-Lisez ce qui suit pour comprendre les icônes affichées en haut de ce panneau, et dans les sections __Bases__ et __Liens rapides__ :
+Lisez ce qui suit pour comprendre les icônes affichées en haut de ce panneau et dans les sections __Bases__ et __Liens rapides__ :
 
-* __Paramètres__ et __Tous les paramètres__ : affichent le panneau __Paramètres__ du cluster, ce qui vous permet d’accéder aux informations de configuration détaillées du cluster.
+* __Paramètres__ et __Tous les paramètres__ : affichent le panneau __Paramètres__ du cluster, ce qui vous permet d'accéder aux informations de configuration détaillées du cluster.
 
-* __Tableau de bord__, __Tableau de bord du cluster__ et __URL__: il s’agit de toutes les façons d’accéder au tableau de bord de cluster, qui est une interface Ambari Web pour les clusters basés sur Linux.
+* __Tableau de bord__, __Tableau de bord du cluster__ et __URL__ : il s'agit de toutes les façons d'accéder au tableau de bord de cluster, qui est une interface Ambari Web pour les clusters basés sur Linux.
 
-* __Secure Shell__ : informations nécessaires à l’accès au cluster à l’aide de SSH.
+* __Secure Shell__ : informations nécessaires à l'accès au cluster à l'aide de SSH.
 
-* __Mise à l’échelle du cluster__ : permet de modifier le nombre de nœuds de travail pour ce cluster.
+* __Cluster de mise à l'échelle__ : permet de modifier le nombre de nœuds de travail pour ce cluster.
 
-* __Supprimer__ : permet de supprimer le cluster HDInsight.
+* __Supprimer__ : permet de supprimer le cluster HDInsight.
 
-* __Démarrage rapide__ (![icône nuage et foudre = démarrage rapide](./media/hdinsight-administer-use-portal-linux/quickstart.png)) : affiche des informations qui vous aideront à prendre en main HDInsight.
+* __Quickstart__ (![icône nuage et foudre = démarrage rapide](./media/hdinsight-administer-use-portal-linux/quickstart.png)) : affiche des informations qui vous aideront à démarrer l'utilisation de HDInsight.
 
-* __Utilisateurs__ (![icône d’utilisateurs](./media/hdinsight-administer-use-portal-linux/users.png)) : permet de définir des autorisations pour la _gestion via le portail_ de ce cluster pour d’autres utilisateurs dans votre abonnement Azure.
+* __Utilisateurs (![icône d’utilisateurs](./media/hdinsight-administer-use-portal-linux/users.png))__ : vous permet de définir des autorisations pour la _gestion de portail_ de ce cluster pour d'autres utilisateurs sur votre abonnement Azure.
 
-	> [AZURE.IMPORTANT]Ce paramètre affecte _uniquement_ les autorisations d’accès à ce cluster dans le portail Azure en version préliminaire et n’a aucun effet sur les personnes autorisées à se connecter ou à soumettre des tâches au cluster HDInsight.
+	> [AZURE.IMPORTANT]Ce paramètre affecte _uniquement_ les autorisations d'accès à ce cluster dans le portail Azure en version préliminaire et n'a aucun effet sur les personnes autorisées à se connecter ou à soumettre des tâches au cluster HDInsight.
 
-* __Balises (![icône de balise](./media/hdinsight-administer-use-portal-linux/tags.png))__ : permettent de spécifier des paires clé/valeur pour définir une classification personnalisée de vos services cloud. Vous pouvez par exemple créer une clé nommée __projet__, puis utiliser une valeur commune pour tous les services associés à un projet spécifique.
+* __Balises (![icône de balise](./media/hdinsight-administer-use-portal-linux/tags.png))__ : les balises vous permettent de définir des paires clé/valeur pour définir une taxonomie personnalisée de vos services cloud. Vous pouvez par exemple créer une clé nommée __projet__, puis utiliser une valeur commune pour tous les services associés au projet spécifique.
 
 * __Documentation__ : liens vers la documentation pour Azure HDInsight.
 
-> [AZURE.IMPORTANT]Pour gérer les services fournis par le cluster HDInsight, vous devez utiliser l’interface Ambari Web ou l’API Ambari REST. Pour plus d’informations sur l’utilisation de l’interface Ambari, voir [Gestion des clusters HDInsight à l’aide d’Ambari](hdinsight-hadoop-manage-ambari.md).
+> [AZURE.IMPORTANT]Pour gérer les services fournis par le cluster HDInsight, vous devez utiliser l’interface Ambari Web ou l’API Ambari REST. Pour plus d'informations sur l'utilisation de l'interface Ambari, voir [Gestion des clusters HDInsight à l'aide d'Ambari](hdinsight-hadoop-manage-ambari.md).
 
 ##Surveiller un cluster
 
@@ -154,7 +154,7 @@ La section __Utilisation__ du panneau du cluster HDInsight affiche des informati
 
 ![Informations sur l’utilisation](./media/hdinsight-administer-use-portal-linux/usage.png)
 
-> [AZURE.IMPORTANT]Pour surveiller les services fournis par le cluster HDInsight, vous devez utiliser l’interface Ambari Web ou l’API Ambari REST. Pour plus d’informations sur l’utilisation de l’interface Ambari, voir [Gestion des clusters HDInsight à l’aide d’Ambari](hdinsight-hadoop-manage-ambari.md)
+> [AZURE.IMPORTANT]Pour surveiller les services fournis par le cluster HDInsight, vous devez utiliser l’interface Ambari Web ou l’API Ambari REST. Pour plus d'informations sur l'utilisation de l'interface Ambari, voir [Gestion des clusters HDInsight à l'aide d'Ambari](hdinsight-hadoop-manage-ambari.md)
 
 ##Étapes suivantes
 Cet article vous a appris à créer un cluster HDInsight à l’aide du portail Azure et à ouvrir l’outil en ligne de commande Hadoop. Pour en savoir plus, consultez les articles suivants :
@@ -168,4 +168,4 @@ Cet article vous a appris à créer un cluster HDInsight à l’aide du portail 
 
 [preview-portal]: https://portal.azure.com
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=September15_HO1-->

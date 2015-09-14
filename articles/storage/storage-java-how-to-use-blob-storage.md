@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="06/03/2015"
+	ms.date="08/31/2015"
 	ms.author="robmcm"/>
 
 # Utilisation du stockage d'objets blob à partir de Java
@@ -253,12 +253,12 @@ Enfin, pour supprimer un conteneur d’objets blob, obtenez sa référence, puis
 
 Maintenant que vous connaissez les bases du stockage d’objets blob, consultez les liens suivants pour apprendre à exécuter des tâches de stockage plus complexes.
 
-- [Kit de développement logiciel (SDK) Azure Storage pour Java]
-- [Référence du Kit de développement logiciel (SDK) du client Azure Storage]
-- [API REST d’Azure Storage]
-- [Blog de l'équipe Azure Storage]
+- [Kit de développement logiciel (SDK) Azure Storage pour Java][]
+- [Référence du Kit de développement logiciel (SDK) du client Azure Storage][]
+- [API REST d’Azure Storage][]
+- [Blog de l'équipe Azure Storage][]
 
-[Azure SDK for Java]: http://azure.microsoft.com/develop/java/
+[Azure SDK for Java]: http://go.microsoft.com/fwlink/?LinkID=525671
 [Kit de développement logiciel (SDK) Azure Storage pour Java]: https://github.com/azure/azure-storage-java
 [Kit de développement logiciel (SDK) Azure Storage pour Java]: https://github.com/azure/azure-storage-java
 [Kit de développement logiciel (SDK) Azure Storage pour Android]: https://github.com/azure/azure-storage-android
@@ -267,4 +267,4 @@ Maintenant que vous connaissez les bases du stockage d’objets blob, consultez 
 [API REST d’Azure Storage]: http://msdn.microsoft.com/library/azure/gg433040.aspx
 [Blog de l'équipe Azure Storage]: http://blogs.msdn.com/b/windowsazurestorage/
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

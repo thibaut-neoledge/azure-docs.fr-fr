@@ -13,6 +13,7 @@ Programmes en cours d'exécution par canal </p></td>|3</p></td>|N/A<sup>1</sup>
 Points de terminaison de diffusion en continu en cours d'exécution par compte AMS</p></td>|2</p></td>|N/A<sup>1</sup>
 Unités de diffusion en continu par point de terminaison de diffusion en continu </p></td>|10 </p></td>|N/A<sup>1</sup>
 Unités d'encodage par compte AMS </p></td>|25</p></td>|N/A<sup>1</sup>
+des comptes de stockage ; | |1 000<sup>5</sup>
 
 <sup>1</sup> Vous pouvez demander la mise à jour des limites pour ce quota en ouvrant un ticket de support. Ne créez pas d'autres comptes AMS pour augmenter les limites, mais envoyez un ticket de support.
 
@@ -22,4 +23,6 @@ Unités d'encodage par compte AMS </p></td>|25</p></td>|N/A<sup>1</sup>
 
 <sup>4</sup> Les localisateurs ne sont pas conçus pour gérer le contrôle d'accès par utilisateur. Pour accorder différents droits d'accès aux utilisateurs, utilisez les solutions de gestion des droits numériques (DRM).
 
-<!---HONumber=August15_HO7-->
+<sup>5</sup> Les comptes de stockage doivent provenir du même abonnement Azure.
+
+<!---HONumber=September15_HO1-->

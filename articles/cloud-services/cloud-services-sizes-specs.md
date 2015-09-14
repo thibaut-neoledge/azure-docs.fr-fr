@@ -1,21 +1,19 @@
 <properties 
- pageTitle="Tailles de services cloud" 
- description="Répertorie les différentes tailles des rôles web et de travail des services cloud Azure." 
- services="cloud-services" 
- documentationCenter="" 
- authors="Thraka" 
- manager="timlt" 
- editor=""/>
-
+ pageTitle="Tailles de services cloud"
+	description="Répertorie les différentes tailles des rôles web et de travail des services cloud Azure."
+	services="cloud-services"
+	documentationCenter=""
+	authors="Thraka"
+	manager="timlt"
+	editor=""/>
 <tags 
- ms.service="cloud-services" 
- ms.devlang="na" 
- ms.topic="article" 
- ms.tgt_pltfrm="na" 
- ms.workload="tbd"
- ms.date="06/04/2015" 
- ms.author="adegeo"/>
-
+ ms.service="cloud-services"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="tbd"
+	ms.date="09/01/2015"
+	ms.author="adegeo"/>
  
 # Tailles de services cloud
 
@@ -78,4 +76,4 @@ Voici un exemple qui montre comment configurer un rôle de petite taille pour un
 
 [Configuration d'un service cloud pour Azure](https://msdn.microsoft.com/library/hh124108)
 
-<!-----HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

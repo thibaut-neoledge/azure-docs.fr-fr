@@ -1,23 +1,23 @@
 <properties 
-   pageTitle="Gérer votre compte de stockage StorSimple Microsoft Azure | Microsoft Azure"
-   description="Explique comment utiliser la page Configurer pour ajouter, modifier ou supprimer les clés de sécurité d’un compte de stockage ou effectuer une rotation de ces clés."
-   services="storsimple"
-   documentationCenter="NA"
-   authors="SharS"
-   manager="carolz"
-   editor="" />
+   pageTitle="Gérer votre compte de stockage StorSimple | Microsoft Azure"
+	description="Explique comment utiliser la page Configurer de StorSimple Manager pour ajouter, modifier ou supprimer les clés de sécurité d’un compte de stockage ou effectuer une rotation de ces clés."
+	services="storsimple"
+	documentationCenter="NA"
+	authors="SharS"
+	manager="carolz"
+	editor=""/>
 <tags 
    ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="08/14/2015"
-   ms.author="v-sharos" />
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="TBD"
+	ms.date="08/27/2015"
+	ms.author="v-sharos"/>
 
-# Gestion du compte de stockage StorSimple
+# Utiliser le service StorSimple Manager pour gérer votre compte de stockage
 
-## Vue d'ensemble
+## Vue d’ensemble
 
 La page **Configurer** présente tous les paramètres de service globaux qui peuvent être créés dans le service StorSimple Manager. Ces paramètres peuvent être appliqués à tous les appareils connectés au service et incluent les éléments suivants :
 
@@ -28,8 +28,6 @@ La page **Configurer** présente tous les paramètres de service globaux qui peu
 Ce didacticiel explique comment utiliser la page **Configurer** pour ajouter, modifier ou supprimer des comptes de stockage ou pour effectuer une rotation des clés de sécurité d’un compte de stockage.
 
  ![Page Configurer](./media/storsimple-manage-storage-accounts/HCS_ConfigureService.png)
-
-**Figure 1 : Page de configuration du service StorSimple Manager**
 
 Les comptes de stockage contiennent les informations d’identification que l’appareil utilise pour accéder au compte de stockage que vous procure votre fournisseur de services cloud. Pour les comptes de stockage Microsoft Azure, il s’agit d’informations d’identification telles que le nom du compte et la clé d’accès primaire.
 
@@ -145,11 +143,11 @@ Pour informer le service StorSimple Manager de la modification, vous devez accé
 3. Dans la boîte de dialogue qui s’affiche, procédez comme suit :
 
   1. Sélectionnez le compte de stockage associé à la clé que vous souhaitez mettre à jour.
-  2. Vous devrez mettre la clé d’accès de stockage à jour dans le service StorSimple Manager. Dans ce cas, vous pouvez voir la clé d’accès de stockage. Entrez la nouvelle clé dans la zone **Clé d’accès au compte de stockage**. 
+  2. Vous devrez mettre la clé d’accès de stockage à jour dans le service StorSimple Manager. Dans ce cas, vous pouvez voir la clé d’accès de stockage. Entrez la nouvelle clé dans le champ **Clé d’accès au compte de stockage**. 
   3. Enregistrez vos modifications. La clé d’accès de votre compte de stockage doit maintenant être à jour.
 
 ## Étapes suivantes
 
 En savoir plus sur la [sécurité StorSimple](storsimple-security.md).
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=September15_HO1-->

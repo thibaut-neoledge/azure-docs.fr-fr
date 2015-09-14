@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Utilisation du stockage de file d’attente Microsoft Azure avec le Kit de développement logiciel (SDK) de WebJobs" 
-	description="Découvrez comment utiliser le stockage de file d’attente Microsoft Azure avec le Kit de développement logiciel (SDK) WebJobs. Créez et supprimez des files d’attente ; insérez, lisez, recevez et supprimez les messages de la file d’attente et bien plus encore." 
-	services="app-service\web, storage" 
-	documentationCenter=".net" 
-	authors="tdykstra" 
-	manager="wpickett" 
+	pageTitle="Utilisation du stockage de file d’attente Microsoft Azure avec le Kit de développement logiciel (SDK) de WebJobs"
+	description="Découvrez comment utiliser le stockage de file d’attente Microsoft Azure avec le Kit de développement logiciel (SDK) WebJobs. Créez et supprimez des files d’attente ; insérez, lisez, recevez et supprimez les messages de la file d’attente et bien plus encore."
+	services="app-service\web, storage"
+	documentationCenter=".net"
+	authors="tdykstra"
+	manager="wpickett"
 	editor="jimbe"/>
 
 <tags 
-	ms.service="app-service-web" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="06/29/2015" 
+	ms.service="app-service-web"
+	ms.workload="web"
+	ms.tgt_pltfrm="na"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="06/29/2015"
 	ms.author="tdykstra"/>
 
 # Utilisation du stockage de file d’attente Microsoft Azure avec le Kit de développement logiciel (SDK) de WebJobs
@@ -538,7 +538,12 @@ Pour écrire des [journaux de suivi d'application](web-sites-dotnet-troubleshoot
 
 La sortie de console s’affiche dans le tableau de bord uniquement si le programme s’exécute dans une tâche web Microsoft Azure, et non lorsque le programme est exécuté localement ou dans un autre environnement.
 
-Vous pouvez désactiver la journalisation en [affectant la valeur null à la chaîne de connexion du tableau de bord](#config).
+Désactivez la journalisation du tableau de bord pour les scénarios à débit élevé. Par défaut, le Kit de développement logiciel (SDK) écrit des journaux de stockage, et cette activité peut dégrader les performances lorsque vous traitez un grand nombre de messages. Pour désactiver la journalisation, attribuez à la chaîne de connexion du tableau de bord la valeur null comme indiqué dans l'exemple suivant.
+
+		JobHostConfiguration config = new JobHostConfiguration();       
+		config.DashboardConnectionString = “”;        
+		JobHost host = new JobHost(config);
+		host.RunAndBlock();
 
 L’exemple suivant montre plusieurs manières d’écrire des journaux :
 
@@ -581,4 +586,4 @@ Dans une table Azure, les journaux `Console.Out` et `Console.Error` ressemblent 
 Ce guide fournit des exemples de code qui indiquent comment gérer des scénarios courants pour l’utilisation des files d’attente Microsoft Azure. Pour plus d’informations sur l’utilisation d’Azure Webjobs et du Kit de développement logiciel (SDK) WebJobs Azure, consultez la rubrique [Azure Webjobs - Ressources recommandées](http://go.microsoft.com/fwlink/?linkid=390226).
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

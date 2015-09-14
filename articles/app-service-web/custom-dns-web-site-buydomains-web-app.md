@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/21/2015"
+	ms.date="08/31/2015"
 	ms.author="mwasson"/>
 
 # Acheter et configurer un nom de domaine personnalisé dans Azure App Service
@@ -98,4 +98,4 @@ Procédez comme suit pour acheter des noms de domaine et les attribuer à votre 
 À ce stade, vous devez pouvoir entrer le nom de domaine personnalisé dans votre navigateur et vérifier que vous êtes bien dirigé vers votre application web.
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=September15_HO1-->

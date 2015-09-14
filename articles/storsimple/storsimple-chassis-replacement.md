@@ -1,27 +1,25 @@
 <properties 
-   pageTitle="Remplacer le châssis sur votre appareil StorSimple | Microsoft Azure"
-   description="Décrit comment retirer et remplacer le châssis sur votre appareil principal StorSimple ou le boîtier EBOD."
-   services="storsimple"
-   documentationCenter=""
-   authors="alkohli"
-   manager="carolz"
-   editor="" />
-
+   pageTitle="Remplacer le châssis sur un appareil StorSimple | Microsoft Azure"
+	description="Décrit comment retirer et remplacer le châssis sur votre appareil principal StorSimple ou le boîtier EBOD."
+	services="storsimple"
+	documentationCenter=""
+	authors="alkohli"
+	manager="carolz"
+	editor=""/>
 <tags 
    ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="08/05/2015"
-   ms.author="alkohli" />
-
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="TBD"
+	ms.date="08/31/2015"
+	ms.author="alkohli"/>
 
 # Remplacer le châssis sur votre appareil StorSimple
 
 ## Vue d’ensemble
 
-Ce didacticiel explique comment retirer et remplacer un châssis dans un appareil StorSimple. Le modèle 8100 est un appareil à boîtier unique (un châssis), alors que le modèle 8600 comprend deux boîtiers (deux châssis). Pour un modèle 8600, il existe deux châssis potentiellement défaillants dans l’appareil : le châssis du boîtier principal ou le châssis du boîtier EBOD.
+Ce didacticiel explique comment retirer et remplacer un châssis dans un appareil StorSimple. Le modèle StorSimple 8100 est un appareil à boîtier unique (un châssis), alors que le modèle 8600 comprend deux boîtiers (deux châssis). Pour un modèle 8600, il existe deux châssis potentiellement défaillants dans l’appareil : le châssis du boîtier principal ou le châssis du boîtier EBOD.
 
 Dans les deux cas, le châssis de remplacement livré par Microsoft sera vide. Aucun module d’alimentation et de refroidissement (PCM), module de contrôleur, disque SSD, lecteur de disque dur (HDD) ni module EBOD ne seront inclus.
 
@@ -65,4 +63,4 @@ Pour installer le châssis dans un appareil Microsoft Azure StorSimple, procéde
 
 En savoir plus sur le [remplacement des composants matériels StorSimple](storsimple-hardware-component-replacement.md).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

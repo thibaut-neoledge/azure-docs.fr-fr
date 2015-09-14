@@ -1,25 +1,26 @@
 <properties 
-	pageTitle="Échantillonner des données dans le stockage d’objets blob Azure | Microsoft Azure" 
-	description="Échantillonner des données dans le stockage d’objets blob Azure" 
-	services="machine-learning,storage" 
-	documentationCenter="" 
-	authors="msolhab" 
-	manager="paulettm" 
-	editor="cgronlun" />
+	pageTitle="Échantillonner des données dans le stockage d’objets blob Azure | Microsoft Azure"
+	description="Échantillonner des données dans le stockage d’objets blob Azure"
+	services="machine-learning,storage"
+	documentationCenter=""
+	authors="msolhab"
+	manager="paulettm"
+	editor="cgronlun"/>
 
 <tags 
-	ms.service="machine-learning" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/29/2015" 
-	ms.author="sunliangms;fashah;msolhab;garye;bradsev" />
+	ms.service="machine-learning"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/01/2015"
+	ms.author="sunliangms;fashah;msolhab;garye;bradsev"/>
 
 #<a name="heading"></a>Exemple de données dans le stockage d’objets blob Azure
 
 Ce document traite de l’échantillonnage des données conservées dans le stockage d’objets blob Azure via le téléchargement de ces données par programme, puis leur échantillonnage à l’aide d’un exemple de code Python. La procédure est la suivante :
 
+## Télécharger et sous-échantillonner les données
 1. Téléchargez les données du stockage d’objets blob Azure à l’aide du service BLOB en utilisant l’exemple de code suivant : 
 
 	    from azure.storage import BlobService
@@ -45,7 +46,7 @@ Ce document traite de l’échantillonnage des données conservées dans le stoc
 	    #directly ready from file on disk
     	dataframe_blobdata = pd.read_csv(LOCALFILE)
 
-3. Échantillonnez les données en utilisant l’élément `random.choice` de `numpy`, comme suit :
+3. Sous-échantillonnez les données en utilisant l’élément `random.choice` de `numpy`, comme suit :
 
 	    # A 1 percent sample
     	sample_ratio = 0.01 
@@ -55,7 +56,7 @@ Ce document traite de l’échantillonnage des données conservées dans le stoc
 
 	Vous pouvez à présent travailler sur l’échantillon de 1 % de la trame de données ci-dessus à d’autres fins d’exploration et de génération de fonctionnalités.
 
-##<a name="heading"></a>Connexion à Azure Machine Learning
+##<a name="heading"></a>Téléchargez les données et lisez-les dans Azure Machine Learning
 
 Vous pouvez sous-échantillonner les données et les utiliser directement dans Azure Machine Learning en utilisant l’exemple de code ci-dessous :
 
@@ -96,4 +97,4 @@ Vous pouvez sous-échantillonner les données et les utiliser directement dans A
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

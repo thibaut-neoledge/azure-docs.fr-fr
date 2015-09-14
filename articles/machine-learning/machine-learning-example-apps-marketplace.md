@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Exemples d’applications d’apprentissage automatique sur Azure Marketplace | Microsoft Azure" 
-	description="Les exemples d’application du Marketplace Azure Machine Learning illustrent comment vous pouvez publier vos services Machine Learning sur Azure Marketplace afin que les abonnés payants puissent les utiliser dans leurs applications." 
-	services="machine-learning" 
-	documentationCenter="" 
-	authors="LuisCabrer" 
-	manager="paulettm" 
+	pageTitle="Exemples d’applications d’apprentissage automatique sur Azure Marketplace | Microsoft Azure"
+	description="Les exemples d’application du Marketplace Azure Machine Learning illustrent comment vous pouvez publier vos services Machine Learning sur Azure Marketplace afin que les abonnés payants puissent les utiliser dans leurs applications."
+	services="machine-learning"
+	documentationCenter=""
+	authors="LuisCabrer"
+	manager="paulettm"
 	editor="cgronlun"/>
 
 <tags 
-	ms.service="machine-learning" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/05/2015" 
+	ms.service="machine-learning"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/01/2015"
 	ms.author="luisca"/>
 
 # Applications d’apprentissage automatique dans Azure Marketplace
@@ -57,6 +57,10 @@ Cette API permet d’analyser un texte non structuré pour des tâches comme l�
 [Documentation](machine-learning-apps-text-analytics.md)
 
  
- 
+ ##Prédiction de l’attrition des clients## La prédiction de l’attrition des clients est un service d'analyse de l’attrition conçu avec Azure Machine Learning. Il est conçu pour prévoir quand un client (lecteur, abonné, utilisateur, etc.) est susceptible de mettre fin à sa relation avec une entreprise ou un service. La capacité à prévoir quels clients présentent un risque élevé de mettre fin à leur relation avec la société donne à l’entreprise la possibilité de les contacter et réduit la probabilité de leur départ.
 
-<!---HONumber=August15_HO6-->
+[Lien vers DataMarket](https://datamarket.azure.com/dataset/amla/customer-churn-prediction)
+
+[Documentation](https://churn.cloudapp.net/documentation)
+
+<!---HONumber=September15_HO1-->

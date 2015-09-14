@@ -1,35 +1,35 @@
 <properties 
-   pageTitle="Administrer votre appareil StorSimple à l’aide de Windows PowerShell pour StorSimple | Microsoft Azure"
-   description="Découvrez comment gérer votre appareil StorSimple en utilisant Windows PowerShell pour StorSimple"
-   services="storsimple"
-   documentationCenter="NA"
-   authors="alkohli"
-   manager="carolz"
-   editor="" />
+   pageTitle="PowerShell pour la gestion d’appareils StorSimple | Microsoft Azure"
+	description="Découvrez comment gérer votre appareil StorSimple à l’aide de Windows PowerShell for StorSimple."
+	services="storsimple"
+	documentationCenter="NA"
+	authors="alkohli"
+	manager="carolz"
+	editor=""/>
 <tags 
    ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="08/19/2015"
-   ms.author="alkohli@microsoft.com" />
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="TBD"
+	ms.date="08/28/2015"
+	ms.author="alkohli@microsoft.com"/>
 
 # Utiliser Windows PowerShell pour StorSimple pour appliquer votre appareil
 
 ## Vue d'ensemble
+
 Windows PowerShell pour StorSimple fournit une interface de ligne de commande que vous pouvez utiliser pour gérer votre appareil Microsoft Azure StorSimple. Comme son nom l’indique, il s’agit d’une interface de ligne de commande basée sur Windows PowerShell, qui est créée dans une instance d’exécution avec restriction. Du point de vue de l’utilisateur au niveau de la ligne de commande, une instance d’exécution avec restriction apparaît comme une version limitée de Windows PowerShell. Tout en conservant certaines fonctionnalités de base de Windows PowerShell, cette interface a des applets de commande dédiées supplémentaires orientées vers la gestion de votre appareil Microsoft Azure StorSimple.
 
-Cet article décrit les fonctionnalités de Windows PowerShell pour StorSimple, y compris la façon dont vous pouvez vous connecter à cette interface, et comprend des liens vers des procédures pas à pas de flux de travail qui peuvent être effectués à l’aide de cette interface. Les flux de travail sont notamment les suivants : comment inscrire votre appareil, configurer l’interface réseau sur votre appareil, installer les mises à jour nécessitant que l’appareil soit en mode maintenance, changer l’état de l’appareil et résoudre les problèmes que vous pouvez rencontrer.
+Cet article décrit les fonctionnalités de Windows PowerShell for StorSimple, y compris la façon dont vous pouvez vous connecter à cette interface, et comprend des liens vers des procédures pas à pas ou des flux de travail que vous pouvez effectuer à l’aide de cette interface. Les flux de travail sont notamment les suivants : comment inscrire votre appareil, configurer l’interface réseau sur votre appareil, installer les mises à jour nécessitant que l’appareil soit en mode maintenance, changer l’état de l’appareil et résoudre les problèmes que vous pouvez rencontrer.
 
 Après avoir lu cet article, vous pourrez :
 
+- Connectez-vous à votre appareil StorSimple à l’aide de Windows PowerShell for StorSimple.
 
-- Vous connecter à votre appareil StorSimple à l’aide de Windows PowerShell pour StorSimple
+- Administrez votre appareil StorSimple à l’aide de Windows PowerShell for StorSimple.
 
-- Administrer votre appareil StorSimple à l’aide de Windows PowerShell pour StorSimple
-
-- Obtenir de l’aide dans Windows PowerShell pour StorSimple
+- Obtenez de l’aide dans Windows PowerShell for StorSimple.
 
 >[AZURE.NOTE]
 
@@ -95,7 +95,7 @@ Assurez-vous d’utiliser les paramètres PuTTY suivants pour vous connecter à 
  	|---|---|
  	|Touche Retour arrière|Ctrl+? (127)|
 	|Touches Origine et Fin|Standard|
-	|Touches de fonction et pavé numérique|ÉCHAP[n\~|
+	|Touches de fonction et pavé numérique|ÉCHAP[n~|
 	|État initial des touches de direction|Normal|
 	|État initial du pavé numérique|Normal|
 	|Activer des fonctionnalités supplémentaires du clavier|Ctrl+Alt est différent de AltGr|
@@ -197,4 +197,4 @@ Vous pouvez facilement mettre à jour l’aide de l’interface Windows PowerShe
 ## Étapes suivantes
 Si vous rencontrez des problèmes avec votre appareil StorSimple lors de l’exécution d’un des flux de travail ci-dessus, reportez-vous à la rubrique [Outils de résolution des problèmes de déploiement de StorSimple](storsimple-troubleshoot-deployment.md#tools-for-troubleshooting-storsimple-deployments).
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=September15_HO1-->

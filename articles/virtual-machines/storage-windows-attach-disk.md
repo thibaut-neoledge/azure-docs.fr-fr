@@ -23,11 +23,17 @@ Vous pouvez attacher des disques, qu’ils soient vides ou non. Dans les deux ca
 
 > [AZURE.NOTE]Il est recommandé d'utiliser un ou plusieurs disques distincts pour stocker les données d'une machine virtuelle. Quand vous créez une machine virtuelle Azure, celle-ci comporte un disque pour le système d’exploitation mappé au lecteur C et un disque temporaire mappé au lecteur D. **N’utilisez pas le lecteur D pour stocker des données.** Comme son nom l’indique, le lecteur D ne permet qu’un stockage temporaire. Il n’offre aucune possibilité de redondance ou de sauvegarde, car il ne réside pas dans Azure Storage.
 
+## Vidéo de procédure pas à pas
+
+Voici une procédure pas à pas de ce didacticiel.
+
+[AZURE.VIDEO attaching-a-data-disk-to-a-windows-vm]
+
 [AZURE.INCLUDE [howto-attach-disk-windows-linux](../../includes/howto-attach-disk-windows-linux.md)]
 
 ## <a id="initializeinWS"></a>Procédure : initialisation d’un nouveau disque de données dans Windows Server
 
-1. Connectez-vous à la machine virtuelle. Pour connaître les instructions à suivre, consultez [Connexion à une machine virtuelle exécutant Windows Server][logon].
+1. Connectez-vous à la machine virtuelle. Pour plus d’informations, consultez [Connexion à une machine virtuelle exécutant Windows Server][logon].
 
 2. Une fois que vous êtes connecté à la machine virtuelle, ouvrez **Server Manager**. Dans le volet gauche, sélectionnez **Services de fichiers et de stockage**.
 
@@ -43,7 +49,7 @@ Vous pouvez attacher des disques, qu’ils soient vides ou non. Dans les deux ca
 
 	![Volume correctement initialisé](./media/storage-windows-attach-disk/newvolumecreated.png)
 
-> [AZURE.NOTE]La taille de la machine virtuelle détermine le nombre de disques que vous pouvez attacher à celle-ci. Pour plus d’informations, consultez [Tailles de machines virtuelles](virtual-machines-size-specs.md).
+> [AZURE.NOTE]La taille de la machine virtuelle détermine le nombre de disques que vous pouvez attacher à celle-ci. Pour en savoir plus, consultez la rubrique [Tailles de machines virtuelles](virtual-machines-size-specs.md).
 
 ## Ressources supplémentaires
 
@@ -53,4 +59,4 @@ Vous pouvez attacher des disques, qu’ils soient vides ou non. Dans les deux ca
 
 [logon]: virtual-machines-log-on-windows-server.md
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=September15_HO1-->

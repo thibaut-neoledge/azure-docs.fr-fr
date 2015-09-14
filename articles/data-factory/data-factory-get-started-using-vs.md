@@ -1,22 +1,20 @@
 <properties 
-	pageTitle="Didacticiel : copie de données depuis un objet blob Azure vers Azure SQL" 
-	description="Ce didacticiel vous montre comment créer un exemple de pipeline de données qui copie les données d'un objet blob vers une instance de base de données SQL Azure." 
-	services="data-factory" 
-	documentationCenter="" 
-	authors="spelluru" 
-	manager="jhubbard" 
+	pageTitle="Didacticiel : Créer un pipeline avec l'activité de copie à l'aide de Visual Studio"
+	description="Dans ce didacticiel, vous allez créer un pipeline Azure Data Factory avec une activité de copie à l'aide de Visual Studio."
+	services="data-factory"
+	documentationCenter=""
+	authors="spelluru"
+	manager="jhubbard"
 	editor="monicar"/>
 
-
 <tags 
-	ms.service="data-factory" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/27/2015" 
+	ms.service="data-factory"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/27/2015"
 	ms.author="spelluru"/>
-
 
 # Didacticiel : Créer et surveiller une fabrique de données à l’aide de Visual Studio
 > [AZURE.SELECTOR]
@@ -55,7 +53,7 @@ Dans cette étape, vous utilisez le portail Azure en version préliminaire pour 
 7. Dans le panneau **Nouvelle fabrique de données**, notez que l'option **Ajouter au tableau d'accueil** est sélectionnée.
 8. Cliquez sur **Créer** dans le panneau **Nouvelle fabrique de données**.
 
-	Le nom de la fabrique de données Azure doit être un nom global unique. Si le message d’erreur **Le nom de la fabrique de données « ADFTutorialDataFactoryVS » n’est pas disponible** s’affiche, modifiez le nom de la fabrique de données (par exemple, votrenomADFTutorialDataFactoryVS), puis réessayez de la créer. Utilisez ce nom à la place d'ADFTutorialFactory quand vous effectuez les étapes restantes de ce didacticiel. Consultez la rubrique [Data Factory - Règles d’affectation de noms\][règles-affectation de noms-fabrique-données\] pour savoir comment nommer les artefacts Data Factory.
+	Le nom de la fabrique de données Azure doit être un nom global unique. Si le message d’erreur **Le nom de la fabrique de données « ADFTutorialDataFactoryVS » n’est pas disponible** s’affiche, modifiez le nom de la fabrique de données (par exemple, votrenomADFTutorialDataFactoryVS), puis réessayez de la créer. Utilisez ce nom à la place d'ADFTutorialFactory quand vous effectuez les étapes restantes de ce didacticiel. Consultez la rubrique [Data Factory - Règles d’affectation de noms][règles-affectation de noms-fabrique-données] pour savoir comment nommer les artefacts Data Factory.
 	 
 	![Nom de la fabrique de données indisponible](./media/data-factory-get-started-using-vs/getstarted-data-factory-not-available.png)
 
@@ -252,4 +250,8 @@ Pour mettre à jour des outils Azure Data Factory pour Visual Studio, procéd
 
 Consultez [Surveiller les jeux de données et le pipeline](data-factory-get-started-using-editor.md/#MonitorDataSetsAndPipeline) pour obtenir des instructions sur l’utilisation du portail Azure en version préliminaire afin de surveiller le pipeline et les jeux de données que vous avez créés dans ce didacticiel.
 
-<!---HONumber=August15_HO6-->
+
+## Envoyer des commentaires
+Nous souhaiterions vraiment obtenir vos commentaires sur cet article. Prenez quelques minutes pour nous envoyer vos commentaires par [courrier électronique](mailto:adfdocfeedback@microsoft.com?subject=data-factory-get-started-using-vs.md).
+
+<!---HONumber=September15_HO1-->

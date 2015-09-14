@@ -1,20 +1,20 @@
 <properties
    pageTitle="Utilisation de modèles liés à Azure Resource Manager"
-   description="Décrit comment utiliser des modèles liés dans un modèle Azure Resource Manager afin de créer une solution de modèle modulaire. Indique comment transmettre des valeurs de paramètres, spécifier un fichier de paramètres et créer dynamiquement des URL."
-   services="azure-resource-manager"
-   documentationCenter="na"
-   authors="tfitzmac"
-   manager="wpickett"
-   editor=""/>
+	description="Décrit comment utiliser des modèles liés dans un modèle Azure Resource Manager afin de créer une solution de modèle modulaire. Indique comment transmettre des valeurs de paramètres, spécifier un fichier de paramètres et créer dynamiquement des URL."
+	services="azure-resource-manager"
+	documentationCenter="na"
+	authors="tfitzmac"
+	manager="wpickett"
+	editor=""/>
 
 <tags
    ms.service="azure-resource-manager"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="07/15/2015"
-   ms.author="tomfitz"/>
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="na"
+	ms.date="09/02/2015"
+	ms.author="tomfitz"/>
 
 # Utilisation de modèles liés à Azure Resource Manager
 
@@ -44,6 +44,14 @@ Pour créer un lien entre deux modèles, ajoutez une ressource de déploiement 
       } 
     ] 
 
+Le gestionnaire de ressources doit être en mesure d'accéder au modèle lié, ce qui signifie que vous ne pouvez pas spécifier un fichier local pour le modèle lié. Vous pouvez seulement fournir une valeur URI qui inclut soit **http** soit **https**. Une possibilité consiste à placer votre modèle lié dans un compte de stockage et à utiliser l'URI de cet élément, comme illustré ci-dessous.
+
+    "templateLink": {
+        "uri": "http://mystorageaccount.blob.core.windows.net/templates/template.json",
+        "contentVersion": "1.0.0.0",
+    }
+
+
 ## Liaison à un fichier de paramètres
 
 L’exemple suivant utilise la propriété **parametersLink** pour créer un lien vers un fichier de paramètres.
@@ -66,6 +74,8 @@ L’exemple suivant utilise la propriété **parametersLink** pour créer un lie
          } 
       } 
     ] 
+
+La valeur d'URI pour le fichier de paramètres liés ne peut pas être un fichier local et doit inclure **http** ou **https**.
 
 ## Utilisation de variables pour lier des modèles
 
@@ -100,4 +110,4 @@ Si vous devez transmettre une valeur du modèle lié vers le modèle principal, 
 - [Création de modèles Azure Resource Manager](./resource-group-authoring-templates.md)
 - [Déploiement d’une application à l’aide d’un modèle Azure Resource Manager](azure-portal/resource-group-template-deploy.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

@@ -12,8 +12,8 @@
 	ms.workload="core"
 	ms.tgt_pltfrm="c"
 	ms.devlang="java"
-	ms.topic="article" 
-	ms.date="07/21/2015"
+	ms.topic="article"
+	ms.date="09/01/2015"
 	ms.author="sethm"/>
 
 # Prise en main des concentrateurs d’événements
@@ -24,7 +24,7 @@
 
 Les concentrateurs d’événements représentent un système d’ingestion à l’extensibilité élevée en mesure d’absorber des millions d’événements par seconde, ce qui permet à une application de traiter et d’analyser les quantités énormes de données produites par vos périphériques connectés et vos applications. Une fois collectés dans des concentrateurs d’événements, vous pouvez transformer et stocker des données à l’aide de n’importe quel fournisseur d’analyses en temps réel ou d’un cluster de stockage.
 
-Pour plus d’informations, consultez la rubrique [Vue d’ensemble des concentrateurs d’événements].
+Pour plus d'informations, consultez [Vue d'ensemble des concentrateurs d'événements].
 
 Dans ce didacticiel, vous allez apprendre comment procéder à la réception des messages dans un concentrateur d'événements à l'aide d'une application console en C# et à les récupérer en parallèle à l'aide d'Apache Storm.
 
@@ -38,7 +38,7 @@ Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
 
 ## Création d’un concentrateur d’événements
 
-1. Connectez-vous au [portail de gestion Azure] et cliquez sur **NOUVEAU** en bas de l'écran.
+1. Connectez-vous au [portail Azure] et cliquez sur **NOUVEAU** en bas de l'écran.
 
 2. Cliquez sur **Services d’application**, sur **Service Bus**, sur **Concentrateur d’événements**, puis sur **Création rapide**.
 
@@ -80,7 +80,7 @@ Vous êtes maintenant prêt à exécuter les applications.
 
 	![][23]
 
-> [AZURE.NOTE]Dans le cadre de ce didacticiel, utilisez exclusivement Storm en mode local destiné au développement. Reportez-vous à la [Vue d’ensemble HDInsight Storm] et à la documentation [Apache Storm] officielle pour plus d’informations sur les déploiements et les modèles Storm.
+> [AZURE.NOTE]Dans le cadre de ce didacticiel, utilisez exclusivement Storm en mode local destiné au développement. Reportez-vous à la [Vue d'ensemble HDInsight Storm] et à la documentation [Apache Storm] officielle pour plus d'informations sur les déploiements et les modèles Storm.
 
 ## Étapes suivantes
 
@@ -101,14 +101,14 @@ Les ressources suivantes sont disponibles pour les applications de développemen
 [23]: ./media/event-hubs-c-storm-getstarted/receive-storm3.png
 
 <!-- Links -->
-[portail de gestion Azure]: https://manage.windowsazure.com/
+[portail Azure]: https://manage.windowsazure.com/
 [Event Processor Host]: https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost
-[Vue d’ensemble des concentrateurs d’événements]: event-hubs-overview.md
+[Vue d'ensemble des concentrateurs d'événements]: event-hubs-overview.md
 
 [Apache Storm]: https://storm.incubator.apache.org
-[Vue d’ensemble HDInsight Storm]: ../hdinsight/hdinsight-storm-overview.md/
+[Vue d'ensemble HDInsight Storm]: ../hdinsight/hdinsight-storm-overview.md/
 [Analyse des données de capteur avec Storm et HDInsight]: ../hdinsight/hdinsight-storm-sensor-data-analysis.md
 [Développement d’applications de traitement de données de diffusion avec SCP.NET et C# sur Storm et HDInsight]: ../hdinsight/hdinsight-storm-develop-csharp-visual-studio-topology.md
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="Utilisation de Notification Hubs pour diffuser les dernières nouvelles (Windows Universal)" 
-	description="Utilisez Azure Notification Hubs avec des balises dans l’inscription pour envoyer les dernières nouvelles à une application Windows universelle." 
-	services="notification-hubs" 
-	documentationCenter="windows" 
-	authors="wesmc7777" 
-	manager="dwrede" 
+<properties
+	pageTitle="Utilisation de Notification Hubs pour diffuser les dernières nouvelles (Windows Universal)"
+	description="Utilisez Azure Notification Hubs avec des balises dans l’inscription pour envoyer les dernières nouvelles à une application Windows universelle."
+	services="notification-hubs"
+	documentationCenter="windows"
+	authors="wesmc7777"
+	manager="dwrede"
 	editor=""/>
 
 
-<tags 
-	ms.service="notification-hubs" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-windows" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="05/27/2015" 
+<tags
+	ms.service="notification-hubs"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-windows"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="06/16/2015"
 	ms.author="wesmc"/>
 
 # Utilisation de Notification Hubs pour diffuser les dernières nouvelles
@@ -38,7 +38,7 @@ Cette rubrique s'appuie sur l'application que vous avez créée dans [Prise en m
 La première étape consiste à ajouter des éléments de l’interface utilisateur à votre page principale existante qui permettent à l’utilisateur de sélectionner des catégories auxquelles s’inscrire. Les catégories sélectionnées par un utilisateur sont stockées sur l'appareil. Lorsque l'application démarre, une inscription d'appareil est créée dans votre Notification Hub avec les catégories sélectionnées sous forme de balises.
 
 1. Ouvrez le fichier projet MainPage.xaml, puis copiez le code suivant dans l'élément **Grid** :
-			
+
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition/>
@@ -137,7 +137,7 @@ La première étape consiste à ajouter des éléments de l’interface utilisat
             dialog.Commands.Add(new UICommand("OK"));
             await dialog.ShowAsync();
         }
-	
+
 	Cette méthode crée une liste de catégories et utilise la classe **Notifications** pour stocker la liste dans le stockage local et inscrire les balises correspondantes auprès du Notification Hub. Lorsque des catégories sont modifiées, l'inscription est à nouveau créée avec les nouvelles catégories.
 
 Votre application peut désormais stocker un ensemble de catégories dans le stockage local sur l’appareil et s’inscrire auprès du concentrateur de notification lorsque l’utilisateur modifie la sélection des catégories.
@@ -241,10 +241,4 @@ Dans ce didacticiel, nous avons appris à diffuser les dernières nouvelles par 
 [Azure Management Portal]: https://manage.windowsazure.com/
 [wns object]: http://go.microsoft.com/fwlink/p/?LinkId=260591
 
-
-
-
-
- 
-
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

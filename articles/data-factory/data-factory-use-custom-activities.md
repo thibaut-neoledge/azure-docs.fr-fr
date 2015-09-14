@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/25/2015"
+	ms.date="08/28/2015"
 	ms.author="spelluru"/>
 
 # Utilisation des activités personnalisées dans un pipeline Azure Data Factory
@@ -213,7 +213,9 @@ Cette procédure pas à pas vous fournit des instructions détaillées sur la cr
 10. Compilez le projet. Cliquez sur l’option **Générer** du menu, puis sur **Générer la solution**.
 11. Lancez l’**Explorateur Windows** et accédez au dossier **bin\\debug** ou **bin\\release** (selon le type de build).
 12. Créez un fichier **MyDotNetActivity.zip** contenant tous les binaires dans le dossier <project folder>\\bin\\Debug. Si vous le souhaitez, vous pouvez inclure le fichier MyDotNetActivity.pdb afin d’obtenir des détails supplémentaires tels que le numéro de ligne du code source ayant causé le problème en cas de défaillance. 
-13. Chargez le fichier **MyDotNetActivity.zip** en tant qu’objet blob dans le conteneur d’objets blob **customactvitycontainer** du stockage d’objets blob Azure utilisé par le service lié **StorageLinkedService** dans **ADFTutorialDataFactory**. Créez le conteneur d’objets blob **customactivitycontainer**, le cas échéant. 
+13. Chargez le fichier **MyDotNetActivity.zip** en tant qu’objet blob dans le conteneur d’objets blob **customactvitycontainer** du stockage d’objets blob Azure utilisé par le service lié **StorageLinkedService** dans **ADFTutorialDataFactory**. Créez le conteneur d’objets blob **customactivitycontainer**, le cas échéant.
+
+> [AZURE.NOTE]Si vous ajoutez ce projet d'activité .NET à une solution dans Visual Studio qui contient un projet Data Factory, il est inutile d'effectuer les deux dernières étapes de création du fichier zip et de le télécharger manuellement dans le stockage blob Azure. Lorsque vous publiez des entités Data Factory à l'aide de Visual Studio, ces étapes sont effectuées automatiquement par le processus de publication. Consultez les articles [Concevez votre premier pipeline à l'aide de Visual Studio](data-factory-build-your-first-pipeline-using-vs.md) et [Copie de données à partir d'un objet Blob Azure vers SQL Azure](data-factory-get-started-using-vs.md) pour en savoir plus sur la création et la publication des entités Data Factory à l'aide de Visual Studio.
 
 
 ## Étape 2 : Utiliser l’activité personnalisée dans un pipeline
@@ -364,12 +366,12 @@ Si, après avoir exécuté le didacticiel [Prise en main d’Azure Data Factory]
 
 	(emplacement de l’objet blob), (nom de l’objet blob), (nombre de lignes de l’objet blob), (nœud sur lequel l’activité a été exécutée), (horodatage)
 
-10.	Utilisez le [portail Azure][azure-preview-portal] ou les applets de commande Azure PowerShell pour surveiller votre fabrique de données, pipelines et jeux de données. Vous pouvez voir les messages de l’outil **ActivityLogger** dans le code concernant l’activité personnalisée dans les journaux (plus précisément, user-0.log) que vous pouvez télécharger à partir du portail ou à l’aide d’applets de commande.
+10.	Utilisez le [portail Azure][azure-preview-portal] ou les applets de commande Azure PowerShell pour surveiller votre fabrique de données, pipelines et jeux de données. Vous pouvez voir les messages de l'outil **ActivityLogger** dans le code concernant l'activité personnalisée dans les journaux (plus précisément, user-0.log) que vous pouvez télécharger à partir du portail ou à l'aide d'applets de commande.
 
 	![Téléchargement des journaux d’activités personnalisées][image-data-factory-download-logs-from-custom-activity]
 	
    
-Pour découvrir la procédure détaillée de surveillance des jeux de données et des pipelines, consultez l’article [Surveiller et gérer les pipelines](data-factory-monitor-manage-pipelines.md).
+Pour découvrir la procédure détaillée de surveillance des jeux de données et des pipelines, consultez l'article [Surveiller et gérer les pipelines](data-factory-monitor-manage-pipelines.md).
 
 ## Mise à jour d’une activité personnalisée
 Si vous mettez à jour le code de l’activité personnalisée, créez et téléchargez le fichier .zip qui contient les nouveaux fichiers binaires pour le stockage d’objets blob.
@@ -391,7 +393,7 @@ Voici les étapes générales d’utilisation du service lié Microsoft Azure B
 1. Créez un compte Microsoft Azure Batch à l’aide du portail de gestion Microsoft Azure. Voir [Vue d’ensemble technique d’Azure Batch][batch-create-account] pour savoir comment procéder. Notez la clé et le nom du compte Microsoft Azure Batch. 
 
 	Vous pouvez également utiliser l’applet de commande [New-AzureBatchAccount][new-azure-batch-account] pour créer un compte Microsoft Azure Batch. Pour obtenir des instructions détaillées sur l’utilisation de cette applet de commande, voir le billet de blog [Using Azure PowerShell to Manage Azure Batch Account][azure-batch-blog]. 
-2. Créez un pool Microsoft Azure Batch. Vous pouvez télécharger le code source de l’outil [Azure Batch Explorer][batch-explorer], compiler, l’utiliser ou utiliser la [bibliothèque Azure Batch pour .NET][batch-net-library] pour créer un pool Azure Batch. Consultez le billet de blog [Azure Batch Explorer Sample Walkthrough][batch-explorer-walkthrough] pour obtenir des instructions détaillées sur l’utilisation d’Azure Batch Explorer.
+2. Créez un pool Microsoft Azure Batch. Vous pouvez télécharger le code source de l'outil [Azure Batch Explorer][batch-explorer], compiler, l'utiliser ou utiliser la [bibliothèque Azure Batch pour .NET][batch-net-library] pour créer un pool Azure Batch. Consultez le billet de blog [Azure Batch Explorer Sample Walkthrough][batch-explorer-walkthrough] pour obtenir des instructions détaillées sur l’utilisation d’Azure Batch Explorer.
 	
 	Vous pouvez également utiliser l’applet de commande [New-AzureBatchPool][new-azure-batch-pool] pour créer un pool Microsoft Azure Batch.
 
@@ -465,4 +467,4 @@ Voici les étapes générales d’utilisation du service lié Microsoft Azure B
 [image-data-factory-azure-batch-tasks]: ./media/data-factory-use-custom-activities/AzureBatchTasks.png
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Application web avec stockage de tables (Node.js) | Microsoft Azure" 
-	description="Ce didacticiel ajoute les services Azure Storage et le module Azure au didacticiel Application web avec Express." 
-	services="cloud-services, storage" 
-	documentationCenter="nodejs" 
-	authors="MikeWasson" 
-	manager="wpickett" 
+	pageTitle="Application web avec stockage de tables (Node.js) | Microsoft Azure"
+	description="Ce didacticiel ajoute les services Azure Storage et le module Azure au didacticiel Application web avec Express."
+	services="cloud-services, storage"
+	documentationCenter="nodejs"
+	authors="TomArcher"
+	manager="wpickett"
 	editor=""/>
 
 <tags 
-	ms.service="storage" 
-	ms.workload="storage" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="nodejs" 
-	ms.topic="article" 
-	ms.date="02/25/2015" 
-	ms.author="mwasson"/>
+	ms.service="storage"
+	ms.workload="storage"
+	ms.tgt_pltfrm="na"
+	ms.devlang="nodejs"
+	ms.topic="article"
+	ms.date="09/01/2015"
+	ms.author="tarcher"/>
 
 
 
@@ -23,9 +23,9 @@
 
 # Application Web Node.js utilisant le stockage
 
-## Vue d'ensemble
+## Vue d’ensemble
 
-Dans ce didacticiel, vous allez enrichir l'application créée dans le didacticiel [Application Web Node.js avec Express] à l'aide des bibliothèques clientes Azure pour Node.js afin qu'elle fonctionne avec les services de gestion de données. Vous allez étendre les fonctionnalités de votre application en vue de créer une application de liste de tâches Web que vous pouvez déployer sur Azure. La liste de tâches permet à un utilisateur d'extraire des tâches, d'en ajouter de nouvelles et de marquer celles qui sont terminées.
+Dans ce didacticiel, vous allez enrichir l'application créée dans le didacticiel [Application Web Node.js avec Express] à l'aide des bibliothèques clientes Microsoft Azure pour Node.js afin qu'elle fonctionne avec les services de gestion de données. Vous allez étendre les fonctionnalités de votre application en vue de créer une application de liste de tâches Web que vous pouvez déployer sur Azure. La liste de tâches permet à un utilisateur d'extraire des tâches, d'en ajouter de nouvelles et de marquer celles qui sont terminées.
 
 Les éléments de tâches sont stockés dans Azure Storage, qui offre le stockage de données non structurées à tolérance de panne et haute disponibilité. Azure Storage inclut plusieurs structures de données dans lesquelles vous pouvez stocker des données et y accéder. Vous pouvez également exploiter les services de stockage à partir des API incluses dans le Kit de développement logiciel (SDK) Azure pour Node.js ou via les API REST. Pour plus d'informations, consultez la page [Stockage et accessibilité des données dans Azure].
 
@@ -408,4 +408,4 @@ La procédure suivante présente l'arrêt et la suppression de l'application.
  
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

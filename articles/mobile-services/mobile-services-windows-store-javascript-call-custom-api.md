@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Appel d'une API personnalisée à partir d'un client JS Windows Store - Mobile Services" 
-	description="Learn how to define a custom API and then call it from a Windows Store app that use Azure Mobile Services." 
-	services="mobile-services" 
-	documentationCenter="windows" 
-	authors="ggailey777" 
-	manager="dwrede" 
+<properties
+	pageTitle="Appel d'une API personnalisée à partir d'un client JS Windows Store - Mobile Services"
+	description="Learn how to define a custom API and then call it from a Windows Store app that use Azure Mobile Services."
+	services="mobile-services"
+	documentationCenter="windows"
+	authors="ggailey777"
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-windows" 
-	ms.devlang="javascript" 
-	ms.topic="article" 
-	ms.date="06/04/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-windows"
+	ms.devlang="javascript"
+	ms.topic="article"
+	ms.date="06/16/2015"
 	ms.author="glenga"/>
 
 # Appel d'une API personnalisée à partir du client
@@ -59,6 +59,5 @@ Pour plus d'informations sur les rubriques Mobile Services suivantes, consultez�
 
 [Define a custom API that supports periodic notifications]: mobile-services-windows-store-javascript-create-pull-notifications.md
 [Stockage des scripts serveur dans le contrôle du code source ]: mobile-services-store-scripts-source-control.md
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

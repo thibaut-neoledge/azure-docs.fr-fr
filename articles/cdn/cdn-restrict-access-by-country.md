@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="CDN : restriction de l'accès à votre contenu par pays" 
-	description="Par défaut, lorsqu'un utilisateur demande du contenu, le contenu est pris en charge, quel que soit l’endroit d’où vient la demande. Dans certains cas, vous souhaiterez limiter l'accès à votre contenu par pays. Cette rubrique explique comment utiliser la fonctionnalité de **Filtrage par pays** afin de configurer le service pour autoriser ou bloquer l'accès par pays." 
-	services="cdn" 
-	documentationCenter=".NET" 
-	authors="juliako" 
-	manager="dwrede" 
+	pageTitle="CDN : restriction de l'accès à votre contenu par pays"
+	description="Par défaut, lorsqu'un utilisateur demande du contenu, le contenu est pris en charge, quel que soit l’endroit d’où vient la demande. Dans certains cas, vous souhaiterez limiter l'accès à votre contenu par pays. Cette rubrique explique comment utiliser la fonctionnalité de **Filtrage par pays** afin de configurer le service pour autoriser ou bloquer l'accès par pays."
+	services="cdn"
+	documentationCenter=".NET"
+	authors="juliako"
+	manager="dwrede"
 	editor=""/>
 
 <tags 
-	ms.service="cdn" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/08/2015" 
+	ms.service="cdn"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/01/2015"
 	ms.author="juliako"/>
 
 #Restriction de l'accès à votre contenu par pays
@@ -61,8 +61,8 @@ La fonctionnalité de **Filtrage par pays** utilise des codes de pays pour défi
 ##<a id="considerations"></a>Considérations
 
 - L’entrée en vigueur des modifications apportées à votre configuration de filtrage par pays peut prendre une heure.
-- Cette fonctionnalité ne prend pas en charge les caractères génériques (par exemple, « \* »).
+- Cette fonctionnalité ne prend pas en charge les caractères génériques (par exemple, « * »).
 - La configuration de filtrage par pays associée avec le chemin d'accès relatif de filtrage est appliquée de manière récursive à ce chemin d’accès.
 - Une seule règle peut être appliquée au même chemin d'accès relatif (vous ne pouvez pas créer plusieurs filtres de pays qui pointent vers le même chemin d'accès relatif). Toutefois, un dossier peut avoir plusieurs filtres par pays. Cela est dû à la nature récursive des filtres par pays. En d'autres termes, un filtre par pays différent peut être attribué à un sous-dossier d'un dossier déjà configuré.
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=September15_HO1-->

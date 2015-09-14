@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Didacticiel : copie de données depuis un objet blob Azure vers Azure SQL"
-	description="Ce didacticiel vous montre comment créer un exemple de pipeline de données qui copie les données d'un objet blob vers une instance de base de données SQL Azure."
+	pageTitle="Didacticiel : Utilisation de l'activité de copie dans un pipeline Azure Data Factory"
+	description="Ce didacticiel vous montre comment utiliser l'activité de copie dans un pipeline Azure Data Factory pour copier des données depuis un objet blob Azure vers une base de données SQL Azure."
 	services="data-factory"
 	documentationCenter=""
 	authors="spelluru"
@@ -12,7 +12,7 @@
 	ms.workload="data-services"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article" 
+	ms.topic="article"
 	ms.date="07/27/2015"
 	ms.author="spelluru"/>
 
@@ -74,7 +74,7 @@ Vérifiez que le paramètre **Autoriser l'accès aux services Azure** est **ACTI
 
 2. Utilisez des outils tels que l'[Explorateur Azure Storage](https://azurestorageexplorer.codeplex.com/) pour créer le conteneur **adftutorial** et charger le fichier **emp.txt** vers ce dernier.
 
-    ![Explorateur du stockage Azure](./media/data-factory-get-started/getstarted-storage-explorer.png)
+    ![Azure Storage Explorer](./media/data-factory-get-started/getstarted-storage-explorer.png)
 3. Utilisez le script SQL suivant pour créer la table **emp** dans votre base de données SQL Azure.  
 
 
@@ -100,6 +100,9 @@ Effectuez les actions suivantes :
 - Cliquez sur le lien [Utilisation de Visual Studio](data-factory-get-started-using-vs.md) situé dans la partie supérieure pour suivre le didacticiel à l’aide de Visual Studio 2013.
  
 
+## Envoyer des commentaires
+Nous souhaiterions vraiment obtenir vos commentaires sur cet article. Prenez quelques minutes pour nous envoyer vos commentaires par [courrier électronique](mailto:adfdocfeedback@microsoft.com?subject=data-factory-get-started.md).
+
 <!--Link references-->
 [azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [azure-preview-portal]: https://portal.azure.com/
@@ -110,4 +113,4 @@ Effectuez les actions suivantes :
 [data-factory-create-storage]: http://azure.microsoft.com/documentation/articles/storage-create-storage-account/#create-a-storage-account
 [data-factory-create-sql-database]: ../sql-database-get-started.md
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

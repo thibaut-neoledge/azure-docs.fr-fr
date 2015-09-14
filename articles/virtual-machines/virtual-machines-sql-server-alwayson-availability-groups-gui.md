@@ -5,7 +5,7 @@
 	documentationCenter="na"
 	authors="rothja"
 	manager="jeffreyg"
-	editor="monicar" />
+	editor="monicar"/>
 <tags 
 	ms.service="virtual-machines"
 	ms.devlang="na"
@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
 	ms.date="08/12/2015"
-	ms.author="jroth" />
+	ms.author="jroth"/>
 
 # Configuration de groupes de disponibilité AlwaysOn dans Azure (GUI)
 
 Ce didacticiel de bout en bout vous montre comment implémenter un groupe de disponibilité en utilisant SQL Server AlwaysOn sur des machines virtuelles Azure.
 
->[AZURE.NOTE]Dans le portail de gestion Azure, il existe une nouvelle installation de la galerie pour les groupes de disponibilité AlwaysOn avec un écouteur. Cela configure automatiquement tous les éléments nécessaires pour les groupes de disponibilité AlwaysOn. Pour plus d’informations, consultez [Offre AlwaysOn SQL Server dans la galerie du portail Microsoft Azure](http://blogs.technet.com/b/dataplatforminsider/archive/2014/08/25/sql-server-alwayson-offering-in-microsoft-azure-portal-gallery.aspx). Pour utiliser PowerShell, consultez le didacticiel du même scénario : [Didacticiel : groupes de disponibilité AlwaysOn dans Azure (PowerShell)](https://msdn.microsoft.com/library/azure/jj870963.aspx).
+>[AZURE.NOTE]Dans le portail de gestion Azure, il existe une nouvelle installation de la galerie pour les groupes de disponibilité AlwaysOn avec un écouteur. Cela configure automatiquement tous les éléments nécessaires pour les groupes de disponibilité AlwaysOn. Pour plus d’informations, consultez [Offre AlwaysOn SQL Server dans la galerie du portail Microsoft Azure](http://blogs.technet.com/b/dataplatforminsider/archive/2014/08/25/sql-server-alwayson-offering-in-microsoft-azure-portal-gallery.aspx). Pour utiliser PowerShell, consultez le didacticiel du même scénario : [Configurer les groupes de disponibilité AlwaysOn dans Azure avec PowerShell](virtual-machines-sql-server-alwayson-availability-groups-powershell.md).
 
 À la fin du didacticiel, votre solution SQL Server AlwaysOn dans Azure comprendra les éléments suivants :
 
@@ -534,4 +534,4 @@ Vous avez correctement implémenté SQL Server AlwaysOn en créant un groupe de
 
 Pour en savoir plus sur l'utilisation de SQL Server dans Azure, consultez la rubrique [SQL Server sur les machines virtuelles Azure](../articles/virtual-machines/virtual-machines-sql-server-infrastructure-services.md).
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=September15_HO1-->

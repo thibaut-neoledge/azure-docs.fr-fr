@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Prise en main d’Azure Notification Hubs"
-	description="Découvrez comment utiliser Azure Notification Hubs pour envoyer des notifications Push."
+	pageTitle="Prise en main d’Azure Notification Hubs | Microsoft Azure"
+	description="Dans ce didacticiel, vous découvrirez comment utiliser Azure Notification Hubs pour envoyer des notifications push à une application iOS."
 	services="notification-hubs"
 	documentationCenter="ios"
 	authors="wesmc7777"
@@ -12,43 +12,43 @@
 	ms.workload="mobile"
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
-	ms.topic="hero-article" 
-	ms.date="05/27/2015"
+	ms.topic="hero-article"
+	ms.date="09/02/2015"
 	ms.author="wesmc"/>
 
 # Prise en main de Notification Hubs
 
 [AZURE.INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
 
-##Vue d'ensemble
+##Vue d’ensemble
 
-Cette rubrique montre comment utiliser Azure Notification Hubs pour envoyer des notifications Push vers une application iOS. Le didacticiel vous apprend à créer une application iOS vide qui reçoit des notifications Push à l'aide du service de notification Push Apple (APN, Apple Push Notification). Une fois la création terminée, vous pouvez diffuser des notifications Push sur tous les appareils sur lesquels votre application est installée au moyen de votre concentrateur de notification.
+Ce didacticiel vous montre comment utiliser Azure Notification Hubs pour envoyer des notifications Push vers une application iOS. Vous allez créer une application iOS vide qui reçoit des notifications push à l’aide du service de notification push Apple (APNs, Apple Push Notification service). Une fois l’opération terminée, vous pouvez utiliser votre hub de notification pour diffuser des notifications Push sur tous les appareils exécutant votre application.
 
-Ce didacticiel présente un scénario de diffusion simple utilisant les concentrateurs de notification.
+Ce didacticiel présente un scénario de diffusion simple utilisant les Notification Hubs.
 
 ##Configuration requise
 
-Ce didacticiel requiert les composants requis suivants :
+Ce didacticiel requiert les éléments suivants :
 
 + [Kit de développement logiciel (SDK) Mobile Services iOS]
-+ [XCode 6][Install Xcode]
++ [Xcode 6][Install Xcode]
 + Un appareil compatible iOS 8 (ou version ultérieure)
 + Un abonnement au programme pour développeurs iOS
 
-   >[AZURE.NOTE]En raison de la configuration requise pour les notifications Push, vous devez déployer et tester les notifications Push sur un appareil compatible iOS (iPhone ou iPad) au lieu d'un simulateur.
+   >[AZURE.NOTE]En raison des exigences de configuration requise pour les notifications push, vous devez déployer et tester les notifications push sur un appareil compatible iOS (iPhone ou iPad) au lieu du simulateur iOS.
 
-Vous devez accomplir ce didacticiel avant de pouvoir suivre tous les autres didacticiels Notification Hubs pour les applications iOS.
+Vous devez terminer ce didacticiel avant de pouvoir suivre tous les autres didacticiels Notification Hubs pour les applications iOS.
 
-> [AZURE.NOTE]Pour suivre ce didacticiel, vous avez besoin d'un compte Azure actif. Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Ffr-fr%2Fdocumentation%2Farticles%2Fnotification-hubs-ios-get-started).
+> [AZURE.NOTE]Pour suivre ce didacticiel, vous avez besoin d'un compte Azure actif. Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Ffr-FR%2Fdocumentation%2Farticles%2Fnotification-hubs-ios-get-started).
 
 [AZURE.INCLUDE [Notification Hubs - Activer les notifications Push Apple](../../includes/notification-hubs-enable-apple-push-notifications.md)]
 
 ##Configuration de votre concentrateur de notification
 
-Cette section vous guide dans la création et la configuration d'un nouveau concentrateur de notification avec le certificat push que vous avez créé. Si vous souhaitez utiliser un concentrateur de notification que vous avez déjà créé, vous pouvez ignorer les étapes 2 à 5.
+Cette section vous guide dans la création et la configuration d’un nouveau hub de notification avec le certificat push que vous avez créé. Si vous souhaitez utiliser un hub de notification que vous avez déjà créé, vous pouvez ignorer les étapes 2 à 5.
 
 
-1. Dans le trousseau d'accès, cliquez sur le nouveau certificat push que vous avez créé dans la catégorie **Certificats**. Cliquez sur **Exporter**, nommez le fichier, sélectionnez le format **.p12**, puis cliquez sur **Enregistrer**.
+1. Dans Trousseau d’accès, cliquez avec le bouton droit sur le nouveau certificat push que vous avez créé dans la catégorie **Certificates**. Cliquez sur **Export**, nommez le fichier, sélectionnez le format **.p12**, puis cliquez sur **Save**.
 
     ![][1]
 
@@ -56,9 +56,9 @@ Cette section vous guide dans la création et la configuration d'un nouveau conc
 
 	>[AZURE.NOTE]Ce didacticiel permet de créer un fichier QuickStart.p12. Il est possible que le nom de votre fichier et son emplacement sont différents.
 
-2. Connectez-vous au [portail de gestion Azure] et cliquez sur **+NOUVEAU** en bas de l'écran.
+2. Connectez-vous au [portail Azure] et cliquez sur **+NOUVEAU** en bas de l’écran.
 
-3. Cliquez sur **Services d'application**, puis sur **Service Bus**, **Concentrateur de notification**, **Création rapide**.
+3. Cliquez sur **Services d’application**, sur **Service Bus**, sur **Hub de notification**, puis cliquez sur **Création rapide**.
 
    	![][2]
 
@@ -66,15 +66,15 @@ Cette section vous guide dans la création et la configuration d'un nouveau conc
 
    	![][3]
 
-5. Cliquez sur l’espace de noms que vous venez de créer (en général ***le nom du concentrateur de notification*-ns**) pour ouvrir le tableau de bord.
+5. Cliquez sur l’espace de noms que vous venez de créer (généralement, ***nom du hub de notification*-ns**) pour ouvrir son tableau de bord.
 
    	![][4]
 
-6. Cliquez sur l'onglet **Concentrateurs de notification** en haut de la page, puis cliquez sur celui que vous venez de créer.
+6. Cliquez sur l’onglet **Notifications Hubs** en haut de la page, puis cliquez sur le hub de notification que vous venez de créer.
 
    	![][5]
 
-7. Cliquez sur l’onglet **Configurer** en haut, puis cliquez sur le bouton **Télécharger** dans les paramètres de notification Apple pour télécharger l'empreinte numérique du certificat. Sélectionnez ensuite le certificat **.p12** exporté précédemment ainsi que le mot de passe du certificat. Assurez-vous de choisir si vous souhaitez utiliser la **Production** (si vous souhaitez envoyer des notifications Push aux utilisateurs qui ont acheté votre application depuis le store) ou le service Push **Bac à sable (sandbox)** (au cours du développement).
+7. Cliquez sur l’onglet **Configurer** en haut, puis cliquez sur le bouton **Télécharger** dans les paramètres de notification Apple pour télécharger l'empreinte numérique du certificat. Ensuite, sélectionnez le certificat **.p12** exporté précédemment ainsi que le mot de passe du certificat. Assurez-vous de déterminer si vous souhaitez utiliser la **Production** (si vous souhaitez envoyer des notifications push aux utilisateurs qui ont acheté votre application depuis le magasin) ou le service push **Sandbox** (au cours du développement).
 
    	![][6]
 
@@ -84,23 +84,23 @@ Cette section vous guide dans la création et la configuration d'un nouveau conc
 
 Votre Notification Hub est configuré pour APNS, et vous disposez des chaînes de connexion pour inscrire votre application et envoyer des notifications.
 
-##Connexion de votre application au concentrateur de notification
+##Connexion de votre application au hub de notification
 
-1. Dans XCode, créez un projet iOS et sélectionnez le modèle **Single View Application**.
+1. Dans Xcode, créez un projet iOS et sélectionnez le modèle **Single View Application**.
 
    	![][8]
 
-2. Lorsque vous définissez les options de votre nouveau projet, assurez-vous d'utiliser les mêmes **nom de produit** et **ID d'organisation** que ceux utilisés lors de la définition de l'ID d'offre groupée sur le portail de développement Apple.
+2. Lorsque vous définissez les options de votre nouveau projet, assurez-vous d’utiliser les mêmes **Product Name** et **Organization Identifier** que ceux utilisés lors de la définition de l’ID d’offre groupée sur le portail des développeurs Apple.
 
 	![][11]
 
-3. Sous **Cibles**, cliquez sur le nom de votre projet, cliquez sur l’onglet **Paramètres de génération**et développez **Identité de signature du code**, puis sous **Débogage**, sélectionnez le **profil d’identité de signature du code**. Basculez les **niveaux** de **Basique** à **Tous** et définissez le **profil de configuration** sur le profil que vous avez créé précédemment.
+3. Sous **Targets**, cliquez sur le nom de votre projet, cliquez sur l’onglet **Build Settings** et développez **Code Signing Identity**, puis sous **Debug**, sélectionnez votre identité de signature du code. Basculez **Levels** de **Basic** à **All** et définissez **Provisioning Profile** sur le profil d’approvisionnement que vous avez créé précédemment.
 
-	Si vous ne voyez pas le nouveau profil de configuration que vous avez créé dans XCode, essayez d'actualiser les profils de votre identité de signature en cliquant sur **XCode** dans la barre de menus, puis en cliquant sur **Préférences**, **Compte**, **Afficher les détails**, puis en sélectionnant votre identité de signature et en cliquant sur le bouton Actualiser dans le coin inférieur droit.
+	Si vous ne voyez pas le nouveau profil d’approvisionnement que vous avez créé dans Xcode, essayez d’actualiser les profils pour votre identité de signature. Cliquez sur **Xcode** dans la barre de menus, sur **Preferences**, sur l’onglet **Account**, sur le bouton **View Details**, sur votre identité de signature, puis cliquez sur le bouton d’actualisation dans le coin inférieur droit.
 
    	![][9]
 
-4. Téléchargez la **version 1.2.4** du [kit de développement logiciel (SDK) Mobile Services pour iOS] et décompressez le fichier. Dans XCode, avec le bouton droit de la souris sur votre projet et sélectionnez l’option **Ajouter des fichiers à** pour ajouter le dossier **WindowsAzureMessaging.framework** à votre projet XCode. Sélectionnez **Copier des éléments si nécessaire**, puis cliquez sur **Ajouter**.
+4. Téléchargez la version 1.2.4 du [Kit de développement logiciel (SDK) Mobile Services iOS] et décompressez le fichier. Dans Xcode, cliquez avec le bouton droit de la souris sur votre projet et sélectionnez l’option **Add Files to** pour ajouter le dossier **WindowsAzureMessaging.framework** à votre projet Xcode. Sélectionnez **Copy items if needed**, puis cliquez sur **Add**.
 
    	![][10]
 
@@ -108,7 +108,7 @@ Votre Notification Hub est configuré pour APNS, et vous disposez des chaînes d
 
          #import <WindowsAzureMessaging/WindowsAzureMessaging.h>
 
-6. Dans le fichier AppDelegate.m, ajoutez le code suivant dans la méthode `didFinishLaunchingWithOptions` basée sur votre version d’iOS : Ce code enregistre le handle de l’appareil avec APNS :
+6. Dans le fichier AppDelegate.m, ajoutez le code suivant dans la méthode `didFinishLaunchingWithOptions` basée sur votre version d’iOS. Ce code enregistre le handle de votre appareil avec APNs :
 
 	Pour iOS 8 :
 
@@ -118,12 +118,12 @@ Votre Notification Hub est configuré pour APNS, et vous disposez des chaînes d
     	[[UIApplication sharedApplication] registerUserNotificationSettings:settings];
     	[[UIApplication sharedApplication] registerForRemoteNotifications];
 
-	Pour les versions d’iOS antérieures à 8 :
+	Pour les versions d’iOS antérieures à 8 :
 
          [[UIApplication sharedApplication] registerForRemoteNotificationTypes: UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound];
 
 
-7. Dans le même fichier, ajoutez les méthodes suivantes et remplacez les espaces réservés des littéraux de chaîne par le *nom de votre concentrateur* et la chaîne *DefaultListenSharedAccessSignature* notée précédemment. Ce code transmet le jeton de l’appareil au concentrateur de notification de sorte que le concentrateur de notification puisse envoyer des notifications :
+7. Dans le même fichier, ajoutez les méthodes suivantes et remplacez les espaces réservés des littéraux de chaîne par le *nom de votre hub* et la chaîne *DefaultListenSharedAccessSignature* notée précédemment. Ce code transmet le jeton de l’appareil au hub de notification de sorte que le hub de notification puisse envoyer des notifications :
 
 	    - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *) deviceToken {
 		    SBNotificationHub* hub = [[SBNotificationHub alloc] initWithConnectionString:@"<Enter your listen connection string>"
@@ -155,31 +155,29 @@ Votre Notification Hub est configuré pour APNS, et vous disposez des chaînes d
 		    [self MessageBox:@"Notification" message:[[userInfo objectForKey:@"aps"] valueForKey:@"alert"]];
 		}
 
-8. Générez et exécutez l'application sur votre appareil pour vérifier les échecs.
+8. Générez et exécutez l’application sur votre appareil pour vérifier l’absence d’échecs.
 
-## Comment envoyer des notifications
+## Envoi de notifications
 
 
-Vous pouvez tester la réception de notifications dans votre application en envoyant des notifications dans le portail Azure à l'aide de l'onglet Déboguer du concentrateur de notification, comme indiqué dans l'écran ci-dessous.
-
-![][30]
+Vous pouvez tester la réception de notifications dans votre application en envoyant des notifications dans le portail Azure via l’onglet Déboguer du hub de notification, comme indiqué dans l’écran ci-dessous. ![][30]
 
 [AZURE.INCLUDE [notification-hubs-sending-notifications-from-the-portal](../../includes/notification-hubs-sending-notifications-from-the-portal.md)]
 
 ![][31]
 
-1. Dans XCode, ouvrez votre Main.storyboard et ajoutez les composants d'interface utilisateur suivants à partir de la bibliothèque d'objets pour permettre à l'utilisateur d'envoyer des notifications push à l'application.
+1. Dans Xcode, ouvrez le Main.storyboard et ajoutez les composants d’interface utilisateur suivants à partir de la bibliothèque d’objets pour permettre à l’utilisateur d’envoyer des notifications push dans l’application :
 
-	- Une étiquette sans texte d’étiquette. Elle sera utilisée pour signaler les erreurs d’envoi des notifications. La propriété **Lignes** doit être définie sur **0** de sorte que les marges droite et gauche ainsi que le haut de la vue soient autodimensionnés.
-	- Un champ de texte avec du texte de l’**espace réservé** défini sur **Entrer un message de notification**. Limitez le champ juste en dessous de l'étiquette, comme illustré ci-dessous. Définissez le Contrôleur d'affichage comme délégué de sortie.
-	- Un bouton intitulé **Envoyer une notification** limité juste en dessous de la zone de texte, de manière horizontale et centrée.
+	- Une étiquette sans texte d’étiquette. Elle sera utilisée pour signaler les erreurs d’envoi des notifications. La propriété **Lines** doit être définie sur **0** de sorte que les marges droite et gauche ainsi que le haut de la vue soient dimensionnés automatiquement.
+	- Un champ de texte avec du texte de l’**espace réservé** défini sur **Enter Notification Message**. Limitez le champ juste en dessous de l'étiquette, comme illustré ci-dessous. Définissez le Contrôleur d'affichage comme délégué de sortie.
+	- Un bouton intitulé **Send Notification** limité juste en dessous du champ de texte, de manière horizontale et centrée.
 
 	La vue doit se présenter comme suit :
 
 	![][32]
 
 
-2. Ouvrez votre fichier ViewController.h et ajoutez les instructions `#import` et `#define` suivantes. Remplacez le littéral de chaîne d’espace réservé par votre chaîne de connexion *DefaultFullSharedAccessSignature* et le *nom de votre concentrateur*.
+2. Ouvrez votre fichier ViewController.h et ajoutez les instructions `#import` et `#define` suivantes. Remplacez le littéral de chaîne d’espace réservé par votre chaîne de connexion *DefaultFullSharedAccessSignature* et le *nom de votre hub*.
 
 
 		#import <CommonCrypto/CommonHMAC.h>
@@ -189,7 +187,7 @@ Vous pouvez tester la réception de notifications dans votre application en envo
 		#define HUBNAME @"<Enter the name of your hub>"
 
 
-3. Ajoutez des sorties pour les zones de texte et d'étiquette connectées à votre affichage et mettez à jour votre définition `interface` pour prendre en charge `UITextFieldDelegate` et `NSXMLParserDelegate`. Ajoutez les trois déclarations de propriété ci-dessous pour aider le support à appeler l'API REST et à analyser la réponse.
+3. Ajoutez des sorties pour les champs de texte et d’étiquette connectés à votre affichage et mettez à jour votre définition `interface` pour prendre en charge `UITextFieldDelegate` et `NSXMLParserDelegate`. Ajoutez les trois déclarations de propriété ci-dessous pour aider le support à appeler l'API REST et à analyser la réponse.
 
 	Votre fichier ViewController.h doit se présenter comme suit :
 
@@ -205,7 +203,7 @@ Vous pouvez tester la réception de notifications dans votre application en envo
 			NSXMLParser *xmlParser;
 		}
 
-		// Make sure these outlets are connected to your UI by ctrl+dragging.
+		// Make sure these outlets are connected to your UI by ctrl+dragging
 		@property (weak, nonatomic) IBOutlet UITextField *notificationMessage;
 		@property (weak, nonatomic) IBOutlet UILabel *sendResults;
 
@@ -215,7 +213,7 @@ Vous pouvez tester la réception de notifications dans votre application en envo
 		@end
 
 
-4. Ouvrez ViewController.m et ajoutez le code suivant pour analyser votre chaîne de connexion *DefaultFullSharedAccessSignature*. Comme indiqué dans la [référence de l’API REST](http://msdn.microsoft.com/library/azure/dn495627.aspx), ces informations analysées permettront de générer un jeton SAS pour l’en-tête de demande *Autorisation*.
+4. Ouvrez ViewController.m et ajoutez le code suivant pour analyser votre chaîne de connexion *DefaultFullSharedAccessSignature*. Comme indiqué dans la [référence de l’API REST](http://msdn.microsoft.com/library/azure/dn495627.aspx), ces informations analysées permettront de générer un jeton SaS pour l’en-tête de demande **Authorization**.
 
 		NSString *HubEndpoint;
 		NSString *HubSasKeyName;
@@ -277,7 +275,7 @@ Vous pouvez tester la réception de notifications dans votre application en envo
 
 
 
-6. Dans ViewController.m, ajoutez le code suivant pour créer le jeton d'autorisation SAP qui est fourni dans l’en-tête *Autorisation* comme indiqué dans la [référence de l'API REST](http://msdn.microsoft.com/library/azure/dn495627.aspx).
+6. Dans ViewController.m, ajoutez le code suivant pour créer le jeton d’autorisation SaS qui est fourni dans l’en-tête **Authorization** comme indiqué dans la [référence de l’API REST](http://msdn.microsoft.com/library/azure/dn495627.aspx).
 
 		-(NSString*) generateSasToken:(NSString*)uri
 		{
@@ -306,7 +304,7 @@ Vous pouvez tester la réception de notifications dans votre application en envo
 				NSData *rawHmac = [[NSData alloc] initWithBytes:cHMAC length:sizeof(cHMAC)];
 				signature = [self CF_URLEncodedString:[rawHmac base64EncodedStringWithOptions:0]];
 
-				// construct authorization token string
+				// Construct authorization token string
 				token = [NSString stringWithFormat:@"SharedAccessSignature sr=%@&sig=%@&se=%qu&skn=%@",
 					targetUri, signature, expires, HubSasKeyName];
 			}
@@ -326,7 +324,7 @@ Vous pouvez tester la réception de notifications dans votre application en envo
 		}
 
 
-7. Utilisez la commande **Ctrl + déplacer** depuis le bouton **Envoyer une notification** vers ViewController.m pour ajouter une action pour l’événement **Touch Down** qui exécute l'appel de l'API REST à l’aide du code suivant.
+7. Utilisez la commande Ctrl+glisser depuis le bouton **Send Notification** vers ViewController.m pour ajouter une action pour l’événement **Touch Down** qui exécute l’appel de l’API REST à l’aide du code suivant.
 
 		- (IBAction)SendNotificationMessage:(id)sender
 		{
@@ -344,19 +342,19 @@ Vous pouvez tester la réception de notifications dans votre application en envo
 		    NSString *json = [NSString stringWithFormat:@"{"aps":{"alert":"%@"}}",
 								self.notificationMessage.text];
 
-			// Construct the messages REST endpoint
+			// Construct the message's REST endpoint
 			NSURL* url = [NSURL URLWithString:[NSString stringWithFormat:@"%@%@/messages/%@", HubEndpoint,
 												HUBNAME, API_VERSION]];
 
-			// Generated the token to be used in the authorization header.
+			// Generate the token to be used in the authorization header
 			NSString* authorizationToken = [self generateSasToken:[url absoluteString]];
 
-			//Create the request to add the APNS notification message to the hub
+			//Create the request to add the APNs notification message to the hub
 			NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
 			[request setHTTPMethod:@"POST"];
 			[request setValue:@"application/json;charset=utf-8" forHTTPHeaderField:@"Content-Type"];
 
-			// Signify apple notification format
+			// Signify Apple notification format
 			[request setValue:@"apple" forHTTPHeaderField:@"ServiceBusNotification-Format"];
 
 			//Authenticate the notification message POST request with the SaS token
@@ -385,7 +383,7 @@ Vous pouvez tester la réception de notifications dans votre application en envo
 		}
 
 
-8. Dans ViewController.m, ajoutez la méthode déléguée suivante pour prendre en charge la fermeture du clavier pour la zone de texte. Utilisez la commande **Ctrl + déplacer** depuis la zone de texte vers l’icône du contrôleur d'affichage dans le concepteur d'interface pour définir le contrôleur d'affichage comme sortie déléguée.
+8. Dans ViewController.m, ajoutez la méthode déléguée suivante pour prendre en charge la fermeture du clavier pour la zone de texte. Utilisez la commande Ctrl+glisser depuis le champ de texte vers l’icône du contrôleur d’affichage dans le concepteur d’interface pour définir le contrôleur d’affichage comme sortie déléguée.
 
 		//===[ Implement UITextFieldDelegate methods ]===
 
@@ -396,7 +394,7 @@ Vous pouvez tester la réception de notifications dans votre application en envo
 		}
 
 
-9. Dans ViewController.m, ajoutez les méthodes déléguées suivantes pour prendre en charge l'analyse de la réponse à l'aide de `NSXMLParser`.
+9. Dans ViewController.m, ajoutez les méthodes déléguées suivantes pour prendre en charge l’analyse de la réponse à l’aide de `NSXMLParser`.
 
 		//===[ Implement NSXMLParserDelegate methods ]===
 
@@ -435,27 +433,27 @@ Vous pouvez tester la réception de notifications dans votre application en envo
 
 
 
-10. Générez le projet et vérifiez s’il présente des erreurs.
+10. Générez le projet et vérifiez qu’il ne présente pas d’erreurs.
 
 
 
-Vous trouverez toutes les charges de notification possibles dans le [Guide de programmation des notifications locales et Push] d'Apple.
+Vous trouverez toutes les charges utiles de notification possibles dans le [Guide de programmation des notifications locales et Push] d’Apple.
 
 
 
-##Test de votre application
+##Test de l'application
 
-Pour tester les notifications push sur iOS, vous devez déployer l'application sur un périphérique. Vous ne pouvez pas envoyer de notifications push Apple avec le simulateur iOS.
+Pour tester les notifications push sur iOS, vous devez déployer l’application sur un appareil. Vous ne pouvez pas envoyer de notifications push Apple en utilisant le simulateur iOS.
 
-1. Exécutez l'application, vérifiez l’exécution des enregistrements, puis appuyez sur **OK**.
+1. Exécutez l’application, vérifiez la réussite de l’inscription, puis appuyez sur **OK**.
 
 	![][33]
 
-2. Sélectionnez la zone de texte pour entrer un message de notification. Appuyez sur le bouton **Envoyer** du clavier ou sur le bouton **Envoyer notification** de l’affichage pour envoyer le message de notification.
+2. Sélectionnez la zone de texte pour entrer un message de notification. Appuyez sur le bouton d’**envoi** du clavier ou sur le bouton **Send Notification** de l’affichage pour envoyer le message de notification.
 
 	![][34]
 
-3. La notification est envoyée à tous les appareils abonnés à la notification.
+3. La notification est envoyée à tous les appareils qui sont inscrits pour recevoir la notification.
 
 	![][35]
 
@@ -464,7 +462,7 @@ Si vous rencontrez des problèmes ou si vous avez des recommandations d’améli
 
 ##Étapes suivantes
 
-Dans cet exemple simple, vous avez envoyé des notifications à tous vos appareils iOS. Afin de cibler des utilisateurs spécifiques, consultez le didacticiel [Utilisation de Notification Hubs pour envoyer des notifications Push aux utilisateurs], et, si vous souhaitez segmenter vos utilisateurs par groupes d'intérêt, vous pouvez lire [Utilisation de Notification Hubs pour envoyer les dernières nouvelles]. Découvrez plus en détail comment utiliser Notification Hubs dans [Recommandations relatives à Notification Hubs].
+Dans cet exemple simple, vous avez envoyé des notifications à tous vos appareils iOS. Pour cibler certains utilisateurs, reportez-vous au didacticiel [Utilisation des Notification Hubs pour envoyer des notifications Push aux utilisateurs]. Pour segmenter vos utilisateurs par groupes d'intérêt, consultez la page [Utilisation des Notification Hubs pour diffuser les dernières nouvelles]. Découvrez plus en détail comment utiliser Notification Hubs dans [Recommandations relatives à Notification Hubs].
 
 
 
@@ -493,23 +491,22 @@ Dans cet exemple simple, vous avez envoyé des notifications à tous vos apparei
 
 
 <!-- URLs. -->
+[Kit de développement logiciel (SDK) Mobile Services iOS]: http://go.microsoft.com/fwLink/?LinkID=266533
 [Kit de développement logiciel (SDK) Mobile Services iOS]: http://go.microsoft.com/fwLink/?LinkID=266533
-[kit de développement logiciel (SDK) Mobile Services pour iOS]: http://go.microsoft.com/fwLink/?LinkID=266533
 [Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Live SDK for Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
 
 [Get started with Mobile Services]: /develop/mobile/tutorials/get-started-ios
-[portail de gestion Azure]: https://manage.windowsazure.com/
+[portail Azure]: https://manage.windowsazure.com/
 [Recommandations relatives à Notification Hubs]: http://msdn.microsoft.com/library/jj927170.aspx
 [Install Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [iOS Provisioning Portal]: http://go.microsoft.com/fwlink/p/?LinkId=272456
 
-[Prise en main des notifications Push dans Mobile Services]: ../mobile-services-javascript-backend-ios-get-started-push.md
-[Utilisation de Notification Hubs pour envoyer des notifications aux utilisateurs]: notification-hubs-aspnet-backend-ios-notify-users.md
-[Utilisation de Notification Hubs pour envoyer les dernières nouvelles]: notification-hubs-ios-send-breaking-news.md
+[Get started with push notifications in Mobile Services]: ../mobile-services-javascript-backend-ios-get-started-push.md
+[Utilisation des Notification Hubs pour envoyer des notifications Push aux utilisateurs]: notification-hubs-aspnet-backend-ios-notify-users.md
+[Utilisation des Notification Hubs pour diffuser les dernières nouvelles]: notification-hubs-ios-send-breaking-news.md
 
 [Guide de programmation des notifications locales et Push]: http://developer.apple.com/library/mac/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW1
- 
 
-<!----HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

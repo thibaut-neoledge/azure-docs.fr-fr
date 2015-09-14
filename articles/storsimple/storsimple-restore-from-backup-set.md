@@ -1,19 +1,19 @@
 <properties 
-   pageTitle="Restauration d’un volume StorSimple à partir d’un jeu de sauvegarde" | Description de Microsoft Azure"
-   description="Décrit l’utilisation du catalogue de sauvegarde pour restaurer un volume StorSimple à partir d’un jeu de sauvegarde."
-   services="storsimple"
-   documentationCenter="NA"
-   authors="SharS"
-   manager="carolz"
-   editor="" />
+   pageTitle="Restauration d’un volume StorSimple à partir d’une sauvegarde | Microsoft Azure"
+	description="Explique comment utiliser la page Catalogue de sauvegarde du service StorSimple Manager pour restaurer un volume StorSimple à partir d’un jeu de sauvegarde."
+	services="storsimple"
+	documentationCenter="NA"
+	authors="SharS"
+	manager="carolz"
+	editor=""/>
 <tags 
    ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="06/25/2015"
-   ms.author="v-sharos" />
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="TBD"
+	ms.date="08/28/2015"
+	ms.author="v-sharos"/>
 
 # Restauration d’un volume StorSimple à partir d’un jeu de sauvegarde
 
@@ -80,6 +80,6 @@ Vous pouvez utiliser la page **Catalogue de sauvegarde** pour restaurer votre vo
 
 ## Étapes suivantes
 
-En savoir plus sur la [gestion des volumes StorSimple](storsimple-manage-volumes.md)
+En savoir plus sur la [Gestion des volumes StorSimple](storsimple-manage-volumes.md).
 
-<!-------HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

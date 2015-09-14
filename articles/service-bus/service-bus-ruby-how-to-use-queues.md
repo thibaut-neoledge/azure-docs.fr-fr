@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="ruby"
 	ms.topic="article"
-	ms.date="03/20/2015"
+	ms.date="08/31/2015"
 	ms.author="tomfitz"/>
 
 
@@ -57,7 +57,7 @@ L'applet de commande PowerShell que vous avez exécutée pour créer l'espace de
 
 ![Copier la clé](./media/service-bus-ruby-how-to-use-queues/defaultkey.png)
 
-> [AZURE.NOTE]Pour obtenir cette clé, vous pouvez également ouvrir une session sur le [portail de gestion Azure](http://manage.windowsazure.com/) et accéder aux informations de connexion pour votre espace de noms Service Bus.
+> [AZURE.NOTE]Pour obtenir cette clé, vous pouvez également ouvrir une session sur le [portail Azure](http://manage.windowsazure.com/) et accéder aux informations de connexion pour votre espace de noms Service Bus.
 
 ## Création d'une application Ruby
 
@@ -152,4 +152,4 @@ Maintenant que vous avez appris les principes de base des files d'attente Servic
 Pour consulter un comparatif entre les files d'attente Azure Service Bus évoquées dans cet article et les files d'attente Azure présentées dans l'article [Utilisation du service de file d'attente Azure](/develop/ruby/how-to-guides/queue-service/), voir [Files d'attente Windows Azure et files d'attente Windows Azure Service Bus - comparaison et différences](http://msdn.microsoft.com/library/windowsazure/hh767287.aspx)
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=September15_HO1-->

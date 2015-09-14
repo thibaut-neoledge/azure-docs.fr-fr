@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Présentation de l’équilibrage de charge Azure | Microsoft Azure"
-   description="Présentation des fonctionnalités, de l’architecture et de l’implémentation de l’équilibrage de charge Azure. Il est utile de comprendre comment fonctionne l’équilibrage de charge et d’en tirer parti sur le cloud."
-   services="load-balancer"
-   documentationCenter="na"
-   authors="joaoma"
-   manager="adinah"
-   editor="tysonn" />
+	description="Présentation des fonctionnalités, de l’architecture et de l’implémentation de l’équilibrage de charge Azure. Il est utile de comprendre comment fonctionne l’équilibrage de charge et d’en tirer parti sur le cloud."
+	services="load-balancer"
+	documentationCenter="na"
+	authors="joaoma"
+	manager="adinah"
+	editor="tysonn"/>
 <tags 
    ms.service="load-balancer"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="07/10/2015"
-   ms.author="joaoma" />
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="infrastructure-services"
+	ms.date="07/10/2015"
+	ms.author="joaoma"/>
 
 
 # Présentation de l’équilibrage de charge 
@@ -21,7 +21,7 @@ L’équilibrage de charge Azure offre une haute disponibilité et des performan
  
 Il peut être configuré pour :
 
-- équilibrer la charge du trafic Internet entrant sur les machines virtuelles. Nous appelons cela [l’équilibrage de charge accessible sur Internet](load-balancer-overview.md).
+- équilibrer la charge du trafic Internet entrant sur les machines virtuelles. Nous appelons cela [l’équilibrage de charge accessible sur Internet](load-balancer-internet-overview.md).
 - équilibrer le trafic entre des machines virtuelles dans un réseau virtuel, entre des machines virtuelles dans les services cloud ou entre des ordinateurs locaux et des machines virtuelles dans un réseau virtuel entre différents locaux. Nous appelons cela [l’équilibrage de charge interne (ILB)](load-balancer-internal-overview.md).
 - 	Transfert du trafic externe à une instance spécifique de machine virtuelle
 
@@ -99,4 +99,4 @@ Vous pouvez obtenir plusieurs adresses IP publiques à équilibrage de charge at
 [Prise en main de l’équilibrage de charge accessible sur Internet](load-balancer-internet-getstarted.md)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Copie des données de sortie du didacticiel vers une base de données SQL Server locale"
-	description="La procédure pas à pas de ce didacticiel étend le didacticiel de fabrique des données pour copier des données sur l’efficacité d’une campagne marketing vers une base de données SQL Server locale."
+	pageTitle="Copie des données de sortie vers une base de données SQL Server locale (portail Azure)"
+	description="Cette procédure pas à pas étend le didacticiel à l'aide de Data Factory Editor dans le portail Azure de telle façon que le pipeline copie des données de sortie vers une base de données SQL Server."
 	services="data-factory"
 	documentationCenter=""
 	authors="spelluru"
@@ -169,4 +169,4 @@ Félicitations ! Vous avez terminé la procédure pas à pas pour utiliser votr
 
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

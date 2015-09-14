@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Déplacement et traitement des fichiers journaux à l’aide d’Azure Data Factory"
-	description="Ce didacticiel avancé décrit un scénario proche de la réalité et l’implémente à l’aide du service Microsoft Azure Data Factory et de Data Factory Editor."
+	pageTitle="Déplacement et traitement des fichiers journaux à l’aide d'Azure Data Factory (portail Azure)"
+	description="Ce didacticiel avancé décrit un scénario proche de la réalité et l'implémente à l'aide du service Microsoft Azure Data Factory et de Data Factory Editor dans le portail Azure."
 	services="data-factory"
 	documentationCenter=""
 	authors="spelluru"
@@ -418,6 +418,8 @@ Pour copier les données d’efficacité de la campagne marketing depuis un obje
 
 Suivez la [procédure pas à pas sur l’utilisation d’une source de données locale][tutorial-onpremises] pour apprendre à créer un pipeline afin de copier les données de l’efficacité des campagnes marketing dans une base de données SQL Server locale.
 
+## Envoyer des commentaires
+Nous souhaiterions vraiment obtenir vos commentaires sur cet article. Prenez quelques minutes pour nous envoyer vos commentaires par [courrier électronique](mailto:adfdocfeedback@microsoft.com?subject=data-factory-tutorial.md).
 
 [monitor-manage-using-powershell]: data-factory-monitor-manage-using-powershell.md
 [use-custom-activities]: data-factory-use-custom-activities.md
@@ -526,4 +528,4 @@ Suivez la [procédure pas à pas sur l’utilisation d’une source de données 
 
 [image-data-factory-new-datafactory-create-button]: ./media/data-factory-tutorial/DataFactoryCreateButton.png
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

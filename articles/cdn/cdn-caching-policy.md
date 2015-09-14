@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Stratégie de mise en cache CDN dans l'extension Media Services" 
-	description="Cette rubrique fournit une vue d'ensemble d'une stratégie de mise cache CDM dans l'extension Media Services." 
-	services="cdn" 
-	documentationCenter=".NET" 
-	authors="juliako" 
-	manager="dwrede" 
+	pageTitle="Stratégie de mise en cache CDN dans l'extension Media Services"
+	description="Cette rubrique fournit une vue d'ensemble d'une stratégie de mise cache CDM dans l'extension Media Services."
+	services="cdn"
+	documentationCenter=".NET"
+	authors="juliako"
+	manager="dwrede"
 	editor=""/>
 
 <tags 
-	ms.service="cdn" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/03/2015" 
+	ms.service="cdn"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/01/2015"
 	ms.author="juliako"/>
 
 #Stratégie de mise en cache CDN dans l'extension Media Services
@@ -43,4 +43,4 @@ Vous pouvez utiliser le portail de gestion Azure ou des API d’Azure Media Se
 3. Des en-têtes de cache de 2 secondes s’appliquent par défaut aux fichiers manifestes de diffusion en continu en direct (ou sélections) quelle que soit la configuration d'Azure Media ou d’Azure Storage, et elles sont irremplaçables.
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

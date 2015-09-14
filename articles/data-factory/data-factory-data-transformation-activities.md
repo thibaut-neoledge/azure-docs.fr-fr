@@ -17,6 +17,8 @@
 	ms.author="spelluru"/>
 
 # Transformation et analyse en utilisant Azure Data Factory
+
+## Vue d’ensemble
 Les activités de transformation dans Azure Data Factory transforment et traitent vos données brutes en prévisions et en analyses. L'activité de transformation s'exécute dans un environnement de calcul comme un cluster Azure HDInsight ou un Azure Batch. Azure Data Factory prend en charge les activités de transformation suivantes, qui peuvent être ajoutées à des [pipelines](data-factory-create-pipelines.md), soit individuellement soit de façon chaînée avec une autre activité.
 
 
@@ -35,6 +37,9 @@ Vous devez créer un service lié à l'environnement de calcul puis l’utiliser
 1. **À la demande** : dans ce cas, l'environnement de calcul est entièrement géré par Data Factory. Il est automatiquement créé par le service Azure Data Factory avant qu'une tâche de traitement des données ne soit soumise et il est supprimé lorsque la tâche est terminée. Les utilisateurs peuvent configurer et contrôler les paramètres granulaires de l’environnement de calcul à la demande pour l'exécution de la tâche, la gestion du cluster et les actions d'amorçage. 
 2. **Apport de votre propre environnement** : dans ce cas, vous pouvez enregistrer votre propre environnement de calcul (par exemple un cluster HDInsight) en tant que service lié dans Data Factory. C’est vous qui gérez l'environnement de calcul et le service Data Factory l'utilise pour exécuter les activités. 
 
-Consultez l’article [Services liés de calcul](data-factory-compute-linked-services.md) pour en savoir plus sur les services de calcul liés pris en charge par Data Factory.
+Consultez l'article [Services liés de calcul](data-factory-compute-linked-services.md) pour en savoir plus sur les services de calcul liés pris en charge par Data Factory.
 
-<!---HONumber=August15_HO9-->
+## Envoyer des commentaires
+Nous souhaiterions vraiment obtenir vos commentaires sur cet article. Prenez quelques minutes pour nous envoyer vos commentaires par [courrier électronique](mailto:adfdocfeedback@microsoft.com?subject=data-factory-data-transformation-activities.md).
+
+<!---HONumber=September15_HO1-->

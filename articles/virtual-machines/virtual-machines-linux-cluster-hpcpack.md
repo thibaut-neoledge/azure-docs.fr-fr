@@ -1,21 +1,20 @@
 <properties
- pageTitle="Prise en main des nœuds de calcul Linux dans un cluster HPC Pack | Microsoft Azure"
- description="Découvrez comment créer un script pour le déploiement d’un cluster HPC Pack dans Azure, contenant un nœud principal exécutant Windows Server et avec des nœuds de calcul Linux."
- services="virtual-machines"
- documentationCenter=""
- authors="dlepow"
- manager="timlt"
- editor=""/>
-
+ pageTitle="Utiliser des machines virtuelles de calcul Linux dans un cluster HPC Pack | Microsoft Azure"
+	description="Découvrez comment créer un script pour le déploiement d’un cluster HPC Pack dans Azure, contenant un nœud principal exécutant Windows Server et avec des nœuds de calcul Linux."
+	services="virtual-machines"
+	documentationCenter=""
+	authors="dlepow"
+	manager="timlt"
+	editor=""
+	tags="azure-service-management"/>
 <tags
-ms.service="virtual-machines"
- ms.devlang="na"
- ms.topic="article"
- ms.tgt_pltfrm="vm-multiple"
- ms.workload="big-compute"
- ms.date="07/27/2015"
- ms.author="danlep"/>
-
+ ms.service="virtual-machines"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="vm-multiple"
+	ms.workload="big-compute"
+	ms.date="09/01/2015"
+	ms.author="danlep"/>
 
 # Prise en main des nœuds de calcul Linux dans un cluster HPC Pack dans Azure
 
@@ -27,7 +26,7 @@ Le diagramme général suivant montre le cluster HPC Pack que vous allez créer.
 
 ## Déployer un cluster HPC Pack avec des nœuds de calcul Linux
 
-Vous allez utiliser le script de déploiement IaaS de Microsoft HPC Pack (**New-HpcIaaSCluster.ps1**) pour automatiser le déploiement de cluster dans les services d’infrastructure Azure (IaaS). Ce script Azure PowerShell utilise une image de machine virtuelle HPC Pack d’Azure Marketplace pour un déploiement rapide, et fournit un ensemble complet de paramètres de configuration pour rendre le déploiement facile et flexible. Vous pouvez utiliser le script pour déployer le réseau virtuel Azure, les comptes de stockage, les services cloud, le contrôleur de domaine, le serveur de base de données SQL Server distinct facultatif, le nœud principal du cluster, les nœuds de calcul, les nœuds de service Broker, les nœuds Azure PaaS (« rafale ») et les nœuds de calcul Linux (support Linux introduit dans [HPC Pack 2012 R2 Update 2](https://technet.microsoft.com/library/mt269417.aspx)).
+Vous allez utiliser le script de déploiement IaaS de Microsoft HPC Pack (**New-HpcIaaSCluster.ps1**) pour automatiser le déploiement de cluster dans les services d’infrastructure Azure (IaaS). Ce script Azure PowerShell utilise une image de machine virtuelle HPC Pack d’Azure Marketplace pour un déploiement rapide, et fournit un ensemble complet de paramètres de configuration pour rendre le déploiement facile et flexible. Le script déploie le réseau virtuel Azure, les comptes de stockage, les services cloud, le contrôleur de domaine, le serveur de base de données SQL Server distinct facultatif, le nœud principal du cluster, les nœuds de calcul, les nœuds de service Broker, les nœuds Azure PaaS (« rafale ») et les nœuds de calcul Linux (support Linux introduit dans [HPC Pack 2012 R2 Update 2](https://technet.microsoft.com/library/mt269417.aspx)).
 
 Pour une vue d’ensemble des options de déploiement de cluster HPC Pack, consultez le [Guide de prise en main pour HPC Pack 2012 R2 et HPC Pack 2012](https://technet.microsoft.com/library/jj884144.aspx).
 
@@ -68,11 +67,9 @@ Le script de déploiement de HPC Pack IaaS utilise un fichier de configuration X
   <HeadNode>
     <VMName>CentOS7RDMA-HN</VMName>
     <ServiceName>centos7rdma-je</ServiceName>
-<VMSize>A4</VMSize>
-<EnableRESTAPI />
-
-    <EnableWebPortal />
-
+  <VMSize>A4</VMSize>
+  <EnableRESTAPI />
+  <EnableWebPortal />
   </HeadNode>
   <LinuxComputeNodes>
     <VMNamePattern>CentOS7RDMA-LN%1%</VMNamePattern>
@@ -102,7 +99,7 @@ Voici une brève description des éléments du fichier de configuration.
 
 * **VNet** : paramètres du réseau virtuel et du sous-réseau où le cluster HPC sera créé. Vous pouvez créer le réseau virtuel et le sous-réseau vous-même avant d’exécuter ce script. Sinon, le script crée un réseau virtuel avec l’espace d’adressage 192.168.0.0/20 et le sous-réseau avec l’espace d’adressage 192.168.0.0/23. Dans cet exemple, le script crée le réseau virtuel centos7rdmavnetje et le sous-réseau CentOS7RDMACluster.
 
-* **Domain** : paramètres du domaine Active Directory pour le cluster HPC Pack. Toutes les machines virtuelles Windows créées par le script seront jointes au domaine. Actuellement, le script prend en charge trois options de domaine : ExistingDC, NewDC et HeadNodeAsDC. Dans cet exemple, nous allons configurer le nœud principal comme contrôleur de domaine. Le nom de domaine complet est hpc.local.
+* **Domain** : paramètres du domaine Active Directory pour le cluster HPC Pack. Toutes les machines virtuelles Windows créées par le script seront jointes au domaine. Actuellement, le script prend en charge trois options de domaine : ExistingDC, NewDC et HeadNodeAsDC. Dans cet exemple, nous allons configurer le nœud principal comme contrôleur de domaine avec le nom de domaine complet hpc.local.
 
 * **Database** : paramètres de base de données pour le cluster HPC Pack. Actuellement, le script prend en charge trois options de base de données : ExistingDB, NewRemoteDB et LocalDB. Dans cet exemple, nous allons créer une base de données locale sur le nœud principal.
 
@@ -120,8 +117,7 @@ Voici une brève description des éléments du fichier de configuration.
 
     Recherchez l’image dont vous avez besoin et remplacez la valeur **ImageName** dans le fichier de configuration.
 
-* Des images Linux qui prennent en charge la connectivité RDMA pour les machines virtuelles de taille A8 et A9 sont disponibles. Si vous spécifiez une image avec des pilotes Linux RDMA installés et activés, le script de déploiement HPC Pack IaaS les déploiera. Par exemple, vous pouvez spécifier le nom d’image `b4590d9e3ed742e4a1d46e5424aa335e__suse-sles-12-hpc-v20150708` pour SUSE Linux Enterprise Server 12, qui est optimisée pour l’image HPC dans le Marketplace.
-
+* Des images Linux qui prennent en charge la connectivité RDMA pour les machines virtuelles de taille A8 et A9 sont disponibles. Si vous spécifiez une image avec des pilotes Linux RDMA installés et activés, le script de déploiement HPC Pack IaaS les déploiera. Par exemple, spécifiez le nom d’image `b4590d9e3ed742e4a1d46e5424aa335e__suse-sles-12-hpc-v20150708` pour SUSE Linux Enterprise Server 12, qui est optimisée pour l’image HPC dans le Marketplace.
 
 * Pour activer Linux RDMA sur des machines virtuelles Linux créées à partir d’images prises en charge pour exécuter des travaux MPI, installez et configurez une bibliothèque MPI spécifique sur les nœuds Linux après le déploiement du cluster en fonction des besoins de votre application. Pour plus d’informations sur l’utilisation de RDMA dans les nœuds Linux sur Azure, consultez [Configurer un cluster Linux RDMA pour exécuter des applications MPI](virtual-machines-linux-cluster-rdma.md).
 
@@ -135,14 +131,14 @@ Voici une brève description des éléments du fichier de configuration.
 2. Accédez au dossier de script (E:\\IaaSClusterScript dans cet exemple).
 
     ```
-cd E:\IaaSClusterScript
-```
+    cd E:\IaaSClusterScript
+    ```
 
 3. Exécutez la commande suivante pour déployer le cluster HPC Pack. Cet exemple suppose que le fichier de configuration se trouve dans E:\\HPCDemoConfig.xml.
 
     ```
     .\New-HpcIaaSCluster.ps1 –ConfigFile E:\HPCDemoConfig.xml –AdminUserName MyAdminName
-```
+    ```
 
     Le script génère un fichier journal automatiquement, car le paramètre **-LogFile** n’est pas spécifié. Les journaux ne sont pas écrits en temps réel, mais ils sont collectés à la fin de la validation et du déploiement : si le processus PowerShell est arrêté pendant l’exécution du script, certains journaux seront donc perdus.
 
@@ -222,10 +218,10 @@ Vous pouvez également monter un dossier partagé du nœud principal sur les nœ
 ```
 PS > clusrun /nodegroup:LinuxNodes mkdir -p /openfoam
 
-PS > clusrun /nodegroup:LinuxNodes mount -t cifs //CentOS7RDMA-HN/OpenFOAM /openfoam -o vers=2.1`,username=<username>,password='<password>’,dir_mode=0777`,file_mode=0777
+PS > clusrun /nodegroup:LinuxNodes mount -t cifs //CentOS7RDMA-HN/OpenFOAM /openfoam -o vers=2.1`,username=<username>`,password='<password>'`,dir_mode=0777`,file_mode=0777
 ```
 
-La première commande crée un dossier nommé /openfoam sur tous les nœuds du groupe LinuxNodes. La deuxième commande monte le dossier partagé //CentOS7RDMA-HN/OpenFOAM sur le dossier avec les bits de mode de répertoire et de fichier définis sur 777. Le nom d’utilisateur et le mot de passe dans la commande doivent être le nom d’utilisateur et le mot de passe d’un utilisateur sur le nœud principal.
+La première commande crée un dossier nommé /openfoam sur tous les nœuds du groupe LinuxNodes. La deuxième commande monte le dossier partagé //CentOS7RDMA-HN/OpenFOAM sur le dossier avec les bits de mode de répertoire et de fichier définis sur 777. Le nom d’utilisateur et le mot de passe dans la commande doivent être le nom d’utilisateur et le mot de passe d’un utilisateur du cluster sur le nœud principal.
 
 >[AZURE.NOTE]Le symbole « ` » dans la deuxième commande est un symbole de caractère d’échappement pour PowerShell. « `, » signifie que « , » (une virgule) est une partie de la commande.
 
@@ -275,31 +271,30 @@ L’outil **clusrun** de HPC Pack permet d’exécuter des commandes sur des n
 * Afficher les noms des utilisateurs actuels de tous les nœuds du cluster
 
     ```
-> clusrun whoami
-```
+    > clusrun whoami
+    ```
 
-* Installez l’outil de débogage **gdb** avec **yum** sur tous les nœuds du groupe linuxnodes, puis redémarrez-les après 10 minutes.
+* Installez l’outil de débogage **gdb** avec **yum** sur tous les nœuds du groupe linuxnodes, puis redémarrez les nœuds après 10 minutes.
 
     ```
-> clusrun /nodegroup:linuxnodes yum install gdb –y; shutdown –r 10
-```
+    > clusrun /nodegroup:linuxnodes yum install gdb –y; shutdown –r 10
+    ```
 
-* Créez un script shell affichant de 1 à 10 chaque seconde sur les nœuds du cluster, exécutez-le et affichez immédiatement les sorties de chaque nœud.
+* Créez un script shell affichant chaque nombre de 1 à 10 pour une seconde sur chaque nœud du cluster, exécutez-le et affichez la sortie des nœuds immédiatement.
 
     ```
-> clusrun /interleaved echo "for i in {1..10}; do echo \\"\$i\\"; sleep 1; done" ^> script.sh; chmod +x script.sh; ./script.sh```
+    > clusrun /interleaved echo "for i in {1..10}; do echo \\"\$i\\"; sleep 1; done" ^> script.sh; chmod +x script.sh; ./script.sh
+    ```
 
->[AZURE.NOTE]Il peut être nécessaire d’utiliser certains caractères d’échappement dans les commandes clusrun. Utilisez ^ dans une fenêtre Commande et ` dans PowerShell pour transformer des caractères spéciaux. Par exemple, dans PowerShell, les caractères virgule et point-virgule doivent être transformés respectivement en `, et `,. Ces caractères ne nécessitent pas de transformation dans une fenêtre Commande.
-
-
-
+>[AZURE.NOTE]Il peut être nécessaire d’utiliser certains caractères d’échappement dans les commandes **clusrun**. Comme indiqué dans cet exemple, utilisez ^ dans une fenêtre de commande comme échappement pour le symbole « > ».
 
 ## Étapes suivantes
 
-* Utilisez **clusrun** pour installer votre application Linux sur les nœuds de calcul Linux et soumettez un travail au cluster HPC Pack.
+* Essayez d’exécuter une charge de travail Linux sur le cluster. Pour un exemple, consultez [Exécuter NAMD avec Microsoft HPC Pack sur des nœuds de calcul Linux dans Azure](virtual-machines-linux-cluster-hpcpack-namd.md).
 
 * Essayez d’étendre le cluster à un plus grand nombre de nœuds ou déployez des nœuds de calcul de taille [A8 ou A9](virtual-machines-a8-a9-a10-a11-specs.md) pour exécuter des charges de travail MPI.
 
+* Essayez un [modèle de démarrage rapide Azure](https://azure.microsoft.com/documentation/templates/create-hpc-cluster-linux-cn/) avec Azure Resource Manager pour accélérer les déploiements de HPC Pack avec un plus grand nombre de nœuds de calcul Linux.
 
 <!--Image references-->
 [scenario]: ./media/virtual-machines-linux-cluster-hpcpack/scenario.png
@@ -315,4 +310,4 @@ L’outil **clusrun** de HPC Pack permet d’exécuter des commandes sur des n
 [nfsperm]: ./media/virtual-machines-linux-cluster-hpcpack/nfsperm.png
 [nfsmanage]: ./media/virtual-machines-linux-cluster-hpcpack/nfsmanage.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

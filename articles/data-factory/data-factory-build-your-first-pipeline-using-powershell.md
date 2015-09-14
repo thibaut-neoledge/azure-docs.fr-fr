@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Concevez votre premier pipeline en utilisant Azure Data Factory | Microsoft Azure"
-	description="Ce didacticiel vous montre comment créer un pipeline de données d’exemple qui transforme des données à l’aide d’Azure HDInsight et Azure PowerShell"
+	pageTitle="Concevez votre premier pipeline Azure Data Factory en utilisant Azure PowerShell"
+	description="Dans ce didacticiel, vous allez créer un exemple de pipeline Azure Data Factory à l'aide d'Azure PowerShell."
 	services="data-factory"
 	documentationCenter=""
 	authors="spelluru"
@@ -263,4 +263,7 @@ Consultez la [référence des applets de commande Data Factory](https://msdn.mic
 ## Étapes suivantes
 Dans cet article, vous avez créé un pipeline avec une activité de transformation (Activité HDInsight) qui exécute un script Hive sur un cluster Azure HDInsight à la demande. Pour apprendre à utiliser une activité de copie pour copier des données à partir d’un objet blob Azure dans Azure SQL, consultez le [didacticiel : copie de données depuis un objet blob Azure vers Azure SQL](./data-factory-get-started.md).
 
-<!---HONumber=August15_HO8-->
+## Envoyer des commentaires
+Nous souhaiterions vraiment obtenir vos commentaires sur cet article. Prenez quelques minutes pour nous envoyer vos commentaires par [courrier électronique](mailto:adfdocfeedback@microsoft.com?subject=data-factory-build-your-first-pipeline-using-powershell.md).
+
+<!---HONumber=September15_HO1-->

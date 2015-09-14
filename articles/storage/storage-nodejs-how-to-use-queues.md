@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Utilisation du stockage de files d’attente à partir de Node.js | Microsoft Azure" 
-	description="Découvrez comment utiliser le service de File d'attente Azure pour créer et supprimer des files d'attente, ainsi que pour insérer, récupérer et supprimer des messages. Les exemples sont écrits en Node.js." 
-	services="storage" 
-	documentationCenter="nodejs" 
-	authors="MikeWasson" 
-	manager="wpickett" 
+	pageTitle="Utilisation du stockage de files d’attente à partir de Node.js | Microsoft Azure"
+	description="Découvrez comment utiliser le service de File d'attente Azure pour créer et supprimer des files d'attente, ainsi que pour insérer, récupérer et supprimer des messages. Les exemples sont écrits en Node.js."
+	services="storage"
+	documentationCenter="nodejs"
+	authors="MikeWasson"
+	manager="wpickett"
 	editor=""/>
 
 <tags 
-	ms.service="storage" 
-	ms.workload="storage" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="nodejs" 
-	ms.topic="article" 
-	ms.date="03/11/2015" 
+	ms.service="storage"
+	ms.workload="storage"
+	ms.tgt_pltfrm="na"
+	ms.devlang="nodejs"
+	ms.topic="article"
+	ms.date="09/01/2015"
 	ms.author="mwasson"/>
 
 
@@ -41,17 +41,18 @@ Pour utiliser le stockage Azure, vous avez besoin du Kit de développement logic
 
 1.  Utilisez une interface de ligne de commande telle que **PowerShell** (Windows), **Terminal** (Mac) ou **Bash** (Unix) pour accéder au dossier dans lequel vous avez créé votre exemple d'application.
 
-2.  Tapez **npm install azure-storage** dans la fenêtre de commande, ce qui doit aboutir à la sortie suivante :
+2.  Tapez **npm install azure-storage** dans la fenêtre de commande. Le résultat de la commande ressemble à l’exemple suivant.
 
-        azure-storage@0.1.0 node_modules\azure-storage
-		├── extend@1.2.1
-		├── xmlbuilder@0.4.3
-		├── mime@1.2.11
-		├── underscore@1.4.4
-		├── validator@3.1.0
-		├── node-uuid@1.4.1
-		├── xml2js@0.2.7 (sax@0.5.2)
-		└── request@2.27.0 (json-stringify-safe@5.0.0, tunnel-agent@0.3.0, aws-sign@0.3.0, forever-agent@0.5.2, qs@0.6.6, oauth-sign@0.3.0, cookie-jar@0.3.0, hawk@1.0.0, form-data@0.1.3, http-signature@0.10.0)
+		azure-storage@0.5.0 node_modules\azure-storage
+		+-- extend@1.2.1
+		+-- xmlbuilder@0.4.3
+		+-- mime@1.2.11
+		+-- node-uuid@1.4.3
+		+-- validator@3.22.2
+		+-- underscore@1.4.4
+		+-- readable-stream@1.0.33 (string_decoder@0.10.31, isarray@0.0.1, inherits@2.0.1, core-util-is@1.0.1)
+		+-- xml2js@0.2.7 (sax@0.5.2)
+		+-- request@2.57.0 (caseless@0.10.0, aws-sign2@0.5.0, forever-agent@0.6.1, stringstream@0.0.4, oauth-sign@0.8.0, tunnel-agent@0.4.1, isstream@0.1.2, json-stringify-safe@5.0.1, bl@0.9.4, combined-stream@1.0.5, qs@3.1.0, mime-types@2.0.14, form-data@0.2.0, http-signature@0.11.0, tough-cookie@2.0.0, hawk@2.3.1, har-validator@1.8.0)
 
 3.  Vous pouvez exécuter manuellement la commande **ls** pour vérifier que le dossier **node\_modules** a été créé. Dans ce dossier, recherchez le dossier **azure-storage**, qui contient les bibliothèques dont vous avez besoin pour accéder au stockage.
 
@@ -116,7 +117,7 @@ Vous pouvez lire furtivement le message au début de la file d'attente sans l'en
 
 	queueSvc.peekMessages('myqueue', function(error, result, response){
 	  if(!error){
-		// Messages peeked
+		// Message text is in messages[0].messagetext
 	  }
 	});
 
@@ -132,11 +133,11 @@ Le traitement d'un message se fait en deux étapes :
 
 2. Supprimer le message.
 
-Pour enlever un message de la file d'attente, utilisez **getMessage**. Cela rend le message invisible dans la file d'attente, et aucun autre client ne peut le traiter. Lorsque votre application a traité le message, appelez **deleteMessage** pour supprimer le message de la file d'attente. L'exemple suivant obtient un message, puis le supprime :
+Pour enlever un message de la file d'attente, utilisez **getMessages**. Cela rend les messages invisibles dans la file d'attente, et aucun autre client ne peut les traiter. Lorsque votre application a traité un message, appelez **deleteMessage** pour supprimer le message de la file d'attente. L'exemple suivant obtient un message, puis le supprime :
 
 	queueSvc.getMessages('myqueue', function(error, result, response){
       if(!error){
-	    // message dequed
+	    // Message text is in messages[0].messagetext
         var message = result[0];
         queueSvc.deleteMessage('myqueue', message.messageid, message.popreceipt, function(error, response){
 	      if(!error){
@@ -148,7 +149,7 @@ Pour enlever un message de la file d'attente, utilisez **getMessage**. Cela rend
 
 > [AZURE.NOTE]Par défaut, un message est masqué uniquement pendant 30 secondes avant d'être de nouveau visible pour les autres clients. Vous pouvez indiquer une autre valeur en utilisant `options.visibilityTimeout` avec **getMessages**.
 
-> [AZURE.NOTE]L’utilisation de <b>getMessages</b> alors qu’il n’y a pas de message dans la file d’attente ne renvoie pas d’erreur, mais ne renvoie pas non plus de message.
+> [AZURE.NOTE]L’utilisation de **getMessages** alors qu’il n’y a pas de message dans la file d’attente ne renvoie pas d’erreur, mais ne renvoie pas non plus de message.
 
 ## Modification du contenu d'un message en file d'attente
 
@@ -210,7 +211,7 @@ Pour extraire une liste de files d'attente, utilisez **listQueuesSegmented**. Po
 	  }
 	});
 
-Si toutes les files d’attente ne peuvent pas être renvoyées, `result.continuationToken` peut servir de premier paramètre de **listQueuesSegmented** ou de second paramètre de **listQueuesSegmentedWithPrefix** pour récupérer plus de résultats.
+Si aucune file d’attente ne peut être renvoyée, `result.continuationToken` peut servir de premier paramètre de **listQueuesSegmented** ou de second paramètre de **listQueuesSegmentedWithPrefix** pour récupérer plus de résultats.
 
 ## Suppression d'une file d'attente
 
@@ -332,4 +333,4 @@ Maintenant que vous connaissez les bases du stockage des files d'attente, consul
  [Site Web avec WebMatrix]: ../web-sites-nodejs-use-webmatrix.md
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

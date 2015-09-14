@@ -259,6 +259,8 @@ Lorsque vous sauvegardez la source de données pour la première fois, DPM doit 
 ```
 PS C:\> Set-DPMReplicaCreationMethod -ProtectionGroup $MPG -NOW
 ```
+### Modification de la taille de réplica DPM et volume du point de récupération
+Vous pouvez également modifier la taille du volume de réplica DPM, ainsi que du volume VSS l'aide de l'applet de commande [Set-DPMDatasourceDiskAllocation](https://technet.microsoft.com/fr-FR/library/hh881618(v=sc.20).aspx) comme dans l'exemple ci-dessous : Get-DatasourceDiskAllocation -Datasource $DS Set-DatasourceDiskAllocation -Datasource $DS -ProtectionGroup $MPG -manual -ReplicaArea (2gb) -ShadowCopyArea (2gb)
 
 ### Validation des modifications dans le groupe de protection
 Pour terminer, les modifications doivent être validées avant que DPM puisse effectuer la sauvegarde conformément à la nouvelle configuration du groupe de protection. Pour ce faire, utilisez l’applet de commande [Set-DPMProtectionGroup](https://technet.microsoft.com/library/hh881758).
@@ -266,7 +268,6 @@ Pour terminer, les modifications doivent être validées avant que DPM puisse ef
 ```
 PS C:\> Set-DPMProtectionGroup -ProtectionGroup $MPG
 ```
-
 ## Affichage des points de sauvegarde
 Vous pouvez utiliser l’applet de commande [Get-DPMRecoveryPoint](https://technet.microsoft.com/library/hh881746) pour obtenir la liste de tous les points de récupération d’une source de données. Dans cet exemple, nous allons : - extraire tous les groupes de protection sur le serveur DPM qui seront stockés dans un tableau ```$PG``` - obtenir les sources de données correspondant à ```$PG[0]``` - obtenir tous les points de récupération d’une source de données.
 
@@ -300,4 +301,4 @@ Les commandes peuvent facilement être étendues à n'importe quel type de sourc
 ## Étapes suivantes
 Pour en savoir plus sur Azure Backup pour DPM, consultez la rubrique [Présentation d’Azure DPM Backup](backup-azure-dpm-introduction.md)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=September15_HO1-->

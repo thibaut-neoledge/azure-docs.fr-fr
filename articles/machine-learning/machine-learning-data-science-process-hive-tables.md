@@ -4,8 +4,8 @@
 	services="machine-learning"
 	documentationCenter=""
 	authors="hangzh-msft"
-	manager="paulettm" 
-	editor="cgronlun"  />
+	manager="paulettm"
+	editor="cgronlun"/>
 
 <tags
 	ms.service="machine-learning"
@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/29/2015"
-	ms.author="hangzh;bradsev" />
+	ms.date="09/01/2015"
+	ms.author="hangzh;bradsev"/>
 
 #<a name="heading"></a> Envoyer des requêtes Hive à des clusters Hadoop HDInsight dans le processus et la technologie d'analyse avancée (ADAPT) 
 
 Ce document décrit différentes manières d’envoyer des requêtes Hive à des clusters Hadoop gérés par un service HDInsight dans Azure. Cette tâche fait partie du processus de science des données Azure fourni par Azure Machine Learning. Plusieurs tâches de manipulation des données sont abordées : exploration des données et génération de fonctionnalités. Des requêtes Hive génériques qui montrent comment explorer des données ou générer des fonctionnalités à l’aide de Hive dans un cluster Hadoop Azure HDInsight. Ces requêtes Hive utilisent les FDU (fonctions définies par l’utilisateur) Hive intégrées.
 
-Des exemples de requêtes propres aux scénarios mettant en œuvre le jeu de <a href="http://chriswhong.com/open-data/foil_nyc_taxi/" target="_blank">données NYC Taxi Trip</a> sont également disponibles dans le <a href="https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/DataScienceScripts" target="_blank">référentiel Github</a>. Le schéma de données de ces requêtes est déjà spécifié et elles sont exécutables en l’état.
+Des exemples de requêtes propres aux scénarios mettant en œuvre le [jeu de données NYC Taxi Trip](http://chriswhong.com/open-data/foil_nyc_taxi/) sont également disponibles dans le [référentiel Github](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/DataScienceScripts). Le schéma de données de ces requêtes est déjà spécifié et elles sont exécutables en l’état.
 
 La section finale présente les paramètres que les utilisateurs peuvent ajuster pour accélérer le traitement des requêtes Hive.
 
@@ -319,4 +319,4 @@ Les paramètres par défaut du cluster Hive peuvent ne pas convenir aux requête
 [15]: ./media/machine-learning-data-science-process-hive-tables/run-hive-queries-3.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

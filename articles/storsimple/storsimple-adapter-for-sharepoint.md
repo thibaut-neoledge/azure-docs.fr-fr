@@ -1,21 +1,21 @@
 <properties 
    pageTitle="StorSimple Adapter for SharePoint | Microsoft Azure"
-   description="Décrit comment installer StorSimple Adapter for SharePoint dans une batterie de serveurs SharePoint."
-   services="storsimple"
-   documentationCenter="NA"
-   authors="SharS"
-   manager="carolz"
-   editor="" />
+	description="Décrit comment installer et configurer StorSimple Adapter for SharePoint dans une batterie de serveurs SharePoint."
+	services="storsimple"
+	documentationCenter="NA"
+	authors="SharS"
+	manager="carolz"
+	editor=""/>
 <tags 
    ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="08/11/2015"
-   ms.author="v-sharos" />
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="TBD"
+	ms.date="08/27/2015"
+	ms.author="v-sharos"/>
 
-# StorSimple Adapter for SharePoint
+# Installation et configuration de StorSimple Adapter for SharePoint
 
 ## Vue d’ensemble
 
@@ -238,6 +238,6 @@ Utilisez la procédure suivante pour mettre à niveau le serveur SharePoint puis
 [3]: https://technet.microsoft.com/library/ff628583(v=office.14).aspx
 [4]: https://technet.microsoft.com/library/ff628569(v=office.14).aspx
 [5]: https://technet.microsoft.com/library/ff628583(v=office.15).aspx
-[8]: https://technet.microsoft.com/fr-fr/library/ff943565.aspx
+[8]: https://technet.microsoft.com/fr-FR/library/ff943565.aspx
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=September15_HO1-->

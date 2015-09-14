@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Utilisation de Mobile Services pour télécharger des images dans le stockage d&#39;objets blob (Windows Phone) | Microsoft Azure" 
-	description="Découvrez comment utiliser Mobile Services pour télécharger des images dans le stockage d&#39;objets blob Azure." 
-	documentationCenter="windows" 
-	authors="ggailey777" 
-	services="mobile-services,storage" 
-	manager="dwrede" 
+<properties
+	pageTitle="Utilisation de Mobile Services pour télécharger des images dans le stockage d'objets blob (Windows Phone) | Microsoft Azure"
+	description="Découvrez comment utiliser Mobile Services pour télécharger des images dans le stockage d'objets blob Azure."
+	documentationCenter="windows"
+	authors="ggailey777"
+	services="mobile-services,storage"
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-windows-phone" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="06/04/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-windows-phone"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="06/16/2015"
 	ms.author="glenga"/>
 
 # Téléchargement d'images vers Azure Storage à l'aide de Mobile Services
@@ -27,7 +27,7 @@ Vous ne pouvez pas distribuer de manière sécurisée les informations d'identif
 
 Dans ce didacticiel, vous allez ajouter une fonctionnalité à l'[exemple de projet d'application GetStartedWithData](mobile-services-dotnet-backend-windows-phone-get-started-data.md) pour prendre des photos et télécharger les images vers Azure en utilisant une signature d'accès partagé (SAP) générée par Mobile Services.
 
-##Configuration requise 
+##Configuration requise
 
 Ce didacticiel requiert les éléments suivants :
 
@@ -54,7 +54,7 @@ Avant de pouvoir utiliser une signature d'accès partagé en vue de télécharge
   	La bibliothèque du client des services de stockage Azure est alors ajoutée au projet.
 
 [AZURE.INCLUDE [mobile-services-windows-phone-upload-to-blob-storage](../../includes/mobile-services-windows-phone-upload-to-blob-storage.md)]
- 
+
 <!-- Anchors. -->
 [Install the Storage Client library]: #install-storage-client
 [Update the client app to capture images]: #add-select-images
@@ -78,7 +78,4 @@ Avant de pouvoir utiliser une signature d'accès partagé en vue de télécharge
 [Mobile Services .NET How-to Conceptual Reference]: mobile-services-windows-dotnet-how-to-use-client-library.md
 [Kit de développement logiciel (SDK) Windows Phone 8.0]: http://www.microsoft.com/download/details.aspx?id=35471
 
-
- 
-
-<!---HONumber=August15_HO8-->
+<!---HONumber=September15_HO1-->

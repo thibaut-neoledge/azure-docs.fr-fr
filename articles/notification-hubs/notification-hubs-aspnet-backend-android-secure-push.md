@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Notifications Push sécurisées avec Azure Notification Hubs" 
-	description="Découvrez comment envoyer des notifications Push sécurisées à une application Android depuis Azure. Exemples de code écrits en Java et C#." 
-	documentationCenter="android" 
-	authors="wesmc7777" 
-	manager="dwrede" 
-	editor="" 
+<properties
+	pageTitle="Notifications Push sécurisées avec Azure Notification Hubs"
+	description="Découvrez comment envoyer des notifications Push sécurisées à une application Android depuis Azure. Exemples de code écrits en Java et C#."
+	documentationCenter="android"
+	authors="wesmc7777"
+	manager="dwrede"
+	editor=""
 	services="notification-hubs"/>
 
-<tags 
-	ms.service="notification-hubs" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="android" 
-	ms.devlang="java" 
-	ms.topic="article" 
-	ms.date="06/02/2015" 
+<tags
+	ms.service="notification-hubs"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="android"
+	ms.devlang="java"
+	ms.topic="article"
+	ms.date="06/16/2015"
 	ms.author="wesmc"/>
 
 #Notifications Push sécurisées avec Azure Notification Hubs
@@ -22,7 +22,7 @@
 - [Windows Universal](notification-hubs-aspnet-backend-windows-dotnet-secure-push.md)
 - [iOS](notification-hubs-aspnet-backend-ios-secure-push.md)
 - [Android](notification-hubs-aspnet-backend-android-secure-push.md)
-    
+
 ##Vue d'ensemble
 
 La prise en charge des notifications Push dans Microsoft Azure vous permet d’accéder à une infrastructure Push conviviale, multiplateforme et avec montée en charge qui simplifie fortement l’implémentation des notifications Push pour les applications grand public et d’entreprise destinées aux plateformes mobiles.
@@ -64,10 +64,10 @@ Nous allons maintenant modifier le processus de *connexion* afin d'enregistrer l
     		EditText password = (EditText) findViewById(R.id.passwordText);
     		String basicAuthHeader = username.getText().toString()+":"+password.getText().toString();
     		basicAuthHeader = Base64.encodeToString(basicAuthHeader.getBytes("UTF-8"), Base64.NO_WRAP);
-    	
+
     		SharedPreferences sp = getSharedPreferences(NOTIFY_USERS_PROPERTIES, Context.MODE_PRIVATE);
     		sp.edit().putString(AUTHORIZATION_HEADER_PROPERTY, basicAuthHeader).commit();
-    	
+
     		return basicAuthHeader;
 		}
 
@@ -80,7 +80,7 @@ Nous allons maintenant changer le gestionnaire qui est appelé lorsque la notifi
 4. Dans la classe **MyHandler**, modifiez la méthode `OnReceive()` afin qu’elle contienne :
 
 		public void onReceive(Context context, Bundle bundle) {
-	    	ctx = context;   
+	    	ctx = context;
 	    	String secureMessageId = bundle.getString("secureId");
 	    	retrieveNotification(secureMessageId);
 		}
@@ -90,7 +90,7 @@ Nous allons maintenant changer le gestionnaire qui est appelé lorsque la notifi
 		private void retrieveNotification(final String secureMessageId) {
 			SharedPreferences sp = ctx.getSharedPreferences(MainActivity.NOTIFY_USERS_PROPERTIES, Context.MODE_PRIVATE);
     		final String authorizationHeader = sp.getString(MainActivity.AUTHORIZATION_HEADER_PROPERTY, null);
-		
+
 			new AsyncTask<Object, Object, Object>() {
 				@Override
 				protected Object doInBackground(Object... params) {
@@ -113,7 +113,7 @@ Nous allons maintenant changer le gestionnaire qui est appelé lorsque la notifi
 				}
 			}.execute(null, null, null);
 		}
-		
+
 
 Cette méthode appelle le serveur principal de votre application pour récupérer le contenu de la notification avec les informations d'identification stockées dans les préférences partagées et l'affiche comme une notification normale. La notification recherche l'utilisateur de l'application, exactement comme n'importe quelle autre notification Push.
 
@@ -130,6 +130,5 @@ Pour exécuter l'application, procédez comme suit :
 3. Dans l'interface utilisateur de l'application Android, entrez un nom d'utilisateur et un mot de passe. La valeur peut être une chaîne quelconque, mais elle doit être identique pour les deux.
 
 4. Dans l'interface utilisateur de l'application Android, cliquez sur **Log in**. Cliquez ensuite sur **Send push**.
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

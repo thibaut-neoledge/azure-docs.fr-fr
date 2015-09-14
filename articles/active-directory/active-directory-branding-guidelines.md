@@ -1,20 +1,20 @@
 <properties
    pageTitle="Directives de personnalisation des applications"
-   description="Guide complet sur les ressources destinées aux développeurs pour Azure Active Directory"
-   services="active-directory"
-   documentationCenter="dev-center-name"
-   authors="msmbaldwin"
-   manager="mbaldwin"
-   editor=""/>
+	description="Guide complet sur les ressources destinées aux développeurs pour Azure Active Directory"
+	services="active-directory"
+	documentationCenter="dev-center-name"
+	authors="msmbaldwin"
+	manager="mbaldwin"
+	editor=""/>
 
 <tags
    ms.service="active-directory"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="identity"
-   ms.date="07/30/2015"
-   ms.author="mbaldwin"/>
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="identity"
+	ms.date="08/25/2015"
+	ms.author="mbaldwin"/>
 
 
 # Directives de personnalisation des applications
@@ -53,12 +53,12 @@ Votre application peut présenter des chemins distincts pour l’inscription et 
 
 ## Aide visuelle pour l’acquisition de l’application
 
-Le lien « obtenir l’application » doit rediriger l’utilisateur vers la page d’octroi d’accès d’Azure AD, afin de permettre à l’administrateur d’une organisation d’autoriser votre application à accéder aux données de son organisation hébergées par Microsoft. La demande d’accès est décrite en détail dans la rubrique [Ajout, mise à jour et suppression d’une application](https://msdn.microsoft.com/library/azure/dn132599.aspx).
+Le lien « obtenir l’application » doit rediriger l’utilisateur vers la page d’octroi d’accès d’Azure AD, afin de permettre à l’administrateur d’une organisation d’autoriser votre application à accéder aux données de son organisation hébergées par Microsoft. Pour plus d'informations sur la demande d'accès, consultez l'article [Intégration d'applications dans Azure Active Directory](active-directory-integrating-applications.md).
 
 Une fois que les administrateurs ont donné leur consentement à votre application, ils peuvent l’ajouter au lanceur d’applications Office 365 de leurs utilisateurs (accessible à partir de l’icône correspondante dans Office 365 et de [https://portal.office.com/myapps](https://portal.office.com/myapps)). Pour faire la promotion de cette fonctionnalité, vous pouvez utiliser des phrases telles que « Ajouter cette application à votre organisation » et afficher un bouton tel que celui-ci :
 
 ![Types d’application et scénarios](./media/active-directory-branding-guidelines/add-to-my-org.png)
-  
+
 Toutefois, nous vous recommandons de fournir un texte explicatif plutôt que de vous contenter des boutons. Par exemple :
 > *Si vous utilisez déjà Office 365 ou un autre service métier de Microsoft, vous pouvez tout simplement octroyer <your_app_name> l’accès aux données de votre organisation. Cela permet à vos utilisateurs d’y accéder à <your_app_name> l’aide de leur compte professionnel existant.*
 
@@ -66,9 +66,9 @@ Toutefois, nous vous recommandons de fournir un texte explicatif plutôt que de 
 ## Aide visuelle pour la connexion
 Votre application doit afficher un bouton de connexion qui redirige les utilisateurs vers le point de terminaison de connexion correspondant au protocole que vous utilisez pour l’intégration à Azure AD. La section suivante fournit des détails sur l’aspect recommandé pour ce bouton.
 
-### Pictogramme et « compte professionnel ou scolaire » 
+### Pictogramme et « compte professionnel ou scolaire »
 C’est l’association du logo Microsoft et du terme générique « professionnel ou scolaire » qui permet de distinguer Azure AD des autres fournisseurs d’identité que votre application peut prendre en charge. Si vous n’avez pas suffisamment d’espace pour insérer « compte professionnel ou scolaire », vous pouvez abréger et utiliser « compte professionnel ».
- 
+
 ![Types d’application et scénarios](./media/active-directory-branding-guidelines/work-or-school-account.png)
 
 ![Types d’application et scénarios](./media/active-directory-branding-guidelines/work-account.png)
@@ -76,7 +76,7 @@ C’est l’association du logo Microsoft et du terme générique « profession
 Vous pouvez également fournir une explication supplémentaire pour aider les utilisateurs finaux à déterminer s’ils peuvent utiliser ce bouton :
 
 ![Types d’application et scénarios](./media/active-directory-branding-guidelines/work-account-with-explaination.png)
- 
+
 ## Choses à faire et à éviter en matière de personnalisation
 **UTILISEZ** l’expression « compte professionnel ou scolaire » avec le logo Microsoft pour représenter les connexions avec Azure AD. Si l’espace est limité, vous pouvez dire « compte professionnel », n’utilisez **PAS** d’autres termes tels que « compte d’entreprise » ou « compte commercial ».
 
@@ -94,6 +94,4 @@ N’exposez **PAS** les utilisateurs finaux à la marque Azure ou Active Direct
 
 Si votre application prend en charge Azure AD et les comptes Microsoft, vous devez y inclure deux boutons de connexion distincts. Nous travaillons actuellement sur une mise à jour qui vous permettra d’effectuer une seule intégration et de prendre en charge à la fois les comptes personnels et professionnels de Microsoft. Une fois que cette fonctionnalité sera disponible, vous serez en mesure d’afficher un seul bouton « connexion avec Microsoft » dans votre application.
 
- 
-
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

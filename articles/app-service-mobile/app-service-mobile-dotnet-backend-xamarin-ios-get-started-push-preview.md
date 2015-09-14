@@ -3,7 +3,7 @@
 	description="Découvrez comment utiliser Azure App Service pour envoyer des notifications Push à votre application Xamarin.iOS."
 	services="app-service\mobile"
 	documentationCenter="xamarin"
-	authors="normesta"
+	authors="wesmc7777"
 	manager="dwrede"
 	editor=""/>
 
@@ -210,4 +210,4 @@ Vous avez terminé ce didacticiel.
 
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

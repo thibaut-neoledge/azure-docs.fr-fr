@@ -79,14 +79,17 @@ Pour commencer :
 
     ![Choisissez les types d’événements.](./media/app-insights-code-sample-export-telemetry-sql-database/085-types.png)
 
-À présent, installez-vous confortablement et laissez les utilisateurs utiliser votre application pendant un certain temps. Les données de télémétrie vont vous être transmises et vous permettre d’afficher des graphiques statistiques dans [Metrics explorer][metrics] et des événements dans [Recherche de diagnostic][diagnostic].
+3. Laissez les données s'accumuler. Installez-vous confortablement et laissez les utilisateurs utiliser votre application pendant un certain temps. Les données de télémétrie vont vous être transmises et vous permettre d’afficher des graphiques statistiques dans [Metrics explorer](app-insights-metrics-explorer.md) et des événements dans [Recherche de diagnostic](app-insights-diagnostic-search.md).
 
-Vos données seront également exportées vers votre emplacement de stockage, où vous pourrez analyser leur contenu. Par exemple, il existe un navigateur de stockage dans Visual Studio :
+    Les données seront également exportées vers votre stockage.
 
+4. Inspectez les données exportées. Dans Visual Studio, sélectionnez **Afficher / Cloud Explorer** et ouvrez Azure / Stockage. (Si vous n'avez pas cette option, vous devez installer le SDK Azure : Ouvrez la boîte de dialogue Nouveau projet et ouvrez Visual C# / Cloud / Obtenir Microsoft Azure SDK pour .NET.)
 
-![Dans Visual Studio, ouvrez Explorateur de serveurs, Azure, Stockage](./media/app-insights-code-sample-export-telemetry-sql-database/087-explorer.png)
+    ![Dans Visual Studio, ouvrez Explorateur de serveurs, Azure, Stockage](./media/app-insights-code-sample-export-telemetry-sql-database/087-explorer.png)
 
-Les événements sont écrits dans des fichiers blob au format JSON. Chaque fichier peut contenir un ou plusieurs événements. Donc, nous voudrions écrire du code pour lire les données d’événement et filtrer les champs voulus. Nous pourrions faire toutes sortes de choses avec les données, mais notre objectif aujourd’hui est d’écrire du code pour déplacer les données vers une base de données SQL. Cette action va simplifier l’exécution d’un grand nombre de requêtes intéressantes.
+    Prenez note de la partie commune du nom du chemin d'accès, qui est dérivée du nom de l'application et de la clé d'instrumentation.
+
+Les événements sont écrits dans des fichiers blob au format JSON. Chaque fichier peut contenir un ou plusieurs événements. Donc, nous devons lire les données d’événement et filtrer les champs voulus. Nous pourrions faire toutes sortes de choses avec les données, mais notre objectif aujourd’hui est d’écrire du code pour déplacer les données vers une base de données SQL. Cette action va simplifier l’exécution d’un grand nombre de requêtes intéressantes.
 
 ## Création d’une base de données SQL Azure
 
@@ -105,7 +108,7 @@ Assurez-vous que le serveur de base de données permet d’accéder aux services
 
 Nous pouvons maintenant écrire du [code](https://sesitai.codeplex.com/) pour analyser le JSON dans les objets blob exportés et créer des enregistrements dans la base de données. Étant donné que la banque d’exportation et la base de données se trouvent toutes deux dans Azure, nous allons exécuter le code dans un rôle de travail Azure.
 
-Ce code extrait automatiquement toutes les propriétés présentes dans le JSON. Pour obtenir une description des propriétés, voir [Modèle d’exportation de données](app-insights-export-data-model.md).
+Ce code extrait automatiquement toutes les propriétés présentes dans le JSON. Pour obtenir une description des propriétés, consultez [Modèle d'exportation de données](app-insights-export-data-model.md).
 
 
 #### Créer un projet de rôle de travail
@@ -515,7 +518,7 @@ Voici le schéma de la table qui sera générée pour PageView.
     GO
 
 
-Pour voir cet exemple en action, [téléchargez](https://sesitai.codeplex.com/) le code de travail complet, modifiez les `app.config` paramètres et publiez le rôle de travail dans Azure.
+Pour voir cet exemple en action, [téléchargez](https://sesitai.codeplex.com/) le code de travail complet, modifiez les paramètres `app.config` et publiez le rôle de travail dans Azure.
 
 
 ## Articles connexes
@@ -536,4 +539,4 @@ Pour voir cet exemple en action, [téléchargez](https://sesitai.codeplex.com/) 
 
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=September15_HO1-->

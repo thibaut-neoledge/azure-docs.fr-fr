@@ -1,20 +1,20 @@
 <properties 
-   pageTitle="Récupération d'urgence de bases de données SQL" 
-   description="Découvrez comment récupérer une base de données en cas de panne d'un centre de données régional grâce aux fonctionnalités de géo-réplication de base de données SQL Azure et de restauration géographique." 
-   services="sql-database" 
-   documentationCenter="" 
-   authors="elfisher" 
-   manager="jeffreyg" 
-   editor="monicar"/>
+   pageTitle="Récupération d'urgence de bases de données SQL"
+	description="Découvrez comment récupérer une base de données en cas de panne d'un centre de données régional grâce aux fonctionnalités de géo-réplication de base de données SQL Azure et de restauration géographique."
+	services="sql-database"
+	documentationCenter=""
+	authors="elfisher"
+	manager="jeffreyg"
+	editor="monicar"/>
 
 <tags
    ms.service="sql-database"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="data-management" 
-   ms.date="07/14/2015"
-   ms.author="elfish"/>
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="data-management"
+	ms.date="07/14/2015"
+	ms.author="elfish"/>
 
 # Récupérer une base de données SQL Azure en cas de défaillance
 
@@ -68,6 +68,8 @@ Utilisez REST pour exécuter la récupération de base de données par programma
 
 En cas de défaillance d'une base de données, vous pouvez récupérer votre base de données à partir de sa dernière sauvegarde géographique redondante à l'aide de la restauration géographique.
 
+> [AZURE.NOTE]La récupération d'une base de données crée une nouvelle base de données. Il est important de s'assurer que le serveur sur lequel vous effectuez la récupération a une capacité DTU suffisante pour la nouvelle base de données. Vous pouvez demander une augmentation de ce quota en [contactant le support](http://azure.microsoft.com/blog/azure-limits-quotas-increase-requests/).
+
 ###Portail Azure
 1. Connectez-vous au [portail Azure](https://portal.Azure.com).
 2. Sur le côté gauche de l'écran, sélectionnez **NOUVEAU**, puis sélectionnez **Données et stockage** et **Base de données SQL**.
@@ -101,4 +103,4 @@ Utilisez REST pour exécuter la récupération de base de données par programma
 Une fois la base de données récupérée, vous pouvez la configurer pour l'utiliser en suivant le guide [Finaliser une base de données récupérée](sql-database-recovered-finalize.md).
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

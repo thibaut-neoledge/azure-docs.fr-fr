@@ -12,11 +12,11 @@
 	ms.workload="data-services"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article" 
-	ms.date="06/10/2015"
+	ms.topic="article"
+	ms.date="09/02/2015"
 	ms.author="stbaro"/>
 
-# Afficher les procédures stockées, les déclencheurs et les fonctions définies par l'utilisateur à l'aide de l'Explorateur de scripts de DocumentDB
+# Afficher, modifier et créer des procédures stockées, des déclencheurs et des fonctions définies par l'utilisateur à l'aide de l'Explorateur de scripts de DocumentDB
 
 Cet article fournit une présentation de l'Explorateur de scripts [Microsoft Azure DocumentDB](http://azure.microsoft.com/services/documentdb/), un outil du portail Azure en version préliminaire qui vous permet d'afficher les artefacts de programmation côté serveur de DocumentDB, notamment les procédures stockées, les déclencheurs et les fonctions définies par l'utilisateur. Plus d'informations sur la programmation côté serveur de DocumentDB sont disponibles [ici](documentdb-programming.md).
 
@@ -63,13 +63,29 @@ L'Explorateur de scripts peut être lancé à partir des panneaux de compte, de 
 	![Capture d'écran de la commande Actualiser de l'Explorateur de scripts](./media/documentdb-view-scripts/scriptexplorerrefresh.png)
 
 
-## Afficher les procédures stockées, les déclencheurs et les fonctions définies par l'utilisateur avec l'Explorateur de scripts
+## Afficher, modifier, créer et supprimer des procédures stockées, des déclencheurs et des fonctions définies par l'utilisateur avec l'Explorateur de scripts
 
-L'Explorateur de scripts vous permet d'afficher facilement les artefacts de programmation côté serveur de DocumentDB.
+L'Explorateur de scripts vous permet d'exécuter facilement des opérations CRUD sur les artefacts de programmation côté serveur de DocumentDB.
 
-- Cliquez simplement sur le script qui vous intéresse pour en afficher le contenu.
+- Pour créer un script, il vous suffit de cliquer sur la commande de création applicable dans l'Explorateur de scripts, de fournir un id, d'entrer le contenu du script, puis de cliquer sur la commande **Enregistrer**.
+
+	![Capture d'écran de l'option de création de l'Explorateur de scripts](./media/documentdb-view-scripts/scriptexplorercreatecommand.png)
+
+- Lorsque vous créez un déclencheur, vous devez également spécifier le type et le fonctionnement du déclencheur
+
+	![Capture d'écran de l'option de création de déclencheur de l'Explorateur de scripts](./media/documentdb-view-scripts/scriptexplorercreatetrigger.png)
+
+- Pour afficher un script, cliquez simplement sur celui qui vous intéresse.
 
 	![Capture d'écran de l'expérience d'affichage de scripts de l'Explorateur de scripts](./media/documentdb-view-scripts/scriptexplorerviewscript.png)
+
+- Pour modifier un script, apportez les modifications souhaitées et cliquez sur la commande **Enregistrer**.
+
+	![Capture d'écran de l'expérience d'affichage de scripts de l'Explorateur de scripts](./media/documentdb-view-scripts/scriptexplorereditscript.png)
+
+- Pour ignorer les modifications d'un script, cliquez simplement sur la commande **Ignorer**.
+
+	![Capture d'écran de l'expérience de suppression des modifications de l'Explorateur de scripts](./media/documentdb-view-scripts/scriptexplorerdiscardchanges.png)
 
 - L'Explorateur de scripts vous permet aussi d'afficher facilement les propriétés du script actuellement chargé en cliquant sur la commande **Propriétés**.
 
@@ -77,9 +93,17 @@ L'Explorateur de scripts vous permet d'afficher facilement les artefacts de prog
 
 	> [AZURE.NOTE]La propriété timestamp (\_ts) est représentée en interne comme heure d'époque, mais l'Explorateur de scripts affiche la valeur dans un format GMT lisible.
 
+- Pour supprimer un script, sélectionnez-le dans l'Explorateur de scripts et cliquez sur la commande **Supprimer**.
+
+	![Capture d'écran de la commande Supprimer de l'Explorateur de scripts](./media/documentdb-view-scripts/scriptexplorerdeletescript1.png)
+
+- Confirmez l'action de suppression en cliquant sur **Oui** ou annulez l'action de suppression en cliquant sur **Non**.
+
+	![Capture d'écran de la commande Supprimer de l'Explorateur de scripts](./media/documentdb-view-scripts/scriptexplorerdeletescript2.png)
+
 ## Étapes suivantes
 
 Pour en savoir plus sur DocumentDB, cliquez [ici](http://azure.com/docdb).
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

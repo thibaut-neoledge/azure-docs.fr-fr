@@ -1,23 +1,23 @@
 <properties 
    pageTitle="Comment migrer des groupes d’affinités vers un réseau virtuel régional"
-   description="En savoir plus sur la migration des groupes d’affinités vers les réseaux virtuels régionaux"
-   services="virtual-network"
-   documentationCenter="na"
-   authors="telmosampaio"
-   manager="carolz"
-   editor="tysonn" />
+	description="En savoir plus sur la migration des groupes d’affinités vers les réseaux virtuels régionaux"
+	services="virtual-network"
+	documentationCenter="na"
+	authors="telmosampaio"
+	manager="carolz"
+	editor="tysonn"/>
 <tags 
    ms.service="virtual-network"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="05/29/2015"
-   ms.author="telmos" />
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="infrastructure-services"
+	ms.date="09/02/2015"
+	ms.author="telmos"/>
 
 # Comment migrer des groupes d’affinités vers un réseau virtuel régional
 
-Vous pouvez utiliser un groupe d’affinités pour vous assurer que les ressources créées dans le même groupe d’affinités sont physiquement hébergées par des serveurs proches les uns des autres, ce qui leur permet de communiquer plus rapidement. Auparavant, les groupes d’affinités étaient requis pour la création des réseaux virtuels. À cette époque, le service de gestionnaire réseau qui gérait les réseaux virtuels ne fonctionnait qu’au sein d’un ensemble de serveurs physiques ou d’une unité d’échelle. Les récentes améliorations architecturales ont augmenté de l’étendue de gestion réseau à une région.
+Vous pouvez utiliser un groupe d’affinités pour vous assurer que les ressources créées dans le même groupe d’affinités sont physiquement hébergées par des serveurs proches les uns des autres, ce qui leur permet de communiquer plus rapidement. Auparavant, les groupes d’affinités étaient requis pour la création des réseaux virtuels. À cette époque, le service de gestionnaire réseau qui gérait les réseaux virtuels ne fonctionnait qu’au sein d’un ensemble de serveurs physiques ou d’une unité d’échelle. Les améliorations architecturales ont augmenté la portée de la gestion réseau à une région.
 
 Suite à ces améliorations architecturales, les groupes d’affinités ne sont plus recommandés ou requis pour les réseaux virtuels. L’utilisation des groupes d’affinités pour les réseaux virtuels est remplacée par les régions. Les réseaux virtuels associés à des régions sont appelés réseaux virtuels régionaux.
 
@@ -41,11 +41,13 @@ Les réseaux virtuels qui sont actuellement associés à des groupes d’affinit
 	
 	Modifiez les lignes suivantes dans votre fichier de configuration réseau, en remplaçant les valeurs avec les vôtres :
 
-	**Ancienne valeur :** \<VirtualNetworkSitename="VNetUSWest" AffinityGroup="VNetDemoAG">
+	**Ancienne valeur :** <VirtualNetworkSitename="VNetUSWest" AffinityGroup="VNetDemoAG">
 
-	**Nouvelle valeur :** \<VirtualNetworkSitename="VNetUSWest" Location="West US">
+	**Nouvelle valeur :** <VirtualNetworkSitename="VNetUSWest" Location="West US">
 
 1. Enregistrez vos modifications et [importez](../virtual-networks-using-network-configuration-file/) la configuration réseau dans Azure.
+
+>[AZURE.INFO]Cette migration n'entraîne PAS de temps d’arrêt de vos services.
 
 ## Groupe d’affinités et machines virtuelles
 
@@ -64,4 +66,4 @@ Les machines virtuelles qui sont actuellement dans un groupe d’affinités n’
 Une fois qu’une machine virtuelle est déployée, elle l’est sur une seule unité d’échelle. Les groupes d’affinités peuvent restreindre la taille disponible de l’ensemble des machines virtuelles pour un nouveau déploiement de machines virtuelles, mais les machines virtuelles existantes déployées sont déjà limitées à la taille disponible de l’ensemble des machines virtuelles dans l’unité d’échelle où elles sont déployées. Pour cette raison, la suppression d’une machine virtuelle du groupe d’affinités n’a aucun effet.
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

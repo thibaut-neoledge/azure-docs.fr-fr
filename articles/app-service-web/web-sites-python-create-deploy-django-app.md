@@ -3,6 +3,7 @@
 	description="Didacticiel expliquant comment exécuter une application web Python dans Azure App Service Web Apps."
 	services="app-service\web"
 	documentationCenter="python"
+	tags="python"
 	authors="huguesv"
 	manager="wpickett"
 	editor=""/>
@@ -12,11 +13,9 @@
 	ms.workload="web"
 	ms.tgt_pltfrm="na"
 	ms.devlang="python"
-	ms.topic="hero-article" 
-	ms.date="04/15/2015"
+	ms.topic="hero-article"
+	ms.date="08/30/2015"
 	ms.author="huguesv"/>
-
-
 
 
 # Création d’applications web avec Django dans Azure
@@ -36,7 +35,7 @@ Vous allez créer une application à l’aide de l’infrastructure web Django (
 - Python 2.7 ou 3.4
 - setuptools, pip, virtualenv (Python 2.7 uniquement)
 - Git
-- [Python Tools 2.1 pour Visual Studio] - Ceci est facultatif
+- [Python Tools pour Visual Studio][] (PTVS) - Remarque : ceci est facultatif
 
 **Remarque** : la publication de TFS n’est actuellement pas prise en charge pour les projets Python.
 
@@ -46,7 +45,7 @@ Si vous n’avez pas encore installé Python 2.7 ou 3.4 (32 bits), nous vous r
 
 Pour Git, nous vous recommandons d’utiliser [Git pour Windows] ou [GitHub pour Windows]. Si vous travaillez avec Visual Studio, vous pouvez utiliser la prise en charge intégrée de Git.
 
-Nous vous recommandons également d’installer [Python Tools 2.1 pour Visual Studio]. Cette opération est facultative, mais si vous avez [Visual Studio], ainsi que la version gratuite Visual Studio Community 2013 ou Visual Studio Express 2013 pour le Web, vous disposerez d’un formidable environnement de développement intégré Python.
+Nous vous recommandons également d’installer [Python Tools 2.2 pour Visual Studio]. Cette opération est facultative, mais si vous avez [Visual Studio], ainsi que la version gratuite Visual Studio Community 2013 ou Visual Studio Express 2013 pour le Web, vous disposerez d’un formidable environnement de développement intégré Python.
 
 ### Mac/Linux
 
@@ -102,7 +101,7 @@ Base de données par défaut. Inclut les tables nécessaires à l’exécution d
     \DjangoWebProject.pyproj
     \DjangoWebProject.sln
 
-Fichiers de projet à utiliser avec [Python Tools pour Visual Studio](http://pytools.codeplex.com).
+Fichiers de projet à utiliser avec [Python Tools pour Visual Studio].
 
     \ptvs_virtualenv_proxy.py
 
@@ -184,7 +183,7 @@ Appuyez sur F5 pour lancer le débogage. Votre navigateur ouvrira automatiquemen
 
 ![](./media/web-sites-python-create-deploy-django-app/windows-browser-django.png)
 
-Vous pouvez définir des points d’arrêt dans les sources, utiliser les fenêtres de surveillance, etc.. Pour plus d’informations sur les différentes fonctionnalités, consultez la [documentation de PTVS].
+Vous pouvez définir des points d’arrêt dans les sources, utiliser les fenêtres de surveillance, etc.. Pour plus d’informations sur les différentes fonctionnalités, consultez la [Documentation de Python Tools pour Visual Studio].
 
 ### Apporter des modifications
 
@@ -486,8 +485,8 @@ Pour plus d’informations sur Django et sur Python Tools pour Visual Studio, s
 
 Pour plus d’informations sur l’utilisation de Base de données SQL et de MySQL :
 
-- [Django et SQL Database sur Azure avec Python Tools 2.1 pour Visual Studio]
-- [Django et MySQL sur Azure avec Python Tools 2.1 pour Visual Studio]
+- [Django et MySQL sur Azure avec Python Tools pour Visual Studio]
+- [Django et SQL Database sur Azure avec Python pour Visual Studio]
 
 ## Changements apportés
 * Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre Sites Web et App Service, consultez la page [Azure App Service et les services Azure existants](http://go.microsoft.com/fwlink/?LinkId=529714).
@@ -495,11 +494,10 @@ Pour plus d’informations sur l’utilisation de Base de données SQL et de MyS
 
 
 <!--Link references-->
-[Django et MySQL sur Azure avec Python Tools 2.1 pour Visual Studio]: web-sites-python-ptvs-django-mysql.md
-[Django et SQL Database sur Azure avec Python Tools 2.1 pour Visual Studio]: web-sites-python-ptvs-django-sql.md
+[Django et MySQL sur Azure avec Python Tools pour Visual Studio]: web-sites-python-ptvs-django-mysql.md
+[Django et SQL Database sur Azure avec Python pour Visual Studio]: web-sites-python-ptvs-django-sql.md
 [SQL Database]: web-sites-python-ptvs-django-sql.md
 [MySQL]: web-sites-python-ptvs-django-mysql.md
-
 
 <!--External Link references-->
 [Kit de développement logiciel (SDK) Azure pour Python 2.7]: http://go.microsoft.com/fwlink/?linkid=254281
@@ -507,13 +505,12 @@ Pour plus d’informations sur l’utilisation de Base de données SQL et de MyS
 [python.org]: http://www.python.org/
 [Git pour Windows]: http://msysgit.github.io/
 [GitHub pour Windows]: https://windows.github.com/
-[Python Tools for Visual Studio]: http://aka.ms/ptvs
-[Python Tools 2.1 pour Visual Studio]: http://go.microsoft.com/fwlink/?LinkId=517189
-[Python Tools 2.1 pour Visual Studio]: http://go.microsoft.com/fwlink/?LinkId=517189
+[Python Tools pour Visual Studio]: http://aka.ms/ptvs
+[Python Tools pour Visual Studio]: http://aka.ms/ptvs
+[Python Tools 2.2 pour Visual Studio]: http://go.microsoft.com/fwlink/?LinkID=624025
 [Visual Studio]: http://www.visualstudio.com/
-[documentation de PTVS]: http://pytools.codeplex.com/documentation
-[Documentation relative à Python Tools for Visual Studio]: http://pytools.codeplex.com/documentation
+[Documentation de Python Tools pour Visual Studio]: http://aka.ms/ptvsdocs
+[Documentation relative à Python Tools for Visual Studio]: http://aka.ms/ptvsdocs
 [Documentation Django]: https://www.djangoproject.com/
- 
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=September15_HO1-->

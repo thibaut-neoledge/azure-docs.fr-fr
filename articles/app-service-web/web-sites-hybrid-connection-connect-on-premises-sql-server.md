@@ -1,22 +1,20 @@
-<properties 
-	pageTitle="Connexion à un serveur SQL Server local à partir d’une application web dans Azure App Service au moyen de connexions hybrides" 
+<properties
+	pageTitle="Connexion à un serveur SQL Server local à partir d’une application web dans Azure App Service au moyen de connexions hybrides"
 	description="Créer une application web sur Microsoft Azure et la connecter à une base de données SQL Server locale"
-	services="app-service\web" 
-	documentationCenter="" 
-	authors="cephalin" 
-	manager="wpickett" 
+	services="app-service\web"
+	documentationCenter=""
+	authors="cephalin"
+	manager="wpickett"
 	editor="mollybos"/>
 
-
-<tags 
-	ms.service="app-service-web" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/02/2015" 
+<tags
+	ms.service="app-service-web"
+	ms.workload="web"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/01/2015"
 	ms.author="cephalin"/>
-
 
 # Connexion à un serveur SQL Server local à partir d’une application web dans Azure App Service au moyen de connexions hybrides
 
@@ -32,7 +30,7 @@ Dans ce didacticiel, vous allez apprendre à créer une application web App Serv
 
 Pour réaliser ce didacticiel, vous avez besoin des produits suivants. Tous sont disponibles gratuitement, de sorte que vous pouvez commencer à développer gratuitement pour Azure.
 
-- **Abonnement Azure** : pour un abonnement gratuit, consultez la page [Version d'évaluation gratuite d'Azure](/pricing/free-trial/). 
+- **Abonnement Azure** : pour un abonnement gratuit, consultez la page [Version d'évaluation gratuite d'Azure](/pricing/free-trial/).
 
 - **Visual Studio 2013** - Pour télécharger une version d'évaluation gratuite de Visual Studio 2013, consultez la page [Téléchargements Visual Studio](http://www.visualstudio.com/downloads/download-visual-studio-vs). Installez ceci avant de poursuivre.
 
@@ -56,7 +54,7 @@ Port|Pourquoi
 80|**Obligatoire** pour le port HTTP pour la validation du certificat et éventuellement la connectivité des données.
 443|**Facultatif** pour la connectivité des données. Si la connectivité sortante à 443 n'est pas disponible, le port TCP 80 est utilisé.
 5671 et 9352|**Recommandé** mais facultatif pour la connectivité des données. Notez que ce mode entraîne habituellement un débit plus élevé. Si la connectivité sortante à ces ports n'est pas disponible, le port TCP 443 est utilisé.
-- doit être capable d'accéder au *nom\_d'hôte*:*numéro\_de\_port* de votre ressource locale. 
+- doit être capable d'accéder au *nom\_d'hôte*:*numéro\_de\_port* de votre ressource locale.
 
 Les étapes décrites dans cet article partent du principe que vous utilisez le navigateur à partir de l'ordinateur qui hébergera l'agent de connexion hybride local.
 
@@ -70,25 +68,25 @@ Cette section explique comment installer SQL Server Express, activer TCP/IP et
 ### Installation de SQL Server Express ###
 
 1. Pour installer SQL Server Express, exécutez le fichier **SQLEXPRWT\_x64\_ENU.exe** ou **SQLEXPR\_x86\_ENU.exe** que vous avez téléchargé. Le Centre d'installation SQL Server s'affiche.
-	
+
 	![SQL Server Install][SQLServerInstall]
-	
+
 2. Choisissez **Nouvelle installation autonome SQL Server ou ajout de fonctionnalités à une installation existante**. Suivez les instructions, en acceptant les options et les paramètres par défaut, jusqu'à l'affichage de la page **Configuration de l'instance**.
-	
+
 3. Sur la page **Configuration de l'instance**, choisissez **Instance par défaut**.
-	
+
 	![Choose Default Instance][ChooseDefaultInstance]
-	
+
 	Par défaut, l'instance par défaut de SQL Server écoute les demandes des clients SQL Server sur le port statique 1433. C'est une exigence de la fonctionnalité Connexions hybrides. Les instances nommées utilisent des ports dynamiques et UDP, qui ne sont pas pris en charge par Connexions hybrides.
-	
+
 4. Acceptez les valeurs par défaut sur la page **Configuration du serveur**.
-	
+
 5. Sur la page **Configuration du moteur de base de données**, sous **Mode d'authentification**, choisissez **Mode mixte (authentification SQL Server et authentification Windows)** et fournissez un mot de passe.
-	
+
 	![Choose Mixed Mode][ChooseMixedMode]
-	
+
 	Dans ce didacticiel, vous allez utiliser l'authentification SQL Server. N'oubliez pas votre mot de passe, car vous en aurez besoin ultérieurement.
-	
+
 6. Parcourez les autres étapes de l'Assistant pour terminer l'installation.
 
 ### Activation de TCP/IP ###
@@ -100,67 +98,67 @@ Pour activer TCP/IP, vous allez utiliser le Gestionnaire de configuration SQL S
 Votre application Visual Studio nécessite une base de données d'appartenance à laquelle Azure puisse accéder. Il doit s'agir d'une base de données SQL Server ou SQL Server Express (et non de la base de données LocalDB utilisée par défaut par le modèle MVC). Vous allez donc créer ensuite la base de données d'appartenance.
 
 1. Dans SQL Server Management Studio, connectez-vous à l'instance SQL Server que vous venez d'installer. (Si la boîte de dialogue **Se connecter au serveur** ne s’affiche pas automatiquement, accédez à l’**Explorateur d’objets** dans le volet gauche, cliquez sur **Se connecter**, puis sur **Moteur de base de données**.) ![Se connecter au serveur][SSMSConnectToServer]
-	
+
 	Dans la zone **Type de serveur**, choisissez **Moteur de base de données**. Dans la zone **Nom du serveur**, vous pouvez utiliser **localhost** ou le nom de l'ordinateur dont vous vous servez. Choisissez **Authentification SQL Server**, puis ouvrez une session avec le nom d'utilisateur sa et le mot de passe que vous avez créé précédemment.
-	
+
 2. Pour créer une base de données avec SQL Server Management Studio, cliquez avec le bouton droit sur **Bases de données** dans l'Explorateur d'objets, puis cliquez sur **Nouvelle base de données**.
-	
+
 	![Create new database][SSMScreateNewDB]
-	
+
 3. Dans la boîte de dialogue **Nouvelle base de données**, entrez MembershipDB comme nom de base de données, puis cliquez sur **OK**.
-	
+
 	![Provide database name][SSMSprovideDBname]
-	
+
 	Notez qu'à ce stade, vous n'apportez aucune modification à la base de données. Les informations d'appartenance seront ajoutées automatiquement plus tard par votre application web, lorsque vous l'exécuterez.
-	
+
 4. Dans l'Explorateur d'objets, si vous développez **Bases de données**, vous pouvez constater que la base de données d'appartenance a été créée.
-	
+
 	![MembershipDB created][SSMSMembershipDBCreated]
-	
+
 <a name="CreateSite"></a>
 ## B. Création d’une application web dans la version préliminaire du portail Azure ##
 
 > [AZURE.NOTE]Si vous avez déjà créé dans la version préliminaire du portail Azure une application web que vous voulez utiliser pour ce didacticiel, passez directement à la section [Création d’une connexion hybride et d’un service BizTalk](#CreateHC).
 
 1. Dans la [version préliminaire du portail Azure](https://portal.azure.com), cliquez sur **Nouveau** > **Web et mobilité** > **Application web**.
-	
+
 	![New button][New]
-	
+
 2. Configurez votre application web, puis cliquez sur **Créer**.
-	
+
 	![Website name][WebsiteCreationBlade]
-	
+
 3. Après quelques instants, l’application web est créée et son panneau apparaît. Le panneau est un tableau de bord à défilement vertical, qui vous permet de gérer votre application web.
-	
+
 	![Website running][WebSiteRunningBlade]
-	
+
 	Pour vérifier que l’application est active, cliquez sur l’icône **Parcourir** afin d’afficher la page par défaut.
-	
+
 Vous allez ensuite créer une connexion hybride et un service BizTalk pour l’application web.
 
 <a name="CreateHC"></a>
 ## C. Création d'une connexion hybride et d'un service BizTalk ##
 
-1. Dans le portail, faites défiler le panneau de votre application web et cliquez sur **Connexions hybrides**.
-	
+1. Dans le portail, faites défiler le panneau de votre application web et cliquez sur **État de la fonctionnalité réseau** > **Configurer les points de terminaison de votre connexion hybride**.
+
 	![Hybrid connections][CreateHCHCIcon]
-	
+
 2. Dans le panneau Connexions hybrides, cliquez sur **Ajouter** > **Nouvelle connexion hybride**.
-	
-3. Dans le volet **Créer une connexion hybride** :
+
+3. Dans le panneau **Créer une connexion hybride** :
 	- Sous **Nom**, entrez un nom pour la connexion.
 	- Sous **Nom d'hôte**, entrez le nom de votre ordinateur hôte SQL Server.
 	- Sous **Port**, entrez 1433 (le port par défaut pour SQL Server).
-	- Cliquez sur **Service Biz Talk** et entrez le nom du service BizTalk.
-	
+	- Cliquez sur **Service BizTalk** > **Nouveau service BizTalk** et entrez un nom pour le service BizTalk.
+
 	![Create a hybrid connection][TwinCreateHCBlades]
-		
+
 5. Cliquez sur **OK** deux fois.
 
 	Lorsque le processus est terminé, la zone **Notifications** zone affiche la mention **SUCCÈS** en vert clignotant et le panneau **Connexion hybride** affiche la nouvelle connexion hybride dans l’état **Non connecté**.
-	
+
 	![One hybrid connection created][CreateHCOneConnectionCreated]
-	
+
 À ce stade, vous avez terminé une partie importante de l'infrastructure de connexion hybride cloud. Vous allez ensuite créer un élément local.
 
 <a name="InstallHCM"></a>
@@ -175,19 +173,19 @@ Maintenant que l’infrastructure de connexion hybride est terminée, vous pouve
 
 ### Création d'un projet ASP.NET de base ###
 1. À partir du menu **Fichier** de Visual Studio, créez un nouveau projet :
-	
+
 	![New Visual Studio project][HCVSNewProject]
-	
+
 2. Dans la section **Modèles** de la boîte de dialogue **Nouveau projet**, sélectionnez **Web** et choisissez **Application Web ASP.NET**, puis cliquez sur **OK**.
-	
+
 	![Choose ASP.NET Web Application][HCVSChooseASPNET]
-	
+
 3. Dans la boîte de dialogue **Nouveau projet ASP.NET**, choisissez **MVC**, puis cliquez sur **OK**.
-	
+
 	![Choose MVC][HCVSChooseMVC]
-	
+
 4. Lorsque le projet a été créé, la page lisezmoi (readme) de l'application s'affiche. N'exécutez pas le projet web immédiatement.
-	
+
 	![Readme page][HCVSReadmePage]
 
 ### Modification de la chaîne de connexion à la base de données pour l'application ###
@@ -197,39 +195,39 @@ Au cours de cette étape, vous allez modifier la chaîne de connexion qui indiqu
 > [AZURE.NOTE]Pour vous assurer que votre application utilise la base de données que vous avez créée dans SQL Server Express, et non la base de données LocalDB par défaut de Visual Studio, il est important d'effectuer cette opération avant d'exécuter votre projet.
 
 1. Dans l'Explorateur de solutions, double-cliquez sur le fichier Web.config.
-	
+
 	![Web.config][HCVSChooseWebConfig]
-	
+
 2. Modifiez la section **connectionStrings** pour pointer vers la base de données SQL Server sur votre ordinateur local, en utilisant la syntaxe de l'exemple suivant :
-	
+
 	![Chaîne de connexion][HCVSConnectionString]
-	
+
 	Lors de la composition de la chaîne de connexion, gardez à l'esprit ce qui suit :
-	
-	- Si vous vous connectez à une instance nommée plutôt qu'à une instance par défaut (par exemple, VotreServeur\\SQLEXPRESS), vous devez configurer votre instance SQL Server de manière à ce qu'elle utilise des ports statiques. Pour des informations sur la configuration des ports statiques, consultez la page [Configuration de SQL Server pour qu'il écoute sur un port spécifique](http://support.microsoft.com/kb/823938). Par défaut, les instances nommées utilisent UDP et des ports dynamiques, qui ne sont pas pris en charge par Connexions hybrides. 
-	
+
+	- Si vous vous connectez à une instance nommée plutôt qu'à une instance par défaut (par exemple, VotreServeur\\SQLEXPRESS), vous devez configurer votre instance SQL Server de manière à ce qu'elle utilise des ports statiques. Pour des informations sur la configuration des ports statiques, consultez la page [Configuration de SQL Server pour qu'il écoute sur un port spécifique](http://support.microsoft.com/kb/823938). Par défaut, les instances nommées utilisent UDP et des ports dynamiques, qui ne sont pas pris en charge par Connexions hybrides.
+
 	- Il est recommandé de spécifier le port (1433 par défaut, comme indiqué dans l'exemple) dans la chaîne de connexion pour pouvoir être sûr que TCP est activé sur votre instance SQL Server locale et que cette dernière utilise le port correct.
-	
+
 	- Pensez à utiliser Authentification SQL Server pour la connexion, en indiquant l'ID utilisateur et le mot de passe dans votre chaîne de connexion.
-	
+
 3. Cliquez sur **Enregistrer** dans Visual Studio pour enregistrer le fichier Web.config.
 
 ### Exécution du projet localement et inscription d'un nouvel utilisateur ###
 
 1. Exécutez maintenant votre nouveau projet web localement en cliquant sur le bouton Parcourir sous Débogage. Cet exemple utilise Internet Explorer.
-	
+
 	![Run project][HCVSRunProject]
-	
+
 2. En haut à droite de la page web par défaut, choisissez **Inscription** pour enregistrer un nouveau compte :
-	
+
 	![Register a new account][HCVSRegisterLocally]
-	
+
 3. Entrez un nom d'utilisateur et un mot de passe :
-	
+
 	![Enter user name and password][HCVSCreateNewAccount]
-	
+
 	Ceci crée automatiquement sur votre instance SQL Server locale une base de données qui contient les informations d'appartenance pour votre application. L’une des tables (**dbo.AspNetUsers**) contient les informations d’identification des utilisateurs de l’application web, comme celles que vous venez d’entrer. Cette table sera abordée plus loin dans le didacticiel.
-	
+
 4. Fermez la fenêtre de navigateur de la page web par défaut. L'application est alors arrêtée dans Visual Studio.
 
 Vous êtes prêt à passer à l'étape suivante, qui consiste à publier l'application sur Azure et à la tester.
@@ -242,29 +240,29 @@ Vous allez maintenant publier votre application dans votre application web App S
 ### Publication de l'application web ###
 
 1. Vous pouvez télécharger votre profil de publication de l’application web App Service dans la version préliminaire du portail Azure. Dans le panneau de votre application web, cliquez sur **Obtenir le profil de publication**, puis enregistrez le fichier sur votre ordinateur.
-	
+
 	![Télécharger le profil de publication][PortalDownloadPublishProfile]
-	
+
 	Vous allez ensuite importer ce fichier dans votre application web Visual Studio.
-	
+
 2. Dans Visual Studio, cliquez avec le bouton droit sur le nom du projet dans l'Explorateur de solutions et sélectionnez **Publier**.
-	
+
 	![Select publish][HCVSRightClickProjectSelectPublish]
-	
+
 3. Dans la boîte de dialogue **Publier le site Web**, sous l'onglet **Profil**, choisissez **Importer**.
-	
+
 	![Importer][HCVSPublishWebDialogImport]
-	
+
 4. Recherchez votre profil de publication téléchargé, sélectionnez-le, puis cliquez sur **OK**.
-	
+
 	![Browse to profile][HCVSBrowseToImportPubProfile]
-	
+
 5. Vos informations de publication sont importées et s'affichent sous l'onglet **Connexion** de la boîte de dialogue.
-	
+
 	![Cliquer sur Publier][HCVSClickPublish]
-	
+
 	Cliquez sur **Publier**.
-	
+
 	Lorsque la publication est terminée, votre navigateur démarre et affiche votre application ASP.NET qui est maintenant active dans le cloud Azure !
 
 Vous allez ensuite utiliser votre application web active pour voir sa connexion hybride en action.
@@ -272,25 +270,25 @@ Vous allez ensuite utiliser votre application web active pour voir sa connexion 
 ### Test de l'application web terminée sur Azure ###
 
 1. En haut à droite de votre page web sur Azure, choisissez **Ouvrir une session**.
-	
+
 	![Test log in][HCTestLogIn]
-	
+
 2. Votre application web App Service est maintenant connectée à la base de données des membres de votre application web sur votre ordinateur local. Pour le vérifier, ouvrez une session avec les mêmes informations d'identification que celles entrées préalablement dans la base de données locale.
-	
+
 	![Hello greeting][HCTestHelloContoso]
-	
+
 3. Pour tester davantage votre nouvelle connexion hybride, déconnectez-vous de votre application web Azure et inscrivez-vous avec d'autres informations d'identification. Fournissez un nouveau nom d'utilisateur et un nouveau mot de passe, puis cliquez sur **Inscription**.
-	
+
 	![Test register another user][HCTestRegisterRelecloud]
-	
+
 4. Pour vérifier que les informations d'identification du nouvel utilisateur ont été stockées dans votre base de données locale par l'intermédiaire de votre connexion hybride, ouvrez SQL Management Studio sur votre ordinateur local. Dans l'Explorateur d'objets, développez la base de données **MembershipDB**, puis développez **Tables**. Cliquez avec le bouton droit sur la table d'appartenance **dbo.AspNetUsers** et choisissez **Sélectionner les 1000 premières lignes** pour afficher les résultats.
-	
+
 	![View the results][HCTestSSMSTree]
-	
+
 5. Votre table d'appartenance locale indique à présent les deux comptes : celui que vous avez créé localement et celui que vous avez créé dans le cloud Azure. Celui que vous avez créé dans le cloud a été enregistré dans votre base de données locale par le biais de la fonctionnalité Connexions hybrides d'Azure.
-	
+
 	![Registered users in on-premises database][HCTestShowMemberDb]
-	
+
 Vous venez de créer et déployer une application web ASP.NET qui utilise une connexion hybride entre une application web dans le cloud Azure et une base de données SQL Server locale. Félicitations !
 
 ## Voir aussi ##
@@ -311,7 +309,7 @@ Vous venez de créer et déployer une application web ASP.NET qui utilise une co
 [Vue d’ensemble d’ASP.NET Identity](http://www.asp.net/identity)
 
 [AZURE.INCLUDE [app-service-web-whats-changed](../../includes/app-service-web-whats-changed.md)]
- 
+
 
 <!-- IMAGES -->
 [SQLServerInstall]: ./media/web-sites-hybrid-connection-connect-on-premises-sql-server/A01SQLServerInstall.png
@@ -364,6 +362,5 @@ Vous venez de créer et déployer une application web ASP.NET qui utilise une co
 [HCTestRegisterRelecloud]: ./media/web-sites-hybrid-connection-connect-on-premises-sql-server/F09HCTestRegisterRelecloud.png
 [HCTestSSMSTree]: ./media/web-sites-hybrid-connection-connect-on-premises-sql-server/F10HCTestSSMSTree.png
 [HCTestShowMemberDb]: ./media/web-sites-hybrid-connection-connect-on-premises-sql-server/F11HCTestShowMemberDb.png
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

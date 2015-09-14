@@ -22,54 +22,59 @@
 Ce document contient la liste des formats de fichier d’importation et d’exportation les plus courants que vous pouvez utiliser avec l’encodeur multimédia.
 
 
-[Formats d’importation de l’encodeur multimédia ](#import_formats)
+##Formats de conteneurs/fichiers d’entrée
 
-[Formats d’exportation Media Encoder](#export_formats)
-
-
-##<a id="import_formats"></a>Formats d’importation de Media Encoder Standard 
-
-La section suivante répertorie les codecs et les formats de fichiers pris en charge pour l'importation.
-
-
-##Codecs vidéo :
-
-- MPEG-2
-- H.264
-- YUV420 non compressé ou mezzanine
-- DNxHD
-- VC-1/WMV9
-- MPEG-4 Part 2
-- JPEG 2000
-- Theora
-
-###Codecs audio
-
-- PCM
-- AAC (AAC-LC, AAC-HE et AAC-HEv2)
-- WMA9/Pro
-- MP3 (MPEG-1 Audio Layer 3)
-- FLAC
-- Opus
-- Vorbis
+Formats de fichier (extensions de fichier)|Pris en charge
+---|---|---|---
+FLV (avec les codecs H.264 et AAC) (.flv) |Oui 
+MXF (.mxf) |Oui 
+GXF (.gxf) |Oui 
+MPEG2-PS, MPEG2-TS, 3GP (.ts, .ps, .3gp) |Oui 
+Windows Media Video (WMV)/ASF (.wmv, .asf) |Oui 
+AVI (8 bits/10 bits non compressé) (.avi)|Oui 
+MP4/ISMV (.ismv)|Oui 
+[Microsoft Digital Video Recording (DVR-MS)](https://msdn.microsoft.com/library/windows/desktop/dd692984) (.dvr-ms) |Oui 
+Matroska/WebM (.mkv) |Oui 
+WAVE/WAV (.wav) |Oui 
  
-###Formats
 
-Format de fichier|Extensions de fichiers
----|---
-FLV (avec les codecs H.264 et AAC) |.flv
-MP4/ISMV|*.ismv
-MPEG2-PS, MPEG2-TS, 3GP|.ts, .ps, .3gp
-MXF|.mxf
-WMV/ASF|.mwv, .asf
-DVR-MS|.dvr-ms 
-AVI|.avi
-Matroska|.mkv
-GXF|.gxf
-WAVE/WAV |.wav
+##Codecs vidéo d’entrée
+
+Codecs vidéo d’entrée|Pris en charge
+---|---|---|---
+AVC 8 bits/10 bits, jusqu'à 4:2:2, y compris AVCIntra |8 bits 4:2:0 et 4:2:2 
+Avid DNxHD (dans MXF) |Oui 
+DVCPro/DVCProHD (dans MXF) |Oui 
+JPEG 2000 |Oui 
+MPEG-2 (jusqu’au profil 422 et haut niveau ; y compris les variantes telles que XDCAM, XDCAM HD, XDCAM IMX, CableLabs® et D10)|Jusqu’à un profil de 422 
+MPEG-1 |Oui 
+VC-1/WMV9 |Oui 
+Canopus HQ/HQX |Non 
+MPEG-4 partie 2 |Oui 
+[Theora](https://en.wikipedia.org/wiki/Theora) |Oui 
+YUV420 non compressé ou mezzanine |Oui
 
 
-##<a id="export_formats"></a>Formats d’exportation de Media Encoder Standard
+##Codecs audio d’entrée
+
+Codecs audio d’entrée|Pris en charge
+---|---|---|---
+AAC (AAC-LC, AAC-HE et AAC-HEv2 ; jusqu’à 5.1)|Oui 
+MPEG Layer 2|Oui 
+MP3 (MPEG-1 Audio Layer 3)|Oui 
+Windows Media Audio|Oui 
+WAV/PCM|Oui 
+[FLAC](https://en.wikipedia.org/wiki/FLAC)</a>|Oui 
+[Opus](https://en.wikipedia.org/wiki/Opus_(audio_format) |Oui 
+[Vorbis](https://en.wikipedia.org/wiki/Vorbis)</a>|Oui 
+AMR (adaptive multi-rate)|Oui
+AES (SMPTE 331M et 302M, AES3-2003) |Non 
+Dolby® E |Non 
+Dolby® Digital (AC3) |Non 
+Dolby® Digital Plus (E-AC3) |Non 
+
+
+##Formats de sortie et codecs
 
 Le tableau suivant répertorie les codecs et les formats de fichiers pris en charge pour l'exportation.
 
@@ -83,4 +88,6 @@ MPEG2-TS |H.264 (profils High, Main et Baseline)|AAC-LC, HE-AAC v1, HE-AAC v2
 
 [Encodage de contenu à la demande avec Azure Media Services](media-services-encode-asset.md)
 
-<!---HONumber=August15_HO9-->
+[Encodage avec Media Encoder Standard](media-services-dotnet-encode-with-media-encoder-standard.md)
+
+<!---HONumber=September15_HO1-->

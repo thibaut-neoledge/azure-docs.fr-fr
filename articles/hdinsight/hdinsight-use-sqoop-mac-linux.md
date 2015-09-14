@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/15/2015"
+	ms.date="09/02/2015"
 	ms.author="larryfr"/>
 
 #Utilisation de Sqoop avec Hadoop dans HDInsight (SSH)
@@ -159,7 +159,7 @@ Vous allez tout d’abord exporter **hivesampletable**, dans une table nommée *
 
 2. Utilisez la commande suivante pour créer un lien vers le pilote JDBC SQL Server à partir du répertoire de la bibliothèque Sqoop. Sqoop peut ainsi utiliser ce pilote pour communiquer avec la base de données SQL :
 
-        sudo ln /usr/share/java/sqljdbc_4.1/enu/sqljdbc4.jar /usr/hdp/current/sqoop-client/lib/sqljdbc4.jar
+        sudo ln /usr/share/java/sqljdbc_4.1/enu/sqljdbc41.jar /usr/hdp/current/sqoop-client/lib/sqljdbc41.jar
 
 3. Utilisez la commande suivante pour vérifier que Sqoop peut voir votre base de données SQL :
 
@@ -263,4 +263,4 @@ Vous maîtrisez à présent l'utilisation de Sqoop. Pour plus d'informations, co
 
 [sqoop-user-guide-1.4.4]: https://sqoop.apache.org/docs/1.4.4/SqoopUserGuide.html
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

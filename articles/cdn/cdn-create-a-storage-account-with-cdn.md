@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/18/2015"
+	ms.date="09/01/2015"
 	ms.author="mazha"/>
 
 
@@ -112,7 +112,7 @@ La capacité à purger immédiatement le contenu n’est actuellement pas prise 
 [How to Register a Custom Subdomain Name for Accessing Blobs in Azure]: ../storage-custom-domain-name.md
 [Création d’un groupe d’affinités dans Azure]: http://msdn.microsoft.com/library/azure/ee460798.aspx
 [Overview of the Azure CDN]: cdn-overview.md
-[Gestion des comptes de stockage pour un abonnement Azure]: https://msdn.microsoft.com/fr-fr/library/azure/hh531793.aspx
+[Gestion des comptes de stockage pour un abonnement Azure]: https://msdn.microsoft.com/fr-FR/library/azure/hh531793.aspx
 [Mappage du contenu CDN à un domaine personnalisé]: cdn-map-content-to-custom-domain.md
 
 
@@ -120,4 +120,4 @@ La capacité à purger immédiatement le contenu n’est actuellement pas prise 
 
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=September15_HO1-->

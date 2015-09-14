@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Déplacement de données à partir d'un serveur SQL local vers SQL Azure avec Azure Data Factory | Azure" 
-	description="Configuration d’un pipeline ADF composé de deux activités de migration des données qui déplacent quotidiennement les données entre des bases de données locales et sur le cloud." 
-	services="machine-learning" 
-	documentationCenter="" 
-	authors="fashah" 
-	manager="jacob.spoelstra" 
-	editor="" />
+	pageTitle="Déplacement de données à partir d'un serveur SQL local vers SQL Azure avec Azure Data Factory | Azure"
+	description="Configuration d’un pipeline ADF composé de deux activités de migration des données qui déplacent quotidiennement les données entre des bases de données locales et sur le cloud."
+	services="machine-learning"
+	documentationCenter=""
+	authors="fashah"
+	manager="jacob.spoelstra"
+	editor=""/>
 
 <tags 
-	ms.service="machine-learning" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/10/2015" 
-	ms.author="fashah;bradsev" />
+	ms.service="machine-learning"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/10/2015"
+	ms.author="fashah;bradsev"/>
 
 
 # Déplacement de données à partir d'un serveur SQL local vers SQL Azure avec Azure Data Factory
@@ -85,7 +85,7 @@ Pour créer le service lié pour le SQL Server local, cliquez sur le **Magasin 
 Pour créer le service lié pour le compte de stockage d'objets blob Azure, cliquez sur le **Magasin de données** dans la page d'accueil ADF sur le portail Azure, sélectionnez *Compte de stockage Azure* et saisissez le nom de clé et le conteneur du compte stockage d'objets blob Azure. Nommez le service lié *adfds*.
 
 ###<a name="adf-linked-service-azure-sql"></a>Service lié pour base de données Azure SQL
-Pour créer le service lié pour la base de données Azure SQL locale, cliquez sur le **Magasin de données** dans la page d'accueil ADF sur le portail Azure, sélectionnez *Azure SQL* et saisissez les informations d'identification pour le *nom d'utilisateur* et le *mot de passe* pour la base de données Azure SQL locale. Le *nom d'utilisateur* doit être spécifié en tant que \**user@servername*.
+Pour créer le service lié pour la base de données Azure SQL locale, cliquez sur le **Magasin de données** dans la page d'accueil ADF sur le portail Azure, sélectionnez *Azure SQL* et saisissez les informations d'identification pour le *nom d'utilisateur* et le *mot de passe* pour la base de données Azure SQL locale. Le *nom d'utilisateur* doit être spécifié en tant que **user@servername*.
 
 
 ##<a name="adf-tables"></a>Définir et créer des tables pour spécifier l’accès aux jeux de données
@@ -299,4 +299,4 @@ Une fois que le pipeline s'exécute, vous devez être en mesure de voir des donn
 
 Notez que nous n'avons pas tiré parti de la fonctionnalité fournie par ADF de canaliser les données de manière incrémentielle. Pour plus d'informations sur son utilisation et d’autres fonctionnalités fournies par ADF, consultez la [documentation ADF](http://azure.microsoft.com/services/data-factory/).
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=September15_HO1-->

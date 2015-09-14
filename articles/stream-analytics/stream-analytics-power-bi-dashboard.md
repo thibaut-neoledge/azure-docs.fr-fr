@@ -1,23 +1,20 @@
 <properties 
-	pageTitle="Tableau de bord d’alimentation sur Stream Analytics | Microsoft Azure" 
-	description="Utilisez un tableau de bord Power BI de diffusion en temps réel pour collecter des informations d’analyse décisionnelle et analyser les données volumineuses à partir d’un travail Stream Analytics." 
-	keywords="business intelligence tools,power bi,streaming data,power bi dashboard"	
-	services="stream-analytics" 
-	documentationCenter="" 
-	authors="jeffstokes72" 
-	manager="paulettm" 
+	pageTitle="Tableau de bord d’alimentation sur Stream Analytics | Microsoft Azure"
+	description="Utilisez un tableau de bord Power BI de diffusion en temps réel pour collecter des informations d’analyse décisionnelle et analyser les données volumineuses à partir d’un travail Stream Analytics."
+	services="stream-analytics"
+	documentationCenter=""
+	authors="jeffstokes72"
+	manager="paulettm"
 	editor="cgronlun"/>
 
-
 <tags 
-	ms.service="stream-analytics" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.tgt_pltfrm="na" 
-	ms.workload="data-services" 
-	ms.date="08/03/2015" 
+	ms.service="stream-analytics"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="data-services"
+	ms.date="08/27/2015"
 	ms.author="jeffstok"/>
-
 	
 # Azure Stream Analytics & Power BI : tableau de bord en direct pour analyser en temps réel les flux de données
 
@@ -187,10 +184,18 @@ Cela signifie que nous pouvons modifier la requête d’origine :
     	TUMBLINGWINDOW(ss,4),
     	dspl
 
+## Renouveler une autorisation
 
+Il existe une limitation temporaire selon laquelle le jeton d'authentification doit être actualisé manuellement tous les 90 jours pour toutes les tâches avec une sortie Power BI. Vous devrez également authentifier de nouveau votre compte Power BI si son mot de passe a été modifié depuis la création ou la dernière authentification de votre tâche. Un symptôme de ce problème est l’absence de résultat de la tâche et une « erreur d'authentification de l’utilisateur » dans les journaux des opérations :
+
+![graphic12][graphic12]
+
+Pour résoudre ce problème, arrêtez votre tâche en cours d'exécution et accédez à votre sortie Power BI. Cliquez sur le lien « Renouveler l’autorisation », puis redémarrez votre tâche depuis l’heure du dernier arrêt pour éviter de perdre des données.
+
+![graphic13][graphic13]
 
 ## Obtenir de l'aide ##
-Pour obtenir une assistance, essayez notre [forum Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
+Pour obtenir une assistance, essayez notre [forum Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/fr-FR/home?forum=AzureStreamAnalytics)
 
 ## Étapes suivantes ##
 
@@ -212,5 +217,7 @@ Pour obtenir une assistance, essayez notre [forum Azure Stream Analytics](https:
 [graphic9]: ./media/stream-analytics-power-bi-dashboard/9-stream-analytics-power-bi-dashboard.png
 [graphic10]: ./media/stream-analytics-power-bi-dashboard/10-stream-analytics-power-bi-dashboard.png
 [graphic11]: ./media/stream-analytics-power-bi-dashboard/11-stream-analytics-power-bi-dashboard.png
+[graphic12]: ./media/stream-analytics-power-bi-dashboard/12-stream-analytics-power-bi-dashboard.png
+[graphic13]: ./media/stream-analytics-power-bi-dashboard/13-stream-analytics-power-bi-dashboard.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

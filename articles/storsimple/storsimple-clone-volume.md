@@ -1,29 +1,27 @@
 <properties
    pageTitle="Clonage de votre volume StorSimple | Microsoft Azure"
-   description="Décrit les différents types de clone et les moments auxquels les utiliser et explique comment vous pouvez utiliser un jeu de sauvegarde pour cloner un volume individuel."
-   services="storsimple"
-   documentationCenter="NA"
-   authors="alkohli"
-   manager="adinah"
-   editor="tysonn" />
+	description="Décrit les différents types de clone et les moments auxquels les utiliser et explique comment vous pouvez utiliser un jeu de sauvegarde pour cloner un volume individuel."
+	services="storsimple"
+	documentationCenter="NA"
+	authors="alkohli"
+	manager="carolz"
+	editor=""/>
 <tags 
    ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="08/11/2015"
-   ms.author="alkohli" />
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="TBD"
+	ms.date="08/27/2015"
+	ms.author="alkohli"/>
 
-# Clonage d’un volume StorSimple
+# Utiliser le service StorSimple Manager pour cloner un volume
 
-## Vue d'ensemble
+## Vue d’ensemble
 
-La page **Catalogue de sauvegarde** affiche tous les jeux de sauvegarde créés lors de sauvegardes manuelles ou automatisées. Vous pouvez utiliser cette page pour répertorier toutes les sauvegardes pour une stratégie de sauvegarde ou un volume, sélectionner ou supprimer des sauvegardes, ou utiliser une sauvegarde pour restaurer ou cloner un volume.
+La page **Catalogue de sauvegarde** du service StorSimple Manager affiche tous les jeux de sauvegarde créés lors de sauvegardes manuelles ou automatisées. Vous pouvez utiliser cette page pour répertorier toutes les sauvegardes pour une stratégie de sauvegarde ou un volume, sélectionner ou supprimer des sauvegardes, ou utiliser une sauvegarde pour restaurer ou cloner un volume.
 
-  ![catalogue-sauvegarde](./media/storsimple-clone-volume/HCS_BackupCatalog.png)
-
-**Figure 1 : catalogue de sauvegarde**
+  ![Page Catalogue de sauvegarde](./media/storsimple-clone-volume/HCS_BackupCatalog.png)
 
 Ce didacticiel explique comment vous pouvez utiliser un jeu de sauvegarde pour cloner un volume individuel. Il explique également la différence entre les clones *temporaires* et *permanents*.
 
@@ -37,7 +35,7 @@ Vous pouvez créer un clone sur le même appareil, sur un autre ou même une mac
 
 2. Développez le jeu de sauvegarde pour afficher les volumes associés. Cliquez sur un volume et sélectionnez-le dans le jeu de sauvegarde.
 
-     ![Cloner](./media/storsimple-clone-volume/HCS_Clone.png)
+     ![Clonage d’un volume](./media/storsimple-clone-volume/HCS_Clone.png)
 
 3. Cliquez sur **Cloner** pour commencer le clonage du volume sélectionné.
 
@@ -91,4 +89,4 @@ Découvrez comment [restaurer un volume StorSimple à partir d’un jeu de sauve
 
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=September15_HO1-->

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Création d'une application avec un client mobile et web dans Azure App Service"
+	pageTitle="Créer une application avec un client mobile et web dans Azure App Service | Microsoft Azure"
 	description="Créez une application multi-canal avec un site web et un client mobile dans Azure App Service."
 	services="app-service\mobile"
 	documentationCenter=".net"
@@ -19,6 +19,5 @@
 # Création d'une application avec un client mobile et web dans Azure App Service
 
 [AZURE.INCLUDE [app-service-mobile-dotnet-backend-web-and-mobile](../../includes/app-service-mobile-dotnet-backend-web-and-mobile.md)]
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

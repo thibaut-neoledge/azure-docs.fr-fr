@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Navigateurs et appareils pris en charge" 
-	description="" 
-	services="" 
-	documentationCenter="" 
-	authors="flanakin" 
-	manager="lwelicki" 
+	pageTitle="Navigateurs et appareils pris en charge"
+	description=""
+	services=""
+	documentationCenter=""
+	authors="flanakin"
+	manager="lwelicki"
 	editor=""/>
 
 <tags 
-	ms.service="multiple" 
-	ms.workload="multiple" 
-	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/23/2015" 
+	ms.service="multiple"
+	ms.workload="multiple"
+	ms.tgt_pltfrm="ibiza"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/23/2015"
 	ms.author="micflan"/>
 
 #Navigateurs et appareils pris en charge
@@ -25,11 +25,12 @@ Le portail fonctionne parfaitement sur les PC, les Mac et les tablettes modernes
 ### Navigateurs pris en charge
 Les versions les plus récentes des navigateurs suivants sont prises en charge :
 
+- Edge (version la plus récente)
 - Internet Explorer (11 et versions ultérieures)
 - Safari (7 et versions ultérieures)
-- Chrome (la dernière version)
-- Firefox (la dernière version)
+- Chrome (version la plus récente)
+- Firefox (version la plus récente)
 
 *Safari 6 et les versions antérieures ne sont pas pris en charge. Si vous utilisez OS X, vous avez le choix entre Chrome et Firefox, ou vous pouvez passer à OS X Mavericks pour utiliser Safari 7.*
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=September15_HO1-->

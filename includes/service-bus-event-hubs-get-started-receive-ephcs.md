@@ -4,7 +4,7 @@
 
 Pour utiliser [EventProcessorHost], vous devez disposer d'un [compte Azure Storage] :
 
-1. Connectez-vous au [portail de gestion Azure] et cliquez sur **NOUVEAU** en bas de l'écran.
+1. Connectez-vous au [portail Azure] et cliquez sur **NOUVEAU** en bas de l’écran.
 
 2. Cliquez sur **Services de données**, sur **Stockage**, puis sur **Création rapide**, et tapez un nom pour votre compte de stockage. Sélectionnez la région de votre choix, puis cliquez sur **Créer un compte de stockage**.
 
@@ -28,7 +28,7 @@ Pour utiliser [EventProcessorHost], vous devez disposer d'un [compte Azure Stora
 
     ![][13]
 
-	Cette opération lance le téléchargement, l'installation et ajoute une référence au <a href="https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost">Package NuGet Azure Service Bus Event Hub - EventProcessorHost</a>, avec toutes les dépendances associées.
+	Cette opération lance le téléchargement, l'installation et ajoute une référence au [Package NuGet Azure Service Bus Event Hub - EventProcessorHost](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost), avec toutes les dépendances associées.
 
 7. Cliquez avec le bouton droit sur le projet **Récepteur**, cliquez sur **Ajouter**, puis cliquez sur **Classe**. Nommez la nouvelle classe **SimpleEventProcessor**, puis cliquez sur **OK** pour créer la classe.
 
@@ -112,12 +112,12 @@ Pour utiliser [EventProcessorHost], vous devez disposer d'un [compte Azure Stora
 > [AZURE.NOTE]Ce didacticiel utilise une seule instance d'[EventProcessorHost]. Pour augmenter le débit, il est recommandé d'exécuter plusieurs instances d'[EventProcessorHost], comme illustré dans l'exemple de [traitement d'événement mis à l'échelle]. Dans ces cas, les différentes instances se coordonnent automatiquement entre elles afin d'équilibrer la charge des événements reçus. Si vous souhaitez que plusieurs récepteurs traitent *tous* les événements, vous devez utiliser le concept **ConsumerGroup**. Au moment de la réception des événements à partir de différents ordinateurs, il peut être utile de spécifier des noms pour les instances d'[EventProcessorHost] basées sur les ordinateurs (ou rôles) dans lesquels ils sont déployés. Pour plus d'informations sur ces sujets, consultez les rubriques [Vue d'ensemble d'Event Hubs] et [Guide de programmation Event Hubs].
 
 <!-- Links -->
-[Vue d'ensemble d'Event Hubs]: http://azure.microsoft.com/documentation/articles/event-hubs-overview/
+[Vue d'ensemble d'Event Hubs]: event-hubs-overview.md
 [traitement d'événement mis à l'échelle]: https://code.msdn.microsoft.com/windowsazure/Service-Bus-Event-Hub-45f43fc3
 [traitement d’événement mis à l’échelle]: https://code.msdn.microsoft.com/windowsazure/Service-Bus-Event-Hub-45f43fc3
-[compte Azure Storage]: http://azure.microsoft.com/documentation/articles/storage-create-storage-account/
+[compte Azure Storage]: storage-create-storage-account.md
 [EventProcessorHost]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventprocessorhost(v=azure.95).aspx
-[portail de gestion Azure]: http://manage.windowsazure.com
+[portail Azure]: http://manage.windowsazure.com
 
 <!-- Images -->
 
@@ -126,8 +126,8 @@ Pour utiliser [EventProcessorHost], vous devez disposer d'un [compte Azure Stora
 [13]: ./media/service-bus-event-hubs-getstarted/create-eph-csharp1.png
 [14]: ./media/service-bus-event-hubs-getstarted/create-sender-csharp1.png
 
-[Guide de programmation Event Hubs]: http://azure.microsoft.com/documentation/articles/event-hubs-programming-guide/
+[Guide de programmation Event Hubs]: event-hubs-programming-guide.md
 [Async Await in Console Apps]: http://blogs.msdn.com/b/pfxteam/archive/2012/01/20/10259049.aspx
 [AsyncPump.cs]: http://blogs.msdn.com/cfs-file.ashx/__key/communityserver-components-postattachments/00-10-25-90-49/AsyncPump_2E00_cs
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

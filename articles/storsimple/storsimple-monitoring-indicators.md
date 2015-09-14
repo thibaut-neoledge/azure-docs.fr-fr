@@ -1,23 +1,23 @@
 <properties 
-    pageTitle="Indicateurs de surveillance de StorSimple | Microsoft Azure" 
-    description="Décrit les voyants LED et les alarmes utilisés pour analyser l’état de l’appareil StorSimple."
-    services="storsimple"
-    documentationCenter="NA"
-    authors="SharS"
-    manager="adinah"
-    editor="" />
+    pageTitle="Indicateurs de surveillance de StorSimple | Microsoft Azure"
+	description="Décrit les diodes électroluminescentes (LED) et les alarmes sonores utilisées pour analyser l’état de l’appareil StorSimple."
+	services="storsimple"
+	documentationCenter="NA"
+	authors="SharS"
+	manager="carolz"
+	editor=""/>
  <tags 
     ms.service="storsimple"
-    ms.devlang="NA"
-    ms.topic="article"
-    ms.tgt_pltfrm="NA"
-    ms.workload="TBD"
-    ms.date="08/14/2015"
-    ms.author="v-sharos" />
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="TBD"
+	ms.date="08/31/2015"
+	ms.author="v-sharos"/>
 
-# Indicateurs de surveillance de StorSimple   
+# Utiliser les indicateurs de suivi StorSimple pour gérer votre appareil   
 
-## Vue d'ensemble
+## Vue d’ensemble
 
 Votre appareil StorSimple comprend des diodes électroluminescentes (LED) et des alarmes que vous pouvez utiliser pour analyser l’état général de l’appareil StorSimple. Vous trouverez les indicateurs d’analyse sur les composants matériels du boîtier principal de l’appareil et sur le boîtier EBOD. Les indicateurs d’analyse peuvent être des LED ou des alarmes sonores.
 
@@ -33,9 +33,7 @@ Le reste de cet article décrit les différents voyants LED d’analyse, leur em
 
 Le panneau avant, également appelé *panneau de commande*, indique l’état d’ensemble de tous les modules du système. Le panneau avant est identique sur l’appareil StorSimple et le boîtier EBOD, comme illustré ci-dessous.
 
-   ![][1]
-
-**Figure 1 : Panneau avant de l’appareil**
+   ![Panneau avant de l’appareil][1]
  
 Le panneau avant comprend les indicateurs suivants :
 
@@ -72,10 +70,8 @@ Vous trouverez les voyants LED du module d’alimentation et de refroidissement 
 
 L’appareil StorSimple est équipé d’un module PCM de 764 W, avec une batterie supplémentaire. L’illustration suivante représente le panneau de LED de l’appareil.
 
-   ![][2]
+   ![LED de PCM du boîtier principal][2]
 
-**Figure 2 : LED de PCM du boîtier principal**
- 
 Légende des LED :
 
 1. Panne d’alimentation secteur
@@ -114,9 +110,7 @@ L’état du PCM est indiqué sur le panneau de LED. Le panneau de LED du PCM de
 
 Le boîtier EBOD est équipé d’un module PCM de 580 W, sans batterie supplémentaire. Le panneau PCM du boîtier EBOD comprend des voyants LED uniquement pour les alimentations et le ventilateur. L’illustration suivante représente ces LED.
 
-   ![][3]
-
-**Figure 3 : LED de PCM du boîtier EBOD**
+   ![LED de PCM du boîtier EBOD][3]
  
 Vous pouvez utiliser le tableau suivant pour déterminer l’état du PCM.
 
@@ -138,10 +132,8 @@ L’appareil StorSimple comprend des LED pour le contrôleur principal et les mo
 ### LED d’analyse pour le contrôleur principal
 L’illustration suivante vous aide à identifier les LED du contrôleur principal. (Tous les composants sont répertoriés pour faciliter la compréhension.)
 
-   ![][4]
+   ![LED de surveillance - Contrôleur principal][4]
  
-**Figure 4 : LED de surveillance - Contrôleur principal**
-
 Utilisez le tableau suivant pour déterminer si le module de contrôleur fonctionne correctement.
 
 ### Voyants LED du contrôleur  
@@ -162,10 +154,8 @@ Utilisez le tableau suivant pour déterminer si le module de contrôleur fonctio
 
 Chaque contrôleur EBOD SAS de 6 Gbits/s possède des LED qui indiquent son état, comme illustré ci-dessous.
 
-  ![][5]
+  ![LED de surveillance - Boîtier EBOD][5]
 
-**Figure 5 : LED de surveillance - Boîtier EBOD**
- 
 Utilisez le tableau suivant pour déterminer si le module de contrôleur EBOD fonctionne correctement.
 
 ### Voyants LED du module de contrôleur EBOD  
@@ -180,9 +170,7 @@ L’appareil StorSimple possède des lecteurs de disque à la fois dans le boît
 
 Pour les lecteurs de disque, l’état du lecteur est indiqué par une LED verte et une LED rouge-orange situées à l’avant de chaque module de support de disque. L’illustration suivante représente ces LED.
 
-  ![][6]
-
-**Figure 6 : LED des lecteurs de disque**
+  ![LED des lecteurs de disque][6]
  
 Utilisez le tableau suivant pour déterminer l’état de chaque lecteur de disque, qui affecte à son tour l’état d’ensemble des LED du panneau avant.
 
@@ -268,4 +256,4 @@ En savoir plus sur [les composants matériels StorSimple et leur état](storsimp
 
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=September15_HO1-->

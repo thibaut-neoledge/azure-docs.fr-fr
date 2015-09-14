@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Concevez votre premier pipeline en utilisant Azure Data Factory"
-	description="Ce didacticiel vous montre comment créer un pipeline de données d’exemple qui transforme des données à l'aide d'Azure HDInsight, en utilisant Visual Studio"
+	pageTitle="Concevez votre premier pipeline Azure Data Factory en utilisant Visual Studio"
+	description="Dans ce didacticiel, vous allez créer un exemple de pipeline Azure Data Factory à l'aide de Visual Studio."
 	services="data-factory"
 	documentationCenter=""
 	authors="spelluru"
@@ -16,7 +16,7 @@
 	ms.date="08/18/2015"
 	ms.author="spelluru"/>
 
-# Concevez votre premier pipeline en utilisant Azure Data Factory
+# Concevez votre premier pipeline Azure Data Factory en utilisant Visual Studio
 > [AZURE.SELECTOR]
 - [Tutorial Overview](data-factory-build-your-first-pipeline.md)
 - [Using Data Factory Editor](data-factory-build-your-first-pipeline-using-editor.md)
@@ -68,9 +68,7 @@ Dans les étapes suivantes, vous apprendrez à créer les services liés, les je
 
 ### Conditions préalables
 
-Vous devez avoir installé le logiciel suivant sur votre ordinateur :
-- Visual Studio 2013
-- Téléchargez le Kit de développement logiciel (SDK) Azure pour Visual Studio 2013. Accédez à la [page de téléchargement d’Azure](http://azure.microsoft.com/downloads/), puis cliquez sur **Installation de Visual Studio 2013** dans la section **.NET**.
+Vous devez avoir installé le logiciel suivant sur votre ordinateur : - Visual Studio 2013 - Téléchargez le Kit de développement logiciel (SDK) Azure pour Visual Studio 2013. Accédez à la [page de téléchargement d’Azure](http://azure.microsoft.com/downloads/), puis cliquez sur **Installation de Visual Studio 2013** dans la section **.NET**.
 
 
 ### Créer le projet Visual Studio 
@@ -251,5 +249,7 @@ Consultez [Surveiller les jeux de données et le pipeline](data-factory-monitor-
 ## Étapes suivantes
 Dans cet article, vous avez créé un pipeline avec une activité de transformation (Activité HDInsight) qui exécute un script Hive sur un cluster HDInsight à la demande. Pour apprendre à utiliser une activité de copie pour copier des données à partir d’un objet blob Azure dans Azure SQL, consultez le [didacticiel : copie de données depuis un objet blob Azure vers Azure SQL](data-factory-get-started.md).
   
+## Envoyer des commentaires
+Nous souhaiterions vraiment obtenir vos commentaires sur cet article. Prenez quelques minutes pour nous envoyer vos commentaires par [courrier électronique](mailto:adfdocfeedback@microsoft.com?subject=data-factory-build-your-first-pipeline-using-vs.md).
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=September15_HO1-->

@@ -1,20 +1,20 @@
 <properties 
-   pageTitle="Utilisation du service StorSimple Manager pour modifier vos mots de passe StorSimple | Microsoft Azure" 
-   description="Explique comment utiliser le service StorSimple Manager pour modifier vos mots de passe du Gestionnaire d'instantanés StorSimple et d’administrateur de l’appareil." 
-   services="storsimple" 
-   documentationCenter="NA" 
-   authors="SharS" 
-   manager="carolz" 
-   editor=""/>
+   pageTitle="Changer vos mots de passe StorSimple | Microsoft Azure"
+	description="Explique comment utiliser le service StorSimple Manager pour modifier vos mots de passe du Gestionnaire d'instantanés StorSimple et d’administrateur de l’appareil."
+	services="storsimple"
+	documentationCenter="NA"
+	authors="SharS"
+	manager="carolz"
+	editor=""/>
 
 <tags
    ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD" 
-   ms.date="08/11/2015"
-   ms.author="v-sharos@microsoft.com"/>
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="TBD"
+	ms.date="08/31/2015"
+	ms.author="v-sharos@microsoft.com"/>
 
 # Utilisation du service StorSimple Manager pour modifier vos mots de passe StorSimple
 
@@ -66,4 +66,4 @@ Le mot de passe Administrateur d’appareil doit maintenant être à jour. Vous 
 
 [En savoir plus sur la modification de la configuration de votre appareil](storsimple-modify-device-config.md).
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=September15_HO1-->

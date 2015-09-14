@@ -1,20 +1,20 @@
 
-<properties 
-	pageTitle="Prise en main des notifications push (Android JavaScript) | Microsoft Azure" 
-	description="Découvrez comment utiliser Azure Mobile Services pour envoyer des notifications Push à votre application Android JavaScript." 
-	services="mobile-services, notification-hubs" 
-	documentationCenter="android" 
-	authors="RickSaling" 
-	manager="dwrede" 
+<properties
+	pageTitle="Prise en main des notifications push (Android JavaScript) | Microsoft Azure"
+	description="Découvrez comment utiliser Azure Mobile Services pour envoyer des notifications Push à votre application Android JavaScript."
+	services="mobile-services, notification-hubs"
+	documentationCenter="android"
+	authors="RickSaling"
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-android" 
-	ms.devlang="java" 
-	ms.topic="article" 
-	ms.date="06/01/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-android"
+	ms.devlang="java"
+	ms.topic="article"
+	ms.date="06/16/2015"
 	ms.author="ricksal"/>
 
 
@@ -25,10 +25,6 @@
 ## Résumé
 
 Cette rubrique montre comment utiliser Azure Mobile Services pour envoyer des notifications Push à une application Android à l'aide de Google Cloud Messaging (« GCM »). Vous allez ajouter des notifications Push au projet de démarrage rapide nécessaire pour ce didacticiel. Les notifications Push sont activées à l'aide du concentrateur de notification Azure qui est inclus dans votre service mobile. Une fois la procédure terminée, votre service mobile envoie une notification Push chaque fois qu'un enregistrement est inséré.
-
-<!-- [AZURE.NOTE] If you would like to see the source code of the completed app, go <a href="https://github.com/RickSaling/mobile-services-samples/tree/androidStudio/GettingStartedWithPush/AndroidStudio" target="_blank">here</a>.
--->
-
 
 ## Composants requis
 
@@ -176,6 +172,5 @@ Découvrez Mobile Services et Notification Hubs dans les rubriques suivantes :
 [Présentation de Notification Hubs]: ../notification-hubs-overview.md
 [Send broadcast notifications to subscribers]: ../notification-hubs-android-send-breaking-news.md
 [Send template-based notifications to subscribers]: ../notification-hubs-android-send-localized-breaking-news.md
- 
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=September15_HO1-->

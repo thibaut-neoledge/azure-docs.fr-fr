@@ -1,31 +1,29 @@
 <properties 
    pageTitle="Gérer votre catalogue de sauvegarde StorSimple | Microsoft Azure"
-   description="Explique comment utiliser le service StorSimple Manager pour gérer des jeux de sauvegarde pour un volume."
-   services="storsimple"
-   documentationCenter="NA"
-   authors="SharS"
-   manager="carolz"
-   editor="" />
+	description="Explique comment utiliser la page Catalogue de sauvegarde du service StorSimple Manager pour répertorier, sélectionner et supprimer des jeux de sauvegarde pour un volume."
+	services="storsimple"
+	documentationCenter="NA"
+	authors="SharS"
+	manager="carolz"
+	editor=""/>
 <tags 
    ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="08/13/2015"
-   ms.author="v-sharos" />
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="TBD"
+	ms.date="09/01/2015"
+	ms.author="v-sharos"/>
 
-# Gérer votre catalogue de sauvegarde StorSimple
+# Utiliser le service StorSimple Manager pour gérer votre catalogue de sauvegarde
 
-## Vue d'ensemble
+## Vue d’ensemble
 
-La page **Catalogue de sauvegarde** affiche tous les jeux de sauvegarde créés lors de sauvegardes manuelles ou automatisées. Vous pouvez utiliser cette page pour répertorier toutes les sauvegardes pour une stratégie de sauvegarde ou un volume, sélectionner ou supprimer des sauvegardes, ou utiliser une sauvegarde pour restaurer ou cloner un volume.
+La page **Catalogue de sauvegarde** du service StorSimple Manager affiche tous les jeux de sauvegarde créés lors de sauvegardes manuelles ou automatisées. Vous pouvez utiliser cette page pour répertorier toutes les sauvegardes pour une stratégie de sauvegarde ou un volume, sélectionner ou supprimer des sauvegardes, ou utiliser une sauvegarde pour restaurer ou cloner un volume.
 
 Ce didacticiel explique comment répertorier, sélectionner et supprimer un jeu de sauvegarde. Pour savoir comment restaurer votre appareil à partir d’une sauvegarde, accédez à [Restaurer l’appareil à partir d’un jeu de sauvegarde](storsimple-restore-from-backup-set.md). Pour découvrir comment cloner un volume, accédez à [Cloner un volume StorSimple](storsimple-clone-volume.md).
 
 ![Catalogue de sauvegarde](./media/storsimple-manage-backup-catalog/HCS_BackupCatalog.png)
-
-**Figure 1 : catalogue de sauvegarde**
 
 La page **Catalogue de sauvegarde** comprend une zone de requête pour affiner la sélection des ensembles de sauvegarde. Vous pouvez filtrer les jeux de sauvegarde récupérés selon les paramètres suivants :
 
@@ -117,4 +115,4 @@ Supprimez une sauvegarde quand vous ne souhaitez plus conserver les données qui
 
 Découvrez comment utiliser le catalogue de sauvegarde pour [restaurer l’appareil à partir d’un jeu de sauvegarde](storsimple-restore-from-backup-set.md).
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=September15_HO1-->

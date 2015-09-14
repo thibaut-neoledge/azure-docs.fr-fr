@@ -1,24 +1,26 @@
 
 <properties 
-    pageTitle="Utilisation d'Office avec Azure RemoteApp" 
-    description="Découvrez comment Office et Azure RemoteApp fonctionnent ensemble" 
-    services="remoteapp" 
-    documentationCenter="" 
-    authors="lizap" 
-    manager="mbaldwin" />
+    pageTitle="Utilisation d'Office avec Azure RemoteApp"
+	description="Découvrez comment Office et Azure RemoteApp fonctionnent ensemble"
+	services="remoteapp"
+	documentationCenter=""
+	authors="lizap"
+	manager="mbaldwin"/>
 
 <tags 
-    ms.service="remoteapp" 
-    ms.workload="compute" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="article" 
-    ms.date="08/12/2015" 
-    ms.author="elizapo" />
+    ms.service="remoteapp"
+	ms.workload="compute"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/02/2015"
+	ms.author="elizapo"/>
 
 # Utilisation d'Office avec Azure RemoteApp
 
 Vous avez deux possibilités pour l'hébergement des applications Office dans Azure RemoteApp : Office 365 ProPlus ou la version d'évaluation d'Office 2013 Professionnel Plus.
+
+**Bonjour, saviez-vous que nous avons un nouvel article amélioré qui va bientôt remplacer celui-ci ? Découvrez [Utilisation de votre abonnement Office 365 avec Azure RemoteApp](remoteapp-officesubscription.md). Il couvre toutes les informations dont vous avez besoin pour utiliser Office 365 + Azure RemoteApp.**
 
 ## Office 365 ProPlus 
 Vous pouvez créer une collection RemoteApp à l'aide de l'image de modèle Office 365 ProPlus. Cette option vous permet d'étendre votre service Office 365 à RemoteApp. Vous devez déjà disposer d'un abonnement et vos utilisateurs doivent bénéficier d'une licence pour le service Office 365 ProPlus (en version autonome ou via les plans de service Office 365).
@@ -48,4 +50,4 @@ L'activation de votre compte concerne toutes les collections RemoteApp de votre 
 Si vous ne passez pas en mode de production à l'expiration de votre version d'évaluation, vos collections RemoteApp sont désactivées. Ne vous inquiétez pas, vos paramètres et données utilisateur sont enregistrés pendant 90 jours supplémentaires, vous pouvez donc toujours activer votre service et passer en mode de production sans perte de données.
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=September15_HO1-->

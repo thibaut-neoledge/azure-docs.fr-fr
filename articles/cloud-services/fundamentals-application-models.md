@@ -1,18 +1,18 @@
 <properties 
-	pageTitle="Calcul des options d’hébergement fournies par Azure" 
-	description="Découvrez les options d'hébergement de calcul Azure et leur fonctionnement : Virtual Machines, Sites Web, Cloud Services et bien d’autres." 
+	pageTitle="Calcul des options d’hébergement fournies par Azure"
+	description="Découvrez les options d'hébergement de calcul Azure et leur fonctionnement : Virtual Machines, Sites Web, Cloud Services et bien d’autres."
 	services="cloud-services,virtual-machines"
-	authors="Thraka" 
+	authors="Thraka"
 	documentationCenter=""
 	manager="timlt"/>
 
 <tags 
-	ms.service="multiple" 
-	ms.workload="multiple" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/16/2015" 
+	ms.service="multiple"
+	ms.workload="multiple"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="06/16/2015"
 	ms.author="adegeo;cephalin;kathydav"/>
 
 
@@ -79,4 +79,4 @@ As the figure illustrates, the Cloud Services VMs run in a separate cloud servic
 * En savoir plus sur [Cloud Service](services/cloud-services/)
 * En savoir plus sur [Virtual Machines](https://msdn.microsoft.com/library/azure/jj156143.aspx) 
 
-<!-------HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

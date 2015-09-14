@@ -1,23 +1,23 @@
 <properties 
    pageTitle="Composants matériels de StorSimple et leur état | Microsoft Azure"
-   description="Découvrez comment surveiller les composants matériels de votre appareil StorSimple via le service StorSimple Manager."
-   services="storsimple"
-   documentationCenter=""
-   authors="alkohli"
-   manager="carolz"
-   editor="" />
+	description="Découvrez comment surveiller les composants matériels de votre appareil StorSimple via le service StorSimple Manager."
+	services="storsimple"
+	documentationCenter=""
+	authors="alkohli"
+	manager="carolz"
+	editor=""/>
 <tags 
    ms.service="storsimple"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="08/14/2015"
-   ms.author="alkohli" />
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="na"
+	ms.date="09/02/2015"
+	ms.author="alkohli"/>
 
-# Composants matériels de StorSimple et leur état
+# Utiliser le service StorSimple Manager pour surveiller les composants et l’état du matériel
 
-## Vue d'ensemble
+## Vue d’ensemble
 
 Cet article décrit les différents composants physiques et logiques de votre appareil StorSimple local. Il explique également comment surveiller l'état des composants de l’appareil à l'aide de la page **Maintenance** du service StorSimple Manager.
 
@@ -131,4 +131,4 @@ Pour remplacer un composant matériel défectueux, consultez la rubrique [Rempla
 
 Si les problèmes persistent, [contactez le support technique Microsoft](storsimple-contact-microsoft-support.md).
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=September15_HO1-->

@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="NA"
 	ms.workload="data-catalog"
-	ms.date="08/21/2015"
+	ms.date="08/25/2015"
 	ms.author="maroche"/>
 
 # Forum Aux Questions Azure Data Catalog
@@ -69,10 +69,12 @@ Dans la version préliminaire, Azure Data Catalog prend en charge les types de 
 - Vue de base de données Oracle
 - Azure Storage Blob
 - Répertoire de stockage Azure
+- Fichier HDFS
+- Répertoire HDFS
 
 ## Q : Comment demander la prise en charge d’une autre source de données ?
 
-Les demandes de fonctionnalités et d’autres commentaires peuvent être envoyés dans le [forum Azure Data Catalog](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409).
+Les demandes de fonctionnalités et d'autres commentaires peuvent être envoyés dans le [forum Azure Data Catalog](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409).
 
 ## Q : Comment effectuer mes premiers pas avec Azure Data Factory ?
 
@@ -93,25 +95,25 @@ Les propriétés spécifiques diffèrent selon la source de données, mais en g�
 - Types de données de l'attribut/de la colonne
 - Description de l’attribut/de la colonne
 
-> [AZURE.IMPORTANT]Azure Data Catalog ne déplace ni ne copie vos données dans le cloud Azure. L’inscription de ressources à partir d'une source de données copie les métadonnées des ressources vers Azure, mais les données restent dans l'emplacement de la source de données existante. Seule exception à cette règle : si un utilisateur décide de télécharger des enregistrements de la version préliminaire lors de l'inscription de ressources. Dans ce cas, jusqu’à 20 enregistrements sont copiés depuis chaque ressource et stockés en tant qu’instantané dans **Azure Data Catalog**.
+> [AZURE.IMPORTANT]Azure Data Catalog ne déplace ni ne copie vos données dans le cloud Azure. L’inscription de ressources à partir d'une source de données copie les métadonnées des ressources vers Azure, mais les données restent dans l'emplacement de la source de données existante. Seule exception à cette règle : si un utilisateur décide de télécharger des enregistrements de la version préliminaire lors de l'inscription de ressources. Dans ce cas, jusqu'à 20 enregistrements sont copiés depuis chaque ressource et stockés en tant qu'instantané dans **Azure Data Catalog**.
 
 <br/>
 
-> [AZURE.NOTE]Pour les sources de données telles que SQL Server Analysis Services qui ont une propriété **Description** de première classe, l’application de publication **Azure Data Catalog** extrait cette valeur de propriété. Pour les bases de données relationnelles SQL Server qui ne possèdent pas de propriété **Description** de première classe, l’application de publication **Azure Data Catalog ** extrait la valeur de la propriété étendue ms\_description pour les objets et les colonnes. Pour plus d’informations, consultez la page TechNet [Utilisation de propriétés étendues sur les objets de base de données](https://technet.microsoft.com/library/ms190243%28v=sql.105%29.aspx).
+> [AZURE.NOTE]Pour les sources de données telles que SQL Server Analysis Services qui ont une propriété **Description** de première classe, l'application de publication **Azure Data Catalog** extrait cette valeur de propriété. Pour les bases de données relationnelles SQL Server qui ne possèdent pas de propriété **Description** de première classe, l'application de publication **Azure Data Catalog** extrait la valeur de la propriété étendue ms\_description pour les objets et les colonnes. Pour plus d'informations, consultez la page TechNet [Utilisation de propriétés étendues sur les objets de base de données](https://technet.microsoft.com/library/ms190243%28v=sql.105%29.aspx).
 
 ## Q : Combien de temps faut-il pour que les ressources nouvellement inscrites apparaissent dans Azure Data Catalog ?
 
-Après avoir inscrit des ressources avec **Azure Data Catalog**, il peut s’écouler un délai de 5 à 10 secondes avant qu’elles n’apparaissent dans le portail **Azure Data Catalog**.
+Après avoir inscrit des ressources avec **Azure Data Catalog**, il peut s'écouler un délai de 5 à 10 secondes avant qu'elles n'apparaissent dans le portail **Azure Data Catalog**.
 
 ## Q : Comment annoter et enrichir les métadonnées pour mes ressources de données inscrites ?
 
-La méthode la plus simple pour fournir des métadonnées pour des ressources inscrites consiste à sélectionner la ressource dans le portail **Azure Data Catalog**, puis à entrer les valeurs des métadonnées dans le volet des propriétés ou du schéma de l’objet sélectionné.
+La méthode la plus simple pour fournir des métadonnées pour des ressources inscrites consiste à sélectionner la ressource dans le portail **Azure Data Catalog**, puis à entrer les valeurs des métadonnées dans le volet des propriétés ou du schéma de l'objet sélectionné.
 
-Vous pouvez également fournir des métadonnées, telles que des experts et des balises, pendant le processus d'inscription. Les valeurs fournies dans le service de publication **Azure Data Catalog** s’appliqueront à toutes les ressources en cours d’inscription à ce moment-là. Pour afficher les objets récemment inscrits dans le portail pour ajouter des annotations supplémentaires, sélectionnez le bouton **Afficher Portail** sur le dernier écran de l’application de publication **Azure Data Catalog**.
+Vous pouvez également fournir des métadonnées, telles que des experts et des balises, pendant le processus d'inscription. Les valeurs fournies dans le service de publication **Azure Data Catalog** s'appliqueront à toutes les ressources en cours d'inscription à ce moment-là. Pour afficher les objets récemment inscrits dans le portail pour ajouter des annotations supplémentaires, sélectionnez le bouton **Afficher Portail** sur le dernier écran de l'application de publication **Azure Data Catalog**.
 
 ## Q : Comment supprimer mes objets de données inscrits ?
 
-Vous pouvez supprimer un objet d’**Azure Data Catalog** en sélectionnant l’objet dans le portail, puis en cliquant sur le bouton **Supprimer**. Cela supprimera les métadonnées de l’objet d’**Azure Data Catalog**, sans affecter la source de données sous-jacente réelle.
+Vous pouvez supprimer un objet d'**Azure Data Catalog** en sélectionnant l'objet dans le portail, puis en cliquant sur le bouton **Supprimer**. Cela supprimera les métadonnées de l'objet d'**Azure Data Catalog**, sans affecter la source de données sous-jacente réelle.
 
 ## Q : Qu'est-ce qu’un expert ?
 
@@ -119,30 +121,30 @@ Un expert est une personne qui a un point de vue éclairé sur un objet de donn�
 
 ## Q : Quel est le contrat SLA pour la version préliminaire ?
 
-Dans la version préliminaire d’**Azure Data Catalog**, il n’existe aucun contrat de niveau de service explicite.
+Dans la version préliminaire d'**Azure Data Catalog**, il n'existe aucun contrat de niveau de service explicite.
 
 ## Q : Comment partager des informations avec l'équipe Azure Data Catalog si je rencontre des problèmes ?
 
-Utilisez le forum **Azure Data Catalog** pour signaler des problèmes, partager des informations et poser des questions. Le forum se trouve à l’adresse http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409
+Utilisez le forum **Azure Data Catalog** pour signaler des problèmes, partager des informations et poser des questions. Le forum se trouve à l'adresse http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409
 
 ##Q : Azure Data Catalog fonctionne-t-il avec cette autre source de données qui m'intéresse ?
-Nous travaillons activement à l’ajout de sources de données supplémentaires à ** Azure Data Catalog**. S’il existe une source de données que vous souhaitez voir prise en charge, veuillez-la suggérer (ou faites part de votre accord si elle a déjà été suggérée) dans le forum [Azure Data Catalog](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409).
+Nous travaillons activement à l'ajout de sources de données supplémentaires à **Azure Data Catalog**. S'il existe une source de données que vous souhaitez voir prise en charge, veuillez la suggérer (ou faites part de votre accord si elle a déjà été suggérée) dans le forum [Azure Data Catalog](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409).
 
 ## Q : Comment Azure Data Catalog est-il lié au catalogue de données dans Power BI pour Office 365 ?
 
-Vous pouvez considérer **Azure Data Catalog** comme une évolution de Data Catalog. **Azure Data Catalog** offre des fonctionnalités similaires pour la découverte et la publication de sources de données, mais il est consacré aux scénarios de plus grande envergure et ne dépend pas d’Office 365. Peu après la mise à disposition générale d’Azure Data Catalog, les deux catalogues fusionneront pour ne former qu’un seul service.
+Vous pouvez considérer **Azure Data Catalog** comme une évolution de Data Catalog. **Azure Data Catalog** offre des fonctionnalités similaires pour la découverte et la publication de sources de données, mais il est consacré aux scénarios de plus grande envergure et ne dépend pas d'Office 365. Peu après la mise à disposition générale d’Azure Data Catalog, les deux catalogues fusionneront pour ne former qu’un seul service.
 
 ## Q : Quelles sont les autorisations dont a besoin un utilisateur pour inscrire des ressources auprès d’Azure Data Catalog ?
 
-L’utilisateur qui exécute l’outil d’inscription **Azure Data Catalog** a besoin d’autorisations sur la source de données qui lui permettront de lire les métadonnées de la source. Si l'utilisateur choisit d’inclure également un aperçu, il doit aussi disposer des autorisations qui lui permettent de lire les données à partir des objets en cours d'inscription.
+L'utilisateur qui exécute l'outil d'inscription **Azure Data Catalog** a besoin d'autorisations sur la source de données qui lui permettront de lire les métadonnées de la source. Si l'utilisateur choisit d’inclure également un aperçu, il doit aussi disposer des autorisations qui lui permettent de lire les données à partir des objets en cours d'inscription.
 
 ## Q : Azure Data Catalog sera-t-il également disponible pour un déploiement local ?
 
-**Azure Data Catalog** est un service cloud pouvant fonctionner avec des sources de données cloud et locales, et proposer ainsi une solution de détection de source de données hybride. Aucune version d’**Azure Data Catalog** s’exécutant localement n’est actuellement prévue.
+**Azure Data Catalog** est un service cloud pouvant fonctionner avec des sources de données cloud et locales, et proposer ainsi une solution de détection de source de données hybride. Aucune version d'**Azure Data Catalog** s'exécutant localement n'est actuellement prévue.
 
 ##Q : Est-il possible d’extraire davantage de métadonnées/des métadonnées plus riches à partir de sources de données que nous inscrivons ?
 
-Nous travaillons activement au développement des fonctionnalités d’**Azure Data Catalog**. S’il existe des métadonnées supplémentaires que vous aimeriez voir extraites à partir de la source de données pendant l’inscription, suggérez-les (ou votez en leur faveur si elles ont déjà été suggérées) dans le [forum Azure Data Catalog](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409). Par la suite, nous autoriserons des tiers à ajouter de nouveaux types de sources de données via une API d'extensibilité.
+Nous travaillons activement au développement des fonctionnalités d'**Azure Data Catalog**. S'il existe des métadonnées supplémentaires que vous aimeriez voir extraites à partir de la source de données pendant l'inscription, suggérez-les (ou votez en leur faveur si elles ont déjà été suggérées) dans le [forum Azure Data Catalog](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409). Par la suite, nous autoriserons des tiers à ajouter de nouveaux types de sources de données via une API d'extensibilité.
 
 ## Q : Comment restreindre la visibilité des ressources de données inscrites, afin que seules certaines personnes puissent les découvrir ?
 
@@ -154,10 +156,10 @@ R : Pour mettre à jour les métadonnées pour les ressources de données qui s
 
 ## Q : Comment poser des questions ou obtenir de l'aide lorsque je travaille avec Azure Data Catalog ?
 
-Si vous rencontrez des problèmes ou si vous avez besoin d’assistance avec la version préliminaire d’Azure Data Catalog, publiez un billet dans le [forum Azure Data Catalog](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409).
+Si vous rencontrez des problèmes ou si vous avez besoin d'assistance avec la version préliminaire d'Azure Data Catalog, publiez un billet dans le [forum Azure Data Catalog](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409).
 
 ## Q : Je n’ai pas trouvé de réponse à ma question ici. Que dois-je faire ?
 
 Rendez-vous sur le [forum Azure Data Catalog](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409). Les questions qui y sont posées se retrouveront ici.
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

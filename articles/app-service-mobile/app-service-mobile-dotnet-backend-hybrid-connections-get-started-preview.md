@@ -1,36 +1,33 @@
-<properties 
-	pageTitle="Connexion de votre application mobile Azure à un serveur SQL Server local au moyen de connexions hybrides" 
-	description="Découvrez comment vous connecter à un serveur SQL Server local à partir d'une application mobile App Service au moyen de connexions hybrides" 
-	services="app-service\mobile" 
-	documentationCenter="" 
-	authors="ggailey777" 
-	manager="dwrede" 
+<properties
+	pageTitle="Connexion de votre application mobile Azure à un serveur SQL Server local au moyen de connexions hybrides | Microsoft Azure"
+	description="Découvrez comment vous connecter à un serveur SQL Server local à partir d'une application mobile App Service au moyen de connexions hybrides"
+	services="app-service\mobile"
+	documentationCenter=""
+	authors="ggailey777"
+	manager="dwrede"
 	editor=""/>
 
-
-<tags 
-	ms.service="app-service-mobile" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="multiple" 
-	ms.topic="get-started-article" 
-	ms.date="07/30/2015" 
+<tags
+	ms.service="app-service-mobile"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="na"
+	ms.devlang="multiple"
+	ms.topic="get-started-article"
+	ms.date="07/30/2015"
 	ms.author="glenga"/>
 
 
-  
-# Connexion à un serveur SQL Server local à partir d'applications mobiles au moyen de connexions hybrides 
+# Connexion à un serveur SQL Server local à partir d'applications mobiles au moyen de connexions hybrides
 
-Lorsque votre entreprise effectue la transition vers le cloud, il est possible que vous ne soyez pas en mesure de migrer toutes vos ressources Azure immédiatement. Les connexions hybrides permettent aux applications mobiles Azure App Service de se connecter en toute sécurité à vos ressources locales. De cette façon, vos données locales sont accessibles aux clients mobiles à l'aide d'Azure. Les ressources prises en charge incluent toute ressource s'exécutant sur un port TCP statique, y compris Microsoft SQL Server, MySQL, les API web HTTP et la plupart des services web personnalisés. Les connexions hybrides utilisent l'autorisation avec signature d'accès partagé (SAS) pour sécuriser les connexions de votre service mobile et du Gestionnaire de connexion hybride local à la connexion hybride. Pour plus d'informations, consultez [Aperçu des connexions hybrides](../integration-hybrid-connection-overview.md).
+Lorsque votre entreprise effectue la transition vers le cloud, il est possible que vous ne soyez pas en mesure de migrer toutes vos ressources Azure immédiatement. Les connexions hybrides permettent à la fonctionnalité Applications mobiles dans Azure App Service de se connecter en toute sécurité à vos ressources locales. De cette façon, vos données locales sont accessibles aux clients mobiles à l'aide d'Azure. Les ressources prises en charge incluent toute ressource s'exécutant sur un port TCP statique, y compris Microsoft SQL Server, MySQL, les API web HTTP et la plupart des services web personnalisés. Les connexions hybrides utilisent l'autorisation avec signature d'accès partagé (SAS) pour sécuriser les connexions de votre service mobile et du Gestionnaire de connexion hybride local à la connexion hybride. Pour plus d'informations, consultez [Aperçu des connexions hybrides](../integration-hybrid-connection-overview.md).
 
-Au cours de ce didacticiel, vous allez apprendre à modifier un serveur principal .NET d'application mobile afin d'utiliser une base de données SQL Server locale au lieu de la base de données SQL Azure par défaut configurée avec votre service.
+Au cours de ce didacticiel, vous apprendrez à modifier un serveur principal .NET d'application mobile afin d'utiliser une base de données SQL Server locale au lieu de la base de données SQL Azure par défaut configurée avec votre service.
 
-##Composants requis##
+## Composants requis ##
 
 Ce didacticiel requiert les éléments suivants :
 
-- **Un serveur principal d'application mobile existant** <br/>
-Suivez le [didacticiel de démarrage rapide](app-service-mobile-dotnet-backend-windows-store-dotnet-get-started-preview.md) pour créer et télécharger un serveur principal .NET d'application mobile à partir du [portail Azure].
+- **Un serveur principal d'application mobile existant** <br/>Suivez le [didacticiel de démarrage rapide](app-service-mobile-dotnet-backend-windows-store-dotnet-get-started-preview.md) pour créer et télécharger un serveur principal .NET d'application mobile à partir du [portail Azure].
 
 [AZURE.INCLUDE [hybrid-connections-prerequisites](../../includes/hybrid-connections-prerequisites.md)]
 
@@ -49,13 +46,13 @@ Vous devez créer une connexion hybride et un service BizTalk pour la partie du 
 	Ceci vous mène à l'application Web qui implémente le code du serveur principal de l'application mobile, qui est le nom de votre application mobile suivi de `-code`.
 
 2. Faites défiler le panneau de l'application Web et cliquez sur **Connexions hybrides**.
-	
+
 	![Hybrid connections](./media/app-service-mobile-dotnet-backend-hybrid-connections-get-started-preview/start-hybrid-connection.png)
-	
+
 2. Dans le panneau Connexions hybrides, cliquez sur **Ajouter** puis sur **Nouvelle connexion hybride**.
-	
+
 3. Dans le **panneau Créer une connexion hybride**, indiquez un **Nom** et un **Nom d'hôte** pour la connexion hybride et définissez le **Port** sur `1433`.
-	
+
 	![Create a hybrid connection](./media/app-service-mobile-dotnet-backend-hybrid-connections-get-started-preview/create-hybrid-connection.png)
 
 4. Cliquez sur **Service Biz Talk** et entrez un nom pour le service BizTalk et cliquez deux fois sur **OK**.
@@ -63,12 +60,12 @@ Vous devez créer une connexion hybride et un service BizTalk pour la partie du 
 	Ce didacticiel utilise **mobile1**. Vous aurez besoin d'un nom unique pour votre nouveau service BizTalk.
 
 	Une fois le processus terminé, la zone **Notifications** affiche la mention **SUCCÈS** en vert clignotant et le panneau **Connexion hybride** affiche la nouvelle connexion hybride dans l’état **Non connecté**.
-	
+
 	![One hybrid connection created](./media/app-service-mobile-dotnet-backend-hybrid-connections-get-started-preview/hybrid-connection-created.png)
-	
+
 À ce stade, vous avez terminé une partie importante de l'infrastructure de connexion hybride cloud. Vous allez ensuite créer un élément local.
 
-## Installation du Gestionnaire de connexions hybrides local pour terminer la connexion
+## Installation du Gestionnaire de connexions hybrides local pour finaliser la connexion
 
 [AZURE.INCLUDE [app-service-hybrid-connections-manager-install](../../includes/app-service-hybrid-connections-manager-install.md)]
 
@@ -76,13 +73,13 @@ Vous devez créer une connexion hybride et un service BizTalk pour la partie du 
 
 Dans cette étape, vous définissez une chaîne de connexion pour la base de données locale et vous modifiez le serveur principal de l'application mobile pour utiliser cette connexion.
 
-1. Dans Visual Studio 2013, ouvrez le projet qui définit votre application mobile principale. 
+1. Dans Visual Studio 2013, ouvrez le projet qui définit votre application mobile principale.
 
 	Pour apprendre à télécharger votre projet principal .NET, consultez le [didacticiel de démarrage rapide](app-service-mobile-dotnet-backend-windows-store-dotnet-get-started-preview.md).
 
 2. Dans l'Explorateur de solutions, ouvrez le fichier Web.config, recherchez la section **connectionStrings**, ajoutez une entrée SqlClient comme suit, pointant vers la base de données SQL Server locale :
-	
-	    <add name="OnPremisesDBConnection" 
+
+	    <add name="OnPremisesDBConnection"
          connectionString="Data Source=OnPremisesServer,1433;
          Initial Catalog=OnPremisesDB;
          User ID=HybridConnectionLogin;
@@ -90,9 +87,8 @@ Dans cette étape, vous définissez une chaîne de connexion pour la base de don
          MultipleActiveResultSets=True"
          providerName="System.Data.SqlClient" />
 
-
 	N'oubliez pas de remplacer `<**secure_password**>` dans cette chaîne par le mot de passe que vous avez créé pour *HbyridConnectionLogin*.
-	
+
 3. Cliquez sur **Enregistrer** dans Visual Studio pour enregistrer le fichier Web.config.
 
 	> [AZURE.NOTE]Ce paramètre de connexion est utilisé lors de l'exécution sur l'ordinateur local. Lors de l'exécution dans Azure, ce paramètre est remplacé par le paramètre de connexion défini dans le portail.
@@ -110,12 +106,12 @@ Dans cette étape, vous définissez une chaîne de connexion pour la base de don
         }
 
 	Le service utilise désormais la nouvelle connexion à la base de données SQL Server.
- 
+
 ## Mise à jour d'Azure pour utiliser la chaîne de connexion locale
 
 À présent, vous devez ajouter un paramètre d'application pour cette nouvelle chaîne de connexion afin qu'elle puisse être utilisée à partir d'Azure.
 
-1. Dans le [portail Azure] dans le code principal d'application Web pour votre application mobile, cliquez sur **Tous les paramètres**, puis **Paramètres de l'application**. 
+1. Dans le [portail Azure] dans le code principal d'application Web pour votre application mobile, cliquez sur **Tous les paramètres**, puis **Paramètres de l'application**.
 
 3. Dans le panneau **Paramètres d'application web**, faites défiler jusqu'à **Chaînes de connexion** et ajoutez une chaîne de connexion **SQL Server** nommée `OnPremisesDBConnection` avec une valeur telle que `Server=OnPremisesServer,1433;Database=OnPremisesDB;User ID=HybridConnectionsLogin;Password=<**secure_password**>`.
 
@@ -125,11 +121,11 @@ Dans cette étape, vous définissez une chaîne de connexion pour la base de don
 
 2. Appuyez sur **Enregistrer** pour enregistrer la connexion hybride et la chaîne de connexion que vous venez de créer.
 
-## Publication et test du serveur principal d'application mobile dans Azure 
+## Publication et test du serveur principal d'application mobile dans Azure
 
 Enfin, vous devez publier le serveur principal d'application mobile sur Azure et vérifier qu'il utilise la connexion hybride pour stocker les données dans la base de données locale.
 
-3. Dans Visual Studio, cliquez sur le projet avec le bouton droit, cliquez sur **Publier**, puis dans **Publier le site Web** cliquez sur **Sites Web Microsoft Azure**. 
+3. Dans Visual Studio, cliquez sur le projet avec le bouton droit, cliquez sur **Publier**, puis dans **Publier le site Web** cliquez sur **Sites Web Microsoft Azure**.
 
 	Au lieu d'utiliser Visual Studio, vous pouvez également [utiliser Git pour publier votre serveur principal](mobile-services-dotnet-backend-store-code-source-control.md).
 
@@ -149,10 +145,10 @@ Enfin, vous devez publier le serveur principal d'application mobile sur Azure et
 
 5. Cliquez avec le bouton droit sur la table **hybridService1.TodoItems** et choisissez **Sélectionner les 1 000 premières lignes** pour afficher les résultats.
 
-	Notez que les modifications générées dans votre application client ont été enregistrées par le serveur principal de votre application mobile dans votre base de données locale à l'aide de la connexion hybride.
+	Notez que les modifications générées dans votre application client sont enregistrées par le serveur principal de votre application mobile dans votre base de données locale à l'aide de la connexion hybride.
 
-##Voir aussi##
- 
+## Voir aussi ##
+
 + [Site web des connexions hybrides](../../services/biztalk-services/)
 + [Aperçu des connexions hybrides](../integration-hybrid-connection-overview.md)
 + [BizTalk Services : Onglets Tableau de bord, Surveiller, Mettre à l’échelle, Configurer et Connexion hybride](../biztalk-dashboard-monitor-scale-tabs.md)
@@ -160,10 +156,10 @@ Enfin, vous devez publier le serveur principal d'application mobile sur Azure et
 
 <!-- IMAGES -->
 
+
 <!-- Links -->
 [portail Azure]: https://portal.azure.com/
 [Azure Management Portal]: http://go.microsoft.com/fwlink/p/?linkid=213885
 [Get started with Mobile Services]: ../mobile-services-dotnet-backend-windows-store-dotnet-get-started.md
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

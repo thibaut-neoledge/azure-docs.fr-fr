@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="" 
-	description="Prise en main d’Azure Mobile Services dans un projet .NET Visual Studio" 
-	services="mobile-services" 
-	documentationCenter="" 
-	authors="patshea123" 
-	manager="douge" 
+<properties
+	pageTitle=""
+	description="Prise en main d’Azure Mobile Services dans un projet .NET Visual Studio"
+	services="mobile-services"
+	documentationCenter=""
+	authors="patshea123"
+	manager="douge"
 	editor=""/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="vs-getting-started" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="05/22/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="vs-getting-started"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="06/16/2015"
 	ms.author="patshea123"/>
 
 # Prise en main de Mobile Services (Projets .NET)
@@ -47,22 +47,22 @@ Le code ci-dessous permet de créer une référence à une table (`todoTable`) q
 
 Ce code fonctionne si les autorisations de votre table sont définies sur **Toute personne avec la clé d'application**. Si vous modifiez les autorisations pour sécuriser votre service mobile, vous devez ajouter la prise en charge de l'authentification des utilisateurs. Consultez la page [Prise en main de l'authentification](mobile-services-dotnet-backend-windows-universal-dotnet-get-started-users.md).
 
-#####Ajouter un élément de table 
+#####Ajouter un élément de table
 
 Insérez un nouvel élément dans une table de données.
 
 	TodoItem todoItem = new TodoItem() { Text = "My first to do item", Complete = false };
 	await todoTable.InsertAsync(todoItem);
 
-#####Lire une table ou exécuter des requêtes sur une table 
+#####Lire une table ou exécuter des requêtes sur une table
 
 Le code ci-dessous permet de lancer une requête sur tous les éléments d'une table. Notez qu'il ne renvoie que la première page de données, qui contient par défaut 50 éléments. Vous pouvez transmettre n'importe quelle taille de page, puisqu'il s'agit d'un paramètre facultatif.
 
     List<TodoItem> items;
     try
     {
-        // Query that returns all items.   
-        items = await todoTable.ToListAsync();             
+        // Query that returns all items.
+        items = await todoTable.ToListAsync();
     }
     catch (MobileServiceInvalidOperationException e)
     {
@@ -85,4 +85,4 @@ Supprimez une ligne de la base de données. L'élément de paramètre correspond
 
 [En savoir plus sur Mobile Services](http://azure.microsoft.com/documentation/services/mobile-services/)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

@@ -10,10 +10,10 @@
 <tags
 	ms.service="cloud-services"
 	ms.workload="tbd"
-	ms.tgt_pltfrm="na" 
+	ms.tgt_pltfrm="na"
 	ms.devlang="nodejs"
 	ms.topic="hero-article"
-	ms.date="06/01/2015"
+	ms.date="08/31/2015"
 	ms.author="mwasson"/>
 
 
@@ -41,7 +41,7 @@ Il s’agit d’une application « hello world » simple :
 > [AZURE.NOTE]Ce didacticiel utilise Azure PowerShell, qui nécessite Windows.
 
 - Installez et configurez [Azure PowerShell](../install-configure-powershell.md).
-- Téléchargez et installez le [Kit de développement logiciel (SDK) Azure pour .NET 2.5](http://go.microsoft.com/fwlink/?linkid=518091). Dans le programme d'installation, sélectionnez :
+- Téléchargez et installez le [Kit de développement logiciel (SDK) Azure pour .NET 2.7](http://www.microsoft.com/fr-FR/download/details.aspx?id=48178). Dans le programme d'installation, sélectionnez :
     - MicrosoftAzureAuthoringTools
     - MicrosoftAzureComputeEmulator
 
@@ -53,7 +53,8 @@ Effectuez les tâches suivantes pour créer un projet Azure Cloud Services, avec
 
 1. Exécutez **Azure PowerShell** en tant qu’administrateur. (À partir du **menu Démarrer** ou de l'**écran d'accueil**, recherchez **Azure PowerShell**.)
 
-2.  Entrez l’applet de commande PowerShell suivante pour créer le projet :
+2.  [Connectez PowerShell](powershell-install-configure.md#how-to-connect-to-your-subscription) à votre abonnement.
+3.  Entrez l’applet de commande PowerShell suivante pour créer le projet :
 
         New-AzureServiceProject helloworld
 
@@ -116,11 +117,12 @@ Pour déployer votre application sur Azure, vous devez télécharger les paramè
 
 ### Publication de l'application
 
-Pour procéder à la publication, exécutez la cmdlet **Publish-AzureServiceProject** comme suit :
+Pour publier, exécutez les commande suivantes :
 
-    Publish-AzureServiceProject -ServiceName NodeHelloWorld -Location "East US" -Launch
+  	$ServiceName = "NodeHelloWorld" + $(Get-Date -Format ('ddhhmm'))   
+	Publish-AzureServiceProject -ServiceName $ServiceName  -Location "East US" -Launch
 
-- Le paramètre **-ServiceName** indique le nom du déploiement. Ce nom doit être unique, sans quoi le processus de publication échouera.
+- Le paramètre **-ServiceName** indique le nom du déploiement. Ce nom doit être unique, sans quoi le processus de publication échouera. La commande **Get-Date** s'attache à une chaîne de date et d'heure qui doit rendre le nom unique.
 
 - Le paramètre **-Emplacement** indique le centre de données dans lequel l'application sera hébergée. Pour afficher une liste des centres de données disponibles, utilisez la cmdlet **Get-AzureLocation**.
 
@@ -192,4 +194,4 @@ Après avoir déployé votre application, vous pouvez la désactiver afin de vou
 [powershell-menu]: ./media/cloud-services-nodejs-develop-deploy-app/azure-powershell-start.png
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=September15_HO1-->

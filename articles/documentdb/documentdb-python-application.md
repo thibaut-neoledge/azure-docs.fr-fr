@@ -1,20 +1,20 @@
 <properties
     pageTitle="Créer une application web avec Python et Flask à l’aide de DocumentDB | Microsoft Azure"
-    description="Découvrez comment utiliser DocumentDB pour stocker des données et y accéder à partir d'une application web Python et Flask (MVC) hébergée sur Azure."
-    services="documentdb"
-    documentationCenter="python"
-    authors="ryancrawcour"
-    manager="jhubbard"
-    editor="cgronlun"/>
+	description="Découvrez comment utiliser DocumentDB pour stocker des données et y accéder à partir d'une application web Python et Flask (MVC) hébergée sur Azure."
+	services="documentdb"
+	documentationCenter="python"
+	authors="ryancrawcour"
+	manager="jhubbard"
+	editor="cgronlun"/>
 
 <tags
     ms.service="documentdb"
-    ms.workload="data-management"
-    ms.tgt_pltfrm="na"
-    ms.devlang="python"
-    ms.topic="hero-article"
-    ms.date="07/07/2015"
-    ms.author="ryancraw"/>
+	ms.workload="data-management"
+	ms.tgt_pltfrm="na"
+	ms.devlang="python"
+	ms.topic="hero-article"
+	ms.date="09/03/2015"
+	ms.author="ryancraw"/>
 
 # Création d'une application web avec Python et Flask (MVC) à l'aide de DocumentDB
 
@@ -338,6 +338,8 @@ Maintenant que l'application terminée fonctionne correctement avec DocumentDB, 
 
 Félicitations ! Vous venez de créer votre première application Python avec Azure DocumentDB et de la publier dans Sites Web Azure.
 
+Nous aimerions savoir si vous avez trouvé ce didacticiel utile, par conséquent, utilisez les boutons de vote au début ou à la fin de la rubrique pour nous donner votre avis. Cette rubrique est activement mise à jour, donc nous souhaitons obtenir vos commentaires pour l'améliorer. Si vous souhaitez que nous vous contactions, n'hésitez pas à inclure votre adresse de messagerie dans votre commentaire.
+
 Pour ajouter des fonctionnalités supplémentaires à votre application, passez en revue les API disponibles dans le [Kit de développement logiciel (SDK) Python DocumentDB](https://pypi.python.org/pypi/pydocumentdb).
 
   [Cliquez ici pour accéder aux didacticiels sur Flask]: http://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-i-hello-world
@@ -349,4 +351,4 @@ Pour ajouter des fonctionnalités supplémentaires à votre application, passez 
   [Microsoft Web Platform Installer]: http://www.microsoft.com/web/downloads/platform.aspx
   [Azure portal]: http://portal.azure.com
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=September15_HO1-->

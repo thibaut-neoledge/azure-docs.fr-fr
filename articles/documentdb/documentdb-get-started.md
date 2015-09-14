@@ -7,16 +7,14 @@
 	manager="jhubbard"
 	editor="monicar"/>
 
-
 <tags
 	ms.service="documentdb"
 	ms.workload="data-services"
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
-	ms.topic="hero-article" 
-	ms.date="05/19/2015"
+	ms.topic="hero-article"
+	ms.date="09/03/2015"
 	ms.author="anhoh"/>
-
 
 #Prendre en main le Kit de développement logiciel (SDK) .NET de DocumentDB  
 
@@ -36,7 +34,9 @@ Les scénarios traités dans cet article sont les suivants :
 
 Vous n'avez pas le temps de terminer le didacticiel et vous souhaitez simplement obtenir la solution exploitable ? Pas d'inquiétudes. La solution complète est disponible sur [GitHub](https://github.com/Azure/azure-documentdb-net/tree/master/tutorials/get-started). Pour obtenir des instructions rapides, consultez [Obtenir la solution complète](#GetSolution).
 
-## Configuration requise
+Une fois que vous avez terminé le didacticiel, donnez-nous votre avis à l'aide des boutons de vote au début ou à la fin de la rubrique. Cette rubrique est activement mise à jour, donc nous souhaitons obtenir vos commentaires pour l'améliorer. Si vous souhaitez que nous vous contactions, n'hésitez pas à inclure votre adresse de messagerie dans votre commentaire.
+
+## Composants requis
 
 Avant de suivre les instructions de cet article, vérifiez que les éléments suivants sont installés :
 
@@ -456,6 +456,8 @@ La sortie de votre application de prise en main doit maintenant s'afficher. Cell
 
 > [AZURE.NOTE]Si vous exécutez l'application plusieurs fois sans supprimer la base de données, vous risquez de créer une base de données avec un ID déjà utilisé. Pour éviter ce problème, vérifiez qu'il n'existe pas déjà une base de données, une collection ou un document avec ce même ID. Pour savoir comment procéder, consultez notre [page GitHub](https://github.com/Azure/azure-documentdb-net/tree/master/tutorials/get-started).
 
+Félicitations ! Vous venez de créer votre première application DocumentDB !
+
 ##<a id="GetSolution"></a> Obtenir la solution complète
 Pour générer la solution GetStarted qui contient tous les exemples de cet article, vous devez avoir les éléments suivants :
 
@@ -465,6 +467,7 @@ Pour générer la solution GetStarted qui contient tous les exemples de cet arti
 Pour restaurer les références au Kit de développement logiciel (SDK) .NET de DocumentDB dans Visual Studio 2013, cliquez avec le bouton droit sur la solution **GetStarted** dans l'Explorateur de solutions, puis cliquez sur **Activer la restauration des packages NuGet**. Ensuite, dans le fichier App.config, mettez à jour les valeurs pour EndpointUrl et AuthorizationKey comme décrit à la section [Se connecter à un compte DocumentDB](#Connect).
 
 ## Étapes suivantes
+
 -   Vous voulez un exemple ASP.NET MVC plus complexe ? Consultez [Création d'une application web avec ASP.NET MVC et DocumentDB](documentdb-dotnet-application.md).
 -	Apprenez à [surveiller un compte DocumentDB](documentdb-monitor-accounts.md).
 -	Exécutez des requêtes sur notre exemple de dataset dans le [Query Playground](https://www.documentdb.com/sql/demo).
@@ -477,4 +480,4 @@ Pour restaurer les références au Kit de développement logiciel (SDK) .NET de 
 [keys]: media/documentdb-get-started/keys.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

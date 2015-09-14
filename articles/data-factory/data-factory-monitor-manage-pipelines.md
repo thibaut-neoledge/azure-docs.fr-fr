@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Surveillance et gestion des pipelines d’Azure Data Factory" 
-	description="Découvrez comment utiliser le portail de gestion Azure et Azure PowerShell pour analyser et gérer les fabriques de données et les pipelines Azure que vous avez créés." 
-	services="data-factory" 
-	documentationCenter="" 
-	authors="spelluru" 
-	manager="jhubbard" 
+	pageTitle="Surveillance et gestion des pipelines d’Azure Data Factory"
+	description="Découvrez comment utiliser le portail de gestion Azure et Azure PowerShell pour analyser et gérer les fabriques de données et les pipelines Azure que vous avez créés."
+	services="data-factory"
+	documentationCenter=""
+	authors="spelluru"
+	manager="jhubbard"
 	editor="monicar"/>
 
 <tags 
-	ms.service="data-factory" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/27/2015" 
+	ms.service="data-factory"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/27/2015"
 	ms.author="spelluru"/>
 
 # Surveillance et gestion des pipelines d’Azure Data Factory
@@ -467,4 +467,8 @@ Le message suivant devrait s’afficher après la réussite du déploiement :
 	Parameters        :
 	Outputs           
 
-<!---HONumber=August15_HO6-->
+
+## Envoyer des commentaires
+Nous souhaiterions vraiment obtenir vos commentaires sur cet article. Prenez quelques minutes pour nous envoyer vos commentaires par [courrier électronique](mailto:adfdocfeedback@microsoft.com?subject=data-factory-monitor-manage-pipelines.md).
+
+<!---HONumber=September15_HO1-->

@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Se connecter à distance à votre appareil StorSimple | Microsoft Azure"
-   description="Explique comment utiliser l’accès distant Windows PowerShell, et HTTP ou HTTPS pour se connecter à distance à votre appareil StorSimple."
-   services="storsimple"
-   documentationCenter=""
-   authors="alkohli"
-   manager="carolz"
-   editor="" />
+	description="Explique comment configurer votre appareil pour la gestion à distance et comment se connecter à Windows PowerShell for StorSimple par HTTP ou HTTPS."
+	services="storsimple"
+	documentationCenter=""
+	authors="alkohli"
+	manager="carolz"
+	editor=""/>
 <tags 
    ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="NA"
-   ms.date="08/14/2015"
-   ms.author="alkohli" />
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="NA"
+	ms.date="08/28/2015"
+	ms.author="alkohli"/>
 
 # Connexion à distance à votre appareil StorSimple
 
@@ -116,7 +116,7 @@ Procédez comme suit sur le client pour activer la gestion à distance.
 
      À ce stade, vous devez normalement disposer d’une session Windows PowerShell à distance active sur l’appareil.
 
-    ![Accès distant PS en utilisant HTTP](./media/storsimple-remote-connect/HCS_PSRemotingUsingHTTP.png)
+    ![Accès distant PowerShell en utilisant HTTP](./media/storsimple-remote-connect/HCS_PSRemotingUsingHTTP.png)
 
 ## Se connecter via HTTPS
 
@@ -264,10 +264,10 @@ Effectuez la procédure suivante sur l’ordinateur à partir duquel vous voulez
 
 6. Patientez quelques minutes, puis vous serez connecté à votre appareil via HTTPS sur SSL. Vous verrez un message indiquant que vous êtes connecté à votre appareil.
 
-    ![Accès distant PS en utilisant HTTPS et SSL](./media/storsimple-remote-connect/HCS_PSRemotingUsingHTTPSAndSSL.png)
+    ![Accès distant PowerShell en utilisant HTTPS et SSL](./media/storsimple-remote-connect/HCS_PSRemotingUsingHTTPSAndSSL.png)
 
 ## Étapes suivantes
 
 [En savoir plus sur l’utilisation de Windows PowerShell pour administrer votre appareil StorSimple](storsimple-windows-powershell-administration.md).
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=September15_HO1-->

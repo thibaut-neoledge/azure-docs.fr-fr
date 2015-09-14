@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Utilisation d’Azure Storage avec une solution d’intégration continue Jenkins | Microsoft Azure" 
-	description="Ce didacticiel décrit l’utilisation du service BLOB Azure comme référentiel d’artefacts de build créés par une solution d’intégration continue Jenkins." 
-	services="storage" 
-	documentationCenter="java" 
-	authors="rmcmurray" 
-	manager="wpickett" 
-	editor="jimbe" />
+	pageTitle="Utilisation d’Azure Storage avec une solution d’intégration continue Jenkins | Microsoft Azure"
+	description="Ce didacticiel décrit l’utilisation du service BLOB Azure comme référentiel d’artefacts de build créés par une solution d’intégration continue Jenkins."
+	services="storage"
+	documentationCenter="java"
+	authors="rmcmurray"
+	manager="wpickett"
+	editor="jimbe"/>
 
 <tags 
-	ms.service="storage" 
-	ms.workload="storage" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="Java" 
-	ms.topic="article" 
-	ms.date="06/03/2015" 
+	ms.service="storage"
+	ms.workload="storage"
+	ms.tgt_pltfrm="na"
+	ms.devlang="Java"
+	ms.topic="article"
+	ms.date="09/01/2015"
 	ms.author="robmcm"/>
 
 # Utilisation d’Azure Storage avec une solution d’intégration continue Jenkins
@@ -165,4 +165,4 @@ La section suivante présente les composants du service BLOB.
   [ms-open-tech]: http://msopentech.com
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

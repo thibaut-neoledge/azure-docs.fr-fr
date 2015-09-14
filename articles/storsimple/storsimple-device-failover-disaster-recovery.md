@@ -1,19 +1,19 @@
 <properties 
-   pageTitle="Basculement et récupération d’urgence pour votre appareil StorSimple | Microsoft Azure"
-   description="Découvrez comment basculer votre appareil StorSimple vers lui-même, un autre appareil physique ou un appareil virtuel."
-   services="storsimple"
-   documentationCenter=""
-   authors="alkohli"
-   manager="adinah"
-   editor="" />
+   pageTitle="Basculement et récupération d’urgence StorSimple | Microsoft Azure"
+	description="Découvrez comment basculer votre appareil StorSimple vers lui-même, un autre appareil physique ou un appareil virtuel."
+	services="storsimple"
+	documentationCenter=""
+	authors="alkohli"
+	manager="adinah"
+	editor=""/>
 <tags 
    ms.service="storsimple"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="08/12/2015"
-   ms.author="alkohli" />
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="na"
+	ms.date="08/28/2015"
+	ms.author="alkohli"/>
 
 # Basculement et récupération d’urgence pour votre appareil StorSimple
 
@@ -145,4 +145,4 @@ Après avoir effectué un basculement, vous devrez peut-être :
 Pour plus d'informations sur la façon de gérer votre appareil à l'aide du service StorSimple Manager, accédez à [Utilisation du service StorSimple Manager pour gérer votre appareil StorSimple](storsimple-manager-service-administration.md).
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=September15_HO1-->

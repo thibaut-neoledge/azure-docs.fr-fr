@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Génération de recommandations à l&#39;aide de Mahout et Hadoop | Microsoft Azure"
+	pageTitle="Génération de recommandations à l'aide de Mahout et Hadoop | Microsoft Azure"
 	description="Apprenez à utiliser la bibliothèque à apprentissage automatique Apache Mahout pour générer des recommandations de films avec HDInsight sous Linux (Hadoop)."
 	services="hdinsight"
 	documentationCenter=""
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/16/2015"
+	ms.date="09/02/2015"
 	ms.author="larryfr"/>
 
 #Génération de recommandations de films à l’aide d’Apache Mahout avec Hadoop sous Linux dans HDInsight (version préliminaire)
@@ -256,4 +256,4 @@ Maintenant que vous avez appris à utiliser Mahout, découvrez d’autres façon
 [tools]: https://github.com/Blackmist/hdinsight-tools
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=September15_HO1-->

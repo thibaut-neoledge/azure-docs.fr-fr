@@ -1,33 +1,33 @@
 <properties 
-	pageTitle="Déplacer des données vers et depuis un stockage Azure Blob | Microsoft Azure" 
-	description="Déplacer des données vers et depuis un stockage Azure Blob" 
-	services="machine-learning,storage" 
-	documentationCenter="" 
-	authors="msolhab" 
-	manager="paulettm" 
-	editor="cgronlun" />
+	pageTitle="Déplacer des données vers et depuis un stockage Azure Blob | Microsoft Azure"
+	description="Déplacer des données vers et depuis un stockage Azure Blob"
+	services="machine-learning,storage"
+	documentationCenter=""
+	authors="msolhab"
+	manager="paulettm"
+	editor="cgronlun"/>
 
 <tags 
-	ms.service="machine-learning" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/29/2015" 
-	ms.author="sunliangms;sachouks;mohabib;bradsev" />
+	ms.service="machine-learning"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/01/2015"
+	ms.author="sunliangms;sachouks;mohabib;bradsev"/>
 
 # Déplacer des données vers et depuis un stockage Azure Blob
 
-L’article sur les [Scénarios du processus de science des données Azure en action dans Azure Machine Learning](../machine-learning-data-science-plan-sample-scenarios.md) vous aide à déterminer les éléments multimédias dont vous avez besoin pour différents flux de travail d’analyse avancée. Si vous devez déplacer des données vers ou depuis le stockage Azure Blob basé sur votre scénario, optez pour l’une des méthodes suivantes :
+Cet article décrit trois méthodes pour déplacer des données vers et depuis un stockage Azure Blob :
 
 - [Utilisation d’Azure Storage Explorer](#explorer)
 - [Utilisation de l’utilitaire de ligne de commande AzCopy](#AzCopy)
 - [Utilisation du Kit de développement logiciel (SDK) Azure dans Python](#PythonSDK)
 
+La méthode la mieux adaptée à vos besoins dépend de votre scénario. L’article sur les [Scénarios du processus de science des données Azure en action dans Azure Machine Learning](../machine-learning-data-science-plan-sample-scenarios.md) vous aide à déterminer les éléments multimédias dont vous avez besoin pour différents flux de travail d’analyse avancée.
 
-> [AZURE.TIP]Comme autre solution, vous pouvez utiliser [Azure Data Factory](https://azure.microsoft.com/fr-fr/services/data-factory/) pour créer et planifier un pipeline qui permet de télécharger des données depuis le stockage d’objets blob Azure, de le transférer à un service web Azure Machine Learning publié, de recevoir les résultats d’analyse prédictive et de télécharger les résultats dans le stockage. Pour plus d’informations, consultez la page [Créer des pipelines prédictifs à l’aide d’Azure Data Factory et Azure Machine Learning](../data-factory/data-factory-create-predictive-pipelines.md).
+> [AZURE.TIP]Comme autre solution, vous pouvez utiliser [Azure Data Factory](https://azure.microsoft.com/fr-FR/services/data-factory/) pour créer et planifier un pipeline qui permet de télécharger des données depuis le stockage d’objets blob Azure, de le transférer à un service web Azure Machine Learning publié, de recevoir les résultats d’analyse prédictive et de télécharger les résultats dans le stockage. Pour plus d’informations, consultez la page [Créer des pipelines prédictifs à l’aide d’Azure Data Factory et Azure Machine Learning](../data-factory/data-factory-create-predictive-pipelines.md).
 
-<para></para>
 
 > [AZURE.NOTE]Pour une présentation complète du stockage d’objets blob Azure, consultez les articles [Fonctionnalités de base des objets blob Azure](../storage-dotnet-how-to-use-blobs.md) et [Service Blob Azure](https://msdn.microsoft.com/library/azure/dd179376.aspx).
 
@@ -181,4 +181,4 @@ L’exemple de code suivant télécharge tous les blobs d’un conteneur. Il uti
 [3]: ./media/machine-learning-data-science-move-azure-blob/data-science-process-uploading-data-to-blob-storage-img3.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

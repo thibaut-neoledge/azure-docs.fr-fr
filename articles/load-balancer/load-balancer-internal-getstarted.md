@@ -1,19 +1,19 @@
 <properties
    pageTitle="Prise en main de l’équilibrage de charge interne | Microsoft Azure"
-   description="Configuration de l'équilibrage de charge interne et procédure d’implémentation pour les machines virtuelles et les déploiements de cloud"
-   services="load-balancer"
-   documentationCenter="na"
-   authors="joaoma"
-   manager="adinah"
-   editor="tysonn" />
+	description="Configuration de l'équilibrage de charge interne et procédure d’implémentation pour les machines virtuelles et les déploiements de cloud"
+	services="load-balancer"
+	documentationCenter="na"
+	authors="joaoma"
+	manager="adinah"
+	editor="tysonn"/>
 <tags
    ms.service="load-balancer"
-   ms.devlang="na"
-   ms.topic="get-started-article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="07/22/2015"
-   ms.author="joaoma" />
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.tgt_pltfrm="na"
+	ms.workload="infrastructure-services"
+	ms.date="09/01/2015"
+	ms.author="joaoma"/>
 
 # Prise en main de la configuration d’un équilibrage de charge interne
 
@@ -21,7 +21,7 @@
 - [Azure Classic steps](load-balancer-internal-getstarted.md)
 - [Resource Manager Powershell steps](load-balancer-internal-arm-powershell.md)
 
-L’équilibrage de charge interne (ILB) d’Azure fournit un équilibrage de charge entre les machines virtuelles qui résident dans un service cloud ou un réseau virtuel avec une portée régionale. Pour plus d'informations sur l'utilisation et la configuration des réseaux virtuels avec une portée régionale, consultez [Réseaux virtuels régionaux](../regional-virtual-networks.md) sur le blog Azure. Les réseaux virtuels existants qui ont été configurés pour un groupe d'affinités ne peuvent pas utiliser l'ILB.
+L’équilibrage de charge interne (ILB) d’Azure fournit un équilibrage de charge entre les machines virtuelles qui résident dans un service cloud ou un réseau virtuel avec une portée régionale. Pour plus d'informations sur l'utilisation et la configuration des réseaux virtuels avec une portée régionale, consultez [Réseaux virtuels régionaux](virtual-networks-migrate-to-regional-vnet.md) sur le blog Azure. Les réseaux virtuels existants qui ont été configurés pour un groupe d'affinités ne peuvent pas utiliser l'ILB.
 
 
 
@@ -335,4 +335,4 @@ Pour obtenir plus d'informations sur les cmdlets ILB, exécutez les commandes su
 [Configuration des paramètres de délai d’expiration TCP inactif pour votre équilibrage de charge](load-balancer-tcp-idle-timeout.md)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

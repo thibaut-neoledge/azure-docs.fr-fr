@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Forum aux questions : publication et utilisation d’applications Machine Learning sur Azure Marketplace | Microsoft Azure" 
-	description="Forum Aux Questions (FAQ)" 
-	services="machine-learning" 
-	documentationCenter="" 
-	authors="LuisCabrer" 
-	manager="paulettm" 
+	pageTitle="Forum aux questions : publication et utilisation d’applications Machine Learning sur Azure Marketplace | Microsoft Azure"
+	description="Forum Aux Questions (FAQ)"
+	services="machine-learning"
+	documentationCenter=""
+	authors="LuisCabrer"
+	manager="paulettm"
 	editor="cgronlun"/>
 
 <tags 
-	ms.service="machine-learning" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/05/2015" 
+	ms.service="machine-learning"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/01/2015"
 	ms.author="luisca"/>
 
 #Publication et utilisation d’applications Machine Learning sur Azure Marketplace : forum aux questions
@@ -77,4 +77,4 @@ Veuillez contacter l’équipe Azure Marketplace à l’adresse <datamarketbd@mi
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

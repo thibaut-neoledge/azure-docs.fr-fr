@@ -3,7 +3,7 @@
 	description="Suivez ce didacticiel pour commencer à utiliser Mobile Apps pour le développement Xamarin.iOS."
 	services="app-service\mobile"
 	documentationCenter="xamarin"
-	authors="normesta"
+	authors="wesmc7777"
 	manager="dwrede"
 	editor=""/>
 
@@ -124,4 +124,4 @@ Pour réaliser ce didacticiel, vous avez besoin des éléments suivants :
 [Xamarin for Windows]: https://go.microsoft.com/fwLink/?LinkID=330242&clcid=0x409
 [Installation de Xamarin.iOS sur Windows]: http://developer.xamarin.com/guides/ios/getting_started/installation/windows/
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

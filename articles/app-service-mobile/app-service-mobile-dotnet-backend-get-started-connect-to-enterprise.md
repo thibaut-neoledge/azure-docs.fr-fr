@@ -12,13 +12,13 @@
 	ms.workload="mobile"
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
-	ms.topic="get-started-article" 
+	ms.topic="get-started-article"
 	ms.date="06/19/2015"
 	ms.author="mahender"/>
 
 # Connecter une application mobile aux API SaaS
 
-Dans ce didacticiel, vous connecterez votre application mobile à une solution SaaS (software-as-a-service) d'entreprise. Vous mettrez à jour l’application à partir de la page [Authentification de votre application avec le service d’authentification unique de la bibliothèque d’authentification Active Directory] pour créer un document Word dans SharePoint Online, chaque fois qu’un nouvel élément TodoItem est ajouté.
+Dans ce didacticiel, vous connecterez votre application mobile à une solution SaaS (software-as-a-service) d'entreprise. Vous mettrez à jour l’application à partir de la page [Authentification de votre application avec le service d’authentification unique de la bibliothèque d’authentification Azure Active Directory] pour créer un document Microsoft Word dans SharePoint Online, chaque fois qu’un nouvel élément TodoItem est ajouté.
 
 Ce didacticiel requiert les éléments suivants :
 
@@ -35,7 +35,7 @@ Par défaut, le jeton que vous recevez d'AAD a des autorisations limitées. Pour
 
     ![][1]
 
-Vous avez maintenant configuré AAD pour émettre un jeton d'accès SharePoint au service App Service.
+Vous avez maintenant configuré Azure AD pour émettre un jeton d'accès SharePoint au service App Service.
 
 ## <a name="store-credentials"></a>Ajout d’informations SharePoint à votre application mobile
 
@@ -57,7 +57,7 @@ Vous pouvez obtenir de nouveau ces valeurs dans votre code avec ApiServices.Sett
 
 ## <a name="obtain-token"></a>Obtention d’un jeton d’accès et appel de l’API SharePoint
 
-Pour accéder à SharePoint, vous avez besoin d'un jeton d'accès spécial avec SharePoint comme public cible. Pour obtenir ce jeton, vous devez effectuer un rappel dans AAD avec l'identité du service App Service et le jeton qui a été émis pour l'utilisateur.
+Pour accéder à SharePoint, vous avez besoin d'un jeton d'accès spécial avec SharePoint comme public cible. Pour obtenir ce jeton, vous devez effectuer un rappel dans Azure AD avec l'identité du service App Service et le jeton qui a été émis pour l'utilisateur.
 
 1. Ouvrez votre projet Code de l'application mobile dans Visual Studio.
 
@@ -182,10 +182,8 @@ Pour créer un document Word, vous allez utiliser le package NuGet OpenXML. Inst
 
 [Preview Azure Management Portal]: https://portal.azure.com/
 [portail de gestion Azure]: https://manage.windowsazure.com/
-[SharePoint Online]: http://office.microsoft.com/fr-fr/sharepoint/
+[SharePoint Online]: http://office.microsoft.com/fr-FR/sharepoint/
 [Authentification de votre application avec le service d'authentification unique de la bibliothèque d'authentification Active Directory]: app-service-mobile-dotnet-backend-ios-aad-sso-preview.md
-[Authentification de votre application avec le service d’authentification unique de la bibliothèque d’authentification Active Directory]: app-service-mobile-dotnet-backend-ios-aad-sso-preview.md
 [Mobile Apps .NET Backend App Service Extension]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.AppService/
- 
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=September15_HO1-->

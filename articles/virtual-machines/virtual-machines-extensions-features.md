@@ -1,19 +1,19 @@
 <properties 
- pageTitle="À propos des extensions et des fonctionnalités des machines virtuelles | Microsoft Azure" 
- description="Décrit la plupart des extensions de machine virtuelle, regroupées selon leurs caractéristiques, par exemple la connectivité et de gestion de base." 
- services="virtual-machines" 
- documentationCenter="" 
- authors="squillace" 
- manager="timlt" 
- editor=""/>
+ pageTitle="À propos des extensions et des fonctionnalités des machines virtuelles | Microsoft Azure"
+	description="Décrit la plupart des extensions de machine virtuelle, regroupées selon leurs caractéristiques, par exemple la connectivité et de gestion de base."
+	services="virtual-machines"
+	documentationCenter=""
+	authors="squillace"
+	manager="timlt"
+	editor=""/>
 <tags 
- ms.service="virtual-machines" 
- ms.devlang="na" 
- ms.topic="article" 
- ms.tgt_pltfrm="vm-multiple" 
- ms.workload="infrastructure-services"
- ms.date="10/31/2014" 
- ms.author="rasquill"/>
+ ms.service="virtual-machines"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="vm-multiple"
+	ms.workload="infrastructure-services"
+	ms.date="08/25/2015"
+	ms.author="rasquill"/>
 #À propos des extensions et des fonctionnalités des machines virtuelles
 Microsoft Azure fournit des extensions de machine virtuelle créées par Microsoft et par des fournisseurs tiers de confiance pour activer la sécurité, l'exécution, le débogage, la gestion et d'autres fonctionnalités dont vous pouvez tirer parti afin d'augmenter votre productivité grâce aux machines virtuelles Azure. Cette rubrique décrit les différentes fonctionnalités fournies par des extensions de machine virtuelle Azure aux des machines virtuelles Windows et Linux et répertorie la documentation dédiée à chaque type de machine virtuelle.
 
@@ -96,4 +96,4 @@ Ces extensions permettent la prise en charge d'autres fonctionnalités de machin
 |**BGInfo**|Présente une image consolidée des informations de serveur utiles sur le Bureau lors de l'utilisation de RDP.|[Extension BGInfo](https://msdn.microsoft.com/library/dn606289.aspx)|
 |**HpcVmDrivers**|Installe, configure et conserve les pilotes de périphérique réseau suivants sur une machine virtuelle A8 ou A9 pour que la machine virtuelle puisse accéder au réseau Azure avec accès direct à la mémoire à distance (RDMA).|[Extension HpcVmDrivers](https://msdn.microsoft.com/library/dn690126.aspx)
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=September15_HO1-->

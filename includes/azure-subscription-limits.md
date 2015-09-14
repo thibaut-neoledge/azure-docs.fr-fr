@@ -6,7 +6,6 @@ Cœurs par [abonnement](http://msdn.microsoft.com/library/azure/hh531793.aspx) <
 [Services cloud](cloud-services-what-is.md) par abonnement|20|200
 [Réseaux locaux](http://msdn.microsoft.com/library/jj157100.aspx) par abonnement|10|500
 Serveurs de bases de données SQL par abonnement|6|150
-Bases de données SQL par serveur|150|500
 Serveurs DNS par abonnement|9|100
 Adresses IP réservées par abonnement|20|100
 Circuits ExpressRoute dédiés par abonnement|10|25
@@ -17,4 +16,4 @@ Règles d’alerte par abonnement|250|250
 
 <sup>1</sup>Les très petites instances comptent comme un cœur pour la limite de cœurs, malgré l'utilisation d'un cœur partiel.
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

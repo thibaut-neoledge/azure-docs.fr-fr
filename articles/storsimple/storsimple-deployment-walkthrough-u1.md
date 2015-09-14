@@ -1,21 +1,21 @@
 <properties 
-   pageTitle="Déploiement de votre appareil StorSimple local"
-	description="Procédures et meilleures pratiques de déploiement du service et de l’appareil StorSimple Update 1."
+   pageTitle="Déployer votre appareil StorSimple (Update 1) | Microsoft Azure"
+	description="Décrit les procédures et meilleures pratiques de déploiement du service et de l’appareil StorSimple Update 1."
 	services="storsimple"
 	documentationCenter="NA"
 	authors="alkohli"
-	manager="adinah"
-	editor="tysonn"/>
+	manager="carolz"
+	editor=""/>
 <tags 
    ms.service="storsimple"
 	ms.devlang="NA"
 	ms.topic="article"
 	ms.tgt_pltfrm="NA"
 	ms.workload="TBD"
-	ms.date="08/21/2015"
+	ms.date="09/02/2015"
 	ms.author="alkohli"/>
 
-# Déploiement de votre appareil StorSimple local
+# Déployer votre appareil StorSimple local (Update 1)
 
 [AZURE.INCLUDE [storsimple-version-selector](../../includes/storsimple-version-selector.md)]
 
@@ -287,4 +287,4 @@ Configuration d’un [appareil virtuel](storsimple-virtual-device.md).
 Utilisez le [service StorSimple Manager](storsimple-manager-service-administration.md) pour gérer votre appareil StorSimple.
  
 
-<!-----HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

@@ -1,5 +1,5 @@
 <properties pageTitle="Didacticiel : Intégration d’Azure Active Directory à Central Desktop | Microsoft Azure" description="Apprenez à utiliser Central Desktop avec Azure Active Directory pour activer l’authentification unique, l’approvisionnement automatique et bien plus encore." services="active-directory" authors="MarkusVi"  documentationCenter="na" manager="stevenpo"/>
-<tags ms.service="active-directory" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="identity" ms.date="08/01/2015" ms.author="markvi" />
+<tags ms.service="active-directory" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="identity" ms.date="08/01/2015" ms.author="markvi"/>
 #Didacticiel : Intégration d’Azure Active Directory à Central Desktop
 >[AZURE.TIP]Pour envoyer des commentaires, cliquez [ici](http://go.microsoft.com/fwlink/?LinkId=522411).
 
@@ -12,7 +12,7 @@ Le scénario décrit dans ce didacticiel se compose des blocs de construction su
 
 1.  Activation de l’intégration d’applications pour Central Desktop
 2.  Configuration de l’authentification unique
-3.  Configuration de l’approvisionnement des utilisateurs
+3.  Configuration de l'approvisionnement des utilisateurs
 4.  Affectation d’utilisateurs
 
 ![Scénario](./media/active-directory-saas-central-desktop-tutorial/IC769558.png "Scénario")
@@ -26,9 +26,9 @@ Cette section décrit l’activation de l’intégration d’applications pour C
 
     ![Active Directory](./media/active-directory-saas-central-desktop-tutorial/IC700993.png "Active Directory")
 
-2.  Dans la liste **Annuaire**, sélectionnez l’annuaire pour lequel vous voulez activer l’intégration d’annuaire.
+2.  Dans la liste **Annuaire**, sélectionnez l'annuaire pour lequel vous voulez activer l'intégration d'annuaire.
 
-3.  Pour ouvrir la vue des applications, dans la vue d’annuaire, cliquez sur **Applications** dans le menu du haut.
+3.  Pour ouvrir la vue des applications, dans la vue d'annuaire, cliquez sur **Applications** dans le menu du haut.
 
     ![Applications](./media/active-directory-saas-central-desktop-tutorial/IC700994.png "Applications")
 
@@ -53,11 +53,9 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 Dans le cadre de cette procédure, vous devez télécharger un certificat codé en base 64 sur votre locataire Central Desktop.  
 Si cette procédure ne vous est pas familière, consultez [Comment convertir un certificat binaire en fichier texte](http://youtu.be/PlgrzUZ-Y1o).
 
-Nase
-
 ###Pour configurer l’authentification unique, procédez comme suit :
 
-1.  Dans le portail Azure AD, puis dans la page d’intégration d’applications **Central Desktop**, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue \*\*Configurer l’authentification unique\*\*.
+1.  Dans le portail Azure AD, puis dans la page d’intégration d’applications **Central Desktop**, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue **Configurer l’authentification unique**.
 
     ![Configurer l’authentification unique](./media/active-directory-saas-central-desktop-tutorial/IC749323.png "Configurer l’authentification unique")
 
@@ -67,10 +65,10 @@ Nase
 
 3.  Dans la page **Configurer l’URL de l’application**, procédez comme suit, puis cliquez sur **Suivant** :
 
-    -   Dans la zone de texte **URL de connexion de Central Desktop**, tapez l’URL de votre locataire Central Desktop (par exemple, \**http://contoso.centraldesktop.com*).
-    -   Dans la zone de texte URL de réponse Central Desktop, tapez votre URL AssertionConsumerService Central Desktop (par exemple, https://contoso.centraldesktop.com/saml2-assertion.php).
+    -   Dans la zone de texte **URL de connexion de Central Desktop**, tapez l’URL de votre client Central Desktop (par exemple, **http://contoso.centraldesktop.com*).
+-   Dans la zone de texte URL de réponse Central Desktop, tapez votre URL AssertionConsumerService Central Desktop (par exemple, https://contoso.centraldesktop.com/saml2-assertion.php).
 
-    >[AZURE.NOTE]Vous pouvez obtenir la valeur à partir des métadonnées de Central Desktop (par exemple, \**http://contoso.centraldesktop.com*).
+    >[AZURE.NOTE]Vous pouvez obtenir la valeur à partir des métadonnées de Central Desktop (par exemple, **http://contoso.centraldesktop.com*).
 
     ![Configurer l’URL de l’application](./media/active-directory-saas-central-desktop-tutorial/IC769561.png "Configurer l’URL de l’application")
 
@@ -78,7 +76,7 @@ Nase
 
     ![Configurer l’authentification unique](./media/active-directory-saas-central-desktop-tutorial/IC769562.png "Configurer l’authentification unique")
 
-5.  Connectez-vous à votre locataire **Central Desktop**.
+5.  Connectez-vous à votre client **Central Desktop**.
 
 6.  Accédez à **Paramètres**, cliquez sur **Avancé**, puis sur **Authentification unique**.
 
@@ -93,7 +91,7 @@ Nase
     3.  Dans le portail Azure AD, dans la page **Configurer l’authentification unique sur Central Desktop**, copiez la valeur **URL de connexion distante**, puis collez-la dans la zone de texte **URL de connexion à SSO**.
     4.  Dans le portail Azure AD, dans la page **Configurer l’authentification unique sur Central Desktop**, copiez la valeur **URL du service de déconnexion unique**, puis collez-la dans la zone de texte **URL de déconnexion de SSO**.
 
-8.  Dans la section **Méthode de vérification de signature de message**, procédez comme suit :
+8.  Dans la section **Méthode de vérification de signature de message**, procédez comme suit :
 
     ![Méthode de vérification de signature de message](./media/active-directory-saas-central-desktop-tutorial/IC769565.png "Méthode de vérification de signature de message")
 
@@ -107,7 +105,7 @@ Nase
 
 9.  Cliquez sur **Mettre à jour**.
 
-10. Dans le portail Azure AD, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Terminer** pour fermer la boîte de dialogue **Configurer l’authentification unique**.
+10. Dans le portail Azure AD, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Terminer** pour fermer la boîte de dialogue **Configurer l’authentification unique**.
 
     ![Configurer l’authentification unique](./media/active-directory-saas-central-desktop-tutorial/IC769566.png "Configurer l’authentification unique")
 ##Configuration de l’approvisionnement des utilisateurs
@@ -148,10 +146,10 @@ Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure
 
     ![Affecter des utilisateurs](./media/active-directory-saas-central-desktop-tutorial/IC769567.png "Affecter des utilisateurs")
 
-3.  Sélectionnez votre utilisateur de test, cliquez sur **Affecter**, puis sur **Oui** pour confirmer votre affectation.
+3.  Sélectionnez votre utilisateur de test, cliquez sur **Affecter** puis sur **Oui** pour confirmer votre affectation.
 
     ![Oui](./media/active-directory-saas-central-desktop-tutorial/IC767830.png "Oui")
 
-Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d’informations sur le volet d’accès, consultez [Présentation du volet d’accès](https://msdn.microsoft.com/library/dn308586).
+Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](https://msdn.microsoft.com/library/dn308586).
 
-<!-------HONumber=August15_HO7-->
+<!---HONumber=September15_HO1-->

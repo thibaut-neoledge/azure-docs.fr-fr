@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Mise en route avec le stockage de files d’attente Azure et les appareils connectés Visual Studio"
+	pageTitle="Prise en main du stockage de files d’attente Azure et des services connectés de Visual Studio | Microsoft Azure"
 	description="Mise en route de l’utilisation du stockage de files d’attente Azure dans un projet ASP.NET dans Visual Studio"
 	services="storage"
 	documentationCenter=""
@@ -27,15 +27,15 @@
 > - [Queues](vs-storage-aspnet-getting-started-queues.md)
 > - [Tables](vs-storage-aspnet-getting-started-tables.md)
 
-##Vue d'ensemble
+## Vue d’ensemble
 
 Cet article explique comment prendre en main le stockage de files d’attente Azure dans Visual Studio après avoir créé ou référencé un compte de stockage Azure dans un projet ASP.NET via la boîte de dialogue **Ajouter des services connectés** de Visual Studio.
 
 Nous allons vous montrer comment créer une file d’attente Azure dans votre compte de stockage et y accéder. Nous vous indiquerons aussi comment effectuer des opérations de base sur les files d’attente, comme l’ajout, la modification, la lecture et la suppression des messages des files d’attente. Les exemples ont été écrits en code C# et utilisent la [bibliothèque cliente de stockage Azure pour .NET](https://msdn.microsoft.com/library/azure/dn261237.aspx). Pour plus d’informations sur ASP.NET, voir le site [ASP.NET](http://www.asp.net) (en anglais).
 
-Le service de stockage de files d'attente Azure permet de stocker un grand nombre de messages accessibles partout dans le monde via des appels authentifiés avec HTTP ou HTTPS. Un simple message de file d’attente peut avoir une taille de 64 Ko et une file d’attente peut contenir des millions de messages, jusqu’à la limite de capacité totale d’un compte de stockage.
+Les files d’attente de stockage Azure sont un service permettant de stocker un grand nombre de messages accessibles depuis n’importe où dans le monde via des appels authentifiés avec HTTP ou HTTPS. Un simple message de file d’attente peut avoir une taille de 64 Ko et une file d’attente peut contenir des millions de messages, jusqu’à la limite de capacité totale d’un compte de stockage.
 
-##Accéder à des files d’attente dans le code
+## Accéder à des files d’attente dans le code
 
 Pour accéder à des files d’attente dans les projets ASP.NET, vous devez inclure les éléments suivants dans les fichiers sources C# qui accèdent au stockage de files d’attente Azure.
 
@@ -52,7 +52,7 @@ Pour accéder à des files d’attente dans les projets ASP.NET, vous devez incl
 
 3. Obtenez un objet `CloudQueueClient` pour référencer les objets de file d’attente dans votre compte de stockage.
 
-	    // Create the queue client.
+	    // Create the queueclient.
     	CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
 
 4. Obtenez un objet `CloudQueue` pour référencer une file d’attente spécifique.
@@ -63,14 +63,14 @@ Pour accéder à des files d’attente dans les projets ASP.NET, vous devez incl
 
 **REMARQUE :** placez tout le code ci-dessus avant celui des exemples suivants.
 
-##Créer une file d’attente dans le code
+## Créer une file d’attente dans le code
 
 Pour créer une file d’attente Azure dans le code, ajoutez simplement un appel à `CreateIfNotExists` dans le code ci-dessus.
 
 	// Create the CloudQuecClient  if it does not exist
 	messageQueue.CreateIfNotExists();
 
-##Ajout d'un message à une file d'attente
+## Ajout d'un message à une file d'attente
 
 Pour insérer un message dans une file d’attente, créez un objet `CloudQueueMessage`, puis appelez la méthode `AddMessage`.
 
@@ -84,7 +84,7 @@ Voici un exemple qui insère le message « Hello, World ».
 	CloudQueueMessage message = new CloudQueueMessage("Hello, World");
 	messageQueue.AddMessage(message);
 
-##Lire un message dans une file d’attente
+## Lire un message dans une file d’attente
 
 En appelant la méthode PeekMessage(), vous pouvez lire furtivement le message au début de la file d'attente sans pour autant l'en retirer.
 
@@ -93,7 +93,7 @@ En appelant la méthode PeekMessage(), vous pouvez lire furtivement le message a
 	// Peek at the next message
     CloudQueueMessage peekedMessage = messageQueue.PeekMessage();
 
-##Lire et supprimer un message dans une file d’attente
+## Lire et supprimer un message dans une file d’attente
 
 Votre code permet de supprimer (retirer) un message d'une file d'attente en deux étapes. 1. Lorsque vous appelez GetMessage(), vous obtenez le message suivant au sein de la file d'attente. Tout message renvoyé par un appel GetMessage() n'est plus visible par les autres codes lisant les messages de cette même file d'attente. Par défaut, ce message reste invisible pendant 30 secondes. 2. Pour finaliser la suppression du message de la file d’attente, appelez `DeleteMessage`.
 
@@ -110,7 +110,7 @@ Ce processus de suppression d'un message en deux étapes garantit que, si votre 
 	await messageQueue.DeleteMessage(retrievedMessage);
 
 
-## Utilisation d’options supplémentaires pour l’enlèvement des messages
+## Utiliser des options supplémentaires pour l'extraction de messages
 
 Il existe deux façons de personnaliser la récupération des messages à partir d'une file d'attente. Premièrement, vous pouvez obtenir un lot de messages (jusqu'à 32). Deuxièmement, vous pouvez définir un délai d'expiration de l'invisibilité plus long ou plus court afin d'accorder à votre code plus ou moins de temps pour traiter complètement chaque message. L’exemple de code suivant utilise la méthode `GetMessages` pour obtenir 20 messages en un appel. Ensuite, il traite chaque message à l’aide d’une boucle `foreach`. Il définit également le délai d'expiration de l'invisibilité sur cinq minutes pour chaque message. Notez que le délai de 5 minutes démarre en même temps pour tous les messages. Donc une fois les 5 minutes écoulées après l’appel à `GetMessages`, tous les messages non supprimés redeviennent visibles.
 
@@ -175,9 +175,8 @@ Pour supprimer une file d’attente et tous les messages qu’elle contient, app
 
 
 
-##Étapes suivantes
+## Étapes suivantes
 
 [AZURE.INCLUDE [vs-storage-dotnet-queues-next-steps](../../includes/vs-storage-dotnet-queues-next-steps.md)]
-			
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

@@ -24,7 +24,7 @@ Ce guide vous présente le service Azure Automation et décrit comment l’utili
 
 ## Qu'est-ce qu'Azure Automation ?
 
-[Azure Automation](http://azure.microsoft.com/services/automation/) est un service Azure destiné à simplifier la gestion du cloud via l'automatisation des processus. Il automatise les tâches manuelles, répétitives, fastidieuses et sources d’erreurs pour accroître la fiabilité, l’efficacité et le retour sur investissement de votre organisation.
+[Azure Automation](http://azure.microsoft.com/services/automation/) est un service Azure destiné à simplifier la gestion du cloud via l'automatisation des processus. Il automatise les tâches manuelles, répétitives, fastidieuses et sources d'erreurs pour accroître la fiabilité, l'efficacité et le retour sur investissement de votre organisation.
 
 Azure Automation fournit un moteur d’exécution de workflow à haute fiabilité et à haute disponibilité, qui s’adapte à vos besoins. Dans Azure Automation, les processus peuvent être lancés manuellement, par des systèmes tiers ou à des intervalles planifiés, afin que les tâches interviennent exactement au moment opportun.
 
@@ -40,7 +40,7 @@ Dans Azure Automation, une application web Azure est gérée à l’aide d’app
 
 Maintenant que vous connaissez les bases d’Azure Automation et que vous savez l’utiliser pour gérer une application web Azure, cliquez sur les liens ci-dessous pour en savoir plus.
 
-* Consultez le [Didacticiel de prise en main](../automation-create-runbook-from-samples.md) d'Azure Automation
+* Consultez le [Didacticiel de prise en main](../automation-intro.md) d'Azure Automation
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

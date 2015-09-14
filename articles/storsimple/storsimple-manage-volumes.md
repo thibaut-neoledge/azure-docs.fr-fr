@@ -1,6 +1,6 @@
 <properties
    pageTitle="Gérer vos volumes StorSimple | Microsoft Azure"
-	description="Explique comment ajouter, modifier et analyser les volumes StorSimple et comment les mettre hors connexion si nécessaire."
+	description="Explique comment ajouter, modifier, analyser et supprimer des volumes StorSimple et comment les mettre hors connexion si nécessaire."
 	services="storsimple"
 	documentationCenter="NA"
 	authors="SharS"
@@ -12,12 +12,12 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="NA"
 	ms.workload="TBD"
-	ms.date="08/21/2015"
+	ms.date="08/27/2015"
 	ms.author="v-sharos"/>
 
-# Gestion des volumes StorSimple
+# Utiliser le service StorSimple Manager pour gérer les volumes
 
-## Vue d'ensemble
+## Vue d’ensemble
 
 Ce didacticiel explique comment utiliser le service StorSimple Manager pour créer et gérer des volumes sur l’appareil StorSimple et l’appareil virtuel StorSimple.
 
@@ -31,7 +31,7 @@ Le service StorSimple Manager est une extension du portail Azure qui vous perm
 
 La page **Volumes** vous permet de gérer les volumes de stockage alloués sur l’appareil Microsoft Azure StorSimple pour vos initiateurs (serveurs). Elle comprend la liste des volumes de votre appareil StorSimple.
 
- ![page volumes](./media/storsimple-manage-volumes/HCS_VolumesPage.png)
+ ![Page volumes](./media/storsimple-manage-volumes/HCS_VolumesPage.png)
 
 Un volume est constitué d’une série d’attributs :
 
@@ -65,22 +65,22 @@ Vous [avez créé un volume](storsimple-deployment-walkthrough-u1.md#step-6-crea
 
 3. Cliquez sur **Ajouter** en bas de la page. L’Assistant Ajouter un volume démarre.
 
-     ![add-volume](./media/storsimple-manage-volumes/HCS_AddVolume1M.png)
+     ![Assistant Ajout de volume, paramètres de base](./media/storsimple-manage-volumes/HCS_AddVolume1M.png)
 
 4. Dans l’Assistant Ajouter un volume, sous **Paramètres de base**, procédez comme suit :
 
   1. Saisissez un **nom** pour le volume.
   2. Indiquez la **capacité allouée** au volume en Go ou To. La capacité doit être comprise entre 1 Go et 64 To pour un appareil physique. La capacité maximale qui peut être allouée pour un volume d’un appareil virtuel StorSimple est 30 To.
   3. Dans la liste déroulante, sélectionnez le **type d’utilisation** du volume. Sélectionnez **Volume d’archivage** si vous travaillez avec des données d’archivage utilisées moins fréquemment. Dans tous les autres cas, sélectionnez **Volume à plusieurs niveaux**. (Les volumes à plusieurs niveaux étaient appelés volumes principaux).
-  5. Cliquez sur l’icône en forme de flèche ![icône-flèche](./media/storsimple-manage-volumes/HCS_ArrowIcon.png) pour accéder à la page **Paramètres supplémentaires**.
+  5. Cliquez sur l’icône en forme de flèche ![Icône en forme de flèche](./media/storsimple-manage-volumes/HCS_ArrowIcon.png) pour accéder à la page **Paramètres supplémentaires**.
 
-     ![add-volume](./media/storsimple-manage-volumes/HCs_AddVolume2M.png)
+     ![Assistant Ajout de volume, paramètres avancés](./media/storsimple-manage-volumes/HCs_AddVolume2M.png)
    
 5. Sous **Paramètres supplémentaires**, ajoutez un enregistrement de contrôle d’accès (ACR) :
   
   1. Dans la liste déroulante, sélectionnez un enregistrement de contrôle d’accès (ACR). Vous pouvez également ajouter un nouvel enregistrement de contrôle d’accès. Les enregistrements de contrôle d’accès déterminent quels hôtes peuvent accéder à vos volumes en faisant correspondre le nom qualifié de l’hôte à celui répertorié dans l’enregistrement.
   2. Sous **Sauvegarde par défaut pour ce volume**, nous vous recommandons d’activer la sauvegarde par défaut en cochant la case **Activer**.
-   3. Cliquez sur l’icône en forme de coche ![icône-coche](./media/storsimple-manage-volumes/HCS_CheckIcon.png) pour créer le volume avec les paramètres spécifiés.
+   3. Cliquez sur l’icône en forme de coche ![Icône en forme de coche](./media/storsimple-manage-volumes/HCS_CheckIcon.png) pour créer le volume avec les paramètres spécifiés.
 
 Le nouveau volume est maintenant prêt à l’emploi.
 
@@ -172,7 +172,7 @@ Suivez la procédure ci-dessous pour activer ou désactiver l’analyse d’un v
 
 5. Dans l’Assistant Modifier un volume, sous **Paramètres de base**, sélectionnez **Activer** ou **Désactiver** dans la liste déroulante **Analyse**.
 
-    ![analyser un volume](./media/storsimple-manage-volumes/HCS_MonitorVolumeM.png)
+    ![Modifier un volume, paramètres de base](./media/storsimple-manage-volumes/HCS_MonitorVolumeM.png)
 
 ## Étapes suivantes
 
@@ -181,4 +181,4 @@ Découvrez comment [cloner un volume StorSimple](storsimple-clone-volume.md).
 
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

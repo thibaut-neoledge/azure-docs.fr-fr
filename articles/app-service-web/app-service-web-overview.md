@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/24/2015"
+	ms.date="07/17/2015"
 	ms.author="jaime.espinosa"/>
 
 
@@ -65,4 +65,4 @@ Pour plus d’informations sur la plateforme Azure App Service, consultez [Azure
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

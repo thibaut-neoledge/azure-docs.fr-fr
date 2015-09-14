@@ -8,16 +8,14 @@
 	manager="wpickett"
 	editor=""/>
 
-
 <tags
 	ms.service="storage"
 	ms.workload="storage"
 	ms.tgt_pltfrm="na"
 	ms.devlang="nodejs"
 	ms.topic="article"
-	ms.date="04/28/2015"
+	ms.date="09/01/2015"
 	ms.author="mwasson"/>
-
 
 
 
@@ -88,7 +86,7 @@ Dans cette section, vous allez créer une application Node et utiliser npm pour 
 
 		sudo npm install express-generator@4.2.0 -g
 
-    Le résultat doit ressembler à ce qui suit :
+    Le résultat ressemble à l’exemple suivant :
 
 		express-generator@4.2.0 /usr/local/lib/node_modules/express-generator
 		├── mkdirp@0.3.5
@@ -100,7 +98,7 @@ Dans cette section, vous allez créer une application Node et utiliser npm pour 
 
         express
 
-	Le résultat de cette commande doit ressembler à ceci :
+	Le résultat de cette commande ressemble à l’exemple suivant :
 
 		   create : .
 		   create : ./package.json
@@ -126,7 +124,7 @@ Dans cette section, vous allez créer une application Node et utiliser npm pour 
 		   run the app:
 		     $ DEBUG=my-application ./bin/www
 
-	Maintenant, le répertoire **tasklist** doit comporter plusieurs nouveaux répertoires et fichiers.
+	Maintenant, le répertoire **tasklist** comporte plusieurs nouveaux répertoires et fichiers.
 
 ### Installation de modules supplémentaires
 
@@ -136,7 +134,7 @@ Sur la ligne de commande, entrez la commande suivante pour installer les modules
 
     npm install
 
-Le résultat de cette commande doit ressembler à ceci :
+Le résultat de cette commande ressemble à l’exemple suivant :
 
 	debug@0.7.4 node_modules\debug
 
@@ -153,7 +151,7 @@ Ensuite, entrez la commande suivante pour installer les modules [azure], [node-u
 
 L’indicateur **--save** ajoute des entrées pour ces modules dans le fichier **package.json**.
 
-Le résultat de cette commande doit ressembler à ceci :
+Le résultat de cette commande ressemble à l’exemple suivant :
 
 	async@0.9.0 node_modules\async
 
@@ -468,16 +466,17 @@ Pour tester l'application sur votre machine locale, procédez comme suit :
 
 3. Ouvrez un navigateur web et accédez à http://127.0.0.1:3000.
 
-Une page web semblable à la suivante doit s'afficher :
+	Une page web qui ressemble à l’exemple suivant s’affiche.
 
-![Une page Web affiche une liste de tâches vide.][node-table-finished]
+	![Une page Web affiche une liste de tâches vide.][node-table-finished]
 
-Pour créer un élément de tâche, entrez un nom et une catégorie, puis cliquez sur **Ajouter un élément**. Pour marquer une tâche comme terminée, cochez **Terminée** puis cliquez sur **Mettre à jour les tâches**.
+4. Pour créer un élément de tâche, entrez un nom et une catégorie, puis cliquez sur **Ajouter un élément**.
 
-![Image du nouvel élément dans la liste de tâches][node-table-list-items]
+6. Pour marquer une tâche comme terminée, cochez **Terminée** puis cliquez sur **Mettre à jour les tâches**.
+
+	![Image du nouvel élément dans la liste de tâches][node-table-list-items]
 
 Bien que l'application s'exécute localement, elle stocke les données du service de Table Azure.
-
 
 ## Déploiement de votre application dans Azure
 
@@ -487,7 +486,7 @@ Les étapes de cette section utilisent les outils en ligne de commande Azure pou
 >
 > S’il s’agit de la première application web que vous créez, vous devez utiliser le portail Azure pour la déployer.
 
-Pour commencer, installez l’[interface de ligne de commande Azure\] en entrant la commande suivante dans la ligne de commande :
+Pour commencer, installez l’[interface de ligne de commande Azure] en entrant la commande suivante dans la ligne de commande :
 
 	npm install azure-cli -g
 
@@ -501,7 +500,7 @@ Dans cette étape, vous allez télécharger un fichier contenant des information
 
 	Cette commande lance un navigateur et accède à la page de téléchargement. Si vous y êtes invité, connectez-vous avec le compte associé à votre abonnement Azure.
 
-	<!-- ![The download page][download-publishing-settings] -->Le téléchargement du fichier doit se lancer automatiquement. Si ce n'est pas le cas, cliquez sur le lien situé en haut de la page pour télécharger le fichier manuellement. Enregistrez le fichier et notez le chemin d'accès.
+	<!-- ![The download page][download-publishing-settings] -->Le téléchargement du fichier se lance automatiquement. Si ce n'est pas le cas, cliquez sur le lien situé en haut de la page pour télécharger le fichier manuellement. Enregistrez le fichier et notez le chemin d'accès.
 
 2. Entrez la commande suivante pour importer les paramètres :
 
@@ -509,7 +508,7 @@ Dans cette étape, vous allez télécharger un fichier contenant des information
 
 	Indiquez le chemin et le nom du fichier des paramètres de publication téléchargé à l'étape précédente.
 
-3. Une fois les paramètres importés, vous devez supprimer le fichier des paramètres de publication. Ce fichier n'est plus nécessaire, et il contient des informations sensibles concernant votre abonnement Azure.
+3. Une fois les paramètres importés, supprimez le fichier des paramètres de publication. Ce fichier n'est plus nécessaire, et il contient des informations sensibles concernant votre abonnement Azure.
 
 ### Créer une application web App Service
 
@@ -521,9 +520,7 @@ Dans cette étape, vous allez télécharger un fichier contenant des information
 
 	Vous êtes invité à spécifier le nom et l’emplacement de l’application web. Indiquez un nom unique et sélectionnez le même emplacement géographique que votre compte de stockage Azure.
 
-	Le paramètre `--git` crée un référentiel Git sur Azure pour cette application web. Il initialise également un référentiel Git dans le répertoire actif s’il n’en existe aucun, et ajoute un référentiel [Git distant] nommé « azure » qui est utilisé pour publier l'application dans Azure. Enfin, il crée un fichier **web.config**, qui contient les paramètres utilisés par Azure pour héberger les applications Node.
-
-	> [AZURE.NOTE]Si le répertoire contient déjà un référentiel Git, la commande ne réinitialise pas ce répertoire. De même, si le paramètre `--git` est omis, mais que le répertoire contient un référentiel Git, la commande crée quand même le référentiel « azure » distant.
+	Le paramètre `--git` crée un référentiel Git sur Azure pour cette application web. Il initialise également un référentiel Git dans le répertoire actif s’il n’en existe aucun, et ajoute un référentiel [Git distant] nommé « azure » qui est utilisé pour publier l'application dans Azure. Enfin, il crée un fichier **web.config**, qui contient les paramètres utilisés par Azure pour héberger les applications Node. Si le paramètre `--git` est omis, mais que le répertoire contient un référentiel Git, la commande crée quand même le référentiel « azure » distant.
 
 	Une fois cette commande terminée, le résultat doit ressembler à ce qui suit. Notez que la ligne qui commence par **Website created at** contient l'URL de l’application web.
 
@@ -584,7 +581,7 @@ Pour publier l'application, validez les fichiers de code dans Git puis transfér
 
 		git push azure master
 
-	Utilisez **master** comme branche cible. À la fin du déploiement, une déclaration similaire à la suivante doit s'afficher :
+	Utilisez **master** comme branche cible. À la fin du déploiement, une déclaration similaire à l’exemple suivant s'affiche :
 
 		To https://username@tabletasklist.azurewebsites.net/TableTasklist.git
  		 * [new branch]      master -> master
@@ -598,11 +595,11 @@ Bien que les étapes de cet article décrivent l'utilisation du service de Table
 
 ## Ressources supplémentaires
 
-[Interface de ligne de commande Azure\]
+[Interface de ligne de commande Azure]
 
 ## Changements apportés
-* Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre Sites Web et App Service, consultez la page [Azure App Service et les services Azure existants](http://go.microsoft.com/fwlink/?LinkId=529714).
-* Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre l’ancien et le nouveau portail, consultez la page [Références sur la navigation dans le portail Azure](http://go.microsoft.com/fwlink/?LinkId=529715).
+* Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre Sites Web et App Service, consultez la page : [Azure App Service et les services Azure existants](http://go.microsoft.com/fwlink/?LinkId=529714)
+* Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre le portail Azure et le portail Azure en version préliminaire, consultez la page [Références sur la navigation dans le portail Azure](http://go.microsoft.com/fwlink/?LinkId=529715).
 
 [Créer et déployer une application web Node.js dans Azure App Service]: web-sites-nodejs-develop-deploy-mac.md
 [Continuous deployment using GIT in Azure App Service]: web-sites-publish-source-control.md
@@ -616,7 +613,7 @@ Bien que les étapes de cet article décrivent l'utilisation du service de Table
 [Git distant]: http://git-scm.com/docs/git-remote
 
 [Application web Node.js avec MongoDB]: web-sites-nodejs-store-data-mongodb.md
-[Azure CLI]: ../xplat-cli.md
+[interface de ligne de commande Azure]: ../xplat-cli.md
 
 [Continuous deployment using GIT in Azure App Service]: web-sites-publish-source-control.md
 [azure]: https://github.com/Azure/azure-sdk-for-node
@@ -643,4 +640,4 @@ Bien que les étapes de cet article décrivent l'utilisation du service de Table
 [Create and deploy a Node.js application to an Azure Web Site]: web-sites-nodejs-develop-deploy-mac.md
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Utilisation de Hudson avec le service BLOB Azure | Microsoft Azure" 
-	description="Description de l’utilisation de la solution Hudson avec le stockage d’objets blob Azure comme référentiel pour des artefacts de build." 
-	services="storage" 
-	documentationCenter="java" 
-	authors="rmcmurray" 
-	manager="wpickett" 
+	pageTitle="Utilisation de Hudson avec le service BLOB Azure | Microsoft Azure"
+	description="Description de l’utilisation de la solution Hudson avec le stockage d’objets blob Azure comme référentiel pour des artefacts de build."
+	services="storage"
+	documentationCenter="java"
+	authors="rmcmurray"
+	manager="wpickett"
 	editor="jimbe"/>
 
 <tags 
-	ms.service="storage" 
-	ms.workload="storage" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="Java" 
-	ms.topic="article" 
-	ms.date="06/03/2015" 
+	ms.service="storage"
+	ms.workload="storage"
+	ms.tgt_pltfrm="na"
+	ms.devlang="Java"
+	ms.topic="article"
+	ms.date="09/01/2015"
 	ms.author="robmcm"/>
 
 #Utilisation d’Azure Storage avec une solution d’intégration continue Hudson
@@ -168,4 +168,4 @@ La section suivante présente les composants du service BLOB.
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

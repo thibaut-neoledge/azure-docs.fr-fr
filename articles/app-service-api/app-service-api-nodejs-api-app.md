@@ -1,11 +1,11 @@
 <properties
-	pageTitle="Créer et déployer une application API Node.js dans Azure App Service"
+	pageTitle="Créer et déployer une application API Node.js dans Azure App Service | Microsoft Azure"
 	description="Découvrez comment créer un package d’application API Node.js et le déployer sur Microsoft Azure App Service."
 	services="app-service\api"
 	documentationCenter="nodejs"
 	authors="pkefal"
-  manager="" 
-  editor=""/>
+	manager=""
+	editor=""/>
 
 <tags
 	ms.service="app-service-api"
@@ -20,7 +20,7 @@
 
 Ce didacticiel explique comment créer une application [Node.js](http://nodejs.org) et la déployer dans des applications API d'Azure App Service en utilisant [Git](http://git-scm.com). Les instructions de ce didacticiel s'appliquent à tous les systèmes d'exploitation pouvant exécuter Node.
 
-Voici une capture d'écran de l'application terminée :
+La capture d'écran ci-dessous présente l'application terminée :
 
 ![][sample-api-app-page]
 
@@ -34,7 +34,7 @@ Voici une capture d'écran de l'application terminée :
 
 2. Cliquez sur **NOUVEAU** dans la partie inférieure gauche du portail.
 
-3. Cliquez sur **Web + Mobile > Application API**.
+3. Cliquez sur **Web + Mobile** > **Application API**.
 
 	![][portal-quick-create]
 
@@ -50,7 +50,7 @@ Voici une capture d'écran de l'application terminée :
 
 	Si vous avez laissé la case **Ajouter au Tableau d'accueil** cochée, le portail ouvre automatiquement le panneau de votre application API après sa création. Si vous avez décoché la case, cliquez sur **Notifications** dans la page d'accueil du portail pour voir l'état de la création de l'application API, puis cliquez sur la notification pour accéder au panneau de la nouvelle application API.
 
-7. Cliquez sur **Paramètres > Paramètres de l'application**.
+7. Cliquez sur **Paramètres** > **Paramètres de l'application**.
 
 9. Définissez le niveau d'accès à **Public (anonyme)**.
 
@@ -171,7 +171,6 @@ Dans cette section, vous créez un référentiel Git local et vous effectuez une
 
 		git init
 
-
 2. Entrez les commandes suivantes pour ajouter des fichiers au référentiel :
 
 		git add .
@@ -243,6 +242,5 @@ Vous avez déployé dans Azure une application web Node.js qui utilise un backen
 [server-js]: ./media/app-service-api-nodejs-api-app/server-js.png
 [sample-api-app-page]: ./media/app-service-api-nodejs-api-app/sample-api-app-page.png
 [browse-api-app-page]: ./media/app-service-api-nodejs-api-app/browse-api-app-page.png
- 
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=September15_HO1-->

@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="na"
-	ms.date="08/21/2015"
+	ms.date="08/27/2015"
 	ms.author="tomfitz"/>
 
 # Création de plusieurs instances de ressources dans Azure Resource Manager
@@ -112,9 +112,11 @@ Utilisez le modèle suivant :
       } 
     ]
 
+Bien sûr, vous définissez le nombre de copies sur une valeur autre que la longueur du tableau. Par exemple, vous pouvez créer un tableau avec de nombreuses valeurs et ensuite passer une valeur de paramètre qui spécifie le nombre d'éléments du tableau à déployer. Dans ce cas, vous définissez le nombre de copies comme indiqué dans le premier exemple.
+
 ## Étapes suivantes
 - Pour en savoir plus sur les sections d’un modèle, consultez [Création de modèles Azure Resource Manager](./resource-group-authoring-templates.md).
 - Pour obtenir la liste des fonctions que vous pouvez utiliser dans un modèle, consultez [Fonctions des modèles Azure Resource Manager](./resource-group-template-functions.md).
 - Pour savoir comment déployer votre modèle, consultez [Déploiement d'une application avec un modèle Azure Resource Manager](azure-portal/resource-group-template-deploy.md).
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

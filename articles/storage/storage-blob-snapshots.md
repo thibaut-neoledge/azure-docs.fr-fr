@@ -1,22 +1,20 @@
 <properties 
-	pageTitle="Création d’un instantané d’objet blob" 
-	description="Guide pour la création d’instantanés d’objets blob Azure Storage" 
-	services="storage" 
-	documentationCenter="" 
-	authors="tamram" 
-	manager="adinah" 
+	pageTitle="Création d’un instantané d’objet blob"
+	description="Guide pour la création d’instantanés d’objets blob Azure Storage"
+	services="storage"
+	documentationCenter=""
+	authors="tamram"
+	manager="adinah"
 	editor=""/>
 
-
 <tags 
-	ms.service="storage" 
-	ms.workload="storage" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/27/2015" 
+	ms.service="storage"
+	ms.workload="storage"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/01/2015"
 	ms.author="tamram"/>
-
 
 # Création d’un instantané d’objet blob
 
@@ -127,4 +125,4 @@ Dans le scénario 4, l’objet blob de base a été complètement mis à jour et
 
 ![Azure Storage Resources](./media/storage-blob-snapshots/storage-blob-snapshots-billing-scenario-4.png)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

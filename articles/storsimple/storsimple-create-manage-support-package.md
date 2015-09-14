@@ -1,24 +1,24 @@
 <properties 
-   pageTitle="Création et gestion d'un package de support | Microsoft Azure"
-   description="Apprenez à créer, déchiffrer et modifier un package de support pour votre appareil StorSimple."
-   services="storsimple"
-   documentationCenter=""
-   authors="alkohli"
-   manager="carolz"
-   editor="" />
+   pageTitle="Création d'un package de support StorSimple | Microsoft Azure"
+	description="Apprenez à créer, déchiffrer et modifier un package de support pour votre appareil StorSimple."
+	services="storsimple"
+	documentationCenter=""
+	authors="alkohli"
+	manager="carolz"
+	editor=""/>
 <tags 
    ms.service="storsimple"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="08/12/2015"
-   ms.author="alkohli" />
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="na"
+	ms.date="08/31/2015"
+	ms.author="alkohli"/>
 
 
-# Création et gestion d'un package de support
+# Création et gestion d’un package de prise en charge StorSimple
 
-## Vue d'ensemble
+## Vue d’ensemble
 
 Ce didacticiel décrit les différentes tâches associées à la création et la gestion d'un package de support. Un package de support inclut tous les journaux pertinents dans un format compressé et chiffré. Il est utilisé pour aider l'équipe de support technique de Microsoft à résoudre les problèmes d'appareil StorSimple.
 
@@ -198,4 +198,4 @@ Vous trouverez ci-dessous un exemple illustrant comment déchiffrer, modifier et
 
 Découvrez comment [utiliser les packages de support et les journaux de l'appareil pour dépanner votre déploiement](storsimple-troubleshoot-deployment.md#support-packages-and-device-logs-available-for-troubleshooting).
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=September15_HO1-->

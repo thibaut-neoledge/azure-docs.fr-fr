@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Contacter le support Microsoft | Microsoft Azure"
-   description="Découvrez comment créer une demande de support et démarrer une session de support sur votre appareil StorSimple."
-   services="storsimple"
-   documentationCenter=""
-   authors="alkohli"
-   manager="carolz"
-   editor="" />
+	description="Découvrez comment créer une demande de support et démarrer une session de support sur votre appareil StorSimple."
+	services="storsimple"
+	documentationCenter=""
+	authors="alkohli"
+	manager="carolz"
+	editor=""/>
 <tags 
    ms.service="storsimple"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="07/24/2015"
-   ms.author="alkohli" />
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="na"
+	ms.date="08/31/2015"
+	ms.author="alkohli"/>
 
 # Contacter le support Microsoft
 
@@ -71,4 +71,4 @@ Procédez comme suit pour démarrer une session de support :
 
 > [AZURE.IMPORTANT]Vous pouvez désactiver l'accès au support en exécutant `Disable-HcsSupportAccess`. L’appareil StorSimple tentera également de désactiver l'accès au support 8 heures après le début de la session. Il est recommandé de modifier vos informations d'identification de l’appareil StorSimple après le lancement d'une session de support.
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=September15_HO1-->

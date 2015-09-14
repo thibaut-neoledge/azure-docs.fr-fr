@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Activation du Bureau à distance pour les services cloud (Node.js)" 
-	description="Découvrez comment activer l'accès Bureau à distance pour les machines virtuelles qui hébergent votre application Azure Node.js." 
-	services="cloud-services" 
-	documentationCenter="nodejs" 
-	authors="MikeWasson" 
-	manager="wpickett" 
+	pageTitle="Activation du Bureau à distance pour les services cloud (Node.js)"
+	description="Découvrez comment activer l'accès Bureau à distance pour les machines virtuelles qui hébergent votre application Azure Node.js."
+	services="cloud-services"
+	documentationCenter="nodejs"
+	authors="MikeWasson"
+	manager="wpickett"
 	editor=""/>
 
 <tags 
-	ms.service="cloud-services" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="nodejs" 
-	ms.topic="article" 
-	ms.date="05/29/2015" 
+	ms.service="cloud-services"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="na"
+	ms.devlang="nodejs"
+	ms.topic="article"
+	ms.date="09/01/2015"
 	ms.author="mwasson"/>
 
 
@@ -116,4 +116,4 @@ Une fois que vous n'avez plus besoin des connexions Bureau à distance aux insta
   [Utilisation du Bureau à distance avec des rôles Azure]: http://msdn.microsoft.com/library/windowsazure/gg443832.aspx
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

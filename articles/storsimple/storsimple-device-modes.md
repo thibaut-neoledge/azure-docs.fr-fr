@@ -1,29 +1,29 @@
 <properties 
-   pageTitle="Changement des modes de votre appareil StorSimple | Microsoft Azure"
-   description="Découvrez les différents modes d’appareil StorSimple et comment modifier l’appareil."
-   services="storsimple"
-   documentationCenter=""
-   authors="alkohli"
-   manager="carolz"
-   editor="" />
+   pageTitle="Changer le mode de l'appareil StorSimple | Microsoft Azure"
+	description="Décrit les modes de l’appareil StorSimple et explique comment utiliser Windows PowerShell for StorSimple pour changer le mode de l’appareil."
+	services="storsimple"
+	documentationCenter=""
+	authors="alkohli"
+	manager="carolz"
+	editor=""/>
 <tags 
    ms.service="storsimple"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="08/12/2015"
-   ms.author="alkohli" />
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="na"
+	ms.date="09/01/2015"
+	ms.author="alkohli"/>
 
-# Modes de l’appareil StorSimple
+# Changement du mode de votre appareil StorSimple
 
 Cet article fournit une brève description des modes avec lesquels votre appareil StorSimple peut fonctionner. Votre appareil StorSimple peut fonctionner dans trois modes : Normal, Maintenance et Récupération.
 
 À la fin de cet article, vous :
 
-- connaîtrez les modes de l'appareil StorSimple,
-- saurez déterminer le mode dans lequel se trouve l'appareil StorSimple,
-- saurez passer du mode Normal au mode Maintenance, et *inversement*.
+- Description des modes de l'appareil StorSimple
+- Comment déterminer le mode dans lequel se trouve l'appareil StorSimple
+- Comment passer du mode Normal au mode Maintenance, et *inversement*
 
 
 Les tâches de gestion ci-dessus peuvent uniquement être effectuées via l’interface Windows PowerShell de votre appareil StorSimple.
@@ -54,12 +54,12 @@ Si votre système passe en mode Récupération, vous devez contacter le support 
 
 ## Détermination du mode de l’appareil StorSimple
 
-Pour déterminer le mode de l’appareil, procédez comme suit :
+#### Pour déterminer le mode actuel de l’appareil
 
 1. Ouvrez une session sur la console série de l'appareil en suivant les étapes dans [Utilisation de PuTTY pour se connecter à la console série de l'appareil](storsimple-deployment-walkthrough.md#use-putty-to-connect-to-the-device-serial-console).
 2. Examinez le message de bannière situé dans le menu de la console série de l’appareil. Ce message indique explicitement si l’appareil est en mode Maintenance ou Récupération. Si le message ne contient pas d’informations spécifiques sur le mode du système, l’appareil est en mode Normal.
 
-## Changement du mode de votre appareil StorSimple 
+## Changer le mode de l'appareil StorSimple 
 
 Vous pouvez mettre l’appareil StorSimple en mode Maintenance (à partir du mode Normal) pour effectuer une maintenance ou installer des mises à jour du mode Maintenance. Effectuez les procédures suivantes pour entrer dans le mode Maintenance ou le quitter.
 
@@ -97,4 +97,4 @@ Vous pouvez mettre l’appareil StorSimple en mode Maintenance (à partir du mod
 
 Découvrez comment [appliquer les mises à jour des modes Normal et Maintenance](storsimple-update-device.md) sur votre appareil StorSimple.
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=September15_HO1-->

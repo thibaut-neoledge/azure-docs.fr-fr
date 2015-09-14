@@ -1,13 +1,11 @@
 <properties
 	pageTitle="Modèles de requêtes Azure Stream Analytics | Microsoft Azure"
 	description="Modèles courants de requêtes Azure Stream Analytics"
-	keywords="stream analytics, sample, query, language, guide, patterns"
 	services="stream-analytics"
 	documentationCenter=""
 	authors="jeffstokes72"
 	manager="paulettm"
 	editor="cgronlun"/>
-
 
 <tags
 	ms.service="stream-analytics"
@@ -15,9 +13,8 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-data"
-	ms.date="08/03/2015"
+	ms.date="08/19/2015"
 	ms.author="jeffstok"/>
-
 
 
 # Modèles courants de requêtes Azure Stream Analytics  #
@@ -262,22 +259,22 @@ Les requêtes Azure Stream Analytics sont exprimées dans un langage de requête
 
 **Entrée** :
 
-| Plaque minéralogique | Assurez-vous | Time |
+| LicensePlate | Assurez-vous | Time |
 | --- | --- | --- |
-| DXE 5291 | Honda | 2015-07-27T07:00:00:05.0000000Z |
-| YZK 5704 | Ford | 2015-07-27T07:00:02:17.0000000Z |
-| RMV 8282 | Honda | 2015-07-27T07:00:05:01.0000000Z |
-| YHN 6970 | Toyota | 2015-07-27T07:00:06:00.0000000Z |
-| VFE 1616 | Toyota | 2015-07-27T07:00:09:31.0000000Z |
-| QYF 9358 | Honda | 2015-07-27T07:00:12:02.0000000Z |
-| MDR 6128 | BMW | 2015-07-27T07:00:13:45.0000000Z |
+| DXE 5291 | Honda | 2015-07-27T00:00:05.0000000Z |
+| YZK 5704 | Ford | 2015-07-27T00:02:17.0000000Z |
+| RMV 8282 | Honda | 2015-07-27T00:05:01.0000000Z |
+| YHN 6970 | Toyota | 2015-07-27T00:06:00.0000000Z |
+| VFE 1616 | Toyota | 2015-07-27T00:09:31.0000000Z |
+| QYF 9358 | Honda | 2015-07-27T00:12:02.0000000Z |
+| MDR 6128 | BMW | 2015-07-27T00:13:45.0000000Z |
 
 **Sortie** :
 
-| Plaque minéralogique | Assurez-vous | Time |
+| LicensePlate | Assurez-vous | Time |
 | --- | --- | --- |
-| DXE 5291 | Honda | 2015-07-27T07:00:05.000Z |
-| QYF 9358 | Honda | 2015-07-27T07:12:02.000Z |
+| DXE 5291 | Honda | 2015-07-27T00:00:05.0000000Z |
+| QYF 9358 | Honda | 2015-07-27T00:12:02.0000000Z |
 
 **Solution** :
 
@@ -292,13 +289,13 @@ Les requêtes Azure Stream Analytics sont exprimées dans un langage de requête
 
 À présent, nous allons modifier le problème et trouver la première voiture d’une marque donnée dans chaque intervalle de 10 minutes.
 
-| Plaque minéralogique | Assurez-vous | Time |
+| LicensePlate | Assurez-vous | Time |
 | --- | --- | --- |
-| DXE 5291 | Honda | 2015-07-27T07:00:05.000Z |
-| YZK 5704 | Ford | 2015-07-27T07:02:17.000Z |
-| YHN 6970 | Toyota | 2015-07-27T07:06:00.000Z |
-| QYF 9358 | Honda | 2015-07-27T07:12:02.000Z |
-| MDR 6128 | BMW | 2015-07-27T07:13:45.000Z |
+| DXE 5291 | Honda | 2015-07-27T00:00:05.0000000Z |
+| YZK 5704 | Ford | 2015-07-27T00:02:17.0000000Z |
+| YHN 6970 | Toyota | 2015-07-27T00:06:00.0000000Z |
+| QYF 9358 | Honda | 2015-07-27T00:12:02.0000000Z |
+| MDR 6128 | BMW | 2015-07-27T00:13:45.0000000Z |
 
 **Solution** :
 
@@ -316,22 +313,22 @@ Les requêtes Azure Stream Analytics sont exprimées dans un langage de requête
 
 **Entrée** :
 
-| Plaque minéralogique | Assurez-vous | Time |
+| LicensePlate | Assurez-vous | Time |
 | --- | --- | --- |
-| DXE 5291 | Honda | 2015-07-27T07:00:00:05.0000000Z |
-| YZK 5704 | Ford | 2015-07-27T07:00:02:17.0000000Z |
-| RMV 8282 | Honda | 2015-07-27T07:00:05:01.0000000Z |
-| YHN 6970 | Toyota | 2015-07-27T07:00:06:00.0000000Z |
-| VFE 1616 | Toyota | 2015-07-27T07:00:09:31.0000000Z |
-| QYF 9358 | Honda | 2015-07-27T07:00:12:02.0000000Z |
-| MDR 6128 | BMW | 2015-07-27T07:00:13:45.0000000Z |
+| DXE 5291 | Honda | 2015-07-27T00:00:05.0000000Z |
+| YZK 5704 | Ford | 2015-07-27T00:02:17.0000000Z |
+| RMV 8282 | Honda | 2015-07-27T00:05:01.0000000Z |
+| YHN 6970 | Toyota | 2015-07-27T00:06:00.0000000Z |
+| VFE 1616 | Toyota | 2015-07-27T00:09:31.0000000Z |
+| QYF 9358 | Honda | 2015-07-27T00:12:02.0000000Z |
+| MDR 6128 | BMW | 2015-07-27T00:13:45.0000000Z |
 
 **Sortie** :
 
-| Plaque minéralogique | Assurez-vous | Time |
+| LicensePlate | Assurez-vous | Time |
 | --- | --- | --- |
-| VFE 1616 | Toyota | 2015-07-27T07:09:31.000Z |
-| MDR 6128 | BMW | 2015-07-27T07:13:45.000Z |
+| VFE 1616 | Toyota | 2015-07-27T00:09:31.0000000Z |
+| MDR 6128 | BMW | 2015-07-27T00:13:45.0000000Z |
 
 **Solution** :
 
@@ -361,7 +358,7 @@ Les requêtes Azure Stream Analytics sont exprimées dans un langage de requête
 
 **Entrée** :
 
-| Assurez-vous | Plaque minéralogique | Time |
+| Assurez-vous | LicensePlate | Time |
 | --- | --- | --- |
 | Honda | ABC-123 | 2015-01-01T00:00:01.0000000Z |
 | Honda | AAA-999 | 2015-01-01T00:00:02.0000000Z |
@@ -446,7 +443,7 @@ Grâce à ce que nous avons appris dans « Jonction extérieure LEFT pour inclu
 En les utilisant ensemble, nous obtenons un schéma correct -> incorrect -> correct sans aucun autre événement correct entre les deux. Nous pouvons maintenant calculer la durée entre les événements corrects de début et de fin, ce qui nous donne la durée du bogue.
 
 ## Obtenir de l'aide
-Pour obtenir une assistance, essayez notre [forum Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
+Pour obtenir une assistance, essayez notre [forum Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/fr-FR/home?forum=AzureStreamAnalytics)
 
 ## Étapes suivantes
 
@@ -457,4 +454,4 @@ Pour obtenir une assistance, essayez notre [forum Azure Stream Analytics](https:
 - [Références sur l’API REST de gestion d’Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

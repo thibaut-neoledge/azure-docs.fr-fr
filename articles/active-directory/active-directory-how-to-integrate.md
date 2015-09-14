@@ -1,20 +1,20 @@
 <properties
    pageTitle="Intégration à Azure Active Directory"
-   description="Un guide sur les avantages et les ressources de l'intégration avec Azure Active Directory."
-   services="active-directory"
-   documentationCenter="dev-center-name"
-   authors="msmbaldwin"
-   manager="mbaldwin"
-   editor=""/>
+	description="Un guide sur les avantages et les ressources de l'intégration avec Azure Active Directory."
+	services="active-directory"
+	documentationCenter="dev-center-name"
+	authors="msmbaldwin"
+	manager="mbaldwin"
+	editor=""/>
 
 <tags
    ms.service="active-directory"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="identity"
-   ms.date="07/30/2015"
-   ms.author="mbaldwin"/>
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="identity"
+	ms.date="08/25/2015"
+	ms.author="mbaldwin"/>
 
 # Intégration avec Azure Active Directory
 
@@ -50,7 +50,7 @@ Il existe plusieurs façons d’intégrer votre application à Azure AD. Béné
 
 **Promouvez votre application aux millions d'organisations qui utilisent déjà Azure AD.** Les utilisateurs qui recherchent ces marketplace utilisent déjà un ou plusieurs services cloud, ce qui les définit en tant que clients de service cloud. En savoir plus sur la promotion de votre application dans [Azure Marketplace](http://azure.microsoft.com/marketplace/partner-program/).
 
-**Lorsque des utilisateurs s’inscrivent à votre application, cela apparaîtra dans leur panneau d'accès Azure AD et le lanceur d'applications Office 365.** Les utilisateurs pourront rapidement et facilement retourner à votre application plus tard, ce qui améliore ainsi l’engagement utilisateur. En savoir plus sur le [panneau d'accès Azure AD](https://msdn.microsoft.com/library/azure/dn308586.aspx).
+**Lorsque des utilisateurs s’inscrivent à votre application, cela apparaîtra dans leur panneau d'accès Azure AD et le lanceur d'applications Office 365.** Les utilisateurs pourront rapidement et facilement retourner à votre application plus tard, ce qui améliore ainsi l’engagement utilisateur. En savoir plus sur le [panneau d'accès Azure AD](active-directory-saas-access-panel-introduction.md).
 
 ### Sécurisation de la communication de périphérique à service et de service à service
 
@@ -78,7 +78,7 @@ L’intégration à Azure AD est fournie avec des avantages qui ne nécessitent
 
 **Protocoles standard de l’industrie.** Microsoft s'engage à prendre en charge les normes industrielles. Azure AD prend en charge les protocoles d'authentification SAML 2.0, OpenID Connect 1.0, OAuth 2.0, et WS-Federation 1.2 L'API Graph est conforme à OData 4.0. Si votre application prend déjà en charge les protocoles SAML 2.0 ou OpenID Connect 1.0 pour la connexion fédérée, l’ajout de la prise en charge par Azure AD peut être facile. En savoir plus sur les [protocoles d'authentification pris en charge par Azure AD](../authentication-protocols.md).
 
-**Bibliothèques open source.** Microsoft fournit les bibliothèques open source entièrement prises en charge pour les langages et plateformes courants afin d’accélérer le développement. Le code source est acquis sous licence sous Apache 2.0 et vous êtes libre de répliquer et de contribuer aux projets. En savoir plus sur les[bibliothèques open source Azure AD](https://msdn.microsoft.com/library/azure/dn151135.aspx).
+**Bibliothèques open source.** Microsoft fournit les bibliothèques open source entièrement prises en charge pour les langages et plateformes courants afin d’accélérer le développement. Le code source est acquis sous licence sous Apache 2.0 et vous êtes libre de répliquer et de contribuer aux projets. En savoir plus sur les [bibliothèques d'authentification Azure AD](active-directory-authentication-libraries.md).
 
 ### Présence dans le monde entier et haute disponibilité
 
@@ -90,4 +90,4 @@ L’intégration à Azure AD est fournie avec des avantages qui ne nécessitent
 
 [Connexion des utilisateurs à l'aide d'Azure AD](active-directory-authentication-scenarios.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

@@ -1,22 +1,22 @@
-<properties 
-	pageTitle="Utilisation de plusieurs clients avec un seul backend de service mobile | Microsoft Azure" 
-	description="Découvrez comment utiliser un seul serveur de services mobiles à partir de plusieurs applications clientes qui ciblent différentes plateformes mobiles, y compris Windows Store et Windows Phone." 
-	services="mobile-services" 
-	documentationCenter="" 
-	authors="ggailey777" 
-	manager="dwrede" 
+<properties
+	pageTitle="Utilisation de plusieurs clients avec un seul backend de service mobile | Microsoft Azure"
+	description="Découvrez comment utiliser un seul serveur de services mobiles à partir de plusieurs applications clientes qui ciblent différentes plateformes mobiles, y compris Windows Store et Windows Phone."
+	services="mobile-services"
+	documentationCenter=""
+	authors="ggailey777"
+	manager="dwrede"
 	editor="mollybos"/>
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-multiple" 
-	ms.devlang="multiple" 
-	ms.topic="article" 
-	ms.date="06/04/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-multiple"
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.date="06/16/2015"
 	ms.author="glenga"/>
 
 # Prise en charge de plusieurs plateformes d'appareil à partir d'un seul service mobile
- 
+
 L'un des principaux avantages associés à l'utilisation d'Azure Mobile Services dans le développement de vos applications mobiles est la possibilité d'utiliser un seul service backend qui prend en charge votre application sur plusieurs plateformes clientes. Mobile Services fournit des bibliothèques clientes natives pour les principales plateformes d'appareil, ce qui facilite le développement d'applications à l'aide d'un seul service backend et des outils de développement interplateforme. Cette rubrique présente les aspects liés à l’exécution de votre application sur plusieurs plateformes clientes tout en utilisant un seul service mobile principal.
 
 ##<a id="push"></a>Notifications Push interplateforme
@@ -25,7 +25,7 @@ Ce didacticiel explique comment utiliser Azure Notification Hubs pour envoyer de
 
 + Service de notification Push Apple (APN, Apple Push Notification) pour les applications iOS
 + Service Google Cloud Messaging (GCM) pour les applications Android
-+ Services de notifications Push Windows (WNS) pour les applications Windows Store, Windows Phone 8.1 Store et Windows universelles 
++ Services de notifications Push Windows (WNS) pour les applications Windows Store, Windows Phone 8.1 Store et Windows universelles
 + Service de notifications Push Microsoft (MPNS) pour les applications Windows Phone Silverlight
 
 >[AZURE.NOTE]Notification Hubs ne prend pas actuellement en charge l'utilisation de WNS pour envoyer des notifications push aux applications Windows Phone Silverlight 8.1. Vous devez utiliser les services de notifications Push Microsoft (MPNS) pour envoyer des notifications vers les applications Silverlight et Windows Phone 7.0 et 8.0.
@@ -34,8 +34,8 @@ Pour plus d'informations, consultez la page [Azure Notification Hubs].
 
 Des inscriptions de clients sont créées à l'aide de la fonction d'inscription de la bibliothèque cliente Mobile Services spécifique aux plateformes ou des API REST de Mobile Services. Notification Hubs prend en charge deux types d'inscriptions d'appareils :
 
-+ **Inscription native**<br/>Les inscriptions natives sont adaptées au service de notifications Push propre aux plateformes. Lors de l'envoi de notifications vers des appareils inscrits à l'aide de l'inscription native, vous devez appeler des API propres aux plateformes dans votre service mobile. Pour envoyer une notification à des appareils sur plusieurs plateformes, vous devez utiliser plusieurs appels propres aux plateformes.   
-  
++ **Inscription native**<br/>Les inscriptions natives sont adaptées au service de notifications Push propre aux plateformes. Lors de l'envoi de notifications vers des appareils inscrits à l'aide de l'inscription native, vous devez appeler des API propres aux plateformes dans votre service mobile. Pour envoyer une notification à des appareils sur plusieurs plateformes, vous devez utiliser plusieurs appels propres aux plateformes.
+
 + **Inscription de modèle**<br/>Notification Hubs prend également en charge les inscriptions de modèle propres aux plateformes. En utilisant des inscriptions de modèle, vous pouvez utiliser un seul appel d'API pour envoyer une notification à votre application exécutée sur n'importe quelle plateforme enregistrée. Pour plus d'informations, consultez la page [Envoi de notifications interplateforme aux utilisateurs].
 
 >[AZURE.NOTE][WACOM.NOTE]Une erreur se produit lors d'une tentative d'envoi d'un message à une plateforme d'appareil native pour laquelle aucune inscription d'appareil n'existe. Cette erreur ne se produit pas lorsque vous envoyez des notifications de modèle.
@@ -53,7 +53,7 @@ Dans un service mobile de backend .NET, vous envoyez des notifications en appela
 Le code suivant envoie une notification Push depuis un backend .NET vers toutes les inscriptions d'appareils iOS et Windows Store :
 
 	// Define a push notification for APNS.
-	ApplePushMessage apnsMessage = new ApplePushMessage(item.Text, TimeSpan.FromHours(1));    
+	ApplePushMessage apnsMessage = new ApplePushMessage(item.Text, TimeSpan.FromHours(1));
 
 	// Define a push notification for WNS.
 	WindowsPushMessage wnsMessage = new WindowsPushMessage();
@@ -61,8 +61,8 @@ Le code suivant envoie une notification Push depuis un backend .NET vers toutes 
                          @"<toast><visual><binding template=""ToastText01"">" +
                          @"<text id=""1"">" + item.Text + @"</text>" +
                          @"</binding></visual></toast>";
-    
-	// Send push notifications to all registered iOS and Windows Store devices. 
+
+	// Send push notifications to all registered iOS and Windows Store devices.
     await Services.Push.SendAsync(apnsMessage);
 	await Services.Push.SendAsync(wnsMessage);
 
@@ -70,13 +70,13 @@ Pour obtenir des exemples d'envoi de notifications Push vers d'autres plateforme
 
 Lorsque vous utilisez des inscriptions clientes de modèle plutôt que des inscriptions clientes natives, vous pouvez envoyer la même notification par un appel unique vers[SendAsync], en fournissant un objet [TemplatePushMessage] comme suit :
 
-	// Create a new template message and add the 'message' parameter.    
+	// Create a new template message and add the 'message' parameter.
 	var templatePayload = new TemplatePushMessage();
     templatePayload.Add("message", item.Text);
 
 	// Send a push notification to all template registrations.
-    await Services.Push.SendAsync(templatePayload); 
- 
+    await Services.Push.SendAsync(templatePayload);
+
 ###Backend JavaScript
 
 Dans un backend JavaScript, vous pouvez envoyer des notifications en envoyant la méthode **send** sur l'objet propre à la plateforme obtenu à partir de l'[objet push] global, comme le montre la table suivante :
@@ -88,20 +88,20 @@ Dans un backend JavaScript, vous pouvez envoyer des notifications en envoyant la
 Le code suivant envoie une notification Push à toutes les inscriptions Android et Windows Phone :
 
 	// Define a push notification for GCM.
-	var gcmPayload = 
+	var gcmPayload =
     '{"data":{"message" : item.text }}';
 
 	// Define the payload for a Windows Phone toast notification.
 	var mpnsPayload = '<?xml version="1.0" encoding="utf-8"?>' +
     '<wp:Notification xmlns:wp="WPNotification"><wp:Toast>' +
-    '<wp:Text1>New Item</wp:Text1><wp:Text2>' + item.text + 
+    '<wp:Text1>New Item</wp:Text1><wp:Text2>' + item.text +
     '</wp:Text2></wp:Toast></wp:Notification>';
 
-	// Send push notifications to all registered Android and Windows Phone 8.0 devices. 
+	// Send push notifications to all registered Android and Windows Phone 8.0 devices.
 	push.mpns.send(null, mpnsPayload, 'toast', 22, {
             success: function(pushResponse) {
                 // Push succeeds.
-                },              
+                },
                 error: function (pushResponse) {
                     // Push fails.
                     }
@@ -109,7 +109,7 @@ Le code suivant envoie une notification Push à toutes les inscriptions Android 
     push.gcm.send(null, gcmPayload, {
             success: function(pushResponse) {
                 // Push succeeds.
-                },              
+                },
                 error: function (pushResponse) {
                     // Push fails.
                     }
@@ -119,18 +119,18 @@ Pour obtenir des exemples d'envoi de notifications Push vers d'autres plateforme
 
 Lorsque vous utilisez des inscriptions clientes de modèle plutôt que des inscriptions clientes natives, vous pouvez envoyer la même notification par un appel unique vers la fonction **envoyer** de l'[objet push] global, en fournissant une charge utile de messages de modèle, comme suit :
 
-	// Create a new template message with the 'message' parameter.    
+	// Create a new template message with the 'message' parameter.
 	var templatePayload = { "message": item.text };
 
 	// Send a push notification to all template registrations.
     push.send(null, templatePayload, {
             success: function(pushResponse) {
                 // Push succeeds.
-                },              
+                },
                 error: function (pushResponse) {
                     // Push fails.
                     }
-                }); 
+                });
 
 ##<a id="xplat-app-dev"></a>Développement d'applications interplateforme
 Le développement d'applications natives destinées à toutes les principales plateformes d'appareil mobile nécessite que vous (ou votre organisation) soyez spécialisés au moins dans les langages de programmation Objective-C, Java, C# ou JavaScript. En raison de l'étendue du développement de ces plateformes disparates, certains développeurs choisissent une expérience entièrement basée sur les navigateurs Web pour leurs applications. Toutefois, ces expériences basées sur le Web ne peuvent accéder à la plupart des ressources natives permettant de fournir une expérience riche à laquelle les utilisateurs s'attendent sur leurs appareils mobiles.
@@ -138,9 +138,9 @@ Le développement d'applications natives destinées à toutes les principales pl
 Des outils interplateforme sont disponibles et fournissent une expérience native plus riche sur un appareil mobile, tout en partageant une base de code unique, en général JavaScript. Mobile Services vous permet de créer et de gérer facilement un service backend pour des plateformes de développement d'applications interplateforme, en fournissant des didacticiels de démarrage rapide pour les plateformes de développement suivantes :
 
 + [**Appcelerator**](http://go.microsoft.com/fwlink/p/?LinkId=509987)<br/>Appcelerator vous permet d'utiliser JavaScript pour développer une application unique compilée pour fonctionner facilement sur toutes les plateformes d'appareil mobile. Cet outil permet de fournir à l'utilisateur une expérience riche via l'interface utilisateur, d'accéder à toutes les ressources natives d'appareil et d'optimiser les performances de l'application native. Pour plus d'informations, consultez la page [Didacticiel d'Appcelerator][Appcelerator].
- 
+
 + [**PhoneGap**](https://go.microsoft.com/fwLink/p/?LinkID=390707)**/**[**Cordova**](http://cordova.apache.org/)<br/>PhoneGap (créée dans le cadre du projet Apache Cordova) est une infrastructure open source gratuite qui vous permet d'utiliser des modèles web d'API, HTML et JavaScript normalisés pour développer une application unique fonctionnant sur les appareils Android, iOS et Windows. PhoneGap fournit une interface utilisateur dotée d'un affichage Web, mais dont l'expérience utilisateur est améliorée grâce à l'accès à des ressources natives sur l'appareil, comme les notifications Push, l'accéléromètre, l'appareil photo, la géolocalisation et le navigateur intégré à l'application. Pour plus d'informations, consultez la page [Didacticiel de démarrage rapide de PhoneGap][PhoneGap].
-	
+
 	Visual Studio vous permet désormais de créer des applications Cordova interplateforme en utilisant l'extension Multi-Device Hybrid Apps (applications hybrides multi-appareils) pour Visual Studio, un logiciel préliminaire. Pour plus d'informations, consultez la page [Prise en main des applications hybrides multi-appareils utilisant HTML et JavaScript](http://msdn.microsoft.com/library/dn771545.aspx).
 
 + [**Sencha Touch**](http://go.microsoft.com/fwlink/p/?LinkId=509988)<br/>Sencha Touch fournit un ensemble de commandes optimisées pour les écrans tactiles, qui permet de créer une expérience presque native sur un large éventail d'appareils à partir d'une base de code HTML et JavaScript unique. Sencha Touch peut être utilisé avec des bibliothèques PhoneGap ou Cordova pour permettre aux utilisateurs d'accéder à des ressources natives d'appareil. Pour plus d'informations, consultez la page [Didacticiel de démarrage rapide de Sencha Touch][Sencha].
@@ -206,6 +206,5 @@ La bibliothèque cliente .NET de Mobile Services prend en charge les application
 [L'avenir des développeurs Windows Phone 8]: http://msdn.microsoft.com/library/windows/apps/dn655121(v=vs.105).aspx
 [Créer des applications Windows universelles pour tous les appareils Windows]: http://go.microsoft.com/fwlink/p/?LinkId=509905
 [Projet d'application Windows universelle pour Azure Mobile Services à l'aide du modèle MVVM]: http://code.msdn.microsoft.com/Universal-Windows-app-for-db3564de
- 
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=September15_HO1-->

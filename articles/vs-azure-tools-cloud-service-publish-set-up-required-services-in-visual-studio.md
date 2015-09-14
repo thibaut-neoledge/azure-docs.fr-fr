@@ -75,12 +75,12 @@ Un compte de stockage fournit l'accès aux services Blob, File d'attente et Tabl
     ![Créer un compte de stockage Azure](./media/vs-azure-tools-cloud-service-publish-set-up-required-services-in-visual-studio/IC744166.png)
 
 1. Sélectionnez ou entrez les informations suivantes pour le nouveau compte de stockage dans la boîte de dialogue **Créer un compte de stockage**.
-    - L'abonnement Azure auquel vous souhaitez ajouter le compte de stockage.
-    - Le nom que vous souhaitez utiliser pour le nouveau compte de stockage.
-    - La région ou le groupe d'affinités (comme l’Ouest des États-Unis ou l’Est de l’Asie).
-    - Le type de réplication que vous souhaitez utiliser pour le compte de stockage, par exemple géo-redondant.
+    - L’abonnement Azure auquel vous voulez ajouter le compte de stockage
+    - Le nom que vous voulez utiliser pour le nouveau compte de stockage
+    - La région ou le groupe d’affinités (comme l’Ouest des États-Unis ou l’Est de l’Asie)
+    - Le type de réplication que vous voulez utiliser pour le compte de stockage, par exemple géo-redondant.
 
-1. Lorsque vous avez terminé, sélectionnez **Créer**. Le nouveau compte de stockage s'affiche dans la liste **Stockage** de l'Explorateur de serveurs.
+1. Une fois ces opérations effectuées, sélectionnez **Créer**. Le nouveau compte de stockage s’affiche dans la liste **Stockage** de l’Explorateur de serveurs.
 
 ### Pour créer un compte de stockage à l’aide du portail de gestion Azure
 
@@ -153,4 +153,4 @@ Vous devez configurer tous les rôles qui accèdent aux services de stockage pou
 
 [Publication d’un service cloud Azure depuis Visual Studio](https://msdn.microsoft.com/library/azure/ee460772.aspx)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

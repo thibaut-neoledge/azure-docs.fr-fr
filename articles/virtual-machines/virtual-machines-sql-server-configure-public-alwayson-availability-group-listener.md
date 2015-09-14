@@ -23,7 +23,7 @@
 
 Cette rubrique explique comment configurer un écouteur pour un groupe de disponibilité AlwaysOn accessible en externe sur Internet. Il est possible d'associer l'**adresse IP virtuelle publique** du service cloud à l'écouteur.
 
-Votre groupe de disponibilité peut contenir des réplicas locaux uniquement, Azure uniquement, ou locaux et Azure pour les configurations hybrides. Les réplicas Azure peuvent se trouver dans une même région ou dans plusieurs régions grâce à plusieurs réseaux virtuels. Les étapes suivantes supposent que vous avez déjà [configuré un groupe de disponibilité](https://msdn.microsoft.com/library/azure/dn249504.aspx), mais pas un écouteur.
+Votre groupe de disponibilité peut contenir des réplicas locaux uniquement, Azure uniquement, ou locaux et Azure pour les configurations hybrides. Les réplicas Azure peuvent se trouver dans une même région ou dans plusieurs régions grâce à plusieurs réseaux virtuels. Les étapes suivantes supposent que vous avez déjà [configuré un groupe de disponibilité](virtual-machines-sql-server-alwayson-availability-groups-gui.md), mais pas un écouteur.
 
 Notez que les limitations suivantes s'appliquent pour l'écouteur du groupe de disponibilité dans Azure lorsque vous effectuez un déploiement à l'aide de l'adresse IP virtuelle publique du service cloud :
 
@@ -124,4 +124,4 @@ Si les réplicas AlwaysOn se situent dans des sous-réseaux différents, les cli
 
 [AZURE.INCLUDE [Listener-Next-Steps](../../includes/virtual-machines-ag-listener-next-steps.md)]
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

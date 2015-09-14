@@ -13,7 +13,7 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="infrastructure-services"
-	ms.date="07/29/2015"
+	ms.date="09/02/2015"
 	ms.author="joaoma"/>
 
 
@@ -61,9 +61,9 @@ Dans l'exemple suivant, nous allons montrer comment créer un jeu d'enregistreme
 
 Créez un jeu d’enregistrements à l'aide de l’interface de ligne de commande :
 
-	Usage: network dns-record-set create <resource-group> <dns-zone-name> <name> <type> <ttl>
+	Usage: network dns record-set create <resource-group> <dns-zone-name> <name> <type> <ttl>
 
-	azure network dns-record-set create myresourcegroup  contoso.com  www A  60
+	azure network dns record-set create myresourcegroup  contoso.com  www A  60
 
 Le jeu d’enregistrements ayant le nom relatif « www » dans la zone DNS « contoso.com », le nom complet des enregistrements est « www.contoso.com ». Le type d’enregistrement est « A » et la durée de vie est de 60 secondes.
 
@@ -75,15 +75,15 @@ Le jeu d'enregistrements est vide et vous devez ajouter des enregistrements pour
 
 Ajoutez les enregistrements IPv4 A au jeu d’enregistrements « www » à l'aide de la commande suivante :
 
-	Usage: network dns-record-set add-record <resource-group> <dns-zone-name> <record-set-name> <type>
+	Usage: network dns record-set add-record <resource-group> <dns-zone-name> <record-set-name> <type>
 
-	azure network dns-record-set add-record myresourcegroup contoso.com  www A  -a 134.170.185.46
+	azure network dns record-set add-record myresourcegroup contoso.com  www A  -a 134.170.185.46
 	
 
 Les modifications sont terminées. Vous pouvez récupérer le jeu d’enregistrements à partir d’Azure DNS à l’aide de « azure network dns-record-set show »
 
 
-	azure network dns-record-set show myresourcegroup "contoso.com" www A
+	azure network dns record-set show myresourcegroup "contoso.com" www A
 	
 	info:    Executing command network dns-record-set show
 	+ Looking up the DNS record set "www"
@@ -95,7 +95,7 @@ Les modifications sont terminées. Vous pouvez récupérer le jeu d’enregistre
 	data:    A records:
 	data:        IPv4 address                : 134.170.185.46
 	data:
-	info:    network dns-record-set show command OK
+	info:    network dns record-set show command OK
 
 
 Vous pouvez également utiliser nslookup ou d’autres outils DNS pour interroger le nouveau jeu d’enregistrements.
@@ -122,4 +122,4 @@ Vous pouvez également utiliser nslookup ou d’autres outils DNS pour interroge
 [Automatisation des opérations Azure avec le Kit de développement (SDK) .NET](dns-sdk.md)
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="infrastructure-services"
-	ms.date="08/02/2015"
+	ms.date="09/02/2015"
 	ms.author="joaoma"/>
 
 # Gestion des zones DNS
@@ -26,9 +26,9 @@ Ce guide explique comment gérer votre zone DNS. Il vous permettra de comprendre
 
 ## Création d’une zone DNS
 
-Pour créer une zone DNS pour héberger votre domaine, utilisez la fonction `azure network dns-zone create` :
+Pour créer une zone DNS pour héberger votre domaine, utilisez la fonction `azure network dns zone create` :
 
-		Azure network dns-zone create -n contoso.com -g myresourcegroup -t "project=demo";"env=test"
+		Azure network dns zone create -n contoso.com -g myresourcegroup -t "project=demo";"env=test"
 
 L’opération crée une nouvelle zone DNS dans le système DNS Azure. Vous pouvez éventuellement spécifier un tableau de balises Azure Resource Manager. Pour plus d’informations, consultez la section [Balises et Etags](dns-getstarted-create-dnszone.md#Etags-and-tags).
 
@@ -38,33 +38,33 @@ Le même nom de zone peut être réutilisé dans un autre groupe de ressources o
 
 ## Obtention d’une zone DNS
 
-Pour récupérer une zone DNS, utilisez la commande `azure network dns-zone show` :
+Pour récupérer une zone DNS, utilisez la commande `azure network dns zone show` :
 
-	azure network dns-zone show myresourcegroup contoso.com
+	azure network dns zone show myresourcegroup contoso.com
 
 L’opération retourne une zone DNS avec son ID, le nombre de jeux d’enregistrements et le nombre de balises.
 
 
 ## Création de la liste des zones DNS
 
-Pour récupérer les zones DNS au sein d’un groupe de ressources, utilisez la commande `azure network dns-zone list` :
+Pour récupérer les zones DNS au sein d'un groupe de ressources, utilisez la commande `azure network dns zone list` :
 
-	azure network dns-zone list myresourcegroup
+	azure network dns zone list myresourcegroup
 
 
 ## Mise à jour d’une zone DNS
 
-Vous pouvez apporter des modifications à une ressource de zone DNS à l’aide de `azure network dns-zone set`. Cette commande ne met pas à jour les jeux d’enregistrements DNS dans la zone (voir [Gestion des enregistrements DNS](dns-operations-recordsets.md)). Elle est utilisée uniquement pour mettre à jour les propriétés de la ressource de zone elle-même. Elle est actuellement limitée aux balises Azure Resource Manager de la ressource de zone. Pour plus d’informations, consultez la section [Balises et Etags](dns-getstarted-create-dnszone.md#Etags-and-tags).
+Vous pouvez apporter des modifications à une ressource de zone DNS à l'aide de `azure network dns zone set`. Cette commande ne met pas à jour les jeux d’enregistrements DNS dans la zone (voir [Gestion des enregistrements DNS](dns-operations-recordsets.md)). Elle est utilisée uniquement pour mettre à jour les propriétés de la ressource de zone elle-même. Elle est actuellement limitée aux balises Azure Resource Manager de la ressource de zone. Pour plus d’informations, consultez la section [Balises et Etags](dns-getstarted-create-dnszone.md#Etags-and-tags).
 
-	azure network dns-zone set myresourcegroup contoso.com -t prod=value2
+	azure network dns zone set myresourcegroup contoso.com -t prod=value2
 
 ## Suppression d’une zone DNS
 
-Les zones DNS peuvent être supprimées à l’aide de la commande `azure network dns-zone delete`.
+Les zones DNS peuvent être supprimées à l'aide de la commande `azure network dns zone delete`.
  
 Avant de supprimer une zone DNS dans Azure DNS, vous devez supprimer tous les jeux d’enregistrements, sauf les enregistrements NS et SOA à la racine de la zone qui ont été créés automatiquement en même temps que cette dernière.
 
-	azure network dns-zone delete myresourcegroup contoso.com 
+	azure network dns zone delete myresourcegroup contoso.com 
 
 Cette opération comporte un commutateur « -q » qui supprime l’invite pour confirmer que vous souhaitez supprimer la zone DNS.
 
@@ -76,4 +76,4 @@ Cette opération comporte un commutateur « -q » qui supprime l’invite pour
 
 [Automatisation des opérations à l’aide du Kit de développement (SDK) .NET](dns-sdk.md)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

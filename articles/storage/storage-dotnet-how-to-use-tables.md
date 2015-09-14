@@ -21,9 +21,9 @@
 
 [AZURE.INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
 
-## Vue d'ensemble
+## Vue d’ensemble
 
-Ce guide décrit le déroulement de scénarios courants dans le cadre de l’utilisation du service de stockage de table Azure. Les exemples ont été écrits en code C# et utilisent la bibliothèque du client de stockage Azure pour .NET. Les scénarios traités incluent la **création et suppression d’une table**, ainsi que l’**utilisation d’entités de table**.
+Cet article décrit le déroulement de scénarios courants dans le cadre de l’utilisation du service de stockage de tables Azure. Les exemples ont été écrits en code C# et utilisent la bibliothèque du client de stockage Azure pour .NET. Les scénarios traités incluent la création et la suppression d'une table, ainsi que l'utilisation d'entités de table.
 
 [AZURE.INCLUDE [storage-dotnet-client-library-version-include](../../includes/storage-dotnet-client-library-version-include.md)]
 
@@ -38,7 +38,7 @@ Ce guide décrit le déroulement de scénarios courants dans le cadre de l’uti
 [AZURE.INCLUDE [storage-dotnet-obtain-assembly](../../includes/storage-dotnet-obtain-assembly.md)]
 
 ### Déclarations d'espace de noms
-Ajoutez les déclarations d'espace de noms suivantes en haut de chaque fichier C# dans lequel vous souhaitez accéder au stockage Azure par programme :
+Ajoutez les déclarations d'espace de noms suivantes en haut de chaque fichier C# pour lequel vous souhaitez accéder à Azure Storage par programmation :
 
     using Microsoft.WindowsAzure.Storage;
 	using Microsoft.WindowsAzure.Storage.Auth;
@@ -50,7 +50,7 @@ Prenez soin de bien référencer l’assembly `Microsoft.WindowsAzure.Storage.dl
 
 ## Création d’une table
 
-Un objet **CloudTableClient** vous permet d'obtenir les objets de référence pour les tables et entités. Le code suivant crée un objet **CloudTableClient** et l'utilise pour créer une table. Tous les codes contenus dans ce guide partent du principe que l’application développée est un projet Azure Cloud Services et utilise une chaîne de connexion de stockage stockée dans la configuration de service de l’application Azure.
+Un objet **CloudTableClient** vous permet d'obtenir les objets de référence pour les tables et entités. Le code suivant crée un objet **CloudTableClient** et l'utilise pour créer une table. Tous les codes contenus dans cet article partent du principe que l’application développée est un projet Azure Cloud Services et utilise une chaîne de connexion de stockage stockée dans la configuration de service de l’application Azure.
 
     // Retrieve the storage account from the connection string.
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -82,7 +82,7 @@ Les entités mappent vers les objets C# en utilisant une classe personnalisée d
         public string PhoneNumber { get; set; }
     }
 
-Les opérations de table qui impliquent des entités sont effectuées par le biais de l’objet **CloudTable** que vous avez créé à l’aide de l’article « Procédure : création d’une table ». L’opération à effectuer est représentée par un objet **TableOperation**. L’exemple de code suivant illustre la création des objets **CloudTable** et **CustomerEntity**. Pour préparer l’opération, un objet **TableOperation** est créé pour insérer l’entité du client dans la table. Finalement, l’opération est exécutée en appelant **CloudTable.Execute**.
+Les opérations de table qui impliquent des entités sont effectuées par le biais de l’objet **CloudTable** que vous avez créé précédemment dans la section « Création d’une table ». L’opération à effectuer est représentée par un objet **TableOperation**. L’exemple de code suivant illustre la création des objets **CloudTable** et **CustomerEntity**. Pour préparer l’opération, un objet **TableOperation** est créé pour insérer l’entité du client dans la table. Finalement, l’opération est exécutée en appelant **CloudTable.Execute**.
 
     // Retrieve the storage account from the connection string.
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -182,7 +182,7 @@ Si vous ne voulez pas exécuter une requête pour toutes les entités d'une part
     // Create the table client.
     CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
 
-    //Create the CloudTable object that represents the "people" table.
+    // Create the CloudTable object that represents the "people" table.
     CloudTable table = tableClient.GetTableReference("people");
 
 	// Create the table query.
@@ -316,7 +316,7 @@ Vous pouvez utiliser une requête de table pour récupérer uniquement quelques 
     // Create the table client.
     CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
 
-    //Create the CloudTable that represents the "people" table.
+    // Create the CloudTable that represents the "people" table.
     CloudTable table = tableClient.GetTableReference("people");
 
     // Define the query, and select only the Email property.
@@ -341,7 +341,7 @@ Il est facile de supprimer une entité après l’avoir récupérée. Il suffit 
     // Create the table client.
     CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
 
-    //Create the CloudTable that represents the "people" table.
+    // Create the CloudTable that represents the "people" table.
     CloudTable table = tableClient.GetTableReference("people");
 
     // Create a retrieve operation that expects a customer entity.
@@ -378,7 +378,7 @@ Pour finir, l’exemple de code suivant supprime une table d’un compte de stoc
     // Create the table client.
     CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
 
-    //Create the CloudTable that represents the "people" table.
+    // Create the CloudTable that represents the "people" table.
     CloudTable table = tableClient.GetTableReference("people");
 
     // Delete the table it if exists.
@@ -452,4 +452,4 @@ Comme vous connaissez maintenant les bases du stockage des tables, vous pouvez c
   [Spatial]: http://nuget.org/packages/System.Spatial/5.0.2
   [How to: Programmatically access Table storage]: #tablestorage
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

@@ -1,23 +1,23 @@
 <properties 
    pageTitle="Gérer les enregistrements de contrôle d’accès dans StorSimple | Microsoft Azure"
-   description="Décrit comment utiliser les enregistrements de contrôle d’accès pour déterminer les hôtes qui peuvent se connecter à un volume sur l’appareil StorSimple."
-   services="storsimple"
-   documentationCenter=""
-   authors="alkohli"
-   manager="carolz"
-   editor="tysonn" />
+	description="Décrit comment utiliser les enregistrements de contrôle d’accès pour déterminer les hôtes qui peuvent se connecter à un volume sur l’appareil StorSimple."
+	services="storsimple"
+	documentationCenter=""
+	authors="alkohli"
+	manager="carolz"
+	editor=""/>
 <tags 
    ms.service="storsimple"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="08/13/2015"
-   ms.author="alkohli" />
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="na"
+	ms.date="09/01/2015"
+	ms.author="alkohli"/>
 
-# Gérer les enregistrements de contrôle d’accès dans StorSimple
+# Utiliser le service StorSimple Manager pour gérer les enregistrements de contrôle d’accès
 
-## Vue d'ensemble
+## Vue d’ensemble
 
 Les enregistrements de contrôle d’accès vous permettent de spécifier les hôtes qui peuvent se connecter à un volume sur l’appareil StorSimple. Les enregistrements de contrôle d’accès sont définis pour un volume spécifique et contiennent les noms complets iSCSI (IQN) des ordinateurs hôtes. Lorsqu’un hôte essaie de se connecter à un volume, l’appareil vérifie l’enregistrement de contrôle d’accès associé à ce volume pour le nom complet iSCSI (IQN) et s’il existe une correspondance, la connexion est établie. La section des enregistrements de contrôle d’accès de la page **Configurer** affiche tous les enregistrements de contrôle d’accès avec les noms complets iSCSI (IQN) des hôtes correspondants.
 
@@ -34,7 +34,7 @@ Le didacticiel décrit les tâches courantes liées aux enregistrements de contr
 
 ## Ajouter un enregistrement de contrôle d’accès
 
-Utilisez la page **Configurer** du portail de gestion pour ajouter des enregistrements de contrôle d’accès. En général, vous associez un enregistrement de contrôle d’accès à un volume.
+Utilisez la page **Configuration** du service StorSimple Manager pour ajouter des enregistrements de contrôle d’accès. En général, vous associez un enregistrement de contrôle d’accès à un volume.
 
 Effectuez les opérations suivantes pour ajouter un enregistrement de contrôle d’accès.
 
@@ -94,4 +94,4 @@ Pour supprimer un enregistrement de contrôle d’accès, procédez comme suit.
 
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=September15_HO1-->

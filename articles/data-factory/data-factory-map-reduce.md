@@ -1,22 +1,20 @@
 <properties 
-	pageTitle="Appeler le programme MapReduce à partir d'Azure Data Factory" 
-	description="Learn how to process data by running MapReduce programs on an Azure HDInsight cluster from an Azure data factory." 
-	services="data-factory" 
-	documentationCenter="" 
-	authors="spelluru" 
-	manager="jhubbard" 
+	pageTitle="Appeler le programme MapReduce à partir d'Azure Data Factory"
+	description="Learn how to process data by running MapReduce programs on an Azure HDInsight cluster from an Azure data factory."
+	services="data-factory"
+	documentationCenter=""
+	authors="spelluru"
+	manager="jhubbard"
 	editor="monicar"/>
 
-
 <tags 
-	ms.service="data-factory" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/31/2015" 
+	ms.service="data-factory"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/31/2015"
 	ms.author="spelluru"/>
-
 
 # Appeler des programmes MapReduce à partir de Data Factory
 Cet article explique comment appeler un programme **MapReduce** à partir d’un pipeline Azure Data Factory à l’aide de l’**activité MapReduce HDInsight**.
@@ -66,9 +64,9 @@ Dans la définition JSON de l’activité HDInsight :
 		            "-s",
 		            "SIMILARITY_LOGLIKELIHOOD",
 		            "--input",
-		            "wasb://<container>@<accountname>.blob.core.windows.net/Mahout/input",
+		            "$$Text.Format('wasb://<container>@<accountname>.blob.core.windows.net/Mahout/Input/yearno={0:yyyy}/monthno={0:%M}/dayno={0:%d}/', SliceStart)",
 		            "--output",
-		            "wasb://<container>@<accountname>.blob.core.windows.net/Mahout/output/",
+		            "$$Text.Format('wasb://<container>@<accountname>.blob.core.windows.net/Mahout/Output/yearno={0:yyyy}/monthno={0:%M}/dayno={0:%d}/', SliceStart)",
 		            "--maxSimilaritiesPerItem",
 		            "500",
 		            "--tempDir",
@@ -104,4 +102,4 @@ Vous pouvez télécharger un exemple d’utilisation de l’activité HDInsight 
 [Azure Portal]: http://portal.azure.com
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Création d'un compte Media Services | Microsoft Azure"
-	description="Explique comment créer un compte Media Services dans Azure."
+	description="Explique comment créer un compte Azure Media Services dans Azure."
 	services="media-services"
 	documentationCenter=""
 	authors="Juliako"
@@ -12,33 +12,36 @@
 	ms.workload="media"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="get-started-article" 
+	ms.topic="get-started-article"
 	ms.date="08/11/2015"
 	ms.author="juliako"/>
 
 
-#Création d’un compte Media Services
+# Créer un compte Azure Media Services
 
 > [AZURE.SELECTOR]
 - [Portal](media-services-create-account.md)
 - [PowerShell](media-services-manage-with-powershell.md)
 - [REST](https://msdn.microsoft.com/library/azure/dn167014.aspx)
 
-Le portail de gestion Azure permet de créer rapidement un compte Azure Media Services. Vous pouvez utiliser ce dernier pour accéder à Media Services afin de stocker, de chiffrer, d'encoder, de gérer et de diffuser du contenu multimédia dans Azure. Lorsque vous créez un compte Media Services, vous créez également un compte de stockage associé ou en utilisez un existant, situé dans la même zone géographique que le compte Media Services.
+Le portail Azure permet de créer rapidement un compte Azure Media Services. Vous pouvez utiliser ce dernier pour accéder à Media Services afin de stocker, de chiffrer, d'encoder, de gérer et de diffuser du contenu multimédia dans Azure. Lorsque vous créez un compte Media Services, vous créez également un compte de stockage associé ou en utilisez un existant, situé dans la même zone géographique que le compte Media Services.
 
-Cette rubrique présente l'utilisation de la méthode Création rapide pour créer un compte Media Services, puis l'associer au compte de stockage.
+Cet article présente l'utilisation de la méthode Création rapide pour créer un compte Media Services, puis l'associer au compte de stockage.
 
-##<a id="concepts"></a>Concepts
+<a id="concepts"></a>
+## Concepts
+
 L'accès à Media Services requiert deux comptes associés :
 
 -   **Un compte Media Services**. Votre compte vous donne accès à un ensemble de services Media Services sur le cloud, disponibles dans Azure. Un compte Media Services ne stocke pas de contenu multimédia à proprement parler. Il stocke des métadonnées relatives au contenu multimédia et aux travaux de traitement multimédia dans votre compte. Lorsque vous créez le compte, vous sélectionnez une région Media Services disponible. Cette dernière est un centre de données qui stocke les enregistrements de métadonnées pour votre compte.
 
-    > [AZURE.NOTE]Les régions de disponibilité des Media Services sont les suivantes : **Europe du Nord**, **Europe de l'Ouest**, **Ouest des États-Unis**, **Est des États-Unis**, **Sud-Est de l'Asie**, **Est de l'Asie**, **Ouest du Japon**, **Est du Japon**. Media Services n'utilise pas de groupes d'affinités.
+    > [AZURE.NOTE]Les régions de disponibilité des Media Services sont les suivantes : Europe du Nord, Europe de l'Ouest, Ouest des États-Unis, Est des États-Unis, Sud-Est de l'Asie, Est de l'Asie, Ouest du Japon, Est du Japon. Media Services n'utilise pas de groupes d'affinités.
 -   **Un compte de stockage associé**. Il s'agit d'un compte de stockage Azure associé à votre compte Media Services. Il permet de stocker des objets blob pour les fichiers multimédia et doit se trouver dans la même zone géographique que le compte Media Services. Lorsque vous créez un compte Media Services, vous pouvez choisir un compte de stockage existant dans la même région ou en créer un. Si vous supprimez un compte Media Services, les objets blob de votre compte de stockage associé ne seront pas supprimés.
 
-##<a id="quick"></a>Création d’un compte Media Services grâce à la méthode Création rapide
+<a id="quick"></a>
+## Création d'un compte Media Services grâce à la méthode Création rapide
 
-1. Dans le [portail de gestion][], cliquez sur **New**, sur **Service de média**, puis sur **Création rapide**.
+1. Dans le [portail Azure][], cliquez sur **Nouveau**, sur **Media Service**, puis sur **Création rapide**.
 
 	![Media Services - Création rapide](./media/media-services-create-account/wams-QuickCreate.png)
 
@@ -56,15 +59,19 @@ L'accès à Media Services requiert deux comptes associés :
 
 	L’état devient Active lorsque que le compte a été correctement créé. La page **Services de média** s'ouvre et affiche le nouveau compte.
 
-	Au bas de la page, le bouton **GÉRER LES CLÉS** s’affiche. Lorsque vous cliquez sur ce bouton, une boîte de dialogue avec le nom du compte Media Services et les clés primaires et secondaires s’affiche. Vous devez disposer du nom de compte et des informations de clé primaire pour accéder par programme au compte Media Services.
-
+	Au bas de la page, le bouton **GÉRER LES CLÉS** s’affiche. Lorsque vous cliquez sur ce bouton, une page avec le nom du compte Media Services et les clés primaire et secondaire s'affiche. Vous devez disposer du nom de compte et des informations de clé primaire pour accéder par programme au compte Media Services.
 
 	![Media Services Page](./media/media-services-create-account/wams-mediaservices-page.png)
 
-	Lorsque vous double-cliquez sur le nom de compte, la page Démarrage rapide s’affiche par défaut. Elle vous permet d'effectuer des tâches de gestion également disponibles sur d'autres pages du portail. Par exemple, vous pouvez télécharger un fichier vidéo depuis cette page ou depuis la page CONTENU.
+	Lorsque vous double-cliquez sur le nom de compte, la page **Démarrage rapide** s’affiche par défaut. Elle vous permet d'effectuer des tâches de gestion également disponibles sur d'autres pages du portail. Par exemple, vous pouvez télécharger un fichier vidéo depuis cette page ou depuis la page **CONTENU**.
 
-	De plus, vous pouvez afficher du code utilisant le Kit de développement logiciel (SDK) Azure Media Services pour effectuer les tâches suivantes : télécharger, encoder et publier des vidéos. Vous pouvez cliquer sur l’un des liens présents sous la section ÉCRIRE DU CODE, copier le code et l’utiliser dans votre application.
+	De plus, vous pouvez afficher du code utilisant le Kit de développement logiciel (SDK) Azure Media Services pour effectuer les tâches suivantes : télécharger, encoder et publier des vidéos. Vous pouvez cliquer sur l’un des liens présents sous la section **ÉCRIRE DU CODE**, copier le code et l’utiliser dans votre application.
 
+## Étapes suivantes
+
+- [Prise en main de la diffusion de contenus vidéo à la demande (VoD) à l'aide de du Kit de développement logiciel (SDK) .NET](media-services-dotnet-get-started.md)
+
+- [Utiliser le Kit de développement logiciel (SDK) .NET pour créer des canaux encodant en temps réel un flux à vitesse de transmission unique en flux à vitesses de transmission multiples (version préliminaire)](media-services-dotnet-creating-live-encoder-enabled-channel.md)
 
 <!-- Reusable paths. -->
 
@@ -76,7 +83,6 @@ L'accès à Media Services requiert deux comptes associés :
 <!-- URLs. -->
   [Web Platform Installer]: http://go.microsoft.com/fwlink/?linkid=255386
 
-  [portail de gestion]: http://manage.windowsazure.com/
- 
+  [portail Azure]: http://manage.windowsazure.com/
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=September15_HO1-->

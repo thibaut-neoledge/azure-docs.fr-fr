@@ -205,7 +205,7 @@ La table est organisée en entités (lignes) et propriétés (colonnes). Par exe
 
     - Vous ne pouvez pas créer de propriété appelée Timestamp, car les services Azure Storage utilisent une propriété portant ce nom.
 
-    - Si vous entrez une valeur DateTime, vous devez respecter un format approprié pour les paramètres régionaux et de langue de votre ordinateur (par exemple, MM/DD/YYYY HH:MM:SS [AM|PM] pour les États-Unis ).
+    - Si vous entrez une valeur DateTime, vous devez respecter un format approprié pour les paramètres régionaux et de langue de votre ordinateur. Par exemple, MM/DD/YYYY HH:MM:SS [AM|PM] pour l’anglais (États-Unis).
 
 ### Pour ajouter des entités
 
@@ -317,6 +317,6 @@ Il existe deux façons d’ajouter des comptes de stockage à l’aide de l’Ex
 
 ## Voir aussi
 
-[Accès aux services de stockage de Azure](https://msdn.microsoft.com/library/azure/ee405490.aspx)
+[Accès aux services de stockage Azure](https://msdn.microsoft.com/library/azure/ee405490.aspx)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

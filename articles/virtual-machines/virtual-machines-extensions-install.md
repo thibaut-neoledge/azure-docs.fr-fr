@@ -1,25 +1,25 @@
 <properties 
- pageTitle="Gestion des extensions de machine virtuelle | Microsoft Azure" 
- description="Décrit comment ajouter, rechercher, mettre à jour et supprimer des extensions." 
- services="virtual-machines" 
- documentationCenter="" 
- authors="squillace" 
- manager="timlt" 
- editor=""/>
+ pageTitle="Gestion des extensions de machine virtuelle | Microsoft Azure"
+	description="Décrit comment ajouter, rechercher, mettre à jour et supprimer des extensions."
+	services="virtual-machines"
+	documentationCenter=""
+	authors="squillace"
+	manager="timlt"
+	editor=""/>
 <tags 
- ms.service="virtual-machines" 
- ms.devlang="na" 
- ms.topic="article" 
- ms.tgt_pltfrm="vm-multiple" 
- ms.workload="infrastructure-services"
- ms.date="03/10/2015" 
- ms.author="rasquill"/>
+ ms.service="virtual-machines"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="vm-multiple"
+	ms.workload="infrastructure-services"
+	ms.date="08/25/2015"
+	ms.author="rasquill"/>
 #Gestion des extensions de machine virtuelle
 Décrit comment trouver, ajouter, modifier ou supprimer des extensions de machines virtuelles Windows ou Linux dans Azure.
 
 ##Utilisation d'extensions de machines virtuelles
 
-Les extensions de machines virtuelles Azure mettent en œuvre des comportements ou des fonctionnalités qui peuvent permettre à d'autres programmes de fonctionner sur des machines virtuelles Azure (par exemple, l'extension **WebDeployForVSDevTest** permet à Visual Studio de déployer des solutions web sur votre machine virtuelle Azure) ou d'interagir avec votre machine virtuelle pour prendre en charge un autre comportement (par exemple, vous pouvez utiliser les extensions d'accès à la machine virtuelle à partir de Powershell, l'interface xplat-cli et des clients REST pour réinitialiser ou modifier des valeurs d'accès à distance de votre machine virtuelle Azure).
+Les extensions de machines virtuelles Azure mettent en œuvre des comportements ou des fonctionnalités qui peuvent permettre à d'autres programmes de fonctionner sur des machines virtuelles Azure (par exemple, l'extension **WebDeployForVSDevTest** permet à Visual Studio de déployer des solutions web sur votre machine virtuelle Azure) ou d'interagir avec votre machine virtuelle pour prendre en charge un autre comportement (par exemple, vous pouvez utiliser les extensions d'accès à la machine virtuelle à partir de Powershell, l'interface de ligne de commande Azure et des clients REST pour réinitialiser ou modifier des valeurs d'accès à distance de votre machine virtuelle Azure).
 
 >[AZURE.IMPORTANT]Pour obtenir une liste complète des extensions selon les fonctionnalités prises en charge, consultez [Fonctionnalités et extensions de machine virtuelle Azure](https://msdn.microsoft.com/library/dn606311.aspx). Étant donné que chaque extension de machine virtuelle prend en charge une fonctionnalité spécifique, elle détermine ce que vous pouvez et ne pouvez pas faire avec une extension. Par conséquent, avant de modifier votre machine virtuelle, assurez-vous d'avoir bien lu la documentation relative à l'extension de machine virtuelle que vous souhaitez utiliser. La suppression de certaines extensions de machine virtuelle n'est pas prise en charge. D'autres ont des propriétés qui peuvent être définies et qui modifient radicalement le comportement de la machine virtuelle.
 
@@ -38,7 +38,7 @@ Les tâches les plus courantes sont :
 Les extensions de machines virtuelles Azure sont (pour une liste complète des extensions en fonction des fonctionnalités prises en charge, consultez [Fonctionnalités et extensions de machine virtuelle Azure](https://msdn.microsoft.com/library/dn606311.aspx)). Vous pouvez localiser l'extension et obtenir des informations étendues en utilisant :
 
 -   PowerShell
--   Interface multiplateforme Azure (xplat-cli)
+-   Interface multiplateforme Azure (Azure CLI)
 -   API REST de gestion de service
 
 Les appelts de commande [Azure PowerShell](https://msdn.microsoft.com/library/azure/dn495240.aspx) ou les [API REST de gestion des services](https://msdn.microsoft.com/library/ee460799.aspx) permettent de rechercher des informations sur les extensions disponibles
@@ -78,13 +78,13 @@ Vous pouvez utiliser les applets de commande suivantes pour obtenir des informat
         CompanyName                 :
 
 
-###Interface de ligne de commande Azure (xplat-cli)
+###Interface de ligne de commande Azure (Azure CLI)
 
-Certaines extensions ont leurs propres commandes xplat-cli (par exemple, l'extension de machine virtuelle Docker), ce qui peut faciliter leur configuration. Mais les commandes suivantes fonctionnent pour toutes les extensions de machines virtuelles.
+Certaines extensions ont leurs propres commandes Azure CLI (par exemple, l'extension de machine virtuelle Docker), ce qui peut faciliter leur configuration. Mais les commandes suivantes fonctionnent pour toutes les extensions de machines virtuelles.
 
 La commande **azure vm extension list** permet d'obtenir des informations sur les extensions disponibles et l'option **–-json** permet d'afficher toutes les informations disponibles sur une ou plusieurs extensions. Si vous n'utilisez pas de nom d'extension, la commande renvoie une description json de toutes les extensions disponibles.
 
-Ainsi, l'exemple de code suivant montre comment répertorier les informations relatives à l'extension **IaaSDiagnostics** à l'aide de la commande xplat-cli **azure vm extension list** et utilise l'option **–-json** pour renvoyer des informations complètes.
+Ainsi, l'exemple de code suivant montre comment répertorier les informations relatives à l'extension **IaaSDiagnostics** à l'aide de la commande Azure CLI **azure vm extension list** et utilise l'option **–-json** pour renvoyer des informations complètes.
 
 
     $ azure vm extension list -n IaaSDiagnostics --json
@@ -137,4 +137,4 @@ Vous pouvez utiliser les API REST suivantes pour savoir si une extension nécess
 
 >[AZURE.NOTE]Des extensions peuvent également utiliser des configurations définies avec JSON. En cas d'utilisation de ces types d'extension, seul l'élément **SampleConfig** est utilisé.
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=September15_HO1-->

@@ -1,29 +1,27 @@
 <properties 
-	pageTitle="Prendre en main le chiffrement côté client pour Microsoft Azure Storage | Microsoft Azure" 
-	description="La bibliothèque cliente de stockage Azure pour .NET prend en charge le chiffrement côté client et l’intégration au coffre de clés Azure. Étant donné que vos clés d’accès ne sont jamais accessibles au service, le chiffrement côté client offre une sécurité maximale pour vos applications Azure Storage. Le chiffrement côté client est disponible pour les objets blob, les files d’attente et les tables." 
-	services="storage" 
-	documentationCenter=".net" 
-	authors="tamram" 
-	manager="carolz" 
+	pageTitle="Chiffrement côté client pour Microsoft Azure Storage | Microsoft Azure"
+	description="La bibliothèque cliente de stockage Azure pour .NET prend en charge le chiffrement côté client et l’intégration au coffre de clés Azure pour assurer une sécurité maximale à vos applications Azure Storage."
+	services="storage"
+	documentationCenter=".net"
+	authors="tamram"
+	manager="carolz"
 	editor=""/>
 
-
 <tags 
-	ms.service="storage" 
-	ms.workload="storage" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/04/2015" 
+	ms.service="storage"
+	ms.workload="storage"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/21/2015"
 	ms.author="tamram"/>
 
 
+# Chiffrement côté client et Azure Key Vault pour Microsoft Azure Storage
 
-# Prendre en main le chiffrement côté client pour Microsoft Azure Storage
+## Vue d’ensemble
 
-## Vue d'ensemble
-
-La [bibliothèque cliente de stockage Azure pour .NET](https://www.nuget.org/packages/WindowsAzure.Storage) contient des fonctionnalités qui permettent aux développeurs de chiffrer les données dans les applications clientes, avant de les charger vers Azure Storage, et de déchiffrer les données pendant leur téléchargement. La bibliothèque prend également en charge l’intégration au [coffre de clés](http://azure.microsoft.com/services/key-vault/) Azure pour la gestion des clés de compte de stockage.
+La [bibliothèque cliente de stockage Azure pour .NET](https://www.nuget.org/packages/WindowsAzure.Storage) prend en charge le chiffrement des données au sein des applications clientes, avant le chargement vers Azure Storage, et le déchiffrement des données pendant leur téléchargement vers le client. La bibliothèque prend également en charge l’intégration au [coffre de clés](http://azure.microsoft.com/services/key-vault/) Azure pour la gestion des clés de compte de stockage.
 
 ## Chiffrement et déchiffrement via la technique d’enveloppe
 
@@ -93,7 +91,7 @@ Le chiffrement des données d’une table fonctionne de la manière suivante :
 
 Notez que seules les propriétés de type chaîne peuvent être chiffrées. Si d’autres types de propriétés doivent être chiffrés, ils doivent être convertis en chaînes. Les chaînes chiffrées sont stockées sur le service en tant que propriétés binaires, et elles sont converties en chaînes après le déchiffrement.
 
-Pour les tables, outre la stratégie de chiffrement, les utilisateurs doivent spécifier les propriétés à chiffrer. Pour ce faire, il faut spécifier un attribut [EncryptProperty\] (pour les entités POCO qui dérivent de TableEntity) ou un programme de résolution de chiffrement dans les options de requête. Un programme de résolution de chiffrement est un délégué qui prend une clé de partition, une clé de ligne et un nom de propriété, puis renvoie une valeur booléenne indiquant si cette propriété doit être chiffrée. Au cours du chiffrement, la bibliothèque cliente utilise ces informations pour décider si une propriété doit être chiffrée lors de l’écriture en ligne. Le délégué fournit également la possibilité de définir la manière dont les propriétés sont chiffrées l’aide d’un programme logique. (Par exemple, si X, alors chiffrer la propriété A ; sinon chiffrer les propriétés A et B.) Notez qu’il n’est pas nécessaire de fournir ces informations lors de la lecture ou de l’interrogation des entités.
+Pour les tables, outre la stratégie de chiffrement, les utilisateurs doivent spécifier les propriétés à chiffrer. Pour ce faire, il faut spécifier un attribut [EncryptProperty] (pour les entités POCO qui dérivent de TableEntity) ou un programme de résolution de chiffrement dans les options de requête. Un programme de résolution de chiffrement est un délégué qui prend une clé de partition, une clé de ligne et un nom de propriété, puis renvoie une valeur booléenne indiquant si cette propriété doit être chiffrée. Au cours du chiffrement, la bibliothèque cliente utilise ces informations pour décider si une propriété doit être chiffrée lors de l’écriture en ligne. Le délégué fournit également la possibilité de définir la manière dont les propriétés sont chiffrées l’aide d’un programme logique. (Par exemple, si X, alors chiffrer la propriété A ; sinon chiffrer les propriétés A et B.) Notez qu’il n’est pas nécessaire de fournir ces informations lors de la lecture ou de l’interrogation des entités.
 
 ### Opérations de traitement par lots
 
@@ -192,7 +190,7 @@ Créez un objet **QueueEncryptionPolicy** et définissez-le dans les options de 
 
 ### Chiffrement du service de Table
 
-En plus de créer une stratégie de chiffrement et de la définir dans les options de requête, vous devez spécifier un **EncryptionResolver** dans **TableRequestOptions** ou définir l’attribut [EncryptProperty\] sur l’entité.
+En plus de créer une stratégie de chiffrement et de la définir dans les options de requête, vous devez spécifier un **EncryptionResolver** dans **TableRequestOptions** ou définir l’attribut [EncryptProperty] sur l’entité.
 
 #### Utilisation du programme de résolution
 
@@ -231,7 +229,7 @@ En plus de créer une stratégie de chiffrement et de la définir dans les optio
 
 #### Utilisation des attributs
 
-Comme mentionné ci-dessus, si l’entité implémente TableEntity, les propriétés peuvent être décorées avec l’attribut [EncryptProperty\] au lieu de spécifier un **EncryptionResolver**.
+Comme mentionné ci-dessus, si l’entité implémente TableEntity, les propriétés peuvent être décorées avec l’attribut [EncryptProperty] au lieu de spécifier un **EncryptionResolver**.
 
 	[EncryptProperty]
  	public string EncryptedProperty1 { get; set; }
@@ -244,4 +242,4 @@ Notez que le chiffrement de vos données de stockage affecte les performances. L
 
 Télécharger la [bibliothèque cliente de stockage Azure pour le package NuGet .NET](http://www.nuget.org/packages/WindowsAzure.Storage/5.0.0) Télécharger la [bibliothèque cliente de stockage Azure pour le code source .NET](https://github.com/Azure/azure-storage-net) à partir de GitHub Télécharger les packages NuGet [Core](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Core/), [Client](http://www.nuget.org/packages/Microsoft.Azure.KeyVault/) et [Extensions](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Extensions/) d’Azure Key Vault Consulter la [documentation Azure Key Vault](../articles/key-vault-whatis.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

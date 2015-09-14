@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Appareil virtuel StorSimple | Microsoft Azure"
-	description="Décrit comment créer, configurer, déployer et gérer l’appareil virtuel StorSimple."
+   pageTitle="Appareil virtuel StorSimple dans Azure | Microsoft Azure"
+	description="Apprenez à créer, déployer et gérer un appareil virtuel StorSimple dans un réseau virtuel Microsoft Azure. (S'applique à StorSimple version .3 et versions antérieures.)"
 	services="storsimple"
 	documentationCenter=""
 	authors="alkohli"
@@ -12,18 +12,16 @@
 	ms.topic="hero-article"
 	ms.tgt_pltfrm="NA"
 	ms.workload="NA"
-	ms.date="08/21/2015"
+	ms.date="09/02/2015"
 	ms.author="alkohli"/>
 
-# Appareil virtuel StorSimple
+# Déployer et gérer un appareil virtuel StorSimple dans Azure
 
 [AZURE.INCLUDE [storsimple-version-selector-sva](../../includes/storsimple-version-selector-sva.md)]
 
 ## Vue d’ensemble
 
 L’appareil virtuel StorSimple est une fonctionnalité supplémentaire fournie avec votre solution Microsoft Azure StorSimple. L’appareil virtuel StorSimple s’exécute sur une machine virtuelle dans un réseau virtuel Microsoft Azure. Vous pouvez l’utiliser pour sauvegarder et cloner les données à partir de vos ordinateurs hôtes. Les rubriques suivantes de cet article vous aideront à découvrir, à configurer et à utiliser l’appareil virtuel StorSimple.
-
-
 
 - Différences entre l’appareil virtuel et l’appareil physique
 
@@ -386,4 +384,4 @@ Si vous supprimez ou arrêtez l’appareil virtuel, il apparaît comme **Hors co
 
 Pour administrer votre appareil virtuel, reportez-vous à la liste détaillée des flux de travail de la section [Administrer l’appareil StorSimple à l’aide du service StorSimple Manager](storsimple-manager-service-administration.md#administer-storsimple-device-using-storsimple-manager-service).
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

@@ -1,21 +1,21 @@
 <properties 
    pageTitle="Configuration de MPIO pour votre appareil StorSimple | Microsoft Azure"
-   description="Configuration de MPIO pour votre appareil StorSimple connecté à un hôte exécutant Windows Server 2012 R2"
-   services="storsimple"
-   documentationCenter=""
-   authors="alkohli"
-   manager="carolz"
-   editor="" />
+	description="Décrit comment configurer Multipath I/O (MPIO) pour votre appareil StorSimple connecté à un hôte exécutant Windows Server 2012 R2."
+	services="storsimple"
+	documentationCenter=""
+	authors="alkohli"
+	manager="carolz"
+	editor=""/>
 <tags 
    ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="NA"
-   ms.date="08/11/2015"
-   ms.author="alkohli" />
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="NA"
+	ms.date="08/31/2015"
+	ms.author="alkohli"/>
 
-# Configuration de MPIO pour votre appareil StorSimple
+# Configuration de Multipath I/O pour votre appareil StorSimple
 
 Microsoft a créé la prise en charge de la fonctionnalité MPIO (Multipath I/O) dans Windows Server pour vous aider à créer des configurations SAN hautement disponibles et tolérantes aux pannes. MPIO utilise les composants de chemin d’accès physique redondants (adaptateurs, câbles et commutateurs) pour créer des chemins d’accès logiques entre le serveur et l’appareil de stockage. En cas de défaillance de composant à l’origine de l’échec du chemin d’accès logique, la logique de gestion multivoie utilise un autre chemin pour l’E/S afin que les applications puissent toujours accéder à leurs données. De plus, selon votre configuration, MPIO peut également améliorer les performances en rééquilibrant la charge sur ces chemins d’accès. Pour plus d’informations, consultez la [Présentation de MPIO](https://technet.microsoft.com/library/cc725907.aspx "Vue d’ensemble et fonctionnalités de MPIO").
 
@@ -173,4 +173,4 @@ La procédure suivante décrit comment ajouter des sessions lorsqu’un appareil
 En savoir plus sur l'[utilisation du service StorSimple Manager pour modifier la configuration de votre appareil StorSimple](storsimple-modify-device-config.md).
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=September15_HO1-->

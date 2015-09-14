@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Création d'applications en temps réel avec Pusher (iOS) - Mobile Services" 
-	description="Découvrez comment utiliser Pusher pour envoyer des notifications à votre application Azure Media Services sur iOS." 
-	services="mobile-services" 
-	documentationCenter="ios" 
-	authors="lindydonna" 
-	manager="dwrede" 
+<properties
+	pageTitle="Création d'applications en temps réel avec Pusher (iOS) - Mobile Services"
+	description="Découvrez comment utiliser Pusher pour envoyer des notifications à votre application Azure Media Services sur iOS."
+	services="mobile-services"
+	documentationCenter="ios"
+	authors="lindydonna"
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="ios" 
-	ms.devlang="objective-c" 
-	ms.topic="article" 
-	ms.date="06/05/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="ios"
+	ms.devlang="objective-c"
+	ms.topic="article"
+	ms.date="06/16/2015"
 	ms.author="donnam"/>
 
 
@@ -439,6 +439,5 @@ Pour en savoir plus sur l'enregistrement et l'utilisation de scripts serveur, co
 [portail de gestion Azure]: https://manage.windowsazure.com/
 
 [Référence de script serveur Mobile Services]: http://go.microsoft.com/fwlink/p/?LinkId=262293
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

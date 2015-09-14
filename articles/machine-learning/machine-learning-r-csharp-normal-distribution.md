@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Suite de services web de distribution normale | Microsoft Azure" 
-	description="Suite de services web de distribution normale" 
-	services="machine-learning" 
-	documentationCenter="" 
-	authors="jaymathe" 
-	manager="paulettm" 
+	pageTitle="Suite de services web de distribution normale | Microsoft Azure"
+	description="Suite de services web de distribution normale"
+	services="machine-learning"
+	documentationCenter=""
+	authors="jaymathe"
+	manager="paulettm"
 	editor="cgronlun"/>
 
 <tags 
-	ms.service="machine-learning" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/24/2015" 
+	ms.service="machine-learning"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/02/2015"
 	ms.author="jaymathe"/>
 
 #Normal Distribution Suite
@@ -265,4 +265,4 @@ Pour les questions fréquemment posées relatives à l’utilisation du service 
 [4]: ./media/machine-learning-r-csharp-normal-distribution/normal-img4.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

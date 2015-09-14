@@ -105,6 +105,7 @@ Vous pouvez créer, surveiller et gérer des fabriques de données Azure par pro
         );
 
 8. Ajoutez à la méthode **Main** le code suivant, qui crée un **service lié**.
+
 	> [AZURE.NOTE]Utilisez le **nom de compte**et la **clé de compte** de votre compte de stockage Azure pour la **ConnectionString**.
 
         // create a linked service
@@ -117,7 +118,7 @@ Vous pouvez créer, surveiller et gérer des fabriques de données Azure par pro
                     Name = "LinkedService-AzureStorage",
                     Properties = new LinkedServiceProperties
                     (
-                        new AzureStorageLinkedService("DefaultEndpointsProtocol=https;AccountName=spestore;AccountKey=4VwviDOId32nYKABQy9NHsMG0vC/CXx9iuR02HJdGL+0kieqHqbT3ap+bM/c+aGnGoA7SqkwNFq90hqV1bmV0w==")
+                        new AzureStorageLinkedService("DefaultEndpointsProtocol=https;AccountName=<account name>;AccountKey=<account key>")
                     )
                 }
             }
@@ -335,6 +336,7 @@ Vous pouvez créer, surveiller et gérer des fabriques de données Azure par pro
         Console.WriteLine("Getting run details of a data slice");
 
 		// give it a few minutes for the output slice to be ready
+        Console.WriteLine("\nGive it a few minutes for the output slice to be ready and press any key.");
         Console.ReadKey();
 
         var datasliceRunListResponse = client.DataSliceRuns.List(
@@ -392,4 +394,4 @@ Article | Description
 [azure-developer-center]: http://azure.microsoft.com/downloads/
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

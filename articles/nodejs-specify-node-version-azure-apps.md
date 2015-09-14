@@ -1,6 +1,6 @@
 <properties pageTitle="Spécification d'une version Node.js" description="Découvrez comment spécifier la version de Node.js utilisée par Azure Web Sites et Azure Cloud Services" services="" documentationCenter="nodejs" authors="MikeWasson" manager="wpickett" editor="mollybos"/>
 
-<tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="02/19/2015" ms.author="mwasson"/>
+<tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="08/31/2015" ms.author="mwasson"/>
 
 
 
@@ -40,9 +40,11 @@ Si vous hébergez l'application dans un site web, vous pouvez définir la variab
 
 Si vous hébergez l'application dans un service cloud et que vous déployez l'application au moyen d'Azure PowerShell, vous pouvez remplacer la version Node.js par défaut en utilisant l'applet de commande PowerShell **Set-AzureServiceProjectRole**. Par exemple :
 
-	Set-AzureServiceProjectRole WebRole1 node 0.8.4
+	Set-AzureServiceProjectRole WebRole1 Node 0.8.4
 
-Vous pouvez également utiliser **Get-AzureServiceProjectRoleRuntime** pour extraire une liste des versions de Node.js disponibles pour les applications hébergées en tant que service cloud.
+Notez que les paramètres dans l'instruction ci-dessus respectent la casse. Vous pouvez vérifier que la version correcte de Node.js a été sélectionnée en vérifiant la propriété **moteurs** dans le **package.json** de votre rôle.
+
+Vous pouvez également utiliser **Get-AzureServiceProjectRoleRuntime** pour extraire une liste des versions de Node.js disponibles pour les applications hébergées en tant que service cloud. Vérifiez toujours que la version de Node.js dont dépend votre projet est dans cette liste.
 
 ##Utilisation d'une version personnalisée avec Azure Websites
 
@@ -93,4 +95,4 @@ Maintenant que vous savez comment spécifier la version de Node.js utilisée par
 [utiliser des modules]: nodejs-use-node-modules-azure-apps.md
 [créer et déployer un site Web Node.js]: web-sites-nodejs-develop-deploy-mac.md
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

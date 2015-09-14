@@ -38,7 +38,7 @@ Ce document repose sur une **organisation différente** afin de présenter les s
 ![Composants d’Azure](./media/fundamentals-introduction-to-azure/AzureComponentsIntroNew780.png) *Figure : Azure fournit des services d’application accessibles via Internet, exécutés depuis les centres de données Azure.*
 
 ## Portail de gestion
-Le [portail de gestion](http://manage.windowsazure.com) Azure est une interface web qui permet aux administrateurs d'accéder à la plupart des fonctionnalités Azure (mais pas à toutes). Microsoft publie généralement une version Bêta du nouveau portail d'interface utilisateur avant de supprimer l'ancien portail. Le nouveau portail est appelé [« version préliminaire du portail Azure »](https://portal.azure.com/).
+Le [portail de gestion](http://manage.windowsazure.com) Azure est une interface web qui permet aux administrateurs d'accéder à la plupart des fonctionnalités Azure (mais pas à toutes). Microsoft publie généralement une version Bêta du nouveau portail d'interface utilisateur avant de supprimer l'ancien portail. Le nouveau portail est appelé [« portail Azure en version préliminaire »](https://portal.azure.com/).
 
 Lorsque les deux portails sont activés, leurs fonctionnalités se chevauchent en grande partie. Les services de base sont présents dans les deux portails. Il est cependant possible que les fonctionnalités ne soient pas toutes disponibles dans les deux portails. Les nouveaux services peuvent apparaître en premier dans le portail le plus récent. De même, il est possible que les fonctionnalités et services plus anciens ne soient présents que dans le portail le moins récent. Conclusion : si vous ne trouvez pas ce que vous cherchez dans le portail plus ancien, passez au plus récent et inversement.
 
@@ -53,7 +53,7 @@ Vous pouvez utiliser ces technologies de façon séparée ou les combiner en fon
 
 ### Azure Virtual Machines
 
-![Machines virtuelles ROBBCSIART\_TEST](./media/fundamentals-introduction-to-azure/mscsiart_VirtualMachinesIntroNew_12345.png) *Figure : Azure Virtual Machines offre un contrôle total des instances de machine virtuelle dans le cloud.*
+![Azure Virtual Machines ROBBCSIART\_TEST](./media/fundamentals-introduction-to-azure/mscsiart_VirtualMachinesIntroNew_12345.png) *Figure : Azure Virtual Machines offre un contrôle total des instances de machine virtuelle dans le cloud.*
 
 Il peut s’avérer très utile de créer une machine virtuelle à la demande, à partir d’une image standard comme depuis une image que vous fournissez. Cette approche, communément appelée « Infrastructure as a Service » (IaaS) est celle adoptée par les machines virtuelles Azure. La figure 2 présente le fonctionnement d'une machine virtuelle ainsi que la création d'une machine virtuelle depuis un disque dur virtuel.
 
@@ -75,7 +75,7 @@ Cette approche générique du cloud computing peut être utilisée pour gérer d
 
 ### Web Apps
 
-![ROBBCSIART\_TEST d’applications Web Azure](./media/fundamentals-introduction-to-azure/mscsiart_AzureWebsitesIntroNew_12345.png) *Figure : Azure Web Apps exécute une application de site web dans le cloud sans gestion du serveur web sous-jacent.*
+![Azure Web Apps ROBBCSIART\_TEST](./media/fundamentals-introduction-to-azure/mscsiart_AzureWebsitesIntroNew_12345.png) *Figure : Azure Web Apps exécute une application de site web dans le cloud sans gestion du serveur web sous-jacent.*
 
 Dans bien des cas, le cloud est utilisé pour exécuter les sites et applications web. Azure Virtual Machines permet ceci, mais vous conservez la charge d'administrer une ou plusieurs machines virtuelles et les systèmes d'exploitation sous-jacents. Les rôles web Cloud Services peuvent s'en charger, mais leur déploiement et leur gestion nécessitent malgré tout des tâches d'administration. Pourquoi ne pas simplement opter pour un site web où vous n'avez pas à vous soucier des tâches d'administration ?
 
@@ -121,40 +121,40 @@ Comme mentionné précédemment, vous pouvez exécuter SQL Server ou un autre sy
 Ici encore, l'état de la machine virtuelle et des éventuels disques de données supplémentaires que vous créez ou téléchargez repose sur le stockage d'objets blob (dont nous reparlerons ultérieurement).
 
 
-### Base de données SQL Azure
-![Base de données SQL Azure Storage](./media/fundamentals-introduction-to-azure/StorageAzureSQLDatabaseIntroNew.png)
+### Azure SQL Database
+![Azure Storage - SQL Database](./media/fundamentals-introduction-to-azure/StorageAzureSQLDatabaseIntroNew.png)
 
-*Figure : Base de données SQL Azure fournit un service de base de données relationnelle géré dans le cloud.*
+*Figure : Azure SQL Database fournit un service de base de données relationnelle géré dans le cloud.*
 
-Pour le stockage relationnel, Azure fournit la fonctionnalité Base de données SQL. Ne vous méprenez pas sur son nom. Elle n’a rien à voir avec la base de données SQL fournie par SQL Server et exécutée au sommet de l’infrastructure Windows Server.
+Pour le stockage relationnel, Azure fournit la fonctionnalité SQL Database. Ne vous méprenez pas sur son nom. Elle n’a rien à voir avec la base de données SQL fournie par SQL Server et exécutée sur l’infrastructure Windows Server.
 
-Auparavant nommée SQL Azure, Base de données SQL Azure propose toutes les fonctionnalités essentielles d'un système de gestion de base de données relationnelle, comme les transactions atomiques, l'accès simultané aux données par plusieurs utilisateurs tout en maintenant l'intégrité des données, les requêtes ANSI SQL et un modèle de programmation familier. Tout comme SQL Server, la base de données SQL est accessible via Entity Framework, ADO.NET, JDBC et les autres principales technologies d’accès aux données. Elle prend également en charge la majorité du langage T-SQL, avec les outils SQL Server tels que SQL Server Management Studio. Pour toute personne familière avec SQL Server (ou toute autre base de données relationnelle), l’utilisation de la base de données SQL ne devrait poser aucun problème.
+Azure SQL Database (anciennement SQL Azure) propose toutes les fonctionnalités essentielles d'un système de gestion de base de données relationnelle, comme les transactions atomiques, l'accès simultané aux données par plusieurs utilisateurs tout en maintenant l'intégrité des données, les requêtes SQL ANSI et un modèle de programmation familier. Tout comme SQL Server, SQL Database est accessible via Entity Framework, ADO.NET, JDBC et les autres principales technologies d’accès aux données. Elle prend également en charge la majorité du langage T-SQL, avec les outils SQL Server tels que SQL Server Management Studio. Pour toute personne familière avec SQL Server (ou toute autre base de données relationnelle), l’utilisation de la base de données SQL ne devrait poser aucun problème.
 
-Mais la base de données SQL n’est pas un simple système SGBD sur le cloud : c’est un service PaaS. Vous continuez de contrôler vos données et les personnes pouvant y accéder, mais la base de données SQL prend en charge tout le travail administratif de base (gestion de l’infrastructure matérielle, mise à jour automatique de la base de données et du système d’exploitation, etc.). Base de données SQL offre également une haute disponibilité, des sauvegardes automatiques, des fonctionnalités de récupération jusqu'à une date et une heure, et elle peut répliquer des copies d'une zone géographique vers une autre.
+Mais SQL Database n’est pas un simple système SGBD sur le cloud : c’est un service PaaS. Vous continuez de contrôler vos données et les personnes pouvant y accéder, mais SQL Database prend en charge tout le travail administratif de base (gestion de l’infrastructure matérielle, mise à jour automatique de la base de données et du système d’exploitation, etc.). SQL Database offre également une haute disponibilité, des sauvegardes automatiques, des fonctionnalités de récupération jusqu'à une date et une heure, et peut répliquer des copies d'une zone géographique vers une autre.
 
 Il existe aussi une option Premium un peu plus chère qui vous permet de bénéficier de votre propre serveur dédié sous-jacent. Avec l'option Standard, la base de données est exécutée sur du matériel partagé, ce qui peut limiter vos requêtes de base de données sur les serveurs surchargés.
 
-**Scénarios relatifs à la base de données SQL Azure**
+**Scénarios relatifs à SQL Database**
 
-Si vous créez une application Azure (à l'aide d'un des modèles de calcul disponibles) nécessitant un stockage relationnel, Base de données SQL peut être une bonne solution. Les applications fonctionnant hors du cloud peuvent également utiliser ce service, même s’il existe de nombreuses autres possibilités. Par exemple, les données stockées dans la base de données SQL sont accessibles à partir de différents systèmes client, dont les ordinateurs de bureau, les ordinateurs portables, les tablettes et les téléphones. L’utilisation de la base de données SQL permet de réduire les temps d’arrêt grâce à la réplication qui assure une haute disponibilité intégrée.
+Si vous créez une application Azure (à l'aide d'un des modèles de calcul disponibles) nécessitant un stockage relationnel, SQL Database peut être une bonne solution. Les applications fonctionnant hors du cloud peuvent également utiliser ce service, même s’il existe de nombreuses autres possibilités. Par exemple, les données stockées dans SQL Database sont accessibles à partir de différents systèmes client, dont les ordinateurs de bureau, les ordinateurs portables, les tablettes et les téléphones. L’utilisation de SQL Database permet de réduire les temps d’arrêt grâce à la réplication qui assure une haute disponibilité intégrée.
 
 
 ### Tables
-![Tables Azure Storage](./media/fundamentals-introduction-to-azure/StorageTablesIntroNew.png)
+![Azure Storage - Tables](./media/fundamentals-introduction-to-azure/StorageTablesIntroNew.png)
   
-*Figure : les tables Azure permettent de stocker des données via la technologie NoSQL.*
+*Figure : les tables Azure Tables permettent de stocker des données via la technologie NoSQL.*
 
 Cette fonctionnalité porte parfois d'autres noms, car elle fait partie d'une fonctionnalité plus large appelée « Azure Storage ». Les termes « tables », « tables Azure » et « tables de stockage » désignent tous la même chose.
 
-De même, ne vous inquiétez pas du mot utilisé, cette technologie n'offre pas de stockage relationnel. Il s'agit en fait d'un exemple d'approche NoSQL appelé « stockage clé/valeur ». Les tables Azure permettent à une application de stocker différents types de propriétés, comme des chaînes, des nombres entiers et des dates. Une application peut ensuite récupérer un groupe de propriétés en fournissant une clé unique pour ce groupe. Même si les opérations complexes telles que les jonctions ne sont pas prises en charge, les tables permettent surtout un accès rapide aux données saisies. Elles sont également hautement évolutives : une seule table peut contenir jusqu’à un téraoctet de données. Comme elles sont plus simples, les tables sont également plus économiques à l’utilisation qu’un stockage relationnel avec la base de données SQL.
+De même, ne vous inquiétez pas du mot utilisé, cette technologie n'offre pas de stockage relationnel. Il s'agit en fait d'un exemple d'approche NoSQL appelé « stockage clé/valeur ». Les tables Azure permettent à une application de stocker différents types de propriétés, comme des chaînes, des nombres entiers et des dates. Une application peut ensuite récupérer un groupe de propriétés en fournissant une clé unique pour ce groupe. Même si les opérations complexes telles que les jonctions ne sont pas prises en charge, les tables permettent surtout un accès rapide aux données saisies. Elles sont également hautement évolutives : une seule table peut contenir jusqu’à un téraoctet de données. Comme elles sont plus simples, les tables sont également plus économiques à l’utilisation que le stockage relationnel de SQL Database.
 
-**Scénarios relatifs aux tables Azure**
+**Scénarios relatifs aux tables**
 
 Supposons que vous souhaitiez créer une application Azure bénéficiant d’un accès rapide aux données saisies, en volumes importants, sans avoir besoin d’exécuter des requêtes SQL complexes sur ces données. Imaginons, par exemple, que vous créez une application cliente chargée de stocker les informations de profil pour chaque utilisateur. Votre application va être très populaire, vous devez donc avoir une grande capacité de données, mais vous allez vous contenter de les stocker, puis de les récupérer de façon simple. C’est précisément pour ce type d’utilisation qu’ont été conçues les tables Azure.
 
 
 ### Objets blob
-![Objets blob d'Azure Storage](./media/fundamentals-introduction-to-azure/StorageBlobsIntroNew.png) *Figure : les objets blob Azure fournissent des données binaires non structurées.*
+![Azure Storage - Objets blob](./media/fundamentals-introduction-to-azure/StorageBlobsIntroNew.png) *Figure : les objets blob Azure fournissent des données binaires non structurées.*
 
 Les objets blob Azure (pour rappel, les termes « stockage d'objets blob » et « objet blob de stockage » désignent la même chose) sont conçus pour stocker des données binaires non structurées. Tout comme les tables, les objets blob offrent un stockage économique, et la taille d'un objet blob peut atteindre 1 To (un téraoctet). Les applications Azure peuvent également utiliser les lecteurs Azure, qui permettent aux objets blob de proposer un stockage permanent pour un système de fichiers Windows monté sur une instance Azure. L’application voit des fichiers Windows normaux, mais le contenu est en fait stocké dans un objet blob.
 
@@ -203,7 +203,7 @@ Azure est aujourd'hui exécuté dans de nombreux centres de données à travers 
 ### Réseau virtuel
 ![VirtualNetwork](./media/fundamentals-introduction-to-azure/VirtualNetworkIntroNew.png)
 
-*Figure : le service Virtual Network fournit un réseau privé dans le cloud qui permet à différents services de communiquer les uns avec les autres, ou avec des ressources locales si vous configurez une connexion VPN.*
+*Figure : le service Virtual Networks fournit un réseau privé dans le cloud qui permet à différents services de communiquer les uns avec les autres, ou avec des ressources locales si vous configurez une connexion VPN.*
 
 
 Une approche utile pour utiliser un cloud public est de le considérer comme une extension de votre propre centre de données.
@@ -261,9 +261,7 @@ Le système de contrôle de code source hébergé Team Foundation Service est é
 
 Visual Studio Online fournit un service de test de charge. Vous pouvez exécuter des tests de charge créés dans Visual Studio sur des machines virtuelles du cloud. Il vous suffit de spécifier le nombre total d'utilisateurs que vous souhaitez soumettre à un test de charge et Visual Studio Online détermine automatiquement le nombre d'agents nécessaires, lance les machines virtuelles requises et exécute vos tests de charge. Si vous êtes abonné à MSDN, vous bénéficiez chaque mois de milliers de minutes gratuites pour les tests de charge.
 
-Visual Studio Online propose également un service appelé Application Insights qui analyse votre application dans son intégralité. Ce service fournit des statistiques de performances et indique comment votre application est utilisée. Si vous utilisez déjà System Center Operations Manager, ce service peut également y être associé et fournir des alertes lorsque des problèmes surviennent. +Visual Studio Online propose également une assistance pour le développement agile avec des fonctionnalités comme les builds d'intégration continue, les tableaux Kanban et les salles d'équipe virtuelles.
-	
-En outre, une assistance est proposée pour le développement agile avec des fonctionnalités comme les builds d'intégration continue, les tableaux Kanban et les salles d'équipe virtuelles.
+Visual Studio Online prend également en charge le développement agile avec des fonctionnalités comme les builds d’intégration continue, les tableaux Kanban et les salles d’équipe virtuelles.
 
 **Scénarios relatifs à Visual Studio Online**
 
@@ -271,7 +269,29 @@ Visual Studio Online est une solution particulièrement intéressante pour les e
 
 Les entreprises qui disposent déjà d'un système local peuvent, quant à elles, tester de nouveaux projets sur Visual Studio Online pour évaluer son efficacité.
 
-### Automation
+### Application Insights
+
+![Application Insights](./media/fundamentals-introduction-to-azure/ApplicationInsights.png)
+
+*Figure : Application Insights surveille les performances et l’utilisation de votre site web en ligne ou de votre application.*
+
+Quand vous avez publié votre application, qu’elle s’exécute sur des appareils mobiles, des ordinateurs de bureau ou des navigateurs web, Application Insights vous indique comment elle fonctionne et ce que les utilisateurs font avec elle. Il tient le compte du nombre d’incidents et des temps de réponse lents, vous alerte si les chiffres dépassent des seuils inacceptables et vous aide à diagnostiquer les problèmes.
+
+Quand vous développez une nouvelle fonctionnalité, prévoyez de mesurer sa popularité auprès des utilisateurs. En analysant les modèles d’utilisation, vous comprenez ce qui convient le mieux à vos clients et vous améliorez votre application lors de chaque cycle de développement.
+
+Bien qu’il soit hébergé dans Azure, Application Insights fonctionne pour une large gamme d’applications, à la fois sur Azure et en dehors. Les applications web J2EE et ASP.NET sont couvertes, ainsi que les applications iOS, Android, OSX et Windows. Les données de télémétrie sont envoyées depuis un Kit de développement logiciel (SDK) intégré à l’application pour être analysées et affichées dans le service Application Insights d’Azure.
+
+Si vous voulez des analyses plus spécialisées, exportez le flux de données de télémétrie vers une base de données, Power BI ou d’autres outils.
+
+**Scénarios Application Insights**
+
+Vous développez une application. Il peut s’agir d’une application web ou d’une application pour appareil, ou d’une application d’appareil avec un serveur web principal.
+
+* Optimisez les performances de votre application après sa publication, ou pendant son test de charge. Application Insights agrège les données de télémétrie de toutes les instances installées et vous présente des graphiques des temps de réponse, des nombres de demandes et d’exceptions, des temps de réponse des dépendances et d’autres indicateurs de performances. Ceux-ci vous aident à optimiser les performances de votre application. Vous pouvez insérer du code pour produire des données plus spécifiques si vous en avez besoin.
+* Détectez et diagnostiquez les problèmes dans votre application en direct. Vous pouvez recevoir des alertes par e-mail si les indicateurs de performances dépassent les seuils acceptables. Vous pouvez examiner des sessions utilisateurs spécifiques, par exemple pour voir la demande qui a provoqué une exception. 
+* Faites le suivi de l’utilisation pour évaluer la popularité de chaque fonctionnalité. Quand vous concevez un nouveau récit utilisateur, prévoyez de mesurer son utilisation et si les utilisateurs atteignent leurs objectifs attendus. Application Insights vous fournit des données d’utilisation de base, comme les vues de page web, et vous pouvez insérer du code pour faire le suivi de l’expérience utilisateur plus en détail.
+
+### Automatisation
 Personne n'aime perdre son temps en répétant continuellement les mêmes processus manuels. Azure Automation vous permet de créer, de surveiller, de gérer et de déployer des ressources dans votre environnement Azure.
 
 Azure Automation utilise des « runbooks » qui ont recours aux workflows Windows PowerShell (et non à la version ordinaire de PowerShell). Les runbooks sont conçus pour s'exécuter sans intervention de l'utilisateur. Les workflows PowerShell permettent d'enregistrer l'état d'un script à certains points de contrôle. Ainsi, en cas de défaillance, vous n'êtes pas contraint de recommencer un script depuis le début. Vous pouvez le reprendre à partir du dernier point de contrôle. Cela permet de gagner beaucoup de temps.
@@ -443,7 +463,7 @@ Service Bus permet la communication directe via son service de relais, offrant a
 Les applications qui communiquent via Service Bus peuvent être des applications Azure ou des logiciels exécutés sur une autre plateforme cloud. Il peut également s’agir d’applications exécutées hors cloud. On peut prendre l’exemple d’une compagnie aérienne qui implémente ses services de réservation sur des ordinateurs au sein de son propre centre de données. La compagnie aérienne doit rendre ces services accessibles à de nombreux clients (guichets d’enregistrement dans les aéroports, terminaux d’agences de réservation, voire téléphones des clients). Pour ce faire, il est possible d’utiliser Service Bus en créant des interactions souples entre les différentes applications.
 
 #### Rubriques et abonnements Service Bus
-![Rubriques Azure Service Bus](./media/fundamentals-introduction-to-azure/ServiceBusTopicsSubsIntroNew.png) *Figure : les rubriques d’Azure Service Bus permettent à différentes applications de poster des messages et à d’autres applications de s’abonner pour recevoir des messages répondant à des critères spécifiques.*
+![Azure Service Bus - Rubriques](./media/fundamentals-introduction-to-azure/ServiceBusTopicsSubsIntroNew.png) *Figure : les rubriques d’Azure Service Bus permettent à différentes applications de poster des messages et à d’autres applications de s’abonner pour recevoir des messages répondant à des critères spécifiques.*
 
 Service Bus contient un mécanisme de publication et d'abonnement appelé Rubriques et abonnements. Avec le système de publication/d’abonnement, une application peut envoyer des messages vers une rubrique, tandis que d’autres applications peuvent s’abonner à cette dernière. Ceci permet de communiquer vers plusieurs applications depuis une source unique. Un même message est lu par plusieurs destinataires.
 
@@ -577,7 +597,7 @@ La montée en puissance du SaaS (Software as a Service) transforme la façon don
 
 ![Azure Commerce](./media/fundamentals-introduction-to-azure/CommerceIntroNew.png) **Figure : Azure Marketplace et Azure Store vous permettent de rechercher et d’acheter des applications et ensembles de données commerciales Azure afin de les utiliser avec vos applications Azure.**
 
-La différence entre les deux est que le Marketplace se situe hors du portail de gestion Azure alors que le Store est accessible sur le portail. Les clients potentiels peuvent effectuer des recherches pour trouver les applications Azure correspondant à leurs besoins. Les clients peuvent rechercher des ensembles de données commerciales, comme des données démographiques, financières et géographiques. Lorsque l’utilisateur trouve un élément répondant à ses besoins, il peut y accéder via le fournisseur, directement sur le MarketPlace ou le Store sur le Web ou encore, dans certains cas, dans le portail de gestion. Les applications peuvent également utiliser l’API de recherche Bing sur le Marketplace, pour accéder aux résultats des recherches Web.
+La différence entre les deux est que le Marketplace se situe hors du portail de gestion Azure alors que le Store est accessible sur le portail. Les clients potentiels peuvent effectuer des recherches pour trouver les applications Azure correspondant à leurs besoins. Les clients peuvent rechercher des ensembles de données commerciales, comme des données démographiques, financières et géographiques. Lorsque l’utilisateur trouve un élément répondant à ses besoins, il peut y accéder via le fournisseur, directement sur le MarketPlace ou le Store sur le web ou encore, dans certains cas, dans le portail de gestion. Les applications peuvent également utiliser l’API de recherche Bing sur le Marketplace, pour accéder aux résultats des recherches Web.
 
 
 **Scénarios relatifs à Azure Commerce**
@@ -592,4 +612,4 @@ Maintenant que vous connaissez les grandes lignes, la prochaine étape est de cr
 
 [Azure Media Services Poster]: http://azure.microsoft.com/documentation/infographics/media-services/
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

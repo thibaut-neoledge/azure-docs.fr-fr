@@ -1,23 +1,23 @@
 <properties 
    pageTitle="Gérer vos modèles de bande passante StorSimple | Microsoft Azure"
-   description="Décrit comment gérer les modèles de bande passante StorSimple, ce qui vous permet de contrôler la consommation de bande passante."
-   services="storsimple"
-   documentationCenter=""
-   authors="alkohli"
-   manager="carolz"
-   editor="" />
+	description="Décrit comment gérer les modèles de bande passante StorSimple, ce qui vous permet de contrôler la consommation de bande passante."
+	services="storsimple"
+	documentationCenter=""
+	authors="alkohli"
+	manager="carolz"
+	editor=""/>
 <tags 
    ms.service="storsimple"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="08/13/2015"
-   ms.author="alkohli" />
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="na"
+	ms.date="09/01/2015"
+	ms.author="alkohli"/>
 
-# Gérer vos modèles de bande passante StorSimple
+# Utiliser le service StorSimple Manager pour gérer les modèles de bande passante StorSimple
 
-## Vue d'ensemble
+## Vue d’ensemble
 
 Les modèles de bande passante vous permettent de configurer plusieurs planifications selon le moment de la journée des couches de données à partir de l’appareil StorSimple vers le cloud. Vous pouvez aussi créer, modifier, supprimer et enregistrer ces planifications comme modèles. Ces modèles de bande passante peuvent ensuite être appliqués sur les conteneurs de volume pour contrôler la bande passante utilisée par votre appareil StorSimple lors de l’exécution des opérations impliquant le cloud. En fonction de votre modèle d’utilisation de la bande passante, vous pouvez également choisir dans une liste de modèles par défaut.
 
@@ -54,7 +54,7 @@ Pour créer un modèle de bande passante, procédez comme suit.
 
 #### Pour ajouter un modèle de bande passante
 
-1. Cliquez sur **Ajouter/modifier des modèles de bande passante**.
+1. Sur la page **Configurer** du service StorSimple Manager, cliquez sur **ajouter/modifier un modèle de bande passante**.
 
 2. Dans la boîte de dialogue **Ajouter/modifier des modèles de bande passante** :
 
@@ -176,4 +176,4 @@ Suivez ces meilleures pratiques pour votre appareil StorSimple :
 
 En savoir plus sur les [composants StorSimple](storsimple-components.md).
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=September15_HO1-->

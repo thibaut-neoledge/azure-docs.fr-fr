@@ -7,13 +7,13 @@
 	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="notification-hubs" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="ios" 
-	ms.devlang="objective-c" 
-	ms.topic="article" 
-	ms.date="06/02/2015" 
+<tags
+	ms.service="notification-hubs"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="ios"
+	ms.devlang="objective-c"
+	ms.topic="article"
+	ms.date="06/16/2015"
 	ms.author="wesmc"/>
 
 #Notifications Push enrichies avec Azure Notification Hubs
@@ -26,7 +26,7 @@ Pour attirer les utilisateurs avec des contenus riches instantanés, une applica
 
 Ce didacticiel est compatible avec iOS 7 et 8.
 
-    ![][IOS1]
+  ![][IOS1]
 
 À un niveau élevé :
 
@@ -380,6 +380,5 @@ Maintenant que vous avez modifié votre serveur principal d'application pour qu'
 [IOS2]: ./media/notification-hubs-aspnet-backend-ios-rich-push/rich-push-ios-2.png
 [IOS3]: ./media/notification-hubs-aspnet-backend-ios-rich-push/rich-push-ios-3.png
 [IOS4]: ./media/notification-hubs-aspnet-backend-ios-rich-push/rich-push-ios-4.png
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

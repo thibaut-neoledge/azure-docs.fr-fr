@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Utilisation de CDN | Microsoft Azure" 
-	description="Découvrez comment utiliser le réseau de distribution de contenu (CDN) Azure pour diffuser du contenu haut débit en mettant en cache les objets blob et le contenu statique." 
-	services="cdn" 
-	documentationCenter=".net" 
-	authors="zhangmanling" 
-	manager="dwrede" 
+	pageTitle="Utilisation de CDN | Microsoft Azure"
+	description="Découvrez comment utiliser le réseau de distribution de contenu (CDN) Azure pour diffuser du contenu haut débit en mettant en cache les objets blob et le contenu statique."
+	services="cdn"
+	documentationCenter=".net"
+	authors="zhangmanling"
+	manager="dwrede"
 	editor=""/>
 
 <tags 
-	ms.service="cdn" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="get-started-article" 
-	ms.date="05/19/2015" 
+	ms.service="cdn"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.date="09/01/2015"
 	ms.author="mazha"/>
 
 
@@ -54,4 +54,4 @@ Pour accéder au contenu mis en cache sur le CDN, utilisez l’URL CDN fournie d
 [Vue d’ensemble du réseau de distribution de contenu (CDN) Azure](cdn-overview.md)
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=September15_HO1-->

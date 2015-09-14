@@ -1,22 +1,20 @@
 <properties
     pageTitle="Base de données SQL Azure - outils de base de données élastique"
-    description="Mettez facilement les ressources de base de données à l’échelle dans le cloud à l’aide des outils de bases de données élastiques."
-    services="sql-database"
-    documentationCenter=""
-    manager="jeffreyg"
-    authors="sidneyh"
-    editor=""/>
-
+	description="Les développeurs de Software as a Service (SaaS) peuvent facilement créer des bases de données élastiques et évolutives dans le cloud à l'aide de ces outils"
+	services="sql-database"
+	documentationCenter=""
+	manager="jeffreyg"
+	authors="ddove"
+	editor=""/>
 
 <tags
     ms.service="sql-database"
-    ms.workload="sql-database"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="08/03/2015"
-    ms.author="sidneyh"/>
-
+	ms.workload="sql-database"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/27/2015"
+	ms.author="sidneyh"/>
 
 # Vue d’ensemble des fonctionnalités de base de données élastique
 
@@ -31,11 +29,13 @@ L’illustration ci-dessous montre une architecture qui inclut les **fonctionnal
 
 ![Outils de base de données élastique][1]
 
+Pour obtenir une version imprimable de cette illustration, consultez la page [Téléchargement de la vue d'ensemble d’une base de données élastique](http://aka.ms/axmybc).
+
 Dans ce graphique, les couleurs de la base de données représentent des schémas. Les bases de données de même couleur partagent les mêmes schémas.
 
 1. Un ensemble de **bases de données SQL Azure** est hébergé sur Azure avec une architecture de partitionnement. 
 2. La **bibliothèque cliente de base de données élastique** sert à gérer un ensemble de partitions.
-3. Un sous-ensemble des bases de données est placé dans un **pool de bases de données élastique**. (Voir [Maîtrise de la croissance avec les bases de données élastiques](sql-database-elastic-pool.md)). 
+3. Un sous-ensemble des bases de données est placé dans un **pool de base de données élastique**. (Voir [Maîtrise de la croissance avec les bases de données élastiques](sql-database-elastic-pool.md)). 
 4. Une **tâche de base de données élastique** exécute des scripts T-SQL sur toutes les bases de données.
 5. L’**outil de fusion et fractionnement** sert à déplacer des données d’une partition à l’autre.
 6. La **requête de base de données élastique** vous permet d’écrire une requête qui s’étend sur toutes les bases de données de l’ensemble de partitions.
@@ -78,7 +78,7 @@ Dans d'autres scénarios, telle la réception de données à partir d'appareils 
 
 Le partitionnement fonctionne mieux lorsque toutes les transactions d'une application peuvent être limitées à une seule valeur de clé de partitionnement. Cela permet de garantir que toutes les transactions sont locales à une base de données spécifique.
 
-Certaines applications utilisent l'approche la plus simple consistant à créer une base de données distincte pour chaque locataire. C’est le **modèle de partitionnement par locataire unique** qui offre les fonctionnalités d’isolation, de sauvegarde/restauration et de mise à l’échelle des ressources au niveau de la granularité du locataire. Avec le partitionnement par locataire unique, chaque base de données est associée à une valeur d'identifiant de locataire spécifique (ou la valeur de clé du client), mais il n'est pas nécessaire que cette clé soit toujours présente dans les données elles-mêmes. L’application est responsable de l’acheminement de chaque demande vers la base de données appropriée. Et la bibliothèque cliente peut simplifier cette procédure.
+Certaines applications utilisent l'approche la plus simple consistant à créer une base de données distincte pour chaque locataire. C’est le **modèle de partitionnement par locataire unique** qui offre des fonctionnalités d’isolation, de sauvegarde/restauration et de mise à l’échelle des ressources au niveau de granularité du locataire. Avec le partitionnement par locataire unique, chaque base de données est associée à une valeur d'identifiant de locataire spécifique (ou la valeur de clé du client), mais il n'est pas nécessaire que cette clé soit toujours présente dans les données elles-mêmes. L’application est responsable de l’acheminement de chaque demande vers la base de données appropriée. Et la bibliothèque cliente peut simplifier cette procédure.
 
 ![Comparaison entre l’architecture à locataire unique et l’architecture mutualisée][4]
 
@@ -93,7 +93,7 @@ Pour obtenir un exemple d’application illustrant la bibliothèque cliente, voi
 
 Pour utiliser l’outil de fusion et de fractionnement, vous devez [configurer la sécurité](sql-database-elastic-scale-split-merge-security-configuration,md).
 
-Pour plus de détails sur le pool de bases de données élastique, voir [Considérations sur les prix et performances pour un pool de bases de données élastique](sql-database-elastic-pool-guidance.md), ou créez un pool à l’aide du [didacticiel](sql-database-elastic-pool-portal.md).
+Pour plus de détails sur le pool de base de données élastique, voir [Considérations sur les prix et performances pour un pool de base de données élastique](sql-database-elastic-pool-guidance.md), ou créez un pool à l’aide du [didacticiel](sql-database-elastic-pool-portal.md).
 
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 
@@ -104,4 +104,4 @@ Pour plus de détails sur le pool de bases de données élastique, voir [Consid�
 [3]: ./media/sql-database-elastic-scale-introduction/overview.png
 [4]: ./media/sql-database-elastic-scale-introduction/single_v_multi_tenant.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

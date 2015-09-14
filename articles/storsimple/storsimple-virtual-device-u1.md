@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Appareil virtuel StorSimple | Microsoft Azure"
-	description="Apprenez à créer, configurer, déployer et gérer l’appareil virtuel StorSimple exécutant Update 1.0."
+   pageTitle="Appareil virtuel StorSimple Update 1 | Microsoft Azure"
+	description="Apprenez à créer, déployer et gérer un appareil virtuel StorSimple dans un réseau virtuel Microsoft Azure. (S'applique à StorSimple Update 1)."
 	services="storsimple"
 	documentationCenter=""
 	authors="alkohli"
@@ -12,10 +12,10 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="NA"
 	ms.workload="NA"
-	ms.date="08/21/2015"
+	ms.date="09/02/2015"
 	ms.author="alkohli"/>
 
-# Appareil virtuel StorSimple
+# Déployer et gérer un appareil virtuel StorSimple dans Azure
 
 [AZURE.INCLUDE [storsimple-version-selector-sva](../../includes/storsimple-version-selector-sva.md)]
 
@@ -383,4 +383,4 @@ Si vous supprimez ou arrêtez l’appareil virtuel, il apparaît comme **Hors co
 
 Découvrez comment [restaurer un volume StorSimple à partir d’un jeu de sauvegarde](storsimple-restore-from-backup-set.md).
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

@@ -1,25 +1,23 @@
 <properties 
-	pageTitle="Intégration d'un service cloud à Azure CDN" 
-	description="Didacticiel qui explique comment déployer un service cloud qui traite le contenu à partir d'un point de terminaison CDN Azure intégré" 
-	services="cdn, cloud-services" 
-	documentationCenter=".net" 
-	authors="cephalin" 
-	manager="wpickett" 
+	pageTitle="Intégration d'un service cloud à Azure CDN"
+	description="Didacticiel qui explique comment déployer un service cloud qui traite le contenu à partir d'un point de terminaison CDN Azure intégré"
+	services="cdn, cloud-services"
+	documentationCenter=".net"
+	authors="cephalin"
+	manager="wpickett"
 	editor="tysonn"/>
 
 <tags 
-	ms.service="cdn" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="08/06/2015" 
+	ms.service="cdn"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="na"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="09/01/2015"
 	ms.author="cephalin"/>
 
 
-#<a name="intro"></a> Intégration d’un service cloud à Azure CDN #
-
-<!-- Keeping this article pinned to the old portal because CDN is not yet lit up in the new portal -->
+# <a name="intro"></a> Intégration d’un service cloud à Azure CDN 
 
 Vous pouvez intégrer un service cloud à Azure CDN pour distribuer du contenu à partir du chemin d'accès `~/CDN` du service cloud. Cette approche offre les avantages suivants :
 
@@ -92,16 +90,16 @@ Dans cette section, vous allez déployer le modèle d'application ASP.NET MVC p
 
 	![](media/cdn-cloud-service-with-cdn/cdn-cs-8-publish-finalize.png)
 
-	>[AZURE.NOTE]La publication des services cloud prend beaucoup de temps. L'option Activer Web Deploy pour tous les rôles accélère notablement le débogage de votre service cloud en fournissant des mises à jour rapides (mais provisoires) à vos rôles web. Pour en savoir plus sur cette option, consultez la page [Publication d'un service cloud en utilisant les Outils Azure](http://msdn.microsoft.com/library/ff683672.aspx).
+	>[AZURE.NOTE] La publication des services cloud prend beaucoup de temps. L'option Activer Web Deploy pour tous les rôles accélère notablement le débogage de votre service cloud en fournissant des mises à jour rapides (mais provisoires) à vos rôles web. Pour en savoir plus sur cette option, consultez la page [Publication d'un service cloud en utilisant les Outils Azure](http://msdn.microsoft.com/library/ff683672.aspx).
 
 	Quand le **Journal des activités Microsoft Azure** indique que la publication est **Terminée**, vous devez créer un point de terminaison CDN intégré à ce service cloud.
 
 1. Pour créer un point de terminaison CDN, connectez-vous à votre [portail de gestion Azure](http://manage.windowsazure.com/).
-2. Cliquez sur **Nouveau** > **Services d'application** > **CDN** > **Création rapide**. Sélectionnez **http://*&lt;servicename>\*.cloudapp.net/cdn/** et cliquez sur **Créer**.
+2. Cliquez sur **Nouveau** > **Services d'application** > **CDN** > **Création rapide**. Sélectionnez **http://*&lt;servicename>*.cloudapp.net/cdn/** et cliquez sur **Créer**.
 
 	![](media/cdn-cloud-service-with-cdn/cdn-cs-10-createcdn.png)
 
-	>[AZURE.NOTE]Une fois votre point de terminaison CDN créé, le portail Azure affiche son URL et le domaine d'origine auquel il est intégré. Cependant, la configuration du nouveau point de terminaison CDN peut prendre un certain temps pour se propager à tous les emplacements des nœuds CDN.
+	>[AZURE.NOTE] Une fois votre point de terminaison CDN créé, le portail Azure affiche son URL et le domaine d'origine auquel il est intégré. Cependant, la configuration du nouveau point de terminaison CDN peut prendre un certain temps pour se propager à tous les emplacements des nœuds CDN.
 
 	Notez que le point de terminaison CDN est lié au chemin **cdn/** de votre service cloud. Vous pouvez créer un dossier **cdn** dans votre projet **WebRole1** ou (comme c'est le cas dans ce didacticiel) utiliser la réécriture de l'URL pour éliminer tous les liens entrants de ce chemin.
 
@@ -113,7 +111,7 @@ Dans cette section, vous allez déployer le modèle d'application ASP.NET MVC p
 
 	![](media/cdn-cloud-service-with-cdn/cdn-cs-12-disablequeryb.png)
 
-	>[AZURE.NOTE]Comme l'activation des chaînes de requête n'est pas nécessaire pour cette partie du didacticiel, désactivez-la au plus tôt par commodité, car la propagation à tous les nœuds CDN de toute modification apportée ici prend du temps et le contenu non activé pour les chaînes de requête ne doit pas encombrer le cache CDN (la mise à jour du contenu CDN est abordée plus tard).
+	>[AZURE.NOTE] Comme l'activation des chaînes de requête n'est pas nécessaire pour cette partie du didacticiel, désactivez-la au plus tôt par commodité, car la propagation à tous les nœuds CDN de toute modification apportée ici prend du temps et le contenu non activé pour les chaînes de requête ne doit pas encombrer le cache CDN (la mise à jour du contenu CDN est abordée plus tard).
 
 3. Appliquez une commande ping à votre point de terminaison CDN pour vérifier qu'il est propagé à tous les nœuds CDN. Vous devrez peut-être attendre pendant une heure maximum avant qu'il réponde à vos commandes ping.
 
@@ -137,7 +135,7 @@ Dans cette section, vous allez déployer le modèle d'application ASP.NET MVC p
 
 	![](media/cdn-cloud-service-with-cdn/cdn-cs-4-publish-a.png)
 
-1. Lorsque l'état de la publication est **Terminé**, ouvrez une fenêtre de navigateur et accédez à l'adresse **http://*&lt;cdnName>\*.vo.msecnd.net/Content/bootstrap.css**. Dans ma configuration, cette URL est la suivante :
+1. Lorsque l'état de la publication est **Terminé**, ouvrez une fenêtre de navigateur et accédez à l'adresse **http://*&lt;cdnName>*.vo.msecnd.net/Content/bootstrap.css**. Dans ma configuration, cette URL est la suivante :
 
 		http://az632148.vo.msecnd.net/Content/bootstrap.css
 
@@ -149,25 +147,25 @@ Dans cette section, vous allez déployer le modèle d'application ASP.NET MVC p
 
 		http://cephalinservice.cloudapp.net/Content/bootstrap.css
 
-	Lorsque vous atteignez la page **http://*&lt;cdnName>\*.vo.msecnd.net/Content/bootstrap.css**, vous êtes invité à télécharger le fichier bootstrap.css provenant de votre application Web publiée.
+	Lorsque vous atteignez la page **http://*&lt;cdnName>*.vo.msecnd.net/Content/bootstrap.css**, vous êtes invité à télécharger le fichier bootstrap.css provenant de votre application Web publiée.
 
 	![](media/cdn-cloud-service-with-cdn/cdn-1-browser-access.PNG)
 
-De même, vous pouvez accéder à toute URL accessible publiquement à l’adresse **http://*&lt;serviceName>\*.cloudapp.net/**, directement depuis votre point de terminaison CDN. Par exemple :
+De même, vous pouvez accéder à toute URL accessible publiquement à l’adresse **http://*&lt;serviceName>*.cloudapp.net/**, directement depuis votre point de terminaison CDN. Par exemple :
 
 -	un fichier .js à partir du chemin d'accès /Script ;
 -	un fichier de contenu à partir du chemin d'accès /Content ;
 -	un contrôleur/une action ; 
 -	si la chaîne de requête est activée sur le point de terminaison CDN, une URL avec des chaînes de requête.
 
-En fait, dans la configuration ci-dessus, vous pouvez héberger l'ensemble du service cloud à partir de **http://*&lt;cdnName>\*.vo.msecnd.net/**. Si je me rends à l'adresse \*\***http://az632148.vo.msecnd.net/**, j'obtiens le résultat de l'action à partir de Home/Index.
+En fait, dans la configuration ci-dessus, vous pouvez héberger l'ensemble du service cloud à partir de **http://*&lt;cdnName>*.vo.msecnd.net/**. Si je me rends à l'adresse ****http://az632148.vo.msecnd.net/**, j'obtiens le résultat de l'action à partir de Home/Index.
 
 ![](media/cdn-cloud-service-with-cdn/cdn-2-home-page.PNG)
 
 Cependant, cela ne signifie pas que c'est toujours (ou généralement) une bonne idée pour traiter l'ensemble du service cloud via Azure CDN. Mises en garde éventuelles :
 
 -	Cette approche nécessite que l'ensemble de votre site soit public, car Azure CDN ne peut pas traiter du contenu privé.
--	Si le point de terminaison CDN passe hors connexion quelle qu'en soit la raison (maintenance prévue ou erreur utilisateur), l'ensemble de votre service cloud passe hors connexion à moins qu'il soit possible de rediriger les clients vers l'URL d'origine **http://*&lt;serviceName>\*.cloudapp.net/**. 
+-	Si le point de terminaison CDN passe hors connexion quelle qu'en soit la raison (maintenance prévue ou erreur utilisateur), l'ensemble de votre service cloud passe hors connexion à moins qu'il soit possible de rediriger les clients vers l'URL d'origine **http://*&lt;serviceName>*.cloudapp.net/**. 
 -	Même avec les paramètres Cache-Control personnalisés (voir [Configuration des options de mise en cache des fichiers statiques dans votre service cloud](#caching)), un point de terminaison CDN n'améliore pas les performances des contenus très dynamiques. Si vous avez essayé de charger la page d'accueil depuis votre point de terminaison CDN (voir ci-dessus), notez qu'il faut environ 5 secondes pour charger la page d'accueil par défaut la première fois, alors qu'il s'agit d'une page relativement simple. Imaginez ce qui se passe du côté client si cette page comporte un contenu dynamique qui doit s'actualiser toutes les minutes. Le traitement du contenu dynamique depuis un point de terminaison CDN nécessite une brève expiration du cache qui se traduit en fréquentes erreurs dans le cache au niveau du point de terminaison. Cela nuit aux performances ou à votre service cloud, et va à l'encontre de la fonction d'un réseau de distribution de contenu (CDN).
 
 La solution alternative consiste à déterminer au cas par cas le contenu à traiter à partir d'Azure CDN dans votre service cloud. À cette fin, vous avez déjà vu comment accéder à des fichiers de contenu individuels depuis le point de terminaison CDN. Je vais vous montrer comment traiter une action sur un contrôleur donné via le point de terminaison CDN dans la section [Distribution de contenu à partir d'actions de contrôleur via Azure CDN](#controller).
@@ -339,7 +337,7 @@ Procédez comme ci-dessus pour configurer cette action de contrôleur :
 		    <input class="btn" type="submit" value="Generate meme" />
 		</form>
 
-5. Republiez le service cloud et accédez à l'adresse **http://*&lt;serviceName>\*.cloudapp.net/MemeGenerator/Index** dans votre navigateur.
+5. Republiez le service cloud et accédez à l'adresse **http://*&lt;serviceName>*.cloudapp.net/MemeGenerator/Index** dans votre navigateur.
 
 Quand vous envoyez les valeurs du formulaire dans `/MemeGenerator/Index`, la méthode d’action `Index_Post` renvoie un lien vers la méthode d’action `Show` avec l’identificateur d’entrée respectif. Quand vous cliquez sur ce lien, vous accédez au code suivant :
 
@@ -461,7 +459,7 @@ Procédez comme suit pour l'intégration du regroupement et de la minimisation 
 	
 	-	L'origine de cette URL CDN est `http://<yourCloudService>.cloudapp.net/bundles/jquery?v=<W.X.Y.Z>`, qui est en vérité le répertoire virtuel du regroupement de script dans votre service cloud.
 	-	Comme vous utilisez un constructeur CDN, la balise du script CDN pour le regroupement ne contient plus la chaîne de caractères de la version automatiquement générée dans l'URL restituée. Vous devez créer manuellement une chaîne de version unique à chaque modification du regroupement de script pour forcer une erreur dans le cache de votre réseau de distribution de contenu (CDN) Azure. En même temps, cette chaîne de version unique doit rester constante tout au long du déploiement pour un accès maximal au cache de votre réseau de distribution de contenu (CDN) Azure après le déploiement du regroupement.
-	-	La chaîne de requête v=<W.X.Y.Z> est extraite de *Properties\\AssemblyInfo.cs* dans votre projet de rôle web. Vous pouvez avoir un flux de travail de déploiement qui inclut l'incrémentation de la version de l'assembly chaque fois que vous publiez dans Azure. Vous pouvez également modifier *Properties\\AssemblyInfo.cs* dans votre projet pour incrémenter automatiquement la chaîne de caractères de la version à chaque génération en utilisant le caractère générique '\*'. Par exemple :
+	-	La chaîne de requête v=<W.X.Y.Z> est extraite de *Properties\\AssemblyInfo.cs* dans votre projet de rôle web. Vous pouvez avoir un flux de travail de déploiement qui inclut l'incrémentation de la version de l'assembly chaque fois que vous publiez dans Azure. Vous pouvez également modifier *Properties\\AssemblyInfo.cs* dans votre projet pour incrémenter automatiquement la chaîne de caractères de la version à chaque génération en utilisant le caractère générique '*'. Par exemple :
 
 			[assembly: AssemblyVersion("1.0.0.*")]
 	
@@ -624,4 +622,4 @@ La classe [Bundle](http://msdn.microsoft.com/library/system.web.optimization.bun
 - [Regroupement et minimisation d’ASP.NET](http://www.asp.net/mvc/tutorials/mvc-4/bundling-and-minification)
 - [Utilisation du réseau de distribution de contenu (CDN) Azure](cdn-how-to-use.md)
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=September15_HO1-->

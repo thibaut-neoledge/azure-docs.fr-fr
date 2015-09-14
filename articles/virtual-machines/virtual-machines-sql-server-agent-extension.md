@@ -1,9 +1,9 @@
 <properties 
-	pageTitle="Extension de l’agent IaaS SQL Server" 
-	description="Décrit l’extension de l’agent SQL Server, qui permet aux machines virtuelles exécutant SQL Server dans le cloud sur Azure d’utiliser les fonctionnalités Automation, et explique comment installer l’agent s’il n’a pas déjà été installé automatiquement." 
-	services="virtual-machines" 
-	documentationCenter="" 
-	authors="jeffgoll" 
+	pageTitle="Extension de l’agent IaaS SQL Server"
+	description="Décrit l’extension de l’agent SQL Server, qui permet aux machines virtuelles exécutant SQL Server dans le cloud sur Azure d’utiliser les fonctionnalités Automation, et explique comment installer l’agent s’il n’a pas déjà été installé automatiquement."
+	services="virtual-machines"
+	documentationCenter=""
+	authors="jeffgoll"
 	manager="jeffreyg"
 	editor=""/>
 
@@ -12,7 +12,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
-	ms.workload="infrastructure-services" 
+	ms.workload="infrastructure-services"
 	ms.date="06/17/2015"
 	ms.author="jeffreyg"/>
 
@@ -33,8 +33,8 @@ Configuration requise pour utiliser l’extension sur votre machine virtuelle :
  
 ## Services disponibles avec l’extension
 
-- **Sauvegarde automatisée SQL** : ce service automatise la planification des sauvegardes pour toutes les bases de données pour l’instance par défaut de SQL Server dans la machine virtuelle. Pour plus d’informations sur ce service, consultez [Sauvegarde automatisée pour SQL Server dans Azure Virtual Machines](https://msdn.microsoft.com/library/azure/dn906091.aspx).
-- **Application automatisée des correctifs SQL** : ce service vous permet de configurer une fenêtre de maintenance pendant laquelle les mises à jour de votre machine virtuelle peuvent avoir lieu, afin d’éviter les mises à jour pendant les heures de pointe de votre charge de travail. Pour plus d’informations sur ce service, consultez [Application automatisée des correctifs pour SQL Server dans Azure Virtual Machines](https://msdn.microsoft.com/library/azure/dn961166.aspx).
+- **Sauvegarde automatisée SQL** : ce service automatise la planification des sauvegardes pour toutes les bases de données pour l’instance par défaut de SQL Server dans la machine virtuelle. Pour plus d’informations sur ce service, consultez [Sauvegarde automatisée pour SQL Server dans Azure Virtual Machines](virtual-machines-sql-server-automated-backup.md).
+- **Application automatisée des correctifs SQL** : ce service vous permet de configurer une fenêtre de maintenance pendant laquelle les mises à jour de votre machine virtuelle peuvent avoir lieu, afin d’éviter les mises à jour pendant les heures de pointe de votre charge de travail. Pour plus d’informations sur ce service, consultez [Application automatisée des correctifs pour SQL Server dans Azure Virtual Machines](virtual-machines-sql-server-automated-patching.md).
 
 ## Ajouter l’extension avec PowerShell
 Si vous configurez votre machine virtuelle SQL Server en utilisant le [portail Azure en version préliminaire](https://portal.azure.com/), l’extension est automatiquement installée. Pour les machines virtuelles SQL Server configurées avec le [portail de gestion Azure](https://manage.windowsazure.com) ou pour les machines virtuelles où vous avez apporté votre propre licence SQL, vous pouvez ajouter cette extension à une machine virtuelle existante en utilisant l’applet de commande Azure PowerShell suivante.
@@ -74,4 +74,4 @@ Si vous voulez supprimer cette extension de votre machine virtuelle, vous pouvez
 ### Syntaxe
 Remove-AzureVMSqlServerExtension -VM <IPersistentVM> [<CommonParameters>]
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

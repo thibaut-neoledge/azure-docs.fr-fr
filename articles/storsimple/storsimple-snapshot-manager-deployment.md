@@ -1,23 +1,23 @@
 <properties 
    pageTitle="Déploiement du Gestionnaire d’instantanés StorSimple | Microsoft Azure"
-   description="Explique comment télécharger et installer le Gestionnaire d’instantanés StorSimple."
-   services="storsimple"
-   documentationCenter="NA"
-   authors="SharS"
-   manager="carolz"
-   editor="" />
+	description="Découvrez comment télécharger et installer le Gestionnaire d'instantanés StorSimple, un composant logiciel enfichable MMC pour la gestion des fonctionnalités de sauvegarde et de protection de données StorSimple."
+	services="storsimple"
+	documentationCenter="NA"
+	authors="SharS"
+	manager="carolz"
+	editor=""/>
 <tags 
    ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="08/17/2015"
-   ms.author="v-sharos" />
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="TBD"
+	ms.date="08/27/2015"
+	ms.author="v-sharos"/>
 
-# Déploiement du Gestionnaire d’instantanés StorSimple
+# Déployer le composant logiciel enfichable MMC Gestionnaire d’instantanés StorSimple
 
-## Vue d'ensemble
+## Vue d’ensemble
 
 Le Gestionnaire d’instantanés StorSimple est un composant logiciel enfichable MMC (Microsoft Management Console) qui simplifie la protection des données et la gestion des sauvegardes dans un environnement Microsoft Azure StorSimple. Avec le Gestionnaire d’instantanés StorSimple, vous pouvez gérer le stockage Microsoft Azure StorSimple local et dans le cloud comme s’il s’agissait d’un système de stockage entièrement intégré, ce qui simplifie les processus de sauvegarde et de restauration et contribue à réduire les coûts.
 
@@ -35,9 +35,7 @@ Avant d’installer ou de mettre à niveau le composant logiciel enfichable Gest
 
 Les étapes suivantes fournissent une vue d’ensemble des tâches de configuration requises avant d’installer le Gestionnaire d’instantanés StorSimple. Pour obtenir des informations complètes sur la configuration et l’installation de Microsoft Azure StorSimple, y compris la configuration système requise et des instructions pas à pas, consultez la page [Déploiement de votre appareil StorSimple local](storsimple-deployment-walkthrough.md).
 
->[AZURE.IMPORTANT]Avant de commencer, lisez la [liste de contrôle de déploiement](storsimple-deployment-walkthrough.md#deployment-configuration-checklist) 
-et les [conditions préalables au déploiement](storsimple-deployment-walkthrough.md#deployment-prerequisites) dans l’article [Déploiement de votre appareil StorSimple local](storsimple-deployment-walkthrough.md).
-<br>
+>[AZURE.IMPORTANT]Avant de commencer, lisez la [liste de contrôle de déploiement](storsimple-deployment-walkthrough.md#deployment-configuration-checklist) et les [conditions préalables au déploiement](storsimple-deployment-walkthrough.md#deployment-prerequisites) dans l’article [Déploiement de votre appareil StorSimple local](storsimple-deployment-walkthrough.md).<br>
  
 ### Avant d’installer le Gestionnaire d’instantanés StorSimple
 
@@ -49,7 +47,7 @@ et les [conditions préalables au déploiement](storsimple-deployment-walkthroug
     - Windows Server 2012
     - Windows Server 2012 R2
  
-    > [AZURE.NOTE]Pour un appareil virtuel StorSimple, l’hôte doit être une machine virtuelle Microsoft Azure.
+    >[AZURE.NOTE]Pour un appareil virtuel StorSimple, l’hôte doit être une machine virtuelle Microsoft Azure.
 
 3. Assurez-vous que la configuration requise de Microsoft Azure StorSimple est entièrement respectée. Pour plus d’informations, consultez la page [Conditions préalables au déploiement](storsimple-deployment-walkthrough.md#deployment-prerequisites).
 
@@ -95,7 +93,7 @@ Pour installer le Gestionnaire d’instantanés StorSimple, procédez comme suit
 
 3. Dans la fenêtre **Extraire les dossiers compressés**, dans la zone **Sélectionner une destination et extraire les fichiers**, tapez ou recherchez le chemin d’accès où extraire le fichier.
 
-      >[AZURE.IMPORTANT]Vous devez installer le Gestionnaire d’instantanés StorSimple sur le lecteur C:.
+       >[AZURE.IMPORTANT]Vous devez installer le Gestionnaire d’instantanés StorSimple sur le lecteur C:.
  
 4. Cochez la case **Afficher les dossiers extraits une fois l’opération terminée**, puis cliquez sur **Extraire**.
 
@@ -255,4 +253,4 @@ Pour en savoir plus sur le Gestionnaire d’instantanés StorSimple, accédez à
 
 Pour en savoir plus sur l’interface utilisateur du Gestionnaire d’instantanés StorSimple, accédez à la page [Interface utilisateur du Gestionnaire d’instantanés StorSimple](storsimple-use-snapshot-manager.md).
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=September15_HO1-->

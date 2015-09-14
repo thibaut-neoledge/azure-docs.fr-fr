@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="08/06/2015"
+	ms.date="08/27/2015"
 	ms.author="banders"/>
 
 # Embarquer dans Azure Operational Insights en quelques minutes
@@ -28,11 +28,15 @@ Vous pouvez devenir opérationnel sur Azure Operational Insights en quelques min
 
 Vous pouvez créer un espace de travail Operations Management Suite à l’aide du site web Operations Management Suite. Vous pouvez également utiliser un abonnement Microsoft Azure pour créer un espace de travail Operational Insights. Actuellement, les deux espaces de travail sont fonctionnellement équivalents. Leur nom est la seule différence. Si vous utilisez un abonnement Azure, vous pouvez également utiliser cet abonnement pour accéder aux autres services Azure. Quelle que soit la méthode utilisée pour créer l’espace de travail, vous allez le créer avec un compte Microsoft ou un compte professionnel.
 
+Voici le processus :
+
+![processus d'intégration](./media/operational-insights-onboard-in-minutes/onboard-oms.png)
+
 ## S’inscrire en 3 étapes à l’aide d’Operations Management Suite
 
 1. Accédez au site web [Operations Management Suite](http://microsoft.com/oms) et cliquez sur **Essai gratuit**. Connectez-vous avec votre compte Microsoft, par exemple Outlook.com, ou avec un compte professionnel fourni par votre société ou établissement d’enseignement à utiliser avec Office 365 ou d’autres services Microsoft.
 2. Fournissez un nom d’espace de travail unique. Un espace de travail est un conteneur logique où sont stockées vos données de gestion. Il permet de partitionner les données entre les différentes équipes de votre organisation, car les données sont réservées à son espace de travail. Spécifiez une adresse de messagerie et la région où vous souhaitez stocker vos données.![créer un espace de travail et lier un abonnement](./media/operational-insights-onboard-in-minutes/create-workspace-link-sub.png)
-3. Vous pouvez créer ensuite un abonnement Azure ou un lien à un abonnement Azure existant. Si vous souhaitez continuer à l’aide de l’essai gratuit, cliquez sur **Pas maintenant**.
+3. Vous pouvez créer ensuite un abonnement Azure ou un lien à un abonnement Azure existant. Si vous souhaitez continuer à utiliser l’essai gratuit, cliquez sur **Pas maintenant**.
 
 Vous êtes prêt à utiliser le portail Operations Management Suite.
 
@@ -41,7 +45,7 @@ Pour plus d’informations sur la configuration de votre espace de travail et la
 ## S’inscrire rapidement à l’aide de Microsoft Azure
 
 1. Accédez au [portail Azure](https://manage.windowsazure.com) et connectez-vous, puis, dans la liste des services, sélectionnez **Operational Insights**. ![Portail Azure](./media/operational-insights-onboard-in-minutes/azure-portal-op-insights.png)
-2. Cliquez sur **Créer un espace de travail** et sur **Création rapide**, puis, sous **Compte**, tapez un nom d’espace de travail, choisissez un niveau, puis un emplacement pour stocker les données de l’espace de travail. Si vous possédez plusieurs abonnements, vous pouvez choisir celui que vous voulez utiliser, puis cliquez sur **Créer un espace de travail**. ![Portail Azure](./media/operational-insights-onboard-in-minutes/quick-create.png)
+2. Cliquez sur **Créer un espace de travail** et sur **Création rapide**, puis, sous **Compte**, tapez un nom d’espace de travail, choisissez un niveau, puis un emplacement pour stocker les données de l’espace de travail. Si vous possédez plusieurs abonnements, vous pouvez choisir celui que vous voulez utiliser, puis cliquer sur **Créer un espace de travail**. ![Portail Azure](./media/operational-insights-onboard-in-minutes/quick-create.png)
 3. Sélectionnez l’espace de travail que vous avez créé, puis cliquez sur **Consultez votre compte Operational Insights** pour ouvrir le site web Operations Management Suite. ![consulter un compte](./media/operational-insights-onboard-in-minutes/visit-account.png)
 4. Sur le site web Operations Management Suite, entrez votre adresse de messagerie, puis cliquez sur **Confirmer et continuer**. Un e-mail de confirmation va vous être envoyé. Ouvrez-le, puis dedans, cliquez sur **Confirmer maintenant**.
 5. Le site web Operations Management Suite affiche la page de présentation. Pour continuer, cliquez sur **Prise en main**.
@@ -51,7 +55,7 @@ Vous êtes prêt à utiliser le portail Operations Management Suite.
 Pour plus d’informations sur la configuration de votre espace de travail et la liaison des espaces de travail existants créés à l’aide d’Operations Management Suite aux abonnements Azure, consultez [Configurer votre espace de travail et gérer des paramètres](operational-insights-setup-workspace.md).
 
 ## Prise en main du portail Operations Management Suite
-Pour choisir des solutions et connecter les serveurs que vous souhaitez gérer, cliquez sur la vignette **Prise en main**, puis procédez comme suit :
+Pour choisir des solutions et connecter les serveurs que vous souhaitez gérer, cliquez sur la vignette **Prise en main**, puis procédez comme suit.
 
 ![créer un espace de travail et lier un abonnement](./media/operational-insights-onboard-in-minutes/get-started.png)
 
@@ -64,12 +68,12 @@ Pour choisir des solutions et connecter les serveurs que vous souhaitez gérer, 
 
 ## Si vous le souhaitez, connectez directement les serveurs à Operations Management Suite en installant un agent.
 1. Dans la vue Prise en main, cliquez sur le nœud **Connecter une source de données**, puis sur **Télécharger l’agent Windows**. Vous ne pouvez installer l’agent que sur Windows Server 2008 SP 1 ou ultérieur ou sur Windows 7 SP1 ou ultérieur. Les serveurs doivent disposer d’une architecture x64.
-2. Installez l’agent sur un ou plusieurs serveurs. Vous pouvez installer des agents un par un ou à l’aide d’une méthode plus automatisée avec un [script personnalisé](operational-insights-direct-agent.md#configure-the-microsoft-monitoring-agent-optional). Vous pouvez également utiliser une solution de distribution de logiciels existante dont vous pourriez disposer.
+2. Installez l’agent sur un ou plusieurs serveurs. Vous pouvez installer les agents un par un ou à l’aide d’une méthode plus automatisée avec un [script personnalisé](operational-insights-direct-agent.md#configure-the-microsoft-monitoring-agent-optional). Vous pouvez également utiliser une solution de distribution de logiciels existante dont vous pourriez disposer.
 3. Après avoir accepté le contrat de licence et choisi votre dossier d’installation, sélectionnez **Connecter l’agent à Microsoft Azure Operational Insights**. ![configuration de l’agent](./media/operational-insights-onboard-in-minutes/agent.png)
 4. Dans la page suivante, vous êtes invité à entrer votre ID d’espace de travail et votre clé d’espace de travail. Votre ID et votre clé d’espace de travail sont affichés dans l’écran où vous avez téléchargé le fichier de l’agent. ![joindre des serveurs](./media/operational-insights-onboard-in-minutes/key.png)
 5. Pendant l’installation, vous pouvez cliquer sur **Avancé** pour configurer votre serveur proxy et fournir des informations d’authentification. Cliquez sur le bouton **Suivant** pour revenir à l’écran d’informations sur l’espace de travail.
 6. Cliquez sur **Suivant** pour valider votre ID et votre clé d’espace de travail. Si des erreurs sont détectées, vous pouvez cliquer sur **Précédent** pour apporter des corrections. Une fois que votre ID et votre clé d’espace de travail sont validés, cliquez sur **Installer** pour terminer l’installation de l’agent.
-7. Reconnectez-vous au portail Operations Management Suite, puis cliquez sur la vignette **Paramètres** dans la page de présentation. Une icône de coche verte s’affiche lorsque les agents communiquent avec le service Operations Management Suite. Au départ, cela prend environ 5 à 10 minutes.
+7. Reconnectez-vous au portail Operations Management Suite, puis cliquez sur la vignette **Paramètres** sur la page de présentation. Une icône de coche verte s’affiche lorsque les agents communiquent avec le service Operations Management Suite. Au départ, cela prend environ 5 à 10 minutes.
 
 > [AZURE.NOTE]Les solutions d’évaluation de la configuration et de la gestion de capacité ne sont actuellement pas prises en charge par les serveurs connectés directement à Operations Management Suite.
 
@@ -97,4 +101,4 @@ Avec Operations Management Suite, vous pouvez rechercher rapidement les journa
 - Se familiariser avec la [recherche](operational-insights-search.md).
 - Utiliser les [tableaux de bord](operational-insights-use-dashboards.md) pour enregistrer et afficher les recherches personnalisées.
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="hero-article"
-	ms.date="05/27/2015"
+	ms.date="09/01/2015"
 	ms.author="wesmc"/>
 
 # Prise en main de Notification Hubs
@@ -104,6 +104,7 @@ Vous devez suivre ce didacticiel avant de pouvoir suivre tous les autres didacti
 		private NotificationHub hub;
     	private String HubName = "<Enter Your Hub Name>";
 		private String HubListenConnectionString = "<Your default listen connection string>";
+	    private static Boolean isVisible = false;
 
 
 	Veillez à mettre à jour les trois espaces réservés: * **SENDER\_ID** : définissez `SENDER_ID` sur le numéro de projet obtenu précédemment du projet que vous avez créé dans [Google Cloud Console](http://cloud.google.com/console). * **HubListenConnectionString** : définissez `HubListenConnectionString` sur la chaîne de connexion **DefaultListenAccessSignature** pour votre hub. Vous pouvez copier cette chaîne de connexion en cliquant sur **Afficher la chaîne de connexion** sous l’onglet **Tableau de bord** de votre hub sur le [portail de gestion Azure]. * **HubName** : nom de votre hub de notification qui s’affiche en haut de la page dans Azure pour votre hub (**pas** l’URL complète). Par exemple, utilisez `"myhub"`.
@@ -139,6 +140,21 @@ Vous devez suivre ce didacticiel avant de pouvoir suivre tous les autres didacti
     	}
 
 
+7. Ajoutez la méthode **DialogNotify** à l'activité pour afficher la notification lorsque l'application est en cours d'exécution et visible. Substituez également **onStart** et **onStop** afin de déterminer si l'activité est visible pour afficher la boîte de dialogue.
+
+	    @Override
+	    protected void onStart() {
+	        super.onStart();
+	        isVisible = true;
+	    }
+	
+	    @Override
+	    protected void onStop() {
+	        super.onStop();
+	        isVisible = false;
+	    }
+
+
 		/**
 		  * A modal AlertDialog for displaying a message on the UI thread
 		  * when there's an exception or message to report.
@@ -148,6 +164,9 @@ Vous devez suivre ce didacticiel avant de pouvoir suivre tous les autres didacti
 		  */
     	public void DialogNotify(final String title,final String message)
     	{
+	        if (isVisible == false)
+	            return;
+
         	final AlertDialog.Builder dlg;
         	dlg = new AlertDialog.Builder(this);
 
@@ -170,7 +189,7 @@ Vous devez suivre ce didacticiel avant de pouvoir suivre tous les autres didacti
         	});
     	}
 
-7. Android n’affichant pas de notifications, vous devez écrire votre propre récepteur. Dans **AndroidManifest.xml**, ajoutez l'élément ci-après dans l'élément `<application>`.
+8. Android n’affichant pas de notifications, vous devez écrire votre propre récepteur. Dans **AndroidManifest.xml**, ajoutez l'élément ci-après dans l'élément `<application>`.
 
 	> [AZURE.NOTE]Remplacez l’espace réservé par votre nom de package.
 
@@ -183,14 +202,14 @@ Vous devez suivre ce didacticiel avant de pouvoir suivre tous les autres didacti
         </receiver>
 
 
-8. Dans la vue du projet, développez **app** -> **src** -> **main** -> **java**. Cliquez avec le bouton droit sur le dossier de votre package sous **java**, cliquez sur **Nouveau**, puis cliquez sur **Classe Java**.
+9. Dans la vue du projet, développez **app** -> **src** -> **main** -> **java**. Cliquez avec le bouton droit sur le dossier de votre package sous **java**, cliquez sur **Nouveau**, puis cliquez sur **Classe Java**.
 
 	![][6]
 
-9. Dans le champ **Nom** associé à la nouvelle classe, saisissez **MyHandler**, puis cliquez sur **OK**
+10. Dans le champ **Nom** associé à la nouvelle classe, saisissez **MyHandler**, puis cliquez sur **OK**.
 
 
-10. Ajoutez les instructions import suivantes au début de **MyHandler.java** :
+11. Ajoutez les instructions import suivantes au début de **MyHandler.java** :
 
 		import android.app.NotificationManager;
 		import android.app.PendingIntent;
@@ -201,12 +220,12 @@ Vous devez suivre ce didacticiel avant de pouvoir suivre tous les autres didacti
 		import com.microsoft.windowsazure.notifications.NotificationsHandler;
 
 
-11. Mettez à jour la déclaration de la classe comme suit pour faire de `MyHandler` une sous-classe de `com.microsoft.windowsazure.notifications.NotificationsHandler` comme indiqué ci-dessous.
+12. Mettez à jour la déclaration de la classe comme suit pour faire de `MyHandler` une sous-classe de `com.microsoft.windowsazure.notifications.NotificationsHandler` comme indiqué ci-dessous.
 
 		public class MyHandler extends NotificationsHandler {
 
 
-12. Ajoutez le code suivant pour la classe `MyHandler`.
+13. Ajoutez le code suivant pour la classe `MyHandler`.
 
 	Comme ce code substitue la méthode `OnReceive`, le gestionnaire affichera une `AlertDialog` pour montrer les notifications reçues. Le gestionnaire envoie également la notification au gestionnaire de notifications Android à l’aide de la méthode `sendNotification()`.
 
@@ -245,7 +264,7 @@ Vous devez suivre ce didacticiel avant de pouvoir suivre tous les autres didacti
 			mNotificationManager.notify(NOTIFICATION_ID, mBuilder.build());
 		}
 
-13. Dans Android Studio, sur la barre de menus, cliquez sur **Build** -> **Rebuild Project** pour vous assurer qu’aucune erreur n’est détectée.
+14. Dans Android Studio, sur la barre de menus, cliquez sur **Build** -> **Rebuild Project** pour vous assurer qu’aucune erreur n’est détectée.
 
 ##Envoi de notifications
 
@@ -311,7 +330,7 @@ Vous pouvez tester la réception de notifications dans votre application en envo
 	    private String HubSasKeyValue = null;
 		private String HubFullAccess = "<Enter Your DefaultFullSharedAccess Connection string>";
 
-4. Votre activité conserve le nom du concentrateur et la chaîne de connexion d'accès partagé complet pour le concentrateur. Vous devez créer un jeton SaS (Software Access Signature) pour authentifier une demande POST d'envoi de messages à votre concentrateur de notification. Cette opération est effectuée en analysant les données clés de la chaîne de connexion, puis en créant le jeton SaS, comme indiqué dans la page [Concepts courants](http://msdn.microsoft.com/library/azure/dn495627.aspx) des informations de référence sur l’API REST.
+4. Votre activité conserve le nom du concentrateur et la chaîne de connexion d'accès partagé complet pour le concentrateur. Vous devez créer un jeton SaS (Software Access Signature) pour authentifier une demande POST d'envoi de messages à votre concentrateur de notification. Cette opération est effectuée en analysant les données clés de la chaîne de connexion, puis en créant le jeton SaS, comme indiqué sur la page [Concepts courants](http://msdn.microsoft.com/library/azure/dn495627.aspx) des informations de référence sur l’API REST.
 
 	Dans **MainActivity.java**, ajoutez la méthode suivante à la classe `MainActivity` pour analyser votre chaîne de connexion.
 
@@ -512,4 +531,4 @@ Dans cet exemple simple, vous diffusez des notifications à tous vos appareils A
 [Utilisation des Notification Hubs pour envoyer des notifications Push aux utilisateurs]: notification-hubs-aspnet-backend-android-notify-users.md
 [Utilisation des Notification Hubs pour diffuser les dernières nouvelles]: notification-hubs-aspnet-backend-android-breaking-news.md
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

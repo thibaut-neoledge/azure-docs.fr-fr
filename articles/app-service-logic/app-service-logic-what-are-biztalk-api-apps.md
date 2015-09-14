@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Qu'est-ce qu'un connecteur et une application API BizTalk ?" 
-	description="Découvrez les applications API, les connecteurs et les applications API BizTalk" 
-	services="app-service\logic" 
-	documentationCenter="" 
-	authors="MandiOhlinger" 
-	manager="dwrede" 
+	pageTitle="Qu'est-ce qu'un connecteur et une application API BizTalk ?"
+	description="Découvrez les applications API, les connecteurs et les applications API BizTalk"
+	services="app-service\logic"
+	documentationCenter=""
+	authors="MandiOhlinger"
+	manager="dwrede"
 	editor=""/>
 
 <tags 
-	ms.service="app-service-logic" 
-	ms.workload="integration" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/08/2015" 
+	ms.service="app-service-logic"
+	ms.workload="integration"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="06/16/2015"
 	ms.author="mandia"/>
 
 # Qu'est-ce qu'un connecteur et une application API BizTalk ?
@@ -48,4 +48,4 @@ Les règles d'entreprise englobent les stratégies et les décisions qui contrô
 Consultez la page [Liste des connecteurs et applications API](app-service-logic-connectors-list.md) pour obtenir la liste complète des connecteurs et des applications API inclus dans chaque catégorie, y compris les connecteurs standard, IAE BizTalk, les connecteurs Premium et ainsi de suite.
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Documentation sur les API Machine Learning Recommendations | Microsoft Azure" 
-	description="Documentation relative aux API Azure Machine Learning Recommendations pour un moteur de recommandations disponible dans Microsoft Azure Marketplace." 
-	services="machine-learning" 
-	documentationCenter="" 
-	authors="AharonGumnik" 
-	manager="paulettm" 
+	pageTitle="Documentation sur les API Machine Learning Recommendations | Microsoft Azure"
+	description="Documentation relative aux API Azure Machine Learning Recommendations pour un moteur de recommandations disponible dans Microsoft Azure Marketplace."
+	services="machine-learning"
+	documentationCenter=""
+	authors="AharonGumnik"
+	manager="paulettm"
 	editor="cgronlun"/>
 
 <tags 
-	ms.service="machine-learning" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/10/2015" 
+	ms.service="machine-learning"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/01/2015"
 	ms.author="LuisCa"/>
 
 #Documentation sur les API Azure Machine Learning Recommendations
@@ -935,7 +935,7 @@ Les données de catalogue doivent être au format suivant :
 
 Remarque : la taille de fichier maximale est de 200 Mo.
 
-\*\* Détails du format \*\*
+** Détails du format **
 
 | Nom | Obligatoire | Type | Description |
 |:---|:---|:---|:---|
@@ -1586,7 +1586,7 @@ Récupère des informations sur les caractéristiques, y compris le classement, 
 
 | Méthode HTTP | URI |
 |:--------|:--------|
-|GET |`<rootURI>/GetModelFeatures?modelId=%27<modelId>%27&samplingSize=%27<samplingSize>%27&rankBuildId=%27<rankBuildId>%27&apiVersion=%271.0%27`<br><br>Exemple :<br>`<rootURI>/GetModelFeatures?modelId=%271c1110f8-7d9f-4c64-a807-4c9c5329993a%27&samplingSize=10%27&rankBuildId=%271000551%27&apiVersion=%271.0%27`
+|GET |`<rootURI>/GetModelFeatures?modelId=%27<modelId>%27&samplingSize=%27<samplingSize>%27&rankBuildId=<rankBuildId>&apiVersion=%271.0%27`<br><br>Exemple :<br>`<rootURI>/GetModelFeatures?modelId=%271c1110f8-7d9f-4c64-a807-4c9c5329993a%27&samplingSize=10%27&rankBuildId=1000551&apiVersion=%271.0%27`
 
 | Nom du paramètre |	Valeurs valides |
 |:--------			|:--------			|
@@ -1666,7 +1666,7 @@ OData
 
   Cette section explique les différentes API liées aux builds. Il existe 3 types de builds : une build de recommandation, une build de classement et une build FBT (fréquemment achetés ensemble).
 
-L’objectif de la build de recommandation est de générer un modèle de recommandation utilisé pour les prévisions. Les prédictions (pour ce type de build) sont de deux types : \* I2I - alias. Recommandations d’éléments selon des éléments donnés : sur la base d’un élément ou d’une liste d’éléments, cette option prédit une liste d’éléments susceptibles d’être très intéressants. \* U2I - alias Recommandations d’éléments selon un utilisateur : sur la base d’un ID utilisateur (et éventuellement d’une liste d’éléments), cette option prédit une liste d’éléments susceptibles de présenter un intérêt élevé pour l’utilisateur donné (et son choix d’éléments supplémentaires). Les recommandations U2I se basent sur l’historique des éléments ayant présenté un intérêt pour l’utilisateur jusqu’au moment où le modèle a été généré.
+L’objectif de la build de recommandation est de générer un modèle de recommandation utilisé pour les prévisions. Les prédictions (pour ce type de build) sont de deux types : * I2I - alias. Recommandations d’éléments selon des éléments donnés : sur la base d’un élément ou d’une liste d’éléments, cette option prédit une liste d’éléments susceptibles d’être très intéressants. * U2I - alias Recommandations d’éléments selon un utilisateur : sur la base d’un ID utilisateur (et éventuellement d’une liste d’éléments), cette option prédit une liste d’éléments susceptibles de présenter un intérêt élevé pour l’utilisateur donné (et son choix d’éléments supplémentaires). Les recommandations U2I se basent sur l’historique des éléments ayant présenté un intérêt pour l’utilisateur jusqu’au moment où le modèle a été généré.
 
 Une build de classement est une build technique qui vous permet d'en savoir plus sur l'utilité de vos caractéristiques. En général, pour tirer le meilleur parti d'un modèle de recommandation impliquant des caractéristiques, vous devez procéder comme suit : - Déclencher une build de classement (sauf si le score de vos caractéristiques est stable) et attendre l'obtention du score des caractéristiques. - Récupérer le classement de vos caractéristiques en appelant l'API [Obtention d'informations sur les caractéristiques](#101-get-features-info-for-last-rank-build). - Configurer une build de recommandation avec les paramètres suivants :- `useFeatureInModel` : valeur True. - `ModelingFeatureList` : liste séparée par des virgules des caractéristiques avec un score de 2.0 ou plus (selon les classements récupérés lors de l'étape précédente). - `AllowColdItemPlacement` : valeur True. - Affecter éventuellement à `EnableFeatureCorrelation` la valeur True et à `ReasoningFeatureList` la liste des caractéristiques à utiliser pour fournir des explications (en général la même liste de caractéristiques que celle utilisée lors de la modélisation ou une sous-liste). -Déclencher la build de recommandation avec les paramètres configurés.
 
@@ -2861,4 +2861,4 @@ Code d'état HTTP : 200
 Ce document est fourni « en l'état ». Les informations et les points de vue exprimés dans ce document, y compris les URL et autres références à des sites web, peuvent être modifiés sans préavis.<br><br> Certains exemples sont fournis à titre indicatif uniquement et sont fictifs. Toute association ou lien est purement involontaire ou fortuit.<br><br> Ce document ne vous accorde aucun droit légal à la propriété intellectuelle pour un produit Microsoft. Vous pouvez copier et utiliser ce document pour un usage interne, à titre de référence.<br><br> © 2015 Microsoft. Tous droits réservés.
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=September15_HO1-->

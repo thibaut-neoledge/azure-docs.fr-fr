@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="06/08/2015"
+	ms.date="09/01/2015"
 	ms.author="tdykstra"/>
 
 # Prise en main des services cloud Azure et d'ASP.NET
@@ -399,7 +399,7 @@ Une fois la solution créée, vérifiez le code qui est propre aux projets de se
 
 12. Dans le volet gauche, sélectionnez **Mises à jour**.
 
-13. Recherchez le package *Azure Storage* et, s'il n'est pas répertorié, cliquez sur **Mettre à jour** pour obtenir la dernière version de la bibliothèque cliente de stockage.
+13. Recherchez le package *WindowsAzure.Storage* et, s'il n'est pas répertorié, cliquez sur **Mettre à jour** pour obtenir la dernière version de la bibliothèque cliente de stockage.
 
 	![Update SCL](./media/cloud-services-dotnet-get-started/updstg.png)
 
@@ -408,6 +408,8 @@ Une fois la solution créée, vérifiez le code qui est propre aux projets de se
 14. Dans le volet gauche, sélectionnez **En ligne**.
 
 16. Recherchez le package NuGet *EntityFramework* et installez-le dans les trois projets.
+
+17. Recherchez le package NuGet *Microsoft.WindowsAzure.ConfigurationManager* et installez-le dans le projet de rôle de travail.
 
 ### Définition des références de projet
 
@@ -425,7 +427,7 @@ Une fois la solution créée, vérifiez le code qui est propre aux projets de se
 
 Dans cette section, vous allez configurer les chaînes de connexion Azure Storage et SQL pour un test local. Les instructions de déploiement données précédemment dans le didacticiel expliquent comment paramétrer les chaînes de connexion lorsque l'application s'exécute dans le cloud.
 
-3. Dans le projet ContosoAdsWeb, ouvrez le fichier Web.config de l’application et insérez l’élément `connectionStrings` suivant après l’élément `configSections`.
+3. Dans le projet ContosoAdsWeb, ouvrez le fichier Web.config de l'application et insérez l'élément `connectionStrings` suivant après l'élément `configSections`.
 
 		<connectionStrings>
 		  <add name="ContosoAdsContext" connectionString="Data Source=(localdb)\v11.0; Initial Catalog=ContosoAds; Integrated Security=True; MultipleActiveResultSets=True;" providerName="System.Data.SqlClient" />
@@ -573,7 +575,7 @@ Du code similaire obtient une référence à la file d'attente *images* et crée
 
 ### ContosoAdsWeb - \_Layout.cshtml
 
-Le fichier \*\_Layout.cshtml\* définit le nom d'application dans l'en-tête et le pied de page, et crée une entrée de menu « Ads ».
+Le fichier *\_Layout.cshtml* définit le nom d'application dans l'en-tête et le pied de page, et crée une entrée de menu « Ads ».
 
 ### ContosoAdsWeb - Views\\Home\\Index.cshtml
 
@@ -811,4 +813,4 @@ Pour plus d’informations, consultez les ressources suivantes :
 * [Gestion des services cloud](cloud-services-how-to-manage.md)
 * [Azure Storage](/documentation/services/storage/)
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=September15_HO1-->

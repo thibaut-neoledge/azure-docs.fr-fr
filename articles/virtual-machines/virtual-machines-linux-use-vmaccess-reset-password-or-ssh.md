@@ -5,7 +5,8 @@
 	documentationCenter=""
 	authors="KBDAzure"
 	manager="timlt"
-	editor=""/>
+	editor=""
+	tags="azure-service-management"/>
 
 <tags
 	ms.service="virtual-machines"
@@ -13,12 +14,12 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/07/2015"
+	ms.date="08/28/2015"
 	ms.author="kathydav"/>
 
 # Réinitialisation d’un mot de passe ou de SSH pour les machines virtuelles Linux #
 
-Si vous ne pouvez pas vous connecter à une machine virtuelle Linux en raison d’un mot de passe oublié, d’une clé SSH (Secure Shell) incorrecte ou d’un problème lié à la configuration SSH, utilisez le portail Microsoft Azure en version préliminaire pour réinitialiser le mot de passe ou la clé SSH, ou corriger la configuration SSH.
+Si vous ne pouvez pas vous connecter à une machine virtuelle Linux en raison d’un mot de passe oublié, d’une clé SSH (Secure Shell) incorrecte ou d’un problème lié à la configuration SSH, utilisez le portail Microsoft Azure en version préliminaire pour réinitialiser le mot de passe ou la clé SSH, ou corriger la configuration SSH. Notez que cet article s’applique aux machines virtuelles créées à l’aide du modèle de déploiement **Classique**.
 
 ## Version préliminaire du portail Azure
 
@@ -261,6 +262,5 @@ Pour afficher l’état de l’extension VMAccess, exécutez cette commande.
 [Installation et configuration d’Azure PowerShell]: ../install-configure-powershell.md
 [Fonctionnalités et extensions de machine virtuelle Azure]: http://msdn.microsoft.com/library/azure/dn606311.aspx
 [Connexion à une machine virtuelle Microsoft Azure avec RDP ou SSH]: http://msdn.microsoft.com/library/azure/dn535788.aspx
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

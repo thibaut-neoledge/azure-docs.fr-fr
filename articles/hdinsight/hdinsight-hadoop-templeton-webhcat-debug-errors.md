@@ -1,21 +1,21 @@
 <properties
  pageTitle="Présentation et résolution des erreurs WebHCat sur HDInsight"
- description="Découvrez quelles sont les erreurs courantes renvoyées par WebHCat sur HDInsight et comment les résoudre."
- services="hdinsight"
- documentationCenter=""
- authors="Blackmist"
- manager="paulettm"
- editor="cgronlun"
- tags="azure-portal"/>
+	description="Découvrez quelles sont les erreurs courantes renvoyées par WebHCat sur HDInsight et comment les résoudre."
+	services="hdinsight"
+	documentationCenter=""
+	authors="Blackmist"
+	manager="paulettm"
+	editor="cgronlun"
+	tags="azure-portal"/>
 
 <tags
  ms.service="hdinsight"
- ms.devlang="na"
- ms.topic="article"
- ms.tgt_pltfrm="na"
- ms.workload="big-data"
- ms.date="06/04/2015"
- ms.author="larryfr"/>
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="big-data"
+	ms.date="09/02/2015"
+	ms.author="larryfr"/>
 
 #Compréhension et résolution des erreurs reçues à partir de WebHCat (Templeton) sur HDInsight
 
@@ -86,4 +86,4 @@ Voici les valeurs de configuration par défaut qui peuvent affecter les performa
 [max-age-ms]: http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.0.6.0/ds_Hadoop/hadoop-mapreduce-client/hadoop-mapreduce-client-core/mapred-default.xml
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=September15_HO1-->

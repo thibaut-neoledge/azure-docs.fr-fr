@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="04/24/2015"
+	ms.date="08/31/2015"
 	ms.author="v-donntr"/>
 
 
@@ -24,7 +24,7 @@
 
 ## Vue d'ensemble
 
-Cette procédure pas à pas vous montre comment créer un Kit de développement logiciel (SDK) Azure pour une application Java qui crée une application web dans [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714), puis comment déployer une application vers celle-ci. Elle comprend deux parties :
+Cette procédure pas à pas vous montre comment créer un Kit de développement logiciel (SDK) Azure pour une application Java qui crée une application web dans [Azure App Service][], puis comment déployer une application vers celle-ci. Elle comprend deux parties :
 
 - La première partie montre comment créer une application Java qui crée une application web.
 - La deuxième partie montre comment créer une simple application JSP « Hello World » , puis utiliser un client FTP pour déployer le code sur App Service.
@@ -34,7 +34,7 @@ Cette procédure pas à pas vous montre comment créer un Kit de développement 
 
 ### Installations de logiciels
 
-Le code d’application AzureWebDemo dans cet article a été écrit à l’aide du Kit de développement logiciel (SDK) Azure Java 0.7.0, que vous pouvez installer à l’aide de [Web Platform Installer (WebPI)](http://go.microsoft.com/fwlink/?LinkID=252838). En outre, veillez à utiliser la dernière version de la [boîte à outils Azure pour Eclipse](https://msdn.microsoft.com/library/azure/hh690946.aspx). Après avoir installé le Kit de développement logiciel (SDK), mettez à jour les dépendances de votre projet Eclipse en exécutant **Mettre à jour l’index** dans les **référentiels Maven**, puis ajoutez de nouveau la version la plus récente de chaque package dans la fenêtre **Dépendances**. Vous pouvez vérifier la version de votre logiciel installé dans Eclipse en cliquant sur **Aide > Détails de l’installation** ; vous devez avoir au moins les versions suivantes :
+Le code d'application AzureWebDemo dans cet article a été écrit à l'aide du Kit de développement logiciel (SDK) Azure Java 0.7.0, que vous pouvez installer à l'aide de [Web Platform Installer][] (WebPI). En outre, veillez à utiliser la dernière version de la [boîte à outils Azure pour Eclipse][]. Après avoir installé le Kit de développement logiciel (SDK), mettez à jour les dépendances de votre projet Eclipse en exécutant **Mettre à jour l’index** dans les **référentiels Maven**, puis ajoutez de nouveau la version la plus récente de chaque package dans la fenêtre **Dépendances**. Vous pouvez vérifier la version de votre logiciel installé dans Eclipse en cliquant sur **Aide > Détails de l’installation** ; vous devez avoir au moins les versions suivantes :
 
 - Package pour les bibliothèques Microsoft Azure pour Java 0.7.0.20150309
 - Environnement de développement intégré (IDE) Eclipse pour développeurs Java EE 4.4.2.20150219
@@ -47,7 +47,7 @@ Avant de commencer cette procédure, vous devez disposer d’un abonnement Azure
 
 ### Création d’un annuaire Active Directory (AD) dans Azure
 
-Si vous ne disposez pas déjà d’un annuaire Active Directory (AD) dans votre abonnement Azure, connectez-vous au [Portail Azure Classic](https://manage.windowsazure.com) avec votre compte Microsoft. Si vous disposez de plusieurs abonnements, cliquez sur **Abonnements** et sélectionnez l’annuaire par défaut pour l’abonnement que vous souhaitez utiliser pour ce projet. Cliquez sur **Appliquer** pour basculer vers cette vue d’abonnement.
+Si vous ne disposez pas déjà d’un annuaire Active Directory (AD) dans votre abonnement Azure, connectez-vous au [Portail Azure Classic][] avec votre compte Microsoft. Si vous disposez de plusieurs abonnements, cliquez sur **Abonnements** et sélectionnez l’annuaire par défaut pour l’abonnement que vous souhaitez utiliser pour ce projet. Cliquez sur **Appliquer** pour basculer vers cette vue d’abonnement.
 
 1. Sélectionnez **Active Directory** dans le menu à gauche. **Cliquez sur Nouveau > Annuaire > Création personnalisée**.
 
@@ -59,14 +59,14 @@ Si vous ne disposez pas déjà d’un annuaire Active Directory (AD) dans votre 
 
 5. Dans **Pays ou région**, sélectionnez votre paramètre régional.
 
-Pour plus d’informations sur AD, consultez la page [Qu’est-ce qu’un annuaire Azure AD ?](http://technet.microsoft.com/library/jj573650.aspx)
+Pour plus d'informations sur AD, consultez la page [Qu'est-ce qu'un annuaire Azure AD][] ?
 
 
 ### Création d’un certificat de gestion pour Azure
 
 Le Kit de développement logiciel (SDK) Azure pour Java utilise des certificats de gestion pour s’authentifier avec des abonnements Azure. Il s’agit de certificats X.509 v3 vous permettant d’authentifier une application cliente qui utilise l’API Gestion des services pour agir au nom du propriétaire de l’abonnement afin de gérer les ressources d’abonnement.
 
-Le code de cette procédure utilise un certificat auto-signé pour l’authentification auprès d’Azure. Pour cette procédure, vous devez créer un certificat et le télécharger sur le [Portail Azure Classic](https://manage.windowsazure.com) au préalable. Cela implique les étapes suivantes :
+Le code de cette procédure utilise un certificat auto-signé pour l’authentification auprès d’Azure. Pour cette procédure, vous devez créer un certificat et le télécharger sur le [Portail Azure Classic][] au préalable. Cela implique les étapes suivantes :
 
 - Générer un fichier PFX représentant votre certificat client et l’enregistrer en local
 - Générer un certificat de gestion (fichier CER) à partir du fichier PFX
@@ -74,14 +74,14 @@ Le code de cette procédure utilise un certificat auto-signé pour l’authentif
 - Convertir le fichier PFX au format JKS, car Java utilise ce format pour s’authentifier à l’aide de certificats
 - Écrire le code d’authentification de l’application, qui fait référence au fichier JKS local
 
-Lorsque vous effectuez cette procédure, le certificat CER réside dans votre abonnement Azure et le certificat JKS réside sur votre lecteur local. Pour plus d’informations sur les certificats de gestion, consultez la page [Créer et télécharger un certificat de gestion pour Windows Azure](http://msdn.microsoft.com/library/azure/gg551722.aspx).
+Lorsque vous effectuez cette procédure, le certificat CER réside dans votre abonnement Azure et le certificat JKS réside sur votre lecteur local. Pour plus d’informations sur les certificats de gestion, consultez la page [Créer et télécharger un certificat de gestion pour Windows Azure][].
 
 
 #### Création d’un certificat
 
 Pour créer votre propre certificat auto-signé, ouvrez une console de commandes sur votre système d’exploitation et exécutez les commandes suivantes.
 
-> **Remarque :** le JDK doit être installé sur l’ordinateur sur lequel vous exécutez cette commande. En outre, le chemin d’accès vers l’outil keytool dépend de l’emplacement où vous installez le JDK. Pour plus d’informations, consultez la rubrique [Outil de gestion de clés et de certificats (keytool)](http://docs.oracle.com/javase/6/docs/technotes/tools/windows/keytool.html) dans la documentation en ligne de Java.
+> **Remarque :** le JDK doit être installé sur l’ordinateur sur lequel vous exécutez cette commande. En outre, le chemin d’accès vers l’outil keytool dépend de l’emplacement où vous installez le JDK. Pour plus d’informations, consultez la rubrique [Outil de gestion de clés et de certificats (keytool)][] dans la documentation en ligne de Java.
 
 Pour créer le fichier .pfx :
 
@@ -105,7 +105,7 @@ où :
 - `<password>` correspond au mot de passe que vous choisissez pour protéger le certificat ; il doit comporter au moins 6 caractères. Vous avez la possibilité de n’entrer aucun mot de passe, même si cela n’est pas recommandé.
 - `<dname>` correspond au nom unique X.500 à associer à l’alias, et est utilisé en tant que champs de l’émetteur et du sujet dans le certificat auto-signé.
 
-Pour plus d’informations, consultez la rubrique [Créer et télécharger un certificat de gestion pour Windows Azure](http://msdn.microsoft.com/library/azure/gg551722.aspx).
+Pour plus d’informations, consultez la rubrique [Créer et télécharger un certificat de gestion pour Windows Azure][].
 
 
 #### Téléchargement du certificat
@@ -237,7 +237,7 @@ où :
 - `<certificate-password>` correspond au mot de passe que vous avez spécifié lorsque vous avez créé votre certificat JKS.
 - `webAppName` peut être n’importe quel nom que vous avez choisi ; cette procédure utilise le nom `WebDemoWebApp`. Le nom de domaine complet est le `webAppName` avec le `domainName` ajouté, de sorte que dans ce cas le domaine complet est `webdemowebapp.azurewebsites.net`.
 - `domainName` doit être spécifié comme indiqué ci-dessus.
-- `webSpaceName` doit être l’une des valeurs définies dans la classe [WebSpaceNames](http://dl.windowsazure.com/javadoc/com/microsoft/windowsazure/management/websites/models/WebSpaceNames.html).
+- `webSpaceName` doit être l’une des valeurs définies dans la classe [WebSpaceNames][].
 - `appServicePlanName` doit être spécifié comme indiqué ci-dessus.
 
 > **Remarque :** chaque fois que vous exécutez cette application, vous devez modifier la valeur de `webAppName` et `appServicePlanName` (ou supprimer l’application web sur le portail Azure) avant d’exécuter à nouveau l’application. Sinon, l’exécution échoue, car la même ressource existe déjà sur Azure.
@@ -245,7 +245,7 @@ où :
 
 #### Définition de la méthode de création web
 
-Ensuite, définissez une méthode de création de l’application web. Cette méthode, `createWebApp`, spécifie les paramètres de l’application web et l’espace web. Elle crée et configure également le client App Service Web Apps, qui est défini par l’objet [WebSiteManagementClient](http://dl.windowsazure.com/javadoc/com/microsoft/windowsazure/management/websites/WebSiteManagementClient.html). Le client de gestion est essentiel à la création d’applications web. Il fournit des services web RESTful qui permettent aux applications de gérer des applications web (exécution d’opérations telles que create, update et delete) en appelant l’API Gestion des services.
+Ensuite, définissez une méthode de création de l’application web. Cette méthode, `createWebApp`, spécifie les paramètres de l’application web et l’espace web. Elle crée et configure également le client App Service Web Apps, qui est défini par l’objet [WebSiteManagementClient][]. Le client de gestion est essentiel à la création d’applications web. Il fournit des services web RESTful qui permettent aux applications de gérer des applications web (exécution d’opérations telles que create, update et delete) en appelant l’API Gestion des services.
 
     private static void createWebApp() throws Exception {
 
@@ -456,7 +456,7 @@ Assurez-vous que vous avez exécuté l’application **AzureWebDemo** pour crée
 
 Pour utiliser le FTP pour déployer des fichiers d’application vers l’application web nouvellement créée, vous devez obtenir les informations de connexion. Il existe deux méthodes pour cela. Une façon consiste à visiter la page **Tableau de bord** de l’application web ; l’autre manière consiste à télécharger le profil de publication de l’application web. Le profil de publication est un fichier XML qui fournit des informations telles que le nom d’hôte FTP et les informations d’identification d’ouverture de session pour vos applications web dans Azure App Service. Vous pouvez utiliser ce nom d’utilisateur et ce mot de passe pour effectuer un déploiement sur n’importe quelle application web dans tous les abonnements associés au compte Azure, pas uniquement celui-ci.
 
-Pour obtenir les informations de connexion FTP à partir du panneau de l’application web dans le [portail Azure](https://portal.azure.com) :
+Pour obtenir les informations de connexion FTP à partir du panneau de l’application web dans le [portail Azure][] :
 
 1. Sous **Essentials**, recherchez et copiez le **Nom d’hôte FTP**. Il s’agit d’un URI similaire à `ftp://waws-prod-bay-NNN.ftp.azurewebsites.windows.net`.
 
@@ -589,4 +589,15 @@ Cette procédure crée une application web App Service. La ressource vous sera f
   [10]: ./media/java-create-azure-website-using-java-sdk/kudu-console-jsphello-war-2.png
  
 
-<!---HONumber=August15_HO9-->
+[Azure App Service]: http://go.microsoft.com/fwlink/?LinkId=529714
+[Web Platform Installer]: http://go.microsoft.com/fwlink/?LinkID=252838
+[boîte à outils Azure pour Eclipse]: https://msdn.microsoft.com/library/azure/hh690946.aspx
+[Portail Azure Classic]: https://manage.windowsazure.com
+[Qu'est-ce qu'un annuaire Azure AD]: http://technet.microsoft.com/library/jj573650.aspx
+[Créer et télécharger un certificat de gestion pour Windows Azure]: http://msdn.microsoft.com/library/azure/gg551722.aspx
+[Outil de gestion de clés et de certificats (keytool)]: http://docs.oracle.com/javase/6/docs/technotes/tools/windows/keytool.html
+[WebSiteManagementClient]: http://dl.windowsazure.com/javadoc/com/microsoft/windowsazure/management/websites/WebSiteManagementClient.html
+[WebSpaceNames]: http://dl.windowsazure.com/javadoc/com/microsoft/windowsazure/management/websites/models/WebSpaceNames.html
+[portail Azure]: https://portal.azure.com
+
+<!---HONumber=September15_HO1-->

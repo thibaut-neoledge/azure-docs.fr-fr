@@ -1,22 +1,20 @@
 <properties 
-	pageTitle="Activité pig" 
-	description="Découvrez comment utiliser l'activité pig d’une fabrique de données Azure pour exécuter des requêtes pig sur un cluster HDInsight à la demande/ou votre propre cluster." 
-	services="data-factory" 
-	documentationCenter="" 
-	authors="spelluru" 
-	manager="jhubbard" 
+	pageTitle="Activité pig"
+	description="Découvrez comment utiliser l'activité pig d’une fabrique de données Azure pour exécuter des requêtes pig sur un cluster HDInsight à la demande/ou votre propre cluster."
+	services="data-factory"
+	documentationCenter=""
+	authors="spelluru"
+	manager="jhubbard"
 	editor="monicar"/>
 
-
 <tags 
-	ms.service="data-factory" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/26/2015" 
+	ms.service="data-factory"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/26/2015"
 	ms.author="spelluru"/>
-
 
 # Activité pig
 
@@ -63,7 +61,7 @@ L'activité HDInsight pig d’un [pipeline](data-factory-create-pipelines.md) Da
 
 Propriété | Description | Requis
 -------- | ----------- | --------
-name | Nom de l'activité | Oui
+name | Nom de l’activité | Oui
 description | Texte décrivant la raison motivant l’activité. | Non
 type | HDinsightPig | Oui
 inputs | Entrée(s) utilisée(s) par l'activité pig | Non
@@ -168,8 +166,8 @@ Pour paramétrer le script pig, procédez comme suit :
 		          		"scriptPath": "adfwalkthrough\\scripts\\samplepig.hql",
 		          		"scriptLinkedService": "StorageLinkedService",
 		          		"defines": {
-		            		"Input": "$Text.Format('wasb: //adfwalkthrough@<storageaccountname>.blob.core.windows.net/samplein/yearno={0: yyyy}/monthno={0: %M}/dayno={0: %d}/',SliceStart)",
-				            "Output": "Text.Format('wasb://adfwalkthrough@<storageaccountname>.blob.core.windows.net/sampleout/yearno={0:yyyy}/monthno={0:%M}/dayno={0:%d}/', SliceStart)"
+		            		"Input": "$$Text.Format('wasb: //adfwalkthrough@<storageaccountname>.blob.core.windows.net/samplein/yearno={0: yyyy}/monthno={0: %M}/dayno={0: %d}/',SliceStart)",
+				            "Output": "$$Text.Format('wasb://adfwalkthrough@<storageaccountname>.blob.core.windows.net/sampleout/yearno={0:yyyy}/monthno={0:%M}/dayno={0:%d}/', SliceStart)"
 		          		}
 		        	},
        				"scheduler": {
@@ -190,5 +188,7 @@ Pour paramétrer le script pig, procédez comme suit :
 
 
  
+## Envoyer des commentaires
+Nous souhaiterions vraiment obtenir vos commentaires sur cet article. Prenez quelques minutes pour nous envoyer vos commentaires par [courrier électronique](mailto:adfdocfeedback@microsoft.com?subject=data-factory-pig-activity.md).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

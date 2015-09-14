@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/13/2015"
+	ms.date="08/31/2015"
 	ms.author="awills"/>
  
 # Exporter la télémétrie depuis Application Insights
@@ -40,6 +40,7 @@ Choisissez les types d’événement que vous souhaitez exporter :
 
 Une fois que vous avez créé l’exportation, elle démarre. (Vous n’obtenez que les données qui arrivent après la création de l’exportation.)
 
+Il peut y avoir un délai d'environ une heure avant que les données n'apparaissent dans l'objet blob.
 
 Si vous souhaitez modifier les types d’événement plus tard, modifiez simplement l’exportation :
 
@@ -59,20 +60,23 @@ Les données exportées sont les données de télémétrie brutes que nous recev
 
 Les autres mesures calculées ne sont pas incluses. Par exemple, nous n’exportons pas l’utilisation moyenne du processeur, mais nous exportons la télémétrie brute à partir de laquelle la moyenne est calculée.
 
+Les données incluent également les résultats de n'importe quel [test web de disponibilité](app-insights-monitor-web-app-availability.md) que vous avez configuré.
+
 ## <a name="get"></a> Inspection des données
 
-Lorsque vous ouvrez votre magasin d’objets blob avec un outil comme l’[Explorateur de serveurs](http://msdn.microsoft.com/library/azure/ff683677.aspx), vous voyez un conteneur avec un ensemble de fichiers blob. L’URI de chaque fichier est id-application/type-télémétrie/date/heure.
+Pour examiner le stockage Azure dans Visual Studio, ouvrez **Afficher**, **Cloud Explorer**. (Si vous n'avez pas cette commande, vous devez installer le SDK Azure : Ouvrez la boîte de dialogue **Nouveau projet**, développez Visual C#/Cloud et sélectionnez **Obtenir Microsoft Azure SDK pour .NET**.)
+
+Lorsque vous ouvrez votre magasin d’objets blob, vous voyez un conteneur avec un ensemble de fichiers blob. L'URI de chaque fichier est dérivé du nom de votre ressource Application Insights, sa clé d'instrumentation, le type/la date/l'heure de télémétrie. (Le nom de la ressource est tout en minuscules et la clé d'instrumentation omet les tirets.)
 
 ![Inspectez le magasin d’objets blob avec un outil adapté.](./media/app-insights-export-telemetry/04-data.png)
 
 La date et l’heure sont au format UTC et correspondent au moment où la télémétrie a été placée dans le magasin, et pas au moment où elle a été générée. Par conséquent, si vous écrivez du code pour télécharger les données, il peut parcourir les données de façon linéaire.
 
 
-
 ## <a name="format"></a> Format de données
 
 * Chaque objet blob est un fichier texte qui contient plusieurs lignes séparées par des \\n.
-* Chaque ligne est un document JSON sans mise en forme. Pour consulter ce format, vous pouvez l’ouvrir par exemple dans Notepad++ avec le plug-in JSON :
+* Chaque ligne est un document JSON sans mise en forme. Si vous souhaitez l'examiner, ouvrez-le dans Visual Studio et choisissez Modifier, Options avancées, Formater le fichier :
 
 ![Consultez la télémétrie avec un outil approprié.](./media/app-insights-export-telemetry/06-json.png)
 
@@ -198,4 +202,4 @@ Nous disposons d’exemples illustrant deux autres méthodes de déplacement des
 
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=September15_HO1-->

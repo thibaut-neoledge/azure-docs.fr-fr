@@ -1,19 +1,19 @@
 <properties 
-   pageTitle="Définition des paramètres DNS dans un fichier de configuration de service"
-   description="Description"
-   services="virtual-network"
-   documentationCenter="na"
-   authors="joaoma"
-   manager="jdial"
-   editor="tysonn" />
+   pageTitle="Définition des paramètres DNS dans un fichier de configuration de service | Microsoft Azure"
+	description="spécification de paramètres DNS personnalisés à l'aide du fichier de configuration de service d’un réseau virtuel"
+	services="virtual-network"
+	documentationCenter="na"
+	authors="joaoma"
+	manager="jdial"
+	editor="tysonn"/>
 <tags 
    ms.service="virtual-network"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="05/28/2015"
-   ms.author="joaoma" />
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="infrastructure-services"
+	ms.date="09/01/2015"
+	ms.author="joaoma"/>
 
 # Définition des paramètres DNS dans un fichier de configuration de service
 
@@ -41,4 +41,4 @@ Un fichier de configuration de service peut contenir un élément DnsServers av
 
 [À propos des paramètres de réseau virtuel dans le Portail de gestion](http://go.microsoft.com/fwlink/?LinkId=248092)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

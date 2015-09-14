@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/13/2015"
+	ms.date="08/31/2015"
 	ms.author="awills"/>
  
 # Procédure pas à pas : exporter vers SQL à partir d’Application Insights à l’aide de Stream Analytics
@@ -92,12 +92,16 @@ Comme l’exportation continue génère toujours des données vers un compte de 
 
     ![Choisissez les types d’événements.](./media/app-insights-code-sample-export-sql-stream-analytics/085-types.png)
 
-À présent, installez-vous confortablement et laissez les utilisateurs utiliser votre application pendant un certain temps. Les données de télémétrie vont vous être transmises et vous permettre d’afficher des graphiques statistiques dans [Metrics explorer][metrics] et des événements dans [Recherche de diagnostic][diagnostic].
 
-Vos données seront également exportées vers votre emplacement de stockage, où vous pourrez analyser leur contenu. Par exemple, il existe un navigateur de stockage dans Visual Studio :
+3. Laissez les données s'accumuler. Installez-vous confortablement et laissez les utilisateurs utiliser votre application pendant un certain temps. Les données de télémétrie vont vous être transmises et vous permettre d’afficher des graphiques statistiques dans [Metrics explorer](app-insights-metrics-explorer.md) et des événements dans [Recherche de diagnostic](app-insights-diagnostic-search.md).
 
+    Les données seront également exportées vers votre stockage.
 
-![Dans Visual Studio, ouvrez Explorateur de serveurs, Azure, Stockage](./media/app-insights-code-sample-export-sql-stream-analytics/087-explorer.png)
+4. Inspectez les données exportées. Dans Visual Studio, sélectionnez **Afficher / Cloud Explorer** et ouvrez Azure / Stockage. (Si vous n'avez pas cette option, vous devez installer le SDK Azure : Ouvrez la boîte de dialogue Nouveau projet et ouvrez Visual C# / Cloud / Obtenir Microsoft Azure SDK pour .NET.)
+
+    ![Dans Visual Studio, ouvrez Explorateur de serveurs, Azure, Stockage](./media/app-insights-code-sample-export-sql-stream-analytics/087-explorer.png)
+
+    Prenez note de la partie commune du nom du chemin d'accès, qui est dérivée du nom de l'application et de la clé d'instrumentation.
 
 Les événements sont écrits dans des fichiers blob au format JSON. Chaque fichier peut contenir un ou plusieurs événements. Donc, nous devons lire les données d’événement et filtrer les champs voulus. Nous pourrions effectuer toutes sortes d’opérations avec les données, mais notre objectif aujourd’hui est d’utiliser Stream Analytics pour déplacer les données vers une base de données SQL. Cette action va simplifier l’exécution d’un grand nombre de requêtes intéressantes.
 
@@ -161,7 +165,7 @@ CREATE CLUSTERED INDEX [pvTblIdx] ON [dbo].[PageViewsTable]
 
 ![](./media/app-insights-code-sample-export-sql-stream-analytics/34-create-table.png)
 
-Dans cet exemple, nous utilisons les données issues des affichages de pages. Pour voir les autres données disponibles, examinez la sortie JSON et consultez le [modèle d’exportation de données](app-insights-export-data-model.md).
+Dans cet exemple, nous utilisons les données issues des affichages de pages. Pour voir les autres données disponibles, examinez la sortie JSON et consultez le [modèle d'exportation de données](app-insights-export-data-model.md).
 
 ## Création d’une instance Azure Stream Analytics
 
@@ -194,15 +198,15 @@ Vous devez maintenant disposer de la clé d’accès principale issue de votre c
 
 Veillez à définir le format de date sur AAAA-MM-JJ (avec des tirets).
 
-La séquence d’octets préfixe du chemin d’accès spécifie la manière dont Stream Analytics recherche les fichiers d’entrée dans le stockage. Vous devez la configurer pour qu’il corresponde au mode de stockage des données de l’exportation continue. Définissez-la comme suit :
+La séquence d’octets préfixe du chemin d’accès spécifie la manière dont Stream Analytics recherche les fichiers d’entrée dans le stockage. Vous devez la configurer pour correspondre au mode de stockage des données de l'exportation continue. Définissez-la comme suit :
 
-    webapplication27_100000000-0000-0000-0000-000000000000/PageViews/{date}/{time}
+    webapplication27_12345678123412341234123456789abcdef0/PageViews/{date}/{time}
 
 Dans cet exemple :
 
-* `webapplication27` est le nom de la ressource Application Insights. 
-* `1000...` est la clé d’instrumentation de la ressource Application Insights. 
-* `PageViews` est le type de données que nous souhaitons analyser. Les types disponibles varient selon le filtre que vous définissez dans l’exportation continue. Examinez les données exportées pour voir les autres types disponibles, et consultez le [modèle d’exportation de données](app-insights-export-data-model.md).
+* `webapplication27` est le nom de la ressource Application Insights, **tout en minuscules**. 
+* `1234...` est la clé d'instrumentation de la ressource Application Insights **avec les tirets supprimés**. 
+* `PageViews` est le type de données que nous souhaitons analyser. Les types disponibles varient selon le filtre que vous définissez dans l’exportation continue. Examinez les données exportées pour voir les autres types disponibles, et consultez le [modèle d'exportation de données](app-insights-export-data-model.md).
 * `/{date}/{time}` est une séquence écrite de manière littérale.
 
 Pour obtenir le nom et l’iKey de votre ressource Application Insights, ouvrez Essentials sur sa page de présentation ou ouvrez Paramètres.
@@ -259,7 +263,7 @@ Remplacez la requête par défaut par :
 
 ```
 
-Notez que les premières propriétés sont spécifiques aux données d’affichage de page. Les exportations d’autres types de télémétrie disposent de propriétés différentes.
+Notez que les premières propriétés sont spécifiques aux données d’affichage de page. Les exportations d’autres types de télémétrie disposent de propriétés différentes. Consultez la [référence de modèle de données détaillé pour les valeurs et types de propriétés.](app-insights-export-data-model.md)
 
 ## Configuration de la sortie vers la base de données
 
@@ -294,6 +298,7 @@ Après quelques minutes, revenez aux Outils d’administration SQL Server et obs
 ## Articles connexes
 
 * [Exportation vers SQL à l’aide d’un rôle de travail](app-insights-code-sample-export-telemetry-sql-database.md)
+* [Référence de modèle de données détaillé pour les valeurs et types de propriétés.](app-insights-export-data-model.md)
 * [Exportation continue dans Application Insights](app-insights-export-telemetry.md)
 * [Application Insights](https://azure.microsoft.com/services/application-insights/)
 
@@ -307,4 +312,4 @@ Après quelques minutes, revenez aux Outils d’administration SQL Server et obs
 
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=September15_HO1-->

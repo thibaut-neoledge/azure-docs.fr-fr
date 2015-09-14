@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/24/2015"
+	ms.date="09/01/2015"
 	ms.author="aashishr"/>
 
 # Sauvegarde des machines virtuelles Azure - Introduction
@@ -92,48 +92,41 @@ L’image ci-dessous illustre les relations entre les différentes entités d’
 
 4. Dans **Region**, sélectionnez la région géographique du coffre. Notez que l’archivage doit se trouver dans la même région que les machines virtuelles que vous souhaitez protéger. Si vous avez des machines virtuelles dans différentes régions, créez un archivage dans chacune d’elles. Il est inutile de spécifier des comptes de stockage pour stocker les données de sauvegarde : l’archivage de sauvegarde et le service Azure Backup s’en chargent automatiquement. ![Créer un archivage de sauvegarde](./media/backup-azure-vms-introduction/backup_vaultcreate.png)
 
-    >[AZURE.NOTE]La sauvegarde de machines virtuelles à l’aide du service Azure Backup n’est prise en charge que dans certaines régions. Vérifiez la liste des [régions prises en charge](http://azure.microsoft.com/regions/#services). Si la région que vous recherchez n’est pas prise en charge aujourd’hui, elle n’apparaît pas dans la liste déroulante lors de la création de l’archivage.
-
 5. Cliquez sur **Créer un archivage**. La création du coffre de sauvegarde peut prendre du temps. Surveillez les notifications d’état en bas du portail. ![Créer une notification toast l’archivage](./media/backup-azure-vms-introduction/creating-vault.png)
 
-6. Un message confirme que l’archivage a été correctement créé et l’archivage est affiché dans la page Services de récupération avec l’état Actif. ![Liste des archivages de sauvegarde](./media/backup-azure-vms-introduction/backup_vaultslist.png)
+6. Un message confirme que l'archivage a été correctement créé et l'archivage est affiché dans la page Services de récupération avec l'état Actif. Assurez-vous que l’option de redondance de stockage appropriée est choisie juste après la création de l’archivage. En savoir plus sur la [définition de l'option de redondance de stockage dans le coffre de sauvegarde](../backup-azure-backup-create-vault.md#storage-redundancy-options). ![Liste des archivages de sauvegarde](./media/backup-azure-vms-introduction/backup_vaultslist.png)
 
 7. En cliquant sur l’archivage de sauvegarde, vous accédez à la page **Démarrage rapide**, où sont affichées les instructions pour la sauvegarde des machines virtuelles Azure. ![Instructions de sauvegarde de machines virtuelles dans la page Tableau de bord](./media/backup-azure-vms-introduction/vmbackup-instructions.png)
 
-    >[AZURE.NOTE]Assurez-vous que l’option de redondance de stockage appropriée est choisie juste après la création de l’archivage. En savoir plus sur la [définition de l'option de redondance de stockage dans l'archivage de sauvegarde][vault-storage-redundancy].
 
 ### 2\. Agent VM
 Avant de commencer à sauvegarder la machine virtuelle Azure, assurez-vous que l’agent de machine virtuelle Azure est correctement installé sur la machine virtuelle. Pour sauvegarder la machine virtuelle, le service Azure Backup installe une extension vers l’agent de machine virtuelle. L’agent de machine virtuelle étant un composant facultatif au moment de la création de la machine virtuelle, vous devez vous assurer que la case de l’agent de machine virtuelle est cochée avant de configurer la machine virtuelle.
 
 En savoir plus sur l’[agent de machine virtuelle](https://go.microsoft.com/fwLink/?LinkID=390493&clcid=0x409) et [comment l’installer](http://azure.microsoft.com/blog/2014/04/15/vm-agent-and-extensions-part-2/).
 
->[AZURE.NOTE]Si vous envisagez de migrer votre machine virtuelle depuis votre centre de données local vers Azure, assurez-vous de télécharger et d’installer l’agent de machine virtuelle MSI avant le début du processus de migration. Cela s’applique également aux machines virtuelles protégées dans Azure à l’aide d’Azure Site Recovery.
+## Limitations
 
-## Limitations de la version préliminaire
-
+- La sauvegarde des machines virtuelles IaaS (V2) n'est pas prise en charge.
 - La sauvegarde de machines virtuelles ayant plus de 16 disques de données n’est pas prise en charge.
 - La sauvegarde de machines virtuelles à l’aide du stockage Premium n’est pas prise en charge.
 - La sauvegarde de machines virtuelles à l’aide de plusieurs cartes réseau ou dans une configuration à charge équilibrée n’est pas prise en charge.
 - Le remplacement d’une machine virtuelle existante pendant la restauration n’est pas pris en charge. Commencez par supprimer la machine virtuelle existante et tous les disques associés, puis restaurez les données de sauvegarde.
-- La sauvegarde des machines virtuelles restaurées à l’aide d’Azure Site Recovery n’est pas prise en charge.
 - La sauvegarde et la restauration entre différentes régions ne sont pas prises en charge.
 - La sauvegarde de machines virtuelles à l’aide du service Azure Backup n’est prise en charge que dans certaines régions. Vérifiez la liste des [régions prises en charge](http://azure.microsoft.com/regions/#services). Si la région que vous recherchez n’est pas prise en charge aujourd’hui, elle n’apparaît pas dans la liste déroulante lors de la création de l’archivage.
 - La sauvegarde de machines virtuelles à l’aide du service Azure Backup n’est prise en charge que pour certaines versions de système d’exploitation :
   - **Linux** : la liste des distributions approuvées par Azure est disponible [ici](../virtual-machines-linux-endorsed-distributions.md). D’autres distributions « Bring-Your-Own-Linux » fonctionnent également tant que l’agent de machine virtuelle est disponible sur la machine virtuelle.
   - **Windows Server** : les versions antérieures à Windows Server 2008 R2 ne sont pas prises en charge.
+- La restauration d'une machine virtuelle de contrôleur de domaine qui fait partie d'une configuration à plusieurs contrôleurs de domaine est prise en charge uniquement par le biais de PowerShell. En savoir plus sur la [restauration d'un contrôleur de domaine dans un environnement à plusieurs contrôleurs de domaine](backup-azure-restore-vms.md#multiple-dcs)
 
 Si vous souhaitez que certaines fonctionnalités soient incluses, [envoyez-nous vos commentaires](http://aka.ms/azurebackup_feedback).
 
 ## Étapes suivantes
 Pour bien démarrer avec la sauvegarde des machines virtuelles, découvrez comment :
 
-- [Découverte, inscription et protection des machines virtuelles](backup-azure-vms.md)
+- [Sauvegarde des machines virtuelles](backup-azure-vms.md)
 
 - [Restauration des machines virtuelles](backup-azure-restore-vms.md)
 
-+ Surveillance des travaux de sauvegarde
+- [Gestion de la sauvegarde de machine virtuelle](backup-azure-manage-vms.md)
 
-
- 
-
-<!---HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

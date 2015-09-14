@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="Prise en main d'Application Insights dans un projet web Java" 
-	description="Surveiller les performances et l'utilisation de votre site web Java avec Application Insights" 
-	services="application-insights" 
-    documentationCenter="java"
-	authors="alancameronwills" 
+<properties
+	pageTitle="Prise en main d'Application Insights dans un projet web Java | Microsoft Azure"
+	description="Surveiller les performances et l'utilisation de votre site web Java avec Application Insights"
+	services="application-insights"
+	documentationCenter="java"
+	authors="alancameronwills"
 	manager="douge"/>
 
-<tags 
-	ms.service="application-insights" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="na" 
-	ms.topic="get-started-article" 
-	ms.date="06/30/2015" 
+<tags
+	ms.service="application-insights"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="ibiza"
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.date="06/30/2015"
 	ms.author="awills"/>
- 
+
 # Prise en main d'Application Insights dans un projet web Java
 
 *Application Insights est à l'état de version préliminaire.*
@@ -38,7 +38,7 @@ Vous devez avoir :
 ## 1\. Obtenir une clé d'instrumentation Application Insights
 
 1. Connectez-vous au [portail Microsoft Azure](https://portal.azure.com).
-2. Créer une ressource Application Insights dans Azure
+2. Créez une ressource Application Insights.
 
     ![Cliquez sur + et choisissez Ajouter Application Insights](./media/app-insights-java-get-started/01-create.png)
 3. Définissez le type d’application sur Application web Java.
@@ -58,7 +58,7 @@ Utilisez le [Kit de développement logiciel (SDK) Application Insights pour plug
 
 #### Si vous utilisez Maven...
 
-Si votre projet est déjà configuré pour être assemblé avec Maven, fusionnez l'extrait de code suivant dans votre fichier pom.xml.
+Si votre projet est déjà configuré pour être assemblé avec Maven, fusionnez le code suivant dans votre fichier pom.xml.
 
 Actualisez ensuite les dépendances du projet pour télécharger les fichiers binaires.
 
@@ -80,13 +80,12 @@ Actualisez ensuite les dépendances du projet pour télécharger les fichiers bi
     </dependencies>
 
 
-* *Erreurs de validation de build ou de somme de contrôle ? Essayez d’utiliser une version spécifique, telle que :* `<version>1.0.n</version>`. Vous trouverez la version la plus récente dans les [notes de publication du Kit de développement logiciel (SDK)](app-insights-release-notes-java.md) ou dans nos [artefacts Maven](http://search.maven.org/#search%7Cga%7C1%7Capplicationinsights).
-* *Pour effecteur la mise à jour vers un nouveau kit de développement logiciel (SDK)*
- * Actualisez les dépendances de votre projet.
+* *Des erreurs de validation de build ou de somme de contrôle ?* Essayez d’utiliser une version spécifique, telle que : `<version>1.0.n</version>`. Vous trouverez la version la plus récente dans les [notes de publication du Kit de développement logiciel (SDK)](app-insights-release-notes-java.md) ou dans nos [artefacts Maven](http://search.maven.org/#search%7Cga%7C1%7Capplicationinsights).
+* *Besoin de mettre à jour vers un nouveau Kit de développement logiciel (SDK) ?* Actualisez les dépendances de votre projet.
 
 #### Si vous utilisez Gradle...
 
-Si votre projet est déjà configuré pour être assemblé avec Gradle, fusionnez l'extrait de code suivant dans votre fichier build.gradle.xml.
+Si votre projet est déjà configuré pour être assemblé avec Gradle, fusionnez le code suivant dans votre fichier build.gradle.xml.
 
 Actualisez ensuite les dépendances du projet pour télécharger les fichiers binaires.
 
@@ -99,7 +98,7 @@ Actualisez ensuite les dépendances du projet pour télécharger les fichiers bi
       // or applicationinsights-core for bare API
     }
 
-* *Erreurs de validation de build ou de somme de contrôle ? Essayez d’utiliser une version spécifique, telle que :* `version:'1.0.n'`. *Vous trouverez la version la plus récente dans les [notes de publication du kit de développement logiciel (SDK)](app-insights-release-notes-java.md).* 
+* *Erreurs de validation de build ou de somme de contrôle ? Essayez d’utiliser une version spécifique, telle que :* `version:'1.0.n'`. *Vous trouverez la version la plus récente dans les [notes de publication du kit de développement logiciel (SDK)](app-insights-release-notes-java.md).*
 * *Pour effecteur la mise à jour vers un nouveau kit de développement logiciel (SDK)*
  * Actualisez les dépendances de votre projet.
 
@@ -115,7 +114,7 @@ Ajouter manuellement le Kit de développement logiciel :
 * *Quelle est la relation entre les composants `-core` et `-web` du fichier zip ?*
 
  * `applicationinsights-core` vous fournit l’API seule. Cet élément est toujours requis.
- * `applicationinsights-web` fournit des mesures qui permettent d’effectuer le suivi du nombre de requêtes HTTP et des temps de réponse. Vous pouvez omettre cet élément si vous ne souhaitez pas recueillir automatiquement ces données de télémétrie, par exemple, si vous préférez écrire vos propres mesures.
+ * `applicationinsights-web` fournit des mesures qui permettent d’effectuer le suivi du nombre de requêtes HTTP et des temps de réponse. Vous pouvez omettre cet élément si vous ne souhaitez pas recueillir automatiquement ces données de télémétrie. Par exemple, si vous préférez écrire vos propres mesures.
 
 * *Pour mettre à jour le Kit de développement logiciel lorsque nous publions des modifications*
  * Téléchargez le dernier [Kit de développement logiciel Application Insights pour Java](http://dl.windowsazure.com/lib/applicationinsights/javabin/sdk.zip) et remplacez les anciens Kits.
@@ -123,7 +122,7 @@ Ajouter manuellement le Kit de développement logiciel :
 
 
 
-## 3\. Ajouter un fichier xml Application Insights
+## 3\. Ajouter un fichier .xml Application Insights
 
 Ajoutez ApplicationInsights.xml dans le dossier de ressources de votre projet, ou vérifiez qu’il est ajouté au chemin de la classe du déploiement de votre projet. Copiez-y le code XML suivant.
 
@@ -168,7 +167,7 @@ Remplacez la clé d'instrumentation que avez obtenue sur le portail Azure.
 
 La dernière étape de la configuration permet au composant de demande HTTP de consigner toutes les demandes web. (Non requis si vous voulez juste l'API seule.)
 
-Recherchez et ouvrez le fichier web.xml dans votre projet et fusionnez l'extrait de code suivant sous le nœud de l'application web, où vos filtres d'application sont configurés.
+Recherchez et ouvrez le fichier web.xml dans votre projet et fusionnez le code suivant sous le nœud de l'application web, où vos filtres d'application sont configurés.
 
 Pour obtenir des résultats plus précis, le filtre doit être mappé avant tous les autres filtres.
 
@@ -226,16 +225,16 @@ Revenez à votre ressource Application Insights sur le [portail Microsoft Azure]
 Les données des demandes HTTP apparaissent dans le panneau Vue d’ensemble. (Si elles n’y sont pas, attendez quelques secondes et cliquez sur Actualiser).
 
 ![Exemples de données](./media/app-insights-java-get-started/5-results.png)
- 
+
 
 Cliquez sur un des graphiques pour afficher des mesures plus détaillées.
 
 ![](./media/app-insights-java-get-started/6-barchart.png)
 
- 
+
 
 Et lorsque vous affichez les propriétés d'une demande, vous voyez les événements de télémétrie associés, par exemple les demandes et les exceptions.
- 
+
 ![](./media/app-insights-java-get-started/7-instance.png)
 
 
@@ -270,20 +269,20 @@ Pour collecter les données concernant d’autres exceptions, vous disposez de d
 
 ## Compteurs de performances
 
-Cliquez sur la vignette des serveurs et vous verrez un ensemble de compteurs de performances.
+Cliquez sur la vignette des **serveurs** et vous verrez un ensemble de compteurs de performances.
 
 
 ![](./media/app-insights-java-get-started/11-perf-counters.png)
 
-### Personnalisation de la collecte des compteurs de performances
+### Personnaliser la collecte des compteurs de performances
 
-Pour désactiver la collecte du jeu standard de compteurs de performances, ajoutez l'extrait de code suivant sous le nœud racine du fichier ApplicationInsights.xml :
+Pour désactiver la collecte du jeu standard de compteurs de performances, ajoutez le code suivant sous le nœud racine du fichier ApplicationInsights.xml :
 
     <PerformanceCounters>
        <UseBuiltIn>False</UseBuiltIn>
     </PerformanceCounters>
 
-### Collecte de compteurs de performances supplémentaires
+### Collecter des compteurs de performances supplémentaires
 
 Vous pouvez spécifier d'autres compteurs de performances à collecter.
 
@@ -306,7 +305,7 @@ Vous pouvez spécifier d'autres compteurs de performances à collecter.
 
 
 
-#### Compteurs de performances Windows 
+#### Compteurs de performances Windows
 
 Chaque [compteur de performances Windows](https://msdn.microsoft.com/library/windows/desktop/aa373083.aspx) est un membre d'une catégorie (de la même façon qu'un champ est un membre d'une classe). Les catégories peuvent être globales ou peuvent avoir des instances numérotées ou nommées.
 
@@ -317,9 +316,9 @@ Chaque [compteur de performances Windows](https://msdn.microsoft.com/library/win
       </Windows>
     </PerformanceCounters>
 
-*	displayName : nom affiché sur le portail Application Insights
-*	categoryName : catégorie du compteur de performances (objet de performances) à laquelle ce compteur de performances est associé
-*	counterName : nom du compteur de performances
+*	displayName : nom affiché sur le portail Application Insights.
+*	categoryName : catégorie du compteur de performances (objet de performances) à laquelle ce compteur de performances est associé.
+*	counterName : nom du compteur de performances.
 *	instanceName : nom de l'instance de catégorie de compteur de performances ou une chaîne vide ("") si la catégorie contient une seule instance. Si categoryName est Process et que le compteur de performance que vous souhaitez collecter vient du processus en cours de la JVM sur laquelle votre application s'exécute, spécifiez `"__SELF__"`.
 
 Les compteurs de performances sont visibles en tant que mesures personnalisées dans [Metrics Explorer][metrics].
@@ -371,6 +370,4 @@ Maintenant que vous avez installé le Kit de développement logiciel (SDK), vous
 [metrics]: app-insights-metrics-explorer.md
 [usage]: app-insights-web-track-usage.md
 
- 
-
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

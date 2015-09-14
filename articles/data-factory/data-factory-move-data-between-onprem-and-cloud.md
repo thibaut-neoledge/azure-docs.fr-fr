@@ -79,7 +79,7 @@ Le programme d'installation MSI configurera automatiquement les règles de pare-
 
 Mais le programme d'installation suppose que les ports de sortie mentionnés ci-dessus sont activés par défaut sur l'ordinateur local et le pare-feu d'entreprise. Vous devez activer ces ports sortants si ce n'est déjà fait. Si vous avez remplacé le pare-feu Windows par un pare-feu tiers, ces ports peuvent nécessiter une ouverture manuelle.
 
-Si votre entreprise utilise un serveur proxy, vous devez ajouter Microsoft Azure à la liste blanche. Vous pouvez télécharger une liste des adresses IP Microsoft Azure valides à partir du [Centre de téléchargement Microsoft](http://msdn.microsoft.com/library/windowsazure/dn175718.aspx).
+Si votre entreprise utilise un serveur proxy, vous devez ajouter Microsoft Azure à la liste approuvée. Vous pouvez télécharger une liste des adresses IP Microsoft Azure valides à partir du [Centre de téléchargement Microsoft](http://msdn.microsoft.com/library/windowsazure/dn175718.aspx).
 
 ## Utilisation de la passerelle de données – Procédure pas à pas
 Dans cette procédure pas à pas, vous créez une fabrique de données avec un pipeline qui déplace les données d’une base de données SQL Server locale vers un objet blob Azure.
@@ -559,4 +559,7 @@ Voici un flux de données global et un résumé des étapes pour la copie à l�
 	- 	Configurez les [paramètres de pare-feu SQL Azure](https://msdn.microsoft.com/library/azure/jj553530.aspx) pour ajouter l’**adresse IP de l’ordinateur de passerelle** aux **adresses IP autorisées**.
 5.	Lors de la copie des données depuis ou vers le serveur SQL Server local vers une destination, si la passerelle et les ordinateurs SQL Server sont différents, procédez comme suit : [configurez le pare-feu Windows](https://msdn.microsoft.com/library/ms175043.aspx) sur l’ordinateur SQL Server, afin que la passerelle puisse accéder à la base de données via les ports qu’écoute l’instance de SQL Server. Pour l’instance par défaut, il s’agit du port 1433.
 
-<!---HONumber=August15_HO9-->
+## Envoyer des commentaires
+Nous souhaiterions vraiment obtenir vos commentaires sur cet article. Prenez quelques minutes pour nous envoyer vos commentaires par [courrier électronique](mailto:adfdocfeedback@microsoft.com?subject=data-factory-move-data-between-onprem-and-cloud.md).
+
+<!---HONumber=September15_HO1-->

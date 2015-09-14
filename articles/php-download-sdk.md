@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="PHP"
 	ms.topic="article"
-	ms.date="03/20/2015"
+	ms.date="08/31/2015"
 	ms.author="tomfitz"/>
 
 #Téléchargement du Kit de développement logiciel (SDK) Azure pour PHP
@@ -103,18 +103,10 @@ Pour plus d'informations sur l'utilisation d'Azure PowerShell, consultez la page
 
 ##Interface de ligne de commande Azure
 
-L’interface de ligne de commande Azure est un ensemble de commandes permettant de déployer et de gérer des services Azure, tels que Sites Web Azure et Azure Virtual Machines. La liste suivante décrit comment installer l’interface de ligne de commande Azure en fonction de votre système d’exploitation :
-
-* **Mac** : téléchargez le programme d’installation du Kit de développement logiciel (SDK) Azure ici : [http://go.microsoft.com/fwlink/?LinkId=252249][mac-installer]. Ouvrez le fichier .pkg téléchargé et suivez les étapes d'installation indiquées.
-
-* **Linux** : installez la dernière version de [Node.js][nodejs-org] (voir [Installer Node.js via Package Manager][install-node-linux], puis exécutez la commande suivante :
-
-		npm install azure-cli -g
-
-	> [AZURE.NOTE]Vous devrez peut-être exécuter cette commande avec des privilèges élevés : `sudo npm install azure-cli -g`
+L’interface de ligne de commande Azure est un ensemble de commandes permettant de déployer et de gérer des services Azure, tels que Sites Web Azure et Azure Virtual Machines. Pour plus d'informations sur l'installation de l’interface de ligne de commande Azure, consultez [Installer l’interface de ligne de commande Azure](xplat-cli-install.md).
 
 
-Pour plus d’informations sur la procédure d’utilisation de l’interface de ligne de commande Azure, voir [Utilisation de l’interface de ligne de commande Azure pour Mac, Linux et Windows][azure cli].
+
 
 [install-php]: http://www.php.net/manual/en/install.php
 [composer-github]: https://github.com/composer/composer
@@ -136,4 +128,4 @@ Pour plus d’informations sur la procédure d’utilisation de l’interface de
 [php-sdk-github]: http://go.microsoft.com/fwlink/?LinkId=252719
 [install-git]: http://git-scm.com/book/en/Getting-Started-Installing-Git
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

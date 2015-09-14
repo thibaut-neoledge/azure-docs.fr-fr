@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="infrastructure-services"
-	ms.date="08/20/2015"
+	ms.date="09/02/2015"
 	ms.author="joaoma"/>
 
 # Prise en main d’Azure DNS
@@ -125,7 +125,7 @@ Pour afficher ces enregistrements, utilisez Get-AzureDnsRecordSet :
 >[AZURE.NOTE]Les jeux d’enregistrements à la racine (ou au « sommet ») d’une zone DNS utilisent « @ » comme nom du jeu d’enregistrements.
 
 
-Après avoir créé votre première zone DNS, vous pouvez la tester à l’aide d’outils DNS comme nslookup, dig ou [l’applet de commande PowerShell Resolve-DnsName](https://technet.microsoft.com/fr-fr/library/jj590781.aspx).<BR>
+Après avoir créé votre première zone DNS, vous pouvez la tester à l’aide d’outils DNS comme nslookup, dig ou [l’applet de commande PowerShell Resolve-DnsName](https://technet.microsoft.com/fr-FR/library/jj590781.aspx).<BR>
 
 Si vous n’avez pas encore délégué votre domaine pour qu’il utilise la nouvelle zone Azure DNS, vous devez diriger la requête DNS directement vers l’un des serveurs de noms pour votre zone. Les serveurs de noms de votre zone figurent dans les enregistrements NS, comme indiqué par Get-AzureDnsRecordSet ci-dessus. Veillez à indiquer les valeurs correctes pour votre zone dans la commande ci-dessous.<BR>
 
@@ -153,4 +153,4 @@ Si vous n’avez pas encore délégué votre domaine pour qu’il utilise la nou
 [Prise en main de la création de jeux d'enregistrements et d'enregistrements](dns-getstarted-create-recordset.md)<BR> [Gestion des zones DNS](dns-operations-dnszones.md)<BR> [Gestion des enregistrements DNS](dns-operations-recordsets.md)<BR> [Automatisation des opérations Azure avec le Kit de développement logiciel (SDK) .NET](dns-sdk.md)<BR> [Référence de l'API REST d'Azure DNS](https://msdn.microsoft.com/library/azure/mt163862.aspx)
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

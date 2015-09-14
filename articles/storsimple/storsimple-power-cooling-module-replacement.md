@@ -1,29 +1,25 @@
 <properties 
    pageTitle="Remplacer un PCM sur votre appareil StorSimple | Microsoft Azure"
-   description="Explique comment retirer et remplacer le PCM sur votre appareil StorSimple"
-   services="storsimple"
-   documentationCenter=""
-   authors="alkohli"
-   manager="carolz"
-   editor="" />
-
+	description="Explique comment retirer et remplacer le PCM sur votre appareil StorSimple"
+	services="storsimple"
+	documentationCenter=""
+	authors="alkohli"
+	manager="carolz"
+	editor=""/>
 <tags 
    ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="08/05/2015"
-   ms.author="alkohli" />
-
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="TBD"
+	ms.date="08/31/2015"
+	ms.author="alkohli"/>
 
 # Remplacer un module d’alimentation et de refroidissement (PCM, Power and Cooling Module) sur votre appareil StorSimple
 
 ## Vue d'ensemble
 
-Le PCM de votre appareil Microsoft Azure StorSimple se compose d’une alimentation et de ventilateurs de refroidissement qui sont contrôlés par le boîtier principal et le boîtier EBOD.
-
-Il n’existe qu’un seul modèle de PCM certifié pour chaque boîtier. Le boîtier principal est certifié pour un PCM de 764 W et le boîtier EBOD est certifié pour un PCM de 580 W. Bien que les PCM du boîtier principal et du boîtier EBOD soient différents, la procédure de remplacement est identique.
+Le PCM de votre appareil Microsoft Azure StorSimple se compose d’une alimentation et de ventilateurs de refroidissement qui sont contrôlés par le boîtier principal et le boîtier EBOD. Il n’existe qu’un seul modèle de PCM certifié pour chaque boîtier. Le boîtier principal est certifié pour un PCM de 764 W et le boîtier EBOD est certifié pour un PCM de 580 W. Bien que les PCM du boîtier principal et du boîtier EBOD soient différents, la procédure de remplacement est identique.
 
 Ce didacticiel explique comment :
 
@@ -60,7 +56,7 @@ Suivez ces instructions quand vous êtes prêt à retirer PCM de votre appareil 
 
      - Si le ventilateur dans PCM 1 est défectueux, l’état de **Refroidissement 0 pour PCM 0** ou **Refroidissement 1 pour PCM 0** sera en rouge.
 
-2. Localisez le PCM défectueux à l’arrière du boîtier principal. Si vous exécutez un modèle 8600, identifiez le boîtier principal en examinant le numéro d’identification de l’unité système indiqué sur l’affichage LED du panneau avant. L’ID d’unité par défaut affiché sur le boîtier principal **00**, alors que l’ID d’unité par défaut affiché sur le boîtier EBOD est **01**. Le diagramme et le tableau suivants expliquent le panneau avant de l’affichage LED.
+2. Localisez le PCM défectueux à l’arrière du boîtier principal. Si vous exécutez un modèle 8600, identifiez le boîtier principal en examinant le numéro d’identification de l’unité système indiqué sur l’affichage LED du panneau avant. L’ID d’unité par défaut affiché sur le boîtier principal est **00**, alors que l’ID d’unité par défaut affiché sur le boîtier EBOD est **01**. Le diagramme et le tableau suivants expliquent le panneau avant de l’affichage LED.
 
     ![ID du système sur le panneau avant des opérations](./media/storsimple-power-cooling-module-replacement/IC740991.png)
 
@@ -78,7 +74,7 @@ Suivez ces instructions quand vous êtes prêt à retirer PCM de votre appareil 
 
     ![Fond de panier des voyants LED de surveillance du PCM de l’appareil](./media/storsimple-power-cooling-module-replacement/IC740992.png)
 
-     **Figure 2** : Arrière du PCM arrière avec les voyants LED
+     **Figure 2** : Arrière du PCM avec les voyants LED
 
     |Étiquette|Description|
     |:---|:-----------|
@@ -154,6 +150,6 @@ Suivez ces instructions pour installer un PCM dans votre appareil StorSimple.
 
 ## Étapes suivantes
 
-En savoir plus sur le [Remplacement des composants matériels StorSimple](storsimple-hardware-component-replacement.md).
+En savoir plus sur le [remplacement des composants matériels StorSimple](storsimple-hardware-component-replacement.md).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

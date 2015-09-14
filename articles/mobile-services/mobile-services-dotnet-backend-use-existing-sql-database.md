@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Création d'un service à l'aide d'une base de données SQL existante avec le serveur principal Mobile Services .NET | Microsoft Azure" 
-	description="Découvrez comment utiliser une base de données locale ou de cloud existante avec votre service mobile .NET" 
-	services="mobile-services" 
-	documentationCenter="" 
-	authors="ggailey777" 
-	manager="dwrede" 
+<properties
+	pageTitle="Création d'un service à l'aide d'une base de données SQL existante avec le serveur principal Mobile Services .NET | Microsoft Azure"
+	description="Découvrez comment utiliser une base de données locale ou de cloud existante avec votre service mobile .NET"
+	services="mobile-services"
+	documentationCenter=""
+	authors="ggailey777"
+	manager="dwrede"
 	editor="mollybos"/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="multiple" 
-	ms.topic="article" 
-	ms.date="05/20/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="na"
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.date="06/16/2015"
 	ms.author="glenga"/>
 
 
@@ -39,7 +39,7 @@ Ce didacticiel fait appel à la base de données créée avec votre service mobi
             {
                 [Key]
                 public int CustomerId { get; set; }
-                
+
                 public string Name { get; set; }
 
                 public virtual ICollection<Order> Orders { get; set; }
@@ -48,7 +48,7 @@ Ce didacticiel fait appel à la base de données créée avec votre service mobi
         }
 
 3. Créez un fichier **Order.cs** dans le dossier **Models** et utilisez l'implémentation suivante :
-    
+
         using System.ComponentModel.DataAnnotations;
 
         namespace ShoppingService.Models
@@ -65,7 +65,7 @@ Ce didacticiel fait appel à la base de données créée avec votre service mobi
                 public bool Completed { get; set; }
 
                 public int CustomerId { get; set; }
-              
+
                 public virtual Customer Customer { get; set; }
 
             }
@@ -144,7 +144,7 @@ Le modèle de données que vous souhaitez utiliser avec votre service mobile peu
     La propriété de relation **Customer** a été remplacée par le nom **Customer** et une propriété **MobileCustomerId** pouvant être utilisée pour modifier manuellement la relation sur le client. Pour l'instant, vous pouvez ignorer la propriété **CustomerId**, elle ne sera utilisée que par la suite.
 
 3. Notez que, suite à l'ajout des propriétés système sur la classe de base **EntityData**, nos objets de transfert de données possèdent désormais plus de propriétés que les types de modèle. De toute évidence, nous avons besoin d'un endroit où stocker ces propriétés. Nous allons donc ajouter quelques colonnes supplémentaires à la base de données originale. Bien que cette action modifie la base de données, elle ne corrompt pas les applications existantes, car les modifications ne sont que des ajouts (nouvelles colonnes ajoutées au schéma). Pour cela, ajoutez les instructions suivantes au début des fichiers **Customer.cs** et **Order.cs** :
-    
+
         using System.ComponentModel.DataAnnotations.Schema;
         using Microsoft.WindowsAzure.Mobile.Service.Tables;
         using System.ComponentModel.DataAnnotations;
@@ -174,7 +174,7 @@ Le modèle de données que vous souhaitez utiliser avec votre service mobile peu
         public byte[] Version { get; set; }
 
 4. Les propriétés système ajoutées possèdent des comportements intégrés (par exemple, mise à jour automatique des paramètres Créé/mis à jour le) qui se produisent de manière transparente avec les opérations de base de données. Pour activer ces comportements, nous devons apporter une modification au fichier **ExistingContext.cs**. À son début, ajoutez ce qui suit :
-    
+
         using System.Data.Entity.ModelConfiguration.Conventions;
         using Microsoft.WindowsAzure.Mobile.Service.Tables;
         using System.Linq;
@@ -188,7 +188,7 @@ Le modèle de données que vous souhaitez utiliser avec votre service mobile peu
                     "ServiceTableColumn", (property, attributes) => attributes.Single().ColumnType.ToString()));
 
             base.OnModelCreating(modelBuilder);
-        } 
+        }
 
 5. Remplissons la base de données avec des exemples de données. Ouvrez le fichier **WebApiConfig.cs**. Créez un nouveau [**IDatabaseInitializer**](http://msdn.microsoft.com/library/gg696323.aspx) et configurez-le dans la méthode **Register**, tel qu'indiqué ci-dessous.
 
@@ -227,11 +227,11 @@ Le modèle de données que vous souhaitez utiliser avec votre service mobile peu
 
                     List<Customer> customers = new List<Customer>
                     {
-                        new Customer { CustomerId = 1, Name = "John", Orders = new Collection<Order> { 
+                        new Customer { CustomerId = 1, Name = "John", Orders = new Collection<Order> {
                             orders[0]}, Id = Guid.NewGuid().ToString()},
-                        new Customer { CustomerId = 2, Name = "Paul", Orders = new Collection<Order> { 
+                        new Customer { CustomerId = 2, Name = "Paul", Orders = new Collection<Order> {
                             orders[1]}, Id = Guid.NewGuid().ToString()},
-                        new Customer { CustomerId = 3, Name = "Ringo", Orders = new Collection<Order> { 
+                        new Customer { CustomerId = 3, Name = "Ringo", Orders = new Collection<Order> {
                             orders[2]}, Id = Guid.NewGuid().ToString()},
                     };
 
@@ -318,7 +318,7 @@ L'étape suivante consiste à implémenter un [**MappedEntityDomainManager**](ht
                 {
                     return (T)(object)GetKey(mobileCustomerId, this.context.Customers, this.Request);
                 }
-                
+
                 public override SingleResult<MobileCustomer> Lookup(string mobileCustomerId)
                 {
                     int customerId = GetKey<int>(mobileCustomerId);
@@ -605,7 +605,7 @@ Veuillez noter que les deux implémentations de contrôleur exercent une utilisa
             public DateTimeOffset? UpdatedAt { get; set; }
 
             public bool Deleted { get; set; }
-            
+
             [Version]
             public string Version { get; set; }
 
@@ -615,4 +615,4 @@ Veuillez noter que les deux implémentations de contrôleur exercent une utilisa
 
 Vous pouvez ensuite créer l'application cliente pour accéder au service. Pour plus d’informations, consultez la rubrique [Ajout de Mobile Services à une application existante](mobile-services-dotnet-backend-windows-universal-dotnet-get-started-data.md#update-the-app-to-use-the-mobile-service).
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=September15_HO1-->

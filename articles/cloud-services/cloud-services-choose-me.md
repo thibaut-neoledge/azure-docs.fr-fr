@@ -1,18 +1,18 @@
 <properties 
-	pageTitle="Cloud Services sur Azure est-il l'option de calcul que je veux ?" 
-	description="Découvrez les options d'hébergement de calcul Azure et leur fonctionnement : App Service, Cloud Services et Virtual Machines" 
+	pageTitle="Cloud Services sur Azure est-il l'option de calcul que je veux ?"
+	description="Découvrez les options d'hébergement de calcul Azure et leur fonctionnement : App Service, Cloud Services et Virtual Machines"
 	services="cloud-services"
-    documentationCenter=""
-	authors="Thraka" 
+	documentationCenter=""
+	authors="Thraka"
 	manager="timlt"/>
 
 <tags 
-	ms.service="multiple" 
-	ms.workload="multiple" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/04/2015" 
+	ms.service="multiple"
+	ms.workload="multiple"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/01/2015"
 	ms.author="adegeo"/>
 
 # Dois-je choisir Cloud Services ?
@@ -36,4 +36,4 @@ Azure propose différents modèles d’hébergement d’applications. Chaque mod
 [Virtual Machines]: ../virtual-machines-choose-me.md
 [Cloud Services]: #tellmecs
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

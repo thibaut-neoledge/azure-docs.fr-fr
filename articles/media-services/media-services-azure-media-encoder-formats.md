@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/24/2015"
+	ms.date="08/30/2015"
 	ms.author="juliako"/>
 
 #Codecs et formats Azure Media Encoder
@@ -141,4 +141,4 @@ Données au format YUV 211|Format YUV compressé. Un échantillon Y à chaque pi
 Format Cirrus Logic Jr YUV 411|Format Cirrus Logic Jr YUV 411 avec moins de 8 bits par échantillon Y, U et V. Un échantillon Y à chaque pixel, un échantillon U et V à chaque quatrième pixel horizontalement sur chaque ligne ; chaque ligne verticale échantillonnée.
 Format Indeo-produced YVU9|Format Indeo-produced YVU9 avec informations supplémentaires sur les différences par rapport au dernier frame. 9,5 bits par pixel mais déclaré comme 9.
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/09/2015"
+	ms.date="08/29/2015"
 	ms.author="jroth"/>
 
 # Abonnement Azure et limites, quotas et contraintes du service
@@ -24,7 +24,7 @@ Ce document présente quelques-unes des limites Microsoft Azure les plus commune
 
 > [AZURE.NOTE] Si vous souhaitez élever la limite au-dessus de la **Limite par défaut**, vous pouvez [ouvrir gratuitement un incident auprès du service client](http://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). Les limites ne peuvent pas être supérieures à la valeur **Limite maximale** dans les tableaux ci-dessous. Si aucune colonne **Limite maximale** n'est présente, la ressource spécifiée ne possède pas de limites ajustables.
 
-### Limites et Azure Resource Manager
+## Limites et Azure Resource Manager
 
 Il est désormais possible de combiner plusieurs ressources Azure en un seul groupe de ressources Azure. Lorsque vous utilisez des groupes de ressources, les limites qui étaient auparavant mondiales sont désormais gérées au niveau régional avec Azure Resource Manager. Pour plus d’informations sur les groupes de ressources Azure, consultez la rubrique [Utilisation des groupes de ressources pour gérer vos ressources Azure](resource-group-portal.md).
 
@@ -34,184 +34,211 @@ Dans les limites ci-dessous, un nouveau tableau a été ajouté pour tenir compt
 > <!-- --> 
 Par conséquent, il peut s’avérer utile de décider de vos quotas de groupes de ressources Azure pour votre charge de travail dans une région, puis de demander ce volume dans chaque région dans laquelle vous envisagez d’effectuer un déploiement. Pour vous aider à découvrir vos quotas actuels pour des régions spécifiques, consultez la page [Dépannage de problèmes de déploiement](resource-group-deploy-debug.md##authentication-subscription-role-and-quota-issues)
 
-## Limites d'abonnement
+- [Active Directory](#active-directory-limits)
+- [Gestion des API](#api-management-limits)
+- [App Service](#app-service-limits)
+- [Application Insights](#application-insights-limits)
+- [Cache Redis Azure](#azure-redis-cache-limits)
+- [Azure RemoteApp](#azure-remoteapp-limits)
+- [Sauvegarde](#backup-limits)
+- [Batch](#batch-limits)
+- [CDN](#cdn-limits)
+- [Cloud Services](#cloud-services-limits)
+- [Data Factory](#data-factory-limits)
+- [Base de données de documents](#documentdb-limits)
+- [Key Vault](#key-vault-limits)
+- [Media Services](#media-services-limits)
+- [Mobile Engagement](#mobile-engagement-limits)
+- [Mobile Services](#mobile-services-limits)
+- [Azure Multi-Factor Authentication](#multi-factor-authentication)
+- [Mise en réseau](#networking-limits)
+- [Service de concentrateur de notification](#notification-hub-service-limits)
+- [Operational Insights](#operational-insights-limits)
+- [Groupe de ressources](#resource-group-limits)
+- [Scheduler](#scheduler-limits)
+- [action](#search-limits)
+- [Service Bus](#service-bus-limits)
+- [Site Recovery](#site-recovery-limits)
+- [Base de données SQL](#sql-database-limits)
+- [Stockage](#storage-limits)
+- [Système StorSimple](#storsimple-system-limits)
+- [Stream Analytics](#stream-analytics-limits)
+- [Abonnement](#subscription-limits)
+- [Machines virtuelles](#virtual-machines-limits)
 
+
+### Limites d'abonnement
+#### Limites d'abonnement
 [AZURE.INCLUDE [azure-subscription-limits](../includes/azure-subscription-limits.md)]
 
-### Limites d'abonnement - Azure Resource Manager
+#### Limites d'abonnement - Azure Resource Manager
 
 Les limites suivantes s'appliquent lorsque vous utilisez Azure Resource Manager et les groupes de ressources Azure. Les limites qui restent identiques avec Azure Resource Manager ne sont pas répertoriées ci-dessous. Reportez-vous au tableau précédent pour les consulter.
 
 [AZURE.INCLUDE [azure-subscription-limits-azure-resource-manager](../includes/azure-subscription-limits-azure-resource-manager.md)]
 
 
-## Limites de groupe de ressources
+### Limites de groupe de ressources
 
 [AZURE.INCLUDE [azure-resource-groups-limits](../includes/azure-resource-groups-limits.md)]
 
 
-## Limites de machines virtuelles
-
+### Limites de machines virtuelles
+#### Limites de machine virtuelle
 [AZURE.INCLUDE [azure-virtual-machines-limits](../includes/azure-virtual-machines-limits.md)]
 
 
-### Limites de machines virtuelles - Azure Resource Manager
+#### Limites de machines virtuelles - Azure Resource Manager
 
 Les limites suivantes s'appliquent lorsque vous utilisez Azure Resource Manager et les groupes de ressources Azure. Les limites qui restent identiques avec Azure Resource Manager ne sont pas répertoriées ci-dessous. Reportez-vous au tableau précédent pour les consulter.
 
 [AZURE.INCLUDE [azure-virtual-machines-limits-azure-resource-manager](../includes/azure-virtual-machines-limits-azure-resource-manager.md)]
 
 
-## Limites de mise en réseau
-
+### Limites de mise en réseau
+#### Limites de mise en réseau
 [AZURE.INCLUDE [azure-virtual-network-limits](../includes/azure-virtual-network-limits.md)]
 
-### Limites de Traffic Manager
+#### Limites de Traffic Manager
 
 [AZURE.INCLUDE [traffic-manager-limits](../includes/traffic-manager-limits.md)]
 
-### Limites de DNS
+#### Limites de DNS
 
 [AZURE.INCLUDE [dns-limits](../includes/dns-limits.md)]
 
-## Limites de stockage
+### Limites de stockage
 
-### Limites de stockage standard
+#### Limites de stockage standard
 
 [AZURE.INCLUDE [azure-storage-limits](../includes/azure-storage-limits.md)]
 
-Pour plus d’informations sur les limites des comptes de stockage, consultez [Objectifs de performance et évolutivité d’Azure Storage](../articles/storage/storage-scalability-targets.md).
+Pour plus d'informations sur les limites des comptes de stockage, consultez [Objectifs de performance et évolutivité d'Azure Storage](../articles/storage/storage-scalability-targets.md).
 
 
-### Limites Premium Storage
+#### Limites Premium Storage
 
 [AZURE.INCLUDE [azure-storage-limits-premium-storage](../includes/azure-storage-limits-premium-storage.md)]
 
 
-### Limites de stockage - Azure Resource Manager
+#### Limites de stockage - Azure Resource Manager
 
 [AZURE.INCLUDE [azure-storage-limits-azure-resource-manager](../includes/azure-storage-limits-azure-resource-manager.md)]
 
 
-## Limites de services cloud
+### Limites de services cloud
 
 [AZURE.INCLUDE [azure-cloud-services-limits](../includes/azure-cloud-services-limits.md)]
 
 
-## Limites App Service : Web Apps, Mobile Apps, API Apps, Logic Apps
+### Limites App Service
+Les limites App Service suivantes incluent des limites pour les applications Web, les applications mobiles, les applications d'API et les applications logiques.
 
 [AZURE.INCLUDE [azure-websites-limits](../includes/azure-websites-limits.md)]
 
-## Limites de planificateur
+### Limites de planificateur
 
 [AZURE.INCLUDE [scheduler-limits-table](../includes/scheduler-limits-table.md)]
 
-## Limites Azure Batch
+### Limites Azure Batch
 
 [AZURE.INCLUDE [azure-batch-limits](../includes/azure-batch-limits.md)]
 
 
-## Limites DocumentDB
+### Limites DocumentDB
 
 [AZURE.INCLUDE [azure-documentdb-limits](../includes/azure-documentdb-limits.md)]
 
 
-## Limites Mobile Engagement
+### Limites Mobile Engagement
 
 [AZURE.INCLUDE [azure-mobile-engagement-limits](../includes/azure-mobile-engagement-limits.md)]
 
 
-## Limites Azure Search
+### Limites Azure Search
 
 [AZURE.INCLUDE [azure-search-limits](../includes/azure-search-limits.md)]
 
-Pour plus d’informations sur les limites d’Azure Search, consultez la page [Limites et contraintes (Azure Search)](https://msdn.microsoft.com/library/azure/dn798934.aspx).
+Pour plus d'informations sur les limites d'Azure Search, consultez la page [Limites et contraintes (Azure Search)](https://msdn.microsoft.com/library/azure/dn798934.aspx).
 
-## Limites de base de données SQL
-
-[AZURE.INCLUDE [azure-sql-database-limits](../includes/azure-sql-database-limits.md)]
-
-Pour plus d’informations sur les limites de Base de données SQL, consultez les rubriques suivantes :
-
- - [Niveaux du service Azure SQL Database (éditions)](http://msdn.microsoft.com/library/azure/dn741340.aspx)
- - [Niveaux de service et niveaux de performances de la base de données SQL Azure](http://msdn.microsoft.com/library/azure/dn741336.aspx)
- - [Quotas d'unités de débit de la base de données (UDBD)](http://msdn.microsoft.com/library/azure/ee336245.aspx#DTUs)
- - [Limites de ressources de la base de données SQL](sql-database/sql-database-resource-limits.md)
-
-## Limites de Media Services
+### Limites de Media Services
 
 [AZURE.INCLUDE [azure-mediaservices-limits](../includes/azure-mediaservices-limits.md)]
 
-## Limites de CDN
+### Limites de CDN
 
 [AZURE.INCLUDE [cdn-limits](../includes/cdn-limits.md)]
 
-## Limites Mobile Services
+### Limites Mobile Services
 
 [AZURE.INCLUDE [mobile-services-limits](../includes/mobile-services-limits.md)]
 
-## Limites du service Notification Hub
+### Limites du service Notification Hub
 
 [AZURE.INCLUDE [notification-hub-limits](../includes/notification-hub-limits.md)]
 
 
-## Limites de Service Bus
+### Limites de Service Bus
 
 [AZURE.INCLUDE [azure-servicebus-limits](../includes/service-bus-quotas-table.md)]
 
-## Limites de Data Factory
+### Limites de Data Factory
 
 [AZURE.INCLUDE [azure-data-factory-limits](../includes/azure-data-factory-limits.md)]
 
 
-## Limites Stream Analytics
+### Limites Stream Analytics
 
 [AZURE.INCLUDE [stream-analytics-limits-table](../includes/stream-analytics-limits-table.md)]
 
-## Limites d'Active Directory
+### Limites d'Active Directory
 
 [AZURE.INCLUDE [AAD-service-limits](../includes/active-directory-service-limits-include.md)]
 
 
-## Limites Azure RemoteApp
+### Limites Azure RemoteApp
 
 [AZURE.INCLUDE [azure-remoteapp-limits](../includes/azure-remoteapp-limits.md)]
 
-## Limites du système StorSimple
+### Limites du système StorSimple
 
 [AZURE.INCLUDE [storsimple-limits-table](../includes/storsimple-limits-table.md)]
 
 
-## Limites Operational Insights
+### Limites Operational Insights
 
 [AZURE.INCLUDE [operational-insights-limits](../includes/operational-insights-limits.md)]
 
-## Limites Azure Backup
+### Limites Azure Backup
 
 [AZURE.INCLUDE [azure-backup-limits](../includes/azure-backup-limits.md)]
 
-## Limites Azure Site Recovery
+### Limites Azure Site Recovery
 
 [AZURE.INCLUDE [site-recovery-limits](../includes/site-recovery-limits.md)]
 
-## Limites d’Application Insights
+### Limites d’Application Insights
 
 [AZURE.INCLUDE [application-insights-limits](../includes/application-insights-limits.md)]
 
-## Limites Gestion des API
+### Limites Gestion des API
 
 [AZURE.INCLUDE [api-management-service-limits](../includes/api-management-service-limits.md)]
 
-## Limite du service Cache Redis Azure
+### Limite du service Cache Redis Azure
 
 [AZURE.INCLUDE [redis-cache-service-limits](../includes/redis-cache-service-limits.md)]
 
-## Limites du coffre de clés
+### Limites du coffre de clés
 
 [AZURE.INCLUDE [key-vault-limits](../includes/key-vault-limits.md)]
 
-## Azure Multi-Factor Authentication
+### Azure Multi-Factor Authentication
 [AZURE.INCLUDE [azure-mfa-service-limits](../includes/azure-mfa-service-limits.md)]
+
+### Limites de base de données SQL
+
+Pour les limites de la base de données SQL, consultez [Limites de ressources de la Base de données SQL](sql-database/sql-database-resource-limits.md).
 
 ## Voir aussi
 
@@ -219,4 +246,4 @@ Pour plus d’informations sur les limites de Base de données SQL, consultez le
 
 [Tailles de machines virtuelles et services cloud pour Windows Azure](http://msdn.microsoft.com/library/azure/dn197896.aspx)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

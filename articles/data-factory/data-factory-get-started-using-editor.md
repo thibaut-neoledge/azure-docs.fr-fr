@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Didacticiel : copie de données depuis un objet blob Azure vers Azure SQL"
-	description="Ce didacticiel vous montre comment créer un exemple de pipeline de données qui copie les données d'un objet blob vers une instance de base de données SQL Azure."
+	pageTitle="Didacticiel : Créer un pipeline avec l'activité de copie à l'aide de Data Factory Editor"
+	description="Dans ce didacticiel, vous allez créer un pipeline Azure Data Factory avec une activité de copie à l'aide de Data Factory Editor dans le portail Azure."
 	services="data-factory"
 	documentationCenter=""
 	authors="spelluru"
@@ -16,7 +16,7 @@
 	ms.date="08/25/2015"
 	ms.author="spelluru"/>
 
-# Didacticiel : créer et surveiller une fabrique de données à l'aide de Data Factory Editor
+# Didacticiel : Créer un pipeline avec l'activité de copie à l'aide de Data Factory Editor
 > [AZURE.SELECTOR]
 - [Tutorial Overview](data-factory-get-started.md)
 - [Using Data Factory Editor](data-factory-get-started-using-editor.md)
@@ -381,6 +381,9 @@ Pour obtenir une liste des activités prises en charge, consultez la rubrique [P
  
 Pour réaliser ce didacticiel en utilisant Azure PowerShell, consultez [Créer et surveiller une fabrique de données à l'aide d'Azure PowerShell][monitor-manage-using-powershell].
 
+## Envoyer des commentaires
+Nous souhaiterions vraiment obtenir vos commentaires sur cet article. Prenez quelques minutes pour nous envoyer vos commentaires par [courrier électronique](mailto:adfdocfeedback@microsoft.com?subject=data-factory-get-started-using-editor.md).
+
 <!--Link references-->
 [azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
 [azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
@@ -498,4 +501,4 @@ Pour réaliser ce didacticiel en utilisant Azure PowerShell, consultez [Créer e
 [image-data-factory-name-not-available]: ./media/data-factory-get-started-using-editor/getstarted-data-factory-not-available.png
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

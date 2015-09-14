@@ -1,7 +1,7 @@
 <properties 
-	pageTitle="Microsoft Azure Site Recovery : Forum Aux Questions" 
-	description="Cet article traite des questions fréquemment posées sur l’utilisation de Microsoft Azure Site Recovery." 
-	services="site-recovery" 
+	pageTitle="Microsoft Azure Site Recovery : Forum Aux Questions"
+	description="Cet article traite des questions fréquemment posées sur l’utilisation de Microsoft Azure Site Recovery."
+	services="site-recovery"
 	documentationCenter=""
 	authors="csilauraa"
 	manager="jwhit"
@@ -11,9 +11,9 @@
 	ms.service="site-recovery"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.tgt_pltfrm="na" 
+	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery"
-	ms.date="06/02/2015" 
+	ms.date="08/26/2015"
 	ms.author="lauraa"/>
 
 
@@ -42,6 +42,28 @@ Oui. Quand vous créez un coffre Site Recovery dans la région de votre choix, n
 
 Oui. Les flux de travail ASR peuvent être automatisés via le kit de développement logiciel (SDK) Microsoft Azure, PowerShell et l’API REST. Pour en savoir plus à ce sujet, consultez le billet de blog suivant : [Introducing PowerShell support for Azure Site Recovery](http://azure.microsoft.com/blog/2014/11/05/introducing-powershell-support-for-azure-site-recovery/).
 
+### ASR chiffre-t-il la réplication ? 
+Entre un serveur local vers Azure et entre des sites locaux, la réplication prend en charge le chiffrement dans le transit pour les *scénarios de protection de Hyper-V et VMM*. La *protection Hyper-V et VMM* sur Azure prend également en charge le chiffrement au repos. Pour plus d’informations, consultez [cet article](https://azure.microsoft.com/blog/2014/09/02/azure-site-recovery-privacy-security-part1/).
+
+### Puis-je augmenter la fréquence de réplication/copie à plus de 15 minutes ?
+* **Scénarios Hyper-V et VMM** : non, la réplication des machines virtuelles Hyper-V utilisant la réplication basée sur un hôte peut être configurée seulement à 30 secondes, 5 minutes et 15 minutes
+* **Scénario VMware/physique** : ceci n’est pas applicable pour la réplication basée sur l’invité, car la technologie utilise la protection continue des données.
+
+### Puis-je exclure des disques spécifiques de la réplication à l’aide d’ASR ?
+Ceci n’est pas pris en charge. Envoyez-nous vos commentaires via le [Forum de commentaires d’Azure Site Recovery – Exclure un disque de la réplication](http://feedback.azure.com/forums/256299-site-recovery/suggestions/6418801-exclude-disks-from-replication).
+
+### Puis-je répliquer des machines virtuelles basées sur des disques dynamiques ?
+Les *scénarios Hyper-V et VMM* prennent en charge les disques dynamiques. Les *scénarios de machines virtuelles VMware ou de machines physiques* ne prennent pas en charge les disques dynamiques. Envoyez-nous vos commentaires via le [Forum de commentaires d’Azure Site Recovery](http://feedback.azure.com/forums/256299-site-recovery).
+
+### Quels sont les types de comptes de stockage pris en charge ?
+Le [stockage géo-redondant standard](../storage/storage-redundancy.md#geo-redundant-storage) est pris en charge. Le [compte de stockage Premium]((../storage/storage-premium-storage-preview-portal/) est pris en charge seulement pour les scénarios de [machine virtuelle VMware ou de machine physique](site-recovery-vmware-to-azure.md). La prise en charge du stockage localement redondant est dans les backlogs. Envoyez-nous vos commentaires via [Prise en charge du stockage localement redondant](http://feedback.azure.com/forums/256299-site-recovery/suggestions/7204469-local-redundant-type-azure-storage-support).
+
+### Puis-je étendre la réplication depuis un site de récupération existant à un troisième site ?
+Ceci n’est pas pris en charge. Envoyez-nous vos commentaires via le [Forum de commentaires d’Azure Site Recovery – Prise en charge de l’extension de la réplication](http://feedback.azure.com/forums/256299-site-recovery/suggestions/6097959-support-for-exisiting-extended-replication).
+
+### Puis-je alimenter les disques initiaux sur Azure à l’aide d’un mécanisme hors connexion ?
+Ceci n’est pas pris en charge. Envoyez-nous vos commentaires via le [Forum de commentaires d’Azure Site Recovery – Prise en charge de la réplication hors connexion](http://feedback.azure.com/forums/256299-site-recovery/suggestions/6227386-support-for-offline-replication-data-transfer-from).
+
 ## Prise en charge des versions
 
 ### Quelles sont les versions des hôtes et clusters Windows Server prises en charge ?
@@ -57,7 +79,7 @@ Vous ne pouvez pas configurer Hyper-V s'exécutant sur un système d'exploitatio
 
 ### ASR prend-il en charge les machines de génération 2 ?
 
-ASR prend actuellement en charge la réplication des machines virtuelles de génération 2 sur Hyper-V dans Azure. ASR les convertit de la génération 2 à la génération 1 pendant le basculement. Au moment de la restauration automatique, la machine est reconvertie en génération 2. [En savoir plus](http://azure.microsoft.com/updates/azure-site-recovery-supports-gen-2-vm-protection-in-west-us-north-europe-and-japan-west/) sur la prise en charge actuelle.
+Oui, ASR prend en charge la réplication des machines virtuelles de génération 2 sur Hyper-V dans Azure. ASR les convertit de la génération 2 à la génération 1 pendant le basculement. Au moment de la restauration automatique, la machine est reconvertie en génération 2. Pour plus d’informations, consultez [ce billet de blog](http://azure.microsoft.com/blog/2015/04/28/disaster-recovery-to-azure-enhanced-and-were-listening/).
 
 
 ## Déploiement entre des sites de fournisseurs de services 
@@ -128,6 +150,11 @@ La liste la plus à jour des systèmes d’exploitation invités pris en charge 
 
 Non, ce type de réplication chaînée n'est pas pris en charge.
 
+### Ai-je besoin de certificats pour configurer la protection entre deux centres de données VMM ?
+
+Non. Lors de la configuration de la protection entre des clouds VMM dans ASR, spécifiez le type d’authentification. Sélectionnez HTTPS, sauf si vous avez configuré un environnement Kerberos opérationnel. Azure Site Recovery configurera automatiquement des certificats pour l'authentification HTTPS. Aucune configuration manuelle n'est nécessaire. Si vous sélectionnez Kerberos, un ticket Kerberos est utilisé pour l'authentification mutuelle des serveurs hôtes. Par défaut, les ports 8083 (pour Kerberos) et 8084 (pour les certificats) seront ouverts dans le Pare-feu Windows sur les serveurs hôtes Hyper-V. Notez que ce paramètre n'est utile que pour les serveurs hôtes Hyper-V s'exécutant sur Windows Server 2012 R2.
+
+
 
 ## Déploiement entre deux centres de données VMM avec SAN
 
@@ -139,6 +166,15 @@ Aucun problème. ASR peut gérer les scénarios dans lesquels la réplication es
 Oui. Nous avons besoin d'assurer la gestion de la baie SAN via VMM au moyen du fournisseur SMI-S propre à la baie.
 
 Nous prenons en charge les déploiements uniques à haut niveau de disponibilité de VMM basés sur le type de baie, même si la configuration recommandée stipule d'utiliser des serveurs VMM distincts pour gérer les sites.
+
+
+### Quelles sont les baies de stockage prises en charge ?
+
+NetApp, EMC et HP prennent en charge la réplication SAN d’Azure Site Recovery avec des mises à jour de leurs fournisseurs SMI-S. Pour plus d’informations, consultez les liens suivants.
+
+- [Clustered Data ONTAP 8.2 de NetApp](http://community.netapp.com/t5/Technology/NetApp-Unveils-Support-for-Microsoft-Azure-SAN-Replication-with-SMI-S-and/ba-p/94483)
+- [Série EMC VMAX](https://thecoreblog.emc.com/high-end-storage/microsoft-azure-site-recovery-now-generally-available-vmax-srdf-integration-pack-ready-for-public-review/)    
+- [3PAR HP](http://h20195.www2.hp.com/V2/GetDocument.aspx?docname=4AA5-7068ENW&cc=us&lc=en)
 
 
 ### Que faire si je ne suis pas sûr des modifications de l’administrateur du stockage ?
@@ -200,4 +236,4 @@ Pour commencer à déployer ASR, effectuez les opérations suivantes :
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

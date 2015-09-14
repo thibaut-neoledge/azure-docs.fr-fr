@@ -45,7 +45,7 @@ Ce didacticiel présente les procédures suivantes :
 
 Pour obtenir les informations les plus récentes concernant les images SQL Server prises en charge sur Azure, consultez la rubrique [Vue d'ensemble de SQL Server sur les machines virtuelles Azure](virtual-machines-sql-server-infrastructure-services.md).
 
->[AZURE.NOTE]Si vous avez créé une machine virtuelle à l’aide de l’image de plateforme de la version d’évaluation de SQL Server, vous ne pouvez pas la mettre à jour vers une image de la version payante à la minute dans la galerie. Vous pouvez choisir l'une des deux options suivantes :
+>[AZURE.NOTE] Si vous avez créé une machine virtuelle à l’aide de l’image de plateforme de la version d’évaluation de SQL Server, vous ne pouvez pas la mettre à jour vers une image de la version payante à la minute dans la galerie. Vous pouvez choisir l'une des deux options suivantes :
 >
 > - Vous pouvez créer une machine virtuelle en utilisant la version de SQL Server payante à la minute à partir de la galerie et faire migrer vos fichiers de base de données vers cette nouvelle machine virtuelle en suivant la procédure de la page [Migration d'une base de données vers SQL Server sur une machine virtuelle Azure](virtual-machines-migrate-onpremises-database).
 > - Vous pouvez également mettre à niveau une instance de la version d'évaluation de SQL Server vers une autre version de SQL Server selon le contrat de [mobilité de licence via l'assurance logicielle sur Azure](http://azure.microsoft.com/pricing/license-mobility/) en suivant la procédure de la page [Mise à niveau vers une autre version de SQL Server](https://msdn.microsoft.com/library/cc707783.aspx). Pour plus d'informations sur l'achat d'une copie sous licence de SQL Server, consultez la page [Comment acheter SQL Server ?](http://www.microsoft.com/sqlserver/get-sql-server/how-to-buy.aspx).
@@ -60,7 +60,7 @@ Pour obtenir les informations les plus récentes concernant les images SQL Serve
 
 	![Configuration de machine virtuelle](./media/virtual-machines-provision-sql-server/4VM-Config.png)
 
-	>[AZURE.NOTE]La taille de la machine virtuelle est indiquée durant la configuration :
+	>[AZURE.NOTE] La taille de la machine virtuelle est indiquée durant la configuration :
  	>
 	> - A2 est la plus petite taille recommandée pour les charges de travail de production. 
     > - La taille minimale recommandée pour une machine virtuelle utilisant SQL Server Édition Entreprise est A3.
@@ -149,11 +149,9 @@ La liste suivante fournit des ressources supplémentaires pour SQL Server dans d
 ### Charges de travail SQL Server dans Azure :
 - [Business Intelligence de SQL Server dans les machines virtuelles Azure](virtual-machines-sql-server-business-intelligence.md)
 
-- [Entreposage de données et charges de travail transactionnelles de SQL Server dans des machines virtuelles Azure](virtual-machines-sql-server-dw-and-oltp-workloads.md)
-
 ### Livres blancs :
 - [Présentation de Base de données SQL Azure et de SQL Server dans les machines virtuelles Azure](sql-database/data-management-azure-sql-database-and-sql-server-iaas.md)
 
 - [Modèles d'application et stratégies de développement pour SQL Server dans les machines virtuelles Azure](virtual-machines-sql-server-application-patterns-and-development-strategies.md)
 
-<!----HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

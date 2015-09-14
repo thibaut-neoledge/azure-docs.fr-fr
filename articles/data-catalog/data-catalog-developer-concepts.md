@@ -115,13 +115,40 @@ Les types d'annotation représentent des types de métadonnées qui peuvent êtr
 <tr><td></td><td>mimeType</td><td>string</td><td>Le type mime du contenu.</td></tr>
 <tr><td></td><td>Contenu</td><td>string</td><td>Les instructions pour accéder à cette ressource de données. Il peut s'agir d'une URL, une adresse de messagerie ou un ensemble d'instructions.</td></tr>
 
+<tr><td>TableDataProfile</td><td></td><td></td><td></td></tr>
+<tr><td></td><td>numberOfRows</td></td><td>int</td><td>Le nombre de lignes dans le jeu de données</td></tr>
+<tr><td></td><td>size</td><td>long</td><td>La taille en octets du jeu de données.  </td></tr>
+<tr><td></td><td>schemaModifiedTime</td><td>string</td><td>L'heure de dernière modification du schéma</td></tr>
+<tr><td></td><td>dataModifiedTime</td><td>string</td><td>L'heure de dernière modification du jeu de données (données ajoutées, modifiées ou supprimées)</td></tr>
+
+<tr><td>ColumnsDataProfile</td><td></td><td></td><td></td></tr>
+<tr><td></td><td>colonnes</td></td><td>ColumnDataProfile[]</td><td>Le nombre de lignes dans le jeu de données</td></tr>
+
+
 </table>
 
 ### Types courants
 
 Les types courants peuvent être utilisés comme les types de propriétés, mais ne sont pas des éléments.
 
-<table><tr><td><b>Type courant</b></td><td><b>Propriétés</b></td><td><b>Type de données</b></td><td><b>Commentaires</b></td></tr><tr><td>DataSourceInfo</td><td></td><td></td><td></td></tr><tr><td></td><td>sourceType</td><td>string</td><td>Décrit le type de source de données, par exemple, SQL&#160;Server, base de données Oracle, etc.  </td></tr><tr><td></td><td>objectType</td><td>string</td><td>Décrit le type d'objet dans la source de données, par exemple, Table, affichage SQL&#160;Server.</td></tr><tr><td></td><td>formatType</td><td>string</td><td>Décrit la structure des données. Les valeurs actuelles sont structurées ou non structurées.</td></tr><tr><td>SecurityPrincipal</td><td></td><td></td><td></td></tr><tr><td></td><td>upn</td><td>string</td><td>Adresse de messagerie unique de l'utilisateur.</td></tr><tr><td></td><td>firstName</td><td>string</td><td>Prénom de l'utilisateur (à des fins d'affichage).</td></tr><tr><td></td><td>lastName</td><td>string</td><td>Nom de l'utilisateur (à des fins d'affichage).</td></tr><tr><td>des colonnes</td><td></td><td></td><td></td></tr><tr><td></td><td>name</td><td>string</td><td>Nom de la colonne ou de l'attribut.</td></tr><tr><td></td><td>type</td><td>string</td><td>type de données de la colonne ou de l'attribut. Les types autorisés dépendent du sourceType de données de la ressource. Seul un sous-ensemble des types est pris en charge.</td></tr><tr><td></td><td>maxLength</td><td>int</td><td>La longueur maximale autorisée pour la colonne ou l'attribut. Dérivé de la source de données. Applicable uniquement à certains types de sources.</td></tr><tr><td></td><td>Precision</td><td>byte</td><td>La précision de la colonne ou de l'attribut. Dérivé de la source de données. Applicable uniquement à certains types de sources.</td></tr><tr><td></td><td>isNullable</td><td>Boolean</td><td>Si la colonne est autorisée à avoir une valeur null ou non. Dérivé de la source de données. Applicable uniquement à certains types de sources.</td></tr><tr><td></td><td>expression</td><td>string</td><td>Si la valeur est une colonne calculée, ce champ contient l'expression qui exprime la valeur. Dérivé de la source de données. Applicable uniquement à certains types de sources.</td></tr><tr><td></td><td>defaultValue</td><td>objet</td><td>La valeur par défaut insérée en l’absence de spécification dans l'instruction insert pour l'objet. Dérivé de la source de données. Applicable uniquement à certains types de sources.</td></tr><tr><td>ColumnDescription</td><td></td><td></td><td></td></tr><tr><td></td><td>tags</td><td>string[]</td><td>Un tableau de balises qui décrivent la colonne.</td></tr><tr><td></td><td>description</td><td>string</td><td>Une description qui décrit la colonne.</td></tr><tr><td></td><td>columnName</td><td>string</td><td>Le nom de la colonne que désigne cette information.</td></tr>
+<table><tr><td><b>Type courant</b></td><td><b>Propriétés</b></td><td><b>Type de données</b></td><td><b>Commentaires</b></td></tr><tr><td>DataSourceInfo</td><td></td><td></td><td></td></tr><tr><td></td><td>sourceType</td><td>string</td><td>Décrit le type de source de données, par exemple, SQL&#160;Server, base de données Oracle, etc.  </td></tr><tr><td></td><td>objectType</td><td>string</td><td>Décrit le type d'objet dans la source de données, par exemple, Table, affichage SQL&#160;Server.</td></tr><tr><td></td><td>formatType</td><td>string</td><td>Décrit la structure des données. Les valeurs actuelles sont structurées ou non structurées.</td></tr><tr><td>SecurityPrincipal</td><td></td><td></td><td></td></tr><tr><td></td><td>upn</td><td>string</td><td>Adresse de messagerie unique de l'utilisateur.</td></tr><tr><td></td><td>firstName</td><td>string</td><td>Prénom de l'utilisateur (à des fins d'affichage).</td></tr><tr><td></td><td>lastName</td><td>string</td><td>Nom de l'utilisateur (à des fins d'affichage).</td></tr><tr><td>des colonnes</td><td></td><td></td><td></td></tr><tr><td></td><td>name</td><td>string</td><td>Nom de la colonne ou de l'attribut.</td></tr><tr><td></td><td>type</td><td>string</td><td>type de données de la colonne ou de l'attribut. Les types autorisés dépendent du sourceType de données de la ressource. Seul un sous-ensemble des types est pris en charge.</td></tr><tr><td></td><td>maxLength</td><td>int</td><td>La longueur maximale autorisée pour la colonne ou l'attribut. Dérivé de la source de données. Applicable uniquement à certains types de sources.</td></tr><tr><td></td><td>Precision</td><td>byte</td><td>La précision de la colonne ou de l'attribut. Dérivé de la source de données. Applicable uniquement à certains types de sources.</td></tr><tr><td></td><td>isNullable</td><td>Boolean</td><td>Si la colonne est autorisée à avoir une valeur null ou non. Dérivé de la source de données. Applicable uniquement à certains types de sources.</td></tr><tr><td></td><td>expression</td><td>string</td><td>Si la valeur est une colonne calculée, ce champ contient l'expression qui exprime la valeur. Dérivé de la source de données. Applicable uniquement à certains types de sources.</td></tr><tr><td></td><td>defaultValue</td><td>objet</td><td>La valeur par défaut insérée en l’absence de spécification dans l'instruction insert pour l'objet. Dérivé de la source de données. Applicable uniquement à certains types de sources.</td>
+
+</tr><tr><td>ColumnDescription</td><td></td><td></td><td></td></tr>
+<tr><td></td><td>tags</td><td>string[]</td><td>Un tableau de balises qui décrivent la colonne.</td></tr>
+<tr><td></td><td>description</td><td>string</td><td>Une description qui décrit la colonne.</td></tr><tr><td></td><td>columnName</td><td>string</td><td>Le nom de la colonne que désigne cette information.</td></tr>
+
+</tr><tr><td>ColumnDataProfile</td><td></td><td></td><td></td></tr>
+<tr><td></td><td>columnName </td><td>string</td><td>Nom de la colonne</td></tr>
+<tr><td></td><td>type </td><td>string</td><td>Type de la colonne</td></tr>
+<tr><td></td><td>min </td><td>string</td><td>Valeur minimale dans le jeu de données</td></tr>
+<tr><td></td><td>max </td><td>string</td><td>Valeur maximale dans le jeu de données</td></tr>
+<tr><td></td><td>avg </td><td>double</td><td>Valeur moyenne dans le jeu de données</td></tr>
+<tr><td></td><td>stdev </td><td>double</td><td>Écart type pour le jeu de données</td></tr>
+<tr><td></td><td>nullCount </td><td>int</td><td>Nombre de valeurs null dans le jeu de données</td></tr>
+<tr><td></td><td>distinctCount  </td><td>int</td><td>Nombre de valeurs distinctes dans le jeu de données</td></tr>
+
+
+
 </table>
 
 ## Rôles et autorisations
@@ -229,6 +256,6 @@ Les demandes d’éléments d’affichage **PUT** et **POST** peuvent être util
 > [AZURE.NOTE]Dans PUT, il n’est pas nécessaire de spécifier une charge utile d'élément dans le corps : PUT peut être utilisé pour mettre à jour uniquement les rôles et/ou les autorisations.
 
 <!--Image references-->
-[1]: ./media/data-catalog-developer-concepts/concept.png
+[1]: ./media/data-catalog-developer-concepts/concept2.png
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

@@ -5,7 +5,7 @@
 	documentationCenter="na"
 	authors="rothja"
 	manager="jeffreyg"
-	editor="monicar" />
+	editor="monicar"/>
 <tags 
 	ms.service="virtual-machines"
 	ms.devlang="na"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
 	ms.date="08/14/2015"
-	ms.author="jroth" />
+	ms.author="jroth"/>
 
 # Configuration de groupes de disponibilité AlwaysOn dans Azure (PowerShell)
 
@@ -21,13 +21,13 @@
 
 Les machines virtuelles (VM) Azure permettent aux administrateurs de base de données de réduire le coût d’un système SQL Server haute disponibilité. Ce didacticiel vous montre comment implémenter un groupe de disponibilité en utilisant SQL Server AlwaysOn de bout en bout dans un environnement Azure. À la fin du didacticiel, votre solution SQL Server AlwaysOn dans Azure comprendra les éléments suivants :
 
-- Un réseau virtuel contenant plusieurs sous-réseaux, notamment un sous-réseau frontal et un sous-réseau principal.
+- un réseau virtuel contenant plusieurs sous-réseaux, notamment un sous-réseau frontal et un sous-réseau principal ;
 
-- Un contrôleur de domaine avec un domaine Active Directory (AD).
+- un contrôleur de domaine avec un domaine Active Directory (AD) ;
 
-- Deux machines virtuelles SQL Server déployées dans le sous-réseau principal et jointes au domaine AD.
+- deux machines virtuelles SQL Server déployées dans le sous-réseau principal et jointes au domaine AD ;
 
-- Un cluster WSFC à 3 nœuds avec le modèle de quorum Nœud majoritaire.
+- un cluster WSFC à 3 nœuds avec le modèle de quorum Nœud majoritaire ;
 
 - Un groupe de disponibilité avec deux réplicas avec validation synchrone d’une base de données de disponibilité.
 
@@ -528,7 +528,7 @@ Vous pouvez maintenant configurer le groupe de disponibilité. Vous utiliserez l
 		$svc2.Start(); 
 		$svc2.WaitForStatus([System.ServiceProcess.ServiceControllerStatus]::Running,$timeout)
 
-1. Téléchargez **CreateAzureFailoverCluster.ps1** à partir de [Créer le cluster WSFC pour les groupes de disponibilité AlwaysOn dans une machine virtuelle Azure](http://gallery.technet.microsoft.com/scriptcenter/Create-WSFC-Cluster-for-7c207d3a) dans le répertoire de travail local. Vous utiliserez ce script pour vous aider à créer un cluster WSFC fonctionnel. Pour prendre connaissance d’informations importantes sur la façon dont WSFC interagit avec le réseau Azure, consultez [Haute disponibilité et récupération d’urgence pour SQL Server sur des machines virtuelles Azure](https://msdn.microsoft.com/fr-fr/library/azure/jj870962.aspx).
+1. Téléchargez **CreateAzureFailoverCluster.ps1** à partir de [Créer le cluster WSFC pour les groupes de disponibilité AlwaysOn dans une machine virtuelle Azure](http://gallery.technet.microsoft.com/scriptcenter/Create-WSFC-Cluster-for-7c207d3a) dans le répertoire de travail local. Vous utiliserez ce script pour vous aider à créer un cluster WSFC fonctionnel. Pour prendre connaissance d’informations importantes sur la façon dont WSFC interagit avec le réseau Azure, consultez [Haute disponibilité et récupération d’urgence pour SQL Server sur des machines virtuelles Azure](virtual-machines-sql-server-high-availability-and-disaster-recovery-solutions.md).
 
 1. Passez à votre répertoire de travail et créez le cluster WSFC avec le script téléchargé.
 
@@ -619,8 +619,8 @@ Vous pouvez maintenant configurer le groupe de disponibilité. Vous utiliserez l
 		    -Database $db
 
 ## Étapes suivantes
-Vous avez correctement implémenté SQL Server AlwaysOn en créant un groupe de disponibilité dans Azure. Pour configurer un écouteur pour ce groupe de disponibilité, consultez [Configuration d’un écouteur pour les groupes de disponibilité AlwaysOn dans Azure](virtual-machines-sql-server-configure-ilb-alwayson-availability-group-listener.md).
+Vous avez correctement implémenté SQL Server AlwaysOn en créant un groupe de disponibilité dans Azure. Pour configurer un écouteur pour ce groupe de disponibilité, consultez [Configuration d’un écouteur pour les groupes de disponibilité AlwaysOn dans Azure](virtual-machines-sql-server-configure-ilb-alwayson-availability-group-listener.md).
 
 Pour en savoir plus sur l’utilisation de SQL Server dans Azure, consultez la rubrique [SQL Server sur les machines virtuelles Azure](../articles/virtual-machines/virtual-machines-sql-server-infrastructure-services.md).
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=September15_HO1-->

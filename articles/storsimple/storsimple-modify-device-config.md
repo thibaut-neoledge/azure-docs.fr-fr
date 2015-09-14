@@ -1,20 +1,20 @@
 <properties 
-   pageTitle="Utilisation du service StorSimple Manager pour modifier la configuration de votre appareil StorSimple | Microsoft Azure" 
-   description="Explique comment utiliser le service StorSimple Manager pour reconfigurer un appareil StorSimple qui a déjà été déployé." 
-   services="storsimple" 
-   documentationCenter="NA" 
-   authors="SharS" 
-   manager="carolz" 
-   editor=""/>
+   pageTitle="Modifier la configuration de l’appareil StorSimple | Microsoft Azure"
+	description="Explique comment utiliser le service StorSimple Manager pour reconfigurer un appareil StorSimple qui a déjà été déployé."
+	services="storsimple"
+	documentationCenter="NA"
+	authors="SharS"
+	manager="carolz"
+	editor=""/>
 
 <tags
    ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD" 
-   ms.date="07/30/2015"
-   ms.author="v-sharos@microsoft.com"/>
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="TBD"
+	ms.date="08/14/2015"
+	ms.author="v-sharos@microsoft.com"/>
 
 # Utilisation du service StorSimple Manager pour modifier la configuration de votre appareil StorSimple
 
@@ -128,4 +128,4 @@ Pour échanger ou réaffecter les adresses IP virtuelles d’interfaces réseau,
  
      
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=September15_HO1-->

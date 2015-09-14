@@ -1,19 +1,19 @@
 <properties
  pageTitle="Prise en main d’un cluster HPC Pack pour exécuter des charges de travail Excel et SOA | Microsoft Azure"
- description="."
- services="virtual-machines"
- documentationCenter=""
- authors="dlepow"
- manager="timlt"
- editor=""/>
+	description="."
+	services="virtual-machines"
+	documentationCenter=""
+	authors="dlepow"
+	manager="timlt"
+	editor=""/>
 <tags
 ms.service="virtual-machines"
- ms.devlang="na"
- ms.topic="article"
- ms.tgt_pltfrm="vm-windows"
- ms.workload="big-compute"
- ms.date="08/18/2015"
- ms.author="danlep"/>
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="vm-windows"
+	ms.workload="big-compute"
+	ms.date="08/18/2015"
+	ms.author="danlep"/>
 
 # Prise en main d’un cluster HPC Pack dans Azure pour exécuter des charges de travail Excel et SOA
 
@@ -60,7 +60,7 @@ Utilisez un modèle de démarrage rapide Azure pour déployer rapidement et faci
     >
     >Les machines virtuelles du nœud de calcul sont créées à partir de la dernière image de la famille de nœuds de calcul sélectionnée. Sélectionnez l’option **ComputeNode** pour l’image de calcul à des fins générales HPC Pack 2012 R2 Update 2 la plus récente. Sélectionnez l’option **ComputeNodeWithExcel** pour la dernière image de nœud de calcul comprenant une version d’évaluation de Microsoft Excel Professional Plus 2013. Si vous souhaitez déployer un cluster pour les sessions SOA générales ou pour le déchargement Excel UDF, choisissez l’option **ComputeNode** (sans Excel installé).
     >
-    >En cas d’utilisation de **ComputeNodeWithExcel** pour les charges de travail de production, vous devez fournir une licence Excel valide pour activer Excel sur les nœuds de calcul. Sinon, la version d'évaluation de Microsoft Excel expire après 30 jours et les charges de travail Excel ne s'exécutent plus.
+    >En cas d’utilisation de **ComputeNodeWithExcel** pour les charges de travail de production, vous devez fournir une licence Excel valide pour activer Excel sur les nœuds de calcul. Dans le cas contraire, la version d'évaluation de Microsoft Excel pourrait expirer dans les 30 jours et l'exécution du classeur Excel échouerait en permanence avec l’exception COMExeption (0x800AC472). Dans ce cas, vous pouvez connecter le nœud principal à clusrun « % ProgramFiles(x86)%\\Microsoft Office\\Office15\\OSPPREARM.exe » sur tous les nœuds de calcul Excel via la console HPC Cluster Manager pour rallonger la période d’évaluation d’Excel de 30 jours. Le nombre de renouvellements de la période de gratuité est de 2, ensuite vous devrez peut-être fournir une licence Excel valide.
 
     c. Choisissez l’abonnement.
 
@@ -222,7 +222,7 @@ Suivez ces étapes pour décharger un classeur Excel à exécuter sur le cluster
 ```
 4.	Téléchargez la version complète de l’[installation HPC Pack 2012 R2 Update 2](http://www.microsoft.com/download/details.aspx?id=47755) et installez le client HPC Pack, ou téléchargez et installez les [utilitaires clients HPC Pack 2012 R2 Update 2](https://www.microsoft.com/download/details.aspx?id=47754) et le redistributable Visual C++ 2010 adapté à votre ordinateur ([x 64](http://www.microsoft.com/download/details.aspx?id=14632), [x 86](https://www.microsoft.com/download/details.aspx?id=5555)).
 
-5.	Dans cet exemple, nous utilisons un exemple de classeur Excel nommé ConvertiblePricing\_Complete.xlsb, qui peut être téléchargé [ici](https://www.microsoft.com/fr-fr/download/details.aspx?id=2939).
+5.	Dans cet exemple, nous utilisons un exemple de classeur Excel nommé ConvertiblePricing\_Complete.xlsb, qui peut être téléchargé [ici](https://www.microsoft.com/fr-FR/download/details.aspx?id=2939).
 
 6.	Copiez le classeur Excel dans un dossier de travail comme D:\\Excel\\Run.
 
@@ -259,7 +259,7 @@ Suivez ces étapes pour décharger un classeur Excel à exécuter sur le cluster
 
 Pour exécuter des UDF Excel, suivez les étapes 1 à 3 précédentes pour configurer l'ordinateur client. Pour des UDF Excel, vous n'avez pas besoin de disposer de l'application Excel installée sur les nœuds de calcul, vous pouvez donc choisir une image de nœud de calcul normale à l'étape 1 plutôt que l'image de nœud de calcul Excel.
 
->[AZURE.NOTE]Il existe une limite de 34 caractères dans la boîte de dialogue de connecteur de cluster dans Excel 2010 et 2013. Si le nom de cluster complet est plus long, par exemple hpcexcelhn01.southeastasia.cloudapp.azure.com, il ne tient pas et les UDF ne s'exécutent pas. La solution de contournement consiste à utiliser le script de déploiement IaaS pour déployer un cluster avec un nom plus court comme hpcexcelhn01.cloudapp.net. Ce problème sera résolu dans une version ultérieure de l'API de Session SOA.
+>[AZURE.NOTE]Il existe une limite de 34 caractères dans la boîte de dialogue de connecteur de cluster dans Excel 2010 et 2013. Si le nom de cluster complet est plus long, par exemple hpcexcelhn01.southeastasia.cloudapp.azure.com, il ne rentre pas dans la boîte de dialogue. La solution de contournement consiste à appliquer l’Update 2 KB3085833 de QFE (télécharger [ici](http://www.microsoft.com/fr-FR/download/details.aspx?id=48725)) pour l’API de session SOA sur l'ordinateur client, puis à définir une variable à l'échelle de l’ordinateur, par exemple *CCP\_IAASHN* avec la valeur du nom du cluster long et à entrer *% CCP\_IAASHN %* dans la boîte de dialogue comme nom de nœud principal du cluster.
 
 Une fois le cluster déployé, poursuivez avec les étapes suivantes pour exécuter un exemple intégré d’UDF Excel. Pour les UDF Excel personnalisées, consultez ces [ressources](http://social.technet.microsoft.com/wiki/contents/articles/1198.windows-hpc-and-microsoft-excel-resources-for-building-cluster-ready-workbooks.aspx) pour générer les XLL et les déployer sur le cluster IaaS.
 
@@ -376,4 +376,4 @@ L'application cliente SOA ne nécessite aucune modification à l'exception de la
 [endpoint]: ./media/virtual-machines-excel-cluster-hpcpack/endpoint.png
 [udf]: ./media/virtual-machines-excel-cluster-hpcpack/udf.png
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=September15_HO1-->

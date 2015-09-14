@@ -1,19 +1,19 @@
 <properties 
-   pageTitle="Remplacer un module de contrôleur sur votre appareil StorSimple | Microsoft Azure"
-   description="Explique comment retirer et remplacer un module de contrôleur, ou les deux, sur votre appareil StorSimple."
-   services="storsimple"
-   documentationCenter=""
-   authors="alkohli"
-   manager="carolz"
-   editor="" />
+   pageTitle="Remplacer un contrôleur d’appareil StorSimple | Microsoft Azure"
+	description="Explique comment retirer et remplacer un module de contrôleur, ou les deux, sur votre appareil StorSimple."
+	services="storsimple"
+	documentationCenter=""
+	authors="alkohli"
+	manager="carolz"
+	editor=""/>
 <tags 
    ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="08/12/2015"
-   ms.author="alkohli" />
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="TBD"
+	ms.date="08/31/2015"
+	ms.author="alkohli"/>
 
 # Remplacer un module de contrôleur sur votre appareil StorSimple
 
@@ -266,4 +266,4 @@ Si ce voyant clignote, le contrôleur est actif et l’autre contrôleur est en 
 
 En savoir plus sur le [remplacement des composants matériels StorSimple](storsimple-hardware-component-replacement.md).
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=September15_HO1-->

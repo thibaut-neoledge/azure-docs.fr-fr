@@ -1,22 +1,20 @@
 <properties 
-	pageTitle="Création de jeux de données" 
-	description="Comprendre les jeux de données Azure Data Factory et apprendre à les créer." 
-	services="data-factory" 
-	documentationCenter="" 
-	authors="spelluru" 
-	manager="jhubbard" 
+	pageTitle="Création de jeux de données"
+	description="Comprendre les jeux de données Azure Data Factory et apprendre à les créer."
+	services="data-factory"
+	documentationCenter=""
+	authors="spelluru"
+	manager="jhubbard"
 	editor="monicar"/>
 
-
 <tags 
-	ms.service="data-factory" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/28/2015" 
+	ms.service="data-factory"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/28/2015"
 	ms.author="spelluru"/>
-
 
 # Jeux de données
 
@@ -184,16 +182,34 @@ Les jeux de données externes sont ceux qui ne sont pas générés par un pipeli
 
 | Nom | Description | Requis | Valeur par défaut |
 | ---- | ----------- | -------- | -------------- |
-| dataDelay | Durée du délai de la vérification de la disponibilité des données externes pour le segment donné. Par exemple, si les données sont supposées être disponibles toutes les heures, la vérification pour déterminer si les données externes sont réellement disponibles et si le segment correspondant dispose de l'état Ready, peut être différée selon la valeur de dataDelay.<p>S'applique uniquement à l'heure actuelle ; par exemple, s'il est 13h et cette valeur est de 10 minutes, la validation commencera à 13h10.</p><p>Ce paramètre n'affecte pas les segments dans le passé (segments avec Slice End Time + dataDelay < maintenant) qui seront traités sans délai.</p> | Non | 0 |
+| dataDelay | <p>Durée du délai de la vérification de la disponibilité des données externes pour le segment donné. Par exemple, si les données sont supposées être disponibles toutes les heures, la vérification pour déterminer si les données externes sont réellement disponibles et si le segment correspondant dispose de l'état Ready, peut être différée selon la valeur de dataDelay.</p><p>S'applique uniquement à l'heure actuelle ; par exemple, s'il est 13h et cette valeur est de 10 minutes, la validation commencera à 13h10.</p><p>Ce paramètre n'affecte pas les segments dans le passé (segments avec Slice End Time + dataDelay < maintenant) qui seront traités sans délai.</p> <p>Toute heure supérieure à 23h59 doit être spécifiée à l'aide du format day.hours:minutes:seconds. Par exemple, pour spécifier 24 heures, n'utilisez pas 24:00:00 ; utilisez plutôt 1.00:00:00. Si vous utilisez 24:00:00, cette valeur sera traitée comme 24 jours (24.00:00:00). Pour 1 jour et 4 heures, spécifiez 1:04:00:00. </p>| Non | 0 |
 | retryInterval | Délai d'attente entre un échec et la nouvelle tentative. S'applique à l'heure actuelle ; si la tentative précédente a échoué, le système laisse ce délai s'écouler après la dernière tentative. <p>S'il est 13h actuellement, la première tentative commence. Si la durée de la première vérification de validation est de 1 minute et si l'opération a échoué, la tentative suivante aura lieu à 13h + 1 min (durée) + 1 minute (intervalle avant nouvelle tentative) = 13h02. </p><p>Pour les segments dans le passé, il n'y a aucun délai. La nouvelle tentative a lieu immédiatement.</p> | Non | 00:01:00 (1 minute) | 
 | retryTimeout | Le délai d'attente pour chaque nouvelle tentative.<p>Si cela est défini sur 10 minutes, la validation doit être effectuée dans les 10 minutes. S'il faut plus de 10 minutes pour effectuer la validation, la nouvelle tentative expirera.</p><p>Si toutes les tentatives de validation expirent, le segment sera marqué TimedOut.</p> | Non | 00:10:00 (10 minutes) |
 | maximumRetry | Nombre de fois où la disponibilité des données externes est vérifiée. La valeur maximale autorisée est de 10. | Non | 3 | 
 
+#### Exemples supplémentaires
 
+Si vous avez besoin d'exécuter un pipeline tous les mois à une date et une heure spécifiques (par exemple, le 3e jour de chaque mois à 8h), vous pouvez utiliser la balise **offset** pour définir la date et l'heure d'exécution.
 
+	{
+	  "name": "MyDataset",
+	  "properties": {
+	    "type": "AzureSqlTable",
+	    "linkedServiceName": "AzureSqlLinkedService",
+	    "typeProperties": {
+	      "tableName": "MyTable"
+	    },
+	    "availability": {
+	      "frequency": "Month",
+	      "interval": 1,
+	      "offset": "3.08:10:00",
+	      "style": "StartOfInterval"
+	    }
+	  }
+	}
 
-
-
+## Envoyer des commentaires
+Nous souhaiterions vraiment obtenir vos commentaires sur cet article. Prenez quelques minutes pour nous envoyer vos commentaires par [courrier électronique](mailto:adfdocfeedback@microsoft.com?subject=data-factory-create-datasets.md).
 
 
 
@@ -201,4 +217,4 @@ Les jeux de données externes sont ceux qui ne sont pas générés par un pipeli
 
   
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

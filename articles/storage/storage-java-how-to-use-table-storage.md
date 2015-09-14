@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Utilisation du stockage de tables à partir de Java | Microsoft Azure" 
-	description="Découvrez comment utiliser le service de stockage de tables dans Azure. Les exemples de code sont écrits en Java." 
-	services="storage" 
-	documentationCenter="java" 
-	authors="rmcmurray" 
-	manager="wpickett" 
+	pageTitle="Utilisation du stockage de tables à partir de Java | Microsoft Azure"
+	description="Découvrez comment utiliser le service de stockage de tables dans Azure. Les exemples de code sont écrits en Java."
+	services="storage"
+	documentationCenter="java"
+	authors="rmcmurray"
+	manager="wpickett"
 	editor="jimbe"/>
 
 <tags 
-	ms.service="storage" 
-	ms.workload="storage" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="Java" 
-	ms.topic="article" 
-	ms.date="06/03/2015" 
+	ms.service="storage"
+	ms.workload="storage"
+	ms.tgt_pltfrm="na"
+	ms.devlang="Java"
+	ms.topic="article"
+	ms.date="08/31/2015"
 	ms.author="robmcm"/>
 
 
@@ -547,12 +547,12 @@ Pour finir, le code suivant supprime une table d'un compte de stockage. Une tabl
 
 Maintenant que vous connaissez les bases du stockage de tables, consultez les liens suivants pour apprendre à exécuter les tâches de stockage plus complexes.
 
-- [Kit de développement logiciel (SDK) Azure Storage pour Java]
-- [Référence du Kit de développement logiciel (SDK) du client Azure Storage]
-- [API REST d’Azure Storage]
-- [Blog de l'équipe Azure Storage]
+- [Kit de développement logiciel (SDK) Azure Storage pour Java][]
+- [Référence du Kit de développement logiciel (SDK) du client Azure Storage][]
+- [API REST d’Azure Storage][]
+- [Blog de l'équipe Azure Storage][]
 
-[Azure SDK for Java]: http://azure.microsoft.com/develop/java/
+[Azure SDK for Java]: http://go.microsoft.com/fwlink/?LinkID=525671
 [Kit de développement logiciel (SDK) Azure Storage pour Java]: https://github.com/azure/azure-storage-java
 [Kit de développement logiciel (SDK) Azure Storage pour Java]: https://github.com/azure/azure-storage-java
 [Kit de développement logiciel (SDK) Azure Storage pour Android]: https://github.com/azure/azure-storage-android
@@ -562,4 +562,4 @@ Maintenant que vous connaissez les bases du stockage de tables, consultez les li
 [billet de blog]: http://blogs.msdn.com/b/windowsazurestorage/archive/2011/09/15/windows-azure-tables-introducing-upsert-and-query-projection.aspx
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

@@ -399,7 +399,7 @@ Les données sont copiées vers un nouveau fichier toutes les heures. Le chemin 
 	        "typeProperties": {
 	          "source": {
 	            "type": "SqlSource",
-	            "SqlReaderQuery": "$$Text.Format('select * from MyTable where timestampcolumn >= \'{0:yyyy-MM-dd}\' AND timestampcolumn < \'{1:yyyy-MM-dd}\'', WindowStart, WindowEnd)"
+	            "SqlReaderQuery": "$$Text.Format('select * from MyTable where timestampcolumn >= \\'{0:yyyy-MM-dd}\\' AND timestampcolumn < \\'{1:yyyy-MM-dd}\\'', WindowStart, WindowEnd)"
 	          },
 	          "sink": {
 	            "type": "FileSystemSink"
@@ -477,6 +477,7 @@ fileName | Spécifiez le nom du fichier dans l’élément **folderPath** si vou
 partitionedBy | partitionedBy peut être utilisé pour spécifier un folderPath dynamique, fileName pour les données de série chronologique. Par exemple, folderPath peut être paramétré pour toutes les heures de données. | Non
 Format | Deux types de formats sont pris en charge : **FormatTexte**, **AvroFormat**. Vous devez définir la propriété de type sous format sur l'une de cette valeur. Lorsque le format AvroFormat est le format du texte, vous pouvez spécifier des propriétés facultatives supplémentaires pour le format. Consultez la section format ci-dessous pour plus de détails. | Non
 fileFilter | Spécifiez un filtre à utiliser pour sélectionner un sous-ensemble de fichiers dans le folderPath plutôt que tous les fichiers. <p>Les valeurs autorisées sont les suivantes : * (plusieurs caractères) et ? (caractère unique).</p><p>Exemples 1 : "fileFilter": "*.log"</p>Exemple 2 : "fileFilter": 2014-1-?.txt"</p><p>**Remarque** : fileFilter s’applique à un jeu de données d’entrée FileShare</p> | Non
+| compression | Spécifiez le type et le niveau de compression pour les données. Types pris en charge : GZip, Deflate et BZip2 ; niveaux pris en charge : Optimal et Fastest (le plus rapide). Pour plus de détails, consultez la section [Prise en charge de la compression](#compression-support). | Non |
 
 > [AZURE.NOTE]fileName et fileFilter ne peuvent pas être utilisés simultanément.
 
@@ -518,14 +519,14 @@ Propriété | Description | Requis
 -------- | ----------- | --------
 columnDelimiter | Caractère(s) utilisé(s) comme séparateur de colonnes dans un fichier. La valeur par défaut est virgule (,). | Non
 rowDelimiter | Caractère(s) utilisé(s) comme séparateur de lignes dans un fichier. La valeur par défaut est : [« \\r\\n », « \\r », « \\n »]. | Non
-escapeChar | Caractère spécial utilisé pour échapper au délimiteur de colonnes indiqué dans le contenu. Aucune valeur par défaut. Vous ne devez pas spécifier plusieurs caractères pour cette propriété.<p>Par exemple, si vous avez une virgule (,) comme séparateur de colonnes mais que vous voulez avoir le caractère virgule dans le texte (exemple : « Hello, world »), vous pouvez définir « $ » comme caractère d’échappement et utiliser la chaîne « $Hello, world » dans la source.</p><p>Notez que vous ne pouvez pas spécifier escapeChar et quoteChar pour une table.</p> | Non
+escapeChar | Caractère spécial utilisé pour échapper au délimiteur de colonnes indiqué dans le contenu. Aucune valeur par défaut. Vous ne devez pas spécifier plusieurs caractères pour cette propriété.<p>Par exemple, si vous avez une virgule (,) comme séparateur de colonnes, mais que vous voulez avoir le caractère virgule dans le texte (exemple : « Hello, world »), vous pouvez définir « $ » comme caractère d’échappement et utiliser la chaîne « Hello$, world » dans la source.</p><p>Notez que vous ne pouvez pas spécifier escapeChar et quoteChar pour une table.</p> | Non
 quoteChar | Caractère spécial utilisé pour entourer de guillemets la valeur de la chaîne. Les séparateurs de colonnes et de lignes à l'intérieur des caractères de guillemets sont considérés comme faisant partie de la valeur de la chaîne. Aucune valeur par défaut. Vous ne devez pas spécifier plusieurs caractères pour cette propriété.<p>Par exemple, si vous avez une virgule (,) comme séparateur de colonnes mais que vous voulez avoir le caractère virgule dans le texte (exemple : <Hello  world>), vous pouvez définir « " » comme caractère de guillemet et utiliser la chaîne <"Hello, world"> dans la source. Cette propriété s’applique aux tables d’entrée et de sortie.</p><p>Notez que vous ne pouvez pas spécifier escapeChar et quoteChar pour une table.</p> | Non
 nullValue | Caractère(s) utilisé(s) pour représenter la valeur null dans le contenu du fichier blob. La valeur par défaut est « \\N ».> | Non
 encodingName | Spécifiez le nom du codage. Pour obtenir une liste des noms de d’encodage valides, consultez : Propriété Encoding.EncodingName. <p>Par exemple : windows-1250 ou shift\_jis. La valeur par défaut est : UTF-8.</p> | Non
 
 #### Exemples :
 
-L’exemple suivant illustre certaines des propriétés de format pour **TextFormat**.
+L'exemple suivant illustre certaines des propriétés de format pour **TextFormat**.
 
 	"typeProperties":
 	{
@@ -556,9 +557,11 @@ Si le format est défini sur **AvroFormat**, il est inutile de spécifier des pr
 	
 Pour utiliser AvroFormat dans une table Hive ultérieure, vous pouvez faire référence au [didacticiel Apache Hive](https://cwiki.apache.org/confluence/display/Hive/AvroSerDe).
 
+[AZURE.INCLUDE [data-factory-compression](../../includes/data-factory-compression.md)]
+
 ## Propriétés de type d'activité de copie de partage de fichiers
 
-**FileSystemSource** et **FileSystemSink** ne prennent en charge aucune propriété pour l’instant.
+**FileSystemSource** et **FileSystemSink** ne prennent en charge aucune propriété pour l'instant.
 
 [AZURE.INCLUDE [data-factory-structure-for-rectangualr-datasets](../../includes/data-factory-structure-for-rectangualr-datasets.md)]
 
@@ -573,4 +576,4 @@ Pour utiliser AvroFormat dans une table Hive ultérieure, vous pouvez faire réf
 
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

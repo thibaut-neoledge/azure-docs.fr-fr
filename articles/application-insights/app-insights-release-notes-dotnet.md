@@ -1,17 +1,17 @@
 <properties 
-	pageTitle="Notes de publication pour Application Insights" 
-	description="Les dernières mises à jour." 
-	services="application-insights" 
-    documentationCenter=""
-	authors="alancameronwills" 
+	pageTitle="Notes de publication pour Application Insights pour .NET"
+	description="Les dernières mises à jour."
+	services="application-insights"
+	documentationCenter=""
+	authors="alancameronwills"
 	manager="douge"/>
 <tags 
-	ms.service="application-insights" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/06/2015" 
+	ms.service="application-insights"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="ibiza"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/06/2015"
 	ms.author="sergkanz"/>
  
 # Notes de publication pour le Kit de développement logiciel (SDK) Application Insights pour .NET
@@ -86,4 +86,4 @@ Aucune note de publication pour des versions antérieures.
 
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=September15_HO1-->

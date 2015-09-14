@@ -1,23 +1,23 @@
 <properties 
-   pageTitle="Utilisation du service StorSimple Manager pour gérer votre appareil StorSimple"
-   description="Gestion de votre appareil StorSimple à l'aide du service StorSimple Manager dans le portail de gestion Azure."
-   services="storsimple"
-   documentationCenter=""
-   authors="alkohli"
-   manager="carolz"
-   editor="tysonn" />
+   pageTitle="Administration du service StorSimple Manager | Microsoft Azure"
+	description="Découvrez comment gérer votre appareil StorSimple à l'aide du service StorSimple Manager dans le portail de gestion Azure."
+	services="storsimple"
+	documentationCenter=""
+	authors="alkohli"
+	manager="carolz"
+	editor=""/>
 <tags 
    ms.service="storsimple"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="08/13/2015"
-   ms.author="alkohli" />
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="na"
+	ms.date="09/01/2015"
+	ms.author="alkohli"/>
 
-# Utilisation du service StorSimple Manager pour gérer votre appareil StorSimple
+# Utiliser le service StorSimple Manager pour gérer votre appareil StorSimple
 
-## Vue d'ensemble
+## Vue d’ensemble
 
 Cet article décrit l’interface de service StorSimple Manager, y compris la connexion à ce service, les options disponibles et les liens vers des flux de travail spécifiques exécutables via cette interface utilisateur. Ce guide s’applique aux appareils StorSimple physiques comme virtuels.
 
@@ -104,9 +104,8 @@ Si vous rencontrez des problèmes de fonctionnement quotidien de votre appareil 
 - [Résolution des problèmes d’un appareil opérationnel](storsimple-troubleshoot-operational-device.md)
 - [Utilisation des indicateurs de surveillance de StorSimple](storsimple-monitoring-indicators.md)
 
-
 Si vous ne parvenez pas à résoudre les problèmes et vous devez générer une demande d’intervention, consultez :
 
 -  [Contacter le support technique Microsoft](storsimple-contact-microsoft-support.md)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=September15_HO1-->

@@ -7,7 +7,6 @@
 	manager="jeffreyg"
 	editor=""/>
 
-
 <tags
 	ms.service="virtual-machines"
 	ms.devlang="na"
@@ -16,7 +15,6 @@
 	ms.workload="infrastructure-services"
 	ms.date="06/02/2015"
 	ms.author="jroth"/>
-
 
 # Utilisation du stockage Premium Azure avec SQL Server sur des machines virtuelles
 
@@ -43,7 +41,7 @@ Il existe plusieurs conditions préalables à l'utilisation du stockage Premium.
 
 ### Taille de la machine
 
-Pour utiliser le stockage Premium, vous devrez utiliser des machines virtuelles (VM) de série DS. Si vous n'avez jamais utilisé de machines de série DS dans votre service cloud, vous devez supprimer la machine virtuelle existante, conserver les disques connectés, puis créer un nouveau service cloud avant de recréer la machine virtuelle avec une taille de rôle DS*. Pour plus d'informations sur l'utilisation des tailles des machines virtuelles, consultez la rubrique [Tailles des machines virtuelles et des services cloud pour Azure](https://msdn.microsoft.com/library/azure/dn197896.aspx).
+Pour utiliser le stockage Premium, vous devrez utiliser des machines virtuelles (VM) de série DS. Si vous n'avez jamais utilisé de machines de série DS dans votre service cloud, vous devez supprimer la machine virtuelle existante, conserver les disques connectés, puis créer un nouveau service cloud avant de recréer la machine virtuelle avec une taille de rôle DS*. Pour plus d'informations sur l'utilisation des tailles des machines virtuelles, consultez la rubrique [Tailles des machines virtuelles et des services cloud pour Azure](virtual-machines-size-specs.md).
 
 ### Microsoft Azure
 
@@ -143,9 +141,9 @@ Une fois que vous avez mappé les disques durs virtuels aux disques physiques da
 
 ### Bande passante de stockage de la machine virtuelle et débit de stockage du disque dur virtuel 
 
-Les performances de stockage dépendent de la taille de la machine virtuelle DS* spécifiée et des tailles des disques durs virtuels. Les machines virtuelles offrent différentes tolérances pour le nombre de disques durs virtuels peuvent être connectés et la bande passante maximale prise en charge (Mo/s). Pour connaître les numéros de bande passante spécifiques, consultez la rubrique [Tailles des machines virtuelles et des services cloud pour Azure](https://msdn.microsoft.com/library/azure/dn197896.aspx).
+Les performances de stockage dépendent de la taille de la machine virtuelle DS* spécifiée et des tailles des disques durs virtuels. Les machines virtuelles offrent différentes tolérances pour le nombre de disques durs virtuels peuvent être connectés et la bande passante maximale prise en charge (Mo/s). Pour connaître les numéros de bande passante spécifiques, consultez la rubrique [Tailles des machines virtuelles et des services cloud pour Azure](virtual-machines-size-specs.md).
 
-Les disques de plus grande taille augmentent le nombre d'opérations d'E/S par seconde. Vous devez en tenir compte lorsque vous étudiez votre chemin de migration. Pour plus d'informations, [consultez le tableau des opérations d'E/S et des types de disque](../storage-premium-storage-preview-portal.md#scalability-and-performance-targets-whfr-fring-premium-storage).
+Les disques de plus grande taille augmentent le nombre d'opérations d'E/S par seconde. Vous devez en tenir compte lorsque vous étudiez votre chemin de migration. Pour plus d'informations, [consultez le tableau des opérations d'E/S et des types de disque](../storage-premium-storage-preview-portal.md#scalability-and-performance-targets-whfr-FRing-premium-storage).
 
 Enfin, notez que les machines virtuelles prennent en charge différentes bandes passantes maximales pour tous les disques connectés. Sous une charge élevée, vous risquez de saturer la bande passante de disque maximale disponible pour cette taille de rôle de machine virtuelle. Par exemple un disque Standard\_DS14 prendra en charge jusqu'à 512 Mo/s ; par conséquent, avec trois disques P30, vous pourriez saturer la bande passante de disque de la machine virtuelle. Mais dans cet exemple, la limite de débit peut être dépassée selon la combinaison d'opérations d'E/S en lecture et écriture.
 
@@ -667,7 +665,7 @@ Veuillez noter que la diminution de la valeur 'HostRecordTTL' augmente le trafic
 
 Si votre application cliente SQL prend en charge .Net 4.5 SQLClient, vous pouvez utiliser le mot clé 'MULTISUBNETFAILOVER = TRUE' ; il est recommandé de l'appliquer car il accélère la connexion au groupe de disponibilité AlwaysOn SQL pendant le basculement. Il énumère toutes les adresses IP associées à l'écouteur AlwaysOn en parallèle et effectue une tentative de reconnexion TCP plus rapide lors d'un basculement.
 
-Pour plus d'informations sur les paramètres ci-dessus, consultez la rubrique[Mot clé MultiSubnetFailover et fonctionnalités associées](https://msdn.microsoft.com/library/hh213080.aspx#MultiSubnetFailover). Consultez également la rubrique [Prise en charge SqlClient pour la haute disponibilité et récupération d’urgence\](https://msdn.microsoft.com/library/hh205662(v=vs.110).aspx).
+Pour plus d'informations sur les paramètres ci-dessus, consultez la rubrique[Mot clé MultiSubnetFailover et fonctionnalités associées](https://msdn.microsoft.com/library/hh213080.aspx#MultiSubnetFailover). Consultez également la rubrique [Prise en charge SqlClient pour la haute disponibilité et récupération d’urgence](https://msdn.microsoft.com/library/hh205662(v=vs.110).aspx).
 
 #### Étape 5 : paramètres de quorum de cluster
 
@@ -676,7 +674,7 @@ Comme vous allez arrêter au moins un serveur SQL à la fois, vous devez modifie
 
     Set-ClusterQuorum -NodeMajority  
 
-Pour plus d'informations sur la gestion et la configuration du quorum de cluster, consultez la rubrique [Configurer et gérer le quorum dans un cluster de basculement Windows Server 2012](https://technet.microsoft.com/fr-fr/library/jj612870.aspx).
+Pour plus d'informations sur la gestion et la configuration du quorum de cluster, consultez la rubrique [Configurer et gérer le quorum dans un cluster de basculement Windows Server 2012](https://technet.microsoft.com/fr-FR/library/jj612870.aspx).
 
 #### Étape 6 : extraction des points de terminaison et des ACL existants
     #GET Endpoint info
@@ -1145,4 +1143,4 @@ Pour ajouter l'adresse IP, consultez l'étape 14 de l'[annexe](#appendix-migrati
 [25]: ./media/virtual-machines-sql-server-use-premium-storage/10_Appendix_15.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

@@ -1,22 +1,20 @@
 <properties
    pageTitle="Modèle de calcul distribué Acteurs fiables"
-   description="Les Acteurs fiables Service Fabric constituent une solution parfaitement adaptée grâce à la messagerie asynchrone parallèle, l'état distribué facile à gérer et le calcul parallèle."
-   services="service-fabric"
-   documentationCenter=".net"
-   authors="jessebenson"
-   manager="timlt"
-   editor=""/>
-
+	description="Les Acteurs fiables Service Fabric constituent une solution parfaitement adaptée grâce à la messagerie asynchrone parallèle, l'état distribué facile à gérer et le calcul parallèle."
+	services="service-fabric"
+	documentationCenter=".net"
+	authors="jessebenson"
+	manager="timlt"
+	editor=""/>
 
 <tags
    ms.service="service-fabric"
-   ms.devlang="dotnet"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="NA"
-   ms.date="08/05/2015"
-   ms.author="claudioc"/>
-
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="NA"
+	ms.date="08/05/2015"
+	ms.author="claudioc"/>
 
 # Modèle de conception Acteurs fiables : calcul distribué
 Ce modèle nous a été inspiré en partie par une situation réelle dans laquelle un client avait réussi à effectuer un calcul financier dans Acteurs fiables Service Fabric en un temps record. Pour être plus précis, il s'agissait d'une simulation de calcul de risque de type Monte Carlo.
@@ -84,7 +82,7 @@ public class PooledTask : Actor, IPooledTask
                 pi.InCircle++;
         }
 
-        var agg = ActorProxy.Create<IAggregator>(0);
+        var agg = ActorProxy.Create<IAggregator>(ActorId.NewId());
         return agg.AggregateAsync(pi);
     }
 }
@@ -205,4 +203,4 @@ Nous n'affirmons aucunement qu'Azure Service Fabric est la solution de remplacem
 <!--Image references-->
 [1]: ./media/service-fabric-reliable-actors-pattern-distributed-computation/distributed-computation-1.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

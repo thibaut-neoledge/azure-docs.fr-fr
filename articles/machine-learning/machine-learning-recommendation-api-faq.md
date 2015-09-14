@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Configuration et utilisation de l'API Machine Learning Recommendations | Microsoft Azure" 
-	description="API Microsoft RECOMMANDATIONS créée avec le FAQ sur Azure Machine Learning" 
-	services="machine-learning" 
-	documentationCenter="" 
-	authors="jaymathe" 
-	manager="paulettm" 
+	pageTitle="Configuration et utilisation de l'API Machine Learning Recommendations | Microsoft Azure"
+	description="API Microsoft RECOMMANDATIONS créée avec le FAQ sur Azure Machine Learning"
+	services="machine-learning"
+	documentationCenter=""
+	authors="jaymathe"
+	manager="paulettm"
 	editor="cgronlun"/>
 
 <tags 
-	ms.service="machine-learning" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/19/2015" 
+	ms.service="machine-learning"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/01/2015"
 	ms.author="luisca"/>
 
 #Forum aux questions relatif à la configuration et à l’utilisation de l’API de Machine Learning Recommendations
@@ -130,4 +130,4 @@ Une assistance technique est disponible sur le site de [Support Microsoft Azure]
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

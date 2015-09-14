@@ -1,17 +1,17 @@
 <properties 
-	pageTitle="Notes de publication pour Application Insights" 
-	description="Les dernières mises à jour." 
-	services="application-insights" 
-    documentationCenter=""
-	authors="alancameronwills" 
+	pageTitle="Notes de publication pour Application Insights pour Java"
+	description="Les dernières mises à jour."
+	services="application-insights"
+	documentationCenter=""
+	authors="alancameronwills"
 	manager="douge"/>
 <tags 
-	ms.service="application-insights" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/18/2015" 
+	ms.service="application-insights"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="ibiza"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="06/18/2015"
 	ms.author="awills"/>
  
 # Notes de publication pour le Kit de développement logiciel (SDK) Application Insights pour Java
@@ -37,6 +37,14 @@ Une fois la mise à jour effectuée, vous devrez fusionner toutes les personnali
  
 Comparez les anciennes et nouvelles versions d’ApplicationInsights.xml. La plupart des modifications que vous apercevez sont dues aux ajouts et suppressions de modules. Rétablissez toutes les personnalisations que vous avez apportées.
 
+## Version 1.0.1
+- L'agent Java prend en charge la collecte des informations de dépendance sur les éléments suivants :
+	- Appels HTTP passés via HttpClient, OkHttp et RestTemplate (Spring).
+	- Appels à Redis passés via le client Jedis. Lorsqu'un seuil configurable est dépassé, le Kit de développement logiciel récupère également les arguments d'appel.
+	- Appels JDBC passés avec des clients Oracle DB et Apache Derby DB.
+	- Prendre en charge le type de requête « executeBatch » pour les instructions préparées ; le SDK affichera l'instruction avec le nombre de lots.
+	- Fournir le plan de requête pour les clients JDBC prenant en charge cela (MySql, PostgreSql) ; le plan de requête est uniquement extrait lorsqu'un seuil configurable est dépassé.
+
 ## Version 1.0.0
 - Ajout de la prise en charge du plug-in d’écriture Application Insights pour CollectD.
 - Ajout de la prise en charge de l'agent Java Application Insights.
@@ -60,4 +68,4 @@ Comparez les anciennes et nouvelles versions d’ApplicationInsights.xml. La plu
 - Possibilité de baliser un élément de télémétrie comme synthétique en ajoutant une propriété ```SyntheticSource``` à l’élément de rapport.
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

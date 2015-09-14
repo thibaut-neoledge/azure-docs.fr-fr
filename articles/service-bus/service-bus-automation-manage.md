@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/13/2015"
+	ms.date="08/28/2015"
 	ms.author="csand"/>
 
 
 
-#Gestion d'Azure Service Bus à l'aide d'Azure Automation
+# Gestion d'Azure Service Bus à l'aide d'Azure Automation
 
 Ce guide vous présente le service Azure Automation et décrit comment l'utiliser pour simplifier la gestion d'une application Azure Service Bus.
 
@@ -30,11 +30,9 @@ Azure Automation fournit un moteur d’exécution de workflow à haute fiabilit�
 
 Réduisez les coûts opérationnels et libérez du temps pour que votre équipe d’informaticiens et de développeurs puisse se concentrer sur des tâches qui génèrent une valeur ajoutée pour l’entreprise, en déléguant l’exécution automatique de vos tâches de gestion de Cloud à Azure Automation.
 
-
 ## Comment Azure Automation peut-il vous aider à gérer Azure Service Bus ?
 
-Dans Azure Automation, la gestion de Service Bus peut être effectuée à l'aide de l'[API REST Service Bus](https://msdn.microsoft.com/library/azure/hh780717.aspx). Azure Automation vous permet d'écrire des scripts de workflow PowerShell pour effectuer la plupart de vos tâches Service Bus à l'aide de l'API REST. Vous pouvez également associer ces appels de l’API REST dans Azure Automation avec les applets de commande d'autres services Azure, afin d'automatiser des tâches complexes entre des services Azure et des systèmes tiers.
-
+Vous pouvez gérer Service Bus avec Azure Automation à l'aide de l'[API REST Service Bus](https://msdn.microsoft.com/library/azure/hh780717.aspx). Azure Automation vous permet d'écrire des scripts de workflow PowerShell pour effectuer la plupart de vos tâches Service Bus à l'aide de l'API REST. Vous pouvez également associer ces appels de l’API REST dans Azure Automation avec les applets de commande d'autres services Azure, afin d'automatiser des tâches complexes entre des services Azure et des systèmes tiers.
 
 ## Étapes suivantes
 
@@ -44,4 +42,4 @@ Maintenant que vous avez appris les bases d'Azure Automation et la manière de 
 * Consultez l'article relatif à la [Gestion de Service Bus avec PowerShell](service-bus-powershell-how-to-provision.md)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

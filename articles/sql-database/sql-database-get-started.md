@@ -14,100 +14,104 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="07/15/2015"
+	ms.date="09/01/2015"
 	ms.author="genemi"/>
 
+# Créer votre première base de données SQL Azure
 
-# Créer votre première base de données SQL Microsoft Azure
+**Base de données unique**
 
+> [AZURE.SELECTOR]
+- [Azure portal](sql-database-get-started.md)
+- [C#](sql-database-get-started-csharp.md)
+- [PowerShell](sql-database-get-started-powershell.md)
 
-Cet article vous explique comment créer un exemple de base de données SQL Microsoft Azure en moins de cinq minutes. Vous allez découvrir comment effectuer les actions suivantes :
+Cet article vous explique comment créer un exemple de base de données SQL en seulement quelques minutes à l’aide du portail Azure. Vous découvrirez comment effectuer les actions suivantes :
 
+- Créer un serveur pour héberger la base de données que vous créez, puis définir une règle de pare-feu pour celle-ci
+- Créer une base de données à partir d’un exemple AdventureWorks, qui inclut des données avec lesquelles vous pouvez jouer
 
-- Configuration d’un serveur logique via le [portail Microsoft Azure](http://portal.azure.com/)
-- Création d’une base de données incluant des exemples de données
-- Définition d’une règle de pare-feu pour configurer les adresses IP autorisées à accéder à votre base de données
+Avant de commencer, vous avez besoin d’un compte Azure et d’un abonnement. Si vous n’en avez pas, inscrivez-vous pour un [essai gratuit](http://azure.microsoft.com/pricing/free-trial/).
 
-
-Ce didacticiel part du principe que vous disposez d’un abonnement Azure. Le cas échéant, vous pouvez vous inscrire afin d’accéder à une version d’[essai gratuit](http://azure.microsoft.com/pricing/free-trial/) dès aujourd’hui.
-
-
-## Étape 1 : Connexion
-
-
+## Étape 1 : Se connecter et démarrer la configuration de la base de données SQL
 1. Connectez-vous au [portail Azure](http://portal.azure.com/).
 2. Cliquez sur **Nouveau** > **Données et stockage** > **Base de données SQL**.
 
+	![Créer une base de données SQL](./media/sql-database-get-started/create-db.png)
+	
+	Le panneau Paramètres de la **Base de données SQL** qui s’affiche est l’emplacement où vous configurerez les détails du serveur et de la base de données.
 
-![New SQL Database][1]
+	![Paramètres de base de données et de serveur pour base de données SQL](./media/sql-database-get-started/get-started-dbandserversettings.png)
 
+## Étape 2 : Choisir les paramètres du serveur
+Une base de données SQL dans Azure réside sur un serveur de bases de données. Un serveur peut héberger plusieurs bases de données. Lorsque vous définissez une base de données, vous pouvez également créer et configurer le serveur qui l’hébergera ou utiliser un serveur créé précédemment. Nous allons en créer un.
 
-## Étape 2 : Création de votre serveur logique
+1. Saisissez un **Nom** pour votre base de données (nous utilisons **AdventureWorks**). Nous couvrirons les autres paramètres de base de données ultérieurement.
+2. Sous **Serveur**, cliquez sur **Configurer les paramètres requis**, puis sur **Créer un serveur**.
 
+	![Nommer votre base de données](./media/sql-database-get-started/name-and-newserver.png)
 
+3. Dans le panneau **Nouveau serveur**, tapez un **Nom du serveur** unique dans Azure et facile à mémoriser. Vous aurez besoin de ce nom ultérieurement lorsque vous vous connecterez et que vous travaillerez avec votre base de données.
+4. Tapez un **Nom de connexion d’administrateur de serveur ** facile à mémoriser (nous utilisons **AdventureAdmin**). Ensuite, tapez un **Mot de passe** sécurisé et tapez-le de nouveau dans le champ **Confirmer le mot de passe**.
 
-1. Dans le panneau **Base de données SQL**, choisissez un **Nom** pour votre base de données (dans cet exemple, le nom utilisé est **AdventureWorks**).
-2. Pour créer un serveur logique pour votre base de données, cliquez sur **Serveur**, puis sur **Créer un serveur**.
+	![Nouveaux paramètres de serveur de bases de données](./media/sql-database-get-started/get-started-serversettings.png)
 
+	 Laissez l’option **Créer un serveur V12 (dernière mise à jour)** définie sur **Oui** pour utiliser les dernières fonctionnalités. Le champ **Emplacement** détermine la région de centre de données où votre serveur est créé.
 
-## Étape 3 : Configuration de votre serveur
+	>[AZURE.TIP]Créez des serveurs de bases de données à un emplacement proche des applications qui utiliseront la base de données. Si vous souhaitez modifier l’emplacement, cliquez simplement sur **Emplacement**, choisissez un autre emplacement, puis cliquez sur **OK**.
 
+5. Cliquez sur **OK** pour revenir au panneau **Base de données SQL**.
 
-1. Dans le panneau **Serveur**, dans le champ **Nom du serveur**, indiquez un nom unique et simple à retenir.
-2. Dans le champ **Connexion d’administrateur du serveur**, indiquez **AdventureAdmin**.
-3. Entrez la valeur correcte dans les zones **Mot de passe** et **Confirmer le mot de passe**.
-4. Dans **Emplacement**, choisissez l’emplacement géographique de votre choix. En général, cet emplacement est proche de l’emplacement d’exécution de l’application.
-5. Cliquez sur **OK**.
+La base de données et le serveur ne sont pas encore créés. Cela se produit après l’étape suivante, où vous choisissez de créer la base de données à partir de l’exemple AdventureWorks et où vous confirmez les paramètres.
 
+## Étape 4 : Définir et créer la base de données
+1. Dans le panneau **Base de données SQL**, cliquez sur **Sélectionner une source**, puis sur **Exemple**. 
 
-![Créer un serveur][2]
+	![Créer une base de données à partir d’un exemple](./media/sql-database-get-started/new-sample-db.png)
 
+2. Vous revenez au panneau **Base de données SQL**, où **Sélectionner un exemple** affiche maintenant **AdventureWorks LT [V12]**. Cliquez sur **Créer** pour lancer la création du serveur et de la base de données.
 
-## Étape 4 : Création de votre base de données
+	![Créer un exemple de base de données](./media/sql-database-get-started/adworks_create.png)
 
+	>[AZURE.NOTE]Pour cette procédure rapide, nous n’avons pas modifié les paramètres pour les options **Niveau de tarification**, **Classement**, et **Groupe de ressources**. Vous pouvez modifier le niveau de tarification d’une base de données et évoluer à tout moment, sans interruption de service. Voir [Tarification de base de données SQL](http://azure.microsoft.com/pricing/details/sql-database/) et [Niveaux de tarification de base de données SQL](sql-database-service-tiers.md) pour en savoir plus. Le classement d’une base de données ne peut pas être modifié une fois que vous le configurez ici. Voir [Prise en charge d’Unicode et du classement](https://msdn.microsoft.com/library/ms143726.aspx) pour plus d’informations sur le classement. Voir [Présentation d’Azure Resource Manager](resource-group-overview.md) pour en savoir plus sur les groupes de ressources Azure.
 
-1. Dans le panneau **Base de données SQL**, spécifiez la source de la base de données en cliquant sur **Sélectionner une source**.
- - Si vous ignorez cette étape, une base de données vide est créée.
-2. Sélectionnez **Échantillon**.
- - Cela crée une base de données, qui est une copie de l’échantillon de base de données standard appelé **AdventureWorks**.
- - Sur la base de données SQL Microsoft Azure, l’édition du *schéma léger* de la base de données AdventureWorks est utilisé.
-3. Cliquez sur l’option **Créer** figurant en bas du panneau.
-
+Vous revenez au tableau d’accueil Azure, où une vignette affiche la progression jusqu’à ce que la base de données soit créée et en ligne. Vous pouvez également cliquer sur **Parcourir tout**, puis sur **Bases de données SQL** pour confirmer que la base de données est en ligne.
+	
+Félicitations ! Vous disposez maintenant d’une base de données exécutée dans le cloud. Vous avez presque terminé ! Il ne reste qu’une étape clé. Vous devez créer une règle sur le serveur de bases de données afin de pouvoir vous connecter à la base de données.
 
 ## Étape 5 : Configurer le pare-feu
 
+Vous devez définir une règle de pare-feu sur le serveur qui autorise les connexions à partir de l’adresse IP de l’ordinateur client afin de pouvoir travailler avec la base de données. Cette opération ne sert pas uniquement à garantir que vous pouvez vous connecter : c’est un excellent moyen de visualiser la zone où vous pouvez obtenir des précisions sur vos serveurs SQL dans Azure.
 
-Les étapes suivantes indiquent comment spécifier les plages d’adresses IP autorisées à accéder à votre base de données.
+1. Cliquez sur **Parcourir tout**, faites défiler vers le bas, puis cliquez sur **Serveurs SQL** et sur le nom du serveur que vous avez créé précédemment dans la liste des **Serveurs SQL**.
 
+	![Sélectionner votre serveur de bases de données](./media/sql-database-get-started/browse_dbservers.png)
 
-![Parcourir un serveur][3]
+	
+3. Dans le panneau de propriétés de la base de données qui apparaît à droite, cliquez sur **Paramètres**, puis cliquez sur **Pare-feu** dans la liste.
 
-
-1. Dans le ruban figurant sur le côté gauche de l’écran, cliquez sur **Parcourir**, puis sur **Serveurs SQL**.
-2. Parmi les options disponibles, sélectionnez le serveur SQL que vous avez créé précédemment.
-3. Cliquez sur **Paramètres**, puis sur **Pare-feu**.
-4. Obtenez votre adresse IP actuelle à partir de [Bing](http://www.bing.com/search?q=my%20ip%20address).
-5. Dans Paramètres de pare-feu, saisissez un nom dans **Nom de la règle** et collez l’adresse IP publique obtenue à l’étape précédente dans les champs **Adresse IP de début** et **Adresse IP de fin**.
-6. Lorsque vous avez terminé, cliquez sur l’option **Enregistrer** figurant en haut de la page.
+	![Ouverture des paramètres de pare-feu](./media/sql-database-get-started/db_settings.png)
 
 
-![Pare-feu][4]
+	L’option **Paramètres de pare-feu** affiche votre **Adresse IP du client** en cours.
 
+	![Adresse IP en cours](./media/sql-database-get-started/firewall_config_client_ip.png)
+
+4. Cliquez sur **Ajouter l’IP du client** pour qu’Azure crée une règle pour cette adresse IP, puis cliquez sur **Enregistrer**.
+
+	![Ajouter l’adresse IP](./media/sql-database-get-started/firewall_config_new_rule.png)
+
+	>[AZURE.IMPORTANT]Votre adresse IP est susceptible de changer de temps à autre, et vous ne serez peut-être pas en mesure d’accéder à votre serveur jusqu’à ce que vous créiez une nouvelle règle de pare-feu. Vous pouvez vérifier votre adresse IP à l’aide de [Bing](http://www.bing.com/search?q=my%20ip%20address), puis ajouter une adresse IP unique ou une plage d’adresses IP. Voir [Configuration des paramètres du pare-feu](sql-database-configure-firewall-settings.md) pour plus d’informations.
 
 ## Étapes suivantes
+Maintenant que vous avez une base de données avec des exemples de données, vous êtes prêt pour l’exploration à l’aide de vos outils préférés.
 
+- Si vous êtes familiarisé avec Transact-SQL et SQL Server Management Studio, découvrez comment [Connecter et interroger une base de données SQL avec SSMS](sql-database-connect-query-ssms.md).
 
-À présent, vous êtes prêt à écrire un petit programme client capable de se connecter à votre base de données. Pour obtenir un exemple de code, afin de démarrer rapidement, cliquez sur l’un des liens suivants :
+- Si vous connaissez Excel, découvrez comment [Se connecter à une base de données SQL avec Excel](sql-database-connect-excel.md).
 
+- Si vous êtes prêt à commencer le codage, voir [Connecter et interroger votre base de données SQL avec C#](sql-database-connect-query.md) et [Utilisation de la base de données SQL à partir de .NET (C#)](sql-database-develop-dotnet-simple.md). Voir [Exemples de code de démarrage rapide pour base de données SQL](sql-database-develop-quick-start-client-code-samples.md) pour des exemples et des procédures Node.js, Python, Ruby, Java, PHP et C++, parallèlement à C#.
 
-- [Se connecter et interroger une base de données SQL avec C\#](sql-database-connect-query.md)
-- *Bientôt disponible :* Développement de clients et échantillons de démarrage rapide pour une base de données SQL
+- Si vous souhaitez déplacer vos bases de données SQL Server locales vers Azure, voir [Migration d’une base de données vers la base de données SQL Azure](sql-database-cloud-migrate.md) pour en savoir plus.
 
-
-<!-- Media references. -->
-[1]: ./media/sql-database-get-started/GettingStarted_NewDB.PNG
-[2]: ./media/sql-database-get-started/GettingStarted_CreateServer.png
-[3]: ./media/sql-database-get-started/GettingStarted_BrowseServer.png
-[4]: ./media/sql-database-get-started/GettingStarted_FireWall.png
-
-<!---HONumber=August15_HO8-->
+<!---HONumber=September15_HO1-->

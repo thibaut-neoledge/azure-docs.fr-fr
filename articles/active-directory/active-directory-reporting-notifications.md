@@ -20,30 +20,11 @@
 
 ## Quels rapports génèrent les notifications par courrier électronique
 
-Pour l’instant, seuls le rapport d’activité de connexion anormale et le rapport d’activité des connexions anormales utilisent le système de notification par courrier électronique.
+À ce stade, seul le rapport Activité de connexion anormale déclenche des notifications par courrier électronique.
 
-## Que déclenche l’envoi de la notification par courrier électronique ?
+## Qu'est-ce qu'une « connexion anormale » ?
 
-Par défaut, Azure Active Directory est configuré pour envoyer automatiquement des notifications par courrier électronique à tous les administrateurs généraux. Le courrier électronique est envoyé dans les conditions suivantes pour chaque rapport.
-
-Pour le rapport d’activité de connexion anormale :
-
-- Sources inconnues : 10 événements
-- Plusieurs échecs : 10 événements
-- Adresses IP affichant une activité suspecte : 10 événements
-- Périphériques infectés : 10 événements
-
-Pour les utilisateurs ayant un rapport d’activité de connexion anormale :
-
-- Sources inconnues : 10 événements
-- Plusieurs échecs : 10 événements
-- Adresses IP affichant une activité suspecte : 10 événements
-- Périphériques infectés : 5 événements
-- Rapport de connexions anormales : 15 événements
-
-Le courrier électronique est envoyé si une des conditions mentionnées ci-dessus est remplie dans les 30 jours, ou lorsque le dernier courrier électronique a été envoyé il y a moins de 30 jours.
-
-Les connexions dites anormales sont celles qui ont été identifiées comme « anormales » par nos algorithmes d’apprentissage automatique, car elles ont été effectuées depuis un emplacement inattendu et/ou à une heure également suspecte. Cela peut signifier qu'un pirate a essayé de se connecter à l'aide de ce compte. Le tableau ci-dessus fournit plus d'informations sur ce rapport.
+Les connexions irrégulières sont celles qui ont été identifiées par nos algorithmes d’apprentissage automatique, sur la base d'une condition de « déplacement impossible » associée à un emplacement et un périphérique de connexion anormaux. Cela peut signifier qu'un pirate a essayé de se connecter à l'aide de ce compte.
 
 ## Qui reçoit les notifications par courrier électronique ?
 
@@ -51,7 +32,9 @@ Le courrier électronique est envoyé à tous les administrateurs généraux tit
 
 ## Quelle est la fréquence d’envoi de ces courriers électroniques ?
 
-Une fois le premier courrier électronique envoyé, un second suivra lorsque 10 événements de connexion anormale se seront produits dans les 30 jours suivant l’envoi du premier courrier électronique. Comment puis-je accéder au rapport mentionné dans le courrier électronique ?
+Le courrier électronique est envoyé si 10 nouvelles activités de connexion anormale se produisent au cours des 30 derniers jours, ou depuis que le dernier courrier électronique a été envoyé, selon la valeur qui est inférieure.
+
+## Comment puis-je accéder au rapport mentionné dans le courrier électronique ?
 
 Lorsque vous cliquerez sur le lien, vous serez redirigé vers la page du rapport du portail de gestion Azure. Pour accéder au rapport, vous devez être à la fois :
 
@@ -67,4 +50,4 @@ Oui, pour désactiver les notifications liées à des connexions anormales dans 
 - [Prise en main d’Azure Active Directory Premium (AD)](active-directory-get-started-premium.md)
 - [Ajout d’une marque de société aux pages de connexion et du volet d’accès](active-directory-add-company-branding.md)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=September15_HO1-->

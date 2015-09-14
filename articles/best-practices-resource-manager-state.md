@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/15/2015"
+	ms.date="09/02/2015"
 	ms.author="mmercuri"/>
 
 # Partage d’état dans les modèles Azure Resource Manager
 
-Cette rubrique décrit comment gérer et partager l’état dans un modèle de gestionnaire de ressources Azure et entre des modèles liés.
+Cette rubrique décrit les meilleures pratiques pour gérer et partager l'état dans un modèle Azure Resource Manager et entre des modèles liés. Les paramètres et les variables présentés dans cette rubrique sont des exemples du type d'objets que vous pouvez définir pour organiser aisément votre déploiement. À partir de ces exemples, vous pouvez implémenter vos propres objets avec les valeurs de propriété pertinentes pour votre environnement.
 
 ## Utilisation d’objets complexes pour le partage d’état
 
@@ -366,7 +366,7 @@ L’exemple suivant montre comment transmettre l’adresse IP privée générée
 
     "outputs": {
         "masterip": {
-            "value": "[reference(concat(variables('nicName'),0)).ipConfigurations[0].properties.privateIPAddress]",
+            "value": "[reference(concat(variables('nicName'),0)).ipConfigurations[0].privateIPAddress]",
             "type": "string"
          }
     }
@@ -381,4 +381,4 @@ Dans le modèle principal, vous pouvez utiliser ces données avec la syntaxe sui
 - [Création de modèles Azure Resource Manager](resource-group-authoring-templates.md)
 - [Fonctions des modèles Azure Resource Manager](resource-group-template-functions.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

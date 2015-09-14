@@ -341,7 +341,7 @@ Le pipeline contient une activité de copie qui est configurée pour utiliser le
 		    	    "typeProperties": {
 		    	    	"source": {
 		            		"type": "SqlSource",
-			            	"SqlReaderQuery": "$$Text.Format('select * from MyTable where timestampcolumn >= \'{0:yyyy-MM-dd HH:mm}\' AND timestampcolumn < \'{1:yyyy-MM-dd HH:mm}\'', WindowStart, WindowEnd)"
+			            	"SqlReaderQuery": "$$Text.Format('select * from MyTable where timestampcolumn >= \\'{0:yyyy-MM-dd HH:mm}\\' AND timestampcolumn < \\'{1:yyyy-MM-dd HH:mm}\\'', WindowStart, WindowEnd)"
 		          		},
 		          		"sink": {
 		            		"type": "BlobSink"
@@ -383,6 +383,7 @@ La section **typeProperties** est différente pour chaque type de jeu de donnée
 | filename | <p>Nom de l’objet blob. fileName est facultatif. </p><p>Si vous spécifiez un nom de fichier, l’activité (y compris la copie) fonctionne sur l’objet Blob spécifique.</p><p>Quand fileName n’est pas spécifié, la copie inclut tous les objets Blob dans folderPath pour le jeu de données d’entrée.</p><p>Quand fileName n’est pas spécifié pour un jeu de données de sortie, le nom du fichier généré est au format suivant : Data.<Guid>.txt (par exemple : Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt)</p> | Non |
 | partitionedBy | partitionedBy est une propriété facultative. Vous pouvez l'utiliser pour spécifier un folderPath dynamique et le nom de fichier pour les données de série chronologique. Par exemple, folderPath peut être paramétré pour toutes les heures de données. Consultez la section Utilisation de la propriété partitionedBy ci-dessous pour obtenir plus d'informations et des exemples. | Non
 | format | Deux types de formats sont pris en charge : **TextFormat**, **AvroFormat**. Vous devez définir la propriété de type sous format sur l'une de ces valeurs. Lorsque le format est TextFormat, vous pouvez spécifier des propriétés facultatives supplémentaires pour le format. Consultez la section [Définition de TextFormat](#specifying-textformat) ci-dessous pour plus de détails. | Non
+| compression | Spécifiez le type et le niveau de compression pour les données. Types pris en charge : GZip, Deflate et BZip2 ; niveaux pris en charge : Optimal et Fastest (le plus rapide). Pour plus de détails, consultez la section [Prise en charge de la compression](#compression-support). | Non |
 
 ### Utilisation de la propriété partitionedBy
 Comme mentionné ci-dessus, vous pouvez spécifier des valeurs folderPath et filename dynamiques pour les données de série chronologique avec la section **partitionedBy**, les macros Data Factory et les variables système : SliceStart et SliceEnd, qui indiquent les heures de début et de fin pour un segment spécifique de données.
@@ -421,10 +422,10 @@ Si le format est défini sur **TextFormat**, vous pouvez spécifier les proprié
 | -------- | ----------- | -------- |
 | columnDelimiter | Caractère(s) utilisé(s) comme séparateur de colonnes dans un fichier. Cette balise est facultative. La valeur par défaut est la virgule (,). | Non |
 | rowDelimiter | Caractère(s) utilisé(s) comme séparateur de lignes dans un fichier. Cette balise est facultative. La valeur par défaut est : [« \\r\\n », « \\r », « \\n »]. | Non |
-| escapeChar | <p>Caractère spécial utilisé pour placer dans une séquence d’échappement le délimiteur de colonnes indiqué dans le contenu. Cette balise est facultative. Aucune valeur par défaut. Vous ne devez pas spécifier plusieurs caractères pour cette propriété.</p><p>Par exemple, si vous avez une virgule (,) comme séparateur de colonnes, mais que vous voulez avoir le caractère virgule dans le texte (exemple : « Hello, world »), vous pouvez définir « $ » comme caractère d’échappement et utiliser la chaîne « Hello$, world » dans la source.</p><p>Notez que vous ne pouvez pas spécifier escapeChar et quoteChar pour une table.</p> | Non | 
-| quoteChar | <p>Caractère spécial utilisé pour entourer de guillemets la valeur de la chaîne. Les séparateurs de colonnes et de lignes à l'intérieur des caractères de guillemets sont considérés comme faisant partie de la valeur de la chaîne. Cette balise est facultative. Aucune valeur par défaut. Vous ne devez pas spécifier plusieurs caractères pour cette propriété.</p><p>Par exemple, si vous avez une virgule (,) comme séparateur de colonnes, mais que vous voulez avoir le caractère virgule dans le texte (exemple : <Hello  world>), vous pouvez définir « " » comme caractère de guillemet et utiliser la chaîne <"Hello, world"> dans la source. Cette propriété s’applique aux tables d’entrée et de sortie.</p><p>Notez que vous ne pouvez pas spécifier escapeChar et quoteChar pour une table.</p> | Non |
-| nullValue | <p>Caractère(s) utilisé(s) pour représenter la valeur null dans le contenu du fichier blob. Cette balise est facultative. La valeur par défaut est « \\N ».</p><p>Par exemple, selon l’exemple ci-dessus, « NaN » dans l’objet blob sera converti en tant que valeur null au moment de la copie vers, par exemple, SQL Server.</p> | Non |
-| encodingName | Spécifier le nom d'encodage. Pour obtenir une liste des noms d’encodage valides, consultez : [Propriété Encoding.EncodingName](https://msdn.microsoft.com/library/system.text.encoding.aspx). Par exemple : windows-1250 ou shift\_jis. La valeur par défaut est : UTF-8. | Non | 
+| escapeChar | <p>Caractère spécial utilisé pour échapper au délimiteur de colonnes indiqué dans le contenu. Cette balise est facultative. Aucune valeur par défaut. Vous ne devez pas spécifier plusieurs caractères pour cette propriété.</p><p>Par exemple, si vous avez une virgule (,) comme séparateur de colonnes, mais que vous voulez avoir le caractère virgule dans le texte (exemple : « Hello, world »), vous pouvez définir « $ » comme caractère d'échappement et utiliser la chaîne « Hello$, world » dans la source.</p><p>Notez que vous ne pouvez pas spécifier escapeChar et quoteChar pour une table.</p> | Non | 
+| quoteChar | <p>Caractère spécial utilisé pour entourer de guillemets la valeur de la chaîne. Les séparateurs de colonnes et de lignes à l'intérieur des caractères de guillemets sont considérés comme faisant partie de la valeur de la chaîne. Cette balise est facultative. Aucune valeur par défaut. Vous ne devez pas spécifier plusieurs caractères pour cette propriété.</p><p>Par exemple, si vous avez une virgule (,) comme séparateur de colonnes mais que vous voulez avoir le caractère virgule dans le texte (exemple : <Hello  world>), vous pouvez définir « " » comme caractère de guillemet et utiliser la chaîne <"Hello, world"> dans la source. Cette propriété s'applique aux tables d'entrée et de sortie.</p><p>Notez que vous ne pouvez pas spécifier escapeChar et quoteChar pour une table.</p> | Non |
+| nullValue | <p>Caractère(s) utilisé(s) pour représenter la valeur null dans le contenu du fichier blob. Cette balise est facultative. La valeur par défaut est « \\N ».</p><p>Par exemple, selon l'exemple ci-dessus, « NaN » dans l'objet blob sera converti en tant que valeur null au moment de la copie vers, par exemple, SQL Server.</p> | Non |
+| encodingName | Spécifier le nom d'encodage. Pour obtenir une liste des noms de d'encodage valides, consultez : [Propriété Encoding.EncodingName](https://msdn.microsoft.com/library/system.text.encoding.aspx). Par exemple : windows-1250 ou shift\_jis. La valeur par défaut est : UTF-8. | Non | 
 
 #### Exemples
 L'exemple suivant illustre certaines des propriétés de format pour TextFormat.
@@ -455,10 +456,13 @@ Si le format est défini sur AvroFormat, il est inutile de spécifier des propri
 	    "type": "AvroFormat",
 	}
 
-Pour utiliser AvroFormat dans une table Hive, vous pouvez faire référence au [didacticiel Apache Hive](https://cwiki.apache.org/confluence/display/Hive/AvroSerDe).
+Pour utiliser le format Avro dans une table Hive, vous pouvez faire référence au [didacticiel Apache Hive](https://cwiki.apache.org/confluence/display/Hive/AvroSerDe).
+
+[AZURE.INCLUDE [data-factory-compression](../../includes/data-factory-compression.md)]
+
 
 ## Propriétés de type de l’activité de copie d’objet Blob Azure  
-Pour obtenir la liste complète des sections et des propriétés disponibles pour la définition des activités, consultez l’article [Création de pipelines](data-factory-create-pipelines.md). Des propriétés telles que le nom, la description, les tables d’entrée et de sortie, différentes stratégies, etc. sont disponibles pour tous les types d'activités.
+Pour obtenir la liste complète des sections et des propriétés disponibles pour la définition des activités, consultez l'article [Création de pipelines](data-factory-create-pipelines.md). Des propriétés telles que le nom, la description, les tables d’entrée et de sortie, différentes stratégies, etc. sont disponibles pour tous les types d'activités.
 
 Par contre, les propriétés disponibles dans la section typeProperties de l'activité varient avec chaque type d'activité et dans le cas de l'activité de copie, elles varient selon les types de sources et de récepteurs.
 
@@ -467,7 +471,7 @@ Par contre, les propriétés disponibles dans la section typeProperties de l'act
 | Propriété | Description | Valeurs autorisées | Requis |
 | -------- | ----------- | -------------- | -------- | 
 | treatEmptyAsNull | Spécifie s'il faut traiter une chaîne null ou vide en tant que valeur null. | TRUE<br/>FALSE | Non |
-| skipHeaderLineCount | Indique le nombre de lignes à ignorer. Applicable uniquement quand le jeu de données d’entrée utilise **TextFormat**. | Entier compris entre 0 et Max. | Non | 
+| skipHeaderLineCount | Indique le nombre de lignes à ignorer. Applicable uniquement quand le jeu de données d'entrée utilise **TextFormat**. | Entier compris entre 0 et Max. | Non | 
 
 
 **BlobSink** prend en charge les propriétés suivantes dans la section **typeProperties** :
@@ -476,10 +480,16 @@ Par contre, les propriétés disponibles dans la section typeProperties de l'act
 | -------- | ----------- | -------------- | -------- |
 | blobWriterAddHeader | Spécifie s'il faut ajouter un en-tête de définitions de colonne. | TRUE<br/>FALSE (valeur par défaut) | Non |
 
+
 [AZURE.INCLUDE [data-factory-structure-for-rectangualr-datasets](../../includes/data-factory-structure-for-rectangualr-datasets.md)]
 
 [AZURE.INCLUDE [data-factory-type-conversion-sample](../../includes/data-factory-type-conversion-sample.md)]
 
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
-<!---HONumber=August15_HO9-->
+
+
+## Envoyer des commentaires
+Nous souhaiterions vraiment obtenir vos commentaires sur cet article. Prenez quelques minutes pour nous envoyer vos commentaires par [courrier électronique](mailto:adfdocfeedback@microsoft.com?subject=data-factory-azure-blob-connector.md).
+
+<!---HONumber=September15_HO1-->

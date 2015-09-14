@@ -1,22 +1,20 @@
 <properties 
-   pageTitle="Conception de base de données SQL pour la continuité des activités" 
-   description="Conseils sur le choix Dans cette section, vous bénéficierez de conseils sur le choix des fonctionnalités BCDR à utiliser et quand. Vous y trouverez, entre autres, des descriptions de ce que vous obtenez automatiquement en utilisant une base de données SQL."
-   services="sql-database" 
-   documentationCenter="" 
-   authors="elfisher" 
-   manager="jeffreyg" 
-   editor="monicar"/>
-
+   pageTitle="Conception de base de données SQL pour la continuité des activités"
+	description="Conseils sur le choix Dans cette section, vous bénéficierez de conseils sur le choix des fonctionnalités BCDR à utiliser et quand. Vous y trouverez, entre autres, des descriptions de ce que vous obtenez automatiquement en utilisant une base de données SQL."
+	services="sql-database"
+	documentationCenter=""
+	authors="elfisher"
+	manager="jeffreyg"
+	editor="monicar"/>
 
 <tags
    ms.service="sql-database"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="data-management" 
-   ms.date="07/14/2015"
-   ms.author="elfish"/>
-
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="data-management"
+	ms.date="07/14/2015"
+	ms.author="elfish"/>
 
 #Conception pour la continuité des activités
 
@@ -61,16 +59,19 @@ Vous pouvez activer la géo-réplication à l'aide du portail Azure ou en appela
 
 ###Portail Azure
 
+[AZURE.VIDEO sql-database-enable-geo-replication-in-azure-portal]
+
 1. Connectez-vous au [portail Azure](https://portal.Azure.com).
 2. Sur le côté gauche de l'écran, sélectionnez **PARCOURIR**, puis sélectionnez **Bases de données SQL**
 3. Accédez à votre panneau de base de données, sélectionnez la **carte de géo-réplication** et cliquez sur **Configurer la géo-réplication**.
 4. Accédez au panneau de géo-réplication. Sélectionnez la région cible. 
 5. Accédez au panneau Créer une base de données secondaire. Sélectionnez un serveur existant dans la région cible ou créez-en un.
-6. Sélectionnez le type secondaire (*Lisible* ou *Illisible*).
+6. Sélectionnez le type secondaire (*Lisible* ou *Illisible*)
 7. Cliquez sur **Créer** pour terminer la configuration
 
 > [AZURE.NOTE]La région associée à la récupération d'urgence dans le panneau de géo-réplication sera marquée comme étant *recommandée*. Si vous utilisez une base de données Premium, vous pouvez choisir une autre région. Si vous utilisez une base de données standard, vous ne pouvez pas la modifier. La base de données Premium aura le choix en termes de type secondaire (*Lisible* ou *Illisible*). La base de données standard peut uniquement sélectionner un type secondaire *Illisible*.
- 
+
+
 ###PowerShell
 
 Utilisez l'applet de commande PowerShell [Start-AzureSqlDatabaseCopy](https://msdn.microsoft.com/library/dn720220.aspx) pour automatiser la configuration de la géo-réplication.
@@ -101,4 +102,4 @@ Lorsque vous concevez votre application pour la continuité des activités, vous
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

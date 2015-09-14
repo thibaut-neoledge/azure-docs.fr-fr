@@ -7,16 +7,14 @@
 	manager="wpickett"
 	editor="jimbe"/>
 
-
 <tags
 	ms.service="app-service-web"
 	ms.workload="web"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/24/2015"
+	ms.date="07/17/2015"
 	ms.author="jaime-espinosa"/>
-
 
 # Références sur la navigation dans le portail Azure
 
@@ -88,4 +86,4 @@ Outre le nom de la marque, quelques autres éléments du portail ont été renom
 * Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre l’ancien et le nouveau portail, consultez : [Références sur la navigation dans le portail Azure](http://go.microsoft.com/fwlink/?LinkId=529715)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

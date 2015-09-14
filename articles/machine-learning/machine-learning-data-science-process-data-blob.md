@@ -1,24 +1,27 @@
 <properties 
-	pageTitle="Traitement des données d’objets blob Azure avec des analyses de données avancées | Microsoft Azure" 
-	description="Traitez les données dans un stockage d’objets blob Azure." 
-	services="machine-learning,storage" 
-	documentationCenter="" 
-	authors="msolhab" 
-	manager="paulettm" 
-	editor="cgronlun" />
+	pageTitle="Traitement des données d’objets blob Azure avec des analyses de données avancées | Microsoft Azure"
+	description="Traitez les données dans un stockage d’objets blob Azure."
+	services="machine-learning,storage"
+	documentationCenter=""
+	authors="msolhab"
+	manager="paulettm"
+	editor="cgronlun"/>
 
 <tags 
-	ms.service="machine-learning" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/29/2015" 
-	ms.author="sunliangms;fashah;msolhab;garye;bradsev" />
+	ms.service="machine-learning"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/01/2015"
+	ms.author="sunliangms;fashah;msolhab;garye;bradsev"/>
 
 #<a name="heading"></a>Traitement des données d’objets blob Azure avec des analyses de données avancées
 
-Ce document concerne l’exploration des données et la génération de fonctionnalités à partir de données stockées dans le stockage d’objets blob. Pour ce faire, les données doivent être téléchargées de la source du blob dans un fichier local qui peut ensuite être chargé dans une table de données Pandas à des fins d’exploration et de manipulation. Voici la procédure à suivre :
+Ce document concerne l’exploration des données et la génération de fonctionnalités à partir de données stockées dans le stockage d’objets blob.
+
+## Chargement des données dans une trame de données Pandas
+Pour explorer et manipuler un jeu de données, celui-ci doit être téléchargé depuis la source Blob vers un fichier local qui peut ensuite être chargé dans une trame de données Pandas. Voici les étapes à suivre pour cette procédure :
 
 1. Téléchargez les données à partir du blob Azure avec l’exemple de code Python à l’aide du service du blob. Remplacez la variable dans le code ci-dessous par vos propres valeurs : 
 
@@ -185,4 +188,4 @@ Après avoir exploré les données et créé les fonctionnalités nécessaires, 
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

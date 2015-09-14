@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Opérations courantes dans l'API Machine Learning Recommendations | Microsoft Azure" 
-	description="Exemple d'application Azure ML Recommendation" 
-	services="machine-learning" 
-	documentationCenter="" 
-	authors="jaymathe" 
-	manager="paulettm" 
+	pageTitle="Opérations courantes dans l'API Machine Learning Recommendations | Microsoft Azure"
+	description="Exemple d'application Azure ML Recommendation"
+	services="machine-learning"
+	documentationCenter=""
+	authors="jaymathe"
+	manager="paulettm"
 	editor="cgronlun"/>
 
 <tags 
-	ms.service="machine-learning" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="04/15/2015" 
-	ms.author="luiscabrer"/>
+	ms.service="machine-learning"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/01/2015"
+	ms.author="luisca"/>
 
 
 # Opérations courantes dans l'API de Machine Learning Recommendations
@@ -89,4 +89,4 @@ Pour une description complète de l’API, consultez la documentation de Microso
 La version d’évaluation n’est pas conçue pour être exécutée dans un environnement de production. Les données fournies dans le catalogue ne sont pas nombreuses et ne fournissent pas un modèle de recommandation éloquent. Elles sont seulement fournies à titre de démonstration.
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

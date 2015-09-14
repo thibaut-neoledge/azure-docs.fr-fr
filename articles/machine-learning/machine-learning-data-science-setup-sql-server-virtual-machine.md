@@ -2,11 +2,10 @@
 	pageTitle="Configurer une machine virtuelle SQL Server comme serveur IPython Notebook pour des analyses avancées | Microsoft Azure"
 	description="Configurez une machine virtuelle pour la science des données avec SQL Server et un serveur IPython."
 	services="machine-learning"
-	solutions="" documentationCenter=""
-	authors="msolhab" 
+	documentationCenter=""
+	authors="msolhab"
 	manager="paulettm"
-	editor="cgronlun" />
-
+	editor="cgronlun"/>
 
 <tags
 	ms.service="machine-learning"
@@ -14,9 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/29/2015"
-	ms.author="mohabib;xibingao;bradsev" />
-
+	ms.date="09/01/2015"
+	ms.author="mohabib;xibingao;bradsev"/>
 
 # Configurer une machine virtuelle Azure SQL Server comme serveur IPython Notebook pour des analyses avancées
 
@@ -300,4 +298,4 @@ Les étapes suivantes du traitement de données avancé dans Azure sont présent
 [15]: ./media/machine-learning-data-science-setup-sql-server-virtual-machine/vmshutdown.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

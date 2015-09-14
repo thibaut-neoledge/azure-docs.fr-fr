@@ -1,27 +1,27 @@
 <properties 
-   pageTitle="Configuration du proxy web de votre appareil | Microsoft Azure"
-   description="Découvrez comment configurer le proxy web pour votre appareil StorSimple à l'aide de Windows PowerShell pour StorSimple"
-   services="storsimple"
-   documentationCenter=""
-   authors="alkohli"
-   manager="carolz"
-   editor="" />
+   pageTitle="Configurer un proxy web pour un appareil StorSimple | Microsoft Azure"
+	description="Découvrez comment utiliser Windows PowerShell for StorSimple pour configurer les paramètres du proxy web de votre appareil StorSimple."
+	services="storsimple"
+	documentationCenter=""
+	authors="alkohli"
+	manager="carolz"
+	editor=""/>
 <tags 
    ms.service="storsimple"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="07/29/2015"
-   ms.author="alkohli" />
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="na"
+	ms.date="08/31/2015"
+	ms.author="alkohli"/>
 
-# Configuration du proxy web de votre appareil
+# Configurer le proxy web pour votre appareil StorSimple
 
-## Vue d'ensemble
+## Vue d’ensemble
 
-Ce didacticiel explique comment utiliser Windows PowerShell pour StorSimple afin de configurer et afficher les paramètres du proxy web pour votre appareil StorSimple. Les paramètres de proxy web sont utilisés par l’appareil StorSimple lors de la communication avec le cloud. Un serveur proxy web est utilisé pour ajouter une autre couche de sécurité, filtrer le contenu, mettre en cache les données afin d’alléger la bande passante voire faciliter l'analyse.
+Ce didacticiel explique comment utiliser Windows PowerShell for StorSimple afin de configurer et d’afficher les paramètres du proxy web pour votre appareil StorSimple. Les paramètres de proxy web sont utilisés par l’appareil StorSimple lors de la communication avec le cloud. Un serveur proxy web est utilisé pour ajouter une autre couche de sécurité, filtrer le contenu, mettre en cache les données afin d’alléger la bande passante voire faciliter l'analyse.
 
-Le proxy web est une configuration facultative pour votre appareil StorSimple. Vous pouvez configurer le proxy web uniquement via Windows PowerShell pour StorSimple. La configuration est un processus en deux étapes :
+Le proxy web est une configuration facultative pour votre appareil StorSimple. Vous pouvez configurer le proxy web uniquement via Windows PowerShell for StorSimple. La configuration est un processus en deux étapes :
 
 1. Vous configurez tout d'abord les paramètres du proxy web via l'Assistant d'installation ou Windows PowerShell pour les applets de commande StorSimple.
 
@@ -148,4 +148,4 @@ Si les paramètres du proxy web ont été configurés correctement, les messages
 ## Étapes suivantes
 Si vous rencontrez des problèmes lors du déploiement de votre appareil ou la configuration des paramètres de proxy web, reportez-vous à [Dépannage du déploiement de votre appareil StorSimple](storsimple-troubleshoot-deployment.md).
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=September15_HO1-->

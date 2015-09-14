@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Affichage et modification des noms d’hôtes"
-	description="Description"
+   pageTitle="Affichage et modification des noms d’hôtes | Microsoft Azure"
+	description="Affichage et modification des noms d'hôtes pour les machines virtuelles, les rôles web et les rôles de travail pour la résolution de noms"
 	services="virtual-network"
 	documentationCenter="na"
 	authors="joaoma"
@@ -51,7 +51,7 @@ Une fois que vous avez activé le Bureau à distance (Windows), l’accès dist
 
 1. Définissez une entrée d’en-tête intitulée x-ms-version , présentant une valeur de 2013-11-01.
 
-1. Envoyez une requête au format suivant : https://management.core.windows.net/<subscrition-id>/services/hostedservices/<service-name>?embed-detail=true
+1. Envoyez une requête au format suivant : https://management.core.windows.net/\<subscrition-id>/services/hostedservices/<service-name>?embed-detail=true
 
 1. Recherchez l’élément **HostName** associé à chaque élément **RoleInstance**.
 
@@ -71,4 +71,4 @@ Pour modifier le nom d’hôte associé à une machine virtuelle ou à une insta
 
 [Définir les paramètres DNS à l'aide de fichiers de configuration réseau](virtual-networks-specifying-a-dns-settings-in-a-virtual-network-configuration-file.md)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

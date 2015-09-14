@@ -1,23 +1,24 @@
 <properties 
-   pageTitle="Gestion de vos contrôleurs d’appareil StorSimple | Microsoft Azure"
-   description="Découvrez comment arrêter, redémarrer, arrêter ou réinitialiser vos contrôleurs d’appareil StorSimple."
-   services="storsimple"
-   documentationCenter=""
-   authors="alkohli"
-   manager="carolz"
-   editor="" />
+   pageTitle="Gestion des contrôleurs d’appareil StorSimple | Microsoft Azure"
+	description="Découvrez comment arrêter, redémarrer, éteindre ou réinitialiser vos contrôleurs d’appareil StorSimple."
+	services="storsimple"
+	documentationCenter=""
+	authors="alkohli"
+	manager="carolz"
+	editor=""/>
 <tags 
    ms.service="storsimple"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="08/13/2015"
-   ms.author="alkohli" />
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="na"
+	ms.date="09/01/2015"
+	ms.author="alkohli"/>
 
-# Gestion des contrôleurs d’appareil StorSimple
+# Gestion de vos contrôleurs d’appareil StorSimple
 
-## Vue d'ensemble
+## Vue d’ensemble
+
 Ce didacticiel décrit les différentes opérations qui peuvent être effectuées sur vos contrôleurs d’appareil StorSimple. Les contrôleurs de votre appareil StorSimple sont des contrôleurs redondants (homologues) en mode actif/passif. À un moment donné, un seul contrôleur est actif et procède au traitement de toutes les opérations de disque et du réseau. L'autre contrôleur est en mode passif. Si le contrôleur actif est défaillant, le contrôleur passif devient automatiquement actif.
 
 Ce didacticiel inclut des instructions détaillées pour gérer les contrôleurs d’appareil à l'aide de :
@@ -86,7 +87,7 @@ Pour gérer vos contrôleurs d’appareil à partir du portail de gestion, proc�
 Ceci redémarrera ou arrêtera le contrôleur. Le tableau ci-dessous récapitule les détails de ce qui se passe en fonction des sélections effectuées dans la boîte de dialogue **Modifier les paramètres du contrôleur**.
 													
 
-|Sélection \#|Si vous choisissez de...|Ceci se produira.|
+|Sélection #|Si vous choisissez de...|Ceci se produira.|
 |---|---|---|
 |1\.|Redémarrer le contrôleur passif.|Un travail sera créé pour procéder au redémarrage du contrôleur, et un message s’affichera une fois l’opération terminée. Ceci lancera le redémarrage du contrôleur. Vous pouvez analyser le processus de redémarrage en accédant à **Service > Tableau de bord > Afficher les journaux des opérations**, puis en définissant un filtre en utilisant des paramètres spécifiques à votre service.|
 |2\.|Redémarrer le contrôleur actif.|L'avertissement suivant s'affiche : « Si vous redémarrez le contrôleur actif, l’appareil basculera vers le contrôleur passif. Voulez-vous continuer ? » </br>Si vous choisissez d’effectuer cette opération, la procédure sera identique à celle utilisée pour redémarrer le contrôleur passif (voir sélection 1).|
@@ -221,4 +222,4 @@ Dans cette section, vous trouverez des réponses à certaines questions fréquem
 
 Si vous rencontrez des problèmes avec vos contrôleurs d’appareil StorSimple que vous ne pouvez pas résoudre en suivant les procédures décrites dans ce didacticiel, [contactez le support technique Microsoft](storsimple-contact-microsoft-support.md).
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=September15_HO1-->

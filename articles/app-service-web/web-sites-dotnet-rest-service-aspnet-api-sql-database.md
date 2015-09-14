@@ -1,23 +1,20 @@
 <properties 
-	pageTitle="Créer un service REST à l’aide de l’API Web ASP.NET et de Base de données SQL dans Azure App Service" 
-	description="Didacticiel expliquant comment déployer une application qui utilise l’API Web ASP.NET dans une application web Azure à l’aide de Visual Studio." 
-	services="app-service\web" 
-	documentationCenter=".net" 
-	authors="Rick-Anderson" 
-	writer="Rick-Anderson" 
-	manager="wpickett" 
+	pageTitle="Créer un service REST à l’aide de l’API Web ASP.NET et de Base de données SQL dans Azure App Service"
+	description="Didacticiel expliquant comment déployer une application qui utilise l’API Web ASP.NET dans une application web Azure à l’aide de Visual Studio."
+	services="app-service\web"
+	documentationCenter=".net"
+	authors="Rick-Anderson"
+	manager="wpickett"
 	editor=""/>
 
-
 <tags 
-	ms.service="app-service-web" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="06/16/2015" 
+	ms.service="app-service-web"
+	ms.workload="web"
+	ms.tgt_pltfrm="na"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="08/31/2015"
 	ms.author="riande"/>
-
 
 # Créer un service REST à l’aide de l’API Web ASP.NET et de Base de données SQL dans Azure App Service
 
@@ -48,7 +45,7 @@ Vous développerez une application Web de liste de contacts simple basée sur AS
 1. Dans le menu **File**, cliquez sur **New Project**.
 3. Dans la boîte de dialogue **New Project**, développez **Visual C#** et sélectionnez **Web**, puis **ASP.NET MVC 5 Web Application**. Nommez l'application **GestionnaireContacts**, puis cliquez sur **OK**.
 
-	![New Project dialog box](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rr4.PNG)\]
+	![New Project dialog box](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rr4.PNG)]
 
 1. Dans la boîte de dialogue **New ASP.NET Project**, sélectionnez le modèle **MVC**, activez la case à cocher **Web API**, puis cliquez sur **Change Authentication**.
 
@@ -80,7 +77,7 @@ Si vous avez un serveur de bases de données, utilisez-le pour créer une base d
 
 1. Dans l'**Explorateur de solutions**, développez le dossier *Views\\Shared* et ouvrez le fichier *\_Layout.cshtml*.
 
-	![\_Layout.cshtml in Solution Explorer\][newapp004]
+	![\_Layout.cshtml in Solution Explorer][newapp004]
 
 1. Remplacez le contenu du fichier *Views\\Shared\_Layout.cshtml* par le code suivant :
 
@@ -89,12 +86,9 @@ Si vous avez un serveur de bases de données, utilisez-le pour créer une base d
 		<html lang="en">
 		<head>
 		    <meta charset="utf-8" />
-
 		    <title>@ViewBag.Title - Contact Manager</title>
 		    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
-
 		    <meta name="viewport" content="width=device-width" />
-
 		    @Styles.Render("~/Content/css")
 		    @Scripts.Render("~/bundles/modernizr")
 		</head>
@@ -388,7 +382,6 @@ L'application affiche les données amorcées, ainsi que des liens pour les modif
 		            <li>
 		                <label for="Name">Name</label>
 		                <input type="text" name="Name" />
-
 		            </li>
 		            <li>
 		                <label for="Address">Address</label>
@@ -397,31 +390,25 @@ L'application affiche les données amorcées, ainsi que des liens pour les modif
 		            <li>
 		                <label for="City">City</label>
 		                <input type="text" name="City" />
-
 		            </li>
 		            <li>
 		                <label for="State">State</label>
 		                <input type="text" name="State" />
-
 		            </li>
 		            <li>
 		                <label for="Zip">Zip</label>
 		                <input type="text" name="Zip" />
-
 		            </li>
 		            <li>
 		                <label for="Email">E-mail</label>
 		                <input type="text" name="Email" />
-
 		            </li>
 		            <li>
 		                <label for="Twitter">Twitter</label>
 		                <input type="text" name="Twitter" />
-
 		            </li>
 		        </ol>
 		        <input type="submit" value="Add" />
-
 		    </fieldset>
 		</form>
 
@@ -560,7 +547,7 @@ Une falsification de requête intersites (également connue sous le nom de XSRF 
 
 Une attaque XSRF est différente d'une attaque par hameçonnage (ou « phishing »). Les attaques par hameçonnage requièrent une interaction avec la victime. Dans ce genre d'attaque, un site Web malveillant va imiter un site Web cible et la victime est dupée pour fournir des informations sensibles à l'attaquant. Dans une attaque XSRF, il n'y a généralement pas d'interaction avec la victime. L’attaquant se repose plutôt sur le fait que le navigateur envoie automatiquement tous les cookies utiles au site Web de destination.
 
-Pour plus d’informations, consultez la page [Projet de sécurité d’application web ouvert](https://www.owasp.org/index.php/Main_Page) (ou OWASP pour « Open Web Application Security Project ») (en anglais) [XSRF\](https://www.owasp.org/index.php/Cross-Site_Request_Forgery_(CSRF)).
+Pour plus d’informations, consultez la page [Projet de sécurité d’application web ouvert](https://www.owasp.org/index.php/Main_Page) (ou OWASP pour « Open Web Application Security Project ») (en anglais) [XSRF](https://www.owasp.org/index.php/Cross-Site_Request_Forgery_(CSRF)).
 
 1. Dans l’**Explorateur de solutions**, cliquez avec le bouton droit sur le projet **ContactManager**, cliquez sur **Ajouter**, puis sur **Classe**.
 
@@ -634,13 +621,13 @@ Pour plus d’informations, consultez la page [Projet de sécurité d’applicat
             }
         }
 
-1. Ajoutez l'instruction *using* suivante au contrôleur de contacts pour accéder à l'attribut **[ValidateHttpAntiForgeryToken\]**.
+1. Ajoutez l'instruction *using* suivante au contrôleur de contacts pour accéder à l'attribut **[ValidateHttpAntiForgeryToken]**.
 
 	using ContactManager.Filters;
 
-1. Ajoutez l’attribut **[ValidateHttpAntiForgeryToken\]** aux méthodes Post du **ContactsController** pour le protéger des menaces XSRF. Vous l'ajouterez aux méthodes d'action « PutContact », « PostContact » et **DeleteContact**.
+1. Ajoutez l’attribut **[ValidateHttpAntiForgeryToken]** aux méthodes Post du **ContactsController** pour le protéger des menaces XSRF. Vous l'ajouterez aux méthodes d'action « PutContact », « PostContact » et **DeleteContact**.
 
-	[ValidateHttpAntiForgeryToken\] public IHttpActionResult PutContact(int id, Contact contact) {
+	[ValidateHttpAntiForgeryToken] public IHttpActionResult PutContact(int id, Contact contact) {
 
 1. Mettez à jour la section *Scripts* du fichier *Views\\Home\\Index.cshtml* pour inclure le code d’obtention des jetons XSRF.
 
@@ -823,4 +810,4 @@ N'hésitez pas à nous transmettre vos commentaires sur ce qui vous a plu et ce 
 [prevent-csrf-attacks]: http://www.asp.net/web-api/overview/security/preventing-cross-site-request-forgery-(csrf)-attacks
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

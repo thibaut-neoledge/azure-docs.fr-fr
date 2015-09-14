@@ -1,19 +1,19 @@
 <properties
     pageTitle="Utilisation de la CLI Microsoft Azure avec Microsoft Azure Storage | Microsoft Azure"
-    description="Découvrez comment utiliser l’interface de ligne de commande de Microsoft Azure (CLI) avec Microsoft Azure Storage pour créer et gérer des comptes de stockage et utiliser des fichiers et objets blob Microsoft Azure."
-    services="storage"
-    documentationCenter="na"
-    authors="tamram"
-    manager="jdial"/>
+	description="Découvrez comment utiliser l’interface de ligne de commande de Microsoft Azure (CLI) avec Microsoft Azure Storage pour créer et gérer des comptes de stockage et utiliser des fichiers et objets blob Microsoft Azure."
+	services="storage"
+	documentationCenter="na"
+	authors="tamram"
+	manager="jdial"/>
 
 <tags
     ms.service="storage"
-    ms.workload="storage"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article" 
-    ms.date="05/27/2015"
-    ms.author="chungli;jiyang;yaxia;tamram"/>
+	ms.workload="storage"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/01/2015"
+	ms.author="chungli;jiyang;yaxia;tamram"/>
 
 # Utilisation de la CLI Microsoft Azure avec Microsoft Azure Storage
 
@@ -80,9 +80,9 @@ Pour en savoir plus sur les abonnements à Microsoft Azure, voir [Gestion des c
 
     - **<container_name>** : utilisez le nom donné dans le script ou saisissez un nouveau nom pour votre conteneur.
 
-    - **<image_to_upload>** : saisissez le chemin d’accès à une image sur l’ordinateur local, par exemple : « \~/images/HelloWorld.png ».
+    - **<image_to_upload>** : saisissez le chemin d’accès à une image sur l’ordinateur local, par exemple : « ~/images/HelloWorld.png ».
 
-    - **<destination_folder>** : saisissez un chemin d’accès à un répertoire local pour le stockage des fichiers téléchargés depuis Microsoft Azure Storage, par exemple « \~/downloadImages ».
+    - **<destination_folder>** : saisissez un chemin d’accès à un répertoire local pour le stockage des fichiers téléchargés depuis Microsoft Azure Storage, par exemple « ~/downloadImages ».
 
 7. Une fois que vous avez mis à jour les variables nécessaires dans vim, appuyez sur les combinaisons de touches « Échap, :, wq! » pour enregistrer le script.
 
@@ -189,7 +189,7 @@ Remarque : ce chemin d’accès au répertoire peut inclure plusieurs niveaux, 
 
 ### Charger un fichier local vers le répertoire
 
-Dans l’exemple suivant, un fichier est chargé à partir de l’emplacement **\~/temp/samplefile.txt** vers le répertoire **MonRép**. Modifiez le chemin d’accès du fichier de façon à ce qu’il désigne un fichier valide sur votre ordinateur local :
+Dans l’exemple suivant, un fichier est chargé à partir de l’emplacement **~/temp/samplefile.txt** vers le répertoire **MonRép**. Modifiez le chemin d’accès du fichier de façon à ce qu’il désigne un fichier valide sur votre ordinateur local :
 
         azure storage file upload '~/temp/samplefile.txt' myshare myDir
 
@@ -203,6 +203,16 @@ Vous pouvez répertorier les fichiers et sous-répertoires de la racine d’un p
 
 Notez que le nom du répertoire est facultatif pour l’opération de création de liste. En cas d’omission, la commande répertorie le contenu du répertoire racine du partage.
 
+### Copie des fichiers
+
+Depuis la version 0.9.8 de l’interface de ligne de commande Azure, vous pouvez copier un fichier dans un autre, un fichier dans un objet blob ou un objet blob dans un fichier. Ci-dessous, nous montrons comment effectuer ces opérations de copie à l’aide de commandes de l’interface de ligne de commande. Copie d'un fichier vers le nouveau répertoire :
+
+	azure storage file copy start --source-share srcshare --source-path srcdir/hello.txt --dest-share destshare --dest-path destdir/hellocopy.txt --connection-string $srcConnectionString --dest-connection-string $destConnectionString
+	
+Copie d’un objet blob vers un répertoire de fichiers :
+
+	azure storage file copy start --source-container srcctn --source-blob hello2.txt --dest-share hello --dest-path hellodir/hello2copy.txt --connection-string $srcConnectionString --dest-connection-string $destConnectionString
+
 ## Étapes suivantes
 
 Pour en savoir plus sur Azure Storage, consultez les articles et ressources suivants :
@@ -214,4 +224,4 @@ Pour en savoir plus sur Azure Storage, consultez les articles et ressources sui
 [Image1]: ./media/storage-azure-cli/azure_command.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

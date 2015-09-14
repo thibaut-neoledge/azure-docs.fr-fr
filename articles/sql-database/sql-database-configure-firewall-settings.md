@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Configuration des paramètres du pare-feu (Base de données SQL Azure)"
-	description="configurer le pare-feu pour les bases de données SQL Azure"
+	pageTitle="Configuration des paramètres du pare-feu | Microsoft Azure"
+	description="Configurer le pare-feu pour les adresses IP qui accèdent aux bases de données SQL Azure."
 	services="sql-database"
 	documentationCenter=""
 	authors="BYHAM"
@@ -13,16 +13,16 @@
 	ms.workload="data-management"
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
-	ms.topic="article" 
-	ms.date="06/22/2015"
+	ms.topic="article"
+	ms.date="09/02/2015"
 	ms.author="rickbyh"/>
 
 
-# Configuration des paramètres du pare-feu (Base de données SQL Azure)
+# Configuration des paramètres du pare-feu sur une base de données SQL
 
  Base de données SQL Microsoft Azure utilise des règles de pare-feu pour autoriser les connexions à vos serveurs et aux bases de données. Vous pouvez définir des paramètres de pare-feu au niveau du serveur et au niveau de la base de données pour le master ou une base de données utilisateur sur votre serveur de Base de données SQL Azure pour autoriser l’accès à la base de données de façon sélective.
 
-**Important** pour autoriser les applications d’Azure à se connecter à votre serveur de base de données, les connexions Azure doivent être activées. Pour plus d’informations sur les règles de pare-feu et l’activation des connexions à partir d’Azure, consultez [Pare-feu de la base de données SQL Azure](https://msdn.microsoft.com/library/azure/ee621782.aspx).
+**Important** pour autoriser les applications d’Azure à se connecter à votre serveur de base de données, les connexions Azure doivent être activées. Pour plus d’informations sur les règles de pare-feu et l’activation des connexions à partir d’Azure, consultez [Pare-feu de la base de données SQL Azure](sql-database-firewall-configure.md)
 
 
 ## Règles de pare-feu au niveau du serveur
@@ -48,27 +48,33 @@ Les règles de pare-feu au niveau du serveur peuvent être créées et gérées 
 ## Gérer les règles de pare-feu au niveau du serveur via le portail de gestion 
 
 1. Dans le portail de gestion, cliquez sur **Base de données SQL**. Toutes les bases de données et leurs serveurs correspondants sont répertoriés ici.
-1. Cliquez sur **Serveurs** en haut de la page.
-2. Cliquez sur la flèche en regard du serveur pour lequel vous souhaitez gérer les règles de pare-feu.
-3. Cliquez sur **Configurer** en haut de la page.
+2. Cliquez sur **Serveurs** en haut de la page.
+3. Cliquez sur la flèche en regard du serveur pour lequel vous souhaitez gérer les règles de pare-feu.
+4. Cliquez sur **Configurer** en haut de la page.
 
 	*  Pour ajouter l’ordinateur actuel, cliquez sur Ajouter aux adresses IP autorisées.
 	*  Pour ajouter des adresses IP supplémentaires, remplissez les champs Nom de la règle, Adresse IP de début et Adresse IP de fin.
 	*  Pour modifier une règle existante, cliquez sur les champs dans la règle et modifiez-les.
 	*  Pour supprimer une règle existante, placez le pointeur sur la règle jusqu’à ce que le X s’affiche à la fin de la ligne. Cliquez sur X pour supprimer la règle.
-8. Pour enregistrer les modifications, cliquez sur **Enregistrer** en bas de la page.
+5. Pour enregistrer les modifications, cliquez sur **Enregistrer** en bas de la page.
 
 ## Gérer les règles de pare-feu au niveau du serveur via Transact-SQL
+
 1. Lancez une fenêtre de requête par le biais du portail de gestion ou SQL Server Management Studio.
 2. Assurez-vous d’être connecté à la base de données master.
-3. Les règles de pare-feu au niveau du serveur peuvent être créées, mises à jour ou supprimés dans la fenêtre de requête.
-4. Pour créer ou mettre à jour les règles de pare-feu au niveau du serveur, exécutez la procédure stockée sp\_set\_firewall\_rule. L’exemple suivant active une plage d’adresses IP sur le serveur de Contoso.
+3. Les règles de pare-feu au niveau du serveur peuvent être sélectionnées, créées, mises à jour ou supprimées dans la fenêtre de requête.
+4. Pour créer ou mettre à jour les règles de pare-feu au niveau du serveur, exécutez la procédure stockée sp\_set\_firewall\_rule. L’exemple suivant active une plage d’adresses IP sur le serveur de Contoso.<br/> Commencez par regarder quelles règles existent déjà.
 
-		EXEC sp_set_firewall_rule @name = N'ContosoFirewallRule', @start_ip_address = '192.168.1.1', @end_ip_address = '192.168.1.10'
+		SELECT * FROM sys.database_firewall_rules ORDER BY name;
+
+	Ensuite, ajoutez une règle de pare-feu.
+
+		EXECUTE sp_set_firewall_rule @name = N'ContosoFirewallRule',
+			@start_ip_address = '192.168.1.1', @end_ip_address = '192.168.1.10'
 
 	Pour supprimer une règle de pare-feu au niveau du serveur, exécutez la procédure stockée sp\_delete\_firewall\_rule. L’exemple suivant supprime la règle nommée ContosoFirewallRule.
  
-		EXEC sp_delete_firewall_rule @name = N'ContosoFirewallRule'
+		EXECUTE sp_delete_firewall_rule @name = N'ContosoFirewallRule'
  
 ## Gérer les règles de pare-feu au niveau du serveur via Azure PowerShell
 1. Lancez Azure PowerShell.
@@ -137,11 +143,11 @@ Les règles de pare-feu au niveau du serveur peuvent être créées et gérées 
  
 ## Étapes suivantes
 
-Pour consulter un didacticiel sur la création d’une base de données, reportez-vous à la rubrique [Créer votre première base de données SQL Azure](sql-database-get-started.md). Pour obtenir de l’aide pour vous connecter à une base de données SQL Azure à partir d’applications open source ou tierces, consultez [Instructions de connexion par programme à une Base de données SQL Azure](https://msdn.microsoft.com/library/azure/ee336282.aspx). Pour comprendre comment naviguer dans les bases de données, consultez [Gérer les bases de données et les connexions dans Base de données SQL Azure](https://msdn.microsoft.com/library/azure/ee336235.aspx).
+Pour consulter un didacticiel sur la création d’une base de données, reportez-vous à la rubrique [Créer votre première base de données SQL Azure](sql-database-get-started.md). Pour obtenir de l’aide pour vous connecter à une base de données SQL Azure à partir d’applications open source ou tierces, consultez [Instructions de connexion par programme à une Base de données SQL Azure](https://msdn.microsoft.com/library/azure/ee336282.aspx). Pour comprendre comment naviguer dans les bases de données, consultez [Gérer les bases de données et les connexions dans une Base de données SQL Azure](https://msdn.microsoft.com/library/azure/ee336235.aspx).
 
 <!--Image references-->
 [1]: ./media/sql-database-configure-firewall-settings/AzurePortalBrowseForFirewall.png
 [2]: ./media/sql-database-configure-firewall-settings/AzurePortalFirewallSettings.png
 <!--anchors-->
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

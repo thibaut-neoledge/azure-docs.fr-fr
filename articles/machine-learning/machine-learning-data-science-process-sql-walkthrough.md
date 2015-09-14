@@ -1,28 +1,25 @@
 <properties 
-	pageTitle="Processus d’analyse avancé et technologie en action : Utilisation de SQL Server | Microsoft Azure" 
-	description="Processus d’analyse avancé et technologie en action"  
-	services="machine-learning" 
-	solutions="" 
-	documentationCenter="" 
-	authors="msolhab" 
-	manager="paulettm" 
-	editor="cgronlun" />
-
+	pageTitle="Processus d’analyse avancé et technologie en action : Utilisation de SQL Server | Microsoft Azure"
+	description="Processus d’analyse avancé et technologie en action"
+	services="machine-learning"
+	documentationCenter=""
+	authors="msolhab"
+	manager="paulettm"
+	editor="cgronlun"/>
 
 <tags 
-	ms.service="machine-learning" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/29/2015" 
+	ms.service="machine-learning"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/01/2015"
 	ms.author="mohabib;fashah;bradsev"/>
-
 
                 
 # Processus d’analyse avancé et technologie en action : Utilisation de SQL Server
 
-Dans ce didacticiel, vous allez suivre le guide Azure Processus d’analyse avancé et technologie en action pour générer et déployer un modèle à l’aide d’un jeu de données publiquement accessible : le jeu de données [NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/) (courses en taxi new-yorkais).
+Dans ce didacticiel, vous explorerez la création et le déploiement d'un modèle à l'aide d'un groupe de données disponible publiquement, le jeu de données [NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/). La procédure suit le guide Processus et technologie d'analyse avancée Azure (ADAPT).
 
 
 ## <a name="dataset"></a>Description du jeu de données NYC Taxi Trips
@@ -718,4 +715,4 @@ Cet exemple de procédure pas à pas et les scripts et notebooks IPython qui lui
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

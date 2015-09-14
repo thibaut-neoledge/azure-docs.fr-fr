@@ -1,44 +1,40 @@
 <properties 
-	pageTitle="Traiter les données de SQL Azure | Microsoft Azure" 
-	description="Traiter les données de SQL Azure" 
-	services="machine-learning" 
-	documentationCenter="" 
-	authors="fashah" 
-	manager="paulettm" 
-	editor="" />
+	pageTitle="Traiter les données de SQL Azure | Microsoft Azure"
+	description="Traiter les données de SQL Azure"
+	services="machine-learning"
+	documentationCenter=""
+	authors="fashah"
+	manager="paulettm"
+	editor=""/>
 
 <tags 
-	ms.service="machine-learning" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/29/2015" 
-	ms.author="fashah;garye" />
+	ms.service="machine-learning"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/01/2015"
+	ms.author="fashah;garye"/>
 
 #<a name="heading"></a>Traitement des données d’une machine virtuelle SQL Server sur Azure
 
-Ce document décrit l’exploration des données et la génération de fonctionnalités pour les données stockées dans une machine virtuelle SQL Server sur Azure. Cette opération peut être effectuée de deux manières :
-
-1. [Utilisation de SQL](#sql)
-2. [Utilisation d’un langage de programmation tel que Python](#python) 
+Ce document décrit l’exploration des données et la génération de fonctionnalités pour les données stockées dans une machine virtuelle SQL Server sur Azure. Cela est possible avec le retraitement des données à l'aide de SQL ou en utilisant un langage de programmation comme Python.
 
 
-**Remarque :**
->Les exemples d’instructions SQL qui figurent dans ce document reposent sur l’hypothèse que les données sont stockées dans SQL Server. Dans le cas contraire, reportez-vous à la cartographie du processus de science des données du cloud pour découvrir comment déplacer vos données vers SQL Server.
+> [AZURE.NOTE]Les exemples d’instructions SQL qui figurent dans ce document reposent sur l’hypothèse que les données sont stockées dans SQL Server. Dans le cas contraire, reportez-vous à la cartographie du processus de science des données du cloud pour découvrir comment déplacer vos données vers SQL Server.
 
-###<a name="SQL"></a>Utilisation de SQL
+##<a name="SQL"></a>Utilisation de SQL
 
 Dans cette section, nous décrivons les tâches de retraitement des données via SQL ci-après :
 
 1. [Exploration des données](#sql-dataexploration)
 2. [Génération de fonctionnalités](#sql-featuregen)
 
-####<a name="sql-dataexploration"></a>Exploration des données
+###<a name="sql-dataexploration"></a>Exploration des données
 Voici quelques exemples de scripts SQL utilisables pour l’exploration de magasins de données dans SQL Server.
 
-**Remarque :**
-> Pour découvrir un exemple pratique, vous pouvez utiliser le [jeu de données des taxis new-yorkais NYC Taxi](http://www.andresmh.com/nyctaxitrips/) et vous reporter au notebook IPython intitulé [NYC Data wrangling using IPython Notebook and SQL Server](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/iPythonNotebooks/machine-Learning-data-science-process-sql-walkthrough.ipynb) (Retraitement des données de New-York City à l’aide de Notebook IPython et de SQL Server) pour connaître la procédure pas à pas.
+
+> [AZURE.NOTE]Pour découvrir un exemple pratique, vous pouvez utiliser le [jeu de données des taxis new-yorkais NYC Taxi](http://www.andresmh.com/nyctaxitrips/) et vous reporter au notebook IPython intitulé [NYC Data wrangling using IPython Notebook and SQL Server](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/iPythonNotebooks/machine-Learning-data-science-process-sql-walkthrough.ipynb) (Retraitement des données de New-York City à l’aide de Notebook IPython et de SQL Server) pour connaître la procédure pas à pas.
 
 1. Obtenir le nombre d’observations par jour
 
@@ -57,7 +53,7 @@ Voici quelques exemples de scripts SQL utilisables pour l’exploration de magas
 	`select <column_name>, count(*) from <tablename> group by <column_name>`
 
 
-####<a name="sql-featuregen"></a>Génération de fonctionnalités
+###<a name="sql-featuregen"></a>Génération de fonctionnalités
 
 Dans cette section, nous décrivons plusieurs manières de générer des fonctionnalités via SQL :
 
@@ -65,10 +61,10 @@ Dans cette section, nous décrivons plusieurs manières de générer des fonctio
 2. [Génération de caractéristiques de compartimentage](#sql-binningfeature)
 3. [Déploiement des caractéristiques à partir d’une seule colonne](#sql-featurerollout)
 
-**Remarque :**
->Une fois que vous avez généré des fonctionnalités supplémentaires, vous pouvez soit les ajouter sous forme de colonnes à la table existante, soit créer une autre table avec les fonctionnalités supplémentaires et la clé primaire que vous pouvez joindre à la table d’origine.
 
-####<a name="sql-countfeature"></a>Génération de fonctionnalités utilisant des décomptes
+> [AZURE.NOTE]Une fois que vous avez généré des fonctionnalités supplémentaires, vous pouvez soit les ajouter sous forme de colonnes à la table existante, soit créer une autre table avec les fonctionnalités supplémentaires et la clé primaire que vous pouvez joindre à la table d’origine.
+
+###<a name="sql-countfeature"></a>Génération de fonctionnalités utilisant des décomptes
 
 Ce document décrit deux manières de générer des fonctionnalités utilisant des décomptes. La première méthode a recours à une somme conditionnelle, tandis que la seconde méthode utilise la clause « where ». Vous pouvez ensuite associer ces dernières à la table d’origine (à l’aide des colonnes de clé primaire) pour disposer de fonctionnalités de décompte parallèlement aux données d’origine.
 
@@ -77,14 +73,14 @@ Ce document décrit deux manières de générer des fonctionnalités utilisant d
 	select <column_name1>,<column_name2> , sum(1) as Count_Features from <tablename> 
 	where <column_name3> = '<some_value>' group by <column_name1>,<column_name2> 
 
-####<a name="sql-binningfeature"></a>Génération de caractéristiques de compartimentage
+###<a name="sql-binningfeature"></a>Génération de caractéristiques de compartimentage
 
 L’exemple ci-dessous illustre comment générer des fonctionnalités compartimentées en divisant (à l’aide de 5 emplacements) une colonne numérique qui peut être plutôt utilisée sous la forme d’une fonctionnalité :
 
 	`SELECT <column_name>, NTILE(5) OVER (ORDER BY <column_name>) AS BinNumber from <tablename>`
 
 
-####<a name="sql-featurerollout"></a>Déploiement des fonctionnalités à partir d’une seule colonne
+###<a name="sql-featurerollout"></a>Déploiement des fonctionnalités à partir d’une seule colonne
 
 Dans cette section, nous décrivons comment déployer une seule colonne dans une table afin de générer des fonctionnalités supplémentaires. Cet exemple présuppose l’existence d’une colonne de latitude ou de longitude dans la table à partir de laquelle vous essayez de générer des fonctionnalités.
 
@@ -117,18 +113,18 @@ Vous pouvez implémenter les informations d’emplacement comme illustré ci-des
 Vous pouvez en outre exploiter les fonctionnalités ci-dessus basées sur l’emplacement pour générer d’autres fonctionnalités utilisant des décomptes comme décrit précédemment.
 
 
-**CONSEIL**
+> [AZURE.TIP]Vous pouvez insérer les enregistrements par programme en utilisant la langue de votre choix. Vous pouvez avoir besoin d’insérer les données dans des blocs afin d’améliorer l’efficacité des écritures [Pour consulter l’exemple décrivant la procédure à suivre, cliquez ici](https://code.google.com/p/pypyodbc/wiki/A_HelloWorld_sample_to_access_mssql_with_python).
+ 
 
-> 1. Vous pouvez insérer les enregistrements par programme en utilisant la langue de votre choix. Vous pouvez avoir besoin d’insérer les données dans des blocs afin d’améliorer l’efficacité des écritures [Pour consulter l’exemple décrivant la procédure à suivre, cliquez ici](https://code.google.com/p/pypyodbc/wiki/A_HelloWorld_sample_to_access_mssql_with_python). 
-> 2. Une autre solution consiste à insérer les données dans la base de données à l’aide de l’[utilitaire BCP](https://msdn.microsoft.com/library/ms162802.aspx).
+> [AZURE.TIP]Une autre solution consiste à insérer les données dans la base de données à l’aide de l’[utilitaire BCP](https://msdn.microsoft.com/library/ms162802.aspx).
 
-####<a name="sql-aml"></a>Connexion à Azure Machine Learning
+###<a name="sql-aml"></a>Connexion à Azure Machine Learning
 
 La fonctionnalité que vous venez de générer peut être ajoutée sous la forme d’une colonne à une table existante ou stockée dans une nouvelle table et associée à la table d’origine pour l’apprentissage automatique. Vous pouvez générer des fonctionnalités ou y accéder si elles sont déjà créées à l’aide du module [Lecteur][reader] dans Azure Machine Learning comme expliqué ci-dessous :
 
 ![lecteurs azureml][1]
 
-###<a name="python"></a>Utilisation d’un langage de programmation tel que Python
+##<a name="python"></a>Utilisation d’un langage de programmation tel que Python
 
 L’utilisation de Python pour explorer les données et générer des fonctionnalités quand les données sont stockées dans SQL Server est comparable au traitement des données dans l’objet blob Azure à l’aide de Python comme expliqué [ici](machine-learning-data-science-process-data-blob.md). Les données doivent être chargées à partir de la base de données dans une trame de données pandas, puis faire l’objet d’un traitement complémentaire. Nous décrivons dans cette section le processus de connexion à la base de données et de chargement des données dans la trame de données.
 
@@ -145,7 +141,7 @@ La [bibliothèque Pandas](http://pandas.pydata.org/) de Python offre un ensemble
 
 Vous pouvez à présent utiliser la trame de données Pandas comme décrit dans la rubrique [Traiter les données Azure Blob dans votre environnement de science des données](machine-learning-data-science-process-data-blob.md).
 
-### Exemple de processus de science des données Azure en action
+## Exemple de processus de science des données Azure en action
 
 Pour découvrir un exemple de procédure pas à pas du processus de science des données Azure à l’aide d’un jeu de données public, consultez la rubrique [Processus de science des données Azure en action](machine-learning-data-science-process-sql-walkthrough.md).
 
@@ -156,4 +152,4 @@ Pour découvrir un exemple de procédure pas à pas du processus de science des 
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

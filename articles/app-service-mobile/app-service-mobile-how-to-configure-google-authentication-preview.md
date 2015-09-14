@@ -1,9 +1,9 @@
 <properties
 	pageTitle="Comment configurer l'authentification Google pour votre application App Services"
 	description="Découvrez comment configurer l'authentification Google pour votre application App Services."
-    services="app-service\mobile"
+	services="app-service\mobile"
 	documentationCenter=""
-	authors="mattchenderson" 
+	authors="mattchenderson"
 	manager="dwrede"
 	editor=""/>
 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="07/27/2015"
+	ms.date="08/28/2015"
 	ms.author="mahender"/>
 
 # Comment configurer votre application pour utiliser une connexion Google
@@ -24,36 +24,27 @@ Cette rubrique montre comment configurer Mobile Apps pour utiliser Google comme 
 
 Pour effectuer la procédure de cette rubrique, vous devez disposer d'un compte Google avec une adresse de messagerie vérifiée. Pour créer un compte Google, accédez à <a href="http://go.microsoft.com/fwlink/p/?LinkId=268302" target="_blank">accounts.google.com</a>.
 
-## <a name="register"> </a>Inscription de votre application avec Google
-
-
 1. Connectez-vous au [portail de gestion Azure] et accédez à votre application Mobile App. Copiez votre **URL**. Vous vous en servirez ultérieurement avec votre application Google.
  
-2. Cliquez sur **Paramètres**, **Authentification utilisateur**, puis cliquez sur **Google**. Copiez l’**URI de redirection**. Vous l’utiliserez pour configurer votre application Google.
+2. Cliquez sur **Paramètres**, **Authentification utilisateur**, puis cliquez sur **Google**. Copiez l'**URI de redirection**. Vous l’utiliserez pour configurer votre application Google.
 
-3. Rendez-vous sur le site web <a href="http://go.microsoft.com/fwlink/p/?LinkId=268303" target="_blank">API Google</a>, connectez-vous avec votre compte Google, cliquez sur **Create Project**, entrez un **Project name**, puis cliquez sur **Create**.
+3. Rendez-vous sur le site Web [API Google](http://go.microsoft.com/fwlink/p/?LinkId=268303), connectez-vous avec votre compte Google, cliquez sur **Créer un projet**, saisissez un **Nom de projet**, puis cliquez sur **Créer**.
 
-4. Dans la barre de navigation de gauche, cliquez sur **API & Auth**. Ensuite, cliquez sur **Consent screen**. Sélectionnez votre **Email address** et entrez un **Product name**. Cliquez ensuite sur **Save**.
+4. Dans la barre de navigation à gauche, cliquez sur **API et authentification**, puis sous **API sociales** cliquez sur **API Google+** > **Activer l'API**.
 
-5. De plus, sous **API & Auth**, sélectionnez **API** et activez l’**Google+ API**. Elle se trouve sous **Social APIs**. Vous pouvez également rechercher **Google+ API**.
+5. Cliquez sur **API et authentification** > **Informations d'identification** > **Écran de consentement OAuth**, puis sélectionnez votre **Adresse de messagerie**, entrez un **Nom de produit** et cliquez sur **Enregistrer**.
 
-6. Une nouvelle fois, sous **API & Auth**, sélectionnez **Credentials**, puis **Create new client ID**.
+6. Dans l'onglet **Informations d'identification**, cliquez sur **Ajouter des informations d'identification** > **ID client OAuth 2.0**, puis sélectionnez **Application Web**.
 
-7. Sélectionnez **Web Application**. Collez l’**URL** que vous avez copiée précédemment dans **Authorized JavaScript Origins**, puis remplacez l’URL générée dans **Authorized Redirect URI** par l’**URI de redirection** d’application Mobile App que vous avez copiée précédemment. Cet URI correspond à la passerelle d’application Mobile App suivie du chemin _/signin-google_. Par exemple, `https://contosogateway.azurewebsites.net/signin-google`. Assurez-vous d'utiliser le schéma HTTPS. Ensuite, cliquez sur **Create client ID**.
+7. Collez l'**URL** Mobile Apps que vous avez copiée précédemment dans **Origines JavaScript autorisées**, puis collez l'**URI de redirection** que vous avez copiée précédemment dans **URI de redirection autorisée**. L'URI de redirection correspond à la passerelle d'application Mobile App suivie du chemin _/signin-google_. Par exemple : `https://contosogateway.azurewebsites.net/signin-google`. Assurez-vous d'utiliser le schéma HTTPS. Cliquez ensuite sur **Créer**.
 
-     ![][0]
-
-8. Dans l’écran suivant, sous **Identifiant client de l’application Web**, notez les valeurs définies pour **Identifiant client** et **Code secret du client**.
+8. Sur l'écran suivant, notez les valeurs de l'ID du client et de la clé secrète client.
 
     > [AZURE.IMPORTANT]La clé secrète client est une information d'identification de sécurité importante. Ne partagez cette clé secrète avec personne et ne la distribuez pas dans une application cliente.
 
-
-## <a name="secrets"> </a>Ajout des informations Google à votre application Mobile App
-
-7. Dans le [portail de gestion Azure], dans le panneau des paramètres Google pour votre application Mobile App, collez les valeurs d’identifiant client et de code secret du client que vous avez obtenues précédemment. Cliquez ensuite sur **Enregistrer**.
+9. Dans le [portail de gestion Azure], dans le panneau des paramètres Google pour votre application Mobile App, collez les valeurs d'identifiant client et de code secret du client que vous avez obtenues précédemment. Cliquez ensuite sur **Enregistrer**.
 
      ![][1]
-
 
 Vous êtes maintenant prêt à utiliser Google pour l'authentification dans votre application.
 
@@ -76,4 +67,4 @@ Vous êtes maintenant prêt à utiliser Google pour l'authentification dans votr
 [portail de gestion Azure]: https://portal.azure.com/
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=September15_HO1-->

@@ -1,22 +1,20 @@
 <properties 
-	pageTitle="Configurer des applications web dans Azure App Service" 
-	description="Configuration d’une application web dans Azure App Service" 
-	services="app-service\web" 
-	documentationCenter="" 
-	authors="MikeWasson" 
-	manager="wpickett" 
+	pageTitle="Configurer des applications web dans Azure App Service"
+	description="Configuration d’une application web dans Azure App Service"
+	services="app-service\web"
+	documentationCenter=""
+	authors="erikre"
+	manager="wpickett"
 	editor="mollybos"/>
 
-
 <tags 
-	ms.service="app-service-web" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/28/2015" 
-	ms.author="mwasson"/>
-
+	ms.service="app-service-web"
+	ms.workload="web"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/31/2015"
+	ms.author="erikre"/>
 
 
 # Configurer des applications web dans Azure App Service #
@@ -178,4 +176,4 @@ Pour plus d’informations, consultez [Surveillance de l’état d’un point de
 * Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre l'ancien et le nouveau portail, consultez : [Références sur la navigation dans le portail Azure](http://go.microsoft.com/fwlink/?LinkId=529715)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

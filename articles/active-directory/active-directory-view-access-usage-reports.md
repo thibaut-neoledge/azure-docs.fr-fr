@@ -39,8 +39,8 @@ Dans le portail de gestion Azure, les rapports sont classés comme suit :
 |	------												|	-----																						|
 |	**Rapports d’activités anormales**
 |	[Connexions à partir de sources inconnues](active-directory-reporting-sign-ins-from-unknown-sources.md) |	Peut indiquer une tentative de connexion sans être suivi.. |
-|	[Connexions après plusieurs échecs](active-directory-sign-ins-after-multiple-failures.md) |	Peut indiquer une attaque en force brute réussie. |
-|	[Connexions depuis plusieurs zones géographiques](active-directory-sign-ins-from-multiple-geographies.md) |	Peut indiquer que plusieurs utilisateurs se connectent avec le même compte. |
+|	[Connexions après plusieurs échecs](active-directory-reporting-sign-ins-after-multiple-failures.md) |	Peut indiquer une attaque en force brute réussie. |
+|	[Connexions depuis plusieurs zones géographiques](active-directory-reporting-sign-ins-from-multiple-geographies.md) |	Peut indiquer que plusieurs utilisateurs se connectent avec le même compte. |
 |	[Connexions à partir d’adresses IP affichant une activité suspecte](active-directory-reporting-sign-ins-from-ip-addresses-with-suspicious-activity.md) |	Peut indiquer une connexion réussie après une tentative d'intrusion insistante. |
 |	[Connexions à partir de périphériques potentiellement infectés](active-directory-reporting-sign-ins-from-possibly-infected-devices.md) |	Peut indiquer une tentative de connexion à partir de périphériques potentiellement infectés. |
 |	[Activité de connexion anormale](active-directory-reporting-irregular-sign-in-activity.md) |	Peut indiquer les événements anormaux des modèles de connexion des utilisateurs. |
@@ -76,7 +76,7 @@ Dans le portail de gestion Azure, les rapports sont classés comme suit :
 |	Utilisateurs ayant une activité de connexion anormale | | |	✓ |
 |	Utilisateurs avec des informations d’identification volées | | |	✓ |
 |	**Journaux d’activité**
-|	Rapport d’audit | | |	✓ |
+|	Rapport d’audit |	✓ | | |
 |	Activité de réinitialisation de mot de passe | | |	✓ |
 |	Activité de l’enregistrement de la réinitialisation de mot de passe | | |	✓ |
 |	Activité de groupes en libre-service | | |	✓ |
@@ -100,7 +100,9 @@ Dans le portail de gestion Azure, les rapports sont classés comme suit :
 
 
 ## Rapports d’activités anormales
-Les rapports d’activité de connexion anormale contiennent les activités de connexion suspectes vers le portail de gestion Azure, le panneau d’accès Azure AD, Office 365, Sharepoint Online, Dynamics CRM Online et d’autres services en ligne Microsoft, quel que soit le fournisseur de fédération. <p>Les rapports suivants sont disponibles : </p><ul> <li>[connexions provenant de sources inconnues](active-directory-reporting-sign-ins-from-unknown-sources.md).</li> <li>[Connexions après plusieurs échecs](active-directory-reporting-sign-ins-after-multiple-failures.md).</li> <li>[Connexions depuis plusieurs zones géographiques](active-directory-reporting-sign-ins-from-multiple-geographies.md).</li> <li>[Connexions à partir d’adresses IP affichant une activité suspecte](active-directory-reporting-sign-ins-from-ip-addresses-with-suspicious-activity.md).</li> <li>[Activité de connexion anormale](active-directory-reporting-irregular-sign-in-activity.md).</li> <li>[Connexions à partir de périphériques potentiellement infectés](active-directory-reporting-sign-ins-from-possibly-infected-devices.md).</li> <li>[Utilisateurs ayant une activité de connexion anormale](active-directory-reporting-users-with-anomalous-sign-in-activity.md).</li> <li>Utilisateurs avec des informations d’identification volées</li></ul>
+<p>Les rapports d'activités de connexion anormales signalent les connexions suspectes à Office365, au portail de gestion Azure, au panneau d'accès Azure&#160;AD, à Sharepoint Online, Dynamics CRM Online, et d'autres services en ligne de Microsoft.</p>
+<p>Tous ces rapports, à l'exception du rapport «&#160;Connexions après plusieurs échecs&#160;», signalent également les connexions <i>fédérées</i> suspectes aux services susmentionnés, quel que soit le fournisseur de fédération. </p>
+<p>Les rapports suivants sont disponibles : </p><ul> <li>[Connexions à partir de sources inconnues](active-directory-reporting-sign-ins-from-unknown-sources.md).</li> <li>[Connexions après plusieurs échecs](active-directory-reporting-sign-ins-after-multiple-failures.md).</li> <li>[Connexions depuis plusieurs zones géographiques](active-directory-reporting-sign-ins-from-multiple-geographies.md).</li> <li>[Connexions à partir d'adresses IP affichant une activité suspecte](active-directory-reporting-sign-ins-from-ip-addresses-with-suspicious-activity.md).</li> <li>[Activité de connexion anormale](active-directory-reporting-irregular-sign-in-activity.md).</li> <li>[Connexions à partir de périphériques potentiellement infectés](active-directory-reporting-sign-ins-from-possibly-infected-devices.md).</li> <li>[Utilisateurs ayant une activité de connexion anormale](active-directory-reporting-users-with-anomalous-sign-in-activity.md).</li> <li>Utilisateurs avec des informations d'identification volées</li></ul>
 
 
 
@@ -267,11 +269,11 @@ Si vous affichez des rapports d'anomalie, vous remarquerez peut-être que vous p
 
 ## Notifications automatiques par courrier électronique
 
-Pour plus d’informations sur les notifications de création de rapport Azure AD, consultez [Notifications de création de rapport Azure Active Directory](active-directory-reporting-notifications.md).
+Pour plus d'informations sur les notifications de création de rapport Azure AD, consultez [Notifications de création de rapport Azure Active Directory](active-directory-reporting-notifications.md).
 
 ## Étapes suivantes
 
 - [Prise en main d’Azure Active Directory Premium (AD)](active-directory-get-started-premium.md)
 - [Ajouter des stratégies de promotion professionnelles aux pages du volet d’accès et de connexion](active-directory-add-company-branding.md)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

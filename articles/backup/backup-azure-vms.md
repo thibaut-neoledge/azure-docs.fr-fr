@@ -7,7 +7,7 @@
 	manager="shreeshd"
 	editor=""/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="hero-article" ms.date="07/30/2015" ms.author="aashishr"; "jimpark"/>
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="hero-article" ms.date="09/01/2015" ms.author="aashishr"; "jimpark"/>
 
 
 # Sauvegarde des machines virtuelles Azure
@@ -17,10 +17,10 @@ Les trois principales étapes de la sauvegarde des machines virtuelles sont les 
 
 ![Trois étapes pour sauvegarder une machine virtuelle Azure](./media/backup-azure-vms/3-steps-for-backup.png)
 
-## 1\. Découvrir les machines virtuelles Azure
-Le processus de découverte interroge Azure pour obtenir la liste des machines virtuelles de l’abonnement et des informations supplémentaires, comme le nom du service cloud et la région.
+>[AZURE.NOTE]La sauvegarde de machine virtuelle est locale. Le coffre de sauvegarde situé dans une région Azure spécifiée ne vous autorise pas à sauvegarder des machines virtuelles issues d’une autre région Azure. Ainsi, au moins 1 coffre de sauvegarde doit être créé dans cette région pour chaque région Azure équipée de machines virtuelles nécessitant une sauvegarde.
 
-> [AZURE.NOTE]Ce processus doit toujours être exécuté en premier. En effet, il permet de vérifier que les nouvelles machines virtuelles ajoutées à l’abonnement sont identifiées.
+## 1\. Découvrir les machines virtuelles Azure
+Le processus de découverte interroge Azure pour obtenir la liste des machines virtuelles de l’abonnement et des informations supplémentaires, comme le nom du service cloud et la région. Ce processus doit toujours être exécuté en premier. En effet, il permet de vérifier que les nouvelles machines virtuelles ajoutées à l’abonnement sont identifiées.
 
 ### Pour déclencher le processus de découverte
 
@@ -41,19 +41,15 @@ Le processus de découverte interroge Azure pour obtenir la liste des machines v
     ![découverte terminée](./media/backup-azure-vms/discovery-complete.png)
 
 ##  2\. Inscription des machines virtuelles Azure
-Pour protéger une machine virtuelle, cette dernière doit être inscrite auprès du service Azure Backup. Le processus d’inscription a deux objectifs principaux :
+Pour protéger une machine virtuelle, cette dernière doit être inscrite auprès du service Azure Backup. L’objectif principal du processus d’inscription consiste à associer la machine virtuelle au service de sauvegarde Azure. L’inscription est généralement une activité unique.
 
-1. Connecter l’extension de sauvegarde à l’agent de machine virtuelle dans la machine virtuelle.
-
-2. Associer la machine virtuelle au service Azure Backup.
-
-L’inscription est généralement une activité unique. Le service Azure Backup gère de façon transparente la mise à niveau et la correction de l’extension de sauvegarde sans aucune intervention fastidieuse pour l’utilisateur. Cela évite à l’utilisateur la « surcharge de gestion des agents » généralement associée aux produits de sauvegarde.
+>[AZURE.NOTE]L’extension de sauvegarde n’est pas installée pendant l’étape d’inscription. L’installation et la mise à jour de l’agent de sauvegarde font désormais partie de la tâche de sauvegarde planifiée.
 
 ### Pour inscrire des machines virtuelles
 
-1. Accédez à l’archivage de sauvegarde qui se trouve sous **Recovery Services** dans le portail Azure, puis cliquez sur l’onglet **Éléments inscrits**.
+1. Accédez au coffre de sauvegarde se trouvant sous **Recovery Services** dans le portail Azure, puis cliquez sur l’onglet **Éléments inscrits**.
 
-2. Choisissez le type de charge de travail dans le menu déroulant en tant que **Machine virtuelle Azure**, puis cliquez sur le bouton de sélection.
+2. Choisissez le type de charge de travail dans le menu déroulant en tant que **Azure Virtual Machine**, puis cliquez sur le bouton de sélection.
 
     ![sélectionner la charge de travail](./media/backup-azure-vms/discovery-select-workload.png)
 
@@ -63,7 +59,6 @@ L’inscription est généralement une activité unique. Le service Azure Backup
 
     L’opération **Inscrire** peut être effectuée à grande échelle, ce qui signifie que plusieurs machines virtuelles peuvent être sélectionnées en même temps pour l’inscription. Cela réduit considérablement l’opération unique de préparation de la machine virtuelle pour la sauvegarde.
 
-    >[AZURE.NOTE]Seules les machines virtuelles qui ne sont pas inscrites et se trouvent dans la même région que l’archivage de sauvegarde sont affichées.
 
 5. Un travail est créé pour chaque machine virtuelle à inscrire. La notification toast indique l’état de cette activité. Cliquez sur **Afficher le travail** pour accéder à la page **Travaux**.
 
@@ -77,11 +72,10 @@ L’inscription est généralement une activité unique. Le service Azure Backup
 
     ![État de l’inscription 2](./media/backup-azure-vms/register-status02.png)
 
-## 3\. Protéger : Sauvegarde des machines virtuelles Azure
-Cette étape implique la configuration d’une stratégie de sauvegarde et de rétention pour la machine virtuelle. Pour protéger une machine virtuelle, procédez comme suit.
+## 3\. Protection : sauvegarde des machines virtuelles Azure
+Cette étape implique la configuration d’une stratégie de sauvegarde et de rétention pour la machine virtuelle. Pour protéger une machine virtuelle, procédez comme suit :
 
-### Sauvegarde des machines virtuelles Azure
-1. Accédez à l’archivage de sauvegarde qui se trouve sous **Recovery Services** dans le portail Azure, puis cliquez sur l’onglet **Éléments inscrits**.
+1. Accédez au coffre de sauvegarde qui se trouve sous **Recovery Services** dans le portail Azure, puis cliquez sur l’onglet **Éléments inscrits**.
 2. Choisissez le type de charge de travail dans le menu déroulant en tant que **Machine virtuelle Azure**, puis cliquez sur le bouton **Sélectionner**.
 
     ![Sélectionner la charge de travail dans le portail](./media/backup-azure-vms/select-workload.png)
@@ -92,11 +86,7 @@ Cette étape implique la configuration d’une stratégie de sauvegarde et de r�
 
     L’opération **Protéger** peut être effectuée à grande échelle, ce qui signifie que plusieurs machines virtuelles peuvent être sélectionnées en même temps pour l’inscription. Cela réduit considérablement les opérations nécessaires pour la protection de la machine virtuelle.
 
-    >[AZURE.NOTE]Seules les machines virtuelles correctement inscrites avec le service Azure Backup et situées dans la même région que l’archivage de sauvegarde sont affichées ici.
-
 5. Dans le deuxième écran de l’Assistant **Protection des éléments**, choisissez une stratégie de sauvegarde et de rétention pour sauvegarder les machines virtuelles sélectionnées. Sélectionnez un ensemble de stratégies existant ou définissez-en un nouveau.
-
-    >[AZURE.NOTE]Pour la version préliminaire, la durée maximale de rétention va jusqu’à 30 jours et le nombre de sauvegardes maximum par jour est de 1.
 
     Dans chaque archivage de sauvegarde, vous pouvez avoir plusieurs stratégies de sauvegarde. Ces stratégies reflètent les informations détaillées sur la planification et la conservation de la sauvegarde. Par exemple, une stratégie de sauvegarde peut être définie pour une sauvegarde quotidienne à 22h00, alors qu’une autre stratégie de sauvegarde peut être définie pour une sauvegarde hebdomadaire à 06h00. Plusieurs stratégies de sauvegarde améliorent la flexibilité de planification de sauvegardes pour l’infrastructure de votre machine virtuelle.
 
@@ -106,75 +96,32 @@ Cette étape implique la configuration d’une stratégie de sauvegarde et de r�
 
     ![Configurer le travail de protection](./media/backup-azure-vms/protect-configureprotection.png)
 
-7. Lorsque vous avez terminé, les machines virtuelles sont protégées par une stratégie et doivent attendre jusqu’à ce que le délai de sauvegarde prévu pour la sauvegarde initiale se termine. La machine virtuelle apparaît désormais sous l’onglet **Éléments protégés**, tandis que leur état est défini sur *Protégée* (en attente de la sauvegarde initiale).
-    >[AZURE.NOTE]Le démarrage de la sauvegarde initiale immédiatement après la configuration de la protection n’est pas disponible pour le moment.
 
-8. À l’heure planifiée, le service Azure Backup crée un travail de sauvegarde pour chaque machine virtuelle à sauvegarder. Cliquez sur l’onglet **Travaux** pour afficher la liste des travaux **Backup**. Dans le cadre de l’opération de sauvegarde, le service Azure Backup émet une commande vers l’extension de sauvegarde de chaque ordinateur virtuel pour vider toutes les écritures et prendre un instantané cohérent.
+## Activités post-protection
 
-    ![Sauvegarde en cours](./media/backup-azure-vms/protect-inprogress.png)
+### Installation de l’extension de sauvegarde
 
-9. Une fois la commande exécutée, l’état de protection de la machine virtuelle sous l’onglet **Éléments protégés** s’affiche en tant que *protégé*.
+Le service Azure Backup gère de façon transparente la mise à niveau et la correction de l’extension de sauvegarde sans aucune intervention fastidieuse pour l’utilisateur. Cela évite à l’utilisateur la « surcharge de gestion des agents » généralement associée aux produits de sauvegarde.
 
-    ![La machine virtuelle est sauvegardée avec un point de récupération](./media/backup-azure-vms/protect-backedupvm.png)
+#### Machines virtuelles hors connexion
+L’extension de sauvegarde est installée si la machine virtuelle est en cours de fonctionnement. Une machine virtuelle en cours d’exécution présente également le plus grand risque d’obtenir un point d’application cohérent. Toutefois, le service Azure Backup poursuit la sauvegarde de machine virtuelle, même si elle est éteinte et si l’extension n’a pas été installée (c’est-à-dire, la machine virtuelle est hors ligne). L’impact se voit à la cohérence, auquel cas le point de récupération est * cohérent avec le système de fichiers*.
 
-## Affichage des détails et de l’état de sauvegarde
-Une fois la protection appliquée, le nombre de machines virtuelles augmente également sur la page de synthèse nommée **Tableau de bord**. La page **Tableau de bord** affiche également le nombre de travaux à partir des dernières 24 heures ayant réussi, échoué et toujours en cours. Cliquez sur n’importe quelle catégorie pour l’examiner plus en détail dans la page **Travaux**.
+### Sauvegarde initiale
+Une fois la machine virtuelle protégée par une politique, elle apparaît sous l’onglet **Éléments protégés**, à l’état *Protégé* (sauvegarde initiale en attente). Par défaut, la première sauvegarde planifiée est la sauvegarde initiale. Pour déclencher la sauvegarde initiale immédiatement après la configuration de protection, utilisez **Sauvegarder maintenant** au bas de la page Éléments protégés.
+
+Le service Azure Backup crée un travail de sauvegarde pour l’opération de sauvegarde initiale. Cliquez sur l’onglet **Travaux** pour afficher la liste des travaux. Dans le cadre de l’opération de sauvegarde, le service Azure Backup émet une commande vers l’extension de sauvegarde de chaque ordinateur virtuel pour vider toutes les écritures et prendre un instantané cohérent.
+
+![Sauvegarde en cours](./media/backup-azure-vms/protect-inprogress.png)
+
+Une fois la sauvegarde initiale terminée, l’état de protection de la machine virtuelle présente dans l’onglet **Éléments protégés** s’affiche en tant que *protégé*.
+
+![La machine virtuelle est sauvegardée avec un point de récupération](./media/backup-azure-vms/protect-backedupvm.png)
+
+
+### Affichage des détails et de l’état de sauvegarde
+Une fois la protection appliquée, le nombre de machines virtuelles augmente également sur la page de synthèse nommée **Tableau de bord**. La page **Tableau de bord** affiche également le nombre de travaux des dernières 24 heures ayant réussi, ayant échoué ou toujours en cours. Cliquez sur n’importe quelle catégorie pour l’examiner plus en détail dans la page **Travaux**.
 
 ![État de la sauvegarde sur la page Tableau de bord](./media/backup-azure-vms/dashboard-protectedvms.png)
-
-## Résolution des erreurs
-Vous pouvez résoudre les erreurs rencontrées pendant l’utilisation d’Azure Backup à l’aide des informations figurant dans le tableau suivant.
-
-| Opération de sauvegarde | Détails de l’erreur | Solution de contournement |
-| -------- | -------- | -------|
-| Découverte | Échec de la découverte de nouveaux éléments : Microsoft Azure Backup a rencontré une erreur interne. Patientez quelques minutes et recommencez l’opération. | Recommencez le processus de découverte après 15 minutes.
-| Découverte | Échec de la découverte de nouveaux éléments : une autre opération de découverte est déjà en cours. Patientez jusqu’à ce que l’opération de découverte en cours soit terminée. | Aucun. |
-| S’inscrire | Le rôle de machine virtuelle Azure n’est pas en état pour installer l’extension : veuillez vérifier si la machine virtuelle est en cours d’exécution. L’extension Azure Recovery Services requiert l’exécution de la machine virtuelle. | Démarrez la machine virtuelle et, lorsqu’elle est en cours d’exécution, recommencez l’opération d’inscription.|
-| S’inscrire | Le nombre de disques de données attachés à la machine virtuelle a dépassé la limite autorisée : Détachez des disques de données de cette machine virtuelle et recommencez l’opération La sauvegarde Azure prend en charge jusqu’à 5 disques de données attachés à une machine virtuelle à des fins de sauvegarde. | Aucun. |
-| S’inscrire | Microsoft Azure Backup a rencontré une erreur interne. Veuillez patienter quelques minutes et réessayez l’opération. Si le problème persiste, contactez le support technique Microsoft. | Vous pouvez obtenir cette erreur en raison d’une des configurations non prises en charge suivantes : <ol><li>LRS Premium <li>Plusieurs cartes interfaces réseau <li>Équilibreur de charge </ol> |
-| S’inscrire | Certificat de l’agent invité de la machine virtuelle introuvable. | Suivez ces instructions pour résoudre l’erreur : <ol><li>Téléchargez la dernière version de l’agent de machine virtuelle [ici](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Vérifiez que la version de l’agent téléchargé est la version 2.6.1198.718 ou ultérieure. <li>Installez l’agent de machine virtuelle dans la machine virtuelle.</ol> [Découvrez](#validating-vm-agent-installation) comment vérifier la version de l’agent de machine virtuelle. |
-| S’inscrire | Échec de l’inscription avec un délai d’expiration de l’opération Installer l’agent. | Vérifiez si la version de système d’exploitation de la machine virtuelle est prise en charge. |
-| S’inscrire | Échec de l’exécution de la commande - Une autre opération est en cours sur cet élément Attendez que l’opération précédente aboutisse. | Aucun. |
-| Sauvegarde | La copie des disques durs virtuels à partir de l’archive de sauvegarde a expiré - Retentez l’opération dans quelques minutes. Si le problème persiste, contactez le support technique Microsoft. | Cela se produit lorsqu’il y a trop de données à copier. Vérifiez que vous disposez de moins de 6 disques de données. |
-| Sauvegarde | La sous-tâche de capture de la machine virtuelle a expiré - Retentez l’opération dans quelques minutes. Si le problème persiste, contactez le support technique Microsoft. | Cette erreur est générée si un problème existe avec l’agent de machine virtuelle ou si l’accès réseau à l’infrastructure Azure est bloqué. <ul><li>En savoir plus sur le [débogage des problèmes de l’Agent VM](#Troubleshooting-vm-agent-related-issues). <li>En savoir plus sur le [débogage des problèmes de réseau](#troubleshooting-networking-issues). </ul> |
-| Sauvegarde | Échec de l’opération de sauvegarde avec une erreur interne - Retentez l’opération dans quelques minutes. Si le problème persiste, contactez le support technique Microsoft. | Vous pouvez obtenir cette erreur pour 2 raisons : <ol><li> Il y a trop de données à copier. Vérifiez que vous disposez de moins de 6 disques. <li>La machine virtuelle d’origine a été supprimée, et par conséquent la sauvegarde ne peut pas être effectuée. Afin de conserver les données de sauvegarde d’une machine virtuelle supprimée, mais d’arrêter les erreurs de sauvegarde, ôtez la protection de la machine virtuelle, puis choisissez l’option de conservation des données. Cela empêchera la planification de sauvegarde, ainsi que l’affichage récurrent de messages d’erreur. |
-| Sauvegarde | Échec de l’installation de l’extension Azure Recovery Services sur l’élément sélectionné - L’agent VM est un composant requis pour l’extension Azure Recovery Services. Installez d’abord l’agent Azure VM, puis recommencez l’opération d’inscription. | <ol> <li>Vérifiez si l’agent de machine virtuelle a été installé correctement. <li>Vérifiez que l’indicateur de la configuration de la machine virtuelle est défini correctement.</ol> [En savoir plus](#validating-vm-agent-installation) sur l’installation de l’agent de machine virtuelle et la validation de cette opération. |
-| Sauvegarde | Échec de l’exécution de la commande - Une autre opération est en cours sur cet élément. Attendez que l’opération précédente aboutisse, puis réessayez. | Une sauvegarde ou un travail de restauration existant pour la machine virtuelle est en cours d’exécution, et aucun nouveau travail ne peut être démarré pendant l’exécution d’un travail existant. <br><br>Si vous souhaitez avoir la possibilité d’annuler un travail en cours, ajoutez votre vote dans le [forum de commentaires Azure](http://feedback.azure.com/forums/258995-azure-backup-and-scdpm/suggestions/7941501-add-feature-to-allow-cancellation-of-backup-restor). |
-
-### Résolution des problèmes relatifs à l’agent de machine virtuelle
-
-#### Configuration de l’agent de machine virtuelle
-En règle générale, l’agent de machine virtuelle est déjà présent dans les machines virtuelles qui sont créées à partir de la galerie Azure. Cependant, les machines virtuelles qui sont migrées à partir de centres de données locaux n’ont pas d’agent de machine virtuelle. Pour ces machines virtuelles, l’agent de machine virtuelle doit être installé de manière explicite. Pour en savoir plus, consultez la page [Installation de l’agent de machine virtuelle sur une machine virtuelle existante](http://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx).
-
-Pour les machines virtuelles Windows :
-
-- Téléchargez et installez le fichier [MSI de l’agent](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Vous aurez besoin de privilèges d’administrateur pour terminer l’installation.
-- [Mettez à jour la propriété de la machine virtuelle](http://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx) pour indiquer que l’agent est installé.
-
-
-#### Mise à jour de l’agent de machine virtuelle
-La mise à jour de l’agent de machine virtuelle est aussi simple que la réinstallation des [fichiers binaires de l’agent de machine virtuelle](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Toutefois, vous devez vous assurer qu’aucune opération de sauvegarde n’est en cours pendant la mise à jour de l’agent de machine virtuelle.
-
-
-#### Validation de l’installation de l’agent de machine virtuelle
-Pour vérifier la version de l’agent de machine virtuelle sur les machines virtuelles Windows :
-
-1. Connectez-vous à la machine virtuelle Azure et accédez au dossier *C:\\WindowsAzure\\Packages*. Le fichier WaAppAgent.exe doit être présent dans le dossier Packages.
-2. Cliquez avec le bouton droit sur le fichier, accédez à **Propriétés**, puis sélectionnez l’onglet **Détails**. Le champ Version du produit doit être défini sur 2.6.1198.718 ou une version ultérieure.
-
-### Résolution des problèmes de mise en réseau
-Comme toutes les extensions, l’extension de sauvegarde a besoin d’accéder à l’Internet public pour fonctionner. En l’absence d’accès Internet public, plusieurs cas de figure sont possibles :
-
-- L’installation de l’extension peut échouer.
-- Les opérations de sauvegarde (telles que l’instantané de disque) peuvent échouer.
-- L’affichage de l’état de l’opération de sauvegarde peut échouer.
-
-La nécessité de résoudre des adresses Internet publiques a été évoquée [ici](http://blogs.msdn.com/b/mast/archive/2014/06/18/azure-vm-provisioning-stuck-on-quot-installing-extensions-on-virtual-machine-quot.aspx). Vous devez vérifier la configuration DNS du réseau virtuel et vous assurer que les URI Azure peuvent être résolus.
-
-Une fois que la résolution de noms a été effectuée correctement, l’accès aux adresses IP Azure doit également être fourni. Pour débloquer l’accès à l’infrastructure Azure, procédez comme suit :
-
-1. Obtenez la liste des [adresses IP de centres de données Azure](https://msdn.microsoft.com/library/azure/dn175718.aspx) qui sont des adresses IP sécurisées.
-2. Débloquez les adresses IP à l’aide de l’applet de commande [New-NetRoute](https://technet.microsoft.com/library/hh826148.aspx). Exécutez cette applet de commande dans la machine virtuelle Azure, dans une fenêtre PowerShell avec élévation de privilèges (exécution en tant qu’administrateur).
 
 
 ## Cohérence des points de récupération
@@ -189,14 +136,52 @@ Le tableau suivant décrit les types de cohérence rencontrés pendant la restau
 
 | Cohérence | En fonction du service VSS | Explication et détails |
 |-------------|-----------|---------|
-| Cohérence des applications | Oui | C’est l’endroit idéal pour les charges de travail Microsoft, car il garantit les points suivants :<ol><li> La machine virtuelle *démarre*. <li>Les données *ne sont pas endommagées*. <li>Il n’y a *aucune perte de données*.<li> Les données sont cohérentes vis-à-vis de l’application qui les utilise, en impliquant l’application au moment de la sauvegarde, à l’aide de VSS.</ol> Le service VSS (Volume Shadow Copy Service) garantit que les données sont correctement écrites dans le stockage. La plupart des charges de travail de Microsoft ont des enregistreurs VSS qui effectuent des actions de charges de travail spécifiques relatives à la cohérence des données. Par exemple, Microsoft SQL Server dispose d’un enregistreur VSS qui garantit que les écritures dans le journal des transactions et de la base de données sont effectuées correctement.<br><br> Pour la sauvegarde d’une machine virtuelle Azure, l’obtention d’un point de récupération cohérent signifie que l’extension de sauvegarde a pu appeler le flux de travail VSS et se terminer *correctement* avant la prise de l’instantané de la machine virtuelle. Bien entendu, cela signifie que les enregistreurs VSS de toutes les applications dans la machine virtuelle Azure ont été également appelés.<br><br>Découvrez les[principes de base du service VSS](http://blogs.technet.com/b/josebda/archive/2007/10/10/the-basics-of-the-volume-shadow-copy-service-vss.aspx), puis approfondissez vos connaissances sur [son fonctionnement](https://technet.microsoft.com/library/cc785914%28v=ws.10%29.aspx). |
-| Cohérence du système de fichiers | Oui : pour les machines Windows | Il existe deux scénarios où le point de récupération peut être cohérent avec le système de fichiers :<ul><li>En cas de sauvegarde de machines virtuelles Linux dans Azure, Linux n’ayant pas une plateforme équivalente à VSS.<li>En cas d’échec du service VSS lors de la sauvegarde de machines virtuelles Windows dans Azure.</li></ul> Dans ces deux cas, la meilleure solution consiste à garantir les points suivants : <ol><li> La machine virtuelle *démarre*. <li>Les données *ne sont pas endommagées*.<li>Il n’y a aucune *perte de données*.</ol> Les applications doivent implémenter leur propre mécanisme de « correctif » sur les données restaurées.|
+| Cohérence des applications | Oui | C’est l’endroit idéal pour les charges de travail Microsoft, car il garantit les points suivants :<ol><li> La machine virtuelle *démarre*. <li>Les données *ne sont pas endommagées*. <li>Il n’y a *aucune perte de données*.<li> Les données sont cohérentes vis-à-vis de l’application qui les utilise, et implique l’application au moment de la sauvegarde (à l’aide de VSS).</ol> Le service VSS (Volume Shadow Copy Service) garantit que les données sont correctement écrites dans le stockage. La plupart des charges de travail de Microsoft ont des enregistreurs VSS qui effectuent des actions de charges de travail spécifiques relatives à la cohérence des données. Par exemple, Microsoft SQL Server dispose d’un enregistreur VSS qui garantit que les écritures dans le journal des transactions et de la base de données sont effectuées correctement.<br><br> Pour la sauvegarde d’une machine virtuelle Azure, l’obtention d’un point de récupération cohérent signifie que l’extension de sauvegarde a pu appeler le flux de travail VSS et se terminer *correctement* avant la prise de l’instantané de la machine virtuelle. Bien entendu, cela signifie que les enregistreurs VSS de toutes les applications dans la machine virtuelle Azure ont été également appelés.<br><br>Découvrez les[principes de base du service VSS](http://blogs.technet.com/b/josebda/archive/2007/10/10/the-basics-of-the-volume-shadow-copy-service-vss.aspx), puis approfondissez vos connaissances sur [son fonctionnement](https://technet.microsoft.com/library/cc785914%28v=ws.10%29.aspx). |
+| Cohérence du système de fichiers | Oui : pour les machines Windows | Il existe deux scénarios où le point de récupération peut être cohérent avec le système de fichiers :<ul><li>En cas de sauvegarde de machines virtuelles Linux dans Azure, Linux n’ayant pas une plateforme équivalente à VSS.<li>En cas d’échec du service VSS lors de la sauvegarde de machines virtuelles Windows dans Azure.</li></ul> Dans ces deux cas, la meilleure solution consiste à garantir les points suivants : <ol><li> La machine virtuelle *démarre*. <li>Les données *ne sont pas endommagées*.<li>Il n’y a pas de *perte de données*.</ol> Les applications doivent implémenter leur propre mécanisme de « correctif » sur les données restaurées.|
 | Cohérence en cas d’incident | Non | Cette situation est la même que lorsqu’une machine rencontre un « incident » (via une réinitialisation matérielle ou logicielle). Cela se produit généralement lorsque la machine virtuelle Azure est arrêtée au moment de la sauvegarde. Pour la sauvegarde d’une machine virtuelle Azure, l’obtention d’un point de récupération cohérent suite à un incident signifie qu’Azure Backup ne fournit aucune garantie de cohérence des données sur le support de stockage, que ce soit au niveau du système d’exploitation ou de l’application. Seules les données déjà présentes sur le disque au moment de la sauvegarde sont capturées et sauvegardées. <br/> <br/> Même s’il n’existe aucune garantie, dans la plupart des cas, le système d’exploitation démarre. Ce démarrage est généralement suivi d’une procédure de vérification du disque comme chkdsk permettant de résoudre les erreurs d’endommagement. Les données ou les écritures en mémoire qui n’ont pas été complètement transférées sur le disque seront perdues. Si une restauration de données est nécessaire, l’application suit généralement son propre mécanisme de vérification. Pour la sauvegarde de machine virtuelle Azure, l’obtention d’un point de récupération cohérent suite à un incident signifie que Microsoft Azure Backup ne fournit aucune garantie de cohérence des données sur le stockage, au niveau du système d’exploitation ou de l’application. Cela se produit généralement quand la machine virtuelle Azure est arrêtée au moment de la sauvegarde.<br><br>Par exemple, cette situation peut survenir si le journal des transactions comporte des entrées qui n’existent pas dans la base de données. Le logiciel de base de données effectue alors une restauration jusqu’à ce que les données soient cohérentes. Lorsque vous traitez des données réparties sur plusieurs disques virtuels (comme des volumes fractionnés), un point de récupération cohérent après incident ne fournit aucune garantie quant à l’exactitude des données.|
 
+
+## Performance et utilisation des ressources
+Au même titre qu’un logiciel de sauvegarde déployé sur site, l’utilisation de capacité et des ressources des machines virtuelles dans Azure doivent être planifiées. Les [limites de stockage Azure](azure-subscription-service-limits.md#storage-limits) définiront la structuration des déploiements de machine virtuelle obtenir des performances minimales avec un impact minimum pour l’exécution des charges de travail. Il existe deux limites de stockage Azure principales sauvegarde ayant un impact sur les performances de sauvegarde :
+
++ Nombre maximal de sorties par compte de stockage
++ Taux de requête total par compte de stockage
+
+Lorsque les données de sauvegarde sont copiées hors du compte de stockage du client, il est comptabilisé dans les mesures de l’IOPS et des sorties (débit de stockage) du compte de stockage. Dans le même temps, les machines virtuelles exécutent et consomment des IOPS et débit. L’objectif est de vous assurer que le trafic général (sauvegarde et machine virtuelle) ne dépasse pas les limites du compte de stockage.
+
+La sauvegarde est gourmande en temps et consomme autant de ressources possibles, car son objectif consiste à terminer sa sauvegarde dans les meilleurs délais. Toutefois, toutes les opérations d’E/S sont limitées par le *débit cible d’un seul objet Blob*, qui est limité à *60 Mo par seconde*. Pour accélérer le processus de sauvegarde, la sauvegarde de chaque disque de la machine virtuelle est tentée *en parallèle*. Donc, si une machine virtuelle est équipée de 4 disques, la sauvegarde Azure va tenter de sauvegarder l’ensemble des 4 disques simultanément. Par conséquent, le facteur le plus important pour déterminer le trafic de sauvegarde sortant d’un compte de stockage est le **nombre de disques** sauvegardés sur le compte de stockage.
+
+Autre facteur ayant un impact sur les performances : la **planification de sauvegarde**. Si vous configurez toutes les machines virtuelles à sauvegarder simultanément, le nombre de disques à sauvegarder *en parallèle* augmente. Azure Backup va tenter de sauvegarder autant de disques que possible. Par conséquent, il est possible de réduire le trafic de sauvegarde depuis un compte de stockage en s’assurant que les différentes machines virtuelles sont sauvegardées à différents moments de la journée, sans chevauchement.
+
+### Planification de la capacité
+Le rassemblement de tous ces facteurs signifie que l’utilisation du compte de stockage doit être planifiée correctement. Téléchargez la [feuille de calcul Excel de planification des capacités de machine virtuelle](https://gallery.technet.microsoft.com/Azure-Backup-Storage-a46d7e33) pour voir l’impact de vos choix en matière de disque et de planification de sauvegarde.
+
+### Débit de sauvegarde
+Pour chaque disque en cours de sauvegarde, Azure Backup lit les blocs sur le disque et stocke uniquement les données modifiées (sauvegarde incrémentielle). Le tableau ci-dessous indique les valeurs de débit moyen attendues de la sauvegarde Azure :
+
+| Opération de sauvegarde | Meilleur débit |
+| ---------------- | ---------- |
+| Sauvegarde initiale | 160 Mbits/s |
+| Sauvegarde incrémentielle (DR) | 640 Mbits/s <br><br> Ce débit baisse considérablement si une quantité importante de code est dispersée sur le disque et doit être sauvegardée |
+
+Ce type de sauvegarde permet d’estimer la quantité de temps nécessaire à la sauvegarde d’un disque de taille donnée.
+
+### Durée de sauvegarde de machine virtuelle totale
+La majeure partie du temps est consacrée à la lecture et la copie des données, mais il existe d’autres opérations qui contribuent à la durée totale nécessaire à la sauvegarde d’une machine virtuelle :
+
+1. Durée nécessaire à l’[installation de la mise à jour de l’extension de sauvegarde](backup-azure-vms.md#offline-vms)
+2. Temps d’attente de file d’attente : le service traitant les sauvegardes de plusieurs clients, il se peut que votre opération de sauvegarde ne démarre pas immédiatement. Le temps d’attente moyen d’une machine virtuelle est de 15 à 30 minutes.
+
+
+## Résolution des erreurs
+Obtenez une liste exhaustive des solutions de contournement des erreurs rencontrées au cours de la sauvegarde d’une machine virtuelle : [Dépannage de sauvegarde de machines virtuelles](backup-azure-vms-troubleshoot.md)
+
+
 ## Étapes suivantes
+
 Pour plus d’informations sur la prise en main de Microsoft Azure Backup, consultez :
 
 - [Restauration des machines virtuelles](backup-azure-restore-vms.md)
 - [Gestion des machines virtuelles](backup-azure-manage-vms.md)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

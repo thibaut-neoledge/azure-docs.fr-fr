@@ -1,21 +1,21 @@
 <properties 
-	pageTitle="Créer une ressource Application Insights dans Azure" 
-	description="Procédez à la configuration destinée à une nouvelle application et obtenez une nouvelle clé d’instrumentation. Application Insights analyse les performances et l’utilisation des applications actives." 
-	services="application-insights" 
-    documentationCenter=""
-	authors="alancameronwills" 
+	pageTitle="Ressources Application Insights distinctes pour le développement, le test et la production"
+	description="Surveillez les performances et l'utilisation de votre application à différentes étapes du développement"
+	services="application-insights"
+	documentationCenter=""
+	authors="alancameronwills"
 	manager="douge"/>
 
 <tags 
-	ms.service="application-insights" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/14/2015" 
+	ms.service="application-insights"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="ibiza"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/02/2015"
 	ms.author="awills"/>
 
-# Créer une ressource Application Insights dans Azure
+# Ressources Application Insights distinctes pour le développement, le test et la production
 
 
 Pour éviter le mélange des valeurs de télémétrie des versions de débogage, de test et de production de votre application, créez des ressources [Application Insights][start] distinctes pour recevoir les données à partir de chaque version.
@@ -98,4 +98,4 @@ L'iKey est également utilisée dans les pages web de votre application, dans le
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

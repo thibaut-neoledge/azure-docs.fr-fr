@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Publication du service web Machine Learning sur Azure Marketplace | Microsoft Azure" 
-	description="Publication du service web Azure Machine Learning sur Azure Marketplace" 
-	services="machine-learning" 
-	documentationCenter="" 
-	authors="LuisCabrer" 
-	manager="paulettm" 
+	pageTitle="Publication du service web Machine Learning sur Azure Marketplace | Microsoft Azure"
+	description="Publication du service web Azure Machine Learning sur Azure Marketplace"
+	services="machine-learning"
+	documentationCenter=""
+	authors="LuisCabrer"
+	manager="paulettm"
 	editor="cgronlun"/>
 
 <tags 
-	ms.service="machine-learning" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/12/2015" 
-	ms.author="luisca"/>
+	ms.service="machine-learning"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/01/2015"
+	ms.author="bharaths"/>
 
 # Publication du service Web Azure Machine Learning sur Azure Marketplace 
 
@@ -109,4 +109,4 @@ déployez le service en production.
 [odata]: ./media/machine-learning-publish-web-service-to-azure-marketplace/odata.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

@@ -1,22 +1,20 @@
 <properties 
-	pageTitle="Mise à jour des bases de données SQL des éditions Web ou Business vers les nouveaux niveaux de service" 
-	description="Mettez à niveau les bases de données SQL Azure Web ou Business vers les nouveaux niveaux de performance et niveaux de service de la base de données SQL Azure : De base, Standard et Premium." 
-	services="sql-database" 
-	documentationCenter="" 
-	authors="stevestein" 
-	manager="jeffreyg" 
+	pageTitle="Mise à jour des bases de données SQL des éditions Web ou Business vers les nouveaux niveaux de service"
+	description="Mettez à niveau les bases de données SQL Azure Web ou Business vers les nouveaux niveaux de performance et niveaux de service de la base de données SQL Azure : De base, Standard et Premium."
+	services="sql-database"
+	documentationCenter=""
+	authors="stevestein"
+	manager="jeffreyg"
 	editor=""/>
-
 
 <tags 
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="06/18/2015" 
-	ms.author="sstein" 
-	ms.workload="data-management" 
-	ms.topic="article" 
+	ms.date="06/18/2015"
+	ms.author="sstein"
+	ms.workload="data-management"
+	ms.topic="article"
 	ms.tgt_pltfrm="NA"/>
-
 
 
 # Mise à jour des bases de données SQL des éditions Web ou Business vers les nouveaux niveaux de service
@@ -69,8 +67,7 @@ Le niveau « De base » est principalement utilisé pour les bases de données
 
 Les nouvelles fonctionnalités de niveau de service et des niveaux de performance sont résumées et comparées dans le tableau suivant :
 
-![Comparaison des fonctionnalités de niveau de service][1]
-
+[AZURE.INCLUDE [Tableau de niveaux de service de base de données SQL](../../includes/sql-database-service-tiers-table.md)]
 
 **Ressources supplémentaires pour la comparaison des niveaux de service et des niveaux de performances :**
 
@@ -129,7 +126,7 @@ Il convient également de noter que ces données sont la moyenne d’échantillo
 
 ![Données de pourcentage DTU][2]
 
-Notez que les données dans l’exemple ci-dessus montrent une utilisation moyenne d’environ 10 DTU (19,23 % de 50) et un pourcentage DTU maximal de \~28 DTU (55,83 % x 50). En supposant que ces données représentent ma charge de travail typique, il conviendrait probablement de sélectionner le niveau Standard(S1) pour ma mise à niveau initiale. Le niveau Standard(S0) fournit 10 DTU, ce qui correspond à mon utilisation moyenne, mais cela signifie que ma base de données s’exécuterait en moyenne à 100 %, ce qui n’est pas une bonne idée. Si le niveau S1 est probablement un bon choix pour mon utilisation moyenne, qu’en est-il des moments où j’atteins le niveau maximal ? Je sais peut-être que les pics viennent d’un processus de maintenance nocturne, n’ayant aucun effet sur l’utilisation des clients, des performances réduites pendant ce laps de temps peuvent être acceptables. Toutefois, il est possible que je ne sache pas quand le maximum est atteint. Ma consommation de pourcentage DTU peut alors demander une analyse plus poussée.
+Notez que les données dans l’exemple ci-dessus montrent une utilisation moyenne d’environ 10 DTU (19,23 % de 50) et un pourcentage DTU maximal de ~28 DTU (55,83 % x 50). En supposant que ces données représentent ma charge de travail typique, il conviendrait probablement de sélectionner le niveau Standard(S1) pour ma mise à niveau initiale. Le niveau Standard(S0) fournit 10 DTU, ce qui correspond à mon utilisation moyenne, mais cela signifie que ma base de données s’exécuterait en moyenne à 100 %, ce qui n’est pas une bonne idée. Si le niveau S1 est probablement un bon choix pour mon utilisation moyenne, qu’en est-il des moments où j’atteins le niveau maximal ? Je sais peut-être que les pics viennent d’un processus de maintenance nocturne, n’ayant aucun effet sur l’utilisation des clients, des performances réduites pendant ce laps de temps peuvent être acceptables. Toutefois, il est possible que je ne sache pas quand le maximum est atteint. Ma consommation de pourcentage DTU peut alors demander une analyse plus poussée.
 
 Pour explorer les détails de la consommation des ressources par la base de données, vous pouvez utiliser les vues système fournies.
 
@@ -304,11 +301,10 @@ Le service Azure SQL Database fournit des données et des outils de télémétri
 
 
 <!--Image references-->
-[1]: ./media/sql-database-upgrade-new-service-tiers/service-tier-features.png
 [2]: ./media/sql-database-upgrade-new-service-tiers/portal-dtus.JPG
 [3]: ./media/sql-database-upgrade-new-service-tiers/web-business-noisy-neighbor.png
 [4]: ./media/sql-database-upgrade-new-service-tiers/resource_consumption.png
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

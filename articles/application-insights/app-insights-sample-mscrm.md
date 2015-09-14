@@ -1,18 +1,18 @@
 <properties 
-	pageTitle="Procédure pas à pas : surveiller Microsoft Dynamics CRM avec Application Insights" 
-	description="Obtenez des données de télémétrie à partir de Microsoft Dynamics CRM Online à l’aide d’Application Insights. Procédure pas à pas de configuration, obtention de données, visualisation et exportation." 
-	services="application-insights" 
-    documentationCenter=""
-	authors="mazharmicrosoft" 
+	pageTitle="Procédure pas à pas : surveiller Microsoft Dynamics CRM avec Application Insights"
+	description="Obtenez des données de télémétrie à partir de Microsoft Dynamics CRM Online à l’aide d’Application Insights. Procédure pas à pas de configuration, obtention de données, visualisation et exportation."
+	services="application-insights"
+	documentationCenter=""
+	authors="mazharmicrosoft"
 	manager="douge"/>
 
 <tags 
-	ms.service="application-insights" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/04/2015" 
+	ms.service="application-insights"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="ibiza"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/04/2015"
 	ms.author="awills"/>
  
 # Procédure pas à pas : activation de télémétrie pour Microsoft Dynamics CRM Online à l’aide d’Application Insights
@@ -151,7 +151,7 @@ Vous pouvez effectuer une analyse encore plus approfondie si vous [exportez les 
 
 ## Exemple de solution Dynamics CRM
 
-[Voici l’exemple de solution implémenté dans Dynamics CRM.](https://dynamicsandappinsights.codeplex.com/)
+[Voici l’exemple de solution implémenté dans Dynamics CRM](https://dynamicsandappinsights.codeplex.com/).
 
 ## En savoir plus
 
@@ -161,4 +161,4 @@ Vous pouvez effectuer une analyse encore plus approfondie si vous [exportez les 
 
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=September15_HO1-->

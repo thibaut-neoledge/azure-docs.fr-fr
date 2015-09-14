@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Utilisation du service StorSimple Manager pour surveiller votre appareil StorSimple | Microsoft Azure"
+   pageTitle="Analyser votre appareil StorSimple | Microsoft Azure"
 	description="Décrit comment utiliser le service StorSimple Manager pour surveiller les performances E/S, l'utilisation de la capacité, le débit du réseau et les performances de l'appareil."
 	services="storsimple"
 	documentationCenter="NA"
@@ -12,7 +12,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="NA"
 	ms.workload="TBD"
-	ms.date="08/25/2015"
+	ms.date="09/02/2015"
 	ms.author="alkohli"/>
 
 # Utilisation du service StorSimple Manager pour surveiller votre appareil StorSimple 
@@ -93,4 +93,4 @@ Les graphiques ci-dessous montrent le débit du réseau pour Data 0 et Data 4,
 
 [Découvrez comment utiliser le tableau de bord de l'appareil du service StorSimple Manager](storsimple-device-dashboard.md).
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

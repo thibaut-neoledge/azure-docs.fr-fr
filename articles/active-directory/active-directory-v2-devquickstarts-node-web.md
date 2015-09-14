@@ -34,7 +34,7 @@ Pour ce faire, vous devez :
 
 1. inscrire une application ;
 2. configurer votre application pour utiliser la stratégie Passport-azure-ad ;
-3. utiliser Passport pour émettre des demandes de connexion et de déconnexion dans Azure AD ;
+3. utiliser Passport pour émettre des demandes de connexion et de déconnexion dans Azure AD ;
 4. afficher les données relatives à l’utilisateur.
 
 Le code associé à ce didacticiel est stocké [sur GitHub](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-nodejs). Pour suivre la procédure, vous pouvez [télécharger la structure de l’application au format .zip](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-nodejs/archive/skeleton.zip) ou la cloner :
@@ -62,11 +62,15 @@ From the command-line, change directories to your root folder if not already the
 - `npm install bunyan`
 - `npm install assert-plus`
 - `npm install passport`
+- `npm install webfinger`
+- `npm install body-parser`
+- `npm install express-session`
+- `npm install cookie-parser`
 
-- In addition, we've included a special `passport-azure-ad` for our Preview in the skeleton of the quickstart. You'll need to install the pre-requisites in there as well.
+- In addition, we've use `passport-azure-ad` for our Preview in the skeleton of the quickstart. 
 
-- `cd /lib/passport-azure-ad`
-- `npm install`
+- `npm install passport-azure-ad`
+
 
 This will install the libraries that passport-azure-ad depend on.
 
@@ -76,21 +80,21 @@ Here, we'll configure the Express middleware to use the OpenID Connect authentic
 -	To begin, open the `config.js` file in the root of the project, and enter your app's configuration values in the `exports.creds` section.
     -	The `clientID:` is the **Application Id** assigned to your app in the registration portal.
     -	The `returnURL` is the **Redirect URI** you entered in the portal.
-    - The `clientSecret` is the secret you generated in the portal
-    - The `realm` is the **Redirect URI** you entered in the portal without the route. (example: http//localhost:3000)
-    - The `issuer` is where you append the **Application Id** after, as an example: https://sts.windows.net/96702724-991f-4576-bc90-be9862749ac5/
+    - The `clientSecret` is the secret you generated in the portal.
 
-- Next open `app.js` file in the root of the proejct and add the follwing call to invoke the `OIDStrategy` strategy that comes with `passport-azure-ad`
+- Next open `app.js` file in the root of the proejct and add the follwing call to invoke the `OIDCStrategy` strategy that comes with `passport-azure-ad`
 
 
 ```JavaScript
-var OIDCStrategy = require(’passport-azure-ad’).OIDCStrategy; ```
+var OIDCStrategy = require('passport-azure-ad').OIDCStrategy;
+
+// Ajouter de la journalisation var log = bunyan.createLogger({ name: 'Microsoft OIDC Example Web Application' }); ```
 
 - Après cela, utilisez la stratégie référencée pour gérer les demandes de connexion
 
 ```JavaScript
 // Use the OIDCStrategy within Passport. (Section 2) 
-
+// 
 //   Strategies in passport require a `validate` function, which accept
 //   credentials (in this case, an OpenID identifier), and invoke a callback
 //   with a user object.
@@ -101,21 +105,23 @@ passport.use(new OIDCStrategy({
     clientSecret: config.creds.clientSecret,
     oidcIssuer: config.creds.issuer,
     identityMetadata: config.creds.identityMetadata,
-    skipUserProfile: true // doesn't fetch user profile
+    responseType: config.creds.responseType,
+    responseMode: config.creds.responseMode,
+    skipUserProfile: config.creds.skipUserProfile
+    //scope: config.creds.scope
   },
-  function(iss, sub, email, claims, profile, accessToken, refreshToken, done) {
-    log.info('We received claims of: ', claims);
-    log.info('Example: Email address we received was: ', claims.preferred_username);
+  function(iss, sub, profile, accessToken, refreshToken, done) {
+    log.info('Example: Email address we received was: ', profile.email);
     // asynchronous verification, for effect...
     process.nextTick(function () {
-      findByEmail(claims.preferred_username, function(err, user) {
+      findByEmail(profile.email, function(err, user) {
         if (err) {
           return done(err);
         }
         if (!user) {
           // "Auto-registration"
-          users.push(claims);
-          return done(null, claims);
+          users.push(profile);
+          return done(null, profile);
         }
         return done(null, user);
       });
@@ -138,7 +144,7 @@ Passport utilise un modèle semblable pour toutes ses stratégies (Twitter, Face
 //   this will be as simple as storing the user ID when serializing, and finding
 //   the user by ID when deserializing.
 passport.serializeUser(function(user, done) {
-  done(null, user.preferred_username);
+  done(null, user.email);
 });
 
 passport.deserializeUser(function(id, done) {
@@ -153,7 +159,8 @@ var users = [];
 var findByEmail = function(email, fn) {
   for (var i = 0, len = users.length; i < len; i++) {
     var user = users[i];
-    if (user.preferred_username === email) {
+    log.info('we are using user: ', user);
+    if (user.email === email) {
       return fn(null, user);
     }
   }
@@ -189,19 +196,20 @@ app.configure(function() {
 
 ```
 
-- Enfin, nous allons ajouter les itinéraires POST qui transmettent les demandes d’ouverture de session réelles au moteur `passport-azure-ad` :
+- Enfin, nous allons ajouter les itinéraires POST qui transmettent les demandes d'ouverture de session réelles au moteur `passport-azure-ad` :
 
 ```JavaScript
 
-// Our POST routes (Section 3)
+// Our Auth routes (Section 3)
 
-// POST /auth/openid
+// GET /auth/openid
 //   Use passport.authenticate() as route middleware to authenticate the
 //   request.  The first step in OpenID authentication will involve redirecting
 //   the user to their OpenID provider.  After authenticating, the OpenID
 //   provider will redirect the user back to this application at
 //   /auth/openid/return
-app.post('/auth/openid',
+
+app.get('/auth/openid',
   passport.authenticate('azuread-openidconnect', { failureRedirect: '/login' }),
   function(req, res) {
     log.info('Authenitcation was called in the Sample');
@@ -216,21 +224,29 @@ app.post('/auth/openid',
 app.get('/auth/openid/return',
   passport.authenticate('azuread-openidconnect', { failureRedirect: '/login' }),
   function(req, res) {
-    log.info('We received a return from AzureAD.');
+    
     res.redirect('/');
   });
 
-app.get('/logout', function(req, res){
-  req.logout();
-  res.redirect('/');
-});
+// POST /auth/openid/return
+//   Use passport.authenticate() as route middleware to authenticate the
+//   request.  If authentication fails, the user will be redirected back to the
+//   login page.  Otherwise, the primary route function function will be called,
+//   which, in this example, will redirect the user to the home page.
+
+app.post('/auth/openid/return',
+  passport.authenticate('azuread-openidconnect', { failureRedirect: '/login' }),
+  function(req, res) {
+    
+    res.redirect('/');
+  });
 ```
 
 ## 4\. Utilisation de Passport pour émettre des demandes de connexion et de déconnexion dans Azure AD
 
-Votre application est maintenant correctement configurée pour communiquer avec le point de terminaison v2.0 à l’aide du protocole d’authentification OpenID Connect. `passport-azure-ad` a pris en charge le pénible processus d’élaboration des messages d’authentification, de validation des jetons d’Azure AD et de gestion des sessions utilisateur. Il ne reste plus qu’à fournir aux utilisateurs un moyen de se connecter, de se déconnecter et de collecter des informations supplémentaires sur l’utilisateur connecté.
+Votre application est maintenant correctement configurée pour communiquer avec le point de terminaison v2.0 à l'aide du protocole d'authentification OpenID Connect. `passport-azure-ad` a pris en charge le pénible processus d'élaboration des messages d'authentification, de validation des jetons d'Azure AD et de gestion des sessions utilisateur. Il ne reste plus qu’à fournir aux utilisateurs un moyen de se connecter, de se déconnecter et de collecter des informations supplémentaires sur l’utilisateur connecté.
 
-- Tout d’abord, ajoutons les méthodes par défaut, de connexion, de compte et de déconnexion à notre fichier `app.js` :
+- Tout d'abord, ajoutons les méthodes par défaut, de connexion, de compte et de déconnexion à notre fichier `app.js` :
 
 ```JavaScript
 
@@ -244,7 +260,7 @@ app.get('/account', ensureAuthenticated, function(req, res){
   res.render('account', { user: req.user });
 });
 
-app.get('/login', 
+app.get('/login',
   passport.authenticate('azuread-openidconnect', { failureRedirect: '/login' }),
   function(req, res) {
     log.info('Login was called in the Sample');
@@ -259,10 +275,10 @@ app.get('/logout', function(req, res){
 ```
 
 -	Examinons-les en détail :
-    -	L’itinéraire `/` redirige vers la vue index.ejs en transmettant l’utilisateur dans la demande (le cas échéant)
-    - L’`/account` itinéraire ***s’assure d’abord que nous sommes authentifiés*** (nous implémentons cela ci-dessous), puis transmet l’utilisateur dans la demande afin que nous puissions obtenir plus d’informations sur l’utilisateur.
-    - L’itinéraire `/login` appelle notre authentificateur azuread-openidconnect de `passport-azuread`, et en cas d’échec, il redirige l’utilisateur vers /login
-    - Le `/logout` appelle simplement logout.ejs (et l’itinéraire) qui efface les cookies, puis renvoie l’utilisateur à index.ejs
+    -	L'itinéraire `/` redirige vers la vue index.ejs en transmettant l'utilisateur dans la demande (le cas échéant)
+    - L'`/account` itinéraire ***s'assure d’abord que nous sommes authentifiés*** (nous implémentons cela ci-dessous), puis transmet l'utilisateur dans la demande afin que nous puissions obtenir plus d'informations sur l'utilisateur.
+    - L'itinéraire `/login` appelle notre authentificateur azuread-openidconnect de `passport-azuread`, et en cas d'échec, il redirige l'utilisateur vers /login
+    - Le `/logout` appelle simplement logout.ejs (et l'itinéraire) qui efface les cookies, puis renvoie l'utilisateur à index.ejs
 
 
 - Pour la dernière partie de `app.js`, ajoutons la méthode EnsureAuthenticated utilisée dans `/account` ci-dessus.
@@ -270,6 +286,7 @@ app.get('/logout', function(req, res){
 ```JavaScript
 
 // Simple route middleware to ensure user is authenticated. (Section 4)
+
 //   Use this route middleware on any resource that needs to be protected.  If
 //   the request is authenticated (typically via a persistent login session),
 //   the request will proceed.  Otherwise, the user will be redirected to the
@@ -278,6 +295,7 @@ function ensureAuthenticated(req, res, next) {
   if (req.isAuthenticated()) { return next(); }
   res.redirect('/login')
 }
+
 ```
 
 - Enfin, créons le serveur lui-même dans `app.js` :
@@ -291,11 +309,12 @@ app.listen(3000);
 
 ## 5\. Créer des vues et des itinéraires dans Express pour afficher notre utilisateur dans le site Web
 
-Votre `app.js` est complète. À présent, il suffit d’ajouter les itinéraires et les vues qui affichent les informations que nous obtenons de l’utilisateur et traitent les itinéraires `/logout` et `/login` que nous avons créés.
+Votre `app.js` est complète. À présent, il suffit d'ajouter les itinéraires et les vues qui affichent les informations que nous obtenons de l'utilisateur et traitent les itinéraires `/logout` et `/login` que nous avons créés.
 
-- Création de l’itinéraire `/routes/index.js` sous le répertoire racine.
+- Création de l'itinéraire `/routes/index.js` sous le répertoire racine.
 
 ```JavaScript
+
 /*
  * GET home page.
  */
@@ -308,6 +327,7 @@ exports.index = function(req, res){
 - Création de l’itinéraire `/routes/user.js` sous le répertoire racine
 
 ```JavaScript
+
 /*
  * GET users listing.
  */
@@ -319,35 +339,41 @@ exports.list = function(req, res){
 
 Ces itinéraires simples transmettent simplement la demande à nos vues, en incluant l’utilisateur le cas échéant.
 
-- Créez la vue `/views/index.ejs` sous le répertoire racine. Il s’agit d’une page simple qui appelle nos méthodes de connexion et de déconnexion et nous permet de récupérer des informations de compte. Notez que nous pouvons utiliser l’instruction conditionnelle `if (!user)`, étant donné que l’utilisateur transmis par l’intermédiaire de la demande prouve qu’un utilisateur est connecté.
+- Créez la vue `/views/index.ejs` sous le répertoire racine. Il s'agit d'une page simple qui appelle nos méthodes de connexion et de déconnexion et nous permet de récupérer des informations de compte. Notez que nous pouvons utiliser l'instruction conditionnelle `if (!user)`, étant donné que l'utilisateur transmis par l'intermédiaire de la demande prouve qu'un utilisateur est connecté.
 
 ```JavaScript
 <% if (!user) { %>
 	<h2>Welcome! Please log in.</h2>
 	<a href="/login">Log In</a>
 <% } else { %>
-	<h2>Hello, <%= user.name %>.</h2>
+	<h2>Hello, <%= user.displayName %>.</h2>
 	<a href="/account">Account Info</a></br>
 	<a href="/logout">Log Out</a>
 <% } %>
 ```
 
-- Créez la vue `/views/account.ejs` sous le répertoire racine, afin d’afficher les informations supplémentaires que `passport-azuread` a placées dans la demande de l’utilisateur.
+- Créez la vue `/views/account.ejs` sous le répertoire racine, afin d'afficher les informations supplémentaires que `passport-azuread` a placées dans la demande de l'utilisateur.
 
 ```Javascript
 <% if (!user) { %>
 	<h2>Welcome! Please log in.</h2>
 	<a href="/login">Log In</a>
 <% } else { %>
-<p>displayName: <%= user.name %></p>
-<p>Profile ID: <%= user.sub %></p>
+<p>displayName: <%= user.displayName %></p>
+<p>givenName: <%= user.name.givenName %></p>
+<p>familyName: <%= user.name.familyName %></p>
+<p>UPN: <%= user._json.upn %></p>
+<p>Profile ID: <%= user.id %></p>
+<p>Full Claimes</p>
+<%- JSON.stringify(user) %>
+<p></p>
 <a href="/logout">Log Out</a>
 <% } %>
 ```
 
 - Enfin, améliorez-en l’apparence à l’aide d’une mise en page. Créez l’affichage « /views/layout.ejs » sous le répertoire racine
 
-```JavaScript
+```HTML
 
 <!DOCTYPE html>
 <html>
@@ -381,7 +407,7 @@ Connectez-vous avec un compte Microsoft personnel ou un compte professionnel ou
 
 ##Étapes suivantes
 
-Pour référence, l’exemple terminé (sans vos valeurs de configuration) [est fourni au format .zip ici](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-nodejs/archive/complete.zip). Vous pouvez également le cloner à partir de GitHub :
+Pour référence, l'exemple terminé (sans vos valeurs de configuration) [est fourni au format .zip ici](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-nodejs/archive/complete.zip). Vous pouvez également le cloner à partir de GitHub :
 
 ```git clone --branch complete https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-nodejs.git```
 
@@ -389,6 +415,6 @@ Vous pouvez maintenant aborder des rubriques plus sophistiquées. Par exemple :
 
 [Sécuriser une API Web avec le modèle d’application v2.0 dans node.js>>](active-directory-v2-devquickstarts-webapi-nodejs.md)
 
-Pour obtenir des ressources supplémentaires, consultez : - [Version préliminaire du modèle d’application v2.0 >>](active-directory-appmodel-v2-overview.md) - [Balise azure-active-directory StackOverflow >>](http://stackoverflow.com/questions/tagged/azure-active-directory)
+Pour obtenir des ressources supplémentaires, consultez : - [Version préliminaire du modèle d'application v2.0 >>](active-directory-appmodel-v2-overview.md) - [Balise azure-active-directory StackOverflow >>](http://stackoverflow.com/questions/tagged/azure-active-directory)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

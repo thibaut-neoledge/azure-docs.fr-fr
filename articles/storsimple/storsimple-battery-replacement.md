@@ -1,21 +1,19 @@
 <properties 
-   pageTitle="Remplacer le module de batterie de secours sur votre appareil StorSimple | Microsoft Azure"
-   description="Décrit comment retirer, remplacer et entretenir le module de batterie de secours sur votre appareil StorSimple."
-   services="storsimple"
-   documentationCenter=""
-   authors="alkohli"
-   manager="carolz"
-   editor="" />
-
+   pageTitle="Remplacer la batterie sur un appareil StorSimple | Microsoft Azure"
+	description="Décrit comment retirer, remplacer et entretenir le module de batterie de secours sur votre appareil StorSimple."
+	services="storsimple"
+	documentationCenter=""
+	authors="alkohli"
+	manager="carolz"
+	editor=""/>
 <tags 
    ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="08/05/2015"
-   ms.author="alkohli" />
-
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="TBD"
+	ms.date="08/31/2015"
+	ms.author="alkohli"/>
 
 # Remplacer le module de batterie de secours sur votre appareil StorSimple
 
@@ -29,7 +27,7 @@ Ce didacticiel explique comment :
 - Installer un nouveau module de batterie de secours
 - Entretenir le module de batterie de secours
 
->[AZURE.IMPORTANT]Avant le retrait et le remplacement d’un module de batterie de secours, passez en revue les informations de sécurité dans [Remplacement des composants matériels StorSimple](storsimple-hardware-component-replacement.md).
+>[AZURE.IMPORTANT]Avant le retrait et le remplacement d’un module de batterie de secours, passez en revue les informations de sécurité dans l’[Introduction au remplacement des composants matériels StorSimple](storsimple-hardware-component-replacement.md).
 
 ## Retirer le module de batterie de secours
 
@@ -117,4 +115,4 @@ Si l’état **DÉTÉRIORÉ** s’affiche, nous vous recommandons de procéder a
 
 En savoir plus sur le [remplacement des composants matériels StorSimple](storsimple-hardware-component-replacement.md).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

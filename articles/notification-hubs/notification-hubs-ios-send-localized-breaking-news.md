@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Didacticiel sur l’utilisation de Notification Hubs pour envoyer les dernières nouvelles localisées pour iOS" 
-	description="Découvrez comment utiliser Azure Service Bus Notification Hubs pour envoyer des notifications de dernières nouvelles localisées (iOS)." 
-	services="notification-hubs" 
-	documentationCenter="ios" 
-	authors="wesmc7777" 
-	manager="dwrede" 
+<properties
+	pageTitle="Didacticiel sur l’utilisation de Notification Hubs pour envoyer les dernières nouvelles localisées pour iOS"
+	description="Découvrez comment utiliser Azure Service Bus Notification Hubs pour envoyer des notifications de dernières nouvelles localisées (iOS)."
+	services="notification-hubs"
+	documentationCenter="ios"
+	authors="wesmc7777"
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="notification-hubs" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="ios" 
-	ms.devlang="objective-c" 
-	ms.topic="article" 
-	ms.date="06/02/2015" 
+<tags
+	ms.service="notification-hubs"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="ios"
+	ms.devlang="objective-c"
+	ms.topic="article"
+	ms.date="06/16/2015"
 	ms.author="wesmc"/>
 # Utilisation de Notification Hubs pour envoyer les dernières nouvelles localisées vers des appareils iOS
 
@@ -220,6 +220,5 @@ Une référence relative à la langue d'expression du modèle se trouve dans [No
 [wns object]: http://go.microsoft.com/fwlink/p/?LinkId=260591
 [Recommandations relatives à Notification Hubs]: http://msdn.microsoft.com/library/jj927170.aspx
 [Notification Hubs, procédure pour iOS]: http://msdn.microsoft.com/library/jj927168.aspx
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

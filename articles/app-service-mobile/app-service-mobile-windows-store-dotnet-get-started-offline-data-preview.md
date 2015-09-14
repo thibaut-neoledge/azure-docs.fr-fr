@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="08/22/2015"
+	ms.date="08/27/2015"
 	ms.author="wesmc"/>
 
 # Activation de la synchronisation hors connexion pour votre application Windows
@@ -37,8 +37,6 @@ Ce didacticiel requiert les éléments suivants :
 * [Azure Mobile Services SQLite Store version 2.0.0-beta][sqlite store nuget]
 * [SQLite pour Windows 8.1](http://www.sqlite.org/downloads)
 
->[AZURE.NOTE]Pour effectuer ce didacticiel, vous avez besoin d'un compte Azure. Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=AE564AB28" target="_blank">Version d'évaluation gratuite d'Azure</a>.
-
 ## Mettre à jour l’application cliente pour prendre en charge les fonctionnalités hors connexion
 
 Les fonctionnalités hors connexion de l’application mobile Azure vous permettent d’interagir avec une base de données locale hors connexion. Pour pouvoir utiliser ces fonctionnalités dans votre application, vous initialisez un `MobileServiceClient.SyncContext` dans un magasin local. Ensuite, vous référencez votre table par le biais de l'interface `IMobileServiceSyncTable`. Dans ce didacticiel, nous utilisons SQLite pour le magasin local.
@@ -52,7 +50,7 @@ Les fonctionnalités hors connexion de l’application mobile Azure vous permett
 
 2. Dans Visual Studio, ouvrez le projet que vous avez finalisé dans le didacticiel [Créer une application Windows]. Installez le package NuGet **WindowsAzure.MobileServices.SQLiteStore** pour les projets Runtime Windows 8.1 et Windows Phone 8.1.
 
-    Dans l’Explorateur de solutions, cliquez avec le bouton droit sur la solution, puis cliquez sur **Gérer les packages NuGet pour la solution** pour exécuter le Gestionnaire de package NuGet. Sous l’onglet « En ligne », sélectionnez l’option « Inclure la version préliminaire » dans la liste déroulante située en haut. Recherchez **SQLiteStore** pour installer la version 2.0.0-beta de `WindowsAzure.MobileServices.SQLiteStore`.
+    Dans l'Explorateur de solutions, cliquez avec le bouton droit sur la solution, puis cliquez sur **Gérer les packages NuGet pour la solution** pour exécuter le Gestionnaire de package NuGet. Sous l’onglet « En ligne », sélectionnez l’option « Inclure la version préliminaire » dans la liste déroulante située en haut. Recherchez **SQLiteStore** pour installer la version 2.0.0-beta de `WindowsAzure.MobileServices.SQLiteStore`.
 
     Ensuite, ajoutez la référence NuGet aux projets Windows Store 8.1 et Windows Phone 8.1.
 
@@ -77,14 +75,14 @@ Les fonctionnalités hors connexion de l’application mobile Azure vous permett
         using Microsoft.WindowsAzure.MobileServices.SQLiteStore;  // offline sync
         using Microsoft.WindowsAzure.MobileServices.Sync;         // offline sync
 
-6. Dans MainPage.cs, commentez la ligne de code qui commence `todoTable` en tant que `IMobileServiceTable`. Supprimez les commentaires de la ligne de code qui commence `todoTable` en tant que `IMobileServiceSyncTable`.
+6. Dans MainPage.cs, commentez la ligne de code qui commence `todoTable` en tant que `IMobileServiceTable`. Supprimez les commentaires de la ligne de code qui commence `todoTable` en tant que `IMobileServiceSyncTable` :
 
         //private IMobileServiceTable<TodoItem> todoTable = App.MobileService.GetTable<TodoItem>();
         private IMobileServiceSyncTable<TodoItem> todoTable = App.MobileService.GetSyncTable<TodoItem>(); // offline sync
 
 7. Dans MainPage.cs, dans la zone marquée `Offline sync`, supprimez les commentaires des méthodes `InitLocalStoreAsync` et `SyncAsync`. La méthode `InitLocalStoreAsync` initialise le contexte de synchronisation du client avec un magasin SQLite. Dans Visual Studio, vous pouvez sélectionner toutes les lignes commentées et utiliser le raccourci clavier **CTRL**+**K**+**U** pour supprimer les commentaires.
 
-	Notez que dans `SyncAsync` une opération push est exécutée à partir de `MobileServiceClient.SyncContext` plutôt que de `IMobileServicesSyncTable`. Il en est ainsi parce que le contexte suit les modifications apportées par le client à toutes les tables. Ceci permet de prendre en compte les scénarios dans lesquels des relations existent entre les tables. Pour plus d’informations, consultez la page [Synchronisation des données hors connexion dans Azure Mobile Apps].
+	Notez que dans `SyncAsync` une opération push est exécutée à partir de `MobileServiceClient.SyncContext` plutôt que de `IMobileServicesSyncTable`. Il en est ainsi parce que le contexte suit les modifications apportées par le client à toutes les tables. Ceci permet de prendre en compte les scénarios dans lesquels des relations existent entre les tables. Pour plus d'informations, consultez la page [Synchronisation des données hors connexion dans Azure Mobile Apps].
 
         private async Task InitLocalStoreAsync()
         {
@@ -141,7 +139,7 @@ Les fonctionnalités hors connexion de l’application mobile Azure vous permett
             ButtonRefresh.IsEnabled = true;
         }
 
-10. Ajoutez les gestionnaires d’exception à la méthode `SyncAsync` . Dans une situation hors connexion, une `MobileServicePushFailedException` sera levée avec `PushResult.Status == CancelledByNetworkError`.
+10. Ajoutez les gestionnaires d'exception à la méthode `SyncAsync` . Dans une situation hors connexion, une `MobileServicePushFailedException` sera levée avec `PushResult.Status == CancelledByNetworkError`.
 
         private async Task SyncAsync()
         {
@@ -176,11 +174,11 @@ Les fonctionnalités hors connexion de l’application mobile Azure vous permett
 
     Notez que `MobileServicePushFailedException` peut survenir pour une opération push et une opération d'extraction. Elle peut se produire pour une extraction, car l'opération d'extraction exécute en interne une opération Push pour s'assurer que toutes les tables et toutes les relations sont cohérentes.
 
-11. Dans Visual Studio, appuyez sur **F5** pour régénérer et exécuter l’application cliente. L'application se comportera comme avant la modification de la synchronisation hors connexion, car elle effectue une opération de synchronisation lors des opérations d'insertion, de mise à jour et d'actualisation. Elle remplira toutefois une base de données locale utilisable dans un scénario hors connexion. La base de données locale étant désormais remplie, dans la section suivante, nous allons générer un scénario hors connexion.
+11. Dans Visual Studio, appuyez sur **F5** pour régénérer et exécuter l'application cliente. L'application se comportera comme avant la modification de la synchronisation hors connexion, car elle effectue une opération de synchronisation lors des opérations d'insertion, de mise à jour et d'actualisation. Elle remplira toutefois une base de données locale utilisable dans un scénario hors connexion. La base de données locale étant désormais remplie, dans la section suivante, nous allons générer un scénario hors connexion.
 
-## <a name="update-sync"></a>Mettre à jour le comportement de synchronisation de l’application cliente
+## <a name="update-sync"></a>Mettre à jour le comportement de synchronisation de l'application cliente
 
-Dans cette section, vous allez modifier l’application cliente pour simuler un scénario hors connexion en coupant votre connexion avec le backend d’applications Azure Mobile App. Lorsque vous ajouterez des éléments de données, votre gestionnaire d’exceptions signalera que l’application fonctionne en mode hors connexion avec `PushResult.Status == CancelledByNetworkError`. Les éléments ajoutés seront stockés dans le magasin local et ne seront synchronisés avec le backend d’applications mobiles que quand vous serez à nouveau en ligne et après l’exécution d’un push vers le backend d’applications mobiles Azure Mobile App.
+Dans cette section, vous allez modifier l’application cliente pour simuler un scénario hors connexion en coupant votre connexion avec le backend d’applications Azure Mobile App. Lorsque vous ajouterez des éléments de données, votre gestionnaire d'exceptions signalera que l'application fonctionne en mode hors connexion avec `PushResult.Status == CancelledByNetworkError`. Les éléments ajoutés seront stockés dans le magasin local et ne seront synchronisés avec le backend d’applications mobiles que quand vous serez à nouveau en ligne et après l’exécution d’un push vers le backend d’applications mobiles Azure Mobile App.
 
 1. Modifiez App.xaml.cs dans le projet partagé. Mettez en commentaire l’initialisation de **MobileServiceClient** et ajoutez les lignes suivantes qui utilisent une URL d’application mobile incorrecte :
 
@@ -191,31 +189,31 @@ Dans cette section, vous allez modifier l’application cliente pour simuler un 
         );
 
 2. Appuyez sur **F5** pour générer et exécuter l'application. Notez que la synchronisation a échoué lors de l’actualisation au lancement de l’application.
-3. Entrez quelques nouveaux éléments todo et cliquez sur **Enregistrer** pour chacun d'eux. L’exécution des push a échoué pour chacun d’eux avec un `PushResult.Status=CancelledByNetworkError`. Les nouveaux éléments todoitem n’existent que dans le magasin local tant qu’ils ne sont pas transmis au backend d’applications mobiles. 
+3. Entrez quelques nouveaux éléments todo et cliquez sur **Enregistrer** pour chacun d'eux. L'exécution des push a échoué pour chacun d'eux avec un `PushResult.Status=CancelledByNetworkError`. Les nouveaux éléments todoitem n’existent que dans le magasin local tant qu’ils ne sont pas transmis au backend d’applications mobiles. 
  
-	Vous pourriez supprimer la boîte de dialogue d’exception pour `PushResult.Status=CancelledByNetworkError`. L’application cliente se comporterait alors comme si elle était connectée au serveur principal d’applications mobiles et prenait en charge toutes les opérations de création, de lecture, de mise à jour et de suppression (CRUD) de manière transparente.
+	Vous pourriez supprimer la boîte de dialogue d'exception pour `PushResult.Status=CancelledByNetworkError`. L'application cliente se comporterait alors comme si elle était connectée au serveur principal d’applications mobiles et prenait en charge toutes les opérations de création, de lecture, de mise à jour et de suppression (CRUD) de manière transparente.
 
 4. Fermez l'application et redémarrez-la pour vérifier que les nouveaux élément que vous avez créés sont conservés dans le magasin local.
 
 5. (Facultatif) À l’aide de Visual Studio, affichez votre table Azure SQL Database pour constater que les données dans la base de données principale n’ont pas changé.
 
-   Dans Visual Studio, ouvrez l'**Explorateur de serveurs**. Accédez à votre base de données dans **Azure**->**Bases de données SQL**. Cliquez avec le bouton droit sur votre base de données, puis sélectionnez **Ouvrir dans l’Explorateur d’objets SQL Server**. Maintenant, vous pouvez accéder à votre table de base de données SQL et à son contenu.
+   Dans Visual Studio, ouvrez l'**Explorateur de serveurs**. Accédez à votre base de données dans **Azure**->**Bases de données SQL**. Cliquez avec le bouton droit sur votre base de données, puis sélectionnez **Ouvrir dans l'Explorateur d'objets SQL Server**. Maintenant, vous pouvez accéder à votre table de base de données SQL et à son contenu.
 
-6. (Facultatif) Utilisez un outil REST tel que Fiddler ou Postman pour interroger votre serveur principal mobile, à l’aide d’une requête GET de la forme `https://your-mobile-app-backend-name.azurewebsites.net/tables/TodoItem`. 
+6. (Facultatif) Utilisez un outil REST tel que Fiddler ou Postman pour interroger votre serveur principal mobile, à l'aide d'une requête GET de la forme `https://your-mobile-app-backend-name.azurewebsites.net/tables/TodoItem`. 
 
-## <a name="update-online-app"></a>Mise à jour de l’application pour la reconnecter à votre serveur principal d’applications mobiles
+## <a name="update-online-app"></a>Mettre à jour l'application pour la reconnecter à votre serveur principal d'applications mobiles
 
-Dans cette section, vous reconnectez l’application au backend d’applications mobiles. Cette opération simule le passage de l’application d’un état hors connexion à un état connecté au backend d’applications mobiles. Lors de la première exécution de l’application, le gestionnaire d’événements `OnNavigatedTo` appellera `InitLocalStoreAsync`. Cela appellera alors `SyncAsync` pour synchroniser votre magasin local avec la base de données du serveur principal. L’application tentera alors une synchronisation au démarrage.
+Dans cette section, vous reconnectez l’application au backend d’applications mobiles. Cette opération simule le passage de l’application d’un état hors connexion à un état connecté au backend d’applications mobiles. Lors de la première exécution de l'application, le gestionnaire d'événements `OnNavigatedTo` appellera `InitLocalStoreAsync`. Cela appellera alors `SyncAsync` pour synchroniser votre magasin local avec la base de données du serveur principal. L’application tentera alors une synchronisation au démarrage.
 
-1. Ouvrez App.xaml.cs dans le projet partagé. Supprimez les commentaires de votre précédente initialisation de `MobileServiceClient` pour utiliser les URL correctes de l’application mobile et de la passerelle.
+1. Ouvrez App.xaml.cs dans le projet partagé. Supprimez les commentaires de votre précédente initialisation de `MobileServiceClient` pour utiliser les URL correctes de l'application mobile et de la passerelle.
 
-2. Appuyez sur **F5** pour régénérer et exécuter l'application. L’application synchronise vos modifications locales avec le serveur principal d’applications Azure Mobile App par des opérations push et pull dès que le gestionnaire d’événements `OnNavigatedTo` s’exécute.
+2. Appuyez sur **F5** pour régénérer et exécuter l'application. L'application synchronise vos modifications locales avec le serveur principal d'applications Azure Mobile App par des opérations push et pull dès que le gestionnaire d'événements `OnNavigatedTo` s'exécute.
 
 3. (Facultatif) Affichez les données mises à jour à l’aide de l’Explorateur d’objets SQL Server ou d’un outil REST tel que Fiddler. Notez que les données ont été synchronisées entre la base de données principale Azure Mobile App et le magasin local.
 
 4. Dans l'application, cochez la case en regard de quelques éléments pour les exécuter dans le magasin local.
 
-  `UpdateCheckedTodoItem` appelle `SyncAsync` pour synchroniser chaque élément avec le serveur principal d’applications mobiles. `SyncAsync` appelle push et pull. Il convient toutefois de noter que **chaque fois que vous exécuterez un pull sur une table modifiée par le client, un push préalable sur le contexte de synchronisation du client sera toujours effectué automatiquement**. Cela a pour but de garantir que toutes les tables du magasin local, ainsi que les relations, restent cohérentes. Nous aurions donc pu supprimer l’appel à `PushAsync`, car il intervient automatiquement lors de l’exécution d’un pull. Ce comportement peut entraîner un push inattendu si vous n’en n’êtes pas conscient. Pour plus d’informations, consultez la page [Synchronisation des données hors connexion dans Azure Mobile Apps].
+  `UpdateCheckedTodoItem` appelle `SyncAsync` pour synchroniser chaque élément avec le serveur principal d'applications mobiles. `SyncAsync` appelle push et pull. Il convient toutefois de noter que **chaque fois que vous exécuterez un pull sur une table modifiée par le client, un push préalable sur le contexte de synchronisation du client sera toujours effectué automatiquement**. Cela a pour but de garantir que toutes les tables du magasin local, ainsi que les relations, restent cohérentes. Nous aurions donc pu supprimer l'appel à `PushAsync`, car il intervient automatiquement lors de l'exécution d'un pull. Ce comportement peut entraîner un push inattendu si vous n’en n’êtes pas conscient. Pour plus d'informations, consultez la page [Synchronisation des données hors connexion dans Azure Mobile Apps].
 
 
 ##Résumé
@@ -251,7 +249,7 @@ Lorsque nous avons voulu synchroniser le magasin local avec le serveur, nous avo
 
 * [Synchronisation des données hors connexion dans Azure Mobile Apps]
 
-* [Cloud Cover : synchronisation hors connexion dans Azure Mobile Services] \(remarque : le contexte de la vidéo est Mobile Services, mais la synchronisation hors connexion fonctionne de la même manière dans Azure Mobile Apps)
+* [Cloud Cover : synchronisation hors connexion dans Azure Mobile Services] (remarque : le contexte de la vidéo est Mobile Services, mais la synchronisation hors connexion fonctionne de la même manière dans Azure Mobile Apps)
 
 * [Azure Friday : applications prenant en charge le mode hors connexion dans Azure Mobile Services]
 
@@ -280,4 +278,4 @@ Lorsque nous avons voulu synchroniser le magasin local avec le serveur, nous avo
 [Cloud Cover : synchronisation hors connexion dans Azure Mobile Services]: http://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri
 [Azure Friday : applications prenant en charge le mode hors connexion dans Azure Mobile Services]: http://azure.microsoft.com/documentation/videos/azure-mobile-services-offline-enabled-apps-with-donna-malayeri/
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

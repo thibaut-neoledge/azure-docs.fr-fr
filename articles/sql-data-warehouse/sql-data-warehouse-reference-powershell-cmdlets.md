@@ -13,8 +13,8 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="NA"
 	ms.workload="data-services"
-	ms.date="06/29/2015"
-	ms.author="sidneyh;barbkess"/>
+	ms.date="08/28/2015"
+	ms.author="twounder;sidneyh;barbkess"/>
 
 # Prise en main avec les applets de commande Azure Data Warehouse et les API REST
 
@@ -27,8 +27,8 @@ De la même manière, les API REST dédiés à la **base de données SQL Azure*
 ## Acquérir et exécuter les applets de commande Azure PowerShell
 
 1. Pour télécharger le module Azure PowerShell, exécutez [Microsoft Web Platform Installer](http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409). 
-2. 2. Pour exécuter le module, tapez **Microsoft Azure PowerShell** dans la fenêtre de démarrage.
-3. Si vous n’avez pas encore ajouté votre compte à la machine, exécutez l’applet de commande suivante. (Pour plus d’informations, consultez la rubrique [Comment installer et configurer Azure PowerShell](powershell-install-configure/)) :
+2. Pour exécuter le module, tapez **Microsoft Azure PowerShell** dans la fenêtre de démarrage.
+3. Si vous n’avez pas encore ajouté votre compte à la machine, exécutez l’applet de commande suivante. (Pour plus d’informations, consultez la rubrique [Comment installer et configurer Azure PowerShell]() :
 
 		Add-AzureAccount
 3. Changez de mode avec cette applet de commande :
@@ -101,6 +101,7 @@ Pour plus d’informations, consultez la [vue d’ensemble de référence de SQL
 
 <!--Article references-->
 [vue d’ensemble de référence de SQL Data Warehouse]: sql-data-warehouse-overview-reference.md
+[How to install and configure Azure PowerShell]: powershell-install-configure.md
 
 <!--MSDN references-->
 
@@ -110,4 +111,4 @@ Pour plus d’informations, consultez la [vue d’ensemble de référence de SQL
 [yah]: http://search.yahoo.com/
 [msn]: http://search.msn.com/
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

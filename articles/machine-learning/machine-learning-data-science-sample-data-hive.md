@@ -4,8 +4,8 @@
 	services="machine-learning,hdinsight"
 	documentationCenter=""
 	authors="hangzh-msft"
-	manager="paulettm" 
-	editor="cgronlun"  />
+	manager="paulettm"
+	editor="cgronlun"/>
 
 <tags
 	ms.service="machine-learning"
@@ -13,14 +13,18 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/29/2015"
-	ms.author="hangzh;bradsev" />
+	ms.date="09/01/2015"
+	ms.author="hangzh;bradsev"/>
 
 # Échantillonner des données dans des tables Hive Azure HDInsight
 
 Si vous prévoyez d’analyser un jeu de données volumineux, il est généralement recommandé de sous-échantillonner les données afin de réduire leur taille sous une forme plus facilement exploitable, mais toujours représentative. Cette opération facilite la compréhension et l’exploration des données, ainsi que la conception de fonctionnalités. Son rôle dans le processus d’analyse avancé et technologie (ADAPT) d’Azure Machine Azure consiste à activer un prototypage rapide des fonctions de traitement des données et des modèles d'apprentissage automatique.
 
-Dans cet article, nous décrivons à présent la procédure de sous-échantillonnage des données dans des tables Hive Azure HDInsight à l’aide de requêtes Hive. Nous abordons trois méthodes d’échantillonnage communément utilisées : l’échantillonnage aléatoire uniforme, l’échantillonnage aléatoire par groupe et l’échantillonnage stratifié.
+Dans cet article, nous décrivons à présent la procédure de sous-échantillonnage des données dans des tables Hive Azure HDInsight à l’aide de requêtes Hive. Nous abordons trois méthodes d’échantillonnage communément utilisées :
+
+* Échantillonnage aléatoire uniforme 
+* échantillonnage aléatoire par groupe 
+* échantillonnage stratifié
 
 Vous devez soumettre les requêtes Hive à partir de la console de ligne de commande Hadoop sur le nœud principal du cluster Hadoop. Pour effectuer cette opération, connectez-vous au nœud principal du cluster Hadoop, ouvrez la console de ligne de commande Hadoop, puis soumettez les requêtes Hive à cet emplacement. Pour plus d’informations sur la soumission de requêtes Hive dans la console de ligne de commande Hadoop, consultez la page [Soumission de requêtes Hive](machine-learning-data-science-process-hive-tables.md#submit).
 
@@ -92,7 +96,7 @@ Voici un exemple de requête :
 	where state_rank <= state_cnt*'${hiveconf:sampleRate}'
 
 
-Pour plus d’informations sur les méthodes d’échantillonnage plus élaborées qui sont disponibles dans Hive, consultez la page consacrée aux [méthodes d’échantillonnage dans le manuel du langage Hive](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+Sampling).
+Pour plus d’informations sur les méthodes d’échantillonnage plus élaborées qui sont disponibles dans Hive, consultez la page consacrée aux [méthodes d’échantillonnage dans le manuel du langage](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+Sampling).
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

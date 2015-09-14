@@ -1,17 +1,17 @@
 <properties 
-	pageTitle="Notes de publication pour Application Insights" 
-	description="Les dernières mises à jour." 
-	services="application-insights" 
-    documentationCenter=""
-	authors="alancameronwills" 
+	pageTitle="Notes de publication pour Application Insights pour Windows"
+	description="Les dernières mises à jour."
+	services="application-insights"
+	documentationCenter=""
+	authors="alancameronwills"
 	manager="douge"/>
 <tags 
-	ms.service="application-insights" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/18/2015" 
+	ms.service="application-insights"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="ibiza"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="06/18/2015"
 	ms.author="sergkanz"/>
  
 # Notes de publication pour le Kit de développement logiciel (SDK) Application Insights pour Windows Phone et Windows Store
@@ -77,4 +77,4 @@ Aperçu 28/04/2015
 
 Aucune note de publication pour des versions antérieures.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->
