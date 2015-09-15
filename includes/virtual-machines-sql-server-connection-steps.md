@@ -95,7 +95,7 @@ Pour plus d'informations sur l'activation des protocoles pour le moteur de base 
 
 Le moteur de base de données de SQL Server ne peut pas utiliser l'authentification Windows sans un environnement de domaine. Pour vous connecter au moteur de base de données à partir d'un autre ordinateur, configurez SQL Server pour l'authentification en mode mixte qui permet l’authentification SQL Server et l’authentification Windows
 
->[AZURE.NOTE](il n’est pas nécessaire de configurer l’authentification en mode mixte si vous avez configuré un réseau virtuel Azure avec un environnement de domaine configuré).
+>[AZURE.NOTE] il n’est pas nécessaire de configurer l’authentification en mode mixte si vous avez configuré un réseau virtuel Azure avec un environnement de domaine configuré.
 
 1. Lorsque vous êtes connecté à la machine virtuelle, sur la page de démarrage, tapez **SQL Server 2014 Management Studio** et cliquez sur l’icône sélectionnée.
 
@@ -183,4 +183,4 @@ Pour vous connecter au moteur de base de données SQL Server à partir d'un autr
 
 	![Connexion en utilisant SSMS](./media/virtual-machines-sql-server-connection-steps/33Connect-SSMS.png)
 
-<!---HONumber=August15_HO9-->
+<!----HONumber=August15_HO9-->
