@@ -299,4 +299,4 @@ Dans ce didacticiel, vous avez appris à créer une application web simple et à
 * Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre Sites web et App Service, consultez la page [Azure App Service et les services Azure existants](http://go.microsoft.com/fwlink/?LinkId=529714).
 * Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre l’ancien et le nouveau portail, consultez [Références sur la navigation dans le portail Azure](http://go.microsoft.com/fwlink/?LinkId=529715).
 
-<!---HONumber=September15_HO1-->
+<!-----HONumber=September15_HO1-->
