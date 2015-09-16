@@ -73,7 +73,7 @@ Les ressources créées dans le modèle de déploiement classique partagent les 
 
         ![Azure portal](./media/resource-manager-deployment-model/azure-portal.png)
 
-        Or, the preview portal and you specify **Classic** deployment (for Compute, Storage, and Networking).
+        Vous pouvez également accéder au portail préliminaire et spécifier qu'il s'agit d'un déploiement **classique** (pour les catégories Calcul, Stockage et Mise en réseau).
 
         ![Classic deployment](./media/resource-manager-deployment-model/select-classic.png)
 
@@ -158,4 +158,4 @@ Pour en savoir plus sur la connexion de réseaux virtuels à partir de modèles 
 - Pour en savoir plus sur la création de modèles de déploiement déclaratifs, consultez [Création de modèles Azure Resource Manager](resource-group-authoring-templates.md).
 - Pour connaître les commandes permettant de déployer un modèle, consultez [Déploiement d’une application avec un modèle Azure Resource Manager](resource-group-template-deploy.md).
 
-<!---HONumber=August15_HO9-->
+<!----HONumber=August15_HO9-->
