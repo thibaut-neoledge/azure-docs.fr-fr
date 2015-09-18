@@ -97,7 +97,10 @@
 
      `Get-HcsSystem`
 
-    Les versions suivantes doivent apparaître : - HcsSoftwareVersion: 6.3.9600.17491 - CisAgentVersion: 1.0.9037.0 - MdsAgentVersion: 26.0.4696.1433
+    Les versions suivantes doivent apparaître :
+    - HcsSoftwareVersion: 6.3.9600.17491
+    - CisAgentVersion: 1.0.9037.0
+    - MdsAgentVersion: 26.0.4696.1433
  
 9. Exécutez l’applet de commande suivante pour confirmer que la mise à jour du microprogramme a été appliquée correctement :
 
@@ -153,4 +156,4 @@
      
         
 
-<!-----HONumber=August15_HO6-->
+<!------HONumber=August15_HO6-->

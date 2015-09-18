@@ -188,10 +188,15 @@ Dans cette étape, vous allez créer deux services liés : **StorageLinkedServi
 7.	Dans le panneau **Informations d’identification**, cliquez sur **Cliquez ici pour définir les informations d’identification**.
 8.	Dans la boîte de dialogue **Configuration des informations d’identification**, procédez comme suit :
 
-	![Boîte de dialogue des paramètres d’informations d'identification](./media/data-factory-move-data-between-onprem-and-cloud/setting-credentials-dialog.png) 1. Sélectionnez l’**authentification** que le service de Data Factory utilisera pour se connecter à la base de données. 2. Entrez le nom de l'utilisateur ayant accès à la base de données dans le paramètre **USERNAME**. 3. Entrez le mot de passe de l’utilisateur dans le paramètre **PASSWORD**. 4. Cliquez sur **OK** pour fermer la boîte de dialogue. 
+	![Boîte de dialogue des paramètres d’informations d'identification](./media/data-factory-move-data-between-onprem-and-cloud/setting-credentials-dialog.png)
+	1.	Sélectionnez l’**authentification** que le service de Data Factory utilisera pour se connecter à la base de données.
+	2.	Entrez le nom de l'utilisateur ayant accès à la base de données dans le paramètre **USERNAME**.
+	3.	Entrez le mot de passe de l’utilisateur dans le paramètre **PASSWORD**.
+	4.	Cliquez sur **OK** pour fermer la boîte de dialogue. 
 4. Cliquez sur **OK** pour fermer le panneau **Informations d'identification**. 
 5. Cliquez sur **OK** dans le panneau **Nouveau magasin de données**. 	
-6. Vérifiez que l'état de **SqlServerLinkedService** est défini sur En ligne dans le panneau Services liés.![État du service SQL Server lié](./media/data-factory-move-data-between-onprem-and-cloud/sql-server-linked-service-status.png)
+6. Vérifiez que l'état de **SqlServerLinkedService** est défini sur En ligne dans le panneau Services liés.
+	![État du service SQL Server lié](./media/data-factory-move-data-between-onprem-and-cloud/sql-server-linked-service-status.png)
 
 Pour plus d’informations sur la définition des informations d’identification, consultez la section [Configuration des informations d’identification et de la sécurité](#setting-credentials-and-security).
 
@@ -562,4 +567,4 @@ Voici un flux de données global et un résumé des étapes pour la copie à l�
 ## Envoyer des commentaires
 Nous souhaiterions vraiment obtenir vos commentaires sur cet article. Prenez quelques minutes pour nous envoyer vos commentaires par [courrier électronique](mailto:adfdocfeedback@microsoft.com?subject=data-factory-move-data-between-onprem-and-cloud.md).
 
-<!---HONumber=September15_HO1-->
+<!----HONumber=September15_HO1-->
