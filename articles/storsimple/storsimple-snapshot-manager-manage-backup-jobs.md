@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Utiliser le Gestionnaire d’instantanés StorSimple pour afficher et gérer les tâches de sauvegarde | Microsoft Azure"
+   pageTitle="Tâches de sauvegarde du Gestionnaire d’instantanés StorSimple | Microsoft Azure"
    description="Explique comment utiliser le composant logiciel enfichable MMC Gestionnaire d’instantanés StorSimple pour afficher et gérer les tâches de sauvegarde planifiées, en cours d’exécution et terminées."
    services="storsimple"
    documentationCenter="NA"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="08/17/2015"
+   ms.date="09/05/2015"
    ms.author="v-sharos" />
 
 
@@ -129,4 +129,4 @@ Pour afficher les tâches en cours d’exécution, procédez comme suit.
 
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO2-->

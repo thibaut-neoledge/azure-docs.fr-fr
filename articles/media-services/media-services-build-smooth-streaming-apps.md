@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/26/2015" 
+	ms.date="09/07/2015" 
 	ms.author="juliako"/>
 
 
@@ -963,6 +963,15 @@ Une présentation de diffusion en continu lisse peut contenir plusieurs fichiers
 Vous avez terminé la leçon 4. Dans cette leçon, vous avez ajouté la fonctionnalité permettant de choisir des pistes.
 
 
+##Parcours d’apprentissage de Media Services
+
+Vous pouvez afficher les parcours d’apprentissage d’AMS ici :
+
+- [Workflow en flux continu AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [Workflow de streaming à la demande AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+
+
+
 ##Autres ressources :
 - [Développement d'une application JavaScript de diffusion en continu lisse pour Windows 8 dotée de fonctionnalités avancées](http://blogs.iis.net/cenkd/archive/2012/08/10/how-to-build-a-smooth-streaming-windows-8-javascript-application-with-advanced-features.aspx)
 - [Présentation technique de la diffusion en continu lisse](http://www.iis.net/learn/media/on-demand-smooth-streaming/smooth-streaming-technical-overview)
@@ -971,4 +980,4 @@ Vous avez terminé la leçon 4. Dans cette leçon, vous avez ajouté la fonctio
 [CodeViewPic]: ./media/media-services-build-smooth-streaming-apps/SSClientWin8-2.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/11/2015"  
+	ms.date="09/07/2015"   
 	ms.author="juliako"/>
 
 #Encodage de vos médias avec Dolby Digital Plus
@@ -651,4 +651,11 @@ Chaque attribut est décrit ci-dessous.
 **TruePeak** : ce résultat contient la valeur true‐peak absolue la plus élevée dans tout canal depuis la réinitialisation de la mesure. Pour obtenir la description du niveau true peak, consultez ITU‐R BS.1770‐2. La plage de valeurs est comprise entre -70 et 12,04 dBTP.
  
 
-<!---HONumber=August15_HO7-->
+##Parcours d’apprentissage de Media Services
+
+Vous pouvez afficher les parcours d’apprentissage d’AMS ici :
+
+- [Workflow en flux continu AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [Workflow de streaming à la demande AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+
+<!---HONumber=Sept15_HO2-->

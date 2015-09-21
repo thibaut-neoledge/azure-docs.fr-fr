@@ -198,7 +198,7 @@ Si l'application subit un incident après le traitement du message, mais avant l
 
 ## Étapes suivantes
 
-Maintenant que vous avez appris les principes de base des files d'attente Service Bus, consultez la page [Files d'attente, rubriques et abonnements Service Bus][] pour plus d'informations.
+Les principes de base des files d’attente Service Bus étant appris, consultez la rubrique [Files d’attente, rubriques et abonnements][] pour plus d’informations.
 
 [Service Bus Queue Diagram]: ../../../DevCenter/Java/Media/SvcBusQueues_01_FlowDiagram.jpg
 [Azure Management Portal]: http://manage.windowsazure.com/
@@ -208,9 +208,9 @@ Maintenant que vous avez appris les principes de base des files d'attente Servic
 [Namespace List screenshot]: ../../../DevCenter/Java/Media/SvcBusQueues_05_NamespaceList.jpg
 [Properties Pane screenshot]: ../../../DevCenter/Java/Media/SvcBusQueues_06_PropertiesPane.jpg
 [Default Key screenshot]: ../../../DevCenter/Java/Media/SvcBusQueues_07_DefaultKey.jpg
-[Files d'attente, rubriques et abonnements Service Bus]: http://msdn.microsoft.com/library/azure/hh367516.aspx
+[Files d’attente, rubriques et abonnements]: service-bus-queues-topics-subscriptions.md
 [require_once]: http://php.net/require_once
 
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO2-->

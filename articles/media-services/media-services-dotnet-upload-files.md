@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/17/2015" 
+	ms.date="09/07/2015" 
 	ms.author="juliako"/>
 
 
@@ -299,10 +299,19 @@ L’exemple suivant appelle la fonction UploadFile et spécifie le chiffrement d
 	var asset = UploadFile(@"C:\VideoFiles\BigBuckBunny.mp4", AssetCreationOptions.StorageEncrypted);
 
 
+##Parcours d’apprentissage de Media Services
+
+Vous pouvez afficher les parcours d’apprentissage d’AMS ici :
+
+- [Workflow en flux continu AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [Workflow de streaming à la demande AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+
+
+
 ##Étapes suivantes
 Maintenant que vous avez chargé un élément multimédia dans Media Services, consultez la rubrique [Obtention d'un processeur multimédia][].
 
 [Obtention d'un processeur multimédia]: media-services-get-media-processor.md
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO2-->

@@ -1,19 +1,20 @@
 <properties 
-	pageTitle="Gestion des points de terminaison de diffusion en continu dans un compte Media Services"
-	description="Cette rubrique montre comment gérer les points de terminaison de diffusion en continu à l’aide du portail de gestion Azure."
-	services="media-services"
-	documentationCenter=""
-	authors="Juliako"
-	manager="dwrede"
+	pageTitle="Gestion des points de terminaison de diffusion en continu dans un compte Media Services" 
+	description="Cette rubrique montre comment gérer les points de terminaison de diffusion en continu à l’aide du portail de gestion Azure." 
+	services="media-services" 
+	documentationCenter="" 
+	authors="Juliako" 
+	writer="juliako" 
+	manager="dwrede" 
 	editor=""/>
 
 <tags 
-	ms.service="media-services"
-	ms.workload="media"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/20/2015"
+	ms.service="media-services" 
+	ms.workload="media" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/07/2015"
 	ms.author="juliako"/>
 
 
@@ -134,10 +135,18 @@ Une fois l’intégration activée, les configurations suivantes sont désactiv�
 Pour plus d’informations, consultez le blog [Announcing Azure Media Services integration with Azure CDN (Content Delivery Network)](http://azure.microsoft.com/blog/2015/03/17/announcing-azure-media-services-integration-with-azure-cdn-content-delivery-network/) (Annonce de l’intégration d’Azure Media Services avec Azure CDN).
 
 
+##Parcours d’apprentissage de Media Services
+
+Vous pouvez afficher les parcours d’apprentissage d’AMS ici :
+
+- [Workflow en flux continu AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [Workflow de streaming à la demande AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+
+
 [streaming-endpoint-enable-cdn]: ./media/media-services-manage-origins/media-services-origins-enable-cdn.png
 [streaming-endpoint]: ./media/media-services-manage-origins/media-services-origins-page.png
 [configure-origin]: ./media/media-services-manage-origins/media-services-origins-configure.png
 [configure-origin-configure-custom-host-names]: ./media/media-services-manage-origins/media-services-configure-custom-host-names.png
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO2-->

@@ -7,16 +7,14 @@
 	manager="carolz" 
 	editor=""/>
 
-
 <tags 
 	ms.service="storage" 
 	ms.workload="storage" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/15/2015" 
+	ms.date="09/03/2015" 
 	ms.author="tamram"/>
-
 
 # Utilisation du stockage d’objets blob à partir de Xamarin (version préliminaire)
 
@@ -181,4 +179,4 @@ Pour en savoir plus sur les objets blob, les tables et les files d’attente, su
 [Utilisation du stockage de files d’attente à partir de .NET](storage-dotnet-how-to-use-queues.md)
  
 
-<!--------HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

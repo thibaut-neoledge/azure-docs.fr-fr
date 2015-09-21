@@ -1,4 +1,4 @@
-<properties 
+<properties
 	pageTitle="Utilisation de R dans HDInsight pour personnaliser des clusters| Microsoft Azure"
 	description="Découvrez comment installer et utiliser R pour personnaliser des clusters Hadoop."
 	services="hdinsight"
@@ -7,7 +7,7 @@
 	manager="paulettm"
 	editor="cgronlun"/>
 
-<tags 
+<tags
 	ms.service="hdinsight"
 	ms.workload="big-data"
 	ms.tgt_pltfrm="na"
@@ -20,7 +20,7 @@
 
 Vous pouvez installer R sur n’importe quel type de cluster dans Hadoop sur HDInsight à l’aide de la personnalisation de cluster **Action de script**. Les scientifiques et les analystes de données peuvent ainsi utiliser R pour déployer l’infrastructure de programmation MapReduce/YARN pour traiter de grandes quantités de données sur des clusters Hadoop déployés dans HDInsight.
 
-> [AZURE.NOTE]Les étapes décrites dans ce document nécessitent un cluster HDInsight Linux. Pour plus d’informations sur l’utilisation de R avec un cluster Windows, consultez [Installation et utilisation de R sur des clusters HDInsight Hadoop (Windows)](hdinsight-hadoop-r-scripts.md)
+> [AZURE.NOTE]Les étapes décrites dans ce document nécessitent un cluster HDInsight Linux. Pour plus d’informations sur l’utilisation de R avec un cluster Windows, consultez [Installation et utilisation de R sur des clusters HDInsight Hadoop (Windows)](hdinsight-hadoop-r-scripts.md).
 
 ## Qu'est-ce que R ?
 
@@ -60,7 +60,7 @@ Les packages R suivants sont également installés :
 
 L’action de script [https://hdiconfigactions.blob.core.windows.net/linuxrconfigactionv01/r-installer-v01.sh](https://hdiconfigactions.blob.core.windows.net/linuxrconfigactionv01/r-installer-v01.sh) permet d’installer R sur un cluster HDInsight. Cette section explique comment utiliser le script lors de l’approvisionnement du cluster à l’aide du portail Azure.
 
-> [AZURE.NOTE]Vous pouvez également utiliser Azure PowerShell ou le Kit de développement logiciel (SDK) HDInsight .NET pour créer un cluster à l’aide de ce script. Pour plus d’informations sur ces méthodes, consultez [Personnaliser des clusters HDInsight à l’aide d’actions de script](hdinsight-hadoop-customize-cluster-linux.md).
+> [AZURE.NOTE]Vous pouvez également utiliser Azure PowerShell ou le Kit de développement logiciel (SDK) .NET HDInsight pour créer un cluster à l’aide de ce script. Pour plus d’informations sur ces méthodes, consultez [Personnaliser des clusters HDInsight à l’aide d’actions de script](hdinsight-hadoop-customize-cluster-linux.md).
 
 1. Démarrez l’approvisionnement d’un cluster à l’aide de la procédure décrite dans [Approvisionnement de clusters HDInsight sous Linux](hdinsight-provision-linux-clusters.md#portal), mais ne terminez pas l’approvisionnement.
 
@@ -84,11 +84,11 @@ Une fois que le cluster a terminé l’approvisionnement, procédez comme suit p
 1. Connectez-vous au cluster HDInsight à l’aide de SSH :
 
 		ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.net
-		
+
 	Pour plus d’informations sur l’utilisation de SSH avec HDInsight, consultez les articles suivants :
-	
+
 	* [Utilisation de SSH avec Hadoop Linux sur HDInsight à partir de Linux, Unix ou OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
-	
+
 	* [Utilisation de SSH avec Hadoop Linux sur HDInsight à partir de Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
 
 2. À l’invite `username@headnode1:~$`, entrez la commande suivante pour démarrer une session R interactive :
@@ -100,24 +100,24 @@ Une fois que le cluster a terminé l’approvisionnement, procédez comme suit p
 		library(rmr2)
 		ints = to.dfs(1:100)
 		calc = mapreduce(input = ints, map = function(k, v) cbind(v, 2*v))
-		
+
 
 	La première ligne appelle la bibliothèque RHadoop rmr2 qui est utilisée pour les opérations MapReduce.
-	
+
 	La deuxième ligne génère les valeurs 1 à 100, puis les stocke dans le système de fichiers Hadoop à l’aide de `to.dfs`.
-	
+
 	La troisième ligne crée un processus MapReduce à l’aide de la fonctionnalité fournie par rmr2, puis commence le traitement. Vous devriez voir défiler plusieurs lignes quand le traitement commence.
-	
+
 4. Utilisez ensuite la commande suivante pour afficher le chemin d’accès temporaire dans lequel la sortie MapReduce a été stockée :
 
 		print(calc())
-		
+
 	Il doit ressembler à ceci : `/tmp/file5f615d870ad2`. Pour afficher la sortie réelle, utilisez la commande suivante :
-	
+
 		print(from.dfs(calc))
-	
+
 	La sortie doit ressembler à ceci :
-	
+
 		[1,]  1 2
 		[2,]  2 4
 		.
@@ -126,7 +126,7 @@ Une fois que le cluster a terminé l’approvisionnement, procédez comme suit p
 		[98,]  98 196
 		[99,]  99 198
 		[100,] 100 200
-		
+
 5. Pour quitter R, entrez la commande suivante :
 
 		q()
@@ -148,6 +148,5 @@ Une fois que le cluster a terminé l’approvisionnement, procédez comme suit p
 [hdinsight-provision]: hdinsight-provision-clusters-linux.md
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster-linux.md
 [hdinsight-install-spark]: hdinsight-hadoop-spark-install-linux.md
- 
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

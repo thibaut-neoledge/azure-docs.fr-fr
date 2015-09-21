@@ -1,6 +1,6 @@
 <properties
    pageTitle="API de recherche de journaux Operational Insights"
-   description="Fournit une vue d&#39;ensemble de l&#39;API de recherche Operational Insights et inclut des exemples qui vous indiquent comment l&#39;utiliser."
+   description="Fournit une vue d'ensemble de l'API de recherche Operational Insights et inclut des exemples qui vous indiquent comment l'utiliser."
    services="operational-insights"
    documentationCenter=""
    authors="bandersmsft"
@@ -31,14 +31,13 @@ Le Gestionnaire de ressources Azure peut être utilisé via une [Bibliothèque p
 
 ### Pour utiliser le client ARM
 
-1. Installez [Chocolatey](https://chocolatey.org/), qui est un gestionnaire de package de machines open source pour Windows.
-2. Ouvrez une fenêtre PowerShell en tant qu'administrateur, puis exécutez la commande suivante :
+1. Installez [Chocolatey](https://chocolatey.org/), qui est un gestionnaire de package de machines open source pour Windows. Ouvrez une fenêtre d’invite de commandes en tant qu’administrateur, puis exécutez la commande suivante :
 
     ```
     @powershell -NoProfile -ExecutionPolicy unrestricted -Command "iex ((new-object net.webclient).DownloadString('https://chocolatey.org/install.ps1'))" && SET PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin
     ```
 
-3. Installez l’ARMClient en ouvrant une nouvelle invite de commandes, puis exécutez la commande suivante :
+2. Installez ARMClient en exécutant la commande suivante :
 
     ```
     choco install armclient
@@ -66,7 +65,7 @@ Le Gestionnaire de ressources Azure peut être utilisé via une [Bibliothèque p
 2. Obtenir les espaces de travail Operations Management Suite. Par exemple :
 
     ```
-    armclient get /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces?api-version=2014-10-10
+    armclient get /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces?api-version=2015-03-20
     ```
 
     Un appel Get effectué avec succès affiche tous les espaces de travail liés à l'abonnement. Par exemple :
@@ -90,12 +89,12 @@ Le Gestionnaire de ressources Azure peut être utilisé via une [Bibliothèque p
 3. Créer votre variable de recherche. Par exemple :
 
     ```
-    $mySearch = "{ 'top':150, 'query':'Error'}”;
+    $mySearch = "{ 'top':150, 'query':'Error'}";
     ```
 4. Effectuer une recherche à l'aide de votre nouvelle variable de recherche. Par exemple :
 
     ```
-    armclient post /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/{WORKSPACE NAME}/search?api-version=2014-10-10 $mySearch
+    armclient post /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/{WORKSPACE NAME}/search?api-version=2015-03-20 $mySearch
     ```
 
 ## Rechercher des exemples de référence d'API
@@ -106,7 +105,7 @@ Les exemples suivants vous expliquent comment utiliser l'API de recherche.
 **Exemple d’URL :**
 
 ```
-	/subscriptions/{SubscriptionId}/resourceGroups/{ResourceGroupId}/providers/Microsoft.OperationalInsights/workspaces/{WorkspaceName}/search?api-version=2014-10-10
+	/subscriptions/{SubscriptionId}/resourceGroups/{ResourceGroupId}/providers/Microsoft.OperationalInsights/workspaces/{WorkspaceName}/search?api-version=2015-03-20
 ```
 
 **Requête :**
@@ -123,7 +122,7 @@ Les exemples suivants vous expliquent comment utiliser l'API de recherche.
 	  "start":"2015-02-04T21:03:29.231Z",
 	  "end":"2015-02-11T21:03:29.231Z"
 	}
-	armclient post /subscriptions/{Subscription ID}/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/{Workspace ID}/search?api-version=2014-10-10 $searchParametersJson
+	armclient post /subscriptions/{Subscription ID}/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/{Workspace ID}/search?api-version=2015-03-20 $searchParametersJson
 ```
 Le tableau suivant décrit les propriétés qui sont disponibles
 
@@ -194,7 +193,7 @@ Le tableau suivant décrit les propriétés qui sont disponibles
 **Demander le contenu d'une recherche enregistrée :**
 
 ```
-	armclient post /subscriptions/{SubId}/resourceGroups/{ResourceGroupId}/providers/Microsoft.OperationalInsights/workspaces/{WorkspaceName}/search/{SearchId}?api-version=2014-10-10
+	armclient post /subscriptions/{SubId}/resourceGroups/{ResourceGroupId}/providers/Microsoft.OperationalInsights/workspaces/{WorkspaceName}/search/{SearchId}?api-version=2015-03-20
 ```
 
 >[AZURE.NOTE] Si la recherche renvoie un état « En attente », une interrogation des résultats mis à jour peut alors être réalisée via cette API. Après 6 minutes, le résultat de la recherche est supprimé du cache et Http Gone est renvoyé. Si la demande de recherche initiale a renvoyé immédiatement un état « Succès », le résultat ne sera pas ajouté au cache, ce qui signifie que cette API devra retourner Http Gone si elle est interrogée. Le contenu d'un résultat Http 200 sera présenté sous le même format que la demande de recherche initiale, avec des valeurs qui auront été mises à jour.
@@ -204,8 +203,8 @@ Le tableau suivant décrit les propriétés qui sont disponibles
 **Demander la liste des recherches enregistrées :**
 
 ```
-	armclient get /subscriptions/{SubId}/resourceGroups/{ResourceGroupId}/providers/Microsoft.OperationalInsights/workspaces/{WorkspaceName}/savedSearches?api-version=2014-10-10
-  ```
+	armclient get /subscriptions/{SubId}/resourceGroups/{ResourceGroupId}/providers/Microsoft.OperationalInsights/workspaces/{WorkspaceName}/savedSearches?api-version=2015-03-20
+```
 
 Méthodes prises en charge : GET PUT DELETE
 
@@ -228,7 +227,7 @@ Le tableau suivant décrit les propriétés qui sont disponibles
 **Requête :**
 
 ```
-	armclient delete /subscriptions/{Subscription ID}/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/{Workspace ID}/savedSearches/thisIsMyId?api-version=2014-10-10
+	armclient delete /subscriptions/{Subscription ID}/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/{Workspace ID}/savedSearches/thisIsMyId?api-version=2015-03-20
 ```
 
 ### Mettre à jour les recherches enregistrées
@@ -237,7 +236,7 @@ Le tableau suivant décrit les propriétés qui sont disponibles
 
 ```
 	$savedSearchParametersJson = "{'etag': 'W/`"datetime\'2015-04-16T23%3A35%3A35.3182423Z\'`"', 'properties': { 'Category': 'myCategory', 'DisplayName':'myDisplayName', 'Query':'* | measure Count() by Source', 'Version':'1'  }"
-	armclient put /subscriptions/{Subscription ID}/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/{Workspace ID}/savedSearches/thisIsMyId?api-version=2014-10-10 $savedSearchParametersJson
+	armclient put /subscriptions/{Subscription ID}/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/{Workspace ID}/savedSearches/thisIsMyId?api-version=2015-03-20 $savedSearchParametersJson
 ```
 
 ### Métadonnées - JSON uniquement
@@ -247,7 +246,7 @@ Voici un moyen d'afficher les champs pour tous les types de journaux pour les do
 **Requête de champs :**
 
 ```
-	armclient get /subscriptions/{SubId}/resourceGroups/{ResourceGroupId}/providers/Microsoft.OperationalInsights/workspaces/{WorkspaceName}/schema?api-version=2014-10-10
+	armclient get /subscriptions/{SubId}/resourceGroups/{ResourceGroupId}/providers/Microsoft.OperationalInsights/workspaces/{WorkspaceName}/schema?api-version=2015-03-20
 ```
 
 **Réponse** :
@@ -317,7 +316,7 @@ Vous pouvez spécifier les marqueurs de début et de fin qui seront utilisés pa
 	  "start":"2015-02-04T21:03:29.231Z",
 	  "end":"2015-02-11T21:03:29.231Z"
 	}
-	armclient post /subscriptions/{Subscription ID}/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/{Workspace ID}/search?api-version=2014-10-10 $searchParametersJson
+	armclient post /subscriptions/{Subscription ID}/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/{Workspace ID}/search?api-version=2015-03-20 $searchParametersJson
 ```
 
 **Exemple de résultat :**
@@ -346,4 +345,4 @@ Vous pouvez spécifier les marqueurs de début et de fin qui seront utilisés pa
 
 Notez que le résultat ci-dessus contient un message d'erreur qui a été préfixé et ajouté.
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO2-->

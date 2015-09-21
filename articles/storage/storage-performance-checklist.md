@@ -1,10 +1,10 @@
 <properties
-	pageTitle="Liste de contrôle des performances et de l'évolutivité de Microsoft Azure Storage"
+	pageTitle="Liste de contrôle des performances et de l'évolutivité d'Azure Storage | Microsoft Azure"
 	description="Une liste des pratiques éprouvées à utiliser avec Azure Storage dans le développement d'applications performantes."
 	services="storage"
 	documentationCenter=""
 	authors="tamram"
-	manager="adinah"
+	manager="carolz"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/18/2015" 
+	ms.date="09/03/2015" 
 	ms.author="tamram"/>
 
 # Liste de contrôle des performances et de l'évolutivité de Microsoft Azure Storage
@@ -104,7 +104,7 @@ Si votre application s'approche des objectifs d'évolutivité d'un seul compte d
 -	Si votre application atteint les objectifs d'évolutivité, vérifiez que vous utilisez bien une interruption exponentielle pour les nouvelles tentatives (voir [Nouvelles tentatives](#subheading14)). Il est préférable de veiller à ne jamais s'approcher des objectifs d'évolutivité (en utilisant l'une des méthodes ci-dessus). Vous vous assurez ainsi que votre application n'effectue pas de nouvelle tentative immédiatement, ce qui aurait pour conséquence d'empirer la limitation.  
 
 ####Ressources utiles
-Suivez les liens ci-dessous pour obtenir des informations détaillées sur les objectifs d'évolutivité : - vous pouvez consulter les objectifs d'évolutivité actuels sur la page [Objectifs d'évolutivité et de performances d'Azure Storage](http://msdn.microsoft.com/library/azure/dn249410.aspx) sur MSDN. Pour plus d’informations sur les options de redondance de stockage, consultez le billet de blog [Options de redondance et stockage géo-redondant avec accès en lecture Azure Storage](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/11/introducing-read-access-geo-replicated-storage-ra-grs-for-windows-azure-storage.aspx) – voir la section suivante pour plus d'informations. - pour obtenir des informations en cours sur la tarification des services Azure, consultez la rubrique [Tarification Azure](http://azure.microsoft.com/pricing/overview/).
+Suivez les liens ci-dessous pour obtenir des informations détaillées sur les objectifs d'évolutivité : - vous pouvez consulter les objectifs d'évolutivité sur la page [Objectifs d'évolutivité et de performances d'Azure Storage](storage-scalability-targets.md). Pour plus d'informations sur les options de redondance de stockage, consultez la [Réplication Azure Storage](storage-redundancy.md) et le billet de blog [Options de redondance et stockage géo-redondant avec accès en lecture Azure Storage](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/11/introducing-read-access-geo-replicated-storage-ra-grs-for-windows-azure-storage.aspx). - Pour obtenir des informations en cours sur la tarification des services Azure, consultez [Tarification Azure](http://azure.microsoft.com/pricing/overview/).
 
 ###Mise en réseau
 Bien que les appels d'API soient importants, les contraintes de réseau physiques de l'application ont souvent un impact majeur sur les performances. Vous trouverez, ci-dessous, certaines des limitations auxquelles les utilisateurs peuvent être confrontés.
@@ -117,7 +117,7 @@ Dans le cas de la bande passante, le problème est souvent dû aux capacités du
 Comme c'est le cas pour toute utilisation du réseau, veuillez tenir compte du fait que les conditions réseau qui génèrent des erreurs et une perte de paquets ralentissent le débit effectif. L'utilisation de WireShark ou de NetMon peut vous aider à diagnostiquer ce problème.
 
 #####Ressources utiles
-Pour plus d'informations sur la taille des machines virtuelles et la bande passante allouée, consultez la page [Meilleures pratiques de conception de services à grande échelle sur Azure Cloud Services](http://msdn.microsoft.com/library/azure/dn197896.aspx) sur MSDN.
+Pour plus d’informations sur les tailles de machines virtuelles et la bande passante allouée, consultez [Tailles de machines virtuelles](../virtual-machines/virtual-machines-size-specs.md).
 
 ####<a name="subheading4"></a>Emplacement
 Dans un environnement distribué, le fait de placer le client à proximité du serveur se traduit par des performances optimales. Pour accéder à Azure Storage avec un minimum de latence, votre client doit idéalement se trouver dans la même région Azure. Par exemple, dans le cas d'un site web qui utilise Azure Storage, tous deux doivent se trouver dans la même région (Ouest des États-Unis ou Asie du Sud-Est, par exemple). Cela réduit à la fois la latence et les coûts. Au moment de la rédaction du présent document, l'utilisation de la bande passante dans une seule région était gratuite.
@@ -139,7 +139,7 @@ Ces deux technologies vous aident à éviter toute charge inutile (ainsi que les
 ####Ressources utiles
 Pour plus d'informations sur SAP, consultez la page [Signatures d'accès partagé, partie 1 : présentation du modèle SAP](../storage-dotnet-shared-access-signature-part-1/)
 
-Pour plus d'informations sur CORS, consultez la page [Prise en charge du service Partage des ressources cross-origin (CORS) pour les services Azure Storage](http://msdn.microsoft.com/library/azure/dn535601.aspx) sur MSDN.
+Pour plus d'informations sur CORS, consultez [Prise en charge du service Partage des ressources cross-origin (CORS) pour les services Azure Storage](http://msdn.microsoft.com/library/azure/dn535601.aspx).
 
 ###Mise en cache
 ####<a name="subheading7"></a>Récupération de données
@@ -149,7 +149,7 @@ Dans certains cas, vous pouvez déterminer que votre application part du princip
 
 Les données de configuration, de recherche et d'autres données toujours utilisées par l'application constituent de parfaits candidats pour la mise en cache.
 
-Pour savoir comment faire en sorte que les propriétés d'un objet blob détectent la date de la dernière modification à l'aide de .NET, consultez la page [Définir et récupérer des propriétés et des métadonnées](http://msdn.microsoft.com/library/azure/hh225342.aspx) sur MSDN. Pour plus d'informations sur les téléchargements conditionnels, consultez la page [Actualiser une copie locale d'objet BLOB avec une condition](http://msdn.microsoft.com/library/azure/dd179371.aspx) sur MSDN.
+Pour savoir comment faire en sorte que les propriétés d'un objet blob détectent la date de la dernière modification à l'aide de .NET, consultez [Définir et récupérer des propriétés et des métadonnées](storage-properties-metadata.md). Pour plus d'informations sur les téléchargements conditionnels, consultez la page [Actualiser une copie locale d'objet BLOB avec une condition](http://msdn.microsoft.com/library/azure/dd179371.aspx).
 
 ####<a name="subheading8"></a>Téléchargement de données par lots
 Dans certains scénarios d'application, vous pouvez agréger des données en local, puis les télécharger périodiquement dans un lot au lieu de les télécharger immédiatement une à une. Par exemple, une application web peut conserver un fichier journal des activités : l'application peut soit télécharger, sous la forme d'une entité de table, les détails de chaque activité lorsqu'elle se produit (ce qui implique de nombreuses opérations de stockage), soit enregistrer les détails de l'activité dans un fichier journal local, puis les télécharger régulièrement vers un objet blob sous la forme d'un fichier délimité. Si chaque entrée du journal a une taille de 1 Ko, vous pouvez en télécharger des milliers au cours d'une seule transaction « Put Blob » (vous pouvez télécharger un objet d'une taille maximale de 64 Mo au cours d'une seule transaction). Bien sûr, si l'ordinateur local tombe en panne avant le téléchargement, vous pouvez perdre des données de journal : le développeur de l'application doit penser à la possibilité de défaillances de périphérique client ou de téléchargement. Si les données d'activité doivent être téléchargées pour un intervalle de temps (et pas seulement pour une seule activité), il est préférable d'utiliser des objets blob plutôt que des tables.
@@ -166,19 +166,19 @@ Vous devez définir la limite de connexions avant d'ouvrir une connexion.
 
 Pour les autres langages de programmation, consultez la documentation correspondante pour savoir comment définir la limite de connexions.
 
-Pour plus d'informations, consultez le billet de blog [Services Web : connexions simultanées](http://blogs.msdn.com/b/darrenj/archive/2005/03/07/386655.aspx) sur MSDN.
+Pour plus d'informations, consultez le billet de blog [Services Web : connexions simultanées](http://blogs.msdn.com/b/darrenj/archive/2005/03/07/386655.aspx).
 
 ####<a name="subheading10"></a>Augmentation du nombre minimum de threads du pool de threads en cas d'utilisation de code synchrone avec Async Tasks
 Ce code augmente le nombre minimum de threads du pool de threads :
 
 	ThreadPool.SetMinThreads(100,100); //(Determine the right number for your application)  
 
-Pour plus d'informations, consultez la [ThreadPool.SetMinThreads, méthode](http://msdn.microsoft.com/library/system.threading.threadpool.setminthreads(v=vs.110).aspx), sur MSDN.
+Pour plus d'informations, consultez la [ThreadPool.SetMinThreads, méthode](http://msdn.microsoft.com/library/system.threading.threadpool.setminthreads(v=vs.110).aspx)).
 
 ####<a name="subheading11"></a>Utilisation du nettoyage de la mémoire de .NET 4.5
 Utilisez .NET 4.5 ou version ultérieure pour que l'application cliente tire parti des améliorations de la fonctionnalité de nettoyage de la mémoire du serveur sur le plan des performances.
 
-Pour plus d'informations, consultez l'article [Présentation des améliorations des performances de .NET 4.5](http://msdn.microsoft.com/magazine/hh882452.aspx) sur MSDN.
+Pour plus d'informations, consultez l'article [Présentation des améliorations des performances de .NET 4.5](http://msdn.microsoft.com/magazine/hh882452.aspx).
 
 ###<a name="subheading12"></a>Parallélisme illimité
 Le parallélisme peut améliorer sensiblement les performances. Soyez toutefois prudent lorsque vous utilisez le parallélisme illimité (nombre de threads et/ou de demandes parallèles illimité) pour charger ou télécharger des données, ou lors de l'utilisation de plusieurs rôles de travail pour accéder à plusieurs partitions (conteneurs, files d'attente ou partitions de table) dans le même compte de stockage ou à plusieurs éléments d'une même partition. Si vous optez pour un parallélisme illimité, votre application peut dépasser les capacités de l'appareil client ou les objectifs d'évolutivité du compte de stockage, ce qui se traduit par des temps de latence plus importants et par une limitation.
@@ -205,7 +205,7 @@ Outre les pratiques éprouvées pour [Tous les services](#allservices) décrites
 ####<a name="subheading16"></a>Bande passante et opérations par objet blob
 Le débit maximal en lecture ou en écriture sur un objet blob unique est de 60 Mo/seconde (soit environ 480 Mbits/s), ce qui est supérieur aux capacités de nombreux réseaux côté client (y compris la carte réseau physique qui équipe l'appareil client). De plus, un seul objet blob prend en charge plus de 500 demandes par seconde. Si vous risquez de dépasser ces limites lorsque plusieurs clients doivent lire le même objet blob, il est conseillé d'utiliser un CDN pour distribuer l'objet blob.
 
-Pour plus d'informations sur le débit cible pour les objets blob, consultez la page [Objectifs d'évolutivité et de performances d'Azure Storage](http://msdn.microsoft.com/library/azure/dn249410.aspx) sur MSDN.
+Pour plus d'informations sur le débit cible pour les objets blob, consultez la page [Objectifs d'évolutivité et de performances d'Azure Storage](storage-scalability-targets.md).
 
 ###Copie et déplacement d'objets blob
 ####<a name="subheading17"></a>Copie d'un objet blob
@@ -215,7 +215,7 @@ Il convient cependant de tenir compte du fait que lorsque vous effectuez une cop
 
 Nous attirons votre attention sur le fait que les copies effectuées au sein d'un même compte de stockage sont généralement plus rapides.
 
-Pour plus d'informations, consultez la page [Copy Blob](http://msdn.microsoft.com/library/azure/dd894037.aspx) sur MSDN.
+Pour plus d'informations, consultez la page [Copy Blob](http://msdn.microsoft.com/library/azure/dd894037.aspx).
 
 ####<a name="subheading18"></a>Utilisation d’AzCopy
 L'équipe Azure Storage a développé un outil en ligne de commande baptisé « AzCopy », destiné à faciliter le transfert en bloc de nombreux objets blob entre des comptes de stockage. Cet outil est optimisé pour ce scénario et peut générer des taux de transfert élevés. Il est vivement conseillé de l'utiliser pour les opérations de chargement, de téléchargement et de copie en bloc. Pour obtenir plus d'informations sur cet outil et le télécharger, cliquez [ici](storage-use-azcopy.md).
@@ -226,7 +226,7 @@ Pour les très gros volumes de données (plus de 1 To), Azure Storage propose 
 ###<a name="subheading20"></a>Utilisation de métadonnées
 Le service BLOB prend en charge les demandes HEAD, lesquelles peuvent inclure des métadonnées sur un objet blob. Par exemple, si votre application doit extraire les données EXIF d'une photo, elle peut récupérer la photo en question, puis procéder à l'extraction. Pour économiser la bande passante et améliorer les performances, votre application peut stocker les données EXIF dans les métadonnées de l'objet blob lorsque l'application a téléchargé la photo : vous pouvez ensuite récupérer les données EXIF dans les métadonnées à l'aide d'une simple demande HEAD, ce qui permet d'économiser beaucoup de bande passante et de temps de traitement, nécessaires pour extraire les données EXIF chaque fois que l'objet blob est lu. Cela s'avère particulièrement utile lorsque vous avez simplement besoin des métadonnées, et non de tout le contenu d'un objet blob. Un maximum de 8 Ko de métadonnées peut être stocké par objet blob (le service refusera les demandes de stockage supérieures). Dès lors, si vos données ne respectent pas cette taille, vous ne pourrez pas utiliser cette méthode.
 
-Pour savoir comment récupérer les métadonnées d'un objet blob à l'aide de .NET, consultez la page [Définir et récupérer des propriétés et des métadonnées](http://msdn.microsoft.com/library/azure/hh225342.aspx) sur MSDN.
+Pour savoir comment récupérer les métadonnées d'un objet blob à l'aide de .NET, consultez la page [Définir et récupérer des propriétés et des métadonnées](storage-properties-metadata.md).
 
 ###Téléchargement rapide
 Pour télécharger les objets blob rapidedement, la première question est : téléchargez-vous un blob ou plusieurs ? Utilisez les instructions ci-dessous pour déterminer la méthode correcte en fonction de votre scénario.
@@ -245,7 +245,7 @@ Pour télécharger rapidement de nombreux objets blob, effectuez cette opératio
 ###<a name="subheading23"></a>Choix du type d'objet blob approprié
 Azure Storage prend en charge deux types d'objet blob : *de pages* et *de blocs*. Pour un scénario d'utilisation donné, le type d'objet blob choisi affecte les performances et l'évolutivité de la solution. Les objets blob de blocs sont utiles si vous souhaitez télécharger efficacement de grandes quantités de données : par exemple, une application cliente a besoin de télécharger des photos ou vidéos sur le stockage d'objets blob. Les objets blob de pages sont appropriées si l'application doit effectuer des écritures aléatoires sur les données : par exemple, les disques durs virtuels d'Azure sont stockés en tant qu'objets blob de pages.
 
-Pour plus d'informations, consultez la page [Présentation des objets BLOB de blocs et des objets BLOB de pages](http://msdn.microsoft.com/library/azure/ee691964.aspx) sur MSDN.
+Pour en savoir plus, voir [Présentation des objets blob de blocs et des objets blob de pages](http://msdn.microsoft.com/library/azure/ee691964.aspx).
 
 ##Tables
 Outre les pratiques éprouvées pour [Tous les services](#allservices) décrites précédemment, les pratiques ci-dessous s'appliquent spécifiquement au service de Table.
@@ -265,7 +265,7 @@ Cette section décrit les paramètres de configuration rapide que vous pouvez ut
 ####<a name="subheading25"></a>Utilisation de JSON
 Depuis la version 2013-08-15 du service de stockage, le service de Table prend en charge l'utilisation de JSON plutôt que le format AtomPub XML pour transférer des données de table. Cela permet de réduire la taille de la charge utile de quelque 75 % et d'améliorer sensiblement les performances de votre application.
 
-Pour plus d'informations, consultez l'article [Tables Microsoft Azure : présentation de JSON](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/05/windows-azure-tables-introducing-json.aspx) et [Format de charge utile pour les opérations du service Table](http://msdn.microsoft.com/library/azure/dn535600.aspx) sur MSDN.
+Pour plus d'informations, consultez l'article [Tables Microsoft Azure : présentation de JSON](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/05/windows-azure-tables-introducing-json.aspx) et [Format de charge utile pour les opérations du service Table](http://msdn.microsoft.com/library/azure/dn535600.aspx).
 
 ####<a name="subheading26"></a>Désactivation de Nagle
 L'algorithme de Nagle est utilisé à grande échelle sur les réseaux TCP/IP en vue d'améliorer les performances du réseau. Cependant, il n'est pas idéal dans toutes les situations (c'est le cas, par exemple, dans les environnements très interactifs). Pour Azure Storage, l'algorithme de Nagle a un impact négatif sur les performances des demandes adressées aux services de table et de file d'attente. Vous devez donc le désactiver si cela s'avère possible.
@@ -353,7 +353,7 @@ Les données structurées donnent parfois l'impression qu'elles devraient être 
 ###<a name=subheading39"></a>Limites d'évolutivité
 Une seule file d'attente peut traiter environ 2 000 messages (1 Ko chacun) par seconde (chaque AddMessage, GetMessage et DeleteMessage compte pour un message). Si cela est insuffisant pour votre application, utilisez plusieurs files d'attente et répartissez les messages entre elles.
 
-Vous pouvez consulter les objectifs d'évolutivité actuels sur la page [Objectifs d'évolutivité et de performances d'Azure Storage](http://msdn.microsoft.com/library/azure/dn249410.aspx) sur MSDN.
+Consultez les objectifs d'évolutivité actuels sur la page [Objectifs d'évolutivité et de performances d'Azure Storage](storage-scalability-targets.md).
 
 ###<a name=subheading40"></a>Désactivation de Nagle
 Consultez la section relative à la configuration de table qui traite de l'algorithme Nagle ; en règle générale, cet algorithme dégrade les performances des demandes de file d'attente et, de ce fait, vous devez le désactiver.
@@ -384,4 +384,4 @@ Il est conseillé d'utiliser des files d'attente pour rendre l'architecture de v
 Dans cet article, nous avons passé en revue quelques-unes des pratiques utilisées le plus couramment pour optimiser les performances lors de l'utilisation d'Azure Storage. Nous invitons tous les développeurs d'applications à évaluer chacune d'elles et à prendre en compte les recommandations énoncées afin de bénéficier de performances optimales pour les applications qui utilisent Azure Storage.
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

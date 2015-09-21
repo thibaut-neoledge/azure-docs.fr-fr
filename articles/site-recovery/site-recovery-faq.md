@@ -1,7 +1,7 @@
 <properties 
-	pageTitle="Microsoft Azure Site Recovery : Forum Aux Questions"
-	description="Cet article traite des questions fréquemment posées sur l’utilisation de Microsoft Azure Site Recovery."
-	services="site-recovery"
+	pageTitle="Microsoft Azure Site Recovery : Forum Aux Questions" 
+	description="Cet article traite des questions fréquemment posées sur l’utilisation de Microsoft Azure Site Recovery." 
+	services="site-recovery" 
 	documentationCenter=""
 	authors="csilauraa"
 	manager="jwhit"
@@ -11,9 +11,9 @@
 	ms.service="site-recovery"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.tgt_pltfrm="na"
+	ms.tgt_pltfrm="na" 
 	ms.workload="storage-backup-recovery"
-	ms.date="08/26/2015"
+	ms.date="08/26/2015" 
 	ms.author="lauraa"/>
 
 
@@ -64,6 +64,17 @@ Ceci n’est pas pris en charge. Envoyez-nous vos commentaires via le [Forum de 
 ### Puis-je alimenter les disques initiaux sur Azure à l’aide d’un mécanisme hors connexion ?
 Ceci n’est pas pris en charge. Envoyez-nous vos commentaires via le [Forum de commentaires d’Azure Site Recovery – Prise en charge de la réplication hors connexion](http://feedback.azure.com/forums/256299-site-recovery/suggestions/6227386-support-for-offline-replication-data-transfer-from).
 
+### Puis-je limiter la bande passante allouée pour le trafic de réplication quand Hyper-V est utilisé en tant que source ?
+- Si vous effectuez une réplication entre deux sites locaux, vous pouvez utiliser les composants de qualité de service (QoS) Windows à cette fin. Voici un exemple de script : 
+
+    	New-NetQosPolicy -Name ASRReplication -IPDstPortMatchCondition 8084 -ThrottleRate (2048*1024)
+    	gpupdate.exe /force
+
+- Si vous effectuez une réplication vers Azure, vous pouvez la configurer en vous inspirant de l’exemple d’applet de commande PowerShell suivant :
+
+    	Set-OBMachineSetting -WorkDay $mon, $tue -StartWorkHour "9:00:00" -EndWorkHour "18:00:00" -WorkHourBandwidth (512*1024) -NonWorkHourBandwidth (2048*1024)
+
+
 ## Prise en charge des versions
 
 ### Quelles sont les versions des hôtes et clusters Windows Server prises en charge ?
@@ -79,7 +90,7 @@ Vous ne pouvez pas configurer Hyper-V s'exécutant sur un système d'exploitatio
 
 ### ASR prend-il en charge les machines de génération 2 ?
 
-Oui, ASR prend en charge la réplication des machines virtuelles de génération 2 sur Hyper-V dans Azure. ASR les convertit de la génération 2 à la génération 1 pendant le basculement. Au moment de la restauration automatique, la machine est reconvertie en génération 2. Pour plus d’informations, consultez [ce billet de blog](http://azure.microsoft.com/blog/2015/04/28/disaster-recovery-to-azure-enhanced-and-were-listening/).
+Oui, ASR prend en charge la réplication des machines virtuelles de génération 2 sur Hyper-V dans Azure. ASR les convertit de la génération 2 à la génération 1 pendant le basculement. Au moment de la restauration automatique, la machine est reconvertie en génération 2. Pour plus d’informations, cliquez [ici](http://azure.microsoft.com/blog/2015/04/28/disaster-recovery-to-azure-enhanced-and-were-listening/).
 
 
 ## Déploiement entre des sites de fournisseurs de services 
@@ -236,4 +247,4 @@ Pour commencer à déployer ASR, effectuez les opérations suivantes :
 
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

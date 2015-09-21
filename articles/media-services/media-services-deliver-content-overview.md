@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/11/2015"  
+	ms.date="09/07/2015" 
 	ms.author="juliako"/>
 
 
@@ -138,7 +138,7 @@ Notez qu’en plus d’utiliser les fonctionnalités d’empaquetage dynamique, 
 
 ###Téléchargement progressif 
 
-Le téléchargement progressif vous permet de commencer la lecture multimédia avant que l’intégralité du fichier ait été téléchargée. Vous ne pouvez télécharger progressivement les fichiers .ism\* (.ismv, .isma, .ismt, .ismc).
+Le téléchargement progressif vous permet de commencer la lecture multimédia avant que l’intégralité du fichier ait été téléchargée. Vous ne pouvez télécharger progressivement les fichiers .ism* (.ismv, .isma, .ismt, .ismc).
 
 Pour télécharger progressivement du contenu, utilisez le type de localisateur OnDemandOrigin. L’exemple suivant illustre l’URL basée sur le type de localisateur OnDemandOrigin :
 
@@ -200,9 +200,17 @@ Publiez des ressources (en créant des localisateurs) à l’aide du **portail d
 [AZURE.INCLUDE [media-services-selector-publish](../../includes/media-services-selector-publish.md)]
 
 
+##Parcours d’apprentissage de Media Services
+
+Vous pouvez afficher les parcours d’apprentissage d’AMS ici :
+
+- [Workflow en flux continu AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [Workflow de streaming à la demande AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+
+
 ##Rubriques connexes
 
 [Mettre à jour les localisateurs de Media Services après le déploiement des clés de stockage](media-services-roll-storage-access-keys.md)
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO2-->

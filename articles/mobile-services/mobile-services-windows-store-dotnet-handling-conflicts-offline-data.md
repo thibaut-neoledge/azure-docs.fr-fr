@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Gestion des conflits liés aux données hors connexion dans les applications Windows universelles | Microsoft Azure" 
-	description="Apprenez à gérer les conflits à l&#39;aide d&#39;Azure Mobile Services lors de la synchronisation des données hors connexion dans votre application Windows universelle" 
+	description="Apprenez à gérer les conflits à l'aide d'Azure Mobile Services lors de la synchronisation des données hors connexion dans votre application Windows universelle" 
 	documentationCenter="windows" 
 	authors="wesmc7777" 
 	manager="dwrede" 
@@ -27,7 +27,7 @@ Cette rubrique vous explique comment synchroniser les données et gérer les con
 
 Si vous préférez regarder une vidéo, sachez que celle ci-dessous suit la même procédure que ce didacticiel.
 
-> [AZURE.VIDEO build-offline-apps-azure-mobile-services]
+> [AZURE.VIDEO build-offline-apps-with-mobile-services]
 
 Dans ce didacticiel, vous téléchargez une solution Windows C# universelle pour une application prenant en charge la gestion des conflits de synchronisation hors connexion. Vous allez intégrer un service mobile à l'application, puis exécuter les clients Windows Store 8.1 et Windows Phone 8.1 pour générer un conflit de synchronisation et le résoudre.
 
@@ -164,4 +164,4 @@ Lorsqu'une opération Push est annulée, `PushAsync` génère une `MobileService
 [Exemple TODO hors connexion Mobile Services]: http://go.microsoft.com/fwlink/?LinkId=512866
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO2-->

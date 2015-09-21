@@ -3,7 +3,7 @@
    description="Conseils relatifs à la migration de votre code SQL vers Microsoft Azure SQL Data Warehouse, dans le cadre du développement de solutions."
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="jrowlandjones"
+   authors="lodipalm"
    manager="barbkess"
    editor=""/>
 
@@ -13,16 +13,16 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/25/2015"
+   ms.date="09/09/2015"
    ms.author="JRJ@BigBangData.co.uk;barbkess"/>
 
 # Migration de votre code SQL vers SQL Data Warehouse
 
-Afin de vérifier la conformité de votre code avec SQL Data Warehouse, il vous faudra probablement apporter des modifications à votre base de code. Certaines fonctionnalités de SQL Data Warehouse peuvent également améliorer considérablement les performances, dans la mesure où elles sont conçues pour fonctionner directement selon un modèle distribué. Toutefois, pour maintenir des niveaux appropriés de performance et d’évolutivité, certaines fonctions ne sont pas disponibles.
+Pour vérifier la conformité de votre code avec SQL Data Warehouse, il vous faudra probablement apporter des modifications à votre base de code. Certaines fonctionnalités de SQL Data Warehouse peuvent améliorer considérablement les performances, dans la mesure où elles sont conçues pour fonctionner directement selon un modèle distribué. Toutefois, pour maintenir des niveaux appropriés de performance et d’évolutivité, certaines fonctions ne sont pas disponibles.
 
 ## Modifications du code Transact-SQL
 
-La liste suivante répertorie les fonctionnalités principales qui ne sont pas prises en charge dans Microsoft Azure SQL Data Warehouse. Les liens fournis vous présentent des solutions de contournement pour la fonctionnalité non prise en charge :
+La liste suivante répertorie les fonctionnalités principales non prises en charge dans Microsoft Azure SQL Data Warehouse. Les liens vous présentent des solutions de contournement pour la fonctionnalité non prise en charge :
 
 - [Jointures ANSI sur les opérations UPDATE][]
 - [Jointures ANSI sur les opérations DELETE][]
@@ -34,7 +34,7 @@ La liste suivante répertorie les fonctionnalités principales qui ne sont pas p
 - Clause OUTPUT
 - Fonctions en ligne définies par l’utilisateur
 - Fonctions à instructions multiples
-- [Expressions récursives de table commune (CTE)](\#Expressions-récursives-de-table-commune-(CTE)
+- [Expressions récursives de table commune (CTE)](#Expressions-récursives-de-table-commune-(CTE)
 - [Mises à jour via les CTE](#Updates-through-CTEs)
 - Fonctions et procédures CLR
 - Fonction $partition
@@ -50,7 +50,7 @@ La liste suivante répertorie les fonctionnalités principales qui ne sont pas p
 - [Utilisation de Select pour l’attribution des variables][]
 - [Type de données no MAX pour les chaînes dynamiques SQL][]
 
-Fort heureusement, la plupart de ces restrictions peuvent être contournées. Des explications ont été incluses dans les articles de développement référencés ci-dessus.
+Fort heureusement, la plupart de ces restrictions peuvent être contournées. Des explications sont fournies dans les articles de développement référencés ci-dessus.
 
 ### Expressions récursives de table commune (CTE)
 
@@ -113,4 +113,4 @@ Pour bénéficier de recommandation sur le développement de votre code, consult
 
 <!--Other Web references-->
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO2-->

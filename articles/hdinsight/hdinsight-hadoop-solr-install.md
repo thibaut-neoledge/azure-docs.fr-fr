@@ -1,4 +1,4 @@
-<properties 
+<properties
 	pageTitle="Utilisation d’une action de script dans HDInsight pour installer Solr sur un cluster Hadoop| Microsoft Azure"
 	description="Découvrez comment personnaliser un cluster HDInsight avec Solr. Vous allez utiliser une option de configuration Action de script afin d’utiliser un script pour installer Solr."
 	services="hdinsight"
@@ -8,7 +8,7 @@
 	editor="cgronlun"
 	tags="azure-portal"/>
 
-<tags 
+<tags
 	ms.service="hdinsight"
 	ms.workload="big-data"
 	ms.tgt_pltfrm="na"
@@ -27,8 +27,9 @@ Vous pouvez installer Solr sur n’importe quel type de cluster dans Hadoop sur 
 
 Dans cette rubrique, vous allez apprendre à installer Solr à l’aide d’une action de script. Solr est une puissante plateforme de recherche qui fournit des fonctionnalités de recherche au niveau de l'entreprise pour les données gérées par Hadoop. Après avoir installé Solr sur un cluster HDInsight, vous apprendrez également comment rechercher des données à l’aide de Solr.
 
-> [AZURE.NOTE]L'exemple de script utilisé dans cette rubrique crée un cluster Solr avec une configuration spécifique. Si vous souhaitez configurer le cluster Solr avec d'autres collections, partitions, schémas, réplicas, etc., vous devez modifier le script et les fichiers binaires Solr en conséquence.
-
+> [AZURE.NOTE]L’exemple de script utilisé dans cette rubrique crée un cluster Solr Windows avec une configuration spécifique. Si vous souhaitez configurer le cluster Solr avec d'autres collections, partitions, schémas, réplicas, etc., vous devez modifier le script et les fichiers binaires Solr en conséquence.
+>
+> Pour plus d’informations sur l’utilisation de Solr avec un cluster Linux, consultez [Installation et utilisation de Solr sur des clusters HDInsight Hadoop (Linux)](hdinsight-hadoop-solr-install-linux.md).
 
 ## <a name="whatis"></a>Présentation de Solr
 
@@ -42,11 +43,11 @@ Pour obtenir un exemple de script pour installer Solr sur un cluster HDInsight,
 > [AZURE.NOTE]L'exemple de script fonctionne uniquement avec un cluster HDInsight version 3.1. Pour plus d’informations sur les versions des clusters HDInsight, consultez la page [Versions des clusters HDInsight](hdinsight-component-versioning.md).
 
 
-1. Commencez l’approvisionnement d’un cluster à l’aide de l’option **CRÉATION PERSONNALISÉE**, comme cela est décrit dans la rubrique [Approvisionnement d’un cluster à l’aide d’options personnalisées](hdinsight-provision-clusters.md#portal). 
+1. Commencez l’approvisionnement d’un cluster à l’aide de l’option **CRÉATION PERSONNALISÉE**, comme cela est décrit dans la rubrique [Approvisionnement d’un cluster à l’aide d’options personnalisées](hdinsight-provision-clusters.md#portal).
 2. Sur la page **Actions de script** de l’Assistant, cliquez sur **Ajouter l’action de script** pour fournir des informations sur l’action de script, comme illustré ci-dessous :
 
 	![Utilisation d’une action de script pour personnaliser un cluster](./media/hdinsight-hadoop-solr-install/hdi-script-action-solr.png "Utilisation d’une action de script pour personnaliser un cluster")
-	
+
 	<table border='1'>
 	<tr><th>Propriété</th><th>Valeur</th></tr>
 	<tr><td>Nom</td>
@@ -67,7 +68,7 @@ Vous devez commencer par indexer Solr avec quelques fichiers de données. Vous p
 1. **Utilisez le protocole RDP (Remote Desktop) pour vous connecter à distance au cluster HDInsight avec Solr installé**. À partir du portail Azure, activez le Bureau à distance pour le cluster que vous avez créé avec Solr installé, puis accédez à distance au cluster. Pour consulter des instructions à ce sujet, consultez la page <a href="http://azure.microsoft.com/documentation/articles/hdinsight-administer-use-management-portal/#rdp" target="_blank">Connexion à des clusters HDInsight à l’aide de RDP</a>.
 
 2. **Indexez Solr en téléchargeant des fichiers de données**. Lorsque vous indexez Solr, vous y placez des documents sur lesquels vous devrez peut-être effectuer des recherches. Pour indexer Solr, utilisez le protocole RDP pour vous connecter à distance au cluster, accédez au Bureau, ouvrez la ligne de commande Hadoop et accédez à **C:\\apps\\dist\\solr-4.7.2\\example\\exampledocs**. Exécutez la commande suivante :
-	
+
 		java -jar post.jar solr.xml monitor.xml
 
 	Le résultat suivant s’affiche sur la console :
@@ -80,12 +81,12 @@ Vous devez commencer par indexer Solr avec quelques fichiers de données. Vous p
 
 	L’utilitaire post.jar indexe Solr avec deux exemples de documents : **solr.xml** et **monitor.xml**. L'utilitaire post.jar et les exemples de documents sont disponibles avec l'installation Solr.
 
-3. **Utilisez le tableau de bord Solr pour effectuer une recherche dans les documents indexés**. Dans la session RDP du cluster HDInsight, ouvrez Internet Explorer, puis lancez le tableau de bord Solr à l'adresse ****http://headnodehost:8983/solr/#/**. Dans la liste déroulante **Sélecteur de base** située dans le volet gauche, sélectionnez **collection1** et cliquez ensuite sur **Requête**. Par exemple, pour sélectionner et renvoyer tous les documents dans Solr, renseignez les valeurs suivantes :
+3. **Utilisez le tableau de bord Solr pour effectuer une recherche dans les documents indexés**. Dans la session RDP au cluster HDInsight, ouvrez Internet Explorer, puis lancez le tableau de bord Solr à l’adresse ****http://headnodehost:8983/solr/#/**. Dans la liste déroulante **Sélecteur de base** située dans le volet gauche, sélectionnez **collection1** et cliquez ensuite sur **Requête**. Par exemple, pour sélectionner et renvoyer tous les documents dans Solr, renseignez les valeurs suivantes :
 	1. Dans la zone de texte **q**, entrez ***:***. Tous les documents indexés dans Solr sont alors renvoyés. Si vous souhaitez rechercher une chaîne spécifique dans les documents, vous pouvez la saisir à cet emplacement.
 	2. Sélectionnez le format de sortie dans la zone de texte **wt**. La valeur par défaut est **json**. Cliquez sur **Exécuter la requête**.
 
 		![Utilisation d’une action de script pour personnaliser un cluster](./media/hdinsight-hadoop-solr-install/hdi-solr-dashboard-query.png "Exécution d’une requête sur le tableau de bord Solr")
-	
+
 	La sortie renvoie les deux documents que nous avions utilisés pour indexer Solr. La sortie se présente comme suit :
 
 			"response": {
@@ -139,7 +140,7 @@ Vous devez commencer par indexer Solr avec quelques fichiers de données. Vous p
 			      }
 			    ]
 			  }
-   
+
 
 4. **Recommandé : sauvegardez les données indexées à partir de Solr dans un objet WASB (Azure Storage Blob) associé au cluster HDInsight**. Il est conseillé de sauvegarder les données indexées à partir de nœuds de cluster Solr sur un stockage d’objets blob Azure. Pour ce faire, procédez comme suit :
 
@@ -158,8 +159,8 @@ Vous devez commencer par indexer Solr avec quelques fichiers de données. Vous p
 			  <str name="status">OK</str>
 			</response>
 
-	2. Dans la session à distance, accédez à {SOLR\_HOME}{Collection}\\data. Pour le cluster créé à l’aide de l’exemple de script, il doit s’agir de **C:\\apps\\dist\\solr-4.7.2\\example\\solr\\collection1\\data**. Un dossier d'instantanés créé avec un nom semblable à **snapshot.*timestamp*** doit normalement figurer à cet emplacement.
-	
+	2. Dans la session à distance, accédez à {SOLR\_HOME}{Collection}\\data. Pour le cluster créé à l’aide de l’exemple de script, il doit s’agir de **C:\\apps\\dist\\solr-4.7.2\\example\\solr\\collection1\\data**. Un dossier d’instantanés créé avec un nom semblable à **snapshot.*timestamp*** doit normalement figurer à cet emplacement.
+
 	3. Compressez le dossier d’instantanés et téléchargez-le vers le stockage d’objets blob Azure. À partir de la ligne de commande Hadoop, accédez à l’emplacement du dossier d’instantanés à l’aide de la commande suivante :
 
 			  hadoop fs -CopyFromLocal snapshot._timestamp_.zip /example/data
@@ -179,6 +180,5 @@ Vous devez commencer par indexer Solr avec quelques fichiers de données. Vous p
 [hdinsight-install-r]: hdinsight-hadoop-r-scripts.md
 [hdinsight-install-spark]: hdinsight-hadoop-spark-install.md
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster.md
- 
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO2-->

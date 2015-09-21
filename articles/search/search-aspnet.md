@@ -20,20 +20,6 @@
 
 ASP.NET est l’infrastructure d’application web prédominante dans les solutions personnalisées qui s’intègrent avec Azure Search. Dans cet article, vous allez apprendre à connecter votre application web ASP.NET à Azure Search, à démarrer rapidement avec des modèles de conception pour les opérations courantes et à passer en revue quelques pratiques de codage qui pourraient simplifier votre expérience de développement.
 
-##Organisation de votre code
-
-Le fractionnement de vos charges de travail dans des projets autonomes au sein de la même solution Visual Studio vous offre davantage de flexibilité dans la façon dont vous concevez, gérez et exécutez chaque programme. Nous vous recommandons d’en créer trois :
-
-- Code de création d’index
-- Code d’ingestion de données
-- Code d’interaction utilisateur
-
-Dans Azure Search, les opérations d’indexation et de document (comme l’ajout ou la mise à jour de documents, ou l’exécution de requêtes) sont totalement indépendantes les unes des autres. Cela signifie que vous pouvez dissocier la gestion des index de votre code d’interaction utilisateur ASP.NET qui formule des demandes de recherche et affiche les résultats.
-
-Dans la plupart de nos exemples de code, l’index est à la fois créé et chargé dans un projet (appelé DataIndexer, CatalogIndexer ou DataCatalog dans différents exemples), tandis que le code qui gère les demandes de recherche et les réponses est placé dans un projet d’application ASP.NET MVC. Dans les exemples de code, il est pratique de regrouper la création d’index et le chargement de documents dans un projet, mais un code de production isolerait probablement ces opérations. Une fois qu’un index est créé, il est rarement modifié (et s’il est modifié, il doit être reconstitué), tandis que les documents sont susceptibles d’être actualisés de façon récurrente.
-
-Séparer les charges de travail offre d’autres avantages : différents niveaux d’autorisations pour Azure Search (droits d’administrateur complets par rapport aux droits de requêtes uniquement), utilisation de différents langages de programmation, plus de dépendances spécifiques par programme, ainsi que possibilité de réviser les programmes de manière indépendante ou de créer plusieurs applications frontales qui fonctionnent toutes sur l’index constitué et géré par une application d’indexation centrale.
-
 ##Exemples et démonstrations de l’utilisation d’ASP.NET et d’Azure Search
 
 Plusieurs exemples de code existent déjà et montrent comment Azure Search s’intègre avec ASP.NET. Vous pouvez accéder directement au code ou à une application de démonstration en visitant l’un des liens suivants :
@@ -47,12 +33,12 @@ Plusieurs exemples de code existent déjà et montrent comment Azure Search s’
 Pour établir une connexion au service et émettre des demandes, votre application web a besoin de trois éléments uniquement :
 
 - Une URL vers le service Azure Search que vous avez configuré, au format https://<service-name>.search.windows.net
-- Une clé API (GUID) qui authentifie la connexion à Azure Search
+- Une clé API (chaîne) qui authentifie la connexion à Azure Search
 - Un HTTPClient ou SearchServiceClient pour formuler la demande de connexion
 
 ####URL et clés API
 
-Vous pouvez trouver les URL et la clé API dans le [portail](search-create-service-portal.md) ou les récupérer par programmation à l’aide de l’[API REST de gestion](https://msdn.microsoft.com/library/dn832684.aspx).
+Vous pouvez trouver l’URL et la clé API dans le [portail](search-create-service-portal.md) ou les récupérer par programme à l’aide de l’[API REST de gestion](https://msdn.microsoft.com/library/dn832684.aspx).
 
 En règle générale, les URL et la clé sont placées dans un fichier web.config de votre programme d’interaction utilisateur :
 
@@ -62,16 +48,16 @@ En règle générale, les URL et la clé sont placées dans un fichier web.confi
     	. . .
       </appSettings>
 
-Le nom de service de Search peut être le nom court que vous avez spécifié lors de l’approvisionnement à condition que vous ajoutiez le domaine (search.windows.net) sur la connexion ou que vous puissiez spécifier le nom qualifié complet (<service-name>.search.windows.net) dans le fichier web.config sans le préfixe HTTPS.
+Le nom de service de Search peut être le nom court que vous avez spécifié lors de l’approvisionnement à condition que vous ajoutiez le domaine (search.windows.net) sur la connexion, ou bien vous pouvez spécifier le nom qualifié complet (<service-name>.search.windows.net) dans le fichier web.config sans le préfixe HTTPS.
 
 La clé API est un jeton d’authentification généré au cours de l’approvisionnement du service (clés d’administration uniquement) ou généré manuellement si vous créez des clés de requête dans le portail. Le type de clé détermine les opérations de recherche qui sont disponibles pour votre application :
 
 - Clés d’administration (autorisations en lecture-écriture, 2 par service)
 - Clés de requête (lecture seule, jusqu’à 50 par service)
 
-Toutes les clés API sont des GUID. Visuellement, il n’existe aucune distinction entre clés d’administration et clés de requête. Vous devez vérifier le portail ou utiliser l’API REST de gestion pour déterminer le type de clé.
+Les clés API sont des chaînes de 32 caractères. Visuellement, il n’existe aucune distinction entre clés d’administration et clés de requête. Si vous oubliez quel type de clé vous avez spécifié dans le code, vous devez le vérifier dans le portail ou utiliser l'API REST de gestion pour renvoyer le type de clé. Pour en savoir plus sur les clés, consultez [API REST du service Azure Search](https://msdn.microsoft.com/library/azure/dn798935.aspx).
 
-> [AZURE.TIP]Une clé de requête offre une expérience en lecture seule au client. Consultez la page [Essayer Azure App Service avec Azure Search](search-tryappservice.md) pour tester les opérations Azure Search qui sont disponibles dans un service en lecture seule. Notez qu’avec la méthode Essayer Azure App, le code d’application web est entièrement modifiable. Vous pouvez modifier le code C# dans le projet ASP.NET pour modifier la disposition de la page web, rechercher une construction de requête ou rechercher des résultats. Seules les opérations d’index de services et de chargement de documents Azure Search sont en lecture seule par l’inclusion d’une clé API de requête sur la connexion du service.
+> [AZURE.TIP]Une clé de requête offre une expérience en lecture seule au client. Consultez la page [Essayer App Service avec Azure Search](search-tryappservice.md) pour tester les opérations Azure Search qui sont disponibles dans un service en lecture seule. Notez qu’avec la méthode Essayer Azure App, le code d’application web est entièrement modifiable. Vous pouvez modifier le code C# dans le projet ASP.NET pour modifier la disposition de la page web, rechercher une construction de requête ou rechercher des résultats. Seules les opérations d’index de services et de chargement de documents Azure Search sont en lecture seule par l’inclusion d’une clé API de requête sur la connexion du service.
 
 ####Connexion client
 
@@ -95,7 +81,7 @@ Les deux extraits de code suivants établissent une connexion au service Search 
             }
             catch (Exception e)
             {
-                errorMessage = e.Message.ToString();
+                errorMessage = e.Message;
             }
         }
 
@@ -129,7 +115,7 @@ Une recherche en texte intégral sur votre index est exécutée sur les champs m
 
 Une requête de recherche encapsule le terme d’entrée fourni par l’utilisateur dans une demande Azure Search qui spécifie l’index cible, ainsi que les paramètres utilisés pour filtrer ou affiner la demande. Les opérateurs incorporés dans la chaîne de recherche, tels que +, - ou |, sont gérés automatiquement, ce qui signifie qu’il n’existe aucune exigence de codage pour analyser un terme de recherche. Toute analyse est effectuée par le moteur de recherche, comme une opération interne. Vous pouvez supposer que la chaîne que vous transmettez sera analysée par le moteur.
 
-Une requête de recherche est disponible en deux versions : **Recherche** ou **Suggestions**. Vous devriez définir des méthodes distinctes pour chaque type de requête. **Recherche** est la recherche en texte intégral sur les champs dans votre index. **Suggestions** est la fonctionnalité de requête de prédiction de saisie ou de saisie semi-automatique dans Azure Search qui génère une liste de termes de recherche potentiels basée sur les trois premiers caractères de l’entrée utilisateur. Dans la plupart des cas, vous devez limiter **Suggestions** aux champs qui contiennent des valeurs relativement uniques ou distinctives (comme un nom de produit ou de publication), par opposition aux champs qui contiennent des données indifférenciées.
+Les requêtes de recherche sont disponibles en deux versions : **Recherche** ou **Suggestions**. Vous devriez définir des méthodes distinctes pour chaque type de requête. **Recherche** est la recherche en texte intégral sur les champs de votre index. **Suggestions** est la fonctionnalité de requête de prédiction de saisie ou de saisie semi-automatique dans Azure Search qui génère une liste de termes de recherche potentiels basée sur les trois premiers caractères de l’entrée utilisateur. Dans la plupart des cas, vous devez limiter les **Suggestions** aux champs qui contiennent des valeurs relativement uniques ou distinctives (comme un nom de produit ou de publication), par opposition aux champs qui contiennent des données indifférenciées.
 
 L’extrait de code suivant capture une entrée de terme de recherche dans un programme qui utilise l’API REST. Le terme d’entrée est représenté par la chaîne q et les paramètres restants sont utilisés pour transmettre des valeurs de filtre à partir d’une structure de navigation par facettes sur la même page de recherche. Les paramètres de terme d’entrée et de filtre sont utilisés dans la méthode Recherche.
 
@@ -202,7 +188,7 @@ Une méthode .NET qui construit une chaîne de recherche peut être placée dans
 
         });
 
-Une méthode .NET pour l’appel de **Search** peut ressembler à ceci, contenu dans le principal programme C# qui fournit la connexion et l’opération de recherche :
+Une méthode .NET pour l’appel de **Recherche** peut ressembler à ceci, contenu dans le principal programme C# qui fournit la connexion et l’opération de recherche :
 
         public DocumentSearchResponse Search(string searchText)
         {
@@ -382,13 +368,13 @@ Controllers|La construction des requêtes et la gestion des erreurs se trouvent 
 
 Pour les applications ASP.NET, la bibliothèque cliente .NET est considérée comme un meilleur choix car elle configure la connexion HTTP et gère la sérialisation et la désérialisation JSON pour vous, ce qui simplifie votre code.
 
-Dans certains cas, votre choix d’API peut être dicté par parité des fonctionnalités entre les deux approches. En général, la [bibliothèque cliente .NET](https://msdn.microsoft.com/library/azure/dn951165.aspx) et [l’API REST de service](https://msdn.microsoft.com/library/azure/dn798935.aspx) sont interchangeables dans la mesure où les opérations dont vous avez besoin sont implémentées dans les deux. Cependant, parfois, de nouvelles fonctionnalités apparaissent d’abord dans l’API REST dans le cadre d’une version préliminaire et sont uniquement ajoutées à la bibliothèque .NET des mois plus tard. Par exemple, les indexeurs, qui sont utilisés pour automatiser les opérations de chargement de données à partir de types de sources de données spécifiques, apparaissent dans l’aperçu API REST préliminaire avant d’apparaître dans la bibliothèque cliente quelques mois plus tard. Les restrictions d’implémentation des fonctionnalités sont indiquées dans la documentation des fonctionnalités.
+Dans certains cas, votre choix d’API peut être dicté par parité des fonctionnalités entre les deux approches. En général, la [bibliothèque cliente .NET](https://msdn.microsoft.com/library/azure/dn951165.aspx) et [l’API REST de service](https://msdn.microsoft.com/library/azure/dn798935.aspx) sont interchangeables dans la mesure où les opérations dont vous avez besoin sont mises en place dans les deux. Cependant, parfois, de nouvelles fonctionnalités apparaissent d’abord dans l’API REST dans le cadre d’une version préliminaire et sont uniquement ajoutées à la bibliothèque .NET des mois plus tard. Par exemple, les indexeurs, qui sont utilisés pour automatiser les opérations de chargement de données à partir de types de sources de données spécifiques, apparaissent dans l’aperçu API REST préliminaire avant d’apparaître dans la bibliothèque cliente quelques mois plus tard. Les restrictions d’implémentation des fonctionnalités sont indiquées dans la documentation des fonctionnalités.
 
 ###Inclure AzureSearchHelper.cs pour la sérialisation et la désérialisation JSON dans l’API REST
 
 Contrairement à la bibliothèque .NET qui effectue cette opération pour vous, les API REST de service doivent sérialiser et désérialiser les documents JSON dans l’échange demande-réponse avec le service. JSON est un format de charge utile pour la transmission de données lors du chargement ou de l’actualisation des documents dans l’index.
 
-Le code pour la sérialisation JSON peut être trouvé dans plusieurs des exemples, dans un fichier nommé **AzureSearchHelper.cs** :
+Le code pour la sérialisation JSON peut se trouver dans plusieurs exemples, dans un fichier nommé **AzureSearchHelper.cs** :
 
 	using System;
 	using System.Net.Http;
@@ -454,6 +440,19 @@ Le code pour la sérialisation JSON peut être trouvé dans plusieurs des exempl
 	    }
 	}
 
+###Organisation de votre code
+
+Le fractionnement de vos charges de travail dans des projets autonomes au sein de la même solution Visual Studio vous offre davantage de flexibilité dans la façon dont vous concevez, gérez et exécutez chaque programme. Nous vous recommandons d’en créer trois :
+
+- Code de création d’index
+- Code d’ingestion de données
+- Code d’interaction utilisateur
+
+Dans Azure Search, les opérations d’indexation et de document (comme l’ajout ou la mise à jour de documents, ou l’exécution de requêtes) sont totalement indépendantes les unes des autres. Cela signifie que vous pouvez dissocier la gestion des index de votre code d’interaction utilisateur ASP.NET qui formule des demandes de recherche et affiche les résultats.
+
+Dans la plupart de nos exemples de code, l’index est à la fois créé et chargé dans un projet (appelé DataIndexer, CatalogIndexer ou DataCatalog dans différents exemples), tandis que le code qui gère les demandes de recherche et les réponses est placé dans un projet d’application ASP.NET MVC. Dans les exemples de code, il est pratique de regrouper la création d’index et le chargement de documents dans un projet, mais un code de production isolerait probablement ces opérations. Une fois qu’un index est créé, il est rarement modifié (et, s’il est modifié, il doit dans certains cas être reconstitué), tandis que les documents sont susceptibles d’être actualisés de façon récurrente.
+
+Séparer les charges de travail offre d’autres avantages : différents niveaux d’autorisations pour Azure Search (droits d’administrateur complets par rapport aux droits de requêtes uniquement), utilisation de différents langages de programmation, plus de dépendances spécifiques par programme, ainsi que possibilité de réviser les programmes de manière indépendante ou de créer plusieurs applications frontales qui fonctionnent toutes sur l’index constitué et géré par une application d’indexation centrale.
 
 ##Étapes suivantes
 
@@ -463,4 +462,4 @@ Pour mieux comprendre l’intégration entre Azure Search et ASP.NET, consultez 
 - [Étude de cas d’un développeur Azure Search](search-dev-case-study-whattopedia.md)
 - [Flux de travail typique de développement Azure Search](search-workflow.md) 
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

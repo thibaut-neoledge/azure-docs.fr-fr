@@ -1,20 +1,20 @@
 <properties
    pageTitle="Création de modèles avec des extensions de machine virtuelle Azure | Microsoft Azure"
-	description="En savoir plus sur la création de modèles avec des extensions"
-	services="virtual-machines"
-	documentationCenter=""
-	authors="kundanap"
-	manager="timlt"
-	editor=""/>
+   description="En savoir plus sur la création de modèles avec des extensions"
+   services="virtual-machines"
+   documentationCenter=""
+   authors="kundanap"
+   manager="timlt"
+   editor=""/>
 
 <tags
    ms.service="virtual-machines"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="infrastructure-services"
-	ms.date="09/01/2015"
-	ms.author="kundanap"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="infrastructure-services"
+   ms.date="09/01/2015"
+   ms.author="kundanap"/>
 
 # Création de modèles Azure Resource Manager avec des extensions de machine virtuelle
 
@@ -22,10 +22,10 @@
 
 Le modèle Azure Resource Manager vous permet de spécifier de manière déclarative l’infrastructure IaaS Azure dans le langage JSON en définissant les dépendances entre ressources. Pour obtenir une présentation détaillée des modèles Azure Resource Manager, consultez les articles suivants :
 
-<a href="https://azure.microsoft.com/fr-FR/documentation/articles/resource-group-overview/" target="_blank">Présentation des groupes de ressources</a>. <br/><a href="https://azure.microsoft.com/fr-FR/documentation/articles/virtual-machines-deploy-rmtemplates-azure-cli/" target="_blank">Déploiement de modèles avec l’interface de ligne de commande d’Azure</a>. <br/> <a href="https://azure.microsoft.com/fr-FR/documentation/articles/virtual-machines-deploy-rmtemplates-powershell/" target="_blank">Déploiement de modèles avec Azure Powershell</a>.
+[Présentation du groupe de ressources](../resource-group-overview.md)
 
-## Extrait de l’exemple de modèle pour les extensions de machine virtuelle.
-L’extrait du modèle pour le déploiement des extensions se présente comme suit :
+## Extrait de l'exemple de modèle pour les extensions de machine virtuelle.
+Pour déployer une extension de machine virtuelle dans le cadre du modèle Azure Resource Manager, vous devez spécifier la configuration de l’extension de façon déclarative dans le modèle. Voici le format qui permet de spécifier la configuration de l’extension.
 
       {
       "type": "Microsoft.Compute/virtualMachines/extensions",
@@ -43,6 +43,11 @@ L’extrait du modèle pour le déploiement des extensions se présente comme su
       }
       }
       }
+
+Comme vous pouvez le voir ci-dessus, le modèle d’extension contient deux parties principales :
+
+1. Nom de l’extension, éditeur et version.
+2. Configuration de l’extension.
 
 ## Identification de l’éditeur, du type et de typeHandlerVersion pour les extensions.
 
@@ -74,8 +79,10 @@ Pour voir un exemple de configuration pour les extensions Linux, cliquez sur la 
 
 Reportez-vous à ce qui suit pour les modèles de machine virtuelle pour obtenir un modèle totalement terminé avec des extensions de machine virtuelle.
 
-<a href="https://github.com/Azure/azure-quickstart-templates/blob/b1908e74259da56a92800cace97350af1f1fc32b/mongodb-on-ubuntu/azuredeploy.json/" target="_blank">Extension de script personnalisé sur une machine virtuelle Linux</a>. </br> <a href="https://github.com/Azure/azure-quickstart-templates/blob/b1908e74259da56a92800cace97350af1f1fc32b/201-list-storage-keys-windows-vm/azuredeploy.json/" target="_blank">Extension de script personnalisé sur une machine virtuelle Windows</a>.
+[Extension de script personnalisé sur une machine virtuelle Windows](https://github.com/Azure/azure-quickstart-templates/blob/b1908e74259da56a92800cace97350af1f1fc32b/201-list-storage-keys-windows-vm/azuredeploy.json/)
+
+[Extension de script personnalisé sur une machine virtuelle Linux](https://github.com/Azure/azure-quickstart-templates/blob/b1908e74259da56a92800cace97350af1f1fc32b/mongodb-on-ubuntu/azuredeploy.json/)
 
 Une fois le modèle créé, vous pouvez le déployer en utilisant l’interface de ligne de commande Azure ou Azure Powershell.
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

@@ -1,11 +1,4 @@
-<properties
-	pageTitle=""
-	description="Décrit les modifications que présente votre projet Visual Studio après l’exécution de l’Assistant d’Azure Active Directory"
-	services="active-directory"
-	documentationCenter=""
-	authors="patshea123"
-	manager="douge"
-	editor="tglee"/>
+<properties pageTitle="Qu’est-il arrivé à mon projet WebApi (service connecté Azure Active Directory de Visual Studio) ? |Microsoft Azure " description="Décrit ce qui arrive à votre projet WebApi MVC quand vous vous connectez à Azure AD à l’aide de services Visual Studio="active-directory" services="active-directory" documentationCenter="" authors="patshea123" manager="douge" editor="tglee"/>
 
 <tags
 	ms.service="active-directory"
@@ -13,10 +6,10 @@
 	ms.tgt_pltfrm="vs-what-happened"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/22/2015"
+	ms.date="09/03/2015"
 	ms.author="patshea"/>
 
-# Qu'est-il arrivé à mon projet ?
+# Qu’est-il arrivé à mon projet WebApi (service connecté Azure Active Directory de Visual Studio) ?
 
 > [AZURE.SELECTOR]
 > - [Getting Started](vs-active-directory-webapi-getting-started.md)
@@ -64,7 +57,7 @@ Les entrées de configuration suivantes ont été ajoutées. ```
     		<add key="ida:ClientId" value="ClientId from the new Azure AD App" />
     		<add key="ida:Tenant" value="Your selected Azure AD Tenant" />
     		<add key="ida:Audience" value="The App ID Uri from the wizard" />
-	</appSettings>` 
+	</appSettings>`
 ```
 
 ###Une application Azure AD App a été créée
@@ -108,7 +101,7 @@ Les entrées de configuration ci-dessous ont été ajoutées.
 ```
 	`<appSettings>
 	    <add key="ida:Password" value="Your Azure AD App's new password" />
-	</appSettings>` 
+	</appSettings>`
 ```
 
 ###Votre application Azure Active Directory a été mise à jour
@@ -116,4 +109,4 @@ Votre application Azure Active Directory a été mise à jour pour inclure l’a
 
 [En savoir plus sur Azure Active Directory](http://azure.microsoft.com/services/active-directory/)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

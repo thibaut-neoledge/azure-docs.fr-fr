@@ -1,4 +1,4 @@
-<properties 
+<properties
 	pageTitle="Personnaliser des clusters HDInsight à l'aide d’actions de script | Microsoft Azure"
 	description="Découvrez comment personnaliser des clusters HDInsight à l'aide d'une action de script."
 	services="hdinsight"
@@ -8,7 +8,7 @@
 	editor="cgronlun"
 	tags="azure-portal"/>
 
-<tags 
+<tags
 	ms.service="hdinsight"
 	ms.workload="big-data"
 	ms.tgt_pltfrm="na"
@@ -26,9 +26,7 @@
 HDInsight fournit une option de configuration intitulée **Action de script**, qui appelle des scripts personnalisés qui définissent la personnalisation à effectuer sur le cluster pendant l'approvisionnement. Ces scripts permettent d’installer des logiciels supplémentaires sur un cluster ou de modifier la configuration des applications d’un cluster.
 
 
-> [AZURE.NOTE]L’action de script est uniquement prise en charge sur le cluster HDInsight, version 3.1 ou supérieure équipée du système d’exploitation Windows. Pour plus d’informations sur les versions des clusters HDInsight, consultez la page [Versions des clusters HDInsight](hdinsight-component-versioning.md).
-> 
-> L’action de script est disponible dans le cadre des abonnements Azure HDInsight standard, sans frais supplémentaires.
+> [AZURE.NOTE]Les informations présentes dans cet article sont spécifiques aux clusters HDInsight sous Windows. Pour obtenir une version de cet article spécifique aux clusters basés sur Linux, consultez [Personnaliser des clusters HDInsight à l’aide de l’action de script (Linux)](hdinsight-hadoop-customize-cluster-linux.md)
 
 Il est également possible de personnaliser les clusters HDInsight de bien d’autres façons, notamment en ajoutant des comptes de stockage supplémentaires, en modifiant les fichiers de configuration hadoop (core-site.xml, hive-site.xml, etc.) ou encore en ajoutant des bibliothèques partagées (comme Hive ou Oozie) dans des emplacements communs du cluster. Ces personnalisations peuvent être effectuées dans Azure PowerShell, le Kit de développement logiciel (SDK) Azure HDInsight .NET ou la version préliminaire du portail Azure. Pour plus d’informations, consultez la rubrique [Approvisionnement de clusters Hadoop dans HDInsight à l’aide d’options personnalisées][hdinsight-provision-cluster].
 
@@ -40,7 +38,7 @@ L’action de script est utilisée uniquement pendant la création d’un cluste
 
 Quand le script est en cours d’exécution, le cluster entre dans la phase **ClusterCustomization**. À ce stade, le script est exécuté sous le compte de l'administrateur système, en parallèle sur tous les nœuds spécifiés dans le cluster, et fournit des privilèges d'administrateur complets sur les nœuds.
 
-> [AZURE.NOTE]Étant donné que vous disposez de privilèges d’administrateur sur les nœuds du cluster au cours de la phase **ClusterCustomization**, vous pouvez utiliser le script pour effectuer des opérations comme arrêter et démarrer des services, y compris des services liés à Hadoop. Vous devez donc vous assurer, dans le cadre du script, que les services Ambari et autres services liés à Hadoop sont en cours d’exécution avant la fin de l’exécution du script. Ces services sont requis pour établir correctement l'intégrité et l'état du cluster pendant sa création. Si vous modifiez la configuration d'un cluster d'une manière qui affecte ces services, vous devez utiliser les fonctions d'assistance fournies. Pour plus d'informations sur les fonctions d'assistance, consultez [Développer des scripts d'action de script pour HDInsight][hdinsight-write-script].
+> [AZURE.NOTE]Étant donné que vous disposez de privilèges d’administrateur sur les nœuds du cluster au cours de la phase **ClusterCustomization**, vous pouvez utiliser le script pour effectuer des opérations comme arrêter et démarrer des services, y compris des services liés à Hadoop. Vous devez donc vous assurer, dans le cadre du script, que les services Ambari et autres services liés à Hadoop sont en cours d’exécution avant la fin de l’exécution du script. Ces services sont requis pour établir correctement l'intégrité et l'état du cluster pendant sa création. Si vous modifiez la configuration d'un cluster d'une manière qui affecte ces services, vous devez utiliser les fonctions d'assistance fournies. Pour plus d’informations sur les fonctions d’assistance, consultez [Développer des scripts d’action de script pour HDInsight][hdinsight-write-script].
 
 La sortie et les journaux des erreurs du script sont stockés dans le compte de stockage par défaut spécifié pour le cluster. Les journaux sont stockés dans une table nommée **u<\\cluster-name-fragment><\\time-stamp>setuplog**. Il s’agit de journaux d’agrégation provenant du script exécuté sur tous les nœuds (nœud principal et nœuds de travail) dans le cluster.
 
@@ -64,11 +62,11 @@ Nom | Script
 
 **Dans le portail Azure en version préliminaire**
 
-1. Lancez l'approvisionnement comme indiqué dans la rubrique [Configuration d'un cluster à l'aide d'options personnalisées](hdinsight-provision-clusters.md#portal). 
-2. Dans Configuration facultative, sur le panneau **Actions de script**, cliquez sur **ajouter l'action de script** pour fournir des informations sur l'action de script, comme illustré ci-dessous :
+1. Lancez l’approvisionnement comme indiqué dans la rubrique [Configuration d’un cluster à l’aide d’options personnalisées](hdinsight-provision-clusters.md#portal).
+2. Dans Configuration facultative, sur le panneau **Actions de script**, cliquez sur **ajouter l’action de script** pour fournir des informations sur l’action de script, comme illustré ci-dessous :
 
 	![Utilisation d’une action de script pour personnaliser un cluster](./media/hdinsight-hadoop-customize-cluster/HDI.CreateCluster.8.png "Utilisation d’une action de script pour personnaliser un cluster")
-	
+
 	<table border='1'>
 	<tr><th>Propriété</th><th>Valeur</th></tr>
 	<tr><td>Nom</td>
@@ -81,8 +79,8 @@ Nom | Script
 		<td>Spécifiez les paramètres, si le script le demande.</td></tr>
 </table>Appuyez sur ENTRÉE pour ajouter plusieurs actions de script et installer plusieurs composants sur le cluster.
 
-3. Cliquez sur **Sélectionner** pour enregistrer la configuration d'action de script et poursuivre la configuration du cluster.
-  
+3. Cliquez sur **Sélectionner** pour enregistrer la configuration d’action de script et poursuivre l’approvisionnement du cluster.
+
 
 ## Prise en charge des logiciels open source utilisés sur les clusters HDInsight
 Le service Microsoft Azure HDInsight est une plateforme flexible qui vous permet de créer des applications de données volumineuses (Big Data) dans le cloud à l’aide d’un écosystème de technologies open source articulées autour de Hadoop. Microsoft Azure fournit un niveau de support général pour les technologies open source, comme indiqué dans la section **Portée du support** du site web <a href="http://azure.microsoft.com/support/faq/" target="_blank">FAQ du support Azure</a>. Le service HDInsight fournit un niveau de support supplémentaire pour certains composants, comme indiqué ci-dessous.
@@ -104,7 +102,7 @@ Le service HDInsight fournit plusieurs méthodes d’utilisation de ces composan
 
 ## Développer des scripts d’action de script
 
-Consultez [Développer des scripts d'action de script pour HDInsight][hdinsight-write-script].
+Consultez [Développer des scripts d’action de script pour HDInsight][hdinsight-write-script].
 
 
 ## Voir aussi
@@ -113,8 +111,8 @@ Consultez [Développer des scripts d'action de script pour HDInsight][hdinsight-
 - [Développer des scripts d’action de script pour HDInsight][hdinsight-write-script]
 - [Installer et utiliser Spark sur les clusters HDInsight][hdinsight-install-spark]
 - [Installer et utiliser R sur les clusters HDInsight][hdinsight-install-r]
-- [Installer et utiliser Solr sur les clusters HDInsight](hdinsight-hadoop-solr-install.md)
-- [Installer et utiliser Giraph sur les clusters HDInsight](hdinsight-hadoop-giraph-install.md)
+- [Installez et utilisez Solr sur les clusters HDInsight](hdinsight-hadoop-solr-install.md).
+- [Installez et utilisez Giraph sur les clusters HDInsight](hdinsight-hadoop-giraph-install.md).
 
 [hdinsight-install-spark]: hdinsight-hadoop-spark-install.md
 [hdinsight-install-r]: hdinsight-hadoop-r-scripts.md
@@ -124,6 +122,5 @@ Consultez [Développer des scripts d'action de script pour HDInsight][hdinsight-
 
 
 [img-hdi-cluster-states]: ./media/hdinsight-hadoop-customize-cluster/HDI-Cluster-state.png "Procédure d’approvisionnement d’un cluster"
- 
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO2-->

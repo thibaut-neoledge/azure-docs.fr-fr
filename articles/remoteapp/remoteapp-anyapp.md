@@ -1,20 +1,20 @@
 <properties
-   pageTitle="Exécuter n’importe quelle application Windows sur n’importe quel appareil avec Azure RemoteApp"
-	description="Découvrez comment partager n’importe quelle application Windows avec vos utilisateurs grâce à Azure RemoteApp."
-	services="remoteapp"
-	documentationCenter=""
-	authors="lizap"
-	manager="mbaldwin"
-	editor=""/>
+   pageTitle="Exécuter n’importe quelle application Windows sur n’importe quel appareil avec Azure RemoteApp | Microsoft Azure"
+   description="Découvrez comment partager n’importe quelle application Windows avec vos utilisateurs grâce à Azure RemoteApp."
+   services="remoteapp"
+   documentationCenter=""
+   authors="lizap"
+   manager="mbaldwin"
+   editor=""/>
 
 <tags
    ms.service="remoteapp"
-	ms.devlang="na"
-	ms.topic="hero-article"
-	ms.tgt_pltfrm="na"
-	ms.workload="compute"
-	ms.date="09/02/2015"
-	ms.author="elizapo"/>
+   ms.devlang="na"
+   ms.topic="hero-article"
+   ms.tgt_pltfrm="na"
+   ms.workload="compute"
+   ms.date="09/02/2015"
+   ms.author="elizapo"/>
 
 # Exécuter n’importe quelle application Windows sur n’importe quel appareil avec Azure RemoteApp
 
@@ -55,6 +55,7 @@ Une fois votre collection créée, il est temps pour vous de publier Access et d
 
 Si vous avez quitté le nœud Azure RemoteApp pendant la création de la collection, retournez-y depuis la page d’accueil Azure avant de commencer.
 
+1. Cliquez sur **RemoteApp** dans le volet de navigation de gauche.
 2. Cliquez sur la collection que vous avez créée précédemment pour accéder à des options supplémentaires et configurer la collection. ![Une nouvelle collection cloud RemoteApp](./media/remoteapp-anyapp/ra-anyappcollection.png)
 3. Dans l’onglet **Publication**, cliquez sur **Publier** en bas de l’écran, puis cliquez sur **Publier des programmes du menu Démarrer**. ![Publication d’un programme RemoteApp](./media/remoteapp-anyapp/ra-anyapppublish.png)
 4. Sélectionnez les applications que vous souhaitez publier dans la liste. Dans notre cas, nous avons choisi Access. Cliquez sur **Terminé**. Attendez que les applications finissent d’être publiées. ![Publication d’Access dans RemoteApp](./media/remoteapp-anyapp/ra-anyapppublishaccess.png)
@@ -76,7 +77,8 @@ Dans un premier temps, vous allez être mis à contribution en tant qu’adminis
 1. Commencez par publier l’interface de ligne de commande (cmd.exe). Dans l’onglet **Publication**, sélectionnez **cmd**, puis cliquez sur **Publier > Publier le programme à l’aide d’un chemin d’accès**.
 2. Entrez le nom de l’application et le chemin d’accès. Dans notre cas, utilisez « Explorateur de fichiers » comme nom et « %SYSTEMDRIVE%\\windows\\explorer.exe » comme chemin d’accès. ![Publiez le fichier cmd.exe.](./media/remoteapp-anyapp/ra-publishcmd.png)
 3. Vous devez à présent créer un [compte de stockage](../storage-create-storage-account.md) Azure. Nous avons appelé le nôtre « accessstorage », choisissez donc un nom significatif pour vous. (Pour reprendre Highlander, il peut n’y avoir qu’un seul « accessstorage ».) ![Notre compte de stockage Azure](./media/remoteapp-anyapp/ra-anyappazurestorage.png)
-4. Revenez maintenant à votre tableau de bord afin d’obtenir le chemin d’accès vers votre espace de stockage (emplacement de point de terminaison). Vous allez l’utiliser dans peu de temps, veillez donc à le copier quelque part. ![Chemin d’accès au compte de stockage](./media/remoteapp-anyapp/ra-anyappstoragelocation.png)
+4. Revenez maintenant à votre tableau de bord afin d’obtenir le chemin d’accès vers votre espace de stockage (emplacement de point de terminaison). Vous allez l’utiliser dans peu de temps, veillez donc à le copier quelque part. 
+![Chemin d’accès au compte de stockage](./media/remoteapp-anyapp/ra-anyappstoragelocation.png)
 5. Une fois le compte de stockage créé, vous allez avoir besoin de la clé d’accès primaire. Cliquez sur **Gérer les clés d’accès**, puis copiez la clé d’accès primaire.
 6. À présent, définissez le contexte du compte de stockage et créez un partage de fichiers pour Access. Dans une fenêtre Windows PowerShell exécutée avec des privilèges élevés, exécutez les applets de commande suivantes :
 
@@ -109,4 +111,4 @@ Maintenant que vous maîtrisez la création d’une collection, essayez de crée
 
 <!--Image references-->
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

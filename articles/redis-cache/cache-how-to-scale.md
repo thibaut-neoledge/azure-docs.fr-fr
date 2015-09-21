@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Mise à l’échelle du cache Azure Redis"
-	description="Apprenez comment mettre à l’échelle vos instances de cache Redis Azure."
-	services="redis-cache"
-	documentationCenter=""
-	authors="steved0x"
-	manager="dwrede"
+	pageTitle="Mise à l’échelle du cache Azure Redis" 
+	description="Apprenez comment mettre à l’échelle vos instances de cache Redis Azure." 
+	services="redis-cache" 
+	documentationCenter="" 
+	authors="steved0x" 
+	manager="dwrede" 
 	editor=""/>
 
 <tags 
-	ms.service="cache"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="cache-redis"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/25/2015"
+	ms.service="cache" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="cache-redis" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/10/2015" 
 	ms.author="sdanie"/>
 
 # Mise à l’échelle du cache Azure Redis
@@ -21,8 +21,6 @@
 >[AZURE.NOTE]La fonctionnalité de mise à l’échelle du cache Redis Azure est actuellement en version préliminaire.
 
 Le cache Redis Azure offre différents types de caches, permettant de choisir parmi plusieurs tailles et fonctionnalités de caches en toute flexibilité. Si les prérequis de votre application changent après la création d’un cache, vous pouvez mettre à l’échelle la taille du cache en utilisant le panneau **Changer le niveau de tarification** dans la [version préliminaire du portail Azure](https://portal.azure.com).
-
->[AZURE.NOTE]Lorsque vous mettez à l’échelle un cache Redis Azure, vous pouvez modifier sa taille, mais vous ne pouvez pas passer d’un cache Standard à un cache De base et vice versa.
 
 ## Quand mettre à l’échelle ?
 
@@ -38,7 +36,9 @@ Vous pouvez surveiller les mesures suivantes pour déterminer si vous avez besoi
 Si vous déterminez que votre cache ne répond plus aux besoins de votre application, vous pouvez passer à un niveau de tarification de cache plus important ou plus réduit, adapté à votre application. Pour plus d’informations sur la détermination des niveaux de tarification de cache à utiliser, consultez la section [Quelle offre et quelle taille de cache Redis utiliser ?](cache-faq.md#what-redis-cache-offering-and-size-should-i-use).
 
 ## Mise à l’échelle d’un cache
-Pour mettre à l’échelle votre cache, [accédez au cache](cache-configure.md#configure-redis-cache-settings) dans la [version préliminaire du portail](https://portal.azure.com) et cliquez sur la section **Niveau Standard** ou **Niveau De base** du panneau **Cache Redis**.
+Pour mettre votre cache à l'échelle, [accédez au cache](cache-configure.md#configure-redis-cache-settings) dans le [portail en version préliminaire](https://portal.azure.com), puis cliquez sur **Paramètres**, **Niveau de tarification**.
+
+Vous pouvez également cliquer sur le **Niveau Standard** ou le **Niveau de base** dans le panneau **Cache Redis**.
 
 ![Niveau de tarification][redis-cache-pricing-tier-part]
 
@@ -46,7 +46,11 @@ Sélectionnez le niveau de tarification souhaité dans le panneau **Niveau de ta
 
 ![Niveau de tarification][redis-cache-pricing-tier-blade]
 
->[AZURE.NOTE]Vous ne pouvez pas passer d’un plan de cache De base à un plan Standard ou vice versa, ni descendre en puissance vers un cache de 250 Mo à partir d’un cache de plus grande taille. Vous pouvez monter en puissance à partir d’un cache de 250 Mo vers une taille plus importante, mais vous ne pourrez pas descendre en puissance par la suite, pour revenir au niveau de tarification de 250 Mo. Si vous devez passer du niveau De base au niveau Standard ou descendre en puissance vers une taille de 250 Mo, vous devez créer un nouveau cache.
+>[AZURE.NOTE]Vous pouvez choisir un niveau de tarification différent avec les restrictions suivantes.
+>
+>-	Vous ne pouvez pas passer d'un cache **Standard** à un cache **De base**.
+>-	Vous pouvez passer d'un cache **De base** à un cache **Standard**, mais vous ne pouvez pas modifier la taille en même temps. Si vous avez besoin d'une taille différente, vous pouvez effectuer ultérieurement une opération de mise à l'échelle vers la taille voulue.
+>-	Vous ne pouvez pas mettre à l'échelle à partir d'une taille supérieure vers la taille **C0 (250 Mo)**.
 
 Lorsqu’un cache est mis à l’échelle vers un nouveau niveau de tarification, le statut **Mise à l’échelle** s’affiche sur le panneau **Cache Redis**.
 
@@ -54,11 +58,9 @@ Lorsqu’un cache est mis à l’échelle vers un nouveau niveau de tarification
 
 Une fois la mise à l’échelle terminée, le statut passe de **Mise à l’échelle** à **En cours d'exécution**.
 
->[AZURE.IMPORTANT]Durant les opérations de mise à l’échelle, les caches De base sont déconnectés et toutes les données du cache sont perdues. Une fois l’opération de mise à l’échelle terminée, le cache De base est reconnecté, sans données. Les caches Standard restent connectés pendant leurs opérations de mise à l'échelle et, généralement, aucune donnée n’est perdue lors de la mise à l’échelle d’un cache Standard vers une plus grande taille. Lors de la mise à l’échelle d’un cache Standard vers une plus petite taille, certaines données peuvent être perdues si la nouvelle taille est inférieure à la quantité de données mises en cache. En cas de pertes de données lors de la descente en puissante, les clés sont supprimées à l'aide de la stratégie d’éviction [allkeys-lru](http://redis.io/topics/lru-cache). Notez que, si les caches Standard ont un contrat SLA proposant une disponibilité de 99,9 %, il n’existe pas de contrat SLA contre la perte de données.
-
 ## Automatisation d’une opération de mise à l’échelle
 
-En plus de la mise à l’échelle de votre instance de cache Redis Azure dans la version préliminaire du portail, vous pouvez effectuer une mise à l’échelle en utilisant les [Bibliothèques de gestion Microsoft Azure](http://azure.microsoft.com/updates/management-libraries-for-net-release-announcement/). Pour mettre à l’échelle votre cache, appelez la méthode `IRedisOperations.CreateOrUpdate` et transmettez la nouvelle taille pour la `RedisProperties.SKU.Capacity`.
+En plus de la mise à l'échelle de votre instance de cache Redis Azure dans le portail en version préliminaire, vous pouvez effectuer une mise à l'échelle en utilisant les [Bibliothèques de gestion Microsoft Azure](http://azure.microsoft.com/updates/management-libraries-for-net-release-announcement/). Pour mettre à l’échelle votre cache, appelez la méthode `IRedisOperations.CreateOrUpdate` et transmettez la nouvelle taille pour la `RedisProperties.SKU.Capacity`.
 
     static void Main(string[] args)
     {
@@ -90,25 +92,33 @@ Non, le nom et les clés d’accès de votre cache n’ont pas à être modifié
 
 ## Comment fonctionne la mise à l’échelle ?
 
-Lorsqu’un cache **De base** est mis à l’échelle, il est arrêté et un nouveau cache est configuré avec la nouvelle taille définie. Pendant ce temps, le cache n’est pas disponible et toutes les données qu’il contenait sont perdues.
+Lorsqu’un cache **De base** est mis à l'échelle vers une taille différente, il est arrêté et un nouveau cache est configuré avec la nouvelle taille définie. Pendant ce temps, le cache n’est pas disponible et toutes les données qu’il contenait sont perdues.
 
-Lorsqu’un cache **Standard** est mis à l’échelle, l’un des réplicas est arrêté et réapprovisionné vers la nouvelle taille tandis que les données sont transférées, puis l’autre réplica effectue un basculement avant d’être réapprovisionné, selon le même processus, durant un basculement d’un des nœuds du cache.
+Lorsqu'un cache **De base** est mis à l'échelle vers un cache **Standard**, un cache de réplica est configuré et les données sont copiées à partir du cache principal vers le cache de réplica. Le cache reste disponible pendant le processus de mise à l'échelle.
+
+Lorsqu'un cache **Standard** est mis à l'échelle vers une taille différente, l'un des réplicas est arrêté et reconfiguré avec la nouvelle taille tandis que les données sont transférées, puis l'autre réplica effectue un basculement avant d'être réapprovisionné, selon le même processus, durant un basculement de l'un des nœuds du cache.
 
 ## Vais-je perdre mes données de cache durant la mise à l’échelle ?
 
-Lors de la mise à l’échelle d’un cache **De base**, toutes les données sont perdues et le cache n’est plus disponible pendant le déroulement de la mise à l’échelle.
+Lors de la mise à l'échelle d'un cache **De base** vers une nouvelle taille, toutes les données sont perdues et le cache n’est plus disponible pendant l'exécution de la mise à l’échelle.
 
-Lors de la mise à l’échelle d’un cache **Standard** vers une plus grande taille, généralement, toutes les données sont conservées. Lors de la mise à l'échelle d’un cache **Standard** vers une plus petite taille, il est possible que les données soient perdues si la quantité de données placée dans le cache est supérieure à la nouvelle taille du cache mis à l’échelle. En cas de pertes de données lors de la descente en puissante, les clés sont supprimées à l'aide de la stratégie d’éviction [allkeys-lru](http://redis.io/topics/lru-cache). Notez que, si les caches Standard ont un contrat SLA proposant une disponibilité de 99,9 %, il n’existe pas de contrat SLA contre la perte de données.
+Lorsqu'un cache **De base** est mis à l'échelle vers un cache **Standard**, les données qui se trouvent dans le cache sont généralement conservées.
+
+Lors de la mise à l'échelle d'un cache **Standard** vers une plus grande taille, toutes les données sont généralement conservées. Lors de la mise à l'échelle d’un cache **Standard** vers une plus petite taille, il est possible que les données soient perdues si la quantité de données placée dans le cache est supérieure à la nouvelle taille du cache mis à l’échelle. En cas de pertes de données lors de la descente en puissante, les clés sont supprimées à l'aide de la stratégie d’éviction [allkeys-lru](http://redis.io/topics/lru-cache).
+
+Notez que, si les caches Standard ont un contrat SLA proposant une disponibilité de 99,9 %, il n’existe pas de contrat SLA contre la perte de données.
 
 ## Mon cache reste-t-il disponible durant la mise à l’échelle ?
 
 Les caches **Standard** restent disponibles pendant l’opération de mise à l’échelle.
 
-Les caches **De base** sont déconnectés pendant l’opération de mise à l’échelle.
+Les caches **De base** sont hors ligne pendant les opérations de mise à l'échelle à une taille différente, mais ils restent disponibles lors de la mise à l'échelle d'un cache **De base** vers **Standard**.
 
 ## Quelles sont les opérations qui ne sont pas prises en charge ?
 
-Vous ne pouvez pas remplacer un cache **De base** par un cache **Standard** ou vice versa lors d’une opération de mise à l’échelle.
+Vous ne pouvez pas modifier un cache **Standard** en un cache **De base**.
+
+Vous pouvez passer d'un cache **De base** à un cache **Standard**, mais vous ne pouvez pas modifier la taille en même temps. Si vous avez besoin d'une taille différente, vous pouvez effectuer ultérieurement une opération de mise à l'échelle vers la taille voulue.
 
 Vous pouvez monter en puissance à partir d’un cache **C0** (250 Mo) vers une plus grande taille, mais vous ne pouvez pas descendre en puissance d’un cache volumineux vers un cache **C0**.
 
@@ -138,4 +148,4 @@ Nous publions cette fonctionnalité pour obtenir des commentaires. Selon les com
 
 [redis-cache-scaling]: ./media/cache-how-to-scale/redis-cache-scaling.png
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO2-->

@@ -1,20 +1,20 @@
 <properties
    pageTitle="Guide du développeur Azure Active Directory | Microsoft Azure"
-	description="Cet article fournit un guide complet sur les ressources destinées aux développeurs pour Azure Active Directory."
-	services="active-directory"
-	documentationCenter="dev-center-name"
-	authors="msmbaldwin"
-	manager="mbaldwin"
-	editor=""/>
+   description="Cet article fournit un guide complet sur les ressources destinées aux développeurs pour Azure Active Directory."
+   services="active-directory"
+   documentationCenter="dev-center-name"
+   authors="msmbaldwin"
+   manager="mbaldwin"
+   editor=""/>
 
 <tags
    ms.service="active-directory"
-	ms.devlang="na"
-	ms.topic="hero-article"
-	ms.tgt_pltfrm="na"
-	ms.workload="identity"
-	ms.date="08/12/2015"
-	ms.author="mbaldwin"/>
+   ms.devlang="na"
+   ms.topic="hero-article"
+   ms.tgt_pltfrm="na"
+   ms.workload="identity"
+   ms.date="09/02/2015"
+   ms.author="mbaldwin"/>
 
 
 # Guide du développeur Azure Active Directory
@@ -27,7 +27,7 @@ En tant que plateforme de gestion des identités en tant que service (IDMaaS), A
 
 1. [Scénarios d’authentification Active Directory](active-directory-authentication-scenarios.md) : tirez parti de l’authentification simplifiée d’Azure Active Directory pour fournir une connexion à votre application.
 
-1. [API Graph Azure Active Directory](https://msdn.microsoft.com/library/azure/hh974476.aspx): utilisez l’API Graph Azure Active Directory pour accéder par programme à Azure Active Directory via les points de terminaison d’API REST.
+1. [API Graph Azure Active Directory](active-directory-graph-api.md) : utilisez l’API Graph Azure Active Directory pour accéder par programmation à Azure Active Directory via les points de terminaison d’API REST.
 
 1. [Intégration d’applications à Azure Active Directory](active-directory-integrating-applications.md) : apprenez-en plus sur l’inscription de votre application et les instructions de personnalisation pour les applications mutualisées.
 
@@ -47,11 +47,17 @@ Ces didacticiels sont adaptés pour plusieurs plateformes et vous aident à comm
 |[iOS](active-directory-devquickstarts-ios.md)|[Android](active-directory-devquickstarts-android.md)|[.NET](active-directory-devquickstarts-dotnet.md)|[Windows Phone](active-directory-devquickstarts-windowsphone.md)|[Windows Store](active-directory-devquickstarts-windowsstore.md)|[Xamarin](active-directory-devquickstarts-xamarin.md)|[Cordova](active-directory-devquickstarts-cordova.md)
 
 
-### Guides de démarrage rapide des applications web et des API web
+### Guides de démarrage rapide pour les applications web
 
-|[![.NET](./media/active-directory-developers-guide/net.png)](active-directory-devquickstarts-webapp-dotnet.md)|[![.NET](./media/active-directory-developers-guide/net.png)](active-directory-devquickstarts-webapi-dotnet.md)|[![JavaScript](./media/active-directory-developers-guide/javascript.png)](active-directory-devquickstarts-angular.md)|[![Node.js](./media/active-directory-developers-guide/nodejs.png)](active-directory-devquickstarts-webapi-nodejs.md)
-|:--:|:--:|:--:|:--:
-|[Application web .NET](active-directory-devquickstarts-webapp-dotnet.md)|[API web .NET](active-directory-devquickstarts-webapi-dotnet.md)|[Javascript](active-directory-devquickstarts-angular.md)|[Node.JS](active-directory-devquickstarts-webapi-nodejs.md)
+|[![.NET](./media/active-directory-developers-guide/net.png)](active-directory-devquickstarts-webapp-dotnet.md)|[![JavaScript](./media/active-directory-developers-guide/javascript.png)](active-directory-devquickstarts-angular.md)|[![Node.js](./media/active-directory-developers-guide/nodejs.png)](active-directory-devquickstarts-openidconnect-nodejs)
+|:--:|:--:|:--:|
+|[.NET](active-directory-devquickstarts-webapp-dotnet.md)|[Javascript](active-directory-devquickstarts-angular.md)|[Node.JS](active-directory-devquickstarts-openidconnect-nodejs)
+
+### Guides de démarrage rapide pour les API web
+
+|[![.NET](./media/active-directory-developers-guide/net.png)](active-directory-devquickstarts-webapi-dotnet.md)|[![Node.js](./media/active-directory-developers-guide/nodejs.png)](active-directory-devquickstarts-webapi-nodejs.md)
+|:--:|:--:|
+|[.NET](active-directory-devquickstarts-webapi-dotnet.md)|[Node.JS](active-directory-devquickstarts-webapi-nodejs.md)
 
 ### Interrogation du guide de démarrage rapide du répertoire
 
@@ -75,7 +81,7 @@ Ces articles décrivent comment effectuer des tâches spécifiques avec Azure Ac
 Ces articles fournissent une référence de base pour les API REST et de bibliothèque d’authentification, les protocoles, les erreurs, les exemples de code et les points de terminaison.
 
 ###  Support
-- [Questions marquées](http://stackoverflow.com/questions/tagged/azure-active-directory) : trouvez des solutions Azure Active Directory en cas de dépassement de capacité de la pile en recherchant les balises [azure-active-directory](http://stackoverflow.com/questions/tagged/azure-active-directory) et [adal](http://stackoverflow.com/questions/tagged/adal).
+- [Questions marquées](http://stackoverflow.com/questions/tagged/azure-active-directory) : trouvez des solutions Azure Active Directory en cas de dépassement de la capacité de la pile en recherchant les balises [azure-active-directory](http://stackoverflow.com/questions/tagged/azure-active-directory) et [adal](http://stackoverflow.com/questions/tagged/adal).
 
 ### Code
 
@@ -88,7 +94,7 @@ Ces articles fournissent une référence de base pour les API REST et de bibliot
 
 - [Référence de l’API Graph](https://msdn.microsoft.com/library/azure/hh974476.aspx) : référence REST pour l’API Azure Active Directory Graph. [Découvrez l’expérience interactive de référence de l’API Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog).
 
-- [Étendues d’autorisation de l’API Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/graph-api-permission-scopes) : étendues d’autorisation OAuth 2.0 qui sont utilisées pour contrôler l’accès aux données du répertoire dans un client.
+- [Étendues d’autorisation de l’API Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/graph-api-permission-scopes) : étendues d’autorisation OAuth 2.0 qui sont utilisées pour contrôler l’accès aux données de l’annuaire dans un client.
 
 
 ### Protocoles d’authentification
@@ -104,7 +110,7 @@ Ces articles fournissent une référence de base pour les API REST et de bibliot
 
 - [Référence du protocole WS-Federation 1.2](https://msdn.microsoft.com/library/azure/dn903702.aspx) : le protocole WS-Federation 1.2 est spécifié dans la spécification Web Services Federation Version 1.2.
 
-- [Types de jeton et de revendication pris en charge](active-directory-token-and-claims.md) : vous pouvez utiliser ce guide pour comprendre et évaluer les revendications dans les jetons SAML 2.0 et les jetons web JSON (JWT).
+- [Types de jeton et de revendication pris en charge](active-directory-token-and-claims.md) : vous pouvez utiliser ce guide pour comprendre et évaluer les revendications dans les jetons SAML 2.0 et les jetons web JSON (JWT).
 
 ## Vidéos
 
@@ -117,7 +123,7 @@ Ces présentations sur le développement d'applications à l'aide d'Azure Active
 - [Développement d’applications web natives avec Azure Active Directory](http://azure.microsoft.com/documentation/videos/build-2015-develop-modern-native-applications-with-azure-active-directory)
 
 ### Azure Friday
-[Azure Friday](http://azure.microsoft.com/documentation/videos/azure-friday/) est une série hebdomadaire de vidéos qui vous proposent de courts entretiens (10 à 15 minutes) avec des experts sur divers sujets relatifs à Azure. Utilisez la fonctionnalité Filtre des services sur la page pour afficher toutes les vidéos Azure Active Directory.
+[Azure Friday](http://azure.microsoft.com/documentation/videos/azure-friday/) est une série hebdomadaire de vidéos au format 1:1 qui vous proposent de courts entretiens (10 à 15 minutes) avec des experts sur divers sujets relatifs à Azure. Utilisez la fonctionnalité Filtre des services sur la page pour afficher toutes les vidéos Azure Active Directory.
 
 - [Identité Azure 101](http://azure.microsoft.com/documentation/videos/azure-identity-basics/)
 - [Identité Azure 102](http://azure.microsoft.com/documentation/videos/azure-identity-creating-active-directory/)
@@ -127,10 +133,10 @@ Ces présentations sur le développement d'applications à l'aide d'Azure Active
 
 - [Blog de l’équipe Active Directory](http://blogs.technet.com/b/ad/) : les derniers développements dans le monde d’Azure Active Directory.
 
-- [Blog de l'équipe Azure Active Directory Graph](http://blogs.msdn.com/b/aadgraphteam): informations Azure Active Directory spécifiques à l'API Graph.
+- [Blog de l’équipe Azure Active Directory Graph](http://blogs.msdn.com/b/aadgraphteam) : informations Azure Active Directory spécifiques à l’API Graph.
 
 - [Cloud Identity](http://www.cloudidentity.net) : réflexions sur la gestion des identités en tant que service, par un directeur de programme Azure Active Directory.
 
-- [Azure Active Directory sur Twitter](https://twitter.com/azuread): annonces Azure Active Directory de moins de 140 caractères.
+- [Azure Active Directory sur Twitter](https://twitter.com/azuread) : annonces Azure Active Directory de moins de 140 caractères.
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

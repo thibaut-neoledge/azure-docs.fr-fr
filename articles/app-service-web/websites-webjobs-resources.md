@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/07/2015" 
+	ms.date="09/08/2015" 
 	ms.author="tdykstra"/>
 
 # Ressources de documentation relatives à Azure WebJobs
@@ -42,6 +42,7 @@ Le tableau de bord WebJobs dans le portail Azure fournit de puissantes fonctionn
 * [Utilisation du stockage de tables Microsoft Azure avec le Kit de développement logiciel (SDK) WebJobs](websites-dotnet-webjobs-sdk-storage-tables-how-to.md)
 * [Utilisation de Microsoft Azure Service Bus avec le Kit de développement logiciel (SDK) WebJobs](websites-dotnet-webjobs-sdk-service-bus.md)
 * [Aide-mémoire du Kit de développement logiciel (SDK) Azure WebJobs (téléchargement au format PDF)](http://go.microsoft.com/fwlink/?LinkID=524028&clcid=0x409)
+* [Documentation sur les paramètres de WebJobs dans GitHub](https://github.com/projectkudu/kudu/wiki/Web-jobs)
 * Vidéos
 	* [WebJobs et Kit de développement logiciel (SDK) WebJobs](http://channel9.msdn.com/Shows/Cloud+Cover/Episode-153-WebJobs-with-Pranav-Rastogi?utm_source=dlvr.it&utm_medium=twitter)
 	* [Série de vidéos Azure WebJobs sur Channel 9](http://channel9.msdn.com/Tags/azurefridaywebjobs)
@@ -57,6 +58,7 @@ Consultez également les sections suivantes sur le [déploiement de WebJobs](#de
 * [Activation de la ligne de commande ou livraison en continu d’Azure WebJobs](http://azure.microsoft.com/blog/2014/08/18/enabling-command-line-or-continuous-delivery-of-azure-webjobs/)
 * [Déploiement avec Git d’une application de console .NET sur Azure à l’aide de WebJobs](http://blog.amitapple.com/post/73574681678/git-deploy-console-app/)
 * [Déploiement d’un WebJob F# dans Azure](http://blogs.msdn.com/b/dave_crooks_dev_blog/archive/2015/02/18/deploying-f-web-job-to-azure.aspx)
+* [Déploiement de services personnalisés en tant que tâches web Azure](http://withouttheloop.com/articles/2015-06-23-deploying-custom-services-as-azure-webjobs/)
 * Vidéos
 	* [Présentation des outils de WebJobs pour Visual Studio](http://channel9.msdn.com/Shows/Web+Camps+TV/Introducing-WebJobs-Tooling-for-Visual-Studio-with-Brady-Gaster) 
 	* [Outils de WebJobs et débogage distant](http://channel9.msdn.com/Shows/Web+Camps+TV/WebJobs-GA-Series-Episode-1-WebJobs-Tooling-with-Brady-Gaster) 
@@ -65,6 +67,8 @@ Consultez également les sections suivantes sur le [déploiement de WebJobs](#de
 
 * [Boîte de dialogue Ajouter une tâche web Azure](websites-dotnet-deploy-webjobs.md#configure)
 * [Créer une tâche web planifiée dans le portail de gestion Azure](web-sites-create-web-jobs.md#CreateScheduled)
+* [Liaison d’une tâche du planificateur à une tâche web](http://blog.davidebbo.com/2015/05/scheduled-webjob.html)
+* [Planification de tâches web Azure avec des expressions cron](http://blog.amitapple.com/post/2015/06/scheduling-azure-webjobs/)
 
 ##<a name="debug"></a>Test et débogage de WebJobs
 
@@ -90,7 +94,6 @@ Consultez également les sections suivantes sur le [déploiement de WebJobs](#de
 ##<a name="additional"></a>Autres ressources liées à WebJobs
 
 * [Billet de blog GA sur Azure WebJobs de Magnus Mårtensson](http://magnusmartensson.com/azure-webjobs-ga)
-* [Documentation sur les paramètres de WebJobs dans GitHub](https://github.com/projectkudu/kudu/wiki/Web-jobs)
 * [Exécution de tâches web Powershell sur Azure App Service](http://blogs.msdn.com/b/nicktrog/archive/2014/01/22/running-powershell-web-jobs-on-azure-websites.aspx)
 * [Réception d’une notification à la fin de la tâche web déclenchée par Azure](http://blog.amitapple.com/post/2014/03/webjobs-notification/)
 * [Stratégie de rétention de sauvegarde d’une application web avec WebJobs](http://azure.microsoft.com/blog/2014/04/28/simple-web-site-backup-retention-policy-with-webjobs/)
@@ -139,4 +142,4 @@ Consultez également les sections suivantes sur le [déploiement de WebJobs](#de
 * Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre l’ancien et le nouveau portail, consultez la page [Références sur la navigation dans le portail Azure](http://go.microsoft.com/fwlink/?LinkId=529715).
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

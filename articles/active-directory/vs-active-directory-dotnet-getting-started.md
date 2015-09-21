@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Prise en main d’Azure Active Directory (Projets .NET)" 
-	description="Mise en route d’Azure Active Directory dans Visual Studio" 
+	pageTitle="Prendre en main Azure Active Directory et les services connectés de Visual Studio (projets MVC)" 
+	description="Comment prendre en main Azure Active Directory dans les projets MVC après s’être connecté à un annuaire Azure AD ou avoir créé un annuaire Azure AD à l’aide des services connectés de Visual Studio" 
 	services="active-directory" 
 	documentationCenter="" 
 	authors="patshea123" 
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="vs-getting-started" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/22/2015" 
+	ms.date="09/03/2015" 
 	ms.author="patshea"/>
 
-# Prise en main d’Azure Active Directory (Projets .NET)
+# Prise en main d’Azure Active Directory et des services connectés de Visual Studio (projets MVC)
 
 > [AZURE.SELECTOR]
 > - [Getting Started](vs-active-directory-dotnet-getting-started.md)
@@ -28,7 +28,7 @@ Tous les contrôleurs de votre projet ont été dotés de l'attribut **Authorize
  
 ##Ajouter des contrôles SignIn/SignOut 
 
-Pour ajouter des contrôles SignIn/SignOut à l'une de vos vues, vous pouvez utiliser la vue partielle \*\*\_LoginPartial.cshtml\*\*. Voici un exemple où cette fonctionnalité est ajoutée à la vue \*\*\_Layout.cshtml\*\* standard. (Notez le dernier élément de la classe div avec navbar-collapse) :
+Pour ajouter des contrôles SignIn/SignOut à l'une de vos vues, vous pouvez utiliser la vue partielle **\_LoginPartial.cshtml**. Voici un exemple où cette fonctionnalité est ajoutée à la vue **\_Layout.cshtml** standard. (Notez le dernier élément de la classe div avec navbar-collapse) :
 
 <pre>
     &lt;!DOCTYPE html> 
@@ -77,4 +77,4 @@ Pour ajouter des contrôles SignIn/SignOut à l'une de vos vues, vous pouvez uti
 
 [En savoir plus sur Azure Active Directory](http://azure.microsoft.com/services/active-directory/)
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO2-->

@@ -1,20 +1,20 @@
 <properties
    pageTitle="Utilisation du connecteur Salesforce dans des applications logiques | Microsoft Azure App Service"
-	description="Comment créer et configurer le connecteur Salesforce ou une application API et l'utiliser dans une application logique d’Azure App Service"
-	services="app-service\logic"
-	documentationCenter=".net,nodejs,java"
-	authors="anuragdalmia"
-	manager="dwrede"
-	editor=""/>
+   description="Comment créer et configurer le connecteur Salesforce ou une application API et l'utiliser dans une application logique d’Azure App Service"
+   services="app-service\logic"
+   documentationCenter=".net,nodejs,java"
+   authors="anuragdalmia"
+   manager="dwrede"
+   editor=""/>
 
 <tags
    ms.service="app-service-logic"
-	ms.devlang="multiple"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="integration"
-	ms.date="08/23/2015"
-	ms.author="sameerch"/>
+   ms.devlang="multiple"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="integration"
+   ms.date="08/23/2015"
+   ms.author="sameerch"/>
 
 
 # Utilisation et ajout du connecteur Salesforce dans votre application logique
@@ -36,11 +36,11 @@ Les applications logiques peuvent se déclencher selon diverses sources de donn�
 
 ## Créer une application API du connecteur Salesforce
 1.	Ouvrez Azure Marketplace à l’aide de l’option « + NOUVEAU » en bas à droite du portail Azure.
-2.	Accédez à « Web et mobilité > Applications API » et recherchez « SalesForce ».
-3.	Configurez le connecteur SalesForce en indiquant les détails du plan d’hébergement, le groupe de ressources et en sélectionnant le nom de l’application API : ![][15]
-4. Configurez les entités SalesForce que vous souhaitez lire/écrire dans Paramètres du package.
+2.	Accédez à « Web et mobilité > Applications API » et recherchez « Salesforce ».
+3.	Configurez le connecteur Salesforce en indiquant les détails du plan d’hébergement, le groupe de ressources et en sélectionnant le nom de l’application API : ![][15]
+4. Configurez les entités Salesforce que vous souhaitez lire/écrire dans Paramètres du package.
 
-Vous pouvez maintenant créer une application API du connecteur SalesForce.
+Vous pouvez maintenant créer une application API du connecteur Salesforce.
 
 
 ## Créer une application logique
@@ -56,7 +56,7 @@ Créons une application logique simple qui crée un compte dans Salesforce et me
 
 5.	Développez « Applications API dans ce groupe de ressources » dans la galerie pour afficher toutes les applications API disponibles. Sélectionnez Salesforce dans la galerie. Le connecteur Salesforce est ajouté au flux : ![][5]
 
-8.	Pour autoriser votre application logique à accéder à votre compte SalesForce, cliquez sur Autoriser pour fournir les informations d’identification Salesforce : ![][6]
+8.	Pour autoriser votre application logique à accéder à votre compte Salesforce, cliquez sur Autoriser pour fournir les informations d’identification Salesforce : ![][6]
 
 9.	Vous êtes redirigé vers la page de connexion Salesforce, puis vous pouvez vous authentifier avec vos informations d'identification Salesforce : ![][7] ![][8]
 
@@ -104,4 +104,4 @@ Vous pouvez également consulter les statistiques de performances et contrôler 
 [14]: ./media/app-service-logic-connector-salesforce/14_Update_Account_Address.png
 [15]: ./media/app-service-logic-connector-salesforce/15_Create_new_salesforce_connector.png
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO2-->

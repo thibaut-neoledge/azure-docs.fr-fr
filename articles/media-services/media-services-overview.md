@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Vue d’ensemble d’Azure Media Services et scénarios courants"
-	description="Cette rubrique offre une vue d'ensemble d'Azure Media Services"
-	services="media-services"
-	documentationCenter=""
-	authors="Juliako"
-	manager="dwrede"
+	pageTitle="Vue d’ensemble d’Azure Media Services et scénarios courants" 
+	description="Cette rubrique offre une vue d'ensemble d'Azure Media Services" 
+	services="media-services" 
+	documentationCenter="" 
+	authors="Juliako" 
+	manager="dwrede" 
 	editor=""/>
 
 <tags 
-	ms.service="media-services"
-	ms.workload="media"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/20/2015"
+	ms.service="media-services" 
+	ms.workload="media" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/07/2015"
 	ms.author="juliako"/>
 
 #Vue d’ensemble d’Azure Media Services et scénarios courants
@@ -36,20 +36,28 @@ Pour créer des solutions Media Services, vous pouvez utiliser les composants su
 - Outil existants : [Portail de gestion Azure](http://manage.windowsazure.com/) ou [Azure-Media-Services-Explorer](https://github.com/Azure/Azure-Media-Services-Explorer).
 
 
+##Parcours d’apprentissage de Media Services
+
+Vous pouvez afficher les parcours d’apprentissage d’AMS ici :
+
+- [Workflow en flux continu AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [Workflow de streaming à la demande AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+
+
 ##Composants requis
 
 Pour commencer à utiliser Azure Media Services, vous devez disposer des éléments suivants :
  
 3. Un compte Azure. Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](azure.microsoft.com).
-2. Un compte Azure Media Services. Utilisez le portail de gestion Azure, .NET ou l’API REST pour créer un compte Azure Media Services. Pour plus d’informations, consultez la page [Créer un compte](media-services-create-account.md).
-3. (Facultatif) Un environnement de développement configuré. Choisissez .NET ou API REST comme environnement de développement. Pour plus d’informations, voir [Configuration de votre environnement](media-services-dotnet-how-to-use.md). 
+2. Un compte Azure Media Services. Utilisez le portail de gestion Azure, .NET ou l’API REST pour créer un compte Azure Media Services. Pour plus d’informations, consultez [Créer un compte](media-services-create-account.md).
+3. (Facultatif) Un environnement de développement configuré. Choisissez .NET ou API REST comme environnement de développement. Pour plus d’informations, consultez [Configuration de votre environnement](media-services-dotnet-how-to-use.md). 
 
-	En outre, découvrez comment vous connecter par programme [Connexion](media-services-dotnet-connect_programmatically.md).
-4. (Recommandé) Allocation d’une ou de plusieurs unités d’échelle. Il est recommandé d’allouer une ou plusieurs unités d’échelle pour les applications dans un environnement de production. Pour plus d’informations, consultez la rubrique [Gestion des points de terminaison de diffusion en continu](media-services-manage-origins.md).
+	En outre, découvrez comment [vous connecter par programmation](media-services-dotnet-connect_programmatically.md).
+4. (Recommandé) Allocation d’une ou de plusieurs unités d’échelle. Il est recommandé d’allouer une ou plusieurs unités d’échelle pour les applications dans un environnement de production. Pour plus d’informations, consultez [Gestion des points de terminaison de diffusion en continu](media-services-manage-origins.md).
 
 ##Concepts
 
-Pour plus d’informations, consultez la page [Concepts](media-services-concepts.md).
+Pour plus d’informations, consultez [Concepts](media-services-concepts.md).
 
 
 ##<a id="vod_scenarios"></a>Diffusion multimédia à la demande avec Azure Media Services : tâches et scénarions courants
@@ -124,7 +132,7 @@ Pour pouvoir utiliser le chiffrement dynamique, vous devez obtenir au moins une 
 - [Protection de publication](media-services-manage-content.md#publish)
 - [Mise à l’échelle de l’encodage](media-services-portal-encoding-units.md)
 
-##<a id="live_scenarios"></a>Diffusion d’événements vidéo en flux continu avec Azure Media Services
+##<a id="live_scenarios"></a>Diffusion d’événements en direct en continu avec Azure Media Services
 
 Lorsque vous utilisez la vidéo en flux continu, les composants suivants sont généralement impliqués :
 
@@ -211,8 +219,6 @@ Le [support Azure](http://azure.microsoft.com/support/options/) propose des opti
 
 	Pour plus d’informations, consultez le [contrat SLA Microsoft Azure](http://azure.microsoft.com/support/legal/sla/).
 
-
-
 <!-- Images -->
 [overview]: ./media/media-services-overview/media-services-overview.png
 [vod-overview]: ./media/media-services-video-on-demand-workflow/media-services-video-on-demand.png
@@ -220,4 +226,4 @@ Le [support Azure](http://azure.microsoft.com/support/options/) propose des opti
 [live-overview2]: ./media/media-services-live-streaming-workflow/media-services-live-streaming-current.png
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO2-->

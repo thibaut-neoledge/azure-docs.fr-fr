@@ -91,11 +91,11 @@ Si l'application subit un incident après le traitement du message, mais avant l
 
 Maintenant que vous avez appris les principes de base des files d'attente Service Bus, consultez ces liens pour en savoir plus :
 
--   Consultez la référence MSDN suivante : [Files d'attente, rubriques et abonnements][].
+-   Consultez [Files d’attente, rubriques et abonnements][].
 
 [Azure Management Portal]: http://manage.windowsazure.com
 [package Azure Python]: https://pypi.python.org/pypi/azure
-[Files d'attente, rubriques et abonnements]: http://msdn.microsoft.com/library/azure/hh367516.aspx
+[Files d’attente, rubriques et abonnements]: service-bus-queues-topics-subscriptions.md
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO2-->

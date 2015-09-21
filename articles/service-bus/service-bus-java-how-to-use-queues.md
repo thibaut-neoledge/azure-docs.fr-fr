@@ -172,10 +172,10 @@ Si l'application subit un incident après le traitement du message, mais avant l
 
 ## Étapes suivantes
 
-Maintenant que vous avez appris les principes de base des files d'attente Service Bus, consultez la page [Files d'attente, rubriques et abonnements Service Bus][] pour plus d'informations.
+Les principes de base des files d’attente Service Bus étant appris, consultez [Files d’attente, rubriques et abonnements][] pour plus d’informations.
 
   [Kit de développement logiciel (SDK) Azure pour Java]: http://azure.microsoft.com/develop/java/
-  [Kit de ressources Azure pour Eclipse]: https://msdn.microsoft.com/fr-fr/library/azure/hh694271.aspx
+  [Kit de ressources Azure pour Eclipse]: https://msdn.microsoft.com/fr-FR/library/azure/hh694271.aspx
   [What are Service Bus Queues?]: #what-are-service-bus-queues
   [Create a Service Namespace]: #create-a-service-namespace
   [Obtain the Default Management Credentials for the Namespace]: #obtain-default-credentials
@@ -186,7 +186,7 @@ Maintenant que vous avez appris les principes de base des files d'attente Servic
   [How to: Handle Application Crashes and Unreadable Messages]: #bkmk_HowToHandleAppCrashes
   [Next Steps]: #bkmk_NextSteps
   [Azure Management Portal]: http://manage.windowsazure.com/
-  [Files d'attente, rubriques et abonnements Service Bus]: http://msdn.microsoft.com/library/windowsazure/hh367516.aspx
+  [Files d’attente, rubriques et abonnements]: service-bus-queues-topics-subscriptions.md
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO2-->

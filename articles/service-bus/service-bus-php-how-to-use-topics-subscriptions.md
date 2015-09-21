@@ -306,7 +306,7 @@ La méthode **deleteSubscription** permet de supprimer un abonnement de façon i
 
 ## Étapes suivantes
 
-Maintenant que vous avez appris les principes de base des files d'attente Service Bus, consultez la page [Files d'attente, rubriques et abonnements Service Bus][] pour plus d'informations.
+Les principes de base des files d’attente Service Bus étant appris, consultez [Files d’attente, rubriques et abonnements][] pour plus d’informations.
 
 [What are Service Bus Topics and Subscriptions?]: #bkmk_WhatAreSvcBusTopics
 [Create a Service Namespace]: #bkmk_CreateSvcNamespace
@@ -326,10 +326,10 @@ Maintenant que vous avez appris les principes de base des files d'attente Servic
 [Namespace List screenshot]: ../../../DevCenter/dotNet/Media/sb-queues-05.png
 [Properties Pane screenshot]: ../../../DevCenter/dotNet/Media/sb-queues-06.png
 [Default Key screenshot]: ../../../DevCenter/dotNet/Media/sb-queues-07.png
-[Files d'attente, rubriques et abonnements Service Bus]: http://msdn.microsoft.com/library/azure/hh367516.aspx
+[Files d’attente, rubriques et abonnements]: service-bus-queues-topics-subscriptions.md
 [Available Namespaces screenshot]: ../../../DevCenter/Java/Media/SvcBusQueues_04_SvcBusNode_AvailNamespaces.jpg
 [sqlfilter]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx
 [require-once]: http://php.net/require_once
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO2-->

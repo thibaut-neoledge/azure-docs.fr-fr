@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Gestion des serveurs DNS utilisés par un réseau virtuel"
-	description="En savoir plus sur l’ajout et la suppression de serveurs DNS dans un réseau virtuel"
-	services="virtual-network"
-	documentationCenter="na"
-	authors="telmosampaio"
-	manager="carolz"
-	editor="tysonn"/>
+   description="En savoir plus sur l’ajout et la suppression de serveurs DNS dans un réseau virtuel"
+   services="virtual-network"
+   documentationCenter="na"
+   authors="telmosampaio"
+   manager="carolz"
+   editor="tysonn" />
 <tags 
    ms.service="virtual-network"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="infrastructure-services"
-	ms.date="06/08/2015"
-	ms.author="telmos"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="infrastructure-services"
+   ms.date="09/04/2015"
+   ms.author="telmos" />
 
 # Gestion des serveurs DNS utilisés par un réseau virtuel
 
@@ -65,4 +65,4 @@ Pour modifier une liste de serveurs DNS à l’aide d’un fichier de configurat
 
 [Suppression d’un réseau virtuel](../virtual-networks-delete-vnet)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO2-->

@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Installation personnalisée d’Azure AD Connect"
-	description="Ce document présente les options de l’installation personnalisée d’Azure AD Connect."
-	services="active-directory"
-	documentationCenter=""
-	authors="billmath"
-	manager="stevenpo"
+	pageTitle="Installation personnalisée d’Azure AD Connect" 
+	description="Ce document présente les options de l’installation personnalisée d’Azure AD Connect." 
+	services="active-directory" 
+	documentationCenter="" 
+	authors="billmath" 
+	manager="stevenpo" 
 	editor="curtand"/>
 
 <tags 
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/24/2015"
+	ms.service="active-directory"  
+	ms.workload="identity" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/24/2015" 
 	ms.author="billmath"/>
 
 # Installation personnalisée d’Azure AD Connect
@@ -184,17 +184,6 @@ Le mode intermédiaire permet de configurer un nouveau serveur de synchronisatio
 
 En mode intermédiaire, vous pouvez modifier le moteur de synchronisation selon vos besoins et examiner ce qui doit être exporté. Lorsque la configuration vous convient, réexécutez l’Assistant Installation et désactivez le mode intermédiaire. Cela permet l’exportation de données vers Azure AD. Veillez à désactiver l’autre serveur en même temps, pour qu’un seul serveur puisse exporter de manière active.
 
-### Prévention des suppressions accidentelles
-Lors de l’installation d’Azure AD Connect, la fonctionnalité de prévention des suppressions accidentelles est activée par défaut et configurée pour interdire une exportation avec plus de 500 suppressions. 500 est une valeur par défaut et peut être modifiée. Lorsque cette fonctionnalité est activée, si le nombre de suppression est trop important, l’exportation s’arrête et vous recevez un courrier électronique comme celui-ci :
-
-![Filtrage de la synchronisation](./media/active-directory-aadconnect-get-started-custom/email.png)
-
-
-Si l’événement n’était pas prévu, examinez la situation et corrigez-la si nécessaire.
-
-Pour désactiver temporairement cette protection et laisser ces suppressions se dérouler normalement, exécutez : Disable-ADSyncExportDeletionThreshold
-
-Pour réactiver la protection ou pour modifier le paramètre de seuil par défaut, exécutez : Enable-ADSyncExportDeletionThreshold
 
 
 ## Configuration de la fédération avec AD FS
@@ -279,4 +268,4 @@ Vous pouvez personnaliser l’illustration et l’image de logo de vos pages de 
 	
 	Set-AdfsWebTheme -TargetName default -Logo @{path="c:\Contoso\logo.png"} –Illustration @{path=”c:\Contoso\illustration.png”}
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO2-->

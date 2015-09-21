@@ -48,7 +48,20 @@ Centre de données secondaire | Serveur VMM unique | Répliquez des machines vi
 
 Les technologies de réplication ASR sont compatibles avec n’importe quelle application en cours d’exécution sur une machine virtuelle. Nous avons effectué des tests supplémentaires en partenariat avec les équipes chargées des produits d’application, afin d’assurer la prise en charge complète de chaque application.
 
-**Charge de travail** | <p>**Repliquer machines virtuelles Hyper-V**</p> <p>**(vers le site secondaire)**</p> | <p>**Répliquer machines virtuelles Hyper-V**</p> <p>**(vers Azure)**</p> | <p>**Répliquer machines virtuelles VMware**</p> <p>**(vers site secondaire)**</p> | <p>**Répliquer machines virtuelles VMware**</p><p>**(vers Azure)****</p> ---|---|---|---|--- Active Directory, DNS | Y | Y | Y | Applications Web bientôt disponibles (IIS, SQL) | Y | Y | Y | SCOM bientôt disponible | Y | Y | Y | Sharepoint bientôt disponible | Y | Y | Y | Bientôt disponible <p>SAP</p><p>Répliquer site SAP vers Azure pour non cluster</p> | Y (testé par Microsoft) | Y (testé par Microsoft) | Y (testé Microsoft) | Exchange (non-DAG) bientôt disponible | Y | Bientôt tranquille | Y | Remote Desktop/VDI bientôt disponible | Y | Y | Y | Bientôt disponible <p>Linux</p> <p>(système d’exploitation et applications)</p> | Y (testé par Microsoft) | Y (testé par Microsoft) | Y (testé par Microsoft) | Dynamics AX bientôt disponible | Y | Y | Y | Dynamics CRM bientôt disponible | Bientôt disponible | Bientôt disponible | Y | Oracle bientôt disponible | Bientôt disponible | Bientôt disponible | Y (testé par Microsoft) | Bientôt disponible
+**Charge de travail** | <p>**Répliquer machines virtuelles Hyper-V**</p> <p>**(vers le site secondaire)**</p> | <p>**Répliquer machines virtuelles Hyper-V**</p> <p>**(vers Azure)**</p> | <p>**Répliquer machines virtuelles VMware**</p> <p>**(vers site secondaire)**</p> | <p>**Répliquer machines virtuelles VMware**</p><p>**(vers Azure)**</p> 
+---|---|---|---|--- 
+Active Directory, DNS | O | O | O | O 
+Applications web (IIS, SQL) | O | O | O | O 
+SCOM | O | O | O | O 
+Sharepoint | O | O | O | O 
+<p>SAP</p><p>Répliquer site SAP vers Azure pour non cluster</p> | O (testé par Microsoft) | O (testé par Microsoft) | O (testé par Microsoft) | O (testé par Microsoft) 
+Exchange (non-DAG) | O | Bientôt disponible | O | O 
+Bureau à distance/VDI | O | O | O | N/D 
+<p>Linux</p> <p>(système d’exploitation et applications)</p> | O (testé par Microsoft) | O (testé par Microsoft) | O (testé par Microsoft) | O (testé par Microsoft) 
+Dynamics AX | O | O | O | O 
+Dynamics CRM | O | Bientôt disponible | O | bientôt disponible 
+Oracle | O (testé par Microsoft) | O (testé par Microsoft) | O (testé par Microsoft) | O (testé par Microsoft) 
+Serveur de fichiers Windows | O | O | O | O
 
 
 ## Fonctionnalités et conditions requises 
@@ -77,4 +90,4 @@ Mappage de stockage|Non applicable|Mappe les classifications de stockage sur les
 Une fois que vous avez fini de consulter cette présentation, [lisez les meilleures pratiques](site-recovery-best-practices.md) pour vous aider à prendre en main la planification du déploiement.
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO2-->

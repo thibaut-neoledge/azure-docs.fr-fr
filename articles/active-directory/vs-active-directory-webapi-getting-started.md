@@ -1,7 +1,7 @@
 <properties 
-	pageTitle="" 
-	description="Informations sur l’Assistant de prise en main d’Azure Active Directory (Projets API web)" 
-	services="active-directory" 
+	pageTitle="Prendre en main Azure Active Directory et les services connectés de Visual Studio (projets WebApi) |Microsoft Azure" 
+	description="Comment prendre en main Azure Active Directory dans les projets WebApi après s’être connecté à un annuaire Azure AD ou avoir créé un annuaire Azure AD à l’aide des services connectés de Visual Studio" 
+    services="active-directory"
 	documentationCenter="" 
 	authors="patshea123" 
 	manager="douge" 
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="vs-getting-started" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/22/2015" 
+	ms.date="09/03/2015" 
 	ms.author="patshea123"/>
 
-# Prise en main d’Azure Active Directory (Projets API web)
+# Prendre en main Azure Active Directory et les services connectés de Visual Studio (projets WebApi)
 
 > [AZURE.SELECTOR]
 > - [Getting Started](vs-active-directory-webapi-getting-started.md)
@@ -29,4 +29,4 @@ Tous les contrôleurs de votre projet ont été dotés de l'attribut **Authorize
 [En savoir plus sur Azure Active Directory](http://azure.microsoft.com/services/active-directory/)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

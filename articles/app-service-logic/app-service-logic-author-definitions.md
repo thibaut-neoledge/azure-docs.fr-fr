@@ -1,10 +1,10 @@
 <properties 
-	pageTitle="Créer des définitions d'application logique"
-	description="Apprenez à écrire la définition JSON pour les applications logiques."
-	authors="stepsic-microsoft-com"
-	manager="dwrede"
-	editor=""
-	services="app-service\logic"
+	pageTitle="Créer des définitions d'application logique" 
+	description="Apprenez à écrire la définition JSON pour les applications logiques." 
+	authors="stepsic-microsoft-com" 
+	manager="dwrede" 
+	editor="" 
+	services="app-service\logic" 
 	documentationCenter=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/16/2015"
+	ms.date="09/08/2015"
 	ms.author="stepsic"/>
 	
 #Créer des définitions d'application logique
@@ -686,6 +686,41 @@ Ensuite, dans la requête `PUT` réelle pour l'application logique, vous pouvez 
 }
 ``` 
 
-Dans chaque environnement, vous pouvez ensuite fournir une valeur différente pour le paramètre `connection`. Consultez la [documentation sur l'API REST](https://msdn.microsoft.com/library/azure/dn948513.aspx) pour connaître toutes les options dont vous disposez pour créer et gérer des applications logiques.
+Dans chaque environnement, vous pouvez ensuite fournir une valeur différente pour le paramètre `connection`.
 
-<!---HONumber=September15_HO1-->
+## Exécution d’une étape jusqu’à ce qu’une condition soit remplie
+
+Dans le cas d’une API que vous appelez, vous pouvez souhaiter une réponse avant de continuer. Par exemple, imaginez que vous souhaitez attendre que quelqu’un télécharge un fichier dans un répertoire avant de traiter le fichier. Vous pouvez dans ce cas utiliser la syntaxe *do-until* :
+
+```
+{
+    "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2014-12-01-preview/workflowdefinition.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {},
+    "triggers": {},
+    "actions": {
+        "http0": {
+            "type": "Http",
+            "inputs": {
+                "method": "GET",
+                "uri": "http://mydomain/listfiles"
+            },
+            "until": {
+                "limit": {
+                    "timeout": "PT10M"
+                },
+                "conditions": [
+                    {
+                        "expression": "@greater(length(action().outputs.body),0)"
+                    }
+                ]
+            }
+        }
+    },
+    "outputs": {}
+}
+```
+
+Consultez la [documentation sur l'API REST](https://msdn.microsoft.com/library/azure/dn948513.aspx) pour connaître toutes les options dont vous disposez pour créer et gérer des applications logiques.
+
+<!---HONumber=Sept15_HO2-->

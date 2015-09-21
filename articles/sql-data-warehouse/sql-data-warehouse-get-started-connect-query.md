@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/23/2015"
+   ms.date="09/09/2015"
    ms.author="JRJ@BigBangData.co.uk;barbkess"/>
    
 # Prise en main : connexion à SQL Data Warehouse
@@ -188,4 +188,4 @@ Maintenant que vous pouvez vous connecter et faire des requêtes, essayez de [ch
 [charger un exemple de données]: ./sql-data-warehouse-get-started-load-samples.md
 [développer un code]: ./articles/sql-data-warehouse-overview-develop/
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO2-->

@@ -47,7 +47,7 @@ L’agent est automatiquement installé et configuré pour votre espace de trava
 
 ![Image de la page Serveurs d’Operational Insights](./media/operational-insights-analyze-data-azure/servers.png)
 
- >[AZURE.NOTE]L’[agent de la machine virtuelle Azure](https://msdn.microsoft.com/library/azure/dn832621.aspx) doit être installé pour installer automatiquement l'agent pour Operational Insights.
+ >[AZURE.NOTE]L’[agent de la machine virtuelle Azure](https://msdn.microsoft.com/library/azure/dn832621.aspx) doit être installé pour installer automatiquement l'agent pour Operational Insights. Si vous avez une machine virtuelle Azure Resource Manager, elle n'apparaîtra pas dans la liste et vous devrez utiliser PowerShell ou créer un modèle ARM pour installer l'agent.
 
 
 
@@ -55,7 +55,9 @@ L’agent est automatiquement installé et configuré pour votre espace de trava
 
 Si vous préférez écrire un script pour apporter des modifications à vos machines virtuelles Azure, vous pouvez activer Microsoft Monitoring Agent à l’aide de PowerShell.
 
-Microsoft Monitoring Agent est une [extension de machine virtuelle Azure](https://msdn.microsoft.com/library/azure/dn832621.aspx) et vous pouvez la gérer à l'aide de PowerShell, comme illustré dans l'exemple ci-dessous.
+Microsoft Monitoring Agent est une [extension de machine virtuelle Azure](https://msdn.microsoft.com/library/azure/dn832621.aspx) et vous pouvez la gérer à l'aide de PowerShell, comme l’illustrent les exemples ci-dessous.
+
+Pour les machines virtuelles Azure « classiques », utilisez ce PowerShell :
 
 ```powershell
 Add-AzureAccount
@@ -66,6 +68,24 @@ $hostedService="enter hosted service here"
 
 $vm = Get-AzureVM –ServiceName $hostedService
 Set-AzureVMExtension -VM $vm -Publisher 'Microsoft.EnterpriseCloud.Monitoring' -ExtensionName 'MicrosoftMonitoringAgent' -Version '1.*' -PublicConfiguration "{'workspaceId':  '$workspaceId'}" -PrivateConfiguration "{'workspaceKey': '$workspaceKey' }" | Update-AzureVM -Verbose
+```
+Pour les machines virtuelles Azure Resource Manager, utilisez ce PowerShell :
+
+```powershell
+Add-AzureAccount
+Switch-AzureMode -Name AzureResourceManager
+
+$workspaceId="enter workspace here"
+$workspaceKey="enter workspace key here"
+
+$resourcegroup = "enter resource group"
+$resourcename = "enter resource group"
+
+$vm = Get-AzureVM -ResourceGroupName $resourcegroup -Name $resourcename
+$location = $vm.Location
+
+Set-AzureVMExtension -ResourceGroupName $resourcegroup -VMName $resourcename -Name 'MicrosoftMonitoringAgent' -Publisher 'Microsoft.EnterpriseCloud.Monitoring' -ExtensionType 'MicrosoftMonitoringAgent' -TypeHandlerVersion '1.0' -Location $location -SettingString "{'workspaceId':  '$workspaceId'}" -ProtectedSettingString "{'workspaceKey': '$workspaceKey' }"
+
 ```
 
 Lors de la configuration à l’aide de PowerShell, vous devez fournir l’ID et la clé primaire de l’espace de travail. L'ID et la clé primaire de votre espace de travail se trouvent sur la page **Paramètres** du portail Operational Insights.
@@ -96,7 +116,7 @@ Journaux d'événements Windows|Informations envoyées au système de journalisa
 Compteurs de performances|Compteur du système d'exploitation et compteurs de performances personnalisés.
 Vidages sur incident|Informations au sujet de l'état du processus en cas d'incident d'application.
 Journaux d'erreurs personnalisés|Journaux créés par votre application ou votre service.
-NET EventSource|Événements générés par votre code à l'aide de la classe [EventSource] (https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource(v=vs.110).aspx) .NET
+NET EventSource|Événements générés par votre code à l'aide de la [classe EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource(v=vs.110).aspx) .NET
 ETW basé sur les manifestes|Événements ETW générés par n'importe quel processus
 Syslog|Événements envoyés aux démons Syslog ou Rsyslog
 
@@ -117,7 +137,7 @@ Les journaux doivent se trouver dans les emplacements suivants :
 
 Pour les machines virtuelles, vous pouvez également installer [Microsoft Monitoring Agent](http://go.microsoft.com/fwlink/?LinkId=517269) sur votre machine virtuelle pour activer des informations supplémentaires. Cela vous permet d’analyser les journaux IIS et les journaux des événements, mais également d'effectuer des analyses supplémentaires, notamment le suivi des modifications de configuration, l’évaluation SQL et l’évaluation de la mise à jour.
 
-Vous pouvez nous aider à hiérarchiser les journaux supplémentaires devant être analysés par Operational Insights en votant sur notre [page de commentaires](http://feedback.azure.com/forums/267889-azure-operational-insights/category/88086-log-management-and-log-collection-policy).
+Vous pouvez nous aider à hiérarchiser d’autres journaux devant être analysés par Operational Insights en votant sur notre [page de commentaires](http://feedback.azure.com/forums/267889-azure-operational-insights/category/88086-log-management-and-log-collection-policy).
 
 ## Activation des diagnostics Azure dans un rôle Web pour la collecte de journaux IIS et des événements
 
@@ -131,7 +151,7 @@ Avec les diagnostics Azure activés :
 
 ### Activation des diagnostics
 
-Pour activer les journaux d'événements Windows ou pour modifier scheduledTransferPeriod, configurez les diagnostics Azure à l'aide du fichier de configuration XML (diagnostics.wadcfg), comme indiqué dans l'[étape 2 : ajout du fichier diagnostics.wadcfg à votre solution Visual Studio](https://msdn.microsoft.com/library/azure/dn482131.aspx#BKMK_step2) et l'[étape 3 : configuration des diagnostics pour votre application](https://msdn.microsoft.com/library/azure/dn482131.aspx#BKMK_step3) dans la rubrique Activation des diagnostics dans un service cloud. L'exemple de fichier de configuration suivant collecte des journaux IIS et tous les événements des journaux de l'application et du système :
+Pour activer les journaux d'événements Windows ou pour modifier scheduledTransferPeriod, configurez les diagnostics Azure à l'aide du fichier de configuration XML (diagnostics.wadcfg), comme indiqué dans l'[Étape 2 : Ajout du fichier diagnostics.wadcfg à votre solution Visual Studio](https://msdn.microsoft.com/library/azure/dn482131.aspx#BKMK_step2) et l'[Étape 3 : Configuration des diagnostics pour votre application](https://msdn.microsoft.com/library/azure/dn482131.aspx#BKMK_step3) dans la rubrique Activation des diagnostics dans un service cloud. L'exemple de fichier de configuration suivant collecte des journaux IIS et tous les événements des journaux de l'application et du système :
 
     <?xml version="1.0" encoding="utf-8" ?>
     <DiagnosticMonitorConfiguration xmlns="http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration"
@@ -154,7 +174,7 @@ Pour activer les journaux d'événements Windows ou pour modifier scheduledTrans
     </DiagnosticMonitorConfiguration>
 
 
-Dans l'[étape 4 : configuration du stockage de vos données de diagnostic](https://msdn.microsoft.com/library/azure/dn482131.aspx#BKMK_step4) de la rubrique Activation des diagnostics dans un service cloud, assurez-vous que votre élément ConfigurationSettings spécifie un compte de stockage, comme dans l'exemple suivant :
+Dans l'[Étape 4 : Configuration du stockage de vos données de diagnostic](https://msdn.microsoft.com/library/azure/dn482131.aspx#BKMK_step4) de la rubrique Activation des diagnostics dans un service cloud, assurez-vous que votre élément ConfigurationSettings spécifie un compte de stockage, comme dans l'exemple suivant :
 
 
     <ConfigurationSettings>
@@ -162,7 +182,7 @@ Dans l'[étape 4 : configuration du stockage de vos données de diagnostic](ht
     </ConfigurationSettings>
 
 
-Les valeurs **AccountName** et **AccountKey** se trouvent dans le portail de gestion Microsoft Azure dans le tableau de bord du compte de stockage, sous Gérer les clés d'accès. Le protocole pour la chaîne de connexion doit être **https**.
+Les valeurs **AccountName** et **AccountKey** se trouvent dans le portail de gestion Microsoft Azure dans le tableau de bord du compte de stockage, sous Gérer les clés d'accès. Le protocole de la chaîne de connexion doit être **https**.
 
 Une fois que la configuration de diagnostic mise à jour est appliquée à votre service cloud et écrit des diagnostics dans Azure Storage, vous êtes prêt à configurer Operational Insights.
 
@@ -249,4 +269,4 @@ Après environ une heure, les données du compte de stockage sont disponibles po
 
 [Configuration des paramètres de pare-feu et de proxy (facultatif)](../operational-insights-proxy-filewall.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

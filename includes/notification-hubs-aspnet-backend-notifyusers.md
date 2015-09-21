@@ -109,18 +109,18 @@ Dans cette section, vous allez créer une classe de gestionnaire de messages nom
 
 ## Inscription aux notifications à l’aide du serveur principal WebAPI
 
-Dans cette section, nous allons ajouter un nouveau contrôleur au serveur principal WebAPI pour gérer les demandes d’inscription d’un utilisateur et d’un appareil aux notifications à l’aide de la bibliothèque cliente pour les concentrateurs de notification, en l’occurrence la bibliothèque cliente Azure Service Bus. Le contrôleur ajoute une balise d’utilisateur pour l’utilisateur qui a été authentifié et attaché au HttpContext par le `AuthenticationTestHandler`. La balise a le format de chaîne `"username:<actual username>"`.
+Dans cette section, nous allons ajouter un nouveau contrôleur au serveur principal WebAPI pour gérer les demandes d’inscription d’un utilisateur et d’un appareil aux notifications à l’aide de la bibliothèque cliente pour les hubs de notification. Le contrôleur ajoute une balise d’utilisateur pour l’utilisateur qui a été authentifié et attaché au HttpContext par le `AuthenticationTestHandler`. La balise a le format de chaîne `"username:<actual username>"`.
 
 
  
 
 1. Dans l’Explorateur de solutions, cliquez avec le bouton droit sur le projet **AppBackend**, puis cliquez sur **Gérer les packages NuGet**.
 
-2. Sur le côté gauche, cliquez sur **En ligne**, puis recherchez **servicebus** dans la zone **Rechercher**.
+2. Sur le côté gauche, cliquez sur **En ligne**, puis recherchez **Microsoft.Azure.NotificationHubs** dans la zone **Rechercher**.
 
-3. Dans la liste de résultats, cliquez sur **Microsoft Azure Service Bus**, puis sur **Installer**. Procédez à l’installation, puis fermez la fenêtre du Gestionnaire de package NuGet.
+3. Dans la liste des résultats, cliquez sur **Bibliothèque de gestion du service Microsoft Azure Notification Hubs**, puis cliquez sur **Installer**. Procédez à l’installation, puis fermez la fenêtre du Gestionnaire de package NuGet.
 
-	![][B14]
+	Cette opération ajoute une référence au Kit de développement logiciel (SDK) Azure Notification Hubs à l’aide du <a href="http://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/">package NuGet Microsoft.Azure.Notification Hubs</a>.
 
 4. Nous allons maintenant créer un fichier de classe qui représente les différentes notifications sécurisées qui seront envoyées. Dans les implémentations complètes, les notifications sont stockées dans une base de données. Par souci de simplicité, ce didacticiel les stocke en mémoire. Dans l’Explorateur de solutions, cliquez avec le bouton droit sur le dossier **Modèles**, cliquez sur **Ajouter**, puis sur **Classe**. Nommez la nouvelle classe **Notifications.cs**, puis cliquez sur **Ajouter** pour générer la classe.
 
@@ -128,9 +128,9 @@ Dans cette section, nous allons ajouter un nouveau contrôleur au serveur princi
 
 5. Dans Notifications.cs, ajoutez l’instruction `using` suivante en haut du fichier :
 
-        using Microsoft.ServiceBus.Notifications;
+        using Microsoft.Azure.NotificationHubs;
 
-6. Remplacez la définition de classe `Notifications` par ce qui suit et veillez à remplacer les deux espaces réservés par la chaîne de connexion (avec accès complet) pour votre concentrateur de notification et le nom du concentrateur (disponible sur le [portail de gestion Azure](http://manage.windowsazure.com)) :
+6. Remplacez la définition de classe `Notifications` par ce qui suit et veillez à remplacer les deux espaces réservés par la chaîne de connexion (avec accès complet) pour votre hub de notification et le nom du hub (disponible sur le [portail de gestion Azure](http://manage.windowsazure.com)) :
 
 		public class Notifications
         {
@@ -269,7 +269,7 @@ Dans cette section, nous allons ajouter un nouveau contrôleur au serveur princi
 
 ## Envoi de notifications depuis le serveur principal WebAPI
 
-Dans cette section, vous ajoutez un nouveau contrôleur qui permet aux appareils clients d’envoyer une notification basée sur la balise de nom d’utilisateur à l’aide de la bibliothèque cliente Azure Service Bus sur le serveur principal ASP.NET WebAPI.
+Dans cette section, vous ajoutez un nouveau contrôleur qui permet aux appareils clients d’envoyer une notification basée sur la balise de nom d’utilisateur à l’aide de la bibliothèque de gestion de services Azure Notification Hubs sur le serveur principal ASP.NET WebAPI.
 
 
 1. Créez un autre contrôleur nommé **NotificationsController**, en suivant la même procédure que pour la création du contrôleur **RegisterController** dans la section précédente.
@@ -282,7 +282,7 @@ Dans cette section, vous ajoutez un nouveau contrôleur qui permet aux appareils
 
 3. Ajoutez la méthode suivante à la classe **NotificationsController** :
 
-	Ce code envoie un type de notification basé sur le paramètre `pns` du service de notification de plateforme. La valeur de `to_tag` permet de définir la balise *username* sur le message. Cette balise doit correspondre à une balise de nom d’utilisateur d’une inscription de concentrateur de notification active. Le message de notification est extrait du corps de la demande POST.
+	Ce code envoie un type de notification basé sur le paramètre `pns` du service de notification de plateforme. La valeur de `to_tag` permet de définir la balise *username* sur le message. Cette balise doit correspondre à une balise de nom d’utilisateur d’une inscription de hub de notification active. Le message de notification est extrait du corps de la demande POST.
 
         public async Task<HttpResponseMessage> Post(string pns, [FromBody]string message, string to_tag)
         {
@@ -359,4 +359,4 @@ Dans cette section, vous ajoutez un nouveau contrôleur qui permet aux appareils
 [B16]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-notify-users16.PNG
 [B18]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-notify-users18.PNG
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

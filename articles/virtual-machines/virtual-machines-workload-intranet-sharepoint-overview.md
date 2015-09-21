@@ -19,7 +19,7 @@
 
 # Déploiement de SharePoint avec des groupe de disponibilité SQL Server AlwaysOn dans Azure
 
-Cette rubrique contient des liens vers des instructions pas à pas pour le déploiement d’une batterie de serveurs SharePoint 2013 intranet uniquement avec des groupes de disponibilité SQL Server AlwaysOn avec la gestion des services Azure. La batterie de serveurs comprend les ordinateurs suivants :
+Cette rubrique contient des liens vers des instructions pas à pas pour le déploiement d’une batterie de serveurs SharePoint 2013 intranet uniquement avec des groupes de disponibilité SQL Server AlwaysOn avec le modèle de déploiement classique. La batterie de serveurs comprend les ordinateurs suivants :
 
 - Deux serveurs Web SharePoint
 - Deux serveurs d'applications SharePoint
@@ -55,6 +55,8 @@ Pour créer un environnement de développement/test ou une preuve de concept de 
 
 Pour en savoir plus sur SharePoint avec les groupes de disponibilité SQL Server AlwaysOn, consultez [Configurer des groupes de disponibilité AlwaysOn SQL Server 2012 pour SharePoint 2013](https://technet.microsoft.com/library/jj715261.aspx).
 
+> [AZURE.NOTE]Microsoft a publié SharePoint Server 2016 IT Preview. Pour faciliter l’installation et le test de cette version d’évaluation, vous pouvez utiliser une image de la galerie de machines virtuelles Azure avec SharePoint Server 2016 IT Preview et ses composants requis préinstallés. Pour plus d’informations, consultez le billet de blog [Test the SharePoint Server 2016 IT Preview in Azure](http://azure.microsoft.com/blog/test-sharepoint-server-2016-it-preview-4/).
+
 ## Étape suivante
 
 Pour démarrer la configuration de cette charge de travail, passez à la [Phase 1 : configuration d'Azure](virtual-machines-workload-intranet-sharepoint-phase1.md).
@@ -72,4 +74,4 @@ Pour démarrer la configuration de cette charge de travail, passez à la [Phase�
 
 [Charge de travail des services d’infrastructure Azure : applications métier à haute disponibilité](virtual-machines-workload-high-availability-lob-application.md)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO2-->

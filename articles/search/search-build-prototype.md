@@ -13,7 +13,7 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="07/08/2015" 
+	ms.date="09/08/2015" 
 	ms.author="heidist"/>
 
 # Générer une application de prototype pour Azure Search
@@ -80,7 +80,7 @@ Par défaut, ces fichiers se trouvent dans le dossier de la solution :
 
 Si vous pouvez intégrer vos données dans des fichiers JSON, vous pouvez remplacer les fichiers existants par vos données, puis exécuter l'application pour créer et charger un index. La distribution des données entre plusieurs fichiers contribue à démontrer une opération de téléchargement par lots.
 
-D'autres approches pour charger les données incluent l'utilisation d'un indexeur (requiert une source de données Azure DocumentDB ou une source de données de base de données SQL Azure). Vous trouverez un exemple de code qui illustre les autres méthodes de chargement des données dans la [liste des vidéos et didacticiels Azure Search](https://msdn.microsoft.com/library/azure/dn818681.aspx) sur MSDN.
+D'autres approches pour charger les données incluent l'utilisation d'un indexeur (requiert une source de données Azure DocumentDB ou une source de données de base de données SQL Azure). Vous trouverez un exemple de code qui illustre les autres méthodes de chargement des données dans la [liste des vidéos et didacticiels Azure Search](search-video-demo-tutorial-list.md) sur MSDN.
 
 ### Modification de la requête
 
@@ -133,4 +133,4 @@ Suivez ces liens pour en savoir plus :
 [1]: ./media/search-build-prototype/azsearch-datafiles.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

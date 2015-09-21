@@ -1,20 +1,20 @@
 <properties
    pageTitle="Création de modèles Azure Resource Manager"
-	description="Créez des modèles Azure Resource Manager à l'aide de la syntaxe JSON déclarative pour déployer des applications sur Azure."
-	services="azure-resource-manager"
-	documentationCenter="na"
-	authors="tfitzmac"
-	manager="wpickett"
-	editor=""/>
+   description="Créez des modèles Azure Resource Manager à l'aide de la syntaxe JSON déclarative pour déployer des applications sur Azure."
+   services="azure-resource-manager"
+   documentationCenter="na"
+   authors="tfitzmac"
+   manager="wpickett"
+   editor=""/>
 
 <tags
    ms.service="azure-resource-manager"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="na"
-	ms.date="08/20/2015"
-	ms.author="tomfitz"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="na"
+   ms.date="08/20/2015"
+   ms.author="tomfitz"/>
 
 # Création de modèles Azure Resource Manager
 
@@ -122,6 +122,7 @@ Les valeurs et types autorisés sont :
 - object ou secureObject - n'importe quel objet JSON valide
 - array - n'importe quel tableau JSON valide
 
+Pour spécifier un paramètre comme facultatif, définissez sa valeur defaultValue sur une chaîne vide.
 
 >[AZURE.NOTE]Tous les mots de passe, clés et autres secrets doivent utiliser le type **secureString**. Il est impossible de lire les paramètres du modèle dont le type est secureString après le déploiement de la ressource.
 
@@ -313,9 +314,9 @@ L'exemple suivant montre une valeur retournée dans la section des sorties.
 ## Autres scénarios avancés
 Cette rubrique donne un premier aperçu du modèle. Toutefois, votre scénario peut requérir des tâches plus avancées.
 
-Vous devrez peut-être fusionner deux modèles ou utiliser un modèle enfant au sein d'un modèle parent. Pour en savoir plus, consultez [Utilisation de modèles liés avec Azure Resource Manager](resource-group-linked-templates.md).
+Vous devrez peut-être fusionner deux modèles ou utiliser un modèle enfant au sein d'un modèle parent. Pour plus d’informations, consultez [Utilisation de modèles liés avec Azure Resource Manager](resource-group-linked-templates.md).
 
-Pour itérer un nombre de fois spécifié lors de la création d'un type de ressource, consultez [Création de plusieurs instances de ressources dans Azure Resource Manager](resource-group-create-multiple.md).
+Pour itérer un nombre de fois spécifié pendant la création d’un type de ressource, consultez [Création de plusieurs instances de ressources dans Azure Resource Manager](resource-group-create-multiple.md).
 
 Vous devrez peut-être utiliser des ressources qui existent au sein d'un groupe de ressources différent. Cette situation est classique quand vous utilisez des comptes de stockage ou des réseaux virtuels qui sont partagés entre plusieurs groupes de ressources. Pour plus d'informations, consultez la [fonction resourceId](../resource-group-template-functions#resourceid).
 
@@ -402,9 +403,9 @@ Le modèle suivant déploie une application web et l'approvisionne avec le code 
     }
 
 ## Étapes suivantes
-- Pour plus d'informations sur les fonctions que vous pouvez utiliser dans un modèle, consultez [Fonctions des modèles Azure Resource Manager](resource-group-template-functions.md)
-- Pour savoir comment déployer le modèle que vous avez créé, consultez [Déploiement d'une application avec un modèle Azure Resource Manager](azure-portal/resource-group-template-deploy.md)
-- Pour obtenir un exemple détaillé de déploiement d’une application, consultez [Mise en service et déploiement de microservices de manière prévisible dans Azure](app-service-web/app-service-deploy-complex-application-predictably.md)
-- Pour voir les schémas disponibles, consultez [Schémas Azure Resource Manager](https://github.com/Azure/azure-resource-manager-schemas)
+- Pour plus d’informations sur les fonctions que vous pouvez utiliser dans un modèle, consultez [Fonctions des modèles Azure Resource Manager](resource-group-template-functions.md).
+- Pour savoir comment déployer le modèle que vous avez créé, consultez [Déploiement d’une application avec un modèle Azure Resource Manager](azure-portal/resource-group-template-deploy.md).
+- Pour obtenir un exemple détaillé de déploiement d’une application, consultez [Mise en service et déploiement de microservices de manière prévisible dans Azure](app-service-web/app-service-deploy-complex-application-predictably.md).
+- Pour voir les schémas disponibles, consultez [Schémas Azure Resource Manager](https://github.com/Azure/azure-resource-manager-schemas).
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO2-->

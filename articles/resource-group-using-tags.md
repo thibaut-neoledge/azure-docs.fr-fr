@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="AzurePortal" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/07/2015" 
+	ms.date="09/04/2015" 
 	ms.author="tomfitz"/>
 
 
@@ -30,7 +30,7 @@ Chaque balise que vous ajoutez à une ressource ou à un groupe de ressources es
 
 ## Balises de la version préliminaire du portail
 
-Il est facile de baliser des ressources et des groupes de ressources dans la version préliminaire du portail. Utilisez le concentrateur Parcourir pour accéder à la ressource ou au groupe de ressources que vous souhaitez baliser, puis cliquez sur la partie Balises de la section Vue d'ensemble, située en haut du volet.
+Il est facile de baliser des ressources et des groupes de ressources dans la version préliminaire du portail. Utilisez le hub Parcourir pour accéder à la ressource ou au groupe de ressources que vous souhaitez baliser, puis cliquez sur la partie Balises de la section Vue d'ensemble, située en haut du volet.
 
 ![Balises des panneaux de ressources et de groupe de ressources](./media/resource-group-using-tags/tag-icon.png)
 
@@ -38,9 +38,9 @@ Un volet s'ouvre. Il contient la liste des balises qui ont déjà été appliqu�
 
 ![Baliser des ressources avec des paires nom/valeur](./media/resource-group-using-tags/tag-resources.png)
 
-Pour afficher votre classification de balises dans le portail, utilisez le concentrateur Parcourir pour afficher Tous les éléments, puis sélectionnez Balises.
+Pour afficher votre classification de balises dans le portail, utilisez le hub Parcourir pour afficher Tous les éléments, puis sélectionnez Balises.
 
-![Rechercher des balises via le concentrateur Parcourir](./media/resource-group-using-tags/browse-tags.png)
+![Rechercher des balises via le hub Parcourir](./media/resource-group-using-tags/browse-tags.png)
 
 Épinglez les balises plus importantes à votre tableau d'accueil pour y accéder rapidement et vous serez prêt. Amusez-vous bien !
 
@@ -143,7 +143,7 @@ Le portail et PowerShell utilisent tous deux l'[API REST du Gestionnaire de ress
 
 Dans le cas des services pris en charge, vous pouvez utiliser des balises pour regrouper vos données de facturation. Par exemple, les [machines virtuelles intégrées à Azure Resource Manager](/virtual-machines/virtual-machines-azurerm-versus-azuresm.md) vous permettent de définir et d’appliquer des balises pour organiser l’utilisation de la facturation pour les machines virtuelles. Si vous exécutez plusieurs machines virtuelles pour différentes organisations, vous pouvez recourir aux balises pour regrouper l’utilisation par centre de coûts. Vous pouvez également utiliser des balises pour catégoriser les coûts par environnement d’exécution ; par exemple, l’utilisation de la facturation pour les machines virtuelles en cours d’exécution dans l’environnement de production.
 
-Vous pouvez récupérer des informations sur les balises par le biais de l’[API Usage](billing-usage-rate-card-overview.md) ou du fichier de valeurs séparées par des virgules (CSV) que vous pouvez télécharger à partir du [portail de comptes Azure](https://account.windowsazure.com/) ou du [portail EA](https://ea.azure.com). Pour plus d'informations sur l'accès par programme aux informations de facturation, consultez [Obtenir une vue d'ensemble de votre consommation des ressources Microsoft Azure](billing-usage-rate-card-overview.md).
+Vous pouvez récupérer des informations sur les balises par le biais des [API Resource Usage et RateCard](billing-usage-rate-card-overview.md) ou du fichier de valeurs séparées par des virgules (CSV) que vous pouvez télécharger à partir du [portail de comptes Azure](https://account.windowsazure.com/) ou du [portail EA](https://ea.azure.com). Pour plus d'informations sur l'accès par programme aux informations de facturation, consultez [Obtenir une vue d'ensemble de votre consommation des ressources Microsoft Azure](billing-usage-rate-card-overview.md). Pour plus d’informations sur les opérations de l’API REST, consultez [Informations de référence sur l’API REST Azure Billing](https://msdn.microsoft.com/library/azure/1ea5b323-54bb-423d-916f-190de96c6a3c).
 
 Lorsque vous téléchargez le fichier CSV d’utilisation pour les services qui prennent en charge les balises avec la facturation, les balises s’affichent dans la colonne **Balises**. Pour plus d’informations, voir [Comprendre votre facture Microsoft Azure](billing-understand-your-bill.md).
 
@@ -151,11 +151,11 @@ Lorsque vous téléchargez le fichier CSV d’utilisation pour les services qui 
 
 ## Étapes suivantes
 
-- Pour plus d'informations sur l'utilisation d'Azure PowerShell lors du déploiement de ressources, consultez la rubrique [Utilisation d'Azure PowerShell avec Azure Resource Manager](./powershell-azure-resource-manager.md).
-- Si vous n'avez jamais utilisé Azure CLI pour le déploiement de ressources, consultez [Utilisation d'Azure CLI pour Mac, Linux et Windows avec Azure Resource Management](./xplat-cli-azure-resource-manager.md).
-- Pour plus d'informations sur l'utilisation du portail en version préliminaire, consultez [Utilisation du portail Azure en version préliminaire pour gérer vos ressources Azure](./resource-group-portal.md).  
+- Pour plus d’informations sur l’utilisation d’Azure PowerShell pendant le déploiement de ressources, consultez [Utilisation d’Azure PowerShell avec Azure Resource Manager](./powershell-azure-resource-manager.md).
+- Si vous n’avez jamais utilisé Azure CLI pour le déploiement de ressources, consultez [Utilisation d’Azure CLI pour Mac, Linux et Windows avec Azure Resource Management](./xplat-cli-azure-resource-manager.md).
+- Pour plus d’informations sur l’utilisation du portail en version préliminaire, consultez [Utilisation du portail Azure en version préliminaire pour gérer vos ressources Azure](./resource-group-portal.md).  
   
 
   
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO2-->

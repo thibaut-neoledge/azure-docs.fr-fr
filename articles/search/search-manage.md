@@ -14,7 +14,7 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="07/08/2015" 
+	ms.date="09/08/2015" 
 	ms.author="heidist"/>
 
 # Gestion de votre service Search sur Microsoft Azure
@@ -36,7 +36,7 @@ La recherche standard est facturable, car vous bénéficiez d'une infrastructure
 
 Pour planifier la capacité nécessaire et comprendre l'impact de la facturation, nous vous recommandons les liens suivants :
 
-+	[Limites et contraintes](http://msdn.microsoft.com/library/dn798934.aspx)
++	[Limites et contraintes](search-limits-quotas-capacity.md)
 +	[Détails de la tarification](http://go.microsoft.com/fwlink/p/?LinkdID=509792)
 
 Quand vous êtes prêt à vous inscrire, consultez [Créer un service Search dans le portail](search-create-service-portal.md).
@@ -100,7 +100,7 @@ Dans cette version préliminaire publique, l'analyse des ressources se limite au
 
 Dans la section Utilisation du tableau de bord des services, vous pouvez déterminer rapidement si les niveaux des ressources de partition sont adaptés à votre application.
 
-L'API du service Search vous permet d'obtenir le nombre de documents et d'index. Des limites strictes sont associées à ces valeurs sur la base du niveau de tarification. Pour plus d'informations, consultez [Limites et contraintes](http://msdn.microsoft.com/library/dn798934.aspx).
+L'API du service Search vous permet d'obtenir le nombre de documents et d'index. Des limites strictes sont associées à ces valeurs sur la base du niveau de tarification. Pour plus d'informations, consultez [Limites et contraintes](search-limits-quotas-capacity.md).
 
 +	[Obtention de statistiques d’index](http://msdn.microsoft.com/library/dn798942.aspx)
 +	[Nombre de documents](http://msdn.microsoft.com/library/dn798924.aspx)
@@ -193,4 +193,4 @@ Les rôles offrent un contrôle d'accès après la création du service. Seuls l
 
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO2-->

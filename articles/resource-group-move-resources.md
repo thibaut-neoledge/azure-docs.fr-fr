@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Déplacer les ressources vers un nouveau groupe de ressources"
-	description="Utilisez Azure PowerShell ou une API REST pour déplacer des ressources vers un nouveau groupe de ressources pour Azure Resource Manager."
-	services="azure-resource-manager"
-	documentationCenter=""
-	authors="tfitzmac"
-	manager="wpickett"
+	pageTitle="Déplacer les ressources vers un nouveau groupe de ressources" 
+	description="Utilisez Azure PowerShell ou une API REST pour déplacer des ressources vers un nouveau groupe de ressources pour Azure Resource Manager." 
+	services="azure-resource-manager" 
+	documentationCenter="" 
+	authors="tfitzmac" 
+	manager="wpickett" 
 	editor=""/>
 
 <tags 
-	ms.service="azure-resource-manager"
-	ms.workload="multiple"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/20/2015"
+	ms.service="azure-resource-manager" 
+	ms.workload="multiple" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/08/2015" 
 	ms.author="tomfitz"/>
 
 # Déplacer des ressources vers un nouveau groupe de ressource ou un nouvel abonnement
@@ -39,12 +39,13 @@ Pour l’instant, les services à partir desquels il est possible de déplacer l
 
 - Gestion des API
 - Azure Search
+- Azure Web Apps (certaines [limitations](app-service-web/app-service-move-resources.md) s’appliquent)
 - Data Factory
 - Key Vault
 - Mobile Engagement
 - Operational Insights
 - Cache Redis
-- Azure Web Apps (certaines [limitations](app-service-web/app-service-move-resources.md) s'appliquent)
+- Base de données SQL
 
 Les services qui prennent en charge le déplacement des ressources vers un nouveau groupe de ressources mais pas vers un nouvel abonnement sont les suivants :
 
@@ -82,7 +83,7 @@ Pour déplacer des ressources existantes vers un autre groupe de ressources ou u
 
     POST https://management.azure.com/subscriptions/{source-subscription-id}/resourcegroups/{source-resource-group-name}/moveResources?api-version={api-version} 
 
-Remplacez **{source-subscription-id}** et **{source-resource-group-name}** par l'abonnement et le groupe de ressource qui comportent actuellement les ressources que vous souhaitez déplacer. Utilisez **2015-01-01** pour {api-version}.
+Remplacez **{source-subscription-id}** et **{source-resource-group-name}** par l’abonnement et le groupe de ressource qui comportent actuellement les ressources que vous souhaitez déplacer. Utilisez **2015-01-01** pour {api-version}.
 
 Dans la requête, incluez un objet JSON qui définit le groupe de ressources cible et les ressources que vous souhaitez déplacer.
 
@@ -101,4 +102,4 @@ Dans la requête, incluez un objet JSON qui définit le groupe de ressources ci
 - [Utilisation du portail Azure en version préliminaire pour gérer les ressources Azure](azure-portal/resource-group-portal.md)
 - [Organisation des ressources Azure à l’aide de balises](./resource-group-using-tags.md)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO2-->

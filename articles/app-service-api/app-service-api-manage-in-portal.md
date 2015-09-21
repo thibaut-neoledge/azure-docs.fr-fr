@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Gérer les applications API"
-	description="Découvrez comment gérer des applications API Microsoft Azure App Service en utilisant le portail Azure et l’Explorateur de serveurs de Visual Studio."
-	services="app-service\api"
-	documentationCenter=""
-	authors="tdykstra"
-	manager="wpickett"
+	pageTitle="Gérer les applications API" 
+	description="Découvrez comment gérer des applications API Microsoft Azure App Service en utilisant le portail Azure et l’Explorateur de serveurs de Visual Studio." 
+	services="app-service\api" 
+	documentationCenter="" 
+	authors="tdykstra" 
+	manager="wpickett" 
 	editor="jimbe"/>
 
 <tags 
-	ms.service="app-service-api"
-	ms.workload="web"
-	ms.tgt_pltfrm="na"
+	ms.service="app-service-api" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
 	ms.devlang="na"
-	ms.topic="article"
-	ms.date="06/17/2015"
+	ms.topic="article" 
+	ms.date="09/08/2015" 
 	ms.author="tdykstra"/>
 
 # Gérer des applications web dans Azure App Service
@@ -134,4 +134,4 @@ Cet article vous a montré comment utiliser le portail Azure pour effectuer des 
 
 Pour en savoir plus sur la gestion des applications API via la ligne de commande, consultez les articles de la section **Automatiser** du menu affiché à gauche de l’article (sur les fenêtres de navigation agrandies) ou sur sa partie supérieure (sur les fenêtres de navigation réduites).
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO2-->

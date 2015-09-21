@@ -98,7 +98,7 @@ La recherche standard commence avec un réplica et une partition, mais elle peut
 
 Les réplicas et les partitions supplémentaires sont facturés en unités de recherche. Le nombre total d'unités de recherche requises pour prendre en charge une configuration de ressource particulière s'affiche sur la page, à mesure que vous ajoutez des ressources.
 
-Vous pouvez consulter les [Informations de tarification](http://go.microsoft.com/fwlink/p/?LinkID=509792) pour obtenir les informations de facturation par unité. Consultez [Limites et contraintes](http://msdn.microsoft.com/library/azure/dn798934.aspx) pour savoir comment configurer des combinaisons de partitions et de réplicas.
+Vous pouvez consulter les [Informations de tarification](http://go.microsoft.com/fwlink/p/?LinkID=509792) pour obtenir les informations de facturation par unité. Consultez [Limites et contraintes](search-limits-quotas-capacity.md) pour savoir comment configurer des combinaisons de partitions et de réplicas.
 
  ![][15]
 
@@ -334,7 +334,7 @@ Vous êtes prêt à passer à l'étape suivante ? Les liens suivants fournissen
 
 - [Présentation d’Azure Storage](search-what-is-azure-search.md)
 
-- [API REST Azure Search](http://msdn.microsoft.com/library/dn798935.aspx)
+- [API REST de service Azure Search](http://msdn.microsoft.com/library/dn798935.aspx)
 
 - [Kit de développement logiciel .NET (SDK) Azure Search](https://msdn.microsoft.com/library/azure/dn951165.aspx)
 
@@ -378,4 +378,4 @@ Vous êtes prêt à passer à l'étape suivante ? Les liens suivants fournissen
 [Create your first azure search solution]: search-create-first-solution.md
 [Create a geospatial search app using Azure Search]: search-create-geospatial.md
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

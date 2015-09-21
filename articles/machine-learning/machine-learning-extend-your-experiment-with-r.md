@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/29/2015"
+	ms.date="09/03/2015"
 	ms.author="garye" />
 
 
-#Prolongez votre expérience avec R 
+#Prolongez votre expérience avec R
 
 Vous pouvez étendre les fonctionnalités de ML Studio grâce au langage R en utilisant le module [Exécuter le script R][execute-r-script].
 
@@ -501,6 +501,5 @@ Pour obtenir la liste complète des packages actuellement disponibles, consultez
 <!-- Module References -->
 [execute-r-script]: https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/
 [convert-to-csv]: https://msdn.microsoft.com/library/azure/faa6ba63-383c-4086-ba58-7abf26b85814/
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

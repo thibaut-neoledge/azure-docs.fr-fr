@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/16/2015" 
+	ms.date="09/10/2015" 
 	ms.author="sdanie"/>
 
 # Configuration des notifications et des modèles de messages électroniques dans Gestion des API Azure
@@ -114,4 +114,4 @@ Cliquez sur **Aperçu** ou **Envoyer un test** pour voir à quoi ressemble le me
 [Prise en main de Gestion des API Azure]: api-management-get-started.md
 [Création d'une instance de service Gestion des API]: api-management-get-started.md#create-service-instance
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

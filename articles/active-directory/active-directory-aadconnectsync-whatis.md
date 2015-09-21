@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/27/2015"
+	ms.date="09/08/2015"
 	ms.author="markusvi;andkjell"/>
 
 
@@ -34,9 +34,10 @@ Que voulez-vous faire ensuite ? :
 - Si vous souhaitez en savoir plus sur la synchronisation de mot de passe, consultez la section [Implémenter la synchronisation de mot de passe](active-directory-aadconnectsync-implement-password-synchronization.md).
 - Si vous voulez en savoir plus sur les utilisateurs et les contacts dans Azure AD Connect Sync, consultez [Présentation des utilisateurs et des contacts](active-directory-aadconnectsync-understanding-users-and-contacts.md).
 - Si vous voulez changer la configuration par défaut, consultez [Meilleures pratiques pour la modification de la configuration par défaut](active-directory-aadconnectsync-best-practices-changing-default-configuration.md)
-- Si vous voulez examiner les attributs qui sont synchronisés avec Azure AD, consultez [Attributs synchronisés avec Azure Active Directory](active-directory-aadconnectsync-attributes-synchronized.md)
-- Si vous souhaitez en savoir plus sur la configuration déclarative, consultez la section [Comprendre les expressions d’approvisionnement déclaratives](active-directory-aadconnectsync-understanding-declarative-provisioning-expressions.md)
-- Pour explorer les fonctions de configuration déclaratives, consultez la section [Référence aux fonctions](active-directory-aadconnectsync-functions-reference.md)
+- Pour plus d’informations sur la façon de faire fonctionner le serveur de synchronisation, consultez [Tâches opérationnelles et considérations](active-directory-aadconnectsync-operations.md).
+- Si vous voulez examiner les attributs qui sont synchronisés avec Azure AD, consultez [Attributs synchronisés avec Azure Active Directory](active-directory-aadconnectsync-attributes-synchronized.md).
+- Si vous souhaitez en savoir plus sur la configuration déclarative, consultez la section [Comprendre les expressions d’approvisionnement déclaratives](active-directory-aadconnectsync-understanding-declarative-provisioning-expressions.md).
+- Pour explorer les fonctions d’approvisionnement déclaratives, consultez la section [Référence aux fonctions](active-directory-aadconnectsync-functions-reference.md)
 
 
 
@@ -48,4 +49,4 @@ Que voulez-vous faire ensuite ? :
 
 <!--Image references-->
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO2-->

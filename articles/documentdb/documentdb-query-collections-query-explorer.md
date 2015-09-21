@@ -7,16 +7,14 @@
 	editor="monicar" 
 	documentationCenter=""/>
 
-
 <tags 
 	ms.service="documentdb" 
 	ms.workload="data-services" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article"
-	ms.date="06/10/2015" 
+	ms.date="09/08/2015" 
 	ms.author="stbaro"/>
-
 
 # Création, modification et exécution de requêtes SQL dans le cadre d'une collection DocumentDB à l'aide de l'Explorateur de requête. #
 
@@ -80,4 +78,4 @@ L'Explorateur de requête vous permet de créer, de modifier et d'exécuter faci
 - Pour en savoir plus sur la syntaxe du langage SQL DocumentDB prise en charge par l’Explorateur de requête, cliquez [ici](documentdb-sql-query.md).
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

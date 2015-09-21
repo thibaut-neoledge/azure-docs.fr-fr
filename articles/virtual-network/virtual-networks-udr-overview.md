@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="06/09/2015"
+   ms.date="09/04/2015"
    ms.author="telmos" />
 
 # Itinéraires définis par l’utilisateur et transfert IP
@@ -90,4 +90,4 @@ Pour savoir comment activer le transfert IP pour une machine virtuelle dans Mic
 - Découvrez comment [créer des routes](../virtual-networks-udr-how-to#How-to-manage-routes) et les associer à des sous-réseaux.
 - Découvrez comment [activer le transfert IP](../virtual-networks-udr-how-to#How-to-Manage-IP-Forwarding) pour une machine virtuelle exécutant une appliance virtuelle. 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

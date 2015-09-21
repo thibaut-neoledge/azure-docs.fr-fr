@@ -1,25 +1,25 @@
 <properties 
    pageTitle="Création et déploiement de projets de déploiement de groupe de ressources Azure"
-	description="Création et déploiement de projets de déploiement de groupe de ressources Azure"
-	services="visual-studio-online"
-	documentationCenter="na"
-	authors="kempb"
-	manager="douge"
-	editor="tlee"/>
+   description="Création et déploiement de projets de déploiement de groupe de ressources Azure"
+   services="visual-studio-online"
+   documentationCenter="na"
+   authors="kempb"
+   manager="douge"
+   editor="tlee" />
 <tags 
    ms.service="azure-resource-manager"
-	ms.devlang="multiple"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="na"
-	ms.date="08/24/2015"
-	ms.author="kempb"/>
+   ms.devlang="multiple"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="na"
+   ms.date="08/24/2015"
+   ms.author="kempb" />
 
 # Création et déploiement de projets de déploiement de groupe de ressources Azure
 
 Le modèle de projet de déploiement de **groupe de ressources Azure** est disponible dans Visual Studio si le Kit de développement logiciel (SDK) Azure 2.6 est installé. Les projets de groupe de ressources Azure vous permettent de regrouper et de publier plusieurs ressources Azure connexes dans une même opération de déploiement. Les projets de groupe de ressources Azure utilisent une technologie appelée **Azure Resource Manager** pour leur mise en œuvre. **Azure Resource Manager** est un service d'API REST permettant de définir des groupes de ressources Azure qui contiennent plusieurs ressources Azure généralement utilisées ensemble et dont le cycle de vie est similaire. À l'aide des groupes de ressources, vous pouvez utiliser toutes les ressources d'un groupe avec un seul appel de fonction, au lieu d'appeler différentes fonctions pour chaque ressource. Pour plus d'informations sur les groupes de ressources Azure, consultez [Utilisation du portail Azure en version préliminaire pour gérer vos ressources Azure](./azure-portal/azure-preview-portal-using-resource-groups/).
 
-Les projets de groupe de ressources Azure contiennent des modèles JSON Azure Resource Manager, qui définissent les éléments déployés dans un groupe de ressources. Pour plus d'informations, consultez [Langue du modèle Azure Resource Manager](https://msdn.microsoft.com/library/azure/dn835138.aspx).
+Les projets de groupe de ressources Azure contiennent des modèles JSON Azure Resource Manager, qui définissent les éléments déployés dans un groupe de ressources. Pour plus d’informations, consultez [Langue du modèle Azure Resource Manager](resource-group-authoring-templates.md).
 
 Azure Resource Manager intègre différents fournisseurs de ressources permettant de déployer des ressources telles qu'Ubuntu Server et Windows Server 2012 R2. Cette rubrique utilise une ressource nommée **Web Apps**, qui déploie un site Web de base vide dans Azure.
 
@@ -85,7 +85,7 @@ Lorsque vous déployez un projet de groupe de ressources Azure, faites-le dans u
 
     ![Boîte de dialogue Déployer vers le groupe de ressources](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/IC796673.png)
 
-1. Dans la zone de liste déroulante **Groupe de ressources**, sélectionnez un groupe de ressources existant ou créez-en un. Pour créer un groupe de ressources, ouvrez la zone de liste déroulante **Groupe de ressources** et sélectionnez **<Create New...>**.
+1. Choisissez le groupe de ressources dans la zone de liste déroulante **Groupe de ressources**, ou créez-en un. Pour créer un groupe de ressources, ouvrez la zone de liste déroulante **Groupe de ressources**, puis choisissez **<Create New...>**.
 
     La boîte de dialogue **Créer un groupe de ressources** s'affiche.
 
@@ -195,4 +195,4 @@ Des ajustements ont été également apportés à un certain nombre de noms de v
 
 Pour savoir comment ajouter des ressources à votre groupe de ressources Azure dans Visual Studio, consultez la rubrique [Ajout de ressources à un groupe de ressources Azure](https://msdn.microsoft.com/library/azure/mt125415.aspx).
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

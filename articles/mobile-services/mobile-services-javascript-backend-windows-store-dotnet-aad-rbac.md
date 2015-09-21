@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Contrôle d&#39;accès en fonction du rôle dans Mobile Services et Azure Active Directory (Windows Store) | Microsoft Azure" 
-	description="Découvrez comment contrôler l&#39;accès en fonction des rôles Azure Active Directory dans votre application Windows Store." 
+	pageTitle="Contrôle d’accès en fonction du rôle dans Mobile Services à l’aide de JavaScript et d’Azure Active Directory (Windows Store) | Microsoft Azure" 
+	description="Découvrez comment contrôler l’accès en fonction des rôles Azure Active Directory dans votre application Windows Store à l’aide d’un service mobile avec un backend JavaScript." 
 	documentationCenter="windows" 
 	authors="wesmc7777" 
 	manager="dwrede" 
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="mobile-windows-store" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="06/15/2015" 
+	ms.date="09/03/2015" 
 	ms.author="wesmc"/>
 
-# Contrôle d'accès en fonction du rôle dans Mobile Services et Azure Active Directory
+# Contrôle d’accès en fonction du rôle dans Mobile Services à l’aide de .NET et d’Azure Active Directory
 
 [AZURE.INCLUDE [mobile-services-selector-rbac](../../includes/mobile-services-selector-rbac.md)]
 
@@ -24,7 +24,7 @@
 
 Le contrôle d'accès en fonction du rôle (RBAC) consiste à affecter des autorisations aux différents rôles assumés par vos utilisateurs, afin de définir des limites en fonction des appartenances. Ce didacticiel vous montre comment ajouter le contrôle RBAC de base à Azure Mobile Services.
 
-Ce didacticiel présente le contrôle d'accès en fonction du rôle, qui contrôle l'appartenance de chaque utilisateur à un groupe Sales (Ventes) défini dans Azure Active Directory (AAD). Le contrôle sera effectué avec le projet de backend JavaScript à l'aide de l'[API Graph] pour Azure Active Directory. Seuls les utilisateurs appartenant au rôle Sales seront autorisés à accéder aux données.
+Ce didacticiel présente le contrôle d'accès en fonction du rôle, qui contrôle l'appartenance de chaque utilisateur à un groupe Sales (Ventes) défini dans Azure Active Directory (AAD). Le contrôle est effectué avec JavaScript dans le backend de service mobile à l’aide de l’[API Graph] pour Azure Active Directory. Seuls les utilisateurs appartenant au rôle Sales seront autorisés à accéder aux données.
 
 
 >[AZURE.NOTE]L'objectif de ce didacticiel est d'approfondir vos connaissances sur l'authentification pour inclure des pratiques d'autorisation. Vous devez donc au préalable avoir suivi le didacticiel [Ajout de l'authentification à votre application Mobile Service] avec le fournisseur d'authentification Azure Active Directory. Ce didacticiel continue de mettre à jour l'application TodoItem utilisée dans le didacticiel [Ajout de l'authentification à votre application Mobile Service].
@@ -286,4 +286,4 @@ La procédure suivante montre comment déployer un contrôle d'accès en fonctio
 [IsMemberOf]: http://msdn.microsoft.com/library/azure/dn151601.aspx
 [Accès aux informations Azure Active Directory Graph]: mobile-services-javascript-backend-windows-store-dotnet-aad-graph-info.md
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO2-->

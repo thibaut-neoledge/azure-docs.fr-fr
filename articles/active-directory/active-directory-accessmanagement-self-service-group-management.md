@@ -3,8 +3,8 @@
 	description="Une rubrique qui explique comment gérer les mots de passe dans Azure AD."
 	services="active-directory"
 	documentationCenter=""
-	authors="femila"
-	manager="swadhwa"
+    authors="femila"
+	manager="swadhwa" 
 	editor=""
 	tags="azure-classic-portal"/>
 
@@ -19,7 +19,7 @@
 
 #Configuration d’Azure AD pour gérer l’accès aux applications en libre-service
 
-La gestion de groupes en libre-service permet aux utilisateurs de créer et de gérer des groupes de sécurité dans Microsoft Azure Active Directory (AD). Elle leur offre aussi la possibilité de faire une demande d’appartenance à un groupe de sécurité, laquelle peut être approuvée ou refusée par le propriétaire du groupe. Grâce aux fonctionnalités de gestion de groupes en libre-service, le contrôle quotidien de l’appartenance à un groupes peut être délégué à des personnes qui ont une bonne connaissance du contexte professionnel de cette appartenance.
+La gestion de groupes en libre-service permet aux utilisateurs de créer et de gérer des groupes de sécurité dans Microsoft Azure Active Directory (AD). Elle leur offre aussi la possibilité de faire une demande d’appartenance à un groupe de sécurité, laquelle peut être approuvée ou refusée par le propriétaire du groupe. Grâce aux fonctionnalités de gestion de groupes en libre-service, le contrôle quotidien de l’appartenance à un groupes peut être délégué à des personnes qui ont une bonne connaissance du contexte professionnel de cette appartenance. Notez que les fonctionnalités de gestion de groupe libre-service ne sont disponibles que pour les groupes de sécurité et les groupes Office 365 ; elles ne sont pas disponibles pour les groupes de sécurité activés pour la messagerie électronique ou les listes de distribution.
 
 La gestion de groupes en libre-service se compose actuellement de deux scénarios essentiels : la gestion de groupes déléguée et la gestion de groupes en libre-service.
 
@@ -49,4 +49,4 @@ Voici des rubriques qui fournissent des informations supplémentaires sur Azure 
 
 * [Intégration de vos identités locales avec Azure Active Directory](active-directory-aadconnect.md)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO2-->

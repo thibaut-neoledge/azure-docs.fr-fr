@@ -1,19 +1,19 @@
 <properties
    pageTitle="Clonage de votre volume StorSimple | Microsoft Azure"
-	description="Décrit les différents types de clone et les moments auxquels les utiliser et explique comment vous pouvez utiliser un jeu de sauvegarde pour cloner un volume individuel."
-	services="storsimple"
-	documentationCenter="NA"
-	authors="alkohli"
-	manager="carolz"
-	editor=""/>
+   description="Décrit les différents types de clone et les moments auxquels les utiliser et explique comment vous pouvez utiliser un jeu de sauvegarde pour cloner un volume individuel."
+   services="storsimple"
+   documentationCenter="NA"
+   authors="alkohli"
+   manager="carolz"
+   editor="" />
 <tags 
    ms.service="storsimple"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="TBD"
-	ms.date="08/27/2015"
-	ms.author="alkohli"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="TBD"
+   ms.date="08/27/2015"
+   ms.author="alkohli" />
 
 # Utiliser le service StorSimple Manager pour cloner un volume
 
@@ -29,7 +29,7 @@ Ce didacticiel explique comment vous pouvez utiliser un jeu de sauvegarde pour c
 
 Vous pouvez créer un clone sur le même appareil, sur un autre ou même une machine virtuelle à l’aide d’un instantané local ou cloud.
 
-## Clonage d’un volume
+#### Clonage d’un volume
 
 1. Sur la page de service StorSimple Manager, cliquez sur l’onglet **Catalogue de sauvegarde** et sélectionnez un jeu de sauvegarde.
 
@@ -89,4 +89,4 @@ Découvrez comment [restaurer un volume StorSimple à partir d’un jeu de sauve
 
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

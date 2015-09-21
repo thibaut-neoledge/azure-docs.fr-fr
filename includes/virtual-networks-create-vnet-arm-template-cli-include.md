@@ -7,11 +7,16 @@ Pour déployer le modèle ARM téléchargé à l'aide de PowerShell, suivez les 
 
 		azure config mode arm
 
+	Voici le résultat attendu pour la commande ci-dessus :
+
 		info:    New mode is arm
 
-3. Au besoin, exécutez l'applet de commande **azure group create** pour créer un groupe de ressources, comme illustré ci-dessous. Observez le résultat de la commande. La liste affichée après le résultat présente les différents paramètres utilisés. Pour plus d'informations sur les groupes de ressources, consultez la [Présentation d'Azure Resource Manager](resource-group-overview.md/#resource-groups).
+3. Au besoin, exécutez l’applet de commande **azure group create** pour créer un groupe de ressources, comme illustré ci-dessous. Observez le résultat de la commande. La liste affichée après le résultat présente les différents paramètres utilisés. Pour plus d’informations sur les groupes de ressources, consultez la page [Présentation d’Azure Resource Manager](resource-group-overview.md/#resource-groups).
 
 		azure group create -n TestRG -l centralus
+
+	Voici le résultat attendu pour la commande ci-dessus :
+
 		info:    Executing command group create
 		+ Getting resource group TestRG
 		+ Creating resource group TestRG
@@ -27,9 +32,11 @@ Pour déployer le modèle ARM téléchargé à l'aide de PowerShell, suivez les 
 	- **-n (ou --name)**. Nom du nouveau groupe de ressources. Pour notre scénario, *TestRG*.
 	- **-l (ou --location)**. Région Azure où le nouveau groupe de ressources sera créé. Pour notre scénario, *centralus*.
 
-4. Exécutez l'applet de commande **azure group deployment create** pour déployer le nouveau réseau virtuel à l'aide du modèle et des fichiers de paramètres que vous avez téléchargés et modifiés plus haut. La liste affichée après le résultat présente les différents paramètres utilisés.
+4. Exécutez l’applet de commande **azure group deployment create** pour déployer le nouveau réseau virtuel à l’aide du modèle et des fichiers de paramètres que vous avez téléchargés et modifiés plus haut. La liste affichée après le résultat présente les différents paramètres utilisés.
 
 		azure group deployment create -g TestRG -n TestVNetDeployment -f C:\ARM\azuredeploy.json -e C:\ARM\azuredeploy-parameters.json
+
+	Voici le résultat attendu pour la commande ci-dessus :
 
 		info:    Executing command group deployment create
 		+ Initializing template configurations and parameters
@@ -62,6 +69,8 @@ Pour déployer le modèle ARM téléchargé à l'aide de PowerShell, suivez les 
 
 		azure network vnet show -g TestRG -n TestVNet
 
+	Voici le résultat attendu pour la commande ci-dessus :
+
 		info:    Executing command network vnet show
 		+ Looking up virtual network "TestVNet"
 		data:    Id                              : /subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet
@@ -80,4 +89,4 @@ Pour déployer le modèle ARM téléchargé à l'aide de PowerShell, suivez les 
 		data:
 		info:    network vnet show command OK
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO2-->

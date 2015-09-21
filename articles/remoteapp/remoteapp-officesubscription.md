@@ -1,20 +1,20 @@
 
 <properties 
-    pageTitle="Utilisation de votre abonnement Office 365 avec Azure RemoteApp"
+    pageTitle="Utilisation de votre abonnement Office 365 avec Azure RemoteApp | Microsoft Azure"
 	description="Découvrez comment vous pouvez utiliser votre abonnement Office 365 dans Azure RemoteApp pour partager des applications Office."
 	services="remoteapp"
-	documentationCenter=""
-	authors="lizap"
-	manager="mbaldwin"/>
+	documentationCenter="" 
+	authors="lizap" 
+	manager="mbaldwin" />
 
 <tags 
-    ms.service="remoteapp"
-	ms.workload="compute"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/02/2015"
-	ms.author="elizapo"/>
+    ms.service="remoteapp" 
+    ms.workload="compute" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="09/09/2015" 
+    ms.author="elizapo" />
 
 
 
@@ -36,6 +36,8 @@ Quels plans Office 365 incluent Office 365 ProPlus ? Consultez le tableau [D
 
 Chaque licence utilisateur pour Office 365 ProPlus permet à un seul utilisateur d’activer des applications Office sur 5 ordinateurs, tablettes et téléphones maximum. Chaque activation est enregistrée pour l’utilisateur jusqu’à ce qu’il désactive Office sur l’appareil. (Les utilisateurs peuvent gérer leurs appareils dans le [portail Office 365](https://portal.office365.com/).)
 
+Avec Azure RemoteApp, un même utilisateur peut se connecter à plusieurs ordinateurs le même jour sans s’en rendre compte. En effet, le service gère et met à l’échelle automatiquement les ressources du cloud, tandis que l’utilisateur ne voit que les applications et les programmes que vous avez partagés. Pour ce scénario, Office 365 ProPlus offre un mode d’activation d’ordinateur partagé : cela signifie que l’utilisateur n’a pas besoin d’effectuer de gestion de licences pour accéder à ces ressources et que les applications peuvent être activées sur un nombre d’ordinateurs individuels supérieur à la limite de 5 ordinateurs.
+
 Tant que vous (l’administrateur) affectez des licences Office 365 ProPlus à vos utilisateurs, ceux-ci peuvent utiliser Office sur leurs appareils personnels, ainsi que par le biais de votre collection Azure RemoteApp.
 
 ## Quelles applications Office puis-je utiliser avec Office 365 et Azure RemoteApp ?
@@ -52,7 +54,7 @@ Vous n’êtes pas obligé d’acquérir des licences pour ces programmes si vou
 
 Maintenant que vous connaissez les informations relatives aux licences Office 365, nous allons vous aider à commencer à utiliser ces licences dans Azure RemoteApp. C’est très simple :
 
-Lorsque vous créez votre collection Azure RemoteApp, utilisez l’image **Office 365 ProPlus (abonnement requis)**.
+Quand vous créez votre collection Azure RemoteApp, utilisez l’image **Office 365 ProPlus (abonnement requis)**.
 
 ![Image Azure RemoteApp avec Office 365 ProPlus](./media/remoteapp-officesubscription/remoteapp-officeimage.png)
 
@@ -115,4 +117,4 @@ Vous avez besoin de plus d’informations sur l’utilisation de l’outil Dépl
 - [Déploiement et mise à jour d’Office 365 ProPlus à l’aide de l’outil Déploiement d’Office](https://channel9.msdn.com/Events/Ignite/2015/BRK3168) (vidéo en anglais)
 - [Définir les paramètres de mise à jour pour Office 365 ProPlus](https://technet.microsoft.com/library/dn761708.aspx)
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

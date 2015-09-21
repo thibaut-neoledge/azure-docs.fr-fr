@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/11/2015"  
+	ms.date="09/07/2015" 
 	ms.author="juliako"/>
 
 
@@ -24,7 +24,7 @@
 - [REST](media-services-rest-get-media-processor.md)
  
 
-##Vue d'ensemble
+##Vue d’ensemble
 
 Dans Media Services, un processeur multimédia est un composant qui gère une tâche de traitement spécifique, telle que l’encodage, la conversion de format, le chiffrement ou le déchiffrement de contenu multimédia. Le plus souvent, vous devez créer un processeur multimédia lorsque vous créez une tâche visant à encoder, à chiffrer ou à convertir le format du contenu multimédia.
 
@@ -43,7 +43,7 @@ Microsoft Azure Media Encryptor|Vous permet de chiffrer des éléments multiméd
 
 ##Obtention de MediaProcessor
 
-La méthode suivante montre comment obtenir une instance de processeur multimédia. L’exemple de code implique l’utilisation d’une variable au niveau du module, nommée \*\*\_context\*\*, pour conserver une référence au contexte, tel que décrit dans la section [Procédure : se connecter à Media Services par programme].
+La méthode suivante montre comment obtenir une instance de processeur multimédia. L’exemple de code implique l’utilisation d’une variable au niveau du module, nommée **\_context**, pour conserver une référence au contexte, tel que décrit dans la section [Procédure : se connecter à Media Services par programme].
 
 	private static IMediaProcessor GetLatestMediaProcessorByName(string mediaProcessorName)
 	{
@@ -56,6 +56,15 @@ La méthode suivante montre comment obtenir une instance de processeur multiméd
 	    return processor;
 	}
 
+
+##Parcours d’apprentissage de Media Services
+
+Vous pouvez afficher les parcours d’apprentissage d’AMS ici :
+
+- [Workflow en flux continu AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [Workflow de streaming à la demande AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+
+
 ##Étapes suivantes
 Maintenant que vous savez comment obtenir une instance de processeur multimédia, consultez la rubrique [Encodage d'un élément multimédia][] pour savoir comment utiliser l'Encodeur multimédia Azure afin d'encoder un élément multimédia.
 
@@ -63,4 +72,4 @@ Maintenant que vous savez comment obtenir une instance de processeur multimédia
 [Task Preset Strings for the Azure Media Encoder]: http://msdn.microsoft.com/library/jj129582.aspx
 [Procédure : se connecter à Media Services par programme]: ../media-services-set-up-computer/
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO2-->

@@ -1,20 +1,20 @@
-<properties 
+<properties
    pageTitle="Microsoft Azure AD Connect : mise à niveau à partir de l’outil de synchronisation Windows Azure AD (synchronisation d’annuaires)"
-	description="Découvrez comment mettre à niveau la synchronisation d’annuaires vers Azure AD Connect. Cet article décrit les étapes de la mise à niveau de votre outil de synchronisation Windows Azure AD (synchronisation d’annuaires) vers Azure AD Connect."
-	services="active-directory"
-	documentationCenter=""
-	authors="shoatman"
-	manager="terrylanfear"
-	editor="billmath"/>
+   description="Découvrez comment mettre à niveau la synchronisation d’annuaires vers Azure AD Connect. Cet article décrit les étapes de la mise à niveau de votre outil de synchronisation Windows Azure AD (synchronisation d’annuaires) vers Azure AD Connect."
+   services="active-directory"
+   documentationCenter=""
+   authors="shoatman"
+   manager="terrylanfear"
+   editor="billmath"/>
 
-<tags 
+<tags
    ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="05/26/2015"
-	ms.author="shoatman"/>
+   ms.workload="identity"
+   ms.tgt_pltfrm="na"
+   ms.devlang="na"
+   ms.topic="article"
+   ms.date="09/02/2015" 
+   ms.author="shoatman"/>
 
 # Mise à niveau de la synchronisation Windows Azure Active Directory (synchronisation d’annuaires) vers Azure Active Directory Connect
 
@@ -143,7 +143,7 @@ Consultez ces options dans l’interface utilisateur :
 
 ![Entrez vos informations d’identification Azure AD.](./media/active-directory-aadconnect-dirsync-upgrade-get-started/advancedsettings.png)
 
-7. Cliquez sur Suivant. 
+7. Cliquez sur Suivant.
 8. Sur la page « Prêt à configurer », laissez la case « Démarrer le processus de synchronisation dès que la configuration est terminée » cochée.[AZURE.NOTE]La synchronisation entre Windows Server Active Directory et Azure Active Directory commence mais aucune modification n'est exportée vers Azure AD. Les modifications ne peuvent être exportées activement que par un seul outil de synchronisation à la fois.
 9. Cliquez sur Installer.
 
@@ -204,6 +204,5 @@ Voici une liste de prérequis et de composants de prise en charge qu’Azure AD
 * [Étapes suivantes d’Azure AD Connect](active-directory-aadconnect-whats-next.md)
 * [En savoir plus](active-directory-aadconnect-learn-more.md)
 * [Azure AD Connect sur MSDN](active-directory-aadconnect.md)
- 
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO2-->

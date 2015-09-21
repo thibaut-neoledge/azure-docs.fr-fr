@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Prise en main d’Azure Notification Hubs | Microsoft Azure"
+	pageTitle="Prendre en main Azure Notification Hubs pour les applications Windows Store | Microsoft Azure"
 	description="Ce didacticiel vous apprend à utiliser Azure Notification Hubs pour envoyer des notifications Push vers une application Windows Store ou Windows Phone 8.1 (non-Silverlight)."
 	services="notification-hubs"
 	documentationCenter="windows"
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="08/24/2015"
+	ms.date="09/03/2015"
 	ms.author="wesmc"/>
 
-# Prise en main de Notification Hubs
+# Prise en main de Notification Hubs pour les applications Windows Store
 
 [AZURE.INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
 
@@ -82,7 +82,7 @@ Pour envoyer des notifications Push vers des applications Windows Store, vous de
 
  	> [AZURE.WARNING]La clé secrète client et le SID du package sont des informations d'identification de sécurité importantes. Ne partagez pas ces valeurs avec quiconque et ne les distribuez pas avec votre application.
 
-##Configuration de votre concentrateur de notification
+##Configuration de votre hub de notification
 
 1. Connectez-vous au [portail Azure], puis cliquez sur **NOUVEAU** en haut de la page.
 
@@ -264,4 +264,4 @@ Dans cet exemple simple, vous avez envoyé des notifications à tous vos apparei
 [catalogue de vignettes]: http://msdn.microsoft.com/library/windows/apps/hh761491.aspx
 [vue d'ensemble des badges]: http://msdn.microsoft.com/library/windows/apps/hh779719.aspx
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

@@ -1,0 +1,48 @@
+<properties 
+	pageTitle="Exécution d'une tâche | Microsoft Azure" 
+	description="Segment du parcours d'apprentissage Exécution d'une tâche."
+	documentationCenter=""
+	services="stream-analytics"
+	authors="jeffstokes72" 
+	manager="paulettm" 
+	editor="cgronlun"/>
+
+<tags 
+	ms.service="stream-analytics" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.tgt_pltfrm="na" 
+	ms.workload="data-services" 
+	ms.date="09/09/2015" 
+	ms.author="jeffstok"/>
+
+# Exécution d'une tâche
+
+Lorsque l'entrée, la requête et la sortie d'une tâche ont été spécifiées, vous pouvez démarrer la tâche Stream Analytics.
+
+Pour démarrer la tâche :
+
+1.	Dans le Tableau de bord de la tâche, cliquez sur le bouton Démarrer au bas de la page.
+
+    ![Bouton Démarrer](./media/stream-analytics-run-a-job/1-stream-analytics-run-a-job.png)
+
+2.	Dans la boîte de dialogue qui s'affiche, spécifiez une valeur **Démarrer la sortie** pour déterminer quand cette tâche commencera à générer une sortie. Le paramètre par défaut pour les tâches qui n'ont jamais été démarrées est **Heure de début de la tâche**, ce qui signifie que la tâche commence immédiatement à traiter les données. Vous pouvez également spécifier une heure **personnalisée** dans le passé (pour l'utilisation des données historiques) ou dans le futur (pour retarder le traitement jusqu'à une date ultérieure). Dans les cas où une tâche a déjà été démarrée, puis arrêtée, l'option **Heure du dernier arrêt** est disponible pour reprendre la tâche à partir de la dernière heure de sortie et éviter toute perte de données.
+
+    ![Heure de début](./media/stream-analytics-run-a-job/2-stream-analytics-run-a-job.png)
+
+3.	Cliquez sur le bouton de vérification en bas de la boîte de dialogue. L'état de la tâche passe à Démarrage, puis à En cours d'exécution une fois la tâche démarrée. Vous pouvez surveiller la progression de l'opération de démarrage dans le concentrateur de notifications :
+
+    ![Progression](./media/stream-analytics-run-a-job/3-stream-analytics-run-a-job.png)
+
+## Obtenir de l'aide
+Pour obtenir une assistance, essayez notre [forum Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/fr-FR/home?forum=AzureStreamAnalytics)
+
+## Étapes suivantes
+
+- [Présentation d'Azure Stream Analytics](stream-analytics-introduction.md)
+- [Prise en main d'Azure Stream Analytics](stream-analytics-get-started.md)
+- [Mise à l'échelle des travaux Azure Stream Analytics](stream-analytics-scale-jobs.md)
+- [Références sur le langage des requêtes d'Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+- [Références sur l’API REST de gestion d’Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+
+<!---HONumber=Sept15_HO2-->

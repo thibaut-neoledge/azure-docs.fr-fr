@@ -7,16 +7,14 @@
 	manager="adinah" 
 	editor=""/>
 
-
 <tags 
 	ms.service="storage" 
 	ms.workload="storage" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/18/2015" 
+	ms.date="09/03/2015" 
 	ms.author="tamram"/>
-
 
 
 # Configuration d’un nom de domaine personnalisé pour des données d’objets blob dans un compte de stockage Azure
@@ -119,4 +117,4 @@ Vous pouvez par exemple utiliser l'URI suivant pour accéder à un formulaire W
 -   <a href="http://msdn.microsoft.com/library/azure/gg680307.aspx">Mappage du contenu CDN à un domaine personnalisé</a>
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

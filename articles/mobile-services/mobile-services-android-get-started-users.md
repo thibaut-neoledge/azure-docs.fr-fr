@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Prise en main de l'authentification (Android) | Microsoft Azure"
-	description="Découvrez comment utiliser Mobile Services pour authentifier les utilisateurs de votre application Android via divers fournisseurs d'identité, notamment Google, Facebook, Twitter et Microsoft."
+	pageTitle="Prendre en main l’authentification sur Android (backend JavaScript) | Microsoft Azure"
+	description="Découvrez comment utiliser Mobile Services pour authentifier les utilisateurs de votre application Android via divers fournisseurs d’identité, notamment Google, Facebook, Twitter et Microsoft (backend JavaScript)."
 	services="mobile-services"
 	documentationCenter="android"
 	authors="RickSaling"
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="06/16/2015"
+	ms.date="09/04/2015"
 	ms.author="ricksal"/>
 
-# Ajouter une authentification à votre application Mobile Services Android
+# Ajouter une authentification à votre application Mobile Services Android (backend JavaScript)
 
 [AZURE.INCLUDE [mobile-services-selector-get-started-users](../../includes/mobile-services-selector-get-started-users.md)]
 
@@ -108,4 +108,4 @@ Dans le didacticiel suivant, [Autorisation des utilisateurs avec des scripts], v
 
 [Azure Management Portal]: https://manage.windowsazure.com/
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

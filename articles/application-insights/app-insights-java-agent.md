@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/14/2015" 
+	ms.date="09/09/2015" 
 	ms.author="awills"/>
  
 # Surveiller les dépendances, les exceptions et les temps d’exécution dans les applications web Java
@@ -21,7 +21,11 @@
 
 Si vous avez [instrumenté votre application web Java avec Application Insights][java], vous pouvez utiliser l’agent Java pour obtenir des informations plus détaillées, sans aucune modification de code :
 
-* **Dépendances distantes** : données concernant les appels effectués par votre application par le biais d’un pilote [JDBC](http://docs.oracle.com/javase/7/docs/technotes/guides/jdbc/) comme MySQL, SQL Server, PostgreSQL ou SQLite.
+
+* **Dépendances :** données sur les appels passés par votre application à destination d’autres composants, dont :
+ * **Appels REST** passés via HttpClient, OkHttp et RestTemplate (Spring).
+ * Appels **Redis** passés via le client Jedis. Si l’appel prend plus de 10 s, l’agent récupère également les arguments d’appel.
+ * **[Appels JDBC](http://docs.oracle.com/javase/7/docs/technotes/guides/jdbc/)** : base de données MySQL, SQL Server, PostgreSQL, SQLite, Oracle DB ou Apache Derby. Les appels de « executeBatch » sont pris en charge. Pour MySQL et PostgreSQL, si l’appel prend plus de 10 s, l’agent signale le plan de requête. 
 * **Exceptions interceptées** : données concernant les exceptions gérées par votre code.
 * **Temps d’exécution de la méthode** : données concernant le temps nécessaire pour exécuter des méthodes spécifiques.
 
@@ -54,7 +58,14 @@ Définissez le contenu du fichier xml. Modifiez l’exemple suivant pour inclure
       <Instrumentation>
         
         <!-- Collect remote dependency data -->
-        <BuiltIn enabled="true"/>
+        <BuiltIn enabled="true">
+           <!-- Disable Redis or alter threshold call duration above which arguments will be sent.
+               Defaults: enabled, 10000 ms -->
+           <Jedis enabled="true" thresholdInMS="1000"/>
+           
+           <!-- Set SQL query duration above which query plan will be reported (MySQL, PostgreSQL). Default is 10000 ms. -->
+           <MaxStatementQueryLimitInMS>1000</MaxStatementQueryLimitInMS>
+        </BuiltIn>
 
         <!-- Collect data about caught exceptions 
              and method execution times -->
@@ -83,11 +94,13 @@ Par défaut, `reportExecutionTime` est défini sur true, et `reportCaughtExcepti
 
 ## Visualiser les données
 
-Dans la ressource Application Insights, les temps des dépendances distantes agrégées et d’exécution de la méthode apparaissent [dans la vignette des performances][metrics].
+Dans la ressource Application Insights, les temps des dépendances distantes agrégées et d’exécution de la méthode apparaissent [dans la vignette Performances][metrics].
 
 Pour rechercher des instances individuelles de rapports sur les dépendances, les exceptions et les méthodes, ouvrez [Rechercher][diagnostic].
 
 [En savoir plus sur le diagnostic des problèmes de dépendance](app-insights-dependencies.md#diagnosis).
+
+
 
 ## Des questions ? Des problèmes ?
 
@@ -109,4 +122,4 @@ Pour rechercher des instances individuelles de rapports sur les dépendances, le
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

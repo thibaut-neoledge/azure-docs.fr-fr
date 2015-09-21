@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="08/11/2015" 
+	ms.date="09/07/2015"
 	ms.author="juliako"/>
 
 
@@ -51,7 +51,7 @@ Accept-Language|« en », « es » et ainsi de suite.|Spécifie la langue pr
 Accept-Charset|Type de jeu de caractères comme « UTF-8 »|La valeur par défaut est UTF-8.
 X-HTTP-Method|Méthode HTTP|Permet aux clients ou pare-feu ne prenant pas en charge les méthodes HTTP comme PUT ou DELETE d’utiliser ces méthodes, acheminées via un appel GET.
 Content-Type|Type de contenu|Le type de contenu du corps de la requête dans les demandes PUT ou POST.
-client-request-id|String|Une valeur définie par l’appelant qui identifie la requête donnée. Si spécifiée, cette valeur sera incluse dans le message de réponse comme une méthode de mappage de la requête. <p><p>\*\*Important\*\*<p>Les valeurs doivent être limitées à 2096b (2k).
+client-request-id|String|Une valeur définie par l’appelant qui identifie la requête donnée. Si spécifiée, cette valeur sera incluse dans le message de réponse comme une méthode de mappage de la requête. <p><p>**Important**<p>Les valeurs doivent être limitées à 2096b (2k).
 
 ## En-têtes de réponse HTTP standard pris en charge par Media Services
 
@@ -89,6 +89,16 @@ Pour rendre les entités Media Services plus détectables, l’opération $metad
 Vous devez ajouter « ?api-version=2.x » à la fin de l’URI si vous souhaitez afficher les métadonnées dans un navigateur ou n’incluez pas l’en-tête x-ms-version dans votre requête.
 
 
+
+
+##Parcours d’apprentissage de Media Services
+
+Vous pouvez afficher les parcours d’apprentissage d’AMS ici :
+
+- [Workflow en flux continu AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [Workflow de streaming à la demande AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+
+
 <!-- Anchors. -->
 
 
@@ -99,4 +109,4 @@ Vous devez ajouter « ?api-version=2.x » à la fin de l’URI si vous souhait
 
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO2-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/11/2015" 
+	ms.date="09/07/2015" 
 	ms.author="juliako"/>
 
 
@@ -100,10 +100,19 @@ Enfin, définissez la taille de l'élément vidéo à l'aide de CSS. Dans un env
 
 Pour lire une vidéo, pointez votre navigateur sur le fichier basicPlayback.html et cliquez sur Lire sur le lecteur vidéo affiché.
 
+
+##Parcours d’apprentissage de Media Services
+
+Vous pouvez afficher les parcours d’apprentissage d’AMS ici :
+
+- [Workflow en flux continu AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [Workflow de streaming à la demande AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+
+
 ##Voir aussi
 
 [Développement d'applications de lecteur vidéo](media-services-develop-video-players.md)
 
 [Référentiel dash.js GitHub](https://github.com/Dash-Industry-Forum/dash.js)
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO2-->

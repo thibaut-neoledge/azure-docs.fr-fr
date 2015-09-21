@@ -7,16 +7,14 @@
    manager="timlt"
    editor=""/>
 
-
 <tags
    ms.service="service-fabric"
    ms.devlang="dotnet"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/16/2015"
+   ms.date="09/03/2015"
    ms.author="oanapl"/>
-
 
 # Présentation du contrôle d'intégrité de Service Fabric
 Service Fabric introduit un modèle d'intégrité qui fournit une évaluation et des rapports d'intégrité riches, flexibles et extensibles. Il s'agit d'un contrôle quasiment en temps réel de l'état du cluster et des services qu'il exécute. Vous pouvez facilement obtenir les informations d'intégrité et prendre des mesures pour corriger les problèmes potentiels avant qu'ils ne s'enchaînent et provoquent des pannes massives. Le modèle standard implique que les services envoient des rapports en fonction de leur vue locale et les informations sont agrégées pour fournir une vue globale du cluster.
@@ -100,11 +98,8 @@ Voici un extrait de manifeste de cluster :
 <FabricSettings>
   <Section Name="HealthManager/ClusterHealthPolicy">
     <Parameter Name="ConsiderWarningAsError" Value="False" />
-
     <Parameter Name="MaxPercentUnhealthyApplications" Value="0" />
-
     <Parameter Name="MaxPercentUnhealthyNodes" Value="20" />
-
   </Section>
 </FabricSettings>
 ```
@@ -138,12 +133,10 @@ Voici un extrait de manifeste d'application :
                    MaxPercentUnhealthyServices="0"
                    MaxPercentUnhealthyPartitionsPerService="10"
                    MaxPercentUnhealthyReplicasPerPartition="0"/>
-
             <ServiceTypeHealthPolicy ServiceTypeName="FrontEndServiceType"
                    MaxPercentUnhealthyServices="0"
                    MaxPercentUnhealthyPartitionsPerService="20"
                    MaxPercentUnhealthyReplicasPerPartition="0"/>
-
             <ServiceTypeHealthPolicy ServiceTypeName="BackEndServiceType"
                    MaxPercentUnhealthyServices="20"
                    MaxPercentUnhealthyPartitionsPerService="0"
@@ -343,4 +336,4 @@ Le modèle d'intégrité est très utilisé pour la surveillance et le diagnosti
 [Mise à niveau des applications Service Fabric](service-fabric-application-upgrade.md)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

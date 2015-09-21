@@ -1,6 +1,8 @@
 <properties
+	title="Elastic database Split-Merge tool tutorial"
 	pageTitle="Didacticiel d’outil de fusion et de fractionnement de bases de données élastiques | Microsoft Azure"
 	description="Fractionnement et fusion avec les outils de bases de données élastiques"
+	metaKeywords="elastic database tools, split and merge, Azure SQL Database sharding, elastic scale, splitting and merging elastic databases"
 	services="sql-database" documentationCenter=""  
 	manager="jeffreyg"
 	authors="sidneyh"/>
@@ -100,12 +102,12 @@ Accédez au [portail Azure en version préliminaire](https://portal.azure.com).
 
 ### Mise à jour du fichier de configuration de service
 
-Collez l’empreinte de certificat copiée précédemment dans l’attribut d’empreinte/de valeur des paramètres suivants. Pour le rôle web :
+Collez l’empreinte de certificat copiée précédemment dans l’attribut d’empreinte/de valeur des paramètres suivants. Pour le rôle de travail :
 
     <Setting name="DataEncryptionPrimaryCertificateThumbprint" value="" />
     <Certificate name="DataEncryptionPrimary" thumbprint="" thumbprintAlgorithm="sha1" />
 
-Pour le rôle de travail :
+Pour le rôle web :
 
     <Setting name="AdditionalTrustedRootCertificationAuthorities" value="" />
     <Setting name="AllowedClientCertificateThumbprints" value="" />
@@ -332,4 +334,4 @@ Dans ce cas, vérifiez votre fichier de configuration, notamment le paramètre p
 [5]: ./media/sql-database-elastic-scale-configure-deploy-split-and-merge/storage.png
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO2-->

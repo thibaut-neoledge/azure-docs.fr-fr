@@ -396,7 +396,7 @@ Cette étape termine le didacticiel, mais ne vous arrêtez pas en si bon chemin.
 
 ## Étapes suivantes ##
 
-- Approfondissez vos connaissances grâce aux [vidéos et autres exemples et didacticiels](https://msdn.microsoft.com/library/azure/dn818681.aspx).
+- Approfondissez vos connaissances grâce aux [vidéos et autres exemples et didacticiels](search-video-demo-tutorial-list.md).
 - Découvrez les fonctionnalités et capacités de cette version du SDK Azure Search : [Présentation d’Azure Search](https://msdn.microsoft.com/library/azure/dn798933.aspx).
 - Consultez les [conventions d’affectation de noms](https://msdn.microsoft.com/library/azure/dn857353.aspx) pour apprendre les règles de dénomination des différents objets.
 - Faites connaissance avec les [types de données pris en charge](https://msdn.microsoft.com/library/azure/dn798938.aspx) par Azure Search.
@@ -625,4 +625,4 @@ Hotel.cs :
     }
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

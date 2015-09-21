@@ -1,24 +1,30 @@
 <properties
    pageTitle="Exemple de configuration pour les extensions de machine virtuelle Azure | Microsoft Azure"
-	description="Exemple de configuration pour la création de modèles avec des extensions"
-	services="virtual-machines"
-	documentationCenter=""
-	authors="kundanap"
-	manager="timlt"
-	editor=""/>
+   description="Exemple de configuration pour la création de modèles avec des extensions"
+   services="virtual-machines"
+   documentationCenter=""
+   authors="kundanap"
+   manager="timlt"
+   editor=""/>
 
 <tags
    ms.service="virtual-machines"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="infrastructure-services"
-	ms.date="09/01/2015"
-	ms.author="kundanap"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="infrastructure-services"
+   ms.date="09/01/2015"
+   ms.author="kundanap"/>
 
 # Exemples de configuration d'extension de machine virtuelle Linux Azure.
 
-Cet article fournit un exemple de configuration des extensions de machines virtuelles Azure IaaS Linux. Pour en savoir plus sur ces extensions, cliquez <a href="https://msdn.microsoft.com/fr-FR/library/azure/dn606311.aspx" target="_blank">ici</a>.
+Cet article fournit un exemple de configuration des extensions de machines virtuelles Azure IaaS Linux.
+
+Pour en savoir plus sur ces extensions, cliquez ici : [Présentation des extensions de machine virtuelle Azure](https://msdn.microsoft.com/library/azure/dn606311.aspx).
+
+Pour plus d’informations sur la création de modèles d’extension, cliquez ici : [Création de modèles d’extension](virtual-machines-extensions-authoring-templates.md).
+
+Cet article répertorie les valeurs de configuration attendues pour certaines des extensions Linux.
 
 ## Extrait de l'exemple de modèle pour les extensions de machine virtuelle.
 L'extrait du modèle pour le déploiement des extensions se présente comme suit :
@@ -91,7 +97,7 @@ La suite de cet article fournit des exemples de configurations pour les extensio
         }
 
 ### Extension VM Access (réinitialisation du mot de passe)
-Pour voir le schéma mis à jour, cliquez sur le lien <a href="https://github.com/Azure/azure-linux-extensions/tree/master/VMAccess" target="_blank">ici </a>.
+Pour obtenir le schéma mis à jour, reportez-vous à la [Documentation sur VMAccessForLinux](https://github.com/Azure/azure-linux-extensions/tree/master/VMAccess).
 
         {
           "publisher": "Microsoft.OSTCExtensions",
@@ -107,7 +113,7 @@ Pour voir le schéma mis à jour, cliquez sur le lien <a href="https://github.co
         }
 
 ### Application de correctifs au système d’exploitation
-Pour voir le schéma mis à jour, cliquez sur le lien <a href="https://github.com/Azure/azure-linux-extensions/tree/master/OSPatching" target="_blank">ici </a>.
+Pour obtenir le schéma mis à jour, reportez-vous à la [Documentation sur OSPatching](https://github.com/Azure/azure-linux-extensions/tree/master/OSPatching).
 
         {
         "publisher": "Microsoft.OSTCExtensions",
@@ -132,7 +138,7 @@ Pour voir le schéma mis à jour, cliquez sur le lien <a href="https://github.co
         }
 
 ### Extension Docker
-Pour voir le schéma mis à jour, cliquez sur le lien <a href="https://github.com/Azure/azure-docker-extension/blob/master/README.md#1-configuration-schema" target="_blank">ici </a>.
+Pour obtenir le schéma mis à jour, reportez-vous à la [Documentation sur l’extension Docker](https://github.com/Azure/azure-docker-extension/blob/master/README.md#1-configuration-schema).
 
         {
           "publisher": "Microsoft.Azure.Extensions ",
@@ -155,6 +161,29 @@ Pour voir le schéma mis à jour, cliquez sur le lien <a href="https://github.co
             }
             }
         }
+
+        ### Linux Diagnostics Extension
+        {
+        "storageAccountName": "storage account to receive data",
+        "storageAccountKey": "key of the account",
+        "perfCfg": [
+        {
+            "query": "SELECT PercentAvailableMemory, AvailableMemory, UsedMemory ,PercentUsedSwap FROM SCX_MemoryStatisticalInformation",
+            "table": "LinuxMemory"
+        }
+        ],
+        "fileCfg": [
+        {
+            "file": "/var/log/mysql.err",
+            "table": "mysqlerr"
+        }
+        ]
+        }
+
 Dans les exemples ci-dessus, remplacez le numéro de version par le dernier numéro de version.
 
-<!---HONumber=September15_HO1-->
+Voici un modèle de machine virtuelle complet pour la création d’une machine virtuelle Linux avec une extension :
+
+[Extension de script personnalisé sur une machine virtuelle Linux](https://github.com/Azure/azure-quickstart-templates/blob/b1908e74259da56a92800cace97350af1f1fc32b/mongodb-on-ubuntu/azuredeploy.json/)
+
+<!---HONumber=Sept15_HO2-->

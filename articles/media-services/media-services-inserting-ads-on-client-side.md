@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Insertion de publicités du côté client"
-	description="Cette rubrique montre comment insérer des publicités du côté client."
-	services="media-services"
-	documentationCenter=""
-	authors="juliako"
-	manager="dwrede"
+	pageTitle="Insertion de publicités du côté client" 
+	description="Cette rubrique montre comment insérer des publicités du côté client." 
+	services="media-services" 
+	documentationCenter="" 
+	authors="juliako" 
+	manager="dwrede" 
 	editor=""/>
 
 <tags 
-	ms.service="media-services"
-	ms.workload="media"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/17/2015"
+	ms.service="media-services" 
+	ms.workload="media" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/07/2015" 
 	ms.author="juliako"/>
 
 
@@ -796,9 +796,18 @@ L’exemple ci-dessous montre comment planifier une publicité mi-bande de recou
 	{
 	    [self logFrameworkError];
 	}
+
+
+##Parcours d’apprentissage de Media Services
+
+Vous pouvez afficher les parcours d’apprentissage d’AMS ici :
+
+- [Workflow en flux continu AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [Workflow de streaming à la demande AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+
  
 ##Voir aussi
 
 [Développement d'applications de lecteur vidéo](media-services-develop-video-players.md)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO2-->

@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Prévisions - ETS + STL | Microsoft Azure"
-	description="Prévisions - ETS + STL"
-	services="machine-learning"
-	documentationCenter=""
-	authors="jaymathe"
-	manager="paulettm"
+	pageTitle="Prévisions - ETS + STL | Microsoft Azure" 
+	description="Prévisions - ETS + STL" 
+	services="machine-learning" 
+	documentationCenter="" 
+	authors="xueshanz" 
+	manager="paulettm" 
 	editor="cgronlun"/>
 
 <tags 
-	ms.service="machine-learning"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/02/2015"
-	ms.author="jaymathe"/>
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/02/2015" 
+	ms.author="xueshzha"/>
 
 #Prévisions - ETS + STL  
 
@@ -137,4 +137,4 @@ Pour les questions fréquemment posées relatives à l’utilisation du service 
 [execute-r-script]: https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

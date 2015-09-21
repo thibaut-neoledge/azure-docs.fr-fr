@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/16/2015"
+	ms.date="09/10/2015"
 	ms.author="sdanie"/>
 
 # Comment déployer une instance de service Gestion des API Azure dans plusieurs régions Azure
 
 Gestion des API prend en charge le déploiement sur plusieurs régions, ce qui permet aux éditeurs d’API de ne distribuer qu’un seul service Gestion des API sur le nombre de régions Azure. Ceci permet de réduire la latence de la demande telle qu’elle est perçue par les utilisateurs distribués de l’API. La disponibilité du service est également améliorée si une région est mise hors connexion.
 
-Lors de la création initiale du service Gestion des API, il ne contient qu’une seule [unité][] et se trouve dans une seule région Azure, désignée comme région principale. D’autres régions peuvent être facilement ajoutées via le portail Azure. Le serveur de proxy Gestion des API est déployé dans chaque région et le trafic d’appel est acheminé vers le proxy le plus proche. Lorsqu’une région est déconnectée, le trafic est automatiquement redirigé vers le proxy suivant le plus proche.
+Lors de la création initiale du service Gestion des API, il ne contient qu’une seule [unité][] et se trouve dans une seule région Azure, désignée comme région principale. D’autres régions peuvent être facilement ajoutées via le portail Azure. Le serveur de proxy Gestion des API est déployé dans chaque région et le trafic d’appel est acheminé vers le proxy le plus proche. Si une région est déconnectée, le trafic est automatiquement redirigé vers le proxy suivant le plus proche.
 
 > [AZURE.IMPORTANT]Le déploiement multi-régions est disponible uniquement dans le niveau **[Premium][]**.
 
@@ -75,4 +75,4 @@ Une fois que les régions de votre choix supprimées, cliquez sur **Enregistrer*
 [unité]: http://azure.microsoft.com/pricing/details/api-management/
 [Premium]: http://azure.microsoft.com/pricing/details/api-management/
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

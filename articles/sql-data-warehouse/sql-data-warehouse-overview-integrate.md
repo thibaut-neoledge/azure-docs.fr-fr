@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/22/2015"
+   ms.date="09/09/2015"
    ms.author="lodipalm"/>
 
-#Intégrer des services à SQL Data Warehouse
+#Tirer parti d’autres services avec SQL Data Warehouse
 Outre ses fonctionnalités principales, SQL Data Warehouse permet aux utilisateurs de tirer parti de nombreux autres services dans Azure. Plus précisément, nous avons pris des mesures pour l’intégrer étroitement aux éléments suivants :
 
 + Power BI
@@ -24,20 +24,19 @@ Outre ses fonctionnalités principales, SQL Data Warehouse permet aux utilisat
 + Azure Machine Learning
 + Azure Stream Analytics
 
-Outre ces éléments, nous travaillons à un partenariat plus étroit avec un certain nombre d’autres services dans l’écosystème Azure.
+Nous travaillons à une intégration à un certain nombre d’autres services dans l’écosystème Azure.
 
 ##Power BI
-L’intégration de Power BI permet aux utilisateurs de largement tirer parti de la puissance de calcul de SQL Data Warehouse avec la création de rapports dynamiques et la visualisation de Power BI. L’intégration à Power BI inclut actuellement les éléments suivants :
+L’intégration de Power BI vous permet de tirer parti de la puissance de calcul de SQL Data Warehouse avec la création de rapports dynamiques et la visualisation de Power BI. L’intégration de Power BI inclut actuellement les éléments suivants :
 
-+ **Connexion directe** : une connexion plus avancée avec un menu déroulant logique dans SQL Data Warehouse. Ce faisant, les analyses sont plus rapides à une plus grande échelle.
++ **Connexion directe** : une connexion plus avancée avec un menu déroulant logique dans SQL Data Warehouse. Ainsi, les analyses sont plus rapides à une plus grande échelle.
 + **Ouvrir dans Power BI** : ce bouton transmet les informations d’instance à Power BI, permettant une connexion plus fluide. 
 
 Pour plus d’informations, consultez [Intégrer à Power BI](../sql-data-warehouse-integrate-power-bi.md) ou la [documentation Power BI](http://blogs.msdn.com/b/powerbi/archive/2015/06/24/exploring-azure-sql-data-warehouse-with-power-bi.aspx).
 
 ##Azure Data Factory
-Azure Data Factory offre aux utilisateurs une plateforme gérée pour créer des pipelines d’extraction-transformation-chargement complexes. L’intégration de SQL Data Warehouse à Azure Data Factory inclut les éléments suivants :
+Azure Data Factory offre aux utilisateurs une plateforme gérée pour créer des pipelines d’extraction-chargement complexes. L’intégration de SQL Data Warehouse à Azure Data Factory inclut les éléments suivants :
 
-+ **Déplacement des données** : planifiez le transfert de données entre plusieurs services sur site et Azure.
 + **Procédures stockées** : orchestrez l’exécution de procédures stockées dans SQL Data Warehouse.
 
 Pour plus d’informations, consultez [Intégrer à Azure Data Factory](../sql-data-warehouse-integrate-azure-data-factory.md) ou la [documentation Azure Data Factory](https://azure.microsoft.com/documentation/services/data-factory/).
@@ -46,7 +45,7 @@ Pour plus d’informations, consultez [Intégrer à Azure Data Factory](../sql
 Azure Machine Learning est un service d’analyse entièrement géré qui permet aux utilisateurs de créer des modèles complexes exploitant un large ensemble d’outils prédictifs. SQL Data Warehouse est pris en charge à la fois comme source et destination de ces modèles avec les fonctionnalités suivantes :
 
 + **Lire les données :** pilotez des modèles à l’échelle à l’aide de T-SQL dans SQL Data Warehouse. 
-+ **Écrire des données :** valider les modifications d’un modèle dans SQL Data Warehouse.
++ **Écrire des données :** validez les modifications d’un modèle dans SQL Data Warehouse.
 
 Pour plus d’informations, consultez [Intégrer à Azure Machine Learning](../sql-data-warehouse-integrate-azure-machine-learning.md) ou la [documentation Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/).
 
@@ -72,4 +71,4 @@ Pour plus d’informations, consultez [Intégrer à Azure Stream Analytics](..
 
 <!--Other Web references-->
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

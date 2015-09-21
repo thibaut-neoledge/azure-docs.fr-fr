@@ -12,7 +12,7 @@ Le reste de ce document fournit des détails sur l’activation du protocole HT
 
 ##<a name="bkmk_domainname"></a>Activation de SSL pour votre domaine personnalisé
 
-Pour activer le protocole HTTPS pour un domaine personnalisé comme **contoso.com**, vous devez d’abord l’inscrire auprès d’un bureau d’enregistrement de noms de domaine. Pour plus d’informations sur la configuration du nom de domaine d’une application web, consultez la page [Configuration d’un nom de domaine personnalisé pour un site web Azure](/fr-fr/develop/net/common-tasks/custom-dns-web-site/). Une fois que vous avez inscrit un nom de domaine personnalisé et configuré votre application web de manière à ce qu’elle réponde au nom personnalisé, vous devez demander un certificat SSL pour ce domaine.
+Pour activer le protocole HTTPS pour un domaine personnalisé comme **contoso.com**, vous devez d’abord l’inscrire auprès d’un bureau d’enregistrement de noms de domaine. Pour plus d’informations sur la configuration du nom de domaine d’une application web, consultez la page [Configuration d’un nom de domaine personnalisé pour un site web Azure](/fr-FR/develop/net/common-tasks/custom-dns-web-site/). Une fois que vous avez inscrit un nom de domaine personnalisé et configuré votre application web de manière à ce qu’elle réponde au nom personnalisé, vous devez demander un certificat SSL pour ce domaine.
 
 > [AZURE.NOTE]Pour activer le protocole HTTPS pour les noms de domaine personnalisés, vous devez configurer votre application web avec le mode **standard**. Des frais supplémentaires peuvent s’appliquer si vous utilisez actuellement le mode gratuit ou partagé. Pour plus d’informations sur la tarification des modes partagé et **standard**, consultez la page [Tarification][pricing].
 
@@ -60,7 +60,6 @@ Certreq.exe est un utilitaire Windows pour la création de demandes de certifica
 		MachineKeySet = True
 		ProviderName = "Microsoft RSA SChannel Cryptographic Provider"
 		ProviderType = 12
-		RequestType = CMC
 
 		[EnhancedKeyUsageExtension]
 		OID=1.3.6.1.5.5.7.3.1
@@ -394,8 +393,10 @@ L’activation du protocole HTTPS pour un domaine personnalisé est disponible 
 3.	Cliquez sur le panneau **Web Apps**.
 4.	Cliquez sur le nom de votre application web.
 5.	Dans la page **Essentials**, cliquez sur **Paramètres**.
-6.	Cliquez sur **Mettre à l’échelle**.![L’onglet Mettre à l’échelle][scale]
-7.	Dans la section **Mettre à l’échelle**, définissez le mode de plan App Service en cliquant sur **Sélectionner**. ![Le niveau de tarification\][sslreserved\]
+6.	Cliquez sur **Mettre à l’échelle**.
+![L’onglet Mettre à l’échelle][scale]
+7.	Dans la section **Mettre à l’échelle**, définissez le mode de plan App Service en cliquant sur **Sélectionner**. 
+![Le niveau de tarification][sslreserved]
 
 	> [AZURE.NOTE]Si un message indiquant une erreur de mise à l’échelle pour l’application web &lt;nom de l’application&gt; s’affiche, vous pouvez cliquer sur le bouton de détails pour obtenir plus d’informations. Une erreur indiquant que le nombre de serveurs d’instances disponibles est insuffisant pour répondre à la demande peut s’afficher. Dans ce cas, contactez le [support technique Azure](/support/options/).
 
@@ -409,9 +410,9 @@ Avant de suivre les étapes de cette section, vous devez avoir associé un nom d
 3.	Cliquez sur le panneau **Web Apps**.
 4.	Cliquez sur le nom de votre application web.
 5.	Dans la page **Essentials**, cliquez sur **Paramètres**.	
-6.	Cliquez sur **Personnalisation des domaines et SSL**. ![L’onglet de configuration\] [sslconfig\]
+6.	Cliquez sur **Personnalisation des domaines et SSL**. ![L’onglet de configuration] [sslconfig]
 7.	Dans la section **Certificats**, cliquez sur **Charger**.
-8.	Dans la boîte de dialogue **Upload a certificate**, sélectionnez le fichier de certificat .pfx créé plus tôt à l’aide du gestionnaire des services Internet ou d’OpenSSL. Spécifiez le mot de passe utilisé pour sécuriser le fichier .pfx, le cas échéant. Pour finir, cliquez sur **Enregistrer** pour télécharger le certificat. [téléchargement ssl\][ssluploadcert\]
+8.	Dans la boîte de dialogue **Upload a certificate**, sélectionnez le fichier de certificat .pfx créé plus tôt à l’aide du gestionnaire des services Internet ou d’OpenSSL. Spécifiez le mot de passe utilisé pour sécuriser le fichier .pfx, le cas échéant. Pour finir, cliquez sur **Enregistrer** pour télécharger le certificat. [téléchargement ssl][ssluploadcert]
 9. Dans la section **Liaisons SSL** de l’onglet **Paramètres SSL**, utilisez les listes déroulantes pour sélectionner le nom de domaine à sécuriser avec le chiffrement SSL, et le certificat à utiliser. Vous pouvez également indiquer si vous utilisez l’extension [SNI (Indication du nom du serveur)][sni] ou le protocole SSL basé sur IP.
 
 	![liaisons SSL][sslbindings]
@@ -454,13 +455,10 @@ Les règles de réécriture d'URL sont définies dans un fichier **web.config** 
 	      <rules>
 	        <rule name="Force HTTPS" enabled="true">
 	          <match url="(.*)" ignoreCase="false" />
-
 	          <conditions>
 	            <add input="{HTTPS}" pattern="off" />
-
 	          </conditions>
 	          <action type="Redirect" url="https://{HTTP_HOST}/{R:1}" appendQueryString="true" redirectType="Permanent" />
-
 	        </rule>
 	      </rules>
 	    </rewrite>
@@ -544,4 +542,4 @@ Pour plus d'informations sur le module Réécriture d'URL d'IIS, consultez la do
 [certwiz3]: ./media/configure-ssl-web-site/waws-certwiz3.png
 [certwiz4]: ./media/configure-ssl-web-site/waws-certwiz4.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

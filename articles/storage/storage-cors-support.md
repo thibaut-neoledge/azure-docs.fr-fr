@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="06/18/2015" 
+	ms.date="09/03/2015" 
 	ms.author="tamram;andtyler"/>
 
 # Prise en charge du service Partage des ressources cross-origine (CORS) pour les services Azure Storage
@@ -196,4 +196,4 @@ Les demandes préliminaires infructueuses ne seront pas facturés.
 [Spécification du Partage des ressources cross-origin (W3C)](http://www.w3.org/TR/cors/)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

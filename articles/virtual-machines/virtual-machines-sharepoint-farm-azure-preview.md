@@ -35,6 +35,8 @@ Vous pouvez utiliser cette configuration de batterie pour tester des charges de 
 
 Pour obtenir des informations de configuration détaillées concernant ces deux types de batteries de serveurs, consultez la page [Informations de configuration de la batterie de serveurs SharePoint](virtual-machines-sharepoint-farm-config-azure-preview.md).
 
+> [AZURE.NOTE]Microsoft a publié SharePoint Server 2016 IT Preview. Pour faciliter l’installation et le test de cette version d’évaluation, vous pouvez utiliser une image de la galerie de machines virtuelles Azure avec SharePoint Server 2016 IT Preview et ses composants requis préinstallés. Pour plus d’informations, consultez le billet de blog [Test the SharePoint Server 2016 IT Preview in Azure](http://azure.microsoft.com/blog/test-sharepoint-server-2016-it-preview-4/).
+
 ## Parcours de la configuration
 
 Pour créer votre batterie SharePoint avec le modèle Batterie de serveurs SharePoint, procédez comme suit :
@@ -83,7 +85,7 @@ Remarques :
 
 ## Azure Resource Manager
 
-La fonctionnalité Batterie de serveurs SharePoint du Portail Azure en version préliminaire crée des machines virtuelles dans la gestion des services. Pour créer des batteries de serveurs SharePoint Server 2013 dans Resource Manager, consultez la page [Déployer des batteries de serveurs SharePoint avec des modèles Azure Resource Manager](virtual-machines-workload-template-sharepoint.md).
+La fonctionnalité Batterie de serveurs SharePoint du portail Azure en version préliminaire crée des machines virtuelles avec le modèle de déploiement classique. Pour créer des batteries de serveurs SharePoint Server 2013 avec le modèle de déploiement Resource Manager, consultez [Déployer des batteries de serveurs SharePoint avec des modèles Azure Resource Manager](virtual-machines-workload-template-sharepoint.md).
 
 ## Ressources supplémentaires
 
@@ -95,4 +97,4 @@ La fonctionnalité Batterie de serveurs SharePoint du Portail Azure en version p
 
 [Batteries de serveurs SharePoint hébergés dans des services d’infrastructure Azure](virtual-machines-sharepoint-infrastructure-services.md)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO2-->

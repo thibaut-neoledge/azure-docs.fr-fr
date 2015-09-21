@@ -1,6 +1,6 @@
 <properties 
    pageTitle="Activation ou désactivation de votre appareil StorSimple | Microsoft Azure"
-   description="Explique comment activer un nouvel appareil StorSimple, comment activer un appareil qui a été arrêté ou qui a subi une panne de courant, et comment désactiver un appareil en cours d&#39;exécution."
+   description="Explique comment activer un nouvel appareil StorSimple, comment activer un appareil qui a été arrêté ou qui a subi une panne de courant, et comment désactiver un appareil en cours d'exécution."
    services="storsimple"
    documentationCenter=""
    authors="alkohli"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="08/19/2015"
+   ms.date="09/04/2015"
    ms.author="alkohli" />
 
 # Activation ou désactivation de votre appareil StorSimple 
@@ -241,4 +241,4 @@ Vous pouvez vous connecter à Windows PowerShell pour StorSimple avec la consol
 
 [Contactez le support Microsoft](storsimple-contact-microsoft-support.md) si vous rencontrez des problèmes lors de l'activation ou l'arrêt d'un appareil StorSimple.
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO2-->

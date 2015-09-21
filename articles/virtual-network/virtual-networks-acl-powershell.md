@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="06/08/2015"
+   ms.date="09/04/2015"
    ms.author="telmos" />
 
 # Comment gérer les listes de contrôle d’accès (ACL) pour les points de terminaison à l’aide de PowerShell
@@ -97,4 +97,4 @@ Dans certains scénarios, vous voudrez peut-être supprimer un objet de liste de
 
 [Configuration de la communication avec une machine virtuelle](http://go.microsoft.com/fwlink/?LinkId=303938)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

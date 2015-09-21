@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Gestion de contenu avec Azure Media Services à l’aide du portail de gestion Azure"
-	description="Apprenez à gérer votre contenu multimédia dans Azure Media Services. Notamment : le téléchargement, l’indexation, l’encodage, le chiffrement et la publication."
-	services="media-services"
-	documentationCenter=""
-	authors="Juliako"
-	manager="dwrede"
+	pageTitle="Gestion de contenu avec Azure Media Services à l’aide du portail de gestion Azure" 
+	description="Apprenez à gérer votre contenu multimédia dans Azure Media Services. Notamment : le téléchargement, l’indexation, l’encodage, le chiffrement et la publication." 
+	services="media-services" 
+	documentationCenter="" 
+	authors="Juliako" 
+	manager="dwrede" 
 	editor=""/>
 
 <tags 
-	ms.service="media-services"
-	ms.workload="media"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/23/2015"
+	ms.service="media-services" 
+	ms.workload="media" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/07/2015"
 	ms.author="juliako"/>
 
 
@@ -206,6 +206,14 @@ Certaines considérations s’appliquent :
 - Le **lecteur de contenu de Media Services** assure la lecture depuis le point de terminaison de diffusion en continu par défaut. Si vous souhaitez lire à partir d’un autre point de terminaison de diffusion en continu que celui par défaut, utilisez un autre lecteur, par exemple, le [lecteur Azure Media Services](http://amsplayer.azurewebsites.net/azuremediaplayer.html).
  
 
+##Parcours d’apprentissage de Media Services
+
+Vous pouvez afficher les parcours d’apprentissage d’AMS ici :
+
+- [Workflow en flux continu AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [Workflow de streaming à la demande AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+
+
 ![AMSPlayer][AMSPlayer]
 
 <!-- Images -->
@@ -221,4 +229,4 @@ Certaines considérations s’appliquent :
 [encrypt]: ./media/media-services-manage-content/media-services-encrypt-content.png
 [AMSPlayer]: ./media/media-services-manage-content/media-services-portal-player.png
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO2-->

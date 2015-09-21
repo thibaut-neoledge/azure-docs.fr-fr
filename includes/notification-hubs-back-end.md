@@ -11,13 +11,13 @@ Ignorez les étapes 1 à 3 si vous avez créé une application de console lors
 
 2. Dans le menu principal de Visual Studio, cliquez sur **Outils**, **Gestionnaire de package de bibliothèques** et **Console du gestionnaire de package**, puis dans la fenêtre de la console, tapez la ligne suivante et appuyez sur **Entrée** :
 
-        Install-Package WindowsAzure.ServiceBus
+        Install-Package Microsoft.Azure.NotificationHubs
  	
-	Une référence au Kit de développement logiciel (SDK) Azure Service Bus est ajoutée à l’aide du <a href="http://nuget.org/packages/WindowsAzure.ServiceBus/">package NuGet WindowsAzure.ServiceBus</a>.
+	Cette opération ajoute une référence au Kit de développement logiciel (SDK) Azure Notification Hubs à l’aide du <a href="http://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/">package NuGet Microsoft.Azure.Notification Hubs</a>.
 
 3. Ouvrez le fichier Program.cs et ajoutez l’instruction `using` suivante :
 
-        using Microsoft.ServiceBus.Notifications;
+        using Microsoft.Azure.NotificationHubs;
 
 4. Dans la classe `Program`, ajoutez la méthode suivante ou remplacez-la si elle existe déjà :
 
@@ -70,9 +70,9 @@ Ignorez les étapes 1 à 3 si vous avez créé une application de console lors
 
 	Ce code envoie des notifications à chacune des six balises du tableau de chaînes aux appareils iOS, Windows Store et Windows Phone. L’utilisation des balises permet d’envoyer les notifications uniquement aux appareils des catégories inscrites.
 	
-	> [AZURE.NOTE]Ce code principal prend en charge les clients Windows Store, Windows Phone, iOS et Android. Les méthodes d’envoi retournent une réponse d’erreur lorsque le concentrateur de notification n’a pas encore été configuré pour une plateforme cliente particulière.
+	> [AZURE.NOTE]Ce code principal prend en charge les clients Windows Store, Windows Phone, iOS et Android. Les méthodes d’envoi retournent une réponse d’erreur lorsque le hub de notification n’a pas encore été configuré pour une plateforme cliente particulière.
 
-6. Dans le code ci-dessus, remplacez les espaces réservés `<hub name>` et `<connection string with full access>` par le nom de votre concentrateur de notification et par la chaîne de connexion de la signature *DefaultFullSharedAccessSignature* obtenue précédemment.
+6. Dans le code ci-dessus, remplacez les espaces réservés `<hub name>` et `<connection string with full access>` par le nom de votre hub de notification et par la chaîne de connexion de la signature *DefaultFullSharedAccessSignature* obtenue précédemment.
 
 7. Ajoutez les lignes suivantes à la méthode **Main** :
 
@@ -100,4 +100,4 @@ Ignorez les étapes 1 à 3 si vous avez créé une application de console lors
 [Notification Hubs How-To for Windows Store]: http://msdn.microsoft.com/library/jj927172.aspx
 [Notification Hubs REST interface]: http://msdn.microsoft.com/library/windowsazure/dn223264.aspx
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

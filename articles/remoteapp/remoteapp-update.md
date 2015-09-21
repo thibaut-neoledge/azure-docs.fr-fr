@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Mise à jour de votre collection Azure RemoteApp"
+   pageTitle="Mise à jour de votre collection Azure RemoteApp | Microsoft Azure"
    description="Découvrez comment mettre à jour votre collection Azure RemoteApp"
    services="remoteapp"
    documentationCenter=""
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="compute"
-   ms.date="08/12/2015"
+   ms.date="09/03/2015"
    ms.author="elizapo"/>
 
 # Mise à jour d’une collection dans Azure RemoteApp
@@ -25,7 +25,7 @@ Cependant, si vous utilisez une image personnalisée (créée de toutes pièces 
 Comment mettre à jour votre collection ? C’est simple :
 
 1. Mettez à jour l'image que vous avez utilisée dans votre collection. Appliquez tous les correctifs et toutes les mises à jour nécessaires, puis enregistrez-la sous un nouveau nom.
-2. [Téléchargez](remoteapp-uploadimage.md) ou [importez](remoteapp-image-on-azurevm) cette image dans RemoteApp.
+2. [Téléchargez](remoteapp-uploadimage.md) ou [importez](remoteapp-image-on-azurevm.md) cette image dans RemoteApp.
 3. Sur la page de la collection, cliquez sur **Mettre à jour**.
 4. Sélectionnez la nouvelle image à partir de la liste d’**Images de modèle**.
 4. Voici la partie la plus difficile : vous devez décider comment traiter les utilisateurs qui utilisent actuellement une application dans la collection. Vous pouvez choisir parmi les options suivantes :
@@ -36,4 +36,4 @@ Comment mettre à jour votre collection ? C’est simple :
 
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO2-->

@@ -49,7 +49,7 @@ Les documents représentent les données détaillées retournées par le moteur 
 
 ##Voir en action
 
-Regardez nos vidéos pour en savoir plus sur les scénarios et les fonctionnalités. Visitez [Azure Search : didacticiels, démonstrations vidéo et exemples](https://msdn.microsoft.com/library/azure/dn818681.aspx) pour obtenir des liens vers le contenu vidéo.
+Regardez nos vidéos pour en savoir plus sur les scénarios et les fonctionnalités. Visitez [Azure Search : didacticiels, démonstrations vidéo et exemples](search-video-demo-tutorial-list.md) pour obtenir des liens vers le contenu vidéo.
 
 ##Détail des fonctionnalités
 
@@ -69,7 +69,7 @@ Azure Search étend automatiquement les index et les documents sur les partition
 
 Les partitions et les réplicas sont des ressources à l’échelle du service, dont tous les index sont en cours d'exécution sur l’ensemble les réplicas. Si vous avez besoin d’isoler un index ou que vous devez respecter des conditions pour la dispersion géographique des services et des ressources dans différents centres de données, vous pouvez créer un second service.
 
-Il existe des limites au niveau du stockage et du nombre d'index et de documents chargés dans le service. La première limite atteinte constituera votre limite réelle : stockage physique épuisé ou limite supérieure du nombre d’index et de documents atteinte. Pour plus d'informations, consultez [Limites et contraintes (Azure Search)](https://msdn.microsoft.com/library/azure/dn798934.aspx).
+Il existe des limites au niveau du stockage et du nombre d'index et de documents chargés dans le service. La première limite atteinte constituera votre limite réelle : stockage physique épuisé ou limite supérieure du nombre d’index et de documents atteinte. Pour plus d’informations, consultez [Limites et contraintes (Azure Search)](search-limits-quotas-capacity.md).
 
 ###Programmabilité
 
@@ -85,7 +85,7 @@ L'authentification pour accéder à Azure Search à partir de votre application 
 
 ###Index et documents
 
-Vous pouvez utiliser plusieurs index (consultez la rubrique [Limites et contraintes (Azure Search)](https://msdn.microsoft.com/library/azure/dn798934.aspx) pour connaître les limites en fonction des niveaux de tarification). Notez que la jointure d’index n’est pas prise en charge actuellement. Une demande de recherche ne peut spécifier qu’un seul index.
+Vous pouvez utiliser plusieurs index (consultez la rubrique [Limites et contraintes (Azure Search)](search-limits-quotas-capacity.md) pour connaître les limites en fonction des niveaux de tarification). Notez que la jointure d’index n’est pas prise en charge actuellement. Une demande de recherche ne peut spécifier qu’un seul index.
 
 Les **documents** contiennent des champs et des attributs connexes. Les champs incluent le texte pouvant faire l’objet d’une recherche, les valeurs utilisées le plus fréquemment (voire exclusivement) dans les filtres et les profils de score, et très probablement des URL ou des pointeurs vers le contenu, par exemple des images, dans d’autres magasins de données. De nombreuses applications de recherche utilisent plusieurs formes de stockage. Les images ou les vidéos peuvent être stockées de façon plus économique dans d'autres médias de stockage, notamment Azure Blob.
 
@@ -129,6 +129,6 @@ Consultez la rubrique [Création d’un service Azure Search](search-create-serv
 
 Vous pouvez également essayer ces didacticiels :
 
-[Utilisation d’Azure Search dans .NET](search-howto-dotnet-sdk.md) [Prise en main d’Azure Search .NET](search-get-started-dotnet.md) [Azure Search : didacticiels, démonstrations vidéo et exemples](https://msdn.microsoft.com/library/azure/dn818681.aspx)
+[Utilisation d’Azure Search dans .NET](search-howto-dotnet-sdk.md) [Prise en main d’Azure Search .NET](search-get-started-dotnet.md) [Azure Search : didacticiels, démonstrations vidéo et exemples](search-video-demo-tutorial-list.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

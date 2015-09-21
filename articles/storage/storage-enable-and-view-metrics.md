@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="06/18/2015" 
+	ms.date="09/03/2015" 
 	ms.author="tamram"/>
 
 # Activation de Storage Metrics et affichage des données de métriques
@@ -192,4 +192,4 @@ La capacité utilisée par les tables de métriques est également facturée ; 
 [Activation de la journalisation du stockage et accès aux données des journaux](https://msdn.microsoft.com/library/dn782840.aspx)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

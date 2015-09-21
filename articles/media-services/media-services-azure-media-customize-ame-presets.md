@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/11/2015"
+	ms.date="09/07/2015" 
 	ms.author="juliako"/>
 
 #Manipuler les tâches d’encodage en personnalisant les présélections de tâches 
@@ -505,8 +505,16 @@ Pour empêcher l’amplification du bruit de fond, procédez comme suit :
 		// Launch the job. 
 		job.Submit();
 
+##Parcours d’apprentissage de Media Services
+
+Vous pouvez afficher les parcours d’apprentissage d’AMS ici :
+
+- [Workflow en flux continu AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [Workflow de streaming à la demande AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+
+
 ##Voir aussi
 
 [Schéma XML de l’Encodeur multimédia Azure](https://msdn.microsoft.com/library/azure/dn584702.aspx)
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO2-->

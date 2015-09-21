@@ -1,12 +1,11 @@
 <properties
-   pageTitle="Présentation de SQL Data Warehouse | Microsoft Azure"
-   description="Base de données distribuée dédiée aux entreprises de Microsoft Azure Cloud prenant en charge le traitement de pétaoctets de données relationnelles et non relationnelles. Il s’agit du premier entrepôt de données cloud prenant en charge l’augmentation, la réduction et la pause en quelques secondes."
+   pageTitle="Présentation de Azure SQL Data Warehouse | Microsoft Azure"
+   description="Base de données distribuée dédiée aux entreprises qui prend en charge le traitement de pétaoctets de données relationnelles et non relationnelles. Il s’agit du premier entrepôt de données cloud prenant en charge l’augmentation, la réduction et la pause en quelques secondes."
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="barbkess"
+   authors="twounder"
    manager="jhubbard"
    editor=""/>
-
 
 <tags
    ms.service="sql-data-warehouse"
@@ -14,18 +13,19 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/23/2015"
-   ms.author="barbkess;JRJ@BigBangData.co.uk;"/>
+   ms.date="09/09/2015"
+   ms.author="barbkess;twounder;JRJ@BigBangData.co.uk;"/>
 
+# En quoi consiste Azure SQL Data Warehouse ?
 
-# En quoi consiste la solution SQL Data Warehouse ?
-
-SQL Data Warehouse est une base de données distribuée dédiée aux entreprises de Microsoft Azure Cloud qui prend en charge le traitement de pétaoctets de données relationnelles et non relationnelles. Il s’agit du premier entrepôt de données cloud prenant en charge l’augmentation, la réduction et la pause en quelques secondes.
+Azure SQL Data Warehouse est une base de données distribuée dédiée aux entreprises qui prend en charge le traitement de pétaoctets de données relationnelles et non relationnelles. Il s’agit du premier entrepôt de données cloud prenant en charge l’augmentation, la réduction et la pause en quelques secondes, le tout avec des fonctionnalités SQL éprouvées.
 
 SQL Data Warehouse associe le meilleur de la qualité et de la fiabilité de la base de données relationnelle de niveau entreprise au modèle de cloud computing. En savoir plus sur les composantes clés de conception de SQL Data Warehouse.
 
 ## Accroître, réduire ou interrompre les ressources de calcul
-Avec SQL Data Warehouse, les données sont stockées dans un emplacement de type cloud et les ressources de calcul sont mises à l’échelle indépendamment, ce qui vous permet d’adopter un modèle de tarification évolutif, suivant vos besoins. Vous pouvez désormais déployer, accroître, réduire et même interrompre les ressources de stockage. Tirez pleinement parti du stockage de type cloud et appliquez les ressources de requêtes en fonction des besoins périodiques. Lorsque les ressources sont interrompues, vous payez uniquement le stockage.
+SQL Data Warehouse sépare le stockage et le calcul, qui peuvent ainsi être mis à l’échelle indépendamment l’un de l’autre. Avec un stockage à l’échelle du cloud et un calcul Azure, SQL Data Warehouse vous permet de payer les performances des requêtes dont vous avez besoin au moment où vous en avez besoin. Vous pouvez maintenant déployer, augmenter, réduire et même suspendre le calcul de façon dynamique, en quelques secondes, ce qui vous permet d'acquérir les informations dont votre entreprise a besoin. Pour modifier la quantité de ressources de calcul, il suffit de déplacer le curseur vers la gauche ou vers la droite.
+
+En offrant la possibilité de contrôler entièrement la quantité de ressources de calcul indépendamment du stockage, SQL Data Warehouse vous permet de suspendre le calcul. Tout en maintenant le stockage en place, le calcul revient à la première place du pool, ce qui vous permet de réaliser des économies. Si nécessaire, il vous suffit de reprendre le calcul et de mettre vos données et vos ressources de calcul à la disposition de votre charge de travail.
 
 > [AZURE.NOTE]Les unités Data Warehouse Units (DWU) sont dédiées à la mise à l’échelle des ressources de calcul dans SQL Data Warehouse.
 
@@ -78,4 +78,4 @@ En savoir plus sur la [charge de travail de l’entrepôt de données]. Pour com
 
 <!--Other Web references-->
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

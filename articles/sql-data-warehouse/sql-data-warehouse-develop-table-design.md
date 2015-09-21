@@ -13,11 +13,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/26/2015"
+   ms.date="09/09/2015"
    ms.author="JRJ@BigBangData.co.uk;barbkess"/>
 
 # Conception de tables dans SQL Data Warehouse #
-SQL Data Warehouse est un système de base de données distribuée à traitement massivement parallèle. Par conséquent, il stocke les données sur divers emplacements, appelés **distributions**. Chaque **distribution** est similaire à un compartiment, qui stocke un sous-ensemble unique de données dans l’entrepôt de données. En répartissant les données et les fonctions de traitement sur plusieurs nœuds, SQL Data Warehouse est en mesure de proposer une évolutivité immense, bien supérieure à ce qu’offre n’importe quel système unique.
+SQL Data Warehouse est un système de base de données distribuée à traitement massivement parallèle. Il stocke les données sur divers emplacements, appelés **distributions**. Chaque **distribution** est similaire à un compartiment, qui stocke un sous-ensemble unique de données dans l’entrepôt de données. En répartissant les données et les fonctions de traitement sur plusieurs nœuds, SQL Data Warehouse peut proposer une évolutivité immense, bien supérieure à ce qu’offre n’importe quel système unique.
 
 Lorsqu’une table est créée dans SQL Data Warehouse, elle est répartie sur l’ensemble des distributions.
 
@@ -92,9 +92,9 @@ OR  y.[is_user_defined] = 1
 
 ```
 
-La requête inclut tout type de données défini par l’utilisateur qui n’est pris en charge.
+La requête inclut les types de données définis par l’utilisateur qui ne sont pas pris en charge.
 
-Si votre base de données inclut des types non pris en charge, ne vous inquiétez pas. Voici d’autres solutions possibles :
+Voici certaines alternatives que vous pouvez utiliser à la place des types de données non pris en charge.
 
 Au lieu du paramètre...
 
@@ -126,7 +126,7 @@ Il existe deux moyens de distribuer les données dans SQL Data Warehouse :
 1. Vous pouvez distribuer les données en fonction des valeurs de hachage d’une colonne unique.
 2. Vous pouvez les distribuer de manière équitable, mais aléatoire.  
 
-Le type de distribution des données est déterminé au niveau de la table. Toutes les tables sont distribuées de sorte que vous puissiez prendre cette décision pour chaque table de la base de données SQL Data Warehouse.
+Le type de distribution des données est déterminé au niveau de la table. Toutes les tables sont distribuées. Vous allez attribuer une distribution pour chaque table de votre base de données SQL Data Warehouse.
 
 La première option porte le nom de **distribution par tourniquet (round robin)**, ou hachage aléatoire, dans certains cas. Il s’agit de l’option par défaut, ou sans échec.
 
@@ -134,7 +134,7 @@ La deuxième option est qualifiée de **distribution par hachage**. On peut la c
 
 ## Distribution par tourniquet (round robin)
 
-Ce type de distribution permet de répartir les données de manière aussi équitable que possible, pour toutes les distributions. Des mémoires tampons contenant des lignes de données sont allouées tour à tour (d’où l’idée de tourniquet) à chaque distribution. Ce processus est répété jusqu’à ce que toutes les mémoires tampons de données aient été allouées. À aucun moment les données ne sont triées ni classées dans une table avec distribution par tourniquet (round robin). C’est pour cette raison que ce type de distribution est parfois appelé « hachage aléatoire ». Les données sont simplement réparties sur les distributions, de manière aussi uniforme que possible.
+Ce type de distribution permet de répartir les données de manière aussi équitable que possible, pour toutes les distributions. Des mémoires tampons contenant des lignes de données sont allouées tour à tour (d’où l’idée de tourniquet) à chaque distribution. Ce processus est répété jusqu’à ce que toutes les mémoires tampons de données aient été allouées. À aucun moment les données ne sont triées ni classées dans une table avec distribution par tourniquet (round robin). C’est pour cette raison que ce type de distribution est parfois appelé « hachage aléatoire ». Les données sont réparties sur les distributions, de manière aussi uniforme que possible.
 
 Voici un exemple de table avec distribution par tourniquet (round robin) :
 
@@ -306,4 +306,4 @@ Pour obtenir des conseils supplémentaires en matière de développement, voir l
 
 <!--Other Web references-->
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

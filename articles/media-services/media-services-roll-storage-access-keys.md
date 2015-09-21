@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/11/2015"
+	ms.date="09/07/2015"
 	ms.author="juliako"/>
 
 #Procédure : mettre à jour Media Services après la substitution de clés d’accès de stockage
@@ -43,7 +43,7 @@ Mettez à jour Media Services pour utiliser la clé d’accès de stockage secon
 
 - Utilisez l’API REST de gestion de Media Services.
 
-	L’exemple de code suivant montre comment construire la demande de clé https://endpoint/<subscriptionId>/services/mediaservices/Accounts/<accountName>/StorageAccounts/<storageAccountName>/ afin de synchroniser la clé de stockage spécifiée avec Media Services. Dans le cas présent, la valeur de la clé de stockage secondaire est utilisée. Pour plus d’informations, consultez la page [Procédure : utiliser l’API REST de gestion des services de média](http://msdn.microsoft.com/fr-fr/library/azure/dn167656.aspx).
+	L’exemple de code suivant montre comment construire la demande de clé https://endpoint/<subscriptionId>/services/mediaservices/Accounts/<accountName>/StorageAccounts/<storageAccountName>/ afin de synchroniser la clé de stockage spécifiée avec Media Services. Dans le cas présent, la valeur de la clé de stockage secondaire est utilisée. Pour plus d’informations, consultez la page [Procédure : utiliser l’API REST de gestion des services de média](http://msdn.microsoft.com/library/azure/dn167656.aspx).
  
 		public void UpdateMediaServicesWithStorageAccountKey(string mediaServicesAccount, string storageAccountName, string storageAccountKey)
 		{
@@ -106,6 +106,11 @@ Après 30 minutes, vous pouvez mettre à jour les localisateurs existants afin 
 Pour mettre à jour la date d’expiration d’un localisateur, utilisez l’[API REST](http://msdn.microsoft.com/library/azure/hh974308.aspx#update_a_locator) ou [.NET](http://go.microsoft.com/fwlink/?LinkID=533259). Notez que lorsque vous mettez à jour la date d’expiration d’un localisateur SAS, l’URL est modifiée.
 
  
- 
+##Parcours d’apprentissage de Media Services
 
-<!---HONumber=August15_HO7-->
+Vous pouvez afficher les parcours d’apprentissage d’AMS ici :
+
+- [Workflow en flux continu AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [Workflow de streaming à la demande AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+
+<!---HONumber=Sept15_HO2-->

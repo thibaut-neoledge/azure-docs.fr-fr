@@ -1,20 +1,20 @@
 <properties
    pageTitle="Didacticiel PolyBase dans SQL Data Warehouse | Microsoft Azure"
-	description="Découvrez PolyBase et apprenez comment utiliser cette solution avec les scénarios d’entreposage de données."
-	services="sql-data-warehouse"
-	documentationCenter="NA"
-	authors="barbkess"
-	manager="jhubbard"
-	editor="jrowlandjones"/>
+   description="Découvrez PolyBase et apprenez comment utiliser cette solution avec les scénarios d’entreposage de données."
+   services="sql-data-warehouse"
+   documentationCenter="NA"
+   authors="barbkess"
+   manager="jhubbard"
+   editor="jrowlandjones"/>
 
 <tags
    ms.service="sql-data-warehouse"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="data-services"
-	ms.date="05/09/2015"
-	ms.author="sahajs;barbkess"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="data-services"
+   ms.date="09/02/2015"
+   ms.author="sahajs;barbkess"/>
 
 
 # Charger des données avec PolyBase
@@ -137,6 +137,8 @@ La définition de table externe est similaire à la définition d’une table re
 
 L’option LOCATION spécifie le chemin d’accès aux données à partir de la racine de la source de données. Dans cet exemple, les données sont conservées à l’emplacement « wasbs://mycontainer@ test.blob.core.windows.net/path/Demo/ ». L’ensemble des fichiers d’une table doivent être stockés dans le même dossier logique du stockage d’objets Blob Microsoft Azure.
 
+Si vous le souhaitez, vous pouvez également spécifier des options de rejet (REJECT\_TYPE, REJECT\_VALUE, REJECT\_SAMPLE\_VALUE) qui déterminent la façon dont PolyBase gérera les enregistrements à l’intégrité compromise qu'il reçoit de la source de données externe.
+
 ```
 -- Creating external table pointing to file stored in Azure Storage
 CREATE EXTERNAL TABLE [ext].[CarSensor_Data] 
@@ -197,21 +199,17 @@ Lorsque vous avez migré toutes vos tables externes vers la nouvelle source de d
 ## Interroger des données de l’espace de stockage d’objets Blob Microsoft Azure
 Les requêtes dirigées vers les tables externes utilisent le nom de table, comme s’il s’agissait d’une table relationnelle.
 
-Il s’agit d’une requête ad hoc qui rassemble les données d’assurance du client stockées dans SQL Data Warehouse et les données des capteurs automobiles conservées dans les objets Blob Microsoft Azure Storage. Le résultat indique les conducteurs les plus rapides.
 
 ```
--- Join SQL Data Warehouse relational data with Azure storage data. 
-SELECT 
-      [Insured_Customers].[FirstName]
-,     [Insured_Customers].[LastName]
-,     [Insured_Customers].[YearlyIncome]
-,     [CarSensor_Data].[Speed]
-FROM  [dbo].[Insured_Customers] 
-JOIN  [ext].[CarSensor_Data]         ON [Insured_Customers].[CustomerKey] = [CarSensor_Data].[CustomerKey]
-WHERE [CarSensor_Data].[Speed] > 60 
-ORDER BY [CarSensor_Data].[Speed] DESC
+
+-- Query Azure storage resident data via external table. 
+SELECT * FROM [ext].[CarSensor_Data]
 ;
+
 ```
+
+> [AZURE.NOTE]Une requête sur une table externe peut échouer avec l'erreur *« Requête abandonnée--le seuil de rejet maximal a été atteint lors de la lecture à partir d'une source externe »*. Cela indique que vos données externes contiennent des enregistrements *à l’intégrité compromise*. Un enregistrement de données est considéré comme « compromis » si les types de données / le nombre de colonnes réels ne correspondent pas aux définitions de colonne de la table externe ou si les données ne sont pas conformes au format de fichier externe spécifié. Pour résoudre ce problème, assurez-vous que les définitions de format de votre table externe et de votre fichier externe sont correctes et que vos données externes sont conformes à ces définitions. Dans le cas où un sous-ensemble d'enregistrements de données externes serait compromis, vous pouvez choisir de rejeter ces enregistrements pour vos requêtes en utilisant les options de rejet dans le DDL CREATE EXTERNAL TABLE.
+
 
 ## Charger des données à partir d’objets Blob Microsoft Azure Storage
 Dans cet exemple, les données des objets Blob Microsoft Azure Storage sont chargées dans la base de données SQL Data Warehouse.
@@ -327,4 +325,4 @@ Pour obtenir des conseils supplémentaires en matière de développement, voir l
 [CREATE CREDENTIAL (Transact-SQL)]: https://msdn.microsoft.com/fr-FR/library/ms189522.aspx
 [DROP CREDENTIAL (Transact-SQL)]: https://msdn.microsoft.com/fr-FR/library/ms189450.aspx
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

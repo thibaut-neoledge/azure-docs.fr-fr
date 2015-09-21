@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/16/2015"
+   ms.date="09/03/2015"
    ms.author="oanapl"/>
 
 # Comment afficher les rapports d'intégrité de Service Fabric
@@ -174,7 +174,7 @@ HealthEvents            : None
 L’applet de commande PowerShell suivante recueille les données d’intégrité du cluster à l’aide d’une stratégie personnalisée d’application. Elle filtre les résultats afin d’identifier uniquement les applications et les nœuds présentant l’état Error ou Warning. En conséquence, aucun nœud n’apparaît, dans la mesure où ils sont tous sains. Seule l’application fabric:/WordCount respecte le filtre d’applications. La stratégie personnalisée exige de considérer les avertissements comme des erreurs pour l’application fabric:/WordCount, l’application présente le statut Error, tout comme le cluster.
 
 ```powershell
-PS C:\> $appHealthPolicy = New-Object -TypeName System.Fabric.Health.ApplicationHealthPolicy
+PS c:> $appHealthPolicy = New-Object -TypeName System.Fabric.Health.ApplicationHealthPolicy
 $appHealthPolicy.ConsiderWarningAsError = $true
 $appHealthPolicyMap = New-Object -TypeName System.Fabric.Health.ApplicationHealthPolicyMap
 $appUri1 = New-Object -TypeName System.Uri -ArgumentList "fabric:/WordCount"
@@ -326,7 +326,7 @@ L’applet de commande permettant d’obtenir l’état d’intégrité de l’a
 L’applet de commande suivante renvoie l’état d’intégrité de l’application fabric:/WordCount.
 
 ```powershell
-PS C:\> Get-ServiceFabricApplicationHealth fabric:/WordCount
+PS c:> Get-ServiceFabricApplicationHealth fabric:/WordCount
 
 ApplicationName                 : fabric:/WordCount
 AggregatedHealthState           : Warning
@@ -836,4 +836,4 @@ Chaque fois qu’un problème est identifié dans le cluster ou dans une applica
 [Mise à niveau des applications Service Fabric](service-fabric-application-upgrade.md)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

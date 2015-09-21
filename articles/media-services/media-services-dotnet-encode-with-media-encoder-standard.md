@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Encodage d’un élément multimédia à l’aide de Media Encoder Standard"
-	description="Cette rubrique montre comment utiliser .NET pour encoder vos éléments multimédia avec Media Encoder Standard."
-	services="media-services"
-	documentationCenter=""
-	authors="juliako"
-	manager="dwrede"
+	pageTitle="Encodage d’un élément multimédia à l’aide de Media Encoder Standard" 
+	description="Cette rubrique montre comment utiliser .NET pour encoder vos éléments multimédia avec Media Encoder Standard." 
+	services="media-services" 
+	documentationCenter="" 
+	authors="juliako" 
+	manager="dwrede" 
 	editor=""/>
 
 <tags 
-	ms.service="media-services"
-	ms.workload="media"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/24/2015"
+	ms.service="media-services" 
+	ms.workload="media" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/07/2015"    
 	ms.author="juliako"/>
 
 
@@ -116,8 +116,16 @@ Le code suivant utilise le Kit de développement logiciel (SDK) .NET de Media Se
 		    return processor;
 		}
 
+
+##Parcours d’apprentissage de Media Services
+
+Vous pouvez afficher les parcours d’apprentissage d’AMS ici :
+
+- [Workflow en flux continu AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [Workflow de streaming à la demande AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+
 ##Voir aussi 
 
 [Vue d’ensemble de l’encodage de Media Services](media-services-encode-asset.md)
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

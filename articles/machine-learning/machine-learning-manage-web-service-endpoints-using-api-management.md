@@ -8,16 +8,14 @@
 	manager="paulettm"
 	editor=""/>
 
-
 <tags
 	ms.service="machine-learning"
 	ms.workload="data-services"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/16/2015"
+	ms.date="09/09/2015"
 	ms.author="roalexan" />
-
 
 
 # Gestion des services web AzureML à l’aide de Gestion des API
@@ -40,7 +38,7 @@ Pour utiliser ce guide, il vous faut :
 
 * Un compte Azure. Si vous n’avez pas de compte Azure, cliquez [ici](http://azure.microsoft.com/pricing/free-trial/) pour plus d’informations sur la création d’un compte d’essai gratuit.
 * Un compte AzureML. Si vous n’avez pas de compte AzureML, cliquez [ici](https://studio.azureml.net/) pour plus d’informations sur la création d’un compte d’essai gratuit.
-* L’espace de travail, le service et l’api\_key pour l’expérience AzureML publiés sous forme de service web. Cliquez [ici](machine-learning/machine-learning-create-experiment.md) pour plus d’informations sur la création d’une expérience AzureML. Cliquez [ici](machine-learning/machine-learning-publish-a-machine-learning-web-service.md) pour plus d’informations sur la publication d’une expérience AzureML comme service web. L’annexe A contient également des instructions sur la façon de créer et de tester une expérience AzureML simple et de la publier en tant que service web.
+* L’espace de travail, le service et l’api\_key pour l’expérience AzureML déployés sous forme de service web. Cliquez [ici](machine-learning/machine-learning-create-experiment.md) pour plus d’informations sur la création d’une expérience AzureML. Cliquez [ici](machine-learning/machine-learning-publish-a-machine-learning-web-service.md) pour plus d’informations sur le déploiement d’une expérience AzureML comme service web. L’annexe A contient également des instructions sur la façon de créer et de tester une expérience AzureML simple et de la déployer en tant que service web.
 
 ##Création d'une instance du service API Management
 
@@ -134,7 +132,7 @@ Pour les paramètres de requête, saisissez votre **espace de travail**, le **se
 
 Pour les en-têtes de requête, cliquez sur **Ajouter en-tête** et saisissez **Content-Type** et **application/json**, puis cliquez sur **Ajouter en-tête** et saisissez **Autorisation** et **Porteur<YOUR AZUREML SERVICE API-KEY>**. Vous pouvez trouver votre **clé API** dans le tableau de bord du service web AzureML (voir **Test du service web** dans l’annexe A).
 
-Saisissez **{»Inputs»: {»input1»: {»ColumnNames»: [»Col2»\], «Values»: [[»C’est une belle journée»]]}}, «GlobalParameters»: {}}** dans le corps de la requête.
+Saisissez **{»Inputs»: {»input1»: {»ColumnNames»: [»Col2»], «Values»: [[»C’est une belle journée»]]}}, «GlobalParameters»: {}}** dans le corps de la requête.
 
 ![azureml-demo-api](./media/machine-learning-manage-web-service-endpoints-using-api-management/azureml-demo-api.png)
 
@@ -150,7 +148,7 @@ Après l'appel d'une opération, le portail des développeurs affiche l'**URL re
 
 ###Création de l’expérience
 
-Vous trouverez ci-dessous les étapes de création d’une expérience AzureML simple et de sa publication comme service web. Le service web prend comme entrée une colonne de texte arbitraire et retourne un ensemble de fonctionnalités représentées sous forme d’entiers. Par exemple :
+Vous trouverez ci-dessous les étapes de création d’une expérience AzureML simple et de son déploiement comme service web. Le service web prend comme entrée une colonne de texte arbitraire et retourne un ensemble de fonctionnalités représentées sous forme d’entiers. Par exemple :
 
 Texte | Texte haché
 --- | ---
@@ -386,4 +384,4 @@ Ce guide fournit un exemple Python opérationnel. Vous devez le modifier avec le
 	return
 	invokeBatchExecutionService()
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

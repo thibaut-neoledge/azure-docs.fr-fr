@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="article" 
-	ms.date="02/25/2015" 
+	ms.date="09/08/2015" 
 	ms.author="mwasson"/>
 
 
@@ -24,18 +24,15 @@ Une application packagée peut être déployée dans l'environnement intermédia
 
 > [AZURE.NOTE]Les étapes figurant dans cet article s'appliquent uniquement aux applications Node hébergées en tant que service cloud Azure.
 
-Cette procédure comprend les étapes suivantes :
-
--   [Étape 1 : déploiement intermédiaire d'une application]
--   [Étape 2 : déploiement d'une application en production en échangeant les adresses IP virtuelles]
-
 ## Étape 1 : déploiement intermédiaire d'une application
 
-Cette tâche explique comment effectuer un déploiement intermédiaire d'une application au moyen de **Windows Azure PowerShell**.
+Cette tâche explique comment effectuer un déploiement intermédiaire d’une application au moyen de **Microsoft Azure PowerShell**.
 
 1.  Lorsque vous publiez un service, transmettez simplement le paramètre **-Slot** à la cmdlet **Publish-AzureServiceProject**.
 
-    **Publish-AzureServiceProject-Slot staging**
+    ```powershell
+    Publish-AzureServiceProject -Slot staging
+    ```
 
 2.  Connectez-vous au [portail de gestion Azure] et sélectionnez **Cloud Services**. Une fois que le service cloud a été créé et que le statut de la colonne **Intermédiaire** est passé à **En cours d'exécution**, cliquez sur le nom du service.
 
@@ -50,8 +47,6 @@ Cette tâche explique comment effectuer un déploiement intermédiaire d'une app
     ![URL du site][cloud-service-staging-url]
 
 À présent, vous pouvez vérifier que l'application fonctionne correctement dans l'environnement intermédiaire en utilisant l'URL du site intermédiaire.
-
-Pour un scénario de mise à niveau, dans lequel l'application intermédiaire est une version mise à niveau de celle ayant déjà été déployée en production, vous pouvez [mettre à niveau l'application dans l'environnement de production en échangeant les adresses IP virtuelles][Step 2: Deploy an Application to Production by Swapping VIPs].
 
 ## Étape 2 : mise à niveau d'une application en production en échangeant les adresses IP virtuelles
 
@@ -72,18 +67,12 @@ Vous avez correctement effectué un déploiement intermédiaire et mis à niveau
 ## Ressources supplémentaires
 
 - [Comment déployer une mise à niveau de service vers l’environnement de production en échangeant les adresses IP virtuelles dans Azure]
-- [Présentation de la gestion des déploiements dans Azure]
 
-  [Étape 1 : déploiement intermédiaire d'une application]: #step1
-  [Step 2: Deploy an Application to Production by Swapping VIPs]: #step2
-  [Étape 2 : déploiement d'une application en production en échangeant les adresses IP virtuelles]: #step2
-  [portail de gestion Azure]: http://manage.windowsazure.com
+[portail de gestion Azure]: http://manage.windowsazure.com
 [cloud-service]: ./media/cloud-services-nodejs-stage-application/staging-cloud-service-running.png
 [cloud-service-dashboard]: ./media/cloud-services-nodejs-stage-application/cloud-service-dashboard-staging.png
-  [cloud-service-staging-url]: ./media/cloud-services-nodejs-stage-application/cloud-service-staging-url.png
-  [vip-swap-dialog]: ./media/cloud-services-nodejs-stage-application/vip-swap-dialog.png
-  [Comment déployer une mise à niveau de service vers l’environnement de production en échangeant les adresses IP virtuelles dans Azure]: http://msdn.microsoft.com/library/windowsazure/ee517253.aspx
-  [Présentation de la gestion des déploiements dans Azure]: http://msdn.microsoft.com/library/windowsazure/hh386336.aspx
- 
+[cloud-service-staging-url]: ./media/cloud-services-nodejs-stage-application/cloud-service-staging-url.png
+[vip-swap-dialog]: ./media/cloud-services-nodejs-stage-application/vip-swap-dialog.png
+[Comment déployer une mise à niveau de service vers l’environnement de production en échangeant les adresses IP virtuelles dans Azure]: cloud-services-how-to-manage.md#how-to-swap-deployments-to-promote-a-staged-deployment-to-production
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO2-->

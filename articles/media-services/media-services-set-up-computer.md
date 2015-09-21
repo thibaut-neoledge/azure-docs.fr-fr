@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="08/11/2015"
+	ms.date="09/07/2015"  
 	ms.author="juliako"/>
 
 # Configurer votre environnement
@@ -44,9 +44,12 @@ Choisissez .NET ou l’API REST pour vous connecter par programme à Azure Media
 
 [AZURE.INCLUDE [media-services-selector-connect](../../includes/media-services-selector-connect.md)]
 
-## Étapes suivantes
 
-- [Prise en main de la diffusion de contenus vidéo à la demande (VoD) à l'aide de du Kit de développement logiciel (SDK) .NET](media-services-dotnet-get-started.md)
-- [Utiliser le Kit de développement logiciel (SDK) .NET pour créer des canaux encodant en temps réel un flux à vitesse de transmission unique en flux à vitesses de transmission multiples (version préliminaire)](media-services-dotnet-creating-live-encoder-enabled-channel.md)
+##Étapes suivantes : parcours d’apprentissage d’AMS
 
-<!---HONumber=September15_HO1-->
+Vous pouvez afficher les parcours d’apprentissage d’AMS ici :
+
+- [Workflow en flux continu AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [Workflow de streaming à la demande AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+
+<!---HONumber=Sept15_HO2-->

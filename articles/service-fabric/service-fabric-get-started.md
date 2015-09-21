@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="07/24/2015"
+   ms.date="09/10/2015"
    ms.author="seanmck"/>
 
 # Configurer votre environnement de développement Service Fabric
@@ -21,7 +21,7 @@
 
  >[AZURE.NOTE]Ces instructions sont prévues pour configurer de nouveaux ordinateurs. Si vous avez installé une version antérieure de Service Fabric sur votre ordinateur, suivez les [instructions pour mettre à jour votre environnement de développement](service-fabric-update-your-development-environment.md).
 
-## Conditions préalables
+## Composants requis
 ### Versions de système d'exploitation prises en charge
 Les versions de système d'exploitation prises en charge sont les suivantes :
 
@@ -51,8 +51,9 @@ L'installation s'exécute automatiquement.
 
 Service Fabric utilise des scripts Windows PowerShell pour créer un cluster de développement local et déployer des applications à partir de Visual Studio. Par défaut, Windows bloque l'exécution de ces scripts. Pour les activer, vous devez modifier votre stratégie d'exécution PowerShell. Ouvrez PowerShell en tant qu'administrateur et entrez la commande suivante :
 
-    Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Force -Scope CurrentUser
-
+```powershell
+Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Force -Scope CurrentUser
+```
 
 ## Installer et démarrer un cluster local
 Un cluster local est une topologie de plusieurs ordinateurs que vous utilisez par la suite en production sur un seul ordinateur de développement. Pour configurer le cluster local, procédez comme suit :
@@ -60,9 +61,17 @@ Un cluster local est une topologie de plusieurs ordinateurs que vous utilisez pa
 
 1. Fermez toutes les autres fenêtres PowerShell et démarrez-en une nouvelle en tant qu'administrateur.
 
-2. Accédez au répertoire d'installation du cluster avec `cd "$env:ProgramW6432\Microsoft SDKs\Service Fabric\ClusterSetup"`.
+2. Accédez au répertoire d’installation du cluster.
 
-3. Exécutez `.\DevClusterSetup.ps1`.
+    ```powershell
+    cd "$env:ProgramW6432\Microsoft SDKs\Service Fabric\ClusterSetup"
+    ```
+    
+3. Exécuter
+
+    ```powershell
+    .\DevClusterSetup.ps1
+    ```
 
 Quelques instants après, une sortie s'affiche indiquant les informations de nœuds et confirmant que le cluster a été correctement créé. Dans certains cas, des alertes peuvent se produire pendant le démarrage du service hôte de Service Fabric et des services d'affectation de noms. Ce sont des alertes normales, suivies momentanément par certaines informations de base sur le cluster.
 
@@ -72,7 +81,11 @@ Quelques instants après, une sortie s'affiche indiquant les informations de nœ
 
 Vous pouvez vérifier que votre cluster a été correctement créé à l'aide de l'outil Service Fabric Explorer fourni avec le SDK.
 
-1. Démarrez Service Fabric Explorer en exécutant `. "$env:ProgramW6432\Microsoft SDKs\Service Fabric\Tools\ServiceFabricExplorer\ServiceFabricExplorer.exe"`.
+1. Démarrez Service Fabric Explorer en exécutant 
+
+    ```powershell
+    . "$env:ProgramW6432\Microsoft SDKs\Service Fabric\Tools\ServiceFabricExplorer\ServiceFabricExplorer.exe"
+    ```
 
 2. Développez le nœud Onebox/Local Cluster en haut à gauche.
 
@@ -93,4 +106,4 @@ Si aucun élément n'est vert ou qu'un message d'erreur s'affiche, attendez quel
 [2]: http://go.microsoft.com/fwlink/?LinkId=517106 "VS RC"
 [3]: http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric "Lien WebPI"
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO2-->

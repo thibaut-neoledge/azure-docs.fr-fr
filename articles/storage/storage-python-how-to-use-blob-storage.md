@@ -114,4 +114,4 @@ Maintenant que vous connaissez les bases du stockage des objets blob, consultez 
 [package Azure Python]: https://pypi.python.org/pypi/azure
 [package Python Azure Storage]: https://pypi.python.org/pypi/azure-storage
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO2-->

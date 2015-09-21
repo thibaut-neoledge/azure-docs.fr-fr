@@ -7,16 +7,14 @@
 	manager="dwrede" 
 	editor=""/>
 
-
 <tags 
 	ms.service="api-management" 
 	ms.workload="mobile" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/16/2015" 
+	ms.date="09/10/2015" 
 	ms.author="sdanie"/>
-
 
 # Comment autoriser des comptes de développeurs avec Azure Active Directory dans Gestion des API Azure
 
@@ -230,4 +228,4 @@ Votre utilisateur est maintenant connecté au portail des développeurs pour vot
 
 [Connexion au portail des développeurs avec un compte Azure Active Directory]: #Log-in-to-the-Developer-portal-using-an-Azure-Active-Directory-account
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

@@ -84,7 +84,7 @@ Un service de recherche standard commence avec un réplica et une partition, mai
 
 Les réplicas et les partitions supplémentaires sont facturés en tant qu'unités de recherche. Le nombre total d'unités de recherche requises pour prendre en charge une configuration de ressource particulière s'affiche sur la page, à mesure que vous ajoutez des ressources.
 
-Vous pouvez consulter les [Informations de tarification](http://go.microsoft.com/fwlink/p/?LinkID=509792) pour obtenir les informations de facturation par unité. Consultez [Limites et contraintes](http://msdn.microsoft.com/library/azure/dn798934.aspx) pour savoir comment configurer des combinaisons de partitions et de réplicas.
+Vous pouvez consulter les [Informations de tarification](http://go.microsoft.com/fwlink/p/?LinkID=509792) pour obtenir les informations de facturation par unité. Consultez [Limites et contraintes](search-limits-quotas-capacity.md) pour savoir comment configurer des combinaisons de partitions et de réplicas.
 
 <a id="sub-4"></a>
 ##Test des opérations de service
@@ -120,4 +120,4 @@ Les informations supplémentaires suivantes vous expliquent comment créer et g�
 [2]: ./media/search-create-service-portal/create-search-portal-2.PNG
 [3]: ./media/search-create-service-portal/create-search-portal-3.PNG
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

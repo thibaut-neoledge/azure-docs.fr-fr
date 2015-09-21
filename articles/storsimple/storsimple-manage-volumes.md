@@ -1,19 +1,19 @@
 <properties
    pageTitle="Gérer vos volumes StorSimple | Microsoft Azure"
-	description="Explique comment ajouter, modifier, analyser et supprimer des volumes StorSimple et comment les mettre hors connexion si nécessaire."
-	services="storsimple"
-	documentationCenter="NA"
-	authors="SharS"
-	manager="carolz"
-	editor=""/>
+   description="Explique comment ajouter, modifier, analyser et supprimer des volumes StorSimple et comment les mettre hors connexion si nécessaire."
+   services="storsimple"
+   documentationCenter="NA"
+   authors="SharS"
+   manager="carolz"
+   editor="" />
 <tags 
    ms.service="storsimple"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="TBD"
-	ms.date="08/27/2015"
-	ms.author="v-sharos"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="TBD"
+   ms.date="09/09/2015"
+   ms.author="v-sharos" />
 
 # Utiliser le service StorSimple Manager pour gérer les volumes
 
@@ -88,8 +88,7 @@ Le nouveau volume est maintenant prêt à l’emploi.
 
 Modifiez un volume lorsque vous avez besoin d’en augmenter la taille ou de modifier les hôtes qui peuvent y accéder.
 
-> [AZURE.IMPORTANT]Si vous modifiez la taille du volume sur l’appareil, vous devez la modifier sur l’hôte également. Consultez les instructions du système d’exploitation de l’hôte pour modifier le volume sur l’ordinateur hôte.
-
+> [AZURE.IMPORTANT]Si vous modifiez la taille du volume sur l’appareil, vous devez la modifier sur l’hôte également. Les étapes côté hôte décrites ici concernent Windows Server 2012 (2012R2). Les procédures pour Linux ou d’autres systèmes d’exploitation sont différentes. Consultez les instructions du système d’exploitation de l’hôte pour modifier le volume sur un hôte exécutant un autre système d’exploitation.
 
 ### Pour modifier un volume
 
@@ -113,7 +112,14 @@ Modifiez un volume lorsque vous avez besoin d’en augmenter la taille ou de mod
  
     > [AZURE.NOTE]Vous ne pouvez pas modifier l’option **Activer une sauvegarde par défaut** du volume.
 
-6. Enregistrez vos modifications en cliquant sur l’icône en forme de coche ![icône-coche](./media/storsimple-manage-volumes/HCS_CheckIcon.png).
+6. Enregistrez vos modifications en cliquant sur l’icône en forme de coche ![icône-coche](./media/storsimple-manage-volumes/HCS_CheckIcon.png). Le portail affiche un message de mise à jour de volume. Il affiche un message de réussite quand le volume a été mis à jour avec succès.
+
+7. Si vous développez un volume, procédez comme suit sur votre ordinateur hôte Windows :
+
+   1. Accédez à **Gestion de l’ordinateur** ->**Gestion des disques**.
+   2. Cliquez avec le bouton droit sur **Gestion des disques**, puis choisissez **Analyser les disques de nouveau**.
+   3. Dans la liste des disques, sélectionnez le volume que vous avez mis à jour, cliquez avec le bouton droit, puis choisissez **Étendre le volume**. L’Assistant Étendre le volume démarre. Cliquez sur **Next**.
+   4. Parcourez les étapes de l’Assistant en acceptant les valeurs par défaut. Une fois l’Assistant terminé, le volume doit afficher la taille augmentée.
 
 ## Mise hors connexion d’un volume
 
@@ -176,9 +182,11 @@ Suivez la procédure ci-dessous pour activer ou désactiver l’analyse d’un v
 
 ## Étapes suivantes
 
+Regardez une vidéo qui montre comment [étendre un volume StorSimple](http://azure.microsoft.com/documentation/videos/expand-a-storsimple-volume).
+
 Découvrez comment [cloner un volume StorSimple](storsimple-clone-volume.md).
 
 
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

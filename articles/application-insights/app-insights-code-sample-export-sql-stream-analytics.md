@@ -1,18 +1,18 @@
 <properties 
-	pageTitle="Procédure : exporter des données de télémétrie depuis Application Insights vers la base de données SQL"
-	description="Codez votre propre analyse des données de télémétrie dans Application Insights à l’aide de la fonctionnalité d’exportation continue."
-	services="application-insights"
-	documentationCenter=""
-	authors="noamben"
+	pageTitle="Procédure : exporter des données de télémétrie depuis Application Insights vers la base de données SQL" 
+	description="Codez votre propre analyse des données de télémétrie dans Application Insights à l’aide de la fonctionnalité d’exportation continue." 
+	services="application-insights" 
+    documentationCenter=""
+	authors="noamben" 
 	manager="douge"/>
 
 <tags 
-	ms.service="application-insights"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="ibiza"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/31/2015"
+	ms.service="application-insights" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="ibiza" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/31/2015" 
 	ms.author="awills"/>
  
 # Procédure pas à pas : exporter vers SQL à partir d’Application Insights à l’aide de Stream Analytics
@@ -97,7 +97,7 @@ Comme l’exportation continue génère toujours des données vers un compte de 
 
     Les données seront également exportées vers votre stockage.
 
-4. Inspectez les données exportées. Dans Visual Studio, sélectionnez **Afficher / Cloud Explorer** et ouvrez Azure / Stockage. (Si vous n'avez pas cette option, vous devez installer le SDK Azure : Ouvrez la boîte de dialogue Nouveau projet et ouvrez Visual C# / Cloud / Obtenir Microsoft Azure SDK pour .NET.)
+4. Inspectez les données exportées, soit dans le portail (choisissez **Parcourir**, sélectionnez votre compte de stockage, puis **Conteneurs**), soit dans Visual Studio. Dans Visual Studio, sélectionnez **Afficher / Cloud Explorer** et ouvrez Azure / Stockage. (Si vous n'avez pas cette option, vous devez installer le SDK Azure : Ouvrez la boîte de dialogue Nouveau projet et ouvrez Visual C# / Cloud / Obtenir Microsoft Azure SDK pour .NET.)
 
     ![Dans Visual Studio, ouvrez Explorateur de serveurs, Azure, Stockage](./media/app-insights-code-sample-export-sql-stream-analytics/087-explorer.png)
 
@@ -165,7 +165,7 @@ CREATE CLUSTERED INDEX [pvTblIdx] ON [dbo].[PageViewsTable]
 
 ![](./media/app-insights-code-sample-export-sql-stream-analytics/34-create-table.png)
 
-Dans cet exemple, nous utilisons les données issues des affichages de pages. Pour voir les autres données disponibles, examinez la sortie JSON et consultez le [modèle d'exportation de données](app-insights-export-data-model.md).
+Dans cet exemple, nous utilisons les données issues des affichages de pages. Pour voir les autres données disponibles, examinez la sortie JSON et consultez le [modèle d’exportation de données](app-insights-export-data-model.md).
 
 ## Création d’une instance Azure Stream Analytics
 
@@ -196,7 +196,7 @@ Vous devez maintenant disposer de la clé d’accès principale issue de votre c
 
 ![](./media/app-insights-code-sample-export-sql-stream-analytics/47-sa-wizard3.png)
 
-Veillez à définir le format de date sur AAAA-MM-JJ (avec des tirets).
+Veillez à définir le format de date sur **AAAA-MM-JJ** (avec des **tirets**).
 
 La séquence d’octets préfixe du chemin d’accès spécifie la manière dont Stream Analytics recherche les fichiers d’entrée dans le stockage. Vous devez la configurer pour correspondre au mode de stockage des données de l'exportation continue. Définissez-la comme suit :
 
@@ -205,8 +205,8 @@ La séquence d’octets préfixe du chemin d’accès spécifie la manière dont
 Dans cet exemple :
 
 * `webapplication27` est le nom de la ressource Application Insights, **tout en minuscules**. 
-* `1234...` est la clé d'instrumentation de la ressource Application Insights **avec les tirets supprimés**. 
-* `PageViews` est le type de données que nous souhaitons analyser. Les types disponibles varient selon le filtre que vous définissez dans l’exportation continue. Examinez les données exportées pour voir les autres types disponibles, et consultez le [modèle d'exportation de données](app-insights-export-data-model.md).
+* `1234...` est la clé d’instrumentation de la ressource Application Insights **avec les tirets supprimés**. 
+* `PageViews` est le type de données que nous souhaitons analyser. Les types disponibles varient selon le filtre que vous définissez dans l’exportation continue. Examinez les données exportées pour voir les autres types disponibles et consultez le [modèle d’exportation de données](app-insights-export-data-model.md).
 * `/{date}/{time}` est une séquence écrite de manière littérale.
 
 Pour obtenir le nom et l’iKey de votre ressource Application Insights, ouvrez Essentials sur sa page de présentation ou ouvrez Paramètres.
@@ -218,6 +218,8 @@ Confirmez le format de sérialisation :
 ![Confirmez et fermez l’assistant.](./media/app-insights-code-sample-export-sql-stream-analytics/48-sa-wizard4.png)
 
 Fermez l’assistant et attendez la fin de l’installation.
+
+>[AZURE.TIP]Utilisez l’exemple de fonction pour vérifier que vous avez correctement défini le chemin d’accès d’entrée. En cas d’échec, vérifiez qu’il y a des données dans le stockage pour l’exemple de période que vous avez choisi. Modifiez la définition de l’entrée et vérifiez que vous avez correctement défini le compte de stockage, le préfixe de chemin d’accès et le format de date.
 
 ## Définition d’une requête
 
@@ -312,4 +314,4 @@ Après quelques minutes, revenez aux Outils d’administration SQL Server et obs
 
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

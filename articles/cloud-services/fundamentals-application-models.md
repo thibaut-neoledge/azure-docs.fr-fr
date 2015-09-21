@@ -1,18 +1,20 @@
 <properties 
-	pageTitle="Calcul des options d’hébergement fournies par Azure"
-	description="Découvrez les options d'hébergement de calcul Azure et leur fonctionnement : Virtual Machines, Sites Web, Cloud Services et bien d’autres."
+	pageTitle="Calcul des options d’hébergement fournies par Azure" 
+	description="Découvrez les options d'hébergement de calcul Azure et leur fonctionnement : Virtual Machines, Sites Web, Cloud Services et bien d’autres." 
+	headerExpose="" 
+	footerExpose="" 
 	services="cloud-services,virtual-machines"
-	authors="Thraka"
+	authors="Thraka" 
 	documentationCenter=""
 	manager="timlt"/>
 
 <tags 
-	ms.service="multiple"
-	ms.workload="multiple"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="06/16/2015"
+	ms.service="multiple" 
+	ms.workload="multiple" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/08/2015" 
 	ms.author="adegeo;cephalin;kathydav"/>
 
 
@@ -53,7 +55,7 @@ App Service est le meilleur choix pour la plupart des applications web. Le dépl
 
 Si vous avez besoin d'un plus grand niveau de contrôle sur l'environnement de serveur web, par exemple pour pouvoir vous connecter à distance au serveur ou pour configurer les tâches de démarrage du serveur, Azure Cloud Services est normalement la meilleure option.
 
-Si vous avez une application qui nécessite des modifications importantes pour pouvoir fonctionner dans Sites Web Azure ou Azure Cloud Services, vous pouvez choisir Azure Virtual Machines pour simplifier la migration vers le cloud. Cependant, la configuration, la sécurisation et la gestion des machines virtuelles nécessitent bien plus de temps et de compétences que l'utilisation de Sites Web Azure et Azure Cloud Services. Si vous envisagez d'utiliser Azure Virtual Machines, tenez bien compte du temps de maintenance nécessaire pour mettre à jour, mettre à niveau et gérer votre environnement de machine virtuelle. Si vous avez une application qui nécessite des modifications importantes pour pouvoir fonctionner dans App Service ou Azure Cloud Services, vous pouvez choisir Azure Virtual Machines pour simplifier la migration vers le cloud. Cependant, la bonne configuration, sécurisation et gestion des machines virtuelles nécessite bien plus de temps et de compétences que l’utilisation d’App Service et Azure Cloud Services. Si vous envisagez d'utiliser Azure Virtual Machines, tenez bien compte du temps de maintenance nécessaire pour mettre à jour, mettre à niveau et gérer votre environnement de machine virtuelle.
+Si vous avez une application qui nécessite des modifications importantes pour pouvoir fonctionner dans Sites Web Azure ou Azure Cloud Services, vous pouvez choisir Azure Virtual Machines pour simplifier la migration vers le cloud. Cependant, la configuration, la sécurisation et la gestion des machines virtuelles nécessitent bien plus de temps et de compétences que l'utilisation de Sites Web Azure et Azure Cloud Services. Si vous envisagez d'utiliser Azure Virtual Machines, tenez bien compte du temps de maintenance nécessaire pour mettre à jour, mettre à niveau et gérer votre environnement de machine virtuelle.
 
 Parfois, aucune option ne convient seule. Dans de telles situations, il est parfaitement légal de combiner des options. Supposons, par exemple, que vous créez une application dans laquelle vous souhaitez bénéficier des avantages en matière de gestion offerts par les rôles web Cloud Services, tout en ayant besoin également d'utiliser SQL Server standard hébergé sur une machine virtuelle pour des raisons de compatibilité ou de performance.
 
@@ -79,4 +81,4 @@ As the figure illustrates, the Cloud Services VMs run in a separate cloud servic
 * En savoir plus sur [Cloud Service](services/cloud-services/)
 * En savoir plus sur [Virtual Machines](https://msdn.microsoft.com/library/azure/jj156143.aspx) 
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

@@ -1,28 +1,28 @@
-<properties 
+<properties
    pageTitle="Exemples relatifs à Microsoft Azure Storage | Microsoft Azure"
-	description="Affichez, téléchargez et exploitez les exemples relatifs à Microsoft Azure Storage. Découvrez la mise en route des exemples d’objets blob, de files d’attente, de tables et de fichiers, qui utilisent des bibliothèques clientes de stockage .NET, Java, Node.js et C++."
-	services="storage"
-	documentationCenter="na"
-	authors="tamram"
-	manager="na"
-	editor="na"/>
-<tags 
+   description="Affichez, téléchargez et exploitez les exemples relatifs à Microsoft Azure Storage. Découvrez la mise en route des exemples d’objets blob, de files d’attente, de tables et de fichiers, qui utilisent des bibliothèques clientes de stockage .NET, Java, Node.js et C++."
+   services="storage"
+   documentationCenter="na"
+   authors="tamram"
+   manager="na"
+   editor="na" />
+<tags
    ms.service="storage"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="storage"
-	ms.date="09/01/2015"
-	ms.author="tamram"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="storage"
+   ms.date="09/01/2015"
+   ms.author="tamram" />
 
 # Exemples relatifs à Microsoft Azure Storage
 
-## Vue d’ensemble
+## Vue d'ensemble
 Utilisez les liens ci-dessous pour afficher et télécharger des exemples d’utilisation de Microsoft Azure Storage.
 
 ## Exemples relatifs à .NET
 
-Pour explorer les exemples relatifs à .NET, téléchargez la [bibliothèque cliente de stockage .NET](https://www.nuget.org/packages/WindowsAzure.Storage/) à partir de NuGet. Cette bibliothèque est également disponible dans le [kit de développement logiciel (SDK) Microsoft Azure pour .NET](http://azure.microsoft.com/downloads/).
+Pour explorer les exemples relatifs à .NET, téléchargez la [bibliothèque cliente de stockage .NET](https://www.nuget.org/packages/WindowsAzure.Storage/) à partir de NuGet. Cette bibliothèque est également disponible dans le [Kit de développement logiciel (SDK) Microsoft Azure pour .NET](http://azure.microsoft.com/downloads/).
 
 * [Prise en main des objets blob, des tables et des files d’attente Microsoft Azure en 5 minutes](storage-getting-started-guide.md)
 * [Gestion de l’accès concurrentiel avec Azure Storage - Exemple d’application](https://code.msdn.microsoft.com/Managing-Concurrency-using-56018114)
@@ -79,6 +79,6 @@ Pour explorer les exemples C++, téléchargez la [bibliothèque cliente de stoc
 ### Ressources relatives à C++
 
 - [Code source de la bibliothèque cliente de stockage C++](https://github.com/Azure/azure-storage-cpp)
-- [Référence de la bibliothèque cliente C++](http://azure.github.io/azure-storage-cpp/) 
+- [Référence de la bibliothèque cliente C++](http://azure.github.io/azure-storage-cpp/)
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

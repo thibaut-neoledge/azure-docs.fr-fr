@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Prise en main d’Azure Notification Hubs | Microsoft Azure"
+	pageTitle="Prendre en main Azure Notification Hubs pour les applications Android | Microsoft Azure"
 	description="Dans ce didacticiel, vous découvrirez comment utiliser Azure Notification Hubs pour envoyer des notifications Push à une application Android."
 	services="notification-hubs"
 	documentationCenter="android"
@@ -12,10 +12,10 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="hero-article"
-	ms.date="09/01/2015"
+	ms.date="09/03/2015"
 	ms.author="wesmc"/>
 
-# Prise en main de Notification Hubs
+# Prendre en main Notification Hubs pour les applications Android
 
 [AZURE.INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
 
@@ -119,7 +119,7 @@ Vous devez suivre ce didacticiel avant de pouvoir suivre tous les autres didacti
         hub = new NotificationHub(HubName, HubListenConnectionString, this);
         registerWithNotificationHubs();
 
-6. Dans **MainActivity.java**, ajoutez le code ci-dessous pour la méthode **registerWithNotificationHubs()**. Cette méthode permet de signaler que l’inscription auprès du concentrateur de notification et de Google Cloud Messaging a réussi :
+6. Dans **MainActivity.java**, ajoutez le code ci-dessous pour la méthode **registerWithNotificationHubs()**. Cette méthode permet de signaler que l’inscription auprès du hub de notification et de Google Cloud Messaging a réussi :
 
     	@SuppressWarnings("unchecked")
     	private void registerWithNotificationHubs() {
@@ -278,7 +278,7 @@ Vous pouvez tester la réception de notifications dans votre application en envo
 
 ![][31]
 
-1. Dans la vue de projet Android Studio, développez **App** -> **src** -> **main** -> **res** -> **layout**. Ouvrez le fichier de disposition **activity\_main.xml** et cliquez sur l'onglet **Texte** pour mettre à jour le texte du fichier. Mettez-le à jour avec le code suivant, qui ajoute deux nouveaux contrôles `Button` et `EditText` pour l’envoi des messages de notification au concentrateur de notification. Ajoutez ce code en bas juste avant `</RelativeLayout>`.
+1. Dans la vue de projet Android Studio, développez **App** -> **src** -> **main** -> **res** -> **layout**. Ouvrez le fichier de disposition **activity\_main.xml** et cliquez sur l'onglet **Texte** pour mettre à jour le texte du fichier. Mettez-le à jour avec le code suivant, qui ajoute deux nouveaux contrôles `Button` et `EditText` pour l’envoi des messages de notification au hub de notification. Ajoutez ce code en bas juste avant `</RelativeLayout>`.
 
 	    <Button
         android:layout_width="wrap_content"
@@ -323,14 +323,14 @@ Vous pouvez tester la réception de notifications dans votre application en envo
 
 3. Dans votre fichier **MainActivity.java**, ajoutez les membres suivants en haut de la classe `MainActivity`.
 
-	Entrez le nom de votre concentrateur pour `HubName`, pas l’espace de noms. Par exemple, saisissez « myhub ». En outre, saisissez la chaîne de connexion **DefaultFullSharedAccessSignature**. Vous pouvez copier cette chaîne de connexion depuis le [portail Azure] en cliquant sur **Afficher la chaîne de connexion** sous l’onglet **Tableau de bord** de votre concentrateur de notification.
+	Entrez le nom de votre hub pour `HubName`, pas l’espace de noms. Par exemple, entrez « monhub ». En outre, saisissez la chaîne de connexion **DefaultFullSharedAccessSignature**. Vous pouvez copier cette chaîne de connexion depuis le [portail Azure] en cliquant sur **Afficher la chaîne de connexion** sous l’onglet **Tableau de bord** de votre hub de notification.
 
 	    private String HubEndpoint = null;
 	    private String HubSasKeyName = null;
 	    private String HubSasKeyValue = null;
 		private String HubFullAccess = "<Enter Your DefaultFullSharedAccess Connection string>";
 
-4. Votre activité conserve le nom du concentrateur et la chaîne de connexion d'accès partagé complet pour le concentrateur. Vous devez créer un jeton SaS (Software Access Signature) pour authentifier une demande POST d'envoi de messages à votre concentrateur de notification. Cette opération est effectuée en analysant les données clés de la chaîne de connexion, puis en créant le jeton SaS, comme indiqué sur la page [Concepts courants](http://msdn.microsoft.com/library/azure/dn495627.aspx) des informations de référence sur l’API REST.
+4. Votre activité conserve le nom du hub et la chaîne de connexion d'accès partagé complet pour le hub. Vous devez créer un jeton SaS (Software Access Signature) pour authentifier une demande POST d'envoi de messages à votre hub de notification. Cette opération est effectuée en analysant les données clés de la chaîne de connexion, puis en créant le jeton SaS, comme indiqué sur la page [Concepts courants](http://msdn.microsoft.com/library/azure/dn495627.aspx) des informations de référence sur l’API REST.
 
 	Dans **MainActivity.java**, ajoutez la méthode suivante à la classe `MainActivity` pour analyser votre chaîne de connexion.
 
@@ -478,7 +478,7 @@ Assurez-vous également que vous avez ajouté votre compte Google à l’émulat
 
    	![][18]
 
-2. Entrez le message de notification à envoyer à tous les appareils Android inscrits auprès du concentrateur.
+2. Entrez le message de notification à envoyer à tous les appareils Android inscrits auprès du hub.
 
    	![][19]
 
@@ -531,4 +531,4 @@ Dans cet exemple simple, vous diffusez des notifications à tous vos appareils A
 [Utilisation des Notification Hubs pour envoyer des notifications Push aux utilisateurs]: notification-hubs-aspnet-backend-android-notify-users.md
 [Utilisation des Notification Hubs pour diffuser les dernières nouvelles]: notification-hubs-aspnet-backend-android-breaking-news.md
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

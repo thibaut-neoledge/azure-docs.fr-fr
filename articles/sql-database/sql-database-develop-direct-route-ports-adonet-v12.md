@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Ports au-delà de 1433 pour ADO.NET 4.5 et SQL Database V12 | Microsoft Azure"
-	description="Parfois, les connexions clientes à Azure SQL Database V12 ignorent le proxy et interagissent directement avec la base de données. Les ports autres que le port 1433 deviennent importants."
+	pageTitle="Ports au-delà de 1433 pour SQL Database | Microsoft Azure"
+	description="Parfois, les connexions clientes entre ADO.NET et Azure SQL Database V12 ignorent le proxy et interagissent directement avec la base de données. Les ports autres que le port 1433 deviennent importants."
 	services="sql-database"
 	documentationCenter=""
 	authors="MightyPen"
 	manager="jeffreyg"
-	editor=""/>
+	editor="" />
 
 
 <tags 
-	ms.service="sql-database"
-	ms.workload="data-management"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/01/2015"
+	ms.service="sql-database" 
+	ms.workload="data-management" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/04/2015" 
 	ms.author="genemi"/>
 
 
@@ -62,37 +62,17 @@ La séquence est la suivante :
 
 
 1. ADO.NET 4.5 (ou version ultérieure) initie une brève interaction avec le cloud Azure et reçoit un numéro de port identifié de manière dynamique.
- - Le numéro de port identifié de manière dynamique appartient à la plage 11000-11999.
+ - Le numéro de port identifié de manière dynamique appartient à la plage 11000-11999 ou 14000-14999.
 
 2. ADO.NET se connecte ensuite au serveur SQL Database directement, sans passer par un intergiciel.
 
 3. Les requêtes sont envoyées directement à la base de données et les résultats sont retournés directement au client.
 
 
-Assurez-vous que la plage de ports 11000-11999 sur votre ordinateur client Azure reste disponible pour les interactions client ADO.NET 4.5 avec SQL Database V12.
+Assurez-vous que les plages de ports 11000-11999 et 14000-14999 sur votre ordinateur client Azure restent disponibles pour les interactions client ADO.NET 4.5 avec SQL Database V12.
 
 - En particulier, les ports dans la plage doivent être libres de tout autre bloqueur sortant.
 - Le pare-feu Windows sur votre machine virtuelle Azure contrôle les paramètres de port.
-
-
-## Logique implicite de nouvelle tentative contenue dans l’itinéraire de proxy
-
-
-Dans un environnement de production, il est préférable que les clients qui se connectent à Azure SQL Database V11 ou V12 implémentent la logique de nouvelle tentative dans leur code. Cela peut être un code personnalisé ou un code qui s’appuie sur une API comme Enterprise Library.
-
-
-L’itinéraire de proxy abordé précédemment dans cette rubrique s’applique à la question de la logique des nouvelles tentatives :
-
-
-- Dans V11, le module d’intergiciel qui servait de proxy fournissait également une certaine logique de nouvelle tentative de façon à gérer en douceur certaines erreurs transitoires.
-
-- Dans V12, le proxy ne fournit pas de logique de nouvelle tentative.
-
-
-Dans les deux scénarios, nous conseillons que les clients implémentent la logique de nouvelle tentative dans leur propre code. La nécessité d’une logique de nouvelle tentative dans le client est sans doute accrue avec le dernier itinéraire de proxy qui ne fournit aucune logique de nouvelle tentative.
-
-
-Pour obtenir des exemples de code qui illustrent une logique de nouvelle tentative, consultez la rubrique [Exemples de code de démarrage rapide client pour la base de données SQL](sql-database-develop-quick-start-client-code-samples.md).
 
 
 ## Précisions concernant les versions
@@ -114,16 +94,10 @@ Cette section clarifie les monikers qui font référence aux versions du produit
 Les différences entre SQL Database V11 et SQL Database V12 pour la connexion cliente sont soulignées dans cette rubrique.
 
 
-*Remarque :* l’instruction Transact-SQL `SELECT @@version;` retourne une valeur qui commence par un nombre, tel que « 11. » ou «12.», qui correspond aux noms de version V11 et V12 pour la base de données SQL.
+*Remarque :* l’instruction Transact-SQL `SELECT @@version;` retourne une valeur qui commence par un nombre, tel que « 11. » ou « 12. », qui correspond aux noms de version V11 et V12 pour SQL Database.
 
 
 ## Liens connexes
-
-
-- [Nouveautés de la base de données SQL V12](sql-database-v12-whats-new.md)
-
-
-- [Connexion à la base de données SQL : liens, meilleures pratiques et règles de conception](sql-database-connect-central-recommendations.md)
 
 
 - ADO.NET 4.6 a été publié le 20 juillet 2015. Une annonce dans un billet de blog de l’équipe .NET est disponible [ici](http://blogs.msdn.com/b/dotnet/archive/2015/07/20/announcing-net-framework-4-6.aspx).
@@ -135,4 +109,7 @@ Les différences entre SQL Database V11 et SQL Database V12 pour la connexion cl
 
 - [Liste des versions du protocole TDS](http://www.freetds.org/userguide/tdshistory.htm)
 
-<!---HONumber=September15_HO1-->
+
+- [Connexion à la base de données SQL : liens, meilleures pratiques et règles de conception](sql-database-connect-central-recommendations.md)
+
+<!---HONumber=Sept15_HO2-->

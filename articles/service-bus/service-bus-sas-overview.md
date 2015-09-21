@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Présentation des signatures d'accès partagé"
+   pageTitle="Présentation des signatures d’accès partagé | Microsoft Azure"
    description="Que sont les signatures d'accès partagé, comment fonctionnent-elles et comment les utiliser à partir du nœud, de PHP et C#."
    services="service-bus,event-hubs"
    documentationCenter="na"
@@ -12,19 +12,19 @@
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.workload="tbd"
-   ms.date="07/24/2015"
+   ms.workload="na"
+   ms.date="09/04/2015"
    ms.author="darosa"/>
 
 # Les signatures d'accès partagé
 
-Les *signatures d'accès partagé* (SAS) constituent le principal mécanisme de sécurité pour Service Bus, y compris les concentrateurs d'événements, la messagerie répartie (files d'attente et rubriques) et la messagerie relayée. Cet article traite des signatures d'accès partagé, leur fonctionnement et comment les utiliser de manière indépendante de la plateforme.
+Les *signatures d'accès partagé* (SAS) constituent le principal mécanisme de sécurité pour Service Bus, y compris les hubs d'événements, la messagerie répartie (files d'attente et rubriques) et la messagerie relayée. Cet article traite des signatures d'accès partagé, leur fonctionnement et comment les utiliser de manière indépendante de la plateforme.
 
 ## Présentation des signatures d'accès partagé (SAS)
 
 Les signatures d'accès partagé sont un mécanisme d'authentification basé sur des hachages sécurisés SHA-256 ou des URI. Les signatures d'accès partagé sont un mécanisme extrêmement puissant qui est utilisé par tous les services Service Bus. En fait, les signatures d'accès partagé comptent deux composants : une *stratégie d'accès partagé* et une *signature d'accès partagé* (souvent appelée *jeton*).
 
-Vous trouverez des informations plus détaillées sur les signatures d'accès partagé avec Service Bus à la page [Authentification par signature d'accès partagé avec Service Bus](https://msdn.microsoft.com/library/azure/dn170477.aspx).
+Vous trouverez des informations plus détaillées sur les signatures d’accès partagé avec Service Bus à la page [Authentification par signature d’accès partagé avec Service Bus](service-bus-shared-access-signature-authentication.md).
 
 ## Stratégie d'accès partagé
 
@@ -38,7 +38,7 @@ Les autorisations disponibles pour une stratégie sont relativement explicites 
 
 Une fois la stratégie créée, une *clé primaire* et une *clé secondaire* lui sont attribuées. Il s'agit de clés de chiffrement fortes. Ne les perdez pas et ne les égarez pas ; elles seront toujours disponibles sur le portail. Vous pouvez utiliser n'importe laquelle des clés générées et vous pouvez les régénérer à tout moment. Toutefois, si vous régénérez ou modifiez la clé primaire dans la stratégie, les signatures d'accès partagé créées à partir de celle-ci ne seront plus valides.
 
-Lorsque vous créez un espace de noms Service Bus, une stratégie est automatiquement créée pour l'espace de noms complet, appelée **RootManageSharedAccessKey** et cette stratégie dispose de toutes les autorisations. Vous ne vous connectez pas en tant que **racine**, donc n'utilisez pas cette stratégie sauf s'il existe une très bonne raison. Vous pouvez créer des stratégies supplémentaires dans l'onglet **Configurer** pour l'espace de noms dans le portail de gestion Azure. Il est important de noter qu'un seul niveau d'arborescence dans Service Bus (espace de noms, file d'attente, concentrateur d'événements, etc.) peut avoir jusqu'à 12 stratégies.
+Lorsque vous créez un espace de noms Service Bus, une stratégie est automatiquement créée pour l'espace de noms complet, appelée **RootManageSharedAccessKey** et cette stratégie dispose de toutes les autorisations. Vous ne vous connectez pas en tant que **racine**, donc n'utilisez pas cette stratégie sauf s'il existe une très bonne raison. Vous pouvez créer des stratégies supplémentaires dans l'onglet **Configurer** pour l'espace de noms dans le portail de gestion Azure. Il est important de noter qu'un seul niveau d'arborescence dans Service Bus (espace de noms, file d'attente, hub d'événements, etc.) peut avoir jusqu'à 12 stratégies.
 
 ## Signature d'accès partagé (jeton)
 
@@ -176,7 +176,7 @@ Authorization: SharedAccessSignature sr=https%3A%2F%2F<yournamespace>.servicebus
 ContentType: application/atom+xml;type=entry;charset=utf-8
 ``` 
 	
-N'oubliez pas que cela fonctionne pour tout. Vous pouvez créer des signatures d'accès partagé pour une file d'attente, une rubrique, un abonnement, un concentrateur d'événements ou un relais. Si vous utilisez l’identité par serveur de publication pour Event Hubs, ajoutez simplement `/publishers/< publisherid>`.
+N'oubliez pas que cela fonctionne pour tout. Vous pouvez créer des signatures d'accès partagé pour une file d'attente, une rubrique, un abonnement, un hub d'événements ou un relais. Si vous utilisez l’identité par serveur de publication pour Event Hubs, ajoutez simplement `/publishers/< publisherid>`.
 
 Si vous donnez un jeton SAS à un expéditeur ou un client, celui-ci ne dispose pas directement de la clé et il ne peut pas inverser le hachage pour l'obtenir. Ainsi, vous contrôlez le contenu auquel il peut accéder et pour quelle durée. Il est important de ne pas oublier que si vous modifiez la clé primaire dans la stratégie, les signatures d'accès partagé créées à partir de celle-ci ne seront plus valides.
 
@@ -251,6 +251,8 @@ Après avoir envoyé le jeton SAS sur le lien de l’expéditeur, le serveur de 
 
 Consultez la [référence API REST Service Bus](https://msdn.microsoft.com/library/azure/hh780717.aspx) pour plus d’informations sur ce que vous pouvez faire avec ces jetons SAS.
 
-Pour plus d’informations sur les SAS, consultez le nœud [Authentification Service Bus](https://msdn.microsoft.com/library/azure/dn155925.aspx) sur MSDN. Plus d’exemples sur les SAS dans C# et Java Script sur le [blog de Damir](http://developers.de/blogs/damir_dobric/archive/2013/10/17/how-to-create-shared-access-signature-for-service-bus.aspx)
+Pour plus d’informations sur l’authentification avec Service Bus, consultez [Authentification et autorisation Service Bus](service-bus-authentication-and-authorization.md).
 
-<!---HONumber=August15_HO7-->
+Pour obtenir d’autres exemples de signature d’accès partagé en C# et JavaScript, consultez [ce billet de blog](http://developers.de/blogs/damir_dobric/archive/2013/10/17/how-to-create-shared-access-signature-for-service-bus.aspx).
+
+<!---HONumber=Sept15_HO2-->

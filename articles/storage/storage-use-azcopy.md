@@ -7,16 +7,14 @@
 	manager="adinah" 
 	editor="cgronlun"/>
 
-
 <tags 
 	ms.service="storage" 
 	ms.workload="storage" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/22/2015" 
+	ms.date="09/03/2015" 
 	ms.author="tamram"/>
-
 
 # Prise en main de l'utilitaire de ligne de commande AzCopy
 
@@ -72,96 +70,73 @@ Les paramètres AzCopy sont décrits dans le tableau ci-dessous. Vous pouvez é
     <td><b>/Source:&lt;source></b></td>
     <td>Spécifie les données sources à partir desquelles la copie peut s'effectuer. La source peut être un répertoire du système de fichiers, un conteneur d'objets blob, un répertoire virtuel d'objets blob, un partage de fichiers de stockage, un répertoire de fichiers de stockage ou une table&#160;Azure.</td>
     <td>O</td>
-    <td>O<br />
- (version préliminaire uniquement)</td>
-    <td>O<br />
- (version préliminaire uniquement)</td>
+    <td>O<br /> (version préliminaire uniquement)</td>
+    <td>O<br /> (version préliminaire uniquement)</td>
   </tr>
   <tr>
     <td><b>/Dest:&lt;destination></b></td>
     <td>Spécifie la destination vers laquelle la copie va s'effectuer. La destination peut être un répertoire du système de fichiers, un conteneur d'objets blob, un répertoire virtuel d'objets blob, un partage de fichiers de stockage, un répertoire de fichiers de stockage ou une table&#160;Azure.</td>
     <td>O</td>
-    <td>O<br />
- (version préliminaire uniquement)</td>
-    <td>O<br />
- (version préliminaire uniquement)</td>
+    <td>O<br /> (version préliminaire uniquement)</td>
+    <td>O<br /> (version préliminaire uniquement)</td>
   </tr>
   <tr>
     <td><b>/Pattern:&lt;modèle_fichier></b></td>
       <td>
           Spécifie un modèle de fichier qui indique les fichiers à copier. Le comportement du paramètre /Pattern est déterminé par l'emplacement des données sources et la présence de l'option mode récursif. Le mode récursif est spécifié via l'option&#160;/S.
           <br />
-
           Si la source spécifiée est un répertoire dans le système de fichiers, les caractères génériques standard sont appliqués et le modèle de fichier fourni est comparé aux fichiers présents dans le répertoire. Si l'option&#160;/S est spécifiée, AzCopy compare également le modèle spécifié à tous les fichiers présents dans les sous-dossiers du répertoire.
           <br />
-
           Si la source spécifiée est un conteneur d'objets blob ou un répertoire virtuel, les caractères génériques ne sont pas appliqués. Si l'option&#160;/S est spécifiée, AzCopy interprète le modèle de fichier spécifié comme un préfixe d'objet blob. Si l'option&#160;/S n'est pas spécifiée, AzCopy compare le modèle de fichier aux noms exacts d'objets blob.
           <br />
-
           Si la source spécifiée est un partage de fichiers&#160;Azure, vous devez soit spécifier le nom exact du fichier (abc.txt) pour copier un seul fichier, soit spécifier l'option&#160;/S&#160;pour copier récursivement tous les fichiers dans le partage. Une erreur se produit si vous tentez de spécifier à la fois un modèle de fichier et l'option&#160;/S.
           <br />
-
           AzCopy tient compte de la casse uniquement quand la /Source est un conteneur d’objets blob ou un répertoire virtuel d’objets blob.
           <br/>
-
           Le modèle de fichier par défaut utilisé lorsqu'aucun modèle de fichier n'est spécifié est *.* pour un emplacement de système de fichiers, ou un préfixe vide pour un emplacement&#160;Azure&#160;Storage. La spécification de plusieurs modèles de fichiers n'est pas prise en charge.</td>
     <td>O</td>
-    <td>O<br />
- (version préliminaire uniquement)</td>
+    <td>O<br /> (version préliminaire uniquement)</td>
     <td>N</td>
   </tr>
   <tr>
     <td><b>/DestKey:&lt;clé_stockage></b></td>
     <td>Spécifie la clé du compte de stockage pour la ressource de destination.</td>
     <td>O</td>
-    <td>O<br />
- (version préliminaire uniquement)</td>
-    <td>O<br />
- (version préliminaire uniquement)</td>
+    <td>O<br /> (version préliminaire uniquement)</td>
+    <td>O<br /> (version préliminaire uniquement)</td>
   </tr>
   <tr>
     <td class="auto-style1"><b>/DestSAS:&lt;jeton_sas></b></td>
     <td class="auto-style1">Spécifie une signature d’accès partagé (SAP) avec les autorisations de lecture et d’écriture pour la destination (le cas échéant). Ajoutez des guillemets à la SAP, car elle peut contenir des caractères spéciaux de ligne de commande.<br />
-
         Si la ressource de destination est un conteneur d’objets blob, un partage de fichiers ou une table, vous pouvez spécifier soit cette option suivie du jeton&#160;SAP, soit la SAP comme élément d’URI de l’objet blob, du partage de fichiers ou de la table de destination, sans cette option.<br />
-
         Si la source et la destination sont toutes les deux des objets blob, l'objet blob de destination doit se trouver dans le même compte de stockage que l'objet blob source.</td>
     <td class="auto-style1">O</td>
-    <td class="auto-style1">O<br />
- (version préliminaire uniquement)</td>
-    <td class="auto-style1">O<br />
- (version préliminaire uniquement)</td>
+    <td class="auto-style1">O<br /> (version préliminaire uniquement)</td>
+    <td class="auto-style1">O<br /> (version préliminaire uniquement)</td>
   </tr>
   <tr>
     <td><b>/SourceKey:&lt;clé_stockage></b></td>
     <td>Spécifie la clé du compte de stockage pour la ressource source.</td>
     <td>O</td>
-    <td>O<br />
- (version préliminaire uniquement)</td>
-    <td>O<br />
- (version préliminaire uniquement)</td>
+    <td>O<br /> (version préliminaire uniquement)</td>
+    <td>O<br /> (version préliminaire uniquement)</td>
   </tr>
   <tr>
     <td><b>/SourceSAS:&lt;jeton_sas></b></td>
     <td>Spécifie une signature d’accès partagé avec les autorisations de lecture et de listing pour la source (le cas échéant). Ajoutez des guillemets à la SAP, car elle peut contenir des caractères spéciaux de ligne de commande.
         <br />
-
         Si la ressource source est un conteneur d'objets blob et si aucune clé ou SAP n'est fournie, le conteneur est lu via un accès anonyme.
         <br />
-
         Si la source est un partage de fichiers ou une table, une clé ou une SAP doit être fournie.</td>
     <td>O</td>
-    <td>O<br />
- (version préliminaire uniquement)</td>
-    <td>O<br />
- (version préliminaire uniquement)</td>
+    <td>O<br /> (version préliminaire uniquement)</td>
+    <td>O<br /> (version préliminaire uniquement)</td>
   </tr>
   <tr>
     <td><b>/S</b></td>
     <td>Spécifie le mode récursif pour les opérations de copie. En mode récursif, AzCopy copie tous les objets blob ou fichiers correspondant au modèle de fichier spécifié, incluant ceux qui se trouvent dans les sous-dossiers.</td>
     <td>O</td>
-    <td>O<br />
- (version préliminaire uniquement)</td>
+    <td>O<br /> (version préliminaire uniquement)</td>
     <td>N</td>
   </tr>
   <tr>
@@ -175,24 +150,19 @@ Les paramètres AzCopy sont décrits dans le tableau ci-dessous. Vous pouvez é
     <td><b>/CheckMD5</b></td>
     <td>Calcule un hachage MD5 pour les données téléchargées et vérifie que le hachage MD5 stocké dans la propriété Content-MD5 de l'objet blob ou du fichier correspond au hachage calculé. La vérification MD5 est désactivée par défaut&#160;; vous devez donc spécifier cette option pour lancer la vérification MD5 lorsque vous téléchargez des données.
 	<br />
-
     Remarque&#160;: Azure Storage ne garantit pas que le hachage MD5 stocké pour l'objet blob ou le fichier est à jour. Il est de la responsabilité du client de mettre à jour le MD5 lorsque l'objet blob ou le fichier est modifié.
 	<br />
-
     AzCopy établit toujours la propriété Content-MD5 pour un objet blob ou fichier Azure après l'avoir chargé sur le service.</td>
     <td>O</td>
-    <td>O<br />
- (version préliminaire uniquement)</td>
+    <td>O<br /> (version préliminaire uniquement)</td>
     <td>N</td>
   </tr>
   <tr>
     <td><b>/Snapshot</b></td>
     <td>Indique si le transfert de captures instantanées est activé ou non. Cette option est valide uniquement lorsque la source est un objet blob. 
         <br />
-
         Les captures instantanées d'objets blob transférées sont renommées de cette façon&#160;: [nom_d'objet_Blob] (durée de capture instantanée) [extension]. 
         <br />
-
         Par défaut, les captures instantanées ne sont pas copiées.</td>
     <td>O</td>
     <td>N</td>
@@ -202,197 +172,146 @@ Les paramètres AzCopy sont décrits dans le tableau ci-dessous. Vous pouvez é
     <td><b>/V:[fichier_journal détaillé]</b></td>
     <td>Stocke les messages de statut détaillés dans un fichier journal. Par défaut, le fichier journal détaillé est nommé <code>AzCopyVerbose.log</code> dans <code>%LocalAppData%\Microsoft\Azure\AzCopy</code>. Si vous spécifiez un emplacement de fichier existant pour cette option, le journal détaillé est ajouté à ce fichier.</td>
     <td>O</td>
-    <td>O<br />
- (version préliminaire uniquement)</td>
-    <td>O<br />
- (version préliminaire uniquement)</td>
+    <td>O<br /> (version préliminaire uniquement)</td>
+    <td>O<br /> (version préliminaire uniquement)</td>
   </tr>
   <tr>
     <td><b>/Z:[journal-file-folder]</b></td>
     <td>Spécifie un dossier de fichier journal pour reprendre une opération.<br />
-
         AzCopy peut toujours reprendre une opération qui a été interrompue.<br />
-
         Si cette option n'est pas spécifiée ou est spécifiée sans chemin de dossier, AzCopy crée le fichier journal à l'emplacement par défaut, qui est <code>%LocalAppData%\Microsoft\Azure\AzCopy</code>.<br />
-
         Chaque fois que vous émettez une commande sur AzCopy, il vérifie si un fichier journal existe dans le dossier par défaut ou dans un dossier que vous avez spécifié via cette option. Si le fichier journal n'existe à aucun de ces emplacements, AzCopy considère l'opération comme nouvelle et génère un nouveau fichier journal.
         <br />
-
 		Si le fichier journal existe, AzCopy vérifie si la ligne de commande que vous entrez correspond à la ligne de commande du fichier journal. Si les deux lignes de commande correspondent, AzCopy reprend l'opération incomplète. Si elles ne correspondent pas, il vous sera demandé soit d'écraser le fichier journal pour démarrer une nouvelle opération, soit d'annuler l'opération actuelle. 
         <br />
-
         Le fichier journal est supprimé lorsque l'opération est achevée avec succès.
 		<br />
-
 		Remarque&#160;: reprendre une opération à partir d'un fichier journal créé par une version précédente d'AzCopy n'est pas pris en charge.</td>
     <td>O</td>
-    <td>O<br />
- (version préliminaire uniquement)</td>
-    <td>O<br />
- (version préliminaire uniquement)</td>
+    <td>O<br /> (version préliminaire uniquement)</td>
+    <td>O<br /> (version préliminaire uniquement)</td>
   </tr>
   <tr>
     <td><b>/@:fichier de paramètres</b></td>
-    <td>Spécifie un fichier qui contient des paramètres. AzCopy traite les paramètres dans le fichier comme s'ils avaient été spécifiés dans la ligne de commande.<br />
- 
+    <td>Spécifie un fichier qui contient des paramètres. AzCopy traite les paramètres dans le fichier comme s'ils avaient été spécifiés dans la ligne de commande.<br /> 
 		Dans un fichier réponse, vous pouvez soit spécifier de multiples paramètres sur une seule ligne, soit spécifier chaque paramètre sur sa propre ligne. Remarque&#160;: un paramètre individuel ne peut pas couvrir plusieurs lignes. 
         <br />
-
 		Les fichiers réponse peuvent inclure des lignes de commentaires qui commencent par le symbole <code>#</code>. 
         <br />
-
         Vous pouvez spécifier plusieurs fichiers réponse. Toutefois, AzCopy ne prend pas en charge les fichiers réponse imbriqués.</td>
     <td>O</td>
-    <td>O<br />
- (version préliminaire uniquement)</td>
-    <td>O<br />
- (version préliminaire uniquement)</td>
+    <td>O<br /> (version préliminaire uniquement)</td>
+    <td>O<br /> (version préliminaire uniquement)</td>
   </tr>
   <tr>
     <td><b>/Y</b></td>
     <td>Supprime toutes les invites de confirmation d'AzCopy.</td>
     <td>O</td>
-    <td>O<br />
- (version préliminaire uniquement)</td>
-    <td>O<br />
- (version préliminaire uniquement)</td>
+    <td>O<br /> (version préliminaire uniquement)</td>
+    <td>O<br /> (version préliminaire uniquement)</td>
   </tr>
   <tr>
     <td><b>/L</b></td>
     <td>Spécifie une opération de listing uniquement&#160;: aucune donnée n'est copiée.
     <br />
-
     AzCopy interprète l’utilisation de cette option comme une simulation de l’exécution de la ligne de commande sans cette option /L et compte le nombre d’objets copiés. Vous pouvez spécifier l’option /V en même temps pour déterminer les objets destinés à être copiés dans le journal détaillé.
     <br />
-
     Le comportement de cette option est également déterminé par l’emplacement des données sources et la présence de l’option mode récursif /S et de l’option modèle de fichier /Pattern.
     <br />
-
     AzCopy nécessite les autorisations de listing et de lecture sur cet emplacement source quand cette option est utilisée.</td>
     <td>O</td>
-    <td>O<br />
- (version préliminaire uniquement)</td>
+    <td>O<br /> (version préliminaire uniquement)</td>
     <td>N</td>
   </tr>
   <tr>
     <td><b>/MT</b></td>
     <td>Définit l'heure de la dernière modification du fichier pour qu'elle soit identique à celle de l'objet blob ou du fichier source.</td>
     <td>O</td>
-    <td>O<br />
- (version préliminaire uniquement)</td>
+    <td>O<br /> (version préliminaire uniquement)</td>
     <td>N</td>
   </tr>
   <tr>
     <td><b>/XN</b></td>
     <td>Exclut une ressource de source plus récente. La ressource n'est pas copiée si la source est plus récente que la destination.</td>
     <td>O</td>
-    <td>O<br />
- (version préliminaire uniquement)</td>
+    <td>O<br /> (version préliminaire uniquement)</td>
     <td>N</td>
   </tr>
   <tr>
     <td><b>/XO</b></td>
     <td>Exclut une ressource de source plus ancienne. La ressource n'est pas copiée si la ressource de la source est plus ancienne que la destination.</td>
     <td>O</td>
-    <td>O<br />
- (version préliminaire uniquement)</td>
+    <td>O<br /> (version préliminaire uniquement)</td>
     <td>N</td>
   </tr>
   <tr>
     <td><b>/A</b></td>
     <td>Charge uniquement les fichiers dont l'attribut Archive est défini.</td>
     <td>O</td>
-    <td>O<br />
- (version préliminaire uniquement)</td>
+    <td>O<br /> (version préliminaire uniquement)</td>
     <td>N</td>
   </tr>
   <tr>
     <td><b>/IA:[RASHCNETOI]</b></td>
     <td>Télécharge uniquement les fichiers qui ont le jeu d'attributs spécifiés.<br />
-
         Les attributs disponibles incluent&#160;:  
         <br />
-
         R&#160;&#160;&#160;Fichiers en lecture seule
         <br />
-
         A&#160;&#160;&#160;Fichiers prêts à être archivés
         <br />
-
         S&#160;&#160;&#160;Fichiers système
         <br />
-
         H&#160;&#160;&#160;Fichiers masqués
         <br />
-
         C&#160;&#160;&#160;Fichiers compressés
         <br />
-
         N&#160;&#160;&#160;Fichiers normaux
         <br />
-
         E&#160;&#160;&#160;Fichiers cryptés
         <br />
-
         T&#160;&#160;&#160;Fichiers temporaires
         <br />
-
         O&#160;&#160;&#160;Fichiers hors ligne
         <br />
-
         I&#160;&#160;&#160;Fichiers non indexés</td>
     <td>O</td>
-    <td>O<br />
- (version préliminaire uniquement)</td>
+    <td>O<br /> (version préliminaire uniquement)</td>
     <td>N</td>
   </tr>
   <tr>
     <td><b>/XA:[RASHCNETOI]</b></td>
     <td>Exclut les fichiers dont l'un des attributs spécifiés est défini.<br />
-
         Les attributs disponibles incluent&#160;:  
         <br />
-
         R&#160;&#160;&#160;Fichiers en lecture seule  
         <br />
-
         A&#160;&#160;&#160;Fichiers prêts à être archivés  
         <br />
-
         S&#160;&#160;&#160;Fichiers système  
         <br />
-
         H&#160;&#160;&#160;Fichiers masqués  
         <br />
-
         C&#160;&#160;&#160;Fichiers compressés  
         <br />
-
         N&#160;&#160;&#160;Fichiers normaux  
         <br />
-
         E&#160;&#160;&#160;Fichiers cryptés  
         <br />
-
         T&#160;&#160;&#160;Fichiers temporaires  
         <br />
-
         O&#160;&#160;&#160;Fichiers hors ligne  
         <br />
-
         I&#160;&#160;&#160;Fichiers non indexés</td>
     <td>O</td>
-    <td>O<br />
- (version préliminaire uniquement)</td>
+    <td>O<br /> (version préliminaire uniquement)</td>
     <td>N</td>
   </tr>
   <tr>
     <td><b>/Delimiter:&lt;délimiteur></b></td>
     <td>Indique le caractère délimiteur utilisé pour délimiter les répertoires virtuels dans un nom d'objet blob.<br />
-
         Par défaut, AzCopy utilise / comme caractère délimiteur. Toutefois, AzCopy prend en charge n'importe quel caractère commun (tel que @, #, ou %) comme délimiteur. Si vous avez besoin d'inclure l'un de ces caractères spéciaux dans la ligne de commande, ajoutez des guillemets doubles au nom du fichier. 
         <br />
-
         Cette option est applicable uniquement au téléchargement d'objets blob.</td>
     <td>O</td>
     <td>N</td>
@@ -402,134 +321,105 @@ Les paramètres AzCopy sont décrits dans le tableau ci-dessous. Vous pouvez é
     <td><b>/NC:&lt;nombre_d'opérations_simultanées></b></td>
     <td>Spécifie le nombre d'opérations simultanées.
         <br />
-
         AzCopy lance par défaut un certain nombre d'opérations simultanées pour augmenter la vitesse de transfert des données. Remarque&#160;: un grand nombre d'opérations simultanées dans un environnement à faible bande passante peut surcharger la connexion réseau et entraver le bon déroulement des opérations. Limitez les opérations simultanées en fonction de la bande passante de réseau qui est disponible.
         <br />
-
 		Le nombre maximal d'opérations simultanées est égal à&#160;512.</td>
     <td>O</td>
-    <td>O<br />
- (version préliminaire uniquement)</td>
-    <td>O<br />
- (version préliminaire uniquement)</td>
+    <td>O<br /> (version préliminaire uniquement)</td>
+    <td>O<br /> (version préliminaire uniquement)</td>
   </tr>
   <tr>
     <td><b>/SourceType:Blob|Table</b></td>
     <td>Spécifie que la ressource <code>source</code> est un objet blob disponible dans l'environnement de développement local, exécuté sur l'émulateur de stockage.</td>
     <td>O</td>
     <td>N</td>
-    <td>O<br />
- (version préliminaire uniquement)</td>
+    <td>O<br /> (version préliminaire uniquement)</td>
   </tr>
   <tr>
     <td><b>/DestType:Blob|Table</b></td>
     <td>Spécifie que la ressource <code>destination</code> est un objet blob disponible dans l'environnement de développement local, exécuté sur l'émulateur de stockage.</td>
     <td>O</td>
     <td>N</td>
-    <td>O<br />
- (version préliminaire uniquement)</td>
+    <td>O<br /> (version préliminaire uniquement)</td>
   </tr>
   <tr>
     <td><strong>/PKRS:&lt;"key1#key2#key3#..."></strong></td>
     <td>Fractionne la plage de clés de partition pour activer l'exportation des données de la table en parallèle, ce qui augmente la vitesse d'exportation.
         <br />
-
         Si cette option n'est pas spécifiée, AzCopy utilise un seul thread pour exporter des entités de table. Exemple&#160;: si l'utilisateur spécifie&#160;/PKRS:"aa#bb", AzCopy lance trois opérations simultanées.
         <br />
-
         Chaque opération exporte une des trois plages de clés de partition (voir ci-dessous)&#160;: 
         <br />
-
         &#160;&#160;&#160;[&lt;première clé de partition>, aa) 
         <br />
-
         &#160;&#160;&#160;[aa, bb)
         <br />
-
         &#160;&#160;&#160;[bb, &lt;dernière clé de partition>] </td>
     <td>N</td>
     <td>N</td>
-    <td>O<br />
- (version préliminaire uniquement)</td>
+    <td>O<br /> (version préliminaire uniquement)</td>
   </tr>
   <tr>
     <td><strong>/SplitSize:</strong><file-size><strong>&lt;file-size></strong></td>
     <td>Spécifie la taille de fractionnement du fichier exporté en Mo. La valeur minimale autorisée est de 32.
         <br />
-
         Si cette option n'est pas spécifiée, AzCopy exporte les données de la table dans un seul fichier.
         <br />
-
         Si les données de la table sont exportées dans un objet blob et si la taille du fichier exporté atteint la limite de 200&#160;Go pour la taille de l'objet blob, AzCopy fractionne le fichier exporté, même si cette option n'est pas spécifiée. </td>
     <td>N</td>
     <td>N</td>
-    <td>O<br />
- (version préliminaire uniquement)</td>
+    <td>O<br /> (version préliminaire uniquement)</td>
   </tr>
   <tr>
     <td><b>/EntityOperation:InsertOrSkip | InsertOrMerge | InsertOrReplace</b>
 </td>
     <td>Spécifie le comportement pour l'importation des données d'une table.
         <br />
-
         InsertOrSkip - Ignore une entité existante ou insère une nouvelle entité si elle n'existe pas dans la table.
         <br />
-
         InsertOrMerge - Fusionne une entité existante ou insère une nouvelle entité si elle n'existe pas dans la table.
         <br />
-
         InsertOrReplace - Remplace une entité existante ou insère une nouvelle entité si elle n'existe pas dans la table. </td>
     <td>N</td>
     <td>N</td>
-    <td>O<br />
- (version préliminaire uniquement)</td>
+    <td>O<br /> (version préliminaire uniquement)</td>
   </tr>
   <tr>
     <td><b>/Manifest:&lt;fichier_manifeste></b></td>
     <td>Spécifie le fichier manifeste pour l’importation et l’exportation de la table. <br />
-
     Cette option est facultative pendant l’exportation&#160;; AzCopy génère un fichier manifeste avec un nom prédéfini si cette option n’est pas spécifiée.
     <br />
-
     Cette option est nécessaire pendant l’importation pour localiser les fichiers de données.</td>
     <td>N</td>
     <td>N</td>
-    <td>O<br />
- (version préliminaire uniquement)</td>
+    <td>O<br /> (version préliminaire uniquement)</td>
   </tr>
   <tr>
     <td><b>/SyncCopy</b></td>
     <td>Indique s'il faut copier de manière synchronisée les objets blob ou les fichiers entre deux points de terminaison Azure Storage. <br />
-
 		AzCopy utilise par défaut la copie asynchrone du côté serveur. Spécifiez cette option pour effectuer une copie synchrone, qui télécharge les objets blob ou les fichiers vers la mémoire locale et les télécharge Azure Storage. Vous pouvez utiliser cette option pour la copie de fichiers dans le stockage d'objets blob, le stockage de fichiers ou depuis le stockage d'objets blob vers le stockage de fichiers ou vice versa.</td>
     <td>O</td>
-    <td>O<br />
- (version préliminaire uniquement)</td>
+    <td>O<br /> (version préliminaire uniquement)</td>
     <td>N</td>
   </tr>
   <tr>
     <td><b>/ SetContentType : &lt;type de contenu></b></td>
     <td>Spécifie le type de contenu MIME pour les fichiers ou les objets blob de destination. <br />
-
 		AzCopy définit le type de contenu pour un objet blob ou un fichier sur <code>application/octet-stream</code> par défaut. Vous pouvez définir le type de contenu pour tous les objets blob ou les fichiers en spécifiant explicitement une valeur pour cette option. Si vous spécifiez cette option sans valeur, AzCopy définit chaque type de contenu d'objet blob ou de fichier en fonction de son extension de fichier.</td>
     <td>O</td>
-    <td>O<br />
- (version préliminaire uniquement)</td>
+    <td>O<br /> (version préliminaire uniquement)</td>
     <td>N</td>
   </tr>
     <tr>
     <td><b>/PayloadFormat:&lt;JSON | CSV></b></td>
     <td>Spécifie le format du fichier de données de table exporté.<br />
-
     Si cette option n’est pas spécifiée, AzCopy exporte le fichier de données de table au format JSON par défaut.</td>
     <td>N</td>
     <td>N</td>
-    <td>O<br />
- (version préliminaire uniquement)</td>
+    <td>O<br /> (version préliminaire uniquement)</td>
   </tr>
 </table>
 <br/>
-
 
 ## Limitation des écritures simultanées lors de la copie des données
 
@@ -980,7 +870,7 @@ AzCopy crée un fichier de données JSON dans le dossier local ou dans le conte
 
 Le fichier de données JSON créé respecte le format de charge utile pour les métadonnées minimales. Pour des informations sur le format de charge utile, consultez la page [Format de charge utile pour les opérations du service de Table](http://msdn.microsoft.com/library/azure/dn535600.aspx).
 
-Notez que lorsque vous exportez des entités de table de stockage vers Storage Blob, AzCopy exportera les entités de table pour les fichiers de données temporaires locaux en premier lieu, puis les téléchargera vers l'objet blob. Ces fichiers de données temporaires sont placés dans le dossier du fichier journal avec le chemin d'accès par défaut « <code>%LocalAppData%\\Microsoft\\Azure\\AzCopy</code> », vous pouvez spécifier l’option /Z:[dossier de fichier journal\] pour modifier l’emplacement de dossier du fichier et ainsi modifier l'emplacement des fichiers de données temporaires. La taille des fichiers de données temporaires est définie par la taille de vos entités de table et la taille spécifiée avec l'option /SplitSize, bien que le fichier de données temporaire dans le disque local est supprimé instantanément. Une fois qu'il a été téléchargé vers l'objet Blob, assurez-vous que vous disposez de suffisamment d'espace sur le disque local pour stocker ces fichiers de données temporaires avant qu’ils soient supprimés,
+Notez que lorsque vous exportez des entités de table de stockage vers Storage Blob, AzCopy exportera les entités de table pour les fichiers de données temporaires locaux en premier lieu, puis les téléchargera vers l'objet blob. Ces fichiers de données temporaires sont placés dans le dossier du fichier journal avec le chemin d'accès par défaut « <code>%LocalAppData%\\Microsoft\\Azure\\AzCopy</code> », vous pouvez spécifier l’option /Z:[dossier de fichier journal] pour modifier l’emplacement de dossier du fichier et ainsi modifier l'emplacement des fichiers de données temporaires. La taille des fichiers de données temporaires est définie par la taille de vos entités de table et la taille spécifiée avec l'option /SplitSize, bien que le fichier de données temporaire dans le disque local est supprimé instantanément. Une fois qu'il a été téléchargé vers l'objet Blob, assurez-vous que vous disposez de suffisamment d'espace sur le disque local pour stocker ces fichiers de données temporaires avant qu’ils soient supprimés,
 
 ### Fractionnement des fichiers exportés
 
@@ -1032,7 +922,6 @@ Vous pouvez créer un fichier app.config `AzCopy.exe.config` avec la propriété
 	<configuration>
 	  <appSettings>
 	    <add key="AzureStorageUseV1MD5" value="false"/>
-
 	  </appSettings>
 	</configuration>
 
@@ -1083,4 +972,4 @@ Pour plus d'informations sur Azure Storage et AzCopy, consultez les ressources s
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

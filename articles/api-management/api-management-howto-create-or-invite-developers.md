@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/16/2015" 
+	ms.date="09/10/2015" 
 	ms.author="sdanie"/>
 
 # Gestion des comptes d’utilisateur dans Gestion des API Azure
@@ -26,7 +26,7 @@ Pour créer un développeur, cliquez sur **Gérer** dans le portail Azure de vot
 
 ![Portail des éditeurs][api-management-management-console]
 
-Cliquez sur **Développeurs** dans le menu **Gestion des API** à gauche, puis sur **Ajouter un utilisateur**.
+Cliquez sur **Utilisateurs** dans le menu **Gestion des API** à gauche, puis sur **Ajouter un utilisateur**.
 
 ![Create developer][api-management-create-developer]
 
@@ -42,7 +42,7 @@ Les comptes de développeurs dont l'état est **actif** peuvent être utilisés 
 
 ## <a name="invite-developer"> </a>Invitation d’un développeur
 
-Pour inviter un développeur, cliquez sur **Développeurs** dans le menu **Gestion des API** à gauche, puis sur **Inviter un utilisateur**.
+Pour inviter un développeur, cliquez sur **Utilisateurs** dans le menu **Gestion des API** à gauche, puis sur **Inviter un utilisateur**.
 
 ![Invite developer][api-management-invite-developer]
 
@@ -50,7 +50,7 @@ Entrez le nom et l'adresse électronique du développeur, puis cliquez sur **Inv
 
 ![Invite developer][api-management-invite-developer-window]
 
-Un message de confirmation s'affiche, mais le développeur qui vient d'être invité n'apparaît pas dans la liste tant qu'il n'a pas accepté l'invitation.
+Un message de confirmation s’affiche, mais le développeur qui vient d’être invité n’apparaît pas dans la liste tant qu’il n’a pas accepté l’invitation.
 
 ![Invite confirmation][api-management-invite-developer-confirmation]
 
@@ -91,4 +91,4 @@ Une fois le compte de développeur créé, vous pouvez l'associer à des rôles 
 [Création d'une instance de service Gestion des API]: api-management-get-started.md#create-service-instance
 [Configuration des modèles de courrier électronique]: api-management-howto-configure-notifications.md#email-templates
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

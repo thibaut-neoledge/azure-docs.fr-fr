@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="required" 
-   ms.date="07/08/2015"
+   ms.date="09/08/2015"
    ms.author="heidist"/>
 
 # Surveillance de l’utilisation et des statistiques dans un service Azure Search
@@ -45,7 +45,7 @@ L’API REST Azure Search et le Kit de développement .NET fournissent un ac
 
 ## Étapes suivantes
 
-Consultez [Limites et contraintes](https://msdn.microsoft.com/library/azure/dn798934.aspx) afin de déterminer la combinaison de partitions et de réplicas requise lorsque la capacité existante est insuffisante.
+Consultez [Limites et contraintes](search-limits-quotas-capacity.md) afin de déterminer la combinaison de partitions et de réplicas requise lorsque la capacité existante est insuffisante.
 
 Consultez [Gestion de votre service Search sur Microsoft Azure](search-manage.md) pour en savoir plus sur l’administration des services.
 
@@ -57,4 +57,4 @@ Consultez [Gestion de votre service Search sur Microsoft Azure](search-manage.
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

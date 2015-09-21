@@ -1,19 +1,19 @@
 <properties 
    pageTitle="StorSimple Adapter for SharePoint | Microsoft Azure"
-	description="Décrit comment installer et configurer StorSimple Adapter for SharePoint dans une batterie de serveurs SharePoint."
-	services="storsimple"
-	documentationCenter="NA"
-	authors="SharS"
-	manager="carolz"
-	editor=""/>
+   description="Décrit comment installer et configurer ou supprimer StorSimple Adapter pour SharePoint dans une batterie de serveurs SharePoint."
+   services="storsimple"
+   documentationCenter="NA"
+   authors="SharS"
+   manager="carolz"
+   editor="" />
 <tags 
    ms.service="storsimple"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="TBD"
-	ms.date="08/27/2015"
-	ms.author="v-sharos"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="TBD"
+   ms.date="09/03/2015"
+   ms.author="v-sharos" />
 
 # Installation et configuration de StorSimple Adapter for SharePoint
 
@@ -55,7 +55,7 @@ Le déplacement du contenu blob vers le système de fichiers peut entraîner d�
 
 ### Limites de capacité et de performances
 
-Avant d'envisager l'utilisation de RBS dans votre solution SharePoint, vous devez être conscient des limites de performances et de capacité de SharePoint Server 2010 et de SharePoint Server 2013, et comment ces limites se situent par rapport à des performances acceptables. Pour plus d'informations, consultez la rubrique Limites des logiciels et limites pour SharePoint 2013.
+Avant d'envisager l'utilisation de RBS dans votre solution SharePoint, vous devez être conscient des limites de performances et de capacité de SharePoint Server 2010 et de SharePoint Server 2013, et comment ces limites se situent par rapport à des performances acceptables. Pour plus d'informations, consultez la rubrique [Limites des logiciels et limites pour SharePoint 2013](https://technet.microsoft.com/library/cc262787.aspx).
 
 Avant de configurer RBS, passez en revue les éléments suivants :
 
@@ -155,11 +155,11 @@ Assurez-vous que votre batterie de serveurs SharePoint est correctement configur
 
     2. Démarrez le Gestionnaire de serveur.
 
-    3. Dans le volet gauche, cliquez sur **Local Server**.
+    3. Dans le volet gauche, cliquez sur **Serveur local**.
 
-    4. Dans le volet droit, en regard de **IE Enhanced Security Configuration**, cliquez sur **On**.
+    4. Dans le volet droit, en regard de **Configuration de sécurité renforcée d'Internet Explorer**, cliquez sur **Activé**.
 
-    5. Sous **Administrators**, cliquez sur **Off**.
+    5. Sous **Administrateurs**, cliquez sur **Désactivé**.
 
     6. Cliquez sur **OK**.
 
@@ -199,7 +199,7 @@ Lorsque des objets sont supprimés d'un site SharePoint, ils ne sont pas automat
 
 Ce programme de maintenance (Microsoft.Data.SqlRemoteBlobs.Maintainer.exe) est automatiquement installé sur tous les serveurs WFE SharePoint et serveurs d'applications lorsque vous activez RBS. Le programme est installé à l'emplacement suivant : <boot drive>:\\Program Files\\Microsoft SQL Remote Blob Storage 10.50\\Maintainer\\
 
-Pour plus d'informations sur la configuration et l’utilisation du programme de maintenance, consultez la rubrique [Maintenance de RBS dans SharePoint Server 2013][8].
+Pour plus d'informations sur la configuration et l'utilisation du programme de maintenance, consultez la rubrique [Maintenance de RBS dans SharePoint Server 2013][8].
 
 >[AZURE.IMPORTANT]Le programme de maintenance RBS consomme beaucoup de ressources. Vous devez planifier son exécution uniquement pendant les périodes de faible activité au niveau de la batterie de serveurs SharePoint.
 
@@ -224,9 +224,77 @@ Utilisez la procédure suivante pour mettre à niveau le serveur SharePoint puis
 >
 >- Le temps nécessaire à la mise à niveau/installation peut varier selon le nombre total de bases de données SharePoint dans la batterie de serveurs SharePoint.
 >
->- Une fois la mise à niveau/réinstallation terminée, vous devez activer RBS pour les bases de données de contenu. Voir [Configuration de RBS](#configure-rbs) pour plus d’informations.
+>- Une fois la mise à niveau/réinstallation terminée, vous devez activer RBS pour les bases de données de contenu. Consultez [Configuration de RBS](#configure-rbs) pour plus d'informations.
 >
->- Si vous configurez RBS pour une batterie de serveurs SharePoint avec un très grand nombre de bases de données (plus de 200), la page de l’**Administration centrale de SharePoint** peut expirer. Si cela se produit, actualisez la page. Cela n'affecte pas le processus de configuration.
+>- Si vous configurez RBS pour une batterie de serveurs SharePoint avec un très grand nombre de bases de données (plus de 200), la page de l'**Administration centrale de SharePoint** peut expirer. Si cela se produit, actualisez la page. Cela n'affecte pas le processus de configuration.
+
+[AZURE.INCLUDE [storsimple-upgrade-sharepoint-adapter](../../includes/storsimple-upgrade-sharepoint-adapter.md)]
+ 
+## Suppression de StorSimple Adapter pour SharePoint
+
+Les procédures suivantes décrivent comment déplacer les objets BLOB vers les bases de données de contenu SQL Server, puis désinstaller StorSimple Adapter pour SharePoint.
+
+>[AZURE.IMPORTANT]Vous devez renvoyer les objets BLOB vers les bases de données de contenu avant de désinstaller le logiciel de l'adaptateur.
+
+### Avant de commencer 
+
+Rassemblez les informations suivantes avant de déplacer les données vers les bases de données de contenu SQL Server et de commencer le processus de suppression de l'adaptateur :
+
+- Les noms de toutes les bases de données pour lesquelles RBS est activé
+- Le chemin d'accès UNC du magasin d'objets BLOB configuré
+
+### Déplacer les objets BLOB vers les bases de données de contenu
+
+Avant de désinstaller le logiciel StorSimple Adapter pour SharePoint, vous devez migrer tous les objets BLOB externalisés vers les bases de données de contenu SQL Server. Si vous essayez de désinstaller StorSimple Adapter pour SharePoint avant de déplacer tous les objets BLOB vers les bases de données de contenu, le message d'avertissement suivant s'affiche.
+
+![Message d'avertissement](./media/storsimple-adapter-for-sharepoint/sasp1.png)
+ 
+####Pour déplacer les objets BLOB vers les bases de données de contenu 
+
+1. Téléchargez tous les objets externalisés.
+
+2. Ouvrez la page **Administration centrale de SharePoint** et accédez à **Paramètres du système**.
+
+3. Sous **Azure StorSimple**, cliquez sur **Configuration de l'adaptateur StorSimple**.
+
+4. Sur la page **Configuration de l'adaptateur StorSimple**, cliquez sur le bouton **Désactiver** sous chaque base de données de contenu que vous souhaitez supprimer du stockage d'objets BLOB externe.
+
+5. Supprimez les objets de SharePoint et téléchargez-les à nouveau.
+
+Vous pouvez également utiliser l'applet de commande Microsoft` RBS Migrate()` PowerShell inclus avec SharePoint. Pour plus d'informations, consultez [Migration du contenu vers ou à partir de RBS](https://technet.microsoft.com/library/ff628255.aspx).
+
+Après avoir déplacé les objets BLOB vers la base de données de contenu, passez à l'étape suivante : [Désinstallation de l'adaptateur](#uninstall-the-adapter).
+
+### Désinstallation de l'adaptateur
+
+Après avoir déplacé les objets BLOB vers les bases de données de contenu SQL Server, utilisez l'une des options suivantes pour désinstaller StorSimple Adapter pour SharePoint.
+
+#### Pour utiliser le programme d'installation pour désinstaller l'adaptateur 
+
+1. Utilisez un compte avec des privilèges d'administrateur pour ouvrir une session sur le serveur web frontal.
+2. Double-cliquez sur le programme d'installation de StorSimple Adapter pour SharePoint. L'Assistant d'installation démarre.
+
+![Assistant d'installation](./media/storsimple-adapter-for-sharepoint/sasp2.png)
+
+3. Cliquez sur **Next**. La page suivante apparaît.
+
+![Page de suppression de l'Assistant d'installation](./media/storsimple-adapter-for-sharepoint/sasp3.png)
+
+4. Cliquez sur **Supprimer** pour sélectionner le processus de suppression. La page suivante apparaît.
+
+![Page de confirmation de l'Assistant d'installation](./media/storsimple-adapter-for-sharepoint/sasp4.png)
+
+5. Cliquez sur **Supprimer** pour confirmer la suppression. La page de progression suivante s'affiche.
+
+![Page de progression de l'Assistant d'installation](./media/storsimple-adapter-for-sharepoint/sasp5.png)
+
+6. Lorsque la suppression est terminée, la page de fin s'affiche. Cliquez sur **Terminer** pour fermer l'Assistant d'installation.
+
+#### Pour utiliser le Panneau de configuration pour désinstaller l'adaptateur 
+
+1. Ouvrez le Panneau de configuration, puis cliquez sur **Programmes et fonctionnalités**.
+
+2. Sélectionnez **StorSimple Adapter pour SharePoint**, puis cliquez sur **Désinstaller**.
 
 ## Étapes suivantes
 
@@ -240,4 +308,4 @@ Utilisez la procédure suivante pour mettre à niveau le serveur SharePoint puis
 [5]: https://technet.microsoft.com/library/ff628583(v=office.15).aspx
 [8]: https://technet.microsoft.com/fr-FR/library/ff943565.aspx
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

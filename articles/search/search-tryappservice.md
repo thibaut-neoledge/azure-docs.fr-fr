@@ -318,7 +318,7 @@ Si vous utilisez le service en lecture seule fourni sur le site [Essayer Azure A
 
 Pour effectuer toutes ces tâches, vous aurez besoin d’un abonnement Azure afin de pouvoir créer et remplir des index dans un service. Pour plus d’informations sur la façon de s’inscrire à un essai gratuit, visitez le site [https://azure.microsoft.com/pricing/free-trial](https://azure.microsoft.com/pricing/free-trial/).
 
-Pour en savoir plus sur Azure Search, visitez notre [page de documentation](http://azure.microsoft.com/documentation/services/search/) sur [http://azure.microsoft.com](http://azure.microsoft.com) ou découvrez des [exemples et des vidéos](https://msdn.microsoft.com/library/dn818681.aspx) qui explorent toute la gamme des fonctionnalités Azure Search.
+Pour en savoir plus sur Azure Search, visitez notre [page de documentation](http://azure.microsoft.com/documentation/services/search/) sur [http://azure.microsoft.com](http://azure.microsoft.com) ou découvrez des [exemples et des vidéos](search-video-demo-tutorial-list.md) qui explorent toute la gamme des fonctionnalités Azure Search.
 
 <a name="Schema"></a>
 ##À propos du schéma
@@ -529,4 +529,4 @@ La capture d’écran suivante montre le schéma utilisé pour créer l’index 
 [13]: ./media/search-tryappservice/AzSearch-TryAppService-Schema.png
 [14]: ./media/search-tryappservice/AzSearch-TryAppService-HitHighlight.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

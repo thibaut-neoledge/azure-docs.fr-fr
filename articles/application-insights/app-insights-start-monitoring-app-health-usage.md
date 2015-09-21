@@ -2,7 +2,7 @@
 	pageTitle="Ajout du Kit de développement logiciel (SDK) Application Insights à votre application ASP.NET | Microsoft Azure"
 	description="Analysez l'utilisation, la disponibilité et les performances de votre application web locale ou Microsoft Azure avec Application Insights."
 	services="application-insights"
-	documentationCenter=".net"
+    documentationCenter=".net"
 	authors="alancameronwills"
 	manager="douge"/>
 
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="08/05/2015"
+	ms.date="09/09/2015"
 	ms.author="awills"/>
 
 
@@ -106,12 +106,7 @@ Recherchez des données dans les graphiques de présentation. Au début, seuls u
 
 ![Cliquez sur d'autres éléments pour afficher plus de données](./media/app-insights-start-monitoring-app-health-usage/12-first-perf.png)
 
-Cliquez sur un des graphiques pour afficher des métriques plus détaillées. [En savoir plus sur les métriques.][perf]
-
-À présent, déployez votre application et regardez les données s'accumuler.
-
-
-Lorsque vous exécutez l'application en mode débogage, la télémétrie est envoyée via le pipeline, ce qui vous permet d'accéder aux données en quelques secondes. Lorsque vous déployez votre application, les données s'accumulent plus lentement.
+Cliquez sur un des graphiques pour afficher des métriques plus détaillées. [En savoir plus sur les mesures.][perf]
 
 #### Pas de données ?
 
@@ -120,27 +115,40 @@ Lorsque vous exécutez l'application en mode débogage, la télémétrie est env
 * Attendez quelques secondes, puis cliquez sur **Actualiser**. Les graphiques s’actualisent à intervalles réguliers, mais vous pouvez les actualiser manuellement si vous attendez que certaines données s’affichent.
 * Consultez la rubrique [Résolution des problèmes][qna].
 
+## Publier votre application
+
+À présent, déployez votre application sur IIS ou Azure et regardez les données s’accumuler.
+
+Lorsque vous exécutez l'application en mode débogage, la télémétrie est envoyée via le pipeline, ce qui vous permet d'accéder aux données en quelques secondes. Lorsque vous déployez votre application, les données s'accumulent plus lentement.
+
+
 #### Vous rencontrez des problèmes sur votre serveur de builds ?
 
 Consultez cet article de [résolution des problèmes](app-insights-troubleshoot-faq.md#NuGetBuild).
 
-## 5\. Ajout d’un suivi des dépendances
+## 5\. Ajouter un suivi de dépendance et des compteurs de performances
 
 Le Kit de développement logiciel (SDK) a besoin d'un peu d'aide pour accéder à certaines données. En particulier, vous aurez besoin de cette étape supplémentaire pour mesurer automatiquement les appels de votre application vers des bases de données, des API REST et d’autres composants externes. Ces mesures de dépendance peuvent être très utiles pour vous aider à diagnostiquer les problèmes de performances.
+
+Cette étape permet également [d’indiquer les compteurs de performance](app-insights-web-monitor-performance.md#system-performance-counters) tels que le taux d’utilisation du processeur, de la mémoire et du réseau.
 
 #### Si votre application s'exécute sur votre serveur IIS
 
 Connectez-vous à votre serveur avec des droits d’administrateur, puis installez [Application Insights Status Monitor](http://go.microsoft.com/fwlink/?LinkId=506648).
 
-(Vous pouvez également utiliser Status Monitor pour [instrumenter une application déjà en cours d’exécution](app-insights-monitor-performance-live-website-now.md), même si elle n’a pas été générée avec le Kit de développement logiciel.)
+(Vous pouvez également utiliser Status Monitor pour [instrumenter une application déjà en cours d’exécution](app-insights-monitor-performance-live-website-now.md), même si elle n’a pas été générée avec le Kit de développement logiciel (SDK).)
 
 #### Si votre application est une application web Azure
 
 Dans le panneau de configuration de votre application web Azure, ajoutez l’extension Application Insights.
 
-![Dans votre application web, Outils, Analyse des performances, Ajouter, Application Insights](./media/app-insights-start-monitoring-app-health-usage/05-extend.png)
+![Dans votre application web, Paramètres, Extensions, Ajouter, Application Insights](./media/app-insights-start-monitoring-app-health-usage/05-extend.png)
 
-(L’extension s’applique uniquement à une application générée avec le Kit de développement logiciel. Contrairement à Status Monitor, elle ne peut pas instrumentaliser une application existante.)
+(L’extension s’applique uniquement à une application générée avec le Kit de développement logiciel (SDK) et publiée sur Azure. Contrairement à Status Monitor, elle ne peut pas instrumentaliser une application existante.)
+
+#### S’il s’agit d’un projet services cloud Azure
+
+[Ajouter des scripts aux rôles web et de travail](app-insights-cloudservices.md)
 
 ## 6\. Ajout d’une surveillance côté client
 
@@ -152,7 +160,7 @@ Vous pourrez également écrire votre propre code pour suivre la façon dont les
 
 Si votre application affiche des pages web, ajoutez un extrait de code JavaScript à chaque page. Récupérez le code à partir de votre ressource Application Insights :
 
-![Dans votre application web, ouvrez Démarrage rapide, puis cliquez sur Obtenir le code pour analyser mes pages web.](./media/app-insights-start-monitoring-app-health-usage/02-monitor-web-page.png)
+![Dans votre application web, ouvrez Démarrage rapide et cliquez sur Obtenir le code pour analyser mes pages web.](./media/app-insights-start-monitoring-app-health-usage/02-monitor-web-page.png)
 
 Notez que le code contient la clé d’instrumentation qui identifie la ressource de votre application.
 
@@ -181,7 +189,7 @@ Vous aurez besoin des éléments suivants : [Visual Studio](http://go.microsoft
 
 #### S'il s'agit d'un nouveau projet...
 
-Lorsque vous créez un projet dans Visual Studio, assurez-vous que **Ajouter Application Insights** est sélectionné.
+Quand vous créez un projet dans Visual Studio, assurez-vous que l’option **Ajouter Application Insights** est sélectionnée.
 
 
 ![Création d'un projet ASP.NET](./media/app-insights-start-monitoring-app-health-usage/appinsights-01-vsnewp1.png)
@@ -240,4 +248,4 @@ Si cette application fait partie d'une application plus importante, vous pouvez 
 [roles]: app-insights-resources-roles-access-control.md
 [start]: app-insights-get-started.md
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO2-->

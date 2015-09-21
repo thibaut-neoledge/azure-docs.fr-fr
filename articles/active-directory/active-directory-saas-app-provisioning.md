@@ -7,16 +7,14 @@
    manager="TerryLanfear"
    editor=""/>
 
-
 <tags
    ms.service="active-directory"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="07/14/2015"
+   ms.date="09/08/2015"
    ms.author="liviodlc"/>
-
 
 #Automatisation de l’approvisionnement et de la l’annulation de l’approvisionnement des utilisateurs pour les applications SaaS avec Azure Active Directory
 
@@ -27,7 +25,7 @@ Azure Active Directory (Azure AD) vous permet d’automatiser la création, la m
 **Voici quelques exemples d’utilisation de cette fonctionnalité :**
 
 - Créez automatiquement des comptes dans les applications SaaS adéquates pour les nouvelles personnes rejoignant votre équipe.
-- Programmez la suppression automatique des comptes d’applications SaaS des personnes quittant votre équipe.
+- Désactivez automatiquement les comptes d’applications SaaS des personnes quittant votre équipe.
 - Vérifiez que les identités de vos applications SaaS sont tenues à jour selon les modifications apportées à l’annuaire.
 - Procédez à l’approvisionnement d’objets non-utilisateur tels que des groupes, pour que des applications SaaS les prennent en charge.
 
@@ -110,4 +108,4 @@ Pour contacter l’équipe d’ingénierie d’Azure AD afin de demander une pri
 
 [AZURE.INCLUDE [saas-toc](../../includes/active-directory-saas-toc.md)]
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

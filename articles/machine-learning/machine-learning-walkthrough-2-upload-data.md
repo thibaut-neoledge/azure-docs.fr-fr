@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Étape 2 : télécharger des données dans une expérience Machine Learning | Microsoft Azure" 
-	description="Étape 2 du guide pas à pas du développement d'une solution prédictive : téléchargement de données publiques stockées dans Azure Machine Learning Studio." 
-	services="machine-learning" 
-	documentationCenter="" 
-	authors="garyericson" 
-	manager="paulettm" 
+<properties
+	pageTitle="Étape 2 : télécharger des données dans une expérience Machine Learning | Microsoft Azure"
+	description="Étape 2 du guide pas à pas du développement d'une solution prédictive : téléchargement de données publiques stockées dans Azure Machine Learning Studio."
+	services="machine-learning"
+	documentationCenter=""
+	authors="garyericson"
+	manager="paulettm"
 	editor="cgronlun"/>
 
-<tags 
-	ms.service="machine-learning" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/10/2015" 
+<tags
+	ms.service="machine-learning"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/08/2015" 
 	ms.author="garye"/>
 
 
@@ -26,7 +26,7 @@ Voici la seconde étape du didacticiel pas à pas [Développement d'une solution
 2.	**Télécharger des données existantes**
 3.	[Créer une expérience](machine-learning-walkthrough-3-create-new-experiment.md)
 4.	[Former et évaluer les modèles](machine-learning-walkthrough-4-train-and-evaluate-models.md)
-5.	[Publier le service web](machine-learning-walkthrough-5-publish-web-service.md)
+5.	[Déployer le service web](machine-learning-walkthrough-5-publish-web-service.md)
 6.	[Accéder au service web](machine-learning-walkthrough-6-access-web-service.md)
 
 ----------
@@ -70,7 +70,7 @@ Une fois les données converties au format CSV, nous devons les télécharger ve
 
 ![Télécharger le jeu de données][1]
 
- 
+
 Les données sont téléchargées dans un module de jeu de données utilisable dans une expérience.
 
 Pour plus d'informations sur l'importation de différents types de données dans une expérience, consultez [Importez vos données d'apprentissage dans Azure Machine Learning Studio](machine-learning-import-data.md).
@@ -78,6 +78,5 @@ Pour plus d'informations sur l'importation de différents types de données dans
 **Étape suivante : [créer une expérience](machine-learning-walkthrough-3-create-new-experiment.md)**
 
 [1]: ./media/machine-learning-walkthrough-2-upload-data/upload1.png
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

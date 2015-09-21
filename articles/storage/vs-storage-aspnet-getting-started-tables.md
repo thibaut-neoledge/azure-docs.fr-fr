@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Mise en route avec le stockage de tables Azure et les appareils connectés Visual Studio | Microsoft Azure"
-	description="Mise en route de l’utilisation du stockage de tables Azure dans un projet ASP.NET dans Visual Studio"
+	pageTitle="Prendre en main le stockage de tables et les services connectés de Visual Studio (ASP.NET) | Microsoft Azure"
+	description="Comment prendre en main le stockage de tables Azure dans un projet ASP.NET dans Visual Studio après s’être connecté à un compte de stockage à l’aide des services connectés de Visual Studio"
 	services="storage"
 	documentationCenter=""
 	authors="patshea123"
@@ -13,11 +13,10 @@
 	ms.tgt_pltfrm="vs-getting-started"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/04/2015"
+	ms.date="09/03/2015"
 	ms.author="patshea123"/>
 
-# Mise en route avec le stockage de tables Azure et les appareils connectés Visual Studio
-
+# Prendre en main le stockage de tables et les services connectés de Visual Studio (ASP.NET)
 > [AZURE.SELECTOR]
 > - [Getting Started](vs-storage-aspnet-getting-started-tables.md)
 > - [What Happened](vs-storage-aspnet-what-happened.md)
@@ -27,7 +26,7 @@
 > - [Queues](vs-storage-aspnet-getting-started-queues.md)
 > - [Tables](vs-storage-aspnet-getting-started-tables.md)
 
-## Vue d’ensemble
+## Vue d'ensemble
 Cet article explique comment prendre en main le stockage de tables Azure dans Visual Studio après avoir créé ou référencé un compte de stockage Azure dans un projet ASP.NET via la boîte de dialogue **Ajouter des services connectés** de Visual Studio. Cet article vous montre comment effectuer des tâches courantes dans les tables Azure, y compris la création et la suppression d’une table, ainsi que la manipulation des entités de table. Les exemples ont été écrits en code C# et utilisent la [bibliothèque cliente de stockage Azure pour .NET](https://msdn.microsoft.com/library/azure/dn261237.aspx). Pour obtenir des informations plus générales sur l’utilisation du stockage de tables Azure, consultez la page [Utilisation du stockage de tables à partir de .NET](storage-dotnet-how-to-use-tables.md).
 
 Le stockage de tables Azure vous permet de stocker de grandes quantités de données structurées. Il s'agit d'une banque de données NoSQL qui accepte les appels authentifiés provenant de l'intérieur et de l'extérieur du cloud Azure. Les tables Azure sont idéales pour le stockage des données structurées non relationnelles.
@@ -35,33 +34,33 @@ Le stockage de tables Azure vous permet de stocker de grandes quantités de donn
 
 ## Accès aux tables dans le code
 
-1. Vérifiez que les déclarations d’espace de noms figurant au début du fichier C# incluent ces instructions `using`.
+1. Vérifiez que les déclarations d’espace de noms figurant au début du fichier C# incluent ces instructions **using**.
 
 		 using Microsoft.Azure;
 		 using Microsoft.WindowsAzure.Storage;
 		 using Microsoft.WindowsAzure.Storage.Auth;
 		 using Microsoft.WindowsAzure.Storage.Table;
 
-2. Obtenez un objet `CloudStorageAccount` représentant les informations de votre compte de stockage. Le code suivant permet d'obtenir la chaîne de connexion de stockage et les informations de compte de stockage à partir de la configuration du service Azure.
+2. Obtenez un objet **CloudStorageAccount** qui représente les informations de votre compte de stockage. Le code suivant permet d'obtenir la chaîne de connexion de stockage et les informations de compte de stockage à partir de la configuration du service Azure.
 
 		 CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
 		   CloudConfigurationManager.GetSetting("<storage-account-name>_AzureStorageConnectionString"));
 
     **REMARQUE :** placez tout le code ci-dessus avant celui des exemples suivants.
 
-3. Obtenez un objet `CloudTableClient` pour référencer les objets de table dans votre compte de stockage.
+3. Obtenez un objet **CloudTableClient** pour référencer les objets de table de votre compte de stockage.
 
 	    // Create the table client.
     	CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
 
-4. Obtenez un objet de référence `CloudTable` pour référencer une table et des entités spécifiques.
+4. Obtenez un objet de référence **CloudTable** pour référencer une table et des entités spécifiques.
 
     	// Get a reference to a table named "peopleTable"
 	    CloudTable table = tableClient.GetTableReference("peopleTable");
 
 ## Création d'une table dans le code
 
-Pour créer la table Azure, ajoutez simplement un appel à `CreateIfNotExistsAsync()` au code précédent.
+Pour créer la table Azure, ajoutez simplement un appel à **CreateIfNotExistsAsync()** au code précédent.
 
 	// Create the CloudTable if it does not exist
 	await table.CreateIfNotExistsAsync();
@@ -69,7 +68,7 @@ Pour créer la table Azure, ajoutez simplement un appel à `CreateIfNotExistsAsy
 
 ## Insertion d'un lot d'entités
 
-Vous pouvez insérer plusieurs entités dans une table en une seule opération d'écriture. L’exemple de code suivant crée deux objets d’entité (« Jeff Smith » et « Ben Smith »), les ajoute à un objet `TableBatchOperation` en utilisant la méthode Insert, puis démarre l’opération en appelant `CloudTable.ExecuteBatchAsync`.
+Vous pouvez insérer plusieurs entités dans une table en une seule opération d'écriture. L’exemple de code suivant crée deux objets d’entité (« Jeff Smith » et « Ben Smith »), les ajoute à un objet **TableBatchOperation** en utilisant la méthode Insert, puis démarre l’opération en appelant **CloudTable.ExecuteBatchAsync**.
 
 	// Get a reference to a CloudTable object named 'peopleTable' as described in "Access a table in code"
 
@@ -94,7 +93,7 @@ Vous pouvez insérer plusieurs entités dans une table en une seule opération d
 	await peopleTable.ExecuteBatchAsync(batchOperation);
 
 ## Recherche de toutes les entités d'une partition
-Pour rechercher dans une table toutes les entités d’une partition, utilisez un objet `TableQuery`. L’exemple de code suivant indique un filtre pour les entités où ’Smith’ est la clé de partition. Il imprime les champs de chaque entité dans les résultats de requête vers la console.
+Pour exécuter une requête de table portant sur toutes les entités d'une partition, utilisez un objet **TableQuery**. L’exemple de code suivant indique un filtre pour les entités où ’Smith’ est la clé de partition. Il imprime les champs de chaque entité dans les résultats de requête vers la console.
 
 	// Get a reference to a CloudTable object named 'peopleTable' as described in "Access a table in code"
 
@@ -120,7 +119,7 @@ Pour rechercher dans une table toutes les entités d’une partition, utilisez u
 
 
 ## Obtention d'une seule entité
-Vous pouvez écrire une requête pour obtenir une seule entité. Le code suivant utilise un objet `TableOperation` pour spécifier le client « Ben Smith ». Cette méthode renvoie une seule entité, et non plusieurs. La valeur renvoyée dans `TableResult.Result` est un objet `CustomerEntity`. La méthode la plus rapide pour extraire une seule entité à partir du service de Table consiste à spécifier une clé de partition et une clé de ligne.
+Vous pouvez écrire une requête pour obtenir une seule entité. Le code suivant utilise un objet **TableOperation** pour spécifier le client « Ben Smith ». Cette méthode renvoie une seule entité (et non une collection). De plus, la valeur renvoyée dans **TableResult.Result** est un objet **CustomerEntity**. La méthode la plus rapide pour extraire une seule entité à partir du service de Table consiste à spécifier une clé de partition et une clé de ligne.
 
         // Get a reference to a CloudTable object named 'peopleTable' as described in "Access a table in code"
 
@@ -168,4 +167,4 @@ Une fois l'entité trouvée, vous pouvez la supprimer. Le code suivant recherche
 
 [AZURE.INCLUDE [vs-storage-dotnet-tables-next-steps](../../includes/vs-storage-dotnet-tables-next-steps.md)]
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

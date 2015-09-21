@@ -5,16 +5,18 @@ Azure utilise un fichier xml pour définir tous les réseaux virtuels disponible
 Pour créer un réseau virtuel à l'aide d'un fichier netcfg en utilisant PowerShell, procédez comme suit :
 
 1. Si vous n'avez jamais utilisé Azure PowerShell, consultez la page [Installation et configuration d'Azure PowerShell](powershell-install-configure.md) et suivez les instructions jusqu'à la fin pour vous connecter à Azure et sélectionner votre abonnement.
-2. Dans la console Azure PowerShell, utilisez l'applet de commande **Get-AzureVnetConfig** pour télécharger le fichier de configuration réseau en exécutant la commande ci-dessous. Observez le résultat sous la commande.
+2. Dans la console Azure PowerShell, utilisez l'applet de commande **Get-AzureVnetConfig** pour télécharger le fichier de configuration réseau en exécutant la commande ci-dessous. 
 
 		Get-AzureVNetConfig -ExportToFile c:\NetworkConfig.xml
+
+	Voici le résultat attendu pour la commande ci-dessus :
 
 		XMLConfiguration                                                                                                     
 		----------------                                                                                                     
 		<?xml version="1.0" encoding="utf-8"?>...  
 
-3. Ouvrez le fichier enregistré à l'étape 2 ci-dessus à l'aide d'un éditeur XML ou texte quelconque, et recherchez l'élément **<VirtualNetworkSites>**. Si vous avez déjà créé des réseaux, chacun est affiché comme son propre élément **<VirtualNetworkSite>**.
-4. Pour créer le réseau virtuel décrit dans ce scénario, ajoutez le code XML suivant juste sous l'élément **<VirtualNetworkSites>** :
+3. Ouvrez le fichier enregistré à l’étape 2 ci-dessus à l’aide d’un éditeur XML ou de texte quelconque, et recherchez l’élément **<VirtualNetworkSites>**. Si vous avez déjà créé des réseaux, chacun est affiché comme son propre élément **<VirtualNetworkSite>**.
+4. Pour créer le réseau virtuel décrit dans ce scénario, ajoutez le code XML suivant juste sous l’élément **<VirtualNetworkSites>** :
 
 		<VirtualNetworkSite name="TestVNet" Location="Central US">
 		  <AddressSpace>
@@ -31,17 +33,21 @@ Pour créer un réseau virtuel à l'aide d'un fichier netcfg en utilisant PowerS
 		</VirtualNetworkSite>
 
 9.  Enregistrez le fichier de configuration réseau.
-10. Dans la console Azure PowerShell, utilisez l'applet de commande **Set-AzureVnetConfig** pour télécharger le fichier de configuration réseau en exécutant la commande ci-dessous. Observez le résultat sous la commande. L'état **Succeeded** doit apparaître sous **OperationStatus**. Si ce n'est pas le cas, recherchez les éventuelles erreurs dans le fichier xml.
+10. Dans la console Azure PowerShell, utilisez l’applet de commande **Set-AzureVnetConfig** pour télécharger le fichier de configuration réseau en exécutant la commande ci-dessous. Observez le résultat sous la commande. L’état **Succeeded** doit apparaître sous **OperationStatus**. Si ce n'est pas le cas, recherchez les éventuelles erreurs dans le fichier xml.
 
 		Set-AzureVNetConfig -ConfigurationPath c:\NetworkConfig.xml
+
+	Voici le résultat attendu pour la commande ci-dessus :
 
 		OperationDescription OperationId                          OperationStatus
 		-------------------- -----------                          ---------------
 		Set-AzureVNetConfig  49579cb9-3f49-07c3-ada2-7abd0e28c4e4 Succeeded 
 	
-11. Dans la console Azure PowerShell, utilisez l'applet de commande **Get-AzureVnetSite** pour vérifier que le nouveau réseau a été ajouté en exécutant la commande ci-dessous. Observez le résultat avec les propriétés de votre nouveau réseau virtuel.
+11. Dans la console Azure PowerShell, utilisez l’applet de commande **Get-AzureVnetSite** pour vérifier que le nouveau réseau a été ajouté en exécutant la commande ci-dessous.
 
 		Get-AzureVNetSite -VNetName TestVNet
+
+	Voici le résultat attendu pour la commande ci-dessus :
 
 		AddressSpacePrefixes : {192.168.0.0/16}
 		Location             : Central US
@@ -59,4 +65,4 @@ Pour créer un réseau virtuel à l'aide d'un fichier netcfg en utilisant PowerS
 		OperationId          : 3f35d533-1f38-09c0-b286-3d07cd0904d8
 		OperationStatus      : Succeeded
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO2-->

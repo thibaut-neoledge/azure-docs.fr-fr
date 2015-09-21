@@ -1,20 +1,20 @@
 <properties
     pageTitle="Utilisation des rubriques Service Bus (.NET) |Microsoft Azure"
-	description="Découvrez comment utiliser les rubriques et abonnements Service Bus dans Azure. Les exemples de code sont écrits pour les applications .NET."
-	services="service-bus"
-	documentationCenter=".net"
-	authors="sethmanheim"
-	manager="timlt"
-	editor=""/>
+    description="Découvrez comment utiliser les rubriques et abonnements Service Bus dans Azure. Les exemples de code sont écrits pour les applications .NET."
+    services="service-bus"
+    documentationCenter=".net"
+    authors="sethmanheim"
+    manager="timlt"
+    editor=""/>
 
 <tags
     ms.service="service-bus"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="na"
-	ms.devlang="dotnet"
-	ms.topic="get-started-article"
-	ms.date="07/02/2015"
-	ms.author="sethm"/>
+    ms.workload="tbd"
+    ms.tgt_pltfrm="na"
+    ms.devlang="dotnet"
+    ms.topic="get-started-article"
+    ms.date="07/02/2015"
+    ms.author="sethm"/>
 
 # Utilisation des rubriques et abonnements Service Bus Azure
 
@@ -284,20 +284,19 @@ La suppression d'une rubrique a également pour effet de supprimer les abonnemen
 
 Maintenant que vous avez appris les principes de base des rubriques et des abonnements Service Bus, consultez ces liens pour en savoir plus :
 
--   Voir la référence MSDN suivante : [Files d’attente, rubriques et abonnements][].
+-   Consultez [Files d’attente, rubriques et abonnements][].
 -   Référence d'API pour [SqlFilter][].
 -   Créez une application opérationnelle, capable d’envoyer et de recevoir des messages à destination et en provenance d’une file d’attente Service Bus : [Didacticiel .NET sur la messagerie répartie Service Bus][].
--   Exemples Service Bus : téléchargement depuis la page [Exemples Azure][] ou consultation de la présentation sur [MSDN][].
+-   Exemples Service Bus : téléchargement depuis la page [Exemples Azure][] ou consultation de la [présentation](service-bus-samples.md).
 
   [Azure portal]: http://manage.windowsazure.com
 
   [7]: ./media/service-bus-dotnet-how-to-use-topics-subscriptions/getting-started-multi-tier-13.png
 
-  [Files d’attente, rubriques et abonnements]: http://msdn.microsoft.com/library/hh367516.aspx
+  [Files d’attente, rubriques et abonnements]: service-bus-queues-topics-subscriptions.md
   [SqlFilter]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.aspx
   [SqlFilter.SqlExpression]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx
   [Didacticiel .NET sur la messagerie répartie Service Bus]: http://msdn.microsoft.com/library/azure/hh367512.aspx
   [Exemples Azure]: https://code.msdn.microsoft.com/windowsazure/site/search?query=service%20bus&f%5B0%5D.Value=service%20bus&f%5B0%5D.Type=SearchText&ac=2
-  [MSDN]: https://msdn.microsoft.com/library/azure/dn194201.aspx
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO2-->

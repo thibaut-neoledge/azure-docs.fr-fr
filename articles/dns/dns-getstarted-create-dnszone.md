@@ -1,20 +1,20 @@
 <properties
    pageTitle="Prise en main d’Azure DNS | Microsoft Azure"
-	description="Apprenez à créer des zones DNS pour Azure DNS. Cette procédure étape par étape vous permettra de créer votre première zone DNS pour pouvoir héberger votre domaine DNS."
-	services="dns"
-	documentationCenter="na"
-	authors="joaoma"
-	manager="adinah"
-	editor=""/>
+   description="Apprenez à créer des zones DNS pour Azure DNS. Cette procédure étape par étape vous permettra de créer votre première zone DNS pour pouvoir héberger votre domaine DNS."
+   services="dns"
+   documentationCenter="na"
+   authors="joaoma"
+   manager="adinah"
+   editor=""/>
 
 <tags
    ms.service="dns"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="infrastructure-services"
-	ms.date="09/02/2015"
-	ms.author="joaoma"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="infrastructure-services"
+   ms.date="09/02/2015"
+   ms.author="joaoma"/>
 
 # Prise en main d’Azure DNS
 
@@ -30,9 +30,11 @@ Le domaine « contoso.com » peut contenir un certain nombre d’enregistremen
 Les étapes suivantes doivent être effectuées avant de pouvoir gérer DNS Azure à l’aide d’Azure PowerShell.
 
 ### Étape 1
- Azure DNS utilise Azure Resource Manager (ARM). Veillez à passer en mode PowerShell pour utiliser les applets de commande ARM. Pour plus d’informations, consultez la page [Utilisation de Windows PowerShell avec Resource Manager](powershell-azure-resource-manager.md).<BR><BR>
+Azure DNS utilise Azure Resource Manager (ARM). Veillez à passer en mode PowerShell pour utiliser les applets de commande ARM. Pour plus d’informations, consultez la page [Utilisation de Windows PowerShell avec Resource Manager](powershell-azure-resource-manager.md).<BR><BR>
 
 		PS C:\> Switch-AzureMode -Name AzureResourceManager
+
+Un message d’avertissement indiquant « l’applet de commande Switch-AzureMode est déconseillée et sera supprimée dans une future version » peut s’afficher. Ignorez-le.
 
 ### Étape 2
  Connectez-vous à votre compte Azure.<BR><BR>
@@ -153,4 +155,4 @@ Si vous n’avez pas encore délégué votre domaine pour qu’il utilise la nou
 [Prise en main de la création de jeux d'enregistrements et d'enregistrements](dns-getstarted-create-recordset.md)<BR> [Gestion des zones DNS](dns-operations-dnszones.md)<BR> [Gestion des enregistrements DNS](dns-operations-recordsets.md)<BR> [Automatisation des opérations Azure avec le Kit de développement logiciel (SDK) .NET](dns-sdk.md)<BR> [Référence de l'API REST d'Azure DNS](https://msdn.microsoft.com/library/azure/mt163862.aspx)
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

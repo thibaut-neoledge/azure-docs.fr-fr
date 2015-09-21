@@ -24,9 +24,9 @@ Débit cible pour une file d'attente unique (messages de 1 Ko)|Jusqu'à 2 000�
 Débit cible pour une partition de table unique (entités de 1 Ko)|Jusqu'à 2 000 entités par seconde
 Débit cible pour un partage de fichier unique (version préliminaire)|Jusqu’à 60 Mo par seconde
 Entrée max.<sup>3</sup> par compte de stockage (régions des États-Unis)|10 Gbit/s si GRS/ZRS<sup>4</sup> est activé, 20 Gbit/s pour LRS
-Sortie max.<sup>3</sup> par compte de stockage (régions des États-Unis)|20 Gbit/s si GRS/ZRS<sup>4</sup> est activé, 30 Gbit/s pour LRS
+Sortie max.<sup>3</sup> par compte de stockage (régions des États-Unis)|20 Gbit/s si RA-GRS/GRS/ZRS<sup>4</sup> est activé, 30 Gbit/s pour LRS
 Entrée max.<sup>3</sup> par compte de stockage (régions d'Europe et d'Asie)|5 Gbit/s si GRS/ZRS<sup>4</sup> est activé, 10 Gbit/s pour LRS
-Sortie max.<sup>3</sup> par compte de stockage (régions d'Europe et d'Asie)|10 Gbit/s si GRS/ZRS<sup>4</sup> est activé, 15 Gbit/s pour LRS
+Sortie max.<sup>3</sup> par compte de stockage (régions d'Europe et d'Asie)|10 Gbit/s si RA-GRS/GRS/ZRS<sup>4</sup> est activé, 15 Gbit/s pour LRS
 
 <sup>1</sup>Si vous avez besoin de plus de 100 comptes de stockage, contactez le [Support Azure](http://azure.microsoft.com/support/faq/) pour obtenir une assistance.
 
@@ -36,6 +36,11 @@ Vous pouvez calculer approximativement le nombre de disques fortement sollicité
 
 <sup>3</sup>*Entrantes* désigne toutes les données (demandes) envoyées à un compte de stockage. *Sortantes* désigne toutes les données (réponses) reçues d'un compte de stockage.
 
-<sup>4</sup>GRS fait référence au stockage géo-redondant ZRS fait référence à un stockage redondant dans une zone et est disponible uniquement pour des objets Blob de blocs. LRS fait référence à un stockage localement redondant.
+<sup>4</sup>Les options de réplication Azure Storage sont les suivantes :
 
-<!---HONumber=September15_HO1-->
+- **RA-GRS** : stockage géo-redondant avec accès en lecture. Si RA-GRS est activé, les cibles de sortie pour l’emplacement secondaire sont identiques à celles de l’emplacement principal.
+- **GRS** : stockage géo-redondant. 
+- **ZRS** : stockage redondant dans une zone. Uniquement disponible pour les objets blob de blocs. 
+- **LRS** : stockage localement redondant. 
+
+<!---HONumber=Sept15_HO2-->

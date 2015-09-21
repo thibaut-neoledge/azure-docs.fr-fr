@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/28/2015" 
+	ms.date="09/08/2015" 
 	ms.author="stepsic"/>
 
 # Activation de la surveillance et des diagnostics
@@ -71,4 +71,4 @@ Notez qu’à ce stade, certaines distributions de Linux ne sont pas prises en c
 * [Suivi de l'intégrité du service](insights-service-health.md) pour déterminer à quel moment Azure a rencontré des interruptions de service ou une dégradation des performances. 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

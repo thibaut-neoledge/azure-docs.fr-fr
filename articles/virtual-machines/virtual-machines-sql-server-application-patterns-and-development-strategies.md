@@ -3,7 +3,7 @@
 	description="Cet article présente une série de modèles d’application liés à l’exécution de SQL Server sur des machines virtuelles Azure. Il fournit aux architectes de solutions et aux développeurs une bonne base de départ pour l’architecture et la conception d’applications."
 	services="virtual-machines"
 	documentationCenter="na"
-	authors="rothja"
+	authors="Selcin"
 	manager="jeffreyg"
 	editor="monicar" />
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
 	ms.date="08/20/2015"
-	ms.author="jroth" />
+	ms.author="selcint" />
 
 # Modèles d'application et stratégies de développement pour SQL Server dans les machines virtuelles Azure
 
@@ -322,4 +322,4 @@ Pour plus d’informations sur le choix entre ces méthodes, consultez la page [
 
 Pour plus d’informations sur l’exécution de SQL Server dans les machines virtuelles Azure, consultez la page [SQL Server sur les machines virtuelles Azure](virtual-machines-sql-server-infrastructure-services.md).
 
-<!-----HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO2-->

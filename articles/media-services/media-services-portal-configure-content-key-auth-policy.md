@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/11/2015"
+	ms.date="09/07/2015" 
 	ms.author="juliako"/>
 
 
@@ -84,8 +84,17 @@ Quand vous protégez votre contenu avec **PlayReady**, vous devez spécifier dan
 
 Vous pouvez cliquer sur le bouton **importer le xml de la stratégie** et fournir un autre XML conforme au schéma XML défini [ici](https://msdn.microsoft.com/library/azure/dn783459.aspx).
 
+
+##Parcours d’apprentissage de Media Services
+
+Vous pouvez afficher les parcours d’apprentissage d’AMS ici :
+
+- [Workflow en flux continu AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [Workflow de streaming à la demande AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+
+
 ##Étapes suivantes
-Maintenant que vous avez configuré la stratégie d'autorisation de la clé de contenu, consultez la rubrique [Comment utiliser le portail de gestion Azure pour activer le chiffrement](../media-services-manage-content#encrypt/).
+La stratégie d’autorisation de la clé de contenu étant configurée, consultez la rubrique [Comment utiliser le portail de gestion Azure pour activer le chiffrement](../media-services-manage-content#encrypt/).
 
 
 [open_policy]: ./media/media-services-portal-configure-content-key-auth-policy/media-services-protect-content-with-open-restriction.png
@@ -93,4 +102,4 @@ Maintenant que vous avez configuré la stratégie d'autorisation de la clé de c
 
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO2-->

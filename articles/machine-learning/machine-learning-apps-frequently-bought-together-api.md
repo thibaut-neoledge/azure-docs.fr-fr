@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/12/2015" 
+	ms.date="09/07/2015" 
 	ms.author="luisca"/>
 
 # Exemple d’application Machine Learning : Frequently Bought Together
@@ -39,4 +39,4 @@ Ce service contient les API permettant de créer des modèles Frequently Bought 
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

@@ -1,21 +1,21 @@
 
 <properties
    pageTitle="Scénarios d’authentification pour Azure AD"
-	description="Vue d’ensemble des cinq scénarios d’authentification les plus courants pour Azure Active Directory (AAD)"
-	services="active-directory"
-	documentationCenter="dev-center-name"
-	authors="msmbaldwin"
-	manager="mbaldwin"
-	editor=""/>
+   description="Vue d’ensemble des cinq scénarios d’authentification les plus courants pour Azure Active Directory (AAD)"
+   services="active-directory"
+   documentationCenter="dev-center-name"
+   authors="msmbaldwin"
+   manager="mbaldwin"
+   editor=""/>
 
 <tags
    ms.service="active-directory"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="identity"
-	ms.date="08/25/2015"
-	ms.author="mbaldwin"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="identity"
+   ms.date="09/02/2015"
+   ms.author="mbaldwin"/>
 
 # Scénarios d’authentification pour Azure AD
 
@@ -60,13 +60,13 @@ Voici ce que vous devez savoir sur les divers composants du diagramme ci-dessus�
 - Les développeurs peuvent utiliser les bibliothèques d’authentification open source d’Azure AD pour simplifier l’authentification en gérant les détails du protocole pour vous. Pour plus d’informations, consultez la rubrique [Bibliothèques d’authentification d’Azure Active Directory](active-directory-authentication-libraries.md).
 
 
-• Une fois qu’un utilisateur a été authentifié, l’application doit valider son jeton de sécurité pour s’assurer que l’authentification a réussi pour les parties concernées. Les développeurs peuvent utiliser les bibliothèques d’authentification fournies pour gérer la validation d’un jeton d’Azure AD, y compris les jetons Web JSON (JWT) ou SAML 2.0. Pour effectuer la validation manuellement, consultez la documentation sur le [gestionnaire de jeton JWT](https://msdn.microsoft.com/library/dn205065(v=vs.110).aspx).
+• Une fois qu’un utilisateur a été authentifié, l’application doit valider son jeton de sécurité pour s’assurer que l’authentification a réussi pour les parties concernées. Les développeurs peuvent utiliser les bibliothèques d’authentification fournies pour gérer la validation d’un jeton d’Azure AD, y compris les jetons Web JSON (JWT) ou SAML 2.0. Pour effectuer la validation manuellement, consultez la documentation sur le [gestionnaire de jeton JWT](https://msdn.microsoft.com/library/dn205065.aspx).
 
 
 > [AZURE.IMPORTANT]Azure AD utilise le chiffrement à clé publique pour signer les jetons et vérifier leur validité. Consultez la rubrique [Informations importantes sur la substitution des clés de signature dans Azure AD](https://msdn.microsoft.com/library/azure/dn641920.aspx) pour plus d’informations sur la logique dont vous devez disposer dans votre application pour vous assurer qu’elle est systématiquement mise à jour avec les clés les plus récentes.
 
 
-• Le flux de demandes et réponses du processus d’authentification est déterminé par le protocole d’authentification utilisé, par exemple OAuth 2.0, OpenID Connect, WS-Federation ou SAML 2.0. Ces protocoles sont présentés plus en détail dans la rubrique [Protocoles d’authentification d’Azure Active Directory](https://msdn.microsoft.com/library/azure/dn151124.aspx) et dans les sections ci-dessous.
+• Le flux de demandes et réponses du processus d’authentification est déterminé par le protocole d’authentification utilisé, par exemple OAuth 2.0, OpenID Connect, WS-Federation ou SAML 2.0. Ces protocoles sont présentés plus en détail dans la rubrique [Protocoles d’authentification d’Azure Active Directory](active-directory-authentication-protocols.md) et dans les sections ci-dessous.
 
 > [AZURE.NOTE]Azure AD prend en charge les normes OAuth 2.0 et OpenID Connect, qui utilisent massivement les jetons porteurs, y compris des jetons porteurs représentés sous forme de JWT. Un jeton porteur est un jeton de sécurité léger qui octroie l’accès à une ressource protégée au « porteur ». En ce sens, le « porteur » désigne toute partie qui peut présenter le jeton. Une partie doit certes d’abord s’authentifier auprès d’Azure AD pour recevoir le jeton porteur, mais si les mécanismes nécessaires à la sécurité du jeton lors de la transmission et du stockage ne sont pas en place, il peut être intercepté et utilisé par une partie non autorisée. Bien que certains jetons de sécurité intègrent un mécanisme de protection contre l’utilisation par des parties non autorisées, les jetons porteurs n’en sont pas dotés et doivent donc être acheminés sur un canal sécurisé, par exemple à l’aide du protocole TLS (HTTPS). Si un jeton porteur est transmis en clair, une partie malveillante peut utiliser une attaque d’intercepteur afin de s’approprier le jeton et de l’utiliser pour accéder sans autorisation à une ressource protégée. Les mêmes principes de sécurité s’appliquent au stockage ou à la mise en cache des jetons porteurs pour une utilisation ultérieure. Veillez systématiquement à ce que votre application transmette et stocke les jetons porteurs de manière sécurisée. Pour en savoir plus sur les aspects de sécurité des jetons porteurs, consultez [RFC 6750 Section 5](http://tools.ietf.org/html/rfc6750).
 
@@ -134,7 +134,7 @@ Vous devez tenir compte d’autres éléments lorsque vous choisissez de dévelo
 
 Si vous développez actuellement une application à client unique, mais que vous souhaitez la mettre à disposition de plusieurs organisations, vous pouvez facilement apporter des modifications à l’application et à sa configuration dans Azure AD pour la rendre compatible avec la mutualisation. De plus, Azure AD utilise la même clé de signature pour tous les jetons de tous les annuaires, que vous fournissiez l’authentification dans une application à client unique ou mutualisée.
 
-Chaque scénario répertorié dans ce document inclut une sous-section décrivant les exigences d’approvisionnement associées. Pour obtenir des informations plus détaillées sur l'approvisionnement d'une application dans Azure AD et sur les différences entre les applications à client unique et les applications mutualisées, consultez [Intégration d'applications dans Azure Active Directory](active-directory-integrating-applications.md). Poursuivez votre lecture pour comprendre les scénarios d’application courants dans Azure AD.
+Chaque scénario répertorié dans ce document inclut une sous-section décrivant les exigences d’approvisionnement associées. Pour obtenir des informations plus détaillées sur l’approvisionnement d’une application dans Azure AD et sur les différences entre les applications à client unique et les applications mutualisées, consultez [Intégration d’applications dans Azure Active Directory](active-directory-integrating-applications.md). Poursuivez votre lecture pour comprendre les scénarios d’application courants dans Azure AD.
 
 ## Types d’application et scénarios
 
@@ -190,7 +190,7 @@ Consultez les exemples de code pour les scénarios du type navigateur web vers a
 - Application à client unique : si vous créez une application uniquement pour votre organisation, vous devez l’inscrire dans l’annuaire de votre entreprise à l’aide du portail de gestion Azure.
 
 
-- Application mutualisée : si vous créez une application qui peut être utilisée par des utilisateurs externes, vous devez l’inscrire dans l’annuaire de votre entreprise, mais également dans celui de chaque organisation qui utilisera l’application. Afin de mettre votre application à disposition dans ces annuaires, vous pouvez inclure pour vos clients un processus d’inscription qui leur permet de donner leur consentement à votre application. Quand ils s’inscrivent auprès de votre application, une boîte de dialogue contenant les autorisations requises par l’application s’affiche, et ils ont ensuite la possibilité de donner leur consentement. Selon les autorisations requises, il est possible qu’un administrateur de l’autre organisation doive donner le consentement. Une fois le consentement donné par l’utilisateur ou l’administrateur, l’application est inscrite dans l’annuaire de l’organisation de l’utilisateur ou de l’administrateur. Pour plus d'informations, consultez [Intégration d'applications dans Azure Active Directory](active-directory-integrating-applications.md).
+- Application mutualisée : si vous créez une application qui peut être utilisée par des utilisateurs externes, vous devez l’inscrire dans l’annuaire de votre entreprise, mais également dans celui de chaque organisation qui utilisera l’application. Afin de mettre votre application à disposition dans ces annuaires, vous pouvez inclure pour vos clients un processus d’inscription qui leur permet de donner leur consentement à votre application. Quand ils s’inscrivent auprès de votre application, une boîte de dialogue contenant les autorisations requises par l’application s’affiche, et ils ont ensuite la possibilité de donner leur consentement. Selon les autorisations requises, il est possible qu’un administrateur de l’autre organisation doive donner le consentement. Une fois le consentement donné par l’utilisateur ou l’administrateur, l’application est inscrite dans l’annuaire de l’organisation de l’utilisateur ou de l’administrateur. Pour plus d’informations, consultez [Intégration d’applications dans Azure Active Directory](active-directory-integrating-applications.md).
 
 
 #### Expiration du jeton
@@ -248,7 +248,7 @@ Consultez les exemples de code pour les scénarios du type application à page u
 - Application à client unique : si vous créez une application uniquement pour votre organisation, vous devez l’inscrire dans l’annuaire de votre entreprise à l’aide du portail de gestion Azure.
 
 
-- Application mutualisée : si vous créez une application qui peut être utilisée par des utilisateurs externes, vous devez l’inscrire dans l’annuaire de votre entreprise, mais également dans celui de chaque organisation qui utilisera l’application. Afin de mettre votre application à disposition dans ces annuaires, vous pouvez inclure pour vos clients un processus d’inscription qui leur permet de donner leur consentement à votre application. Quand ils s’inscrivent auprès de votre application, une boîte de dialogue contenant les autorisations requises par l’application s’affiche, et ils ont ensuite la possibilité de donner leur consentement. Selon les autorisations requises, il est possible qu’un administrateur de l’autre organisation doive donner le consentement. Une fois le consentement donné par l’utilisateur ou l’administrateur, l’application est inscrite dans l’annuaire de l’organisation de l’utilisateur ou de l’administrateur. Pour plus d'informations, consultez [Intégration d'applications dans Azure Active Directory](active-directory-integrating-applications.md).
+- Application mutualisée : si vous créez une application qui peut être utilisée par des utilisateurs externes, vous devez l’inscrire dans l’annuaire de votre entreprise, mais également dans celui de chaque organisation qui utilisera l’application. Afin de mettre votre application à disposition dans ces annuaires, vous pouvez inclure pour vos clients un processus d’inscription qui leur permet de donner leur consentement à votre application. Quand ils s’inscrivent auprès de votre application, une boîte de dialogue contenant les autorisations requises par l’application s’affiche, et ils ont ensuite la possibilité de donner leur consentement. Selon les autorisations requises, il est possible qu’un administrateur de l’autre organisation doive donner le consentement. Une fois le consentement donné par l’utilisateur ou l’administrateur, l’application est inscrite dans l’annuaire de l’organisation de l’utilisateur ou de l’administrateur. Pour plus d’informations, consultez [Intégration d’applications dans Azure Active Directory](active-directory-integrating-applications.md).
 
 Après avoir inscrit l’application, vous devez la configurer pour qu’elle utilise le protocole d’octroi implicite OAuth 2.0. Par défaut, ce protocole est désactivé pour les applications. Pour activer le protocole d’octroi implicite OAuth2 pour votre application, téléchargez son manifeste d’application à partir du portail de gestion Azure, définissez la valeur « oauth2AllowImplicitFlow » sur True, puis téléchargez le manifeste à nouveau sur le portail. Pour obtenir des instructions détaillées, consultez la rubrique [Activation de l’octroi implicite OAuth 2.0 pour les applications à page unique](active-directory-integrating-applications.md).
 
@@ -307,7 +307,7 @@ Consultez les exemples de code pour les scénarios du type application native ve
 - Application à client unique : l’application native et l’API web doivent être inscrites dans le même annuaire dans Azure AD. L’API web peut être configurée pour exposer un ensemble d’autorisations utilisées pour limiter l’accès de l’application native à ses ressources. L’application cliente sélectionne ensuite les autorisations souhaitées dans le menu déroulant « Autorisations pour d’autres applications » du portail de gestion Azure.
 
 
-- Application mutualisée : premièrement, l’application native est toujours inscrite dans l’annuaire du développeur ou de l’éditeur. Deuxièmement, l’application native est configurée pour indiquer les autorisations dont elle a besoin pour fonctionner. Cette liste d’autorisations requises s’affiche dans une boîte de dialogue quand un utilisateur ou un administrateur de l’annuaire de destination donne son consentement à l’application, ce qui la met à disposition de son organisation. Certaines applications nécessitent uniquement des autorisations utilisateur, pour lesquelles tous les utilisateurs de l’organisation peuvent donner leur consentement. D’autres nécessitent des autorisations administrateur, pour lesquelles un utilisateur de l’organisation ne peut pas donner son consentement. Seul un administrateur d’annuaires peut donner son consentement aux applications qui requièrent des autorisations de ce niveau. Quand un utilisateur ou un administrateur donne son consentement, seule l’API web est inscrite dans son annuaire. Pour plus d'informations, consultez [Intégration d'applications dans Azure Active Directory](active-directory-integrating-applications.md).
+- Application mutualisée : premièrement, l’application native est toujours inscrite dans l’annuaire du développeur ou de l’éditeur. Deuxièmement, l’application native est configurée pour indiquer les autorisations dont elle a besoin pour fonctionner. Cette liste d’autorisations requises s’affiche dans une boîte de dialogue quand un utilisateur ou un administrateur de l’annuaire de destination donne son consentement à l’application, ce qui la met à disposition de son organisation. Certaines applications nécessitent uniquement des autorisations utilisateur, pour lesquelles tous les utilisateurs de l’organisation peuvent donner leur consentement. D’autres nécessitent des autorisations administrateur, pour lesquelles un utilisateur de l’organisation ne peut pas donner son consentement. Seul un administrateur d’annuaires peut donner son consentement aux applications qui requièrent des autorisations de ce niveau. Quand un utilisateur ou un administrateur donne son consentement, seule l’API web est inscrite dans son annuaire. Pour plus d’informations, consultez [Intégration d’applications dans Azure Active Directory](active-directory-integrating-applications.md).
 
 
 #### Expiration du jeton
@@ -459,10 +459,12 @@ Quand la première application utilise son code d’autorisation pour obtenir un
 
 ## Voir aussi
 
+[Guide du développeur Azure Active Directory](active-directory-developers-guide.md)
+
 [Exemples de code Azure Active Directory](active-directory-code-samples.md)
 
 [Informations importantes sur la substitution des clés de signature dans Azure AD](https://msdn.microsoft.com/library/azure/dn641920.aspx)
 
 [OAuth 2.0 dans Azure AD](https://msdn.microsoft.com/library/azure/dn645545.aspx)
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

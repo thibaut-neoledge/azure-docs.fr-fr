@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Files d'attente Azure et files d'attente Service Bus : comparaison et différences"
-	description="Analyse les différences et les similitudes entre les deux types de files d'attente proposés par Azure."
-	services="service-bus"
-	documentationCenter="na"
-	authors="sethmanheim"
-	manager="timlt"
-	editor="tysonn"/>
+   description="Analyse les différences et les similitudes entre les deux types de files d'attente proposés par Azure."
+   services="service-bus"
+   documentationCenter="na"
+   authors="sethmanheim"
+   manager="timlt"
+   editor="tysonn" />
 <tags 
    ms.service="service-bus"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="tbd"
-	ms.date="08/25/2015"
-	ms.author="sethm"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="tbd"
+   ms.date="09/09/2015"
+   ms.author="sethm" />
 
 # Files d'attente Azure et files d'attente Service Bus : comparaison et différences
 
@@ -257,7 +257,7 @@ Cette section traite des fonctionnalités d'authentification et d'autorisation p
 |Critères de comparaison|Files d'attente Azure|Files d'attente Service Bus|
 |---|---|---|
 |Authentification|**Clé symétrique**|**Clé symétrique**|
-|Modèle de contrôle d'accès|Accès délégué via des jetons SAS.|RBAC via ACS|
+|Modèle de sécurité|Accès délégué via des jetons SAS.|SAS|
 |Fédération de fournisseur d’identité|**Non**|**Oui**|
 
 ### Informations supplémentaires
@@ -265,10 +265,6 @@ Cette section traite des fonctionnalités d'authentification et d'autorisation p
 - Chaque requête à l'une des technologies de file d'attente doit être authentifiée. Les files d'attente publiques avec accès anonyme ne sont pas prises en charge. À l'aide de SAS, vous pouvez résoudre ce scénario en publiant un SAS en écriture seule, un SAS en lecture seule ou un SAS à accès total.
 
 - Le schéma d'authentification fourni par les files d'attente Azure implique l'utilisation d'une clé symétrique, qui est un code d'authentification de message basé sur hachage (HMAC), calculée avec l'algorithme SHA-256 et encodée comme une chaîne **Base64**. Pour plus d'informations sur le protocole respectif, consultez [Authentification de l'accès à votre compte de stockage](https://msdn.microsoft.com/library/hh225339.aspx). Les files d'attente Service Bus prennent en charge un modèle similaire utilisant des clés symétriques. Pour plus d'informations, consultez [Authentification par signature d'accès partagé avec Service Bus](https://msdn.microsoft.com/library/dn170477.aspx).
-
-- Le contrôle d'accès Active Directory Microsoft Azure (également appelé Service de contrôle d'accès ou ACS) pris en charge par Service Bus offre trois rôles distincts : **Admin**, **Expéditeur** et **Récepteur**. Actuellement, cette fonctionnalité n'est pas prise en charge par les files d'attente Azure.
-
-- Étant donné que Service Bus offre l'intégration ACS, cela vous permet de fédérer avec Active Directory (au moyen de l'utilisation d'ADFS) et d'autres fournisseurs d'identité Web communs.
 
 ## Coût
 
@@ -315,4 +311,4 @@ Les articles suivants fournissent davantage de conseils et d'informations sur l'
 - [Présentation de la facturation du stockage Azure - bande passante, transactions et capacité](http://blogs.msdn.com/b/windowsazurestorage/archive/2010/07/09/understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity.aspx)
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO2-->

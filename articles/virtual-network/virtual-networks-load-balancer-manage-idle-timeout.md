@@ -1,20 +1,22 @@
 <properties 
-   authors="danielceckert"
-	documentationCenter="dev-center-name"
-	editor=""
-	manager="jefco"
-	pageTitle="Gérer : délai d’inactivité de l’équilibrage de charge"
-	description="Fonctionnalités de gestion du délai d'inactivité de l'équilibrage de charge Azure"
-	services="virtual-network"/>
+   authors="danielceckert" 
+   documentationCenter="dev-center-name" 
+   editor=""
+   manager="jefco" 
+   pageTitle="Gérer : délai d’inactivité de l’équilibrage de charge" 
+   description="Fonctionnalités de gestion du délai d'inactivité de l'équilibrage de charge Azure" 
+   services="virtual-network" 
+   />
 
 <tags
    ms.author="danecke"
-	ms.date="05/27/2015"
-	ms.devlang="na"
-	ms.service="virtual-network"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="infrastructure-services"/>
+   ms.date="09/01/2015"
+   ms.devlang="na"
+   ms.service="virtual-network"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="infrastructure-services"
+   />
    
 # Gérer un réseau virtuel : délai d’inactivité TCP de l’équilibrage de charge
 
@@ -150,4 +152,4 @@ La valeur de LoadBalancerDistribution peut être sourceIP pour une affinité à 
     </LoadBalancedEndpointList>
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO2-->

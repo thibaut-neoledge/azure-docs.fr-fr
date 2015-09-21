@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Utiliser le Gestionnaire d’instantanés StorSimple pour créer et gérer des stratégies de sauvegarde | Microsoft Azure"
+   pageTitle="Stratégies de sauvegarde du Gestionnaire d’instantanés StorSimple | Microsoft Azure"
    description="Explique comment utiliser le composant logiciel enfichable MMC Gestionnaire d’instantanés StorSimple pour créer et gérer les stratégies de sauvegarde qui contrôlent les sauvegardes planifiées."
    services="storsimple"
    documentationCenter="NA"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="08/17/2015"
+   ms.date="09/04/2015"
    ms.author="v-sharos" />
 
 # Utiliser le Gestionnaire d’instantanés StorSimple pour créer et gérer des stratégies de sauvegarde
@@ -118,4 +118,4 @@ Pour supprimer une stratégie de sauvegarde, procédez comme suit.
 
 [Utiliser le Gestionnaire d’instantanés StorSimple pour afficher et gérer les tâches de sauvegarde](storsimple-snapshot-manager-manage-backup-jobs.md).
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO2-->

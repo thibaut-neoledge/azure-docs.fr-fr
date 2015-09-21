@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-html" 
 	ms.devlang="javascript" 
 	ms.topic="article" 
-	ms.date="05/01/2015" 
+	ms.date="09/09/2015" 
 	ms.author="glenga"/>
 
 
@@ -33,7 +33,7 @@ La façon dont vous ajoutez une référence au client Mobile Services dépend de
 
 - Pour une application web, ouvrez le fichier HTML et ajoutez ce qui suit aux références de script de la page :
 
-        <script src="http://ajax.aspnetcdn.com/ajax/mobileservices/MobileServices.Web-1.2.5.min.js"></script>
+        <script src="http://ajax.aspnetcdn.com/ajax/mobileservices/MobileServices.Web-1.2.7.min.js"></script>
 
 - Pour une application Windows Store écrite en JavaScript/HTML, ajoutez le package **WindowsAzure.MobileServices.WinJS** à votre projet.
 
@@ -46,7 +46,7 @@ Dans l'éditeur, ouvrez ou créez un fichier JavaScript, ajoutez le code suivant
 
 Vous devez remplacer l'espace réservé `AppUrl` par l'URL d'application de votre service mobile et `AppKey` par la clé d'application. Pour savoir comment obtenir l'URL d'application et la clé d'application pour le service mobile, consultez le didacticiel [Ajout de services mobiles à une application existante](mobile-services-html-get-started-data.md).
 
->[AZURE.IMPORTANT]La clé d'application est destinée à filtrer la demande aléatoire par rapport à votre service mobile ; elle est distribuée avec l'application. Cette clé n'étant pas chiffrée, elle ne peut pas être considérée comme sécurisée. Pour vraiment sécuriser l'accès aux données de votre service mobile, vous devez authentifier les utilisateurs avant de leur autoriser l'accès. Pour plus d'informations, consultez [Procédure : authentification des utilisateurs](#caching).
+>[AZURE.IMPORTANT]La clé d'application est destinée à filtrer la demande aléatoire par rapport à votre service mobile ; elle est distribuée avec l'application. Cette clé n'étant pas chiffrée, elle ne peut pas être considérée comme sécurisée. Pour vraiment sécuriser l'accès aux données de votre service mobile, vous devez authentifier les utilisateurs avant de leur autoriser l'accès. Pour plus d'informations, consultez [Procédure : authentification des utilisateurs](#authentication).
 
 ##<a name="querying"></a>Procédure : interrogation des données à partir d'un service mobile
 
@@ -385,7 +385,7 @@ Vous appelez une API personnalisée à partir du client en appelant la méthode 
  
 Pour des exemples plus réalistes et une discussion plus élaborée sur **invokeApi**, consultez la section [API personnalisée dans les Kits de développement logiciel (SDK) clients pour Azure Mobile Services](http://blogs.msdn.com/b/carlosfigueira/archive/2013/06/19/custom-api-in-azure-mobile-services-client-sdks.aspx).
 
-##<a name="caching"></a>Procédure : authentification des utilisateurs
+##<a name="authentication"></a>Procédure : authentification des utilisateurs
 
 Mobile Services prend en charge l'authentification et l'autorisation des utilisateurs d'applications via divers fournisseurs d'identité externes : Facebook, Google, Microsoft Account et Twitter. Vous pouvez définir des autorisations sur les tables pour limiter l'accès à certaines opérations aux seuls utilisateurs authentifiés. Vous pouvez également utiliser l’identité des utilisateurs authentifiés pour implémenter des règles d’autorisation dans les scripts serveur. Pour plus d’informations, consultez la page [Prise en main de l’authentification].
 
@@ -412,7 +412,7 @@ Si vous utilisez un fournisseur d'identité différent de Facebook, remplacez la
 
 Dans ce cas, Mobile Services gère le flux d'authentification OAuth 2.0 en affichant la page de connexion du fournisseur sélectionné et en générant un jeton d'authentification Mobile Services après avoir établi une connexion avec le fournisseur d'identité. La fonction [login], lorsqu'elle est utilisée, renvoie un objet JSON (**user**) qui expose l'ID utilisateur et le jeton d'authentification Mobile Services dans les champs **userId** et **authenticationToken**, respectivement. Ce jeton peut être mis en cache et réutilisé jusqu'à ce qu'il arrive à expiration. Pour plus d’informations, consultez [Mise en cache du jeton d’authentification].
 
-> [AZURE.NOTE]**Application du Windows Store** Quand vous utilisez le fournisseur de connexion du compte Microsoft pour authentifier les utilisateurs de votre application du Windows Store, vous devez également inscrire le package de l’application auprès de Mobile Services. Lorsque vous inscrivez les informations du package de votre application Windows Store auprès de Mobile Services, le client peut réutiliser les informations d'identification du compte Microsoft pour fournir une authentification unique. Si vous ne le faites pas, vos utilisateurs se connectant via le compte Microsoft seront invités à se connecter à chaque appel de la méthode de connexion. Pour savoir comment inscrire votre package d'application Windows Store, consultez la rubrique [Inscription du package de votre application Windows Store pour l'authentification Microsoft](/develop/mobile/how-to-guides/register-windows-store-app-package/%20target="_blank"). Une fois les informations du package inscrites auprès de Mobile Services, appelez la méthode [login](http://go.microsoft.com/fwlink/p/?LinkId=322050%20target="_blank") en fournissant la valeur **true** pour le paramètre <em>useSingleSignOn</em> pour réutiliser les informations d'identification.
+> [AZURE.NOTE]**Application du Windows Store** Quand vous utilisez le fournisseur de connexion du compte Microsoft pour authentifier les utilisateurs de votre application du Windows Store, vous devez également inscrire le package de l’application auprès de Mobile Services. Lorsque vous inscrivez les informations du package de votre application Windows Store auprès de Mobile Services, le client peut réutiliser les informations d'identification du compte Microsoft pour fournir une authentification unique. Si vous ne le faites pas, vos utilisateurs se connectant via le compte Microsoft seront invités à se connecter à chaque appel de la méthode de connexion. Pour savoir comment inscrire votre package d'application Windows Store, consultez la rubrique [Inscription du package de votre application Windows Store pour l'authentification Microsoft](/develop/mobile/how-to-guides/register-windows-store-app-package/%20target="_blank"). Une fois les informations du package inscrites auprès de Mobile Services, appelez la méthode [login](http://go.microsoft.com/fwlink/p/?LinkId=322050%20target="_blank") en fournissant la valeur **true** pour le paramètre *useSingleSignOn* pour réutiliser les informations d'identification.
 
 ###Flux client
 Votre application peut également contacter le fournisseur d'identité de manière indépendante, puis fournir le jeton renvoyé à Mobile Services à des fins d'authentification. Le flux client permet de proposer l'authentification unique aux utilisateurs ou de récupérer d'autres données utilisateur auprès du fournisseur d'identité.
@@ -580,7 +580,7 @@ Pour contrôler les sites web autorisés à interagir avec les requêtes et à e
 [How to: Insert data into a mobile service]: #inserting
 [How to: Modify data in a mobile service]: #modifying
 [How to: Delete data in a mobile service]: #deleting
-[How to: Authenticate users]: #caching
+[How to: Authenticate users]: #authentication
 [How to: Handle errors]: #errors
 [How to: Use promises]: #promises
 [How to: Customize request headers]: #customizing
@@ -608,4 +608,4 @@ Pour contrôler les sites web autorisés à interagir avec les requêtes et à e
 [Appel d'une API personnalisée à partir du client]: mobile-services-html-call-custom-api.md
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO2-->

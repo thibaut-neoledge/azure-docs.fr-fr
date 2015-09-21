@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Utiliser le Gestionnaire d’instantanés StorSimple pour connecter et gérer des appareils StorSimple | Microsoft Azure"
+   pageTitle="Gérer les appareils avec le Gestionnaire d’instantanés StorSimple | Microsoft Azure"
    description="Décrit comment utiliser le composant logiciel enfichable MMC du Gestionnaire d’instantanés StorSimple pour connecter et gérer des appareils StorSimple."
    services="storsimple"
    documentationCenter=""
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="08/18/2015"
+   ms.date="09/04/2015"
    ms.author="v-sharos" />
 
 # Utiliser le Gestionnaire d’instantanés StorSimple pour connecter et gérer des appareils StorSimple
@@ -262,4 +262,4 @@ Si un appareil StorSimple défaillant est remplacé par un appareil de secours 
 
 [Utiliser le Gestionnaire d’instantanés StorSimple pour afficher et gérer les volumes](storsimple-snapshot-manager-manage-volumes.md).
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO2-->

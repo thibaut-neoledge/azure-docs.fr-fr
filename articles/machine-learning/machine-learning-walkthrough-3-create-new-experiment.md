@@ -1,22 +1,20 @@
-<properties 
-	pageTitle="Étape 3 : Création d’une expérience Machine Learning | Microsoft Azure" 
-	description="Étape 3 du guide pas à pas du développement d'une solution prédictive : Création d'une expérience d'apprentissage dans Azure Machine Learning Studio." 
-	services="machine-learning" 
-	documentationCenter="" 
-	authors="garyericson" 
-	manager="paulettm" 
+<properties
+	pageTitle="Étape 3 : Création d’une expérience Machine Learning | Microsoft Azure"
+	description="Étape 3 du guide pas à pas du développement d'une solution prédictive : Création d'une expérience d'apprentissage dans Azure Machine Learning Studio."
+	services="machine-learning"
+	documentationCenter=""
+	authors="garyericson"
+	manager="paulettm"
 	editor="cgronlun"/>
 
-
-<tags 
-	ms.service="machine-learning" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/10/2015" 
+<tags
+	ms.service="machine-learning"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/08/2015" 
 	ms.author="garye"/>
-
 
 
 # Étape 3 de la procédure pas à pas : création d’une expérience Azure Machine Learning
@@ -28,7 +26,7 @@ Voici la troisième étape du didacticiel pas à pas [Développement d'une solut
 2.	[Télécharger des données existantes](machine-learning-walkthrough-2-upload-data.md)
 3.	**Créer une expérience**
 4.	[Former et évaluer les modèles](machine-learning-walkthrough-4-train-and-evaluate-models.md)
-5.	[Publier le service web](machine-learning-walkthrough-5-publish-web-service.md)
+5.	[Déployer le service web](machine-learning-walkthrough-5-publish-web-service.md)
 6.	[Accéder au service web](machine-learning-walkthrough-6-access-web-service.md)
 
 ----------
@@ -56,10 +54,10 @@ Nous pouvons ajouter des en-têtes de colonne en utilisant le module [Éditeur d
 4.	L'[Éditeur de métadonnées][metadata-editor] étant toujours sélectionné, dans le panneau **Propriétés** à droite de la zone de dessin, cliquez sur **Lancer le sélecteur de colonne**.
 5.	Dans la boîte de dialogue **Sélection des colonnes**, définissez le champ **Commencer par** sur « Toutes les colonnes ».
 6.	La ligne en dessous de **Commencer par** vous permet d'inclure ou d'exclure des colonnes spécifiques que l'[Éditeur de métadonnées][metadata-editor] doit modifier. Étant donné que nous voulons modifier toutes les colonnes, supprimez cette ligne en cliquant sur le signe moins (« - ») à droite de la ligne. La boîte de dialogue doit ressembler à ceci : ![Sélecteur de colonnes avec toutes les colonnes sélectionnées][4]
-7.	Cliquez sur la coche **OK**. 
+7.	Cliquez sur la coche **OK**.
 8.	Dans le panneau **Propriétés**, recherchez le paramètre **Nouveaux noms de colonne**. Dans ce champ, entrez une liste de noms pour les 21 colonnes du jeu de données, séparés par des virgules et dans l’ordre de la colonne. Vous pouvez obtenir le nom des colonnes dans la documentation du jeu de données sur le site web UCI ou, par commodité, vous pouvez copier et coller ce qui suit :  
 
-<!-- try the same thing without upper-case 
+<!-- try the same thing without upper-case
 		Status of checking account, Duration in months, Credit history, Purpose, Credit amount, Savings account/bond, Present employment since, Installment rate in percentage of disposable income, Personal status and sex, Other debtors, Present residence since, Property, Age in years, Other installment plans, Housing, Number of existing credits, Job, Number of people providing maintenance for, Telephone, Foreign worker, Credit risk  
 -->
 
@@ -74,14 +72,14 @@ Le volet Propriétés ressemble à ceci :
 L'expérience doit ressembler à ceci :
 
 ![Adding Metadata Editor][2]
- 
+
 ##Création de jeux de données d'apprentissage et de test
 L'étape suivante de l'expérience consiste à générer des jeux de données séparés qui serviront pour l'apprentissage et le test de notre modèle. Pour ce faire, nous utilisons le module [Fractionner][split].
 
 1.	Recherchez le module [Fractionner][split], faites-le glisser sur le canevas, et connectez-le au dernier module [Éditeur de métadonnées][metadata-editor].
 2.	Par défaut, le rapport de division est 0,5 et le paramètre **Fractionnement aléatoire** est défini. Cela signifie qu'une moitié aléatoire des données est sortie par un port du module [Fractionner][split], et l'autre moitié par l'autre port. Vous pouvez ajuster ces paramètres, de même que le paramètre **Valeur de départ aléatoire**, pour changer la répartition entre les données d'apprentissage et de notation. Pour cet exemple, nous ne changeons rien.
 	> [AZURE.TIP]Le rapport de division détermine essentiellement la quantité de données sortie par le port de sortie gauche. Par exemple, si vous définissez le rapport sur 0,7, 70 % des données sont sorties par le port gauche et 30 % par le port droit.  
-	
+
 Nous pouvons utiliser les sorties du module [Fractionner][split] à notre gré, mais choisissons la sortie gauche pour les données d'apprentissage et la sortie droite pour les données de notation.
 
 Comme indiqué sur le site web UCI, le coût d'une erreur consistant à classer un crédit à risque élevé comme étant à faible risque est 5 fois plus élevé que celui de l'erreur consistant à classer un crédit à faible risque comme étant à risque élevé. Pour tenir compte de cela, nous générons un nouveau jeu de données qui reflète cette fonction de coût. Dans le nouveau jeu de données, chaque exemple élevé est répliqué 5 fois, alors que les exemples faibles ne sont pas répliqués.
@@ -89,7 +87,7 @@ Comme indiqué sur le site web UCI, le coût d'une erreur consistant à classer 
 Nous pouvons procéder à la réplication en utilisant le code R :
 
 1.	Recherchez et faites glisser le module [Exécuter un script R][execute-r-script] vers la zone de dessin de l'expérience et connectez le port de sortie gauche du module [Fractionner][split] au premier port d'entrée (« Dataset1 ») du module [Exécuter un script R][execute-r-script].
-2.	Dans le panneau **Propriétés**, supprimez le texte par défaut du paramètre **Script R** et entrez le script suivant : 
+2.	Dans le panneau **Propriétés**, supprimez le texte par défaut du paramètre **Script R** et entrez le script suivant :
 
 		dataset1 <- maml.mapInputPort(1)
 		data.set<-dataset1[dataset1[,21]==1,]
@@ -107,7 +105,7 @@ Nous devons répéter cette opération de réplication pour chaque sortie du mod
 > [AZURE.TIP]La copie du Module d’exécution de script R contient le même script que le module d’origine. Lorsque vous copiez-collez un module sur le canevas, la copie conserve toutes les propriétés de l'original.
 >
 À ce stade, notre expérience ressemble à cela :
- 
+
 ![Adding Split module and R scripts][3]
 
 Pour plus d’informations sur l'utilisation de scripts R dans vos expériences, consultez la page [Prolonger votre expérience avec R](machine-learning-extend-your-experiment-with-r.md).
@@ -125,6 +123,5 @@ Pour plus d’informations sur l'utilisation de scripts R dans vos expériences,
 [execute-r-script]: https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/
 [metadata-editor]: https://msdn.microsoft.com/library/azure/370b6676-c11c-486f-bf73-35349f842a66/
 [split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

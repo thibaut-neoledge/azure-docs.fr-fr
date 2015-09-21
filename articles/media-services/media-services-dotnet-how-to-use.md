@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="08/11/2015"
+	ms.date="09/07/2015"
 	ms.author="juliako"/>
 
 #Développement Media Services avec .NET 
@@ -98,6 +98,14 @@ Vous pouvez également obtenir les dernières informations relatives au Kit de d
 		using Microsoft.WindowsAzure.MediaServices.Client;
 
 À ce stade, vous êtes prêt à commencer le développement d’une application Media Services.
- 
 
-<!---HONumber=August15_HO7-->
+
+
+##Parcours d’apprentissage de Media Services
+
+Vous pouvez afficher les parcours d’apprentissage d’AMS ici :
+
+- [Workflow en flux continu AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [Workflow de streaming à la demande AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+
+<!---HONumber=Sept15_HO2-->

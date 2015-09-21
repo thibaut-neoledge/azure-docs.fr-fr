@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Codecs et formats standard de l’encodeur multimédia"
-	description="Cette rubrique fournit une vue d’ensemble des codecs et formats standard de l’encodeur multimédia Azure."
-	services="media-services"
-	documentationCenter=""
-	authors="juliako"
-	manager="dwrede"
+	pageTitle="Codecs et formats standard de l’encodeur multimédia" 
+	description="Cette rubrique fournit une vue d’ensemble des codecs et formats standard de l’encodeur multimédia Azure." 
+	services="media-services" 
+	documentationCenter="" 
+	authors="juliako" 
+	manager="dwrede" 
 	editor=""/>
 
 <tags 
-	ms.service="media-services"
-	ms.workload="media"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/11/2015"
+	ms.service="media-services" 
+	ms.workload="media" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/03/2015"
 	ms.author="juliako"/>
 
 #Codecs et formats standard de l’encodeur multimédia
@@ -29,10 +29,10 @@ Formats de fichier (extensions de fichier)|Pris en charge
 FLV (avec les codecs H.264 et AAC) (.flv) |Oui 
 MXF (.mxf) |Oui 
 GXF (.gxf) |Oui 
-MPEG2-PS, MPEG2-TS, 3GP (.ts, .ps, .3gp) |Oui 
+MPEG2-PS, MPEG2-TS, 3GP (.ts, .ps, .3gp, .3gpp, .mpg) |Oui 
 Windows Media Video (WMV)/ASF (.wmv, .asf) |Oui 
 AVI (8 bits/10 bits non compressé) (.avi)|Oui 
-MP4/ISMV (.ismv)|Oui 
+MP4 (.mp4, .m4a, .m4v)/ISMV (.isma, .ismv)|Oui 
 [Microsoft Digital Video Recording (DVR-MS)](https://msdn.microsoft.com/library/windows/desktop/dd692984) (.dvr-ms) |Oui 
 Matroska/WebM (.mkv) |Oui 
 WAVE/WAV (.wav) |Oui 
@@ -81,8 +81,16 @@ Le tableau suivant répertorie les codecs et les formats de fichiers pris en cha
 
 Format de fichier|Codec vidéo|Codec audio
 ---|---|---
-MP4 (* .mp4)<br/><br/>(y compris les conteneurs MP4 à vitesses de transmission multiples) |H.264 (profils High, Main et Baseline)|AAC-LC, HE-AAC v1, HE-AAC v2 
+MP4 <br/><br/>(y compris les conteneurs MP4 à vitesses de transmission multiples) |H.264 (profils High, Main et Baseline)|AAC-LC, HE-AAC v1, HE-AAC v2 
 MPEG2-TS |H.264 (profils High, Main et Baseline)|AAC-LC, HE-AAC v1, HE-AAC v2 
+
+
+##Parcours d’apprentissage de Media Services
+
+Vous pouvez afficher les parcours d’apprentissage d’AMS ici :
+
+- [Workflow en flux continu AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [Workflow de streaming à la demande AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
 
 ##Voir aussi
 
@@ -90,4 +98,4 @@ MPEG2-TS |H.264 (profils High, Main et Baseline)|AAC-LC, HE-AAC v1, HE-AAC v2
 
 [Encodage avec Media Encoder Standard](media-services-dotnet-encode-with-media-encoder-standard.md)
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

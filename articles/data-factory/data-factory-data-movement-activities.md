@@ -1,25 +1,25 @@
 <properties 
-	pageTitle="Activités de déplacement des données"
-	description="Découvrez les entités Data Factory que vous pouvez utiliser dans les pipelines Data Factory pour déplacer des données."
-	services="data-factory"
-	documentationCenter=""
-	authors="spelluru"
-	manager="jhubbard"
+	pageTitle="Activités de déplacement des données" 
+	description="Découvrez les entités Data Factory que vous pouvez utiliser dans les pipelines Data Factory pour déplacer des données." 
+	services="data-factory" 
+	documentationCenter="" 
+	authors="spelluru" 
+	manager="jhubbard" 
 	editor="monicar"/>
 
 <tags 
-	ms.service="data-factory"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/29/2015"
+	ms.service="data-factory" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="07/29/2015" 
 	ms.author="spelluru"/>
 
 # Activités de déplacement des données
 Data Factory dispose d’un [service globalement disponible](#global) pour prendre en charge le déplacement des données avec une [activité de copie](#copyactivity) qui s’applique à toute une variété de magasins de données répertoriés ci-dessous. Data Factory permet également de [déplacer de façon sécurisée des données entre des sites locaux et le cloud](#moveonpremtocloud) à l'aide de la passerelle de gestion des données.
 
-## Magasins de données pris en charge pour l'activité de copie
+## Magasins de données pris en charge pour l’activité de copie
 L’activité de copie les données d’un magasin de données **source** vers un magasin de données **récepteur**. Data Factory prend en charge les combinaisons suivantes de magasins de données, source et de réception. Cliquez sur une banque de données pour savoir comment copier des données à partir de/vers ce magasin.
 
 | **Source** | **Section sink** |
@@ -86,9 +86,9 @@ Les magasins de données ont différents types de systèmes natifs. L’activit�
 Vous pouvez trouver le mappage d'un système de type natif donné en .NET pour le magasin de données dans les articles sur les connecteurs de magasin de données respectifs. Vous pouvez utiliser ces mappages pour déterminer les types appropriés lors de la création de vos tables afin d’exécuter les conversions appropriées lors de l'activité de copie.
 
 ### Utilisation de différents formats de fichiers
-Pour les sources basées sur des fichiers, l’activité de copie prend en charge différents formats de fichiers, y compris les formats binaire, texte et Avro.
+Pour les sources basées sur des fichiers, l’activité de copie prend en charge différents formats de fichiers, y compris les formats binaire, texte et Avro. Vous pouvez utiliser l’activité de copie pour convertir d’un format vers un autre. Exemple : du format texte (CSV) au format Avro.
 
-### Propriétés de l'activité de copie
+### Propriétés de l’activité de copie
 Des propriétés telles que le nom, la description, les tables d’entrée et de sortie, différentes stratégies, etc. sont disponibles pour tous les types d'activités. En revanche, les propriétés disponibles dans la section **typeProperties** de l'activité varient pour chaque type d'activité.
 
 Pour l’activité de copie, la section **typeProperties** varie selon les types de sources et récepteurs. Chaque page spécifique du magasin de données répertoriée ci-dessus décrit les propriétés spécifiques au type de magasin de données.
@@ -97,4 +97,4 @@ Pour l’activité de copie, la section **typeProperties** varie selon les types
 ## Envoyer des commentaires
 Nous souhaiterions vraiment obtenir vos commentaires sur cet article. Prenez quelques minutes pour nous envoyer vos commentaires par [courrier électronique](mailto:adfdocfeedback@microsoft.com?subject=data-factory-data-movement-activities.md).
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

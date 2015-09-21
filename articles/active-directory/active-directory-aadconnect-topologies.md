@@ -1,20 +1,20 @@
 <properties
    pageTitle="Topologies pour Azure AD Connect | Microsoft Azure"
-	description="Cette rubrique détaille les topologies prises en charge et celles qui ne le sont pas pour Azure AD Connect"
-	services="active-directory"
-	documentationCenter=""
-	authors="AndKjell"
-	manager="stevenpo"
-	editor=""/>
+   description="Cette rubrique détaille les topologies prises en charge et celles qui ne le sont pas pour Azure AD Connect"
+   services="active-directory"
+   documentationCenter=""
+   authors="AndKjell"
+   manager="stevenpo"
+   editor=""/>
 
 <tags
    ms.service="active-directory"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="identity"
-	ms.date="08/24/2015"
-	ms.author="andkjell"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="identity"
+   ms.date="09/08/2015"
+   ms.author="andkjell"/>
 
 # Topologies pour Azure AD Connect
 
@@ -40,6 +40,7 @@ Légende des images dans le document :
 
 La topologie la plus courante est une seule forêt locale, avec un ou plusieurs domaines, et un seul annuaire Azure AD (également appelé locataire). L’authentification Azure AD est effectuée avec la synchronisation de mot de passe. Il s’agit de la topologie prise en charge par l’installation rapide d’Azure AD Connect.
 
+### Forêt unique, plusieurs serveurs de synchronisation connectés à un annuaire Azure AD
 ![Une seule forêt filtrée – Non pris en charge](./media/active-directory-aadconnect-topologies/SingleForestFilteredUnsupported.png)
 
 La connexion de plusieurs serveurs Azure AD Connect au même annuaire Azure Active Directory n’est pas prise en charge, même s’ils sont configurés pour synchroniser un ensemble d’objets mutuellement exclusifs (à l’exception d’un [serveur intermédiaire](#staging-server)). Ceci pourrait être tenté dans le cas où un domaine dans une forêt n’est pas accessible depuis un emplacement réseau commun ou dans une tentative de répartir la charge de la synchronisation sur plusieurs serveurs.
@@ -59,6 +60,7 @@ Dans la configuration par défaut fournie par Azure AD Connect Sync, il est supp
 
 Si votre environnement ne correspond pas à ces hypothèses, voici ce qui se produit : Si vous avez plusieurs comptes actifs ou plusieurs boîtes aux lettres, le moteur de synchronisation en choisit un et ignore les autres. Si vous avez des boîtes aux lettres liées mais pas d’autre compte, ces comptes ne sont pas exportés vers Azure AD et l’utilisateur ne sera membre d’aucun groupe. Dans DirSync, une boîte aux lettres liée est représentée comme une boîte aux lettres normale : il s’agit donc d’un comportement intentionnellement différent pour mieux prendre en charge les scénarios avec plusieurs forêts.
 
+### Plusieurs forêts, plusieurs serveurs de synchronisation connectés à un annuaire Azure AD
 ![Plusieurs forêts, synchronisation multiple – Non pris en charge](./media/active-directory-aadconnect-topologies/MultiForestMultiSyncUnsupported.png)
 
 La connexion de plusieurs serveurs Azure AD Connect Sync à un même annuaire Azure AD n’est pas prise en charge (à l’exception d’un [serveur intermédiaire](#staging-server)).
@@ -131,9 +133,10 @@ Microsoft recommande d’avoir un seul annuaire dans Azure AD pour une organisat
 
 Il existe une relation 1:1 entre un serveur Azure AD Connect Sync et un annuaire Azure AD. Pour chaque annuaire Azure AD, vous avez besoin d’une installation d’un serveur Azure AD Connect Sync. Les instances d’annuaire Azure AD sont isolées par conception et les utilisateurs qui sont dans un annuaire ne peuvent pas voir les utilisateurs d’un autre annuaire. Si c’est ce qui est souhaité, il s’agit d’une configuration prise en charge, mais dans le cas contraire, vous devez utiliser les modèles d’annuaire unique Azure AD décrits ci-dessus.
 
+### Chaque objet une seule fois dans un annuaire Azure AD
 ![Une seule forêt filtrée](./media/active-directory-aadconnect-topologies/SingleForestFiltered.png)
 
-Dans cette topologie, un seul serveur Azure AD Connect Sync est connecté à chaque annuaire Azure AD. Les serveurs Azure AD Connect Sync doivent être configurés pour le filtrage et ils ont donc chacun un ensemble d’objets mutuellement exclusifs à traiter, par exemple en délimitant l’étendue de chaque serveur à un domaine particulier. Un domaine DNS ne peut être inscrit que dans un seul annuaire Azure AD. Les UPN des utilisateurs d’Active Directory local doivent donc également utiliser des espaces de noms distincts. Par exemple, dans l’image ci-dessus, trois suffixes d’UPN distincts sont inscrits dans Active Directory local : contoso.com, fabrikam.com et wingtiptoys.com. Les utilisateurs de chaque domaine Active Directory local utilisent un espace de noms différent.
+Dans cette topologie, un seul serveur Azure AD Connect Sync est connecté à chaque annuaire Azure AD. Les serveurs Azure AD Connect Sync doivent être configurés pour le filtrage et ils ont donc chacun un ensemble d’objets mutuellement exclusifs à traiter, par exemple en délimitant l’étendue de chaque serveur à un domaine ou unité d’organisation particulier. Un domaine DNS ne peut être inscrit que dans un seul annuaire Azure AD. Les UPN des utilisateurs d’Active Directory local doivent donc également utiliser des espaces de noms distincts. Par exemple, dans l’image ci-dessus, trois suffixes d’UPN distincts sont inscrits dans Active Directory local : contoso.com, fabrikam.com et wingtiptoys.com. Les utilisateurs de chaque domaine Active Directory local utilisent un espace de noms différent.
 
 Dans cette topologie, il n’existe pas de « GALSync » entre les instances d’annuaires Azure AD. Le carnet d’adresses dans Exchange Online et dans Skype Entreprise montreront donc seulement des utilisateurs du même annuaire.
 
@@ -141,14 +144,17 @@ Avec cette topologie, un seul des annuaires Azure AD peut activer Exchange hybri
 
 La condition requise d’un ensemble d’objets mutuellement exclusifs s’applique également à l’écriture différée. Ainsi, certaines fonctionnalités d’écriture différée ne pas prises en charge avec cette topologie, car elles supposent une seule configuration locale. Ceci comprend l’écriture différée de groupe avec la configuration par défaut et l’écriture différée des appareils
 
+### Chaque objet plusieurs fois dans un annuaire Azure AD
 ![Une seule forêt, plusieurs annuaires – Non pris en charge](./media/active-directory-aadconnect-topologies/SingleForestMultiDirectoryUnsupported.png) ![Une seule forêt, plusieurs connecteurs – Non pris en charge](./media/active-directory-aadconnect-topologies/SingleForestMultiConnectorsUnsupported.png)
 
 La synchronisation d’un même utilisateur vers plusieurs annuaires Azure AD n’est pas prise en charge. La modification d’une configuration pour faire en sorte que les utilisateurs dans un annuaire Azure AD apparaisse comme contacts dans un autre annuaire Azure AD n’est pas prise en charge. La modification d’Azure AD Connect Sync pour qu’il se connecte à plusieurs annuaires Azure AD n’est pas non plus prise en charge.
 
+### GALsync à l’aide de l’écriture différée
 ![Plusieurs forêts, plusieurs annuaires, GALSync1, Non pris en charge](./media/active-directory-aadconnect-topologies/MultiForestMultiDirectoryGALSync1Unsupported.png) ![Plusieurs forêts, plusieurs annuaires, GALSync2, Non pris en charge](./media/active-directory-aadconnect-topologies/MultiForestMultiDirectoryGALSync2Unsupported.png)
 
 Les annuaires Azure AD sont isolés par conception. La modification de la configuration d’Azure AD Connect Sync pour lire des données à partir d’un autre annuaire Azure AD pour générer une liste d’adresses globale commune et unifiée entre les annuaires n’est pas prise en charge. L’exportation d’utilisateurs comme contacts vers un autre annuaire Active Directory local avec Azure AD Connect Sync n’est pas prise en charge.
 
+### GALsync avec le serveur de synchronisation local
 ![Plusieurs forêts, plusieurs annuaires, GALSync](./media/active-directory-aadconnect-topologies/MultiForestMultiDirectoryGALSync.png)
 
 L’utilisation de FIM2010/MIM2016 local pour effectuer une synchronisation des utilisateurs de la liste d’adresses globale entre deux organisations Exchange est prise en charge. Les utilisateurs d’une organisation apparaissent alors comme des utilisateurs/contacts externes dans l’autre organisation. Ces différents annuaires AD locaux peuvent ensuite être synchronisés vers leurs propres annuaires Azure AD.
@@ -156,4 +162,4 @@ L’utilisation de FIM2010/MIM2016 local pour effectuer une synchronisation des 
 ## Étapes suivantes
 Pour savoir comment installer Azure AD Connect pour ces scénarios, consultez [Installation personnalisée d’Azure AD Connect](active-directory-aadconnect-get-started-custom.md). Pour en savoir plus sur la configuration d’Azure AD Connect Sync, consultez [Azure AD Connect Sync](active-directory-aadconnectsync-whatis.md).
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO2-->

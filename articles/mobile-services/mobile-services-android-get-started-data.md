@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Prise en main des données (Android) | Microsoft Azure" 
-	description="Découvrez comment utiliser Mobile Services pour tirer profit des données de votre application Android." 
+	pageTitle="Prendre en main les données sur Android (backend JavaScript) | Microsoft Azure" 
+	description="Découvrez comment utiliser Mobile Services pour tirer profit des données de votre application Android (backend JavaScript)." 
 	services="mobile-services" 
 	documentationCenter="android" 
 	authors="RickSaling" 
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="mobile-android" 
 	ms.devlang="java" 
 	ms.topic="article" 
-	ms.date="08/18/2015" 
+	ms.date="09/04/2015" 
 	ms.author="ricksal"/>
 
-# Ajouter Mobile Services à une application Android existante
+# Ajouter Mobile Services à une application Android existante (backend JavaScript)
 
 [AZURE.INCLUDE [mobile-services-selector-get-started-data](../../includes/mobile-services-selector-get-started-data.md)]
 
@@ -35,7 +35,7 @@
 </div>
 
 
-<p>Ce didacticiel vous aide à comprendre plus en détail comment Azure Mobile Services peut stocker et récupérer des données d'une application Android. À cet effet, il vous guide tout au long des nombreuses étapes déjà exécutées automatiquement dans le didacticiel du démarrage rapide Mobile Services. Si vous n'avez aucune expérience de Mobile Services, nous vous invitons à suivre d'abord le didacticiel <a href="/fr-fr/develop/mobile/tutorials/get-started-android">Prise en main de Mobile Services</a>.</p>
+<p>Ce didacticiel vous aide à comprendre plus en détail comment Azure Mobile Services peut stocker et récupérer des données d'une application Android. À cet effet, il vous guide tout au long des nombreuses étapes déjà exécutées automatiquement dans le didacticiel du démarrage rapide Mobile Services. Si vous n'avez aucune expérience de Mobile Services, nous vous invitons à suivre d'abord le didacticiel <a href="/fr-FR/develop/mobile/tutorials/get-started-android">Prise en main de Mobile Services</a>.</p>
 
 ## Composants requis
 
@@ -156,4 +156,4 @@ Une fois que vous avez terminé les séries de données, essayez ces autres dida
 [Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=280125
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO2-->

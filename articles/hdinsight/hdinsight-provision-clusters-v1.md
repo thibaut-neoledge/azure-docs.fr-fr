@@ -1,20 +1,20 @@
 <properties 
-   pageTitle="Approvisionnement personnalisé de clusters Hadoop dans HDInsight | Microsoft Azure"
-	description="Apprenez à approvisionner et à personnaliser les clusters pour Azure HDInsight à l’aide du portail Azure, d’Azure PowerShell, d’une ligne de commande ou du Kit de développement (SDK) .NET HDInsight."
-	services="hdinsight"
-	documentationCenter=""
-	authors="mumian"
-	manager="paulettm"
-	editor="cgronlun"/>
+   pageTitle="Approvisionnement personnalisé de clusters Hadoop dans HDInsight | Microsoft Azure" 
+   description="Apprenez à approvisionner et à personnaliser les clusters pour Azure HDInsight à l’aide du portail Azure, d’Azure PowerShell, d’une ligne de commande ou du Kit de développement (SDK) .NET HDInsight." 
+   services="hdinsight" 
+   documentationCenter="" 
+   authors="mumian" 
+   manager="paulettm" 
+   editor="cgronlun"/>
 
 <tags
    ms.service="hdinsight"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="big-data"
-	ms.date="08/07/2015"
-	ms.author="jgao"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="big-data" 
+   ms.date="08/07/2015"
+   ms.author="jgao"/>
 
 #Approvisionnement de clusters dans HDInsight
 
@@ -224,7 +224,7 @@ Pour plus d'informations sur les fonctions, les avantages et les capacités d'Az
 
 > [AZURE.NOTE]Vous devez créer le réseau Azure Virtual Network avant d’approvisionner un cluster HDInsight. Pour plus d'informations, consultez [Tâches de configuration de réseau virtuel](../services/virtual-machines/).
 >
->[AZURE.NOTE]Azure HDInsight prend uniquement en charge les réseaux virtuels basés sur l'emplacement et ne fonctionne pas pour le moment avec les réseaux virtuels basés sur des groupes d'affinités. Utilisez l’applet de commande Get-AzureVNetConfig d’Azure PowerShell pour vérifier si un réseau virtuel Azure est basé sur l'emplacement. Si votre réseau virtuel n'est pas basé sur l'emplacement, vous disposez des options suivantes :
+> Azure HDInsight prend uniquement en charge les réseaux virtuels basés sur l'emplacement et ne fonctionne pas pour le moment avec les réseaux virtuels basés sur des groupes d'affinités. Utilisez l’applet de commande Get-AzureVNetConfig d’Azure PowerShell pour vérifier si un réseau virtuel Azure est basé sur l'emplacement. Si votre réseau virtuel n'est pas basé sur l'emplacement, vous disposez des options suivantes :
 >
 > - Exportez la configuration du réseau virtuel existant, puis créez un réseau virtuel. Les nouveaux réseaux virtuels sont basés par défaut sur l’emplacement.
 > - Migrez vers un réseau virtuel basé sur l’emplacement. Consultez la rubrique [Migration des services existants vers une portée régionale](http://azure.microsoft.com/blog/2014/11/26/migrating-existing-services-to-regional-scope/).
@@ -268,7 +268,7 @@ Vous pouvez vous référer aux [options de configuration de base] et aux [option
 	- Activation du Bureau à distance pour le cluster
 	- Sélection du metastore Hive/Oozie
 
-6. Si vous choisissez d'entrer le metastore Hive/Oozie dans l'écran précédent, sur la page **Configuration du metastore Hive/Oozie**, indiquez les valeurs suivantes :
+6. Si vous choisissez d’entrer le metastore Hive/Oozie dans l’écran précédent, dans la page **Configuration du metastore Hive/Oozie**, indiquez les valeurs suivantes :
 
 	- Base de données de metastore Hive
 	- Utilisateur de la base de données
@@ -786,4 +786,4 @@ Cet article vous a présenté différentes méthodes pour configurer un cluster 
 [hdinsight-sdk-documentation]: http://msdn.microsoft.com/library/dn479185.aspx
 [azure-management-portal]: https://manage.windowsazure.com
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO2-->

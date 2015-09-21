@@ -1,18 +1,18 @@
 <properties 
-	pageTitle="Modèle de données Application Insights"
-	description="Décrit les propriétés exportées à partir de l’exportation continue dans JSON et utilisées comme filtres."
-	services="application-insights"
-	documentationCenter=""
-	authors="alancameronwills"
+	pageTitle="Modèle de données Application Insights" 
+	description="Décrit les propriétés exportées à partir de l’exportation continue dans JSON et utilisées comme filtres." 
+	services="application-insights" 
+    documentationCenter=""
+	authors="alancameronwills" 
 	manager="douge"/>
 
 <tags 
-	ms.service="application-insights"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="ibiza"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/12/2015"
+	ms.service="application-insights" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="ibiza" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/12/2015" 
 	ms.author="awills"/>
 
 # Modèle d’exportation de données Application Insights
@@ -451,7 +451,7 @@ Le « &lt;telemetryType&gt; » de la première section est un espace réservé
 * 
     Paramètres régionaux de l’application sur le client. Si cette valeur n’est pas fournie explicitement sur l’élément de télémétrie, elle découle du traitement du champ de l’agent utilisateur. 
 
-    *Exemples*<br/> ru<br/>fr-fr<br/>fr-FR<br/>inconnu
+    *Exemples*<br/> ru<br/>fr-FR<br/>fr-FR<br/>inconnu
 
 **machineName**
 
@@ -679,6 +679,18 @@ Le « &lt;telemetryType&gt; » de la première section est un espace réservé
     string context.user.accountId      Max: 100
 * 
     Identificateur unique définissant un compte au sein de l’application. Cet identificateur est fourni par le développeur. 
+
+### Mesures personnalisées
+
+    context.custom.metrics.<metric-name>
+
+      double value
+      double count
+      double min
+      double max
+      double stdDev
+      double sampledValue
+      double sum
 
 
 ## remotedependency
@@ -1069,4 +1081,4 @@ Le « &lt;telemetryType&gt; » de la première section est un espace réservé
 * [Exportation continue](app-insights-export-telemetry.md)
 * [Exemples de code](app-insights-export-telemetry.md#code-samples)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO2-->

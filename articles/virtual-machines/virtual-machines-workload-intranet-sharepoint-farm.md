@@ -33,6 +33,8 @@ L’hébergement d’une batterie de serveurs SharePoint intranet dans les servi
 
 L’étape suivante consiste à configurer une batterie de serveurs SharePoint intranet de développement/test hébergée dans Azure.
 
+> [AZURE.NOTE]Microsoft a publié SharePoint Server 2016 IT Preview. Pour faciliter l’installation et le test de cette version d’évaluation, vous pouvez utiliser une image de la galerie de machines virtuelles Azure avec SharePoint Server 2016 IT Preview et ses composants requis préinstallés. Pour plus d’informations, consultez le billet de blog [Test the SharePoint Server 2016 IT Preview in Azure](http://azure.microsoft.com/blog/test-sharepoint-server-2016-it-preview-4/).
+
 ## Créer une batterie de serveurs SharePoint intranet de développement/test hébergée dans Azure
 
 Vous disposez de deux manières de créer un environnement de développement/test pour une batterie de serveurs SharePoint hébergée dans Azure :
@@ -124,4 +126,4 @@ Une fois la configuration terminée, vous pouvez développer cette batterie de s
 
 [Charge de travail des services d’infrastructure Azure : applications métier à haute disponibilité](virtual-machines-workload-high-availability-lob-application.md)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO2-->

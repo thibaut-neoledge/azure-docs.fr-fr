@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/29/2015"
+   ms.date="09/04/2015"
    ms.author="telmos" />
 
 # Déplacement d’une machine virtuelle ou d’une instance de rôle vers un autre sous-réseau
@@ -51,4 +51,4 @@ Pour déplacer une instance de rôle, modifiez le fichier CSCFG. Dans l’exempl
 	    </AddressAssignments>
 	</NetworkConfiguration> 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

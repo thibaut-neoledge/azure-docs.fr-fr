@@ -1,20 +1,20 @@
 <properties
    pageTitle="Transfert d’un abonnement Azure | Microsoft Azure"
-	description="Transfert d’un abonnement Azure à un autre utilisateur et Forum Aux Questions (FAQ) concernant la procédure"
-	services="billing"
-	documentationCenter=""
-	authors="curtand"
-	manager="msmStevenPo"
-	editor=""/>
+   description="Transfert d’un abonnement Azure à un autre utilisateur et Forum Aux Questions (FAQ) concernant la procédure"
+   services="billing"
+   documentationCenter=""
+   authors="curtand"
+   manager="msmStevenPo"
+   editor=""/>
 
 <tags
    ms.service="billing"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="billing"
-	ms.date="08/19/2015"
-	ms.author="curtand;ruchic"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="billing"
+   ms.date="08/19/2015"
+   ms.author="curtand;ruchic"/>
 
 # Transfert d’un abonnement Azure
 
@@ -94,4 +94,15 @@ Si votre compte est situé aux États-Unis, vous pouvez effectuer aisément ces 
 
     Oui, vous pouvez choisir la facturation sur une carte de crédit comme mode de paiement de votre abonnement. Il vous suffit de faire le transfert vers un autre compte dont vous êtes titulaire et de saisir les informations de carte de crédit à la réception de l’abonnement. Les limites sont les suivantes : l’historique de facturation de l’abonnement est désormais réparti entre deux comptes. L’avantage, c’est que vous pouvez effectuer cette procédure sans avoir à [contacter le support technique](http://go.microsoft.com/fwlink/?LinkID=619338).
 
-<!---HONumber=September15_HO1-->
+## Étapes suivantes après avoir accepté la propriété d’un abonnement
+
+1. Vous êtes désormais l’administrateur de compte. Examinez et mettez à jour l’administrateur du service et les coadministrateurs. Gérez les administrateurs dans le [portail de gestion Azure](https://manage.windowsazure.com) en accédant aux paramètres. [En savoir plus](http://go.microsoft.com/fwlink/?LinkID=533293). 
+2. Vous pouvez également utiliser le contrôle d’accès en fonction du rôle (RBAC) pour vos abonnement et services. Visitez le [portail Azure en version préliminaire](https://portal.azure.com). [En savoir plus sur le contrôle RBAC](http://go.microsoft.com/fwlink/?LinkID=544802)
+3. Mettez à jour les informations d’identification associées aux services de cet abonnement. Il s’agit des actions suivantes : 
+    -   Certificats de gestion accordant à l’utilisateur des droits d’administrateur pour les ressources d’abonnement. Pour plus d’informations, consultez [Créer et télécharger un certificat de gestion pour Windows Azure](https://msdn.microsoft.com/library/azure/gg551722.aspx).
+    -	Touches d’accès rapide pour les services tels que Storage. Pour plus d’informations, consultez [Affichage, copie et régénération de clés d’accès de stockage](storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys).
+    -	Informations d’accès à distance pour les services tels que Azure Virtual Machines
+4. Mettez à jour les alertes de facturation pour cet abonnement, sur le [Centre des comptes Azure](https://account.windowsazure.com/Subscriptions) [En savoir plus](http://go.microsoft.com/fwlink/?LinkID=533292)
+5. 	Si vous collaborez avec un partenaire, envisagez la mise à jour de l’ID de partenaire pour cet abonnement. Vous pouvez effectuer cette opération sur le [Centre des comptes Azure](https://account.windowsazure.com/Subscriptions).
+
+<!---HONumber=Sept15_HO2-->

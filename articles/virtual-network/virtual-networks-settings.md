@@ -12,11 +12,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="06/08/2015"
+   ms.date="09/02/2015"
    ms.author="telmos" />
 
 # Gestion des propriétés du réseau virtuel
-Vous pouvez afficher et modifier les paramètres du réseau virtuel à l'aide du portail de gestion.
+Vous pouvez afficher et modifier les paramètres du réseau virtuel à l’aide du portail Azure.
 
 ## Afficher les paramètres du réseau virtuel
 
@@ -100,4 +100,4 @@ Après avoir déployé votre réseau virtuel, seuls certains paramètres peuvent
 
 [Suppression d'un réseau virtuel](../virtual-networks-delete-vnet)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

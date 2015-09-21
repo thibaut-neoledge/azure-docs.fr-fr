@@ -1,4 +1,4 @@
-<properties pageTitle="Déploiement de ressources Azure à l’aide d’un modèle" description="Apprenez à utiliser quelques-uns des clients disponibles dans la bibliothèque Azure Resource Management pour déployer une machine virtuelle, un réseau virtuel et un compte de stockage" services="virtual-machines,virtual-networks,storage" documentationCenter="" authors="davidmu1" manager="timlt" editor="tysonn" tags="azure-resource-manager"/>
+<properties pageTitle="Déploiement de ressources Azure à l’aide d’un modèle" description="Apprenez à utiliser quelques-uns des clients disponibles dans la bibliothèque Azure Resource Management pour déployer une machine virtuelle, un réseau virtuel et un compte de stockage" services="virtual-machines,virtual-networks,storage" documentationCenter="" authors="davidmu1" manager="timlt" editor="tysonn" tags="azure-resource-manager/>
 
 <tags
 	ms.service="azure-resource-manager"
@@ -19,7 +19,7 @@ Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
 
 - [Visual Studio](http://msdn.microsoft.com/library/dd831853.aspx)
 - [Un compte Azure Storage](../storage-create-storage-account.md)
-- [Windows Management Framework 3.0](http://www.microsoft.com/fr-fr/download/details.aspx?id=34595) ou [Windows Management Framework 4.0](http://www.microsoft.com/fr-fr/download/details.aspx?id=40855)
+- [Windows Management Framework 3.0](http://www.microsoft.com/fr-FR/download/details.aspx?id=34595) ou [Windows Management Framework 4.0](http://www.microsoft.com/fr-FR/download/details.aspx?id=40855)
 - [Azure PowerShell](../powershell-install-configure.md)
 
 Ces étapes prennent environ 30 minutes.
@@ -294,7 +294,7 @@ Pour spécifier des valeurs pour les paramètres de ressource qui ont été déf
           }
         }
 
-    >[AZURE.NOTE]Les noms d’images de disque dur virtuel changent régulièrement dans la galerie d’images. Vous devez donc obtenir le nom d’une image actuelle pour déployer la machine virtuelle. Pour ce faire, consultez la page [Gérer les images Windows à l’aide de Windows PowerShell](https://msdn.microsoft.com/library/azure/dn790330.aspx), puis remplacez {source-image-name} par le nom du fichier de disque dur virtuel que vous souhaitez utiliser. Par exemple, « a699494373c04fc0bc8f2bb1389d6106\_\_Windows-Server-2012-R2-201412.01-en.us-127GB.vhd ». Remplacez {subscription-id} par l’identificateur de votre abonnement.
+    >[AZURE.NOTE]Les noms d’images de disque dur virtuel changent régulièrement dans la galerie d’images. Vous devez donc obtenir le nom d’une image actuelle pour déployer la machine virtuelle. Pour ce faire, consultez la page [À propos des images pour les machines virtuelles](https://azure.microsoft.com/fr-FR/documentation/articles/virtual-machines-images/), puis remplacez {source-image-name} par le nom du fichier de disque dur virtuel que vous souhaitez utiliser. Par exemple, « a699494373c04fc0bc8f2bb1389d6106\_\_Windows-Server-2012-R2-201412.01-en.us-127GB.vhd ». Remplacez {subscription-id} par l’identificateur de votre abonnement.
 
 
 4.	Enregistrez le fichier de paramètres que vous avez créé.
@@ -443,4 +443,4 @@ Les ressources sont toujours déployées à partir d’un modèle dans un groupe
 
 	![Création d'une application Active Directory](./media/arm-template-deployment/crpportal.png)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO2-->

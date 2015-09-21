@@ -62,7 +62,7 @@ Les données téléchargées doivent correspondre au schéma que vous avez défi
 
 Il existe plusieurs manières de charger des documents, mais toutes ne requièrent pas actuellement une API. Pour la plupart des prototypes, cette étape est celle qui peut prendre le plus de temps en raison d’une exigence de codage. Les différentes options sont décrites plus loin dans cet article.
 
-> [AZURE.NOTE]N’oubliez pas qu’en utilisant le service partagé, vous êtes limité à 10 000 documents par index. Veillez à réduire votre ensemble de données afin de respecter cette limite. Pour plus d'informations, consultez [Limites et contraintes](https://msdn.microsoft.com/library/dn798934.aspx).
+> [AZURE.NOTE]N’oubliez pas qu’en utilisant le service partagé, vous êtes limité à 10 000 documents par index. Veillez à réduire votre ensemble de données afin de respecter cette limite. Pour plus d'informations, consultez [Limites et contraintes](search-limits-quotas-capacity.md).
 
 #### Comment charger des données dans un index
 
@@ -190,4 +190,4 @@ N’oubliez pas que seul le niveau de tarification standard peut être augmenté
 <!--Image references-->
 [1]: ./media/search-workflow/AzSearch-Workflow.png
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO2-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/16/2015" 
+	ms.date="09/10/2015" 
 	ms.author="sdanie"/>
 
 # Importation de la définition d'une API avec des opérations dans Gestion des API Azure
@@ -95,4 +95,4 @@ Une fois l'API créée et les opérations importées, vous pouvez vérifier et c
 [Création d'API]: api-management-howto-create-apis.md
 [Configuration des paramètres de l’API]: api-management-howto-create-apis.md#configure-api-settings
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

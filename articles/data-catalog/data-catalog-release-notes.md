@@ -1,36 +1,30 @@
 <properties
    pageTitle="Notes de publication sur Azure Data Catalog"
-	description="Notes de publication pour la version préliminaire publique du 28 août 2015 d'Azure Data Catalog."
-	services="data-catalog"
-	documentationCenter=""
-	authors="steelanddata"
-	manager="NA"
-	editor=""
-	tags=""/>
+   description="Notes de publication pour la version préliminaire publique du 28 août 2015 d'Azure Data Catalog."
+   services="data-catalog"
+   documentationCenter=""
+   authors="steelanddata"
+   manager="NA"
+   editor=""
+   tags=""/>
 <tags
    ms.service="data-catalog"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="data-catalog"
-	ms.date="08/28/2015"
-	ms.author="maroche"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="data-catalog"
+   ms.date="09/04/2015"
+   ms.author="maroche"/>
 
 # Notes de publication sur Azure Data Catalog
 
-## Notes pour la version du 28 août 2015 d'Azure Data Catalog
+## Notes pour la version du 4 septembre 2015 d’Azure Data Catalog
 
-### Profilage des données manquant pour certaines ressources de données enregistrées
+### Profilage des données éventuellement manquant pour certaines ressources de données enregistrées
 
-Lors de l'enregistrement de sources de données avec l'option de profilage des données sélectionnée dans l'outil d'enregistrement de la source des données, les informations de profil des données peuvent ne pas être incluses dans les scénarios suivants :
+Au moment de l’enregistrement de sources de données avec l’option de profilage des données sélectionnée dans l’outil d’enregistrement de la source des données, les informations de profil des données peuvent ne pas être incluses pendant l’enregistrement de tables et de vues Oracle dont les noms de colonne contiennent des caractères multioctets.
 
-* Tables de la base de données SQL Azure
-* Tables et vues SQL Server, où il existe plusieurs objets portant le même nom dans des schémas différents
-* Tables et vues SQL Server avec des noms de colonnes supérieurs à 118 caractères
-* Tables et vues Oracle avec des noms de colonnes supérieurs à 20 caractères
-* Tables et vues Oracle avec des espaces ou des caractères à plusieurs octets dans les noms de colonnes
-
-Ces restrictions sont dues à un problème connu dans la version du 28 août et seront résolues dans une mise à jour future d'Azure Data Catalog.
+Ces restrictions sont dues à un problème connu dans la version du 4 septembre et seront résolues dans une mise à jour future d’Azure Data Catalog.
 
 ## Notes pour la version du 13 juillet 2015 d’Azure Data Catalog
 
@@ -49,9 +43,9 @@ La prise en charge des sources de données SQL Server Reporting Services (SSR
 
 ### Ouverture des ressources de données dans Excel
 
-Lors de l'ouverture des ressources de données dans Microsoft Excel à partir du portail Azure Data Catalog, les utilisateurs peuvent voir apparaître la boîte de dialogue **Avis de sécurité Microsoft Excel**. Il s'agit là d'un comportement attendu et les utilisateurs peuvent sélectionner **Activer** pour continuer.
+Au moment de l’ouverture des ressources de données dans Microsoft Excel à partir du portail Azure Data Catalog, les utilisateurs peuvent voir apparaître la boîte de dialogue **Avis de sécurité Microsoft Excel**. Il s’agit là d’un comportement attendu standard et les utilisateurs peuvent sélectionner **Activer** pour continuer.
 
-Pour plus d'informations, consultez [Activer ou désactiver les alertes de sécurité relatives aux liens et aux fichiers de sites web suspects](https://support.office.com/fr-FR/article/Enable-or-disable-security-alerts-about-links-and-files-from-suspicious-websites-A1AC6AE9-5C4A-4EB3-B3F8-143336039BBE).
+Pour plus d’informations, consultez [Activer ou désactiver les alertes de sécurité relatives aux liens et aux fichiers de sites web suspects](https://support.office.com/fr-FR/article/Enable-or-disable-security-alerts-about-links-and-files-from-suspicious-websites-A1AC6AE9-5C4A-4EB3-B3F8-143336039BBE).
 
 ### Colonnes BLOB et UDT manquantes dans les versions préliminaires
 
@@ -63,13 +57,13 @@ Les utilisateurs parviennent parfois à se connecter au portail d’Azure Data�
 
 Deux causes possibles à ce problème de comportement :
 
-**Cause n°1 : configuration d'Active Directory Federation Services** L'outil d'inscription de la source de données utilise l'authentification par formulaire pour valider les connexions utilisateur avec Active Directory. Pour une ouverture de session réussie, l'authentification par formulaire doit être activée dans la stratégie d'authentification globale par un administrateur Active Directory.
+**Cause n°1 : configuration d’Active Directory Federation Services** L’outil d’inscription de la source de données utilise l’authentification par formulaire pour valider les connexions utilisateur avec Active Directory. Pour une ouverture de session réussie, l'authentification par formulaire doit être activée dans la stratégie d'authentification globale par un administrateur Active Directory.
 
 Cette erreur peut également survenir lorsque l'utilisateur est connecté au réseau d'entreprise ou lorsque l'utilisateur se connecte en dehors du réseau d'entreprise. La stratégie d'authentification globale permet d’activer séparément des méthodes d'authentification pour les connexions intranet et extranet. Des erreurs de connexion peuvent survenir si l'authentification par formulaire n'est pas activée pour le réseau à partir duquel l'utilisateur se connecte.
 
-Pour plus d'informations, consultez [Configuring intranet forms-based authentication for devices that do not support WIA](https://technet.microsoft.com/library/dn727110.aspx) (en anglais).
+Pour plus d’informations, consultez [Configuration de l’authentification intranet par formulaire pour les appareils qui ne prennent pas en charge WIA](https://technet.microsoft.com/library/dn727110.aspx).
 
-**Cause n°2 : configuration du proxy réseau** Si le réseau d'entreprise utilise un serveur proxy, l'outil d'inscription ne peut peut-être pas se connecter à Azure Active Directory via le proxy. Les utilisateurs peuvent s’assurer de l'outil d'inscription en modifiant le fichier de configuration de l'outil, et en ajoutant au fichier la section suivante :
+**Cause n°2 : configuration du proxy réseau** Si le réseau d’entreprise utilise un serveur proxy, l’outil d’inscription ne peut peut-être pas se connecter à Azure Active Directory via le proxy. Les utilisateurs peuvent s’assurer de l'outil d'inscription en modifiant le fichier de configuration de l'outil, et en ajoutant au fichier la section suivante :
 
 
 	  <system.net>
@@ -83,4 +77,4 @@ Pour plus d'informations, consultez [Configuring intranet forms-based authentica
 
 Pour localiser le fichier RegistrationTool.exe.config, lancez l'outil d'inscription, puis ouvrez l'utilitaire Gestionnaire des tâches de Windows. Sous l'onglet Détails du Gestionnaire des tâches, cliquez avec le bouton droit sur RegistrationTool.exe et choisissez Ouvrir l'emplacement du fichier dans le menu contextuel.
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

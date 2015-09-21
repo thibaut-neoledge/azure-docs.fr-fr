@@ -13,7 +13,7 @@ documentationCenter=""/>
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/28/2015" 
+	ms.date="09/08/2015" 
 	ms.author="stepsic"/>
 
 # Surveillance des mesures de service
@@ -73,4 +73,4 @@ Comme avec les mesures, vous pouvez utiliser l’[API REST](https://msdn.micros
 * [Surveillance de la disponibilité et de la réactivité des pages Web](../app-insights-monitor-web-app-availability.md) avec Application Insights pour déterminer si vos pages sont inactives.
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

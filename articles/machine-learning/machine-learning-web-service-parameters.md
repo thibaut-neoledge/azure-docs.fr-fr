@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/29/2015" 
+	ms.date="09/04/2015" 
 	ms.author="raymondl;garye"/>
 
 #Utilisation des paramètres de service Web Azure Machine Learning
@@ -22,7 +22,7 @@ Un service Web Azure Machine Learning est créé en publiant une expérience qu
 
 Un exemple courant consiste à configurer le module [Reader][reader], afin que l’utilisateur du service Web publié puisse spécifier une autre source de données lors de l’accès au service Web. Il est également possible de configurer le module [Writer][writer] de façon à spécifier une destination différente. Vous pouvez aussi, par exemple, modifier le nombre de bits pour le module [Feature Hashing][feature-hashing] ou le nombre de fonctionnalités souhaitées pour le module de [Sélection de fonctionnalités basée sur le filtre][filter-based-feature-selection].
 
-Vous pouvez définir des paramètres de service web et les associer à un ou plusieurs paramètres de module, en spécifiant s’ils sont obligatoires ou facultatifs. L’utilisateur du service web peut ensuite fournir des valeurs pour ces paramètres lors de l’accès au service ; les actions de module seront modifiées au moment de l’exécution.
+Vous pouvez définir des paramètres de service web et les associer à un ou plusieurs paramètres de module dans votre expérience, en spécifiant s’ils sont obligatoires ou facultatifs. L’utilisateur du service web peut ensuite fournir des valeurs pour ces paramètres quand il appelle le service web.
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
@@ -91,4 +91,4 @@ Pour plus d'informations sur l'accès à un service Web Machine Learning, cons
 [writer]: https://msdn.microsoft.com/library/azure/7a391181-b6a7-4ad4-b82d-e419c0d6522c/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

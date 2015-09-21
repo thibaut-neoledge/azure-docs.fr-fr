@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Étape 4 : formation et évaluation des modèles d’analyse prédictive | Microsoft Azure" 
-	description="Étape 4 de la procédure pas à pas du développement d’une solution prédictive : formation, notation et évaluation des multiples modèles dans Azure Machine Learning Studio." 
-	services="machine-learning" 
-	documentationCenter="" 
-	authors="garyericson" 
-	manager="paulettm" 
+<properties
+	pageTitle="Étape 4 : formation et évaluation des modèles d’analyse prédictive | Microsoft Azure"
+	description="Étape 4 de la procédure pas à pas du développement d’une solution prédictive : formation, notation et évaluation des multiples modèles dans Azure Machine Learning Studio."
+	services="machine-learning"
+	documentationCenter=""
+	authors="garyericson"
+	manager="paulettm"
 	editor="cgronlun"/>
 
-<tags 
-	ms.service="machine-learning" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/10/2015" 
+<tags
+	ms.service="machine-learning"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/08/2015"
 	ms.author="garye"/>
 
 
@@ -26,7 +26,7 @@ Voici la quatrième étape de la procédure pas à pas [Développement d’une s
 2.	[Télécharger des données existantes](machine-learning-walkthrough-2-upload-data.md)
 3.	[Créer une expérience](machine-learning-walkthrough-3-create-new-experiment.md)
 4.	**Former et évaluer les modèles**
-5.	[Publier le service web](machine-learning-walkthrough-5-publish-web-service.md)
+5.	[Déployer le service web](machine-learning-walkthrough-5-publish-web-service.md)
 6.	[Accéder au service web](machine-learning-walkthrough-6-access-web-service.md)
 
 ----------
@@ -51,7 +51,7 @@ Configurons d'abord le modèle Arbre de décision optimisé :
 Cette partie de l'expérience ressemble alors à ce qui suit :
 
 ![Training a model][1]
- 
+
 Nous allons ensuite configurer le modèle SVM.
 
 Les arbres de décision optimisés fonctionnent bien avec tout type de caractéristique. Toutefois, le module SVM générant un classifieur linéaire, le modèle qu'il génère obtient la meilleure erreur de test quand toutes les caractéristiques numériques sont à la même échelle. Pour convertir toutes les caractéristiques numériques à la même échelle, nous utilisons le module [Normaliser les données][normalize-data] avec une transformation Tanh qui convertit les caractéristiques dans la plage [0,1]. Notez que les caractéristiques de chaîne sont converties en caractéristiques catégoriques par le module SVM, puis en caractéristiques 0/1 binaires. Il n'est donc pas nécessaire de les transformer manuellement. De même, nous ne voulons pas transformer la colonne Risque du crédit (colonne 21). Elle est numérique et contient la valeur que nous apprenons à prédire au modèle ; nous devons donc la laisser seule.
@@ -79,7 +79,7 @@ Nous allons utiliser les données d'évaluation séparées par le module **Fract
 
 1.	Recherchez le module [Noter le modèle][score-model] et faites-le glisser sur le canevas.
 2.	Connectez le port d'entrée de gauche de ce module au modèle Arbre de décision optimisé (c.à.d. connectez-le au port de sortie du module [Former le modèle][train-model] connecté au module [Arbre de décision optimisé à deux classes][two-class-boosted-decision-tree]).
-3.	Connectez le port d'entrée de droite du module [Noter le modèle][score-model] à la sortie du module [Exécuter le script R][execute-r-script] de droite. 
+3.	Connectez le port d'entrée de droite du module [Noter le modèle][score-model] à la sortie du module [Exécuter le script R][execute-r-script] de droite.
 4.	Copiez et collez le module [Noter le modèle][score-model] pour créer une deuxième copie ou faites glisser un nouveau module sur le canevas.
 5.	Connectez le port d'entrée de gauche de ce module au modèle SVM (c.à.d. connectez-le au port de sortie du module [Former le modèle][train-model] connecté au module [Arbre de décision optimisé à deux classes][two-class-support-vector-machine]).
 6.	Pour le modèle SVM, nous devons effectuer la même transformation pour tester les données comme nous l’avons fait pour les données de formation. Donc, copiez et collez le module [Normaliser les données][normalize-data] pour créer une autre copie et connectez-la à la sortie du module [Exécuter le script R][execute-r-script] de droite.
@@ -94,7 +94,7 @@ Pour évaluer les résultats notés, nous allons utiliser le module [Évaluer le
 L'expérience doit ressembler à ceci :
 
 ![Evaluating both models][3]
- 
+
 Cliquez sur le bouton **EXÉCUTER** sous le canevas pour exécuter l'expérience. Cette opération peut prendre quelques minutes. Un indicateur rotatif sur chaque module indique qu'il est en cours d'exécution ; une coche verte s'affiche ensuite pour indiquer que l'exécution est terminée.
 
 Lorsque tous les modules comportent une coche, l'exécution de l'expérience est terminée. Pour examiner les résultats, cliquez sur le port de sortie du module [Évaluer le modèle][evaluate-model] et sélectionnez **Afficher les résultats**.
@@ -104,7 +104,7 @@ Le module [Évaluer le modèle][evaluate-model] produit une paire de courbes et 
 Cliquez sur **Jeu de données noté** ou **Jeu de données noté à comparer** pour afficher en surbrillance la courbe associée et afficher les mesures associées en dessous. Dans la légende des courbes, « Jeu de données noté » correspond au port d'entrée de gauche du module [Évaluer le modèle][evaluate-model], dans notre cas, le modèle Arbre de décision optimisé. « Jeu de données noté à comparer » correspond au port d’entrée de droite, le modèle SVM dans notre cas. Lorsque vous cliquez sur une de ces étiquettes, vous affichez en surbrillance la courbe de ce modèle et les mesures correspondantes en dessous.
 
 ![ROC curves for models][4]
- 
+
 En examinant ces valeurs, vous pouvez décider quel modèle est le plus susceptible de fournir les résultats que vous recherchez. Vous pouvez revenir en arrière et recommencer votre expérience en modifiant les valeurs des différents modèles.
 
 > [AZURE.TIP]À chaque exécution de l’expérience, un enregistrement de cet essai est conservé dans l’historique d’exécution. Vous pouvez afficher tous les essais de votre expérience (et y revenir) en cliquant sur **AFFICHER L'HISTORIQUE D'EXÉCUTION**, sous le canevas. Vous pouvez également cliquer sur **Exécution précédente** dans le volet **Propriétés** pour revenir à l'exécution précédant immédiatement celle que vous avez ouverte. Pour en savoir plus, consultez la page [Gérer les itérations des expériences dans Azure Machine Learning Studio](machine-learning-manage-experiment-iterations.md).
@@ -116,7 +116,7 @@ Comme aide supplémentaire pour suivre les modifications que vous apportez aux p
 
 ----------
 
-**Suite : [Publication du service web](machine-learning-walkthrough-5-publish-web-service.md)**
+**Étape suivante : [déployer le service web](machine-learning-walkthrough-5-publish-web-service.md)**
 
 [1]: ./media/machine-learning-walkthrough-4-train-and-evaluate-models/train1.png
 [2]: ./media/machine-learning-walkthrough-4-train-and-evaluate-models/train2.png
@@ -132,6 +132,5 @@ Comme aide supplémentaire pour suivre les modifications que vous apportez aux p
 [train-model]: https://msdn.microsoft.com/library/azure/5cc7053e-aa30-450d-96c0-dae4be720977/
 [two-class-boosted-decision-tree]: https://msdn.microsoft.com/library/azure/e3c522f8-53d9-4829-8ea4-5c6a6b75330c/
 [two-class-support-vector-machine]: https://msdn.microsoft.com/library/azure/12d8479b-74b4-4e67-b8de-d32867380e20/
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

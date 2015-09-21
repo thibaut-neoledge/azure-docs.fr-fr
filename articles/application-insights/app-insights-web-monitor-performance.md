@@ -1,18 +1,18 @@
 <properties 
-	pageTitle="Surveillez l'intégrité et l'utilisation de votre application avec Application Insights"
-	description="Prise en main d'Application Insights. Analyze usage, availability and performance of your on-premises or Microsoft Azure applications."
-	services="application-insights"
-	documentationCenter=""
-	authors="alancameronwills"
-	manager="keboyd"/>
+	pageTitle="Surveillez l'intégrité et l'utilisation de votre application avec Application Insights" 
+	description="Prise en main d'Application Insights. Analyze usage, availability and performance of your on-premises or Microsoft Azure applications." 
+	services="application-insights" 
+    documentationCenter=""
+	authors="alancameronwills" 
+	manager="douge"/>
 
 <tags 
-	ms.service="application-insights"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="ibiza"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="04/02/2015"
+	ms.service="application-insights" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="ibiza" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/08/2015" 
 	ms.author="awills"/>
  
 # Analyse des performances dans les applications web
@@ -22,23 +22,26 @@
 
 Assurez-vous que votre application fonctionne correctement et identifiez rapidement toutes les défaillances éventuelles. [Application Insights][start] vous signale tous les problèmes et exceptions de performances, et vous aide à diagnostiquer les causes principales.
 
-Application Insights est capable de surveiller des applications web ASP.NET et des services WCF, hébergés en local ou sur des machines virtuelles, ainsi que des sites web Microsoft Azure.
+Application Insights peut surveiller les services WCF, ainsi que les applications et services web Java et ASP.NET. Ils peuvent être hébergés en local, sur des machines virtuelles, ou en tant que sites web Microsoft Azure.
+
+Côté client, Application Insights peut récupérer les données télémétriques des pages web et d’un large éventail d’appareils, notamment des applications iOS, Android et Windows Store.
 
 
 ## <a name="setup"></a>Configurer la surveillance des performances
 
 Si vous n'avez pas encore ajouté Application Insights à votre projet (il n'inclut pas ApplicationInsights.config), sélectionnez l'une des options suivantes pour commencer :
 
-* [Ajout d’Application Insights à votre projet dans Visual Studio][greenbrown] : recommandé. Vous pouvez effectuer une analyse passive des performances, insérer des journalisations de diagnostic et procéder au suivi de l'utilisation.
-* [Analyse des performances d'un site Web en direct dès maintenant][redfield] - De cette façon, vous n'avez plus besoin de mettre à jour le projet de l'application ni de redéployer le site Web.
-* Vous pouvez déjà consulter les mesures des [sites web Microsoft Azure](../insights-how-to-customize-monitoring.md) via le filtre Monitoring du site web. 
-
-Via l’une ou l’autre de ces méthodes, vous verrez rapidement apparaître les données sur le volet Vue d’ensemble dans Application Insights.
+* [Applications web ASP.NET](app-insights-asp-net.md)
+* [Applications web J2EE](app-insights-java-get-started.md)
 
 
-## <a name="view"></a>Exploration des mesures
+## <a name="view"></a>Exploration des mesures de performances
 
-Cliquez sur n’importe quelle vignette pour afficher plus de détails et davantage de résultats et ce, pendant plus longtemps. Par exemple, cliquez sur la vignette Demandes et sélectionnez une plage de temps :
+Sur le [portail Azure](https://portal.azure.com), accédez à la ressource Application Insights que vous avez configurée pour votre application. Le panneau de vue d’ensemble présente les données de performances de base :
+
+
+
+Cliquez sur n’importe quel graphique pour afficher plus de détails et davantage de résultats et ce, pendant plus longtemps. Par exemple, cliquez sur la vignette Demandes et sélectionnez une plage de temps :
 
 
 ![Cliquez sur d'autres éléments pour afficher plus de données et sélectionnez une plage de temps](./media/app-insights-web-monitor-performance/appinsights-48metrics.png)
@@ -183,4 +186,4 @@ Voici quelques conseils pour identifier et diagnostiquer les problèmes de perfo
 
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO2-->

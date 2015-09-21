@@ -1,21 +1,19 @@
 <properties 
-   pageTitle="Utiliser le Gestionnaire d’instantanés StorSimple pour créer et gérer des groupes de volumes | Microsoft Azure"
+   pageTitle="Groupes de volumes du Gestionnaire d’instantanés StorSimple | Microsoft Azure"
    description="Décrit comment utiliser le composant logiciel enfichable MMC du Gestionnaire d’instantanés StorSimple pour créer et gérer des groupes de volumes."
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
-   manager="adinah"
+   manager="carolz"
    editor="" />
-
 <tags 
    ms.service="storsimple"
    ms.devlang="NA"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="07/09/2015"
+   ms.date="09/04/2015"
    ms.author="v-sharos" />
-
 
 # Utiliser le Gestionnaire d’instantanés StorSimple pour créer et gérer des groupes de volumes
 
@@ -144,4 +142,4 @@ Exécutez la procédure suivante pour supprimer un groupe de volumes.
 
 [Utiliser le Gestionnaire d’instantanés StorSimple pour créer et gérer des stratégies de sauvegarde](storsimple-snapshot-manager-manage-backup-policies.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

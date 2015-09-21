@@ -1,34 +1,35 @@
-<properties 
+<properties
 	pageTitle="FAQ Azure Machine Learning Studio | Microsoft Azure"
 	description="Présentation d'Azure Machine Learning : FAQ portant sur la facturation, les fonctionnalités et les limitations d'un service cloud pour la modélisation prédictive rationalisée."
+	keywords="machine learning introduction,predictive modeling,what is machine learning"
 	services="machine-learning"
 	documentationCenter=""
 	authors="pablissima"
 	manager="paulettm"
 	editor="cgronlun"/>
 
-<tags 
+<tags
 	ms.service="machine-learning"
 	ms.workload="data-services"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/18/2015"
+	ms.date="09/09/2015"
 	ms.author="paulettm"/>
 
 #Forum Aux Questions (FAQ) Azure Machine Learning : facturation, fonctionnalités, limitations et support
 
 Ce Forum Aux Questions contient des questions et des réponses sur Azure Machine Learning, un service cloud pour la modélisation prédictive et l’opérationnalisation des solutions via les services web. Ce FAQ couvre les questions sur l'utilisation du service, notamment le modèle de facturation, les fonctionnalités, les limitations et le support.
- 
+
 ##Questions générales
 
 **Qu'est-ce que Microsoft Azure Machine Learning ?**
- 
+
 Microsoft Azure Machine Learning est un service entièrement géré qui permet de créer, de tester, de faire fonctionner et de gérer des solutions analytiques prédictives dans le cloud. À l’aide d’un simple navigateur, vous pouvez vous inscrire, télécharger des données et commencer immédiatement des expériences d’apprentissage automatique. Grâce à la modélisation prédictive par glisser-déplacer, la vaste palette de modules et la bibliothèque de modèles de départ, les tâches d'apprentissage automatique les plus courantes sont simples et rapides. Pour plus d’informations, consultez la [Vue d’ensemble du service Azure Machine Learning](/services/machine-learning/). Pour une présentation de l'apprentissage automatique couvrant la terminologie et les concepts principaux, consultez [Présentation d'Azure Machine Learning](machine-learning-what-is-machine-learning.md).
 
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
- 
+
 **Qu'est-ce que Machine Learning Studio ?**
 
 Machine Learning Studio est un environnement de banc d’essai accessible via un navigateur Web. Machine Learning Studio héberge une palette de modules avec une interface de composition visuelle vous permettant de créer un workflow de science des données de bout en bout sous la forme d’une expérience.
@@ -54,7 +55,7 @@ Pour des informations sur la facturation et la tarification, consultez [Tarifica
 
 ## Questions sur Machine Learning Studio
 
-###Création d’une expérience	
+###Création d’une expérience
 **Existe-t-il un contrôle de version ou une intégration Git pour les graphiques d’expérience ?**
 
 Non. Toutefois, chaque fois qu’un test est exécuté, la version du graphique est conservée et ne peut pas être modifiée par d’autres utilisateurs.
@@ -101,7 +102,7 @@ SEE CLOUD DS PROCESS>
 
 Vous pouvez en savoir plus sur la capacité d’entrée d’image dans la référence du [lecteur d’images][image-reader].
 
-###Modules 
+###Modules
 
 **L’algorithme, la source de données, le format de données ou l’opération de transformation des données que je recherche n’est pas disponible dans Azure ML Studio. Que puis-je faire ?**
 
@@ -110,14 +111,14 @@ Vous pouvez consulter le [forum des commentaires des utilisateurs](http://go.mic
 
 **Puis-je importer mon code existant dans ML Studio ?**
 
-Oui. Vous pouvez importer votre code R existant dans ML Studio et l’exécuter au sein de la même expérience avec les modules d’apprentissage fournis par Azure Machine Learning. Vous pouvez ensuite le publier en tant que service Web au moyen d’Azure Machine Learning. Consultez [Prolongez votre expérience avec R](machine-learning-extend-your-experiment-with-r.md).
+Oui. Vous pouvez importer votre code R existant dans ML Studio et l’exécuter au sein de la même expérience avec les modules d’apprentissage fournis par Azure Machine Learning. Vous pouvez ensuite le déployer en tant que service web au moyen d’Azure Machine Learning. Consultez [Prolongez votre expérience avec R](machine-learning-extend-your-experiment-with-r.md).
 
 **Est-il possible d’utiliser [PMML](http://en.wikipedia.org/wiki/Predictive_Model_Markup_Language), par exemple, pour définir un modèle ?**
 
 Non, cela n’est pas pris en charge, mais du code R ou Python personnalisé peut être utilisé pour définir un module.
 
 
-###Traitement des données 
+###Traitement des données
 **Existe-t-il une possibilité de visualiser les données (autre que les visualisations R) de manière interactive au sein de l’expérience ?**
 
 En cliquant sur la sortie d’un module, vous pouvez visualiser les données et obtenir des statistiques.
@@ -157,7 +158,7 @@ Non.
 
 Actuellement, les modules personnalisés peuvent uniquement être créés en R.
 
-###Module R 
+###Module R
 **Quels packages R sont disponibles dans Machine Learning Studio ?**
 
 Actuellement, Machine Learning Studio prend en charge plus de 400 packages R et cette liste est en constante évolution. Voir [Prolongez votre expérience avec R](machine-learning-extend-your-experiment-with-r.md) pour des informations sur l’obtention de la liste des packages R pris en charge. Si le package souhaité ne figure pas dans cette liste, indiquez son nom sur le [forum de commentaires des utilisateurs](http://go.microsoft.com/fwlink/?LinkId=404231).
@@ -170,7 +171,7 @@ Oui. Consultez [Créer des modules R personnalisés dans Microsoft Azure Machi
 
 Non. Il n’existe aucun environnement REPL pour R dans Studio.
 
-###Module Python 
+###Module Python
 
 **Est-il possible de créer un module Python personnalisé ?**
 
@@ -197,11 +198,11 @@ Consultez les [Limites d’abonnement Azure](../azure-subscription-service-limit
 ###Utilisation
 **Quand ai-je avantage à exécuter mon modèle prédictif en tant que service d’exécution de lots plutôt qu’un service Web requête-réponse ?**
 
-Le service de requête-réponse (RRS, Request-Response Service) est un service Web à faible latence et à grande échelle qui permet de fournir une interface aux modèles sans état créés et publiés à partir de l’environnement Expérimentation. Le service d’exécution de lots (BES, Batch Execution Service) est un service de notation asynchrone des enregistrements de données. L’entrée de données pour le service BES est similaire à celle utilisée dans le service RRS. La différence principale réside dans le fait que le service BES lit un bloc d'enregistrements à partir de diverses sources telles que le service BLOB et de tables dans Azure, Base de données SQL Azure, HDInsight (requêtes Hive) et les sources HTTP. Pour plus d’informations, consultez [Utilisation des service Web Microsoft Azure Machine Learning](machine-learning-consume-web-services.md).
+Le service de requête-réponse (RRS, Request-Response Service) est un service web à faible latence et à grande échelle qui permet de fournir une interface aux modèles sans état créés et déployés à partir de l’environnement Expérimentation. Le service d’exécution de lots (BES, Batch Execution Service) est un service de notation asynchrone des enregistrements de données. L’entrée de données pour le service BES est similaire à celle utilisée dans le service RRS. La différence principale réside dans le fait que le service BES lit un bloc d'enregistrements à partir de diverses sources telles que le service BLOB et de tables dans Azure, Base de données SQL Azure, HDInsight (requêtes Hive) et les sources HTTP. Pour plus d’informations, consultez [Utilisation des service Web Microsoft Azure Machine Learning](machine-learning-consume-web-services.md).
 
 **Comment puis-je mettre à jour le modèle pour le service Web déployé ?**
 
-Pour mettre à jour un modèle prédictif pour un service déjà déployé, il suffit de modifier et de réexécuter l'expérience utilisée pour créer et enregistrer le modèle formé. Une fois que la nouvelle version du modèle formé est disponible, ML Studio vous invite à indiquer si vous voulez mettre à jour votre service web en phase intermédiaire. Lorsque la mise à jour est appliquée au service Web en phase intermédiaire, la même mise à jour est disponible pour vous permettre de l’appliquer au service Web de production également. Consultez la rubrique [Publication d’un service Web Azure Machine Learning](machine-learning-publish-a-machine-learning-web-service.md) pour plus d’informations sur la mise à jour d’un service Web déployé.
+Pour mettre à jour un modèle prédictif pour un service déjà déployé, il suffit de modifier et de réexécuter l'expérience utilisée pour créer et enregistrer le modèle formé. Une fois que la nouvelle version du modèle formé est disponible, ML Studio vous invite à indiquer si vous voulez mettre à jour votre service web en phase intermédiaire. Lorsque la mise à jour est appliquée au service Web en phase intermédiaire, la même mise à jour est disponible pour vous permettre de l’appliquer au service Web de production également. Consultez la rubrique [Déploiement d’un service web Azure Machine Learning](machine-learning-publish-a-machine-learning-web-service.md) pour plus d’informations sur la mise à jour d’un service web déployé.
 
 Vous pouvez également utiliser les API de recyclage. Un exemple de code est disponible [ici](https://azuremlretrain.codeplex.com/).
 
@@ -213,11 +214,11 @@ Une fois qu’un modèle prédictif a été mis en production, vous pouvez le su
 **Existe-t-il un endroit où je peux voir le résultat de mon service RRS/BES ?**
 
 Pour les enregistrements de ressources, c'est généralement dans la réponse du service web que vous voyez le résultat. Vous pouvez également écrire un objet blob. Pour les environnements d'initialisation, la sortie est écrite dans un objet blob par défaut. Vous pouvez également écrire la sortie dans une base de données ou une table à l'aide du module Writer.
- 
- **** Puis-je créer des services web uniquement à partir de modèles créés dans Studio ? Non. Vous pouvez également créer des services web directement à partir de notebooks Jupyter et RStudio.
- 
 
-##Extensibilité 
+ **** Puis-je créer des services web uniquement à partir de modèles créés dans Studio ? Non. Vous pouvez également créer des services web directement à partir de notebooks Jupyter et RStudio.
+
+
+##Extensibilité
 
 **Quelle est l’évolutivité du service Web ?**
 
@@ -259,30 +260,30 @@ Les lignes et colonnes sont limitées selon la limitation Max Int de .NET : 2 
 
 Non.
 
-##Sécurité et disponibilité 
+##Sécurité et disponibilité
 
 **Qui a accès au point de terminaison HTTP pour le service Web déployé en production par défaut ? Comment puis-je limiter les accès au point de terminaison ?**
 
-Après la publication d'un service web, nous créons un point de terminaison par défaut pour ce service. Ce point de terminaison par défaut est déployé en production et peut être appelé à l'aide de sa clé d'API. Il est possible d'ajouter des points de terminaison supplémentaires à leurs propres clés à partir du portail Azure ou par le biais d'un programme à l'aide des API de gestion de service web. Elles sont nécessaires pour effectuer des appels au service web en production et en phase intermédiaire. Pour plus d’informations, voir [Connexion à un service Web Machine Learning](machine-learning-connect-to-azure-machine-learning-web-service.md).
+Après le déploiement d’un service web, nous créons un point de terminaison par défaut pour ce service. Ce point de terminaison par défaut est déployé en production et peut être appelé à l'aide de sa clé d'API. Il est possible d'ajouter des points de terminaison supplémentaires à leurs propres clés à partir du portail Azure ou par le biais d'un programme à l'aide des API de gestion de service web. Elles sont nécessaires pour effectuer des appels au service web en production et en phase intermédiaire. Pour plus d’informations, voir [Connexion à un service Web Machine Learning](machine-learning-connect-to-azure-machine-learning-web-service.md).
 
 
 **Que se passe-t-il si mon compte de stockage est introuvable ?**
 
 Machine Learning Studio s’appuie sur un compte de stockage Azure fourni par l’utilisateur pour enregistrer les données intermédiaires lors de l’exécution du workflow. Ce compte de stockage est fourni à Machine Learning Studio lors de la création d’un espace de travail. Une fois l’espace de travail créé, si le compte de stockage est supprimé et ne peut plus être trouvé, l’espace de travail cesse de fonctionner et toutes les expériences de cet espace de travail échouent.
- 
+
 Si vous avez supprimé par inadvertance le compte de stockage, la seule façon de le récupérer consiste à recréer ce compte de stockage avec exactement le même nom, dans la même région que celui que vous avez supprimé. Après cela, effectuez une nouvelle synchronisation de la clé d’accès.
- 
+
 
 **Que se passe-t-il si ma clé d’accès au compte de stockage n’est pas synchronisée ?** Machine Learning Studio s’appuie sur un compte de stockage Azure fourni par l’utilisateur pour enregistrer les données intermédiaires lors de l’exécution du workflow. Ce compte de stockage est fourni à Machine Learning Studio lors de la création d’un espace de travail et les clés d’accès sont associées à cet espace de travail. Une fois l’espace de travail créé, si les clés d’accès sont modifiées, l’espace de travail ne peut plus accéder au compte de stockage et cesse de fonctionner. Toutes les expériences de cet espace de travail échouent.
 
 Si vous avez modifié les clés d’accès de compte de stockage, veillez à resynchroniser les clés d’accès dans le paramètre d’espace de travail dans le portail Azure.
 
 
-##Azure Marketplace 
+##Azure Marketplace
 
 Consultez le [Forum aux questions pour la publication et l’utilisation d’applications Machine Learning sur Azure Marketplace](machine-learning-marketplace-faq.md)
 
-##Support et formations 
+##Support et formations
 
 **Où puis-je obtenir des formations pour Azure ML ?**
 
@@ -306,6 +307,5 @@ Azure Machine Learning dispose également d'un forum communautaire sur MSDN, où
 [partition-and-sample]: https://msdn.microsoft.com/library/azure/a8726e34-1b3e-4515-b59a-3e4a475654b8/
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 [split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
- 
 
-<!----HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO2-->

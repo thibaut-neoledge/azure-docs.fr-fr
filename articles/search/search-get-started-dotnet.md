@@ -13,7 +13,7 @@
 	ms.workload="search"
 	ms.topic="hero-article"
 	ms.tgt_pltfrm="na"
-	ms.date="08/18/2015"
+	ms.date="09/08/2015"
 	ms.author="heidist"/>
 
 # Prise en main de votre première application Azure Search dans .NET
@@ -30,7 +30,7 @@ Cet exemple d'application utilise des données de l’[USGS (United States Geolo
 
 Dans cette application, le programme **DataIndexer** crée et charge l'index à l'aide d'une construction de type [Index](https://msdn.microsoft.com/library/azure/dn798918.aspx), en récupérant le jeu de données USGS filtré à partir d'une base de données SQL Azure publique. Les informations d'identification et de connexion à la source de données en ligne sont fournies dans le code du programme. Aucune configuration supplémentaire n'est nécessaire.
 
-> [AZURE.NOTE]Nous avons appliqué un filtre à ce jeu de données pour ne pas dépasser la limite de 10 000 documents du niveau de tarification gratuit. Si vous utilisez le niveau standard, cette limite ne s'applique pas. Pour plus d'informations sur la capacité de chaque niveau de tarification, consultez la section [Limites et contraintes](https://msdn.microsoft.com/library/azure/dn798934.aspx).
+> [AZURE.NOTE]Nous avons appliqué un filtre à ce jeu de données pour ne pas dépasser la limite de 10 000 documents du niveau de tarification gratuit. Si vous utilisez le niveau standard, cette limite ne s'applique pas. Pour plus d'informations sur la capacité de chaque niveau de tarification, consultez la section [Limites et contraintes](search-limits-quotas-capacity.md).
 
 ## Créer le service d’Azure Search
 
@@ -78,14 +78,14 @@ Une fois le service créé, revenez au portail pour obtenir l'URL ou `api-key`. 
 
 Cette solution inclut deux projets :
 
-- **DataIndexer**, une application console Visual C\#, utilisée pour charger des données.
-- **SimpleSearchMVCApp**, une application Web Visual C#ASP.NET MVC, utilisée pour interroger et renvoyer les résultats de la recherche.
+- **DataIndexer**, une application console Visual C#, utilisée pour charger des données.
+- **SimpleSearchMVCApp**, une application Web Visual C# ASP.NET MVC, utilisée pour interroger et renvoyer les résultats de la recherche.
 
 Dans cette étape, vous allez créer les deux projets.
 
-1. Démarrez **Visual Studio** > **Nouveau projet** > **Visual C\#** > **Application console**.
+1. Démarrez **Visual Studio** > **Nouveau projet** > **Visual C#** > **Application console**.
 2. Nommez le projet **DataIndexer** puis nommez la solution **AzureSearchDotNetDemo**.
-3. Dans l'Explorateur de solutions, cliquez avec le bouton droit sur la solution et sélectionnez **Ajouter** > **Nouveau projet** > **Visual C\#** > **Application Web ASP.NET**.
+3. Dans l'Explorateur de solutions, cliquez avec le bouton droit sur la solution et sélectionnez **Ajouter** > **Nouveau projet** > **Visual C#** > **Application Web ASP.NET**.
 4. Nommez le projet **SimpleSearchMVCApp**.
 5. Dans le nouveau projet ASP.NET, choisissez le modèle MVC et désactivez les options pour éviter de créer des artefacts de programme que vous n'utiliserez pas dans ce didacticiel.
 
@@ -775,7 +775,7 @@ Ceci est le premier didacticiel Azure Search basé sur .NET et le jeu de donnée
 
 Si vous connaissez déjà Azure Search, vous pouvez utiliser cet exemple comme tremplin pour tester des générateurs de suggestions (requêtes prédictives ou à saisie semi-automatique), des filtres et la navigation à facettes. Vous pouvez également améliorer la page des résultats de la recherche en ajoutant des décomptes et en traitant les documents par lots afin que les utilisateurs puissent parcourir les résultats.
 
-Vous découvrez Azure Search ? Nous vous recommandons de suivre les autres didacticiels pour comprendre ce que vous pouvez créer. Consultez les autres ressources disponibles dans notre [page de documentation](http://azure.microsoft.com/documentation/services/search/). Vous pouvez également cliquer sur les liens dans notre [liste de vidéos et de didacticiels](https://msdn.microsoft.com/library/azure/dn798933.aspx) pour obtenir des informations supplémentaires.
+Vous découvrez Azure Search ? Nous vous recommandons de suivre les autres didacticiels pour comprendre ce que vous pouvez créer. Consultez les autres ressources disponibles dans notre [page de documentation](http://azure.microsoft.com/documentation/services/search/). Vous pouvez également cliquer sur les liens dans notre [liste de vidéos et de didacticiels](search-video-demo-tutorial-list.md) pour obtenir des informations supplémentaires.
 
 <!--Image references-->
 [1]: ./media/search-get-started-dotnet/create-search-portal-1.PNG
@@ -794,4 +794,4 @@ Vous découvrez Azure Search ? Nous vous recommandons de suivre les autres dida
 [11]: ./media/search-get-started-dotnet/AzSearch-DotNet-NuGet-1.PNG
 [12]: ./media/search-get-started-dotnet/AzSearch-DotNet-NuGet-2.PNG
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO2-->

@@ -1,3 +1,19 @@
+<properties 
+   pageTitle="Création d’un conteneur de volumes"
+   description="Décrit comment créer un conteneur de volume sur un appareil StorSimple."
+   services="storsimple"
+   documentationCenter="NA"
+   authors="SharS"
+   manager="adinah"
+   editor="tysonn" />
+<tags 
+   ms.service="storsimple"
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="TBD"
+   ms.date="09/08/2015"
+   ms.author="v-sharos" />
 
 #### Pour créer un conteneur de volumes
 
@@ -10,9 +26,9 @@
   2. Sélectionnez un **Compte de stockage** à associer à ce conteneur de volume. Vous pouvez choisir le compte par défaut qui est généré au moment de la création du service. Vous pouvez également utiliser l’option **Ajouter nouveau** pour spécifier un compte de stockage qui n’est pas lié à cet abonnement au service.
   3. Sélectionnez **Activer le chiffrement de stockage cloud** pour activer le chiffrement des données envoyées à partir de l’appareil vers le cloud.
   4. Indiquez et confirmez une **Clé de chiffrement de stockage cloud** contenant de 8 à 32 caractères. Cette clé est utilisée par l’appareil pour accéder aux données chiffrées.
-  5. Sélectionnez **Illimitée** dans la liste déroulante **Spécifier la bande passante** si vous souhaitez consommer toute la bande passante disponible. Vous pouvez également définir cette option sur **Personnalisé** pour utiliser les contrôles de bande passante et spécifier une valeur comprise entre 1 et 1 000 Mbits/s. Si vos informations d’utilisation de la bande passante sont disponibles, vous pouvez allouer de la bande passante selon une planification en spécifiant **Sélectionner un modèle de bande passante**. Pour une procédure pas à pas, consultez la page [Ajouter un modèle de bande passante](https://msdn.microsoft.com/library/dn757746.aspx#addBT).
+  5. Sélectionnez **Illimitée** dans la liste déroulante **Spécifier la bande passante** si vous souhaitez consommer toute la bande passante disponible. Vous pouvez également définir cette option sur **Personnalisé** pour utiliser les contrôles de bande passante et spécifier une valeur comprise entre 1 et 1 000 Mbits/s. Si vos informations d’utilisation de la bande passante sont disponibles, vous pouvez allouer de la bande passante selon une planification en spécifiant **Sélectionner un modèle de bande passante**. Pour une procédure pas à pas, consultez la page [Ajouter un modèle de bande passante](storsimple-manage-bandwidth-templates.md#add-a-bandwidth-template).
   6. Cliquez sur l’icône en forme de coche ![icône-coche](./media/storsimple-create-volume-container/HCS_CheckIcon-include.png) pour enregistrer ce conteneur de volume et quitter l’Assistant. 
 
   Le nouveau conteneur de volumes apparaît sur la page **Conteneurs de volume**.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

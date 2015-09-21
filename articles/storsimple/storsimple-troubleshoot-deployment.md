@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Résolution des problèmes de déploiement d’un appareil StorSimple | Microsoft Azure"
+   pageTitle="Résolution des problèmes de déploiement de StorSimple | Microsoft Azure"
    description="Décrit comment diagnostiquer et corriger les erreurs qui se produisent lorsque vous déployez StorSimple pour la première fois."
    services="storsimple"
    documentationCenter="NA"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="08/18/2015"
+   ms.date="09/04/2015"
    ms.author="alkohli" />
 
 # Résolution des problèmes de déploiement d’un appareil StorSimple
@@ -68,23 +68,23 @@ Les tableaux suivants répertorient les erreurs courantes que vous pouvez rencon
 
 | Non.| Message d’erreur | Causes possibles | Action recommandée |
 | ---| ------------- | --------------- | ------------------ |
-| 1 | Invoke-HcsSetupWizard : cette commande ne peut être exécutée que sur le contrôleur actif. | La configuration a été effectuée sur le contrôleur passif.| Exécutez cette commande depuis le contrôleur actif. Pour plus d’informations, consultez la page [Identification d’un contrôleur actif sur votre appareil](https://msdn.microsoft.com/library/azure/dn790262.aspx).|
+| 1 | Invoke-HcsSetupWizard : cette commande ne peut être exécutée que sur le contrôleur actif. | La configuration a été effectuée sur le contrôleur passif.| Exécutez cette commande depuis le contrôleur actif. Pour plus d’informations, consultez la page [Identification d’un contrôleur actif sur votre appareil](storsimple-controller-replacement.md#identify-the-active-controller-on-your-device).|
 | 2 | Invoke-HcsSetupWizard : l’appareil n’est pas prêt. | Il existe des problèmes liés à la connectivité réseau sur DATA 0.| Vérifiez la connectivité réseau physique sur DATA 0.|
 | 3 | Invoke-HcsSetupWizard : il existe un conflit d’adresses IP avec un autre système sur le réseau (exception de HRESULT : 0x80070263). | L’adresse IP fournie pour DATA 0 était déjà utilisée par un autre système. | Fournissez une nouvelle adresse IP qui n’est pas en cours d’utilisation.|
 | 4 | Invoke-HcsSetupWizard : échec de la ressource de cluster (exception de HRESULT : 0x800713AE). | Adresse IP virtuelle en double. L’adresse IP fournie est déjà en cours d’utilisation.| Fournissez une nouvelle adresse IP qui n’est pas en cours d’utilisation.|
 | 5. | Invoke-HcsSetupWizard : adresse IPv4 non valide. | L’adresse IP est fournie dans un format incorrect.| Vérifiez le format et fournissez à nouveau votre adresse IP. Pour plus d’informations, consultez la page [Adressage IPv4][1]. |
 | 6. | Invoke-HcsSetupWizard : adresse IPv6 non valide. | L’adresse IP est fournie dans un format incorrect.| Vérifiez le format et fournissez à nouveau votre adresse IP. Pour plus d’informations, consultez la page [Adressage IPv6][2].|
-| 7. | Invoke-HcsSetupWizard : il n’y a plus de points de terminaison disponibles auprès du mappeur de point de terminaison (exception de HRESULT : 0x800706D9). | La fonctionnalité de cluster ne fonctionne pas. | Pour les étapes suivantes, [contactez le support technique Microsoft](https://msdn.microsoft.com/library/azure/dn757750.aspx).
+| 7. | Invoke-HcsSetupWizard : il n’y a plus de points de terminaison disponibles auprès du mappeur de point de terminaison. (Exception de HRESULT : 0x800706D9) | La fonctionnalité de cluster ne fonctionne pas. | Pour les étapes suivantes, [contactez le support technique Microsoft](storsimple-contact-microsoft-support.md).
 
 ## Erreurs pendant la configuration des paramètres de proxy web facultatifs
 
 | Non.| Message d’erreur | Causes possibles | Action recommandée |
 | ---| ------------- | --------------- | ------------------ |
 | 1 | Invoke-HcsSetupWizard : paramètre non valide (exception de HRESULT: 0 x 80070057). | L’un des paramètres fournis pour les paramètres de proxy n’est pas valide.| L’URI n’est pas fourni dans le format correct. Utilisez le format suivant : http://*<IP address or FQDN of the web proxy server>*:*<TCP port number>* |
-| 2 | Invoke-HcsSetupWizard : serveur RPC non disponible (exception de HRESULT : 0x800706ba). | La cause première est l’une des suivantes :<ol><li>Le cluster n’est pas disponible.</li><li>Le contrôleur passif ne peut pas communiquer avec le contrôleur actif, et la commande est exécutée à partir du contrôleur passif.</li></ol> | Suivant la cause première :<ol><li>[Contactez le support technique Microsoft](https://msdn.microsoft.com/library/azure/dn757750.aspx) pour vous assurer que le cluster est disponible.</li><li>Exécutez la commande à partir du contrôleur actif. Si vous souhaitez exécuter la commande à partir du contrôleur passif, vous devez vous assurer que le contrôleur passif peut communiquer avec le contrôleur actif. Vous devez [contacter le support technique Microsoft](https://msdn.microsoft.com/library/azure/dn757750.aspx) si cette connectivité est interrompue.</li></ol> |
-| 3 | Invoke-HcsSetupWizard : l’appel RPC a échoué (exception de HRESULT : 0x800706be). | Le cluster est arrêté. | [Contactez le support technique Microsoft](https://msdn.microsoft.com/library/azure/dn757750.aspx) pour vous assurer que le cluster est disponible.|
-| 4 | Invoke-HcsSetupWizard : ressource de cluster introuvable (exception de HRESULT : 0x8007138f). | Impossible de trouver la ressource de cluster. Cela peut se produire lorsque l’installation ne s’est pas déroulée correctement. | Vous devrez peut-être rétablir les paramètres par défaut d’origine de l’appareil. [Contactez le support technique Microsoft](https://msdn.microsoft.com/library/azure/dn757750.aspx) pour créer une ressource de cluster.|
-| 5. | Invoke-HcsSetupWizard : ressource de cluster pas en ligne (exception de HRESULT : 0x8007138c).| Les ressources de cluster ne sont pas en ligne. | Pour les étapes suivantes, [contactez le support technique Microsoft](https://msdn.microsoft.com/library/azure/dn757750.aspx).|
+| 2 | Invoke-HcsSetupWizard : serveur RPC non disponible (exception de HRESULT : 0x800706ba). | La cause première est l’une des suivantes :<ol><li>Le cluster n’est pas disponible.</li><li>Le contrôleur passif ne peut pas communiquer avec le contrôleur actif, et la commande est exécutée à partir du contrôleur passif.</li></ol> | Suivant la cause première :<ol><li>[Contactez le support technique Microsoft](storsimple-contact-microsoft-support.md) pour vous assurer que le cluster est disponible.</li><li>Exécutez la commande à partir du contrôleur actif. Si vous souhaitez exécuter la commande à partir du contrôleur passif, vous devez vous assurer que le contrôleur passif peut communiquer avec le contrôleur actif. Vous devez [contacter le support technique Microsoft](storsimple-contact-microsoft-support.md) si cette connectivité est interrompue.</li></ol> |
+| 3 | Invoke-HcsSetupWizard : l’appel RPC a échoué (exception de HRESULT : 0x800706be). | Le cluster est arrêté. | [Contactez le support technique Microsoft](storsimple-contact-microsoft-support.md) pour vous assurer que le cluster est disponible.|
+| 4 | Invoke-HcsSetupWizard : ressource de cluster introuvable (exception de HRESULT : 0x8007138f). | Impossible de trouver la ressource de cluster. Cela peut se produire lorsque l’installation ne s’est pas déroulée correctement. | Vous devrez peut-être rétablir les paramètres par défaut d’origine de l’appareil. [Contactez le support technique Microsoft](storsimple-contact-microsoft-support.md) pour créer une ressource de cluster.|
+| 5. | Invoke-HcsSetupWizard : ressource de cluster pas en ligne (exception de HRESULT : 0x8007138c).| Les ressources de cluster ne sont pas en ligne. | Pour les étapes suivantes, [contactez le support technique Microsoft](storsimple-contact-microsoft-support.md).|
 
 ## Erreurs liées aux mots de passe d’administrateur de l’appareil et du Gestionnaire d’instantanés StorSimple
 
@@ -167,8 +167,8 @@ Un package de prise en charge contient tous les journaux pertinents qui peuvent 
 
 5. Une fois les journaux ouverts dans l’Observateur d’événements, recherchez les journaux ci-dessous ; ceux-ci contiennent les problèmes liés à la configuration de l’appareil :
 
-  - hcs_pfconfig/Operational Log
-  - hcs_pfconfig/Config
+  - hcs\_pfconfig/Operational Log
+  - hcs\_pfconfig/Config
 
 6. Dans les fichiers journaux, recherchez les chaînes relatives aux applets de commande appelées par l’Assistant Installation. Pour obtenir la liste de ces applets de commande, consultez la section [Processus de l’Assistant Première installation](#first-time-setup-wizard-process). 
 
@@ -200,7 +200,7 @@ Au moment de configurer des interfaces réseau pour un premier déploiement d’
 
 ### Pour afficher la liste de toutes les cartes réseau de votre appareil
 
-1. Démarrez Windows PowerShell pour StorSimple, puis tapez **Get-NetAdapter**. 
+1. Démarrez Windows PowerShell pour StorSimple, puis tapez `Get-NetAdapter`. 
 
 2. Utilisez la sortie de l’applet de commande `Get-NetAdapter` et les instructions suivantes pour comprendre l’état de votre interface réseau.
   - Si l’interface est intègre et activée, l’état d’**ifIndex** indique **Activé**.
@@ -535,7 +535,7 @@ L’erreur peut provenir des éléments suivants :
 
 ### Pour localiser et résoudre le problème d’inscription de l’appareil
 
-1. Vérifiez la configuration de l’appareil : sur le contrôleur actif, exécutez **Invoke-HcsSetupWizard**.
+1. Vérifiez la configuration de l’appareil : sur le contrôleur actif, exécutez `Invoke-HcsSetupWizard`.
 
      >[AZURE.NOTE]L’Assistant Installation doit s’exécuter sur le contrôleur actif. Pour vérifier que vous êtes connecté au contrôleur actif, examinez la bannière présentée dans la console série. La bannière indique si vous êtes connecté au contrôleur 0 ou 1, et si le contrôleur est actif ou passif. Pour plus d’informations, consultez la page [Identification d’un contrôleur actif sur votre appareil](storsimple-controller-replacement.md#identify-the-active-controller-on-your-device).
  
@@ -577,4 +577,4 @@ L’erreur peut provenir des éléments suivants :
 [1]: https://technet.microsoft.com/library/dd379547(v=ws.10).aspx
 [2]: https://technet.microsoft.com/library/dd392266(v=ws.10).aspx
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO2-->

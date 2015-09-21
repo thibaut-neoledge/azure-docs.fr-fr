@@ -1,22 +1,20 @@
-<properties 
-	pageTitle="Utiliser une action de script dans HDInsight pour installer Spark sur un cluster Hadoop| Azure" 
-	description="Découvrez comment personnaliser un cluster HDInsight avec Spark. Vous allez employer une option de configuration d’action de script pour utiliser un script afin d’installer Spark." 
-	services="hdinsight" 
-	documentationCenter="" 
-	authors="nitinme" 
-	manager="paulettm" 
+<properties
+	pageTitle="Utiliser une action de script dans HDInsight pour installer Spark sur un cluster Hadoop| Azure"
+	description="Découvrez comment personnaliser un cluster HDInsight avec Spark. Vous allez employer une option de configuration d’action de script pour utiliser un script afin d’installer Spark."
+	services="hdinsight"
+	documentationCenter=""
+	authors="nitinme"
+	manager="paulettm"
 	editor="cgronlun"/>
 
-
-<tags 
-	ms.service="hdinsight" 
-	ms.workload="big-data" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/11/2015" 
+<tags
+	ms.service="hdinsight"
+	ms.workload="big-data"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/11/2015"
 	ms.author="nitinme"/>
-
 
 # Installation et utilisation de Spark sur des clusters HDInsight Hadoop
 
@@ -24,8 +22,9 @@ Vous pouvez installer Spark Giraph sur n’importe quel type de cluster dans Had
 
 Dans cette rubrique, vous allez apprendre à installer Spark à l’aide d’une action de script. Vous verrez ensuite comment exécuter une requête Spark sur des clusters HDInsight.
 
-> [AZURE.NOTE]HDInsight fournit désormais Spark comme type de cluster de première classe, ce qui signifie que vous pouvez désormais approvisionner directement un cluster Spark sans modifier de cluster Hadoop. À l’aide du type de cluster Spark, vous obtenez un cluster HDInsight version 3.2 avec Spark version 1.3.1. Pour plus d’informations, consultez [Prise en main d’Apache Spark sur HDInsight](hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql.md).
-
+> [AZURE.IMPORTANT]HDInsight fournit désormais Spark comme type de cluster de première classe pour les clusters Windows, ce qui signifie que vous pouvez désormais approvisionner directement un cluster Spark sans modifier de cluster Hadoop. À l’aide du type de cluster Spark, vous obtenez un cluster HDInsight version 3.2 avec Spark version 1.3.1. Pour plus d’informations, consultez [Prise en main d’Apache Spark sur HDInsight](hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql.md).
+>
+> Pour plus d’informations sur l’utilisation de Spark avec un cluster Linux via la personnalisation de cluster, consultez [Installer Spark sur des clusters HDInsight Linux](hdinsight-hadoop-spark-install-linux.md).
 
 ## <a name="whatis"></a>Qu’est-ce que Spark ?
 
@@ -40,7 +39,7 @@ Cette rubrique contient des instructions de personnalisation d'un cluster HDInsi
 Dans cette rubrique, nous utilisons un script personnalisé d’action de script pour installer Spark sur un cluster HDInsight. Ce script peut installer Spark 1.2.0 ou Spark 1.0.2 selon la version du cluster HDInsight que vous approvisionnez.
 
 - Si vous utilisez le script lors de l’approvisionnement d’un cluster **HDInsight 3.2**, il installe **Spark 1.2.0**.
-- Si vous utilisez le script lors de l’approvisionnement d’un cluster **HDInsight 3.1**, il installe **Spark 1.0.2**. 
+- Si vous utilisez le script lors de l’approvisionnement d’un cluster **HDInsight 3.1**, il installe **Spark 1.0.2**.
 
 Vous pouvez modifier ce script ou créer votre propre script pour installer d’autres versions de Spark.
 
@@ -60,7 +59,7 @@ Pour obtenir un exemple de script pour installer Spark sur un cluster HDInsight
 2. Sur la page **Actions de script** de l’Assistant, cliquez sur **ajouter l’action de script** pour fournir des informations sur l’action de script, comme illustré ci-dessous :
 
 	![Utilisation d’une action de script pour personnaliser un cluster](./media/hdinsight-hadoop-spark-install/HDI.CustomProvision.Page6.png "Utilisation d’une action de script pour personnaliser un cluster")
-	
+
 	<table border='1'>
 	<tr><th>Propriété</th><th>Valeur</th></tr>
 	<tr><td>Nom</td>
@@ -79,7 +78,7 @@ Vous pouvez également utiliser le script pour installer Spark sur HDInsight à 
 Spark fournit des API en Scala, Python et Java. Vous pouvez aussi utiliser l'interpréteur de commandes Spark interactif pour exécuter des requêtes Spark. Cette section fournit des instructions sur l’utilisation des différentes approches pour travailler avec Spark :
 
 - [Utilisation de l’interpréteur de commandes Spark pour exécuter des requêtes interactives](#sparkshell)
-- [Utilisation de l’interpréteur de commandes Spark pour exécuter des requêtes Spark SQL](#sparksql) 
+- [Utilisation de l’interpréteur de commandes Spark pour exécuter des requêtes Spark SQL](#sparksql)
 - [Utilisation d’un programme Scala autonome](#standalone)
 
 ###<a name="sparkshell"></a>Utilisation de l’interpréteur de commandes Spark pour exécuter des requêtes interactives
@@ -107,7 +106,7 @@ Procédez comme suit pour exécuter des requêtes Spark à partir d'un interpré
 6. La sortie doit ressembler à ce qui suit :
 
 	![Sortie de l’exécution de l’interpréteur de commandes interactif Scala dans un cluster HDInsight](./media/hdinsight-hadoop-spark-install/hdi-scala-interactive.png)
-		
+
 
 7. Entrez :q pour quitter l'invite Scala.
 
@@ -168,7 +167,7 @@ Dans cette section, vous allez écrire un programme Scala qui compte le nombre d
 		import org.apache.spark.SparkContext
 		import org.apache.spark.SparkContext._
 		import org.apache.spark.SparkConf
-		
+
 		object SimpleApp {
 		  def main(args: Array[String]) {
 		    val logFile = "/example/data/gutenberg/davinci.txt"			//Location of the sample data file on Azure Blob storage
@@ -191,18 +190,18 @@ Dans cette section, vous utilisez <a href="http://www.scala-sbt.org/0.13/docs/in
 
 
 		name := "SimpleApp"
-	
+
 		version := "1.0"
-	
+
 		scalaVersion := "2.10.4"
-	
+
 		libraryDependencies += "org.apache.spark" %% "spark-core" % "1.2.0"
 
 
 
 	>[AZURE.NOTE]Veillez à conserver les lignes vides dans le fichier.
 
-	
+
 3. Dans le dossier **SimpleScalaApp**, créez une structure de répertoires **\\src\\main\\scala**, puis collez le programme Scala (**SimpleApp.scala**) créé précédemment dans le dossier \\src\\main\\scala.
 4. Ouvrez une invite de commandes, accédez au répertoire SimpleScalaApp, puis entrez la commande suivante :
 
@@ -245,7 +244,7 @@ Procédez comme suit :
 		$location = "<MicrosoftDataCenter>"				# Location of the HDInsight cluster. It must be in the same data center as the Storage account.
 		$clusterNodes = <ClusterSizeInNumbers>			# Number of nodes in the HDInsight cluster
 		$version = "<HDInsightClusterVersion>"          # For example, "3.2"
-	
+
 2. Spécifiez les valeurs de configuration telles que les nœuds du cluster et le stockage par défaut à utiliser.
 
 		# Specify the configuration options
@@ -254,7 +253,7 @@ Procédez comme suit :
 		$config.DefaultStorageAccount.StorageAccountName="$storageAccountName.blob.core.windows.net"
 		$config.DefaultStorageAccount.StorageAccountKey=$storageAccountKey
 		$config.DefaultStorageAccount.StorageContainerName=$containerName
-	
+
 3. Utilisez l’applet de commande **Add-AzureHDInsightScriptAction** pour ajouter une action de script à la configuration du cluster. L'action de script sera exécutée plus tard au moment de la création du cluster.
 
 		# Add a script action to the cluster configuration
@@ -283,11 +282,11 @@ Procédez comme suit :
 <td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">Paramètres requis par le script. L'exemple de script utilisé dans cette rubrique ne requiert aucun paramètre. Par conséquent, ce paramètre n'apparaît pas dans l'extrait de code ci-dessus.
 </td></tr>
 </table>
-	
+
 4. Enfin, commencez à approvisionner un cluster personnalisé sur lequel Spark est installé.
-	
+
 		# Start provisioning a cluster with Spark installed
-		New-AzureHDInsightCluster -Config $config -Name $clusterName -Location $location -Version $version 
+		New-AzureHDInsightCluster -Config $config -Name $clusterName -Location $location -Version $version
 
 Lorsque vous y êtes invité, entrez les informations d'identification du cluster. La création du cluster peut prendre plusieurs minutes.
 
@@ -318,7 +317,7 @@ Créez un certificat auto-signé, installez-le sur votre poste de travail et té
 2. Dans le menu **Fichier**, cliquez sur **Nouveau**, puis sur **Projet**.
 
 3. Dans **Nouveau projet**, entrez ou sélectionnez les valeurs suivantes :
-	
+
 	<table style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse;">
 <tr>
 <th style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; width:90px; padding-left:5px; padding-right:5px;">Propriété</th>
@@ -352,9 +351,9 @@ Créez un certificat auto-signé, installez-le sur votre poste de travail et té
 		using Microsoft.WindowsAzure.Management.HDInsight;
 		using Microsoft.WindowsAzure.Management.HDInsight.ClusterProvisioning;
 		using Microsoft.WindowsAzure.Management.HDInsight.Framework.Logging;
-	
+
 9. Dans la fonction Main(), copiez et collez le code suivant, puis entrez des valeurs pour les variables :
-		
+
         var clusterName = args[0];
 
         // Provide values for the variables
@@ -367,7 +366,7 @@ Créez un certificat auto-signé, installez-le sur votre poste de travail et té
         string password = "<HDInsightUserPassword>";
         int clustersize = <NumberOfNodesInTheCluster>;
 
-        // Provide the certificate thumbprint to retrieve the certificate from the certificate store 
+        // Provide the certificate thumbprint to retrieve the certificate from the certificate store
         X509Store store = new X509Store();
         store.Open(OpenFlags.ReadOnly);
         X509Certificate2 cert = store.Certificates.Cast<X509Certificate2>().First(item => item.Thumbprint == thumbprint);
@@ -376,7 +375,7 @@ Créez un certificat auto-signé, installez-le sur votre poste de travail et té
         HDInsightCertificateCredential creds = new HDInsightCertificateCredential(new Guid(subscriptionId), cert);
         var client = HDInsightClient.Connect(creds);
 		client.IgnoreSslErrors = true;
-        
+
         // Provide the cluster information
 		var clusterInfo = new ClusterCreateParameters()
         {
@@ -389,7 +388,7 @@ Créez un certificat auto-signé, installez-le sur votre poste de travail et té
             Password = password,
             ClusterSizeInNodes = clustersize,
             Version = "3.2"
-        };        
+        };
 
 10. Ajoutez le code suivant à la fonction Main() pour utiliser la classe [ScriptAction](http://msdn.microsoft.com/library/microsoft.windowsazure.management.hdinsight.clusterprovisioning.data.scriptaction.aspx) et appeler un script personnalisé pour installer Spark.
 
@@ -429,6 +428,5 @@ Entrez un nom de cluster, puis appuyez sur Entrée pour approvisionner un cluste
 [hdinsight-install-r]: hdinsight-hadoop-r-scripts.md
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster.md
 [powershell-install-configure]: ../install-configure-powershell.md
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

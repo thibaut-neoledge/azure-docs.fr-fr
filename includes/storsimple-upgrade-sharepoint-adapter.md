@@ -1,17 +1,31 @@
+<properties 
+   pageTitle="Mise à niveau de l’adaptateur StorSimple pour SharePoint | Microsoft Azure"
+   description="Décrit comment mettre à niveau SharePoint, puis installer une nouvelle version de l'adaptateur StorSimple pour SharePoint."
+   services="storsimple"
+   documentationCenter="NA"
+   authors="SharS"
+   manager="carolz"
+   editor="" />
+<tags 
+   ms.service="storsimple"
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="TBD"
+   ms.date="09/03/2015"
+   ms.author="v-sharos" />
 
 ### Effectuez une mise à niveau de SharePoint 2010 vers SharePoint 2013, puis installez l'adaptateur StorSimple pour SharePoint
 
->[AZURE.IMPORTANT]Les fichiers précédemment déplacés vers le stockage externe via RBS ne sont pas disponibles, jusqu'à ce que la mise à niveau soit terminée et la fonctionnalité RBS réactivée. Pour limiter l'impact sur l'utilisateur, effectuez la mise à niveau ou la réinstallation lors d’une fenêtre de maintenance planifiée.
+>[AZURE.IMPORTANT]Les fichiers précédemment déplacés vers le stockage externe via RBS ne sont pas disponibles, jusqu'à ce que la mise à niveau soit terminée et la fonctionnalité RBS réactivée. Pour limiter l'impact sur l'utilisateur, effectuez la mise à niveau ou la réinstallation pendant une fenêtre de maintenance planifiée.
 
-[AZURE.INCLUDE [storsimple-upgrade-sharepoint-adapter](../../includes/storsimple-upgrade-sharepoint-adapter.md)]
- 
 #### Pour mettre à niveau SharePoint 2010 vers SharePoint 2013, puis installer l'adaptateur
 
 1. Dans la batterie de serveurs SharePoint 2010, notez le chemin d'accès du magasin d'objets blob pour les objets blob externalisés et les bases de données de contenu pour lesquelles RBS est activé. 
 
 2. Installez et configurez la batterie de serveurs SharePoint 2013.
 
-3. Déplacez les bases de données, les applications et les collections de sites de la batterie de serveurs SharePoint 2010 vers la batterie de serveurs SharePoint 2013. Pour obtenir des instructions, consultez la Vue d'ensemble du processus de mise à niveau vers SharePoint 2013.
+3. Déplacez les bases de données, les applications et les collections de sites de la batterie de serveurs SharePoint 2010 vers la batterie de serveurs SharePoint 2013. Pour obtenir des instructions, consultez la [Vue d’ensemble du processus de mise à niveau vers SharePoint 2013](https://technet.microsoft.com/library/cc262483.aspx).
 
 4. Installez l’adaptateur StorSimple pour SharePoint sur la nouvelle batterie de serveurs. Accédez à [Installation de l’adaptateur StorSimple pour SharePoint](#install-the-storsimple-adapter-for-sharepoint) pour plus d’informations.
 
@@ -23,7 +37,7 @@
 >
 >- Le contenu précédemment externalisé n’est pas disponible avant la réinstallation de l'adaptateur.
 >
->- Tout contenu téléchargé sur le site après la désinstallation de la version précédente de l'adaptateur StorSimple pour SharePoint, mais avant l'installation de la nouvelle version, est stocké dans la base de données de contenu. Vous devez déplacer ce contenu vers l’appareil StorSimple après l'installation du nouvel adaptateur.
+>- Tout contenu téléchargé sur le site après la désinstallation de la version précédente de l'adaptateur StorSimple pour SharePoint, mais avant l'installation de la nouvelle version, est stocké dans la base de données de contenu. Vous devez déplacer ce contenu vers l’appareil StorSimple après l'installation du nouvel adaptateur. Vous pouvez utiliser l’applet de commande Microsoft` RBS Migrate()` PowerShell incluse avec SharePoint pour migrer le contenu. Pour plus d’informations, consultez [Migration du contenu vers ou à partir de RBS](https://technet.microsoft.com/library/ff628255.aspx).
 
 
 #### Pour mettre à niveau l’adaptateur StorSimple pour SharePoint 
@@ -34,4 +48,4 @@
  
 2. Installation du nouvel adaptateur StorSimple pour SharePoint. Le nouvel adaptateur reconnaît automatiquement les bases de données de contenu précédemment activées ou désactivées pour RBS et utilise les paramètres précédents.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

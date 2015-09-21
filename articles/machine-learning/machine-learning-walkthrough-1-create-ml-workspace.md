@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Étape 1 : création d’un espace de travail Machine Learning | Microsoft Azure" 
-	description="Étape 1 de la procédure pas à pas de développement d’une solution prédictive : apprenez à configurer un nouvel espace de travail Azure Machine Learning Studio." 
-	services="machine-learning" 
-	documentationCenter="" 
-	authors="garyericson" 
-	manager="paulettm" 
+<properties
+	pageTitle="Étape 1 : création d’un espace de travail Machine Learning | Microsoft Azure"
+	description="Étape 1 de la procédure pas à pas de développement d’une solution prédictive : apprenez à configurer un nouvel espace de travail Azure Machine Learning Studio."
+	services="machine-learning"
+	documentationCenter=""
+	authors="garyericson"
+	manager="paulettm"
 	editor="cgronlun"/>
 
-<tags 
-	ms.service="machine-learning" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/10/2015" 
+<tags
+	ms.service="machine-learning"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/08/2015"
 	ms.author="garye"/>
 
 
@@ -26,7 +26,7 @@ Voici la première étape de la procédure pas à pas [Développement d’une so
 2.	[Télécharger des données existantes](machine-learning-walkthrough-2-upload-data.md)
 3.	[Créer une expérience](machine-learning-walkthrough-3-create-new-experiment.md)
 4.	[Former et évaluer les modèles](machine-learning-walkthrough-4-train-and-evaluate-models.md)
-5.	[Publier le service web](machine-learning-walkthrough-5-publish-web-service.md)
+5.	[Déployer le service web](machine-learning-walkthrough-5-publish-web-service.md)
 6.	[Accéder au service web](machine-learning-walkthrough-6-access-web-service.md)
 
 ----------
@@ -54,6 +54,5 @@ Pour plus d’informations, consultez la page [Gestion d’un espace de travail 
 **Suivant : [Téléchargement de données existantes](machine-learning-walkthrough-2-upload-data.md)**
 
 [1]: ./media/machine-learning-walkthrough-1-create-ml-workspace/create1.png
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

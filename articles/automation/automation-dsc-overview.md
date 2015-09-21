@@ -1,20 +1,20 @@
 <properties 
-   pageTitle="Vue d'ensemble d'Azure Automation DSC"
-	description="Vue d'ensemble de la configuration d'état souhaité (DSC) Azure Automation, les termes s'y rapportant et les problèmes connus"
-	services="automation"
-	documentationCenter="dev-center-name"
-	authors="coreyp-at-msft"
-	manager="stevenka"
-	editor="tysonn"/>
+   pageTitle="Vue d'ensemble d'Azure Automation DSC" 
+   description="Vue d'ensemble de la configuration d'état souhaité (DSC) Azure Automation, les termes s'y rapportant et les problèmes connus" 
+   services="automation" 
+   documentationCenter="dev-center-name" 
+   authors="coreyp-at-msft" 
+   manager="stevenka" 
+   editor="tysonn"/>
 
 <tags
    ms.service="automation"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="powershell"
-	ms.workload="TBD"
-	ms.date="08/18/2015"
-	ms.author="coreyp"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="powershell"
+   ms.workload="TBD" 
+   ms.date="09/04/2015"
+   ms.author="coreyp"/>
 
 # Vue d'ensemble d'Azure Automation DSC #
 
@@ -193,6 +193,12 @@ Azure Automation DSC fournit actuellement les applets de commande suivantes dans
 -	`Get-AzureAutomationDscCompilationJobOutput`
 -	`Start-AzureAutomationDscCompilationJob`
 
+
+##Cycle de vie d’Azure Automation DSC##
+Passer d’un compte Automation vide à un ensemble géré de nœuds correctement configurés implique un ensemble de processus permettant de définir des configurations, de convertir ces configurations en configurations de nœud et d’intégrer ces nœuds à Azure Automation DSC et à ces configurations de nœud. Le diagramme suivant illustre le cycle de vie d’Azure Automation DSC :
+
+![alt text](./media/automation-dsc-overview/DSCLifecycle.png)
+
 ##Pièges/Problèmes connus :##
 
 - Dans la mesure où Azure Automation DSC est en version préliminaire, lorsque vous utilisez cette fonctionnalité pour la première fois, vous devez vous y inscrire à l'aide d'applets de commande PowerShell Azure ou via le portail en version préliminaire Azure. Vous pouvez vous inscrire en appelant les deux applets de commande suivantes :
@@ -222,8 +228,8 @@ Azure Automation DSC fournit actuellement les applets de commande suivantes dans
 
 - Lorsqu'une machine virtuelle Azure est intégrée pour la gestion avec Azure Automation DSC à l'aide de `Register-AzureAutomationDscNode`, `Set-AzureVMExtension`, ou de l'extension de machine virtuelle Azure Automation DSC dans le portail Azure en version préliminaire, si l'inscription échoue avec le message **Le nom de l'ordinateur n'a pas été indiqué et le répertoire de configuration ne contient aucun fichier de configuration**, il s'agit d'une fausse alerte et l'inscription de la machine virtuelle a réussi. Il est possible de vérifier si l'inscription a réussi à l'aide de l'applet de commande `Get-AzureAutomationDscNode`.
 
-- Lorsqu’une machine virtuelle Azure est intégrée pour la gestion avec Azure Automation DSC à l’aide de `Register-AzureAutomationDscNode`, `Set-AzureVMExtension`, ou de l’extension de machine virtuelle Azure Automation DSC dans le portail Azure en version préliminaire, une heure peut être nécessaire avant que la machine virtuelle apparaisse comme un DSC dans Azure Automation. Cela est dû à l'installation de Windows Management Framework 5.0 sur la machine virtuelle par l'extension Azure VM DSC, nécessaire à l’intégration de la machine virtuelle dans Azure Automation DSC.
+- Quand une machine virtuelle Azure est intégrée pour la gestion à Azure Automation DSC à l’aide de `Register-AzureAutomationDscNode`, `Set-AzureVMExtension` ou de l’extension de machine virtuelle Azure Automation DSC sur le portail Azure en version préliminaire, une heure peut être nécessaire avant que la machine virtuelle apparaisse comme un nœud DSC dans Azure Automation. Cela est dû à l'installation de Windows Management Framework 5.0 sur la machine virtuelle par l'extension Azure VM DSC, nécessaire à l’intégration de la machine virtuelle dans Azure Automation DSC.
 
 - Les nœuds DSC intégrés à Azure Automation DSC affichent initialement un état « Conforme », même s’ils ne sont pas réellement conformes à la configuration du nœud DSC à laquelle ils sont mappés. Lorsqu’un nœud effectue sa première extraction et envoie son premier rapport DSC à Azure Automation DSC, l'état du nœud doit être correct.
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO2-->

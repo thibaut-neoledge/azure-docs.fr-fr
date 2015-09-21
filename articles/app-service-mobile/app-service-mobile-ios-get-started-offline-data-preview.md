@@ -140,7 +140,7 @@ Lorsque vous utilisez un magasin de données de base hors connexion, vous devez 
 
     | Attribut | Type |
     |----------- |   ------    |
-    | id | Integer 64 |
+    | id | String |
     | key | String |
     | keyType | Integer 64 |
     | table | String |
@@ -249,4 +249,4 @@ Lorsque nous avons voulu synchroniser le magasin local avec le serveur, nous avo
 [Azure Friday: Offline-enabled apps in Azure Mobile Services]: http://azure.microsoft.com/documentation/videos/azure-mobile-services-offline-enabled-apps-with-donna-malayeri/
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO2-->

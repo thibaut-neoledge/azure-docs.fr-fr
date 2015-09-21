@@ -1,18 +1,18 @@
 <properties 
-	pageTitle="API Application Insights pour les événements et les mesures personnalisés"
-	description="Insérez quelques lignes de code dans votre application de périphérique ou de bureau, votre page web ou votre service pour suivre l'utilisation et diagnostiquer les problèmes."
+	pageTitle="API Application Insights pour les événements et les mesures personnalisés" 
+	description="Insérez quelques lignes de code dans votre application de périphérique ou de bureau, votre page web ou votre service pour suivre l'utilisation et diagnostiquer les problèmes." 
 	services="application-insights"
-	documentationCenter=""
-	authors="alancameronwills"
+    documentationCenter="" 
+	authors="alancameronwills" 
 	manager="douge"/>
  
 <tags 
-	ms.service="application-insights"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="ibiza"
-	ms.devlang="multiple"
-	ms.topic="article"
-	ms.date="08/28/2015"
+	ms.service="application-insights" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="ibiza" 
+	ms.devlang="multiple" 
+	ms.topic="article" 
+	ms.date="08/28/2015" 
 	ms.author="awills"/>
 
 # API Application Insights pour les événements et les mesures personnalisés 
@@ -82,9 +82,9 @@ TelemetryClient est thread-safe.
 
 ## Suivi des événements
 
-Les événements peuvent être affichés dans [Metrics Explorer][metrics] comme un nombre agrégé et vous pouvez également afficher des occurrences individuelles dans [Recherche de diagnostic][diagnostic].
+Dans Application Insights, un *événement personnalisé* est un point de données que vous pouvez afficher à la fois dans [Metrics Explorer][metrics] en tant que nombre agrégé et dans [Recherche de diagnostic][diagnostic] en tant qu’occurrences individuelles. (Il n’est pas lié à des « événements » de type MVC ou autres.)
 
-Insérer des événements dans votre code pour compter la fréquence à laquelle ils utilisent une fonctionnalité particulière, la fréquence à laquelle ils atteignent des objectifs particuliers ou à laquelle ils font des choix particuliers.
+Insérez des appels TrackEvent dans votre code pour compter la fréquence à laquelle les utilisateurs choisissent une fonctionnalité particulière, la fréquence à laquelle ils atteignent des objectifs particuliers ou à laquelle ils commettent éventuellement des types d’erreurs particuliers.
 
 Par exemple, dans une application de jeu, envoyez un événement chaque fois qu'un utilisateur gagne le jeu :
 
@@ -105,14 +105,12 @@ Par exemple, dans une application de jeu, envoyez un événement chaque fois qu'
 
     telemetry.trackEvent("WinGame");
 
-
-Cliquez sur la vignette Événements personnalisés dans le panneau Vue d’ensemble :
+Ici, « WinGame » est le nom qui apparaît dans le portail Application Insights. Cliquez sur la vignette Événements personnalisés dans le panneau Vue d’ensemble :
 
 ![Accédez aux ressources de votre application dans portal.azure.com](./media/app-insights-api-custom-events-metrics/01-custom.png)
 
-Cliquez pour afficher un graphique de vue d’ensemble et une liste complète.
 
-Sélectionnez le graphique et faites des groupes par nom d'événement pour voir les contributions correspondantes des événements les plus importants.
+Le graphique est regroupé par nom d’événement, pour que vous puissiez voir les contributions correspondantes des événements les plus importants. Pour contrôler ce processus, sélectionnez le graphique et utilisez le contrôle de regroupement.
 
 ![Sélectionnez le graphique et définissez le groupe](./media/app-insights-api-custom-events-metrics/02-segment.png)
 
@@ -203,7 +201,7 @@ Il existe certaines [limites au nombre de propriétés, de valeurs de propriét�
 
 ![Ouvrez Metrics Explorer, sélectionnez le graphique puis sélectionnez la mesure](./media/app-insights-api-custom-events-metrics/03-track-custom.png)
 
-*Si votre mesure n'apparaît pas, fermez le panneau de sélection, patientez puis cliquez sur Actualiser.*
+*Si votre mesure n’apparaît pas, ou que l’en-tête personnalisé n’y figure pas, fermez le panneau de sélection et réessayez ultérieurement. L’agrégation des mesures via le pipeline peut parfois prendre une heure.*
 
 **Si vous avez utilisé des propriétés et des mesures**, segmentez la mesure par la propriété :
 
@@ -903,4 +901,4 @@ Il existe certaines limites au nombre de mesures et d’événements par applica
 
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

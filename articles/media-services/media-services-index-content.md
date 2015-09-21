@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="08/11/2015"  
+	ms.date="09/07/2015"   
 	ms.author="juliako"/>
 
 
@@ -336,6 +336,15 @@ Il n’y a aucun flux audio dans le fichier d’entrée.</td></tr>
 
 Les langues prises en charge pour le moment sont l’anglais et l’espagnol. Pour plus d’informations, consultez la [Version espagnole d’Azure Media Indexer](http://azure.microsoft.com/blog/2015/04/13/azure-media-indexer-spanish-v1-2/).
 
+
+##Parcours d’apprentissage de Media Services
+
+Vous pouvez afficher les parcours d’apprentissage d’AMS ici :
+
+- [Workflow en flux continu AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [Workflow de streaming à la demande AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+
+
 ##Liens connexes
 
 [Utilisation de fichiers AIB avec Azure Media Indexer et SQL Server](http://azure.microsoft.com/blog/2014/11/03/using-aib-files-with-azure-media-indexer-and-sql-server/)
@@ -346,4 +355,4 @@ Les langues prises en charge pour le moment sont l’anglais et l’espagnol. Po
 
 <!-- URLs. -->
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO2-->

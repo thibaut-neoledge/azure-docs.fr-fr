@@ -3,7 +3,7 @@
 	description="Messagerie Service Bus : service flexible de distribution de données dans le cloud"
 	services="service-bus"
 	documentationCenter=".net"
-	authors="djrosanova"
+	authors="sethmanheim"
 	manager="timlt"
 	editor=""/>
 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="07/02/2015"
+	ms.date="09/04/2015"
 	ms.author="sethm"/>
 
 
@@ -25,17 +25,34 @@ La messagerie Service Bus est un service fiable de distribution des informations
 
 L'expéditeur du message peut aussi choisir divers paramètres de distribution, notamment les transactions, la détection des doublons, l'expiration temporelle et le traitement par lot. Ces modèles présentent également certaines analogies avec le service postal : tentative renouvelée de distribution, signature obligatoire, changement d'adresse ou rappel.
 
-La messagerie Service Bus comporte deux fonctionnalités distinctes : les files d'attente et les rubriques. Ces deux entités de messagerie prennent en charge tous les concepts décrits ci-dessus, parmi d'autres. La principale différence est que les rubriques prennent en charge les fonctionnalités de publication et d'abonnement qui peuvent être utilisées dans la logique de distribution et de routage basée sur du contenu sophistiqué, y compris l'envoi à plusieurs destinataires.
+Service Bus prend en charge deux modèles de messagerie distincts : la messagerie *relayée* et la messagerie *répartie*.
+
+## Messagerie relayée
+
+Le composant relais de Service Bus est un service centralisé (mais très équilibré) qui prend en charge différents protocoles de transfert et normes de services web. Cela inclut SOAP, WS-* et même REST. Le service de relais fournit une gamme d'options de connectivité relais différentes et aide à négocier des connexions directes peer-to-peer quand c’est possible. Service Bus est optimisé pour les développeurs .NET qui utilisent Windows Communication Foundation (WCF), en ce qui concerne à la fois les performances et la convivialité, et fournit un accès complet à son service de relais via des interfaces SOAP et REST. Cela rend possible l’intégration de n'importe quel environnement de programmation SOAP ou REST à Service Bus.
+
+Le service de relais prend en charge la messagerie unidirectionnelle standard, la messagerie demande/réponse et la messagerie d’homologue à homologue. Il prend également en charge la distribution des événements sur Internet pour activer les scénarios de publication/abonnement et la communication par socket bidirectionnelle pour une efficacité accrue de point à point. Dans le modèle de messagerie par relais, un service local se connecte au service de relais via un port sortant et crée un socket bidirectionnel lié à des adresses de rendez-vous spécifiques. Le client peut ensuite communiquer avec le service local en envoyant des messages au service de relais en ciblant l'adresse de rendezvous. Le service de relais « relayera » ensuite les messages au service local via le socket bidirectionnel déjà en place. Le client n’a pas besoin d’une connexion directe au service local ni de savoir où se trouve le service, et le service local n’a pas besoin d’ouvrir de ports entrants sur le pare-feu.
+
+Vous devez lancer la connexion entre votre service local et le service de relais à l'aide d'une suite de liaisons de « relais » WCF. En coulisses, les liaisons de relais se mappent aux éléments de liaison de transfert destinés à créer des composants de canal WCF qui s'intègrent à Service Bus dans le cloud.
+
+La messagerie relayée offre de nombreux avantages, mais nécessite que le serveur et le client soient en ligne en même temps pour envoyer et recevoir des messages. Cela n'est pas optimal pour la communication de style HTTP, dans laquelle les requêtes ne sont généralement pas durables, ni pour les clients qui ne se connectent qu'occasionnellement, comme les navigateurs, les applications mobiles et ainsi de suite. La messagerie répartie prend en charge la communication répartie et a ses propres avantages ; les clients et les serveurs peuvent se connecter lorsque c’est nécessaire et effectuer leurs opérations de manière asynchrone.
+
+## Messagerie répartie
+
+Contrairement au modèle de la messagerie relayée, la messagerie répartie peut être considérée comme asynchrone, ou « temporellement répartie ». Les producteurs (expéditeurs) et les consommateurs (récepteurs) n'ont pas besoin d’être en ligne en même temps. L'infrastructure de la messagerie stocke les messages de façon fiable dans un « broker » (par exemple, une file d'attente) jusqu'à ce que le récepteur soit prêt à les recevoir. Ceci permet aux composants de l'application distribuée d'être déconnectés, soit volontairement, par exemple pour des raisons de maintenance, soit en raison de l'échec d'un composant, sans conséquences sur le système dans sa globalité. En outre, il se peut que l'application réceptrice n’ait besoin d’être en ligne qu’à certaines heures de la journée (par exemple, un système de gestion d'inventaire dont l’exécution n’est requise qu’en fin de journée).
+
+Les principaux composants de l'infrastructure de la messagerie répartie Service Bus sont des files d'attente, des rubriques et des abonnements. La principale différence est que les rubriques prennent en charge les fonctionnalités de publication et d'abonnement qui peuvent être utilisées dans la logique de distribution et de routage basée sur du contenu sophistiqué, y compris l'envoi à plusieurs destinataires. Ces composants donnent accès à de nouveaux scénarios de messagerie asynchrone, comme le découplage temporel, la publication/abonnement et l'équilibrage de charge. Pour plus d’informations sur ces éléments de messagerie, consultez [Files d’attente, rubriques et abonnements Service Bus](service-bus-queues-topics-subscriptions.md).
+
+Comme pour l'infrastructure de messagerie relayée, la fonctionnalité de messagerie répartie est destinée aux programmeurs WCF et .NET Framework, ainsi que via REST.
 
 ## Étapes suivantes
 
 Pour en savoir plus sur la messagerie Service Bus, consultez les rubriques suivantes.
 
-- [Présentation de l'architecture d'Azure Service Bus](fundamentals-service-bus-hybrid-solutions.md)
-
+- [Files d'attente, rubriques et abonnements Service Bus](service-bus-queues-topics-subscriptions.md)
+- [Présentation de l'architecture d'Azure Service Bus](service-bus-fundamentals-hybrid-solutions.md)
 - [Utilisation des files d’attente Service Bus](service-bus-dotnet-how-to-use-queues.md)
-
 - [Comment utiliser les rubriques Service Bus](service-bus-dotnet-how-to-use-topics-subscriptions.md)
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO2-->

@@ -1,6 +1,7 @@
 <properties 
 	pageTitle="En savoir plus sur les concepts clés de Stream Analytics | Microsoft Azure" 
 	description="Découvrez les principaux concepts de Stream Analytics : composants d’une tâche Stream Analytics, notamment les entrées et sorties prises en charge, la configuration de la tâche et les mesures associées." 
+	keywords="event processing,data stream,key concepts,serialization"	
 	services="stream-analytics" 
 	documentationCenter="" 
 	authors="jeffstokes72" 
@@ -13,7 +14,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="08/04/2015" 
+	ms.date="09/09/2015" 
 	ms.author="jeffstok" />
 
 
@@ -38,7 +39,7 @@ Un travail Stream Analytics comprend l’ensemble des éléments suivants : -�
 
 ### Flux de données
 
-Chaque définition de travail Stream Analytics doit contenir au moins une source d'entrée de flux qui sera traitée et transformée par le travail. Le [stockage Azure Blob](http://azure.microsoft.com/documentation/services/storage/) et [Azure Event Hubs](http://azure.microsoft.com/services/event-hubs/) sont pris en charge en tant que sources d’entrées de flux de données. Les sources d'entrée de concentrateurs d'événements permettent de collecter des flux d'événements à partir de plusieurs périphériques et services différents, tandis que le stockage d'objets blob peut servir de source d'entrée pour la réception de grandes quantités de données. Étant donné que les objets blob ne diffusent pas de données, les travaux Stream Analytics rattachés aux objets blob ne dureront pas dans le temps, sauf si les enregistrements des objets blob contiennent des horodatages.
+Chaque définition de travail Stream Analytics doit contenir au moins une source d'entrée de flux qui sera traitée et transformée par le travail. Le [stockage Azure Blob](http://azure.microsoft.com/documentation/services/storage/) et [Azure Event Hubs](http://azure.microsoft.com/services/event-hubs/) sont pris en charge en tant que sources d’entrées de flux de données. Les sources d'entrée de hubs d'événements permettent de collecter des flux d'événements à partir de plusieurs périphériques et services différents, tandis que le stockage d'objets blob peut servir de source d'entrée pour la réception de grandes quantités de données. Étant donné que les objets blob ne diffusent pas de données, les travaux Stream Analytics rattachés aux objets blob ne dureront pas dans le temps, sauf si les enregistrements des objets blob contiennent des horodatages.
 
 ### Données de référence
 Stream Analytics prend également en charge un deuxième type de source d'entrée : les données de référence. Il s'agit de données auxiliaires permettant d'effectuer des corrélations et des recherches. Ces données sont généralement statiques ou rarement modifiées. Le [stockage d'objets blob Azure](http://azure.microsoft.com/documentation/services/storage/) est la seule source d'entrée prise en charge pour les données de référence. Les objets blob de source de données de référence sont limités à une taille de 50 Mo.
@@ -78,13 +79,13 @@ Selon le type d'entrée utilisé dans le travail, des champs supplémentaires se
 		<td>ID de partition de base zéro de l'adaptateur d'entrée.</td>
 	</tr>
 	<tr>
-		<td rowspan="3" valign="top"><b>Concentrateur d'événements</b></td>
+		<td rowspan="3" valign="top"><b>Hub d'événements</b></td>
 		<td>EventProcessedUtcTime</td>
 		<td>Date et heure du traitement de l'événement.</td>
 	</tr>
 	<tr>
 		<td>EventEnqueuedUtcTime</td>
-		<td>Date et heure de la réception de l'événement par le concentrateur d'événements.</td>
+		<td>Date et heure de la réception de l'événement par le hub d'événements.</td>
 	</tr>
 	<tr>
 		<td>PartitionId</td>
@@ -92,16 +93,16 @@ Selon le type d'entrée utilisé dans le travail, des champs supplémentaires se
 	</tr>
 </table>
 
-###Partitions avec des données d'entrée lentes ou inexistantes
+### Partitions avec des données d'entrée lentes ou inexistantes
 En cas de lecture à partir de sources d'entrée qui ont plusieurs partitions et quand une ou plusieurs partitions sont à la traîne ou ne comportent pas de données, le travail de diffusion en continu doit déterminer comment gérer cette situation pour que les événements continuent de circuler dans le système. Le paramètre d'entrée « Retard d'arrivée maximal autorisé » contrôle ce comportement. Par défaut, il est défini de sorte à attendre les données indéfiniment, ce qui signifie que les horodatages des événements ne sont pas modifiés, mais également que les événements circulent en fonction de la partition d'entrée la plus lente. Ils cessent de circuler si une ou plusieurs partitions d'entrée ne comportent pas de données. Cette définition s'avère utile si les données sont réparties uniformément sur les partitions d'entrée et que la cohérence temporelle entre les événements est essentielle.
 
 Vous pouvez également décider de n'attendre que pendant une période limitée. Le paramètre « Retard d'arrivée maximal autorisé » détermine le délai à l’issue duquel le travail décide d'avancer, en laissant les partitions d'entrée à la traîne et en agissant sur les événements en fonction du paramètre « Action pour les événements en retard », c'est-à-dire en les annulant ou en réglant leurs horodatages si des données arrivent plus tard. Cette définition s'avère utile si la latence est essentielle et le décalage d'horodatage toléré, mais les entrées risquent de ne pas être distribuées uniformément.
 
-###Partitions avec des événements en désordre
+### Partitions avec des événements en désordre
 Quand la requête du travail de diffusion en continu utilise le mot clé TIMESTAMP BY, il n'y a aucune garantie quant à l'ordre dans lequel les événements arrivent à l'entrée. Certains événements dans la même partition d'entrée peuvent être à la traîne, le paramètre « Désordre maximal autorisé au sein d'une entrée » entraîne le travail de diffusion en continu à agir sur les événements qui sont trouvent en dehors de la tolérance de l'ordre, en fonction du paramètre « Action pour les événements en retard », en les annulant ou en réglant leurs horodatages.
 
 ### Ressources supplémentaires
-Pour plus d'informations sur la création de sources d'entrée, consultez le [Guide de développement de concentrateurs d'événements Azure](http://msdn.microsoft.com/library/azure/dn789972.aspx) et [Utilisation du stockage d'objets Blob Azure](../storage/storage-dotnet-how-to-use-blobs.md).
+Pour plus d'informations sur la création de sources d'entrée, consultez le [Guide de développement Azure Event Hubs](http://msdn.microsoft.com/library/azure/dn789972.aspx) et [Utilisation du stockage d'objets Blob Azure](../storage/storage-dotnet-how-to-use-blobs.md).
 
 
 
@@ -133,12 +134,12 @@ Pour en savoir plus sur le langage des requêtes, consultez les [Références su
 ## Sortie
 La cible de sortie correspond à l'emplacement d'écriture des résultats du travail Stream Analytics. Les résultats sont écrits en continu dans la cible de sortie pendant que le travail traite les événements d'entrée. Les cibles de sortie suivantes sont prises en charge :
 
-- Concentrateurs d'événements Azure : sélectionnez le concentrateur d'événements comme cible de sortie pour les scénarios où vous devez utiliser simultanément plusieurs pipelines de diffusion, comme lorsque des commandes sont renvoyées vers les périphériques.
+- Hubs d'événements Azure : sélectionnez le hub d'événements comme cible de sortie pour les scénarios où vous devez utiliser simultanément plusieurs pipelines de diffusion, comme lorsque des commandes sont renvoyées vers les périphériques.
 - Stockage d'objets blob : utilisez ces objets blob pour archiver la sortie sur le long terme ou pour stocker des données en vue d'un traitement ultérieur.
 - Stockage sur les tables Azure : il s'agit d'un magasin de données structurées avec moins de contraintes sur le schéma. Les entités avec un schéma et des types différents peuvent être stockées dans la même table Azure. Le stockage des données sur les tables Azure permet d’assurer leur persistance et une récupération efficace. Pour plus d'informations, consultez [Introduction à Azure Storage](../storage/storage-introduction.md) et [Conception d'une stratégie de partition extensible pour le stockage de tables Azure](https://msdn.microsoft.com/library/azure/hh508997.aspx).
 - Base de données SQL Azure : cette cible de sortie convient aux données de nature relationnelle ou aux applications qui dépendent de contenus hébergés dans une base de données.
 
-## Unités de diffusion en continu ##
+## Unités de diffusion en continu
 Pour fournir des performances plus prévisibles aux clients, Azure Stream Analytics utilise des unités de diffusion en continu pour représenter les ressources et la puissance afin d’exécuter un travail. Ces unités permettent de décrire la capacité relative de traitement des événements basée sur une mesure mixte du processeur, de la mémoire et des taux de lecture et d’écriture. Chaque unité de diffusion en continu correspond à un débit d'environ 1 Mo/s. Chaque travail Azure Stream Analytics doit avoir au moins une unité de diffusion en continu, qui correspond à la valeur par défaut de tous les travaux. Pour en savoir plus sur la sélection du nombre approprié d’unités de diffusion en continu pour un travail, consultez [Mise à l’échelle des travaux Azure Stream Analytics](stream-analytics-scale-jobs.md).
 
 ## Mise à l'échelle des travaux
@@ -167,7 +168,7 @@ Les mesures suivantes sont disponibles pour surveiller l'utilisation et les perf
 - Erreurs de conversion de données : nombre d'erreurs de conversion de données générées par un travail Stream Analytics.
 
 ### Journaux des opérations
-La meilleure approche pour déboguer un travail Stream Analytics ou résoudre ses problèmes consiste à utiliser les journaux des opérations Azure. Ces journaux sont accessibles dans la section **Services de gestion** du portail. Pour examiner les journaux de votre travail, définissez le champ **Type de service** sur **Stream Analytics** et le champ **Nom du service** sur le nom de votre travail.
+La meilleure approche pour déboguer un travail Stream Analytics ou résoudre ses problèmes consiste à utiliser le service Journaux des opérations Azure. Ces journaux sont accessibles dans la section **Services de gestion** du portail. Pour examiner les journaux de votre travail, définissez le champ **Type de service** sur **Stream Analytics** et le champ **Nom du service** sur le nom de votre travail.
 
 
 ## Gestion des travaux 
@@ -181,7 +182,7 @@ Voici les paramètres généraux d'un travail Stream Analytics que vous pouvez r
 - **Démarrer la sortie** : utilisez ce paramètre pour spécifier quand ce travail commence à produire la sortie obtenue. Si la requête associée est comprise dans un intervalle de temps, le travail commence à récupérer des données d'entrée à partir des sources d'entrée au début de cet intervalle, afin de produire le premier événement de sortie au moment défini. Il existe deux options : **Heure de début du travail** et **Personnalisé**. Le paramètre par défaut est **Heure de début du travail**. Pour l'option **Personnalisé**, vous devez indiquer une date et une heure. Ce paramètre est utile pour indiquer la quantité de données d'historique des sources d'entrée à traiter ou pour récupérer des données de traitement à un moment précis, comme par exemple, lors du dernier arrêt d'un travail. 
 - **Stratégie d'arrivée en désordre** : paramètres permettant de gérer des événements qui n'arrivent pas jusqu'au travail Stream Analytics les uns à la suite des autres. Vous pouvez désigner un seuil pour réorganiser les événements en spécifiant une fenêtre de tolérance et en déterminant une action à effectuer sur les événements en dehors de cette fenêtre : **Annuler** ou **Régler**. **Annuler** supprime l’ensemble des événements reçus en désordre, tandis que **Régler** modifie le système. Horodatage des événements en désordre suivant l’horodatage de l’événement le plus récent reçu dans l’ordre. 
 - **Stratégie d'arrivée en désordre** : en cas de lecture à partir de sources d'entrée qui ont plusieurs partitions et quand une ou plusieurs partitions sont à la traîne ou ne comportent pas de données, le travail de diffusion en continu doit déterminer comment gérer cette situation pour que les événements continuent de circuler dans le système. Le paramètre d'entrée « Retard d'arrivée maximal autorisé » contrôle ce comportement. Par défaut, il est défini de sorte à attendre les données indéfiniment, ce qui signifie que les horodatages des événements ne sont pas modifiés, mais également que les événements circulent en fonction de la partition d'entrée la plus lente. Ils cessent de circuler si une ou plusieurs partitions d'entrée ne comportent pas de données. Cette définition s'avère utile si les données sont réparties uniformément sur les partitions d'entrée et que la cohérence temporelle entre les événements est essentielle. L'utilisateur peut également décider d'attendre uniquement pendant une période limitée. Le paramètre « Retard d'arrivée maximal autorisé » détermine le délai après lequel le travail décide d'avancer, en laissant les partitions d'entrée à la traîne et en agissant sur les événements en fonction du paramètre « Action pour les événements en retard », c'est-à-dire en les annulant ou en réglant leurs horodatages si des données arrivent plus tard. Cette définition s'avère utile si la latence est essentielle et le décalage d'horodatage toléré, mais les entrées risquent de ne pas être distribuées uniformément.
-- **Paramètres régionaux** : utilisez ce paramètre pour indiquer les préférences internationales pour le travail Stream Analytics. Si les horodatages des données sont des paramètres régionaux neutre, ces paramètres-ci peuvent affecter l'analyser, la comparaison et les données de tri du travail. Pour la version préliminaire, seul le paramètre **en-US** est pris en charge.
+- **Paramètres régionaux** : utilisez ce paramètre pour indiquer les préférences internationales pour le travail Stream Analytics. Si les horodatages des données sont des paramètres régionaux neutre, ces paramètres-ci peuvent affecter l'analyser, la comparaison et les données de tri du travail. Pour la version préliminaire, seul le paramètre **fr-FR** est pris en charge.
 
 ### État
 
@@ -192,7 +193,7 @@ L'état des travaux Stream Analytics peut être examiné dans le portail Azure. 
 
 
 ## Obtenir de l'aide
-Pour obtenir une assistance, consultez le [forum Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
+Pour obtenir une assistance, consultez le [forum Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/fr-FR/home?forum=AzureStreamAnalytics)
 
 
 ## Étapes suivantes
@@ -206,4 +207,4 @@ Maintenant que vous connaissez les concepts clés de Stream Analytics, consulte
 - [Références sur l'API REST de gestion d'Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

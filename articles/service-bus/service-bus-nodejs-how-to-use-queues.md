@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Utilisation des files d’attente Service Bus (Node.js) | Microsoft Azure"
-	description="Découvrez comment utiliser les files d'attente Service Bus dans Azure à partir d’une application Node.js."
-	services="service-bus"
-	documentationCenter="nodejs"
-	authors="MikeWasson"
-	manager="wpickett"
+	pageTitle="Utilisation des files d’attente Service Bus (Node.js) | Microsoft Azure" 
+	description="Découvrez comment utiliser les files d'attente Service Bus dans Azure à partir d’une application Node.js." 
+	services="service-bus" 
+	documentationCenter="nodejs" 
+	authors="MikeWasson" 
+	manager="wpickett" 
 	editor=""/>
 
 <tags 
-	ms.service="service-bus"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="na"
-	ms.devlang="nodejs"
-	ms.topic="article"
-	ms.date="07/06/2015"
+	ms.service="service-bus" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="nodejs" 
+	ms.topic="article" 
+	ms.date="07/06/2015" 
 	ms.author="mwasson"/>
 
 # Utilisation des files d’attente Service Bus
@@ -165,8 +165,8 @@ Si l'application subit un incident après le traitement du message, mais avant l
 
 Maintenant que vous avez appris les principes de base des files d'attente Service Bus, consultez ces liens pour en savoir plus :
 
--   Consultez la référence MSDN suivante : [Files d’attente, rubriques et abonnements][].
--   Accédez au référentiel du [Kit de développement logiciel (SDK) Azure pour Node] sur GitHub.
+-   Consultez [Files d’attente, rubriques et abonnements][].
+-   Accédez au référentiel du [Kit de développement logiciel (SDK) Azure pour Node][] sur GitHub.
 
   [Kit de développement logiciel (SDK) Azure pour Node]: https://github.com/Azure/azure-sdk-for-node
   [Étapes suivantes]: #next-steps
@@ -183,10 +183,10 @@ Maintenant que vous avez appris les principes de base des files d'attente Servic
   [Azure Management Portal]: http://manage.windowsazure.com
   
   [Node.js Cloud Service]: ../cloud-services/cloud-services-nodejs-develop-deploy-app.md
-  [Files d’attente, rubriques et abonnements]: http://msdn.microsoft.com/library/azure/hh367516.aspx
+  [Files d’attente, rubriques et abonnements]: service-bus-queues-topics-subscriptions.md
   [Création et déploiement d’une application Node.js dans un site Web Azure]: ../app-service-web/web-sites-nodejs-develop-deploy-mac.md
   [Service cloud Node.js avec stockage]: ../cloud-services/storage-nodejs-use-table-storage-cloud-service-app.md
   [Application web Node.js avec stockage]: ../storage/storage-nodejs-how-to-use-table-storage.md
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO2-->

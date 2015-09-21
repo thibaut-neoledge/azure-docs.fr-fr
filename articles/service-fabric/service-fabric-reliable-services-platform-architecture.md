@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/13/2015"
+   ms.date="09/03/2015"
    ms.author="alanwar"/>
 
 # Architecture de service fiable
@@ -92,4 +92,4 @@ Pour plus d'informations sur Service Fabric, consultez :
 [Configuration du service fiable](../Service-Fabric/service-fabric-reliable-services-configuration.md)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

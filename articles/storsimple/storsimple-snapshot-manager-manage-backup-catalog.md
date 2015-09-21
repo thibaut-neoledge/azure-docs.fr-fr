@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Utiliser le Gestionnaire d’instantanés StorSimple pour gérer le catalogue de sauvegarde | Microsoft Azure"
+   pageTitle="Catalogue de sauvegarde du Gestionnaire d’instantanés StorSimple | Microsoft Azure"
    description="Décrit comment utiliser le composant logiciel enfichable MMC du Gestionnaire d’instantanés StorSimple pour afficher et gérer le catalogue de sauvegarde."
    services="storsimple"
    documentationCenter="NA"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="08/17/2015"
+   ms.date="09/04/2015"
    ms.author="v-sharos" />
 
 # Utiliser le Gestionnaire d’instantanés StorSimple pour gérer le catalogue de sauvegarde
@@ -207,4 +207,4 @@ Il est recommandé de sauvegarder régulièrement la base de données du Gestion
 
 En savoir plus sur [les tâches et les flux de travail du Gestionnaire d’instantanés StorSimple](storsimple-snapshot-manager-admin.md#storsimple-snapshot-manager-tasks-and-workflows).
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO2-->

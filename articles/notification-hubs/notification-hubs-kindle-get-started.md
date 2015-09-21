@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Prise en main d’Azure Notification Hubs | Microsoft Azure"
+	pageTitle="Prendre en main Azure Notification Hubs pour les applications Kindle | Microsoft Azure"
 	description="Ce didacticiel montre comment utiliser Azure Notification Hubs pour envoyer des notifications Push vers une application Kindle."
 	services="notification-hubs"
 	documentationCenter=""
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="mobile-kindle"
 	ms.devlang="Java"
 	ms.topic="hero-article"
-	ms.date="06/16/2015"
+	ms.date="09/03/2015"
 	ms.author="wesmc"/>
 
-# Prise en main de Notification Hubs
+# Prendre en main Notification Hubs pour les applications Kindle
 
 [AZURE.INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
 
@@ -68,7 +68,7 @@ Ce didacticiel requiert les éléments suivants :
 5.  Copiez l'empreinte digitale **MD5**.
 6.  De retour dans le portail des développeurs, dans l’onglet **Messagerie**, cliquez sur **Android/Kindle**et entrez le nom du package correspondant à votre application (par exemple, **com.sample.notificationhubtest**) ainsi que la valeur **MD5**, puis cliquez sur **Generate API Key**.
 
-## Ajout d’informations d’identification au concentrateur
+## Ajout d’informations d’identification au hub
 
 Dans le portail, ajoutez la clé secrète client et l’ID client à l’onglet **Configurer** de votre Notification Hub.
 
@@ -148,7 +148,7 @@ Modifiez le manifeste de l'application afin qu'il prenne en charge ADM :
 		import com.amazon.device.messaging.ADMMessageReceiver;
 		import com.microsoft.windowsazure.messaging.NotificationHub
 
-3. Ajoutez le code suivant dans la classe que vous avez créée. N’oubliez pas de remplacer le nom du concentrateur et la chaîne de connexion (écoute) :
+3. Ajoutez le code suivant dans la classe que vous avez créée. N’oubliez pas de remplacer le nom du hub et la chaîne de connexion (écoute) :
 
 		public static final int NOTIFICATION_ID = 1;
 		private NotificationManager mNotificationManager;
@@ -281,4 +281,4 @@ Pour envoyer un message avec .NET :
 [6]: ./media/notification-hubs-kindle-get-started/notification-hub-kindle-new-java-class.png
 [7]: ./media/notification-hubs-kindle-get-started/notification-hub-kindle-notification.png
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO2-->

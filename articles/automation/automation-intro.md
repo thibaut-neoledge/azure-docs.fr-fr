@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article" 
-	ms.date="07/06/2015"
+	ms.date="09/03/2015"
 	ms.author="bwren"/>
 
 # Qu'est-ce qu'Azure Automation ?
@@ -58,11 +58,11 @@ De nombreuses ressources sont disponibles pour vous permettre d'en savoir plus s
 
 - Vous vous trouvez actuellement dans la **bibliothèque Azure Automation**. Les articles de cette bibliothèque fournissent une documentation complète sur la configuration et l'administration d'Azure Automation et pour la création de vos propres Runbooks.
 - Les [applets de commande Azure PowerShell](http://msdn.microsoft.com/library/jj156055.aspx) fournissent des informations sur les opérations d’automatisation Azure à l'aide de Windows PowerShell. Les Runbooks recourent à ces applets de commande pour utiliser les ressources Azure.
-- Le [blog Azure Automation](http://azure.microsoft.com/blog/tag/azure-automation) fournit les dernières informations Microsoft sur Azure Automation. Vous devriez vous abonner à ce blog pour rester à jour avec la dernière version de l'équipe Azure Automation.
+- Le [blog de gestion](http://azure.microsoft.com/blog/topics/management) fournit les dernières informations sur Azure Automation et d’autres technologies de gestion de Microsoft. Vous devriez vous abonner à ce blog pour rester à jour avec la dernière version de l'équipe Azure Automation.
 - Le [forum Automation Forum](http://go.microsoft.com/fwlink/p/?LinkId=390561) vous permet de publier des questions sur Azure Automation à destination de Microsoft et de la communauté Automation.
 
 ## Puis-je fournir des commentaires ?
 
 **Faites-nous part de vos commentaires !** Si vous recherchez un module d'intégration ou une solution de Runbook Azure Automation, envoyez une demande de script au Centre de scripts. Le cas échéant, publiez vos commentaires ou demandes de fonctionnalités pour Azure Automation sur [User Voice](http://feedback.windowsazure.com/forums/34192--general-feedback). Merci !
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

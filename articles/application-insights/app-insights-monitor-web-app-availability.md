@@ -2,7 +2,7 @@
 	pageTitle="Analyse de la disponibilité et de la réactivité d’un site Web | Microsoft Azure"
 	description="Configurez des tests web dans Application Insights. Recevez des alertes si un site web devient indisponible ou répond lentement."
 	services="application-insights"
-	documentationCenter=""
+    documentationCenter=""
 	authors="alancameronwills"
 	manager="douge"/>
 
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="07/08/2015"
+	ms.date="09/08/2015"
 	ms.author="awills"/>
 
 # Analyse de la disponibilité et de la réactivité d'un site Web
@@ -218,7 +218,7 @@ Vous pouvez par exemple désactiver des tests web lorsque vous effectuez des op�
 
 * *Puis-je appeler du code à partir de mon test web ?*
 
-    Non. Les étapes du test doivent se trouver dans le fichier .webtest.
+    Non. Les étapes du test doivent se trouver dans le fichier .webtest. Il existe un certain nombre de plug-ins qui peuvent s’avérer utiles.
 
 ## <a name="video"></a>Vidéo
 
@@ -240,4 +240,4 @@ Vous pouvez par exemple désactiver des tests web lorsque vous effectuez des op�
 [qna]: app-insights-troubleshoot-faq.md
 [start]: app-insights-get-started.md
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO2-->

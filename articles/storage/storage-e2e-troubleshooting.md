@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="06/22/2015" 
+	ms.date="09/03/2015" 
 	ms.author="tamram"/>
 
 # Résolution des problèmes de bout en bout avec les métriques et la journalisation Azure, AzCopy et Message Analyzer 
@@ -23,7 +23,7 @@ Diagnostic et résolution des problèmes sont essentiels pour la création et la
 
 Dans ce didacticiel, nous montrons comment identifier certaines erreurs du client qui peuvent affecter les performances et comment résoudre ces erreurs de bout en bout à l'aide des outils fournis par Microsoft et Azure Storage, afin d'optimiser l'application cliente.
 
-Ce didacticiel fournit une exploration pratique d'un scénario de dépannage de bout en bout. Pour un guide conceptuel détaillé du dépannage des applications de stockage Azure, consultez la page [Analyse, diagnostic et résolution des problèmes rencontrés sur Microsoft Azure Storage](../articles/storage-monitoring-diagnosing-troubleshooting.md).
+Ce didacticiel fournit une exploration pratique d'un scénario de dépannage de bout en bout. Pour un guide conceptuel détaillé du dépannage des applications de stockage Azure, consultez la page [Analyse, diagnostic et résolution des problèmes rencontrés sur Microsoft Azure Storage](storage-monitoring-diagnosing-troubleshooting.md).
 
 ## Outils de résolution des problèmes dans les applications Azure Storage
 
@@ -367,7 +367,7 @@ Maintenant que vous êtes familiarisé avec Message Analyzer pour analyser vos d
 
 Pour plus d'informations sur les scénarios de résolution des problèmes de bout en bout dans Azure Storage, consultez les ressources suivantes :
 
-- [Analyse, diagnostic et résolution des problèmes rencontrés sur Microsoft Azure Storage](http://azure.microsoft.com/documentation/articles/storage-monitoring-diagnosing-troubleshooting/)
+- [Analyse, diagnostic et résolution des problèmes rencontrés sur Microsoft Azure Storage](storage-monitoring-diagnosing-troubleshooting.md)
 - [Analyse du stockage](http://msdn.microsoft.com/library/azure/hh343270.aspx)
 - [Surveillance d'un compte de stockage](storage-monitor-storage-account.md)
 - [Utilisation de AzCopy avec Microsoft Azure Storage](storage-use-azcopy.md)
@@ -375,4 +375,4 @@ Pour plus d'informations sur les scénarios de résolution des problèmes de bou
  
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

@@ -1,20 +1,20 @@
 <properties
    pageTitle="Charge de travail de l’entrepôt de données"
-	description="La flexibilité de SQL Data Warehouse vous permet d’accroître, de réduire ou d’interrompre la puissance de calcul en valorisant une mise à l’échelle de glissement d’unités d’entrepôt de données (DWU). Cet article vous présente les mesures associées à l’entrepôt de données le rôle des unités DWU."
-	services="sql-data-warehouse"
-	documentationCenter="NA"
-	authors="barbkess"
-	manager="jhubbard"
-	editor=""/>
+   description="La flexibilité de SQL Data Warehouse vous permet d’accroître, de réduire ou d’interrompre la puissance de calcul en valorisant une mise à l’échelle de glissement d’unités d’entrepôt de données (DWU). Cet article vous présente les mesures associées à l’entrepôt de données le rôle des unités DWU."
+   services="sql-data-warehouse"
+   documentationCenter="NA"
+   authors="barbkess"
+   manager="jhubbard"
+   editor=""/>
 
 <tags
    ms.service="sql-data-warehouse"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="data-services"
-	ms.date="05/23/2015"
-	ms.author="barbkess;JRJ@BigBangData.co.uk"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="data-services"
+   ms.date="09/04/2015"
+   ms.author="barbkess;twounder;JRJ@BigBangData.co.uk"/>
 
 # Charge de travail de l’entrepôt de données
 Le concept de « charge de travail d’entrepôt de données » fait référence à l’ensemble des opérations se produisant dans un entrepôt de données. La charge de travail de l’entrepôt de données comprend l’ensemble du processus de chargement des données dans l’entrepôt, d’exécution de l’analyse et de génération des rapports sur l’entrepôt de données, de gestion des données dans l’entrepôt de données et d’exportation des données de l’entrepôt de données. La complexité et l’étendue de ces composants sont bien souvent proportionnées par rapport au niveau de maturité de l’entrepôt de données.
@@ -37,7 +37,7 @@ Le chargement des données est une phase importante de la charge de travail de l
 
 - Traditionnellement, le processus de chargement est appelé ETL (Extract, Transform and Load, pour extraction, transformation et chargement). Les données doivent généralement être transformées, ceci pour garantir une cohérence avec les autres données de l’entrepôt de données. Auparavant, les entreprises effectuaient les transformations à l’aide de serveurs ETL dédiés. Désormais, en valorisant le traitement massivement parallèle, vous commencez par charger les données dans SQL Data Warehouse, puis effectuez les transformations. Il s’agit du processus ELT (Extract, Load and Transform pour extraction, chargement et transformation), qui devient la norme associée aux charges de travail d’entrepôts de données.
 
-> [REMARQUE MICROSOFT AZURE] En vous dotant de SQL Server CTP2, vous pouvez effectuer des analyses en temps réel sur une table OLTP. Si cette solution ne constitue pas une alternative au stockage et à l’analyse de données dans un entrepôt de données, elle procure un moyen d’exécuter l’analyse en temps réel.
+> [AZURE.NOTE]En vous dotant de SQL Server CTP2, vous pouvez effectuer des analyses en temps réel sur une table OLTP. Si cette solution ne constitue pas une alternative au stockage et à l’analyse de données dans un entrepôt de données, elle procure un moyen d’exécuter l’analyse en temps réel.
  
 ### Requêtes de rapports et d’analyse
 Les requêtes de rapports et d’analyse sont bien souvent classées en tant que requêtes réduites, intermédiaires ou importantes en fonction du nombre de critères, mais elles sont généralement basées sur des intervalles de temps. La plupart des entrepôts de données comportent une charge de travail hybride, comprenant à la fois des requêtes à courte échéance et à longue échéance. Pour chaque cas, il est important d’identifier ce mélange et de déterminer sa fréquence (horaire, quotidienne, fin du mois, fin de trimestre, etc.). Il est essentiel de comprendre que cette charge de travail hybride de requêtes, couplée à l’accès concurrentiel, permet de planifier de manière appropriée la capacité d’un entrepôt de données.
@@ -66,10 +66,10 @@ Pour commencer à développer votre entrepôt de données, consultez la [vue d�
 <!--Image references-->
 
 <!--Article references-->
-[vue d’ensemble sur le développement]: sql-data-warehouse-overview-development.md
+[vue d’ensemble sur le développement]: sql-data-warehouse-overview-develop.md
 
 <!--MSDN references-->
 
 <!--Other web references-->
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

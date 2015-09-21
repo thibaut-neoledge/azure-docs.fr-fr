@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Déplacement et traitement des fichiers journaux à l’aide d'Azure Data Factory (portail Azure)"
-	description="Ce didacticiel avancé décrit un scénario proche de la réalité et l'implémente à l'aide du service Microsoft Azure Data Factory et de Data Factory Editor dans le portail Azure."
-	services="data-factory"
-	documentationCenter=""
-	authors="spelluru"
-	manager="jhubbard"
+	pageTitle="Déplacement et traitement des fichiers journaux à l’aide d'Azure Data Factory (portail Azure)" 
+	description="Ce didacticiel avancé décrit un scénario proche de la réalité et l'implémente à l'aide du service Microsoft Azure Data Factory et de Data Factory Editor dans le portail Azure." 
+	services="data-factory" 
+	documentationCenter="" 
+	authors="spelluru" 
+	manager="jhubbard" 
 	editor="monicar"/>
 
 <tags 
-	ms.service="data-factory"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/25/2015"
+	ms.service="data-factory" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/25/2015" 
 	ms.author="spelluru"/>
 
 # Didacticiel : Mesure de l’efficacité d’une campagne marketing  
@@ -441,7 +441,7 @@ Nous souhaiterions vraiment obtenir vos commentaires sur cet article. Prenez que
 [azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 
 [sqlcmd-install]: http://www.microsoft.com/download/details.aspx?id=35580
-[azure-sql-firewall]: http://msdn.microsoft.com/library/azure/jj553530.aspx
+[azure-sql-firewall]: https://azure.microsoft.com/documentation/articles/sql-database-configure-firewall-settings/
 
 
 [adfwalkthrough-download]: http://go.microsoft.com/fwlink/?LinkId=517495
@@ -528,4 +528,4 @@ Nous souhaiterions vraiment obtenir vos commentaires sur cet article. Prenez que
 
 [image-data-factory-new-datafactory-create-button]: ./media/data-factory-tutorial/DataFactoryCreateButton.png
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

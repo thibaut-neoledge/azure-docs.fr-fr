@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Mise en route avec le stockage de files d’attente Azure et les appareils connectés Visual Studio"
+	pageTitle="Prendre en main le stockage de files d’attente et les services connectés de Visual Studio (ASP.NET 5) | Microsoft Azure"
 	description="Prise en main du stockage de files d'attente Azure dans un projet ASP.NET 5 dans Visual Studio"
 	services="storage"
 	documentationCenter=""
@@ -7,18 +7,16 @@
 	manager="douge"
 	editor="tglee"/>
 
-
 <tags
 	ms.service="storage"
 	ms.workload="web"
 	ms.tgt_pltfrm="vs-getting-started"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/22/2015"
+	ms.date="09/03/2015"
 	ms.author="patshea123"/>
 
-
-# Mise en route avec le stockage de files d’attente Azure et les appareils connectés Visual Studio
+# Prendre en main le stockage de files d’attente et les services connectés de Visual Studio (ASP.NET 5)
 
 > [AZURE.SELECTOR]
 > - [Getting started](vs-storage-aspnet5-getting-started-queues.md)
@@ -52,7 +50,7 @@ Pour commencer, vous devez créer une file d’attente Azure dans votre compte d
 
 Pour accéder à des files d’attente dans des projets ASP.NET 5, vous devez inclure les éléments suivants dans tout fichier source C# qui accède au stockage de files d’attente Azure.
 
-1. Vérifiez que les déclarations d’espace de noms figurant au début du fichier C# incluent ces instructions `using`.
+1. Vérifiez que les déclarations d’espace de noms figurant au début du fichier C# incluent ces instructions **using**.
 
 		using Microsoft.Framework.Configuration;
 		using Microsoft.WindowsAzure.Storage;
@@ -60,17 +58,17 @@ Pour accéder à des files d’attente dans des projets ASP.NET 5, vous devez i
 		using System.Threading.Tasks;
 		using LogLevel = Microsoft.Framework.Logging.LogLevel;
 
-2. Obtenez un objet `CloudStorageAccount` représentant les informations de votre compte de stockage. Le code suivant permet d'obtenir la chaîne de connexion de stockage et les informations de compte de stockage à partir de la configuration du service Azure.
+2. Obtenez un objet **CloudStorageAccount** qui représente les informations de votre compte de stockage. Le code suivant permet d'obtenir la chaîne de connexion de stockage et les informations de compte de stockage à partir de la configuration du service Azure.
 
 		 CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
 		   CloudConfigurationManager.GetSetting("<storage-account-name>_AzureStorageConnectionString"));
 
-3. Obtenez un objet `CloudQueueClient` pour référencer les objets de file d’attente dans votre compte de stockage.
+3. Obtenez un objet **CloudQueueClient** pour référencer les objets de file d’attente de votre compte de stockage.
 
 	    // Create the table client.
     	CloudQuecClient queueClient = storageAccount.CreateCloudTableClient();
 
-4. Obtenez un objet `CloudQueue` pour référencer une file d’attente spécifique.
+4. Obtenez un objet **CloudQueue** pour référencer une file d’attente spécifique.
 
     	// Get a reference to a table named "messageQueue"
 	    CloudTable messageQueue = queueClient.GetQueueReference("messageQueue");
@@ -80,16 +78,16 @@ Pour accéder à des files d’attente dans des projets ASP.NET 5, vous devez i
 
 ###Créer une file d’attente dans le code
 
-Pour créer la file d’attente Azure dans le code, ajoutez simplement un appel à `CreateIfNotExistsAsync`.
+Pour créer la file d’attente Azure dans le code, ajoutez simplement un appel à **CreateIfNotExistsAsync**.
 
 	// Create the CloudTable if it does not exist.
 	await messageQueue.CreateIfNotExistsAsync();
 
 ##Ajout d'un message à une file d'attente
 
-Pour insérer un message dans une file d’attente, créez un objet `CloudQueueMessage` puis appelez la méthode `AddMessageAsync`.
+Pour insérer un message dans une file d’attente existante, créez un objet **CloudQueueMessage**, puis appelez la méthode **AddMessageAsync**.
 
-Il est possible de créer un objet `CloudQueueMessage` à partir d’une chaîne (au format UTF-8) ou d’un tableau d’octets.
+Un objet **CloudQueueMessage** peut être créé à partir d'une chaîne (au format UTF-8) ou d'un tableau d'octets.
 
 Voici un exemple qui insère le message « Hello, World ».
 
@@ -101,7 +99,7 @@ Voici un exemple qui insère le message « Hello, World ».
 
 ##Lire un message dans une file d’attente
 
-En appelant la méthode `PeekMessageAsync`, vous pouvez lire furtivement le message au début de la file d’attente sans pour autant l’en retirer.
+En appelant la méthode **PeekMessageAsync**, vous pouvez lire furtivement le message au début de la file d’attente sans pour autant l’en retirer.
 
 	// Get a reference to the CloudQueue object named 'messageQueue' as described in "Access a queue in code".
 
@@ -111,9 +109,9 @@ En appelant la méthode `PeekMessageAsync`, vous pouvez lire furtivement le mess
 
 ##Lire et supprimer un message dans une file d’attente
 
-Votre code permet de supprimer (retirer) un message d’une file d’attente en deux étapes. 1. Appelez `GetMessageAsync` pour obtenir le message suivant dans une file d’attente. Un message renvoyé par `GetMessageAsync` devient invisible à tout autre code lisant des messages de cette file d’attente. Par défaut, ce message reste invisible pendant 30 secondes. 2. Pour finaliser la suppression du message de la file d’attente, appelez `DeleteMessageAsync`.
+Votre code permet de supprimer (retirer) un message d’une file d’attente en deux étapes. 1. Quand vous appelez **GetMessageAsync** , vous obtenez le message suivant au sein de la file d’attente. Tout message renvoyé par un appel **GetMessageAsync** n’est plus visible par les autres codes lisant les messages de cette même file d’attente. Par défaut, ce message reste invisible pendant 30 secondes. 2. Pour finaliser la suppression du message de la file d’attente, vous devez appeler **DeleteMessageAsync**.
 
-Ce processus de suppression d'un message en deux étapes garantit que, si votre code ne parvient pas à traiter un message à cause d'une défaillance matérielle ou logicielle, une autre instance de votre code peut obtenir le même message et réessayer. Le code suivant appelle `DeleteMessageAsync` immédiatement après le traitement du message.
+Ce processus de suppression d'un message en deux étapes garantit que, si votre code ne parvient pas à traiter un message à cause d'une défaillance matérielle ou logicielle, une autre instance de votre code peut obtenir le même message et réessayer. Le code suivant appelle **DeleteMessageAsync** juste après le traitement du message.
 
 	// Get a reference to the CloudQueue object named 'messageQueue' as described in "Access a queue in code".
 
@@ -127,7 +125,7 @@ Ce processus de suppression d'un message en deux étapes garantit que, si votre 
 
 ## des options supplémentaires pour l'enlèvement des messages
 
-Il existe deux façons de personnaliser l'extraction des messages à partir d'une file d'attente. Premièrement, vous pouvez obtenir un lot de messages (jusqu'à 32). Deuxièmement, vous pouvez définir un délai d'expiration de l'invisibilité plus long ou plus court afin d'accorder à votre code plus ou moins de temps pour traiter complètement chaque message. L’exemple de code suivant utilise la méthode `GetMessages` pour obtenir 20 messages en un appel. Ensuite, il traite chaque message à l’aide d’une boucle `foreach`. Il définit également le délai d’expiration de l’invisibilité à 5 minutes pour chaque message. Notez que le délai de 5 minutes démarre en même temps pour tous les messages. Donc une fois les 5 minutes écoulées après l’appel à `GetMessages`, tous les messages non supprimés redeviennent visibles.
+Il existe deux façons de personnaliser l'extraction des messages à partir d'une file d'attente. Premièrement, vous pouvez obtenir un lot de messages (jusqu'à 32). Deuxièmement, vous pouvez définir un délai d'expiration de l'invisibilité plus long ou plus court afin d'accorder à votre code plus ou moins de temps pour traiter complètement chaque message. L'exemple de code suivant utilise la méthode **GetMessages** pour obtenir 20 messages en un appel. Ensuite, il traite chaque message à l'aide d'une boucle **foreach**. Il définit également le délai d’expiration de l’invisibilité à 5 minutes pour chaque message. Notez que le délai de 5 minutes démarre en même temps pour tous les messages. Donc une fois les 5 minutes écoulées après l’appel à **GetMessages**, tous les messages non supprimés redeviennent visibles.
 
     // Get a reference to the CloudQueue object named 'messageQueue' as described in "Access a queue in code".
 
@@ -139,7 +137,7 @@ Il existe deux façons de personnaliser l'extraction des messages à partir d'un
 
 ## Obtention de la longueur de la file d'attente
 
-Vous pouvez obtenir une estimation du nombre de messages dans une file d'attente. La méthode `FetchAttributes` demande au service de File d’attente de récupérer les attributs de la file d’attente, y compris le nombre de messages. La propriété `ApproximateMethodCount` renvoie la dernière valeur extraite par la méthode `FetchAttributes`, sans appeler le service de File d’attente.
+Vous pouvez obtenir une estimation du nombre de messages dans une file d'attente. La méthode **FetchAttributes** demande au service de File d’attente d’extraire les attributs de la file d’attente, y compris le nombre de messages. La propriété **ApproximateMethodCount** renvoie la dernière valeur extraite par la méthode **FetchAttributes**, sans appeler le service de files d’attente.
 
     // Get a reference to the CloudQueue object named 'messageQueue' as described in "Access a queue in code"
 
@@ -174,7 +172,7 @@ Cet exemple décrit comment utiliser le modèle Async-Await avec les API de file
     Console.WriteLine("Deleted message");
 ## Suppression d'une file d'attente
 
-Pour supprimer une file d’attente et tous les messages qu’elle contient, appelez la méthode `Delete` sur l’objet de file d’attente.
+Pour supprimer une file d'attente et tous les messages qu'elle contient, appelez la méthode **Delete** sur l'objet file d'attente.
 
     // Get a reference to the CloudQueue object named 'messageQueue' as described in "Access a queue in code".
 
@@ -187,4 +185,4 @@ Pour supprimer une file d’attente et tous les messages qu’elle contient, app
 
 [AZURE.INCLUDE [vs-storage-dotnet-queues-next-steps](../../includes/vs-storage-dotnet-queues-next-steps.md)]
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

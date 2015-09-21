@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Mise à l'échelle d'un service cloud | Microsoft Azure" 
-	description="Découvrez comment mettre à l'échelle un service cloud et ses ressources liées dans Azure." 
+	pageTitle="Configurer la mise à l’échelle automatique pour un service cloud | Microsoft Azure" 
+	description="Découvrez comment utiliser le portail pour configurer des règles de mise à l’échelle automatique pour un service cloud et les ressources liées dans Azure." 
 	services="cloud-services" 
 	documentationCenter="" 
 	authors="Thraka" 
@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/16/2015"
+	ms.date="09/08/2015"
 	ms.author="adegeo"/>
 
 
 
 
 
-# Mise à l'échelle d'une application
+# Mise à l’échelle automatique d’une application
 
 Sur la page Scale du portail de gestion Azure, vous pouvez mettre à l'échelle manuellement votre application ou définir des paramètres afin que la mise à l'échelle soit automatique. Vous pouvez mettre à l'échelle des applications qui exécutent des rôles Web, des rôles de travail ou des machines virtuelles. Pour mettre à l'échelle une application qui exécute des instances de rôles Web ou de rôles de travail, vous ajoutez ou supprimez des instances de rôle pour absorber la charge de travail.
 
@@ -47,7 +47,7 @@ Sur la page Scale, vous pouvez augmenter ou diminuer manuellement le nombre des 
 
 2. Cliquez sur **Scale**. La mise à l'échelle automatique est désactivée par défaut pour tous les rôles, ce qui signifie que vous pouvez modifier manuellement le nombre d'instances utilisées par votre application.
 
-    ![Page Mettre à l'échelle][manual_scale]
+    ![Scale page][manual_scale]
 
 3. Chaque rôle dans le service cloud est doté d'un curseur permettant de modifier le nombre d'instances à utiliser. Pour ajouter une instance de rôle, faites glisser la barre vers la droite. Pour supprimer une instance, faites glisser la barre vers la gauche.
     
@@ -227,4 +227,4 @@ Vous pouvez planifier la mise à l'échelle automatique de votre application en 
 [scale_schedule]: ./media/cloud-services-how-to-scale/CloudServices_SetUpSchedule.png
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO2-->

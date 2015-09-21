@@ -1,20 +1,20 @@
 <properties
     pageTitle="Base de données SQL Azure - outils de base de données élastique"
-	description="Les développeurs de Software as a Service (SaaS) peuvent facilement créer des bases de données élastiques et évolutives dans le cloud à l'aide de ces outils"
-	services="sql-database"
-	documentationCenter=""
-	manager="jeffreyg"
-	authors="ddove"
-	editor=""/>
+    description="Les développeurs de Software as a Service (SaaS) peuvent facilement créer des bases de données élastiques et évolutives dans le cloud à l'aide de ces outils"
+    services="sql-database"
+    documentationCenter=""
+    manager="jeffreyg"
+    authors="ddove"
+    editor=""/>
 
 <tags
     ms.service="sql-database"
-	ms.workload="sql-database"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/27/2015"
-	ms.author="sidneyh"/>
+    ms.workload="sql-database"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="08/27/2015"
+    ms.author="sidneyh"/>
 
 # Vue d’ensemble des fonctionnalités de base de données élastique
 
@@ -97,6 +97,10 @@ Pour plus de détails sur le pool de base de données élastique, voir [Considé
 
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 
+### Faites-nous part de vos commentaires !
+Que pouvons-nous améliorer ? Cette rubrique explique-t-elle la fonctionnalité clairement ? Ou y a-t-il encore quelque chose que vous ne comprenez pas ? Notre but est de vous satisfaire : utilisez les boutons de vote et indiquez-nous en quoi nous avons échoué (ou réussi). Et si vous souhaitez que nous vous contactions, incluez votre adresse de messagerie dans vos commentaires.
+
+
 <!--Anchors-->
 <!--Image references-->
 [1]: ./media/sql-database-elastic-scale-introduction/tools.png
@@ -104,4 +108,4 @@ Pour plus de détails sur le pool de base de données élastique, voir [Considé
 [3]: ./media/sql-database-elastic-scale-introduction/overview.png
 [4]: ./media/sql-database-elastic-scale-introduction/single_v_multi_tenant.png
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

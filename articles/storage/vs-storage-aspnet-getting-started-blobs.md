@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Prise en main du stockage d’objets blob Azure et des services connectés Visual Studio"
-	description="Prise en main du stockage d’objets blob Azure au sein d’un projet ASP.NET dans Visual Studio"
+	pageTitle="Prise en main du stockage d'objets blob et des services connectés de Visual Studio (ASP.NET) | Microsoft Azure"
+	description="Comment prendre en main le stockage d'objets blob Azure dans un projet ASP.NET dans Visual Studio après s'être connecté à un compte de stockage à l'aide des services connectés de Visual Studio"
 	services="storage"
 	documentationCenter=""
 	authors="patshea123"
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="vs-getting-started"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/04/2015"
+	ms.date="09/03/2015"
 	ms.author="patshea123"/>
 
-# Prise en main du stockage d’objets blob Azure et des services connectés Visual Studio
+# Prise en main du stockage d'objets blob et des services connectés de Visual Studio (ASP.NET)
 
 > [AZURE.SELECTOR]
 > - [Getting started](vs-storage-aspnet-getting-started-blobs.md)
@@ -31,7 +31,7 @@
 
 Cet article explique comment prendre en main le stockage d’objets blob Azure après avoir créé ou référencé un compte de stockage Azure dans une application ASP.NET via la boîte de dialogue **Ajouter des services connectés** de Visual Studio. Cet article montre comment créer des conteneurs d’objets blob et effectuer d’autres tâches courantes telles que le chargement, le référencement, le téléchargement et la suppression d’objets blobs. Les exemples sont écrits en C# et utilisent la [bibliothèque du client de stockage Azure pour .NET](https://msdn.microsoft.com/library/azure/dn261237.aspx).
 
- - Pour obtenir des informations plus générales sur l’utilisation du stockage d’objets blob Azure, consultez [Comment utiliser le stockage d’objets blob à partir de .NET](storage-dotnet-how-to-use-blobs.md). 
+ - Pour obtenir des informations plus générales sur l’utilisation du stockage d’objets blob Azure, consultez [Comment utiliser le stockage d’objets blob à partir de .NET](storage-dotnet-how-to-use-blobs.md).
  - Pour plus d’informations sur les projets ASP.NET, consultez [ASP.NET](http://www.asp.net).
 
 
@@ -42,7 +42,7 @@ De la même manière que les fichiers résident dans des dossiers, le stockage d
 
 
 
-##Accès aux conteneurs d'objets blob dans le code
+## Accès aux conteneurs d'objets blob dans le code
 
 Pour accéder aux objets blob de projets ASP.NET par programmation, vous devez ajouter les éléments suivants, s'ils ne sont pas déjà présents.
 
@@ -54,14 +54,14 @@ Pour accéder aux objets blob de projets ASP.NET par programmation, vous devez a
 		using Microsoft.WindowsAzure.Storage.Blob;
 
 
-2. Obtenez un objet `CloudStorageAccount` qui représente les informations de votre compte de stockage. Le code suivant permet d'obtenir la chaîne de connexion de stockage et les informations de compte de stockage à partir de la configuration du service Azure.
+2. Obtenez un objet **CloudStorageAccount** qui représente les informations de votre compte de stockage. Le code suivant permet d'obtenir la chaîne de connexion de stockage et les informations de compte de stockage à partir de la configuration du service Azure.
 
 		CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
 		   CloudConfigurationManager.GetSetting("<storage-account-name>_AzureStorageConnectionString"));
 
     > [AZURE.NOTE]Utilisez l’ensemble du code précédent devant le code des sections suivantes.
 
-3. Obtenez un objet `CloudBlobClient` pour référencer un conteneur existant dans votre compte de stockage.
+3. Obtenez un objet **CloudBlobClient** pour référencer un conteneur existant dans votre compte de stockage.
 
 		// Create a blob client.
 		CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
@@ -74,16 +74,16 @@ Pour accéder aux objets blob de projets ASP.NET par programmation, vous devez a
 
 ## Création d’un conteneur d’objets blob dans le code
 
-Vous pouvez aussi utiliser l’objet `CloudBlobClient` pour créer un conteneur dans votre compte de stockage. Pour cela, vous devez simplement ajouter un appel à `CreateIfNotExistsAsync` au code ci-dessus, comme l’illustre l’exemple ci-après.
+Vous pouvez aussi utiliser l'objet **CloudBlobClient** pour créer un conteneur dans votre compte de stockage. Pour cela, il vous suffit d'ajouter un appel à **CreateIfNotExistsAsync** au code ci-dessus, comme l'illustre l'exemple ci-après.
 
     // If “mycontainer” doesn’t exist, create it.
     await container.CreateIfNotExistsAsync();
 
-## Chargement d’un objet blob dans un conteneur
+## Charger un objet blob dans un conteneur
 
 Le service de stockage d’objets blob Azure prend en charge les objets blob de blocs et de pages. Dans la plupart des cas, il est recommandé d’utiliser le type d’objet blob de blocs.
 
-Pour télécharger un fichier vers un objet blob de blocs, obtenez une référence de conteneur et utilisez-la pour obtenir une référence d’objet blob de blocs. Lorsque vous disposez d’une référence d’objet blob, vous pouvez charger un flux de données dans cet objet à l’aide de la méthode `UploadFromStream`. Si l’objet blob n’existe pas, cette opération entraîne sa création. S’il existe, il est remplacé. L’exemple suivant illustre le chargement d’un objet blob dans un conteneur en partant du principe que le conteneur existe déjà.
+Pour télécharger un fichier vers un objet blob de blocs, obtenez une référence de conteneur et utilisez-la pour obtenir une référence d’objet blob de blocs. Lorsque vous disposez d’une référence d’objet blob, vous pouvez télécharger un flux de données vers cet objet en appelant la méthode **UploadFromStream**. Si l’objet blob n’existe pas, cette opération entraîne sa création. S’il existe, il est remplacé. L’exemple suivant illustre le chargement d’un objet blob dans un conteneur en partant du principe que le conteneur existe déjà.
 
     // Get a CloudBlobContainer named 'container' as described in "Access blob containers in code."
 
@@ -95,7 +95,7 @@ Pour télécharger un fichier vers un objet blob de blocs, obtenez une référen
 
 ## Création d'une liste d'objets blob dans un conteneur
 
-Pour répertorier les objets blob dans un conteneur, utilisez la méthode `ListBlobs` pour récupérer les objets blob et/ou les répertoires qu’il contient. Pour accéder à l’ensemble complet de propriétés et de méthodes d’un `IListBlobItem` renvoyé, vous devez le convertir en objet `CloudBlockBlob`, `CloudPageBlob` ou `CloudBlobDirectory`. Si vous ne connaissez pas le type, vous pouvez lancer une vérification de type pour déterminer la cible de l’appel. Le code suivant illustre comment récupérer et générer l’URI de chaque élément du conteneur `photos`.
+Pour répertorier les objets blob dans un conteneur, utilisez la méthode **ListBlobs** pour récupérer les objets blob et/ou les répertoires qu'il contient. Pour accéder aux nombreuses propriétés et méthodes d’une **IListBlobItem** renvoyée, vous devez l’appeler vers un objet **CloudBlockBlob**, **CloudPageBlob** ou **CloudBlobDirectory**. Si vous ne connaissez pas le type, vous pouvez lancer une vérification de type pour déterminer la cible de l’appel. Le code suivant illustre la récupération et la génération de l'URI de chaque élément du conteneur **photos**.
 
     // Get a CloudBlobContainer named 'container' as described in "Access blob containers in code."
 
@@ -124,7 +124,7 @@ Pour répertorier les objets blob dans un conteneur, utilisez la méthode `ListB
 		}
 	}
 
-Comme indiqué dans l’exemple précédent, le service blob suit également le concept de répertoires dans des conteneurs. Vous pouvez donc organiser vos objets blob selon une structure proche de celle des dossiers. Par exemple, prenez l’ensemble d’objets blob de blocs suivant, situé dans un conteneur nommé `photos`.
+Comme indiqué dans l’exemple précédent, le service blob suit également le concept de répertoires dans des conteneurs. Vous pouvez donc organiser vos objets blob selon une structure proche de celle des dossiers. Par exemple, prenez l'ensemble d'objets blob de blocs suivant, situé dans un conteneur nommé **photos**.
 
 	photo1.jpg
 	2010/architecture/description.txt
@@ -135,14 +135,14 @@ Comme indiqué dans l’exemple précédent, le service blob suit également le 
 	2011/architecture/description.txt
 	2011/photo7.jpg
 
-Lorsque vous appelez `ListBlobs` sur le conteneur « photos » (comme dans l’exemple précédent), la collection renvoyée contient les objets `CloudBlobDirectory` et `CloudBlockBlob` représentant les répertoires et objets blob contenus au niveau supérieur. L’exemple suivant illustre le résultat obtenu.
+Lorsque vous appelez **ListBlobs** pour le conteneur « photos » (comme illustré dans l'exemple précédent), la collection renvoyée contient les objets **CloudBlobDirectory** et **CloudBlockBlob** qui représentent les répertoires et objets blob contenus au niveau supérieur. L’exemple suivant illustre le résultat obtenu.
 
 	Directory: https://<accountname>.blob.core.windows.net/photos/2010/
 	Directory: https://<accountname>.blob.core.windows.net/photos/2011/
 	Block blob of length 505623: https://<accountname>.blob.core.windows.net/photos/photo1.jpg
 
 
-Si vous le souhaitez, vous pouvez régler le paramètre `UseFlatBlobListing` de la méthode`ListBlobs` sur `true`. Cela permet de renvoyer chaque objet blob en tant que `CloudBlockBlob`, indépendamment du répertoire. L’exemple ci-après illustre l’appel à `ListBlobs`.
+Vous pouvez également affecter au paramètre **UseFlatBlobListing** de la méthode **ListBlobs** la valeur **true**. Ceci aura pour résultat le renvoi de chaque objet blob en tant que **CloudBlockBlob**, indépendamment du répertoire. L'exemple ci-après illustre l'appel à **ListBlobs**.
 
     // Loop over items within the container and output the length and URI.
 	foreach (IListBlobItem item in container.ListBlobs(null, true))
@@ -163,9 +163,9 @@ Et l’exemple suivant montre les résultats.
 
 
 
-## Télécharger des blobs.
+## Télécharger des objets blob
 
-Pour télécharger des objets blob, utilisez la méthode `DownloadToStream`. L’exemple suivant utilise la méthode `DownloadToStream` pour transférer le contenu de l’objet blob dans un objet de flux que vous pouvez conserver sous forme de fichier local.
+Pour télécharger des objets blob, utilisez la méthode **DownloadToStream**. L’exemple suivant utilise la méthode **DownloadToStream** pour transférer les contenus d’objets blob vers un objet de flux pouvant être rendu persistant dans un fichier local.
 
     // Get a CloudBlobContainer named 'container' as described in "Access blob containers in code"
 
@@ -178,7 +178,7 @@ Pour télécharger des objets blob, utilisez la méthode `DownloadToStream`. L�
         blockBlob.DownloadToStream(fileStream);
     }
 
-Vous pouvez également utiliser la méthode `DownloadToStream` pour télécharger les contenus d’un objet blob en tant que chaîne de texte.
+Vous pouvez également utiliser la méthode **DownloadToStream** pour télécharger les contenus d’un objet blob en tant que chaîne de texte.
 
     // Get a CloudBlobContainer named 'container' as described in "Access blob containers in code"
 
@@ -194,7 +194,7 @@ Vous pouvez également utiliser la méthode `DownloadToStream` pour télécharge
 
 ## Suppression d’objets blob
 
-Pour supprimer un objet blob, utilisez la méthode `Delete`.
+Pour supprimer un objet blob, utilisez la méthode **Delete**.
 
     // Get a CloudBlobContainer named 'container' as described in "Access blob containers in code"
 
@@ -209,9 +209,9 @@ Pour supprimer un objet blob, utilisez la méthode `Delete`.
 
 Si vous répertoriez un grand nombre d’objets blob ou que vous souhaitez contrôler le nombre de résultats renvoyés lors d’une opération de création de liste, vous pouvez répertorier les objets blob dans des pages de résultats. L’exemple suivant illustre comment renvoyer les résultats dans des pages de manière asynchrone afin que l’exécution ne soit pas bloquée lorsqu’un ensemble volumineux de résultats est attendu.
 
-Cet exemple montre une liste simple d’objets blob. Vous pouvez également obtenir une liste hiérarchisée en attribuant la valeur `false` au paramètre `useFlatBlobListing` de la méthode `ListBlobsSegmentedAsync`.
+Cet exemple montre une liste plate d'objets blob. Vous pouvez également avoir une liste hiérarchique en définissant le paramètre **useFlatBlobListing** de la méthode **ListBlobsSegmentedAsync** sur **false**.
 
-Comme l’exemple de méthode appelle une méthode asynchrone, il doit être précédé du mot clé `async` et renvoyer un objet `Task`. Le mot clé d’attente spécifié pour la méthode `ListBlobsSegmentedAsync` suspend l’exécution de l’exemple de méthode jusqu’à la fin de la tâche de création de la liste.
+Comme l'exemple de méthode appelle une méthode asynchrone, il doit être précédé du mot clé **async** et doit renvoyer un objet **Task**. Le mot clé d'attente spécifié pour la méthode **ListBlobsSegmentedAsync** suspend l'exécution de l'exemple de méthode jusqu'à ce que la tâche de création de liste soit terminée.
 
     async public static Task ListBlobsSegmentedInFlatListing(CloudBlobContainer container)
     {
@@ -246,4 +246,4 @@ Comme l’exemple de méthode appelle une méthode asynchrone, il doit être pr�
 
 [AZURE.INCLUDE [vs-storage-dotnet-blobs-next-steps](../../includes/vs-storage-dotnet-blobs-next-steps.md)]
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

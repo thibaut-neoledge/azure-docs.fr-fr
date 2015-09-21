@@ -12,7 +12,7 @@
 	ms.workload="data-services"
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
-	ms.topic="hero-article"
+	ms.topic="hero-article" 
 	ms.date="09/03/2015"
 	ms.author="anhoh"/>
 
@@ -34,7 +34,7 @@ Les scénarios traités dans cet article sont les suivants :
 
 Vous n'avez pas le temps de terminer le didacticiel et vous souhaitez simplement obtenir la solution exploitable ? Pas d'inquiétudes. La solution complète est disponible sur [GitHub](https://github.com/Azure/azure-documentdb-net/tree/master/tutorials/get-started). Pour obtenir des instructions rapides, consultez [Obtenir la solution complète](#GetSolution).
 
-Une fois que vous avez terminé le didacticiel, donnez-nous votre avis à l'aide des boutons de vote au début ou à la fin de la rubrique. Cette rubrique est activement mise à jour, donc nous souhaitons obtenir vos commentaires pour l'améliorer. Si vous souhaitez que nous vous contactions, n'hésitez pas à inclure votre adresse de messagerie dans votre commentaire.
+Nous mettons à jour et améliorons cette rubrique fréquemment en fonction de vos commentaires. Une fois le didacticiel terminé, utilisez les boutons de vote en haut et en bas de cette page et veillez à indiquer vos commentaires sur les améliorations que nous pourrions apporter. Si vous souhaitez que nous vous contactions directement, n’hésitez pas à inclure votre adresse de messagerie dans vos commentaires.
 
 ## Composants requis
 
@@ -480,4 +480,4 @@ Pour restaurer les références au Kit de développement logiciel (SDK) .NET de 
 [keys]: media/documentdb-get-started/keys.png
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

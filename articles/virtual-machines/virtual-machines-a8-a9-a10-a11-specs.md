@@ -5,14 +5,15 @@
  documentationCenter=""
  authors="dlepow"
  manager="timlt"
- editor=""/>
+ editor=""
+ tags="azure-resource-manager, azure-service-management"/>
 <tags
 ms.service="virtual-machines"
  ms.devlang="na"
  ms.topic="article"
  ms.tgt_pltfrm="vm-multiple"
  ms.workload="infrastructure-services"
- ms.date="07/22/2015"
+ ms.date="09/02/2015"
  ms.author="danlep"/>
 
 # À propos des instances de calcul intensif A8, A9, A10 et A11
@@ -53,7 +54,7 @@ Ethernet 10 Gbits/s | Se connecte aux services Azure (comme le stockage Azure e
 Principal 32 Gbits/s, compatible RDMA | Permet une communication des applications haut débit à latence faible entre les instances au sein d’un même service cloud ou d’un même groupe à haute disponibilité. Réservé uniquement au trafic MPI.
 
 
->[AZURE.IMPORTANT]Sur les machines virtuelles A8 et A9 exécutant Linux dans IaaS, l’accès au réseau RDMA n’est actuellement permis que via les applications qui utilisent Azure Linux RDMA et Intel MPI Library 5.0 sur SUSE Linux Enterprise Server 12 (SLES 12). Sur les instances A8 et A9 exécutant Windows Server dans IaaS ou PaaS, l’accès au réseau RDMA n’est actuellement permis que via les applications qui utilisent l’interface Microsoft Network Direct. Pour connaître les conditions requises supplémentaires, consultez la section [Accès au réseau RDMA](#access-the-rdma-network) dans cet article.
+>[AZURE.IMPORTANT]Sur les machines virtuelles A8 et A9 exécutant Linux, l'accès au réseau RDMA n'est actuellement permis que via les applications qui utilisent Azure Linux RDMA et Intel MPI Library 5 sur SUSE Linux Enterprise Server 12 (SLES 12). Sur les instances A8 et A9 exécutant Windows Server, l'accès au réseau RDMA n'est actuellement permis que via les applications qui utilisent l'interface Microsoft Network Direct. Pour connaître les conditions requises supplémentaires, consultez la section [Accès au réseau RDMA](#access-the-rdma-network) dans cet article.
 
 Les instances A10 et A11 ont une seule carte réseau Ethernet 10 Gbits/s qui se connecte aux services Azure et à Internet.
 
@@ -63,11 +64,11 @@ Les instances A10 et A11 ont une seule carte réseau Ethernet 10 Gbits/s qui se
 
 * **Quota de cœurs** : il peut être nécessaire d’augmenter le quota de cœurs de votre abonnement Azure, qui est par défaut de 20 cœurs, ce qui est insuffisant pour de nombreux scénarios avec des instances de 8 ou de 16 cœurs. Pour les premiers tests, vous pouvez envisager de demander une augmentation du quota à 100 cœurs. Pour cela, ouvrez un ticket de support gratuit comme indiqué dans [Présentation des limites et des augmentations d’Azure](http://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/).
 
->[AZURE.NOTE]Les quotas d’Azure sont des limites de crédit et non des garanties de capacité. Vous êtes facturé seulement pour les cœurs que vous utilisez.
+    >[AZURE.NOTE]Les quotas d’Azure sont des limites de crédit et non des garanties de capacité. Vous êtes facturé seulement pour les cœurs que vous utilisez.
 
-* **Groupe d’affinités** : pour le moment, les groupes d’affinités ne sont pas recommandés pour la plupart des nouveaux déploiements. Toutefois, notez que si vous utilisez un groupe d’affinités contenant des instances de tailles autres que A8 - A11, vous ne pourrez pas l’utiliser pour les instances A8 à A11, et inversement.
+* **Groupe d'affinités** : pour le moment, les groupes d'affinités ne sont pas recommandés pour la plupart des nouveaux déploiements. Toutefois, notez que si vous utilisez un groupe d’affinités contenant des instances de tailles autres que A8 - A11, vous ne pourrez pas l’utiliser pour les instances A8 à A11, et inversement.
 
-* **Réseau virtuel** : un réseau virtuel Azure n’est pas requis pour utiliser les instances de calcul intensif. Cependant, vous pouvez avoir besoin d’au moins un réseau virtuel Azure dans le cloud pour nombre de scénarios IaaS, ou d’une connexion de site à site si vous devez accéder à des ressources locales, par exemple à un serveur de licences d’application. Vous devrez créer un réseau virtuel (régional) avant de déployer les instances. L’ajout d’une machine virtuelle A8, A9, A10 ou A11 à un réseau virtuel dans un groupe d’affinités n’est pas pris en charge. Pour plus d’informations, consultez [Créer un réseau virtuel](../virtual-network/virtual-networks-create-vnet.md) et [Configurer un réseau virtuel avec une connexion VPN de site à site](../vpn-gateway/vpn-gateway-site-to-site-create.md).
+* **Réseau virtuel** : un réseau virtuel Azure n'est pas requis pour utiliser les instances de calcul intensif. Cependant, vous pouvez avoir besoin d’au moins un réseau virtuel Azure dans le cloud pour nombre de scénarios IaaS, ou d’une connexion de site à site si vous devez accéder à des ressources locales, par exemple à un serveur de licences d’application. Vous devrez créer un réseau virtuel (régional) avant de déployer les instances. L’ajout d’une machine virtuelle A8, A9, A10 ou A11 à un réseau virtuel dans un groupe d’affinités n’est pas pris en charge. Pour plus d'informations, consultez [Créer un réseau virtuel](../virtual-network/virtual-networks-create-vnet.md) et [Configurer un réseau virtuel avec une connexion VPN de site à site](../vpn-gateway/vpn-gateway-site-to-site-create.md).
 
 * **Service cloud ou groupe à haute disponibilité** : pour se connecter via le réseau RDMA, les instances A8 et A9 doivent être déployées dans le même service cloud (pour des scénarios IaaS avec des machines virtuelles Linux ou des machines virtuelles Windows dans la gestion des services Azure ou pour des scénarios PaaS avec Windows Server) ou dans le même groupe à haute disponibilité (pour les machines virtuelles Linux ou Windows dans Azure Resource Manager).
 
@@ -75,28 +76,28 @@ Les instances A10 et A11 ont une seule carte réseau Ethernet 10 Gbits/s qui se
 
 ### Considérations relatives à HPC Pack et Linux
 
-[HPC Pack](https://technet.microsoft.com/library/jj899572.aspx) est une solution gratuite de Microsoft de gestion des tâches et des clusters HPC pour Windows. Depuis HPC Pack 2012 R2 Update 2, HPC Pack prend en charge l’exécution de plusieurs distributions Linux sur les nœuds de calcul déployés dans les machines virtuelles Azure, gérés par un nœud principal Windows Server. La dernière version de HPC Pack vous permet de déployer un cluster Linux pouvant exécuter les applications MPI qui accèdent au réseau RDMA dans Azure. Pour plus d’informations, consultez la [documentation HPC Pack](http://go.microsoft.com/fwlink/?LinkId=617894).
+[HPC Pack](https://technet.microsoft.com/library/jj899572.aspx) est une solution gratuite de Microsoft de gestion des tâches et des clusters HPC pour Windows. Depuis HPC Pack 2012 R2 Update 2, HPC Pack prend en charge l’exécution de plusieurs distributions Linux sur les nœuds de calcul déployés dans les machines virtuelles Azure, gérés par un nœud principal Windows Server. La dernière version de HPC Pack vous permet de déployer un cluster Linux pouvant exécuter les applications MPI qui accèdent au réseau RDMA dans Azure. Pour plus d'informations, consultez [Prise en main des nœuds de calcul Linux dans un cluster HPC Pack dans Azure](virtual-machines-linux-cluster-hpcpack.md).
 
 ### Considérations relatives à HPC Pack et Windows
 
 HPC Pack n’est pas requis pour utiliser les instances A8, A9, A10 et A11 avec Windows Server, mais c’est un outil recommandé pour créer des clusters HPC Server Windows dans Azure. Dans le cas des instances A8 et A9, HPC Pack est le moyen le plus efficace d’exécuter des applications Windows MPI qui accèdent au réseau RDMA dans Azure. HPC Pack comprend un environnement d’exécution pour l’implémentation Microsoft de MPI pour Windows.
 
-Pour plus d’informations et pour obtenir les listes de vérification pour déployer et utiliser les instances de calcul intensif dans des scénarios IaaS et PaaS avec HPC Pack sur Windows Server, consultez [Instances de calcul intensif A8 et A9 : démarrage rapide avec HPC Pack](https://msdn.microsoft.com/library/azure/dn594431.aspx).
+Pour plus d'informations et pour obtenir les listes de vérification pour déployer et utiliser les instances de calcul intensif dans des scénarios IaaS et PaaS avec HPC Pack sur Windows Server, consultez [Instances de calcul intensif A8 et A9 : démarrage rapide avec HPC Pack](https://msdn.microsoft.com/library/azure/dn594431.aspx).
 
 ## Accès au réseau RDMA
 
 ### Accès à partir des machines virtuelles Linux  A8 et A9
 
-Au sein d’un même service cloud ou d’un groupe à haute disponibilité, les instances A8 et A9 peuvent accéder au réseau RDMA dans Azure pour l’exécution d’applications MPI qui utilisent les pilotes Linux RDMA pour communiquer entre les instances. Pour le moment, Azure Linux RDMA est pris en charge uniquement avec [Intel MPI Library 5.0](https://software.intel.com/fr-fr/intel-mpi-library/).
+Au sein d’un même service cloud ou d’un groupe à haute disponibilité, les instances A8 et A9 peuvent accéder au réseau RDMA dans Azure pour l’exécution d’applications MPI qui utilisent les pilotes Linux RDMA pour communiquer entre les instances. Pour le moment, Azure Linux RDMA est pris en charge uniquement avec [Intel MPI Library 5](https://software.intel.com/fr-FR/intel-mpi-library/).
 
 >[AZURE.NOTE]Actuellement, les pilotes Azure Linux RDMA ne sont pas disponibles pour une installation via des extensions de pilote. Ils le sont uniquement en utilisant l’image SLES 12 compatible RDMA dans Azure Marketplace.
 
-Consultez le tableau suivant pour connaître la configuration requise pour que les applications Linux MPI accèdent au réseau RDMA dans les clusters de nœuds de calcul (IaaS). Pour obtenir des informations sur les options de déploiement et les étapes de configuration, consultez la page [Configuration d’un cluster Linux RDMA pour exécuter des applications MPI](virtual-machines-linux-cluster-rdma.md).
+Consultez le tableau suivant pour connaître la configuration requise pour que les applications Linux MPI accèdent au réseau RDMA dans les clusters de nœuds de calcul (IaaS). Pour obtenir des informations sur les options de déploiement et les étapes de configuration, consultez la page [Configuration d'un cluster Linux RDMA pour exécuter des applications MPI](virtual-machines-linux-cluster-rdma.md).
 
 Configuration requise | Machines virtuelles (IaaS)
 ------------ | -------------
 Système d’exploitation | Image SLES 12 HPC dans Azure Marketplace
-MPI | Intel MPI Library 5.0
+MPI | Intel MPI Library 5
 
 ### Accès à partir des instances Windows A8 et A9
 
@@ -108,10 +109,10 @@ Consultez le tableau suivant pour les configurations requises permettant aux app
 Configuration requise | Machines virtuelles (IaaS) | Services cloud (PaaS)
 ---------- | ------------ | -------------
 Système d’exploitation | Windows Server 2012 R2 ou Windows Server 2012 | Famille de systèmes d’exploitation invités Windows Server 2012 R2, Windows Server 2012 ou Windows Server 2008 R2
-MPI | MS-MPI 2012 R2 ou ultérieur, autonome ou installé via HPC Pack 2012 R2 ou ultérieur<br/><br/>Intel MPI Library 5.0 | MS-MPI 2012 R2 ou ultérieur, installé via HPC Pack 2012 R2 ou ultérieur<br/><br/>Intel MPI Library 5.0
+MPI | MS-MPI 2012 R2 ou ultérieur, autonome ou installé via HPC Pack 2012 R2 ou ultérieur<br/><br/>Intel MPI Library 5 | MS-MPI 2012 R2 ou ultérieur, installé via HPC Pack 2012 R2 ou ultérieur<br/><br/>Intel MPI Library 5
 
 
->[AZURE.NOTE]Pour les scénarios IaaS, l’[extension HpcVmDrivers](https://msdn.microsoft.com/library/azure/dn690126.aspx) doit être ajoutée aux machines virtuelles pour installer les pilotes Windows nécessaires à la connectivité RDMA.
+>[AZURE.NOTE]Pour les scénarios IaaS, l'extension HpcVmDrivers doit être ajoutée aux machines virtuelles pour installer les pilotes d'appareils réseau Windows nécessaires à la connectivité RDMA. Selon votre méthode de déploiement, l'extension HpcVmDrivers peut être ajoutée automatiquement à une machine virtuelle de taille A8 ou A9, ou vous devrez peut-être l'ajouter vous-même. Pour ajouter l'extension, consultez [Gestion des extensions de machine virtuelle](virtual-machines-extensions-install.md).
 
 
 ## Autres informations à connaître
@@ -120,14 +121,14 @@ MPI | MS-MPI 2012 R2 ou ultérieur, autonome ou installé via HPC Pack 2012 R2
 
 * Vous ne pouvez pas redimensionner une machine virtuelle Azure existante à la taille A8, A9, A10 ou A11.
 
-* Les instances A8, A9, A10 et A11 ne peuvent pas actuellement être déployées en utilisant un service cloud qui fait partie d’un groupe d’affinités existant. De même, un groupe d’affinités avec un service cloud contenant des instances A8, A9, A10 et A11 ne peut pas être utilisé pour les déploiements d’autres tailles d’instance. Si vous tentez d’effectuer ces déploiements, vous verrez un message d’erreur similaire à `Azure deployment failure (Compute.OverconstrainedAllocationRequest): The VM size (or combination of VM sizes) required by this deployment cannot be provisioned due to deployment request constraints.`
+* Les instances A8, A9, A10 et A11 ne peuvent pas actuellement être déployées en utilisant un service cloud qui fait partie d’un groupe d’affinités existant. De même, un groupe d’affinités avec un service cloud contenant des instances A8, A9, A10 et A11 ne peut pas être utilisé pour les déploiements d’autres tailles d’instance. Si vous tentez d'effectuer ces déploiements, vous verrez un message d'erreur similaire à `Azure deployment failure (Compute.OverconstrainedAllocationRequest): The VM size (or combination of VM sizes) required by this deployment cannot be provisioned due to deployment request constraints.`
 
 * Le réseau RDMA dans Azure réserve l’espace d’adressage 172.16.0.0/12. Si vous envisagez d'exécuter des applications MPI sur des instances A8 et A9 déployées dans un réseau virtuel Azure, assurez-vous que l'espace d'adressage du réseau virtuel ne chevauche pas le réseau RDMA.
 
 ## Étapes suivantes
 
-* Pour plus d’informations sur la disponibilité et la tarification des instances A8, A9, A10 et A11, consultez [Tarification des machines virtuelles](http://azure.microsoft.com/pricing/details/virtual-machines/) et [Tarification des services cloud](http://azure.microsoft.com/pricing/details/cloud-services/).
-* Pour déployer et configurer un cluster Linux avec des instances A8 et A9 pour accéder au réseau Azure RDMA, consultez la page [Configuration d’un cluster Linux RDMA pour exécuter des applications MPI](virtual-machines-linux-cluster-rdma.md).
-* Pour prendre en main le déploiement et l’utilisation d’instances A8 et A9 avec HPC Pack sur Windows, consultez les pages [Instances de calcul intensif A8 et A9 : démarrage rapide avec HPC Pack](https://msdn.microsoft.com/library/azure/dn594431.aspx) et [Exécuter des applications MPI sur des instances de calcul intensif A8 et A9](https://msdn.microsoft.com/library/azure/dn592104.aspx).
+* Pour plus d'informations sur la disponibilité et la tarification des instances A8, A9, A10 et A11, consultez [Tarification des machines virtuelles](http://azure.microsoft.com/pricing/details/virtual-machines/) et [Tarification des services cloud](http://azure.microsoft.com/pricing/details/cloud-services/).
+* Pour déployer et configurer un cluster Linux avec des instances A8 et A9 pour accéder au réseau Azure RDMA, consultez la page [Configuration d'un cluster Linux RDMA pour exécuter des applications MPI](virtual-machines-linux-cluster-rdma.md).
+* Pour prendre en main le déploiement et l'utilisation d'instances A8 et A9 avec HPC Pack sur Windows, consultez les pages [Instances de calcul intensif A8 et A9 : démarrage rapide avec HPC Pack](https://msdn.microsoft.com/library/azure/dn594431.aspx) et [Exécuter des applications MPI sur des instances de calcul intensif A8 et A9](https://msdn.microsoft.com/library/azure/dn592104.aspx).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

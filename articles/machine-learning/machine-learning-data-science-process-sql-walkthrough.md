@@ -1,22 +1,23 @@
-<properties 
+<properties
 	pageTitle="Processus d’analyse avancé et technologie en action : Utilisation de SQL Server | Microsoft Azure"
-	description="Processus d’analyse avancé et technologie en action"
+	description="Processus d’analyse avancé et technologie en action"  
 	services="machine-learning"
+	solutions=""
 	documentationCenter=""
 	authors="msolhab"
 	manager="paulettm"
-	editor="cgronlun"/>
+	editor="cgronlun" />
 
-<tags 
+<tags
 	ms.service="machine-learning"
 	ms.workload="data-services"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/01/2015"
+	ms.date="09/09/2015" 
 	ms.author="mohabib;fashah;bradsev"/>
 
-                
+
 # Processus d’analyse avancé et technologie en action : Utilisation de SQL Server
 
 Dans ce didacticiel, vous explorerez la création et le déploiement d'un modèle à l'aide d'un groupe de données disponible publiquement, le jeu de données [NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/). La procédure suit le guide Processus et technologie d'analyse avancée Azure (ADAPT).
@@ -53,7 +54,7 @@ Nous allons formuler trois problèmes de prédiction reposant sur le champ *tip\
 1. Classification binaire : prédire si un pourboire a ou non été versé pour une course ; autrement dit, une valeur *tip\_amount* supérieure à 0 $ constitue un exemple positif, alors qu’une valeur *tip\_amount* de 0 $ est un exemple négatif.
 
 2. Classification multiclasse : prédire la fourchette des pourboires versés pour une course. Nous divisons la valeur *tip\_amount* en cinq compartiments ou classes :
-	
+
 		Class 0 : tip_amount = $0
 		Class 1 : tip_amount > $0 and tip_amount <= $5
 		Class 2 : tip_amount > $5 and tip_amount <= $10
@@ -126,7 +127,7 @@ Les performances de chargement et de transfert de grandes quantités de données
 	- Dans la liste **Sélectionner une page** figurant sur la gauche, sélectionnez **Paramètres de la base de données**.
 
 	- Vérifiez et/ou redéfinissez le champ **Emplacements de la base de données par défaut** sur les emplacements **Disque de données** de votre choix. Il s’agit des emplacements dans lesquels résident les nouvelles bases de données si elles ont été créées avec les paramètres d’emplacement par défaut.
-	
+
 		![Valeurs par défaut de la base de données SQL][15]
 
 5. Pour créer une base de données et un ensemble de groupes de fichiers destinés à contenir les tables partitionnées, ouvrez l’exemple de script **create\_db\_default.sql**. Ce script créera une base de données nommée **TaxiNYC** et 12 groupes de fichiers à l’emplacement des données par défaut. Chaque groupe de fichiers contiendra un mois de données trip\_data et trip\_fare. Si vous le souhaitez, modifiez le nom de la base de données. Cliquez sur **!Exécuter** pour exécuter le script.
@@ -173,7 +174,7 @@ Dans cet exercice, nous allons :
 
 Lorsque vous êtes prêt à utiliser Azure Machine Learning, vous pouvez au choix :
 
-1. enregistrer la requête SQL finale d’extraction et d’échantillonnage des données et copier-coller cette requête directement dans un module [Lecteur][reader] d’Azure Machine Learning, ou 
+1. enregistrer la requête SQL finale d’extraction et d’échantillonnage des données et copier-coller cette requête directement dans un module [Lecteur][reader] d’Azure Machine Learning, ou
 2. stocker les données échantillonnées et générées que vous prévoyez d’utiliser pour la création de modèles dans une nouvelle table de base de données et utiliser cette table dans le module [Lecteur][reader] d’Azure Machine Learning.
 
 Dans cette section, nous allons enregistrer la requête finale d’extraction et d’échantillonnage des données. La seconde méthode est décrite à la section [Exploration des données et conception de fonctionnalités dans Notebook IPython](#ipnb).
@@ -184,7 +185,7 @@ Pour vérifier rapidement le nombre de lignes et de colonnes des tables précéd
 	SELECT SUM(rows) FROM sys.partitions WHERE object_id = OBJECT_ID('nyctaxi_trip')
 
 	-- Report number of columns in table nyctaxi_trip
-	SELECT COUNT(*) FROM information_schema.columns WHERE table_name = 'nyctaxi_trip' 
+	SELECT COUNT(*) FROM information_schema.columns WHERE table_name = 'nyctaxi_trip'
 
 #### Exploration : distribution des courses par médaillon
 
@@ -232,12 +233,12 @@ Cet exemple recherche le nombre de courses avec et sans pourboire sur une pério
 Cet exemple calcule la distribution des fourchettes de pourboires sur une période donnée (ou dans le jeu de données complet si la requête porte sur l’année entière). Il s’agit de la distribution des classes d’étiquette à utiliser par la suite pour la modélisation de classification multiclasse.
 
 	SELECT tip_class, COUNT(*) AS tip_freq FROM (
-		SELECT CASE 
+		SELECT CASE
 			WHEN (tip_amount = 0) THEN 0
 			WHEN (tip_amount > 0 AND tip_amount <= 5) THEN 1
 			WHEN (tip_amount > 5 AND tip_amount <= 10) THEN 2
 			WHEN (tip_amount > 10 AND tip_amount <= 20) THEN 3
-			ELSE 4 
+			ELSE 4
 		END AS tip_class
 	FROM nyctaxi_fare
 	WHERE pickup_datetime BETWEEN '20130101' AND '20131231') tc
@@ -247,7 +248,7 @@ Cet exemple calcule la distribution des fourchettes de pourboires sur une pério
 
 Cet exemple convertit la longitude et la latitude des points d’embarquement et de débarquement en points géographiques SQL, calcule la distance des trajets en se basant sur la différence entre ces points géographiques et renvoie un échantillon aléatoire des résultats pour comparaison. Cet exemple limite les résultats aux coordonnées valides en utilisant la requête d’évaluation de la qualité des données précédemment décrite.
 
-	SELECT 
+	SELECT
 	pickup_location=geography::STPointFromText('POINT(' + pickup_longitude + ' ' + pickup_latitude + ')', 4326)
 	,dropoff_location=geography::STPointFromText('POINT(' + dropoff_longitude + ' ' + dropoff_latitude + ')', 4326)
 	,trip_distance
@@ -290,7 +291,7 @@ Lorsque vous travaillez sur des données volumineuses, il est recommandé de pro
 
 - Lisez un petit échantillon des données dans une trame de données en mémoire.
 - Procédez à certaines visualisations et explorations à l’aide des données échantillonnées.
-- Expérimentez la conception de fonctionnalités en utilisant les données échantillonnées. 
+- Expérimentez la conception de fonctionnalités en utilisant les données échantillonnées.
 - Pour exécuter de plus vastes tâches d’exploration des données, de manipulation des données et de conception de fonctionnalités, utilisez Python pour émettre des requêtes SQL directement sur la base de données SQL Server dans la machine virtuelle Azure.
 - Déterminez la taille d’échantillon à utiliser pour la création de modèles Azure Machine Learning.
 
@@ -319,45 +320,45 @@ Initialisez vos paramètres de connexion à la base de données dans les variabl
 #### Afficher le nombre de lignes et de colonnes de la table nyctaxi\_trip
 
     nrows = pd.read_sql('''
-		SELECT SUM(rows) FROM sys.partitions 
+		SELECT SUM(rows) FROM sys.partitions
 		WHERE object_id = OBJECT_ID('nyctaxi_trip')
 	''', conn)
-    
+
 	print 'Total number of rows = %d' % nrows.iloc[0,0]
-    
+
     ncols = pd.read_sql('''
-		SELECT COUNT(*) FROM information_schema.columns 
+		SELECT COUNT(*) FROM information_schema.columns
 		WHERE table_name = ('nyctaxi_trip')
 	''', conn)
-    
+
 	print 'Total number of columns = %d' % ncols.iloc[0,0]
 
 - Nombre total de lignes = 173 179 759  
 - Nombre total de colonnes = 14
-    
+
 #### Lire un petit échantillon de données depuis la base de données SQL Server
 
     t0 = time.time()
-    
+
 	query = '''
-		SELECT t.*, f.payment_type, f.fare_amount, f.surcharge, f.mta_tax, 
-			f.tolls_amount, f.total_amount, f.tip_amount 
-		FROM nyctaxi_trip t, nyctaxi_fare f 
+		SELECT t.*, f.payment_type, f.fare_amount, f.surcharge, f.mta_tax,
+			f.tolls_amount, f.total_amount, f.tip_amount
+		FROM nyctaxi_trip t, nyctaxi_fare f
 		TABLESAMPLE (0.05 PERCENT)
-		WHERE t.medallion = f.medallion 
-		AND   t.hack_license = f.hack_license 
+		WHERE t.medallion = f.medallion
+		AND   t.hack_license = f.hack_license
 		AND   t.pickup_datetime = f.pickup_datetime
 	'''
 
     df1 = pd.read_sql(query, conn)
-    
+
     t1 = time.time()
     print 'Time to read the sample table is %f seconds' % (t1-t0)
-    
+
     print 'Number of rows and columns retrieved = (%d, %d)' % (df1.shape[0], df1.shape[1])
 
 Temps de lecture de la table d’échantillon = 6,492000 secondes Nombre de lignes et de colonnes récupérées = (84 952, 21)
-    
+
 #### Statistiques descriptives
 
 Nous sommes désormais prêts à explorer les données échantillonnées. Nous sommes prêts à examiner les statistiques descriptives relatives au champ **trip\_distance** (ou à tout autre champ) :
@@ -426,14 +427,14 @@ Dans cette section, nous allons créer une table destinée à contenir les donn�
 Dans cette section, nous allons joindre les tables **nyctaxi\_trip** et **nyctaxi\_fare**, extraire un échantillon aléatoire de 1 % des données et stocker les données échantillonnées dans une nouvelle table nommée **nyctaxi\_one\_percent** :
 
     cursor = conn.cursor()
-    
+
     drop_table_if_exists = '''
         IF OBJECT_ID('nyctaxi_one_percent', 'U') IS NOT NULL DROP TABLE nyctaxi_one_percent
     '''
-    
+
     nyctaxi_one_percent_insert = '''
         SELECT t.*, f.payment_type, f.fare_amount, f.surcharge, f.mta_tax, f.tolls_amount, f.total_amount, f.tip_amount
-		INTO nyctaxi_one_percent 
+		INTO nyctaxi_one_percent
 		FROM nyctaxi_trip t, nyctaxi_fare f
 		TABLESAMPLE (1 PERCENT)
 		WHERE t.medallion = f.medallion
@@ -441,11 +442,11 @@ Dans cette section, nous allons joindre les tables **nyctaxi\_trip** et **nyctax
 		AND   t.pickup_datetime = f.pickup_datetime
 		AND   pickup_longitude <> '0' AND dropoff_longitude <> '0'
     '''
-    
+
     cursor.execute(drop_table_if_exists)
     cursor.execute(nyctaxi_one_percent_insert)
     cursor.commit()
-    
+
 ### Exploration des données à l’aide de requêtes SQL dans Notebook IPython
 
 Dans cette section, nous allons explorer les distributions de données à l’aide de l’échantillon de 1 % des données que nous avons stocké dans la table créée ci-dessus. Notez que vous pouvez effectuer des explorations similaires à l’aide des tables d’origine, le cas échéant en utilisant **TABLESAMPLE** pour limiter l’échantillon d’exploration ou en restreignant les résultats à une période spécifique au moyen des partitions **pickup\_datetime**, comme décrit à la section [Exploration des données et conception de fonctionnalités dans SQL Server](#dbexplore).
@@ -453,8 +454,8 @@ Dans cette section, nous allons explorer les distributions de données à l’ai
 #### Exploration : distribution quotidienne des courses
 
     query = '''
-		SELECT CONVERT(date, dropoff_datetime) AS date, COUNT(*) AS c 
-		FROM nyctaxi_one_percent 
+		SELECT CONVERT(date, dropoff_datetime) AS date, COUNT(*) AS c
+		FROM nyctaxi_one_percent
 		GROUP BY CONVERT(date, dropoff_datetime)
 	'''
 
@@ -463,11 +464,11 @@ Dans cette section, nous allons explorer les distributions de données à l’ai
 #### Exploration : distribution des courses par médaillon
 
     query = '''
-		SELECT medallion,count(*) AS c 
-		FROM nyctaxi_one_percent 
+		SELECT medallion,count(*) AS c
+		FROM nyctaxi_one_percent
 		GROUP BY medallion
 	'''
-    
+
 	pd.read_sql(query,conn)
 
 ### Génération de fonctionnalités à l’aide de requêtes SQL dans Notebook IPython
@@ -484,13 +485,13 @@ Dans l’exemple suivant, nous générons deux jeux d’étiquettes à utiliser 
 		nyctaxi_one_percent_add_col = '''
 			ALTER TABLE nyctaxi_one_percent ADD tipped bit, tip_class int
 		'''
-		
+
 		cursor.execute(nyctaxi_one_percent_add_col)
 		cursor.commit()
-    
+
     	nyctaxi_one_percent_update_col = '''
-        	UPDATE nyctaxi_one_percent 
-            SET 
+        	UPDATE nyctaxi_one_percent
+            SET
                tipped = CASE WHEN (tip_amount > 0) THEN 1 ELSE 0 END,
                tip_class = CASE WHEN (tip_amount = 0) THEN 0
                                 WHEN (tip_amount > 0 AND tip_amount <= 5) THEN 1
@@ -515,22 +516,22 @@ Cet exemple transforme un champ catégoriel en champ numérique en remplaçant c
     cursor.commit()
 
     nyctaxi_one_percent_update_col = '''
-		WITH B AS 
+		WITH B AS
 		(
-			SELECT medallion, hack_license, 
+			SELECT medallion, hack_license,
 				SUM(CASE WHEN vendor_id = 'cmt' THEN 1 ELSE 0 END) AS cmt_count,
 				SUM(CASE WHEN vendor_id = 'vts' THEN 1 ELSE 0 END) AS vts_count
-			FROM nyctaxi_one_percent 
+			FROM nyctaxi_one_percent
 			GROUP BY medallion, hack_license
-		) 
-    
-		UPDATE nyctaxi_one_percent 
+		)
+
+		UPDATE nyctaxi_one_percent
 		SET nyctaxi_one_percent.cmt_count = B.cmt_count,
 			nyctaxi_one_percent.vts_count = B.vts_count
-		FROM nyctaxi_one_percent A INNER JOIN B 
+		FROM nyctaxi_one_percent A INNER JOIN B
 		ON A.medallion = B.medallion AND A.hack_license = B.hack_license
 	'''
-    
+
     cursor.execute(nyctaxi_one_percent_update_col)
     cursor.commit()
 
@@ -546,20 +547,20 @@ Cet exemple transforme un champ numérique continu en plages de catégories pré
     cursor.commit()
 
     nyctaxi_one_percent_update_col = '''
-		WITH B(medallion,hack_license,pickup_datetime,trip_time_in_secs, BinNumber ) AS 
+		WITH B(medallion,hack_license,pickup_datetime,trip_time_in_secs, BinNumber ) AS
 		(
-			SELECT medallion,hack_license,pickup_datetime,trip_time_in_secs, 
+			SELECT medallion,hack_license,pickup_datetime,trip_time_in_secs,
 			NTILE(5) OVER (ORDER BY trip_time_in_secs) AS BinNumber from nyctaxi_one_percent
 		)
-    
-		UPDATE nyctaxi_one_percent 
+
+		UPDATE nyctaxi_one_percent
 		SET trip_time_bin = B.BinNumber
-		FROM nyctaxi_one_percent A INNER JOIN B 
+		FROM nyctaxi_one_percent A INNER JOIN B
 		ON A.medallion = B.medallion
 		AND A.hack_license = B.hack_license
 		AND A.pickup_datetime = B.pickup_datetime
 	'''
-    
+
     cursor.execute(nyctaxi_one_percent_update_col)
     cursor.commit()
 
@@ -568,7 +569,7 @@ Cet exemple transforme un champ numérique continu en plages de catégories pré
 Cet exemple décompose la représentation décimale d’un champ de latitude et/ou de longitude en plusieurs champs d’emplacement de différentes granularités, tels que pays, région, ville, bloc, etc. Notez que les nouveaux champs géographiques ne sont pas mappés sur des emplacements réels. Pour plus d’informations sur le mappage des emplacements associés à un géocode, consultez l’article consacré aux [Services REST de Bing Cartes](https://msdn.microsoft.com/library/ff701710.aspx).
 
     nyctaxi_one_percent_insert_col = '''
-		ALTER TABLE nyctaxi_one_percent 
+		ALTER TABLE nyctaxi_one_percent
 		ADD l1 varchar(6), l2 varchar(3), l3 varchar(3), l4 varchar(3),
 			l5 varchar(3), l6 varchar(3), l7 varchar(3)
 	'''
@@ -578,13 +579,13 @@ Cet exemple décompose la représentation décimale d’un champ de latitude et/
 
     nyctaxi_one_percent_update_col = '''
 		UPDATE nyctaxi_one_percent
-		SET l1=round(pickup_longitude,0) 
+		SET l1=round(pickup_longitude,0)
 			, l2 = CASE WHEN LEN (PARSENAME(ROUND(ABS(pickup_longitude) - FLOOR(ABS(pickup_longitude)),6),1)) >= 1 THEN SUBSTRING(PARSENAME(ROUND(ABS(pickup_longitude) - FLOOR(ABS(pickup_longitude)),6),1),1,1) ELSE '0' END     
 			, l3 = CASE WHEN LEN (PARSENAME(ROUND(ABS(pickup_longitude) - FLOOR(ABS(pickup_longitude)),6),1)) >= 2 THEN SUBSTRING(PARSENAME(ROUND(ABS(pickup_longitude) - FLOOR(ABS(pickup_longitude)),6),1),2,1) ELSE '0' END     
 			, l4 = CASE WHEN LEN (PARSENAME(ROUND(ABS(pickup_longitude) - FLOOR(ABS(pickup_longitude)),6),1)) >= 3 THEN SUBSTRING(PARSENAME(ROUND(ABS(pickup_longitude) - FLOOR(ABS(pickup_longitude)),6),1),3,1) ELSE '0' END     
 			, l5 = CASE WHEN LEN (PARSENAME(ROUND(ABS(pickup_longitude) - FLOOR(ABS(pickup_longitude)),6),1)) >= 4 THEN SUBSTRING(PARSENAME(ROUND(ABS(pickup_longitude) - FLOOR(ABS(pickup_longitude)),6),1),4,1) ELSE '0' END     
 			, l6 = CASE WHEN LEN (PARSENAME(ROUND(ABS(pickup_longitude) - FLOOR(ABS(pickup_longitude)),6),1)) >= 5 THEN SUBSTRING(PARSENAME(ROUND(ABS(pickup_longitude) - FLOOR(ABS(pickup_longitude)),6),1),5,1) ELSE '0' END     
-			, l7 = CASE WHEN LEN (PARSENAME(ROUND(ABS(pickup_longitude) - FLOOR(ABS(pickup_longitude)),6),1)) >= 6 THEN SUBSTRING(PARSENAME(ROUND(ABS(pickup_longitude) - FLOOR(ABS(pickup_longitude)),6),1),6,1) ELSE '0' END 
+			, l7 = CASE WHEN LEN (PARSENAME(ROUND(ABS(pickup_longitude) - FLOOR(ABS(pickup_longitude)),6),1)) >= 6 THEN SUBSTRING(PARSENAME(ROUND(ABS(pickup_longitude) - FLOOR(ABS(pickup_longitude)),6),1),6,1) ELSE '0' END
 	'''
 
     cursor.execute(nyctaxi_one_percent_update_col)
@@ -655,12 +656,12 @@ La figure ci-après illustre un exemple d’expérience de classification binair
 
 ## <a name="mldeploy"></a>Déploiement de modèles dans Azure Machine Learning
 
-Lorsque votre modèle est prêt, vous pouvez facilement le déployer sous la forme d’un service web directement à partir de l’expérience. Pour plus d’informations sur la publication de services web Azure Machine Learning, consultez [Publier un service web Azure Machine Learning](machine-learning-publish-a-machine-learning-web-service.md).
+Lorsque votre modèle est prêt, vous pouvez facilement le déployer sous la forme d’un service web directement à partir de l’expérience. Pour plus d’informations sur le déploiement de services web Azure Machine Learning, consultez [Déployer un service web Azure Machine Learning](machine-learning-publish-a-machine-learning-web-service.md).
 
 Pour déployer un nouveau service web, vous devez :
 
 1. créer une expérience de notation ;
-2. publier le service web.
+2. déployer le service web.
 
 Pour créer une expérience de notation à partir d’une expérience d’apprentissage **terminée**, cliquez sur **CRÉER UNE EXPÉRIENCE DE NOTATION** dans la barre d’action inférieure.
 
@@ -674,11 +675,11 @@ Azure Machine Learning va essayer de créer une expérience de notation reposant
 
 Une fois l’expérience de notation créée, passez-la en revue et ajustez-la selon vos besoins. Un ajustement classique consiste à remplacer le jeu de données d’entrée et/ou la requête par un autre jeu excluant les champs d’étiquette, car ces derniers ne seront pas disponibles lors de l’appel du service. Il est également recommandé de restreindre la taille du jeu de données d’entrée et/ou de la requête au nombre d’enregistrements suffisants pour indiquer le schéma d’entrée. Pour le port de sortie, il est courant d’exclure tous les champs d’entrée et de n’inclure que les valeurs **Étiquettes notées** et **Probabilités notées** dans la sortie à l’aide du module [Colonnes de projet][project-columns].
 
-La figure ci-après illustre un exemple d’expérience de notation. Lorsque vous êtes prêt à effectuer la publication, cliquez sur le bouton **PUBLIER LE SERVICE WEB** de la barre d’action inférieure.
+La figure ci-après illustre un exemple d’expérience de notation. Quand vous êtes prêt à effectuer le déploiement, cliquez sur le bouton **PUBLIER LE SERVICE WEB** de la barre d’action inférieure.
 
 ![Publication Azure Machine Learning][11]
 
-Pour résumer, ce didacticiel pas à pas vous a décrit comment créer un environnement de science des données Azure et comment manipuler un jeu de données public volumineux, depuis l’acquisition des données jusqu’à la publication d’un service web Azure Machine Learning en passant par la formation de modèles.
+Pour résumer, ce didacticiel pas à pas vous a décrit comment créer un environnement de science des données Azure et comment manipuler un jeu de données public volumineux, depuis l’acquisition des données jusqu’au déploiement d’un service web Azure Machine Learning en passant par la formation de modèles.
 
 ### Informations de licence
 
@@ -713,6 +714,5 @@ Cet exemple de procédure pas à pas et les scripts et notebooks IPython qui lui
 [metadata-editor]: https://msdn.microsoft.com/library/azure/370b6676-c11c-486f-bf73-35349f842a66/
 [project-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
- 
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

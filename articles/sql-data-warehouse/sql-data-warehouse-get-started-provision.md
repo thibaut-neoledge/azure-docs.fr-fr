@@ -13,12 +13,12 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/23/2015"
+   ms.date="09/09/2015"
    ms.author="JRJ@BigBangData.co.uk;barbkess"/>
 
 # Prise en main : approvisionnement d’une instance SQL Data Warehouse #
 
-Cet article, qui constitue un guide rapide, a pour but de vous aider à provisionner une instance SQL Data Warehouse dans Azure. En suivant ce guide, vous allez effectuer les tâches suivantes :
+Cet article, qui constitue un guide, a pour but de vous aider à provisionner une instance SQL Data Warehouse dans Azure. En suivant ce guide, vous allez effectuer les tâches suivantes :
 
 1. création d’une base de données SQL Data Warehouse ;
 2. configuration d’un nouveau serveur logique ;
@@ -27,7 +27,7 @@ Cet article, qui constitue un guide rapide, a pour but de vous aider à provisio
 ## Version d’évaluation gratuite Azure ##
 Vous devez disposer d’un abonnement à Microsoft Azure pour pouvoir effectuer les tâches ci-dessous. Ce n’est pas le cas ? Alors, l’obtention d’un abonnement constitue la première étape à suivre.
 
-Vous pouvez accéder à une [version d’essai gratuit][], qui vous permet d’essayer l’un des services disponibles dans Microsoft Azure. Cela inclut SQL Data Warehouse.
+Vous pouvez obtenir une [version d’essai gratuit][], qui vous permet d’essayer l’un des services Azure. Cela inclut SQL Data Warehouse.
 
 
 ## Connectez-vous au portail Azure. ##
@@ -76,7 +76,7 @@ La première étape consiste à nommer la base de données.
 
 L’option relative aux performances est *importante*. L’évolutivité de la puissance de SQL Data Warehouse repose sur ce curseur. Vous pouvez augmenter ou diminuer les performances à tout moment, et pas uniquement lorsque vous configurez l’entrepôt de données. Plus vous faites glisser le curseur vers la droite, plus le nombre de ressources à votre disposition est élevé. Si ces ressources ne sont plus nécessaires, vous pouvez immédiatement le remettre à son emplacement de départ, ce qui vous permet de réduire les coûts. SQL Data Warehouse vous permet de modifier votre profil de performances à la demande sans devoir recréer l’entrepôt de données, ni déplacer des données.
 
-- Vous pouvez voir de quelle manière le nombre d’unités Data Warehouse augmente à mesure que vous faites glisser le curseur vers la droite, et de quelle manière il baisse lorsque vous le déplacez vers la gauche.
+- Vous pouvez voir de quelle manière le nombre d’unités Data Warehouse (DWU) augmente à mesure que vous faites glisser le curseur vers la droite, et de quelle manière il baisse quand vous le déplacez vers la gauche.
 
 - Avant de terminer cette étape, vérifiez que vous avez remis le curseur à son emplacement de départ, vers la gauche. Comme le nouvel entrepôt de données est petit, nous n’avons pas besoin d’un grand nombre de ressources. Réservez-les pour la suite de votre essai !
 
@@ -151,9 +151,7 @@ Maintenant que vous avez configuré le pare-feu, vous devriez être en mesure d�
 
 ## Étapes suivantes
 
-Le service SQL Data Warehouse est correctement approvisionné. Nous pouvons désormais découvrir comment l’utiliser.
-
-Les étapes suivantes ont donc pour objectif de vous aider à savoir comment :
+Le service SQL Data Warehouse est correctement approvisionné. Nous pouvons désormais découvrir comment l’utiliser. Étapes suivantes :
 
 1. [connecter et interroger][] l’entrepôt de données ;
 2. charger les [exemples de données].
@@ -166,7 +164,7 @@ Les étapes suivantes ont donc pour objectif de vous aider à savoir comment :
 [exemples de données]: ./sql-data-warehouse-get-started-load-samples.md
 
 <!--External links-->
-[version d’essai gratuit]: https://azure.microsoft.com/fr-fr/pricing/free-trial/
+[version d’essai gratuit]: https://azure.microsoft.com/fr-FR/pricing/free-trial/
 [portail Azure]: https://portal.azure.com/
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO2-->

@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Contrôle d'accès en fonction du rôle dans Mobile Services et Azure Active Directory (Windows Store) | Microsoft Azure"
-	description="Découvrez comment contrôler l'accès en fonction des rôles Azure Active Directory dans votre application Windows Store."
+	pageTitle="Contrôle d’accès en fonction du rôle dans Mobile Services à l’aide de .NET et d’Azure Active Directory (Windows Store) | Microsoft Azure"
+	description="Découvrez comment contrôler l’accès en fonction des rôles Azure Active Directory dans votre application Windows Store à l’aide d’un service mobile avec un backend .NET."
 	documentationCenter="windows"
 	authors="wesmc7777"
 	manager="dwrede"
@@ -8,15 +8,15 @@
 	services="mobile-services"/>
 
 <tags
-	ms.service="mobile-services"
+	ms.service="mobile-services" 
 	ms.workload="mobile"
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="06/16/2015"
+	ms.date="09/03/2015"
 	ms.author="wesmc"/>
 
-# Contrôle d'accès en fonction du rôle dans Mobile Services et Azure Active Directory
+# Contrôle d’accès en fonction du rôle dans Mobile Services à l’aide de JavaScript et d’Azure Active Directory
 
 [AZURE.INCLUDE [mobile-services-selector-rbac](../../includes/mobile-services-selector-rbac.md)]
 
@@ -383,7 +383,7 @@ Dans cette section, vous allez créer un attribut d'autorisation personnalisé p
 <!-- URLs. -->
 [Ajout de l'authentification à votre application]: mobile-services-dotnet-backend-windows-universal-dotnet-get-started-users.md
 [How to Register with the Azure Active Directory]: mobile-services-how-to-register-active-directory-authentication.md
-[Azure Management Portal]: https://manage.windowsazure.com/
+[portail de gestion Azure]: https://manage.windowsazure.com/
 [Directory Sync Scenarios]: http://msdn.microsoft.com/library/azure/jj573653.aspx
 [Store Server Scripts]: mobile-services-store-scripts-source-control.md
 [Inscription pour utiliser une connexion Azure Active Directory]: mobile-services-how-to-register-active-directory-authentication.md
@@ -392,4 +392,4 @@ Dans cette section, vous allez créer un attribut d'autorisation personnalisé p
 [Accès aux informations Azure Active Directory Graph]: mobile-services-dotnet-backend-windows-store-dotnet-aad-graph-info.md
 [Bibliothèque d'authentification Azure AD pour .NET]: https://msdn.microsoft.com/library/azure/jj573266.aspx
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

@@ -1,18 +1,30 @@
+<properties 
+   pageTitle="Option 2 : utiliser le portail de gestion Azure pour appliquer Update 1.2"
+   description="Explique comment utiliser le portail de gestion pour installer StorSimple 8000 Series Update 1.2."
+   services="storsimple"
+   documentationCenter="NA"
+   authors="SharS"
+   manager="adinah"
+   editor="tysonn" />
+<tags 
+   ms.service="storsimple"
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="TBD"
+   ms.date="09/08/2015"
+   ms.author="v-sharos" />
 
-#### Pour installer Update 1 à partir du Portail de gestion Azure
+#### Pour installer Update 1.2 à partir du portail de gestion Azure
 
 1. Dans le portail de gestion, accédez à la page **Appareils** et sélectionnez votre appareil.
  
 2. Accédez à **Appareils** > **Configurer**.
 
-3. Sous **Interfaces réseau**, recherchez l’interface réseau associée à une passerelle. Il s’agit d’une interface réseau autre que DATA 0.
+3. Sous **Interfaces réseau**, vérifiez d’abord que vous disposez d’au moins une interface réseau compatible iSCSI. Ensuite, recherchez l’interface réseau (autre que DATA 0) à laquelle est affectée une passerelle.
 
-4. Supprimez le paramètre de passerelle. Notez que comme les paramètres de passerelle sont requis sur une interface réseau compatible avec le cloud, vous devez désactiver l’accès de cette interface au cloud pour effacer le paramètre.
+4. Désactivez l’interface réseau à laquelle est affectée une passerelle et enregistrez la nouvelle configuration. Les paramètres d’interface réseau étant conservés, le portail retrouve les paramètres d’origine quand vous réactivez cette interface réseau ultérieurement.
 
-5. Répétez l’étape 4 pour toute autre interface réseau associée à une passerelle (sauf DATA 0).
+7. Vous pouvez maintenant [utiliser le portail de gestion pour installer Update 1.2](#use-the-management-portal-to-install-update-1). Suivez les instructions à partir de l’étape 3 de cette procédure. Après avoir installé toutes les mises à jour, vous pouvez réactiver l’interface réseau que vous avez désactivée.
 
-6. Enregistrez la configuration modifiée.
-
-7. Vous pouvez maintenant [utiliser le portail de gestion pour installer Update 1](#use-the-management-portal-to-install-update-1).
-
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

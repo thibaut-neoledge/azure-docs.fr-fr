@@ -1,20 +1,20 @@
 <properties
     pageTitle="Utilisation des files d’attente Service Bus (.NET) | Microsoft Azure"
-	description="Découvrez comment utiliser les files d'attente Service Bus dans Azure. Exemples de code écrits en C# à l’aide de l’API .NET."
-	services="service-bus"
-	documentationCenter=".net"
-	authors="sethmanheim"
-	manager="timlt"
-	editor=""/>
+    description="Découvrez comment utiliser les files d'attente Service Bus dans Azure. Exemples de code écrits en C# à l’aide de l’API .NET."
+    services="service-bus"
+    documentationCenter=".net"
+    authors="sethmanheim"
+    manager="timlt"
+    editor=""/>
 
 <tags
     ms.service="service-bus"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="na"
-	ms.devlang="dotnet"
-	ms.topic="get-started-article"
-	ms.date="07/02/2015"
-	ms.author="sethm"/>
+    ms.workload="tbd"
+    ms.tgt_pltfrm="na"
+    ms.devlang="dotnet"
+    ms.topic="get-started-article"
+    ms.date="07/02/2015"
+    ms.author="sethm"/>
 
 # Utilisation des files d’attente Service Bus
 
@@ -223,9 +223,9 @@ Si l’application subit un incident après le traitement du message, mais avant
 
 Maintenant que vous avez appris les principes de base des files d'attente Service Bus, consultez ces liens pour en savoir plus :
 
--   Consultez la présentation MSDN suivante : [Files d’attente, rubriques et abonnements][].
+-   Consultez [Files d’attente, rubriques et abonnements][].
 -   Créez une application opérationnelle, capable d’envoyer et de recevoir des messages à destination et en provenance d’une file d’attente Service Bus : [Didacticiel .NET sur la messagerie répartie Service Bus].
--   Exemples Service Bus : téléchargement depuis la page [Exemples Azure][] ou consultation de la présentation sur [MSDN][].
+-   Exemples Service Bus : téléchargement depuis la page [Exemples Azure][] ou consultation de la [présentation][].
 
   [What are Service Bus Queues]: #what-queues
   [Create a Service Namespace]: #create-namespace
@@ -239,9 +239,9 @@ Maintenant que vous avez appris les principes de base des files d'attente Servic
   [How to: Handle Application Crashes and Unreadable Messages]: #handle-crashes
   [Azure portal]: http://manage.windowsazure.com
   [7]: ./media/service-bus-dotnet-how-to-use-queues/getting-started-multi-tier-13.png
-  [Files d’attente, rubriques et abonnements]: http://msdn.microsoft.com/library/azure/hh367516.aspx
+  [Files d’attente, rubriques et abonnements]: service-bus-queues-topics-subscriptions.md
   [Didacticiel .NET sur la messagerie répartie Service Bus]: http://msdn.microsoft.com/library/azure/hh367512.aspx
   [Exemples Azure]: https://code.msdn.microsoft.com/windowsazure/site/search?query=service%20bus&f%5B0%5D.Value=service%20bus&f%5B0%5D.Type=SearchText&ac=2
-  [MSDN]: https://msdn.microsoft.com/library/azure/dn194201.aspx
+  [présentation]: service-bus-samples.md
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO2-->

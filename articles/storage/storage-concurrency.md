@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="06/18/2015" 
+	ms.date="09/03/2015" 
 	ms.author="tamram"/>
 
 # Gestion de l’accès concurrentiel dans Microsoft Azure Storage
@@ -273,4 +273,4 @@ Pour plus d’informations concernant Azure Storage, consultez la page :
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

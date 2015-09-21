@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/14/2015" 
+	ms.date="09/09/2015" 
 	ms.author="awills"/>
 
 
@@ -154,17 +154,19 @@ Dans le cas d’une application majeure, il est conseillé de transmettre les do
 
 
 
-## Ajouter un suivi des dépendances
+## Ajouter un suivi de dépendance et des compteurs de performances système
 
 Les [métriques de dépendance](app-insights-dependencies.md) peuvent être très utiles pour vous aider à diagnostiquer les problèmes de performances. Ils comptabilisent les appels de votre application vers les bases de données, les API REST et d’autres composants externes.
 
 ![](./media/app-insights-asp-net/04-dependencies.png)
 
-#### Si votre application s’exécute sur votre serveur IIS
+Cette étape permet également [d’indiquer les compteurs de performance](app-insights-web-monitor-performance.md#system-performance-counters) tels que le taux d’utilisation du processeur, de la mémoire et du réseau.
+
+#### Si votre application s'exécute sur votre serveur IIS
 
 Connectez-vous à votre serveur avec des droits d’administrateur, puis installez [Application Insights Status Monitor](http://go.microsoft.com/fwlink/?LinkId=506648).
 
-(Vous pouvez également utiliser Status Monitor pour [instrumenter une application déjà en cours d’exécution](app-insights-monitor-performance-live-website-now.md), même si elle n’a pas été générée avec le Kit de développement logiciel.)
+(Vous pouvez également utiliser Status Monitor pour [instrumenter une application déjà en cours d’exécution](app-insights-monitor-performance-live-website-now.md), même si elle n’a pas été générée avec le Kit de développement logiciel (SDK).)
 
 #### Si votre application est une application web Azure
 
@@ -172,7 +174,11 @@ Dans le panneau de configuration de votre application web Azure, ajoutez l’ext
 
 ![Dans votre application web, Paramètres, Extensions, Ajouter, Application Insights](./media/app-insights-asp-net/05-extend.png)
 
-(L’extension s’applique uniquement à une application générée avec le Kit de développement logiciel. Contrairement à Status Monitor, elle ne peut pas instrumenter une application existante.)
+(L’extension s’applique uniquement à une application générée avec le Kit de développement logiciel. Contrairement à Status Monitor, elle ne peut pas instrumentaliser une application existante.)
+
+#### Pour surveiller les rôles de services cloud Azure
+
+Il existe une [procédure manuelle pour ajouter le moniteur d’état](app-insights-cloudservices.md).
 
 ## Tests web de disponibilité
 
@@ -220,4 +226,4 @@ Si vous avez apporté des personnalisations à ApplicationInsights.config, conse
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

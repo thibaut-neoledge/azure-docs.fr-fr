@@ -1,7 +1,7 @@
 
 <properties
-	pageTitle="Envoi de notifications Push aux utilisateurs authentifiés"
-	description="Découvrez comment envoyer des notifications Push à"
+	pageTitle="Envoyer des notifications Push aux utilisateurs authentifiés de votre application Android (backend JavaScript)"
+	description="Découvrez comment envoyer des notifications Push à des utilisateurs authentifiés spécifiques de votre application Android à l’aide d’un service mobile avec un backend JavaScript."
 	services="mobile-services, notification-hubs"
 	documentationCenter="android"
 	authors="wesmc7777"
@@ -14,21 +14,21 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="06/16/2015"
+	ms.date="09/03/2015" 
 	ms.author="wesmc"/>
 
 
-# Envoi de notifications Push aux utilisateurs authentifiés
+# Envoyer des notifications Push aux utilisateurs authentifiés de votre application Android
 
 [AZURE.INCLUDE [mobile-services-selector-push-users](../../includes/mobile-services-selector-push-users.md)]
 
 ##Vue d'ensemble
 
-Cette rubrique montre comment envoyer des notifications Push à un utilisateur authentifié sur un appareil inscrit. À l'inverse du précédent didacticiel relatif aux [notifications Push][Get started with push notifications], celui-ci modifie votre service mobile pour exiger l'authentification des utilisateurs avant que le client puisse s'inscrire auprès du concentrateur de notification pour les notifications Push. L'inscription est également modifiée pour ajouter une balise basée sur l'ID d'utilisateur affecté. Enfin, le script serveur est mis à jour afin de n'envoyer la notification qu'à l'utilisateur authentifié, au lieu de l'envoyer à toutes les inscriptions.
+Cette rubrique montre comment envoyer des notifications Push à un utilisateur authentifié sur un appareil inscrit. À l'inverse du précédent didacticiel relatif aux [notifications Push][Get started with push notifications], celui-ci modifie votre service mobile pour exiger l'authentification des utilisateurs avant que le client puisse s'inscrire auprès du hub de notification pour les notifications Push. L'inscription est également modifiée pour ajouter une balise basée sur l'ID d'utilisateur affecté. Enfin, le script serveur est mis à jour afin de n'envoyer la notification qu'à l'utilisateur authentifié, au lieu de l'envoyer à toutes les inscriptions.
 
-Ce didacticiel prend en charge les applications Android.
+Ce didacticiel prend en charge les applications Android qui utilisent un service mobile Azure avec un backend JavaScript.
 
-##Configuration requise
+##Composants requis
 
 Avant de commencer ce didacticiel, vous devez suivre les didacticiels Mobile Services suivants :
 
@@ -94,7 +94,7 @@ In the next tutorial, [Service-side authorization of Mobile Services users](mobi
 [Get started with push notifications]: mobile-services-javascript-backend-android-get-started-push.md
 [Prise en main des notifications Push]: mobile-services-javascript-backend-android-get-started-push.md
 
-[Azure Management Portal]: https://manage.windowsazure.com/
+[portail de gestion Azure]: https://manage.windowsazure.com/
 [Mobile Services .NET How-to Conceptual Reference]: /develop/mobile/how-to-guides/work-with-net-client-library
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

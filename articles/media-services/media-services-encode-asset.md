@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Vue d’ensemble et comparaison d’encodeurs multimédia à la demande Azure"
-	description="Cette rubrique donne une vue d’ensemble des encodeurs multimédia à la demande Azure et les compare."
-	services="media-services"
-	documentationCenter=""
-	authors="juliako"
-	manager="dwrede"
+	pageTitle="Vue d’ensemble et comparaison d’encodeurs multimédia à la demande Azure" 
+	description="Cette rubrique donne une vue d’ensemble des encodeurs multimédia à la demande Azure et les compare." 
+	services="media-services" 
+	documentationCenter="" 
+	authors="juliako" 
+	manager="dwrede" 
 	editor=""/>
 
 <tags 
-	ms.service="media-services"
-	ms.workload="media"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/24/2015"
+	ms.service="media-services" 
+	ms.workload="media" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/07/2015"  
 	ms.author="juliako"/>
 
 #Vue d’ensemble et comparaison d’encodeurs multimédia à la demande Azure
@@ -238,6 +238,14 @@ MPEG Layer 2|Non|Non|Oui
 MP3 (MPEG-1 Audio Layer 3)|Non|Non|Oui
 Windows Media Audio|Non|Oui|Oui
 
+
+##Parcours d’apprentissage de Media Services
+
+Vous pouvez afficher les parcours d’apprentissage d’AMS ici :
+
+- [Workflow en flux continu AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [Workflow de streaming à la demande AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+
 ##Articles connexes
 
 - [Quotas et limitations](media-services-quotas-and-limitations.md)
@@ -246,4 +254,4 @@ Windows Media Audio|Non|Oui|Oui
 <!--Reference links in article-->
 [1]: http://azure.microsoft.com/pricing/details/media-services/
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO2-->

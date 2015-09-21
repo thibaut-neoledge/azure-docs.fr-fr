@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Prise en main d'Azure Mobile Services pour les applications Android"
-	description="Suivez ce didacticiel pour commencer à utiliser Azure Mobile Services pour le développement Android."
+	pageTitle="Prendre en main Azure Mobile Services pour les applications Android (backend JavaScript)"
+	description="Suivez ce didacticiel pour commencer à utiliser Azure Mobile Services pour le développement Android (backend JavaScript)."
 	services="mobile-services"
 	documentationCenter="android"
 	authors="RickSaling"
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="06/16/2015"
+	ms.date="09/04/2015"
 	ms.author="ricksal"/>
 
-# Prise en main de Mobile Services
+# Prendre en main Mobile Services pour Android (backend JavaScript)
 
 [AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]
 
@@ -117,4 +117,4 @@ Maintenant que vous avez effectué le démarrage rapide, découvrez comment exé
 
 [Management Portal]: https://manage.windowsazure.com/
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

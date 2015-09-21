@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Encodage en direct avec des encodeurs locaux"
-	description="Cette rubrique montre comment utiliser .NET pour effectuer un encodage en direct avec des encodeurs locaux."
-	services="media-services"
-	documentationCenter=""
-	authors="juliako"
-	manager="dwrede"
+	pageTitle="Encodage en direct avec des encodeurs locaux" 
+	description="Cette rubrique montre comment utiliser .NET pour effectuer un encodage en direct avec des encodeurs locaux." 
+	services="media-services" 
+	documentationCenter="" 
+	authors="juliako" 
+	manager="dwrede" 
 	editor=""/>
 
 <tags 
-	ms.service="media-services"
-	ms.workload="media"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/24/2015"
+	ms.service="media-services" 
+	ms.workload="media" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/07/2015"  
 	ms.author="juliako"/>
 
 #Encodage en direct avec des encodeurs locaux
@@ -375,4 +375,12 @@ Pour plus d’informations sur la configuration d’un encodeur dynamique, voir 
 		    }
 		}
 
-<!---HONumber=August15_HO9-->
+
+##Parcours d’apprentissage de Media Services
+
+Vous pouvez afficher les parcours d’apprentissage d’AMS ici :
+
+- [Workflow en flux continu AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [Workflow de streaming à la demande AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+
+<!---HONumber=Sept15_HO2-->

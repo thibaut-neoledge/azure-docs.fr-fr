@@ -76,7 +76,7 @@ Dans le portail de gestion Azure, les rapports sont classés comme suit :
 |	Utilisateurs ayant une activité de connexion anormale | | |	✓ |
 |	Utilisateurs avec des informations d’identification volées | | |	✓ |
 |	**Journaux d’activité**
-|	Rapport d’audit |	✓ | | |
+|	Rapport d’audit |	✓ |	✓ |	✓ |
 |	Activité de réinitialisation de mot de passe | | |	✓ |
 |	Activité de l’enregistrement de la réinitialisation de mot de passe | | |	✓ |
 |	Activité de groupes en libre-service | | |	✓ |
@@ -276,4 +276,4 @@ Pour plus d'informations sur les notifications de création de rapport Azure AD
 - [Prise en main d’Azure Active Directory Premium (AD)](active-directory-get-started-premium.md)
 - [Ajouter des stratégies de promotion professionnelles aux pages du volet d’accès et de connexion](active-directory-add-company-branding.md)
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

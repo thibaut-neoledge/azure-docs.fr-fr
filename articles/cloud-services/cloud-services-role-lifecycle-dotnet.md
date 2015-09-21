@@ -6,16 +6,14 @@ documentationCenter=".net"
 authors="Thraka" 
 manager="timlt" 
 editor=""/>
-
 <tags 
 ms.service="cloud-services" 
 ms.workload="tbd" 
 ms.tgt_pltfrm="na" 
 ms.devlang="na" 
 ms.topic="article" 
-ms.date="06/11/2015" 
+ms.date="09/08/2015" 
 ms.author="adegeo"/>
-
 
 # Personnalisation du cycle de vie d'un rôle Web ou de travail dans .NET
 
@@ -82,4 +80,4 @@ Vous pouvez utiliser les méthodes de cycle de vie ASP.NET, en plus de celles fo
 ## Étapes suivantes
 Découvrez comment [créer un package de service cloud](cloud-services-model-and-package.md).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

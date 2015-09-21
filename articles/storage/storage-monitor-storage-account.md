@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/22/2015"
+	ms.date="09/03/2015"
 	ms.author="tamram"/>
 
 # Surveillance d'un compte de stockage dans le portail Azure
@@ -157,4 +157,4 @@ Pour chaque service de stockage accessible à votre compte de stockage (Blob, Ta
 
 Les journaux de diagnostic sont enregistrés dans un conteneur d'objets blob nommé $logs dans votre compte de stockage. Pour plus d'informations sur l'accès au conteneur $logs, consultez la page [À propos de la journalisation Storage Analytics](http://msdn.microsoft.com/library/azure/hh343262.aspx).
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO2-->

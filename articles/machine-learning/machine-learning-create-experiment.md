@@ -1,6 +1,7 @@
 <properties
 	pageTitle="Création d'une expérience simple dans Machine Learning Studio | Microsoft Azure"
 	description="Un premier didacticiel sur l'apprentissage automatique pour la création d'une expérience simple afin de former et tester un modèle de régression linéaire dans Azure Machine Learning Studio."
+	keywords="experiment,linear regression,machine learning algorithms,machine learning tutorial,predictive modeling techniques"
 	services="machine-learning"
 	documentationCenter=""
 	authors="garyericson"
@@ -13,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="07/09/2015"
+	ms.date="09/09/2015"
 	ms.author="garye"/>
 
 #Didacticiel sur l'apprentissage automatique : création de votre première expérience dans Azure Machine Learning Studio
@@ -197,11 +198,11 @@ Au final, l’expérience doit ressembler à ceci :
 
 [runhistory]: machine-learning-manage-experiment-iterations.md
 
-Une fois satisfait de votre modèle, vous pouvez le publier en tant que service web permettant de prévoir l’évolution des prix dans le secteur automobile, en utilisant de nouvelles données. Consultez la section [Publier un service Web Microsoft Azure Machine Learning][publish] pour en savoir plus.
+Une fois satisfait de votre modèle, vous pouvez le déployer en tant que service web permettant de prévoir l’évolution des prix dans le secteur automobile, en utilisant de nouvelles données. Consultez la section [Déployer un service web Microsoft Azure Machine Learning][publish] pour en savoir plus.
 
 [publish]: machine-learning-publish-a-machine-learning-web-service.md
 
-Pour obtenir un guide pas à pas plus complet et détaillé des techniques de modélisation prédictive pour la création, la formation, la notation et la publication d'un modèle, consultez [Développement d'une solution prédictive avec Azure Machine Learning][walkthrough].
+Pour obtenir un guide pas à pas plus complet et détaillé des techniques de modélisation prédictive pour la création, la formation, la notation et le déploiement d’un modèle, consultez [Développement d’une solution prédictive avec Azure Machine Learning][walkthrough].
 
 [walkthrough]: machine-learning-walkthrough-develop-predictive-solution.md
 
@@ -231,4 +232,4 @@ Pour obtenir un guide pas à pas plus complet et détaillé des techniques de mo
 [split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
 [train-model]: https://msdn.microsoft.com/library/azure/5cc7053e-aa30-450d-96c0-dae4be720977/
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO2-->

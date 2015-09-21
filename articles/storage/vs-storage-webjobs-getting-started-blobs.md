@@ -1,22 +1,22 @@
-<properties 
-	pageTitle="Prise en main du stockage Azure et des services connectés Visual Studio (projets WebJob)" 
-	description="Comment commencer à utiliser le stockage Blob dans un compte de stockage Azure qui a été créé à l'aide de la boîte de dialogue Ajouter des services connectés de Visual Studio dans un projet WebJob."
+<properties
+	pageTitle="Prise en main du stockage d'objets blob et des services connectés Visual Studio (projets WebJob) | Microsoft Azure"
+	description="Comment commencer à utiliser le stockage d'objets blob dans un projet WebJob après la connexion à un stockage Azure à l'aide des services connectés Visual Studio."
 	services="storage"
 	documentationCenter=""
 	authors="patshea123"
 	manager="douge"
 	editor="tglee"/>
 
-<tags 
+<tags
 	ms.service="storage"
 	ms.workload="web"
-	ms.tgt_pltfrm="vs-getting-started" 
+	ms.tgt_pltfrm="vs-getting-started"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/13/2015"
+	ms.date="09/03/2015"
 	ms.author="patshea123"/>
 
-# Prise en main d’Azure Storage (projets de tâche web Azure)
+# Prise en main du stockage d’objets blob Azure et des services connectés Visual Studio (projets WebJob)
 
 > [AZURE.SELECTOR]
 > - [Getting started](vs-storage-webjobs-getting-started-blobs.md)
@@ -35,9 +35,9 @@ Cet article fournit des exemples de code C# qui montrent comment déclencher un 
 
 ## Comment utiliser le stockage d’objets blob Azure avec le Kit de développement logiciel (SDK) WebJobs
 
-Cette section vous indique comment utiliser l’attribut `BlobTrigger`.
+Cette section vous indique comment utiliser l'attribut **BlobTrigger**.
 
- **Remarque :** le Kit de développement logiciel (SDK) WebJobs analyse les fichiers journaux pour surveiller les objets blobs qui ont été créés ou modifiés. Ce processus est lent par nature ; il se peut qu’une fonction ne se déclenche que quelques minutes ou plus après la création de l’objet blob. Si votre application doit traiter immédiatement les objets blob, la méthode recommandée consiste à créer un message de file d’attente lorsque vous créez l’objet blob et à utiliser l’attribut [QueueTrigger](websites-dotnet-webjobs-sdk-storage-queues-how-to.md#trigger) à la place de l’attribut `BlobTrigger` sur la fonction qui traite l’objet blob.
+ **Remarque :** le Kit de développement logiciel (SDK) WebJobs analyse les fichiers journaux pour surveiller les objets blobs qui ont été créés ou modifiés. Ce processus est lent par nature ; il se peut qu’une fonction ne se déclenche que quelques minutes ou plus après la création de l’objet blob. Si votre application doit traiter immédiatement les objets blob, la méthode recommandée consiste à créer un message de file d'attente lorsque vous créez l'objet blob et à utiliser l'attribut [QueueTrigger](websites-dotnet-webjobs-sdk-storage-queues-how-to.md#trigger) à la place de l'attribut **BlobTrigger** sur la fonction qui traite l'objet blob.
 
 ### Espace réservé unique pour le nom d’objet blob avec extension  
 
@@ -88,24 +88,24 @@ L’exemple de code suivant remplace l’extension de fichier pendant la copie d
 
 ## Types que vous pouvez lier aux objets blob
 
-Vous pouvez utiliser l’attribut `BlobTrigger` sur les types de paramètre suivants :
+Vous pouvez utiliser l'attribut **BlobTrigger** sur les types de paramètre suivants :
 
-* `string`
-* `TextReader`
-* `Stream`
-* `ICloudBlob`
-* `CloudBlockBlob`
-* `CloudPageBlob`
-* Autres types de désérialisation par [ICloudBlobStreamBinder](#icbsb) 
+* **string**
+* **TextReader**
+* **Stream**
+* **ICloudBlob**
+* **CloudBlockBlob**
+* **CloudPageBlob**
+* Autres types de désérialisation par [ICloudBlobStreamBinder](#icbsb)
 
-Si vous souhaitez utiliser directement le compte Microsoft Azure Storage, vous pouvez ajouter un paramètre `CloudStorageAccount` à la signature de méthode.
+Si vous souhaitez utiliser directement le compte Microsoft Azure Storage, vous pouvez ajouter un paramètre **CloudStorageAccount** à la signature de méthode.
 
 ## Obtention du contenu de l’objet blob de texte via la liaison à une chaîne
 
-Si vous attendez des objets de texte blob, vous pouvez appliquer l’élément `BlobTrigger` à un paramètre `string`. L’exemple de code suivant lie un objet blob de texte à un paramètre `string` nommé `logMessage`. La fonction utilise ce paramètre pour écrire le contenu de l’objet blob dans le tableau de bord du Kit de développement logiciel (SDK) WebJobs.
- 
+Si vous attendez des objets de texte blob, vous pouvez appliquer l'élément **BlobTrigger** à un paramètre **string**. L'exemple de code suivant lie un objet blob de texte à un paramètre **string** nommé **logMessage**. La fonction utilise ce paramètre pour écrire le contenu de l’objet blob dans le tableau de bord du Kit de développement logiciel (SDK) WebJobs.
+
 		public static void WriteLog([BlobTrigger("input/{name}")] string logMessage,
-		    string name, 
+		    string name,
 		    TextWriter logger)
 		{
 		     logger.WriteLine("Blob name: {0}", name);
@@ -115,13 +115,13 @@ Si vous attendez des objets de texte blob, vous pouvez appliquer l’élément `
 
 ## Obtention de contenu d’objet blob sérialisé via ICloudBlobStreamBinder
 
-L’exemple de code suivant utilise une classe qui implémente l’élément `ICloudBlobStreamBinder` pour activer l’attribut `BlobTrigger`, afin de lier un objet blob au type `WebImage`.
+L'exemple de code suivant utilise une classe qui implémente l'élément **ICloudBlobStreamBinder** pour activer l'attribut **BlobTrigger**, afin de lier un objet blob au type **WebImage**.
 
 		public static void WaterMark(
 		    [BlobTrigger("images3/{name}")] WebImage input,
 		    [Blob("images3-watermarked/{name}")] out WebImage output)
 		{
-		    output = input.AddTextWatermark("WebJobs SDK", 
+		    output = input.AddTextWatermark("WebJobs SDK",
 		        horizontalAlign: "Center", verticalAlign: "Middle",
 		        fontSize: 48, opacity: 50);
 		}
@@ -134,11 +134,11 @@ L’exemple de code suivant utilise une classe qui implémente l’élément `IC
 		    output = input.Resize(width, height);
 		}
 
-Le code de liaison du type `WebImage` est fourni dans une classe `WebImageBinder` dérivée de la classe `ICloudBlobStreamBinder`.
+Le code de liaison **WebImage** est fourni dans une classe **WebImageBinder** dérivée de **ICloudBlobStreamBinder**.
 
 		public class WebImageBinder : ICloudBlobStreamBinder<WebImage>
 		{
-		    public Task<WebImage> ReadFromStreamAsync(Stream input, 
+		    public Task<WebImage> ReadFromStreamAsync(Stream input,
 		        System.Threading.CancellationToken cancellationToken)
 		    {
 		        return Task.FromResult<WebImage>(new WebImage(input));
@@ -153,7 +153,7 @@ Le code de liaison du type `WebImage` est fourni dans une classe `WebImageBinder
 
 ## Gestion des objets blob incohérents
 
-Lorsqu’une fonction `BlobTrigger` échoue, le Kit de développement logiciel (SDK) l’appelle à nouveau, au cas où l’échec aurait été provoqué par une erreur temporaire. Si le problème est occasionné par le contenu de l’objet blob, la fonction échoue chaque fois qu’elle tente de traiter cet objet. Par défaut, le Kit de développement logiciel (SDK) appelle une fonction jusqu’à 5 fois pour un objet blob donné. En cas d’échec après la cinquième tentative, le Kit de développement logiciel (SDK) ajoute un message à la file d’attente nommée *webjobs-blobtrigger-poison*.
+Lorsqu'une fonction **BlobTrigger** échoue, le Kit de développement logiciel (SDK) l'appelle à nouveau, au cas où l'échec aurait été provoqué par une erreur temporaire. Si le problème est occasionné par le contenu de l’objet blob, la fonction échoue chaque fois qu’elle tente de traiter cet objet. Par défaut, le Kit de développement logiciel (SDK) appelle une fonction jusqu’à 5 fois pour un objet blob donné. En cas d’échec après la cinquième tentative, le Kit de développement logiciel (SDK) ajoute un message à la file d’attente nommée *webjobs-blobtrigger-poison*.
 
 Vous pouvez configurer le nombre maximal de tentatives. Le paramètre [MaxDequeueCount](websites-dotnet-webjobs-sdk-storage-queues-how-to.md#configqueue) est utilisé à la fois pour la gestion des objets blob incohérents et pour l’administration des messages de la file d’attente de messages incohérents.
 
@@ -165,7 +165,7 @@ Le message en file d’attente associé aux objets blob incohérents correspond
 * BlobName
 * ETag (identificateur de version de l’objet blob, par exemple : « 0x8D1DC6E70A277EF »)
 
-Dans l’exemple de code suivant, la fonction `CopyBlob` comporte du code qui provoque l’échec de cette fonction chaque fois qu’elle est appelée. Une fois que le Kit de développement logiciel (SDK) a atteint le nombre de tentatives d’appel défini, un message est créé dans la file d’attente des objets blob incohérents. Ce message est traité par la fonction `LogPoisonBlob`.
+Dans l'exemple de code suivant, la fonction **CopyBlob** comporte du code qui provoque l'échec de cette fonction chaque fois qu'elle est appelée. Une fois que le Kit de développement logiciel (SDK) a atteint le nombre de tentatives d'appel défini, un message est créé dans la file d’attente des objets blob incohérents. Ce message est traité par la fonction **LogPoisonBlob**.
 
 		public static void CopyBlob([BlobTrigger("input/{name}")] TextReader input,
 		    [Blob("textblobs/output-{name}")] out string output)
@@ -173,7 +173,7 @@ Dans l’exemple de code suivant, la fonction `CopyBlob` comporte du code qui pr
 		    throw new Exception("Exception for testing poison blob handling");
 		    output = input.ReadToEnd();
 		}
-		
+
 		public static void LogPoisonBlob(
 		[QueueTrigger("webjobs-blobtrigger-poison")] PoisonBlobMessage message,
 		    TextWriter logger)
@@ -185,7 +185,7 @@ Dans l’exemple de code suivant, la fonction `CopyBlob` comporte du code qui pr
 		    logger.WriteLine("ETag: {0}", message.ETag);
 		}
 
-Le Kit de développement logiciel (SDK) désérialise automatiquement le message JSON. Voici la classe `PoisonBlobMessage` :
+Le Kit de développement logiciel (SDK) désérialise automatiquement le message JSON. Voici la classe **PoisonBlobMessage** :
 
 		public class PoisonBlobMessage
 		{
@@ -198,15 +198,15 @@ Le Kit de développement logiciel (SDK) désérialise automatiquement le messag
 
 ### Algorithme d’interrogation des objets blob
 
-Le Kit de développement logiciel (SDK) WebJobs analyse tous les conteneurs spécifiés par les attributs `BlobTrigger` au démarrage de l’application. Dans un compte de stockage volumineux, cette analyse peut prendre du temps. Il se peut que les nouveaux objets blob ne soient pas tout de suite détectés et que les fonctions `BlobTrigger` ne soient pas exécutées avant un certain temps.
+Le Kit de développement logiciel (SDK) WebJobs analyse tous les conteneurs spécifiés par les attributs **BlobTrigger** au démarrage de l'application. Dans un compte de stockage volumineux, cette analyse peut prendre du temps. Il se peut que les nouveaux objets blob ne soient pas tout de suite détectés et que les fonctions **BlobTrigger** ne soient pas exécutées avant un certain temps.
 
-Pour détecter des objets blob nouveaux ou modifiés après le démarrage de l’application, le Kit de développement logiciel (SDK) lit régulièrement les journaux de stockage d’objets blob. Les journaux des objets blob sont mis en mémoire tampon ; ils ne sont écrits physiquement que toutes les 10 minutes environ. Il peut donc y avoir un délai important après la création ou la mise à jour d’un objet blob avant l’exécution de la fonction `BlobTrigger` correspondante.
+Pour détecter des objets blob nouveaux ou modifiés après le démarrage de l’application, le Kit de développement logiciel (SDK) lit régulièrement les journaux de stockage d’objets blob. Les journaux des objets blob sont mis en mémoire tampon ; ils ne sont écrits physiquement que toutes les 10 minutes environ. Il peut donc y avoir un délai important après la création ou la mise à jour d'un objet blob avant l'exécution de la fonction **BlobTrigger** correspondante.
 
-Il existe une exception pour les objets blob que vous créez à l’aide de l’attribut `Blob`. Lorsque le Kit de développement logiciel (SDK) WebJobs crée un objet blob, il le transmet immédiatement à toutes les fonctions `BlobTrigger` correspondantes. Par conséquent, si vous avez une chaîne d’entrées et de sorties d’objets blob, le Kit de développement logiciel (SDK) peut les traiter efficacement. Mais si vous voulez bénéficier d’une faible latence lors de l’exécution des fonctions de traitement des objets blob créés ou mis à jour par d’autres moyens, nous vous recommandons d’utiliser l’élément `QueueTrigger` plutôt que l’élément `BlobTrigger`.
+Il existe une exception pour les objets blob que vous créez à l'aide de l'attribut **Blob**. Lorsque le Kit de développement logiciel (SDK) WebJobs crée un objet blob, il le transmet immédiatement à toutes les fonctions **BlobTrigger** correspondantes. Par conséquent, si vous avez une chaîne d’entrées et de sorties d’objets blob, le Kit de développement logiciel (SDK) peut les traiter efficacement. Mais si vous voulez bénéficier d'une faible latence lors de l'exécution des fonctions de traitement des objets blob créés ou mis à jour par d'autres moyens, nous vous recommandons d'utiliser l'élément **QueueTrigger** plutôt que l'élément **BlobTrigger**.
 
 ### Reçus d’objets blob
 
-Le Kit de développement logiciel (SDK) Webjobs s’assure qu’aucune fonction `BlobTrigger` n’est appelée plusieurs fois pour un seul et même objet blob, nouveau ou mis à jour. Pour ce faire, il tient à jour les *reçus d’objets blob* afin de déterminer si la version d’un objet blob donné a été traitée.
+Le Kit de développement logiciel (SDK) WebJobs s'assure qu'aucune fonction **BlobTrigger** n'est appelée plusieurs fois pour un seul et même objet blob, nouveau ou mis à jour. Pour ce faire, il tient à jour les *reçus d’objets blob* afin de déterminer si la version d’un objet blob donné a été traitée.
 
 Les reçus d’objets blob sont stockés dans un conteneur appelé *azure-webjobs-hosts* associé au compte de stockage Microsoft Azure indiqué par la chaîne de connexion AzureWebJobsStorage. Un reçu d’objet blob contient les informations suivantes :
 
@@ -230,13 +230,12 @@ Les sujets associés abordés dans cet article sont les suivants :
 * Utilisation des attributs du Kit de développement logiciel (SDK) WebJobs dans le corps d’une fonction
 * Définition des chaînes de connexion du Kit de développement logiciel (SDK) dans le code.
 * Définition des valeurs des paramètres de constructeur du Kit de développement logiciel (SDK) WebJobs dans le code
-* Configuration de l’élément `MaxDequeueCount` pour la gestion des objets blob incohérents.
+* Configuration de **MaxDequeueCount** pour la gestion des objets blob incohérents.
 * Déclenchement manuel d’une fonction
 * Écriture de journaux
 
 ## Étapes suivantes
 
 Cet article a fourni des exemples de code qui montrent comment gérer des scénarios courants pour l’utilisation des objets blob Azure. Pour plus d’informations sur l’utilisation d’Azure Webjobs et du Kit de développement logiciel (SDK) WebJobs Azure, consultez la rubrique [Azure Webjobs - Ressources recommandées](http://go.microsoft.com/fwlink/?linkid=390226).
- 
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO2-->

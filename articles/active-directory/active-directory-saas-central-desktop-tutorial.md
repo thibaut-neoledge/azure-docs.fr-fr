@@ -1,5 +1,5 @@
 <properties pageTitle="Didacticiel : Intégration d’Azure Active Directory à Central Desktop | Microsoft Azure" description="Apprenez à utiliser Central Desktop avec Azure Active Directory pour activer l’authentification unique, l’approvisionnement automatique et bien plus encore." services="active-directory" authors="MarkusVi"  documentationCenter="na" manager="stevenpo"/>
-<tags ms.service="active-directory" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="identity" ms.date="08/01/2015" ms.author="markvi"/>
+<tags ms.service="active-directory" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="identity" ms.date="08/01/2015" ms.author="markvi" />
 #Didacticiel : Intégration d’Azure Active Directory à Central Desktop
 >[AZURE.TIP]Pour envoyer des commentaires, cliquez [ici](http://go.microsoft.com/fwlink/?LinkId=522411).
 
@@ -53,6 +53,8 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 Dans le cadre de cette procédure, vous devez télécharger un certificat codé en base 64 sur votre locataire Central Desktop.  
 Si cette procédure ne vous est pas familière, consultez [Comment convertir un certificat binaire en fichier texte](http://youtu.be/PlgrzUZ-Y1o).
 
+
+
 ###Pour configurer l’authentification unique, procédez comme suit :
 
 1.  Dans le portail Azure AD, puis dans la page d’intégration d’applications **Central Desktop**, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue **Configurer l’authentification unique**.
@@ -66,7 +68,7 @@ Si cette procédure ne vous est pas familière, consultez [Comment convertir un 
 3.  Dans la page **Configurer l’URL de l’application**, procédez comme suit, puis cliquez sur **Suivant** :
 
     -   Dans la zone de texte **URL de connexion de Central Desktop**, tapez l’URL de votre client Central Desktop (par exemple, **http://contoso.centraldesktop.com*).
-    -   Dans la zone de texte URL de réponse Central Desktop, tapez votre URL AssertionConsumerService Central Desktop (par exemple, https://contoso.centraldesktop.com/saml2-assertion.php).
+-   Dans la zone de texte URL de réponse Central Desktop, tapez votre URL AssertionConsumerService Central Desktop (par exemple, https://contoso.centraldesktop.com/saml2-assertion.php).
 
     >[AZURE.NOTE]Vous pouvez obtenir la valeur à partir des métadonnées de Central Desktop (par exemple, **http://contoso.centraldesktop.com*).
 
@@ -152,4 +154,4 @@ Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure
 
 Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](https://msdn.microsoft.com/library/dn308586).
 
-<!-----HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

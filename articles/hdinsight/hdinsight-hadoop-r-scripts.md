@@ -23,6 +23,7 @@ Vous pouvez installer R sur n’importe quel type de cluster dans Hadoop sur HD
 
 Une action de script vous permet d'exécuter des scripts pour personnaliser un cluster, uniquement au moment de sa création. Pour plus d’informations, consultez la page [Personnalisation d’un cluster HDInsight à l’aide d’une d’action de script][hdinsight-cluster-customize].
 
+> [AZURE.NOTE]Les étapes décrites dans ce document nécessitent un cluster HDInsight Windows. Pour plus d’informations sur l’utilisation de R avec un cluster Linux, consultez [Installation et utilisation de R sur des clusters HDInsight Hadoop (Linux)](hdinsight-hadoop-r-scripts-linux.md).
 
 ## Qu'est-ce que R ?
 
@@ -36,8 +37,8 @@ Un [exemple de script](https://hdiconfigactions.blob.core.windows.net/rconfigact
 
 > [AZURE.NOTE]L'exemple de script a été introduit dans la version 3.1 du cluster HDInsight. Pour plus d’informations sur les versions des clusters HDInsight, consultez la page [Versions des clusters HDInsight](../hdinsight-component-versioning/).
 
-1. Lorsque vous configurez un cluster HDInsight à partir de la version préliminaire du portail, cliquez sur **Configuration facultative**, puis cliquez sur **Actions de Script**.
-2. Sur la page **Actions de Script**, saisissez les valeurs suivantes :
+1. Quand vous configurez un cluster HDInsight à partir de la version préliminaire du portail, cliquez sur **Configuration facultative**, puis cliquez sur **Actions de Script**.
+2. Dans la page **Actions de Script**, entrez les valeurs suivantes :
 
 	![Utilisation d’une action de script pour personnaliser un cluster](./media/hdinsight-hadoop-r-scripts/hdi-r-script-action.png "Utilisation d’une action de script pour personnaliser un cluster")
 
@@ -283,4 +284,4 @@ Entrez un nom de cluster, puis appuyez sur Entrée pour approvisionner un cluste
 [hdinsight-cluster-customize]: ../hdinsight-hadoop-customize-cluster
 [hdinsight-install-spark]: ../hdinsight-hadoop-spark-install/
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO2-->

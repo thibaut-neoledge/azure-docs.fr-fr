@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="07/20/2015"
-   ms.author="lvargas;barbkess"/>
+   ms.date="09/05/2015"
+   ms.author="lvargas;twounder;barbkess"/>
 
 # Attentes de SQL Data Warehouse preview
 
@@ -78,4 +78,4 @@ Azure SQL Data Warehouse peut présenter jusqu’à 4 événements de maintenan
 
 <!--Other Web references-->
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

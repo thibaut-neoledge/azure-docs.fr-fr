@@ -3,10 +3,12 @@
 Vous pouvez utiliser l'interface de ligne de commande Azure pour gérer vos ressources Azure à partir de l'invite de commande sur n'importe quel ordinateur exécutant Windows, Linux ou OSX. Pour créer un réseau virtuel à l'aide de l'interface de ligne de commande Azure, procédez comme suit :
 
 1. Si vous n'avez jamais utilisé l'interface de ligne de commande Azure, consultez [Installer et configurer l'interface de ligne de commande Azure](xplat-cli.md) et suivez les instructions jusqu'à l'étape où vous sélectionnez votre compte et votre abonnement Azure.
-2. Exécutez la commande **azure network vnet create** pour créer un réseau virtuel et un sous-réseau, comme illustré ci-dessous. Observez le résultat de la commande de l'interface de ligne de commande. La liste affichée après le résultat présente les différents paramètres utilisés.
+2. Exécutez la commande **azure network vnet create** pour créer un réseau virtuel et un sous-réseau, comme illustré ci-dessous. Observez le résultat de la commande de l’interface de ligne de commande. La liste affichée après le résultat présente les différents paramètres utilisés.
 
 			azure network vnet create --vnet TestVNet -e 192.168.0.0 -i 16 -n FrontEnd -p 192.168.1.0 -r 24 -l "Central US"
 	
+	Voici le résultat attendu pour la commande ci-dessus :
+
 			info:    Executing command network vnet create
 			+ Looking up network configuration
 			+ Looking up locations
@@ -25,6 +27,8 @@ Vous pouvez utiliser l'interface de ligne de commande Azure pour gérer vos ress
 
 			azure network vnet subnet create -t TestVNet -n BackEnd -a 192.168.2.0/24
 	
+	Voici le résultat attendu pour la commande ci-dessus :
+
 			info:    Executing command network vnet subnet create
 			+ Looking up network configuration
 			+ Creating subnet "BackEnd"
@@ -43,6 +47,8 @@ Vous pouvez utiliser l'interface de ligne de commande Azure pour gérer vos ress
 
 			azure network vnet show
 
+	Voici le résultat attendu pour la commande ci-dessus :
+
 			info:    Executing command network vnet show
 			Virtual network name: TestVNet
 			+ Looking up the virtual network sites
@@ -59,4 +65,4 @@ Vous pouvez utiliser l'interface de ligne de commande Azure pour gérer vos ress
 			data:
 			info:    network vnet show command OK
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO2-->

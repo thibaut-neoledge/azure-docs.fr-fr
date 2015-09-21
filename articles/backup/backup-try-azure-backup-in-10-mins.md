@@ -1,15 +1,15 @@
 <properties
    pageTitle="Azure Backup en 10 minutes | Microsoft Azure"
-	description="Prise en main d'Azure Backup en 10 minutes"
-	services="backup"
-	documentationCenter=""
-	authors="Jim-Parker"
-	manager="shreeshd"
-	editor=""/>
+   description="Prise en main d'Azure Backup en 10 minutes"
+   services="backup"
+   documentationCenter=""
+   authors="Jim-Parker"
+   manager="shreeshd"
+   editor=""/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="get-started-article" ms.date="08/20/2015" ms.author="aashishr"; "jimpark"/>
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="get-started-article" ms.date="09/03/2015" ms.author="aashishr"; "jimpark"/>
 
-# Essayer Azure Backup en 10 minutes
+# Prise en main d’Azure Backup
 Il est très facile de configurer Azure Backup et les vidéos pratiques suivantes vous aideront à le prendre en main.
 
 ## Étape 1 : obtenir un abonnement Azure
@@ -46,4 +46,4 @@ Passez en revue les étapes présentées dans la vidéo [Prise en main d’Azure
 - [Sauvegarder Windows Server](backup-azure-backup-windows-server.md)
 - Consultez le [forum Azure Backup](http://go.microsoft.com/fwlink/p/?LinkId=290933).
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO2-->

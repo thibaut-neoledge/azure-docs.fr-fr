@@ -1,4 +1,4 @@
-<properties 
+<properties
 	pageTitle="Installation et utilisation de Giraph sur des clusters Hadoop dans HDInsight | Microsoft Azure"
 	description="Découvrez comment personnaliser un cluster HDInsight avec Giraph. Vous allez utiliser une option de configuration Action de script afin d’utiliser un script pour installer Giraph."
 	services="hdinsight"
@@ -8,7 +8,7 @@
 	editor="cgronlun"
 	tags="azure-portal"/>
 
-<tags 
+<tags
 	ms.service="hdinsight"
 	ms.workload="big-data"
 	ms.tgt_pltfrm="na"
@@ -20,6 +20,8 @@
 # Installation de Giraph sur les clusters Hadoop HDInsight et utilisation de Giraph pour traiter des graphiques à grande échelle
 
 Vous pouvez installer Giraph sur n’importe quel type de cluster dans Hadoop sur Azure HDInsight à l’aide de la personnalisation de cluster **Action de script**. Une action de script vous permet d'exécuter des scripts pour personnaliser un cluster, uniquement au moment de sa création. Pour plus d’informations, consultez la page [Personnaliser des clusters HDInsight à l’aide d’une action de script][hdinsight-cluster-customize].
+
+> [AZURE.NOTE]Les informations présentes dans cet article sont spécifiques aux clusters HDInsight sous Windows. Pour plus d’informations sur l’utilisation des clusters basés sur Linux, consultez [Installation de Giraph sur les clusters HDInsight Hadoop (Linux)](hdinsight-hadoop-giraph-install-linux.md).
 
 Dans cette rubrique, vous allez apprendre à installer Giraph à l'aide d'une action de script. Après avoir installé Giraph, vous apprendrez également comment l'utiliser pour la plupart des applications courantes, à savoir traiter des graphiques à grande échelle.
 
@@ -35,18 +37,18 @@ Dans cette rubrique, vous allez apprendre à installer Giraph à l'aide d'une ac
 - identifier le chemin le plus court entre deux ordinateurs d'un réseau ;
 - calculer le classement de pages web.
 
-   
+
 ## <a name="install"></a>Installation de Giraph
 
 Pour obtenir un exemple de script pour installer Giraph sur un cluster HDInsight, téléchargez l’objet blob de stockage Azure en lecture seule à l’adresse [https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1](https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1). Cette section explique comment utiliser l'exemple de script dans le cadre de l'approvisionnement du cluster à l'aide du portail Azure.
 
 > [AZURE.NOTE]L'exemple de script fonctionne uniquement avec un cluster HDInsight version 3.1. Pour plus d’informations sur les versions des clusters HDInsight, consultez la page [Versions des clusters HDInsight](hdinsight-component-versioning.md).
 
-1. Commencez l’approvisionnement d’un cluster à l’aide de l’option **CRÉATION PERSONNALISÉE**, comme cela est décrit dans la rubrique [Approvisionnement d’un cluster à l’aide d’options personnalisées](hdinsight-provision-clusters.md#portal). 
+1. Commencez l’approvisionnement d’un cluster à l’aide de l’option **CRÉATION PERSONNALISÉE**, comme cela est décrit dans la rubrique [Approvisionnement d’un cluster à l’aide d’options personnalisées](hdinsight-provision-clusters.md#portal).
 2. Sur la page **Actions de script** de l’Assistant, cliquez sur **Ajouter l’action de script** pour fournir des informations sur l’action de script, comme illustré ci-dessous :
 
 	![Utilisation d’une action de script pour personnaliser un cluster](./media/hdinsight-hadoop-giraph-install/hdi-script-action-giraph.png "Utilisation d’une action de script pour personnaliser un cluster")
-	
+
 	<table border='1'>
 	<tr><th>Propriété</th><th>Valeur</th></tr>
 	<tr><td>Nom</td>
@@ -79,7 +81,7 @@ L’exemple SimpleShortestPathsComputation indique l’implémentation basique d
 
 	![tiny\_graph.txt drawn as circles with lines of varying distance between](./media/hdinsight-hadoop-giraph-install/giraph-graph.png)
 
-	
+
 
 4. Exécutez l'exemple SimpleShortestPathsComputation. Utilisez les applets de commande Azure PowerShell suivantes pour exécuter l'exemple en utilisant le fichier tiny\_graph.txt comme entrée. Pour cela, il est nécessaire que vous ayez installé et configuré [Azure PowerShell][powershell-install].
 
@@ -99,7 +101,7 @@ L’exemple SimpleShortestPathsComputation indique l’implémentation basique d
 		  -JarFile $jarFile
 		  -ClassName "org.apache.giraph.GiraphRunner"
 		  -Arguments $jobArguments
-		
+
 		# Run the job, write output to the Azure PowerShell window
 		$job = Start-AzureHDInsightJob -Cluster $clusterName -JobDefinition $jobDefinition
 		Write-Host "Wait for the job to complete ..." -ForegroundColor Green
@@ -119,7 +121,7 @@ L’exemple SimpleShortestPathsComputation indique l’implémentation basique d
 
 		# Select the current subscription
 		Select-AzureSubscription $subscriptionName
-		
+
 		# Create the Storage account context object
 		$storageAccountKey = Get-AzureStorageKey $storageAccountName | %{ $_.Primary }
 		$storageContext = New-AzureStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageAccountKey
@@ -144,7 +146,7 @@ L’exemple SimpleShortestPathsComputation indique l’implémentation basique d
 		3	1.0
 
 	L'exemple SimpleShortestPathComputation est codé en dur de façon à commencer avec l'ID d'objet 1 et trouver le chemin le plus court vers les autres objets. Le résultat doit être lu comme `destination_id distance`, où distance est la valeur (ou la pondération) des bords parcourus entre l’ID d’objet 1 et l’ID cible.
-	
+
 	En visualisant cela, vous pouvez vérifier les résultats en parcourant les chemins les plus courts entre l'ID 1 et tous les autres objets. Notez que le chemin le plus court entre ID 1 et ID 4 est 5. Il s’agit de la distance totale entre <span style="color:orange">ID 1 et 3</span>, puis entre <span style="color:red">ID 3 et 4</span>.
 
 	![Drawing of objects as circles with shortest paths drawn between](./media/hdinsight-hadoop-giraph-install/giraph-graph-out.png)
@@ -166,6 +168,5 @@ L’exemple SimpleShortestPathsComputation indique l’implémentation basique d
 [hdinsight-install-r]: hdinsight-hadoop-r-scripts.md
 [hdinsight-install-spark]: hdinsight-hadoop-spark-install.md
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster.md
- 
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO2-->
