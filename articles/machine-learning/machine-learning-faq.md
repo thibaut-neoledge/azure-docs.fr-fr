@@ -215,7 +215,7 @@ Une fois qu’un modèle prédictif a été mis en production, vous pouvez le su
 
 Pour les enregistrements de ressources, c'est généralement dans la réponse du service web que vous voyez le résultat. Vous pouvez également écrire un objet blob. Pour les environnements d'initialisation, la sortie est écrite dans un objet blob par défaut. Vous pouvez également écrire la sortie dans une base de données ou une table à l'aide du module Writer.
 
- **** Puis-je créer des services web uniquement à partir de modèles créés dans Studio ? Non. Vous pouvez également créer des services web directement à partir de notebooks Jupyter et RStudio.
+ ** Puis-je créer des services web uniquement à partir de modèles créés dans Studio ? Non. Vous pouvez également créer des services web directement à partir de notebooks Jupyter et RStudio.
 
 
 ##Extensibilité
@@ -308,4 +308,4 @@ Azure Machine Learning dispose également d'un forum communautaire sur MSDN, où
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 [split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
 
-<!---HONumber=Sept15_HO2-->
+<!----HONumber=Sept15_HO2-->

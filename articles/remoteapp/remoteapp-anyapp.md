@@ -55,7 +55,6 @@ Une fois votre collection créée, il est temps pour vous de publier Access et d
 
 Si vous avez quitté le nœud Azure RemoteApp pendant la création de la collection, retournez-y depuis la page d’accueil Azure avant de commencer.
 
-1. Cliquez sur **RemoteApp** dans le volet de navigation de gauche.
 2. Cliquez sur la collection que vous avez créée précédemment pour accéder à des options supplémentaires et configurer la collection. ![Une nouvelle collection cloud RemoteApp](./media/remoteapp-anyapp/ra-anyappcollection.png)
 3. Dans l’onglet **Publication**, cliquez sur **Publier** en bas de l’écran, puis cliquez sur **Publier des programmes du menu Démarrer**. ![Publication d’un programme RemoteApp](./media/remoteapp-anyapp/ra-anyapppublish.png)
 4. Sélectionnez les applications que vous souhaitez publier dans la liste. Dans notre cas, nous avons choisi Access. Cliquez sur **Terminé**. Attendez que les applications finissent d’être publiées. ![Publication d’Access dans RemoteApp](./media/remoteapp-anyapp/ra-anyapppublishaccess.png)
@@ -111,4 +110,4 @@ Maintenant que vous maîtrisez la création d’une collection, essayez de crée
 
 <!--Image references-->
 
-<!---HONumber=Sept15_HO2-->
+<!----HONumber=Sept15_HO2-->

@@ -89,7 +89,8 @@ Il est vrai que ce service n'a pas besoin des données de la carte de crédit d'
 
 Exécutez une dernière fois l'expérience (cliquez sur **Exécuter**). Si vous voulez vérifier que le modèle fonctionne toujours, cliquez sur la sortie du module [Noter le modèle][score-model] et sélectionnez **Afficher les résultats**. Vous constatez que les données d'origine sont affichées, ainsi que la valeur du risque sur le crédit (« Étiquettes notées ») et la probabilité de la notation (« Probabilités notées »).
 
-## Déployer le service web
+##
+Déployer le service web
 
 Pour déployer un service web dérivé de notre expérience, cliquez sur **Déployer le service web** sous la zone de dessin. Machine Learning Studio déploie l'expérience en tant que service web et vous amène au tableau de bord du service.
 
@@ -126,4 +127,4 @@ Les résultats générés par le service web sont affichés au bas du tableau de
 [two-class-boosted-decision-tree]: https://msdn.microsoft.com/library/azure/e3c522f8-53d9-4829-8ea4-5c6a6b75330c/
 [two-class-support-vector-machine]: https://msdn.microsoft.com/library/azure/12d8479b-74b4-4e67-b8de-d32867380e20/
 
-<!---HONumber=Sept15_HO2-->
+<!----HONumber=Sept15_HO2-->

@@ -62,7 +62,7 @@ Les types de demandes anonymes suivants sont enregistrés :
 
 - Demandes GET ayant échoué avec le code d'erreur 304 (non modifié).
 
-Aucune autre demande anonyme ayant échoué n'est enregistrée. La liste complète des données enregistrées est disponible dans les rubriques [Opérations et messages d'état enregistrés Storage Analytics](https://msdn.microsoft.com/library/hh343260.aspx) et Format de journal de Storage Analytics](](https://msdn.microsoft.com/library/hh343259.aspx)).
+Aucune autre demande anonyme ayant échoué n'est enregistrée. La liste complète des données enregistrées est disponible dans les rubriques [Opérations et messages d'état enregistrés Storage Analytics](https://msdn.microsoft.com/library/hh343260.aspx) et [Format de journal de Storage Analytics](https://msdn.microsoft.com/library/hh343259.aspx).
 
 ### Mode de stockage des journaux
 Tous les journaux sont stockés dans des objets blob de blocs dans un conteneur nommé $logs, qui est automatiquement créé lorsque Storage Analytics est activé pour un compte de stockage. Le conteneur $logs se trouve dans l'espace de noms d'objets blob du compte de stockage, par exemple : `http://<accountname>.blob.core.windows.net/$logs`. Ce conteneur ne peut pas être supprimé une fois Storage Analytics activé, mais son contenu peut l'être.
@@ -206,4 +206,4 @@ Lorsque vous consultez des données Storage Analytics, vous pouvez utiliser les 
 - [Schéma de table de métriques Storage Analytics](https://msdn.microsoft.com/library/hh343264.aspx)
 - [Opérations et messages d'état enregistrés Storage Analytics](https://msdn.microsoft.com/library/hh343260.aspx)  
 
-<!---HONumber=Sept15_HO2-->
+<!----HONumber=Sept15_HO2-->

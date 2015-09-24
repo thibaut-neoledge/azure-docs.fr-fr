@@ -76,7 +76,7 @@ Le service Azure Files est actuellement disponible dans sa version préliminair
 ||Files d’attente| Objectifs d’évolutivité| [Vous approchez-vous des objectifs d’évolutivité en termes de messages par seconde ?](#subheading39)
 ||Files d’attente| Configuration| [Avez-vous désactivé Nagle pour améliorer les performances des petites demandes ?](#subheading40)
 ||Files d’attente| Taille de message| [Vos messages sont-ils compacts pour améliorer les performances de la file d’attente ?](#subheading41)
-||Files d’attente| [Récupération en bloc| Récupérez-vous plusieurs messages dans une seule opération « Get » ?](#subheading41)
+||Files d’attente| Récupération en bloc| [Récupérez-vous plusieurs messages dans une seule opération « Get » ?](#subheading41)
 ||Files d’attente| Fréquence d’interrogation| [Effectuez-vous des interrogations suffisamment fréquentes pour réduire la latence perçue de votre application ?](#subheading42)
 ||Files d’attente| Message de mise à jour| [Utilisez-vous la méthode UpdateMessage pour stocker la progression du traitement des messages et éviter de devoir retraiter l’intégralité du message en cas d’erreur ?](#subheading43)
 ||Files en attente| Architecture| [Utilisez-vous des files d’attente pour rendre toute votre application plus extensible en excluant les charges de travail de longue durée du chemin critique et pour les faire ensuite évoluer séparément ?](#subheading44)
@@ -384,4 +384,4 @@ Il est conseillé d'utiliser des files d'attente pour rendre l'architecture de v
 Dans cet article, nous avons passé en revue quelques-unes des pratiques utilisées le plus couramment pour optimiser les performances lors de l'utilisation d'Azure Storage. Nous invitons tous les développeurs d'applications à évaluer chacune d'elles et à prendre en compte les recommandations énoncées afin de bénéficier de performances optimales pour les applications qui utilisent Azure Storage.
  
 
-<!---HONumber=Sept15_HO2-->
+<!----HONumber=Sept15_HO2-->
