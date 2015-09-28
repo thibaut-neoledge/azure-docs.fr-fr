@@ -1,3 +1,6 @@
+
+<!--author=alkohli last changed: 9/11/15-->
+
 #### Pour ajouter une stratégie de sauvegarde StorSimple
 
 1. Dans la page **Démarrage rapide**, cliquez sur l’onglet **Stratégies de sauvegarde**. La page **Stratégies de sauvegarde** s’affiche.
@@ -13,4 +16,4 @@
 La stratégie ajoutée s’affiche dans le tableau de la page **Stratégies de sauvegarde**.
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO3-->

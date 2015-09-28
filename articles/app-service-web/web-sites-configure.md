@@ -1,25 +1,27 @@
 <properties 
-	pageTitle="Configurer des applications web dans Azure App Service"
-	description="Configuration d’une application web dans Azure App Service"
-	services="app-service\web"
-	documentationCenter=""
-	authors="erikre"
-	manager="wpickett"
-	editor="mollybos"/>
+	pageTitle="Configurer des applications web dans Azure App Service" 
+	description="Configuration d’une application web dans Azure App Service" 
+	services="app-service\web" 
+	documentationCenter="" 
+	authors="erikre" 
+	manager="wpickett" 
+	editor="jimbe"/>
 
 <tags 
-	ms.service="app-service-web"
-	ms.workload="web"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/31/2015"
+	ms.service="app-service" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/16/2015" 
 	ms.author="erikre"/>
 
 
 # Configurer des applications web dans Azure App Service #
 
 Cet article explique comment configurer une application Web à l’aide du [portail Azure](http://go.microsoft.com/fwlink/?LinkId=529715).
+
+[AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
 ## Paramètres de l’application
 
@@ -36,7 +38,7 @@ Le panneau **Paramètres de l’application** regroupe différents paramètres s
 **Versions d'infrastructure**. Définissez ces options si votre application utilise l'une de ces infrastructures :
 
 - **.NET Framework** : définissez la version du .NET Framework. 
-- **PHP** : définissez la version du langage PHP, ou choisissez **INACTIF** pour désactiver PHP.
+- **PHP** : définissez la version du langage PHP ou choisissez **INACTIF** pour désactiver PHP.
 - **Java** : sélectionnez la version du langage Java, ou choisissez **INACTIF** pour désactiver Java. Utilisez l’option **Conteneur Web** pour choisir entre les versions Tomcat et Jetty.
 - **Python** : sélectionnez la version du langage Python, ou choisissez **INACTIF** pour désactiver Python.
 
@@ -176,4 +178,4 @@ Pour plus d’informations, consultez [Surveillance de l’état d’un point de
 * Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre l'ancien et le nouveau portail, consultez : [Références sur la navigation dans le portail Azure](http://go.microsoft.com/fwlink/?LinkId=529715)
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

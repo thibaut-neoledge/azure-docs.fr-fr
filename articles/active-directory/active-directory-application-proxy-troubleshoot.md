@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="rkarlin"
-	manager="stevenpo"
+	manager="msStevenPo"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/11/2015"
+	ms.date="09/09/2015"
 	ms.author="rkarlin"/>
 
 
@@ -27,12 +27,12 @@ Si des erreurs se produisent dans l’accès à une application publiée ou dans
 
 - Ouvrez la console Services Windows et vérifiez que le service « Connecteur de proxy d’application Microsoft AAD » est activé et en cours d’exécution. Vous pouvez également consulter la page de propriétés du service Proxy d’application, comme le montre l’image suivante :
 
-![Capture d’écran des propriétés du connecteur de proxy d’application Microsoft AAD][1]
+![Capture d’écran des propriétés du connecteur de proxy d’application Microsoft AAD][connectorproperties.png]
 
 - Ouvrez l’Observateur d’événements et recherchez les événements liés au connecteur de proxy d’application sous **Applications and Services Logs** > **Microsoft** > **AadApplicationProxy** > **Connector** > **Admin**.
 - Si nécessaire, des journaux plus détaillés sont disponibles en activant les journaux d’analyse et de débogage, et en activant le journal de session du connecteur de proxy d’application, comme le montre l’image suivante :
 
-![Capture d’écran du journal de session du connecteur de proxy d’application][2]
+![Capture d’écran du journal de session du connecteur de proxy d’application][sessionlog.png]
 
 
 ## Erreurs générales.
@@ -87,7 +87,7 @@ Si l’inscription échoue pendant l’installation de l’Assistant Connecteur,
 [Activer les services de proxy d’application](active-directory-application-proxy-enable.md)
 
 <!--Image references-->
-[1]: ./media/active-directory-application-proxy-troubleshoot/ConnectorProperties.jpg
-[2]: ./media/active-directory-application-proxy-troubleshoot/SessionLog.jpg
+[1]: ./media/active-directory-application-proxy-troubleshoot/connectorproperties.png
+[2]: ./media/active-directory-application-proxy-troubleshoot/sessionlog.png
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO3-->

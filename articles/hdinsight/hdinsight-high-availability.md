@@ -44,7 +44,7 @@ Les implémentations standard des clusters Hadoop ont normalement un seul nœud 
 
 Les nœuds [ZooKeeper](http://zookeeper.apache.org/) (ZK) ont été ajoutés et sont utilisés pour le choix de l’instance responsable des nœuds principaux et pour s’assurer que les nœuds de travail et les passerelles (GW) savent à quel moment doit se faire le basculement vers le nœud principal secondaire (Head Node1) lorsque le nœud principal actif (Node0) devient inactif.
 
-![Diagramme des nœuds principaux hautement fiables dans l’implémentation HDInsight Hadoop.](http://i.imgur.com/jrUmrH4.png)
+![Diagramme des nœuds principaux hautement fiables dans l’implémentation HDInsight Hadoop.](./media/hdinsight-high-availability/hadoop.high.availability.architecture.diagram.png)
 
 
 
@@ -98,4 +98,4 @@ Pour le Kit de développement logiciel (SDK), le scénario est similaire. La cr�
 - [Connexion à des clusters HDInsight à l’aide de RDP](hdinsight-administer-use-management-portal.md#rdp)
 - [Utilisation du Kit de développement logiciel (SDK) HDInsight .NET](hdinsight-provision-clusters.md#sdk)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO3-->

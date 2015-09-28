@@ -8,17 +8,19 @@
 	editor="jimbe"/>
 
 <tags
-	ms.service="app-service-web"
+	ms.service="app-service"
 	ms.workload="web"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/17/2015"
+	ms.date="09/15/2015"
 	ms.author="jaime-espinosa"/>
 
 # Références sur la navigation dans le portail Azure
 
 Le service Sites Web Azure s’appelle désormais [App Service Web Apps](http://go.microsoft.com/fwlink/?LinkId=529714). Nous allons mettre à jour toute notre documentation pour refléter ce changement de nom et fournir des instructions concernant le nouveau portail Azure. En attendant que ce processus soit terminé, vous pouvez utiliser ce document pour vous guider lors de l'utilisation de Web Apps dans le nouveau portail Azure.
+
+[AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
  
 ## Ce qu'il adviendra de l'ancien portail
 
@@ -68,7 +70,7 @@ Pour configurer les paramètres de l’application, cliquez sur **Paramètres de
 
 ![](./media/app-service-web-app-azure-portal/AppSettingsPreview.png)
 
-Outre le nom de la marque, quelques autres éléments du portail ont été renommés ou regroupés différemment pour faciliter leur recherche. Par exemple, voici une capture d’écran de la page correspondante des paramètres de l’application (**Configure**) dans l’ancien portail.
+Outre le nom de la marque, quelques autres éléments du portail ont été renommés ou regroupés différemment pour faciliter leur recherche. Par exemple, voici une capture d’écran de la page correspondante des paramètres d’application (**Configurer**) dans l’ancien portail.
 
 ![](./media/app-service-web-app-azure-portal/AppSettings.png)
 
@@ -86,4 +88,4 @@ Outre le nom de la marque, quelques autres éléments du portail ont été renom
 * Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre l’ancien et le nouveau portail, consultez : [Références sur la navigation dans le portail Azure](http://go.microsoft.com/fwlink/?LinkId=529715)
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

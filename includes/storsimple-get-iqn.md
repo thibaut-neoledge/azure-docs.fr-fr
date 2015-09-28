@@ -1,3 +1,4 @@
+<!--author=SharS last changed: 9/17/15-->
 
 #### Pour obtenir le nom qualifié d’un hôte Windows
 
@@ -9,4 +10,4 @@
 
 3. Enregistrez cette chaîne.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

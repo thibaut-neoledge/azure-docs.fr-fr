@@ -5,15 +5,15 @@
 	documentationCenter="" 
 	authors="naziml" 
 	manager="wpickett" 
-	editor=""/>
+	editor="jimbe"/>
 
 <tags 
-	ms.service="app-service-web" 
+	ms.service="app-service" 
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/24/2015" 
+	ms.date="09/15/2015" 
 	ms.author="naziml"/>
 
 # Configuration de l'authentification mutuelle TLS pour une application Web
@@ -21,10 +21,12 @@
 ## Vue d'ensemble ##
 Vous pouvez restreindre l'accès à votre application Web Azure en activant différents types d'authentification. Une méthode consiste à authentifier à l'aide d'un certificat client lorsque la requête est exécutée sur TLS/SSL. Ce mécanisme est appelé authentification mutuelle TLS ou authentification par certificat client. Cet article décrit en détail comment configurer votre application Web pour utiliser l'authentification par certificat client.
 
+[AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
+
 ## Configuration d'une application Web pour l'authentification par certificat client ##
 Pour configurer votre application Web afin qu'elle exige des certificats clients, vous devez ajouter le paramètre de site clientCertEnabled pour votre application Web et lui donner la valeur true. Ce paramètre n'est actuellement pas disponible par le biais de l'expérience de gestion dans le portail et vous devrez utiliser l'API REST pour y parvenir.
 
-Vous pouvez utiliser l'[outil ARMClient](https://github.com/projectkudu/ARMClient) pour faciliter la conception de l'appel de l'API REST. Une fois que vous êtes connecté avec l'outil, vous devez émettre la commande suivante :
+Vous pouvez utiliser l'[outil ARMClient](https://github.com/projectkudu/ARMClient) pour faciliter l’élaboration de l’appel de l’API REST. Une fois que vous êtes connecté avec l'outil, vous devez émettre la commande suivante :
 
     ARMClient PUT subscriptions/{Subscription Id}/resourcegroups/{Resource Group Name}/providers/Microsoft.Web/sites/{Website Name}?api-version=2015-04-01 @enableclientcert.json -verbose
     
@@ -177,4 +179,4 @@ Le certificat client qui est envoyé à l'application n'est soumis à aucune val
         }
     }
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Installation de votre appareil StorSimple 8100 | Microsoft Azure"
-	description="Explique comment déballer, monter en rack et câbler votre appareil StorSimple 8100 avant de déployer et de configurer le logiciel."
-	services="storsimple"
-	documentationCenter="NA"
-	authors="alkohli"
-	manager="carolz"
-	editor=""/>
+   description="Explique comment déballer, monter en rack et câbler votre appareil StorSimple 8100 avant de déployer et de configurer le logiciel."
+   services="storsimple"
+   documentationCenter="NA"
+   authors="alkohli"
+   manager="carolz"
+   editor="" />
 <tags 
    ms.service="storsimple"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="TBD"
-	ms.date="08/26/2015"
-	ms.author="alkohli"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="TBD"
+   ms.date="09/16/2015"
+   ms.author="alkohli" />
 
 # Déballer, monter en rack et câbler votre appareil StorSimple 8100
 
@@ -275,4 +275,4 @@ Votre appareil est désormais branché à l’alimentation, au réseau et au por
 Vous êtes maintenant prêt à procéder au [Déploiement de votre appareil StorSimple local](storsimple-deployment-walkthrough.md).
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO3-->

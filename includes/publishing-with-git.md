@@ -1,5 +1,3 @@
-# Déploiement continu à l’aide de Git dans Azure App Service
-
 [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) prend en charge le déploiement continu vers Web Apps à partir d'outils de contrôle de code source et de référentiel comme BitBucket, CodePlex, Dropbox, Git, GitHub, Mercurial et TFS. Ces outils permettent de mettre à jour le contenu et le code de votre application, puis d’envoyer (par transmission de type push) rapidement et facilement les modifications à votre application web Azure à votre convenance.
 
 Dans cet article, vous allez apprendre à utiliser Git pour publier directement de votre ordinateur local vers Web Apps (dans Azure, cette méthode de publication est appelée **Git local**). Vous allez également découvrir comment activer le déploiement continu à partir de sites de référentiel, comme BitBucket, CodePlex, Dropbox, GitHub ou Mercurial. Pour plus d'informations sur l'utilisation de TFS dans le cadre d'un déploiement continu, consultez la page [Livraison continue sur Azure au moyen de Visual Studio Online].
@@ -18,7 +16,7 @@ Effectuez les tâches suivantes pour créer un nouveau référentiel Git.
 
 1. Créez un répertoire nommé MyGitRepository qui contiendra votre référentiel Git et vos fichiers d’application web.
 
-2. Ouvrez une ligne de commande, telle que **GitBash** (Windows) ou **Bash** (Unix Shell). Sur les systèmes OS X, la ligne de commande est accessible depuis l'application **Terminal**.
+2. Ouvrez un outil de ligne de commande, tel que **GitBash** (Windows) ou **Bash** (Unix Shell). Sur les systèmes OS X, la ligne de commande est accessible depuis l'application **Terminal**.
 
 3. À partir de la ligne de commande, indiquez le répertoire MyGitRepository.
 
@@ -56,7 +54,7 @@ Web Apps prend en charge des applications créées dans différents langages de 
 		 1 file changed, 1 insertion(+)
 		 create mode 100644 index.html
 
-## <a id="Step4"></a>Activer le référentiel d’application Web
+## <a id="Step4"></a>Activer le référentiel d’application web
 
 Pour activer un référentiel Git pour votre application Web, procédez comme suit.
 
@@ -116,7 +114,7 @@ Pour publier votre application Web vers Azure à l’aide de Git local, procéde
 
 	![](./media/publishing-with-git/azure4-deployed.png)
 
-2. Dans la partie supérieure du panneau de l’application Web, cliquez sur le lien situé sous l’**URL** afin de vérifier que l’élément **index.html** a été déployé. Une page contenant « Hello Git! » s’affiche.
+2. Dans la partie supérieure du panneau de l’application web, cliquez sur le lien situé sous l’**URL** afin de vérifier que l’élément **index.html** a été déployé. Une page contenant « Hello Git! » s’affiche.
 
 	![Page Web contenant « Hello Git! »][hello-git]
 
@@ -194,7 +192,7 @@ Une fois que vous avez configuré votre référentiel comme indiqué ainsi que v
 
 ## Désactiver le déploiement continu
 
-Le déploiement continu peut être désactivé dans le panneau **Déploiements**. Dans la section **Déploiement** du panneau de votre application Web, cliquez sur **Déploiement actif**, puis sur **Déconnecter**.
+Le déploiement continu peut être désactivé dans le panneau **Déploiements**. Dans la section **Déploiement** du panneau de votre application web, cliquez sur **Déploiement actif**, puis sur **Déconnecter**.
 
 ![git-DisconnectFromGitHub](./media/publishing-with-git/azure5-disconnect.png)
 
@@ -300,4 +298,4 @@ Voici les erreurs ou les problèmes rencontrés couramment lors de l’utilisati
 [Utilisation de Dropbox pour partager des référentiels Git]: https://gist.github.com/trey/2722927
 [Livraison continue sur Azure au moyen de Visual Studio Online]: ../articles/cloud-services/cloud-services-continuous-delivery-use-vso.md
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

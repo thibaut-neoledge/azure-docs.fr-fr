@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Configurer un proxy web pour un appareil StorSimple | Microsoft Azure"
-	description="Découvrez comment utiliser Windows PowerShell for StorSimple pour configurer les paramètres du proxy web de votre appareil StorSimple."
-	services="storsimple"
-	documentationCenter=""
-	authors="alkohli"
-	manager="carolz"
-	editor=""/>
+   description="Découvrez comment utiliser Windows PowerShell for StorSimple pour configurer les paramètres du proxy web de votre appareil StorSimple."
+   services="storsimple"
+   documentationCenter=""
+   authors="alkohli"
+   manager="carolz"
+   editor="" />
 <tags 
    ms.service="storsimple"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="na"
-	ms.date="08/31/2015"
-	ms.author="alkohli"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="na"
+   ms.date="09/15/2015"
+   ms.author="alkohli" />
 
 # Configurer le proxy web pour votre appareil StorSimple
 
@@ -146,6 +146,9 @@ Si les paramètres du proxy web ont été configurés correctement, les messages
 > - Les erreurs liées aux paramètres du proxy web ne s'afficheront pas dans le Portail de gestion de votre service StorSimple Manager. Si un problème survient au niveau du proxy web après la configuration, l'état de l’appareil affiche **Offline** dans le Portail de gestion.|
 
 ## Étapes suivantes
-Si vous rencontrez des problèmes lors du déploiement de votre appareil ou la configuration des paramètres de proxy web, reportez-vous à [Dépannage du déploiement de votre appareil StorSimple](storsimple-troubleshoot-deployment.md).
 
-<!---HONumber=September15_HO1-->
+- Si vous rencontrez des problèmes lors du déploiement de votre appareil ou la configuration des paramètres de proxy web, consultez [Dépannage du déploiement de votre appareil StorSimple](storsimple-troubleshoot-deployment.md).
+
+- Pour apprendre à utiliser le service StorSimple Manager, consultez [Utiliser le service StorSimple Manager pour gérer votre appareil StorSimple](storsimple-manager-service-administration.md).
+
+<!---HONumber=Sept15_HO3-->

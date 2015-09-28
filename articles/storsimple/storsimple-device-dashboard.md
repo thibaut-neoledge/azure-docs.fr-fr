@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Utilisation du tableau de bord du service StorSimple Manager | Microsoft Azure"
-	description="Décrit le tableau de bord du service StorSimple Manager et explique comment l'utiliser pour afficher les mesures de stockage et les initiateurs connectés, et rechercher le numéro de série et l’IQN."
-	services="storsimple"
-	documentationCenter="NA"
-	authors="alkohli"
-	manager="carolz"
-	editor=""/>
+   description="Décrit le tableau de bord du service StorSimple Manager et explique comment l'utiliser pour afficher les mesures de stockage et les initiateurs connectés, et rechercher le numéro de série et l’IQN."
+   services="storsimple"
+   documentationCenter="NA"
+   authors="alkohli"
+   manager="carolz"
+   editor="" />
 <tags 
    ms.service="storsimple"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="TBD"
-	ms.date="09/01/2015"
-	ms.author="alkohli"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="TBD"
+   ms.date="09/15/2015"
+   ms.author="alkohli" />
 
 # Utilisation du tableau de bord d’appareil StorSimple Manager
 
@@ -97,6 +97,7 @@ Vous aurez peut-être besoin de l'IQN cible au moment de configurer le protocole
 
 ## Étapes suivantes
 
-[En savoir plus sur le tableau de bord du service StorSimple Manager](storsimple-service-dashboard.md).
+- En savoir plus sur le [tableau de bord du service StorSimple Manager](storsimple-service-dashboard.md).
+- En savoir plus sur [l’utilisation du service StorSimple Manager pour gérer votre appareil StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

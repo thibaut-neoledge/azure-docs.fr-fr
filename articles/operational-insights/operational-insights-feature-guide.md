@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="08/06/2015"
+	ms.date="09/10/2015"
 	ms.author="banders"/>
 
 # Guide des fonctionnalités d’Operational Insights
@@ -47,7 +47,7 @@ Vous pouvez également :
 	- [Connexion directe des ordinateurs à Operational Insights](operational-insights-direct-agent.md)
 	- [Analyse des données des serveurs dans Microsoft Azure](operational-insights-analyze-data-azure.md)
 - **Effectuer toutes les actions précédentes durant vos déplacements grâce à l’application mobile**
-	- Pour plus d’informations sur l’application Windows Phone, consultez la page sur l’[application mobile Operational Insights](http://www.windowsphone.com/fr-fr/store/app/operational-insights/4823b935-83ce-466c-82bb-bd0a3f58d865).
+	- Pour plus d’informations sur l’application Windows Phone, consultez la page sur l’[application mobile Operational Insights](http://www.windowsphone.com/fr-FR/store/app/operational-insights/4823b935-83ce-466c-82bb-bd0a3f58d865).
 
 ## Environnement Operational Insights
 
@@ -72,4 +72,4 @@ Les données de chaque solution sont analysées, indexées et présentées sur l
 ### Où l’application Operational Insights est-elle disponible ?
 Microsoft Azure Operational Insights est hébergée aux États-Unis. Bien que cette application soit en anglais, le service est disponible dans un certain nombre de marchés supplémentaires. Pour plus d’informations, consultez la page [Disponibilité internationale](http://go.microsoft.com/fwlink/?LinkId=229842).
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO3-->

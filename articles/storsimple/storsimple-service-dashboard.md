@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Tableau de bord du service StorSimple Manager | Microsoft Azure"
-	description="Décrit le tableau de bord du service StorSimple Manager et explique comment l'utiliser pour surveiller l’état de votre solution StorSimple."
-	services="storsimple"
-	documentationCenter=""
-	authors="SharS"
-	manager="carolz"
-	editor=""/>
+   description="Décrit le tableau de bord du service StorSimple Manager et explique comment l'utiliser pour surveiller l’état de votre solution StorSimple."
+   services="storsimple"
+   documentationCenter=""
+   authors="SharS"
+   manager="carolz"
+   editor="" />
 <tags 
    ms.service="storsimple"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="na"
-	ms.date="09/02/2015"
-	ms.author="v-sharos"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="na"
+   ms.date="09/17/2015"
+   ms.author="v-sharos" />
 
 # Utilisation du tableau de bord du service StorSimple Manager
 
@@ -74,6 +74,8 @@ Vous pouvez afficher les journaux des opérations en cliquant sur le lien des jo
 
 ## Étapes suivantes
 
-[Découvrez la procédure de résolution des problèmes d’un périphérique StorSimple](storsimple-troubleshoot-operational-device.md).
+- Découvrez la procédure de [Résolution des problèmes d’un périphérique StorSimple](storsimple-troubleshoot-operational-device.md).
 
-<!---HONumber=September15_HO1-->
+- En savoir plus sur [l’utilisation du service StorSimple Manager pour gérer votre appareil StorSimple](storsimple-manager-service-administration.md).
+
+<!---HONumber=Sept15_HO3-->

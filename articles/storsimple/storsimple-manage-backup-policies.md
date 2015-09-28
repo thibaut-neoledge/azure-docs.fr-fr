@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Gestion de vos stratégies de sauvegarde StorSimple | Microsoft Azure"
-	description="Explique comment utiliser le service StorSimple Manager pour créer et gérer des sauvegardes manuelles, des planifications de sauvegarde et une rétention de sauvegarde."
-	services="storsimple"
-	documentationCenter="NA"
-	authors="SharS"
-	manager="carolz"
-	editor=""/>
+   description="Explique comment utiliser le service StorSimple Manager pour créer et gérer des sauvegardes manuelles, des planifications de sauvegarde et une rétention de sauvegarde."
+   services="storsimple"
+   documentationCenter="NA"
+   authors="SharS"
+   manager="carolz"
+   editor=""/>
 <tags 
    ms.service="storsimple"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="TBD"
-	ms.date="08/27/2015"
-	ms.author="v-sharos"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="TBD"
+   ms.date="09/15/2015"
+   ms.author="v-sharos"/>
 
 # Utiliser le service StorSimple Manager pour gérer les stratégies de sauvegarde
 
@@ -49,9 +49,13 @@ Les opérations fréquentes pouvant être effectuées à partir de cette page so
 
 ## Ajouter une stratégie de sauvegarde
 
-Ajoutez une stratégie de sauvegarde pour planifier automatiquement vos sauvegardes. Pour ajouter une stratégie de sauvegarde dédiée à votre appareil StorSimple, suivez les étapes suivantes dans le portail de gestion. Après avoir ajouté la stratégie, vous pouvez définir une planification (voir la section [Ajouter ou modifier une planification](#add-or-modify-a-schedule)).
+Ajoutez une stratégie de sauvegarde pour planifier automatiquement vos sauvegardes. Pour ajouter une stratégie de sauvegarde dédiée à votre appareil StorSimple, suivez les étapes suivantes dans le portail de gestion. Après avoir ajouté la stratégie, vous pouvez définir une planification (consultez [Ajouter ou modifier une planification](#add-or-modify-a-schedule)).
 
 [AZURE.INCLUDE [storsimple-add-backup-policy](../../includes/storsimple-add-backup-policy.md)]
+
+![Vidéo disponible](./media/storsimple-manage-backup-policies/Video_icon.png) **Vidéo disponible**
+
+Pour visionner une vidéo expliquant comment créer une stratégie de sauvegarde locale ou dans le cloud, cliquez [ici](http://azure.microsoft.com/documentation/videos/create-storsimple-backup-policies/).
 
 
 ## Ajouter ou modifier une planification
@@ -82,6 +86,6 @@ Pour créer une stratégie de sauvegarde personnalisée présentant plusieurs vo
 
 ## Étapes suivantes
 
-Découvrez comment [utiliser le Gestionnaire d’instantanés StorSimple pour afficher et gérer les tâches de sauvegarde](storsimple-snapshot-manager-manage-backup-jobs.md)
+- En savoir plus sur [l’utilisation du service StorSimple Manager pour gérer votre appareil StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

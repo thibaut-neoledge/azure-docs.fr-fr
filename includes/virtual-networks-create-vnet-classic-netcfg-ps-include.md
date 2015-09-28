@@ -9,7 +9,7 @@ Pour créer un réseau virtuel à l'aide d'un fichier netcfg en utilisant PowerS
 
 		Get-AzureVNetConfig -ExportToFile c:\NetworkConfig.xml
 
-	Voici le résultat attendu pour la commande ci-dessus :
+	Sortie attendue :
 
 		XMLConfiguration                                                                                                     
 		----------------                                                                                                     
@@ -65,4 +65,4 @@ Pour créer un réseau virtuel à l'aide d'un fichier netcfg en utilisant PowerS
 		OperationId          : 3f35d533-1f38-09c0-b286-3d07cd0904d8
 		OperationStatus      : Succeeded
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

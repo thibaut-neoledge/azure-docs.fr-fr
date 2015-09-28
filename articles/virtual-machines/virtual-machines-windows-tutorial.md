@@ -3,7 +3,7 @@
 	description="Découvrez comment créer une machine virtuelle Azure exécutant Windows, à l’aide d’Azure Marketplace dans le portail Azure en version préliminaire."
 	services="virtual-machines"
 	documentationCenter=""
-	authors="KBDAzure"
+	authors="cynthn"
 	manager="timlt"
 	editor=""
 	tags="azure-resource-manager"/>
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="hero-article"
 	ms.date="08/14/2015"
-	ms.author="kathydav"/>
+	ms.author="cynthn"/>
 
 # Créer une machine virtuelle exécutant Windows dans le portail Azure en version préliminaire#
 
@@ -107,4 +107,4 @@ Une fois que vous avez créé la machine virtuelle, vous pouvez vous y connecter
 * Utilisez Azure PowerShell et l’interface de ligne de commande Azure pour [rechercher et sélectionner des images de machine virtuelle](resource-groups-vm-searching.md).
 * Automatisez le déploiement et la gestion de la machine virtuelle et de la charge de travail à l’aide d’[Azure Resource Manager](virtual-machines-how-to-automate-azure-resource-manager.md) et des [modèles Azure Resource Manager](http://azure.microsoft.com/documentation/templates/).
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO3-->

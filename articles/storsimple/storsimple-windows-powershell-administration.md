@@ -1,19 +1,19 @@
 <properties 
    pageTitle="PowerShell pour la gestion d’appareils StorSimple | Microsoft Azure"
-	description="Découvrez comment gérer votre appareil StorSimple à l’aide de Windows PowerShell for StorSimple."
-	services="storsimple"
-	documentationCenter="NA"
-	authors="alkohli"
-	manager="carolz"
-	editor=""/>
+   description="Découvrez comment gérer votre appareil StorSimple à l’aide de Windows PowerShell for StorSimple."
+   services="storsimple"
+   documentationCenter="NA"
+   authors="alkohli"
+   manager="carolz"
+   editor="" />
 <tags 
    ms.service="storsimple"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="TBD"
-	ms.date="08/28/2015"
-	ms.author="alkohli@microsoft.com"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="TBD"
+   ms.date="08/28/2015"
+   ms.author="alkohli@microsoft.com" />
 
 # Utiliser Windows PowerShell pour StorSimple pour appliquer votre appareil
 
@@ -66,7 +66,7 @@ L’image suivante montre les différentes options d’instance d’exécution q
 
 Vous pouvez choisir parmi les paramètres suivants :
 
-1. **Se connecter avec accès total** : cette option vous permet de vous connecter (avec les informations d’identification correctes) à l’instance d’exécution **SSAdminConsole** sur le contrôleur local. (Le contrôleur local est le contrôleur auquel vous accédez actuellement via la console série de votre appareil StorSimple.) Cette option peut également être utilisée pour permettre au support technique de Microsoft d’accéder à une instance d’exécution sans restriction (une session de support) pour résoudre tous les problèmes possibles de l’appareil. Après avoir utilisé l’option 1 pour vous connecter, vous pouvez autoriser l’ingénieur du support technique de Microsoft à accéder à une instance d’exécution sans restriction en exécutant une applet de commande spécifique. Pour plus d’informations, reportez-vous à [Démarrer une session de support](storsimple-contact-microsoft-support.md#start-a-support-session-in-windows-powershell-for-storsimple). Cette option connecte à une instance d’exécution sur le contrôleur local.
+1. **Se connecter avec accès total** : cette option vous permet de vous connecter (avec les informations d’identification correctes) à l’instance d’exécution **SSAdminConsole** sur le contrôleur local. (Le contrôleur local est le contrôleur auquel vous accédez actuellement via la console série de votre appareil StorSimple.) Cette option peut également être utilisée pour permettre au support technique de Microsoft d’accéder à une instance d’exécution sans restriction (une session de support) pour résoudre tous les problèmes possibles de l’appareil. Après avoir utilisé l’option 1 pour vous connecter, vous pouvez autoriser l’ingénieur du support technique de Microsoft à accéder à une instance d’exécution sans restriction en exécutant une applet de commande spécifique. Pour plus d’informations, reportez-vous à [Démarrer une session de support](storsimple-contact-microsoft-support.md#start-a-support-session-in-windows-powershell-for-storsimple).
 
 1. **Se connecter au contrôleur homologue avec accès total** : cette option est identique à l’option 1, sauf que vous pouvez vous connecter (avec les informations d’identification correctes) à l’instance d’exécution **SSAdminConsole** sur le contrôleur homologue. Étant donné que l’appareil StorSimple est un appareil à haute disponibilité avec deux contrôleurs dans une configuration active-passive, « homologue » fait référence à l’autre contrôleur dans l’appareil auquel vous accédez via la console série. Similaire à l’option 1, cette option peut également être utilisée pour permettre au support technique de Microsoft d’accéder à une instance d’exécution sans restriction sur un contrôleur homologue.
 
@@ -123,7 +123,7 @@ Vous pouvez maintenant utiliser PuTTY pour vous connecter à la console série d
 ## Se connecter à distance à StorSimple en utilisant Windows PowerShell pour StorSimple
 Vous pouvez utiliser l’accès distant Windows PowerShell pour vous connecter à votre appareil StorSimple. Quand vous vous connectez de cette façon, vous ne voyez pas de menu. (Vous voyez un menu seulement si vous utilisez la console série sur l’appareil pour vous connecter). Avec l’accès distant Windows PowerShell, vous vous connectez à une instance d’exécution spécifique. Vous pouvez également spécifier la langue d’affichage.
 
-La langue d’affichage est indépendante de la langue que vous définissez avec l’option Changer la langue dans le menu de la console série. PowerShell à distance récupère automatiquement les paramètres régionaux de l’appareil à partir duquel vous vous connectez si ces paramètres ne sont pas spécifiés.
+La langue d’affichage est indépendante de la langue que vous définissez à l’aide de l’option **Changer la langue** dans le menu de la console série. PowerShell à distance récupère automatiquement les paramètres régionaux de l’appareil à partir duquel vous vous connectez si ces paramètres ne sont pas spécifiés.
 
 >[AZURE.NOTE]Si vous travaillez avec des hôtes virtuels Microsoft Azure et des appareils StorSimple, vous pouvez utiliser l’accès distant Windows PowerShell et l’hôte virtuel pour vous connecter à l’appareil virtuel. Si vous avez configuré un emplacement de partage sur l’hôte où enregistrer les informations de la session Windows PowerShell, notez bien que le principal Tout le monde inclut seulement des utilisateurs authentifiés. Par conséquent, si vous avez configuré le partage pour permettre l’accès par Tout le monde et que vous vous connectez sans spécifier des informations d’identification, le principal Anonyme non authentifié est utilisée et vous recevez une erreur. Pour résoudre ce problème, sur le partage hôte, vous devez activer le compte Invité, puis donner à ce compte un accès total au partage, ou bien vous devez spécifier des informations d’identification valides avec l’applet de commande Windows PowerShell.
 
@@ -154,7 +154,7 @@ Le tableau suivant présente un résumé de toutes les tâches de gestion couran
 |Inscrire votre appareil|[Configurer et inscrire l’appareil en utilisant Windows PowerShell pour StorSimple](storsimple-deployment-walkthrough.md#step-3-configure-and-register-the-device-through-windows-powershell-for-storsimple) |
 |Configurer le proxy web </br>Afficher les paramètres de proxy web|[Configurer le proxy web pour votre appareil StorSimple](storsimple-configure-web-proxy.md)|
 |Modifier les paramètres d’interface réseau DATA 0 sur votre appareil|[Modifier l’interface réseau DATA 0 pour votre appareil StorSimple](storsimple-modify-data-0.md)|
-|Arrêter un contrôleur </br> Redémarrer ou arrêter un contrôleur </br> Arrêter un appareil </br>Réinitialiser l’appareil aux paramètres par défaut d’usine|[Gérer les contrôleurs de l’appareil](storsimple-manage-device-controller.md)|
+|Arrêter un contrôleur </br> Redémarrer ou arrêter un contrôleur </br> Arrêter un appareil </br>Rétablir les paramètres par défaut de l’appareil|[Gérer les contrôleurs de l’appareil](storsimple-manage-device-controller.md)|
 |Installer des mises à jour et des correctifs en mode maintenance|[Mettre à jour votre appareil](storsimple-update-device.md)|
 |Entrer en mode maintenance </br>Quitter le mode maintenance|[Modes de l’appareil StorSimple](storsimple-device-modes.md)|
 |Créer un package de support </br>Déchiffrer et modifier un package de support|[Création et gestion d’un package de prise en charge](storsimple-create-manage-support-package.md)|
@@ -165,7 +165,7 @@ Le tableau suivant présente un résumé de toutes les tâches de gestion couran
 
 Dans Windows PowerShell pour StorSimple, une aide sur les applets de commande est disponible. Une version en ligne et à jour de cette aide est également disponible, que vous pouvez utiliser pour mettre à jour l’aide sur votre système.
 
-Obtenir de l’aide dans cette interface est similaire à ce qu’il faut faire dans Windows PowerShell, et la plupart des applets de commande relatives à l’aide fonctionnent. Vous pouvez trouver de l’aide pour Windows PowerShell en ligne, dans la bibliothèque TechNet : [Écriture de scripts avec Windows PowerShell](http://go.microsoft.com/fwlink/?LinkID=108518).
+Obtenir de l’aide dans cette interface est similaire à ce qu’il faut faire dans Windows PowerShell, et la plupart des applets de commande relatives à l’aide fonctionnent. Vous pouvez trouver de l’aide pour Windows PowerShell en ligne dans la bibliothèque TechNet : [Écriture de scripts avec Windows PowerShell](http://go.microsoft.com/fwlink/?LinkID=108518).
 
 Voici une brève description des types d’aide pour cette interface Windows PowerShell, y compris la mise à jour de l’aide.
 
@@ -189,12 +189,12 @@ Vous pouvez facilement mettre à jour l’aide de l’interface Windows PowerShe
 
 1. Les fichiers d’aide mis à jour sont installés.
 
-1. Une fois les fichiers d’aide sont installés, tapez : `Get-Help Get-Command`. Ceci affiche une liste des applets de commande pour lesquelles de l’aide est disponible.
+1. Une fois les fichiers d’aide installés, tapez : `Get-Help Get-Command`. Ceci affiche une liste des applets de commande pour lesquelles de l’aide est disponible.
 
 
 >[AZURE.NOTE]Pour obtenir une liste de toutes les applets de commande disponibles dans les instances d’exécution, connectez-vous à l’option de menu correspondante et exécutez l’applet de commande `Get-Command`.
 
 ## Étapes suivantes
-Si vous rencontrez des problèmes avec votre appareil StorSimple lors de l’exécution d’un des flux de travail ci-dessus, reportez-vous à la rubrique [Outils de résolution des problèmes de déploiement de StorSimple](storsimple-troubleshoot-deployment.md#tools-for-troubleshooting-storsimple-deployments).
+Si vous rencontrez des problèmes avec votre appareil StorSimple lors de l’exécution d’un des flux de travail ci-dessus, consultez la rubrique [Outils de résolution des problèmes de déploiement de StorSimple](storsimple-troubleshoot-deployment.md#tools-for-troubleshooting-storsimple-deployments).
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

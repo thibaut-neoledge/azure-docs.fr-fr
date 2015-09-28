@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/02/2015"
+   ms.date="09/10/2015"
    ms.author="banders" />
 
 # Considérations relatives à Operations Manager avec Operational Insights
@@ -83,8 +83,8 @@ Par exemple, si vous supposez une taille de téléchargement quotidienne de 100�
 
 Nombre d'agents|Espace requis estimé pour le groupe d'administration
 ---|---
-5|\~2,5 Mo (5 agents x 100 Ko de données/jour x 5 jours = 2 500 Ko)
-50|\~25 Mo (50 agents x 100 Ko de données/jour x 5 jours = 25 000 Ko)
+5|~2,5 Mo (5 agents x 100 Ko de données/jour x 5 jours = 2 500 Ko)
+50|~25 Mo (50 agents x 100 Ko de données/jour x 5 jours = 25 000 Ko)
 
 ## Comptes d’identification Operations Manager pour Operational Insights
 
@@ -215,4 +215,4 @@ Utilisez les étapes suivantes pour définir le compte lors de la connexion de O
 
 Si vous souhaitez analyser des données à partir de serveurs dans divers emplacements géographiques, envisagez de disposer d'un groupe d'administration par emplacement. Cela peut améliorer les performances de transfert de données de l'agent au groupe d'administration.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

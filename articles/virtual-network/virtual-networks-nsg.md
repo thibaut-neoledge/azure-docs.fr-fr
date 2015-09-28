@@ -1,23 +1,23 @@
 <properties 
    pageTitle="Présentation du groupe de sécurité réseau"
-	description="En savoir plus sur les groupes de sécurité réseau"
-	services="virtual-network"
-	documentationCenter="na"
-	authors="telmosampaio"
-	manager="carolz"
-	editor="tysonn"/>
+   description="En savoir plus sur les groupes de sécurité réseau"
+   services="virtual-network"
+   documentationCenter="na"
+   authors="telmosampaio"
+   manager="carolz"
+   editor="tysonn" />
 <tags 
    ms.service="virtual-network"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="infrastructure-services"
-	ms.date="08/13/2015"
-	ms.author="telmos"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="infrastructure-services"
+   ms.date="08/13/2015"
+   ms.author="telmos" />
 
 # Présentation du groupe de sécurité réseau
 
-Vous pouvez utiliser un groupe de sécurité réseau pour contrôler le trafic vers une ou plusieurs instances de machine virtuelle dans votre réseau virtuel. Un groupe de sécurité réseau est un objet de niveau supérieur qui est associé à votre abonnement. Un groupe de sécurité réseau contient les règles de contrôle d'accès qui autorisent ou refusent le trafic vers des instances de machine virtuelle. Les règles d'un groupe de sécurité réseau peuvent être modifiées à tout moment et les modifications sont appliquées à toutes les instances associées. Pour utiliser un groupe de sécurité réseau, vous devez disposer d'un réseau virtuel associé à une région (emplacement).
+Vous pouvez utiliser un groupe de sécurité réseau pour contrôler le trafic vers une ou plusieurs instances de machine virtuelle dans votre réseau virtuel. Un groupe de sécurité réseau contient les règles de contrôle d’accès qui autorisent ou refusent le trafic en fonction de la direction du trafic, du protocole, de l’adresse et du port source ainsi que de l’adresse et du port de destination. Les règles d'un groupe de sécurité réseau peuvent être modifiées à tout moment et les modifications sont appliquées à toutes les instances associées. Pour utiliser un groupe de sécurité réseau, vous devez disposer d’un réseau virtuel régional.
 
 >[AZURE.WARNING]Les groupes de sécurité réseau ne sont pas compatibles avec les réseaux virtuels associés à un groupe d'affinités. Si vous ne disposez pas d’un réseau virtuel régional et que vous souhaitez contrôler le trafic vers vos points de terminaison, consultez [Présentation d’une liste de contrôle d'accès (ACL) au réseau ?](./virtual-networks-acl.md). Vous pouvez également [migrer votre réseau virtuel vers un réseau virtuel régional](./virtual-networks-migrate-to-regional-vnet.md).
 
@@ -249,4 +249,4 @@ Voici les étapes de flux de travail de base pour l'utilisation de groupes de s�
 
 	Get-Command *azurenetworksecuritygroup*
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO3-->

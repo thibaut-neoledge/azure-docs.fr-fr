@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="09/09/2015"
+   ms.date="09/15/2015"
    ms.author="v-sharos" />
 
 # Utiliser le service StorSimple Manager pour gérer les volumes
@@ -88,7 +88,10 @@ Le nouveau volume est maintenant prêt à l’emploi.
 
 Modifiez un volume lorsque vous avez besoin d’en augmenter la taille ou de modifier les hôtes qui peuvent y accéder.
 
-> [AZURE.IMPORTANT]Si vous modifiez la taille du volume sur l’appareil, vous devez la modifier sur l’hôte également. Les étapes côté hôte décrites ici concernent Windows Server 2012 (2012R2). Les procédures pour Linux ou d’autres systèmes d’exploitation sont différentes. Consultez les instructions du système d’exploitation de l’hôte pour modifier le volume sur un hôte exécutant un autre système d’exploitation.
+> [AZURE.IMPORTANT]
+>
+> - Si vous modifiez la taille du volume sur l’appareil, vous devez la modifier sur l’hôte également. 
+> - Les étapes côté hôte décrites ici concernent Windows Server 2012 (2012R2). Les procédures pour Linux ou d’autres systèmes d’exploitation sont différentes. Consultez les instructions du système d’exploitation de l’hôte pour modifier le volume sur un hôte exécutant un autre système d’exploitation. 
 
 ### Pour modifier un volume
 
@@ -116,10 +119,14 @@ Modifiez un volume lorsque vous avez besoin d’en augmenter la taille ou de mod
 
 7. Si vous développez un volume, procédez comme suit sur votre ordinateur hôte Windows :
 
-   1. Accédez à **Gestion de l’ordinateur** ->**Gestion des disques**.
-   2. Cliquez avec le bouton droit sur **Gestion des disques**, puis choisissez **Analyser les disques de nouveau**.
-   3. Dans la liste des disques, sélectionnez le volume que vous avez mis à jour, cliquez avec le bouton droit, puis choisissez **Étendre le volume**. L’Assistant Étendre le volume démarre. Cliquez sur **Next**.
+   1. Accédez à **Gestion de l’ordinateur** -> **Gestion des disques**.
+   2. Cliquez avec le bouton droit sur **Gestion des disques**, puis sélectionnez **Analyser les disques de nouveau**.
+   3. Dans la liste des disques, sélectionnez le volume que vous avez mis à jour, cliquez avec le bouton droit, puis sélectionnez **Étendre le volume**. L’Assistant Étendre le volume démarre. Cliquez sur **Next**.
    4. Parcourez les étapes de l’Assistant en acceptant les valeurs par défaut. Une fois l’Assistant terminé, le volume doit afficher la taille augmentée.
+
+![Vidéo disponible](./media/storsimple-manage-volumes/Video_icon.png) **Vidéo disponible**
+
+Pour visionner une vidéo expliquant comment étendre un volume, cliquez [ici](http://azure.microsoft.com/documentation/videos/expand-a-storsimple-volume).
 
 ## Mise hors connexion d’un volume
 
@@ -180,13 +187,12 @@ Suivez la procédure ci-dessous pour activer ou désactiver l’analyse d’un v
 
     ![Modifier un volume, paramètres de base](./media/storsimple-manage-volumes/HCS_MonitorVolumeM.png)
 
+
 ## Étapes suivantes
 
-Regardez une vidéo qui montre comment [étendre un volume StorSimple](http://azure.microsoft.com/documentation/videos/expand-a-storsimple-volume).
-
-Découvrez comment [cloner un volume StorSimple](storsimple-clone-volume.md).
-
+- Découvrez comment [cloner un volume StorSimple](storsimple-clone-volume.md).
+- Découvrez comment [utiliser le service StorSimple Manager pour gérer votre appareil StorSimple](storsimple-manager-service-administration.md).
 
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Déployer un appareil StorSimple dans Government Portal | Microsoft Azure"
-	description="Décrit les procédures et meilleures pratiques de déploiement du service et de l’appareil StorSimple Update 1 dans Microsoft Azure Government Portal."
-	services="storsimple"
-	documentationCenter="NA"
-	authors="SharS"
-	manager="carolz"
-	editor=""/>
+   description="Décrit les procédures et meilleures pratiques de déploiement du service et de l’appareil StorSimple Update 1 dans Microsoft Azure Government Portal."
+   services="storsimple"
+   documentationCenter="NA"
+   authors="SharS"
+   manager="carolz"
+   editor="" />
 <tags 
    ms.service="storsimple"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="TBD"
-	ms.date="09/02/2015"
-	ms.author="v-sharos"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="TBD"
+   ms.date="09/17/2015"
+   ms.author="v-sharos" />
 
 # Déploiement de votre appareil StorSimple local sur Microsoft Azure Government Portal
 
@@ -277,4 +277,4 @@ Configuration d’un [appareil virtuel](storsimple-virtual-device.md).
 Utilisez le [service StorSimple Manager](https://msdn.microsoft.com/library/azure/dn772396.aspx) pour gérer votre appareil StorSimple.
  
 
-<!-----HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

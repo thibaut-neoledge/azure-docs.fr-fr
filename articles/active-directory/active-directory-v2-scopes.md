@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Modèle d’application v2.0 | Microsoft Azure"
+	pageTitle="Modèle d'application v2.0 - Étendues, autorisations et consentement | Microsoft Azure"
 	description="Une description de l’autorisation dans le modèle d’application v2.0 Azure AD, relative notamment aux étendues, aux autorisations et aux consentements."
 	services="active-directory"
 	documentationCenter=""
@@ -116,4 +116,4 @@ Si votre application ne sollicite pas l’étendue `offline_access`, elle ne re�
 
 Pour en savoir plus sur la récupération et l’utilisation des jetons d’actualisation, consultez la page de [référence sur les protocoles du modèle d’application v2.0](active-directory-v2-protocols.md).
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO3-->

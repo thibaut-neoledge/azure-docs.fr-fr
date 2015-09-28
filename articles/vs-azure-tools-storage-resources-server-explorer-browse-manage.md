@@ -1,19 +1,19 @@
-<properties 
+<properties
    pageTitle="Consultation et gestion des ressources de stockage avec l’Explorateur de serveurs"
-	description="Consultation et gestion des ressources de stockage avec l’Explorateur de serveurs"
-	services="visual-studio-online"
-	documentationCenter="na"
-	authors="kempb"
-	manager="douge"
-	editor="tlee"/>
-<tags 
+   description="Consultation et gestion des ressources de stockage avec l’Explorateur de serveurs"
+   services="visual-studio-online"
+   documentationCenter="na"
+   authors="kempb"
+   manager="douge"
+   editor="tlee" />
+<tags
    ms.service="storage"
-	ms.devlang="multiple"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="na"
-	ms.date="08/24/2015"
-	ms.author="kempb"/>
+   ms.devlang="multiple"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="na"
+   ms.date="08/24/2015"
+   ms.author="kempb" />
 
 # Consultation et gestion des ressources de stockage avec l’Explorateur de serveurs
 
@@ -42,19 +42,21 @@ Pour afficher les ressources dans un compte de stockage, développez le nœud du
 
 Le nœud Objets blob affiche la liste des conteneurs associés au compte de stockage sélectionné. Les conteneurs d’objets blob contiennent des fichiers d’objets blob, que vous pouvez ranger dans des dossiers et des sous-dossiers. Pour plus d’informations, consultez la page [Utilisation du stockage d’objets blob à partir de .NET](..storage/storage-dotnet-how-to-use-blobs/).
 
-###Pour créer un conteneur d’objets blob
+### Pour créer un conteneur d’objets blob
 
 1. Ouvrez le menu contextuel du nœud **Objets blob**, puis choisissez **Créer un conteneur d’objets blob**.
 
-1. Entrez le nom du nouveau conteneur dans la boîte de dialogue **Créer un conteneur d’objets blob**, puis choisissez **OK**. ![Ajout d’un conteneur d’objets blob](./media/vs-azure-tools-storage-resources-server-explorer-browse-manage/IC744153.bmp)
+1. Entrez le nom du nouveau conteneur dans la boîte de dialogue **Créer un conteneur d’objets blob**, puis choisissez **OK**.
+
+    ![Ajout d’un conteneur d’objets blob](./media/vs-azure-tools-storage-resources-server-explorer-browse-manage/IC744153.bmp)
 
     >[AZURE.NOTE]Le nom du conteneur d’objets blob doit commencer par un chiffre (0-9) ou une lettre minuscule (a-z).
 
-###Pour supprimer un conteneur d’objets blob
+### Pour supprimer un conteneur d’objets blob
 
 - Ouvrez le menu contextuel du conteneur d’objets blob que vous voulez supprimer, puis sélectionnez **Supprimer**.
 
-###Pour afficher la liste des éléments d’un conteneur d’objets blob
+### Pour afficher la liste des éléments d’un conteneur d’objets blob
 
 - Ouvrez le menu contextuel d’un conteneur d’objets blob de la liste, puis choisissez **Afficher le conteneur d’objets blob**.
 
@@ -64,24 +66,21 @@ Le nœud Objets blob affiche la liste des conteneurs associés au compte de stoc
 
     Vous pouvez effectuer les opérations suivantes sur les objets blob en utilisant les boutons situés dans l’angle supérieur droit de la vue du conteneur d’objets blob :
 
-
     - Entrer une valeur de filtre et l’appliquer
 
     - Actualiser la liste des objets blob du conteneur
 
     - Charger un fichier
 
-    - Supprimer un objet blob
+    - Supprimer un blob.
 
-
-        >[AZURE.NOTE]Si vous supprimez un fichier du conteneur d’objets blob, le fichier sous-jacent ne sera pas supprimé. Il sera uniquement supprimé du conteneur d’objets blob.
-
+      >[AZURE.NOTE]Si vous supprimez un fichier du conteneur d’objets blob, le fichier sous-jacent ne sera pas supprimé. Il sera uniquement supprimé du conteneur d’objets blob.
 
     - Ouvrir un objet blob
 
     - Enregistrer un objet blob sur l’ordinateur local
 
-###Pour créer un dossier ou un sous-dossier dans un conteneur d’objets blob 
+### Pour créer un dossier ou un sous-dossier dans un conteneur d’objets blob
 
 1. Dans l’Explorateur de serveurs, choisissez le conteneur d’objets blob. Dans la fenêtre du conteneur, choisissez le bouton **Charger l’objet blob**.
 
@@ -95,9 +94,9 @@ Le nœud Objets blob affiche la liste des conteneurs associés au compte de stoc
 
 1. Double-cliquez sur le dossier ou appuyez sur Entrée pour afficher le contenu du dossier. Une fois le dossier ouvert, vous pouvez retourner à la racine du conteneur en choisissant le bouton **Ouvrir le répertoire parent** (flèche haut).
 
-###Pour supprimer un dossier du conteneur
+### Pour supprimer un dossier du conteneur
 
- - Supprimer tous les fichiers d’un dossier 
+ - Supprimer tous les fichiers d’un dossier
 
     >[AZURE.NOTE]Étant donné que les dossiers des conteneurs d’objets blob sont des dossiers virtuels, vous ne pouvez pas créer de dossier vide, ni supprimer un dossier pour supprimer son contenu. Pour supprimer un dossier, vous devez d’abord supprimer tout son contenu.
 
@@ -114,7 +113,7 @@ Par exemple, si vous entrez le préfixe `hello` dans la zone de texte de filtre,
 
 ### Pour télécharger les données des objets blob
 
-- Dans l’Explorateur de serveurs, ouvrez le menu contextuel d’un ou plusieurs objets blob, puis choisissez **Ouvrir**. Vous pouvez aussi choisir le nom de l’objet blob, puis cliquer sur le bouton **Ouvrir** ou double-cliquer sur le nom de l’objet blob.
+- Dans l’**Explorateur de serveurs**, ouvrez le menu contextuel d’un ou de plusieurs objets blob, puis choisissez **Ouvrir**. Vous pouvez aussi choisir le nom de l’objet blob, puis cliquer sur le bouton **Ouvrir** ou double-cliquer sur le nom de l’objet blob.
 
     La progression du téléchargement d’un objet blob s’affiche dans la fenêtre **Journal des activités Azure**.
 
@@ -178,17 +177,15 @@ Le service de stockage Table Azure stocke de grandes quantités de données stru
 
 ### Pour afficher des données de table
 
-1. Dans l’Explorateur de serveurs, ouvrez le nœud **Azure**, puis ouvrez le nœud **Stockage**.
+1. Dans l’Explorateur de serveurs, ouvrez le nœud **Azure**, puis le nœud **Stockage**.
 
 1. Ouvrez le nœud du compte de stockage qui vous intéresse, puis ouvrez le nœud **Tables** pour afficher la liste des tables associées au compte de stockage.
 
 1. Ouvrez le menu contextuel d’une table, puis choisissez **Afficher la table**.
 
-    
     ![Table Azure dans l’Explorateur de solutions](./media/vs-azure-tools-storage-resources-server-explorer-browse-manage/IC744165.png)
 
 La table est organisée en entités (lignes) et propriétés (colonnes). Par exemple, l’illustration suivante montre les entités répertoriées dans le **Concepteur de tables** :
-
 
 ### Pour modifier des données de table
 
@@ -196,16 +193,13 @@ La table est organisée en entités (lignes) et propriétés (colonnes). Par exe
 
     ![Ajouter ou modifier une entité de table](./media/vs-azure-tools-storage-resources-server-explorer-browse-manage/IC656238.png)
 
-    Il n’est pas nécessaire que les entités d’une table possèdent les mêmes propriétés (colonnes). Gardez à l’esprit les restrictions suivantes lors de l’affichage et de la modification des données.
-
-
-    - Vous ne pouvez pas afficher ni modifier des données binaires (type octet), mais vous pouvez les stocker dans une table.
+    Il n’est pas nécessaire que les entités d’une table possèdent les mêmes propriétés (colonnes). Gardez à l’esprit les restrictions suivantes sur l’affichage et la modification des données de la table. -Impossible d’afficher ou de modifier des données binaires (type octet), mais vous pouvez les stocker dans une table.
 
     - Vous ne pouvez pas modifier les valeurs **PartitionKey** et **RowKey**, car le stockage de table d’Azure ne prend pas en charge cette opération.
 
     - Vous ne pouvez pas créer de propriété appelée Timestamp, car les services Azure Storage utilisent une propriété portant ce nom.
 
-    - Si vous entrez une valeur DateTime, vous devez respecter un format approprié pour les paramètres régionaux et de langue de votre ordinateur. Par exemple, MM/DD/YYYY HH:MM:SS [AM|PM] pour l’anglais (États-Unis).
+    - Si vous entrez une valeur DateTime, vous devez respecter un format approprié pour les paramètres régionaux et de langue de votre ordinateur (par exemple, MM/DD/YYYY HH:MM:SS [AM|PM] pour les États-Unis ).
 
 ### Pour ajouter des entités
 
@@ -253,7 +247,7 @@ Les opérations de connexion aux données et de récupération des données entr
 
 ### Pour actualiser les données d’une table
 
-- Sélectionnez le nœud **Table** sous **Storage**, puis choisissez le bouton **Actualiser**. 
+- Sélectionnez le nœud **Table** sous **Storage**, puis choisissez le bouton **Actualiser**.
 
 - Pour actualiser la liste des entités qui s’affiche dans le **Concepteur de tables**, choisissez le bouton **Exécuter** dans le **Concepteur de tables**.
 
@@ -303,7 +297,7 @@ Il existe deux façons d’ajouter des comptes de stockage à l’aide de l’Ex
 
     - Le protocole à utiliser pour se connecter au compte de stockage, par exemple HTTP, HTTPS ou un point de terminaison personnalisé. Pour plus d’informations sur les points de terminaison personnalisés, consultez [Configuration de chaînes de connexion Microsoft Azure](https://msdn.microsoft.com/library/azure/ee758697.aspx).
 
-### Pour afficher les points de terminaison secondaires 
+### Pour afficher les points de terminaison secondaires
 
 - Si vous avez créé un compte de stockage à l’aide de l’option de réplication **Read-Access Geo Redundant**, vous pouvez afficher ses points de terminaison secondaires. Ouvrez le menu contextuel du compte, puis choisissez **Propriétés**.
 
@@ -313,10 +307,10 @@ Il existe deux façons d’ajouter des comptes de stockage à l’aide de l’Ex
 
 - Dans l’Explorateur de serveurs, ouvrez le menu contextuel du compte, puis choisissez **Supprimer**. Si vous supprimez un compte de stockage, toutes les informations de clé enregistrées pour ce compte seront également supprimées.
 
->[AZURE.NOTE]Si vous supprimez un compte de stockage à partir de l’Explorateur de serveurs, cela n’affectera pas votre compte de stockage ni les données qu’il contient. Cela supprimera simplement sa référence dans l’Explorateur de serveurs. Pour supprimer définitivement un compte de stockage, utilisez le Portail de gestion Azure.
+    >[AZURE.NOTE]Si vous supprimez un compte de stockage à partir de l’Explorateur de serveurs, cela n’affectera pas votre compte de stockage ni les données qu’il contient. Cela supprimera simplement sa référence dans l’Explorateur de serveurs. Pour supprimer définitivement un compte de stockage, utilisez le Portail de gestion Azure.
 
-## Voir aussi
+## Étapes suivantes
 
-[Accès aux services de stockage Azure](https://msdn.microsoft.com/library/azure/ee405490.aspx)
+Pour en savoir plus sur l’utilisation des services de stockage Azure, consultez la page [Accès aux services de stockage Azure](https://msdn.microsoft.com/library/azure/ee405490.aspx).
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

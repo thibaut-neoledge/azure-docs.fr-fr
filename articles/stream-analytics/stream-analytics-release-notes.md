@@ -13,7 +13,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="09/08/2015" 
+	ms.date="09/16/2015" 
 	ms.author="jeffstok"/>
 
 #Notes de publication sur Microsoft Stream Analytics
@@ -24,7 +24,7 @@ Cette version contient les mises à jour suivantes.
 
 Intitulé|Description
 ---|---
-Prise en charge des groupes PowerBI|Pour permettre le partage de données avec d’autres utilisateurs de Power BI, les travaux Stream Analytics peuvent maintenant écrire dans les groupes appartenant à votre compte Power BI.
+Prise en charge des groupes PowerBI|Pour permettre le partage de données avec d’autres utilisateurs de Power BI, les travaux Stream Analytics peuvent maintenant écrire dans les [groupes PowerBI](stream-analytics-define-outputs.md#power-bi) appartenant à votre compte Power BI.
 
 ## Notes relatives à la version du 20/08/2015 de Stream Analytics ##
 
@@ -92,4 +92,4 @@ Pour obtenir une assistance, essayez notre [forum Azure Stream Analytics](https:
 - [Références sur l’API REST de gestion d’Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

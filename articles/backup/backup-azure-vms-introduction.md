@@ -3,7 +3,7 @@
 	description="Présentation de la sauvegarde des machines virtuelles dans Azure à l’aide du service Azure Backup"
 	services="backup"
 	documentationCenter=""
-	authors="aashishr"
+	authors="trinadhk"
 	manager="shreeshd"
 	editor=""/>
 
@@ -122,4 +122,4 @@ Pour bien démarrer avec la sauvegarde des machines virtuelles, découvrez comme
 - [Restauration des machines virtuelles](backup-azure-restore-vms.md)
 - [Gestion de la sauvegarde de machine virtuelle](backup-azure-manage-vms.md)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

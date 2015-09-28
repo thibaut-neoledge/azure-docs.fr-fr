@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="rkarlin"
-	manager="stevenpo"
+	manager="msStevenPo"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/11/2015"
+	ms.date="09/09/2015"
 	ms.author="rkarlin"/>
 
 
@@ -54,14 +54,20 @@ La configuration d’Active Directory varie selon que votre connecteur de proxy 
 
 ### Connecteur et serveur publié dans le même domaine
 
-Dans Active Directory, accédez à **outils** > **Utilisateurs et ordinateurs**. Sélectionnez le serveur exécutant le connecteur. Cliquez avec le bouton droit et sélectionnez **Propriétés** > **Délégation**. Sélectionnez **N’approuver cet ordinateur que pour la délégation aux services spécifiés** et sous **Services auxquels ce compte peut présenter des informations d’identification déléguées**, ajoutez la valeur de l’identité du nom de principal du service (SPN) du serveur d’applications. Ceci permet au connecteur de proxy d’application d’emprunter l’identité des utilisateurs dans Active Directory pour les applications définies dans la liste.
+
+
+1. Dans Active Directory, accédez à **Outils** > **Utilisateurs et ordinateurs**. 
+2. Sélectionnez le serveur exécutant le connecteur. 
+3. Cliquez avec le bouton droit et sélectionnez **Propriétés** > **Délégation**. 
+4. Sélectionnez **N’approuver cet ordinateur que pour la délégation aux services spécifiés** puis, sous **Services auxquels ce compte peut présenter des informations d’identification déléguées**, ajoutez la valeur de d’identité du nom de principal du service (SPN) du serveur d’applications. 
+5. Ceci permet au connecteur de proxy d’application d’emprunter l’identité des utilisateurs dans Active Directory pour les applications définies dans la liste.
 
 ![Capture d’écran de la fenêtre Propriétés du connecteur-SVR](./media/active-directory-application-proxy-sso-using-kcd/Properties.jpg)
 
 ### Connecteur et serveur publié dans des domaines différents
 
-1. Pour obtenir une liste des conditions requises pour l’utilisation de la délégation Kerberos contraintes entre des domaines, consultez [Délégation Kerberos contrainte entre des domaines](https://technet.microsoft.com/library/hh831477.aspx).
-2. Dans Windows 2012 R2, utilisez la propriété `principalsallowedtodelegateto` sur le serveur du connecteur pour permettre au proxy d’application de déléguer pour le serveur de connecteur, où le serveur publié est `sharepointserviceaccount` et le serveur de délégation est `connectormachineaccount`.
+1. Pour obtenir la liste des conditions préalables à l’utilisation de la délégation Kerberos contrainte entre domaines, consultez [Délégation Kerberos contrainte entre domaines](https://technet.microsoft.com/library/hh831477.aspx).
+2. Dans Windows 2012 R2, utilisez la propriété `principalsallowedtodelegateto` sur le serveur Connecteur pour permettre au proxy d’application de déléguer pour le serveur Connecteur, où le serveur publié est `sharepointserviceaccount` et le serveur de délégation est `connectormachineaccount`.
 
 		$connector= Get-ADComputer -Identity connectormachineaccount -server dc.connectordomain.com
 
@@ -75,8 +81,8 @@ Dans Active Directory, accédez à **outils** > **Utilisateurs et ordinateurs**.
 
 ## Configuration du portail Azure
 
-1. Publiez votre application en suivant les instructions décrites dans [Publier des applications avec le proxy d’application](active-directory-application-proxy-publish.md). Assurez-vous de sélectionner **Azure Active Directory** comme **méthode de préauthentification**.
-2. Une fois que votre application s’affiche dans la liste des applications, sélectionnez-la et cliquez sur **Configurer**.
+1. Publiez votre application en suivant les instructions décrites dans [Publier des applications avec le proxy d’application](active-directory-application-proxy-publish.md). Veillez à sélectionner **Azure Active Directory** comme **méthode de préauthentification**.
+2. Dès lors que votre application figure dans la liste des applications, sélectionnez-la et cliquez sur **Configurer**.
 3. Sous **Propriétés**, définissez **Méthode d’authentification interne** sur **Authentification Windows intégrée**.
 
 ![Configuration avancée des applications](./media/active-directory-application-proxy-sso-using-kcd/cwap_auth2.png)
@@ -87,11 +93,11 @@ Dans Active Directory, accédez à **outils** > **Utilisateurs et ordinateurs**.
 
 | | |
 | --- | --- |
-| Méthode d’authentification interne | Si vous utilisez Azure AD pour la préauthentification, vous pouvez définir une méthode d’authentification interne pour permettre à vos utilisateurs de profiter de l’authentification unique pour cette application. <br><br> Sélectionnez l’**authentification Windows intégrée** si votre application l’utilise. Vous pouvez configurer la délégation Kerberos contrainte pour activer l’authentification unique pour cette application. Les applications qui utilisent l’authentification Windows intégrée doivent être configurées à l’aide de la délégation Kerberos contrainte, sinon le proxy d’application ne sera pas en mesure de les publier. <br><br> Sélectionnez **Aucune** si votre application n’utilise pas l’authentification Windows intégrée. |
+| Méthode d’authentification interne | Si vous utilisez Azure AD pour la préauthentification, vous pouvez définir une méthode d’authentification interne pour permettre à vos utilisateurs de profiter de l’authentification unique pour cette application. <br><br> Sélectionnez l’**authentification Windows intégrée** (IWA) si votre application l’utilise. Vous pouvez configurer la délégation Kerberos contrainte (KCD) pour activer l’authentification unique pour cette application. Les applications qui utilisent l’authentification Windows intégrée doivent être configurées à l’aide de la délégation Kerberos contrainte, sinon le proxy d’application ne sera pas en mesure de les publier. <br><br> Sélectionnez **Aucune** si votre application n’utilise pas l’authentification Windows intégrée. |
 | SPN d’application interne | Il s’agit du nom de principal du service (SPN) de l’application interne tel qu’il est configuré Azure AD local. Le SPN est utilisé par le connecteur du proxy d’application pour extraire les jetons Kerberos pour l’application en utilisant la délégation Kerberos contrainte. |
 
 <!--Image references-->
 [1]: ./media/active-directory-application-proxy-sso-using-kcd/AuthDiagram.png
 [2]: ./media/active-directory-application-proxy-sso-using-kcd/Properties.jpg
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO3-->

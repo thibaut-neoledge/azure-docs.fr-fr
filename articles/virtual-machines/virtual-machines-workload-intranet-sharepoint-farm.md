@@ -11,13 +11,15 @@
 <tags
 	ms.service="virtual-machines"
 	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="vm-windows-sharepoint"
+	ms.tgt_pltfrm="Windows"
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/11/2015"
 	ms.author="josephd"/>
 
 # Charge de travail des services d'infrastructure Azure : batterie de serveurs SharePoint Intranet
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Cet article traite de la création de ressources avec le modèle de déploiement classique.
 
 Configurez votre première ou votre prochaine batterie de serveurs SharePoint dans Microsoft Azure, et bénéficiez de la facilité de configuration et de la possibilité d’étendre rapidement la batterie de serveurs pour y ajouter de nouvelles capacités ou y optimiser des fonctionnalités importantes. Beaucoup de batteries de serveurs SharePoint évoluent d’une configuration standard à haute disponibilité et à trois niveaux vers une batterie de serveurs comprenant une dizaine de serveurs ou davantage, optimisés pour les performances ou pour des rôles distincts, comme la mise en cache distribuée ou la recherche.
 
@@ -126,4 +128,4 @@ Une fois la configuration terminée, vous pouvez développer cette batterie de s
 
 [Charge de travail des services d’infrastructure Azure : applications métier à haute disponibilité](virtual-machines-workload-high-availability-lob-application.md)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

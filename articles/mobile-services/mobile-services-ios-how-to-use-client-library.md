@@ -233,6 +233,12 @@ Vous pouvez également effectuer la suppression en fournissant un ID de ligne :
 
 Au minimum, l'attribut `id` doit être défini quand vous effectuez des suppressions.
 
+##<a name="#custom-api"></a>Procédure : appel d'une API personnalisée
+
+Une API personnalisée vous permet de définir des points de terminaison exposant une fonctionnalité de serveur qui ne mappe pas vers une opération d'insertion, de mise à jour, de suppression ou de lecture. En utilisant une API personnalisée, vous pouvez exercer davantage de contrôle sur la messagerie, notamment lire et définir des en-têtes de message HTTP et définir un format de corps de message autre que JSON. Pour obtenir un exemple montrant comment créer une API personnalisée dans votre service mobile, consultez [Procédure : définition d’un point de terminaison dans une API personnalisée](mobile-services-dotnet-backend-define-custom-api.md).
+
+[AZURE.INCLUDE [mobile-services-ios-call-custom-api](../../includes/mobile-services-ios-call-custom-api.md)]
+
 
 ##<a name="authentication"></a>Procédure : authentification des utilisateurs
 
@@ -326,4 +332,4 @@ Le fichier [`<WindowsAzureMobileServices/MSError.h>`](https://github.com/Azure/a
 [CLI to manage Mobile Services tables]: ../virtual-machines-command-line-tools.md#Mobile_Tables
 [Gestionnaire de conflits]: mobile-services-ios-handling-conflicts-offline-data.md#add-conflict-handling
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

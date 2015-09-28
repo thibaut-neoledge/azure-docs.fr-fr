@@ -1,24 +1,27 @@
 <properties 
-	pageTitle="Application métier - Phase 1 | Microsoft Azure"
-	description="Créez le réseau virtuel et d'autres éléments de l'infrastructure Azure dans la phase 1 de l'application métier dans Azure."
+	pageTitle="Application métier - Phase 1 | Microsoft Azure" 
+	description="Créez le réseau virtuel et d'autres éléments de l'infrastructure Azure dans la phase 1 de l'application métier dans Azure." 
 	documentationCenter=""
-	services="virtual-machines"
-	authors="JoeDavies-MSFT"
-	manager="timlt"
-	editor=""/>
+	services="virtual-machines" 
+	authors="JoeDavies-MSFT" 
+	manager="timlt" 
+	editor=""
+	tags="azure-resource-manager"/>
 
 <tags 
-	ms.service="virtual-machines"
-	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/11/2015"
+	ms.service="virtual-machines" 
+	ms.workload="infrastructure-services" 
+	ms.tgt_pltfrm="Windows" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/11/2015" 
 	ms.author="josephd"/>
 
 # Charge de travail des applications métier, phase 1 : configurer Azure
-
-Au cours de cette phase de déploiement (uniquement dans Intranet) d'une application métier à haute disponibilité dans des services d'infrastructure Azure, vous créez l'infrastructure de réseau et de stockage Azure. Vous devez terminer cette opération avant de passer à la [Phase 2](virtual-machines-workload-high-availability-LOB-application-phase2.md). Voir [Déployer une application métier à haute disponibilité dans Azure](virtual-machines-workload-high-availability-LOB-application-overview.md) (en anglais) pour toutes les phases.
+ 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Cet article traite de la création de ressources avec le modèle de déploiement Resource Manager.
+ 
+Au cours de cette phase de déploiement (uniquement dans Intranet) d'une application métier à haute disponibilité dans des services d'infrastructure Azure, vous créez l'infrastructure de réseau et de stockage Azure. Vous devez terminer cette opération avant de passer à la [Phase 2](virtual-machines-workload-high-availability-LOB-application-phase2.md). Consultez [Déployer une application métier à haute disponibilité dans Azure](virtual-machines-workload-high-availability-LOB-application-overview.md) pour toutes les phases.
 
 Azure doit être configuré avec les composants réseau de base suivants :
 
@@ -87,7 +90,7 @@ Vous devez ensuite disposer d'Azure PowerShell version 0.9.5 ou ultérieure. Po
 
 	Get-Module azure | format-table version
 
-Si vous devez installer la dernière version d'Azure PowerShell, utilisez les **Programmes et fonctionnalités du panneau de configuration** pour supprimer la version actuelle. Suivez ensuite les instructions de la page [Installation et configuration d'Azure PowerShell](../install-configure-powershell.md) pour installer Azure PowerShell sur votre ordinateur local. Ouvrez une invite Azure PowerShell.
+Si vous devez installer la dernière version d’Azure PowerShell, utilisez les **Programmes et fonctionnalités du panneau de configuration** pour supprimer la version actuelle. Suivez ensuite les instructions de la page [Installation et configuration d’Azure PowerShell](../install-configure-powershell.md) pour installer Azure PowerShell sur votre ordinateur local. Ouvrez une invite Azure PowerShell.
 
 Sélectionnez tout d'abord l'abonnement Azure approprié à l'aide des commandes suivantes. Remplacez tous les éléments entre guillemets, y compris les caractères < and >, par les noms appropriés.
 
@@ -137,7 +140,7 @@ Pour vérifier si un nom de compte de stockage choisi est globalement unique, vo
 	Switch-AzureMode AzureServiceManagement
 	Test-AzureName -Storage <Proposed storage account name>
 
-Si la commande Test-AzureName affiche **False**, c'est que le nom proposé est unique. Quand vous avez déterminé un nom unique pour les deux comptes de stockage, mettez la table ST à jour, puis rebasculez Azure PowerShell en mode Resource Manager grâce à cette commande.
+Si la commande Test-AzureName affiche **False**, le nom proposé est unique. Quand vous avez déterminé un nom unique pour les deux comptes de stockage, mettez la table ST à jour, puis rebasculez Azure PowerShell en mode Resource Manager grâce à cette commande.
 
 	Switch-AzureMode AzureResourceManager 
 
@@ -196,11 +199,11 @@ Puis utilisez ces commandes pour créer des passerelles pour la connexion VPN de
 	$vnetConnectionKey="<Table V – Item 8 – Value column>"
 	$vnetConnection=New-AzureVirtualNetworkGatewayConnection -Name $vnetConnectionName -ResourceGroupName $rgName -Location $locName -ConnectionType IPsec -SharedKey $vnetConnectionKey -VirtualNetworkGateway1 $vnetGateway -LocalNetworkGateway2 $localGateway
 
-Et, enfin, configurez le périphérique VPN sur site pour qu'il se connecte à la passerelle VPN Azure. Pour plus d'informations, consultez [Configuration de votre périphérique VPN](../virtual-networks/vpn-gateway-configure-vpn-gateway-mp.md#configure-your-vpn-device).
+Et, enfin, configurez le périphérique VPN sur site pour qu'il se connecte à la passerelle VPN Azure. Pour plus d’informations, consultez [Configuration de votre périphérique VPN](../virtual-networks/vpn-gateway-configure-vpn-gateway-mp.md#configure-your-vpn-device).
 
 Pour configurer votre périphérique VPN sur site, vous avez besoin des éléments suivants :
 
-- L'adresse IPv4 publique de la passerelle VPN Azure pour votre réseau virtuel (affichée à l'aide de la commande **AzurePublicIpAddress de Get-nom - ResourceGroupName $publicGatewayVipName $rgName**)
+- L’adresse IPv4 publique de la passerelle VPN Azure pour votre réseau virtuel (affichée à l’aide de la commande **Get-AzurePublicIpAddress -Name $publicGatewayVipName -ResourceGroupName $rgName**)
 - la clé IPsec prépartagée pour la connexion VPN de site à site (Table V- Élément 8 – Colonne Valeur)
 
 Ensuite, assurez-vous que l'espace d'adressage du réseau virtuel est accessible à partir de votre réseau local. Pour cela, il vous suffit généralement d'ajouter un itinéraire correspondant à l'espace d'adressage du réseau virtuel à votre périphérique VPN, puis de transmettre cet itinéraire au reste de l'infrastructure de routage du réseau de votre organisation. Consultez votre service informatique pour déterminer la procédure à suivre.
@@ -238,9 +241,9 @@ Pour poursuivre la configuration de cette charge de travail, passez à la [Phase
 
 ## Ressources supplémentaires
 
-[Déployer une application métier à haute disponibilité dans Azure](virtual-machines-workload-high-availability-LOB-application-overview.md) (en anglais)
+[Déployer une application métier à haute disponibilité dans Azure](virtual-machines-workload-high-availability-LOB-application-overview.md)
 
-[Plan de l'architecture des applications métier](http://msdn.microsoft.com/dn630664)
+[Plan de l’architecture des applications métier](http://msdn.microsoft.com/dn630664)
 
 [Configuration d’une application métier web dans un cloud hybride à des fins de test](../virtual-network/virtual-networks-setup-lobapp-hybrid-cloud-testing.md)
 
@@ -248,4 +251,4 @@ Pour poursuivre la configuration de cette charge de travail, passez à la [Phase
 
 [Charge de travail des services d’infrastructure Azure : batterie de serveurs SharePoint Server 2013](virtual-machines-workload-intranet-sharepoint-farm.md)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO3-->

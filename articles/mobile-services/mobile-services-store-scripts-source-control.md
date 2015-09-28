@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Stockage du code de projet dans le contrôle de code source | Microsoft Azure"
+	pageTitle="Stocker le code de votre projet de backend JavaScript dans le contrôle de code source | Azure Mobile Services"
 	description="Découvrez comment stocker vos fichiers et modules de script serveur dans un référentiel Git local sur votre ordinateur."
 	services="mobile-services"
 	documentationCenter=""
@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="08/18/2015"
+	ms.date="09/15/2015" 
 	ms.author="ggailey777"/>
 
-# Stockage du code de projet dans le contrôle de code source
+# Stocker le code de votre projet de service mobile dans le contrôle de code source
 
-> [AZURE.SELECTOR-LIST (Platform | Backend)]
-- [(Any | .NET)](mobile-services-dotnet-backend-store-code-source-control.md)
-- [(Any | Javascript)](mobile-services-store-scripts-source-control.md)
+> [AZURE.SELECTOR]
+- [.NET backend](mobile-services-dotnet-backend-store-code-source-control.md)
+- [Javascript backend](mobile-services-store-scripts-source-control.md)
 
 Cette rubrique montre comment utiliser le contrôle du code source fourni par Azure Mobile Services pour stocker vos scripts serveur. Les scripts et les autres fichiers de code du backend JavaScript peuvent être promus à partir de votre référentiel Git local sur votre service mobile de production. Cette rubrique indique également comment définir du code partagé requis par plusieurs scripts et comment utiliser le fichier package.json pour ajouter des modules Node.js à votre service mobile.
 
@@ -161,4 +161,4 @@ Explique comment utiliser les scripts serveur, le planificateur de travaux et le
 [Modules]: http://nodejs.org/api/modules.html
 [node-uuid]: https://npmjs.org/package/node-uuid
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO3-->

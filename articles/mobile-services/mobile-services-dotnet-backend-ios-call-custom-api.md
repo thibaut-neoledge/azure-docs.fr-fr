@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Comment appeler une API personnalisée à partir d'un client iOS"
+	pageTitle="Comment appeler une API personnalisée à partir d'un client iOS (backend .NET)"
 	description="Découvrez comment définir une API personnalisée et l'appeler depuis une application iOS qui utilise Azure Mobile Services."
 	services="mobile-services"
 	documentationCenter="ios"
@@ -50,4 +50,4 @@ Cette rubrique vous a montré comment utiliser la méthode **invokeApi** pour ap
 [Get started with push notifications]: mobile-services-dotnet-backend-ios-get-started-push.md
 [Store server scripts in source control]: mobile-services-store-scripts-source-control.md
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

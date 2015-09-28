@@ -4,7 +4,7 @@
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
-   manager="adinah"
+   manager="carolz"
    editor="" />
 <tags 
    ms.service="storsimple"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="09/04/2015"
+   ms.date="09/15/2015"
    ms.author="v-sharos" />
 
 # Qu’est-ce que le Gestionnaire d’instantanés StorSimple ?
@@ -144,8 +144,8 @@ Pour plus d’informations sur l’analyse des tâches de sauvegarde, accédez a
 
 ## Étapes suivantes
 
-[En savoir plus sur les tâches et les flux de travail du Gestionnaire d’instantanés StorSimple](storsimple-snapshot-manager-admin.md)
+- En savoir plus sur [l’utilisation du Gestionnaire d’instantanés StorSimple pour gérer votre solution StorSimple](storsimple-snapshot-manager-admin.md).
 
-[Télécharger le gestionnaire d’instantanés StorSimple](https://www.microsoft.com/download/details.aspx?id=44220).
+- Téléchargez le [Gestionnaire d’instantanés StorSimple](https://www.microsoft.com/download/details.aspx?id=44220).
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

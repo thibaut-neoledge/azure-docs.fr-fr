@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Modèle d’application v2.0 | Microsoft Azure"
+	pageTitle="Modèle d’application v2.0 &gt;API web .NET | Microsoft Azure"
 	description="Génération d’une API web MVC .NET qui accepte les jetons des comptes Microsoft personnels et des comptes professionnels ou scolaires."
 	services="active-directory"
 	documentationCenter=".net"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="08/12/2015"
+	ms.date="09/11/2015"
 	ms.author="dastrock"/>
 
 # Version préliminaire du modèle d’application v2.0 : Sécuriser une API web MVC
@@ -155,4 +155,4 @@ Vous pouvez à présent aborder d’autres rubriques. Par exemple :
 
 Pour obtenir des ressources supplémentaires, consultez : - [Version préliminaire du modèle d’application v2.0 >>](active-directory-appmodel-v2-overview.md) - [Balise azure-active-directory StackOverflow >>](http://stackoverflow.com/questions/tagged/azure-active-directory)
 
-<!----HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO3-->

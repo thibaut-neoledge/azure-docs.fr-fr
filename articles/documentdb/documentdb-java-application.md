@@ -1,12 +1,12 @@
 <properties 
-	pageTitle="Créer une application web Java à l’aide de DocumentDB | Microsoft Azure" 
-	description="Ce didacticiel vous montre comment utiliser le service Azure DocumentDB pour stocker les données et y accéder à partir d'une application Java hébergée sur Azure Websites." 
+	pageTitle="Didacticiel de développement d’applications web avec DocumentDB | Microsoft Azure"
+	description="Ce didacticiel d’application web Java vous montre comment utiliser le service Azure DocumentDB pour stocker les données et y accéder à partir d’une application Java hébergée sur Azure Websites."
+	keywords="Application development, database tutorial, java application, java web application tutorial, documentdb, azure, Microsoft azure"
 	services="documentdb" 
 	documentationCenter="java" 
 	authors="aliuy" 
 	manager="jhubbard" 
 	editor="monicar"/>
-
 
 <tags 
 	ms.service="documentdb" 
@@ -17,22 +17,21 @@
 	ms.date="07/21/2015" 
 	ms.author="andrl"/>
 
+# Créer une application web Java avec DocumentDB
 
-# Créer une application web Java avec DocumentDB #
-
-Ce didacticiel vous montre comment utiliser le service [Microsoft Azure DocumentDB](https://portal.azure.com/#gallery/Microsoft.DocumentDB) pour stocker les données et y accéder à partir d'une application Java hébergée sur Azure Websites. Dans cette rubrique, vous allez apprendre à :
+Ce didacticiel d’application web Java vous montre comment utiliser le service [Microsoft Azure DocumentDB](https://portal.azure.com/#gallery/Microsoft.DocumentDB) pour stocker les données et y accéder à partir d’une application Java hébergée sur Azure Websites. Dans cette rubrique, vous allez apprendre à :
 
 - Créer une application de base JSP dans Eclipse.
 - Utiliser le service Azure DocumentDB avec le [Kit de développement logiciel (SDK) Java de DocumentDB](https://github.com/Azure/azure-documentdb-java).
 
-Ce didacticiel vous montre comment créer une application de gestion des tâches basée sur le web qui vous permet de créer, de récupérer et de marquer des tâches comme terminées, comme illustré dans l'image suivante. Chacune des tâches dans la liste ToDo est stockée sous forme de documents JSON dans Azure DocumentDB.
+Ce didacticiel d’application Java vous montre comment créer une application de gestion des tâches basée sur le web qui vous permet de créer, récupérer et marquer des tâches comme terminées, comme illustré dans l’image suivante. Chacune des tâches dans la liste ToDo est stockée sous forme de documents JSON dans Azure DocumentDB.
 
-![Application My ToDo List](./media/documentdb-java-application/image1.png)
+![Application Java My ToDo List](./media/documentdb-java-application/image1.png)
 
-> [AZURE.TIP]Ce didacticiel part du principe que vous avez déjà utilisé Java. Si vous débutez avec Java ou avec les [outils requis](#Prerequisites), nous vous recommandons de télécharger l'ensemble du projet [todo](https://github.com/Azure/azure-documentdb-java/tree/master/tutorial/todo) à partir de [GitHub](https://github.com/Azure/azure-documentdb-java) et de le générer à l'aide des [instructions fournies à la fin de cet article](#GetProject). Une fois que vous l'avez créé, vous pouvez consulter l'article pour obtenir des informations sur le code dans le contexte du projet.
+> [AZURE.TIP]Ce didacticiel de développement d’applications part du principe que vous avez déjà utilisé Java. Si vous débutez avec Java ou avec les [outils requis](#Prerequisites), nous vous recommandons de télécharger l'ensemble du projet [todo](https://github.com/Azure/azure-documentdb-java/tree/master/tutorial/todo) à partir de [GitHub](https://github.com/Azure/azure-documentdb-java) et de le générer à l'aide des [instructions fournies à la fin de cet article](#GetProject). Une fois que vous l'avez créé, vous pouvez consulter l'article pour obtenir des informations sur le code dans le contexte du projet.
 
-##<a id="Prerequisites"></a>Configuration requise ##
-Avant de commencer ce didacticiel, vous devez disposer des éléments suivants :
+##<a id="Prerequisites"></a>Conditions préalables à l’exécution de ce didacticiel d’application web Java
+Avant de commencer ce didacticiel de développement d’applications, vous devez disposer des éléments suivants :
 
 - Un compte Azure actif. Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](../../pricing/free-trial/).
 - [Kit de développement logiciel Java (JDK) 7+](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
@@ -41,28 +40,28 @@ Avant de commencer ce didacticiel, vous devez disposer des éléments suivants 
 
 Si vous installez ces outils pour la première fois, coreservlets.com fournit un guide pas à pas du processus d'installation dans la section Démarrage rapide de son article [Didacticiel : installation de TomCat7 et son utilisation avec Eclipse](http://www.coreservlets.com/Apache-Tomcat-Tutorial/tomcat-7-with-eclipse.html).
 
-##<a id="CreateDB"></a>Étape 1 : création d'un compte de base de données DocumentDB ##
+##<a id="CreateDB"></a>Étape 1 : création d'un compte de base de données DocumentDB
 Pour configurer un compte de base de données DocumentDB dans Azure :
 
 1. Si vous ne disposez pas d'un compte de base de données, créez-en un en suivant les instructions de la page [Création d'un compte de base de données](documentdb-create-account.md). Si vous disposez déjà d'un compte, passez à l'étape 2.
 2. À l'aide du panneau **Clés** indiqué dans l'illustration suivante, copiez l'**URI** et la **CLÉ PRIMAIRE** de votre point de terminaison dans votre Presse-papiers et conservez-les à portée de main, car nous utiliserons ces valeurs dans l'application web que nous allons créer.
 
-![Capture d’écran du portail Azure en version préliminaire, présentant un compte DocumentDB, avec le hub ACTIF et le bouton Clés mis en surbrillance dans le panneau du compte DocumentDB, et les valeurs d’URI, de CLÉ PRIMAIRE et de CLÉ SECONDAIRE mises en surbrillance dans le panneau Clés][1]
+![Création d’un compte DocumentDB – Didacticiel de base de données Capture d’écran du portail Azure en version préliminaire, présentant un compte DocumentDB, avec le hub ACTIF et le bouton Clés mis en surbrillance dans le panneau du compte DocumentDB, et les valeurs d’URI, de CLÉ PRIMAIRE et de CLÉ SECONDAIRE mises en surbrillance dans le panneau Clés][1]
 
 
-##<a id="CreateJSP"></a>Étape 2 : création de l'application JSP ##
+##<a id="CreateJSP"></a>Étape 2 : création de l’application JSP Java
 
 Pour créer l'application JSP :
 
 1. Tout d'abord, nous allons commencer par la création d'un projet Java. Démarrez Eclipse, puis cliquez sur **File** (Fichier), sur **New** (Nouveau), puis sur **Dynamic Web Project** (Projet web dynamique). Si **Dynamic Web Project** (Projet web dynamique) ne s'affiche pas dans les projets disponibles, procédez comme suit : cliquez sur **File** (Fichier), sur **New** (Nouveau), puis sur **Project** (Projet), développez **Web**, cliquez sur **Dynamic Web Project** (Projet web dynamique), puis sur **Next** (Suivant). 
 
-	![](./media/documentdb-java-application/image10.png)
+	![Développement d’applications Java JSP](./media/documentdb-java-application/image10.png)
 
 2. Entrez un nom de projet dans la zone **Project name** (Nom du projet) et sélectionnez **Target Runtime** (Runtime cible) dans le menu déroulant, vous pouvez aussi sélectionner une valeur (par exemple, Apache Tomcat v7.0), puis cliquez sur **Finish** (Terminer). La sélection d'un runtime cible vous permet d'exécuter votre projet localement via Eclipse.
 3. Dans la vue de l'Explorateur de projets Eclipse, développez votre projet. Cliquez avec le bouton droit sur **WebContent**, cliquez sur **New**, puis sur **JSP File**.
 4. Dans la boîte de dialogue **New JSP File** (Nouveau fichier JSP), nommez le fichier **index.jsp**. Gardez le nom du dossier parent **WebContent**, comme indiqué dans l'illustration ci-dessous, puis cliquez sur **Next** (Suivant).
 
-	![](./media/documentdb-java-application/image11.png)
+	![Création d’un fichier JSP - Didacticiel d’application web Java](./media/documentdb-java-application/image11.png)
 
 5. Pour les besoins de ce didacticiel, dans la boîte de dialogue **Select JSP Template** (Sélectionner le modèle JSP), sélectionnez **New JSP File (html)** (Nouveau fichier JSP (html)) et cliquez sur **Finish** (Terminer).
 
@@ -75,7 +74,7 @@ Pour créer l'application JSP :
 8. Enregistrez le fichier index.jsp.
 9. Si vous avez défini un runtime cible à l'étape 2, vous pouvez cliquer sur **Project** (Projet), puis sur **Run** (Exécuter) pour exécuter votre application JSP localement :
 
-	![](./media/documentdb-java-application/image12.png)
+	![Hello World – Didacticiel d’application Java](./media/documentdb-java-application/image12.png)
 
 ##<a id="InstallSDK"></a>Étape 3 : installation du Kit de développement logiciel (SDK) Java de DocumentDB ##
 
@@ -92,7 +91,7 @@ Pour ce faire, vous devez convertir votre projet en projet Maven en procédant c
  - Dans la zone **Artifact Id** (ID d'artefact), entrez azure-documentdb.
  - Dans la zone **Version**, entrez 1.1.0.
 
-	![](./media/documentdb-java-application/image13.png)
+	![Installation du Kit de développement logiciel (SDK) d’applications Java DocumentDB](./media/documentdb-java-application/image13.png)
 
 	Ou ajoutez la dépendance XML pour GroupId et ArtifactId directement au fichier pom.xml via un éditeur de texte :
 
@@ -105,7 +104,7 @@ Pour ce faire, vous devez convertir votre projet en projet Maven en procédant c
 5. Cliquez sur **Ok** et Maven installe le Kit de développement logiciel (SDK) Java de DocumentDB.
 6. Enregistrez le fichier pom.xml.
 
-##<a id="UseService"></a>Étape 4 : utilisation du service DocumentDB dans une application Java ##
+##<a id="UseService"></a>Étape 4 : utilisation du service DocumentDB dans une application Java 
 
 1. Tout d'abord, nous allons définir l'objet TodoItem :
 
@@ -120,7 +119,7 @@ Pour ce faire, vous devez convertir votre projet en projet Maven en procédant c
 
 	Dans ce projet, nous utilisons [Project Lombok](http://projectlombok.org/) pour générer le constructeur, les accesseurs get, les méthodes setter et un générateur. Vous pouvez également écrire ce code manuellement ou faire en sorte que l'IDE le génère.
 
-2. Pour appeler le service DocumentDB, vous devez instancier un nouveau **DocumentClient**. En général, il est préférable de réutiliser le **DocumentClient** plutôt que de construire un nouveau client à chaque demande. Nous pouvons réutiliser le client en l'encapsulant dans un **DocumentClientFactory**. C'est ici également que vous devez coller les valeurs d'URI et de CLÉ PRIMAIRE que vous avez enregistrées dans le Presse-papiers à l'[étape 1](#CreateDB). Remplacez [YOUR\_ENDPOINT\_HERE\] par l’URI et [YOUR\_KEY\_HERE\] par votre CLÉ PRIMAIRE.
+2. Pour appeler le service DocumentDB, vous devez instancier un nouveau **DocumentClient**. En général, il est préférable de réutiliser le **DocumentClient** plutôt que de construire un nouveau client à chaque demande. Nous pouvons réutiliser le client en l'encapsulant dans un **DocumentClientFactory**. C'est ici également que vous devez coller les valeurs d'URI et de CLÉ PRIMAIRE que vous avez enregistrées dans le Presse-papiers à l'[étape 1](#CreateDB). Remplacez [YOUR\_ENDPOINT\_HERE] par l’URI et [YOUR\_KEY\_HERE] par votre CLÉ PRIMAIRE.
 
 	    private static final String HOST = "[YOUR_ENDPOINT_HERE]";
 	    private static final String MASTER_KEY = "[YOUR_KEY_HERE]";
@@ -359,7 +358,7 @@ Pour ce faire, vous devez convertir votre projet en projet Maven en procédant c
 	    }
 
 
-##<a id="Wire"></a> Étape 5 : liaison du reste de l'application ##
+##<a id="Wire"></a>Étape 5 : association des éléments restants du projet de développement d’applications Java
 
 Maintenant que nous avons terminé l'aspect amusant, il nous reste à créer une interface utilisateur rapide et à l'associer à notre objet d'accès aux données.
 
@@ -476,7 +475,6 @@ Maintenant que nous avons terminé l'aspect amusant, il nous reste à créer une
 		<head>
 		  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
           <meta http-equiv="X-UA-Compatible" content="IE=edge;" />
-
 		  <title>Azure DocumentDB Java Sample</title>
 		
 		  <!-- Bootstrap -->
@@ -504,7 +502,6 @@ Maintenant que nous avons terminé l'aspect amusant, il nous reste à créer une
 		    <h1>My ToDo List</h1>
 		
 		    <hr/>
-
 		
 		    <!-- The ToDo List -->
 		    <div class = "todoList">
@@ -530,7 +527,6 @@ Maintenant que nous avons terminé l'aspect amusant, il nous reste à créer une
 		    </div>
 		
 		    <hr/>
-
 		
 		    <!-- Item Input Form -->
 		    <div class="todoForm">
@@ -739,7 +735,7 @@ Maintenant que nous avons terminé l'aspect amusant, il nous reste à créer une
 
 6. Une fois que l’élément s’affiche, vous pouvez le mettre à jour s’il est terminé en cochant la case et en cliquant sur **Update Tasks**.
 
-##<a id="Deploy"></a>Étape 6 : déploiement de votre application sur Azure Websites ##
+##<a id="Deploy"></a>Étape 6 : déploiement de votre application Java sur Azure Websites
 
 Azure Websites permet de déployer facilement les applications Java en exportant votre application sous forme de fichier WAR et en la téléchargeant via le contrôle de code source (GIT, par exemple) ou FTP.
 
@@ -754,7 +750,7 @@ Azure Websites permet de déployer facilement les applications Java en exportant
 	Une fois le fichier WAR téléchargé sur le répertoire webapps, l'environnement d'exécution détecte que vous l'avez ajouté et le télécharge automatiquement.
 4. Pour afficher votre produit fini, accédez à http://YOUR\_SITE\_NAME.azurewebsites.net/azure-documentdb-java-sample/ et commencez à ajouter vos tâches.
 
-##<a id="GetProject"></a>Obtenir le projet à partir de GitHub##
+##<a id="GetProject"></a>Obtenir le projet à partir de GitHub
 
 Tous les exemples de ce didacticiel sont inclus dans le projet [todo](https://github.com/Azure/azure-documentdb-java/tree/master/tutorial/todo) sur GitHub, qui fait partie du référentiel [azure-documentdb-java](https://github.com/Azure/azure-documentdb-java). Pour importer le projet todo dans Eclipse, vérifiez d'abord que vous disposez des logiciels et ressources indiqués dans la section [Configuration requise](#Prerequisites), puis procédez comme suit :
 
@@ -784,4 +780,4 @@ Tous les exemples de ce didacticiel sont inclus dans le projet [todo](https://gi
 [1]: media/documentdb-java-application/keys.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

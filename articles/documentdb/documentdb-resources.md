@@ -1,6 +1,7 @@
 <properties 
-	pageTitle="Modèle de ressource et concepts DocumentDB | Microsoft Azure" 
-	description="Microsoft Azure DocumentDB est une base de données de documents NoSQL entièrement gérée qui utilise un modèle hiérarchique de comptes de base de données, bases de données, collections, procédures stockées, déclencheurs, fonctions définies par l'utilisateur, documents, pièces jointes, supports, utilisateurs et autorisations pour gérer les ressources."  
+	pageTitle="Modèle de ressources hiérarchiques et concepts de DocumentDB | Microsoft Azure" 
+	description="Découvrez notamment le modèle hiérarchique des bases de données, collections, fonctions définies par l’utilisateur, documents et autorisations de DocumentDB pour gérer les ressources."
+	keywords="Hierarchical Model, documentdb, azure, Microsoft azure"	
 	services="documentdb" 
 	documentationCenter="" 
 	authors="mimig1" 
@@ -16,25 +17,25 @@
 	ms.date="08/03/2015" 
 	ms.author="anhoh"/>
 
-#Modèle de ressource et concepts de DocumentDB
+# Modèle de ressources hiérarchiques et concepts de DocumentDB
 
 Les entités de base de données que gère DocumentDB sont appelées des **ressources**. Chaque ressource est identifiée de manière unique par un URI logique. Vous pouvez interagir avec ces ressources en utilisant des verbes HTTP standard, des en-têtes de demande/réponse et des codes d'état.
 
 En lisant cet article, vous serez en mesure de répondre aux questions suivantes :
 
 - Que sont les ressources DocumentDB ?
-- Quelle est la hiérarchie de ressources DocumentDB ?
+- Quel est le modèle hiérarchique des ressources DocumentDB ?
 - Quelles sont les différences entre les ressources définies par le système et celles définies par l'utilisateur ?
 - Comment adresser une ressource ?
 - Comment travailler avec des collections ?
 - Comment utiliser les procédures stockées, les déclencheurs et les fonctions définies par l’utilisateur ?
 
 ##Modèle de ressource hiérarchique
-Comme l’illustre le schéma suivant, le **modèle de ressource** de DocumentDB regroupe des ensembles de ressources sous un compte de base de données, chacun d’eux étant adressable via un URI stable et logique. Les ensembles de ressources sont désignés sous le nom de **flux** dans cet article.
+Comme l’illustre le schéma suivant, le **modèle de ressources** hiérarchique de DocumentDB regroupe des ensembles de ressources sous un compte de base de données, chacun d’eux étant adressable via un URI stable et logique. Les ensembles de ressources sont désignés sous le nom de **flux** dans cet article.
 
 >[AZURE.NOTE] DocumentDB fournit un protocole TCP très performant qui utilise aussi un modèle de communication RESTful, disponible via le [Kit de développement logiciel (SDK) .NET](https://msdn.microsoft.com/library/azure/dn781482.aspx).
 
-![][1] **Modèle hiérarchique de ressources sous un compte de base de données**
+![Modèle de ressources hiérarchique de DocumentDB][1] **Modèle hiérarchique de ressources sous un compte de base de données**
 
 Pour commencer à travailler avec des ressources, vous devez [créer un compte de base de données DocumentDB](documentdb-create-account.md) à l’aide de votre abonnement Azure. Un compte de base de données se compose d’un jeu de **bases de données**. Chacune d’elles contient plusieurs **collections** et chaque collection contient des **procédures stockées, des déclencheurs, des fonctions définies par l’utilisateur, des documents** et les **pièces jointes** associées (fonctionnalité en version préliminaire). La base de données a également des **utilisateurs** associés. Chacun d’eux reçoit un ensemble d’**autorisations** pour pouvoir accéder aux collections, aux procédures stockées, aux déclencheurs, aux fonctions définies par l’utilisateur, aux documents ou aux pièces jointes. Les bases de données, les utilisateurs, les autorisations et les collections sont des ressources définies par le système avec des schémas connus, tandis que les documents et les pièces jointes contiennent du contenu JSON arbitraire défini par l'utilisateur.
 
@@ -109,9 +110,7 @@ Notez qu’en plus d’approvisionner, de configurer et de gérer votre compte d
 ##Bases de données
 Une base de données DocumentDB est un conteneur logique d'une ou plusieurs collections et d'un ou plusieurs utilisateurs, comme l'illustre le schéma suivant. Vous pouvez créer n'importe quel nombre de bases de données sous un compte de base de données DocumentDB en fonction des limites de l'offre.
 
-![][2]
-
-**Une base de données est un conteneur logique d’utilisateurs et de collections**
+![Compte de base de données et modèle hiérarchique de regroupements][2] **Une base de données est un conteneur logique d’utilisateurs et de collections**
 
 Une base de données peut contenir un stockage de documents pratiquement illimité, partitionné en collections, qui forment les domaines de transaction pour les documents qu'elles contiennent.
 
@@ -223,10 +222,9 @@ Tenez compte du fait que, comme la base de données comprend de manière native 
 
 Les procédures stockées et les déclencheurs interagissent avec une collection et les documents d'une collection via un modèle d'objet bien défini qui expose le contexte de collection actuel.
 
-Dans DocumentDB, les collections peuvent être facilement créées, supprimées, lues ou répertoriées avec les [API REST Azure DocumentDB](https://msdn.microsoft.com/library/azure/dn781481.aspx) ou l’un des [Kits de développement logiciel (SDK) clients](https://msdn.microsoft.com/library/azure/dn781482.aspx). DocumentDB fournit toujours une cohérence forte pour la lecture ou l'interrogation des métadonnées d'une collection. La suppression d'une collection garantit automatiquement que vous ne pouvez pas accéder aux documents, pièces jointes, procédures stockées, déclencheurs et fonctions définies par l'utilisateur qu'elle contient.   
-
-##Procédures stockées, déclencheurs et fonctions définies par l'utilisateur
-Comme décrit dans la section précédente, vous pouvez écrire une logique d'application pour qu'elle s'exécute directement dans une transaction dans le moteur de base de données. La logique d'application peut être entièrement écrite en JavaScript et modélisée en tant que procédure stockée, déclencheur ou fonction, définie par l'utilisateur. Le code JavaScript d'une procédure stockée ou d'un déclencheur peut insérer, remplacer, supprimer, lire ou interroger les documents d'une collection. D'un autre côté, le code JavaScript d'une fonction définie par l'utilisateur peut uniquement effectuer des calculs secondaires libres en énumérant les documents de l'ensemble de résultats de la requête, pour produire un autre ensemble de résultats. DocumentDB applique une gouvernance des ressources basée sur une réservation stricte aux architectures mutualisées. Chaque procédure stockée, déclencheur ou fonction définie par l'utilisateur obtient un quantum fixe de ressources de systèmes d'exploitation pour effectuer ses tâches. De plus, les procédures stockées, déclencheurs ou fonctions définies par l'utilisateur ne peuvent pas créer de liens vers les bibliothèques JavaScript externes et sont placés sur liste noire s'ils dépassent les budgets de ressources qui leurs sont alloués. Vous pouvez enregistrer ou annuler l'enregistrement de procédures stockées, déclencheurs ou fonctions définies par l'utilisateur dans une collection en utilisant des API REST. Une fois enregistrés, ils sont précompilés et stockés en tant que codes d'octets et sont exécutés ultérieurement. La section suivante illustre l'utilisation du Kit de développement logiciel (SDK) JavaScript de DocumentDB pour enregistrer, exécuter et annuler l'enregistrement d'une procédure stockée, d'un déclencheur et d'une fonction définie par l'utilisateur. Le Kit de développement logiciel (SDK) JavaScript est un wrapper simple des [API REST de DocumentDB](https://msdn.microsoft.com/library/azure/dn781481.aspx).
+Dans DocumentDB, les collections peuvent être facilement créées, supprimées, lues ou répertoriées avec les [API REST Azure DocumentDB](https://msdn.microsoft.com/library/azure/dn781481.aspx) ou l’un des [Kits de développement logiciel (SDK) clients](https://msdn.microsoft.com/library/azure/dn781482.aspx). DocumentDB fournit toujours une cohérence forte pour la lecture ou l'interrogation des métadonnées d'une collection. La suppression d'une collection garantit automatiquement que vous ne pouvez pas accéder aux documents, pièces jointes, procédures stockées, déclencheurs et fonctions définies par l'utilisateur qu'elle contient.
+##Procédures stockées, déclencheurs et fonctions définies par l’utilisateur
+Comme décrit dans la section précédente, vous pouvez écrire une logique d'application pour qu'elle s'exécute directement dans une transaction dans le moteur de base de données. La logique d'application peut être entièrement écrite en JavaScript et modélisée en tant que procédure stockée, déclencheur ou fonction, définie par l'utilisateur. Le code JavaScript d'une procédure stockée ou d'un déclencheur peut insérer, remplacer, supprimer, lire ou interroger les documents d'une collection. D'un autre côté, le code JavaScript d'une fonction définie par l'utilisateur peut uniquement effectuer des calculs secondaires libres en énumérant les documents de l'ensemble de résultats de la requête, pour produire un autre ensemble de résultats. DocumentDB applique une gouvernance des ressources basée sur une réservation stricte aux architectures mutualisées. Chaque procédure stockée, déclencheur ou fonction définie par l'utilisateur obtient un quantum fixe de ressources de systèmes d'exploitation pour effectuer ses tâches. De plus, les procédures stockées, déclencheurs ou fonctions définies par l'utilisateur ne peuvent pas créer de liens vers les bibliothèques JavaScript externes et sont placés sur liste rouge s'ils dépassent les budgets de ressources qui leurs sont alloués. Vous pouvez enregistrer ou annuler l'enregistrement de procédures stockées, déclencheurs ou fonctions définies par l'utilisateur dans une collection en utilisant des API REST. Une fois enregistrés, ils sont précompilés et stockés en tant que codes d'octets et sont exécutés ultérieurement. La section suivante illustre l'utilisation du Kit de développement logiciel (SDK) JavaScript de DocumentDB pour enregistrer, exécuter et annuler l'enregistrement d'une procédure stockée, d'un déclencheur et d'une fonction définie par l'utilisateur. Le Kit de développement logiciel (SDK) JavaScript est un wrapper simple des [API REST de DocumentDB](https://msdn.microsoft.com/library/azure/dn781481.aspx).
 
 ###Enregistrement d'une procédure stockée
 L'enregistrement d'une procédure stockée crée une ressource de procédure stockée dans une collection via HTTP POST.
@@ -364,7 +362,7 @@ En étant un service de base de données véritablement ouvert, DocumentDB n'inv
 Comme avec les autres ressources, vous pouvez créer, remplacer, supprimer, lire, énumérer et interroger facilement les documents en utilisant les API REST ou l’un des [Kits de développement logiciel (SDK) clients](https://msdn.microsoft.com/library/azure/dn781482.aspx). La suppression d'un document libère instantanément le quota correspondant à toutes les pièces jointes imbriquées. Le niveau de cohérence de lecture des documents respecte la stratégie de cohérence du compte de base de données. Vous pouvez remplacer cette stratégie en fonction de la demande, selon les besoins de cohérence des données de votre application. Lors d'une interrogation de documents, la cohérence de lecture respecte le mode d'indexation défini pour la collection. Par « cohérence », on entend la stratégie de cohérence du compte.
 
 ##Pièces jointes et éléments multimédias
->[AZURE.NOTE] Les pièces jointes et les ressources média sont des fonctionnalités en version préliminaire.
+>[AZURE.NOTE]Les pièces jointes et les ressources média sont des fonctionnalités en version préliminaire.
  
 DocumentDB vous permet de stocker des objets blob ou des éléments multimédias binaires dans son propre magasin ou votre magasin d'éléments multimédias distant. Il vous permet également de représenter les métadonnées d'un élément multimédia dans les termes d'un document spécifique nommé « pièce jointe ». Dans DocumentDB, une pièce jointe correspond à un document (JSON) spécifique qui référence l'objet blob ou l'élément multimédia stocké ailleurs. Une pièce jointe est tout simplement un document spécifique qui capture les métadonnées (comme l'emplacement, l'auteur, etc.) d'un élément multimédia stocké dans un magasin d'éléments multimédias distant.
 
@@ -379,8 +377,6 @@ Notez que les exemples utilisent des ID conviviaux pour communiquer les ressourc
 Pour les éléments multimédias gérés par DocumentDB, la propriété \_media de la pièce jointe va référencer les éléments multimédias en suivant leur URI. DocumentDB va veiller à nettoyer les éléments multimédias lorsque toutes les références en suspens sont supprimées. DocumentDB génère automatiquement les pièces jointes lorsque vous téléchargez les nouveaux éléments multimédias et renseigne la propriété \_media pour pointer vers l'élément multimédia récemment ajouté. Si vous choisissez de stocker l'élément multimédia dans un magasin d'objets blob distant que vous gérez (comme OneDrive, Azure Storage, DropBox, etc.), vous pouvez toujours utiliser les pièces jointes pour le référencer. Dans ce cas, vous créez la pièce jointe vous-même et renseignez sa propriété \_media manuellement.
 
 Comme avec les autres ressources, vous pouvez créer, remplacer, supprimer, lire ou énumérer facilement les pièces jointes en utilisant des API REST ou l'un des Kits de développement logiciel (SDK) clients. Comme pour les documents, le niveau de cohérence de lecture des pièces jointes respecte la stratégie de cohérence du compte de base de données. Vous pouvez remplacer cette stratégie en fonction de la demande, selon les besoins de cohérence des données de votre application. Lors d'une interrogation de pièces jointes, la cohérence de lecture respecte le mode d'indexation défini pour la collection. Par « cohérence », on entend la stratégie de cohérence du compte.
-
-
 ##Utilisateurs
 Un utilisateur de DocumentDB correspond à un espace de noms logique pour le regroupement des autorisations. Un utilisateur de DocumentDB peut correspondre à un utilisateur dans un système de gestion d'identité ou à un rôle d'application prédéfini. Pour DocumentDB, un utilisateur représente simplement une donnée abstraite pour grouper un ensemble d'autorisations dans une base de données.
 
@@ -395,9 +391,7 @@ Lorsque vous devez faire évoluer vos applications en fonction de la croissance 
 
 Indépendamment de la stratégie de partition que vous choisissez, vous pouvez modéliser vos utilisateurs actuels en tant qu'utilisateurs dans la base de données DocumentDB et associer des autorisations affinées à chaque utilisateur.
 
-![][3]
-
-**Stratégies de partitionnement et modélisation des utilisateurs**
+![Regroupements d’utilisateurs][3] **Stratégies de partitionnement et modélisation des utilisateurs**
 
 Comme avec les autres ressources, vous pouvez créer, remplacer, supprimer, lire ou énumérer facilement les utilisateurs dans DocumentDB en utilisant des API REST ou l'un des Kits de développement logiciel (SDK) clients. DocumentDB fournit toujours une cohérence forte pour la lecture ou l'interrogation des métadonnées d'une ressource d'utilisateur. Il est intéressant de mentionner que la suppression d'un utilisateur garantit automatiquement que vous ne pouvez pas accéder à l'une des autorisations qu'il contient. Même si DocumentDB réclame le quota d'autorisations dans le cadre de la suppression de l'utilisateur en arrière-plan, les autorisations supprimées sont de nouveau disponibles immédiatement pour utilisation.
 
@@ -417,4 +411,4 @@ Pour en savoir plus sur l’utilisation des ressources avec des commandes HTTP, 
 [3]: media/documentdb-resources/resources3.png
  
 
-<!-----HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO3-->

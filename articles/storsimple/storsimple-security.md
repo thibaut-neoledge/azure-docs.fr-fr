@@ -1,20 +1,20 @@
 <properties 
-   pageTitle="Sécurité StorSimple | Microsoft Azure"
-	description="Décrit les fonctionnalités de sécurité et de confidentialité qui protègent votre service, votre appareil et vos données StorSimple en local et dans le cloud."
-	services="storsimple"
-	documentationCenter="NA"
-	authors="SharS"
-	manager="Carolz"
-	editor=""/>
+   pageTitle="Sécurité StorSimple | Microsoft Azure" 
+   description="Décrit les fonctionnalités de sécurité et de confidentialité qui protègent votre service, votre appareil et vos données StorSimple en local et dans le cloud." 
+   services="storsimple" 
+   documentationCenter="NA" 
+   authors="SharS" 
+   manager="Carolz" 
+   editor=""/>
 
 <tags
    ms.service="storsimple"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="TBD"
-	ms.date="08/26/2015"
-	ms.author="v-sharos"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="TBD" 
+   ms.date="09/10/2015"
+   ms.author="v-sharos"/>
 
 # Sécurité et protection des données StorSimple
 
@@ -56,6 +56,7 @@ Pour autoriser un appareil, vous devez l’inscrire auprès du service StorSimpl
 > 
 > * Si vous égarez la clé d’inscription après avoir enregistré votre premier appareil, vous pouvez générer une nouvelle clé à partir du service StorSimple Manager. Cela n’a pas d’incidence sur le fonctionnement des appareils existants. 
 > * Une fois qu’un appareil est inscrit, il utilise des jetons pour communiquer avec Microsoft Azure. La clé d’inscription au service n’est pas utilisée après l’inscription de l’appareil.
+> * Il est recommandé de régénérer la clé d’inscription du service après chaque utilisation.
 
 ## Protection de votre solution StorSimple par des mots de passe
 
@@ -83,7 +84,7 @@ Après avoir utilisé Windows PowerShell pour StorSimple pour vous connecter à
 
 ### Mots de passe initiateur et cible de protocole CHAP (Challenge Handshake Authentication Protocol)
 
-CHAP est un schéma d’authentification utilisé par l’appareil StorSimple pour valider l’identité des clients distants. La vérification repose sur un mot de passe partagé. Le protocole CHAP peut être à sens unique (unidirectionnel) ou mutuel (bidirectionnel). Dans le cas de l’authentification CHAP unidirectionnelle, la cible (l’appareil StorSimple) authentifie un initiateur (l’hôte). L’authentification CHAP mutuelle nécessite que la cible authentifie l’initiateur, puis que l’initiateur authentifie la cible. Azure StorSimple peut être configuré pour utiliser l’une ou l’autre de ces méthodes.
+CHAP est un schéma d’authentification utilisé par l’appareil StorSimple pour valider l’identité des clients distants. La vérification repose sur un mot de passe partagé. Le protocole CHAP peut être à sens unique (unidirectionnel) ou mutuel (bidirectionnel). Dans le cas de l’authentification CHAP unidirectionnelle, la cible (l’appareil StorSimple) authentifie un initiateur (l’hôte). L’authentification CHAP mutuelle ou inverse nécessite que la cible authentifie l’initiateur, puis que l’initiateur authentifie la cible. Votre appareil StorSimple peut être configuré pour utiliser l’une ou l’autre de ces méthodes.
 
 > [AZURE.IMPORTANT]
 > 
@@ -92,7 +93,7 @@ CHAP est un schéma d’authentification utilisé par l’appareil StorSimple po
 > * Vous ne pouvez pas utiliser le même mot de passe pour l’initiateur CHAP et la cible CHAP.
 > * Une fois le mot de passe défini, il peut être modifié, mais il ne peut pas être récupéré. En cas de modification du mot de passe, veillez à informer tous les utilisateurs de l’accès à distance afin qu’ils puissent se connecter à l’appareil StorSimple.
 
-Pour plus d'informations et configurer le protocole CHAP, consultez la rubrique [Configuration de CHAP pour votre appareil StorSimple](storsimple-configure-chap.md).
+Pour obtenir plus d’informations et configurer le protocole CHAP, consultez [Configurer CHAP pour votre appareil StorSimple](storsimple-configure-chap.md).
 
 ### Mot de passe de gestionnaire d’instantanés StorSimple
 
@@ -100,14 +101,14 @@ Le gestionnaire d’instantanés StorSimple est un composant logiciel enfichable
 
 Lorsque vous configurez une unité pour utiliser le gestionnaire d’instantanés StorSimple, vous devez fournir le mot de passe du gestionnaire d’instantanés StorSimple. Ce mot de passe est d’abord défini dans Windows PowerShell pour StorSimple lors de l’inscription. Le mot de passe peut également être défini et modifié à partir du service StorSimple Manager. Ce mot de passe authentifie l’appareil auprès du gestionnaire d’instantanés StorSimple.
 
-> [AZURE.IMPORTANT]<ul><li>Ce mot de passe doit comporter 14 à 15 caractères et contenir une combinaison d’au moins 3 caractères majuscules, minuscules, numériques et spéciaux.</li><li>Une fois le mot de passe du gestionnaire d’instantanés StorSimple défini, vous pouvez le modifier, mais pas le récupérer. Si vous le modifiez, veillez à informer tous les utilisateurs distants.</li></ul>
+> [AZURE.IMPORTANT]<ul><li>Ce mot de passe doit comporter 14 à 15 caractères et contenir une combinaison d’au moins 3 caractères majuscules, minuscules, numériques et spéciaux.</li><li>Une fois le mot de passe du gestionnaire d’instantanés StorSimple défini, vous pouvez le modifier, mais pas le récupérer. Si vous le modifiez, veillez à informer tous les utilisateurs distants.</li></ul>
 
 
 ### Meilleures pratiques relatives aux mots de passe
 
 Nous vous recommandons d’utiliser les instructions suivantes afin de garantir que les mots de passe Azure StorSimple sont forts et bien protégés :
 
-- Modifiez votre mot de passe tous les trois mois.
+- Modifiez votre mot de passe tous les trois mois. Vous devez modifier les mots de passe tous les ans.
 - Utilisez des mots de passe forts. Pour plus d’informations, consultez [Conseils pour créer un mot de passe plus fort et le protéger](http://blogs.microsoft.com/cybertrust/2014/08/25/create-stronger-passwords-and-protect-them/).
 - Utilisez toujours des mots de passe différents pour les différents mécanismes d’accès : chacun des mots de passe que vous spécifiez doit être unique.
 - Ne partagez pas les mots de passe avec les personnes non autorisées à accéder à l’appareil StorSimple.
@@ -135,10 +136,10 @@ L’objectif principal du service StorSimple Manager est de gérer et de configu
 > [AZURE.IMPORTANT]
 > 
 > * La clé de chiffrement des données du service est générée uniquement sur le premier appareil inscrit auprès du service. Tous les autres appareils inscrits auprès du service doivent utiliser la même clé de chiffrement. Il est très important de faire une copie de cette clé et de l’enregistrer dans un emplacement sécurisé. La méthode de stockage de la copie de la clé de chiffrement des données de service doit permettre à toute personne autorisée d’y accéder et de la communiquer facilement à l’administrateur de l’appareil.
-> * Vous pouvez modifier la clé de chiffrement des données du service et le certificat de chiffrement de données correspondant en sélectionnant l’option **Modifier la clé de chiffrement des données du service** dans le tableau de bord des services. La modification des clés de chiffrement requiert que tous les appareils soient mis à jour avec la nouvelle clé. Par conséquent, nous vous recommandons de modifier la clé lorsque tous les appareils sont en ligne. Si des appareils sont hors connexion, leurs clés peuvent être modifiées plus tard. Les appareils avec des clés obsolètes seront toujours en mesure d’exécuter des sauvegardes, mais ils ne seront pas en mesure de restaurer les données, et ce tant que leur clé n’aura pas été mise à jour. Pour plus d’informations, consultez la rubrique [Utilisation du tableau de bord du service StorSimple Manager](storsimple-service-dashboard.md).
+> * Vous pouvez modifier la clé de chiffrement des données du service et le certificat de chiffrement de données correspondant en sélectionnant l’option **Modifier la clé de chiffrement des données du service** dans le tableau de bord des services. La modification des clés de chiffrement requiert que tous les appareils soient mis à jour avec la nouvelle clé. Par conséquent, nous vous recommandons de modifier la clé lorsque tous les appareils sont en ligne. Si des appareils sont hors connexion, leurs clés peuvent être modifiées plus tard. Les appareils avec des clés obsolètes seront toujours en mesure d’exécuter des sauvegardes, mais ils ne seront pas en mesure de restaurer les données, et ce tant que leur clé n’aura pas été mise à jour. Pour plus d’informations, consultez [Utiliser le tableau de bord du service StorSimple Manager](storsimple-service-dashboard.md).
 > * Pour vous assurer que la sécurité des données n’est pas compromise, vous devez utiliser un appareil StorSimple physique pour modifier la clé de chiffrement des données du service.
-> * Si la clé de chiffrement est perdue, une personne du support technique Microsoft peut vous aider à la récupérer, sous réserve qu’au moins un appareil soit en ligne. Nous vous recommandons de modifier la clé de chiffrement des données de service après sa récupération. Pour obtenir des instructions, consultez la page [Modification de la clé de chiffrement des données du service](storsimple-service-dashboard.md#change-the-service-data-encryption-key).
-> * La clé de chiffrement des données du service et le certificat de chiffrement de données n’arrivent pas à expiration. Toutefois, nous vous recommandons de modifier la clé de chiffrement des données du service régulièrement pour des raisons de sécurité.</li></ul>
+> * Si la clé de chiffrement est perdue, une personne du support technique Microsoft peut vous aider à la récupérer, sous réserve qu’au moins un appareil soit en ligne. Nous vous recommandons de modifier la clé de chiffrement des données de service après sa récupération. Pour obtenir des instructions, consultez [Modifier la clé de chiffrement des données du service](storsimple-service-dashboard.md#change-the-service-data-encryption-key).
+> * La clé de chiffrement des données du service et le certificat de chiffrement de données n’arrivent pas à expiration. Toutefois, nous vous recommandons de modifier la clé de chiffrement des données du service tous les ans pour des raisons de sécurité. </li></ul>
 
 
 ## Protection des données au repos
@@ -150,10 +151,9 @@ L’appareil StorSimple gère les données en les stockant dans des couches loca
 - Lorsque vous entrez la clé de chiffrement de stockage cloud dans le service StorSimple Manager, la clé est chiffrée à l’aide de la partie publique de la clé de chiffrement des données de service, puis envoyée à l’appareil.
 - La clé de chiffrement de stockage cloud n’est pas stockée dans le service et est connue uniquement de l’appareil.
 - La spécification d’une clé de chiffrement de stockage cloud est facultative. Vous pouvez envoyer des données chiffrées à l’hôte et à l’appareil.
+- Nous vous recommandons d’effectuer une rotation de la clé de chiffrement du stockage cloud tous les trimestres. La rotation de ces clés n’est pas obligatoire.
 
 ### Meilleures pratiques supplémentaires en matière de sécurité
-
-- Pour implémenter la redondance, utilisez des chemins d'accès multiples (MPIO) afin d'éviter un point unique de défaillance dans le réseau SAN iSCSI. Pour obtenir les instructions détaillées, consultez la rubrique [Configuration de la solution MPIO pour votre appareil StorSimple](storsimple-configure-mpio-windows-server.md).
 
 - Fractionner le trafic : isolez votre SAN iSCSI du trafic utilisateur sur un réseau LAN d'entreprise en déployant un réseau totalement séparé et en utilisant des réseaux locaux virtuels où l'isolation physique n'est pas une option. Un réseau dédié pour le stockage iSCSI garantit la sécurité et les performances de vos données critiques. Le fait de mélanger le stockage et le trafic utilisateur sur un réseau LAN d'entreprise n'est pas recommandé et peut augmenter la latence, ainsi que provoquer des défaillances du réseau.
 
@@ -253,4 +253,4 @@ Voici quelques questions et réponses relatives à la sécurité et à Microsoft
 [Déploiement de votre appareil StorSimple](storsimple-deployment-walkthrough.md).
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO3-->

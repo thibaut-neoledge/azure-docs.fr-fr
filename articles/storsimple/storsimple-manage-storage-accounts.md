@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Gérer votre compte de stockage StorSimple | Microsoft Azure"
-	description="Explique comment utiliser la page Configurer de StorSimple Manager pour ajouter, modifier ou supprimer les clés de sécurité d’un compte de stockage ou effectuer une rotation de ces clés."
-	services="storsimple"
-	documentationCenter="NA"
-	authors="SharS"
-	manager="carolz"
-	editor=""/>
+   description="Explique comment utiliser la page Configurer de StorSimple Manager pour ajouter, modifier ou supprimer les clés de sécurité d’un compte de stockage ou effectuer une rotation de ces clés."
+   services="storsimple"
+   documentationCenter="NA"
+   authors="SharS"
+   manager="carolz"
+   editor="" />
 <tags 
    ms.service="storsimple"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="TBD"
-	ms.date="08/27/2015"
-	ms.author="v-sharos"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="TBD"
+   ms.date="09/15/2015"
+   ms.author="v-sharos" />
 
 # Utiliser le service StorSimple Manager pour gérer votre compte de stockage
 
@@ -148,6 +148,7 @@ Pour informer le service StorSimple Manager de la modification, vous devez accé
 
 ## Étapes suivantes
 
-En savoir plus sur la [sécurité StorSimple](storsimple-security.md).
+- En savoir plus sur la [sécurité StorSimple](storsimple-security.md).
+- En savoir plus sur [l’utilisation du service StorSimple Manager pour gérer votre appareil StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

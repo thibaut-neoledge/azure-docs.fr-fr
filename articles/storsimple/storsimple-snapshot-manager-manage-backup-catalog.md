@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="09/04/2015"
+   ms.date="09/15/2015"
    ms.author="v-sharos" />
 
 # Utiliser le Gestionnaire d’instantanés StorSimple pour gérer le catalogue de sauvegarde
@@ -205,6 +205,7 @@ Il est recommandé de sauvegarder régulièrement la base de données du Gestion
 
 ## Étapes suivantes
 
-En savoir plus sur [les tâches et les flux de travail du Gestionnaire d’instantanés StorSimple](storsimple-snapshot-manager-admin.md#storsimple-snapshot-manager-tasks-and-workflows).
+- En savoir plus sur [l’utilisation du Gestionnaire d’instantanés StorSimple pour gérer votre solution StorSimple](storsimple-snapshot-manager-admin.md).
+- En savoir plus sur [les tâches et les flux de travail du Gestionnaire d’instantanés StorSimple](storsimple-snapshot-manager-admin.md#storsimple-snapshot-manager-tasks-and-workflows).
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

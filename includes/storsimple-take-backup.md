@@ -1,3 +1,4 @@
+<!--author=alkohli last changed: 9/17/15-->
 
 ### Pour effectuer une sauvegarde
 
@@ -24,4 +25,8 @@
 
 Vous avez terminé la configuration de l’appareil.
 
-<!---HONumber=August15_HO6-->
+![Vidéo disponible](./media/storsimple-take-backup/Video_icon.png) **Vidéo disponible**
+
+Pour visionner une vidéo qui montre comment exécuter une sauvegarde StorSimple, cliquez [ici](http://azure.microsoft.com/documentation/videos/take-a-storsimple-backup/).
+
+<!---HONumber=Sept15_HO3-->

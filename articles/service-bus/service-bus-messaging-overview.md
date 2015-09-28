@@ -50,9 +50,10 @@ Comme pour l'infrastructure de messagerie relayée, la fonctionnalité de messag
 Pour en savoir plus sur la messagerie Service Bus, consultez les rubriques suivantes.
 
 - [Files d'attente, rubriques et abonnements Service Bus](service-bus-queues-topics-subscriptions.md)
-- [Présentation de l'architecture d'Azure Service Bus](service-bus-fundamentals-hybrid-solutions.md)
+- [Concepts de base de Service Bus](service-bus-fundamentals-hybrid-solutions.md)
+- [Architecture de Service Bus](service-bus-architecture.md)
 - [Utilisation des files d’attente Service Bus](service-bus-dotnet-how-to-use-queues.md)
 - [Comment utiliser les rubriques Service Bus](service-bus-dotnet-how-to-use-topics-subscriptions.md)
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

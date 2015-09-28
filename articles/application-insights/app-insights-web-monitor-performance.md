@@ -32,7 +32,10 @@ Côté client, Application Insights peut récupérer les données télémétriqu
 Si vous n'avez pas encore ajouté Application Insights à votre projet (il n'inclut pas ApplicationInsights.config), sélectionnez l'une des options suivantes pour commencer :
 
 * [Applications web ASP.NET](app-insights-asp-net.md)
+ * [Ajout de la surveillance des exceptions](app-insights-asp-net-exceptions.md)
+ * [Ajout de la surveillance des dépendances](app-insights-monitor-performance-live-website-now.md)
 * [Applications web J2EE](app-insights-java-get-started.md)
+ * [Ajout de la surveillance des dépendances](app-insights-java-agent.md)
 
 
 ## <a name="view"></a>Exploration des mesures de performances
@@ -123,7 +126,7 @@ Si les compteurs requis ne figurent pas dans la liste de propriétés, vous pouv
       </Counters>
     </Add>
 
-Le format est le suivant : `\Category(instance)\Counter"` ou, pour les catégories qui ne présentent aucune instance : `\Category\Counter`, tout simplement. Pour découvrir les compteurs disponibles avec votre système, lisez [cette présentation](http://www.codeproject.com/Articles/8590/An-Introduction-To-Performance-Counters).
+Le format est le suivant : `\Category(instance)\Counter"` ou, pour les catégories qui ne présentent aucune instance : `\Category\Counter`, tout simplement. Pour savoir quels compteurs sont disponibles dans votre système, lisez [cette présentation](http://www.codeproject.com/Articles/8590/An-Introduction-To-Performance-Counters).
 
 L’élément `ReportAs` est requis pour les noms des compteurs qui contiennent des caractères autres que ceux-ci : lettres, parenthèses, barres obliques, tirets, traits de soulignement, espaces et points.
 
@@ -138,7 +141,12 @@ Si vous préférez, vous pouvez écrire le code suivant, pour obtenir le même e
     perfCollector.Initialize(TelemetryConfiguration.Active);
     TelemetryConfiguration.Active.TelemetryModules.Add(perfCollector);
 
+### Nombre d’exceptions
 
+*Quelle est la différence entre le taux d’exceptions et les mesures d’exceptions ?*
+
+* Le *taux d’exceptions* est un compteur de performances système. Le CLR compte l’ensemble des exceptions gérées et non gérées qui sont levées et divise le total d’un intervalle d'échantillonnage par la longueur de cet intervalle. Le Kit de développement logiciel (SDK) Application Insights collecte ce résultat et l’envoie au portail.
+* *Exceptions* représente le nombre de rapports TrackException reçus par le portail au cours de l’intervalle d’échantillonnage du graphique. Il comprend uniquement les exceptions gérées pour lesquelles vous avez écrit des appels TrackException dans votre code et n’inclut pas toutes les [exceptions non gérées](app-insights-asp-net-exceptions.md). 
 
 ## Définir des alertes
 
@@ -186,4 +194,4 @@ Voici quelques conseils pour identifier et diagnostiquer les problèmes de perfo
 
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

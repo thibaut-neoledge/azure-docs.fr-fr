@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Modèle d’application v2 | Microsoft Azure"
+	pageTitle="Modèle d’application v2 - Informations de référence sur les jetons | Microsoft Azure"
 	description="Types de jetons et de revendications émis par le point de terminaison v2.0"
 	services="active-directory"
 	documentationCenter=""
@@ -163,4 +163,4 @@ Les durées de vie de jeton suivantes sont fournies uniquement à titre indicati
 | Codes d’autorisation (comptes professionnels ou scolaires) | 10 minutes | Les codes d’autorisation, qui sont volontairement de courte durée, doivent être échangés immédiatement contre des jetons d’accès et des jetons d’actualisation quand ils sont reçus. |
 | Codes d’autorisation (comptes personnels) | 5 minutes | Les codes d’autorisation, qui sont volontairement de courte durée, doivent être échangés immédiatement contre des jetons d’accès et des jetons d’actualisation quand ils sont reçus. Les codes d’autorisation émis au nom de comptes personnels sont également à usage unique. |
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO3-->

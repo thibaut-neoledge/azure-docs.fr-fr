@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Se connecter à distance à votre appareil StorSimple | Microsoft Azure"
-	description="Explique comment configurer votre appareil pour la gestion à distance et comment se connecter à Windows PowerShell for StorSimple par HTTP ou HTTPS."
-	services="storsimple"
-	documentationCenter=""
-	authors="alkohli"
-	manager="carolz"
-	editor=""/>
+   description="Explique comment configurer votre appareil pour la gestion à distance et comment se connecter à Windows PowerShell for StorSimple par HTTP ou HTTPS."
+   services="storsimple"
+   documentationCenter=""
+   authors="alkohli"
+   manager="carolz"
+   editor="" />
 <tags 
    ms.service="storsimple"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="NA"
-	ms.date="08/28/2015"
-	ms.author="alkohli"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="NA"
+   ms.date="09/15/2015"
+   ms.author="alkohli" />
 
 # Connexion à distance à votre appareil StorSimple
 
@@ -268,6 +268,8 @@ Effectuez la procédure suivante sur l’ordinateur à partir duquel vous voulez
 
 ## Étapes suivantes
 
-[En savoir plus sur l’utilisation de Windows PowerShell pour administrer votre appareil StorSimple](storsimple-windows-powershell-administration.md).
+- En savoir plus sur [l’utilisation de Windows PowerShell pour gérer votre appareil StorSimple](storsimple-windows-powershell-administration.md).
 
-<!---HONumber=September15_HO1-->
+- En savoir plus sur [l’utilisation du service StorSimple Manager pour gérer votre appareil StorSimple](storsimple-manager-service-administration.md).
+
+<!---HONumber=Sept15_HO3-->

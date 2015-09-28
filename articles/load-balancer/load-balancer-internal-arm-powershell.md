@@ -1,19 +1,19 @@
 <properties
    pageTitle="Prise en main de l’équilibrage de charge à l’aide d’Azure Resource Manager | Microsoft Azure"
-	description="Création de règles d’équilibrage de charge interne, de règles NAT et d’une sonde pour Azure Resource Manager. Présentation étape par étape de la procédure complète pour créer une ressource d’équilibrage de charge interne (ILB)."
-	services="load-balancer"
-	documentationCenter="na"
-	authors="joaoma"
-	manager="adinah"
-	editor="tysonn"/>
+   description="Création de règles d’équilibrage de charge interne, de règles NAT et d’une sonde pour Azure Resource Manager. Présentation étape par étape de la procédure complète pour créer une ressource d’équilibrage de charge interne (ILB)."
+   services="load-balancer"
+   documentationCenter="na"
+   authors="joaoma"
+   manager="adinah"
+   editor="tysonn" />
 <tags
    ms.service="load-balancer"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="infrastructure-services"
-	ms.date="07/22/2015"
-	ms.author="joaoma"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="infrastructure-services"
+   ms.date="07/22/2015"
+   ms.author="joaoma" />
 
 # Prise en main de la configuration d'un équilibreur de charge interne à l'aide d'Azure Resource Manager
 
@@ -93,11 +93,11 @@ Dans l'exemple ci-dessus, nous avons créé un groupe de ressources appelé « 
 
 ### Étape 1
 
-Créez un réseau virtuel :
+Crée un sous-réseau pour le réseau virtuel et définit une affectation à la variable $backendSubnet
 
 	$backendSubnet = New-AzureVirtualNetworkSubnetConfig -Name LB-Subnet-BE -AddressPrefix 10.0.2.0/24
 
-Crée un sous-réseau pour le réseau virtuel et définit une affectation à la variable $backendSubnet
+Créez un réseau virtuel :
 
 	$vnet= New-AzurevirtualNetwork -Name NRPVNet -ResourceGroupName NRP-RG -Location "West US" -AddressPrefix 10.0.0.0/16 -Subnet $backendSubnet
 
@@ -111,7 +111,7 @@ Configuration d’un pool d’adresses IP frontales pour le trafic entrant du r�
 
 ### Étape 1 
 
-Créez un pool d'adresses IP frontales à l'aide de l'adresse IP privée 10.0.2.6 pour le sous-réseau 10.0.2.0/24 qui sera le point de terminaison du trafic réseau entrant.
+Créez un pool d’adresses IP frontales à l’aide de l’adresse IP privée 10.0.2.5 pour le sous-réseau 10.0.2.0/24 qui sera le point de terminaison du trafic réseau entrant.
 
 	$frontendIP = New-AzureLoadBalancerFrontendIpConfig -Name LB-Frontend -PrivateIpAddress 10.0.2.5 -SubnetId $backendSubnet.Id
 
@@ -245,4 +245,4 @@ Pour la procédure détaillée à suivre pour créer une machine virtuelle et d�
 [Configuration des paramètres de délai d’expiration TCP inactif pour votre équilibrage de charge](load-balancer-tcp-idle-timeout.md)
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO3-->

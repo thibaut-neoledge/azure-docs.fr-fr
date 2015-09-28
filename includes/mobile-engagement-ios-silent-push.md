@@ -21,10 +21,12 @@ Une fois la modification apportée, le code XML du fichier info.plist doit con
             <string>remote-notification</string>
         </array>
     ...
+    
+6. Si vous utilisez Xcode 7 et iOS 9, vous devez effectuer les étapes supplémentaires suivantes : • Affectez à **Activer Bitcode** la valeur **Non** sous Cibles > Paramètres de build >, affectez à Activer Bitcode la valeur Oui ou Non. (Veillez à sélectionner TOUT dans la barre supérieure.) • Activez **Notifications push** dans Cibles > Nom de votre cible > Fonctionnalités.
 
 <!-- Images. -->
 [1]: ./media/mobile-engagement-ios-silent-push/xcode-plist-add-silent-push1.png
 [2]: ./media/mobile-engagement-ios-silent-push/xcode-plist-add-silent-push2.png
 [3]: ./media/mobile-engagement-ios-silent-push/xcode-plist-add-silent-push3.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

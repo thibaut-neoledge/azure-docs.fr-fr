@@ -7,28 +7,28 @@
 	manager="stefsch" 
 	editor=""/>
 
-
 <tags 
-	ms.service="app-service-web" 
+	ms.service="app-service" 
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="04/27/2015" 
+	ms.date="09/11/2015" 
 	ms.author="ccompy"/>
-
 
 # Comment créer un environnement App Service #
 
 La fonctionnalité Environnements App Service (ASE) est une option de service Premium d'Azure App Service qui est actuellement en version préliminaire. Elle offre une fonction de configuration améliorée qui n'est pas disponible dans les clusters mutualisés. Pour mieux comprendre les possibilités offertes par les environnements App Service, lisez la documentation [Présentation d'un environnement App Service][WhatisASE].
 
+[AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
+
 ### Vue d'ensemble ###
 
 La fonctionnalité ASE déploie essentiellement Azure App Service sur le réseau virtuel du client. Pour ce faire, le client a besoin des éléments suivants :
 
-- Un réseau virtuel régional avec 512 (/23) adresses ou plus est requis
-- Un sous-réseau de ce réseau virtuel avec 256(/ 24) adresses ou plus est requis
-- Le sous-réseau **ne doit contenir aucune autre ressource de calcul**. Un seul environnement App Service peut être déployé dans un sous-réseau. La tentative de création échoue s'il existe d'autres ressources de calcul qui résident déjà dans le sous-réseau.
+- un réseau virtuel régional « v1 » classique avec au moins 512 (/23) adresses ;
+- un sous-réseau de ce réseau virtuel avec au moins 8 (/29) adresses ;
+- le sous-réseau **ne doit contenir aucune autre ressource de calcul**. Un seul environnement App Service peut être déployé dans un sous-réseau. La tentative de création échoue s'il existe d'autres ressources de calcul qui résident déjà dans le sous-réseau.
 
 Si vous ne disposez pas encore d'un réseau virtuel à utiliser pour héberger votre environnement App Service, vous pouvez en créer un lors de la création de l'environnement App Service.
 
@@ -41,7 +41,7 @@ Il existe deux façons d'accéder à l'interface utilisateur de création d'un A
 ### Création rapide ###
 Après avoir accédé à l'interface utilisateur de création, vous pouvez rapidement créer un ASE en entrant simplement un nom pour le déploiement. Cela crée ensuite un réseau virtuel comportant 512 adresses, un sous-réseau comportant 256 adresses sur ce réseau virtuel et un environnement ASE comportant 2 serveurs frontaux et 2 travaux dans le pool de travaux 1. Veillez à sélectionner l'emplacement où placer le système et l'abonnement dans lequel vous voulez qu'il soit. Les seuls comptes qui peuvent utiliser l'ASE pour héberger le contenu doivent être dans l'abonnement utilisé pour le créer.
 
-Le nom spécifié pour l'ASE sera utilisé pour les applications web créées dans l'ASE. Si le nom de l'ASE est appsvcenvdemo, le nom de domaine serait .*appsvcenvdemo.p.azurewebsites.net*. Par conséquent, si vous avez créé une application web nommée mytestapp, elle serait adressable à l'adresse *mytestapp.appsvcenvdemo.p.azurewebsites.net*. Vous ne pouvez pas utiliser d'espace blanc dans le nom. Si vous utilisez des caractères en majuscules dans le nom, le nom de domaine sera la version complète de ce nom en minuscules.
+Le nom spécifié pour l'ASE sera utilisé pour les applications web créées dans l'ASE. Si le nom de l’ASE est appsvcenvdemo, le nom de domaine est .*appsvcenvdemo.p.azurewebsites.net*. Par conséquent, si vous avez créé une application web nommée mytestapp, elle serait adressable à l'adresse *mytestapp.appsvcenvdemo.p.azurewebsites.net*. Vous ne pouvez pas utiliser d'espace blanc dans le nom. Si vous utilisez des caractères en majuscules dans le nom, le nom de domaine sera la version complète de ce nom en minuscules.
 
 
 ![][1]
@@ -74,7 +74,7 @@ La tarification pour les environnements App Service est fonction des ressources 
 
 
 ### Création d'un réseau virtuel ###
-Même s'il existe une fonction de création rapide qui crée automatiquement un réseau virtuel, la fonctionnalité prend également en charge la sélection d'un réseau virtuel existant et la création manuelle d'un réseau virtuel. Vous pouvez sélectionner un réseau virtuel existant s'il est suffisamment grand pour prendre en charge le déploiement d'un environnement App Service. Le réseau virtuel doit avoir au moins 512 adresses. Si vous ne sélectionnez pas un réseau virtuel préexistant, vous devez également spécifier un sous-réseau à utiliser ou en créer un. Le sous-réseau doit avoir au moins 256 adresses.
+Même s'il existe une fonction de création rapide qui crée automatiquement un réseau virtuel, la fonctionnalité prend également en charge la sélection d'un réseau virtuel existant et la création manuelle d'un réseau virtuel. Vous pouvez sélectionner un réseau virtuel existant (à l’heure actuelle, seuls les réseaux virtuels « v1 » classiques sont pris en charge) s’il est suffisamment grand pour prendre en charge le déploiement d’un environnement App Service. Le réseau virtuel doit avoir au moins 512 adresses. Si vous ne sélectionnez pas un réseau virtuel préexistant, vous devez également spécifier un sous-réseau à utiliser ou en créer un. Le sous-réseau doit avoir au moins 8 adresses.
 
 Si vous utilisez l'interface utilisateur de création de réseau virtuel, vous devez indiquez les éléments suivants :
 
@@ -145,4 +145,4 @@ Pour plus d’informations sur la plateforme Azure App Service, consultez la rub
 [AppServicePricing]: http://azure.microsoft.com/pricing/details/app-service/
 [AzureAppService]: http://azure.microsoft.com/documentation/articles/app-service-value-prop-what-is/
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

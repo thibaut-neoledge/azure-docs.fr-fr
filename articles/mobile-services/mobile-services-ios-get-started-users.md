@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Ajout de l&#39;authentification à une application Azure Mobile Services existante (iOS) | Microsoft Azure"
-	description="Apprenez à utiliser Mobile Services pour authentifier les utilisateurs de votre application iOS par l&#39;intermédiaire de divers fournisseurs d&#39;identité, notamment Google, Facebook, Twitter et Microsoft."
+	pageTitle="Ajouter l’authentification à une application Azure Mobile Services existante (iOS) | Backend JavaScript | Microsoft Azure"
+	description="Apprenez à utiliser Mobile Services pour authentifier les utilisateurs de votre application iOS par l'intermédiaire de divers fournisseurs d'identité, notamment Google, Facebook, Twitter et Microsoft."
 	services="mobile-services"
 	documentationCenter="ios"
 	authors="krisragh"
@@ -84,4 +84,4 @@ Ensuite, découvrez [comment utiliser la valeur d’ID d’utilisateur pour filt
 
 [Azure Management Portal]: https://manage.windowsazure.com/
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO3-->

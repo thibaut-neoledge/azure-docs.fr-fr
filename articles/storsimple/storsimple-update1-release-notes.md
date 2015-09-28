@@ -79,7 +79,7 @@ Le tableau suivant récapitule les problèmes qui ont été résolus dans Update
 | 9 | Interfaces réseau | Dans les versions précédentes, un appareil StorSimple configuré avec une passerelle non routable pouvait se déconnecter. Dans cette version, le métrique de routage de l’interface Data 0 a été définie sur la valeur la plus faible. En conséquence, même si d’autres interfaces réseau sont déployées sur le cloud, l’ensemble du trafic cloud de l’appareil sera routé via Data 0. | Update 1 | Oui | Oui | 
 | 10 | Sauvegardes | Un bogue dans Update 1 qui provoquait l'échec des sauvegardes après 24 jours a été résolu dans la version du correctif Update 1.1. | Update 1.1 | Oui | Oui |
 | 11 | Sauvegardes | Un bogue dans les versions précédentes entraînait une baisse des performances pour les instantanés cloud avec un taux de modification faible. Ce bogue a été résolu dans cette version du correctif.| Update 1.2 | Oui | Oui |
-| 12 | Sauvegardes | Un bogue dans Update 1 qui a signalait un échec de la mise à niveau et provoquait le passage des contrôleurs en mode de récupération a été résolu dans cette version du correctif.| Update 1.2 | Oui | Oui |
+| 12 | Mises à jour | Un bogue dans Update 1 qui a signalait un échec de la mise à niveau et provoquait le passage des contrôleurs en mode de récupération a été résolu dans cette version du correctif.| Update 1.2 | Oui | Oui |
 
 
 ## Problèmes connus dans Update 1.2
@@ -124,4 +124,4 @@ Cette mise à jour ne peut pas être appliquée à l’appareil virtuel. De nouv
 - [Installer Update 1.2 sur votre appareil](storsimple-install-update-1.md).
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

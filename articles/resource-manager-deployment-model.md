@@ -1,20 +1,20 @@
 <properties
    pageTitle="Comprendre les différences entre les modèles de déploiement classique et de Resource Manager"
-	description="Décrit les différences entre le modèle de déploiement de Resource Manager et le modèle de déploiement classique (ou de gestion des services)."
-	services="azure-resource-manager"
-	documentationCenter="na"
-	authors="tfitzmac"
-	manager="wpickett"
-	editor=""/>
+   description="Décrit les différences entre le modèle de déploiement de Resource Manager et le modèle de déploiement classique (ou de gestion des services)."
+   services="azure-resource-manager"
+   documentationCenter="na"
+   authors="tfitzmac"
+   manager="wpickett"
+   editor=""/>
 
 <tags
    ms.service="azure-resource-manager"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="na"
-	ms.date="08/20/2015"
-	ms.author="tomfitz"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="na"
+   ms.date="09/15/2015"
+   ms.author="tomfitz"/>
 
 # Présentation du déploiement de Resource Manager et du déploiement classique
 
@@ -101,7 +101,7 @@ Resource Manager a ajouté le concept de groupe de ressources. Chaque ressource 
 - Vous pouvez appliquer des balises aux ressources pour organiser logiquement toutes les ressources dans votre abonnement.
 
 
-Avant Resource Manager, aucune ressource créée via un déploiement classique n’existait dans un groupe de ressources. Quand Resource Manager a été ajouté, toutes les ressources ont été rétroactivement ajoutées aux groupes de ressources par défaut. Si vous créez une ressource via un déploiement classique maintenant, la ressource est automatiquement créée dans un groupe de ressources vide même si vous n’avez pas spécifié ce groupe de ressources au moment du déploiement. Toutefois, le fait d’exister simplement au sein d’un groupe de ressources ne signifie pas que la ressource a été convertie en modèle Resource Manager. Si la ressource a été créée via un déploiement classique, vous devez continuer à l’utiliser via des opérations classiques.
+Avant Resource Manager, aucune ressource créée via un déploiement classique n’existait dans un groupe de ressources. Quand Resource Manager a été ajouté, toutes les ressources ont été rétroactivement ajoutées aux groupes de ressources par défaut. Si vous créez une ressource via un déploiement classique maintenant, la ressource est automatiquement créée dans un groupe de ressources par défaut pour ce service, même si vous n’avez pas spécifié ce groupe de ressources au moment du déploiement. Toutefois, le fait d’exister simplement au sein d’un groupe de ressources ne signifie pas que la ressource a été convertie en modèle Resource Manager. Pour les machines virtuelles, le stockage et les réseaux virtuels, si la ressource a été créée via un déploiement classique, vous devez continuer à l’utiliser via des opérations classiques.
 
 Vous pouvez déplacer des ressources vers un groupe de ressources différent et ajouter de nouvelles ressources à un groupe de ressources existant. Par conséquent, votre groupe de ressources peut contenir une combinaison de ressources créées via Resource Manager et un déploiement classique. Cette combinaison de ressources peut générer des résultats inattendus, car les ressources ne prennent pas en charge les mêmes opérations.
 
@@ -158,4 +158,4 @@ Pour en savoir plus sur la connexion de réseaux virtuels à partir de modèles 
 - Pour en savoir plus sur la création de modèles de déploiement déclaratifs, consultez [Création de modèles Azure Resource Manager](resource-group-authoring-templates.md).
 - Pour connaître les commandes permettant de déployer un modèle, consultez [Déploiement d’une application avec un modèle Azure Resource Manager](resource-group-template-deploy.md).
 
-<!----HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO3-->

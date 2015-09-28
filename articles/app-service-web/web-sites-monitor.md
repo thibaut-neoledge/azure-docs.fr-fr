@@ -8,21 +8,23 @@
 	editor="mollybos"/>
 
 <tags
-	ms.service="app-service-web"
+	ms.service="app-service"
 	ms.workload="web"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/02/2015"
+	ms.date="09/16/2015"
 	ms.author="cephalin"/>
 
 #<a name="howtomonitor"></a>Surveiller les applications web dans Microsoft Azure App Service
 
 [Application Service Web Apps](http://go.microsoft.com/fwlink/?LinkId=529714) fournit des fonctionnalités d’analyse pour les plans APP Service Standard et Premium, via la page de gestion Surveiller. Cette page fournit les statistiques relatives aux performances d’un site web, comme décrit ci-dessous.
 
+[AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
+
 ##<a name="websitemetrics"></a>Procédure : ajouter des métriques relatives à une application web
 
-1. Dans la page de l'application web du [portail Azure](https://manage.windowsazure.com), cliquez sur l'onglet **Surveiller** pour afficher la page de gestion **Surveiller**. Par défaut, le graphique de la page **Monitor** affiche les mêmes mesures que celui de la page **Tableau de bord**.
+1. Dans la page de l’application web du [portail Azure](https://manage.windowsazure.com), cliquez sur l’onglet **Surveiller** pour afficher la page de gestion **Surveiller**. Par défaut, le graphique de la page **Monitor** affiche les mêmes mesures que celui de la page **Tableau de bord**.
 
 2. Pour afficher des métriques supplémentaires concernant l’application web, cliquez sur l’option **Ajouter des métriques** située en bas de la page. La boîte de dialogue **Choisir des métriques** apparaît.
 
@@ -40,14 +42,14 @@ Lorsque l’application web est en mode **Standard**, vous pouvez recevoir des 
 
 ##<a name="howtoviewusage"></a>Procédure : afficher les quotas d’utilisation d’une application web
 
-Les applications web peuvent être configurées pour s'exécuter en mode **Partagé** ou **Standard** dans la page de gestion **Mettre à l'échelle** de l’application web dans le [portail Azure](https://manage.windowsazure.com). Chaque abonnement à Microsoft Azure donne accès à un pool de ressources fourni dans le but d’exécuter jusqu’à 100 applications web par région en mode **Partagé**. Le pool de ressources disponibles à cette fin pour chaque abonnement à l’application web est partagé par d’autres applications web situées dans la même région géographique et configurées pour s’exécuter en mode **Partagé**. Ces ressources étant partagées pour pouvoir être utilisées par d’autres applications web, leur exploitation par l’ensemble des abonnements est limitée. Les limites appliquées à l’utilisation de ces ressources par un abonnement sont exprimées sous la forme de quotas d’utilisation, répertoriés dans la section de présentation de l’utilisation, sur la page de gestion **Tableau de bord** de chaque application web.
+Les Web Apps peuvent être configurées pour s’exécuter en mode **Partagé** ou **Standard** dans la page de gestion **Mettre à l’échelle** de l’application web du [portail Azure](https://manage.windowsazure.com). Chaque abonnement à Microsoft Azure donne accès à un pool de ressources fourni dans le but d’exécuter jusqu’à 100 applications web par région en mode **Partagé**. Le pool de ressources disponibles à cette fin pour chaque abonnement à l’application web est partagé par d’autres applications web situées dans la même région géographique et configurées pour s’exécuter en mode **Partagé**. Ces ressources étant partagées pour pouvoir être utilisées par d’autres applications web, leur exploitation par l’ensemble des abonnements est limitée. Les limites appliquées à l’utilisation de ces ressources par un abonnement sont exprimées sous la forme de quotas d’utilisation, répertoriés dans la section de présentation de l’utilisation, sur la page de gestion **Tableau de bord** de chaque application web.
 
 >[AZURE.NOTE]Lorsqu’une application web est configurée pour s’exécuter en mode **Standard**, elle se voit allouer des ressources dédiées équivalentes aux valeurs **Petit** (par défaut), **Moyen** ou **Grand** associées aux tailles de machine virtuelle figurant dans le tableau situé sur la page [Tailles de machines virtuelles et de services cloud pour Microsoft Azure][vmsizes]. Aucune limite n’est fixée concernant les ressources qu’un abonnement peut utiliser pour exécuter des applications web en mode **Standard**. Toutefois, vous ne pouvez pas créer plus de 500 applications web en mode **Standard**, pour chaque région.
 
 ### Procédure : afficher les quotas d’utilisation des applications web configurées en mode Partagé ###
 Pour déterminer dans quelle mesure les quotas d’utilisation des ressources sont affectés par une application web, procédez comme suit :
 
-1. Ouvrez la page de gestion **Tableau de bord** de l’application web dans le [portail Azure](https://manage.windowsazure.com).
+1. Ouvrez la page de gestion **Tableau de bord** de l’application web du [portail Azure](https://manage.windowsazure.com).
 2. La section **Présentation de l’utilisation** affiche les quotas d’utilisation de votre plan [App Service](http://go.microsoft.com/fwlink/?LinkId=529714). Il s’agit d’un sous-ensemble des éléments suivants :
 	-	**Données sorties**, **Temps processeur** et **Mémoire** : lorsque le quota est dépassé, Microsoft Azure arrête l’application web pendant le reste de l’intervalle de quota en cours. Microsoft Azure démarre l’application web au début de l’intervalle de quota défini suivant.
 	-	**Stockage de système de fichiers** : une fois ce quota atteint, l’espace de stockage du système de fichiers reste accessible pour les opérations de lecture, mais les opérations d’écriture (y compris celles que requiert l’activité normale de l’application web) sont bloquées. Les opérations d’écriture sont à nouveau exécutées lorsque l’utilisation des fichiers est restreinte ou que l’application web est déplacée vers un plan App Service associé à un quota plus important.
@@ -64,7 +66,7 @@ Les quotas ne sont pas liés aux performances ou au coût : ils sont un moyen p
 
 ##<a name="howtoconfigdiagnostics"></a>Procédure : configurer les diagnostics et télécharger les journaux d’une application web
 
-Les diagnostics sont activés sur l'onglet **Configurer** de l'application web dans le [portail Azure](https://manage.windowsazure.com). Il existe deux types de diagnostics : **diagnostic d’application** et **diagnostics de site**.
+Les diagnostics sont activés sous l’onglet **Configurer** de l’application web du [portail Azure](https://manage.windowsazure.com). Il existe deux types de diagnostics : **diagnostic d’application** et **diagnostics de site**.
 
 #### Diagnostic d'application ####
 
@@ -98,7 +100,7 @@ Les diagnostics peuvent également être activés à partir du module Azure Powe
 
 > [AZURE.NOTE]La journalisation des applications s'appuie sur les informations de journalisation générées par votre application. La méthode permettant de générer ce type d’informations et le format de celles-ci sont propres au langage de votre application. Pour obtenir des informations sur le langage utilisé dans le cadre de la journalisation des applications, lisez les articles suivants :
 >
-> - **.NET** - [Dépanner une application web dans le Service d'application Microsoft Azure à l'aide de Visual Studio](web-sites-dotnet-troubleshoot-visual-studio.md)
+> - **.NET** - [Dépanner une application web dans Azure App Service à l’aide de Visual Studio](web-sites-dotnet-troubleshoot-visual-studio.md)
 > - **Node.js** - [Débogage d'une application Node.js dans Sites Web Azure](web-sites-nodejs-debug.md)
 >
 > La journalisation relative aux applications dans les tables ou les objets blob n'est prise en charge que pour les applications .NET.
@@ -152,7 +154,7 @@ Les fichiers journaux peuvent être téléchargés à l’aide de FTP, d’Azure
 
 **FTP**
 
-1. Ouvrez la page de gestion **Tableau de bord** de l'application web dans le [portail Azure](https://manage.windowsazure.com), puis notez le site FTP figurant sous **Fichiers journaux de diagnostic** et le compte répertorié sous **Utilisateur du déploiement**. Le site FTP héberge les fichiers journaux ; le compte répertorié sous Deployment User permet de vous authentifier auprès du site FTP.
+1. Ouvrez la page de gestion **Tableau de bord** de l’application web du [portail Azure](https://manage.windowsazure.com), puis notez le site FTP figurant sous **Fichiers journaux de diagnostic** et le compte répertorié sous **Utilisateur du déploiement**. Le site FTP héberge les fichiers journaux ; le compte répertorié sous Deployment User permet de vous authentifier auprès du site FTP.
 2. Si vous n'avez pas déjà créé les identifiants pour le déploiement, le compte figurant sous **Deployment User** est associé à **Not set**. Dans ce cas, vous devez créer les identifiants de déploiement comme décrit dans la section Reset Deployment Credentials du Tableau de bord, car ces identifiants vous permettent de vous authentifier auprès du site FTP sur lequel sont stockés les fichiers journaux. Azure ne prend pas en charge l'authentification auprès du site FTP avec les informations d'identification Live ID.
 3. Pensez à utiliser un client FTP comme [FileZilla][fzilla] pour vous connecter au site FTP. Le client FTP facilite la saisie des informations d'identification. En outre, l'affichage des dossiers d'un site FTP y est généralement plus clair que dans un navigateur.
 4. Copiez les fichiers journaux du site FTP sur votre ordinateur en local.
@@ -277,4 +279,4 @@ Pour en savoir plus sur la surveillance du point de terminaison d’une applicat
 [vmsizes]: http://go.microsoft.com/fwlink/?LinkID=309169
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

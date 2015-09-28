@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Modèle d’application v2.0 | Microsoft Azure"
+	pageTitle="Modèle d’application v2.0 - Application native .NET | Microsoft Azure"
 	description="Comment créer une application native .NET qui se connecte avec les comptes Microsoft personnels, ainsi qu’avec les comptes professionnels ou scolaires."
 	services="active-directory"
 	documentationCenter=""
@@ -13,7 +13,7 @@
   ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="08/12/2015"
+	ms.date="09/11/2015"
 	ms.author="dastrock"/>
 
 # Version d’évaluation du modèle d’application v2.0 : Ajouter une connexion à une application de bureau Windows
@@ -50,7 +50,7 @@ Créez une nouvelle application sur [apps.dev.microsoft.com](https://apps.dev.mi
 ## 2. Installez et configurez ADAL
 Une fois l'application enregistrée auprès de Microsoft, vous pouvez installer ADAL et saisir votre code associé aux identités.  Pour qu'ADAL puisse communiquer le point de terminaison v2.0, vous devez lui fournir des informations sur l'enregistrement de votre application.
 
--	Commencez par ajouter ADAL au projet TodoListClient à l'aide de la console du gestionnaire de package.
+-    Commencez par ajouter ADAL au projet TodoListClient à l'aide de la console du gestionnaire de package.
 
 ```
 PM> Install-Package Microsoft.Experimental.IdentityModel.Clients.ActiveDirectory -ProjectName TodoListClient -IncludePrerelease 
@@ -247,4 +247,4 @@ Vous pouvez maintenant aborder des rubriques plus sophistiquées. Par exemple :
 
 Pour obtenir des ressources supplémentaires, consultez : - [La version d’évaluation du modèle d’application v2.0 >>](active-directory-appmodel-v2-overview.md) - [Balise adal StackOverflow >>](http://stackoverflow.com/questions/tagged/adal)
 
-<!-----HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO3-->

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Créer un service qui utilise le stockage de tables au lieu d’une base de données SQL | Microsoft Azure" 
+	pageTitle="Créer un service mobile de backend .NET qui utilise le stockage de tables | Azure Mobile Services" 
 	description="Découvrez comment utiliser le stockage de tables Azure avec votre service mobile principal .NET." 
 	services="mobile-services" 
 	documentationCenter="" 
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="06/09/2015" 
+	ms.date="09/14/2015" 
 	ms.author="glenga"/>
 
-# Créer un service mobile principal .NET qui utilise le stockage de tables au lieu d’une base de données SQL
+# Créer un service mobile de backend .NET qui utilise le stockage de tables
 
 Cette rubrique vous explique comment utiliser un magasin de données non relationnelles pour votre service mobile principal .NET. Dans ce didacticiel, vous allez modifier le projet de démarrage rapide Azure Mobile Services pour utiliser le stockage de tables Azure à la place de Base de données SQL Azure comme magasin de données par défaut.
 
@@ -158,4 +158,4 @@ Vous savez désormais qu’il est facile d’utiliser le stockage de table avec 
 [MongoLab Add-on Page]: /gallery/store/mongolab/mongolab
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO3-->

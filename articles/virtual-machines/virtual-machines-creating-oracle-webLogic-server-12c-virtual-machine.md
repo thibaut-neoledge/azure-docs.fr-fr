@@ -1,4 +1,4 @@
-<properties title="Creating an Oracle WebLogic Server 12c Virtual Machine in Azure" pageTitle="Création d’une machine virtuelle Oracle WebLogic Server 12c dans Azure" description="Parcourez un exemple vous indiquant comment créer une machine virtuelle Oracle WebLogic Server 12c exécutant Windows Server 2012 dans Microsoft Azure." services="virtual-machines" authors="bbenz" documentationCenter=""/>
+<properties pageTitle="Création d’une machine virtuelle Oracle WebLogic Server 12c dans Azure" description="Parcourez un exemple vous indiquant comment créer une machine virtuelle Oracle WebLogic Server 12c exécutant Windows Server 2012 dans Microsoft Azure." services="virtual-machines" authors="bbenz" documentationCenter=""/>
 <tags ms.service="virtual-machines" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="infrastructure-services" ms.date="06/22/2015" ms.author="bbenz" />
 #Création d’une machine virtuelle Oracle WebLogic Server 12c dans Azure
 L’exemple suivant vous indique comment créer une machine virtuelle sur la base d’une image Oracle WebLogic Server 12c fournie par Microsoft et exécutée sur Windows Server 2012 dans Azure.
@@ -19,7 +19,7 @@ L’exemple suivant vous indique comment créer une machine virtuelle sur la bas
 
 7.	Sélectionnez un **niveau de tarification**. Vous pouvez constater que les niveaux de tarification recommandés sont affichés par défaut ; pour afficher toutes les options de configuration, cliquez sur l’option **Afficher tout** qui figure dans l’angle supérieur droit de la fenêtre.
 
-8.	Définissez l’élément [Configuration facultative](https://msdn.microsoft.com/library/azure/dn763935.aspx) si nécessaire, en tenant compte de ces remarques :
+8.	Définissez la configuration facultative si nécessaire, en tenant compte de ces remarques :
 	1. Laissez le champ **Compte de stockage** tel quel pour créer un compte de stockage portant le nom de la machine virtuelle.
 	2. Laissez le champ **Groupe à haute disponibilité** sur la valeur « Non configuré ».
 	3. N’ajoutez aucun **point de terminaison** pour l’instant.
@@ -43,7 +43,7 @@ L’exemple suivant vous indique comment créer une machine virtuelle sur la bas
 
 5.	Répondez aux invites afin de vous connecter à la machine virtuelle. Lorsque vous y êtes invité, saisissez le nom d’administrateur et le mot de passe fournis lors de la création de la machine virtuelle.
 
-6.	Dans la boîte de dialogue **WebLogic Platform QuickStart**, cliquez sur **Getting Started with WebLogic Server**. (Si la boîte de dialogue **WebLogic Platform QuickStart** n’est pas ouverte, lancez-la en cliquant sur **Démarrage Windows**, en saisissant **Start Admin Server for WebLogic Server Domain**, puis en cliquant sur l’icône **Start Admin Server for WebLogic Server Domain**.)
+6.	Dans la boîte de dialogue **WebLogic Platform QuickStart**, cliquez sur **Getting Started with WebLogic Server**. (Si la boîte de dialogue **WebLogic Platform QuickStart** n’est pas ouverte, lancez-la en cliquant sur le **menu Démarrer de Windows**, en tapant **Start Admin Server for WebLogic Server Domain**, puis en cliquant sur l’icône **Start Admin Server for WebLogic Server Domain**.)
 
 7.	Dans la boîte de dialogue **Welcome**, sélectionnez **Create a new WebLogic domain**, puis cliquez sur **Next**.
 
@@ -57,7 +57,7 @@ L’exemple suivant vous indique comment créer une machine virtuelle sur la bas
 
 	![](media/virtual-machines-creating-oracle-webLogic-server-12c-virtual-machine/image12.png)
 
-10.	Dans la boîte de dialogue **Configure Administrator User Name and Password**, procédez comme suit :
+10.	Dans la boîte de dialogue **Configure Administrator User Name and Password** :
 
 	1.	[Facultatif] Remplacez le nom d’utilisateur **weblogic** par celui de votre choix.
 
@@ -90,23 +90,23 @@ L’exemple suivant vous indique comment créer une machine virtuelle sur la bas
 
 2.	Ouvrez la **Console Administration de WebLogic Server**, http://localhost:7001/console. À l’invite, saisissez vos nom d’utilisateur et mot de passe WebLogic.
 
-3.	Dans la **Console Administration de WebLogic Server**, cliquez sur **Lock & Edit**, sur **Deployments**, puis sur **Install**.
+3.	Dans la console **WebLogic Server Administration Console**, cliquez sur **Lock & Edit**, sur **Deployments**, puis sur **Install**.
 
-4.	Dans la zone **Path**, saisissez **c:\\mywar\\shoppingcart.war.**.
+4.	Dans la zone **Path**, tapez **c:\\mywar\\shoppingcart.war.**.
 
 	![](media/virtual-machines-creating-oracle-webLogic-server-12c-virtual-machine/image18.png)
 
 	Cliquez sur **Next**.
 
-5.	Sélectionnez **Install this deployment as an application**, puis cliquez sur **Next**.
+5.	Sélectionnez **Install this deployment as an application**, puis cliquez sur **Suivant**.
 
-6.	Cliquez sur **Finish**.
+6.	Cliquez sur **Terminer**.
 
 7.	Dans la **Console Administration de WebLogic Server**, cliquez sur **Save**, puis sur **Activate Changes**.
 
-8.	Cliquez sur **Deployments**, choisissez **shoppingcart**, puis cliquez sur **Start** et sur **Service All Requests**. À l’invite de confirmation, cliquez sur **Yes**.
+8.	Cliquez sur **Deployments**, choisissez **shoppingcart**, cliquez sur **Start** et sur **Service All Requests**. À l’invite de confirmation, cliquez sur **Yes**.
 
-9.	Pour observer l’application shoppingcart s’exécuter en local, ouvrez un navigateur et accédez à l’adresse <http://localhost:7001/shoppingcart>.
+9.	Pour observer l’exécution de l’application shoppingcart en local, ouvrez un navigateur et accédez à l’adresse <http://localhost:7001/shoppingcart>.
 
 10.	Créez un point de terminaison pour votre machine virtuelle :
 
@@ -114,15 +114,15 @@ L’exemple suivant vous indique comment créer une machine virtuelle sur la bas
 
 	2.	Cliquez sur **Parcourir**.
 
-	3.	Cliquez sur **Machines virtuelles**.
+	3.	Cliquez sur **Machines virtuelles**.
 
 	4.	Sélectionnez la machine virtuelle.
 
-	5.	Cliquez sur **Paramètres**.
+	5.	Cliquez sur **Paramètres**
 
-	6.	Cliquez sur **Endpoints**.
+	6.	Cliquez sur **Points de terminaison**.
 
-	7.	Cliquez sur **Add**.
+	7.	Cliquez sur **Ajouter**.
 
 	8.	Saisissez le nom du point de terminaison.
 
@@ -140,7 +140,7 @@ L’exemple suivant vous indique comment créer une machine virtuelle sur la bas
 
 	1.	Connectez-vous à votre machine virtuelle.
 
-	2.	Cliquez sur **Démarrage Windows**, saisissez **Pare-feu Windows avec sécurité avancée**, puis cliquez sur l’icône **Pare-feu Windows avec sécurité avancée**. Cette opération ouvre la console de gestion **Pare-feu Windows avec sécurité avancée**.
+	2.	Cliquez sur le **menu Démarrer de Windows**, tapez **Pare-feu Windows avec sécurité avancée**, puis cliquez sur l’icône **Pare-feu Windows avec sécurité avancée**. Cette opération ouvre la console de gestion **Pare-feu Windows avec sécurité avancée**.
 
 	3.	Dans la console de gestion du pare-feu, cliquez sur **Règles de trafic entrant** dans le volet de gauche (si l’option **Règles de trafic entrant** ne s’affiche pas, développez le nœud supérieur dans le volet de gauche), puis cliquez sur Nouvelle règle dans le volet de droite.
 
@@ -154,7 +154,7 @@ L’exemple suivant vous indique comment créer une machine virtuelle sur la bas
 
 	8.	Spécifiez un nom pour la règle, ainsi qu’une description, le cas échéant, puis cliquez sur **Terminer**.
 
-12.	Pour voir l’application shoppingcart en cours d’exécution sur Internet, ouvrez un navigateur et accédez à l’URL, sous la forme `http://<<unique_domain_name>>/shoppingcart`. (Vous pouvez déterminer la valeur de l’élément <<*unique\_domain\_name*>> dans le [portail Azure](https://ms.portal.azure.com/), en cliquant sur **Machines virtuelles**, puis en sélectionnant la machine virtuelle que vous utilisez pour exécuter Oracle WebLogic Server).
+12.	Pour observer l’exécution de l’application shoppingcart sur Internet, ouvrez un navigateur et accédez à l’URL, sous la forme `http://<<unique_domain_name>>/shoppingcart`. (Vous pouvez déterminer la valeur de l’élément <<*nom\_domaine\_unique*>> dans le [portail Azure](https://ms.portal.azure.com/), en cliquant sur **Machines virtuelles**, puis en sélectionnant la machine virtuelle que vous utilisez pour exécuter Oracle WebLogic Server).
 
 
 ##Ressources supplémentaires
@@ -168,4 +168,4 @@ Maintenant que vous avez configuré votre machine virtuelle exécutant Oracle W
 
 -	[Liste des images de machine virtuelle Oracle](virtual-machines-oracle-list-oracle-virtual-machine-images.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

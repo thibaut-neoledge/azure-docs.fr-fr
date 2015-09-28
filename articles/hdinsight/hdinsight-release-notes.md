@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/09/2015"
+	ms.date="09/15/2015"
 	ms.author="nitinme"/>
 
 
@@ -1153,9 +1153,7 @@ Ces problèmes de compatibilité sont résolus dans les dernières versions du K
 Cette version inclut des améliorations du service HDInsight :
 
 * **Disponibilité de HDP 2.1** : HDInsight 3.1, qui contient HDP 2.1, est désormais disponible pour le grand public et constitue la version par défaut pour les nouveaux clusters.
-* **HBase : amélioration du portail Azure** : nous faisons en sorte que les clusters HBase soient disponibles dans la version préliminaire. Vous pouvez créer des clusters HBase à partir du portail en trois clics.
-
-![](http://i.imgur.com/cmOl5fM.png)
+* **HBase : amélioration du portail Azure** : nous faisons en sorte que les clusters HBase soient disponibles dans la version préliminaire. Vous pouvez créer des clusters HBase à partir du portail en quelques clics. 
 
 Avec HBase, vous pouvez créer différentes charges de travail en temps réel sur HDInsight, de sites web interactifs fonctionnant avec des jeux de données volumineux à des services stockant les données de capteur et de télémétrie provenant de millions de points de terminaison. L’étape suivante consisterait à analyser les données dans ces charges de travail avec des tâches Hadoop, ce qui est possible dans HDInsight grâce, notamment, à Azure PowerShell et au tableau de bord de cluster Hive.
 
@@ -1348,4 +1346,4 @@ Les notes de publication des plateformes de données Hortonworks (HDP) utilisée
 [hdinsight-r-scripts]: ../hdinsight-hadoop-r-scripts/
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

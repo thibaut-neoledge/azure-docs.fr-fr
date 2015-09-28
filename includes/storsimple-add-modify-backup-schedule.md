@@ -1,3 +1,6 @@
+
+<!--author=SharS last changed: 9/15/15-->
+
 #### Pour ajouter ou modifier une planification de sauvegarde StorSimple
 
 1. Dans la page **Démarrage rapide**, cliquez sur l’onglet **Stratégies de sauvegarde**. La page **Stratégies de sauvegarde** s’affiche.
@@ -27,4 +30,4 @@
 La page **Stratégies de sauvegarde** affiche la stratégie mise à jour.
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO3-->

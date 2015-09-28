@@ -11,7 +11,7 @@
 <tags
 	ms.service="virtual-machines"
 	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="vm-windows-sharepoint"
+	ms.tgt_pltfrm="Windows"
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="07/21/2015"
@@ -19,9 +19,13 @@
 
 # Phase 3 de la charge de travail de la batterie de serveurs SharePoint intranet : Configuration de l’infrastructure SQL Server
 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Cet article traite de la création de ressources avec le modèle de déploiement classique.
+
 Au cours de la phase de déploiement d’une batterie de serveurs SharePoint 2013 intranet uniquement avec les groupes de disponibilité SQL Server AlwaysOn dans les services d’infrastructure Azure, vous créez et configurez les deux ordinateurs SQL Server et l’ordinateur du nœud majoritaire du cluster dans la gestion des services, puis vous les combinez dans un cluster Windows Server.
 
 Vous devez procéder à cette opération avant de passer à la [Phase 4](virtual-machines-workload-intranet-sharepoint-phase4.md). Consultez [Déploiement de SharePoint avec des groupes de disponibilité SQL Server AlwaysOn dans Azure](virtual-machines-workload-intranet-sharepoint-overview.md) pour prendre connaissance de toutes les phases.
+
+> [AZURE.NOTE]Ces instructions utilisent une image SQL Server dans la galerie d’images Azure et les coûts fixes liés à l’utilisation de la licence de SQL Server vous sont facturés. Il est également possible de créer des machines virtuelles dans Azure et d’installer vos propres licences SQL Server, mais vous devez bénéficier des avantages Software Assurance et License Mobility pour utiliser votre licence SQL Server sur une machine virtuelle, y compris une machine virtuelle Azure. Pour plus d’informations sur l’installation de SQL Server sur une machine virtuelle, consultez [Installation de SQL Server](https://msdn.microsoft.com/library/bb500469.aspx).
 
 ## Création de machines virtuelles de cluster SQL Server dans Azure
 
@@ -135,7 +139,7 @@ Utilisez la procédure suivante à deux reprises, une fois pour chaque machine S
 1.	Sur l’écran d’accueil, cliquez avec le bouton droit sur **Ce PC**, puis cliquez sur **Propriétés**.
 2.	Dans la fenêtre **Système**, cliquez sur **Paramètres d’utilisation à distance**.
 3.	Dans **Bureau à distance** cliquez sur **Sélectionner les utilisateurs**, puis sur **Ajouter**.
-4.	Dans **Entrez les noms des objets à sélectionner**, entrez domain**\\sp\_farm\_db**, puis cliquez sur **OK** trois fois.
+4.	Dans **Entrez les noms des objets à sélectionner**, tapez domain**\\sp\_farm\_db**, puis cliquez sur **OK** trois fois.
 
 SQL Server nécessite un port permettant d’accéder au serveur de base de données. Il requiert également des ports pour la connexion à SQL Server Management Studio et la gestion du groupe à haute disponibilité. Exécutez ensuite la commande ci-après à partir d’une invite de commandes Windows PowerShell au niveau administrateur à deux reprises (une fois pour chaque machine SQL Server) afin d’ajouter une règle de pare-feu autorisant le trafic entrant vers la machine SQL Server.
 
@@ -172,8 +176,8 @@ En raison du comportement actuel de DHCP dans Azure, qui n’est pas conforme au
 3.	Dans le volet gauche, cliquez sur **Gestionnaire du cluster de basculement**, puis cliquez sur **Créer le cluster**.
 4.	Sur la page Avant de commencer, cliquez sur **Suivant**.
 5.	Sur la page Sélectionner les serveurs, entrez le nom de la machine SQL Server principale, cliquez sur **Ajouter**, puis cliquez sur **Suivant**.
-6.	Sur la page Avertissement de validation, cliquez sur **Non. Je n’ai pas besoin de l’assistance de Microsoft pour ce cluster, et par conséquent, je ne souhaite pas exécuter les tests de validation. Lorsque je clique sur Suivant, poursuivre la création du cluster.** Cliquez sur **Suivant**.
-7.	Sur la page Point d’accès pour l’administration du cluster, entrez le nom de votre cluster dans la zone de texte **Nom du cluster**, puis cliquez sur **Suivant**.
+6.	Sur la page Avertissement de validation, cliquez sur **Non. Je n’ai pas besoin de l’assistance de Microsoft pour ce cluster, et par conséquent, je ne souhaite pas exécuter les tests de validation. Lorsque je clique sur Suivant, poursuivre la création du cluster**, puis sur **Suivant**.
+7.	Dans la page Point d’accès pour l’administration du cluster, entrez le nom de votre cluster dans la zone de texte **Nom du cluster**, puis cliquez sur **Suivant**.
 8.	Sur la page Confirmation, cliquez sur **Suivant** afin de lancer la création du cluster.
 9.	Sur la page Résumé, cliquez sur **Terminer**.
 10.	Dans le volet gauche, cliquez sur votre nouveau cluster. Dans la section **Principales ressources de cluster** du volet de contenu, ouvrez votre cluster de serveurs. La ressource **Adresse IP** indique l’état **Échec**. La ressource d’adresse IP ne peut pas être mise en ligne, car le cluster a la même adresse IP que la machine elle-même. L’adresse apparaît donc en double.
@@ -186,7 +190,7 @@ En raison du comportement actuel de DHCP dans Azure, qui n’est pas conforme au
 17.	Pour ajouter les nœuds restants au cluster, cliquez avec le bouton droit sur le nom du cluster dans le volet gauche, puis cliquez sur **Ajouter un nœud**.
 18.	Sur la page Avant de commencer, cliquez sur **Suivant**.
 19.	Sur la page Sélectionner les serveurs, entrez le nom, puis cliquez sur **Ajouter** pour ajouter la machine SQL Server secondaire et le nœud majoritaire du cluster au cluster. Après avoir ajouté les deux ordinateurs, cliquez sur **Suivant**. Si une machine ne peut pas être ajoutée, et si un message d’erreur indique « Le service d’accès distant au Registre n’est pas en cours d’exécution », procédez comme suit : Connectez-vous à la machine, ouvrez le composant logiciel enfichable Services (services.msc) et activez le service d’accès distant au Registre. Pour plus d’informations, consultez [Impossible de se connecter au service Registre distant](http://technet.microsoft.com/library/bb266998.aspx).
-20.	Sur la page Avertissement de validation, cliquez sur **Non. Je n’ai pas besoin de l’assistance de Microsoft pour ce cluster, et par conséquent, je ne souhaite pas exécuter les tests de validation. Lorsque je clique sur Suivant, poursuivre la création du cluster.** Cliquez sur **Suivant**.
+20.	Sur la page Avertissement de validation, cliquez sur **Non. Je n’ai pas besoin de l’assistance de Microsoft pour ce cluster, et par conséquent, je ne souhaite pas exécuter les tests de validation. Lorsque je clique sur Suivant, poursuivre la création du cluster**, puis sur **Suivant**.
 21.	Sur la page Confirmation, cliquez sur **Suivant**.
 22.	Sur la page Résumé, cliquez sur **Terminer**.
 23.	Dans le volet gauche, cliquez sur **Nœuds**. Les trois ordinateurs doivent s’afficher.
@@ -202,7 +206,7 @@ Suivez cette procédure pour activer les groupes de disponibilité AlwaysOn sur 
 3.	Dans le volet gauche, cliquez sur **Services SQL Server**.
 4.	Dans le volet de contenu, double-cliquez sur **SQL Server (MSSQLSERVER)**.
 5.	Dans **Propriétés de SQL Server (MSSQLSERVER)**, cliquez sur l’onglet **Haute disponibilité AlwaysOn**, sélectionnez **Activer les groupes de disponibilité AlwaysOn**, cliquez sur **Appliquer**, puis cliquez sur **OK** lorsque vous y êtes invité. Ne fermez pas encore la fenêtre Propriétés.
-6.	Cliquez sur l’onglet virtual-machines-manage-availability, puis entrez Domain**\\sqlservice** dans **Nom du compte**. Saisissez le mot de passe du compte sqlservice dans **Mot de passe** et **Confirmer le mot de passe**, puis cliquez sur **OK**.
+6.	Cliquez sur l’onglet virtual-machines-manage-availability, puis tapez Domain**\\sqlservice** dans **Nom du compte**. Tapez le mot de passe du compte sqlservice dans **Mot de passe** et **Confirmer le mot de passe**, puis cliquez sur **OK**.
 7.	Dans la fenêtre du message, cliquez sur **Oui** pour redémarrer le service SQL Server.
 8.	Connectez-vous à la machine SQL Server secondaire et répétez la procédure.
 
@@ -228,4 +232,4 @@ Pour poursuivre la configuration de cette charge de travail, passez à la [Phase
 
 [Charge de travail des services d’infrastructure Azure : applications métier à haute disponibilité](virtual-machines-workload-high-availability-lob-application.md)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO3-->

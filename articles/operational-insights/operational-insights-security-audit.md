@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/21/2015"
+   ms.date="09/10/2015"
    ms.author="banders" />
 
 # Explorer les données de sécurité et d'audit d'Operational Insights
@@ -100,4 +100,4 @@ Toutes les données d'audit que vous pourriez souhaiter collecter et envoyer ver
 
 En plus des paramètres de stratégie locale, si vous utilisez AppLocker pour collecter des données d'audit, Operational Insights les rassemble pour que vous puissiez ensuite les afficher.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

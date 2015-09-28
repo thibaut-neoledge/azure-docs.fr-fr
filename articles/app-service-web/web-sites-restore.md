@@ -8,21 +8,23 @@
 	editor="jimbe"/>
 
 <tags 
-	ms.service="app-service-web" 
+	ms.service="app-service" 
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/03/2015" 
+	ms.date="09/16/2015" 
 	ms.author="cephalin"/>
 
 # Restaurer une application web dans Azure App Service
 
 Cet article vous explique comment restaurer une application web que vous avez précédemment sauvegardée à l’aide de la fonctionnalité de sauvegarde d’[App Service Web Apps](http://go.microsoft.com/fwlink/?LinkId=529714). Pour plus d’informations, consultez la section [Sauvegarder une application web dans Azure App Service](web-sites-backup.md).
 
+[AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
+
 La fonctionnalité de restauration de Web Apps vous permet de restaurer à la demande un état précédent de votre application web, ou de créer une application web à partir de l’une des sauvegardes de votre application web d’origine. La création d’une application web s’exécutant parallèlement à la dernière version peut se révéler utile à des fins de test A/B.
 
-La fonctionnalité de restauration de Web Apps, accessible à partir du panneau **Sauvegardes** du [portail Azure en version préliminaire](http://portal.azure.com), est uniquement disponible en modes Standard et Premium. Pour plus d'informations sur la mise à l'échelle de votre application vers le mode Standard ou Premium, consultez la page [Faire évoluer une application web dans Azure App Service](web-sites-scale.md). Notez que le mode Premium autorise un plus grand nombre de sauvegardes quotidiennes que le mode Standard.
+La fonctionnalité de restauration de Web Apps, accessible à partir du panneau **Sauvegardes** du [portail Azure en version préliminaire](http://portal.azure.com), est uniquement disponible dans les modes Standard et Premium. Pour plus d’informations sur la mise à l’échelle de votre application en utilisant le mode Standard ou Premium, consultez la page [Mise à l’échelle d’une application web dans Azure App Service](web-sites-scale.md). Notez que le mode Premium autorise un plus grand nombre de sauvegardes quotidiennes que le mode Standard.
 
 <a name="PreviousBackup"></a>
 ## Pour restaurer une application web à partir d’une sauvegarde précédente
@@ -96,4 +98,4 @@ Le panneau de détails affiche les informations disponibles relatives à l’op�
 [OperationDetails]: ./media/web-sites-restore/13OperationDetails.png
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO3-->

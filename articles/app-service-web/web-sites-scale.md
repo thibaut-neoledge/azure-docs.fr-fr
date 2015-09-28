@@ -8,17 +8,19 @@
 	editor="mollybos"/>
 
 <tags 
-	ms.service="app-service-web" 
+	ms.service="app-service" 
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/08/2015" 
+	ms.date="09/16/2015" 
 	ms.author="cephalin"/>
 
 # Mise à l’échelle d’une application web dans Microsoft Azure App Service #
 
 Si vous souhaitez améliorer les performances et le débit de vos applications web sur Microsoft Azure, vous pouvez utiliser le [portail Azure](http://go.microsoft.com/fwlink/?LinkId=529715) pour faire évoluer votre plan [App Service](http://go.microsoft.com/fwlink/?LinkId=529714) du mode **Gratuit** vers le mode **Partagé**, **De base**, **Standard** ou **Premium**.
+
+[AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
 La montée en puissance des applications web Azure implique deux actions associées : évolution du mode de votre plan App Service vers un niveau de service supérieur et configuration de certains paramètres après le passage à ce niveau de service supérieur. Cet article décrit ces deux étapes. Les niveaux de service supérieurs comme les modes **Standard** et **Premium** augmentent la robustesse et la souplesse dont vous disposez pour déterminer le mode d’utilisation de vos ressources sur Azure.
 
@@ -199,4 +201,4 @@ Selon le mode de l’application web, les fonctionnalités orientées développe
 [GeoReplication]: ./media/web-sites-scale/scale12SQLGeoReplication.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

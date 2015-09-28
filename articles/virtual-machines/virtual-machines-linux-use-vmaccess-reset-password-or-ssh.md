@@ -3,7 +3,7 @@
 	description="Utilisation du portail Microsoft Azure en version préliminaire ou de l’extension VMAccess pour Linux pour réinitialiser les mots de passe et les clés SSH, réinitialiser les configurations SSH et supprimer les utilisateurs Linux."
 	services="virtual-machines"
 	documentationCenter=""
-	authors="KBDAzure"
+	authors="cynthn"
 	manager="timlt"
 	editor=""
 	tags="azure-service-management"/>
@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/28/2015"
-	ms.author="kathydav"/>
+	ms.author="cynthn"/>
 
 # Réinitialisation d’un mot de passe ou de SSH pour les machines virtuelles Linux #
 
@@ -263,4 +263,4 @@ Pour afficher l’état de l’extension VMAccess, exécutez cette commande.
 [Fonctionnalités et extensions de machine virtuelle Azure]: http://msdn.microsoft.com/library/azure/dn606311.aspx
 [Connexion à une machine virtuelle Microsoft Azure avec RDP ou SSH]: http://msdn.microsoft.com/library/azure/dn535788.aspx
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

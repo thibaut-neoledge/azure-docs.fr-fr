@@ -3,7 +3,7 @@
    description="Suivez ces différentes étapes et instructions pour approvisionner une instance SQL Data Warehouse."
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="jrowlandjones"
+   authors="lodipalm"
    manager="barbkess"
    editor=""/>
 
@@ -25,7 +25,7 @@ Cet article, qui constitue un guide, a pour but de vous aider à provisionner un
 3. définition d’une règle de pare-feu Azure pour activer l’accès de clients externes.
 
 ## Version d’évaluation gratuite Azure ##
-Vous devez disposer d’un abonnement à Microsoft Azure pour pouvoir effectuer les tâches ci-dessous. Ce n’est pas le cas ? Alors, l’obtention d’un abonnement constitue la première étape à suivre.
+Vous devez disposer d’un abonnement Azure et de l’autorisation d’accès à la version Preview de SQL Data Warehouse pour effectuer les tâches suivantes. Ce n’est pas le cas ? Alors, l’obtention d’un abonnement constitue la première étape à suivre.
 
 Vous pouvez obtenir une [version d’essai gratuit][], qui vous permet d’essayer l’un des services Azure. Cela inclut SQL Data Warehouse.
 
@@ -40,13 +40,13 @@ Au cours de la procédure suivante, nous allons rapidement créer un tout nouvea
 
 Nous devons avant tout localiser le service SQL Data Warehouse dans le portail Azure.
 
-Dans l’angle inférieur gauche du portail Azure, vous pouvez voir apparaître le bouton Nouveau. Ce bouton est le point de départ de toute création de service dans Microsoft Azure.
+Dans l’angle supérieur gauche du portail Azure, vous pouvez voir apparaître le bouton Nouveau. Ce bouton est le point de départ de toute création de service dans Microsoft Azure.
 
 - Cliquez sur le bouton Nouveau.
 
 ### Stockage + Données
 
-En cliquant sur le bouton Nouveau, vous avez ouvert toutes les catégories de service dans Azure. Le logiciel SQL Data Warehouse se trouve dans la catégorie Stockage + Données.
+En cliquant sur le bouton Nouveau, vous ouvrez toutes les catégories de service Azure. Le logiciel SQL Data Warehouse se trouve dans la catégorie Stockage + Données.
 
 - Cliquez sur cette dernière pour afficher les détails et faire apparaître les services offerts par Microsoft Azure pour cette catégorie.
 
@@ -54,7 +54,12 @@ En cliquant sur le bouton Nouveau, vous avez ouvert toutes les catégories de s
 
 Comme vous pouvez le voir, Microsoft Azure propose un grand nombre de moteurs de données et de stockage. Toutefois, ce guide de prise en main est destiné à SQL Data Warehouse.
 
-- À présent, sélectionnez **SQL Data Warehouse**.
+- À présent, sélectionnez **SQL Data Warehouse**. 
+
+##Accès à la version Preview
+Avant de commencer le processus d’installation, vous devez être autorisé à accéder à la version Preview du programme. Cliquez sur Inscrivez-moi pour la version Preview, puis envoyez votre demande. Vous serez notifié par courrier électronique une fois votre demande approuvée.
+
+Dès que vous aurez reçu l’autorisation, vous pourrez passer aux étapes suivantes. Remarque : le traitement d’une demande d’autorisation peut prendre plusieurs jours.
 
 ## Configurer SQL Data Warehouse
 
@@ -103,7 +108,7 @@ Un groupe de ressources est un conteneur, conçu pour vous aider à gérer un en
 
 Pour les besoins de ce guide de démarrage rapide, vous pouvez conserver les valeurs par défaut du groupe de ressources.
 
-Voici quelques informations supplémentaires sur les [groupes de ressources](../azure-portal/resource-group-portal.md).
+En savoir plus sur les [groupes de ressources](../azure-portal/resource-group-portal.md).
 
 ### Abonnement
 Un utilisateur unique peut être associé à un ou plusieurs abonnements Microsoft Azure. Si votre identifiant de connexion est associé à plusieurs abonnements, vous pouvez choisir celui qui vous convient.
@@ -117,7 +122,7 @@ Pour créer votre entrepôt de données, il vous suffit à présent de cliquer s
 
 Félicitations ! Vous avez créé votre première base de données SQL Data Warehouse.
 
-Vous devriez maintenant être redirigé vers le [portail Azure][]. Comme vous pouvez le constater, votre base de données SQL Data Warehouse a été ajoutée sur la page.
+Vous devriez maintenant être redirigé vers le [portail Azure][]. Comme vous pouvez le constater, votre base de données SQL Data Warehouse a été ajoutée sur la page.
 
 
 Cependant, à ce stade, personne ne peut y accéder. Pour éviter tout risque, par défaut, le système n’a pas configuré l’accès à cette base de données pour les clients.
@@ -128,7 +133,7 @@ Ainsi, la dernière étape du processus d’approvisionnement consiste à config
 
 Pour configurer le pare-feu Microsoft Azure pour la première fois :
 
-1. Cliquez sur le bouton **Parcourir**, dans le panneau de navigation de gauche.
+1. Cliquez sur le bouton **Parcourir** dans le panneau de navigation de gauche.
 
 2. Choisissez **Serveurs SQL**.
 
@@ -153,18 +158,19 @@ Maintenant que vous avez configuré le pare-feu, vous devriez être en mesure d�
 
 Le service SQL Data Warehouse est correctement approvisionné. Nous pouvons désormais découvrir comment l’utiliser. Étapes suivantes :
 
-1. [connecter et interroger][] l’entrepôt de données ;
-2. charger les [exemples de données].
+1. [Connecter et interroger][] l’entrepôt de données.
+2. Charger les [exemples de données].
 
 <!--Image references-->
 
 
 <!-- Articles -->
-[connecter et interroger]: sql-data-warehouse-get-started-connect-query.md
+[Connecter et interroger]: sql-data-warehouse-get-started-connect-query.md
 [exemples de données]: ./sql-data-warehouse-get-started-load-samples.md
 
 <!--External links-->
 [version d’essai gratuit]: https://azure.microsoft.com/fr-FR/pricing/free-trial/
+[portail Azure]: https://portal.azure.com/
 [portail Azure]: https://portal.azure.com/
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

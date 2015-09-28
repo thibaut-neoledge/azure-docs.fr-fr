@@ -20,9 +20,9 @@
 
 ## Notes pour la version du 4 septembre 2015 d’Azure Data Catalog
 
-### Profilage des données éventuellement manquant pour certaines ressources de données enregistrées
+### Profilage des données éventuellement manquant pour certaines ressources de données inscrites
 
-Au moment de l’enregistrement de sources de données avec l’option de profilage des données sélectionnée dans l’outil d’enregistrement de la source des données, les informations de profil des données peuvent ne pas être incluses pendant l’enregistrement de tables et de vues Oracle dont les noms de colonne contiennent des caractères multioctets.
+Au moment de l’inscription de sources de données avec l’option de profilage des données sélectionnée dans l’outil d’inscription de la source des données, les informations de profil des données peuvent ne pas être incluses pendant l’inscription de tables et de vues Oracle dont les noms de colonne contiennent des caractères multioctets.
 
 Ces restrictions sont dues à un problème connu dans la version du 4 septembre et seront résolues dans une mise à jour future d’Azure Data Catalog.
 
@@ -61,7 +61,7 @@ Deux causes possibles à ce problème de comportement :
 
 Cette erreur peut également survenir lorsque l'utilisateur est connecté au réseau d'entreprise ou lorsque l'utilisateur se connecte en dehors du réseau d'entreprise. La stratégie d'authentification globale permet d’activer séparément des méthodes d'authentification pour les connexions intranet et extranet. Des erreurs de connexion peuvent survenir si l'authentification par formulaire n'est pas activée pour le réseau à partir duquel l'utilisateur se connecte.
 
-Pour plus d’informations, consultez [Configuration de l’authentification intranet par formulaire pour les appareils qui ne prennent pas en charge WIA](https://technet.microsoft.com/library/dn727110.aspx).
+Pour plus d’informations, consultez [Configuration des stratégies d’authentification](https://technet.microsoft.com/fr-FR/library/dn486781.aspx).
 
 **Cause n°2 : configuration du proxy réseau** Si le réseau d’entreprise utilise un serveur proxy, l’outil d’inscription ne peut peut-être pas se connecter à Azure Active Directory via le proxy. Les utilisateurs peuvent s’assurer de l'outil d'inscription en modifiant le fichier de configuration de l'outil, et en ajoutant au fichier la section suivante :
 
@@ -77,4 +77,4 @@ Pour plus d’informations, consultez [Configuration de l’authentification int
 
 Pour localiser le fichier RegistrationTool.exe.config, lancez l'outil d'inscription, puis ouvrez l'utilitaire Gestionnaire des tâches de Windows. Sous l'onglet Détails du Gestionnaire des tâches, cliquez avec le bouton droit sur RegistrationTool.exe et choisissez Ouvrir l'emplacement du fichier dans le menu contextuel.
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

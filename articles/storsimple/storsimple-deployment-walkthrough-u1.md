@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="09/08/2015"
+   ms.date="09/17/2015"
    ms.author="alkohli" />
 
 # Déployer votre appareil StorSimple local (Update 1)
@@ -287,4 +287,4 @@ Configuration d’un [appareil virtuel](storsimple-virtual-device.md).
 Utilisez le [service StorSimple Manager](storsimple-manager-service-administration.md) pour gérer votre appareil StorSimple.
  
 
-<!----HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

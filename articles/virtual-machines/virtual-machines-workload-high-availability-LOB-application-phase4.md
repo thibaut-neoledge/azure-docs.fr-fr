@@ -1,27 +1,29 @@
 <properties 
-	pageTitle="Application métier - Phase 4 | Microsoft Azure"
-	description="Créez les serveurs web et chargez votre application métier dessus dans la phase 4 de l'application métier dans Azure."
+	pageTitle="Application métier - Phase 4 | Microsoft Azure" 
+	description="Créez les serveurs web et chargez votre application métier dessus dans la phase 4 de l'application métier dans Azure." 
 	documentationCenter=""
-	services="virtual-machines"
-	authors="JoeDavies-MSFT"
-	manager="timlt"
+	services="virtual-machines" 
+	authors="JoeDavies-MSFT" 
+	manager="timlt" 
 	editor=""
 	tags="azure-resource-manager"/>
 
 <tags 
-	ms.service="virtual-machines"
-	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/11/2015"
+	ms.service="virtual-machines" 
+	ms.workload="infrastructure-services" 
+	ms.tgt_pltfrm="Windows" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/11/2015" 
 	ms.author="josephd"/>
 
 # Charge de travail des applications métier, phase 4 : configurer des serveurs Web
 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Cet article traite de la création de ressources avec le modèle de déploiement Resource Manager.
+
 Au cours de cette phase de déploiement d'une application métier à haute disponibilité dans des services d'infrastructure Azure, vous créez les serveurs Web et y chargez votre application métier.
 
-Vous devez procéder à cette opération avant de passer à la [Phase 5](virtual-machines-workload-high-availability-LOB-application-phase5.md). Voir [Déployer une application métier à haute disponibilité dans Azure](virtual-machines-workload-high-availability-LOB-application-overview.md) (en anglais) pour toutes les phases.
+Vous devez procéder à cette opération avant de passer à la [Phase 5](virtual-machines-workload-high-availability-LOB-application-phase5.md). Consultez [Déployer une application métier à haute disponibilité dans Azure](virtual-machines-workload-high-availability-LOB-application-overview.md) pour toutes les phases.
 
 ## Création de machines virtuelles de serveur Web dans Azure
 
@@ -34,7 +36,7 @@ Tout d'abord, vous configurez l'équilibrage de charge interne de manière à ce
 	$testIP="<a chosen IP address from the subnet address space, Table S - Item 2 – Subnet address space column>"
 	Test-AzureStaticVNetIP –VNetName $vnet –IPAddress $testIP
 
-Si le champ **IsAvailable** de la commande Test-AzureStaticVNetIP est défini sur **True**, vous pouvez utiliser l'adresse IP.
+Si le champ **IsAvailable** de la commande Test-AzureStaticVNetIP a la valeur **True**, vous pouvez utiliser l’adresse IP.
 
 Revenez au mode Resource Manager de PowerShell avec cette commande.
 
@@ -66,7 +68,7 @@ Utilisez ensuite le bloc de commandes PowerShell suivant permet de créer les m
 - Table ST pour vos comptes de stockage ;
 - Table A pour les groupes à haute disponibilité ;
 
-Souvenez-vous que vous avez défini la table M au cours de la [Phase 2](virtual-machines-workload-high-availability-LOB-application-phase2.md) et les tables V, S, ST et A au cours de la [Phase 1](virtual-machines-workload-high-availability-LOB-application-phase1.md).
+Souvenez-vous que vous avez défini la table M au cours de la [Phase 2](virtual-machines-workload-high-availability-LOB-application-phase2.md) et les tables V, S, ST et A au cours de la [Phase 1](virtual-machines-workload-high-availability-LOB-application-phase1.md).
 
 Une fois que vous avez fourni toutes les valeurs requises, exécutez le bloc résultant dans l'invite de commandes Azure PowerShell.
 
@@ -116,6 +118,8 @@ Une fois que vous avez fourni toutes les valeurs requises, exécutez le bloc ré
 	$vm=Set-AzureVMOSDisk -VM $vm -Name "OSDisk" -VhdUri $osDiskUri -CreateOption fromImage
 	New-AzureVM -ResourceGroupName $rgName -Location $locName -VM $vm
 
+> [AZURE.NOTE]Étant donné que ces machines virtuelles sont destinées à une application intranet, elles ne reçoivent pas d’adresse IP publique ni d’étiquette de nom de domaine DNS, et ne sont pas exposées à Internet. Toutefois, cela signifie également que vous ne pouvez pas vous y connecter à partir du portail Azure en version préliminaire. Le bouton **Se connecter** n’est pas disponible quand vous affichez les propriétés de la machine virtuelle.
+
 Utilisez le client Bureau à distance de votre choix et créez une connexion Bureau à distance à chaque machine virtuelle de serveur Web. Utilisez son nom d'ordinateur ou DNS intranet et les informations d'identification du compte d'administrateur local.
 
 Associez chaque machine virtuelle de serveur Web au domaine Active Directory approprié en utilisant les commandes suivantes dans l'invite de commandes Windows PowerShell.
@@ -124,21 +128,21 @@ Associez chaque machine virtuelle de serveur Web au domaine Active Directory app
 	Add-Computer -DomainName $domName
 	Restart-Computer
 
-Notez que vous devez fournir les informations d'identification de compte de domaine après avoir saisi la commande **Add-Computer**.
+Notez que vous devez fournir les informations d’identification de compte de domaine après avoir entré la commande **Add-Computer**.
 
 Après le redémarrage, connectez-vous de nouveau à l'aide d'un compte disposant de privilèges d'administrateur local.
 
 Ensuite, installez et configurez IIS pour chaque serveur Web.
 
 1. Exécutez le Gestionnaire de serveur, puis cliquez sur **Ajouter des rôles et fonctionnalités**.
-2. Sur la page Avant de commencer, cliquez sur **Suivant**.
-3. Sur la page Sélectionner le type d'installation, cliquez sur **Suivant**.
-4. Sur la page Sélectionner le serveur de destination, cliquez sur **Suivant**.
-5. Sur la page Rôles de serveurs , cliquez sur **Serveur Web (IIS)** dans la liste des **rôles**.
-6. Lorsque vous y êtes invité, cliquez sur **Ajouter des fonctionnalités**, puis cliquez sur **Suivant**.
-7. Sur la page Sélectionner des fonctionnalités, cliquez sur **Suivant**.
-8. Sur la page Serveur Web (IIS), cliquez sur **Suivant**.
-9. Sur la page Sélectionner des services de rôle, activez ou désactivez les cases à cocher pour les services requis pour votre application métier, puis cliquez sur **Suivant**. 10.Sur la page Confirmer les sélections pour l'installation, cliquez sur **Installer**.
+2. Dans la page Avant de commencer, cliquez sur **Suivant**.
+3. Dans la page Sélectionner le type d’installation, cliquez sur **Suivant**.
+4. Dans la page Sélectionner le serveur de destination, cliquez sur **Suivant**.
+5. Dans la page Rôles de serveur, cliquez sur **Serveur Web (IIS)** dans la liste des **rôles**.
+6. Quand vous y êtes invité, cliquez sur **Ajouter des fonctionnalités**, puis sur **Suivant**.
+7. Dans la page Sélectionner des fonctionnalités, cliquez sur **Suivant**.
+8. Dans la page Serveur Web (IIS), cliquez sur **Suivant**.
+9. Dans la page Sélectionner des services de rôle, cochez ou décochez les cases pour les services requis pour votre application métier, puis cliquez sur **Suivant**. 10. Dans la page Confirmer les sélections pour l’installation, cliquez sur **Installer**.
 
 ## Déployer votre application métier sur les machines virtuelles du serveur web
 
@@ -154,13 +158,13 @@ Ce diagramme représente la configuration résultant de l'exécution de cette ph
 
 ## Étape suivante
 
-Pour poursuivre la configuration de cette charge de travail, passez à la [Phase 5 : Création du groupe de disponibilité et ajout des bases de données d'application](virtual-machines-workload-high-availability-LOB-application-phase5.md).
+Pour poursuivre la configuration de cette charge de travail, passez à la [Phase 5 : Créer le groupe de disponibilité et ajouter les bases de données de l’application](virtual-machines-workload-high-availability-LOB-application-phase5.md).
 
 ## Ressources supplémentaires
 
 [Déployer une application métier à haute disponibilité dans Azure](virtual-machines-workload-high-availability-LOB-application-overview.md) (en anglais)
 
-[Plan de l'architecture des applications métier](http://msdn.microsoft.com/dn630664)
+[Plan de l’architecture des applications métier](http://msdn.microsoft.com/dn630664)
 
 [Configuration d’une application métier web dans un cloud hybride à des fins de test](../virtual-network/virtual-networks-setup-lobapp-hybrid-cloud-testing.md)
 
@@ -168,4 +172,4 @@ Pour poursuivre la configuration de cette charge de travail, passez à la [Phase
 
 [Charge de travail des services d’infrastructure Azure : batterie de serveurs SharePoint Server 2013](virtual-machines-workload-intranet-sharepoint-farm.md)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO3-->

@@ -1,23 +1,23 @@
-<properties 
+<properties
    pageTitle="Génération en ligne de commande pour Azure"
-	description="Génération en ligne de commande pour Azure"
-	services="visual-studio-online"
-	documentationCenter="na"
-	authors="kempb"
-	manager="douge"
-	editor="tlee"/>
-<tags 
+   description="Génération en ligne de commande pour Azure"
+   services="visual-studio-online"
+   documentationCenter="na"
+   authors="kempb"
+   manager="douge"
+   editor="tlee" />
+<tags
    ms.service="multiple"
-	ms.devlang="multiple"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="na"
-	ms.date="08/24/2015"
-	ms.author="kempb"/>
+   ms.devlang="multiple"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="na"
+   ms.date="08/24/2015"
+   ms.author="kempb" />
 
 # Génération en ligne de commande pour Azure
 
-##Vue d’ensemble
+## Vue d’ensemble
 
 Vous pouvez créer un package de déploiement Azure en exécutant MSBuild à partir de l'invite de commandes. Vous pouvez configurer et définir des builds pour le débogage, la gestion intermédiaire et la production, en plus de l'automatisation d’une partie du processus de génération.
 
@@ -62,4 +62,4 @@ Si vous souhaitez utiliser un autre répertoire pour les fichiers de configurati
 
 Une fois le package créé, vous pouvez le déployer sur Azure. Pour voir un didacticiel qui illustre ce processus, consultez le site web Azure. Pour plus d'informations sur la façon d'automatiser ce processus, consultez [Remise continue pour Cloud Services dans Azure](../cloud-services/cloud-services-dotnet-continuous-delivery).
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO3-->

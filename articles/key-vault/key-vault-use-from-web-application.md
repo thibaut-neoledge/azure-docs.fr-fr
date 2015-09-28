@@ -6,7 +6,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/24/2015" 
+	ms.date="09/16/2015" 
 	ms.author="adhurwit"/>
 
 # Utilisation d'Azure Key Vault à partir d'une application web #
@@ -152,6 +152,11 @@ Pour plus d'informations sur la création d'un certificat de test, consultez [Ho
 	PS C:\> $adapp = New-AzureADApplication -DisplayName "KVWebApp" -HomePage "http://kvwebapp" -IdentifierUris "http://kvwebapp" -KeyValue $credValue -KeyType "AsymmetricX509Cert" -KeyUsage "Verify" -StartDate $now -EndDate $yearfromnow
 	
 	PS C:\> $sp = New-AzureADServicePrincipal -ApplicationId $adapp.ApplicationId
+	
+	PS C:\> Set-AzureKeyVaultAccessPolicy -VaultName 'contosokv' -ServicePrincipalName $sp.ServicePrincipalName -PermissionsToKeys all -ResourceGroupName 'contosorg'
+	
+	# get the thumbprint to use in your app settings
+	PS C:\>$x509.Thumbprint
 
 Après avoir exécuté ces commandes, vous pouvez voir l'application dans Azure AD. Si vous ne voyez pas l'application, recherchez « Applications my company owns » au lieu de « Applications my company uses ».
 
@@ -221,7 +226,7 @@ La dernière modification de code a lieu dans la méthode Application\_Start. N
 ![Ajout d'un certificat à une application Web dans le portail Azure][2]
 
 
-La dernière chose que vous devez faire consiste à ajouter un paramètre d'application à votre application Web, nommé WEBSITE\_LOAD\_CERTIFICATES et avec la valeur \*. Cela garantit que tous les certificats sont chargés. Si vous souhaitez charger uniquement les certificats que vous avez téléchargés, vous pouvez entrer une liste séparée par des virgules de leurs empreintes numériques.
+La dernière chose que vous devez faire consiste à ajouter un paramètre d'application à votre application Web, nommé WEBSITE\_LOAD\_CERTIFICATES et avec la valeur *. Cela garantit que tous les certificats sont chargés. Si vous souhaitez charger uniquement les certificats que vous avez téléchargés, vous pouvez entrer une liste séparée par des virgules de leurs empreintes numériques.
 
 Pour en savoir plus sur l'ajout d'un certificat à une application Web, consultez [Using Certificates in Azure Websites Applications](https://azure.microsoft.com/blog/2014/10/27/using-certificates-in-azure-websites-applications/)
 
@@ -238,4 +243,4 @@ Pour les références de programmation, consultez la page [Référence de l'API 
 [2]: ./media/key-vault-use-from-web-application/PortalAddCertificate.png
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO3-->

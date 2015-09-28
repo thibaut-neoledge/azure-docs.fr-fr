@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Utiliser Azure CDN dans Azure App Service"
-	description="Didacticiel qui explique comment déployer une application web sur Azure App Service qui traite le contenu à partir d'un point de terminaison CDN Azure intégré"
-	services="app-service\web"
-	documentationCenter=".net"
-	authors="cephalin"
-	manager="wpickett"
+	pageTitle="Utiliser Azure CDN dans Azure App Service" 
+	description="Didacticiel qui explique comment déployer une application web sur Azure App Service qui traite le contenu à partir d'un point de terminaison CDN Azure intégré" 
+	services="app-service\web" 
+	documentationCenter=".net" 
+	authors="cephalin" 
+	manager="wpickett" 
 	editor="jimbe"/>
 
 <tags 
-	ms.service="app-service-web"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="na"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.date="06/25/2015"
+	ms.service="app-service" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="09/16/2015" 
 	ms.author="cephalin"/>
 
 
@@ -27,6 +27,8 @@ L'intégration d'applications web à Azure CDN offre les avantages suivants :
 - Facilité de mise à niveau des packages NuGet dans votre application web dans Azure App Service (par exemple, les versions de jQuery ou de Bootstrap) 
 - Gestion de votre application web et de votre contenu CDN depuis la même interface Visual Studio
 - Intégration du regroupement et de la minimisation d'ASP.NET avec Azure CDN
+
+[AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
 ## Ce que vous allez créer ##
 
@@ -564,4 +566,4 @@ La classe [Bundle](http://msdn.microsoft.com/library/system.web.optimization.bun
 * Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre l’ancien et le nouveau portail, consultez la page [Références sur la navigation dans le portail Azure](http://go.microsoft.com/fwlink/?LinkId=529715)
  
 
-<!-------HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO3-->

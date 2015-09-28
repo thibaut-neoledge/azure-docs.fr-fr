@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/06/2015"
+	ms.date="09/09/2015"
 	ms.author="rkarlin"/>
 
 # Utilisation des domaines personnalisés dans le proxy d'application Azure AD
-> [AZURE.NOTE]Le Proxy d’application est une fonctionnalité qui n’est disponible que si vous effectuez une mise à niveau vers l’édition Premium ou Basic d’Azure Active Directory. Pour plus d’informations, consultez la page [Éditions d’Azure Active Directory](https://msdn.microsoft.com/library/azure/dn532272.aspx).
+> [AZURE.NOTE]Le Proxy d’application est une fonctionnalité qui n’est disponible que si vous effectuez une mise à niveau vers l’édition Premium ou Basic d’Azure Active Directory. Pour plus d’informations, consultez la page [Éditions d’Azure Active Directory](active-directory-editions.md).
 
 En utilisant un domaine par défaut, vous pouvez définir la même URL comme URL interne et externe pour accéder à l'application afin que vos utilisateurs n’aient qu'une seule URL à se rappeler pour accéder à l'application, quel que soit l’endroit à partir duquel ils y accèdent. Cela vous permet également de créer un raccourci unique dans le volet d'accès de l'application. Si vous utilisez le domaine par défaut fourni par le proxy d'application Azure AD, il n'y a aucune autre configuration nécessaire pour activer votre domaine. Dans le cas où vous utilisez un domaine personnalisé, vous avez quelques procédures à suivre pour vous assurer que le proxy d'application reconnaît bien votre domaine et valide ses certificats.
 
@@ -40,4 +40,4 @@ Q : Puis-je sélectionner un certificat déjà téléchargé sans avoir à le t�
 * [Inscription à Azure en tant qu’organisation](..sign-up-organization.md)
 * [Identité Azure](..fundamentals-identity.md)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO3-->

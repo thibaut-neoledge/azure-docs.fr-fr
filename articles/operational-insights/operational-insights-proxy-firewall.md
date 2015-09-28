@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/21/2015"
+   ms.date="09/10/2015"
    ms.author="banders" />
 
 # Configurer les paramètres de pare-feu et de proxy pour Operational Insights
@@ -174,4 +174,4 @@ Utilisez les procédures suivantes pour inscrire votre groupe d'administration O
 3. Ajoutez tous les compteurs commençant par **HTTP**. ![ajouter des compteurs](./media/operational-insights-proxy-firewall/sendingdata1.png)
 4. Si votre configuration Operations Manager est correcte, vous verrez une activité pour les compteurs d'administration du service de contrôle d'intégrité liés à des événements et autres éléments de données, en fonction des packs d'administration que vous avez ajoutés dans Operational Insights et de la stratégie de collecte de journaux configurée. ![Analyseur de performances indiquant une activité](./media/operational-insights-proxy-firewall/sendingdata2.png)
 
-<!----HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

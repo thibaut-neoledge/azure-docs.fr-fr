@@ -1,25 +1,28 @@
 <properties
-   pageTitle="Configurer des connexions ExpressRoute et VPN de site à site pouvant coexister | Microsoft Azure"
-	description="Ce didacticiel vous guide tout au long de la configuration d’une connexion ExpressRoute et d’une connexion VPN de site à site pouvant coexister."
-	documentationCenter="na"
-	services="expressroute"
-	authors="cherylmc"
-	manager="carolz"
-	editor="tysonn"/>
+   pageTitle="Configurer des connexions ExpressRoute et VPN de site à site qui puissent coexister | Microsoft Azure"
+   description="Cet article vous guide tout au long de la configuration d’une connexion ExpressRoute et d’une connexion VPN de site à site pouvant coexister."
+   documentationCenter="na"
+   services="expressroute"
+   authors="cherylmc"
+   manager="carolz"
+   editor=""
+   tags="azure-service-management"/>
 <tags
    ms.service="expressroute"
-	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.tgt_pltfrm="na"
-	ms.workload="infrastructure-services"
-	ms.date="08/05/2015"
-	ms.author="cherylmc"/>
+   ms.devlang="na"
+   ms.topic="get-started-article"
+   ms.tgt_pltfrm="na"
+   ms.workload="infrastructure-services"
+   ms.date="09/16/2015"
+   ms.author="cherylmc"/>
 
 # Configurer des connexions Azure ExpressRoute et VPN de site à site coexistantes
 
-Vous pouvez désormais connecter ExpressRoute et un réseau privé virtuel de site à site à un même réseau virtuel. Vous pouvez choisir entre deux scénarios et deux procédures de configuration.
+Vous pouvez connecter ExpressRoute et des réseaux privés virtuels de site à site à un même réseau virtuel. Il existe deux scénarios différents où vous pouvez souhaiter utiliser des connexions coexistantes. Le scénario 1 utilise ExpressRoute comme lien actif et la connexion de site à site comme connexion de sauvegarde. Dans le scénario 2, les deux connexions sont actives.
 
-## Scénarios
+Les étapes décrites dans cet article s’appliquent aux réseaux virtuels utilisant le modèle de déploiement classique. Ce type de connexion coexistante n’est pas encore disponible pour les réseaux virtuels utilisant le modèle de déploiement Resource Manager.
+
+
 
 ### Scénario 1
 
@@ -36,22 +39,22 @@ Dans ce scénario, vous disposez de deux réseaux locaux. Vous pouvez connecter 
 ![Coexister](media/expressroute-coexist/scenario2.jpg)
 
 
-## Création et configuration
+## Choix d’une procédure de configuration
 
 Vous pouvez choisir entre deux procédures différentes pour configurer vos connexions pour qu'elles coexistent. La procédure de configuration que vous sélectionnez varie selon que vous disposez déjà d’un réseau virtuel auquel vous connecter ou que vous voulez créer un réseau virtuel.
 
 - **Créer un réseau virtuel et des connexions qui coexistent  :**
 
-	si vous ne disposez pas déjà d’un réseau virtuel, cette procédure vous guide dans la création d’un réseau virtuel et dans l’établissement de nouvelles connexions ExpressRoute et VPN de site à site. Pour procéder à la configuration, suivez les étapes décrites dans la rubrique [Créer un réseau virtuel et des connexions](#create-a-new-virtual-network-and-connections-that-coexist).
+	si vous ne disposez pas déjà d’un réseau virtuel, cette procédure vous guide dans la création d’un réseau virtuel et dans l’établissement de nouvelles connexions ExpressRoute et VPN de site à site. Pour procéder à la configuration, suivez les étapes décrites dans [Créer un réseau virtuel et des connexions coexistantes](#create-a-new-vnet-with-coexisting-connections).
 
 - **Configurer votre réseau virtuel existant pour les connexions coexistantes :**
 
-	vous disposez peut-être déjà d’un réseau virtuel avec une connexion VPN de site à site existante ou une connexion ExpressRoute. La procédure [Configurer des connexions qui coexistent pour votre réseau virtuel existant](#configure-connections-that-coexist-for-your-existing-virtual-network) vous guide dans la suppression de la passerelle, puis la création de connexions ExpressRoute et VPN de site à site. Notez que vous devez effectuer les étapes dans un ordre très spécifique lorsque vous créez les connexions. N’utilisez pas les instructions contenues dans d’autres articles pour créer des connexions et des passerelles.
+	vous disposez peut-être déjà d’un réseau virtuel avec une connexion VPN de site à site existante ou une connexion ExpressRoute. La procédure de [configuration de connexions qui coexistent pour un réseau virtuel existant](#configure-coexisting-connections-for-an-existing-vnet) vous guide tout au long des étapes de suppression de la passerelle et de création de connexions ExpressRoute et VPN de site à site. Notez que vous devez effectuer les étapes dans un ordre très spécifique lorsque vous créez les connexions. N’utilisez pas les instructions contenues dans d’autres articles pour créer des connexions et des passerelles.
 
 	Lors de cette procédure, si vous créez des connexions pouvant coexister, vous devez supprimer votre passerelle, puis configurer de nouvelles passerelles. En d’autres termes, vous subissez un temps d’arrêt pour les connexions entre différents locaux lorsque vous supprimez et recréez la passerelle et les connexions, mais vous ne devez pas migrer les ordinateurs virtuels ou les services vers un nouveau réseau virtuel. Les ordinateurs virtuels et les services sont toujours en mesure de communiquer via l’équilibrage de charge lorsque vous configurez votre passerelle s’ils sont configurés pour ce faire.
 
 
-## Remarques et limitations
+### Remarques et limitations
 
 - Vous ne pouvez pas créer d’itinéraire (via Azure) entre votre réseau local connecté via le réseau privé virtuel de site à site et votre réseau local connecté via ExpressRoute.
 - Vous ne pouvez pas activer de connexions VPN point à site avec le même réseau virtuel connecté à ExpressRoute. Des connexions VPN points à site et ExpressRoute ne peuvent pas coexister pour un même réseau virtuel.
@@ -64,16 +67,16 @@ Vous pouvez choisir entre deux procédures différentes pour configurer vos conn
 	- [Configuration d’une connexion ExpressRoute via un fournisseur Exchange](expressroute-configuring-exps.md)
 
 
-## Créer un réseau virtuel et des connexions qui coexistent
+## Créer un réseau virtuel avec des connexions coexistantes
 
 Cette procédure vous guide dans la création d'un réseau virtuel et dans l’établissement de nouvelles connexions de site à site et ExpressRoute qui coexisteront.
 
 1. Vérifiez que vous disposez de la dernière version des applets de commande PowerShell. Vous pouvez télécharger et installer les dernières applets de commande PowerShell à partir de la section PowerShell de la [page de téléchargement](http://azure.microsoft.com/downloads/).
-2. Créez un schéma pour votre réseau virtuel. Pour plus d’informations sur l’utilisation du fichier de configuration réseau, consultez la rubrique [Configuration d’un réseau virtuel à l’aide d’un fichier de configuration réseau](../virtual-network/virtual-networks-using-network-configuration-file.md). Pour plus d’informations sur le schéma de configuration, consultez la page [Schéma de configuration du réseau virtuel Azure](https://msdn.microsoft.com/library/azure/jj157100.aspx).
+2. Créez un schéma pour votre réseau virtuel. Pour plus d’informations sur l’utilisation du fichier de configuration réseau, consultez [Comment créer un réseau virtuel à l’aide d’un fichier de configuration réseau](../virtual-network/virtual-networks-create-vnet-classic-portal.md#how-to-create-a-vnet-using-a-network-config-file-in-the-azure-portal). Pour plus d’informations sur le schéma de configuration, consultez la page [Schéma de configuration du réseau virtuel Azure](https://msdn.microsoft.com/library/azure/jj157100.aspx).
 
 	Lorsque vous créez votre schéma, veillez à utiliser les valeurs suivantes :
 
-	- Le sous-réseau de la passerelle du réseau virtuel doit être défini sur /27 (ou un préfixe plus court).
+	- La longueur de préfixe réseau du sous-réseau de passerelle du réseau virtuel doit être inférieure ou égale à 27 (/26/25, etc..).
 	- La connexion à la passerelle est du type « dédié ».
 
 		      <VirtualNetworkSite name="MyAzureVNET" Location="Central US">
@@ -173,7 +176,7 @@ Cette procédure vous guide dans la création d'un réseau virtuel et dans l’�
 	`New-AzureVirtualNetworkGatewayConnection -connectedEntityId <local-network-gateway-id> -gatewayConnectionName Azure2Local -gatewayConnectionType IPsec -sharedKey abc123 -virtualNetworkGatewayId <azure-s2s-vpn-gateway-id>`
 
 
-## Configurer des connexions qui coexistent pour votre réseau virtuel existant
+## Configurer des connexions coexistante pour un réseau virtuel existant
 
 Si vous disposez d’un réseau virtuel connecté via ExpressRoute ou une connexion VPN de site à site, vous devez d’abord supprimer la passerelle existante pour permettre aux deux connexions de se connecter au réseau virtuel existant. Cela signifie que votre site local perd la connexion à votre réseau virtuel via la passerelle lorsque vous effectuez cette configuration.
 
@@ -189,7 +192,7 @@ Si vous disposez d’un réseau virtuel connecté via ExpressRoute ou une connex
 2. Exportez le schéma du réseau virtuel. Utilisez l’applet de commande PowerShell suivante en remplaçant les valeurs par les vôtres.
 
 	`Get-AzureVNetConfig –ExportToFile “C:\NetworkConfig.xml”`
-3. Modifiez le schéma du fichier de configuration réseau pour que le sous-réseau de passerelle soit défini sur /27 (ou un préfixe plus court). Consultez l’exemple qui suit. Pour plus d’informations sur l’utilisation du fichier de configuration réseau, consultez la rubrique [Configuration d’un réseau virtuel à l’aide d’un fichier de configuration réseau](../virtual-network/virtual-networks-using-network-configuration-file.md). Pour plus d’informations sur le schéma de configuration, consultez la page [Schéma de configuration du réseau virtuel Azure](https://msdn.microsoft.com/library/azure/jj157100.aspx).
+3. Modifiez le schéma du fichier de configuration réseau pour que le sous-réseau de passerelle soit défini sur /27 (ou un préfixe plus court). Consultez l’exemple qui suit. Pour plus d’informations sur l’utilisation du fichier de configuration réseau, consultez [Comment créer un réseau virtuel à l’aide d’un fichier de configuration réseau](../virtual-network/virtual-networks-create-vnet-classic-portal.md#how-to-create-a-vnet-using-a-network-config-file-in-the-azure-portal). Pour plus d’informations sur le schéma de configuration, consultez la page [Schéma de configuration du réseau virtuel Azure](https://msdn.microsoft.com/library/azure/jj157100.aspx).
 
 
           <Subnet name="GatewaySubnet">
@@ -204,7 +207,7 @@ Si vous disposez d’un réseau virtuel connecté via ExpressRoute ou une connex
 		            </LocalNetworkSiteRef>
 		          </ConnectionsToLocalNetwork>
 		        </Gateway>
-5. À ce stade, vous disposez d’un réseau virtuel sans passerelles. Vous pouvez passer à l’**étape 3** de l’article [Créer un réseau virtuel et des connexions](#create-a-new-virtual-network-and-connections-that-coexist) pour créer des passerelles et finaliser vos connexions.
+5. À ce stade, vous disposez d’un réseau virtuel sans passerelles. Vous pouvez passer à l’**étape 3** de l’article [Créer un réseau virtuel avec des connexions de coexistence](#create-a-new-vnet-with-coexisting-connections) pour créer des passerelles et finaliser vos connexions.
 
 
 
@@ -214,4 +217,4 @@ En savoir plus sur ExpressRoute. Consultez la rubrique [Présentation d’Expre
 
 En savoir plus sur les passerelles VPN. Consultez la rubrique [À propos des passerelles VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md).
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO3-->

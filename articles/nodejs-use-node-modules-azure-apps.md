@@ -23,7 +23,7 @@ Si vous savez utiliser les modules Node.js, les fichiers **package.json** et **n
 
 Les modules sont des packages JavaScript chargeables qui fournissent une fonctionnalité spécifique à votre application. Un module est habituellement installé à l'aide de l'outil en ligne de commande **napm**. Néanmoins, certains modules (le module http par exemple) sont intégrés au package Node.js principal.
 
-Lorsque les modules sont installés, ils sont stockés dans le répertoire **node\_modules** à la racine de la structure de répertoires de votre application. Chaque module du répertoire **node\_modules** conserve son propre répertoire **node\_modules** qui comporte tous les module dont il dépend. Cette structure se répète pour chaque module, tout au long de la chaîne de dépendance. Ainsi, chaque module installé est doté de ses propres exigences de version pour les modules dont il dépend, ce qui peut néanmoins résulter en une structure de répertoires assez volumineuse.
+Lorsque les modules sont installés, ils sont stockés dans le répertoire **node\_modules** à la racine de la structure de répertoires de votre application. Chaque module du répertoire **node\_modules** conserve son propre répertoire **node\_modules** qui comporte tous les modules dont il dépend. Cette structure se répète pour chaque module, tout au long de la chaîne de dépendance. Ainsi, chaque module installé est doté de ses propres exigences de version pour les modules dont il dépend, ce qui peut néanmoins résulter en une structure de répertoires assez volumineuse.
 
 Lors du déploiement du répertoire **node\_modules** dans votre application, la taille du déploiement est accrue comparée à l'utilisation du fichier **package.json** ou **npm-shrinkwrap.json**. Néanmoins, ce type de déploiement garantit que la version des modules utilisés en production est la même que ceux utilisés en développement.
 
@@ -76,4 +76,4 @@ Maintenant que vous savez comment utiliser les modules Node.js avec Azure, déco
 [Build and deploy a Node.js application to an Azure Cloud Service]: cloud-services-nodejs-develop-deploy-app.md
 [Scripts de déploiement de site web personnalisés avec Kudu]: /documentation/videos/custom-web-site-deployment-scripts-with-kudu/
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

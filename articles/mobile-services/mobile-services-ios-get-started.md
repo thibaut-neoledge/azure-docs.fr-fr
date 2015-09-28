@@ -1,12 +1,11 @@
 <properties
-	pageTitle="Prise en main d’Azure Mobile Services pour les applications iOS"
+	pageTitle="Prendre en main Azure Mobile Services pour les applications iOS | Backend JavaScript"
 	description="Suivez ce didacticiel pour commencer à utiliser Azure Mobile Services pour le développement iOS."
 	services="mobile-services"
 	documentationCenter="ios"
 	authors="krisragh"
 	manager="dwrede"
 	editor=""/>
-
 
 <tags
 	ms.service="mobile-services"
@@ -17,7 +16,6 @@
 	ms.date="07/28/2015"
 	ms.author="krisragh"/>
 
-
 # <a name="getting-started"> </a>Prise en main de Mobile Services
 
 [AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]
@@ -26,7 +24,7 @@ Ce didacticiel présente l’ajout d’un service principal cloud à une applica
 
 Dans ce didacticiel, vous allez créer un service mobile et une simple application _To do list_ qui stocke les données d'application dans le nouveau service mobile. Le service mobile à créer utilise du code JavaScript pour la logique métier côté serveur. Pour créer un service mobile avec une logique métier côté serveur dans un langage .NET, consultez la [version principale .NET] de cette rubrique.
 
-> [AZURE.NOTE]Pour suivre ce didacticiel, vous avez besoin d'un compte Azure. Si vous n'avez pas de compte, vous pouvez vous inscrire pour une évaluation d'Azure et obtenir des [services mobiles gratuits que vous pourrez conserver après l'expiration de votre période d'évaluation](http://azure.microsoft.com/pricing/details/mobile-services/). Pour plus d’informations, consultez la page d’[essai gratuit d’Azure\](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AE564AB28&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Ffr-fr%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-ios%2F%20 target="\_blank").
+> [AZURE.NOTE]Pour suivre ce didacticiel, vous avez besoin d'un compte Azure. Si vous n'avez pas de compte, vous pouvez vous inscrire pour une évaluation d'Azure et obtenir des [services mobiles gratuits que vous pourrez conserver après l'expiration de votre période d'évaluation](http://azure.microsoft.com/pricing/details/mobile-services/). Pour plus d’informations, consultez la page d’[essai gratuit d’Azure](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AE564AB28&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Ffr-FR%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-ios%2F%20 target="\_blank").
 
 ## <a name="create-new-service"> </a>Création d'un service mobile
 
@@ -53,17 +51,13 @@ Vous pouvez suivre un démarrage rapide facile dans le portail de gestion pour c
 ## <a name="next-steps"> </a>Étapes suivantes
 Apprenez à effectuer d’autres tâches importantes dans Mobile Services :
 
-* [Ajout de Mobile Services à une application existante] <br/>
-En savoir plus sur le stockage et l’interrogation des données à l’aide de Mobile Services.
+* [Ajout de Mobile Services à une application existante] <br/>En savoir plus sur le stockage et l’interrogation des données à l’aide de Mobile Services.
 
-* [Prise en main de la synchronisation des données hors connexion] <br/>
-En savoir plus sur la synchronisation des données hors connexion pour rendre votre application réactive et robuste.
+* [Prise en main de la synchronisation des données hors connexion] <br/>En savoir plus sur la synchronisation des données hors connexion pour rendre votre application réactive et robuste.
 
-* [Ajout de l’authentification à votre application] <br/>
-Découvrez comment authentifier les utilisateurs de votre application avec un fournisseur d’identité.
+* [Ajout de l’authentification à votre application] <br/>Découvrez comment authentifier les utilisateurs de votre application avec un fournisseur d’identité.
 
-* [Ajout de notifications Push à votre application existante] <br/>
-En savoir plus sur l’envoi d’une notification Push très basique à votre application.
+* [Ajout de notifications Push à votre application existante] <br/>En savoir plus sur l’envoi d’une notification Push très basique à votre application.
 
 
 <!-- Anchors. -->
@@ -94,4 +88,4 @@ En savoir plus sur l’envoi d’une notification Push très basique à votre ap
 [XCode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [version principale .NET]: mobile-services-dotnet-backend-ios-get-started.md
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

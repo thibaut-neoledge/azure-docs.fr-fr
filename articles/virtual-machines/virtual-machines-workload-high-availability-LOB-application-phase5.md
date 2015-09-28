@@ -1,27 +1,29 @@
 <properties 
-	pageTitle="Application métier - Phase 5 | Microsoft Azure"
-	description="Créez un groupe de disponibilité et ajoutez vos bases de données d'applications dans la phase 5 de l'application métier dans Azure."
+	pageTitle="Application métier - Phase 5 | Microsoft Azure" 
+	description="Créez un groupe de disponibilité et ajoutez vos bases de données d'applications dans la phase 5 de l'application métier dans Azure." 
 	documentationCenter=""
-	services="virtual-machines"
-	authors="JoeDavies-MSFT"
-	manager="timlt"
+	services="virtual-machines" 
+	authors="JoeDavies-MSFT" 
+	manager="timlt" 
 	editor=""
 	tags="azure-resource-manager"/>
 
 <tags 
-	ms.service="virtual-machines"
-	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/11/2015"
+	ms.service="virtual-machines" 
+	ms.workload="infrastructure-services" 
+	ms.tgt_pltfrm="Windows" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/11/2015" 
 	ms.author="josephd"/>
 
 # Charge de travail des applications métier, phase 5 : création du groupe de disponibilité et ajout des bases de données d'application
 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Cet article traite de la création de ressources avec le modèle de déploiement Resource Manager.
+
 Au cours de cette dernière phase de déploiement d'une application métier à haute disponibilité dans des services d'infrastructure Azure, vous créez un groupe de disponibilité SQL Server AlwaysOn et ajoutez les bases de données de l'application.
 
-Voir [Déployer une application métier à haute disponibilité dans Azure](virtual-machines-workload-high-availability-LOB-application-overview.md) (en anglais) pour toutes les phases.
+Consultez [Déployer une application métier à haute disponibilité dans Azure](virtual-machines-workload-high-availability-LOB-application-overview.md) pour toutes les phases.
 
 ## Création du groupe de disponibilité et ajout des bases de données
 
@@ -36,14 +38,14 @@ Une fois que les bases de données ont été sauvegardées et restaurées, elles
 
 Pour activer la sauvegarde et la restauration, les fichiers de sauvegarde (.bak) doivent être accessibles à partir du serveur de base de données secondaire. Procédez comme suit :
 
-1.	Connectez-vous au serveur de base de données principal en tant que **[domain]\\sqladmin**. 
+1.	Connectez-vous au serveur de base de données primaire en tant que **[domain]\\sqladmin**. 
 2.	Accédez au disque F:\\. 
 3.	Cliquez avec le bouton droit sur le dossier **Backup**, puis cliquez sur **Partager avec**et sur **Des personnes spécifiques**.
-4.	Dans la boîte de dialogue **Partage de fichiers**, entrez **domain\\sqlservice**, puis cliquez sur **Ajouter**.
+4.	Dans la boîte de dialogue **Partage de fichiers**, tapez **domain\\sqlservice**, puis cliquez sur **Ajouter**.
 5.	Cliquez sur la colonne **Niveau d’autorisation** correspondant au compte **sqlservice**, puis cliquez sur **Lecture/Écriture**. 
 6.	Cliquez sur **Partager**, puis sur **Terminé**.
 
-Exécutez la procédure ci-dessus sur le serveur de bases de données secondaire, mais octroyez au compte sqlservice l'accès en **Lecture** au dossier F:\\Backup à l'étape 5.
+Exécutez la procédure ci-dessus sur le serveur de base de données secondaire, mais octroyez au compte sqlservice l’accès en **Lecture** au dossier F:\\Backup à l’étape 5.
 
 ### Sauvegarde et restauration d’une base de données
 
@@ -51,12 +53,12 @@ Les procédures suivantes doivent être répétées pour chaque base de données
 
 Procédez comme suit pour sauvegarder une base de données.
 
-1.	Dans l'écran d'accueil du serveur de bases de données principal, entrez **SQL Studio**, puis cliquez sur **SQL Server Management Studio**.
+1.	Dans l’écran d’accueil du serveur de base de données primaire, tapez **SQL Studio**, puis cliquez sur **SQL Server Management Studio**.
 2.	Cliquez sur **Connecter**.
 3.	Dans le volet gauche, développez le nœud **Bases de données**.
 4.	Cliquez avec le bouton droit sur une base de données à sauvegarder, pointez la souris sur **Tâches**, puis cliquez sur **Sauvegarder**.
 5.	Dans la section **Destination**, cliquez sur **Supprimer** afin de supprimer le chemin d’accès de fichier par défaut correspondant au fichier de sauvegarde.
-6.	Cliquez sur **Add**. Sous **Nom de fichier**, entrez **\\machineName\\backup[databaseName].bak**, où **machineName** désigne le nom de l'**ordinateur SQL Server** principal et **databaseName** désigne le nom de la base de données. Cliquez sur **OK**, puis cliquez une nouvelle fois sur **OK** dès que le message confirmant la réussite de la sauvegarde apparaît.
+6.	Cliquez sur **Add**. Sous **Nom de fichier**, tapez **\\machineName\\backup[databaseName].bak**, où **machineName** est le nom de l’**ordinateur serveur** SQL principal et **databaseName** est le nom de la base de données. Cliquez sur **OK**, puis cliquez une nouvelle fois sur **OK** dès que le message confirmant la réussite de la sauvegarde apparaît.
 7.	Dans le volet gauche, cliquez avec le bouton droit sur **[databaseName]**, pointez sur **Tâches**, puis cliquez sur **Sauvegarder**.
 8.	Dans **Type de sauvegarde**, sélectionnez **Journal des transactions**, puis cliquez sur **OK** deux fois.
 9.	Gardez cette session Bureau à distance ouverte.
@@ -69,7 +71,7 @@ Procédez comme suit pour restaurer une base de données.
 4.	Dans le volet gauche, cliquez avec le bouton droit sur **Bases de données**, puis cliquez sur **Restaurer la base de données**.
 5.	Dans la section **Source**, sélectionnez **Unité**, puis cliquez sur le bouton Parcourir (…).
 6.	Dans **Sélectionner les unités de sauvegarde**, cliquez sur **Ajouter**.
-7.	Dans **Emplacement des fichiers de sauvegarde**, entrez **\\machineName\\backup**, appuyez sur **Entrée**, sélectionnez **[databaseName].bak**, puis cliquez deux fois sur **OK**. La sauvegarde complète et la sauvegarde des journaux doivent désormais apparaître dans la section **Jeux de sauvegarde à restaurer**.
+7.	Dans **Emplacement du fichier de sauvegarde**, tapez **\\machineName\\backup**, appuyez sur **Entrée**, sélectionnez **[databaseName].bak**, puis cliquez sur **OK** deux fois. La sauvegarde complète et la sauvegarde des journaux doivent désormais apparaître dans la section **Jeux de sauvegarde à restaurer**.
 8.	Sous **Sélectionner une page**, cliquez sur **Options**. Sous **Options de restauration**, dans **État de récupération**, sélectionnez **RESTORE WITH NORECOVERY**, puis cliquez sur **OK**. 
 9.	À l’invite, cliquez sur **OK**.
 
@@ -79,12 +81,12 @@ Après la préparation d’au moins une base de données (à l’aide de la mét
 
 1.	Revenez à la session Bureau à distance pour le serveur de bases de données principal.
 2.	Dans le volet gauche de **SQL Server Management Studio**, cliquez avec le bouton droit sur **Haute disponibilité AlwaysOn**, puis cliquez sur **Assistant Nouveau groupe de disponibilité**.
-3.	Sur la page **Introduction**, cliquez sur **Suivant**. 
-4.	Sur la page **Spécifier le nom du groupe de disponibilité**, entrez le nom de votre groupe de disponibilité dans **Nom du groupe de disponibilité** (par exemple, AG1), puis cliquez sur **Suivant**.
-5.	Sur la page **Sélectionner des bases de données**, sélectionnez les bases de données de l'application qui ont été sauvegardées, puis cliquez sur **Suivant**. Ces bases de données répondent à la configuration requise pour un groupe de disponibilité, car vous avez effectué au moins une sauvegarde complète sur le réplica principal prévu.
-6.	Sur la page **Spécifier les réplicas**, cliquez sur **Ajouter un réplica**.
-7.	Sous **Se connecter au serveur**, entrez le nom du serveur de bases de données secondaire, puis cliquez sur **Connecter**. 
-8.	Sur la page **Spécifier les réplicas**, le serveur de bases de données secondaire est répertorié dans **Réplicas de disponibilité**. Pour les deux instances, définissez les valeurs des options suivantes : 
+3.	Dans la page **Introduction**, cliquez sur **Suivant**. 
+4.	Dans la page **Spécifier le nom du groupe de disponibilité**, tapez le nom de votre groupe de disponibilité dans **Nom du groupe de disponibilité** (par exemple, AG1), puis cliquez sur **Suivant**.
+5.	Dans la page **Sélectionner des bases de données**, sélectionnez les bases de données de l’application qui ont été sauvegardées, puis cliquez sur **Suivant**. Ces bases de données répondent à la configuration requise pour un groupe de disponibilité, car vous avez effectué au moins une sauvegarde complète sur le réplica principal prévu.
+6.	Dans la page **Spécifier les réplicas**, cliquez sur **Ajouter un réplica**.
+7.	Sous **Se connecter au serveur**, tapez le nom du serveur de base de données secondaire, puis cliquez sur **Connecter**. 
+8.	Dans la page **Spécifier les réplicas**, le serveur de base de données secondaire est répertorié dans **Réplicas de disponibilité**. Pour les deux instances, définissez les valeurs des options suivantes : 
 
 Rôle initial | Option | Valeur 
 --- | --- | ---
@@ -96,9 +98,9 @@ Primaire | Secondaire lisible | Oui
 Secondaire | Secondaire lisible | Oui
 		
 9.	Cliquez sur **Next**.
-10.	Sur la page **Sélectionner la synchronisation de données initiale**, cliquez sur **Joindre uniquement**, puis cliquez sur **Suivant**. La synchronisation des données s’exécute manuellement par le biais des sauvegardes complètes et de transactions sur le serveur principal, puis de la restauration effectuée à partir de la sauvegarde. Vous pouvez également sélectionner **Complet** pour permettre à l’Assistant Nouveau groupe de disponibilité d’effectuer la synchronisation des données à votre place. Toutefois, la synchronisation n’est pas recommandée pour les grandes bases de données de certaines entreprises.
-11.	Sur la page **Validation**, cliquez sur **Suivant**. Un avertissement concernant la configuration de l’écouteur manquant s’affiche, car un écouteur du groupe de disponibilité n’est pas configuré. 
-12.	Sur la page **Résumé**, cliquez sur **Terminer**. Une fois l’Assistant terminé, examinez la page **Résultats** afin de vérifier la création du groupe de disponibilité. Si le groupe de disponibilité a bien été créé, cliquez sur **Fermer** pour quitter l’Assistant. 
+10.	Dans la page **Sélectionner la synchronisation de données initiale**, cliquez sur **Joindre uniquement**, puis sur **Suivant**. La synchronisation des données s’exécute manuellement par le biais des sauvegardes complètes et de transactions sur le serveur principal, puis de la restauration effectuée à partir de la sauvegarde. Vous pouvez également sélectionner **Complet** pour permettre à l’Assistant Nouveau groupe de disponibilité d’effectuer la synchronisation des données à votre place. Toutefois, la synchronisation n’est pas recommandée pour les grandes bases de données de certaines entreprises.
+11.	Dans la page **Validation**, cliquez sur **Suivant**. Un avertissement concernant la configuration de l’écouteur manquant s’affiche, car un écouteur du groupe de disponibilité n’est pas configuré. 
+12.	Dans la page **Résumé**, cliquez sur **Terminer**. Une fois l’Assistant terminé, examinez la page **Résultats** afin de vérifier la création du groupe de disponibilité. Si le groupe de disponibilité a bien été créé, cliquez sur **Fermer** pour quitter l’Assistant. 
 13.	Sur l’écran d’accueil, entrez **Basculement**, puis cliquez sur **Gestionnaire du cluster de basculement**. Dans le volet gauche, ouvrez votre cluster, puis cliquez sur **Rôles**. Un nouveau rôle portant le nom de votre groupe de disponibilité doit s’afficher.
 
 Vous avez configuré un groupe de disponibilité SQL Server AlwaysOn pour vos bases de données d'applications.
@@ -115,9 +117,9 @@ Une fois l'écouteur configuré, vous devez configurer toutes les machines virtu
 
 ## Ressources supplémentaires
 
-[Déployer une application métier à haute disponibilité dans Azure](virtual-machines-workload-high-availability-LOB-application-overview.md) (en anglais)
+[Déployer une application métier à haute disponibilité dans Azure](virtual-machines-workload-high-availability-LOB-application-overview.md)
 
-[Plan de l'architecture des applications métier](http://msdn.microsoft.com/dn630664)
+[Plan de l’architecture des applications métier](http://msdn.microsoft.com/dn630664)
 
 [Configuration d’une application métier web dans un cloud hybride à des fins de test](../virtual-network/virtual-networks-setup-lobapp-hybrid-cloud-testing.md)
 
@@ -125,4 +127,4 @@ Une fois l'écouteur configuré, vous devez configurer toutes les machines virtu
 
 [Charge de travail des services d’infrastructure Azure : batterie de serveurs SharePoint Server 2013](virtual-machines-workload-intranet-sharepoint-farm.md)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO3-->

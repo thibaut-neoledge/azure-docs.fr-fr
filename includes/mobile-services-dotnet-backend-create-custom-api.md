@@ -52,6 +52,6 @@
             }
         }
 
-	> [AZURE.NOTE]Avec les autorisations par défaut, toute personne avec la clé d’application peut appeler l’API personnalisée. Toutefois, la clé d’application n’est pas considérée comme une information d’identification sécurisée, car elle peut ne pas être distribuée ou stockée de manière sécurisée. Restreignez l’accès aux utilisateurs authentifiés pour renforcer la sécurité.
+	> [AZURE.TIP]Avec les autorisations par défaut, toute personne avec la clé d’application peut appeler l’API personnalisée. Toutefois, la clé d’application n’est pas considérée comme une information d’identification sécurisée, car elle peut ne pas être distribuée ou stockée de manière sécurisée. Restreignez l’accès aux utilisateurs authentifiés pour renforcer la sécurité.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

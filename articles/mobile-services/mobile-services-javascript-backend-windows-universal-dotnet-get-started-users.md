@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Prise en main de l&#39;authentification (Windows Store) | Microsoft Azure" 
-	description="Découvrez comment utiliser Mobile Services pour authentifier les utilisateurs de votre application Windows Store via divers fournisseurs d&#39;identité, notamment Google, Facebook, Twitter et Microsoft." 
+	pageTitle="Ajouter l’authentification à votre application Windows 8.1 universelle | Azure Mobile Services"
+	description="Découvrez comment utiliser Mobile Services pour authentifier les utilisateurs de votre application Windows Store via divers fournisseurs d'identité, notamment Google, Facebook, Twitter et Microsoft." 
 	services="mobile-services" 
 	documentationCenter="windows" 
 	authors="ggailey777" 
@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="mobile-windows-store" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="06/14/2015" 
+	ms.date="09/14/2015" 
 	ms.author="glenga"/>
 
-# Ajout de l'authentification à votre application Mobile Services
+# Ajouter l’authentification à votre application Windows 8.1 universelle
 
 [AZURE.INCLUDE [mobile-services-selector-get-started-users](../../includes/mobile-services-selector-get-started-users.md)]
 
-Cette rubrique explique comment authentifier les utilisateurs dans Azure Mobile Services à partir d'une application Windows universelle. Dans ce didacticiel, vous allez ajouter l'authentification au projet de démarrage rapide à l'aide d'un fournisseur d'identité pris en charge par Mobile Services. Après avoir été authentifiée et autorisée par Mobile Services, la valeur de l'ID utilisateur s'affiche.
+Cette rubrique montre comment authentifier les utilisateurs dans Azure Mobile Services à partir d’une application Windows 8.1 universelle. Dans ce didacticiel, vous allez ajouter l'authentification au projet de démarrage rapide à l'aide d'un fournisseur d'identité pris en charge par Mobile Services. Après avoir été authentifiée et autorisée par Mobile Services, la valeur de l'ID utilisateur s'affiche.
 
 Ce didacticiel est basé sur le démarrage rapide de Mobile Services. Vous devez d’abord suivre le didacticiel [Prise en main de Mobile Services] ou le didacticiel [Ajout de Mobile Services à une application existante](mobile-services-javascript-backend-windows-universal-dotnet-get-started-data.md).
 
@@ -84,4 +84,4 @@ Dans le didacticiel suivant, [Autorisation côté service des utilisateurs Mobil
 [Register your Windows Store app package for Microsoft authentication]: ../mobile-services-how-to-register-store-app-package-microsoft-authentication.md
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO3-->

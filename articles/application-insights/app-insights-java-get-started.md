@@ -2,7 +2,7 @@
 	pageTitle="Prise en main d'Application Insights dans un projet web Java | Microsoft Azure"
 	description="Surveiller les performances et l'utilisation de votre site web Java avec Application Insights"
 	services="application-insights"
-	documentationCenter="java"
+    documentationCenter="java"
 	authors="alancameronwills"
 	manager="douge"/>
 
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="06/30/2015"
+	ms.date="09/09/2015"
 	ms.author="awills"/>
 
 # Prise en main d'Application Insights dans un projet web Java
@@ -206,19 +206,13 @@ Ajoutez cet élément au fichier de configuration Struts (généralement struts.
 
 (Si vous avez défini des intercepteurs dans une pile par défaut, l'intercepteur peut simplement être ajouté à cette pile).
 
-## 5\. Installer sur le serveur
 
-Sur les serveurs Windows, installez :
 
-* [Redistribuable Microsoft Visual C++](http://www.microsoft.com/download/details.aspx?id=40784)
-
-(Cette opération active les compteurs de performances.)
-
-## 6\. Exécuter votre application
+## 5\. Exécuter votre application
 
 Exécutez-le en mode débogage sur votre ordinateur de développement, ou publiez-le sur votre serveur.
 
-## 7\. Voir votre télémétrie dans Application Insights
+## 6\. Voir votre télémétrie dans Application Insights
 
 Revenez à votre ressource Application Insights sur le [portail Microsoft Azure](https://portal.azure.com).
 
@@ -250,15 +244,34 @@ Par exemple, `GET Home/Product/f9anuh81`, `GET Home/Product/2dffwrf5` et `GET Ho
 
 Ceci permet l'agrégation correcte des demandes, par exemple le nombre de demandes et le temps moyen d'exécution des demandes.
 
+
+## 5\. Installer votre application sur le serveur
+
+Publiez maintenant votre application sur le serveur, laissez le temps aux usagers de l’utiliser, puis observez les données de télémétrie qui s’affichent sur le portail.
+
+* Assurez-vous que votre pare-feu autorise votre application à envoyer les données de télémétrie vers ces ports :
+
+ * dc.services.VisualStudio.com:443
+ * dc.services.visualstudio.com:80
+ * f5.services.visualstudio.com:443
+ * f5.services.visualstudio.com:80
+
+
+* Sur les serveurs Windows, installez :
+
+ * [Redistribuable Microsoft Visual C++](http://www.microsoft.com/download/details.aspx?id=40784)
+
+    (Cette opération active les compteurs de performances.)
+
 ## Exceptions et échecs de requêtes
 
-Les exceptions non gérées sont collectées :
+Les exceptions non gérées sont collectées automatiquement :
 
 ![](./media/app-insights-java-get-started/21-exceptions.png)
 
 Pour collecter les données concernant d’autres exceptions, vous disposez de deux options :
 
-* [Insérez des appels de la méthode TrackException dans votre code][apiexceptions].
+* [Insérez des appels à TrackException dans votre code][apiexceptions]. 
 * [Installez l’agent Java sur votre serveur](app-insights-java-agent.md). Vous spécifiez les méthodes que vous souhaitez surveiller.
 
 
@@ -269,7 +282,7 @@ Pour collecter les données concernant d’autres exceptions, vous disposez de d
 
 ## Compteurs de performances
 
-Cliquez sur la vignette des **serveurs** et vous verrez un ensemble de compteurs de performances.
+Cliquez sur la mosaïque **Serveurs** et vous verrez un ensemble de compteurs de performances.
 
 
 ![](./media/app-insights-java-get-started/11-perf-counters.png)
@@ -328,7 +341,7 @@ Les compteurs de performances sont visibles en tant que mesures personnalisées 
 
 ### Compteurs de performances Unix
 
-* [Installez collectd avec le plug-in Application Insights](app-insights-java-collectd.md) pour obtenir une grande variété de données concernant le système et le réseau.
+* [Installez collectd avec le plug-in Application Insights](app-insights-java-collectd.md) pour obtenir une grande variété de données sur le système et le réseau.
 
 ## Obtenir des données utilisateur et de session
 
@@ -347,6 +360,17 @@ Maintenant que vous avez installé le Kit de développement logiciel (SDK), vous
 
 * [Suivez des événements et des mesures personnalisés][api] pour savoir ce que les utilisateurs font avec votre application.
 * [Recherchez les événements et les journaux][diagnostic] pour diagnostiquer les problèmes.
+
+
+## Tests web de disponibilité
+
+Application Insights peut tester votre site web à intervalles réguliers pour vérifier qu’il fonctionne et répond correctement. Pour cela, cliquez sur les graphiques de tests web vides dans le panneau Vue d’ensemble et indiquez votre URL publique.
+
+Vous obtenez des graphiques du temps de réponse, ainsi que des notifications par courrier électronique si votre site ne fonctionne plus.
+
+![Exemple de test web](./media/app-insights-java-eclipse/appinsights-10webtestresult.png)
+
+[En savoir plus sur les tests de disponibilité web.][availability]
 
 
 
@@ -370,4 +394,4 @@ Maintenant que vous avez installé le Kit de développement logiciel (SDK), vous
 [metrics]: app-insights-metrics-explorer.md
 [usage]: app-insights-web-track-usage.md
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

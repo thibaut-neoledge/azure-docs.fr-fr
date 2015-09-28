@@ -21,18 +21,18 @@ Cette section répond à certaines questions fréquemment posées sur la tarific
 
 >[AZURE.NOTE]Décrit la structure de prix pour les hubs d’événements dans la rubrique [FAQ relatif à la disponibilité et au support des hubs d’événements](event-hubs-availability-and-support-faq.md), et d’autres informations figurent dans la rubrique [Tarification des hubs d’événements](http://azure.microsoft.com/pricing/details/event-hubs/).
 
-- [Quel est le coût de Service Bus ?](#How-do-you-charge-for-Service-Bus?)
-- [Quelle est l’utilisation de Service Bus soumise au transfert de données ? Laquelle ne l’est pas ?](#What-usage-of-Service-Bus-is-subject-to-data-transfer?-What-is-not?)
-- [Qu’est qu’un « relais » Service Bus exactement ?](#What-exactly-is-a-Service-Bus-"relay"?)
-- [Comment le nombre d’heures de relais est-il calculé ?](#How-is-the-Relay-Hours-meter-calculated?)
-- [Que se passe-t-il si plusieurs écouteurs sont connectés à un relais donné ?](#What-if-I-have-more-than-one-listener-connected-to-a-given-relay?)
-- [Comment le nombre de messages de relais est-il calculé ?](#How-is-the-Messages-meter-calculated-for-relays?)
-- [Service Bus facture-t-il le stockage ?](#Does-Service-Bus-charge-for-storage?)
-- [Service Bus fixe-t-il des quotas d’utilisation ?](#Does-Service-Bus-have-any-usage-quotas?)
+- [Quel est le coût de Service Bus ?](#how-do-you-charge-for-service-bus)
+- [Quelle est l’utilisation de Service Bus soumise au transfert de données ? Laquelle ne l’est pas ?](#what-usage-of-service-bus-is-subject-to-data-transfer-what-is-not)
+- [Qu’est qu’un « relais » Service Bus exactement ?](#what-exactly-is-a-service-bus-quotrelayquot)
+- [Comment le nombre d’heures de relais est-il calculé ?](#how-is-the-relay-hours-meter-calculated)
+- [Que se passe-t-il si plusieurs écouteurs sont connectés à un relais donné ?](#what-if-i-have-more-than-one-listener-connected-to-a-given-relay)
+- [Comment le nombre de messages de relais est-il calculé ?](#how-is-the-messages-meter-calculated-for-relays)
+- [Service Bus facture-t-il le stockage ?](#does-service-bus-charge-for-storage)
+- [Service Bus fixe-t-il des quotas d’utilisation ?](#does-service-bus-have-any-usage-quotas)
 
 ## Quel est le coût de Service Bus ?
 
-Pour obtenir toutes les informations sur la tarification Service Bus, consultez la section [Tarification et facturation de Service Bus](https://msdn.microsoft.com/library/dn831889.aspx) et [Détails de la tarification Service Bus](http://azure.microsoft.com/pricing/details/service-bus/). Outre les prix indiqués, vous êtes facturé pour les transferts de données associés aux sorties à l’extérieur du centre de données dans lequel votre application est déployée. Vous trouverez plus de détails dans la rubrique [Quelle utilisation du Service Bus est soumise au transfert de données ? Laquelle ne l’est pas ?](#What-usage-of-Service-Bus-is-subject-to-data-transfer?-What-is-not?) ci-dessous.
+Pour obtenir toutes les informations sur la tarification Service Bus, consultez la section [Tarification et facturation de Service Bus](https://msdn.microsoft.com/library/dn831889.aspx) et [Détails de la tarification Service Bus](http://azure.microsoft.com/pricing/details/service-bus/). Outre les prix indiqués, vous êtes facturé pour les transferts de données associés aux sorties à l’extérieur du centre de données dans lequel votre application est déployée. Vous trouverez plus de détails dans la rubrique [Quelle utilisation du Service Bus est soumise au transfert de données ? Laquelle ne l’est pas ?](#what-usage-of-service-bus-is-subject-to-data-transfer-what-is-not) ci-dessous.
 
 ## Quelle est l’utilisation de Service Bus soumise au transfert de données ? Laquelle ne l’est pas ?
 
@@ -114,4 +114,4 @@ Pour en savoir plus sur la messagerie Service Bus, consultez les rubriques suiva
 - [Présentation de l'architecture d'Azure Service Bus](fundamentals-service-bus-hybrid-solutions.md)
 - [Utilisation des files d’attente Service Bus](service-bus-dotnet-how-to-use-queues.md)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

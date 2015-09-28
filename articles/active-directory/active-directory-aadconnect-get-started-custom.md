@@ -24,7 +24,6 @@ La documentation suivante explique comment utiliser l’option d’installation 
 Pour plus d’informations sur l’installation rapide, consultez la page [Installation rapide](active-directory-aadconnect.md#getting-started-with-azure-ad-connect). Pour plus d’informations sur la mise à niveau depuis DirSync vers Azure AD Connect, consultez [Mise à niveau de DirSync pour Azure Active Directory Connect.](active-directory-aadconnect-dirsync-upgrade-get-started.md)
 
 
-
 ## Installation des composants requis
 
 Lorsque vous installez les services de synchronisation, vous pouvez laisser la section de configuration facultative de côté. Azure AD Connect configurera tout automatiquement. Cela comprend la configuration d’une instance de SQL Server 2012 Express et la création des groupes appropriés, avec attribution des autorisations. Si vous souhaitez modifier les valeurs par défaut, vous pouvez utiliser le tableau ci-dessous pour comprendre les différentes options de configuration facultatives.
@@ -174,7 +173,7 @@ Pour pouvoir utiliser l’applet PowerShell, vous devez préalablement l’impor
 
 Pour ce faire, vous devez installer localement Active Directory et MSOnline PowerShell.
 
-
+Pour plus d'informations, consultez [Activation de l’écriture différée d’appareils dans Azure Connect AD](active-directory-aadconnect-get-started-custom-device-writeback.md)
 
 ## Mode intermédiaire
 Le mode intermédiaire permet de configurer un nouveau serveur de synchronisation parallèlement à un serveur existant. Le système prend en charge une seule connexion directe de serveur de synchronisation à un seul annuaire dans le cloud. Mais si vous voulez procéder à un déplacement à partir d’un autre serveur (par exemple, un serveur exécutant DirSync), vous pouvez activer Azure AD Connect en mode intermédiaire. Une fois activé, le moteur de synchronisation importe et synchronise les données comme d’habitude, mais il n’exporte rien vers Azure AD tout en désactivant à la fois la synchronisation et l’écriture différée de mot de passe.
@@ -268,4 +267,4 @@ Vous pouvez personnaliser l’illustration et l’image de logo de vos pages de 
 	
 	Set-AdfsWebTheme -TargetName default -Logo @{path="c:\Contoso\logo.png"} –Illustration @{path=”c:\Contoso\illustration.png”}
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

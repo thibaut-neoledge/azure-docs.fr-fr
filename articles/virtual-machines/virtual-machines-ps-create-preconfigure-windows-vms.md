@@ -1,9 +1,9 @@
 <properties
-	pageTitle="Utilisation d&#39;Azure PowerShell pour créer et préconfigurer des machines virtuelles basées sur Windows"
+	pageTitle="Utilisation d'Azure PowerShell pour créer et préconfigurer des machines virtuelles basées sur Windows"
 	description="Découvrez comment utiliser Azure PowerShell pour créer et préconfigurer des machines virtuelles basées sur Windows dans Azure."
 	services="virtual-machines"
 	documentationCenter=""
-	authors="KBDAzure"
+	authors="cynthn"
 	manager="timlt"
 	editor=""
 	tags="azure-service-management"/>
@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="06/10/2015"
-	ms.author="kathydav"/>
+	ms.author="cynthn"/>
 
 # Utilisation d'Azure PowerShell pour créer et préconfigurer des machines virtuelles basées sur Windows
 
@@ -271,4 +271,4 @@ Voici le jeu de commandes Azure PowerShell correspondant qui permet de créer ce
 
 [Création et préconfiguration d’une machine virtuelle Windows avec Resource Manager et Azure PowerShell](virtual-machines-ps-create-preconfigure-windows-resource-manager-vms.md)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO3-->

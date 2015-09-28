@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/09/2015"
+	ms.date="09/09/2015"
 	ms.author="rkarlin"/>
 
 # Utilisation de l’accès conditionnel
-> [AZURE.NOTE]Le Proxy d’application est une fonctionnalité qui n’est disponible que si vous effectuez une mise à niveau vers l’édition Premium ou Basic d’Azure Active Directory. Pour plus d’informations, consultez la page [Éditions d’Azure Active Directory](https://msdn.microsoft.com/library/azure/dn532272.aspx).
+> [AZURE.NOTE]Le Proxy d’application est une fonctionnalité qui n’est disponible que si vous effectuez une mise à niveau vers l’édition Premium ou Basic d’Azure Active Directory. Pour plus d’informations, consultez la page [Éditions d’Azure Active Directory](active-directory-editions.md).
 
 Vous pouvez maintenant activer les règles d'accès pour accorder l’accès conditionnel aux utilisateurs et aux groupes qui accèdent aux applications publiées à l'aide du proxy d'application. Cela vous permet d’effectuer les actions suivantes : - exiger une authentification multifacteur en fonction de l’application - exiger une authentification multifacteur uniquement lorsque les utilisateurs ne sont pas au travail - empêcher les utilisateurs d'accéder à l'application lorsqu'ils ne sont pas au travail
 
@@ -44,10 +44,10 @@ Ces règles peuvent s’appliquer à tous les utilisateurs et à tous les groupe
 
 
 ## Configuration de l'authentification multifacteur pour les services de fédération
-Pour les clients fédérés, l'authentification multifacteur (MFA) peut être effectuée par Azure Active Directory ou par le serveur local AD FS. Par défaut, l'authentification multifacteur a lieu sur n'importe quelle page hébergée par Azure Active Directory. Pour configurer l'authentification multifacteur localement, exécutez Windows PowerShell et utilisez la propriété –SupportsMFA pour configurer le module Azure AD. L'exemple suivant montre comment activer l'authentification multifacteur localement à l'aide de l’[applet de commande Set-MsolDomainFederationSettings](https://msdn.microsoft.com/library/azure/dn194088.aspx) sur le locataire contoso.com : `Set-MsolDomainFederationSettings -DomainName contoso.com -SupportsMFA $true ` en plus de la définition de cet indicateur, l'instance de locataire fédéré AD FS doit être configurée pour effectuer l'authentification multifacteur. Suivez les instructions pour le [Déploiement local de l’authentication multifacteur Microsoft Azure](http://technet.microsoft.com/library/dn280946.aspx).
+Pour les clients fédérés, l'authentification multifacteur (MFA) peut être effectuée par Azure Active Directory ou par le serveur local AD FS. Par défaut, l'authentification multifacteur a lieu sur n'importe quelle page hébergée par Azure Active Directory. Pour configurer l'authentification multifacteur localement, exécutez Windows PowerShell et utilisez la propriété –SupportsMFA pour configurer le module Azure AD. L'exemple suivant montre comment activer l'authentification multifacteur localement à l'aide de l’[applet de commande Set-MsolDomainFederationSettings](https://msdn.microsoft.com/library/azure/dn194088.aspx) sur le locataire contoso.com : `Set-MsolDomainFederationSettings -DomainName contoso.com -SupportsMFA $true ` en plus de la définition de cet indicateur, l'instance de locataire fédéré AD FS doit être configurée pour effectuer l'authentification multifacteur. Suivez les instructions décrites dans [Déploiement de Microsoft Azure Multi-Factor Authentication en local](..multi-factor-authentication-get-started-server.md).
 ## Ressources supplémentaires
 
 * [Inscription à Azure en tant qu’organisation](..sign-up-organization.md)
 * [Identité Azure](..fundamentals-identity.md)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO3-->

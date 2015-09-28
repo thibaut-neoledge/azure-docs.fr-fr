@@ -8,16 +8,14 @@
 	manager="wpickett"
 	editor="mollybos"/>
 
-
 <tags
-	ms.service="app-service-web"
+	ms.service="app-service"
 	ms.workload="web"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/03/2015"
+	ms.date="09/16/2015"
 	ms.author="cephalin"/>
-
 
 # Configurer des environnements intermédiaires pour les applications web dans Azure App Service
 <a name="Overview"></a>
@@ -36,9 +34,10 @@ Chaque mode de plan App Service prend en charge un nombre différent d’emplace
 
 - La mise à l'échelle est uniquement disponible pour les emplacements de site de production.
 
-- La gestion des ressources liées est uniquement prise en charge pour les emplacements de site de production.
+- La gestion des ressources liées est uniquement prise en charge pour les emplacements de site de production. Dans le [portail Azure en version préliminaire](http://go.microsoft.com/fwlink/?LinkId=529715) uniquement, vous pouvez éviter cet impact potentiel sur un emplacement de production en déplaçant temporairement l’emplacement autre que de production vers un autre mode de plan App Service. Notez que l’emplacement autre que de production doit une fois encore partager le même mode que l’emplacement de production avant que vous ne puissiez échanger les deux emplacements.
 
-	> [AZURE.NOTE]Dans le [portail Azure en version préliminaire](http://go.microsoft.com/fwlink/?LinkId=529715) uniquement, vous pouvez éviter cet impact potentiel sur un emplacement de production en déplaçant temporairement l’emplacement autre que de production vers un autre mode de plan App Service. Notez que l’emplacement autre que de production doit une fois encore partager le même mode que l’emplacement de production avant que vous ne puissiez échanger les deux emplacements.
+
+[AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
 <a name="Add"></a>
 ## Ajouter un emplacement de déploiement à une application web ##
@@ -62,7 +61,7 @@ Pour que vous puissiez activer plusieurs emplacements de déploiement, l’appli
 
 	![Sources de configuration][MultipleConfigurationSources]
 
-5. Dans le panneau **Emplacements de déploiement**, cliquez sur l’emplacement de déploiement pour ouvrir son panneau avec des métriques et une configuration comme n’importe quelle application web. **nom-votre-application-web-nom-emplacement-déploiement** apparaît en haut du panneau pour vous rappeler que vous affichez l’emplacement de déploiement.
+5. Dans le panneau **Emplacements de déploiement**, cliquez sur l’emplacement de déploiement pour ouvrir le panneau correspondant avec des métriques et une configuration, à l’instar de n’importe quelle application web. **nom-votre-application-web-nom-emplacement-déploiement** apparaît en haut du panneau pour vous rappeler que c’est l’emplacement de déploiement qui est indiqué.
 
 	![Titre de l'emplacement de déploiement][StagingTitle]
 
@@ -262,4 +261,4 @@ Pour supprimer un emplacement de déploiement dont vous n'avez plus besoin, util
 [SlotSettings]: ./media/web-sites-staged-publishing/SlotSetting.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

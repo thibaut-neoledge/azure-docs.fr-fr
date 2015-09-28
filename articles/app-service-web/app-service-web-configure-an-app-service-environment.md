@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Comment configurer un environnement App Service"
-	description="Configuration, gestion et surveillance d'environnements App Service"
-	services="app-service\web"
-	documentationCenter=""
-	authors="ccompy"
-	manager="stefsch"
+	pageTitle="Comment configurer un environnement App Service" 
+	description="Configuration, gestion et surveillance d'environnements App Service" 
+	services="app-service\web" 
+	documentationCenter="" 
+	authors="ccompy" 
+	manager="stefsch" 
 	editor=""/>
 
 <tags 
-	ms.service="app-service-web"
-	ms.workload="web"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="04/27/2015"
+	ms.service="app-service" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/11/2015" 
 	ms.author="ccompy"/>
 
 # Configuration d'un environnement App Service #
@@ -27,14 +27,16 @@ Globalement, un environnement App Service se compose de plusieurs composants pri
 - Ressources de calcul s'exécutant dans le service hébergé d'environnement Azure App
 - Stockage
 - Base de données
-- Réseau virtuel avec au moins un sous-réseau
+- Réseau virtuel « v1 » classique avec au moins un sous-réseau
 - Sous-réseau sur lequel s'exécute le service hébergé d'environnement Azure App
 
 Pour vous aider à gérer et à surveiller vos environnements App Service, vous pouvez accéder à l'interface utilisateur destinée à cet effet en choisissant Parcourir -> Environnements App Service dans le portail Azure en version préliminaire. La version initiale dispose des éléments nécessaires pour gérer le système et continuera à s'améliorer avec des fonctionnalités supplémentaires au cours des prochaines semaines.
 
 ![][1]
 
-## Analyse ##
+[AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
+
+## Surveillance ##
 
 Les fonctionnalités de métriques disponibles dans la version préliminaire initiale ne sont pas nombreuses, mais elles seront déployées prochainement. Ces fonctionnalités de métriques permettront aux administrateurs système de prendre des décisions sur les opérations et la mise à l'échelle du système.
 
@@ -90,9 +92,9 @@ Cela est moins perturbateur pour les applications en cours d'exécution que de m
 
 Le [réseau virtuel][virtualnetwork] et le sous-réseau sont tous les deux contrôlés par l'utilisateur. Certaines exigences réseau doivent être respectées pour les environnements App Service, mais il incombe à l'utilisateur de contrôler le reste. Ces exigences ASE sont les suivantes :
 
-- Un réseau virtuel avec au moins 512 adresses
-- Un sous-réseau avec au moins 256 adresses 
-- Le réseau virtuel doit être un réseau virtuel régional  
+- un réseau virtuel « v1 » classique avec au moins 512 adresses ;
+- un sous-réseau avec au moins 8 adresses ; 
+- le réseau virtuel doit être un réseau virtuel régional.  
  
 L'administration de votre réseau virtuel s'effectue via l'interface utilisateur normale de Virtual Network.
 
@@ -131,4 +133,4 @@ Pour plus d’informations sur la plateforme Azure App Service, consultez la rub
 [AzureAppService]: http://azure.microsoft.com/documentation/articles/app-service-value-prop-what-is/
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO3-->

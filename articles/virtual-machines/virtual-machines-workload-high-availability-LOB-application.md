@@ -1,23 +1,25 @@
 <properties 
-	pageTitle="Application métier dans Azure | Microsoft Azure"
-	description="Découvrez la valeur d'une application métier dans Azure, configurez un environnement de test et déployez une configuration à haute disponibilité."
-	services="virtual-machines"
-	documentationCenter=""
-	authors="JoeDavies-MSFT"
-	manager="timlt"
+	pageTitle="Application métier dans Azure | Microsoft Azure" 
+	description="Découvrez la valeur d'une application métier dans Azure, configurez un environnement de test et déployez une configuration à haute disponibilité." 
+	services="virtual-machines" 
+	documentationCenter="" 
+	authors="JoeDavies-MSFT" 
+	manager="timlt" 
 	editor=""
 	tags="azure-resource-manager"/>
 
 <tags 
-	ms.service="virtual-machines"
-	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/11/2015"
+	ms.service="virtual-machines" 
+	ms.workload="infrastructure-services" 
+	ms.tgt_pltfrm="Windows" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/11/2015" 
 	ms.author="josephd"/>
 
 # Charge de travail des services d’infrastructure Azure : applications métier à haute disponibilité
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Cet article traite de la création de ressources avec le modèle de déploiement Resource Manager.
 
 Configurez votre première ou prochaine application métier basée sur le Web et exclusivement conçue pour l’Intranet dans Microsoft Azure et bénéficiez de la facilité de configuration et de la possibilité d’étendre rapidement l’application pour y ajouter de nouvelles capacités.
  
@@ -53,7 +55,7 @@ Elle est constituée de :
 - une configuration SQL Server AlwaysOn avec deux machines virtuelles exécutant SQL Server et un ordinateur de nœud majoritaire dans un cluster.
 - Services de domaine Active Directory dans le réseau virtuel avec deux contrôleurs de domaine répliqués.
 
-Pour une vue d’ensemble des applications métier, consultez le [Plan de l’architecture des applications métier](http://msdn.microsoft.com/dn630664).
+Pour obtenir une vue d’ensemble des applications métier, consultez le [Plan de l’architecture des applications métier](http://msdn.microsoft.com/dn630664).
 
 ### Nomenclature
 
@@ -103,4 +105,4 @@ Une fois la configuration effectuée, vous pouvez étendre cette application mé
 
 [Charge de travail des services d’infrastructure Azure : batterie de serveurs SharePoint Server 2013](virtual-machines-workload-intranet-sharepoint-farm.md)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO3-->

@@ -3,7 +3,7 @@
 	description="Présente les étapes de configuration d'un groupe à haute disponibilité pour un ordinateur virtuel (nouveau ou existant) dans Azure en utilisant les commandes du portail Azure et d'Azure PowerShell"
 	services="virtual-machines"
 	documentationCenter=""
-	authors="KBDAzure"
+	authors="cynthn"
 	manager="timlt"
 	editor=""
 	tags="azure-service-management"/>
@@ -15,9 +15,9 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/10/2015"
-	ms.author="kathydav"/>
+	ms.author="cynthn"/>
 
-#Comment configurer un groupe à haute disponibilité pour des machines virtuelles#
+# Comment configurer un groupe à haute disponibilité pour des machines virtuelles
 
 Un groupe à haute disponibilité maintient la disponibilité de vos machines virtuelles pendant une interruption (par exemple, en cas de maintenance). Le placement de deux machines virtuelles ou plus dans un groupe à haute disponibilité crée les conditions de redondance indispensables au maintien de la disponibilité des applications ou des services exécutés par votre machine virtuelle. Pour plus d'informations sur cette procédure, consultez la rubrique [Gestion de la disponibilité des machines virtuelles][].
 
@@ -95,9 +95,9 @@ Pour utiliser les commandes Azure PowerShell, ouvrez une session Azure PowerShel
 
 >[AZURE.NOTE]Il se peut que la machine virtuelle doive être redémarrée pour terminer son ajout au groupe à haute disponibilité.
 
-##Ressources supplémentaires
+## Ressources supplémentaires
 
-[À propos des paramètres de configuration de machine virtuelle Azure]
+[Articles pour les machines virtuelles dans la gestion des services]
 
 <!-- LINKS -->
 [Option 1: Créer simultanément une machine virtuelle et un groupe à haute disponibilité]: #createset
@@ -107,6 +107,6 @@ Pour utiliser les commandes Azure PowerShell, ouvrez une session Azure PowerShel
 [Gestion de la disponibilité des machines virtuelles]: virtual-machines-manage-availability.md
 [Création d'une machine virtuelle exécutant Windows]: virtual-machines-windows-tutorial.md
 [Vue d’ensemble d’Azure Virtual Network]: virtual-networks-overview.md
-[À propos des paramètres de configuration de machine virtuelle Azure]: http://msdn.microsoft.com/library/azure/dn763935.aspx
+[Articles pour les machines virtuelles dans la gestion des services]: virtual-machines-service-management-articles.md
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO3-->

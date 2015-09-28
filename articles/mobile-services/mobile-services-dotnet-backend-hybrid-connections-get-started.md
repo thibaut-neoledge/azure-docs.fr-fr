@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Connexion à un serveur SQL Server local à partir d'un service mobile Azure au moyen de connexions hybrides - Azure Mobile Services" 
-	description="Découvrez comment vous connecter à un serveur SQL Server local à partir d'un service mobile Azure au moyen de connexions hybrides" 
+	pageTitle="Connexion à un serveur SQL Server local à partir d’un service mobile de backend .NET au moyen de connexions hybrides | Azure Mobile Services" 
+	description="Découvrez comment vous connecter à un serveur SQL Server local à partir d’un service mobile de backend .NET au moyen de connexions Azure hybrides." 
 	services="mobile-services" 
 	documentationCenter="" 
 	authors="ggailey777" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="06/16/2015" 
+	ms.date="09/15/2015" 
 	ms.author="glenga"/>
 
   
@@ -133,4 +133,4 @@ Avant la publication dans Azure et l'utilisation de la connexion hybride, il est
 [portail de gestion Azure]: http://manage.windowsazure.com
 [Prise en main de Mobile Services]: mobile-services-dotnet-backend-windows-store-dotnet-get-started.md
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

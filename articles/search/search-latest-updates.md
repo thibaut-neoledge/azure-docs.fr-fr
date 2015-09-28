@@ -94,10 +94,20 @@ Cette version était la version préliminaire publique d’Azure Search et four
 
 - Déploiement dans la version préliminaire du [portail de gestion Azure](https://portal.azure.com). Azure Search constituait l’un des quelques services inédits du nouveau portail.
 
+##Version d’API de gestion 2015-08-19
+**Date de publication : 11 septembre 2015**
+
+L’[API REST de gestion](https://msdn.microsoft.com/library/azure/dn832684.aspx) inclut les mises à jour suivantes.
+
+- checkNameAvailability vérifie si un nom de service donné est déjà utilisé.
+- La plage de réplica, allant précédemment de 1 à 6, s’étend désormais de 1 à 12.
+- La propriété SKU, qui figurait précédemment dans le conteneur de propriétés, se trouve désormais au niveau supérieur de la charge utile du service.
+- Le corps de la réponse de l’opération Création de service Search a été mis à jour pour prendre en charge le déplacement du paramètre SKU.
+
 ##Version d’API de gestion 2015-02-28
 **Publié : 5 mars 2015**
 
-L’[API REST de gestion](https://msdn.microsoft.com/library/azure/dn832684.aspx) représente la première version de l’API de gestion appartenant à la version d’Azure Search mise à la disposition générale. Les fonctionnalités de la version préliminaire précédente et de cette version sont strictement identiques.
+L’[API REST de gestion](search-management-api-2014-02-28.md) représente la première version de l’API de gestion appartenant à la version d’Azure Search mise à la disposition générale. Les fonctionnalités de la version préliminaire précédente et de cette version sont strictement identiques.
 
 ##Version d’API de gestion 2014-07-31-Preview
 **Publié : octobre 2014**
@@ -107,4 +117,4 @@ L’ajout de la version préliminaire de l’[API REST de gestion](search-manage
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

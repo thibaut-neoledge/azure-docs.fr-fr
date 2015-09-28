@@ -1,9 +1,9 @@
 <properties
-	pageTitle="Création d&#39;une machine virtuelle exécutant Windows dans Azure"
-	description="Création d&#39;une machine virtuelle Windows dans le portail Azure."
+	pageTitle="Création d'une machine virtuelle exécutant Windows dans Azure"
+	description="Création d'une machine virtuelle Windows dans le portail Azure."
 	services="virtual-machines"
 	documentationCenter=""
-	authors="KBDAzure"
+	authors="cynthn"
 	manager="timlt"
 	editor=""
 	tags="azure-service-management"/>
@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/11/2015"
-	ms.author="kathydav"/>
+	ms.author="cynthn"/>
 
 # Créer une machine virtuelle exécutant Windows dans le portail Azure
 
@@ -52,8 +52,4 @@ Cette section vous montre comment utiliser l’option **À partir de la galerie*
 
 - Attacher un disque pour stocker des données. Vous pouvez attacher des disques, qu'ils soient vides ou non. Pour obtenir des instructions, consultez le [didacticiel Attacher un disque de données](storage-windows-attach-disk.md).
 
-## Ressources supplémentaires
-
-Pour en savoir plus sur ce que vous pouvez configurer dans une machine virtuelle et le moment où vous pouvez le faire, consultez la rubrique [À propos des paramètres de configuration des machines virtuelles Azure](http://msdn.microsoft.com/library/azure/dn763935.aspx).
-
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO3-->

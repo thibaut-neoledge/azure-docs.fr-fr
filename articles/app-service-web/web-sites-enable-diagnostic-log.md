@@ -5,15 +5,15 @@
 	documentationCenter=".net"
 	authors="cephalin"
 	manager="wpickett"
-	editor=""/>
+	editor="jimbe"/>
 
 <tags
-	ms.service="app-service-web"
+	ms.service="app-service"
 	ms.workload="web"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/02/2015"
+	ms.date="09/16/2015"
 	ms.author="cephalin"/>
 
 # Activer la journalisation des diagnostics pour les applications web dans Azure App Service
@@ -22,7 +22,9 @@
 
 Azure fournit des diagnostics intégrés pour aider au débogage d'une [application Web App Service](http://go.microsoft.com/fwlink/?LinkId=529714). Cet article vous explique comment activer la journalisation de diagnostic et ajouter la fonctionnalité d’instrumentation à votre application, et comment accéder aux informations enregistrées par Azure.
 
-> [AZURE.NOTE]Cet article utilise le [portail Azure en version préliminaire](http://go.microsoft.com/fwlink/?LinkId=529715), Azure PowerShell et l’interface de ligne de commande Azure (CLI Azure) pour l’exploitation des journaux de diagnostic. Pour plus d’informations sur l’utilisation de journaux de diagnostic avec Visual Studio, consultez [Résolution des problèmes Azure dans Visual Studio](web-sites-dotnet-troubleshoot-visual-studio.md).
+Cet article utilise le [portail Azure en version préliminaire](http://go.microsoft.com/fwlink/?LinkId=529715), Azure PowerShell et l’interface de ligne de commande Azure (CLI Azure) pour l’exploitation des journaux de diagnostic. Pour plus d’informations sur l’utilisation de journaux de diagnostic avec Visual Studio, consultez [Résolution des problèmes Azure dans Visual Studio](web-sites-dotnet-troubleshoot-visual-studio.md).
+
+[AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
 ## <a name="whatisdiag"></a>Diagnostics de serveur Web et diagnostics d’application
 
@@ -48,18 +50,18 @@ Les applications web App Service journalisent également les informations de d�
 
 ## <a name="enablediag"></a>Activation des diagnostics
 
-Pour activer les diagnostics sur le [portail Azure en version préliminaire](https://portal.azure.com), accédez au panneau de votre application web, puis cliquez sur **Paramètres > Journaux de diagnostics**.
+Pour activer les diagnostics sur le [portail Azure en version préliminaire](https://portal.azure.com), accédez au panneau de votre application web, puis cliquez sur **Paramètres > Journaux de diagnostic**.
 
 <!-- todo:cleanup dogfood addresses in screenshot -->
 ![Partie des journaux](./media/web-sites-enable-diagnostic-log/logspart.png)
 
-Lorsque vous activez le **diagnostic d'application**, vous choisissez également le **niveau**. Ce paramètre vous permet de filtrer les données capturées selon le critère **Information**, **Avertissement** ou **Erreur**. Vous pouvez également sélectionner le niveau **Détaillé** pour que toutes les informations générées par l'application soient consignées.
+Quand vous activez le **diagnostic d’application**, vous choisissez aussi le **niveau**. Ce paramètre vous permet de filtrer les données capturées selon le critère **Information**, **Avertissement** ou **Erreur**. Vous pouvez également sélectionner le niveau **Détaillé** pour que toutes les informations générées par l'application soient consignées.
 
 > [AZURE.NOTE]Contrairement à la modification du fichier web.config, le fait d'activer le diagnostic d'application ou de modifier les niveaux de journalisation de diagnostic ne recycle pas le domaine dans lequel l'application s'exécute.
 
-Dans le [portail Azure](https://manage.windowsazure.com), sous l'onglet **Configurer** de l'application web, vous pouvez sélectionner **stockage** ou **système de fichiers** pour la **journalisation du serveur web**. Si vous sélectionnez le **stockage**, vous avez également la possibilité de sélectionner un compte de stockage, puis un conteneur d'objets blob dans lequel les journaux seront écrits. Tous les autres journaux relatifs au **diagnostic de site** sont écrits uniquement dans le système de fichiers.
+Dans le [portail Azure](https://manage.windowsazure.com), sous l’onglet **Configurer** de l’application web, vous pouvez sélectionner **stockage** ou **système de fichiers** pour la **journalisation du serveur web**. Si vous sélectionnez le **stockage**, vous avez également la possibilité de sélectionner un compte de stockage, puis un conteneur d'objets blob dans lequel les journaux seront écrits. Tous les autres journaux relatifs au **diagnostic de site** sont écrits uniquement dans le système de fichiers.
 
-Dans le [portail Azure](https://manage.windowsazure.com), l'onglet **Configurer** de l'application web comprend également des paramètres supplémentaires pour le diagnostic d'application :
+Dans le [portail Azure](https://manage.windowsazure.com), l’onglet **Configurer** de l’application web comprend aussi des paramètres supplémentaires pour le diagnostic d’application :
 
 * **Système de fichiers** : stocke les informations de diagnostics d’application dans le système de fichiers d’application web. Vous pouvez accéder à ces fichiers par FTP ou les télécharger sous la forme d’une archive ZIP en utilisant Azure PowerShell ou l’interface de ligne de commande Azure (CLI Azure).
 * **Stockage de tables** : stocke les informations de diagnostic d’application dans la table et le compte Azure Storage spécifiés.
@@ -82,7 +84,7 @@ La structure de répertoires dans laquelle les journaux sont stockés est la sui
 
 * **Journaux d'application** : /LogFiles/Application/. Ce dossier contient un ou plusieurs fichiers texte contenant des informations générées dans le cadre de la journalisation des applications.
 
-* **Suivi des demandes ayant échoué** : /LogFiles/W3SVC\#\#\#\#\#\#\#\#\#/. Ce dossier contient un fichier XSL et un ou plusieurs fichiers XML. Assurez-vous de télécharger le fichier XSL dans le même répertoire que le(s) fichier(s) XML, car le fichier XSL possède des attributs permettant de formater et de filtrer le contenu de fichiers XML lorsqu'ils sont affichés dans Internet Explorer.
+* **Suivi des demandes ayant échoué** : /LogFiles/W3SVC#########/. Ce dossier contient un fichier XSL et un ou plusieurs fichiers XML. Assurez-vous de télécharger le fichier XSL dans le même répertoire que le(s) fichier(s) XML, car le fichier XSL possède des attributs permettant de formater et de filtrer le contenu de fichiers XML lorsqu'ils sont affichés dans Internet Explorer.
 
 * **Journaux d'erreurs détaillés** : /LogFiles/DetailedErrors/. Ce dossier contient un ou plusieurs fichiers .htm fournissant des informations détaillées sur toute erreur HTTP qui s'est produite.
 
@@ -236,7 +238,7 @@ Les données stockées dans un objet blob se présentent comme suit :
 
 ### Suivi des demandes ayant échoué
 
-Le suivi des demandes ayant échoué est stocké dans des fichiers XML nommés __fr\#\#\#\#\#\#.xml__. Pour faciliter la consultation des informations consignées, une feuille de style XSL nommée __freb.xsl__ est fournie dans le même répertoire que les fichiers XML. Lorsque vous ouvrez l'un des fichiers XML dans Internet Explorer, la feuille de style XSL est utilisée afin de fournir un affichage formaté des informations de suivi. Les informations se présentent alors comme suit :
+Le suivi des demandes ayant échoué est stocké dans des fichiers XML nommés __fr######.xml__. Pour faciliter la consultation des informations consignées, une feuille de style XSL nommée __freb.xsl__ est fournie dans le même répertoire que les fichiers XML. Lorsque vous ouvrez l'un des fichiers XML dans Internet Explorer, la feuille de style XSL est utilisée afin de fournir un affichage formaté des informations de suivi. Les informations se présentent alors comme suit :
 
 ![affichage d'une demande ayant échoué dans le navigateur](./media/web-sites-enable-diagnostic-log/tws-failedrequestinbrowser.png)
 
@@ -252,7 +254,7 @@ Les journaux de serveur Web utilisent le [format de fichier journal étendu W3C]
 
 ##<a name="nextsteps"></a>Étapes suivantes
 
-- [Surveillance d’applications Web](/fr-fr/manage/services/web-sites/how-to-monitor-websites/)
+- [Surveillance d’applications Web](/fr-FR/manage/services/web-sites/how-to-monitor-websites/)
 - [Résolution des problèmes des applications web Azure dans Visual Studio](web-sites-dotnet-troubleshoot-visual-studio.md)
 - [Analyse des journaux d’application Web dans HDInsight](http://gallery.technet.microsoft.com/scriptcenter/Analyses-Windows-Azure-web-0b27d413) (en anglais)
 
@@ -263,4 +265,4 @@ Les journaux de serveur Web utilisent le [format de fichier journal étendu W3C]
 * Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre l'ancien et le nouveau portail, consultez : [Références sur la navigation dans le portail Azure](http://go.microsoft.com/fwlink/?LinkId=529715)
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO3-->

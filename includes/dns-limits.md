@@ -5,4 +5,6 @@
 | Jeux d’enregistrements par zone| 1 000
 | Enregistrements par jeu d’enregistrements| 20
 
-<!---HONumber=Sept15_HO2-->
+Vous pouvez contacter le support technique pour augmenter la limite par défaut.
+
+<!---HONumber=Sept15_HO3-->

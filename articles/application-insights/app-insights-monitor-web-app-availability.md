@@ -131,7 +131,7 @@ Notez que vous ne pouvez pas utiliser de fonctions codées dans vos tests : les
 
 #### 1\. Enregistrement d’un scénario
 
-Utilisez Visual Studio Ultimate pour enregistrer une session web.
+Utilisez Visual Studio Enterprise ou Ultimate pour enregistrer une session web.
 
 1. Créez un projet de test de performances web.
 
@@ -147,14 +147,18 @@ Utilisez Visual Studio Ultimate pour enregistrer une session web.
 
     Ne créez pas de scénario long. La limite est de 100 étapes et 2 minutes.
 
-4. Exécutez le test dans Visual Studio pour vérifier qu'il fonctionne.
+4. Modifiez le test pour :
+ - ajouter des validations en vue de vérifier le texte reçu et les codes de réponse ;
+ - supprimer les interactions superflues. Vous pouvez aussi supprimer les demandes dépendantes d’images ou celles à destination de sites AD ou de suivi.
+
+    Ne perdez pas de vue que vous pouvez modifier uniquement le script de test. Vous ne pouvez pas ajouter de code personnalisé ni appeler d’autres tests web. N’insérez pas de boucles dans le test. Vous pouvez utiliser des plug-ins de test web standard.
+
+5. Exécutez le test dans Visual Studio pour vérifier qu'il fonctionne.
 
     Le test runner web ouvre un navigateur web et répète les actions enregistrées. Assurez-vous qu’il fonctionne comme prévu.
 
     ![Dans Visual Studio, ouvrez le fichier .webtest et cliquez sur Exécuter.](./media/app-insights-monitor-web-app-availability/appinsights-71webtest-multi-vs-run.png)
 
-
-(N’insérez pas de boucles dans votre test web.)
 
 #### 2\. Chargement du test web dans Application Insights
 
@@ -218,7 +222,7 @@ Vous pouvez par exemple désactiver des tests web lorsque vous effectuez des op�
 
 * *Puis-je appeler du code à partir de mon test web ?*
 
-    Non. Les étapes du test doivent se trouver dans le fichier .webtest. Il existe un certain nombre de plug-ins qui peuvent s’avérer utiles.
+    Non. Les étapes du test doivent se trouver dans le fichier .webtest. Et vous ne pouvez pas appeler d’autres tests web ou utiliser des boucles. En revanche, il existe un certain nombre de plug-ins qui peuvent s’avérer utiles.
 
 ## <a name="video"></a>Vidéo
 
@@ -240,4 +244,4 @@ Vous pouvez par exemple désactiver des tests web lorsque vous effectuez des op�
 [qna]: app-insights-troubleshoot-faq.md
 [start]: app-insights-get-started.md
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

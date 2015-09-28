@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/22/2015"
+	ms.date="09/10/2015"
 	ms.author="banders"/>
 
 # Sécurité Operational Insights
@@ -107,4 +107,4 @@ Le service OMS traite les données brutes, puis les données traitées agrégée
 
 Vous pouvez vous connecter à OMS en utilisant le compte que vous avez défini précédemment. Tout le trafic entre OMS et le service OMS est envoyé via un canal HTTPS sécurisé.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Installation de votre appareil StorSimple 8600 | Microsoft Azure"
-	description="Explique comment déballer, monter en rack et câbler votre appareil StorSimple 8600 avant de déployer et de configurer le logiciel."
-	services="storsimple"
-	documentationCenter="NA"
-	authors="alkohli"
-	manager="carolz"
-	editor=""/>
+   description="Explique comment déballer, monter en rack et câbler votre appareil StorSimple 8600 avant de déployer et de configurer le logiciel."
+   services="storsimple"
+   documentationCenter="NA"
+   authors="alkohli"
+   manager="carolz"
+   editor="" />
 <tags 
    ms.service="storsimple"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="TBD"
-	ms.date="08/06/2015"
-	ms.author="alkohli"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="TBD"
+   ms.date="09/16/2015"
+   ms.author="alkohli" />
 
 # Déballer, monter en rack et câbler votre appareil StorSimple 8600
 
@@ -196,7 +196,7 @@ Avant de commencer à raccorder votre appareil, vous devez disposer des élémen
 - Câbles série fournis
 - Convertisseur de série USB avec le pilote approprié installé sur votre ordinateur (si nécessaire)
 - Adaptateurs QSFP-SFP+ uniques fournis à utiliser avec les interfaces réseau 10 Gigabit Ethernet
-- [Matériel pris en charge pour les interfaces réseau 10 Gigabit Ethernet sur votre appareil StorSimple](storsimple-supported-hardware-for-10-gbe-network-interfaces/) 
+- [Matériel pris en charge pour les interfaces réseau 10 Gigabit Ethernet sur votre appareil StorSimple](storsimple-supported-hardware-for-10-gbe-network-interfaces.md) 
 
 ### Branchement des câbles d’alimentation et SAS
 
@@ -289,4 +289,4 @@ Vous avez terminé le branchement des câbles d’alimentation, d’accès rése
 Vous êtes maintenant prêt à procéder au [Déploiement de votre appareil StorSimple local](storsimple-deployment-walkthrough.md).
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO3-->

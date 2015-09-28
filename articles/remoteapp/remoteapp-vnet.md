@@ -1,6 +1,6 @@
 
 <properties
-    pageTitle="Validation du réseau virtuel Azure à utiliser avec Azure RemoteApp"
+    pageTitle="Valider le réseau virtuel Azure à utiliser avec Azure RemoteApp | Microsoft Azure"
     description="Découvrez comment vous assurer que votre réseau virtuel Azure est prêt à être utilisé avec Azure RemoteApp"
     services="remoteapp"
     documentationCenter=""
@@ -33,8 +33,9 @@ Si l'opération réussit, le réseau virtuel Azure est prêt à être utilisé a
 
 Pour plus d'informations sur le flux de travail de bout en bout des collections hybrides, consultez les articles suivants :
 
+- [Comment planifier votre réseau virtuel pour Azure RemoteApp](remoteapp-planvpn.md)
 - [Création d'une collection hybride](remoteapp-create-hybrid-deployment.md)
 - [Déployer une collection Azure RemoteApp sur votre Azure Virtual Network (avec prise en charge d’ExpressRoute)](http://blogs.msdn.com/b/rds/archive/2015/04/23/deploy-azure-remoteapp-collection-to-your-azure-virtual-network-with-support-for-expressroute.aspx)
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO3-->

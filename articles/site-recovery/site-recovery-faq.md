@@ -200,6 +200,15 @@ Lorsque vous utilisez la réplication basée sur la baie (SAN) pour activer la r
 
 Il est également nécessaire que les baies soient découvertes par SCVMM au moyen d’un fournisseur SMI-S mis à jour, proposé par les fournisseurs de stockage respectifs.
 
+## Déploiement entre VMware et Azure
+
+### Je possède une machine virtuelle VMware clonée. Puis-je protéger la machine virtuelle clonée dans Azure ?
+Vous ne pouvez pas cloner une machine virtuelle protégée. Vous pouvez protéger une machine virtuelle VMware clonée dans Azure tant que le service de mobilité n’est pas installé sur la machine virtuelle clonée. Vous pouvez cloner la machine virtuelle avant d’installer le service de mobilité pour éviter une entrée en double. En effet, les deux machines seront signalées avec le même GUID, ce qui affectera la réplication.
+
+### Puis-je cloner une machine virtuelle de serveur de processus ?
+Non, vous ne devez pas cloner un serveur de processus. Quand un serveur de processus est déployé, il crée son propre ID unique. S’il est cloné, les deux serveurs de processus disposent alors du même GUID, ce qui affectera la réplication existante.
+
+
 ## Déploiement entre des serveurs physiques et Azure
 
 ### Puis-je protéger mon serveur physique local dans Azure ?
@@ -247,4 +256,4 @@ Pour commencer à déployer ASR, effectuez les opérations suivantes :
 
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

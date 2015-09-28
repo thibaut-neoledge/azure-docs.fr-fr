@@ -7,16 +7,14 @@
 	manager="dwrede" 
 	editor=""/>
 
-
 <tags 
 	ms.service="api-management" 
 	ms.workload="mobile" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/18/2015" 
+	ms.date="09/14/2015" 
 	ms.author="antonba"/>
-
 
 # Délégation de l'inscription des utilisateurs et des abonnements aux produits
 
@@ -92,7 +90,7 @@ La délégation de l'abonnement aux produits fonctionne de la même manière que
 1. Le développeur sélectionne un produit dans le portail des développeurs Gestion des API, puis clique sur le bouton d'abonnement.
 2. Le navigateur est redirigé vers le point de terminaison de délégation.
 3. Le point de terminaison de délégation effectue les étapes nécessaires pour l'abonnement au produit. Il est de votre responsabilité d'éventuellement rediriger l'utilisateur vers une autre page pour obtenir des informations de facturation, demander des informations supplémentaires ou simplement stocker les informations sans aucune action de l'utilisateur.
-4. Si l'authentification est réussie, l'utilisateur revient à la page du portail des développeurs Gestion des API d'où il est parti.
+
 
 Pour activer la fonctionnalité, dans la page **Délégation**, cliquez sur **Déléguer l'abonnement au produit**.
 
@@ -116,8 +114,6 @@ Assurez-vous ensuite que le point de terminaison de délégation effectue bien l
 3. Effectuez le traitement de l'abonnement au produit en fonction du type de l'opération demandée dans **operation**, par exemple facturation, autres questions, etc.
 
 4. Après avoir correctement abonné l'utilisateur au produit de votre côté, abonnez l'utilisateur au produit Gestion des API en [appelant l'API REST pour l'abonnement au produit].
-
-5. Redirigez l’utilisateur vers l’URL **returnUrl** fournie lorsque vous avez reçu la demande.
 
 ## <a name="delegate-example-code"> </a> Exemple de Code ##
 
@@ -170,4 +166,4 @@ Pour plus d’informations sur la délégation, regardez la vidéo suivante.
 
 [api-management-delegation-signin-up]: ./media/api-management-howto-setup-delegation/api-management-delegation-signin-up.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

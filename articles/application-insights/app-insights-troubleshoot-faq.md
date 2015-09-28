@@ -1,18 +1,18 @@
 <properties 
-	pageTitle="Dépannage et questions : Application Insights"
-	description="Un aspect de Visual Studio Application Insights vous semble abscons ou ne fonctionne pas correctement ? Essayez ici."
-	services="application-insights"
-	documentationCenter=".net"
-	authors="alancameronwills"
+	pageTitle="Dépannage et questions : Application Insights" 
+	description="Un aspect de Visual Studio Application Insights vous semble abscons ou ne fonctionne pas correctement ? Essayez ici." 
+	services="application-insights" 
+    documentationCenter=".net"
+	authors="alancameronwills" 
 	manager="douge"/>
 
 <tags 
-	ms.service="application-insights"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="ibiza"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/24/2015"
+	ms.service="application-insights" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="ibiza" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/09/2015" 
 	ms.author="awills"/>
  
 # Dépannage et questions : Application Insights pour ASP.NET
@@ -136,6 +136,9 @@ Consultez les [notes de publication](app-insights-release-notes.md) du Kit de d�
 + Cliquez sur le bouton Actualiser. Le panneau s’actualise à intervalles réguliers, mais vous pouvez également l’actualiser manuellement. Plus les intervalles de temps sur lesquels portent les graphiques sont étendus, plus l’intervalle d’actualisation est long.
 + Dans le tableau de démarrage Microsoft Azure, examinez la carte d'état du service. Si des alertes sont indiquées, attendez qu'elles soient corrigées (OK), puis fermez et rouvrez le volet de votre application Application Insights.
 + Vérifiez également [notre blog d'état](http://blogs.msdn.com/b/applicationinsights-status/).
+
+#### Aucune donnée n’apparaît depuis que j’ai publié l’application sur mon serveur
+
 + Vous devrez ouvrir les ports TCP 80 et 443 de votre pare-feu pour le trafic sortant vers dc.services.visualstudio.com et f5.services.visualstudio.com.
 + Si vous devez utiliser un proxy pour l'envoi depuis votre réseau d'entreprise, définissez le paramètre [defaultProxy](https://msdn.microsoft.com/library/aa903360.aspx) dans le fichier Web.config.
 + Windows Server 2008 : assurez-vous que vous avez installé les mises à jour suivantes : [KB2468871](https://support.microsoft.com/kb/2468871), [KB2533523](https://support.microsoft.com/kb/2533523) et [KB2600217](https://support.microsoft.com/kb/2600217).
@@ -148,7 +151,7 @@ Consultez les [notes de publication](app-insights-release-notes.md) du Kit de d�
 
 #### <a name="q08"></a>Puis-je utiliser Application Insights pour surveiller un serveur web intranet ?
 
-Oui. Vous pouvez surveiller l'intégrité et l'utilisation si votre serveur peut envoyer des données sur le réseau Internet public.
+Oui. Vous pouvez surveiller l'intégrité et l'utilisation si votre serveur peut envoyer des données sur le réseau Internet public. Dans votre pare-feu, ouvrez les ports TCP 80 et 443 pour le trafic sortant vers dc.services.visualstudio.com et f5.services.visualstudio.com.
 
 Cependant, si vous voulez exécuter des tests web sur votre service, ce dernier doit être accessible depuis le réseau Internet public, sur le port 80.
 
@@ -161,7 +164,9 @@ Vous devez configurer un proxy capable de transmettre des appels POST https à 
 * Vérifiez le [blog d'état](http://blogs.msdn.com/b/applicationinsights-status/).
 * Vous souhaitez savoir si vous avez atteint votre quota mensuel de points de données ? Ouvrez les champs Paramètres/Quota et Tarification pour le savoir. Le cas échéant, vous pouvez mettre à niveau votre forfait ou payer pour disposer d'une capacité supplémentaire. Consultez le [mécanisme de tarification](http://azure.microsoft.com/pricing/details/application-insights/).
 
+## Status Monitor ne fonctionne pas
 
+Consultez [Résolution des problèmes liés à Status Monitor](app-insights-monitor-performance-live-website-now.md#troubleshooting). Les ports du pare-feu sont le plus souvent à l’origine du problème.
 
 ## Le portail
 
@@ -228,6 +233,10 @@ Si votre service web est exécuté dans une machine virtuelle Azure, vous pouve
 
 Vous pouvez [écrire un script PowerShell](app-insights-powershell-script-create-resource.md) pour créer une ressource Application Insights.
 
+## Réponses supplémentaires
+
+* [Forum Application Insights](https://social.msdn.microsoft.com/Forums/vstudio/fr-FR/home?forum=ApplicationInsights)
+
 
 <!--Link references-->
 
@@ -239,4 +248,4 @@ Vous pouvez [écrire un script PowerShell](app-insights-powershell-script-create
 
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO3-->

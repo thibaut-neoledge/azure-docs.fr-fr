@@ -1,20 +1,20 @@
 <properties
    pageTitle="Node.js et acteurs fiables | Microsoft Azure"
-	description="Examen de la création d’une application express node.js qui utilise des Reliable Actors et s’exécute sur la plateforme Azure Service Fabric."
-	services="service-fabric"
-	documentationCenter=".net"
-	authors="clca"
-	manager="timlt"
-	editor=""/>
+   description="Examen de la création d’une application express node.js qui utilise des Reliable Actors et s’exécute sur la plateforme Azure Service Fabric."
+   services="service-fabric"
+   documentationCenter="nodejs"
+   authors="clca"
+   manager="timlt"
+   editor=""/>
 
 <tags
    ms.service="service-fabric"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="NA"
-	ms.date="08/17/2015"
-	ms.author="claudioc"/>
+   ms.devlang="nodejs"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="NA"
+   ms.date="08/17/2015"
+   ms.author="claudioc"/>
 
 
 # Node.js et acteurs fiables : une combinaison gagnante
@@ -224,4 +224,4 @@ Vous pouvez déployer l’application (ce qui inclut l’application node.js) en
 [9]: ./media/service-fabric-node-and-reliable-actors-app/application-project-reference.PNG
 [10]: ./media/service-fabric-node-and-reliable-actors-app/solution-deploy.PNG
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO3-->

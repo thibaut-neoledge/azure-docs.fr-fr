@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article" 
-	ms.date="07/22/2015"
+	ms.date="09/11/2015"
 	ms.author="cabailey"/>
 #Génération et transfert de clés HSM protégées pour Azure clé de coffre
 
@@ -105,6 +105,7 @@ Accédez au centre de téléchargement Microsoft Download Center et [télécharg
 |Europe|KeyVault-BYOK-outils-Europe.zip|881DCA798305B8408C06BAE7B3EFBC1E9EA6113A8D6EC443464F3744896F32C3|
 |Asie|KeyVault-BYOK-Tools-AsiaPacific.zip|0C76967B3AC76687E4EA47EB96174EE6B25AB24E3114E28A90D9B93A2E6ABF6E|
 |Amérique latine|KeyVault-BYOK-Tools-LatinAmerica.zip|B38015990D4D1E522B8367FF78E78E0234BF9592663470426088C44C3CAAAF48|
+|Japon|KeyVault-BYOK-Tools-Japan.zip|DB512CD9472FDE2FD610522847DF05E4D7CD49A296EE4A2DD74D43626624A113|
 
 Pour valider l’intégrité de votre jeux d’outils BYOK, dans votre session Azure PowerShell, utilisez l’applet de commande [Get-FileHash](https://technet.microsoft.com/library/dn520872.aspx).
 
@@ -112,11 +113,11 @@ Pour valider l’intégrité de votre jeux d’outils BYOK, dans votre session A
 
 Le jeux d’outils contient les éléments suivants :
 
-- Un package de clé KEK portant un nom commençant par **BYOK-KEK- pkg-.**
-- Un package Security World dont le nom commence par **BYOK-SecurityWorld - pkg-.**
-- Un script python nommé v\*\*erifykeypackage.py.\*\*
+- Un package de clé KEK dont le nom commence par **BYOK-KEK-pkg-.**
+- Un package Security World dont le nom commence par **BYOK-SecurityWorld-pkg-.**
+- Un script python nommé v**erifykeypackage.py.**
 - Un fichier exécutable sur ligne de commande nommé **KeyTransferRemote.exe** et les DLL associées.
-- Un Package redistribuable Visual C++, nommé **vcredist\_x64.exe.**
+- Un package redistribuable Visual C++ nommé **vcredist\_x64.exe**.
 
 Copiez le package sur un lecteur USB ou autre support de stockage portable.
 
@@ -153,7 +154,7 @@ Démarrez une invite de commande et exécutez le programme de nouveau monde Thal
 
 	new-world.exe --initialize --cipher-suite=DLf1024s160mRijndael --module=1 --acs-quorum=2/3
 
-Ce programme crée un fichier **Security World** au dossier %NFAST\_KMDATA%\\local\\world, qui correspond au dossier C:\\ProgramData\\nCipher\\Key Management Data\\local. Vous pouvez utiliser des valeurs différentes pour le quorum, mais dans notre exemple, vous êtes invité à entrer trois cartes vierges et codes confidentiels pour chacune d’elles. Par la suite, chacune des deux cartes procure un accès total au monde de sécurité. Ces cartes constituent l’**ensemble de cartes administrateur** pour le nouveau monde de sécurité.
+Ce programme crée un fichier **Security World** à l’emplacement %NFAST\_KMDATA%\\local\\world, qui correspond au dossier C:\\ProgramData\\nCipher\\Key Management Data\\local. Vous pouvez utiliser des valeurs différentes pour le quorum, mais dans notre exemple, vous êtes invité à entrer trois cartes vierges et codes confidentiels pour chacune d’elles. Par la suite, chacune des deux cartes procure un accès total au monde de sécurité. Ces cartes constituent l’**ensemble de cartes administrateur** pour le nouveau monde de sécurité.
 
 Faites ensuite ce qui suit :
 
@@ -190,7 +191,7 @@ Pour valider le package téléchargé :
 
 	>[AZURE.TIP]Le logiciel Thales inclut un python dans %NFAST\_HOME%\\python\\bin
 	
-2.	Vérifiez que vous voyez bien ce qui suit, ce qui indique que la validation est réussie :**Résultat : RÉUSSI**
+2.	Vérifiez que vous voyez bien ce qui suit, ce qui indique que la validation est réussie : **Résultat : RÉUSSI**
 
 Ce script valide la chaîne de signataire jusqu’à la clé racine Thales. Le hachage de cette clé racine est incorporé dans le script et sa valeur doit être **59178a47 de508c3f 291277ee 184f46c4 f1d9c639**. Vous pouvez également confirmer cette valeur séparément en vous rendant sur le [site web de Thales](http://www.thalesesec.com/).
 
@@ -198,7 +199,7 @@ Vous êtes maintenant prêt à créer une nouvelle clé.
 
 ###Étape 3.3 : Créez une nouvelle clé
 
-Générer une clé à l’aide du programme Thales **generatekey**.
+Générez une clé à l’aide du programme **generatekey** de Thales.
 
 Exécutez la commande suivante pour générer la clé :
 
@@ -206,11 +207,11 @@ Exécutez la commande suivante pour générer la clé :
 
 Lorsque vous exécutez cette commande, utilisez ces instructions :
 
-- Remplacez la valeur *contosokey* d’ **ident** et **plainname** par n’importe quelle valeur de chaîne. Pour réduire la charge administrative et réduire le risque d’erreurs, nous vous recommandons d’utiliser la même valeur pour les deux. La valeur **ident** doit contenir uniquement des chiffres, des tirets et des lettres minuscules.
+- Remplacez la valeur *contosokey* d’**ident** et de **plainname** par n’importe quelle valeur de chaîne. Pour réduire la charge administrative et réduire le risque d’erreurs, nous vous recommandons d’utiliser la même valeur pour les deux. La valeur **ident** doit contenir uniquement des chiffres, des tirets et des lettres minuscules.
 
 - Le pubexp est laissé vide (par défaut) dans cet exemple, mais vous pouvez définir des valeurs spécifiques. Pour plus d’informations, consultez la Thales
 
-Cette commande crée un fichier de clé à jeton dans le dossier %NFAST\_KMDATA%\\local avec un nom commençant par **key\_simple\_** suivi de l’ident spécifié dans la commande. Par exemple :**key\_simple\_contosokey**. Ce fichier contient une clé chiffrée.
+Cette commande crée un fichier de clé à jeton dans le dossier %NFAST\_KMDATA%\\local avec un nom commençant par **key\_simple\_** suivi de l’ident spécifié dans la commande. Par exemple : **key\_simple\_contosokey**. Ce fichier contient une clé chiffrée.
 
 Sauvegardez ce fichier de clé à jeton dans un emplacement sûr.
 
@@ -242,11 +243,11 @@ Pour limiter les autorisations sur votre clé, dans l’invite de commande, exé
 
 		KeyTransferRemote.exe -ModifyAcls -KeyAppName simple -KeyIdentifier contosokey -ExchangeKeyPackage BYOK-KEK-pkg-JPN-1 -NewSecurityWorldPackage BYOK-SecurityWorld-pkg-JPN-1
 
-Lorsque vous exécutez cette commande, remplacez *contosokey* par la valeur spécifiée à l’**étape 3.3 : créez une nouvelle clé **à partir de l’opération [Générez votre clé](#step-3-generate-your-key).
+Quand vous exécutez cette commande, remplacez *contosokey* par la valeur spécifiée à l’**Étape 3.3 : créez une nouvelle clé** lors de l’opération [Générez votre clé](#step-3-generate-your-key).
 
 Vous devrez incorporer les cartes administrateur du monde sécurité.
 
-Lorsque la commande est terminée, vous verrez **Résultat : RÉUSSITE** et la copie de votre clé avec autorisations réduites sera placée dans le fichier nommé key\_xferacId\_<contosokey>.
+Une fois la commande terminée, vous verrez **Résultat : RÉUSSITE** et la copie de votre clé avec autorisations réduites sera placée dans le fichier nommé key\_xferacId\_<contosokey>.
 
 ###Étape 4.2 : Inspectez la nouvelle copie de la clé
 
@@ -258,7 +259,7 @@ Vous pouvez également exécuter les utilitaires Thales pour confirmer les autor
 - kmfile-dump.exe :
 
 		"%nfast_home%\bin\kmfile-dump.exe" "%NFAST_KMDATA%\local\key_xferacld_contosokey"
-Lorsque vous exécutez cette commande, remplacez contosokey par la valeur spécifiée à l’**étape 3.3 : créez une nouvelle clé** à partir de l’opération [Générer votre clé](#step-3-generate-your-key).
+Quand vous exécutez cette commande, remplacez contosokey par la valeur spécifiée à l’**Étape 3.3 : créez une nouvelle clé** lors de l’opération [Générez votre clé](#step-3-generate-your-key).
 
 ###Étape 4.3 : chiffrer votre clé à l’aide clé de Microsoft Exchange
 
@@ -282,21 +283,21 @@ Exécutez l’une des commandes suivantes, selon votre région :
 
 Lorsque vous exécutez cette commande, utilisez ces instructions :
 
-- Remplacez *contosokey* par l’identificateur que vous avez utilisé pour générer la clé à l’**étape 3.3 : créer une nouvelle clé** à partir de l’étape [Générez votre clé](#step-3-generate-your-key).
+- Remplacez *contosokey* par l’identificateur que vous avez utilisé pour générer la clé à l’**Étape 3.3 : créez une nouvelle clé** lors de l’opération [Générez votre clé](#step-3-generate-your-key).
 
-- Remplacez *SubscriptionID* par l’ID d’abonnement Azure qui contient votre coffre de clés. Vous avez extrait cette valeur auparavant, au cours de l’**étape 1.2 : obtenir votre ID d’abonnement Azure** à partir de l’étape [Préparer votre poste de travail connecté à Internet](#step-1-prepare-your-internet-connected-workstation).
+- Remplacez *SubscriptionID* par l’ID d’abonnement Azure qui contient votre coffre de clés. Vous avez récupéré cette valeur auparavant, au cours de l’**Étape 1.2 : obtenez votre ID d’abonnement Azure** lors de l’opération [Préparez votre station de travail connectée à Internet](#step-1-prepare-your-internet-connected-workstation).
 
-- Remplacez *ContosoFirstHSMKey* par une étiquette qui sera utilisée pour votre nom de fichier en sortie.
+- Remplacez *ContosoFirstHSMKey* par une étiquette qui sera utilisée pour votre nom de fichier de sortie.
 
-Lorsque cette opération est terminée, il affiche **Résultat : RÉUSSITE** et un nouveau fichier est ajouté au dossier en cours. Il porte le nom qui suit : TransferPackage-*ContosoFirstHSMkey*.byok
+Une fois cette opération terminée, **Résultat : RÉUSSITE** apparaît et un nouveau fichier est ajouté au dossier en cours. Il porte le nom suivant : TransferPackage-*ContosoFirstHSMkey*.byok.
 
 ###Étape 4.4 : copiez votre package de transfert de clé vers la station de travail connectée à Internet 
 
-Utilisez une clé USB ou un autre dispositif de stockage portable pour copier le fichier de sortie issu de la première étape (KeyTransferPackage-ContosoFirstHSMkey.byok) pour votre station de travail connecté à Internet.
+Utilisez une clé USB ou un autre dispositif de stockage portable pour copier le fichier de sortie issu de la première étape (KeyTransferPackage-ContosoFirstHSMkey.byok) pour votre station de travail connectée à Internet.
 
 ##Étape 5 : transférez votre clé vers Azure Key Vault
 
-Pour l’opération finale, sur le poste de travail connecté par Internet, utilisez l’applet de commande [Add-AzureKeyVaultKey](https://msdn.microsoft.com/library/azure/dn868048.aspx) pour télécharger le package de transfert de clé copié dans la station de travail de la station de travail non connectée vers le module de sécurité matérielle Azure Key Vault :
+Pour l’opération finale, sur la station de travail connectée à Internet, utilisez l’applet de commande [Add-AzureKeyVaultKey](https://msdn.microsoft.com/library/azure/dn868048.aspx) pour télécharger le package de transfert de clé copié dans la station de travail de la station de travail non connectée vers le module de sécurité matérielle Azure Key Vault :
 
 	Add-AzureKeyVaultKey -VaultName 'ContosoKeyVaultHSM' -Name 'ContosoFirstHSMkey' -KeyFilePath 'c:\TransferPackage-ContosoFirstHSMkey.byok' -Destination 'HSM'
 
@@ -304,6 +305,6 @@ Si le téléchargement réussit, les propriétés de la clé que vous venez de c
 
 ##Étapes suivantes
 
-Vous pouvez maintenant utiliser cette clé protégée HSM dans votre coffre de clés. Pour plus d’informations, consultez la section **Utiliser un module de sécurité matériel (HSM)** du didacticiel [Prise en main d’Azure Key Vault](key-vault-get-started.md).
+Vous pouvez maintenant utiliser cette clé protégée HSM dans votre coffre de clés. Pour plus d’informations, consultez la section **Utiliser un module de sécurité matériel (HSM)** dans le didacticiel [Prise en main d’Azure Key Vault](key-vault-get-started.md).
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO3-->

@@ -3,17 +3,17 @@
 	description="Découvrez comment utiliser Azure Cache Service pour prendre en charge la mise en cache de l’état de session ASP.NET." 
 	services="app-service\web" 
 	documentationCenter=".net" 
- 	authors="Rick-Anderson" 
+	authors="Rick-Anderson" 
 	manager="wpickett" 
-	editor=""/>
+	editor="jimbe"/>
 
 <tags 
-	ms.service="app-service-web" 
+	ms.service="app-service" 
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="08/06/2015" 
+	ms.date="09/16/2015" 
 	ms.author="riande"/>
 
 
@@ -24,7 +24,9 @@ Cette rubrique explique comment utiliser le service Cache Redis Azure pour l’�
 
 Si votre application web ASP.NET utilise l'état de session, vous devez configurer un fournisseur d'état de session externe (le service Redis Cache ou un fournisseur d'état de session SQL). Si vous utilisez l'état de session mais aucun fournisseur externe, vous êtes limité à une seule instance de votre application web. Le service Redis Cache est la solution la plus rapide et la plus simple.
 
-##<a id="createcache"></a>Création du cache
+[AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
+
+##<a id="createcache"></a>Créer le cache
 Suivez les [instructions indiquées](../cache-dotnet-how-to-use-azure-redis-cache.md#create-cache) pour créer le cache.
 
 ##<a id="configureproject"></a>Ajouter le package NuGet RedisSessionStateProvider à votre application web
@@ -41,7 +43,7 @@ Outre la création de références d'assembly pour le cache, le package NuGet aj
 
 1. Ouvrez le fichier *web.config*, puis recherchez l'élément **sessionState**.
 
-1. Entrez les valeurs appropriées pour `host`, `accessKey`, `port` (le port SSL doit être 6380), puis affectez à `SSL` la valeur `true`. Ces valeurs peuvent être obtenues à partir du panneau du [portail Azure](http://go.microsoft.com/fwlink/?LinkId=529715) pour votre instance de cache. Pour plus d’informations, consultez [Connexion au cache](../cache-dotnet-how-to-use-azure-redis-cache.md#connect-to-cache). Notez que le port non-SSL est désactivé par défaut pour les nouveaux caches. Pour plus d’informations sur l’activation du port non SSL, consultez la section relative aux [ports d’accès](https://msdn.microsoft.com/library/azure/dn793612.aspx#AccessPorts) dans la rubrique [Configuration d’un cache dans le Cache Redis Azure](https://msdn.microsoft.com/library/azure/dn793612.aspx). Le balisage suivant indique les modifications apportées au fichier *web.config*, en particulier les modifications apportées au *port*, à l'*hôte*, à accessKey\* et à *ssl*.
+1. Entrez les valeurs appropriées pour `host`, `accessKey`, `port` (le port SSL doit être 6380), puis affectez à `SSL` la valeur `true`. Ces valeurs peuvent être obtenues à partir du panneau du [portail Azure](http://go.microsoft.com/fwlink/?LinkId=529715) pour votre instance de cache. Pour plus d’informations, consultez [Connexion au cache](../cache-dotnet-how-to-use-azure-redis-cache.md#connect-to-cache). Notez que le port non-SSL est désactivé par défaut pour les nouveaux caches. Pour plus d’informations sur l’activation du port non SSL, consultez la section relative aux [ports d’accès](https://msdn.microsoft.com/library/azure/dn793612.aspx#AccessPorts) dans la rubrique [Configuration d’un cache dans le Cache Redis Azure](https://msdn.microsoft.com/library/azure/dn793612.aspx). Le balisage suivant indique les modifications apportées au fichier *web.config*, en particulier les modifications apportées à *port*, *host*, accessKey* et *ssl*.
 
 		  <system.web>;
 		    <customErrors mode="Off" />;
@@ -72,7 +74,7 @@ Outre la création de références d'assembly pour le cache, le package NuGet aj
 		  </system.web>;
 
 
-##<a id="usesessionobject"></a> Utiliser l'objet Session dans le code
+##<a id="usesessionobject"></a> Utiliser l’objet Session dans le code
 La dernière étape consiste à utiliser l'objet Session dans votre code ASP.NET. Pour ajouter des objets à l'état de session, utilisez la méthode **Session.Add**. Cette méthode utilise des paires clé-valeur pour stocker des éléments dans le cache d'état de session.
 
     string strValue = "yourvalue";
@@ -107,4 +109,4 @@ Vous pouvez également utiliser le Cache Redis pour mettre en cache des objets d
   [ManageKeys]: ./media/web-sites-dotnet-session-state-caching/CachingScreenshot_ManageAccessKeys.png
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO3-->

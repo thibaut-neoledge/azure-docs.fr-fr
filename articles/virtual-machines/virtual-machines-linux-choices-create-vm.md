@@ -65,7 +65,6 @@ Utilisez une image basée sur une machine virtuelle Microsoft Azure existante, 
 [Association d’un disque de données][]
 
 ## Ressources supplémentaires
-[À propos des paramètres de configuration de machine virtuelle Azure][]
 
 [Environnement de test de la configuration de base][]
 
@@ -96,11 +95,10 @@ Utilisez une image basée sur une machine virtuelle Microsoft Azure existante, 
 
 [Association d’un disque de données]: virtual-machines-linux-how-to-attach-disk.md
 
-[À propos des paramètres de configuration de machine virtuelle Azure]: http://msdn.microsoft.com/library/azure/dn763935.aspx
 [Environnement de test de la configuration de base]: virtual-machines-base-configuration-test-environment.md
 [Environnements de test de cloud hybride Azure]: virtual-machines-hybrid-cloud-test-environments.md
 
 [Création d’une machine virtuelle exécutant Linux]: virtual-machines-linux-tutorial.md
 [Création d’une machine virtuelle personnalisée]: virtual-machines-create-custom.md
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO3-->

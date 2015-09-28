@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/05/2015"
+   ms.date="09/14/2015"
    ms.author="telmos" />
 
 # Présentation du réseau virtuel
@@ -85,7 +85,7 @@ Les appliances virtuelles dépendent des [itinéraires définis par l’utilisat
 
 ## Étapes suivantes
 
-- [Créer un réseau virtuel](../virtual-networks-create-a-vnet.md) et des sous-réseaux.
+- [Créer un réseau virtuel](../virtual-networks-create-vnet-arm-pportal.md) et des sous-réseaux.
 - [Créer une machine virtuelle dans un réseau virtuel](../virtual-machines-windows-tutorial.md).
 - En savoir plus sur les [groupes de sécurité réseau](../virtual-networks-nsg.md).
 - En savoir plus sur les [équilibreurs de charge](../load-balancer-overview.md).
@@ -93,4 +93,4 @@ Les appliances virtuelles dépendent des [itinéraires définis par l’utilisat
 - [Réserver une adresse IP publique](../virtual-networks-reserved-public-ip.md).
 - En savoir plus sur les [Itinéraires définis par l’utilisateur et le transfert IP](virtual-networks-udr-overview.md).
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO3-->

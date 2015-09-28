@@ -1,3 +1,4 @@
+<!--author=SharS last changed: 9/17/15-->
 
 #### Création d’une sauvegarde manuelle
 
@@ -21,4 +22,4 @@
 
   La sauvegarde doit apparaître dans la liste des jeux de sauvegarde qui s’affiche dans le catalogue.
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO3-->

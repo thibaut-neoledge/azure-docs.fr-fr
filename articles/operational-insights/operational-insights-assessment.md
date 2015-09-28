@@ -6,16 +6,14 @@
    authors="bandersmsft"
    manager="jwhit"
    editor="" />
-
 <tags
    ms.service="operational-insights"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/05/2015"
+   ms.date="09/10/2015"
    ms.author="banders" />
-
 
 # Optimisation de votre environnement avec des solutions d’évaluation
 
@@ -127,4 +125,4 @@ Consultez le résumé des évaluations de conformité pour votre infrastructure,
 
 [AZURE.INCLUDE [operational-insights-export](../../includes/operational-insights-export.md)]
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

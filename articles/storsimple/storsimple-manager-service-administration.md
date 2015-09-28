@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Administration du service StorSimple Manager | Microsoft Azure"
-	description="Découvrez comment gérer votre appareil StorSimple à l'aide du service StorSimple Manager dans le portail de gestion Azure."
-	services="storsimple"
-	documentationCenter=""
-	authors="alkohli"
-	manager="carolz"
-	editor=""/>
+   description="Découvrez comment gérer votre appareil StorSimple à l'aide du service StorSimple Manager dans le portail de gestion Azure."
+   services="storsimple"
+   documentationCenter=""
+   authors="alkohli"
+   manager="carolz"
+   editor="" />
 <tags 
    ms.service="storsimple"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="na"
-	ms.date="09/01/2015"
-	ms.author="alkohli"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="na"
+   ms.date="09/11/2015"
+   ms.author="alkohli" />
 
 # Utiliser le service StorSimple Manager pour gérer votre appareil StorSimple
 
@@ -89,7 +89,7 @@ Pour plus d'informations sur chaque flux de travail, cliquez sur la procédure a
 |Modification des paramètres d’un appareil</br>Modification des paramètres temporels</br>Modification des paramètres DNS.md</br>Configuration d’interfaces réseau|Service StorSimple Manager → Appareils → Configuration|[Modification de la configuration de votre appareil StorSimple](storsimple-modify-device-config.md)|
 |Affichage des paramètres de proxy web|Service StorSimple Manager → Appareils → Configuration|[Configuration du proxy web de votre appareil](storsimple-configure-web-proxy.md)|
 |Modification du mot de passe administrateur de votre appareil</br>Modification du mot de passe de StorSimple Snapshot Manager|Service StorSimple Manager → Appareils → Configuration|[Modification des mots de passe StorSimple](storsimple-change-passwords.md)|
-|Configuration de la gestion à distance|Service StorSimple Manager → Appareils → Configuration|[Connexion à distance à votre appareil StorSimple](https://msdn.microsoft.com/library/azure/dn772393.aspx)|
+|Configuration de la gestion à distance|Service StorSimple Manager → Appareils → Configuration|[Connexion à distance à votre appareil StorSimple](storsimple-remote-connect.md)|
 |Configuration des paramètres d'alerte|Service StorSimple Manager → Appareils → Configuration|[Affichage et gestion des alertes StorSimple](storsimple-manage-alerts.md)|
 |Configuration de CHAP pour votre appareil StorSimple|Service StorSimple Manager → Appareils → Configuration|[Configuration de CHAP pour votre appareil StorSimple](storsimple-configure-chap.md)|
 |Ajout d’une stratégie de sauvegarde</br>Ajout ou modification d’une planification</br>Suppression d’une stratégie de sauvegarde</br>Exécution d’une sauvegarde manuelle</br>Création d’une stratégie de sauvegarde personnalisée avec plusieurs volumes et planifications|Service StorSimple Manager → Appareils → Stratégies de sauvegarde|[Gestion des stratégies de sauvegarde](storsimple-manage-backup-policies.md)|
@@ -97,6 +97,10 @@ Pour plus d'informations sur chaque flux de travail, cliquez sur la procédure a
 |En savoir plus sur les composants matériels de StorSimple</br>Surveillance de l'état du matériel</br>(Les données ci-dessus s’appliquent aux appareils sur site uniquement)|Service StorSimple Manager → Appareils → Maintenance|[Surveillance des composants matériels](storsimple-monitor-hardware-status.md)|
 |Création d’un package de prise en charge|Service StorSimple Manager → Appareils → Maintenance|[Création et gestion d’un package de prise en charge](storsimple-create-manage-support-package.md)|
 |Installer les mises à jour logicielles|Service StorSimple Manager → Appareils → Maintenance|[Mise à jour de votre appareil](storsimple-update-device.md)|
+
+![Vidéo disponible](./media/storsimple-manager-service-administration/Video_icon.png) **Vidéo disponible**
+
+Pour visionner une vidéo qui vous guide à travers l’interface utilisateur du service StorSimple Manager, cliquez [ici](http://azure.microsoft.com/documentation/videos/storsimple-manager-service-overview/).
 
 ##Étapes suivantes
 Si vous rencontrez des problèmes de fonctionnement quotidien de votre appareil StorSimple ou avec l’un de ses composants matériels, consultez la rubriques suivantes :
@@ -108,4 +112,4 @@ Si vous ne parvenez pas à résoudre les problèmes et vous devez générer une 
 
 -  [Contacter le support technique Microsoft](storsimple-contact-microsoft-support.md)
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

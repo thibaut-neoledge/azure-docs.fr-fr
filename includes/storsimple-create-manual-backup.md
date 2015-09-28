@@ -1,3 +1,7 @@
+
+<!--author=SharS last changed: 9/15/15-->
+
+
 #### Création d’une sauvegarde manuelle
 
 1. Sur la page **Appareils**, accédez à l’onglet **Stratégies de sauvegarde**. Cet onglet répertorie toutes les stratégies de sauvegarde au format tabulaire, y compris la stratégie du volume que vous souhaitez sauvegarder.
@@ -20,4 +24,4 @@
 
   La sauvegarde doit apparaître dans la liste des jeux de sauvegarde qui s’affiche dans le catalogue.
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

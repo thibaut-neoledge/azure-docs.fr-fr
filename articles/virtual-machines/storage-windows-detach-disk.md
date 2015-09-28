@@ -3,7 +3,7 @@
 	description="Apprenez à détacher un disque d’une machine virtuelle dans Azure."
 	services="virtual-machines, storage"
 	documentationCenter=""
-	authors="KBDAzure"
+	authors="cynthn"
 	manager="timlt"
 	editor=""
 	tags="azure-service-management"/>
@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="07/14/2015"
-	ms.author="kathydav"/>
+	ms.author="cynthn"/>
 
 
 
@@ -29,4 +29,4 @@
 
 [Comment attacher un disque de données à une machine virtuelle Windows](storage-windows-attach-disk.md)
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO3-->

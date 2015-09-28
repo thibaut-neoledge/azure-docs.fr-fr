@@ -4,7 +4,7 @@
 
 # API de gestion : version 2014-07-31-Preview
 
-Ce document décrit la version **2014-07-31-Preview** de l'API REST de gestion Azure Search. Elle a depuis été remplacée par la version disponible sur le marché, [API REST de gestion Azure Search 2015-02-28](https://msdn.microsoft.com/library/dn832684.aspx) sur MSDN. \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+Ce document décrit la version **2014-07-31-Preview** de l'API REST de gestion Azure Search. Elle a depuis été remplacée par une version plus récente. Pour obtenir la dernière version, consultez [API REST de gestion Azure Search 2015-08-19](https://msdn.microsoft.com/library/dn832684.aspx) sur MSDN. \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
 
 ## Opérations de gestion de service
 
@@ -26,7 +26,7 @@ Tous les appels d’API de gestion doivent inclure l’ID d’abonnement et une 
 
 ### Versions
 
-La version actuelle de l’API REST de gestion d’Azure Search est `api-version=2014-07-31-Preview`. Il s’agit de la seule version de cette API.
+`api-version=2014-07-31-Preview` a été introduit au cours de la présentation publique d’Azure Search. Pour plus d’informations sur les modifications apportées d’une version à la suivante, consultez [Nouveautés d’Azure Search](search-latest-updates.md).
 
 ### Authentification et contrôle d’accès
 
@@ -815,4 +815,4 @@ Aucun.
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

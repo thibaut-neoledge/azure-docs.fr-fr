@@ -1,6 +1,7 @@
 <properties 
 	pageTitle="Niveaux de cohérence dans DocumentDB | Microsoft Azure" 
-	description="DocumentDB offre quatre niveaux de cohérence, avec les niveaux de performances associés, pour aider les développeurs d'applications à faire des compromis prévisibles entre cohérence, disponibilité et latence." 
+	description="Découvrez les quatre niveaux de cohérence proposés par DocumentDB et les niveaux de performance associés qui permettent de faire des compromis avisés entre cohérence finale, disponibilité et latence." 
+	keywords="eventual consistency, documentdb, azure, Microsoft azure"
 	services="documentdb" 
 	authors="mimig1" 
 	manager="jhubbard" 
@@ -18,14 +19,14 @@
 
 # Utilisation des niveaux de cohérence pour optimiser la disponibilité et les performances dans DocumentDB
 
-Les développeurs doivent souvent choisir entre les deux extrêmes que constituent une cohérence forte et une cohérence éventuelle. En réalité, il existe plusieurs niveaux intermédiaires entre ces deux extrêmes. Dans la plupart des scénarios réels, les applications bénéficient de compromis affinés entre cohérence, disponibilité et latence. DocumentDB offre quatre niveaux de cohérence bien définis et les niveaux de performances associés. Cela permet aux développeurs d'application de trouver des compromis prévisibles entre cohérence, disponibilité et latence.
+Les développeurs doivent souvent choisir entre les deux extrêmes que constituent une cohérence forte et une cohérence éventuelle. En réalité, il existe plusieurs niveaux intermédiaires entre ces deux extrêmes. Dans la plupart des scénarios réels, les applications bénéficient de compromis affinés entre cohérence, disponibilité et latence. DocumentDB offre quatre niveaux de cohérence bien définis et les niveaux de performances associés. Cela permet aux développeurs d’applications de trouver des compromis prévisibles entre cohérence, disponibilité et latence.
  
 Toutes les ressources système, notamment les comptes de base de données, les bases de données, les collections, les utilisateurs et les autorisations sont toujours extrêmement cohérentes en ce qui concerne les lectures et requêtes. Les niveaux de cohérence s'appliquent uniquement aux ressources définies par l'utilisateur. Pour les requêtes et les opérations de lecture sur les ressources définies par l'utilisateur, dont les documents, les pièces jointes, les procédures stockées, les déclencheurs et les fonctions définies par l'utilisateur, DocumentDB propose les quatre niveaux de cohérence suivants :
 
- - Strong (Fort)
- - Bounded staleness (En fonction de l'obsolescence) 
- - Session
- - Eventual (Éventuel) 
+ - Forte cohérence
+ - Cohérence en fonction de l'obsolescence
+ - Cohérence de session
+ - Cohérence finale
 
 Ces niveaux de cohérence bien définis et granulaires vous permettent de trouver un bon compromis entre cohérence, disponibilité et performances. Ils sont soutenus par des niveaux de performances prévisibles garantissant des résultats cohérents pour votre application.
 
@@ -89,4 +90,4 @@ Si vous souhaitez en lire plus sur les niveaux de cohérence et les différents 
 -	Werner Vogels. Niveau de cohérence Éventuel repensé. [http://allthingsdistributed.com/2008/12/eventually\_consistent.html](http://allthingsdistributed.com/2008/12/eventually_consistent.html)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

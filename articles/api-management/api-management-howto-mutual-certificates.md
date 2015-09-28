@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/18/2015" 
+	ms.date="09/15/2015" 
 	ms.author="sdanie"/>
 
 # Comment sécuriser les services principaux à l'aide d'une authentification de certificat mutuel dans la Gestion des API Azure
@@ -141,4 +141,4 @@ Pour plus d’informations, regardez la vidéo suivante :
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

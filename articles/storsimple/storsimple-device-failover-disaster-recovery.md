@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Basculement et récupération d’urgence StorSimple | Microsoft Azure"
-	description="Découvrez comment basculer votre appareil StorSimple vers lui-même, un autre appareil physique ou un appareil virtuel."
-	services="storsimple"
-	documentationCenter=""
-	authors="alkohli"
-	manager="adinah"
-	editor=""/>
+   description="Découvrez comment basculer votre appareil StorSimple vers lui-même, un autre appareil physique ou un appareil virtuel."
+   services="storsimple"
+   documentationCenter=""
+   authors="alkohli"
+   manager="carolz"
+   editor="" />
 <tags 
    ms.service="storsimple"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="na"
-	ms.date="08/28/2015"
-	ms.author="alkohli"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="na"
+   ms.date="09/14/2015"
+   ms.author="alkohli" />
 
 # Basculement et récupération d’urgence pour votre appareil StorSimple
 
@@ -129,11 +129,16 @@ Procédez comme suit pour restaurer votre appareil vers un appareil virtuel Stor
 	
 	b. Accédez à la page **Conteneurs de volumes**. Tous les conteneurs de volume, ainsi que les volumes de l’ancien appareil, doivent désormais être répertoriés.
 
+![Vidéo disponible](./media/storsimple-device-failover-disaster-recovery/Video_icon.png) **Vidéo disponible**
+
+Pour visionner une vidéo expliquant comment restaurer un périphérique physique basculé vers un appareil virtuel dans le cloud, cliquez [ici](http://azure.microsoft.com/documentation/videos/storsimple-and-disaster-recovery/).
+
 ## Continuité d’activité et récupération d’urgence (Business Continuity Disaster Recovery - BCDR)
 
 Un scénario de continuité d’activité et récupération d’urgence (BCDR) se produit lorsque l’ensemble du centre de données Azure cesse de fonctionner. Cela peut affecter votre service StorSimple Manager et les appareils StorSimple associés.
 
 S’il existe des appareils StorSimple inscrits juste avant un incident, ces périphériques StorSimple devront peut-être subir une réinitialisation des paramètres. Après l’incident, le périphérique StorSimple s’affichera comme étant hors connexion. Le périphérique StorSimple doit être supprimé à partir du portail, et une réinitialisation des paramètres doit être effectuée, suivie d’une nouvelle inscription.
+
 
 ## Étapes suivantes
 
@@ -142,7 +147,7 @@ Après avoir effectué un basculement, vous devrez peut-être :
 - [Désactiver votre appareil StorSimple](storsimple-deactivate-and-delete-device.md#deactivate-a-device)
 - [Supprimer votre appareil StorSimple](storsimple-deactivate-and-delete-device.md#delete-a-device)
 
-Pour plus d'informations sur la façon de gérer votre appareil à l'aide du service StorSimple Manager, accédez à [Utilisation du service StorSimple Manager pour gérer votre appareil StorSimple](storsimple-manager-service-administration.md).
+Pour plus d’informations sur l’utilisation du service StorSimple Manager, consultez [Utiliser le service StorSimple Manager pour gérer votre appareil StorSimple](storsimple-manager-service-administration.md).
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

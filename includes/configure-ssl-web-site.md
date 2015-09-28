@@ -1,8 +1,7 @@
-#Activer le protocole HTTPS pour une application web dans Azure App Service
+
+Vous pouvez sécuriser les communications entre l’application web et le navigateur avec le protocole HTTPS, qui utilise le chiffrement SSL (Secure Socket Layer). Il s’agit de la méthode la plus courante en matière de sécurisation des données envoyées via Internet. Elle permet de garantir aux visiteurs que les transactions qu’ils réalisent avec votre application sont sécurisées. Cet article décrit comment configurer le protocole HTTPS pour une application web dans Azure App Service. Cet article ne couvre pas l’authentification du certificat client. Pour plus d’informations à ce sujet, consultez [Comment configurer l’authentification mutuelle TLS pour les applications web](../articles/app-service-web/app-service-web-configure-tls-mutual-auth.md).
 
 > [AZURE.NOTE]Soyez opérationnel plus rapidement ! Utilisez la nouvelle [procédure pas à pas](http://support.microsoft.com/kb/2990804) d’Azure ! L’association d’un nom de domaine personnalisé ET la sécurisation des communications (SSL) avec Azure Cloud Services ou [App Service](http://go.microsoft.com/fwlink/?LinkId=529714) deviennent un jeu d’enfant.
-
-Vous pouvez sécuriser les communications entre l’application web et le navigateur avec le protocole HTTPS, qui utilise le chiffrement SSL (Secure Socket Layer). Il s’agit de la méthode la plus courante en matière de sécurisation des données envoyées via Internet. Elle permet de garantir aux visiteurs que les transactions qu’ils réalisent avec votre application sont sécurisées. Cet article décrit comment configurer le protocole HTTPS pour une application web dans Azure App Service. Cet article ne couvre pas l’authentification du certificat client. Pour plus d’informations à ce sujet, voir [Comment configurer l’authentification mutuelle TLS pour les applications web](../articles/app-service-web/app-service-web-configure-tls-mutual-auth.md).
 
 ##<a name="bkmk_azurewebsites"></a>HTTPS pour le domaine *.azurewebsites.net
 
@@ -393,10 +392,8 @@ L’activation du protocole HTTPS pour un domaine personnalisé est disponible 
 3.	Cliquez sur le panneau **Web Apps**.
 4.	Cliquez sur le nom de votre application web.
 5.	Dans la page **Essentials**, cliquez sur **Paramètres**.
-6.	Cliquez sur **Mettre à l’échelle**.
-![L’onglet Mettre à l’échelle][scale]
-7.	Dans la section **Mettre à l’échelle**, définissez le mode de plan App Service en cliquant sur **Sélectionner**. 
-![Le niveau de tarification][sslreserved]
+6.	Cliquez sur **Mettre à l’échelle**.![L’onglet Mettre à l’échelle][scale]
+7.	Dans la section **Mettre à l’échelle**, définissez le mode de plan App Service en cliquant sur **Sélectionner**. ![Le niveau de tarification][sslreserved]
 
 	> [AZURE.NOTE]Si un message indiquant une erreur de mise à l’échelle pour l’application web &lt;nom de l’application&gt; s’affiche, vous pouvez cliquer sur le bouton de détails pour obtenir plus d’informations. Une erreur indiquant que le nombre de serveurs d’instances disponibles est insuffisant pour répondre à la demande peut s’afficher. Dans ce cas, contactez le [support technique Azure](/support/options/).
 
@@ -542,4 +539,4 @@ Pour plus d'informations sur le module Réécriture d'URL d'IIS, consultez la do
 [certwiz3]: ./media/configure-ssl-web-site/waws-certwiz3.png
 [certwiz4]: ./media/configure-ssl-web-site/waws-certwiz4.png
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

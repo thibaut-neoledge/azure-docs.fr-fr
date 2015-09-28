@@ -13,15 +13,21 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/07/2015" 
+	ms.date="09/11/2015" 
 	ms.author="jeffreyg"/>
 
 
 # Gestion de la base de données SQL Azure au moyen de SQL Server Management Studio 
 
-Vous pouvez utiliser SQL Server Management Studio (SSMS) pour administrer les serveurs logiques et les bases de données Azure SQL. Cette rubrique vous présente les tâches courantes effectuées avec SSMS. Avant de démarrer, vous devez déjà disposer d’un serveur logique et d’une base de données créés dans Azure SQL. Pour commencer, consultez [Créer votre première base de données SQL Azure](sql-database-get-started.md), puis revenez.
 
-Nous vous recommandons d’utiliser la dernière version de SSMS, quel que soit l’emplacement choisi pour utiliser la base de données Azure SQL. Pour l’obtenir, accédez à [Téléchargez SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).
+> [AZURE.SELECTOR]
+- [Azure Preview Portal](sql-database-manage-portal.md)
+- [SSMS](sql-database-manage-azure-ssms.md)
+- [PowerShell](sql-database-command-line-tools.md)
+
+Vous pouvez utiliser SQL Server Management Studio (SSMS) pour administrer les serveurs logiques et les bases de données Azure SQL. Cette rubrique vous présente les tâches courantes effectuées avec SSMS. Avant de démarrer, vous devez déjà disposer d’un serveur logique et d’une base de données créés dans Azure SQL. Pour commencer, consultez la rubrique [Créer votre première base de données SQL Microsoft Azure](sql-database-get-started.md), puis revenez ici.
+
+Nous vous recommandons d’utiliser la dernière version de SSMS, quel que soit l’emplacement choisi pour utiliser la base de données Azure SQL. Pour l’obtenir, visitez [Télécharger SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).
 
 
 ## Connexion à un serveur logique de base de données SQL
@@ -186,4 +192,4 @@ La base de données SQL prend en charge plusieurs vues de gestion dynamique vous
  
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO3-->

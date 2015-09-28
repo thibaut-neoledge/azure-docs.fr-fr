@@ -4,7 +4,7 @@
 	description="Découvrez comment vous pouvez utiliser votre abonnement Office 365 dans Azure RemoteApp pour partager des applications Office."
 	services="remoteapp"
 	documentationCenter="" 
-	authors="lizap" 
+	authors="piotrci" 
 	manager="mbaldwin" />
 
 <tags 
@@ -117,4 +117,4 @@ Vous avez besoin de plus d’informations sur l’utilisation de l’outil Dépl
 - [Déploiement et mise à jour d’Office 365 ProPlus à l’aide de l’outil Déploiement d’Office](https://channel9.msdn.com/Events/Ignite/2015/BRK3168) (vidéo en anglais)
 - [Définir les paramètres de mise à jour pour Office 365 ProPlus](https://technet.microsoft.com/library/dn761708.aspx)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

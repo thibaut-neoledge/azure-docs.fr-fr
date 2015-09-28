@@ -1,6 +1,7 @@
 <properties
-    pageTitle="Créer une application web avec Python et Flask à l’aide de DocumentDB | Microsoft Azure"
-    description="Découvrez comment utiliser DocumentDB pour stocker des données et y accéder à partir d'une application web Python et Flask (MVC) hébergée sur Azure."
+    pageTitle="Développement d’applications Python Flask avec DocumentDB | Microsoft Azure"
+    description="Passez en revue un didacticiel de base de données qui explique comment utiliser DocumentDB pour stocker des données et y accéder à partir d’une application web Python Flask hébergée sur Azure. Trouvez des solutions de développement d’applications." 
+	keywords="Application development, database tutorial, python flask, python web application, python web development, documentdb, azure, Microsoft azure"
     services="documentdb"
     documentationCenter="python"
     authors="ryancrawcour"
@@ -16,13 +17,13 @@
     ms.date="09/03/2015"
     ms.author="ryancraw"/>
 
-# Création d'une application web avec Python et Flask (MVC) à l'aide de DocumentDB
+# Développement d’une application Python Flask avec DocumentDB
 
-Pour démontrer la manière dont les clients peuvent tirer parti d'Azure DocumentDB pour stocker et interroger des documents JSON, ce document propose un didacticiel complet qui explique comment créer une application web de vote à l'aide d'Azure DocumentDB.
+Pour démontrer la manière dont les clients peuvent tirer parti d’Azure DocumentDB pour stocker et interroger des documents JSON, ce document propose un didacticiel complet d’application web Python qui montre comment créer une application web de vote à l’aide d’Azure DocumentDB.
 
 Ce didacticiel indique comment utiliser le service DocumentDB fourni par Azure pour stocker les données et y accéder à partir d'une application Web Python hébergée sur Azure. Il suppose que vous ayez déjà une expérience de l'utilisation de Python et du service Sites Web Azure.
 
-Ce didacticiel contient les sections suivantes :
+Ce didacticiel de base de données traite les points suivants :
 
 1. Création et configuration d'un compte DocumentDB
 2. Création d'une application Python MVC
@@ -31,10 +32,10 @@ Ce didacticiel contient les sections suivantes :
 
 Dans ce didacticiel, vous allez créer une application de vote simple vous permettant de voter lors d'un sondage.
 
-![Capture d'écran de l'application web todo list créée dans ce didacticiel](./media/documentdb-python-application/image1.png)
+![Capture d’écran de l’application web todo list créée dans ce didacticiel de base de données](./media/documentdb-python-application/image1.png)
 
 
-## Configuration requise
+## Conditions préalables à l’exécution de ce didacticiel de base de données
 
 Avant de suivre les instructions de cet article, vérifiez que les éléments suivants sont installés :
 
@@ -58,18 +59,18 @@ Commençons par créer un compte DocumentDB. Si vous possédez déjà un compte,
 
 1. Ouvrez Visual Studio, cliquez sur **Fichier** -> **Nouveau projet** -> **Python** -> **Projet Web Flask**, puis créez un projet nommé **tutorial**.
 
-	Si vous ne connaissez pas bien Flask, sachez qu'il s'agit d'une infrastructure web qui permet d'accélérer le développement d'applications dans Python. [Cliquez ici pour accéder aux didacticiels sur Flask][].
+	Si vous ne connaissez pas bien Python Flask, sachez qu’il s’agit d’une infrastructure de développement d’applications web qui permet d’accélérer la création d’applications web dans Python. [Cliquez ici pour accéder aux didacticiels sur Flask][].
 
-	![Capture d’écran de la fenêtre Nouveau projet dans Visual Studio avec Python mis en surbrillance sur la gauche, le projet Web Flask sélectionné au milieu et le didacticiel name dans la zone Nom](./media/documentdb-python-application/image9.png)
+	![Capture d’écran de la fenêtre Nouveau projet dans Visual Studio avec Python mis en surbrillance sur la gauche, le projet web Python Flask sélectionné au milieu et le didacticiel name dans la zone Nom](./media/documentdb-python-application/image9.png)
 
 2. Un message vous demandera où installer les packages externes. Cliquez sur **Installer dans un environnement virtuel**. Veillez à utiliser Python 2.7 comme environnement de base, car PyDocumentDB ne prend pas Python 3.x en charge pour le moment. Cela configure l'environnement virtuel Python requis pour votre projet.
 
-	![Capture d’écran du didacticiel - Fenêtre Python Tools pour Visual Studio](./media/documentdb-python-application/image10.png)
+	![Capture d’écran du didacticiel de base de données - Fenêtre Python Tools pour Visual Studio](./media/documentdb-python-application/image10.png)
 
 
 ## Étape 3 : Modification de l’application web Python Flask
 
-### Ajout de packages Flask à votre projet
+### Ajout de packages Python Flask à votre projet
 
 Une fois votre projet configuré, vous devez ajouter certains packages Flask requis, dont pydocumentdb, le package Python pour DocumentDB.
 
@@ -100,7 +101,7 @@ Vérifiez que l'installation est réussie.
 
 - Démarrez le site Web en appuyant sur **F5**. Cette action démarre le serveur de développement Flask, ainsi que votre navigateur Web. La page suivante doit s'afficher.
 
-	![Projet Flask vide affiché dans un navigateur](./media/documentdb-python-application/image12.png)
+	![Projet de développement web Python Flask vide affiché dans un navigateur](./media/documentdb-python-application/image12.png)
 
 ### Création des définitions pour la base de données, la collection et le document
 
@@ -301,7 +302,7 @@ Sous le dossier Modèles, ajoutez les fichiers html suivants : create.html, res
 	![Capture d’écran de la fenêtre Explorateur de solutions de Visual Studio](./media/documentdb-python-application/image15.png)
 
 
-## Étape 4 : Exécution locale de votre application
+## Étape 4 : Exécution locale de votre application web
 
 1. Appuyez sur F5 ou cliquez sur le bouton **Démarrer** dans Visual Studio. Votre écran doit afficher le contenu suivant.
 
@@ -309,7 +310,7 @@ Sous le dossier Modèles, ajoutez les fichiers html suivants : create.html, res
 
 2. Cliquez sur **Créer/Effacer la base de données de vote** pour générer la base de données.
 
-	![Capture d’écran de la page de création de l’application web](./media/documentdb-python-application/image17.png)
+	![Capture d’écran de l’écran de création de page de l’application web – Détails du développement](./media/documentdb-python-application/image17.png)
 
 3. Cliquez ensuite sur **Vote** et sélectionnez votre option.
 
@@ -320,7 +321,7 @@ Sous le dossier Modèles, ajoutez les fichiers html suivants : create.html, res
 	![Capture d’écran des résultats de la page de vote affichée](./media/documentdb-python-application/image19.png)
 
 
-## Étape 5 : Déploiement de l’application sur les sites web Azure
+## Étape 5 : Déploiement de l’application web vers Sites Web Azure
 
 Maintenant que l'application terminée fonctionne correctement avec DocumentDB, nous allons la déployer vers Sites Web Azure.
 
@@ -336,11 +337,11 @@ Maintenant que l'application terminée fonctionne correctement avec DocumentDB, 
 
 ## Étapes suivantes
 
-Félicitations ! Vous venez de créer votre première application Python avec Azure DocumentDB et de la publier dans Sites Web Azure.
+Félicitations ! Vous venez de créer votre première application web Python avec Azure DocumentDB et de la publier sur Sites Web Azure.
 
 Nous mettons à jour et améliorons cette rubrique fréquemment en fonction de vos commentaires. Une fois le didacticiel terminé, utilisez les boutons de vote en haut et en bas de cette page et veillez à indiquer vos commentaires sur les améliorations que nous pourrions apporter. Si vous souhaitez que nous vous contactions directement, n’hésitez pas à inclure votre adresse de messagerie dans vos commentaires.
 
-Pour ajouter des fonctionnalités supplémentaires à votre application, passez en revue les API disponibles dans le [Kit de développement logiciel (SDK) Python DocumentDB](https://pypi.python.org/pypi/pydocumentdb).
+Pour ajouter des fonctionnalités supplémentaires à votre application web, passez en revue les API disponibles dans le [Kit de développement logiciel (SDK) Python DocumentDB](https://pypi.python.org/pypi/pydocumentdb).
 
   [Cliquez ici pour accéder aux didacticiels sur Flask]: http://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-i-hello-world
   [Visual Studio Express]: http://www.visualstudio.com/products/visual-studio-express-vs.aspx
@@ -351,4 +352,4 @@ Pour ajouter des fonctionnalités supplémentaires à votre application, passez 
   [Microsoft Web Platform Installer]: http://www.microsoft.com/web/downloads/platform.aspx
   [Azure portal]: http://portal.azure.com
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

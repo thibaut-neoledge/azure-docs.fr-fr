@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Déploiement du Gestionnaire d’instantanés StorSimple | Microsoft Azure"
-	description="Découvrez comment télécharger et installer le Gestionnaire d'instantanés StorSimple, un composant logiciel enfichable MMC pour la gestion des fonctionnalités de sauvegarde et de protection de données StorSimple."
-	services="storsimple"
-	documentationCenter="NA"
-	authors="SharS"
-	manager="carolz"
-	editor=""/>
+   description="Découvrez comment télécharger et installer le Gestionnaire d'instantanés StorSimple, un composant logiciel enfichable MMC pour la gestion des fonctionnalités de sauvegarde et de protection de données StorSimple."
+   services="storsimple"
+   documentationCenter="NA"
+   authors="SharS"
+   manager="carolz"
+   editor="" />
 <tags 
    ms.service="storsimple"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="TBD"
-	ms.date="08/27/2015"
-	ms.author="v-sharos"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="TBD"
+   ms.date="09/15/2015"
+   ms.author="v-sharos" />
 
 # Déployer le composant logiciel enfichable MMC Gestionnaire d’instantanés StorSimple
 
@@ -201,7 +201,7 @@ Pour créer et enregistrer une copie de la base de données du Gestionnaire d’
 
         ![Stop the StorSimple Manager service](./media/storsimple-snapshot-manager-deployment/HCS_SSM_stop_service.png)
 
-2. Accédez à C:\ProgramData\Microsoft\StorSimple\BACatalog.
+2. Accédez à C:\\ProgramData\\Microsoft\\StorSimple\\BACatalog.
 
     >[AZURE.NOTE]ProgramData est un dossier masqué.
 
@@ -249,8 +249,10 @@ Pour réinstaller le Gestionnaire d’instantanés StorSimple, suivez les étap
 
 ## Étapes suivantes
 
-Pour en savoir plus sur le Gestionnaire d’instantanés StorSimple, accédez à la page [Qu’est-ce que le Gestionnaire d’instantanés StorSimple ?](storsimple-what-is-snapshot-manager.md)
+- Pour en savoir plus sur le Gestionnaire d’instantanés StorSimple, consultez [Qu’est-ce que le Gestionnaire d’instantanés StorSimple ?](storsimple-what-is-snapshot-manager.md)
 
-Pour en savoir plus sur l’interface utilisateur du Gestionnaire d’instantanés StorSimple, accédez à la page [Interface utilisateur du Gestionnaire d’instantanés StorSimple](storsimple-use-snapshot-manager.md).
+- Pour en savoir plus sur l’interface utilisateur du Gestionnaire d’instantanés StorSimple, consultez [Interface utilisateur du Gestionnaire d’instantanés StorSimple](storsimple-use-snapshot-manager.md).
 
-<!---HONumber=September15_HO1-->
+- Pour en savoir plus sur l’utilisation du Gestionnaire d’instantanés StorSimple, consultez [Utiliser le Gestionnaire d’instantanés StorSimple pour gérer votre solution StorSimple](storsimple-snapshot-manager-admin.md).
+
+<!---HONumber=Sept15_HO3-->

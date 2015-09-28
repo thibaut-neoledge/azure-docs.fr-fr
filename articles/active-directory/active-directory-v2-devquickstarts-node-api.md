@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Modèle d’application v2.0 | Microsoft Azure"
+	pageTitle="Modèle d’application v2.0 - API web Node.js | Microsoft Azure"
 	description="Génération d’une API Web NodeJS qui accepte les jetons des comptes Microsoft personnels et des comptes professionnels ou scolaires."
 	services="active-directory"
 	documentationCenter="nodejs"
@@ -10,15 +10,16 @@
 <tags
 	ms.service="active-directory"
 	ms.workload="identity"
-	ms.tgt_pltfrm="na"
+  	ms.tgt_pltfrm="na"
 	ms.devlang="javascript"
 	ms.topic="article"
-	ms.date="08/25/2015"
+	ms.date="09/11/2015"
 	ms.author="brandwe"/>
 
 # Version préliminaire du modèle d’application v2.0 : Sécuriser une API Web à l’aide de node.js
 
-> [AZURE.NOTE]Ces informations s’appliquent à la version préliminaire publique du modèle d’application v2.0. Pour obtenir des instructions sur l’intégration au service Azure AD, dont la disponibilité est désormais générale, consultez le [Guide du développeur Azure AD](active-directory-developers-guide.md).
+> [AZURE.NOTE]
+Ces informations s’appliquent à la version préliminaire publique du modèle d’application v2.0. Pour obtenir des instructions sur l’intégration au service Azure AD, dont la disponibilité est désormais générale, consultez le [Guide du développeur Azure AD](active-directory-developers-guide.md).
 
 Le modèle d’application v2.0 vous permet de protéger une API Web à l’aide des jetons d’accès [OAuth 2.0](active-directory-v2-protocols.md#oauth2-authorization-code-flow), ce qui permet aux utilisateurs disposant d’un compte Microsoft personnel et de comptes professionnels ou scolaires d’accéder en toute sécurité à votre API Web.
 
@@ -34,31 +35,31 @@ Le code associé à ce didacticiel est stocké [sur GitHub](https://github.com/A
 
 ```git clone --branch skeleton https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-nodejs.git```
 
-L'application terminée est également fournie à la fin de ce didacticiel.
+L'application finalisée est également disponible à la fin de ce didacticiel.
 
 
-## 1. Enregistrez une application
-Create a new app at [apps.dev.microsoft.com](https://apps.dev.microsoft.com), or follow these [detailed steps](active-directory-v2-app-registration.md).  Veillez à respecter les points suivants :
+## 1. Inscription d’une application
+Créez une nouvelle application à l’adresse [apps.dev.microsoft.com](https://apps.dev.microsoft.com), ou suivez cette [procédure détaillée](active-directory-v2-app-registration.md).  Veillez à respecter les points suivants:
 
 - Copiez l’**ID d’application** affecté à votre application, vous en aurez bientôt besoin.
-- Add the **Mobile** platform for your app.
-- Copy down the **Redirect URI** from the portal. Vous devez utiliser la valeur par défaut de `urn:ietf:wg:oauth:2.0:oob`.
+- Ajoutez la plateforme **Mobile** pour votre application.
+- Copiez l'**URI de redirection** à partir du portail. Vous devez utiliser la valeur par défaut « urn:ietf:wg:oauth:2.0:oob ».
 
 
-## 2: Téléchargement de node.js pour votre plateforme
+## 2: téléchargement de node.js pour votre plateforme
 Pour réussir à utiliser cet exemple, Node.js doit être installé correctement.
 
-Install Node.js from [http://nodejs.org](http://nodejs.org).
+Installez Node.js à partir de l’adresse suivante : [http://nodejs.org](http://nodejs.org).
 
-## 3: Installation de MongoDB sur votre plateforme
+## 3: installation de MongoDB sur votre plateforme
 
 Pour réussir à utiliser cet exemple, MongoDB doit être installé correctement. Nous allons utiliser MongoDB afin que notre API REST soit persistante sur plusieurs instances de serveur.
 
-Install MongoDB from [http://mongodb.org](http://www.mongodb.org).
+Installez MongoDB à partir de l’adresse suivante : [http://mongodb.org](http://www.mongodb.org).
 
-> [AZURE.NOTE] Cette procédure détaillée suppose que vous utilisez l’installation et les points de terminaison du serveur par défaut pour MongoDB, c’est-à-dire les suivants au moment de la rédaction: mongodb://localhost
+> [AZURE.NOTE] cette procédure détaillée suppose que vous utilisez l’installation et les points de terminaison du serveur par défaut pour MongoDB, c’est-à-dire les suivants au moment de la rédaction : mongodb://localhost
 
-## 4: Installation des modules Restify sur votre API web
+## 4: installation des modules Restify sur votre API web
 
 Nous allons utiliser Restify pour concevoir notre API REST. Restify est une infrastructure d’application Node.js minimale et flexible dérivée d’Express, qui inclut un ensemble complet de fonctionnalités permettant de créer des API REST sur Connect.
 
@@ -68,19 +69,19 @@ Nous allons utiliser Restify pour concevoir notre API REST. Restify est une infr
 
 `cd azuread` - or- `mkdir azuread;`
 
-Tapez la commande suivante:
+Tapez la commande suivante :
 
 `npm install restify`
 
 Cette commande permet d’installer Restify.
 
-#### UNE ERREUR EST-ELLE SURVENUE ?
+#### Une erreur est-elle survenue?
 
 Sur certains systèmes d’exploitation, NPM peut générer une erreur Error: EPERM, chmod ’/usr/local/bin/..’ et une demande pour essayer d’exécuter le compte en tant qu’administrateur. Si cette erreur survient, utilisez la commande sudo pour exécuter npm avec des privilèges plus élevés.
 
-#### UNE ERREUR RELATIVE À DTRACE EST-ELLE SURVENUE ?
+#### Une erreur relative à DTrace est-elle survenue?
 
-Lors de l’installation de Restify, vous risquez de voir ceci :
+Lors de l’installation de Restify, vous risquez de voir ceci :
 
 ```Shell
 clang: error: no such file or directory: 'HD/azuread/node_modules/restify/node_modules/dtrace-provider/libusdt'
@@ -148,7 +149,7 @@ Le résultat de la commande doit ressembler à ceci :
 
 Ensuite, nous allons ajouter la stratégie OAuth, à l’aide de passport-azuread, un ensemble de stratégies qui connectent Azure Active Directory à Passport. Nous allons utiliser cette stratégie pour les jetons du porteur dans cet exemple d’API Rest.
 
-> [AZURE.NOTE]Bien qu’OAuth2 fournisse une infrastructure dans laquelle tout type de jeton connu peut être émis, seuls certains types de jeton sont utilisés de manière généralisée. Pour protéger les points de terminaison qui se sont révélés être des jetons porteurs. Les jetons porteurs sont les jetons les plus largement émis dans OAuth2, et de nombreuses implémentations considèrent qu’ils sont le seul type de jeton émis.
+> [AZURE.NOTE] Bien qu’OAuth2 fournisse une infrastructure dans laquelle tout type de jeton connu peut être émis, seuls certains types de jeton sont utilisés de manière généralisée. Pour protéger les points de terminaison qui se sont révélés être des jetons porteurs. Les jetons porteurs sont les jetons les plus largement émis dans OAuth2, et de nombreuses implémentations considèrent qu’ils sont le seul type de jeton émis.
 
 Depuis la ligne de commande, accédez au répertoire azuread
 
@@ -271,7 +272,8 @@ identityMetadata: 'https://login.microsoftonline.com/common/.well-known/openid-c
 
 *audience* : URI de redirection à partir du portail.
 
-> [AZURE.NOTE]Nous remplaçons régulièrement nos clés. Vérifiez que votre extraction est toujours effectuée à partir de l’URL « openid\_keys » et que l’application peut accéder à Internet.
+> [AZURE.NOTE]
+Nous remplaçons régulièrement nos clés. Vérifiez que votre extraction est toujours effectuée à partir de l’URL « openid\_keys » et que l’application peut accéder à Internet.
 
 
 ## 11 : ajout de configuration à votre fichier server.js
@@ -853,4 +855,4 @@ Vous pouvez maintenant aborder des rubriques plus sophistiquées. Par exemple :
 
 Pour obtenir des ressources supplémentaires, consultez : - [Version préliminaire du modèle d’application v2.0 >>](active-directory-appmodel-v2-overview.md) - [Balise azure-active-directory StackOverflow >>](http://stackoverflow.com/questions/tagged/azure-active-directory)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO3-->

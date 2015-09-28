@@ -5,15 +5,15 @@
 	documentationCenter="na"
 	authors="rothja"
 	manager="jeffreyg"
-	editor="monicar"/>
+	editor="monicar" />
 <tags 
 	ms.service="virtual-machines"
 	ms.devlang="na"
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="08/11/2015"
-	ms.author="jroth"/>
+	ms.date="09/16/2015"
+	ms.author="jroth" />
 
 # Configuration d'un écouteur à équilibrage de charge interne pour des groupes de disponibilité AlwaysOn dans Azure
 
@@ -35,13 +35,11 @@ Notez les limitations suivantes concernant l'écouteur du groupe de disponibilit
 
 - Un seul écouteur du groupe de disponibilité est pris en charge par service cloud, car l'écouteur est configuré pour utiliser l'adresse IP virtuelle du service cloud ou l'adresse IP virtuelle de l'équilibrage de charge interne. Veuillez noter que cette limitation est toujours en vigueur, même si Azure prend désormais en charge la création de plusieurs adresses IP virtuelles dans un service cloud donné.
 
->[AZURE.NOTE]Ce didacticiel porte sur l'utilisation de PowerShell pour créer un écouteur pour un groupe de disponibilité incluant des réplicas Azure. Pour plus d'informations sur la configuration des écouteurs à l'aide de SSMS ou Transact-SQL, consultez la rubrique [Création ou configuration d'un écouteur de groupe de disponibilité](https://msdn.microsoft.com/library/hh213080.aspx).
-
 ## Déterminer l'accessibilité de l'écouteur
 
 [AZURE.INCLUDE [ag-listener-accessibility](../../includes/virtual-machines-ag-listener-determine-accessibility.md)]
 
-Cet article se concentre sur la création d'un écouteur qui utilise un **équilibrage de charge interne**. Si vous avez besoin d'un écouteur public/externe, consultez la version de cet article qui explique comment configurer un [écouteur externe](virtual-machines-sql-server-configure-public-alwayson-availability-group-listener.md)
+Cet article se concentre sur la création d’un écouteur qui utilise un **équilibreur de charge interne**. Si vous avez besoin d’un écouteur public/externe, consultez la version de cet article qui explique comment configurer un [écouteur externe](virtual-machines-sql-server-configure-public-alwayson-availability-group-listener.md)
 
 ## Créer des points de terminaison de machine virtuelle à charge équilibrée avec retour direct du serveur
 
@@ -49,19 +47,19 @@ Pour l'équilibrage de charge interne, vous devez commencer par créer le systè
 
 [AZURE.INCLUDE [load-balanced-endpoints](../../includes/virtual-machines-ag-listener-load-balanced-endpoints.md)]
 
-1. Vous devez affecter une adresse IP statique pour l'**équilibrage de charge interne**. Commencez par examiner la configuration du réseau virtuel actuel en exécutant la commande suivante :
+1. Vous devez affecter une adresse IP statique pour l’**équilibreur de charge interne**. Commencez par examiner la configuration du réseau virtuel actuel en exécutant la commande suivante :
 
 		(Get-AzureVNetConfig).XMLConfiguration
 
-1. Notez d'abord le nom **Subnet** du sous-réseau qui contient les machines virtuelles qui hébergent les réplicas. Celui-ci sera utilisé dans le paramètre **$SubnetName** du script.
+1. Notez le nom **Subnet** du sous-réseau qui contient les machines virtuelles qui hébergent les réplicas. Celui-ci sera utilisé dans le paramètre **$SubnetName** du script.
 
-1. Notez ensuite le nom **VirtualNetworkSite** et l'**AddressPrefix** de début pour le sous-réseau contenant les machines virtuelles qui hébergent les réplicas. Recherchez ensuite une adresse IP disponible en transférant les deux valeurs à la commande **Test-AzureStaticVNetIP** et en examinant la valeur **AvailableAddresses**. Par exemple, si le réseau virtuel est nommé *MyVNet* et a une plage d'adresses de sous-réseau démarrant avec *172.16.0.128*, la commande suivante répertorie les adresses disponibles :
+1. Notez ensuite le nom **VirtualNetworkSite** et la valeur **AddressPrefix** de début pour le sous-réseau qui contient les machines virtuelles qui hébergent les réplicas. Recherchez ensuite une adresse IP disponible en transférant les deux valeurs à la commande **Test-AzureStaticVNetIP** et en examinant la valeur **AvailableAddresses**. Par exemple, si le réseau virtuel est nommé *MyVNet* et a une plage d’adresses de sous-réseau démarrant avec *172.16.0.128*, la commande suivante répertorie les adresses disponibles :
 
 		(Test-AzureStaticVNetIP -VNetName "MyVNet"-IPAddress 172.16.0.128).AvailableAddresses
 
-1. Choisissez l'une des adresses disponibles et utilisez-la dans le paramètre **$ILBStaticIP** du script suivant.
+1. Choisissez l’une des adresses disponibles et utilisez-la dans le paramètre **$ILBStaticIP** du script suivant.
 
-3. Copiez le script PowerShell ci-dessous dans un éditeur de texte et définissez des valeurs de variables adaptées à votre environnement (notez que des valeurs par défaut ont été affectées à certains paramètres). Notez que des déploiements existants qui utilisent des groupes d'affinités ne peuvent pas ajouter un équilibrage de charge interne. Pour plus d'informations sur les exigences liées à l'équilibrage de charge interne, consultez la rubrique [Équilibrage de charge interne](../load-balancer/load-balancer-internal-overview.md). Notez que, si votre groupe de disponibilité s'étend sur plusieurs régions Azure, vous devez exécuter le script une fois dans chaque centre de données pour le service cloud et les nœuds qui se trouvent dans ce centre de données.
+3. Copiez le script PowerShell ci-dessous dans un éditeur de texte et définissez des valeurs de variables adaptées à votre environnement (notez que des valeurs par défaut ont été affectées à certains paramètres). Notez que des déploiements existants qui utilisent des groupes d'affinités ne peuvent pas ajouter un équilibrage de charge interne. Pour plus d’informations sur les exigences liées à l’équilibreur de charge interne, consultez la rubrique [Équilibreur de charge interne](../load-balancer/load-balancer-internal-overview.md). Notez que, si votre groupe de disponibilité s'étend sur plusieurs régions Azure, vous devez exécuter le script une fois dans chaque centre de données pour le service cloud et les nœuds qui se trouvent dans ce centre de données.
 
 		# Define variables
 		$ServiceName = "<MyCloudService>" # the name of the cloud service that contains the availability group nodes
@@ -81,7 +79,7 @@ Pour l'équilibrage de charge interne, vous devez commencer par créer le systè
 
 1. Après avoir défini les variables, copiez le script de l'éditeur de texte dans votre session Azure PowerShell pour l'exécuter. Si l'invite affiche >>, appuyez sur Entrée pour vous assurer que le script s'exécute. Remarque
 
->[AZURE.NOTE]Le portail de gestion Azure ne prend pas en charge l'équilibrage de charge interne actuellement. Vous ne verrez donc pas l'équilibrage de charge interne ou les points de terminaison dans le portail. En revanche, **Get-AzureEndpoint** renvoie une adresse IP interne si l'équilibrage de charge s'y exécute. Sinon, la valeur renvoyée est null.
+>[AZURE.NOTE]Le portail de gestion Azure ne prend pas en charge l'équilibrage de charge interne actuellement. Vous ne verrez donc pas l'équilibrage de charge interne ou les points de terminaison dans le portail. En revanche, **Get-AzureEndpoint** retourne une adresse IP interne si l’équilibreur de charge s’y exécute. Sinon, la valeur renvoyée est null.
 
 ## Vérifiez que KB2854082 est installé le cas échéant
 
@@ -135,4 +133,4 @@ Pour l'équilibrage de charge interne, vous devez commencer par créer le systè
 
 [AZURE.INCLUDE [Listener-Next-Steps](../../includes/virtual-machines-ag-listener-next-steps.md)]
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

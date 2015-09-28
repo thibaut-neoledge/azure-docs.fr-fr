@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Création d’une image de modèle personnalisée pour Azure RemoteApp"
+	pageTitle="Comment créer une image de modèle personnalisée pour Azure RemoteApp | Microsoft Azure"
 	description="Découvrez comment créer une image de modèle personnalisée pour Azure RemoteApp. Vous pouvez utiliser ce modèle avec une collection hybride ou cloud."
 	services="remoteapp"
 	documentationCenter=""
@@ -13,11 +13,16 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/12/2015" 
+	ms.date="09/12/2015" 
 	ms.author="elizapo"/>
 
 # Création d’une image de modèle personnalisée pour Azure RemoteApp
-Azure RemoteApp utilise une image de modèle Windows Server 2012 R2 pour héberger tous les programmes que vous souhaitez partager avec vos utilisateurs. Pour créer une image de modèle RemoteApp personnalisée, vous pouvez commencer par une image existante ou en créer une. Vous trouverez, ci-dessous, les exigences relatives à l'image qui peut être téléchargée en vue d'être utilisée avec Azure RemoteApp :
+Azure RemoteApp utilise une image de modèle Windows Server 2012 R2 pour héberger tous les programmes que vous souhaitez partager avec vos utilisateurs. Pour créer une image de modèle RemoteApp personnalisée, vous pouvez commencer par une image existante ou en créer une.
+
+
+> [AZURE.TIP]Saviez-vous que vous pouvez créer une image à partir d’une machine virtuelle Azure ? En plus, cela réduit le temps nécessaire à l’importation de l'image. Découvrez les étapes [ici](remoteapp-image-on-azurevm.md).
+
+Vous trouverez, ci-dessous, les exigences relatives à l’image qui peut être téléchargée en vue d'être utilisée avec Azure RemoteApp :
 
 
 - La taille de l'image doit être un multiple de Mo. Si vous tentez de télécharger une image dont la taille n'est pas un multiple exact de Mo, le téléchargement échouera.
@@ -33,7 +38,6 @@ Azure RemoteApp utilise une image de modèle Windows Server 2012 R2 pour héb
 - L'image doit être préparée avec SYSPREP en utilisant les paramètres **/oobe /generalize /shutdown** (n'utilisez PAS le paramètre **/mode:vm**).
 - Le téléchargement de votre disque dur virtuel à partir d’une chaîne d’instantanés n’est pas pris en charge.
 
-> [AZURE.TIP]Saviez-vous que vous pouvez désormais créer une image à partir d'une machine virtuelle Azure ? En plus, cela réduit le temps nécessaire à l’importation de l'image. Découvrez les étapes [ici](remoteapp-image-on-azurevm.md).
 
 **Avant de commencer**
 
@@ -41,7 +45,7 @@ Avant de créer le service, vous devez effectuer les étapes suivantes :
 
 - [S'inscrire](http://azure.microsoft.com/services/remoteapp/) à RemoteApp.
 - Créer un compte d'utilisateur dans Active Directory à utiliser comme compte de service RemoteApp. Limiter les autorisations pour ce compte, de telle sorte qu'il puisse uniquement joindre des ordinateurs au domaine. Consultez [Configuration d'Azure Active Directory pour RemoteApp](remoteapp-ad.md) pour plus d'informations.
-- Collecter des informations sur votre réseau local  : adresse IP et périphérique VPN.
+- Collecter des informations sur votre réseau local : adresse IP et périphérique VPN.
 - Installer le module [Azure PowerShell](../install-configure-powershell.md).
 - Collecter des informations sur les utilisateurs auxquels vous souhaitez accorder l'accès. Il peut s'agir d'informations sur le compte Microsoft ou sur le compte professionnel Active Directory pour les utilisateurs.
 
@@ -56,7 +60,7 @@ Voici les principales étapes à suivre pour créer une nouvelle image de modèl
 4.	Installez Windows Server 2012 R2.
 5.	Installez le rôle RDSH (Hôte de session Bureau à distance) et la fonctionnalité Expérience utilisateur.
 6.	Installez les fonctionnalités supplémentaires dont vos applications ont besoin.
-7.	Installez et configurez vos applications.
+7.	Installez et configurez vos applications. Pour faciliter le partage d’applications, ajoutez les applications ou les programmes que vous souhaitez partager au menu **Démarrer** de l’image, en particulier dans **%systemdrive%\\ProgramData\\Microsoft\\Windows\\Start Menu\\Programs.
 8.	Exécutez les éventuelles opérations de configuration Windows supplémentaires requises par vos applications.
 9.	Désactivez le système de fichiers EFS.
 10.	**OBLIGATOIRE :** accédez à Windows Update et installez toutes les mises à jour importantes.
@@ -106,11 +110,12 @@ La procédure détaillée de création d'une image se présente comme suit :
 1.	Installez les fonctionnalités supplémentaires requises par vos applications, telles que .NET Framework 3.5. Pour installer les fonctionnalités, exécutez l'Assistant Ajout de rôles et de fonctionnalités.
 7.	Installez et configurez les programmes et applications que vous souhaitez publier via RemoteApp.
 
- 	**Important :**
+>[AZURE.IMPORTANT]
+>
+>Installez le rôle RDSH avant les applications pour être sûr de détecter tout problème au niveau de la compatibilité des applications avant le téléchargement de l'image sur RemoteApp.
+>
+>Assurez-vous qu’un raccourci vers votre application (fichier **.lnk**) apparaît dans le menu **Démarrer** de tous les utilisateurs (%systemdrive%\\ProgramData\\Microsoft\\Windows\\Start Menu\\Programs). Vérifiez également que l’icône qui s’affiche dans le menu **Démarrer** est correcte. Sinon, changez-la. (Vous n'êtes pas *obligé* d'ajouter l'application au menu Démarrer, mais cela facilite sa publication dans RemoteApp. Sinon, vous devez fournir le chemin d'installation de l'application quand vous publiez l'application.)
 
-
-	- Installez le rôle RDSH avant les applications pour être sûr de détecter tout problème au niveau de la compatibilité des applications avant le téléchargement de l'image sur RemoteApp.
-	- Assurez-vous que votre application s'affiche dans le menu **Démarrer**. Vérifiez également que l'icône qui s'affiche dans le menu **Démarrer** est correcte. Sinon, changez-la. (Vous n'êtes pas *obligé* d'ajouter l'application au menu Démarrer, mais cela facilite sa publication dans RemoteApp. Sinon, vous devez fournir le chemin d'installation de l'application quand vous publiez l'application.)
 
 8.	Exécutez les éventuelles opérations de configuration Windows supplémentaires requises par vos applications.
 9.	Désactivez le système de fichiers EFS. Exécutez la commande suivante dans une fenêtre de commande avec élévation de privilèges :
@@ -133,8 +138,8 @@ La procédure détaillée de création d'une image se présente comme suit :
 Maintenant que vous avez votre image de modèle personnalisée, vous devez la télécharger dans votre collection RemoteApp. Utilisez les informations des articles suivants pour créer votre collection :
 
 
-- [Création d'une collection hybride de RemoteApp](remoteapp-create-hybrid-deployment.md)
-- [Création d'une collection cloud de RemoteApp](remoteapp-create-cloud-deployment.md)
+- [Comment créer une collection hybride de RemoteApp](remoteapp-create-hybrid-deployment.md)
+- [Comment créer une collection cloud de RemoteApp](remoteapp-create-cloud-deployment.md)
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO3-->

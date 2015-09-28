@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Création d'une collection cloud d’Azure RemoteApp"
-	description="Découvrez comment créer un déploiement d'Azure RemoteApp qui enregistre les données dans le cloud Azure."
-	services="remoteapp"
-	documentationCenter=""
-	authors="lizap"
-	manager="mbaldwin"
+	pageTitle="Comment créer une collection cloud d’Azure RemoteApp | Microsoft Azure" 
+	description="Découvrez comment créer un déploiement d'Azure RemoteApp qui enregistre les données dans le cloud Azure." 
+	services="remoteapp" 
+	documentationCenter="" 
+	authors="lizap" 
+	manager="mbaldwin" 
 	editor=""/>
 
 <tags 
-	ms.service="remoteapp"
-	ms.workload="compute"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/02/2015"
+	ms.service="remoteapp" 
+	ms.workload="compute" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/11/2015" 
 	ms.author="elizapo"/>
 
 # Création d'une collection cloud d’Azure RemoteApp
@@ -41,7 +41,7 @@ Avant de créer la collection, vous devez effectuer les étapes suivantes :
 - Cette procédure part du principe que vous allez utiliser les images de modèle fournies dans le cadre de votre abonnement ou que vous avez déjà téléchargé l'image de modèle à utiliser. Si vous devez télécharger une autre image de modèle, rendez-vous sur la page Images de modèle. Il vous suffit de cliquer sur **télécharger une image de modèle** et de suivre les étapes de l'Assistant. 
 - Vous souhaitez utiliser l’image d’Office 365 ProPlus ? Pour plus d’informations, cliquez [ici](remoteapp-officesubscription.md).
 - Vous voulez fournir des applications personnalisées ou des programmes métier ? Créez une [image](remoteapp-imageoptions.md) et utilisez-la dans votre collection cloud.
-- Déterminez si vous devez vous connecter à un réseau virtuel. Si vous choisissez de vous connecter à un réseau virtuel, vérifiez qu’il respecte les instructions de dimensionnement et qu’il peut se connecter à RemoteApp.
+- Déterminez si vous devez vous connecter à un réseau virtuel. Si vous choisissez de vous connecter à un réseau virtuel, vérifiez qu’il respecte les [instructions de dimensionnement](remoteapp-vnetsizing.md) et qu’il [peut se connecter à RemoteApp](remoteapp-vnet.md). Pour plus d’informations, passez en revue l’article sur la [planification d’un réseau virtuel](remoteapp-planvpn.md).
 - Si vous utilisez un réseau virtuel, déterminez si vous souhaitez le joindre à votre domaine Active Directory local.
 
 ## Étape 1 : créer une collection cloud avec ou sans réseau virtuel##
@@ -67,7 +67,7 @@ Après avoir créé votre collection RemoteApp, double-cliquez sur son nom. Ceci
 Pour **créer une collection dans le cloud et dans un réseau virtuel**, procédez comme suit :
 
 1. Accédez à la page RemoteApp du portail de gestion Azure.
-2. Cliquez sur **Nouveau** > **Créer avec un réseau virtuel**.
+2. Cliquez sur **Nouveau** > **Créer avec un réseau virtuel**.
 3. Entrez un nom pour votre collection.
 4. Choisissez le plan que vous souhaitez utiliser (de base ou standard).
 5. Choisissez le réseau virtuel que vous avez déjà créé. Vous ne savez pas comment faire ? Pour l’instant, les étapes se trouvent dans la rubrique [hybride](remoteapp-create-hybrid-deployment.md).
@@ -109,4 +109,4 @@ Félicitations ! Vous avez créé et déployé correctement votre collection cl
 
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

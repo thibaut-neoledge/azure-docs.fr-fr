@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Composants matériels de StorSimple et leur état | Microsoft Azure"
-	description="Découvrez comment surveiller les composants matériels de votre appareil StorSimple via le service StorSimple Manager."
-	services="storsimple"
-	documentationCenter=""
-	authors="alkohli"
-	manager="carolz"
-	editor=""/>
+   description="Découvrez comment surveiller les composants matériels de votre appareil StorSimple via le service StorSimple Manager."
+   services="storsimple"
+   documentationCenter=""
+   authors="alkohli"
+   manager="carolz"
+   editor="" />
 <tags 
    ms.service="storsimple"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="na"
-	ms.date="09/02/2015"
-	ms.author="alkohli"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="na"
+   ms.date="09/15/2015"
+   ms.author="alkohli" />
 
 # Utiliser le service StorSimple Manager pour surveiller les composants et l’état du matériel
 
@@ -125,10 +125,12 @@ Le tableau suivant présente les composants physiques et logiques contenus dans 
 |Connexion au contrôleur de périphérique|E/S|Physique|Controller|Non|Indique l'état de la connexion entre le module E/S du module EBOD et le contrôleur de périphérique.|
 
 ## Étapes suivantes
-Si vous devez résoudre les problèmes d’un composant de l’appareil dont l’état est détérioré ou en échec, reportez-vous à la rubrique [Indicateurs de surveillance StorSimple](storsimple-monitoring-indicators.md).
+- Pour en savoir plus sur l’utilisation du service StorSimple Manager, consultez [Utiliser le service StorSimple Manager pour gérer votre appareil StorSimple](storsimple-manager-service-administration.md).
+ 
+- Si vous devez résoudre les problèmes d’un composant de l’appareil dont l’état est détérioré ou en échec, consultez [Indicateurs de surveillance StorSimple](storsimple-monitoring-indicators.md).
 
-Pour remplacer un composant matériel défectueux, consultez la rubrique [Remplacement des composants matériels StorSimple](storsimple-hardware-component-replacement.md).
+- Pour remplacer un composant matériel défectueux, consultez [Remplacement des composants matériels StorSimple](storsimple-hardware-component-replacement.md).
 
-Si les problèmes persistent, [contactez le support technique Microsoft](storsimple-contact-microsoft-support.md).
+- Si les problèmes persistent, [contactez le support technique Microsoft](storsimple-contact-microsoft-support.md).
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

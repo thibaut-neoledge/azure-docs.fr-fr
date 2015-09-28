@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/03/2015"
+	ms.date="09/16/2015"
 	ms.author="juliako"/>
 
 #Codecs et formats standard de l’encodeur multimédia
@@ -36,7 +36,20 @@ MP4 (.mp4, .m4a, .m4v)/ISMV (.isma, .ismv)|Oui
 [Microsoft Digital Video Recording (DVR-MS)](https://msdn.microsoft.com/library/windows/desktop/dd692984) (.dvr-ms) |Oui 
 Matroska/WebM (.mkv) |Oui 
 WAVE/WAV (.wav) |Oui 
+QuickTime (.mov) |Oui
  
+###Formats audio dans des conteneurs d’entrée 
+
+Media Encoder Standard prend en charge la transmission des formats audio suivants dans des conteneurs d’entrée :
+
+- Fichiers MXF, GXF et QuickTime contenant des pistes audio avec des échantillons Interleaved Stereo ou 5.1
+
+ou
+
+- Fichiers MXF, GXF et QuickTime où l’audio est transmis sous forme de pistes PCM distinctes, mais où le mappage de canaux (vers la stéréo ou 5.1) peut être déduit des métadonnées du fichier
+
+Notez que le mappage de canaux explicite/fourni par l’utilisateur sera pris en charge dans un avenir proche.
+
 
 ##Codecs vidéo d’entrée
 
@@ -53,6 +66,13 @@ Canopus HQ/HQX |Non
 MPEG-4 partie 2 |Oui 
 [Theora](https://en.wikipedia.org/wiki/Theora) |Oui 
 YUV420 non compressé ou mezzanine |Oui
+Apple ProRes 422 |Oui
+Apple ProRes 422 LT |Oui
+Apple ProRes 422 HQ |Oui
+Apple ProRes Proxy|Oui
+Apple ProRes 4444 |Oui
+Apple ProRes 4444 XQ |Oui
+
 
 
 ##Codecs audio d’entrée
@@ -89,7 +109,7 @@ MPEG2-TS |H.264 (profils High, Main et Baseline)|AAC-LC, HE-AAC v1, HE-AAC v2
 
 Vous pouvez afficher les parcours d’apprentissage d’AMS ici :
 
-- [Workflow en flux continu AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [Workflow de vidéo en flux continu AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
 - [Workflow de streaming à la demande AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
 
 ##Voir aussi
@@ -98,4 +118,4 @@ Vous pouvez afficher les parcours d’apprentissage d’AMS ici :
 
 [Encodage avec Media Encoder Standard](media-services-dotnet-encode-with-media-encoder-standard.md)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

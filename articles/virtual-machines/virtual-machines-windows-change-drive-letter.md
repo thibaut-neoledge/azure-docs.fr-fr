@@ -3,7 +3,8 @@
 	description="Explique comment remapper le disque temporaire sur une machine virtuelle Windows dans Azure"
 	services="virtual-machines"
 	documentationCenter=""
-	authors="KBDAzure"
+	authors="cynthn
+"
 	manager="timlt"
 	editor=""
 	tags="azure-service-management"/>
@@ -15,7 +16,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="05/27/2015"
-	ms.author="kathydav"/>
+	ms.author="cynthn"/>
 
 #Modification de la lettre de lecteur du disque temporaire Windows
 
@@ -65,4 +66,4 @@ Si vous souhaitez utiliser un disque de données existant sur le lecteur D, ass
 
 [Storage]: ../storage-whatis-account.md
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO3-->

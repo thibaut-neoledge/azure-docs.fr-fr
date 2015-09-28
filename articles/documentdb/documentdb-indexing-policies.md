@@ -1,6 +1,7 @@
 <properties 
     pageTitle="Stratégies d'indexation de DocumentDB | Microsoft Azure" 
-    description="Découvrez le fonctionnement de l’indexation dans DocumentDB et apprenez à configurer et à modifier une stratégie d’indexation." 
+    description="Appréhendez les mécanismes d’indexation dans DocumentDB et apprenez à configurer et à modifier la stratégie d’indexation. Configurez la stratégie d’indexation dans DocumentDB pour bénéficier d’une indexation automatique et de meilleures performances." 
+	keywords="how indexing works, automatic indexing, indexing database, documentdb, azure, Microsoft azure"
     services="documentdb" 
     documentationCenter="" 
     authors="arramac" 
@@ -19,7 +20,7 @@
 
 # Stratégies d’indexation de DocumentDB
 
-Bien que de nombreux clients soient ravis de laisser DocumentDB gérer automatiquement [tous les aspects d’indexation](documentdb-indexing.md), DocumentDB prend également en charge la spécification d’une **stratégie d'indexation** personnalisée pour les collections lors de la création. Les stratégies d'indexation dans DocumentDB sont plus flexibles et plus puissantes que les index secondaires proposés dans d'autres plateformes de base de données, puisqu’elles vous permettent de concevoir et de personnaliser la forme de l'index sans pour autant sacrifier la flexibilité du schéma. La gestion de la stratégie d'indexation vous permet de trouver un compromis entre les coûts de stockage des index, le débit d’écriture et des requêtes, et la cohérence des requêtes.
+Bien que de nombreux clients soient ravis de laisser DocumentDB gérer automatiquement [tous les aspects d’indexation](documentdb-indexing.md), DocumentDB prend également en charge la spécification d’une **stratégie d'indexation** personnalisée pour les collections lors de la création. Les stratégies d’indexation dans DocumentDB sont plus flexibles et plus puissantes que les index secondaires proposés dans d’autres plateformes de base de données d’indexation, puisqu’elles vous permettent de concevoir et de personnaliser la forme de l’index sans pour autant sacrifier la flexibilité du schéma. Pour assimiler les mécanismes de l’indexation dans DocumentDB, vous devez comprendre qu’en gérant la stratégie d’indexation, vous pouvez trouver un bon compromis entre les coûts de stockage d’index, le débit d’écriture et de requêtes et la cohérence des requêtes.
 
 Dans cet article, nous examinons en détail les stratégies d’indexation de DocumentDB, la personnalisation d’une stratégie d'indexation et les compromis associés.
 
@@ -62,7 +63,7 @@ L’extrait de code .NET suivant montre comment définir une stratégie d’inde
 >
 >Par défaut, DocumentDB indexe régulièrement toutes les propriétés de chaîne au sein des documents avec un index de hachage, et les propriétés numériques avec un index de plage.
 
-### Modes d’indexation
+### Modes d’indexation de base de données
 
 DocumentDB prend en charge trois modes d'indexation qui peuvent être configurés via la stratégie d'indexation sur une collection DocumentDB : le mode Cohérent, le mode Différé et le mode Aucun.
 
@@ -302,9 +303,9 @@ L'exemple de code suivant montre comment utiliser le Kit de développement logic
 
 DocumentDB modélise les documents JSON et l'index sous forme d’arborescences et vous permet de les ajuster aux stratégies de chemins d'accès dans l'arborescence. Pour plus d’informations, consultez la rubrique [Présentation de l'indexation DocumentDB](documentdb-indexing.md). Dans les documents, vous pouvez choisir les chemins d'accès qui doivent être inclus ou exclus de l'indexation. Il peut en résulter de meilleures performances d'écriture et un stockage des index inférieur pour les scénarios lorsque les modèles de requête sont connus au préalable.
 
-Les chemins d’accès de l’index commencent par la racine (/) et se terminent généralement par l’opérateur générique ?, ce qui signifie qu’il y a plusieurs valeurs possibles pour le préfixe. Par exemple, pour traiter SELECT \* FROM Families F WHERE F.familyName = "Andersen", vous devez inclure un chemin d'index pour /familyName/? dans la stratégie d'index de la collection.
+Les chemins d’accès de l’index commencent par la racine (/) et se terminent généralement par l’opérateur générique ?, ce qui signifie qu’il y a plusieurs valeurs possibles pour le préfixe. Par exemple, pour traiter SELECT * FROM Families F WHERE F.familyName = "Andersen", vous devez inclure un chemin d'index pour /familyName/? dans la stratégie d'index de la collection.
 
-Les chemins d'index peuvent aussi utiliser l'opérateur générique \* pour spécifier le comportement des chemins de manière récursive sous le préfixe. Par exemple, /payload/\* peut être utilisé pour exclure de l'indexation tout ce qui figure sous la propriété « payload ».
+Les chemins d'index peuvent aussi utiliser l'opérateur générique * pour spécifier le comportement des chemins de manière récursive sous le préfixe. Par exemple, /payload/* peut être utilisé pour exclure de l'indexation tout ce qui figure sous la propriété « payload ».
 
 Voici les modèles courants de spécification des chemins d'index :
 
@@ -439,7 +440,7 @@ Voici les modèles courants de spécification des chemins d'index :
     </tbody>
 </table>
 
->[AZURE.NOTE]Lors de la définition des chemins d’accès de l’index personnalisé, il est nécessaire de spécifier la règle d’indexation par défaut pour la totalité de l’arborescence du document, désignée par le chemin d’accès spécial « /\* ».
+>[AZURE.NOTE]Lors de la définition des chemins d’accès de l’index personnalisé, il est nécessaire de spécifier la règle d’indexation par défaut pour la totalité de l’arborescence du document, désignée par le chemin d’accès spécial « /* ».
 
 L’exemple suivant configure un chemin d’accès spécifique avec l’indexation de plage et une valeur personnalisée de précision de 20 octets :
 
@@ -550,7 +551,7 @@ La configuration de la précision d’index est plus pratique avec les plages de
 
 Les index spatiaux utilisent toujours la précision d'index par défaut pour les points et ne peuvent pas être remplacés.
 
-L’exemple suivant montre comment augmenter la précision des index de plage d’une collection à l’aide du Kit de développement (SDK) .NET. Notez qu’il utilise le chemin d’accès par défaut « /\* ».
+L’exemple suivant montre comment augmenter la précision des index de plage d’une collection à l’aide du Kit de développement (SDK) .NET. Notez qu’il utilise le chemin d’accès par défaut « /* ».
 
 **Créer une collection avec une précision d'index personnalisée**
 
@@ -570,7 +571,7 @@ L’exemple suivant montre comment augmenter la précision des index de plage d�
 
 > [AZURE.NOTE]DocumentDB retourne une erreur lorsqu’une requête utilise Trier par, mais n’a pas d’index de plage par rapport au chemin d’accès de requête avec la précision maximale.
 
-De même, des chemins d’accès peuvent être exclus complètement de l’indexation. L'exemple suivant montre comment exclure toute une section de documents (également appelé une sous-arborescence) de l'indexation à l'aide du caractère générique « \* ».
+De même, des chemins d’accès peuvent être exclus complètement de l’indexation. L'exemple suivant montre comment exclure toute une section de documents (également appelé une sous-arborescence) de l'indexation à l'aide du caractère générique « * ».
 
     var collection = new DocumentCollection { Id = "excludedPathCollection" };
     collection.IndexingPolicy.IncludedPaths.Add(new IncludedPath { Path = "/" });
@@ -600,7 +601,7 @@ DocumentDB vous permet d'apporter des modifications à la stratégie d'indexatio
 
 **Transformations d'index en ligne**
 
-![Transformations d'index en ligne](media/documentdb-indexing-policies/index-transformations.png)
+![Mécanismes de l’indexation – Transformations d’index en ligne DocumentDB](media/documentdb-indexing-policies/index-transformations.png)
 
 Les transformations d’index sont effectuées en ligne, ce qui signifie que les documents indexés par l'ancienne stratégie sont transformés efficacement par la nouvelle stratégie, **sans affecter la disponibilité de l'écriture ou le débit configuré** de la collection. La cohérence des opérations de lecture et d'écriture effectuées à l'aide de l'API REST, des Kits de développement logiciel ou à partir des déclencheurs et des procédures stockées n'est pas affectée au cours de la transformation de l'index. Cela signifie qu’aucune dégradation de performances, ou interruption de vos applications, n’est effectuée lorsque vous modifiez une stratégie d'indexation.
 
@@ -703,7 +704,7 @@ Les modifications suivantes ont été implémentées dans la spécification JSON
 - Chaque chemin d'accès peut avoir plusieurs définitions d'index, un pour chaque type de données
 - L'indexation de précision prend en charge les nombres de 1 à 8, les chaînes de 1 à 100 et -1 (précision maximale)
 - Les segments des chemins d'accès ne nécessitent pas de doubles guillemets pour éviter chaque chemin d'accès. Par exemple, vous pouvez ajouter un chemin d’accès pour /title/? au lieu de /"title"/?
-- Le chemin d'accès racine représentant « tous les chemins d'accès » peut être représenté comme /\* (en plus de /)
+- Le chemin d'accès racine représentant « tous les chemins d'accès » peut être représenté comme /* (en plus de /)
 
 Si votre code approvisionne des collections avec une stratégie d'indexation personnalisée écrite avec la version 1.1.0 du Kit de développement logiciel (SDK) .NET ou une version antérieure, vous devrez modifier le code de votre application pour gérer ces modifications afin de les déplacer vers la version 1.2.0 du Kit de développement logiciel (SDK). Si vous n’avez pas le code qui configure la stratégie d'indexation, ou si vous envisagez de continuer à l'aide d'une version du Kit de développement logiciel (SDK) plus ancienne, aucune modification n'est requise.
 
@@ -766,4 +767,4 @@ Suivez les liens ci-dessous pour accéder à des exemples de gestion de stratég
 
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO3-->

@@ -1,25 +1,27 @@
 <properties 
-	pageTitle="Connexion sécurisée à des ressources de backend à partir d’un environnement App Service"
-	description="Découvrez comment connecter de façon sécurisée des ressources de backend à partir d'un environnement App Service."
-	services="app-service\web"
-	documentationCenter=""
-	authors="ccompy"
-	manager="wpickett"
+	pageTitle="Connexion sécurisée à des ressources de backend à partir d’un environnement App Service" 
+	description="Découvrez comment connecter de façon sécurisée des ressources de backend à partir d'un environnement App Service." 
+	services="app-service\web" 
+	documentationCenter="" 
+	authors="ccompy" 
+	manager="wpickett" 
 	editor=""/>
 
 <tags 
-	ms.service="app-service-web"
-	ms.workload="web"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="06/30/2015"
-	ms.author="stefsh"/>
+	ms.service="app-service" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/11/2015" 
+	ms.author="stefsch"/>
 
 # Connexion sécurisée à des ressources de backend à partir d'un environnement App Service #
 
-## Vue d'ensemble ##
-Étant donné qu'un environnement App Service est toujours créé dans un sous-réseau d'un [réseau virtuel][virtualnetwork] régional, les connexions sortantes à partir d'un environnement App Service vers d'autres ressources de back-end peuvent passer exclusivement sur le réseau virtuel.
+## Vue d’ensemble ##
+Étant donné qu’un environnement App Service est toujours créé dans un sous-réseau d’un [réseau virtuel][virtualnetwork] régional « v1 » classique, les connexions sortantes d’un environnement App Service à destination d’autres ressources de back-end peuvent passer exclusivement sur le réseau virtuel.
+
+**Remarque :** un environnement App Service ne peut pas être créé sur un réseau virtuel « v2 ».
 
 Par exemple, un serveur SQL Server peut être en cours d'exécution sur un cluster de machines virtuelles dont le port 1433 est verrouillé. Le point de terminaison peut être placé dans une liste de contrôle d'accès pour autoriser uniquement l'accès à partir d'autres ressources se trouvant sur le même réseau virtuel.
 
@@ -27,12 +29,14 @@ De même, les points de terminaison sensibles peuvent s'exécuter localement et 
 
 Pour tous ces scénarios, les applications s'exécutant dans un environnement App Service peuvent se connecter de façon sécurisée aux différents serveurs et aux différentes ressources. Le trafic sortant à partir d'applications qui s'exécutent dans un environnement App Service vers des points de terminaison privés se trouvant sur le même réseau virtuel (ou connectés au même réseau virtuel) circulent uniquement sur le réseau virtuel. Le trafic sortant vers des points de terminaison privés ne circule pas via le réseau Internet public.
 
+[AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
+
 ## Connectivité sortante et configuration DNS requise ##
-Notez que pour qu'un environnement App Service fonctionne correctement, il requiert un accès sortant au stockage Azure, ainsi que la base de données SQL dans la même région Azure. Si l'accès Internet sortant est bloqué sur le réseau virtuel, les environnements App Service ne pourront pas accéder à ces points de terminaison Azure.
+Notez que pour qu’un environnement App Service fonctionne correctement, il a besoin d’un accès sortant vers Azure Storage à l’échelon mondial, ainsi que d’une connectivité vers la base de données SQL de la même région Azure. Si l'accès Internet sortant est bloqué sur le réseau virtuel, les environnements App Service ne pourront pas accéder à ces points de terminaison Azure.
 
 Le client peut également avoir des serveurs DNS personnalisés configurés sur le réseau virtuel. Les environnements App Service doivent être en mesure de résoudre les systèmes d’extrémité Azure sous *.database.windows.net, *.file.core.windows.net et *.blob.core.windows.net.
 
-Il est également recommandé de configurer les serveurs DNS personnalisés sur le réseau virtuel à l'avance, avant de créer un environnement App Service. Si la configuration DNS d'un réseau virtuel est modifiée pendant la création d'un environnement App Service, alors le processus de création de l'environnement App Service échouera.
+Il est également recommandé de configurer les serveurs DNS personnalisés sur le réseau virtuel à l'avance, avant de créer un environnement App Service. Si la configuration DNS d'un réseau virtuel est modifiée pendant la création d'un environnement App Service, alors le processus de création de l'environnement App Service échouera. S’il existe un serveur DNS personnalisé à l’autre extrémité d’une passerelle VPN et que le serveur DNS n’est pas accessible ou disponible, le processus de création d’un environnement App Service échouera également.
 
 ## Connexion à un serveur SQL Server
 Une configuration courante de SQL Server comprend un point de terminaison qui écoute sur le port 1433 :
@@ -110,4 +114,4 @@ Pour plus d’informations sur la plateforme Azure App Service, consultez la rub
 [NetworkAccessControlListExample]: ./media/app-service-app-service-environment-securely-connecting-to-backend-resources/NetworkAcl01.png
 [DefaultNetworkSecurityRules]: ./media/app-service-app-service-environment-securely-connecting-to-backend-resources/DefaultNetworkSecurityRules01.png
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO3-->

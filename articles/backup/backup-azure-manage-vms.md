@@ -4,11 +4,11 @@
 	description="Découvrez comment gérer une machine virtuelle Azure."
 	services="backup"
 	documentationCenter=""
-	authors="aashishr"
+	authors="trinadhk"
 	manager="shreeshd"
 	editor=""/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/09/2015" ms.author="aashishr"; "jimpark"/>
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/09/2015" ms.author="aashishr"; "jimpark"; "trinadhk"/>
 
 # Gérer des machines virtuelles
 
@@ -24,6 +24,8 @@ Pour gérer des machines virtuelles protégées :
 
 3. Pour afficher et gérer les paramètres de stratégie de sauvegarde pour une machine virtuelle, cliquez sur l’onglet **Stratégies**.
 
+    ![Stratégie de machine virtuelle](./media/backup-azure-manage-vms/manage-policy-settings.png)
+
     L’onglet **Stratégies de sauvegarde** affiche la stratégie existante. Vous pouvez la modifier en fonction de vos besoins. Si vous devez créer une stratégie, cliquez sur **Créer** dans la page **Stratégies**. Notez que si vous voulez supprimer une stratégie, aucune machine virtuelle ne doit lui être associée.
 
     ![Stratégie de machine virtuelle](./media/backup-azure-manage-vms/backup-vmpolicy.png)
@@ -37,7 +39,7 @@ Vous pouvez effectuer une sauvegarde à la demande d’une machine virtuelle une
 
 Pour créer une sauvegarde à la demande d’une machine virtuelle :
 
-1. Accédez à la page **Éléments protégés** et sélectionnez **Machine virtuelle Azure** en tant que **Type** (si elle n’est pas encore sélectionnée), puis cliquez sur le bouton **Sélectionner**.
+1. Accédez à la page **Éléments protégés** et sélectionnez **Machine virtuelle Azure** comme **Type** (si elle n’est pas déjà sélectionnée), puis cliquez sur le bouton **Sélectionner**.
 
     ![Type de machine virtuelle](./media/backup-azure-manage-vms/vm-type.png)
 
@@ -67,7 +69,7 @@ Si vous avez choisi de conserver des données de sauvegarde associées à la mac
 
 Pour arrêter la protection d’une machine virtuelle :
 
-1. Accédez à la page **Éléments protégés** et sélectionnez **Machine virtuelle Azure** comme type de filtre (si ce n’est pas encore fait), puis cliquez sur le bouton **Sélectionner**.
+1. Accédez à la page **Éléments protégés** et sélectionnez **Machine virtuelle Azure** comme type de filtre (si ce n’est pas déjà fait), puis cliquez sur le bouton **Sélectionner**.
 
     ![Type de machine virtuelle](./media/backup-azure-manage-vms/vm-type.png)
 
@@ -93,14 +95,14 @@ Pour arrêter la protection d’une machine virtuelle :
 
     ![Protection arrêtée](./media/backup-azure-manage-vms/protection-stopped-status.png)
 
-    Si vous avez sélectionné l’option **Supprimer les données de sauvegarde associées**, la machine virtuelle n’est pas affichée dans la page **Éléments protégés**.
+    Si vous avez sélectionné l’option **Supprimer les données de sauvegarde associées**, la machine virtuelle ne figure pas dans la page **Éléments protégés**.
 
 ## Application d’une nouvelle protection à la machine virtuelle
 Si vous n’avez pas sélectionné l’option **Supprimer les données de sauvegarde associées** dans l’Assistant **Arrêter la protection**, vous pouvez à nouveau protéger la machine virtuelle en suivant les étapes similaires à celles de la sauvegarde de machines virtuelles inscrites. Une fois la protection effectuée, les données de cette machine virtuelle sont conservées avant l’arrêt de la protection et des points de récupération sont créés après l’application de la nouvelle protection.
 
 Après l’application d’une nouvelle protection, l’état de protection de la machine virtuelle devient **Protégé** s’il existe des points de récupération antérieurs à l’opération **Arrêter la protection**.
 
-    ![Reprotected VM](./media/backup-azure-manage-vms/reprotected-status.png)
+  ![Machine virtuelle à nouveau protégée](./media/backup-azure-manage-vms/reprotected-status.png)
 
 >[AZURE.NOTE]Lors de l’application d’une nouvelle protection à la machine virtuelle, vous pouvez choisir une autre stratégie que la stratégie avec laquelle la machine virtuelle a été initialement protégée.
 
@@ -122,9 +124,9 @@ Vous pouvez supprimer les données de sauvegarde associées à une machine virtu
 - Au cours du travail Arrêter la protection
 - Après la fin du travail d’arrêt de la protection sur une machine virtuelle
 
-Pour supprimer les données de sauvegarde d’une machine virtuelle à l’état *Protection arrêtée* après la fin de la tâche **Arrêter la sauvegarde** :
+Pour supprimer les données de sauvegarde sur une machine virtuelle à l’état *Protection arrêtée* à l’issue d’une tâche **Arrêter la sauvegarde** :
 
-1. Accédez à la page **Éléments protégés** et sélectionnez **Machine virtuelle Azure** en tant que * type*, puis cliquez sur le bouton **Sélectionner**.
+1. Accédez à la page **Éléments protégés** et sélectionnez **Machine virtuelle Azure** comme *type*, puis cliquez sur le bouton **Sélectionner**.
 
     ![Type de machine virtuelle](./media/backup-azure-manage-vms/vm-type.png)
 
@@ -132,7 +134,7 @@ Pour supprimer les données de sauvegarde d’une machine virtuelle à l’état
 
     ![Protection arrêtée](./media/backup-azure-manage-vms/protection-stopped-b.png)
 
-3. Cliquez sur le bouton **SUPPRIMER** en bas de la page.
+3. Cliquez sur le bouton **SUPPRIMER** au bas de la page.
 
     ![Supprimer la sauvegarde](./media/backup-azure-manage-vms/delete-backup.png)
 
@@ -149,7 +151,9 @@ Pour supprimer les données de sauvegarde d’une machine virtuelle à l’état
 ## Tableau de bord
 Dans la page **Tableau de bord**, vous pouvez consulter les informations des machines virtuelles Azure, leur stockage et leurs tâches associées au cours des dernières 24 heures. Vous pouvez afficher l’état de la sauvegarde et les éventuelles erreurs de sauvegarde associées.
 
-    ![Dashboard](./media/backup-azure-manage-vms/dashboard-protectedvms.png)
+![Tableau de bord](./media/backup-azure-manage-vms/dashboard-protectedvms.png)
+
+>[AZURE.NOTE]Les valeurs du tableau de bord sont actualisées toutes les 24 heures.
 
 ## Audit des opérations
 La sauvegarde Azure fournit l’analyse des « journaux d’opérations » pour les opérations de sauvegarde déclenchées par le client, ce qui vous permet de savoir exactement quelles sont les opérations de gestion exécutées sur le coffre de sauvegarde. Les journaux d’opérations activent l’assistance post mortem et d’audit des opérations de sauvegarde.
@@ -170,11 +174,11 @@ Les opérations suivantes sont enregistrées dans les journaux des opérations 
 
 Pour afficher les journaux des opérations correspondant à un coffre de sauvegarde :
 
-1. Accédez au **Services de gestion** sur le portail Azure, puis cliquez sur l’onglet **Journaux des opérations**.
+1. Accédez aux **Services de gestion** sur le portail Azure, puis cliquez sur l’onglet **Journaux des opérations**.
 
     ![Journaux des opérations](./media/backup-azure-manage-vms/ops-logs.png)
 
-2. Dans les filtres, sélectionnez **Sauvegarde** en tant que *Type* et spécifiez le nom du coffre de sauvegarde dans *nom de service*, puis cliquez sur **Soumettre**.
+2. Dans les filtres, sélectionnez **Sauvegarde** comme *Type* et spécifiez le nom du coffre de sauvegarde dans *nom de service*, puis cliquez sur **Soumettre**.
 
     ![Filtre des journaux des opérations](./media/backup-azure-manage-vms/ops-logs-filter.png)
 
@@ -201,29 +205,29 @@ Pour définir une notification personnalisée et signaler les échecs de sauvega
 PS C:\> Add-AlertRule -Operator GreaterThanOrEqual -Threshold 1 -ResourceId '/subscriptions/86eeac34-eth9a-4de3-84db-7a27d121967e/resourceGroups/RecoveryServices-DP2RCXUGWS3MLJF4LKPI3A3OMJ2DI4SRJK6HIJH22HFIHZVVELRQ-East-US/providers/microsoft.backupbvtd2/BackupVault/trinadhVault' -EventName Backup  -EventSource Administrative -Level Error -OperationName 'Microsoft.Backup/backupVault/Backup' -ResourceProvider Microsoft.Backup -Status Failed  -SubStatus Failed -RuleType Event -Location eastus -ResourceGroup RecoveryServices-DP2RCXUGWS3MLJF4LKPI3A3OMJ2DI4SRJK6HIJH22HFIHZVVELRQ-East-US -Name Backup-Failed -Description 'Backup failed for one of the VMs in vault trinadhkVault' -CustomEmails 'contoso@microsoft.com' -SendToServiceOwners
 ```
 
-**ResourceId** : vous pouvez obtenir cela à partir de la fenêtre contextuelle des journaux des opérations, indiqué dans la section ci-dessus. L’élément ResourceUri de la fenêtre contextuelle de détails d’une opération est l’ID de ressource à fournir à cet applet de commande.
+**ResourceId** : vous pouvez obtenir cela à partir de la fenêtre contextuelle Journaux des opérations, comme indiqué dans la section ci-dessus. L’élément ResourceUri de la fenêtre contextuelle de détails d’une opération est l’ID de ressource à fournir à cet applet de commande.
 
-**Nom de l’événement** : pour les alertes de sauvegarde de machines virtuelles, les valeurs prises en charge sont Register,Unregister,ConfigureProtection,Backup,Restore,StopProtection,DeleteBackupData,CreateProtectionPolicy,DeleteProtectionPolicy,UpdateProtectionPolicy
+**EventName** : pour les alertes de sauvegarde de machines virtuelles IaaS, les valeurs prises en charge sont Register,Unregister,ConfigureProtection,Backup,Restore,StopProtection,DeleteBackupData,CreateProtectionPolicy,DeleteProtectionPolicy,UpdateProtectionPolicy.
 
-**Niveau** : valeurs prises en charge sont - Information, Erreur. Pour les alertes sur l’action ayant échoué, utiliser l’erreur et les alertes sur les travaux terminés, utilisez information.
+**Level** : les valeurs prises en charge sont Informational, Error. Pour les alertes sur l’action ayant échoué, utilisez Error et les alertes sur les travaux terminés, utilisez Informational.
 
-**Nom d’opération** : il se présente sous le format « Microsoft.Backup/backupvault/<EventName> » où EventName est décrit ci-dessus.
+**OperationName** : il se présente sous le format « Microsoft.Backup/backupvault/<EventName> » où EventName est décrit ci-dessus.
 
-**État** : les valeurs prises en charge sont Démarré, Réussi et Échec. Il est conseillé de conserver Information comme niveau d’état d’opération réussie.
+**Status** : les valeurs prises en charge sont Started, Succeeded et Failed. Il est conseillé de conserver le niveau Informational pour l’état Succeeded.
 
-**Sous-état** : identique à l’état pour les opérations de sauvegarde
+**SubStatus** : identique à l’état des opérations de sauvegarde.
 
-**TypeRègle** : conserver en tant qu’*événement*, car les alertes de sauvegarde sont basées sur des événements.
+**RuleType** : conservez la valeur *Event*, car les alertes de sauvegarde sont basées sur les événements.
 
-**GroupeRessource** : groupe de ressource auquel la ressource sur laquelle l’opération est déclenchée appartient. Vous pouvez l’obtenir à partir de la valeur d’ID de ressource. La valeur entre les champs */resourceGroups/* et */providers/* dans la valeur ResourceId valeur correspond à la valeur de GroupeResource.
+**ResourceGroup** : groupe de ressources auquel appartient la ressource sur laquelle l’opération est déclenchée. Vous pouvez l’obtenir à partir de la valeur ResourceId. La valeur entre les champs */resourceGroups/* et */providers/* dans la valeur de ResourceId correspond à la valeur de ResourceGroup.
 
-**Nom** : nom de la règle d’alerte.
+**Name** : nom de la règle d’alerte.
 
-**Description** : description facultative de la règle d’alerte.
+**Description** : description de la règle d’alerte.
 
-**CustomEmails** : spécifiez l’adresse de courrier électronique personnalisé auquel vous souhaitez envoyer des notifications d’alerte
+**CustomEmails** : spécifiez l’adresse de messagerie personnalisée à laquelle vous voulez envoyer des notifications d’alerte.
 
-**SendToServiceOwners** : cette option envoie des notifications d’alerte pour tous les administrateurs et coadministrateurs de l’abonnement.
+**SendToServiceOwners** : cette option envoie des notifications d’alerte à tous les administrateurs et coadministrateurs de l’abonnement.
 
 Un message d’alerte exemple ressemble à ceci :
 
@@ -239,10 +243,10 @@ Exemple de corps de message d’alerte :
 Les alertes basées sur des événements sont soumises aux limitations suivantes :
 
 1. Des alertes sont déclenchées sur toutes les machines virtuelles dans le coffre de sauvegarde. Vous ne pouvez pas le personnaliser pour obtenir des alertes pour un ensemble spécifique de machines virtuelles à l’intérieur d’un coffre de sauvegarde.
-2. Les alertes sont automatiquement résolues si aucun événement d’alerte déclenché dans la durée d’alerte suivante. Utilisez le paramètre *Taille fenêtre* dans l’applet de commande Add-AlertRule pour définir la durée de déclenchement alerte.
+2. Les alertes sont automatiquement résolues si aucun événement d’alerte déclenché dans la durée d’alerte suivante. Utilisez le paramètre *WindowSize* dans l’applet de commande Add-AlertRule pour définir la durée de déclenchement de l’alerte.
 
 ## Étapes suivantes
 
 - [Restauration de machines virtuelles Azure](backup-azure-restore-vms.md)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

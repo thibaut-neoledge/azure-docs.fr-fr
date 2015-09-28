@@ -1,27 +1,29 @@
 <properties 
-	pageTitle="Application métier - Phase 2 | Microsoft Azure"
-	description="Créez et configurez les deux contrôleurs de domaine de réplica Active Directory dans la phase 2 de l'application métier dans Azure."
+	pageTitle="Application métier - Phase 2 | Microsoft Azure" 
+	description="Créez et configurez les deux contrôleurs de domaine de réplica Active Directory dans la phase 2 de l'application métier dans Azure." 
 	documentationCenter=""
-	services="virtual-machines"
-	authors="JoeDavies-MSFT"
-	manager="timlt"
+	services="virtual-machines" 
+	authors="JoeDavies-MSFT" 
+	manager="timlt" 
 	editor=""
 	tags="azure-resource-manager"/>
 
 <tags 
-	ms.service="virtual-machines"
-	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/11/2015"
+	ms.service="virtual-machines" 
+	ms.workload="infrastructure-services" 
+	ms.tgt_pltfrm="Windows" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/11/2015" 
 	ms.author="josephd"/>
 
 # Charge de travail des applications métier, phase 2 : configurer des contrôleurs de domaine
 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Cet article traite de la création de ressources avec le modèle de déploiement Resource Manager.
+
 Dans cette phase de déploiement d'une application métier à haute disponibilité dans des services d'infrastructure Azure, vous configurez deux contrôleurs de domaine réplica dans le réseau virtuel Azure afin que les requêtes Web des clients pour les ressources Web puissent être authentifiées localement dans le réseau virtuel Azure, au lieu d'envoyer ce trafic d'authentification à travers la connexion à votre réseau local.
 
-Vous devez terminer cette opération avant de passer à la [Phase 3](virtual-machines-workload-high-availability-LOB-application-phase3.md). Voir [Déployer une application métier à haute disponibilité dans Azure](virtual-machines-workload-high-availability-LOB-application-overview.md) (en anglais) pour toutes les phases.
+Vous devez terminer cette opération avant de passer à la [Phase 3](virtual-machines-workload-high-availability-LOB-application-phase3.md). Consultez [Déployer une application métier à haute disponibilité dans Azure](virtual-machines-workload-high-availability-LOB-application-overview.md) pour toutes les phases.
 
 ## Création de machines virtuelles de contrôleurs de domaine SharePoint dans Azure
 
@@ -49,7 +51,7 @@ Utilisez le bloc de commandes Azure PowerShell suivant pour créer les machines
 - Table ST pour vos comptes de stockage ;
 - Table A pour les groupes à haute disponibilité ;
 
-Souvenez-vous que vous avez défini les tables V, S, ST, and A au cours de la [Phase 1 : configuration d'Azure](virtual-machines-workload-high-availability-LOB-application-phase1.md).
+Souvenez-vous que vous avez défini les tables V, S, ST et A au cours de la [Phase 1 : configurer Azure](virtual-machines-workload-high-availability-LOB-application-phase1.md).
 
 Une fois que vous avez fourni toutes les valeurs requises, exécutez le bloc résultant dans l'invite de commandes Azure PowerShell.
 
@@ -109,6 +111,8 @@ Une fois que vous avez fourni toutes les valeurs requises, exécutez le bloc ré
 	$vm=Set-AzureVMOSDisk -VM $vm -Name "OSDisk" -VhdUri $osDiskUri -CreateOption fromImage
 	New-AzureVM -ResourceGroupName $rgName -Location $locName -VM $vm
 
+> [AZURE.NOTE]Étant donné que ces machines virtuelles sont destinées à une application intranet, elles ne reçoivent pas d’adresse IP publique ni d’étiquette de nom de domaine DNS, et ne sont pas exposées à Internet. Toutefois, cela signifie également que vous ne pouvez pas vous y connecter à partir du portail Azure en version préliminaire. Le bouton **Se connecter** n’est pas disponible quand vous affichez les propriétés de la machine virtuelle. Utilisez l’accessoire Connexion Bureau à distance ou un autre outil Bureau à distance pour vous connecter à la machine virtuelle à l’aide de son adresse IP privée ou nom DNS intranet.
+
 ## Configuration du premier contrôleur de domaine
 
 Utilisez le client Bureau à distance de votre choix et créez une connexion Bureau à distance à la première machine virtuelle contrôleur de domaine. Utilisez son nom d'ordinateur ou DNS intranet et les informations d'identification du compte d'administrateur local.
@@ -122,10 +126,10 @@ Ensuite, vous devez ajouter le disque de données supplémentaire au premier con
 3.	Cliquez sur **Tâches**, puis sur **Nouveau volume**.
 4.	Dans la page Avant de commencer de l’Assistant Nouveau volume, cliquez sur **Suivant**.
 5.	Dans la page Sélectionner le serveur et le disque, cliquez sur **Disque 2**, puis sur **Suivant**. À l'invite, cliquez sur OK.
-6.	Sur la page Spécifier la taille du volume, cliquez sur **Suivant**.
-7.	Sur la page Affecter à la lettre d'un lecteur ou à un dossier, cliquez sur **Suivant**.
-8.	Sur la page Sélectionner les paramètres du système de fichiers, cliquez sur **Suivant**.
-9.	Sur la page Confirmer les sélections, cliquez sur **Créer**.
+6.	À la page Spécifier la taille du volume, cliquez sur **Suivant**.
+7.	À la page Affecter à la lettre d'un lecteur ou à un dossier, cliquez sur **Suivant**.
+8.	À la page Sélectionner les paramètres du système de fichiers, cliquez sur **Suivant**.
+9.	À la page Confirmer les sélections, cliquez sur **Créer**.
 10.	Lorsque vous avez terminé, cliquez sur **Fermer**.
 
 Ensuite, testez la connectivité du premier contrôleur de domaine aux emplacements sur le réseau de votre organisation.
@@ -133,7 +137,7 @@ Ensuite, testez la connectivité du premier contrôleur de domaine aux emplaceme
 ### <a id="testconn"></a>Test de la connectivité
 
 1.	Ouvrez une invite de commandes Windows PowerShell à partir du bureau.
-2.	Utilisez la commande **ping** pour effectuer un test Ping des noms et des adresses IP des ressources sur le réseau de votre entreprise.
+2.	Utilisez la commande **ping** pour effectuer un test Ping des noms et des adresses IP des ressources sur le réseau de votre entreprise.
 
 Cette procédure garantit que la résolution de noms DNS fonctionne correctement (autrement dit, que la machine virtuelle est configurée correctement avec des serveurs DNS locaux) et que les paquets peuvent être transmis à destination et en provenance du réseau virtuel intersite. Si ce test de base échoue, contactez votre service informatique pour résoudre les problèmes liés à la résolution du nom DNS et à la remise de paquets.
 
@@ -161,16 +165,16 @@ Vous serez invité à fournir les informations d'identification d'un compte d'ad
 
 Vous devez ensuite mettre à jour les serveurs DNS de votre réseau virtuel afin qu'Azure affecte aux machines virtuelles les adresses IP des deux nouveaux contrôleurs de domaine à utiliser en tant que serveurs DNS. Notez que cette procédure utilise les valeurs de la table V (pour vos paramètres de réseau virtuel) et de la table M (pour vos machines virtuelles).
 
-1.	Dans le volet gauche du [Portail Azure en version préliminaire](https://portal.azure.com/), cliquez sur **Parcourir tout > Réseaux virtuels**, puis cliquez sur le nom de votre réseau virtuel (Table V – Élément 1 – Colonne Valeur).
+1.	Dans le volet gauche du [Portail Azure en version préliminaire](https://portal.azure.com/), cliquez sur **Parcourir tout > Réseaux virtuels**, puis cliquez sur le nom de votre réseau virtuel (Table V – Élément 1 – Colonne Valeur).
 2.	Dans le volet de votre réseau virtuel, cliquez sur **Tous les paramètres**.
 3.	Dans le volet **Paramètres**, cliquez sur **Serveurs DNS**.
-4.	Dans le volet **Serveurs DNS**, saisissez la commande suivante :
-	- Pour **Serveur DNS principal** : Table V – Élément 6 – Colonne Valeur
-	- Pour **Serveur DNS secondaire** : Table V – Élément 7 – Colonne Valeur
-5.	Dans le portail Azure en version préliminaire, cliquez sur **Parcourir tout > Machines virtuelles**.
-6.	Dans le volet **Machines virtuelles**, cliquez sur le nom de votre premier contrôleur de domaine (Table M – Élément 1 - Colonne Nom de machine virtuelle).
+4.	Dans le volet **Serveurs DNS**, tapez la commande suivante :
+	- Pour **Serveur DNS principal** : Table V – Élément 6 – Colonne Valeur
+	- Pour **Serveur DNS secondaire** : Table V – Élément 7 – Colonne Valeur
+5.	Dans le volet gauche du portail Azure en version préliminaire, cliquez sur **Parcourir tout > Machines virtuelles**.
+6.	Dans le volet **Machines virtuelles**, cliquez sur le nom de votre premier contrôleur de domaine (Table M – Élément 1 - Colonne Nom de machine virtuelle).
 7.	Dans le volet de la machine virtuelle, cliquez sur **Redémarrer**.
-8.	Une fois le premier contrôleur de domaine démarré, cliquez sur le nom de votre second contrôleur de domaine dans le volet **Machines virtuelles** (Table M – Élément 2 - Colonne Nom de machine virtuelle).
+8.	Une fois le premier contrôleur de domaine démarré, cliquez sur le nom de votre second contrôleur de domaine dans le volet **Machines virtuelles** (Table M – Élément 2 - Colonne Nom de machine virtuelle).
 9.	Dans le volet de la machine virtuelle, cliquez sur **Redémarrer**. Attendez le démarrage du second contrôleur de domaine.
 
 Notez que les deux contrôleurs de domaine sont redémarrés afin qu'ils ne soient pas configurés avec les serveurs DNS locaux en tant que serveurs DNS. Les deux étant eux-mêmes des serveurs DNS, ils sont automatiquement configurés avec les serveurs DNS locaux en tant que redirecteurs DNS lorsqu'ils ont été promus contrôleurs de domaine.
@@ -192,13 +196,13 @@ Ce schéma illustre la configuration résultant de la réussite de cette phase, 
 
 ## Étape suivante
 
-Pour poursuivre la configuration de cette charge de travail, passez à la [Phase 3 : configuration de l'infrastructure SQL Server](virtual-machines-workload-high-availability-LOB-application-phase3.md).
+Pour poursuivre la configuration de cette charge de travail, passez à la [Phase 3 : configurer l’infrastructure SQL Server](virtual-machines-workload-high-availability-LOB-application-phase3.md).
 
 ## Ressources supplémentaires
 
-[Déployer une application métier à haute disponibilité dans Azure](virtual-machines-workload-high-availability-LOB-application-overview.md) (en anglais)
+[Déployer une application métier à haute disponibilité dans Azure](virtual-machines-workload-high-availability-LOB-application-overview.md)
 
-[Plan de l'architecture des applications métier](http://msdn.microsoft.com/dn630664)
+[Plan de l’architecture des applications métier](http://msdn.microsoft.com/dn630664)
 
 [Configuration d’une application métier web dans un cloud hybride à des fins de test](../virtual-network/virtual-networks-setup-lobapp-hybrid-cloud-testing.md)
 
@@ -206,4 +210,4 @@ Pour poursuivre la configuration de cette charge de travail, passez à la [Phase
 
 [Charge de travail des services d’infrastructure Azure : batterie de serveurs SharePoint Server 2013](virtual-machines-workload-intranet-sharepoint-farm.md)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO3-->

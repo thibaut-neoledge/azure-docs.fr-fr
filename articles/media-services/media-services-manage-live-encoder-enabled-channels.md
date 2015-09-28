@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
-	ms.date="09/07/2015"
+	ms.date="09/16/2015"
 	ms.author="juliako"/>
 
 #Utilisation de canaux activés pour effectuer un encodage en temps réel avec Azure Media Services (version préliminaire)
@@ -41,22 +41,13 @@ Le diagramme suivant représente un flux de travail de diffusion en continu dyna
 
 ![Flux de travail en direct][live-overview]
 
->[AZURE.NOTE]Tous les centres de données ne prennent pas en charge l’encodage live avec Azure Media Services.
->
->Si vous utilisez le portail de gestion Azure pour créer des canaux, deux options de type d’encodage sont disponibles : **Aucun** et **Standard**. Si seule l’option **Aucun** s’affiche, votre centre de données ne prend pas en charge l'encodage live avec AMS.
->
->Si vous utilisez le Kit de développement logiciel (SDK) .NET ou l'API REST, effectuez la vérification suivante :
->
->1. Essayez de créer un canal avec le type d’encodage défini sur Standard. 
->2. Si le code d'erreur HTTP 412 (Échec de la précondition) est renvoyé avec le message suivant : *« L’encodage live n'est pas pris en charge dans cette région ; EncodingType doit avoir la valeur « None ». »*, votre centre de données ne prend pas en charge l'encodage live.
-
 
 ##Dans cette rubrique
 
 - Vue d’ensemble d’un [scénario courant de diffusion dynamique en continu](media-services-manage-live-encoder-enabled-channels.md#scenario)
 - [Description d’un canal et de ses composants associés](media-services-manage-live-encoder-enabled-channels.md#channel)
-- [Considérations](media-services-manage-live-encoder-enabled-channels.md#considerations)
-- [Tâches liées à la diffusion dynamique en continu](media-services-manage-live-encoder-enabled-channels.md#tasks)
+- [Considérations](media-services-manage-live-encoder-enabled-channels.md#Considerations)
+
 
 ##<a id="scenario"></a>Scénario courant de diffusion dynamique en continu
 
@@ -387,7 +378,7 @@ Le tableau suivant montre comment les états du canal sont mappés au mode de fa
 État du canal|Indicateurs de l’interface utilisateur du portail|Facturation ?
 ---|---|---
 Démarrage en cours|Démarrage en cours|Aucun (état transitoire)
-Exécution|Prêt (aucun programme en cours d'exécution)<br/>ou<br/> Diffusion en continu (au moins un programme en cours d'exécution)|Oui
+Exécution|Prêt (aucun programme en cours d’exécution)<br/>ou<br/>Diffusion en continu (au moins un programme en cours d’exécution)|Oui
 En cours d’arrêt|En cours d’arrêt|Aucun (état transitoire)
 Arrêté|Arrêté|Non
 
@@ -397,6 +388,7 @@ Arrêté|Arrêté|Non
 
 ##<a id="Considerations"></a>Considérations
 
+- Quand un canal de type de codage **Standard** subit une perte de flux de source d’entrée/contribution, il compense cette perte en remplaçant l’audio ou la vidéo source par une ardoise d’erreur et un silence. Le canal continue d’émettre une ardoise jusqu’à la reprise du flux d’entrée/de contribution. Nous vous recommandons de ne pas laisser un canal direct dans cet état pendant plus de 2 heures. Au-delà de ce point, ni le comportement du canal au moment de la reconnexion de l’entrée ni son comportement en réponse à une commande de réinitialisation ne sont garantis. Vous devez alors arrêter le canal, le supprimer et en créer un autre.
 - Vous ne pouvez pas modifier le protocole d’entrée pendant l’exécution du canal ou de ses programmes associés. Si vous avez besoin d’autres protocoles, vous devez créer des canaux distincts pour chaque protocole d’entrée. 
 - Chaque fois que vous reconfigurez l’encodeur dynamique, appelez la méthode de réinitialisation **Reset** sur le canal. Avant de réinitialiser le canal, vous devez arrêter le programme. Une fois le canal réinitialisé, redémarrez le programme. 
 - Un canal peut être arrêté uniquement lorsqu’il est en cours d’exécution et que tous les programmes du canal ont été arrêtés.
@@ -407,7 +399,7 @@ Arrêté|Arrêté|Non
 ##Problèmes connus
 
 - Le démarrage du canal peut prendre plus de 20 minutes.
-- La prise en charge RTP est adaptée aux diffuseurs professionnels. Veuillez consulter les notes relatives à RTP dans [ce blog](http://azure.microsoft.com/blog/2015/04/13/an-introduction-to-live-encoding-with-azure-media-services/).
+- La prise en charge RTP est adaptée aux diffuseurs professionnels. Consultez les notes relatives à RTP dans [ce blog](http://azure.microsoft.com/blog/2015/04/13/an-introduction-to-live-encoding-with-azure-media-services/).
 - Les images d’ardoise doivent être conformes aux restrictions décrites [ici](media-services-manage-live-encoder-enabled-channels.md#default_slate). Si vous essayez de créer un canal à partir d’une ardoise par défaut d’une résolution supérieure à 1920 x 1080, la requête se termine par une erreur.
 
 ###Création de canaux encodant en temps réel un flux à débit binaire unique en flux à débit binaire adaptatif 
@@ -438,4 +430,4 @@ Vous pouvez afficher les parcours d’apprentissage d’AMS ici :
 [live-overview]: ./media/media-services-manage-live-encoder-enabled-channels/media-services-live-streaming-new.png
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

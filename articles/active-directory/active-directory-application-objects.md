@@ -74,7 +74,7 @@ Propriété | Description
 | ------------- | -----------
 | ID client | Identificateur unique de votre application. Vous devez utiliser cet identificateur dans les appels à l’API Graph ou à d’autres API web inscrites auprès d’Azure AD. Azure AD génère automatiquement cette valeur pendant l’inscription de l’application et vous ne pouvez pas la modifier.<BR><BR>Pour permettre à votre application d’accéder à l’annuaire (pour l’accès en lecture ou en écriture) via l’API Graph, vous avez besoin d’un ID client et d’une clé (appelée clé secrète client dans OAuth 2.0). Votre application utilise l’ID client et la clé pour demander un jeton d’accès auprès du point de terminaison de jeton Azure AD OAuth 2.0. (Pour afficher tous les points de terminaison Azure AD, dans la barre de commandes, cliquez sur **Afficher les points de terminaison**.) Quand vous utilisez l’API Graph pour obtenir ou définir (modifier) les données d’annuaire, votre application utilise ce jeton d’accès dans l’en-tête Authorize de la demande à l’API Graph.
 | Clés | Si votre application lit ou écrit des données dans Azure AD, notamment des données accessibles via l’API Graph, votre application a besoin d’une clé. Quand vous demandez un jeton d’accès pour appeler l’API Graph, votre application fournit son **ID Client** et sa **clé**. Le point de terminaison du jeton utilise l’ID et la clé pour authentifier votre application avant d’émettre le jeton d’accès. Vous pouvez créer plusieurs clés pour traiter les scénarios de substitution de clé. En outre, vous pouvez supprimer les clés arrivées à expiration, endommagées ou inutilisées.
-| Gérer l’accès | Choisissez un des trois différents niveaux d’accès : authentification unique (SSO), authentification unique et lecture des données d’annuaire, ou authentification unique et lecture/écriture des données d’annuaire. Vous pouvez également supprimer l’accès. Pour plus d’informations sur l’accès à l’annuaire, consultez la page [Niveaux d’accès de l’application](https://msdn.microsoft.com/library/azure/b08d91fa-6a64-4deb-92f4-f5857add9ed8#BKMK_AccessLevels).<br><BR>**Remarque** : les modifications apportées au niveau d’accès à l’annuaire de votre application s’appliquent uniquement à votre annuaire. Elles ne s’appliquent pas aux clients qui ont accordé l’accès à votre application.
+| Gérer l’accès | Choisissez un des trois différents niveaux d’accès : authentification unique (SSO), authentification unique et lecture des données d’annuaire, ou authentification unique et lecture/écriture des données d’annuaire. Vous pouvez aussi supprimer l’accès. <br><BR>**Remarque** : les modifications apportées au niveau d’accès d’annuaire de votre application s’appliquent uniquement à votre annuaire. Elles ne s’appliquent pas aux clients qui ont accordé l’accès à votre application.
 
 
 ### Clients natifs
@@ -85,4 +85,4 @@ Propriété | Description
 
 ##
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

@@ -84,12 +84,16 @@ Lorsque vous exécutez cette commande, le processus de mise à niveau commence. 
     # Adding the account
     #
     Add-AzureAccount
+    
+    # Switch mode
+    #
     Switch-AzureMode -Name AzureResourceManager
 
     # Setting the variables
     #
     $SubscriptionName = 'YOUR_SUBSCRIPTION' 
-    $ResourceGroupName = 'YOUR_RESOURCE_GROUP' $ServerName = 'YOUR_SERVER' 
+    $ResourceGroupName = 'YOUR_RESOURCE_GROUP' 
+    $ServerName = 'YOUR_SERVER' 
     
     # Selecting the right subscription 
     # 
@@ -101,8 +105,7 @@ Lorsque vous exécutez cette commande, le processus de mise à niveau commence. 
     
     # Starting the upgrade process 
     #
-    Start-AzureSqlServerUpgrade -ResourceGroupName 
-    $ResourceGroupName -ServerName $ServerName -ServerVersion 12.0 -DatabaseCollection $hint.Databases -ElasticPoolCollection $hint.ElasticPools  
+    Start-AzureSqlServerUpgrade -ResourceGroupName $ResourceGroupName -ServerName $ServerName -ServerVersion 12.0 -DatabaseCollection $hint.Databases -ElasticPoolCollection $hint.ElasticPools  
 
 
 ## Mappage de la mise à niveau personnalisée
@@ -122,7 +125,8 @@ Mise à niveau de bases de données dans un pool de base de données élastique
 
 Mise à niveau de bases de données dans des bases de données uniques :
 
-    $databaseMap = New-Object -TypeName Microsoft.Azure.Management.Sql.Models.UpgradeDatabaseProperties  $databaseMap.Name = "DB2"
+    $databaseMap = New-Object -TypeName Microsoft.Azure.Management.Sql.Models.UpgradeDatabaseProperties  
+    $databaseMap.Name = "DB2"
     $databaseMap.TargetEdition = "Standard"
     $databaseMap.TargetServiceLevelObjective = "S0"
     Start-AzureSqlServerUpgrade –ResourceGroupName resourcegroup1 –ServerName server1 -Version 12.0 -DatabaseCollection($databaseMap) -ElasticPoolCollection ($elasticPool)
@@ -137,4 +141,4 @@ Mise à niveau de bases de données dans des bases de données uniques :
 - [Applets de commande de gestion de Service Base de données SQL Azure](https://msdn.microsoft.com/library/dn546726.aspx)
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Connecter une application web dans Azure App Service à Cache Redis via le protocole Memcache | Microsoft Azure"
+	pageTitle="Connecter une application web dans Azure App Service à Cache Redis via le protocole Memcache | Microsoft Azure"
 	description="Connecter une application web dans Azure App Service à Cache Redis en utilisant le protocole Memcache"
 	services="app-service\web"
 	documentationCenter="php"
@@ -8,12 +8,12 @@
 	editor="riande"/>
 
 <tags
-   ms.service="app-service-web"
+	ms.service="app-service"
 	ms.devlang="php"
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="windows"
 	ms.workload="web"
-	ms.date="06/30/2015"
+	ms.date="09/16/2015"
 	ms.author="cfowler"/>
 
 # Connecter une application web dans Azure App Service à Cache Redis via le protocole Memcache
@@ -21,6 +21,8 @@
 Cet article va vous apprendre à connecter une application web WordPress dans [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) au [Cache Redis Azure][12] à l’aide du protocole [Memcache][13]. Si vous disposez d’une application web utilisant un serveur Memcached pour la mise en cache en mémoire, vous pouvez la faire migrer vers Azure App Service et utiliser la solution de mise en cache interne dans Microsoft Azure en apportant peu de modifications à votre code d’application, voire aucune. En outre, vous pouvez utiliser votre expertise de Memcache pour créer des applications distribuées hautement évolutives dans Azure App Service avec le Cache Redis Azure pour la mise en cache en mémoire, tout en utilisant des infrastructures d’application populaires telles que .NET, PHP, Node.js, Java et Python.
 
 App Service Web Apps permet ce scénario d’application avec le shim Web Apps Memcache, qui est un serveur Memcached local agissant comme un proxy Memcache pour la mise en cache des appels vers le Cache Redis Azure. Ainsi, n’importe quelle application qui communique à l’aide du protocole Memcache peut mettre en cache des données avec le Cache Redis. Ce shim Memcache fonctionne au niveau du protocole. Il peut donc être utilisé par n’importe quelle application ou infrastructure d’application tant qu’il communique à l’aide du protocole Memcache.
+
+[AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
 ## Composants requis
 
@@ -73,7 +75,7 @@ Pour permettre à l’application de communiquer à l’aide du protocole Memcac
 
 ### Télécharger l’extension php\_memcache
 
-Accédez à [PECL][6]. Sous la catégorie de mise en cache, puis cliquez sur [memcache][7]. Sous la colonne des téléchargements, cliquez sur le lien DLL.
+Accédez à [PECL][6]. Sous la catégorie caching, cliquez sur [memcache][7]. Sous la colonne des téléchargements, cliquez sur le lien DLL.
 
 ![Site web PECL PHP](./media/web-sites-connect-to-redis-using-memcache-protocol/7-php-pecl-website.png)
 
@@ -83,7 +85,7 @@ Téléchargez le lien Non-Thread Safe (NTS) x86 pour la version de PHP activée 
 
 ### Activer l’extension php\_memcache
 
-Après avoir téléchargé le fichier, décompressez le fichier **php\\_memcache.dll** et chargez-le dans le répertoire **d:\\\home\\\site\\\wwwroot\\\bin\\\ext\\**. Une fois le fichier php\_memcache.dll chargé dans l’application web, vous devez activer l’extension au niveau du runtime PHP. Pour activer l’extension Memcache dans le portail Azure, ouvrez le panneau **Paramètres d’application** pour l’application web, puis ajoutez un nouveau paramètre d’application avec la clé de **PHP\\_EXTENSIONS** et la valeur **bin\\\ext\\\php\_memcache.dll**.
+Après avoir téléchargé le fichier, décompressez-le et chargez le fichier **php\\_memcache.dll** dans le répertoire **d:\\\home\\\site\\\wwwroot\\\bin\\\ext\\**. Une fois le fichier php\_memcache.dll chargé dans l’application web, vous devez activer l’extension au niveau du runtime PHP. Pour activer l’extension Memcache dans le portail Azure, ouvrez le panneau **Paramètres d’application** pour l’application web, puis ajoutez un nouveau paramètre d’application avec la clé de **PHP\\_EXTENSIONS** et la valeur **bin\\\ext\\\php\_memcache.dll**.
 
 
 > [AZURE.NOTE]Si l’application web doit charger plusieurs extensions PHP, la valeur de PHP\_EXTENSIONS doit être une liste de chemins d’accès relatifs aux fichiers DLL séparés par des virgules.
@@ -94,13 +96,13 @@ Une fois que vous avez terminé, cliquez sur **Enregistrer**.
 
 ## Installer le plug-in Memcache WordPress
 
-> [AZURE.NOTE]Vous pouvez également télécharger le [plug-in Memcached Object Cache](https://wordpress.org/plugins/memcached/) à partir de WordPress.org.
+> [AZURE.NOTE]Vous pouvez aussi télécharger le [plug-in Memcached Object Cache](https://wordpress.org/plugins/memcached/) à partir de WordPress.org.
 
-Sur la page des plug-ins WordPress, cliquez sur **Ajouter nouveau**.
+Dans la page des plug-ins WordPress, cliquez sur **Add New**.
 
 ![Page du plug-in WordPress](./media/web-sites-connect-to-redis-using-memcache-protocol/10-wordpress-plugin.png)
 
-Tapez **memcached** dans la zone de recherche, puis appuyez sur **Entrée**.
+Dans la zone de recherche, tapez **memcached** et appuyez sur **Entrée**.
 
 ![Plug-in Ajouter nouveau de WordPress](./media/web-sites-connect-to-redis-using-memcache-protocol/11-wordpress-add-new-plugin.png)
 
@@ -112,7 +114,7 @@ Recherchez **Memcached Object Cache** dans la liste, puis cliquez sur **Installe
 
 >[AZURE.NOTE]Suivez les instructions de ce blog pour savoir [comment activer une extension de site dans Web Apps][8], afin d’installer Visual Studio Online.
 
-Dans le fichier `wp-config.php`, ajoutez le code suivant avant le commentaire d’arrêt de la modification, à la fin du fichier.
+Dans le fichier `wp-config.php`, ajoutez le code suivant avant le commentaire d’arrêt de la modification, vers la fin du fichier.
 
 ```php
 $memcached_servers = array(
@@ -178,7 +180,7 @@ Félicitations ! L’application WordPress dispose maintenant d’un cache en m
 
 ## Changements apportés
 * Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre Sites Web et App Service, consultez la page [Azure App Service et son impact sur les services Azure existants](http://go.microsoft.com/fwlink/?LinkId=529714)
-* Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre l’ancien et le nouveau portail, consultez la page [Références sur la navigation dans le portail Azure](http://go.microsoft.com/fwlink/?LinkId=529715).
+* Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre l’ancien et le nouveau portail, consultez la page [Références sur la navigation dans le portail Azure](http://go.microsoft.com/fwlink/?LinkId=529715).
 
 
 [0]: http://bit.ly/1F0m3tw
@@ -196,4 +198,4 @@ Félicitations ! L’application WordPress dispose maintenant d’un cache en m
 [12]: /services/cache/
 [13]: http://memcached.org
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

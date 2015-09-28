@@ -148,25 +148,34 @@ Après avoir proposé une nouvelle solution à un utilisateur, vous souhaitez sa
 
 Si vous n’avez pas encore publié votre application (depuis que vous avez ajouté Application Insights), faites-le maintenant. Observez l’évolution des données dans les graphiques à mesure que les personnes utilisent votre application.
 
+
+#### Les données n’apparaissent pas après leur publication sur votre serveur ?
+
+Ouvrez ces ports pour le trafic sortant dans le pare-feu de votre serveur :
+
++ `dc.services.visualstudio.com:443`
++ `f5.services.visualstudio.com:443`
+
 ### Séparer les ressources pour le développement, le test et la publication
 
 Dans le cas d’une application majeure, il est conseillé de transmettre les données de télémétrie de débogage, de test et de production dans des [ressources distinctes](app-insights-separate-resources.md).
 
 
 
+
 ## Ajouter un suivi de dépendance et des compteurs de performances système
 
-Les [métriques de dépendance](app-insights-dependencies.md) peuvent être très utiles pour vous aider à diagnostiquer les problèmes de performances. Ils comptabilisent les appels de votre application vers les bases de données, les API REST et d’autres composants externes.
+Les [mesures de dépendance](app-insights-dependencies.md) peuvent vous être très utiles pour diagnostiquer les problèmes de performance. Ils comptabilisent les appels de votre application vers les bases de données, les API REST et d’autres composants externes.
 
 ![](./media/app-insights-asp-net/04-dependencies.png)
 
-Cette étape permet également [d’indiquer les compteurs de performance](app-insights-web-monitor-performance.md#system-performance-counters) tels que le taux d’utilisation du processeur, de la mémoire et du réseau.
+Cette étape permet aussi d’établir un [rapport des compteurs de performance](app-insights-web-monitor-performance.md#system-performance-counters), tels que le taux d’utilisation du processeur, de la mémoire et du réseau.
 
 #### Si votre application s'exécute sur votre serveur IIS
 
 Connectez-vous à votre serveur avec des droits d’administrateur, puis installez [Application Insights Status Monitor](http://go.microsoft.com/fwlink/?LinkId=506648).
 
-(Vous pouvez également utiliser Status Monitor pour [instrumenter une application déjà en cours d’exécution](app-insights-monitor-performance-live-website-now.md), même si elle n’a pas été générée avec le Kit de développement logiciel (SDK).)
+Vous devez vous assurer que certains [autres ports sont ouverts dans le pare-feu de votre serveur](app-insights-monitor-performance-live-website-now.md#troubleshooting).
 
 #### Si votre application est une application web Azure
 
@@ -226,4 +235,4 @@ Si vous avez apporté des personnalisations à ApplicationInsights.config, conse
 
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

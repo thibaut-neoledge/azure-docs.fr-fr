@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/05/2015"
+   ms.date="09/10/2015"
    ms.author="banders"/>
 # Analyse des données des serveurs dans Microsoft Azure
 
@@ -269,4 +269,4 @@ Après environ une heure, les données du compte de stockage sont disponibles po
 
 [Configuration des paramètres de pare-feu et de proxy (facultatif)](../operational-insights-proxy-filewall.md)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

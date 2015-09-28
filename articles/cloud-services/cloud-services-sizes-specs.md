@@ -1,20 +1,20 @@
-<properties 
+<properties
  pageTitle="Tailles de services cloud"
-	description="Répertorie les différentes tailles des rôles web et de travail des services cloud Azure."
-	services="cloud-services"
-	documentationCenter=""
-	authors="Thraka"
-	manager="timlt"
-	editor=""/>
-<tags 
+ description="Répertorie les différentes tailles des rôles web et de travail des services cloud Azure."
+ services="cloud-services"
+ documentationCenter=""
+ authors="Thraka"
+ manager="timlt"
+ editor=""/>
+<tags
  ms.service="cloud-services"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="tbd"
-	ms.date="09/01/2015"
-	ms.author="adegeo"/>
- 
+ ms.devlang="na"
+ ms.topic="article"
+ ms.tgt_pltfrm="na"
+ ms.workload="tbd"
+ ms.date="09/14/2015"
+ ms.author="adegeo"/>
+
 # Tailles de services cloud
 
 Cette rubrique décrit les tailles et options disponibles pour les instances de rôle de Cloud Services (rôles web et rôles de travail). Il expose également les points à prendre en considération pour le déploiement quand vous planifiez l'utilisation de ces ressources.
@@ -41,26 +41,26 @@ Les points ci-dessous peuvent vous aider à choisir une taille :
 
 |Taille|Cœurs<br>processeur|Mémoire|Tailles du disque|
 |---|---|---|---|
-|Très petite|1|768 Mo|Système d'exploitation = taille du SE invité<br/>Ressources locales = 19 Go<br/>Applications = environ 1,5 Go|
-|Petite|1|1,75 Go|Système d'exploitation = taille du SE invité<br/>Ressources locales = 224 Go<br/>Applications = environ 1,5 Go|
-|Moyenne|2|3,5 Go|Système d'exploitation = taille du SE invité<br/>Ressources locales = 489 Go<br/>Applications = environ 1,5 Go|
-|Grande|4|7 Go|Système d'exploitation = taille du SE invité<br/>Ressources locales = 999 Go<br/>Applications = environ 1,5 Go|
-|Très grande|8|14 Go|Système d'exploitation = taille du SE invité<br/>Ressources locales = 2 039 Go<br/>Applications = environ 1,5 Go|
-|A5|2|14 Go|Système d'exploitation = taille du SE invité<br/>Ressources locales = 489 Go<br/>Applications = environ 1,5 Go|
-|A6|4|28 Go|Système d'exploitation = taille du SE invité<br/>Ressources locales = 999 Go<br/>Applications = environ 1,5 Go|
-|A7|8|56 Go|Système d'exploitation = taille du SE invité<br/>Ressources locales = 2 039 Go<br/>Applications = environ 1,5 Go
-|A8|8|56 Go|Système d'exploitation = taille du SE invité<br/>Ressources locales = 1,77 To<br/>Applications = environ 1,5 Go<blockquote> Remarque : pour plus d'informations et pour connaître les éléments à prendre en considération sur l'utilisation de cette taille, consultez l'article <a href="http://go.microsoft.com/fwlink/p/?linkid=328042">À propos des instances de calcul intensif A8, A9, A10 et A11</a>.</blockquote>|
-|A9|16|112 Go|Système d'exploitation = taille du SE invité<br/>Ressources locales = 1,77 To<br/>Applications = environ 1,5 Go<blockquote> Remarque : pour plus d'informations et pour connaître les éléments à prendre en considération sur l'utilisation de cette taille, consultez l'article <a href="http://go.microsoft.com/fwlink/p/?linkid=328042">À propos des instances de calcul intensif A8, A9, A10 et A11</a>.</blockquote>|
-|A10|8|56 Go|Système d'exploitation = taille du SE invité<br/>Ressources locales = 1,77 To<br/>Applications = environ 1,5 Go<blockquote> Remarque : pour plus d'informations et pour connaître les éléments à prendre en considération sur l'utilisation de cette taille, consultez l'article <a href="http://go.microsoft.com/fwlink/p/?linkid=328042">À propos des instances de calcul intensif A8, A9, A10 et A11</a>.</blockquote>|
-|A11|16|112 Go|Système d'exploitation = taille du SE invité<br/>Ressources locales = 1,77 To<br/>Applications = environ 1,5 Go<blockquote> Remarque : pour plus d'informations et pour connaître les éléments à prendre en considération sur l'utilisation de cette taille, consultez l'article <a href="http://go.microsoft.com/fwlink/p/?linkid=328042">À propos des instances de calcul intensif A8, A9, A10 et A11</a>.</blockquote>|
-|D1 standard|1|3,5 Go|Système d'exploitation = taille du SE invité<br/>Ressources locales = 50 Go<br/>Applications = environ 1,5 Go|
-|D2 standard|2|7 Go|Système d'exploitation = taille du SE invité<br/>Ressources locales = 100 Go<br/>Applications = environ 1,5 Go|
-|D3 standard|4|14 Go|Système d'exploitation = taille du SE invité<br/>Ressources locales = 200 Go<br/>Applications = environ 1,5 Go|
-|D4 standard|8|28 Go|Système d'exploitation = taille du SE invité<br/>Ressources locales = 400 Go<br/>Applications = environ 1,5 Go|
-|D11 standard|2|14 Go|Système d'exploitation = taille du SE invité<br/>Ressources locales = 100 Go<br/>Applications = environ 1,5 Go|
-|D12 standard|4|28 Go|Système d'exploitation = taille du SE invité<br/>Ressources locales = 200 Go<br/>Applications = environ 1,5 Go|
-|D13 standard|8|56 Go|Système d'exploitation = taille du SE invité<br/>Ressources locales = 400 Go<br/>Applications = environ 1,5 Go|
-|D14 standard|16|112 Go|Système d'exploitation = taille du SE invité<br/>Ressources locales = 800 Go<br/>Applications = environ 1,5 Go|
+|Très petite|1|768 Mo|Système d’exploitation = taille du SE invité<br/>Ressources locales = 15 384 Mo<br/>Applications = environ 1,5 Go|
+|Petite|1|1,75 Go|Système d’exploitation = taille du SE invité<br/>Ressources locales = 225 304 Mo<br/>Applications = environ 1,5 Go|
+|Moyenne|2|3,5 Go|Système d’exploitation = taille du SE invité<br/>Ressources locales = 496 664 Mo<br/>Applications = environ 1,5 Go|
+|Grande|4|7 Go|Système d’exploitation = taille du SE invité<br/>Ressources locales = 1 018 904 Mo<br/>Applications = environ 1,5 Go|
+|Très grande|8|14 Go|Système d’exploitation = taille du SE invité<br/>Ressources locales = 2 083 864 Mo<br/>Applications = environ 1,5 Go|
+|A5|2|14 Go|Système d’exploitation = taille du SE invité<br/>Ressources locales = 496 664 Mo<br/>Applications = environ 1,5 Go|
+|A6|4|28 Go|Système d’exploitation = taille du SE invité<br/>Ressources locales = 1 018 904 Mo<br/>Applications = environ 1,5 Go|
+|A7|8|56 Go|Système d’exploitation = taille du SE invité<br/>Ressources locales = 2 083 864 Mo<br/>Applications = environ 1,5 Go
+|A8|8|56 Go|Système d’exploitation = taille du SE invité<br/>Ressources locales = 1 856 172 Mo<br/>Applications = environ 1,5 Go<blockquote> Remarque : pour plus d’informations sur l’utilisation de cette taille et pour connaître les éléments à prendre en considération, consultez <a href="http://go.microsoft.com/fwlink/p/?linkid=328042">À propos des instances de calcul intensif A8, A9, A10 et A11</a>.</blockquote>|
+|A9|16|112 Go|Système d’exploitation = taille du SE invité<br/>Ressources locales = 1 856 172 Mo<br/>Applications = environ 1,5 Go<blockquote> Remarque : pour plus d’informations sur l’utilisation de cette taille et pour connaître les éléments à prendre en considération, consultez <a href="http://go.microsoft.com/fwlink/p/?linkid=328042">À propos des instances de calcul intensif A8, A9, A10 et A11</a>.</blockquote>|
+|A10|8|56 Go|Système d’exploitation = taille du SE invité<br/>Ressources locales = 1 856 172 Mo<br/>Applications = environ 1,5 Go<blockquote> Remarque : pour plus d’informations sur l’utilisation de cette taille et pour connaître les éléments à prendre en considération, consultez <a href="http://go.microsoft.com/fwlink/p/?linkid=328042">À propos des instances de calcul intensif A8, A9, A10 et A11</a>.</blockquote>|
+|A11|16|112 Go|Système d’exploitation = taille du SE invité<br/>Ressources locales = 1 856 172 Mo<br/>Applications = environ 1,5 Go<blockquote> Remarque : pour plus d’informations sur l’utilisation de cette taille et pour connaître les éléments à prendre en considération, consultez <a href="http://go.microsoft.com/fwlink/p/?linkid=328042">À propos des instances de calcul intensif A8, A9, A10 et A11</a>.</blockquote>|
+|D1 standard|1|3,5 Go|Système d’exploitation = taille du SE invité<br/>Ressources locales = 46 104 Mo<br/>Applications = environ 1,5 Go|
+|D2 standard|2|7 Go|Système d’exploitation = taille du SE invité<br/>Ressources locales = 97 304 Mo<br/>Applications = environ 1,5 Go|
+|D3 standard|4|14 Go|Système d’exploitation = taille du SE invité<br/>Ressources locales = 199 704 Mo<br/>Applications = environ 1,5 Go|
+|D4 standard|8|28 Go|Système d’exploitation = taille du SE invité<br/>Ressources locales = 404 504 Mo<br/>Applications = environ 1,5 Go|
+|D11 standard|2|14 Go|Système d’exploitation = taille du SE invité<br/>Ressources locales = 97 304 Mo<br/>Applications = environ 1,5 Go|
+|D12 standard|4|28 Go|Système d’exploitation = taille du SE invité<br/>Ressources locales = 199 704 Mo<br/>Applications = environ 1,5 Go|
+|D13 standard|8|56 Go|Système d’exploitation = taille du SE invité<br/>Ressources locales = 404 504 Mo<br/>Applications = environ 1,5 Go|
+|D14 standard|16|112 Go|Système d’exploitation = taille du SE invité<br/>Ressources locales = 814 104 Mo<br/>Applications = environ 1,5 Go|
 
 ## Configurer les tailles pour les Cloud Services
 
@@ -72,8 +72,10 @@ Voici un exemple qui montre comment configurer un rôle de petite taille pour un
     <WebRole name="WebRole1" vmsize="Small">
     …
     </WebRole>
+
+Assurez-vous que la taille de ressources locales spécifiée est inférieure ou égale à la taille de ressources locales maximale indiquée dans le tableau ci-dessus.
 ## Étapes suivantes
 
 [Configuration d'un service cloud pour Azure](https://msdn.microsoft.com/library/hh124108)
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

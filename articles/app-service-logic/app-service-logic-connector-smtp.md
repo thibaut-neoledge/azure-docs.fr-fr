@@ -1,20 +1,20 @@
 <properties
    pageTitle="Utilisation du connecteur SMTP dans des applications logiques | Microsoft Azure App Service"
-	description="Comment créer et configurer le connecteur SMTP ou une application API et l'utiliser dans une application logique d’Azure App Service"
-	services="app-service\logic"
-	documentationCenter=".net,nodejs,java"
-	authors="anuragdalmia"
-	manager="dwrede"
-	editor=""/>
+   description="Comment créer et configurer le connecteur SMTP ou une application API et l'utiliser dans une application logique d’Azure App Service"
+   services="app-service\logic"
+   documentationCenter=".net,nodejs,java"
+   authors="anuragdalmia"
+   manager="dwrede"
+   editor=""/>
 
 <tags
    ms.service="app-service-logic"
-	ms.devlang="multiple"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="integration"
-	ms.date="08/23/2015"
-	ms.author="andalmia"/>
+   ms.devlang="multiple"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="integration"
+   ms.date="08/23/2015"
+   ms.author="andalmia"/>
 
 
 # Prise en main du connecteur SMTP et ajout de celui-ci à votre application logique
@@ -54,15 +54,17 @@ Un connecteur peut être créé dans une application logique ou directement à p
 
 6. Sélectionnez **Créer**.
 
+> [AZURE.IMPORTANT]Le fonctionnement de ce connecteur (SendGrid et Gmail) peut occasionner des problèmes sur certains serveurs SMTP. Si vous voulez envoyer du courrier à partir de SendGrid, notre [référentiel GitHub](https://github.com/logicappsio/SendGridAPI) contient une API personnalisée qui communique directement avec les API SendGrid.
+
 ## Utilisation du connecteur SMTP dans votre application logique
 Une fois votre connecteur créé, vous pouvez utiliser le connecteur SMTP comme action pour votre application logique. Pour ce faire :
 
-1.	Créer une application logique :
-	![][2]
-2.	Ouvrez **Déclencheurs et actions** pour ouvrir le concepteur d'applications logiques et configurer votre flux de travail :
-	![][3]
+1.	Créez une application logique :
+![][2]
+2.	Ouvrez **Déclencheurs et actions** pour ouvrir le concepteur Logic Apps et configurer votre flux de travail :
+![][3]
 3.	Le connecteur SMTP apparaît dans la section « Applications API dans ce groupe de ressources » de la galerie située à droite. Sélectionnez-le :
-	![][4]
+![][4]
 4.	Sélectionnez le connecteur SMTP pour l’ajouter automatiquement au Concepteur de flux de travail.
 
 Vous pouvez maintenant configurer le connecteur SMTP à utiliser dans votre flux de travail. Sélectionnez l’action **Envoyer l’e-mail** et configurez les propriétés d’entrée :
@@ -96,4 +98,4 @@ Vous pouvez également consulter les statistiques de performances et contrôler 
 [5]: ./media/app-service-logic-connector-smtp/img5.PNG
 [6]: ./media/app-service-logic-connector-smtp/img6.PNG
 
-<!----HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO3-->

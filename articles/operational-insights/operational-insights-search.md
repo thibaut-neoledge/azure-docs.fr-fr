@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="tbd"
-   ms.date="07/21/2015"
+   ms.date="09/10/2015"
    ms.author="banders" />
 
 # Recherche de données dans Operational Insights
@@ -451,7 +451,7 @@ Type=PerfHourly  CounterName="% Processor Time"  InstanceName="_Total" | Measure
 
 Si vous êtes familiarisé avec Microsoft System Center - Operations Manager, vous pouvez considérer la commande where comme un pack d’administration. S'il l'exemple était une règle, la première partie de la requête serait la source de données et la commande where serait la détection de condition.
 
-Vous pouvez utiliser la requête sous forme de vignette dans **Mon tableau de bord**, comme un moniteur de tri, afin de voir à quel moment les processeurs de l'ordinateur sont surexploités. Pour en savoir plus sur les tableaux de bord, consultez [Tableaux de bord d’Operational Insights](operational-insights-use-dashboards). Vous pouvez également créer et utiliser des tableaux de bord à l'aide de l'application mobile. Pour plus d'informations, consultez [Application mobile d’Azure Operational Insights ](http://www.windowsphone.com/fr-fr/store/app/operational-insights/4823b935-83ce-466c-82bb-bd0a3f58d865). En bas des deux vignettes de l'image suivante, vous pouvez voir que le moniteur a affiché une liste et un nombre. Essentiellement, le nombre doit toujours être zéro et la liste doit toujours être vide. Dans le cas contraire, il indique une condition d'alerte. Au besoin, vous pouvez l'utiliser pour voir quels ordinateurs sont sous pression.
+Vous pouvez utiliser la requête sous forme de vignette dans **Mon tableau de bord**, comme un moniteur de tri, afin de voir à quel moment les processeurs de l'ordinateur sont surexploités. Pour en savoir plus sur les tableaux de bord, consultez [Tableaux de bord d’Operational Insights](operational-insights-use-dashboards). Vous pouvez également créer et utiliser des tableaux de bord à l'aide de l'application mobile. Pour plus d'informations, consultez [Application mobile d’Azure Operational Insights ](http://www.windowsphone.com/fr-FR/store/app/operational-insights/4823b935-83ce-466c-82bb-bd0a3f58d865). En bas des deux vignettes de l'image suivante, vous pouvez voir que le moniteur a affiché une liste et un nombre. Essentiellement, le nombre doit toujours être zéro et la liste doit toujours être vide. Dans le cas contraire, il indique une condition d'alerte. Au besoin, vous pouvez l'utiliser pour voir quels ordinateurs sont sous pression.
 
 ![Tableau de bord mobile](./media/operational-insights-search/search-mobile.png)
 
@@ -615,7 +615,7 @@ Vous pouvez chaîner les opérateurs mathématiques Date/Heure, par exemple :
 Le tableau suivant répertorie les unités Date/Heure prises en charge.
 
 Unité Date/Heure|Description
----|--- 
+---|---
 YEAR, YEARS|Arrondit à l'année en cours ou décale du nombre d'années spécifié.
 MONTH, MONTHS|Arrondit au mois en cours ou décale du nombre de mois spécifié.
 DAY, DAYS, DATE|Arrondit au jour du mois en cours ou décale du nombre de jours spécifié.
@@ -2049,4 +2049,4 @@ Lorsque vous utilisez la fonction de recherche pour rechercher des données, les
 ## Autres ressources
 Stefan Roth a créé un aide-mémoire de recherche pratique. Découvrez son [blog](http://stefanroth.net/2014/11/05/microsoft-azure-operational-insights-search-data-explorer-cheat-sheet/) pour en savoir plus et télécharger son aide-mémoire.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

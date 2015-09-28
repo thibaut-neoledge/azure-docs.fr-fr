@@ -1,31 +1,33 @@
 <properties 
-	pageTitle="Comment contrôler le trafic entrant vers un environnement App Service"
-	description="Découvrez comment configurer des règles de sécurité réseau pour contrôler le trafic entrant vers un environnement App Service."
-	services="app-service\web"
-	documentationCenter=""
-	authors="ccompy"
-	manager="wpickett"
+	pageTitle="Contrôle du trafic entrant dans un environnement App Service" 
+	description="Découvrez comment configurer des règles de sécurité réseau pour contrôler le trafic entrant vers un environnement App Service." 
+	services="app-service\web" 
+	documentationCenter="" 
+	authors="ccompy" 
+	manager="wpickett" 
 	editor=""/>
 
 <tags 
-	ms.service="app-service-web"
-	ms.workload="web"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="06/30/2015"
-	ms.author="stefsh"/>
+	ms.service="app-service" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/11/2015" 
+	ms.author="stefsch"/>
 
-# Comment contrôler le trafic entrant vers un environnement App Service
+# Contrôle du trafic entrant vers un environnement App Service
 
 ## Vue d'ensemble ##
-Un environnement App Service est toujours créé dans un sous-réseau d'un [réseau virtuel][virtualnetwork] régional. Il est possible de définir un nouveau réseau virtuel régional et un nouveau sous-réseau au moment de la création d'un environnement App Service. Vous pouvez également créer un environnement App Service dans un réseau virtuel préexistant et un sous-réseau préexistant. Pour plus de détails sur la création d'un environnement App Service, consultez [Comment créer un environnement App Service][HowToCreateAnAppServiceEnvironment].
+Un environnement App Service est toujours créé dans un sous-réseau d’un [réseau virtuel][virtualnetwork] « v1 » classique régional. Il est possible de définir un nouveau réseau virtuel « v1 » classique régional et un nouveau sous-réseau au moment de la création d’un environnement App Service. Vous pouvez également créer un environnement App Service dans un réseau virtuel « v1 » classique régional préexistant et un sous-réseau préexistant. Pour plus de détails sur la création d'un environnement App Service, consultez [Création d’un environnement App Service][HowToCreateAnAppServiceEnvironment].
 
 Un environnement App Service doit toujours être créé dans un sous-réseau, car un sous-réseau fournit une limite réseau qui peut être utilisée pour verrouiller le trafic entrant derrière des appareils et des services en amont, de sorte que le trafic HTTP et HTTPS soit accepté uniquement à partir d'adresses IP en amont.
 
 Le trafic réseau entrant et sortant sur un sous-réseau est contrôlé à l'aide d'un [groupe de sécurité réseau][NetworkSecurityGroups]. Le contrôle du trafic entrant requiert la création de règles de sécurité réseau dans un groupe de sécurité réseau, ainsi que l'affectation du sous-réseau contenant l'environnement App Service à ce groupe de sécurité réseau.
 
 Lorsqu'un groupe de sécurité réseau est affecté à un sous-réseau, le trafic entrant vers des applications de l'environnement App Service est autorisé/bloqués en fonction des règles d'autorisation et de refus définies dans le groupe de sécurité réseau.
+
+[AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
 ## Ports réseau dans un environnement App Service ##
 Avant de verrouiller le trafic réseau entrant à l'aide d'un groupe de sécurité réseau, il est important de connaître l'ensemble de ports réseau obligatoires et facultatifs utilisés par un environnement App Service. La fermeture accidentelle du trafic vers certains ports peut entraîner une perte de fonctionnalités dans un environnement App Service.
@@ -37,20 +39,22 @@ La liste suivante présente les ports utilisés par un environnement App Service
 - 80 : Port par défaut pour le trafic HTTP entrant vers des applications s'exécutant dans plans App Service d'un environnement App Service.
 - 443 : Port par défaut pour le trafic SSL entrant vers des applications s'exécutant dans plans App Service d'un environnement App Service.
 - 21 : Canal de contrôle pour FTP. Ce port peut être bloqué en toute sécurité si FTP n'est pas utilisé.
-- 10001-10020 : Canaux de données pour FTP. Comme avec le canal de contrôle, ces ports peuvent être bloqués en toute sécurité si FTP n'est pas utilisé (**Remarque :** les canaux de données FTP peuvent changer dans la version préliminaire).
+- 10001-10020 : Canaux de données pour FTP. Comme avec le canal de contrôle, ces ports peuvent être bloqués en toute sécurité si FTP n’est pas utilisé (**Remarque :** les canaux de données FTP peuvent changer dans la version préliminaire).
 - 4016 : Utilisé pour le débogage à distance avec Visual Studio 2012. Ce port peut être bloqué en toute sécurité si la fonctionnalité n'est pas utilisée.
 - 4018 : Utilisé pour le débogage à distance avec Visual Studio 2013. Ce port peut être bloqué en toute sécurité si la fonctionnalité n'est pas utilisée.
 - 4020 : Utilisé pour le débogage à distance avec Visual Studio 2015. Ce port peut être bloqué en toute sécurité si la fonctionnalité n'est pas utilisée.
 
 ## Connectivité sortante et configuration DNS requise ##
-Notez que pour qu'un environnement App Service fonctionne correctement, il requiert également un accès sortant au stockage Azure, ainsi que la base de données SQL dans la même région Azure. Si l'accès Internet sortant est bloqué sur le réseau virtuel, les environnements App Service ne pourront pas accéder à ces points de terminaison Azure.
+Notez que pour qu’un environnement App Service fonctionne correctement, il requiert également un accès sortant à Azure Storage dans le monde, ainsi que la base de données SQL dans la même région Azure. Si l'accès Internet sortant est bloqué sur le réseau virtuel, les environnements App Service ne pourront pas accéder à ces points de terminaison Azure.
 
 Le client peut également avoir des serveurs DNS personnalisés configurés sur le réseau virtuel. Les environnements App Service doivent être en mesure de résoudre les systèmes d’extrémité Azure sous *.database.windows.net, *.file.core.windows.net et *.blob.core.windows.net.
 
-Il est également recommandé de configurer les serveurs DNS personnalisés sur le réseau virtuel à l'avance, avant de créer un environnement App Service. Si la configuration DNS d'un réseau virtuel est modifiée pendant la création d'un environnement App Service, alors le processus de création de l'environnement App Service échouera.
+Il est également recommandé de configurer les serveurs DNS personnalisés sur le réseau virtuel à l'avance, avant de créer un environnement App Service. Si la configuration DNS d'un réseau virtuel est modifiée pendant la création d'un environnement App Service, alors le processus de création de l'environnement App Service échouera. De même, s’il existe un serveur DNS personnalisé à l’autre extrémité d’une passerelle VPN et que le serveur DNS n’est pas accessible ou disponible, le processus de création d’un environnement App Service échoue également.
 
 ## Création d'un groupe de sécurité réseau ##
 Pour plus d'informations sur le fonctionnement des groupes de sécurité réseau, consultez les [informations][NetworkSecurityGroups] suivantes. Les informations détaillées ci-dessous abordent les points principaux des groupes de sécurité réseau, en se concentrant sur la configuration et l'application d'un groupe de sécurité réseau à un sous-réseau contenant un environnement App Service.
+
+**Remarque :** des groupes de sécurité réseau ne peuvent être configurés qu’à l’aide des applets de commande Powershell décrites ci-dessous. Il est impossible de configurer des groupes de sécurité réseau graphiquement à l’aide du nouveau portail (portal.azure.com), car celui-ci autorise uniquement la configuration graphique de groupes de sécurité réseau associés à des réseaux virtuels « v2 ». Toutefois, les environnements App Service ne fonctionnent actuellement qu’avec des réseaux virtuels « v1 » classiques. Ainsi, seules des applets de commande Powershell permettent de configurer des groupes de sécurité de réseau associés à des réseaux virtuels « v1 ».
 
 Les groupes de sécurité réseau sont tout d'abord créés en tant qu'entité autonome associée à un abonnement. Dans la mesure où les groupes de sécurité réseau sont créés dans une région Azure, assurez-vous que le groupe de sécurité réseau est créé dans la même région que l'environnement App Service.
 
@@ -104,9 +108,9 @@ Par souci d'exhaustivité, l'exemple suivant montre comment supprimer, et donc d
     Get-AzureNetworkSecurityGroup -Name "testNSGexample" | Remove-AzureNetworkSecurityGroupFromSubnet -VirtualNetworkName 'testVNet' -SubnetName 'Subnet-test'
 
 ## Considérations spécifiques concernant les adresses IP SSL explicites ##
-Si une application est configurée avec une adresse IP explicite, au lieu de l'adresse IP par défaut de l'environnement App Service, le trafic HTTP et HTTPS transite dans le sous-réseau via sur un autre ensemble de ports que les ports 80 et 443.
+Si une application est configurée avec une adresse IP explicite, au lieu de l’adresse IP par défaut de l’environnement App Service, le trafic HTTP et HTTPS transite dans le sous-réseau via un ensemble de ports autres que les ports 80 et 443.
 
-Dans la version préliminaire initiale des environnements App Service, il n'est pas possible de déterminer les ports spécifiques utilisés par IP SSL. Toutefois, une fois ces informations exposées via le portail, les outils en ligne de commande et les API REST, les développeurs pourront configurer des groupes de sécurité réseau pour contrôler également le trafic via ces ports.
+Vous pouvez identifier la paire de ports utilisée pour chaque adresse IP SSL en cliquant sur « Tous les paramètres » --> « Adresses IP » dans le panneau d’interface utilisateur de l’environnement App Service. Le panneau « Adresses IP » affiche un tableau de toutes les adresses IP SSL configurées explicitement pour l’environnement App Service, ainsi que la paire de ports spéciale utilisée pour acheminer le trafic HTTP et HTTPS associé à chaque adresse IP SSL. Il s’agit de la paire de ports à utiliser pour les paramètres DestinationPortRange lors de la configuration de règles dans un groupe de sécurité réseau.
 
 ## Prise en main
 
@@ -130,4 +134,4 @@ Pour plus d’informations sur la plateforme Azure App Service, consultez la rub
 
 <!-- IMAGES -->
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO3-->

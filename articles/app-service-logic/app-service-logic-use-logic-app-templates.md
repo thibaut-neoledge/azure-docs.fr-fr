@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/24/2015"
+	ms.date="09/15/2015"
 	ms.author="klam"/>
 
 # Utiliser les modèles d’application logique
 
 Les modèles d’application logique sont des applications logiques prédéfinies, conçues pour vous aider à créer votre propre application d’intégration.
 
-Ces modèles montrent comment utiliser certains des nombreux connecteurs disponibles sur le marché et permettent d’identifier plusieurs fonctionnements pouvant être intégrés dans des applications logiques. Vous pouvez les utiliser tels quels ou les adapter à votre situation. Pour apprendre à utiliser un modèle d’application logique, rendez-vous sur Azure Marketplace et sélectionnez Applications logiques. Choisissez un des modèles d’application logique dans la liste.
+Ces modèles montrent comment utiliser certains des nombreux connecteurs disponibles sur le marché et permettent d’identifier plusieurs fonctionnements pouvant être intégrés dans des applications logiques. Vous pouvez les utiliser tels quels ou les adapter à votre situation. Pour commencer à utiliser un modèle d’application logique, accédez à Marketplace et recherchez « Modèle d’application logique ». Choisissez ensuite l’un des modèles d’application logique dans la liste traitée ou, pendant la création d’une application logique, sélectionnez « Déclencheurs et actions » et effectuez une sélection parmi l’ensemble de modèles d’application logique du concepteur.
 
 ### Modèles SaaS et Cloud
 Exemples d’intégration avec différents connecteurs SaaS. Ici sont proposés plusieurs exemples d’intégration de Salesforce, Box, SharePoint et d’autres services.
@@ -40,4 +40,4 @@ Modèles simples qui s’intègrent dans des services de réseaux sociaux, comme
 Après avoir sélectionné un des modèles, finalisez le déploiement comme si vous aviez créé votre propre application logique. Consultez la rubrique [Créer une application logique](app-service-logic-create-a-logic-app.md).
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

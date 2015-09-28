@@ -1,3 +1,4 @@
+<!--author=alkohli last changed: 9/16/15-->
 
 #### Pour brancher les câbles d’alimentation
 
@@ -23,4 +24,4 @@
 
 4. Activez le système en mettant en marche les commutateurs d'alimentation des deux PCM.
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO3-->

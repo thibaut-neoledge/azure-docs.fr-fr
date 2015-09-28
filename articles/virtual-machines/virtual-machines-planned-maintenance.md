@@ -75,7 +75,7 @@ Dans une configuration à instance unique, les machines virtuelles sont mises à
 Cet événement de maintenance planifiée aura un impact sur la disponibilité de votre application pour ce type de configuration de machine virtuelle. Aujourd'hui, Azure vous fournit une notification une semaine à l'avance de la maintenance planifiée des machines virtuelles dans la configuration à instance unique.
 
 ### Notification par courrier électronique
-Pour les configurations de machine virtuelle multi-instance et à instance unique uniquement, Azure vous envoie à l’avance un message électronique pour vous informer de la prochaine maintenance planifiée (une semaine à l’avance pour les instances uniques et 48 heures à l’avance pour les instances multi-instance). Ces courriers électroniques sont envoyés sur le compte électronique principal indiqué lors de l'inscription. Voici un exemple de ce type de courrier électronique :
+Pour les configurations de machine virtuelle multi-instance et à instance unique uniquement, Azure vous envoie à l’avance un message électronique pour vous informer de la prochaine maintenance planifiée (une semaine à l’avance pour les instances uniques et 48 heures à l’avance pour les instances multi-instance). Ce courrier électronique sera envoyé aux comptes de messagerie de l’administrateur et du coadministrateur du compte fournis dans l’abonnement. Voici un exemple de ce type de courrier électronique :
 
 <!--Image reference-->
 ![][image1]
@@ -110,4 +110,4 @@ Par exemple, lors du déploiement d’une maintenance planifiée, Azure n’effe
 [Virtual Machines Manage Availability]: virtual-machines-windows-tutorial.md
 [Understand planned versus unplanned maintenance]: virtual-machines-manage-availability.md#Understand-planned-versus-unplanned-maintenance/
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

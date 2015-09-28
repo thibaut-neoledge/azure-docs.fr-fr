@@ -1,7 +1,9 @@
+<!--author=alkohli last changed: 9/17/15-->
+
 
 #### Création d’un service
 
-1. À l’aide de votre compte Microsoft, connectez-vous au portail de gestion à cette URL : [http://azure.microsoft.com/](http://azure.microsoft.com/).
+1. À l’aide des informations d’identification de votre compte Microsoft, connectez-vous au portail de gestion à cette URL : [http://azure.microsoft.com/](http://azure.microsoft.com/).
 
 2. Dans le portail de gestion, cliquez sur **Nouveau** > **Data Services** > **StorSimple Manager** > **Création rapide**.
 
@@ -16,10 +18,14 @@
   4. Sélectionnez **Créer un nouveau compte de stockage** pour créer automatiquement un compte de stockage avec le service. Ce compte de stockage possédera un nom spécial, tel que « storsimplebwv8c6dcnf ». Si vous avez besoin de vos données dans un autre emplacement, désactivez cette case à cocher. 
   5. Cliquez sur **Créer StorSimple Manager** pour créer le service.
 
-   ![créer un service](./media/storsimple-create-new-service/HCS_CreateAService-include.png)
+   ![Créer StorSimple Manager](./media/storsimple-create-new-service/HCS_CreateAService-include.png)
 
   Vous allez être redirigé vers la page d’accueil **Service**. La création de service dure quelques minutes. Une fois le service créé, vous recevez la notification correspondante et l’état du service devient **Actif**.
  
-   ![création du service](./media/storsimple-create-new-service/HCS_StorSimpleManagerServicePage-include.png)
+   ![Création du service](./media/storsimple-create-new-service/HCS_StorSimpleManagerServicePage-include.png)
 
-<!---HONumber=August15_HO8-->
+![Vidéo disponible](./media/storsimple-create-new-service/Video_icon.png) **Vidéo disponible**
+
+Pour visionner une vidéo qui montre comment créer un service StorSimple Manager, cliquez [ici](http://azure.microsoft.com/documentation/videos/create-a-storsimple-manager-service/).
+
+<!---HONumber=Sept15_HO3-->

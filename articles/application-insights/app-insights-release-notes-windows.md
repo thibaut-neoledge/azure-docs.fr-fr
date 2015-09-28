@@ -1,17 +1,17 @@
 <properties 
-	pageTitle="Notes de publication pour Application Insights pour Windows"
-	description="Les dernières mises à jour."
-	services="application-insights"
-	documentationCenter=""
-	authors="alancameronwills"
+	pageTitle="Notes de publication pour Application Insights pour Windows" 
+	description="Les dernières mises à jour." 
+	services="application-insights" 
+    documentationCenter=""
+	authors="alancameronwills" 
 	manager="douge"/>
 <tags 
-	ms.service="application-insights"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="ibiza"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="06/18/2015"
+	ms.service="application-insights" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="ibiza" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="06/18/2015" 
 	ms.author="sergkanz"/>
  
 # Notes de publication pour le Kit de développement logiciel (SDK) Application Insights pour Windows Phone et Windows Store
@@ -32,14 +32,31 @@ Consultez la rubrique [Prise en main d’Application Insights pour Windows Phon
 * Comparez les anciennes et nouvelles versions d’ApplicationInsights.config. Fusionnez les personnalisations que vous avez effectuées sur l'ancienne version.
 * Régénérez votre solution.
 
+## Version 1.2
+
+### Kit de développement logiciel (SDK) pour application Windows
+
+- Corrigez une exception FileNotFound qui empêchait l’envoi de données de télémétrie persistantes après la réouverture de l’application.
+
+### Kit de développement logiciel (SDK) principal
+
+- Première version du Kit de développement logiciel (SDK) Application Insights en provenance de [github](http://github.com/microsoft/ApplicationInsights-dotnet)
+
+## Version 1.1
+
+### Kit de développement logiciel (SDK) principal
+
+- Le SDK inaugure le nouveau type de données télémétrie ```DependencyTelemetry``` qui contient des informations sur l’appel de dépendance de l’application.
+- La nouvelle méthode ```TelemetryClient.TrackDependency``` permet d’envoyer des informations sur les appels de dépendance de l’application.
+
 ## Version 1.0.0
 
 ### Kit de développement logiciel (SDK) pour application Windows
 
-- Nouvelle initialisation pour les applications Windows. Une nouvelle classe `WindowsAppInitializer` avec la méthode `InitializeAsync()` permet l'initialisation de l’amorçage de la collection de SDK. Cette modification permet un contrôle plus précis et améliore considérablement les performances d'initialisation de l’application par rapport à la technique ApplicationInsights.config précédente.
+- Nouvelle initialisation pour les applications Windows. La nouvelle classe `WindowsAppInitializer` associée à la méthode `InitializeAsync()` permet l’initialisation de l’amorçage de la collection de SDK. Cette modification permet un contrôle plus précis et améliore considérablement les performances d'initialisation de l’application par rapport à la technique ApplicationInsights.config précédente.
 - DeveloperMode n’est plus défini automatiquement. Pour modifier le comportement DeveloperMode, vous devez le spécifier dans le code.
 - Le package NuGet n’injecte plus d’informations dans ApplicationInsights.config. Il est recommandé d'utiliser la nouvelle valeur WindowsAppInitializer lorsque vous ajoutez manuellement un package NuGet.
-- ApplicationInsights.config lit uniquement `<InstrumentationKey>`, tous les autres paramètres sont ignorés dans les paramètres WindowsAppInitializer.
+- ApplicationInsights.config lit uniquement `<InstrumentationKey>`, tous les autres paramètres sont ignorés en faveur des paramètres WindowsAppInitializer.
 - Store Market sera automatiquement collecté par le Kit de développement logiciel (SDK).
 - Nombreux correctifs de bogues, amélioration de la stabilité et des performances.
 
@@ -77,4 +94,4 @@ Aperçu 28/04/2015
 
 Aucune note de publication pour des versions antérieures.
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

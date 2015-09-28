@@ -274,21 +274,21 @@ Après avoir déplacé les objets BLOB vers les bases de données de contenu SQL
 1. Utilisez un compte avec des privilèges d'administrateur pour ouvrir une session sur le serveur web frontal.
 2. Double-cliquez sur le programme d'installation de StorSimple Adapter pour SharePoint. L'Assistant d'installation démarre.
 
-![Assistant d'installation](./media/storsimple-adapter-for-sharepoint/sasp2.png)
+    ![Assistant d'installation](./media/storsimple-adapter-for-sharepoint/sasp2.png)
 
 3. Cliquez sur **Next**. La page suivante apparaît.
 
-![Page de suppression de l'Assistant d'installation](./media/storsimple-adapter-for-sharepoint/sasp3.png)
+    ![Page de suppression de l'Assistant d'installation](./media/storsimple-adapter-for-sharepoint/sasp3.png)
 
 4. Cliquez sur **Supprimer** pour sélectionner le processus de suppression. La page suivante apparaît.
 
-![Page de confirmation de l'Assistant d'installation](./media/storsimple-adapter-for-sharepoint/sasp4.png)
+    ![Page de confirmation de l'Assistant d'installation](./media/storsimple-adapter-for-sharepoint/sasp4.png)
 
 5. Cliquez sur **Supprimer** pour confirmer la suppression. La page de progression suivante s'affiche.
 
-![Page de progression de l'Assistant d'installation](./media/storsimple-adapter-for-sharepoint/sasp5.png)
+    ![Page de progression de l'Assistant d'installation](./media/storsimple-adapter-for-sharepoint/sasp5.png)
 
-6. Lorsque la suppression est terminée, la page de fin s'affiche. Cliquez sur **Terminer** pour fermer l'Assistant d'installation.
+6. Lorsque la suppression est terminée, la page de fin s'affiche. Cliquez sur **Terminer** pour fermer l’Assistant Installation.
 
 #### Pour utiliser le Panneau de configuration pour désinstaller l'adaptateur 
 
@@ -308,4 +308,4 @@ Après avoir déplacé les objets BLOB vers les bases de données de contenu SQL
 [5]: https://technet.microsoft.com/library/ff628583(v=office.15).aspx
 [8]: https://technet.microsoft.com/fr-FR/library/ff943565.aspx
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

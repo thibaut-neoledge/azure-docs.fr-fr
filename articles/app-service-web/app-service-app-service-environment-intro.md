@@ -1,30 +1,34 @@
 <properties 
-	pageTitle="Présentation de l'environnement App Service"
-	description="Découvrez la fonctionnalité Environnement App Service qui fournit des unités d'échelle sécurisées, dédiées et appartenant à un réseau virtuel pour exécuter toutes vos applications."
-	services="app-service\web"
-	documentationCenter=""
-	authors="ccompy"
-	manager="wpickett"
+	pageTitle="Présentation de l'environnement App Service" 
+	description="Découvrez la fonctionnalité Environnement App Service qui fournit des unités d'échelle sécurisées, dédiées et appartenant à un réseau virtuel pour exécuter toutes vos applications." 
+	services="app-service\web" 
+	documentationCenter="" 
+	authors="ccompy" 
+	manager="wpickett" 
 	editor=""/>
 
 <tags 
-	ms.service="app-service-web"
-	ms.workload="web"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/31/2015"
-	ms.author="stefsh"/>
+	ms.service="app-service" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/11/2015" 
+	ms.author="stefsch"/>
 
 # Présentation de l'environnement App Service
 
 ## Vue d'ensemble ##
 Un environnement App Service est une option de plan de service [Premium][PremiumTier] d'Azure App Service qui fournit un environnement totalement isolé et dédié pour l'exécution sécurisée de toutes vos applications. Cela inclut les [applications web][WebApps], [mobiles][MobileApps], [API][APIApps] et [logiques][LogicApps] avec des options de mise à l’échelle étendues.
 
-Les ressources de calcul d'un environnement App Service sont exclusivement dédiées à l'exécution sur vos applications uniquement. Un environnement App Service est toujours créé sur un réseau virtuel régional, ce qui offre à vos applications de nouvelles options pour l’isolement réseau. En outre, un environnement App Service prend en charge des options de mise à l’échelle supplémentaires, avec jusqu’à cinquante (50) ressources de calcul disponibles pour exécuter vos applications. En dehors d'un environnement App Service, le nombre de ressources de calcul permettant d'héberger vos applications est limité à 20.
+Les ressources de calcul d'un environnement App Service sont exclusivement dédiées à l'exécution sur vos applications uniquement. Un environnement App Service est toujours créé sur un réseau virtuel régional « v1 » classique, ce qui dote vos applications de nouvelles options pour l’isolement réseau. En outre, un environnement App Service prend en charge des options de mise à l’échelle supplémentaires, avec jusqu’à cinquante (50) ressources de calcul disponibles pour exécuter vos applications. En dehors d'un environnement App Service, le nombre de ressources de calcul permettant d'héberger vos applications est limité à 20.
+
+[AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
 ## Prise en charge des réseaux virtuels ##
-Un environnement App Service peut être créé sur un réseau virtuel régional préexistant ou sur un nouveau réseau virtuel régional ([plus d'informations sur les réseaux virtuels][MoreInfoOnVirtualNetworks]). Étant donné qu'il existe toujours un environnement App Service sur un réseau virtuel régional, et plus précisément sur un sous-réseau d'un réseau virtuel régional, vous pouvez exploiter les fonctionnalités de sécurité des réseaux virtuels pour contrôler les communications réseau entrantes et sortantes.
+Un environnement App Service peut être créé sur un réseau virtuel régional « v1 » classique préexistant ou sur un nouveau réseau virtuel régional « v1 » classique ([plus d'informations sur les réseaux virtuels][MoreInfoOnVirtualNetworks]). Étant donné qu'il existe toujours un environnement App Service sur un réseau virtuel régional, et plus précisément sur un sous-réseau d'un réseau virtuel régional, vous pouvez exploiter les fonctionnalités de sécurité des réseaux virtuels pour contrôler les communications réseau entrantes et sortantes.
+
+**Remarque :** un environnement App Service ne peut pas être créé sur un réseau virtuel « v2 ».
 
 Vous pouvez utiliser des [groupes de sécurité réseau][NetworkSecurityGroups] pour restreindre les communications réseau entrantes vers le sous-réseau sur lequel réside un environnement App Service. Cela vous permet d'exécuter des applications derrière des appareils et services en amont tels des pare-feu d'applications web, ainsi que des fournisseurs SaaS réseau.
 
@@ -79,4 +83,4 @@ Pour plus d’informations sur l’utilisation d’un environnement App Service 
 
 <!-- IMAGES -->
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO3-->

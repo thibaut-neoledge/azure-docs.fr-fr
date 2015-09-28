@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="08/18/2015"
+   ms.date="09/15/2015"
    ms.author="v-sharos" />
 
 # Interface utilisateur du gestionnaire d’instantanés StorSimple
@@ -538,6 +538,7 @@ Les tableaux suivants montrent les combinaisons de touches de raccourci de chaqu
  
 ## Étapes suivantes
 
-Découvrez comment [utiliser le Gestionnaire d’instantanés StorSimple pour se connecter à des appareils et les gérer](storsimple-snapshot-manager-manage-devices.md).
+- Découvrez comment [utiliser le Gestionnaire d’instantanés StorSimple pour gérer votre solution StorSimple](storsimple-snapshot-manager-admin.md).
+- Découvrez comment [utiliser le Gestionnaire d’instantanés StorSimple pour se connecter à des appareils et les gérer](storsimple-snapshot-manager-manage-devices.md).
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO3-->

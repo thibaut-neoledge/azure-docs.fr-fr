@@ -22,7 +22,7 @@
 
 Ce document présente quelques-unes des limites Microsoft Azure les plus communes. Notez que ce document ne couvre pas tous les services Azure. Dans le temps, ces limites seront étendues et mises à jour pour couvrir une plus grande partie de la plateforme.
 
-> [AZURE.NOTE] Si vous souhaitez élever la limite au-dessus de la **Limite par défaut**, vous pouvez [ouvrir gratuitement un incident auprès du service client](http://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). Les limites ne peuvent pas être supérieures à la valeur **Limite maximale** dans les tableaux ci-dessous. Si aucune colonne **Limite maximale** n'est présente, la ressource spécifiée ne possède pas de limites ajustables.
+> [AZURE.NOTE]Si vous souhaitez élever la limite au-dessus de la **Limite par défaut**, vous pouvez [ouvrir gratuitement un incident auprès du service client](http://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). Les limites ne peuvent pas être supérieures à la valeur **Limite maximale** dans les tableaux ci-dessous. Si aucune colonne **Limite maximale** n'est présente, la ressource spécifiée ne possède pas de limites ajustables.
 
 ## Limites et Azure Resource Manager
 
@@ -42,9 +42,11 @@ Par conséquent, il peut s’avérer utile de décider de vos quotas de groupes 
 - [Azure RemoteApp](#azure-remoteapp-limits)
 - [Sauvegarde](#backup-limits)
 - [Batch](#batch-limits)
+- [BizTalk Services](#biztalk-services-limits)
 - [CDN](#cdn-limits)
 - [Cloud Services](#cloud-services-limits)
 - [Data Factory](#data-factory-limits)
+- [DNS](#dns-limits)
 - [Base de données de documents](#documentdb-limits)
 - [Key Vault](#key-vault-limits)
 - [Media Services](#media-services-limits)
@@ -64,7 +66,8 @@ Par conséquent, il peut s’avérer utile de décider de vos quotas de groupes 
 - [Système StorSimple](#storsimple-system-limits)
 - [Stream Analytics](#stream-analytics-limits)
 - [Abonnement](#subscription-limits)
-- [Machines virtuelles](#virtual-machines-limits)
+- [Traffic Manager](#traffic-manager-limits)
+- [Virtual Machines](#virtual-machines-limits)
 
 
 ### Limites d'abonnement
@@ -113,7 +116,7 @@ Les limites suivantes s'appliquent lorsque vous utilisez Azure Resource Manager 
 
 [AZURE.INCLUDE [azure-storage-limits](../includes/azure-storage-limits.md)]
 
-Pour plus d'informations sur les limites des comptes de stockage, consultez [Objectifs de performance et évolutivité d'Azure Storage](../articles/storage/storage-scalability-targets.md).
+Pour plus d’informations sur les limites des comptes de stockage, consultez [Objectifs d’évolutivité et de performances d’Azure Storage](../articles/storage/storage-scalability-targets.md).
 
 
 #### Limites Premium Storage
@@ -144,6 +147,11 @@ Les limites App Service suivantes incluent des limites pour les applications Web
 
 [AZURE.INCLUDE [azure-batch-limits](../includes/azure-batch-limits.md)]
 
+###Limites de BizTalk Services
+Le tableau suivant indique les limites d’Azure BizTalk Services.
+
+[AZURE.INCLUDE [biztalk-services-service-limits](../includes/biztalk-services-service-limits.md)]
+
 
 ### Limites DocumentDB
 
@@ -159,7 +167,7 @@ Les limites App Service suivantes incluent des limites pour les applications Web
 
 [AZURE.INCLUDE [azure-search-limits](../includes/azure-search-limits.md)]
 
-Pour plus d'informations sur les limites d'Azure Search, consultez la page [Limites et contraintes (Azure Search)](https://msdn.microsoft.com/library/azure/dn798934.aspx).
+Pour plus d’informations sur les limites d’Azure Search, consultez la page [Limites et contraintes (Azure Search)](https://msdn.microsoft.com/library/azure/dn798934.aspx).
 
 ### Limites de Media Services
 
@@ -238,7 +246,7 @@ Pour plus d'informations sur les limites d'Azure Search, consultez la page [Limi
 
 ### Limites de base de données SQL
 
-Pour les limites de la base de données SQL, consultez [Limites de ressources de la Base de données SQL](sql-database/sql-database-resource-limits.md).
+Pour connaître les limites de la base de données SQL, consultez [Limites de ressources de la Base de données SQL](sql-database/sql-database-resource-limits.md).
 
 ## Voir aussi
 
@@ -246,4 +254,4 @@ Pour les limites de la base de données SQL, consultez [Limites de ressources de
 
 [Tailles de machines virtuelles et services cloud pour Windows Azure](http://msdn.microsoft.com/library/azure/dn197896.aspx)
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

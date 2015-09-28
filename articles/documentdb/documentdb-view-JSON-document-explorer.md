@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article" 
-	ms.date="06/10/2015"
+	ms.date="09/09/2015"
 	ms.author="stbaro"/>
 
 # Afficher, modifier, créer et télécharger des documents JSON à l'aide de l'Explorateur de documents DocumentDB #
@@ -26,7 +26,7 @@ Ce didacticiel vous permettra de pouvoir répondre aux questions suivantes :
 -	Comment faire pour afficher facilement les propriétés système d'un document DocumentDB via un navigateur web ?
 -	Comment faire pour effectuer facilement une ingestion en bloc de documents dans DocumentDB via un navigateur web ?
 
-##<a id="Launch"></a>Lancer et utiliser l’Explorateur de documents##
+##<a id="Launch"></a>Lancement de l'Explorateur de documents##
 
 Vous pouvez lancer l'Explorateur de documents à partir de l'un des panneaux de compte DocumentDB, de base de données et de collection.
 
@@ -44,35 +44,6 @@ Vous pouvez lancer l'Explorateur de documents à partir de l'un des panneaux de 
 
 	![Capture d’écran de l’Explorateur de documents](./media/documentdb-view-JSON-document-explorer/documentexplorerinitial.png)
 
-3. Par défaut, l’Explorateur de documents charge les 100 premiers documents dans la collection sélectionnée, en fonction de leur date de création, de la plus ancienne à la plus récente. Vous pouvez charger des documents supplémentaires (par lots de 100) en sélectionnant l’option **Charger plus** en bas du panneau Explorateur de documents. Le comportement par défaut peut être modifié en cliquant sur la commande de paramètres en haut du panneau de l’Explorateur de documents.
-
-	![Capture d’écran du Panneau de paramètres de l’Explorateur de documents](./media/documentdb-view-JSON-document-explorer/documentexplorersettings.png)
-
-
-4. Dans le panneau des paramètres, vous pouvez ajuster le nombre d’éléments à afficher par page. Vous pouvez aussi indiquer une clause WHERE pour charger les documents correspondants dans la grille de l’Explorateur de documents. En savoir plus sur la grammaire SQL DocumentDB [ici](documentdb-sql-query.md).
-
-	![Capture d’écran du Panneau de paramètres de l’Explorateur de documents](./media/documentdb-view-JSON-document-explorer/documentexplorersettings2.png)
-
-	> [AZURE.NOTE]Après avoir modifié les paramètres de l’Explorateur de documents, vous devez cliquer sur la commande **Actualiser** pour appliquer les nouveaux paramètres. Ces paramètres ne seront conservés que dans la session de navigateur actuelle.
-	
-5. Vous pouvez utiliser les zones de liste déroulante **Base de données** et **Collection** pour modifier facilement la collection à partir de laquelle les documents sont affichés actuellement sans avoir à fermer, puis à relancer l’Explorateur de documents.
-
-5. L'Explorateur de documents prend également en charge le filtrage de l'ensemble de documents actuellement chargé par leur propriété ID. Il vous suffit de taper dans la zone de filtre.
-
-	![Capture d’écran de l’Explorateur de documents avec le filtre en surbrillance](./media/documentdb-view-JSON-document-explorer/documentexplorerfilter.png)
-
-	Les résultats dans la liste de l'Explorateur de documents sont alors filtrés en fonction de vos critères.
-
-	![Capture d’écran de l’Explorateur de documents avec les résultats filtrés](./media/documentdb-view-JSON-document-explorer/documentexplorerfilterresults.png)
-
-
-	> [AZURE.IMPORTANT]La fonctionnalité de filtre de l’Explorateur de documents filtre uniquement l’ensemble de documents ***actuellement*** chargé et n’exécute pas de requête sur la collection actuellement sélectionnée.
-
-6. Pour actualiser la liste des documents chargés par l’Explorateur de documents, cliquez simplement sur la commande **Actualiser** en haut du panneau.
-
-	![Capture d’écran de la commande Actualiser de l’Explorateur de documents](./media/documentdb-view-JSON-document-explorer/documentexplorerrefresh.png)
-
-
 ##<a id="Create"></a>Affichage, création et modification de documents avec l’Explorateur de documents##
 
 L'Explorateur de documents vous permet de créer, modifier et supprimer facilement des documents.
@@ -87,7 +58,7 @@ L'Explorateur de documents vous permet de créer, modifier et supprimer facileme
 
 	> [AZURE.NOTE]Si vous ne fournissez pas de propriété « id », l'Explorateur de documents en ajoute automatiquement une et génère un GUID comme valeur d'ID.
 
-- Si vous avez déjà des données de fichiers JSON, MongoDB, SQL Server, fichiers CSV, stockage de table Azure ou d’autres collections DocumentDB, vous pouvez utiliser les [outils de migration de données](documentdb-import-data.md) DocumentDB pour importer rapidement vos données.
+- Si vous avez déjà des données issues de fichiers JSON, MongoDB, SQL Server, fichiers CSV, stockage Azure Table, Amazon DynamoDB, HBase ou autres collections DocumentDB, vous pouvez utiliser les [outils de migration de données](documentdb-import-data.md) DocumentDB pour importer rapidement vos données.
 
 - Pour modifier un document existant, sélectionnez-le dans l’Explorateur de documents, modifiez-le comme vous le souhaitez, puis cliquez sur la commande **Enregistrer**.
 
@@ -115,6 +86,38 @@ L'Explorateur de documents vous permet de créer, modifier et supprimer facileme
 
 	> [AZURE.NOTE]La propriété timestamp (\_ts) est représentée en interne comme heure d'époque, mais l'Explorateur de documents affiche la valeur dans un format GMT lisible.
 
+##<a id="Navigate"></a>Options de navigation et paramètres avancés de l’Explorateur de documents##
+
+L’Explorateur de documents prend en charge un certain nombre d’options de navigation et de paramètres avancés.
+
+1. Par défaut, l’Explorateur de documents charge les 100 premiers documents dans la collection sélectionnée, en fonction de leur date de création, de la plus ancienne à la plus récente. Vous pouvez charger des documents supplémentaires (par lots de 100) en sélectionnant l’option **Charger plus** en bas du panneau Explorateur de documents. Le comportement par défaut peut être modifié en cliquant sur la commande de paramètres en haut du panneau de l’Explorateur de documents.
+
+	![Capture d’écran du Panneau de paramètres de l’Explorateur de documents](./media/documentdb-view-JSON-document-explorer/documentexplorersettings.png)
+
+
+2. Dans le panneau des paramètres, vous pouvez ajuster le nombre d’éléments à afficher par page. Vous pouvez aussi indiquer une clause WHERE pour charger les documents correspondants dans la grille de l’Explorateur de documents. En savoir plus sur la grammaire SQL DocumentDB [ici](documentdb-sql-query.md).
+
+	![Capture d’écran du Panneau de paramètres de l’Explorateur de documents](./media/documentdb-view-JSON-document-explorer/documentexplorersettings2.png)
+
+	> [AZURE.NOTE]Après avoir modifié les paramètres de l’Explorateur de documents, vous devez cliquer sur la commande **Actualiser** pour appliquer les nouveaux paramètres. Ces paramètres ne seront conservés que dans la session de navigateur actuelle.
+	
+3. Vous pouvez utiliser les zones de liste déroulante **Base de données** et **Collection** pour modifier facilement la collection à partir de laquelle les documents sont affichés actuellement sans avoir à fermer, puis à relancer l’Explorateur de documents.
+
+4. L'Explorateur de documents prend également en charge le filtrage de l'ensemble de documents actuellement chargé par leur propriété ID. Il vous suffit de taper dans la zone de filtre.
+
+	![Capture d’écran de l’Explorateur de documents avec le filtre en surbrillance](./media/documentdb-view-JSON-document-explorer/documentexplorerfilter.png)
+
+	Les résultats dans la liste de l'Explorateur de documents sont alors filtrés en fonction de vos critères.
+
+	![Capture d’écran de l’Explorateur de documents avec les résultats filtrés](./media/documentdb-view-JSON-document-explorer/documentexplorerfilterresults.png)
+
+
+	> [AZURE.IMPORTANT]La fonctionnalité de filtre de l’Explorateur de documents filtre uniquement l’ensemble de documents ***actuellement*** chargé et n’exécute pas de requête sur la collection actuellement sélectionnée.
+
+5. Pour actualiser la liste des documents chargés par l’Explorateur de documents, cliquez simplement sur la commande **Actualiser** en haut du panneau.
+
+	![Capture d’écran de la commande Actualiser de l’Explorateur de documents](./media/documentdb-view-JSON-document-explorer/documentexplorerrefresh.png)
+
 ##<a id="BulkAdd"></a>Ajouter des documents en bloc à l’aide de l’Explorateur de documents##
 
 L'Explorateur de documents prend en charge l'ingestion en bloc d'un ou plusieurs documents JSON existants.
@@ -137,7 +140,8 @@ L'Explorateur de documents prend en charge l'ingestion en bloc d'un ou plusieurs
 
 ##<a name="NextSteps"></a>Étapes suivantes
 
-Pour en savoir plus sur DocumentDB, cliquez [ici](http://azure.com/docdb).
+- Pour en savoir plus sur DocumentDB, cliquez [ici](http://azure.com/docdb).
+
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO3-->

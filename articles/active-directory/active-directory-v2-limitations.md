@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Modèle d’application v2.0 | Microsoft Azure"
+	pageTitle="Modèle d'application v2.0 - Limitations et restrictions | Microsoft Azure"
 	description="Une liste des limites et restrictions associées au modèle d’application v2.0 Azure AD."
 	services="active-directory"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/12/2015"
+	ms.date="09/11/2015"
 	ms.author="dastrock"/>
 
 # Version d’évaluation modèle d’application v2.0 : Limites et restrictions
@@ -85,4 +85,4 @@ Le modèle d’application v2.0 prend en charge Open ID Connect et OAuth 2.0. To
 
 Pour mieux comprendre l’étendue de la fonctionnalité de protocole prise en charge dans le modèle d’application v2.0, consultez notre page de [Référence sur le protocole OAuth 2.0 et OpenID Connect](active-directory-v2-protocols.md).
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO3-->

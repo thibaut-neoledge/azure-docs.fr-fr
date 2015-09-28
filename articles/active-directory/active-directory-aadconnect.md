@@ -112,7 +112,7 @@ Avant d’installer Azure AD Connect avec les paramètres Express, voici ce don
     		<defaultProxy>
       		<proxy
         	usesystemdefault="true"
-        	proxyaddress=http://<PROXYIP>:80"
+        	proxyaddress="http://<PROXYIP>:80"
         	bypassonlocal="true"
      		 />
     		</defaultProxy>
@@ -273,4 +273,4 @@ Présentation d’Ignite 2015 sur l'extension de vos répertoires locaux dans l
 
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

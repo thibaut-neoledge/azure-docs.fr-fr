@@ -8,12 +8,12 @@
 	editor="jimbe"/>
 
 <tags 
-	ms.service="app-service-web" 
+	ms.service="app-service" 
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/26/2015" 
+	ms.date="09/16/2015" 
 	ms.author="tdykstra"/>
 
 # Exécuter des tâches en arrière-plan avec les tâches web
@@ -25,6 +25,8 @@ Vous pouvez exécuter des programmes ou des scripts dans WebJobs au niveau de vo
 Cet article explique comment déployer WebJobs à l’aide du [portail Azure](http://go.microsoft.com/fwlink/?LinkId=529715). Pour plus d’informations sur le déploiement à l’aide de Visual Studio ou d’un processus de diffusion continue, consultez [Déploiement de tâches Web Azure dans Web Apps](websites-dotnet-deploy-webjobs.md).
 
 Le Kit de développement logiciel (SDK) Azure WebJobs simplifie de nombreuses tâches de programmation. Pour plus d’informations, consultez [Présentation du Kit de développement logiciel (SDK) WebJobs Azure](websites-dotnet-webjobs-sdk.md).
+
+[AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
 ## <a name="acceptablefiles"></a>Types de fichier acceptables pour les scripts ou les programmes
 
@@ -209,4 +211,4 @@ Pour plus d’informations, consultez [Ressources Azure WebJobs][WebJobsRecomme
 [JobActionPageInScheduler]: ./media/web-sites-create-web-jobs/33JobActionPageInScheduler.png
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO3-->

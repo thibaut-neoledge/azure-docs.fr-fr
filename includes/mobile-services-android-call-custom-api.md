@@ -1,5 +1,5 @@
 
-##<a name="update-app"></a>Mise à jour de l'application pour appeler l'API personnalisée
+###<a name="update-app"></a>Mise à jour de l'application pour appeler l'API personnalisée
 
 1. Nous allons ajouter un bouton intitulé « Complete All » en regard du bouton existant et déplacer ces deux boutons d'une ligne. Dans Android Studio, ouvrez le fichier *res\\layout\\activity\_to\_do.xml* dans votre projet de démarrage rapide et recherchez l'élément **LinearLayout** contenant l'élément **Button** appelé `buttonAddToDo`. Copiez l'élément **LinearLayout** et collez-le immédiatement après l'élément d'origine. Supprimez l'élément **Button** du premier élément **LinearLayout**.
 
@@ -95,7 +95,7 @@
 	
 	Cette méthode gère l'événement **Click** pour le nouveau bouton. La méthode **invokeApi** est appelée sur le client pour envoyer une requête POST à la nouvelle API personnalisée. Le résultat renvoyé par l'API personnalisée apparaît dans la boîte de message, avec les erreurs éventuelles.
 
-## Test de l'application
+### Test de l'application
 
 1. Dans le menu **Exécuter**, cliquez sur **Exécuter l’application** pour démarrer le projet dans l’émulateur Android ou dans un appareil Android connecté.
 
@@ -112,4 +112,4 @@
 
 	Un message s'affiche pour indiquer le nombre d'éléments marqués comme terminés, puis la requête filtrée est de nouveau exécutée pour supprimer tous les éléments de la liste.
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO3-->

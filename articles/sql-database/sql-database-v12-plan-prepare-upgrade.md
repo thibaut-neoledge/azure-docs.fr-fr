@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Planification et préparation de l’installation de la mise à niveau V12 de la base de données SQL"
+	pageTitle="Planifier votre mise à niveau vers SQL Database V12 | Microsoft Azure"
 	description="Décrit la préparation et les limitations relatives à la mise à niveau vers la version 12 de la base de données SQL Azure."
 	services="sql-database"
 	documentationCenter=""
@@ -14,14 +14,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/15/2015"
+	ms.date="09/16/2015"
 	ms.author="genemi"/>
 
 
 # Planification et préparation de l’installation de la mise à niveau V12 de la base de données SQL
 
 
-Cette rubrique décrit la planification et la préparation nécessaires pour mettre à niveau vos bases de données SQL Microsoft Azure de la version 11 vers la version 12 ([disponible en version préliminaire dans certaines régions](sql-database-v12-whats-new.md#V12AzureSqlDbPreviewGaTable)).
+Cette rubrique décrit la planification et la préparation nécessaires pour mettre à jour vos bases de données SQL Azure de la version V11 vers la V12.
 
 
 Un nouveau [portail Azure, en version préliminaire](http://portal.azure.com/), est disponible pour assurer la prise en charge de la mise à niveau vers la version 12.
@@ -107,6 +107,18 @@ La mise à jour vers la V12 ne peut pas s’exécuter si la géo-réplication es
 Une fois la mise à jour terminée, vous pouvez configurer votre base de données pour qu’elle utilise à nouveau la géo-réplication.
 
 
+### Client sur une machine virtuelle Azure
+
+
+Si votre programme client se connecte à SQL Database V12 pendant que votre client s’exécute sur une machine virtuelle Azure, vous devez ouvrir les plages de ports suivantes sur la machine virtuelle :
+
+- 11000-11999
+- 14000-14999
+
+
+Cliquez [ici](sql-database-develop-direct-route-ports-adonet-v12.md) pour plus d’informations sur les ports associés à SQL Database V12. Les ports sont requis pour prendre en charge les améliorations des performances apportées à SQL Database V12.
+
+
 ##<a id="limitations"></a>Limitations pendant et après la mise à niveau vers la version 12
 
 
@@ -138,7 +150,7 @@ Nous vous encourageons à vous connecter à votre base de données SQL Microsoft
 - Pour développer une base de données en ligne ou hors connexion.
 
 
-Vous pouvez également vous connecter avec [Visual Studio Community 2013](https://www.visualstudio.com/fr-fr/news/vs2013-community-vs.aspx/), qui est une version gratuite et complète de VS2013.
+Vous pouvez également vous connecter avec [Visual Studio Community 2013](https://www.visualstudio.com/fr-FR/news/vs2013-community-vs.aspx/), qui est une version gratuite et complète de VS2013.
 
 
 Dans l’ancien portail de gestion Azure, sur la page des bases de données, vous pouvez cliquer sur **Ouvrir dans Visual Studio** pour lancer VS2013 sur votre ordinateur afin de vous connecter à votre base de données SQL Microsoft Azure.
@@ -166,7 +178,7 @@ La base de données V11 est toujours disponible pour l’accès aux données pen
 | :--- | :--- |
 | Impossible de rétablir la V11 | Après une mise à niveau sur place, le résultat ne peut pas être restauré ou annulé. |
 | Niveau Web ou Business | Une fois que la mise à niveau démarre, le serveur de la nouvelle base de données V12 ne peut plus reconnaître ou accepter le niveau de service Web ou Business. |
-| Réduction de 50 % n’apparaissant pas dans les cartes de niveau de tarification dans le portail Azure | Pendant la durée de la version préliminaire, une remise de 50 %* sur les bases de données est proposée avec la dernière mise à jour vers la version préliminaire de la base de données SQL Azure (V12). La remise est appliquée, même si elle n’est pas affichée dans le volet du niveau de tarification de service de la version préliminaire du portail.<br/><br/> La remise de 50 % reste en vigueur dans toutes les régions géographiques jusqu’au **31 mars 2015**, date d’expiration pour toutes les régions. Cette remise est appliquée, même dans les régions présentant un statut de disponibilité générale.<br/><br/> (* L’utilisation de la fonctionnalité la plus récente de mise à jour de base de données version 12 de SQL Microsoft Azure est soumise aux conditions de votre contrat de licence (par exemple, l’accord Entreprise, l’accord Microsoft Azure ou le contrat d’abonnement Microsoft Online), ainsi qu’à toutes les [Conditions d’utilisation supplémentaires de versions préliminaires de Microsoft Azure applicables](http://azure.microsoft.com/support/legal/preview-supplemental-terms/). Pendant la durée de la version d’évaluation, Microsoft vous facturera (ou votre revendeur, le cas échéant) pour toutes les bases de données inscrites dans cette version d’évaluation à la moitié du prix de la disponibilité générale, soit une remise de 50 %. Microsoft vous informera par courrier électronique 30 jours avant l’expiration de la période d’évaluation et de la remise.) |
+
 
 
 ### Exportation et importation *après* la mise à niveau vers la version 12
@@ -244,4 +256,4 @@ Si la mise à jour échoue pour une raison quelconque, votre base de données V1
 [Subheading 1]: #subheading-1
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

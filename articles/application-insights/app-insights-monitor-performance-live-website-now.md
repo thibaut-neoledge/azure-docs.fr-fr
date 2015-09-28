@@ -2,9 +2,9 @@
 	pageTitle="Diagnostic des problèmes de performances sur un site Web en cours d'exécution | Microsoft Azure"
 	description="Analysez les performances d'un site web sans le redéployer. Utilisation autonome ou avec le Kit de développement logiciel (SDK) Application Insights pour obtenir des données de télémétrie relatives aux dépendances."
 	services="application-insights"
-	documentationCenter=".net"
+    documentationCenter=".net"
 	authors="alancameronwills"
-	manager="ronmart"/>
+	manager="douge"/>
 
 <tags
 	ms.service="application-insights"
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="04/27/2015"
+	ms.date="09/10/2015"
 	ms.author="awills"/>
 
 
@@ -56,13 +56,15 @@ Vous avez le choix entre trois façons d’appliquer Application Insights à vos
 
     ![Connectez-vous à Azure avec les informations d’identification de votre compte Microsoft.](./media/app-insights-monitor-performance-live-website-now/appinsights-035-signin.png)
 
+    *Des erreurs de connexion ? Consultez la rubrique [Résolution des problèmes](#troubleshooting).*
+
 5. Sélectionnez l’application web installée ou le site web à surveiller, puis configurez la ressource dans laquelle vous voulez afficher les résultats dans le portail Application Insights.
 
     ![Choisissez une application et une ressource.](./media/app-insights-monitor-performance-live-website-now/appinsights-036-configAIC.png)
 
-    Normalement, vous devez choisir de configurer une nouvelle ressource et un nouveau [groupe de ressources][roles].
+    Il est probable que vous choisirez de configurer une nouvelle ressource et un nouveau [groupe de ressources][roles].
 
-    Vous pouvez également utiliser une ressource existante si vous avez déjà configuré des [tests web][availability] pour votre site ou une [surveillance du client web][client].
+    Vous pouvez aussi utiliser une ressource existante si vous avez déjà configuré des [tests web][availability] pour votre site ou une [surveillance du client web][client].
 
 6. Redémarrez IIS.
 
@@ -114,18 +116,44 @@ Cliquez sur n’importe quel graphique du compteur de performance pour changer l
 Vous pouvez accéder aux exceptions spécifiques (des sept derniers jours) et obtenir les arborescences des appels de procédure et des données de contexte.
 
 
+## Résolution de problèmes
+
+### Erreurs de connexion
+
+Vous devez ouvrir certains ports sortants dans le pare-feu de votre serveur pour permettre à Status Monitor de fonctionner :
+
++ Télémétrie (ceux-ci sont nécessaires en permanence) :
+ +	`dc.services.visualstudio.com:80`
+ +	`f5.services.visualstudio.com:80`
+ +	`dc.services.visualstudio.com:443`
+ +	`f5.services.visualstudio.com:443`
+ +	`dc.services.vsallin.net:443`
++ Configuration (nécessaires uniquement pour apporter des modifications) :
+ -	`management.core.windows.net:443`
+ -	`management.azure.com:443`
+ -	`login.windows.net:443`
+ -	`login.microsoftonline.com:443`
+ -	`secure.aadcdn.microsoftonline-p.com:443`
+ -	`auth.gfx.ms:443`
+ -	`login.live.com:443`
++ Installation :
+ +	`packages.nuget.org:443`
+ +	`appinsightsstatusmonitor.blob.core.windows.net:80`
+
+Cette liste peut évoluer de temps à autre.
+
 ### Vous n’obtenez aucune donnée de télémétrie ?
 
   * Utilisez votre site pour créer des données.
-  * Attendez quelques minutes que les données arrivent, puis cliquez sur **Actualiser**.
+  * Attendez quelques minutes le temps que les données arrivent, puis cliquez sur **Actualiser**.
   * Ouvrez Recherche de diagnostic (vignette de recherche) pour afficher chaque événement. Les événements sont souvent visibles dans Recherche de diagnostic avant que les données agrégées n’apparaissent dans les graphiques.
   * Ouvrez Status Monitor et sélectionnez votre application dans le volet gauche. Vérifiez la présence de messages de diagnostic pour cette application dans la section « Notifications de configuration » :
 
   ![](./media/app-insights-monitor-performance-live-website-now/appinsights-status-monitor-diagnostics-message.png)
 
-  * Vérifiez que le pare-feu de votre serveur autorise le trafic sortant sur le port 443 vers dc.services.visualstudio.com.
+  * Vérifiez que le pare-feu de votre serveur autorise le trafic sortant sur les ports répertoriés ci-dessus.
   * Si un message relatif à des « autorisations insuffisantes » s’affiche sur le serveur, procédez comme suit :
-    * Dans le Gestionnaire des services Internet, sélectionnez votre pool d’applications, ouvrez **Paramètres avancés**, et sous **Modèle de processus**, notez l’identité.
+    * Dans le Gestionnaire des services Internet, sélectionnez votre pool d’applications, ouvrez **Paramètres avancés** puis, sous **Modèle de processus**, notez l’identité.
     * Dans le panneau de configuration relatif à la gestion de l’ordinateur, ajoutez cette identité au groupe Utilisateurs de l’Analyseur de performances.
   * Consultez la rubrique [Résolution des problèmes][qna].
 
@@ -168,4 +196,4 @@ Prise en charge d’IIS : IIS 7, 7.5, 8, 8.5 (IIS requis)
 [roles]: app-insights-resources-roles-access-control.md
 [usage]: app-insights-web-track-usage.md
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO3-->

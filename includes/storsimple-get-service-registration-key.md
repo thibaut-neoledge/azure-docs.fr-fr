@@ -1,3 +1,5 @@
+<!--author=alkohli last changed: 9/17/15-->
+
 #### Pour obtenir la clé d’inscription au service StorSimple
 
 1. À la page **Service StorSimple Manager**, cliquez sur le service que vous avez créé. La page **Démarrage rapide** s’affiche. (Vous pouvez cliquer sur l’icône de démarrage rapide à tout moment ![Icône Démarrage rapide de StorSimple](./media/storsimple-get-service-registration-key/HCS_QuickStartIcon-include.png) pour accéder à la page **Démarrage rapide**.)
@@ -16,6 +18,8 @@
 
 > [AZURE.NOTE]La clé d’inscription au service sert à inscrire tous les appareils que vous devez inscrire auprès du service StorSimple Manager.
 
- 
+![Vidéo disponible](./media/storsimple-get-service-registration-key/Video_icon.png) **Vidéo disponible**
 
-<!---HONumber=August15_HO8-->
+Pour visionner une vidéo qui montre comment obtenir la clé d’inscription du service, cliquez [ici](http://azure.microsoft.com/documentation/videos/get-the-service-registration-key/).
+
+<!---HONumber=Sept15_HO3-->

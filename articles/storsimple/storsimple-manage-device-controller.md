@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Gestion des contrôleurs d’appareil StorSimple | Microsoft Azure"
-	description="Découvrez comment arrêter, redémarrer, éteindre ou réinitialiser vos contrôleurs d’appareil StorSimple."
-	services="storsimple"
-	documentationCenter=""
-	authors="alkohli"
-	manager="carolz"
-	editor=""/>
+   description="Découvrez comment arrêter, redémarrer, éteindre ou réinitialiser vos contrôleurs d’appareil StorSimple."
+   services="storsimple"
+   documentationCenter=""
+   authors="alkohli"
+   manager="carolz"
+   editor="" />
 <tags 
    ms.service="storsimple"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="na"
-	ms.date="09/01/2015"
-	ms.author="alkohli"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="na"
+   ms.date="09/15/2015"
+   ms.author="alkohli" />
 
 # Gestion de vos contrôleurs d’appareil StorSimple
 
@@ -220,6 +220,8 @@ Dans cette section, vous trouverez des réponses à certaines questions fréquem
 
 ## Étapes suivantes
 
-Si vous rencontrez des problèmes avec vos contrôleurs d’appareil StorSimple que vous ne pouvez pas résoudre en suivant les procédures décrites dans ce didacticiel, [contactez le support technique Microsoft](storsimple-contact-microsoft-support.md).
+- Si vous rencontrez des problèmes avec vos contrôleurs d’appareil StorSimple que vous ne pouvez pas résoudre en suivant les procédures décrites dans ce didacticiel, [contactez le support technique Microsoft](storsimple-contact-microsoft-support.md).
 
-<!---HONumber=September15_HO1-->
+- Pour en savoir plus sur l’utilisation du service StorSimple Manager, consultez [Utiliser le service StorSimple Manager pour gérer votre appareil StorSimple](storsimple-manager-service-administration.md).
+
+<!---HONumber=Sept15_HO3-->

@@ -114,7 +114,7 @@ Les fonctionnalités suivantes sont actuellement intégrées dans la version pr�
 - Gestion des identités privilégiées : la gestion des identités privilégiées offre un aperçu amélioré afin d’aider à répondre aux exigences de conformité réglementaire et des contrats de niveau de service.
 - Demandes d'applications en libre-service : les administrateurs peuvent fournir une liste d'applications SaaS aux utilisateurs depuis laquelle les utilisateurs peuvent choisir celles qu'ils souhaitent utiliser. Ces applications seront disponibles immédiatement ou après approbation.
 - Rapport des API Azure : les données de chaque rapport de sécurité d'Azure Active Directory seront disponibles sur d'autres outils SIEM ou de surveillance.
-
+- [Azure Active Directory B2C](http://azure.microsoft.com/services/active-directory-b2c/) : nouveau service cloud complet et haut de gamme de gestion d’annuaires, d’identités et d’accès des consommateurs conçu pour répondre aux besoins croissants des entreprises qui cherchent à établir des relations directes avec leurs consommateurs.
 
 ## Étapes suivantes
 
@@ -122,4 +122,4 @@ Les fonctionnalités suivantes sont actuellement intégrées dans la version pr�
 - [Ajout d’une marque de société aux pages de connexion et du volet d’accès](active-directory-add-company-branding.md)
 - [Affichage de vos rapports d’accès et d’utilisation](active-directory-view-access-usage-reports.md)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

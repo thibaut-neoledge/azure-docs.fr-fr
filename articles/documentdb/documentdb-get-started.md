@@ -1,6 +1,7 @@
 <properties
-	pageTitle="Prendre en main le Kit de développement logiciel (SDK) .NET de DocumentDB | Microsoft Azure"
-	description="Découvrez comment créer et configurer un compte Azure DocumentDB, créer des bases de données et des collections, et stocker des documents JSON dans votre compte de base de données de documents NoSQL."
+	pageTitle="Bases de données NoSQL - Prise en main du Kit de développement logiciel (SDK) DocumentDB .NET | Microsoft Azure"
+	description="Apprenez à créer une base de données et à configurer un compte Azure DocumentDB. Créez des bases de données, des collections et stockez des documents JSON dans votre compte de base de données NoSQL."
+	keywords="Create a database, create database, nosql database, nosql databases, nuget, documentdb, azure, Microsoft azure"
 	services="documentdb"
 	documentationCenter=".net"
 	authors="AndrewHoh"
@@ -480,4 +481,4 @@ Pour restaurer les références au Kit de développement logiciel (SDK) .NET de 
 [keys]: media/documentdb-get-started/keys.png
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

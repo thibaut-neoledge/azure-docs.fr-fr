@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-management"
-	ms.date="08/28/2015"
+	ms.date="09/11/2015"
 	ms.author="jroth" />
 
 
@@ -45,15 +45,27 @@ Par exemple, le nombre de connexions à une base de données SQL ainsi que le no
 
 ## Niveaux de service et niveaux de performances
 
-Les limites réelles d’une base de données sont définies par son niveau de performance. Pour une explication détaillée, voir [Niveaux de service et de performances de base de données SQL Azure](https://msdn.microsoft.com/library/azure/dn741336.aspx).
+Pour une base de données unique, les limites d’une base de données sont définies par ses niveaux de service et de performances. Le tableau suivant décrit les caractéristiques des bases de données De base, Standard et Premium de bases de données à différents niveaux de performances.
 
 [AZURE.INCLUDE [Tableau de niveaux de service de base de données SQL](../../includes/sql-database-service-tiers-table.md)]
+
+Les [pools de base de données élastique](sql-database-elastic-pool.md) partagent des ressources entre les bases de données dans le pool. Le tableau suivant décrit les caractéristiques des pools de base de données élastique De base, Standard et Premium.
+
+[AZURE.INCLUDE [Niveaux de service de base de données SQL pour les bases de données élastiques](../../includes/sql-database-service-tiers-table-elastic-db-pools.md)]
+
+Pour obtenir une explication détaillée des niveaux de service, consultez [Niveaux de service et de performances dans Azure SQL Database](sql-database-service-tiers.md).
 
 ## Quota de DTU par serveur
 
 La base de données SQL Azure a un quota de DTU par serveur logique d’actuellement 2 000 DTU. Ce quota représente les DTU qu’un serveur logique peut héberger, en fonction de la somme des DTU et du niveau de performance de chaque base de données sur le serveur. Par exemple, un serveur avec 5 bases de données Basique (5 x 5 DTU maximum), 2 bases de données Standard S1 (2 x 20 DTU maximum) et 3 bases de données Premium P1 (3 x 100 DTU maximum) a consommé 365 DTU sur son quota de 2 000 DTU.
 
->[AZURE.NOTE]Vous pouvez demander une augmentation de ce quota en [contactant le support](http://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/).
+>[AZURE.NOTE]Vous pouvez demander une augmentation de ce quota en [contactant le support technique](http://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/).
+
+## Autres limites de SQL Database
+
+| Domaine | Limite | Description |
+|---|---|---|
+| Bases de données utilisant l’exportation automatique par abonnement | 10 | L’exportation automatique vous permet de créer une planification personnalisée pour sauvegarder vos bases de données SQL. Pour plus d’informations, consultez [Bases de données SQL : prise en charge des exportations de base de données SQL automatisée](http://weblogs.asp.net/scottgu/windows-azure-july-updates-sql-database-traffic-manager-autoscale-virtual-machines).|
 
 ## Ressources
 
@@ -63,4 +75,4 @@ La base de données SQL Azure a un quota de DTU par serveur logique d’actuelle
 
 [Messages d'erreur pour les programmes clients SQL Database](sql-database-develop-error-messages.md)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

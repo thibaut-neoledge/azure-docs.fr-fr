@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Modèle d’application v2.0 | Microsoft Azure"
+	pageTitle="Modèle d’application v2.0 - Web App .NET | Microsoft Azure"
 	description="Génération d’une application web .NET MVC qui connecte les utilisateurs à l’aide de leur compte Microsoft personnel et de leur compte professionnel ou scolaire."
 	services="active-directory"
 	documentationCenter=".net"
@@ -13,15 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="08/12/2015"
+	ms.date="09/11/2015"
 	ms.author="dastrock"/>
 
 # Version préliminaire du modèle d’application v2.0 : Ajouter une connexion à une application web MVC .NET
 
 Avec le modèle d’application v2.0, vous pouvez rapidement ajouter une authentification à vos applications web, avec prise en charge des comptes Microsoft personnels et des comptes professionnels ou scolaires. Dans les applications web ASP.NET, vous pouvez y parvenir en utilisant l’intergiciel OWIN de Microsoft inclus dans .NET Framework 4.5.
 
-  >[AZURE.NOTE]
-	Ces informations s’appliquent à la version préliminaire publique du modèle d’application v2.0. Pour obtenir des instructions sur l’intégration au service Azure AD, dont la disponibilité est désormais générale, consultez le [Guide du développeur Azure AD](active-directory-developers-guide.md).
+  >[AZURE.NOTE]Ces informations s’appliquent à la version préliminaire publique du modèle d’application v2.0. Pour obtenir des instructions sur l’intégration au service Azure AD, dont la disponibilité est désormais générale, consultez le [Guide du développeur Azure AD](active-directory-developers-guide.md).
 
  Ici, nous allons utiliser OWIN pour : 
 - Connecter l’utilisateur à l’application en utilisant Azure AD et le modèle d’application v2.0. 
@@ -51,11 +50,11 @@ Créez une nouvelle application sur [apps.dev.microsoft.com](https://apps.dev.mi
 ## 2. Configurez votre application pour utiliser le pipeline d'authentification OWIN
 Nous allons ici configurer l'intergiciel (middleware) OWIN pour utiliser le protocole d'authentification OpenID Connect. OWIN vous permettra notamment d'émettre vos requêtes de connexion et de déconnexion, de gérer la session de l'utilisateur et d'obtenir des informations sur l'utilisateur.
 
--	Pour commencer, ouvrez le fichier « web.config » dans la racine du projet, et entrez les valeurs de configuration de votre application dans la section « <appSettings> ».
-    -	La valeur « ida:ClientId » est l'**ID d'application** attribué à votre application dans le portail d'enregistrement.
-    -	La valeur « ida:RedirectUri » est l'**URI de redirection** que vous avez saisi dans le portail.
+-    Pour commencer, ouvrez le fichier « web.config » dans la racine du projet, et entrez les valeurs de configuration de votre application dans la section « <appSettings> ».
+    -    La valeur « ida:ClientId » est l'**ID d'application** attribué à votre application dans le portail d'enregistrement.
+    -    La valeur « ida:RedirectUri » est l'**URI de redirection** que vous avez saisi dans le portail.
 
--	Ajoutez ensuite les packages NuGet d'intergiciel (middleware) OWIN au projet à l'aide de la console du gestionnaire de package.
+-	Next, add the OWIN middleware NuGet packages to the project using the Package Manager Console.
 
 ```
 PM> Install-Package Microsoft.Owin.Security.OpenIdConnect 
@@ -210,4 +209,4 @@ Pour obtenir des ressources supplémentaires, consultez :
 - [Version préliminaire du modèle d’application v2.0 >>](active-directory-appmodel-v2-overview.md) 
 - [Balise azure-active-directory StackOverflow >>](http://stackoverflow.com/questions/tagged/azure-active-directory)
 
-<!----HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO3-->

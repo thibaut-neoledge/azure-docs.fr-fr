@@ -5,15 +5,15 @@
 	documentationCenter=""
 	authors="cephalin"
 	manager="wpickett"
-	editor=""/>
+	editor="jimbe"/>
 
 <tags
-	ms.service="app-service-web"
+	ms.service="app-service"
 	ms.workload="web"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/08/2015"
+	ms.date="09/15/2015"
 	ms.author="cephalin"/>
 
 
@@ -22,6 +22,8 @@
 Ce didacticiel explique comment mettre en service et déployer une application composée de [microservices](https://en.wikipedia.org/wiki/Microservices) dans [Azure App Service](/services/app-service/) sous la forme d'une unité unique et de manière prévisible, à l'aide de modèles de groupe de ressources JSON et des scripts PowerShell.
 
 Lors de la mise en service et du déploiement d'applications à grande échelle qui sont composées de microservices hautement découplés, la répétition et la prévisibilité sont essentielles à la réussite. [Azure App Service](/services/app-service/) vous permet de créer des microservices qui incluent des applications Web, des applications mobiles, des applications API et des applications logiques. [Azure Resource Manager](../resource-group-overview.md) vous permet de gérer tous les microservices en tant qu'unité, avec les dépendances de ressources, comme les paramètres de contrôle de la source et de base de données. À présent, vous pouvez également déployer une application de ce type à l’aide de modèles JSON et de scripts PowerShell simples.
+
+[AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
 ## Procédure à suivre ##
 
@@ -286,7 +288,7 @@ Dans DevOps, la répétition et la prévisibilité jouent un rôle majeur pour 
 
 ## Étapes suivantes ##
 
-Découvrez comment [appliquer les méthodologies agiles et publier en continu votre application de microservices facilement](app-service-agile-software-development.md).
+Découvrez comment [appliquer les méthodologies agiles et publier en continu votre application de microservices en toute simplicité](app-service-agile-software-development.md).
 
 <a name="resources"></a>
 ## Autres ressources ##
@@ -303,4 +305,4 @@ Découvrez comment [appliquer les méthodologies agiles et publier en continu vo
 
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO3-->

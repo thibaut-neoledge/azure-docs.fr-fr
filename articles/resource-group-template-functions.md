@@ -1,20 +1,20 @@
 <properties
    pageTitle="Fonctions des modèles de gestionnaire des ressources Azure"
-	description="Décrit les fonctions à utiliser dans un modèle Azure Resource Manager pour récupérer des valeurs, mettre en forme des chaînes et récupérer des informations sur le déploiement."
-	services="azure-resource-manager"
-	documentationCenter="na"
-	authors="tfitzmac"
-	manager="wpickett"
-	editor=""/>
+   description="Décrit les fonctions à utiliser dans un modèle Azure Resource Manager pour récupérer des valeurs, mettre en forme des chaînes et récupérer des informations sur le déploiement."
+   services="azure-resource-manager"
+   documentationCenter="na"
+   authors="tfitzmac"
+   manager="wpickett"
+   editor=""/>
 
 <tags
    ms.service="azure-resource-manager"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="na"
-	ms.date="08/21/2015"
-	ms.author="tomfitz"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="na"
+   ms.date="09/14/2015"
+   ms.author="tomfitz"/>
 
 # Fonctions des modèles de gestionnaire des ressources Azure
 
@@ -108,15 +108,34 @@ Retourne la division entière des deux entiers fournis.
 | operand1 | Oui | Nombre à diviser.
 | operand2 | Oui | Nombre utilisé pour diviser. Doit être différent de 0.
 
+## int
+
+**int(valueToConvert)**
+
+Convertit la valeur spécifiée en entier.
+
+| Paramètre | Requis | Description
+| :--------------------------------: | :------: | :----------
+| valueToConvert | Oui | Valeur à convertir en entier. Le type de valeur peut uniquement être une chaîne ou un entier.
+
+L’exemple ci-après convertit la valeur de paramètre fournie par l’utilisateur en entier.
+
+    "parameters": {
+        "appId": { "type": "string" }
+    },
+    "variables": { 
+        "intValue": "[int(parameters('appId'))]"
+    }
+
 ## length
 
 **length(array)**
 
-Retourne le nombre d'éléments dans un tableau. En règle générale, utilisé pour spécifier le nombre d'itérations lors de la création de ressources. Pour obtenir un exemple d'utilisation de cette fonction, consultez [Création de plusieurs instances de ressources dans Azure Resource Manager](resource-group-create-multiple.md).
+Retourne le nombre d'éléments dans un tableau. En règle générale, utilisé pour spécifier le nombre d'itérations lors de la création de ressources. Pour obtenir un exemple d’utilisation de cette fonction, consultez [Création de plusieurs instances de ressources dans Azure Resource Manager](resource-group-create-multiple.md).
 
 ## listKeys
 
-**listKeys (nom\_ressource ou identificateur\_ressource, [version\_api])**
+**listKeys (nom\_ressource ou identificateur\_ressource, version\_api)**
 
 Retourne les clés d'un compte de stockage. L'identificateur de ressource peut être spécifié à l'aide de la [fonction resourceId](./#resourceid) ou en utilisant le format **espacedenoms\_fournisseur/type\_ressource/nom\_ressource**. Vous pouvez utiliser cette fonction pour obtenir les valeurs primaryKey et secondaryKey.
   
@@ -129,7 +148,7 @@ L'exemple suivant montre comment retourner les clés à partir d'un compte de st
 
     "outputs": { 
       "exampleOutput": { 
-        "value": "[listKeys(resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName')), providers('Microsoft.Storage', 'storageAccounts').apiVersions[0])]", 
+        "value": "[listKeys(resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName')), '2015-05-01-preview')]", 
         "type" : "object" 
       } 
     } 
@@ -206,9 +225,9 @@ L'exemple suivant montre une utilisation simplifiée de la fonction parameters.
        }
     ]
 
-## provider
+## fournisseurs
 
-**provider (espacedenoms\_fournisseur, [type\_ressource])**
+**fournisseurs (espacedenoms\_fournisseur, [type\_ressource])**
 
 Retourne des informations sur un fournisseur de ressources et les types de ressources qu'il prend en charge. Si aucun type n'est spécifié, tous les types pris en charge sont retournés.
 
@@ -247,7 +266,7 @@ Permet à une expression de dériver sa valeur de l'état d'exécution d'une aut
 
 La fonction **reference** dérive sa valeur d'un état d'exécution, et ne peut donc pas être utilisée dans la section variables. Elle peut être utilisée dans la section outputs d'un modèle.
 
-En utilisant l'expression « reference », vous déclarez de manière implicite qu'une ressource dépend d'une autre ressource si la ressource référencée est configurée dans le même modèle. Vous n'avez pas besoin d'utiliser également la propriété **dependsOn**. L'expression n'est pas évaluée tant que le déploiement de la ressource référencée n'est pas terminé.
+En utilisant l'expression « reference », vous déclarez de manière implicite qu'une ressource dépend d'une autre ressource si la ressource référencée est configurée dans le même modèle. Vous n’avez pas besoin d’utiliser également la propriété **dependsOn**. L'expression n'est pas évaluée tant que le déploiement de la ressource référencée n'est pas terminé.
 
     "outputs": {
       "siteUri": {
@@ -384,6 +403,25 @@ L'exemple suivant fractionne la chaîne d'entrée en la séparant par une virgul
         "stringPieces": "[split(parameters('inputString'), ',')]"
     }
 
+## string
+
+**string(valueToConvert)**
+
+Convertit la valeur spécifiée en chaîne.
+
+| Paramètre | Requis | Description
+| :--------------------------------: | :------: | :----------
+| valueToConvert | Oui | Valeur à convertir en chaîne. Le type de valeur peut uniquement être une valeur booléenne, une chaîne ou un entier.
+
+L’exemple ci-après convertit la valeur de paramètre fournie par l’utilisateur en chaîne.
+
+    "parameters": {
+        "appId": { "type": "int" }
+    },
+    "variables": { 
+        "stringValue": "[string(parameters('appId'))]"
+    }
+
 ## sub
 
 **sub(operand1, operand2)**
@@ -469,7 +507,7 @@ Retourne la valeur de la variable. Le nom de variable spécifié doit être déf
 ## Étapes suivantes
 - Pour obtenir une description des sections dans un modèle Azure Resource Manager, consultez [Création de modèles Azure Resource Manager](resource-group-authoring-templates.md)
 - Pour fusionner plusieurs modèles, consultez [Utilisation de modèles liés avec Azure Resource Manager](resource-group-linked-templates.md)
-- Pour itérer un nombre de fois spécifié lors de la création d'un type de ressource, consultez [Création de plusieurs instances de ressources dans Azure Resource Manager](resource-group-create-multiple.md)
-- Pour savoir comment déployer le modèle que vous avez créé, consultez [Déploiement d'une application avec un modèle Azure Resource Manager](azure-portal/resource-group-template-deploy.md)
+- Pour itérer un nombre de fois spécifié pendant la création d’un type de ressource, consultez [Création de plusieurs instances de ressources dans Azure Resource Manager](resource-group-create-multiple.md).
+- Pour savoir comment déployer le modèle que vous avez créé, consultez [Déploiement d’une application avec un modèle Azure Resource Manager](azure-portal/resource-group-template-deploy.md).
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO3-->

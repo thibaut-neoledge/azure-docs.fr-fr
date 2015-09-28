@@ -1,23 +1,23 @@
-<properties 
+<properties
    pageTitle="Construction de chaînes de filtrage pour le Concepteur de tables"
-	description="Construction de chaînes de filtrage pour le Concepteur de tables"
-	services="visual-studio-online"
-	documentationCenter="na"
-	authors="kempb"
-	manager="douge"
-	editor="tlee"/>
-<tags 
+   description="Construction de chaînes de filtrage pour le Concepteur de tables"
+   services="visual-studio-online"
+   documentationCenter="na"
+   authors="kempb"
+   manager="douge"
+   editor="tlee" />
+<tags
    ms.service="storage"
-	ms.devlang="multiple"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="na"
-	ms.date="08/24/2015"
-	ms.author="kempb"/>
+   ms.devlang="multiple"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="na"
+   ms.date="08/24/2015"
+   ms.author="kempb" />
 
 # Construction de chaînes de filtrage pour le Concepteur de tables
 
-##Vue d’ensemble
+## Vue d’ensemble
 
 Pour filtrer les données d’une table Azure affichée dans le **Concepteur de tables** Visual Studio, vous devez créer une chaîne de filtrage, puis entrer celle-ci dans le champ de filtre. La syntaxe de la chaîne de filtrage est définie par les services de données WCF et est similaire à une clause SQL WHERE. Cependant, elle est envoyée au service de Table via une demande HTTP. Le **Concepteur de tables** est chargé de l’encodage. Si vous voulez filtrer les données à l’aide d’une valeur de propriété, il vous suffit donc de taper dans le champ de filtrage le nom de la propriété, l’opérateur de comparaison, la valeur des critères et éventuellement, l’opérateur booléen. Il n’est pas nécessaire d’inclure l’option de requête $filter comme vous le feriez pour créer une URL dans le but d’interroger la table via les [informations de référence de l’API REST Storage Services](http://go.microsoft.com/fwlink/p/?LinkId=400447).
 
@@ -55,11 +55,9 @@ L’exemple suivant filtre les données selon les propriétés **PartitionKey** 
 
     PartitionKey eq 'Partition1' and RowKey eq '00001'
 
-
 Vous pouvez placer chaque expression de filtrage entre parenthèses, même si cela n’est pas obligatoire :
 
     (PartitionKey eq 'Partition1') and (RowKey eq '00001')
-
 
 Notez que le service de Table et le Concepteur de tables ne prennent pas en charge les requêtes génériques. Toutefois, vous pouvez lancer une correspondance de préfixe à l’aide d’opérateurs de comparaison sur le préfixe de votre choix. L’exemple suivant retourne des entités avec une propriété LastName commençant par la lettre « A » :
 
@@ -72,7 +70,6 @@ Pour filtrer les données selon un nombre entier ou un nombre à virgule flottan
 Cet exemple retourne toutes les entités dont la propriété Age a une valeur supérieure à 30 :
 
     Age gt 30
-
 
 Cet exemple retourne toutes les entités dont la propriété AmountDue a une valeur inférieure ou égale à 100,25 :
 
@@ -88,11 +85,11 @@ L’exemple suivant retourne toutes les entités dont la propriété IsActive a 
 
 Vous pouvez également écrire cette expression de filtre sans opérateur logique. Dans l’exemple suivant, le service de Table retournera également toutes les entités dont la propriété IsActive a la valeur **true** :
 
-[Copy](javascript:if (window.epx.codeSnippet)window.epx.codeSnippet.copyCode(’CodeSnippetContainerCode\_3d6a191e-f389-447a-bbbb-ef8b163bc645’);)
+    IsActive
 
 Pour retourner toutes les entités dont la propriété IsActive a la valeur false, vous pouvez utiliser l’opérateur not :
 
-    IsActive
+    not IsActive
 
 ## Filtrage par propriété DateTime
 
@@ -102,4 +99,4 @@ L’exemple suivant retourne les entités dont la propriété CustomerSince a la
 
     CustomerSince eq datetime'2008-07-10T00:00:00Z'
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO3-->

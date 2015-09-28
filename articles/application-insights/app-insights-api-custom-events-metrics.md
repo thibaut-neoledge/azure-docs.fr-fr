@@ -74,10 +74,9 @@ Construisez une instance de TelemetryClient (sauf en JavaScript dans les pages w
 
     private TelemetryClient telemetry = new TelemetryClient();
 
-Nous vous recommandons d'utiliser une instance de `TelemetryClient` pour chaque requête dans une application web ou pour chaque session dans d'autres applications. Vous pouvez définir des propriétés telles que `TelemetryClient.Context.User.Id` pour effectuer un suivi des utilisateurs et des sessions. Cette information est associée à tous les événements envoyés par l'instance.
-
 TelemetryClient est thread-safe.
 
+Nous vous recommandons d’utiliser une instance de `TelemetryClient` pour chaque module de votre application. Par exemple, vous pouvez avoir une instance de `TelemetryClient` dans votre service web pour signaler les requêtes http entrantes et un autre instance dans une classe d’intergiciels pour signaler les événements de logique métier. Vous pouvez définir des propriétés telles que `TelemetryClient.Context.User.Id` pour assurer le suivi des utilisateurs et des sessions ou `TelemetryClient.Context.Device.Id` pour identifier l’ordinateur. Cette information est associée à tous les événements envoyés par l'instance.
 
 
 ## Suivi des événements
@@ -201,7 +200,7 @@ Il existe certaines [limites au nombre de propriétés, de valeurs de propriét�
 
 ![Ouvrez Metrics Explorer, sélectionnez le graphique puis sélectionnez la mesure](./media/app-insights-api-custom-events-metrics/03-track-custom.png)
 
-*Si votre mesure n’apparaît pas, ou que l’en-tête personnalisé n’y figure pas, fermez le panneau de sélection et réessayez ultérieurement. L’agrégation des mesures via le pipeline peut parfois prendre une heure.*
+*Si votre mesure n’apparaît pas ou que l’en-tête personnalisé n’y figure pas, fermez le panneau de sélection et réessayez ultérieurement. L’agrégation des mesures via le pipeline peut parfois prendre une heure.*
 
 **Si vous avez utilisé des propriétés et des mesures**, segmentez la mesure par la propriété :
 
@@ -390,11 +389,11 @@ Envoyez des exceptions à Application Insights : pour [les compter][metrics] co
        appInsights.trackException(ex);
     }
 
-Les Kits de développement logiciel (SDK) interceptent de nombreuses exceptions automatiquement, sans que vous besoin d'appeler TrackException explicitement.
+Les Kits de développement logiciel (SDK) interceptent de nombreuses exceptions automatiquement, ce qui vous évite ainsi d’avoir toujours à appeler TrackException explicitement.
 
-* ASP.NET : [écrire du code pour intercepter des exceptions](app-insights-asp-net-exceptions.md)
+* ASP.NET : [écrire du code pour intercepter les exceptions](app-insights-asp-net-exceptions.md)
 * J2EE : [les exceptions sont interceptées automatiquement](app-insights-java-get-started.md#exceptions-and-request-failures)
-* Applications Windows : [les pannes sont détectées automatiquement](app-insights-windows-crashes.md)
+* Applications Windows : [les incidents sont détectés automatiquement](app-insights-windows-crashes.md)
 * JavaScript : détection automatique. Si vous souhaitez désactiver la collecte automatique, ajoutez une ligne dans l'extrait de code que vous insérez dans vos pages web :
 
     ```
@@ -440,7 +439,7 @@ Utilisez cet appel pour suivre les temps de réponse et les taux de réussite de
             }
 ```
 
-N'oubliez pas que les Kits de développement logiciel (SDK) de serveur incluent un [module de dépendance](app-insights-dependencies.md) qui détecte certains appels de dépendance et en effectue le suivi automatiquement. C'est notamment le cas des bases de données et des API REST. Vous devez installer un agent sur votre serveur pour que le module fonctionne. Vous utiliserez cet appel si vous souhaitez effectuer le suivi des appels qui ne sont pas interceptés par le système de suivi automatisé, ou si vous ne souhaitez pas installer l'agent.
+N’oubliez pas que les Kits de développement logiciel (SDK) serveur incluent un [module de dépendance](app-insights-dependencies.md) qui détecte certains appels de dépendance et en effectue le suivi automatiquement. C’est notamment le cas des bases de données et des API REST. Vous devez installer un agent sur votre serveur pour que le module fonctionne. Vous utiliserez cet appel si vous souhaitez effectuer le suivi des appels qui ne sont pas interceptés par le système de suivi automatisé, ou si vous ne souhaitez pas installer l'agent.
 
 Pour désactiver le module de suivi des dépendances standard, modifiez le fichier [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md) et supprimez la référence à `DependencyCollector.DependencyTrackingTelemetryModule`.
 
@@ -462,7 +461,7 @@ Mais si les utilisateurs se connectent à votre application, vous pouvez obtenir
     }
 ```
 
-Il n’est pas nécessaire d’utiliser le nom de connexion réel de l’utilisateur. Il doit uniquement s’agir d’un ID unique pour cet utilisateur. Il ne doit pas inclure d’espaces ou un des caractères `,;=|`.
+Il n’est pas nécessaire d’utiliser le nom de connexion réel de l’utilisateur. Il doit uniquement s’agir d’un ID unique pour cet utilisateur. Il ne doit pas inclure d’espaces ni l’un des caractères `,;=|`.
 
 L’ID d’utilisateur est également défini dans un cookie de session et envoyé au serveur. Si le Kit de développement logiciel (SDK) de serveur est installé, l’ID d’utilisateur authentifié est envoyé dans le cadre des propriétés de contexte de télémétrie client et serveur, afin que vous puissiez filtrer et rechercher sur celui-ci.
 
@@ -729,17 +728,17 @@ TelemetryClient a une propriété de contexte contenant un certain nombre de val
 
 Si vous définissez une de ces valeurs vous-même, supprimez la ligne appropriée dans [ApplicationInsights.config][config], de sorte que vos valeurs et les valeurs standard ne se mélangent pas.
 
-* **Composant** : identifie l'application et sa version
-* **Périphérique** : données du périphérique sur lequel l'application est en cours d'exécution (dans les applications web, il s’agit du serveur ou du périphérique client à partir duquel la télémétrie est envoyée)
-* **Clé d’instrumentation** : identifie la ressource d'Application Insights dans Azure où apparaît la télémétrie. Elle est généralement récupérée dans ApplicationInsights.config
-* **Emplacement** : identifie l'emplacement géographique du périphérique.
-* **Opération** : dans les applications web, il s’agit de la requête HTTP actuelle. Dans d'autres types d'application, vous pouvez définir celle-ci sur les événements regroupés.
+* **Component** : identifie l'application et sa version
+* **Device** : données du périphérique sur lequel l'application est en cours d'exécution (dans les applications web, il s’agit du serveur ou du périphérique client à partir duquel la télémétrie est envoyée)
+* **InstrumentationKey** : identifie la ressource d'Application Insights dans Azure où apparaît la télémétrie. Elle est généralement récupérée dans ApplicationInsights.config
+* **Location** : identifie l'emplacement géographique du périphérique.
+* **Operation** : dans les applications web, il s’agit de la requête HTTP actuelle. Dans d'autres types d'application, vous pouvez définir celle-ci sur les événements regroupés.
  * **ID** : une valeur générée qui met en relation différents événements de manière à ce que vous trouviez les « Éléments associés » lorsque vous inspectez un événement dans la Recherche de diagnostic.
- * **Nom** : un identificateur, généralement l'URL de la requête HTTP. 
+ * **Name** : identificateur, généralement l’URL de la requête HTTP. 
  * **SyntheticSource** : si elle est non nulle ou vide, cette chaîne indique que la source de la requête a été identifiée en tant que robot ou test web. Par défaut, celle-ci sera exclue des calculs dans Metrics Explorer.
-* **Propriétés** : ce sont les propriétés qui sont envoyées avec toutes les données de télémétrie. Elles peuvent être remplacées dans les appels Track* individuels.
+* **Properties** : ce sont les propriétés qui sont envoyées avec toutes les données de télémétrie. Elles peuvent être remplacées dans les appels Track* individuels.
 * **Session** : identifie la session de l’utilisateur. L'ID est définie sur une valeur générée qui est modifiée lorsque l'utilisateur n'a pas été actif pendant un certain temps.
-* **Utilisateur** Informations utilisateur. 
+* **User** : informations utilisateur. 
 
 
 ## <a name="default-properties"></a>Initialiseurs de contexte - Définition des propriétés par défaut pour toute la télémétrie
@@ -748,7 +747,7 @@ Vous pouvez configurer un initialiseur universel afin que tous les TelemetryClie
 
 Une utilisation typique consiste à identifier la télémétrie provenant de différentes versions ou de différents composants de votre application. Dans le portail, vous pouvez filtrer ou regrouper des résultats suivant la propriété « Version de l'application ».
 
-En général, [nous vous recommandons d'utiliser des initialiseurs de télémétrie plutôt que des initialiseurs de contexte](http://apmtips.com/blog/2015/06/09/do-not-use-context-initializers/).
+En général, [nous vous recommandons d’utiliser des initialiseurs de télémétrie plutôt que des initialiseurs de contexte](http://apmtips.com/blog/2015/06/09/do-not-use-context-initializers/).
 
 #### Définir un initialiseur de contexte
 
@@ -901,4 +900,4 @@ Il existe certaines limites au nombre de mesures et d’événements par applica
 
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

@@ -13,13 +13,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/25/2015"
+   ms.date="09/15/2015"
    ms.author="sahajs"/>
 
 
 # Planification pour la continuité des activités dans SQL Data Warehouse
 
-Cet article vous présente les bases de la planification de la continuité d’activité et de la récupération d’urgence avec SQL Data Warehouse. Les entrepôts de données sont les référentiels centraux des informations des entreprises, et ils jouent au quotidien un rôle critique dans les opérations analytiques et décisionnelles à tous les niveaux des structures. Par conséquent, il est essentiel que vous disposiez d’un entrepôt de données fiable, qui prenne en charge la récupération et la continuité des activités. Plus spécifiquement, cet article vous fera découvrir comment SQL Data Warehouse vous permet de récupérer après des erreurs d’utilisateurs et des sinistres à l’aide de la limite de restauration dans le temps et de la restauration géographique.
+Cet article vous présente les bases de la planification de la continuité d’activité et de la récupération d’urgence avec SQL Data Warehouse. Les entrepôts de données sont les référentiels centraux des informations des entreprises, et ils jouent au quotidien un rôle critique dans les opérations analytiques et décisionnelles à tous les niveaux des structures. Par conséquent, il est essentiel que vous disposiez d’un entrepôt de données fiable, qui prenne en charge la récupération et la continuité des activités. Plus spécifiquement, cet article vous fera découvrir comment SQL Data Warehouse permet de récupérer après des erreurs d’utilisateurs et des sinistres à l’aide de la restauration de base de données et de la restauration géographique.
 
 ## Concepts
 
@@ -78,4 +78,4 @@ Pour en savoir plus sur les fonctionnalités de continuité d’activité d’au
 
 <!--Other Web references-->
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

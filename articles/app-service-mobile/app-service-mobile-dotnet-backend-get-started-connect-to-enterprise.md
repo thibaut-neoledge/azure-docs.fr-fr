@@ -26,6 +26,8 @@ Ce didacticiel requiert les éléments suivants :
 * Un abonnement actif à [SharePoint Online]
 * Assimilation du didacticiel [Authentification de votre application avec le service d'authentification unique de la bibliothèque d'authentification Active Directory]. Vous devez utiliser le client fourni par votre abonnement SharePoint.
 
+[AZURE.INCLUDE [app-service-mobile-to-web-and-api](../../includes/app-service-mobile-to-web-and-api.md)]
+
 ## <a name="configure-permissions"></a>Configuration de votre application pour un accès délégué à SharePoint
 Par défaut, le jeton que vous recevez d'AAD a des autorisations limitées. Pour accéder à une ressource ou une application SaaS tierce telle que SharePoint Online, vous devez l'autoriser explicitement.
 
@@ -55,7 +57,7 @@ Pour appeler SharePoint, vous devez spécifier les points de terminaison avec le
 
 Vous pouvez obtenir de nouveau ces valeurs dans votre code avec ApiServices.Settings.
 
-## <a name="obtain-token"></a>Obtention d’un jeton d’accès et appel de l’API SharePoint
+## <a name="obtain-token"></a>Obtention d'un jeton d'accès et appel de l'API SharePoint
 
 Pour accéder à SharePoint, vous avez besoin d'un jeton d'accès spécial avec SharePoint comme public cible. Pour obtenir ce jeton, vous devez effectuer un rappel dans Azure AD avec l'identité du service App Service et le jeton qui a été émis pour l'utilisateur.
 
@@ -186,4 +188,4 @@ Pour créer un document Word, vous allez utiliser le package NuGet OpenXML. Inst
 [Authentification de votre application avec le service d'authentification unique de la bibliothèque d'authentification Active Directory]: app-service-mobile-dotnet-backend-ios-aad-sso-preview.md
 [Mobile Apps .NET Backend App Service Extension]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.AppService/
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

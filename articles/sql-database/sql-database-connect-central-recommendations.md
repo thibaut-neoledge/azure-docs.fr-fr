@@ -1,24 +1,24 @@
 <properties 
-	pageTitle="Connexion à SQL Database : liens, meilleures pratiques et règles de conception"
-	description="Rubrique servant de point de départ qui rassemble des liens et des recommandations concernant les programmes clients qui se connectent à Azure SQL Database à partir de technologies telles que ADO.NET et PHP."
-	services="sql-database"
-	documentationCenter=""
-	authors="MightyPen"
-	manager="jeffreyg"
+	pageTitle="Se connecter à SQL Database : meilleures pratiques | Microsoft Azure" 
+	description="Rubrique servant de point de départ qui rassemble des liens et des meilleures pratiques concernant les programmes clients qui se connectent à Azure SQL Database à partir de technologies telles que ADO.NET et PHP." 
+	services="sql-database" 
+	documentationCenter="" 
+	authors="MightyPen" 
+	manager="jeffreyg" 
 	editor=""/>
 
 
 <tags 
-	ms.service="sql-database"
-	ms.workload="data-management"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/02/2015"
+	ms.service="sql-database" 
+	ms.workload="data-management" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/15/2015" 
 	ms.author="genemi"/>
 
 
-# Connexion à SQL Database : liens, meilleures pratiques et règles de conception
+# Connexion à SQL Database : meilleures pratiques et règles de conception
 
 
 Cette rubrique est idéale pour commencer une connectivité client avec Azure SQL Database. Elle fournit des liens vers des exemples de code pour diverses technologies que vous pouvez utiliser pour vous connecter à et interagir avec SQL Database. Les technologies incluent Enterprise Library, JDBC, PHP et de nombreuses autres. Les informations fournies s’appliquent indépendamment de la technologie spécifique utilisée pour la connexion à la base de données SQL.
@@ -77,13 +77,16 @@ Pour plus d’informations, consultez [Bases de données contenues](http://msdn.
  - Vous pouvez configurer les paramètres du pare-feu sur un serveur de base de données SQL ou pour une base de données individuelle.
 
 
+- Si votre programme client se connecte à SQL Database V12 pendant que votre client s’exécute sur une machine virtuelle Azure, vous devez ouvrir les plages de ports 11999-11000 et 14000-14999 sur la machine virtuelle. Pour plus d’informations, cliquez [ici](sql-database-develop-direct-route-ports-adonet-v12.md).
+
+
 - Pour gérer les *erreurs temporaires*, ajoutez une logique de [*nouvelle tentative*](#TransientFaultsAndRetryLogicGm) à vos programmes clients qui interagissent avec Azure SQL Database.
 
 
 ### Pool de connexions
 
 
-Si vous utilisez un [pool de connexions](http://msdn.microsoft.com/library/8xx3tyca.aspx), fermez la connexion dès que votre programme ne l’utilise plus activement et s’il ne se prépare pas à la réutiliser.
+Si vous utilisez un [pool de connexions](http://msdn.microsoft.com/library/8xx3tyca.aspx), fermez la connexion dès que votre programme ne l’utilise plus activement et qu’il ne se prépare pas à la réutiliser.
 
 Sauf si votre programme doit réutiliser immédiatement la connexion pour une autre opération et sans marquer de pause, nous vous recommandons de procéder comme suit :
 
@@ -105,7 +108,7 @@ La durée maximale d’une période de blocage est de 60 secondes.
 ### Ports autres que simplement 1433 dans V12
 
 
-Parfois, les connexions clientes à Azure SQL Database V12 ignorent le proxy et interagissent directement avec la base de données. Les ports autres que le port 1433 deviennent importants. Pour plus d’informations, consultez <br/> [Ports au-delà de 1433 pour ADO.NET 4.5 et SQL Database V12](sql-database-develop-direct-route-ports-adonet-v12.md)
+Parfois, les connexions clientes à Azure SQL Database V12 ignorent le proxy et interagissent directement avec la base de données. Les ports autres que le port 1433 deviennent importants. Pour plus d’informations, consultez <br/> [Ports au-delà de 1433 pour ADO.NET 4.5 et SQL Database V12](sql-database-develop-direct-route-ports-adonet-v12.md).
 
 
 La section suivante contient plus d’informations sur la logique de nouvelle tentative et la gestion des erreurs temporaires.
@@ -139,7 +142,7 @@ Quand une erreur se produit avec SQL Database, une exception [SqlException](http
  - Par exemple, faites une nouvelle tentative si vous obtenez le numéro d’erreur 40613, qui correspond à peu près à <br/>*La base de données « ma\_base\_de\_données » sur le serveur « serveur » n’est pas disponible actuellement.*
 
 
-Pour plus d’informations, consultez [Développement Azure SQL Database : rubriques de procédures](http://msdn.microsoft.com/library/azure/ee621787.aspx) – [Résoudre les problèmes de connexion à Azure SQL Database](http://support.microsoft.com/kb/2980233/)
+Pour plus d’informations, consultez [Développement Azure SQL Database : rubriques de procédures](http://msdn.microsoft.com/library/azure/ee621787.aspx) – [Résoudre les problèmes de connexion à Azure SQL Database](http://support.microsoft.com/kb/2980233/).
 
 
 ## Technologies
@@ -164,4 +167,4 @@ Divers exemples de codes sont fournis pour les clients qui s’exécutent sur Wi
 
 - [Bibliothèques de connexions pour SQL Database et SQL Server](sql-database-libraries.md)
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

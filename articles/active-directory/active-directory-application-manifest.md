@@ -17,6 +17,7 @@
    ms.author="dkershaw;bryanla"/>
 
 # Connaître le manifeste d’application Azure Active Directory
+
 Les applications qui s’intègrent à Azure Active Directory (AD) doivent être inscrites auprès d’Azure AD, fournissant une configuration permanente d’identité pour l’application. Cette configuration est consultée lors de l’exécution, activant des scénarios qui permettent à une application d’externaliser et d’assurer le courtage de l’authentification/autorisation via Azure AD. Pour plus d’informations sur le modèle d’application Azure AD, consultez l’article [Ajout, mise à jour et suppression d’une application][ADD-UPD-RMV-APP].
 
 ## Mise à jour d’une configuration de l’identité d’une application
@@ -25,7 +26,7 @@ Il existe en fait plusieurs options pour mettre à jour les propriétés de conf
 
 - L’**interface utilisateur web du [portail Azure][AZURE-PORTAL]** vous permet de mettre à jour les propriétés les plus courantes d’une application. Il s’agit de la méthode la plus rapide et la plus susceptible de mettre à jour les propriétés de votre application, mais elle ne pas vous donne un accès complet à toutes les propriétés, au même titre que les deux méthodes suivantes.
 - Pour des scénarios plus avancés nécessitant la mise à jour de propriétés qui ne sont pas exposées dans le portail Azure, vous pouvez modifier le **manifeste d’application**. C’est le sujet qui est abordé dans cet article et est décrit en détail à partir de la section suivante.
-- Il est également possible d’**écrire une application utilisant l’[API Graph][GRAPH-API]** pour mettre à jour votre application, ce qui nécessite le plus d’effort. Cette option peut être malgré tout intéressante, si vous écrivez des logiciels de gestion ou si vous devez régulièrement mettre à jour les propriétés de l’application de manière automatique.
+- Il est également possible d’**écrire une application qui utilise l’[API Graph][GRAPH-API]** pour mettre à jour votre application, ce qui demande le plus d’effort. Cette option peut être malgré tout intéressante, si vous écrivez des logiciels de gestion ou si vous devez régulièrement mettre à jour les propriétés de l’application de manière automatique.
 
 ## Utilisation du manifeste d’application pour la mise à jour de la configuration de l’identité d’une application
 Par le biais du [portail Azure][AZURE-PORTAL], vous pouvez gérer la configuration de l’identité de votre application, en téléchargeant et chargeant un fichier de représentation JSON nommé manifeste d’application. Aucun fichier réel n’est stocké dans le répertoire - le manifeste d’application est simplement une opération HTTP GET sur l’entité d’application API Azure AD Graph et le téléchargement est une opération HTTP PATCH sur l’entité de l’application.
@@ -37,7 +38,7 @@ Par conséquent, pour comprendre le format et les propriétés du manifeste d’
 - Déclaration des applications client connues.
 - Demande Azure AD d’émission de revendication de membre de groupe pour l’utilisateur connecté. REMARQUE : elle peut être configurée pour émettre des revendications au sujet des candidatures de rôle de répertoire Active Directory. Consultez l’article [Autorisation dans les applications de Cloud à l’aide de groupes Active Directory][AAD-GROUPS-FOR-AUTHORIZATION] pour obtenir un exemple d’implémentation.
 - Permettre à votre application de prendre en charge les flux d’octroi implicites OAuth 2.0 (pour les pages web JavaScript incorporées ou applications Une seule page (SPA))
-- Activer l’utilisation de certificats X509 en tant que clé secrète. Consultez l’article [Créer des applications de démon et de service dans Office 365][O365-SERVICE-DAEMON-APPS] pour obtenir un exemple d’implémentation. 
+- Activer l’utilisation de certificats X509 en tant que clé secrète. Consultez l’article [Créer des applications de démon et de service dans Office 365][O365-SERVICE-DAEMON-APPS] pour obtenir un exemple d’implémentation.
 
 Le manifeste d’application constitue également un bon moyen de suivre l’état de l’enregistrement de l’application. Le fichier étant disponible au format JSON, la représentation du fichier peut être intégrée à votre contrôle de code source, avec le code source de votre application.
 
@@ -94,14 +95,14 @@ Utilisez la section commentaires DISQUS ci-dessous pour fournir des commentaires
 
 <!--article references -->
 [AAD-GROUPS-FOR-AUTHORIZATION]: http://www.dushyantgill.com/blog/2014/12/10/authorization-cloud-applications-using-ad-groups/
-[ADD-UPD-RMV-APP]: https://msdn.microsoft.com/library/azure/dn132599.aspx
+[ADD-UPD-RMV-APP]: active-directory-integrating-applications.md
 [APPLICATION-ENTITY]: https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#ApplicationEntity
 [APPLICATION-ENTITY-OAUTH2-PERMISSION]: https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#OAuth2PermissionType
 [AZURE-PORTAL]: https://manage.windowsazure.com
-[GRAPH-API]: https://msdn.microsoft.com/library/azure/hh974476.aspx
+[GRAPH-API]: active-directory-graph-api.md
 [INTEGRATING-APPLICATIONS-AAD]: https://azure.microsoft.com/documentation/articles/active-directory-integrating-applications/
 [O365-PERM-DETAILS]: https://msdn.microsoft.com/office/office365/HowTo/application-manifest
 [O365-SERVICE-DAEMON-APPS]: https://msdn.microsoft.com/office/office365/howto/building-service-apps-in-office-365
 [RBAC-CLOUD-APPS-AZUREAD]: http://www.dushyantgill.com/blog/2014/12/10/roles-based-access-control-in-cloud-applications-using-azure-ad/
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

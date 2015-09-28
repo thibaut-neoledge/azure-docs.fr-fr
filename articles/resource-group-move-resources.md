@@ -38,6 +38,7 @@ Actuellement, tous les services ne permettent pas de déplacer les ressources.
 Pour l’instant, les services à partir desquels il est possible de déplacer les ressources vers un nouveau groupe de ressources et un nouvel abonnement sont les suivants :
 
 - Gestion des API
+- Document DB Azure
 - Azure Search
 - Azure Web Apps (certaines [limitations](app-service-web/app-service-move-resources.md) s’appliquent)
 - Data Factory
@@ -83,7 +84,7 @@ Pour déplacer des ressources existantes vers un autre groupe de ressources ou u
 
     POST https://management.azure.com/subscriptions/{source-subscription-id}/resourcegroups/{source-resource-group-name}/moveResources?api-version={api-version} 
 
-Remplacez **{source-subscription-id}** et **{source-resource-group-name}** par l’abonnement et le groupe de ressource qui comportent actuellement les ressources que vous souhaitez déplacer. Utilisez **2015-01-01** pour {api-version}.
+Remplacez **{source-subscription-id}** et **{source-resource-group-name}** par l’abonnement et le groupe de ressources qui comportent actuellement les ressources que vous souhaitez déplacer. Utilisez **2015-01-01** pour {api-version}.
 
 Dans la requête, incluez un objet JSON qui définit le groupe de ressources cible et les ressources que vous souhaitez déplacer.
 
@@ -102,4 +103,4 @@ Dans la requête, incluez un objet JSON qui définit le groupe de ressources ci
 - [Utilisation du portail Azure en version préliminaire pour gérer les ressources Azure](azure-portal/resource-group-portal.md)
 - [Organisation des ressources Azure à l’aide de balises](./resource-group-using-tags.md)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

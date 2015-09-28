@@ -2,18 +2,19 @@
 	pageTitle="Azure App Service et son impact sur les services Azure existants" 
 	description="Explique l'impact d'Azure App Service et de ses fonctionnalités sur les services existants d'Azure." 
 	authors="yochayk" 
+	writer="yochayk" 
 	editor="yochayk" 
 	manager="nirma" 
 	services="app-service\web" 
 	documentationCenter=""/>
 
 <tags 
-	ms.service="app-service-web" 
+	ms.service="app-service" 
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/24/2015" 
+	ms.date="09/15/2015" 
 	ms.author="yochayk"/>
 
 
@@ -21,7 +22,9 @@
 
 Cet article présente les modifications apportées aux services Azure existants dans le cadre du regroupement de plusieurs services Azure au sein d’[Azure App Service](http://azure.microsoft.com/services/app-service/).
 
-## Vue d'ensemble 
+[AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
+
+## Vue d’ensemble 
 
 [Azure App Service](http://azure.microsoft.com/services/app-service/) est un nouveau service cloud qui permet aux développeurs de créer des applications web et mobiles pour toutes les plateformes et tous les appareils. App Service est une solution intégrée conçue pour simplifier les fonctions de codage répétées. Elle s'intègre aux systèmes entreprise et SaaS, et automatise les processus métier tout en répondant à vos besoins en matière de sécurité, de fiabilité et d'évolutivité.
 
@@ -90,4 +93,4 @@ Le tableau suivant montre la correspondance entre les services Azure existants e
 Pour plus d’informations, consultez la [documentation App Service](http://azure.microsoft.com/documentation/services/app-service/).
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

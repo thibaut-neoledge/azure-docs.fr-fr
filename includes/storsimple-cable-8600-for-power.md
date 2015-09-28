@@ -1,3 +1,5 @@
+<!--author=alkohli last changed: 9/16/15-->
+
 
 #### Raccorder votre appareil à l'alimentation électrique
 
@@ -41,4 +43,4 @@
     |8|Boîtier EBOD|
     |9|PDU|
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO3-->

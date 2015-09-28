@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Gérer votre catalogue de sauvegarde StorSimple | Microsoft Azure"
-	description="Explique comment utiliser la page Catalogue de sauvegarde du service StorSimple Manager pour répertorier, sélectionner et supprimer des jeux de sauvegarde pour un volume."
-	services="storsimple"
-	documentationCenter="NA"
-	authors="SharS"
-	manager="carolz"
-	editor=""/>
+   description="Explique comment utiliser la page Catalogue de sauvegarde du service StorSimple Manager pour répertorier, sélectionner et supprimer des jeux de sauvegarde pour un volume."
+   services="storsimple"
+   documentationCenter="NA"
+   authors="SharS"
+   manager="carolz"
+   editor="" />
 <tags 
    ms.service="storsimple"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="TBD"
-	ms.date="09/01/2015"
-	ms.author="v-sharos"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="TBD"
+   ms.date="09/14/2015"
+   ms.author="v-sharos" />
 
 # Utiliser le service StorSimple Manager pour gérer votre catalogue de sauvegarde
 
@@ -113,6 +113,8 @@ Supprimez une sauvegarde quand vous ne souhaitez plus conserver les données qui
 
 ## Étapes suivantes
 
-Découvrez comment utiliser le catalogue de sauvegarde pour [restaurer l’appareil à partir d’un jeu de sauvegarde](storsimple-restore-from-backup-set.md).
+- Découvrez comment [utiliser le catalogue de sauvegarde pour restaurer l’appareil à partir d’un jeu de sauvegarde](storsimple-restore-from-backup-set.md).
 
-<!---HONumber=September15_HO1-->
+- Découvrez comment [utiliser le service StorSimple Manager pour gérer votre appareil StorSimple](storsimple-manager-service-administration.md).
+
+<!---HONumber=Sept15_HO3-->

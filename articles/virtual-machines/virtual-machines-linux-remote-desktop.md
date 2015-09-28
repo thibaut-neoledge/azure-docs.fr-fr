@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Utilisation du Bureau à distance via xrdp pour se connecter à une machine virtuelle Linux Microsoft Azure."
+	pageTitle="Utilisation du Bureau à distance pour se connecter à une machine virtuelle Linux Microsoft Azure."
 	description="Découvrez comment installer et configurer le Bureau à distance sur une machine virtuelle Linux Microsoft Azure."
 	services="virtual-machines"
 	documentationCenter=""
@@ -13,17 +13,17 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/31/2015"
+	ms.date="09/14/2015"
 	ms.author="mingzhan"/>
 
 
-#Utilisation du Bureau à distance via xrdp pour se connecter à une machine virtuelle Linux Microsoft Azure
+#Utilisation du Bureau à distance pour se connecter à une machine virtuelle Linux Microsoft Azure
 
-##Vue d’ensemble
+##Vue d'ensemble
 
-RDP (Remote Desktop Protocol) étant cependant un protocole propriétaire utilisé pour Windows, comment pouvons-nous utiliser RDP pour se connecter à distance à une machine virtuelle Linux ?
+RDP (Remote Desktop Protocol) étant un protocole propriétaire utilisé pour Windows, comment pouvons-nous utiliser RDP pour se connecter à distance à une machine virtuelle Linux ?
 
-Ce guide vous donne la réponse ! Il vous aidera à installer et à configurer xrdp sur votre machine virtuelle Linux Microsoft Azure. Vous pourrez vous y connecter avec le Bureau à distance à partir d’un ordinateur Windows.
+Ce guide vous donne la réponse ! Il vous aidera à installer et à configurer xrdp sur votre machine virtuelle Linux Microsoft Azure. Vous pourrez vous y connecter avec le Bureau à distance à partir d’un ordinateur Windows. Nous allons utiliser la machine virtuelle Linux exécutant Ubuntu ou OpenSUSE comme exemple dans ce guide.
 
 Xrdp est un serveur RDP open source, qui vous permet de connecter votre serveur Linux avec le Bureau à distance à partir d’un ordinateur Windows. Il fonctionne beaucoup mieux que VNC (Virtual Network Computing). VNC a cette tendance à la qualité « JPEG » et un comportement lent, alors que RDP est rapide et parfaitement net.
  
@@ -45,11 +45,7 @@ Si vous ne savez pas comment configurer un point de terminaison pour votre machi
 
 Connectez-vous à votre machine virtuelle Linux via putty et installez `Gnome Desktop`.
 
-Pour un Linux de la famille Red Hat, utilisez :
-
-	#sudo yum install gnome* "xorg*" -y
-
-Pour Debian et Ubuntu, utilisez :
+Pour Ubantu, procédez comme suit :
 
 	#sudo apt-get update
 	#sudo apt-get install ubuntu-desktop
@@ -57,20 +53,13 @@ Pour Debian et Ubuntu, utilisez :
 
 Pour OpenSUSE, utilisez :
 
-	#sudo zypper -y install gnome-session
-
+	#sudo zypper install gnome-session
 
 ##Installer xdrp
 
-Pour un Linux de la famille Red Hat, vous devez d’abord ajouter le référentiel EPEL à votre machine virtuelle Linux pour pouvoir installer le package xrdp via `yum`. Utilisez :
-
-	#sudo rpm -ivh http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm
-	#sudo yum -y install xrdp tigervnc-server tigervnc-server-module xterm
-
-Pour Linux Debian et Ubuntu, utilisez :
+Pour Ubantu, procédez comme suit :
 
 	#sudo apt-get install xrdp
-
 
 Pour OpenSUSE, utilisez :
 
@@ -82,34 +71,22 @@ Pour OpenSUSE, utilisez :
 
 ##Démarrez xrdp et paramétrez le service xdrp au démarrage
 
-Pour un Linux de la famille Red Hat, utilisez :
-
-	#sudo service xrdp start
-	#sudo chkconfig xrdp on
-
-
 Pour OpenSUSE, utilisez :
 
 	#sudo systemctl start xrdp
 	#sudo systemctl enable xrdp
- 
 
-##Désactivez iptables si vous utilisez un Linux de la famille Red Hat 
-
-Utilisez :
-
-	#sudo service iptables stop
-
+Pour Ubuntu, xrdp sera démarré et activé au démarrage automatiquement après l’installation.
 
 ##Utilisation de xfce si vous utilisez une version d’Ubuntu ultérieure à 12.04LTS
 
-Comme le xrop actuel ne prend pas en charge Gnome Desktop depuis la version d’Ubuntu ultérieure à 12.04LTS, nous allons utiliser à la place `xfce` Desktop.
+Comme le xrdp actuel ne prend pas en charge Gnome Desktop depuis la version d’Ubuntu ultérieure à 12.04LTS, nous allons utiliser à la place `xfce` Desktop.
 
 Installez `xfce`. Utilisez :
 
     #sudo apt-get install xubuntu-desktop
 
-Puis activez `xfce`. Utilisez :
+Activez ensuite `xfce`. Utilisez :
     
     #echo xfce4-session >~/.xsession
 
@@ -125,11 +102,11 @@ Redémarrez le service xrdp. Utilisez :
 
 
 ##Connectez votre machine virtuelle Linux à partir d’un ordinateur Windows
-Sur un ordinateur Windows, démarrez le client Bureau à distance, entrez le nom DNS de votre machine virtuelle Linux, ou accédez au `Dashboard` de votre machine virtuelle dans le portail Azure et cliquez sur `Connect`. Vous verrez la fenêtre de connexion ci-dessous :
+Sur un ordinateur Windows, démarrez le client Bureau à distance, entrez le nom DNS de votre machine virtuelle Linux, ou accédez au `Dashboard` de votre machine virtuelle dans le portail Azure et cliquez sur `Connect` pour connecter votre machine virtuelle Linux. Vous verrez la fenêtre de connexion ci-dessous :
 
 ![image](./media/virtual-machines-linux-remote-desktop/no2.png)
 
-Connectez-vous avec le `user` et le `password` pour votre machine virtuelle Linux, et profitez du Bureau à distance à partir de votre machine virtuelle Linux Microsoft Azure dès maintenant !
+Connectez-vous avec le `user` et le `password` de votre machine virtuelle Linux, et profitez du Bureau à distance à partir de votre machine virtuelle Linux Microsoft Azure dès maintenant !
 
 
 ##Suivant
@@ -141,4 +118,4 @@ Pour plus d’informations sur l’utilisation de xrdp, consultez [ce site](http
 
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

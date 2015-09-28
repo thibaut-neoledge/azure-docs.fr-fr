@@ -1,20 +1,20 @@
 <properties
     pageTitle="Embarquer dans Operational Insights en quelques minutes | Microsoft Azure"
-	description="En savoir plus sur la maîtrise rapide d’Operational Insights Azure"
-	services="operational-insights"
-	documentationCenter=""
-	authors="bandersmsft"
-	manager="jwhit"
-	editor=""/>
+    description="En savoir plus sur la maîtrise rapide d’Operational Insights Azure"
+    services="operational-insights"
+    documentationCenter=""
+    authors="bandersmsft"
+    manager="jwhit"
+    editor=""/>
 
 <tags
     ms.service="operational-insights"
-	ms.workload="operational-insights"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="hero-article"
-	ms.date="08/27/2015"
-	ms.author="banders"/>
+    ms.workload="operational-insights"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="hero-article"
+    ms.date="09/10/2015"
+    ms.author="banders"/>
 
 # Embarquer dans Azure Operational Insights en quelques minutes
 
@@ -101,4 +101,4 @@ Avec Operations Management Suite, vous pouvez rechercher rapidement les journa
 - Se familiariser avec la [recherche](operational-insights-search.md).
 - Utiliser les [tableaux de bord](operational-insights-use-dashboards.md) pour enregistrer et afficher les recherches personnalisées.
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

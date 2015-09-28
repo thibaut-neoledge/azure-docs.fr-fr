@@ -1,23 +1,23 @@
-<properties 
-	pageTitle="Vue d’ensemble de l’empaquetage dynamique" 
-	description="Cette rubrique donne une vue d'ensemble de l'empaquetage dynamique." 
-	authors="Juliako" 
-	manager="dwrede" 
-	editor="" 
-	services="media-services" 
+<properties
+	pageTitle="Vue d’ensemble de l’empaquetage dynamique"
+	description="Cette rubrique donne une vue d'ensemble de l'empaquetage dynamique."
+	authors="Juliako"
+	manager="dwrede"
+	editor=""
+	services="media-services"
 	documentationCenter=""/>
 
-<tags 
-	ms.service="media-services" 
-	ms.workload="media" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="09/07/2015" 
+<tags
+	ms.service="media-services"
+	ms.workload="media"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/07/2015"
 	ms.author="juliako"/>
 
 
-#Empaquetage dynamique 
+#Empaquetage dynamique
 
 ##Vue d'ensemble
 
@@ -38,14 +38,14 @@ Le diagramme suivant illustre le flux d'empaquetage dynamique.
 
 ##Scénario courant
 
-1. Téléchargez un fichier d'entrée (appelé fichier mezzanine). Par exemple, H.264, MP4 ou WMV (pour obtenir la liste des formats pris en charge, consultez Formats pris en charge par l'encodeur Media Services).
- 
+1. Téléchargez un fichier d'entrée (appelé fichier mezzanine). Par exemple, H.264, MP4 ou WMV (pour obtenir la liste des formats pris en charge, consultez [Formats pris en charge par l’encodeur Media Services](media-services-azure-media-encoder-formats)).
+
 1. Encodez votre fichier mezzanine en ensembles de fichiers MP4 à vitesse de transmission adaptative H.264.
- 
+
 1. Publiez l'élément multimédia qui contient l'ensemble de fichiers MP4 à vitesse de transmission adaptative en créant le localisateur à la demande.
- 
+
 1. Générez les URL de diffusion en continu pour accéder à votre contenu et le diffuser en continu.
- 
+
 >[AZURE.NOTE]Tous les formats de fichiers MP4 ne sont pas pris en charge par l'empaquetage dynamique. Pour plus d'informations, consultez [Formats non pris en charge pour l'empaquetage dynamique](media-services-dynamic-packaging-overview.md#unsupported_formats).
 
 ##Préparation des éléments multimédias pour une diffusion en continu dynamique
@@ -65,7 +65,7 @@ Télécharger vos fichiers à l'aide du **portail de gestion Azure**, de **.NET*
 [AZURE.INCLUDE [media-services-selector-upload-files](../../includes/media-services-selector-upload-files.md)]
 
 Encoder à l'aide de l'**encodeur multimédia Azure** en utilisant le **portail de gestion Azure**, **.NET** ou l'**API REST**
- 
+
 [AZURE.INCLUDE [media-services-selector-encode](../../includes/media-services-selector-encode.md)]
 
 
@@ -105,6 +105,4 @@ Vous pouvez afficher les parcours d’apprentissage d’AMS ici :
 - [Workflow en flux continu AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
 - [Workflow de streaming à la demande AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
 
- 
-
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

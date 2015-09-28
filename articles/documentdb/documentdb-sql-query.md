@@ -1,6 +1,7 @@
 <properties 
-	pageTitle="Interrogation avec le langage SQL de DocumentDB | Microsoft Azure" 
-	description="DocumentDB, service de base de données NoSQL orienté documents, prend en charge l'interrogation de documents JSON hiérarchiques à l'aide du langage SQL sans nécessiter un schéma explicite ou la création d'index secondaires." 
+	pageTitle="Requêtes SQL sur une base de données DocumentDB – Requête SQL | Microsoft Azure" 
+	description="Découvrez comment DocumentDB prend en charge les requêtes SQL sur les documents JSON hiérarchiques pour l’indexation automatique. Découvrez un environnement de base de données compatible avec les requêtes SQL et véritablement exempt de schéma." 
+	keywords="Query database, sql queries, sql query, structured query language, documentdb, azure, Microsoft azure"
 	services="documentdb" 
 	documentationCenter="" 
 	authors="arramac" 
@@ -16,7 +17,7 @@
 	ms.date="08/13/2015" 
 	ms.author="mimig"/>
 
-# Interrogation de DocumentDB
+# Requête SQL dans DocumentDB
 Microsoft Azure DocumentDB prend en charge l'interrogation de documents à l'aide du langage SQL sur les documents JSON hiérarchiques. DocumentDB n'utilise pas de schéma. En raison de son engagement dans le modèle de données JSON directement au sein du moteur de base de données, il fournit l'indexation automatique des documents JSON sans nécessiter un schéma explicite ou la création d'index secondaires.
 
 Lors de la conception du langage de requête pour DocumentDB, nous avions deux objectifs à l'esprit :
@@ -30,9 +31,9 @@ Nous vous recommandons de commencer par visionner la vidéo suivante, dans laque
 
 > [AZURE.VIDEO dataexposedqueryingdocumentdb]
 
-Revenez ensuite à cet article qui vous montrera d'abord comment exécuter des requêtes simples sur quelques documents JSON simples.
+Revenez ensuite à cet article où nous commencerons par vous montrer quelques documents JSON et commandes SQL simples.
 
-## Prise en main
+## Prise en main des commandes du langage SQL (Structured Query Language) dans DocumentDB
 Pour voir comment le langage SQL de DocumentDB fonctionne, nous allons commencer par quelques documents JSON simples sur lesquels nous allons appliquer certaines requêtes simples. Prenez ces deux documents JSON relatifs à deux familles. Notez qu'avec DocumentDB, nous n'avons pas besoin de créer de schéma ou d'index secondaire de façon explicite. Nous devons simplement insérer les documents JSON dans une collection DocumentDB et ensuite les interroger. Nous avons ici un document JSON simple pour la famille Andersen, les parents, les enfants (et leurs animaux), l'adresse et les informations d'enregistrement. Le document se compose de chaînes, de nombres, d'opérateurs booléens, de tableaux et de propriétés imbriquées.
 
 **Document**
@@ -157,7 +158,7 @@ La requête suivante retourne tous les noms donnés des enfants de la famille do
 Nous aimerions attirer votre attention sur quelques aspects importants du langage de requête DocumentDB à travers les exemples que nous venons de voir :
  
 -	Comme le langage SQL de DocumentDB fonctionne avec les valeurs JSON, il traite des entités d'arborescence au lieu des lignes et des colonnes. C’est pourquoi ce langage vous permet de faire référence aux nœuds de l’arborescence à n’importe quel niveau arbitraire, comme `Node1.Node2.Node3…..Nodem`, tout comme le SQL relationnel se rattachant à la référence en deux parties de `<table>.<column>`.   
--	Le langage fonctionne avec des données sans schéma. C'est pourquoi le système de type doit être lié de façon dynamique. La même expression peut engendrer différents types sur différents documents. Le résultat d'une requête est une valeur JSON valide, mais n'est pas forcément un schéma fixe.  
+-	Le langage SQL fonctionne avec des données sans schéma. C'est pourquoi le système de type doit être lié de façon dynamique. La même expression peut engendrer différents types sur différents documents. Le résultat d'une requête est une valeur JSON valide, mais n'est pas forcément un schéma fixe.  
 -	DocumentDB prend uniquement en charge les documents JSON stricts. Cela signifie que le système de type et les expressions peuvent uniquement traiter des types JSON. Reportez-vous à la [spécification JSON](http://www.json.org/) pour plus de détails.  
 -	Une collection DocumentDB est un conteneur sans schéma pour vos documents JSON. Les relations des entités de données dans et entre les documents d'une collection sont capturées de façon implicite par le contenant et non par les relations de clé primaire et de clé étrangère. Cet aspect est important dans le cadre des liaisons entre documents (ce sujet est abordé plus loin dans cet article).
 
@@ -182,7 +183,7 @@ C'est pourquoi, lorsque nous avons conçu le sous-système d'indexation de Docum
 Reportez-vous aux [exemples DocumentDB](https://github.com/Azure/azure-documentdb-net) sur MSDN pour obtenir des exemples montrant comment configurer la stratégie d’indexation d’une collection. Nous allons à présent détailler davantage la grammaire SQL de DocumentDB.
 
 
-## Notions de base sur les requêtes DocumentDB
+## Principes de base d’une requête SQL DocumentDB
 Chaque requête se compose d'une clause SELECT et de clauses FROM et WHERE facultatives conformes aux normes ANSI-SQL. Généralement, pour chaque requête, la source de la clause FROM est énumérée. Puis le filtre de la clause WHERE est appliqué sur la source pour extraire un sous-ensemble de documents JSON. Finalement, la clause SELECT est utilisée pour projeter les valeurs JSON demandées dans la liste sélectionnée.
     
     SELECT <select_list> 
@@ -279,7 +280,7 @@ La requête suivante demande des documents qui contiennent une propriété name 
 
 L'exemple précédent illustrait une simple requête d'égalité. Le langage SQL de DocumentDB prend également en charge plusieurs expressions scalaires. Les plus répandues sont les expressions binaires et unaires. Les références de propriété de l'objet JSON source sont également des expressions valides.
 
-Les opérateurs binaires suivants sont actuellement pris en charge et peuvent être utilisés dans les requêtes, comme indiqué dans les exemples suivants : <table> <tr> <td>Arithmétique</td> <td>+,-,\*,/,%</td> </tr> <tr> <td>Au niveau du bit</td> <td>|, &, ^, <<, >>, >>> (décalage vers la droite remplissage de zéro) </td> </tr> <tr> <td>Logique</td> <td>AND, OR, NOT</td> </tr> <tr> <td>Comparaison</td> <td>=, !=, &lt;, &gt;, &lt;=, &gt;=, <></td> </tr> <tr> <td>Chaîne</td> <td>|| (concaténation)</td> </tr> </table>
+Les opérateurs binaires suivants sont actuellement pris en charge et peuvent être utilisés dans les requêtes, comme indiqué dans les exemples suivants : <table> <tr> <td>Arithmétique</td> <td>+,-,*,/,%</td> </tr> <tr> <td>Au niveau du bit</td> <td>|, &, ^, <<, >>, >>> (décalage vers la droite remplissage de zéro) </td> </tr> <tr> <td>Logique</td> <td>AND, OR, NOT</td> </tr> <tr> <td>Comparaison</td> <td>=, !=, &lt;, &gt;, &lt;=, &gt;=, <></td> </tr> <tr> <td>Chaîne</td> <td>|| (concaténation)</td> </tr> </table>
 
 Examinons certaines requêtes utilisant des opérateurs binaires.
 
@@ -296,7 +297,7 @@ Examinons certaines requêtes utilisant des opérateurs binaires.
 	WHERE c.grade >= 5     -- matching grades == 5
 
 
-Les opérateurs unaires +,-, \~ et NOT sont également pris en charge et peuvent être utilisés dans des requêtes comme illustré dans l'exemple suivant :
+Les opérateurs unaires +,-, ~ et NOT sont également pris en charge et peuvent être utilisés dans des requêtes comme illustré dans l'exemple suivant :
 
 	SELECT *
 	FROM Families.children[0] c
@@ -630,8 +631,8 @@ L'exemple suivant développe ceci pour expliquer comment renvoyer des valeurs JS
 	]
 
 
-###Opérateur \*
-L'opérateur spécial (\*) est pris en charge pour projeter le document tel quel. Une fois utilisé, il doit être le seul champ projeté. Si une requête comme `SELECT * FROM Families f` est valide, `SELECT VALUE * FROM Families f ` et `SELECT *, f.id FROM Families f ` ne le sont pas.
+###Opérateur *
+L'opérateur spécial (*) est pris en charge pour projeter le document tel quel. Une fois utilisé, il doit être le seul champ projeté. Si une requête comme `SELECT * FROM Families f` est valide, `SELECT VALUE * FROM Families f ` et `SELECT *, f.id FROM Families f ` ne le sont pas.
 
 **Requête**
 
@@ -704,7 +705,7 @@ Et voici une requête qui récupère les familles suivant l'ordre de la date de 
 	  }
 	]
 	
-## Concepts avancés
+## Concepts avancés de base de données - Requêtes SQL
 ### Itération
 Une nouvelle construction a été ajoutée via le mot clé **IN** de SQL DocumentDB pour prendre en charge l’itération sur les tableaux JSON. La source FROM fournit une prise en charge pour l'itération. Commençons par l'exemple suivant :
 
@@ -906,7 +907,7 @@ Cet exemple est une extension naturelle du précédent, et effectue une double j
 		}
 	}
 
-`AndersenFamily` a un enfant qui a un animal. Par conséquent, le produit croisé renvoie une ligne (1\*1\*1) à partir de cette famille. Cependant, WakefieldFamily a deux enfants, mais seul l'un d'eux, « Jesse », a des animaux. Jesse a 2 animaux. Le produit croisé renvoie donc 1\*1\*2 = 2 lignes à partir de cette famille.
+`AndersenFamily` a un enfant qui a un animal. Par conséquent, le produit croisé renvoie une ligne (1*1*1) à partir de cette famille. Cependant, WakefieldFamily a deux enfants, mais seul l'un d'eux, « Jesse », a des animaux. Jesse a 2 animaux. Le produit croisé renvoie donc 1*1*2 = 2 lignes à partir de cette famille.
 
 L’exemple suivant ajoute un filtre supplémentaire sur `pet`. Ceci exclut tous les tuples où le nom de l'animal n'est pas « Shadow ». Notez que nous pouvons développer des tuples à partir de tableaux, filtrer n'importe quel élément du tuple et projeter n'importe quelle combinaison d'éléments.
 
@@ -1055,7 +1056,7 @@ Dans SQL de DocumentDB, contrairement au SQL classique, les types de valeur so
 
 Le langage SQL de DocumentDB n'effectue pas de conversions implicites, contrairement à JavaScript. Par exemple, une requête comme `SELECT * FROM Person p WHERE p.Age = 21` correspond à des documents qui contiennent une propriété Age dont la valeur est 21. Tout autre document dont la propriété Age correspond à la chaîne « 21 » ou à l'une de ses multiples variantes telles que « 021 », « 21.0 », « 0021 », « 00021 », etc. ne sera pas mis en correspondance. Ce comportement contraste avec celui de JavaScript où les valeurs de chaîne sont implicitement converties en nombres (à partir de l’opérateur, par exemple :==). Ce choix est crucial pour une correspondance d'index efficace dans le langage SQL de DocumentDB.
 
-## SQL paramétré
+## Requêtes SQL paramétrables
 DocumentDB prend en charge les requêtes avec des paramètres exprimées avec la notation @ classique. SQL paramétré fournit une gestion et un échappement robustes de l'entrée utilisateur et empêche l'exposition accidentelle des données par l'intermédiaire de l'injection SQL.
 
 Par exemple, vous pouvez écrire une requête qui prend le nom et l'état de l'adresse comme paramètres, puis l'exécuter pour différentes valeurs de nom et d'état d'adresse en fonction de l'entrée utilisateur.
@@ -1406,7 +1407,7 @@ DocumentDB prend en charge les fonctions intégrées Open Geospatial Consortiu
 </tr>
 <tr>
   <td>ST_ISVALID</td>
-  <td>Renvoie une valeur booléenne indiquant si l'expression de points ou de polygones GeoJSON spécifiée est valide.</td>
+  <td>Renvoie une valeur booléenne indiquant si l'expression de points ou de polygones&#160;GeoJSON spécifiée est valide.</td>
 </tr>
 <tr>
   <td>ST_ISVALIDDETAILED</td>
@@ -1487,7 +1488,7 @@ LINQ est un modèle de programmation .NET qui exprime un calcul en tant que requ
 
 L'image suivante illustre l'architecture de prise en charge des requêtes LINQ à l'aide de DocumentDB. En utilisant le client DocumentDB, les développeurs peuvent créer un objet **IQueryable** dirigeant les requêtes vers le fournisseur de requête de DocumentDB, qui traduit alors les requêtes LINQ en requêtes DocumentDB. Ces requêtes sont ensuite transmises au serveur DocumentDB pour récupérer un ensemble de résultats au format JSON. Les résultats renvoyés sont désérialisés en un flux d'objets .NET, côté client.
 
-![][1]
+![Architecture de prise en charge des requêtes LINQ avec DocumentDB][1]
  
 
 
@@ -1603,7 +1604,7 @@ D'abord, pour le système de type, nous prenons en charge tous les types JSON pr
 		new { first = 1, second = 2 }; //an anonymous type with 2 fields              
 		new int[] { 3, child.grade, 5 };
 
-### Opérateurs de requête
+### Opérateurs de requête SQL
 Voici certains exemples illustrant comment certains des opérateurs de requête LINQ standard sont traduits en requêtes DocumentDB.
 
 #### Opérateur Select
@@ -1692,7 +1693,7 @@ La syntaxe est `input.Where(x => f(x))`, où `f` est une expression scalaire qui
 	AND f.children[0].grade < 3
 
 
-### Requêtes composites
+### Requêtes SQL composites
 Les opérateurs suivants peuvent être composés pour former des requêtes plus puissantes. Comme DocumentDB prend en charge les collections imbriquées, la composition peut être concaténée ou imbriquée.
 
 #### Concaténation 
@@ -1797,7 +1798,7 @@ Dans une requête imbriquée, la requête interne est appliquée à chaque élé
 	WHERE c.familyName = f.parents[0].familyName
 
 
-## Exécution de requêtes
+## Exécution de requêtes SQL
 DocumentDB expose les ressources via une API REST qui peut être appelée par n'importe quel langage capable de créer des requêtes HTTP/HTTPS. Par ailleurs, DocumentDB offre des bibliothèques de programmation pour plusieurs langages populaires comme .NET, Node.js, JavaScript et Python. L'API REST et les différentes bibliothèques prennent toutes en charge l'interrogation via SQL. Le Kit de développement logiciel (SDK) .NET prend en charge l'interrogation LINQ en plus du SQL.
 
 Les exemples suivants montrent comment créer une requête et la soumettre par rapport à un compte de base de données DocumentDB.
@@ -2088,4 +2089,4 @@ L'exemple suivant illustre l'utilisation de queryDocuments dans l'API JavaScript
 [consistency-levels]: documentdb-consistency-levels.md
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO3-->

@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Déployer le service StorSimple Manager | Microsoft Azure"
-	description="Explique comment créer et supprimer le service StorSimple Manager dans le portail de gestion et décrit comment gérer la clé d’inscription du service."
-	services="storsimple"
-	documentationCenter=""
-	authors="SharS"
-	manager="carolz"
-	editor=""/>
+   description="Explique comment créer et supprimer le service StorSimple Manager dans le portail de gestion et décrit comment gérer la clé d’inscription du service."
+   services="storsimple"
+   documentationCenter=""
+   authors="SharS"
+   manager="carolz"
+   editor="" />
 <tags 
    ms.service="storsimple"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="na"
-	ms.date="09/02/2015"
-	ms.author="v-sharos"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="na"
+   ms.date="09/14/2015"
+   ms.author="v-sharos" />
 
 # Déployer le service StorSimple Manager
 
@@ -107,10 +107,12 @@ Procédez comme suit pour régénérer une clé d’inscription du service.
 
 ## Étapes suivantes
 
-[En savoir plus sur le processus de déploiement StorSimple](storsimple-deployment-walkthrough.md).
+- En savoir plus sur le [processus de déploiement StorSimple](storsimple-deployment-walkthrough.md).
 
-[En savoir plus sur la gestion de votre compte de stockage StorSimple](storsimple-manage-storage-accounts.md).
+- En savoir plus sur la [gestion de votre compte de stockage StorSimple](storsimple-manage-storage-accounts.md).
+
+- En savoir plus sur [l’utilisation du service StorSimple Manager pour gérer votre appareil StorSimple](storsimple-manager-service-administration.md).
 
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

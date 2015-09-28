@@ -6,16 +6,14 @@
 	authors="alancameronwills" 
 	manager="douge"/>
 
-
 <tags 
 	ms.service="application-insights" 
 	ms.workload="tbd" 
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/11/2015" 
+	ms.date="09/10/2015" 
 	ms.author="awills"/>
-
  
 # Diagnostic des défaillances et des exceptions dans les applications ASP.NET avec Application Insights  
 
@@ -52,7 +50,7 @@ Cliquez sur l’un des types de demande défaillante dans la liste pour obtenir 
 
 Une *dépendance* est un service que votre application appelle, généralement via une API REST ou une connexion à une base de données. [Application Insights Status Monitor][redfield] analyse automatiquement différents types d'appel de dépendance en déterminant la durée et la réussite ou la défaillance de l’appel.
 
-Pour obtenir des données de dépendance, vous devez [installer Status Monitor][redfield] sur votre serveur IIS ou, si votre application est une application web d’Azure, utilisez l’[extension Application Insights][azure]. Pour cela, vous pouvez
+Pour obtenir des données de dépendance, vous devez [installer Status Monitor][redfield] sur votre serveur IIS ou, si votre application est une application web d’Azure, utilisez l’[extension Application Insights][azure].
 
 Les appels vers les dépendances ayant échoué sont répertoriés dans le panneau Défaillance et vous pouvez également les trouver sous Éléments associés dans les détails de la demande et les détails de l'exception.
 
@@ -428,7 +426,15 @@ Ajoutez l'attribut aux implémentations de service :
 
 [Exemple](https://github.com/AppInsightsSamples/WCFUnhandledExceptions)
 
+## Compteurs de performance des exceptions
 
+Si vous avez [installé Status Monitor][redfield] sur votre serveur, vous pouvez obtenir un graphique du taux d’exceptions, mesuré par .NET. Celui-ci comprend les exceptions .NET gérées et non gérées.
+
+Ouvrez un panneau Metric Explorer, ajoutez un nouveau graphique, puis sélectionnez **Taux d’exception** sous Compteurs de performance.
+
+.NET Framework calcule le taux en comptant le nombre d’exceptions sur un intervalle et en divisant ce nombre par la longueur de l’intervalle.
+
+Notez que ce chiffre sera différent du nombre d’« exceptions » calculé par le portail Application Insights, qui est basé sur les rapports TrackException. Les intervalles d’échantillonnage sont différents et le Kit de développement logiciel (SDK) n’envoie pas de rapports TrackException pour toutes les exceptions gérées et non gérées.
 
 <!--Link references-->
 
@@ -443,4 +449,4 @@ Ajoutez l'attribut aux implémentations de service :
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

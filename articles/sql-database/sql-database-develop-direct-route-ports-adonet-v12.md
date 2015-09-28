@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/04/2015" 
+	ms.date="09/15/2015" 
 	ms.author="genemi"/>
 
 
@@ -69,10 +69,12 @@ La séquence est la suivante :
 3. Les requêtes sont envoyées directement à la base de données et les résultats sont retournés directement au client.
 
 
-Assurez-vous que les plages de ports 11000-11999 et 14000-14999 sur votre ordinateur client Azure restent disponibles pour les interactions client ADO.NET 4.5 avec SQL Database V12.
+Assurez-vous que les plages de ports 11000-11999 et 14000-14999 sur votre ordinateur client Azure restent disponibles pour les interactions client ADO.NET 4.5 avec SQL Database V12.
 
 - En particulier, les ports dans la plage doivent être libres de tout autre bloqueur sortant.
-- Le pare-feu Windows sur votre machine virtuelle Azure contrôle les paramètres de port.
+
+- Sur votre machine virtuelle Azure, le **Pare-feu Windows avec fonctions avancées de sécurité** contrôle les paramètres des ports.
+ - Vous pouvez utiliser l’[interface utilisateur du Pare-feu](http://msdn.microsoft.com/library/cc646023.aspx) pour ajouter une règle dans laquelle vous spécifiez le protocole **TCP** et une plage de ports avec une syntaxe semblable à **11000-11999**.
 
 
 ## Précisions concernant les versions
@@ -94,7 +96,7 @@ Cette section clarifie les monikers qui font référence aux versions du produit
 Les différences entre SQL Database V11 et SQL Database V12 pour la connexion cliente sont soulignées dans cette rubrique.
 
 
-*Remarque :* l’instruction Transact-SQL `SELECT @@version;` retourne une valeur qui commence par un nombre, tel que « 11. » ou « 12. », qui correspond aux noms de version V11 et V12 pour SQL Database.
+*Remarque :* l’instruction Transact-SQL `SELECT @@version;` retourne une valeur qui commence par un nombre, tel que « 11. » ou « 12. », qui correspond aux noms de version V11 et V12 de SQL Database.
 
 
 ## Liens connexes
@@ -112,4 +114,4 @@ Les différences entre SQL Database V11 et SQL Database V12 pour la connexion cl
 
 - [Connexion à la base de données SQL : liens, meilleures pratiques et règles de conception](sql-database-connect-central-recommendations.md)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

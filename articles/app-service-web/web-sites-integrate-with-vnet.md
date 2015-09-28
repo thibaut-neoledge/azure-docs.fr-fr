@@ -5,28 +5,31 @@
 	documentationCenter="" 
 	authors="cephalin" 
 	manager="wpickett" 
-	editor=""/>
+	editor="jimbe"/>
 
 <tags 
-	ms.service="app-service-web" 
+	ms.service="app-service" 
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/11/2015" 
+	ms.date="09/16/2015" 
 	ms.author="cephalin"/>
 
 # Intégrer une application web à un réseau virtuel Azure #
+
 Ce document décrit la fonctionnalité préliminaire d’intégration au réseau virtuel et explique comment la configurer avec la fonctionnalité Web Apps d’[Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714). Si vous ne connaissez pas les réseaux virtuels Azure, il s'agit d'une fonctionnalité qui vous permettra de créer des solutions hybrides avec vos ressources Azure et sur site.
 
 Grâce à cette intégration, votre application web a accès aux ressources se trouvant dans votre réseau virtuel sans que celui-ci puisse accéder à votre application web. Cela peut notamment être le cas si votre application web doit accéder à une base de données ou à des services web exécutés sur des machines virtuelles de votre réseau virtuel, voire dans votre propre centre de données. Cette fonctionnalité ne vous permet toutefois pas de monter un lecteur. De même, elle ne prend pas en charge actuellement l’intégration aux systèmes d’authentification dans votre réseau virtuel. Cette fonctionnalité est à un stade préliminaire et continuera d'être améliorée avant d'être mise à la disposition du grand public.
 
 Pour plus de détails sur les réseaux virtuels Azure, consultez la rubrique « Vue d'ensemble des réseaux virtuels » relative aux cas d'utilisation et avantages d'un réseau virtuel Azure.
 
+[AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
+
 ## Prise en main ##
 Voici quelques informations à garder à l’esprit avant de connecter votre application web à un réseau virtuel.
 
-1.	Les applications web ne peuvent être connectées à un réseau virtuel que si elles s’exécutent dans un plan App Service présentant le niveau de tarification **Standard**. Les applications web des plans Gratuit, Partagé et De base ne peuvent pas être connectées à un réseau virtuel.
+1.	Les Web Apps ne peuvent être connectées à un réseau virtuel que si elles s’exécutent dans un plan App Service ayant le niveau de tarification **Standard**. Les applications web des plans Gratuit, Partagé et De base ne peuvent pas être connectées à un réseau virtuel.
 2.	Si votre réseau virtuel cible existe déjà, il doit prendre en charge la connexion de point à site avec une passerelle de routage dynamique avant de pouvoir être connecté à une application web. Vous ne pouvez pas activer le réseau privé virtuel (VPN) de point à site si votre passerelle est configurée avec un routage statique.
 3.	Votre plan App Service peut comporter un maximum de 5 réseaux configurés. Une application web ne peut être connectée qu’à un seul réseau à la fois. Ces 5 réseaux sont utilisables par un nombre quelconque d'applications web appartenant au même plan App Service.  
 
@@ -50,7 +53,7 @@ Pour connecter une application web à un réseau virtuel, accédez au panneau de
 
 ![](./media/web-sites-integrate-with-vnet/connect-to-existing-vnet.png)
  
-Le système crée ensuite un certificat pour l’authentification auprès de votre réseau virtuel s’il s’agit de la première application web de votre abonnement à établir une connexion à ce réseau. Pour voir le certificat, accédez au [portail Azure](http://go.microsoft.com/fwlink/?LinkId=529715), cliquez sur Réseaux virtuels, sélectionnez le réseau, puis cliquez sur l'onglet Certificats.
+Le système crée ensuite un certificat pour l’authentification auprès de votre réseau virtuel s’il s’agit de la première application web de votre abonnement à établir une connexion à ce réseau. Pour voir le certificat, accédez au [portail Azure](http://go.microsoft.com/fwlink/?LinkId=529715), cliquez sur Réseaux virtuels, sélectionnez le réseau, puis cliquez sur l’onglet Certificats.
 
 Dans l'illustration ci-dessus, le réseau nommé cantConnectVnet est grisé et ne peut pas être sélectionné. Il ne peut y avoir que deux raisons à cela. Soit le VPN de point à site n’est pas activé sur votre réseau, soit vous n’avez pas approvisionné une passerelle de routage dynamique dans votre réseau virtuel. Lorsque ces deux conditions seront remplies, vous pourrez sélectionner le réseau virtuel pour l’intégration à votre application web.
 
@@ -106,4 +109,4 @@ Une autre différence est que vous devez installer un agent de relais pour que l
 * Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre l’ancien et le nouveau portail, consultez la page [Références sur la navigation dans le portail Azure](http://go.microsoft.com/fwlink/?LinkId=529715).
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO3-->

@@ -2,23 +2,26 @@
 	pageTitle="Configuration avancée et extensions des applications web Azure App Service"
 	description="Utilisez les déclarations XDT (XML Document Transformation) pour transformer le fichier ApplicationHost.config dans votre application web Azure App Service et ajouter des extensions privées permettant d’effectuer des actions d’administration personnalisées."
 	authors="cephalin"
+	writer="cephalin"
 	editor="mollybos"
 	manager="wpickett"
 	services="app-service\web"
 	documentationCenter=""/>
 
 <tags
-	ms.service="app-service-web"
+	ms.service="app-service"
 	ms.workload="web"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/06/2015"
+	ms.date="09/16/2015"
 	ms.author="cephalin"/>
 
 # Configuration avancée et extensions des applications web Azure App Service
 
 En utilisant les déclarations [XML Document Transformation](http://msdn.microsoft.com/library/dd465326.aspx) (XDT), vous pouvez transformer le fichier [ApplicationHost.config](http://www.iis.net/learn/get-started/planning-your-iis-architecture/introduction-to-applicationhostconfig) de votre application web dans Azure App Service. Vous pouvez également utiliser les déclarations XDT pour ajouter des extensions privées autorisant des actions d’administration d’application web personnalisées. Le présent article inclut un exemple d’extension d’application web PHP Manager, qui permet de gérer les paramètres PHP par le biais d’une interface web.
+
+[AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
 ##<a id="transform"></a>Configuration avancée via ApplicationHost.config
 La plateforme App Service apporte flexibilité et contrôle à la configuration de l’application web. Bien que le fichier de configuration ApplicationHost.config IIS standard ne puisse pas être modifié directement dans App Service, la plateforme prend en charge un modèle de transformation ApplicationHost.config déclaratif basé sur XDT.
@@ -179,4 +182,4 @@ Il est possible de désactiver toutes les extensions privées (non préinstallé
 [TransformSiteSolEx]: ./media/web-sites-transform-extend/TransformSiteSolEx.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

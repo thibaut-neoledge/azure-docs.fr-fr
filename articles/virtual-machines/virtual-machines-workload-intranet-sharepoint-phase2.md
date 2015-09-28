@@ -11,13 +11,15 @@
 <tags
 	ms.service="virtual-machines"
 	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="vm-windows-sharepoint"
+	ms.tgt_pltfrm="Windows"
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="07/21/2015"
 	ms.author="josephd"/>
 
 # Phase 2 de la charge de travail de la batterie de serveurs SharePoint intranet : configuration de contrôleurs de domaine
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Cet article traite de la création de ressources avec le modèle de déploiement classique.
 
 Au cours de cette phase de déploiement d'une batterie de serveurs SharePoint 2013 intranet avec des groupes de disponibilité SQL Server AlwaysOn dans des services d'infrastructure Azure, vous configurez deux contrôleurs de domaine dans le réseau virtuel Azure dans la gestion des services. Les requêtes web des clients pour les ressources de la batterie de serveurs SharePoint peuvent être authentifiées sur le réseau virtuel Azure, plutôt que d'envoyer le trafic d'authentification via la connexion VPN ou Azure ExpressRoute vers votre réseau local.
 
@@ -41,7 +43,7 @@ Tout d'abord, vous devez remplir la colonne **Nom de la machine virtuelle** de l
 
 **Table M – machines virtuelles pour la batterie de serveurs SharePoint 2013 intranet dans Azure**
 
-Pour une liste complète des tailles des machines virtuelles, consultez la rubrique [Tailles de machines virtuelles](virtual-machines-size-specs.md).
+Pour obtenir la liste complète des tailles des machines virtuelles, consultez la rubrique [Tailles de machines virtuelles](virtual-machines-size-specs.md).
 
 Utilisez le bloc de commandes Azure PowerShell suivant pour créer les machines virtuelles pour les deux contrôleurs de domaine. Spécifiez les valeurs des variables en supprimant les caractères < and >. Notez que ce jeu de commandes Azure PowerShell utilise les valeurs des tables suivantes :
 
@@ -104,7 +106,7 @@ Une fois que vous avez fourni toutes les valeurs requises, exécutez le bloc ré
 
 Ouvrez une session sur le premier contrôleur de domaine en utilisant les informations d'identification du compte d'administrateur local.
 
-### <a id="logon"></a>Connexion une machine virtuelle à l'aide d'une connexion Bureau à distance
+### <a id="logon"></a>Connexion une machine virtuelle à l’aide d’une connexion Bureau à distance
 
 1.	Dans le portail Azure, cliquez sur **Machines virtuelles** dans le volet gauche.
 2.	Pour vous connecter à une machine virtuelle, cliquez sur **En cours d'exécution** dans la colonne **État** en regard de son nom.
@@ -113,7 +115,7 @@ Ouvrez une session sur le premier contrôleur de domaine en utilisant les inform
 5.	La boîte de dialogue de navigateur s'affiche et vous demande « Voulez-vous ouvrir ou enregistrer ComputerName.rdp depuis manage.windowsazure.com ? » Cliquez sur **Ouvrir**.
 6.	Dans la boîte de dialogue **Connexion Bureau à distance**, cliquez sur **Connecter**.
 7.	Dans la boîte de dialogue **Sécurité de Windows**, cliquez sur **Utiliser un autre compte**.
-8.	Sous **Nom d'utilisateur**, saisissez le nom de la machine virtuelle et le nom d'utilisateur du compte administrateur local créé avec la machine virtuelle (un compte d'ordinateur local). Utilisez le format suivant : *ComputerName**LocalAdministratorAccountName*
+8.	Sous **Nom d'utilisateur**, saisissez le nom de la machine virtuelle et le nom d'utilisateur du compte administrateur local créé avec la machine virtuelle (un compte d'ordinateur local). Utilisez le format suivant : *ComputerName*\*LocalAdministratorAccountName*
 9.	Sous **Mot de passe**, tapez le mot de passe pour le compte administrateur local.
 10.	Cliquez sur **OK**.
 11.	Dans la boîte de dialogue **Connexion Bureau à distance**, cliquez sur **Oui**. Le bureau de la nouvelle machine s'affiche dans une fenêtre de session Bureau à distance.
@@ -138,7 +140,7 @@ Ensuite, testez la connectivité du premier contrôleur de domaine aux emplaceme
 ### <a id="testconn"></a>Test de la connectivité
 
 1.	Ouvrez une invite de commandes Windows PowerShell à partir du bureau.
-2.	Utilisez la commande **ping** pour effectuer un test Ping des noms et des adresses des ressources sur le réseau de votre entreprise.
+2.	Utilisez la commande **ping** pour effectuer un test Ping des noms et des adresses IP des ressources sur le réseau de votre entreprise.
 
 Cette procédure garantit que la résolution de noms DNS fonctionne correctement (autrement dit, que la machine virtuelle est configurée correctement avec des serveurs DNS locaux) et que les paquets peuvent être transmis à destination et en provenance du réseau virtuel intersite.
 
@@ -210,7 +212,7 @@ Ensuite, mettez à jour les serveurs DNS de votre réseau virtuel afin qu'Azure 
  - Table V – Élément 6 – Colonne Valeur
  - Table V – Élément 7 – Colonne Valeur
 5.	Dans la barre de commandes de la partie inférieure, cliquez sur **Enregistrer**.
-6.	Dans le volet gauche du portail Azure, cliquez sur **Machines virtuelles**, puis cliquez sur la colonne **État** située en regard de votre premier contrôleur de domaine.
+6.	Dans le volet gauche du portail Azure, cliquez sur **Machines virtuelles**, puis cliquez sur la colonne **État** située en regard du nom de votre premier contrôleur de domaine.
 7.	Dans la barre de commandes, cliquez sur **Redémarrer**.
 8.	Lorsque le premier contrôleur de domaine est démarré, cliquez sur la colonne **État** en regard du nom de votre second contrôleur de domaine.
 9.	Dans la barre de commandes, cliquez sur **Redémarrer**. Attendez le démarrage du second contrôleur de domaine.
@@ -230,7 +232,7 @@ Ce schéma illustre la configuration résultant de la réussite de cette phase, 
 
 ## Étape suivante
 
-Pour poursuivre la configuration de cette charge de travail, passez à la [Phase 3 : configuration de l’infrastructure SQL Server](virtual-machines-workload-intranet-sharepoint-phase3.md).
+Pour poursuivre la configuration de cette charge de travail, passez à la [Phase 3 : configurer l’infrastructure SQL Server](virtual-machines-workload-intranet-sharepoint-phase3.md).
 
 ## Ressources supplémentaires
 
@@ -246,4 +248,4 @@ Pour poursuivre la configuration de cette charge de travail, passez à la [Phase
 
 [Charge de travail des services d’infrastructure Azure : applications métier à haute disponibilité](virtual-machines-workload-high-availability-lob-application.md)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO3-->

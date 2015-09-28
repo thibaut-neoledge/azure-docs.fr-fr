@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/13/2015" 
+	ms.date="09/09/2015" 
 	ms.author="awills"/>
  
 # Prise en main d’Application Insights avec Java dans Eclipse
@@ -116,6 +116,104 @@ Les mesures liées au nombre de consultations de la page, à l’utilisateur et 
 
 [En savoir plus sur la configuration de la télémétrie côté client.][usage]
 
+## Publication de votre application
+
+Publiez maintenant votre application sur le serveur, laissez le temps aux usagers de l’utiliser, puis observez les données de télémétrie qui s’affichent sur le portail.
+
+* Assurez-vous que votre pare-feu autorise votre application à envoyer les données de télémétrie vers ces ports :
+
+ * dc.services.VisualStudio.com:443
+ * dc.services.visualstudio.com:80
+ * f5.services.visualstudio.com:443
+ * f5.services.visualstudio.com:80
+
+
+* Sur les serveurs Windows, installez :
+
+ * [Redistribuable Microsoft Visual C++](http://www.microsoft.com/download/details.aspx?id=40784)
+
+    (Cette opération active les compteurs de performances.)
+
+## Exceptions et échecs de requêtes
+
+Les exceptions non gérées sont collectées automatiquement :
+
+![](./media/app-insights-java-get-started/21-exceptions.png)
+
+Pour collecter les données concernant d’autres exceptions, vous disposez de deux options :
+
+* [Insérez des appels à TrackException dans votre code](app-insights-api-custom-events-metrics.md#track-exception). 
+* [Installez l’agent Java sur votre serveur](app-insights-java-agent.md). Vous spécifiez les méthodes que vous souhaitez surveiller.
+
+
+## Surveiller les appels de méthode et les dépendances externes
+
+[Installez l’agent Java](app-insights-java-agent.md) pour journaliser les méthodes internes spécifiées et les appels effectués via JDBC, avec des données de minutage.
+
+
+## Compteurs de performances
+
+Cliquez sur la mosaïque **Serveurs** et vous verrez un ensemble de compteurs de performances.
+
+
+![](./media/app-insights-java-get-started/11-perf-counters.png)
+
+### Personnaliser la collecte des compteurs de performances
+
+Pour désactiver la collecte du jeu standard de compteurs de performances, ajoutez le code suivant sous le nœud racine du fichier ApplicationInsights.xml :
+
+    <PerformanceCounters>
+       <UseBuiltIn>False</UseBuiltIn>
+    </PerformanceCounters>
+
+### Collecter des compteurs de performances supplémentaires
+
+Vous pouvez spécifier d'autres compteurs de performances à collecter.
+
+#### Compteurs JMX (exposés par la machine virtuelle Java)
+
+    <PerformanceCounters>
+      <Jmx>
+        <Add objectName="java.lang:type=ClassLoading" attribute="TotalLoadedClassCount" displayName="Loaded Class Count"/>
+        <Add objectName="java.lang:type=Memory" attribute="HeapMemoryUsage.used" displayName="Heap Memory Usage-used" type="composite"/>
+      </Jmx>
+    </PerformanceCounters>
+
+*	`displayName` : nom affiché sur le portail Application Insights.
+*	`objectName` : nom de l'objet JMX.
+*	`attribute`  attribut du nom d'objet JMX à récupérer
+*	`type` (facultatif) : type d'attribut d'objet JMX :
+ *	Par défaut : un type simple, comme int ou long.
+ *	`composite` : les données du compteur de performances sont au format « Attribute.Data »
+ *	`tabular` : les données du compteur de performances sont au format ligne de tableau
+
+
+
+#### Compteurs de performances Windows
+
+Chaque [compteur de performances Windows](https://msdn.microsoft.com/library/windows/desktop/aa373083.aspx) est un membre d'une catégorie (de la même façon qu'un champ est un membre d'une classe). Les catégories peuvent être globales ou peuvent avoir des instances numérotées ou nommées.
+
+    <PerformanceCounters>
+      <Windows>
+        <Add displayName="Process User Time" categoryName="Process" counterName="%User Time" instanceName="__SELF__" />
+        <Add displayName="Bytes Printed per Second" categoryName="Print Queue" counterName="Bytes Printed/sec" instanceName="Fax" />
+      </Windows>
+    </PerformanceCounters>
+
+*	displayName : nom affiché sur le portail Application Insights.
+*	categoryName : catégorie du compteur de performances (objet de performances) à laquelle ce compteur de performances est associé.
+*	counterName : nom du compteur de performances.
+*	instanceName : nom de l'instance de catégorie de compteur de performances ou une chaîne vide ("") si la catégorie contient une seule instance. Si categoryName est Process et que le compteur de performance que vous souhaitez collecter vient du processus en cours de la JVM sur laquelle votre application s'exécute, spécifiez `"__SELF__"`.
+
+Les compteurs de performances sont visibles en tant que mesures personnalisées dans [Metrics Explorer][metrics].
+
+![](./media/app-insights-java-get-started/12-custom-perfs.png)
+
+
+### Compteurs de performances Unix
+
+* [Installez collectd avec le plug-in Application Insights](app-insights-java-collectd.md) pour obtenir une grande variété de données sur le système et le réseau.
+
 ## Tests web de disponibilité
 
 Application Insights peut tester votre site web à intervalles réguliers pour vérifier qu’il fonctionne et répond correctement. Pour cela, cliquez sur les graphiques de tests web vides dans le panneau Vue d’ensemble et indiquez votre URL publique.
@@ -169,4 +267,4 @@ Vous pouvez insérer le code dans le JavaScript de la page web et dans le Java c
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

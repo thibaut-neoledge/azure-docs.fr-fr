@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="tbd"
-   ms.date="07/21/2015"
+   ms.date="09/10/2015"
    ms.author="banders" />
 
 
@@ -345,4 +345,4 @@ Vous pouvez spécifier les marqueurs de début et de fin qui seront utilisés pa
 
 Notez que le résultat ci-dessus contient un message d'erreur qui a été préfixé et ajouté.
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

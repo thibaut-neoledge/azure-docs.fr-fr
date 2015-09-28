@@ -5,15 +5,15 @@
 	documentationCenter="" 
 	authors="cephalin" 
 	manager="wpickett" 
-	editor="mollybos"/>
+	editor="jimbe"/>
 
 <tags 
-	ms.service="app-service-web" 
+	ms.service="app-service" 
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/03/2015" 
+	ms.date="09/16/2015" 
 	ms.author="cephalin"/>
 
 # Sauvegarder une application web dans Azure App Service
@@ -22,6 +22,8 @@
 La fonctionnalité de sauvegarde et de restauration d’[Azure App Service Web Apps](http://go.microsoft.com/fwlink/?LinkId=529714) vous permet de créer facilement des sauvegardes d’application Web manuelles et automatiques. Vous pouvez restaurer votre application web à une étape précédente ou créer une nouvelle application web basée sur l’une des sauvegardes de votre application d’origine.
 
 Pour plus d’informations sur la restauration d’une application Web Azure à partir d’une sauvegarde, consultez [Restaurer une application Web](web-sites-restore.md).
+
+[AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
 <a name="whatsbackedup"></a>
 ## Éléments sauvegardés 
@@ -40,7 +42,7 @@ Ces informations sont sauvegardées dans le conteneur et le compte de stockage A
 
 * La fonction de sauvegarde et de restauration implique que le site soit en mode Standard. Pour plus d’informations sur l’évolution de votre application Web en vue d’utiliser le mode Standard, consultez [Faire évoluer une application Web dans Azure App Service](web-sites-scale.md). Notez que le mode Premium permet de réaliser un nombre supérieur de sauvegardes quotidiennes par rapport au mode Standard.
 
-* La fonctionnalité de sauvegarde et de restauration requiert un conteneur et un compte de stockage Azure relevant du même abonnement que l’application web que vous sauvegardez. Si vous ne disposez pas encore d’un compte de stockage, vous pouvez en créer un. Pour cela, cliquez sur **Compte de stockage** dans le panneau **Sauvegardes** du [portail Azure en version préliminaire](http://portal.azure.com), choisissez le **Compte de stockage** et le **Conteneur** dans le panneau **Destination**. Pour plus d'informations sur les comptes de stockage Azure, consultez les [liens](#moreaboutstorage) situés en bas de cet article.
+* La fonctionnalité de sauvegarde et de restauration requiert un conteneur et un compte de stockage Azure relevant du même abonnement que l’application web que vous sauvegardez. Si vous ne possédez pas encore de compte de stockage, vous pouvez en créer un. Pour cela, cliquez sur **Compte de stockage** dans le panneau **Sauvegardes** du [portail Azure en version préliminaire](http://portal.azure.com), puis choisissez le **Compte de stockage** et le **Conteneur** dans le panneau **Destination**. Pour plus d'informations sur les comptes de stockage Azure, consultez les [liens](#moreaboutstorage) situés en bas de cet article.
 
 * La fonctionnalité de sauvegarde et de restauration prend en charge jusqu’à 10 Go de contenu de site Web et de base de données. Une erreur est indiquée dans les journaux des opérations lorsqu’un dépassement de ce seuil empêche la sauvegarde.
 
@@ -111,7 +113,7 @@ Vous pouvez à tout moment effectuer une sauvegarde manuelle.
 
 Parfois, vous ne souhaitez pas sauvegarder tout le contenu de votre application web. Voici quelques exemples :
 
--	Vous [configurez des sauvegardes hebdomadaires](web-sites-backup.md#configure-automated-backups) de votre application web qui contient du contenu statique qui ne change jamais, comme des anciens billets de blog ou des images.
+-	Vous [configurez une sauvegarde hebdomadaire](web-sites-backup.md#configure-automated-backups) de votre application web qui contient du contenu statique qui ne change jamais, comme des anciens billets de blog ou des images.
 -	Votre application web a plus de 10 Go de contenu (qui est la quantité maximale que vous pouvez sauvegarder à la fois).
 -	Vous ne souhaitez pas sauvegarder les fichiers journaux.
 
@@ -138,15 +140,15 @@ Les étapes ci-dessous vous montrent comment exclure ces fichiers de la sauvegar
 
 	[AZURE.NOTE]La dernière ligne montre que vous pouvez exclure des fichiers individuels, ainsi que des dossiers.
 
-2. Créez un fichier appelé `_backup.filter` et placez la liste ci-dessus dans le fichier, mais supprimez `D:\home`. Listez un répertoire ou fichier par ligne. Par conséquent, le contenu du fichier doit ressembler à ce qui suit :
+2. Créez un fichier sous le nom `_backup.filter` et placez la liste précédente dans le fichier, mais supprimez `D:\home`. Listez un répertoire ou fichier par ligne. Par conséquent, le contenu du fichier doit ressembler à ce qui suit :
 
     \site\wwwroot\Logs \LogFiles \site\wwwroot\Images\2013 \site\wwwroot\Images\2014 \site\wwwroot\Images\brand.png
 
-3. Téléchargez ce fichier vers le répertoire `D:\home\site\wwwroot` de votre site en utilisant la méthode [ftp](web-sites-deploy.md#ftp) ou toute autre méthode. Si vous le souhaitez, vous pouvez créer le fichier directement dans `http://{yourapp}.scm.azurewebsites.net/DebugConsole` et y insérer le contenu.
+3. Téléchargez ce fichier vers le répertoire `D:\home\site\wwwroot` de votre site en utilisant [ftp](web-sites-deploy.md#ftp) ou toute autre méthode. Si vous le souhaitez, vous pouvez créer le fichier directement dans `http://{yourapp}.scm.azurewebsites.net/DebugConsole` et y insérer le contenu.
 
-4. Exécutez des sauvegardes de la même façon que vous le feriez normalement, [manuellement](#create-a-manual-backup) ou [automatiquement](#configure-automated-backups).
+4. Exécutez des sauvegardes comme vous le faites normalement, [manuellement](#create-a-manual-backup) ou [automatiquement](#configure-automated-backups).
 
-Maintenant, tous les fichiers et dossiers qui sont spécifiés dans `_backup.filter` seront exclus de la sauvegarde. Dans cet exemple, les fichiers journaux et les fichiers image 2013 et 2014 ne seront plus sauvegardés, ainsi que brand.png.
+Dorénavant, tous les fichiers et dossiers spécifiés dans `_backup.filter` seront exclus de la sauvegarde. Dans cet exemple, les fichiers journaux et les fichiers image 2013 et 2014 ne seront plus sauvegardés, ainsi que brand.png.
 
 >[AZURE.NOTE]Pour restaurer les sauvegardes partielles de votre site, procédez de la même façon que pour [restaurer une sauvegarde régulière](web-sites-restore.md). Le processus de restauration fait ce qu'il faut.
 >
@@ -156,9 +158,9 @@ Maintenant, tous les fichiers et dossiers qui sont spécifiés dans `_backup.fil
 
 ## Mode de stockage des sauvegardes
 
-Dès lors que vous avez effectué une ou plusieurs sauvegardes pour votre application web, ces dernières apparaissent dans le panneau **Conteneurs** de votre compte de stockage, ainsi que votre application web. Dans le compte de stockage, chaque sauvegarde se compose d'un fichier .zip et d'un fichier .xml contenant respectivement les données sauvegardées et un manifeste du contenu du fichier .zip. Vous pouvez décompresser et parcourir ces fichiers si vous souhaitez accéder à vos sauvegardes sans réellement effectuer une restauration d'application web.
+Dès lors que vous avez effectué une ou plusieurs sauvegardes de votre application web, celles-ci apparaissent dans le panneau **Conteneurs** de votre compte de stockage, tout comme votre application web. Dans le compte de stockage, chaque sauvegarde se compose d'un fichier .zip et d'un fichier .xml contenant respectivement les données sauvegardées et un manifeste du contenu du fichier .zip. Vous pouvez décompresser et parcourir ces fichiers si vous souhaitez accéder à vos sauvegardes sans réellement effectuer une restauration d'application web.
 
-La sauvegarde de base de données pour l'application web est stockée dans la racine du fichier .zip. Pour une base de données SQL, il s'agit d'un fichier BACPAC (pas d'extension de fichier) qui peut être importé. Pour créer une nouvelle base de données SQL en fonction de l'exportation de BACPAC, consultez [Importer un fichier BACPAC pour créer une nouvelle base de données utilisateur](http://technet.microsoft.com/library/hh710052.aspx).
+La sauvegarde de base de données pour l'application web est stockée dans la racine du fichier .zip. Pour une base de données SQL, il s'agit d'un fichier BACPAC (pas d'extension de fichier) qui peut être importé. Pour créer une base de données SQL à partir de l’exportation BACPAC, consultez [Importer un fichier BACPAC pour créer une nouvelle base de données utilisateur](http://technet.microsoft.com/library/hh710052.aspx).
 
 > [AZURE.WARNING]Toute modification apportée aux fichiers de votre conteneur **websitebackups** peut invalider la sauvegarde et la rendre impossible à restaurer.
 
@@ -178,13 +180,13 @@ Votre stratégie de restauration doit être semblable à ce qui suit :
 -	Restaurez la sauvegarde complète de l'application web sur le module de transfert.
 -	Restaurez la dernière sauvegarde partielle par-dessus la restauration de la sauvegarde complète, également sur le module de transfert.
 -	Testez la restauration pour vérifier que l'application intermédiaire fonctionne correctement.
--	[Basculez](web-sites-staged-publishing.md#Swap) l'application web nouvellement créée vers l'emplacement de production.
+-	[Basculez](web-sites-staged-publishing.md#Swap) l’application web nouvellement créée vers l’emplacement de production.
 
->[AZURE.NOTE]Testez toujours votre processus de restauration. Pour plus d'informations, consultez [Très bonne chose](http://axcient.com/blog/one-thing-can-derail-disaster-recovery-plan/). Par exemple, certaines plateformes de création de blogs, comme [Ghost](https://ghost.org/) ont des avertissements explicites sur leur fonctionnement lors d'une sauvegarde. En testant votre processus de restauration, vous pouvez intercepter ces avertissements avant d'être confronté à une défaillance ou un sinistre.
+>[AZURE.NOTE]Testez toujours votre processus de restauration. Pour plus d’informations, consultez [Très bonne chose](http://axcient.com/blog/one-thing-can-derail-disaster-recovery-plan/). Par exemple, certaines plateformes de blogging, comme [Ghost](https://ghost.org/), présentent des mises en garde explicites sur leur comportement pendant une sauvegarde. En testant votre processus de restauration, vous pouvez intercepter ces avertissements avant d'être confronté à une défaillance ou un sinistre.
 
 <a name="nextsteps"></a>
 ## Étapes suivantes
-Pour plus d'informations sur la restauration d'une application web à partir d'une sauvegarde, consultez [Restaurer une application web dans Azure App Service](web-sites-restore.md).
+Pour plus d’informations sur la restauration d’une application web à partir d’une sauvegarde, consultez [Restaurer une application web dans Azure App Service](web-sites-restore.md).
 
 Pour la prise en main d'Azure, consultez la page [Version d'évaluation gratuite de Microsoft Azure](/pricing/free-trial/).
 
@@ -220,4 +222,4 @@ Pour la prise en main d'Azure, consultez la page [Version d'évaluation gratuite
 [GhostUpgradeWarning]: ./media/web-sites-backup/13GhostUpgradeWarning.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

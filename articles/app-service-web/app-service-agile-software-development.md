@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Développement logiciel agile avec Azure App Service"
 	description="Apprenez à créer des applications complexes à grande échelle avec Azure App Service afin que le développement logiciel agile soit pris en charge."
-	services="app-service\web"
+	services="app-service\web,app-service\api,app-service\mobile"
 	documentationCenter=""
 	authors="cephalin"
 	manager="wpickett"
@@ -33,6 +33,8 @@ Le tableau suivant comporte une courte liste de prérequis associés au dévelop
 | - Afficher aisément le résultat de la dernière génération | Le déploiement continu entre un référentiel et Azure signifie que vous pouvez tester le nouveau code d’une application en direct dans une application immédiatement après avoir validé vos modifications. |
 | - Effectuer des validations quotidiennes dans la branche principale<br>- Automatiser le déploiement | L’intégration continue d’une application de production dans la branche principale d’un référentiel déploie automatiquement chaque validation/fusion dans la branche principale en production. |
 
+[AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
+
 ## Procédure à suivre ##
 
 Vous découvrirez un flux de travail de type développement-test-intermédiaire-production pour publier les modifications apportées à l’exemple d’application [ToDoApp](https://github.com/azure-appservice-samples/ToDoApp), qui se compose de deux [applications web](/services/app-service/web/), l’une étant un serveur frontal (FE) et l’autre un serveur principal d’API Web (BE), et d’une [base de données SQL](/services/sql-database/). Vous utiliserez l’architecture de déploiement illustrée ci-dessous :
@@ -44,7 +46,7 @@ Voici la situation telle qu’elle apparaît :
 -	L’architecture de déploiement est divisée en trois environnements distincts (appelés [groupes de ressources](resource-group-overview.md) dans Azure), chacun disposant de son propre [plan App Service](azure-web-sites-web-hosting-plans-in-depth-overview.md), des paramètres de [mise à l’échelle](web-sites-scale.md) et de la base de données SQL. 
 -	Chaque environnement peut être géré séparément. Il peut même être couvert par des abonnements différents.
 -	Les phases intermédiaire et de production sont implémentées comme deux emplacements de la même application App Service. La branche principale est configurée pour l’intégration continue avec l’emplacement intermédiaire.
--	Lorsqu’une validation pour la branche principale est vérifiée sur l’emplacement intermédiaire (avec des données de production), l’application intermédiaire vérifiée est permutée dans l’emplacement de production [sans interruption](web-sites-staged-publishing.md).
+-	Quand une validation pour la branche principale est vérifiée sur l’emplacement intermédiaire (avec des données de production), l’application intermédiaire vérifiée est permutée dans l’emplacement de production [sans interruption](web-sites-staged-publishing.md).
 
 L’environnement de production et intermédiaire est défini par le modèle dans [*&lt;racine\_référentiel>*/ARMTemplates/ProdandStage.json](https://github.com/azure-appservice-samples/ToDoApp/blob/master/ARMTemplates/ProdAndStage.json).
 
@@ -77,11 +79,11 @@ Vous utiliserez également la stratégie de création de branchement typique, qu
 
 Dans un scénario classique d’opérations de développement, vous disposez d’une application qui s’exécute dans Azure et vous souhaitez lui apporter des modifications par le biais de la publication continue. Dans ce scénario, vous disposez d’un modèle que vous avez développé, testé et utilisé pour déployer l’environnement de production. Vous allez le configurer dans cette section.
 
-1.	Créez votre branchement dans le référentiel [ToDoApp](https://github.com/azure-appservice-samples/ToDoApp). Pour plus d’informations sur la création de votre branchement, consultez [Branchement dans un référentiel](https://help.github.com/articles/fork-a-repo/). Une fois votre branchement créé, il est visible dans votre navigateur.
+1.	Créez votre branchement dans le référentiel [ToDoApp](https://github.com/azure-appservice-samples/ToDoApp). Pour plus d’informations sur la création de votre branchement, voir [Branchement de référentiel](https://help.github.com/articles/fork-a-repo/). Une fois votre branchement créé, il est visible dans votre navigateur.
  
 	![](./media/app-service-agile-software-development/production-1-private-repo.png)
 
-2.	Ouvrez une session Git Shell. Si vous n’avez pas encore Git Shell, installez [GitHub for Windows](https://windows.github.com/).
+2.	Ouvrez une session Git Shell. Si vous n’avez pas encore Git Shell, installez [GitHub pour Windows](https://windows.github.com/).
 
 3.	Créez un clone local de votre branchement en exécutant la commande suivante :
 
@@ -107,9 +109,9 @@ Dans un scénario classique d’opérations de développement, vous disposez d�
 
 7.	Lorsque le script se termine, revenez en arrière pour accéder à l’adresse du serveur frontal (http://ToDoApp*&lt;unique_string> * master.azurewebsites.net/) afin d’afficher l’application qui s’exécute en production.
  
-5.	Connectez-vous à la [version préliminaire du portail Azure](https://portal.azure.com) et observez ce qui est créé.
+5.	Connectez-vous au [portail Azure version préliminaire ](https://portal.azure.com) et observez ce qui est créé.
 
-	Les deux applications web doivent figurer dans le même groupe de ressources, le nom de l’une d’elles doit comporter le suffixe `Api`. Si vous examinez l’affichage de groupe de ressources, vous pouvez voir également la base de données et le serveur SQL, le plan App Service et les emplacements intermédiaires pour les applications web. Parcourez les différentes ressources et comparez-les à *&lt;racine\_référentiel>*\\ARMTemplates\\ProdAndStage.json pour voir comment elles sont configurées dans le modèle.
+	Les deux applications web doivent figurer dans le même groupe de ressources, et le nom de l’une d’elles doit comporter le suffixe `Api`. Si vous examinez l’affichage de groupe de ressources, vous pouvez voir également la base de données et le serveur SQL, le plan App Service et les emplacements intermédiaires pour les applications web. Parcourez les différentes ressources et comparez-les à *&lt;racine\_référentiel>*\\ARMTemplates\\ProdAndStage.json pour voir comment elles sont configurées dans le modèle.
 
 	![](./media/app-service-agile-software-development/production-3-resource-group-view.png)
 
@@ -174,7 +176,7 @@ Les fichiers de modèle ProdAndStage.json et Dev.json comportent déjà les para
 
 		git checkout Dev
 
-2.	Apportez une modification simple à la couche d’interface utilisateur de l’application. Pour cela, vous allez éditer le code pour activer l’utilisation des listes [Bootstrap](http://getbootstrap.com/components/). Ouvrez *&lt;racine\_référentiel>*\\src\\MultiChannelToDo.Web\\app\\index.cshtml et apportez les modifications mises en évidence ci-dessous :
+2.	Apportez une modification simple à la couche d’interface utilisateur de l’application. Pour cela, vous allez éditer le code pour activer l’utilisation des listes [Bootstrap](http://getbootstrap.com/components/). Ouvrez *&lt;racine\_référentiel>*\\src\\MultiChannelToDo.Web\\index.cshtml et apportez les modifications mises en évidence ci-dessous :
 
 	![](./media/app-service-agile-software-development/commit-1-changes.png)
 
@@ -279,4 +281,4 @@ Le développement logiciel agile est indispensable pour de nombreuses entreprise
 -	[Création ou modification des utilisateurs dans Azure AD](https://msdn.microsoft.com/library/azure/hh967632.aspx#BKMK_1)
 -	[Projet Wiki Kudu](https://github.com/projectkudu/kudu/wiki)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

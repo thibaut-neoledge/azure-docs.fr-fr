@@ -1,23 +1,23 @@
-<properties 
+<properties
    pageTitle="Configuration des services nécessaires pour publier un service cloud à partir de Visual Studio"
-	description="Découvrez les procédures de configuration des services de compte de stockage et cloud et de votre application Azure"
-	services="visual-studio-online"
-	documentationCenter="na"
-	authors="kempb"
-	manager="douge"
-	editor="tglee"/>
-<tags 
+   description="Découvrez les procédures de configuration des services de compte de stockage et cloud et de votre application Azure"
+   services="visual-studio-online"
+   documentationCenter="na"
+   authors="kempb"
+   manager="douge"
+   editor="tglee" />
+<tags
    ms.service="multiple"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="multiple"
-	ms.date="08/13/2015"
-	ms.author="kempb"/>
+   ms.devlang="dotnet"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="multiple"
+   ms.date="09/08/2015"
+   ms.author="kempb" />
 
 # Configuration des services nécessaires pour publier un service cloud à partir de Visual Studio
 
-##Vue d’ensemble
+## Vue d’ensemble
 
 Pour pouvoir publier un projet de service cloud, vous devez configurer les services suivants :
 
@@ -78,9 +78,9 @@ Un compte de stockage fournit l'accès aux services Blob, File d'attente et Tabl
     - L’abonnement Azure auquel vous voulez ajouter le compte de stockage
     - Le nom que vous voulez utiliser pour le nouveau compte de stockage
     - La région ou le groupe d’affinités (comme l’Ouest des États-Unis ou l’Est de l’Asie)
-    - Le type de réplication que vous voulez utiliser pour le compte de stockage, par exemple géo-redondant.
+    - Le type de réplication que vous souhaitez utiliser pour le compte de stockage, par exemple géo-redondant.
 
-1. Une fois ces opérations effectuées, sélectionnez **Créer**. Le nouveau compte de stockage s’affiche dans la liste **Stockage** de l’Explorateur de serveurs.
+1. Lorsque vous avez terminé, sélectionnez **Créer**. Le nouveau compte de stockage s'affiche dans la liste **Stockage** de l'Explorateur de serveurs.
 
 ### Pour créer un compte de stockage à l’aide du portail de gestion Azure
 
@@ -143,7 +143,7 @@ Vous devez configurer tous les rôles qui accèdent aux services de stockage pou
     1. Vous devez sélectionner une des options suivantes pour déterminer la façon dont le service accédera au compte de stockage :
         - **Utiliser HTTP**. Il s'agit de l'option standard. Par exemple : `http://<account name>.blob.core.windows.net`.
         - **Utiliser HTTPS** pour une connexion sécurisée. Par exemple : `https://<accountname>.blob.core.windows.net`.
-        - **Spécifier des points de terminaison personnalisés** pour chacun des trois services. Vous pouvez ensuite taper ces points de terminaison dans le champ du service. 
+        - **Spécifier des points de terminaison personnalisés** pour chacun des trois services. Vous pouvez ensuite taper ces points de terminaison dans le champ du service.
 
         >[AZURE.NOTE]Si vous créez des points de terminaison personnalisés, vous pouvez créer une chaîne de connexion plus complexe. Lorsque vous utilisez ce format de chaîne, vous pouvez spécifier des points de terminaison de service de stockage qui incluent un nom de domaine personnalisé que vous avez enregistré pour votre compte de stockage avec le service Blob. Vous pouvez également accorder l'accès uniquement aux ressources Blob dans un seul conteneur au moyen d’une signature d'accès partagé. Pour plus d’informations sur la création de points de terminaison personnalisés, consultez [Configuration des chaînes de connexion Azure Storage](https://azure.microsoft.com/documentation/articles/storage-configure-connection-string/).
 
@@ -153,4 +153,4 @@ Vous devez configurer tous les rôles qui accèdent aux services de stockage pou
 
 [Publication d’un service cloud Azure depuis Visual Studio](https://msdn.microsoft.com/library/azure/ee460772.aspx)
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

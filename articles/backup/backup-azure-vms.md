@@ -3,11 +3,11 @@
 	description="En savoir plus sur la sauvegarde d’une machine virtuelle Azure après inscription"
 	services="backup"
 	documentationCenter=""
-	authors="aashishr"
+	authors="trinadhk"
 	manager="shreeshd"
 	editor=""/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="hero-article" ms.date="09/09/2015" ms.author="aashishr"; "jimpark"/>
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="hero-article" ms.date="09/14/2015" ms.author="trinadhk"; "aashishr"; "jimpark"/>
 
 
 # Sauvegarde des machines virtuelles Azure
@@ -89,7 +89,7 @@ Pour protéger une machine virtuelle, procédez comme suit :
 
 4. L’Assistant **Protection des éléments** se trouve à l’endroit où vous pouvez sélectionner les machines virtuelles à protéger. Si au moins deux machines virtuelles portent le même nom, utilisez le service cloud pour les distinguer.
 
-    L’opération **Protéger** peut être effectuée à grande échelle, ce qui signifie que plusieurs machines virtuelles peuvent être sélectionnées en même temps pour l’inscription. Cela réduit considérablement les opérations nécessaires pour la protection de la machine virtuelle.
+    L’opération **Protéger** peut être exécutée à grande échelle, ce qui signifie que plusieurs machines virtuelles peuvent être sélectionnées en même temps pour être protégées. Cela réduit considérablement les opérations nécessaires pour la protection de la machine virtuelle.
 
     ![Configurer les paramètres de protection pendant la mise à jour](./media/backup-azure-vms/protect-at-scale.png)
 
@@ -101,7 +101,7 @@ Pour protéger une machine virtuelle, procédez comme suit :
 
     ![Protéger grâce à la nouvelle stratégie](./media/backup-azure-vms/policy-schedule.png)
 
-6. Dans le troisième écran de l’Assistant **Protéger les éléments**, choisissez une durée de rétention à associer à des sauvegardes effectuées. Ce filtre prend en charge le schéma de rétention standard de l’industrie GFS (Grand père-Père-Fils). En savoir plus sur [Rétention à Long terme] (backup-azure-vms-introduction.md#Long term retention).
+6. Dans le troisième écran de l’Assistant **Protéger les éléments**, choisissez une durée de rétention à associer à des sauvegardes effectuées. Cet écran prend en charge le schéma de rétention basé sur le modèle Grand père - Père - Fils (ou GFS), qui est la norme du secteur. En savoir plus sur la [rétention à long terme](#long-term-retention).
 
     Une stratégie de sauvegarde implique également le schéma de rétention des sauvegardes planifiées. La sélection d’une stratégie de sauvegarde existante dans l’écran précédent désactive la modification du schéma de rétention. Les sauvegardes respectent la politique de rétention, comme indiqué dans la stratégie.
 
@@ -136,13 +136,17 @@ Une fois la protection appliquée, le nombre de machines virtuelles augmente ég
 
 ![État de la sauvegarde sur la page Tableau de bord](./media/backup-azure-vms/dashboard-protectedvms.png)
 
+>[AZURE.NOTE]Les valeurs du tableau de bord sont actualisées toutes les 24 heures.
+
 ### Rétention à long terme
 La stratégie de rétention spécifie la durée de stockage de la sauvegarde. Au lieu de simplement spécifier une stratégie e rétention uniforme pour tous les points de sauvegarde, les clients peuvent spécifier différentes stratégies de rétention en fonction du moment où est effectuée la sauvegarde. Par exemple, le point de sauvegarde effectué à la fin de chaque trimestre peut devoir être conservé plus longtemps à des fins d’audit, alors que le point de sauvegarde effectué quotidiennement (qui fait office de point de récupération opérationnel) doit être conservé pendant 90 jours.
 
+![La machine virtuelle est sauvegardée avec un point de récupération](./media/backup-azure-vms/long-term-retention.png)
+
 1. **Stratégie de rétention quotidienne** : les sauvegardes effectuées quotidiennement sont stockées pendant 30 jours.
-2. **Stratégie de rétention hebdomadaire** : sauvegardes effectuées tous les samedis à minuit et 18 h 00 sont conservées pendant 104 semaines.
-3. **Stratégie de rétention mensuelle** : les sauvegardes effectuées le dernier samedi de chaque mois à minuit et à 18 h 00 sont conservées pendant 120 mois.
-4. **Stratégie de rétention annuelle** : les sauvegardes effectuées le dernier samedi de janvier de chaque année sont conservées pendant 99 ans.
+2. **Stratégie de rétention hebdomadaire** : les sauvegardes effectuées tous les dimanches sont conservées pendant 104 semaines.
+3. **Stratégie de rétention mensuelle** : les sauvegardes effectuées le dernier dimanche de chaque mois sont conservées pendant 120 mois.
+4. **Stratégie de rétention annuelle** : les sauvegardes effectuées le premier dimanche de janvier de chaque année sont conservées pendant 99 ans.
 
 ## Cohérence des points de récupération
 Lorsque vous traitez des données de sauvegarde, l’une des principales préoccupations des clients concerne le comportement de la machine virtuelle après sa restauration. Les questions habituelles des clients sont :
@@ -156,25 +160,25 @@ Le tableau suivant décrit les types de cohérence rencontrés pendant la restau
 
 | Cohérence | En fonction du service VSS | Explication et détails |
 |-------------|-----------|---------|
-| Cohérence des applications | Oui | C’est l’endroit idéal pour les charges de travail Microsoft, car il garantit les points suivants :<ol><li> La machine virtuelle *démarre*. <li>Les données *ne sont pas endommagées*. <li>Il n’y a *aucune perte de données*.<li> Les données sont cohérentes vis-à-vis de l’application qui les utilise, et appelle l’application au moment de la sauvegarde (à l’aide de VSS).</ol> Le service VSS (Volume Shadow Copy Service) garantit que les données sont correctement écrites dans le stockage. La plupart des charges de travail de Microsoft ont des enregistreurs VSS qui effectuent des actions de charges de travail spécifiques relatives à la cohérence des données. Par exemple, Microsoft SQL Server dispose d’un enregistreur VSS qui garantit que les écritures dans le journal des transactions et de la base de données sont effectuées correctement.<br><br> Pour la sauvegarde d’une machine virtuelle Azure, l’obtention d’un point de récupération cohérent signifie que l’extension de sauvegarde a pu appeler le flux de travail VSS et se terminer *correctement* avant la prise de l’instantané de la machine virtuelle. Bien entendu, cela signifie que les enregistreurs VSS de toutes les applications dans la machine virtuelle Azure ont été également appelés.<br><br>Découvrez les[principes de base du service VSS](http://blogs.technet.com/b/josebda/archive/2007/10/10/the-basics-of-the-volume-shadow-copy-service-vss.aspx), puis approfondissez vos connaissances sur [son fonctionnement](https://technet.microsoft.com/library/cc785914%28v=ws.10%29.aspx). |
-| Cohérence du système de fichiers | Oui : pour les machines Windows | Il existe deux scénarios où le point de récupération peut être cohérent avec le système de fichiers :<ul><li>En cas de sauvegarde de machines virtuelles Linux dans Azure, Linux n’ayant pas une plateforme équivalente à VSS.<li>En cas d’échec du service VSS lors de la sauvegarde de machines virtuelles Windows dans Azure.</li></ul> Dans ces deux cas, la meilleure solution consiste à garantir les points suivants : <ol><li> La machine virtuelle *démarre*. <li>Les données *ne sont pas endommagées*.<li>Il n’y a pas de *perte de données*.</ol> Les applications doivent implémenter leur propre mécanisme de « correctif » sur les données restaurées.|
+| Cohérence des applications | Oui | C’est l’endroit idéal pour les charges de travail Microsoft, car il apporte les garanties suivantes :<ol><li> La machine virtuelle *démarre*. <li>Les données *ne sont pas endommagées*. <li>Il n’y a *aucune perte de données*.<li> Les données sont cohérentes vis-à-vis de l’application qui les utilise grâce à la sollicitation de l’application au moment de la sauvegarde (à l’aide de VSS).</ol> Le service VSS (Volume Shadow Copy Service) garantit que les données sont correctement écrites dans le stockage. La plupart des charges de travail de Microsoft ont des enregistreurs VSS qui effectuent des actions de charges de travail spécifiques relatives à la cohérence des données. Par exemple, Microsoft SQL Server dispose d’un enregistreur VSS qui garantit que les écritures dans le journal des transactions et de la base de données sont effectuées correctement.<br><br> Pour la sauvegarde d’une machine virtuelle Azure, l’obtention d’un point de récupération cohérent signifie que l’extension de sauvegarde a pu appeler le flux de travail VSS et se terminer *correctement* avant la prise de l’instantané de la machine virtuelle. Bien entendu, cela signifie que les enregistreurs VSS de toutes les applications dans la machine virtuelle Azure ont été également appelés.<br><br>Découvrez les[principes de base du service VSS](http://blogs.technet.com/b/josebda/archive/2007/10/10/the-basics-of-the-volume-shadow-copy-service-vss.aspx), puis approfondissez vos connaissances sur [son fonctionnement](https://technet.microsoft.com/library/cc785914%28v=ws.10%29.aspx). |
+| Cohérence du système de fichiers | Oui : pour les machines Windows | Il existe deux scénarios où le point de récupération peut être cohérent avec le système de fichiers :<ul><li>En cas de sauvegarde de machines virtuelles Linux dans Azure, Linux n’ayant pas une plateforme équivalente à VSS.<li>En cas d’échec du service VSS lors de la sauvegarde de machines virtuelles Windows dans Azure.</li></ul> Dans les deux cas, la meilleure solution consiste à s’assurer que les éléments suivants sont réunis : <ol><li> La machine virtuelle *démarre*. <li>Les données *ne sont pas endommagées*.<li>Il n’y a pas de *perte de données*.</ol> Les applications doivent implémenter leur propre mécanisme de « correctif » sur les données restaurées.|
 | Cohérence en cas d’incident | Non | Cette situation est la même que lorsqu’une machine rencontre un « incident » (via une réinitialisation matérielle ou logicielle). Cela se produit généralement lorsque la machine virtuelle Azure est arrêtée au moment de la sauvegarde. Pour la sauvegarde d’une machine virtuelle Azure, l’obtention d’un point de récupération cohérent suite à un incident signifie qu’Azure Backup ne fournit aucune garantie de cohérence des données sur le support de stockage, que ce soit au niveau du système d’exploitation ou de l’application. Seules les données déjà présentes sur le disque au moment de la sauvegarde sont capturées et sauvegardées. <br/> <br/> Même s’il n’existe aucune garantie, dans la plupart des cas, le système d’exploitation démarre. Ce démarrage est généralement suivi d’une procédure de vérification du disque comme chkdsk permettant de résoudre les erreurs d’endommagement. Les données ou les écritures en mémoire qui n’ont pas été complètement transférées sur le disque seront perdues. Si une restauration de données est nécessaire, l’application suit généralement son propre mécanisme de vérification. Pour la sauvegarde de machine virtuelle Azure, l’obtention d’un point de récupération cohérent suite à un incident signifie que Microsoft Azure Backup ne fournit aucune garantie de cohérence des données sur le stockage, au niveau du système d’exploitation ou de l’application. Cela se produit généralement quand la machine virtuelle Azure est arrêtée au moment de la sauvegarde.<br><br>Par exemple, cette situation peut survenir si le journal des transactions comporte des entrées qui n’existent pas dans la base de données. Le logiciel de base de données effectue alors une restauration jusqu’à ce que les données soient cohérentes. Lorsque vous traitez des données réparties sur plusieurs disques virtuels (comme des volumes fractionnés), un point de récupération cohérent après incident ne fournit aucune garantie quant à l’exactitude des données.|
 
 
 ## Performance et utilisation des ressources
-Au même titre qu’un logiciel de sauvegarde déployé sur site, l’utilisation de capacité et des ressources des machines virtuelles dans Azure doivent être planifiées. Les [limites de stockage Azure](azure-subscription-service-limits.md#storage-limits) définiront la structuration des déploiements de machine virtuelle pour obtenir des performances maximales avec un impact minimum sur l’exécution des charges de travail. Il existe deux limites de stockage Azure principales sauvegarde ayant un impact sur les performances de sauvegarde :
+Au même titre qu’un logiciel de sauvegarde déployé sur site, l’utilisation de capacité et des ressources des machines virtuelles dans Azure doivent être planifiées. Les [limites d’Azure Storage](azure-subscription-service-limits.md#storage-limits) définiront la structuration des déploiements de machine virtuelle pour obtenir des performances maximales avec un impact minimal sur l’exécution des charges de travail. Il existe deux limites de stockage Azure principales sauvegarde ayant un impact sur les performances de sauvegarde :
 
 - Nombre maximal de sorties par compte de stockage
 - Taux de requête total par compte de stockage
 
 Lorsque les données de sauvegarde sont copiées hors du compte de stockage du client, il est comptabilisé dans les mesures de l’IOPS et des sorties (débit de stockage) du compte de stockage. Dans le même temps, les machines virtuelles exécutent et consomment des IOPS et débit. L’objectif est de vous assurer que le trafic général (sauvegarde et machine virtuelle) ne dépasse pas les limites du compte de stockage.
 
-La sauvegarde est gourmande en temps et consomme autant de ressources possibles, car son objectif consiste à terminer sa sauvegarde dans les meilleurs délais. Toutefois, toutes les opérations d’E/S sont limitées par le *débit cible d’un seul objet Blob*, qui est limité à *60 Mo par seconde*. Pour accélérer le processus de sauvegarde, la sauvegarde de chaque disque de la machine virtuelle est tentée *en parallèle*. Donc, si une machine virtuelle est équipée de 4 disques, la sauvegarde Azure va tenter de sauvegarder l’ensemble des 4 disques simultanément. Par conséquent, le facteur le plus important pour déterminer le trafic de sauvegarde sortant d’un compte de stockage est le **nombre de disques** sauvegardés sur le compte de stockage.
+La sauvegarde est gourmande en temps et consomme autant de ressources possibles, car son objectif consiste à terminer sa sauvegarde dans les meilleurs délais. Cependant, toutes les opérations d’E/S sont limitées par le *débit cible d’un seul objet Blob*, qui est limité à *60 Mo par seconde*. Pour accélérer le processus de sauvegarde, la sauvegarde de chaque disque de la machine virtuelle est tentée *en parallèle*. Donc, si une machine virtuelle est équipée de 4 disques, la sauvegarde Azure va tenter de sauvegarder l’ensemble des 4 disques simultanément. Par conséquent, le facteur le plus important pour déterminer le trafic de sauvegarde sortant d’un compte de stockage est le **nombre de disques** sauvegardés à partir du compte de stockage.
 
-Autre facteur ayant un impact sur les performances : la **planification de sauvegarde**. Si vous configurez toutes les machines virtuelles à sauvegarder simultanément, le nombre de disques à sauvegarder *en parallèle* augmente. Azure Backup va tenter de sauvegarder autant de disques que possible. Par conséquent, il est possible de réduire le trafic de sauvegarde depuis un compte de stockage en s’assurant que les différentes machines virtuelles sont sauvegardées à différents moments de la journée, sans chevauchement.
+Autre facteur ayant un impact sur les performances : la **planification de sauvegarde**. Si vous configurez une sauvegarde simultanée de toutes les machines virtuelles, le nombre de disques sauvegardés *en parallèle* augmentera, car Azure Backup tentera de sauvegarder autant de disques que possible. Par conséquent, il est possible de réduire le trafic de sauvegarde depuis un compte de stockage en s’assurant que les différentes machines virtuelles sont sauvegardées à différents moments de la journée, sans chevauchement.
 
 ### Planification de la capacité
-Le rassemblement de tous ces facteurs signifie que l’utilisation du compte de stockage doit être planifiée correctement. Téléchargez la [feuille de calcul Excel de planification des capacités de machine virtuelle](https://gallery.technet.microsoft.com/Azure-Backup-Storage-a46d7e33) pour voir l’impact de vos choix en matière de disque et de planification de sauvegarde.
+Le rassemblement de tous ces facteurs signifie que l’utilisation du compte de stockage doit être planifiée correctement. Téléchargez la [feuille de calcul Excel de planification des capacités des machines virtuelles](https://gallery.technet.microsoft.com/Azure-Backup-Storage-a46d7e33) pour voir l’impact de vos choix en matière de planification de disques et de sauvegardes.
 
 ### Débit de sauvegarde
 Pour chaque disque en cours de sauvegarde, Azure Backup lit les blocs sur le disque et stocke uniquement les données modifiées (sauvegarde incrémentielle). Le tableau ci-dessous indique les valeurs de débit moyen attendues de la sauvegarde Azure :
@@ -182,14 +186,14 @@ Pour chaque disque en cours de sauvegarde, Azure Backup lit les blocs sur le dis
 | Opération de sauvegarde | Meilleur débit |
 | ---------------- | ---------- |
 | Sauvegarde initiale | 160 Mbits/s |
-| Sauvegarde incrémentielle (DR) | 640 Mbits/s <br><br> Ce débit baisse considérablement si une quantité importante de code est dispersée sur le disque et doit être sauvegardée |
+| Sauvegarde incrémentielle (DR) | 640 Mbits/s <br><br> Ce débit peut baisser considérablement si les données du disque à sauvegarder sont très dispersées. |
 
 Ce type de sauvegarde permet d’estimer la quantité de temps nécessaire à la sauvegarde d’un disque de taille donnée.
 
 ### Durée de sauvegarde de machine virtuelle totale
 La majeure partie du temps est consacrée à la lecture et la copie des données, mais il existe d’autres opérations qui contribuent à la durée totale nécessaire à la sauvegarde d’une machine virtuelle :
 
-1. Durée nécessaire à l’[installation de la mise à jour de l’extension de sauvegarde](backup-azure-vms.md#offline-vms)
+1. Durée nécessaire à l’[installation ou à la mise à jour de l’extension de sauvegarde](backup-azure-vms.md#offline-vms)
 2. Temps d’attente de file d’attente : le service traitant les sauvegardes de plusieurs clients, il se peut que votre opération de sauvegarde ne démarre pas immédiatement. Le temps d’attente moyen d’une machine virtuelle est de 15 à 30 minutes.
 
 ## Résolution des erreurs
@@ -203,4 +207,4 @@ Pour plus d’informations sur la prise en main de Microsoft Azure Backup, consu
 - [Restauration des machines virtuelles](backup-azure-restore-vms.md)
 - [Gestion des machines virtuelles](backup-azure-manage-vms.md)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="tbd"
-   ms.date="09/09/2015"
+   ms.date="09/11/2015"
    ms.author="sethm" />
 
 # Files d'attente Azure et files d'attente Service Bus : comparaison et différences
@@ -272,7 +272,7 @@ Cette section compare les files d'attente Azure et les files d'attente Service 
 
 |Critères de comparaison|Files d'attente Azure|Files d'attente Service Bus|
 |---|---|---|
-|Coût de transaction de file d'attente|**0,0005 $**<br/><br/>(pour 10 000 transactions)|**Niveau de base** : **0,05 $**<br/><br/>(par million d'opérations)|
+|Coût de transaction de file d'attente|**0,0036 $**<br/><br/>(pour 100 000 transactions)|**Niveau de base** : **0,05 $**<br/><br/>(par million d'opérations)|
 |Opérations facturables|**Toutes**|**Envoi/réception uniquement**<br/><br/>(aucun frais pour les autres opérations)|
 |Transactions inactives|**Facturables**<br/><br/>(l'interrogation d'une file d'attente vide est comptabilisée comme une transaction facturable)|**Facturables**<br/><br/>(une réception sur une file d'attente vide est considérée comme un message facturable)|
 |Coût de stockage|**0,07 $**<br/><br/>(par Go/mois)|**0,00 $**|
@@ -288,7 +288,7 @@ Cette section compare les files d'attente Azure et les files d'attente Service 
 
 - Étant donné la prise en charge de l'interrogation longue, l'utilisation de files d'attente Service Bus peut être rentable dans les situations où une remise à latence faible est requise.
 
->[AZURE.NOTE]Tous les coûts sont susceptibles d'être modifiés. Ce tableau reflète la tarification actuelle au moment de la rédaction de cet article et n'inclut pas les offres promotionnelles qui peuvent être actuellement disponibles. Pour obtenir des informations récentes sur la tarification Azure, consultez la page de [tarification Azure](http://azure.microsoft.com/pricing/). Pour plus d'informations sur la tarification Service Bus, consultez [Tarification Service Bus]((http://azure.microsoft.com/pricing/details/service-bus/).
+>[AZURE.NOTE]Tous les coûts sont susceptibles d'être modifiés. Ce tableau reflète la tarification actuelle au moment de la rédaction de cet article et n'inclut pas les offres promotionnelles qui peuvent être actuellement disponibles. Pour obtenir des informations récentes sur la tarification Azure, consultez la page de [tarification Azure](http://azure.microsoft.com/pricing/). Pour plus d’informations sur la tarification Service Bus, consultez [Tarification Service Bus](http://azure.microsoft.com/pricing/details/service-bus/).
 
 ## Conclusion
 
@@ -311,4 +311,4 @@ Les articles suivants fournissent davantage de conseils et d'informations sur l'
 - [Présentation de la facturation du stockage Azure - bande passante, transactions et capacité](http://blogs.msdn.com/b/windowsazurestorage/archive/2010/07/09/understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity.aspx)
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

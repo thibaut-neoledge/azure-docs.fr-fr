@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Documentation sur les API Machine Learning Recommendations | Microsoft Azure"
-	description="Documentation relative aux API Azure Machine Learning Recommendations pour un moteur de recommandations disponible dans Microsoft Azure Marketplace."
-	services="machine-learning"
-	documentationCenter=""
-	authors="AharonGumnik"
-	manager="paulettm"
+	pageTitle="Documentation sur les API Machine Learning Recommendations | Microsoft Azure" 
+	description="Documentation relative aux API Azure Machine Learning Recommendations pour un moteur de recommandations disponible dans Microsoft Azure Marketplace." 
+	services="machine-learning" 
+	documentationCenter="" 
+	authors="AharonGumnik" 
+	manager="paulettm" 
 	editor="cgronlun"/>
 
 <tags 
-	ms.service="machine-learning"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/01/2015"
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/14/2015" 
 	ms.author="LuisCa"/>
 
 #Documentation sur les API Azure Machine Learning Recommendations
@@ -352,7 +352,7 @@ Le tableau ci-dessous décrit la valeur de chaque clé.
 | MaxUserLength | Nombre maximal d'éléments distincts pour un utilisateur. |
 | MinItemLength | Nombre maximal d'utilisateurs distincts pour un élément. |
 | MinUserLength | Nombre minimal d'éléments distincts pour un utilisateur. |
-| RawNumberOfItems | Nombre d'éléments avant nettoyage des éléments ne pouvant pas être modélisés. |
+| RawNumberOfItems | Nombre d’éléments dans les fichiers d’utilisation. |
 | RawNumberOfUsers | Nombre de points d'utilisation avant nettoyage. |
 | RawNumberOfRecords | Nombre de points d'utilisation avant nettoyage. |
 | SamplingNumberOfItems | N/A |
@@ -848,6 +848,7 @@ OData XML
 | Méthode HTTP | URI |
 |:--------|:--------|
 |POST |`<rootURI>/AddRule?apiVersion=%271.0%27`|
+|HEADER |`"Content-Type", "text/xml"`|
 
 |	Nom du paramètre |	Valeurs valides |
 |:--------			|:--------								|
@@ -939,12 +940,13 @@ Remarque : la taille de fichier maximale est de 200 Mo.
 
 | Nom | Obligatoire | Type | Description |
 |:---|:---|:---|:---|
-| Item Id |Oui | [A-z], [a-z] [0-9], [\_] &#40;trait de soulignement&#41;, [-] &#40;tiret&#41;<br>Longueur maximale : 50 | Identificateur unique d’un élément. | | Nom de l’élément | Oui | Caractères alphanumériques<br>Longueur maximale : 255 | Nom de l’élément. | | Catégorie d’élément | Oui | Caractères alphanumériques<br>Longueur maximale : 255 | Catégorie à laquelle cet élément appartient (par exemple, livres de cuisine, théâtre...) ; peut être vide. | | Description | Non, sauf si les fonctionnalités sont présentes (mais peuvent être vides) | Caractères alphanumériques<br>Longueur maximale : 4 000 | Description de cet élément. | | Liste des fonctionnalités | Non | Caractères alphanumériques<br>Longueur maximale : 4 000 | Liste de noms de fonctionnalité séparés par une virgule = valeur de fonctionnalité qui peut être utilisée pour améliorer la recommandation de modèle ; voir la section [Rubriques avancées](#2-advanced-topics). |
+| Item Id |Oui | [A-z], [a-z] [0-9], [\_] &#40;trait de soulignement&#41;, [-] &#40;tiret&#41;<br> Longueur maximale : 50 | Identificateur unique d’un élément. | | Nom de l’élément | Oui | Caractères alphanumériques<br> Longueur maximale : 255 | Nom de l’élément. | | Catégorie d’élément | Oui | Caractères alphanumériques <br> Longueur maximale : 255 | Catégorie à laquelle cet élément appartient (par exemple, livres de cuisine, théâtre...) ; peut être vide. | | Description | Non, sauf si les fonctionnalités sont présentes (mais peuvent être vides) | Caractères alphanumériques <br> Longueur maximale : 4 000 | Description de cet élément. | | Liste des fonctionnalités | Non | Caractères alphanumériques <br> Longueur maximale : 4 000 | Liste de noms de fonctionnalité séparés par une virgule = valeur de fonctionnalité qui peut être utilisée pour améliorer la recommandation de modèle ; consultez la section [Rubriques avancées](#2-advanced-topics). |
 
 
 | Méthode HTTP | URI |
 |:--------|:--------|
 |POST |`<rootURI>/ImportCatalogFile?modelId=%27<modelId>%27&filename=%27<fileName>%27&apiVersion=%271.0%27`<br><br>Exemple :<br>`<rootURI>/ImportCatalogFile?modelId=%27a658c626-2baa-43a7-ac98-f6ee26120a12%27&filename=%27catalog10_small.txt%27&apiVersion=%271.0%27`|
+|HEADER |`"Content-Type", "text/xml"`|
 
 |	Nom du paramètre |	Valeurs valides |
 |:--------			|:--------								|
@@ -1148,7 +1150,7 @@ Cette section indique comment télécharger des données d'utilisation à l'aide
 |	Nom du paramètre |	Valeurs valides |
 |:--------			|:--------								|
 |	modelId |	Identificateur unique du modèle |
-| filename | Identificateur textuel tu catalogue.<br>Seuls les lettres (A-Z, a-z), les nombres (0-9), les tirets (-) et les traits de soulignement (_) sont autorisés.<br>Longueur maximale : 50 | | apiVersion | 1.0 | ||| | Corps de la demande | Données d’utilisation. Format :<br>`<User Id>,<Item Id>[,<Time>,<Event>]`<br><br><table><tr><th>Nom</th><th>Obligatoire</th><th>Type</th><th>Description</th></tr><tr><td>ID utilisateur</td><td>Oui</td><td>[A-z], [a-z], [0-9], [_] &#40;trait de soulignement&#41;, [-] &#40;tiret&#41;<br> Longueur max : 255 </td><td>Identificateur unique d’un utilisateur.</td></tr><tr><td>ID élément</td><td>Oui</td><td>[A-z], [a-z], [0-9], [&#95;] &#40;trait de soulignement&#41;, [-] &#40;tiret&#41;<br> Longueur max : 50</td><td>Identificateur unique d’un élément.</td></tr><tr><td>Heure</td><td>Non</td><td>Date au format : AAAA/MM/JJTHH:MM:SS (ex. 2013/06/20T10:00:00)</td><td>Date et heure des données.</td></tr><tr><td>Événement</td><td>Non ; date requise si fourni</td><td>L’un des suivants :<br>• Click<br>• RecommendationClick<br>• AddShopCart<br>• RemoveShopCart<br>• Purchase</td><td></td></tr></table><br>Taille maximale du fichier : 200 Mo<br><br>Exemple :<br><pre>149452,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>6360,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>50321,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>71285,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>224450,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>236645,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>107951,1b3d95e2-84e4-414c-bb38-be9cf461c347</pre> |
+| filename | Identificateur textuel du catalogue.<br>Seuls les lettres (A-Z, a-z), les nombres (0-9), les tirets (-) et les traits de soulignement (_) sont autorisés.<br>Longueur maximale : 50 | | apiVersion | 1.0 | ||| | Corps de la demande | Données d’utilisation. Format :<br>`<User Id>,<Item Id>[,<Time>,<Event>]`<br><br><table><tr><th>Nom</th><th>Obligatoire</th><th>Type</th><th>Description</th></tr><tr><td>ID utilisateur</td><td>Oui</td><td>[A-z], [a-z], [0-9], [_] &#40;trait de soulignement&#41;, [-] &#40;tiret&#41;<br> Longueur max : 255 </td><td>Identificateur unique d’un utilisateur.</td></tr><tr><td>ID élément</td><td>Oui</td><td>[A-z], [a-z], [0-9], [&#95;] &#40;trait de soulignement&#41;, [-] &#40;tiret&#41;<br> Longueur max : 50</td><td>Identificateur unique d’un élément.</td></tr><tr><td>Heure</td><td>Non</td><td>Date au format : AAAA/MM/JJTHH:MM:SS (ex. 2013/06/20T10:00:00)</td><td>Date et heure des données.</td></tr><tr><td>Événement</td><td>Non ; date requise si fourni</td><td>L’un des suivants :<br>• Click<br>• RecommendationClick<br>• AddShopCart<br>• RemoveShopCart<br>• Purchase</td><td></td></tr></table><br>Taille maximale du fichier : 200 Mo<br><br>Exemple :<br><pre>149452,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>6360,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>50321,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>71285,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>224450,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>236645,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>107951,1b3d95e2-84e4-414c-bb38-be9cf461c347</pre> |
 
 **Réponse** :
 
@@ -1189,6 +1191,7 @@ Cette section explique comment envoyer des événements en temps réel à Azure 
 | Méthode HTTP | URI |
 |:--------|:--------|
 |POST |`<rootURI>/AddUsageEvent?apiVersion=%271.0%27`|
+|HEADER |`"Content-Type", "text/xml"`|
 
 |	Nom du paramètre |	Valeurs valides |
 |:--------			|:--------								|
@@ -1736,6 +1739,7 @@ Le tableau ci-dessous décrit les paramètres de build pour une build de recomma
 | Méthode HTTP | URI |
 |:--------|:--------|
 |POST |`<rootURI>/BuildModel?modelId=%27<modelId>%27&userDescription=%27<description>%27&apiVersion=%271.0%27`<br><br>Exemple :<br>`<rootURI>/BuildModel?modelId=%27a658c626-2baa-43a7-ac98-f6ee26120a12%27&userDescription=%27First%20build%27&apiVersion=%271.0%27`|
+|HEADER |`"Content-Type", "text/xml"` (en cas d’envoi du corps de la demande)|
 
 |	Nom du paramètre |	Valeurs valides |
 |:--------			|:--------								|
@@ -1809,6 +1813,7 @@ OData XML
 | Méthode HTTP | URI |
 |:--------|:--------|
 |POST |`<rootURI>/BuildModel?modelId=%27<modelId>%27&userDescription=%27<description>%27&buildType=%27<buildType>%27&apiVersion=%271.0%27`<br><br>Exemple :<br>`<rootURI>/BuildModel?modelId=%27a658c626-2baa-43a7-ac98-f6ee26120a12%27&userDescription=%27First%20build%27&buildType=%27Ranking%27&apiVersion=%271.0%27`|
+|HEADER |`"Content-Type", "text/xml"` (en cas d’envoi du corps de la demande)|
 
 |	Nom du paramètre |	Valeurs valides |
 |:--------			|:--------								|
@@ -2861,4 +2866,4 @@ Code d'état HTTP : 200
 Ce document est fourni « en l'état ». Les informations et les points de vue exprimés dans ce document, y compris les URL et autres références à des sites web, peuvent être modifiés sans préavis.<br><br> Certains exemples sont fournis à titre indicatif uniquement et sont fictifs. Toute association ou lien est purement involontaire ou fortuit.<br><br> Ce document ne vous accorde aucun droit légal à la propriété intellectuelle pour un produit Microsoft. Vous pouvez copier et utiliser ce document pour un usage interne, à titre de référence.<br><br> © 2015 Microsoft. Tous droits réservés.
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

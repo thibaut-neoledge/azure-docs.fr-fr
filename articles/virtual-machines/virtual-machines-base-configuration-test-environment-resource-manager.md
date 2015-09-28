@@ -11,13 +11,15 @@
 <tags
 	ms.service="virtual-machines"
 	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="vm-windows"
+	ms.tgt_pltfrm="Windows"
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="07/23/2015"
 	ms.author="josephd"/>
 
 # Environnement de test de configuration de base avec Azure Resource Manager
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Cet article traite de la création de ressources avec le modèle de déploiement Resource Manager. Vous pouvez également créer ces ressources avec le [modèle de déploiement classique](virtual-machines-base-configuration-test-environment.md).
 
 Cet article vous présente des instructions détaillées vous permettant de créer l’environnement de test de la configuration de base au sein d’un réseau virtuel Microsoft Azure, à l’aide de machines virtuelles créées dans le Gestionnaire de ressources.
 
@@ -52,14 +54,9 @@ Si vous ne disposez pas déjà d’un compte Azure, vous pouvez obtenir un essai
 
 > [AZURE.NOTE]Les machines virtuelles dans Azure entraînent des frais lors de leur utilisation. Ce coût est facturé sur votre abonnement de version d’évaluation gratuite, votre abonnement MSDN ou votre abonnement payant. Pour plus d’informations sur les coûts des machines virtuelles Azure, consultez les pages [Détails de la tarification des machines virtuelles](http://azure.microsoft.com/pricing/details/virtual-machines/) et [Calculatrice de tarification Azure](http://azure.microsoft.com/pricing/calculator/). Afin de réduire les coûts, consultez la page [Réduction des coûts des machines virtuelles de l’environnement de test dans Azure](#costs).
 
-[AZURE.INCLUDE [resource-manager-pointer-to-service-management](../../includes/resource-manager-pointer-to-service-management.md)]
-
-- [Environnement de test de la configuration de base](virtual-machines-base-configuration-test-environment.md)
-
-
 ## Phase 1 : création du réseau virtuel
 
-Pour commencer, le cas échéant, suivez les instructions de la page [Installation et configuration d'Azure PowerShell](../install-configure-powershell.md) pour installer Azure PowerShell sur votre ordinateur local. Ouvrez une invite Azure PowerShell.
+Pour commencer, le cas échéant, suivez les instructions de la page [Installation et configuration d’Azure PowerShell](../install-configure-powershell.md) pour installer Azure PowerShell sur votre ordinateur local. Ouvrez une invite Azure PowerShell.
 
 Puis, sélectionnez l'abonnement Azure approprié à l'aide des commandes suivantes. Remplacez tous les éléments entre guillemets, y compris les caractères < and >, par les noms appropriés.
 
@@ -96,7 +93,7 @@ Pour vérifier si un nom de compte de stockage choisi est globalement unique, vo
 	Switch-AzureMode AzureServiceManagement
 	Test-AzureName -Storage <Proposed storage account name>
 
-Si la commande Test-AzureName affiche **False**, c’est que le nom proposé est unique. Quand vous avez déterminé un nom unique, rebasculez Azure PowerShell en mode Resource Manager avec cette commande.
+Si la commande Test-AzureName affiche **False**, le nom proposé est unique. Quand vous avez déterminé un nom unique, rebasculez Azure PowerShell en mode Resource Manager avec cette commande.
 
 	Switch-AzureMode AzureResourceManager 
 
@@ -145,7 +142,7 @@ Commencez par entrer le nom de votre groupe de ressources, de votre emplacement 
 Ensuite, connectez-vous à la machine virtuelle DC1.
 
 1.	Dans le portail Azure en version préliminaire, cliquez sur **Parcourir tout** dans le volet de gauche, puis sur **Machines virtuelles** dans la liste **Parcourir**, puis sur la machine virtuelle **DC1**.  
-2.	Dans le volet **DC1**, cliquez sur **Connexion**.
+2.	Dans le volet **DC1**, cliquez sur **Se connecter**.
 3.	Lorsque vous y êtes invité, ouvrez le fichier DC1.rdp téléchargé.
 4.	Lorsque le message Connexion Bureau à distance s’affiche, cliquez sur **Connecter**.
 5.	À l'invite vous demandant des informations d'identification, utilisez ce qui suit :
@@ -289,9 +286,9 @@ Ensuite, vérifiez que vous pouvez accéder au web et aux ressources de partage 
 2.	Dans **Propriétés de CLIENT1**, cliquez sur **Activée** en regard de **Configuration de sécurité renforcée d’Internet Explorer**.
 3.	Dans **Configuration de sécurité renforcée d’Internet Explorer**, cliquez sur **Désactivée** pour **Administrateurs** et **Utilisateurs**, puis cliquez sur **OK**.
 4.	Dans l’écran d’accueil, cliquez sur **Internet Explorer**, puis cliquez sur **OK**.
-5.	Dans la barre d’adresse, tapez ****http://app1.corp.contoso.com/**, puis appuyez sur Entrée. Vous devez voir la page web Internet Information Services par défaut pour APP1.
+5.	Dans la barre d’adresses, tapez ****http://app1.corp.contoso.com/**, puis appuyez sur Entrée. Vous devez voir la page web Internet Information Services par défaut pour APP1.
 6.	Dans la barre des tâches, cliquez sur l’icône de l’Explorateur de fichiers.
-7.	Dans la barre d’adresse, **\\\\app1\\Files**, puis appuyez sur Entrée.
+7.	Dans la barre d’adresse, **\\\app1\\Files**, puis appuyez sur Entrée.
 8.	Vous devez voir une fenêtre de dossier avec le contenu du dossier partagé Files.
 9.	Dans la fenêtre **Files** partagée, double-cliquez sur le fichier **example.txt**. Vous devez voir le contenu du fichier Example.txt.
 10.	Fermez **Example.txt - Bloc-notes** et la fenêtre du dossier partagé **Files**.
@@ -336,4 +333,4 @@ Pour démarrer les machines virtuelles dans l’ordre avec Azure PowerShell, ind
 	Start-AzureVM -ResourceGroupName $rgName -Name "APP1"
 	Start-AzureVM -ResourceGroupName $rgName -Name "CLIENT1"
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

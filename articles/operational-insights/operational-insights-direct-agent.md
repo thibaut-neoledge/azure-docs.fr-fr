@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="07/02/2015" 
+	ms.date="09/10/2015" 
 	ms.author="banders"/>
 # Connexion directe des ordinateurs à Operational Insights
 
@@ -76,4 +76,4 @@ Si vous avez des serveurs proxy ou un pare-feu qui limitent l’accès à Intern
 
 - [Configuration des paramètres de pare-feu et de proxy (facultatif)](operational-insights-proxy-firewall.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

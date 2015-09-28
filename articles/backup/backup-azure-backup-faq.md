@@ -1,13 +1,13 @@
 <properties
    pageTitle="Azure Backup - Forum aux questions | Microsoft Azure"
-	description="Forum aux questions sur le service Azure Backup"
-	services="backup"
-	documentationCenter=""
-	authors="Jim-Parker"
-	manager="shreeshd"
-	editor=""/>
+   description="Forum aux questions sur le service Azure Backup"
+   services="backup"
+   documentationCenter=""
+   authors="Jim-Parker"
+   manager="shreeshd"
+   editor=""/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/26/2015" ms.author="giridham"; "arunak"; "jimpark"; "aashishr"/>
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/26/2015" ms.author="trinadhk";"giridham"; "arunak"; "jimpark"; "aashishr"/>
 
 # Azure Backup - Forum Aux Questions
 Voici une liste de questions fréquemment posées sur Azure Backup. Si vous avez d’autres questions sur Azure Backup, veuillez accéder au [forum de discussion](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup) et publier vos questions. Un membre de notre communauté vous aidera à obtenir vos réponses. Si une question est fréquemment posée, nous l’ajoutons à cet article pour qu’elle puisse être trouvée rapidement et facilement.
@@ -40,7 +40,7 @@ Voici une liste de questions fréquemment posées sur Azure Backup. Si vous avez
 
 **Q6. Les archivages sont-ils des entités de facturation ?** <br/> R6. Même s’il est possible d’obtenir une facture détaillée pour chaque archivage, nous vous recommandons vivement de considérer l’abonnement Azure comme entité de facturation. Il est cohérent sur tous les services et est plus facile à gérer.
 
-**Q7. Le nombre de serveurs/ordinateurs pouvant être inscrits pour chaque archivage est-il limité ?** <br/> R7. Oui, vous pouvez inscrire un maximum de 50 ordinateurs par archivage. Si vous avez besoin d’inscrire davantage d’ordinateurs, créez un autre archivage.
+**Q7. Le nombre de serveurs/ordinateurs pouvant être inscrits pour chaque archivage est-il limité ?** <br/> R7. Oui, vous pouvez inscrire un maximum de 50 ordinateurs par archivage. Pour les machines virtuelles Azure IaaS, la limite est de 100 machines virtuelles par coffre. Si vous avez besoin d’inscrire davantage d’ordinateurs, créez un autre archivage.
 
 **Q8. La quantité de données pouvant être sauvegardées à partir d’un serveur/client Windows ou d’un serveur SCDPM est-elle limitée ?** <br/> R8. Non.
 
@@ -114,7 +114,7 @@ La taille de la source de données est mesurée comme indiqué ci-dessous.
 |Microsoft Exchange|Somme de toutes les bases de données Exchange sur un serveur Exchange en cours de sauvegarde|
 |État système/récupération complète|Chaque copie individuelle de l’état système/récupération complète de l’ordinateur en cours de sauvegarde|
 
-**Q2. Le nombre de planifications de sauvegarde par jour est-il limité ?**<br/> R2. Oui, Azure Backup permet 3 copies de sauvegarde par jour via un client/serveur Windows et 2 copies de sauvegarde par jour via SCDPM.
+**Q2. Le nombre de planifications de sauvegarde par jour est-il limité ?**<br/> R2. Oui, Azure Backup autorise 3 copies de sauvegarde par jour via un client/serveur Windows, 2 copies de sauvegarde par jour via SCDPM et une sauvegarde par jour pour les machines virtuelles IaaS.
 
 **Q3. Existe-t-il une différence entre les stratégies de planification de sauvegarde de DPM et d’Azure Backup (par ex., sur Windows Server sans DPM) ?** <br/> R3. Oui. À l’aide de DPM, vous pouvez spécifier une planification quotidienne, hebdomadaire, mensuelle, annuelle tandis qu’avec un Windows Server (sans DPM), vous pouvez spécifier uniquement des planifications quotidiennes et hebdomadaires.
 
@@ -132,13 +132,9 @@ La taille de la source de données est mesurée comme indiqué ci-dessous.
 
 **Q9. Si chaque point de récupération est un point complet, a-t-il un impact sur la quantité totale de stockage de sauvegarde facturable ?**<br/> R9. Les produits classiques de points de rétention à long terme stockent les données de sauvegarde en tant que points complets. Toutefois, même si ces points occupent de l’espace de stockage, ils sont plus faciles et plus rapides à récupérer. Les copies incrémentielles occupent moins d’espace de stockage, mais vous devez restaurer une chaîne de données qui rallonge le temps de récupération. L’architecture de stockage unique d’Azure Backup vous offre le meilleur des deux en stockant les données de manière optimale pour des restaurations rapides et des coûts de stockage faibles. Cette approche garantit que votre bande passante (entrante et sortante) est utilisée efficacement et que l’espace de stockage occupé ainsi que le temps de récupération restent minimes.
 
-**Q10. Le nombre de points de récupération pouvant être créés est-il limité ?**<br/> R10. Depuis avril 2015, vous pouvez créer un maximum de 366 points de récupération. Vous pouvez utiliser n’importe quelle permutation pour arriver à un nombre inférieur à 366. Par ex., la somme des points de rétention de l’image ci-dessous est égale à 354. <br/>
+**Q10. Le nombre de points de récupération pouvant être créés est-il limité ?**<br/> R10. Non. Nous avons éliminé les limites sur les points de récupération. Vous pouvez créer autant de points de récupération que vous le souhaitez.
 
-![Écran de rétention](./media/backup-azure-backup-faq/RetentionScreen1.png)
-
-**Q11. Quand Microsoft augmentera la limite de 366, devrai-je mettre à niveau l’agent ou réamorcer la sauvegarde initiale ?** <br/> R11. Non. Quand nous modifierons notre service, vous serez averti via nos médias sociaux (blogs, annonces Azure, portail, etc.). Selon vos besoins, vous devrez uniquement modifier la stratégie de rétention.
-
-**Q12. Pourquoi la quantité de données transférée dans la sauvegarde est-elle différente de la quantité de données que j’ai sauvegardée ?**<br/> R12. Toutes les données sauvegardées sont compressées et chiffrées avant d’être transférées. Vous pouvez gagner 30 à 40 % d’espace de compression en fonction du type de données à sauvegarder.
+**Q11. Pourquoi la quantité de données transférée dans la sauvegarde est-elle différente de la quantité de données que j’ai sauvegardée ?**<br/> R11. Toutes les données sauvegardées sont compressées et chiffrées avant d’être transférées. Vous pouvez gagner 30 à 40 % d’espace de compression en fonction du type de données à sauvegarder.
 
 ## Récupérer
 **Q1. Combien de récupérations puis-je effectuer sur les données sauvegardées dans Azure ?**<br/> R1. Il n’existe aucune limite concernant le nombre de récupérations dans Azure Backup.
@@ -169,8 +165,8 @@ La taille de la source de données est mesurée comme indiqué ci-dessous.
 
 	| Chemin d’accès au Registre | Clé de Registre | Valeur |
 	| ------ | ------- | ------ |
-	| HKEY\_LOCAL\_MACHINE\\SOFTWARE\\Microsoft\\Windows Azure Backup\\Config | ScratchLocation | <i>Emplacement du nouveau dossier de cache</i> |
-	| HKEY\_LOCAL\_MACHINE\\SOFTWARE\\Microsoft\\Windows Azure Backup\\Config\\CloudBackupProvider | ScratchLocation | <i>Emplacement du nouveau dossier de cache</i> |
+	| `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config` | ScratchLocation | <i>Emplacement du nouveau dossier de cache</i> |
+	| `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config\CloudBackupProvider` | ScratchLocation | <i>Emplacement du nouveau dossier de cache</i> |
 
 
 + Démarrez le service OBEngine en exécutant la commande ci-après dans une invite de commandes avec élévation de privilèges :
@@ -179,4 +175,4 @@ La taille de la source de données est mesurée comme indiqué ci-dessous.
 
 Une fois les sauvegardes correctement effectuées avec le nouvel emplacement de cache, vous pouvez supprimer le dossier de cache d’origine.
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO3-->

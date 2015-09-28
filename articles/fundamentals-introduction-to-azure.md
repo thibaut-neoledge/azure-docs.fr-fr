@@ -132,7 +132,6 @@ Azure SQL Database (anciennement SQL Azure) propose toutes les fonctionnalités 
 
 Mais SQL Database n’est pas un simple système SGBD sur le cloud : c’est un service PaaS. Vous continuez de contrôler vos données et les personnes pouvant y accéder, mais SQL Database prend en charge tout le travail administratif de base (gestion de l’infrastructure matérielle, mise à jour automatique de la base de données et du système d’exploitation, etc.). SQL Database offre également une haute disponibilité, des sauvegardes automatiques, des fonctionnalités de récupération jusqu'à une date et une heure, et peut répliquer des copies d'une zone géographique vers une autre.
 
-Il existe aussi une option Premium un peu plus chère qui vous permet de bénéficier de votre propre serveur dédié sous-jacent. Avec l'option Standard, la base de données est exécutée sur du matériel partagé, ce qui peut limiter vos requêtes de base de données sur les serveurs surchargés.
 
 **Scénarios relatifs à SQL Database**
 
@@ -148,7 +147,7 @@ Cette fonctionnalité porte parfois d'autres noms, car elle fait partie d'une fo
 
 De même, ne vous inquiétez pas du mot utilisé, cette technologie n'offre pas de stockage relationnel. Il s'agit en fait d'un exemple d'approche NoSQL appelé « stockage clé/valeur ». Les tables Azure permettent à une application de stocker différents types de propriétés, comme des chaînes, des nombres entiers et des dates. Une application peut ensuite récupérer un groupe de propriétés en fournissant une clé unique pour ce groupe. Même si les opérations complexes telles que les jonctions ne sont pas prises en charge, les tables permettent surtout un accès rapide aux données saisies. Elles sont également hautement évolutives : une seule table peut contenir jusqu’à un téraoctet de données. Comme elles sont plus simples, les tables sont également plus économiques à l’utilisation que le stockage relationnel de SQL Database.
 
-**Scénarios relatifs aux tables**
+**Scénarios relatifs aux tables Azure**
 
 Supposons que vous souhaitiez créer une application Azure bénéficiant d’un accès rapide aux données saisies, en volumes importants, sans avoir besoin d’exécuter des requêtes SQL complexes sur ces données. Imaginons, par exemple, que vous créez une application cliente chargée de stocker les informations de profil pour chaque utilisateur. Votre application va être très populaire, vous devez donc avoir une grande capacité de données, mais vous allez vous contenter de les stocker, puis de les récupérer de façon simple. C’est précisément pour ce type d’utilisation qu’ont été conçues les tables Azure.
 
@@ -203,7 +202,7 @@ Azure est aujourd'hui exécuté dans de nombreux centres de données à travers 
 ### Réseau virtuel
 ![VirtualNetwork](./media/fundamentals-introduction-to-azure/VirtualNetworkIntroNew.png)
 
-*Figure : le service Virtual Networks fournit un réseau privé dans le cloud qui permet à différents services de communiquer les uns avec les autres, ou avec des ressources locales si vous configurez une connexion VPN.*
+*Figure : le service Virtual Network fournit un réseau privé dans le cloud qui permet à différents services de communiquer les uns avec les autres, ou avec des ressources locales si vous configurez une connexion VPN.*
 
 
 Une approche utile pour utiliser un cloud public est de le considérer comme une extension de votre propre centre de données.
@@ -612,4 +611,4 @@ Maintenant que vous connaissez les grandes lignes, la prochaine étape est de cr
 
 [Azure Media Services Poster]: http://azure.microsoft.com/documentation/infographics/media-services/
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

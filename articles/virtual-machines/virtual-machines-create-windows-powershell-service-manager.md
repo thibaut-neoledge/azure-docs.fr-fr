@@ -3,7 +3,7 @@
 	description="Azure PowerShell permet de créer rapidement une machine virtuelle Windows dans la gestion des services et d’exécuter des fonctions de gestion."
 	services="virtual-machines"
 	documentationCenter=""
-	authors="KBDAzure"
+	authors="cynthn"
 	manager="timlt"
 	editor=""
 	tags="azure-service-management"/>
@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="07/09/2015"
-	ms.author="kathydav"/>
+	ms.author="cynthn"/>
 
 # Création et gestion d’une machine virtuelle Windows dans la gestion des services à l’aide d’Azure PowerShell
 
@@ -209,4 +209,4 @@ Pour attacher des disques de données à partir d’un fichier .vhd existant dan
 
 [Utilisation d'Azure PowerShell pour créer et préconfigurer des machines virtuelles Windows](virtual-machines-ps-create-preconfigure-windows-vms.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

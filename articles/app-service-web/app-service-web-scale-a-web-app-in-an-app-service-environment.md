@@ -5,20 +5,22 @@
 	documentationCenter="" 
 	authors="ccompy" 
 	manager="stefsch" 
-	editor=""/>
+	editor="jimbe"/>
 
 <tags 
-	ms.service="app-service-web" 
+	ms.service="app-service" 
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/27/2015" 
+	ms.date="09/16/2015" 
 	ms.author="ccompy"/>
 
 # Mise à l'échelle des applications web dans un environnement App Service #
 
 À un niveau élevé, les environnements App Service sont essentiellement des déploiements personnels d'Azure App Service sur votre réseau virtuel et ne peuvent être gérés que par votre abonnement. Ils offrent de nouvelles fonctionnalités réseau, car ils sont dans votre réseau virtuel et peuvent également être mis à l'échelle au-delà de ce qui est normalement disponible dans les environnements Azure App Service. Pour plus d'informations sur ce qu'est un environnement App Service, consultez [Présentation d'un environnement App Service][WhatisASE]. Pour plus d'informations sur la création d'un environnement App Service ou la création d'une application web dans un environnement App Service, consultez [Comment créer un environnement App Service][HowtoCreateASE] et [Comment créer une application web dans un environnement App Service][CreateWebappinASE]
+
+[AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
 À titre de bref rappel, lorsque, normalement, vous modifiez l'attribut d'échelle d'une application web, vous le modifiez au niveau du plan App Service. Pour plus d'informations sur la mise à l'échelle des plans App Service ou sur les seuls plans App Service en dehors des environnements App Service, consultez [Mettre à l'échelle une application web dans Azure App Service][ScaleWebapp] et [Présentation détaillée des plans App Service][Appserviceplans].
 
@@ -84,4 +86,4 @@ Pour plus d’informations sur la plateforme Azure App Service, consultez la rub
 [AzureAppService]: http://azure.microsoft.com/documentation/articles/app-service-value-prop-what-is/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

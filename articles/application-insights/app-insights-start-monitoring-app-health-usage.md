@@ -121,6 +121,13 @@ Cliquez sur un des graphiques pour afficher des métriques plus détaillées. [E
 
 Lorsque vous exécutez l'application en mode débogage, la télémétrie est envoyée via le pipeline, ce qui vous permet d'accéder aux données en quelques secondes. Lorsque vous déployez votre application, les données s'accumulent plus lentement.
 
+#### Les données n’apparaissent pas après leur publication sur votre serveur ?
+
+Ouvrez ces ports pour le trafic sortant dans le pare-feu de votre serveur :
+
++ `dc.services.visualstudio.com:443`
++ `f5.services.visualstudio.com:443`
+
 
 #### Vous rencontrez des problèmes sur votre serveur de builds ?
 
@@ -130,13 +137,13 @@ Consultez cet article de [résolution des problèmes](app-insights-troubleshoot-
 
 Le Kit de développement logiciel (SDK) a besoin d'un peu d'aide pour accéder à certaines données. En particulier, vous aurez besoin de cette étape supplémentaire pour mesurer automatiquement les appels de votre application vers des bases de données, des API REST et d’autres composants externes. Ces mesures de dépendance peuvent être très utiles pour vous aider à diagnostiquer les problèmes de performances.
 
-Cette étape permet également [d’indiquer les compteurs de performance](app-insights-web-monitor-performance.md#system-performance-counters) tels que le taux d’utilisation du processeur, de la mémoire et du réseau.
-
 #### Si votre application s'exécute sur votre serveur IIS
 
 Connectez-vous à votre serveur avec des droits d’administrateur, puis installez [Application Insights Status Monitor](http://go.microsoft.com/fwlink/?LinkId=506648).
 
-(Vous pouvez également utiliser Status Monitor pour [instrumenter une application déjà en cours d’exécution](app-insights-monitor-performance-live-website-now.md), même si elle n’a pas été générée avec le Kit de développement logiciel (SDK).)
+Vous devrez peut-être [ouvrir des ports sortants supplémentaires dans votre pare-feu](app-insights-monitor-performance-live-website-now.md#troubleshooting).
+
+Cette étape permet aussi d’établir un [rapport des compteurs de performance](app-insights-web-monitor-performance.md#system-performance-counters), tels que le taux d’utilisation du processeur, de la mémoire et du réseau.
 
 #### Si votre application est une application web Azure
 
@@ -168,7 +175,7 @@ Notez que le code contient la clé d’instrumentation qui identifie la ressourc
 
 #### Si vos clients sont des applications pour appareil
 
-Si votre application sert des clients tels que des téléphones ou d’autres appareils, ajoutez le [Kit de développement logiciel (SDK) correspondant](app-insights-platforms.md) à votre application pour appareil.
+Si votre application dessert des clients tels que des téléphones ou d’autres appareils, ajoutez le [Kit de développement logiciel (SDK) correspondant](app-insights-platforms.md) à votre application pour appareil.
 
 Si vous configurez le Kit de développement logiciel (SDK) client avec la même clé d'instrumentation que le SDK serveur, les deux flux sont intégrés et apparaissent ensemble.
 
@@ -185,11 +192,11 @@ Pour obtenir une vue à 360 degrés de votre application, vous devez effectuer 
 
 Comme annoncé au début de cet article, nous allons vous décrire la méthode manuelle de création d’une ressource Application Insights, avant d’installer le kit de développement logiciel (SDK). Il est important de saisir les deux parties de cette procédure. Mais pour les applications ASP.NET (et beaucoup d'autres), il existe un moyen automatisé encore plus rapide.
 
-Vous aurez besoin des éléments suivants : [Visual Studio](http://go.microsoft.com/fwlink/?linkid=397827&clcid=0x409) (2013 Update 3 ou une version plus récente) ainsi qu’un compte [Microsoft Azure](http://azure.com).
+Vous aurez besoin des éléments suivants : [Visual Studio](http://go.microsoft.com/fwlink/?linkid=397827&clcid=0x409) (2013 Update 3 ou une version plus récente), ainsi qu’un compte [Microsoft Azure](http://azure.com).
 
 #### S'il s'agit d'un nouveau projet...
 
-Quand vous créez un projet dans Visual Studio, assurez-vous que l’option **Ajouter Application Insights** est sélectionnée.
+Au moment de créer un projet dans Visual Studio, assurez-vous que l’option **Ajouter Application Insights** est bien sélectionnée.
 
 
 ![Création d'un projet ASP.NET](./media/app-insights-start-monitoring-app-health-usage/appinsights-01-vsnewp1.png)
@@ -200,7 +207,7 @@ Si votre projet a des pages web, Visual Studio ajoute également le [Kit de dév
 
 #### ... ou s'il s'agit d'un projet existant
 
-Cliquez avec le bouton droit de la souris sur le projet dans l’Explorateur de solutions, puis sélectionnez **Ajouter Application Insights**.
+Cliquez avec le bouton droit sur le projet dans l’Explorateur de solutions, puis sélectionnez **Ajouter Application Insights**.
 
 ![Sélection de Ajouter Application Insights](./media/app-insights-start-monitoring-app-health-usage/appinsights-03-addExisting.png)
 
@@ -248,4 +255,4 @@ Si cette application fait partie d'une application plus importante, vous pouvez 
 [roles]: app-insights-resources-roles-access-control.md
 [start]: app-insights-get-started.md
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

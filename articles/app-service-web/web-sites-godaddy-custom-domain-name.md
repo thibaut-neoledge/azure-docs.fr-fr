@@ -5,27 +5,26 @@
 	documentationCenter=""
 	authors="erikre"
 	manager="wpickett"
-	editor=""/>
+	editor="jimbe"/>
 
 <tags
-	ms.service="app-service-web"
+	ms.service="app-service"
 	ms.workload="web"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/18/2015"
+	ms.date="09/16/2015"
 	ms.author="erikre"/>
 
 # Configurer un nom de domaine personnalisé dans Azure App Service (acheté directement sur GoDaddy)
 
 [AZURE.INCLUDE [web-selector](../../includes/websites-custom-domain-selector.md)]
 
+[AZURE.INCLUDE [intro](../../includes/custom-dns-web-site-intro.md)]
+
+Si vous avez acheté un domaine via Azure App Service Web Apps, reportez-vous à l’étape finale de l’article <a href="/documentation/articles/custom-dns-web-site-buydomains-web-app" title="Web Apps" class="current">Acheter un domaine pour Web Apps</a>.
 
 [AZURE.INCLUDE [websites-cloud-services-css-guided-walkthrough](../../includes/websites-cloud-services-css-guided-walkthrough.md)]
-
-> [AZURE.NOTE]Si vous avez acheté un domaine via Azure App Service Web Apps, reportez-vous à l’étape finale de l’article <a href="/documentation/articles/custom-dns-web-site-buydomains-web-app" title="Web Apps" class="current">Acheter un domaine pour Web Apps</a>.
-
-[AZURE.INCLUDE [intro](../../includes/custom-dns-web-site-intro.md)]
 
 Cet article explique comment utiliser un nom de domaine personnalisé acheté directement auprès de [GoDaddy](https://godaddy.com) avec [App Service Web Apps](http://go.microsoft.com/fwlink/?LinkId=529714).
 
@@ -35,7 +34,6 @@ Cet article explique comment utiliser un nom de domaine personnalisé acheté di
 ##Présentation des enregistrements DNS
 
 [AZURE.INCLUDE [understandingdns](../../includes/custom-dns-web-site-understanding-dns-raw.md)]
-
 
 <a name="bkmk_configurecname"></a>
 ## Ajout d'un enregistrement DNS pour votre domaine personnalisé
@@ -89,4 +87,4 @@ Pour associer votre domaine personnalisé à une application web dans App Servi
 * Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre l’ancien et le nouveau portail, consultez la page [Références sur la navigation dans le portail Azure](http://go.microsoft.com/fwlink/?LinkId=529715).
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO3-->

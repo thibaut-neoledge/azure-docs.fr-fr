@@ -1,3 +1,5 @@
+<!--author=alkohli last changed: 9/17/15-->
+
 #### Pour ajouter un compte de stockage dans StorSimple 8000 Series Update 1.0
 
 1. Sur la page d’accueil du service StorSimple Manager, sélectionnez votre service et double-cliquez dessus. La page **Démarrage rapide** s’affiche. Sélectionnez la page **Configurer**.
@@ -45,4 +47,4 @@
 
 7. Le compte de stockage qui vient d’être créé est affiché dans la page **Configurer**, sous **Comptes de stockage**. Cliquez sur **Enregistrer** pour enregistrer le nouveau compte de stockage. Cliquez sur **OK** lorsque vous êtes invité à confirmer l’opération.
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO3-->

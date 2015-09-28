@@ -1,19 +1,19 @@
 <properties
    pageTitle="Appareil virtuel StorSimple dans Azure | Microsoft Azure"
-	description="Apprenez à créer, déployer et gérer un appareil virtuel StorSimple dans un réseau virtuel Microsoft Azure. (S'applique à StorSimple version .3 et versions antérieures.)"
-	services="storsimple"
-	documentationCenter=""
-	authors="alkohli"
-	manager="carolz"
-	editor=""/>
+   description="Apprenez à créer, déployer et gérer un appareil virtuel StorSimple dans un réseau virtuel Microsoft Azure. (S'applique à StorSimple version .3 et versions antérieures.)"
+   services="storsimple"
+   documentationCenter=""
+   authors="alkohli"
+   manager="carolz"
+   editor="" />
 <tags
    ms.service="storsimple"
-	ms.devlang="NA"
-	ms.topic="hero-article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="NA"
-	ms.date="09/02/2015"
-	ms.author="alkohli"/>
+   ms.devlang="NA"
+   ms.topic="hero-article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="NA"
+   ms.date="09/16/2015"
+   ms.author="alkohli" />
 
 # Déployer et gérer un appareil virtuel StorSimple dans Azure
 
@@ -114,8 +114,6 @@ Après avoir effectué ces procédures, vous êtes prêt à [utiliser l’appare
 Après avoir créé un réseau virtuel, configuré un service StorSimple Manager et inscrit votre appareil physique StorSimple auprès du service, vous pouvez suivre les étapes suivantes pour créer un appareil virtuel StorSimple.
 
 Procédez comme suit pour créer l’appareil virtuel StorSimple.
-
-
 
 1.  Dans le portail Azure, accédez au service **StorSimple Manager**.
 
@@ -219,7 +217,6 @@ Vous pouvez choisir de vous connecter via HTTP ou HTTPS. Pour des raisons de sé
 
 Procédez comme suit pour configurer la gestion à distance de l’appareil virtuel StorSimple.
 
-
 1. Sur votre appareil virtuel, accédez à **Appareils > Configurer**.
 
 2. Accédez à la section **Gestion à distance**.
@@ -232,6 +229,9 @@ Procédez comme suit pour configurer la gestion à distance de l’appareil virt
 
 6. Cliquez sur **Enregistrer** au bas de la page.
 
+![Vidéo disponible](./media/storsimple-virtual-device/Video_icon.png) **Vidéo disponible**
+
+Pour visionner une vidéo qui décrit comment créer un appareil StorSimple virtuel dans le cloud, cliquez [ici](http://azure.microsoft.com/documentation/videos/create-a-storsimple-virtual-device/).
 
 ## Utilisation de l’appareil virtuel StorSimple
 
@@ -345,7 +345,7 @@ La récupération d’urgence est un des scénarios clés pour lequel l’appare
 
 - Répétez l’étape précédente pour tous les conteneurs de volumes que vous souhaitez basculer vers l’appareil virtuel.
 
-- Dans la page **Appareils**, sélectionnez l’appareil que vous souhaitez basculer, puis cliquez sur **Basculement** pour ouvrir l’Assistant **Basculement d’appareil**.
+- Dans la page **Appareils**, sélectionnez l’appareil que vous souhaitez basculer, puis cliquez sur **Basculement** pour ouvrir l’Assistant Basculement d’appareil.
 
 - Dans **Sélectionner le conteneur de volumes à basculer**, sélectionnez les conteneurs de volumes que vous souhaitez basculer. Pour figurer dans cette liste, le conteneur de volumes doit contenir un instantané cloud et être hors connexion. Si un conteneur de volumes que vous souhaitez voir n’est pas présent, annulez l’Assistant et vérifiez s’il est hors connexion.
 
@@ -353,15 +353,19 @@ La récupération d’urgence est un des scénarios clés pour lequel l’appare
 
 - Passez en revue tous les paramètres de basculement dans la page **Confirmer le basculement**. S’ils sont corrects, cliquez sur l’icône en forme de coche.
 
-Le processus de basculement commence. Lorsque le basculement est terminé, accédez à la page Appareils et sélectionnez l’appareil virtuel qui a été utilisé comme cible pour le processus de basculement. Accédez à la page Conteneurs de volumes. Tous les conteneurs de volumes, ainsi que les volumes de l’ancien appareil, doivent être répertoriés.
+Le processus de basculement commence. Une fois le basculement terminé, accédez à la page **Appareils** et sélectionnez l’appareil virtuel qui a été utilisé comme cible pour le processus de basculement. Accédez à la page Conteneurs de volumes. Tous les conteneurs de volumes, ainsi que les volumes de l’ancien appareil, doivent être répertoriés.
 
 >[AZURE.NOTE]La quantité de stockage prise en charge sur l’appareil virtuel est de 30 To.
+
+![Vidéo disponible](./media/storsimple-virtual-device/Video_icon.png) **Vidéo disponible**
+
+Pour visionner une vidéo décrivant comment restaurer un périphérique physique basculé vers un appareil virtuel dans le cloud, cliquez [ici](http://azure.microsoft.com/documentation/videos/storsimple-and-disaster-recovery/).
 
 ## Arrêt ou suppression de l’appareil virtuel
 
 Si vous avez précédemment configuré et utilisé un appareil virtuel StorSimple, mais que vous ne voulez plus cumuler de frais de calcul pour son utilisation, vous pouvez l’arrêter. L’arrêt de l’appareil virtuel ne supprime pas son système d’exploitation ni les disques de données du stockage. Cette opération arrête le cumul de frais dans votre abonnement, mais les frais de stockage pour les disques de système d’exploitation et de données continuent à être facturés.
 
-Si vous supprimez ou arrêtez l’appareil virtuel, il apparaît comme **Hors connexion** dans la page Appareils du service StorSimple Manager. Vous pouvez choisir de le désactiver ou de le supprimer comme appareil si vous souhaitez également supprimer les sauvegardes créées par l’appareil virtuel. Pour plus d’informations, consultez la page [Désactiver un appareil](storsimple-deactivate-and-delete-device.md#deactivate-a-device).
+Si vous supprimez ou arrêtez l’appareil virtuel, il apparaît comme **Hors connexion** dans la page Appareils du service StorSimple Manager. Vous pouvez choisir de le désactiver ou de le supprimer comme appareil si vous souhaitez également supprimer les sauvegardes créées par l’appareil virtuel. Pour plus d’informations, consultez [Désactiver un appareil](storsimple-deactivate-and-delete-device.md#deactivate-a-device).
 
 ### Arrêt de l’appareil virtuel StorSimple
 
@@ -384,4 +388,4 @@ Si vous supprimez ou arrêtez l’appareil virtuel, il apparaît comme **Hors co
 
 Pour administrer votre appareil virtuel, reportez-vous à la liste détaillée des flux de travail de la section [Administrer l’appareil StorSimple à l’aide du service StorSimple Manager](storsimple-manager-service-administration.md#administer-storsimple-device-using-storsimple-manager-service).
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

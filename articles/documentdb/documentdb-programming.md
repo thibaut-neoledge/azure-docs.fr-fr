@@ -1,26 +1,27 @@
 <properties 
-	pageTitle="Programmation DocumentDB : procédures stockées, déclencheurs et fonctions définies par l’utilisateur | Microsoft Azure"
-	description="Découvrez comment utiliser Microsoft Azure DocumentDB pour écrire des procédures stockées, des déclencheurs et des fonctions définies par l'utilisateur en mode natif dans JavaScript."
-	services="documentdb"
-	documentationCenter=""
-	authors="aliuy"
-	manager="jhubbard"
+	pageTitle="Programmation DocumentDB : procédures stockées, déclencheurs de base de données et fonctions définies par l’utilisateur | Microsoft Azure" 
+	description="Apprenez à utiliser DocumentDB pour écrire des procédures stockées, des déclencheurs de base de données et des fonctions définies par l’utilisateur en JavaScript. Obtenez notamment des conseils en matière de programmation de base de données." 
+	keywords="Database triggers, stored procedure, stored procedure, database program, sproc, documentdb, azure, Microsoft azure"
+	services="documentdb" 
+	documentationCenter="" 
+	authors="aliuy" 
+	manager="jhubbard" 
 	editor="cgronlun"/>
 
 <tags 
-	ms.service="documentdb"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/18/2015"
+	ms.service="documentdb" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/18/2015" 
 	ms.author="andrl"/>
 
-# Programmation DocumentDB côté serveur : Procédures stockées, déclencheurs et fonctions définies par l’utilisateur
+# Programmation DocumentDB côté serveur : procédures stockées, déclencheurs de base de données et fonctions définies par l’utilisateur
 
-Découvrez comment l’exécution transactionnelle de JavaScript intégrée au langage de DocumentDB permet aux développeurs d’écrire des **procédures stockées**, des **déclencheurs** et des **fonctions définies par l’utilisateur** en JavaScript en mode natif. Vous pouvez ainsi écrire une logique d'application qui peut être expédiée et exécutée directement dans les partitions de stockage de base de données.
+Découvrez comment l’exécution transactionnelle de JavaScript intégrée au langage de DocumentDB permet aux développeurs d’écrire des **procédures stockées**, des **déclencheurs** et des **fonctions définies par l’utilisateur** en JavaScript en mode natif. Vous pouvez ainsi écrire une logique d’application de programme de base de données qui peut être expédiée et exécutée directement dans les partitions de stockage de base de données.
 
-Nous vous recommandons de commencer par visionner la vidéo suivante, dans laquelle Andrew Liu présente brièvement le modèle de programmation côté serveur de DocumentDB.
+Nous vous recommandons de commencer par regarder la vidéo suivante, dans laquelle Andrew Liu présente brièvement le modèle de programmation de base de données côté serveur de DocumentDB.
 
 > [AZURE.VIDEO azure-demo-a-quick-intro-to-azure-documentdbs-server-side-javascript]
 
@@ -33,7 +34,7 @@ Ensuite, revenez à cet article dans lequel vous découvrirez les réponses aux 
 - Comment enregistrer et exécuter une procédure stockée, un déclencheur ou une fonction définie par l'utilisateur sur la base de l'architecture REST avec HTTP ?
 - Quels sont les Kits de développement logiciel (SDK) DocumentDB disponibles pour créer et exécuter des procédures stockées, des déclencheurs et des fonctions définies par l'utilisateur ?
 
-## Introduction
+## Introduction à la programmation de procédures stockées et de fonctions définies par l’utilisateur
 
 Cette approche du *« JavaScript en tant que langage T-SQL actualisé »* libère les développeurs d’applications des complexités liées aux incompatibilités de système de type et aux technologies de mappage de relationnel objet. Elle présente également une série d'avantages intrinsèques pouvant être utilisés pour créer des applications enrichies :
 
@@ -49,7 +50,7 @@ Cette approche du *« JavaScript en tant que langage T-SQL actualisé »* lib�
 	-	Une couche d'abstraction est ajoutée aux données brutes, ce qui permet aux architectes de données de faire évoluer leurs applications indépendamment des données. Ceci est particulièrement avantageux lorsque les données ne présentent pas de schéma, en raison des hypothèses fragiles devant être intégrées à l'application si elles doivent gérer des données directement.  
 	-	Cette abstraction permet aux entreprises d'assurer la sécurité de leurs données en simplifiant l'accès à partir des scripts.  
 
-La création et l’exécution de déclencheurs, de procédures stockées et d’opérateurs de requête personnalisés sont prises en charge par le biais de l’[API REST](https://msdn.microsoft.com/library/azure/dn781481.aspx) et de [Kits de développement logiciel (SDK) clients](https://msdn.microsoft.com/library/azure/dn781482.aspx) dans de nombreuses plateformes, dont .NET, Node.js et JavaScript. **Ce didacticiel utilise le [Kit de développement logiciel (SDK) Node.js](http://dl.windowsazure.com/documentDB/nodedocs/)** pour illustrer la syntaxe et l’utilisation des procédures stockées, des déclencheurs et des fonctions définies par l’utilisateur.
+La création et l’exécution de déclencheurs de base de données, de procédures stockées et d’opérateurs de requête personnalisés sont prises en charge par le biais de l’[API REST](https://msdn.microsoft.com/library/azure/dn781481.aspx) et de [Kits de développement logiciel (SDK) clients](https://msdn.microsoft.com/library/azure/dn781482.aspx) de nombreuses plateformes, dont .NET, Node.js et JavaScript. **Ce didacticiel utilise le [Kit de développement logiciel (SDK) Node.js](http://dl.windowsazure.com/documentDB/nodedocs/)** pour illustrer la syntaxe et l’utilisation des procédures stockées, des déclencheurs et des fonctions définies par l’utilisateur.
 
 ## Procédures stockées
 
@@ -147,7 +148,7 @@ Notez que cette procédure stockée peut être modifiée pour accepter en entré
 
 L'exemple décrit ci-dessus a illustré la façon d'utiliser des procédures stockées. Nous verrons les déclencheurs et les fonctions définies par l'utilisateur plus loin dans ce didacticiel.
 
-## Transactions
+## Transactions de programme de base de données
 Une transaction dans une base de données classique peut être définie comme étant une séquence d'opérations effectuées en tant qu'unité de travail logique unique. Chaque transaction offre des **garanties ACID**. ACID est un acronyme bien connu qui est l'abréviation de quatre propriétés : Atomicité, Cohérence, Isolation et Durabilité.
 
 En bref, l'atomicité permet de s'assurer que tout le travail effectué au sein d'une transaction est traité en tant que simple unité validée dans son intégralité ou aucunement. La cohérence permet de s'assurer que les données sont toujours dans un état interne correct d'une transaction à l'autre. L'isolation, quant à elle, permet de garantir qu'aucune transaction n'interfère avec les autres. Généralement, la plupart des systèmes commerciaux fournissent plusieurs niveaux d'isolation pouvant être utilisés en fonction des besoins des applications. Enfin, la durabilité permet de s'assurer que toute modification validée dans la base de données sera toujours présente.
@@ -234,7 +235,7 @@ Afin de simplifier le développement de procédures stockées et de déclencheur
 
 Les fonctions JavaScript sont également liées lors de la consommation de ressources. DocumentDB réserve le débit par collection sur la base de la taille configurée d'un compte de base de données. Le débit est exprimé en unités normalisées de processeur, de mémoire et de consommation d'E/S, appelées unités de demande. Les fonctions JavaScript peuvent potentiellement utiliser un nombre élevé d'unités de demande en peu de temps, et la limite de débit peut être restreinte si la limite de la collection est atteinte. Les procédures stockées gourmandes en ressources peuvent également être mises en quarantaine pour garantir la disponibilité des opérations de base de données primitives.
 
-### Exemple : Importation de données en bloc
+### Exemple : importation de données en bloc dans un programme de base de données
 Ci-dessous se trouve un exemple de procédure stockée qui a été écrite pour importer des documents en bloc dans une collection. Notez la façon dont la procédure stockée gère l'exécution liée en vérifiant la valeur de retour booléenne à partir de createDocument, puis utilise le nombre de documents insérés dans chaque appel de la procédure stockée pour effectuer le suivi de la progression et la reprendre d'un lot à un autre.
 
 	function bulkImport(docs) {
@@ -286,8 +287,8 @@ Ci-dessous se trouve un exemple de procédure stockée qui a été écrite pour 
 	    }
 	}
 
-## <a id="trigger"></a> Déclencheurs
-### Pré-déclencheurs
+## <a id="trigger"></a> Déclencheurs de base de données
+### Pré-déclencheurs de base de données
 DocumentDB fournit des déclencheurs qui sont exécutés ou déclenchés par une opération dans un document. Par exemple, vous pouvez spécifier un pré-déclencheur lorsque vous créez un document ; ce pré-déclencheur s'exécutera avant la création du document Voici un exemple de la façon dont les pré-déclencheurs peuvent être utilisés pour valider les propriétés d'un document en cours de création.
 
 	var validateDocumentContentsTrigger = {
@@ -356,7 +357,7 @@ Lorsque les déclencheurs sont enregistrés, les utilisateurs peuvent spécifier
 	
 	// Fails, can’t use a create trigger in a replace operation
 
-### Post-déclencheurs
+### Post-déclencheurs de base de données
 Les post-déclencheurs, comme les pré-déclencheurs, sont associés à une opération dans un document et n'acceptent pas de paramètres en entrée. Ils s'exécutent **après** la fin de l'opération et ils ont accès au message de réponse qui est envoyé au client.
 
 L'exemple suivant montre les post-déclencheurs en action :
@@ -920,4 +921,4 @@ Pour en savoir plus sur la programmation DocumentDB côté serveur, vous pouvez 
 -	[Architecture de base de données orientée services](http://dl.acm.org/citation.cfm?id=1066267&coll=Portal&dl=GUIDE) 
 -	[Hébergement du Runtime .NET dans Microsoft SQL Server](http://dl.acm.org/citation.cfm?id=1007669)  
 
-<!----HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO3-->

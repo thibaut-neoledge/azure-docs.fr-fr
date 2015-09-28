@@ -27,7 +27,7 @@ Les questions suivantes sont celles qui nous ont été posées sur Azure RemoteA
 
 ## Configurations prises en charge ##
 
-- **Quelles sont les limites du service ?** Vous pouvez en savoir plus sur les paramètres par défaut et les limites du service Azure RemoteApp dans [Abonnement Azure et limites, quotas et contraintes du service](.\azure-subscription-service-limits.md). N’hésitez pas à nous contacter si vous avez d'autres questions.
+- **Quelles sont les limites du service ?** Vous pouvez en savoir plus sur les paramètres par défaut et les limites du service Azure RemoteApp dans [Abonnement Azure et limites, quotas et contraintes du service](azure-subscription-service-limits.md). N’hésitez pas à nous contacter si vous avez d'autres questions.
 - **Combien d'utilisateurs dois-je avoir ?** Il existe un minimum de 20 utilisateurs. Il s’agit bien de la valeur MINIMALE. Vous serez facturé pour 20 utilisateurs. 
 - **Les applications métier personnalisées sont-elles prises en charge ?** Oui. Pour utiliser une application personnalisée dans Azure RemoteApp, créez une [image de modèle personnalisée](remoteapp-create-custom-image.md), puis téléchargez-la dans la collection RemoteApp.
 - **Mon application métier personnalisée fonctionnera-t-elle dans Azure RemoteApp ?** La meilleure façon de le savoir consiste à la tester. Examinez les [conditions de compatibilité des applications](http://www.microsoft.com/download/details.aspx?id=18704) et consultez le [Centre de compatibilité du Bureau à distance](http://www.rdcompatibility.com/compatibility/default.aspx).
@@ -82,4 +82,4 @@ Les questions suivantes sont celles qui nous ont été posées sur Azure RemoteA
 
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO3-->

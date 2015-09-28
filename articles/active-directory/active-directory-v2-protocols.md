@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Modèle d’application v2.0 | Microsoft Azure"
+	pageTitle="Modèle d’application v2.0 - Protocoles | Microsoft Azure"
 	description="Les protocoles pris en charge par la version d’évaluation publique du modèle d’application Azure AD v2.0."
 	services="active-directory"
 	documentationCenter=""
@@ -72,10 +72,10 @@ https%3A%2F%2Fgraph.windows.net%2Fdirectory.write
 
 | Paramètre | | Description |
 | ----------------------- | ------------------------------- | ----------------------- |
-| client\_id | requis | L’ID d’application que le portail d’inscription ([apps.dev.microsoft.com](https://apps.dev.microsoft.com)) a affecté à votre application. |
+| client\_id | required | L’ID d’application que le portail d’inscription ([apps.dev.microsoft.com](https://apps.dev.microsoft.com)) a affecté à votre application. |
 | response\_type | requis | Doit inclure `code` pour le flux de code d’autorisation. |
 | redirect\_uri | requis | L’URI de redirection de votre application, vers lequel où votre application peut envoyer et recevoir des réponses d’authentification. Il doit correspondre exactement à l’un des URI de redirection enregistrés dans le portail, auquel s’ajoute le codage dans une URL. |
-| scope | requis | Une liste d’étendues séparées par des espaces. Une valeur d’étendue unique indique au point de terminaison v2.0 la ressource et les autorisations d’accès à cette ressource sollicitées. L’étendue prend la forme suivante : `<app identifier URI>/<scope value>`. Dans l’exemple ci-dessus, l’identificateur d’application associé à l’API Graph Azure AD est utilisé, `https://graph.windows.net`, et deux autorisations sont demandées : `directory.read` et `directory.write`. Pour obtenir une explication plus détaillée des étendues, reportez-vous à c. |
+| scope | required | Une liste d’étendues séparées par des espaces. Une valeur d’étendue unique indique au point de terminaison v2.0 la ressource et les autorisations d’accès à cette ressource sollicitées. L’étendue prend la forme suivante : `<app identifier URI>/<scope value>`. Dans l’exemple ci-dessus, l’identificateur d’application associé à l’API Graph Azure AD est utilisé, `https://graph.windows.net`, et deux autorisations sont demandées : `directory.read` et `directory.write`. Pour obtenir une explication plus détaillée des étendues, reportez-vous à c. |
 | response\_mode | recommandé | Spécifie la méthode à utiliser pour envoyer le code d’autorisation résultant à votre application. Il peut s’agir de « query », « form\_post » ou de « fragment ».
 | state | recommandé | Une valeur incluse dans la requête, qui sera également renvoyée dans la réponse de jeton. Il peut s’agir d’une chaîne du contenu de votre choix. Une valeur unique générée de manière aléatoire est généralement utilisée pour empêcher les falsifications de requête intersite. La valeur d’état est également utilisée pour coder les informations sur l’état de l’utilisateur dans l’application avant la requête d’authentification, comme la page ou l’écran sur lequel ou laquelle il était positionné. |
 | prompt | facultatif | Indique le type d’interaction utilisateur requis. La seule valeur valide pour l’instant est « login », ce qui oblige l’utilisateur à saisir ses informations d’identification sur cette requête. L’authentification unique ne prendra pas effet. |
@@ -475,4 +475,4 @@ Le flux « Au nom de », ou l’octroi des informations d’identification du 
 
 Ce flux n’est pas actuellement pris en charge par la version d’évaluation du modèle d’application v2.0. Pour observer son fonctionnement dans le service Azure AD disponible généralement, consultez cet [exemple de code Azure AD](https://github.com/AzureADSamples/WebAPI-OnBehalfOf-DotNet).
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO3-->

@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="07/07/2015"
+    ms.date="09/16/2015"
     ms.author="robb"/>
 
 # Amélioration de la disponibilité à l’aide des paires régionales Azure
@@ -84,4 +84,4 @@ Conformément à la figure 2.
 
 ![9Orange](./media/best-practices-availability-paired-regions/9Orange.png) **Résidence de données** – Une région se trouve dans la même zone géographique que la région avec laquelle elle est jumelée (à l’exception du Sud du Brésil) pour répondre aux exigences de la résidence de données en termes d’impôts et d’application de la loi.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

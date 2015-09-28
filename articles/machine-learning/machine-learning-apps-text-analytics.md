@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/01/2015"
+	ms.date="09/11/2015"
 	ms.author="luisca"/>
 
 
@@ -135,7 +135,9 @@ Dans la réponse ci-dessous, vous obtenez la liste de résultats associée à vo
 		 {"Score":0.7767222,"Id":"2"},
 		 {"Score":0.8988889,"Id":"3"}
 		],  
-		"Errors":[] 
+		"Errors":[
+		   {"Id": "4", Message:"Record cannot be null/empty"}
+		]
 	}
 
 
@@ -191,7 +193,9 @@ Dans la réponse ci-dessous, vous obtenez la liste des expressions clés associ�
 		   {"KeyPhrases":["amazing build conference","interesting talks"],"Id":"2"},
 		   {"KeyPhrases":["hours","traffic","airport"],"Id":"3" }
 		],
-		"Errors":[ ]
+		"Errors":[
+		   {"Id": "4", Message:"Record cannot be null/empty"}
+		]
 	}
 
 ---
@@ -201,4 +205,4 @@ Dans la réponse ci-dessous, vous obtenez la liste des expressions clés associ�
 Les ID d’entrée saisis dans le système sont les ID retournés par le système. Le service Web ne vérifie pas que les ID sont uniques. Il incombe à l’appelant d’en vérifier l’unicité.
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

@@ -11,17 +11,17 @@
 <tags
 	ms.service="virtual-machines"
 	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="vm-windows"
+	ms.tgt_pltfrm="Windows"
 	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/09/2015"
+	ms.topic="index-page"
+	ms.date="09/16/2015"
 	ms.author="josephd"/>
 
 # Environnements de test de cloud hybride Azure
 
-Pour le développement, le test ou une validation technique, les environnements de test de cloud hybride utilisent votre connexion Internet locale ainsi que l’une de vos adresses IP publiques et vous guident pour configurer un réseau virtuel Azure (VNet) opérationnel entre différents locaux. Lorsque vous avez terminé, vous pouvez développer et tester des applications, faire des essais avec des charges de travail informatique simplifiées et évaluer les performances d’une connexion de réseau privé virtuel (VPN) de site à site relative à votre emplacement sur Internet.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Cet article traite de la création de ressources avec le modèle de déploiement classique.
 
-> [AZURE.NOTE]Ces articles créent actuellement des ordinateurs virtuels, des réseaux virtuels et d’autres ressources dans la gestion de service.
+Pour le développement, le test ou une validation technique, les environnements de test de cloud hybride utilisent votre connexion Internet locale ainsi que l’une de vos adresses IP publiques et vous guident pour configurer un réseau virtuel Azure (VNet) opérationnel entre différents locaux. Lorsque vous avez terminé, vous pouvez développer et tester des applications, faire des essais avec des charges de travail informatique simplifiées et évaluer les performances d’une connexion de réseau privé virtuel (VPN) de site à site relative à votre emplacement sur Internet.
 
 ## Configuration de base de cloud hybride
 
@@ -52,10 +52,10 @@ Pour les organisations et les personnes ne disposant pas d’une connexion direc
 
 [Batteries de serveurs SharePoint hébergés dans des services d’infrastructure Azure](virtual-machines-sharepoint-infrastructure-services.md)
 
-[PDF du plan d’architecture des applications métier 3 D](http://download.microsoft.com/download/2/C/8/2C8EB75F-AC45-4A79-8A63-C1800C098792/MS_Arch_LOB_App_3D_pdf.pdf)
+[Charge de travail des services d’infrastructure Azure : applications métier à haute disponibilité](virtual-machines-workload-high-availability-LOB-application.md)
 
 [Déploiement de la synchronisation d’annuaires (DirSync) d’Office 365 dans Microsoft Azure](https://technet.microsoft.com/library/dn635310.aspx)
 
 [Instructions d’implémentation des services d’infrastructure Azure](virtual-machines-infrastructure-services-implementation-guidelines.md)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO3-->

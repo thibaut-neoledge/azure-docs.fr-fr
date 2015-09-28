@@ -1,12 +1,11 @@
 <properties 
-	pageTitle="Planification des travaux récurrents dans Azure Mobile Services" 
-	description="Azure Mobile Services Scheduler permet de planifier des tâches pour votre application mobile." 
+	pageTitle="Planifier des tâches de backend dans un service mobile de backend .NET | Microsoft Azure"
+	description="Utilisez le planificateur dans Azure Mobile Services pour définir des tâches de backend .NET qui s’exécutent selon une planification."
 	services="mobile-services" 
 	documentationCenter="" 
 	authors="ggailey777" 
 	manager="dwrede" 
 	editor=""/>
-
 
 <tags 
 	ms.service="mobile-services" 
@@ -14,15 +13,14 @@
 	ms.tgt_pltfrm="mobile-multiple" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="07/21/2015" 
+	ms.date="09/14/2015" 
 	ms.author="glenga"/>
-
 
 # Planification des travaux récurrents dans Mobile Services 
 
-> [AZURE.SELECTOR-LIST (Platform | Backend)]
-- [(Any | .NET)](mobile-services-dotnet-backend-schedule-recurring-tasks.md)
-- [(Any | Javascript)](mobile-services-schedule-recurring-tasks.md)
+> [AZURE.SELECTOR]
+- [.NET backend](mobile-services-dotnet-backend-schedule-recurring-tasks.md)
+- [Javascript backend](mobile-services-schedule-recurring-tasks.md)
  
 Cette rubrique explique comment utiliser la fonctionnalité de planification de travaux dans le portail de gestion pour définir le code de script serveur exécuté selon une planification que vous définissez. Dans ce cas, le script effectue régulièrement une vérification auprès d'un service distant, Twitter en l'occurrence, et stocke les résultats dans une nouvelle table. D'autres tâches périodiques peuvent être planifiées, notamment les tâches suivantes :
 
@@ -43,9 +41,7 @@ Ce didacticiel explique comment utiliser la planification des travaux pour crée
 &nbsp;&nbsp;8. Dans la même section, ajoutez les nouveaux paramètres d'application suivants, remplacez les espaces réservés par les valeurs du jeton d'accès et du secret de jeton d'accès Twitter que vous définissez comme paramètres d'application dans le portail :
 
 	<add key="TWITTER_ACCESS_TOKEN" value="**your_access_token**" />
-
 	<add key="TWITTER_ACCESS_TOKEN_SECRET" value="**your_access_token_secret**" />
-
 
 Le service mobile utilise ces paramètres stockés lorsqu'il s'exécute sur l'ordinateur local, ce qui permet de tester la tâche planifiée avant de la publier. Si le service mobile est exécuté dans Azure, il utilise à la place les valeurs définies dans le portail et ignore les paramètres du projet.
 
@@ -304,4 +300,4 @@ Félicitations, vous avez créé un nouveau travail planifié dans votre service
 [App settings]: http://msdn.microsoft.com/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
 [Projet CodePlex LINQ to Twitter]: http://linqtotwitter.codeplex.com/
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

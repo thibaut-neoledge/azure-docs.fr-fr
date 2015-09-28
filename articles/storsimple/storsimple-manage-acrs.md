@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Gérer les enregistrements de contrôle d’accès dans StorSimple | Microsoft Azure"
-	description="Décrit comment utiliser les enregistrements de contrôle d’accès pour déterminer les hôtes qui peuvent se connecter à un volume sur l’appareil StorSimple."
-	services="storsimple"
-	documentationCenter=""
-	authors="alkohli"
-	manager="carolz"
-	editor=""/>
+   description="Décrit comment utiliser les enregistrements de contrôle d’accès pour déterminer les hôtes qui peuvent se connecter à un volume sur l’appareil StorSimple."
+   services="storsimple"
+   documentationCenter=""
+   authors="alkohli"
+   manager="carolz"
+   editor="" />
 <tags 
    ms.service="storsimple"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="na"
-	ms.date="09/01/2015"
-	ms.author="alkohli"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="na"
+   ms.date="09/15/2015"
+   ms.author="alkohli" />
 
 # Utiliser le service StorSimple Manager pour gérer les enregistrements de contrôle d’accès
 
@@ -90,8 +90,8 @@ Pour supprimer un enregistrement de contrôle d’accès, procédez comme suit.
 
 ## Étapes suivantes
 
-Élargissez vos connaissances en matière de [gestion des volumes StorSimple](storsimple-manage-volumes.md).
-
+- En savoir plus sur la [gestion des volumes StorSimple](storsimple-manage-volumes.md).
+- En savoir plus sur [l’utilisation du service StorSimple Manager pour gérer votre appareil StorSimple](storsimple-manager-service-administration.md).
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

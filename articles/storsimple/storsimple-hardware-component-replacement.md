@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Remplacement des composants matériels StorSimple | Microsoft Azure"
-	description="Décrit comment remplacer de façon sécurisée les PCM, la batterie, les modules de contrôleur, les contrôleurs du boîtier, les lecteurs de disques et le châssis d’un appareil StorSimple."
-	services="storsimple"
-	documentationCenter=""
-	authors="alkohli"
-	manager="carolz"
-	editor=""/>
+   description="Décrit comment remplacer de façon sécurisée les PCM, la batterie, les modules de contrôleur, les contrôleurs du boîtier, les lecteurs de disques et le châssis d’un appareil StorSimple."
+   services="storsimple"
+   documentationCenter=""
+   authors="alkohli"
+   manager="carolz"
+   editor="" />
 <tags 
    ms.service="storsimple"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="TBD"
-	ms.date="08/31/2015"
-	ms.author="alkohli"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="TBD"
+   ms.date="08/31/2015"
+   ms.author="alkohli" />
 
 # Remplacement des composants matériels StorSimple
 
@@ -142,4 +142,4 @@ Les unités remplaçables sur site suivantes sont disponibles pour votre apparei
 
 Passez en revue toutes les [informations de sécurité](storsimple-safety.md) avant d’essayer de remplacer un composant matériel StorSimple.
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

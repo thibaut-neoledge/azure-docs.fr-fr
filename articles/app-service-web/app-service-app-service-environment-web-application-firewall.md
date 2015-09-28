@@ -5,15 +5,15 @@
 	documentationCenter="" 
 	authors="naziml" 
 	manager="wpickett" 
-	editor=""/>
+	editor="jimbe"/>
 
 <tags 
-	ms.service="app-service-web" 
+	ms.service="app-service" 
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/02/2015" 
+	ms.date="09/15/2015" 
 	ms.author="naziml"/>
 
 # Configuration d'un pare-feu d'applications Web (WAF) pour un environnement App Service
@@ -21,19 +21,21 @@
 ## Vue d'ensemble ##
 Les pare-feu d'applications Web comme le [WAF Barracuda pour Azure](https://www.barracuda.com/programs/azure) qui est disponible sur [Azure Marketplace](http://azure.microsoft.com/marketplace/partners/barracudanetworks/waf-byol/) permettent de sécuriser vos applications Web en inspectant le trafic Web entrant pour bloquer les injections SQL, l'exécution de scripts de site à site, les téléchargements de logiciels malveillants, les attaques DDoS d'application et d'autres attaques. Ce type de pare-feu inspecte également les réponses des serveurs Web principaux pour prévention de perte de données (DLP). En association avec l'isolement et la mise à l'échelle supplémentaire fournis par les environnements App Service, ceci fournit un environnement idéal pour héberger des applications Web professionnelles critiques qui doivent résister aux requêtes malveillantes et à un volume de trafic élevé.
 
+\+[AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
+
 ## Paramétrage ##
 Pour ce document, nous allons configurer notre environnement App Service derrière plusieurs instances à charge équilibrée de WAF Barracuda, afin que seul le trafic provenant du WAF puisse atteindre l'environnement App Service. Il ne sera pas accessible depuis la zone DMZ. Nous aurons également Azure Traffic Manager devant nos instances WAF Barracuda pour équilibrer la charge entre les régions et les centres de données Azure. Un diagramme de haut niveau de la configuration ressemblerait à ce qui est illustré ci-dessous.
 
 ![Architecture][Architecture]
 
 ## Configuration de votre environnement App Service ##
-Pour configurer un environnement App Service, consultez [notre documentation](app-service-web-how-to-create-an-app-service-environment.md) sur le sujet. Une fois qu'un environnement App Service est créé, vous pouvez créer des [applications Web](app-service-web-overview.md), des [applications API](app-service-api-apps-why-best-platform.md) et des [applications mobiles](app-service-mobile-value-prop-preview.md) dans cet environnement. Elles seront toutes protégées derrière le WAF que nous allons configurer dans la section suivante.
+Pour configurer un environnement App Service, consultez [notre documentation](app-service-web-how-to-create-an-app-service-environment.md) sur le sujet. Une fois qu’un environnement App Service est créé, vous pouvez créer des [Web Apps](app-service-web-overview.md), des [API Apps](app-service-api-apps-why-best-platform.md) et des [Mobile Apps](app-service-mobile-value-prop-preview.md) dans cet environnement. Elles seront toutes protégées derrière le WAF que nous allons configurer dans la section suivante.
 
 ## Configuration de votre service cloud WAF Barracuda ##
-Barracuda dispose d'un [article détaillé](https://techlib.barracuda.com/WAF/AzureDeploy) sur le déploiement de son WAF sur une machine virtuelle dans Azure. Mais étant donné que nous voulons la redondance sans introduire aucun point de défaillance, vous devez déployer au moins 2 machines virtuelles d'instances WAF dans le même service cloud.
+Barracuda propose un [article détaillé](https://techlib.barracuda.com/WAF/AzureDeploy) sur le déploiement de son WAF sur une machine virtuelle dans Azure. Mais étant donné que nous voulons la redondance sans introduire aucun point de défaillance, vous devez déployer au moins 2 machines virtuelles d'instances WAF dans le même service cloud.
 
 ### Ajout de points de terminaison au service cloud ###
-Lorsque vous disposez de 2 instances (ou plus) de machines virtuelles WAF dans votre service cloud, vous pouvez utiliser le [portail de gestion Azure](https://portal.azure.com) pour ajouter des points de terminaison HTTP et HTTPS qui sont utilisés par votre application, comme illustré dans l'image ci-dessous.
+Du moment où vous disposez d’au moins 2 instances de machines virtuelles WAF dans votre service cloud, vous pouvez utiliser le [portail de gestion Azure](https://portal.azure.com) pour ajouter des points de terminaison HTTP et HTTPS utilisés par votre application, comme illustré dans l’image ci-dessous.
 
 ![Configurer le point de terminaison][ConfigureEndpoint]
 
@@ -57,18 +59,18 @@ Lorsque vous êtes connecté, un tableau de bord comme celui illustré dans l'im
 
 ![Tableau de bord de gestion][ManagementDashboard]
 
-Cliquez sur l'onglet Services pour configurer votre WAF pour les services qu'il protège. Pour plus d'informations sur la configuration de votre WAF Barracuda, consultez [la documentation appropriée](https://techlib.barracuda.com/waf/getstarted1). Dans l'exemple ci-dessous, une application Web Azure desservant le trafic HTTP et HTTPS a été configurée.
+Cliquez sur l'onglet Services pour configurer votre WAF pour les services qu'il protège. Pour plus d’informations sur la configuration de votre WAF Barracuda, consultez [la documentation appropriée](https://techlib.barracuda.com/waf/getstarted1). Dans l'exemple ci-dessous, une application Web Azure desservant le trafic HTTP et HTTPS a été configurée.
 
 ![Ajouter des services de gestion][ManagementAddServices]
 
-> Remarque : selon la configuration de vos applications et les fonctionnalités utilisées dans votre environnement App Service, vous devrez transférer le trafic pour les ports TCP autres que 80 et 443 ; par exemple, si vous avez configuré SSL IP pour une application Web. Pour obtenir la liste des ports réseau utilisés dans les environnements App Service, consultez la section Ports réseau de la [documentation sur le contrôle du trafic entrant](app-service-app-service-environment-control-inbound-traffic.md).
+> Remarque : selon la configuration de vos applications et les fonctionnalités utilisées dans votre environnement App Service, vous devrez transférer le trafic pour les ports TCP autres que 80 et 443 ; par exemple, si vous avez configuré SSL IP pour une application Web. Pour obtenir la liste des ports réseau utilisés dans les environnements App Service, consultez la section Ports réseau de la [documentation relative au contrôle du trafic entrant](app-service-app-service-environment-control-inbound-traffic.md).
 
 ## Configuration de Microsoft Azure Traffic Manager (FACULTATIF) ##
-Si votre application est disponible dans plusieurs régions, alors vous devez en équilibrer la charge derrière [Azure Traffic Manager](traffic-manager.md). Pour ce faire, vous pouvez ajouer un point de terminaison dans le [portail de gestion Azure](https://manage.azure.com) en utilisant le nom du service cloud de votre WAF dans le profil Traffic Manager comme indiqué dans l'image ci-dessous.
+Si votre application est disponible dans plusieurs régions, vous devez en équilibrer la charge derrière [Azure Traffic Manager](traffic-manager.md). Pour ce faire, vous pouvez ajouter un point de terminaison dans le [portail de gestion Azure](https://manage.azure.com) en utilisant le nom du service cloud de votre WAF dans le profil Traffic Manager, comme indiqué dans l’image ci-dessous.
 
 ![Point de terminaison Traffic Manager][TrafficManagerEndpoint]
 
-Si votre application requiert une authentification, vérifiez que vous disposez d'une ressource qui ne nécessite pas d'authentification pour permettre à Traffic Manager d'exécuter la commande ping pour vérifier la disponibilité de votre application. Vous pouvez configurer l'URL sous la section Configuration du [portail de gestion Azure](https://manage.azure.com) comme indiqué ci-dessous.
+Si votre application requiert une authentification, vérifiez que vous disposez d'une ressource qui ne nécessite pas d'authentification pour permettre à Traffic Manager d'exécuter la commande ping pour vérifier la disponibilité de votre application. Vous pouvez configurer l’URL sous la section Configuration du [portail de gestion Azure](https://manage.azure.com), comme indiqué ci-dessous.
 
 ![Configuration de Traffic Manager][ConfigureTrafficManager]
 
@@ -77,7 +79,7 @@ Pour transférer les exécutions de commande ping de Traffic Manager à partir d
 ![Traductions de site Web][WebsiteTranslations]
 
 ## Sécurisation du trafic vers un environnement App Service à l'aide de groupes de ressources réseau##
-Suivez la [documentation sur le contrôle du trafic entrant](app-service-app-service-environment-control-inbound-traffic.md) pour plus d'informations sur la restriction du trafic vers votre environnement App Service à partir du WAF uniquement en utilisant l'adresse IP virtuelle de votre service cloud. Voici un exemple de commande Powershell pour effectuer cette tâche pour le port TCP 80.
+Consultez la [documentation relative au contrôle du trafic entrant](app-service-app-service-environment-control-inbound-traffic.md) pour plus d’informations sur la restriction du trafic du WAF vers votre environnement App Service uniquement en utilisant l’adresse IP virtuelle de votre service cloud. Voici un exemple de commande Powershell pour effectuer cette tâche pour le port TCP 80.
 
 
     Get-AzureNetworkSecurityGroup -Name "RestrictWestUSAppAccess" | Set-AzureNetworkSecurityRule -Name "ALLOW HTTP Barracuda" -Type Inbound -Priority 201 -Action Allow -SourceAddressPrefix '191.0.0.1'  -SourcePortRange '*' -DestinationAddressPrefix '*' -DestinationPortRange '80' -Protocol TCP
@@ -97,4 +99,4 @@ Remplacez SourceAddressPrefix par l'adresse IP virtuelle (VIP) du service cloud 
 [ConfigureTrafficManager]: ./media/app-service-app-service-environment-web-application-firewall/ConfigureTrafficManager.png
 [WebsiteTranslations]: ./media/app-service-app-service-environment-web-application-firewall/WebsiteTranslations.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

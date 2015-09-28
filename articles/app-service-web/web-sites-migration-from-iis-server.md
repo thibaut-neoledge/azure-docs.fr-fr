@@ -4,23 +4,28 @@
 	services="app-service\web" 
 	documentationCenter="" 
 	authors="cephalin" 
+	writer="cephalin" 
 	manager="wpickett" 
 	editor=""/>
 
 <tags 
-	ms.service="app-service-web" 
+	ms.service="app-service" 
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/07/2015" 
+	ms.date="09/16/2015" 
 	ms.author="cephalin"/>
 
 # Effectuer la migration d’une application web d’entreprise vers Azure App Service
 
-Vous pouvez facilement effectuer la migration de vos sites web qui s’exécutent sur Internet Information Services (IIS) version 6 ou ultérieure vers [App Service Web Apps](http://go.microsoft.com/fwlink/?LinkId=529714). L’[Assistant Migration Web Apps](https://www.movemetothecloud.net/) peut analyser votre installation de serveur IIS, identifier les sites pouvant faire l’objet d’une migration vers App Service, mettre en surbrillance les éléments dont la migration est impossible ou qui ne sont pas pris en charge sur la plateforme, puis effectuer la migration de vos sites web et des bases de données associées vers Azure.
+Vous pouvez facilement effectuer la migration de vos sites web qui s’exécutent sur Internet Information Services (IIS) version 6 ou ultérieure vers [App Service Web Apps](http://go.microsoft.com/fwlink/?LinkId=529714).
 
 >[AZURE.IMPORTANT]La fin du support de Windows Server 2003 est programmée pour le 14 juillet 2015. Si vous hébergez actuellement vos sites web sur un serveur IIS exécutant Windows Server 2003, la fonctionnalité Web Apps constitue une solution sûre, économique et stable pour conserver vos sites web en ligne. Quant à l’Assistant Migration d’applications web, il facilite l’automatisation de votre processus de migration.
+
+L’[Assistant Migration Web Apps](https://www.movemetothecloud.net/) peut analyser votre installation de serveur IIS, identifier les sites pouvant faire l’objet d’une migration vers App Service, mettre en surbrillance les éléments dont la migration est impossible ou qui ne sont pas pris en charge sur la plateforme, puis effectuer la migration de vos sites web et des bases de données associées vers Azure.
+
+[AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
 ## Éléments vérifiés au cours de l’analyse de compatibilité ##
 L’Assistant Migration crée un rapport d’analyse visant à déceler tout problème ou obstacle potentiel à la réussite de la migration d’un serveur IIS local vers Azure App Service Web Apps. Certains des éléments clés à connaître sont les suivants :
@@ -61,7 +66,7 @@ Cette section présente pas à pas un exemple de migration de sites web qui util
 
 	![](./media/web-sites-migration-from-iis-server/install-page.png)
 
-	>[AZURE.NOTE]Vous pouvez également cliquer sur **Télécharger pour une installation hors ligne** afin de télécharger un fichier ZIP pour une installation sur des serveurs non connectés à Internet. L’autre possibilité consiste à cliquer sur **Charger un rapport d’analyse de comptabilité pour la migration**, une option avancée permettant d’utiliser un rapport d’analyse de la comptabilité de la migration précédemment généré (voir l’explication ci-après).
+	>[AZURE.NOTE]Vous pouvez également cliquer sur **Télécharger pour une installation hors ligne** afin de télécharger un fichier ZIP pour une installation sur des serveurs non connectés à Internet. L’autre possibilité consiste à cliquer sur **Charger un rapport d’analyse de comptabilité pour la migration**, une option avancée permettant d’utiliser un rapport d’analyse de compatibilité de la migration précédemment généré (voir l’explication ci-après).
 
 5.	Dans l’écran **Installation de l’application**, cliquez sur **Installer** pour effectuer l’installation sur votre ordinateur. Cette opération installe également les dépendances associées telles que Web Deploy, DacFX et IIS, le cas échéant.
 
@@ -81,7 +86,7 @@ Cette section présente pas à pas un exemple de migration de sites web qui util
 
 	![](./media/web-sites-migration-from-iis-server/select-migration-candidates.png)
  
-9.	Cliquez sur **Charger** pour charger le rapport d’analyse de compatibilité. Si vous cliquez sur **Enregistrer le fichier localement**, vous pouvez relancer l’outil de migration ultérieurement et charger le rapport d’analyse de compatibilité enregistré comme indiqué ci-dessus.
+9.	Cliquez sur **Charger** pour charger le rapport d’analyse de compatibilité. Si vous cliquez sur **enregistrer le fichier localement**, vous pouvez relancer l’outil de migration ultérieurement et charger le rapport d’analyse de compatibilité enregistré, comme indiqué précédemment.
 
 	![](./media/web-sites-migration-from-iis-server/upload-readiness-report.png)
  
@@ -131,4 +136,4 @@ Cette section présente pas à pas un exemple de migration de sites web qui util
 * Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre l’ancien et le nouveau portail, consultez la page [Références sur la navigation dans le portail Azure](http://go.microsoft.com/fwlink/?LinkId=529715).
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

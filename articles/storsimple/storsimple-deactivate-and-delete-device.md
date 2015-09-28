@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Désactiver et supprimer un appareil StorSimple | Microsoft Azure"
-	description="Explique comment supprimer un appareil StorSimple du service en le désactivant dans un premier temps, puis en le supprimant."
-	services="storsimple"
-	documentationCenter=""
-	authors="SharS"
-	manager="carolz"
-	editor=""/>
+   description="Explique comment supprimer un appareil StorSimple du service en le désactivant dans un premier temps, puis en le supprimant."
+   services="storsimple"
+   documentationCenter=""
+   authors="SharS"
+   manager="carolz"
+   editor="" />
 <tags 
    ms.service="storsimple"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="na"
-	ms.date="09/01/2015"
-	ms.author="v-sharos"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="na"
+   ms.date="09/14/2015"
+   ms.author="v-sharos" />
 
 # Désactiver et supprimer un appareil StorSimple
 
@@ -87,8 +87,10 @@ Vous ne pouvez supprimer que les appareils qui ont été désactivés. Si vous s
 La suppression de l’appareil peut nécessiter quelques minutes.
 
 ## Étapes suivantes
-Pour restaurer les paramètres d'usine de l'appareil désactivé, consultez [Rétablir les paramètres d’usine de l'appareil](storsimple-manage-device-controller.md#reset-the-device-to-factory-default-settings).
+- Pour restaurer les paramètres d’usine de l’appareil désactivé, consultez [Rétablir les paramètres d’usine de l’appareil](storsimple-manage-device-controller.md#reset-the-device-to-factory-default-settings).
 
-Pour obtenir une assistance technique, [contactez le support technique de Microsoft](storsimple-contact-microsoft-support.md).
+- Pour obtenir une assistance technique, [contactez le support technique de Microsoft](storsimple-contact-microsoft-support.md).
 
-<!---HONumber=September15_HO1-->
+- Pour en savoir plus sur l’utilisation du service StorSimple Manager, consultez [Utiliser le service StorSimple Manager pour gérer votre appareil StorSimple](storsimple-manager-service-administration.md).
+
+<!---HONumber=Sept15_HO3-->

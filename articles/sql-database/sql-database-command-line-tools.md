@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Gestion des ressources de la base de données SQL Azure avec PowerShell" 
+	pageTitle="Gérer la base de données SQL Azure avec PowerShell" 
 	description="Gestion de la base de données SQL Azure avec PowerShell." 
 	services="sql-database" 
 	documentationCenter="" 
@@ -13,11 +13,16 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/28/2015" 
+	ms.date="09/11/2015" 
 	ms.author="vinsonyu"/>
 
-# Gestion des ressources de la base de données SQL Azure avec PowerShell
+# Gérer la base de données SQL Azure avec PowerShell
 
+
+> [AZURE.SELECTOR]
+- [Azure Preview Portal](sql-database-manage-portal.md)
+- [SSMS](sql-database-manage-azure-ssms.md)
+- [PowerShell](sql-database-command-line-tools.md)
 
 Cette rubrique fournit des commandes PowerShell pour effectuer de nombreuses tâches de Base de données SQL Azure à l’aide des applets de commande Azure Resource Manager.
 
@@ -72,7 +77,7 @@ Si vous disposez déjà d’un groupe de ressources, vous pouvez créer directem
 
 ## Créer un serveur 
 
-Pour créer un nouveau serveur V12, utilisez la commande [New-AzureSqlServer](https://msdn.microsoft.com/library/mt163526.aspx). Remplacez server12 par le nom de votre serveur. Il doit être unique pour les serveurs SQL Azure. Il se peut donc qu'une erreur soit signalée si le nom de serveur est déjà utilisé. Il est également à noter que l'exécution de cette commande peut prendre plusieurs minutes. Les détails du serveur et l'invite PowerShell apparaîtront une fois le serveur créé. Vous pouvez modifier la commande pour utiliser un emplacement valide.
+Pour créer un serveur V12, utilisez la commande [New-AzureSqlServer](https://msdn.microsoft.com/library/mt163526.aspx). Remplacez server12 par le nom de votre serveur. Il doit être unique pour les serveurs SQL Azure. Il se peut donc qu'une erreur soit signalée si le nom de serveur est déjà utilisé. Il est également à noter que l'exécution de cette commande peut prendre plusieurs minutes. Les détails du serveur et l'invite PowerShell apparaîtront une fois le serveur créé. Vous pouvez modifier la commande pour utiliser un emplacement valide.
 
 	New-AzureSqlServer -ResourceGroupName "resourcegroupJapanWest" -ServerName "server12" -Location "Japan West" -ServerVersion "12.0"
 
@@ -97,7 +102,7 @@ Pour créer une base de données, utilisez la commande [New-AzureSqlDatabase](ht
 
 ## Modifier le niveau de performances d’une base de données SQL
 
-Vous pouvez mettre votre base de données à l’échelle supérieure ou inférieure grâce à la commande [Set-AzureSqlDatabase](https://msdn.microsoft.com/library/mt125814.aspx). L’exemple suivant met à l’échelle une base de données SQL nommée TestDB12 à partir de son niveau de performance actuelle à un niveau S3 Standard.
+Vous pouvez faire monter ou descendre en puissance votre base de données à l’aide de la commande [Set-AzureSqlDatabase](https://msdn.microsoft.com/library/mt125814.aspx). L’exemple suivant met à l’échelle une base de données SQL nommée TestDB12 à partir de son niveau de performance actuelle à un niveau S3 Standard.
 
 	Set-AzureSqlDatabase -ResourceGroupName "resourcegroupJapanWest" -ServerName "server12" -DatabaseName "TestDB12" -Edition Standard -RequestedServiceObjectiveName "S3"
 
@@ -137,4 +142,4 @@ Combiner des commandes et l’automatisation. Par exemple, remplacez tous les é
 - [Applets de commande de gestion de Service Base de données SQL Azure](https://msdn.microsoft.com/library/dn546726.aspx)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

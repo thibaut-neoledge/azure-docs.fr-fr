@@ -23,6 +23,8 @@ Lorsque votre entreprise effectue la transition vers le cloud, il est possible q
 
 Au cours de ce didacticiel, vous apprendrez à modifier un serveur principal .NET d'application mobile afin d'utiliser une base de données SQL Server locale au lieu de la base de données SQL Azure par défaut configurée avec votre service.
 
+[AZURE.INCLUDE [app-service-mobile-to-web-and-api](../../includes/app-service-mobile-to-web-and-api.md)]
+
 ## Composants requis ##
 
 Ce didacticiel requiert les éléments suivants :
@@ -57,7 +59,7 @@ Vous devez créer une connexion hybride et un service BizTalk pour la partie du 
 
 4. Cliquez sur **Service Biz Talk** et entrez un nom pour le service BizTalk et cliquez deux fois sur **OK**.
 
-	Ce didacticiel utilise **mobile1**. Vous aurez besoin d'un nom unique pour votre nouveau service BizTalk.
+	Ce didacticiel utilise **mobile1**. Vous aurez besoin d’un nom unique pour votre nouveau service BizTalk.
 
 	Une fois le processus terminé, la zone **Notifications** affiche la mention **SUCCÈS** en vert clignotant et le panneau **Connexion hybride** affiche la nouvelle connexion hybride dans l’état **Non connecté**.
 
@@ -162,4 +164,4 @@ Enfin, vous devez publier le serveur principal d'application mobile sur Azure et
 [Azure Management Portal]: http://go.microsoft.com/fwlink/p/?linkid=213885
 [Get started with Mobile Services]: ../mobile-services-dotnet-backend-windows-store-dotnet-get-started.md
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

@@ -1,22 +1,4 @@
-<properties 
-   pageTitle="Configuration et inscription de votre appareil"
-   description="Explique comment utiliser Windows PowerShell pour StorSimple pour configurer et inscrire un appareil StorSimple qui exécute Update 1."
-   services="storsimple"
-   documentationCenter="NA"
-   authors="alkohli"
-   manager="adinah"
-   editor="tysonn" />
-
-<tags 
-   ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="05/22/2015"
-   ms.author="alkohli" />
-
-
+<!--author=SharS last changed: 9/17/15-->
 
 ### Configuration et inscription de l’appareil
 
@@ -54,7 +36,7 @@
 
       4. Configurez éventuellement votre serveur proxy web.
 
-      >[AZURE.IMPORTANT]Bien que la configuration du proxy web soit facultative, si vous en utilisez un, vous pouvez uniquement le configurer ici. Pour plus d’informations, consultez la section [Configuration du proxy web pour votre appareil](https://msdn.microsoft.com/library/azure/dn764937.aspx).
+      >[AZURE.IMPORTANT]Bien que la configuration du proxy web soit facultative, si vous en utilisez un, vous pouvez uniquement le configurer ici. Pour plus d’informations, consultez la section [Configuration du proxy web pour votre appareil](storsimple-configure-web-proxy.md).
 
 6. Appuyez sur Ctrl+C pour quitter l’Assistant Installation.
  
@@ -156,4 +138,4 @@
      
         
 
-<!------HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

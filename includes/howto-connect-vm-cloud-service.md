@@ -1,4 +1,4 @@
-Les machines virtuelles créées dans Service Management sont toujours placées dans un service cloud. Le service cloud fait office de conteneur et fournit un nom DNS public unique, une adresse IP publique et un ensemble de points de terminaison pour accéder à la machine virtuelle via Internet. Le service cloud peut éventuellement se trouver dans un réseau virtuel.
+Les machines virtuelles créées avec le modèle de déploiement de gestion des services sont toujours placées dans un service cloud. Le service cloud fait office de conteneur et fournit un nom DNS public unique, une adresse IP publique et un ensemble de points de terminaison pour accéder à la machine virtuelle via Internet. Le service cloud peut être dans un réseau virtuel, mais ce n’est pas obligatoire.
 
 Si un service cloud n’est pas dans un réseau virtuel, il est nommé « service cloud *autonome* ». Les machines virtuelles de ce service cloud autonome peuvent seulement communiquer avec d’autres machines virtuelles à l’aide des noms DNS publics de ces dernières, et ce trafic circule sur Internet. Si un service cloud se trouve dans un réseau virtuel, les machines virtuelles de ce service cloud peuvent communiquer avec toutes les autres machines virtuelles du réseau virtuel sans envoyer aucun trafic sur Internet.
 
@@ -10,13 +10,13 @@ Si vous placez vos machines virtuelles dans un réseau virtuel, vous pouvez déc
 
 ![Machines virtuelles dans un réseau virtuel](./media/howto-connect-vm-cloud-service/VirtualNetworkExample.png)
 
-Les réseaux virtuels sont la méthode recommandée pour connecter des machines virtuelles dans Azure. La meilleure pratique consiste à configurer chaque couche de votre application dans un service cloud distinct. Toutefois, vous devrez peut-être combiner des machines virtuelles à partir de différentes couches d'application dans le même service cloud pour ne pas dépasser le nombre maximum de services cloud par abonnement (200). Pour vérifier cela et les autres limites, voir [Abonnement Azure et limites, quotas et contraintes du service](../azure-subscription-service-limits.md).
+Les réseaux virtuels sont la méthode recommandée pour connecter des machines virtuelles dans Azure. La meilleure pratique consiste à configurer chaque couche de votre application dans un service cloud distinct. Toutefois, vous devrez peut-être combiner des machines virtuelles à partir de différentes couches d'application dans le même service cloud pour ne pas dépasser le nombre maximum de services cloud par abonnement (200). Pour vérifier cela et les autres limites, consultez [Abonnement Azure et limites, quotas et contraintes du service](../azure-subscription-service-limits.md).
 
 ## Connexion de machines virtuelles dans un réseau virtuel
 
 Pour connecter des machines virtuelles dans un réseau virtuel :
 
-1.	Créez le réseau virtuel dans le [Portail Azure](http://manage.windowsazure.com). Pour plus d'informations, consultez la page [Tâches de configuration du réseau virtuel](../documentation/services/virtual-machines/).
+1.	Créez le réseau virtuel dans le [portail Azure](http://manage.windowsazure.com). Pour plus d'informations, consultez la page [Tâches de configuration du réseau virtuel](../documentation/services/virtual-machines/).
 2.	Créez l’ensemble des services cloud pour votre déploiement de manière à refléter votre conception des groupes à haute disponibilité et l’équilibrage de la charge. Dans le portail, cliquez sur **Nouveau > Calcul > Service cloud > Création personnalisée** pour chaque service cloud.
 3.	Pour créer chaque machine virtuelle, cliquez sur **Nouveau > Calcul > Machine virtuelle > À partir de la galerie**. Choisissez le service cloud et le réseau virtuel appropriés à la machine virtuelle. Si le service cloud est déjà joint à un réseau virtuel, son nom est sélectionné pour vous.
 
@@ -26,7 +26,7 @@ Pour connecter des machines virtuelles dans un réseau virtuel :
 
 Pour connecter des machines virtuelles dans un service cloud autonome :
 
-1.	Créez le service cloud dans le [Portail Azure](http://manage.windowsazure.com). Cliquez sur **Nouveau > Calculer > Service cloud > Création personnalisée**. Vous pouvez également créer le service cloud pour votre déploiement lorsque vous créez votre première machine virtuelle.
+1.	Créez le service cloud dans le [portail Azure](http://manage.windowsazure.com). Cliquez sur **Nouveau > Calculer > Service cloud > Création personnalisée**. Vous pouvez également créer le service cloud pour votre déploiement lorsque vous créez votre première machine virtuelle.
 2.	Lorsque vous créez la machine virtuelle, sélectionnez le nom du service cloud créé à l’étape précédente. ![Ajouter un ordinateur virtuel à un service cloud existant](./media/howto-connect-vm-cloud-service/Connect-VM-to-CS.png)
 
 ##Ressources
@@ -42,4 +42,4 @@ Une fois que vous avez créé une machine virtuelle, il convient d'ajouter un di
 
 [Attachement d'un disque de données à une machine virtuelle Windows](../articles/virtual-machines/storage-windows-attach-disk.md)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO3-->

@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="08/05/2015"
+    ms.date="09/10/2015"
     ms.author="banders"/>
 
 # Configuration de votre espace de travail et gestion des paramètres
@@ -184,7 +184,7 @@ Il est possible de créer un espace de travail à partir de [microsoft.com/oms](
 
 ## Mise à niveau de l’espace de travail vers un plan de données payant
 
-Il existe trois types de plans de données d’espace de travail pour Operational Insights : **Gratuit**, **Standard** et **Premium**. Si vous utilisez un plan *gratuit*, vous avez peut-être atteint votre plafond de données de 500 Mo. Vous devez mettre à niveau votre espace de travail vers un « **plan avec paiement à l’utilisation** » afin de collecter des données au-delà de cette limite. Vous pouvez convertir votre type de plan à tout moment. Pour plus d’informations sur la tarification d’Operational Insights, consultez la page [Tarification](http://azure.microsoft.com/pricing/operational-insights/).
+Il existe trois types de plans de données d’espace de travail pour Operational Insights : **Gratuit**, **Standard** et **Premium**. Si vous utilisez un plan *gratuit*, vous avez peut-être atteint votre plafond de données de 500 Mo. Vous devez mettre à niveau votre espace de travail vers un « **plan avec paiement à l’utilisation** » afin de collecter des données au-delà de cette limite. Vous pouvez convertir votre type de plan à tout moment. Pour plus d’informations sur la tarification d’Operational Insights, consultez la page [Tarification](https://azure.microsoft.com/fr-FR/pricing/details/operational-insights/).
 
 >[AZURE.IMPORTANT]Les plans d’espace de travail peuvent uniquement être modifiés s’ils sont *liés* à un abonnement Azure. Si vous avez créé votre espace de travail dans Azure ou si vous avez *déjà* lié votre espace de travail, vous pouvez ignorer ce message. Si vous avez créé votre espace de travail à partir de [opinsights.azure.com](http://opinsights.azure.com), vous devez suivre les étapes de [Liaison d’un espace de travail existant à un abonnement Azure](#link-an-existing-workspace-to-an-Azure-subscription).
 
@@ -253,4 +253,4 @@ Si vous êtes administrateur et que plusieurs utilisateurs sont associés à l�
 - [Exigences de format de journal IIS dans Azure Operational Insights](http://blogs.technet.com/b/momteam/archive/2014/09/19/iis-log-format-requirements-in-system-center-advisor.aspx)
 - Consultez les autres sources de données et types de journaux que la communauté nous demande de mettre en œuvre dans notre [Forum de commentaires](http://feedback.azure.com/forums/267889-azure-operational-insights/category/88086-log-management-and-log-collection-policy).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

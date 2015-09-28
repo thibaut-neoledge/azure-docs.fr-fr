@@ -12,7 +12,7 @@
 	ms.workload="data-services"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article"
+	ms.topic="article" 
 	ms.date="07/27/2015"
 	ms.author="spelluru"/>
 
@@ -65,7 +65,7 @@ Cet article ne fournit pas une vue d'ensemble conceptuelle du service Azure Dat
 Dans les étapes suivantes, vous apprendrez à créer les services liés, les jeux de données et le pipeline que vous utiliserez dans ce didacticiel.
 
 ## Étape 2 : création des services et des jeux de données liés
-Dans cette étape, vous lierez votre compte de stockage Azure et un cluster Azure HDInsight à la demande à votre fabrique de données. Vous créerez également un jeu de données pour représenter les données de sortie issues d’un traitement Hive.
+Dans cette étape, vous lierez votre compte de stockage Azure et un cluster Azure HDInsight à la demande à votre fabrique de données. Vous créerez également un jeu de données pour représenter les données de sortie issues d’un traitement Hive.
 
 ### Créer le service lié Azure Storage
 1.	Cliquez sur **Créer et déployer** dans le panneau **DATA FACTORY** pour **DataFactoryFirstPipeline**. Cette action lance l'éditeur Data Factory Editor. 
@@ -96,7 +96,7 @@ Vous allez maintenant créer un service lié pour le cluster HDInsight à la dem
 		    "typeProperties": {
 		      "version": "3.1",
 		      "clusterSize": 1,
-		      "timeToLive": "00:05:00",
+		      "timeToLive": "00:30:00",
 		      "jobsContainer": "adfjobs",
 		      "linkedServiceName": "StorageLinkedService"
 		    }
@@ -233,4 +233,4 @@ Dans cet article, vous avez créé un pipeline avec une activité de transformat
 ## Envoyer des commentaires
 Nous souhaiterions vraiment obtenir vos commentaires sur cet article. Prenez quelques minutes pour nous envoyer vos commentaires par [courrier électronique](mailto:adfdocfeedback@microsoft.com?subject=data-factory-build-your-first-pipeline-using-editor.md).
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

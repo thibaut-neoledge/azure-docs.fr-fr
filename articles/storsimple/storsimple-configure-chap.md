@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Configuration de CHAP pour votre appareil StorSimple | Microsoft Azure"
-	description="Décrit comment configurer le protocole Challenge Handshake Authentication Protocol (CHAP) sur un appareil StorSimple."
-	services="storsimple"
-	documentationCenter=""
-	authors="alkohli"
-	manager="carolz"
-	editor=""/>
+   description="Décrit comment configurer le protocole Challenge Handshake Authentication Protocol (CHAP) sur un appareil StorSimple."
+   services="storsimple"
+   documentationCenter=""
+   authors="alkohli"
+   manager="carolz"
+   editor="" />
 <tags 
    ms.service="storsimple"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="TBD"
-	ms.date="09/01/2015"
-	ms.author="alkohli"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="TBD"
+   ms.date="09/15/2015"
+   ms.author="alkohli" />
 
 # Configuration de CHAP pour votre appareil StorSimple
 
@@ -188,6 +188,7 @@ Vous pouvez vérifier que le protocole CHAP est utilisé en procédant comme sui
 
 ## Étapes suivantes
 
-En savoir plus sur la [sécurité StorSimple](storsimple-security.md).
+- En savoir plus sur la [sécurité StorSimple](storsimple-security.md).
+- En savoir plus sur [l’utilisation du service StorSimple Manager pour gérer votre appareil StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

@@ -11,13 +11,15 @@
 <tags
 	ms.service="virtual-machines"
 	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="vm-windows-sharepoint"
+	ms.tgt_pltfrm="Windows"
 	ms.devlang="na"
 	ms.topic="index-page"
 	ms.date="09/08/2015"
 	ms.author="josephd"/>
 
 # Batteries de serveurs SharePoint hébergés dans des services d’infrastructure Azure
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Cet article traite de la création de ressources avec le modèle de déploiement Resource Manager ou classique.
 
 Configurez votre première ou prochaine batterie de serveurs SharePoint de développement/test ou de production dans les services d’infrastructure Microsoft Azure, où vous pouvez tirer parti de la facilité de configuration et de la possibilité d’étendre rapidement la batterie de serveurs afin d’inclure de nouvelles capacités ou d’optimiser la fonctionnalité clé.
 
@@ -47,7 +49,7 @@ Cette configuration utilise des machines virtuelles classiques.
 
 ## Batterie de serveurs de production SharePoint intranet haute disponibilité
 
-Le déploiement de [SharePoint 2013 avec des groupes de disponibilité AlwaysOn SQL Server dans Azure](virtual-machines-workload-intranet-sharepoint-overview.md) permet de générer une batterie de serveurs SharePoint Server 2013 intranet haute disponibilité et prête pour la production dans Azure.
+Le déploiement de [SharePoint 2013 avec des groupes de disponibilité SQL Server AlwaysOn dans Azure](virtual-machines-workload-intranet-sharepoint-overview.md) permet de générer une batterie de serveurs SharePoint Server 2013 intranet haute disponibilité et prête pour la production dans Azure.
 
 Cette configuration utilise des machines virtuelles classiques.
 
@@ -65,4 +67,4 @@ Consultez ces ressources pour des informations SharePoint supplémentaires relat
 
 - [Déploiement de la synchronisation d’annuaires (DirSync) d’Office 365 dans Microsoft Azure](https://technet.microsoft.com/library/dn635310.aspx)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/02/2015"
+   ms.date="09/10/2015"
    ms.author="banders" />
 
 # Configurations prises en charge pour Operational Insights
@@ -29,13 +29,13 @@ Vous pouvez utiliser Operational Insights comme service associé dans Operations
 L’utilisation d’Operational Insights comme service associé nécessite de réunir les conditions préalables suivantes :
 
 
-- L’intégration entre System Center 2012 SP1 Operations Manager et Operational Insights requiert des packs d’administration mis à jour, inclus dans le [connecteur Operational Insights pour Operations Manager](https://www.microsoft.com/fr-fr/download/details.aspx?id=38199). Vous pouvez télécharger et installer les packs d’administration depuis [Connecteur Operational Insights pour Operations Manager](https://www.microsoft.com/fr-fr/download/details.aspx?id=38199).
+- L’intégration entre System Center 2012 SP1 Operations Manager et Operational Insights requiert des packs d’administration mis à jour, inclus dans le [connecteur Operational Insights pour Operations Manager](https://www.microsoft.com/fr-FR/download/details.aspx?id=38199). Vous pouvez télécharger et installer les packs d’administration depuis [Connecteur Operational Insights pour Operations Manager](https://www.microsoft.com/fr-FR/download/details.aspx?id=38199).
 
 - System Center 2012 SP1 : correctif cumulatif 6 d’Operations Manager, bien que le correctif cumulatif 7 soit préférable. Cette mise à jour doit être appliquée au serveur d’administration, aux agents et à la console Opérateur pour Operational Insights en tant que service associé.
 
 - System Center 2012 R2 : correctif cumulatif 2 d’Operations Manager, même si le correctif cumulatif 3 est préférable. Cette mise à jour doit être appliquée au serveur d’administration, aux agents et à la console Opérateur pour Operational Insights en tant que service associé.
 
-- Pour afficher les données de gestion de capacité, vous devez activer la connectivité d'Operations Manager avec Virtual Machine Manager (VMM). Pour plus d’informations sur la connexion des systèmes, consultez [Connexion de VMM avec Operations Manager](https://technet.microsoft.com/fr-fr/library/hh882396.aspx).
+- Pour afficher les données de gestion de capacité, vous devez activer la connectivité d'Operations Manager avec Virtual Machine Manager (VMM). Pour plus d’informations sur la connexion des systèmes, consultez [Connexion de VMM avec Operations Manager](https://technet.microsoft.com/fr-FR/library/hh882396.aspx).
 
 Consultez [Affichage des alertes Operational Insights](http://go.microsoft.com/fwlink/?LinkID=293793) pour obtenir des instructions d’installation et de configuration.
 
@@ -48,11 +48,11 @@ Les agents Operations Manager sont pris en charge sur divers ordinateurs. Consul
 
 ### Logiciels requis pour Operations Manager
 
-Pour afficher les données de gestion de capacité, vous devez activer la connectivité d’Operations Manager avec VMM. Pour plus d’informations sur la connexion des systèmes, consultez [Connexion de VMM avec Operations Manager](https://technet.microsoft.com/fr-fr/library/hh882396.aspx).
+Pour afficher les données de gestion de capacité, vous devez activer la connectivité d’Operations Manager avec VMM. Pour plus d’informations sur la connexion des systèmes, consultez [Connexion de VMM avec Operations Manager](https://technet.microsoft.com/fr-FR/library/hh882396.aspx).
 
 ## Agents directement connectés à Operational Insights
 
-L’agent utilisé pour se connecter directement au service est l’agent Microsoft Monitoring Agent. Sa configuration requise est indiquée dans la page [Centre de téléchargement Microsoft ](https://www.microsoft.com/fr-fr/download/details.aspx?id=40316&e6b34bbe-475b-1abd-2c51-b5034bcdd6d2=True).
+L’agent utilisé pour se connecter directement au service est l’agent Microsoft Monitoring Agent. Sa configuration requise est indiquée dans la page [Centre de téléchargement Microsoft ](https://www.microsoft.com/fr-FR/download/details.aspx?id=40316&e6b34bbe-475b-1abd-2c51-b5034bcdd6d2=True).
 
 ## Navigateurs
 
@@ -100,4 +100,4 @@ Pour SQL Server, les éditions 32 bits et 64 bits suivantes sont prises en ch
 
 En outre, l’édition 32 bits de SQL Server est prise en charge lors de l’exécution dans l’implémentation WOW64.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

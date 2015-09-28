@@ -1,3 +1,4 @@
+<!--author=SharS last changed: 9/17/15-->
 
 ### Étape 1 : autoriser un appareil à modifier la clé de chiffrement des données du service dans le portail de gestion
 
@@ -73,4 +74,4 @@ Procédez comme suit pour mettre à jour le chiffrement des données du service 
 
 3. Entrez la clé de chiffrement des données du service obtenue lors de l’[Étape 2 : utiliser Windows PowerShell pour StorSimple pour démarrer la modification de la clé de chiffrement des données du service](#to-initiate-the-service-data-encryption-key-change).
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO3-->
