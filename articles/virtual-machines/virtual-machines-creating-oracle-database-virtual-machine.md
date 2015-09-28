@@ -50,23 +50,23 @@ L’exemple suivant vous indique comment créer une machine virtuelle sur la bas
 
 6.	Créez une variable d’environnement nommée **ORACLE\_HOSTNAME** dont la valeur est définie sur le nom d’ordinateur de la machine virtuelle. Vous pouvez créer cette variable d’environnement en procédant comme suit :
 
-	a. Dans Windows, cliquez sur **Démarrer**, tapez **Panneau de configuration**, cliquez sur l’icône **Panneau de configuration**, cliquez sur **Système et sécurité**, sur **Système**, puis sur **Paramètres système avancés.**
+	a.	Dans Windows, cliquez sur **Démarrer**, tapez **Panneau de configuration**, cliquez sur l’icône **Panneau de configuration**, cliquez sur **Système et sécurité**, sur **Système**, puis sur **Paramètres système avancés.**
 
-	b. Cliquez sur l’onglet **Avancé**, puis sur **Variables d’environnement**.
+	b.	Cliquez sur l’onglet **Avancé**, puis sur **Variables d’environnement**.
 
-	c. Dans la section **Variables système**, cliquez sur **Nouvelle** pour créer la variable.
+	c.	Dans la section **Variables système**, cliquez sur **Nouvelle** pour créer la variable.
 
-	d. Dans la boîte de dialogue **Nouvelle variable système**, entrez le nom de variable **ORACLE\_HOSTNAME**, puis tapez le nom d’ordinateur de la machine virtuelle en guise de valeur. Pour déterminer le nom d’ordinateur, ouvrez une invite de commandes, puis exécutez la commande **SET COMPUTERNAME** (la sortie de cette commande indique le nom d’ordinateur).
+	d.	Dans la boîte de dialogue **Nouvelle variable système**, entrez le nom de variable **ORACLE\_HOSTNAME**, puis tapez le nom d’ordinateur de la machine virtuelle en guise de valeur. Pour déterminer le nom d’ordinateur, ouvrez une invite de commandes, puis exécutez la commande **SET COMPUTERNAME** (la sortie de cette commande indique le nom d’ordinateur).
 
-	e. Cliquez sur **OK** pour enregistrer la nouvelle variable d’environnement et fermer la boîte de dialogue **Nouvelle variable système**.
+	e.	Cliquez sur **OK** pour enregistrer la nouvelle variable d’environnement et fermer la boîte de dialogue **Nouvelle variable système**.
 
-	f. Fermez les autres boîtes de dialogue ouvertes par le panneau de configuration.
+	f.	Fermez les autres boîtes de dialogue ouvertes par le panneau de configuration.
 
 7.	Dans Windows, cliquez sur **Démarrer**, puis tapez **Database Configuration Assistant**. Cliquez sur l’icône **Database Configuration Assistant**.
 
 8.	Dans l’Assistant **Database Configuration Assistant**, fournissez les valeurs nécessaires pour chaque étape de la boîte de dialogue :
 
-	a. **Étape 1 :** cliquez sur **Create Database**, puis sur **Next**.
+	a.	**Étape 1 :** cliquez sur **Create Database**, puis sur **Next**.
 
 		![](media/virtual-machines-creating-oracle-database-virtual-machine/image5.png)
 
@@ -110,7 +110,7 @@ Pour permettre l’accès à distance à votre base de données (par exemple, à
 
 		**lsnrctl start**
 
-> [AZURE.NOTE]Vous pouvez exécuter la commande **lsnrctl status** pour vérifier l’état de l’écouteur. Lorsque vous souhaitez arrêter l’écouteur, vous pouvez exécuter la commande **lsnrctl stop**.
+> [AZURE.NOTE] Vous pouvez exécuter la commande **lsnrctl status** pour vérifier l’état de l’écouteur. Lorsque vous souhaitez arrêter l’écouteur, vous pouvez exécuter la commande **lsnrctl stop**.
 
 ### Ouverture du port 1521 dans le pare-feu de votre machine virtuelle
 
@@ -159,7 +159,7 @@ Pour permettre l’accès à distance à votre base de données (par exemple, à
 ##Activer l’accès à distance à Oracle Database Enterprise Manager
 Si vous souhaitez activer l’accès distant à Oracle Database Enterprise Manager, ouvrez le port 5500 dans votre pare-feu et créez un point de terminaison de machine virtuelle pour le port 5500 dans le portail Azure (utilisez la procédure décrite ci-dessus pour ouvrir le port 1521 et créer un point de terminaison pour le port 1521). Ensuite, pour exécuter Oracle Enterprise Manager à partir de l’ordinateur distant, ouvrez un navigateur et accédez à l’URL `http://<<unique_domain_name>>:5500/em`.
 
-> [AZURE.NOTE](Vous pouvez déterminer la valeur de *<<unique\_domain\_name>>* dans le [Portail Azure](https://ms.portal.azure.com/) en cliquant sur **Machines Virtuelles**, puis en sélectionnant la machine virtuelle que vous utilisez pour exécuter Oracle Database).
+> [AZURE.NOTE] \(Vous pouvez déterminer la valeur de *<<unique\_domain\_name>>* dans le [Portail Azure](https://ms.portal.azure.com/) en cliquant sur **Machines Virtuelles**, puis en sélectionnant la machine virtuelle que vous utilisez pour exécuter Oracle Database).
 
 ##Configuration des offres groupées, options populaires et options avancées
 Si vous avez choisi l’offre groupée **Oracle Database avec options populaires** ou **Oracle Database avec options avancées**, l’étape suivante consiste à configurer les fonctionnalités supplémentaires de votre installation Oracle. Pour obtenir des informations concernant la configuration dans Windows, consultez la documentation Oracle, les configurations pouvant fortement varier en fonction de vos besoins concernant chaque composant.
@@ -181,4 +181,4 @@ Maintenant que vous avez configuré votre machine virtuelle et créé votre base
 
 -	[Oracle Database 2 Day DBA 12c Release 1](http://docs.oracle.com/cd/E16655_01/server.121/e17643/toc.htm)
 
-<!---HONumber=Sept15_HO3-->
+<!----HONumber=Sept15_HO3-->
