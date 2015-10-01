@@ -57,7 +57,11 @@ La hiérarchie de navigation de l’interface utilisateur du service StorSimple 
 |Page d’accueil|Pages de niveau de service|Pages de niveau appareil|Pages de niveau appareil|
 |---|---|---|---|
 |Service StorSimple Manager|Tableau de bord du service|Page du tableau de bord d’un appareil||
-||Appareils →|Surveillance| ||Catalogue de sauvegarde|Conteneur de volumes→|Volumes| ||Configurer (Service)|Stratégies de sauvegarde|| ||Tâches|Configurer (Appareil)| ||Alertes|Maintenance|
+||Appareils →|Surveillance|| 
+||Catalogue de sauvegarde|Conteneur de volumes→|Volumes| 
+||Configurer (Service)|Stratégies de sauvegarde|| 
+||Tâches|Configurer (Appareil)|| 
+||Alertes|Maintenance||
 
 
 ## Gestion d’un appareil StorSimple via le service StorSimple Manager
@@ -112,4 +116,4 @@ Si vous ne parvenez pas à résoudre les problèmes et vous devez générer une 
 
 -  [Contacter le support technique Microsoft](storsimple-contact-microsoft-support.md)
 
-<!---HONumber=Sept15_HO3-->
+<!----HONumber=Sept15_HO3-->

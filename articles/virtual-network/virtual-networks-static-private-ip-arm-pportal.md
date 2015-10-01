@@ -54,7 +54,9 @@ Pour créer une machine virtuelle nommée *DNS01* dans le sous-réseau *frontal*
 
 6. Dans le panneau **Paramètres** lame, assurez-vous que les propriétés suivantes sont définies sont définies avec les valeurs ci-dessous, puis cliquez sur **OK**.
 
-	-**Compte de stockage**: *vnetstorage* - **Réseau**: *TestVNet* - **Sous-réseau**: *FrontEnd*
+	-**Compte de stockage**: *vnetstorage*
+	- **Réseau**: *TestVNet*
+	- **Sous-réseau**: *FrontEnd*
 
 	![Panneau Choisir une taille](./media/virtual-networks-static-ip-arm-pportal/figure05.png)
 
@@ -95,4 +97,4 @@ Pour supprimer l’adresse IP privée statique de la machine virtuelle créée c
 - En savoir plus sur les [adresses IP publiques de niveau d’instance](../virtual-networks-instance-level-public-ip).
 - Consulter les [API REST d’adresse IP réservée](https://msdn.microsoft.com/library/azure/dn722420.aspx).
 
-<!---HONumber=Sept15_HO3-->
+<!----HONumber=Sept15_HO3-->

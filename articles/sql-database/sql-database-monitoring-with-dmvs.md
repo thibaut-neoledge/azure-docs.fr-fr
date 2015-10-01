@@ -42,7 +42,8 @@ In an instance of on-premises SQL Server, dynamic management views return server
 The following query returns the size of your database (in megabytes):
 
 ```
--- Calcule la taille de la base de données. SELECT SUM(reserved\_page\_count)*8.0/1024 FROM sys.dm\_db\_partition\_stats; GO ```
+-- Calcule la taille de la base de données. SELECT SUM(reserved\_page\_count)*8.0/1024 FROM sys.dm\_db\_partition\_stats; GO 
+```
 
 La requête suivante retourne la taille d’objets individuels (en mégaoctets) dans votre base de données :
 
@@ -131,4 +132,4 @@ ORDER BY highest_cpu_queries.total_worker_time DESC;
 
 [Présentation de la base de données SQL](sql-database-technical-overview.md)
 
-<!---HONumber=Sept15_HO3-->
+<!----HONumber=Sept15_HO3-->

@@ -41,7 +41,7 @@ Le code associé à ce didacticiel est stocké [sur GitHub](https://github.com/A
 
 ```git clone --branch skeleton https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-nodejs.git```
 
-The completed application is provided at the end of this tutorial as well.
+L'application terminée est également fournie à la fin de ce didacticiel.
 
 ## 1. Inscription d’une application
 Créez une nouvelle application à l’adresse [apps.dev.microsoft.com](https://apps.dev.microsoft.com), ou suivez cette [procédure détaillée](active-directory-v2-app-registration.md).  Veillez à respecter les points suivants:
@@ -72,23 +72,24 @@ Dans la ligne de commande, placez les répertoires dans votre dossier racine s�
 - `npm install passport-azure-ad`
 
 
-This will install the libraries that passport-azure-ad depend on.
+Cela installera les bibliothèques dont dépend passport-azure-ad.
 
-## 3. Set up your app to use the passport-node-js strategy
-Here, we'll configure the Express middleware to use the OpenID Connect authentication protocol.  Passport will be used to issue sign-in and sign-out requests, manage the user's session, and get information about the user, amongst other things.
+## 3. Configurez votre application pour utiliser la stratégie passport-nod-js
+Ici, nous allons configurer l’intergiciel Express pour utiliser le protocole d’authentification OpenID Connect. Passport sera utilisé notamment pour émettre des demandes de connexion et de déconnexion, gérer la session utilisateur et obtenir des informations concernant l’utilisateur.
 
--	To begin, open the `config.js` file in the root of the project, and enter your app's configuration values in the `exports.creds` section.
-    -	The `clientID:` is the **Application Id** assigned to your app in the registration portal.
-    -	The `returnURL` is the **Redirect URI** you entered in the portal.
-    - The `clientSecret` is the secret you generated in the portal.
+-	Pour commencer, ouvrez le fichier `config.js` dans la racine du projet, et entrez les valeurs de configuration de votre application dans la section `config.js`.	
+    -	L’élément `clientID:` est l’**ID d’application** affecté à votre application dans le portail d’inscription.
+    -	L’élément `returnURL` est l’**URI de redirection** que vous avez saisi dans le portail.
+    - Le `clientSecret` est la clé secrète que vous avez générée dans le portail.
 
-- Next open `app.js` file in the root of the proejct and add the follwing call to invoke the `OIDCStrategy` strategy that comes with `passport-azure-ad`
+- Ouvrez ensuite le fichier `app.js` dans la racine du projet et ajoutez l'appel suivant pour appeler la stratégie `OIDCStrategy` qui est fournie avec `passport-azure-ad`.
 
 
 ```JavaScript
 var OIDCStrategy = require('passport-azure-ad').OIDCStrategy;
 
-// Ajouter de la journalisation var log = bunyan.createLogger({ name: 'Microsoft OIDC Example Web Application' }); ```
+// Ajouter de la journalisation var log = bunyan.createLogger({ name: 'Microsoft OIDC Example Web Application' }); 
+```
 
 - Après cela, utilisez la stratégie référencée pour gérer les demandes de connexion
 
@@ -417,4 +418,4 @@ Vous pouvez maintenant aborder des rubriques plus sophistiquées. Par exemple :
 
 Pour obtenir des ressources supplémentaires, consultez : - [Version préliminaire du modèle d'application v2.0 >>](active-directory-appmodel-v2-overview.md) - [Balise azure-active-directory StackOverflow >>](http://stackoverflow.com/questions/tagged/azure-active-directory)
 
-<!---HONumber=Sept15_HO3-->
+<!----HONumber=Sept15_HO3-->

@@ -33,7 +33,7 @@ Il existe plusieurs méthodes permettant la migration d’une base de données u
 - Pour les bases de données plus volumineuses, vous obtiendrez les meilleures performances en faisant migrer séparément le schéma et les données. Vous pouvez extraire le schéma dans un projet de base de données à l’aide de SQL Server Management Studio ou de Visual Studio, puis déployer le schéma pour créer la base de données SQL Azure. Vous pouvez ensuite extraire les données à l’aide de BCP et utiliser BCP pour importer les données à l’aide de flux parallèles dans la base de données SQL Azure. La migration d’une base de données volumineuse et complexe peut prendre plusieurs heures, quelle que soit la méthode que vous choisissez.
 
 ### Option 1
-******Migrer une base de données compatible à l’aide de SQL Server Management Studio (SSMS) ***
+***Migrer une base de données compatible à l’aide de SQL Server Management Studio (SSMS) ***
 
 SQL Server Management Studio fournit deux méthodes pour migrer votre base de données SQL Server locale compatible avec une base de données SQL Azure. Vous pouvez soit utiliser l’Assistant de déploiement de base de données SQL Microsoft Azure, soit exporter la base de données vers un fichier BACPAC, qui peut ensuite être importé pour créer une nouvelle base de données SQL Azure. L’Assistant valide la compatibilité de base de données SQL V12 Azure, extrait le schéma et les données dans un fichier BACPA, puis importe ce dernier dans l’instance de base de données SQL Azure spécifiée. Pour utiliser cette option, consultez [Utiliser SSMS](sql-database-migrate-ssms.md).
 
@@ -72,4 +72,4 @@ Utilisez la [dernière version de SQL Server Data Tools pour Visual Studio](http
 | Aucune disposition pour modifier la sortie en cas d'erreur, le schéma source doit être compatible. | Toutes les fonctions de SSDT pour Visual Studio sont disponibles. Le schéma est modifié hors connexion. | La validation de l'application se produit dans Azure. Doit être minime car le schéma est migré sans modification. | La validation de l'application peut être effectuée dans SQL Server avant le déploiement de la base de données vers Azure. |
 | Processus à une ou deux étapes, simple et facile à configurer. | Processus en plusieurs étapes, plus complexe (plus simple en cas de déploiement du schéma uniquement). |
 
-<!---HONumber=Sept15_HO3-->
+<!----HONumber=Sept15_HO3-->
