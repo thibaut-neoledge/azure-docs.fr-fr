@@ -1,21 +1,24 @@
 <properties 
-   pageTitle="Se connecter à une machine virtuelle SQL Server sur Azure"
-	description="Cette rubrique décrit comment se connecter à SQL Server exécuté sur une machine virtuelle dans Azure. Les scénarios diffèrent selon la configuration réseau et l’emplacement du client."
-	services="virtual-machines"
-	documentationCenter="na"
-	authors="rothja"
-	manager="jeffreyg"
-	editor="monicar"/>
+   pageTitle="Connexion à une machine virtuelle SQL Server | Microsoft Azure"
+   description="Cette rubrique utilise des ressources créées avec le modèle de déploiement classique, et explique comment se connecter à SQL Server s’exécutant sur une machine virtuelle dans Azure. Les scénarios diffèrent selon la configuration réseau et l’emplacement du client."
+   services="virtual-machines"
+   documentationCenter="na"
+   authors="rothja"
+   manager="jeffreyg"
+   editor="monicar"    
+   tags="azure-service-management"/>
 <tags 
    ms.service="virtual-machines"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="vm-windows-sql-server"
-	ms.workload="infrastructure-services"
-	ms.date="08/18/2015"
-	ms.author="jroth"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="vm-windows-sql-server"
+   ms.workload="infrastructure-services"
+   ms.date="08/18/2015"
+   ms.author="jroth" />
 
 # Se connecter à une machine virtuelle SQL Server sur Azure
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Cet article traite de l’utilisation d’une ressource avec le modèle de déploiement classique.
  
 ## Vue d'ensemble
 
@@ -23,7 +26,7 @@ La configuration de la connectivité à un serveur SQL Server exécuté sur une 
 
 Cependant, certains aspects de la connectivité à SQL Server sont propres aux machines virtuelles Azure. Cet article aborde certains [scénarios de connectivité générale](#connection-scenarios) et fournit une [procédure détaillée pour configurer la connectivité à SQL Server dans une machine virtuelle Azure](#steps-for-configuring-sql-server-connectivity-in-an-azure-vm).
 
->[AZURE.NOTE]Cet article décrit la connectivité. Pour une vue d’ensemble complète de la configuration et de la connectivité, consultez [Configuration d’une machine virtuelle SQL Server sur Azure](virtual-machines-provision-sql-server.md).
+>[AZURE.NOTE]Cet article décrit la connectivité. Pour une procédure pas à pas complète de configuration et de connectivité, voir [Approvisionnement d’une machine virtuelle SQL Server dans Azure](virtual-machines-provision-sql-server.md).
 
 ## Scénarios de connexion
 
@@ -35,7 +38,7 @@ La méthode utilisée par un client pour se connecter à un serveur SQL Server e
 
 ### se connecter à SQL Server dans le même service de cloud computing
 
-Plusieurs machines virtuelles peuvent être créées dans le même service cloud. Pour comprendre ce scénario impliquant des machines virtuelles, consultez la page [Connexion d’ordinateurs virtuels à un réseau virtuel ou un service cloud](cloud-services-connect-virtual-machine.md).
+Plusieurs machines virtuelles peuvent être créées dans le même service cloud. Pour comprendre ce scénario impliquant des machines virtuelles, voir [Connexion d’ordinateurs virtuels à un réseau virtuel ou un service cloud](cloud-services-connect-virtual-machine.md).
 
 Commencez par effectuer la [procédure décrite dans cet article pour configurer la connectivité](#steps-for-configuring-sql-server-connectivity-in-an-azure-vm). Notez qu’il est inutile de configurer un point de terminaison public si vous devez connecter des machines situées dans le même service cloud.
 
@@ -51,7 +54,7 @@ Commencez par effectuer la [procédure décrite dans cet article pour configurer
 
 	"Server=mycloudservice.cloudapp.net,57500;Integrated Security=false;User ID=<login_name>;Password=<your_password>"
 
-Même si cette méthode permet aux clients de se connecter via Internet, cela ne signifie pas que tout le monde peut se connecter à votre serveur SQL Server. Les clients externes doivent entrer les nom d’utilisateur et mot de passe corrects. Pour renforcer la sécurité, n’utilisez pas le port commun 1433 pour le point de terminaison de la machine virtuelle publique. Dans la mesure du possible, vous pouvez également envisager d’ajouter une liste de contrôle d’accès réseau (ACL) sur votre point de terminaison pour limiter le trafic uniquement aux clients que vous autorisez. Pour obtenir des instructions sur l’utilisation de listes ACL avec des points de terminaison, consultez la page [Gestion de l’ACL sur un point de terminaison](virtual-machines-set-up-endpoints.md#manage-the-acl-on-an-endpoint).
+Même si cette méthode permet aux clients de se connecter via Internet, cela ne signifie pas que tout le monde peut se connecter à votre serveur SQL Server. Les clients externes doivent entrer les nom d’utilisateur et mot de passe corrects. Pour renforcer la sécurité, n’utilisez pas le port commun 1433 pour le point de terminaison de la machine virtuelle publique. Dans la mesure du possible, vous pouvez également envisager d’ajouter une liste de contrôle d’accès réseau (ACL) sur votre point de terminaison pour limiter le trafic uniquement aux clients que vous autorisez. Pour obtenir des instructions sur l’utilisation de listes ACL avec des points de terminaison, voir [Gestion de l’ACL sur un point de terminaison](virtual-machines-set-up-endpoints.md#manage-the-acl-on-an-endpoint)
 
 >[AZURE.NOTE]Il est important de noter que lorsque vous utilisez cette technique pour communiquer avec SQL Server, toutes les données renvoyées sont considérées comme du trafic sortant depuis le centre de données. Elles sont donc soumises à la [tarification sur les transferts de données sortantes](http://azure.microsoft.com/pricing/details/data-transfers) standard. C’est également le cas lorsque vous utilisez cette technique à partir d’une machine ou d’un service cloud différent au sein d’un même centre de données Azure, car le trafic passe toujours par l’équilibreur de charge public d’Azure.
 
@@ -75,12 +78,12 @@ Notez que dans ce scénario, vous pouvez également spécifier l’adresse IP de
 
 ## Étapes suivantes
 
-Pour obtenir des instructions de configuration en plus de ces étapes de connectivité, consultez la page [Configuration d’une machine virtuelle SQL Server sur Azure](virtual-machines-provision-sql-server.md).
+Pour obtenir des instructions de configuration en plus de ces étapes de connectivité, voir [Approvisionnement d’une machine virtuelle SQL Server dans Azure](virtual-machines-provision-sql-server.md).
 
-Si vous envisagez également d’utiliser des groupes de disponibilité AlwaysOn pour la haute disponibilité et la récupération d’urgence, nous vous recommandons d’implémenter un écouteur. Les clients de base de données se connectent à l’écouteur plutôt que directement à l’une des instances SQL Server. L’écouteur achemine les clients vers le réplica principal du groupe de disponibilité. Pour plus d’informations, consultez la page [Configuration d’un écouteur à équilibrage de charge interne pour des groupes de disponibilité AlwaysOn dans Azure](virtual-machines-sql-server-configure-ilb-alwayson-availability-group-listener.md).
+Si vous envisagez également d’utiliser des groupes de disponibilité AlwaysOn pour la haute disponibilité et la récupération d’urgence, nous vous recommandons d’implémenter un écouteur. Les clients de base de données se connectent à l’écouteur plutôt que directement à l’une des instances SQL Server. L’écouteur achemine les clients vers le réplica principal du groupe de disponibilité. Pour plus d’informations, voir [Configuration d’un écouteur à équilibrage de charge interne pour des groupes de disponibilité AlwaysOn dans Azure](virtual-machines-sql-server-configure-ilb-alwayson-availability-group-listener.md).
 
-Il est important d’examiner toutes les recommandations de sécurité pour SQL Server exécuté sur une machine virtuelle Azure. Pour plus d'informations, consultez la page [Considérations relatives à la sécurité de SQL Server sur les machines virtuelles Azure](virtual-machines-sql-server-security-considerations.md).
+Il est important d’examiner toutes les recommandations de sécurité pour SQL Server exécuté sur une machine virtuelle Azure. Pour plus d’informations, voir [Considérations relatives à la sécurité de SQL Server dans Azure Virtual Machines](virtual-machines-sql-server-security-considerations.md).
 
-Pour d’autres rubriques relatives à l’utilisation de SQL Server sur des machines virtuelles Azure, consultez la rubrique [SQL Server sur les machines virtuelles Azure](virtual-machines-sql-server-infrastructure-services.md).
+Pour d’autres rubriques relatives à l’utilisation de SQL Server sur des machines virtuelles Azure, voir [SQL Server sur les machines virtuelles Azure](virtual-machines-sql-server-infrastructure-services.md).
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

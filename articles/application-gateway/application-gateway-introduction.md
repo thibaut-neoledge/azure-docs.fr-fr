@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Introduction à Application Gateway | Microsoft Azure"
-	description="Cette page fournit une vue d'ensemble du service Application Gateway pour l'équilibrage de charge de couche 7, y compris les tailles de passerelle, l'équilibrage de charge HTTP, l'affinité de session basée sur les cookies et le déchargement SSL."
-	documentationCenter="na"
-	services="application-gateway"
-	authors="joaoma"
-	manager="jdial"
-	editor="tysonn"/>
+   description="Cette page fournit une vue d'ensemble du service Application Gateway pour l'équilibrage de charge de couche 7, y compris les tailles de passerelle, l'équilibrage de charge HTTP, l'affinité de session basée sur les cookies et le déchargement SSL."
+   documentationCenter="na"
+   services="application-gateway"
+   authors="joaoma"
+   manager="jdial"
+   editor="tysonn"/>
 <tags 
    ms.service="application-gateway"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="infrastructure-services"
-	ms.date="08/23/2015"
-	ms.author="joaoma"/>
+   ms.devlang="na"
+   ms.topic="article" 
+   ms.tgt_pltfrm="na"
+   ms.workload="infrastructure-services" 
+   ms.date="08/23/2015"
+   ms.author="joaoma"/>
 
 # Présentation de Application Gateway
 
@@ -36,7 +36,10 @@ Azure fournit un équilibrage de la charge de couche 4 via l’équilibreur de c
 
 La passerelle Application Gateway achemine le trafic HTTP en fonction de sa configuration, qu’il s’agisse d’un ordinateur virtuel, d’un service cloud, d’une application web ou d’une adresse IP externe.
 
-Le diagramme ci-dessous explique comment le trafic circule pour Application Gateway : ![Application Gateway2](./media/application-gateway-introduction/appgateway2.png)
+Le diagramme ci-dessous explique comment le trafic circule pour Application Gateway :
+
+ 
+![Application Gateway2](./media/application-gateway-introduction/appgateway2.png)
 
 L'équilibrage de charge de couche 7 HTTP est utile pour :
 
@@ -61,4 +64,4 @@ Créer une passerelle Application Gateway. Consultez [Création d’une passerel
 
 Configurer le déchargement SSL. Consultez [Configuration du déchargement SSL avec une passerelle Application Gateway](application-gateway-ssl.md).
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

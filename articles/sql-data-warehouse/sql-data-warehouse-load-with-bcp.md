@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/23/2015"
+   ms.date="09/22/2015"
    ms.author="mausher;barbkess"/>
 
 
@@ -152,4 +152,4 @@ Pour consulter une vue d’ensemble sur le chargement, accédez à la rubrique [
 <!--Other Web references-->
 [Centre de téléchargement Microsoft]: http://www.microsoft.com/download/details.aspx?id=36433
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

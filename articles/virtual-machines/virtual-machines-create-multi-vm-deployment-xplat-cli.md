@@ -1,22 +1,25 @@
 <properties
-   pageTitle="Créer un déploiement de machines virtuelles à l'aide de l'interface de ligne de commande | Microsoft Azure"
-   description="Apprenez à créer un déploiement de plusieurs machines virtuelles à l'aide de l'interface de ligne de commande Microsoft Azure"
+   pageTitle="Déploiement de plusieurs machines virtuelles à l'aide de l'interface de ligne de commande Azure | Microsoft Azure"
+   description="Apprenez à créer un déploiement de plusieurs machines virtuelles à l'aide du modèle de déploiement classique et de l'interface de ligne de commande Azure"
    services="virtual-machines"
    documentationCenter="nodejs"
    authors="AlanSt"
    manager="timlt"
-   editor=""/>
+   editor=""
+   tags="azure-service-management"/>
 
    <tags
    ms.service="virtual-machines"
    ms.devlang="nodejs"
    ms.topic="article"
-   ms.tgt_pltfrm="vm-linux"
+   ms.tgt_pltfrm="Linux"
    ms.workload="infrastructure-services"
    ms.date="02/20/2015"
-   ms.author="alanst;kasing"/>
+   ms.author="alanst"/>
 
-# Créer un déploiement de plusieurs machines virtuelles à l'aide de l'interface de ligne de commande Microsoft Azure
+# Déploiement de plusieurs machines virtuelles à l’aide de l’interface de ligne de commande Azure
+
+> [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Cet article traite de la création de ressources avec le modèle de déploiement classique.
 
 Le script suivant vous montre comment configurer un déploiement de plusieurs services cloud avec plusieurs machines virtuelles dans un réseau virtuel à l’aide de l’interface de ligne de commande Microsoft Azure.
 
@@ -32,9 +35,9 @@ Le code pour effectuer ce paramétrage est relativement simple :
 >[AZURE.NOTE]Vous devrez probablement modifier les noms de service cloud servercs et workercs en noms de service cloud unique
 
     azure network vnet create samplevnet -l "West US"
-    azure vm create -l "West US" -w samplevnet -e 10000 -z Small -n servervm servercs b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-14_10-amd64-server-20150202-fr-fr-30GB azureuser Password@1
-    azure vm create -l "West US" -w samplevnet -e 10001 -z Small –n clientvm1 clientcs b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-14_10-amd64-server-20150202-fr-fr-30GB azureuser Password@1
-    azure vm create -l "West US" -w samplevnet -e 10002 -c -z Small -n clientvm2 clientcs b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-14_10-amd64-server-20150202-fr-fr-30GB azureuser Password@1
+    azure vm create -l "West US" -w samplevnet -e 10000 -z Small -n servervm servercs b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-14_10-amd64-server-20150202-fr-FR-30GB azureuser Password@1
+    azure vm create -l "West US" -w samplevnet -e 10001 -z Small –n clientvm1 clientcs b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-14_10-amd64-server-20150202-fr-FR-30GB azureuser Password@1
+    azure vm create -l "West US" -w samplevnet -e 10002 -c -z Small -n clientvm2 clientcs b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-14_10-amd64-server-20150202-fr-FR-30GB azureuser Password@1
     azure vm disk attach-new servervm 100
     azure vm disk attach-new servervm 500
     azure vm endpoint create servervm 443 443 -n https -o tcp
@@ -67,4 +70,4 @@ Bien que vous puissiez trouver plus d'informations à l'aide de l'option –help
 * [Connexion à une machine virtuelle exécutant Linux](virtual-machines-linux-how-to-log-on.md)
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO4-->

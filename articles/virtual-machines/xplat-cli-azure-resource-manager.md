@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Utilisation de l’interface de ligne de commande Microsoft Azure pour Mac, Linux et Windows avec Azure Resource Management"
+	pageTitle="Interface de ligne de commande Azure pour Mac, Linux et Windows | Microsoft Azure"
 	description="Utilisation de l’interface de ligne de commande Microsoft Azure pour Mac, Linux et Windows avec Azure Resource Manager"
 	editor="tysonn"
 	manager="timlt"
@@ -7,20 +7,20 @@
 	authors="dlepow"
 	services="virtual-machines"/>
 
-
 <tags ms.service="virtual-machines" ms.workload="infrastructure-services"" ms.tgt_pltfrm="command-line-interface" ms.devlang="na" ms.topic="article" ms.date="06/09/2015" ms.author="danlep"/>
-
 
 # Utiliser l’interface de ligne de commande Azure pour Mac, Linux et Windows avec Azure Resource Manager
 
 > [AZURE.SELECTOR]
 - [Azure PowerShell](../powershell-azure-resource-manager.md)
-- [Azure CLI](xplat-cli-azure-resource-manager.md)
 
+<br>
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Cet article traite de la création de ressources avec le modèle de déploiement Resource Manager.
 
 Cette rubrique décrit comment créer, gérer et supprimer des ressources et des machines virtuelles Azure en utilisant l’interface de ligne de commande Azure pour Mac, Linux et Windows en mode Azure Resource Manager.
 
->[AZURE.NOTE]Pour créer et gérer des ressources Azure sur la ligne de commande, vous devez disposer d’un compte Azure ([Version d’évaluation gratuite ici](http://azure.microsoft.com/pricing/free-trial/)). Vous devrez également [installer l’interface de ligne de commande Azure ](../xplat-cli-install.md), et [vous connecter pour utiliser des ressources Azure associées à votre compte](../xplat-cli-connect.md). Si ces opérations ont déjà été effectuées, vous pouvez dès à présent créer et gérer ces ressources.
+>[AZURE.NOTE]Pour créer et gérer des ressources Azure sur la ligne de commande, vous devez disposer d’un compte Azure ([essai gratuit ici](http://azure.microsoft.com/pricing/free-trial/)). Vous devrez également [installer l’interface de ligne de commande Azure ](../xplat-cli-install.md), et [vous connecter pour utiliser des ressources Azure associées à votre compte](../xplat-cli-connect.md). Si ces opérations ont déjà été effectuées, vous pouvez dès à présent créer et gérer ces ressources.
 
 ## Ressources Azure
 
@@ -28,7 +28,7 @@ Utilisez Azure Resource Manager pour gérer un groupe de _ressources_ (qui sont 
 
 En utilisant le mode Azure Resource Manager, vous pouvez également gérer vos ressources Azure de façon _déclarative_ en décrivant la structure et les relations d’un groupe de ressources déployable dans des *modèles* JSON. Le modèle décrit les paramètres qui peuvent être renseignés en ligne lors de l’exécution d’une commande ou stockés dans un fichier JSON azuredeploy-parameters.json distinct. Vous pouvez donc facilement créer de nouvelles ressources en utilisant le même modèle et en changeant simplement les paramètres. Par exemple, un modèle qui crée un site web a des paramètres pour le nom du site, la région du site web et d’autres paramètres courants.
 
-Lorsqu'un modèle est utilisé pour modifier ou créer un groupe, un _déploiement_ est créé, avant d'être appliqué au groupe. Pour plus d’informations sur Azure Resource Manager, consultez la [Vue d’ensemble d’Azure Resource Manager](../resource-group-overview.md).
+Lorsqu'un modèle est utilisé pour modifier ou créer un groupe, un _déploiement_ est créé, avant d'être appliqué au groupe. Pour plus d’informations sur Azure Resource Manager, voir la [Vue d’ensemble d’Azure Resource Manager](../resource-group-overview.md).
 
 ## Authentification
 
@@ -106,7 +106,7 @@ Vous devriez normalement pouvoir créer une carte d’interface réseau en utili
 
 >[AZURE.NOTE]Bien que ceci soit facultatif, il est très important de transmettre le nom de l’adresse IP publique en tant que paramètre de la commande **network nic create**, car ceci permet de relier la carte d’interface réseau à cette adresse IP, qui sera ultérieurement utilisée pour exécuter SSH sur la machine virtuelle créée à l'aide de cette carte d’interface réseau.
 
-Pour plus d’informations sur les commandes **network**, consultez l’aide de la ligne de commande ou [Utilisation de l’interface de ligne de commande Azure avec Azure Resource Management](azure-cli-arm-commands.md).
+Pour plus d’informations sur les commandes **network**, voir l’aide de la ligne de commande ou [Utilisation de l’interface de ligne de commande Azure avec Azure Resource Management](azure-cli-arm-commands.md).
 
 #### Recherche de l’image du système d’exploitation
 
@@ -156,7 +156,7 @@ Connectez-vous ensuite avec SSH à l’aide de la commande **ssh username@ipaddr
 
 	azure network public-ip show "testrg" "testip"
 
-La gestion de cette machine virtuelle est facile avec les commandes **vm**. Pour plus d’informations, consultez [Utilisation de l’interface de ligne de commande Azure avec Azure Resource Management](azure-cli-arm-commands.md).
+La gestion de cette machine virtuelle est facile avec les commandes **vm**. Pour plus d’informations, voir [Utilisation de l’interface de ligne de commande Azure avec Azure Resource Management](azure-cli-arm-commands.md).
 
 ### Raccourci vm quick-create
 
@@ -331,9 +331,9 @@ Pour afficher les informations de journalisation sur les opérations effectuées
 
 ## Étapes suivantes
 
-* Pour plus d’informations sur l’utilisation de l’interface de ligne de commande Azure, consultez [Installer et configurer l’interface de ligne de commande Azure][clisetup].
-* Pour plus d’informations sur l’utilisation d’Azure Resource Manager avec Azure PowerShell, consultez [Utilisation d’Azure PowerShell avec Azure Resource Manager](../powershell-azure-resource-manager.md).
-* Pour plus d’informations sur l’utilisation d’Azure Resource Manager à partir du portail Azure, consultez [Utilisation des groupes de ressources pour gérer vos ressources Azure][psrm].
+* Pour plus d’informations sur l’utilisation de l’interface de ligne de commande Azure, voir [Installer et configurer l’interface de ligne de commande Azure][clisetup].
+* Pour plus d’informations sur l’utilisation d’Azure Resource Manager avec Azure PowerShell, voir [Utilisation d’Azure PowerShell avec Azure Resource Manager](../powershell-azure-resource-manager.md).
+* Pour plus d’informations sur l’utilisation d’Azure Resource Manager à partir du portail Azure, voir [Utilisation des groupes de ressources pour gérer vos ressources Azure][psrm].
 
 [signuporg]: http://www.windowsazure.com/documentation/articles/sign-up-organization/
 [adtenant]: http://technet.microsoft.com/library/jj573650#createAzureTenant
@@ -341,4 +341,4 @@ Pour afficher les informations de journalisation sur les opérations effectuées
 [clisetup]: ../xplat-cli.md
 [psrm]: http://go.microsoft.com/fwlink/?LinkId=394760
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

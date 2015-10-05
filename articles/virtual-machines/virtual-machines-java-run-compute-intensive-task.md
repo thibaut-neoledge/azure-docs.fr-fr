@@ -5,7 +5,8 @@
 	documentationCenter="java"
 	authors="rmcmurray"
 	manager="wpickett"
-	editor="jimbe"/>
+	editor="jimbe"
+	tags="azure-service-management,azure-resource-manager"/>
 
 <tags
 	ms.service="virtual-machines"
@@ -17,6 +18,8 @@
 	ms.author="robmcm"/>
 
 # Exécution d'une tâche nécessitant beaucoup de ressources en langage Java sur une machine virtuelle
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Cet article traite de la création d’une ressource avec le modèle de déploiement classique.
 
 Azure permet d'utiliser une machine virtuelle pour gérer les tâches nécessitant beaucoup de ressources. Par exemple, une machine virtuelle peut gérer des tâches et fournir des résultats à des ordinateurs clients ou à des applications mobiles. Après avoir lu cet article, vous serez en mesure de créer une machine virtuelle exécutée sur une application Java nécessitant beaucoup de ressources et pouvant être surveillée par une autre application Java.
 
@@ -53,14 +56,14 @@ Vous trouverez ci-dessous un exemple d'application Java qui surveille la tâche 
     2. Entrez la taille de la machine virtuelle.
     3. Entrez un nom pour l'administrateur dans le champ **Nom d'utilisateur**. Notez le nom et le mot de passe que vous allez entrer, car vous les utiliserez pour vous connecter à distance à votre machine virtuelle.
     4. Entrez un mot de passe dans le champ **Nouveau mot de passe**, puis entrez-le de nouveau dans le champ **Confirmer**. Il s'agit du mot de passe du compte Administrateur.
-    5. Cliquez sur **Suivant**.
+    5. Cliquez sur **Next**.
 5. Dans la boîte de dialogue **Configuration de la machine virtuelle** suivante :
-    1. Pour le **Service de cloud computing**, utilisez le paramètre par défaut **Créer un nouveau service de cloud computing**.
+    1. Pour **Cloud service**, utilisez la valeur par défaut **Create a new cloud service**.
     2. La valeur du **Nom du cloud Service DNS** doit être unique sur cloudapp.net. Si nécessaire, modifiez cette valeur afin qu'Azure indique qu'elle est unique.
     2. Indiquez une région, un groupe d'affinités ou un réseau virtuel. Dans le cadre de ce didacticiel, indiquez une région comme **Bretagne**.
     2. Pour **Storage Account**, sélectionnez **Use an automatically generated storage account**.
     3. Pour **Availability Set**, sélectionnez **(None)**.
-    4. Cliquez sur **Suivant**.
+    4. Cliquez sur **Next**.
 5. Dans la dernière boîte de dialogue **Configuration de la machine virtuelle** :
     1. Validez les entrées de points de terminaison par défaut.
     2. Cliquez sur **Terminé**.
@@ -82,8 +85,8 @@ Pour commencer à utiliser les files d'attente Service Bus dans Azure, vous deve
 Pour créer un espace de noms de service :
 
 1.  Connectez-vous au [portail de gestion Azure](https://manage.windowsazure.com).
-2.  Dans le volet de navigation gauche du portail de gestion, cliquez sur **Bus des services, Contrôle d'accès et Cache**.
-3.  Dans le volet supérieur gauche du portail de gestion, cliquez sur le nœud **Bus des services**, puis sur le bouton **Nouveau**.![Capture d’écran du nœud Service Bus][svc_bus_node]
+2.  En bas du volet de navigation gauche du portail de gestion, cliquez sur **Service Bus, Access Control et mise en cache**.
+3.  Dans le volet supérieur gauche du portail de gestion, cliquez sur le nœud **Service Bus**, puis sur le bouton **Nouveau**.![Capture d’écran du nœud Service Bus][svc_bus_node]
 4.  Dans la boîte de dialogue **Créer un espace de noms de service**, entrez un **Espace de noms**, puis vérifiez qu'il est unique en cliquant sur le bouton **Vérifier la disponibilité**. ![Capture d'écran Créer un espace de noms][create_namespace]
 5.  Après avoir vérifié que le nom de l'espace de noms est disponible, choisissez le pays ou la région où votre espace de noms sera hébergé, puis cliquez sur le bouton **Créer un espace de noms**.  
 
@@ -93,9 +96,9 @@ Pour créer un espace de noms de service :
 
 Pour pouvoir effectuer des opérations de gestion telles que la création d’une file d’attente sur le nouvel espace de noms, vous devez obtenir les informations d’identification de gestion associées.
 
-1.  Dans le volet de navigation gauche, cliquez sur le nœud **Bus des services** pour afficher la liste des espaces de noms disponibles : ![Capture d'écran Available Namespaces][avail_namespaces]
-2.  Sélectionnez l'espace de noms que vous venez de créer dans la liste affichée. ![Capture d'écran Liste d'espaces de noms][namespace_list]
-3.  Le volet **Propriétés** de droite répertorie les propriétés du nouvel espace de noms. ![Capture d'écran du volet Propriétés][properties_pane]
+1.  Dans le volet de navigation gauche, cliquez sur le nœud **Service Bus** pour afficher la liste des espaces de noms disponibles. ![Capture d'écran Available Namespaces][avail_namespaces]
+2.  Sélectionnez l’espace de noms que vous venez de créer dans la liste affichée. ![Capture d'écran Liste d'espaces de noms][namespace_list]
+3.  Le panneau **Propriétés** de droite répertorie les propriétés du nouvel espace de noms. ![Capture d'écran du volet Propriétés][properties_pane]
 4.  La **Clé par défaut** est masquée. Cliquez sur le bouton **Afficher** pour afficher les informations d'identification de sécurité. ![Capture d’écran Clé par défaut][default_key]
 5.  Notez l'**Émetteur par défaut** et la **Clé par défaut**, car vous devrez utiliser ces informations ci-dessous pour accomplir les opérations relatives à l'espace de noms.
 
@@ -292,7 +295,7 @@ Pour pouvoir effectuer des opérations de gestion telles que la création d’un
 
 ## Création d'une application Java surveillant la progression de la tâche qui nécessite beaucoup de ressources
 
-1. Sur votre ordinateur de développement, créez une application console Java à l'aide de l'exemple de code disponible à la fin de cette section. Dans le cadre de ce didacticiel, nous utiliserons le nom **TSPClient.java** pour désigner le fichier Java. Comme indiqué précédemment, modifiez les espaces réservés **your\_service\_bus\_namespace**, **your\_service\_bus\_owner** et **your\_service\_bus\_key** pour utiliser respectivement vos valeurs de bus de services **Espace de noms**, **Émetteur par défaut** et **Clé par défaut**.
+1. Sur votre ordinateur de développement, créez une application console Java à l'aide de l'exemple de code disponible à la fin de cette section. Dans le cadre de ce didacticiel, nous utiliserons le nom **TSPClient.java** pour désigner le fichier Java. Comme indiqué précédemment, modifiez les espaces réservés **your\_service\_bus\_namespace**, **your\_service\_bus\_owner** et **your\_service\_bus\_key** pour utiliser respectivement vos valeurs Service Bus **Espace de noms**, **Émetteur par défaut** et **Clé par défaut**.
 2. Exportez l'application dans un fichier JAR exécutable et créez un package contenant les bibliothèques requises dans le fichier JAR généré. Dans le cadre de ce didacticiel, nous utiliserons le nom **TSPClient.jar** pour désigner le fichier JAR généré.
 
 <p/>
@@ -496,7 +499,7 @@ Exécutez l'application nécessitant beaucoup de ressources pour créer la file 
 
 	    java -jar TSPClient.jar 1
 
-    Le client s'exécutera jusqu'à ce qu'il voie le message de file d'attente « Terminé ». Notez que si vous exécutez plusieurs occurrences du solveur sans exécuter le client, vous serez peut-être amené à exécuter le client plusieurs fois pour vider entièrement la file d'attente. Vous pouvez également supprimer la file d'attente puis la recréer. Pour supprimer la file d'attente, exécutez la commande **TSPSolver** (et non **TSPClient**) ci-dessous.
+    Le client s'exécutera jusqu'à ce qu'il voie le message de file d'attente « Terminé ». Notez que si vous exécutez plusieurs occurrences du solveur sans exécuter le client, vous serez peut-être amené à exécuter le client plusieurs fois pour vider entièrement la file d'attente. Vous pouvez également supprimer la file d'attente puis la recréer. Pour supprimer la file d'attente, exécutez la commande **TSPSolver** (et non **TSPClient**) suivante.
 
         java -jar TSPSolver.jar deletequeue
 
@@ -516,4 +519,4 @@ Pour quitter les applications solveur et cliente avant la fin normale, vous pouv
 [default_key]: ./media/virtual-machines-java-run-compute-intensive-task/SvcBusQueues_07_DefaultKey.jpg
 [add_ca_cert]: ../java-add-certificate-ca-store.md
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO4-->

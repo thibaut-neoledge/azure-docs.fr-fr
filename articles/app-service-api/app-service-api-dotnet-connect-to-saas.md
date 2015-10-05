@@ -7,16 +7,14 @@
 	manager="wpickett" 
 	editor="jimbe"/>
 
-
 <tags 
 	ms.service="app-service-api" 
 	ms.workload="web" 
 	ms.tgt_pltfrm="dotnet" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/01/2015" 
+	ms.date="09/22/2015" 
 	ms.author="tdykstra"/>
-
 
 # Connexion à une plateforme SaaS à partir d’une application API ASP.NET dans Azure App Service
 
@@ -451,4 +449,4 @@ Vous avez appris à coder et à configurer une application API se connectant à 
 [Azure preview portal]: https://portal.azure.com/
 [Azure portal]: https://manage.windowsazure.com/
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

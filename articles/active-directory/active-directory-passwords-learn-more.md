@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="En savoir plus : Gestion des mots de passe Azure AD | Microsoft Azure" 
-	description="Rubriques avancées sur la gestion des mots de passe Azure AD, y compris le fonctionnement de l’écriture différée de mot de passe, la sécurité de l’écriture différée de mot de passe, le fonctionnement du portail de réinitialisation de mot de passe et les données utilisées par la réinitialisation de mot de passe." 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="asteen" 
-	manager="kbrint" 
+<properties
+	pageTitle="En savoir plus : Gestion des mots de passe Azure AD | Microsoft Azure"
+	description="Rubriques avancées sur la gestion des mots de passe Azure AD, y compris le fonctionnement de l’écriture différée de mot de passe, la sécurité de l’écriture différée de mot de passe, le fonctionnement du portail de réinitialisation de mot de passe et les données utilisées par la réinitialisation de mot de passe."
+	services="active-directory"
+	documentationCenter=""
+	authors="asteen"
+	manager="kbrint"
 	editor="billmath"/>
 
-<tags 
-	ms.service="active-directory" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/08/2015" 
+<tags
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/18/2015" 
 	ms.author="asteen"/>
 
 # En savoir plus sur la gestion des mots de passe
@@ -280,6 +280,5 @@ Le tableau suivant indique où et comment ces données sont utilisées lors de l
 
 [001]: ./media/active-directory-passwords-learn-more/001.jpg "Image_001.jpg"
 [002]: ./media/active-directory-passwords-learn-more/002.jpg "Image_002.jpg"
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

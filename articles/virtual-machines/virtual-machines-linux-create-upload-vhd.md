@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Création et téléchargement d'un disque dur virtuel Linux dans Azure"
-	description="Apprenez à créer et à télécharger un disque dur virtuel (VHD) Azure contenant le système d'exploitation Linux."
+	pageTitle="Création et téléchargement d'un VHD Linux | Microsoft Azure"
+	description="Création et téléchargement d’un disque dur virtuel (VHD) Azure avec le modèle de déploiement classique contenant le système d'exploitation Linux."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="dsk-2015"
@@ -18,6 +18,8 @@
 	ms.author="dkshir"/>
 
 # Création et téléchargement d'un disque dur virtuel contenant le système d'exploitation Linux
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Cet article traite du téléchargement d’un VHD avec le modèle de déploiement classique.
 
 Cet article vous montre comment créer et télécharger un disque dur virtuel pour que vous puissiez l'utiliser comme image personnelle pour créer des machines virtuelles dans Azure. Vous apprendrez comment préparer le système d'exploitation pour créer plusieurs machines virtuelles basées sur cette image. Notez que cet article fait référence aux machines virtuelles créées à l'aide du modèle de déploiement classique.
 
@@ -43,7 +45,7 @@ Cet article part du principe que vous disposez des éléments suivants :
 
 - **Interface de ligne de commande Azure** : si vous utilisez un système d'exploitation Linux pour créer votre image, utilisez l’[interface de ligne de commande Azure](../virtual-machines-command-line-tools.md) pour charger le fichier VHD.
 
-- **Outils Azure Powershell** : l’applet de commande `Add-AzureVhd` est également utilisable pour télécharger le fichier VHD. Consultez la page [Téléchargements Azure](http://azure.microsoft.com/downloads/) pour télécharger les applets de commande Azure Powershell. Pour les informations de référence, consultez la page [Add-AzureVhd](https://msdn.microsoft.com/library/azure/dn495173.aspx).
+- **Outils Azure Powershell** : la cmdlet `Add-AzureVhd` est également utilisable pour télécharger le fichier VHD. Consultez la page [Téléchargements Azure](http://azure.microsoft.com/downloads/) pour télécharger les cmdlets Azure Powershell. Pour les informations de référence, consultez la page [Add-AzureVhd](https://msdn.microsoft.com/library/azure/dn495173.aspx).
 
 ## <a id="prepimage"> </a>Étape 1 : préparation de l'image pour le téléchargement ##
 
@@ -77,7 +79,7 @@ Utilisez la méthode Azure AD pour vous connecter :
 
 	Lorsque vous y êtes invité, tapez votre nom d'utilisateur et votre mot de passe.
 
-**OU**, utilisez un fichier de paramètres de publication à la place :
+**OU**, utilisez un fichier PublishSettings à la place :
 
 1. Ouvrez une fenêtre d'Azure CLI
 
@@ -95,7 +97,7 @@ Utilisez la méthode Azure AD pour vous connecter :
 
 	Où `<PathToFile>` est le chemin d'accès complet au fichier .publishsettings.
 
-	Pour plus d’informations, consultez [Se connecter à Azure depuis la CLI Azure](../xplat-cli-connect.md).
+	Pour plus d’informations, consultez [Se connecter à Azure avec la CLI Azure](../xplat-cli-connect.md).
 
 
 ### En cas d’utilisation d’Azure PowerShell
@@ -110,7 +112,7 @@ Utilisez la méthode Azure AD pour vous connecter :
 
 	Quand vous y êtes invité, entrez votre ID et votre mot de passe d’entreprise.
 
-**OU**, utilisez les fichiers de paramètres de publication :
+**OU**, utilisez les fichiers PublishSettings :
 
 1. Ouvrez une fenêtre Azure PowerShell.
 
@@ -144,7 +146,7 @@ Utilisez l’interface de ligne de commande Azure pour charger l'image. La comma
 
 Vous aurez besoin d’un compte de stockage pour charger votre fichier de disque dur virtuel. Vous pouvez en choisir un existant ou en créer un. Pour créer un compte de stockage, consultez [Création d’un compte de stockage](../storage-create-storage-account.md)
 
-Lorsque vous téléchargez le fichier .vhd, vous pouvez le placer n'importe où dans votre stockage d'objets blob. Dans les exemples de commandes suivants, **BlobStorageURL** correspond à l'URL du compte de stockage que vous prévoyez d’utiliser ; **YourImagesFolder** est le conteneur du stockage d'objets blob où vous voulez stocker vos images. **VHDName** est l'étiquette affichée dans le [portail de gestion](http://manage.windowsazure.com) pour identifier le disque dur virtuel. **PathToVHDFile** est le chemin d'accès complet et le nom du fichier .vhd.
+Lorsque vous téléchargez le fichier .vhd, vous pouvez le placer n'importe où dans votre stockage d'objets blob. Dans les exemples de commandes suivants, **BlobStorageURL** correspond à l'URL du compte de stockage que vous prévoyez d’utiliser ; **YourImagesFolder** est le conteneur du stockage d'objets blob où vous voulez stocker vos images. **VHDName** est l'étiquette affichée dans le [Portail de gestion](http://manage.windowsazure.com) pour identifier le disque dur virtuel. **PathToVHDFile** est le chemin d'accès complet et le nom du fichier .vhd.
 
 Depuis la fenêtre Azure PowerShell utilisée lors de l'étape précédente, tapez :
 
@@ -159,4 +161,4 @@ Pour plus d'informations, consultez la page [Add-AzureVhd](https://msdn.microso
 [Step 2: Prepare the connection to Azure]: #connect
 [Step 3: Upload the image to Azure]: #upload
 
-<!----HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO4-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="09/09/2015"
+   ms.date="09/22/2015"
    ms.author="JRJ@BigBangData.co.uk;barbkess"/>
 
 # Conception de tables dans SQL Data Warehouse #
@@ -123,8 +123,8 @@ Prise en charge partielle :
 
 Il existe deux moyens de distribuer les données dans SQL Data Warehouse :
 
-1. Vous pouvez distribuer les données en fonction des valeurs de hachage d’une colonne unique.
-2. Vous pouvez les distribuer de manière équitable, mais aléatoire.  
+1. Vous pouvez les distribuer de manière équitable, mais aléatoire. 
+2. Vous pouvez distribuer les données en fonction des valeurs de hachage d’une colonne unique.
 
 Le type de distribution des données est déterminé au niveau de la table. Toutes les tables sont distribuées. Vous allez attribuer une distribution pour chaque table de votre base de données SQL Data Warehouse.
 
@@ -306,4 +306,4 @@ Pour obtenir des conseils supplémentaires en matière de développement, voir l
 
 <!--Other Web references-->
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

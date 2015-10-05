@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/03/2015"
-	ms.author="patshea123"/>
+	ms.author="patshea"/>
 
 # Prendre en main le stockage d’objets blob Azure et les services connectés de Visual Studio (projets services cloud)
 
@@ -266,4 +266,4 @@ Comme l’exemple de méthode appelle une méthode asynchrone, il doit être pr�
 
 [AZURE.INCLUDE [vs-storage-dotnet-blobs-next-steps](../../includes/vs-storage-dotnet-blobs-next-steps.md)]
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

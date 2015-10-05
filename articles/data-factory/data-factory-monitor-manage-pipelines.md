@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Surveillance et gestion des pipelines d’Azure Data Factory"
-	description="Découvrez comment utiliser le portail de gestion Azure et Azure PowerShell pour analyser et gérer les fabriques de données et les pipelines Azure que vous avez créés."
-	services="data-factory"
-	documentationCenter=""
-	authors="spelluru"
-	manager="jhubbard"
+	pageTitle="Surveillance et gestion des pipelines d’Azure Data Factory" 
+	description="Découvrez comment utiliser le portail de gestion Azure et Azure PowerShell pour analyser et gérer les fabriques de données et les pipelines Azure que vous avez créés." 
+	services="data-factory" 
+	documentationCenter="" 
+	authors="spelluru" 
+	manager="jhubbard" 
 	editor="monicar"/>
 
 <tags 
-	ms.service="data-factory"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/27/2015"
+	ms.service="data-factory" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="07/27/2015" 
 	ms.author="spelluru"/>
 
 # Surveillance et gestion des pipelines d’Azure Data Factory
@@ -287,6 +287,10 @@ Pour spécifier une définition d'alerte, vous devez créer un fichier JSON déc
 
 Si vous ne voulez pas recevoir d’alerte relative à un échec spécifique, supprimez **subStatus** de la définition JSON précédente.
 
+L'exemple ci-dessus définit l'alerte de toutes les fabriques de données de votre abonnement. Si vous souhaitez configurer l'alerte pour une fabrique de données particulière, vous pouvez spécifier la fabrique de données **resourceUri** dans le bloc **dataSource** comme ci-après :
+
+	"resourceUri" : "/SUBSCRIPTIONS/<subscriptionId>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/DATAFACTORIES/<dataFactoryName>"
+
 Le tableau suivant dresse la liste des opérations et des états (et états secondaires) disponibles.
 
 Nom d’opération | État | État secondaire
@@ -337,7 +341,7 @@ Pour récupérer la liste des déploiements de groupes de ressources Azure, util
 
 
 #### Résolution des problèmes des événements utilisateur
-Vous pouvez voir tous les événements générés après avoir cliqué sur la vignette **Opérations**. En outre, vous pouvez configurer des alertes relatives à n'importe quelle opération visible sur le panneau **Événements** :
+Vous pouvez voir tous les événements générés après avoir cliqué sur la mosaïque **Opérations**. En outre, vous pouvez configurer des alertes relatives à n'importe quelle opération visible sur le panneau **Événements** :
 
 ![Opérations](./media/data-factory-monitor-manage-pipelines/operations.png)
 
@@ -471,4 +475,4 @@ Le message suivant devrait s’afficher après la réussite du déploiement :
 ## Envoyer des commentaires
 Nous souhaiterions vraiment obtenir vos commentaires sur cet article. Prenez quelques minutes pour nous envoyer vos commentaires par [courrier électronique](mailto:adfdocfeedback@microsoft.com?subject=data-factory-monitor-manage-pipelines.md).
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO4-->

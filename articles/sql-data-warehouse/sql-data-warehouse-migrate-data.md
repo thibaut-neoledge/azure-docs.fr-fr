@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/25/2015"
+   ms.date="09/22/2015"
    ms.author="JRJ@BigBangData.co.uk;barbkess"/>
 
 # Migration de vos données
@@ -191,7 +191,7 @@ Pour en savoir plus sur la migration, consultez la section [Migration de votre s
 
 [version de production]: http://aka.ms/downloadazcopy/
 [version préliminaire]: http://aka.ms/downloadazcopypr/
-[Adaptateur de destination ADO.NET]: https://msdn.microsoft.com/fr-fr/library/bb934041.aspx
-[documentation relative à SSIS]: https://msdn.microsoft.com/fr-fr/library/ms141026.aspx
+[Adaptateur de destination ADO.NET]: https://msdn.microsoft.com/FR-FR/library/bb934041.aspx
+[documentation relative à SSIS]: https://msdn.microsoft.com/FR-FR/library/ms141026.aspx
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO4-->

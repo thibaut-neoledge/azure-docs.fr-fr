@@ -1,11 +1,12 @@
 <properties 
-	pageTitle="Business Intelligence de SQL Server dans les machines virtuelles Azure"
-	description="Cette rubrique décrit les fonctionnalités de Business Intelligence (BI) disponibles pour SQL Server s’exécutant sur Azure Virtual Machines."
+	pageTitle="Business Intelligence de SQL Server | Microsoft Azure"
+	description="Cette rubrique utilise des ressources créées avec le modèle de déploiement classique et décrit les fonctionnalités de Business Intelligence (BI) disponibles pour SQL Server s’exécutant sur Azure Virtual Machines."
 	services="virtual-machines"
 	documentationCenter="na"
 	authors="rothja"
 	manager="jeffreyg"
-	editor="monicar"/>
+	editor="monicar" 
+	tags="azure-service-management"/>
 <tags 
 	ms.service="virtual-machines"
 	ms.devlang="na"
@@ -13,9 +14,11 @@
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
 	ms.date="08/19/2015"
-	ms.author="jroth"/>
+	ms.author="jroth" />
 
 # Business Intelligence de SQL Server dans les machines virtuelles Azure
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Cet article traite de l’utilisation d’une ressource avec le modèle de déploiement classique.
  
 La galerie de machines virtuelles Microsoft Azure inclut des images qui contiennent des installations de SQL Server. Les éditions de SQL Server prises en charge dans les images de la galerie sont les mêmes fichiers d’installation que vous pouvez installer sur les ordinateurs locaux et sur les machines virtuelles. Cette rubrique résume les fonctionnalités de SQL Server Business Intelligence (BI) installées sur les images, et les étapes de configuration requises après la configuration d’une machine virtuelle. Elle décrit également les topologies de déploiement prises en charge pour les fonctionnalités et les meilleures pratiques en matière de décisionnel (BI).
 
@@ -23,11 +26,11 @@ La galerie de machines virtuelles Microsoft Azure inclut des images qui contienn
 
 Il existe deux manières de mettre sous licence SQL Server dans Microsoft Azure Virtual Machines :
 
-1. Via les avantages License Mobility inclus dans la Software Assurance. Pour plus d’informations, consultez la page [License Mobility via Software Assurance sur Azure](http://azure.microsoft.com/pricing/license-mobility/).
+1. Via les avantages License Mobility inclus dans la Software Assurance. Pour plus d’informations, consultez [License Mobility via Software Assurance sur Azure](http://azure.microsoft.com/pricing/license-mobility/).
 
-1. Payez un tarif horaire pour Azure Virtual Machines avec SQL Server installé. Consultez la section « SQL Server » dans [Tarification d’Azure Virtual Machines](http://azure.microsoft.com/pricing/details/virtual-machines/#Sql)
+1. Payez un tarif horaire pour Azure Virtual Machines avec SQL Server installé. Consultez la section « SQL Server » dans [Tarification de Virtual Machines](http://azure.microsoft.com/pricing/details/virtual-machines/#Sql)
 
-Pour plus d’informations sur les licences et les tarifs actuellement pratiqués, consultez la page [FAQ concernant les licences des machines virtuelles](http://azure.microsoft.com/pricing/licensing-faq/%20).
+Pour plus d’informations sur les licences et les tarifs actuellement pratiqués, consultez [FAQ concernant les licences Virtual Machines](http://azure.microsoft.com/pricing/licensing-faq/%20).
 
 ## Images de SQL Server disponibles dans la galerie de machines virtuelles Azure
 
@@ -80,7 +83,7 @@ Le tableau suivant récapitule les fonctionnalités Business Intelligence instal
 |**Mode tabulaire Analysis Services**|Non|Pris en charge dans les images SQL Server 2012 et 2014, mais pas installé par défaut. Installez une autre instance d’Analysis Services. Consultez la section Installation d’autres services et fonctionnalités SQL Server dans cette rubrique.|
 |**Analysis Services Power Pivot pour SharePoint**|Non|L’image de la galerie de machines virtuelles Microsoft Azure ne comprend pas les fichiers SharePoint ou d’installation SharePoint. <sup>1</sup>|
 
-<sup>1</sup> Pour plus d’informations sur SharePoint et les machines virtuelles Azure, consultez les rubriques [Planification de SharePoint 2013 dans les services d’infrastructure Azure](https://technet.microsoft.com/library/dn635309.aspx) et [Déploiement de SharePoint dans Microsoft Azure Virtual Machines](https://www.microsoft.com/download/details.aspx?id=34598).
+<sup>1</sup> Pour plus d’informations sur SharePoint et les machines virtuelles Azure, consultez [Architectures Microsoft Azure pour SharePoint 2013](https://technet.microsoft.com/library/dn635309.aspx) et [Déploiement de SharePoint dans Microsoft Azure Virtual Machines](https://www.microsoft.com/download/details.aspx?id=34598).
 
 ![PowerShell](./media/virtual-machines-sql-server-business-intelligence/IC660119.gif) Exécutez la commande PowerShell suivante pour obtenir la liste des services installés dont le nom contient « SQL ».
 
@@ -88,9 +91,9 @@ Le tableau suivant récapitule les fonctionnalités Business Intelligence instal
 
 ## Instructions générales et meilleures pratiques
 
-- La taille minimale recommandée d’une machine virtuelle est la taille **A3** lorsque vous utilisez SQL Server Enterprise Edition. La taille de machine virtuelle **A4** est recommandée pour les déploiements SQL Server BI de Analysis Services et Reporting Services.
+- La taille minimale recommandée d’une machine virtuelle est la taille **A3** quand vous utilisez SQL Server Enterprise Edition. La taille de machine virtuelle **A4** est recommandée pour les déploiements SQL Server BI d’Analysis Services et de Reporting Services.
 
-	Pour plus d’informations sur les tailles des machines virtuelles actuelles, consultez la page [Tailles de machines virtuelles pour Azure](virtual-machines-size-specs.md).
+	Pour plus d’informations sur les tailles des machines virtuelles actuelles, consultez [Tailles de machines virtuelles pour Azure](virtual-machines-size-specs.md).
 
 - La meilleure pratique de gestion du disque consiste à stocker les fichiers de données, de journal et de sauvegarde sur des lecteurs autres que **C**: et **D**:. Par exemple, créez des disques de données **E**: et **F**:.
 
@@ -98,7 +101,7 @@ Le tableau suivant récapitule les fonctionnalités Business Intelligence instal
 	
 	- Nous vous déconseillons d’utiliser le lecteur **D**: qui est un disque temporaire principalement utilisé pour le fichier d’échange. Nous vous déconseillons d’utiliser le lecteur **D**: qui n’est pas persistant et n’est pas stocké dans le stockage d’objets blob. Les tâches de gestion telles qu’une simple modification de la taille d’une machine virtuelle réinitialisent le lecteur **D**:. Nous vous **DÉCONSEILLONS** d’utiliser le lecteur **D**: pour les fichiers de base de données, y compris tempdb.
 
-	Pour plus d’informations sur la création et l’attachement de disques, consultez la page [Procédure d’attachement d’un disque de données à une machine virtuelle](storage-windows-attach-disk.md).
+	Pour plus d’informations sur la création et l’attachement de disques, consultez [Comment attacher un disque de données à une machine virtuelle](storage-windows-attach-disk.md).
 
 - Arrêtez ou désinstallez les services que vous ne prévoyez pas d’utiliser. Par exemple, si la machine virtuelle est uniquement utilisée pour Reporting Services, arrêtez ou désinstallez Analysis Services et SQL Server Integration Services. L’image suivante est un exemple de services qui sont démarrés par défaut.
 
@@ -106,7 +109,7 @@ Le tableau suivant récapitule les fonctionnalités Business Intelligence instal
 
 	>[AZURE.NOTE]Le moteur de base de données SQL Server est requis dans les scénarios BI pris en charge. Dans une topologie de machine virtuelle avec un seul serveur, le moteur de base de données doit être exécuté sur la même machine virtuelle.
 
-	Pour plus d’informations, consultez les rubriques suivantes : [Désinstaller Reporting Services](https://msdn.microsoft.com/library/hh479745.aspx) et [Procédure : désinstaller une instance d’Analysis Services](https://msdn.microsoft.com/library/ms143687.aspx).
+	Pour plus d’informations, consultez les rubriques suivantes : [Désinstaller Reporting Services](https://msdn.microsoft.com/library/hh479745.aspx) et [Désinstaller une instance d’Analysis Services](https://msdn.microsoft.com/library/ms143687.aspx).
 
 - Vérifiez les nouvelles mises à jour importantes sur **Windows Update**. Les images de machines virtuelles Microsoft Azure sont souvent actualisées ; toutefois, des mises à jour importantes peuvent être disponibles sur **Windows Update** après la dernière actualisation de l’image de machine virtuelle.
 
@@ -148,7 +151,7 @@ Analysis Services, Reporting Services, le moteur de base de données SQL Server 
 
 L’image de la galerie de machines virtuelles pour SQL Server inclut l’installation du mode natif de Reporting Services, mais le serveur de rapports n’est pas configuré. Les étapes de cette section permettent de configurer le serveur de rapports Reporting Services. Pour plus d’informations sur la configuration du mode natif de Reporting Services, consultez la page [Installer le serveur de rapports Reporting Services en mode natif](https://msdn.microsoft.com/library/ms143711.aspx).
 
->[AZURE.NOTE]Pour obtenir un contenu semblable qui utilise des scripts Windows PowerShell pour configurer le serveur de rapports, consultez la page [Utilisation de PowerShell pour créer une machine virtuelle Azure avec un serveur de rapports en mode natif](virtual-machines-sql-server-create-native-mode-report-server-powershell.md).
+>[AZURE.NOTE]Pour obtenir un contenu semblable qui utilise des scripts Windows PowerShell pour configurer le serveur de rapports, consultez [Utiliser PowerShell pour créer une machine virtuelle Azure avec un serveur de rapports en mode natif](virtual-machines-sql-server-create-native-mode-report-server-powershell.md).
 
 ### Se connecter à la machine virtuelle et démarrer le Gestionnaire de configuration Reporting Services
 
@@ -166,7 +169,7 @@ Il existe deux flux de travail courants pour la connexion à une machine virtuel
 		
 		Myservice.cloudapp.net:63133
 		
-		Pour plus d’informations, consultez la page [Qu’est-ce qu’un service cloud ?](http://www.windowsazure.com/manage/services/cloud-services/what-is-a-cloud-service/).
+		Pour plus d’informations, consultez [Présentation d’un service cloud](http://www.windowsazure.com/manage/services/cloud-services/what-is-a-cloud-service/).
 
 **Démarrez le Gestionnaire de configuration Reporting Services.**
 
@@ -206,7 +209,7 @@ Ou
 
 1. Vérifiez que l’**État de Report Server** est **Démarré**. Pour vérifier le service dans le Gestionnaire de Windows Server, consultez le Service Windows **SQL Server Reporting Services**.
 
-1. Cliquez sur **Compte de service** et modifiez le compte si nécessaire. Si la machine virtuelle est utilisée dans un environnement non joint à un domaine, le compte **ReportServer** intégré est suffisant. Pour plus d’informations sur le compte de service, consultez la page [Compte de service](https://msdn.microsoft.com/library/ms189964.aspx).
+1. Cliquez sur **Compte de service** et modifiez le compte si nécessaire. Si la machine virtuelle est utilisée dans un environnement non joint à un domaine, le compte **ReportServer** intégré est suffisant. Pour plus d’informations sur le compte de service, consultez [Compte de service](https://msdn.microsoft.com/library/ms189964.aspx).
 
 1. Cliquez sur l’**URL du service Web** dans le volet gauche.
 
@@ -246,7 +249,7 @@ Ou
 
 1. Cliquez sur **Quitter**.
 
-Pour plus d’informations sur les autorisations du serveur de rapports, consultez la page [Octroi d’autorisations sur un serveur de rapports en mode natif](https://msdn.microsoft.com/library/ms156014.aspx).
+Pour plus d’informations sur les autorisations du serveur de rapports, consultez [Octroi d’autorisations sur un serveur de rapports en mode natif](https://msdn.microsoft.com/library/ms156014.aspx).
 
 ### Accéder au Gestionnaire de rapports local
 
@@ -280,7 +283,7 @@ Le tableau suivant résume certaines des options disponibles pour publier des ra
 	
 	1. Accédez au Gestionnaire de rapports sur la machine virtuelle et cliquez sur **Générateur de rapports** dans le ruban.
 	
-	Pour plus d’informations, consultez la page [Installer, désinstaller et prendre en charge le Générateur de rapports](https://technet.microsoft.com/library/dd207038.aspx).
+	Pour plus d’informations, consultez [Installation, désinstallation et prise en charge du Générateur de rapports](https://technet.microsoft.com/library/dd207038.aspx).
 
 - **SQL Server Data Tools : machines virtuelles** : SQL Server Data Tools est installé sur la machine virtuelle et peut être utilisé pour créer des **projets de serveur de rapports** et des rapports sur la machine virtuelle. SQL Server Data Tools peut publier les rapports vers le serveur de rapports sur la machine virtuelle.
 
@@ -294,7 +297,7 @@ Le tableau suivant résume certaines des options disponibles pour publier des ra
 	
 	1. Créez et installez un certificat de gestion.
 	
-	1. Téléchargez le fichier VHD sur Azure à l’aide de l’applet de commande Add-AzureVHD en procédant de la manière décrite dans [Création et téléchargement d’un disque dur virtuel contenant le système d’exploitation Windows Server dans Azure](virtual-machines-create-upload-vhd-windows-server.md).
+	1. Téléchargez le fichier VHD sur Azure à l’aide de l’applet de commande Add-AzureVHD en procédant de la manière décrite dans [Créer et charger un disque dur virtuel Windows Server dans Azure](virtual-machines-create-upload-vhd-windows-server.md).
 	
 	1. Attachez le disque à la machine virtuelle.
 
@@ -312,7 +315,7 @@ Vous pouvez également exécuter C:\\SQLServer\_12.0\_full\\setup.exe ou C:\\SQL
 
 >[AZURE.NOTE]La première fois que vous exécutez l’installation de SQL Server, davantage de fichiers d’installation peuvent être téléchargés et nécessiter un redémarrage de la machine virtuelle et un redémarrage de l’installation de SQL Server.
 >
->Si vous devez personnaliser de façon répétée l’image sélectionnée à partir de la machine virtuelle Microsoft Azure, envisagez de créer votre propre image SQL Server. La fonctionnalité d’Analysis Services SysPrep a été activée avec SQL Server 2012 SP1 CU2. Pour plus d’informations, consultez la page [Considérations relatives à l’installation de SQL Server à l’aide de SysPrep](https://msdn.microsoft.com/library/ee210754.aspx).
+>Si vous devez personnaliser de façon répétée l’image sélectionnée à partir de la machine virtuelle Microsoft Azure, envisagez de créer votre propre image SQL Server. La fonctionnalité d’Analysis Services SysPrep a été activée avec SQL Server 2012 SP1 CU2. Pour plus d’informations, consultez [Considérations relatives à l’installation de SQL Server à l’aide de SysPrep](https://msdn.microsoft.com/library/ee210754.aspx).
 
 ### Pour installer Analysis Services en mode tabulaire
 
@@ -326,7 +329,7 @@ Les étapes de cette section **résument** l’installation d’Analysis Service
 
 1. Dans l’Assistant Installation de SQL Server, cliquez sur **Installation** dans le volet gauche, puis cliquez sur **Nouvelle installation autonome SQL Server ou ajout de fonctionnalités à une installation existante**.
 
-	- Si vous voyez **Rechercher un dossier**, accédez à c:\\SQLServer\_12.0\_full ou à c:\\SQLServer\_11.0\_full, puis cliquez sur **Ok**.
+	- Si vous voyez **Rechercher un dossier**, accédez à c:\\SQLServer\_12.0\_full ou à c:\\SQLServer\_11.0\_full, puis cliquez sur **OK**.
 
 1. Dans la page des mises à jour du produit, cliquez sur **Suivant**.
 
@@ -334,9 +337,9 @@ Les étapes de cette section **résument** l’installation d’Analysis Service
 
 1. Dans la page **Rôle d’installation**, cliquez sur **Installation de fonctionnalités SQL Server**.
 
-1. Sur la page **Sélection de composant**, cliquez sur **Analysis Services**.
+1. Dans la page **Sélection de composant**, cliquez sur **Analysis Services**.
 
-1. Sur la page **Configuration de l’instance**, saisissez un nom descriptif, tel que **Tabulaire** dans les zones de texte **Instance nommée** et **ID d’instance**.
+1. Dans la page **Configuration de l’instance**, entrez un nom descriptif, tel que **Tabulaire** dans les zones de texte **Instance nommée** et **ID d’instance**.
 
 1. Dans la page **Configuration d’Analysis Services**, sélectionnez **Mode Tabulaire**. Ajoutez l’utilisateur actuel à la liste des autorisations d’administrateur.
 
@@ -346,13 +349,13 @@ Les étapes de cette section **résument** l’installation d’Analysis Service
 
 ### Accès distant au serveur Analysis Services
 
-Le serveur Analysis Services prend en charge uniquement l’authentification Windows. Pour accéder à Analysis Services à distance des applications clientes telles que SQL Server Management Studio ou SQL Server Data Tools, la machine virtuelle doit être jointe à votre domaine local à l’aide d’Azure Virtual Network. Pour plus d’informations, consultez la page [Azure Virtual Network](../virtual-network/virtual-networks-overview.md).
+Le serveur Analysis Services prend en charge uniquement l’authentification Windows. Pour accéder à Analysis Services à distance des applications clientes telles que SQL Server Management Studio ou SQL Server Data Tools, la machine virtuelle doit être jointe à votre domaine local à l’aide d’Azure Virtual Network. Pour plus d’informations, consultez [Azure Virtual Network](../virtual-network/virtual-networks-overview.md).
 
-Une **instance par défaut** d’Analysis Services écoute sur le port TCP **2383**. Ouvrez le port dans le pare-feu des machines virtuelles. Une instance en cluster nommée d’Analysis Services écoute également sur le port **2383**.
+Une **instance par défaut** d’Analysis Services écoute sur le port TCP **2383**. Ouvrez le port dans le pare-feu des machines virtuelles. Une instance en cluster nommée d’Analysis Services écoute également sur le port **2383**.
 
-Pour une **instance nommée** d’Analysis Services, le service SQL Server Browser est nécessaire pour gérer l’accès au port. La configuration par défaut de SQL Server Browser est le port **2382**.
+Pour une **instance nommée** d’Analysis Services, le service SQL Server Browser est nécessaire pour gérer l’accès au port. La configuration par défaut de SQL Server Browser est le port **2382**.
 
-Dans le pare-feu des machines virtuelles, ouvrez le port **2382** et créez un port d’instance nommée Analysis Services statique.
+Dans le pare-feu des machines virtuelles, ouvrez le port **2382** et créez un port d’instance nommée Analysis Services statique.
 
 1. Pour vérifier les ports qui sont déjà utilisés sur la machine virtuelle et connaître le processus qui les utilise, exécutez la commande suivante avec des privilèges d’administration :
 
@@ -391,9 +394,9 @@ Cette section résume les points de terminaison de machine virtuelle Microsoft A
 
 Pour plus d’informations sur la création de points de terminaison, consultez les rubriques suivantes :
 
-- Créer des points de terminaison : [Configuration des points de terminaison sur une machine virtuelle](virtual-machines-set-up-endpoints.md).
+- Créer des points de terminaison : [Comment configurer des points de terminaison sur une machine virtuelle](virtual-machines-set-up-endpoints.md).
 
-- SQL Server : Consultez la section « Procédure de configuration complète pour la connexion à la machine virtuelle en utilisant SSMS (SQL Server Management Studio) sur un autre ordinateur » dans [Configuration d’une machine virtuelle SQL Server sur Azure](virtual-machines-provision-sql-server.md).
+- SQL Server : Consultez la section « Procédure de configuration complète pour la connexion à la machine virtuelle en utilisant SSMS (SQL Server Management Studio) sur un autre ordinateur » dans [Approvisionnement d’une machine virtuelle SQL Server sur Azure](virtual-machines-provision-sql-server.md).
 
 Le schéma suivant montre les ports à ouvrir dans le pare-feu de la machine virtuelle pour autoriser l’accès à distance aux fonctionnalités et aux composants de la machine virtuelle.
 
@@ -427,4 +430,4 @@ Le schéma suivant montre les ports à ouvrir dans le pare-feu de la machine vir
 
 - [Gestion de base de données SQL Azure avec PowerShell](http://blogs.msdn.com/b/windowsazure/archive/2013/02/07/windows-azure-sql-database-management-with-powershell.aspx)
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO4-->

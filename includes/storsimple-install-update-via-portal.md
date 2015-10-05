@@ -1,19 +1,4 @@
-<properties 
-   pageTitle="Installer Update 1.2 à partir du portail de gestion Azure"
-   description="Explique comment utiliser le portail de gestion pour installer StorSimple 8000 Series Update 1.2."
-   services="storsimple"
-   documentationCenter="NA"
-   authors="SharS"
-   manager="adinah"
-   editor="" />
-<tags 
-   ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="09/08/2015"
-   ms.author="v-sharos" />
+<!--author=SharS last changed: 9/17/15-->
 
 #### Pour installer Update 1.2 à partir du portail de gestion
 
@@ -72,12 +57,12 @@
 
 11. Une fois la mise à jour terminée, accédez à la page **Maintenance** et faites défiler l’écran jusqu’à **Mises à jour logicielles**.
 
-12. Vérifiez que votre appareil exécute **StorSimple 8000 Series Update 1.2 (6.3.9600.17584)**. Le paramètre **Dernière date de mise à jour** doit également être modifié.
+12. Vérifiez que votre appareil exécute **StorSimple 8000 Series Update 1.2 (6.3.9600.17584)**. Le paramètre **Dernière date de mise à jour** doit également être modifié.
 
     ![Page Maintenance](./media/storsimple-install-update-via-portal/InstallUpdate12_10M.png)
 
-13. Vous voyez maintenant que les mises à jour du mode Maintenance sont disponibles. Ces mises à jour entraînent des temps d'arrêt de l'appareil et ne peuvent être appliquées que par le biais de l'interface Windows PowerShell de votre appareil. Suivez les instructions sous [Installation des mises à jour en mode Maintenance via Windows PowerShell pour StorSimple](storsimple-update-device.md#install-maintenance-mode-updates-via-windows-powershell-for-storsimple) pour installer ces mises à jour par le biais de Windows PowerShell pour StorSimple.
+13. Vous voyez maintenant que les mises à jour du mode Maintenance sont disponibles. Ces mises à jour entraînent des temps d'arrêt de l'appareil et ne peuvent être appliquées que par le biais de l'interface Windows PowerShell de votre appareil. Suivez les instructions sous [Installation des mises à jour en mode Maintenance](storsimple-update-device.md#install-maintenance-mode-updates-via-windows-powershell-for-storsimple) pour installer ces mises à jour via Windows PowerShell pour StorSimple.
 
 > [AZURE.NOTE]Dans certains cas, le message indiquant que les mises à jour du mode Maintenance sont disponibles peut s'afficher 24 heures après que les mises à jour du mode Maintenance aient été correctement appliquées sur l'appareil.
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

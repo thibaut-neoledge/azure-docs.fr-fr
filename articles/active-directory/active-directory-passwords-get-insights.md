@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Obtention d’informations grâce aux rapports sur la gestion des mots de passe | Microsoft Azure" 
-	description="Cet article explique comment utiliser les rapports pour obtenir des informations sur les opérations de gestion des mots de passe dans votre organisation." 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="asteen" 
-	manager="kbrint" 
+<properties
+	pageTitle="Obtention d’informations grâce aux rapports sur la gestion des mots de passe | Microsoft Azure"
+	description="Cet article explique comment utiliser les rapports pour obtenir des informations sur les opérations de gestion des mots de passe dans votre organisation."
+	services="active-directory"
+	documentationCenter=""
+	authors="asteen"
+	manager="kbrint"
 	editor="billmath"/>
 
-<tags 
-	ms.service="active-directory" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/08/2015" 
+<tags
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/18/2015" 
 	ms.author="asteen"/>
 
 # Obtention d’informations grâce aux rapports sur la gestion des mots de passe
@@ -106,14 +106,14 @@ Détails|Voir le tableau ci-dessous
 ### Valeurs autorisées pour la colonne Détails
 Voici la liste des types de résultats que vous pouvez attendre lors de l’utilisation du rapport d’activité de réinitialisation du mot de passe :
 
-Détails | Type de résultat 
+Détails | Type de résultat
 ----|----
 L’utilisateur a abandonné avant d’avoir effectué complètement l’option de vérification par e-mail. | Abandonné
-L’utilisateur a abandonné avant d’avoir effectué complètement l’option de vérification par SMS sur mobile.|Abandonné 
-L’utilisateur a abandonné avant d’avoir effectué complètement l’option de vérification par appel vocal sur mobile. | Abandonné 
+L’utilisateur a abandonné avant d’avoir effectué complètement l’option de vérification par SMS sur mobile.|Abandonné
+L’utilisateur a abandonné avant d’avoir effectué complètement l’option de vérification par appel vocal sur mobile. | Abandonné
 L’utilisateur a abandonné avant d’avoir effectué complètement l’option de vérification par appel vocal au bureau. | Abandonné
-L’utilisateur a abandonné avant d’avoir effectué complètement l’option de questions de sécurité.|Abandonné 
-L’utilisateur a abandonné après avoir entré son ID utilisateur.| Abandonné 
+L’utilisateur a abandonné avant d’avoir effectué complètement l’option de questions de sécurité.|Abandonné
+L’utilisateur a abandonné après avoir entré son ID utilisateur.| Abandonné
 L’utilisateur a abandonné après avoir commencé l’option de vérification par e-mail.|Abandonné
 L’utilisateur a abandonné après avoir commencé l’option de vérification par SMS sur mobile.|Abandonné
 L’utilisateur a abandonné après avoir commencé l’option de vérification par appel vocal sur mobile.|Abandonné
@@ -141,7 +141,7 @@ Le mot de passe de l’utilisateur est géré localement. Vous pouvez activer l�
 Nous n’avons pas pu accéder au service de réinitialisation de votre mot de passe local. Vérifiez le journal des événements de votre ordinateur synchronisé.|Échec
 Nous avons rencontré un problème lors de la réinitialisation du mot de passe local de l’utilisateur. Vérifiez le journal des événements de votre ordinateur synchronisé. | Échec
 Cet utilisateur n’est pas membre du groupe utilisateurs de réinitialisation de mot de passe. Ajoutez cet utilisateur à ce groupe pour résoudre ce problème.|Échec
-La réinitialisation du mot de passe a été désactivée pour ce locataire. Voir [ici](http://aka.ms/ssprtroubleshoot) pour résoudre ce problème. | Échec 
+La réinitialisation du mot de passe a été désactivée pour ce locataire. Voir [ici](http://aka.ms/ssprtroubleshoot) pour résoudre ce problème. | Échec
 L’utilisateur a réinitialisé le mot de passe.|Succeeded
 
 **Ressources supplémentaires**
@@ -162,6 +162,5 @@ L’utilisateur a réinitialisé le mot de passe.|Succeeded
 [001]: ./media/active-directory-passwords-get-insights/001.jpg "Image_001.jpg"
 [002]: ./media/active-directory-passwords-get-insights/002.jpg "Image_002.jpg"
 [003]: ./media/active-directory-passwords-get-insights/003.jpg "Image_003.jpg"
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

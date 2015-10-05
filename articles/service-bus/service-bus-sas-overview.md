@@ -207,7 +207,7 @@ private bool PutCbsToken(Connection connection, string sasToken)
     // construct the put-token message
     var request = new Message(sasToken);
     request.Properties = new Properties();
-    request.Properties.MessageId = "1";
+    request.Properties.MessageId = Guid.NewGuid().ToString();
     request.Properties.ReplyTo = cbsClientAddress;
     request.ApplicationProperties = new ApplicationProperties();
     request.ApplicationProperties["operation"] = "put-token";
@@ -255,4 +255,4 @@ Pour plus d’informations sur l’authentification avec Service Bus, consultez 
 
 Pour obtenir d’autres exemples de signature d’accès partagé en C# et JavaScript, consultez [ce billet de blog](http://developers.de/blogs/damir_dobric/archive/2013/10/17/how-to-create-shared-access-signature-for-service-bus.aspx).
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

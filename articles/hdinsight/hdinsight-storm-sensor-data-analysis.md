@@ -1,20 +1,20 @@
 <properties
    pageTitle="Analyse des données de capteur avec Apache Storm et HBase | Microsoft Azure"
-	description="Découvrez comment vous connecter à Apache Storm à l’aide d’un réseau virtuel. Utilisez Storm avec HBase pour traiter des données de capteur à partir d'un concentrateur d'événements et les visualiser avec D3.js."
-	services="hdinsight"
-	documentationCenter=""
-	authors="Blackmist"
-	manager="paulettm"
-	editor="cgronlun"/>
+   description="Découvrez comment vous connecter à Apache Storm à l’aide d’un réseau virtuel. Utilisez Storm avec HBase pour traiter des données de capteur à partir d'un concentrateur d'événements et les visualiser avec D3.js."
+   services="hdinsight"
+   documentationCenter=""
+   authors="Blackmist"
+   manager="paulettm"
+   editor="cgronlun"/>
 
 <tags
    ms.service="hdinsight"
-	ms.devlang="java"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="big-data"
-	ms.date="07/06/2015"
-	ms.author="larryfr"/>
+   ms.devlang="java"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="big-data"
+   ms.date="09/23/2015"
+   ms.author="larryfr"/>
 
 # Analyser les données de capteur avec Apache Storm, Event Hub, et HBase dans HDInsight (Hadoop)
 
@@ -420,4 +420,4 @@ Vous avez à présent appris à utiliser Storm pour lire des données à partir 
 
 [azure-portal]: https://manage.windowsazure.com/
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

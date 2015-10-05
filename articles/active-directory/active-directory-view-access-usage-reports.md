@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Afficher vos rapports d'accès et d'utilisation"
-	description="Une rubrique qui vous explique comment afficher les rapports d'accès et d'utilisation pour évaluer l'intégrité et la sécurité du répertoire de votre société."
+	pageTitle="Affichage de vos rapports d’accès et d’utilisation | Microsoft Azure"
+	description="Explique comment afficher les rapports d'accès et d'utilisation pour évaluer l'intégrité et la sécurité du répertoire de votre société."
 	services="active-directory"
 	documentationCenter=""
 	authors="kenhoff"
-	manager="TerryLan"
-	editor="LisaToft"/>
+	manager="stevenpo"
+	editor=""/>
 
 <tags
 	ms.service="active-directory"
-	ms.workload="infrastructure-services"
+	ms.workload="identity"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/24/2015"
-	ms.author="kenhoff;Justinha"/>
+	ms.date="09/21/2015"
+	ms.author="kenhoff;Justinha;curtand"/>
 
 # Afficher vos rapports d'accès et d'utilisation
 
@@ -90,12 +90,6 @@ Dans le portail de gestion Azure, les rapports sont classés comme suit :
 |	Utilisateurs RMS les plus actifs | | |	RMS uniquement |
 |	Utilisation d’un périphérique RMS | | |	RMS uniquement |
 |	Utilisation d’applications fonctionnant avec RMS | | |	RMS uniquement |
-
-
-
-
-
-
 
 
 
@@ -274,6 +268,6 @@ Pour plus d'informations sur les notifications de création de rapport Azure AD
 ## Étapes suivantes
 
 - [Prise en main d’Azure Active Directory Premium (AD)](active-directory-get-started-premium.md)
-- [Ajouter des stratégies de promotion professionnelles aux pages du volet d’accès et de connexion](active-directory-add-company-branding.md)
+- [Ajout d’une marque de société aux pages de connexion et du volet d’accès](active-directory-add-company-branding.md)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

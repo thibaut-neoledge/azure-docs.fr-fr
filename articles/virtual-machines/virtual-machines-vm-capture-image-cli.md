@@ -3,7 +3,7 @@
 	description="Apprenez à capturer une image d'une machine virtuelle Azure exécutant Linux."
 	services="virtual-machines"
 	documentationCenter=""
-	authors="karthmut"
+	authors="madhana"
 	manager="timlt"
 	editor="tysonn"/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="02/20/2015"
-	ms.author="karthmut"/>
+	ms.author="madhana"/>
 
 
 
@@ -162,4 +162,4 @@ Pour obtenir plus d’informations et découvrir des commandes supplémentaires,
 [Association d’un disque de données à une machine virtuelle]: storage-windows-attach-disk.md
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

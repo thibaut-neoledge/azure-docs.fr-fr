@@ -5,7 +5,8 @@
 	documentationCenter=""
 	authors="sabbour"
 	manager="timlt"
-	editor=""/>
+	editor=""
+	tags="azure-service-management"/>
 
 <tags
 	ms.service="virtual-machines"
@@ -18,7 +19,9 @@
 
 # Cluster MariaDB (MySQL) - Didacticiel Azure
 
-<p>Nous créons un cluster multimaîtres [Galera] (http://galeracluster.com/products/) de [MariaDBs] (https://mariadb.org/en/about/), un remplacement de dernière minute solide, évolutif et fiable pour MySQL, qui fonctionnera dans un environnement à haute disponibilité dans des machines virtuelles Azure.</p>
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Cet article traite de la création d’un cluster MariaDB avec le modèle de déploiement classique.
+
+Nous créons un cluster [Galera](http://galeracluster.com/products/) multimaîtres de [MariaDB](https://mariadb.org/en/about/), un remplacement de dernière minute solide, évolutif et fiable pour MySQL, qui fonctionnera dans un environnement à haute disponibilité dans des machines virtuelles Azure.
 
 ## Présentation de l'architecture
 
@@ -206,7 +209,7 @@ Le résultat devrait ressembler à `5112500ae3b842c8b9c604889f8753c3__OpenLogic-
 
 	- Modifiez la section **[mariadb]** et ajoutez les éléments ci-dessous
 
-	> [AZURE.NOTE]Il est recommandé que **innodb\\\_buffer\\\_pool\_size** soit égal à 70 % de la mémoire de votre machine virtuelle. Elle a été définie à 2,45 Go ici pour la machine virtuelle Azure de taille moyenne avec 3,5 Go de RAM.
+	> [AZURE.NOTE]Il est recommandé que **innodb\\_buffer\\_pool\_size** soit égal à 70 % de la mémoire de votre machine virtuelle. Elle a été définie à 2,45 Go ici pour la machine virtuelle Azure de taille moyenne avec 3,5 Go de RAM.
 
 	        innodb_buffer_pool_size = 2508M # The buffer pool contains buffered data and the index. This is usually set to 70% of physical memory.
             innodb_log_file_size = 512M #  Redo logs ensure that write operations are fast, reliable, and recoverable after a crash
@@ -368,6 +371,5 @@ Vous souhaiterez peut-être étudier [une autre façon de mettre MySQL en cluste
 [optimiser et tester les performances de MySQL sur les machines virtuelles Linux Azure]: http://azure.microsoft.com/documentation/articles/virtual-machines-linux-optimize-mysql-perf/
 [problème n° 1268 dans les outils d'interface de ligne de commande Azure]: https://github.com/Azure/azure-xplat-cli/issues/1268
 [une autre façon de mettre MySQL en cluster sur Linux]: http://azure.microsoft.com/documentation/articles/virtual-machines-linux-mysql-cluster/
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

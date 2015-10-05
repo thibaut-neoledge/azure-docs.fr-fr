@@ -1,24 +1,24 @@
-<properties 
-	pageTitle="Présentation d’Azure Key Vault | Microsoft Azure" 
-	description="Azure Key Vault permet de protéger les clés de chiffrement et les secrets utilisés par les services et les applications cloud. En utilisant Azure Key Vault, les clients peuvent chiffrer les clés et secrets (tels que les clés d’authentification, les clés de compte de stockage, les clés de chiffrement de données, les fichiers .PFX et les mots de passe) à l’aide de clés protégées par des modules de sécurité matériels (HSM)." 
-	services="key-vault" 
-	documentationCenter="" 
-	authors="cabailey" 
+<properties
+	pageTitle="Présentation d’Azure Key Vault | Microsoft Azure"
+	description="Azure Key Vault permet de protéger les clés de chiffrement et les secrets utilisés par les services et les applications cloud. En utilisant Azure Key Vault, les clients peuvent chiffrer les clés et secrets (tels que les clés d’authentification, les clés de compte de stockage, les clés de chiffrement de données, les fichiers .PFX et les mots de passe) à l’aide de clés protégées par des modules de sécurité matériels (HSM)."
+	services="key-vault"
+	documentationCenter=""
+	authors="cabailey"
 	manager="mbaldwin"
 	tags="azure-resource-manager"/>
 
-<tags 
-	ms.service="key-vault" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="get-started-article" 
-	ms.date="09/11/2015" 
+<tags
+	ms.service="key-vault"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.date="09/22/2015"
 	ms.author="cabailey"/>
 
 
 
-# Qu’est-ce qu’Azure Key Vault ? 
+# Qu’est-ce qu’Azure Key Vault ?
 
 Azure Key Vault est disponible dans la plupart des régions. Pour plus d’informations, consultez la [page de tarification de Key Vault](../../../../pricing/details/key-vault/).
 
@@ -43,7 +43,7 @@ Utilisez le tableau suivant afin de mieux comprendre comment Key Vault peut perm
 
 Toute personne disposant d’un abonnement Azure peut créer et utiliser des coffres de clés. Bien que Key Vault procure des avantages aux développeurs et aux administrateurs de sécurité, il peut être implémenté et géré par l’administrateur d’une organisation qui gère les autres services Azure pour cette dernière. Par exemple, cet administrateur peut se connecter avec un abonnement Azure, créer un coffre pour l’organisation dans lequel stocker les clés et avoir la responsabilité de tâches opérationnelles, telles que :
 
-+ créer ou importer une clé ou un secret ; 
++ créer ou importer une clé ou un secret ;
 + supprimer ou effacer une clé ou un secret ;
 + autoriser des utilisateurs ou des applications à gérer ou utiliser des clés et des secrets ;
 + configurer l’utilisation de la clé (par exemple, signer ou chiffrer) ;
@@ -53,7 +53,7 @@ Cet administrateur peut ensuite fournir aux développeurs des URI à appeler à 
 
    ![Vue d’ensemble Azure Key Vault][1]
 
-Les développeurs peuvent également gérer les clés directement à l’aide d’API. Pour plus d’informations, consultez la page [Coffre de clés](https://msdn.microsoft.com/library/azure/dn903625.aspx) dans la bibliothèque de documentation Microsoft Azure sur MSDN.
+Les développeurs peuvent également gérer les clés directement à l’aide d’API. Pour plus d’informations, consultez le [guide du développeur de Key Vault](key-vault-developers-guide.md).
 
 ## Étapes suivantes
 
@@ -65,7 +65,4 @@ Pour plus d’informations sur l’utilisation des clés et des secrets avec Azu
 <!--Image references-->
 [1]: ./media/key-vault-whatis/AzureKeyVault_overview.png
 
-
- 
-
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

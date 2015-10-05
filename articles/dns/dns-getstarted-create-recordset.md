@@ -1,20 +1,20 @@
 <properties
    pageTitle="Création d’un jeu d’enregistrements et d’enregistrements pour une zone DNS | Microsoft Azure"
-	description="Création d’enregistrements hôtes pour Azure DNS. Configuration d’enregistrements et de jeux d’enregistrements à l’aide de PowerShell"
-	services="dns"
-	documentationCenter="na"
-	authors="joaoma"
-	manager="Adinah"
-	editor=""/>
+   description="Création d’enregistrements hôtes pour Azure DNS. Configuration d’enregistrements et de jeux d’enregistrements à l’aide de PowerShell"
+   services="dns"
+   documentationCenter="na"
+   authors="joaoma"
+   manager="Adinah"
+   editor=""/>
 
 <tags
    ms.service="dns"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="infrastructure-services"
-	ms.date="08/12/2015"
-	ms.author="joaoma"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="infrastructure-services"
+   ms.date="09/22/2015"
+   ms.author="joaoma"/>
 
 
 # Création d’enregistrements DNS
@@ -124,4 +124,4 @@ Vous pouvez également utiliser nslookup ou d’autres outils DNS pour interroge
 [Automatisation des opérations Azure avec le Kit de développement (SDK) .NET](dns-sdk.md)
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

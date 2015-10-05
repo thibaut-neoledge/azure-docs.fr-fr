@@ -162,4 +162,4 @@ L’utilisation de FIM2010/MIM2016 local pour effectuer une synchronisation des 
 ## Étapes suivantes
 Pour savoir comment installer Azure AD Connect pour ces scénarios, consultez [Installation personnalisée d’Azure AD Connect](active-directory-aadconnect-get-started-custom.md). Pour en savoir plus sur la configuration d’Azure AD Connect Sync, consultez [Azure AD Connect Sync](active-directory-aadconnectsync-whatis.md).
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

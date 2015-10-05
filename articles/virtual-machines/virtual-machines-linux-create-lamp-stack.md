@@ -1,11 +1,12 @@
 <properties
-	pageTitle="Création d'une pile LAMP avec Microsoft Azure"
-	description="Learn how to create a LAMP Stack with Microsoft Azure using Azure virtual machines (VMs) running Linux."
+	pageTitle="Création d’une pile LAMP avec Azure | Microsoft Azure"
+	description="Apprenez à créer une pile LAMP avec Microsoft Azure en utilisant des machines virtuelles Azure exécutant Linux."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="NingKuang"
 	manager="timlt"
-	editor="tysonn"/>
+	editor="tysonn"
+	tags="azure-service-management,azure-resource-manager"/>
 
 <tags
 	ms.service="virtual-machines"
@@ -20,6 +21,8 @@
 
 Une pile « LAMP » est un groupe de logiciels open source généralement installés ensemble pour permettre à un serveur d'héberger des sites web dynamiques et des applications web. Ce terme est en fait un acronyme qui représente le système d'exploitation Linux avec le serveur web Apache. Les données de site sont stockées dans une base de données MySQL et le contenu dynamique est traité par PHP.
 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Cet article traite de la création d’une ressource avec le modèle de déploiement du Gestionnaire des ressources ou le modèle de déploiement classique.
+
 Dans ce guide, nous allons installer une pile LAMP sur une image Linux et la déployer sur Microsoft Azure.
 
 Vous apprendrez à effectuer les opérations suivantes :
@@ -28,11 +31,11 @@ Vous apprendrez à effectuer les opérations suivantes :
 -	Préparation de la machine virtuelle pour la pile LAMP.
 -	Installation des logiciels requis par votre serveur LAMP sur la machine virtuelle.
 
-Nous partons du principe que le lecteur possède déjà un abonnement Azure. Si ce n’est pas le cas, vous pouvez vous inscrire pour obtenir une évaluation gratuite sur [http://azure.microsoft.com](http://azure.microsoft.com). Si vous disposez d’un abonnement MSDN, consultez la page présentant les [tarifs préférentiels Microsoft Azure : avantages MSDN, MPN et Bizspark](http://azure.microsoft.com/pricing/member-offers/msdn-benefits/?c=14-39). Pour en savoir plus sur Azure, consultez la page [Qu’est-ce que Microsoft Azure ?](http://azure.microsoft.com/overview/what-is-azure/).
+Nous partons du principe que le lecteur possède déjà un abonnement Azure. Si ce n’est pas le cas, vous pouvez vous inscrire pour obtenir une évaluation gratuite sur [http://azure.microsoft.com](http://azure.microsoft.com). Si vous disposez d’un abonnement MSDN, consultez la page présentant les [tarifs préférentiels Microsoft Azure : avantages MSDN, MPN et Bizspark](http://azure.microsoft.com/pricing/member-offers/msdn-benefits/?c=14-39). Pour en savoir plus sur Azure, voir [Qu’est-ce que Microsoft Azure ?](http://azure.microsoft.com/overview/what-is-azure/).
 
-Outre cette rubrique, si vous possédez déjà une machine virtuelle et recherchez uniquement des instructions de base sur l’installation d’une pile LAMP sur différentes distributions de Linux, consultez la page [Installation de la pile LAMP sur une machine virtuelle Linux dans Azure](virtual-machines-linux-install-lamp-stack.md).
+Outre cette rubrique, si vous possédez déjà une machine virtuelle et recherchez uniquement des instructions de base sur l’installation d’une pile LAMP sur différentes distributions de Linux, voir [Installation de la pile LAMP sur une machine virtuelle Linux dans Azure](virtual-machines-linux-install-lamp-stack.md).
 
-Vous pouvez également déployer des images LAMP préconfigurées à partir d'Azure Marketplace. La vidéo suivante, d'une durée de 10 minutes, offre une introduction au déploiement d'images LAMP prédéfinies à partir d'Azure Marketplace : (pile LAMP sur les machines virtuelles Azure](https://channel9.msdn.com/Shows/Azure-Friday/LAMP-stack-on-Azure-VMs-with-Guy-Bowerman).
+Vous pouvez également déployer des images LAMP préconfigurées à partir d'Azure Marketplace. La vidéo suivante, d’une durée de 10 minutes, offre une introduction au déploiement d’images LAMP prédéfinies à partir d’Azure Marketplace : (pile LAMP sur les machines virtuelles Azure](https://channel9.msdn.com/Shows/Azure-Friday/LAMP-stack-on-Azure-VMs-with-Guy-Bowerman).
 
 ##Phase 1 : Création d’une image
 Lors de cette phase, vous allez créer une machine virtuelle à l’aide d’une image Linux dans Azure.
@@ -42,15 +45,15 @@ SSH est un outil important pour les administrateurs système. Toutefois, s'appuy
 
 Pour générer la clé d'authentification SSH, procédez comme suit.
 
--	Téléchargez et installez puttygen à partir de l’emplacement suivant : [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/).
+-	Téléchargez et installez puttygen à partir de l’emplacement suivant : [http://www.chiark.greenend.org.uk/~sgtatham/](http://www.chiark.greenend.org.uk/~sgtatham/)putty/download.html
 -	Exécutez puttygen.exe.
 -	Cliquez sur **Generate** pour générer les clés. Dans le processus, vous pouvez augmenter le caractère aléatoire en déplaçant la souris sur la zone vide dans la fenêtre. ![][1]
 -	Après le processus de génération, Puttygen.exe affiche votre clé générée. Par exemple : ![][2]
--	Sélectionnez et copiez la clé publique dans **Key** et enregistrez-la dans un fichier nommé **publicKey.pem**. Ne cliquez pas sur **Save public key**, car le format de fichier de la clé publique enregistrée est différent de la clé publique que nous voulons.
+-	Sélectionnez et copiez la clé publique dans **Key**, et enregistrez-la dans un fichier nommé **publicKey.pem**. Ne cliquez pas sur **Save public key**, car le format de fichier de la clé publique enregistrée est différent de la clé publique que nous voulons.
 -	Cliquez sur **Save private key** et enregistrez-la dans un fichier nommé **privateKey.ppk**.
 
 ###Étape 2 : Créer l’image dans le portail Azure.
-Dans le [Portail Azure](https://portal.azure.com/), cliquez sur **Nouveau** dans la barre des tâches et créez une image conformément à ces instructions, en choisissant l’image Linux selon vos besoins. Cet exemple utilise l'image Ubuntu 14.04.
+Dans le [portail Azure](https://portal.azure.com/), cliquez sur **Nouveau** dans la barre des tâches et créez une image conformément à ces instructions, en choisissant l’image Linux selon vos besoins. Cet exemple utilise l'image Ubuntu 14.04.
 
 ![][3]
 
@@ -141,6 +144,7 @@ Pour installer Apache, ouvrez terminal et exécutez la commande suivante :
 Une fois l'installation terminé, démarrez Apache avec cette commande :
 
 	sudo service httpd start
+
 ####Tester Apache
 Pour vérifier si Apache est correctement installé, recherchez le nom DNS de votre serveur Apache (pour l’exemple d’URL dans cet article, http://lampdemo.cloudapp.net/)). La page doit afficher les mots « It works! » ![][14]
 
@@ -263,7 +267,7 @@ Cela a été testé sur Ubuntu 14.04.
 
 Ubuntu est basé sur Debian. Vous pouvez installer la pile LAMP de la même manière que la série Red Hat. Pour simplifier les étapes, utilisez l'outil Tasksel.
 
-Tasksel est un outil Debian/Ubuntu qui installe plusieurs packages connexes comme tâche coordonnée sur votre système. Pour plus d’informations, consultez la page [Tasksel - Wiki d’aide communautaire](https://help.ubuntu.com/community/Tasksel).
+Tasksel est un outil Debian/Ubuntu qui installe plusieurs packages connexes comme tâche coordonnée sur votre système. Pour plus d’informations, voir [Tasksel - Wiki d’aide communautaire](https://help.ubuntu.com/community/Tasksel).
 
 Utilisez tasksel pour installer les logiciels requis pour la pile LAMP.
 
@@ -345,8 +349,8 @@ Une fois la pile LAMP configurée avec succès, vous pouvez déployer votre appl
 		sudo chgrp lampappgroup /var/www/html/  # Change the ownership to group lampappgroup
 		sudo chmod g+w /var/www/html/                 # grant write permission to group lampappgroup
 
-	>[AZURE.NOTE] Vous devrez peut-être vous reconnecter si vous souhaitez modifier un fichier dans /var/www/html/.
--	Utilisez n’importe quel client SFTP (par exemple, FileZilla) pour vous connecter au nom DNS de votre machine virtuelle (par exemple, lampdemo.cloudapp.net) et accédez à /**var/www/html** pour publier votre site. ![][18]
+	>[AZURE.NOTE]Vous devrez peut-être vous reconnecter si vous souhaitez modifier un fichier dans /var/www/html/.
+-	Utilisez n’importe quel client SFTP (par exemple, FileZilla) pour vous connecter au nom DNS de votre machine virtuelle (par exemple, lampdemo.cloudapp.net) et accédez à /**var/www/html** pour publier votre site. ![][18]
 
 
 
@@ -392,7 +396,7 @@ Une fois la pile LAMP configurée avec succès, vous pouvez déployer votre appl
 		Error:	/var/www/html/info.php: open for write: permission denied
 		Error:	File transfer failed
 
--	**Cause principale possible** Vous n’êtes pas autorisé à accéder au dossier /var/www/html.
+-	**Cause première possible** Vous n’êtes pas autorisé à accéder au dossier /var/www/html.
 -	**Solution** Vous devez obtenir l’autorisation à partir du compte racine. Vous pouvez modifier le propriétaire par défaut de ce dossier (la racine) et choisir le nom d’utilisateur que vous avez utilisé lors de l’approvisionnement de la machine. Voici un exemple avec le nom de compte azureuser :  
 
 		sudo chown azureuser -R /var/www/html  
@@ -426,7 +430,7 @@ Une fois la pile LAMP configurée avec succès, vous pouvez déployer votre appl
 		... waiting apache2:
 		Could not reliably determine the server's fully qualified domain name, using 127.0.1.1 for ServerName  
 
--	**Cause principale possible** Vous n’avez pas défini le nom du serveur Apache.
+-	**Cause première possible** Vous n’avez pas défini le nom du serveur Apache.
 
 -	**Solution** Insérez une ligne « ServerName localhost » dans le fichier httpd.conf (version Red Hat) ou apache2.conf (version Debian) dans /etc/apache2 et redémarrez Apache. La notice disparaît.
 
@@ -450,6 +454,5 @@ Une fois la pile LAMP configurée avec succès, vous pouvez déployer votre appl
 [16]: ./media/virtual-machines-linux-create-lamp-stack/virtual-machines-linux-create-lamp-stack-16.png
 [17]: ./media/virtual-machines-linux-create-lamp-stack/virtual-machines-linux-create-lamp-stack-17.png
 [18]: ./media/virtual-machines-linux-create-lamp-stack/virtual-machines-linux-create-lamp-stack-18.jpg
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Gestion d'un service cloud | Microsoft Azure" 
-	description="Découvrez comment gérer des services cloud dans le portail Azure en version préliminaire." 
+	pageTitle="Comment gérer un service cloud (portail en version préliminaire) | Microsoft Azure" 
+	description="Découvrez comment gérer des services cloud dans le portail Azure en version préliminaire. Ces exemples utilisent le portail Azure en version préliminaire." 
 	services="cloud-services" 
 	documentationCenter="" 
 	authors="Thraka" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/01/2015"
+	ms.date="09/22/2015"
 	ms.author="adegeo"/>
 
 
@@ -106,4 +106,11 @@ Utiliser la procédure suivante pour supprimer un déploiement ou un service clo
 
 [portail Azure en version préliminaire]: https://portal.azure.com
 
-<!---HONumber=August15_HO7-->
+## Étapes suivantes
+
+* [Configuration générale de votre service cloud](cloud-services-how-to-configure-portal.md).
+* Découvrez comment [déployer un service cloud](cloud-services-how-to-create-deploy-portal.md).
+* Configurez un [nom de domaine personnalisé](cloud-services-custom-domain-name-portal.md).
+* Configurez des [certificats SSL](cloud-services-configure-ssl-certificate-portal.md).
+
+<!---HONumber=Sept15_HO4-->

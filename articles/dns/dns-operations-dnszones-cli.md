@@ -1,22 +1,22 @@
 <properties 
-   pageTitle="Opérations sur les zones DNS | Microsoft Azure"
-	description="Vous pouvez gérer les zones DNS à l’aide d’applets de commande Azure Powershell ou de l’interface de ligne de commande. Mise à jour, suppression et création des zones DNS sur Azure DNS"
-	services="dns"
-	documentationCenter="na"
-	authors="joaoma"
-	manager="Adinah"
-	editor=""/>
+   pageTitle="Opérations sur les zones DNS à l’aide de l’interface de ligne de commande | Microsoft Azure" 
+   description="Vous pouvez gérer des zones DNS à l’aide de l’interface de ligne de commande Azure. Mise à jour, suppression et création des zones DNS sur Azure DNS" 
+   services="dns" 
+   documentationCenter="na" 
+   authors="joaoma" 
+   manager="Adinah" 
+   editor=""/>
 
 <tags
    ms.service="dns"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="infrastructure-services"
-	ms.date="09/02/2015"
-	ms.author="joaoma"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="infrastructure-services" 
+   ms.date="09/02/2015"
+   ms.author="joaoma"/>
 
-# Gestion des zones DNS
+# Gestion des zones DNS à l'aide de l’interface de ligne de commande
 
 > [AZURE.SELECTOR]
 - [Azure CLI](dns-operations-dnszones-cli.md)
@@ -76,4 +76,4 @@ Cette opération comporte un commutateur « -q » qui supprime l’invite pour
 
 [Automatisation des opérations à l’aide du Kit de développement (SDK) .NET](dns-sdk.md)
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO4-->

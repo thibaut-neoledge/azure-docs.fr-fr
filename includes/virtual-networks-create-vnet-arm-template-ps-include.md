@@ -13,7 +13,7 @@ Pour déployer le modèle ARM téléchargé à l'aide de PowerShell, suivez les 
 
 	>[AZURE.WARNING]L’applet de commande Switch-AzureMode sera bientôt obsolète. Lorsque ce sera le cas, toutes les applets de commande Resource Manager seront renommées.
 
-3. Au besoin, exécutez l’applet de commande **New-AzureResourceGroup** pour créer un groupe de ressources. La commande suivante crée un groupe de ressources nommé *TestRG* dans la région Azure *Centre des États-Unis*. Pour plus d’informations sur les groupes de ressources, consultez la page [Présentation d’Azure Resource Manager](resource-group-overview.md/#resource-groups).
+3. Au besoin, exécutez l’applet de commande **New-AzureResourceGroup** pour créer un groupe de ressources. La commande suivante crée un groupe de ressources nommé *TestRG* dans la région Azure *Centre des États-Unis*. Pour plus d'informations sur les groupes de ressources, consultez la [Vue d’ensemble d'Azure Resource Manager](resource-group-overview.md).
 
 		New-AzureResourceGroup -Name TestRG -Location centralus
 		
@@ -101,4 +101,4 @@ Pour déployer le modèle ARM téléchargé à l'aide de PowerShell, suivez les 
 		                      }
 		                    ]
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

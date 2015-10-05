@@ -1,4 +1,4 @@
-<properties 
+<properties
 	pageTitle="Utilisez Mobile Services pour télécharger des images dans le stockage d’objets blob (Android) | Mobile Services"
 	description="Découvrez comment utiliser Mobile Services pour télécharger des images Azure Storage vers le stockage d’objets blob Azure et y accéder à partir de votre application Android."
 	services="mobile-services"
@@ -7,13 +7,13 @@
 	manager="dwrede"
 	editor=""/>
 
-<tags 
+<tags
 	ms.service="mobile-services"
 	ms.workload="mobile"
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="09/02/2015"
+	ms.date="09/18/2015"
 	ms.author="ricksal"/>
 
 # Télécharger des images vers Azure Storage depuis un appareil Android
@@ -47,7 +47,8 @@ Alors, qu’est ce qu’une SAP ?
 
 Il n’est pas sûr de stocker les informations d’identification nécessaires au téléchargement des données Azure à l’intérieur de votre application cliente. Au lieu de cela, vous stockez ces informations d’identification dans votre service mobile et vous en servir pour générer une signature d’accès partagé (SAP) qui octroie l’autorisation de télécharger une nouvelle image. La signature d’accès partagé (SAP), information d’identification dont le délai d’expiration est de 5 minutes est renvoyée en toute sécurité par Mobile Services à l’application cliente. L'application utilise ensuite cette information d'identification provisoire pour télécharger l'image. Pour plus d’informations sur SAP, consultez la page [Signatures d’accès partagé, partie 1 : présentation du modèle SAP](storage-dotnet-shared-access-signature-part-1.md)
 
->[AZURE.NOTE] [Here](https://github.com/Azure/mobile-services-samples/tree/master/UploadImages) est la partie de code source client terminée de cette application.
+## Exemple de code
+[Voici](https://github.com/Azure/mobile-services-samples/tree/master/UploadImages) la partie du code source client terminée de cette application. Pour l'exécuter, vous devez effectuer les étapes de ce didacticiel liées au serveur principal de Mobile Services.
 
 ## Mise à jour du script de la fonction insert inscrite dans le portail de gestion
 
@@ -130,7 +131,7 @@ Il n’est pas sûr de stocker les informations d’identification nécessaires 
 	    static final int REQUEST_TAKE_PHOTO = 1;
 	    public Uri mPhotoFileUri = null;
 	    public File mPhotoFile = null;
-		
+
 	    public void takePicture(View view) {
 	        Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
 	        // Ensure that there's a camera activity to handle the intent
@@ -161,14 +162,14 @@ Il n’est pas sûr de stocker les informations d’identification nécessaires 
 	     */
 	    @com.google.gson.annotations.SerializedName("imageUri")
 	    private String mImageUri;
-	
+
 	    /**
 	     * Returns the item ImageUri
 	     */
 	    public String getImageUri() {
 	        return mImageUri;
 	    }
-	
+
 	    /**
 	     * Sets the item ImageUri
 	     *
@@ -178,20 +179,20 @@ Il n’est pas sûr de stocker les informations d’identification nécessaires 
 	    public final void setImageUri(String ImageUri) {
 	        mImageUri = ImageUri;
 	    }
-	
+
 	    /**
 	     * ContainerName - like a directory, holds blobs
 	     */
 	    @com.google.gson.annotations.SerializedName("containerName")
 	    private String mContainerName;
-	
+
 	    /**
 	     * Returns the item ContainerName
 	     */
 	    public String getContainerName() {
 	        return mContainerName;
 	    }
-	
+
 	    /**
 	     * Sets the item ContainerName
 	     *
@@ -201,20 +202,20 @@ Il n’est pas sûr de stocker les informations d’identification nécessaires 
 	    public final void setContainerName(String ContainerName) {
 	        mContainerName = ContainerName;
 	    }
-	
+
 	    /**
 	     *  ResourceName
 	     */
 	    @com.google.gson.annotations.SerializedName("resourceName")
 	    private String mResourceName;
-	
+
 	    /**
 	     * Returns the item ResourceName
 	     */
 	    public String getResourceName() {
 	        return mResourceName;
 	    }
-	
+
 	    /**
 	     * Sets the item ResourceName
 	     *
@@ -224,20 +225,20 @@ Il n’est pas sûr de stocker les informations d’identification nécessaires 
 	    public final void setResourceName(String ResourceName) {
 	        mResourceName = ResourceName;
 	    }
-	
+
 	    /**
 	     *  SasQueryString - permission to write to storage
 	     */
 	    @com.google.gson.annotations.SerializedName("sasQueryString")
 	    private String mSasQueryString;
-	
+
 	    /**
 	     * Returns the item SasQueryString
 	     */
 	    public String getSasQueryString() {
 	        return mSasQueryString;
 	    }
-	
+
 	    /**
 	     * Sets the item SasQueryString
 	     *
@@ -297,19 +298,19 @@ Il n’est pas sûr de stocker les informations d’identification nécessaires 
 	        if (mClient == null) {
 	            return;
 	        }
-	
+
 	        // Create a new item
 	        final ToDoItem item = new ToDoItem();
-	
+
 	        item.setText(mTextNewToDo.getText().toString());
 	        item.setComplete(false);
 	        item.setContainerName("todoitemimages");
-	
+
 	        // Use a unigue GUID to avoid collisions.
 	        UUID uuid = UUID.randomUUID();
 	        String uuidInString = uuid.toString();
 	        item.setResourceName(uuidInString);
-	
+
 	        // Send the item to be inserted. When blob properties are set this
 	        // generates an SAS in the response.
 	        AsyncTask<Void, Void, Void> task = new AsyncTask<Void, Void, Void>(){
@@ -317,23 +318,23 @@ Il n’est pas sûr de stocker les informations d’identification nécessaires 
 	            protected Void doInBackground(Void... params) {
 	                try {
 		                    final ToDoItem entity = addItemInTable(item);
-		
+
 		                    // If we have a returned SAS, then upload the blob.
 		                    if (entity.getSasQueryString() != null) {
-		
+
 	                       // Get the URI generated that contains the SAS
 	                        // and extract the storage credentials.
-	                        StorageCredentials cred = 
+	                        StorageCredentials cred =
 								new StorageCredentialsSharedAccessSignature(entity.getSasQueryString());
 	                        URI imageUri = new URI(entity.getImageUri());
-	
+
 	                        // Upload the new image as a BLOB from a stream.
 	                        CloudBlockBlob blobFromSASCredential =
 	                                new CloudBlockBlob(imageUri, cred);
-	
+
 	                        blobFromSASCredential.uploadFromFile(mPhotoFileUri.getPath());
   	                    }
-	
+
 	                    runOnUiThread(new Runnable() {
 	                        @Override
 	                        public void run() {
@@ -348,17 +349,17 @@ Il n’est pas sûr de stocker les informations d’identification nécessaires 
 	                return null;
 	            }
 	        };
-	
+
 	        runAsyncTask(task);
-	
+
 	        mTextNewToDo.setText("");
 	    }
-	
+
 
 Ce code envoie une demande au service mobile pour insérer un nouvel élément TodoItem. La réponse contient les SAP qui sont ensuite utilisées pour télécharger l’image à partir du stockage local vers le stockage des objets blob Azure.
 
 
-## Tester le téléchargement des images 
+## Tester le téléchargement des images
 
 1. Dans Android Studio, appuyez sur **Exécuter**. Dans la boîte de dialogue, choisissez le périphérique à utiliser.
 
@@ -380,7 +381,7 @@ Ce code envoie une demande au service mobile pour insérer un nouvel élément T
 Maintenant que vous avez intégré votre service mobile au service BLOB et que vous êtes en mesure de télécharger des images en toute sécurité, consultez les autres rubriques ci-dessous relatives au service backend et à l'intégration :
 
 + [Envoyer un courrier électronique à partir de Mobile Services avec SendGrid]
- 
+
   Découvrez comment ajouter la fonctionnalité de messagerie électronique à votre service mobile en utilisant le service de messagerie SendGrid. Cette rubrique montre comment ajouter des scripts côté serveur pour envoyer du courrier électronique à l'aide de SendGrid.
 
 + [Planifier les tâches du backend dans Mobile Services]
@@ -390,12 +391,12 @@ Maintenant que vous avez intégré votre service mobile au service BLOB et que v
 + [Référence de script serveur Mobile Services]
 
   Rubriques de référence pour l'utilisation de scripts serveur en vue d'effectuer des tâches côté serveur et une intégration à d'autres composants Azure et ressources externes.
- 
+
 + [Guide de fonctionnement Mobile Services .NET]
 
   Découvrez plus en détail comment utiliser Mobile Services avec .NET
-  
- 
+
+
 <!-- Anchors. -->
 [Install the Storage Client library]: #install-storage-client
 [Update the client app to capture images]: #add-select-images
@@ -420,6 +421,5 @@ Maintenant que vous avez intégré votre service mobile au service BLOB et que v
 [Azure Storage Client library for Store apps]: http://go.microsoft.com/fwlink/p/?LinkId=276866
 [Guide de fonctionnement Mobile Services .NET]: mobile-services-windows-dotnet-how-to-use-client-library.md
 [App settings]: http://msdn.microsoft.com/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
- 
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO4-->

@@ -1,11 +1,12 @@
 <properties 
-	pageTitle="Utilisation du stockage Premium Azure avec SQL Server sur des machines virtuelles"
-	description="Cet article fournit des conseils sur l'utilisation du stockage Premium Azure avec SQL Server exécuté sur des machines virtuelles Azure. Il inclut des exemples de nouveaux déploiements et de migrations de déploiements SQL Server existants sur IaaS."
+	pageTitle="Utilisation de Azure Premium Storage avec SQL Server | Microsoft Azure"
+	description="Cet article utilise des ressources créées avec le modèle de déploiement classique et fournit des conseils sur l'utilisation du stockage d’Azure Premium Storage avec SQL Server s'exécutant sur des machines virtuelles Azure."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="danielsollondon"
 	manager="jeffreyg"
-	editor=""/>
+   editor="monicar"    
+   tags="azure-service-management"/>
 
 <tags
 	ms.service="virtual-machines"
@@ -21,7 +22,11 @@
 
 ## Vue d'ensemble
 
-Le [stockage Premium Azure](../storage-premium-storage-preview-portal.md) est la nouvelle génération de stockage qui offre une faible latence et un débit d'E/S élevé. Il est particulièrement adapté aux principales charges de travail E/S intensives telles que SQL Server sur [des machines virtuelles](http://azure.microsoft.com/services/virtual-machines/) IaaS. Cet article fournit une planification et des conseils pour la migration d'une machine virtuelle exécutant SQL Server afin d'utiliser le stockage Premium. Cela inclut l'infrastructure Azure (mise en réseau, stockage) et les étapes de la machine virtuelle Windows hôte. L’exemple de l’[annexe](#appendix-migrating-a-multisite-alwayson-cluster-to-premium-storage) montre une migration complète de bout en bout sur le déplacement de machines virtuelles plus importantes afin de tirer parti du stockage SSD local amélioré avec PowerShell.
+Le [stockage Premium Azure](../storage-premium-storage-preview-portal.md) est la nouvelle génération de stockage qui offre une faible latence et un débit d'E/S élevé. Il est particulièrement adapté aux principales charges de travail E/S intensives telles que SQL Server sur [des machines virtuelles](http://azure.microsoft.com/services/virtual-machines/) IaaS.
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Cet article traite de l’utilisation d’une ressource avec le modèle de déploiement classique.
+
+Cet article fournit une planification et des conseils pour la migration d'une machine virtuelle exécutant SQL Server afin d'utiliser le stockage Premium. Cela inclut l'infrastructure Azure (mise en réseau, stockage) et les étapes de la machine virtuelle Windows hôte. L’exemple de l’[annexe](#appendix-migrating-a-multisite-alwayson-cluster-to-premium-storage) montre une migration complète de bout en bout sur le déplacement de machines virtuelles plus importantes afin de tirer parti du stockage SSD local amélioré avec PowerShell.
 
 Il est important de comprendre le processus complet d'utilisation du stockage Premium Azure avec SQL Server sur des machines virtuelles IAAS, notamment :
 
@@ -1143,4 +1148,4 @@ Pour ajouter l'adresse IP, consultez l'étape 14 de l'[annexe](#appendix-migrati
 [25]: ./media/virtual-machines-sql-server-use-premium-storage/10_Appendix_15.png
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO4-->

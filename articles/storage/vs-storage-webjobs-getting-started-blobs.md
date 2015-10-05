@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/03/2015"
-	ms.author="patshea123"/>
+	ms.author="patshea"/>
 
 # Prise en main du stockage d’objets blob Azure et des services connectés Visual Studio (projets WebJob)
 
@@ -238,4 +238,4 @@ Les sujets associés abordés dans cet article sont les suivants :
 
 Cet article a fourni des exemples de code qui montrent comment gérer des scénarios courants pour l’utilisation des objets blob Azure. Pour plus d’informations sur l’utilisation d’Azure Webjobs et du Kit de développement logiciel (SDK) WebJobs Azure, consultez la rubrique [Azure Webjobs - Ressources recommandées](http://go.microsoft.com/fwlink/?linkid=390226).
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

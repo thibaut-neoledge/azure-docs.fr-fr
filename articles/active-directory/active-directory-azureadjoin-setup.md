@@ -1,12 +1,11 @@
 <properties 
 	pageTitle="Configuration d’Azure AD Join pour vos utilisateurs | Microsoft Azure" 
-	description="Rubrique qui explique comment les administrateurs peuvent configurer Azure AD Join pour leurs utilisateurs finaux (employés, étudiants, autres utilisateurs)." 
+	description="Explique comment les administrateurs peuvent configurer Azure AD Join pour leurs utilisateurs finaux (employés, étudiants, autres utilisateurs) dans leur organisation." 
 	services="active-directory" 
 	documentationCenter="" 
 	authors="femila" 
 	manager="stevenpo" 
 	editor=""/>
-
 
 <tags 
 	ms.service="active-directory" 
@@ -14,9 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/02/2015" 
+	ms.date="09/21/2015" 
 	ms.author="femila"/>
-
 
 # Configuration d’Azure AD Join dans votre organisation
 
@@ -49,8 +47,8 @@ Voici trois scénarios expliquant comment vous pouvez autoriser les utilisateurs
 - Les utilisateurs ajoutent des comptes professionnels à Windows sur un appareil personnel 
 
 ## Informations supplémentaires
-* [Extension des fonctionnalités du cloud aux appareils Windows 10 via Azure Active Directory Join](active-directory-azureadjoin-user-upgrade.md)
+* [Extension des fonctionnalités du cloud aux appareils Windows 10 via Azure Active Directory Join](active-directory-azureadjoin-overview.md)
 * [En savoir plus sur les scénarios d’utilisation pour Azure AD Join](active-directory-azureadjoin-deployment-aadjoindirect.md)
 * [Configuration d’Azure AD Join](active-directory-azureadjoin-setup.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

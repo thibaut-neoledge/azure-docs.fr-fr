@@ -1,17 +1,18 @@
 <properties
-	pageTitle="Modèle Resource Manager Spark sur Ubuntu"
-	description="Apprenez à déployer facilement un nouveau cluster Spark sur des machines virtuelles Ubuntu en utilisant Azure PowerShell ou l’interface CLI d’Azure et un modèle Resource Manager"
+	pageTitle="Spark sur modèle du Gestionnaire des ressources Ubuntu | Microsoft Azure"
+	description="Déploiement facilement d’un nouveau cluster Spark sur des machines virtuelles Ubuntu en utilisant Azure PowerShell ou l’interface de ligne de commande d’Azure et un modèle du Gestionnaire des ressources"
 	services="virtual-machines"
 	documentationCenter=""
 	authors="paolosalvatori"
 	manager="timlt"
-	editor="tysonn"/>
+	editor="tysonn"
+	tags="azure-resource-manager"/>
 
 <tags
 	ms.service="virtual-machines"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.tgt_pltfrm="vm-windows"
+	ms.tgt_pltfrm="vm-linux"
 	ms.workload="multiple"
 	ms.date="05/16/2015"
 	ms.author="paolosalvatori"/>
@@ -19,6 +20,9 @@
 # Spark sous Ubuntu avec un modèle Resource Manager
 
 Apache Spark est un moteur rapide pour le traitement des données à grande échelle. Spark a un moteur d’exécution DAG avancé qui prend en charge les flux de données cycliques et le calcul en mémoire. Il peut accéder à différentes sources de données, notamment HDFS, Spark, HBase et S3.
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Cet article traite du déploiement d’une ressource avec le modèle de déploiement du Gestionnaire des ressources. Vous ne pouvez pas déployer cette ressource avec le modèle de déploiement classique.
+
 
 En plus de s’exécuter sur les gestionnaires de cluster Mesos ou YARN, Spark fournit un mode de déploiement autonome simple. Ce didacticiel vous guide dans l’utilisation d’un exemple de modèle Azure Resource Manager pour déployer un cluster Spark sur des machines virtuelles Ubuntu via [Azure PowerShell](../powershell-install-configure.md) ou l’[interface de ligne de commande Azure](../xplat-cli.md).
 
@@ -381,7 +385,7 @@ Pour ce faire, accédez au [portail Azure](https://portal.azure.com), puis proc�
 
 - Dans la barre de navigation située sur la gauche, cliquez sur **Parcourir**, puis faites défiler les options vers le bas et cliquez sur **Groupes de ressources**.
 - Cliquez sur le groupe de ressources que vous venez de créer pour afficher le panneau « Groupe de ressources ».
-- En cliquant sur l’histogramme **Événements** dans la partie **Surveillance** du panneau « Groupe de ressources », vous pouvez voir les événements de votre déploiement.
+- En cliquant sur l’histogramme **Événements** dans la partie **Analyse** du panneau « Groupe de ressources », vous pouvez voir les événements de votre déploiement.
 - En cliquant sur les différents événements, vous pouvez accéder à des informations plus détaillées sur chaque opération menée pour le compte du modèle.
 
 ![événements-portail](media/virtual-machines-spark-template/portal-events.png)
@@ -819,7 +823,7 @@ Le fragment associé aux extensions de machine virtuelle **CustomScriptForLinux*
 
 Notez que l’extension pour les ressources du nœud principal et des nœuds subordonnés exécute différentes commandes définies dans la propriété **commandToExecute**, dans le cadre du processus de configuration.
 
-Si vous examinez l'extrait JSON de l'extension de machine virtuelle la plus récente, vous pouvez voir que cette ressource dépend de la ressource et de l’interface réseau de la machine virtuelle. Cela indique que ces deux ressources doivent être déjà déployées avant l’approvisionnement et l'exécution de cette extension de machine virtuelle. Notez également l'utilisation de la fonction **copyindex()** pour répéter cette étape pour chaque machine virtuelle esclave.
+Si vous examinez l'extrait JSON de l'extension de machine virtuelle la plus récente, vous pouvez voir que cette ressource dépend de la ressource et de l’interface réseau de la machine virtuelle. Cela indique que ces deux ressources doivent être déjà déployées avant l’approvisionnement et l'exécution de cette extension de machine virtuelle. Notez également l’utilisation de la fonction **copyindex()** pour répéter cette étape pour chaque machine virtuelle esclave.
 
 En vous familiarisant avec les autres fichiers inclus dans ce déploiement, vous serez en mesure de comprendre tous les détails et les meilleures pratiques requises pour organiser et orchestrer des stratégies de déploiement complexes pour les solutions à nœuds multiples, basées sur n’importe quelle technologie, en exploitant les modèles Azure Resource Manager. Il existe une approche recommandée (mais nullement obligatoire) consistant à structurer vos fichiers de modèle comme l'indique le schéma suivant :
 
@@ -843,4 +847,4 @@ Découvrez plus d’informations sur les [infrastructures d’application](virtu
 
 [Résolution des problèmes des déploiements de modèle](resource-group-deploy-debug.md).
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

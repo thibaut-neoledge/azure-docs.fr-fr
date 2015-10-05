@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/15/2015"
+	ms.date="09/22/2015"
 	ms.author="swkrish"/>
 
 #  Azure Active Directory B2C en version préliminaire : utilisation d’attributs personnalisés pour recueillir des informations sur vos clients
@@ -46,4 +46,4 @@ L’attribut personnalisé est actuellement disponible dans la liste des **attri
 
 La fonctionnalité « Exécuter maintenant » de la stratégie permet de vérifier l’expérience utilisateur. Vous devez maintenant voir « ShoeSize » dans la liste d’attributs collectés lors de l’inscription du consommateur, et le voir dans le jeton retourné à votre application.
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

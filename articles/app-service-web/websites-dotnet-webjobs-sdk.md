@@ -7,16 +7,14 @@
 	manager="wpickett" 
 	editor="jimbe"/>
 
-
 <tags 
 	ms.service="app-service-web" 
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/05/2015" 
+	ms.date="09/22/2015" 
 	ms.author="tdykstra"/>
-
 
 # Présentation du Kit de développement logiciel (SDK) Azure WebJobs
 
@@ -106,4 +104,4 @@ Le Kit de développement logiciel (SDK) WebJobs offre plusieurs avantages même 
 Pour en savoir plus sur le Kit de développement logiciel (SDK) WebJobs, consultez la rubrique [Tâches web Azure - Ressources recommandées](http://go.microsoft.com/fwlink/?linkid=390226).
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

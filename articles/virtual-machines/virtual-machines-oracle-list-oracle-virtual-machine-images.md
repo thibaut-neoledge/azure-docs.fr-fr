@@ -1,23 +1,18 @@
-<properties title="List of Oracle virtual machine images"
-pageTitle="Liste d’images de machines virtuelles Oracle"
-description="Obtenez la liste des images Oracle de la galerie Azure et apprenez à créer une machine virtuelle Oracle basée sur une de ces images."
-services="virtual-machines"
-documentationCenter=""
-authors="bbenz"
-manager=""
-editor=""
-tags=""/>
+<properties" pageTitle="title="Liste des images de machine virtuelle Oracle | Microsoft Azure" description="Obtenez la liste des images Oracle dans la galerie Azure et découvrez comment créer une machine virtuelle Oracle basée sur l’une d’elles." services="virtual-machines" documentationCenter="" authors="bbenz" manager="" editor="" tags="azure-service-management, azure-resource-manager"/>
 
 <tags
 ms.service="virtual-machines"
 ms.devlang="na"
 ms.topic="article"
-ms.tgt_pltfrm="na"
+ms.tgt_pltfrm="vm-multiple"
 ms.workload="infrastructure-services"
 ms.date="06/22/2015"
 ms.author="bbenz" />
 
 #Liste d’images de machines virtuelles Oracle
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Cet article traite de la création d’une ressource avec le modèle de déploiement Resource Manager ou le modèle de déploiement classique.
+
 Pour créer des machines virtuelles basées sur des images Oracle, connectez-vous au [portail Azure](https://ms.portal.azure.com/), cliquez sur **Marketplace**, cliquez sur **Calculer**, puis tapez **Oracle** dans la zone de recherche. Sélectionnez une image et suivez les instructions pour l’installer sur Microsoft Azure. Notez que les images Oracle de Microsoft sur le [portail Azure](https://ms.portal.azure.com/) s’exécutent sur Windows et que les images Oracle d’Oracle s’exécutent sur Oracle Linux.
 
 ![](media/virtual-machines-oracle-list-oracle-virtual-machine-images/image1.png)
@@ -67,4 +62,4 @@ Voici une liste des images de machines virtuelles Oracle préconfigurées dispon
 
 [Images de machines virtuelles Oracle – Considérations diverses](#miscellaneous-considerations-for-oracle-virtual-machine-images-new-article)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

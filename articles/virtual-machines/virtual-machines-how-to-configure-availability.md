@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Comment configurer un groupe à haute disponibilité pour des machines virtuelles"
-	description="Présente les étapes de configuration d'un groupe à haute disponibilité pour un ordinateur virtuel (nouveau ou existant) dans Azure en utilisant les commandes du portail Azure et d'Azure PowerShell"
+	pageTitle="Configuration d’un groupe à haute disponibilité pour des machines virtuelles | Microsoft Azure"
+	description="Configuration d'un groupe à haute disponibilité pour une machine virtuelle nouvelle ou existante dans le modèle de déploiement classique à l’aide du portail Azure et d'Azure PowerShell"
 	services="virtual-machines"
 	documentationCenter=""
 	authors="cynthn"
@@ -17,11 +17,13 @@
 	ms.date="08/10/2015"
 	ms.author="cynthn"/>
 
-# Comment configurer un groupe à haute disponibilité pour des machines virtuelles
+# Configuration d’un groupe à haute disponibilité pour des machines virtuelles dans le modèle de déploiement classique
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Cet article traite de la création de ressources avec le modèle de déploiement classique.
 
 Un groupe à haute disponibilité maintient la disponibilité de vos machines virtuelles pendant une interruption (par exemple, en cas de maintenance). Le placement de deux machines virtuelles ou plus dans un groupe à haute disponibilité crée les conditions de redondance indispensables au maintien de la disponibilité des applications ou des services exécutés par votre machine virtuelle. Pour plus d'informations sur cette procédure, consultez la rubrique [Gestion de la disponibilité des machines virtuelles][].
 
-Il est recommandé d’utiliser des groupes à haute disponibilité et des points de terminaison à équilibrage de charge pour garantir que votre application soit toujours disponible et qu’elle s’exécute correctement. Pour plus d'informations sur les points de terminaison à équilibrage de la charge, consultez la page [Équilibrage de charge pour les services d'infrastructure Azure][].
+Il est recommandé d’utiliser des groupes à haute disponibilité et des points de terminaison à équilibrage de charge pour garantir que votre application soit toujours disponible et qu’elle s’exécute correctement. Pour plus d'informations sur les points de terminaison à charge équilibrée, consultez la page [Équilibrage de charge pour les services d'infrastructure Azure][].
 
 Vous pouvez placer des machines virtuelles dans un groupe à haute disponibilité en utilisant l'une des deux options suivantes :
 
@@ -46,7 +48,7 @@ Pour utiliser le portail :
 
 5. Le troisième écran vous permet de configurer des ressources pour la mise en réseau, le stockage et la disponibilité. Effectuez les actions suivantes :
 
-	1. Utilisez le nom de service cloud approprié. Gardez la valeur **Créer un nouveau service de cloud computing** activée (sauf si vous ajoutez cette nouvelle machine virtuelle à un service cloud de machine virtuelle existant). Ensuite, sous **Nom du cloud Service DNS**, tapez un nom. Ce nom fait alors partie de l’URI utilisé pour contacter la machine virtuelle. Le service cloud agit comme un groupe de communication et d'isolement. Toutes les machines virtuelles du même service cloud peuvent communiquer entre elles, être configurées pour équilibrer la charge et placées dans le même groupe à haute disponibilité.
+	1. Utilisez le nom de service cloud approprié. Gardez la valeur **Créer un nouveau service cloud** activée (sauf si vous ajoutez cette nouvelle machine virtuelle à un service cloud de machine virtuelle existant). Ensuite, sous **Nom du cloud Service DNS**, tapez un nom. Ce nom fait alors partie de l’URI utilisé pour contacter la machine virtuelle. Le service cloud agit comme un groupe de communication et d'isolement. Toutes les machines virtuelles du même service cloud peuvent communiquer entre elles, être configurées pour équilibrer la charge et placées dans le même groupe à haute disponibilité.
 
 	2. Sous **Région/Groupe d'affinités/Réseau virtuel**, sélectionnez un réseau virtuel si vous envisagez d'en utiliser un. **Important** : si vous souhaitez qu'une machine virtuelle utilise un réseau virtuel, vous devez l'associer au réseau virtuel lorsque vous la créez. Vous ne pouvez pas associer la machine virtuelle à un réseau virtuel après l'avoir créée. Pour en savoir plus, consultez la page [Vue d’ensemble d’Azure Virtual Network][].
 
@@ -109,4 +111,4 @@ Pour utiliser les commandes Azure PowerShell, ouvrez une session Azure PowerShel
 [Vue d’ensemble d’Azure Virtual Network]: virtual-networks-overview.md
 [Articles pour les machines virtuelles dans la gestion des services]: virtual-machines-service-management-articles.md
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

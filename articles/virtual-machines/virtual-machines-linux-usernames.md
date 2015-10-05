@@ -1,12 +1,12 @@
 <properties 
-	pageTitle="Sélection de noms d'utilisateur pour Linux dans Azure" 
+	pageTitle="Sélection de noms d'utilisateur pour Linux | Microsoft Azure" 
 	description="Apprenez à sélectionner des noms d'utilisateur pour une machine virtuelle Linux dans Azure." 
 	services="virtual-machines" 
 	documentationCenter="" 
 	authors="szarkos" 
 	manager="timlt" 
-	editor=""/>
-
+	editor=""
+	tags="azure-service-management,azure-resource-manager" />
 
 <tags 
 	ms.service="virtual-machines" 
@@ -16,7 +16,6 @@
 	ms.topic="article" 
 	ms.date="07/29/2015" 
 	ms.author="szark"/>
-
 
 
 
@@ -250,4 +249,4 @@ Voici les noms d’utilisateurs que vous ne devez pas utiliser pour approvisionn
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

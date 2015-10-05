@@ -3,7 +3,7 @@
    description="Présentation du rôle du pourcentage de mémoire tampon de nœud dans l'équilibreur de ressources"
    services="service-fabric"
    documentationCenter=".net"
-   authors="abhic"
+   authors="GaugeField"
    manager="timlt"
    editor=""/>
 
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/27/2015"
-   ms.author="abhic"/>
+   ms.date="09/03/2015"
+   ms.author="masnider"/>
 
 # Présentation du pourcentage de mémoire tampon de nœud
 
@@ -47,4 +47,4 @@ Si la valeur n'est pas spécifiée dans cette section, 0 sera utilisé comme val
 Pour plus d'informations : [Architecture de l'équilibreur de ressources](service-fabric-resource-balancer-architecture.md)
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

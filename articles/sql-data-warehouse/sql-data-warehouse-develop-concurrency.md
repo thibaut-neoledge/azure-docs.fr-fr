@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/26/2015"
+   ms.date="09/22/2015"
    ms.author="JRJ@BigBangData.co.uk;barbkess"/>
 
 # Gestion de la concurrence et des charges de travail dans SQL Data Warehouse
@@ -73,7 +73,7 @@ SQL Data Warehouse implémente les classes de ressource au moyen de rôles de 
 
 ### Membres de classe de ressource
 
-Vous pouvez ajouter ou supprimer votre nom au niveau du rôle de base de données de gestion des charges de travail en utilisant les procédures `sp_addrolemember` et `sp_droprolemember`. Notez que vous devez disposer d’une autorisation `ALTER ROLE` pour effectuer cette opération. Vous n’avez pas la possibilité d’utiliser la syntaxe DDL ALTER ROLE. Vous devez utiliser les procédures stockées mentionnées ci-dessus. Un exemple complet montrant comment créer des connexions et des utilisateurs est fourni dans la section [gestion des utilisateurs)[\#gestion-des-utilisateurs] à la fin de cet article.
+Vous pouvez ajouter ou supprimer votre nom au niveau du rôle de base de données de gestion des charges de travail en utilisant les procédures `sp_addrolemember` et `sp_droprolemember`. Notez que vous devez disposer d’une autorisation `ALTER ROLE` pour effectuer cette opération. Vous n’avez pas la possibilité d’utiliser la syntaxe DDL ALTER ROLE. Vous devez utiliser les procédures stockées mentionnées ci-dessus. Un exemple complet montrant comment créer des connexions et des utilisateurs est fourni dans la section [gestion des utilisateurs)[#gestion-des-utilisateurs] à la fin de cet article.
 
 > [AZURE.NOTE]Plutôt que d’ajouter ou de supprimer un utilisateur dans un groupe de gestion des charges de travail, il est souvent plus simple de lancer ces opérations plus intensives par le biais d’une connexion ou d’un utilisateur distincts affectés en permanence à la classe de ressource supérieure.
 
@@ -139,19 +139,49 @@ Vous trouverez ci-dessous une liste des instructions et des opérations qui **so
 - INSERT-SELECT
 - UPDATE
 - SUPPRIMER
-- SELECT (lorsque la requête ne s’adresse pas exclusivement aux DMV)
+- SELECT (lors de l’interrogation des tables d’utilisateur)
 - ALTER INDEX REBUILD
 - ALTER INDEX REORGANIZE
 - ALTER TABLE REBUILD
-- CREATE CLUSTERED INDEX
+- CREATE INDEX
 - CREATE CLUSTERED COLUMNSTORE INDEX
 - CREATE TABLE AS SELECT 
 - Chargement de données 
+- Opérations de déplacement de données effectuées par le Service le déplacement des données (DMS)
+
+Les instructions suivantes ne respectent **pas** les classes de ressource :
+
+- CREATE TABLE
+- ALTER TABLE ... SWITCH PARTITION 
+- ALTER TABLE ... SPLIT PARTITION 
+- ALTER TABLE ... MERGE PARTITION 
+- DROP TABLE
+- ALTER INDEX DISABLE
+- DROP INDEX
+- CREATE STATISTICS
+- UPDATE STATISTICS
+- DROP STATISTICS
+- TRUNCATE TABLE
+- ALTER AUTHORIZATION
+- CREATE LOGIN
+- CREATE USER
+- ALTER USER
+- DROP USER
+- CREATE PROCEDURE
+- ALTER PROCEDURE
+- DROP PROCEDURE
+- CREATE VIEW
+- DROP VIEW
+- INSERT VALUES
+- SELECT (depuis les affichages du système et les DMV)
+- EXPLAIN
+- DBCC
 
 <!--
 Removed as these two are not confirmed / supported under SQLDW
 - CREATE REMOTE TABLE AS SELECT
-- CREATE EXTERNAL TABLE AS SELECT 
+- CREATE EXTERNAL TABLE AS SELECT
+- REDISTRIBUTE 
 -->
 > [AZURE.NOTE]Il est important de souligner que les requêtes `SELECT` s'exécutant exclusivement sur les affichages catalogue et de gestion dynamique ne sont **pas** régies par les classes de ressource.
 
@@ -418,8 +448,8 @@ Pour obtenir des conseils supplémentaires en matière de développement, voir l
 [vue d’ensemble sur le développement]: sql-data-warehouse-overview-develop.md
 
 <!--MSDN references-->
-[Gestion des bases de données et des connexions dans la base de données SQL Microsoft Azure]: https://msdn.microsoft.com/fr-fr/library/azure/ee336235.aspx
+[Gestion des bases de données et des connexions dans la base de données SQL Microsoft Azure]: https://msdn.microsoft.com/fr-FR/library/azure/ee336235.aspx
 
 <!--Other Web references-->
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO4-->

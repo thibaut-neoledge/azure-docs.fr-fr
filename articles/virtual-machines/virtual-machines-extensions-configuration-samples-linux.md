@@ -1,28 +1,31 @@
 <properties
-   pageTitle="Exemple de configuration pour les extensions de machine virtuelle Azure | Microsoft Azure"
-   description="Exemple de configuration pour la création de modèles avec des extensions"
+   pageTitle="Exemple de configuration pour les extensions de machine virtuelle Linux | Microsoft Azure"
+   description="Exemple de configuration pour la création de modèles avec des extensions pour les machines virtuelles Linux"
    services="virtual-machines"
    documentationCenter=""
    authors="kundanap"
    manager="timlt"
-   editor=""/>
+   editor=""
+   tags="azure-resource-manager"/>
 
 <tags
    ms.service="virtual-machines"
    ms.devlang="na"
    ms.topic="article"
-   ms.tgt_pltfrm="na"
+   ms.tgt_pltfrm="vm-linux"
    ms.workload="infrastructure-services"
    ms.date="09/01/2015"
    ms.author="kundanap"/>
 
-# Exemples de configuration d'extension de machine virtuelle Linux Azure.
+# Exemples de configuration d’extension de machine virtuelle Linux
 
-Cet article fournit un exemple de configuration des extensions de machines virtuelles Azure IaaS Linux.
+Cet article présente un exemple de configuration des extensions d’une machine virtuelle Azure pour les machines virtuelles Linux.
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]
 
 Pour en savoir plus sur ces extensions, cliquez ici : [Présentation des extensions de machine virtuelle Azure](https://msdn.microsoft.com/library/azure/dn606311.aspx).
 
-Pour plus d’informations sur la création de modèles d’extension, cliquez ici : [Création de modèles d’extension](virtual-machines-extensions-authoring-templates.md).
+Pour en savoir plus sur la création de modèles d’extension, cliquez ici : [Création de modèles d’extension](virtual-machines-extensions-authoring-templates.md).
 
 Cet article répertorie les valeurs de configuration attendues pour certaines des extensions Linux.
 
@@ -186,4 +189,4 @@ Voici un modèle de machine virtuelle complet pour la création d’une machine 
 
 [Extension de script personnalisé sur une machine virtuelle Linux](https://github.com/Azure/azure-quickstart-templates/blob/b1908e74259da56a92800cace97350af1f1fc32b/mongodb-on-ubuntu/azuredeploy.json/)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

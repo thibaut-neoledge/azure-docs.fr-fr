@@ -1,12 +1,11 @@
 <properties 
    pageTitle="Assistant Index de base de données SQL Azure" 
-   description="Les recommandations d’index fournies vous permettent de créer facilement des index parfaitement adaptés à l’exécution de la charge de travail de la base de données SQL Azure." 
+   description="L’assistant Index de base de données SQL Azure recommande des nouveaux index pour vos bases de données SQL existantes afin d’améliorer les performances actuelles des requêtes." 
    services="sql-database" 
    documentationCenter="" 
    authors="stevestein" 
    manager="jeffreyg" 
    editor="monicar"/>
-
 
 <tags
    ms.service="sql-database"
@@ -14,9 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management" 
-   ms.date="06/30/2015"
+   ms.date="09/22/2015"
    ms.author="sstein"/>
-
 
 # Assistant Index de base de données SQL
 
@@ -24,12 +22,12 @@ L’assistant Index de base de données SQL Azure recommande des nouveaux index
 
 Le service de base de données SQL évalue les performances de l’index en analysant l’historique d’utilisation des ressources d’une base de données SQL. Il recommande ensuite les index les plus adaptés pour exécuter la charge de travail standard de la base de données.
 
-L’assistant Index simplifie la gestion des index en fournissant des recommandations concernant les index à créer. Pour les serveurs V12, l’assistant Index peut également créer et valider des index en quelques clics dans le [portail Azure](https://portal.azure.com/). Une fois l’index créé, le service de base de données SQL analyse les performances de la charge de travail de la base de données et fournit des informations détaillées sur l’impact du nouvel index. Si l’analyse détermine qu’un index recommandé a un impact négatif sur les performances, cet index est automatiquement annulé.
+L’assistant Index simplifie la gestion des index en fournissant des recommandations concernant les index à créer. Pour les serveurs V12, l’assistant Index peut également créer et valider des index en quelques clics dans le [portail Azure en version préliminaire](https://portal.azure.com/). Une fois l’index créé, le service de base de données SQL analyse les performances de la charge de travail de la base de données et fournit des informations détaillées sur l’impact du nouvel index. Si l’analyse détermine qu’un index recommandé a un impact négatif sur les performances, cet index est automatiquement annulé.
 
 L’assistant Index vous permet de consacrer moins de temps au réglage des performances de votre base de données.
 
 
-> [AZURE.NOTE]L’assistant Index est actuellement disponible en version préliminaire et uniquement dans le [portail Azure](https://portal.azure.com/).
+> [AZURE.NOTE]L’assistant Index est actuellement disponible en version préliminaire et uniquement dans le [portail Azure en version préliminaire](https://portal.azure.com/).
 
 
 ## Considérations relatives à la version préliminaire
@@ -59,11 +57,11 @@ L’assistant Index est facile à utiliser. Pour simplifier la gestion des index
 
 ## Examen des index recommandés
 
-L’assistant Index fournit une liste de recommandations d’index dans le volet Base de données sur le [portail Azure](https://portal.azure.com/). Les principales recommandations sélectionnées sont affichées pour chaque table de la base de données choisie lorsque la création d’un nouvel index peut améliorer les performances.
+L’assistant Index fournit une liste de recommandations d’index dans le panneau Base de données sur le [portail Azure en version préliminaire](https://portal.azure.com/). Les principales recommandations sélectionnées sont affichées pour chaque table de la base de données choisie lorsque la création d’un nouvel index peut améliorer les performances.
 
 ### Pour examiner les recommandations d’index actuellement disponibles :
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com/).
+1. Connectez-vous à la [version préliminaire du portail Azure](https://portal.azure.com/).
 2. Cliquez sur l’option **PARCOURIR** dans le menu de gauche.
 3. Cliquez sur **Bases de données SQL** dans le panneau **Parcourir**.
 4. Dans le volet **Bases de données SQL**, cliquez sur la base de données dont vous voulez examiner les recommandations d’index.
@@ -173,4 +171,4 @@ Surveillez vos recommandations d’index et continuez à les appliquer pour affi
 [3]: ./media/sql-database-index-advisor/recommended-indexes.png
 [4]: ./media/sql-database-index-advisor/index-operations.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

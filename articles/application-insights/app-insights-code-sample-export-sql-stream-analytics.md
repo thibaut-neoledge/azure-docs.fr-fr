@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/31/2015" 
+	ms.date="09/23/2015" 
 	ms.author="awills"/>
  
 # Procédure pas à pas : exporter vers SQL à partir d’Application Insights à l’aide de Stream Analytics
@@ -59,13 +59,13 @@ Pour commencer :
 
 Comme l’exportation continue génère toujours des données vers un compte de stockage Azure, vous devez commencer par créer ce stockage.
 
-1. Créez un compte de stockage dans votre abonnement sur le [portail Azure][portal].
+1. Créez un compte de stockage classique dans votre abonnement sur le [portail Azure][portal].
 
-    ![Sur le portail Azure, choisissez Nouveau, Données, Stockage.](./media/app-insights-code-sample-export-sql-stream-analytics/040-store.png)
+    ![Sur le portail Azure, choisissez Nouveau, Données, Stockage. Sélectionnez Classique, cliquez sur Créer. Fournissez un nom de stockage.](./media/app-insights-code-sample-export-sql-stream-analytics/040-store.png)
 
 2. Créez un conteneur.
 
-    ![Dans le nouvel emplacement de stockage, sélectionnez Conteneurs, puis Ajouter.](./media/app-insights-code-sample-export-sql-stream-analytics/050-container.png)
+    ![Dans le nouvel emplacement de stockage, sélectionnez Conteneurs, cliquez sur la mosaïque Conteneurs puis sur Ajouter.](./media/app-insights-code-sample-export-sql-stream-analytics/050-container.png)
 
 3. Copiez la clé d’accès au stockage.
 
@@ -314,4 +314,4 @@ Après quelques minutes, revenez aux Outils d’administration SQL Server et obs
 
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

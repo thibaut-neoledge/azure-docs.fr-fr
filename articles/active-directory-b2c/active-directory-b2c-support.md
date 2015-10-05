@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/15/2015"
+	ms.date="09/22/2015"
 	ms.author="swkrish"/>
 
 # Azure Active Directory B2C en version préliminaire : dépôt de demandes de prise en charge de fichiers pour Azure Active Directory B2C
@@ -50,4 +50,4 @@ Si vous manqué l’étape 2 décrite ci-dessus et essayez de créer une demand
 
 ![Support - aucun abonnement](./media/active-directory-b2c-support/support-no-sub.png)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

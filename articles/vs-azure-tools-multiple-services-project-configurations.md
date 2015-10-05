@@ -1,19 +1,19 @@
-<properties 
+<properties
    pageTitle="Configuration de votre projet Azure à l'aide de plusieurs configurations de service"
-	description="Configuration de votre projet Azure à l'aide de plusieurs configurations de service"
-	services="visual-studio-online"
-	documentationCenter="na"
-	authors="kempb"
-	manager="douge"
-	editor="tlee"/>
-<tags 
+   description="Configuration de votre projet Azure à l'aide de plusieurs configurations de service"
+   services="visual-studio-online"
+   documentationCenter="na"
+   authors="kempb"
+   manager="douge"
+   editor="tlee" />
+<tags
    ms.service="multiple"
-	ms.devlang="multiple"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="na"
-	ms.date="08/24/2015"
-	ms.author="kempb"/>
+   ms.devlang="multiple"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="na"
+   ms.date="08/24/2015"
+   ms.author="kempb" />
 
 # Configuration d'un projet Azure
 
@@ -85,7 +85,7 @@ Un rôle de travail peut avoir un nombre quelconque de points de terminaison HTT
 
 ## Page de stockage local
 
-Vous pouvez utiliser la page de propriétés du **Stockage local** pour réserver une ou plusieurs ressources de stockage local pour un rôle. Une ressource de stockage local est un répertoire réservé dans le système de fichiers de la machine virtuelle Azure dans lequel s’exécute l’instance d’un rôle. Pour plus d'informations sur l'utilisation des ressources de stockage local, consultez [Configuration des ressources de stockage local](https://msdn.microsoft.com/library/azure/ee758708.aspx).
+Vous pouvez utiliser la page de propriétés du **Stockage local** pour réserver une ou plusieurs ressources de stockage local pour un rôle. Une ressource de stockage local est un répertoire réservé dans le système de fichiers de la machine virtuelle Azure dans lequel s’exécute l’instance d’un rôle. Pour plus d’informations sur l’utilisation des ressources de stockage local, consultez [Configurer les ressources de stockage local](../cloud-services/cloud-services-configure-local-storage-resources.md).
 
 ## Page Certificats
 
@@ -114,4 +114,4 @@ Pour configurer les paramètres qui s'appliquent à un projet de service cloud A
 
 [Outils Azure pour Microsoft Visual Studio](https://msdn.microsoft.com/library/azure/ee405484.aspx)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

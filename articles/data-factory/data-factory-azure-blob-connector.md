@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Déplacer des données vers et depuis un objet Blob Azure | Azure Data Factory"
-	description="Découvrez comment déplacer des données depuis et vers le stockage d’objets blob Azure à l’aide d’Azure Data Factory."
-	services="data-factory"
-	documentationCenter=""
-	authors="spelluru"
-	manager="jhubbard"
+	pageTitle="Déplacer des données vers et depuis un objet Blob Azure | Azure Data Factory" 
+	description="Découvrez comment déplacer des données depuis et vers le stockage d’objets blob Azure à l’aide d’Azure Data Factory." 
+	services="data-factory" 
+	documentationCenter="" 
+	authors="spelluru" 
+	manager="jhubbard" 
 	editor="monicar"/>
 
 <tags 
-	ms.service="data-factory"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/26/2015"
+	ms.service="data-factory" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/26/2015" 
 	ms.author="spelluru"/>
 
 # Déplacer des données vers et depuis un objet Blob Azure à l’aide d’Azure Data Factory
@@ -472,6 +472,7 @@ Par contre, les propriétés disponibles dans la section typeProperties de l'act
 | -------- | ----------- | -------------- | -------- | 
 | treatEmptyAsNull | Spécifie s'il faut traiter une chaîne null ou vide en tant que valeur null. | TRUE<br/>FALSE | Non |
 | skipHeaderLineCount | Indique le nombre de lignes à ignorer. Applicable uniquement quand le jeu de données d'entrée utilise **TextFormat**. | Entier compris entre 0 et Max. | Non | 
+| recursive | Indique si les données sont lues de manière récursive à partir des sous-dossiers ou uniquement du dossier spécifié. | True (valeur par défaut), False | Non | 
 
 
 **BlobSink** prend en charge les propriétés suivantes dans la section **typeProperties** :
@@ -479,6 +480,8 @@ Par contre, les propriétés disponibles dans la section typeProperties de l'act
 | Propriété | Description | Valeurs autorisées | Requis |
 | -------- | ----------- | -------------- | -------- |
 | blobWriterAddHeader | Spécifie s'il faut ajouter un en-tête de définitions de colonne. | TRUE<br/>FALSE (valeur par défaut) | Non |
+| copyBehavior | Cette propriété définit le comportement de copie lorsque la source est BlobSource ou FileSystem. | <p>Il existe trois valeurs possibles pour la propriété copyBehavior. </p><ul><li>**PreserveHierarchy:** conserve la hiérarchie des fichiers dans le dossier cible, c’est-à-dire que le chemin d’accès relatif du fichier source dans le dossier source est identique au chemin d’accès relatif du fichier cible dans le dossier cible.</li><li>**FlattenHierarchy:** tous les fichiers du dossier source figurent dans le premier niveau du dossier cible. Les fichiers cibles ont un nom généré automatiquement. </li><li>**MergeFiles:** fusionne tous les fichiers du dossier source dans un seul fichier. Si le nom de fichier ou d’objet blob est spécifié, le nom de fichier fusionné est le nom spécifié. Dans le cas contraire, le nom de fichier est généré automatiquement.</li></ul> | Non |
+
 
 
 [AZURE.INCLUDE [data-factory-structure-for-rectangualr-datasets](../../includes/data-factory-structure-for-rectangualr-datasets.md)]
@@ -492,4 +495,4 @@ Par contre, les propriétés disponibles dans la section typeProperties de l'act
 ## Envoyer des commentaires
 Nous souhaiterions vraiment obtenir vos commentaires sur cet article. Prenez quelques minutes pour nous envoyer vos commentaires par [courrier électronique](mailto:adfdocfeedback@microsoft.com?subject=data-factory-azure-blob-connector.md).
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO4-->

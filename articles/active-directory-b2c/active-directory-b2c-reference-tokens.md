@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/04/2015"
+	ms.date="09/22/2015"
 	ms.author="dastrock"/>
 
 # Version préliminaire d'Azure AD B2C : référence de jeton
@@ -155,4 +155,4 @@ Les durées de vie de jeton suivantes sont fournies uniquement à titre indicati
 | Jetons d’actualisation | Jusqu’à 14 jours | Un jeton d’actualisation est valide pendant 14 jours au maximum. Toutefois, le jeton d’actualisation peut devenir non valide à tout moment pour différentes raisons. Votre application doit donc continuer d’utiliser un jeton d’actualisation jusqu’à ce qu’il échoue ou jusqu’à ce que votre application le remplace par un nouveau. Un jeton d’actualisation devient également non valide si l’utilisateur a entré ses informations d’identification il y a plus de 90 jours. |
 | Codes d'autorisation | 5 minutes | Les codes d'autorisation, qui sont volontairement de courte durée, doivent être échangés immédiatement contre des jetons d'accès, des jetons d'ID et des jetons d'actualisation quand ils sont reçus. |
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

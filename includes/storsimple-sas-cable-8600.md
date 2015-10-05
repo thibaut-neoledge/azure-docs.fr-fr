@@ -1,3 +1,4 @@
+<!--author=alkohli last changed: 9/23/15-->
 
 #### Attacher les câbles SAS
 
@@ -24,11 +25,11 @@
 
 3. Utilisez les câbles SAS fournis pour connecter le boîtier EBOD au boîtier principal en procédant comme suit :
 
-    1. Identifiez les quatre ports SAS sur le boîtier principal et le boîtier EBOD. Les ports SAS sont indiqués par la mention EBOD sur le boîtier principal et par la mention CTRL sur le boîtier EBOD, comme indiqué dans l'illustration du branchement des câbles SAS ci-dessous.
+    1. Identifiez les quatre ports SAS sur le boîtier principal et le boîtier EBOD. Les ports SAS sont étiquetés par la mention EBOD sur le boîtier principal et correspondent au port A sur le boîtier EBOD, comme indiqué dans l'illustration du branchement des câbles SAP ci-dessous.
 
-    2. Utilisez les câbles SAS fournis pour connecter les ports EBOD aux ports CTRL.
+    2. Utilisez les câbles SAP fournis pour connecter les ports EBOD au port A.
 
-    3. Le port EBOD sur le contrôleur 0 doit être raccordé au port CTRL du contrôleur 0 du boîtier EBOD. Le port EBOD sur le contrôleur 1 doit être raccordé au port CTRL du contrôleur 1 du boîtier EBOD. Consultez l'illustration suivante pour plus d'informations.
+    3. Le port EBOD sur le contrôleur 0 doit être raccordé au port A du contrôleur 0 du boîtier EBOD. Le port EBOD sur le contrôleur 1 doit être raccordé au port A du contrôleur 1 du boîtier EBOD. Consultez l'illustration suivante pour plus d'informations.
 																	
      ![Branchement des câbles SAS de votre appareil](./media/storsimple-sas-cable-8600/HCSSAScablingforyourdevice.png)
 
@@ -43,6 +44,6 @@
     |3|Contrôleur 0 du boîtier EBOD|
     |4|Contrôleur 1 du boîtier EBOD|
     |5, 6|Ports SAS sur le boîtier principal (mention EBOD)|
-    |7, 8|Ports SAS sur le boîtier EBOD (mention CTRL)|
+    |7, 8|Ports SAS sur le boîtier EBOD (Port A)|
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO4-->

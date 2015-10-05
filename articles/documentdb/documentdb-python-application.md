@@ -14,7 +14,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="python"
     ms.topic="hero-article"
-    ms.date="09/03/2015"
+    ms.date="09/21/2015"
     ms.author="ryancraw"/>
 
 # Développement d’une application Python Flask avec DocumentDB
@@ -352,4 +352,4 @@ Pour ajouter des fonctionnalités supplémentaires à votre application web, pas
   [Microsoft Web Platform Installer]: http://www.microsoft.com/web/downloads/platform.aspx
   [Azure portal]: http://portal.azure.com
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

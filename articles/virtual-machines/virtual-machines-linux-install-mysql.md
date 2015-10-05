@@ -1,11 +1,12 @@
 <properties
-	pageTitle="Installation de MySQL sur Azure"
-	description="Apprenez à installer la pile MySQL sur une machine virtuelle Linux dans Azure. Vous effectuer l’installation sur Ubuntu ou la famille de systèmes d’exploitation RedHat."
+	pageTitle="Configuration de MySQL sur une machine virtuelle Linux | Microsoft Azure"
+	description="Découvrez comment installer la pile MySQL sur une machine virtuelle Linux (famille de systèmes d’exploitation Ubuntu ou RedHat) dans Azure."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="SuperScottz"
 	manager="timlt"
-	editor=""/>
+	editor=""
+	tags="azure-resource-manager,azure-service-management"/>
 
 <tags
 	ms.service="virtual-machines"
@@ -22,13 +23,16 @@
 
 Dans cet article, vous allez apprendre à installer et à configurer MySQL sur une machine virtuelle Azure qui exécute Linux.
 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Cet article traite de la création d’une ressource avec le modèle de déploiement Resource Manager ou le modèle de déploiement classique.
+
+
+
+##Installation de MySQL sur votre machine virtuelle
 
 > [AZURE.NOTE]Vous devez déjà disposer d’une machine virtuelle Microsoft Azure exécutant Linux pour effectuer ce didacticiel. Consultez le [didacticiel sur les machines virtuelles Linux Azure](virtual-machines-linux-tutorial.md) pour créer et configurer une machine virtuelle Linux avec `mysqlnode` comme nom de la machine virtuelle et `azureuser` en tant qu’utilisateur avant de continuer.
 
 [Dans ce cas, utilisez le port 3306 comme port MySQL.]
 
-
-##Installation de MySQL sur votre machine virtuelle
 Connectez-vous à la machine virtuelle Linux que vous avez créée via putty. Si c’est la première fois que vous utilisez la machine virtuelle Linux Azure, découvrez comment utiliser putty pour se connecter à une machine virtuelle Linux [ici](virtual-machines-linux-use-ssh-key.md).
 
 Nous allons utiliser le package du référentiel pour installer MySQL5.6 à titre d'exemple dans cet article. En réalité, MySQL5.6 est une version améliorée en termes de performances par rapport à MySQL5.5. Plus d’informations [ici](http://www.mysqlperformanceblog.com/2013/02/18/is-mysql-5-6-slower-than-mysql-5-5/).
@@ -37,7 +41,7 @@ Nous allons utiliser le package du référentiel pour installer MySQL5.6 à titr
 ###Installation de MySQL5.6 sur Ubuntu
 Nous utiliserons ici une machine virtuelle Linux avec Ubuntu à partir d’Azure.
 
-- Étape 1 : installation de MySQL Server 5.6. Basculer vers l’utilisateur `root` : 
+- Étape 1 : installation de MySQL Server 5.6. Basculer vers l’utilisateur `root` :
 
             #[azureuser@mysqlnode:~]sudo su -
 
@@ -50,11 +54,11 @@ Nous utiliserons ici une machine virtuelle Linux avec Ubuntu à partir d’Azure
 
     ![image](./media/virtual-machines-linux-install-mysql/virtual-machines-linux-install-mysql-p1.png)
 
-    
+
     Entrez une nouvelle fois le mot de passe pour le confirmer.
 
     ![image](./media/virtual-machines-linux-install-mysql/virtual-machines-linux-install-mysql-p2.png)
- 
+
 - Étape 2 : connexion au serveur MySQL
 
     Une fois l’installation du serveur MySQL terminée, le service MySQL démarre automatiquement. Vous pouvez vous connecter au serveur MySQL avec l’utilisateur `root`. Utilisez la commande ci-dessous pour vous connecter et entrer votre mot de passe.
@@ -82,23 +86,23 @@ Nous utiliserons ici une machine virtuelle Linux avec Ubuntu à partir d’Azure
 
 ###Installation de MySQL sur la famille de systèmes d’exploitation Redhat telle que CentOS, Oracle Linux
 Nous utiliserons ici des machines virtuelles Linux avec CentOS ou Oracle Linux.
- 
-- Étape 1 : ajouter le référentiel MySQL Yum. Basculer vers l’utilisateur `root` : 
+
+- Étape 1 : ajouter le référentiel MySQL Yum. Basculer vers l’utilisateur `root` :
 
             #[azureuser@mysqlnode:~]sudo su -
 
     Téléchargez et installez le package de lancement MySQL :
 
-            #[root@mysqlnode ~]# wget http://repo.mysql.com/mysql-community-release-el6-5.noarch.rpm 
-            #[root@mysqlnode ~]# yum localinstall -y mysql-community-release-el6-5.noarch.rpm 
+            #[root@mysqlnode ~]# wget http://repo.mysql.com/mysql-community-release-el6-5.noarch.rpm
+            #[root@mysqlnode ~]# yum localinstall -y mysql-community-release-el6-5.noarch.rpm
 
 - Étape 2 : modifier le fichier ci-dessous pour activer le référentiel MySQL afin de télécharger le package MySQL5.6.
- 
+
             #[root@mysqlnode ~]# vim /etc/yum.repos.d/mysql-community.repo
 
     Mettre à jour chaque valeur de ce fichier ci-dessous :
 
-        #*Enable to use MySQL 5.6*
+        # *Enable to use MySQL 5.6*
 
         [mysql56-community]
         name=MySQL 5.6 Community Server
@@ -113,14 +117,14 @@ Nous utiliserons ici des machines virtuelles Linux avec CentOS ou Oracle Linux.
 
 - Étape 3 : installer MySQL à partir du référentiel d’installation MySQL :
 
-           #[root@mysqlnode ~]#yum install mysql-community-server 
+           #[root@mysqlnode ~]#yum install mysql-community-server
 
     Le package RPM MySQL et tous les packages associés seront installés.
 
 - Étape 4 : gérer le service MySQL exécuté
 
     (a) Vérifier l’état du service du serveur MySQL :
-   
+
            #[root@mysqlnode ~]#service mysqld status
 
     (b) Vérifier si le port par défaut du serveur MySQL est exécuté :
@@ -182,4 +186,4 @@ Nous utiliserons ici une machine virtuelle Linux avec OpenSUSE.
 ###Étape suivante
 Vous trouverez plus d’informations sur l’utilisation de MySQL [ici](https://www.mysql.com/).
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO4-->

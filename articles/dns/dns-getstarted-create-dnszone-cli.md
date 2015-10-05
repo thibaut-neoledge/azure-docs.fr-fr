@@ -1,22 +1,22 @@
 <properties
-   pageTitle="Prise en main d’Azure DNS | Microsoft Azure"
-	description="Apprenez à créer des zones DNS pour Azure DNS étape par étape, afin d’héberger votre domaine DNS à l’aide de PowerShell ou de l’interface de ligne de commande."
-	services="dns"
-	documentationCenter="na"
-	authors="joaoma"
-	manager="adinah"
-	editor=""/>
+   pageTitle="Prise en main d’Azure DNS avec l’interface de ligne de commande | Microsoft Azure"
+   description="Apprenez à créer des zones DNS pour Azure DNS étape par étape, afin d’héberger votre domaine DNS à l’aide de l’interface de ligne de commande"
+   services="dns"
+   documentationCenter="na"
+   authors="joaoma"
+   manager="adinah"
+   editor=""/>
 
 <tags
    ms.service="dns"
-	ms.devlang="na"
-	ms.topic="hero-article"
-	ms.tgt_pltfrm="na"
-	ms.workload="infrastructure-services"
-	ms.date="09/02/2015"
-	ms.author="joaoma"/>
+   ms.devlang="na"
+   ms.topic="hero-article"
+   ms.tgt_pltfrm="na"
+   ms.workload="infrastructure-services"
+   ms.date="09/22/2015"
+   ms.author="joaoma"/>
 
-# Prise en main d’Azure DNS
+# Prise en main des DNS Azure avec l’interface de ligne de commande
 
 
 
@@ -173,4 +173,4 @@ L’exemple suivant utilise DIG pour interroger le domaine contoso.com à l’ai
 
 [Prise en main de la création de jeux d'enregistrements et d'enregistrements](dns-getstarted-create-recordset-cli.md)<BR> [Gestion des zones DNS](dns-operations-dnszones-cli.md)<BR> [Gestion des enregistrements DNS](dns-operations-recordsets-cli.md)<BR> [Automatisation des opérations Azure avec le Kit de développement logiciel (SDK) .NET](dns-sdk.md)<BR> [Référence de l'API REST d'Azure DNS](https://msdn.microsoft.com/library/azure/mt163862.aspx)
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO4-->

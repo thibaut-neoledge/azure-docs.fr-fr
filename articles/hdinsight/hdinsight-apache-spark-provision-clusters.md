@@ -1,20 +1,20 @@
 <properties
-   	pageTitle="Approvisionner des clusters Apache Spark dans HDInsight | Microsoft Azure"
-	description="Découvrez comment configurer des clusters Spark pour Azure HDInsight à l’aide du portail Azure, d’Azure PowerShell, d’une ligne de commande ou du Kit de développement logiciel (SDK) .NET HDInsight."
-	services="hdinsight"
-	documentationCenter=""
-	authors="nitinme"
-	manager="paulettm"
-	editor="cgronlun"
-	tags="azure-portal"/>
+   pageTitle="Approvisionner des clusters Apache Spark dans HDInsight | Microsoft Azure"
+   description="Découvrez comment configurer des clusters Spark pour Azure HDInsight à l’aide du portail Azure, d’Azure PowerShell, d’une ligne de commande ou du Kit de développement logiciel (SDK) .NET HDInsight."
+   services="hdinsight"
+   documentationCenter=""
+   authors="nitinme"
+   manager="paulettm"
+   editor="cgronlun"
+   tags="azure-portal"/>
 <tags
-	ms.service="hdinsight"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="big-data"
-	ms.date="08/17/2015"
-	ms.author="nitinme"/>
+    ms.service="hdinsight"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="big-data"
+    ms.date="09/22/2015"
+    ms.author="nitinme"/>
 
 # Approvisionner des clusters Apache Spark dans HDInsight à l’aide d’options personnalisées
 
@@ -83,9 +83,9 @@ Les clusters Spark sur HDInsight utilisent un conteneur de stockage d’objets b
 1. Connectez-vous à la [version préliminaire du portail Azure](https://portal.azure.com).
 2. Cliquez sur **NOUVEAU**, sur **Données + analyse**, puis sur **HDInsight**.
 
-    ![Création d’un cluster dans le portail Azure en version préliminaire](./media/hdinsight-apache-spark-provision-clusters/HDI.CreateCluster.1.png "Création d'un nouveau cluster dans la version préliminaire du portail Azure")
+    ![Création d’un cluster dans le portail Azure en version préliminaire](./media/hdinsight-apache-spark-provision-clusters/HDI.CreateCluster.1.png "Création d’un cluster dans le portail Azure en version préliminaire")
 
-3. Entrez une valeur dans le champ **Nom de cluster**, sélectionnez **Hadoop** pour **Type de cluster**, et à partir du menu déroulant **Système d’exploitation du cluster**, sélectionnez **Windows Server 2012 R2 Datacenter**. Une coche verte apparaît en regard du nom de cluster s'il est disponible.
+3. Saisissez un **Nom de cluster**, sélectionnez **Spark** comme **Type de cluster**, et à partir du menu déroulant **Système d'exploitation du cluster**, sélectionnez **Windows Server 2012 R2 Datacenter**. Une coche verte apparaît en regard du nom de cluster s'il est disponible.
 
 	![Saisir le nom et le type du cluster](./media/hdinsight-apache-spark-provision-clusters/HDI.CreateCluster.2.png "Saisir le nom et le type du cluster")
 
@@ -159,7 +159,7 @@ Les clusters Spark sur HDInsight utilisent un conteneur de stockage d’objets b
 
 	> [AZURE.NOTE]La création du cluster prend un certain temps (en règle générale, environ 15 minutes). Utilisez la vignette du tableau d’accueil ou l’entrée **Notifications** à gauche de la page pour suivre la progression du processus d’approvisionnement.
 
-11. Une fois la configuration terminée, cliquez sur la vignette du cluster dans le tableau d'accueil pour lancer le panneau du cluster. Le panneau de cluster fournit des informations essentielles sur le cluster, notamment son nom, le groupe de ressources auquel il appartient, son emplacement, le système d'exploitation, l'URL vers le tableau de bord de cluster, etc.
+11. Une fois l’approvisionnement terminé, cliquez sur la vignette du cluster dans le tableau d'accueil pour lancer le panneau du cluster. Le panneau de cluster fournit des informations essentielles sur le cluster, notamment son nom, le groupe de ressources auquel il appartient, son emplacement, le système d'exploitation, l'URL vers le tableau de bord de cluster, etc.
 
 	![Panneau Cluster](./media/hdinsight-apache-spark-provision-clusters/HDI.Cluster.Blade.png "Propriétés du cluster")
 
@@ -268,19 +268,19 @@ Le Kit de développement logiciel (SDK) .NET HDInsight fournit des bibliothèque
 3. Dans **Nouveau projet**, entrez ou sélectionnez les valeurs suivantes :
 
 	<table style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse;">
-	<tr>
-	<th style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; width:90px; padding-left:5px; padding-right:5px;">Propriété</th>
-	<th style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; width:90px; padding-left:5px; padding-right:5px;">Valeur</th></tr>
-	<tr>
-	<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">Catégorie</td>
-	<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px; padding-right:5px;">Modèles/Visual C#/Windows</td></tr>
-	<tr>
-	<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">Modèle</td>
-	<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">Application console</td></tr>
-	<tr>
-	<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">Nom</td>
-	<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">CreateHDICluster</td></tr>
-	</table>
+<tr>
+<th style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; width:90px; padding-left:5px; padding-right:5px;">Propriété</th>
+<th style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; width:90px; padding-left:5px; padding-right:5px;">Valeur</th></tr>
+<tr>
+<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">Catégorie</td>
+<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px; padding-right:5px;">Modèles/Visual C#/Windows</td></tr>
+<tr>
+<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">Modèle</td>
+<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">Application console</td></tr>
+<tr>
+<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">Nom</td>
+<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">CreateHDICluster</td></tr>
+</table>
 
 4. Cliquez sur **OK** pour créer le projet.
 
@@ -437,4 +437,4 @@ Le Kit de développement logiciel (SDK) .NET HDInsight fournit des bibliothèque
 
 [89e2276a]: /documentation/articles/hdinsight-use-sqoop/ "Utilisation de Sqoop avec HDInsight"
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

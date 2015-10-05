@@ -1,11 +1,12 @@
 <properties
 	pageTitle="Application web Python avec Django | Microsoft Azure"
-	description="Didacticiel qui explique comment héberger un site web Django dans Azure en utilisant une machine virtuelle Windows Server 2012 R2 Datacenter."
+	description="Ce didacticiel vous explique comment héberger un site web Django dans Azure avec une machine virtuelle Windows Server 2012 R2 Datacenter à l’aide du modèle de déploiement classique."
 	services="virtual-machines"
 	documentationCenter="python"
 	authors="huguesv"
 	manager="wpickett"
-	editor=""/>
+	editor=""
+	tags="azure-service-management"/>
 
 
 <tags 
@@ -18,11 +19,15 @@
 	ms.author="huvalo"/>
 
 
+# Application web Django Hello World sur une machine virtuelle Windows Server
 
+> [AZURE.SELECTOR]
+- [Windows](virtual-machines-python-django-web-app-windows-server.md)
+- [Mac/Linux](virtual-machines-python-django-web-app-linux.md)
 
-# Application web Django Hello World
+<br>
 
-<div class="dev-center-tutorial-selector sublanding"><a href="/develop/python/tutorials/web-app-with-django/" title="Windows" class="current">Windows</a><a href="/develop/python/tutorials/django-hello-world-(maclinux)/" title="MacLinux">Mac/Linux</a></div>
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Cet article traite de la création d’une ressource avec le modèle de déploiement classique.
 
 Ce didacticiel explique comment héberger un site web Django dans Microsoft Azure en utilisant une machine virtuelle Windows Server. Ce didacticiel part du principe que vous n'avez pas d'expérience en tant qu'utilisateur d'Azure. À la fin de ce didacticiel, vous disposerez d’une application Django fonctionnelle dans le cloud.
 
@@ -50,13 +55,13 @@ Une capture d’écran de l’application terminée va s’afficher.
  - Ouvrez le **PORT PUBLIC 80** du protocole **TCP** en tant que **PORT PRIVÉ 80**. ![][port80]
 1. Dans l'onglet **TABLEAU DE BORD**, cliquez sur **CONNECTER** pour utiliser le **Bureau à distance** pour vous connecter à distance à la machine virtuelle Azure que vous venez de créer.  
 
-**Remarque importante :** toutes les instructions ci-dessous partent du principe que vous vous êtes correctement connecté à la machine virtuelle et que vous émettez les commandes depuis celle-ci et non depuis votre ordinateur local.
+**Remarque importante :** toutes les instructions ci-dessous partent du principe que vous êtes correctement connecté à la machine virtuelle et que vous émettez les commandes depuis celle-ci et non depuis votre ordinateur local.
 
 ## <a id="setup"> </a>Installation de Python, Django et WFastCGI
 
 **Remarque** : pour le téléchargement à l’aide d’Internet Explorer, vous devrez peut-être configurer les paramètres IE ESC (Démarrer/Outils d’administration/Gestionnaire de serveur/Serveur local, puis cliquez sur **Configuration de sécurité renforcée d’Internet Explorer** et désactivez cette option).
 
-1. Installez la dernière version de Python 2.7 ou 3.4 depuis [python.org][].
+1. Installez la dernière version de Python 2.7 ou 3.4 depuis [python.org][].
 1. Installez les packages wfastcgi et django packages à l'aide de pip.
 
     Pour Python 2.7, utilisez la commande suivante.
@@ -125,7 +130,7 @@ Une capture d’écran de l’application terminée va s’afficher.
 
         c:\python34\scripts\wfastcgi-enable
 
-1. Créez un fichier web.config dans *C:\\inetpub\\wwwroot\\helloworld*. La valeur de l'attribut `scriptProcessor` doit correspondre à la sortie de l'étape précédente. Consultez la page sur [wfastcgi][] pour en savoir plus sur les paramètres wfastcgi.
+1. Créez un fichier web.config dans *C:\\inetpub\\wwwroot\\helloworld*. La valeur de l'attribut `scriptProcessor` doit correspondre à la sortie de l'étape précédente. Consultez la page sur [wfastcgi][] sur PyPi pour en savoir plus sur les paramètres wfastcgi.
 
     Python 2.7 :
 
@@ -178,4 +183,4 @@ Lorsque vous avez terminé ce didacticiel, arrêtez et/ou supprimez votre machin
 [python.org]: https://www.python.org/downloads/
 [wfastcgi]: https://pypi.python.org/pypi/wfastcgi
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO4-->

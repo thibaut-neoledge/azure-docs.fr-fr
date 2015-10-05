@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/03/2015"
-	ms.author="patshea123"/>
+	ms.author="patshea"/>
 
 # Qu'est-il arrivé à mon projet MVC (service connecté Azure Active Directory Visual Studio) ?
 
@@ -171,4 +171,4 @@ Votre application Azure Active Directory a été mise à jour pour inclure l'au
 
 [En savoir plus sur Azure Active Directory](http://azure.microsoft.com/services/active-directory/)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

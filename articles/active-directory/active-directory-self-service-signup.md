@@ -1,11 +1,11 @@
 <properties
-	pageTitle="Qu’est-ce qu’une inscription libre-service à Azure ?"
-	description="Présentation de l’inscription libre-service à Azure, gestion du processus d&#39;inscription et ."
+	pageTitle="Qu’est-ce qu’une inscription libre-service à Azure ? | Microsoft Azure"
+	description="Présentation de l’inscription libre-service à Azure, gestion du processus d'inscription et ."
 	services="active-directory"
 	documentationCenter=""
 	authors="curtand"
 	manager="stevenpo"
-	editor="LisaToft"/>
+	editor=""/>
 
 <tags
 	ms.service="active-directory"
@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="identity"
-	ms.date="08/14/2015" 
+	ms.date="09/21/2015"
 	ms.author="stevenpo"/>
 
 
@@ -30,43 +30,41 @@ Cette rubrique vous explique le processus d'inscription libre-service (parfois a
 
 ## Termes et définitions
 
-+ **Inscription libre-service** : méthode via laquelle un utilisateur s'abonne à un service cloud et bénéficie automatiquement d’une identité créée pour lui dans Azure Active Directory en fonction de son domaine de messagerie.
++ **Inscription libre-service** : méthode via laquelle un utilisateur s'abonne à un service cloud et bénéficie automatiquement d’une identité créée pour lui dans Azure Active Directory (AD) en fonction de son domaine de messagerie.
 + **Locataire Azure non géré** : répertoire dans lequel cette identité est créée. Un locataire non géré est un répertoire qui ne possède aucun administrateur général.
 + **Utilisateur vérifié par e-mail** : type de compte d'utilisateur dans Azure AD. Un utilisateur qui possède une identité créée automatiquement après s’être abonné à une offre libre-service est considéré comme un utilisateur vérifié par e-mail. Un utilisateur vérifié par e-mail est un membre ordinaire d'un répertoire marqué par la valeur creationmethod=EmailVerified.
 
-## Expérience client
-
-### Expérience utilisateur
+## Expérience utilisateur
 
 Par exemple, un utilisateur ayant pour adresse e-mail Dan@BellowsCollege.com reçoit les fichiers sensibles par e-mail. Les fichiers ont été protégés par Azure Rights Management (Azure RMS). Mais la société de Dan, Bellows College, n’est pas abonnée à Azure RMS, et elle n’a pas déployé Active Directory RMS. Dans ce cas, Dan peut souscrire un abonnement gratuit à RMS, destiné aux particuliers, pour pouvoir lire les fichiers protégés.
 
 Si Dan est le premier utilisateur disposant d’une adresse e-mail BellowsCollege.com pour s'abonner à cette offre libre-service, un locataire non géré sera créé pour BellowsCollege.com dans Azure AD. Si d'autres utilisateurs du domaine BellowsCollege.com s’abonnent à cette offre ou à une offre libre-service similaire, ils posséderont également des comptes d’utilisateurs vérifiés par e-mail créés dans le même locataire non géré d’Azure.
 
-### Expérience administrateur
+## Expérience administrateur
 
 Un administrateur qui possède le nom de domaine DNS d'un locataire Azure non géré peut prendre en charge ou fusionner le locataire après avoir prouvé qu’il en est le propriétaire. Les sections suivantes vous expliquent plus en détail l'expérience administrateur, mais en voici un résumé :
 
 - Lorsque vous prenez en charge un locataire Azure non géré, vous devenez tout simplement l'administrateur général du locataire non géré. On appelle parfois cela une prise en charge interne.
 - Lorsque vous fusionnez un locataire Azure non géré, vous ajoutez le nom de domaine DNS du locataire non géré à votre locataire Azure géré. Un mappage des utilisateurs jusqu’aux ressources est de ce fait créé pour que les utilisateurs puissent continuer à accéder aux services sans interruption. On appelle parfois cela une prise en charge externe.
 
-### Quels éléments ont été créés dans Microsoft Azure Active ?
+## Que permet de créer Azure Active Directory ?
 
 #### Locataire
 
-- Un locataire Azure est créé pour le domaine (un par domaine).
-- Le répertoire du locataire Azure ne possède aucun administrateur général.
+- Un locataire Azure Active Directory est créé pour le domaine (un par domaine).
+- Le répertoire du locataire Azure AD ne possède aucun administrateur général.
 
 #### Utilisateurs
 
-- Chaque fois qu’un utilisateur s'abonne, un objet utilisateur est créé dans le locataire Azure.
+- Chaque fois qu’un utilisateur s'abonne, un objet utilisateur est créé dans le locataire Azure AD.
 - Chaque objet utilisateur est considéré comme viral.
 - Chaque utilisateur a accès au service auquel il s’est abonné.
 
-### Comment puis-je obtenir un locataire Azure libre-service pour un domaine qui m’appartient ?
+### Comment puis-je revendiquer un locataire Azure AD libre-service pour un domaine qui m’appartient ?
 
-Vous pouvez obtenir un locataire Azure libre-service en effectuant la validation de domaine. La validation de domaine prouve que le domaine vous appartient, en créant des enregistrements DNS.
+Vous pouvez revendiquer un locataire Azure AD libre-service en effectuant la validation de domaine. La validation de domaine prouve que le domaine vous appartient, en créant des enregistrements DNS.
 
-Il existe deux façons de réaliser une prise en charge DNS d'un locataire Azure :
+Il existe deux façons de réaliser une prise en charge DNS d'un locataire Azure AD :
 
 - prise en charge interne (l’administrateur découvre un locataire Azure non géré et souhaite le convertir en locataire géré)
 - prise en charge externe (l’administrateur essaie d'ajouter un nouveau domaine à son locataire Azure géré)
@@ -234,4 +232,4 @@ Pour en savoir plus et obtenir des exemples d'utilisation de ces paramètres, co
 <!--Image references-->
 [1]: ./media/active-directory-self-service-signup/SelfServiceSignUpControls.png
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO4-->

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Résolution des problèmes d’accès à une application exécutée sur une machine virtuelle Azure"
+	pageTitle="Résolution des problèmes d'accès aux applications sur une machine virtuelle | Microsoft Azure"
 	description="Si vous ne pouvez pas accéder à une application exécutée sur une machine virtuelle Azure, procédez comme suit pour isoler la source du problème."
 	services="virtual-machines"
 	documentationCenter=""
@@ -18,6 +18,8 @@
 	ms.author="dkshir"/>
 
 # Résolution des problèmes d’accès à une application exécutée sur une machine virtuelle Azure
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Cet article traite de la résolution des problèmes d'accès aux applications sur une machine virtuelle créée avec le modèle de déploiement classique ou le modèle de déploiement Resource Manager.
 
 Cet article décrit une approche méthodique pour isoler la source du problème et la corriger dans le cas où vous ne parvenez pas à accéder à une application exécutée sur une machine virtuelle Azure
 
@@ -83,7 +85,7 @@ Si vous ne pouvez pas accéder à l’application, vérifiez les éléments suiv
 - Pour les machines virtuelles créées à l’aide de l’API Service Management, que la configuration de points de terminaison pour la machine virtuelle autorise le trafic entrant, notamment le protocole (TCP ou UDP) et les numéros de port public et privé. Pour plus d’informations, voir l’article [Configuration des points de terminaison sur une machine virtuelle](virtual-machines-set-up-endpoints.md).
 - Pour les machines virtuelles à l’aide de l’API Service Management, que les listes de contrôle d’accès sur le point de terminaison n’empêchent pas le trafic entrant à partir d’Internet. Pour plus d’informations, voir l’article [Configuration des points de terminaison sur une machine virtuelle](virtual-machines-set-up-endpoints.md).
 - Pour les machines virtuelles créées dans Resource Manager, que la configuration de règles NAT entrantes pour la machine virtuelle autorise le trafic entrant, notamment le protocole (TCP ou UDP) et les numéros de port public et privé.
-- Que les groupes de sécurité réseau autorisent le trafic de demandes entrantes et de réponses sortantes. Pour plus d’informations, consultez la page [Présentation du groupe de sécurité réseau](virtual-networks-nsg.md).
+- Que les groupes de sécurité réseau autorisent le trafic de demandes entrantes et de réponses sortantes. Pour plus d’informations, voir [Présentation du groupe de sécurité réseau](virtual-networks-nsg.md).
 
 Si la machine virtuelle ou le point de terminaison est membre d’un jeu à charge équilibrée :
 
@@ -110,4 +112,4 @@ Si vous avez effectué les étapes 1 à 3 dans cet article et que vous avez bes
 
 [Résolution des problèmes des connexions SSH avec une machine virtuelle Azure Linux](virtual-machines-troubleshoot-ssh-connections.md)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO4-->

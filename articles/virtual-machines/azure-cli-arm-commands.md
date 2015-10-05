@@ -1,12 +1,12 @@
 <properties
-	pageTitle="Utilisation de l'interface de ligne de commande Azure pour Mac, Linux et Windows avec Azure Resource Management | Microsoft Azure"
-	description="Découvrez comment utiliser la CLI Azure pour Mac, Linux et Windows afin de gérer les ressources Azure dans le mode arm de la CLI Azure."
+	pageTitle="Utilisation de l’interface de ligne de commande Azure avec Resource Manager | Microsoft Azure"
+	description="Découvrez comment utiliser la CLI Azure pour Mac, Linux et Windows afin de gérer les ressources Azure dans le mode de déploiement de Resource Manager."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="dlepow"
 	manager="timlt"
-	editor="tysonn"/>
-
+	editor="tysonn"
+	tags="azure-resource-mangaer"/>
 
 <tags
 	ms.service="multiple"
@@ -17,8 +17,10 @@
 	ms.date="06/09/2015"
 	ms.author="danlep"/>
 
+# Utilisation de l’interface de ligne de commande Azure pour Mac, Linux et Windows avec Azure Resource Manager
 
-# Utilisation de l'interface de ligne de commande Azure pour Mac, Linux et Windows avec Azure Resource Management
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Cet article traite de la création de ressources avec le modèle de déploiement de Resource Manager. Vous pouvez également créer une ressource avec le [modèle de déploiement classique](virtual-machines-command-line-tools.md).
+
 
 Cette rubrique décrit comment utiliser l'interface de ligne de commande Azure (interface CLI Azure) dans le mode **arm** pour créer, gérer et supprimer des services sur la ligne de commande des ordinateurs Mac, Linux et Windows. Vous pouvez effectuer les mêmes tâches à l'aide des différentes bibliothèques des Kits de développement logiciel (SDK) Azure, avec PowerShell, et dans le portail Azure.
 
@@ -942,7 +944,7 @@ Options de paramètre :
  	-l, --lb-name <lb-name>                the name of the load balancer
  	-s, --subscription <subscription>      the subscription identifier
 
-<BR> network lb address-pool delete [options\] <resource-group> <lb-name> <name>
+<BR> network lb address-pool delete [options] <resource-group> <lb-name> <name>
 
 Supprime la ressource de la plage du pool d'adresses IP principales dans l'équilibrage de charge.
 
@@ -1247,7 +1249,7 @@ Crée une ressource IP publique. Vous créez la ressource IP publique et l'assoc
 	info:    network public-ip create command OK
 
 
-Options de paramètre : -h, --help output usage information -v, --verbose use verbose output --json use json output -g, --resource-group <resource-group> the name of the resource group -n, --name <name> the name of the public ip -l, --location <location> the location -d, --domain-name-label <domain-name-label> the domain name label. This set DNS to <domain-name-label>.<location>.cloudapp.azure.com -a, --allocation-method <allocation-method> the allocation method [Static\][Dynamic\] -i, --idletimeout <idletimeout> the idle timeout in minutes -f, --reverse-fqdn <reverse-fqdn> the reverse fqdn -t, --tags <tags> the list of tags. Can be multiple. In the format of "name=value". Name is required and value is optional. For example, -t tag1=value1;tag2 -s, --subscription <subscription> the subscription identifier <br>
+Options de paramètre : -h, --help output usage information -v, --verbose use verbose output --json use json output -g, --resource-group <resource-group> the name of the resource group -n, --name <name> the name of the public ip -l, --location <location> the location -d, --domain-name-label <domain-name-label> the domain name label. This set DNS to <domain-name-label>.<location>.cloudapp.azure.com -a, --allocation-method <allocation-method> the allocation method [Static][Dynamic] -i, --idletimeout <idletimeout> the idle timeout in minutes -f, --reverse-fqdn <reverse-fqdn> the reverse fqdn -t, --tags <tags> the list of tags. Can be multiple. In the format of "name=value". Name is required and value is optional. For example, -t tag1=value1;tag2 -s, --subscription <subscription> the subscription identifier <br>
 
 	network public-ip set [options] <resource-group> <name>
 Met à jour les propriétés d'une ressource IP publique existante. Dans l'exemple suivant, nous avons remplacé l'adresse IP publique dynamique en adresse IP statique.
@@ -1288,7 +1290,7 @@ Options de paramètre :
 	--no-tags                                    remove all existing tags
 	-s, --subscription <subscription>            the subscription identifier
 
-<br> network public-ip list [options\] <resource-group> Répertorie toutes les ressources IP publiques au sein d'un groupe de ressources.
+<br> network public-ip list [options] <resource-group> Répertorie toutes les ressources IP publiques au sein d'un groupe de ressources.
 
 	azure network public-ip list -g myresourcegroup
 
@@ -1308,7 +1310,7 @@ Options de paramètre :
 	--json                                 use json output
 	-g, --resource-group <resource-group>  the name of the resource group
 	-s, --subscription <subscription>      the subscription identifier
-<BR> network public-ip show [options\] <resource-group> <name> Affiche les propriétés d'adresse IP publique pour une ressource IP publique au sein d'un groupe de ressources.
+<BR> network public-ip show [options] <resource-group> <name> Affiche les propriétés d'adresse IP publique pour une ressource IP publique au sein d'un groupe de ressources.
 
 	azure network public-ip show -g myresourcegroup -n mytestpublicip
 
@@ -1737,6 +1739,5 @@ Options de paramètre :
 	vm image list-offers [options] <location> <publisher>
 	vm image list-skus [options] <location> <publisher> <offer>
 	vm image list [options] <location> <publisher> [offer] [sku]
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

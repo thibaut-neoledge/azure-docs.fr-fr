@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Protocoles d’authentification d’Azure Active Directory"
+   pageTitle="Protocoles d’authentification Azure Active Directory | Microsoft Azure"
    description="Vue d’ensemble des protocoles d’authentification pris en charge par Azure Active Directory (AD)"
    documentationCenter="dev-center-name"
    authors="msmbaldwin"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="09/02/2015"
+   ms.date="09/17/2015"
    ms.author="mbaldwin"/>
 
 # Protocoles d’authentification d’Azure Active Directory
@@ -55,4 +55,4 @@ Azure Active Directory (Azure AD) prend en charge plusieurs protocoles d’au
 
 [Exemples de code Azure Active Directory](active-directory-code-samples.md)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

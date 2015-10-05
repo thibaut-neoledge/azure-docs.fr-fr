@@ -1,13 +1,12 @@
 <properties
-	pageTitle="Prise en main de fleet avec CoreOS sur Azure"
-	description="Fournit des exemples simples d’utilisation de fleet et de Docker avec une machine virtuelle CoreOS Linux sur Azure."
+	pageTitle="Prise en main de Fleet avec CoreOS | Microsoft Azure"
+	description="Fournit des exemples simples d’utilisation de Fleet et de Docker avec une machine virtuelle CoreOS Linux créée avec le modèle de déploiement classique sur Azure."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="dlepow"
 	manager="timlt"
 	editor=""
 	tags="azure-service-management"/>
-
 
 <tags
 	ms.service="virtual-machines"
@@ -18,8 +17,9 @@
 	ms.date="08/03/2015"
 	ms.author="danlep"/>
 
-
 # Prise en main de fleet avec CoreOS sur Azure
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Cet article traite de la gestion d’une ressource avec le modèle de déploiement classique.
 
 Cet article fournit deux courts exemples de l’utilisation de [fleet](https://github.com/coreos/fleet) et de [Docker](https://www.docker.com/) l’exécution d’applications sur un cluster de machines virtuelles [CoreOS].
 
@@ -154,9 +154,9 @@ fleetctl --tunnel coreos-cluster.cloudapp.net:22 unload apache@{1,2,3}.service
 
 * Vous pouvez essayer d’exploiter davantage votre cluster CoreOS à trois nœuds sur Azure. Apprenez à créer des clusters plus complexes, à utiliser Docker et à créer d’autres applications intéressantes en lisant le [didacticiel CoreOS de Tim Park], le [didacticiel CoreOS de Patrick Chanezon], la documentation [Docker] et la [présentation de CoreOS].
 
-* Pour démarrer avec Fleet et CoreOS dans Azure Resource Manager, essayez ce [modèle de démarrage rapide](https://azure.microsoft.com/documentation/templates/coreos-with-fleet-multivm/).
+* Pour démarrer avec Fleet et CoreOS dans Azure Resource Manager, essayez cet [exemple de démarrage rapide](https://azure.microsoft.com/documentation/templates/coreos-with-fleet-multivm/).
 
-* Pour apprendre à utiliser les environnements open-source sur les machines virtuelles Linux dans Azure, consultez [Linux et informatique open-source sur Azure] .
+* Pour apprendre à utiliser les environnements open-source sur des machines virtuelles Linux dans Azure, consultez [Linux et informatique open-source sur Azure] .
 
 <!--Link references-->
 [Azure Command-Line Interface (Azure)]: ../xplat-cli.md
@@ -175,4 +175,4 @@ fleetctl --tunnel coreos-cluster.cloudapp.net:22 unload apache@{1,2,3}.service
 [image CoreOS Apache Docker Hub]: https://registry.hub.docker.com/u/coreos/apache/
 [Linux et informatique open-source sur Azure]: virtual-machines-linux-opensource.md
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

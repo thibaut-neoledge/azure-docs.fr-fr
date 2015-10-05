@@ -1,20 +1,20 @@
 <properties
    pageTitle="Configuration des services fiables avec état"
-	description="En savoir plus sur la configuration des services fiables avec état dans Service Fabric."
-	services="Service-Fabric"
-	documentationCenter=".net"
-	authors="sumukhs"
-	manager="anuragg"
-	editor=""/>
+   description="En savoir plus sur la configuration des services fiables avec état dans Service Fabric."
+   services="Service-Fabric"
+   documentationCenter=".net"
+   authors="sumukhs"
+   manager="anuragg"
+   editor=""/>
 
 <tags
    ms.service="Service-Fabric"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="NA"
-	ms.date="08/26/2015"
-	ms.author="sumukhs"/>
+   ms.devlang="dotnet"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="NA"
+   ms.date="08/26/2015"
+   ms.author="sumukhs"/>
 
 # Configuration des services fiables avec état
 La configuration par défaut du service fiable avec état peut être changée en modifiant le fichier « settings.xml » généré dans la racine du package Visual Studio, dans le dossier « Config » de chaque service dans l'application.
@@ -28,9 +28,6 @@ Les configurations de sécurité du réplicateur sont utilisées pour sécuriser
 
 ### Nom de la section
 ReplicatorSecurityConfig
-
-### Noms des configurations
-Reportez-vous à la section [Sécurité de la réplication](../service-fabric/service-fabric-replication-security.md)
 
 ## Configuration du réplicateur
 Les configurations de Replicator servent à configurer le réplicateur garantissant la haute fiabilité de l'état du service fiable avec état par la réplication et la conservation de l'état localement. La configuration par défaut est générée par le modèle Visual Studio et devrait suffire. Cette section décrit les configurations supplémentaires disponibles pour paramétrer le réplicateur.
@@ -89,6 +86,5 @@ Le paramètre OptimizeForLocalSSD sert à désactiver l'écriture des informatio
 La valeur MaxRecordSizeInKB définit la taille maximale d'un enregistrement que le réplicateur peut écrire dans le fichier journal. Dans la plupart des cas, la taille d'enregistrement de 1 024 Ko par défaut est optimale ; mais si le service ajoute des données plus volumineuses aux informations d'état, cette valeur devra éventuellement être augmentée. Il n'est pas recommandé de choisir une valeur MaxRecordSizeInKB inférieure à 1024 car des enregistrements plus petits utilisent uniquement l'espace nécessaire à l'enregistrement le plus petit. Cette valeur ne devrait être modifiée qu'en de rares occasions.
 
 Les paramètres SharedLogId et SharedLogPath sont toujours utilisés ensemble et permettent à un service d'utiliser un journal partagé distinct du journal partagé par défaut pour le nœud. Pour plus d'efficacité, vous devriez spécifier autant de services que possible dans le même journal partagé. Les fichiers journaux partagés doivent être placés sur des disques uniquement utilisés pour le fichier journal partagé afin de réduire la contention des mouvements de la tête de lecture. Cette valeur ne devrait être modifiée qu'en de rares occasions.
- 
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

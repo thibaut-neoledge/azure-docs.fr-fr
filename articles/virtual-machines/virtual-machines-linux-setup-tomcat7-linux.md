@@ -1,24 +1,27 @@
-<properties 
-	pageTitle="Configuration de Tomcat7 sur un ordinateur virtuel Linux avec Microsoft Azure" 
-	description="Apprenez à configurer Tomcat7 avec Microsoft Azure à l’aide d’une machine virtuelle Azure exécutant Linux." 
-	services="virtual-machines" 
-	documentationCenter="" 
-	authors="NingKuang" 
-	manager="timlt" 
-	editor="tysonn"/>
+<properties
+	pageTitle="Configuration de Apache Tomcat sur une machine virtuelle Linux | Microsoft Azure"
+	description="Apprenez à configurer Apache Tomcat7 avec une machine virtuelle Azure exécutant Linux."
+	services="virtual-machines"
+	documentationCenter=""
+	authors="NingKuang"
+	manager="timlt"
+	editor=""
+	tags="azure-service-management"/>
 
-<tags 
-	ms.service="virtual-machines" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="vm-linux" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/21/2015" 
+<tags
+	ms.service="virtual-machines"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="vm-linux"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="05/21/2015"
 	ms.author="ningk"/>
 
-#Configuration de Tomcat7 sur un ordinateur virtuel Linux avec Microsoft Azure 
+#Configuration de Tomcat7 sur un ordinateur virtuel Linux avec Microsoft Azure
 
 Apache Tomcat (ou simplement Tomcat, auparavant également Jakarta Tomcat) est un serveur web open source et un conteneur de servlet développé par Apache Software Foundation (ASF). Tomcat implémente le Servlet Java et les spécifications Java Server Pages (JSP) de Sun Microsystems et fournit un environnement de serveur web HTTP Java pur dans lequel exécuter un code Java. Dans la configuration la plus simple, Tomcat s’exécute dans un processus de système d’exploitation unique. Ce processus exécute une machine virtuelle Java (JVM). Chaque requête HTTP d’un navigateur vers Tomcat est traitée comme un thread séparé dans le processus de Tomcat.
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Cet article traite de la création d’une ressource avec le modèle de déploiement classique.
 
 Dans ce guide, vous installerez Tomcat7 sur une image Linux et le déploierez dans Microsoft Azure.
 
@@ -46,20 +49,20 @@ Il est également possible de se connecter avec un mot de passe avec cette méth
 
 Pour générer la clé d’authentification SSH, procédez comme suit.
 
-1.	Téléchargez et installez Puttygen à partir de l’emplacement suivant : [http://www.chiark.greenend.org.uk/\~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html). 
+1.	Téléchargez et installez Puttygen à partir de l’emplacement suivant : [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
 2.	Exécutez PUTTYGEN.EXE.
 3.	Cliquez sur **Generate** pour générer les clés. Dans le processus, vous pouvez augmenter le caractère aléatoire en déplaçant la souris sur la zone vide dans la fenêtre. ![][1]
 4.	Après le processus de génération, Puttygen.exe affiche votre clé générée. Par exemple : ![][2]
 5.	Sélectionnez et copiez la clé publique dans **Key** et enregistrez-la dans un fichier nommé publicKey.pem. Ne cliquez pas sur **Save public key**, car le format de fichier de la clé publique enregistrée est différent de la clé publique que nous voulons.
-6.	Cliquez sur **Save private key** et enregistrez-la dans un fichier nommé privateKey.ppk. 
+6.	Cliquez sur **Save private key** et enregistrez-la dans un fichier nommé privateKey.ppk.
 
 ###Étape 2 : Créer l’image dans le portail Azure en version préliminaire.
 Dans le [portail Azure en version préliminaire](https://portal.azure.com/), cliquez sur **Nouveau** dans la barre des tâches pour créer une image, en choisissant l’image Linux selon vos besoins. L’exemple suivant utilise l’image Ubuntu 14.04. ![][3]
- 
+
 Pour **Nom d’hôte**, spécifiez le nom de l’URL que les clients Internet utiliseront pour accéder à cette machine virtuelle. Définissez la dernière partie du nom DNS, par exemple tomcatdemo, et Azure génère l’URL comme tomcatdemo.cloudapp.net.
 
 Pour **Clé d’authentification SSH**, copiez la valeur de clé à partir du fichier **publicKey.pem** qui contient la clé publique générée par puttygen. ![][4]
-  
+
 Configurez d’autres paramètres selon les besoins, puis cliquez sur Créer.
 
 ##Phase 2 : Préparation de la machine virtuelle pour Tomcat7
@@ -70,15 +73,15 @@ Les points de terminaison dans Azure se composent d’un protocole (TCP ou UDP) 
 Le port TCP 8080 est le numéro de port par défaut sur lequel tomcat écoute. L’ouverture de ce port avec un point de terminaison Azure vous permettra (à vous et à d’autres clients Internet) d’accéder aux pages tomcat.
 
 1.	Dans le portail Azure en version préliminaire, cliquez sur **Parcourir** -> **Machine virtuelle**, puis cliquez sur la machine virtuelle que vous avez créée. ![][5]
-2.	Pour ajouter un point de terminaison à votre machine virtuelle, cliquez sur la zone **Points de terminaison**. ![][6] 
+2.	Pour ajouter un point de terminaison à votre machine virtuelle, cliquez sur la zone **Points de terminaison**. ![][6]
 3.	Cliquez sur **Ajouter**.  
 	1.	Entrez un nom pour le **Point de terminaison** dans Point de terminaison, puis tapez 80 dans **Port public**.  
-	  
+
 		Si vous affectez le port 80, vous n’avez pas besoin d’inclure le numéro de port dans l’URL qui vous permet d’accéder à tomcat. Par exemple, http://tomcatdemo.cloudapp.net.
 
 		Si vous affectez une autre valeur pour le port, par exemple 81, vous devez ajouter le numéro de port à l’URL pour accéder à tomcat. Par exemple, http://tomcatdemo.cloudapp.net:81/.
 	2.	Tapez 8080 dans Port privé. Par défaut, tomcat écoute sur le port TCP 8080. Si vous avez modifié le port d’écoute par défaut de tomcat, vous devez mettre à jour Port privé pour qu’il s’agisse du même que le port d’écoute tomcat. ![][7]
- 
+
 4.	Cliquez sur **OK** pour ajouter le point de terminaison à votre machine virtuelle.
 
 
@@ -89,13 +92,13 @@ Vous pouvez choisir n’importe quel outil SSH pour vous connecter à votre mach
 Tout d’abord, obtenez le nom DNS de votre machine virtuelle à partir du portail Azure en version préliminaire. **Cliquez sur Parcourir** -> **Machines virtuelles**-> nom de votre machine virtuelle -> **Propriétés**, puis regardez dans le champ **Nom de domaine** de la vignette **Propriétés**.
 
 Obtenez le numéro de port pour les connexions SSH à partir du champ **SSH**. Voici un exemple. ![][8]
- 
+
 Téléchargez Putty [ici](http://www.putty.org/).
 
 Après le téléchargement, cliquez sur le fichier exécutable PUTTY.EXE. Configurez les options de base avec le nom d’hôte et le numéro de port obtenus à partir des propriétés de votre machine virtuelle. Voici un exemple : ![][9]
- 
+
 Dans le volet gauche, cliquez sur **Connexion** -> **SSH** -> **Authentification**, puis cliquez sur **Parcourir** pour spécifier l’emplacement du fichier **privateKey.ppk** qui contient la clé privée générée par puttygen lors de la Phase 1 : Création d’une image. Voici un exemple : ![][10]
- 
+
 Cliquez sur **Ouvrir**. Une boîte de message peut s’afficher. Si vous avez configuré le nom DNS et le numéro de port correctement, cliquez sur **Oui**. ![][11]
 
 
@@ -165,7 +168,7 @@ Pour vérifier si Tomcat7 est correctement installé, recherchez le nom DNS de v
 ###Installation d’autres composants de Tomcat
 Il existe d’autres composants facultatifs de tomcat que vous pouvez également installer.
 
-Utilisez la commande **sudo apt-cache search tomcat7** pour afficher tous les composants disponibles. Les commandes suivantes sont des exemples d’installation de certaines parties utiles.
+Utilisez la commande ** sudo apt-cache search tomcat7** pour afficher tous les composants disponibles. Les commandes suivantes sont des exemples d’installation de certaines parties utiles.
 
 	sudo apt-get install tomcat7-admin      #admin web applications
 	sudo apt-get install tomcat7-user         #tools to create user instances  
@@ -179,7 +182,7 @@ Le serveur de tomcat7 démarre automatiquement lorsque vous l’installez. Vous 
 
 Pour arrêter tomcat7 ：
 
-	sudo /etc/init.d/tomcat7 stop 
+	sudo /etc/init.d/tomcat7 stop
 
 Pour afficher l’état de tomcat7 ：
 
@@ -205,7 +208,7 @@ Après avoir modifié ce fichier, vous devez redémarrer les services tomcat7 a
 Ouvrez votre navigateur et entrez l’URL **http://<your tomcat server DNS name>/manager/html**. Par exemple, dans cet article, l’URL est http://tomcatexample.cloudapp.net/manager/html.
 
 Une fois connecté, vous devez voir quelque chose de similaire à ce qui suit : ![][18]
- 
+
 ##Problèmes courants
 
 ###Impossible d’accéder à une machine virtuelle avec Tomcat et Moodle à partir d’Internet
@@ -213,7 +216,7 @@ Une fois connecté, vous devez voir quelque chose de similaire à ce qui suit :
 -	**Symptôme** Tomcat est en cours d’exécution, mais vous ne voyez pas la page par défaut Tomcat avec votre navigateur.
 -	**Cause principale possible**   
 	1.	Le port d’écoute tomcat n’est pas identique au Port privé du point de terminaison de votre machine virtuelle pour le trafic tomcat.  
-	
+
 		Vérifiez vos paramètres de points de terminaison de port public et de port privé et assurez-vous que le Port privé est identique au port d’écoute tomcat. Consultez la Phase 1 : Création d’une image pour obtenir des instructions sur la configuration des points de terminaison pour votre machine virtuelle.
 
 		Pour déterminer le port d’écoute de tomcat, ouvrez /etc/httpd/conf/httpd.conf (version Red Hat) ou /etc/tomcat7/server.xml (version Debian). Par défaut, le port d’écoute de tomcat est 8080. Voici un exemple :
@@ -237,9 +240,9 @@ Une fois connecté, vous devez voir quelque chose de similaire à ce qui suit :
 
 -	**Solution**
 	1. Si le port d’écoute tomcat n’est pas identique au Port privé du point de terminaison pour le trafic sur la machine virtuelle, vous devez modifier le Port privé pour qu’il soit identique au port d’écoute de tomcat.   
-	
+
 	2.	Si le problème est dû au pare-feu/iptables, ajoutez les lignes suivantes à /etc/sysconfig/iptables :
-	
+
 			-A INPUT -p tcp -m tcp --dport 80 -j ACCEPT
 			-A INPUT -p tcp -m tcp --dport 443 -j ACCEPT  
 
@@ -301,6 +304,5 @@ Une fois connecté, vous devez voir quelque chose de similaire à ce qui suit :
 [16]: ./media/virtual-machines-linux-setup-tomcat7-linux/virtual-machines-linux-setup-tomcat7-linux-16.png
 [17]: ./media/virtual-machines-linux-setup-tomcat7-linux/virtual-machines-linux-setup-tomcat7-linux-17.png
 [18]: ./media/virtual-machines-linux-setup-tomcat7-linux/virtual-machines-linux-setup-tomcat7-linux-18.png
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

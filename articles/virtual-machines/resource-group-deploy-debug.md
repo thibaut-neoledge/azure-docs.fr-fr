@@ -1,57 +1,181 @@
 <properties
-   pageTitle="Résolution des problèmes liés aux déploiements de groupes de ressources dans Azure"
-	description="Décrit les problèmes courants du déploiement de ressources dans Azure et montre comment utiliser le portail Azure, l’interface de ligne de commande Azure pour Mac, Linux, Windows (interface de ligne de commande Azure) et PowerShell pour examiner les déploiements et de détecter les problèmes."
-	services="virtual-machines"
-	documentationCenter=""
-	authors="squillace"
-	manager="timlt"
-	editor=""/>
+   pageTitle="Résolution des problèmes liés aux déploiements de groupes de ressources | Microsoft Azure"
+   description="Décrit les problèmes courants de déploiement de ressources créés à l'aide du modèle de déploiement Resource Manager et montre comment détecter et résoudre ces problèmes."
+   services="azure-resource-manager,virtual-machines"
+   documentationCenter=""
+   authors="squillace"
+   manager="timlt"
+   editor=""/>
 
 <tags
-   ms.service="virtual-machines"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="command-line-interface"
-	ms.workload="infrastructure"
-	ms.date="08/26/2015"
-	ms.author="rasquill"/>
+   ms.service="azure-resource-manager"
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="vm-multiple"
+   ms.workload="infrastructure"
+   ms.date="09/18/2015"
+   ms.author="rasquill"/>
 
 # Résolution des problèmes liés aux déploiements de groupes de ressources dans Azure
 
-Les déploiements peuvent échouer pour diverses raisons. Il est judicieux de prévenir toute erreur de déploiement en vérifiant quelques éléments au préalable. Ce document décrit les outils et opérations permettant d’éviter des erreurs simples, de télécharger des fichiers de modèle et d’examiner des journaux de déploiement. Il aborde également les principaux domaines à prendre en compte lors de la recherche de défaillances dans des journaux de déploiement.
+Lorsque vous rencontrez un problème lors du déploiement, vous devez découvrir ce qui s’est produit. Resource Manager fournit deux méthodes vous permettant de découvrir ce qui s’est passé et pourquoi. Vous pouvez utiliser les commandes de déploiement afin de récupérer des informations concernant des déploiements spécifiques pour un groupe de ressources. Ou vous pouvez utiliser les journaux d'audit pour récupérer des informations sur toutes les opérations effectuées sur un groupe de ressources. Ces informations vous permettent de résoudre le problème et de reprendre les opérations dans votre solution.
 
-## Outils utiles pour interagir avec Azure
-Lorsque vous travaillez avec vos ressources Azure à partir de la ligne de commande, vous collectez les outils qui vous aideront à exécuter votre tâche. Les modèles de groupe de ressources Azure sont des documents JSON, et l’API Azure Resource Manager accepte et retourne des données en JSON. Par conséquent, les outils d’analyse JSON sont l’un des premiers éléments que vous utiliserez pour parcourir des informations relatives à vos ressources, ainsi que pour concevoir des modèles et fichiers de paramètres de modèle ou interagir avec ces modèles et fichiers.
+Cette rubrique se concentre principalement sur l'utilisation de commandes de déploiement pour résoudre les problèmes de déploiement. Pour plus d'informations sur l’utilisation des journaux d'audit pour effectuer le suivi de toutes les opérations sur vos ressources, consultez [Opérations d’audit avec Resource Manager](../resource-group-audit.md).
 
-### Outils Mac, Linux et Windows
-Si vous utilisez l’interface de ligne de commande Azure pour Mac, Linux et Windows, vous êtes probablement familiarisé avec les outils de téléchargement standard tels que **[curl](http://curl.haxx.se/)** et **[wget](https://www.gnu.org/software/wget/)**, ou **[Resty](https://github.com/beders/Resty)**, et les utilitaires JSON tels que **[jq](http://stedolan.github.io/jq/download/)**, **[jsawk](https://github.com/micha/jsawk)**, et les bibliothèques de langue qui gèrent bien JSON. (Beaucoup de ces outils disposent également de ports pour Windows, tels que [wget](http://gnuwin32.sourceforge.net/packages/wget.htm) ; en fait, il existe plusieurs manières d’obtenir des outils Linux et d’autres outils logiciels open source fonctionnant également sur Windows.)
+Cette rubrique montre comment récupérer des informations de dépannage via PowerShell Azure, Azure CLI et API REST. Pour plus d'informations sur l'utilisation du portail en version préliminaire pour résoudre les problèmes de déploiement, consultez [Utilisation du portail Azure en version préliminaire pour gérer vos ressources Azure](../azure-portal/resource-group-portal.md).
 
-Cette rubrique inclut certaines commandes d'interface de ligne de commande Azure que vous pouvez utiliser avec **jq** pour obtenir précisément les informations souhaitées avec plus d'efficacité. Vous devez choisir l’ensemble d’outils que vous maîtrisez pour mieux comprendre l’utilisation des ressources Azure.
+Les solutions aux erreurs courantes que rencontrent les utilisateurs sont également décrites dans cette rubrique.
 
-### Windows PowerShell
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Cet article traite de la résolution des problèmes liés aux groupes de ressources avec le modèle de déploiement de Resource Manager. Vous ne pouvez pas créer de groupes de ressources avec le modèle de déploiement classique.
 
-Windows PowerShell possède plusieurs commandes de base permettant d'effectuer les mêmes procédures.
 
-- Utilisez l'applet de commande **[Invoke-WebRequest](https://technet.microsoft.com/library/hh849901%28v=wps.640%29)** pour télécharger des fichiers tels que des modèles de groupe de ressources ou des fichiers JSON de paramètres.
-- Utilisez l'applet de commande **[ConvertFrom-Json](https://technet.microsoft.com/library/hh849898%28v=wps.640%29.aspx)** pour convertir une chaîne JSON en un objet personnalisé ([PSCustomObject](https://msdn.microsoft.com/library/windows/desktop/system.management.automation.pscustomobject%28v=vs.85%29.aspx)) qui possède une propriété pour chaque champ de la chaîne JSON.
+## Résolution des problèmes avec PowerShell
 
-## Prévention des erreurs dans l'interface de ligne de commande Azure pour Mac, Linux et Windows
+Vous pouvez obtenir l'état global d'un déploiement avec la commande **Get-AzureResourceGroupDeployment**. Dans l'exemple ci-dessous, le déploiement a échoué.
 
-L’interface de ligne de commande Azure comprend plusieurs commandes permettant d’éviter des erreurs et de détecter la cause du problème le cas échéant.
+    PS C:\> Get-AzureResourceGroupDeployment -ResourceGroupName ExampleGroup -DeploymentName ExampleDeployment
 
-- **azure location list**. Cette commande permet d’obtenir les emplacements qui prennent en charge chaque type de ressource, tels que le fournisseur pour les machines virtuelles. Avant d'entrer un emplacement pour une ressource, utilisez cette commande pour vérifier que l'emplacement est compatible avec le type de ressource concerné.
+    DeploymentName    : ExampleDeployment
+    ResourceGroupName : ExampleGroup
+    ProvisioningState : Failed
+    Timestamp         : 8/27/2015 8:03:34 PM
+    Mode              : Incremental
+    TemplateLink      :
+    Parameters        :
+                    Name             Type                       Value
+                    ===============  =========================  ==========
+                    siteName         String                     ExampleSite
+                    hostingPlanName  String                     ExamplePlan
+                    siteLocation     String                     West US
+                    sku              String                     Free
+                    workerSize       String                     0
 
-    Étant donné que la liste des emplacements peut être longue, et qu'il existe de nombreux fournisseurs, vous pouvez utiliser des outils pour examiner les fournisseurs et les emplacements avant d'utiliser un emplacement qui n'est pas encore disponible. Le script suivant utilise **jq** pour détecter les emplacements où le fournisseur de ressources pour Azure Virtual Machines est disponible.
+    Outputs           :
 
-        azure location list --json | jq '.[] | select(.name == "Microsoft.Compute/virtualMachines")'
-        {
-          "name": "Microsoft.Compute/virtualMachines",
-          "location": "East US,West US,West Europe,East Asia,Southeast Asia,North Europe"
-        }
+Chaque déploiement est généralement constitué de plusieurs opérations, chacune d’elles représentant une étape du processus de déploiement. Pour découvrir la cause du problème rencontré lors d’un déploiement, vous devez généralement afficher les détails concernant les opérations de déploiement. Vous pouvez afficher l'état des opérations avec **Get-AzureResourceGroupDeploymentOperation**.
 
-- **azure group template validate <resource group>**. Cette commande permet de valider vos modèles ainsi que les paramètres de modèles avant de les utiliser. Entrez un modèle personnalisé ou de la galerie et les valeurs de paramètres du modèle que vous prévoyez d’utiliser.
+    PS C:\> Get-AzureResourceGroupDeploymentOperation -DeploymentName ExampleDeployment -ResourceGroupName ExampleGroup
+    Id                        OperationId          Properties         
+    -----------               ----------           -------------
+    /subscriptions/xxxxx...   347A111792B648D8     @{ProvisioningState=Failed; Timestam...
+    /subscriptions/xxxxx...   699776735EFC3D15     @{ProvisioningState=Succeeded; Times...
 
-    L’exemple suivant montre comment valider un modèle et tous les paramètres requis. L’interface de ligne de commande Azure vous propose des valeurs de paramètres requises.
+Cette commande montre deux opérations dans le déploiement. Une opération affiche un état d'approvisionnement ayant échoué (Failed) et l'autre un état d’approvisionnement ayant réussi (Succeeded).
+
+Vous pouvez récupérer le message d'état avec la commande suivante :
+
+    PS C:\> (Get-AzureResourceGroupDeploymentOperation -DeploymentName ExampleDeployment -ResourceGroupName ExampleGroup).Properties.StatusMessage
+
+    Code       : Conflict
+    Message    : Website with given name mysite already exists.
+    Target     :
+    Details    : {@{Message=Website with given name mysite already exists.}, @{Code=Conflict}, @{ErrorEntity=}}
+    Innererror :
+
+## Résolution des problèmes avec Azure CLI
+
+Vous pouvez obtenir l'état global d'un déploiement avec la commande **azure group deployment show**. Dans l'exemple ci-dessous, le déploiement a échoué.
+
+    azure group deployment show ExampleGroup ExampleDeployment
+
+    info:    Executing command group deployment show
+    + Getting deployments
+    data:    DeploymentName     : ExampleDeployment
+    data:    ResourceGroupName  : ExampleGroup
+    data:    ProvisioningState  : Failed
+    data:    Timestamp          : 2015-08-27T20:03:34.9178576Z
+    data:    Mode               : Incremental
+    data:    Name             Type    Value
+    data:    ---------------  ------  ------------
+    data:    siteName         String  ExampleSite
+    data:    hostingPlanName  String  ExamplePlan
+    data:    siteLocation     String  West US
+    data:    sku              String  Free
+    data:    workerSize       String  0
+    info:    group deployment show command OK
+
+
+Vous trouverez plus d'informations sur l’origine de l’échec du déploiement dans les journaux d'audit. Pour afficher les journaux d'audit, exécutez la commande **azure group log show**. Vous pouvez utiliser l’option **--last-deployment** pour récupérer uniquement le journal du dernier déploiement.
+
+    azure group log show ExampleGroup --last-deployment
+
+La commande **azure group log show** risque de renvoyer un grand nombre d'informations. Pour le dépannage, vous devez généralement vous concentrer sur les opérations ayant échoué. Le script suivant utilise l’option **--json** et **jq** pour rechercher les échecs de déploiement dans le journal. Pour en savoir plus sur les outils comme **jq**, consultez [Outils utiles pour interagir avec Azure](#useful-tools-to-interact-with-azure)
+
+    azure group log show ExampleGroup --json | jq '.[] | select(.status.value == "Failed")'
+
+    {
+      "claims": {
+        "aud": "https://management.core.windows.net/",
+        "iss": "https://sts.windows.net/<guid>/",
+        "iat": "1442510510",
+        "nbf": "1442510510",
+        "exp": "1442514410",
+        "ver": "1.0",
+        "http://schemas.microsoft.com/identity/claims/tenantid": "<guid>",
+        "http://schemas.microsoft.com/identity/claims/objectidentifier": "<guid>",
+        "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress": "someone@example.com",
+        "puid": "XXXXXXXXXXXXXXXX",
+        "http://schemas.microsoft.com/identity/claims/identityprovider": "example.com",
+
+        "altsecid": "1:example.com:XXXXXXXXXXX",
+        "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier": "<hash string>",
+        "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname": "Tom",
+        "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname": "FitzMacken",
+        "name": "Tom FitzMacken",
+        "http://schemas.microsoft.com/claims/authnmethodsreferences": "pwd",
+        "groups": "<guid>",
+        "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name": "example.com#someone@example.com",
+        "wids": "<guid>",
+        "appid": "<guid>",
+        "appidacr": "0",
+        "http://schemas.microsoft.com/identity/claims/scope": "user_impersonation",
+        "http://schemas.microsoft.com/claims/authnclassreference": "1",
+        "ipaddr": "000.000.000.000"
+      },
+      "properties": {
+        "statusCode": "Conflict",
+        "statusMessage": "{"Code":"Conflict","Message":"Website with given name mysite already exists.","Target":null,"Details":[{"Message":"Website with given name 
+          mysite already exists."},{"Code":"Conflict"},{"ErrorEntity":{"Code":"Conflict","Message":"Website with given name mysite already exists.","ExtendedCode":
+          "54001","MessageTemplate":"Website with given name {0} already exists.","Parameters":["mysite"],"InnerErrors":null}}],"Innererror":null}"
+      },
+    ...
+
+Vous pouvez constater que la section **properties** inclut des informations dans json sur l'opération ayant échoué.
+
+Vous pouvez utiliser les options **--verbose** et **- vv** pour afficher plus d'informations des journaux. Utilisez l’option **--verbose** pour afficher les étapes effectuées par les opérations sur `stdout`. Pour obtenir un historique complet des demandes, utilisez l’option **- vv**. Souvent, ces messages fournissent des indices essentiels sur les causes d'erreurs.
+
+## Résolution des problèmes avec API REST
+
+L’API REST de Resource Manager fournit l'URI permettant de récupérer des informations sur un déploiement, les opérations de déploiement et les détails d’une opération particulière. Pour une description complète de ces commandes, consultez :
+
+- [Obtenir des informations sur le déploiement d’un modèle](https://msdn.microsoft.com/library/azure/dn790565.aspx)
+- [Liste de toutes les opérations de déploiement de modèle](https://msdn.microsoft.com/library/azure/dn790518.aspx)
+- [Obtenir des informations sur l’opération de déploiement d’un modèle](https://msdn.microsoft.com/library/azure/dn790519.aspx)
+
+
+## Actualisation des informations d'identification expirées
+
+Votre déploiement échouera si vos informations d'identification Azure ont expiré ou si vous n'êtes pas connecté à votre compte Azure. Vos informations d'identification peuvent expirer si votre session reste ouverte trop longtemps. Vous pouvez actualiser vos informations d'identification avec les options suivantes :
+
+- Pour PowerShell, utilisez l’applet de commande **Add-AzureAccount**. Les informations d'identification que contient un fichier de paramètres de publication ne sont pas suffisantes pour les applets de commande du module AzureResourceManager.
+- Pour l’interface de ligne de commande Azure, utilisez **azure login**. Pour obtenir de l'aide sur les erreurs d'authentification, assurez-vous que vous avez [correctement configuré l'interface de ligne de commande Azure](../xplat-cli-connect.md).
+
+## Vérification du format des modèles et des paramètres
+
+Si le format de fichier de modèle ou de paramètre n'est pas correct, le déploiement échoue. Avant d'exécuter un déploiement, vous pouvez tester la validité de votre modèle et vos paramètres.
+
+### PowerShell
+
+Pour PowerShell, utilisez **Test-AzureResourceGroupTemplate**.
+
+    PS C:\> Test-AzureResourceGroupTemplate -ResourceGroupName ExampleGroup -TemplateFile c:\Azure\Templates\azuredeploy.json -TemplateParameterFile c:\Azure\Templates\azuredeploy.parameters.json
+    VERBOSE: 12:55:32 PM - Template is valid.
+
+### Interface de ligne de commande Azure
+
+Pour l’interface de ligne de commande Azure, utilisez **azure group template validate <resource group>**
+
+L’exemple suivant montre comment valider un modèle et tous les paramètres requis. L’interface de ligne de commande Azure vous propose des valeurs de paramètres requises.
 
         azure group template validate \
         > --template-uri "https://contoso.com/templates/azuredeploy.json" \
@@ -64,146 +188,54 @@ L’interface de ligne de commande Azure comprend plusieurs commandes permettant
         + Validating the template
         info:    group template validate command OK
 
-## Obtention d'informations permettant de résoudre des problèmes de déploiement avec l'interface de ligne de commande Azure
+### API REST
 
-- **azure group log show <resource group>** : cette commande récupère les entrées du journal pour chaque déploiement du groupe de ressources. Si une erreur survient, commencez par examiner les journaux des déploiements.
+Pour l'API REST, voir [Validation d’un déploiement de modèle](https://msdn.microsoft.com/library/azure/dn790547.aspx).
 
-        info:    Executing command group log show
-        info:    Getting group logs
-        data:    ----------
-        data:    EventId:              <guid>
-        data:    Authorization:
-        data:                          action: Microsoft.Network/networkInterfaces/write
-        data:                          role:   Subscription Admin
-        data:                          scope:  /subscriptions/xxxxxxxxxxx/resourcegroups/templates/
-                                               providers/Microsoft.Network/
-                                               networkInterfaces/myNic
-        data:    ResourceUri:          /subscriptions/xxxxxxxxxxxx/resourcegroups/templates/providers/
-                                       Microsoft.Network/networkInterfaces/myNic
-        data:    SubscriptionId:       <guid>
-        data:    EventTimestamp (UTC): Wed Apr 22 2015 05:53:31 GMT+0000 (UTC)
-        data:    OperationName:        Microsoft.Network/networkInterfaces/write
-        data:    OperationId:          <guid>
-        data:    Status:               Started
-        data:    SubStatus:
-        data:    Caller:
-        data:    CorrelationId:        <guid>
-        data:    Description:
-        data:    HttpRequest:          clientRequestId: <guid>
-                                       clientIpAddress: 000.000.00.000
-                                       method:          PUT
+## Vérification des emplacements prenant en charge la ressource
 
-        data:    Level:                Informational
-        data:    ResourceGroup:        templates
-        data:    ResourceProvider:     Microsoft.Network
-        data:    EventSource:          Microsoft Resources
-        data:    Properties:           requestbody: {"location":"West US","properties
-                                       ":{"ipConfigurations":[{"
-                                       name":"ipconfig1","properties":{"
-                                       privateIPAllocationMethod
+Lorsque vous spécifiez l’emplacement d’une ressource, vous devez utiliser un des emplacements prenant en charge cette ressource. Avant d'entrer un emplacement pour une ressource, utilisez une des commandes suivantes pour vérifier que l'emplacement est compatible avec le type de ressource concerné.
 
-                                       ":"Dynamic","publicIPAddress":{"id":"/
-                                       subscriptions/
-                                       <guid>/
-                                       resourceGroups/
-                                       templates/providers/Microsoft.Network/
-                                       publicIPAddresses/
-                                       myPublicIP"},"subnet":{"idThe AzureResourceManager module includes cmdlets that ":"/subscriptions/
-                                       <guid>/resourceGroups/templates/
-                                       providers/
-                                       Microsoft.Network/virtualNetworks/myVNET/subnets/
-                                       Subnet-1
-                                       "}}}]}}
+### PowerShell
 
-Utilisez l’option **--last-deployment** pour récupérer uniquement le journal du dernier déploiement. Le script suivant utilise l’option **--json** et **jq** pour rechercher les échecs de déploiement dans le journal.
+Pour PowerShell, vous pouvez consulter la liste complète des ressources et des emplacements à l’aide de la commande **Get-AzureLocation**.
 
-        azure group log show templates --json | jq '.[] | select(.status.value == "Failed")'
+    PS C:\> Get-AzureLocation
 
-        {
-          "claims": {
-            "aud": "https://management.core.windows.net/",
-            "iss": "https://sts.windows.net/<guid>/",
-            "iat": "1429678549",
-            "nbf": "1429678549",
-            "exp": "1429682449",
-            "ver": "1.0",
-            "http://schemas.microsoft.com/identity/claims/tenantid": "<guid>",
-            "http://schemas.microsoft.com/identity/claims/objectidentifier": "<guid>",
-            "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn": "ahmet@contoso.onmicrosoft.com",
-            "puid": "XXXXXXXXXXXXXX",
-            "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier": "<hash string>",
-            "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname": "ahmet",
-            "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname": "",
-            "name": "Friendly Name",
-            "http://schemas.microsoft.com/claims/authnmethodsreferences": "pwd",
-            "groups": "<guid>",
-            "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name": "ahmet@contoso.onmicrosoft.com",
-            "appid": "<guid>",
-            "appidacr": "0",
-            "http://schemas.microsoft.com/identity/claims/scope": "user_impersonation",
-            "http://schemas.microsoft.com/claims/authnclassreference": "1"
-          },
-          "properties": {},
-          "authorization": {
-            "action": "Microsoft.Resources/subscriptions/resourcegroups/deployments/write",
-            "role": "Subscription Admin",
-            "scope": "/subscriptions/<guid>/resourcegroups/templates/deployments/basic-vm-version-0.1"
-          },
-          "eventChannels": "Operation",
-          "eventDataId": "<guid>",
-          "correlationId": "<guid>",
-          "eventName": {
-            "value": "EndRequest",
-            "localizedValue": "End request"
-          },
-          "eventSource": {
-            "value": "Microsoft.Resources",
-            "localizedValue": "Microsoft Resources"
-          },
-          "level": "Error",
-          "resourceGroupName": "templates",
-          "resourceProviderName": {
-            "value": "Microsoft.Resources",
-            "localizedValue": "Microsoft Resources"
-          },
-          "resourceUri": "/subscriptions/<guid>/resourcegroups/templates/deployments/basic-vm-version-0.1",
-          "operationId": "<guid>",
-          "operationName": {
-            "value": "Microsoft.Resources/subscriptions/resourcegroups/deployments/write",
-            "localizedValue": "Update deployment"
-          },
-          "status": {
-            "value": "Failed",
-            "localizedValue": "Failed"
-          },
-          "subStatus": {},
-          "eventTimestamp": "2015-04-22T05:53:40.8150293Z",
-          "submissionTimestamp": "2015-04-22T05:54:00.6728843Z",10037FFE8E80BB65
-          "subscriptionId": "<guid>"
-        }
+    Name                                    Locations                               LocationsString
+    ----                                    ---------                               ---------------
+    ResourceGroup                           {East Asia, South East Asia, East US... East Asia, South East Asia, East US,...
+    Microsoft.ApiManagement/service         {Central US, East US, East US 2, Nor... Central US, East US, East US 2, Nort...
+    Microsoft.AppService/apiapps            {East US, West US, South Central US,... East US, West US, South Central US, ...
+    ...
 
+Vous pouvez spécifier un type de ressource particulier avec :
 
-- **Options --verbose et -vv** : utilisez l'option **--verbose** pour définir le mode détaillé, afin d'afficher les étapes par lesquelles passent les opérations sur `stdout`. Pour obtenir l’historique complet des demandes incluant les étapes que **--verbose** active, utilisez l’option **-vv**. Souvent, ces messages fournissent des indices essentiels sur les causes d'erreurs.
+    PS C:\> Get-AzureLocation | Where-Object Name -eq "Microsoft.Compute/virtualMachines" | Format-Table Name, LocationsString -Wrap
 
-- **Vos informations d'identification Azure n'ont pas été configurées ou ont expiré** : pour actualiser les informations d'identification dans votre session d'interface de ligne de commande Azure, tapez `azure login`. Pour obtenir de l'aide sur les erreurs d'authentification, assurez-vous que vous avez [correctement configuré l'interface de ligne de commande Azure](../xplat-cli-connect.md).
+    Name                                                        LocationsString
+    ----                                                        ---------------
+    Microsoft.Compute/virtualMachines                           East US, East US 2, West US, Central US, South Central US,
+                                                                North Europe, West Europe, East Asia, Southeast Asia,
+                                                                Japan East, Japan West
 
-## Prévention des erreurs dans Windows PowerShell
+### Interface de ligne de commande Azure
 
-Le module AzureResourceManager inclut des applets de commande vous permettant d'éviter les erreurs.
+Pour l’interface de ligne de commande Azure, vous pouvez utiliser **azure location list**. Étant donné que la liste des emplacements peut être longue, et qu'il existe de nombreux fournisseurs, vous pouvez utiliser des outils pour examiner les fournisseurs et les emplacements avant d'utiliser un emplacement qui n'est pas encore disponible. Le script suivant utilise **jq** pour détecter les emplacements où le fournisseur de ressources pour Azure Virtual Machines est disponible.
 
+    azure location list --json | jq '.[] | select(.name == "Microsoft.Compute/virtualMachines")'
+    {
+      "name": "Microsoft.Compute/virtualMachines",
+      "location": "East US,East US 2,West US,Central US,South Central US,North Europe,West Europe,East Asia,Southeast Asia,Japan East,Japan West"
+    }
 
-- **Get-AzureLocation** : cette applet de commande obtient les emplacements qui prennent en charge chaque type de ressource. Avant d'entrer un emplacement pour une ressource, utilisez cette applet de commande pour vérifier que l'emplacement est compatible avec le type de ressource concerné.
+### API REST
+        
+Pour l'API REST, voir [Obtenir des informations sur un fournisseur de ressources](https://msdn.microsoft.com/library/azure/dn790534.aspx).
 
+## Création de noms de ressources uniques
 
-- **Test-AzureResourceGroupTemplate** : testez votre modèle et paramètre de modèle avant de les utiliser. Entrez un modèle personnalisé ou de la galerie et les valeurs de paramètres du modèle que vous prévoyez d’utiliser. Cette applet de commande teste si le modèle est intrinsèquement cohérent et si la valeur que vous avez définie correspond au modèle.
-
-## Obtention d'informations permettant de résoudre des problèmes de déploiement dans Windows PowerShell
-
-- **Get-AzureResourceGroupLog** : cette applet de commande récupère les entrées du journal pour chaque déploiement du groupe de ressources. Si une erreur survient, commencez par examiner les journaux des déploiements.
-
-- **Verbose et Debug** : les applets de commande du module AzureResourceManager appellent les API REST qui effectuent la tâche effective. Pour voir les messages renvoyés par les API, définissez la variable $DebugPreference sur Continue et ajoutez le paramètre courant Verbose dans vos commandes. Souvent, ces messages fournissent des indices essentiels sur les causes d'erreurs.
-
-- **Vos informations d’identification Azure n’ont pas été configurées ou ont expiré** : pour actualiser les informations d’identification dans votre session Windows PowerShell, utilisez l’applet de commande **Add-AzureAccount**. Les informations d'identification que contient un fichier de paramètres de publication ne sont pas suffisantes pour les applets de commande du module AzureResourceManager.
+Pour certaines ressources, notamment les comptes de stockage, les serveurs de base de données et les sites web, vous devez fournir un nom de ressource qui est unique dans l'ensemble de l’environnement Azure. Il n'existe actuellement aucun moyen de tester si un nom est unique. Nous suggérons d'utiliser une convention d'affectation de noms qui ne risque pas d'être utilisée par d'autres organisations.
 
 ## Problèmes liés à l’authentification, aux abonnements, aux rôles et aux quotas
 
@@ -231,34 +263,29 @@ Si vous essayez de déployer un modèle créant plus de 4 cœurs dans l’Ouest
 
 Dans ce cas, vous devez accéder au portail et signaler un problème de support afin d’augmenter votre quota pour la région vers laquelle vous souhaitez procéder au déploiement.
 
-> [AZURE.NOTE] N’oubliez pas que pour les groupes de ressources, le quota est défini pour chaque région, pas pour tout l’abonnement. Si vous devez déployer 30 cœurs dans l’Ouest des États-Unis, vous devez demander 30 cœurs Resource Manager dans l’Ouest des États-Unis. Si vous devez déployer 30 cœurs dans l’une des régions auxquelles vous avez accès, vous devez demander 30 cœurs Resource Manager dans toutes les régions.
-<!-- -->
-Concrètement, vous pouvez par exemple vérifier les régions pour lesquelles vous devez demander le quota approprié à l’aide de la commande suivante, qui est dirigée vers **jq** pour l’analyse json.
-<!-- -->
-        azure provider show Microsoft.Compute --json | jq '.resourceTypes[] | select(.name == "virtualMachines") | { name,apiVersions, locations}'
-        {
-          "name": "virtualMachines",
-          "apiVersions": [
-            "2015-05-01-preview",
-            "2014-12-01-preview"
-          ],
-          "locations": [
-            "East US",
-            "West US",
-            "West Europe",
-            "East Asia",
-            "Southeast Asia"
-          ]
-        }
+> [AZURE.NOTE]N’oubliez pas que pour les groupes de ressources, le quota est défini pour chaque région, pas pour tout l’abonnement. Si vous devez déployer 30 cœurs dans l’Ouest des États-Unis, vous devez demander 30 cœurs Resource Manager dans l’Ouest des États-Unis. Si vous devez déployer 30 cœurs dans l’une des régions auxquelles vous avez accès, vous devez demander 30 cœurs Resource Manager dans toutes les régions. <!-- --> Concrètement, vous pouvez par exemple vérifier les régions pour lesquelles vous devez demander le quota approprié à l’aide de la commande suivante, qui est dirigée vers **jq** pour l’analyse json. <!-- --> azure provider show Microsoft.Compute --json | jq ’.resourceTypes | select(.name == "virtualMachines") | { name,apiVersions, locations}’ { "name": "virtualMachines", "apiVersions": [ "2015-05-01-preview", "2014-12-01-preview" ], "locations": [ "East US", "West US", "West Europe", "East Asia", "Southeast Asia" ] }
 
 
-## Interface de ligne de commande Azure et problèmes liés au mode PowerShell
-
-Il peut arriver que des ressources Azure déployées avec l’API de gestion des services ou le portail classique ne soient pas visibles à l’aide de l’API Resource Manager ou du portail Azure. Il est important de gérer les ressources en utilisant la même API Resource Manager ou le même portail que ceux utilisés pour les créer. Si une ressource a disparu, vérifiez si elle est disponible en utilisant l'autre API de gestion ou l'autre portail.
-
-## Problèmes d’inscription du fournisseur de ressources Azure
+## Vérification de l’inscription du fournisseur de ressources
 
 Les ressources sont gérées par les fournisseurs de ressources, et un compte ou un abonnement peut être activé pour utiliser un fournisseur particulier. Si vous êtes configuré pour utiliser un fournisseur, il doit également être enregistré pour être utilisé. La plupart des fournisseurs sont enregistrés automatiquement par le portail Azure ou l’interface de ligne de commande que vous utilisez, mais pas tous.
+
+### PowerShell
+
+Pour obtenir une liste de fournisseurs de ressources et l'état de votre inscription, utilisez **Get-AzureProvider**.
+
+    PS C:\> Get-AzureProvider
+
+    ProviderNamespace                       RegistrationState                       ResourceTypes
+    -----------------                       -----------------                       -------------
+    Microsoft.AppService                    Registered                              {apiapps, appIdentities, gateways, d...
+    Microsoft.Batch                         Registered                              {batchAccounts}
+    microsoft.cache                         Registered                              {Redis, checkNameAvailability, opera...
+    ...
+
+Pour vous inscrire auprès d’un fournisseur, utilisez **Register-AzureProvider**.
+
+### Interface de ligne de commande Azure
 
 Pour voir si le fournisseur est enregistré pour être utilisé à l'aide de l'interface de ligne de commande Azure, utilisez la commande `azure provider list` (l'exemple de sortie ci-dessous est tronqué).
 
@@ -307,8 +334,14 @@ Là encore, si vous souhaitez plus d’informations sur les fournisseurs, y comp
           "registrationState": "Registered"
         }
 
-
 Si un fournisseur doit être enregistré, utilisez la commande `azure provider register <namespace>`, où la valeur *namespace* provient de la liste précédente.
+
+### API REST
+
+Pour afficher l'état de l'inscription, consultez [Get information about a resource provider](https://msdn.microsoft.com/library/azure/dn790534.aspx).
+
+Pour s’inscrire auprès d’un fournisseur, consultez [Register a subscription with a resource provider](https://msdn.microsoft.com/library/azure/dn790548.aspx).
+
 
 ## Présentation des raisons d’un déploiement réussi pour des modèles personnalisés
 
@@ -318,76 +351,21 @@ Toutefois, cela ne signifie pas nécessairement que votre groupe de ressources e
 
 Vous pouvez toutefois empêcher Azure de signaler la réussite d'un déploiement en créant un script personnalisé pour votre modèle personnalisé (à l'aide de l'extension [CustomScriptExtension](http://azure.microsoft.com/blog/2014/08/20/automate-linux-vm-customization-tasks-using-customscript-extension/), par exemple) qui sait comment détecter la disponibilité pour tout le système par une surveillance de l'ensemble du déploiement et qui se termine correctement uniquement lorsque les utilisateurs peuvent interagir avec la totalité du déploiement. Si vous voulez vous assurer que votre extension est la dernière à s'exécuter, utilisez la propriété **dependsOn** dans votre modèle. Un exemple est illustré [ici](https://msdn.microsoft.com/library/azure/dn790564.aspx).
 
-## Fusion de modèles
+## Outils utiles pour interagir avec Azure
+Lorsque vous travaillez avec vos ressources Azure à partir de la ligne de commande, vous collectez les outils qui vous aideront à exécuter votre tâche. Les modèles de groupe de ressources Azure sont des documents JSON, et l’API Azure Resource Manager accepte et retourne des données en JSON. Par conséquent, les outils d’analyse JSON sont l’un des premiers éléments que vous utiliserez pour parcourir des informations relatives à vos ressources, ainsi que pour concevoir des modèles et fichiers de paramètres de modèle ou interagir avec ces modèles et fichiers.
 
-Vous devrez peut-être parfois fusionner deux modèles, ou lancer un modèle enfant à partir d’un parent. Pour ce faire, vous pouvez utiliser une ressource de déploiement dans le modèle principal pour déployer un modèle enfant.
+### Outils Mac, Linux et Windows
+Si vous utilisez l’interface de ligne de commande Azure pour Mac, Linux et Windows, vous êtes probablement familiarisé avec les outils de téléchargement standard tels que **[curl](http://curl.haxx.se/)** et **[wget](https://www.gnu.org/software/wget/)**, ou **[Resty](https://github.com/beders/Resty)**, et les utilitaires JSON tels que **[jq](http://stedolan.github.io/jq/download/)**, **[jsawk](https://github.com/micha/jsawk)**, et les bibliothèques de langue qui gèrent bien JSON. (Beaucoup de ces outils disposent également de ports pour Windows, tels que [wget](http://gnuwin32.sourceforge.net/packages/wget.htm) ; en fait, il existe plusieurs manières d’obtenir des outils Linux et d’autres outils logiciels open source fonctionnant également sur Windows.)
 
+Cette rubrique inclut certaines commandes d'interface de ligne de commande Azure que vous pouvez utiliser avec **jq** pour obtenir précisément les informations souhaitées avec plus d'efficacité. Vous devez choisir l’ensemble d’outils que vous maîtrisez pour mieux comprendre l’utilisation des ressources Azure.
 
-    {
-            "name": "instance01",
-            "type": "Microsoft.Resources/deployments",
-            "apiVersion": "2015-01-01",
-            "properties": {
-                "mode": "Incremental",
-                "templateLink": {
-                    "uri": "https://mystore.blob.windows.net/azurermtemplates/my-child-template.json",
-                    "contentVersion": "1.0.0.0"
-                },
-                "parameters": {
-                    "storageAccountName": { "value": "[variables('stgAcctName1')]" },
-                    "adminUsername": { "value": "[parameters('adminUsername')]" },
-                    "adminPassword": { "value": "[parameters('adminPassword')]" }
-                }
-            }
-    }
+### PowerShell
 
+PowerShell possède plusieurs commandes de base permettant d'effectuer les mêmes procédures.
 
-## Croisement de groupes de ressources
+- Utilisez l'applet de commande **[Invoke-WebRequest](https://technet.microsoft.com/library/hh849901%28v=wps.640%29)** pour télécharger des fichiers tels que des modèles de groupe de ressources ou des fichiers JSON de paramètres.
+- Utilisez l'applet de commande **[ConvertFrom-Json](https://technet.microsoft.com/library/hh849898%28v=wps.640%29.aspx)** pour convertir une chaîne JSON en un objet personnalisé ([PSCustomObject](https://msdn.microsoft.com/library/windows/desktop/system.management.automation.pscustomobject%28v=vs.85%29.aspx)) qui possède une propriété pour chaque champ de la chaîne JSON.
 
-Souvent, vous voudrez utiliser une ressource se trouvant hors du groupe de ressources actuel dans lequel un modèle est déployé. Le scénario le plus courant pour ce comportement consiste à utiliser un compte de stockage ou un réseau virtuel se trouvant dans un autre groupe de ressources. Cela est souvent nécessaire pour que la suppression du groupe de ressources contenant les machines virtuelles n’entraîne pas la suppression des objets blob VHD ou d’un réseau virtuel utilisé par plusieurs groupes de ressources. L’exemple suivant montre comment une ressource d’un groupe de ressources externe peut être utilisée :
-
-
-    {
-      "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json",
-      "contentVersion": "1.0.0.0",
-      "parameters": {
-          "virtualNetworkName": {
-              "type": "string"
-          },
-          "virtualNetworkResourceGroup": {
-              "type": "string"
-          },
-          "subnet1Name": {
-              "type": "string"
-          },
-          "nicName": {
-              "type": "string"
-          }
-      },
-      "variables": {
-          "vnetID": "[resourceId(parameters('virtualNetworkResourceGroup'), 'Microsoft.Network/virtualNetworks', parameters('virtualNetworkName'))]",
-          "subnet1Ref": "[concat(variables('vnetID'),'/subnets/', parameters('subnet1Name'))]"
-      },
-      "resources": [
-      {
-          "apiVersion": "2015-05-01-preview",
-          "type": "Microsoft.Network/networkInterfaces",
-          "name": "[parameters('nicName')]",
-          "location": "[parameters('location')]",
-          "properties": {
-              "ipConfigurations": [{
-                  "name": "ipconfig1",
-                  "properties": {
-                      "privateIPAllocationMethod": "Dynamic",
-                      "subnet": {
-                          "id": "[variables('subnet1Ref')]"
-                      }
-                  }
-              }]
-           }
-      }]
-
-    }
 
 ## Étapes suivantes
 
@@ -397,4 +375,4 @@ Pour maîtriser la création de modèles, lisez le document [Création de modèl
 
 <!--Reference style links - using these makes the source content way more readable than using inline links-->
 
-<!----HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO4-->

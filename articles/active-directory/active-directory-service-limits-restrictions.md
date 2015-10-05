@@ -13,12 +13,12 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="identity"
-	ms.date="08/12/2015"
+	ms.date="09/21/2015"
 	ms.author="curtand"/>
 
 # Restrictions et limites du service Azure Active Directory
 
- Pour connaître l'ensemble complet des limites du service Microsoft Azure, consultez [Limites, quotas et contraintes de service de l’abonnement Azure](azure-subscription-service-limits.md).
+Pour connaître l'ensemble complet des limites du service Microsoft Azure, consultez [Limites, quotas et contraintes de service de l’abonnement Azure](azure-subscription-service-limits.md).
 
 [AZURE.INCLUDE [AAD-service-limits](../../includes/active-directory-service-limits-include.md)]
 
@@ -27,4 +27,4 @@
 - [Association des abonnements Azure avec Azure AD](active-directory-how-subscriptions-associated-directory.md)
 - [Terminologie Azure AD](active-directory-terminology.md)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO4-->

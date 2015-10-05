@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Charger une application web Java personnalisée dans Azure"
-	description="Ce didacticiel explique comment charger une application web Java personnalisée dans Azure App Service Web Apps."
-	services="app-service\web"
-	documentationCenter="java"
-	authors="rmcmurray"
-	manager="wpickett"
+	pageTitle="Charger une application web Java personnalisée dans Azure" 
+	description="Ce didacticiel explique comment charger une application web Java personnalisée dans Azure App Service Web Apps." 
+	services="app-service\web" 
+	documentationCenter="java" 
+	authors="rmcmurray" 
+	manager="wpickett" 
 	editor="jimbe"/>
 
 <tags 
-	ms.service="app-service-web"
-	ms.workload="web"
-	ms.tgt_pltfrm="na"
-	ms.devlang="Java"
-	ms.topic="article"
-	ms.date="08/31/2015"
+	ms.service="app-service-web" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="Java" 
+	ms.topic="article" 
+	ms.date="08/31/2015" 
 	ms.author="robmcm"/>
 
 # Charger une application web Java personnalisée dans Azure
@@ -106,7 +106,7 @@ Bien qu’il existe deux variantes Tomcat fournies avec App Service Web Apps, il
 Du côté de Tomcat, quelques modifications de configuration sont à effectuer. server.xml doit être modifié pour définir :
 
 -	Port d'arrêt = -1
--	Port du connecteur HTTP = {port.http}
+-	Port du connecteur HTTP = ${port.http}
 -	Adresse du connecteur HTTP = « 127.0.0.1 »
 -	Placement des connecteurs HTTPS et AJP en commentaires
 -	Le paramètre IPv4 peut également être défini dans le fichier catalina.properties, où vous pouvez ajouter `java.net.preferIPv4Stack=true`.
@@ -227,7 +227,11 @@ Il est intéressant de remarquer que la variable d'environnement JRE\_HOME est s
 
 Une fois ces changements effectués, redémarrez votre application web exécutant Liferay, puis ouvrez http://yourwebapp. Le portail Liferay est disponible depuis la racine de l’application web.
 
+## Étapes suivantes
+
 Pour plus d'informations sur Liferay, consultez la page [http://www.liferay.com](http://www.liferay.com).
+
+Pour plus d’informations sur Java, consultez le [Centre pour développeurs Java](/develop/java/).
 
 [AZURE.INCLUDE [app-service-web-whats-changed](../../includes/app-service-web-whats-changed.md)]
 
@@ -237,4 +241,4 @@ Pour plus d'informations sur Liferay, consultez la page [http://www.liferay.com]
 <!-- External Links -->
 [Azure App Service]: http://go.microsoft.com/fwlink/?LinkId=529714
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO4-->

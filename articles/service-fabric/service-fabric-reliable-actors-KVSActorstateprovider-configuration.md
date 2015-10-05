@@ -1,20 +1,20 @@
 <properties
    pageTitle="Vue d'ensemble de la configuration de KVSActorStateProvider pour les acteurs fiables Service Fabric"
-	description="En savoir plus sur la configuration des acteurs avec état Service Fabric de type « KVSActorStateProvider »"
-	services="Service-Fabric"
-	documentationCenter=".net"
-	authors="sumukhs"
-	manager="anuragg"
-	editor=""/>
+   description="En savoir plus sur la configuration des acteurs avec état Service Fabric de type « KVSActorStateProvider »"
+   services="Service-Fabric"
+   documentationCenter=".net"
+   authors="sumukhs"
+   manager="anuragg"
+   editor=""/>
 
 <tags
    ms.service="Service-Fabric"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="NA"
-	ms.date="08/26/2015"
-	ms.author="sumukhs"/>
+   ms.devlang="dotnet"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="NA"
+   ms.date="08/26/2015"
+   ms.author="sumukhs"/>
 
 # Configuration des acteurs fiables - KVSActorStateProvider
 La configuration par défaut de KVSActorStateProvider peut être changée en modifiant le fichier « settings.xml » généré dans la racine du package Visual Studio, dans le dossier « Config » de l'acteur spécifié.
@@ -27,8 +27,6 @@ Le runtime Service Fabric recherche des noms de section prédéfinis dans le fic
 Les configurations de sécurité du réplicateur sont utilisées pour sécuriser le canal de communication utilisé lors de la réplication. Cela signifie que les services ne sont pas en mesure d'afficher leur trafic de réplication mutuel, ce qui garantit que les données hautement disponibles soient également sécurisées. Par défaut, une section de configuration de sécurité vide ne permet pas de sécuriser la réplication.
 ### Nom de la section
 &lt;ActorName&gt;ServiceReplicatorSecurityConfig
-### Nom des configurations
-Reportez-vous à la section [Sécurité de la réplication](../service-fabric/service-fabric-replication-security.md)
 
 ## Configuration du réplicateur
 Les configurations de réplicateur servent à configurer le réplicateur responsable de la haute fiabilité de l'état du fournisseur d'état d'acteur. La configuration par défaut est générée par le modèle Visual Studio et doit être suffisante. Cette section décrit les configurations supplémentaires disponibles pour paramétrer le réplicateur.
@@ -82,6 +80,5 @@ Les configurations de magasin permettent de configurer le magasin local utilisé
 ## Remarques
 
 BatchAcknowledgementInterval contrôle la latence de réplication. La valeur « 0 » entraîne la latence la plus faible possible, au détriment du débit (car davantage de messages d'accusé de réception doivent être envoyés et traités, chacun contenant moins d'accusés de réception). Plus la valeur de BatchAcknowledgementInterval est élevée, plus le débit de réplication général est élevé, au détriment d'une plus grande latence de l'opération. Cela se traduit directement par une latence dans la validation des transactions.
- 
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

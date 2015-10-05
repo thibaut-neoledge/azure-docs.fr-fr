@@ -28,8 +28,8 @@ Dans cette rubrique :
 ## <a name="cloudservice"></a>Activation du débogage distant pour les services cloud
 
 1. Dans l'agent de build, configurez l'environnement de départ pour Azure comme expliqué à la page [Génération en mode ligne de commande pour Azure](http://msdn.microsoft.com/library/hh535755.aspx).
-2. L'exécution du débogage distant (msvsmon.exe) étant nécessaire pour ce package, installez les [Outils de contrôle à distance pour Visual Studio 2015 RC](http://www.microsoft.com/download/details.aspx?id=46874) (ou les [Outils de contrôle à distance pour Visual Studio 2013 Update 5 RC](https://www.microsoft.com/fr-fr/download/details.aspx?id=46870) si vous utilisez Visual Studio 2013). Une autre méthode consiste à copier les fichiers binaires de débogage distant à partir d'un système sur lequel Visual Studio est installé.
-3. Créez un certificat en suivant les instructions à la page [Créer un certificat de service pour Azure](http://msdn.microsoft.com/library/azure/gg432987.aspx). Conservez l'empreinte numérique de certificat .pfx et RDP et téléchargez le certificat sur le service cloud cible.
+2. L'exécution du débogage distant (msvsmon.exe) étant nécessaire pour ce package, installez les [Outils de contrôle à distance pour Visual Studio 2015 RC](http://www.microsoft.com/download/details.aspx?id=46874) (ou les [Outils de contrôle à distance pour Visual Studio 2013 Update 5 RC](https://www.microsoft.com/FR-FR/download/details.aspx?id=46870) si vous utilisez Visual Studio 2013). Une autre méthode consiste à copier les fichiers binaires de débogage distant à partir d'un système sur lequel Visual Studio est installé.
+3. Créez un certificat en suivant les instructions à la page [Créer un certificat de service pour Azure](cloud-services-certs-create.md). Conservez l'empreinte numérique de certificat .pfx et RDP et téléchargez le certificat sur le service cloud cible.
 4. Utilisez les options suivantes dans la ligne de commande MSBuild pour générer et créer des packages en activant le débogage distant. (Remplacez les chemins d'accès réels de votre système et de vos fichiers de projet pour les éléments entre crochets.)
 
 		msbuild /TARGET:PUBLISH /PROPERTY:Configuration=Debug;EnableRemoteDebugger=true;VSX64RemoteDebuggerPath="<remote tools path>";RemoteDebuggerConnectorCertificateThumbprint="<thumbprint of the certificate added to the cloud service>";RemoteDebuggerConnectorVersion="2.6" "<path to your VS solution file>"
@@ -43,7 +43,7 @@ Dans cette rubrique :
 
 1. Créez une machine virtuelle Azure. Consultez [Création d'une machine virtuelle exécutant Windows Server](../virtual-machines-windows-tutorial.md) ou [Création de machines virtuelles Azure dans Visual Studio](http://msdn.microsoft.com/library/azure/dn569263.aspx).
 2. Sur la [page du portail Azure](http://go.microsoft.com/fwlink/p/?LinkID=269851), affichez le tableau de bord de la machine virtuelle pour voir l'« empreinte numérique de certificat RDP » de la machine virtuelle. On l'utilise pour la valeur `ServerThumbprint` dans la configuration de l'extension.
-3. Créez un certificat client comme expliqué dans [Créer un certificat de service pour Azure](http://msdn.microsoft.com/library/azure/gg432987.aspx) (conservez l'empreinte numérique de certificat .pfx et RDP).
+3. Créez un certificat client comme expliqué dans [Créer un certificat de service pour Azure](cloud-services-certs-create.md) (conservez l'empreinte numérique de certificat .pfx et RDP).
 4. Installez [Azure Powershell](http://go.microsoft.com/?linkid=9811175&clcid=0x409) (version 0.7.4 ou ultérieure) à partir du Centre de téléchargement Microsoft.
 5. Exécutez le script suivant pour activer l'extension RemoteDebug. Remplacez les chemins d’accès et les données personnelles par les vôtres, notamment le nom de l'abonnement, le nom du service et l'empreinte numérique. (REMARQUE : ce script est configuré pour Visual Studio 2015 RC. Si vous utilisez Visual Studio 2013, utilisez « RemoteDebugVS2013 » pour le nom de la référence et de l'extension.)
 
@@ -93,6 +93,5 @@ Dans cette rubrique :
 	</pre>
 
 6. Importez le certificat (.pfx) sur l'ordinateur sur lequel Visual Studio et le Kit de développement logiciel (SDK) Azure pour .NET sont installés.
- 
 
-<!----HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

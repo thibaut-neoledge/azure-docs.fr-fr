@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/22/2015"
+   ms.date="09/22/2015"
    ms.author="JRJ@BigBangData.co.uk;barbkess"/>
 
 # Procédures stockées dans SQL Data Warehouse 
@@ -90,8 +90,8 @@ Pour obtenir des conseils supplémentaires en matière de développement, voir l
 [vue d’ensemble sur le développement]: sql-data-warehouse-overview-develop.md
 
 <!--MSDN references-->
-[nest level]: https://msdn.microsoft.com/fr-fr/library/ms187371.aspx
+[nest level]: https://msdn.microsoft.com/FR-FR/library/ms187371.aspx
 
 <!--Other Web references-->
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

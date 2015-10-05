@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article" 
-	ms.date="08/13/2015"
+	ms.date="09/17/2015"
 	ms.author="bwren"/>
 
 
@@ -21,9 +21,9 @@
 
 > [AZURE.SELECTOR]
 - [Graphical](automation-first-runbook-graphical.md)
-- [Textual](automation-first-runbook-textual.md)
+- [PowerShell Workflow](automation-first-runbook-textual.md)
 
-Ce didacticiel vous familiarise avec la création d’un [Runbook graphique](automation-graphical-authoring-intro.md) dans Azure Automation. Nous commencerons par un simple Runbook que nous testerons et publierons tout en expliquant comment suivre l'état de la tâche du Runbook. Puis nous modifierons le Runbook pour gérer les ressources Azure, en démarrant dans ce cas une machine virtuelle Azure. Puis nous renforcerons le Runbook en ajoutant des paramètres de Runbook et un lien conditionnel.
+Ce didacticiel vous familiarise avec la création d’un [Runbook graphique](automation-runbook-types.md#graphical-runbooks) dans Azure Automation. Nous commencerons par un simple Runbook que nous testerons et publierons tout en expliquant comment suivre l'état de la tâche du Runbook. Puis nous modifierons le Runbook pour gérer les ressources Azure, en démarrant dans ce cas une machine virtuelle Azure. Puis nous renforcerons le Runbook en ajoutant des paramètres de Runbook et un lien conditionnel.
 
 ## Composants requis
 
@@ -165,8 +165,8 @@ Nous allons maintenant modifier le Runbook afin qu'il tente de démarrer uniquem
 ## Articles connexes
 
 - [Création de graphiques dans Azure Automation](automation-graphical-authoring-intro.md)
-- [Mon premier Runbook textuel](automation-first-runbook-textual.md)
+- [Mon premier Runbook de workflow PowerShell](automation-first-runbook-textual.md)
 
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO4-->

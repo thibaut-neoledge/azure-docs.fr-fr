@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="07/21/2015"
+   ms.date="09/23/2015"
    ms.author="larryfr"/>
 
 # Développement de topologies C# pour Apache Storm sur HDInsight à l’aide des outils Hadoop pour Visual Studio
@@ -656,4 +656,4 @@ Pour plus d’informations sur l’utilisation de HDInsight, ou pour obtenir dav
 
 -	[Prise en main de HBase sur HDInsight](../hdinsight-hbase-get-started.md)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO4-->

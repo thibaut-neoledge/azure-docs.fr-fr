@@ -5,6 +5,6 @@
 | Ajouter une inscription et une connexion à une application universelle Windows (bientôt disponible) | [Ajouter une inscription et une connexion à une application web Node JS](active-directory-b2c-devquickstarts-web-node.md) | [Web Apps avec OpenID Connect](active-directory-b2c-reference-oidc.md) |
 | Ajouter une inscription et une connexion à une application de bureau Windows (bientôt disponible) | [Sécuriser une API Web .NET](active-directory-b2c-devquickstarts-api-dotnet.md) | Applications Single Page avec OpenID Connect (bientôt disponible)
 | | [Sécuriser une API web NodeJS](active-directory-b2c-devquickstarts-api-node.md) | Daemons côté serveur (bientôt disponible) |
-| | [Appeler une API web à partir d’une application web .NET](active-directory-b2c-web-api-dotnet.md) | Daemons côté serveur (bientôt disponible) |
+| | [Appeler une API web à partir d’une application web .NET](active-directory-b2c-devquickstarts-web-api-dotnet.md) | Daemons côté serveur (bientôt disponible) |
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

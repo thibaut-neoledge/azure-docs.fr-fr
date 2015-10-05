@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services" 
-   ms.date="07/14/2015"
+   ms.date="09/22/2015"
    ms.author="thmullan;jackr"/>
 
 
@@ -34,19 +34,28 @@ Toutes les connexions à la base de données SQL Microsoft Azure doivent être 
 
 ## Authentification
 
-Le terme « authentification » fait référence au processus de validation de votre identité lorsque vous vous connectez à la base de données. Actuellement, la base de données SQL prend en charge l’authentification SQL via un nom d’utilisateur et un mot de passe.
+Le terme « authentification » fait référence au processus de validation de votre identité lorsque vous vous connectez à la base de données. Une base de données SQL prend en charge deux types d’authentification :
 
-Lorsque vous avez créé un serveur logique pour votre base de données, vous avez spécifié un compte de connexion « Admin serveur », associé à un nom d’utilisateur et à un mot de passe. À l’aide de ces informations d’identification, vous pouvez vous authentifier auprès de n’importe quelle base de données sur ce serveur, en tant que propriétaire de la base de données, ou « dbo ».
+ - **l’authentification SQL**, qui utilise un nom d’utilisateur et un mot de passe :
+ - **l’authentification Azure Active Directory**, qui utilise des identités gérées par Azure Active Directory et est prise en charge pour des domaines gérés et intégrés.
 
-Toutefois, nous vous recommandons, à titre de meilleure pratique, d’utiliser un autre compte pour l’authentification de votre application. Cela vous permet de limiter les autorisations accordées à cette application et de réduire les risques d’activité malveillante, au cas où le code de votre application serait vulnérable à une attaque par injection de code SQL. La méthode recommandée consiste à créer un [utilisateur contenu](https://msdn.microsoft.com/library/ff929188), afin de permettre à votre application de se connecter directement à une base de données, via un nom d’utilisateur et un mot de passe. Vous pouvez créer un utilisateur contenu en exécutant le code T-SQL suivant, tout en étant connecté à votre base de données utilisateur avec votre connexion d’administrateur de serveur :
+Lorsque vous avez créé un serveur logique pour votre base de données, vous avez spécifié un compte de connexion « Admin serveur », associé à un nom d’utilisateur et à un mot de passe. À l’aide de ces informations d’identification, vous pouvez vous authentifier auprès de n’importe quelle base de données sur ce serveur, en tant que propriétaire de la base de données, ou « dbo ». Si vous souhaitez utiliser l’authentification Azure Active Directory, vous devez créer un autre administrateur de serveur appelé « administrateur Azure AD », autorisé à gérer les groupes et utilisateurs Active Directory Azure. Cet administrateur peut également effectuer toutes les opérations d’un administrateur de serveur ordinaire. Pour une procédure pas à pas relative à la création d’un administrateur Azure AD pour activer l’authentification Azure Active Directory, voir [Connexion à la base de données SQL avec l’authentification Azure Active Directory](sql-database-aad-authentication.md).
+
+Nous vous recommandons, au titre de meilleure pratique, d’utiliser un autre compte pour l’authentification de votre application. Cela vous permet de limiter les autorisations accordées à cette application et de réduire les risques d’activité malveillante, au cas où le code de votre application serait vulnérable à une attaque par injection de code SQL. La méthode recommandée consiste à créer un [utilisateur de base de données contenu](https://msdn.microsoft.com/library/ff929188), afin de permettre à votre application de s’authentifier directement auprès d’une base de données unique. Vous pouvez créer un utilisateur de base de données contenu utilisant une authentification SQL en exécutant la commande T-SQL suivante tout en étant connecté à votre base de données utilisateur en tant qu’administrateur de serveur :
 
 ```
-CREATE USER ApplicationUser WITH PASSWORD = 'strong_password';
+CREATE USER ApplicationUser WITH PASSWORD = 'strong_password'; -- SQL Authentication
 ```
 
-La chaîne de connexion de votre application doit indiquer ce nom d’utilisateur et ce mot de passe plutôt que les identifiants de connexion de l’administrateur de serveur pour effectuer la connexion à la base de données.
+Si vous avez créé un administrateur Azure AD, vous pouvez créer un utilisateur de base de données contenu qui utilise une authentification Azure Active Directory en exécutant la commande T-SQL suivante lorsque vous êtes connecté à votre base de données utilisateur en tant que l’administrateur Azure AD :
 
-Pour en savoir plus sur l’authentification auprès d’une base de données SQL, voir [Gestion des bases de données et des connexions dans la base de données SQL Microsoft Azure](https://msdn.microsoft.com/library/ee336235).
+```
+CREATE USER [Azure_AD_principal_name | Azure_AD_group_display_name] FROM EXTERNAL PROVIDER; -- Azure Active Directory Authentication
+```
+
+En tout cas, la chaîne de connexion de votre application doit indiquer les informations d’identification de cet utilisateur, plutôt que l’identifiant de connexion de l’administrateur de serveur, pour se connecter à la base de données.
+
+Pour en savoir plus sur l’authentification auprès d’une base de données SQL, voir [Gestion des bases de données et des connexions dans la base de données SQL Microsoft Azure](sql-database-manage-logins.md).
 
 
 ## Autorisation
@@ -98,4 +107,4 @@ Les fonctions d’audit et de suivi des événements de la base de données peuv
 Non seulement la base de données SQL Microsoft Azure propose les fonctions décrites ci-dessus ainsi que des fonctionnalités permettant à votre application à répondre à différentes exigences en matière de conformité de la sécurité, mais elle participe également à des audits réguliers. Elle est certifiée conforme avec de nombreuses normes actuelles. Pour en savoir plus, accédez au [Centre de gestion de la confidentialité Microsoft Azure](http://azure.microsoft.com/support/trust-center/), qui inclut la liste la plus à jour des [certifications de conformité de la base de données SQL](http://azure.microsoft.com/support/trust-center/services/).
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

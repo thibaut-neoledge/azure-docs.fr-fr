@@ -12,7 +12,7 @@ ms.service="virtual-machines"
  ms.topic="article"
  ms.tgt_pltfrm="vm-multiple"
  ms.workload="infrastructure-services"
- ms.date="03/10/2015"
+ ms.date="09/22/2015"
  ms.author="rasquill"/>
  
 #À propos de l'agent de machine virtuelle et des extensions
@@ -62,4 +62,4 @@ L'agent de machine virtuelle est activé dans les situations suivantes :
 
 Pour plus d'informations sur ces tâches, consultez [Ajouter, rechercher, mettre à jour et supprimer des extensions de machines virtuelles Azure](virtual-machines-extensions-install.md).
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

@@ -1,11 +1,12 @@
 <properties
-	pageTitle="Utilisation du Bureau à distance pour se connecter à une machine virtuelle Linux Microsoft Azure."
-	description="Découvrez comment installer et configurer le Bureau à distance sur une machine virtuelle Linux Microsoft Azure."
+	pageTitle="Bureau à distance sur une machine virtuelle Linux | Microsoft Azure"
+	description="Découvrez comment installer et configurer le Bureau à distance pour se connecter une machine virtuelle Linux Microsoft Azure."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="SuperScottz"
 	manager="timlt"
-	editor=""/>
+	editor=""
+	tags="azure-service-management"/>
 
 <tags
 	ms.service="virtual-machines"
@@ -17,18 +18,20 @@
 	ms.author="mingzhan"/>
 
 
-#Utilisation du Bureau à distance pour se connecter à une machine virtuelle Linux Microsoft Azure
+#Utilisation du Bureau à distance pour se connecter à une machine virtuelle Linux Microsoft Azure.
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Cet article traite de la gestion d’une ressource avec le modèle de déploiement classique.
 
 ##Vue d'ensemble
 
-RDP (Remote Desktop Protocol) étant un protocole propriétaire utilisé pour Windows, comment pouvons-nous utiliser RDP pour se connecter à distance à une machine virtuelle Linux ?
+Le protocole RDP (Remote Desktop Protocol) est un protocole propriétaire utilisé pour Windows. Comment pouvons-nous utiliser le protocole RDP pour se connecter à distance à une machine virtuelle Linux ?
 
 Ce guide vous donne la réponse ! Il vous aidera à installer et à configurer xrdp sur votre machine virtuelle Linux Microsoft Azure. Vous pourrez vous y connecter avec le Bureau à distance à partir d’un ordinateur Windows. Nous allons utiliser la machine virtuelle Linux exécutant Ubuntu ou OpenSUSE comme exemple dans ce guide.
 
 Xrdp est un serveur RDP open source, qui vous permet de connecter votre serveur Linux avec le Bureau à distance à partir d’un ordinateur Windows. Il fonctionne beaucoup mieux que VNC (Virtual Network Computing). VNC a cette tendance à la qualité « JPEG » et un comportement lent, alors que RDP est rapide et parfaitement net.
- 
 
-> [AZURE.NOTE]Vous devez déjà disposer d’une machine virtuelle Microsoft Azure exécutant Linux. Pour créer et configurer une machine virtuelle Linux, consultez le [Didacticiel sur les machines virtuelles Linux Azure](virtual-machines-linux-tutorial.md).
+
+> [AZURE.NOTE]Vous devez déjà disposer d’une machine virtuelle Microsoft Azure exécutant Linux. Pour créer et configurer une machine virtuelle Linux, voir le [Didacticiel sur les machines virtuelles Linux Azure](virtual-machines-linux-tutorial.md).
 
 
 ##Créer un point de terminaison pour le Bureau à distance
@@ -38,7 +41,7 @@ Nous allons utiliser dans ce document le point de terminaison par défaut 3389 p
 ![image](./media/virtual-machines-linux-remote-desktop/no1.png)
 
 
-Si vous ne savez pas comment configurer un point de terminaison pour votre machine virtuelle, consultez [l’aide](virtual-machines-set-up-endpoints.md).
+Si vous ne savez pas comment configurer un point de terminaison pour votre machine virtuelle, voir [l’aide](virtual-machines-set-up-endpoints.md).
 
 
 ##Installer Gnome Desktop
@@ -87,7 +90,7 @@ Installez `xfce`. Utilisez :
     #sudo apt-get install xubuntu-desktop
 
 Activez ensuite `xfce`. Utilisez :
-    
+
     #echo xfce4-session >~/.xsession
 
 Modifiez le fichier de configuration `/etc/xrdp/startwm.sh`. Utilisez :
@@ -110,12 +113,6 @@ Connectez-vous avec le `user` et le `password` de votre machine virtuelle Linux,
 
 
 ##Suivant
-Pour plus d’informations sur l’utilisation de xrdp, consultez [ce site](http://www.xrdp.org/).
+Pour plus d’informations sur l’utilisation de xrdp, voir [ici](http://www.xrdp.org/).
 
-
-
-
-
- 
-
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

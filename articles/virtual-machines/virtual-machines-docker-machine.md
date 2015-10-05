@@ -7,20 +7,21 @@
    manager="timlt"
    editor="tysonn"/>
 
-
 <tags
    ms.service="virtual-machines"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="vm-linux"
    ms.workload="infrastructure"
-   ms.date="05/25/2015"
+   ms.date="09/22/2015"
    ms.author="rasquill"/>
-
 
 # Comment utiliser docker-machine avec Azure
 
 Cette rubrique décrit l’utilisation de [Docker](https://www.docker.com/) avec [Machine](https://github.com/docker/machine) et l’[interface de ligne de commande Microsoft Azure](https://github.com/Azure/azure-xplat-cli) pour créer une machine virtuelle Microsoft Azure vous permettant de gérer rapidement et en toute simplicité les conteneurs Linux à partir d’un ordinateur exécutant Ubuntu. À fin d’illustration, le didacticiel montre comment déployer l’[image Docker Hub busybox ](https://registry.hub.docker.com/_/busybox/) et l’[image Docker Hub nginx](https://registry.hub.docker.com/_/nginx/) et configurer le conteneur pour acheminer les requêtes Web vers le conteneur nginx. (La documentation Docker **Machine** vous explique comment modifier ces instructions sur d’autres plateformes.)
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Cet article traite de la création d’une ressource avec le modèle de déploiement classique.
+
 
 Il existe certaines conditions préalables pour suivre ce didacticiel. Vous devez installer les éléments suivants :
 
@@ -39,7 +40,6 @@ Vous pouvez également créer votre **docker-machine** vous-même en suivant les
 > [AZURE.NOTE]Vous pouvez également créer un [lien symbolique](http://en.wikipedia.org/wiki/Symbolic_link) à votre version de plateforme correspondante, mais ce didacticiel utilise le fichier binaire directement pour illustrer le comportement très clairement. En conséquence, à la place de commandes telles que `docker-machine env` comme l’illustre la documentation **docker-machine**, ce didacticiel utilise `docker-machine_linux-amd64 env`. Le choix de créer un lien symbolique ou d'utiliser simplement le nom du fichier binaire vous appartient, mais si vous modifiez le nom que vous utilisez, n'oubliez pas de modifier le nom dans les instructions ci-dessous.
 
 <br />
-
 
 >  Quelle que soit la méthode choisie, vous devez appeler le fichier binaire directement sur la ligne de commande ou l'intégrer au chemin d'accès, par exemple **/usr/local/bin**. Assurez-vous qu’il est marqué comme exécutable en tapant `chmod +x` &lt;*`binaryName`*&gt; où &lt;*`binaryName`*&gt; est le nom de votre exécutable Docker Machine. Ce didacticiel utilise **docker-machine\_linux-amd64**.
 
@@ -199,7 +199,7 @@ Ouvrez votre navigateur préféré et jetez un coup d'œil.
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Étapes suivantes
-Accédez au [guide de l’utilisateur Docker](https://docs.docker.com/userguide/) et créez des applications sur Microsoft Azure. Sinon, expérimentez [**docker** et swarm](https://github.com/docker/swarm) sur Microsoft Azure\](virtual-machines-docker-swarm) et découvrez comment swarm peut être utilisé avec docker et Microsoft Azure.
+Accédez au [guide de l’utilisateur Docker](https://docs.docker.com/userguide/) et créez des applications sur Microsoft Azure. Sinon, expérimentez [**docker** et swarm](https://github.com/docker/swarm) sur Microsoft Azure](virtual-machines-docker-swarm) et découvrez comment swarm peut être utilisé avec docker et Microsoft Azure.
 
 <!--Image references-->
 [nginx]: ./media/virtual-machines-docker-machine/nginxondocker.png
@@ -213,4 +213,4 @@ Accédez au [guide de l’utilisateur Docker](https://docs.docker.com/userguide/
 [Link 3 to another azure.microsoft.com documentation topic]: ../storage-whatis-account.md
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

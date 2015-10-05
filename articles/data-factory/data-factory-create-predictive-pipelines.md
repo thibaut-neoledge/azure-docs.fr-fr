@@ -1,28 +1,30 @@
 <properties 
-	pageTitle="Data Factory - Créer des pipelines prédictifs à l’aide de Data Factory et Machine Learning | Microsoft Azure"
-	description="Describes how to create create predictive pipelines using Azuer Data Factory and Azure Machine Learning"
-	services="data-factory"
-	documentationCenter=""
-	authors="spelluru"
-	manager="jhubbard"
+	pageTitle="Data Factory - Créer des pipelines prédictifs à l’aide de Data Factory et Machine Learning | Microsoft Azure" 
+	description="Describes how to create create predictive pipelines using Azuer Data Factory and Azure Machine Learning" 
+	services="data-factory" 
+	documentationCenter="" 
+	authors="spelluru" 
+	manager="jhubbard" 
 	editor="monicar"/>
 
 <tags 
-	ms.service="data-factory"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/04/2015"
+	ms.service="data-factory" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/04/2015" 
 	ms.author="spelluru"/>
 
 # Créer des pipelines prédictifs à l'aide d'Azure Data Factory et Azure Machine Learning 
 ## Vue d'ensemble
 
-Azure Data Factory vous permet de créer facilement des pipelines qui s'appuient sur un service web [Azure Machine Learning][azure-machine-learning] publié pour l'analyse prédictive. Cela vous permet d’utiliser Azure Data Factory pour orchestrer le mouvement et le traitement des données, puis d’effectuer une notation par lot à l'aide d'Azure Machine Learning. Pour ce faire, vous devez effectuer les opérations suivantes :
+> [AZURE.NOTE]Pour en savoir plus sur la nouvelle activité d’exécution par lots de Machine Learning, qui offre plus de souplesse que l’activité de notation par lot couverte par cet article, voir l’article [Créer des pipelines prédictifs à l’aide de l’activité Azure Machine Learning Batch Execution](data-factory-azure-ml-batch-execution-activity.md).
+
+Azure Data Factory permet de créer facilement des pipelines qui s’appuient sur un service web [Azure Machine Learning][azure-machine-learning] publié pour l’analyse prédictive. Cela vous permet d’utiliser Azure Data Factory pour orchestrer le mouvement et le traitement des données, puis d’effectuer une notation par lot à l'aide d'Azure Machine Learning. Pour ce faire, vous devez effectuer les opérations suivantes :
 
 1. Utilisez l’activité **AzureMLBatchScoring**.
-2. **URI de demande** pour l’API d’exécution de lot. Vous trouverez l'URI de demande en cliquant sur le lien **BATCH EXECUTION** dans la page des services web (voir ci-dessous).
+2. **URI de demande** pour l’API d’exécution de lot. Pour trouver l’URI de demande, cliquez sur le lien **BATCH EXECUTION** dans la page des services web (voir ci-dessous).
 3. **Clé API** pour le service web Azure Machine Learning publié. Vous trouverez ces informations en cliquant sur le service web que vous avez publié. 
 
 	![Tableau de bord Machine Learning][machine-learning-dashboard]
@@ -38,7 +40,7 @@ Un **pipeline prédictif** se compose des éléments suivants :
 ## Exemple
 Cet exemple utilise Azure Storage pour stocker les données d'entrée et de sortie. Vous pouvez également utiliser Azure SQL Database à la place d'Azure Storage.
 
-Nous vous recommandons de passer en revue le didacticiel [Concevez votre premier pipeline en utilisant Azure Data Factory][adf-build-1st-pipeline] avant de lire cet exemple et d’utiliser Data Factory Editor pour créer des artefacts Data Factory (services liés, tables, pipeline).
+Avant de lire cet exemple et d’utiliser Data Factory Editor pour créer des artefacts Data Factory (services liés, tables, pipeline), vous vous recommandons de passer en revue le didacticiel [Concevez votre premier pipeline en utilisant Azure Data Factory][adf-build-1st-pipeline].
  
 
 1. Créez un **service lié** pour votre service **Azure Storage**. Si les fichiers d'entrée et de sortie de notation sont dans des comptes de stockage distincts, vous aurez besoin de deux services liés. Voici un exemple JSON :
@@ -53,7 +55,7 @@ Nous vous recommandons de passer en revue le didacticiel [Concevez votre premier
 		  }
 		}
 
-2. Créez la **table** d'**entrée** Azure Data Factory. Notez que contrairement à d'autres tables Data Factory, celles-ci doivent contenir les valeurs **folderPath** et **fileName**. Vous pouvez utiliser le partitionnement et provoquer l'exécution de chaque lot (chaque tranche de données) pour traiter ou produire des fichiers d'entrée et de sortie uniques. Vous aurez probablement besoin d'inclure une activité en amont pour convertir l'entrée au format de fichier CSV, et la placer dans le compte de stockage pour chaque tranche. Dans ce cas, n'incluez pas les paramètres **external** et **externalData** indiqués dans l'exemple ci-dessous. Par ailleurs, ScoringInputBlob représente la table de sortie d'une autre activité.
+2. Créez la **table** d’**entrée** Azure Data Factory. Notez que contrairement à d'autres tables Data Factory, celles-ci doivent contenir les valeurs **folderPath** et **fileName**. Vous pouvez utiliser le partitionnement et provoquer l'exécution de chaque lot (chaque tranche de données) pour traiter ou produire des fichiers d'entrée et de sortie uniques. Vous aurez probablement besoin d'inclure une activité en amont pour convertir l'entrée au format de fichier CSV, et la placer dans le compte de stockage pour chaque tranche. Dans ce cas, n’incluez pas les paramètres **external** et **externalData** indiqués dans l’exemple ci-dessous. Par ailleurs, ScoringInputBlob représente la table de sortie d’une autre activité.
 
 		{
 		  "name": "ScoringInputBlob",
@@ -132,7 +134,7 @@ Nous vous recommandons de passer en revue le didacticiel [Concevez votre premier
 		  }
 		}
 
-4. Créez un **service lié** de type **AzureMLLinkedService** en fournissant la clé API et l'URL de notation par lots du modèle.
+4. Créez un **service lié** de type **AzureMLLinkedService**, en fournissant la clé API et l’URL de notation par lot du modèle.
 		
 		{
 		  "name": "MyAzureMLLinkedService",
@@ -198,7 +200,7 @@ Vous pouvez également utiliser les [fonctions de Data Factory](https://msdn.mic
 
 	"typeProperties": {
     	"webServiceParameters": {
-    	   "Database query": "$$Text.Format('SELECT * FROM myTable WHERE timeColumn = \'{0:yyyy-MM-dd HH:mm:ss}\'', Time.AddHours(WindowStart, 0))"
+    	   "Database query": "$$Text.Format('SELECT * FROM myTable WHERE timeColumn = \\'{0:yyyy-MM-dd HH:mm:ss}\\'', Time.AddHours(WindowStart, 0))"
     	}
   	}
  
@@ -218,7 +220,7 @@ Si vous avez des paramètres de service web supplémentaires, utilisez la sectio
 Pour utiliser un lecteur SQL Azure via un pipeline Azure Data Factory, procédez comme suit :
 
 - Créez un **service lié SQL Azure**. 
-- Créez une **table** Data Factory qui utilise **AzureSqlTable**.
+- Créez une **table** Data Factory utilisant **AzureSqlTable**.
 - Définissez cette **table** Data Factory comme **entrée** pour **AzureMLBatchScoringActivity** dans le script JSON du pipeline. 
 
 
@@ -228,7 +230,7 @@ Comme pour le lecteur SQL Azure, les propriétés de l'enregistreur SQL Azure pe
 
 | Sortie/entrée | L'entrée est Azure SQL. | L'entrée est Azure Blob. |
 | ------------ | ------------------ | ------------------- |
-| La sortie est Azure SQL. | <p>Le service Data Factory utilise les informations de la chaîne de connexion du service lié INPUT pour générer les paramètres de service web avec les noms « Database server name », « Database name », « Server user account name » et « Server user account password ». Notez que vous devez utiliser ces noms par défaut pour les paramètres de service web dans Azure ML Studio.</p><p>Si le lecteur et l’enregistreur SQL Azure de votre modèle Azure ML partagent les mêmes paramètres de service web que ceux mentionnés ci-dessus, vous pouvez continuer. S’ils ne partagent pas les mêmes paramètres de service web, par exemple, si l’enregistreur SQL Azure utilise les noms de paramètre Database server name1, Database name1, Server user account name1, Server user account password1 (avec le chiffre « 1 » à la fin), vous devez transmettre les valeurs de ces paramètres de sortie du service web dans la section webServiceParameters de l’activité JSON.</p><p>Vous pouvez transmettre les valeurs des autres paramètres de service web en utilisant la section webServiceParameters de l’activité JSON.</p> | <p>Le service Data Factory utilise les informations de la chaîne de connexion du service lié de sortie pour générer les paramètres de service web avec les noms « Database server name », « Database name », « Server user account name » et « Server user account password ». Notez que vous devez utiliser ces noms par défaut pour les paramètres de service web dans Azure ML Studio.</p><p>Vous pouvez transmettre les valeurs des autres paramètres de service web à l’aide de la section webServiceParameters de l’activité JSON. <p>L’objet blob d’entrée est utilisé comme emplacement d’entrée.</p> |
+| La sortie est Azure SQL. | <p>Le service Data Factory utilise les informations de la chaîne de connexion du service lié INPUT pour générer les paramètres de service web avec les noms « Database server name », « Database name », « Server user account name » et « Server user account password ». Notez que vous devez utiliser ces noms par défaut pour les paramètres de service web dans Azure ML Studio.</p><p>Si le lecteur et l’enregistreur SQL Azure de votre modèle Azure ML partagent les mêmes paramètres de service web que ceux mentionnés ci-dessus, vous pouvez continuer. S’ils ne partagent pas les mêmes paramètres de service web, par exemple, si l’enregistreur SQL Azure utilise les noms de paramètre Database server name1, Database name1, Server user account name1, Server user account password1 (avec le chiffre « 1 » à la fin), vous devez transmettre les valeurs de ces paramètres de sortie du service web dans la section webServiceParameters de l’activité JSON.</p><p>Vous pouvez transmettre les valeurs des autres paramètres de service web en utilisant la section webServiceParameters de l’activité JSON.</p> | <p>Le service Data Factory utilise les informations de la chaîne de connexion du service lié de sortie pour générer les paramètres de service web avec les noms « Database server name », « Database name », « Server user account name » et « Server user account password ». Notez que vous devez utiliser ces noms par défaut pour les paramètres de service web dans Azure ML Studio.</p><p>Vous pouvez transmettre les valeurs des autres paramètres de service web à l’aide de la section webServiceParameters de l’activité JSON. <p>L’objet blob d’entrée est utilisé comme emplacement d’entrée.</p> |
 |La sortie est Azure Blob | Le service Data Factory utilise les informations de la chaîne de connexion du service lié INPUT pour générer les paramètres de service web avec les noms « Database server name », « Database name », « Server user account name » et « Server user account password ». Notez que vous devez utiliser ces noms par défaut pour les paramètres de service web dans Azure ML Studio. | <p>Vous devez transmettre les valeurs des paramètres de service web en utilisant la section WebServiceParameters de l’activité JSON.</p><p>Les objets blob sont utilisés comme emplacements d’entrée et de sortie.</p> |
     
 
@@ -238,7 +240,7 @@ Comme pour le lecteur SQL Azure, les propriétés de l'enregistreur SQL Azure pe
 
 #### Objet blob Azure comme source
 
-Lorsque vous utilisez le module Lecteur d'une Azure Machine Learning, vous pouvez spécifier un objet blob Azure comme entrée. Les fichiers du stockage blob Azure peuvent être les fichiers de sortie (par exemple, 000000\_0) qui sont générés par un script Pig et Hive exécuté sur HDInsight. Le module Lecteur vous permet de lire des fichiers (sans extension) en configurant la propriété **Chemin d’accès au conteneur, répertoire ou blob** du module lecteur pour pointer vers le dossier/conteneur où figurent les fichiers, comme indiqué ci-dessous. Notez que l’astérisque (*) **spécifie que tous les fichiers du dossier/conteneur (par exemple, data/aggregateddata/year=2014/month-6/*)** seront lus dans le cadre de l’expérience.
+Lorsque vous utilisez le module Lecteur d'une Azure Machine Learning, vous pouvez spécifier un objet blob Azure comme entrée. Les fichiers du stockage blob Azure peuvent être les fichiers de sortie (par exemple, 000000\_0) qui sont générés par un script Pig et Hive exécuté sur HDInsight. Le module Lecteur vous permet de lire des fichiers (sans extension) en configurant la propriété **Chemin d’accès au conteneur, au répertoire ou à l’objet blob** du module lecteur pour pointer vers le dossier/conteneur où figurent les fichiers, comme indiqué ci-dessous. Notez que l’astérisque (*) **spécifie que tous les fichiers du dossier/conteneur (par exemple, data/aggregateddata/year=2014/month-6/*)** seront lus dans le cadre de l’expérience.
 
 ![Propriétés des objets blob Azure](./media/data-factory-create-predictive-pipelines/azure-blob-properties.png)
 
@@ -313,4 +315,4 @@ Dans l'exemple JSON ci-dessus :
 
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

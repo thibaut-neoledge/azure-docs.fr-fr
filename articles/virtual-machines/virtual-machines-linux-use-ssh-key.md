@@ -1,11 +1,12 @@
 <properties 
-	pageTitle="Utilisation de SSH pour se connecter à des machines virtuelles Linux dans Azure" 
+	pageTitle="Utilisation de SSH pour se connecter à des machines virtuelles Linux | Microsoft Azure" 
 	description="Apprenez à créer et à utiliser des clés SSH avec une machine virtuelle Linux dans Azure." 
 	services="virtual-machines" 
 	documentationCenter="" 
 	authors="szarkos" 
 	manager="timlt" 
-	editor=""/>
+	editor=""
+	tags="azure-service-management,azure-resource-manager" />
 
 <tags 
 	ms.service="virtual-machines" 
@@ -17,6 +18,8 @@
 	ms.author="szark"/>
 
 #Utilisation de SSH avec Linux sur Azure
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]
 
 La version actuelle du portail de gestion Azure accepte uniquement les clés publiques SSH encapsulées dans un certificat X509. Pour générer et utiliser des clés SSH avec Azure, procédez comme suit :
 
@@ -133,7 +136,7 @@ Nombre d’utilitaires incluent `openssl` pour Windows. Voici quelques exemples�
 
 ## Création d'une clé privée pour Putty ##
 
-1. Téléchargez et installez Puttygen à partir de l’emplacement suivant : [http://www.chiark.greenend.org.uk/\~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
+1. Téléchargez et installez Puttygen à partir de l’emplacement suivant : [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
 
 2. Puttygen ne pourra peut-être pas lire la clé privée créée précédemment (`myPrivateKey.key`). Exécutez la commande suivante pour la transformer en clé privée RSA interprétable par Puttygen :
 
@@ -163,7 +166,7 @@ Nombre d’utilitaires incluent `openssl` pour Windows. Voici quelques exemples�
 
 ## Utilisation de Putty pour se connecter à une machine Linux ##
 
-1.	Téléchargez et installez putty à partir de l’emplacement suivant : [http://www.chiark.greenend.org.uk/\~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
+1.	Téléchargez et installez putty à partir de l’emplacement suivant : [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
 2.	Exécutez putty.exe
 3.	Remplissez le nom d'hôte à l'aide de l'adresse IP du portail de gestion :
 
@@ -176,4 +179,4 @@ Nombre d’utilitaires incluent `openssl` pour Windows. Voici quelques exemples�
 5.	Cliquez sur **Ouvrir** pour vous connecter à la machine virtuelle.
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

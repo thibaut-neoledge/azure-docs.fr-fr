@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="07/06/2015"
+	ms.date="09/23/2015"
 	ms.author="larryfr"/>
 
 
@@ -241,4 +241,4 @@ Pour d’autres façons d’utiliser Pig et Hive et pour en savoir plus sur l’
 
 * [Utilisation de MapReduce avec HDInsight](hdinsight-use-mapreduce.md)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO4-->

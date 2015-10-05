@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Débogage de Hadoop dans HDInsight : messages d’erreur | Microsoft Azure"
+	pageTitle="Déboguer Hadoop dans HDInsight : afficher les journaux et interpréter les messages d’erreur | Microsoft Azure"
 	description="Découvrez les messages d'erreur susceptibles de s'afficher lorsque vous administrez HDInsight au moyen de PowerShell, ainsi que la procédure de récupération."
 	services="hdinsight"
 	tags="azure-portal"
@@ -14,10 +14,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/28/2015"
+	ms.date="09/22/2015"
 	ms.author="jgao"/>
 
-# Débogage de Hadoop dans HDInsight : interprétation des messages d’erreur
+# Déboguer Hadoop dans HDInsight : afficher les journaux et interpréter les messages d’erreur
 
 Les messages d'erreur répertoriés dans cette rubrique visent à aider les utilisateurs de Hadoop dans Azure HDInsight à comprendre les conditions d'erreur auxquelles ils sont susceptibles d'être confrontés lorsqu'ils administrent le service avec Azure PowerShell et à les conseiller sur les mesures à prendre pour la récupération à la suite d'une erreur.
 
@@ -25,12 +25,40 @@ Certains de ces messages d'erreur peuvent également apparaître dans la version
 
 ![Message d'erreur de la version préliminaire du portail HDInsight][image-hdi-debugging-error-messages-portal]
 
-Les erreurs auxquelles un utilisateur peut être confronté dans Azure PowerShell ou dans la version préliminaire du portail sont répertoriées dans l'ordre alphabétique des noms dans la section [Erreurs HDInsight](#hdinsight-error-messages). Chaque erreur répertoriée est liée à une entrée de la section [Description et atténuation des erreurs](#discription-mitigation-errors) qui fournit les informations suivantes sur l'erreur :
+Dans les situations où l’erreur est spécifique à Azure HDInsight, il peut être judicieux de cerner les circonstances de l’erreur. Consultez [Codes d’erreur HDInsight](#hdi-error-codes) pour comprendre les différents codes d’erreur et comment les résoudre. Dans certaines situations, vous pouvez souhaiter accéder aux journaux Hadoop eux-mêmes. Vous pouvez le faire directement à partir du portail Azure en version préliminaire.
+
+## Afficher les journaux de travail et d’état d’intégrité du cluster
+
+* **Accéder à l’interface utilisateur Hadoop**. À partir du portail Azure en version préliminaire, cliquez sur un nom de cluster HDInsight pour ouvrir le panneau du cluster. Dans le panneau du cluster, cliquez sur **Tableau de bord**.
+
+	![Tableau de bord du cluster](./media/hdinsight-debug-jobs/hdi-debug-launch-dashboard.png)
+  
+	Quand vous y êtes invité, entrez les informations d’identification d’administrateur du cluster. Dans la Console de requête qui s’ouvre, cliquez sur **Interface utilisateur Hadoop**.
+
+	![Démarrer l’interface utilisateur Hadoop](./media/hdinsight-debug-jobs/hdi-debug-launch-dashboard-hadoop-ui.png)
+
+* **Accéder à l’interface utilisateur Yarn**. À partir du portail Azure en version préliminaire, cliquez sur un nom de cluster HDInsight pour ouvrir le panneau du cluster. Dans le panneau du cluster, cliquez sur **Tableau de bord**. Quand vous y êtes invité, entrez les informations d’identification d’administrateur du cluster. Dans la Console de requête qui s’ouvre, cliquez sur **Interface utilisateur YARN**.
+
+	Vous pouvez utiliser l’interface utilisateur YARN pour effectuer les opérations suivantes :
+
+	* **Obtenir l’état du cluster**. Dans le volet gauche, développez **Cluster**, puis cliquez sur **About**. Une série de détails sur l’état du cluster apparaissent, comme la mémoire totale allouée, les cœurs utilisés, l’état du gestionnaire de ressources de cluster ou la version du cluster.
+
+		![Tableau de bord du cluster](./media/hdinsight-debug-jobs/hdi-debug-yarn-cluster-state.png)
+
+	* **Obtenir l’état du nœud**. Dans le volet gauche, développez **Cluster**, puis cliquez sur **Nodes**. Cette opération répertorie tous les nœuds du cluster, l’adresse HTTP de chaque nœud, les ressources allouées à chaque nœud, etc.
+
+	* **Surveiller l’état du travail**. Dans le volet gauche, développez **Cluster**, puis cliquez sur **Applications** pour répertorier tous les travaux dans le cluster. Si vous souhaitez examiner les travaux dans un état spécifique (comme nouveau, envoyé, en cours d’exécution, etc.), cliquez sur le lien approprié sous **Applications**. Vous pouvez cliquer sur le nom du travail pour obtenir des informations supplémentaires sur celui-ci, relatives par exemple à la sortie ou aux journaux.
+
+* **Accéder à l’interface utilisateur HBase**. À partir du portail Azure en version préliminaire, cliquez sur un nom de cluster HDInsight HBase pour ouvrir le panneau du cluster. Dans le panneau du cluster, cliquez sur **Tableau de bord**. Quand vous y êtes invité, entrez les informations d’identification d’administrateur du cluster. Dans la Console de requête qui s’ouvre, cliquez sur **Interface utilisateur HBase**.
+
+## <a id="hdi-error-codes"></a>Codes d’erreur HDInsight
+
+Les erreurs qu’un utilisateur peut rencontrer dans Azure PowerShell ou sur le portail en version préliminaire sont répertoriées par ordre alphabétique ci-après. Les erreurs sont reprises dans une entrée de la section [Description et atténuation des erreurs](#discription-mitigation-errors), qui fournit les informations suivantes au sujet de l’erreur :
 
 - **Description** : message d’erreur visible par les utilisateurs
 - **Atténuation** : mesures à prendre pour la récupération à la suite de l’erreur
 
-###Codes d’erreur HDInsight
+
 
 - [AtleastOneSqlMetastoreMustBeProvided](#AtleastOneSqlMetastoreMustBeProvided)
 - [AzureRegionNotSupported](#AzureRegionNotSupported)
@@ -242,11 +270,11 @@ Les erreurs auxquelles un utilisateur peut être confronté dans Azure PowerShel
 
 ### <a id="UnableToResolveDNS"></a>UnableToResolveDNS
 - **Description** : impossible de résoudre le DNS *URL\_DNS*. Veillez à fournir l'URL complète du point de terminaison d'objet blob.  
-- **Atténuation** : fournissez une URL d’objet blob correcte. L'URL DOIT être entièrement correcte et doit notamment commencer par **http://* et se terminer par *.com*.
+- **Atténuation** : fournissez une URL d’objet blob correcte. L’URL DOIT être entièrement correcte et doit notamment commencer par **http://* et se terminer par *.com*.
 
 ### <a id="UnableToVerifyLocationOfResource"></a>UnableToVerifyLocationOfResource
 - **Description** : impossible de vérifier l’emplacement de la ressource *URL\_DNS*. Veillez à fournir l'URL complète du point de terminaison d'objet blob.  
-- **Atténuation** : fournissez une URL d’objet blob correcte. L'URL DOIT être entièrement correcte et doit notamment commencer par **http://* et se terminer par *.com*.
+- **Atténuation** : fournissez une URL d’objet blob correcte. L’URL DOIT être entièrement correcte et doit notamment commencer par **http://* et se terminer par *.com*.
 
 ### <a id="VersionCapabilityNotAvailable"></a>VersionCapabilityNotAvailable
 - **Description** : capacité de version non disponible pour la version *version\_spécifiée* et l’ID d’abonnement *ID\_abonnement*.  
@@ -266,10 +294,10 @@ Les erreurs auxquelles un utilisateur peut être confronté dans Azure PowerShel
 
 ## <a id="resources"></a>Autres ressources de débogage
 
-* [Documentation du Kit de développement logiciel (SDK) Azure HDInsight][hdinsight-sdk-documentation]
+* [Documentation du Kit de développement logiciel (SDK) Azure HDInsight][hdinsight-sdk-documentation]
 
 [hdinsight-sdk-documentation]: http://msdnstage.redmond.corp.microsoft.com/library/dn479185.aspx
 
 [image-hdi-debugging-error-messages-portal]: ./media/hdinsight-debug-jobs/hdi-debug-errormessages-portal.png
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO4-->

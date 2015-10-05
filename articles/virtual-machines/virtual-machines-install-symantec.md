@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Installation et configuration de Symantec Endpoint Protection sur une machine virtuelle Azure"
-	description="Décrit l’installation et la configuration de l’extension de sécurité Symantec Endpoint Protection sur une machine virtuelle, nouvelle ou existante, dans Azure"
+	pageTitle="Installation de Symantec Endpoint Protection sur une machine virtuelle | Microsoft Azure"
+	description="Découvrez comment installer et configurer l'extension de sécurité Symantec Endpoint Protection sur une machine virtuelle Azure nouvelle ou existante, créée avec le modèle de déploiement classique."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="dsk-2015"
@@ -19,7 +19,9 @@
 
 # Installation et configuration de Symantec Endpoint Protection sur une machine virtuelle Azure
 
-Cet article décrit comment installer et configurer le client Symantec Endpoint Protection sur une machine virtuelle nouvelle ou existante exécutant Windows Server. Il s'agit du client complet, qui inclut des services tels qu'une protection antivirus et anti-programmes espions, un pare-feu et une prévention contre les intrusions. Notez que cet article fait référence aux machines virtuelles créées à l'aide du modèle de déploiement classique.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Cet article traite de l'installation d'applications sur une machine virtuelle créée avec le modèle de déploiement classique.
+
+Cet article décrit comment installer et configurer le client Symantec Endpoint Protection sur une machine virtuelle nouvelle ou existante exécutant Windows Server. Il s'agit du client complet, qui inclut des services tels qu'une protection antivirus et anti-programmes espions, un pare-feu et une prévention contre les intrusions.
 
 Le client est installé sous forme d'extension de sécurité en utilisant l'agent de machine virtuelle. Sur une nouvelle machine virtuelle, vous devez installer l'agent en même temps que le client du point de terminaison. Sur une machine virtuelle existante sans l'agent, vous devez d'abord télécharger et installer l'agent. Cet article aborde ces deux situations.
 
@@ -46,7 +48,7 @@ Pour des instructions générales, consultez le didacticiel [Création d'une mac
 
 Avant de débuter, vous avez besoin des éléments suivants :
 
-- Le module Azure PowerShell, version 0.8.2 ou ultérieure, installé sur votre poste de travail. Vous pouvez vérifier la version d’Azure PowerShell installée à l’aide de la commande **Get-Module azure | format-table version**. Pour des instructions et un lien vers la dernière version, consultez la rubrique [Installation et configuration d'Azure PowerShell][PS]. Veillez à vous connecter à votre abonnement Azure.
+- Le module Azure PowerShell, version 0.8.2 ou ultérieure, installé sur votre poste de travail. Vous pouvez vérifier la version de Microsoft Azure PowerShell installée à l’aide de la commande **Get-Module azure | format-table version**. Pour des instructions et un lien vers la dernière version, consultez la rubrique [Installation et configuration d'Azure PowerShell][PS]. Veillez à vous connecter à votre abonnement Azure.
 
 - L’agent de machine virtuelle exécuté sur la machine virtuelle Azure.
 
@@ -95,4 +97,4 @@ Pour vérifier que l’extension de sécurité Symantec a été installée et es
 
 [Ext]: http://go.microsoft.com/fwlink/p/?linkid=390493
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO4-->

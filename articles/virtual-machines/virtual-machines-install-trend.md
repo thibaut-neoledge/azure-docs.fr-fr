@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Installation et configuration de Trend Micro Deep Security comme service sur une machine virtuelle Azure | Microsoft Azure"
-	description="Cet article décrit comment installer et configurerla sécurité Trend Micro sur une machine virtuelle dans Microsoft Azure."
+	pageTitle="Installer Trend Micro Deep Security sur une machine virtuelle | Microsoft Azure"
+	description="Cet article décrit comment installer et configurer la sécurité Trend Micro sur une machine virtuelle créée avec le modèle de déploiement classique dans Azure."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="dsk-2015"
@@ -20,7 +20,9 @@
 
 # Installation et configuration de Trend Micro Deep Security comme service sur une machine virtuelle Azure
 
-Cet article décrit comment installer et configurer Trend Micro Deep Security comme service sur une machine virtuelle nouvelle ou existante exécutant Windows Server. Deep Security inclut une protection anti-programmes malveillants, un pare-feu, un système de prévention contre les intrusions et une surveillance de l’intégrité. Notez que cet article fait référence aux machines virtuelles créées à l’aide du modèle de déploiement classique.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Cet article traite de l'installation d'applications sur une machine virtuelle créée avec le modèle de déploiement classique.
+
+Cet article décrit comment installer et configurer Trend Micro Deep Security comme service sur une machine virtuelle nouvelle ou existante exécutant Windows Server. Deep Security inclut une protection anti-programmes malveillants, un pare-feu, un système de prévention contre les intrusions et une surveillance de l’intégrité.
 
 Le client est installé sous forme d’extension de sécurité via l’agent de machine virtuelle. Sur une nouvelle machine virtuelle, vous devez installer l'agent de machine virtuelle en même temps que l'agent Deep Security. Sur une machine virtuelle existante sans l'agent, vous devez d'abord télécharger et installer l'agent. Cet article aborde ces deux situations.
 
@@ -28,11 +30,11 @@ Si vous disposez d’un abonnement Trend Micro pour une solution locale, vous po
 
 ## Installation de l’agent Deep Security sur une nouvelle machine virtuelle
 
-Le [portail Azure](http://manage.windowsazure.com) vous permet d’installer l’agent de machine virtuelle et l’extension de sécurité Trend Micro lors de l’utilisation de l’option **À partir de la gallerie** pour créer la machine virtuelle. Il s’agit d’une méthode simple pour ajouter une protection Trend Micro en cas de création d’une seule machine virtuelle.
+Le [portail Azure](http://manage.windowsazure.com) vous permet d’installer l’agent de machine virtuelle et l’extension de sécurité Trend Micro lors de l’utilisation de l’option **À partir de la galerie** pour créer la machine virtuelle. Il s’agit d’une méthode simple pour ajouter une protection Trend Micro en cas de création d’une seule machine virtuelle.
 
 L'option **À partir de la galerie** ouvre un Assistant qui vous aide à configurer la machine virtuelle. Utilisez la dernière page de l’Assistant pour installer l’agent de machine virtuelle et l’extension de sécurité Trend Micro. Pour des instructions générales, consultez la page [Création d’une machine virtuelle exécutant Windows dans le portail Azure](virtual-machines-windows-tutorial-classic-portal.md). Lorsque vous atteignez la dernière page de l'Assistant, procédez comme suit :
 
-1.	Sous **Agent de machine virtuelle**, vérifiez **Installer l’agent de machine virtuelle**.
+1.	Sous **Agent de machine virtuelle**, cochez **Installer l’agent de machine virtuelle**.
 
 2.	Sous **Extensions de sécurité**, cochez **Trend Micro Deep Security Agent**.
 
@@ -84,4 +86,4 @@ Quelques minutes sont nécessaires avant que l'exécution de l'agent ne démarre
 [Connexion à une machine virtuelle exécutant Windows Server]: virtual-machines-log-on-windows-server.md
 [Fonctionnalités et extensions de machine virtuelle Azure]: http://go.microsoft.com/fwlink/p/?linkid=390493&clcid=0x409
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

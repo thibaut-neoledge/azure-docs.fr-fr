@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Création d’une machine virtuelle pour un projet web avec Visual Studio"
+	pageTitle="Création d’une machine virtuelle pour un projet web avec Visual Studio | Microsoft Azure"
 	description="Création d’une machine virtuelle pour un site web"
 	services="virtual-machines"
 	documentationCenter=""
@@ -68,4 +68,4 @@ Si vous souhaitez personnaliser les scripts publiés que vous avez créés, vous
 [4]: ./media/virtual-machines-dotnet-create-visual-studio-powershell/CreateVM_SolutionExplorer.png
 [5]: ./media/virtual-machines-dotnet-create-visual-studio-powershell/VS_Create_VM_Connect.png
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO4-->

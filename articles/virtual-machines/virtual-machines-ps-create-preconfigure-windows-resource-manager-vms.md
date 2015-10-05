@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Créer et préconfigurer  une machine virtuelle Windows avec Resource Manager et Azure PowerShell"
-	description="Découvrez comment utiliser Azure PowerShell pour créer et préconfigurer des machines virtuelles basées sur Windows et sur Resource Manager dans Azure."
+	pageTitle="Création et préconfiguration d’une machine virtuelle | Microsoft Azure"
+	description="Création et préconfiguration d’une machine virtuelle Azure avec le modèle de déploiement Resource Manager et PowerShell."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="cynthn"
@@ -19,13 +19,11 @@
 
 # Créer et préconfigurer  une machine virtuelle Windows avec Resource Manager et Azure PowerShell
 
-Ces étapes vous montrent comment construire un jeu de commandes dans le mode Resource Manager d’Azure PowerShell, qui créent et préconfigurent une machine virtuelle Azure Windows. Vous pouvez utiliser ce processus de blocs de construction pour créer un jeu de commandes pour une nouvelle machine virtuelle Windows et pour développer un déploiement existant. Vous pouvez également l’utiliser pour créer plusieurs jeux de commandes qui créent rapidement un environnement de développement/test personnalisé ou un environnement pour professionnels de l’informatique.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Cet article traite de la création de ressources avec le modèle de déploiement de Resource Manager. Vous pouvez également créer des ressources avec le [modèle de déploiement classique](virtual-machines-ps-create-preconfigure-windows-vms.md).
+
+Ces étapes vous montrent comment construire un jeu de commandes Azure PowerShell qui créent et préconfigurent une machine virtuelle Azure dans le modèle de déploiement Resource Manager. Vous pouvez utiliser ce processus de blocs de construction pour créer un jeu de commandes pour une nouvelle machine virtuelle Windows et pour développer un déploiement existant. Vous pouvez également l’utiliser pour créer plusieurs jeux de commandes qui créent rapidement un environnement de développement/test personnalisé ou un environnement pour professionnels de l’informatique.
 
 Ces étapes utilisent une méthode de cases à remplir pour créer des jeux de commandes Azure PowerShell. Cette méthode peut être utile si vous découvrez PowerShell ou simplement si vous souhaitez connaître les valeurs à indiquer pour une configuration réussie. Si vous êtes un utilisateur avancé de PowerShell, vous pouvez utiliser vous-même ces commandes, en y substituant vos propres valeurs aux variables (les lignes commençant par « $ »).
-
-[AZURE.INCLUDE [resource-manager-pointer-to-service-management](../../includes/resource-manager-pointer-to-service-management.md)]
-
-- [Utilisation d’Azure PowerShell pour créer et préconfigurer des machines virtuelles basées sur Windows](virtual-machines-ps-create-preconfigure-windows-vms.md)
 
 ## Étape 1 : installer Azure PowerShell
 
@@ -389,4 +387,4 @@ Voici le jeu de commandes Azure PowerShell correspondant pour créer cette machi
 
 [Installation et configuration d’Azure PowerShell](../install-configure-powershell.md)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

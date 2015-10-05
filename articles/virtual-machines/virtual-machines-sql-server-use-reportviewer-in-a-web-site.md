@@ -1,11 +1,12 @@
 <properties 
-	pageTitle="Utilisation de ReportViewer sur un site web hébergé dans Azure"
+	pageTitle="Utilisation de ReportViewer sur un site web | Microsoft Azure"
 	description="Cette rubrique explique comment développer un site web Microsoft Azure à l’aide du contrôle ReportViewer de Visual Studio qui affiche un rapport stocké sur une machine virtuelle Microsoft Azure."
 	services="virtual-machines"
 	documentationCenter="na"
 	authors="rothja"
 	manager="jeffreyg"
-	editor="monicar"/>
+	editor="monicar" 
+	tags="azure-service-management" />
 <tags 
 	ms.service="virtual-machines"
 	ms.devlang="na"
@@ -13,9 +14,11 @@
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
 	ms.date="08/19/2015"
-	ms.author="jroth"/>
+	ms.author="jroth" />
 
 # Utilisation de ReportViewer sur un site web hébergé dans Azure
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Cet article traite de la création d’une ressource avec le modèle de déploiement classique.
 
 Vous pouvez créer un site web Microsoft Azure à l’aide du contrôle Visual Studio ReportViewer qui affiche un rapport stocké sur une machine virtuelle Microsoft Azure. Le contrôle ReportViewer se trouve dans une application web que vous créez à l’aide du modèle d’application web ASP.NET.
 
@@ -81,7 +84,7 @@ En mode de traitement à distance, le contrôle ReportViewer utilise les assembl
 
 1. Créez le dossier <language> dans le projet, puis copiez les fichiers d’assembly de ressources associés dans celui-ci. Les fichiers d’assembly de ressources à copier sont les suivants : **Microsoft.ReportViewer.Webforms.Resources.dll** et **Microsoft.ReportViewer.Common.Resources.dll**. Sélectionnez les fichiers d’assembly de ressources, puis, dans le volet Propriétés, affectez la valeur **Toujours copier** à **Copier dans le répertoire de sortie**.
 
-1. Définissez la culture et la culture de l’interface utilisateur pour le projet web. Pour plus d’informations sur la définition de la culture et de la culture d’interface utilisateur pour une page web ASP.NET, consultez la page [Définition de la culture et de la culture d’interface utilisateur pour la globalisation de page web ASP.NET](http://go.microsoft.com/fwlink/?LinkId=237461).
+1. Définissez la culture et la culture de l’interface utilisateur pour le projet web. Pour plus d’informations sur la définition de la culture et de la culture d’interface utilisateur pour une page web ASP.NET, voir [Définition de la culture et de la culture d’interface utilisateur pour la globalisation de page web ASP.NET](http://go.microsoft.com/fwlink/?LinkId=237461).
 
 ## Configuration de l’authentification et de l’autorisation
 
@@ -89,7 +92,7 @@ ReportViewer doit utiliser les informations d’identification appropriées pour
 
 ## Publier l’application web ASP.NET sur Azure
 
-Pour obtenir des instructions sur la publication d’une application web ASP.NET sur Azure, consultez la page [Procédure : Migration et publication d’une application web vers un Service Cloud Azure depuis Visual Studio](https://msdn.microsoft.com/library/azure/hh420322.aspx) et [Prise en main de Web Apps et ASP.NET](../app-service-web/web-sites-dotnet-get-started.md).
+Pour obtenir des instructions sur la publication d’une application web ASP.NET sur Azure, voir [Procédure : Migration et publication d’une application web vers un Service Cloud Azure depuis Visual Studio](https://msdn.microsoft.com/library/azure/hh420322.aspx) et [Prise en main de Web Apps et ASP.NET](../app-service-web/web-sites-dotnet-get-started.md).
 
 >[AZURE.IMPORTANT]Si la commande permettant d’ajouter un projet de déploiement Azure ou d’ajouter un projet de service cloud Azure n’apparaît pas dans le menu contextuel, vous devez remplacer la version cible de .NET Framework du projet par .NET Framework 4.
 >
@@ -105,4 +108,4 @@ Pour obtenir des instructions sur la publication d’une application web ASP.NET
 
 [Contrôle de la visionneuse de rapports Reporting Services et serveurs de rapports de machine virtuelle Microsoft Azure](http://download.microsoft.com/download/2/2/0/220DE2F1-8AB3-474D-8F8B-C998F7C56B5D/Reporting%20Services%20report%20viewer%20control%20and%20Azure%20VM%20based%20report%20servers.docx)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

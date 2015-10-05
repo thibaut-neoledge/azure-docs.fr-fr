@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="07/07/2015"
+   ms.date="09/22/2015"
    ms.author="joliang"/>
 
-# Partenaires de solutions SQL Data Warehouse #
+# Partenaires de solutions SQL Data Warehouse
 
 Pour créer votre solution d’entrepôt de données de bout en bout, vous pouvez choisir parmi un large éventail d’outils performants. Cet article répertorie les entreprises partenaires qui disposent de solutions pour SQL Data Warehouse.
 
@@ -46,6 +46,7 @@ Pour créer votre solution d’entrepôt de données de bout en bout, vous pouve
 | ![Yellowfin][21] |**Yellowfin**<br>Yellowfin, figurant en tête du classement de l’étude sur le décisionnel menée par BARC (Business Application Research Center), est un fournisseur de solutions décisionnelles cloud pour la création de rapports et de tableaux de bord ad hoc. Connectez-vous à Azure SQL Data Warehouse, puis créez et partagez de remarquables rapports et tableaux de bord par le biais de fonctionnalités décisionnelles et géodécisionnelles collaboratives primées. | [En savoir plus][yellowfin_more] |
 
 ## Étapes suivantes
+
 Pour plus d’informations sur l’intégration de solutions à SQL Data Warehouse, voir [Développer des solutions intégrées avec SQL Data Warehouse][].
 
 
@@ -100,4 +101,4 @@ Pour plus d’informations sur l’intégration de solutions à SQL Data Warehou
 [targit_more]: http://www.targit.com/en/
 [yellowfin_more]: http://www.yellowfinbi.com/
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

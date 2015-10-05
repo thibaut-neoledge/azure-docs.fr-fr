@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/30/2015" 
+	ms.date="09/22/2015" 
 	ms.author="tdykstra"/>
 
 # Authentification pour les applications d'API et les applications mobiles dans Azure App Service
@@ -208,10 +208,10 @@ Cet article a décrit les services d'authentification fournis par Azure App Serv
 * [Ajout de l'authentification à votre application iOS](../app-service-mobile/app-service-mobile-dotnet-backend-ios-get-started-users-preview.md)
 * [Ajout de l'authentification à votre application Xamarin.iOS](../app-service-mobile/app-service-mobile-dotnet-backend-xamarin-ios-get-started-users-preview.md)
 * [Ajout de l'authentification à votre application Xamarin.Android](../app-service-mobile/app-service-mobile-dotnet-backend-xamarin-android-get-started-users-preview.md)
-* [Ajout de l'authentification à votre application Windows](../app-service-mobile/app-service-mobile-dotnet-backend-windows-store-get-started-users-preview.md)
+* [Ajout de l'authentification à votre application Windows](../app-service-mobile/app-service-mobile-dotnet-backend-windows-store-dotnet-get-started-users-preview.md)
 
 ### <a id="maobo"></a>Appels Mobile Apps passés vers des ressources sécurisées pour le compte d’un tiers
 
 * [Obtention d’un jeton d’accès et appel de l’API SharePoint dans une app mobile](../app-service-mobile/app-service-mobile-dotnet-backend-get-started-connect-to-enterprise.md#obtain-token)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

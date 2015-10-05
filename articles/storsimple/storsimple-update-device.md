@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="09/15/2015"
+   ms.date="09/17/2015"
    ms.author="v-sharos" />
 
 # Mettre à jour votre appareil StorSimple 8000 Series
@@ -119,4 +119,4 @@ Si un appareil est réinitialisé aux paramètres d’usine, toutes les mises à
 - En savoir plus sur [l’utilisation de Windows PowerShell pour StorSimple pour gérer votre appareil StorSimple](storsimple-windows-powershell-administration.md).
 - En savoir plus sur [l’utilisation du service StorSimple Manager pour gérer votre appareil StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

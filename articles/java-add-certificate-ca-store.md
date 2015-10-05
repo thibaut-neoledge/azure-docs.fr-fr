@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Ajout d'un certificat au magasin d'autorité de certification Java | Microsoft Azure"
-	description="Découvrez comment ajouter un certificat d'autorité de certification au magasin de certificats (cacerts) de l'autorité de certification Java pour le service Twilio ou le Azure Service Bus."
-	services=""
-	documentationCenter="java"
-	authors="rmcmurray"
-	manager="wpickett"
+	pageTitle="Ajout d'un certificat au magasin d'autorité de certification Java | Microsoft Azure" 
+	description="Découvrez comment ajouter un certificat d'autorité de certification au magasin de certificats (cacerts) de l'autorité de certification Java pour le service Twilio ou le Azure Service Bus." 
+	services="" 
+	documentationCenter="java" 
+	authors="rmcmurray" 
+	manager="wpickett" 
 	editor="jimbe"/>
 
 <tags 
-	ms.service="multiple"
-	ms.workload="na"
-	ms.tgt_pltfrm="na"
-	ms.devlang="Java"
-	ms.topic="article"
-	ms.date="08/31/2015"
+	ms.service="multiple" 
+	ms.workload="na" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="Java" 
+	ms.topic="article" 
+	ms.date="08/31/2015" 
 	ms.author="robmcm"/>
 
 # Ajout d'un certificat au magasin de certificats d'autorité de certification Java
@@ -50,6 +50,10 @@ Il se peut que le certificat Baltimore soit déjà installé dans votre magasin 
 
 Si vous devez ajouter le certificat racine Baltimore CyberTrust, son numéro de série est le 02:00:00:b9 et son empreinte digitale SHA1 est la suivante : d4:de:20:d0:5e:66:fc:53:fe:1a:50:88:2 c: 78:db:28:52:ca:e4:74. Ce dernier peut être téléchargé à partir de <https://cacert.omniroot.com/bc2025.crt>, enregistré dans un fichier local avec l'extension **.cer**, puis importé à l'aide de **keytool** comme indiqué ci-dessus.
 
+## Étapes suivantes
+
 Pour plus d'informations sur les certificats racines utilisés par Azure, consultez [Migration des certificats racines Azure](http://blogs.msdn.com/b/windowsazure/archive/2013/03/15/windows-azure-root-certificate-migration.aspx).
 
-<!---HONumber=September15_HO1-->
+Pour plus d’informations sur Java, consultez le [Centre pour développeurs Java](/develop/java/).
+
+<!---HONumber=Sept15_HO4-->

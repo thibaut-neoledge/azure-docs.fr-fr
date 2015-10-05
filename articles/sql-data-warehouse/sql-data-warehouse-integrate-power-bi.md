@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="09/09/2015"
+   ms.date="09/23/2015"
    ms.author="lodipalm"/>
 
 # Utiliser Power BI avec SQL Data Warehouse
@@ -42,11 +42,12 @@ La méthode la plus simple pour basculer entre SQL Data Warehouse et Power BI co
 ## Connexion par le biais du portail Power BI
 Outre l’utilisation du bouton Open in Power BI, les utilisateurs peuvent se connecter à leur instance SQL Data Warehouse au moyen du portail Power BI.
 
-1.   En bas du volet de navigation, cliquez sur Get Data.
-2.  Sélectionnez Big Data & More.
-3.  Sur la page Big Data & More, sélectionnez SQL Data Warehouse.
-4.  Entrez les informations de connexion nécessaires. La section « Emplacement des valeurs de paramètre » ci-dessous indique où trouver ces données.  
-5.	Vous pouvez analyser en profondeur le jeu de données afin d’explorer toutes les tables et colonnes de votre base de données. La sélection d’une colonne renverra une requête à la source, ce qui entraînera la création dynamique de votre élément visuel. Ces éléments visuels peuvent être enregistrés dans un nouveau rapport, puis ré-épinglés dans votre tableau de bord.
+1.  En bas du volet de navigation, cliquez sur « Obtenir des données ».
+2.  Sélectionnez « Bases de données ».
+3.  Une fois sur la page des bases de données, sélectionnez « Entrepôt de données SQL Azure », puis cliquez sur « Se connecter ».
+4.  Entrez les informations de connexion nécessaires. La section « Recherche de paramètres » ci-dessous indique où trouver ces données. 
+5.  Vous serez redirigé vers la page d’accueil de Power BI et, une fois que vous serez connecté, une nouvelle entrée sous « Jeu de données » s’affichera avec le nom de votre instance.  
+6.	 Vous pouvez cliquer sur le nouveau jeu de données pour explorer toutes les tables et les affichages dans votre base de données. La sélection d’une colonne renverra une requête à la source, ce qui entraînera la création dynamique de votre élément visuel. Ces éléments visuels peuvent être enregistrés dans un nouveau rapport, puis ré-épinglés dans votre tableau de bord.
 
 ## Emplacement des valeurs de paramètre
 Le nom de serveur complet et le nom de base de données sont spécifiés dans le portail Azure. Notez que pour l’instant, SQL Data Warehouse est uniquement présent dans le portail Azure en version préliminaire.
@@ -62,4 +63,4 @@ Le nom de serveur complet et le nom de base de données sont spécifiés dans le
 
 <!--Other Web references-->
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

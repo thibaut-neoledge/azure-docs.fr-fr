@@ -34,7 +34,7 @@ Dans ce didacticiel de base de données, vous allez concevoir une simple applica
 
 ![Capture d’écran de l’application My Todo List créée dans ce didacticiel Node.js](./media/documentdb-nodejs-application/image1.png)
 
-Vous n'avez pas le temps de terminer le didacticiel et vous souhaitez simplement obtenir la solution complète de GitHub ? Ce n'est pas un problème. Vous pouvez l'obtenir [ici](https://github.com/Azure/azure-documentdb-node/tree/master/tutorial/todo).
+Vous n'avez pas le temps de terminer le didacticiel et vous souhaitez simplement obtenir la solution complète ? Pas de problème, vous pouvez obtenir la solution complète de l’exemple sur [GitHub][].
 
 ## <a name="_Toc395783176"></a>Configuration requise
 
@@ -554,10 +554,13 @@ Intéressons-nous à présent à la création de l'interface utilisateur pour pe
 
 Félicitations ! Vous venez de créer votre première application web Express Node.js avec Azure DocumentDB et de la publier sur Azure Websites.
 
-Vous pouvez télécharger le code source de l'application de référence complète [ici](https://github.com/Azure/azure-documentdb-node/tree/master/tutorial/todo).
+Vous pouvez télécharger le code source de l'application de référence complète sur [GitHub][].
 
-  [Node.js]: http://nodejs.org/
-  [Git]: http://git-scm.com/
+Pour plus d'informations, consultez le [Centre pour développeurs Node.js](/develop/nodejs/).
+
+[Node.js]: http://nodejs.org/
+[Git]: http://git-scm.com/
+[Github]: https://github.com/Azure-Samples/documentdb-node-todo-app
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

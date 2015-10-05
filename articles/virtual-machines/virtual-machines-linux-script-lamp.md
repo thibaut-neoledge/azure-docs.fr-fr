@@ -1,11 +1,12 @@
 <properties
-	pageTitle="Déployer une application Linux à l'aide de l'extension CustomScript Azure"
-	description="Apprenez à utiliser l'extension CustomScript Azure pour déployer des applications sur les machines virtuelles Linux."
+	pageTitle="Utilisation de l’extension de script personnalisé sur une machine virtuelle Linux | Microsoft Azure"
+	description="Apprenez à utiliser l’extension de script personnalisé Azure pour déployer des applications sur des machines virtuelles Linux dans Azure, créées à l’aide du modèle de déploiement classique."
 	editor="tysonn"
 	manager="timlt"
 	documentationCenter=""
 	services="virtual-machines"
-	authors="gbowerman"/>
+	authors="gbowerman"
+	tags="azure-service-management"/>
 
 <tags
 	ms.service="virtual-machines"
@@ -18,15 +19,17 @@
 
 #Déployer une application LAMP à l’aide de l’extension CustomScript Azure pour Linux#
 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Cet article traite du dépannage de l’accès aux applications sur une machine virtuelle créée avec le modèle de déploiement classique.
+
 L’extension CustomScript Microsoft Azure pour Linux vous permet de personnaliser vos machines virtuelles en exécutant du code arbitraire écrit dans n’importe quel langage de script pris en charge par la machine virtuelle (par exemple Python et Bash). Cela fournit un moyen très souple pour automatiser le déploiement d'application sur plusieurs machines.
 
 Vous pouvez déployer l’extension CustomScript à l’aide du portail Azure, de Windows PowerShell ou de l’interface de ligne de commande Azure.
 
-Dans cet article, nous allons déployer une application LAMP simple sur Ubuntu à l’aide de l’interface de ligne de commande Azure.
+Dans cet article, nous allons utiliser l’interface de ligne de commande Azure pour déployer une machine virtuelle Ubuntu créée à l’aide du modèle de déploiement classique.
 
 ## Composants requis
 
-Pour l’exemple suivant, créez d’abord deux machines virtuelles Azure avec Ubuntu 14.04. Ces machines virtuelles sont appelées *script-vm* et *lamp-vm*. Utilisez des noms uniques lorsque vous créez les machines virtuelles. L’une d’elles sert à exécuter les commandes de l’interface de ligne de commande, tandis que l’autre accueille l’application LAMP déployée.
+Pour l’exemple suivant, créez d’abord deux machines virtuelles Azure exécutant Ubuntu 14.04 ou version ultérieure. Ces machines virtuelles sont appelées *script-vm* et *lamp-vm*. Utilisez des noms uniques lorsque vous créez les machines virtuelles. L’une d’elles sert à exécuter les commandes de l’interface de ligne de commande, tandis que l’autre accueille l’application LAMP déployée.
 
 Vous avez également besoin d’un compte Azure Storage et d’une clé pour accéder à celui-ci (vous pouvez l’obtenir sur le portail Azure).
 
@@ -38,11 +41,11 @@ La machine virtuelle script-vm doit disposer de l’interface de ligne de comman
 
 ## Télécharger un script
 
-Dans cet exemple, l’extension CustomScript exécute un script sur une machine virtuelle distante pour installer la pile LAMP et créer une page PHP. Pour accéder au script depuis n'importe où, nous allons le télécharger sous la forme d'un objet blob Azure.
+Nous allons utiliser l’extension de script personnalisé pour exécuter un script sur une machine virtuelle distante pour installer la pile LAMP et créer une page PHP. Pour accéder au script depuis n'importe où, nous allons le télécharger sous la forme d'un objet blob Azure.
 
 ### Vue d’ensemble du script
 
-L’autre exemple de script installe une pile LAMP sur Ubuntu (y compris la configuration d’une installation sans assistance de MySQL), écrit un simple fichier PHP et démarre Apache.
+L’exemple de script installe une pile LAMP sur Ubuntu (y compris la configuration d’une installation sans assistance de MySQL), écrit un simple fichier PHP et démarre Apache.
 
 	#!/bin/bash
 	# set up a silent install of MySQL
@@ -64,7 +67,7 @@ L’autre exemple de script installe une pile LAMP sur Ubuntu (y compris la conf
 
 ### Télécharger le script
 
-Enregistrez le script dans un fichier texte, par exemple *lamp\_install.sh*, puis téléchargez-le vers Azure Storage. Vous pouvez le faire facilement avec l’interface de ligne de commande Microsoft Azure. L'exemple suivant télécharge le fichier dans un conteneur de stockage nommé « scripts ». Si le conteneur n'existe pas, vous devez d'abord le créer.
+Enregistrez le script dans un fichier texte, par exemple *lamp\_install.sh*, puis chargez-le dans Azure Storage. Vous pouvez le faire facilement avec l’interface de ligne de commande Microsoft Azure. L'exemple suivant télécharge le fichier dans un conteneur de stockage nommé « scripts ». Si le conteneur n'existe pas, vous devez d'abord le créer.
 
     azure storage blob upload -a <yourStorageAccountName> -k <yourStorageKey> --container scripts ./install_lamp.sh
 
@@ -106,4 +109,4 @@ Voici quelques ressources supplémentaires pour l’interface de ligne de comman
 
 [Linux et informatique open-source sur Microsoft Azure](virtual-machines-linux-opensource.md)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

@@ -1,11 +1,11 @@
 
 <properties
 	pageTitle="Utilisation d’attributs pour créer des règles avancées | Microsoft Azure"
-	description="Procédures avancées concernant la gestion des groupes de sécurité et l’utilisation de ces groupes pour gérer l’accès à une ressource."
+	description="Procédure de création de règles avancées pour un groupe incluant des paramètres et des opérateurs de règle d’expression pris en charge."
 	services="active-directory"
 	documentationCenter=""
 	authors="femila"
-	manager="swadhwa"
+	manager="stevenpo"
 	editor=""/>
 
 <tags
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/29/2015" 
+	ms.date="09/21/2015" 
 	ms.author="femila"/>
 
 
@@ -124,7 +124,7 @@ Opérateurs autorisés
 | passwordPolicies | Aucune DisableStrongPassword DisablePasswordExpiration DisablePasswordExpiration, DisableStrongPassword | (user.passwordPolicies -eq "DisableStrongPassword") |
 | physicalDeliveryOfficeName | Toute valeur de chaîne ou $null. | (user.physicalDeliveryOfficeName -eq "value") |
 | postalCode | Toute valeur de chaîne ou $null. | (user.postalCode -eq "value") |
-| preferredLanguage | Code ISO 639-1 | (user.preferredLanguage -eq "fr-fr") |
+| preferredLanguage | Code ISO 639-1 | (user.preferredLanguage -eq "fr-FR") |
 | sipProxyAddress | Toute valeur de chaîne ou $null. | (user.sipProxyAddress -eq "value") |
 | state | Toute valeur de chaîne ou $null. | (user.state -eq "value") |
 | streetAddress | Toute valeur de chaîne ou $null. | (user.streetAddress -eq "value") |
@@ -168,4 +168,4 @@ Voici des rubriques qui fournissent des informations supplémentaires sur Azure 
 
 * [Intégration de vos identités locales avec Azure Active Directory](active-directory-aadconnect.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

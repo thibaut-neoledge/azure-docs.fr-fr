@@ -1,11 +1,12 @@
 <properties
-	pageTitle="IPython Notebook | Microsoft Azure"
-	description="Didacticiel qui explique le déploiement de l'interpréteur IPython Notebook sur Azure en utilisant des machines virtuelles Linux ou Windows."
-	services="virtual-machines"
+	pageTitle="Création d’un bloc-notes IPython | Microsoft Azure"
+	description="Découvrez comment déployer le bloc-notes IPython sur une machine virtuelle Linux ou Windows créée avec le modèle de déploiement classique dans Azure."
+	services="virtua-lmachines"
 	documentationCenter="python"
 	authors="huguesv"
 	manager="wpickett"
-	editor=""/>
+	editor=""
+	tags=“azure-service-management,azure-resource-manager"/>
 
 <tags
 	ms.service="virtual-machines"
@@ -16,8 +17,9 @@
 	ms.date="05/20/2015"
 	ms.author="huvalo"/>
 
-
 # IPython Notebook sur Azure
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Cet article traite du déploiement d’une bloc-notes sur une machine virtuelle créée avec le modèle de déploiement classique.
 
 Le [projet Python](http://ipython.org) offre un ensemble d'outils destiné au calcul scientifique qui inclut des interpréteurs de commandes interactifs et puissants, des bibliothèques parallèles haute performance et conviviales, ainsi qu'un environnement Web nommé IPython Notebook. L'interpréteur IPython Notebook offre un environnement de travail pour le calcul interactif qui associe l'exécution de code à la création d'un document de calcul dynamique. Ces fichiers de l'interpréteur contiennent du texte arbitraire, des formules mathématiques, un code d'entrée, des résultats, des graphiques, des vidéos et d'autres sortes de support qu'un navigateur Web moderne peut afficher.
 
@@ -112,7 +114,7 @@ Pour installer IPython et ses dépendances sur la machine virtuelle Windows, uti
 
 	* Vous devrez ajouter `C:\OpenSSL-Win32\bin` à votre variable d’environnement `PATH`.
 
-	> [AZURE.NOTE] Lors de l’installation d’OpenSSL, utilisez la version 1.0.1g ou ultérieure, car elle inclut un correctif pour la faille de sécurité Heartbleed.
+	> [AZURE.NOTE]Lors de l’installation d’OpenSSL, utilisez la version 1.0.1g ou ultérieure, car elle inclut un correctif pour la faille de sécurité Heartbleed.
 
 1.  Installez IPython en utilisant la commande  suivante.
 
@@ -270,4 +272,4 @@ Les fonctionnalités principales d'IPython sont également disponibles dans Visu
 [Python 2.7]: http://www.python.org/download
 [OpenSSL]: http://slproweb.com/products/Win32OpenSSL.html
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO4-->

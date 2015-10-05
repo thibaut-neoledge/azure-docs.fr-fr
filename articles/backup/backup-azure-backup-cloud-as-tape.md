@@ -6,14 +6,7 @@
    authors="Jim-Parker"
    manager="jwhit"
    editor=""/>
-<tags
-   ms.service="backup" 
-   ms.devlang="na" 
-   ms.topic="article" 
-   ms.tgt_pltfrm="na" 
-   ms.workload="storage-backup-recovery" 
-   ms.date="07/01/2015" 
-   ms.author="jimpark"; "aashishr"/>
+<tags  ms.service="backup" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="storage-backup-recovery" ms.date="09/22/2015" ms.author="jimpark"; "aashishr"; "sammehta"/>
 
 # Utilisation d’Azure Backup pour remplacer votre infrastructure sur bande
 Les clients Azure Backup et System Center Data Protection Manager peuvent effectuer les actions suivantes : - sauvegarder des données selon la planification qui convient le mieux aux besoins de leur organisation - conserver les données sauvegardées pour de plus longues périodes - intégrer Azure à leurs besoins de rétention à long terme (à la place des bandes).
@@ -54,6 +47,8 @@ Le nombre total de « points de rétention » (points à partir duquel un clie
 
 Le nombre total de points de récupération est 56.
 
+> [AZURE.NOTE]La sauvegarde Azure n'impose aucune restriction sur le nombre de points de récupération.
+
 ## Configuration avancée
 En cliquant sur **Modifier** dans l’écran précédent, les clients peuvent spécifier les planifications de rétention de manière plus flexible.
 
@@ -65,4 +60,4 @@ Pour plus d'informations sur Azure Backup, consultez la rubrique
 - [Présentation d’Azure Backup](backup-introduction-to-azure-backup.md)
 - [Test d’Azure Backup](backup-try-azure-backup-in-10-mins)
 
-<!------HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

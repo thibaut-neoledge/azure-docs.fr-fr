@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Storage Analytics" 
-	description="Gestion de l’accès concurrentiel pour les services BLOB, de File d’attente, de Table et de Fichier" 
+	pageTitle="Activation des métriques de stockage dans le portail Azure | Microsoft Azure" 
+	description="Activation des métriques de stockage pour les services d’objet Blob, de File d’attente, de Table et de Fichier" 
 	services="storage" 
 	documentationCenter="" 
 	authors="tamram" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="09/03/2015" 
+	ms.date="09/04/2015" 
 	ms.author="tamram"/>
 
 # Activation de Storage Metrics et affichage des données de métriques
@@ -192,4 +192,4 @@ La capacité utilisée par les tables de métriques est également facturée ; 
 [Activation de la journalisation du stockage et accès aux données des journaux](https://msdn.microsoft.com/library/dn782840.aspx)
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

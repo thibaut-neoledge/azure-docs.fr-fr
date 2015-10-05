@@ -18,6 +18,14 @@
 
 # Création d’une application web ASP.NET dans Azure App Service
 
+> [AZURE.SELECTOR]
+- [.Net](web-sites-dotnet-get-started.md)
+- [Node.js](web-sites-nodejs-develop-deploy-mac.md)
+- [Java](web-sites-java-get-started.md)
+- [PHP - Git](web-sites-php-mysql-deploy-use-git.md)
+- [PHP - FTP](web-sites-php-mysql-deploy-use-ftp.md)
+- [Python](web-sites-python-ptvs-django-mysql.md)
+
 ## Vue d’ensemble
 
 Ce didacticiel vous montre comment créer une application web ASP.NET et la déployer dans une [application web dans Azure App Service](app-service-web-overview.md) en utilisant Visual Studio 2015 ou Visual Studio 2013. Ce didacticiel part du principe que vous n’avez pas d’expérience en tant qu’utilisateur d’Azure ou d’ASP.NET. À la fin de ce didacticiel, vous disposerez d’une application web simple et fonctionnelle dans le cloud.
@@ -31,7 +39,7 @@ Vous apprendrez ce qui suit :
 * configurer votre ordinateur pour le développement Azure en installant le Kit de développement logiciel (SDK) Azure ;
 * créer un projet web ASP.NET Visual Studio et le déployer vers une application web Azure ;
 * modifier ce projet et redéployer l'application ;
-* Utilisation du [portail Azure](/overview/preview-portal/) pour surveiller et gérer votre application web.
+* utiliser le [portail Azure](/overview/preview-portal/) pour surveiller et gérer votre application web.
 
 ##<a name="video"></a>Inscription à Microsoft Azure
 
@@ -48,7 +56,7 @@ Dans cette vidéo, Scott Hanselman montre combien il est facile de s’inscrire
 
 [AZURE.INCLUDE [install-sdk-2015-2013](../../includes/install-sdk-2015-2013.md)]
 
-## Création d’une application web ASP.NET
+## Créer un projet et une application web
 
 La première étape consiste à créer un projet web dans Visual Studio et une application web dans Azure App Service. Lorsque cette opération effectuée, vous allez déployer le projet vers l'application web pour le rendre disponible sur Internet.
 
@@ -144,7 +152,11 @@ Le diagramme illustre ce que vous faites dans les étapes de création et de dé
 
 	![Application Web créée](./media/web-sites-dotnet-get-started/siteinse.png)
 
-## Déploiement de l'application dans Azure
+## Déploiement du projet dans l’application web
+
+Dans cette section, vous déployez le projet web dans l’application web, comme illustré à l’étape 2 du diagramme.
+
+![Création et déploiement](./media/web-sites-dotnet-get-started/Create_App.png)
 
 7. Dans la fenêtre **Activité Azure App Service**, cliquez sur **Publier MonExemple dans cette application web**.
 
@@ -154,7 +166,7 @@ Le diagramme illustre ce que vous faites dans les étapes de création et de dé
 
 	Les paramètres dont Visual Studio a besoin pour déployer votre projet vers Azure ont été enregistrés dans un *profil de publication*. Vous pouvez utiliser cet assistant pour passer en revue et modifier ces paramètres.
 
-8. Dans l’onglet **Connexion** de l’Assistant **Publier le site web**, cliquez sur **Suivant**.
+8. Sous l’onglet **Connexion** de l’Assistant **Publier le site web**, cliquez sur **Suivant**.
 
 	Visual Studio fournit tous les paramètres nécessaires au déploiement de votre application web Azure.
 
@@ -168,7 +180,7 @@ Le diagramme illustre ce que vous faites dans les étapes de création et de dé
 
 	![Onglet Paramètres](./media/web-sites-dotnet-get-started/GS13SettingsTab.png)
 
-11. Dans l’onglet **Aperçu**, cliquez sur **Publier**.
+11. Sous l’onglet **Aperçu**, cliquez sur **Publier**.
 
 	Si vous souhaitez voir quels fichiers seront copiés vers Azure, vous pouvez cliquer sur **Démarrer l’aperçu** avant de cliquer sur **Publier**.
 
@@ -296,7 +308,7 @@ Dans ce didacticiel, vous avez appris à créer une application web simple et à
 * [Comment choisir ou créer un groupe de ressources](../azure-preview-portal-using-resource-groups.md)
 
 ## Changements apportés
-* Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre Sites web et App Service, consultez la page [Azure App Service et les services Azure existants](http://go.microsoft.com/fwlink/?LinkId=529714).
+* Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre Sites Web et App Service, consultez la page [Azure App Service et les services Azure existants](http://go.microsoft.com/fwlink/?LinkId=529714).
 * Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre l’ancien et le nouveau portail, consultez [Références sur la navigation dans le portail Azure](http://go.microsoft.com/fwlink/?LinkId=529715).
 
-<!-----HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO4-->

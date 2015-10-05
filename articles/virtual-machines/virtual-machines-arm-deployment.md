@@ -19,6 +19,8 @@
 
 # Déployer les ressources Microsoft Azure à l’aide des bibliothèques de traitement, réseau et de stockage .NET
 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Cet article traite de la gestion d’une ressource avec le modèle de déploiement Resource Manager.
+
 Ce didacticiel vous montre comment utiliser certains des clients disponibles dans les bibliothèques de traitement, de stockage et réseau .NET afin de créer et de supprimer des ressources dans Microsoft Azure. Il vous décrit également l’authentification des requêtes sur Microsoft Azure Manager à l’aide de Microsoft Azure Active Directory.
 
 [AZURE.INCLUDE [free-trial-note](../../includes/free-trial-note.md)]
@@ -27,7 +29,7 @@ Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
 
 - [Visual Studio](http://msdn.microsoft.com/library/dd831853.aspx)
 - [Un compte Azure Storage](../storage-create-storage-account.md)
-- [Windows Management Framework 3.0](http://www.microsoft.com/fr-fr/download/details.aspx?id=34595) ou [Windows Management Framework 4.0](http://www.microsoft.com/fr-fr/download/details.aspx?id=40855)
+- [Windows Management Framework 3.0](http://www.microsoft.com/fr-FR/download/details.aspx?id=34595) ou [Windows Management Framework 4.0](http://www.microsoft.com/fr-FR/download/details.aspx?id=40855)
 - [Azure PowerShell](../install-configure-powershell.md)
 
 Ces étapes prennent environ 30 minutes.
@@ -56,7 +58,7 @@ Pour pouvoir utiliser Microsoft Azure AD afin d’authentifier les demandes po
 
 5. Remplacez {application-id} par l’identificateur que vous venez d’enregistrer, puis créez le principal du service pour l’application :
 
-        New-AzureADServicePrincipal -ApplicationId {application-id} 
+        New-AzureADServicePrincipal -ApplicationId {application-id}
 
 6. Établissez les autorisations relatives à l’utilisation de l’application :
 
@@ -109,7 +111,7 @@ Maintenant que l’application Microsoft Azure Active Directory est créée et
           ClientCredential cc = new ClientCredential("{application-id}", "{password}");
             var context = new AuthenticationContext("https://login.windows.net/{tenant-id}");
             var result = context.AcquireToken("https://management.azure.com/", cc);
-          
+
           if (result == null)
           {
             throw new InvalidOperationException("Failed to obtain the JWT token");
@@ -142,7 +144,7 @@ Les ressources sont toujours déployées dans un groupe de ressources. Utilisez 
 		public async static void CreateResourceGroup(TokenCloudCredentials credential)
 		{
 		  Console.WriteLine("Creating the resource group...");
-		  
+
           using (var resourceManagementClient = new ResourceManagementClient(credential))
 		  {
 		    var rgResult = await resourceManagementClient.ResourceGroups.CreateOrUpdateAsync("mytestrg1", new ResourceGroup { Location = "West US" });
@@ -170,7 +172,7 @@ Un compte de stockage est nécessaire pour stocker le fichier du disque dur virt
 		public async static void CreateStorageAccount(TokenCloudCredentials credential)
         {
           Console.WriteLine("Creating the storage account...");
-          
+
           using (var storageManagementClient = new StorageManagementClient(credential))
           {
             var saResult = await storageManagementClient.StorageAccounts.CreateAsync(
@@ -183,7 +185,7 @@ Un compte de stockage est nécessaire pour stocker le fichier du disque dur virt
         }
 
 3.	Ajoutez le code suivant à la méthode Main pour appeler la méthode que vous venez d’ajouter :
-		
+
 		CreateStorageAccount(credential);
 		Console.ReadLine();
 
@@ -286,7 +288,7 @@ Maintenant que vous avez créé l’ensemble des ressources de prise en charge, 
                 Location = "West US"
               } );
             Console.WriteLine(avSetResponse.StatusCode);
-                
+
             var networkClient = new NetworkResourceProviderClient(credential);
             var nicResponse = await networkClient.NetworkInterfaces.GetAsync("mytestrg1", "mytestnic1");
 
@@ -335,7 +337,7 @@ Maintenant que vous avez créé l’ensemble des ressources de prise en charge, 
                   {
                     Name = "myosdisk1",
                     CreateOption = "FromImage",
-                    VirtualHardDisk = new VirtualHardDisk 
+                    VirtualHardDisk = new VirtualHardDisk
                     {
                       Uri = "http://mytestsa1.blob.core.windows.net/vhds/myosdisk1.vhd"
                     }
@@ -346,7 +348,7 @@ Maintenant que vous avez créé l’ensemble des ressources de prise en charge, 
           }
         }
 
-	>[AZURE.NOTE]Les noms d’images de disque dur virtuel changent régulièrement dans la galerie d’images. Vous devez donc obtenir le nom d’une image actuelle pour déployer la machine virtuelle. Pour ce faire, consultez la page [Gérer les images Windows à l’aide de Windows PowerShell](https://msdn.microsoft.com/library/azure/dn790330.aspx), puis remplacez {source-image-name} par le nom du fichier de disque dur virtuel que vous souhaitez utiliser. Par exemple, « a699494373c04fc0bc8f2bb1389d6106__Windows-Server-2012-R2-201411.01-en.us-127GB.vhd ».
+	>[AZURE.NOTE]Les noms d’images de disque dur virtuel changent régulièrement dans la galerie d’images. Vous devez donc obtenir le nom d’une image actuelle pour déployer la machine virtuelle. Pour ce faire, consultez la page [Gérer les images Windows à l’aide de Windows PowerShell](https://msdn.microsoft.com/library/azure/dn790330.aspx), puis remplacez {source-image-name} par le nom du fichier de disque dur virtuel que vous souhaitez utiliser. Par exemple, « a699494373c04fc0bc8f2bb1389d6106\_\_Windows-Server-2012-R2-201411.01-en.us-127GB.vhd ».
 
 	Remplacez {subscription-id} par l’identificateur de votre abonnement.
 
@@ -388,4 +390,4 @@ Maintenant que vous avez créé l’ensemble des ressources de prise en charge, 
 
 	![Création d'une application Active Directory](./media/virtual-machines-arm-deployment/crpportal.png)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

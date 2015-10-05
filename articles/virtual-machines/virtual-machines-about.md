@@ -1,5 +1,5 @@
 <properties
-	pageTitle="À propos de Machines virtuelles Azure"
+	pageTitle="À propos des machines virtuelles Azure | Microsoft Azure"
 	description="Découvrez les informations de base sur les machines virtuelles dans Azure."
 	services="virtual-machines"
 	documentationCenter=""
@@ -17,7 +17,9 @@
 	ms.date="07/14/2015"
 	ms.author="cynthn"/>
 
-#À propos de Machines virtuelles Azure
+#À propos des machines virtuelles Azure créées avec les deux modèles de déploiement
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Cet article traite de la création de ressources avec le modèle de déploiement Resource Manager et le modèle de déploiement classique.
 
 Azure Virtual Machines est l’un des nombreux types de ressources informatiques évolutives, à la demande proposées par Azure. En règle générale, vous préférez une machine virtuelle à une autre option si vous avez besoin de mieux contrôler l’environnement informatique que ne le font les autres choix.
 
@@ -41,7 +43,7 @@ Comme ces didacticiels vous aident à créer rapidement une machine virtuelle, i
 
 [Les différentes façons de créer une machine virtuelle Windows](virtual-machines-windows-choices-create-vm.md)
 
-Si vous découvrez tout juste les machines virtuelles Azure, veillez à consulter aussi le [Forum Aux Questions](virtual-machines-questions.md).
+Si vous découvrez tout juste les machines virtuelles Azure, veillez à consulter également le [Forum Aux Questions](virtual-machines-questions.md).
 
 
 <!--links-->
@@ -49,4 +51,4 @@ Si vous découvrez tout juste les machines virtuelles Azure, veillez à consulte
 [Virtual Machines]: #tellmevm
 [Cloud Services]: cloud-services-choose-me.md
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Articles pour les machines virtuelles dans la gestion des services | Microsoft Azure"
-	description="Cette article répertorie des ressources qui peuvent vous aider à créer et à gérer des machines virtuelles dans la gestion des services Azure."
+	description="Cet article répertorie des ressources qui peuvent vous aider à créer et à gérer des machines virtuelles dans la gestion des services Azure."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="dlepow"
@@ -18,7 +18,8 @@
 	ms.author="danlep"/>
 
 # Articles pour les machines virtuelles dans la gestion des services
-Voici une liste d’articles relatifs au travail avec les machines virtuelles dans la gestion des services Azure. Pour les nouveaux déploiements, nous recommandons l’utilisation de machines virtuelles Azure Resource Manager et d’autres ressources. Pour obtenir une explication des avantages de Resource Manager, consultez [Fournisseurs de calcul, de réseau et de stockage Azure dans Azure Resource Manager](virtual-machines-azurerm-versus-azuresm.md).
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Cet article traite de la gestion des ressources avec le modèle de déploiement classique.
 
 ## Prise en main
 
@@ -150,4 +151,4 @@ Voici une liste d’articles relatifs au travail avec les machines virtuelles da
 
 [Utilisation de l’interface de ligne de commande Microsoft Azure pour Mac, Linux et Windows avec Microsoft Azure Service Management.](virtual-machines-command-line-tools.md)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

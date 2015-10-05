@@ -1,11 +1,12 @@
 <properties 
-	pageTitle="Configuration d'un écouteur à équilibrage de charge interne pour des groupes de disponibilité AlwaysOn dans Azure"
-	description="Ce didacticiel vous guide tout au long des étapes de création d'un écouteur de groupe de disponibilité AlwaysOn dans Azure à l'aide d'un équilibrage de charge interne (ILB)."
+	pageTitle="Configuration d’un écouteur à équilibrage de charge interne pour des groupes de disponibilité AlwaysOn | Microsoft Azure"
+	description="Ce didacticiel utilise des ressources créées avec le modèle de déploiement classique, et crée un écouteur de groupe de disponibilité AlwaysOn dans Azure utilisant un équilibrage de charge interne (ILB)."
 	services="virtual-machines"
 	documentationCenter="na"
 	authors="rothja"
 	manager="jeffreyg"
-	editor="monicar" />
+	editor="monicar" 
+	tags="azure-service-management"/>
 <tags 
 	ms.service="virtual-machines"
 	ms.devlang="na"
@@ -25,6 +26,8 @@
 
 Cette rubrique explique comment configurer un écouteur pour un groupe de disponibilité AlwaysOn à l'aide d'un **équilibrage de charge interne (ILB)**.
 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Cet article traite de la création d’une ressource avec le modèle de déploiement classique.
+
 Votre groupe de disponibilité peut contenir des réplicas locaux uniquement, Azure uniquement, ou locaux et Azure pour les configurations hybrides. Les réplicas Azure peuvent se trouver dans une même région ou dans plusieurs régions grâce à plusieurs réseaux virtuels. Les étapes suivantes supposent que vous avez déjà [configuré un groupe de disponibilité](virtual-machines-sql-server-alwayson-availability-groups-gui.md), mais pas un écouteur.
 
 Notez les limitations suivantes concernant l'écouteur du groupe de disponibilité dans Azure à l'aide de l'équilibrage de charge interne :
@@ -39,7 +42,7 @@ Notez les limitations suivantes concernant l'écouteur du groupe de disponibilit
 
 [AZURE.INCLUDE [ag-listener-accessibility](../../includes/virtual-machines-ag-listener-determine-accessibility.md)]
 
-Cet article se concentre sur la création d’un écouteur qui utilise un **équilibreur de charge interne**. Si vous avez besoin d’un écouteur public/externe, consultez la version de cet article qui explique comment configurer un [écouteur externe](virtual-machines-sql-server-configure-public-alwayson-availability-group-listener.md)
+Cet article se concentre sur la création d’un écouteur qui utilise un **équilibrage de charge interne**. Si vous avez besoin d’un écouteur public/externe, voir la version de cet article qui explique comment configurer un [écouteur externe](virtual-machines-sql-server-configure-public-alwayson-availability-group-listener.md)
 
 ## Créer des points de terminaison de machine virtuelle à charge équilibrée avec retour direct du serveur
 
@@ -47,7 +50,7 @@ Pour l'équilibrage de charge interne, vous devez commencer par créer le systè
 
 [AZURE.INCLUDE [load-balanced-endpoints](../../includes/virtual-machines-ag-listener-load-balanced-endpoints.md)]
 
-1. Vous devez affecter une adresse IP statique pour l’**équilibreur de charge interne**. Commencez par examiner la configuration du réseau virtuel actuel en exécutant la commande suivante :
+1. Vous devez affecter une adresse IP statique pour l’**équilibrage de charge interne**. Commencez par examiner la configuration du réseau virtuel actuel en exécutant la commande suivante :
 
 		(Get-AzureVNetConfig).XMLConfiguration
 
@@ -59,7 +62,7 @@ Pour l'équilibrage de charge interne, vous devez commencer par créer le systè
 
 1. Choisissez l’une des adresses disponibles et utilisez-la dans le paramètre **$ILBStaticIP** du script suivant.
 
-3. Copiez le script PowerShell ci-dessous dans un éditeur de texte et définissez des valeurs de variables adaptées à votre environnement (notez que des valeurs par défaut ont été affectées à certains paramètres). Notez que des déploiements existants qui utilisent des groupes d'affinités ne peuvent pas ajouter un équilibrage de charge interne. Pour plus d’informations sur les exigences liées à l’équilibreur de charge interne, consultez la rubrique [Équilibreur de charge interne](../load-balancer/load-balancer-internal-overview.md). Notez que, si votre groupe de disponibilité s'étend sur plusieurs régions Azure, vous devez exécuter le script une fois dans chaque centre de données pour le service cloud et les nœuds qui se trouvent dans ce centre de données.
+3. Copiez le script PowerShell ci-dessous dans un éditeur de texte et définissez des valeurs de variables adaptées à votre environnement (notez que des valeurs par défaut ont été affectées à certains paramètres). Notez que des déploiements existants qui utilisent des groupes d'affinités ne peuvent pas ajouter un équilibrage de charge interne. Pour plus d’informations sur les exigences liées à l’équilibrage de charge interne, voir [Équilibreur de charge interne](../load-balancer/load-balancer-internal-overview.md). Notez que, si votre groupe de disponibilité s'étend sur plusieurs régions Azure, vous devez exécuter le script une fois dans chaque centre de données pour le service cloud et les nœuds qui se trouvent dans ce centre de données.
 
 		# Define variables
 		$ServiceName = "<MyCloudService>" # the name of the cloud service that contains the availability group nodes
@@ -79,7 +82,7 @@ Pour l'équilibrage de charge interne, vous devez commencer par créer le systè
 
 1. Après avoir défini les variables, copiez le script de l'éditeur de texte dans votre session Azure PowerShell pour l'exécuter. Si l'invite affiche >>, appuyez sur Entrée pour vous assurer que le script s'exécute. Remarque
 
->[AZURE.NOTE]Le portail de gestion Azure ne prend pas en charge l'équilibrage de charge interne actuellement. Vous ne verrez donc pas l'équilibrage de charge interne ou les points de terminaison dans le portail. En revanche, **Get-AzureEndpoint** retourne une adresse IP interne si l’équilibreur de charge s’y exécute. Sinon, la valeur renvoyée est null.
+>[AZURE.NOTE]Le portail de gestion Azure ne prend pas en charge l'équilibrage de charge interne actuellement. Vous ne verrez donc pas l'équilibrage de charge interne ou les points de terminaison dans le portail. En revanche, **Get-AzureEndpoint** retourne une adresse IP interne si l’équilibrage de charge s’y exécute. Sinon, la valeur renvoyée est null.
 
 ## Vérifiez que KB2854082 est installé le cas échéant
 
@@ -133,4 +136,4 @@ Pour l'équilibrage de charge interne, vous devez commencer par créer le systè
 
 [AZURE.INCLUDE [Listener-Next-Steps](../../includes/virtual-machines-ag-listener-next-steps.md)]
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

@@ -200,11 +200,12 @@ Pour obtenir des informations spécifiques sur la mise à l’échelle de votre 
 
 ## Comment installer Hue (ou un autre composant Hadoop) ?
 
-HDInsight est un service géré, ce qui signifie que les nœuds dans un cluster peuvent être détruits et automatiquement reconfigurés par Azure en cas de problème. Pour cette raison, il est déconseillé d’installer manuellement les composants sur les nœuds de cluster.
+HDInsight est un service géré, ce qui signifie que les nœuds dans un cluster peuvent être détruits et automatiquement reconfigurés par Azure en cas de problème. Pour cette raison, il est déconseillé d’installer manuellement des éléments directement sur les nœuds de cluster. Utilisez plutôt des [actions de Script HDInsight](hdinsight-hadoop-customize-cluster.md) si vous devez installer les éléments suivants :
 
-Utilisez plutôt [Actions de Script HDInsight](hdinsight-hadoop-customize-cluster.md).
+* Un service ou un site web comme Spark ou Hue.
+* Un composant qui nécessite des modifications de configuration sur plusieurs nœuds du cluster. Par exemple, une variable d’environnement nécessaire, la création d’un répertoire de journalisation ou la création d’un fichier de configuration.
 
-Les actions de script sont des scripts Bash exécutés pendant la configuration de cluster et peuvent être utilisées pour installer des composants supplémentaires sur le cluster. Des exemples de scripts sont fournis pour l’installation des composants suivants :
+Les actions de script sont des scripts Bash exécutés pendant l’approvisionnement de cluster et peuvent être utilisées pour installer et configurer des composants supplémentaires sur le cluster. Des exemples de scripts sont fournis pour l’installation des composants suivants :
 
 * [Hue](hdinsight-hadoop-hue-linux.md)
 * [Giraph](hdinsight-hadoop-giraph-install-linux.md)
@@ -214,10 +215,28 @@ Les actions de script sont des scripts Bash exécutés pendant la configuration 
 
 Pour plus d’informations sur le développement de vos propres actions de script, consultez [Développement d’actions de Script avec HDInsight](hdinsight-hadoop-script-actions-linux.md).
 
+###Fichiers Jar
+
+Certaines technologies Hadoop sont fournies dans des fichiers jar autonomes, qui contiennent des fonctions utilisées dans le cadre d’une tâche MapReduce ou à partir de Pig ou Hive. Bien qu’elles puissent être installées à l’aide d’actions de script, elles ne nécessitent généralement aucune configuration et peuvent être chargées simplement vers le cluster après l’approvisionnement, puis utilisées directement. Si vous souhaitez que le composant survive à la réinitialisation du cluster, vous pouvez stocker le fichier jar dans WASB.
+
+Par exemple, si vous souhaitez utiliser la dernière version de [DataFu](http://datafu.incubator.apache.org/), vous pouvez télécharger un fichier jar contenant le projet, puis le charger vers le cluster HDInsight. Suivez ensuite la documentation DataFu pour savoir comment l’utiliser à partir de Pig ou Hive.
+
+> [AZURE.IMPORTANT]Certains composants qui sont des fichiers jar autonomes sont fournis avec HDInsight, mais ne se trouvent pas dans le chemin d’accès. Pour rechercher un composant spécifique sur votre cluster, vous pouvez utiliser la commande suivante :
+>
+> ```find / -name *componentname*.jar 2>/dev/null```
+>
+> Cette commande retourne le chemin d’accès de tous les fichiers jar correspondants.
+
+Si le cluster fournit déjà une version d’un composant sous la forme d’un fichier jar autonome, mais que vous souhaitez utiliser une autre version, vous pouvez charger une nouvelle version du composant vers le cluster et essayer de l’utiliser dans vos travaux.
+
+> [AZURE.WARNING]Les composants fournis avec le cluster HDInsight bénéficient d’une prise en charge totale, et le support Microsoft vous aidera à identifier et à résoudre les problèmes liés à ces composants.
+>
+> Les composants personnalisés bénéficient d'un support commercialement raisonnable pour vous aider à résoudre le problème. Cela signifie SOIT que le problème pourra être résolu, SOIT que vous serez invité à affecter les ressources disponibles pour les technologies Open Source. Vous pouvez, par exemple, utiliser de nombreux sites de communauté, comme le [forum MSDN sur HDInsight](https://social.msdn.microsoft.com/Forums/azure/fr-FR/home?forum=hdinsight) ou [http://stackoverflow.com](http://stackoverflow.com). En outre, les projets Apache ont des sites de projet sur [http://apache.org](http://apache.org) ; par exemple, [Hadoop](http://hadoop.apache.org/) ou [Spark](http://spark.apache.org/).
+
 ## Étapes suivantes
 
 * [Utilisation de Hive avec HDInsight](hdinsight-use-hive.md)
 * [Utilisation de Pig avec HDInsight](hdinsight-use-pig.md)
 * [Utilisation des tâches MapReduce avec HDInsight](hdinsight-use-mapreduce.md)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

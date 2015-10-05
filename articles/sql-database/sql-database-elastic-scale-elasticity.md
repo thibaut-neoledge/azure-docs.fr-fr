@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/17/2015" 
+	ms.date="09/22/2015" 
 	ms.author="sidneyh"/>
 
 # Élasticité des partitions 
 
-**L’élasticité des partitions** permet aux développeurs d’applications d’augmenter et de réduire dynamiquement les ressources des bases de données selon les besoins, permettant ainsi l’optimisation des performances des applications ainsi que la réduction des coûts. L’association des **outils de base de données élastique** pour la base de données SQL Azure avec les [niveaux de service De base, Standard et Premium](http://msdn.microsoft.com/library/azure/dn741340.aspx) offre des scénarios d’élasticité très intéressants. Les outils de base de données élastique permettent une mise à l’échelle horizontale. Il s’agit d’un modèle de conception dans lequel des bases de données ([nommées « partitions »](sql-database-elastic-scale-glossary.md)) sont ajoutées ou supprimées à partir d’un ensemble de partitions afin d’augmenter ou de réduire la capacité. De même, les niveaux de service des bases de données SQL fournissent des fonctionnalités de **mise à l’échelle verticale** permettant d’augmenter ou de diminuer les ressources d’une seule base de données afin de correspondre à la demande. Ensemble, la mise à l’échelle verticale d’une partition unique et la mise à l’échelle horizontale de plusieurs partitions offrent aux développeurs d’applications un environnement très flexible capable d’évoluer pour répondre aux besoins de performances, de capacité et d’optimisation des coûts.
+**L’élasticité des partitions** permet aux développeurs d’applications d’augmenter et de réduire dynamiquement les ressources des bases de données selon les besoins, permettant ainsi l’optimisation des performances des applications ainsi que la réduction des coûts. L’association des **outils de base de données élastique** pour la base de données SQL Azure avec les [niveaux de service De base, Standard et Premium](sql-database-service-tiers) offre des scénarios d’élasticité très intéressants. Les outils de base de données élastique permettent une mise à l’échelle horizontale. Il s’agit d’un modèle de conception dans lequel des bases de données ([nommées « partitions »](sql-database-elastic-scale-glossary.md)) sont ajoutées ou supprimées à partir d’un ensemble de partitions afin d’augmenter ou de réduire la capacité. De même, les niveaux de service des bases de données SQL fournissent des fonctionnalités de **mise à l’échelle verticale** permettant d’augmenter ou de diminuer les ressources d’une seule base de données afin de correspondre à la demande. Ensemble, la mise à l’échelle verticale d’une partition unique et la mise à l’échelle horizontale de plusieurs partitions offrent aux développeurs d’applications un environnement très flexible capable d’évoluer pour répondre aux besoins de performances, de capacité et d’optimisation des coûts.
 
 Grâce à la nouvelle fonction de **pools de base de données élastiques**, la mise à l’échelle verticale est encore plus simple à réaliser. Les pools permettent d’augmenter ou de réduire *automatiquement* la consommation des ressources des bases de données individuelles dans le cadre d’un budget réparti sur l’ensemble du pool. Pour les applications qui choisissent de ne pas utiliser les pools de base de données élastique, cet article décrit d’autres techniques de mise en œuvre des mécanismes basés sur les stratégies pour la gestion de la mise à l’échelle verticale, ainsi que des scénarios courants pour l’automatisation des opérations de mise à l’échelle horizontale.
 
@@ -147,7 +147,7 @@ Pour faciliter l’implémentation réelle des scénarios de mise à l’échell
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 
 <!--Image references-->
-[1]: ./media/sql-database-elastic-scale-elasticity/data-ingestion.png
+
 
 <!--anchors-->
 [Telemetry]: #telemetry
@@ -155,4 +155,4 @@ Pour faciliter l’implémentation réelle des scénarios de mise à l’échell
 [Action]: #action
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

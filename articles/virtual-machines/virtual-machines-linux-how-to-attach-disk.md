@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Association d'un disque à une machine virtuelle exécutant Linux dans Azure"
-	description="Découvrez comment attacher un disque à une machine virtuelle Azure et à l'initialiser pour le rendre opérationnel."
+	pageTitle="Attachement d’un disque à une machine virtuelle Linux | Microsoft Azure"
+	description="Découvrez comment attacher un disque à une machine virtuelle Linux exécutée sur Azure et l'initialiser pour le rendre opérationnel."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="dsk-2015"
@@ -18,6 +18,8 @@
 	ms.author="dkshir"/>
 
 # Association d’un disque de données à une machine virtuelle Linux
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Cet article traite de l’attachement d’un disque avec le modèle de déploiement classique.
 
 Vous pouvez attacher des disques, qu'ils soient vides ou non. Dans les deux cas, les disques sont en fait des fichiers .vhd conservés dans un compte de stockage Azure. Après avoir attaché le disque, vous devrez également l'initialiser pour le rendre opérationnel. Cet article fait référence aux machines virtuelles créées à l'aide du modèle de déploiement classique.
 
@@ -171,4 +173,4 @@ Vous pouvez attacher des disques, qu'ils soient vides ou non. Dans les deux cas,
 [Agent]: virtual-machines-linux-agent-user-guide.md
 [Logon]: virtual-machines-linux-how-to-log-on.md
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO4-->

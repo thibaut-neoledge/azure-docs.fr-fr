@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Appeler une application API à partir d'un client authentifié"
-	description="Découvrez comment appeler une application API Azure à partir d'un client d'application web authentifié par Azure Active Directory."
-	services="app-service\api"
-	documentationCenter=".net"
-	authors="tdykstra"
-	manager="wpickett"
+	pageTitle="Appeler une application API à partir d'un client authentifié" 
+	description="Découvrez comment appeler une application API Azure à partir d'un client d'application web authentifié par Azure Active Directory." 
+	services="app-service\api" 
+	documentationCenter=".net" 
+	authors="tdykstra" 
+	manager="wpickett" 
 	editor="jimbe"/>
 
 <tags 
-	ms.service="app-service-api"
-	ms.workload="web"
-	ms.tgt_pltfrm="dotnet"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/26/2015"
+	ms.service="app-service-api" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="dotnet" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="07/26/2015" 
 	ms.author="tdykstra"/>
 
 # Appeler une application API Azure à partir d'un client d'application web authentifié par Azure Active Directory
@@ -97,6 +97,8 @@ Plus tard, vous modifierez cette page en ajoutant une section pour afficher les 
 	* Utilisez l'application AAD déjà créée au lieu d’en créer une nouvelle.
  
 	* Conservez l’**URI ID d'application** que vous avez déjà pour l'application AAD. (Ne pas modifier au format spécifié dans le fichier Lisez-moi.)
+	
+	* Modifiez les autres paramètres d'application AAD comme indiqué ; plus précisément, définissez les URL d'authentification et de réponse vers l’URL de base pour l’application exemple.
 
 Vous conservez l’URI ID d'application que vous avez créé pour l'application API afin de pouvoir utiliser le même jeton d’accès AAD pour l'application web et pour l'application API. Si vous avez modifié l'URI ID d'application au format indiqué par le fichier Lisez-moi, cela fonctionnerait pour l'accès à l'application web, mais pas pour l'application API. Vous ne pourriez pas transmettre le jeton AAD à la passerelle d'application API pour obtenir un jeton Zumo, car la passerelle attend un jeton pour un URI ID d'application composé de l'URL de la passerelle suivie de « /login/aad ».
 
@@ -110,9 +112,7 @@ Dans cette section, vous ajoutez du code généré automatiquement pour une inte
 
 	Une fois la génération de code terminée, un nouveau dossier s'affiche dans l'**Explorateur de solutions**, avec le nom de l'application API. Ce dossier contient le code qui implémente les classes et les modèles de données du client.
 
-	![](./media/app-service-api-authentication-client-flow/aboutpagestart.png)
-
-10. Résolvez les références ambiguës provoquées par le code généré dans *ContactsList/ContactsExtensions.cs* : modifiez les deux instances de `Task.Factory.StartNew` à `System.Threading.Tasks.Task.Factory.StartNew`.
+10. Résolvez les références ambiguës provoquées par le code généré dans *ContactsList/ContactsExtensions.cs* : modifiez les deux instances de `Task.Factory.StartNew` à `System.Threading.Tasks.Task.Factory.StartNew`.
  
 ## Ajoutez du code pour échanger le jeton AAD contre un jeton Zumo
 
@@ -152,7 +152,7 @@ Dans cette section, vous ajoutez du code généré automatiquement pour une inte
 		    return appServiceClient;
 		}
 
-	Dans ce code, `ConfigHelper.Authority` correspond à « https://login.microsoftonline.com/{votre locataire} », par exemple : « https://login.microsoftonline.com/contoso.onmicrosoft.com ».
+	Dans ce code, `ConfigHelper.Authority` correspond à « https://login.microsoftonline.com/{votre locataire} », par exemple : « https://login.microsoftonline.com/contoso.onmicrosoft.com ».
 
 2.	Ajoutez le code juste avant l’instruction `return View()` à la fin de la méthode `About` pour appeler l'application API. (Dans l'étape suivante, vous ajouterez du code à l’affichage `About` pour afficher les données renvoyées.)
 
@@ -196,7 +196,7 @@ Dans cette section, vous ajoutez du code généré automatiquement pour une inte
 
 	![](./media/app-service-api-authentication-client-flow/homepage.png)
 
-6. Cliquez sur **Connexion**, puis entrez les informations d'identification d'un utilisateur dans le domaine AAD que vous utilisez pour cette application.
+6. Cliquez sur **Se connecter**, puis entrez les informations d'identification d'un utilisateur dans le domaine AAD que vous utilisez pour cette application.
 
 	![](./media/app-service-api-authentication-client-flow/signedin.png)
 
@@ -227,4 +227,4 @@ Vous avez vu comment procéder à l'authentification du flux client pour les app
 [portail Azure]: https://manage.windowsazure.com/
 [portail Azure en version préliminaire]: https://portal.azure.com/
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO4-->

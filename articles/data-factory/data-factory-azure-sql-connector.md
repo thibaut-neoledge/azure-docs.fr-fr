@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Déplacer des données vers et depuis Azure SQL | Azure Data Factory"
-	description="Découvrez comment déplacer des données depuis et vers Azure SQL Database à l’aide d’Azure Data Factory."
-	services="data-factory"
-	documentationCenter=""
-	authors="spelluru"
-	manager="jhubbard"
+	pageTitle="Déplacer des données vers et depuis Azure SQL | Azure Data Factory" 
+	description="Découvrez comment déplacer des données depuis et vers Azure SQL Database à l’aide d’Azure Data Factory." 
+	services="data-factory" 
+	documentationCenter="" 
+	authors="spelluru" 
+	manager="jhubbard" 
 	editor="monicar"/>
 
 <tags 
-	ms.service="data-factory"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/26/2015"
+	ms.service="data-factory" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/22/2015" 
 	ms.author="spelluru"/>
 
 # Déplacer des données vers et depuis Azure SQL à l’aide d’Azure Data Factory
@@ -474,4 +474,4 @@ Nous souhaiterions vraiment obtenir vos commentaires sur cet article. Prenez que
 
 	 
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO4-->

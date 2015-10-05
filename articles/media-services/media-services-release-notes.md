@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="media" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="09/07/2015"   
+	ms.date="09/20/2015"   
 	ms.author="juliako"/>
 
 
@@ -25,6 +25,7 @@ Ces notes de publication récapitulent les modifications par rapport aux précé
 
 - [Problèmes actuellement connus](#issues)
 - [Historique des versions de l’API REST](#rest_version_history)
+- [Version de septembre 2015](#september_changes_15)
 - [Version d’août 2015](#august_changes_15)
 - [Version de juillet 2015](#july_changes_15)
 - [Version de juin 2015](#june_changes_15)
@@ -73,6 +74,16 @@ Les objets Media Services dans le Kit de développement logiciel (SDK) ne peuven
 
 Pour des informations sur l'historique des versions de l'API REST, consultez la page [Référence de l'API REST d'Azure Media Services].
 
+##<a id="september_changes_15"></a>Version de septembre 2015 
+
+- AMS offre désormais la possibilité de protéger la vidéo à la demande (VOD) et les flux en direct avec la technologie DRM modulaire Widevine. Vous pouvez utiliser les partenaires des services de livraison suivants pour vous aider à fournir des licences Widevine : [Axinom](http://www.axinom.com/press/ibc-axinom-drm-6/), [EZDRM](http://ezdrm.com/), [castLabs](http://castlabs.com/company/partners/azure/). Pour plus d’informations, voir [ce blog](http://azure.microsoft.com/blog/azure-media-services-adds-google-widevine-packaging-for-delivering-multi-drm-stream/).
+
+	Vous pouvez utiliser [AMS .NET SDK](https://www.nuget.org/packages/windowsazure.mediaservices/) (en commençant par la version 3.5.1) ou une API REST pour configurer votre AssetDeliveryConfiguration afin d’utiliser Widevine.
+
+- AMS a ajouté la prise en charge des vidéos Apple ProRes. Vous pouvez à présent télécharger vos fichiers vidéos sources QuickTime qui utilisent Apple ProRes ou d’autres codecs. Pour plus d’informations, voir [ce blog](http://azure.microsoft.com/blog/announcing-support-for-apple-prores-videos-in-azure-media-services/).
+
+- Vous pouvez à présent utiliser Media Encoder Standard pour effectuer un sous-découpage et une extraction d’archive dynamique. Pour plus d’informations, voir [ce blog](http://azure.microsoft.com/blog/sub-clipping-and-live-archive-extraction-with-media-encoder-standard/).
+
 ##<a id="august_changes_15"></a>Version d’août 2015
 
 - Le Kit de développement logiciel (SDK) Azure Media Services pour Java V0.8.0 et de nouveaux exemples sont désormais disponibles. Pour plus d'informations, consultez les pages suivantes :
@@ -86,7 +97,7 @@ Pour des informations sur l'historique des versions de l'API REST, consultez la 
 
 - Annonce de la disponibilité générale de Media Encoder Standard. Pour plus d’informations, voir [ce billet de blog](http://azure.microsoft.com/blog/2015/07/16/announcing-the-general-availability-of-media-encoder-standard/).
 
-	Media Encoder Standard utilise les présélections décrites dans [cette](http://go.microsoft.com/fwlink/?LinkId=618336) section. Notez que lorsque vous utilisez une présélection pour les encodages 4 Ko, vous devez obtenir le type d’unité réservée **Premium**. Pour plus d’informations, consultez la page [Mise à l’échelle de l’encodage](media-services-portal-encoding-units).
+	Media Encoder Standard utilise les présélections décrites dans [cette](http://go.microsoft.com/fwlink/?LinkId=618336) section. Notez que, lorsque vous utilisez une présélection pour les encodages 4K, vous devez obtenir le type d’unité réservée **Premium**. Pour plus d’informations, voir [Mise à l’échelle de l’encodage](media-services-portal-encoding-units).
 - Légendes en temps réel en direct avec Azure Media Services et Azure Media Player. Pour plus d’informations, voir [ce billet de blog](https://azure.microsoft.com/blog/2015/07/08/live-real-time-captions-with-azure-media-services-and-player/).
 
 ###Mises à jour du Kit de développement logiciel (SDK) .NET de Media Services
@@ -218,7 +229,7 @@ Les modifications suivantes ont été apportées :
 
 - Refactorisation dans les classes de stratégie de nouvelles tentatives.
 - Ajout d'une chaîne d'agent utilisateur pour les en-têtes de requête http.
-- Ajout de l'étape de génération de la restauration nuget.
+- Ajout de l'étape de génération de la restauration NuGet.
 - Résolution des tests de scénario pour utiliser la certification x509 du référentiel.
 - Validation des paramètres lors de la mise à jour du canal et de la fin de la diffusion en continu.
  
@@ -358,7 +369,7 @@ Les modifications suivantes ont été apportées à la version 3.0.0.3 :
 
 >[AZURE.NOTE]Les versions 3.0.x.x ne présentent pas de compatibilité descendante avec les versions 2.4.x.x.
 
-La dernière version du Kit de développement logiciel (SDK) Media Services est maintenant la version 3.0.0.0.0. Vous pouvez télécharger le dernier package à partir de Nuget ou obtenir les différents composants sur [GitHub].
+La dernière version du Kit de développement logiciel (SDK) Media Services est maintenant la version 3.0.0.0.0. Vous pouvez télécharger le dernier package à partir de NuGet ou obtenir les différents composants sur [GitHub].
 
 À compter de version 3.0.0.0 du Kit de développement logiciel (SDK) Media Services, vous pouvez réutiliser les [jetons ACS (Access Control Service) d'Azure Active Directory]. Pour plus d'informations, consultez la section « Réutilisation des jetons du service de contrôle d'accès » dans la rubrique [Connexion à Media Services à l'aide du Kit de développement logiciel (SDK) Media Services pour .NET].
 
@@ -581,4 +592,4 @@ Vous pouvez afficher les parcours d’apprentissage d’AMS ici :
 [Gestion des notifications de travaux de Media Services]: http://msdn.microsoft.com/library/azure/dn261241.aspx
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

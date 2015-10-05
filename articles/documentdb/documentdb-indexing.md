@@ -34,7 +34,7 @@ Dans le but d'éliminer tout risque d’incohérence d’impédance entre la bas
 
 L’indexation dans DocumentDB tire parti du fait que la grammaire JSON permet que les documents soient **représentés sous forme d’arborescences**. Pour qu'un document JSON soit représenté sous forme d'arborescence, il est nécessaire de créer un nœud racine factice qui comporte le reste des nœuds réels du document en dessous. Chaque étiquette incluant les index de tableau d'un document JSON devient un nœud de l'arborescence. La figure ci-dessous illustre un exemple de document JSON et sa représentation correspondante sous forme d'arborescence.
 
->[AZURE.NOTE]Le caractère de JSON est autodescriptif, ce qui veut dire que chaque document inclut le schéma (les métadonnées) et les données, par exemple, `{"locationId", 5, "city": "Moscow"}` révèle qu'il existe deux propriétés `locationId` et `city`, et que celles-ci disposent de valeurs de propriétés numériques et de valeurs de propriétés de chaîne. DocumentDB est en mesure de déduire le schéma de documents et de les indexer lorsqu'ils sont insérés ou remplacés, sans que vous ayez besoin de définir les schémas ou les index secondaires.
+>[AZURE.NOTE]Le caractère de JSON est autodescriptif, ce qui veut dire que chaque document inclut le schéma (les métadonnées) et les données, par exemple, `{"locationId": 5, "city": "Moscow"}` révèle qu'il existe deux propriétés `locationId` et `city`, et que celles-ci disposent de valeurs de propriétés numériques et de valeurs de propriétés de chaîne. DocumentDB est en mesure de déduire le schéma de documents et de les indexer lorsqu'ils sont insérés ou remplacés, sans que vous ayez besoin de définir les schémas ou les index secondaires.
 
 
 **Documents JSON sous forme d'arborescences :**
@@ -67,4 +67,4 @@ L’indexation de DocumentDB vous permet de prendre en charge une architecture m
 - Pour en savoir plus sur la personnalisation de l'index DocumentDB, cliquez [ici](documentdb-indexing-policies.md)
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO4-->

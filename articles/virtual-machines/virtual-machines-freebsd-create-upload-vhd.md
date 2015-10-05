@@ -1,29 +1,32 @@
-<properties 
-   pageTitle="Création et téléchargement d’un disque dur virtuel FreeBSD dans Azure"
-	description="Apprenez à créer et à télécharger un disque dur virtuel (VHD) Azure contenant le système d'exploitation Linux."
-	services="virtual-machines"
-	documentationCenter=""
-	authors="KylieLiang"
-	manager="timlt"
-	editor=""/>
+<properties
+   pageTitle="Création et téléchargement d’une image de machine virtuelle FreeBSD | Microsoft Azure"
+   description="Découvrez comment créer et télécharger un disque dur virtuel (VHD) contenant le système d'exploitation FreeBSD pour créer une machine virtuelle Azure."
+   services="virtual-machines"
+   documentationCenter=""
+   authors="KylieLiang"
+   manager="timlt"
+   editor=""
+   tags="azure-service-management"/>
 
 <tags
    ms.service="virtual-machines"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="vm-linux"
-	ms.workload="infrastructure-services"
-	ms.date="05/19/2015"
-	ms.author="kyliel"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="vm-linux"
+   ms.workload="infrastructure-services"
+   ms.date="05/19/2015"
+   ms.author="kyliel"/>
 
-# Création et téléchargement d’un disque dur virtuel FreeBSD dans Azure 
+# Création et téléchargement d’un disque dur virtuel FreeBSD dans Azure
 
 Cet article vous montre comment créer et télécharger un disque dur virtuel (VHD) qui contient le système d’exploitation FreeBSD, ce qui vous permet de l’utiliser comme votre image personnelle pour créer des machines virtuelles dans Microsoft Azure.
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Cet article traite de la création d’une ressource avec le modèle de déploiement classique.
 
 ##Composants requis##
 Cet article part du principe que vous disposez des éléments suivants :
 
-- **Un abonnement Azure** - Si vous n'en possédez pas, vous pouvez créer un compte en quelques minutes. Si vous avez un abonnement MSDN, consultez la page [Avantage Azure pour les abonnés MSDN](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/). Dans le cas contraire, consultez [créer un compte d'évaluation gratuit](http://azure.microsoft.com/pricing/free-trial/).  
+- **Un abonnement Azure** : si vous n'en possédez pas, vous pouvez créer un compte en quelques minutes. Si vous avez un abonnement MSDN, consultez la page [Avantage Azure pour les abonnés MSDN](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/). Dans le cas contraire, consultez [créer un compte d'essai gratuit](http://azure.microsoft.com/pricing/free-trial/).  
 
 - **Outils Microsoft Azure PowerShell** : le module Microsoft Azure PowerShell est installé et configuré de façon à utiliser votre abonnement. Pour télécharger le module, consultez la page [Téléchargements Azure](http://azure.microsoft.com/downloads/). Un didacticiel sur l'installation et la configuration du module est disponible ici. Vous utiliserez l’applet de commande [Téléchargements Azure](http://azure.microsoft.com/downloads/) pour télécharger le disque dur virtuel.
 
@@ -48,9 +51,9 @@ Depuis la machine virtuelle sur laquelle le système d’exploitation FreeBSD a 
 
     SSH est activé par défaut après l’installation à partir du disque. Dans le cas contraire ou si vous utilisez directement le disque dur virtuel FreeBSD, tapez :
 
-		# echo 'sshd_enable="YES"' >> /etc/rc.conf 
-		# ssh-keygen -t dsa -f /etc/ssh/ssh_host_dsa_key 
-		# ssh-keygen -t rsa -f /etc/ssh/ssh_host_rsa_key 
+		# echo 'sshd_enable="YES"' >> /etc/rc.conf
+		# ssh-keygen -t dsa -f /etc/ssh/ssh_host_dsa_key
+		# ssh-keygen -t rsa -f /etc/ssh/ssh_host_rsa_key
 		# service sshd restart
 
 3. **Configuration d’une console série**
@@ -73,7 +76,7 @@ Depuis la machine virtuelle sur laquelle le système d’exploitation FreeBSD a 
 
     5\.2 **Installer wget**
 
-		# pkg install wget 
+		# pkg install wget
 
 6. **Installation de l’Agent Azure**
 
@@ -111,11 +114,11 @@ Pour télécharger vers Azure un fichier .vhd permettant de créer une machine v
 	![Créer rapidement un compte de stockage](./media/virtual-machines-freebsd-create-upload-vhd/Storage-quick-create.png)
 
 4. Remplissez les champs comme suit :
-	
+
 	- Sous **URL**, entrez un nom de sous-domaine à utiliser dans l'URL du compte de stockage. L'entrée peut être composée de 3 à 24 lettres minuscules et chiffres. Ce nom devient le nom d'hôte contenu dans l'URL utilisée pour adresser les ressources d'objets blob, de files d'attente et de tables pour l'abonnement.
-			
+
 	- Sélectionnez **l'emplacement ou le groupe d'affinités** pour le compte de stockage. Un groupe d’affinités vous permet de mettre vos services cloud et de stockage sur le cloud dans le même centre de données.
-		 
+
 	- Indiquez si vous souhaitez utiliser la **géo-réplication** pour le compte de stockage. La géo-réplication est activée par défaut. Cette option permet une réplication gratuite de vos données vers un emplacement secondaire, pour que votre stockage puisse basculer vers cet emplacement en cas de panne sur l’emplacement principal. L'emplacement secondaire est attribué automatiquement. Vous ne pouvez pas le modifier. Si vous avez besoin de disposer d’un contrôle accru sur l’emplacement de votre stockage reposant sur le cloud du fait d’exigences juridiques ou de la stratégie de l'organisation, vous pouvez désactiver la géo-réplication. Cependant, sachez que si vous réactivez la géo-localisation ultérieurement, la réplication de vos données vers un emplacement secondaire sera facturée au tarif d'un transfert unique. Vous pouvez bénéficier d'une réduction pour les services de stockage sans géo-réplication. Vous trouverez plus d'informations sur la gestion de la géo-réplication des comptes de stockage ici : [Création, gestion ou suppression d’un compte de stockage](../storage-create-storage-account/#replication-options).
 
 	![Entrer les détails du compte de stockage](./media/virtual-machines-freebsd-create-upload-vhd/Storage-create-account.png)
@@ -148,7 +151,7 @@ Avant de pouvoir télécharger un fichier .vhd, vous devez établir une connexio
 1. Ouvrez la console Azure PowerShell.
 
 2. Tapez la commande suivante : `Add-AzureAccount`
-	
+
 	Cette commande ouvre une fenêtre d'authentification, pour que vous puissiez vous authentifier avec votre compte professionnel ou scolaire.
 
 	![Fenêtre PowerShell](./media/virtual-machines-freebsd-create-upload-vhd/add_azureaccount.png)
@@ -157,7 +160,7 @@ Avant de pouvoir télécharger un fichier .vhd, vous devez établir une connexio
 
 ###Utilisation de la méthode par certificat
 
-1. Ouvrez la console Azure PowerShell. 
+1. Ouvrez la console Azure PowerShell.
 
 2. Entrez : `Get-AzurePublishSettingsFile`.
 
@@ -172,7 +175,7 @@ Avant de pouvoir télécharger un fichier .vhd, vous devez établir une connexio
 	Où `<PathToFile>` est le chemin d'accès complet au fichier .publishsettings.
 
    Pour plus d'informations, consultez la page [Prise en main des cmdlets Microsoft Azure](http://msdn.microsoft.com/library/windowsazure/jj554332.aspx)
-	
+
    Pour plus d’information sur l’installation et la configuration de PowerShell, consultez [Installation et configuration de Microsoft Azure PowerShell](../install-configure-powershell.md).
 
 ## Étape 4 : téléchargement du fichier .vhd ##
@@ -204,6 +207,5 @@ Après avoir téléchargé le fichier .vhd, vous pouvez l'ajouter en tant qu'ima
 4. Une fois l'approvisionnement terminé, vous verrez votre machine virtuelle FreeBSD exécutée dans Azure.
 
 	![image FreeBSD dans Microsoft Azure](./media/virtual-machines-freebsd-create-upload-vhd/freebsdimageinazure.png)
- 
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO4-->

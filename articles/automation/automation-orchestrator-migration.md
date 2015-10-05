@@ -1,24 +1,24 @@
 <properties
    pageTitle="Migration d’Orchestrator vers Azure Automation | Microsoft Azure"
-	description="Décrit comment migrer des Runbooks et des packs d'intégration de System Center Orchestrator vers Azure Automation."
-	services="automation"
-	documentationCenter=""
-	authors="bwren"
-	manager="stevenka"
-	editor="tysonn"/>
+   description="Décrit comment migrer des Runbooks et des packs d'intégration de System Center Orchestrator vers Azure Automation."
+   services="automation"
+   documentationCenter=""
+   authors="bwren"
+   manager="stevenka"
+   editor="tysonn" />
 <tags
    ms.service="automation"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="infrastructure-services"
-	ms.date="08/18/2015"
-	ms.author="bwren"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="infrastructure-services"
+   ms.date="09/17/2015"
+   ms.author="bwren" />
 
 
 # Migration d'Orchestrator vers Azure Automation
 
-Dans [System Center Orchestrator](http://technet.microsoft.com/library/hh237242.aspx), les Runbooks sont basés sur les activités de packs d'intégration qui sont spécifiquement écrits pour Orchestrator, tandis que dans Azure Automation, ils sont basés sur les workflows Windows PowerShell. Les Runbooks graphiques dans Azure Automation ont une apparence semblable aux Runbooks Orchestrator, avec leurs activités représentant les applets de commande PowerShell, les Runbooks enfants et les ressources.
+Dans [System Center Orchestrator](http://technet.microsoft.com/library/hh237242.aspx), les Runbooks sont basés sur les activités de packs d'intégration qui sont spécifiquement écrits pour Orchestrator, tandis que dans Azure Automation, ils sont basés sur les workflows Windows PowerShell. Les [Runbooks graphiques](automation-runbook-types#graphical-runbooks) dans Azure Automation ont une apparence semblable aux Runbooks Orchestrator, avec leurs activités représentant les applets de commande PowerShell, les Runbooks enfants et les ressources.
 
 Le [Kit de migration de System Center Orchestrator](http://www.microsoft.com/download/details.aspx?id=47323&WT.mc_id=rss_alldownloads_all) inclut des outils destinés à vous aider à convertir des Runbooks Orchestrator en Runbooks Azure Automation. En plus de convertir les Runbooks eux-mêmes, vous devez convertir les packs d'intégration avec les activités qu'ils utilisent en modules d'intégration à l'aide d'applets de commande Windows PowerShell.
 
@@ -71,7 +71,7 @@ Microsoft fournit des [packs d'intégration](http://technet.microsoft.com/librar
 
 ## Convertisseur de Runbooks (bientôt disponible)
 
-Cet outil convertira les Runbooks Orchestrator en Runbooks graphiques qui peuvent être importés dans Azure Automation. Vous trouverez plus de détails sur cet outil ici quand il sera disponible.
+Cet outil convertira les Runbooks Orchestrator en [Runbooks graphiques](automation-runbook-types.md#graph-runbooks) qui peuvent être importés dans Azure Automation. Vous trouverez plus de détails sur cet outil ici quand il sera disponible.
 
 ## Articles connexes
 
@@ -81,4 +81,4 @@ Cet outil convertira les Runbooks Orchestrator en Runbooks graphiques qui peuven
 - [Activités standard d'Orchestrator](http://technet.microsoft.com/library/hh403832.aspx)
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO4-->

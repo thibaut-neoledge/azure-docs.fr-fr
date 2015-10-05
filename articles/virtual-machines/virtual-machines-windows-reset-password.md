@@ -1,17 +1,17 @@
 <properties
-	pageTitle="Réinitialisation d’un mot de passe ou du service Bureau à distance pour les machines virtuelles Windows"
-	description="Réinitialisez rapidement un mot de passe d’administrateur local ou le service Bureau à distance pour les machines virtuelles Windows à l’aide du portail Azure en version préliminaire ou de commandes PowerShell."
+	pageTitle="Réinitialisation du mot de passe ou du Bureau à distance sur une machine virtuelle Windows | Microsoft Azure"
+	description="Réinitialisez le mot de passe administrateur ou les services Bureau à distance sur une machine virtuelle Windows créée avec le modèle de déploiement du Gestionnaire des ressources."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="dsk-2015"
 	manager="timlt"
 	editor=""
-	tags="azure-service-management"/>
+	tags="azure-resource-manager"/>
 
 <tags
 	ms.service="virtual-machines"
 	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="na"
+	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="07/21/2015"
@@ -19,9 +19,9 @@
 
 # Réinitialisation d’un mot de passe ou du service Bureau à distance pour les machines virtuelles Windows
 
-Si vous ne pouvez pas vous connecter à une machine virtuelle Windows en raison de l’oubli d’un mot de passe ou d’un problème avec la configuration du service Bureau à distance, utilisez le portail Azure en version préliminaire ou l’extension VMAccess pour réinitialiser le mot de passe de l’administrateur local ou la configuration du service Bureau à distance.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Cet article traite des machines virtuelles créées avec le modèle de déploiement du Gestionnaire des ressources.
 
-> [AZURE.NOTE]Cet article ne s’applique pas aux machines virtuelles crées dans Azure Resource Manager.
+Si vous ne pouvez pas vous connecter à une machine virtuelle Windows en raison de l’oubli d’un mot de passe ou d’un problème avec la configuration du service Bureau à distance, utilisez le portail Azure en version préliminaire ou l’extension VMAccess pour réinitialiser le mot de passe de l’administrateur local ou la configuration du service Bureau à distance.
 
 ## Portail en version préliminaire
 
@@ -39,7 +39,7 @@ Pour réinitialiser le nom et le mot de passe du compte d’administrateur local
 
 Avant de débuter, vous avez besoin des éléments suivants :
 
-- Le module Azure PowerShell, version 0.8.5 ou ultérieure. Vous pouvez vérifier la version d’Azure PowerShell installée à l’aide de la commande **Get-Module azure | format-table version**. Pour des instructions et un lien vers la dernière version, consultez [Comment installer et configurer Azure PowerShell](http://go.microsoft.com/fwlink/p/?linkid=320552&clcid=0x409).
+- Le module Azure PowerShell, version 0.8.5 ou ultérieure. Vous pouvez vérifier la version de Microsoft Azure PowerShell installée à l’aide de la commande **Get-Module azure | format-table version**. Pour des instructions et un lien vers la dernière version, voir [Installation et configuration d’Azure PowerShell](http://go.microsoft.com/fwlink/p/?linkid=320552&clcid=0x409).
 - Le nouveau mot de passe du compte de l’administrateur local. Vous n’avez pas besoin de cela si vous souhaitez réinitialiser la configuration du service Bureau virtuel.
 - L’agent de machine virtuelle.
 
@@ -60,7 +60,7 @@ Si vous créez la machine virtuelle avec le portail Azure, exécutez la commande
 
 	$vm.GetInstance().ProvisionGuestAgent = $true
 
-Cette commande empêche l’erreur « L’agent invité d’approvisionnement doit être activé sur l’objet de machine virtuelle avant de définir l’extension d’accès à la machine virtuelle IaaS » de se produire lors de l’exécution de la commande **Set-AzureVMExtension** dans les sections suivantes.
+Cette commande empêche l’erreur « L’agent invité d’approvisionnement doit être activé sur l’objet VM avant de définir l’extension d’accès à la machine virtuelle IaaS » de se produire lors de l’exécution de la commande **Set-AzureVMExtension** dans les sections suivantes.
 
 À présent, vous pouvez effectuer ces tâches :
 
@@ -100,9 +100,9 @@ Si cette opération ne résout pas le problème d’accès au Bureau à distance
 1.	Dans le package de diagnostic, cliquez sur le **package de diagnostic Microsoft Azure IaaS (Windows)** pour créer une session de diagnostic.
 2.	Sur la page **Lequel des problèmes suivants se produit sur votre machine virtuelle Azure ?**, sélectionnez le problème **Connectivité RDP à une machine virtuelle Azure (redémarrage requis)**.
 
-Pour plus d’informations, consultez l’article de la Base de connaissances [Package de diagnostic Microsoft Azure IaaS (Windows)](http://support.microsoft.com/kb/2976864).
+Pour plus d’informations, voir l’article de la Base de connaissances [Package de diagnostic Microsoft Azure IaaS (Windows)](http://support.microsoft.com/kb/2976864).
 
-Si vous ne parvenez pas à exécuter le package de diagnostic Azure IaaS (Windows) ou que son exécution n’a pas résolu votre problème, consultez [Résoudre les problèmes des connexions du Bureau à distance avec une machine virtuelle Azure Windows](virtual-machines-troubleshoot-remote-desktop-connections.md).
+Si vous ne parvenez pas à exécuter le package de diagnostic Azure IaaS (Windows) ou que son exécution n’a pas résolu votre problème, voir [Résoudre les problèmes des connexions du Bureau à distance avec une machine virtuelle Azure Windows](virtual-machines-troubleshoot-remote-desktop-connections.md).
 
 
 ## Ressources supplémentaires
@@ -113,4 +113,4 @@ Si vous ne parvenez pas à exécuter le package de diagnostic Azure IaaS (Window
 
 [Résolution des problèmes de connexion Bureau à distance avec une machine virtuelle Azure Windows](virtual-machines-troubleshoot-remote-desktop-connections.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

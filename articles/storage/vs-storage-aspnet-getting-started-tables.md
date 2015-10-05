@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/03/2015"
-	ms.author="patshea123"/>
+	ms.author="patshea"/>
 
 # Prendre en main le stockage de tables et les services connectés de Visual Studio (ASP.NET)
 > [AZURE.SELECTOR]
@@ -167,4 +167,4 @@ Une fois l'entité trouvée, vous pouvez la supprimer. Le code suivant recherche
 
 [AZURE.INCLUDE [vs-storage-dotnet-tables-next-steps](../../includes/vs-storage-dotnet-tables-next-steps.md)]
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

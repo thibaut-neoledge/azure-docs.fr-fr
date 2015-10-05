@@ -1,20 +1,20 @@
 <properties
    pageTitle="Utilisation avancée du modèle de programmation de services fiables"
-	description="En savoir plus sur l'utilisation avancée du modèle de programmation de services fiables Service Fabric pour améliorer la flexibilité de vos services."
-	services="Service-Fabric"
-	documentationCenter=".net"
-	authors="jessebenson"
-	manager="timlt"
-	editor="masnider"/>
+   description="En savoir plus sur l'utilisation avancée du modèle de programmation de services fiables Service Fabric pour améliorer la flexibilité de vos services."
+   services="Service-Fabric"
+   documentationCenter=".net"
+   authors="jessebenson"
+   manager="timlt"
+   editor="masnider"/>
 
 <tags
    ms.service="Service-Fabric"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="NA"
-	ms.date="08/26/2015"
-	ms.author="jesseb"/>
+   ms.devlang="dotnet"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="NA"
+   ms.date="08/26/2015"
+   ms.author="jesseb"/>
 
 # Utilisation avancée du modèle de programmation de services fiables
 Service Fabric simplifie l'écriture et la gestion des services fiables avec et sans état. Ce guide vous présentera les utilisations avancées du modèle de programmation de services fiables offrant plus de contrôle et de flexibilité sur vos services. Avant de lire ce guide, familiarisez-vous avec [le modèle de programmation de services fiables](service-fabric-reliable-services-introduction.md).
@@ -59,7 +59,4 @@ Pour parcourir des rubriques plus avancées concernant Service Fabric, consultez
 
 - [Vue d'ensemble des contraintes de placement](service-fabric-placement-constraint.md)
 
-- [Sécuriser le trafic de réplication des services avec état dans Azure Service Fabric](service-fabric-replication-security.md)
- 
-
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

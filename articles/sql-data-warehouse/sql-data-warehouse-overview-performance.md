@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/24/2015"
+   ms.date="09/22/2015"
    ms.author="barbkess;JRJ@BigBangData.co.uk;mausher;nicw"/>
 
 # Vue d’ensemble des performances et de la mise à l’échelle
@@ -77,4 +77,4 @@ Consultez la [vue d’ensemble sur le développement][] afin de bénéficier de 
 
 <!--Other web references-->
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

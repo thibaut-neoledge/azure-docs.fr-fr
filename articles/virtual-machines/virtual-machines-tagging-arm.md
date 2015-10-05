@@ -1,13 +1,12 @@
 <properties
-   pageTitle="Comment baliser une machine virtuelle dans Azure"
-   description="Découvrir le balisage d’une machine virtuelle dans Azure"
+   pageTitle="Balisage d’une machine virtuelle | Microsoft Azure"
+   description="Découvrez comment baliser une machine virtuelle Azure créée à l’aide du modèle de déploiement du Gestionnaire des ressources."
    services="virtual-machines"
    documentationCenter=""
    authors="mmccrory"
    manager="timlt"
    editor="tysonn"
    tags="azure-resource-manager"/>
-
 
 <tags
    ms.service="virtual-machines"
@@ -18,8 +17,9 @@
    ms.date="07/23/2015"
    ms.author="dkshir;memccror"/>
 
-
 # Comment baliser une machine virtuelle dans Azure
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Cet article traite du balisage d’une machine virtuelle créée avec le modèle de déploiement du Gestionnaire des ressources.
 
 Cet article décrit différentes façons d’ajouter des balises à une machine virtuelle dans Azure à l’aide d’Azure Resource Manager. Les balises sont des paires clé/valeur définies par l’utilisateur, qui peuvent être placées directement sur une ressource ou sur un groupe de ressources. Azure prend actuellement en charge jusqu’à 15 balises par ressource et par groupe de ressources. Les balises peuvent être placées sur une ressource au moment de la création ou bien ajoutées à une ressource existante. Notez que les balises ne sont prises en charge que pour les ressources créées via Azure Resource Manager.
 
@@ -131,7 +131,7 @@ La cinquième commande affiche toutes les balises sur la ressource. Comme vous p
         Value		MyLocation
         Name		Location
 
-Pour en savoir plus sur le balisage via PowerShell, consultez les [applets de commande des ressources Azure][].
+Pour en savoir plus sur le balisage via PowerShell, voir les [applets de commande des ressources Azure][].
 
 
 ## Balisage avec l’interface de ligne de commande Azure
@@ -182,11 +182,11 @@ En analysant ces balises ainsi que leur utilisation, les organisations sont en m
 
 
 [environnement PowerShell avec Azure Resource Manager]: ../powershell-azure-resource-manager.md
-[applets de commande des ressources Azure]: https://msdn.microsoft.com/fr-fr/library/azure/dn757692.aspx
+[applets de commande des ressources Azure]: https://msdn.microsoft.com/fr-FR/library/azure/dn757692.aspx
 [environnement CLI Azure]: ./xplat-cli-azure-resource-manager.md
 [Présentation d’Azure Resource Manager]: ../resource-group-overview.md
 [Utilisation de balises pour organiser vos ressources Azure]: ../resource-group-using-tags.md
 [Comprendre votre facture Azure]: ../billing-understand-your-bill.md
 [Obtenir une vue d’ensemble de votre consommation des ressources Microsoft Azure]: ../billing-usage-rate-card-overview.md
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

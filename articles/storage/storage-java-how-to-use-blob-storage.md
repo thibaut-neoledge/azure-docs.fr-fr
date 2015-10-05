@@ -258,6 +258,8 @@ Maintenant que vous connaissez les bases du stockage d’objets blob, consultez 
 - [API REST d’Azure Storage][]
 - [Blog de l'équipe Azure Storage][]
 
+Pour plus d’informations, consultez également le [Centre pour développeurs Java](/develop/java/).
+
 [Azure SDK for Java]: http://go.microsoft.com/fwlink/?LinkID=525671
 [Kit de développement logiciel (SDK) Azure Storage pour Java]: https://github.com/azure/azure-storage-java
 [Kit de développement logiciel (SDK) Azure Storage pour Java]: https://github.com/azure/azure-storage-java
@@ -267,4 +269,4 @@ Maintenant que vous connaissez les bases du stockage d’objets blob, consultez 
 [API REST d’Azure Storage]: http://msdn.microsoft.com/library/azure/gg433040.aspx
 [Blog de l'équipe Azure Storage]: http://blogs.msdn.com/b/windowsazurestorage/
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

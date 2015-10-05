@@ -4,7 +4,7 @@
    services="active-directory"
    documentationCenter=""
    authors="curtand"
-   manager="swadhwa"
+   manager="stevenpo"
    editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="07/16/2015"
+   ms.date="09/21/2015"
    ms.author="curtand"/>
 
 # Ajouter et gérer plusieurs annuaires Azure AD
@@ -40,4 +40,4 @@ Pour ajouter un annuaire Azure AD dans le Portail de gestion Azure, sélectionn
 
 Pour obtenir une vue d’ensemble des problèmes de licence Azure AD et pour découvrir les meilleures pratiques, voir l’article [Qu’est-ce que la gestion des licences Azure Active Directory ?](active-directory-licensing-what-is.md).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

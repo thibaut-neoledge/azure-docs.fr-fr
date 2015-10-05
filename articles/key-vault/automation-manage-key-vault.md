@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Gestion d'Azure Key Vault avec Azure Automation"
+	pageTitle="Gestion d'Azure Key Vault avec Azure Automation | Microsoft Azure"
 	description="Découvrez comment utiliser le service Azure Automation pour gérer Azure Key Vault."
 	services="Key-Vault, automation"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/30/2015"
+	ms.date="09/22/2015"
 	ms.author="csand"/>
 
 
@@ -44,6 +44,5 @@ Maintenant que vous connaissez les bases d’Azure Automation et que vous savez 
 
 * Consultez le [didacticiel de mise en route](../automation-create-runbook-from-samples.md) d'Azure Automation.
 * Consultez les [scripts PowerShell pour Azure Key Vault](https://gallery.technet.microsoft.com/scriptcenter/Azure-Key-Vault-Powershell-1349b091).
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

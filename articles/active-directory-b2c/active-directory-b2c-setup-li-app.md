@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/15/2015"
+	ms.date="09/22/2015"
 	ms.author="swkrish"/>
 
 # Azure Active Directory (AD) B2C en version préliminaire : fourniture d’inscription et de connexion à des consommateurs disposant de comptes LinkedIn
@@ -52,4 +52,4 @@ Pour utiliser LinkedIn en tant que fournisseur d’identité dans Azure Active D
 6. Cliquez sur **Configurer ce fournisseur d’identité**, puis entrez l’**ID client** et la **Clé secrète client** de l’application LinkedIn que vous avez créée précédemment.
 7. Cliquez sur **OK**, puis sur **Créer** pour enregistrer votre configuration LinkedIn.
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

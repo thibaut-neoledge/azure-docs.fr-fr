@@ -13,8 +13,9 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="09/04/2015"
+   ms.date="09/22/2015"
    ms.author="barbkess;twounder;JRJ@BigBangData.co.uk"/>
+
 
 # Charge de travail de l’entrepôt de données
 Le concept de « charge de travail d’entrepôt de données » fait référence à l’ensemble des opérations se produisant dans un entrepôt de données. La charge de travail de l’entrepôt de données comprend l’ensemble du processus de chargement des données dans l’entrepôt, d’exécution de l’analyse et de génération des rapports sur l’entrepôt de données, de gestion des données dans l’entrepôt de données et d’exportation des données de l’entrepôt de données. La complexité et l’étendue de ces composants sont bien souvent proportionnées par rapport au niveau de maturité de l’entrepôt de données.
@@ -72,4 +73,4 @@ Pour commencer à développer votre entrepôt de données, consultez la [vue d�
 
 <!--Other web references-->
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

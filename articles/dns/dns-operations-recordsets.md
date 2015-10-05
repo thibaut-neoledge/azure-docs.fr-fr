@@ -1,22 +1,22 @@
 <properties 
-   pageTitle="Gestion des jeux d'enregistrements DNS et des enregistrements dans Azure DNS | Microsoft Azure"
-	description="Gestion des jeux d'enregistrements DNS et des enregistrements dans Azure DNS lorsque votre domaine est hébergé dans Azure DNS. Toutes les commandes PowerShell pour les opérations sur les jeux d'enregistrements et les enregistrements."
-	services="dns"
-	documentationCenter="na"
-	authors="joaoma"
-	manager="Adinah"
-	editor=""/>
+   pageTitle="Gestion des jeux d'enregistrements DNS et des enregistrements dans Azure DNS | Microsoft Azure" 
+   description="Gestion des jeux d'enregistrements DNS et des enregistrements dans Azure DNS lorsque votre domaine est hébergé dans Azure DNS. Toutes les commandes PowerShell pour les opérations sur les jeux d'enregistrements et les enregistrements." 
+   services="dns" 
+   documentationCenter="na" 
+   authors="joaoma" 
+   manager="Adinah" 
+   editor=""/>
 
 <tags
    ms.service="dns"
-	ms.devlang="en"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="infrastructure-services"
-	ms.date="08/02/2015"
-	ms.author="joaoma"/>
+   ms.devlang="en"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="infrastructure-services" 
+   ms.date="09/22/2015"
+   ms.author="joaoma"/>
 
-# Gestion des enregistrements DNS
+# Gestion des enregistrements DNS à l'aide de PowerShell
 
 
 > [AZURE.SELECTOR]
@@ -271,4 +271,4 @@ L'objet du jeu d'enregistrements peut également être envoyé au lieu d’être
 [Prise en main de la création de jeux d'enregistrements et des enregistrements](../dns-getstarted-create-recordset)<BR> [Réalisation d’opérations sur des zones DNS](../dns-operations-dnszones)<BR> [Automatisation d’opérations à l'aide du Kit de développement (SDK) .NET](../dns-sdk)
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

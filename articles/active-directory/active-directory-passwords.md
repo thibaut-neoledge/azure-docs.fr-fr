@@ -1,19 +1,19 @@
-<properties 
+<properties
 	pageTitle="Définition de la gestion des mots de passe Azure Active Directory | Microsoft Azure"
-	description="Description des fonctionnalités de gestion des mots de passe dans Azure AD, y compris la réinitialisation, la modification, les rapports de gestion et l’écriture différée vers votre annuaire Active Directory local." 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="asteen" 
-	manager="kbrint" 
+	description="Description des fonctionnalités de gestion des mots de passe dans Azure AD, y compris la réinitialisation, la modification, les rapports de gestion et l’écriture différée vers votre annuaire Active Directory local."
+	services="active-directory"
+	documentationCenter=""
+	authors="asteen"
+	manager="kbrint"
 	editor="billmath"/>
 
-<tags 
-	ms.service="active-directory" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/08/2015" 
+<tags
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/18/2015" 
 	ms.author="asteen"/>
 
 # Gestion de vos mots de passe en tout lieu
@@ -40,7 +40,7 @@ Voici quelques opérations que vous pouvez effectuer avec les fonctionnalités d
 - La **modification des mots de passe libre-service** permet aux utilisateurs finaux ou aux administrateurs de modifier leurs mots de passe expirés ou non expirés sans appeler un administrateur ou le support technique pour obtenir de l’aide.
 - La **réinitialisation du mot de passe libre-service** permet aux utilisateurs finaux ou aux administrateurs de réinitialiser leurs mots de passe automatiquement sans appeler un administrateur ou le support technique pour obtenir de l’aide. La réinitialisation du mot de passe libre-service nécessite Azure AD Premium ou Basic. Pour plus d’informations, consultez la page Éditions d’Azure Active Directory.
 - La **réinitialisation du mot de passe initiée par l’administrateur** permet à un administrateur de réinitialiser le mot de passe d’un utilisateur final ou d’un autre administrateur depuis le [portail de gestion Azure](https://manage.windowsazure.com).
-- Les **rapports d'activité de gestion des mots de passe** donnent aux administrateurs un aperçu de l’activité d’inscription et de réinitialisation des mots de passe dans leur organisation. 
+- Les **rapports d'activité de gestion des mots de passe** donnent aux administrateurs un aperçu de l’activité d’inscription et de réinitialisation des mots de passe dans leur organisation.
 - L’**écriture différée de mot de passe** permet la gestion des mots de passe locaux depuis le cloud afin que tous les scénarios mentionnés ci-dessus puissent être exécutés par ou pour des utilisateurs fédérés ou synchronisés par mot de passe. L'écriture différée de mot de passe nécessite Azure AD Premium. Pour plus d'informations, consultez la page Prise en main d’Azure AD Premium.
 
 ## Pourquoi utiliser la gestion des mots de passe Azure AD ?
@@ -77,6 +77,6 @@ Voici quelques raisons pour lesquelles vous devez utiliser les fonctionnalités 
 * [FAQ sur la gestion des mots de passe](active-directory-passwords-faq.md)
 * [Résolution des problèmes de gestion des mots de passe](active-directory-passwords-troubleshoot.md)
 * [En savoir plus](active-directory-passwords-learn-more.md)
-* [Gestion des mots de passe sur MSDN](https://msdn.microsoft.com/library/azure/dn510386.aspx) 
+* [Gestion des mots de passe sur MSDN](https://msdn.microsoft.com/library/azure/dn510386.aspx)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

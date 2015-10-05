@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/15/2015"
+	ms.date="09/22/2015"
 	ms.author="swkrish"/>
 
 # Azure Active Directory B2C en version préliminaire : création d’un annuaire Azure AD B2C
@@ -67,4 +67,4 @@ Procédez comme suit pour créer un annuaire Azure AD B2C. Actuellement, les f
 
 Passez à l’[inscription d’une application auprès d’Azure AD B2C et à la création d’une application de démarrage rapide](active-directory-b2c-app-registration.md).
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

@@ -17,6 +17,14 @@
 
 # Créer une application web Java dans Azure App Service
 
+> [AZURE.SELECTOR]
+- [.Net](web-sites-dotnet-get-started.md)
+- [Node.js](web-sites-nodejs-develop-deploy-mac.md)
+- [Java](web-sites-java-get-started.md)
+- [PHP - Git](web-sites-php-mysql-deploy-use-git.md)
+- [PHP - FTP](web-sites-php-mysql-deploy-use-ftp.md)
+- [Python](web-sites-python-ptvs-django-mysql.md)
+
 Ce didacticiel vous explique comment créer une application web sur Microsoft Azure à l’aide de Java, soit par le biais d’Azure Marketplace, soit via l’interface utilisateur de configuration dans la [fonctionnalité Web Apps d’Azure App Service][].
 
 Si vous ne souhaitez pas utiliser l’une de ces techniques (par exemple, si vous préférez personnaliser votre conteneur d’applications), consultez la page [Charger une application web Java personnalisée dans Azure](web-sites-java-custom-upload.md).
@@ -79,7 +87,9 @@ Maintenant que vous avez créé l’application web avec un conteneur d’applic
 
 ## Étapes suivantes
 
-Vous disposez à présent d’un serveur d’applications Java exécuté comme votre application web Java sur Azure. Pour y ajouter votre propre application ou page web, consultez la page [Ajout d’une application à votre site Web Java sur Azure](web-sites-java-add-app.md).
+Vous disposez à présent d’un serveur d’applications Java exécuté comme votre application web Java sur Azure. Pour y ajouter votre propre application ou page web, consultez la page [Ajout d’une application ou d’une page web à votre application web Java](web-sites-java-add-app.md).
+
+Pour plus d’informations, consultez le [Centre pour développeurs Java](/develop/java/).
 
 ## Changements apportés
 
@@ -94,4 +104,4 @@ Vous disposez à présent d’un serveur d’applications Java exécuté comme v
 [Azure App Service et les services Azure existants]: http://go.microsoft.com/fwlink/?LinkId=529714
 [Références sur la navigation dans le portail Azure]: http://go.microsoft.com/fwlink/?LinkId=529715
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO4-->

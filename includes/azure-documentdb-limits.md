@@ -28,6 +28,6 @@ Nombre maximal de points dans un argument Polygone dans une demande ST_WITHIN* |
 Nombre maximal de créations de collection par minute* |5 
 Nombre maximal d'opérations de mise à l'échelle par minute* |5
 
-Les quotas marqués d'un astérisque (\*) [peuvent être ajustés en contactant le support Azure](../articles/documentdb/documentdb-increase-limits.md).
+Les quotas marqués d'un astérisque (*) [peuvent être ajustés en contactant le support Azure](../articles/documentdb/documentdb-increase-limits.md).
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

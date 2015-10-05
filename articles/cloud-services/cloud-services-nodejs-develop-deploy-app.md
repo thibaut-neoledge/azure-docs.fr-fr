@@ -10,7 +10,7 @@
 <tags
 	ms.service="cloud-services"
 	ms.workload="tbd"
-	ms.tgt_pltfrm="na"
+	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs"
 	ms.topic="hero-article"
 	ms.date="08/31/2015"
@@ -177,6 +177,9 @@ Après avoir déployé votre application, vous pouvez la désactiver afin de vou
 
 	> [AZURE.NOTE]La suppression du service ne supprime pas le compte de stockage qui a été créé lors de la publication initiale du service. Le stockage utilisé continuera à vous être facturé. Pour plus d'informations sur la suppression d'un compte de stockage, consultez la page [Suppression d'un compte de stockage d'un abonnement Azure](http://msdn.microsoft.com/library/windowsazure/hh531562.aspx).
 
+## Étapes suivantes
+
+Pour plus d'informations, consultez le [Centre pour développeurs Node.js](/develop/nodejs/).
 
 [The Windows Start menu with the Azure SDK Node.js entry expanded]: ./media/cloud-services-nodejs-develop-deploy-app/azure-powershell-menu.png
 [mkdir]: ./media/cloud-services-nodejs-develop-deploy-app/getting-started-6.png
@@ -194,4 +197,4 @@ Après avoir déployé votre application, vous pouvez la désactiver afin de vou
 [powershell-menu]: ./media/cloud-services-nodejs-develop-deploy-app/azure-powershell-start.png
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO4-->

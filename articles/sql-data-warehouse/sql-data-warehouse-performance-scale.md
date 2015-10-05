@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="09/09/2015"
+   ms.date="09/22/2015"
    ms.author="nicw;JRJ@BigBangData.co.uk;mausher"/>
 
 # Performances et mise à l’échelle élastiques avec SQL Data Warehouse
@@ -94,4 +94,4 @@ Pour consulter une présentation sur les performances, accédez à la [vue d’e
 [Portail Azure]: http://portal.azure.com/
 [portail Azure]: http://portal.azure.com/
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

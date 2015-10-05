@@ -1,11 +1,13 @@
 <properties
- pageTitle="À propos des extensions et des fonctionnalités des machines virtuelles | Microsoft Azure"
- description="Décrit la plupart des extensions de machine virtuelle, regroupées selon leurs caractéristiques, par exemple la connectivité et de gestion de base."
+ pageTitle="Extensions et fonctionnalités des machines virtuelles | Microsoft Azure"
+ description="Découvrez les extensions disponibles pour les machines virtuelles, regroupées par ce qu’ils fournissent ou améliorent."
  services="virtual-machines"
  documentationCenter=""
  authors="squillace"
  manager="timlt"
- editor=""/>
+ editor=""
+ tags="azure-service-management,azure-resource-manager"/>
+
 <tags
  ms.service="virtual-machines"
  ms.devlang="na"
@@ -17,7 +19,10 @@
 #À propos des extensions et des fonctionnalités des machines virtuelles
 Microsoft Azure fournit des extensions de machine virtuelle créées par Microsoft et par des fournisseurs tiers de confiance pour activer la sécurité, l'exécution, le débogage, la gestion et d'autres fonctionnalités dont vous pouvez tirer parti afin d'augmenter votre productivité grâce aux machines virtuelles Azure. Cette rubrique décrit les différentes fonctionnalités fournies par des extensions de machine virtuelle Azure aux des machines virtuelles Windows et Linux et répertorie la documentation dédiée à chaque type de machine virtuelle.
 
-Pour plus d'informations sur les agents de machine virtuelle et la manière dont ils prennent en charge les extensions de machine virtuelle, consultez [Vue d'ensemble de l'agent de machine virtuelle et des extensions de machine virtuelle](https://msdn.microsoft.com/library/dn832621.aspx).
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Cet article traite de la création de ressources avec le modèle de déploiement du Gestionnaire des ressources ou le modèle de déploiement classique.
+
+
+Pour plus d’informations sur les agents de machine virtuelle et la manière dont ils prennent en charge les extensions de machine virtuelle, voir [Vue d’ensemble de l’agent de machine virtuelle et des extensions de machine virtuelle](https://msdn.microsoft.com/library/dn832621.aspx).
 
 ##Extensions de machine virtuelle Azure
 
@@ -38,17 +43,17 @@ Les extensions suivantes prennent en charge différents types de scénarios de d
 
 |Nom de l'extension de machine virtuelle|Description de la fonctionnalité|Informations complémentaires|
 |---|---|---|
-|**MSEnterpriseApplication**|Met en œuvre des fonctionnalités de prise en charge par Windows System Center.|[Rôles de machine virtuelle System Center 2012 R2 ](http://social.technet.microsoft.com/wiki/contents/articles/18274.system-center-2012-r2-virtual-machine-role-authoring-guide-resource-extension-package.aspx)|
+|**MSEnterpriseApplication**|Met en œuvre des fonctionnalités de prise en charge par Windows System Center.|[Rôles de machine virtuelle System Center 2012 R2](http://social.technet.microsoft.com/wiki/contents/articles/18274.system-center-2012-r2-virtual-machine-role-authoring-guide-resource-extension-package.aspx)|
 |**Octopus Deploy** (basé sur une extension DSC)|Prend en charge le déploiement automatisé d'applications web ASP.NET et de services Windows dans des environnements de développement, de test et de production.|[Mise en route d'Octopus Deploy](http://docs.octopusdeploy.com/display/OD/Getting%20started)|
 |**Visual Studio Release Manager** (basé sur une extension DSC)|Prend en charge un déploiement continu avec Visual Studio.|[Automatiser les déploiements avec Release Management](https://msdn.microsoft.com/library/dn217874.aspx)|
 |**CentosChefClient**|||
 |**ChefClient**|Crée un client Chef sous Windows. (Peut également utiliser l'extension DSC, voir ci-dessous.)|[Chef et Microsoft Azure](https://www.getchef.com/solutions/azure/)|
 |**LinuxChefClient**|||
-|**DockerExtension**|Installe le démon Docker pour prendre en charge des commandes Docker distantes.|[Utilisation de l'extension de machine virtuelle Docker](virtual-machines-docker-vm-extension.md)Pour plus d'informations, consultez le [Guide de l'utilisateur Docker VM Extension](https://github.com/Azure/azure-docker-extension/blob/master/README.md)|
+|**DockerExtension**|Installe le démon Docker pour prendre en charge des commandes Docker distantes.|[Utilisation de l’extension de machine virtuelle Docker](virtual-machines-docker-vm-extension.md)Pour plus d’informations, voir le [Guide de l’utilisateur Docker VM Extension](https://github.com/Azure/azure-docker-extension/blob/master/README.md)|
 |**DSC**|Extension PowerShell DSC (Desired State Configuration, configuration d'état souhaité).|[Extension Azure PowerShell DSC (Desired State Configuration, configuration d'état souhaité)](http://blogs.msdn.com/b/powershell/archive/2014/08/07/introducing-the-azure-powershell-dsc-desired-state-configuration-extension.aspx)|
 |**PuppetEnterpriseAgent**|Met en œuvre les fonctionnalités de Puppet Enterprise. |[Puppet sur Azure](http://puppetlabs.com/solutions/microsoft)|
 |**CustomScriptExtension** (Windows)**CustomScriptForLinux** (Linux)|Appelle des scripts personnalisés sur la machine virtuelle à tout moment : au démarrage ou pendant le cycle de vie.|[Extension de script personnalisé](https://msdn.microsoft.com/library/dn781373.aspx)[Linux](http://azure.microsoft.com/blog/2014/08/20/automate-linux-vm-customization-tasks-using-customscript-extension/)|
-|**AzureCATExtensionHandler**|Consomme les données de diagnostics collectées par **IaaSDiagnostics** et d'autres sources de données telles que les [mesures Azure Storage Analytics](https://msdn.microsoft.com/library/azure/hh343270.aspx) et les transforme en un jeu de données agrégé adapté au processus de contrôle d'hôte SAP.|[Surveillance Azure améliorée pour SAP](http://azure.microsoft.com/blog/2014/06/04/azure-enhanced-monitoring-for-sap/)|
+|**AzureCATExtensionHandler**|Consomme les données de diagnostics collectées par **IaaSDiagnostics** et d’autres sources de données telles que les [mesures Azure Storage Analytics](https://msdn.microsoft.com/library/azure/hh343270.aspx) et les transforme en un jeu de données agrégé adapté au processus de contrôle d’hôte SAP.|[Surveillance Azure améliorée pour SAP](http://azure.microsoft.com/blog/2014/06/04/azure-enhanced-monitoring-for-sap/)|
 
 ##Sécurité et protection
 
@@ -67,9 +72,9 @@ Les extensions abordées dans cette section fournissent des fonctionnalités de 
 
 Prend en charge des fonctionnalités de gestion des opérations courantes. Référez-vous également à la rubrique concernant la gestion du déploiement et de la configuration ci-dessus.
 
-|**Nom de l'extension de machine virtuelle **|Description de la fonctionnalité|Informations complémentaires|
+|**Nom de l'extension de machine virtuelle**|Description de la fonctionnalité|Informations complémentaires|
 |---|---|---|
-|**AzureVmLogCollector**|Vous pouvez utiliser l'extension **AzureVMLogCollector** à la demande pour exécuter une collecte unique de journaux depuis une ou plusieurs machines virtuelles de Service Cloud (à partir des rôles web et de travail) et transférer les fichiers collectés dans un compte de stockage Azure, le tout sans connexion à distance à une machine virtuelle quelconque. |[AzureLogCollector Extension](https://msdn.microsoft.com/library/dn927183.aspx)|
+|**AzureVmLogCollector**|Vous pouvez utiliser l’extension **AzureVMLogCollector** à la demande pour exécuter une collecte unique de journaux depuis une ou plusieurs machines virtuelles de Service Cloud (à partir des rôles web et de travail) et transférer les fichiers collectés dans un compte de stockage Azure, le tout sans connexion à distance à une machine virtuelle quelconque. |[AzureLogCollector Extension](https://msdn.microsoft.com/library/dn927183.aspx)|
 |**IaaSDiagnostics**|Active, désactive et configure Azure Diagnostics et est également utilisé par **AzureCATExtensionHandler** pour prendre en charge la surveillance SAP.|[Surveillance des machines virtuelles Microsoft Azure avec l'extension Azure Diagnostics](http://azure.microsoft.com/blog/2014/09/02/windows-azure-virtual-machine-monitoring-with-wad-extension/)|
 |**OSPatchingForLinux**|Permet aux administrateurs de machines virtuelles Azure d'automatiser les mises à jour du système d'exploitation des machines virtuelles à l'aide de configurations personnalisées. Vous pouvez utiliser l'extension OSPatching pour configurer des mises à jour du système d'exploitation pour vos machines virtuelles, notamment : spécifier la fréquence et le moment de l'installation des correctifs de système d'exploitation, spécifier les correctifs à installer et configurer le comportement de redémarrage après les mises à jour|[Billet de blog OS Patching Extension](http://azure.microsoft.com/blog/2014/10/23/automate-linux-vm-os-updates-using-ospatching-extension/). Voir aussi le fichier Lisez-moi et la source sur Github : [OS Patching Extension](https://github.com/Azure/azure-linux-extensions).|
 
@@ -96,4 +101,4 @@ Ces extensions permettent la prise en charge d'autres fonctionnalités de machin
 |**BGInfo**|Présente une image consolidée des informations de serveur utiles sur le Bureau lors de l'utilisation de RDP.|[Extension BGInfo](https://msdn.microsoft.com/library/dn606289.aspx)|
 |**HpcVmDrivers**|Installe, configure et conserve les pilotes de périphérique réseau avec accès direct à la mémoire à distance (RDMA) sur une machine virtuelle A8 ou A9 exécutant Windows Server 2012 R2 ou Windows Server 2012. Permet aux machines virtuelles A8 ou A9 en cluster d’utiliser le réseau RDMA pendant l’exécution d’applications MPI parallèles.|[À propos des instances de calcul intensif A8, A9, A10 et A11](virtual-machines-a8-a9-a10-a11-specs.md)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

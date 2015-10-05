@@ -1,20 +1,20 @@
 <properties 
-   pageTitle="Créer et gérer un pool élastique de bases de données SQL à l'aide de PowerShell"
-	description="Créer et gérer un pool élastique de bases de données SQL Azure à l'aide de PowerShell"
-	services="sql-database"
-	documentationCenter=""
-	authors="stevestein"
-	manager="jeffreyg"
-	editor=""/>
+   pageTitle="Créer et gérer un pool élastique de bases de données SQL à l'aide de PowerShell" 
+   description="Créer et gérer un pool élastique de bases de données SQL Azure à l'aide de PowerShell" 
+   services="sql-database" 
+   documentationCenter="" 
+   authors="stevestein" 
+   manager="jeffreyg" 
+   editor=""/>
 
 <tags
    ms.service="sql-database"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="powershell"
-	ms.workload="data-management"
-	ms.date="08/25/2015"
-	ms.author="adamkr; sstein"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="powershell"
+   ms.workload="data-management" 
+   ms.date="09/23/2015"
+   ms.author="adamkr; sstein"/>
 
 # Créer et gérer un pool élastique de bases de données SQL à l'aide de PowerShell
 
@@ -240,4 +240,4 @@ Après avoir créé un pool élastique de bases de données, vous pouvez gérer 
 
 Pour en savoir plus sur les bases de données et les pools de bases de données élastiques, y compris les détails des API et des erreurs, consultez [Référence du pool de bases de données élastique](sql-database-elastic-pool-reference.md).
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

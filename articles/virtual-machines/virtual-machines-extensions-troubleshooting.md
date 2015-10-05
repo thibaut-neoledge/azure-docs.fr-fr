@@ -1,11 +1,12 @@
 <properties
-   pageTitle="Dépannage des échecs d'extensions de machine virtuelle Azure"
-   description="En savoir plus sur le dépannage des échecs d'extension de machine virtuelle Azure"
+   pageTitle="Résolution des problèmes pour les défaillances des extensions de machine virtuelle Azure | Microsoft Azure"
+   description="En savoir plus sur la résolution des problèmes pour les défaillances d’extension de machine virtuelle Azure"
    services="virtual-machines"
    documentationCenter=""
    authors="kundanap"
    manager="timlt"
-   editor=""/>
+   editor=""
+   tags="azure-resource-manager"/>
 
 <tags
    ms.service="virtual-machines"
@@ -18,9 +19,12 @@
 
 # Dépannage des échecs d'extension de machine virtuelle Azure.
 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Cet article traite de l’utilisation du modèle de déploiement de Resource Manager.
+
 ## Vue d’ensemble des modèles Azure Resource Manager
 
 Le modèle Azure Resource Manager vous permet de spécifier de manière déclarative l’infrastructure IaaS Azure dans le langage JSON en définissant les dépendances entre ressources.
+
 
 Cliquez sur l'article [Création de modèles d'extension](virtual-machines-extensions-authoring-templates.md) pour en savoir plus sur la création de modèles pour l'utilisation d'extensions.
 
@@ -80,4 +84,4 @@ Où « publsher-name » correspond au type d'extension à partir de la sortie 
 
 Une fois que l'extension a été supprimée, le modèle peut être réexécuté pour exécuter les scripts sur la machine virtuelle.
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

@@ -1,10 +1,10 @@
 <properties
 	pageTitle="Configuration d’Azure AD pour gérer l’accès aux applications en libre-service| Microsoft Azure"
-	description="Une rubrique qui explique comment gérer les mots de passe dans Azure AD."
+	description="présentation de La gestion de groupes en libre-service qui permet aux utilisateurs de créer et de gérer des groupes de sécurité dans Microsoft Azure Active Directory (AD). Elle leur offre aussi la possibilité de faire une demande d’appartenance à un groupe de sécurité."
 	services="active-directory"
 	documentationCenter=""
     authors="femila"
-	manager="swadhwa" 
+	manager="stevenpo" 
 	editor=""
 	tags="azure-classic-portal"/>
 
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/13/2015"
+	ms.date="09/21/2015"
 	ms.author="femila"/>
 
 #Configuration d’Azure AD pour gérer l’accès aux applications en libre-service
@@ -49,4 +49,4 @@ Voici des rubriques qui fournissent des informations supplémentaires sur Azure 
 
 * [Intégration de vos identités locales avec Azure Active Directory](active-directory-aadconnect.md)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

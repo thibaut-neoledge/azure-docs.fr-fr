@@ -1,12 +1,12 @@
 <properties 
-	pageTitle="Utilisation des privilèges root sur les machines virtuelles Linux dans Azure" 
+	pageTitle="Utilisation des privilèges racines sur les machines virtuelles Linux Microsoft Azure" 
 	description="Apprenez à utiliser les privilèges root sur une machine virtuelle Linux dans Azure." 
 	services="virtual-machines" 
 	documentationCenter="" 
 	authors="szarkos" 
 	manager="timlt" 
-	editor=""/>
-
+	editor=""
+	tags="azure-service-management,azure-resource-manager" />
 
 <tags 
 	ms.service="virtual-machines" 
@@ -18,16 +18,13 @@
 	ms.author="szark"/>
 
 
-
-
-
 # Utilisation des privilèges root sur les machines virtuelles Linux dans Azure
 
 Par défaut, l’utilisateur `root` est désactivé sur les machines virtuelles Linux dans Microsoft Azure. Les utilisateurs peuvent exécuter des commandes avec des privilèges élevés à l’aide de la commande `sudo`. Toutefois, l'expérience peut varier en fonction du mode de déploiement du système.
 
 1. **Clé SSH et mot de passe OU mot de passe uniquement :** la machine virtuelle a été déployée soit avec un certificat (fichier `.CER`) ou une clé SSH et un mot de passe, soit avec seulement un nom d’utilisateur et un mot de passe. Dans ce cas, `sudo` demande le mot de passe de l’utilisateur avant d’exécuter la commande.
 
-2. **Clé SSH uniquement** : la machine virtuelle a été déployée avec un certificat (fichier `.cer` ou `.pem`) ou une clé SSH, mais sans mot de passe. Dans ce cas, `sudo` **ne demande pas** le mot de passe de l’utilisateur avant d’exécuter la commande.
+2. **Clé SSH uniquement** : la machine virtuelle a été configurée avec un certificat (fichier `.cer`, `.pem` ou `.pub`) ou une clé SSH, mais sans mot de passe. Dans ce cas, `sudo` **ne demande pas** le mot de passe de l’utilisateur avant d’exécuter la commande.
 
 
 ## Clé SSH et mot de passe ou mot de passe uniquement
@@ -56,4 +53,4 @@ Dans ce cas, l'utilisateur **n'est pas** invité à fournir un mot de passe. Une
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

@@ -11,7 +11,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/18/2015" 
+	ms.date="09/18/2015" 
 	ms.author="sergkanz"/>
  
 # Notes de publication pour le Kit de développement logiciel (SDK) Application Insights pour Windows Phone et Windows Store
@@ -94,4 +94,4 @@ Aperçu 28/04/2015
 
 Aucune note de publication pour des versions antérieures.
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

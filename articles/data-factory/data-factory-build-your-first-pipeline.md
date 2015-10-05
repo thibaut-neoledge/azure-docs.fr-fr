@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article" 
-	ms.date="09/10/2015"
+	ms.date="09/22/2015"
 	ms.author="spelluru"/>
 
 # Concevez votre premier pipeline en utilisant Azure Data Factory
@@ -148,13 +148,15 @@ En premier lieu, vous devez préparer le compte de stockage Azure et ses fichier
 	1. Téléchargez la [dernière version d’**AzCopy**](http://aka.ms/downloadazcopy) ou la [version préliminaire la plus récente](http://aka.ms/downloadazcopypr). Consultez l’article [Utilisation d’AzCopy](../storage/storage-use-azcopy.md) pour obtenir des instructions sur l’utilisation de l’utilitaire.
 	2. Après l'installation d'AzCopy, vous pouvez l'ajouter au chemin d'accès système en exécutant la commande suivante à une invite de commandes. 
 	
-			set path=%path%;C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy
-	
+			set path=%path%;C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy			 
 
 	3. Accédez au dossier c:\\adfgettingstarted et exécutez la commande suivante pour charger le fichier .HQL de Hive dans le compte de stockage. Remplacez **StorageAccountName** par le nom de votre compte de stockage et **Storage Key** par la clé de compte de stockage.
 
 			AzCopy /Source:. /Dest:https://<StorageAccountName>.blob.core.windows.net/script /DestKey:<Storage Key>
-	4. Une fois que le fichier a été chargé, vous verrez la sortie suivante d’AzCopy.
+
+		> [AZURE.NOTE]La commande ci-dessus crée un conteneur nommé **script** dans votre stockage d'objets Blob Azure et copie le fichier **partitionweblogs.hql** dans le conteneur.
+	>
+	5. Une fois que le fichier a été chargé, vous verrez la sortie suivante d’AzCopy.
 	
 			Finished 1 of total 1 file(s).
 			[2015/06/15 15:47:13] Transfer summary:
@@ -174,4 +176,4 @@ Effectuez les actions suivantes :
 ## Envoyer des commentaires
 Nous souhaiterions vraiment obtenir vos commentaires sur cet article. Prenez quelques minutes pour nous envoyer vos commentaires par [courrier électronique](mailto:adfdocfeedback@microsoft.com?subject=data-factory-build-your-first-pipeline.md).
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

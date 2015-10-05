@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Injection de données personnalisées dans des machines virtuelles Azure"
+	pageTitle="Injection de données personnalisées dans des machines virtuelles | Microsoft Azure"
 	description="Cette rubrique explique comment injecter des données personnalisées dans une machine virtuelle Azure quand l’instance est créée, et comment localiser les données personnalisées dans Windows ou Linux."
 	services="virtual-machines"
 	documentationCenter=""
@@ -7,7 +7,6 @@
 	manager="timlt"
 	editor="tysonn"
 	tags="azure-service-management" />
-
 
 <tags
 	ms.service="virtual-machines"
@@ -19,10 +18,13 @@
 	ms.author="rasquill"/>
 
 
-
 #Injection de données personnalisées dans une machine virtuelle Azure
 
-L’injection d’un script ou d’autres données dans une machine virtuelle Azure lors de son approvisionnement est un scénario très commun, que le système d’exploitation soit Windows ou une distribution Linux. Cette rubrique montre comment :
+L’injection d’un script ou d’autres données dans une machine virtuelle Azure lors de son approvisionnement est un scénario très commun, que le système d’exploitation soit Windows ou une distribution Linux.
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Cet article traite de la création d’une ressource avec le modèle de déploiement classique.
+
+Cette rubrique montre comment :
 
 - injecter des données dans une machine virtuelle Azure lors de son approvisionnement ;
 
@@ -30,7 +32,7 @@ L’injection d’un script ou d’autres données dans une machine virtuelle Az
 
 - utiliser les outils spéciaux disponibles sur certains systèmes pour détecter et gérer les données personnalisées automatiquement.
 
-> [AZURE.NOTE]Cet article explique comment des données personnalisées peuvent être injectées à l’aide d’une machine virtuelle créée avec l’API Azure Service Management. Pour savoir comment utiliser l’API Azure Service Management, consultez cet [exemple de modèle](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-customdata).
+> [AZURE.NOTE]Cet article explique comment des données personnalisées peuvent être injectées à l’aide d’une machine virtuelle créée avec l’API Azure Service Management. Pour savoir comment utiliser l’API de gestion des ressources Azure, consultez cet [exemple de modèle](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-customdata).
 
 ## Injection de données personnalisées dans votre machine virtuelle Azure
 
@@ -80,4 +82,4 @@ Pour plus d'informations, consultez la [documentation cloud-init pour Ubuntu](ht
 
 [Interface de ligne de commande Azure](https://github.com/Azure/azure-sdk-tools-xplat)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

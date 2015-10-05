@@ -1,26 +1,32 @@
 <properties
    pageTitle="Exécution d'un Runbook dans Azure Automation"
-	description="Décrit les détails du traitement d'un Runbook dans Azure Automation."
-	services="automation"
-	documentationCenter=""
-	authors="bwren"
-	manager="stevenka"
-	editor="tysonn"/>
+   description="Décrit les détails du traitement d'un Runbook dans Azure Automation."
+   services="automation"
+   documentationCenter=""
+   authors="bwren"
+   manager="stevenka"
+   editor="tysonn" />
 <tags
    ms.service="automation"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="infrastructure-services"
-	ms.date="07/22/2015"
-	ms.author="bwren"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="infrastructure-services"
+   ms.date="09/17/2015"
+   ms.author="bwren" />
 
 # Exécution d'un Runbook dans Azure Automation
 
 
 Lorsque vous démarrez un Runbook dans Azure Automation, une tâche est créée. Une tâche est une instance d'exécution unique d'un Runbook. Un travail Azure Automation est assigné pour exécuter chaque tâche. Même si les travaux sont partagés par plusieurs comptes Azure, les tâches des différents comptes Automation sont isolées les unes des autres. Vous n'avez pas le contrôle du travail qui traitera la demande de votre tâche. Un même Runbook peut avoir plusieurs tâches s'exécutant à la fois. Lorsque vous affichez la liste des Runbooks du portail Azure, vous voyez l'état de la dernière tâche démarrée pour chaque Runbook. Vous pouvez afficher la liste des tâches de chaque Runbook pour en assurer le suivi de l'état. Pour obtenir une description des différents états des tâches, consultez [États des tâches](#job-statuses).
 
-![États des tâches](./media/automation-runbook-execution/job-statuses.png)
+Le diagramme suivant illustre le cycle de vie d'une tâche de Runbook pour des [Runbooks graphiques](automation-runbook-types.md#graphical-runbooks) et des [Runbooks de workflow PowerShell](automation-runbook-types.md#powershell-workflow-runbooks).
+
+![États des tâches - Workflow PowerShell](./media/automation-runbook-execution/job-statuses.png)
+
+Le diagramme suivant illustre le cycle de vie d'une tâche de Runbook pour des [Runbooks PowerShell](automation-runbook-types.md#powershell-runbooks).
+
+![États des tâches - Script PowerShell](./media/automation-runbook-execution/job-statuses-script.png)
 
 
 Vos tâches auront accès à vos ressources Azure en créant une connexion à votre abonnement Azure. Ils auront uniquement accès aux ressources de votre centre de données si ces ressources sont accessibles depuis le cloud public.
@@ -32,7 +38,7 @@ Le tableau suivant décrit les différents statuts possibles pour une tâche.
 | Statut| Description|
 |:---|:---|
 |Completed|La tâche s'est terminée avec succès.|
-|Failed|La tâche s'est terminée avec une erreur.|
+|Échec| Pour des [Runbooks graphiques et de workflow PowerShell](automation-runbook-types.md), le Runbook n’a pas pu être compilé. Pour des [Runbooks de script PowerShell](automation-runbook-types.md), le Runbook n'a pas pu démarrer ou la tâche a rencontré une exception. |
 |Échec, en attente de ressources|La tâche a échoué, car elle a atteint la limite de [répartition de charge équilibrée](#fairshare) trois fois et a démarré à partir du même point de contrôle ou à partir du début du Runbook à chaque fois.|
 |Mis en file d'attente.|La tâche attend que les ressources d'un travail Automation deviennent disponibles afin de pouvoir être démarrée.|
 |Starting|La tâche a été attribuée à un travail et le système est en train de le démarrer.|
@@ -41,8 +47,8 @@ Le tableau suivant décrit les différents statuts possibles pour une tâche.
 |En cours d'exécution, en attente de ressources|La tâche a été déchargée, car elle a atteint la limite de [répartition de charge équilibrée](#fairshare). Elle va bientôt reprendre depuis son dernier point de contrôle.|
 |Arrêté|La tâche a été arrêtée par l'utilisateur avant qu'elle n'ait été terminée.|
 |En cours d’arrêt|Le système est en cours d'arrêt de la tâche.|
-|Interrompu|La tâche a été suspendue par l'utilisateur, le système ou une commande du Runbook. Une tâche qui est interrompue peut être démarrée à nouveau et reprend à partir de son dernier point de contrôle ou à partir du début du Runbook s'il n'a aucun point de contrôle. Le Runbook est uniquement interrompu par le système en cas d'exception. Par défaut, ErrorActionPreference est définie sur **Continuer**, ce qui signifie que la tâche se poursuivra en cas d'erreur. Si cette préférence est définie sur **Arrêter**,la tâche s'interrompt en cas d'erreur.|
-|Suspension|Le système tente de suspendre la tâche à la demande de l'utilisateur. Le Runbook doit atteindre son prochain point de contrôle avant de pouvoir être suspendu. S'il a déjà passé le dernier point de contrôle, il se termine avant d'être suspendu.|
+|Interrompu|La tâche a été suspendue par l'utilisateur, le système ou une commande du Runbook. Une tâche qui est interrompue peut être démarrée à nouveau et reprend à partir de son dernier point de contrôle ou à partir du début du Runbook s'il n'a aucun point de contrôle. Le Runbook est uniquement interrompu par le système en cas d'exception. Par défaut, ErrorActionPreference est définie sur **Continuer**, ce qui signifie que la tâche se poursuivra en cas d'erreur. Si cette préférence est définie sur **Arrêter**,la tâche s'interrompt en cas d'erreur. S'applique aux [Runbooks graphiques et de workflow PowerShell](automation-runbook-types.md) uniquement.|
+|Suspension|Le système tente de suspendre la tâche à la demande de l'utilisateur. Le Runbook doit atteindre son prochain point de contrôle avant de pouvoir être suspendu. S'il a déjà passé le dernier point de contrôle, il se termine avant d'être suspendu. S'applique aux [Runbooks graphiques et de workflow PowerShell](automation-runbook-types.md) uniquement.|
 
 ## Affichage de l'état des tâches à l'aide du portail de gestion Azure
 
@@ -103,4 +109,4 @@ Lorsque vous créez un Runbook, vous devez vous assurer que la durée d'exécuti
 
 - [Démarrage d'un Runbook dans Azure Automation](automation-starting-a-runbook.md)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

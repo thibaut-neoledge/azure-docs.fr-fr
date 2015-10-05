@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/16/2015"
+	ms.date="09/23/2015"
 	ms.author="genemi"/>
 
 
@@ -169,6 +169,7 @@ La base de données V11 est toujours disponible pour l’accès aux données pen
 | :--- | :--- |
 | Durée de la mise à niveau | La durée de la mise à niveau dépend de la taille, de l’édition et du nombre de bases de données sur le serveur. La mise à niveau peut prendre plusieurs heures ou plusieurs jours, notamment pour les serveurs dont les bases de données présentent les caractéristiques suivantes :<br/><br/>* Taille supérieure à 50 Go, ou <br/>* Un niveau de service autre que Premium<br/><br/>La création de bases de données sur le serveur pendant la mise à niveau peut également augmenter la durée de cette opération. |
 | Aucune géo-réplication | La géo-réplication n’est pas prise en charge sur un serveur V12 impliqué dans une mise à niveau à partir de V11. |
+| La base de données est temporairement indisponible à l’étape finale de la mise à niveau vers V12. | Les bases de données appartenant à votre serveur V11 restent disponibles pendant le processus de mise à niveau. Toutefois, la connexion au serveur et aux bases de données est temporairement indisponible à l’étape finale, lorsque le basculement commence du serveur V11 vers le serveur V12 prêt.<br/><br/>La période de basculement peut varier de 40 secondes à 5 minutes. Pour la plupart des serveurs, le basculement ne prend pas plus de 90 secondes. Le temps de basculement augmente pour les serveurs qui ont un grand nombre de bases de données ou lorsque les bases de données ont des charges de travail d’écriture lourdes. |
 
 
 ### Limitations à prendre en compte *après* la mise à niveau vers la version 12
@@ -243,9 +244,6 @@ L’applet de commande Stop- signifie « annuler », et non « interrompre �
 Si la mise à jour échoue pour une raison quelconque, votre base de données V11 reste active et disponible comme d’habitude.
 
 
-> [AZURE.NOTE]La base de données de version antérieure à 12 *est toujours disponible* pour l’accès aux données pendant la mise à niveau vers la version 12.
-
-
 ## Liens connexes
 
 
@@ -256,4 +254,4 @@ Si la mise à jour échoue pour une raison quelconque, votre base de données V1
 [Subheading 1]: #subheading-1
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

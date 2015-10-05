@@ -3,18 +3,16 @@
 	description="Apprenez à déployer facilement un nouveau cluster DataStax Enterprise sur des machines virtuelles Ubuntu en utilisant Azure PowerShell ou l'interface de ligne de commande Azure et un modèle Resource Manager"
 	services="virtual-machines"
 	documentationCenter=""
-	authors="karthmut"
+	authors="scoriani"
 	manager="timlt"
-	editor="tysonn"/> 
-<!-- In pageTitle, to follow corporate style (sentence-case caps), s/b lowercase "template", correct? This matches what is used later in article too. Also, precede first mention of "Azure" with "Microsoft" --> 
-<tags
+	editor="tysonn"/> <!-- In pageTitle, to follow corporate style (sentence-case caps), s/b lowercase "template", correct? This matches what is used later in article too. Also, precede first mention of "Azure" with "Microsoft" --> <tags
 	ms.service="virtual-machines"
 	ms.workload="multiple"
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="04/29/2015"
-	ms.author="karthmut"/>
+	ms.author="scoriani"/>
 
 # DataStax Enterprise sous Ubuntu avec un modèle Resource Manager
 
@@ -458,7 +456,7 @@ Les disques liés sont formatés durant les activités de préparation du nœud 
 
 	bash vm-disk-utils-0.1.sh
 
-vm-disk-utils-0.1.sh appartient au dossier shared_scripts\ubuntu, dans le référentiel github azure-quickstart-tempates et contient des fonctions très utiles pour le montage, la mise en forme et la troncation de disque. Ces fonctions peuvent être utilisées dans tous les modèles du référentiel.
+vm-disk-utils-0.1.sh appartient au dossier shared\_scripts\\ubuntu, dans le référentiel github azure-quickstart-tempates et contient des fonctions très utiles pour le montage, la mise en forme et la troncation de disque. Ces fonctions peuvent être utilisées dans tous les modèles du référentiel.
 
 Le fragment associé aux extensions de machines virtuelles CustomScriptForLinux est également intéressant à étudier. Celles-ci sont installées en tant que type distinct de ressources, avec une dépendance sur chaque nœud du cluster (et l'instance OpsCenter). Elles tirent parti du même mécanisme d’itération de ressource que celui décrit pour les machines virtuelles.
 
@@ -500,4 +498,4 @@ Cette approche suggère de :
 
 Pour plus d’informations, consultez [Langage du modèle Azure Resource Manager](../resource-group-authoring-templates.md).
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

@@ -204,7 +204,7 @@ Remove-AzureSqlServerActiveDirectoryAdministrator -ResourceGroupName "Group-23" 
 Sur toutes les machines clientes à partir desquelles vos applications ou les utilisateurs se connectent à la base de données SQL Azure avec des identités Azure AD, vous devez installer les logiciels suivants :
 
 - .NET framework version 4.6 ou ultérieure de [https://msdn.microsoft.com/library/5a4x27ek.aspx](https://msdn.microsoft.com/library/5a4x27ek.aspx).
-- La bibliothèque d’authentification Azure Active Directory pour SQL Server (**ADALSQL. DLL**) est disponible en plusieurs langues (x89 et amd64) à partir du centre de téléchargement de [Bibliothèque d’authentification Microsoft Active Directory pour Microsoft SQL Server](http://www.microsoft.com/download/details.aspx?id=48742).
+- La bibliothèque d’authentification Azure Active Directory pour SQL Server (**ADALSQL. DLL**) est disponible en plusieurs langues (x86 et amd64) à partir du centre de téléchargement de la [Bibliothèque d’authentification Microsoft Active Directory pour Microsoft SQL Server](http://www.microsoft.com/download/details.aspx?id=48742).
 
 ### Outils
 
@@ -252,7 +252,7 @@ Pour créer un utilisateur de base de données à relation contenant-contenu Azu
 	FROM EXTERNAL PROVIDER;
 
 
-*Azure\_AD\_principal\_name* peut être le nom d’utilisateur principal d’un utilisateur Azure AD ou le nom affiché d’une application ou un groupe Azure AD.
+*Azure\_AD\_principal\_name* peut être le nom d’utilisateur principal d’un utilisateur Azure AD ou le nom d’affichage d’un groupe Azure AD.
 
 **Exemples :** pour créer une base de données à relation contenant-contenu représentant un utilisateur de domaine fédéré ou géré Azure AD :
 
@@ -268,7 +268,7 @@ Pour plus d’informations sur la création d’utilisateurs de base de données
 
 Lorsque vous créez un utilisateur de base de données, il reçoit l’autorisation **CONNECT**et peut se connecter à cette base de données en tant que membre du rôle **PUBLIC**. À l’origine, les seules autorisations disponibles pour l’utilisateur sont celles qui sont octroyées au rôle **PUBLIC**, ou les autorisations accordées aux groupes Windows dont ils sont membres. Une fois que vous avez configuré un utilisateur de base de données Azure à relation contenant-contenu, vous pouvez octroyer à cet utilisateur des autorisations supplémentaires, de la même façon que vous accordez l’autorisation à un autre type d’utilisateur. En général, on accorde les autorisations aux rôles de base de données, puis on ajoute des utilisateurs aux rôles. Pour plus d’informations, consultez [Notions de base sur les autorisations de moteur de base de données](http://social.technet.microsoft.com/wiki/contents/articles/4433.database-engine-permission-basics.aspx). Pour plus d’informations sur les rôles de base de données SQL, consultez [Gestion des bases de données et des connexions dans la base de données SQL Azure](sql-database-manage-logins.md). Un utilisateur de domaine fédéré importé dans un domaine de gestion, doit utiliser l’identité de domaine géré.
 
-> [AZURE.NOTE]Les utilisateurs AD Azure sont marqués dans les métadonnées de la base de données avec type E (EXTERNAL\_USER) et pour les groupes ou les applications avec le type X (EXTERNAL\_GROUPS). Pour plus d’informations, consultez [sys.database\_principals](https://msdn.microsoft.com/library/ms187328.aspx).
+> [AZURE.NOTE]Les utilisateurs AD Azure sont marqués dans les métadonnées de la base de données avec le type E (EXTERNAL\_USER) et pour les groupes avec le type X (EXTERNAL\_GROUPS). Pour plus d’informations, consultez [sys.database\_principals](https://msdn.microsoft.com/library/ms187328.aspx).
 
 
 ## 7\. Connectez-vous à votre base de données à l’aide d’identités Active Directory Azure
@@ -310,6 +310,7 @@ Pour obtenir des exemples de code spécifiques associés à l’authentification
 [CRÉER UN UTILISATEUR (Transact-SQL)](http://msdn.microsoft.com/library/ms173463.aspx)
 
 <!--Image references-->
+
 [1]: ./media/sql-database-aad-authentication/1aad-auth-diagram.png
 [2]: ./media/sql-database-aad-authentication/2subscription-relationship.png
 [3]: ./media/sql-database-aad-authentication/3admin-structure.png
@@ -320,6 +321,5 @@ Pour obtenir des exemples de code spécifiques associés à l’authentification
 [8]: ./media/sql-database-aad-authentication/8choose-ad.png
 [9]: ./media/sql-database-aad-authentication/9ad-settings.png
 [10]: ./media/sql-database-aad-authentication/10choose-admin.png
-<!--anchors-->
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

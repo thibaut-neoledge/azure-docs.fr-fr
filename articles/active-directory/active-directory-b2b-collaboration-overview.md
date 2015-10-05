@@ -1,6 +1,6 @@
 <properties
    pageTitle="Collaboration interentreprises (B2B) Azure Active Directory"
-   description="La collaboration B2B Azure Active Directory permet aux partenaires professionnels d’accéder à vos applications d’entreprise"
+   description="La collaboration B2B Azure Active Directory permet aux partenaires professionnels d’accéder à vos applications d’entreprise. Chaque utilisateur est représenté par un compte Azure AD unique."
    services="active-directory"
    documentationCenter=""
    authors="curtand"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="09/16/2015"
+   ms.date="09/17/2015"
    ms.author="curtand"/>
 
 # Collaboration B2B Azure Active Directory
@@ -48,18 +48,18 @@ Pour plus d’informations sur le fonctionnement de la collaboration B2B, regard
 
 ## Format de fichier CSV
 
-Le fichier CSV suit le format ci-dessous.
+Le fichier CSV suit le format ci-dessous. Ajoutez toutes les virgules requises, même si vous ne spécifiez pas d’options.
 
-**Email :** adresse e-mail de l’utilisateur invité.<br/> **DisplayName :** nom d’affichage de l’utilisateur invité (en général, nom et prénom).<br/> **InviteAppID :** l’ID de l’application à utiliser pour personnaliser l’invitation par e-mail et les pages d’acceptation.<br/> **InviteReplyURL :** l’URL vers laquelle diriger un utilisateur invité après acceptation de l’invitation. Il doit s’agir d’une URL spécifique à la société (par exemple, [*contoso.my.salesforce.com*](http://contoso.my.salesforce.com/)).<br/> **InviteAppResources :** ID d’application auxquels les applications peuvent affecter des utilisateurs. Les ID d’application sont récupérables en appelant `Get-MsolServicePrincipal | fl DisplayName, AppPrincipalId`<br/> **InviteGroupResources :** ID d’objet pour les groupes auxquels ajouter des utilisateurs. Les ID d’objet sont récupérables en appelant `Get-MsolGroup | fl DisplayName, ObjectId`<br/> **InviteContactUsUrl :** l’URL Nous contacter à inclure dans les invitations par e-mail au cas où l’utilisateur invité souhaiterait contacter votre organisation.<br/>
+**Email :** adresse e-mail de l’utilisateur invité.<br/> **DisplayName :** nom d’affichage de l’utilisateur invité (en général, nom et prénom).<br/> **InviteAppID :** l’ID de l’application à utiliser pour personnaliser l’invitation par e-mail et les pages d’acceptation.<br/> **InviteReplyURL :** l’URL vers laquelle diriger un utilisateur invité après acceptation de l’invitation. Il doit s’agir d’une URL spécifique à la société (par exemple, [*contoso.my.salesforce.com*](http://contoso.my.salesforce.com/)). Si ce champ facultatif n'est pas spécifié, l’URL du Panneau d’accès de la société à l’origine de l’invitation est générée (cette URL est au format `https://account.activedirectory.windowsazure.com/applications/default.aspx?tenantId=<TenantID>`).<br/> **InviteAppResources :** ID d’application auxquels les applications peuvent affecter des utilisateurs. Les ID d’application sont récupérables en appelant `Get-MsolServicePrincipal | fl DisplayName, AppPrincipalId`<br/> **InviteGroupResources :** ID d’objet pour les groupes auxquels ajouter des utilisateurs. Les ID d’objet sont récupérables en appelant `Get-MsolGroup | fl DisplayName, ObjectId`<br/> **InviteContactUsUrl :** URL Nous contacter à inclure dans les invitations par e-mail au cas où l’utilisateur invité souhaiterait contacter votre organisation.<br/>
 
 ## Exemple de fichier CSV
 Voici un exemple de fichier CSV que vous pouvez modifier selon vos besoins. Enregistrez-le sous le nom de fichier de votre choix, mais assurez-vous que son extension de fichier est .csv.
 
 ```
 Email,DisplayName,InviteAppID,InviteReplyUrl,InviteAppResources,InviteGroupResources,InviteContactUsUrl
-wharp@contoso.com,Walter Harp,cd3ed3de-93ee-400b-8b19-b61ef44a0f29,http://azure.microsoft.com/services/active-directory/,,,http://azure.microsoft.com/services/active-directory/<br/>
-jsmith@contoso.com,Jeff Smith,cd3ed3de-93ee-400b-8b19-b61ef44a0f29,http://azure.microsoft.com/services/active-directory/,,,http://azure.microsoft.com/services/active-directory/<br/>
+wharp@contoso.com,Walter Harp,cd3ed3de-93ee-400b-8b19-b61ef44a0f29,http://azure.microsoft.com/services/active-directory/,,,http://azure.microsoft.com/services/active-directory/
+jsmith@contoso.com,Jeff Smith,cd3ed3de-93ee-400b-8b19-b61ef44a0f29,http://azure.microsoft.com/services/active-directory/,,,http://azure.microsoft.com/services/active-directory/
 bsmith@contoso.com,Ben Smith,cd3ed3de-93ee-400b-8b19-b61ef44a0f29,http://azure.microsoft.com/services/active-directory/,,,http://azure.microsoft.com/services/active-directory/
 ```
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

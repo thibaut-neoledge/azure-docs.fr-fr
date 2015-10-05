@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Création d'une machine virtuelle exécutant MySQL dans Azure"
-	description="Créez une machine virtuelle Azure exécutant Windows Server 2012 R2, puis installez et configurez une base de données MySQL dessus."
+	pageTitle="Création d’une machine virtuelle exécutant MySQL | Microsoft Azure"
+	description="Créez une machine virtuelle Azure avec le modèle de déploiement classique exécutant Windows Server 2012 R2, puis installez et configurez dessus une base de données MySQL."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="cynthn"
@@ -18,12 +18,13 @@
 	ms.author="cynthn"/>
 
 
-# Installer MySQL sur une machine virtuelle exécutant Windows Server 2012 R2 sur Azure
+# Installation de MongoDB sur une machine virtuelle créée avec le modèle de déploiement classique exécutant Windows Server 2012 R2
 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Cet article traite de la création de ressources avec le modèle de déploiement classique.
 
 [MySQL](http://www.mysql.com) est une base de données SQL open source connue. Vous pouvez créer une machine virtuelle exécutant Windows Server 2012 R2 à partir de la bibliothèque d’images du [portail Azure](http://manage.windowsazure.com). Vous pouvez ensuite l'installer et la configurer en tant que serveur MySQL Server.
 
-Pour obtenir des instructions sur l’installation de MySQL sur Linux, consultez [Installation de MySQL sur Azure](virtual-machines-linux-install-mysql.md).
+Pour obtenir des instructions sur l’installation de MySQL sur Linux, voir [Installation de MySQL sur Azure](virtual-machines-linux-install-mysql.md).
 
 Ce didacticiel vous explique les procédures suivantes :
 
@@ -128,4 +129,4 @@ Pour tester votre connexion à distance au service MySQL Server exécuté sur l
 
 Pour plus d’informations sur MySQL, consultez la [Documentation MySQL](http://dev.mysql.com/doc/).
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

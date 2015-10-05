@@ -1,20 +1,20 @@
 <properties
    pageTitle="Qu’est-ce que la gestion des licences Microsoft Azure Active Directory ? | Microsoft Azure"
-	description="Description de la gestion des licences Microsoft Azure AD, de son mode de fonctionnement, de sa mise en route et des meilleures pratiques associées concernant les éditions Office 365, Microsoft Intune et Azure Active Directory Premium et Standard"
-	services="active-directory"
-	documentationCenter=""
-	authors="curtand"
-	manager="swadhwa"
-	editor=""/>
+   description="Description de la gestion des licences Microsoft Azure AD, de son mode de fonctionnement, de sa mise en route et des meilleures pratiques associées concernant les éditions Office 365, Microsoft Intune et Azure Active Directory Premium et Standard"
+   services="active-directory"
+   documentationCenter=""
+   authors="curtand"
+   manager="stevenpo"
+   editor=""/>
 
 <tags
    ms.service="active-directory"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="identity"
-	ms.date="07/16/2015"
-	ms.author="curtand"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="identity"
+   ms.date="09/21/2015"
+   ms.author="curtand"/>
 
 # Qu’est-ce que la gestion des licences Microsoft Azure Active Directory ?
 
@@ -131,4 +131,4 @@ Vous voilà prêt à configurer et à utiliser certaines fonctionnalités d’Az
 - [Azure Multi-Factor Authentication](multi-factor-authentication.md)
 - [Achat direct de licences Azure AD Premium](http://aka.ms/buyaadp)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

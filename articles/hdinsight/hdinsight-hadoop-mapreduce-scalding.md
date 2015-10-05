@@ -13,7 +13,7 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="big-data"
- ms.date="07/06/2015"
+ ms.date="09/23/2015"
  ms.author="larryfr"/>
 
 # Développer des tâches MapReduce Scalding avec Apache Hadoop dans HDInsight
@@ -290,4 +290,4 @@ Maintenant que vous avez vu comment utiliser Scalding pour créer des tâches Ma
 
 * [Utilisation des tâches MapReduce avec HDInsight](hdinsight-use-mapreduce.md)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO4-->

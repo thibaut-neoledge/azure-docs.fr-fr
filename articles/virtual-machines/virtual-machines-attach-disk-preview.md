@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Attachement d’un disque de données dans le portail Azure en version préliminaire"
-	description="Attachement de disques de données nouveaux et existants dans le portail Azure en version préliminaire | Microsoft Azure"
+	pageTitle="Association d’un disque de données | Microsoft Azure"
+	description="Explique comment attacher un disque de données nouveau ou existant à une machine virtuelle dans le portail Azure en version préliminaire à l’aide du modèle de déploiement du Gestionnaire des ressources."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="cynthn"
@@ -11,7 +11,7 @@
 <tags
 	ms.service="virtual-machines"
 	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="vm-windows"
+	ms.tgt_pltfrm="vm-multiple"
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/14/2015"
@@ -19,11 +19,13 @@
 
 # Attachement d’un disque de données dans le portail Azure en version préliminaire
 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Cet article traite de la création de ressources avec le modèle de déploiement du Gestionnaire des ressources. Vous pouvez également créer une ressource avec le [modèle de déploiement classique](storage-windows-attach-disk.md).
+
 Cet article explique comment attacher des disques nouveaux et existants à une machine virtuelle via le portail Azure en version préliminaire. Avant cela, passez en revue les conseils suivants :
 
 - La taille de la machine virtuelle détermine le nombre de disques de données que vous pouvez attacher . Pour plus de détails, voir [Tailles de machines virtuelles](virtual-machines-size-specs.md).
 - Pour utiliser le stockage de Premium, vous avez besoin d’une machine virtuelle de série DS ou GS. Vous pouvez utiliser des disques de comptes de stockage Premium et Standard avec ces machines virtuelles. Le stockage Premium est disponible dans certaines régions. Pour plus d’informations, voir l’article [Stockage Premium : stockage hautes performances pour les charges de travail des machines virtuelles Azure](../storage/storage-premium-storage-preview-portal.md).
-- Les disques attachés aux machines virtuelles sont en fait des fichiers .vhd dans un compte de stockage Azure. Pour plus de détails, voir la section [À propos des disques et VHD pour machines virtuelles](virtual-machines-disks-vhds.md).
+- Les disques attachés aux machines virtuelles sont en fait des fichiers .vhd dans un compte de stockage Azure. Pour plus de détails, voir [À propos des disques et VHD pour machines virtuelles](virtual-machines-disks-vhds.md).
 - Pour un nouveau disque, vous n’avez pas besoin de le créer au préalable, car Azure le crée lorsque vous l’attachez.
 - Pour un disque existant, le fichier .vhd doit être disponible dans un compte de stockage Azure. Vous pouvez utiliser un fichier déjà présent, s’il n’est attaché à aucune autre machine virtuelle, ou télécharger votre propre fichier .vhd sur le compte de stockage.
 
@@ -88,4 +90,4 @@ Une fois le disque ajouté, vous devez le préparer pour utilisation dans le sys
 
 [À propos des comptes de stockage Azure]: ../storage-whatis-account/
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

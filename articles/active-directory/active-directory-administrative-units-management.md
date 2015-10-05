@@ -4,9 +4,8 @@
    services="active-directory"
    documentationCenter=""
    authors="curtand"
-   manager="stevepo"
+   manager="stevenpo"
    editor=""/>
-
 
 <tags
    ms.service="active-directory"
@@ -14,11 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="08/03/2015"
+   ms.date="09/21/2015"
    ms.author="curtand"/>
 
-
-#Gestion des unités administratives dans Azure AD - version préliminaire publique
+# Gestion des unités administratives dans Azure AD - version préliminaire publique
 
 Cet article décrit les unités administratives. Il s’agit de nouveaux conteneurs de ressources Azure Active Directory qui peuvent être utilisés pour déléguer des autorisations administratives à des sous-ensembles d’utilisateurs et y appliquer des stratégies. Dans Azure Active Directory, les unités administratives permettent aux administrateurs centraux de déléguer des autorisations aux administrateurs régionaux ou de définir une stratégie à un niveau granulaire.
 
@@ -28,14 +26,14 @@ Cela est utile dans les organisations disposant de divisions indépendantes, par
 
 Du point de vue de l'administrateur central, une unité administrative est un objet de répertoire qui peut être créé et rempli par des ressources. **Dans cette version, ces ressources peuvent être uniquement des utilisateurs.** Une fois créée et remplie, l'unité administrative peut être utilisée comme un cadre permettant de limiter l’autorisation accordée aux ressources contenues dans l’unité administrative.
 
-##Gestion des unités administratives
+## Gestion des unités administratives
 
 Dans cette version préliminaire, vous pouvez créer et gérer des unités administratives à l'aide du module Azure Active Directory pour les cmdlets Windows PowerShell.
 
 Pour plus d'informations sur la configuration logicielle requise et sur l’installation du module Azure AD et pour plus d'informations sur les cmdlets du module Azure AD pour la gestion d’unités administratives, et notamment la syntaxe, les descriptions de paramètres et des exemples, consultez la section [Gestion d’Azure AD à l'aide de Windows PowerShell](https://msdn.microsoft.com/library/azure/jj151815.aspx).
 
 
-##Étapes suivantes
+## Étapes suivantes
 [Éditions d’Azure Active Directory](active-directory-editions.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

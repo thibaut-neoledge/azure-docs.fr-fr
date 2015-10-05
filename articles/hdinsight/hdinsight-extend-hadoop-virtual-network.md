@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Extension de HDInsight avec Virtual Network | Microsoft Azure"
+	pageTitle="Extension de HDInsight avec Virtual Network | Microsoft Azure"  
 	description="Apprenez à utiliser Azure Virtual Network pour connecter HDInsight à d'autres ressources de cloud ou à des ressources de votre centre de données"
 	services="hdinsight"
 	documentationCenter=""
@@ -9,12 +9,12 @@
 
 <tags
    ms.service="hdinsight"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="big-data"
-	ms.date="07/06/2015"
-	ms.author="larryfr"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="big-data"
+   ms.date="09/23/2015"
+   ms.author="larryfr"/>
 
 
 #Extension des capacités de HDInsight à l’aide d’Azure Virtual Network
@@ -173,4 +173,4 @@ L’exemple suivant montre comment utiliser HDInsight avec Azure Virtual Network
 
 Pour en savoir plus sur les réseaux virtuels Azure, consultez la page [Vue d’ensemble d’Azure Virtual Network](../virtual-network/virtual-networks-overview.md).
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

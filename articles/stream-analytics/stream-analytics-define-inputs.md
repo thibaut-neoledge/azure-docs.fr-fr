@@ -60,17 +60,17 @@ Lorsque vos données proviennent d’une source Event Hub, vous pouvez accéder 
 
 | Propriété | Description |
 |------------------------------|--------------------------------------------------------------------|
-| System.EventProcessedUtcTime | Date et heure du traitement de l’événement par Stream Analytics |
-| System.EventEnqueuedUtcTime | Date et heure de la réception de l’événement par Event Hubs |
-| System.PartitionId | ID de partition de base zéro de l'adaptateur d'entrée |
+| EventProcessedUtcTime | Date et heure du traitement de l’événement par Stream Analytics |
+| EventEnqueuedUtcTime | Date et heure de la réception de l’événement par Event Hubs |
+| PartitionId | ID de partition de base zéro de l'adaptateur d'entrée |
 
 Par exemple, vous pouvez écrire une requête comme suit :
 
 
     SELECT
-    	System. EventProcessedUtcTime,
-    	System. EventEnqueuedUtcTime,
-    	System.PartitionId
+    	EventProcessedUtcTime,
+    	EventEnqueuedUtcTime,
+    	PartitionId
     FROM Input
 
 ## Création d'une entrée de flux de données de stockage d'objets blob
@@ -136,23 +136,23 @@ Lorsque vos données proviennent d’une source de stockage d’objets blob, vou
 
 | Propriété | Description |
 |--------------------------------|--------------------------------------------------------------------|
-| System.BlobName | Nom de l'objet blob d'entrée d'où provient l'événement. |
-| System.EventProcessedUtcTime | Date et heure du traitement de l’événement par Stream Analytics |
-| System.BlobLastModifiedUtcTime | Date et heure de la dernière modification apportée à l'objet blob |
-| System.PartitionId | ID de partition de base zéro de l'adaptateur d'entrée |
+| BlobName | Nom de l'objet blob d'entrée d'où provient l'événement. |
+| EventProcessedUtcTime | Date et heure du traitement de l’événement par Stream Analytics |
+| BlobLastModifiedUtcTime | Date et heure de la dernière modification apportée à l'objet blob |
+| PartitionId | ID de partition de base zéro de l'adaptateur d'entrée |
 
 Par exemple, vous pouvez écrire une requête comme suit :
 
 
     SELECT
-    	System.BlobName,
-    	System.EventProcessedUtcTime,
-    	System.BlobLastModifiedUtcTime
+    	BlobName,
+    	EventProcessedUtcTime,
+    	BlobLastModifiedUtcTime
     FROM Input
 
 
 ## Obtenir de l'aide
-Pour obtenir une assistance, essayez notre [forum Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/fr-FR/home?forum=AzureStreamAnalytics)
+Pour obtenir une assistance, essayez notre [forum Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/FR-FR/home?forum=AzureStreamAnalytics)
 
 ## Étapes suivantes
 Stream Analytics, un service géré d’analyse de diffusion en continu des données à partir de l’Internet des objets vous a été présenté. Pour en savoir plus sur ce service, consultez les rubriques suivantes :
@@ -170,4 +170,4 @@ Stream Analytics, un service géré d’analyse de diffusion en continu des donn
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

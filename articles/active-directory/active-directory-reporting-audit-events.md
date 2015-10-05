@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="06/18/2015"
+   ms.date="09/21/2015"
    ms.author="kenhoff"/>
 
 # Événements de rapport d'audit d'Azure Active Directory
@@ -48,11 +48,11 @@ Modifier la licence de l'utilisateur | Modification de la licence attribuée à 
 Mettre à jour l'utilisateur | Mise à jour d'un utilisateur dans le répertoire
 Définir le mot de passe utilisateur | Définition de la propriété qui force un utilisateur à modifier son mot de passe lors de la connexion
 **Événements liés aux groupes** |
-Créer un groupe | Création d’un groupe dans l’annuaire
-Mettre à jour un groupe | Mise à jour d’un groupe dans l’annuaire
-Supprimer un groupe | Suppression d’un groupe de l’annuaire
-Ajouter un membre à un groupe | Ajout d’un membre à un groupe dans l’annuaire
-Supprimer un membre d’un groupe | Suppression d’un membre d’un groupe dans l’annuaire
+Créer un groupe | Création d’un groupe dans l’annuaire.
+Mettre à jour un groupe | Mise à jour d’un groupe dans l’annuaire.
+Supprimer un groupe | Suppression d’un groupe de l’annuaire.
+Ajouter un membre à un groupe | Ajout d’un membre à un groupe dans l’annuaire.
+Supprimer un membre d’un groupe | Suppression d’un membre d’un groupe dans l’annuaire.
 **Événements liés aux applications** |
 Ajouter un principal du service | Ajout d'un principal du service dans le répertoire
 Supprimer le principal du service | Suppression d'un principal du service du répertoire
@@ -71,7 +71,7 @@ Supprimer le partenaire de l'entreprise | Suppression d'un partenaire du répert
 Ajouter le domaine à l'entreprise | Ajout d'un domaine au répertoire
 Supprimer le domaine de l'entreprise | Suppression d'un domaine du répertoire
 Mettre à jour le domaine | Mise à jour d'un domaine dans le répertoire
-Définir l'authentification de domaine | Modification du paramètre de domaine par défaut de l'entreprise
+Définir l'authentification de domaine | Modification du paramètre de domaine par défaut de l'entreprise.
 Définir les paramètres de fédération du domaine | Mise à jour des paramètres de fédération d'un domaine
 Vérifier le domaine | Vérification d'un domaine dans le répertoire
 Vérifier le domaine vérifié par courrier électronique | Vérification d'un domaine dans le répertoire à l'aide de la vérification par courrier électronique.
@@ -108,4 +108,4 @@ TelephoneNumber | Numéro de téléphone de l'utilisateur
 
 Les enregistrements d'audit sont un contrôle requis pour de nombreuses réglementations de conformité. Pour que les clients utilisant la création de rapports d’audit d’Azure Active Directory Azure puissent respecter les réglementations de conformité, il leur est recommandé d’envoyer une copie de cette rubrique d’aide avec la copie de leur rapport d’audit exporté afin d’expliquer les détails du rapport. Si vous souhaitez comprendre les réglementations de conformité qui sont actuellement respectées par Azure, dirigez-vous vers la [page de conformité](http://azure.microsoft.com/support/trust-center/compliance/) de Microsoft Azure Trust Center.
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

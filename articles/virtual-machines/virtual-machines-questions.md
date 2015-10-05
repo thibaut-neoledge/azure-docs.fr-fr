@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Forum aux questions sur les machines virtuelles Azure"
-	description="Fournit des réponses à la plupart des questions courantes sur les machines virtuelles Azure"
+	pageTitle="Forum Aux Questions (FAQ) sur les machines virtuelles | Microsoft Azure"
+	description="Fournit des réponses à certaines questions courantes sur les machines virtuelles Azure créées avec le modèle de déploiement classique."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="cynthn"
@@ -17,9 +17,11 @@
 	ms.date="07/17/2015"
 	ms.author="cynthn"/>
 
-# FAQ sur les machines virtuelles Azure
+# Forum aux questions sur les machines virtuelles Azure créées avec le modèle de déploiement classique
 
-Cet article apporte des réponses à certaines des questions les plus courantes que les utilisateurs se posent sur les machines virtuelles Azure, en se basant sur les informations données par l’équipe de support technique dédiée aux machines virtuelles Azure, mais aussi sur les forums, les groupes de discussion et les commentaires trouvés dans d’autres articles. Pour des informations de base, commencez par la page [À propos des machines virtuelles](virtual-machines-about.md).
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Cet article contient des réponses aux questions concernant les ressources créées avec le modèle de déploiement classique.
+
+Cet article apporte des réponses à certaines des questions les plus courantes que les utilisateurs se posent sur les machines virtuelles Azure créées avec le modèle de déploiement classique, en se basant sur les informations données par l’équipe de support technique dédiée aux machines virtuelles Azure, mais aussi sur les forums, les groupes de discussion et des commentaires trouvés dans d’autres articles. Pour des informations de base, commencez par la page [À propos des machines virtuelles](virtual-machines-about.md).
 
 ## Qu’est-il possible d’exécuter sur une machine virtuelle Azure ?
 
@@ -31,21 +33,21 @@ Pour les logiciels serveur, vous pouvez exécuter des versions récentes de Wind
 
 • Pour les machines virtuelles Linux : [Distributions approuvées Linux sur Azure](http://go.microsoft.com/fwlink/p/?LinkId=393551)
 
-Pour les images du client Windows, certaines versions de Windows 7 et Windows 8.1 sont disponibles pour les abonnés MSDN Azure et les abonnés Développement et test MSDN avec paiement à l’utilisation (pour les tâches de test et de développement). Pour plus d’informations, notamment des instructions et des limitations, consultez la page [Images de client Windows pour les abonnés MSDN](http://azure.microsoft.com/blog/2014/05/29/windows-client-images-on-azure/).
+Pour les images du client Windows, certaines versions de Windows 7 et Windows 8.1 sont disponibles pour les abonnés MSDN Azure et les abonnés Développement et test MSDN avec paiement à l’utilisation (pour les tâches de test et de développement). Pour plus d’informations, notamment des instructions et des limitations, voir [Images de client Windows pour les abonnés MSDN](http://azure.microsoft.com/blog/2014/05/29/windows-client-images-on-azure/).
 
 ## Quelle quantité de stockage puis-je utiliser avec une machine virtuelle ?
 
 Chaque disque de données peut avoir une capacité allant jusqu’à 1 To Le nombre de disques de données que vous pouvez utiliser dépend de la taille de la machine virtuelle. Pour en savoir plus, consultez la rubrique [Tailles de machines virtuelles](virtual-machines-size-specs.md).
 
-Un compte de stockage Azure fournit le stockage pour le disque du système d’exploitation et tout disque de données. Chaque disque est un fichier .vhd stocké sous la forme d’un objet blob de pages. Pour plus d’informations sur la tarification, consultez la page [Détails de la tarification du stockage](http://go.microsoft.com/fwlink/p/?LinkId=396819).
+Un compte de stockage Azure fournit le stockage pour le disque du système d’exploitation et tout disque de données. Chaque disque est un fichier .vhd stocké sous la forme d’un objet blob de pages. Pour plus d’informations sur la tarification, voir [Détails de la tarification du stockage](http://go.microsoft.com/fwlink/p/?LinkId=396819).
 
 ## Quels types de disque dur virtuel puis-je utiliser ?
 
 Azure prend en charge les disques durs virtuels fixes, au format VHD. Si vous voulez utiliser un disque de format VHDX dans Azure, convertissez-le à l’aide du Gestionnaire Hyper-V ou de l’applet de commande [convert-VHD](http://go.microsoft.com/fwlink/p/?LinkId=393656). Une fois l’opération effectuée, utilisez l’applet de commande [Add-AzureVHD](https://msdn.microsoft.com/library/azure/dn495173.aspx) (en mode de gestion des services) pour télécharger le VHD sur un compte de stockage dans Azure afin de pouvoir l’utiliser avec des machines virtuelles. L’applet de commande convertit un VHD dynamique en VHD fixe mais ne peut pas convertir un VHDX en VHD.
 
-- Pour obtenir des instructions concernant Linux, consultez la page [Création et téléchargement d’un disque dur virtuel contenant le système d’exploitation Linux](virtual-machines-linux-create-upload-vhd.md).
+- Pour obtenir des instructions concernant Linux, voir [Création et téléchargement d’un disque dur virtuel contenant le système d’exploitation Linux](virtual-machines-linux-create-upload-vhd.md).
 
-- Pour obtenir des instructions concernant Windows, consultez la page [Création et téléchargement d’un disque dur virtuel Windows Server dans Azure](virtual-machines-create-upload-vhd-windows-server.md).
+- Pour obtenir des instructions concernant Windows, voir [Création et téléchargement d’un disque dur virtuel Windows Server dans Azure](virtual-machines-create-upload-vhd-windows-server.md).
 
 Pour obtenir des instructions sur le téléchargement d’un disque de données, consultez l’article Linux ou Windows, en commençant par les étapes de connexion à Azure.
 
@@ -54,12 +56,12 @@ Pour obtenir des instructions sur le téléchargement d’un disque de données,
 Si elles ressemblent sur de nombreux points aux machines virtuelles Hyper-V de première génération, elles ne sont pas tout à fait identiques. Les deux types fournissent un matériel virtualisé, et les disques durs virtuels de format VHD sont compatibles. Cela signifie que vous pouvez les déplacer entre Hyper-V et Azure. Les trois différences principales qui surprennent parfois les utilisateurs d’Hyper-V sont :
 
 - Azure ne fournit pas un accès console à une machine virtuelle.
-- Les machines virtuelles Azure de la plupart des [tailles](virtual-machines-size-specs.md) ont uniquement une carte réseau virtuelle, ce qui signifie qu'elles peuvent n’avoir qu'une seule adresse IP externe. (Dans certains scénarios limités, les tailles A8 et A9 utilisent une deuxième carte réseau pour la communication des applications entre les instances.)
-- Les machines virtuelles Azure ne prennent pas en charge les fonctionnalités des machines virtuelles Hyper-V de deuxième génération. Pour plus d’informations sur ces fonctionnalités, consultez la page [Spécifications des machines virtuelles pour Hyper-V](http://technet.microsoft.com/library/dn592184.aspx).
+- Les machines virtuelles Azure de la plupart des [tailles](virtual-machines-size-specs.md) ont uniquement une carte réseau virtuelle, ce qui signifie qu’elles peuvent n’avoir qu’une seule adresse IP externe. (Dans certains scénarios limités, les tailles A8 et A9 utilisent une deuxième carte réseau pour la communication des applications entre les instances.)
+- Les machines virtuelles Azure ne prennent pas en charge les fonctionnalités des machines virtuelles Hyper-V de deuxième génération. Pour plus d’informations sur ces fonctionnalités, voir [Spécifications des machines virtuelles pour Hyper-V](http://technet.microsoft.com/library/dn592184.aspx).
 
 ## Ces machines virtuelles peuvent-elles utiliser mon infrastructure réseau existante locale ?
 
-Pour les machines virtuelles créées dans la gestion des services, vous pouvez utiliser Azure Virtual Network pour étendre votre infrastructure existante. L’approche est comparable à l’installation d’une filiale. Vous pouvez configurer et gérer des réseaux privés virtuels (VPN) dans Azure et les lier à l’infrastructure informatique locale en toute sécurité. Pour plus d'informations, consultez la page [Présentation du réseau virtuel](../virtual-network/virtual-networks-overview.md).
+Pour les machines virtuelles créées dans la gestion des services, vous pouvez utiliser Azure Virtual Network pour étendre votre infrastructure existante. L’approche est comparable à l’installation d’une filiale. Vous pouvez configurer et gérer des réseaux privés virtuels (VPN) dans Azure et les lier à l’infrastructure informatique locale en toute sécurité. Pour plus d’informations, voir [Présentation du réseau virtuel](../virtual-network/virtual-networks-overview.md).
 
 Vous devrez indiquer le réseau auquel vous voulez que la machine virtuelle appartienne au moment de la création de celle-ci. Cela signifie que vous ne pouvez par exemple pas joindre une machine virtuelle existante à un réseau virtuel. Toutefois, vous pouvez contourner ce problème en détachant le disque dur virtuel (VHD) d’une machine virtuelle existante, puis l’utiliser pour créer une machine virtuelle avec la configuration réseau de votre choix.
 
@@ -72,9 +74,9 @@ Vous devez établir une connexion à distance pour vous connecter à la machine 
 
 En cas de problème avec le Bureau à distance ou SSH, installez et utilisez l’extension [VMAccess](http://go.microsoft.com/fwlink/p/?LinkId=396856) pour résoudre le problème. Pour les machines virtuelles Windows, les options supplémentaires incluent :
 
-- Dans le portail Azure Preview, recherchez la machine virtuelle, puis cliquez sur **Réinitialiser l'accès à distance** à partir de la barre de commandes.
+- Dans le portail Azure en version préliminaire, recherchez la machine virtuelle, puis cliquez sur **Réinitialiser l’accès à distance** à partir de la barre de commandes.
 - Consultez [Résolution des problèmes de connexion Bureau à distance avec une machine virtuelle Azure Windows](virtual-machines-troubleshoot-remote-desktop-connections.md).
-- Utilisez Windows PowerShell Remoting pour vous connecter à la machine virtuelle ou créer des points de terminaison supplémentaires pour la connexion d'autres ressources à la machine virtuelle. Pour plus d’informations, consultez la page [Configuration des points de terminaison sur une machine virtuelle](virtual-machines-set-up-endpoints.md).
+- Utilisez Windows PowerShell Remoting pour vous connecter à la machine virtuelle ou créer des points de terminaison supplémentaires pour la connexion d'autres ressources à la machine virtuelle. Pour plus d’informations, voir [Configuration des points de terminaison sur une machine virtuelle](virtual-machines-set-up-endpoints.md).
 
 Si vous connaissez bien Hyper-V, vous pouvez rechercher un outil similaire à Connexion à un ordinateur virtuel. Azure n’offre pas d’outil similaire car l’accès console à une machine virtuelle n’est pas pris en charge.
 
@@ -84,14 +86,14 @@ Vous ne devez pas utiliser le lecteur D: (Windows) ou /dev/sdb1 (Linux). Ils ne 
 
 ## Comment puis-je modifier la lettre de lecteur d’un disque temporaire ?
 
-Sur une machine virtuelle Windows, vous pouvez changer la lettre de lecteur en déplaçant le fichier d’échange et en réaffectant les lettres de lecteur. Toutefois, vous devrez veiller à effectuer les étapes dans le bon ordre. Pour obtenir des instructions, consultez la page [Modification de la lettre de lecteur du disque temporaire Windows](virtual-machines-windows-change-drive-letter.md).
+Sur une machine virtuelle Windows, vous pouvez changer la lettre de lecteur en déplaçant le fichier d’échange et en réaffectant les lettres de lecteur. Toutefois, vous devrez veiller à effectuer les étapes dans le bon ordre. Pour obtenir des instructions, voir [Modification de la lettre de lecteur du disque temporaire Windows](virtual-machines-windows-change-drive-letter.md).
 
 ## Comment puis-je mettre à niveau le système d’exploitation invité ?
 
 Le terme de mise à niveau a généralement pour signification le passage à une version plus récente de votre système d’exploitation tout en conservant le même matériel. Pour les machines virtuelles Azure, le processus de passage à une version plus récente est différent pour Linux et Windows :
 
 - Pour les machines virtuelles Linux, utilisez les outils et procédures de gestion de packages appropriés pour la distribution.
-- Pour une machine virtuelle Windows, utilisez les outils de migration de Windows Server. N’essayez pas de mettre à niveau le système d’exploitation invité résidant sur Azure. Il n’est pas pris en charge en raison du risque de perdre l’accès à une machine virtuelle. En cas de problèmes au cours de la mise à niveau, vous risqueriez de perdre la possibilité de démarrer une session Bureau à distance et vous ne pourriez pas résoudre les problèmes. Pour des informations générales sur les outils et processus, consultez la page [Migrer des rôles et des fonctionnalités vers Windows Server](http://go.microsoft.com/fwlink/p/?LinkId=396940). Pour des informations sur la mise à niveau vers Windows Server 2012 R2, consultez la page [Options de mise à niveau pour Windows Server 2012 R2](https://technet.microsoft.com/library/dn303416.aspx).
+- Pour une machine virtuelle Windows, utilisez les outils de migration de Windows Server. N’essayez pas de mettre à niveau le système d’exploitation invité résidant sur Azure. Il n’est pas pris en charge en raison du risque de perdre l’accès à une machine virtuelle. En cas de problèmes au cours de la mise à niveau, vous risqueriez de perdre la possibilité de démarrer une session Bureau à distance et vous ne pourriez pas résoudre les problèmes. Pour des informations générales sur les outils et processus, voir [Migrer des rôles et des fonctionnalités vers Windows Server](http://go.microsoft.com/fwlink/p/?LinkId=396940). Pour des informations sur la mise à niveau vers Windows Server 2012 R2, voir [Options de mise à niveau pour Windows Server 2012 R2](https://technet.microsoft.com/library/dn303416.aspx).
 
 ## Quels sont le nom d’utilisateur et le mot de passe par défaut sur la machine virtuelle ?
 
@@ -114,7 +116,7 @@ Azure offre plusieurs options de solutions antivirus, mais c’est à vous qu’
 
 ## Quelles sont les options disponibles en matière de sauvegarde et de récupération d’urgence ?
 
-Azure Backup est disponible en version préliminaire dans certaines régions. Pour plus d’informations, consultez la page [Sauvegarde des machines virtuelles Azure](backup-azure-vms.md). D’autres solutions sont disponibles auprès de partenaires certifiés. Pour savoir ce qui est actuellement disponible, faites une recherche dans Azure Marketplace.
+Azure Backup est disponible en version préliminaire dans certaines régions. Pour plus d’informations, voir [Sauvegarde des machines virtuelles Azure](backup-azure-vms.md). D’autres solutions sont disponibles auprès de partenaires certifiés. Pour savoir ce qui est actuellement disponible, faites une recherche dans Azure Marketplace.
 
 Une autre option consiste à utiliser les fonctionnalités de capture instantanée de stockage d’objets blob. Pour ce faire, vous devez arrêter la machine virtuelle avant toute opération qui repose sur un instantané d’objet blob. Cela enregistre les écritures de données en attente et assure la cohérence du fichier système.
 
@@ -128,17 +130,17 @@ Vous êtes facturé quand l’état de la machine virtuelle est « En cours d�
 - Utilisez l’applet de commande Stop-AzureVM disponible dans le module Azure PowerShell.
 - Utilisez l’opération Shutdown Role dans l’API REST de gestion des services et spécifiez StoppedDeallocated pour l’élément PostShutdownAction.
 
-Pour plus d’informations, consultez la page [Tarification des machines virtuelles](http://azure.microsoft.com/pricing/details/virtual-machines/).
+Pour plus d’informations, voir [Tarification des machines virtuelles](http://azure.microsoft.com/pricing/details/virtual-machines/).
 
 ## Dois-je m’attendre à ce qu’Azure redémarre ma machine virtuelle aux fins de maintenance ?
 
-En règle générale, vous pouvez démarrer, arrêter ou redémarrer votre machine virtuelle à votre convenance. (Pour plus d’informations, consultez la page [À propos du démarrage, de l’arrêt et du redémarrage des machines virtuelles Azure](https://msdn.microsoft.com/library/azure/dn763934.aspx).) Azure redémarre parfois votre machine virtuelle dans le cadre de mises à jour de maintenance normales et planifiées dans les centres de données Azure. Des événements de maintenance non planifiés peuvent se produire quand Azure détecte un problème matériel sérieux qui affecte votre machine virtuelle. Pour les événements non planifiés, Azure migre automatiquement la machine virtuelle vers un hôte intègre, puis redémarre la machine virtuelle.
+En règle générale, vous pouvez démarrer, arrêter ou redémarrer votre machine virtuelle à votre convenance. Azure redémarre parfois votre machine virtuelle dans le cadre de mises à jour de maintenance normales et planifiées dans les centres de données Azure. Des événements de maintenance non planifiés peuvent se produire quand Azure détecte un problème matériel sérieux qui affecte votre machine virtuelle. Pour les événements non planifiés, Azure migre automatiquement la machine virtuelle vers un hôte intègre, puis redémarre la machine virtuelle.
 
 Pour toute machine virtuelle autonome (c’est-à-dire ne faisant pas partie d’un groupe à haute disponibilité), Azure notifie par courrier électronique l’administrateur de service de l’abonnement au moins une semaine avant la maintenance planifiée, car les machines virtuelles pourraient être redémarrées au cours de la mise à jour. Les applications exécutées sur les machines virtuelles peuvent subir un temps d’arrêt.
 
-Vous pouvez également utiliser le Portail Azure ou Azure PowerShell pour afficher les journaux de redémarrage quand le redémarrage s’est produit en raison d’une maintenance planifiée. Pour plus d’informations, consultez la page [Affichage des journaux de redémarrage de machines virtuelles](http://azure.microsoft.com/blog/2015/04/01/viewing-vm-reboot-logs/).
+Vous pouvez également utiliser le Portail Azure ou Azure PowerShell pour afficher les journaux de redémarrage quand le redémarrage s’est produit en raison d’une maintenance planifiée. Pour plus d’informations, voir [Affichage des journaux de redémarrage de machines virtuelles](http://azure.microsoft.com/blog/2015/04/01/viewing-vm-reboot-logs/).
 
-Pour assurer la redondance, placez au moins deux machines virtuelles configurées de manière similaire dans le même groupe à haute disponibilité. Cela contribue à garantir qu’au moins une machine virtuelle est disponible pendant la maintenance, planifiée ou non. Azure garantit certains niveaux de disponibilité des machines virtuelles pour cette configuration. Pour plus d’informations, consultez la page [Gestion de la disponibilité des machines virtuelles](virtual-machines-manage-availability.md).
+Pour assurer la redondance, placez au moins deux machines virtuelles configurées de manière similaire dans le même groupe à haute disponibilité. Cela contribue à garantir qu’au moins une machine virtuelle est disponible pendant la maintenance, planifiée ou non. Azure garantit certains niveaux de disponibilité des machines virtuelles pour cette configuration. Pour plus d’informations, voir [Gestion de la disponibilité des machines virtuelles](virtual-machines-manage-availability.md).
 
 ## Ressources supplémentaires
 
@@ -148,4 +150,4 @@ Pour assurer la redondance, placez au moins deux machines virtuelles configurée
 
 [Les différentes façons de créer une machine virtuelle Windows](virtual-machines-windows-choices-create-vm.md)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

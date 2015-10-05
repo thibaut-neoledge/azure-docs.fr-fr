@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="09/07/2015"  
+	ms.date="09/20/2015"  
 	ms.author="juliako"/>
 
 #Procédure : configuration de stratégies de remise de ressources
@@ -101,6 +101,33 @@ Pour plus d'informations sur les valeurs que vous pouvez spécifier au moment de
             assetDeliveryPolicy.AssetDeliveryPolicyType);
     }
 
+Azure Media Services vous permet également d’ajouter un chiffrement Widevine. L'exemple suivant montre l’ajout de PlayReady et Widevine à la stratégie de remise de ressources.
+
+	static public void CreateAssetDeliveryPolicy(IAsset asset, IContentKey key)
+	{
+	    Uri acquisitionUrl = key.GetKeyDeliveryUrl(ContentKeyDeliveryType.PlayReadyLicense);
+	
+	    Dictionary<AssetDeliveryPolicyConfigurationKey, string> assetDeliveryPolicyConfiguration =
+	        new Dictionary<AssetDeliveryPolicyConfigurationKey, string>
+	    {
+	        {AssetDeliveryPolicyConfigurationKey.PlayReadyLicenseAcquisitionUrl, acquisitionUrl.ToString()},
+	        {AssetDeliveryPolicyConfigurationKey.WidevineLicenseAcquisitionUrl,"http://testurl"},
+	        
+	    };
+	
+	    var assetDeliveryPolicy = _context.AssetDeliveryPolicies.Create(
+	            "AssetDeliveryPolicy",
+	        AssetDeliveryPolicyType.DynamicCommonEncryption,
+	        AssetDeliveryProtocol.Dash,
+	        assetDeliveryPolicyConfiguration);
+	
+	   
+	    // Add AssetDelivery Policy to the asset
+	    asset.DeliveryPolicies.Add(assetDeliveryPolicy);
+	
+	}
+
+>[AZURE.NOTE]Lors du chiffrement avec Widevine, vous ne pourriez effectuer une remise qu’avec DASH. Veillez à spécifier DASH (2) dans le protocole de remise de ressources.
 
 
 ##Stratégie de remise de ressources DynamicEnvelopeEncryption 
@@ -287,14 +314,18 @@ Pour plus d'informations sur les valeurs que vous pouvez spécifier au moment de
         /// The initialization vector to use for envelope encryption.
         /// </summary>
         EnvelopeEncryptionIV,
-    } 
 
+        /// <summary>
+        /// Widevine DRM acquisition url
+        /// </summary>
+        WidevineLicenseAcquisitionUrl
+    }
 
 ##Parcours d’apprentissage de Media Services
 
 Vous pouvez afficher les parcours d’apprentissage d’AMS ici :
 
-- [Workflow en flux continu AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [Workflow de vidéo en flux continu AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
 - [Workflow de streaming à la demande AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

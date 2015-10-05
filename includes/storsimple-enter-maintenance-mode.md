@@ -1,3 +1,4 @@
+<!--author=SharS last changed: 9/17/15-->
 
 #### Pour passer en mode Maintenance
 
@@ -13,4 +14,4 @@
 
     Les deux contrôleurs redémarrent. Une fois le redémarrage terminé, un autre message s’affiche pour indiquer que l’appareil est en mode Maintenance.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

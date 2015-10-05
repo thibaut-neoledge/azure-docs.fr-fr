@@ -1,34 +1,38 @@
 <properties
-   pageTitle="Création d’une identité professionnelle ou scolaire dans Azure Active Directory"
-	description="Décrit comment créer une identité professionnelle ou scolaire à partir de votre identité personnelle à utiliser avec les modèles de groupes de ressources ou l'accès basé sur les rôles, entre autres fonctionnalités."
-	services="virtual-machines"
-	documentationCenter=""
-	authors="squillace"
-	manager="timlt"
-	editor=""/>
+   pageTitle="Création d’une identité professionnelle ou scolaire dans AAD | Microsoft Azure"
+   description="Apprenez à créer une identité professionnelle ou scolaire dans Azure Active Directory, à utiliser avec les modèles de déploiement de Gestionnaire de ressources et classique."
+   services="virtual-machines"
+   documentationCenter=""
+   authors="squillace"
+   manager="timlt"
+   editor=""
+   tags="azure-service-management,azure-resource-manager"/>
 
 <tags
    ms.service="virtual-machines"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="infrastructure"
-	ms.date="09/01/2015"
-	ms.author="rasquill"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="infrastructure"
+   ms.date="09/01/2015"
+   ms.author="rasquill"/>
 
 # Création d’une identité professionnelle ou scolaire dans Azure Active Directory
 
 Si vous avez créé un compte Azure personnel ou si vous disposez d'un abonnement MSDN personnel et avez créé le compte Azure pour profiter des crédits Azure MSDN, alors vous avez utilisé une identité de *compte Microsoft* pour le créer. Pour fonctionner correctement, de nombreuses fonctionnalités d'Azure, parmi lesquelles les [modèles de groupes de ressources](../resource-group-overview.md), nécessitent un compte professionnel ou scolaire (une identité gérée par Azure Active Directory).
 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Cet article traite de la création d’une identité AAD nécessaire pour le modèle de déploiement du Gestionnaire des ressources et le modèle de déploiement classique.
+
+
 Heureusement, l’un des atouts de votre compte personnel Azure est qu'il est fourni avec un domaine Azure Active Directory par défaut que vous pouvez utiliser pour créer un nouveau compte professionnel ou scolaire à utiliser avec les fonctionnalités Azure qui le nécessitent.
 
-> [AZURE.NOTE]Si un administrateur vous a donné un nom d’utilisateur et un mot de passe, il est probable que vous disposiez déjà d’un ID professionnel ou scolaire (parfois appelé *ID d’organisation*). Dans ce cas, vous pouvez commencer à utiliser votre compte Azure immédiatement pour accéder aux ressources Azure qui requièrent l'utilisation d'un compte. Si vous constatez que vous ne pouvez pas utiliser ces ressources, vous devrez peut-être revenir à cet article pour obtenir de l’aide. Pour plus d’informations, consultez [Comptes que vous pouvez utiliser pour vous connecter](https://msdn.microsoft.com/library/azure/dn629581.aspx#BKMK_SignInAccounts) et [Association d’un abonnement Azure à Azure AD](https://msdn.microsoft.com/library/azure/dn629581.aspx#BKMK_SubRelationToDir).
+> [AZURE.NOTE]Si un administrateur vous a donné un nom d’utilisateur et un mot de passe, il est probable que vous disposiez déjà d’un ID professionnel ou scolaire (parfois appelé *ID d’organisation*). Dans ce cas, vous pouvez commencer à utiliser votre compte Azure immédiatement pour accéder aux ressources Azure qui requièrent l'utilisation d'un compte. Si vous constatez que vous ne pouvez pas utiliser ces ressources, vous devrez peut-être revenir à cet article pour obtenir de l’aide. Pour plus d’informations, voir [Comptes que vous pouvez utiliser pour vous connecter](https://msdn.microsoft.com/library/azure/dn629581.aspx#BKMK_SignInAccounts) et [Association d’un abonnement Azure à Azure AD](https://msdn.microsoft.com/library/azure/dn629581.aspx#BKMK_SubRelationToDir).
 
 Les étapes sont simples. Vous devez localiser votre identité de connexion sur le portail Azure, découvrir votre domaine Azure Active Directory par défaut et y ajouter un nouvel utilisateur en tant que coadministrateur Azure.
 
 ## Localisez votre répertoire par défaut sur le portail Azure
 
-Commencez par vous connecter au [portail Azure](https://manage.windowsazure.com) avec votre identité de compte Microsoft personnelle. Une fois que vous êtes connecté, faites défiler vers le bas le panneau bleu sur le côté gauche et cliquez sur **ACTIVE DIRECTORY**.
+Commencez par vous connecter au [portail Azure](https://manage.windowsazure.com) avec votre identité de compte Microsoft personnel. Une fois que vous êtes connecté, faites défiler vers le bas le panneau bleu à gauche, puis cliquez sur **ACTIVE DIRECTORY**.
 
 ![Azure Active Directory](./media/resource-group-create-work-id-from-personal/azureactivedirectorywidget.png)
 
@@ -54,7 +58,7 @@ Cliquez sur **UTILISATEURS** et recherchez votre compte personnel unique. Vous d
 
 Nous allons suivre [ces instructions](https://technet.microsoft.com/library/hh967632.aspx#BKMK_1) dans les étapes suivantes, mais utiliser un exemple spécifique.
 
-Au bas de la page, cliquez sur **+AJOUTER UN UTILISATEUR**. Dans la page qui s’affiche, entrez le nouveau nom d'utilisateur et définissez **Type d’utilisateur** sur **Nouvel utilisateur dans votre organisation**. Dans cet exemple, le nouveau nom d'utilisateur est `ahmet`. Sélectionnez le domaine par défaut que vous avez découvert précédemment comme domaine pour l’adresse de messagerie d’ahmet. Lorsque vous avez terminé, cliquez sur la flèche Suivant.
+Au bas de la page, cliquez sur **+AJOUTER UN UTILISATEUR**. Dans la page qui s’affiche, entrez le nouveau nom d’utilisateur et définissez **Type d’utilisateur** sur **Nouvel utilisateur dans votre organisation**. Dans cet exemple, le nouveau nom d'utilisateur est `ahmet`. Sélectionnez le domaine par défaut que vous avez découvert précédemment comme domaine pour l’adresse de messagerie d’ahmet. Lorsque vous avez terminé, cliquez sur la flèche Suivant.
 
 ![](./media/resource-group-create-work-id-from-personal/addingauserwithdirectorydropdown.png)
 
@@ -62,7 +66,7 @@ Ajoutez d’autres détails pour Ahmet, mais veillez à sélectionner la valeur 
 
 ![](./media/resource-group-create-work-id-from-personal/userprofileuseradmin.png)
 
-Cliquez sur le bouton **créer** pour générer et afficher un mot de passe temporaire pour Ahmet.
+Cliquez sur le bouton **Créer** pour générer et afficher un mot de passe temporaire pour Ahmet.
 
 ![](./media/resource-group-create-work-id-from-personal/gettemporarypasswordforuser.png)
 
@@ -109,7 +113,7 @@ Votre réussite doit ressembler à ce qui suit.
 
 ## Étapes suivantes
 
-Vous pouvez maintenant vous servir de votre nouvelle identité Azure Active Directory pour utiliser les [modèles de groupe de ressources Azure](xplat-cli-azure-resource-manager.md).
+Vous pouvez maintenant vous servir de votre nouvelle identité Azure Active Directory pour utiliser des [modèles de groupe de ressources Azure](xplat-cli-azure-resource-manager.md).
 
      azure login
     info:    Executing command login
@@ -140,4 +144,4 @@ Vous pouvez maintenant vous servir de votre nouvelle identité Azure Active Dire
     data:
     info:    group create command OK
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO4-->

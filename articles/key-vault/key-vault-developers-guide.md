@@ -1,19 +1,19 @@
 <properties
    pageTitle="Guide du développeur de coffre de clés | Microsoft Azure"
-	description="Les développeurs peuvent utiliser le coffre de clés Azure pour gérer les clés de chiffrement dans l'environnement Microsoft Azure."
-	services="key-vault"
-	documentationCenter=""
-	authors="BrucePerlerMS"
-	manager="mbaldwin"
-	editor="mbaldwin"/>
+   description="Les développeurs peuvent utiliser le coffre de clés Azure pour gérer les clés de chiffrement dans l'environnement Microsoft Azure."
+   services="key-vault"
+   documentationCenter=""
+   authors="BrucePerlerMS"
+   manager="mbaldwin"
+   editor="mbaldwin" />
 <tags
    ms.service="key-vault"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="identity"
-	ms.date="08/11/2015"
-	ms.author="mbaldwin"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="identity"
+   ms.date="09/22/2015"
+   ms.author="mbaldwin" />
 
 # Guide du développeur de coffre de clés Azure
 
@@ -55,11 +55,11 @@ Clés du coffre de clé et les secrets Azure peuvent également être gérés à
 
 - [Créer et gérer les coffres de clés avec PowerShell](key-vault-get-started.md)
 - [Créer et gérer les coffres de clés avec l'interface de ligne de commande](key-vault-manage-with-cli.md)
-- [Génération et transfert de clés HSM protégées pour coffre de clés](https://msdn.microsoft.com/library/azure/dn903624.aspx)
+- [Génération et transfert de clés HSM protégées pour coffre de clés](key-vault-hsm-protected-keys.md)
 - [À propos des clés et des secrets](https://msdn.microsoft.com/library/azure/dn903623.aspx)
 
 ## Voir aussi
 
 - [Exemples coffre de clés Azure](http://www.microsoft.com/download/details.aspx?id=45343)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO4-->

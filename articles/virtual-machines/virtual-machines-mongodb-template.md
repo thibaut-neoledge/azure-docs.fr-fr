@@ -1,32 +1,35 @@
 <properties
-  pageTitle="Création d'un cluster MongoDB sous Ubuntu à l'aide d'un modèle Azure Resource Manager"
-	description="Création d'un cluster MongoDB sous Ubuntu à l'aide d'un modèle Azure Resource Manager à l’aide de PowerShell ou de l'interface de ligne de commande Azure"
-	services="virtual-machines"
-	documentationCenter=""
-	authors="karthmut"
-	manager="timlt"
-	editor="tysonn"/>
+  pageTitle="Créer un cluster de MongoDB sur Ubuntu | Microsoft Azure"
+  description="Création d'un cluster MongoDB sous Ubuntu à l'aide d'un modèle Azure Resource Manager à l’aide de PowerShell ou de l'interface de ligne de commande Azure"
+  services="virtual-machines"
+  documentationCenter=""
+  authors="scoriani"
+  manager="timlt"
+  editor="tysonn"
+  tags="azure-resource-manager"/>
 
 <tags
   ms.service="virtual-machines"
-	ms.workload="multiple"
-	ms.tgt_pltfrm="vm-windows"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="04/29/2015"
-	ms.author="karthmut"/>
+  ms.workload="multiple"
+  ms.tgt_pltfrm="vm-windows"
+  ms.devlang="na"
+  ms.topic="article"
+  ms.date="04/29/2015"
+  ms.author="scoriani"/>
 
 # Création d'un cluster MongoDB sous Ubuntu à l'aide d'un modèle Azure Resource Manager
 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Cet article traite de la création de ressources avec le modèle de déploiement de Resource Manager.
+
 MongoDB est une base de données de documents open source qui fournit de hautes performances, une disponibilité élevée et la mise à l'échelle automatique. MongoDB peut être installé en base de données autonome ou dans un cluster, tirant ainsi parti des fonctionnalités de réplication intégrées. Dans certains cas, vous pouvez utiliser la réplication pour augmenter la capacité de lecture. Les clients ont la possibilité d'envoyer des opérations de lecture et d'écriture sur différents serveurs. Vous pouvez également conserver des copies dans différents centres de données pour augmenter la localité et la disponibilité des données pour les applications distribuées. Avec MongoDB, la réplication assure également la redondance et optimise la disponibilité des données. Avec plusieurs copies des données sur des serveurs de bases de données différents, la réplication protège une base de données contre la perte d'un seul serveur. La réplication vous permet également de récupérer suite à une défaillance matérielle et des interruptions de service. Avec des copies supplémentaires des données, vous pouvez en dédier une à la récupération d'urgence, la création de rapports ou la sauvegarde.
 
-En plus des différentes versions qui étaient déjà disponibles dans Azure Marketplace, vous pouvez maintenant déployer facilement un nouveau cluster MongoDB sur des machines virtuelles Ubuntu à l'aide d'un modèle Azure Resource Manager déployé avec [Azure PowerShell](../powershell-install-configure.md) ou [l'interface de ligne de commande Azure](../xplat-cli.md).
+En plus des différentes versions qui étaient déjà disponibles dans Azure Marketplace, vous pouvez maintenant déployer facilement un nouveau cluster MongoDB sur des machines virtuelles Ubuntu à l’aide d’un modèle Azure Resource Manager déployé avec [Azure PowerShell](../powershell-install-configure.md) ou [l’interface de ligne de commande Azure](../xplat-cli.md).
 
 Les clusters récemment déployés basés sur ce modèle disposent de la topologie décrite dans le schéma suivant, bien que d’autres topologies puissent être obtenues facilement grâce à la personnalisation du modèle présenté dans cet article.
 
 ![cluster-architecture](media/virtual-machines-mongodb-template/cluster-architecture.png)
 
-Grâce à un paramètre, vous pouvez définir le nombre de nœuds qui seront déployés dans le nouveau cluster MongoDB et, en fonction d'un autre paramètre, une instance de machine virtuelle (Jumpbox) avec une adresse IP publique peut également être déployée dans le même réseau virtuel. Cela vous donne la possibilité de vous connecter au cluster à partir du réseau Internet public et d'effectuer toute tâche d'administration liée à ce cluster. Une autre option disponible en tant que paramètre est la possibilité d'ajouter un nœud Arbiter au jeu de réplicas, qui est généralement suggéré en cas de nombre pair de membres. Pour plus d'informations sur les topologies de réplication MongoDB et plus de détails, reportez-vous à la [documentation MongoDB](http://docs.mongodb.org/manual/core/replication-introduction/) officielle.
+Grâce à un paramètre, vous pouvez définir le nombre de nœuds qui seront déployés dans le nouveau cluster MongoDB et, en fonction d'un autre paramètre, une instance de machine virtuelle (Jumpbox) avec une adresse IP publique peut également être déployée dans le même réseau virtuel. Cela vous donne la possibilité de vous connecter au cluster à partir du réseau Internet public et d'effectuer toute tâche d'administration liée à ce cluster. Une autre option disponible en tant que paramètre est la possibilité d'ajouter un nœud Arbiter au jeu de réplicas, qui est généralement suggéré en cas de nombre pair de membres. Pour plus d’informations sur les topologies de réplication MongoDB et plus de détails, reportez-vous à la [documentation MongoDB](http://docs.mongodb.org/manual/core/replication-introduction/) officielle.
 
 Une fois le déploiement terminé, vous pouvez accéder à la Jumpbox en utilisant l'adresse DNS configurée sur le port SSH 22.
 
@@ -305,7 +308,7 @@ Lors du déploiement, n’oubliez pas qu’un nouveau compte de stockage Azure d
 
 Pendant et après le déploiement, vous pouvez vérifier toutes les requêtes effectuées durant la configuration et notamment toutes les erreurs survenues.
 
-Pour ce faire, accédez au [portail Azure](https://portal.azure.com), puis procédez comme suit :
+Pour ce faire, accédez au [Portail Azure](https://portal.azure.com), puis procédez comme suit :
 
 - Dans la barre de navigation de gauche, cliquez sur **Parcourir**, faites défiler vers le bas, puis cliquez sur **Groupes de ressources**.
 - Une fois que vous avez cliqué sur le groupe de ressources que vous venez de créer, le panneau du groupe de ressources s’affiche.
@@ -582,11 +585,11 @@ L’exemple précédent présente clairement la façon dont azuredeploy.json est
 
 Vous pouvez notamment remarquer les modèles liés suivants qui sont utilisés pour ce déploiement :
 
--	**Shared-resource.json** : contient la définition de toutes les ressources partagées lors du déploiement. Par exemple, c'est le cas des comptes de stockage utilisés pour stocker des disques de système d'exploitation et des réseaux virtuels de machines virtuelles.
--	**Jumpbox-resources.json** : lorsque ce modèle est activé, il est responsable du déploiement de toutes les ressources liées à la machine virtuelle Jumpbox, celle disposant d'une adresse IP publique qui peut être utilisée pour accéder au cluster MongoDB à partir d'un réseau public.
+-	**shared-resource.json** : contient la définition de toutes les ressources partagées lors du déploiement. Par exemple, c'est le cas des comptes de stockage utilisés pour stocker des disques de système d'exploitation et des réseaux virtuels de machines virtuelles.
+-	**Jumpbox-resources.json** : lorsque ce modèle est activé, il est responsable du déploiement de toutes les ressources liées à la machine virtuelle Jumpbox, celle disposant d’une adresse IP publique qui peut être utilisée pour accéder au cluster MongoDB à partir d’un réseau public.
 -	**Arbiter-resources.json** : lorsque ce modèle est activé, il déploie un membre arbitre dans le cluster MongoDB. Un arbitre ne contient aucune donnée, mais est utilisé lorsqu'un jeu de réplicas contient un nombre pair de nœuds pour gérer les élections principales.
 -	**Membre-ressources-Dx.json** : indique des modèles de ressources qui déploient les nœuds MongoDB. Un fichier spécifique sera utilisé en fonction de la définition de taille de t-shirt sélectionnée. La seule différence entre les fichiers étant le nombre de disques liés pour chaque nœud.
--	**Mongodb-ubuntu-install.sh** : un fichier de script d'interpréteur de commandes appelé par l'extension CustomScriptForLinux sur chaque nœud du cluster. Responsable du montage et de la mise en forme des disques de données, ainsi que l'installation de bits MongoDB sur le nœud.
+-	**Mongodb-ubuntu-install.sh** : un fichier de script d’interpréteur de commandes appelé par l’extension CustomScriptForLinux sur chaque nœud du cluster. Responsable du montage et de la mise en forme des disques de données, ainsi que l'installation de bits MongoDB sur le nœud.
 
 Pour déployer un cluster MongoDB, une logique spécifique est requise pour pouvoir configurer correctement un jeu de réplicas. L’exemple suivant montre la séquence spécifique que vous devez utiliser au cours du déploiement.
 
@@ -646,7 +649,7 @@ En consultant à nouveau notre modèle principal (azuredeploy.json), observons d
 
 Un concept important à retenir est la façon dont il est possible de déployer plusieurs copies d'un type de ressource unique et, pour chaque instance, de définir des valeurs uniques pour les paramètres requis. Ce concept est appelé *itération de ressource*.
 
-Dans l’exemple précédent, un paramètre (nombre de nœuds à déployer dans le cluster) est utilisé pour définir une variable (« numberOfMembers ») qui est ensuite transmise à l'élément **« copie »** pour déclencher un nombre (boucle) de déploiements enfants, chacun d'eux entraînant l'instanciation du modèle pour chaque membre du cluster. Pour pouvoir définir tous les paramètres où des valeurs uniques entre différentes instances sont requises, vous pouvez utiliser la fonction **copyindex()** pour obtenir une valeur numérique indiquant l'index actuel dans cette création d'itération de ressource particulière.
+Dans l’exemple précédent, un paramètre (nombre de nœuds à déployer dans le cluster) est utilisé pour définir une variable (« numberOfMembers ») qui est ensuite transmise à l’élément **« copie »** pour déclencher un nombre (boucle) de déploiements enfants, chacun d’eux entraînant l’instanciation du modèle pour chaque membre du cluster. Pour pouvoir définir tous les paramètres où des valeurs uniques entre différentes instances sont requises, vous pouvez utiliser la fonction **copyindex()** pour obtenir une valeur numérique indiquant l'index actuel dans cette création d'itération de ressource particulière.
 
 Un autre concept important pour la création de ressources est la possibilité de spécifier les dépendances et priorités entre les ressources, comme vous pouvez le constater dans le tableau JSON **dependsOn**. Dans ce modèle particulier, le déploiement de chaque nœud dépend de la réussite du déploiement précédent des **ressources partagées**.
 
@@ -690,4 +693,4 @@ En résumé, cette approche suggère de :
 
 Pour plus d’informations, consultez [Langage du modèle Azure Resource Manager](../resource-group-authoring-templates.md).
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

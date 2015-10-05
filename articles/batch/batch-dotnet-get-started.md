@@ -13,7 +13,7 @@
 	ms.topic="hero-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-compute"
-	ms.date="07/21/2015"
+	ms.date="09/23/2015"
 	ms.author="yidingz"/>
 
 # Prise en main de la bibliothèque Azure Batch pour .NET  
@@ -205,14 +205,14 @@ Un pool de nœuds de calcul est le premier jeu de ressources que vous devez cré
 
 2. Ajoutez à la section Main le code ci-après qui configure les informations d’identification pour effectuer des appels vers le service Azure Batch :
 
-			BatchSharedKeyCredentials cred = new BatchSharedKeyCredentials("https://[account-name].[region].batch.azure.com", "[account-name]", "[account-key]");
+			BatchSharedKeyCredentials cred = new BatchSharedKeyCredentials("[account-url]", "[account-name]", "[account-key]");
 			BatchClient client = BatchClient.Open(cred);
 
-	Remplacez les valeurs suivantes :
+	Remplacez les valeurs entre crochets par celles associées à votre compte Batch, disponibles dans le [portail Azure en version préliminaire](https://portal.azure.com). Pour trouver ces valeurs, connectez-vous au [portail Azure en version préliminaire](https://portal.azure.com) et :
 
-	- Remplacez **[account-name]** par le nom du compte Batch que vous avez créé précédemment.
-	- Remplacez **[region]** par la région dans laquelle se trouve votre compte. Pour découvrir les régions disponibles, voir l’article [Régions Azure](http://azure.microsoft.com/regions/).
-	- Remplacez **[account-key]** par la clé primaire du compte Batch.
+	- **[nom du compte]** - Cliquez sur **Comptes Batch**, sélectionnez le compte Batch que vous avez créé précédemment
+	- **[url de compte]** - Dans le panneau Compte Batch, cliquez sur **Propriétés** > **URL**
+	- **[clé de compte]** - Dans le panneau Compte Batch, cliquez sur **Propriétés** > **Clés** > **Clé d’accès primaire**
 
 3.	Ajoutez à la classe Program la méthode ci-après qui crée le pool :
 
@@ -495,4 +495,4 @@ Une fois le travail créé, vous pouvez y ajouter des tâches. Chaque tâche s�
 
 2. Certaines applications génèrent de grandes quantités de données qui peuvent se révéler difficiles à traiter. L’un des moyens de contourner ce problème consiste à utiliser des [requêtes de liste efficaces](batch-efficient-list-queries.md).
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO4-->

@@ -7,7 +7,7 @@
 	manager="shreeshd"
 	editor=""/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="hero-article" ms.date="09/14/2015" ms.author="trinadhk"; "aashishr"; "jimpark"/>
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="hero-article" ms.date="09/24/2015" ms.author="trinadhk"; "aashishr"; "jimpark"/>
 
 
 # Sauvegarde des machines virtuelles Azure
@@ -194,7 +194,7 @@ Ce type de sauvegarde permet d’estimer la quantité de temps nécessaire à la
 La majeure partie du temps est consacrée à la lecture et la copie des données, mais il existe d’autres opérations qui contribuent à la durée totale nécessaire à la sauvegarde d’une machine virtuelle :
 
 1. Durée nécessaire à l’[installation ou à la mise à jour de l’extension de sauvegarde](backup-azure-vms.md#offline-vms)
-2. Temps d’attente de file d’attente : le service traitant les sauvegardes de plusieurs clients, il se peut que votre opération de sauvegarde ne démarre pas immédiatement. Le temps d’attente moyen d’une machine virtuelle est de 15 à 30 minutes.
+2. Temps d’attente de file d’attente : le service de sauvegarde traitant les sauvegardes de plusieurs clients, il se peut que votre opération de sauvegarde ne démarre pas immédiatement. Lors de pic de charge, les temps d'attente peuvent durer jusqu'à 8 heures en raison du nombre de sauvegardes à traiter. Toutefois, la durée de sauvegarde totale d’un ordinateur virtuel est inférieure à 24 heures pour des stratégies de sauvegarde quotidiennes.
 
 ## Résolution des erreurs
 Obtenez une liste exhaustive des solutions de contournement des erreurs rencontrées au cours de la sauvegarde d’une machine virtuelle :
@@ -207,4 +207,4 @@ Pour plus d’informations sur la prise en main de Microsoft Azure Backup, consu
 - [Restauration des machines virtuelles](backup-azure-restore-vms.md)
 - [Gestion des machines virtuelles](backup-azure-manage-vms.md)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

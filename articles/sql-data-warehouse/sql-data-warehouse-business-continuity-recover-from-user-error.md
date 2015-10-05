@@ -1,20 +1,20 @@
 <properties
    pageTitle="Récupérer une base de données après une erreur de l’utilisateur dans SQL Data Warehouse | Microsoft Azure"
-	description="Procédure de récupération d’une base de données après une erreur de l’utilisateur dans SQL Data Warehouse."
-	services="sql-data-warehouse"
-	documentationCenter="NA"
-	authors="sahaj08"
-	manager="barbkess"
-	editor=""/>
+   description="Procédure de récupération d’une base de données après une erreur de l’utilisateur dans SQL Data Warehouse."
+   services="sql-data-warehouse"
+   documentationCenter="NA"
+   authors="sahaj08"
+   manager="barbkess"
+   editor=""/>
 
 <tags
    ms.service="sql-data-warehouse"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="data-services"
-	ms.date="06/26/2015"
-	ms.author="sahajs"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="data-services"
+   ms.date="09/23/2015"
+   ms.author="sahajs"/>
 
 # Récupérer une base de données après une erreur de l’utilisateur dans SQL Data Warehouse
 
@@ -30,16 +30,23 @@ En cas d’erreur de l’utilisateur entraînant une modification involontaire d
 
 ### PowerShell
 
-Utilisez PowerShell pour exécuter par programmation la restauration d’une base de données. Pour restaurer une base de données, utilisez l’applet de commande [Start-AzureSqlDatabaseRestore][].
+Utilisez Azure PowerShell pour exécuter par programmation la restauration d’une base de données. Pour télécharger le module Azure PowerShell, exécutez [Microsoft Web Platform Installer](http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409).
 
-1. Sélectionnez l’abonnement sous votre compte qui contient la base de données à restaurer.
-2. Répertoriez les points de restauration de la base de données (cette opération nécessite le mode Azure Resource Management).
-3. Sélectionnez le point de restauration souhaité à l’aide de l’élément RestorePointCreationDate.
-3. Restaurez la base de données au niveau du point de restauration souhaité.
-4. Surveillez la progression de la restauration.
+Pour restaurer une base de données, utilisez l’applet de commande [Start-AzureSqlDatabaseRestore][].
+
+1. Ouvrez Microsoft Azure PowerShell.
+2. Connectez-vous à votre compte Azure et répertoriez tous les abonnements associés à votre compte.
+3. Sélectionnez l’abonnement qui contient la base de données à restaurer.
+4. Répertoriez les points de restauration de la base de données (cette opération nécessite le mode de gestion des ressources Azure).
+5. Sélectionnez le point de restauration souhaité à l’aide de l’élément RestorePointCreationDate.
+6. Restaurez la base de données au niveau du point de restauration souhaité.
+7. Surveillez la progression de la restauration.
 
 ```
-Select-AzureSubscription -SubscriptionId <Subscription_GUID>
+
+Add-AzureAccount
+Get-AzureSubscription
+Select-AzureSubscription -SubscriptionName "<Subscription_name>"
 
 # List database restore points
 Switch-AzureMode AzureResourceManager
@@ -59,7 +66,7 @@ $RestoreRequest = Start-AzureSqlDatabaseRestore -SourceServerName "<YourServerNa
 Get-AzureSqlDatabaseOperation -ServerName "<YourServerName>" –OperationGuid $RestoreRequest.RequestID
 ```
 
-Notez que si votre serveur est nommé foo.database.windows.net, utilisez « foo » en tant que nom du serveur dans les applets de commande powershell.
+Notez que si votre serveur est nommé foo.database.windows.net, vous devez utiliser « foo »comme nom du serveur dans les applets de commande Powershell ci-dessus.
 
 ### API REST
 Utilisez REST pour exécuter par programmation la restauration des bases de données.
@@ -74,15 +81,20 @@ Une fois la restauration terminée, vous pouvez configurer la base de données r
 En cas de suppression d’une base de données, vous pouvez restaurer cette dernière telle qu’elle était au moment de la suppression. En effet, avant qu’une base de données ne soit supprimée, Azure SQL Data Warehouse en effectue une capture instantanée et la conserve pendant 7 jours.
 
 ### PowerShell
-Utilisez PowerShell pour exécuter par programme la restauration d’une base de données supprimée. Pour restaurer une base de données supprimée, utilisez l’applet de commande [Start-AzureSqlDatabaseRestore][].
+Utilisez Azure PowerShell pour exécuter par programme la restauration d’une base de données supprimée. Pour télécharger le module Azure PowerShell, exécutez [Microsoft Web Platform Installer](http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409).
 
-1. Recherchez la base de données supprimée et sa date de suppression dans la liste des bases de données supprimées.
+Pour restaurer une base de données supprimée, utilisez l’applet de commande [Start-AzureSqlDatabaseRestore][].
+
+1. Ouvrez Microsoft Azure PowerShell.
+2. Connectez-vous à votre compte Azure et répertoriez tous les abonnements associés à votre compte.
+3. Sélectionnez l’abonnement qui contient la base de données supprimée à restaurer.
+4. Dans la liste des bases de données supprimées, recherchez la base de données supprimée et sa date de suppression.
 
 ```
 Get-AzureSqlDatabase -RestorableDropped -ServerName "<YourServerName>"
 ```
 
-2. Accédez à la base de données supprimée et démarrez la restauration.
+5. Accédez à la base de données supprimée et démarrez la restauration.
 
 ```
 $Database = Get-AzureSqlDatabase -RestorableDropped -ServerName "<YourServerName>" –DatabaseName "<YourDatabaseName>" -DeletionDate "1/01/2015 12:00:00 AM"
@@ -91,6 +103,8 @@ $RestoreRequest = Start-AzureSqlDatabaseRestore -SourceRestorableDroppedDatabase
 
 Get-AzureSqlDatabaseOperation –ServerName "<YourServerName>" –OperationGuid $RestoreRequest.RequestID
 ```
+
+Notez que si votre serveur est nommé foo.database.windows.net, vous devez utiliser « foo »comme nom du serveur dans les applets de commande Powershell ci-dessus.
 
 ### API REST
 Utilisez REST pour exécuter par programmation la restauration des bases de données.
@@ -122,4 +136,4 @@ Pour plus d’informations sur les fonctionnalités de continuité d’activité
 
 <!--Other Web references-->
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

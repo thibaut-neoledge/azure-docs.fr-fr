@@ -1,23 +1,23 @@
 <properties
-   pageTitle="Création d’un jeu d’enregistrements et d’enregistrements pour une zone DNS | Microsoft Azure"
-	description="Création d’enregistrements hôtes pour Azure DNS. Configuration d’enregistrements et de jeux d’enregistrements à l’aide de PowerShell ou de l’interface de ligne de commande"
-	services="dns"
-	documentationCenter="na"
-	authors="joaoma"
-	manager="Adinah"
-	editor=""/>
+   pageTitle="Création d’un jeu d’enregistrements et d’enregistrements pour une zone DNS à l’aide de l’interface de ligne de commande | Microsoft Azure"
+   description="Création d’enregistrements hôtes pour Azure DNS. Configuration d’enregistrements et de jeux d’enregistrements à l’aide de l’interface de ligne de commande"
+   services="dns"
+   documentationCenter="na"
+   authors="joaoma"
+   manager="Adinah"
+   editor=""/>
 
 <tags
    ms.service="dns"
-	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.tgt_pltfrm="na"
-	ms.workload="infrastructure-services"
-	ms.date="09/02/2015"
-	ms.author="joaoma"/>
+   ms.devlang="na"
+   ms.topic="get-started-article"
+   ms.tgt_pltfrm="na"
+   ms.workload="infrastructure-services"
+   ms.date="09/22/2015"
+   ms.author="joaoma"/>
 
 
-# Création d’enregistrements DNS
+# Création d’enregistrements DNS à l’aide de l’interface de ligne de commande
 
 > [AZURE.SELECTOR]
 - [Azure CLI](dns-getstarted-create-recordset-cli.md)
@@ -52,14 +52,14 @@ La durée de vie (TTL) spécifie la durée pendant laquelle chaque enregistremen
 
 
 
-## Création de jeux d’enregistrements et d’enregistrements à l’aide de l’interface de ligne de commande
+## Création de jeux d’enregistrements et d’enregistrements 
 
 Dans l'exemple suivant, nous allons montrer comment créer un jeu d'enregistrements et des enregistrements. Nous allons utiliser le type d'enregistrement DNS « A », pour d'autres types d'enregistrements, consultez [Gestion des enregistrements DNS](dns-operations-recordsets-cli.md)
 
 
 ### Étape 1
 
-Créez un jeu d’enregistrements à l'aide de l’interface de ligne de commande :
+Création d’un jeu d'enregistrements :
 
 	Usage: network dns record-set create <resource-group> <dns-zone-name> <name> <type> <ttl>
 
@@ -122,4 +122,4 @@ Vous pouvez également utiliser nslookup ou d’autres outils DNS pour interroge
 [Automatisation des opérations Azure avec le Kit de développement (SDK) .NET](dns-sdk.md)
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO4-->

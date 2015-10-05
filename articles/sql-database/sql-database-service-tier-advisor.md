@@ -1,6 +1,6 @@
 <properties 
    pageTitle="Recommandations relatives aux niveaux de tarification de la base de données SQL Microsoft Azure" 
-   description="Lorsque vous modifiez les niveaux de tarification dans le portail Microsoft Azure, vous pouvez consulter les recommandations fournies, qui indiquent le niveau le mieux adapté à l’exécution de la charge de travail d’une base de données SQL Microsoft Azure existante." 
+   description="Lorsque vous modifiez les niveaux de tarification dans le portail Microsoft Azure, vous pouvez consulter les recommandations fournies, qui indiquent le niveau le mieux adapté à l’exécution de la charge de travail d’une base de données SQL Microsoft Azure existante. Les niveaux tarifaires décrivent les niveaux de service et de performances d’une base de données SQL." 
    services="sql-database" 
    documentationCenter="" 
    authors="stevestein" 
@@ -13,19 +13,26 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management" 
-   ms.date="06/30/2015"
+   ms.date="09/22/2015"
    ms.author="sstein"/>
 
 # Recommandations relatives aux niveaux de tarification des bases de données SQL
 
- Lorsque vous modifiez les niveaux de tarification dans le portail Microsoft Azure, vous pouvez consulter les recommandations fournies, qui indiquent le niveau le mieux adapté à l’exécution de la charge de travail d’une base de données SQL Microsoft Azure existante.
+ Des recommandations de niveau tarifaire sont fournies, qui indiquent les niveaux de service et de performances les mieux adapté à l’exécution d’une charge de travail de Base de données SQL Azure existante.
 
-> [AZURE.NOTE]Ces recommandations sont uniquement disponibles pour les bases de données de niveau « Web et Business » et figurent uniquement sur le [portail Microsoft Azure](https://portal.azure.com/).
+> [AZURE.NOTE]Ces recommandations sont disponibles uniquement pour les bases de données Web et Business et les pools de base de données élastiques. Elles sont disponibles uniquement sur le [portail Azure en version préliminaire](https://portal.azure.com/).
 
 
-## Vue d’ensemble
+Obtenez des recommandations en termes de niveau tarifaire lors des tâches suivantes :
 
-Microsoft Azure analyse les performances et les fonctionnalités requises, en évaluant un historique de l’utilisation des ressources pour une base de données SQL. Par ailleurs, le niveau de service minimum acceptable est déterminé en fonction de la taille de la base de données et des fonctionnalités de [continuité d’activité](https://msdn.microsoft.com/library/azure/hh852669.aspx) activées.
+- [Modifier les niveaux de service et de performances (niveau de tarification) d’une base de données SQL](sql-database-scale-up.md)
+- [Mise à niveau d’un serveur SQL Azure vers la version 12](sql-database-v12-upgrade.md)
+- [Création d’un pool de base de données élastique](sql-database-elastic-pool.md#elastic-database-pool-pricing-tier-recommendations)
+
+
+## Vue d'ensemble
+
+Le service de Base de données SQL analyse les performances et les fonctionnalités requises en évaluant un historique de l’utilisation des ressources pour une base de données SQL. Par ailleurs, le niveau de service minimum acceptable est déterminé en fonction de la taille de la base de données et des fonctionnalités de [continuité d’activité](https://msdn.microsoft.com/library/azure/hh852669.aspx) activées.
 
 Ces informations sont analysées ; ensuite, le système recommande le niveau de service et de performances le plus adapté à l’exécution d’une charge de travail classique d’une base de données et la gestion de son ensemble de fonctionnalités actuel.
 
@@ -45,9 +52,9 @@ Selon l’utilisation de votre base de données, vous pouvez actuellement rencon
 
 ## Obtenir des recommandations sur les niveaux de tarification
 
-Accédez à des recommandations sur les niveaux de tarification en sélectionnant une base de données « Web ou Business » existante et en cliquant sur la vignette **Niveau de tarification**.
+Accédez à des recommandations sur les niveaux de tarification en sélectionnant une base de données « Web ou Business » existante et en cliquant sur la vignette **Niveau de tarification**. (Des recommandations de niveau tarifaire sont également disponibles lorsque vous [mettez à niveau Azure SQL Server vers la version 12](sql-database-v12-upgrade.md).)
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com/).
+1. Connectez-vous à la [version préliminaire du portail Azure](https://portal.azure.com/).
 2. Cliquez sur l’option **PARCOURIR** dans le menu de gauche.
 3. Cliquez sur **Bases de données SQL** dans le panneau **Parcourir**.
 4. Dans le panneau **Bases de données SQL**, cliquez sur la base de données que le service doit analyser.
@@ -90,4 +97,4 @@ Selon les informations de votre base de données spécifique, l’exécution d�
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

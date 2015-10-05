@@ -1,3 +1,4 @@
+<!--author=alkohli last changed: 9/17/15-->
 
 | Identificateur de la limite | Limite | Commentaires |
 |----------------- | ------|--------- |
@@ -23,4 +24,4 @@
 
 &#42; Le débit maximal par type d’E/S a été mesuré avec des scénarios de lecture et d’écriture de 100 pour cent. Le débit réel peut être inférieur et varie en fonction du mélange d’E/S et des conditions réseau.
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO4-->

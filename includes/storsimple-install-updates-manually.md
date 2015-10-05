@@ -1,3 +1,4 @@
+<!--author=SharS last changed: 9/17/15-->
 
 #### Pour installer des mises à jour périodiques via le portail de gestion
 
@@ -11,4 +12,4 @@
 
     Un message s’affiche lorsque la mise à jour est correctement installée.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

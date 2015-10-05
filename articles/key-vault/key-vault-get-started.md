@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="07/22/2015"
+	ms.date="09/22/2015"
 	ms.author="cabailey"/>
 
 # Prise en main du coffre de clés Azure #
@@ -179,7 +179,7 @@ Par exemple, si le nom de votre coffre est **ContosoKeyVault**, que l'applicatio
 
 
 	Set-AzureKeyVaultAccessPolicy -VaultName 'ContosoKeyVault' -ServicePrincipalName 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed -PermissionsToKeys decrypt,sign
-	
+
 Si vous souhaitez autoriser cette même application à lire les éléments secrets de votre coffre, exécutez la commande suivante :
 
 
@@ -242,6 +242,6 @@ Pour assurer le suivi d'un didacticiel sur l'utilisation d'Azure Key Vault dans 
 
 Pour obtenir la liste des applets de commande Windows PowerShell pour Azure Key Vault, consultez la page [Applets de commande Azure Key Vault](https://msdn.microsoft.com/library/azure/dn868052.aspx).
 
-Pour les références de programmation, consultez la page [Key Vault](https://msdn.microsoft.com/library/azure/dn903625.aspx) dans la bibliothèque de documentation Microsoft Azure sur MSDN.
+Pour les références de programmation, consultez le [guide du développeur de coffre de clés Azure](key-vault-developers-guide.md).
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO4-->

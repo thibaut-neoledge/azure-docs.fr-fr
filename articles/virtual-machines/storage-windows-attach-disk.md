@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Attachez un disque à une machine virtuelle | Microsoft Azure"
-	description="Découvrez comment attacher un disque à une machine virtuelle Azure et à l'initialiser pour le rendre opérationnel."
+	description="Attacher un disque de données à une machine virtuelle créée avec le modèle de déploiement classique et l’initialiser."
 	services="virtual-machines, storage"
 	documentationCenter=""
 	authors="cynthn"
@@ -17,7 +17,9 @@
 	ms.date="07/16/2015"
 	ms.author="cynthn"/>
 
-# Comment attacher un disque de données à une machine virtuelle Windows
+# Attacher un disque de données à une machine virtuelle Windows créée avec le modèle de déploiement classique
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Cet article traite de la création de ressources avec le modèle de déploiement classique. Vous pouvez également créer des ressources avec le [modèle de déploiement Resource Manager](virtual-machines-attach-disk-preview.md).
 
 Vous pouvez attacher des disques, qu’ils soient vides ou non. Dans les deux cas, les disques sont en fait des fichiers .vhd conservés dans un compte de stockage Azure. Après avoir attaché le disque, vous devrez également l'initialiser pour le rendre opérationnel.
 
@@ -31,7 +33,7 @@ Voici une procédure pas à pas de ce didacticiel.
 
 [AZURE.INCLUDE [howto-attach-disk-windows-linux](../../includes/howto-attach-disk-windows-linux.md)]
 
-## <a id="initializeinWS"></a>Procédure : initialisation d’un nouveau disque de données dans Windows Server
+## <a id="initializeinWS"></a>Procédure d’initialisation d’un nouveau disque de données dans Windows Server
 
 1. Connectez-vous à la machine virtuelle. Pour plus d’informations, consultez [Connexion à une machine virtuelle exécutant Windows Server][logon].
 
@@ -45,11 +47,11 @@ Voici une procédure pas à pas de ce didacticiel.
 
 5.	Vous êtes averti que toutes les données seront supprimées lors de l’initialisation du disque. Cliquez sur **Oui** pour accuser réception de l’avertissement et initialiser le disque. Cliquez de nouveau avec le bouton droit sur le disque 2, puis sélectionnez **Nouveau volume**.
 
-6.	Parcourez les étapes de l’Assistant en acceptant les valeurs par défaut. Lorsque l’Assistant est terminé, la section **Volumes** répertorie le nouveau volume. Le disque est désormais en ligne et prêt à stocker des données.
+6.	Parcourez les étapes de l’Assistant en acceptant les valeurs par défaut. Lorsque l’assistant est terminé, la section **Volumes** répertorie le nouveau volume. Le disque est désormais en ligne et prêt à stocker des données.
 
 	![Volume correctement initialisé](./media/storage-windows-attach-disk/newvolumecreated.png)
 
-> [AZURE.NOTE]La taille de la machine virtuelle détermine le nombre de disques que vous pouvez attacher à celle-ci. Pour en savoir plus, consultez la rubrique [Tailles de machines virtuelles](virtual-machines-size-specs.md).
+> [AZURE.NOTE]La taille de la machine virtuelle détermine le nombre de disques que vous pouvez attacher à celle-ci. Pour plus de détails, consultez [Tailles des machines virtuelles](virtual-machines-size-specs.md).
 
 ## Ressources supplémentaires
 
@@ -59,4 +61,4 @@ Voici une procédure pas à pas de ce didacticiel.
 
 [logon]: virtual-machines-log-on-windows-server.md
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

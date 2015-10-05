@@ -1,20 +1,20 @@
 <properties 
-   pageTitle="Configuration requise du système StorSimple | Microsoft Azure"
-	description="Décrit la configuration système requise et les meilleures pratiques pour les logiciels, la haute disponibilité et la mise en réseau d’une solution Azure StorSimple."
-	services="storsimple"
-	documentationCenter="NA"
-	authors="alkohli"
-	manager="carolz"
-	editor=""/>
+   pageTitle="Configuration requise du système StorSimple | Microsoft Azure" 
+   description="Décrit la configuration système requise et les meilleures pratiques pour les logiciels, la haute disponibilité et la mise en réseau d’une solution Azure StorSimple." 
+   services="storsimple" 
+   documentationCenter="NA" 
+   authors="alkohli" 
+   manager="carolz" 
+   editor=""/>
 
 <tags
    ms.service="storsimple"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="TBD"
-	ms.date="08/26/2015"
-	ms.author="alkohli"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="TBD" 
+   ms.date="09/21/2015"
+   ms.author="alkohli"/>
 
 # Configuration requise logicielle, de haute disponibilité et de réseau StorSimple
 
@@ -154,7 +154,8 @@ Votre appareil StorSimple est un appareil verrouillé. Toutefois, les ports doiv
 | UDP 123 (NTP) | Sortie | WAN | Dans certains cas, consultez les notes. |Ce port est requis seulement si vous utilisez un serveur NTP Internet. |
 | TCP 9354 | Sortie | WAN | Dans certains cas, consultez les notes. |Le port de sortie est utilisé par le service StorSimple Manager pour communiquer avec l’appareil. Ce port est requis si votre réseau actuel ne prend pas en charge HTTP 1.1 pour se connecter à Internet, par exemple lors de l’utilisation d’un serveur proxy HTTP 1.0. <br> Si vous vous connectez via un serveur proxy, consultez [les spécifications de Service Bus](https://msdn.microsoft.com/library/azure/ee706729.aspx) pour plus d’informations. |
 | 3260 (iSCSI) | Dans | LAN | Non | Ce port est utilisé pour accéder aux données via iSCSI.|
-| 5985 | Dans | LAN | Non | Le port entrant est utilisé par le Gestionnaire d’instantanés StorSimple pour communiquer avec l’appareil StorSimple.<br>Ce port est également utilisé lorsque vous vous connectez à distance à Windows PowerShell pour StorSimple via HTTP ou HTTPS. |
+| 5985 | Dans | LAN | Non | Le port entrant est utilisé par le gestionnaire d’instantanés StorSimple pour communiquer avec le périphérique StorSimple.<br>Ce port est également utilisé lorsque vous vous connectez à distance à Windows PowerShell pour StorSimple via HTTP. |
+| 5986 | Dans | LAN | Non | Ce port est utilisé lorsque vous vous connectez à distance à Windows PowerShell pour StorSimple via HTTPS. |
 
 <sup>1</sup> Aucun port entrant ne doit être ouvert sur l’Internet public.
 
@@ -184,7 +185,7 @@ Outre les exigences de mise en réseau ci-dessus, pour obtenir des performances 
 
 - Vérifiez que la connectivité réseau à Internet est disponible en permanence. Les connexions Internet sporadiques ou non fiables aux appareils, y compris aucune connectivité Internet quelle qu’elle soit, se traduisent par l’absence de prise en charge de la configuration.
 
-- Isolez le trafic iSCSI et le trafic cloud en dédiant les interfaces réseau de votre appareil pour l’accès iSCSI et cloud. Pour plus d’informations, consultez la section relative à la [modification des interfaces réseau](storsimple-modify-device-config.md#modify-network-interfaces) sur votre appareil StorSimple.
+- Isolez le trafic iSCSI et le trafic cloud en dédiant les interfaces réseau de votre appareil pour l’accès iSCSI et cloud. Pour plus d’informations, consultez la section relative à la [modification des interfaces réseau](storsimple-modify-device-config.md#modify-network-interfaces) sur votre périphérique StorSimple.
 
 ## Étapes suivantes
 
@@ -194,4 +195,4 @@ Outre les exigences de mise en réseau ci-dessus, pour obtenir des performances 
 <!--Reference links-->
 [1]: https://technet.microsoft.com/library/cc731844(v=WS.10).aspx
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Création d’une machine virtuelle personnalisée dans Azure"
-	description="Apprenez à créer une machine virtuelle personnalisée dans Azure."
+	pageTitle="Création d’une machine virtuelle personnalisée dans Azure | Microsoft Azure"
+	description="Découvrez comment créer une machine virtuelle personnalisée à partir du portail Azure à l'aide du modèle de déploiement classique."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="cynthn"
@@ -11,13 +11,17 @@
 <tags
 	ms.service="virtual-machines"
 	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="na"
+	ms.tgt_pltfrm="vm-multiple"
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/11/2015"
 	ms.author="cynthn"/>
 
 #Création d’une machine virtuelle personnalisée
+
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Cet article traite de la création d’une ressource avec le modèle de déploiement classique.
+
 
 Une machine virtuelle *personnalisée* correspond à une machine virtuelle que vous avez créée à l’aide de l’option **À partir de la galerie**, car elle propose davantage de possibilités de configuration que l’option **Création rapide**. Les choix sont les suivants :
 
@@ -27,8 +31,8 @@ Une machine virtuelle *personnalisée* correspond à une machine virtuelle que v
 - Ajouter la machine virtuelle à un compte de stockage existant
 - Ajouter la machine virtuelle à un groupe à haute disponibilité
 
-> [AZURE.IMPORTANT]Si vous souhaitez que la machine virtuelle utilise un réseau virtuel pour pouvoir vous y connecter directement par le nom d'hôte ou configurer des connexions entre différents emplacements, veillez à spécifier le réseau virtuel lors de la création de la machine virtuelle. Vous pouvez configurer une machine virtuelle pour qu’elle rejoigne uniquement un réseau virtuel lorsque vous la créez. Pour plus d'informations sur les réseaux virtuels, consultez la rubrique [Vue d'ensemble d'Azure Virtual Network](virtual-networks-overview.md).
+> [AZURE.IMPORTANT]Si vous souhaitez que la machine virtuelle utilise un réseau virtuel pour pouvoir vous y connecter directement par le nom d'hôte ou configurer des connexions entre différents emplacements, veillez à spécifier le réseau virtuel lors de la création de la machine virtuelle. Vous pouvez configurer une machine virtuelle pour qu’elle rejoigne uniquement un réseau virtuel lorsque vous la créez. Pour plus d’informations sur les réseaux virtuels, consultez la page [Présentation du réseau virtuel Azure](virtual-networks-overview.md).
 
 [AZURE.INCLUDE [virtual-machines-create-WindowsVM](../../includes/virtual-machines-create-windowsvm.md)]
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

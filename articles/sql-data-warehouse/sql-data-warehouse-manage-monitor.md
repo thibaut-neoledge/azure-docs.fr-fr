@@ -1,20 +1,20 @@
 <properties
    pageTitle="Surveiller votre charge de travail à l'aide de vues de gestion dynamique | Microsoft Azure"
-	description="Comment surveiller votre charge de travail à l'aide de vues de gestion dynamique"
-	services="sql-data-warehouse"
-	documentationCenter="NA"
-	authors="sahaj08"
-	manager="barbkess"
-	editor=""/>
+   description="Comment surveiller votre charge de travail à l'aide de vues de gestion dynamique"
+   services="sql-data-warehouse"
+   documentationCenter="NA"
+   authors="sahaj08"
+   manager="barbkess"
+   editor=""/>
 
 <tags
    ms.service="sql-data-warehouse"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="data-services"
-	ms.date="08/06/2015"
-	ms.author="sahajs"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="data-services"
+   ms.date="09/22/2015"
+   ms.author="sahajs"/>
 
 # Surveiller votre charge de travail à l'aide de vues de gestion dynamique
 
@@ -22,23 +22,9 @@ Cet article décrit comment utiliser les vues de gestion dynamique (DMV) pour su
 
 
 
-
-## Autorisations
-
-Dans SQL Data Warehouse, l’interrogation d’une vue de gestion dynamique nécessite des autorisations **VIEW DATABASE STATE**. L’autorisation **VIEW DATABASE STATE** renvoie des informations sur tous les objets de la base de données active. Pour accorder l’autorisation **VIEW DATABASE STATE** à un utilisateur de base de données spécifique, exécutez la requête suivante :
-
-```
-
-GRANT VIEW DATABASE STATE TO database_user;
-
-```
-
-
-
-
 ## Suivi des connexions
 
-Vous pouvez utiliser la vue *sys.dm\_pdw\_nodes\_exec\_connections* pour récupérer des informations sur les connexions établies avec votre base de données Azure SQL Data Warehouse. En outre, la vue *sys.dm\_exec\_sessions* sert à récupérer les informations sur toutes les connexions utilisateur actives.
+Vous pouvez utiliser la vue *sys.dm\_pdw\_nodes\_exec\_connections* pour récupérer des informations sur les connexions établies avec votre base de données SQL Data Warehouse Azure. En outre, la vue *sys.dm\_exec\_sessions* permet de récupérer les informations sur toutes les connexions utilisateur actives.
 
 ```
 
@@ -135,10 +121,10 @@ ORDER BY step_index;
 
 Enregistrez l'Index d'étape de l’étape la plus longue.
 
-Vérifier la colonne *type\_opération* de l’exécution de l’étape de requête longue :
+Vérifier la colonne *operation\_type* de l’exécution de l’étape de requête longue :
 
-- Passez à l’étape 4a pour les **opérations SQL** : OnOperation, RemoteOperation, ReturnOperation.
-- Passez à l’étape 4b pour **les opérations de déplacement des données** : ShuffleMoveOperation, BroadcastMoveOperation, TrimMoveOperation, PartitionMoveOperation, MoveOperation, CopyOperation.
+- Passez à l’étape 4a pour les **opérations SQL** : OnOperation, RemoteOperation, ReturnOperation.
+- Passez à l’étape 4b pour **les opérations de déplacement des données** : ShuffleMoveOperation, BroadcastMoveOperation, TrimMoveOperation, PartitionMoveOperation, MoveOperation, CopyOperation.
 
 
 
@@ -185,7 +171,7 @@ WHERE request_id = 'QID33209' AND step_index = 2;
 
 ```
 
-- Vérifiez la colonne *total\_elapsed\_time* pour voir si une distribution particuière prend beaucoup plus de temps que les autres pour le déplacement des données. 
+- Vérifiez la colonne *total\_elapsed\_time* pour voir si une distribution particulière prend beaucoup plus de temps que les autres pour le déplacement des données. 
 - Consultez la colonne *rows\_processed* de la distribution la plus longue pour voir si le nombre de lignes déplacées dans le cadre de cette distribution est nettement plus élevé que d’autres. Cela indique que votre requête présente une inclinaison de données.
 
 
@@ -207,14 +193,14 @@ Le résultat de cette requête affiche le nombre de lignes de la table stockées
 
 
 ## Étapes suivantes
-Pour plus d’informations sur la gestion de SQL Data Warehouse, consultez la page [Gestion de la vue d’ensemble][].
+Pour plus d’informations sur la gestion de SQL Data Warehouse, consultez la page [Vue d’ensemble de la gestion][].
 
 <!--Image references-->
 
 <!--Article references-->
-[Gestion de la vue d’ensemble]: sql-data-warehouse-overview-manage.md
+[Vue d’ensemble de la gestion]: sql-data-warehouse-overview-manage.md
 [Conception de table]: sql-data-warehouse-develop-table-design.md
 
 <!--MSDN references-->
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

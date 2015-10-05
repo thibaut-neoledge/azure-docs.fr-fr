@@ -1,25 +1,30 @@
 <properties 
-	pageTitle="Django et MySQL sur Azure avec Python Tools 2.2 pour Visual Studio"
-	description="Découvrez comment utiliser Python Tools pour Visual Studio afin de créer une application Django qui stocke les données dans une instance de base de données MySQL et de la déployer sur Azure App Service Web Apps."
-	services="app-service\web"
-	documentationCenter="python"
-	authors="huguesv"
-	manager="wpickett"
+	pageTitle="Django et MySQL sur Azure avec Python Tools 2.2 pour Visual Studio" 
+	description="Découvrez comment utiliser Python Tools pour Visual Studio afin de créer une application Django qui stocke les données dans une instance de base de données MySQL et de la déployer sur Azure App Service Web Apps." 
+	services="app-service\web" 
+	documentationCenter="python" 
+	authors="huguesv" 
+	manager="wpickett" 
 	editor=""/>
 
 <tags 
-	ms.service="app-service-web"
-	ms.workload="web"
-	ms.tgt_pltfrm="na"
-	ms.devlang="python"
-	ms.topic="article"
+	ms.service="app-service-web" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="python" 
+	ms.topic="article" 
 	ms.date="08/30/2015"
 	ms.author="huguesv"/>
 
-
-
-
 # Django et MySQL sur Azure avec Python Tools 2.2 pour Visual Studio 
+
+> [AZURE.SELECTOR]
+- [.Net](web-sites-dotnet-get-started.md)
+- [Node.js](web-sites-nodejs-develop-deploy-mac.md)
+- [Java](web-sites-java-get-started.md)
+- [PHP - Git](web-sites-php-mysql-deploy-use-git.md)
+- [PHP - FTP](web-sites-php-mysql-deploy-use-ftp.md)
+- [Python](web-sites-python-ptvs-django-mysql.md)
 
 Dans ce didacticiel, nous allons utiliser [Python Tools pour Visual Studio] afin de créer une application web de sondage simple, à l’aide de l’un des exemples de modèle PTVS. Ce didacticiel est également disponible en [vidéo](https://www.youtube.com/watch?v=oKCApIrS0Lo).
 
@@ -211,4 +216,4 @@ Suivez ces liens pour en savoir plus sur Python Tools pour Visual Studio, Django
 [MySQL]: http://www.mysql.com/
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO4-->

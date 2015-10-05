@@ -1,12 +1,12 @@
 <properties
-   pageTitle="Architecture d’Azure Resource Manager"
-	description="Découvrez l’architecture de Resource Manager et les relations entre les fournisseurs de ressources relatives au calcul, au réseau et au stockage."
-	services="virtual-machines"
-	documentationCenter=""
-	authors="davidmu1"
-	manager="timlt"
-	editor=""
-	tags="azure-resource-manager"/>
+   pageTitle="Architecture d’Azure Resource Manager | Microsoft Azure"
+   description="Découvrez l’architecture de Resource Manager et les relations entre les fournisseurs de ressources relatives au calcul, au réseau et au stockage."
+   services="virtual-machines"
+   documentationCenter=""
+   authors="davidmu1"
+   manager="timlt"
+   editor=""
+   tags="azure-resource-manager,azure-service-management"/>
 
 <tags
 	ms.service="azure-resource-manager"
@@ -18,6 +18,8 @@
 	ms.author="davidmu"/>
 
 # Architecture d’Azure Resource Manager
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]
 
 Cet article présente une vue d’ensemble des architectures de Service Management et de Resource Manager permettant de créer des applications et charges de travail basées sur une infrastructure.
 
@@ -77,6 +79,6 @@ Vous pouvez également observer la modularité et les relations dépendantes ent
 
 [Fournisseurs de calcul, de réseau et de stockage Azure dans Azure Resource Manager](virtual-machines-azurerm-versus-azuresm.md)
 
-[Présentation d’Azure Resource Manager](resource-group-overview.md)
+[Présentation du gestionnaire des ressources Azure](resource-group-overview.md)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

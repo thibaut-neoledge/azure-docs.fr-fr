@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/15/2015"
+	ms.date="09/22/2015"
 	ms.author="swkrish"/>
 
 # Azure Active Directory B2C en version préliminaire : fourniture d’inscription et de connexion à des consommateurs disposant de comptes Facebook
@@ -70,4 +70,4 @@ Pour utiliser Facebook en tant que fournisseur d’identité dans Azure Active D
 6. Cliquez sur **Configurer ce fournisseur d’identité**, puis entrez l’**ID de l’application** et la **Question secrète de l’application** Facebook que vous avez créée précédemment, respectivement dans les champs **ID client** et **Clé secrète client**.
 7. Cliquez sur **OK**, puis sur **Créer** pour enregistrer votre configuration Facebook.
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

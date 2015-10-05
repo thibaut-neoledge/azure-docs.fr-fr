@@ -1,8 +1,8 @@
 <properties
-   pageTitle="Raccourcis clavier du portail Azure"
+   pageTitle="Raccourcis clavier du portail Azure | Microsoft Azure"
    description="Cet article, qui sera actualisé régulièrement, énumère les raccourcis clavier qui peuvent être utilisés sur le portail Azure. Les services individuels peuvent bénéficier de leurs propres raccourcis clavier spécialisés."
    services="cloud-services"
-   documentationCenter="dev-center-name"
+   documentationCenter=""
    authors="curtand"
    manager="msStevenPo"
    editor=""/>
@@ -50,4 +50,4 @@
 
 Découvrez plus en détail le portail Azure : http://azure.microsoft.com.
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

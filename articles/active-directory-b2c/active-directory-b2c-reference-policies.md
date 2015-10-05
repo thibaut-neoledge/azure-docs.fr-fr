@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/15/2015"
+	ms.date="09/22/2015"
 	ms.author="swkrish"/>
 
 # Version préliminaire d'Azure Active Directory B2C : infrastructure de stratégie extensible
@@ -71,7 +71,7 @@ Pour activer l'inscription dans votre application, vous devez créer une straté
 3. Cliquez sur **+Ajouter** en haut du volet.
 4. Le **Nom** détermine le nom de la stratégie d'inscription utilisé par votre application. Par exemple, entrez « SiUp ».
 5. Cliquez sur **Fournisseurs d'identité** et sélectionnez « Adresse de messagerie ». Si vous le souhaitez, vous pouvez également sélectionner des fournisseurs d'identité sociaux, s'ils sont déjà configurés. Cliquez sur **OK**.
-6. Cliquez sur **Attributs d'inscription**. Ici, vous choisissez les attributs que vous souhaitez collecter auprès du client au cours de l'inscription. Par exemple, sélectionnez « Ville », « Nom d'affichage » et « Code postal ». Cliquez sur **OK**.
+6. Cliquez sur **Attributs d'inscription**. Ici, vous choisissez les attributs que vous souhaitez collecter auprès du client au cours de l'inscription. Par exemple, sélectionnez « Pays/région », « Nom d'affichage » et « Code postal ». Cliquez sur **OK**.
 7. Cliquez sur **Revendications d'application**. Ici, vous pouvez choisir les revendications à renvoyer à votre application dans les jetons après une expérience d'inscription réussie. Par exemple, sélectionnez « Nom d'affichage », « Fournisseur d'identité », « Code postal », « Nouvel utilisateur » et « ID d'objet de l'utilisateur ».
 8. Cliquez sur **Create**. Notez que la stratégie créée s'affiche sous la forme « **B2C\_1\_SiUp** » (le fragment **B2C\_1\_** est automatiquement ajouté en préfixe) dans le volet **Stratégies d'inscription**.
 9. Ouvrez la stratégie en cliquant sur « **B2C\_1\_SiUp** ».
@@ -104,7 +104,7 @@ Pour activer la modification de profil dans votre application, vous devez créer
 3. Cliquez sur **+Ajouter** en haut du volet.
 4. Le **Nom** détermine le nom de la stratégie de modification de profil utilisé par votre application. Par exemple, entrez « SiPe ».
 5. Cliquez sur **Fournisseurs d'identité** et sélectionnez « Adresse de messagerie ». Si vous le souhaitez, vous pouvez également sélectionner des fournisseurs d'identité sociaux, s'ils sont déjà configurés. Cliquez sur **OK**.
-6. Cliquez sur **Attributs de profil**. Ici, vous choisissez les attributs que le client peut afficher et modifier. Par exemple, sélectionnez « Ville », « Nom d'affichage » et « Code postal ». Cliquez sur **OK**.
+6. Cliquez sur **Attributs de profil**. Ici, vous choisissez les attributs que le client peut afficher et modifier. Par exemple, sélectionnez « Pays/région », « Nom d'affichage » et « Code postal ». Cliquez sur **OK**.
 7. Cliquez sur **Revendications d'application**. Ici, vous pouvez choisir les revendications à renvoyer à votre application dans les jetons après une expérience de modification de profil réussie. Par exemple, sélectionnez « Nom d'affichage » et « Code postal ».
 8. Cliquez sur **Create**. Notez que la stratégie créée s'affiche sous la forme « **B2C\_1\_SiPe** » (le fragment **B2C\_1\_** est automatiquement ajouté en préfixe) dans le volet **Stratégies de modification du profil**.
 9. Ouvrez la stratégie en cliquant sur « **B2C\_1\_SiPe** ».
@@ -112,4 +112,4 @@ Pour activer la modification de profil dans votre application, vous devez créer
 
     > [AZURE.NOTE]La création de la stratégie et les mises à jour peuvent prendre jusqu'à une minute.
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

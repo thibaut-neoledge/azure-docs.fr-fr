@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="08/28/2015" 
+	ms.date="09/23/2015" 
 	ms.author="awills"/>
 
 # API Application Insights pour les événements et les mesures personnalisés 
@@ -696,6 +696,9 @@ Normalement, le Kit de développement logiciel (SDK) envoie des données à des 
 
     telemetry.Flush();
 
+    // Allow some time for flushing before shutdown.
+    System.Threading.Thread.Sleep(1000);
+
 Notez que la fonction est synchrone.
 
 
@@ -900,4 +903,4 @@ Il existe certaines limites au nombre de mesures et d’événements par applica
 
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

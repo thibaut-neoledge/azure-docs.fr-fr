@@ -6,7 +6,7 @@
 	authors="squillace"
 	manager="timlt"
 	editor="tysonn"
-	tags="azure-resource-management"/>
+	tags="azure-resource-manager"/>
 
 <tags
 	ms.service="virtual-machines"
@@ -128,4 +128,4 @@ Pour en savoir plus sur Linux sur Microsoft Azure, consultez les pages suivante
 
 - [Extension Docker VM pour Linux sur Azure](virtual-machines-docker-vm-extension.md)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

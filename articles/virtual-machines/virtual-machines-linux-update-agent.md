@@ -1,11 +1,12 @@
 <properties
-	pageTitle="Mise à jour d’Azure Linux Agent vers la dernière version à partir de Github"
-	description="Découvrez comment mettre à jour Azure Linux Agent à partir de Github pour votre machine virtuelle Linux dans Azure."
+	pageTitle="Mettre à jour l'agent Linux Azure depuis Github | Microsoft Azure"
+	description="Découvrez comment mettre à jour l’agent Linux Azure pour votre machine virtuelle Linux dans Azure vers la dernière version de Github"
 	services="virtual-machines"
 	documentationCenter=""
 	authors="SuperScottz"
 	manager="timlt"
-	editor=""/>
+	editor=""
+	tags="azure-resource-manager,azure-service-management"/>
 
 <tags
 	ms.service="virtual-machines"
@@ -17,19 +18,21 @@
 	ms.author="mingzhan"/>
 
 
-# Mise à jour d’Azure Linux Agent vers la dernière version à partir de Github
+# Mise à jour de l’agent Linux Azure sur une machine virtuelle vers la dernière version de Github
 
-Pour mettre à jour votre [Azure Linux Agent](https://github.com/Azure/WALinuxAgent), vous devez déjà disposer
+Pour mettre à jour votre [agent Linux Azure](https://github.com/Azure/WALinuxAgent) sur une machine virtuelle Linux dans Azure vous devez déjà disposer de :
 
 1. d’une machine virtuelle Linux en cours d’exécution dans Azure
 2. Vous êtes connecté à cette machine virtuelle Linux à l’aide de SSH
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Cet article traite de la gestion d’une ressource avec le modèle de déploiement Resource Manager ou le modèle de déploiement classique.
 
 > [AZURE.NOTE]Si vous exécutez cette tâche à partir d’un ordinateur Windows, vous pouvez utiliser Putty pour vous connecter au moyen du protocole SSH à votre machine Linux. Pour plus d’informations, consultez [Connexion à une machine virtuelle exécutant Linux](virtual-machines-linux-how-to-log-on.md).
 
 Les versions Linux approuvées dans Azure ont placé le package Azure Linux Agent dans leurs référentiels, c’est pourquoi il convient de vérifier et de commencer par installer la dernière version à partir de ce référentiel de version si possible.
 
 Pour Ubuntu, il suffit de taper :
-     
+
     #sudo apt-get install walinuxagent
 
 et sur CentOS, tapez :
@@ -52,7 +55,7 @@ Installez wget (certaines versions ne l’installent pas par défaut, telles que
 
 ## Télécharger la version la plus récente
 
-Ouvrez [la version d’Azure Linux Agent dans Github](https://github.com/Azure/WALinuxAgent/releases) dans une page Web et cherchez le dernier numéro de version. (Vous pouvez rechercher votre version actuelle en tapant `#waagent --version`.)
+Ouvrez [la version de l’agent Linux Azure dans Github](https://github.com/Azure/WALinuxAgent/releases) dans une page Web et cherchez le dernier numéro de version. (Vous pouvez rechercher votre version actuelle en tapant `#waagent --version`.)
 
 ###Pour la version 2.0.x, tapez :
 
@@ -63,8 +66,8 @@ Ouvrez [la version d’Azure Linux Agent dans Github](https://github.com/Azure
     #wget https://raw.githubusercontent.com/Azure/WALinuxAgent/WALinuxAgent-2.0.14/waagent  
 
 ###Pour la version 2.1.x (ou version ultérieure), tapez :
-  
-    #wget https://github.com/Azure/WALinuxAgent/archive/WALinuxAgent-[version].zip 
+
+    #wget https://github.com/Azure/WALinuxAgent/archive/WALinuxAgent-[version].zip
     #unzip WALinuxAgent-[version].zip
     #cd WALinuxAgent-[version]
 
@@ -83,15 +86,15 @@ Ouvrez [la version d’Azure Linux Agent dans Github](https://github.com/Azure
     #chmod +x waagent
 
  Copier le nouveau fichier exécutable dans/usr/sbin /
-   
+
   Pour la plupart des versions Linux, utilisez
-         
+
       #sudo cp waagent /usr/sbin
 
   Pour CoreOS, procédez comme suit :
 
     #sudo cp waagent /usr/share/oem/bin/
- 
+
 ###Pour la version 2.1.x, utilisez :
 
 Vous devez peut-être installer d’abord le package `setuptools`, disponible [ici](https://pypi.python.org/pypi/setuptools). Exécutez ensuite la commande suivante :
@@ -110,10 +113,10 @@ Pour Ubantu, procédez comme suit :
 
 Pour CoreOS, procédez comme suit :
 
-    #sudo systemctl restart waagent 
+    #sudo systemctl restart waagent
 
 ## Confirmer la version d’Azure Linux Agent
-   
+
     #waagent -version
 
 Pour CoreOS, la commande ci-dessus peut ne pas fonctionner.
@@ -122,8 +125,4 @@ Vous verrez que la version d’Azure Linux Agent a été mise à jour vers la 
 
 Pour plus d’informations sur Azure Linux Agent, consultez le fichier [Lisezmoi d’Azure Linux Agent](https://github.com/Azure/WALinuxAgent).
 
-
-
- 
-
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO4-->

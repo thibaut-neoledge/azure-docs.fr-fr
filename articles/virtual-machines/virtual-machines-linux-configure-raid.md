@@ -1,13 +1,13 @@
 <properties 
-	pageTitle="Configuration logicielle de RAID sur une machine virtuelle exécutant Linux dans Azure" 
+	pageTitle="Configuration logicielle de RAID sur une machine virtuelle exécutant Linux | Microsoft Azure" 
 	description="Apprenez à utiliser mdadm pour configurer RAID sur Linux dans Azure." 
 	services="virtual-machines" 
 	documentationCenter="" 
 	authors="szarkos" 
 	writer="szark" 
 	manager="timlt" 
-	editor=""/>
-
+	editor=""
+	tag="azure-service-management,azure-resource-manager" />
 
 <tags 
 	ms.service="virtual-machines" 
@@ -20,13 +20,13 @@
 
 
 
-
 # Configuration d’un RAID logiciel sur Linux
 L'utilisation d'un RAID logiciel pour les machines virtuelles Linux sur Azure est un scénario fréquent afin de regrouper plusieurs disques de données attachés sous la forme d'un périphérique RAID unique. En règle générale, ce scénario permet d'optimiser les performances et d'améliorer le débit par rapport à l'utilisation d'un disque unique.
 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]
 
 ## Disques de données attachés
-En règle générale, au moins deux disques de données sont nécessaires pour configurer un périphérique RAID. Cet article n'abordera pas en détail la marche à suivre pour attacher des disques de données sur une machine virtuelle Linux. Consultez l’article Microsoft Azure [Attacher un disque](storage-windows-attach-disk.md#attachempty) pour obtenir des instructions détaillées sur la marche à suivre pour attacher un disque de données vide à une machine virtuelle Linux Azure.
+En règle générale, au moins deux disques de données sont nécessaires pour configurer un périphérique RAID. Cet article n'abordera pas en détail la marche à suivre pour attacher des disques de données sur une machine virtuelle Linux. Consultez l’article Microsoft Azure [Attacher un disque](storage-windows-attach-disk.md#attachempty) pour obtenir des instructions détaillées sur la marche à suivre pour attacher un disque de données vide à une machine virtuelle Linux dans Azure.
 
 >[AZURE.NOTE]La taille de machine virtuelle ExtraSmall ne prend pas en charge plus d'un disque de données attaché à la machine virtuelle. Consultez les [Tailles de machines virtuelles et services cloud pour Windows Azure](https://msdn.microsoft.com/library/azure/dn197896.aspx) pour plus d'informations concernant les tailles de machines virtuelles et le nombre de disques de données pris en charge.
 
@@ -181,4 +181,4 @@ Dans cet exemple, après l'exécution de cette commande, un nouveau périphériq
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

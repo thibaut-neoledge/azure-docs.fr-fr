@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/05/2015" 
+	ms.date="09/23/2015" 
 	ms.author="raynew"/>
 
 # Configuration de la protection entre des sites VMM locaux
@@ -57,7 +57,7 @@ Assurez-vous que les conditions préalables sont remplies :
 ### Conditions préalables liées à Hyper-V
 
 - Les serveurs Hyper-V hôte et cible doivent exécuter au moins Windows Server 2012 avec le rôle Hyper-V et les dernières mises à jour doivent être installées.
-- Si vous utilisez Hyper-V dans un cluster, notez que le service Broker du cluster n'est pas créé automatiquement si vous avez un cluster basé sur des adresses IP statiques. Vous devez configurer manuellement le service Broker du cluster. Pour obtenir des instructions, consultez la section [Configurer le service Broker de réplication Hyper-V](hhttp://go.microsoft.com/fwlink/?LinkId=403937).
+- Si vous utilisez Hyper-V dans un cluster, notez que le service Broker du cluster n'est pas créé automatiquement si vous avez un cluster basé sur des adresses IP statiques. Vous devez configurer manuellement le service Broker du cluster. Pour obtenir des instructions, consultez [Configurer le service Broker de réplication Hyper-V](http://social.technet.microsoft.com/wiki/contents/articles/18792.configure-replica-broker-role-cluster-to-cluster-replication.aspx).
 - Tout cluster ou serveur hôte Hyper-V pour lequel vous souhaitez gérer la protection doit être inclus dans un cloud VMM.
 
 L'illustration ci-dessous montre les différents canaux et ports de communication utilisés par Azure Site Recovery pour l'orchestration et la réplication.
@@ -112,59 +112,77 @@ Générez une clé d'inscription dans le coffre. Une fois que vous aurez téléc
 
 	![Clé d'enregistrement](./media/site-recovery-vmm-to-vmm/ASRE2EHVR_E2ERegisterKey.png)
 	
-## Étape 3 : Installation du fournisseur Azure Site Recovery	
+## Étape 3 : Installation du fournisseur Azure Site Recovery
 
-1. Sur la page **Quick Start**, dans **Prepare VMM servers**, cliquez sur **Download Microsoft Azure Site Recovery Provider for installation on VMM servers** pour obtenir la dernière version du fichier d'installation du fournisseur.
+4. Sur la page *Quick Start*, dans **Prepare VMM servers**, cliquez sur *Download Microsoft Azure Site Recovery Provider for installation on VMM servers* pour obtenir la dernière version du fichier d'installation du fournisseur.
 
-2. Exécutez ce fichier sur les serveurs VMM source et cible. Si VMM est déployé dans un cluster et que vous installez le fournisseur pour la première fois, installez-le sur un nœud actif et terminez l'installation pour inscrire le serveur VMM dans le coffre. Ensuite, installez le fournisseur sur les autres nœuds. Notez que si vous mettez à niveau le fournisseur, vous devez le mettre à niveau sur tous les nœuds, car ils doivent tous exécuter la même version du fournisseur.
+2. Exécutez ce fichier sur le serveur VMM source. Si VMM est déployé dans un cluster et que vous installez le fournisseur pour la première fois, installez-le sur un nœud actif et terminez l'installation pour inscrire le serveur VMM dans le coffre. Ensuite, installez le fournisseur sur les autres nœuds. Notez que si vous mettez à niveau le fournisseur, vous devez le mettre à niveau sur tous les nœuds, car ils doivent tous exécuter la même version du fournisseur.
 
-3. Dans **Pre-requirements Check**, choisissez d'arrêter le service VMM pour lancer l'installation du fournisseur. Le service s'arrête et redémarre automatiquement une fois l'installation terminée. Si vous installez sur un cluster VMM, vous serez invité à arrêter le rôle de cluster.
 
-	![Conditions préalables](./media/site-recovery-vmm-to-vmm/ASRE2EHVR_ProviderPrereq.png)
+3. Le programme d’installation effectue quelques **vérifications de la configuration requise** et demande l’autorisation d’arrêter le service VMM pour commencer l’installation du fournisseur. Le service VMM redémarre automatiquement une fois l’installation terminée. Si vous installez sur un cluster VMM, vous serez invité à arrêter le rôle de cluster.
 
 4. Dans **Microsoft Update**, vous pouvez opter pour l'installation de mises à jour. En activant ce paramètre, les mises à jour du fournisseur seront installées en fonction de votre stratégie Microsoft Update.
 
-	![Mises à jour Microsoft](./media/site-recovery-vmm-to-vmm/ASRE2EHVR_ProviderUpdate.png)
+	![Mises à jour Microsoft](./media/site-recovery-vmm-to-vmm/VMMASRInstallMUScreen.png)
 
-Une fois le fournisseur installé, poursuivez l'installation afin d'enregistrer le serveur dans le coffre.
 
-5. Sur la page de connexion à Internet, indiquez la façon dont le fournisseur s'exécutant sur le serveur VMM se connecte à Internet, puis sélectionnez **Use default system proxy settings** pour utiliser les paramètres de connexion à Internet par défaut configurés sur le serveur.
+1.  L’emplacement de l’installation est défini sur **<SystemDrive>\\Program Files\\Microsoft System Center 2012 R2\\Virtual Machine Manager\\bin**. Cliquez sur le bouton Installer pour démarrer l’installation du fournisseur. ![Emplacement de l’installation](./media/site-recovery-vmm-to-vmm/VMMASRInstallLocationScreen.png)
 
-	![Paramètres Internet](./media/site-recovery-vmm-to-vmm/ASRE2EHVR_ProviderProxy.png)
 
-	- Si vous souhaitez utiliser un proxy personnalisé, vous devez le configurer avant d'installer le fournisseur. Quand vous configurez les paramètres de proxy personnalisé, un test s'exécute pour vérifier la connexion proxy.
-	- Si vous n'utilisez pas de proxy personnalisé ou si votre proxy par défaut nécessite une authentification, vous devez saisir les détails du proxy, y compris l'adresse du proxy et le port.
-	- Les URL suivantes doivent être accessibles à partir du serveur VMM :
-		- **.hypervrecoverymanager.windowsazure.com
-- **.accesscontrol.windows.net
-- **.backup.windowsazure.com
-- **.blob.core.windows.net
-- **.store.core.windows.net
 
-	- Autorisez les adresses IP décrites dans la zone [Étendues d’adresses IP du centre de données Azure](http://go.microsoft.com/fwlink/?LinkId=511094) et le protocole HTTPS (443). Vous devez autoriser les plages IP de la région Microsoft Azure que vous prévoyez d’utiliser, ainsi que celles de la région ouest des États-Unis.
-	
+1. Une fois le fournisseur installé, cliquez sur le bouton « Register » pour enregistrer le serveur dans le coffre. ![Installation terminée](./media/site-recovery-vmm-to-vmm/VMMASRInstallComplete.png)
+
+5. Sur la page **Connexion Internet**, indiquez la façon dont le fournisseur exécuté sur le serveur VMM se connecte à Internet. Sélectionnez *Utiliser les paramètres proxy par défaut du système* pour utiliser les paramètres de connexion Internet par défaut configurés sur le serveur.
+
+	![Paramètres Internet](./media/site-recovery-vmm-to-vmm/VMMASRRegisterProxyDetailsScreen.png) - Si vous souhaitez utiliser un proxy personnalisé, vous devez le configurer avant d’installer le fournisseur. Quand vous configurez les paramètres de proxy personnalisé, un test s’exécute pour vérifier la connexion proxy. - Si vous n’utilisez pas de proxy personnalisé ou si votre proxy par défaut nécessite une authentification, vous devez entrer les détails du proxy, y compris l’adresse du proxy et le port. - Les URL suivantes doivent être accessibles à partir du serveur VMM et des hôtes Hyper-V. - *.hypervrecoverymanager.windowsazure.com - *.accesscontrol.windows.net - *.backup.windowsazure.com - *.blob.core.windows.net - *.store.core.windows.net - Autorisez les adresses IP décrites dans [Étendues d’adresses IP du centre de données Azure](http://go.microsoft.com/fwlink/?LinkId=511094) et le protocole HTTPS (443). Vous devez autoriser les plages IP de la région Microsoft Azure que vous prévoyez d’utiliser, ainsi que celles de la région ouest des États-Unis.
+
 	- Si vous utilisez un proxy personnalisé, un compte RunAs VMM (DRAProxyAccount) est créé automatiquement avec les informations d'identification du proxy spécifiées. Configurez le serveur proxy pour que ce compte puisse s'authentifier correctement. Vous pouvez modifier les paramètres du compte RunAs VMM dans la console VMM. Pour cela, ouvrez l'espace de travail Paramètres, développez Sécurité, cliquez sur Comptes d'identification, puis modifiez le mot de passe de DRAProxyAccount. Vous devez redémarrer le service VMM pour que ce paramètre prenne effet.
+
 6. Dans **Registration Key**, indiquez que vous téléchargez depuis Azure Site Recovery et que vous copiez sur le serveur VMM.
-7. Dans **Vault name**, vérifiez le nom du coffre dans lequel le serveur est enregistré.
-8. Dans **Server name**, entrez un nom convivial pour identifier le serveur VMM dans le coffre. Dans une configuration de cluster, spécifiez le nom de rôle de cluster VMM. 
-
-	![Enregistrement du serveur](./media/site-recovery-vmm-to-vmm/ASRE2EHVR_ProviderRegKeyServerName.png)
+7. Dans **Vault name**, vérifiez le nom du coffre dans lequel le serveur est enregistré. Cliquez sur *Next*.
 
 
-9. Dans la synchronisation **Initial cloud metadata**, indiquez si vous souhaitez synchroniser les métadonnées de tous les clouds sur le serveur VMM à l'aide du coffre. Cette action se produit une seule fois sur chaque serveur. Si vous ne souhaitez pas synchroniser tous les clouds, vous pouvez désactiver ce paramètre et synchroniser individuellement chaque cloud via les propriétés du cloud de la console VMM.
+	![Enregistrement du serveur](./media/site-recovery-vmm-to-vmm/VMMASRRegisterVaultCreds.png)
+
+9. Ce paramètre est utilisé uniquement pour le scénario VMM vers Azure. Dans le cadre d’une utilisation VMM vers VMM uniquement, vous pouvez ignorer cet écran.
+
+	![Enregistrement du serveur](./media/site-recovery-vmm-to-vmm/VMMASRRegisterEncryptionScreen.png)
+
+8. Dans **Server name**, entrez un nom convivial pour identifier le serveur VMM dans le coffre. Dans une configuration de cluster, spécifiez le nom de rôle de cluster VMM.
+
+8. Dans la synchronisation **Initial cloud metadata**, indiquez si vous souhaitez synchroniser les métadonnées de tous les clouds sur le serveur VMM à l'aide du coffre. Cette action se produit une seule fois sur chaque serveur. Si vous ne souhaitez pas synchroniser tous les clouds, vous pouvez désactiver ce paramètre et synchroniser individuellement chaque cloud via les propriétés du cloud de la console VMM. ![Enregistrement du serveur](./media/site-recovery-vmm-to-vmm/VMMASRRegisterFriendlyName.png)
 
 
-7. L’option **Chiffrement des données** ne s’applique pas à la protection de type « local à local ».
+8. Cliquez sur *Suivant* pour terminer le processus. Une fois l'inscription terminée, les métadonnées du serveur VMM sont extraites par Azure Site Recovery. Le serveur apparaît sous l’onglet *Serveurs VMM* de la page **Serveurs** du coffre.
 
-	![Enregistrement du serveur](./media/site-recovery-vmm-to-vmm/ASRE2EHVR_ProviderSyncEncrypt.png)
-
-8. Cliquez sur **Register** pour terminer le processus. Les métadonnées du serveur VMM sont récupérées par Azure Site Recovery. Le serveur apparaît dans l’onglet **Ressources** de la page **Serveurs** du coffre.
-
-Après l'inscription, vous pouvez modifier les paramètres du fournisseur dans la console VMM ou à partir de la ligne de commande.
+>[AZURE.NOTE]Le fournisseur Azure Site Recovery peut également être installé à l’aide de la ligne de commande suivante. Cette méthode peut être utilisée pour installer le fournisseur sur un module Server CORE pour Windows Server 2012 R2.
+>
+>1. Téléchargez le fichier d’installation du fournisseur et la clé d’inscription vers un dossier, par exemple C:\\ASR.
+>2. Arrêter le service System Center Virtual Machine Manager
+>3. Extrayez le programme d’installation du fournisseur en exécutant les commandes ci-après à partir d’une invite de commandes avec des privilèges d’**administrateur**. 
+>
+    	C:\Windows\System32> CD C:\ASR
+    	C:\ASR> AzureSiteRecoveryProvider.exe /x:. /q
+>4. Installez le fournisseur en exécutant la commande suivante.
+>
+		C:\ASR> setupdr.exe /i
+>5. Inscrivez le fournisseur en exécutant la commande suivante.
+>
+    	CD C:\Program Files\Microsoft System Center 2012 R2\Virtual Machine Manager\bin
+    	C:\Program Files\Microsoft System Center 2012 R2\Virtual Machine Manager\bin> DRConfigurator.exe /r  /Friendlyname <friendly name of the server> /Credentials <path of the credentials file> /EncryptionEnabled <full file name to save the encryption certificate>         
+ ####Liste des paramètres de la ligne de commande utilisés pour l’installation####
+>
+ - **/Credentials** : paramètre obligatoire, qui spécifie l’emplacement auquel le fichier de clé d’inscription se trouve  
+ - **/FriendlyName** : paramètre obligatoire, qui correspond au nom du serveur hôte Hyper-V qui s’affiche sur le portail Microsoft Azure Site Recovery
+ - **/EncryptionEnabled** : paramètre facultatif que vous ne devez utiliser que dans le scénario VMM vers Azure si vos machines virtuelles doivent être chiffrées au repos dans Azure. Vérifiez que le nom du fichier que vous fournissez porte l’extension **.pfx**.
+ - **/proxyAddress** : paramètre facultatif qui spécifie l’adresse du serveur proxy
+ - **/proxyport** : paramètre facultatif qui spécifie le port du serveur proxy
+ - **/proxyUsername** : paramètre facultatif qui spécifie le nom d’utilisateur proxy (si le proxy nécessite une authentification)
+ - **/proxyPassword** : paramètre facultatif qui spécifie le mot de passe pour l’authentification auprès du serveur proxy (si le proxy nécessite une authentification)  
 
 ## Étape 4 : Configuration des paramètres de protection de cloud
 
-Une fois les serveurs VMM inscrits, vous pouvez configurer les paramètres de protection de cloud. Si vous avez activé l’option **Synchroniser les données du cloud avec le coffre** lors de l’installation du fournisseur, tous les clouds du serveur VMM apparaissent sous l’onglet **Éléments protégés** du coffre. Si ce n’est pas le cas, vous pouvez synchroniser un cloud spécifique avec Azure Site Recovery sous l’onglet **Général** de la page des propriétés du cloud dans la console VMM.
+Une fois les serveurs VMM inscrits, vous pouvez configurer les paramètres de protection de cloud. Si vous avez activé l’option **Synchroniser les données du cloud avec le coffre** pendant l’installation du fournisseur, tous les clouds du serveur VMM apparaissent sous l’onglet **Éléments protégés** du coffre. Si ce n’est pas le cas, vous pouvez synchroniser un cloud spécifique avec Azure Site Recovery sous l’onglet **Général** de la page des propriétés du cloud dans la console VMM.
 
 ![Cloud publié](./media/site-recovery-vmm-to-vmm/ASRE2EHVR_CloudsList.png)
 
@@ -186,7 +204,7 @@ Une fois les serveurs VMM inscrits, vous pouvez configurer les paramètres de pr
 11. Dans **Port**, modifiez le numéro de port sur lequel les ordinateurs hôtes source et cible écoutent le trafic de réplication. Par exemple, vous pouvez modifier ce paramètre si vous souhaitez appliquer la limitation de bande passante réseau de Qualité de service (QoS) pour le trafic de réplication. Vérifiez que le port n'est utilisé par aucune autre application et qu'il est ouvert dans les paramètres du pare-feu.
 12. Dans **Replication method**, indiquez comment sera traitée la réplication de données initiale entre les emplacements source et cible avant que la réplication normale ne démarre. 
 	- **Over network** : la copie de données sur le réseau peut demander du temps et des ressources. Nous vous recommandons d'utiliser cette option si le cloud contient des machines virtuelles dotées de disques durs virtuels relativement petits et si le site principal est connecté au site secondaire sur une connexion à large bande passante. Vous pouvez opter pour un démarrage immédiat de la copie ou sélectionner une heure. Si vous utilisez la réplication réseau, nous vous recommandons de la planifier sur des heures creuses.
-	- **Offline** : cette méthode précise que la réplication initiale s'exécute à l'aide d'un support externe. Elle est indiquée si vous voulez éviter une dégradation des performances réseau ou pour les emplacements éloignés géographiquement. Pour utiliser cette méthode, il convient de spécifier l'emplacement d'exportation sur le cloud source et l'emplacement d'importation sur le cloud cible. Lorsque vous activez la protection pour une machine virtuelle, le disque dur virtuel est copié vers l'emplacement d'exportation spécifié. Vous l'envoyez vers le site cible et le copiez vers l'emplacement d'importation. Le système copie les informations importées vers les machines virtuelles de réplication. Pour connaître les détails de la configuration requise pour la réplication hors ligne, voir <a href="http://go.microsoft.com/fwlink/?LinkId=323469">Étape 3 : Configuration des paramètres de protection des clouds VMM</a> dans le Guide de déploiement.
+	- **Offline** : cette méthode précise que la réplication initiale s'exécute à l'aide d'un support externe. Elle est indiquée si vous voulez éviter une dégradation des performances réseau ou pour les emplacements éloignés géographiquement. Pour utiliser cette méthode, il convient de spécifier l'emplacement d'exportation sur le cloud source et l'emplacement d'importation sur le cloud cible. Lorsque vous activez la protection pour une machine virtuelle, le disque dur virtuel est copié vers l'emplacement d'exportation spécifié. Vous l'envoyez vers le site cible et le copiez vers l'emplacement d'importation. Le système copie les informations importées vers les machines virtuelles de réplication. Pour connaître les détails de la configuration requise pour la réplication hors connexion, voir <a href="http://go.microsoft.com/fwlink/?LinkId=323469">Étape 3 : configuration des paramètres de protection des clouds VMM</a> dans le Guide de déploiement.
 13. Sélectionnez **Delete Replica Virtual Machine** pour indiquer que la machine virtuelle de réplication doit être supprimé si vous cessez de protéger la machine virtuelle en sélectionnant l'option **Delete protection for the virtual machine** dans l'onglet Virtual Machines des propriétés du cloud. Si vous activez ce paramètre et que vous désactivez la protection, la machine virtuelle est retirée d’Azure Site Recovery, les paramètres Site Recovery de la machine virtuelle sont retirés de la console VMM et le réplica est supprimé.![Configurer les paramètres de protection](./media/site-recovery-vmm-to-vmm/ASRE2EHVR_CloudSettingsRep.png)
 
 <p>Suite à l'enregistrement des paramètres, une tâche est créée et peut être surveillée sous l'onglet **Jobs**. Tous les serveurs hôte Hyper-V du cloud VMM source sont configurés pour la réplication. Les paramètres de cloud peuvent être modifiés sous l'onglet **Configure**. Pour modifier l'emplacement cible ou le cloud cible, vous devez supprimer la configuration du cloud, puis reconfigurer ce dernier.</p>
@@ -226,7 +244,7 @@ Vous devez effectuer les actions suivantes pour préparer la réplication initia
 ## Étape 6 : Configuration du mappage de stockage
 Par défaut, quand vous répliquez une machine virtuelle sur un serveur hôte Hyper-V source vers un serveur hôte Hyper-V cible, les données répliquées sont stockées à l'emplacement par défaut indiqué pour l'hôte Hyper-V cible dans le Gestionnaire Hyper-V. Si vous souhaitez mieux contrôler l'emplacement de stockage des données de réplication, vous pouvez configurer des mappages de stockage comme suit :
 
-- Définissez des classifications de stockage sur les serveurs VMM source et cible. Pour obtenir des instructions, voir [Comment créer des classifications de stockage dans VMM](http://go.microsoft.com/fwlink/?LinkId=400937). Les classifications doivent accessibles aux serveurs hôtes Hyper-V dans les clouds source et cible. Il n'est pas obligatoire qu'elles aient le même type de stockage. Par exemple, vous pouvez mapper une classification source contenant des partages SMB à une classification cible contenant des volumes partagés de cluster.
+- Définissez des classifications de stockage sur les serveurs VMM source et cible. Pour obtenir des instructions, consultez [Comment créer des classifications de stockage dans VMM](http://go.microsoft.com/fwlink/?LinkId=400937). Les classifications doivent accessibles aux serveurs hôtes Hyper-V dans les clouds source et cible. Il n'est pas obligatoire qu'elles aient le même type de stockage. Par exemple, vous pouvez mapper une classification source contenant des partages SMB à une classification cible contenant des volumes partagés de cluster.
 - Une fois les classifications en place, vous pouvez créer des mappages.
 1. Dans la page **Démarrage rapide** > **Mapper le stockage**.
 1. Cliquez sur l’onglet **Stockage** > **Mapper les classifications de stockage**.
@@ -309,7 +327,7 @@ Exécutez cet exemple de script pour mettre à jour DNS, en spécifiant l'adress
 
 ##<a name="privacy"></a>Informations de confidentialité pour Site Recovery
 
-Cette section fournit des informations supplémentaires sur la confidentialité pour le service Microsoft Azure Site Recovery (« Service »). Pour consulter la déclaration de confidentialité relative aux services Microsoft Azure, consultez la [Déclaration de confidentialité Microsoft Azure](http://go.microsoft.com/fwlink/?LinkId=324899)
+Cette section fournit des informations supplémentaires sur la confidentialité pour le service Microsoft Azure Site Recovery (« Service »). Pour consulter la déclaration de confidentialité relative aux services Microsoft Azure, consultez la [Déclaration de confidentialité Microsoft Azure](http://go.microsoft.com/fwlink/?LinkId=324899).
 
 **Fonctionnalité : Inscription**
 
@@ -370,4 +388,4 @@ Le fournisseur du serveur VMM est averti de l'événement par le Service et exé
 
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO4-->

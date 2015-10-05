@@ -5,16 +5,16 @@
 	documentationCenter=""
 	authors="MightyPen"
 	manager="jeffreyg"
-	editor=""/>
+	editor="" />
 
 
 <tags 
-	ms.service="sql-database"
-	ms.workload="data-management"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/21/2015"
+	ms.service="sql-database" 
+	ms.workload="data-management" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/22/2015" 
 	ms.author="genemi"/>
 
 
@@ -61,8 +61,8 @@ Les erreurs temporaires sont également appelées des défaillances temporaires.
 |40501|20|Le service est actuellement occupé. Relancez la demande dans 10 secondes. ID de l'incident : %ls. Code : % d.<br/><br/>*Remarque :* pour plus d'informations sur cette erreur et sa résolution, voir :<br/>•[Limitation de la base de données SQL Azure](http://msdn.microsoft.com/library/azure/dn338079.aspx).
 |40613|17|La base de données ’%.&#x2a;ls’ sur le serveur ’%.&#x2a;ls’ n’est pas disponible actuellement. Veuillez réessayer la connexion ultérieurement. Si le problème persiste, contactez le support technique en indiquant l'ID de suivi de session ’%.&#x2a;ls’’.|
 |49918|16|Impossible de traiter la requête. Ressources insuffisantes pour traiter la demande.<br/><br/>Le service est actuellement occupé. Relancez la requête ultérieurement. |
-|49919|16|Processus ne peut pas créer ou mettre à jour de la demande. Opérations de mise à jour ou de création en cours pour l’abonnement « % ld  » trop nombreuses.<br/><br/>Le service est occupé à traiter plusieurs demandes de création et de mise à jour pour votre abonnement ou le serveur. Les requêtes sont actuellement bloquées pour l’optimisation des ressources. Requête [sys.dm\_operation\_stats](https://msdn.microsoft.com/library/dn270022.aspx) pour les opérations en attente. Patientez jusqu’à ce que les demandes de création ou de mise à jour soient terminées ou supprimez l’une de vos requêtes en cours et réessayez votre requête ultérieurement. |
-|49920|16|Impossible de traiter la requête. Opérations en cours pour l’abonnement « % ld  » trop nombreuses.<br/><br/>Le service est occupé à traiter plusieurs demandes pour cet abonnement. Les requêtes sont actuellement bloquées pour l’optimisation des ressources. Requête [sys.dm\_operation\_stats](https://msdn.microsoft.com/library/dn270022.aspx) pour les stats d’opération. Patientez jusqu’à ce que les requêtes soient terminées ou supprimez l’une de vos requêtes en cours et réessayez votre requête ultérieurement. |
+|49919|16|Processus ne peut pas créer ou mettre à jour de la demande. Opérations de mise à jour ou de création en cours pour l’abonnement « % ld  » trop nombreuses.<br/><br/>Le service est occupé à traiter plusieurs demandes de création et de mise à jour pour votre abonnement ou le serveur. Les requêtes sont actuellement bloquées pour l’optimisation des ressources. Requête [sys.dm\_operation\_status](https://msdn.microsoft.com/library/dn270022.aspx) pour les opérations en attente. Patientez jusqu’à ce que les demandes de création ou de mise à jour soient terminées ou supprimez l’une de vos requêtes en cours et réessayez votre requête ultérieurement. |
+|49920|16|Impossible de traiter la requête. Opérations en cours pour l’abonnement « % ld  » trop nombreuses.<br/><br/>Le service est occupé à traiter plusieurs demandes pour cet abonnement. Les requêtes sont actuellement bloquées pour l’optimisation des ressources. Requête [sys.dm\_operation\_status](https://msdn.microsoft.com/library/dn270022.aspx) pour les statuts d’opération. Patientez jusqu’à ce que les requêtes soient terminées ou supprimez l’une de vos requêtes en cours et réessayez votre requête ultérieurement. |
 
 **Remarque :** les erreurs de fédération 10053 et 10054 peuvent également être incluses dans la logique de votre nouvelle tentative.
 
@@ -242,4 +242,4 @@ Le tableau suivant répertorie toutes les erreurs générales qui n'appartiennen
 - [Consignes et limitations générales de base de données Azure SQL](http://msdn.microsoft.com/library/azure/ee336245.aspx)
 - [Gestion des ressources](http://msdn.microsoft.com/library/azure/dn338083.aspx)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

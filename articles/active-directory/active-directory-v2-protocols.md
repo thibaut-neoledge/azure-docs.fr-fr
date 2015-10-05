@@ -320,7 +320,7 @@ La réception du jeton id\_token ne suffit pas à authentifier l’utilisateur. 
 
 Le modèle d’application v2.0 présente un point de terminaison de métadonnées OpenID Connect, qui permet à une application de récupérer les informations relatives au modèle d’application v2.0 lors de l’exécution. Ces informations incluent les points de terminaison, le contenu des jetons et les clés de signature de jetons. Le point de terminaison des métadonnées contient un document JSON stocké à l’emplacement suivant :
 
-`https://login.microsoftonline.com/common/v2.0/.well-known/configuration`
+`https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration`
 
 Une des propriétés de ce document de configuration est l’élément `jwks_uri`, dont la valeur pour le modèle d’application v2.0 est la suivante :
 
@@ -475,4 +475,4 @@ Le flux « Au nom de », ou l’octroi des informations d’identification du 
 
 Ce flux n’est pas actuellement pris en charge par la version d’évaluation du modèle d’application v2.0. Pour observer son fonctionnement dans le service Azure AD disponible généralement, consultez cet [exemple de code Azure AD](https://github.com/AzureADSamples/WebAPI-OnBehalfOf-DotNet).
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

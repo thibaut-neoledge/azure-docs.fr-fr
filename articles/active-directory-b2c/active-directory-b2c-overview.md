@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/15/2015"
+	ms.date="09/22/2015"
 	ms.author="swkrish"/>
 
 # Azure Active Directory B2C en version préliminaire : inscription et connexion de consommateurs à vos applications
@@ -62,4 +62,4 @@ Les liens ci-dessous vous seront utiles pour explorer le service en profondeur 
 - [FAQ sur Azure Active Directory B2C](active-directory-b2c-faqs.md)
 - [Demandes de prise en charge de fichier adressées à Azure Active Directory B2C](active-directory-b2c-support.md)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

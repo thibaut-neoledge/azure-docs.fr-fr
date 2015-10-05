@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Configuration d'un service cloud | Microsoft Azure"
-	description="Découvrez comment configurer des services cloud dans Azure. Apprenez à mettre à jour la configuration d'un service cloud et à configurer l'accès distant aux instances de rôle."
-	services="cloud-services"
-	documentationCenter=""
-	authors="Thraka"
-	manager="timlt"
+	pageTitle="Configuration d’un service cloud (portail en version préliminaire) | Microsoft Azure" 
+	description="Découvrez comment configurer des services cloud dans Azure. Apprenez à mettre à jour la configuration d'un service cloud et à configurer l'accès distant aux instances de rôle. Ces exemples utilisent le portail Azure en version préliminaire." 
+	services="cloud-services" 
+	documentationCenter="" 
+	authors="Thraka" 
+	manager="timlt" 
 	editor=""/>
 
 <tags 
-	ms.service="cloud-services"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="06/29/2015"
+	ms.service="cloud-services" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/22/2015"
 	ms.author="adegeo"/>
 
 
@@ -85,8 +85,13 @@ Azure ne peut garantir que 99,95 % de disponibilité du service pendant les mis
 
 ## Configuration de l'accès à distance aux instances de rôle
 
-L’accès à distance ne peut pas être configuré à l'aide du **portail Azure en version préliminaire**, vous pouvez modifier ce paramètre uniquement via la [version non-préliminaire du portail](http://manage.windowsazure.com/). Cela est détaillé [ici](cloud-services-role-enable-remote-desktop.md).
+L’accès à distance ne peut pas être configuré à l'aide du **portail Azure en version préliminaire**, vous pouvez modifier ce paramètre uniquement via la [version non-préliminaire du portail](http://manage.windowsazure.com/). Cette opération est décrite [ici](cloud-services-role-enable-remote-desktop.md).
 			
- 
+## Étapes suivantes
 
-<!---HONumber=September15_HO1-->
+* Découvrez comment [déployer un service cloud](cloud-services-how-to-create-deploy-portal.md).
+* Configurez un [nom de domaine personnalisé](cloud-services-custom-domain-name-portal.md).
+* [Gérez votre service cloud](cloud-services-how-to-manage-portal.md).
+* Configurez des [certificats SSL](cloud-services-configure-ssl-certificate-portal.md).
+
+<!---HONumber=Sept15_HO4-->

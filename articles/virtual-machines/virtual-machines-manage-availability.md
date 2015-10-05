@@ -1,11 +1,12 @@
 <properties
-	pageTitle="Gestion de la disponibilité des machines virtuelles | Microsoft Azure"
+	pageTitle="Gestion de la disponibilité des machines virtuelles | Microsoft Azure"
 	description="Apprenez à utiliser plusieurs machines virtuelles afin de garantir la haute disponibilité de votre application Azure."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="kenazk"
 	manager="timlt"
-	editor="tysonn"/>
+	editor="tysonn"
+	tags="azure-resource-manager,azure-service-management"/>
 
 <tags
 	ms.service="virtual-machines"
@@ -16,7 +17,7 @@
 	ms.date="07/23/2015"
 	ms.author="kenazk"/>
 
-#Gestion de la disponibilité des machines virtuelles
+# Gestion de la disponibilité des machines virtuelles
 
 ## Différence entre maintenance planifiée et non planifiée
 Il existe deux types d’événements de plateforme Microsoft Azure susceptibles d’avoir un effet sur la disponibilité de vos machines virtuelles : la maintenance planifiée et la maintenance non planifiée.
@@ -69,4 +70,4 @@ Si l'équilibrage de charge n'est pas configuré pour équilibrer le trafic entr
 [Éviter les instances uniques de machines virtuelles dans les groupes à haute disponibilité]: #avoid-single-instance-virtual-machines-in-availability-sets
 [Configuration d’un groupe à haute disponibilité pour des machines virtuelles]: virtual-machines-how-to-configure-availability.md
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO4-->

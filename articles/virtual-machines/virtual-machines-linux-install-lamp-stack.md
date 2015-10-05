@@ -1,11 +1,12 @@
 <properties
-	pageTitle="Installation de la pile LAMP sur une machine virtuelle Linux"
-	description="Apprenez à installer la pile LAMP sur une machine virtuelle Linux dans Azure Vous pouvez l'installer sur Ubuntu ou sur CentOS."
+	pageTitle="Installation de la pile LAMP sur une machine virtuelle Linux | Microsoft Azure"
+	description="Apprenez à installer la pile LAMP sur une machine virtuelle Linux dans Azure"
 	services="virtual-machines"
 	documentationCenter=""
 	authors="szarkos"
 	manager="timlt"
-	editor=""/>
+	editor=""
+	tags=“azure-service-management,azure-resource-manager"/>
 
 <tags
 	ms.service="virtual-machines"
@@ -19,6 +20,8 @@
 
 
 #Installation de la pile LAMP sur une machine virtuelle Linux dans Azure
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Cet article traite de la création d’une ressource avec le modèle de déploiement Resource Manager ou le modèle de déploiement classique.
 
 Une pile LAMP se compose des différents éléments suivants :
 
@@ -125,4 +128,4 @@ Il existe de nombreuses autres ressources pour configurer une pile LAMP sur Ubun
 - [https://help.ubuntu.com/community/ApacheMySQLPHP](https://help.ubuntu.com/community/ApacheMySQLPHP)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Référence du pool de bases de données élastique SQL Microsoft Azure"
-	description="Ce document de référence fournit des liens et des informations sur les articles relatifs aux pools de bases de données élastiques, ainsi que sur la programmabilité."
-	services="sql-database"
-	documentationCenter=""
-	authors="stevestein"
-	manager="jeffreyg"
+	pageTitle="Référence du pool de bases de données élastique SQL Microsoft Azure" 
+	description="Ce document de référence fournit des liens et des informations sur les articles relatifs aux pools de bases de données élastiques, ainsi que sur la programmabilité." 
+	services="sql-database" 
+	documentationCenter="" 
+	authors="stevestein" 
+	manager="jeffreyg" 
 	editor=""/>
 
 <tags 
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="08/25/2015"
-	ms.author="sstein"
-	ms.workload="data-management"
-	ms.topic="article"
+	ms.date="09/23/2015" 
+	ms.author="sstein" 
+	ms.workload="data-management" 
+	ms.topic="article" 
 	ms.tgt_pltfrm="NA"/>
 
 
@@ -177,12 +177,12 @@ Vous pouvez utiliser Transact-SQL pour exécuter les tâches de gestion de la ba
 Les pools de bases de données élastiques sont facturés en fonction des caractéristiques suivantes :
 
 - Un pool élastique est facturé lors de sa création, même s’il n’inclut aucune base de données. 
-- Il est facturé toutes les heures. La fréquence de mesure est identique à celle des niveaux de performances associés aux bases de données autonomes. 
+- Il est facturé toutes les heures. La fréquence de mesure est identique à celle des niveaux de performances associés aux bases de données uniques. 
 - Si un pool élastique est redimensionné en fonction d’un nouveau nombre d’eDTU, ce pool n’est pas facturé selon ce nouveau nombre, tant que l’opération de redimensionnement n’est pas terminée. Le processus est le même que lors de la modification du niveau de performances des bases de données autonomes. 
 
 
-- Le prix d’un pool élastique est basé sur le nombre d’eDTU de ce pool, ainsi que le nombre de bases de données qu’il inclut. Le prix d’un pool élastique est indépendant de l’utilisation des bases de données élastiques qu’il contient.
-- Voici le calcul appliqué : (nombre d’eDTU du pool) x (prix de chaque eDTU) + (nombre de bases de données) x (prix de chaque base de données)
+- Le prix d’un pool élastique est basé sur le nombre d’eDTU de ce pool. Le prix d’un pool élastique est indépendant de l’utilisation des bases de données élastiques qu’il contient.
+- Le prix est calculé comme suit : le nombre d’eDTUs d’un pool x le prix unitaire par eDTU.
 
 Le prix unitaire des eDTU d’un pool élastique est supérieur au prix unitaire des DTU d’une base de données autonome au sein du même niveau de service. Pour en savoir plus, voir [Tarification de la base de données SQL](http://azure.microsoft.com/pricing/details/sql-database/).
 
@@ -199,4 +199,4 @@ Le prix unitaire des eDTU d’un pool élastique est supérieur au prix unitaire
 | 40860 | EX\_USER | La combinaison du pool élastique '%ls' et de l’objectif de service '%ls' n’est pas valide. | Nom du pool élastique, nom de l’objectif de niveau de service | L’objectif de service et le pool élastique peuvent être spécifiés ensemble uniquement si le premier est indiqué en tant que « ElasticPool ». | Spécifiez la combinaison de pool élastique et d’objectif de service adéquate. |
 | 40861 | EX\_USER | L’édition de base de données '%.*ls' ne peut pas être différente du niveau de service du pool élastique, qui correspond à '%.*ls'. | Édition de base de données, niveau de service du pool élastique | L’édition de base de données est différente du niveau de service du pool élastique. | Indiquez une édition de base de données identique au niveau de service du pool élastique. Remarque : l’édition de base de données n’a pas besoin d’être spécifiée. | | 40862 | EX\_USER | Si l’objectif de service du pool élastique est spécifié, le nom du pool élastique doit l’être également. | Aucun | L’objectif de service du pool élastique n’identifie pas de manière unique un pool élastique. | Si vous utilisez l’objectif de service du pool élastique, spécifiez le nom du pool élastique. | | 40864 | EX\_USER | Le nombre de DTU du pool élastique doit se monter au minimum à (%d) pour le niveau de service '%.*ls'. | Nombre de DTU du pool élastique, niveau de service du pool élastique. | Tentative de définition du nombre de DTU du pool élastique au-dessous de la limite minimale. | Essayez à nouveau de définir le nombre de DTU du pool élastique sur la limite minimale ou plus. | | 40865 | EX\_USER | Le nombre de DTU du pool élastique ne doit pas dépasser (%d) pour le niveau de service '%.*ls'. | Nombre de DTU du pool élastique, niveau de service du pool élastique. | Tentative de définition du nombre de DTU du pool élastique au-dessus de la limite maximale. | Essayez à nouveau de définir le nombre de DTU du pool élastique sur la limite maximale ou moins. | | 40867 | EX\_USER | Le nombre maximal de DTU par base de données doit être au minimum (%d) pour le niveau de service '%.*ls'. | Nombre maximal de DTU par base de données, niveau de service du pool élastique | Tentative de définition du nombre maximal de DTU par base de données en dessous de la limite prise en charge. | Envisagez d’utiliser le niveau de service du pool élastique prenant en charge le paramètre souhaité. | | 40868 | EX\_USER | Le nombre maximal de DTU par base de données ne peut pas dépasser (%d) pour le niveau de service '%.*ls'. | Nombre maximal de DTU par base de données, niveau de service du pool élastique. | Tentative de définition du nombre maximal de DTU par base de données au-delà de la limite prise en charge. | Envisagez d’utiliser le niveau de service du pool élastique prenant en charge le paramètre souhaité. | | 40870 | EX\_USER | Le nombre minimal de DTU par base de données ne peut pas dépasser (%d) pour le niveau de service '%.*ls'. | Nombre minimal de DTU par base de données, niveau de service du pool élastique. | Tentative de définition du nombre minimal de DTU par base de données au-delà de la limite prise en charge. | Envisagez d’utiliser le niveau de service du pool élastique prenant en charge le paramètre souhaité. | | 40873 | EX\_USER | Le nombre de bases de données (%d) et le nombre minimal de DTU par base de données (%d) ne peuvent pas dépasser le nombre de DTU du pool élastique (%d). | Nombre de bases de données dans le pool élastique ; nombre minimal de DTU par base de données ; DTU du pool élastique. | Tentative de spécification d’un nombre minimal de DTU pour les bases de données dans le pool élastique dépassant le nombre de DTU du pool élastique. | Envisagez d’augmenter le nombre de DTU du pool élastique, ou de réduire le nombre minimal de DTU par base de données ou le nombre de bases de données dans le pool élastique. | | 40877 | EX\_USER | Impossible de supprimer un pool élastique, sauf s’il ne contient aucune base de données. | Aucun | Le pool élastique contient une ou plusieurs bases de données et ne peut donc pas être supprimé. | Supprimez les bases de données du pool élastique afin de pouvoir supprimer ce dernier. | | 40881 | EX\_USER | Le pool élastique '%.*ls' a atteint le nombre limite de bases de données. Le nombre limite de bases de données ne peut pas dépasser (%d) pour un pool élastique incluant (%d) DTU. | Nom du pool élastique, nombre limite de bases de données du pool élastique, eDTU du pool de ressources. | Tentative de création ou d’ajout d’une base de données au pool élastique alors que le nombre limite de bases de données du pool élastique a été atteint. | Envisagez d’augmenter le nombre de DTU du pool élastique, le cas échéant, afin d’accroître le nombre limite de bases de données, ou de supprimer des bases de données du pool élastique. | | 40889 | EX\_USER | La limite de stockage ou relative aux DTU pour le pool élastique '%.*ls' ne peut pas être abaissée, car l’espace de stockage risque de ne pas être suffisant pour les bases de données de ce pool. | Nom du pool élastique. | Tentative de définition de la limite de stockage du pool élastique en dessous du taux d’utilisation de son espace de stockage. | Envisagez de réduire le taux d’utilisation du stockage des bases de données dans le pool élastique, ou de supprimer des bases de données du pool afin de réduire sa limite de stockage ou relative aux DTU. | | 40891 | EX\_USER | Le nombre minimal de DTU par base de données (%d) ne peut pas dépasser le nombre maximal de DTU par base de données (%d). | Nombre minimal de DTU par base de données, nombre maximal de DTU par base de données. | Tentative de définition d’un nombre minimal de DTU par base de données supérieur au nombre maximal de DTU par base de données. | Vérifiez que le nombre minimal de DTU par base de données ne dépasse pas le nombre maximal de DTU par base de données. | | TBD | EX\_USER | La taille de l’espace de stockage d’une base de données individuelle dans un pool élastique ne peut pas dépasser la taille maximale autorisée par le pool élastique de niveau de service '%.*ls'. | Niveau de service du pool élastique | La taille maximale de la base de données dépasse la taille maximale autorisée par le niveau de service du pool élastique. | Définissez la taille maximale de la base de données dans les limites de la taille maximale autorisée par le niveau de service du pool élastique. |
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/30/2015"
+	ms.date="09/22/2015"
 	ms.author="adegeo"/>
 
 
@@ -146,5 +146,11 @@ Trois fonctions du service cloud nécessitent une configuration spécifique avan
 
 [TFSTutorialForCloudService]: http://go.microsoft.com/fwlink/?LinkID=251796&clcid=0x409
  
+## Étapes suivantes
 
-<!---HONumber=August15_HO7-->
+* [Configuration générale de votre service cloud](cloud-services-how-to-configure.md).
+* Configurez un [nom de domaine personnalisé](cloud-services-custom-domain-name.md).
+* [Gérez votre service cloud](cloud-services-how-to-manage.md).
+* Configurez des [certificats SSL](cloud-services-configure-ssl-certificate.md).
+
+<!---HONumber=Sept15_HO4-->

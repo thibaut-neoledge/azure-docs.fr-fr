@@ -271,7 +271,7 @@ Les exceptions non gérées sont collectées automatiquement :
 
 Pour collecter les données concernant d’autres exceptions, vous disposez de deux options :
 
-* [Insérez des appels à TrackException dans votre code][apiexceptions]. 
+* [Insérez des appels à TrackException() dans votre code][apiexceptions]. 
 * [Installez l’agent Java sur votre serveur](app-insights-java-agent.md). Vous spécifiez les méthodes que vous souhaitez surveiller.
 
 
@@ -381,7 +381,9 @@ Vous obtenez des graphiques du temps de réponse, ainsi que des notifications pa
 
 [Résolution des problèmes Java](app-insights-java-troubleshoot.md)
 
+## Étapes suivantes
 
+Pour plus d’informations, consultez le [Centre pour développeurs Java](/develop/java/).
 
 <!--Link references-->
 
@@ -394,4 +396,4 @@ Vous obtenez des graphiques du temps de réponse, ainsi que des notifications pa
 [metrics]: app-insights-metrics-explorer.md
 [usage]: app-insights-web-track-usage.md
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

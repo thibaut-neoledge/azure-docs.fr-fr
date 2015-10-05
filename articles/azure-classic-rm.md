@@ -1,21 +1,21 @@
 <properties
    pageTitle="Modes de déploiement Resource Manager et Service Management (classique) | Azure"
-	description="Découvrez les différences entre les modèles de déploiement classique et Resource Manager."
-	services="virtual-network"
-	documentationCenter=""
-	authors="telmosampaio"
-	manager="carolz"
-	editor=""
-	tags="azure-resource-manager,azure-service-management"/>
+   description="Découvrez les différences entre les modèles de déploiement classique et Resource Manager."
+   services="virtual-network"
+   documentationCenter=""
+   authors="telmosampaio"
+   manager="carolz"
+   editor=""
+   tags="azure-resource-manager,azure-service-management"/>
 
 <tags
    ms.service="virtual-network"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="infrastructure-services"
-	ms.date="08/14/2015"
-	ms.author="telmos"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="infrastructure-services"
+   ms.date="08/14/2015"
+   ms.author="telmos"/>
 
 # Modèles de déploiement Azure
 
@@ -65,7 +65,7 @@ Vous pouvez créer et configurer des ressources Azure à partir d'ordinateurs Wi
 ## Étapes suivantes
 
 - Voici quelques informations supplémentaires sur [Resource Manager](/resource-group-overview.md).
-- Découvrez comment [concevoir des modèles](/best-practices-resource-manager-design-templates/md).
-- Utilisez les [meilleures pratiques](best-practices-resource-manager-examples.md)
+- Découvrez comment [concevoir des modèles](/best-practices-resource-manager-design-templates.md).
+- Utilisez les [meilleures pratiques](/best-practices-resource-manager-examples.md)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

@@ -1,5 +1,5 @@
  <properties
-   pageTitle="Types de jeton et de revendication pris en charge"
+   pageTitle="Types de jeton et de revendication pris en charge | Microsoft Azure"
    description="Un guide pour la compréhension et l'évaluation des revendications dans les jetons SAML 2.0 et les jetons web JSON (JWT) émis par Azure Active Directory (AAD)"
    documentationCenter="dev-center-name"
    authors="msmbaldwin"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="08/12/2015"
+   ms.date="09/17/2015"
    ms.author="mbaldwin"/>
 
 # Types de jeton et de revendication pris en charge
@@ -412,4 +412,4 @@ Il s'agit d'un exemple de jeton web JSON (JWT) classique utilisé dans un flux w
 
 [Protocoles d’authentification d’Azure Active Directory](https://msdn.microsoft.com/library/azure/dn151124.aspx)
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO4-->

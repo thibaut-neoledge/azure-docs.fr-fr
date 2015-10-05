@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Organisation des ressources Azure à l'aide de balises" 
-	description="Indique comment appliquer des balises afin d’organiser des ressources dédiées à la facturation et à la gestion." 
-	services="azure-resource-manager" 
-	documentationCenter="" 
+<properties
+	pageTitle="Organisation des ressources Azure à l'aide de balises"
+	description="Indique comment appliquer des balises afin d’organiser des ressources dédiées à la facturation et à la gestion."
+	services="azure-resource-manager"
+	documentationCenter=""
 	authors="tfitzmac"
-	manager="wpickett" 
+	manager="wpickett"
 	editor=""/>
 
-<tags 
-	ms.service="azure-resource-manager" 
-	ms.workload="multiple" 
-	ms.tgt_pltfrm="AzurePortal" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="09/04/2015" 
+<tags
+	ms.service="azure-resource-manager"
+	ms.workload="multiple"
+	ms.tgt_pltfrm="AzurePortal"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/04/2015"
 	ms.author="tomfitz"/>
 
 
@@ -25,7 +25,7 @@ Lorsque vous affichez des ressources avec une balise particulière, vous voyez l
 
 Chaque balise que vous ajoutez à une ressource ou à un groupe de ressources est automatiquement ajoutée à la classification sur l'ensemble de l'abonnement. Vous pouvez également préremplir cette taxinomie pour votre abonnement en saisissant des noms et des valeurs de balises que vous souhaitez utiliser pour le balisage de vos ressources.
 
-> [AZURE.NOTE]Vous ne pouvez appliquer des balises qu’à des ressources qui prennent en charge les opérations de Resource Manager. Si vous avez créé une machine virtuelle, un réseau virtuel ou un stockage par le biais du modèle de déploiement classique (telles que via le portail Azure ou l'[API Service Management](https://msdn.microsoft.com/library/azure/dn948465.aspx)), vous ne pouvez pas appliquer de balise à cette ressource. Vous devez redéployer ces ressources via Resource Manager pour prendre en charge le balisage. Toutes les autres ressources prennent en charge le balisage.
+> [AZURE.NOTE]Vous ne pouvez appliquer des balises qu’à des ressources qui prennent en charge les opérations de Resource Manager. Si vous avez créé une machine virtuelle, un réseau virtuel ou un stockage par le biais du modèle de déploiement classique (par exemple, via le portail Azure ou l'[API Service Management](../services/api-management/)), vous ne pouvez pas appliquer de balise à cette ressource. Vous devez redéployer ces ressources via Resource Manager pour prendre en charge le balisage. Toutes les autres ressources prennent en charge le balisage.
 
 
 ## Balises de la version préliminaire du portail
@@ -54,7 +54,7 @@ Le balisage est uniquement disponible pour les ressources et les groupes de ress
 
     Switch-AzureMode AzureResourceManager
 
-Les balises se trouvent directement sur les ressources et les groupes de ressources. Pour savoir quelles balises sont déjà appliqués, il suffit de récupérer une ressource ou un groupe de ressources avec `Get-AzureResource` ou `Get-AzureResourceGroup`, le cas échéant. Commençons par un groupe de ressources.
+Les balises se trouvent directement sur les ressources et les groupes de ressources. Pour savoir quelles balises sont déjà appliquées, il suffit de récupérer une ressource ou un groupe de ressources avec `Get-AzureResource` ou `Get-AzureResourceGroup`, le cas échéant. Commençons par un groupe de ressources.
 
     PS C:\> Get-AzureResourceGroup tag-demo
 
@@ -154,8 +154,5 @@ Lorsque vous téléchargez le fichier CSV d’utilisation pour les services qui 
 - Pour plus d’informations sur l’utilisation d’Azure PowerShell pendant le déploiement de ressources, consultez [Utilisation d’Azure PowerShell avec Azure Resource Manager](./powershell-azure-resource-manager.md).
 - Si vous n’avez jamais utilisé Azure CLI pour le déploiement de ressources, consultez [Utilisation d’Azure CLI pour Mac, Linux et Windows avec Azure Resource Management](./xplat-cli-azure-resource-manager.md).
 - Pour plus d’informations sur l’utilisation du portail en version préliminaire, consultez [Utilisation du portail Azure en version préliminaire pour gérer vos ressources Azure](./resource-group-portal.md).  
-  
 
-  
-
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

@@ -53,8 +53,8 @@ Les paragraphes suivants traitent de l’identification et de la détermination 
 Effectuez ces étapes avant de passer à la procédure de dépannage détaillé.
 
 - Vérifiez l’état de la machine virtuelle sur le portail Azure ou le portail Azure en version préliminaire
-- [Redémarrez la machine virtuelle](https://msdn.microsoft.com/library/azure/dn763934.aspx).
-- [Redimensionnez la machine virtuelle](https://msdn.microsoft.com/library/dn168976.aspx).
+- Redémarrez la machine virtuelle.
+- [Redimensionnez la machine virtuelle](virtual-machines-size-specs.md).
 
 Puis testez de nouveau la connexion Bureau à distance.
 
@@ -113,7 +113,7 @@ Si vous ne disposez pas d’une autre machine virtuelle dans le même service cl
 Si vous pouvez créer une connexion Bureau à distance avec une machine virtuelle dans le même service cloud ou réseau virtuel, vérifiez les paramètres suivants :
 
 - La configuration du point de terminaison pour le trafic de Bureau à distance sur la machine virtuelle cible. Le port TCP privé du point de terminaison doit correspondre au port TCP sur lequel le service Services Bureau à distance de la machine virtuelle procède à l’écoute. Par défaut, il s’agit du port 3389.
-- La liste de contrôle d’accès du point de terminaison du trafic de Bureau à distance sur la machine virtuelle cible. Les listes de contrôle d’accès vous permettent de spécifier le trafic Internet entrant autorisé et interdit en fonction de l’adresse IP source. Une mauvaise configuration des listes de contrôle d’accès peut empêcher le trafic du Bureau à distance d’accéder au point de terminaison. Examinez vos listes de contrôle d’accès pour vous assurer que le trafic entrant provenant des adresses IP publiques de votre proxy ou d’un autre serveur Edge est autorisé. Pour plus d’informations, voir [Qu’est-ce qu’une liste de contrôle d’accès (ACL) réseau ?](../virtual-network/virtual-networks-acl.md).
+- La liste de contrôle d’accès du point de terminaison du trafic de Bureau à distance sur la machine virtuelle cible. Les listes de contrôle d’accès vous permettent de spécifier le trafic Internet entrant autorisé et interdit en fonction de l’adresse IP source. Une mauvaise configuration des listes de contrôle d’accès peut empêcher le trafic du Bureau à distance d’accéder au point de terminaison. Examinez vos listes de contrôle d’accès pour vous assurer que le trafic entrant provenant des adresses IP publiques de votre proxy ou d’un autre serveur Edge est autorisé. Pour plus d’informations, consultez [Qu’est-ce qu’une liste de contrôle d’accès (ACL) réseau ?](../virtual-network/virtual-networks-acl.md).
 
 Pour vérifier que le point de terminaison n’est pas la source du problème, supprimez le point de terminaison actuel et créez un autre point de terminaison en choisissant un port aléatoire dont le numéro externe se situe entre 49152 et 65535. Pour plus d’informations, voir [Configuration des points de terminaison sur une machine virtuelle](virtual-machines-set-up-endpoints.md).
 
@@ -129,7 +129,7 @@ La machine virtuelle Azure elle-même représente la dernière source possible d
 
 ![](./media/virtual-machines-rdp-detailed-troubleshoot/tshootrdp_5.png)
 
-L’article [Dépannage de base du Bureau à distance](virtual-machines-troubleshoot-remote-desktop-connections.md) décrit comment utiliser le [package de diagnostics Azure IaaS (Windows)](https://home.diagnostics.support.microsoft.com/SelfHelp?knowledgebaseArticleFilter=2976864). Si ce package de diagnostic n’a pas pu résoudre le problème de **connectivité RDP à une machine virtuelle Azure (redémarrage requis)**, suivez les instructions de [cet article](virtual-machines-windows-reset-password.md) pour réinitialiser les Services Bureau à distance sur la machine virtuelle. Avec cette opération, vous pouvez :
+L’article [Résolution des problèmes de base du Bureau à distance](virtual-machines-troubleshoot-remote-desktop-connections.md) décrit comment utiliser le [package de diagnostic Azure IaaS (Windows)](https://home.diagnostics.support.microsoft.com/SelfHelp?knowledgebaseArticleFilter=2976864). Si ce package de diagnostic n’a pas pu résoudre le problème de **connectivité RDP à une machine virtuelle Azure (redémarrage requis)**, suivez les instructions de [cet article](virtual-machines-windows-reset-password.md) pour réinitialiser les Services Bureau à distance sur la machine virtuelle. Avec cette opération, vous pouvez :
 
 - activer la règle par défaut du pare-feu Windows Bureau à distance (port TCP 3389) ;
 - activer les connexions Bureau à distance en définissant la valeur de registre HKLM\\System\\CurrentControlSet\\Control\\Terminal Server\\fDenyTSConnections sur 0.
@@ -145,7 +145,7 @@ Pour corriger ces problèmes éventuels des machines virtuelles créées à l’
 
 Installez ensuite Azure PowerShell si ce n’est pas déjà fait. Consultez [Installation et configuration d’Azure PowerShell](../install-configure-powershell.md).
 
-Ouvrez une invite de commande Azure PowerShell, puis modifiez le dossier actif à l’emplacement du fichier de script **InstallWinRMCertAzureVM.ps1**. Pour exécuter un script Azure PowerShell, vous devez définir la bonne stratégie d’exécution. Exécutez la commande **Get-ExecutionPolicy** afin de déterminer votre niveau de stratégie actuel. Pour plus d’informations sur la définition du niveau approprié, consultez [Set-ExecutionPolicy](https://technet.microsoft.com/library/hh849812.aspx).
+Ouvrez ensuite une invite de commande Azure PowerShell, puis modifiez le dossier actif à l’emplacement du fichier de script **InstallWinRMCertAzureVM.ps1**. Pour exécuter un script Azure PowerShell, vous devez définir la bonne stratégie d’exécution. Exécutez la commande **Get-ExecutionPolicy** afin de déterminer votre niveau de stratégie actuel. Pour plus d’informations sur la définition du niveau approprié, consultez [Set-ExecutionPolicy](https://technet.microsoft.com/library/hh849812.aspx).
 
 Indiquez ensuite le nom de votre abonnement Azure, le nom du service cloud et le nom de votre machine virtuelle (en supprimant les caractères < and >), puis exécutez ces commandes.
 
@@ -205,4 +205,4 @@ Vérifiez que le point de terminaison du Bureau à distance de la machine virtue
 
 [Résoudre les problèmes d’accès à une application exécutée sur une machine virtuelle Azure](virtual-machines-troubleshoot-access-application.md)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

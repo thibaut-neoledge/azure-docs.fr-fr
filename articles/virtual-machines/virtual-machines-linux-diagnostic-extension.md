@@ -1,25 +1,25 @@
 
 <properties
-		pageTitle="Utilisation de l’extension de diagnostic Linux pour surveiller les données de performances et de diagnostic des machines virtuelles Linux | Microsoft Azure"
-	description="Découvrez comment utiliser l’extension de diagnostic Linux pour surveiller les données de performances et de diagnostic des machines virtuelles Linux"
-	services="virtual-machines"
-	documentationCenter=""
-	authors="NingKuang"
-	manager="timlt"
-	editor=""
-	tags=""/>
+		pageTitle="Analyse d’une machine virtuelle Linux avec une extension de machine virtuelle | Microsoft Azure"
+		description="Découvrez comment utiliser l’extension de diagnostic Linux pour analyser les données de performances et de diagnostic d’une machine virtuelle Linux."
+		services="virtual-machines"
+		documentationCenter=""
+  		authors="NingKuang"
+		manager="timlt"
+		editor=""
+  		tags="azure-service-management"/>
 
 <tags
 		ms.service="virtual-machines"
-	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="vm-linux"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/20/2015"
-	ms.author="Ning"/>
+		ms.workload="infrastructure-services"
+		ms.tgt_pltfrm="vm-linux"
+		ms.devlang="na"
+		ms.topic="article"
+		ms.date="07/20/2015"
+		ms.author="Ning"/>
 
 
-# Utilisation de l’extension de diagnostic Linux pour surveiller les données de performances et de diagnostic des machines virtuelles Linux
+# Utilisation de l’extension de diagnostic Linux pour analyser les données de performances et de diagnostic d’une machine virtuelle Linux
 
 ## Introduction
 
@@ -35,8 +35,10 @@ Pour la version 2.0, les données comprennent :
 - Toutes les données système spécifiées dans ce [document](https://scx.codeplex.com/wikipage?title=xplatproviders").
 - Les fichiers journaux spécifiés par l’utilisateur.
 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Cet article traite de la gestion d’une ressource avec le modèle de déploiement classique.
+
 ## Comment activer l’extension
-L’extension peut être activée via le [portail de gestion Azure](https://ms.portal.azure.com/#), Azure PowerShell ou des scripts de l’interface de ligne de commande Azure.
+L’extension peut être activée via le [portail Azure](https://ms.portal.azure.com/#), Azure PowerShell ou des scripts de l’interface de ligne de commande Azure.
 
 Pour afficher et configurer les données système et de performances directement à partir du portail Azure, suivez ces [étapes](http://azure.microsoft.com/blog/2014/09/02/windows-azure-virtual-machine-monitoring-with-wad-extension/ "URL vers le blog de Windows").
 
@@ -141,4 +143,4 @@ Si vous avez activé les éléments fileCfg ou perfCfg spécifiés dans les scé
 - Pour la version 2.0, les informations de Rsyslog et le fichier journal spécifié par l’utilisateur sont accessibles seulement via un script.
 - Pour la version 2.0, si vous avez préalablement activé l’extension de diagnostic Linux via le script, vous ne pouvez pas afficher les données à partir du portail Azure. Si vous activez l’extension à partir du portail dans un premier temps, les scripts fonctionnent.
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

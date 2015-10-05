@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/09/2015" 
+	ms.date="09/23/2015" 
 	ms.author="awills"/>
 
 
@@ -156,10 +156,23 @@ Ouvrez ces ports pour le trafic sortant dans le pare-feu de votre serveur :
 + `dc.services.visualstudio.com:443`
 + `f5.services.visualstudio.com:443`
 
-### Séparer les ressources pour le développement, le test et la publication
 
-Dans le cas d’une application majeure, il est conseillé de transmettre les données de télémétrie de débogage, de test et de production dans des [ressources distinctes](app-insights-separate-resources.md).
+## Développement, test et release
 
+Dans le cas d’une application majeure, il est conseillé de transmettre les données de télémétrie de différents horodatages (builds de débogage, test et production) dans des [ressources distinctes](app-insights-separate-resources.md).
+
+## Suivi de la version de l'application
+
+Assurez-vous que `buildinfo.config` est généré par votre processus de génération. Dans votre fichier .csproj, ajoutez :
+
+```XML
+
+    <PropertyGroup>
+      <GenerateBuildInfoConfigFile>true</GenerateBuildInfoConfigFile>    <IncludeServerNameInBuildInfo>true</IncludeServerNameInBuildInfo>
+    </PropertyGroup> 
+```
+
+Lorsqu'il détient les informations de build, le module Web Application Insights ajoute automatiquement la **version de l'application** en tant que propriété à chaque élément de télémétrie. Cela vous permet de filtrer par version lors de l'exécution de [recherches de diagnostic][diagnostic] ou lors de l’[exploration de mesures][metrics].
 
 
 
@@ -191,7 +204,7 @@ Il existe une [procédure manuelle pour ajouter le moniteur d’état](app-insig
 
 ## Tests web de disponibilité
 
-[Configurez des tests web][availability] pour vérifier depuis l’extérieur que votre application est opérationnelle et réactive.
+[Configurez des tests Web][availability] pour vérifier depuis l’extérieur que votre application est opérationnelle et réactive.
 
 
 ![](./media/app-insights-asp-net/appinsights-10webtestresult.png)
@@ -235,4 +248,4 @@ Si vous avez apporté des personnalisations à ApplicationInsights.config, conse
 
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

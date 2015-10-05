@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Création d’une machine virtuelle Windows avec un modèle du Gestionnaire de ressources et PowerShell"
+	pageTitle="Création d’une machine virtuelle avec un modèle ARM | Microsoft Azure"
 	description="Utilisez un modèle du Gestionnaire de ressources et Azure PowerShell pour créer une machine virtuelle Windows."
 	services="virtual-machines"
 	documentationCenter=""
@@ -11,13 +11,15 @@
 <tags
 	ms.service="virtual-machines"
 	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="na"
+	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="07/28/2015"
 	ms.author="davidmu"/>
 
 # Création d’une machine virtuelle Windows avec un modèle du Gestionnaire de ressources et PowerShell
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Cet article traite de la création de ressources avec le modèle de déploiement de Resource Manager. Vous ne pouvez pas créer cette ressource avec le modèle de déploiement classique.
 
 Vous pouvez facilement créer une machine virtuelle basée sur Windows à l'aide d'un modèle du Gestionnaire de ressources avec Azure PowerShell. Ce modèle crée une machine virtuelle unique exécutant Windows dans un nouveau réseau virtuel avec un seul sous-réseau dans un nouveau groupe de ressources.
 
@@ -103,4 +105,4 @@ Vous disposez maintenant d'une nouvelle machine virtuelle Windows nommée MyWind
 
 [Installation et configuration d’Azure PowerShell](install-configure-powershell.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

@@ -1,20 +1,20 @@
 <properties
    pageTitle="Partitions de tables dans SQL Data Warehouse | Microsoft Azure"
-	description="Conseils relatifs à l’utilisation de partitions de tables dans Microsoft Azure SQL Data Warehouse, dans le cadre du développement de solutions."
-	services="sql-data-warehouse"
-	documentationCenter="NA"
-	authors="jrowlandjones"
-	manager="barbkess"
-	editor=""/>
+   description="Conseils relatifs à l’utilisation de partitions de tables dans Microsoft Azure SQL Data Warehouse, dans le cadre du développement de solutions."
+   services="sql-data-warehouse"
+   documentationCenter="NA"
+   authors="jrowlandjones"
+   manager="barbkess"
+   editor=""/>
 
 <tags
    ms.service="sql-data-warehouse"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="data-services"
-	ms.date="06/22/2015"
-	ms.author="JRJ@BigBangData.co.uk;barbkess"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="data-services"
+   ms.date="09/22/2015"
+   ms.author="JRJ@BigBangData.co.uk;barbkess"/>
 
 # Partitions de tables dans SQL Data Warehouse
 
@@ -326,4 +326,4 @@ Une fois que vous avez migré le schéma de base de données vers SQL Data Ware
 
 <!-- Other web references -->
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

@@ -1,6 +1,6 @@
 <properties
    pageTitle="Prise en main d’Azure DNS | Microsoft Azure"
-   description="Apprenez à créer des zones DNS pour Azure DNS. Cette procédure étape par étape vous permettra de créer votre première zone DNS pour pouvoir héberger votre domaine DNS."
+   description="Apprenez à créer des zones DNS pour Azure DNS. Cette procédure étape par étape vous permettra de créer votre première zone DNS pour pouvoir héberger votre domaine DNS à l’aide de PowerShell."
    services="dns"
    documentationCenter="na"
    authors="joaoma"
@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/02/2015"
+   ms.date="09/22/2015"
    ms.author="joaoma"/>
 
-# Prise en main d’Azure DNS
+# Prise en main des DNS Azure avec PowerShell
 
 
 > [AZURE.SELECTOR]
@@ -155,4 +155,4 @@ Si vous n’avez pas encore délégué votre domaine pour qu’il utilise la nou
 [Prise en main de la création de jeux d'enregistrements et d'enregistrements](dns-getstarted-create-recordset.md)<BR> [Gestion des zones DNS](dns-operations-dnszones.md)<BR> [Gestion des enregistrements DNS](dns-operations-recordsets.md)<BR> [Automatisation des opérations Azure avec le Kit de développement logiciel (SDK) .NET](dns-sdk.md)<BR> [Référence de l'API REST d'Azure DNS](https://msdn.microsoft.com/library/azure/mt163862.aspx)
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

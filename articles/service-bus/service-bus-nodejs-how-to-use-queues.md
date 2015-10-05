@@ -56,7 +56,7 @@ Pour utiliser Azure Service Bus, téléchargez et utilisez le package Azure Node
 
     var azure = require('azure');
 
-### Configuration d’une connection Service Bus Azure
+### Configuration d’une connexion Service Bus Azure
 
 Le module Azure lit les variables d'environnement AZURE\_SERVICEBUS\_NAMESPACE et AZURE\_SERVICEBUS\_ACCESS\_KEY pour obtenir les informations nécessaires à la connexion à Service Bus. Si ces variables d’environnement ne sont pas définies, vous devez spécifier les informations de compte lors de l’appel de **createServiceBusService**.
 
@@ -163,10 +163,11 @@ Si l'application subit un incident après le traitement du message, mais avant l
 
 ## Étapes suivantes
 
-Maintenant que vous avez appris les principes de base des files d'attente Service Bus, consultez ces liens pour en savoir plus :
+Pour plus d’informations, consultez les ressources suivantes.
 
--   Consultez [Files d’attente, rubriques et abonnements][].
--   Accédez au référentiel du [Kit de développement logiciel (SDK) Azure pour Node][] sur GitHub.
+-   [Files d'attente, rubriques et abonnements.][]
+-   Référentiel du [Kit de développement logiciel (SDK) Azure pour Node][] sur GitHub.
+-   [Centre de développement Node.js](/develop/nodejs/)
 
   [Kit de développement logiciel (SDK) Azure pour Node]: https://github.com/Azure/azure-sdk-for-node
   [Étapes suivantes]: #next-steps
@@ -183,10 +184,10 @@ Maintenant que vous avez appris les principes de base des files d'attente Servic
   [Azure Management Portal]: http://manage.windowsazure.com
   
   [Node.js Cloud Service]: ../cloud-services/cloud-services-nodejs-develop-deploy-app.md
-  [Files d’attente, rubriques et abonnements]: service-bus-queues-topics-subscriptions.md
+  [Files d'attente, rubriques et abonnements.]: service-bus-queues-topics-subscriptions.md
   [Création et déploiement d’une application Node.js dans un site Web Azure]: ../app-service-web/web-sites-nodejs-develop-deploy-mac.md
   [Service cloud Node.js avec stockage]: ../cloud-services/storage-nodejs-use-table-storage-cloud-service-app.md
   [Application web Node.js avec stockage]: ../storage/storage-nodejs-how-to-use-table-storage.md
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

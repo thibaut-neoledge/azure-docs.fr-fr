@@ -1,27 +1,30 @@
 <properties
-   pageTitle="Extension de script personnalisé pour Windows | Microsoft Azure"
-	description="Automatisation des tâches de configuration de machine virtuelle Azure à l’aide de l’extension de script personnalisé pour Windows"
-	services="virtual-machines"
-	documentationCenter=""
-	authors="kundanap"
-	manager="timlt"
-	editor=""/>
+   pageTitle="Extension de script personnalisé pour machine virtuelle Windows | Microsoft Azure"
+   description="Automatisation des tâches de configuration de machine virtuelle Azure à l’aide de l’extension de script personnalisé pour exécuter des scripts PowerShell sur une machine virtuelle Windows distante"
+   services="virtual-machines"
+   documentationCenter=""
+   authors="kundanap"
+   manager="timlt"
+   editor=""
+   tags="azure-service-management"/>
 
 <tags
    ms.service="virtual-machines"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="infrastructure-services"
-	ms.date="08/06/2015"
-	ms.author="kundanap"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="vm-windows"
+   ms.workload="infrastructure-services"
+   ms.date="08/06/2015"
+   ms.author="kundanap"/>
 
-# Extension de script personnalisé pour Windows
+# Extension de script personnalisé pour machines virtuelles Windows
 
-Cet article donne une vue d’ensemble de l’utilisation de l’extension de script personnalisé pour Windows à l’aide d’applets de commande Azure PowerShell.
+Cet article donne une vue d’ensemble de l’utilisation de l’extension de script personnalisé sur des machines virtuelles Windows à l’aide d’applets de commande Azure PowerShell.
 
+Les extensions de machine virtuelle créées par Microsoft et les éditeurs tiers de confiance étendent les fonctionnalités de la machine virtuelle. Pour consulter une vue d’ensemble des extensions de machine virtuelles, voir [Fonctionnalités et extensions de machine virtuelle Azure](virtual-machines-extensions-features.md).
 
-Les extensions de machine virtuelle créées par Microsoft et les éditeurs tiers de confiance étendent les fonctionnalités de la machine virtuelle. Pour consulter une vue d’ensemble des extensions de machine virtuelles, consultez la page <a href="https://msdn.microsoft.com/library/azure/dn606311.aspx" target="_blank">Fonctionnalités et extensions de machine virtuelle Azure</a>.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Cet article traite de la création d’une ressource avec le modèle de déploiement classique. Vous pouvez également créer une ressource avec le [modèle de déploiement du Gestionnaire des ressources](virtual-machines-extensions-customscript%20-with%20template.md).
+
 
 ## Vue d’ensemble de l’extension de script personnalisé
 
@@ -68,9 +71,9 @@ Ce cas d’utilisation montre comment charger des scripts ou des fichiers en uti
       Get-AzureVM -Name $name -ServiceName $servicename | Set-AzureVMCustomScriptExtension -StorageAccountName $storageaccount -StorageAccountKey $storagekey -ContainerName $container -FileUri $fileUrl1, $fileUrl2 -Run 'file.ps1' | Update-AzureVM
 
 
-### Ajouter l’extension de script personnalisé à partir du portail
+### Ajout de l’extension de script personnalisé à partir du portail
 
-Accédez à la machine virtuelle dans le <a href="https://portal.azure.com/ " target="_blank">portail Microsoft Azure en version préliminaire</a> et ajoutez l’extension en spécifiant le fichier de script à exécuter.
+Accédez à la machine virtuelle dans le <a href="https://portal.azure.com/ " target="_blank">portail Azure en version préliminaire</a> et ajoutez l’extension en spécifiant le fichier de script à exécuter.
 
   ![][5]
 
@@ -81,11 +84,11 @@ L’extension de script personnalisé peut être désinstallée de la machine vi
 
       get-azureVM -ServiceName KPTRDemo -Name KPTRDemo | Set-AzureVMCustomScriptExtension -Uninstall | Update-AzureVM
 
-### Utilisation de l'extension de script personnalisé avec les modèles
+### Utilisation de l’extension de script personnalisé avec des modèles
 
-Pour en savoir plus sur l’utilisation de l’extension de script personnalisé avec les modèles, consultez la documentation [ici](virtual-machines-extensions-customscript -with template.md).
+Pour en savoir plus sur l’utilisation de l’extension de script personnalisé avec les modèles, voir la documentation [ici](virtual-machines-extensions-customscript -with template.md).
 
 <!--Image references-->
 [5]: ./media/virtual-machines-extensions-customscript/addcse.png
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

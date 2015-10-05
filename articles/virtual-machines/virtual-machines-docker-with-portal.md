@@ -13,13 +13,15 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-linux"
 	ms.workload="infrastructure-services"
-	ms.date="05/25/2015"
+	ms.date="09/22/2015"
 	ms.author="rasquill"/>
 
 
 # Utilisation de l’extension Docker VM avec le portail Azure
 
 [Docker](https://www.docker.com/) fait partie des méthodes de virtualisation les plus prisées. Cet outil utilise des [conteneurs Linux](http://en.wikipedia.org/wiki/LXC) plutôt que des machines virtuelles pour isoler les données et le traitement sur des ressources partagées. Vous pouvez utiliser l’extension Docker VM sur l’[agent Linux Azure] afin de créer une machine virtuelle Docker hébergeant un nombre indéfini de conteneurs pour vos applications sur Azure.
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Cet article traite de la création d’une ressource avec le modèle de déploiement classique.
 
 > [AZURE.NOTE]Cette rubrique décrit comment créer une machine virtuelle Docker à partir du portail Azure. Pour savoir comment créer une machine virtuelle Docker dans la ligne de commande, consultez la page [Utilisation de l’extension Docker VM à partir de l’interface interplateforme Azure (xplat-cli)]. Pour une discussion sur les conteneurs et leurs avantages, consultez le [Tableau blanc Docker de haut niveau](http://channel9.msdn.com/Blogs/Regular-IT-Guy/Docker-High-Level-Whiteboard).
 
@@ -144,4 +146,4 @@ Vous êtes prêt à consulter le [Guide d'utilisation Docker] et à utiliser vo
 [Guide d'utilisation Docker]: https://docs.docker.com/userguide/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

@@ -1,22 +1,24 @@
-<properties 
-pageTitle="Remarques diverses concernant les images de machines virtuelles Oracle"
-	description="Consultez des remarques supplémentaires avant de déployer une machine virtuelle Oracle dans Azure."
-	services="virtual-machines"
-	documentationCenter=""
-	manager=""
-	authors="bbenz"
-	tags=""/>
+<properties
+pageTitle="Considérations sur l’utilisation d’images de machine virtuelle Oracle | Microsoft Azure"
+description="En savoir plus sur les configurations prises en charge et les limitations pour une machine virtuelle Oracle sur Windows Server dans Azure avant de déployer."
+services="virtual-machines"
+documentationCenter=""
+manager=""
+authors="bbenz"
+tags="azure-service-management"/>
 
 <tags
 ms.service="virtual-machines"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="infrastructure-services"
-	ms.date="06/22/2015"
-	ms.author="bbenz"/>
+ms.devlang="na"
+ms.topic="article"
+ms.tgt_pltfrm="vm-windows"
+ms.workload="infrastructure-services"
+ms.date="06/22/2015"
+ms.author="bbenz" />
 
 #Remarques diverses concernant les images de machines virtuelles Oracle
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Cet article traite de la création d’une ressource avec le modèle de déploiement classique.
+
 Cet article aborde différentes considérations relatives aux machines virtuelles Oracle dans Azure, qui reposent sur les images logicielles Oracle fournies par Microsoft et utilisent le système d’exploitation Windows Server.
 
 -  Images de machines virtuelles Oracle Database
@@ -30,7 +32,7 @@ Actuellement, Microsoft Azure ne prend pas en charge Oracle Real Application Clu
 
 ### Aucune adresse IP interne statique
 
-Microsoft Azure attribue une adresse IP interne à chaque machine virtuelle. Sauf si elle fait partie d’un réseau virtuel, l’adresse IP de la machine virtuelle est de type dynamique et peut changer lorsqu’elle redémarre. Cela peut entraîner des problèmes, car la base de données Oracle s’attend à une adresse IP statique. Pour éviter ce problème, pensez à ajouter la machine virtuelle à Microsoft Azure Virtual Network. Pour en savoir plus, consultez les sections relatives aux [réseaux virtuels](http://azure.microsoft.com/documentation/services/virtual-network/) et à la [création d’un réseau virtuel cloud uniquement dans Azure](create-virtual-network.md).
+Microsoft Azure attribue une adresse IP interne à chaque machine virtuelle. Sauf si elle fait partie d’un réseau virtuel, l’adresse IP de la machine virtuelle est de type dynamique et peut changer lorsqu’elle redémarre. Cela peut entraîner des problèmes, car la base de données Oracle s’attend à une adresse IP statique. Pour éviter ce problème, pensez à ajouter la machine virtuelle à Microsoft Azure Virtual Network. Pour plus d’informations, voir les sections relatives aux [réseaux virtuels](http://azure.microsoft.com/documentation/services/virtual-network/) et à la [création d’un réseau virtuel cloud uniquement dans Azure](create-virtual-network.md).
 
 ### Options de configuration des disques connectés
 
@@ -38,13 +40,13 @@ Vous pouvez placer les fichiers de données sur le disque hébergeant le systèm
 
 Les disques attachés s’appuient sur le service de stockage d’objets blob Microsoft Azure. En théorie, chaque disque peut proposer un maximum de 500 entrées/sorties par seconde (IOPS). Il se peut que les performances des disques attachés ne soient pas optimales au départ, et que celles des IOPS s’améliorent nettement après une période d’« échauffement » en continu, de 60 à 90 minutes. Si, par la suite, un disque reste inactif, les performances des IOPS correspondantes risquent de diminuer, jusqu’à la prochaine période de fonctionnement en continu. En un mot comme en cent, plus un disque est actif, plus il a de chances de proposer des performances optimales en termes d’IOPS.
 
-L’approche la plus simple consiste à attacher un seul disque à la machine virtuelle et à placer les fichiers de base de données sur ce disque. C’est également la méthode qui propose les performances les plus restreintes. Il s’avère que vous pouvez souvent améliorer les performances d’IOPS effectives si vous utilisez plusieurs disques attachés, répartissez les données de la base de données sur ces disques, puis lancez ASM (Oracle Automatic Storage Management). Pour en savoir plus, consultez la page [Oracle Automatic Storage Overview](http://www.oracle.com/technetwork/database/index-100339.html). Il est possible d’utiliser l’agrégation par bandes de plusieurs disques au niveau du système d’exploitation, mais cette approche est déconseillée, car elle n’est pas connue pour améliorer les performances des IOPS.
+L’approche la plus simple consiste à attacher un seul disque à la machine virtuelle et à placer les fichiers de base de données sur ce disque. C’est également la méthode qui propose les performances les plus restreintes. Il s’avère que vous pouvez souvent améliorer les performances d’IOPS effectives si vous utilisez plusieurs disques attachés, répartissez les données de la base de données sur ces disques, puis lancez ASM (Oracle Automatic Storage Management). Pour plus d’informations, voir [Oracle Automatic Storage Overview](http://www.oracle.com/technetwork/database/index-100339.html). Il est possible d’utiliser l’agrégation par bandes de plusieurs disques au niveau du système d’exploitation, mais cette approche est déconseillée, car elle n’est pas connue pour améliorer les performances des IOPS.
 
 Tenez compte des deux approches permettant d’attacher plusieurs disques, selon que vous souhaitez prioriser les performances des opérations de lecture ou d’écriture dans votre base de données :
 
 - **Utilisé seul, le logiciel Oracle ASM** est susceptible de proposer des performances optimisées pour les opérations d’écriture, mais moins d’IOPS pour les opérations de lecture que la méthode reposant sur des pools de stockage Windows Server 2012. L’illustration suivante décrit cette organisation, de manière logique. ![](media/virtual-machines-miscellaneous-considerations-oracle-virtual-machine-images/image2.png)
 
-- **Utilisé avec des pools de stockage Windows Server 2012, Oracle ASM** peut proposer de meilleures performances d’IOPS pour les opérations de lecture, s’il s’agit des principales opérations gérées par votre base de données ou si vous mettez l’accent sur les opérations de lecture plutôt que sur les opérations d’écriture. Une image basée sur le système d’exploitation Windows Server 2012 est requise. Consultez la page [Déployer des espaces de stockage sur un serveur autonome](http://technet.microsoft.com/library/jj822938.aspx) pour en savoir plus sur les pools de stockage. Dans cette organisation, deux sous-ensembles égaux de disques attachés sont tout d’abord « répartis » en tant que disques physiques dans deux volumes de pools de stockage. Ensuite, les volumes sont ajoutés à un groupe de disques ASM. L’illustration suivante décrit cette organisation, de manière logique.
+- **Utilisé avec des pools de stockage Windows Server 2012, Oracle ASM** peut proposer de meilleures performances d’IOPS pour les opérations de lecture, s’il s’agit des principales opérations gérées par votre base de données ou si vous mettez l’accent sur les opérations de lecture plutôt que sur les opérations d’écriture. Une image basée sur le système d’exploitation Windows Server 2012 est requise. Pour en savoir plus sur les pools de stockage, voir [Déployer des espaces de stockage sur un serveur autonome](http://technet.microsoft.com/library/jj822938.aspx). Dans cette organisation, deux sous-ensembles égaux de disques attachés sont tout d’abord « répartis » en tant que disques physiques dans deux volumes de pools de stockage. Ensuite, les volumes sont ajoutés à un groupe de disques ASM. L’illustration suivante décrit cette organisation, de manière logique.
 
 	![](media/virtual-machines-miscellaneous-considerations-oracle-virtual-machine-images/image3.png)
 
@@ -56,7 +58,7 @@ Lors de l’utilisation de Oracle Database dans les machines virtuelles Azure, v
 
 Pour assurer la haute disponibilité et la récupération d’urgence pour Oracle Database Enterprise Edition (sans RAC) sur Microsoft Azure, vous pouvez utiliser [Data Guard, Active Data Guard](http://www.oracle.com/technetwork/articles/oem/dataguardoverview-083155.html) ou [Oracle Golden Gate](http://www.oracle.com/technetwork/middleware/goldengate), en plaçant deux bases de données sur deux machines virtuelles distinctes. Ces deux machines doivent figurer dans le même [service cloud](cloud-services-connect-virtual-machine.md), au sein du même [réseau virtuel](http://azure.microsoft.com/documentation/services/virtual-network/), afin de pouvoir être accessibles l’une à l’autre via l’adresse IP privée persistante. En outre, nous vous recommandons de placer les machines virtuelles au sein du même [groupe à haute disponibilité](manage-availability-virtual-machines.md), afin de permettre à Microsoft Azure de les placer dans des domaines d’erreur et de mise à niveau distincts. Remarque : seules les machines virtuelles figurant dans le même service cloud peuvent faire partie du même groupe à haute disponibilité. Chaque machine virtuelle doit disposer d’au moins 2 Go de mémoire et de 5 Go d’espace disque.
 
-Grâce à Oracle Data Guard, vous pouvez assurer la haute disponibilité du système en plaçant la base de données primaire sur une machine virtuelle et une base de données secondaire (de veille) sur une autre, et en configurant une réplication monodirectionnelle entre ces bases de données. Vous bénéficiez ainsi d’un accès en lecture à la copie de la base de données. Oracle GoldenGate vous permet de configurer une réplication bidirectionnelle entre les deux bases de données. Pour savoir comment configurer une solution de haute disponibilité pour vos bases de données en utilisant ces outils, consultez la documentation relative à [Active Data Guard](http://www.oracle.com/technetwork/database/features/availability/data-guard-documentation-152848.html) et [GoldenGate](http://docs.oracle.com/goldengate/1212/gg-winux/index.html) sur le site web d’Oracle. Si vous avez besoin d’un accès en lecture et en écriture à la copie de la base de données, vous pouvez utiliser [Oracle Active Data Guard](http://www.oracle.com/uk/products/database/options/active-data-guard/overview/index.html).
+Grâce à Oracle Data Guard, vous pouvez assurer la haute disponibilité du système en plaçant la base de données primaire sur une machine virtuelle et une base de données secondaire (de veille) sur une autre, et en configurant une réplication monodirectionnelle entre ces bases de données. Vous bénéficiez ainsi d’un accès en lecture à la copie de la base de données. Oracle GoldenGate vous permet de configurer une réplication bidirectionnelle entre les deux bases de données. Pour savoir comment configurer une solution de haute disponibilité pour vos bases de données en utilisant ces outils, voir la documentation relative à [Active Data Guard](http://www.oracle.com/technetwork/database/features/availability/data-guard-documentation-152848.html) et [GoldenGate](http://docs.oracle.com/goldengate/1212/gg-winux/index.html) sur le site web d’Oracle. Si vous avez besoin d’un accès en lecture et en écriture à la copie de la base de données, vous pouvez utiliser [Oracle Active Data Guard](http://www.oracle.com/uk/products/database/options/active-data-guard/overview/index.html).
 
 ##Images de machines virtuelles Oracle WebLogic Server
 
@@ -64,7 +66,7 @@ Grâce à Oracle Data Guard, vous pouvez assurer la haute disponibilité du sy
 
 -  **Délai d’attente de la connexion :** si votre application s’appuie sur des connexions aux points de terminaison publics d’un autre service cloud Microsoft Azure (par exemple, un service de niveau base de données), Azure peut fermer ces connexions ouvertes après 4 minutes d’inactivité. Cette opération peut affecter les fonctions et applications basées sur des pools de connexions, car les connexions inactives pendant plus de 4 minutes peuvent ne plus être valides. Si votre application est affectée, envisagez d’activer la logique de connexion persistante sur vos pools de connexions.
 
-	Notez que si un point de terminaison est *interne* au déploiement du service cloud Microsoft Azure (comme une machine virtuelle de base de données autonome au sein du *même* service cloud que vos machines virtuelles WebLogic), la connexion est directe et ne repose pas sur l’équilibreur de charge Microsoft Azure ; de ce fait, elle n’est pas soumise à un délai d’attente de la connexion.
+	Notez que, si un point de terminaison est *interne* au déploiement du service cloud Microsoft Azure (comme une machine virtuelle de base de données autonome au sein du *même* service cloud que vos machines virtuelles WebLogic), la connexion est directe et ne repose pas sur l’équilibrage de charge Microsoft Azure ; de ce fait, elle n’est pas soumise à un délai d’attente de la connexion.
 
 -  **La multidiffusion UDP n’est pas gérée.** Microsoft Azure prend en charge la monodiffusion UDP, mais ni la diffusion, ni la multidiffusion ne sont gérées. WebLogic Server est capable de s’appuyer sur les fonctionnalités de monodiffusion UDP d’Azure. Pour optimiser les résultats lorsque vous recourez à la monodiffusion UDP, nous vous recommandons de conserver une taille de cluster statique, ou de maintenir ce dernier à une taille maximale de 10 serveurs gérés.
 
@@ -84,7 +86,7 @@ Grâce à Oracle Data Guard, vous pouvez assurer la haute disponibilité du sy
 
 			-Dweblogic.rjvm.enableprotocolswitch=true
 
-Pour en savoir plus, consultez l’article **860340.1**, à l’adresse <http://support.oracle.com>.
+Pour plus d’informations, voir l’article **860340.1**, à l’adresse <http://support.oracle.com>.
 
 -  **Limitations relatives à l’équilibrage de charge et au clustering dynamique.** Partons du principe que vous souhaitez utiliser un cluster dynamique dans WebLogic Server et l’exposer en tant que point unique de terminaison public avec équilibrage de charge. Cette opération est possible tant que vous utilisez un numéro de port fixe pour chaque serveur géré (et non affecté de manière dynamique à partir d’une plage de valeurs), et que le nombre de serveurs gérés démarrés reste inférieur à celui des machines surveillées par l’administrateur (en d’autres termes, il faut un seul serveur géré par machine virtuelle). Si, suite à votre configuration, le nombre de serveurs WebLogic démarrés est supérieur à celui des machines virtuelles (c’est-à-dire si plusieurs instances WebLogic Server partagent une même machine virtuelle), une seule instance WebLogic Server à la fois pourra être liée à un numéro de port donné ; les autres instances de la machine virtuelle échoueront.
 
@@ -103,4 +105,4 @@ Pour en savoir plus, consultez l’article **860340.1**, à l’adresse <http://
 ##Ressources supplémentaires
 [Liste des images de machine virtuelle Oracle](virtual-machines-oracle-list-oracle-virtual-machine-images.md)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

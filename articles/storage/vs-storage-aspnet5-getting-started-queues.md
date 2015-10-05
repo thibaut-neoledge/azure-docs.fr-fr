@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/03/2015"
-	ms.author="patshea123"/>
+	ms.author="patshea"/>
 
 # Prendre en main le stockage de files d’attente et les services connectés de Visual Studio (ASP.NET 5)
 
@@ -185,4 +185,4 @@ Pour supprimer une file d'attente et tous les messages qu'elle contient, appelez
 
 [AZURE.INCLUDE [vs-storage-dotnet-queues-next-steps](../../includes/vs-storage-dotnet-queues-next-steps.md)]
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

@@ -7,7 +7,7 @@
 	manager="shreeshd"
 	editor=""/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/18/2015" ms.author="aashishr"; "jimpark"/>
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/21/2015" ms.author="aashishr"; "jimpark"/>
 
 
 # Déployer et gérer une sauvegarde vers Azure pour un serveur/client Windows à l’aide de PowerShell
@@ -28,8 +28,8 @@ Les tâches de configuration et d’inscription ci-après peuvent être automati
 Vous pouvez créer un coffre de sauvegarde en utilisant l’applet de commande **New-AzureBackupVault**. Le coffre de sauvegarde constituant une ressource ARM, vous devez le placer dans un groupe de ressources. Dans une console Azure PowerShell avec élévation de privilèges, exécutez les commandes suivantes :
 
 ```
-PS C:\> New-AzureResourceGroup –Name “test-rg” –Region “West US”
-PS C:\> $backupvault = New-AzureBackupVault –ResourceGroupName “test-rg” –Name “test-vault” –Region “West US” –Storage GRS
+PS C:\> New-AzureResourceGroup –Name “test-rg” –Location “West US”
+PS C:\> $backupvault = New-AzureRMBackupVault –ResourceGroupName “test-rg” –Name “test-vault” –Region “West US” –Storage GRS
 ```
 
 Vous pouvez obtenir la liste de tous les coffres de sauvegarde d’un abonnement spécifique à l’aide de l’applet de commande **Get-AzureBackupVault**.
@@ -84,7 +84,7 @@ Pour télécharger les informations d’identification du coffre, exécutez l’
 
 ```
 PS C:\> $credspath = "C:"
-PS C:\> $credsfilename = Get-AzureBackupVaultCredentials -Vault $backupvault -TargetLocation $credspath
+PS C:\> $credsfilename = Get-AzureRMBackupVaultCredentials -Vault $backupvault -TargetLocation $credspath
 PS C:\> $credsfilename
 f5303a0b-fae4-4cdb-b44d-0e4c032dde26_backuprg_backuprn_2015-08-11--06-22-35.VaultCredentials
 ```
@@ -103,7 +103,7 @@ Region              : West US
 Machine registration succeeded.
 ```
 
-> [AZURE.IMPORTANT] N’utilisez pas de chemins relatifs pour spécifier le fichier des informations d’identification du coffre. Vous devez fournir un chemin absolu dans la cmdlet.
+> [AZURE.IMPORTANT]N’utilisez pas de chemins relatifs pour spécifier le fichier des informations d’identification du coffre. Vous devez fournir un chemin absolu dans la cmdlet.
 
 ### Paramètres de mise en réseau
 Lorsque l’ordinateur Windows accède à Internet via un serveur proxy, les paramètres proxy peuvent également être fournis à l’agent. Dans cet exemple, il n’y a aucun serveur proxy. Nous effaçons donc explicitement toutes informations concernant un proxy.
@@ -128,7 +128,7 @@ PS C:\> ConvertTo-SecureString -String "Complex!123_STRING" -AsPlainText -Force 
 Server properties updated successfully
 ```
 
-> [AZURE.IMPORTANT] Conservez les informations de phrase secrète en lieu sûr après les avoir définies. Vous ne pourrez pas restaurer les données à partir d’Azure sans ce mot de passe.
+> [AZURE.IMPORTANT]Conservez les informations de phrase secrète en lieu sûr après les avoir définies. Vous ne pourrez pas restaurer les données à partir d’Azure sans ce mot de passe.
 
 ## Sauvegarde des fichiers et dossiers
 Toutes les sauvegardes de serveurs et clients Windows vers Azure Backup sont régies par une stratégie. Cette dernière comprend trois parties :
@@ -170,7 +170,7 @@ La stratégie de rétention définit la durée de conservation des points de ré
 PS C:\> $retentionpolicy = New-OBRetentionPolicy -RetentionDays 7
 ```
 
-> [AZURE.NOTE] Les applets de commande PowerShell ne prennent actuellement pas en charge la configuration de stratégies de rétention à long terme. Pour définir ces dernières, utilisez la console de l'interface utilisateur Azure Backup.
+> [AZURE.NOTE]Les applets de commande PowerShell ne prennent actuellement pas en charge la configuration de stratégies de rétention à long terme. Pour définir ces dernières, utilisez la console de l'interface utilisateur Azure Backup.
 
 La stratégie de rétention doit être associée à la stratégie principale à l'aide de l'applet de commande [Set-OBRetentionPolicy](https://technet.microsoft.com/library/hh770405) :
 
@@ -583,4 +583,4 @@ Pour plus d’informations sur Azure Backup pour client/serveur Windows, consult
 - [Présentation d’Azure Backup](backup-introduction-to-azure-backup.md)
 - [Sauvegarder des serveurs Windows](backup-azure-backup-windows-server.md)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

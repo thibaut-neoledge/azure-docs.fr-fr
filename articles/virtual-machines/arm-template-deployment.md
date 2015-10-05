@@ -1,4 +1,12 @@
-<properties pageTitle="Déploiement de ressources Azure à l’aide d’un modèle" description="Apprenez à utiliser quelques-uns des clients disponibles dans la bibliothèque Azure Resource Management pour déployer une machine virtuelle, un réseau virtuel et un compte de stockage" services="virtual-machines,virtual-networks,storage" documentationCenter="" authors="davidmu1" manager="timlt" editor="tysonn" tags="azure-resource-manager/>
+<properties
+	pageTitle="Déploiement de ressources Azure à l’aide d’un modèle | Microsoft Azure"
+	description="Découvrez comment utiliser certains des clients disponibles dans la bibliothèque Azure Resource Management pour déployer une machine virtuelle, un réseau virtuel et un compte de stockage."
+	services="virtual-machines,virtual-networks,storage"
+	documentationCenter=""
+	authors="davidmu1"
+	manager="timlt"
+	editor="tysonn"
+	tags="azure-resource-manager"/>
 
 <tags
 	ms.service="azure-resource-manager"
@@ -10,6 +18,8 @@
 	ms.author="davidmu"/>
 
 # Déploiement de ressources Azure à l’aide de bibliothèques .NET et d’un modèle
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Cet article traite de la création de ressources avec le modèle de déploiement de Resource Manager.
 
 Grâce aux modèles et aux groupes de ressources, vous pouvez gérer en même temps toutes les ressources qui prennent en charge votre application. Ce didacticiel vous montre comment utiliser certains des clients disponibles dans la bibliothèque Azure Resource Management et comment créer un modèle pour déployer une machine virtuelle, un réseau virtuel et un compte de stockage.
 
@@ -443,4 +453,4 @@ Les ressources sont toujours déployées à partir d’un modèle dans un groupe
 
 	![Création d'une application Active Directory](./media/arm-template-deployment/crpportal.png)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

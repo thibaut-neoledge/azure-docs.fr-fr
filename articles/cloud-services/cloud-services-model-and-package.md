@@ -1,21 +1,19 @@
-<properties 
-    pageTitle="Modèle de service cloud et package dans Azure" 
-    description="Décrit le modèle de service cloud (.csdef, .cscfg) et le package (.cspkg) dans Azure." 
-    services="cloud-services" 
-    documentationCenter="" 
-    authors="Thraka" 
-    manager="timlt" 
+<properties
+    pageTitle="Modèle de service cloud et package dans Azure"
+    description="Décrit le modèle de service cloud (.csdef, .cscfg) et le package (.cspkg) dans Azure."
+    services="cloud-services"
+    documentationCenter=""
+    authors="Thraka"
+    manager="timlt"
     editor=""/>
-
-<tags 
-    ms.service="cloud-services" 
-    ms.workload="tbd" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="article" 
-    ms.date="07/06/2015" 
+<tags
+    ms.service="cloud-services"
+    ms.workload="tbd"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="07/06/2015"
     ms.author="adegeo"/>
-
 
 # Qu’est-ce que le modèle de service cloud, et comment en créer un package ?
 Un service cloud est créé à partir de trois composants : la définition de service _(.csdef)_, la configuration de service _(.cscfg)_ et un package de service _(.cspkg)_. Les deux fichiers XML **ServiceDefinition.csdef** et **ServiceConfig.cscfg** décrivent la structure du service cloud et sa configuration ; il désignent collectivement le modèle. Le fichier zip **ServicePackage.cspkg** est généré à partir du fichier **ServiceDefinition.csdef** et il contient, entre autres, toutes les dépendances binaires requises. Azure crée un service cloud à partir des fichiers **ServicePackage.cspkg** et **ServiceConfig.cscfg**.
@@ -26,7 +24,7 @@ Une fois que le service cloud s’exécute dans Azure, vous pouvez le reconfigur
 
 * Je souhaite en savoir plus sur les fichiers [ServiceDefinition.csdef](#csdef) et [ServiceConfig.cscfg](#cscfg).
 * Je connais déjà cela, mais donnez-moi [quelques exemples](#next-steps) de configuration.
-* Je souhaite créer le fichier [ServicePackage.cspkg](#cspkg). 
+* Je souhaite créer le fichier [ServicePackage.cspkg](#cspkg).
 * J’utilise Visual Studio et souhaite...
     * [Créer un nouveau service de cloud computing][vs_create]
     * [Reconfigurer un service cloud existant][vs_reconfigure]
@@ -45,64 +43,48 @@ Le fichier **ServiceDefinition.csdef** spécifie les paramètres qui sont utilis
       <Site name="Web">
         <Bindings>
           <Binding name="HttpIn" endpointName="HttpIn" />
-
         </Bindings>
       </Site>
     </Sites>
     <Endpoints>
       <InputEndpoint name="HttpIn" protocol="http" port="80" />
-
       <InternalEndpoint name="InternalHttpIn" protocol="http" />
-
     </Endpoints>
     <Certificates>
       <Certificate name="Certificate1" storeLocation="LocalMachine" storeName="My" />
-
     </Certificates>
     <Imports>
       <Import moduleName="Connect" />
-
       <Import moduleName="Diagnostics" />
-
       <Import moduleName="RemoteAccess" />
-
       <Import moduleName="RemoteForwarder" />
-
     </Imports>
     <LocalResources>
       <LocalStorage name="localStoreOne" sizeInMB="10" />
-
       <LocalStorage name="localStoreTwo" sizeInMB="10" cleanOnRoleRecycle="false" />
-
     </LocalResources>
     <Startup>
       <Task commandLine="Startup.cmd" executionContext="limited" taskType="simple" />
-
     </Startup>
   </WebRole>
 
   <WorkerRole name="WorkerRole1">
     <ConfigurationSettings>
       <Setting name="DiagnosticsConnectionString" />
-
     </ConfigurationSettings>
     <Imports>
       <Import moduleName="RemoteAccess" />
-
       <Import moduleName="RemoteForwarder" />
-
     </Imports>
     <Endpoints>
       <InputEndpoint name="Endpoint1" protocol="tcp" port="10000" />
-
       <InternalEndpoint name="Endpoint2" protocol="tcp" />
-
     </Endpoints>
   </WorkerRole>
 </ServiceDefinition>
 ```
 
-Vous pouvez vous reporter au [schéma de définition de service\][\] pour mieux comprendre le schéma XML utilisé ici. Toutefois, voici une brève explication de certains éléments :
+Vous pouvez vous reporter au [schéma de définition de service][] pour mieux comprendre le schéma XML utilisé ici. Toutefois, voici une brève explication de certains éléments :
 
 >**Sites** Contient les définitions des sites ou applications web hébergés dans IIS 7.0.
 >
@@ -133,18 +115,14 @@ Le fichier de configuration de service n’est pas fourni dans le package de l�
 <ServiceConfiguration serviceName="MyServiceName" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceConfiguration">
   <Role name="WebRole1">
     <Instances count="2" />
-
     <ConfigurationSettings>
       <Setting name="SettingName" value="SettingValue" />
-
     </ConfigurationSettings>
 
     <Certificates>
       <Certificate name="CertificateName" thumbprint="CertThumbprint" thumbprintAlgorithm="sha1" />
-
       <Certificate name="Microsoft.WindowsAzure.Plugins.RemoteAccess.PasswordEncryption"
          thumbprint="CertThumbprint" thumbprintAlgorithm="sha1" />
-
     </Certificates>
   </Role>
 </ServiceConfiguration>
@@ -160,7 +138,6 @@ Vous pouvez vous reporter au [schéma de configuration de service](https://msdn.
 
 <p/>
 
-
  >[AZURE.NOTE]L’empreinte numérique du certificat peut être ajoutée au fichier de configuration à l’aide d’un éditeur de texte. Cette valeur peut également être ajoutée dans l’onglet **Certificats** de la page **Propriétés** du rôle dans Visual Studio.
 
 
@@ -174,40 +151,29 @@ L’exemple suivant illustre la configuration d’un rôle web avec un site web 
 <WebRole>
   <ConfigurationSettings>
     <Setting name="DiagnosticsConnectionString" />
-
   </ConfigurationSettings>
   <Endpoints>
     <InputEndpoint name="HttpIn" protocol="http" port="80" />
-
     <InputEndpoint name="Https" protocol="https" port="443" certificate="SSL"/>
-
     <InputEndpoint name="NetTcp" protocol="tcp" port="808" certificate="SSL"/>
-
   </Endpoints>
   <LocalResources>
     <LocalStorage name="Sites" cleanOnRoleRecycle="true" sizeInMB="100" />
-
   </LocalResources>
   <Site name="Mysite" packageDir="Sites\Mysite">
     <Bindings>
       <Binding name="http" endpointName="HttpIn" />
-
       <Binding name="https" endpointName="Https" />
-
       <Binding name="tcp" endpointName="NetTcp" />
-
     </Bindings>
   </Site>
   <Site name="MailSite" packageDir="MailSite">
     <Bindings>
       <Binding name="mail" endpointName="HttpIn" hostheader="mail.mysite.cloudapp.net" />
-
     </Bindings>
     <VirtualDirectory name="artifacts" />
-
     <VirtualApplication name="storageproxy">
       <VirtualDirectory name="packages" packageDir="Sites\storageProxy\packages"/>
-
     </VirtualApplication>
   </Site>
 </WebRole>
@@ -240,15 +206,14 @@ Pour déployer une application en tant que service cloud dans Azure, vous devez 
 ###### Emplacement de l’outil CSPack (sur Windows)
 | Version du Kit de développement logiciel (SDK) | Path |
 | ----------- | ---- |
-| 1\.7+ | C:\\Program Files\\Microsoft SDKs\\Azure\\.NET SDK\\[versions-sdk\]\\bin\\ |
-| &lt;1.6 | C:\\Program Files\\Azure SDK\\[version-sdk\]\\bin\\ |
+| 1\.7+ | C:\\Program Files\\Microsoft SDKs\\Azure\\.NET SDK\\[versions-sdk]\\bin\\ |
+| &lt;1.6 | C:\\Program Files\\Azure SDK\\[version-sdk]\\bin\\ |
 
 >[AZURE.NOTE]Le fichier CSPack.exe (sur Windows) est disponible en exécutant le raccourci de l’**invite de commandes Microsoft Azure**, qui est installé avec le Kit de développement logiciel (SDK).
 >  
 >Exécutez le programme CSPack.exe pour consulter la documentation relative à l’ensemble des commutateurs et commandes possibles.
 
 <p />
-
 
 >[AZURE.TIP]Exécutez le service cloud localement dans l’**émulateur de calcul Microsoft Azure** et utilisez l’option **/copyonly**. Cette option copie les fichiers binaires de l’application dans une disposition de répertoire d’où ils peuvent être exécutés dans l’émulateur de calcul.
 
@@ -272,14 +237,14 @@ Où les variables sont définies comme suit :
 
 | Variable | Valeur |
 | ------------------------- | ----- |
-| [DirectoryName\] | Sous-répertoire du répertoire racine du projet qui contient le fichier .csdef du projet Azure.|
-| [ServiceDefinition\] | Nom du fichier de définition de service. Par défaut, ce fichier se nomme ServiceDefinition.csdef. |
-| [OutputFileName\] | Nom du fichier de package généré. En règle générale, il correspond au nom de l’application. Si aucun nom de fichier n’est spécifié, le package d’application est créé sous le nom [NomApplication\].cspkg.|
-| [RoleName\] | Nom du rôle défini dans le fichier de définition de service.|
-| [RoleBinariesDirectory\] | Emplacement des fichiers binaires correspondant au rôle.|
-| [VirtualPath\] | Répertoires physiques pour chaque chemin d’accès virtuel défini dans la section Sites de la définition de service.|
-| [PhysicalPath\] | Répertoires physiques du contenu pour chaque chemin d’accès virtuel défini dans le nœud Site de la définition de service.|
-| [RoleAssemblyName\] | Nom du fichier binaire correspondant au rôle.| 
+| [DirectoryName] | Sous-répertoire du répertoire racine du projet qui contient le fichier .csdef du projet Azure.|
+| [ServiceDefinition] | Nom du fichier de définition de service. Par défaut, ce fichier se nomme ServiceDefinition.csdef. |
+| [OutputFileName] | Nom du fichier de package généré. En règle générale, il correspond au nom de l’application. Si aucun nom de fichier n’est spécifié, le package d’application est créé sous le nom [NomApplication].cspkg.|
+| [RoleName] | Nom du rôle défini dans le fichier de définition de service.|
+| [RoleBinariesDirectory] | Emplacement des fichiers binaires correspondant au rôle.|
+| [VirtualPath] | Répertoires physiques pour chaque chemin d’accès virtuel défini dans la section Sites de la définition de service.|
+| [PhysicalPath] | Répertoires physiques du contenu pour chaque chemin d’accès virtuel défini dans le nœud Site de la définition de service.|
+| [RoleAssemblyName] | Nom du fichier binaire correspondant au rôle.| 
 
 
 ## Étapes suivantes
@@ -288,7 +253,7 @@ Je crée un package de service cloud et je souhaite...
 
 <!--
 * [Configure Sizes for Cloud Services](!!!!!https://msdn.microsoft.com/library/azure/ee814754.aspx)  
-* [Configure Local Storage Resources](!!!!!https://msdn.microsoft.com/library/azure/ee758708.aspx)
+* [Configure Local Storage Resources](!!!!!https://azure.microsoft.com/documentation/articles/cloud-services-configure-local-storage-resources/)
 -->
 
 * [Configurer un Bureau à distance pour une instance de service cloud][remotedesktop]
@@ -304,9 +269,9 @@ J’utilise Visual Studio et souhaite...
 
 [deploy]: cloud-services-how-to-create-deploy-portal.md
 [remotedesktop]: cloud-services-role-enable-remote-desktop.md
-[vs_remote]: https://msdn.microsoft.com/fr-fr/library/gg443832.aspx
-[vs_deploy]: https://msdn.microsoft.com/fr-fr/library/ee460772.aspx
+[vs_remote]: https://msdn.microsoft.com/fr-FR/library/gg443832.aspx
+[vs_deploy]: https://msdn.microsoft.com/fr-FR/library/ee460772.aspx
 [vs_reconfigure]: https://msdn.microsoft.com/library/ee405486.aspx
-[vs_create]: https://msdn.microsoft.com/fr-fr/library/ee405487.aspx
+[vs_create]: https://msdn.microsoft.com/fr-FR/library/ee405487.aspx
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

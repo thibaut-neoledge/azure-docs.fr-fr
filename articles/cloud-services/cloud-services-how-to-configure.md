@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Configuration d'un service cloud | Microsoft Azure"
-	description="Découvrez comment configurer des services cloud dans Azure. Apprenez à mettre à jour la configuration d'un service cloud et à configurer l'accès distant aux instances de rôle."
-	services="cloud-services"
-	documentationCenter=""
-	authors="Thraka"
-	manager="timlt"
+	pageTitle="Configuration d'un service cloud | Microsoft Azure" 
+	description="Découvrez comment configurer des services cloud dans Azure. Apprenez à mettre à jour la configuration d'un service cloud et à configurer l'accès distant aux instances de rôle." 
+	services="cloud-services" 
+	documentationCenter="" 
+	authors="Thraka" 
+	manager="timlt" 
 	editor=""/>
 
 <tags 
-	ms.service="cloud-services"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="06/29/2015"
+	ms.service="cloud-services" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/22/2015"
 	ms.author="adegeo"/>
 
 
@@ -78,8 +78,12 @@ Azure ne peut garantir que 99,95 % de disponibilité du service pendant les mis
     4. Cliquez sur **OK** (coche).
 
 
-## Ressources supplémentaires
+## Étapes suivantes
 
-[Activer une connexion Bureau à distance pour un rôle dans Azure Cloud Services](cloud-services-role-enable-remote-desktop.md)
+* Découvrez comment [déployer un service cloud](cloud-services-how-to-create-deploy.md).
+* Configurez un [nom de domaine personnalisé](cloud-services-custom-domain-name.md).
+* [Gérez votre service cloud](cloud-services-how-to-manage.md).
+* [Activer une connexion Bureau à distance pour un rôle dans Azure Cloud Services](cloud-services-role-enable-remote-desktop.md)
+* Configurez des [certificats SSL](cloud-services-configure-ssl-certificate.md).
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO4-->

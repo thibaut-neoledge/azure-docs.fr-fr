@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Gestion d'Azure Virtual Machines à l'aide d'Azure Automation"
+	pageTitle="Gestion d’ordinateurs virtuels avec Azure Automation | Microsoft Azure"
 	description="Découvrez comment le service Azure Automation peut être utilisé pour gérer des machines virtuelles Azure à grande échelle."
 	services="virtual-machines, automation"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/20/2015"
+	ms.date="08/11/2015"
 	ms.author="jolevy"/>
 
 
@@ -21,6 +21,8 @@
 #Gestion d'Azure Virtual Machines à l'aide d'Azure Automation
 
 Ce guide vous présente le service Azure Automation et la manière de l’utiliser pour simplifier la gestion de vos machines virtuelles Azure.
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]
 
 ## Qu'est-ce qu'Azure Automation ?
 
@@ -42,4 +44,4 @@ Maintenant que vous connaissez les bases d’Azure Automation et que vous savez 
 
 [Prise en main d’Azure Automation](../automation-create-runbook-from-samples.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

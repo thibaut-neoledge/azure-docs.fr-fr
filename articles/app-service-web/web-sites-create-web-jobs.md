@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/16/2015" 
+	ms.date="09/22/2015" 
 	ms.author="tdykstra"/>
 
 # Exécuter des tâches en arrière-plan avec les tâches web
@@ -211,4 +211,4 @@ Pour plus d’informations, consultez [Ressources Azure WebJobs][WebJobsRecomme
 [JobActionPageInScheduler]: ./media/web-sites-create-web-jobs/33JobActionPageInScheduler.png
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

@@ -1,18 +1,18 @@
 <properties 
-	pageTitle="Exemple de code : exporter vers SQL à partir d’Application Insights à l’aide d’un rôle de travail"
-	description="Codez votre propre analyse des données de télémétrie dans Application Insights à l’aide de la fonctionnalité d’exportation continue."
-	services="application-insights"
-	documentationCenter=""
-	authors="mazharmicrosoft"
+	pageTitle="Exemple de code : exporter vers SQL à partir d’Application Insights à l’aide d’un rôle de travail" 
+	description="Codez votre propre analyse des données de télémétrie dans Application Insights à l’aide de la fonctionnalité d’exportation continue." 
+	services="application-insights" 
+    documentationCenter=""
+	authors="mazharmicrosoft" 
 	manager="douge"/>
 
 <tags 
-	ms.service="application-insights"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="ibiza"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/04/2015"
+	ms.service="application-insights" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="ibiza" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/23/2015" 
 	ms.author="awills"/>
  
 # Exemple de code : exporter vers SQL à partir d’Application Insights à l’aide d’un rôle de travail
@@ -51,13 +51,13 @@ Pour commencer :
 
 ## Créer un stockage dans Azure
 
-1. Créez un compte de stockage dans votre abonnement sur le [portail Azure][portal].
+1. Créez un compte de stockage classique dans votre abonnement sur le [portail Azure][portal].
 
     ![Sur le portail Azure, choisissez Nouveau, Données, Stockage.](./media/app-insights-code-sample-export-telemetry-sql-database/040-store.png)
 
 2. Créez un conteneur.
 
-    ![Dans le nouvel emplacement de stockage, sélectionnez Conteneurs, puis Ajouter.](./media/app-insights-code-sample-export-telemetry-sql-database/050-container.png)
+    ![Dans le nouvel emplacement de stockage, sélectionnez Conteneurs, cliquez sur la mosaïque Conteneurs puis sur Ajouter.](./media/app-insights-code-sample-export-telemetry-sql-database/050-container.png)
 
 
 ## Démarrer l’exportation continue vers le stockage Azure
@@ -539,4 +539,4 @@ Pour voir cet exemple en action, [téléchargez](https://sesitai.codeplex.com/) 
 
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO4-->

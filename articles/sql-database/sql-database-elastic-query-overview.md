@@ -1,6 +1,8 @@
 <properties
+    title="Azure SQL Database elastic database query overview"
     pageTitle="Vue d’ensemble de la requête de base de données élastique Azure SQL Database"
     description="Vue d’ensemble de la fonctionnalité de requête élastique"
+    metaKeywords="azure sql database elastic database queries"
     services="sql-database"
     documentationCenter=""  
     manager="jeffreyg"
@@ -55,7 +57,7 @@ Au fil du temps, des topologies supplémentaires seront prises en charge par la 
 
 La création d’une solution de requête de base de données élastique nécessite que la [**carte de partitions**](sql-database-elastic-scale-shard-map-management.md) des outils de base de données élastique représente les bases de données à distance en fonction d’une requête de base de données élastique. Si vous utilisez déjà la bibliothèque cliente de base de données élastique, vous pouvez utiliser votre carte de partitions existante. Autrement, vous devez créer une carte de partitions à l’aide d’outils de base de données élastique.
 
-L’exemple de code C#suivant illustre comment créer une carte de partitions avec une seule base de données à distance ajoutée comme partition.
+L’exemple de code C# suivant illustre comment créer une carte de partitions avec une seule base de données à distance ajoutée comme partition.
 
     ShardMapManagerFactory.CreateSqlShardMapManager(
       "yourconnectionstring",
@@ -265,4 +267,4 @@ Pour commencer à explorer une requête de base de données élastique, essayez 
 
 <!--anchors-->
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO4-->

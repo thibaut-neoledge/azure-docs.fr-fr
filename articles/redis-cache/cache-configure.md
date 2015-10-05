@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Configuration de Cache Redis Azure"
-	description="Comprendre la configuration de Redis par défaut pour Cache Redis Azure et apprendre à configurer vos instances de Cache Redis Azure"
-	services="redis-cache"
-	documentationCenter="na"
-	authors="steved0x"
-	manager="dwrede"
-	editor="tysonn"/>
+   description="Comprendre la configuration de Redis par défaut pour Cache Redis Azure et apprendre à configurer vos instances de Cache Redis Azure"
+   services="redis-cache"
+   documentationCenter="na"
+   authors="steved0x"
+   manager="dwrede"
+   editor="tysonn" />
 <tags 
    ms.service="cache"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="cache-redis"
-	ms.workload="tbd"
-	ms.date="09/03/2015"
-	ms.author="sdanie"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="cache-redis"
+   ms.workload="tbd"
+   ms.date="09/22/2015"
+   ms.author="sdanie" />
 
 # Configuration de Cache Redis Azure
 
@@ -170,4 +170,4 @@ Pour obtenir la liste des commandes Redis désactivées pour le Cache Redis Azur
 ## Étapes suivantes
 -	Pour plus d'informations sur l'utilisation des commandes Redis, consultez [Exécution des commandes Redis](cache-faq.md#how-can-i-run-redis-commands).
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO4-->

@@ -1,39 +1,32 @@
 <properties
    pageTitle="API REST du service Azure Search : version 2015-02-28-Preview | Microsoft Azure"
-	description="L'API REST du service Azure Search version 2015-02-28-Preview comprend des fonctionnalités expérimentales telles que des analyseurs de langage naturel et des recherches moreLikeThis."
-	services="search"
-	documentationCenter="na"
-	authors="HeidiSteen"
-	manager="mblythe"
-	editor=""/>
+   description="L'API REST du service Azure Search version 2015-02-28-Preview comprend des fonctionnalités expérimentales telles que des analyseurs de langage naturel et des recherches moreLikeThis."
+   services="search"
+   documentationCenter="na"
+   authors="HeidiSteen"
+   manager="mblythe"
+   editor=""/>
 
 <tags
    ms.service="search"
-	ms.devlang="rest-api"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="search"
-	ms.date="08/25/2015"
-	ms.author="heidist"/>
+   ms.devlang="rest-api"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="search"
+   ms.date="09/22/2015"
+   ms.author="heidist"/>
 
 # API REST du service Azure Search : version 2015-02-28-Preview
 
 Cet article constitue la documentation de référence de `api-version=2015-02-28-Preview`. Cette version préliminaire étend la version actuelle disponible, [api-version=2015-02-28](https://msdn.microsoft.com/library/dn798935.aspx), en fournissant les fonctionnalités expérimentales suivantes :
 
-- Les [processeurs de langage naturel](#LanguageSupport) de Microsoft (les mêmes que ceux utilisés par Office et Bing) offrent une plus grande précision sur les résultats de la requête et d'autres langages.
 - `moreLikeThis` est un paramètre de requête utilisé dans les [opérations de recherche](#SearchDocs) qui trouve des documents en rapport avec un autre document spécifique.
-- Une alternative POST à la syntaxe GET pour les API [Recherche](#SearchDocs) et [Suggestions](#Suggestions), utile lorsque la longueur d'URL globale pourrait dépasser 8 Ko.
-
-Quelques fonctionnalités supplémentaires de `2015-02-28-Preview` sont documentées séparément. Vous avez notamment vu les points suivants :
-
-- [Profils de calcul de score](search-api-scoring-profiles-2015-02-28-preview.md)
-- [Indexeurs](search-api-indexers-2015-02-28-preview.md)
 
 Le service Azure Search est disponible dans plusieurs versions. Pour plus d'informations, consultez [Contrôle de version de service Azure Search](http://msdn.microsoft.com/library/azure/dn864560.aspx).
 
 ##API dans ce document
 
-L'API du service Azure Search prend en charge deux syntaxes pour la recherche d'entités : une syntaxe OData [simple](https://msdn.microsoft.com/library/dn798920.aspx) et une autre syntaxe OData (pour plus d'informations, consultez [Prise en charge d'OData (API Azure Search)](http://msdn.microsoft.com/library/azure/dn798932.aspx)). La liste suivante présente la syntaxe simple.
+L’API du service Azure Search prend en charge deux syntaxes pour la recherche d’entités : une syntaxe OData [simple](https://msdn.microsoft.com/library/dn798920.aspx) et une autre syntaxe OData (pour plus d’informations, consultez [Prise en charge d’OData (API Azure Search)](http://msdn.microsoft.com/library/azure/dn798932.aspx)). La liste suivante présente la syntaxe simple.
 
 [Création d'index](#CreateIndex)
 
@@ -136,7 +129,7 @@ Vous pouvez également utiliser une requête PUT en spécifiant le nom d'index s
 
 La création d'un index détermine la structure des documents stockés et utilisés dans les opérations de recherche. Le remplissage de l'index est une opération distincte. Pour cette étape, vous pouvez utiliser un [indexeur](https://msdn.microsoft.com/library/azure/mt183328.aspx) (disponible pour les sources de données prises en charge) ou une opération [Ajout, mise à jour ou suppression de documents](https://msdn.microsoft.com/library/azure/dn798930.aspx). L'index inversé est généré lors de la publication des documents.
 
-**Remarque** : le nombre maximal d'index que vous pouvez créer varie en fonction du niveau de tarification. Le service gratuit autorise jusqu'à 3 index. Le service standard autorise 50 index par service de recherche. Pour plus d'informations, consultez [Limites et contraintes](http://msdn.microsoft.com/library/azure/dn798934.aspx).
+**Remarque** : le nombre maximal d'index que vous pouvez créer varie en fonction du niveau tarifaire. Le service gratuit autorise jusqu'à 3 index. Le service standard autorise 50 index par service de recherche. Pour plus d’informations, consultez [Limites de service](search-limits-quota-capacity.md).
 
 **Requête**
 
@@ -290,13 +283,13 @@ Certains développeurs peuvent préférer la solution open source, plus familiè
 
 L'analyseur Lucene pour l'anglais est une extension de l'analyseur standard. Il supprime la marque du possessif (le « 's ») à la fin des mots, applique la recherche de radical conformément à l'[algorithme de recherche de radical de Porter](http://tartarus.org/~martin/PorterStemmer/) et supprime les [mots vides](http://en.wikipedia.org/wiki/Stop_words) de l'anglais.
 
-En comparaison, l’analyseur Microsoft procède par lemmatisation plutôt que par recherche de radical. Cela signifie qu’il peut bien mieux gérer des mots sous de formes irrégulières, ce qui donne des résultats de recherche plus pertinents (module espion 7 de [présentation MVA d’Azure Search](http://www.microsoftvirtualacademy.com/training-courses/adding-microsoft-azure-search-to-your-websites-and-apps) pour plus de détails).
+En comparaison, l’analyseur Microsoft procède par lemmatisation plutôt que par recherche de radical. Cela signifie qu’il peut bien mieux gérer des mots sous de formes irrégulières, ce qui donne des résultats de recherche plus pertinents (module espion 7 de [présentation MVA d’Azure Search](http://www.microsoftvirtualacademy.com/training-courses/adding-microsoft-azure-search-to-your-websites-and-apps) pour plus de détails).
 
 L’indexation avec les analyseurs Microsoft est en moyenne trois fois plus lente qu’avec leurs équivalents Lucene, en fonction de la langue. Les performances de recherche ne doivent pas être trop affectées pour les requêtes de taille moyenne.
 
 ***Configuration***
 
-Pour chaque champ dans la définition d'index, vous pouvez affecter à la propriété `analyzer` un nom d'analyseur qui spécifie la langue et le fournisseur. Le même analyseur sera appliqué lors de l’indexation et de la recherche pour ce champ. Par exemple, vous pouvez avoir des champs distincts pour des descriptions d'hôtel en anglais, français et espagnol qui existent côte à côte dans le même index. Utilisez le [paramètre de requête « searchFields »](#SearchQueryParameters) pour spécifier le champ de langue spécifique à rechercher dans vos requêtes. Vous pouvez consulter des exemples de requêtes qui incluent la propriété `analyzer` dans [Recherche dans des documents](#SearchDocs).
+Pour chaque champ dans la définition d'index, vous pouvez affecter à la propriété `analyzer` un nom d'analyseur qui spécifie la langue et le fournisseur. Le même analyseur sera appliqué lors de l’indexation et de la recherche pour ce champ. Par exemple, vous pouvez avoir des champs distincts pour des descriptions d'hôtel en anglais, français et espagnol qui existent côte à côte dans le même index. Utilisez le [paramètre de requête « searchFields »](#SearchQueryParameters) pour spécifier le champ de langue spécifique à rechercher dans vos requêtes. Vous pouvez consulter des exemples de requêtes qui incluent la propriété `analyzer` dans [Recherche dans des documents](#SearchDocs).
 
 ***Liste d'analyseurs***
 
@@ -633,7 +626,7 @@ Le code Javascript côté client ne peut pas appeler les API par défaut, car le
         {"name": "hotelId", "type": "Edm.String", "key": true, "searchable": false},
         {"name": "baseRate", "type": "Edm.Double"},
         {"name": "description", "type": "Edm.String", "filterable": false, "sortable": false, "facetable": false},
-	    {"name": "description_fr", "type": "Edm.String", "filterable": false, "sortable": false, "facetable": false, "analyzer"="fr.lucene"},
+	    {"name": "description_fr", "type": "Edm.String", "filterable": false, "sortable": false, "facetable": false, analyzer="fr.lucene"},
         {"name": "hotelName", "type": "Edm.String"},
         {"name": "category", "type": "Edm.String"},
         {"name": "tags", "type": "Collection(Edm.String)"},
@@ -991,7 +984,7 @@ ________________________________________
 
 Dans Azure Search, un index est stocké dans le cloud et rempli à l'aide de documents JSON que vous téléchargez sur le service. Tous les documents que vous téléchargez comprennent le corpus de vos données de recherche. Les documents contiennent des champs, dont certains sont tokenisés dans les termes de recherche à mesure qu'ils sont téléchargés. Le segment d'URL `/docs` dans l'API d'Azure Search représente la collection de documents d'un index. Toutes les opérations sur la collection, telles que le chargement, la fusion, la suppression ou l'interrogation de documents, sont effectuées dans un contexte d'index unique, les URL pour ces opérations commencent donc toujours par `/indexes/[index name]/docs` pour un nom d'index donné.
 
-Votre code d’application doit générer des documents JSON à télécharger vers Azure Search ou vous pouvez utiliser un [indexeur](https://msdn.microsoft.com/library/dn946891.aspx) pour charger des documents si la source de données est la base de données SQL Azure ou DocumentDB. En règle générale, les index sont remplis à partir d'un jeu de données unique que vous fournissez.
+Votre code d’application doit générer des documents JSON à télécharger vers Azure Search ou vous pouvez utiliser un [indexeur](https://msdn.microsoft.com/library/dn946891.aspx) pour charger des documents si la source de données est Azure SQL Database ou DocumentDB. En règle générale, les index sont remplis à partir d'un jeu de données unique que vous fournissez.
 
 Vous devez prévoir un document pour chaque élément dans lequel vous voulez effectuer la recherche. Une application de location de films peut avoir un document par film, une application vitrine peut avoir un document par référence, une application de formation en ligne peut avoir un document par cours, un cabinet de recherche peut avoir un document pour chaque document académique de son référentiel, etc.
 
@@ -1142,7 +1135,7 @@ Une opération **Search** est émise sous forme de requête GET ou POST et spéc
 
 **Utilisation de POST au lieu de GET**
 
-Lorsque vous utilisez HTTP GET pour appeler l’API de **recherche**, vous devez savoir que la longueur de l’URL de requête ne peut pas excéder 8 Ko. Cela est généralement suffisamment pour la plupart des applications. Toutefois, certaines applications produisent des requêtes très volumineuses, en particulier les expressions de filtre OData. Pour ces applications, l'utilisation de HTTP POST est plus adaptée. La limite de taille de requête pour POST est proche de 17 Mo, ce qui est suffisant même pour les requêtes les plus complexes.
+Quand vous utilisez HTTP GET pour appeler l’API de **recherche**, vous devez savoir que la longueur de l’URL de requête ne peut pas excéder 8 Ko. Cela est généralement suffisamment pour la plupart des applications. Toutefois, certaines applications produisent des requêtes très volumineuses, en particulier les expressions de filtre OData. Pour ces applications, l'utilisation de HTTP POST est plus adaptée. La limite de taille de requête pour POST est proche de 17 Mo, ce qui est suffisant même pour les requêtes les plus complexes.
 
 **Requête**
 
@@ -1150,7 +1143,7 @@ Le protocole HTTPS est requis pour les requêtes de service. La requête **Searc
 
 L'URI de la requête spécifie l'index à interroger, pour tous les documents qui correspondent aux paramètres. Les paramètres sont spécifiés dans la chaîne de requête pour les requêtes GET et dans le corps de la requête pour les requêtes POST.
 
-Lors de la création de requêtes GET, il est recommandé d’[encoder par URL](https://msdn.microsoft.com/library/system.uri.escapedatastring.aspx) les paramètres de requête spécifiques lors de l’appel direct de l’API REST. Pour les opérations de **recherche**, cela inclut :
+Pendant la création de requêtes GET, il est recommandé d’[encoder par URL](https://msdn.microsoft.com/library/system.uri.escapedatastring.aspx) les paramètres de requête spécifiques pour appeler l’API REST directement. Pour les opérations de **recherche**, cela inclut :
 
 - `$filter`
 - `facet`
@@ -1161,11 +1154,11 @@ Lors de la création de requêtes GET, il est recommandé d’[encoder par URL](
 
 L'encodage des URL est recommandé uniquement pour les paramètres de requête ci-dessus. Si vous encodez par URL par inadvertance la chaîne de requête entière (tout ce qui figure après ?), les requêtes sont interrompues.
 
-En outre, l'encodage des URL est nécessaire uniquement lors de l'appel direct de l'API REST à l'aide de GET. Aucun encodage des URL n’est nécessaire lors de l’appel de **Search** à l’aide de POST ou lorsque vous utilisez la [bibliothèque cliente .NET](https://msdn.microsoft.com/library/dn951165.aspx) qui gère l’encodage des URL pour vous.
+En outre, l'encodage des URL est nécessaire uniquement lors de l'appel direct de l'API REST à l'aide de GET. Aucun encodage des URL n’est nécessaire pendant l’appel de **Search** à l’aide de POST ou quand vous utilisez la [bibliothèque cliente .NET](https://msdn.microsoft.com/library/dn951165.aspx) qui gère l’encodage des URL pour vous.
 
 <a name="SearchQueryParameters"></a> **Paramètres de requête**
 
-La requête **Search** accepte plusieurs paramètres qui fournissent les critères de la requête et qui spécifient également le comportement de la recherche. Vous fournissez ces paramètres dans la chaîne de requête de l’URL lors de l’appel de **Search** via GET et en tant que propriétés JSON dans le corps de la requête lors de l’appel de **Search** via POST. La syntaxe de certains paramètres est légèrement différente entre GET et POST. Ces différences sont indiquées ci-dessous :
+La requête **Search** accepte plusieurs paramètres qui fournissent les critères de la requête et qui spécifient également le comportement de la recherche. Vous fournissez ces paramètres dans la chaîne de requête de l’URL pendant l’appel de **Search** via GET et en tant que propriétés JSON dans le corps de la requête pendant l’appel de **Search** via POST. La syntaxe de certains paramètres est légèrement différente entre GET et POST. Ces différences sont indiquées ci-dessous :
 
 `search=[string]` (facultatif) - le texte à rechercher. Tous les champs `searchable` sont interrogés par défaut, sauf si `searchFields` est spécifié. Lors de l'interrogation des champs `searchable`, le texte de recherche est tokenisé, plusieurs termes peuvent donc être séparés par un espace blanc (par exemple : `search=hello world`). Pour faire correspondre n'importe quel terme, utilisez `*` (qui peut être utile pour les requêtes de filtre booléen). L'omission de ce paramètre a le même effet que s'il est défini avec la valeur `*`. Pour obtenir des détails sur la syntaxe de recherche, consultez la section [Syntaxe de requête simple](https://msdn.microsoft.com/library/dn798920.aspx).
 
@@ -1179,25 +1172,25 @@ La requête **Search** accepte plusieurs paramètres qui fournissent les critèr
 
 `$skip=#` (facultatif) : nombre de résultats de recherche à ignorer. Ne peut pas être supérieur à 100 000. Si vous avez besoin d'analyser des documents dans l'ordre, mais que vous ne pouvez pas utiliser `$skip` en raison de cette limitation, utilisez plutôt `$orderby` sur une clé totalement ordonnée et `$filter` avec une requête de plage de données.
 
-> [AZURE.NOTE]Lors de l’appel de **Search** à l’aide de POST, ce paramètre est nommé `skip` au lieu de `$skip`.
+> [AZURE.NOTE]Pendant l’appel de **Search** à l’aide de POST, ce paramètre est nommé `skip` au lieu de `$skip`.
 
 `$top=#` (facultatif) : nombre de résultats de recherche à récupérer. Ceci peut être utilisé conjointement avec `$skip` pour implémenter la pagination côté client des résultats de la recherche.
 
-> [AZURE.NOTE]Azure Search utilise la ***pagination côté serveur*** pour empêcher les requêtes de récupérer trop de documents à la fois. La taille de page par défaut est 50, tandis que la taille de page maximale est 1 000. Cela signifie que par défaut, **Search** retourne 50 résultats maximum si vous ne spécifiez pas `$top`. S’il existe plus de 50 résultats, la réponse inclut des informations pour récupérer la page suivante de 50 résultats maximum (voir `@odata.nextLink` et `@search.nextPageParameters` dans l’[exemple ci-dessous](#SearchResponse)). De même, si vous spécifiez une valeur supérieure à 1 000 pour `$top` et qu’il existe plus de 1 000 résultats, seuls les 1 000 premiers résultats sont retournés, ainsi que des informations pour récupérer la page suivante de 1 000 résultats maximum.
+> [AZURE.NOTE]Azure Search utilise la ***pagination côté serveur*** pour empêcher les requêtes de récupérer trop de documents à la fois. La taille de page par défaut est 50, tandis que la taille de page maximale est 1 000. Cela signifie que par défaut, **Search** retourne 50 résultats maximum si vous ne spécifiez pas `$top`. S’il existe plus de 50 résultats, la réponse inclut des informations pour récupérer la page suivante de 50 résultats maximum (voir `@odata.nextLink` et `@search.nextPageParameters` dans l’[exemple ci-dessous](#SearchResponse)). De même, si vous spécifiez une valeur supérieure à 1 000 pour `$top` et qu’il existe plus de 1 000 résultats, seuls les 1 000 premiers résultats sont retournés, ainsi que des informations pour récupérer la page suivante de 1 000 résultats maximum.
 
-> [AZURE.NOTE]Lors de l’appel de **Search** à l’aide de POST, ce paramètre est nommé `top` au lieu de `$top`.
+> [AZURE.NOTE]Pendant l’appel de **Search** à l’aide de POST, ce paramètre est nommé `top` au lieu de `$top`.
 
 `$count=true|false` (facultatif, la valeur par défaut est `false`) : indique s'il faut extraire le nombre total de résultats. La valeur `true` peut avoir un impact sur les performances. Notez que le nombre retourné est une approximation.
 
-> [AZURE.NOTE]Lors de l’appel de **Search** à l’aide de POST, ce paramètre est nommé `count` au lieu de `$count`.
+> [AZURE.NOTE]Pendant l’appel de **Search** à l’aide de POST, ce paramètre est nommé `count` au lieu de `$count`.
 
 `$orderby=[string]` (facultatif) : liste d'expressions séparées par des virgules selon lesquelles les résultats doivent être triés. Chaque expression peut être un nom de champ ou un appel à la fonction `geo.distance()`. Chaque expression peut être suivie par `asc` pour indiquer l'ordre croissant, et par `desc` pour indiquer l'ordre décroissant. La valeur par défaut est l'ordre croissant. Les liens seront rompus par les scores de correspondance des documents. Si aucun `$orderby` n'est spécifié, l'ordre de tri par défaut est décroissant par score de correspondance de documents. Il existe une limite de 32 clauses pour `$orderby`.
 
-> [AZURE.NOTE]Lors de l’appel de **Search** à l’aide de POST, ce paramètre est nommé `orderby` au lieu de `$orderby`.
+> [AZURE.NOTE]Pendant l’appel de **Search** à l’aide de POST, ce paramètre est nommé `orderby` au lieu de `$orderby`.
 
 `$select=[string]` (facultatif) : liste de champs séparés par des virgules à récupérer. Si aucune valeur n'est spécifiée, tous les champs marqués comme récupérables dans le schéma sont inclus. Vous pouvez demander explicitement tous les champs en définissant ce paramètre avec la valeur `*`.
 
-> [AZURE.NOTE]Lors de l’appel de **Search** à l’aide de POST, ce paramètre est nommé `select` au lieu de `$select`.
+> [AZURE.NOTE]Pendant l’appel de **Search** à l’aide de POST, ce paramètre est nommé `select` au lieu de `$select`.
 
 `facet=[string]` (zéro ou plus) : champ à utiliser pour les facettes. La chaîne peut éventuellement contenir des paramètres pour personnaliser les facettes exprimées sous forme de paires `name:value` séparées par des virgules. Les paramètres valides sont les suivants :
 
@@ -1215,27 +1208,27 @@ La requête **Search** accepte plusieurs paramètres qui fournissent les critèr
   - Par exemple : `facet=lastRenovationDate,interval:year` génère un compartiment pour chaque année de rénovation des hôtels.
 - **Remarque** : `count` et `sort` peuvent être combinés dans la même spécification de facette, mais ils ne peuvent pas être combinés avec `interval` ou `values`, et `interval` et `values` ne peuvent pas être combinés ensemble.
 
-> [AZURE.NOTE]Lors de l’appel de **Search** à l’aide de POST, ce paramètre est nommé `facets` au lieu de `facet`. En outre, vous le spécifiez sous forme de tableau JSON de chaînes où chaque chaîne est une expression de facette distincte.
+> [AZURE.NOTE]Pendant l’appel de **Search** à l’aide de POST, ce paramètre est nommé `facets` au lieu de `facet`. En outre, vous le spécifiez sous forme de tableau JSON de chaînes où chaque chaîne est une expression de facette distincte.
 
 `$filter=[string]` (facultatif) : expression de recherche structurée avec une syntaxe OData standard. Consultez la section [Syntaxe d'expression OData](#ODataExpressionSyntax) pour plus d'informations sur le sous-ensemble de la grammaire d'expression OData pris en charge par Azure Search.
 
-> [AZURE.NOTE]Lors de l’appel de **Search** à l’aide de POST, ce paramètre est nommé `filter` au lieu de `$filter`.
+> [AZURE.NOTE]Pendant l’appel de **Search** à l’aide de POST, ce paramètre est nommé `filter` au lieu de `$filter`.
 
 `highlight=[string]` (facultatif) : ensemble de noms de champ séparés par des virgules pour la mise en surbrillance des correspondances. Seuls les champs `searchable` peuvent être utilisés pour la mise en surbrillance des correspondances.
 
 `highlightPreTag=[string]` (facultatif, la valeur par défaut est `<em>`) : balise de chaîne qui ajoute un préfixe aux mises en surbrillance des correspondances. Doit être défini avec `highlightPostTag`.
 
-> [AZURE.NOTE]Lors de l’appel de **Search** à l’aide de GET, les caractères réservés dans l’URL doivent être codés en pourcentage (par exemple, %23 au lieu de #).
+> [AZURE.NOTE]Pendant l’appel de **Search** à l’aide de GET, les caractères réservés dans l’URL doivent être codés en pourcentage (par exemple, %23 au lieu de #).
 
 `highlightPostTag=[string]` (facultatif, la valeur par défaut est `</em>`) : balise de chaîne qui ajoute un élément aux mises en surbrillance des correspondances. Doit être défini avec `highlightPreTag`.
 
-> [AZURE.NOTE]Lors de l’appel de **Search** à l’aide de GET, les caractères réservés dans l’URL doivent être codés en pourcentage (par exemple, %23 au lieu de #).
+> [AZURE.NOTE]Pendant l’appel de **Search** à l’aide de GET, les caractères réservés dans l’URL doivent être codés en pourcentage (par exemple, %23 au lieu de #).
 
 `scoringProfile=[string]` (facultatif) : nom d'un profil de calcul de score pour évaluer les scores de correspondance des documents afin de trier les résultats.
 
 `scoringParameter=[string]` (zéro ou plus) : indique la valeur de chaque paramètre défini dans une fonction de calcul de score (par exemple, `referencePointParameter`) au format nom:valeur. Par exemple, si le profil de calcul de score définit une fonction avec un paramètre appelé « mylocation » l’option de chaîne de requête est &scoringParameter=mylocation:-122.2,44.8
 
-> [AZURE.NOTE]Lors de l’appel de **Search** à l’aide de POST, ce paramètre est nommé `scoringParameters` au lieu de `scoringParameter`. En outre, vous le spécifiez sous forme de tableau JSON de chaînes où chaque chaîne est une paire nom:valeur distincte.
+> [AZURE.NOTE]Pendant l’appel de **Search** à l’aide de POST, ce paramètre est nommé `scoringParameters` au lieu de `scoringParameter`. En outre, vous le spécifiez sous forme de tableau JSON de chaînes où chaque chaîne est une paire nom:valeur distincte.
 
 `minimumCoverage` (facultatif, valeur par défaut 100) : nombre compris entre 0 et 100 indiquant le pourcentage de l’index qui doit être couvert par une requête de recherche afin que la requête soit déclarée comme un succès. Par défaut, la totalité de l’index doit être disponible ou `Search` retourne le code d’état HTTP 503. Si vous définissez `minimumCoverage` et que `Search` réussit, le code HTTP 200 est retourné et inclut une valeur `@search.coverage` dans la réponse indiquant le pourcentage de l’index inclus dans la requête.
 
@@ -1243,7 +1236,7 @@ La requête **Search** accepte plusieurs paramètres qui fournissent les critèr
 
 `api-version=[string]` (obligatoire). La version préliminaire est `api-version=2015-02-28-Preview`. Pour plus d'informations, y compris sur d'autres versions, consultez [Contrôle de version de service Azure Search](http://msdn.microsoft.com/library/azure/dn864560.aspx).
 
-Remarque : pour cette opération, la `api-version` est spécifiée comme paramètre de requête dans l’URL que vous appeliez **Search** à l’aide de POST ou de GET.
+Remarque : pour cette opération, la `api-version` est spécifiée comme paramètre de requête dans l’URL que vous appeliez **Search** à l’aide de POST ou de GET.
 
 **En-têtes de requête**
 
@@ -1596,7 +1589,7 @@ Une opération **Suggestions** est publiée en tant que requête GET ou POST.
 
 **Utilisation de POST au lieu de GET**
 
-Lorsque vous utilisez HTTP GET pour appeler l’API **Suggestions**, vous devez savoir que la longueur de l’URL de requête ne peut pas dépasser 8 Ko. Cela est généralement suffisamment pour la plupart des applications. Toutefois, certaines applications produisent des requêtes très volumineuses, en particulier les expressions de filtre OData. Pour ces applications, l'utilisation de HTTP POST est plus adaptée. La limite de taille de requête pour POST est proche de 17 Mo, ce qui est suffisant même pour les requêtes les plus complexes.
+Quand vous utilisez HTTP GET pour appeler l’API **Suggestions**, vous devez savoir que la longueur de l’URL de requête ne peut pas dépasser 8 Ko. Cela est généralement suffisamment pour la plupart des applications. Toutefois, certaines applications produisent des requêtes très volumineuses, en particulier les expressions de filtre OData. Pour ces applications, l'utilisation de HTTP POST est plus adaptée. La limite de taille de requête pour POST est proche de 17 Mo, ce qui est suffisant même pour les requêtes les plus complexes.
 
 **Requête**
 
@@ -1604,7 +1597,7 @@ Le protocole HTTPS est requis pour les requêtes de service. La requête **Sugge
 
 L'URI de la requête spécifie le nom de l'index à interroger. Les paramètres, tels que le terme de recherche partiellement entré, sont spécifiés dans la chaîne de requête pour les requêtes GET et dans le corps de la requête pour les requêtes POST.
 
-Lors de la création de requêtes GET, il est recommandé d’[encoder par URL](https://msdn.microsoft.com/library/system.uri.escapedatastring.aspx) les paramètres de requête spécifiques lors de l’appel direct de l’API REST. Pour les opérations **Suggestions**, cela inclut :
+Pendant la création de requêtes GET, il est recommandé d’[encoder par URL](https://msdn.microsoft.com/library/system.uri.escapedatastring.aspx) les paramètres de requête spécifiques pour appeler l’API REST directement. Pour les opérations **Suggestions**, cela inclut :
 
 - `$filter`
 - `highlightPreTag`
@@ -1613,21 +1606,21 @@ Lors de la création de requêtes GET, il est recommandé d’[encoder par URL](
 
 L'encodage des URL est recommandé uniquement pour les paramètres de requête ci-dessus. Si vous encodez par URL par inadvertance la chaîne de requête entière (tout ce qui figure après ?), les requêtes sont interrompues.
 
-En outre, l'encodage des URL est nécessaire uniquement lors de l'appel direct de l'API REST à l'aide de GET. Aucun encodage des URL n’est nécessaire lors de l’appel de **Suggestions** à l’aide de POST, ou lorsque vous utilisez la [bibliothèque cliente .NET](https://msdn.microsoft.com/library/dn951165.aspx) qui gère l’encodage des URL pour vous.
+En outre, l'encodage des URL est nécessaire uniquement lors de l'appel direct de l'API REST à l'aide de GET. Aucun encodage des URL n’est nécessaire pendant l’appel de **Suggestions** à l’aide de POST, ou quand vous utilisez la [bibliothèque cliente .NET](https://msdn.microsoft.com/library/dn951165.aspx) qui gère l’encodage des URL pour vous.
 
 **Paramètres de requête**
 
-La requête **Suggestions** accepte plusieurs paramètres qui fournissent les critères de la requête et qui spécifient également le comportement de la recherche. Vous fournissez ces paramètres dans la chaîne de requête de l’URL lors de l’appel de **Suggestions** via GET et en tant que propriétés JSON dans le corps de la requête lors de l’appel de **Suggestions** via POST. La syntaxe de certains paramètres est légèrement différente entre GET et POST. Ces différences sont indiquées ci-dessous :
+La requête **Suggestions** accepte plusieurs paramètres qui fournissent les critères de la requête et qui spécifient également le comportement de la recherche. Vous fournissez ces paramètres dans la chaîne de requête de l’URL pendant l’appel de **Suggestions** via GET et en tant que propriétés JSON dans le corps de la requête pendant l’appel de **Suggestions** via POST. La syntaxe de certains paramètres est légèrement différente entre GET et POST. Ces différences sont indiquées ci-dessous :
 
 `search=[string]` : texte de recherche à utiliser pour suggérer des requêtes. Doit comprendre 1 caractère au minimum et 100 caractères au maximum.
 
 `highlightPreTag=[string]` (facultatif) : balise de chaîne qui ajoute un préfixe aux résultats de la recherche. Doit être défini avec `highlightPostTag`.
 
-> [AZURE.NOTE]Lors de l’appel de **Suggestions** à l’aide de GET, les caractères réservés dans l’URL doivent être codés en pourcentage (par exemple, %23 au lieu de #).
+> [AZURE.NOTE]Pendant l’appel de **Suggestions** à l’aide de GET, les caractères réservés dans l’URL doivent être codés en pourcentage (par exemple, %23 au lieu de #).
 
 `highlightPostTag=[string]` (facultatif) : balise de chaîne qui ajoute un élément aux résultats de la recherche. Doit être défini avec `highlightPreTag`.
 
-> [AZURE.NOTE]Lors de l’appel de **Suggestions** à l’aide de GET, les caractères réservés dans l’URL doivent être codés en pourcentage (par exemple, %23 au lieu de #).
+> [AZURE.NOTE]Pendant l’appel de **Suggestions** à l’aide de GET, les caractères réservés dans l’URL doivent être codés en pourcentage (par exemple, %23 au lieu de #).
 
 `suggesterName=[string]` : nom du générateur de suggestions, comme spécifié dans la collection `suggesters` qui fait partie de la définition d'index. Un `suggester` détermine les champs qui sont analysés pour les termes de requête suggérés. Pour plus d'informations, consultez [Générateurs de suggestions](#Suggesters).
 
@@ -1637,19 +1630,19 @@ La requête **Suggestions** accepte plusieurs paramètres qui fournissent les cr
 
 `$top=#` (facultatif, valeur par défaut = 5) : nombre de suggestions à récupérer. Doit être un nombre compris entre 1 et 100.
 
-> [AZURE.NOTE]Lors de l’appel de **Suggestions** à l’aide de POST, ce paramètre est nommé `top` au lieu de `$top`.
+> [AZURE.NOTE]Pendant l’appel de **Suggestions** à l’aide de POST, ce paramètre est nommé `top` au lieu de `$top`.
 
 `$filter=[string]` (facultatif) : expression qui filtre les documents considérés comme des suggestions.
 
-> [AZURE.NOTE]Lors de l’appel de **Suggestions** à l’aide de POST, ce paramètre est nommé `filter` au lieu de `$filter`.
+> [AZURE.NOTE]Pendant l’appel de **Suggestions** à l’aide de POST, ce paramètre est nommé `filter` au lieu de `$filter`.
 
 `$orderby=[string]` (facultatif) : liste d'expressions séparées par des virgules selon lesquelles les résultats doivent être triés. Chaque expression peut être un nom de champ ou un appel à la fonction `geo.distance()`. Chaque expression peut être suivie par `asc` pour indiquer l'ordre croissant, et par `desc` pour indiquer l'ordre décroissant. La valeur par défaut est l'ordre croissant. Il existe une limite de 32 clauses pour `$orderby`.
 
-> [AZURE.NOTE]Lors de l’appel de **Suggestions** à l’aide de POST, ce paramètre est nommé `orderby` au lieu de `$orderby`.
+> [AZURE.NOTE]Pendant l’appel de **Suggestions** à l’aide de POST, ce paramètre est nommé `orderby` au lieu de `$orderby`.
 
 `$select=[string]` (facultatif) : liste de champs séparés par des virgules à récupérer. Si aucune valeur n’est spécifiée, seuls la clé du document et le texte de suggestion sont retournés.
 
-> [AZURE.NOTE]Lors de l’appel de **Suggestions** à l’aide de POST, ce paramètre est nommé `select` au lieu de `$select`.
+> [AZURE.NOTE]Pendant l’appel de **Suggestions** à l’aide de POST, ce paramètre est nommé `select` au lieu de `$select`.
 
 `minimumCoverage` (facultatif, valeur par défaut 80) : nombre compris entre 0 et 100 indiquant le pourcentage de l’index qui doit être couvert par une requête de suggestions afin que la requête soit déclarée comme un succès. Par défaut, au moins 80 % de l’index doit être disponible ou `Suggest` retourne le code d’état HTTP 503. Si vous définissez `minimumCoverage` et que `Suggest` réussit, le code HTTP 200 est retourné et inclut une valeur `@search.coverage` dans la réponse indiquant le pourcentage de l’index inclus dans la requête.
 
@@ -1657,7 +1650,7 @@ La requête **Suggestions** accepte plusieurs paramètres qui fournissent les cr
 
 `api-version=[string]` (obligatoire). La version préliminaire est `api-version=2015-02-28-Preview`. Pour plus d'informations, y compris sur d'autres versions, consultez [Contrôle de version de service Azure Search](http://msdn.microsoft.com/library/azure/dn864560.aspx).
 
-Remarque : pour cette opération, la `api-version` est spécifiée comme paramètre de requête dans l’URL que vous appeliez **Suggestions** à l’aide de POST ou de GET.
+Remarque : pour cette opération, la `api-version` est spécifiée comme paramètre de requête dans l’URL que vous appeliez **Suggestions** à l’aide de POST ou de GET.
 
 **En-têtes de requête**
 
@@ -1729,4 +1722,4 @@ Récupérer 5 suggestions pour lesquelles l'entrée de recherche partielle est 
       "suggesterName": "sg"
     }
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

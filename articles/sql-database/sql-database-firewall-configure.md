@@ -1,21 +1,21 @@
 <properties
    pageTitle="Pare-feu Azure SQL Database | Microsoft Azure"
-	description="Comment configurer votre pare-feu Microsoft Azure SQL Database."
-	services="sql-database"
-	documentationCenter=""
-	authors="BYHAM"
-	manager="jeffreyg"
-	editor=""
-	tags=""/>
+   description="Comment configurer votre pare-feu Microsoft Azure SQL Database."
+   services="sql-database"
+   documentationCenter=""
+   authors="BYHAM"
+   manager="jeffreyg"
+   editor=""
+   tags=""/>
 
 <tags
    ms.service="sql-database"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="data-management"
-	ms.date="08/04/2015"
-	ms.author="rickbyh"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="data-management"
+   ms.date="08/04/2015"
+   ms.author="rickbyh"/>
 
 # Pare-feu Azure SQL Database
 
@@ -114,13 +114,13 @@ Outre avec le portail de gestion Azure, les règles de pare-feu peuvent être g�
 
 Considérez les points suivants quand l’accès au service Microsoft Azure SQL Database est anormal :
 
-- **Configuration du pare-feu local :** pour que votre ordinateur puisse accéder à Azure SQL Database, vous devez créer une exception de pare-feu sur votre ordinateur pour le port TCP 1433. 
+- **Configuration du pare-feu local :** pour que votre ordinateur puisse accéder à Azure SQL Database, vous devez créer une exception de pare-feu sur votre ordinateur pour le port TCP 1433. Vous devrez peut-être ouvrir des ports supplémentaires si vous effectuez des connexions dans la limite du cloud Azure. Pour plus d'informations, consultez la section **Version 12 de la base de données de SQL : extérieur vs. intérieur** de [Ports au-delà de 1433 pour ADO.NET 4.5 et la version 12 de la base de données SQL](sql-database-develop-direct-route-ports-adonet-v12.md).
 
-- **Traduction d’adresses réseau (NAT) :** en raison de NAT, l’adresse IP utilisée par votre ordinateur pour se connecter à Azure SQL Database peut être différente de l’adresse IP affichée dans les paramètres de configuration IP de votre ordinateur. Pour afficher l’adresse IP qu’utilise votre ordinateur pour se connecter à Azure, connectez-vous au portail de gestion et accédez à l’onglet **Configurer** sur le serveur qui héberge votre base de données. Dans la section **Adresses IP autorisées**, l’**Adresse IP client en cours** s’affiche. Cliquez sur **Ajouter** aux **Adresses IP autorisées** pour que cet ordinateur puisse accéder au serveur.
+- **Traduction d’adresses réseau (NAT) :** en raison du protocole NAT, l’adresse IP utilisée par votre ordinateur pour se connecter à la base de données SQL Azure peut être différente de l’adresse IP affichée dans les paramètres de configuration IP de votre ordinateur. Pour afficher l’adresse IP qu’utilise votre ordinateur pour se connecter à Azure, connectez-vous au Portail de gestion et accédez à l’onglet **Configurer** sur le serveur qui héberge votre base de données. Dans la section **Adresses IP autorisées**, l’**adresse IP client en cours** s’affiche. Cliquez sur **Ajouter** aux **Adresses IP autorisées** pour que cet ordinateur puisse accéder au serveur.
 
-- **Les modifications apportées à la liste d’approbation n’ont pas encore pris effet :** jusqu’à cinq minutes peuvent s’écouler avant que les modifications apportées à la configuration du pare-feu Azure SQL Database ne soient effectives.
+- **Les modifications apportées à la liste d’approbation n’ont pas encore pris effet :** jusqu’à cinq minutes peuvent s’écouler avant que les modifications apportées à la configuration du pare-feu de la base de données SQL Azure SQL ne soient effectives.
 
-- **La connexion n’est pas autorisée ou un mot de passe incorrect a été utilisé :** si une connexion n’a pas d’autorisations sur le serveur Azure SQL Database ou que le mot de passe est incorrect, la connexion au serveur Azure SQL Database est refusée. Créer un paramètre de pare-feu permet uniquement aux clients de tenter de se connecter à votre serveur ; chaque client doit fournir les informations d’identification de sécurité nécessaires. Pour plus d’informations sur la préparation des connexions, consultez Gestion des bases de données, des connexions et des utilisateurs dans Azure SQL Database.
+- **La connexion n’est pas autorisée ou un mot de passe incorrect a été utilisé :** si une connexion n’a pas d’autorisations sur le serveur de la base de données SQL Azure ou que le mot de passe est incorrect, la connexion au serveur de la base de données SQL Azure est refusée. Créer un paramètre de pare-feu permet uniquement aux clients de tenter de se connecter à votre serveur ; chaque client doit fournir les informations d’identification de sécurité nécessaires. Pour plus d’informations sur la préparation des connexions, consultez Gestion des bases de données, des connexions et des utilisateurs dans Azure SQL Database.
 
 - **Adresse IP dynamique :** si vous avez une connexion Internet avec adressage IP dynamique et que le pare-feu demeure infranchissable, vous pouvez essayer une des solutions suivantes :
 
@@ -135,4 +135,4 @@ Considérez les points suivants quand l’accès au service Microsoft Azure SQL 
 <!--Image references-->
 [1]: ./media/sql-database-firewall-configure/sqldb-firewall-1.png
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO4-->

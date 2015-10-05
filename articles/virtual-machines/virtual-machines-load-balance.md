@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Équilibrage de charge pour les services d’infrastructure Azure"
+	pageTitle="Équilibrage de charge pour les services d’infrastructure | Microsoft Azure"
 	description="Décrit les deux types d’équilibrage de charge pris en charge par Azure : équilibrage de charge pour les services cloud et Azure Traffic Manager pour le trafic client."
 	services="virtual-machines"
 	documentationCenter=""
@@ -10,7 +10,7 @@
 <tags
 	ms.service="virtual-machines"
 	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="na"
+	ms.tgt_pltfrm="vm-multiple"
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="07/21/2015"
@@ -18,6 +18,7 @@
 
 
 # Équilibrage de charge pour les services d’infrastructure Azure#
+
 
 Deux niveaux d’équilibrage de charge sont disponibles pour les services d’infrastructure Azure :
 
@@ -83,4 +84,4 @@ Pour plus d’informations sur l’équilibrage de charge, voir l’article [Éq
 
 <!-- LINKS -->
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

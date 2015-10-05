@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Utiliser Azure PowerShell pour créer et préconfigurer des machines virtuelles Linux"
-	description="Découvrez comment utiliser Azure PowerShell pour créer et préconfigurer des machines virtuelles basées sur Linux dans Azure."
+	pageTitle="Création d’une machine virtuelle Linux à l’aide d’Azure PowerShell | Microsoft Azure"
+	description="Apprenez à créer et à préconfigurer une machine virtuelle Linux à l’aide d’Azure PowerShell."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="cynthn"
@@ -11,19 +11,23 @@
 <tags
 	ms.service="virtual-machines"
 	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="na"
+	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="07/09/2015"
 	ms.author="cynthn"/>
 
-# Utiliser Azure PowerShell pour créer et préconfigurer des machines virtuelles Linux
+# Création et préconfiguration d’une machine virtuelle Linux à l’aide d’Azure Powershell
 
 > [AZURE.SELECTOR]
 - [Azure CLI](virtual-machines-linux-tutorial.md)
 - [PowerShell](virtual-machines-ps-create-preconfigure-linux-vms.md)
 
-Ces étapes vous montrent comment personnaliser un jeu de commandes Azure PowerShell en vue de créer et de préconfigurer une machine virtuelle Azure basée sur Linux dans Service Management à l’aide d’une approche modulaire. À l'aide de cette procédure, vous pouvez créer rapidement un jeu de commandes pour une nouvelle machine virtuelle basée sur Linux et étendre un déploiement existant, ou créer plusieurs jeux de commandes qui génèrent rapidement un environnement personnalisé de développement/test ou destiné aux professionnels de l'informatique.
+<br>
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Cet article traite de la création d’une ressource avec le modèle de déploiement classique.
+
+Ces étapes montrent comment utiliser un ensemble de commandes Azure PowerShell pour créer et préconfigurer une machine virtuelle Linux à l’aide du modèle de gestion classique. À l'aide de cette procédure, vous pouvez créer rapidement un jeu de commandes pour une nouvelle machine virtuelle basée sur Linux et étendre un déploiement existant, ou créer plusieurs jeux de commandes qui génèrent rapidement un environnement personnalisé de développement/test ou destiné aux professionnels de l'informatique.
 
 Ces étapes utilisent une méthode de cases à remplir pour créer des jeux de commandes Azure PowerShell. Cette méthode peut être utile si vous découvrez Azure PowerShell ou simplement si vous souhaitez connaître les valeurs à indiquer pour une configuration réussie. Les utilisateurs avancés d’Azure PowerShell peuvent prendre les commandes et indiquer leurs propres valeurs pour les variables (lignes commençant par « $ »).
 
@@ -91,13 +95,13 @@ Vous pouvez éventuellement spécifier un jeu de paires de clés SSH déjà dé
 
 	$vm1 | Add-AzureProvisioningConfig -Linux -SSHKeyPairs "<SSH key pairs>"
 
-Pour plus d’informations, consultez [Utilisation de SSH avec Linux dans Azure](virtual-machines-linux-use-ssh-key.md).
+Pour plus d’informations, voir [Utilisation de SSH avec Linux dans Azure](virtual-machines-linux-use-ssh-key.md).
 
 Vous pouvez éventuellement spécifier une liste de clés publiques SSH déjà déployées dans l'abonnement.
 
 	$vm1 | Add-AzureProvisioningConfig -Linux - SSHPublicKeys "<SSH public keys>"
 
-Pour connaître les autres options de préconfiguration disponibles pour les machines virtuelles basées sur Linux, consultez la syntaxe du jeu de paramètres **Linux** dans [Add-AzureProvisioningConfig](https://msdn.microsoft.com/library/azure/dn495299.aspx).
+Pour connaître les autres options de préconfiguration disponibles pour les machines virtuelles basées sur Linux, voir la syntaxe du jeu de paramètres **Linux** dans [Add-AzureProvisioningConfig](https://msdn.microsoft.com/library/azure/dn495299.aspx).
 
 Vous pouvez éventuellement attribuer à la machine virtuelle une adresse IP spécifique, appelée DIP statique.
 
@@ -153,12 +157,12 @@ Si vous utilisez un éditeur de texte, copiez le jeu de commandes dans le Presse
 
 Si vous le faites dans un abonnement, un compte de stockage, un service cloud, un groupe de haute disponibilité, un réseau virtuel ou un sous-réseau inapproprié, supprimez la machine virtuelle, corrigez la syntaxe du bloc de commande, puis exécutez le jeu de commandes modifié.
 
-Une fois la machine virtuelle créée, consultez [Connexion à une machine virtuelle exécutant Linux](virtual-machines-linux-how-to-log-on.md).
+Une fois la machine virtuelle créée, voir [Connexion à une machine virtuelle exécutant Linux](virtual-machines-linux-how-to-log-on.md).
 
 Si vous comptez créer cette machine virtuelle de nouveau ou une autre similaire, vous pouvez :
 
 - Enregistrer ce jeu de commandes en tant que fichier de script PowerShell (*.ps1)
-- Enregistrez ce jeu de commandes en tant que Runbook Azure Automation dans la section **Automatisation** du portail Azure.
+- Enregistrez ce jeu de commandes en tant que runbook Azure Automation dans la section **Automatisation** du portail Azure.
 
 ## <a id="examples"></a>Exemples
 
@@ -258,6 +262,6 @@ Voici le jeu de commandes Azure PowerShell correspondant qui permet de créer ce
 
 [Connexion à une machine virtuelle exécutant Linux](virtual-machines-linux-how-to-log-on.md)
 
-[Utilisation d’Azure PowerShell pour créer et préconfigurer des machines virtuelles basées sur Windows](virtual-machines-ps-create-preconfigure-windows-vms.md)
+[Utiliser Azure PowerShell pour créer et préconfigurer des machines virtuelles Windows](virtual-machines-ps-create-preconfigure-windows-vms.md)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

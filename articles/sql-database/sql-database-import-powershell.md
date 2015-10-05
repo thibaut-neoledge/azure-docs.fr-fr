@@ -13,7 +13,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="powershell"
     ms.workload="data-management" 
-    ms.date="09/05/2015"
+    ms.date="09/23/2015"
     ms.author="sstein"/>
 
 # Importer un fichier BACPAC vers une base de données SQL à l’aide de PowerShell
@@ -96,7 +96,7 @@ L’exécution de l’applet de commande **Get-Credential** ouvre une fenêtre v
 
 Cette commande envoie une demande d’importation de la base de données au service. Selon la taille de votre base de données, l'opération d'importation peut prendre plus ou moins longtemps.
 
-    $exportRequest = Start-AzureSqlDatabaseExport -SqlConnectionContext $SqlCtx -StorageContainer $Container -DatabaseName $DatabaseName -BlobName $BlobName
+    $importRequest = Start-AzureSqlDatabaseImport -SqlConnectionContext $SqlCtx -StorageContainer $Container -DatabaseName $DatabaseName -BlobName $BlobName
     
 
 ## Surveillez la progression de l’opération
@@ -132,7 +132,7 @@ Cette commande vous demandera un mot de passe. Entrez le nom d’utilisateur et 
     $StorageCtx = New-AzureStorageContext -StorageAccountName $StorageName -StorageAccountKey $StorageKey
     $Container = Get-AzureStorageContainer -Name $ContainerName -Context $StorageCtx
     
-    $ImportRequest = Start-AzureSqlDatabaseExport -SqlConnectionContext $SqlCtx -StorageContainer $Container -DatabaseName $DatabaseName -BlobName $BlobName
+    $ImportRequest = Start-AzureSqlDatabaseImport -SqlConnectionContext $SqlCtx -StorageContainer $Container -DatabaseName $DatabaseName -BlobName $BlobName
     
     Get-AzureSqlDatabaseImportExportStatus -RequestId $ImportRequest.RequestGuid -ServerName $ServerName -Username $credential.UserName
     
@@ -150,4 +150,4 @@ Cette commande vous demandera un mot de passe. Entrez le nom d’utilisateur et 
 - [Exercices de récupération d'urgence](sql-database-disaster-recovery-drills.md)
 - [Documentation sur la base de données SQL](https://azure.microsoft.com/documentation/services/sql-database/)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

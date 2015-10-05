@@ -15,7 +15,7 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-data"
-	ms.date="09/03/2015"
+	ms.date="09/21/2015"
 	ms.author="jgao"/>
 
 # Prise en main des outils Hadoop de Visual Studio pour HDInsight pour exécuter une requête Hive
@@ -35,7 +35,6 @@ Pour suivre ce didacticiel et utiliser les outils Hadoop dans Visual Studio, vou
 
 	- Windows 8.1, Windows 8 ou Windows 7
 	- Visual Studio (l'une des versions suivantes) :
-		- Visual Studio 2012 Professional/Premium/Ultimate avec [mise à jour 4](http://www.microsoft.com/download/details.aspx?id=39305)
 		- Visual Studio 2013 Community/Professional/Premium/Ultimate avec [mise à jour 4](https://www.microsoft.com/download/details.aspx?id=44921)
 		- Visual Studio 2015 (Community/Enterprise)
 
@@ -44,12 +43,14 @@ Pour suivre ce didacticiel et utiliser les outils Hadoop dans Visual Studio, vou
 
 ## Installer les outils HDInsight pour Visual Studio
 
-HDInsight Tools pour Visual Studio est packagé avec le Kit de développement logiciel (SDK) Microsoft Azure pour .NET version 2.5.1 ou ultérieure. Il peut être installé à l’aide de [Web Platform Installer](http://go.microsoft.com/fwlink/?LinkId=255386). Vous devez choisir celui qui correspond à votre version de Visual Studio. Le package d’outils Hadoop installe également le pilote Microsoft Hive ODBC 32 bits et 64 bits.
+HDInsight Tools pour Visual Studio et le pilote ODBC Microsoft Hive sont packagés avec le Kit de développement logiciel (SDK) Microsoft Azure pour .NET version 2.5.1 ou ultérieure. Vous pouvez l’installer via [Web Platform Installer](http://go.microsoft.com/fwlink/?LinkId=255386). Vous devez choisir celui qui correspond à votre version de Visual Studio. Si vous n’avez pas installé Visual Studio, vous pouvez installer la dernière version de Visual Studio Community et le Kit de développement logiciel (SDK) Azure à l’aide de [Web Platform Installer](http://go.microsoft.com/fwlink/?LinkId=255386) ou en suivant les liens suivants :
+
+- [Visual Studio Community 2015 avec Kit de développement logiciel (SDK) Microsoft Azure](https://www.microsoft.com/web/handlers/webpi.ashx/getinstaller/VS2015CommunityAzurePack.appids) 
+- [Visual Studio Community 2013 avec Kit de développement logiciel (SDK) Microsoft Azure](https://www.microsoft.com/web/handlers/webpi.ashx/getinstaller/VS2013CommunityAzurePack.appids) 
+- [Kit de développement logiciel (SDK) Microsoft Azure pour .NET (VS 2015)](https://www.microsoft.com/web/handlers/webpi.ashx/getinstaller/VWDOrVs2015AzurePack.appids) 
+- [Kit de développement logiciel (SDK) Microsoft Azure pour .NET (VS 2013)](https://www.microsoft.com/web/handlers/webpi.ashx/getinstaller/VWDOrVs2013AzurePack.appids) 
 
 ![Outils Hadoop : Web Platform Installer de HDinsight Tools pour Visual Studio.][1]
-
-
->[AZURE.NOTE]Si vous disposez de Visual Studio 2015 ou 2012 et que la version 2.5 du Kit de développement logiciel (SDK) Windows Azure est installée, vous devez supprimer manuellement la version antérieure avant d’installer la version la plus récente. Visual Studio 2013 prend en charge la mise à jour directe.
 
 ## Se connecter aux abonnements Azure
 Avec HDInsight Tools pour Visual Studio, vous pouvez vous connecter à vos clusters HDInsight, effectuer des opérations de gestion de base et exécuter des requêtes Hive.
@@ -65,12 +66,12 @@ Avec HDInsight Tools pour Visual Studio, vous pouvez vous connecter à vos clust
 2.	Dans le menu **Affichage**, cliquez sur **Explorateur de serveurs** pour ouvrir la fenêtre du même nom.
 3.	Développez **Azure**, puis **HDInsight**.
 
-	>[AZURE.NOTE]Notez que la fenêtre **Liste des tâches HDInsight** doit s’ouvrir. Si vous ne la voyez pas, cliquez sur **Autres fenêtres** à partir du menu **Affichage**, puis cliquez sur **Fenêtre de liste des tâches HDInsight**.  
+	>[AZURE.NOTE]Notez que la fenêtre **Liste des tâches HDInsight** doit s’ouvrir. Si vous ne la voyez pas, cliquez sur **Autres fenêtres** dans le menu **Affichage**, cliquez sur **Fenêtre de liste des tâches HDInsight**.  
 4.	Entrez les informations d’identification de votre abonnement Azure, puis cliquez sur **Connexion**. Cette étape n’est nécessaire que si vous ne vous êtes jamais connecté à l’abonnement Azure à partir de Visual Studio sur cette station de travail.
 5.	Dans l’explorateur de serveurs, vous verrez une liste des clusters HDInsight existants. Si vous ne voyez aucun cluster, vous pouvez en configurer un à l’aide du portail Aperçu d’Azure, d’Azure PowerShell ou du kit de développement logiciel (SDK) HDInsight. Pour plus d’informations, consultez la rubrique [Configuration de clusters HDInsight][hdinsight-provision].
 
 	![Outils Hadoop : liste de clusters de l’explorateur de serveurs de HDInsight Tools pour Visual Studio][5]
-6.	Développez un cluster HDInsight. Vous verrez les **bases de données Hive**, un compte de stockage par défaut, les comptes de stockage liés et le **journal Hadoop Service**. Vous pouvez développer davantage les entités.
+6.	Développez un cluster HDInsight. Vous devez voir les **bases de données Hive**, un compte de stockage par défaut, les comptes de stockage liés et le **journal Hadoop Service**. Vous pouvez développer davantage les entités.
 
 Une fois connecté à votre abonnement Azure, vous serez en mesure d’effectuer les opérations suivantes :
 
@@ -144,11 +145,11 @@ Vous pouvez créer et exécuter des requêtes Hive de deux manières :
 
 	![Outils Hadoop : validation locale des outils HDInsight pour Visual Studio.][10]
 
-4. Cliquez sur **Envoyer** ou sur **Envoyer (Avancé)**. Avec l’option d’envoi avancé, vous allez configurer les éléments **Nom de la tâche**, **Arguments**, **Configurations supplémentaires** et **Répertoire d’états** pour le script :
+4. Cliquez sur **Envoyer** ou sur **Envoyer (Avancé)**. Avec l’option d’envoi avancé, vous configurez les éléments **Nom du travail**, **Arguments**, **Configurations supplémentaires** et **Répertoire d’états** pour le script :
 
 	![requête hdinsight hadoop hive][9]
 
-	Après avoir soumis la tâche, la fenêtre **Récapitulatif de la tâche Hive** s’affiche.
+	Une fois la tâche soumise, la fenêtre **Résumé de tâche Hive** s’affiche.
 
 	![Résumé d'une requête HDInsight Hadoop Hive][8]
 5. Utilisez le bouton **Actualiser** pour mettre à jour l’état jusqu’à ce qu’il passe à **Terminé**.
@@ -181,7 +182,7 @@ La version la plus récente de l’outil permet de consulter le contenu de vos t
 
 ### Graphique de performances des travaux Hive sur Tez
 
-Visual Studio Tools pour HDInsight prend en charge l’affichage des graphiques de performances pour les travaux Hive exécutés par le moteur d’exécution Tez. Pour plus d’informations sur l’activation de Tez, consultez [Utiliser Hive dans HDInsight][hdinsight.hive]. Après avoir soumis une tâche Hive dans Visual Studio, ce dernier affiche le graphique lorsque cette tâche est terminée. Vous devrez peut-être cliquer sur le bouton **Actualiser** pour obtenir le dernier état du travail.
+Visual Studio Tools pour HDInsight prend en charge l’affichage des graphiques de performances pour les travaux Hive exécutés par le moteur d’exécution Tez. Pour plus d’informations sur l’activation de Tez, voir [Utilisation de Hive dans HDInsight][hdinsight.hive]. Après avoir soumis une tâche Hive dans Visual Studio, ce dernier affiche le graphique lorsque cette tâche est terminée. Il se peut que vous deviez cliquer sur le bouton **Actualiser** pour obtenir le dernier état de la tâche.
 
 > [AZURE.NOTE]Cette fonctionnalité est uniquement disponible pour les clusters HDInsight dont la version est supérieure à la version 3.2.4.593 et elle ne peut fonctionner que pour les travaux terminés. Elle fonctionne pour les clusters basés sur Windows et Linux.
 
@@ -236,4 +237,4 @@ Dans cet article, vous avez appris à établir une connexion à des clusters HDI
 
 [apache.hive]: http://hive.apache.org
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

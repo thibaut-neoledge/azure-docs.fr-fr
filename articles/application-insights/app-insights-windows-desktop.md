@@ -104,6 +104,9 @@ Par exemple, dans une application Windows Forms, vous pouvez écrire :
             if (tc != null)
             {
                 tc.Flush(); // only for desktop apps
+
+                // Allow time for flushing:
+                System.Threading.Thread.Sleep(1000);
             }
             base.OnClosing(e);
         }
@@ -174,7 +177,7 @@ Si vous avez utilisé TrackMetric ou le paramètre de mesures de TrackEvent, ouv
 
 Si votre application s’exécute à l’endroit où une connexion n’est pas toujours disponible ou est très lente, prévoyez d’utiliser la couche de persistance et le canal mémoire interne par défaut.
 
-Le canal de mémoire par défaut perd toute télémétrie qui n’a pas été envoyée au moment où l’application se ferme. Bien que vous puissiez utiliser `Flush()` pour tenter d’envoyer les données restantes dans la mémoire tampon, il expire s’il n’existe aucune connexion internet et retarde l’arrêt de l’application.
+Le canal de mémoire par défaut perd toute télémétrie qui n’a pas été envoyée au moment où l’application se ferme. Bien que vous puissiez utiliser `Flush()` pour tenter d'envoyer les données restantes dans la mémoire tampon, il perdra tout de même les données si aucune connexion Internet n'est disponible, ou si l'application s'arrête avant la fin de la transmission.
 
 En revanche, le canal de persistance met en mémoire tampon la télémétrie dans un fichier, avant de l’envoyer au portail. `Flush()` garantit que les données sont stockées dans le fichier. Si aucune donnée n’est envoyée au moment où l’application se ferme, elle reste dans le fichier. Lorsque l’application redémarre, les données sont envoyées ensuite s’il existe une connexion internet. Les données s’accumuleront dans le fichier aussi longtemps que nécessaire, jusqu’à ce qu’une connexion est disponible.
 
@@ -294,4 +297,4 @@ Le code du canal de persistance est sur [github](https://github.com/Microsoft/Ap
 [CoreNuGet]: https://www.nuget.org/packages/Microsoft.ApplicationInsights
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

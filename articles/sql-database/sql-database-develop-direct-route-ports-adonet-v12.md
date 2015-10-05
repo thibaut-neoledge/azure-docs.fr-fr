@@ -114,4 +114,10 @@ Les différences entre SQL Database V11 et SQL Database V12 pour la connexion cl
 
 - [Connexion à la base de données SQL : liens, meilleures pratiques et règles de conception](sql-database-connect-central-recommendations.md)
 
-<!---HONumber=Sept15_HO3-->
+
+- [Pare-feu Azure SQL Database](sql-database-firewall-configure.md)
+
+
+- [Configuration des paramètres du pare-feu sur une base de données SQL](sql-database-configure-firewall-settings.md)
+
+<!---HONumber=Sept15_HO4-->

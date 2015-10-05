@@ -1,22 +1,27 @@
 <properties 
-	pageTitle="Didacticiel : création d’un réseau virtuel dans le cloud uniquement"
-	description="Ce didacticiel vous explique comment créer un exemple de Azure Virtual Network pour le cloud uniquement."
-	services="virtual-machines, virtual-network"
-	documentationCenter=""
-	authors="cherylmc"
-	manager="adinah"
-	editor=""/>
+	pageTitle="Création d'un réseau virtuel cloud dans Azure | Microsoft Azure" 
+	description="Ce didacticiel vous explique comment créer un exemple de Azure Virtual Network pour le cloud uniquement." 
+	services="virtual-machines, virtual-network" 
+	documentationCenter="" 
+	authors="cherylmc" 
+	manager="adinah" 
+	editor=""
+	tags="azure-resource-manager"/>
 
 <tags 
-	ms.service="virtual-network"
-	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/17/2015"
+	ms.service="virtual-network" 
+	ms.workload="infrastructure-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/17/2015" 
 	ms.author="cherylmc"/>
 
 # Didacticiel : Création d’un réseau virtuel cloud uniquement dans Azure
+
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Cet article traite de la création de ressources avec le modèle de déploiement de Resource Manager.
+
 
 Ce didacticiel décrit les étapes à effectuer dans le portail de gestion Azure pour créer un exemple de réseau virtuel Azure cloud uniquement qui contient deux sous-réseaux. Le réseau virtuel obtenu ressemblera à ceci :
 
@@ -118,4 +123,4 @@ Pour plus d'informations sur les paramètres et procédures de configuration du 
 
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

@@ -1,6 +1,6 @@
 ## Déployer le modèle ARM à l'aide de l'interface de ligne de commande Azure
 
-Pour déployer le modèle ARM téléchargé à l'aide de PowerShell, suivez les étapes ci-dessous.
+Pour déployer le modèle ARM que vous avez téléchargé à l’aide de l’interface de ligne de commande Azure, suivez les étapes ci-dessous.
 
 1. Si vous n'avez jamais utilisé l'interface de ligne de commande Azure, consultez [Installer et configurer l'interface de ligne de commande Azure](xplat-cli.md) et suivez les instructions jusqu'à l'étape où vous sélectionnez votre compte et votre abonnement Azure.
 2. Exécutez la commande **azure config mode** pour passer en mode Resource Manager, comme illustré ci-dessous.
@@ -11,7 +11,7 @@ Pour déployer le modèle ARM téléchargé à l'aide de PowerShell, suivez les 
 
 		info:    New mode is arm
 
-3. Au besoin, exécutez l’applet de commande **azure group create** pour créer un groupe de ressources, comme illustré ci-dessous. Observez le résultat de la commande. La liste affichée après le résultat présente les différents paramètres utilisés. Pour plus d’informations sur les groupes de ressources, consultez la page [Présentation d’Azure Resource Manager](resource-group-overview.md/#resource-groups).
+3. Au besoin, exécutez l’applet de commande **azure group create** pour créer un groupe de ressources, comme illustré ci-dessous. Observez le résultat de la commande. La liste affichée après le résultat présente les différents paramètres utilisés. Pour plus d'informations sur les groupes de ressources, consultez la page [Vue d’ensemble d'Azure Resource Manager](resource-group-overview.md).
 
 		azure group create -n TestRG -l centralus
 
@@ -89,4 +89,4 @@ Pour déployer le modèle ARM téléchargé à l'aide de PowerShell, suivez les 
 		data:
 		info:    network vnet show command OK
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

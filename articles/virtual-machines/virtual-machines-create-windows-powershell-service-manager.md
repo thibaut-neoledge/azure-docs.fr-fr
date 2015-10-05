@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Créez et gérez une machine virtuelle Windows dans la gestion des services avec Azure PowerShell."
-	description="Azure PowerShell permet de créer rapidement une machine virtuelle Windows dans la gestion des services et d’exécuter des fonctions de gestion."
+	pageTitle="Création et gestion d’une machine virtuelle Windows à l’aide d’Azure PowerShell | Microsoft Azure"
+	description="Créez et gérez une machine virtuelle Windows avec Azure PowerShell à l’aide du modèle de déploiement classique."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="cynthn"
@@ -17,13 +17,13 @@
 	ms.date="07/09/2015"
 	ms.author="cynthn"/>
 
-# Création et gestion d’une machine virtuelle Windows dans la gestion des services à l’aide d’Azure PowerShell
+# Création et gestion d’une machine virtuelle Windows à l’aide d’Azure PowerShell
 
-Cette rubrique explique comment créer et gérer les machines virtuelles Azure Windows dans la gestion des services à l’aide d’Azure PowerShell.
+Cet article explique comment créer et gérer les machines virtuelles Windows à l’aide d’Azure PowerShell.
 
-[AZURE.INCLUDE [service-management-pointer-to-resource-manager](../../includes/service-management-pointer-to-resource-manager.md)]
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Cet article traite de la création d’une machine virtuelle Windows avec le modèle de déploiement classique. Vous pouvez également créer une machine virtuelle Windows avec le [modèle de déploiement Resource Manager](virtual-machines-deploy-rmtemplates-powershell.md).
 
-- [Déploiement et gestion des machines virtuelles à l’aide de modèles Azure Resource Manager et de PowerShell](virtual-machines-deploy-rmtemplates-powershell.md)
+
 
 ## Configurer Azure PowerShell
 
@@ -74,7 +74,7 @@ Vous devrez spécifier l'emplacement d’un centre de données Azure au moment d
 
 Ensuite, vous avez besoin d’un service cloud. Si vous n'avez pas déjà un service cloud, vous devez en créer un. Vous devez choisir un nom unique qui contient uniquement des lettres, des chiffres et des tirets. Le premier et le dernier caractère du champ doivent être une lettre ou un chiffre.
 
-Par exemple, vous pouvez le nommer TestCS-*UniqueSequence*, où est *UniqueSequence* est l’abréviation de votre entreprise. Par exemple, si le nom de votre organisation est Tailspin Toys, vous pouvez nommer le service cloud TestCS-Tailspin.
+Par exemple, vous pouvez le nommer TestCS-*UniqueSequence*, où *UniqueSequence* est l’abréviation de votre entreprise. Par exemple, si le nom de votre organisation est Tailspin Toys, vous pouvez nommer le service cloud TestCS-Tailspin.
 
 Vous pouvez vérifier si le nom est unique en utilisant cette commande Azure PowerShell :
 
@@ -207,6 +207,6 @@ Pour attacher des disques de données à partir d’un fichier .vhd existant dan
 
 [Installation et configuration d’Azure PowerShell](../install-configure-powershell.md)
 
-[Utilisation d'Azure PowerShell pour créer et préconfigurer des machines virtuelles Windows](virtual-machines-ps-create-preconfigure-windows-vms.md)
+[Utiliser Azure PowerShell pour créer et préconfigurer des machines virtuelles Windows](virtual-machines-ps-create-preconfigure-windows-vms.md)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

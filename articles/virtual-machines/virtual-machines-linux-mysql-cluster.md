@@ -1,11 +1,12 @@
 <properties
-	pageTitle="Utilisation de jeux d'équilibrage de la charge pour regrouper MySQL sur Linux"
-	description="Article qui illustre les modèles de configuration d'un cluster Linux à charge équilibrée et haute disponibilité sur Azure en utilisant MySQL à titre d'exemple"
+	pageTitle="Regroupement de MySQL avec des jeux à charge équilibrée | Microsoft Azure"
+	description="Configuration d’un cluster MySQL Linux à haute disponibilité, à charge équilibrée créé avec le modèle de déploiement classique dans Azure"
 	services="virtual-machines"
 	documentationCenter=""
 	authors="bureado"
 	manager="timlt"
-	editor=""/>
+	editor=""
+	tags="azure-service-management"/>
 
 <tags
 	ms.service="virtual-machines"
@@ -18,16 +19,7 @@
 
 # Utilisation de jeux d'équilibrage de la charge pour regrouper MySQL sur Linux
 
-* [Préparation](#getting-ready)
-* [Configuration du cluster](#setting-up-the-cluster)
-* [Configuration de MySQL](#setting-up-mysql)
-* [Configuration de Corosync](#setting-up-corosync)
-* [Configuration de Pacemaker](#setting-up-pacemaker)
-* [Test](#testing)
-* [STONITH](#stonith)
-* [Limitations](#limitations)
-
-## Introduction
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Cet article traite de la création de ressources avec le modèle de déploiement classique.
 
 L'objectif de cet article est d'explorer et d'illustrer les différentes approches disponibles pour déployer des services Linux hautement disponibles sur Microsoft Azure en explorant la haute disponibilité de MySQL Server. Une vidéo illustrant cette approche est disponible sur [Channel 9](http://channel9.msdn.com/Blogs/Open/Load-balancing-highly-available-Linux-services-on-Windows-Azure-OpenLDAP-and-MySQL).
 
@@ -346,6 +338,5 @@ Les limites suivantes s'appliquent :
 - L'équilibrage de charge a besoin d'au moins 5 secondes pour répondre. Les applications doivent donc être conscientes des clusters et plus tolérantes en matière de délai. D'autres architectures peuvent également aider, par exemple les files d'attente intégrées, les intergiciels de requête, etc.
 - Un réglage de MySQL est nécessaire pour veiller à ce que l'écriture soit effectuée à un rythme raisonnable et que les caches soient vidés le plus souvent possible afin de limiter la perte de mémoire.
 - Les performances d'écriture dépendront de l'interconnexion des machines virtuelles dans le commutateur virtuel, car il s'agit du mécanisme utilisé par DRBD pour répliquer le périphérique.
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

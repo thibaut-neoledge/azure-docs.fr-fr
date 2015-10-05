@@ -1,18 +1,19 @@
 <properties
-   pageTitle="Automatisation du déploiement de machine virtuelle Azure avec Chef"
-	description="L’art de l’automatisation de machine virtuelle Microsoft Azure avec Chef"
-	services="virtual-machines"
-	documentationCenter=""
-	authors="diegoviso"
-	manager="timlt"
-	editor=""/>
+   pageTitle="Déploiement d’une machine virtuelle Azure avec Chef | Microsoft Azure"
+   description="Découvrez comment utiliser Chef pour effectuer un déploiement et une configuration de machine virtuelle automatisés dans Microsoft Azure"
+   services="virtual-machines"
+   documentationCenter=""
+   authors="diegoviso"
+   manager="timlt"
+   tags="azure-service-management,azure-resource-manager"
+   editor=""/>
 
 <tags ms.service="virtual-machines" ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="vm-multiple"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="05/19/2015"
-	ms.author="diviso"/>
+ms.tgt_pltfrm="vm-multiple"
+ms.devlang="na"
+ms.topic="article"
+ms.date="05/19/2015"
+ms.author="diviso"/>
 
 # Automatisation du déploiement de machine virtuelle Azure avec Chef
 
@@ -236,4 +237,4 @@ Nous espérons que cela a été utile ! Démarrez votre voyage en matière d’
 
 <!--Link references-->
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

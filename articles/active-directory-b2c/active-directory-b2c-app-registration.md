@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/15/2015"
+	ms.date="09/22/2015"
 	ms.author="swkrish"/>
 
 # Azure Active Directory entreprise-client (B2C) en version préliminaire : comment inscrire votre application
@@ -23,6 +23,9 @@
 ## Conditions préalables
 
 Pour créer une application qui accepte l’inscription et la connexion des consommateurs, vous devez commencer par inscrire cette application auprès d’un annuaire Azure Active Directory B2C. Obtenez votre propre annuaire en procédant de la manière décrite [ici](active-directory-b2c-get-started.md). Si vous avez suivi toutes les étapes de cet article, le panneau de fonctionnalités B2C doit être épinglé sur votre Tableau d’accueil.
+
+    > [AZURE.IMPORTANT]
+    You cannot use applications registered in the **Applications** tab on the [Azure Portal](https://manage.windowsazure.com/) for this.
 
 ## Accéder au panneau de fonctionnalités B2C
 
@@ -59,4 +62,4 @@ Le lien **Gestion des paramètres B2C** figure également sous l’onglet **Con
 
 [AZURE.INCLUDE [active-directory-v2-quickstart-table](../../includes/active-directory-b2c-quickstart-table.md)]
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

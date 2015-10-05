@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/23/2015"
+   ms.date="09/22/2015"
    ms.author="barbkess"/>
 
 # Éléments de langage
@@ -49,8 +49,8 @@
 ## Opérateurs
 - [\+ (Ajout)](https://msdn.microsoft.com/library/ms178565.aspx)
 - [\+ (Concaténation de chaîne)](https://msdn.microsoft.com/library/ms177561.aspx)
-- [\- (Négatif)](https://msdn.microsoft.com/library/ms189480.aspx)
-- [\- (Soustraction)](https://msdn.microsoft.com/library/ms189518.aspx)
+- [- (Négatif)](https://msdn.microsoft.com/library/ms189480.aspx)
+- [- (Soustraction)](https://msdn.microsoft.com/library/ms189518.aspx)
 - [* (Multiplication)](https://msdn.microsoft.com/library/ms176019.aspx)
 - [/ (Division)](https://msdn.microsoft.com/library/ms175009.aspx)
 - [Modulo](https://msdn.microsoft.com/library/ms190279.aspx)
@@ -78,7 +78,7 @@
 - [& (Opérateur AND au niveau du bit)](https://msdn.microsoft.com/library/ms174965.aspx)
 - [| (Opérateur OR au niveau du bit)](https://msdn.microsoft.com/library/ms186714.aspx)
 - [^ (Opérateur OR exclusif au niveau du bit)](https://msdn.microsoft.com/library/ms190277.aspx)
-- [\~ (Opérateur NOT au niveau du bit)](https://msdn.microsoft.com/library/ms173468.aspx)
+- [~ (Opérateur NOT au niveau du bit)](https://msdn.microsoft.com/library/ms173468.aspx)
 - [^= (Opérateur OR EQUALS exclusif au niveau du bit)](https://msdn.microsoft.com/library/cc627413.aspx)
 - |= (Opérateur OR EQUALS au niveau du bit)
 - ? (Opérateur AND EQUALS au niveau du bit)
@@ -290,4 +290,4 @@ Pour plus d’informations, consultez la [vue d’ensemble de référence de SQL
 
 <!--MSDN references-->
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

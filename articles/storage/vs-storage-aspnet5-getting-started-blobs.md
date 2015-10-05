@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/03/2015"
-	ms.author="patshea123"/>
+	ms.author="patshea"/>
 
 # Prendre en main le stockage d’objets blob Azure et les services connectés de Visual Studio (ASP.NET 5)
 
@@ -166,4 +166,4 @@ Pour supprimer un objet blob, commencez par en obtenir la référence, puis appe
 
 [AZURE.INCLUDE [vs-storage-dotnet-blobs-next-steps](../../includes/vs-storage-dotnet-blobs-next-steps.md)]
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

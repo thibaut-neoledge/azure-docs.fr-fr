@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/03/2015"
-	ms.author="patshea123"/>
+	ms.author="patshea"/>
 
 # Qu’est-il arrivé à mon projet services cloud (service connecté Azure Storage de Visual Studio) ?
 
@@ -43,4 +43,4 @@ Les éléments ont été créés avec la clé et la chaîne de connexion du comp
 - **ServiceConfiguration.Cloud.cscfg**
 - **ServiceConfiguration.Local.cscfg**
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

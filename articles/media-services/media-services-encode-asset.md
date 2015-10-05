@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/07/2015"  
+	ms.date="09/23/2015"  
 	ms.author="juliako"/>
 
 #Vue d’ensemble et comparaison d’encodeurs multimédia à la demande Azure
@@ -70,13 +70,13 @@ Media Encoder Standard se configure à l’aide d’une des présélections d’
 
 ###Métadonnées d’entrée et de sortie
 
-Les métadonnées d’entrée des encodeurs sont décrites [ici](http://msdn.microsoft.com/library/azure/dn783120.aspx) (identiques à Azure Media Encoder).
+Les métadonnées d’entrée des encodeurs sont décrites [ici](http://msdn.microsoft.com/library/azure/dn783120.aspx).
 
-Les métadonnées de sortie des encodeurs sont décrites [ici](http://msdn.microsoft.com/library/azure/dn783217.aspx) (identiques à Azure Media Encoder).
+Les métadonnées de sortie des encodeurs sont décrites [ici](http://msdn.microsoft.com/library/azure/dn783217.aspx).
 
 ###Miniature
 
-Fonctionnalité non prise en charge actuellement.
+Pour plus d'informations sur la génération de miniatures, consultez [Génération des miniatures à l'aide de Media Encoder Standard](media-services-dotnet-generate-thumbnail-with-mes.md).
 
 ###Superpositions audio et/ou vidéo
 
@@ -102,7 +102,7 @@ Azure Media Encoder est l’un des encodeurs pris en charge par Media Services. 
 
 ###Présélections
 
-Azure Media Encoder se configure à l’aide d’une des présélections d’encodeur décrites [ici](https://msdn.microsoft.com/library/azure/dn619392.aspx). Vous pouvez également obtenir les fichiers de présélection d’Azure Media Encoder [ici](https://github.com/Azure/azure-media-services-samples/tree/master/Encoding%20Presets/VoD/Azure%20Media%20Encoder).
+Azure Media Encoder est configuré à l’aide d’un des paramètres prédéfinis de l’encodeur décrits [ici](https://msdn.microsoft.com/library/azure/dn619392.aspx). Vous pouvez également obtenir les fichiers des paramètres prédéfinis d’Azure Media Encoder [ici](https://github.com/Azure/azure-media-services-samples/tree/master/Encoding%20Presets/VoD/Azure%20Media%20Encoder).
 
 ###Métadonnées d’entrée et de sortie
 
@@ -112,7 +112,7 @@ Les métadonnées de sortie des encodeurs sont décrites [ici](http://msdn.micro
 
 ###Miniature
 
-[Création d’une miniature](https://msdn.microsoft.com/library/azure/Dn673581.aspx)
+[Création d’une miniature](https://msdn.microsoft.com/library/hh973624.aspx)
 
 ###Superpositions audio et/ou vidéo
 
@@ -127,14 +127,16 @@ Les métadonnées de sortie des encodeurs sont décrites [ici](http://msdn.micro
 [Encodage de vos médias avec Dolby Digital Plus](media-services-encode-with-dolby-digital-plus.md)
 
 ##Media Encoder Premium Workflow
-	
+
+###Vue d'ensemble
+
+[Présentation de l’encodage Premium dans Azure Media Services](http://azure.microsoft.com/blog/2015/03/05/introducing-premium-encoding-in-azure-media-services)
+
+###Utilisation
+
 Media Encoder Premium Workflow se configure à l’aide de flux de travail complexes. Les fichiers de flux de travail peuvent être créés et mis à jour à l’aide de l’outil [Concepteur de flux de travail](media-services-workflow-designer.md).
 
-Pour plus d'informations, consultez les pages suivantes :
-
-- [Présentation de l’encodage Premium dans Azure Media Services](http://azure.microsoft.com/blog/2015/03/05/introducing-premium-encoding-in-azure-media-services)
-- [Utilisation de l’encodage Premium dans Azure Media Services](http://azure.microsoft.com/blog/2015/03/06/how-to-use-premium-encoding-in-azure-media-services)
-
+[Utilisation de l’encodage Premium dans Azure Media Services](http://azure.microsoft.com/blog/2015/03/06/how-to-use-premium-encoding-in-azure-media-services)
 
 ##<a id="compare_encoders"></a>Comparaison des encodeurs
 
@@ -254,4 +256,4 @@ Vous pouvez afficher les parcours d’apprentissage d’AMS ici :
 <!--Reference links in article-->
 [1]: http://azure.microsoft.com/pricing/details/media-services/
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

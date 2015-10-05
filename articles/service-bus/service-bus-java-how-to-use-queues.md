@@ -174,6 +174,9 @@ Si l'application subit un incident après le traitement du message, mais avant l
 
 Les principes de base des files d’attente Service Bus étant appris, consultez [Files d’attente, rubriques et abonnements][] pour plus d’informations.
 
+Pour plus d’informations, consultez également le [Centre pour développeurs Java](/develop/java/).
+
+
   [Kit de développement logiciel (SDK) Azure pour Java]: http://azure.microsoft.com/develop/java/
   [Kit de ressources Azure pour Eclipse]: https://msdn.microsoft.com/fr-FR/library/azure/hh694271.aspx
   [What are Service Bus Queues?]: #what-are-service-bus-queues
@@ -189,4 +192,4 @@ Les principes de base des files d’attente Service Bus étant appris, consultez
   [Files d’attente, rubriques et abonnements]: service-bus-queues-topics-subscriptions.md
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

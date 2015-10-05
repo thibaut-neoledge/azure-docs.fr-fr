@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Automatisation avec Microsoft Azure Resource Manager"
+	pageTitle="Automatisation avec Azure Resource Manager | Microsoft Azure"
 	description="Obtenez des liens vers des rubriques sur l’automatisation de la création et la gestion des machines virtuelles Azure à l’aide du Gestionnaire de ressources."
 	services="virtual-machines"
 	documentationCenter=""
@@ -19,6 +19,8 @@
 
 
 # Automatisation avec Microsoft Azure Resource Manager
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Cet article traite de la création de ressources avec le modèle de déploiement de Resource Manager. Vous ne pouvez pas créer cette ressource avec le modèle de déploiement classique.
 
 Microsoft Azure Resource Manager simplifie le déploiement et la gestion d’applications complexes exécutées sur les services d’infrastructure Microsoft Azure. De nombreuses applications nécessitent une combinaison de ressources de calcul, réseau et de stockage, comme Microsoft Azure Virtual Network, le compte de stockage Microsoft Azure et Microsoft Azure Virtual Machines avec les interfaces réseau. Grâce à Microsoft Azure Resource Manager, vous pouvez utiliser ou développer un modèle JSON afin de déployer et de gérer l’ensemble de ces ressources comme une application unique.
 
@@ -72,4 +74,4 @@ Microsoft Azure Resource Manager simplifie le déploiement et la gestion d’
 
 [Documentation sur les machines virtuelles](http://azure.microsoft.com/documentation/services/virtual-machines/)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

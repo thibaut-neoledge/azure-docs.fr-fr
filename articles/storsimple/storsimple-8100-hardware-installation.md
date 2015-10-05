@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="09/16/2015"
+   ms.date="09/23/2015"
    ms.author="alkohli" />
 
 # Déballer, monter en rack et câbler votre appareil StorSimple 8100
@@ -233,7 +233,7 @@ Pour prendre en charge ce basculement de contrôleur redondant, vous devez branc
     3. Port de données DATA 0 au LAN principal (réseau avec accès à Internet). Les autres ports de données peuvent être connectés au segment SAN/iSCSI LAN (VLAN) du réseau, en fonction du rôle prévu.
 
     Configurez au moins une interface réseau pour l’accès au cloud et une pour iSCSI. Pour une haute disponibilité et des performances, configurez deux paires d’interfaces réseau sur chaque contrôleur. Consultez le schéma suivant pour le branchement des câbles réseau. (La configuration réseau minimale est indiquée par des lignes bleues pleines. Pour une haute disponibilité et des performances, la configuration supplémentaire requise est représentée par des lignes en pointillés.)
-
+	
     ![Câble réseau de votre appareil 2U](./media/storsimple-8100-hardware-installation/HCSCableYour2UDeviceforNetwork.png)
 
     **Branchement des câbles réseau de votre appareil**
@@ -275,4 +275,4 @@ Votre appareil est désormais branché à l’alimentation, au réseau et au por
 Vous êtes maintenant prêt à procéder au [Déploiement de votre appareil StorSimple local](storsimple-deployment-walkthrough.md).
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

@@ -1,10 +1,10 @@
 <properties
-	pageTitle="Quelles opérations supplémentaires puis-je effectuer à l’aide d’Azure AD ?"
-	description="Décrit les tâches avancées qu’il est possible d’effectuer à l'aide d'Azure AD."
+	pageTitle="Quelles opérations supplémentaires puis-je effectuer à l’aide d’Azure Active Directory ?"
+	description="Tâches avancées comme la gestion des mots de passe, la gestion des utilisateurs, la gestion des groupes et création de conditions d'accès à l'aide d'Azure Active Directory"
 	services="active-directory"
 	documentationCenter=""
 	authors="curtand"
-	manager="terrylan"
+	manager="stevenpo"
 	editor=""/>
 
 <tags
@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/02/2015"
+	ms.date="09/21/2015"
 	ms.author="curtand"/>
 
 # Quelles opérations supplémentaires puis-je effectuer à l’aide d’Azure AD ?
 
 
-###Autres articles sur le sujet
+### Autres articles sur le sujet
 [Présentation d’Azure AD](active-directory-whatis.md)<br> [Comment cela fonctionne-t-il ?](active-directory-works.md)<br> [Prise en main](active-directory-get-started.md)<br> [Étapes suivantes](active-directory-next-steps.md)<br> [En savoir plus](active-directory-learn-map.md)
 
 ## Gérer les utilisateurs dans Azure AD
@@ -41,4 +41,4 @@ Le service Azure AD Device Registration attribue aux appareils une identité qui
 * [Identité Azure](fundamentals-identity.md)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

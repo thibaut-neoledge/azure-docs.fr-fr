@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Groupes dédiés dans Azure Active Directory | Microsoft Azure" 
-	description="Une rubrique qui explique comment gérer les mots de passe dans Azure AD." 
+	description="Vue d'ensemble des groupes dédiés dans Azure AD et mode de création." 
 	services="active-directory" 
 	documentationCenter="" 
 	authors="femila" 
@@ -28,9 +28,7 @@ Le groupe dédié Tous les utilisateurs peut vous permettre d’attribuer les m�
 Voici quelques rubriques vous fournissant des informations supplémentaires sur Azure Active Directory.
 
 * [Gestion de l’accès aux ressources avec les groupes Azure Active Directory](active-directory-manage-groups.md)
-
 * [Qu’est-ce qu’Azure Active Directory ?](active-directory-whatis.md)
-
 * [Intégration de vos identités locales avec Azure Active Directory](active-directory-aadconnect.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

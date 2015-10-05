@@ -19,6 +19,14 @@
 
 #Créer une application web PHP-MySQL dans Azure App Service et la déployer à l’aide de FTP
 
+> [AZURE.SELECTOR]
+- [.Net](web-sites-dotnet-get-started.md)
+- [Node.js](web-sites-nodejs-develop-deploy-mac.md)
+- [Java](web-sites-java-get-started.md)
+- [PHP - Git](web-sites-php-mysql-deploy-use-git.md)
+- [PHP - FTP](web-sites-php-mysql-deploy-use-ftp.md)
+- [Python](web-sites-python-ptvs-django-mysql.md)
+
 Ce didacticiel vous indique comment créer une application web PHP-MySQL et comment la déployer à l’aide de FTP. Il part du principe que vous avez installé [PHP][install-php], [MySQL][install-mysql], un serveur Web et un client FTP sur votre ordinateur. Les instructions de ce didacticiel s'appliquent à n'importe quel système d'exploitation, notamment Windows, Mac et Linux. À la fin de ce guide, vous disposerez d’une application web PHP/MySQL s’exécutant dans Azure.
  
 Vous apprendrez à effectuer les opérations suivantes :
@@ -289,4 +297,4 @@ Après avoir chargé les fichiers `index.php` et `createtable.php`, accédez à 
 [download-publish-profile]: ./media/web-sites-php-mysql-deploy-use-ftp/download_publish_profile_3.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

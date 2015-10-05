@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="09/09/2015"
+   ms.date="09/22/2015"
    ms.author="JRJ@BigBangData.co.uk;barbkess"/>
 
 # Prise en main : approvisionnement d’une instance SQL Data Warehouse #
@@ -161,6 +161,8 @@ Le service SQL Data Warehouse est correctement approvisionné. Nous pouvons d�
 1. [Connecter et interroger][] l’entrepôt de données.
 2. Charger les [exemples de données].
 
+	> [AZURE.NOTE]Nous souhaitons améliorer cet article. Si vous choisissez de répondre « non » à la question « Cet article vous a-t-il été utile ? », veuillez ajouter une brève suggestion concernant ce qui manque ou comment cet article peut être amélioré. Merci d’avance !
+
 <!--Image references-->
 
 
@@ -173,4 +175,4 @@ Le service SQL Data Warehouse est correctement approvisionné. Nous pouvons d�
 [portail Azure]: https://portal.azure.com/
 [portail Azure]: https://portal.azure.com/
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

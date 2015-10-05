@@ -1,6 +1,7 @@
-<properties 
-	pageTitle="Mettre à niveau vers la dernière version de la bibliothèque cliente des bases de données élastiques" 
-	description="Instructions pour la mise à niveau à l’aide de PowerShell et C#" 
+<properties
+	
+	pageTitle="Upgrade to the latest elastic database client library" 
+	description="Upgrade apps and libraries using Nuget" 
 	services="sql-database" 
 	documentationCenter="" 
 	manager="jeffreyg" 
@@ -12,23 +13,25 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/17/2015" 
+	ms.date="09/22/2015" 
 	ms.author="sidneyh" />
 
 # Mettre à niveau vers la dernière version de la bibliothèque cliente des bases de données élastiques
 
 Les nouvelles versions de la bibliothèque cliente des bases de données élastique sont disponibles via [NuGet](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/) et l’interface du Gestionnaire de package NuGet dans Visual Studio. Les mises à niveau contiennent des résolutions de bogues et offrent une prise en charge des nouvelles fonctionnalités de la bibliothèque cliente.
 
+Régénérez votre application avec la nouvelle bibliothèque et modifiez les métadonnées existantes du gestionnaire des cartes de partitions stockées dans vos bases de données SQL Azure pour prendre en charge les nouvelles fonctionnalités.
+
+Effectuez ces étapes afin de garantir que plus aucune version antérieure de la bibliothèque cliente ne reste présente dans votre environnement après la mise à jour des objets de métadonnées. De cette façon, il n’y aura pas d’objets de métadonnées d’une version antérieure qui seront créés après la mise à niveau.
+
 ## Étapes de la mise à niveau
-
-La mise à niveau implique de régénérer votre application avec la nouvelle bibliothèque, ainsi que de modifier les métadonnées existantes du gestionnaire des cartes de partitions stockées dans vos bases de données SQL Azure pour prendre en charge les nouvelles fonctionnalités.
-
-Suivez la procédure ci-dessous pour mettre à niveau vos applications, la base de données du gestionnaire des cartes de partitions et les métadonnées se trouvant sur chaque partition du gestionnaire des cartes de partitions locales. Effectuez les étapes de mise à niveau dans l’ordre indiqué afin de garantir que plus aucune version antérieure de la bibliothèque cliente ne reste présente dans votre environnement après la mise à jour des objets de métadonnées. De cette façon, il n’y aura pas d’objets de métadonnées d’une version antérieure qui seront créés après la mise à niveau.
 
 **1. Mettez à niveau vos applications.** Dans Visual Studio, téléchargez la dernière version de la bibliothèque cliente et ajoutez une référence à cette bibliothèque dans tous vos projets de développement qui utilisent la bibliothèque. Ensuite, régénérez et déployez les applications.
 
  * Dans votre solution Visual Studio, sélectionnez **Outils** --> **Gestionnaire de package NuGet** --> **Gérer les packages NuGet pour la solution**. 
- * Dans le volet gauche, sélectionnez **Mises à jour**, puis cliquez sur le bouton **Mettre à jour ** dans le package **Bibliothèque cliente de la mise à l’échelle élastique de base de données SQL Azure** qui s’affiche dans la fenêtre.![Mettre à niveau le package de Nuget][1]
+ * (Visual Studio 2013) Dans le volet gauche, sélectionnez **Mises à jour**, puis cliquez sur le bouton **Mettre à jour ** dans le package **Bibliothèque cliente de la mise à l’échelle élastique de base de données SQL Azure** qui s’affiche dans la fenêtre.
+ * (Visual Studio 2015) Définissez la zone de filtre **Mise à niveau disponible**. Sélectionnez le package à mettre à jour puis cliquez sur le bouton **Mettre à jour**.
+	
  
  * Générez et déployez les applications.
 
@@ -94,4 +97,4 @@ Version préliminaire initiale
 [1]: ./media/sql-database-elastic-scale-upgrade-client-library/nuget-upgrade.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

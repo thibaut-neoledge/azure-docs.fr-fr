@@ -2,10 +2,11 @@
    pageTitle="Création d’une machine virtuelle Azure avec l'interface de ligne de commande Azure | Microsoft Azure"
    description="Cette rubrique décrit comment installer l'interface de ligne de commande Azure sur n'importe quelle plateforme, comment l'utiliser pour se connecter à un compte Azure et comment créer une machine virtuelle à partir de cette interface."
    services="virtual-machines"
-   documentationCenter="virtual-machines"
+   documentationCenter=""
    authors="dlepow"
    manager="timlt"
-   editor="tysonn"/>
+   editor="tysonn"
+   tags="azure-service-management"/>
 
 <tags
    ms.service="virtual-machines"
@@ -17,6 +18,9 @@
    ms.author="danlep"/>
 
 # Création d’une machine virtuelle à l’aide de l’interface de ligne de commande Azure (Azure CLI)
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Cet article traite de la création d’une ressource avec le modèle de déploiement classique. Vous pouvez également créer une ressource avec le [modèle de déploiement Resource Manager](virtual-machines-deploy-rmtemplates-azure-cli.md).
+
 L'interface de ligne de commande Azure est un excellent moyen de gérer votre infrastructure Azure à partir de n'importe quelle plateforme.
 
 Il ne suffit pas d'installer l'interface de ligne de commande Azure et de détenir un abonnement Azure pour créer une machine virtuelle sur-le-champ. Examinons la procédure en détail. Si vous n'avez pas de compte Azure, [obtenez-en un gratuitement](http://azure.microsoft.com/pricing/free-trial/).
@@ -43,7 +47,7 @@ La création d'une machine virtuelle commence par le choix (ou le téléchargeme
 
     À partir de là, vous pouvez choisir une image et utiliser la commande `show` pour afficher ses propriétés de façon plus détaillée :
 
-        azure vm image show b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-14_10-amd64-server-20150202-fr-fr-30GB
+        azure vm image show b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-14_10-amd64-server-20150202-fr-FR-30GB
 
 2. Une fois que vous avez choisi une image de machine virtuelle, utilisez la commande `vm create` pour créer l'image. Cette commande comporte de nombreuses options que vous pouvez répertorier avec la commande `help` :
 
@@ -59,7 +63,7 @@ La création d'une machine virtuelle commence par le choix (ou le téléchargeme
 
     The Linux example below creates a VM in West US, opens the default SSH port 22 (the -e argument), and creates a user called `myadminuser`:
 
-        azure vm create -e -l "West US"  my-new-cli-vm b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-14_10-amd64-server-20150202-fr-fr-30GB "myadminuser" "myAdm1n@passwd"
+        azure vm create -e -l "West US"  my-new-cli-vm b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-14_10-amd64-server-20150202-fr-FR-30GB "myadminuser" "myAdm1n@passwd"
 
 ## Étapes suivantes
 
@@ -74,4 +78,4 @@ Pour obtenir d’autres exemples d’utilisation de l’interface de ligne de co
 <!--Image references-->
 [5]: ./media/markdown-template-for-new-articles/octocats.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

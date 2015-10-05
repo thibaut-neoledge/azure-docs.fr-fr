@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="09/07/2015"   
+	ms.date="09/21/2015"   
 	ms.author="juliako"/>
 
 
@@ -29,21 +29,20 @@ Azure Media Indexer permet de rendre le contenu de vos fichiers multimédias con
 >[AZURE.IMPORTANT]Lors de l’indexation de contenu, veillez à utiliser des fichiers multimédias avec des mots clairs (sans musique de fond, bruit, effets ou sifflement du microphone). Voici quelques exemples de contenu approprié : des réunions, des conférences ou des présentations enregistrées. Le contenu suivant peut ne pas convenir à l’indexation : des films, des émissions de télévision, des fichiers avec du son et des effets sonores mélangés, du contenu mal enregistré avec un bruit de fond (sifflement).
 
 
-Un travail d’indexation génère quatre sorties pour chaque fichier d’indexation :
+Une tâche d’indexation génère les sortie suivantes :
 
-- Un fichier de sous-titres codés au format SAMI.
-- Un fichier de sous-titres codés au format TTML (Timed Text Markup Language).
+- Fichiers de sous-titres codés dans les formats suivants : **SAMI**, **TTML** et **WebVTT**.
 
-	SAMI et TTML incluent une balise appelée Recognizability, qui note une tâche d’indexation en fonction de la possibilité de reconnaître les mots de la vidéo source. Vous pouvez utiliser la valeur de Recognizability pour filtrer les fichiers de sortie en fonction de leur usage. Un faible score sous-entend de mauvais résultats d’indexation en raison de la qualité audio.
+	Les fichiers de sous-titres codés incluent une balise appelée Recognizability, qui note une tâche d’indexation en fonction de la possibilité de reconnaître les mots de la vidéo source. Vous pouvez utiliser la valeur de Recognizability pour filtrer les fichiers de sortie en fonction de leur usage. Un faible score sous-entend de mauvais résultats d’indexation en raison de la qualité audio.
 - Un fichier de mot-clé(XML).
 - Un fichier blob d’indexation audio (AIB) à utiliser avec SQL Server.
 	
-	Pour plus d’informations, consultez la rubrique [Utilisation de fichiers AIB avec Azure Media Indexer et SQL Server](http://azure.microsoft.com/blog/2014/11/03/using-aib-files-with-azure-media-indexer-and-sql-server/).
+	Pour plus d’informations, consultez [Utilisation de fichiers AIB avec Azure Media Indexer et SQL Server](http://azure.microsoft.com/blog/2014/11/03/using-aib-files-with-azure-media-indexer-and-sql-server/).
 
 
 Cette rubrique explique comment créer des tâches d’indexation pour **indexer un élément multimédia** et **indexer plusieurs fichiers**.
 
-Pour connaître les derniers développements d’Azure Media Indexer, consultez les [blogs Media Services](http://azure.microsoft.com/blog/topics/media-services/).
+Pour connaître les derniers développements d’Azure Media Indexer, consultez les [blogs Media Services](http://azure.microsoft.com/blog/topics/media-services/).
 
 ##Utilisation des fichiers de configuration et manifeste pour l’indexation des tâches
 
@@ -51,7 +50,7 @@ Vous pouvez définir plus de détails pour vos tâches d’indexation en utilisa
 
 Vous pouvez également traiter plusieurs fichiers multimédias à la fois à l’aide d’un fichier manifeste.
 
-Pour plus d’informations, consultez la rubrique [Présélection de tâches pour Azure Media Indexer](https://msdn.microsoft.com/library/azure/dn783454.aspx).
+Pour plus d’informations, consultez [Présélection de tâches pour Azure Media Indexer](https://msdn.microsoft.com/library/azure/dn783454.aspx).
 
 ##Indexation d’une ressource
 
@@ -164,11 +163,11 @@ Pour télécharger le composant additionnel, cliquez sur <a href="http://aka.ms/
 <br/><br/>
 Il est également possible d’utiliser d’autres moteurs de recherche comme Apache Lucene/Solr pour indexer la vidéo selon les sous-titres et les fichiers XML de mots clés, mais les résultats sont moins précis.</td></tr>
 <tr><td>NomFichierEntrée.smi<br/>NomFichierEntrée.ttml</td>
-<td>Fichiers de sous-titres aux formats SAMI et TTML.
+<td>Fichiers de sous-titres codés aux formats SAMI, TTML et WebVTT.
 <br/><br/>
 Ils permettent de rendre un fichier audio et vidéo accessible aux malentendants.
 <br/><br/>
-SAMI et TTML incluent une balise appelée <b>Recognizability</b>, qui note une tâche d’indexation en fonction de la possibilité de reconnaître les mots de la vidéo source. Vous pouvez utiliser la valeur de <b>Recognizability</b> pour filtrer les fichiers de sortie en fonction de leur usage. Un faible score sous-entend de mauvais résultats d’indexation en raison de la qualité audio.</td></tr>
+Les fichiers de sous-titres codés incluent une balise appelée <b>Recognizability</b>, qui note une tâche d’indexation en fonction de la possibilité de reconnaître les mots de la vidéo source. Vous pouvez utiliser la valeur de <b>Recognizability</b> pour filtrer les fichiers de sortie en fonction de leur usage. Un faible score sous-entend de mauvais résultats d’indexation en raison de la qualité audio.</td></tr>
 <tr><td>NomFichierEntrée.kw.xml</td>
 <td>Fichier de mot-clé.
 <br/><br/>
@@ -183,7 +182,7 @@ Si tous les fichiers multimédias d’entrée ne sont pas correctement indexés,
 
 La méthode suivante télécharge plusieurs fichiers multimédias en tant que ressource et crée une tâche pour indexer tous ces fichiers en lot.
 
-Un fichier manifeste avec l’extension .lst est créé et téléchargé dans la ressource. Le fichier manifeste contient la liste de tous les fichiers de ressources. Pour plus d’informations, consultez la rubrique [Présélection de tâches pour Azure Media Indexer](https://msdn.microsoft.com/library/azure/dn783454.aspx).
+Un fichier manifeste avec l’extension .lst est créé et téléchargé dans la ressource. Le fichier manifeste contient la liste de tous les fichiers de ressources. Pour plus d’informations, consultez [Présélection de tâches pour Azure Media Indexer](https://msdn.microsoft.com/library/azure/dn783454.aspx).
 	
 	static bool RunBatchIndexingJob(string[] inputMediaFiles, string outputFolder)
 	{
@@ -261,9 +260,9 @@ Un fichier manifeste avec l’extension .lst est créé et téléchargé dans la
 
 ###Fichiers de sortie
 
-Lorsqu’il existe plusieurs fichiers multimédias d’entrée, WAMI génère un fichier manifeste pour les sorties de la tâche, nommé « JobResult.txt ». Pour chaque fichier multimédia d’entrée, les fichiers AIB, SAMI, TTML et mots clés de sortie sont numérotés de façon séquentielle, comme indiqué ci-dessous.
+Lorsqu’il existe plusieurs fichiers multimédias d’entrée, WAMI génère un fichier manifeste pour les sorties de la tâche, nommé « JobResult.txt ». Pour chaque fichier multimédia d’entrée, les fichiers AIB, SAMI, TTML et WebVTT et les fichiers de mots clés qui en résultent sont numérotés de façon séquentielle, comme indiqué ci-dessous.
 
-Pour obtenir une description des fichiers de sortie, consultez la rubrique [Fichiers de sortie](#output_files).
+Pour obtenir une description des fichiers de sortie, consultez [Fichiers de sortie](#output_files).
 
 
 <table border="1">
@@ -292,7 +291,7 @@ Error&#160;: indique si ce fichier multimédia a été indexé avec succès. 0 e
 <tr><td>Media_1.aib </td>
 <td>Fichier #0&#160;: fichier blob d’indexation audio.</td></tr>
 <tr><td>Media_1.smi<br/>Media_1.ttml</td>
-<td>Fichier #0&#160;: fichiers de sous-titres aux formats SAMI et TTML.</td></tr>
+<td>Fichier&#160;#0 - Fichiers de sous-titres codés aux formats SAMI, TTML et WebVTT.</td></tr>
 <tr><td>Media_1.kw.xml</td>
 <td>Fichier #0&#160;: fichier de mot-clé</td></tr>
 <tr><td>Media_2.aib </td>
@@ -306,7 +305,7 @@ Si tous les fichiers multimédias d’entrée ne sont pas correctement indexés,
 Si tous les fichiers multimédias d’entrée ne sont pas correctement indexés, la tâche d’indexation échoue avec le code d’erreur 4000. Pour plus d’informations, consultez les [codes d’erreur](#error_codes).
 
 
-Les mêmes sorties que pour des tâches réussies sont générées. Vous pouvez consulter le fichier manifeste de sortie pour savoir quels fichiers d’entrée ont échoué, en fonction des valeurs de la colonne d’erreur. Pour les fichiers d’entrée ayant échoué, les fichiers AIB, SAMI, TTML et de mot-clé ne sont pas générés.
+Les mêmes sorties que pour des tâches réussies sont générées. Vous pouvez consulter le fichier manifeste de sortie pour savoir quels fichiers d’entrée ont échoué, en fonction des valeurs de la colonne d’erreur. Pour les fichiers d’entrée ayant échoué, les fichiers AIB, SAMI, TTML et WebVTT et les fichiers de mots clés ne sont PAS générés.
 
 
 ### <a id="error_codes"></a>Codes d’erreur
@@ -332,16 +331,16 @@ Il n’y a aucun flux audio dans le fichier d’entrée.</td></tr>
 </table>
 
 
-##<a id="supported_languages"></a>Langues prises en charge :
+##<a id="supported_languages"></a>Langues prises en charge
 
-Les langues prises en charge pour le moment sont l’anglais et l’espagnol. Pour plus d’informations, consultez la [Version espagnole d’Azure Media Indexer](http://azure.microsoft.com/blog/2015/04/13/azure-media-indexer-spanish-v1-2/).
+Les langues prises en charge pour le moment sont l’anglais et l’espagnol. Pour plus d’informations, consultez la [Version espagnole d’Azure Media Indexer](http://azure.microsoft.com/blog/2015/04/13/azure-media-indexer-spanish-v1-2/).
 
 
 ##Parcours d’apprentissage de Media Services
 
 Vous pouvez afficher les parcours d’apprentissage d’AMS ici :
 
-- [Workflow en flux continu AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [Workflow de vidéo en flux continu AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
 - [Workflow de streaming à la demande AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
 
 
@@ -355,4 +354,4 @@ Vous pouvez afficher les parcours d’apprentissage d’AMS ici :
 
 <!-- URLs. -->
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

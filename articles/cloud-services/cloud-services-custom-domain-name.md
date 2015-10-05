@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Configurer un nom de domaine personnalisé dans Cloud Services"
+	pageTitle="Configuration d’un nom de domaine personnalisé dans Cloud Services | Microsoft Azure"
 	description="Découvrez comment exposer votre application ou vos données Azure sur un domaine personnalisé en configurant les paramètres DNS."
 	services="cloud-services"
 	documentationCenter=".net"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/29/2015"
+	ms.date="09/22/2015"
 	ms.author="adegeo"/>
 
 # Configuration d’un nom de domaine personnalisé pour un service cloud Azure
@@ -23,7 +23,7 @@
 - [Azure Preview Portal](cloud-services-custom-domain-name-portal.md)
 
 
-Lorsque vous créez une service cloud, Azure l'attribue à un sous-domaine de cloudapp.net. Par exemple, si votre service cloud s’intitule « contoso », vos utilisateurs pourront accéder à votre application via une URL telle que http://&lt;*contoso*>.cloudapp.net. Azure attribue également une adresse IP virtuelle.
+Lorsque vous créez une service cloud, Azure l'attribue à un sous-domaine de cloudapp.net. Par exemple, si votre service cloud s’intitule « contoso », vos utilisateurs pourront accéder à votre application via une URL telle que http://contoso.cloudapp.net. Azure attribue également une adresse IP virtuelle.
 
 Toutefois, vous pouvez également exposer votre application sur votre propre nom de domaine, par exemple, contoso.com. Cet article explique comment réserver ou configurer un domaine personnalisé avec des rôles Web de service cloud.
 
@@ -51,7 +51,7 @@ Un enregistrement CNAME associe un domaine *spécifique*, tel que **contoso.com*
 
 ### Enregistrement A
 
-Un enregistrement A associe un domaine, tel que **contoso.com** ou **www.contoso.com**, *ou un nom de domaine générique* (par exemple : **\*.contoso.com**) à une adresse IP. Dans le cas d’un service cloud Azure, il s’agit de l’adresse IP virtuelle du service. Le principal avantage d'un enregistrement A par rapport à un enregistrement CNAME est que vous pouvez disposer d'une entrée utilisant un caractère générique (par exemple, \***.contoso.com**), ce qui permet de gérer les demandes pour plusieurs sous-domaines, tels que **mail.contoso.com**, **login.contoso.com** ou **www.contso.com**.
+Un enregistrement A associe un domaine, tel que **contoso.com** ou **www.contoso.com**, *ou un nom de domaine générique* (par exemple : ***.contoso.com**) à une adresse IP. Dans le cas d’un service cloud Azure, il s’agit de l’adresse IP virtuelle du service. Le principal avantage d'un enregistrement A par rapport à un enregistrement CNAME est que vous pouvez disposer d'une entrée utilisant un caractère générique (par exemple, **.contoso.com**), ce qui permet de gérer les demandes pour plusieurs sous-domaines, tels que **mail.contoso.com**, **login.contoso.com** ou **www.contso.com**.
 
 > [AZURE.NOTE]
 > L’enregistrement A étant associé à une adresse IP statique, les changements d’adresse IP de votre service cloud ne sont donc pas pris en compte automatiquement. L’adresse IP utilisée par votre service cloud est allouée la première fois que vous effectuez un déploiement vers un emplacement vide (de production ou intermédiaire). Si vous supprimez le déploiement de l’emplacement, l’adresse IP est publiée par Azure et tout déploiement futur dans l’emplacement peut recevoir une nouvelle adresse IP.
@@ -125,7 +125,7 @@ Pour créer un enregistrement A, vous devez tout d’abord connaître l’adres
 
 2.  Maintenant, cherchez où vous pouvez sélectionner ou saisir vos enregistrements A. Il se peut que vous deviez sélectionner le type d’enregistrement dans une liste déroulante ou accéder à une page de paramètres avancés.
 
-3. Sélectionnez ou entrez le domaine ou sous-domaine qui utilisera cet enregistrement A. Par exemple, sélectionnez **www** si vous souhaitez créer un alias pour **www.domainepersonnalisé.com**. Pour créer une entrée avec des caractères génériques pour l'ensemble des sous-domaines, entrez « __*__ ». Ceci permet de couvrir tous les sous-domaines tels que **mail.customdomain.com**, **login.customdomain.com** ou **www.domainepersonnalisé.com**.
+3. Sélectionnez ou entrez le domaine ou sous-domaine qui utilisera cet enregistrement A. Par exemple, sélectionnez **www** si vous souhaitez créer un alias pour **www.domainepersonnalisé.com**. Pour créer une entrée avec des caractères génériques pour l'ensemble des sous-domaines, entrez « \_\_*\_\_ ». Ceci permet de couvrir tous les sous-domaines tels que **mail.customdomain.com**, **login.customdomain.com** ou **www.domainepersonnalisé.com**.
 
     Si vous voulez créer un enregistrement A pour le domaine racine, l’entrée correspondante devrait être répertoriée avec le symbole « **@** » dans les outils DNS de votre bureau d’enregistrement.
 
@@ -138,15 +138,21 @@ Par exemple, l’enregistrement A suivant transfère tout le trafic de **contos
 | @ | 137\.135.70.239 |
 
 
-Cet exemple montre comment créer un enregistrement A pour le domaine racine. Pour créer une entrée avec des caractères génériques qui couvre l'ensemble des sous-domaines, entrez '__*__' comme sous-domaine.
+Cet exemple montre comment créer un enregistrement A pour le domaine racine. Pour créer une entrée avec des caractères génériques qui couvre l'ensemble des sous-domaines, entrez « \_\_*\_\_ » comme sous-domaine.
 
 >[AZURE.WARNING]
 >Les adresses IP dans Azure sont dynamiques par défaut. Vous souhaiterez probablement utiliser une [adresse IP réservée](..\virtual-network\virtual-networks-reserved-public-ip.md) pour vous assurer que votre adresse IP ne change pas.
 
 ## Étapes suivantes
 
--   [Gestion des services cloud](cloud-services-how-to-manage.md)
--   [Mappage du contenu CDN à un domaine personnalisé](http://msdn.microsoft.com/library/windowsazure/gg680307.aspx)
+* [Gestion des services cloud](cloud-services-how-to-manage.md)
+* [Mappage du contenu CDN à un domaine personnalisé](cdn-map-content-to-custom-domain.md)
+* [Configuration générale de votre service cloud](cloud-services-how-to-configure.md).
+* Découvrez comment [déployer un service cloud](cloud-services-how-to-create-deploy.md).
+* Configurez des [certificats SSL](cloud-services-configure-ssl-certificate.md).
+
+
+
 
 [Expose Your Application on a Custom Domain]: #access-app
 [Add a CNAME Record for Your Custom Domain]: #add-cname
@@ -159,4 +165,4 @@ Cet exemple montre comment créer un enregistrement A pour le domaine racine. P
 [csurl]: ./media/cloud-services-custom-domain-name/csurl.png
  
 
-<!-------HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

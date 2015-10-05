@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/15/2015"
+	ms.date="09/22/2015"
 	ms.author="swkrish"/>
 
 # Création d’un annuaire Azure AD ou d’un annuaire Azure AD B2C - problèmes et résolutions
@@ -34,4 +34,4 @@ Il existe des problèmes connus que vous pourriez rencontrer lors de la [créati
 	- Supprimez l’annuaire que vous venez de créer, puis réessayez.
 - Si aucune des solutions ci-dessus ne fonctionne pour vous, contactez le support technique. Lisez [cet article](active-directory-b2c-support.md) sur l’archivage des demandes de support pour Azure AD B2C.
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

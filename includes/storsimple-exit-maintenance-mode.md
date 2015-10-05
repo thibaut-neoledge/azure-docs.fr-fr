@@ -1,3 +1,4 @@
+<!--author=SharS last changed: 9/17/15-->
 
 #### Pour quitter le mode Maintenance
 
@@ -9,4 +10,4 @@
 
     Les deux contrôleurs redémarrent. Une fois le redémarrage terminé, un autre message indique que le périphérique est en mode normal.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

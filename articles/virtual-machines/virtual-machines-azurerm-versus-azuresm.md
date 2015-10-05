@@ -1,27 +1,30 @@
 <properties
-   pageTitle="Fournisseurs de calcul, de réseau et de stockage Azure dans le Gestionnaire de ressources Azure"
-   description="Vue d’ensemble des concepts relatifs aux fournisseurs de calcul, de réseau et de ressources de stockage (CRP, NRP et SRP)"
+   pageTitle="Fournisseurs de calcul, de réseau et de stockage | Microsoft Azure"
+   description="Vue d’ensemble des concepts relatifs aux fournisseurs de calcul, de réseau et de ressources de stockage (CRP, NRP et SRP) dans Azure Resource Manager"
    services="virtual-machines"
-   documentationCenter="dev-center-name"
+   documentationCenter=""
    authors="mahthi"
    manager="timlt"
    editor=""
-	tags="azure-resource-manager,azure-service-management"/>
+   tags="azure-resource-manager,azure-service-management"/>
 
 <tags
    ms.service="virtual-machines"
    ms.devlang="na"
    ms.topic="article"
-   ms.tgt_pltfrm="na"
+   ms.tgt_pltfrm="vm-multiple"
    ms.workload="infrastructure-services"
    ms.date="04/29/2015"
    ms.author="mahthi"/>
 
-# Fournisseurs de calcul, de réseau et de stockage Azure dans le Gestionnaire de ressources Azure
+# Fournisseurs de solutions de calcul, de réseau et de stockage Azure dans Azure Resource Manager
 
 L’inclusion des fonctions de calcul, de réseau et de stockage dans le Gestionnaire de ressources Azure simplifie radicalement le déploiement et la gestion d’applications complexes sur IaaS. De nombreuses applications nécessitent une combinaison de ressources, dont un réseau virtuel, un compte de stockage, une machine virtuelle et une interface réseau. Le Gestionnaire de ressources Azure offre la possibilité de créer un modèle JSON pour déployer et gérer ensemble toutes ces ressources comme une seule application.
 
-## Avantages de l’intégration du calcul, du réseau et du stockage dans le Gestionnaire de ressources Azure
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Cet article traite de la création d’une ressource avec le modèle de déploiement Resource Manager ou le modèle de déploiement classique.
+
+
+## Avantages de l’intégration du calcul, du réseau et du stockage dans Azure Resource Manager
 
 Le Gestionnaire de ressources Azure permet de facilement tirer parti des modèles d’application prédéfinis ou de construire un modèle d’application pour déployer et gérer des ressources de calcul, de réseau et de stockage sur Azure. Dans cette section, nous découvrirons les avantages du déploiement de ressources via le Gestionnaire de ressources Azure.
 
@@ -33,7 +36,7 @@ Le Gestionnaire de ressources Azure permet de facilement tirer parti des modèle
 -	Mise à niveau ou mise à jour simplifiée en modifiant le modèle d’origine, puis en procédant à un redéploiement
 
 
-## Améliorations des API de calcul, de réseau et de stockage avec le Gestionnaire de ressources Azure
+## Améliorations des API de calcul, de réseau et de stockage avec Azure Resource Manager
 
 Outre les avantages mentionnés ci-dessus, bien d’autres améliorations de performances significatives se retrouvent dans les API publiées.
 
@@ -113,4 +116,4 @@ Cette opération n’est pas possible pour le moment. Vous ne pouvez pas connect
 
 Vous trouverez un ensemble complet de modèles de démarrage sur [Modèles de démarrage rapide Azure Resource Manager](http://azure.microsoft.com/documentation/templates/).
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

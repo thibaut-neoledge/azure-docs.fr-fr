@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Création et déploiement d'un service cloud | Microsoft Azure"
-	description="Découvrez comment créer et déployer un service cloud à l'aide de la méthode Création rapide dans Azure."
+	pageTitle="Création et déploiement d’un service cloud (portail en version préliminaire) | Microsoft Azure"
+	description="Découvrez comment créer et déployer un service cloud à l'aide de la méthode Création rapide dans Azure. Ces exemples utilisent le portail Azure en version préliminaire."
 	services="cloud-services"
 	documentationCenter=""
 	authors="Thraka"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/30/2015"
+	ms.date="09/22/2015"
 	ms.author="adegeo"/>
 
 
@@ -107,4 +107,11 @@ Si votre package de déploiement a été [configuré pour utiliser des certifica
 
 [TFSTutorialForCloudService]: http://go.microsoft.com/fwlink/?LinkID=251796&clcid=0x409
 
-<!---HONumber=August15_HO8-->
+## Étapes suivantes
+
+* [Configuration générale de votre service cloud](cloud-services-how-to-configure-portal.md).
+* Configurez un [nom de domaine personnalisé](cloud-services-custom-domain-name-portal.md).
+* [Gérez votre service cloud](cloud-services-how-to-manage-portal.md).
+* Configurez des [certificats SSL](cloud-services-configure-ssl-certificate-portal.md).
+
+<!---HONumber=Sept15_HO4-->

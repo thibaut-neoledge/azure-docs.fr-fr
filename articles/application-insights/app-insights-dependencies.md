@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/08/2015" 
+	ms.date="09/17/2015" 
 	ms.author="awills"/>
  
 # Diagnostic des problèmes liés aux dépendances dans Application Insights
@@ -48,7 +48,7 @@ Installez l’agent approprié pour le serveur hôte.
 Plateforme | Installer
 ---|---
 Serveur IIS | [Status Monitor](app-insights-monitor-performance-live-website-now.md)
-Application web Azure | [Extension Application Insights](../insights-perf-analytics.md)
+Application web Azure | [Extension Application Insights](../azure-portal/insights-perf-analytics.md)
 Serveur web Java | [Applications web Java](app-insights-java-agent.md)
 
 Status Monitor pour les serveurs IIS n’a pas besoin de régénérer votre projet source avec le Kit de développement logiciel (SDK) Application Insights.
@@ -129,4 +129,4 @@ Si vous souhaitez désactiver le module de suivi des dépendances standard, supp
 
 <!--Link references-->
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

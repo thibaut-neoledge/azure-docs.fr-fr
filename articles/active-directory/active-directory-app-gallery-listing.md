@@ -1,6 +1,6 @@
 <properties
    pageTitle="Affichage de votre application dans la galerie d’applications Azure AD"
-   description="Guide complet sur les ressources destinées aux développeurs pour Azure Active Directory"
+   description="Comment répertorier une application qui prend en charge l'authentification unique dans la galerie Azure Active Directory | Microsoft Azure"
    services="active-directory"
    documentationCenter="dev-center-name"
    authors="msmbaldwin"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="07/30/2015"
+   ms.date="09/17/2015"
    ms.author="mbaldwin"/>
 
 
@@ -56,6 +56,5 @@ Une fois le test terminé, l’application peut être répertoriée dans la gale
 > Attacher une grande icône d’application (fichier PNG, 215 px par 215 px, couleur d’arrière-plan unie) :
 >
 > Attacher un grand logo d’application (fichier PNG, 150 px par 122 px, couleur d’arrière-plan unie) :
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Utiliser une application API dans Azure App Service à partir d'un client .NET"
-	description="Découvrez comment utiliser une application API à partir d'un client .NET en utilisant le SDK App Service."
-	services="app-service\api"
-	documentationCenter=".net"
-	authors="tdykstra"
-	manager="wpickett"
+	pageTitle="Utiliser une application API dans Azure App Service à partir d'un client .NET" 
+	description="Découvrez comment utiliser une application API à partir d'un client .NET en utilisant le SDK App Service." 
+	services="app-service\api" 
+	documentationCenter=".net" 
+	authors="tdykstra" 
+	manager="wpickett" 
 	editor="jimbe"/>
 
 <tags 
-	ms.service="app-service-api"
-	ms.workload="web"
-	ms.tgt_pltfrm="dotnet"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="06/30/2015"
+	ms.service="app-service-api" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="dotnet" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/22/2015" 
 	ms.author="tdykstra"/>
 
 # Utiliser une application API dans Azure App Service à partir d'un client .NET 
@@ -205,4 +205,4 @@ Pour d'autres exemples de code appelant une application API à partir de clients
 Pour plus d’informations sur l’utilisation de l’authentification dans les applications API, consultez la page [Authentification pour les applications d’API et les applications mobiles dans Azure App Service](../app-service/app-service-authentication-overview.md).
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO4-->

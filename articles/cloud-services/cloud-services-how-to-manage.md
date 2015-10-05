@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/01/2015"
+	ms.date="09/22/2015"
 	ms.author="adegeo"/>
 
 
@@ -157,6 +157,12 @@ Utiliser la procédure suivante pour supprimer un déploiement ou un service clo
 > [AZURE.NOTE]
 Si la surveillance détaillée est configurée pour votre service cloud, Azure ne supprime pas les données de surveillance de votre compte de stockage lorsque vous supprimez le service cloud. Vous devez supprimer manuellement les données. Pour savoir où trouver les tables de mesures, consultez la rubrique « Accès aux données de la surveillance détaillée en dehors du portail de gestion » sur la page <a href="http://azure.microsoft.com/documentation/articles/cloud-services-how-to-monitor/">Surveillance des services cloud</a>.
 
- 
 
-<!---HONumber=August15_HO7-->
+## Étapes suivantes
+
+ * [Configuration générale de votre service cloud](cloud-services-how-to-configure.md).
+* Découvrez comment [déployer un service cloud](cloud-services-how-to-create-deploy.md).
+* Configurez un [nom de domaine personnalisé](cloud-services-custom-domain-name.md).
+* Configurez des [certificats SSL](cloud-services-configure-ssl-certificate.md).
+
+<!---HONumber=Sept15_HO4-->

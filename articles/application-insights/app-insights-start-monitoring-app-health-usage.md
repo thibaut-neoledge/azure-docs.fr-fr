@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="09/09/2015"
+	ms.date="09/23/2015"
 	ms.author="awills"/>
 
 
@@ -133,6 +133,21 @@ Ouvrez ces ports pour le trafic sortant dans le pare-feu de votre serveur :
 
 Consultez cet article de [résolution des problèmes](app-insights-troubleshoot-faq.md#NuGetBuild).
 
+
+## Suivi de la version de l'application
+
+Assurez-vous que `buildinfo.config` est généré par votre processus de génération. Dans votre fichier .csproj, ajoutez :
+
+```XML
+
+    <PropertyGroup>
+      <GenerateBuildInfoConfigFile>true</GenerateBuildInfoConfigFile>    <IncludeServerNameInBuildInfo>true</IncludeServerNameInBuildInfo>
+    </PropertyGroup> 
+```
+
+Lorsqu'il détient les informations de build, le module Web Application Insights ajoute automatiquement la **version de l'application** en tant que propriété à chaque élément de télémétrie. Cela vous permet de filtrer par version lors de l'exécution de [recherches de diagnostic][diagnostic] ou lors de l’[exploration de mesures][metrics].
+
+
 ## 5\. Ajouter un suivi de dépendance et des compteurs de performances
 
 Le Kit de développement logiciel (SDK) a besoin d'un peu d'aide pour accéder à certaines données. En particulier, vous aurez besoin de cette étape supplémentaire pour mesurer automatiquement les appels de votre application vers des bases de données, des API REST et d’autres composants externes. Ces mesures de dépendance peuvent être très utiles pour vous aider à diagnostiquer les problèmes de performances.
@@ -157,6 +172,8 @@ Dans le panneau de configuration de votre application web Azure, ajoutez l’ext
 
 [Ajouter des scripts aux rôles web et de travail](app-insights-cloudservices.md)
 
+
+
 ## 6\. Ajout d’une surveillance côté client
 
 Vous avez installé le kit de développement logiciel (SDK) qui envoie des données de télémétrie depuis le serveur (principal) de votre application. Vous pouvez maintenant ajouter une surveillance côté client. Cette surveillance vous fournit des données sur les utilisateurs, les sessions, les pages consultées et les exceptions ou incidents qui se produisent dans le client.
@@ -175,7 +192,7 @@ Notez que le code contient la clé d’instrumentation qui identifie la ressourc
 
 #### Si vos clients sont des applications pour appareil
 
-Si votre application dessert des clients tels que des téléphones ou d’autres appareils, ajoutez le [Kit de développement logiciel (SDK) correspondant](app-insights-platforms.md) à votre application pour appareil.
+Si votre application sert des clients tels que des téléphones ou d’autres appareils, ajoutez le [Kit de développement logiciel (SDK) correspondant](app-insights-platforms.md) à votre application pour appareil.
 
 Si vous configurez le Kit de développement logiciel (SDK) client avec la même clé d'instrumentation que le SDK serveur, les deux flux sont intégrés et apparaissent ensemble.
 
@@ -207,7 +224,7 @@ Si votre projet a des pages web, Visual Studio ajoute également le [Kit de dév
 
 #### ... ou s'il s'agit d'un projet existant
 
-Cliquez avec le bouton droit sur le projet dans l’Explorateur de solutions, puis sélectionnez **Ajouter Application Insights**.
+Cliquez avec le bouton droit de la souris sur le projet dans l'Explorateur de solutions, puis sélectionnez **Ajouter Application Insights**.
 
 ![Sélection de Ajouter Application Insights](./media/app-insights-start-monitoring-app-health-usage/appinsights-03-addExisting.png)
 
@@ -255,4 +272,4 @@ Si cette application fait partie d'une application plus importante, vous pouvez 
 [roles]: app-insights-resources-roles-access-control.md
 [start]: app-insights-get-started.md
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

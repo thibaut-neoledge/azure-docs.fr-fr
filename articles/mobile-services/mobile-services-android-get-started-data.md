@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Prendre en main les données sur Android (backend JavaScript) | Microsoft Azure" 
-	description="Découvrez comment utiliser Mobile Services pour tirer profit des données de votre application Android (backend JavaScript)." 
-	services="mobile-services" 
-	documentationCenter="android" 
-	authors="RickSaling" 
-	manager="dwrede" 
+<properties
+	pageTitle="Prendre en main les données sur Android (backend JavaScript) | Microsoft Azure"
+	description="Découvrez comment utiliser Mobile Services pour tirer profit des données de votre application Android (backend JavaScript)."
+	services="mobile-services"
+	documentationCenter="android"
+	authors="RickSaling"
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-android" 
-	ms.devlang="java" 
-	ms.topic="article" 
-	ms.date="09/16/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-android"
+	ms.devlang="java"
+	ms.topic="article"
+	ms.date="09/23/2015"
 	ms.author="ricksal"/>
 
 # Ajouter Mobile Services à une application Android existante (backend JavaScript)
@@ -46,6 +46,10 @@ Pour réaliser ce didacticiel, vous avez besoin des éléments suivants :
 
 - Le [Kit de développement logiciel (SDK) Azure Mobile Services Android].
 - L’<a  href="https://developer.android.com/sdk/index.html" target="_blank">environnement de développement intégré Android Studio</a>, qui inclut le Kit de développement logiciel (SDK) Android, et Android 4.2 ou version ultérieure. Le projet GetStartedWithData téléchargé requiert Android 4.2 ou une version ultérieure. Toutefois, le Kit de développement logiciel (SDK) Mobile Services requiert uniquement Android 2.2 ou une version ultérieure.
+
+## Exemple de code
+
+Pour afficher le code source terminé, vous pouvez y accéder <a href="https://github.com/Azure/mobile-services-samples/tree/master/GettingStartedWithData/AndroidStudio">ici</a>.
 
 ## Téléchargement du projet GetStartedWithData
 
@@ -87,25 +91,18 @@ L'application a été mise à jour pour utiliser Mobile Services pour le stockag
 4. Cliquez sur l'onglet **Données**, puis sur **Parcourir**.
 
    	![][9]
-  
+
    	La table **TodoItem** contient à présent des données, dont certaines valeurs ont été générées par Mobile Services, et les colonnes ont été automatiquement ajoutées à la table de manière à correspondre à la classe TodoItem au sein de l'application.
 
 Cela conclut le didacticiel **Prise en main des données** pour Android.
 
 ## Résolution de problèmes
 
-###Vérification de la version du Kit de développement logiciel (SDK) Android
+### Vérification de la version du Kit de développement logiciel (SDK) Android
 
 [AZURE.INCLUDE [Vérification du Kit de développement logiciel (SDK)](../../includes/mobile-services-verify-android-sdk-version.md)]
 
 
-## Versions de code antérieures
-
-Si vous souhaitez consulter la version Eclipse de ce didacticiel, accédez à [Prise en main des notifications Push (Eclipse)](mobile-services-android-get-started-data-ec.md).
-
-Pour afficher une version complète du code source dans un projet Eclipse, cliquez <a href="https://github.com/Azure/mobile-services-samples/tree/master/GettingStartedWithData/Android">ici</a>.
-
-Si vous souhaitez obtenir l'exemple de fichier utilisé dans la version précédente du Kit de développement logiciel (SDK) Android d'Azure Mobile Services, vous pouvez l'obtenir [ici](http://go.microsoft.com/fwlink/p/?LinkID=282122).
 
 ## Étapes suivantes
 
@@ -145,7 +142,6 @@ Une fois que vous avez terminé les séries de données, essayez ces autres dida
 [Affinage des requêtes à la pagination]: /develop/mobile/tutorials/add-paging-to-data-android
 [Get started with Mobile Services]: /develop/mobile/tutorials/get-started-android
 [Get started with data]: /develop/mobile/tutorials/get-started-with-data-android
-[Get started with data (Eclipse)]: /documentation/articles/mobile-services-android-get-started-data-EC/
 [Prise en main de l'authentification]: /develop/mobile/tutorials/get-started-with-users-android
 [Prise en main des notifications Push]: /develop/mobile/tutorials/get-started-with-push-android
 
@@ -154,6 +150,5 @@ Une fois que vous avez terminé les séries de données, essayez ces autres dida
 [Kit de développement logiciel (SDK) Azure Mobile Services Android]: http://aka.ms/Iajk6q
 [GitHub]: http://go.microsoft.com/fwlink/p/?LinkID=282122
 [Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=280125
- 
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

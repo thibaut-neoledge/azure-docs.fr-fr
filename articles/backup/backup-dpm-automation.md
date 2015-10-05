@@ -7,14 +7,7 @@
 	manager="jwhit"
 	editor=""/>
 
-<tags 
-	ms.service="backup" 
-	ms.workload="storage-backup-recovery" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="09/04/2015" 
-	ms.author="jimpark"; "aashishr"; "sammehta"; "anuragm"/>
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/21/2015" ms.author="jimpark"; "aashishr"; "sammehta"; "anuragm"/>
 
 
 # Déployer et gérer une sauvegarde vers Azure pour des serveurs Data Protection Manager (DPM) à l’aide de PowerShell
@@ -42,8 +35,8 @@ Sample DPM scripts: Get-DPMSampleScript
 Vous pouvez créer un coffre de sauvegarde en utilisant l’applet de commande **New-AzureBackupVault**. Le coffre de sauvegarde constituant une ressource ARM, vous devez le placer dans un groupe de ressources. Dans une console Azure PowerShell avec élévation de privilèges, exécutez les commandes suivantes :
 
 ```
-PS C:\> New-AzureResourceGroup –Name “test-rg” –Region “West US”
-PS C:\> $backupvault = New-AzureBackupVault –ResourceGroupName “test-rg” –Name “test-vault” –Region “West US” –Storage GRS
+PS C:\> New-AzureResourceGroup –Name “test-rg” –Location “West US”
+PS C:\> $backupvault = New-AzureRMBackupVault –ResourceGroupName “test-rg” –Name “test-vault” –Region “West US” –Storage GRS
 ```
 
 Vous pouvez obtenir la liste de tous les coffres de sauvegarde d’un abonnement spécifique à l’aide de l’applet de commande **Get-AzureBackupVault**.
@@ -75,15 +68,15 @@ Les options disponibles incluent :
 
 | Option | Détails | Default |
 | ---- | ----- | ----- |
-| /q | Installation silencieuse | - | 
-| /p:"emplacement" | Chemin du dossier d’installation de l’agent Azure Backup. | C:\\Program Files\\Microsoft Azure Recovery Services Agent | 
-| /s:"emplacement" | Chemin du dossier du cache de l’agent Azure Backup. | C:\\Program Files\\Microsoft Azure Recovery Services Agent\\Scratch | 
-| /m | Abonnement à Microsoft Update | - | 
-| /nu | Ne pas rechercher les mises à jour après l’installation | - | 
-| /d | Désinstalle Microsoft Azure Recovery Services Agent | - | 
-| /ph | Adresse de l’hôte proxy | - | 
-| /po | Numéro de port de l’hôte proxy | - | 
-| /pu | Nom d’utilisateur de l’hôte proxy | - | 
+| /q | Installation silencieuse | - |
+| /p:"emplacement" | Chemin du dossier d’installation de l’agent Azure Backup. | C:\\Program Files\\Microsoft Azure Recovery Services Agent |
+| /s:"emplacement" | Chemin du dossier du cache de l’agent Azure Backup. | C:\\Program Files\\Microsoft Azure Recovery Services Agent\\Scratch |
+| /m | Abonnement à Microsoft Update | - |
+| /nu | Ne pas rechercher les mises à jour après l’installation | - |
+| /d | Désinstalle Microsoft Azure Recovery Services Agent | - |
+| /ph | Adresse de l’hôte proxy | - |
+| /po | Numéro de port de l’hôte proxy | - |
+| /pu | Nom d’utilisateur de l’hôte proxy | - |
 | /pw | Mot de passe du proxy | - |
 
 ### Inscription auprès du service Azure Backup
@@ -96,7 +89,7 @@ Pour télécharger les informations d’identification du coffre, exécutez l’
 
 ```
 PS C:\> $credspath = "C:"
-PS C:\> $credsfilename = Get-AzureBackupVaultCredentials -Vault $backupvault -TargetLocation $credspath
+PS C:\> $credsfilename = Get-AzureRMBackupVaultCredentials -Vault $backupvault -TargetLocation $credspath
 PS C:\> $credsfilename
 f5303a0b-fae4-4cdb-b44d-0e4c032dde26_backuprg_backuprn_2015-08-11--06-22-35.VaultCredentials
 ```
@@ -309,4 +302,4 @@ Les commandes peuvent facilement être étendues à n'importe quel type de sourc
 ## Étapes suivantes
 Pour en savoir plus sur Azure Backup pour DPM, consultez la rubrique [Présentation d’Azure DPM Backup](backup-azure-dpm-introduction.md)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

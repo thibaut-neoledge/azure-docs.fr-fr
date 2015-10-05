@@ -1,22 +1,25 @@
-<properties 
-	pageTitle="Création et téléchargement d'un disque dur virtuel Linux CentOS dans Azure" 
-	description="Apprenez à créer et à télécharger un disque dur virtuel (VHD) Azure contenant le système d'exploitation Linux CentOS." 
-	services="virtual-machines" 
-	documentationCenter="" 
-	authors="szarkos" 
-	manager="timlt" 
-	editor="tysonn"/>
+<properties
+	pageTitle="Création et téléchargement d'un disque dur virtuel Linux CentOS dans Azure"
+	description="Apprenez à créer et à télécharger un disque dur virtuel (VHD) Azure contenant le système d'exploitation Linux CentOS."
+	services="virtual-machines"
+	documentationCenter=""
+	authors="szarkos"
+	manager="timlt"
+	editor="tysonn"
+		tags="azure-resource-manager,azure-service-management"/>
 
-<tags 
-	ms.service="virtual-machines" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="vm-linux" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/15/2015" 
+<tags
+	ms.service="virtual-machines"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="vm-linux"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="05/15/2015"
 	ms.author="szarkos"/>
 
 # Préparation d'une machine virtuelle CentOS pour Azure
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]
 
 - [Préparation d’une machine virtuelle CentOS 6.x pour Azure](#centos6)
 - [Préparation d’une machine virtuelle CentOS 7.0+ pour Azure](#centos7)
@@ -117,27 +120,27 @@ Cet article suppose que vous avez déjà installé un système d'exploitation Ce
 		baseurl=http://olcentgbl.trafficmanager.net/openlogic/$releasever/openlogic/$basearch/
 		enabled=1
 		gpgcheck=0
-		
+
 		[base]
 		name=CentOS-$releasever - Base
 		baseurl=http://olcentgbl.trafficmanager.net/centos/$releasever/os/$basearch/
 		gpgcheck=1
 		gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-6
-		
+
 		#released updates
 		[updates]
 		name=CentOS-$releasever - Updates
 		baseurl=http://olcentgbl.trafficmanager.net/centos/$releasever/updates/$basearch/
 		gpgcheck=1
 		gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-6
-		
+
 		#additional packages that may be useful
 		[extras]
 		name=CentOS-$releasever - Extras
 		baseurl=http://olcentgbl.trafficmanager.net/centos/$releasever/extras/$basearch/
 		gpgcheck=1
 		gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-6
-		
+
 		#additional packages that extend functionality of existing packages
 		[centosplus]
 		name=CentOS-$releasever - Plus
@@ -145,7 +148,7 @@ Cet article suppose que vous avez déjà installé un système d'exploitation Ce
 		gpgcheck=1
 		enabled=0
 		gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-6
-		
+
 		#contrib - packages by Centos Users
 		[contrib]
 		name=CentOS-$releasever - Contrib
@@ -275,27 +278,27 @@ La préparation d'une machine virtuelle CentOS 7 pour Azure est très similai
 		baseurl=http://olcentgbl.trafficmanager.net/openlogic/$releasever/openlogic/$basearch/
 		enabled=1
 		gpgcheck=0
-		
+
 		[base]
 		name=CentOS-$releasever - Base
 		baseurl=http://olcentgbl.trafficmanager.net/centos/$releasever/os/$basearch/
 		gpgcheck=1
 		gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7
-		
+
 		#released updates
 		[updates]
 		name=CentOS-$releasever - Updates
 		baseurl=http://olcentgbl.trafficmanager.net/centos/$releasever/updates/$basearch/
 		gpgcheck=1
 		gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7
-		
+
 		#additional packages that may be useful
 		[extras]
 		name=CentOS-$releasever - Extras
 		baseurl=http://olcentgbl.trafficmanager.net/centos/$releasever/extras/$basearch/
 		gpgcheck=1
 		gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7
-		
+
 		#additional packages that extend functionality of existing packages
 		[centosplus]
 		name=CentOS-$releasever - Plus
@@ -303,7 +306,7 @@ La préparation d'une machine virtuelle CentOS 7 pour Azure est très similai
 		gpgcheck=1
 		enabled=0
 		gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7
-		
+
 		#contrib - packages by Centos Users
 		[contrib]
 		name=CentOS-$releasever - Contrib
@@ -311,7 +314,7 @@ La préparation d'une machine virtuelle CentOS 7 pour Azure est très similai
 		gpgcheck=1
 		enabled=0
 		gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7
-		
+
 
 
 	**Remarque :** la suite de ce guide suppose que vous utilisez au moins le référentiel [openlogic] qui sera utilisé pour installer l'agent Linux Azure ci-dessous.
@@ -361,7 +364,4 @@ La préparation d'une machine virtuelle CentOS 7 pour Azure est très similai
 
 16. Cliquez sur **Action -> Arrêter** dans le Gestionnaire Hyper-V. Votre disque dur virtuel Linux est alors prêt pour le téléchargement dans Azure.
 
-
- 
-
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

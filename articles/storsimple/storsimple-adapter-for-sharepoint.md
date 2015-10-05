@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="09/03/2015"
+   ms.date="09/17/2015"
    ms.author="v-sharos" />
 
 # Installation et configuration de StorSimple Adapter for SharePoint
@@ -308,4 +308,4 @@ Après avoir déplacé les objets BLOB vers les bases de données de contenu SQL
 [5]: https://technet.microsoft.com/library/ff628583(v=office.15).aspx
 [8]: https://technet.microsoft.com/fr-FR/library/ff943565.aspx
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

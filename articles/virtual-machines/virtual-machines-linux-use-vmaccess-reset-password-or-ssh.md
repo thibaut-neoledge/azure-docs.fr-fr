@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Utilisation de VMAccess pour les machines virtuelles Linux"
-	description="Utilisation du portail Microsoft Azure en version préliminaire ou de l’extension VMAccess pour Linux pour réinitialiser les mots de passe et les clés SSH, réinitialiser les configurations SSH et supprimer les utilisateurs Linux."
+	pageTitle="Réinitialisation du mot de passe de la machine virtuelle Linux avec la CLI d’Azure"
+	description="Utilisation de l'extension VMAccess à partir du portail Azure ou de la CLI pour réinitialiser les mots de passe et les clés SSH, les configurations SSH de la machine virtuelle Linux, et supprimer des comptes d'utilisateurs."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="cynthn"
@@ -263,4 +263,4 @@ Pour afficher l’état de l’extension VMAccess, exécutez cette commande.
 [Fonctionnalités et extensions de machine virtuelle Azure]: http://msdn.microsoft.com/library/azure/dn606311.aspx
 [Connexion à une machine virtuelle Microsoft Azure avec RDP ou SSH]: http://msdn.microsoft.com/library/azure/dn535788.aspx
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

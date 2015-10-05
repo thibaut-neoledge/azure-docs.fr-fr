@@ -1,11 +1,12 @@
 <properties
-   pageTitle="Infrastructures d’application"
+   pageTitle="Infrastructures d'application | Microsoft Azure"
    description="Explique comment créer des infrastructures d’application populaires à l’aide de modèles avec Azure Resource Manager. Les exemples incluent la pile LAMP, SharePoint et SQL Server."
    services="virtual-machines"
    documentationCenter="virtual-machines"
    authors="squillace"
    manager="timlt"
-   editor=""/>
+   editor=""
+   tags="azure-resource-manager" />
 
 <tags
    ms.service="virtual-machines"
@@ -19,6 +20,8 @@
 # Créer des infrastructures d’application en utilisant des modèles
 
 Ceci permet des créations efficaces, rapidement.
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Cet article traite de la création de ressources avec le modèle de déploiement de Resource Manager.
 
 | Modèle | Description | Afficher le modèle | Le déployer dès maintenant |
 |:---|:---|:---:|:---:|
@@ -49,4 +52,4 @@ Découvrez tous les modèles à votre disposition sur [GitHub](https://github.co
 
 En savoir plus sur [Azure Resource Manager](../resource-group-template-deploy.md).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

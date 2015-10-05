@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/23/2015"
+   ms.date="09/22/2015"
    ms.author="barbkess"/>
 
 # Rubriques de référence pour SQL Data Warehouse
@@ -39,4 +39,4 @@ Pour obtenir des informations sur le développement, consultez la [vue d’ensem
 
 <!--MSDN references-->
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

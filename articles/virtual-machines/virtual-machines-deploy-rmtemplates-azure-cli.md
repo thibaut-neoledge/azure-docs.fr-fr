@@ -1,11 +1,12 @@
 <properties
-	pageTitle="Déploiement et gestion de machines virtuelles Azure à l’aide des modèles du Gestionnaire de ressources et de l’interface de ligne de commande Azure pour Mac, Linux et Windows | Microsoft Azure"
-	description="Déployez facilement les ensembles de configurations les plus courants pour les machines virtuelles Azure et gérez-les en utilisant les modèles du Gestionnaire de ressources et l’interface de ligne de commande Azure."
+	pageTitle="Déployer et gérer des machines virtuelles avec des modèles | Microsoft Azure"
+	description="Déployez et gérez les configurations les plus courantes pour les machines virtuelles Azure à l’aide des modèles Resource Manager et de l’interface de ligne de commande Azure."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="squillace"
 	manager="timlt"
-	editor=""/>
+	editor=""
+	tags="azure-resource-manager"/>
 
 <tags
 	ms.service="virtual-machines"
@@ -19,6 +20,9 @@
 # Déploiement et gestion de machines virtuelles à l’aide des modèles Azure Resource Manager et de l’interface de ligne de commande Azure
 
 Cet article montre comment utiliser les modèles Azure Resource Manager et l’interface de ligne de commande Azure pour effectuer les tâches courantes suivantes de déploiement et de gestion de machines virtuelles Azure. Pour connaître les modèles supplémentaires utilisables, consultez [Modèles de démarrage rapide Azure](http://azure.microsoft.com/documentation/templates/) et [Infrastructures d’application à l’aide de modèles](virtual-machines-app-frameworks.md).
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Cet article décrit le déploiement et la gestion d’une machine virtuelle à l’aide de modèles dans le modèle de déploiement Resource Manager. Vous ne pouvez pas utiliser de modèles dans le modèle de déploiement classique.
+
 
 - [Création rapide d’une machine virtuelle dans Azure](#quick-create-a-vm-in-azure)
 - [Déploiement d’une machine virtuelle dans Azure à partir d’un modèle](#deploy-a-vm-in-azure-from-a-template)
@@ -38,14 +42,14 @@ Avant de pouvoir utiliser l’interface de ligne de commande Azure avec des grou
 
 ### Mettre à jour votre interface de ligne de commande Microsoft Azure vers la version 0.9.0 ou une version ultérieure
 
-Entrez `azure --version` pour savoir si vous avez déjà installé la version 0.9.0 ou une version ultérieure.
+Entrez `azure --version` pour savoir si vous avez déjà installé la version 0.9.0 ou une version ultérieure.
 
 	azure --version
     0.9.0 (node: 0.10.25)
 
-Si vous disposez d’une version antérieure, il vous faudra [installer l’interface de ligne de commande Azure](../xplat-cli-install.md) ou la mettre à jour en utilisant l’un des programmes d’installation natifs ou via **npm**, en saisissant `npm update -g azure-cli`.
+Si vous disposez d’une version antérieure à la version 0.9.0, vous devez [installer l’interface de ligne de commande Azure](../xplat-cli-install.md) ou la mettre à jour en utilisant l’un des programmes d’installation natifs ou via **npm**, en tapant `npm update -g azure-cli`.
 
-Vous pouvez également exécuter l’interface de ligne de commande Azure en tant que conteneur Docker à l’aide de l’[image Docker](https://registry.hub.docker.com/u/microsoft/azure-cli/) suivante. À partir d’un hôte Docker, exécutez la commande suivante :
+Vous pouvez également exécuter l’interface de ligne de commande Azure en tant que conteneur Docker à l’aide de l’[image Docker](https://registry.hub.docker.com/u/microsoft/azure-cli/) suivante. À partir d’un hôte Docker, exécutez la commande suivante :
 
 	docker run -it microsoft/azure-cli
 
@@ -97,7 +101,7 @@ Vous pouvez ensuite gérer l’ensemble du cycle de vie des ressources du groupe
 - mener des opérations d’audit ;
 - baliser des ressources avec des métadonnées supplémentaires pour améliorer leur suivi.
 
-Plus d’informations sur les groupes de ressources Azure et ce qu’ils peuvent faire pour vous dans [Présentation d’Azure Resource Manager](../resource-group-overview.md). Si vous êtes intéressé par la création de modèles, consultez [Création de modèles Azure Resource Manager](../resource-group-authoring-templates.md).
+Pour plus d’informations sur les groupes de ressources Azure et ce qu’ils peuvent faire pour vous, consultez [Présentation d’Azure Resource Manager](../resource-group-overview.md). Si vous êtes intéressé par la création de modèles, consultez [Création de modèles Azure Resource Manager](../resource-group-authoring-templates.md).
 
 ## <a id="quick-create-a-vm-in-azure"></a>Tâche : Créer rapidement une machine virtuelle dans Azure
 
@@ -1265,7 +1269,7 @@ Ensuite, recherchez myVM1 :
 
 ## <a id="log-on-to-a-linux-based-virtual-machine"></a>Tâche : Se connecter à une machine virtuelle Linux
 
-En général, les machines Linux sont connectées via SSH. Pour plus d’informations, consultez [Utilisation de SSH avec Linux sur Azure](virtual-machines-linux-use-ssh-key.md).
+En général, les machines Linux sont connectées via SSH. Pour plus d’informations, consultez [Utilisation de SSH avec Linux dans Azure](virtual-machines-linux-use-ssh-key.md).
 
 ## <a id="stop-a-virtual-machine"></a>Tâche : Arrêter une machine virtuelle
 
@@ -1298,8 +1302,8 @@ Vous devrez ensuite monter le disque, comme vous le feriez normalement sous Linu
 
 ## Étapes suivantes
 
-Pour consulter d’autres exemples d’utilisation de l’interface de ligne de commande Azure avec le mode **arm**, consultez [Utiliser l’interface de ligne de commande Azure pour Mac, Linux et Windows avec Azure Resource Manager](xplat-cli-azure-resource-manager.md). Pour en savoir plus sur les ressources Azure et leurs concepts, consultez [Présentation d’Azure Resource Manager](../resource-group-overview.md).
+Pour consulter d’autres exemples d’utilisation de l’interface de ligne de commande Azure avec le mode **arm**, consultez [Utilisation de l’interface de ligne de commande Azure pour Mac, Linux et Windows avec Azure Resource Manager](xplat-cli-azure-resource-manager.md). Pour en savoir plus sur les ressources Azure et leurs concepts, consultez [Présentation d’Azure Resource Manager](../resource-group-overview.md).
 
 Pour connaître les modèles supplémentaires utilisables, consultez [Modèles de démarrage rapide Azure](http://azure.microsoft.com/documentation/templates/) et [Infrastructures d’application à l’aide de modèles](virtual-machines-app-frameworks.md).
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

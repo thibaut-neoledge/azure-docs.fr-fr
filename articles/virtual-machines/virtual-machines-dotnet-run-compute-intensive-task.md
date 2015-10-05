@@ -1,26 +1,27 @@
 <properties
-	pageTitle="Exécution d’une tâche nécessitant beaucoup de ressources dans .NET sur une machine virtuelle Azure"
+	pageTitle="Exécution d’une application .NET nécessitant beaucoup de ressources sur une machine virtuelle | Microsoft Azure"
 	description="Découvrez comment déployer et exécuter une application .NET nécessitant beaucoup de ressources sur une machine virtuelle Azure et comment utiliser des files d’attente Azure Service Bus pour surveiller la progression à distance."
 	services="virtual-machines"
 	documentationCenter=".net"
 	authors="wadepickett"
 	manager="wpickett"
-	editor="mollybos"/>
-
+	editor="mollybos"
+	tags=“azure-service-management"/>
 
 <tags
 	ms.service="virtual-machines"
 	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="na"
+	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="dotnet"
 	ms.topic="article"
 	ms.date="06/25/2015"
 	ms.author="wpickett"/>
 
-
 # Exécution d’une tâche nécessitant beaucoup de ressources dans .NET sur une machine virtuelle Azure
 
 Azure permet d'utiliser une machine virtuelle pour gérer les tâches nécessitant beaucoup de ressources. Par exemple, une machine virtuelle peut gérer des tâches et fournir des résultats à des ordinateurs clients ou à des applications mobiles. Après avoir suivi le didacticiel, vous saurez créer une machine virtuelle exécutée sur une application .NET nécessitant beaucoup de ressources et pouvant être surveillée par une autre application .NET.
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Cet article traite de la création d’une ressource avec le modèle de déploiement classique.
 
 Ce didacticiel part du principe que vous savez créer des applications console .NET. Aucune connaissance d'Azure n'est nécessaire.
 
@@ -103,14 +104,13 @@ Pour pouvoir effectuer des opérations de gestion telles que la création d’un
 
 1. Sur votre ordinateur de développement (qui n'est pas forcément celui où se trouve la machine virtuelle que vous avez créée), téléchargez le [Kit de développement logiciel (SDK) Azure pour .NET](http://azure.microsoft.com/develop/net/).
 2. Créez une application console .NET avec le projet nommé TSPSolver. Assurez-vous que l’infrastructure cible est définie sur .**NET Framework 4** ou ultérieur (et non sur **.NET Framework 4 Client Profile**). L’infrastructure cible peut être définie après la création d’un projet des manières suivantes : dans le menu de Visual Studio, cliquez successivement sur **Projets**, **Propriétés** et sur l’onglet **Application**, puis définissez la valeur pour **Framework cible**.
-3. Ajoutez la bibliothèque Microsoft ServiceBus. Dans l’Explorateur de solutions Visual Studio, cliquez avec le bouton droit sur **TSPSolver**, cliquez sur **Ajouter une référence**, sur l’onglet **Parcourir**, accédez au Kit SDK Azure .NET (par exemple C:\\Program Files\\Microsoft SDKs\\Azure\\.NET SDK\\v2.5\\ToolsRef) et sélectionnez **Microsoft.ServiceBus.dll** comme référence.
-4. Ajoutez la bibliothèque System Runtime Serialization. Dans l’Explorateur de solutions Visual Studio, cliquez avec le bouton droit sur **TSPSolver**, cliquez sur **Ajouter une référence**, puis sur l’onglet **.NET**, et sélectionnez **System.Runtime.Serialization** en tant que référence.
+3. Ajoutez la bibliothèque Microsoft ServiceBus. Dans l’Explorateur de solutions Visual Studio, cliquez avec le bouton droit sur **TSPSolver**, cliquez sur **Ajouter une référence**, sous l’onglet **Parcourir**, accédez au Kit SDK Azure .NET (par exemple C:\\Program Files\\Microsoft SDKs\\Azure\\.NET SDK\\v2.5\\ToolsRef) et sélectionnez **Microsoft.ServiceBus.dll** comme référence.
+4. Ajoutez la bibliothèque System Runtime Serialization. Dans l’Explorateur de solutions Visual Studio, cliquez avec le bouton droit sur **TSPSolver**, cliquez sur **Ajouter une référence**, puis sous l’onglet **.NET**, et sélectionnez **System.Runtime.Serialization** en tant que référence.
 5. Utilisez l’exemple de code disponible à la fin de cette section pour le contenu du fichier Program.cs.
 6. Modifiez l’espace réservé **your\_connection\_string** pour utiliser votre valeur Service Bus **Chaîne de connexion**.
 7. Compilez l’application. TSPSolver.exe est créé dans le dossier bin de votre projet (bin\\release ou bin\\debug, en fonction de ce que vous ciblez : version Release ou de débogage). Vous allez copier ultérieurement cet exécutable et Microsoft.ServiceBus.dll dans votre machine virtuelle.
 
 <p/>
-
 
 	using System;
 	using System.Collections.Generic;
@@ -329,14 +329,13 @@ Pour pouvoir effectuer des opérations de gestion telles que la création d’un
 ## Création d'une application .NET surveillant la progression de la tâche qui nécessite beaucoup de ressources
 
 1. Sur votre ordinateur de développement, créez une application console .NET avec TSPClient comme nom de projet. Assurez-vous que l’infrastructure cible est définie sur .**NET Framework 4** ou ultérieur (et non sur **.NET Framework 4 Client Profile**). L’infrastructure cible peut être définie après la création d’un projet comme suit : dans le menu de Visual Studio, cliquez successivement sur **Projets**, **Propriétés** et l’onglet **Application**, puis définissez la valeur pour **Framework cible**.
-2. Ajoutez la bibliothèque Microsoft ServiceBus. Dans l’Explorateur de solutions de Visual Studio, cliquez avec le bouton droit sur **TSPClient**, cliquez sur **Ajouter une référence**, sur l’onglet **Parcourir**, accédez au Kit SDK Azure .NET (par exemple C:\\Program Files\\Microsoft SDKs\\Azure\\.NET SDK\\v2.5\\ToolsRef) et sélectionnez **Microsoft.ServiceBus.dll** comme référence.
-3. Ajoutez la bibliothèque System Runtime Serialization. Dans l’Explorateur de solutions de Visual Studio, cliquez avec le bouton droit sur **TSPClient**, cliquez sur **Ajouter une référence**, cliquez sur l’onglet **.NET**, puis sélectionnez **System.Runtime.Serialization** en tant que référence.
+2. Ajoutez la bibliothèque Microsoft ServiceBus. Dans l’Explorateur de solutions de Visual Studio, cliquez avec le bouton droit sur **TSPClient**, cliquez sur **Ajouter une référence**, sous l’onglet **Parcourir**, accédez au Kit SDK Azure .NET (par exemple C:\\Program Files\\Microsoft SDKs\\Azure\\.NET SDK\\v2.5\\ToolsRef) et sélectionnez **Microsoft.ServiceBus.dll** comme référence.
+3. Ajoutez la bibliothèque System Runtime Serialization. Dans l’Explorateur de solutions de Visual Studio, cliquez avec le bouton droit sur **TSPClient**, cliquez sur **Ajouter une référence**, cliquez sous l’onglet **.NET**, puis sélectionnez **System.Runtime.Serialization** en tant que référence.
 4. Utilisez l’exemple de code disponible à la fin de cette section pour le contenu du fichier Program.cs.
 5. Modifiez l’espace réservé **your\_connection\_string** pour utiliser votre valeur Service Bus **Chaîne de connexion**.
 6. Compilez l’application. TSPClient.exe est créé dans le dossier bin de votre projet (bin\\release ou bin\\debug, en fonction de ce que vous ciblez : version Release ou de débogage). Vous pouvez exécuter ce code sur votre ordinateur de développement, ou copier cet exécutable et Microsoft.ServiceBus.dll sur un ordinateur qui exécute l'application cliente (il n'est pas nécessaire que ce soit votre machine virtuelle).
 
 <p/>
-
 
 	using System;
 	using System.Collections.Generic;
@@ -550,4 +549,4 @@ Au lieu d’utiliser TSPSolver pour créer ou supprimer la file d’attente, vou
 [namespace_list]: ./media/virtual-machines-dotnet-run-compute-intensive-task/NamespaceList.png
 [access_key_button]: ./media/virtual-machines-dotnet-run-compute-intensive-task/AccessKey.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

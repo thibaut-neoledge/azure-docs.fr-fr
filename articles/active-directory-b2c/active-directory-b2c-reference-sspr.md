@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/15/2015"
+	ms.date="09/22/2015"
 	ms.author="swkrish"/>
 
 # Azure Active Directory B2C en version préliminaire : configuration de la réinitialisation du mot de passe libre-service pour vos consommateurs
@@ -36,4 +36,4 @@ Pour tester, utilisez la fonctionnalité « Exécuter maintenant » sur une stra
 
 > [AZURE.NOTE]Les pages de réinitialisation de mot de passe libre-service sont personnalisables à l’aide de la [fonctionnalité de personnalisation de la société](active-directory-add-company-branding.md).
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

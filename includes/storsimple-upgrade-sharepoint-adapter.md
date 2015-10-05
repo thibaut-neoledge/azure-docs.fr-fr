@@ -1,19 +1,4 @@
-<properties 
-   pageTitle="Mise à niveau de l’adaptateur StorSimple pour SharePoint | Microsoft Azure"
-   description="Décrit comment mettre à niveau SharePoint, puis installer une nouvelle version de l'adaptateur StorSimple pour SharePoint."
-   services="storsimple"
-   documentationCenter="NA"
-   authors="SharS"
-   manager="carolz"
-   editor="" />
-<tags 
-   ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="09/03/2015"
-   ms.author="v-sharos" />
+<!--author=SharS last changed: 9/17/15-->
 
 ### Effectuez une mise à niveau de SharePoint 2010 vers SharePoint 2013, puis installez l'adaptateur StorSimple pour SharePoint
 
@@ -29,7 +14,7 @@
 
 4. Installez l’adaptateur StorSimple pour SharePoint sur la nouvelle batterie de serveurs. Accédez à [Installation de l’adaptateur StorSimple pour SharePoint](#install-the-storsimple-adapter-for-sharepoint) pour plus d’informations.
 
-5. En utilisant les informations que vous avez notées à l'étape 1, activez RBS pour le même ensemble de bases de données de contenu et fournissez le même chemin d'accès du magasin d’objets blob utilisé dans l'installation de SharePoint 2010. Accédez à [Configuration de RBS](#configure-rbs) pour plus d’informations. Après avoir terminé cette étape, les fichiers précédemment externalisés doivent être accessibles depuis la nouvelle batterie de serveurs.
+5. En utilisant les informations que vous avez notées à l'étape 1, activez RBS pour le même ensemble de bases de données de contenu et fournissez le même chemin d'accès du magasin d’objets blob utilisé dans l'installation de SharePoint 2010. Accédez à [Configuration de RBS](#configure-rbs) pour plus d’informations sur les procédures. Après avoir terminé cette étape, les fichiers précédemment externalisés doivent être accessibles depuis la nouvelle batterie de serveurs.
 
 ### Mise à niveau de l’adaptateur StorSimple pour SharePoint
 
@@ -37,7 +22,7 @@
 >
 >- Le contenu précédemment externalisé n’est pas disponible avant la réinstallation de l'adaptateur.
 >
->- Tout contenu téléchargé sur le site après la désinstallation de la version précédente de l'adaptateur StorSimple pour SharePoint, mais avant l'installation de la nouvelle version, est stocké dans la base de données de contenu. Vous devez déplacer ce contenu vers l’appareil StorSimple après l'installation du nouvel adaptateur. Vous pouvez utiliser l’applet de commande Microsoft` RBS Migrate()` PowerShell incluse avec SharePoint pour migrer le contenu. Pour plus d’informations, consultez [Migration du contenu vers ou à partir de RBS](https://technet.microsoft.com/library/ff628255.aspx).
+>- Tout contenu téléchargé sur le site après la désinstallation de la version précédente de l'adaptateur StorSimple pour SharePoint, mais avant l'installation de la nouvelle version, est stocké dans la base de données de contenu. Vous devez déplacer ce contenu vers l’appareil StorSimple après l'installation du nouvel adaptateur. Vous pouvez utiliser l’applet de commande Microsoft` RBS Migrate()` PowerShell incluse avec SharePoint pour migrer le contenu. Pour plus d'informations, consultez [Migration du contenu vers ou à partir de RBS](https://technet.microsoft.com/library/ff628255.aspx).
 
 
 #### Pour mettre à niveau l’adaptateur StorSimple pour SharePoint 
@@ -48,4 +33,4 @@
  
 2. Installation du nouvel adaptateur StorSimple pour SharePoint. Le nouvel adaptateur reconnaît automatiquement les bases de données de contenu précédemment activées ou désactivées pour RBS et utilise les paramètres précédents.
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

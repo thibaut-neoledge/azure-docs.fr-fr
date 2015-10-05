@@ -1,19 +1,19 @@
 <properties
 	pageTitle="Attribution de rôles d’administrateur dans Azure AD"
-	description="Cette rubrique décrit les rôles d’administrateur disponibles avec Azure AD et leur utilisation."
+	description="Décrit les rôles d’administrateur disponibles avec Azure AD et leur utilisation."
 	services="active-directory"
 	documentationCenter=""
-	authors="curtand" 
+	authors="curtand"
 	manager="stevenpo"
-	editor="LisaToft"/>
+	editor=""/>
 
 <tags
 	ms.service="active-directory"
-	ms.workload="infrastructure-services"
+	ms.workload="identity"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/14/2015"
+	ms.date="09/21/2015"
 	ms.author="curtand"/>
 
 # Attribution de rôles d’administrateur dans Azure AD
@@ -68,14 +68,14 @@ Peut | Ne peut pas
 
 L’administrateur général a accès à toutes les fonctionnalités d’administration. Par défaut, le rôle d’administrateur général de l’annuaire est affecté à la personne qui souscrit un abonnement Azure. Seuls les administrateurs généraux peuvent affecter d’autres rôles d’administrateur.
 
-## Attribution ou suppression de rôles d’administrateur 
+## Attribution ou suppression de rôles d’administrateur
 
 
 1. Dans le portail de gestion, cliquez sur **Active Directory**, puis sur le nom de l’annuaire de votre organisation.
 2. Sur la page **Utilisateurs**, cliquez sur le nom d’affichage de l’utilisateur à modifier.
-3. Sélectionnez le menu déroulant **Rôle organisationnel**, puis le rôle d’administrateur que vous souhaitez attribuer à cet utilisateur, ou sélectionnez **Utilisateur** pour supprimer un rôle d’administrateur existant. 
+3. Sélectionnez le menu déroulant **Rôle organisationnel**, puis le rôle d’administrateur que vous souhaitez attribuer à cet utilisateur, ou sélectionnez **Utilisateur** pour supprimer un rôle d’administrateur existant.
 4. Dans le champ **Autre adresse de messagerie**, tapez une adresse électronique. Cette adresse électronique est utilisée pour les notifications importantes, notamment la réinitialisation automatique de mot de passe. L’utilisateur doit donc être en mesure d’accéder à ce compte, qu’il ait ou non accès à Azure.
-5. Sélectionnez **Autoriser** ou **Bloquer** pour indiquer si l’utilisateur est autorisé ou non à se connecter aux services et à y accéder. 
+5. Sélectionnez **Autoriser** ou **Bloquer** pour indiquer si l’utilisateur est autorisé ou non à se connecter aux services et à y accéder.
 6. Spécifiez un lieu en le sélectionnant dans la liste déroulante **Lieu d’utilisation**.
 7. Une fois que vous avez terminé, cliquez sur **Enregistrer**.
 
@@ -85,4 +85,4 @@ L’administrateur général a accès à toutes les fonctionnalités d’adminis
 - [Gestion des mots de passe](active-directory-manage-passwords.md)
 - [Gestion des groupes](active-directory-manage-groups.md)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO4-->

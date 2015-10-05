@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Création et téléchargement d’un disque dur virtuel Windows Server dans Azure"
-	description="Apprenez à créer et à télécharger un disque dur virtuel (VHD) contenant le système d’exploitation Windows Server dans Azure."
+	pageTitle="Création et téléchargement d’un VHD Windows Server dans Azure à l’aide de Powershell"
+	description="Découvrez comment créer et télécharger un disque dur virtuel (VHD) basé sur Windows Server à l'aide du modèle de déploiement classique et d’Azure Powershell."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="cynthn"
@@ -198,4 +198,4 @@ Une fois que vous avez créé une machine virtuelle, essayez de créer une machi
 [Step 3: Prepare the connection to Azure]: #prepAzure
 [Step 4: Upload the .vhd file]: #upload
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

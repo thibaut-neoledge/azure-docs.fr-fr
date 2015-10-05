@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/15/2015"
+	ms.date="09/22/2015"
 	ms.author="swkrish"/>
 
 # Azure Active Directory B2C en version préliminaire : activation d’Azure Multi-Factor Authentication dans vos applications accessibles aux consommateurs
@@ -53,4 +53,4 @@ La fonctionnalité « Exécuter maintenant » de la stratégie permet de véri
 
 Lorsque le consommateur se connecte (à l’aide d’un compte local ou social), si un numéro de téléphone vérifié est associé à son compte, il est invité à la confirmer. Si aucun numéro de téléphone n’est associé, le consommateur est invité à en fournir un et à le confirmer. Si la vérification réussit, le numéro de téléphone est associé au compte du consommateur pour une utilisation ultérieure.
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

@@ -1,19 +1,4 @@
-<properties 
-   pageTitle="Option 1 : Utiliser Windows PowerShell pour StorSimple pour installer Update 1.2"
-   description="Explique comment utiliser Windows PowerShell pour StorSimple pour installer StorSimple 8000 Series Update 1.2."
-   services="storsimple"
-   documentationCenter="NA"
-   authors="SharS"
-   manager="adinah"
-   editor="tysonn" />
-<tags 
-   ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="09/09/2015"
-   ms.author="v-sharos" />
+<!--author=SharS last changed: 9/17/15-->
 
 #### Pour installer Update 1.2 à partir de Windows PowerShell pour StorSimple
 
@@ -38,7 +23,7 @@
 
     6. Cliquez sur **Télécharger**. Spécifiez ou **accédez** à un emplacement local où vous souhaitez que le téléchargement s'affiche. La mise à jour est téléchargée dans le dossier **StorSimple Update 1.2 Appliance Update** (KB3063418) de l'emplacement choisi. Ce dossier peut également être copié sur un partage réseau accessible à partir de l’appareil.
     
-	Cette procédure décrit comment installer la mise à jour de périphérique logicielle en tant que correctif, les mises à jour du microprogramme de disque à partir du serveur Microsoft Update, ainsi que le pilote LSI et les mises à jour Windows à partir du portail de gestion. Toutefois, vous pouvez choisir d'installer les mises à jour du logiciel, du pilote et du microprogramme de disque en tant que correctifs. Vous devrez alors télécharger StorSimple 1.2 SAS Controller Update (KB3043005) et StorSimple 1.2 Disk Firmware Update (KB3063416) et les copier dans le dossier partagé. Pour installer les mises à jour du microprogramme de disque en tant que correctif, suivez les instructions sous [installation des correctifs du mode maintenance via Windows PowerShell pour StorSimple](storsimple-update-device.md#install-hotfixes-via-windows-powershell-for-storsimple).
+	Cette procédure décrit comment installer la mise à jour de périphérique logicielle en tant que correctif, les mises à jour du microprogramme de disque à partir du serveur Microsoft Update, ainsi que le pilote LSI et les mises à jour Windows à partir du portail de gestion. Toutefois, vous pouvez choisir d'installer les mises à jour du logiciel, du pilote et du microprogramme de disque en tant que correctifs. Vous devrez alors télécharger StorSimple 1.2 SAS Controller Update (KB3043005) et StorSimple 1.2 Disk Firmware Update (KB3063416) et les copier dans le dossier partagé. Pour installer les mises à jour du microprogramme de disque en tant que correctif logiciel, suivez les instructions dans [Installation des correctifs logiciels du mode maintenance via Windows PowerShell pour StorSimple](storsimple-update-device.md#install-hotfixes-via-windows-powershell-for-storsimple).
     
 	> [AZURE.NOTE]Le correctif doit être accessible depuis les deux contrôleurs pour détecter les messages d'erreur potentiels à partir du contrôleur homologue.
             
@@ -100,7 +85,7 @@
         ````
 		
 
-	> [AZURE.NOTE]Parfois, l'applet de commande indique `False` lorsque la mise à jour est en cours d'exécution. Pour vous assurer que le correctif est terminé, patientez quelques minutes, réexécutez cette commande et vérifiez que `RunInProgress` est `False`. Dans ce cas, le correctif est terminé.
+	> [AZURE.NOTE]Parfois, l'applet de commande indique `False` lorsque la mise à jour est encore en cours d'exécution. Pour vous assurer que le correctif logiciel est terminé, patientez quelques minutes, exécutez à nouveau cette commande et vérifiez que `RunInProgress` est `False`. Dans ce cas, le correctif est terminé.
 	
 8. Lorsque la mise à jour logicielle est terminée, vérifiez les versions des logiciels du système. Tapez la commande suivante :
 
@@ -127,4 +112,4 @@
  
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

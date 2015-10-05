@@ -26,7 +26,7 @@ Pour mettre en évidence la façon dont vous pouvez exploiter efficacement Azure
 
 Cette procédure pas à pas montre comment utiliser le service DocumentDB fourni par Azure pour stocker des données et y accéder à partir d'une application web ASP.NET MVC hébergée sur Azure.
 
-> [AZURE.TIP]Ce didacticiel suppose que vous disposez d'une expérience préalable de l'utilisation d'ASP.NET MVC et d'Azure Websites. Si vous débutez avec ASP.NET ou avec les [outils requis](#_Toc395637760), nous vous recommandons de télécharger l'ensemble du projet du didacticiel [todo](https://github.com/Azure/azure-documentdb-net/tree/master/tutorials/todo) à partir de [GitHub](https://github.com/Azure/azure-documentdb-net) et de le créer à l'aide des [instructions fournies à la fin de cet article](#GetProject). Une fois que vous l'avez créé, vous pouvez consulter l'article pour obtenir des informations sur le code dans le contexte du projet.
+> [AZURE.TIP]Ce didacticiel suppose que vous disposez d'une expérience préalable de l'utilisation d'ASP.NET MVC et d'Azure Websites. Si vous débutez avec ASP.NET ou avec les [outils requis](#_Toc395637760), nous vous recommandons de télécharger le projet exemple complet à partir de [GitHub][] et de suivre les instructions fournies dans cet exemple. Une fois que vous l'avez créé, vous pouvez consulter cet article pour obtenir des informations sur le code dans le contexte du projet.
 
 ## <a name="_Toc395637760"></a>Conditions préalables à l’exécution de ce didacticiel de base de données
 
@@ -85,7 +85,7 @@ Maintenant que vous avez un compte, nous allons créer notre nouveau projet ASP.
 
 	Nous allons sauter l'exécution du projet localement, car je suis sûr que nous avons tous vu l'application « Hello World » ASP.NET. Nous allons maintenant ajouter DocumentDB à ce projet et créer notre application.
 
-## <a name="_Toc395637767"></a>Étape 3 : ajout de DocumentDB à votre projet d’application web
+## <a name="_Toc395637767"></a>Étape 3 : ajout de DocumentDB à votre projet d’application Web
 
 Maintenant que nous avons la plupart des éléments ASP.NET MVC nécessaires à cette solution, passons au véritable objectif de ce didacticiel, à savoir, ajouter Azure DocumentDB à notre application web.
 
@@ -249,7 +249,7 @@ Dans cette section, nous allons ajouter du code pour gérer les éléments suiva
 - [Ajout d'éléments](#_Toc395637771).
 - [Modification d'éléments](#_Toc395637772).
 
-### <a name="_Toc395637770"></a>Établissement de la liste des éléments incomplets dans votre application web
+### <a name="_Toc395637770"></a>Établissement de la liste des éléments incomplets dans votre application Web
 
 La première chose à faire ici est d'ajouter une classe qui contient toute la logique permettant de se connecter à DocumentDB et de l'utiliser. Pour ce didacticiel, nous allons encapsuler toute cette logique dans une classe de référentiel appelée DocumentDBRepository.
 
@@ -581,7 +581,7 @@ Pour tester l'application sur votre machine locale, procédez comme suit :
 
 	![Capture d’écran de l’application web todo list créée dans ce didacticiel de base de données](./media/documentdb-dotnet-application/image24.png)
 
-	Si vous rencontrez des erreurs à ce stade, vous pouvez comparer votre code au didacticiel todo sur [GitHub][].
+	Si vous rencontrez des erreurs à ce stade, vous pouvez comparer votre code au projet exemple sur [GitHub][]
 
 2. Cliquez sur le lien **Créer nouveau** et ajoutez des valeurs aux champs **Nom** et **Description**. Ne cochez pas la case **Terminé**, sans quoi le nouvel **élément** sera ajouté avec l'état terminé et n'apparaîtra pas dans la liste initiale.
 
@@ -619,44 +619,12 @@ Félicitations ! Vous venez de créer votre première application ASP.NET MVC �
 
 Pour ajouter des fonctionnalités supplémentaires à votre application, passez en revue les API disponibles dans la [bibliothèque de documents DB .NET](http://msdn.microsoft.com/library/azure/dn783362.aspx) et n'hésitez pas à contribuer à la bibliothèque DocumentDB .NET sur [GitHub][].
 
-##<a id="GetProject"></a>Obtention de la solution à partir de GitHub
-
-Si vous voulez gagner du temps et souhaitez simplement générer la solution todo complète sans ajouter le code vous-même, vous avez de la chance. La solution complète est disponible sur GitHub et vous pouvez la générer et la déployer en quelques minutes à l'aide des instructions suivantes.
-
-1. Vérifiez que vous avez installé tous les [logiciels prérequis](#_Toc395637760), à savoir Visual Studio et le Kit de développement logiciel (SDK) Azure pour .NET version 2.3 ou ultérieure.
-
-2. Clonez le référentiel azure-documentdb-net à l'aide de Git pour Windows ([http://www.git-scm.com/](http://www.git-scm.com/)) ou téléchargez le fichier zip depuis [GitHub](https://github.com/Azure/azure-documentdb-net/).
-
-2. À partir de Visual Studio, ouvrez le fichier todo.sln à partir du répertoire azure-documentdb-net/tutorials/todo directory.
-
-3. Pour restaurer les références au Kit de développement logiciel (SDK) .NET de DocumentDB dans Visual Studio 2013, cliquez avec le bouton droit sur la solution todo dans l'**Explorateur de solutions**, puis cliquez sur **Activer la restauration des packages NuGet**, qui permet de restaurer les références.
-
-4. Récupérez les valeurs de l’**URI**, de la **CLÉ PRIMAIRE** ou de la **CLÉ SECONDAIRE** dans le panneau **Clés** de votre compte DocumentDB dans le [portail Azure en version préliminaire](https://portal.azure.com/).
-
-	
-	Si vous n'avez pas de compte, consultez [Création d'un compte de base de données](documentdb-create-account.md) pour en créer un.
-
-	![Capture d’écran du portail Azure en version préliminaire, présentant un compte DocumentDB, avec le hub ACTIF et le bouton Clés mis en surbrillance dans le panneau du compte DocumentDB, et les valeurs d’URI, de CLÉ PRIMAIRE et de CLÉ SECONDAIRE mises en surbrillance dans le panneau Clés](media/documentdb-dotnet-application/keys.png)
-
-5. Dans le fichier Web.config, mettez à jour les valeurs par défaut pour les clés **endpoint** et **authKey**.
-
-    	<add key="endpoint" value="~enter URI for your DocumentDB Account, from Azure Preview portal~" /> 
-		<add key="authKey" value="~enter either Primary or Secondary key for your DocumentDB Account, from Azure Preview portal~" /> 
-
-	- Copiez la valeur d'**URI** du panneau Clés et collez-la dans la valeur de la propriété **endpoint**. 
-	- Copiez la valeur de **CLÉ PRIMAIRE** ou de **CLÉ SECONDAIRE** dans le panneau **Clés** et collez-la dans la valeur de la propriété **authKey**.
-	
-
-
-7. Vous pouvez maintenant [exécuter l'application en local](#_Toc395637773), puis la [déployer sur des sites web Azure](#_Toc395637774).
-
 
 [*]: https://microsoft.sharepoint.com/teams/DocDB/Shared%20Documents/Documentation/Docs.LatestVersions/PicExportError
 [Visual Studio Express]: http://www.visualstudio.com/products/visual-studio-express-vs.aspx
 [Microsoft Web Platform Installer]: http://www.microsoft.com/web/downloads/platform.aspx
-[GitHub]: http://go.microsoft.com/fwlink/?LinkID=509838&clcid=0x409
 [Prévention des falsifications de requête intersites]: http://go.microsoft.com/fwlink/?LinkID=517254
 [Opérations CRUD de base dans ASP.NET MVC.]: http://go.microsoft.com/fwlink/?LinkId=317598
- 
+[GitHub]: https://github.com/Azure-Samples/documentdb-net-todo-app
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

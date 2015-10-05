@@ -83,7 +83,7 @@ Un rôle de travail peut avoir un nombre quelconque de points de terminaison HTT
 
 ### Page de stockage local
 
-Vous pouvez utiliser la page de propriétés Stockage local pour réserver une ou plusieurs ressources de stockage local pour un rôle. Une ressource de stockage local est un répertoire réservé dans le système de fichiers de la machine virtuelle Azure dans lequel s’exécute l’instance d’un rôle. Pour plus d’informations sur l’utilisation des ressources de stockage local, voir [Configurer les ressources de stockage local](https://msdn.microsoft.com/library/azure/ee758708.aspx).
+Vous pouvez utiliser la page de propriétés Stockage local pour réserver une ou plusieurs ressources de stockage local pour un rôle. Une ressource de stockage local est un répertoire réservé dans le système de fichiers de la machine virtuelle Azure dans lequel s’exécute l’instance d’un rôle. Pour plus d’informations sur l’utilisation des ressources de stockage local, consultez [Configurer les ressources de stockage local](../cloud-services/cloud-services-configure-local-storage-resources.md).
 
 ### Page Certificats
 
@@ -112,4 +112,4 @@ Pour configurer des paramètres qui s’appliquent à l’ensemble d’un projet
 
 Pour en savoir plus sur la configuration de projets de service cloud Azure, voir [Gestion des rôles dans les projets de services cloud Azure avec Visual Studio](vs-azure-tools-cloud-service-project-managing-roles.md).
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

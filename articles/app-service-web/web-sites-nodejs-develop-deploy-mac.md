@@ -18,6 +18,14 @@
 
 # Créer et déployer une application web Node.js dans Azure App Service
 
+> [AZURE.SELECTOR]
+- [.Net](web-sites-dotnet-get-started.md)
+- [Node.js](web-sites-nodejs-develop-deploy-mac.md)
+- [Java](web-sites-java-get-started.md)
+- [PHP - Git](web-sites-php-mysql-deploy-use-git.md)
+- [PHP - FTP](web-sites-php-mysql-deploy-use-ftp.md)
+- [Python](web-sites-python-ptvs-django-mysql.md)
+
 Ce didacticiel vous explique comment créer une application [Node][nodejs.org] et la déployer dans la [fonctionnalité Web Apps dans Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) à l’aide de [Git]. Les instructions de ce didacticiel s'appliquent à tous les systèmes d'exploitation pouvant exécuter Node.
 
 Voici une capture d'écran de l'application terminée :
@@ -28,11 +36,12 @@ Voici une capture d'écran de l'application terminée :
 
 Pour créer une application web et activer la publication Git, suivez la procédure ci-après.
 
-> [AZURE.NOTE]Pour effectuer ce didacticiel, vous avez besoin d’un compte Microsoft Azure. Si vous ne possédez pas de compte, vous pouvez [activer les avantages de votre abonnement MSDN](/fr-FR/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F) ou [obtenir une évaluation gratuite](/fr-FR/pricing/free-trial/?WT.mc_id=A261C142F).
+> [AZURE.NOTE]
+> Pour suivre ce didacticiel, vous devez disposer d’un compte Microsoft Azure. Si vous ne possédez pas de compte, vous pouvez [activer les avantages de votre abonnement MSDN](/fr-fr/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F) ou [obtenir une évaluation gratuite](/fr-fr/pricing/free-trial/?WT.mc_id=A261C142F).
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
 
-2. Cliquez sur l'icône **+ NOUVEAU** dans le coin supérieur gauche du portail.
+2. Cliquez sur l’icône **+ NOUVEAU** dans le coin supérieur gauche du portail.
 
 3. Cliquez sur **Web + Mobile**, puis cliquez sur **application web**.
 
@@ -59,7 +68,7 @@ Pour créer une application web et activer la publication Git, suivez la procéd
 	![][setup-git-publishing]
 
 
-10. Cliquez sur la partie **Informations d’identification du déploiement** (encadrée en rouge ci-dessous). Créez un nom d’utilisateur et un mot de passe. Cliquez sur **Save**. Si vous avez déjà activé la publication d’une application web, vous n’avez pas besoin d’effectuer cette étape.
+10. Cliquez sur la partie **Informations d’identification du déploiement** (encadrée en rouge ci-dessous). Créez un nom d’utilisateur et un mot de passe. Cliquez sur **Enregistrer**. Si vous avez déjà activé la publication d’une application web, vous n’avez pas besoin d’effectuer cette étape.
 
 	![][deployment-credentials]
 
@@ -70,7 +79,7 @@ Pour créer une application web et activer la publication Git, suivez la procéd
 
 ##Génération et test de votre application localement
 
-Dans cette section, vous allez créer un fichier **server.js** contenant l'exemple « Hello world » de [nodejs.org]. Cet exemple a été modifié par rapport à l’exemple d’origine via l’ajout de process.env.PORT en tant que port d’écoute lors de l’exécution dans une application web Azure.
+Dans cette section, vous allez créer un fichier **server.js** contenant l’exemple « Hello world » de [nodejs.org]. Cet exemple a été modifié par rapport à l’exemple d’origine via l’ajout de process.env.PORT en tant que port d’écoute lors de l’exécution dans une application web Azure.
 
 1. Dans un éditeur de texte, créez un fichier nommé **server.js** dans le répertoire **helloworld**. Si celui-ci n'existe pas, créez-le.
 
@@ -97,7 +106,8 @@ Dans cette section, vous allez créer un fichier **server.js** contenant l'exemp
 
 		git init
 
-	> [AZURE.NOTE]La commande Git est-elle indisponible ? [Git](http://git-scm.com/%20target="_blank) est un système de contrôle de version distribué vous permettant de déployer votre site web Azure. Pour obtenir des instructions d'installation pour votre plateforme, consultez la [page de téléchargement de Git](http://git-scm.com/download%20target="_blank").
+	> [AZURE.NOTE]**Si la commande Git n’est pas disponible** 
+	> [Git](http://git-scm.com/%20target="_blank) est un système de contrôle de version distribué permettant de déployer votre site Web Azure. Pour obtenir des instructions d'installation pour votre plateforme, consultez [la page de téléchargement de Git](http://git-scm.com/download%20target="_blank").
 
 2. Utilisez les commandes suivantes pour ajouter des fichiers au référentiel :
 
@@ -155,21 +165,22 @@ Dans cette section, vous allez créer un fichier **server.js** contenant l'exemp
 
 Si la procédure de cet article utilise le portail Azure pour créer une application web, vous pouvez également utiliser l’[interface de ligne de commande Azure](../xplat-cli.md) pour effectuer les mêmes opérations.
 
-Node.js fournit un écosystème de modules enrichi que vos applications peuvent utiliser. Pour savoir comment Web Apps fonctionne avec les modules, consultez la page [Utilisation des modules Node.js avec les applications Azure](../nodejs-use-node-modules-azure-apps.md).
+Node.js fournit un écosystème de modules enrichi que vos applications peuvent utiliser. Pour savoir comment Web Apps fonctionne avec les modules, voir [Utilisation des modules Node.js avec les applications Azure](../nodejs-use-node-modules-azure-apps.md).
 
 Pour en savoir plus sur les versions de Node.js fournies avec Azure et apprendre comment indiquer la version à utiliser avec votre application, consultez la page [Spécification d'une version de Node.js dans une application Azure](../nodejs-specify-node-version-azure-apps.md).
 
-Si vous rencontrez des problèmes avec votre application après son déploiement dans Azure, consultez la page [Débogage d’une application Node.js dans Azure App Service](web-sites-nodejs-debug.md) pour en savoir plus sur le diagnostic du problème.
+Si vous rencontrez des problèmes avec votre application après son déploiement dans Azure, voir [Débogage d’une application Node.js dans Azure App Service](web-sites-nodejs-debug.md) pour en savoir plus sur le diagnostic du problème.
 
 
 ##Ressources supplémentaires
 
 * [Azure PowerShell](../install-configure-powershell.md)
 * [Interface de ligne de commande Azure](../xplat-cli.md)
+* [Centre de développement Node.js](/develop/nodejs/)
 
 ## Changements apportés
-* Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre Sites Web et App Service, consultez la page [Azure App Service et les services Azure existants](http://go.microsoft.com/fwlink/?LinkId=529714).
-* Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre l’ancien et le nouveau portail, consultez [Références sur la navigation dans le portail Azure](http://go.microsoft.com/fwlink/?LinkId=529715).
+* Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre Sites Web et App Service, voir [Azure App Service et les services Azure existants](http://go.microsoft.com/fwlink/?LinkId=529714).
+* Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre l’ancien et le nouveau portail, voir [Références sur la navigation dans le portail Azure](http://go.microsoft.com/fwlink/?LinkId=529715).
 
 
 [nodejs.org]: http://nodejs.org
@@ -195,4 +206,4 @@ Si vous rencontrez des problèmes avec votre application après son déploiement
 
 [git-url]: ./media/web-sites-nodejs-develop-deploy-mac/git-url.png
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

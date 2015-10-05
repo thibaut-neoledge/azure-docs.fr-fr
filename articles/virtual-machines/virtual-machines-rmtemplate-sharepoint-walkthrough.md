@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Modèle Resource Manager pour la batterie de serveurs SharePoint à trois serveurs"
+	pageTitle="Modèle ARM de batterie SharePoint de 3 serveurs | Microsoft Azure"
 	description="Découvrez la structure du modèle Azure Resource Manager pour la batterie de serveurs SharePoint à trois serveurs."
 	services="virtual-machines"
 	documentationCenter=""
@@ -10,13 +10,15 @@
 
 <tags
 	ms.service="virtual-machines"
-	ms.workload="infrastructure-services"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            ms.tgt_pltfrm="vm-windows-sharepoint"
+	ms.workload="infrastructure-services"                                                                             ms.tgt_pltfrm="vm-windows-sharepoint"
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="07/28/2015"
 	ms.author="davidmu"/>
 
 # Modèle Resource Manager pour la batterie de serveurs SharePoint à trois serveurs
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Cet article traite de la création de ressources avec le modèle de déploiement de Resource Manager. Vous ne pouvez pas créer cette ressource avec le modèle de déploiement classique.
 
 Cette rubrique vous explique la structure du fichier de modèle azuredeploy.json pour la batterie de serveurs SharePoint à trois serveurs. Vous pouvez également voir le contenu de ce modèle dans votre navigateur à partir d’[ici](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/sharepoint-three-vm/azuredeploy.json).
 
@@ -51,7 +53,7 @@ La section **"parameters"** spécifie les paramètres qui sont utilisés pour l�
 
 ## section "variables"
 
-La section **"variables"** spécifie les variables (et leurs valeurs) qui sont utilisées par le modèle. Les valeurs des variables peuvent être définies explicitement ou dériver des valeurs des paramètres. Contrairement aux paramètres, elles n’ont pas à être fournies au moment de l’exécution du modèle. Il est possible de définir 100 variables maximum. Voici quelques exemples :
+La section **"variables"** spécifie les variables et leurs valeurs qui sont utilisées par le modèle. Les valeurs des variables peuvent être définies explicitement ou dériver des valeurs des paramètres. Contrairement aux paramètres, elles n’ont pas à être fournies au moment de l’exécution du modèle. Il est possible de définir 100 variables maximum. Voici quelques exemples :
 
 	"LBFE": "LBFE",
 	"LBBE": "LBBE",
@@ -350,7 +352,7 @@ La section **"type": "Microsoft.Compute/virtualMachines"** suivante crée les ma
 
 Les autres sections **"Microsoft.Compute/virtualMachines/extensions"** font appel au script PowerShell pour configurer le serveur SQL Server.
 
-La section **"type": "Microsoft.Compute/virtualMachines"** suivante crée la machine virtuelle SharePoint du déploiement en spécifiant le compte de stockage, le groupe à haute disponibilité, l’équilibreur de charge, le réseau virtuel et l’interface réseau. Une autre section **"Microsoft.Compute/virtualMachines/extensions"** appelle un script PowerShell pour configurer la batterie de serveurs SharePoint.
+La section **"type": "Microsoft.Compute/virtualMachines"** suivante crée la machine virtuelle SharePoint du déploiement en spécifiant le compte de stockage, le groupe à haute disponibilité, l’équilibrage de charge, le réseau virtuel et l’interface réseau. Une autre section **"Microsoft.Compute/virtualMachines/extensions"** appelle un script PowerShell pour configurer la batterie de serveurs SharePoint.
 
 Notez l’organisation générale des sous-sections de la **"resources"** section du fichier JSON :
 
@@ -364,7 +366,7 @@ Vous devez suivre les mêmes étapes pour votre propre modèle JSON visant à cr
 1.	Créez les éléments communs (compte de stockage, réseau virtuel), propres au niveau (groupes à haute disponibilité) et propres à la machine virtuelle (adresses IP publiques, groupes à haute disponibilité, interfaces réseau, instances d’équilibreur de charge) de l’infrastructure Azure requis pour votre déploiement.
 2.	Pour chaque niveau de votre application (par exemple l’authentification, la base de données, le web), créez et configurez les serveurs de ce niveau à l’aide des éléments communs (compte de stockage, réseau virtuel), propres au niveau (groupes à haute disponibilité) et propres à la machine virtuelle (adresses IP publiques, interfaces réseau et instances d’équilibreur de charge).
 
-Pour plus d'informations, consultez [Langage du modèle Azure Resource Manager](../resource-group-authoring-templates.md).
+Pour plus d’informations, consultez [Langage du modèle Azure Resource Manager](../resource-group-authoring-templates.md).
 
 ## Ressources supplémentaires
 
@@ -374,4 +376,4 @@ Pour plus d'informations, consultez [Langage du modèle Azure Resource Manager
 
 [Documentation sur les machines virtuelles](http://azure.microsoft.com/documentation/services/virtual-machines/)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

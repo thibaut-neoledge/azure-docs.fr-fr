@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/08/2015" 
+	ms.date="09/23/2015" 
 	ms.author="awills"/>
  
 # Vues Power BI des données Application Insights
@@ -42,13 +42,13 @@ Si vous n’avez pas encore essayé, c’est le moment ou jamais. Application In
 
 Comme l’exportation continue génère toujours des données vers un compte de stockage Azure, vous devez commencer par créer ce stockage.
 
-1. Créez un compte de stockage dans votre abonnement sur le [portail Azure](https://portal.azure.com).
+1. Créez un compte de stockage classique dans votre abonnement sur le [portail Azure](https://portal.azure.com).
 
     ![Sur le portail Azure, choisissez Nouveau, Données, Stockage.](./media/app-insights-export-power-bi/030.png)
 
 2. Créez un conteneur.
 
-    ![Dans le nouvel emplacement de stockage, sélectionnez Conteneurs, puis Ajouter.](./media/app-insights-export-power-bi/040.png)
+    ![Dans le nouvel emplacement de stockage, sélectionnez Conteneurs, cliquez sur la mosaïque Conteneurs puis sur Ajouter.](./media/app-insights-export-power-bi/040.png)
 
 3. Copiez la clé d’accès au stockage.
 
@@ -239,4 +239,4 @@ Noam Ben Zeev montre comment exporter vers Power BI.
 * [Application Insights](app-insights-overview.md)
 * [Plus d'exemples et de procédures pas à pas](app-insights-code-samples.md)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/16/2015"
+   ms.date="09/17/2015"
    ms.author="cherylmc"/>
 
 # Configurer des connexions Azure ExpressRoute et VPN de site à site coexistantes
@@ -150,7 +150,10 @@ Cette procédure vous guide dans la création d'un réseau virtuel et dans l’�
 
 	Utilisez l’exemple suivant en remplaçant les valeurs par les vôtres.
 
-	`New-AzureLocalNetworkGateway -GatewayName MyLocalNetwork -IpAddress <local-network- gateway-public-IP> -AddressSpace <local-network-address-space>`
+	`New-AzureLocalNetworkGateway -Gatewayname MyLocalNetwork -IpAddress <MyLocalGatewayIp> -AddressSpace <MyLocalNetworkAddress>`
+
+	> [AZURE.IMPORTANT]Si votre réseau local possède plusieurs itinéraires, vous pouvez tous les transmettre sous la forme d’un tableau. $MyLocalNetworkAddress = @("10.1.2.0/24","10.1.3.0/24","10.2.1.0/24")
+
 
 	Pour récupérer les paramètres de la passerelle de réseau virtuel, y compris l’ID de passerelle et l’adresse IP publique, utilisez l’applet de commande `Get-AzureVirtualNetworkGateway`. Consultez l’exemple qui suit.
 
@@ -192,7 +195,7 @@ Si vous disposez d’un réseau virtuel connecté via ExpressRoute ou une connex
 2. Exportez le schéma du réseau virtuel. Utilisez l’applet de commande PowerShell suivante en remplaçant les valeurs par les vôtres.
 
 	`Get-AzureVNetConfig –ExportToFile “C:\NetworkConfig.xml”`
-3. Modifiez le schéma du fichier de configuration réseau pour que le sous-réseau de passerelle soit défini sur /27 (ou un préfixe plus court). Consultez l’exemple qui suit. Pour plus d’informations sur l’utilisation du fichier de configuration réseau, consultez [Comment créer un réseau virtuel à l’aide d’un fichier de configuration réseau](../virtual-network/virtual-networks-create-vnet-classic-portal.md#how-to-create-a-vnet-using-a-network-config-file-in-the-azure-portal). Pour plus d’informations sur le schéma de configuration, consultez la page [Schéma de configuration du réseau virtuel Azure](https://msdn.microsoft.com/library/azure/jj157100.aspx).
+3. Modifiez le schéma du fichier de configuration réseau pour que le sous-réseau de passerelle soit défini sur /27 ou une valeur inférieure (/26, /25, etc.). Consultez l’exemple qui suit. Pour plus d’informations sur l’utilisation du fichier de configuration réseau, consultez [Comment créer un réseau virtuel à l’aide d’un fichier de configuration réseau](../virtual-network/virtual-networks-create-vnet-classic-portal.md#how-to-create-a-vnet-using-a-network-config-file-in-the-azure-portal). Pour plus d’informations sur le schéma de configuration, consultez la page [Schéma de configuration du réseau virtuel Azure](https://msdn.microsoft.com/library/azure/jj157100.aspx).
 
 
           <Subnet name="GatewaySubnet">
@@ -217,4 +220,4 @@ En savoir plus sur ExpressRoute. Consultez la rubrique [Présentation d’Expre
 
 En savoir plus sur les passerelles VPN. Consultez la rubrique [À propos des passerelles VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md).
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

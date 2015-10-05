@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Application Node.js avec Socket.io | Microsoft Azure"
-	description="Découvrez comment utiliser socket.io dans une application node.js hébergée sur Azure."
-	services="cloud-services"
-	documentationCenter="nodejs"
-	authors="TomArcher"
-	manager="wpickett"
+	pageTitle="Application Node.js avec Socket.io | Microsoft Azure" 
+	description="Découvrez comment utiliser socket.io dans une application node.js hébergée sur Azure." 
+	services="cloud-services" 
+	documentationCenter="nodejs" 
+	authors="TomArcher" 
+	manager="wpickett" 
 	editor=""/>
 
 <tags 
-	ms.service="cloud-services"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="na"
-	ms.devlang="nodejs"
-	ms.topic="article"
-	ms.date="09/01/2015"
+	ms.service="cloud-services" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="nodejs" 
+	ms.topic="article" 
+	ms.date="09/01/2015" 
 	ms.author="tarcher"/>
 
 
@@ -149,6 +149,8 @@ Votre application s'exécute à présent dans Azure, et peut transmettre des mes
 
 Ce didacticiel vous a montré comment créer une application de conversation instantanée de base, hébergée dans un service cloud Azure. Pour plus d'informations sur l'hébergement de cette application sur un site web Azure, consultez la page [Création d'une application de conversation instantanée Node.js avec Socket.IO sur un site web Azure][chatwebsite].
 
+Pour plus d'informations, consultez aussi le [Centre pour développeurs Node.js](/develop/nodejs/).
+
   [chatwebsite]: /develop/nodejs/tutorials/website-using-socketio/
 
   [Azure SLA]: http://www.windowsazure.com/support/sla/
@@ -172,4 +174,4 @@ Ce didacticiel vous a montré comment créer une application de conversation ins
   
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO4-->

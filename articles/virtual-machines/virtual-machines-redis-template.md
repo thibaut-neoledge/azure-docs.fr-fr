@@ -5,7 +5,8 @@
 	documentationCenter=""
 	authors="timwieman"
 	manager="timlt"
-	editor="tysonn"/>
+	editor="tysonn"
+	tags="azure-resource-manager"/>
 
 <tags
 	ms.service="virtual-machines"
@@ -17,6 +18,8 @@
 	ms.author="twieman"/>
 
 # Cluster Redis avec un modèle Resource Manager
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Cet article traite de la création d’un cluster Redis avec le modèle de déploiement du Gestionnaire des ressources.
 
 Redis est une solution de cache et stockage clé-valeur open-source dont les clés peuvent contenir des structures de données, telles que des chaînes de caractères, des hachages, des listes, des groupes et des groupes triés. Redis prend en charge un ensemble d'opérations atomiques pour ces types de données. Avec la version de Redis 3.0, Redis Cluster est désormais disponible dans la version stable la plus récente de Redis. Redis Cluster est une implémentation distribuée de Redis dans laquelle les données sont automatiquement partitionnées sur plusieurs nœuds de Redis, avec la possibilité de continuer à fonctionner lorsqu’un sous-ensemble de nœuds rencontre des erreurs.
 
@@ -344,7 +347,7 @@ Lors du déploiement, le résultat suivant doit s’afficher :
 
 Pendant et après le déploiement, vous pouvez vérifier toutes les requêtes effectuées durant la configuration et notamment toutes les erreurs survenues.
 
-Pour ce faire, accédez au [Portail Azure](https://portal.azure.com), puis procédez comme suit :
+Pour ce faire, accédez au [portail Azure](https://portal.azure.com), puis procédez comme suit :
 
 - Dans la barre de navigation située sur la gauche, cliquez sur **Parcourir**, puis faites défiler les options vers le bas et cliquez sur **Groupes de ressources**.
 - Sélectionnez le groupe de ressources que vous venez de créer pour afficher le panneau « Groupe de ressources ».
@@ -527,7 +530,7 @@ Vous pouvez notamment remarquer les modèles liés suivants qui sont utilisés p
 - **jumpbox-resources.json** : déploie la machine virtuelle « jump box » et toutes les ressources liées, telles que l'interface réseau, l'adresse IP publique et le point de terminaison d'entrée utilisé pour exécuter SSH dans l'environnement.
 - **node-resources.json** : déploie toutes les machines virtuelles de nœuds de Redis Cluster et les ressources connectées (cartes réseau, adresses IP privées, etc.). Ce modèle déploie également des extensions de machine virtuelle (scripts personnalisés pour Linux) et appelle un script d’interpréteur de commandes pour installer et configurer physiquement Redis sur chaque nœud. Le script à appeler est transmis à ce modèle dans le paramètre `machineSettings` de la propriété `commandToExecute`. Tous les nœuds du cluster Redis sauf un peuvent être déployés et inclus dans un script en parallèle. Un nœud doit être enregistré jusqu’à la fin, car la configuration de Redis Cluster ne peut être exécutée que sur un nœud, et elle ne doit être effectuée qu’une fois que tous les nœuds exécutent le serveur Redis. C’est pourquoi le script à exécuter est transmis à ce modèle. Le dernier nœud doit exécuter un script légèrement différent qui installera le serveur Redis, mais configurera également le cluster Redis.
 
-Penchons-nous sur *l’utilisation* du dernier modèle, node-resources.json, car il s’agit de l’un des plus intéressants du point de vue du développement d’un modèle. Un concept important à retenir est la façon dont un fichier de modèle unique peut déployer plusieurs copies d’un type de ressource unique et, pour chaque instance, définir des valeurs uniques pour les paramètres requis. Ce concept est appelé **itération de ressources**.
+Penchons-nous sur *l’utilisation* du dernier modèle, node-resources.json, car il s’agit de l’un des plus intéressants du point de vue du développement d’un modèle. Un concept important à retenir est la façon dont un fichier de modèle unique peut déployer plusieurs copies d’un type de ressource unique et, pour chaque instance, définir des valeurs uniques pour les paramètres requis. Ce concept est appelé **itération de ressource**.
 
 Lorsque node-resources.json est appelé depuis le fichier azuredeploy.json principal, il est appelé depuis une ressource qui utilise l’élément `copy` pour créer une boucle de tri. Une ressource qui utilise l'élément `copy` sera copiée le nombre de fois spécifié dans le paramètres `count` de l'élément `copy`. Pour tous les paramètres où il est nécessaire de spécifier des valeurs uniques pour différentes instances de la ressource déployée, vous pouvez utiliser la fonction **copyindex()** pour obtenir une valeur numérique indiquant l’index actuel dans cette création d’itérations de ressource spécifique. Dans le fragment suivant d’azuredeploy.json, ce concept est appliqué à plusieurs machines virtuelles créées pour les nœuds de Redis Cluster :
 
@@ -666,4 +669,4 @@ Pour résumer, cette approche suggère de :
 
 Pour plus d’informations, consultez [Langage du modèle Azure Resource Manager](../resource-group-authoring-templates.md).
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

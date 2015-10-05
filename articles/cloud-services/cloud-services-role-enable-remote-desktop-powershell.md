@@ -1,19 +1,19 @@
 <properties 
-pageTitle="Activer une connexion Bureau à distance pour un rôle dans Azure Cloud Services"
-	description="Configuration de l’application de service cloud Azure pour autoriser les connexions Bureau à distance"
-	services="cloud-services"
-	documentationCenter=""
-	authors="sbtron"
-	manager="timlt"
-	editor=""/>
+pageTitle="Activer une connexion Bureau à distance pour un rôle dans Azure Cloud Services avec PowerShell" 
+description="Configuration de l’application de service cloud Azure à l’aide de PowerShell pour autoriser les connexions Bureau à distance" 
+services="cloud-services" 
+documentationCenter="" 
+authors="sbtron" 
+manager="timlt" 
+editor=""/>
 <tags 
-ms.service="cloud-services"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/31/2015"
-	ms.author="saurabh"/>
+ms.service="cloud-services" 
+ms.workload="tbd" 
+ms.tgt_pltfrm="na" 
+ms.devlang="na" 
+ms.topic="article" 
+ms.date="09/17/2015" 
+ms.author="saurabh"/>
 
 # Activer une connexion Bureau à distance pour un rôle dans Azure Cloud Services avec PowerShell
 
@@ -102,4 +102,4 @@ Remove-AzureServiceRemoteDesktopExtension -ServiceName $servicename -UninstallCo
 
 [Configuration des services cloud](cloud-services-how-to-configure.md)
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO4-->

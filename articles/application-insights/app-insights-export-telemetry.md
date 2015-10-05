@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/31/2015" 
+	ms.date="09/23/2015" 
 	ms.author="awills"/>
  
 # Exporter la télémétrie depuis Application Insights
@@ -22,6 +22,19 @@ Vous souhaitez effectuer une analyse personnalisée de votre télémétrie ? Ou
 L’exportation continue est disponible pendant la période d’essai gratuite et sur les [plans de tarification Standard et Premium](http://azure.microsoft.com/pricing/details/application-insights/).
 
 Si vous souhaitez uniquement effectuer une [exportation unique](app-insights-metrics-explorer.md#export-to-excel) de ce que vous voyez sur un panneau de mesures ou de recherche, cliquez sur Exporter en haut du volet.
+
+## Créer un compte de stockage
+
+Si vous ne disposez pas d'un compte de stockage classique, créez-en un maintenant.
+
+
+1. Créez un compte de stockage classique dans votre abonnement sur le [portail Azure](https://portal.azure.com).
+
+    ![Sur le portail Azure, choisissez Nouveau, Données, Stockage.](./media/app-insights-export-telemetry/030.png)
+
+2. Créez un conteneur.
+
+    ![Dans le nouvel emplacement de stockage, sélectionnez Conteneurs, cliquez sur la mosaïque Conteneurs puis sur Ajouter.](./media/app-insights-export-telemetry/040.png)
 
 ## <a name="setup"></a> Configuration de l’exportation continue
 
@@ -60,7 +73,7 @@ Les données exportées sont les données de télémétrie brutes que nous recev
 
 Les autres mesures calculées ne sont pas incluses. Par exemple, nous n’exportons pas l’utilisation moyenne du processeur, mais nous exportons la télémétrie brute à partir de laquelle la moyenne est calculée.
 
-Les données incluent également les résultats de n'importe quel [test web de disponibilité](app-insights-monitor-web-app-availability.md) que vous avez configuré.
+Les données incluent également les résultats de n'importe quel [test Web de disponibilité](app-insights-monitor-web-app-availability.md) que vous avez configuré.
 
 ## <a name="get"></a> Inspection des données
 
@@ -204,4 +217,4 @@ Nous disposons d’exemples illustrant deux autres méthodes de déplacement des
 
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

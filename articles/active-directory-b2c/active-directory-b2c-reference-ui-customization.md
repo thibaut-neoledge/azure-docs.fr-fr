@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/15/2015"
+	ms.date="09/22/2015"
 	ms.author="swkrish"/>
 
 # Version préliminaire d’Azure Active Directory B2C : comment personnaliser l’interface utilisateur B2C Interface Azure AD (IU)
@@ -43,11 +43,11 @@ Un outil d’assistance (bientôt disponible) qui vous permettra de tester la fo
 
 ## Éléments d’interface utilisateur de base dans chaque type de page.
 
-Dans cette section, vous trouverez des fragments HTML5 (pour chaque type de page) qu’Azure AD B2C fusionne dans l’élément `<div id="api"></div>` situé dans votre contenu. Vous pouvez utiliser des feuilles de style pour personnaliser ces éléments d’interface utilisateur. Ces feuilles de style peuvent remplacer des feuilles de style par défaut que nous ajoutons dans ces types de pages dans les fragments `<head>`.
+Dans cette section, vous trouverez des fragments HTML5 (pour chaque type de page) qu’Azure AD B2C fusionne dans l’élément <div id="api"></div> situé dans votre contenu. Vous pouvez utiliser vos propres feuilles de style pour personnaliser ces éléments d’interface utilisateur. Ces feuilles de style peuvent remplacer des feuilles de style par défaut que nous ajoutons dans ces pages dans les fragments <head>.
 
-> [AZURE.IMPORTANT]Pendant la présentation, prévoyez les éléments d’interface utilisateur à modifier, car nous prenons en compte vos retours et nous nous adaptons en conséquence. Examinez le code source des pages par défaut pour plus d’informations sur tout ce qui suit.
+> [AZURE.IMPORTANT]Pendant la présentation, prévoyez les éléments d’interface utilisateur à modifier, car nous prenons en compte vos retours et nous nous adaptons en conséquence. Consultez le code source des pages par défaut pour les dernières mises à jour. En fait, la première modification envisagée est la suppression de nos feuilles de style par défaut ; cela signifie que vous devrez toujours fournir vos propres feuilles de style pour ces éléments d'interface utilisateur dans votre contenu.
 
-### Page de sélection Fournisseur d’identité
+## Page de sélection Fournisseur d’identité
 
 Cette page contient une liste de fournisseurs d’identité dans laquelle l’utilisateur peut choisir à l’inscription ou à la connexion. Il s’agit de fournisseurs d’identité sociale tels que Facebook et Google + ou de comptes locaux (basés sur une adresse de messagerie ou un nom d’utilisateur).
 
@@ -75,7 +75,7 @@ Cette page contient une liste de fournisseurs d’identité dans laquelle l’ut
 
 ```
 
-### Page d’inscription à un compte local
+## Page d’inscription à un compte local
 
 Cette page contient un formulaire d’inscription que l’utilisateur doit renseigner lors de l’inscription à l’aide d’un compte local basé sur un courrier électronique ou un nom d’utilisateur. Le formulaire peut contenir différentes commandes de saisie telles que la zone de saisie de texte, celle du mot de passe, le bouton radio, le menu déroulant à sélection unique et sélectionner plusieurs cases à cocher.
 
@@ -192,11 +192,11 @@ Cette page contient un formulaire d’inscription que l’utilisateur doit rense
 
 ```
 
-### Page d’inscription à un compte social
+## Page d’inscription à un compte social
 
 Cette page contient un formulaire d’inscription que le consommateur doit remplir lors de l’inscription à l’aide d’un compte existant à partir d’un fournisseur d’identité sociale tel que Facebook ou Google +. Cette page est similaire à la page d’inscription à un compte local (affiché dans la section précédente) à l’exception des champs de saisie de mot de passe.
 
-### Page d’authentification multifacteur Azure
+## Page d’authentification multifacteur Azure
 
 Cette page permet aux utilisateurs de vérifier leurs numéros de téléphone (par voie textuelle ou vocale) au cours de l’inscription ou de la connexion.
 
@@ -242,7 +242,7 @@ Cette page permet aux utilisateurs de vérifier leurs numéros de téléphone (p
 
 ```
 
-### Page d’erreur
+## Page d’erreur
 
 
 ```HTML
@@ -276,4 +276,4 @@ Si vous envisagez d’utiliser la fonctionnalité de personnalisation d’interf
 	- Mozilla Firefox 38.0
 	- Mozilla Firefox 37.0
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

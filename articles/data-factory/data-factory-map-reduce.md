@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Appeler le programme MapReduce à partir d'Azure Data Factory"
-	description="Learn how to process data by running MapReduce programs on an Azure HDInsight cluster from an Azure data factory."
-	services="data-factory"
-	documentationCenter=""
-	authors="spelluru"
-	manager="jhubbard"
+	pageTitle="Appeler le programme MapReduce à partir d'Azure Data Factory" 
+	description="Learn how to process data by running MapReduce programs on an Azure HDInsight cluster from an Azure data factory." 
+	services="data-factory" 
+	documentationCenter="" 
+	authors="spelluru" 
+	manager="jhubbard" 
 	editor="monicar"/>
 
 <tags 
-	ms.service="data-factory"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/31/2015"
+	ms.service="data-factory" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/22/2015" 
 	ms.author="spelluru"/>
 
 # Appeler des programmes MapReduce à partir de Data Factory
@@ -32,7 +32,7 @@ Dans la définition JSON de l’activité HDInsight :
 3. Spécifiez le nom de la classe pour la propriété **className**.
 4. Spécifiez le chemin d’accès du fichier JAR, ainsi que le nom de fichier, pour la propriété **jarFilePath**.
 5. Spécifiez le service lié qui fait référence au stockage d’objets blob Azure contenant le fichier JAR pour la propriété **jarLinkedService**.   
-6. Spécifiez les arguments du programme MapReduce dans la section **arguments**. 
+6. Spécifiez les arguments du programme MapReduce dans la section **arguments**. Lors de l'exécution, vous verrez quelques arguments supplémentaires (par exemple : mapreduce.job.tags) à partir de l'infrastructure MapReduce. Pour différencier vos arguments avec les arguments MapReduce, envisagez d'utiliser l’option et la valeur en tant qu'arguments comme indiqué dans l'exemple suivant (- s,--entrée - sortie etc. sont des options immédiatement suivies par leurs valeurs).
 
  
 
@@ -102,4 +102,4 @@ Vous pouvez télécharger un exemple d’utilisation de l’activité HDInsight 
 [Azure Portal]: http://portal.azure.com
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO4-->

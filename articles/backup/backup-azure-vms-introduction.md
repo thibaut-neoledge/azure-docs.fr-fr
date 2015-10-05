@@ -7,7 +7,7 @@
 	manager="shreeshd"
 	editor=""/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/09/2015" ms.author="trinadhk";"aashishr";"jimpark"/>
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/24/2015" ms.author="trinadhk";"aashishr";"jimpark"/>
 
 # Sauvegarde de la machine virtuelle Azure
 
@@ -111,7 +111,7 @@ En savoir plus sur l’[agent de machine virtuelle](https://go.microsoft.com/fwL
 - La sauvegarde de machines virtuelles à l’aide du service Azure Backup n’est prise en charge que pour certaines versions de système d’exploitation :
   - **Linux** : la liste des distributions approuvées par Azure est disponible [ici](../virtual-machines-linux-endorsed-distributions.md). D’autres distributions « Bring-Your-Own-Linux » fonctionnent également tant que l’agent de machine virtuelle est disponible sur la machine virtuelle.
   - **Windows Server** : les versions antérieures à Windows Server 2008 R2 ne sont pas prises en charge.
-- La restauration d'une machine virtuelle de contrôleur de domaine qui fait partie d'une configuration à plusieurs contrôleurs de domaine est prise en charge uniquement par le biais de PowerShell. En savoir plus sur la [restauration d’un contrôleur de domaine dans un environnement à plusieurs contrôleurs de domaine](backup-azure-restore-vms.md#multiple-dcs)
+- La restauration d'une machine virtuelle de contrôleur de domaine qui fait partie d'une configuration à plusieurs contrôleurs de domaine est prise en charge uniquement par le biais de PowerShell. En savoir plus sur la [restauration d’un contrôleur de domaine dans un environnement à plusieurs contrôleurs de domaine](backup-azure-restore-vms.md#restoring-domain-controller-vms)
 
 Si vous souhaitez que certaines fonctionnalités soient incluses, [envoyez-nous vos commentaires](http://aka.ms/azurebackup_feedback).
 
@@ -122,4 +122,4 @@ Pour bien démarrer avec la sauvegarde des machines virtuelles, découvrez comme
 - [Restauration des machines virtuelles](backup-azure-restore-vms.md)
 - [Gestion de la sauvegarde de machine virtuelle](backup-azure-manage-vms.md)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

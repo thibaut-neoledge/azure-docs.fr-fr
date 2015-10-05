@@ -1,19 +1,20 @@
-<properties 
-	pageTitle="Application web Ruby on Rails sur Azure en utilisant une machine virtuelle Linux" 
-	description="Hébergement d'un site web Ruby on Rails sur Azure en utilisant une machine virtuelle Linux." 
-	services="virtual-machines" 
-	documentationCenter="ruby" 
-	authors="MikeWasson" 
-	manager="wpickett" 
-	editor=""/>
+<properties
+	pageTitle="Hébergement d’un Ruby sur le site web de Rails sur une machine virtuelle Linux | Microsoft Azure"
+	description="Configuration et hébergement d'un Ruby sur le site web de Rails dans Azure en utilisant une machine virtuelle Linux."
+	services="virtual-machines"
+	documentationCenter="ruby"
+	authors="MikeWasson"
+	manager="wpickett"
+	editor=""
+	tags="azure-service-management"/>
 
-<tags 
-	ms.service="virtual-machines" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="vm-linux" 
-	ms.devlang="ruby" 
-	ms.topic="article" 
-	ms.date="06/09/2015" 
+<tags
+	ms.service="virtual-machines"
+	ms.workload="web"
+	ms.tgt_pltfrm="vm-linux"
+	ms.devlang="ruby"
+	ms.topic="article"
+	ms.date="06/09/2015"
 	ms.author="mwasson"/>
 
 
@@ -25,6 +26,8 @@
 Ce didacticiel explique comment héberger un site web Ruby on Rails sur Azure à l'aide d'une machine virtuelle Linux.
 
 Ce didacticiel a été validé à l’aide d’Ubuntu Server 14.04 LTS. Si vous utilisez une distribution Linux différente, vous devrez peut-être modifier les étapes pour installer Rails.
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Cet article traite de la création d’une ressource avec le modèle de déploiement classique.
 
 ## Création d’une machine virtuelle Azure
 
@@ -50,8 +53,8 @@ Une fois que la machine virtuelle est configurée, vous pouvez obtenir le point 
 
 ## installation de Ruby sur Rails
 
-1. Utilisez le protocole SSH pour vous connecter à la machine virtuelle. 
-	
+1. Utilisez le protocole SSH pour vous connecter à la machine virtuelle.
+
 2. Depuis la session SSH, utilisez les commandes suivantes pour installer Ruby sur la machine virtuelle :
 
 		sudo apt-get update -y
@@ -170,6 +173,5 @@ Pour utiliser des services Azure depuis votre application Ruby, consultez :
 [new-endpoint]: ./media/virtual-machines-ruby-rails-web-app-linux/newendpoint.png
 
 [new-endpoint1]: ./media/virtual-machines-ruby-rails-web-app-linux/newendpoint1.png
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

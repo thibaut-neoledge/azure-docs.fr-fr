@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Création d'applications qui utilisent les files d'attente Service Bus | Microsoft Azure"
+   pageTitle="Écriture d’applications qui utilisent les files d’attente Service Bus | Microsoft Azure"
    description="Comment écrire une application simple basée sur la file d'attente qui utilise Service Bus."
    services="service-bus"
    documentationCenter="na"
@@ -160,4 +160,4 @@ catch (Exception e)
 
 Maintenant que vous avez appris les fondamentaux des files d'attente, consultez la section [Créer des applications qui utilisent des rubriques et des abonnements Service Bus](service-bus-create-topics-subscriptions.md) pour poursuivre cette discussion à l'aide des fonctions publication/abonnement de la messagerie répartie de Service Bus.
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

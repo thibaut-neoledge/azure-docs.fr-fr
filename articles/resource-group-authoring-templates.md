@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/20/2015"
+   ms.date="09/18/2015"
    ms.author="tomfitz"/>
 
 # Création de modèles Azure Resource Manager
@@ -232,6 +232,8 @@ Vous définissez des ressources avec la structure suivante :
 
 Si le nom de la ressource n'est pas unique, vous pouvez utiliser la fonction d'assistance **resourceId** (décrite ci-dessous) pour obtenir l'identificateur unique de la ressource.
 
+Les valeurs pour l’élément des **propriétés** sont exactement identiques aux valeurs que vous fournissez dans le corps de la demande pour l’opération d’API REST ( méthode PUT) pour créer la ressource. Consultez la [documentation de référence Azure](https://msdn.microsoft.com/library/azure/mt420159.aspx) pour les opérations d’API REST pour la ressource que vous souhaitez déployer.
+
 L'exemple suivant illustre une ressource **Microsoft.Web/serverfarms** et une ressource **Microsoft.Web/sites** avec une ressource imbriquée **Extensions** :
 
     "resources": [
@@ -408,4 +410,4 @@ Le modèle suivant déploie une application web et l'approvisionne avec le code 
 - Pour obtenir un exemple détaillé de déploiement d’une application, consultez [Mise en service et déploiement de microservices de manière prévisible dans Azure](app-service-web/app-service-deploy-complex-application-predictably.md).
 - Pour voir les schémas disponibles, consultez [Schémas Azure Resource Manager](https://github.com/Azure/azure-resource-manager-schemas).
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

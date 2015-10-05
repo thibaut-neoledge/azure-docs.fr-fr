@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Meilleures pratiques Gestion des mots de passe Azure AD | Microsoft Azure" 
-	description="Meilleures pratiques concernant le déploiement et l’utilisation, exemple de documentation pour les utilisateurs finaux et guides de formation pour la gestion des mots de passe dans Azure Active Directory." 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="asteen" 
-	manager="kbrint" 
+<properties
+	pageTitle="Meilleures pratiques Gestion des mots de passe Azure AD | Microsoft Azure"
+	description="Meilleures pratiques concernant le déploiement et l’utilisation, exemple de documentation pour les utilisateurs finaux et guides de formation pour la gestion des mots de passe dans Azure Active Directory."
+	services="active-directory"
+	documentationCenter=""
+	authors="asteen"
+	manager="kbrint"
 	editor="billmath"/>
 
-<tags 
-	ms.service="active-directory" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/08/2015" 
+<tags
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/18/2015" 
 	ms.author="asteen"/>
 
 # Déploiement de la gestion des mots de passe et formation des utilisateurs
@@ -98,12 +98,12 @@ Vous pouvez télécharger les données d’authentification via le [portail de g
 1.	Accédez à votre annuaire dans l’**extension Active Directory** du [portail de gestion Azure](https://manage.windowsazure.com).
 2.	Cliquez sur l’onglet **Utilisateurs**.
 3.	Sélectionnez l’utilisateur qui vous intéresse dans la liste.
-4.	Le premier onglet affiche une **Adresse de messagerie de secours**, qui peut être utilisée en tant que propriété pour activer la réinitialisation de mot de passe. 
+4.	Le premier onglet affiche une **Adresse de messagerie de secours**, qui peut être utilisée en tant que propriété pour activer la réinitialisation de mot de passe.
 
     ![][005]
 
 5.	Cliquez sur l’onglet **Informations professionnelles**.
-6.	Vous trouverez sur cette page les options **Téléphone professionnel**, **Téléphone mobile**, **Téléphone d’authentification** et **Adresse électronique d’authentification**. Ces propriétés peuvent également être définies pour permettre à un utilisateur de réinitialiser son mot de passe. 
+6.	Vous trouverez sur cette page les options **Téléphone professionnel**, **Téléphone mobile**, **Téléphone d’authentification** et **Adresse électronique d’authentification**. Ces propriétés peuvent également être définies pour permettre à un utilisateur de réinitialiser son mot de passe.
 
     ![][006]
 
@@ -136,6 +136,5 @@ Nous travaillons actuellement sur des exemples de supports de formation que vous
 [004]: ./media/active-directory-passwords-best-practices/004.jpg "Image_004.jpg"
 [005]: ./media/active-directory-passwords-best-practices/005.jpg "Image_005.jpg"
 [006]: ./media/active-directory-passwords-best-practices/006.jpg "Image_006.jpg"
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

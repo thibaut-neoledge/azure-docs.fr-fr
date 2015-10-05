@@ -3,8 +3,9 @@
 	description="Utilisez ce didacticiel pour automatiser les tâches courantes dans Key Vault à l’aide de l’interface de ligne de commande"
 	services="key-vault"
 	documentationCenter=""
-	authors="msmbaldwin"
-	manager="mbaldwin"tags="azure-resource-manager"/>
+	authors="BrucePerlerMS"
+	manager="mbaldwin"
+	tags="azure-resource-manager"/>
 
 <tags
 	ms.service="key-vault"
@@ -12,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/25/2015"
+	ms.date="09/22/2015"
 	ms.author="bruceper"/>
 
 # Gestion de Key Vault à l’aide de l’interface de ligne de commande (CLI) #
@@ -185,7 +186,7 @@ Pour autoriser l’application à accéder à la clé ou au secret dans le coffr
 Par exemple, si le nom de votre coffre est ContosoKeyVault, que l’application que vous souhaitez autoriser a l’ID client 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed et que vous souhaitez autoriser l’application à déchiffrer et à signer avec des clés dans le coffre, exécutez la commande suivante :
 
     azure keyvault set-policy --vault-name 'ContosoKeyVault' --spn 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed --perm-to-keys '[“decrypt”,”sign”]'
-    
+
 Si vous souhaitez autoriser cette même application à lire les éléments secrets de votre coffre, exécutez la commande suivante :
 
 	azure keyvault set-policy --vault-name 'ContosoKeyVault' --spn 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed --perm-to-secrets '["Get"]'
@@ -212,7 +213,7 @@ La commande suivante importe un package BYOK (Bring Your Own Key, Apporter votre
 
     azure keyvault key import --vault-name 'ContosoKeyVaultHSM' --key-name 'ContosoFirstHSMKey' --byok-file './ITByok.byok' --destination 'HSM'
 
-Pour plus d’instructions sur la génération de ce package BYOK, consultez la page [Génération et transfert de clés protégées par HSM pour le coffre de clés Azure](https://msdn.microsoft.com/library/azure/dn903624.aspx).
+Pour plus d’instructions sur la génération de ce package BYOK, consultez la page [Génération et transfert de clés protégées par HSM pour le coffre de clés Azure](key-vault-hsm-protected-keys.md).
 
 
 ## Suppression du coffre de clés et des clés/secrets associés
@@ -253,6 +254,6 @@ Voici un exemple montrant comment supprimer un secret spécifique :
 
 ## Étapes suivantes
 
-Pour les références de programmation, consultez les pages [API REST de coffre de clés](https://msdn.microsoft.com/library/azure/dn903609.aspx) et [Référence de l’API cliente C# du coffre de clés](https://msdn.microsoft.com/library/azure/dn903628.aspx).
+Pour les références de programmation, consultez le [guide du développeur de coffre de clés Azure](key-vault-developers-guide.md).
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

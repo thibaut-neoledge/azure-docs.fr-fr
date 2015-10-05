@@ -4,8 +4,8 @@
 	services="app-service\api"
 	documentationCenter="nodejs"
 	authors="pkefal"
-	manager=""
-	editor=""/>
+  manager="" 
+  editor=""/>
 
 <tags
 	ms.service="app-service-api"
@@ -17,6 +17,12 @@
 	ms.author="pakefali"/>
 
 # Créer et déployer une application API Node.js dans Azure App Service
+
+> [AZURE.SELECTOR]
+- [.NET - Visual Studio 2015](app-service-dotnet-create-api-app.md)
+- [.NET - Visual Studio Code](app-service-create-aspnet-api-app-using-vscode.md)
+- [Node.js](app-service-api-nodejs-api-app.md)
+- [Java](app-service-api-java-api-app.md)
 
 Ce didacticiel explique comment créer une application [Node.js](http://nodejs.org) et la déployer dans des applications API d'Azure App Service en utilisant [Git](http://git-scm.com). Les instructions de ce didacticiel s'appliquent à tous les systèmes d'exploitation pouvant exécuter Node.
 
@@ -243,4 +249,4 @@ Vous avez déployé dans Azure une application web Node.js qui utilise un backen
 [sample-api-app-page]: ./media/app-service-api-nodejs-api-app/sample-api-app-page.png
 [browse-api-app-page]: ./media/app-service-api-nodejs-api-app/browse-api-app-page.png
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO4-->

@@ -7,7 +7,6 @@
    authors="joaoma"
    manager="adinah"
    editor="tysonn" />
-
 <tags 
    ms.service="load-balancer"
    ms.devlang="na"
@@ -16,7 +15,6 @@
    ms.workload="infrastructure-services"
    ms.date="07/09/2015"
    ms.author="joaoma" />
-
 
 
 # Équilibrage de charge accessible sur Internet entre plusieurs services ou machines virtuelles
@@ -38,7 +36,7 @@ La figure suivante présente un point de terminaison à charge équilibrée pour
 
 
 
-Lorsque les clients Internet envoient des demandes de page Web à l’adresse IP publique du service cloud et au port TCP 443, l’équilibrage de charge Azure effectue un équilibrage aléatoire de ces demandes entre les trois machines virtuelles du jeu d’équilibrage de la charge.
+Lorsque les clients Internet envoient des demandes de page Web à l’adresse IP publique du service cloud et au port TCP 443, l’équilibreur de charge Azure effectue un équilibrage de charge basé sur le hachage de ces demandes entre les trois machines virtuelles du jeu d’équilibrage de la charge. Vous pouvez obtenir plus d'informations sur l'algorithme de l'équilibreur de charge sur la [page de vue d'ensemble de l'équilibreur de charge](load-balancer-overview#load-balancer-features).
 
 
 ## Étapes suivantes
@@ -54,4 +52,4 @@ Lorsque les clients Internet envoient des demandes de page Web à l’adresse IP
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

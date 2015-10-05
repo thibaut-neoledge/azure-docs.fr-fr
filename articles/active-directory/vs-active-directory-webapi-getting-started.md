@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="09/03/2015" 
-	ms.author="patshea123"/>
+	ms.author="patshea"/>
 
 # Prendre en main Azure Active Directory et les services connectés de Visual Studio (projets WebApi)
 
@@ -29,4 +29,4 @@ Tous les contrôleurs de votre projet ont été dotés de l'attribut **Authorize
 [En savoir plus sur Azure Active Directory](http://azure.microsoft.com/services/active-directory/)
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

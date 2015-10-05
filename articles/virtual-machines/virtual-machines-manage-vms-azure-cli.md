@@ -1,11 +1,12 @@
 <properties
-   pageTitle="Gestion de vos machines virtuelles Azure à l’aide de l’interface de ligne de commande Azure pour Mac, Linux et Windows | Microsoft Azure"
-   description="Décrit comment créer, gérer et supprimer vos machines virtuelles Azure à l’aide de l’interface de ligne de commande Azure pour Mac, Linux et Windows."
+   pageTitle="Gestion de vos machines virtuelles Azure à l’aide de l’interface de ligne de commande Azure | Microsoft Azure"
+   description="Décrit comment gérer vos machines virtuelles à l’aide de l’interface de ligne de commande Azure pour Mac, Linux et Windows"
    services="virtual-machines"
    documentationCenter="virtual-machines"
    authors="dlepow"
    manager="timlt"
-   editor=""/>
+   editor=""
+   tags="azure-service-management"/>
 
    <tags
    ms.service="virtual-machines"
@@ -17,6 +18,8 @@
    ms.author="danlep"/>
 
 # Gestion de vos machines virtuelles à l’aide de l’interface de ligne de commande Azure pour Mac, Linux et Windows
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Cet article traite de la gestion d’une ressource créée avec le modèle de déploiement classique. Vous pouvez également gérer une ressource avec le [modèle de déploiement Resource Manager](virtual-machines-how-to-automate-azure-resource-manager.md).
 
 Il est possible d’automatiser les nombreuses tâches quotidiennes liées à la gestion de vos machines virtuelles à l’aide de l’interface de ligne de commande Azure. Cet article donne des exemples de commandes pour réaliser des tâches simples et contient des liens vers des articles indiquant les commandes à utiliser pour des tâches plus complexes.
 
@@ -79,6 +82,5 @@ Bien sûr, si vous disposez déjà de ces valeurs, vous pouvez trouver des moyen
 ## Étapes suivantes
 
 Pour consulter d’autres exemples d’utilisation de l’interface de ligne de commande Azure avec le mode **arm**, consultez [Utilisation de l’interface de ligne de commande Microsoft Azure pour Mac, Linux et Windows avec Azure Resource Management](../xplat-cli-resource-manager.md). Pour en savoir plus sur les ressources Azure et leurs concepts, consultez la page [Présentation d’Azure Resource Manager](../resource-group-overview.md).
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

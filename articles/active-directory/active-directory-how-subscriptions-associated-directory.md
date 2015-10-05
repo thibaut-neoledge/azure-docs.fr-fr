@@ -1,19 +1,19 @@
 <properties
-	pageTitle="Association des abonnements Azure avec Azure AD"
+	pageTitle="Association des abonnements Azure avec Azure AD | Microsoft Azure"
 	description="Une rubrique qui vous indique comment vous connecter à Microsoft Azure et qui aborde des problèmes connexes, tels que la relation entre un abonnement Azure et Azure AD."
 	services="active-directory"
 	documentationCenter=""
 	authors="curtand"
 	manager="stevenpo"
-	editor="LisaToft"/>
+	editor=""/>
 
 <tags
 	ms.service="active-directory"
-	ms.workload="infrastructure-services"
+	ms.workload="identity"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="08/14/2015"
+	ms.date="09/21/2015"
 	ms.author="curtand"/>
 
 # Association des abonnements Azure avec Azure AD
@@ -67,7 +67,7 @@ De même qu’avec les administrateurs d’abonnements, les rôles d'administrat
 
 Une personne peut se voir attribuer deux rôles, mais ceci n'est en aucun cas obligatoire. Un utilisateur peut être affecté au rôle d’administrateur général de répertoires mais il ne peut pas être administrateur de services ou coadministrateur d'un abonnement Azure. S’il n’est pas administrateur de l'abonnement, cet utilisateur ne peut pas se connecter au portail de gestion. Mais l'utilisateur peut effectuer des tâches d'administration de répertoires à l'aide d'autres outils tels que Azure AD PowerShell ou le centre d'administration Office 365.
 
-### Pourquoi ne puis-je pas gérer le répertoire via mon compte d'utilisateur actuel ?
+## Pourquoi ne puis-je pas gérer le répertoire via mon compte d'utilisateur actuel ?
 
 Il se peut parfois qu’un utilisateur tente de se connecter au portail de gestion à l'aide d'un compte professionnel ou scolaire avant de souscrire un abonnement Azure. Dans ce cas, l'utilisateur recevra un message lui indiquant qu'il n'existe aucun abonnement pour ce compte. Le message inclut un lien permettant de démarrer un abonnement à la version d’évaluation gratuite.
 
@@ -124,4 +124,4 @@ Pour gérer les deux répertoires dans le portail de gestion, procédez comme su
 [2]: ./media/active-directory-how-subscriptions-associated-directory/WAAD_OrgAccountSubscription.png
 [3]: ./media/active-directory-how-subscriptions-associated-directory/WAAD_SignInDisambiguation.PNG
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO4-->

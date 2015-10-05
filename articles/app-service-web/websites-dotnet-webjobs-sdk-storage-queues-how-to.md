@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Utilisation du stockage de file d’attente Microsoft Azure avec le Kit de développement logiciel (SDK) de WebJobs"
-	description="Découvrez comment utiliser le stockage de file d’attente Microsoft Azure avec le Kit de développement logiciel (SDK) WebJobs. Créez et supprimez des files d’attente ; insérez, lisez, recevez et supprimez les messages de la file d’attente et bien plus encore."
-	services="app-service\web, storage"
-	documentationCenter=".net"
-	authors="tdykstra"
-	manager="wpickett"
+	pageTitle="Utilisation du stockage de file d’attente Microsoft Azure avec le Kit de développement logiciel (SDK) de WebJobs" 
+	description="Découvrez comment utiliser le stockage de file d’attente Microsoft Azure avec le Kit de développement logiciel (SDK) WebJobs. Créez et supprimez des files d’attente ; insérez, lisez, recevez et supprimez les messages de la file d’attente et bien plus encore." 
+	services="app-service\web, storage" 
+	documentationCenter=".net" 
+	authors="tdykstra" 
+	manager="wpickett" 
 	editor="jimbe"/>
 
 <tags 
-	ms.service="app-service-web"
-	ms.workload="web"
-	ms.tgt_pltfrm="na"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.date="06/29/2015"
+	ms.service="app-service-web" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="09/22/2015" 
 	ms.author="tdykstra"/>
 
 # Utilisation du stockage de file d’attente Microsoft Azure avec le Kit de développement logiciel (SDK) de WebJobs
@@ -586,4 +586,4 @@ Dans une table Azure, les journaux `Console.Out` et `Console.Error` ressemblent 
 Ce guide fournit des exemples de code qui indiquent comment gérer des scénarios courants pour l’utilisation des files d’attente Microsoft Azure. Pour plus d’informations sur l’utilisation d’Azure Webjobs et du Kit de développement logiciel (SDK) WebJobs Azure, consultez la rubrique [Azure Webjobs - Ressources recommandées](http://go.microsoft.com/fwlink/?linkid=390226).
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO4-->

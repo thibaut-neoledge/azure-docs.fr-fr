@@ -44,6 +44,8 @@ Pour installer la bibliothèque, accédez à [Bibliothèque cliente de base de d
 
 Pour obtenir des instructions sur l’utilisation de l’outil de fusion et de fractionnement, voir [vue d’ensemble de l’outil de fusion et de fractionnement](sql-database-elastic-scale-overview-split-and-merge.md).
 
+[La bibliothèque cliente de la base de données élastique est maintenant accessible en open source !](http://azure.microsoft.com/blog/elastic-database-client-library-is-now-open-sourced/)
+
 
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 
@@ -51,4 +53,4 @@ Pour obtenir des instructions sur l’utilisation de l’outil de fusion et de f
 <!--Image references-->
 [1]: ./media/sql-database-elastic-database-client-library/glossary.png
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO4-->

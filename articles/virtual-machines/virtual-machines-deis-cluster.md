@@ -1,12 +1,12 @@
 <properties
-   pageTitle="Déployer un cluster Deis à 3 nœuds sur Azure"
+   pageTitle="Déploiement d’un cluster Deis à 3 nœuds | Microsoft Azure"
    description="Cet article explique comment créer un cluster Deis à 3 nœuds sur Azure à l’aide d’un modèle Azure Resource Manager."
    services="virtual-machines"
    documentationCenter=""
    authors="HaishiBai"
    manager="larar"
-   editor=""/>
-
+   editor=""
+   tags="azure-resource-manager"/>
 
 <tags
    ms.service="virtual-machines"
@@ -17,10 +17,11 @@
    ms.date="06/24/2015"
    ms.author="hbai"/>
 
-
 # Déployer un cluster Deis à 3 nœuds
 
 Cet article vous détaille l’approvisionnement d’un cluster [Deis](http://deis.io/) sur Azure. Il aborde toutes les étapes, de la création des certificats requis au déploiement et à la mise à l’échelle d’un exemple d’application **Go** sur le cluster qui vient d’être approvisionné.
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Cet article traite de la création de ressources avec le modèle de déploiement du Gestionnaire des ressources.
 
 Le diagramme suivant représente l’architecture du système déployé. Un administrateur système gère le cluster à l’aide d’outils Deis, comme **deis** et **deisctl**. Les connexions sont établies via un équilibreur de charge Azure, qui transfère les connexions à l’un des nœuds membres du cluster. Les clients accèdent aux applications déployées via l’équilibreur de charge, également. Dans ce cas, l’équilibreur de charge envoie le trafic à un maillage de routeur Deis, qui achemine le trafic vers des conteneurs Docker hébergés sur le cluster.
 
@@ -28,8 +29,8 @@ Le diagramme suivant représente l’architecture du système déployé. Un admi
 
 Pour exécuter les étapes suivantes, vous aurez besoin des éléments suivants :
 
- * Un abonnement Azure actif. Si vous n’en avez pas, vous pouvez obtenir une version d’essai sur [azure.com](https://azure.microsoft.com).
- * Un ID de travail ou scolaire afin de pouvoir utiliser des groupes de ressources Azure. Si vous avez un compte personnel et que vous vous connectez avec un ID Microsoft, vous devez [créer un ID de travail à partir de votre ID personnel](resource-group-create-work-id-from-personal.md).
+ * Un abonnement Azure actif. Si vous n’en avez pas, vous pouvez obtenir un essai gratuit sur [azure.com](https://azure.microsoft.com).
+ * Un ID professionnel ou scolaire afin de pouvoir utiliser des groupes de ressources Azure. Si vous avez un compte personnel et que vous vous connectez avec un ID Microsoft, vous devez [créer un ID de travail à partir de votre ID personnel](resource-group-create-work-id-from-personal.md).
  * Il vous faut également l’outil [Azure PowerShell](powershell-install-configure.md) ou la [CLI Azure pour Mac, Linux et Windows](xplat-cli-install.md) de votre système d’exploitation client.
  * [OpenSSL](https://www.openssl.org/). OpenSSL est utilisé pour générer les certificats nécessaires.
  * Un client Git, comme [Git Bash](https://git-scm.com/).
@@ -56,13 +57,12 @@ Dans cette section, vous allez utiliser un modèle [Azure Resource Manager](../r
 
         openssl req -x509 -days 365 -new -key [your private key file] -out [cert file to be generated]
 
-5. Accédez à l’élément [https://discovery.etcd.io/new](https://discovery.etcd.io/new) pour générer un nouveau token de cluster, qui ressemblera à ce qui suit :
+5. Accédez à l’élément [https://discovery.etcd.io/new](https://discovery.etcd.io/new) pour générer un nouveau jeton de cluster, qui ressemblera à ce qui suit :
 
         https://discovery.etcd.io/6a28e078895c5ec737174db2419bb2f3
-<br />
- Chaque cluster CoreOS doit bénéficier d’un token unique, fourni par ce service gratuit. Pour en savoir plus, consultez la [documentation CoreOS](https://coreos.com/docs/cluster-management/setup/cluster-discovery/).
+<br /> Chaque cluster CoreOS doit bénéficier d’un jeton unique, fourni par ce service gratuit. Pour plus d’informations, voir la [documentation CoreOS](https://coreos.com/docs/cluster-management/setup/cluster-discovery/).
 
-6. Modifiez le fichier **cloud-config.yaml** afin de remplacer le token **discovery** existant par le nouveau token :
+6. Modifiez le fichier **cloud-config.yaml** afin de remplacer le jeton **discovery** existant par le nouveau jeton :
 
         #cloud-config
         ---
@@ -73,11 +73,11 @@ Dans cette section, vous allez utiliser un modèle [Azure Resource Manager](../r
             discovery: https://discovery.etcd.io/3973057f670770a7628f917d58c2208a
         ...
 
-7. Modifiez le fichier **azuredeploy-parameters.json** : ouvrez le certificat que vous avez créé à l’étape 4 dans un éditeur de texte. Copiez le texte figurant entre les éléments `----BEGIN CERTIFICATE-----` et `-----END CERTIFICATE-----` et collez-le dans le paramètre **sshKeyData** (vous devrez supprimer tous les caractères de saut de ligne).
+7. Modifiez le fichier **azuredeploy-parameters.json** : ouvrez le certificat que vous avez créé à l’étape 4 dans un éditeur de texte. Copiez le texte figurant entre les éléments `----BEGIN CERTIFICATE-----` et `-----END CERTIFICATE-----`, et collez-le dans le paramètre **sshKeyData** (vous devrez supprimer tous les caractères de saut de ligne).
 
 8. Modifiez le paramètre **newStorageAccountName**. Il s’agit du compte de stockage associé aux disques du système d’exploitation de la machine virtuelle. Le nom de ce compte doit être unique au niveau global.
 
-9. Modifiez le paramètre **publicDomainName**. Il fera partie du nom DNS associé à l’adresse IP publique de l’équilibreur de charge. Le FQDN présentera la valeur suivante : _[valeur de ce paramètre\]_._[région\]_.cloudapp.azure.com. Par exemple, si vous spécifiez le nom « deishbai32 » et que le groupe de ressources est déployé dans la région ouest des États-Unis, le FQDN final de votre équilibreur de charge sera le suivant : deishbai32.westus.cloudapp.azure.com.
+9. Modifiez le paramètre **publicDomainName**. Il fera partie du nom DNS associé à l’adresse IP publique de l’équilibreur de charge. Le FQDN présente la valeur suivante : _[valeur de ce paramètre]_._[région]_.cloudapp.azure.com. Par exemple, si vous spécifiez le nom « deishbai32 » et que le groupe de ressources est déployé dans la région ouest des États-Unis, le FQDN final de votre équilibreur de charge sera le suivant : deishbai32.westus.cloudapp.azure.com.
 
 10. Enregistrez le fichier de paramètres. Ensuite, vous pouvez approvisionner le cluster au moyen de Microsoft Azure PowerShell :
 
@@ -93,7 +93,7 @@ Dans cette section, vous allez utiliser un modèle [Azure Resource Manager](../r
 
   ![Groupe de ressources provisionné sur le portail Azure](media/virtual-machines-deis-cluster/resource-group.png)
 
-## Installer le client
+## Installation du client
 
 Vous devez utiliser l’outil **deisctl** pour contrôler votre cluster Deis. Bien que cet outil soit automatiquement installé sur tous les nœuds du cluster, nous vous recommandons de l’utiliser sur un ordinateur d’administration distinct. En outre, comme tous les nœuds sont configurés avec des adresses IP privées uniquement, vous devrez utiliser un tunnel SSL via l’équilibreur de charge, qui présente une adresse IP publique, pour la connexion à tous les nœuds. Voici les étapes à suivre pour configurer l’outil deisctl sur une machine virtuelle ou physique distincte dotée d’Ubuntu.
 
@@ -171,7 +171,6 @@ Les étapes suivantes indiquent comment déployer une application Go « Hellow
 
     ![Enregistrement « A Record » GoDaddy](media/virtual-machines-deis-cluster/go-daddy.png)
 <p />
-
 2. Installez l’outil deis :
 
         mkdir deis
@@ -186,17 +185,14 @@ Les étapes suivantes indiquent comment déployer une application Go « Hellow
 
 4. Ajoute l’élément id\_rsa.pub, ou la clé publique de votre choix, à GitHub. Pour cela, utilisez le bouton permettant d’ajouter une clé SSH sur l’écran de configuration des clés SSH :
 
-  ![Clé Github](media/virtual-machines-deis-cluster/github-key.png) <p />
- 5. Enregistrez un nouvel utilisateur :
+  ![Clé Github](media/virtual-machines-deis-cluster/github-key.png) <p /> 5. Enregistrez un nouvel utilisateur :
 
         deis register http://deis.[your domain]
 <p />
-
 6. Ajoutez la clé SSH :
 
         deis keys:add [path to your SSH public key]
   <p />
-
 7. Créez une application.
 
         git clone https://github.com/deis/helloworld.git
@@ -204,7 +200,6 @@ Les étapes suivantes indiquent comment déployer une application Go « Hellow
         deis create
         git push deis master
 <p />
-
 8. L’action Git de type push déclenche la création et le déploiement d’images Docker, qui peuvent prendre quelques minutes. D’après mon expérience, il arrive parfois que l’étape 10 (insertion d’images dans le référentiel privé) se bloque. Dans ce cas, vous pouvez arrêter le processus, saisir la commande `deis apps:destroy –a <application name>` pour supprimer l’application et essayer à nouveau. La commande `deis apps:list` peut vous aider à rechercher le nom de votre application. Si tout fonctionne, des éléments similaires à ce qui suit doivent figurer à la fin des sorties de commandes :
 
         -----> Launching...
@@ -214,7 +209,6 @@ Les étapes suivantes indiquent comment déployer une application Go « Hellow
         To ssh://git@deis.artitrack.com:2222/lambda-underdog.git
          * [new branch]      master -> master
 <p />
-
 9. Vérifiez que l’application fonctionne :
 
         curl -S http://[your application name].[your domain]
@@ -224,12 +218,10 @@ Les étapes suivantes indiquent comment déployer une application Go « Hellow
         See the documentation at http://docs.deis.io/ for more information.
         (you can use geis apps:list to get the name of your application).
 <p />
-
 10. Mettez l’application à l’échelle pour 3 instances :
 
         deis scale cmd=3
 <p />
-
 11. Si vous le souhaitez, vous pouvez utiliser la commande « deis info » pour examiner les détails de votre application. Les sorties suivantes proviennent du déploiement de mon application :
 
         deis info
@@ -265,4 +257,4 @@ Cet article vous a présenté toutes les étapes d’approvisionnement d’un no
 [resource-group-overview]: ../resource-group-overview.md
 [powershell-azure-resource-manager]: ../powershell-azure-resource-manager.md
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

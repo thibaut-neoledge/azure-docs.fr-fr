@@ -1,12 +1,11 @@
 <properties 
-	pageTitle="Configurer un nouvel appareil avec Azure AD via l’introduction de l’interface logicielle lors de la première utilisation | Microsoft Azure" 
+	pageTitle="Vue d'ensemble de Microsoft Passport et détails de cette nouvelle authentification basée sur la certification. | Microsoft Azure" 
 	description="Rubrique qui explique comment les utilisateurs peuvent configurer Azure AD Join lors de l’introduction de l’interface logicielle lors de la première utilisation." 
 	services="active-directory" 
 	documentationCenter="" 
 	authors="femila" 
-	manager="swadhwa" 
+	manager="stevenpo" 
 	editor=""/>
-
 
 <tags 
 	ms.service="active-directory" 
@@ -14,9 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/02/2015" 
+	ms.date="09/21/2015" 
 	ms.author="femila"/>
-
 
 # Authentification des identités sans mot de passe avec Microsoft Passport
 
@@ -68,7 +66,7 @@ Au niveau de l’utilisateur
 
 ## Informations supplémentaires
 
-* [Extension des fonctionnalités du cloud aux appareils Windows 10 via Azure Active Directory Join](active-directory-azureadjoin-user-upgrade.md)
+* [Extension des fonctionnalités du cloud aux appareils Windows 10 via Azure Active Directory Join](active-directory-azureadjoin-overview.md)
 * [Configuration d’Azure AD Join](active-directory-azureadjoin-setup.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

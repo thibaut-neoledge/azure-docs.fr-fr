@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Déployer un serveur WordPress sur Ubuntu avec un modèle de gestionnaire de ressources Azure"
+	pageTitle="WordPress sur Ubuntu avec un modèle ARM | Microsoft Azure"
 	description="Déployer facilement un serveur WordPress exécutant Ubuntu à l’aide d’un modèle Resource Manager et du portail Azure en version préliminaire, d’Azure PowerShell et de l’interface de ligne de commande Azure."
 	services="virtual-machines"
 	documentationCenter=""
@@ -11,13 +11,15 @@
 <tags
 	ms.service="virtual-machines"
 	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="na"
+	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="06/29/2015"
 	ms.author="davidmu"/>
 
 # Déployer un serveur WordPress sur Ubuntu avec un modèle de gestionnaire de ressources Azure
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Cet article traite de la création de ressources avec le modèle de déploiement de Resource Manager. Vous ne pouvez pas créer cette ressource avec le modèle de déploiement classique.
 
 Suivez les instructions de cet article pour déployer un serveur WordPress exécuté sur Ubuntu à l’aide d’un modèle Resource Manager. Ce modèle crée une seule machine virtuelle dans un nouveau réseau virtuel.
 
@@ -27,12 +29,12 @@ Vous pouvez exécuter le modèle avec le portail Azure en version préliminaire
 
 ## Portail Azure en version préliminaire
 
-Pour déployer cette charge de travail à l’aide d’un modèle Resource Manager et du portail Azure en version préliminaire, cliquez [ici](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fwordpress-single-vm-ubuntu%2Fazuredeploy.json).
+Pour déployer cette charge de travail à l'aide d'un modèle Resource Manager et du portail Azure en version préliminaire, cliquez [ici](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fwordpress-single-vm-ubuntu%2Fazuredeploy.json).
 
 ![](./media/virtual-machines-workload-template-wordpress/azure-portal-template.png)
 
-1.	Pour le volet **Modèle**, cliquez sur **Enregistrer**.
-2.	Cliquez sur **Paramètres**. Dans le volet **Paramètres**, saisissez les nouvelles valeurs, effectuez votre sélection parmi les valeurs autorisées ou acceptez les valeurs par défaut, puis cliquez sur **OK**.
+1.	Pour le panneau **Modèle**, cliquez sur **Enregistrer**.
+2.	Cliquez sur **Paramètres**. Dans le panneau **Paramètres**, tapez les nouvelles valeurs, effectuez votre sélection parmi les valeurs autorisées ou acceptez les valeurs par défaut, puis cliquez sur **OK**.
 3.	Si nécessaire, cliquez sur **Abonnement**, puis sélectionnez l’abonnement Azure approprié.
 4.	Cliquez sur **Groupe de ressources**, puis sélectionnez un groupe de ressources existant. Sinon, cliquez sur **Ou créer nouveau** pour créer un nouveau groupe de ressources pour cette charge de travail.
 5.	Si nécessaire, cliquez sur **Emplacement du groupe de ressources**, puis sélectionnez l’emplacement Azure approprié.
@@ -86,7 +88,7 @@ Voici un exemple.
 	azure group create wordpress eastus2
 	azure group deployment create --template-uri https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/wordpress-single-vm-ubuntu/azuredeploy.json wordpress wpdevtest
 
-Lors de l’exécution de la commande **New-AzureResourceGroupDeployment**, vous serez invité à renseigner les valeurs d’une série de paramètres. Une fois que vous avez défini l’ensemble des valeurs de paramètres, Azure crée et configure les machines virtuelles.
+Lors de l’exécution de la commande **azure group deployment create**, vous serez invité à renseigner les valeurs d’une série de paramètres. Une fois que vous avez défini l’ensemble des valeurs de paramètres, Azure crée et configure les machines virtuelles.
 
 Une fois que l’exécution du modèle est terminée, vous disposez d’un serveur WordPress exécuté sur Ubuntu dans votre nouveau groupe de ressources.
 
@@ -104,4 +106,4 @@ Une fois que l’exécution du modèle est terminée, vous disposez d’un serve
 
 [Installation et configuration d’Azure PowerShell](../install-configure-powershell.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

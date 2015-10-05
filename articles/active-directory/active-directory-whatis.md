@@ -72,7 +72,7 @@ Votre organisation peut utiliser Azure AD pour améliorer la productivité de se
  - [Essayez-le !](https://azure.microsoft.com/trial/get-started-active-directory/) Vous pouvez vous inscrire pour une période d’essai gratuit de 30 jours, puis déployer votre première solution cloud en moins de 5 minutes.
  - Lisez notre page « Prise en main d’Azure Active Directory » pour accélérer l’installation et la configuration d’un client Azure AD.
 -	Si vous êtes un développeur :
- - Consultez notre [Guide pour les développeurs](https://msdn.microsoft.com/library/azure/ff800682.aspx) pour Azure AD <need link>
+ - Consultez notre [Guide pour les développeurs](active-directory-developers-guide.md) pour Azure Active Directory 
  - [Démarrer une version d’évaluation](https://azure.microsoft.com/trial/get-started-active-directory/) : abonnez-vous à une version d’essai gratuite pendant 30 jours dès aujourd’hui et commencez à intégrer votre application à Azure AD
 
 
@@ -104,4 +104,4 @@ Nous pouvons vous proposer une multitude de ressources en ligne très utiles pou
 
 - [Comment puis-je détecter les applications cloud non approuvées utilisées au sein de mon organisation ?](active-directory-cloudappdiscovery-whatis.md)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

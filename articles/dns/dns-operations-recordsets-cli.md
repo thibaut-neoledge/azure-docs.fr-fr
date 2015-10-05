@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Gestion des jeux d'enregistrements DNS et des enregistrements dans Azure DNS | Microsoft Azure" 
-   description="Gestion des jeux d'enregistrements DNS et des enregistrements dans Azure DNS lorsque votre domaine est hébergé dans Azure DNS. Toutes les commandes PowerShell pour les opérations sur les jeux d'enregistrements et les enregistrements." 
+   pageTitle="Gestion des jeux d'enregistrements DNS et des enregistrements dans Azure DNS à l’aide de l’interface de ligne de commande | Microsoft Azure" 
+   description="Gestion des jeux d'enregistrements DNS et des enregistrements dans Azure DNS lorsque votre domaine est hébergé dans Azure DNS. Toutes les commandes d’interface de ligne de commande pour les opérations sur les jeux d'enregistrements et les enregistrements." 
    services="dns" 
    documentationCenter="na" 
    authors="joaoma" 
@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
-   ms.date="09/07/2015"
+   ms.date="09/22/2015"
    ms.author="joaoma"/>
 
-# Gestion des enregistrements DNS
+# Gestion des enregistrements DNS à l'aide de l’interface de ligne de commande
 
 > [AZURE.SELECTOR]
 - [Azure CLI](dns-operations-recordsets-cli.md)
@@ -239,4 +239,4 @@ Le commutateur facultatif « -q » peut être utilisé pour supprimer l’invi
 [Prise en main de la création de jeux d'enregistrements et des enregistrements](dns-getstarted-create-recordset-cli.md)<BR> [Réalisation d’opérations sur des zones DNS](dns-operations-dnszones-cli.md)<BR> [Automatisation d’opérations à l'aide du Kit de développement (SDK) .NET](dns-sdk.md)
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

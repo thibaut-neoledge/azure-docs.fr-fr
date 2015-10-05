@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Mappage réseau de Microsoft Azure Site Recovery"
-	description="Microsoft Azure Site Recovery coordonne la réplication, le basculement et la récupération des machines virtuelles et serveurs physiques situés en local sur Microsoft Azure, ou sur un site local secondaire."
+	pageTitle="Mappage réseau Azure Site Recovery | Microsoft Azure"
+	description="Azure Site Recovery coordonne la réplication, le basculement et la récupération des ordinateurs virtuels et services physiques situés en local vers Azure ou vers un site local secondaire."
 	services="site-recovery"
 	documentationCenter=""
 	authors="rayne-wiselman"
@@ -17,10 +17,10 @@
 	ms.author="raynew"/>
 
 
-# Mappage réseau de Microsoft Azure Site Recovery
+# Mappage réseau d’Azure Site Recovery
 
 
-Azure Site Recovery contribue à mettre en œuvre la stratégie de continuité des activités et de récupération d’urgence de votre entreprise en coordonnant la réplication, le basculement et la récupération de machines virtuelles et de serveurs physiques. Pour obtenir des instructions sur les différents scénarios de déploiement possibles, voir [Présentation d’Azure Site Recovery](site-recovery-overview.md).
+Azure Site Recovery contribue à mettre en œuvre la stratégie de continuité des activités et de récupération d'urgence de votre entreprise en coordonnant la réplication, le basculement et la récupération de machines virtuelles et de serveurs physiques. Pour obtenir des instructions sur les différents scénarios de déploiement possibles, voir [Vue d’ensemble de Microsoft Azure Site Recovery](site-recovery-overview.md).
 
 
 ## À propos de cet article
@@ -40,12 +40,12 @@ La configuration du mappage réseau dépend du scénario de déploiement de Micr
 
 	- **Connexion des machines virtuelles après basculement** : le système vérifie que les machines virtuelles sont connectées aux réseaux appropriés après le basculement. L’ordinateur virtuel de réplication sera connecté au réseau cible mappé au réseau source.
 	- **Positionnement des ordinateurs virtuels de réplication sur les serveurs hôtes** : les ordinateurs virtuels de réplication sont positionnés de manière optimale sur les serveurs hôtes Hyper-V. Ces ordinateurs sont placés sur des hôtes ayant accès aux réseaux de machines virtuelles mappés.
-	- **Aucun mappage réseau** : si vous ne configurez pas le mappage réseau, les ordinateurs virtuels de réplication ne seront pas connectés aux réseaux de machines virtuelles après le basculement.
+	- **Aucun mappage réseau** : si vous ne configurez pas le mappage réseau, les ordinateurs virtuels de réplication ne sont pas connectés aux réseaux de machines virtuelles après le basculement.
 
 - **Mappage entre un serveur VMM local et Microsoft Azure** : le mappage réseau effectue un mappage entre les réseaux de machines virtuelles sur le serveur VMM source et les réseaux Microsoft Azure cibles, afin d’obtenir les résultats décrits ci-après.
 	- **Connexion des machines virtuelles après le basculement** : toutes les machines qui basculent sur le même réseau peuvent se connecter les unes aux autres, quel que soit le plan de récupération qui leur est associé.
 	- **Passerelle réseau** : si une passerelle réseau est configurée sur le réseau Microsoft Azure cible, les machines virtuelles peuvent se connecter à d’autres machines virtuelles locales.
-	- **Aucun mappage réseau** : si vous ne configurez pas le mappage réseau, seules les machines virtuelles ayant basculé au sein d’un même plan de récupération pourront se connecter les unes aux autres après le basculement vers Microsoft Azure.
+	- **Aucun mappage réseau** : si vous ne configurez pas le mappage réseau, seules les machines virtuelles ayant basculé au sein d’un même plan de récupération peuvent se connecter les unes aux autres après le basculement vers Microsoft Azure.
 
 ## Réseaux de machines virtuelles
 
@@ -74,7 +74,7 @@ Dans cet exemple :
 - Lorsqu’un ordinateur virtuel de réplication est créé pour une machine virtuelle connectée au réseau VMNetwork1-NewYork, il est connecté au réseau VMNetwork1-Chicago.
 - Lorsqu’un ordinateur virtuel de réplication est créé pour le réseau VMNetwork2-NewYork ou VMNetwork2-Chicago, il n’est pas connecté à un réseau.
 
-Voici comment les clouds VMM sont configurés dans notre exemple d’entreprise, ainsi que les réseaux logiques associés à ces clouds.
+Voici comment les clouds VMM sont configurés dans notre exemple d’organisation, ainsi que les réseaux logiques associés aux clouds.
 
 ### Paramètres de protection des clouds
 
@@ -108,7 +108,7 @@ VMNetwork2-Chicago | SilverCloud1 | SilverCloud2 | Non disponible
 
 ## Plusieurs sous-réseaux
 
-Remarque : si le réseau cible est associé à plusieurs sous-réseaux et que l’un d’eux présente le même nom que le sous-réseau dans lequel se trouve la machine virtuelle source, l’ordinateur virtuel de réplication est connecté à ce sous-réseau cible après le basculement. S’il n’existe aucun sous-réseau cible avec un nom correspondant, la machine virtuelle sera connectée au premier sous-réseau du réseau.
+Si le réseau cible est associé à plusieurs sous-réseaux et que l’un d’eux présente le même nom que le sous-réseau dans lequel se trouve la machine virtuelle source, l’ordinateur virtuel de réplication est connecté à ce sous-réseau cible après le basculement. S’il n’existe aucun sous-réseau cible avec un nom correspondant, la machine virtuelle sera connectée au premier sous-réseau du réseau.
 
 
 ### Restauration automatique
@@ -134,6 +134,5 @@ Le mappage réseau de VMNetwork1-Chicago est modifié. | La machine VM1 est conn
 ## Étapes suivantes
 
 Maintenant que vous avez une meilleure compréhension du mappage réseau, lisez les [meilleures pratiques](site-recovery-best-practices.md) relatives à la préparation du déploiement.
- 
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO4-->

@@ -1,20 +1,20 @@
 <properties
-   pageTitle="Directives de personnalisation des applications"
-	description="Guide complet sur les ressources destinées aux développeurs pour Azure Active Directory"
-	services="active-directory"
-	documentationCenter="dev-center-name"
-	authors="msmbaldwin"
-	manager="mbaldwin"
-	editor=""/>
+   pageTitle="Directives de personnalisation des applications | Microsoft Azure"
+   description="Guide complet sur les ressources destinées aux développeurs pour Azure Active Directory"
+   services="active-directory"
+   documentationCenter="dev-center-name"
+   authors="msmbaldwin"
+   manager="mbaldwin"
+   editor=""/>
 
 <tags
    ms.service="active-directory"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="identity"
-	ms.date="08/25/2015"
-	ms.author="mbaldwin"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="identity"
+   ms.date="09/17/2015"
+   ms.author="mbaldwin"/>
 
 
 # Directives de personnalisation des applications
@@ -94,4 +94,4 @@ N’exposez **PAS** les utilisateurs finaux à la marque Azure ou Active Direct
 
 Si votre application prend en charge Azure AD et les comptes Microsoft, vous devez y inclure deux boutons de connexion distincts. Nous travaillons actuellement sur une mise à jour qui vous permettra d’effectuer une seule intégration et de prendre en charge à la fois les comptes personnels et professionnels de Microsoft. Une fois que cette fonctionnalité sera disponible, vous serez en mesure d’afficher un seul bouton « connexion avec Microsoft » dans votre application.
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO4-->

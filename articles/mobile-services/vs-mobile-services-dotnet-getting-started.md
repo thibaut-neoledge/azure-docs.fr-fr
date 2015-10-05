@@ -1,5 +1,5 @@
 <properties
-	pageTitle=""
+	pageTitle="Prise en main d’un projet de services mobiles Visual Studio .NET (services connectés) | Microsoft Azure"
 	description="Prise en main d’Azure Mobile Services dans un projet .NET Visual Studio"
 	services="mobile-services"
 	documentationCenter=""
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="vs-getting-started"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="06/16/2015"
-	ms.author="patshea123"/>
+	ms.date="09/17/2015" 
+	ms.author="patshea"/>
 
 # Prise en main de Mobile Services (Projets .NET)
 
@@ -85,4 +85,4 @@ Supprimez une ligne de la base de données. L'élément de paramètre correspond
 
 [En savoir plus sur Mobile Services](http://azure.microsoft.com/documentation/services/mobile-services/)
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO4-->

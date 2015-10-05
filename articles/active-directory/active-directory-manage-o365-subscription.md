@@ -4,9 +4,8 @@
    services="active-directory"
    documentationCenter=""
    authors="curtand"
-   manager="stevepo"
+   manager="stevenpo"
    editor=""/>
-
 
 <tags
    ms.service="active-directory"
@@ -14,9 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="08/03/2015"
+   ms.date="09/21/2015"
    ms.author="curtand"/>
-
 
 #Gestion du répertoire de l’abonnement Office 365 dans Azure
 
@@ -72,4 +70,4 @@ Supposons maintenant que John Doe doit se connecter au portail de gestion Azure 
 ##Étapes suivantes
 Pour plus d'informations sur la relation entre les annuaires et les abonnements, consultez [Association des abonnements Azure avec Azure AD](active-directory-how-subscriptions-associated-directory.md).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

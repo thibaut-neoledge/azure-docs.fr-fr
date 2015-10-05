@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="08/05/2015"
+	ms.date="09/17/2015"
 	ms.author="awills"/>
 
 # Application Insights : langages et plateformes
@@ -42,6 +42,7 @@
 + [Android](https://github.com/Microsoft/ApplicationInsights-Android)
 + [Applications web Azure et machines virtuelles](../insights-perf-analytics.md)
 + [Azure Cloud Services](app-insights-cloudservices.md) incluant les rôles web et de travail
++ [CRM Online pour Microsoft Dynamics](app-insights-sample-mscrm.md)
 + [iOS](https://github.com/Microsoft/ApplicationInsights-iOS)
 + [J2EE](app-insights-java-get-started.md)
 + [J2EE - Déjà actif](app-insights-java-live.md)
@@ -78,4 +79,4 @@ S’il n’existe pas encore de kit de développement logiciel (SDK) pour votre 
 
 <!--Link references-->
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

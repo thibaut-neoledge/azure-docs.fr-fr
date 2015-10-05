@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Déplacer des données vers et depuis le système de fichiers | Azure Data Factory"
-	description="Apprenez à déplacer des données vers et depuis le système de fichiers local à l’aide d’Azure Data Factory."
-	services="data-factory"
-	documentationCenter=""
-	authors="spelluru"
-	manager="jhubbard"
+	pageTitle="Déplacer des données vers et depuis le système de fichiers | Azure Data Factory" 
+	description="Apprenez à déplacer des données vers et depuis le système de fichiers local à l’aide d’Azure Data Factory." 
+	services="data-factory" 
+	documentationCenter="" 
+	authors="spelluru" 
+	manager="jhubbard" 
 	editor="monicar"/>
 
 <tags 
-	ms.service="data-factory"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/26/2015"
+	ms.service="data-factory" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/22/2015" 
 	ms.author="spelluru"/>
 
 # Déplacement de données vers et depuis le système de fichiers local à l’aide d’Azure Data Factory
@@ -561,7 +561,18 @@ Pour utiliser AvroFormat dans une table Hive ultérieure, vous pouvez faire réf
 
 ## Propriétés de type d'activité de copie de partage de fichiers
 
-**FileSystemSource** et **FileSystemSink** ne prennent en charge aucune propriété pour l'instant.
+**FileSystemSource** prend en charge les propriétés suivantes :
+
+| Propriété | Description | Valeurs autorisées | Requis |
+| -------- | ----------- | -------------- | -------- |
+| recursive | Indique si les données sont lues de manière récursive dans les sous-dossiers ou uniquement dans le dossier spécifié. | True, False (par défaut)| Non | 
+
+**FileSystemSink** prend en charge les propriétés suivantes :
+
+| Propriété | Description | Valeurs autorisées | Requis |
+| -------- | ----------- | -------------- | -------- |
+| copyBehavior | Définit le comportement de copie lorsque la source est BlobSource ou FileSystem. | <p>Il existe trois valeurs possibles pour la propriété copyBehavior. </p><ul><li>** PreserveHierarchy : ** conserve la hiérarchie des fichiers dans le dossier cible, par exemple : le chemin d'accès relatif du fichier source vers le dossier source est identique au chemin d'accès relatif du fichier cible vers le dossier cible.</li><li>** FlattenHierarchy : ** tous les fichiers du dossier source sont dans le premier niveau du dossier cible. Les fichiers cibles auront un nom généré automatiquement. </li><li>** MergeFiles : ** fusionne tous les fichiers du dossier source vers un seul fichier. Si le nom de fichier/d’objet blob est spécifié, le nom de fichier fusionné est le nom spécifié. Dans le cas contraire, le nom de fichier est généré automatiquement.</li></ul> | Non |
+
 
 [AZURE.INCLUDE [data-factory-structure-for-rectangualr-datasets](../../includes/data-factory-structure-for-rectangualr-datasets.md)]
 
@@ -576,4 +587,4 @@ Pour utiliser AvroFormat dans une table Hive ultérieure, vous pouvez faire réf
 
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO4-->

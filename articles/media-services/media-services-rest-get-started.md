@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/07/2015" 
+	ms.date="09/18/2015" 
 	ms.author="juliako"/>
 
 #Prise en main de la diffusion de contenus vidéo à la demande (VoD) à l’aide des API REST 
@@ -1211,4 +1211,4 @@ Vous pouvez afficher les parcours d’apprentissage d’AMS ici :
 
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Impossible de se connecter à une machine virtuelle Azure via RDP | Microsoft Azure"
+	pageTitle="Résolution de problèmes de connexion Bureau à distance sur une machine virtuelle Windows | Microsoft Azure"
 	description="Résolution des problèmes de connexion Bureau à distance ou RDP avec une machine virtuelle Azure exécutant Windows."
 	services="virtual-machines"
 	documentationCenter=""
@@ -19,15 +19,17 @@
 
 # Résolution des problèmes de connexion Bureau à distance avec une machine virtuelle Azure exécutant Windows
 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Cet article traite du dépannage d’une machine virtuelle créée avec le modèle de déploiement du Gestionnaire des ressources ou du modèle de déploiement classique.
+
 Plusieurs raisons peuvent expliquer l’incapacité de Bureau à distance (RDP) à se connecter à votre machine virtuelle Azure exécutant Windows. Cet article vous aidera à en déterminer les causes et à les corriger.
 
-> [AZURE.NOTE]Cet article s'applique uniquement aux machines virtuelles Azure exécutant Windows. Pour résoudre les problèmes de connexion à des machines virtuelles exécutant Linux, consultez [cet article](virtual-machines-troubleshoot-ssh-connections.md).
+> [AZURE.NOTE]Cet article s'applique uniquement aux machines virtuelles Azure exécutant Windows. Pour résoudre les problèmes de connexion à des machines virtuelles exécutant Linux, voir [cet article](virtual-machines-troubleshoot-ssh-connections.md).
 
 ## Contacter le Support technique Azure
 
-Si vous avez besoin d'aide supplémentaire à tout moment dans cet article, vous pouvez contacter les experts Azure sur [les forums MSDN Azure et Stack Overflow](http://azure.microsoft.com/support/forums/).
+Si vous avez besoin d’aide supplémentaire concernant n’importe quel point de cet article, vous pouvez contacter les experts Azure sur les [forums MSDN Azure et Stack Overflow](http://azure.microsoft.com/support/forums/).
 
-Vous pouvez également signaler un incident au support Azure. Allez sur le [site de support Azure](http://azure.microsoft.com/support/options/), puis cliquez sur **Obtenir un support**. Pour plus d’informations sur l’utilisation du support Azure, lisez le [FAQ du support Microsoft Azure](http://azure.microsoft.com/support/faq/).
+Vous pouvez également signaler un incident au support Azure. Accédez au [site de support Azure](http://azure.microsoft.com/support/options/), puis cliquez sur **Obtenir un support**. Pour plus d’informations sur l’utilisation du support Azure, lisez le [FAQ du support Microsoft Azure](http://azure.microsoft.com/support/faq/).
 
 
 ## Étapes de base
@@ -45,10 +47,10 @@ Ces étapes de base permettent de résoudre la plupart des problèmes de connexi
 
 ## Exécuter le package de diagnostic Azure IaaS sous Windows
 
-Si vous effectuez le dépannage à partir d'un ordinateur exécutant Windows 8, Windows 8.1, Windows Server 2012 ou Windows Server 2012 R2, vous pouvez essayer d’exécuter le [package de diagnostics Azure IaaS (Windows)](http://support.microsoft.com/kb/2976864). Ce package permet de résoudre la plupart des problèmes courants qui affectent le Bureau à distance.
+Si vous effectuez le dépannage à partir d’un ordinateur exécutant Windows 8, Windows 8.1, Windows Server 2012 ou Windows Server 2012 R2, vous pouvez essayer d’exécuter le [package de diagnostics Azure IaaS (Windows)](http://support.microsoft.com/kb/2976864). Ce package permet de résoudre la plupart des problèmes courants qui affectent le Bureau à distance.
 
 1.	Cliquez sur le **package de diagnostic Microsoft Azure IaaS (Windows)** dans la [page de diagnostics du support](https://home.diagnostics.support.microsoft.com/SelfHelp?knowledgebaseArticleFilter=2976864). Cliquez sur **Créer** pour lancer une nouvelle session de diagnostic. Vous pouvez **partager** cette session avec un autre ordinateur cible ou la **télécharger** sur votre ordinateur local.
-2.	**Exécutez** la session, **acceptez** le contrat de licence Microsoft et **démarrez** l'outil de diagnostic.
+2.	**Exécutez** la session, **acceptez** le contrat de licence Microsoft et **démarrez** l’outil de diagnostic.
 3.	Authentifiez votre abonnement Azure dans la fenêtre contextuelle puis suivez les invites.
 4.	Sur la page **Lequel des problèmes suivants se produit sur votre machine virtuelle Azure ?**, sélectionnez le problème **Connectivité RDP à une machine virtuelle Azure (redémarrage requis)**.
 
@@ -63,7 +65,7 @@ Voici les erreurs les plus courantes que vous pouvez rencontrer lorsque vous ten
 
 2. [Erreur de connexion Bureau à distance : Le Bureau à distance ne trouve pas le « nom » de l’ordinateur](#rdpname).
 
-3. [Erreur de connexion Bureau à distance : Une erreur d’authentification s’est produite. L’autorité de sécurité locale ne peut pas être contactée](#rdpauth).
+3. [Erreur de connexion Bureau à distance : une erreur d’authentification s’est produite. L’autorité de sécurité locale ne peut pas être contactée](#rdpauth).
 
 4. [Erreur de sécurité Windows : Vos informations d’identification n’ont pas fonctionné](#wincred).
 
@@ -126,7 +128,7 @@ Si vous avez promu votre machine virtuelle vers un contrôleur de domaine d’un
 
 Vérifiez que le nom du compte est un nom qui peut être considéré comme valide par la machine virtuelle, et que le mot de passe est correct.
 
-Pour modifier le mot de passe du compte administrateur local, consultez [Réinitialisation d’un mot de passe ou du Service Bureau à distance pour les machines virtuelles Windows](virtual-machines-windows-reset-password.md).
+Pour modifier le mot de passe du compte administrateur local, voir [Réinitialisation d’un mot de passe ou du Service Bureau à distance pour les machines virtuelles Windows](virtual-machines-windows-reset-password.md).
 
 <a id="rdpconnect"></a>
 ### Erreur de connexion Bureau à distance : Cet ordinateur ne peut pas se connecter à l’ordinateur distant.
@@ -155,4 +157,4 @@ Si aucune de ces erreurs ne s’est produite et vous ne parvenez toujours pas à
 
 [Résoudre les problèmes d’accès à une application exécutée sur une machine virtuelle Azure](virtual-machines-troubleshoot-access-application.md)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

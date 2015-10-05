@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="09/09/2015"
+   ms.date="09/22/2015"
    ms.author="lodipalm"/>
 
 #Tirer parti d’autres services avec SQL Data Warehouse
@@ -71,4 +71,4 @@ Pour plus d’informations, consultez [Intégrer à Azure Stream Analytics](..
 
 <!--Other Web references-->
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

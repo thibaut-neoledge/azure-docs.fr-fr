@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Fonctionnement de la gestion des mots de passe Azure AD | Microsoft Azure" 
-	description="Découvrez les différents composants de la gestion des mots de passe Azure AD, y compris l’emplacement où les utilisateurs s’inscrivent, réinitialisent et modifient leurs mots de passe et celui où les administrateurs configurent, créent des rapports et activent la gestion des mots de passe Active Directory locaux." 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="asteen" 
-	manager="kbrint" 
+<properties
+	pageTitle="Fonctionnement de la gestion des mots de passe Azure AD | Microsoft Azure"
+	description="Découvrez les différents composants de la gestion des mots de passe Azure AD, y compris l’emplacement où les utilisateurs s’inscrivent, réinitialisent et modifient leurs mots de passe et celui où les administrateurs configurent, créent des rapports et activent la gestion des mots de passe Active Directory locaux."
+	services="active-directory"
+	documentationCenter=""
+	authors="asteen"
+	manager="kbrint"
 	editor="billmath"/>
 
-<tags 
-	ms.service="active-directory" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/08/2015" 
+<tags
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/18/2015" 
 	ms.author="asteen"/>
 
 # Fonctionnement de la gestion des mots de passe
@@ -120,6 +120,5 @@ Pour plus d’informations sur Azure AD Connect, consultez la page [Prise en mai
 [005]: ./media/active-directory-passwords-how-it-works/005.jpg "Image_005.jpg"
 [006]: ./media/active-directory-passwords-how-it-works/006.jpg "Image_006.jpg"
 [007]: ./media/active-directory-passwords-how-it-works/007.jpg "Image_007.jpg"
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->
