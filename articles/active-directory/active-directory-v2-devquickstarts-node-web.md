@@ -67,7 +67,7 @@ Dans la ligne de commande, placez les répertoires dans votre dossier racine s�
 - `npm install express-session`
 - `npm install cookie-parser`
 
-- In addition, we've use `passport-azure-ad` for our Preview in the skeleton of the quickstart.
+- En outre, nous avons utilisé `passport-azure-ad` pour notre version préliminaire dans la structure du démarrage rapide.
 
 - `npm install passport-azure-ad`
 
