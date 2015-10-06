@@ -38,80 +38,80 @@ Le code associé à ce didacticiel est stocké [sur GitHub](https://github.com/A
 
 ```git clone --branch skeleton https://github.com/AzureADQuickStarts/B2C-WebAPI-nodejs.git```
 
-The completed application is provided at the end of this tutorial as well.
+L'application terminée est également fournie à la fin de ce didacticiel.
 
-> [AZURE.WARNING] 	For our B2C Preview you must use the same client ID/Application ID and policies for both the Web-API task server and the client that connects to it. This is true for our iOS and Android tutorials. If you have previously created an application in either of those quickstarts, please use those values instead of creating new ones below.
+> [AZURE.WARNING] 	Pour la version préliminaire de B2C, vous devez utiliser les mêmes ID client/ID d’application et stratégies pour le serveur de la tâche API web et le client qui s’y connecte. Cela est vrai pour les didacticiels iOS et Android. Si vous avez précédemment créé une application dans l’un de ces Démarrages rapides, utilisez ces valeurs au lieu d’en créer de nouvelles ci-dessous.
 
 
-## 1. Get an Azure AD B2C directory
+## 1. Obtention d'un répertoire Azure AD B2C
 
-Before you can use Azure AD B2C, you must create a directory, or tenant.  A directory is a container for all your users, apps, groups, and so on.  If you don't have
-one already, go [create a B2C directory](active-directory-b2c-get-started.md) before moving on.
+Avant de pouvoir utiliser Azure AD B2C, vous devez créer un répertoire ou un client. Un répertoire est un conteneur destiné à recevoir tous vos utilisateurs, applications, groupes et autres.  Si vous n’en avez pas encore,
+reportez-vous à [Créer un répertoire B2C](active-directory-b2c-get-started.md) avant d’aller plus loin.
 
-## 2. Create an application
+## 2. Création d'une application
 
-Now you need to create an app in your B2C directory, which gives Azure AD some information that it needs to securely communicate with your app.  Both the client app and web API will be represented by a single **Application ID** in this case, since they comprise one logical app.  To create an app,
-follow [these instructions](active-directory-b2c-app-registration.md).  Be sure to
+Vous devez maintenant créer dans votre répertoire B2C une application fournissant à Azure AD certaines informations nécessaires pour communiquer de manière sécurisée avec votre application. L’application cliente et l’API web seront alors toutes les deux représentées par un seul **ID d’application**,
+car elles constituent une application logique. Pour créer une application, suivez [ces instructions](active-directory-b2c-app-registration.md). Assurez-vous de
 
-- Include a **web app/web api** in the application
-- Enter `http://localhost/TodoListService` as a **Reply URL** - it is the default URL for this code sample.
-- Create an **Application Secret** for your application and copy it down.  You will need it shortly.
-- Copy down the **Application ID** that is assigned to your app.  You will also need it shortly.
+- Inclure une **application web/API web** dans l’application
+- Saisir `http://localhost/TodoListService` en tant qu’**URL de réponse** ; il s’agit de l’URL par défaut pour cet exemple de code.
+- Créer une **clé secrète d’application** pour votre application et la noter quelque part. Vous en aurez besoin rapidement.
+- Notez l’**ID d’application** affecté à votre application. Vous en aurez aussi besoin rapidement.
 
     > [AZURE.IMPORTANT]
-    You cannot use applications registered in the **Applications** tab on the [Azure Portal](https://manage.windowsazure.com/) for this.
+    Vous ne pouvez pas utiliser les applications enregistrées sous l’onglet **Applications** sur le [portail Azure](https://manage.windowsazure.com/) à cette fin.
 
-## 3. Create your policies
+## 3\. Création de vos stratégies
 
-In Azure AD B2C, every user experience is defined by a [**policy**](active-directory-b2c-reference-policies.md).  This app contains three
-identity experiences - sign-up, sign-in, and sign-in with Facebook.  You will need to create one policy of each type, as described in the
-[policy reference article](active-directory-b2c-reference-policies.md#how-to-create-a-sign-up-policy).  When creating your three policies, be sure to:
+Dans Azure AD B2C, chaque expérience utilisateur est définie par une [**stratégie**](active-directory-b2c-reference-policies.md).  Cette application contient trois 
+expériences liées à l'identité : l'inscription, la connexion et la connexion avec Facebook. Vous devez créer une stratégie de chaque type, comme décrit dans l’
+[article de référence de stratégie](active-directory-b2c-reference-policies.md#how-to-create-a-sign-up-policy). Lors de la création de vos trois stratégies, assurez-vous de :
 
-- Choose the **Display Name** and a few other sign-up attributes in your sign-up policy.
-- Choose the **Display Name** and **Object ID** application claims in every policy.  You can choose other claims as well.
-- Copy down the **Name** of each policy after you create it.  It should have the prefix `b2c_1_`.  You'll need those policy names shortly.
+- Choisir le **nom d’affichage** et quelques autres attributs d’inscription dans votre stratégie d’inscription.
+- Choisir les revendications d’application **nom d’affichage** et **ID objet** dans chaque stratégie. Vous pouvez aussi choisir d'autres revendications.
+- Notez le **nom** de chaque stratégie après sa création. Il doit présenter le préfixe `b2c_1_`. Vous aurez besoin des noms de ces stratégies rapidement.
 
-Once you have your three policies successfully created, you're ready to build your app.
+Une fois vos trois stratégies créées, vous pouvez concevoir votre application.
 
-Note that this article does not cover how to use the policies you just created.  If you want to learn about how policies work in Azure AD B2C,
-you should start with the [.NET Web App getting started tutorial](active-directory-b2c-devquickstarts-web-dotnet.md).
+Remarque : cet article n'explique pas comment utiliser les stratégies que vous venez de créer. Si vous souhaitez en savoir plus sur la façon dont les stratégies fonctionnent dans Azure AD B2C,
+vous devriez commencer par lire le [didacticiel sur la prise en main de l’application Web .NET](active-directory-b2c-devquickstarts-web-dotnet.md).
 
-## 4: Download node.js for your platform
-To successfully use this sample, you must have a working installation of Node.js.
+## 4 : téléchargement de node.js pour votre plateforme
+Pour réussir à utiliser cet exemple, Node.js doit être installé correctement.
 
-Install Node.js from [http://nodejs.org](http://nodejs.org).
+Installez Node.js à partir de l’adresse suivante : [http://nodejs.org](http://nodejs.org).
 
-## 5: Install MongoDB on to your platform
+## 5 : installation de MongoDB sur votre plateforme
 
-To successfully use this sample, you must have a working installation of MongoDB. We will use MongoDB to make our REST API persistant across server instances.
+Pour réussir à utiliser cet exemple, MongoDB doit être installé correctement. Nous allons utiliser MongoDB afin que notre API REST soit persistante sur plusieurs instances de serveur.
 
-Install MongoDB from [http://mongodb.org](http://www.mongodb.org).
+Installez MongoDB à partir de l’adresse suivante : [http://mongodb.org](http://www.mongodb.org).
 
-> [AZURE.NOTE] This walkthrough assumes that you use the default installation and server endpoints for MongoDB, which at the time of this writing is: mongodb://localhost
+> [AZURE.NOTE] Cette procédure détaillée suppose que vous utilisez l’installation et les points de terminaison du serveur par défaut pour MongoDB, c’est-à-dire les suivants au moment de la rédaction : mongodb://localhost
 
-## 6: Install the Restify modules in to your Web API
+## 6 : installation des modules Restify sur votre API web
 
-We will be using Resitfy to build our REST API. Restify is a minimal and flexible Node.js application framework derived from Express that has a robust set of features for building REST APIs on top of Connect.
+Nous allons utiliser Restify pour concevoir notre API REST. Restify est une infrastructure d’application Node.js minimale et flexible dérivée d’Express, qui inclut un ensemble complet de fonctionnalités permettant de créer des API REST sur Connect.
 
-### Install Restify
+### Installation de Restify
 
-From the command-line, change directories to the azuread directory. If the **azuread** directory does not exist, create it.
+À partir de la ligne de commande, accédez au répertoire azuread. Si le répertoire **azuread** n’existe pas, créez-le.
 
-`cd azuread` - or- `mkdir azuread;`
+`cd azuread` - ou - `mkdir azuread;`
 
-Type the following command:
+Tapez la commande suivante :
 
 `npm install restify`
 
-This command installs Restify.
+Cette commande permet d’installer Restify.
 
-#### Did you get an error?
+#### Une erreur est-elle survenue ?
 
-When using npm on some operating systems, you may receive an error of Error: EPERM, chmod '/usr/local/bin/..' and a request to try running the account as an administrator. If this occurs, use the sudo command to run npm at a higher privilege level.
+Sur certains systèmes d’exploitation, NPM peut générer une erreur Error: EPERM, chmod ’/usr/local/bin/..’ et une demande pour essayer d’exécuter le compte en tant qu’administrateur. Si cette erreur survient, utilisez la commande sudo pour exécuter npm avec des privilèges plus élevés.
 
-#### Did you get an error regarding DTrace?
+#### Une erreur relative à DTrace est-elle survenue ?
 
-You may see something like this when installing Restify:
+Lors de l’installation de Restify, vous risquez de voir ceci :
 
 ```Shell
 clang: error: no such file or directory: 'HD/azuread/node_modules/restify/node_modules/dtrace-provider/libusdt'

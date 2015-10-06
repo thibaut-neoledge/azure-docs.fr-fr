@@ -650,4 +650,4 @@ Vous pouvez maintenant aborder des rubriques B2C plus sophistiquées. Par exempl
 
 [Personnalisation de l'UX de l'application B2C >>]()
 
-<!---HONumber=Sept15_HO4-->
+<!----HONumber=Sept15_HO4-->

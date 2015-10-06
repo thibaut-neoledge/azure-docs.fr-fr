@@ -886,7 +886,16 @@ Tout d’abord, écrivons notre `getTask` :
  
  **Dans le même fichier** appelé `ToDoActivity.java`
  
- ``` private URL getEndpointUrl() { URL endpoint = null; try { endpoint = new URL(Constants.SERVICE\_URL); } catch (MalformedURLException e) { e.printStackTrace(); } return endpoint; }
+```
+    private URL getEndpointUrl() {
+        URL endpoint = null;
+        try {
+            endpoint = new URL(Constants.SERVICE_URL);
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        }
+        return endpoint;
+    }
 
  ```
 
@@ -957,23 +966,26 @@ Enfin, générez et exécutez l'application dans Android Studio ou Eclipse. Insc
 
 Notez la façon dont les tâches sont stockées par utilisateur sur l'API, dans la mesure où l'API extrait l'identité de l'utilisateur à partir du jeton d'accès qu'il reçoit.
 
-Pour référence, l’exemple terminé [ est fourni au format .zip ici](https://github.com/AzureADQuickStarts/B2C-NativeClient-Android/archive/complete.zip). Vous pouvez également le cloner à partir de GitHub :
+Pour référence, l’exemple terminé [est fourni au format .zip ici](https://github.com/AzureADQuickStarts/B2C-NativeClient-Android/archive/complete.zip). Vous pouvez également le cloner à partir de GitHub :
 
 ```git clone --branch complete https://github.com/AzureADQuickStarts/B2C-NativeClient-Android```
 
 
-### Important Information
+### Informations importantes
 
 
-#### Encryption
+#### Chiffrement
 
-ADAL encrypts the tokens and store in SharedPreferences by default. You can look at the StorageHelper class to see the details. Android introduced AndroidKeyStore for 4.3(API18) secure storage of private keys. ADAL uses that for API18 and above. If you want to use ADAL for lower SDK versions, you need to provide secret key at AuthenticationSettings.INSTANCE.setSecretKey
+ADAL chiffre les jetons et les stocke dans SharedPreferences par défaut. Vous pouvez consulter la classe StorageHelper pour afficher les détails. Android a introduit AndroidKeyStore pour le stockage sécurisé des clés privées de la version 4.3(API18). La bibliothèque ADAL utilise ces informations pour API18 et les versions ultérieures. Si vous souhaitez utiliser la bibliothèque ADAL pour les versions inférieures du Kit de développement (SDK), vous devez fournir une clé secrète à AuthenticationSettings.INSTANCE.setSecretKey.
 
-#### Session cookies in Webview
+#### Cookies de session dans Webview
 
-Android webview does not clear session cookies after app is closed. You can handle this with sample code below:
-```
-CookieSyncManager.createInstance(getApplicationContext()); CookieManager cookieManager = CookieManager.getInstance(); cookieManager.removeSessionCookie(); CookieSyncManager.getInstance().sync(); ``` Pour en savoir plus sur les cookies : http://developer.android.com/reference/android/webkit/CookieSyncManager.html
+Android Webview n’efface pas les cookies de session après la fermeture de l’application. Vous gérez cela avec l’exemple de code suivant : ```
+CookieSyncManager.createInstance(getApplicationContext());
+CookieManager cookieManager = CookieManager.getInstance();
+cookieManager.removeSessionCookie();
+CookieSyncManager.getInstance().sync();
+``` Pour en savoir plus sur les cookies : http://developer.android.com/reference/android/webkit/CookieSyncManager.html
  
 
 <!---HONumber=Sept15_HO4-->
