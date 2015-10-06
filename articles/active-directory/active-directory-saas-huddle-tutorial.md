@@ -98,7 +98,7 @@ Pour se connecter à Huddle, les utilisateurs d’Azure AD doivent être approvi
     ![Nouvelle invitation](./media/active-directory-saas-huddle-tutorial/IC787839.png "Nouvelle invitation")
 
     1.  Dans la liste **Choose a team to invite people to join**, sélectionnez **team**.
-    2.  Indiquez le l’**￼adresse de messagerie** d’un compte Azure Active Directory valide que vous souhaitez approvisionner dans la zone de texte correspondante.
+    2.  Indiquez le l’**adresse de messagerie** d’un compte Azure Active Directory valide que vous souhaitez approvisionner dans la zone de texte correspondante.
     3.  Cliquez sur **Invite**.
 
     >[AZURE.NOTE]Le titulaire du compte Azure AD reçoit alors un message électronique contenant un lien pour confirmer le compte avant qu’il ne soit activé.

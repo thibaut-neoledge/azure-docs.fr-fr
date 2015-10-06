@@ -119,7 +119,7 @@ Pour permettre aux utilisateurs Azure AD de se connecter à IdeaScale, vous deve
 
     ![Ajouter un nouvel membre](./media/active-directory-saas-ideascale-tutorial/IC790853.png "Ajouter un nouvel membre")
 
-    1.  Indiquez le l’￼adresse de messagerie d’un compte Azure Active Directory valide que vous souhaitez approvisionner dans la zone de texte **Email Addresses**.
+    1.  Indiquez le l’adresse de messagerie d’un compte Azure Active Directory valide que vous souhaitez approvisionner dans la zone de texte **Email Addresses**.
     2.  Cliquez sur **Save Changes**.
 
     >[AZURE.NOTE]Le titulaire du compte Azure Active Directory reçoit un message électronique avec un lien pour confirmer le compte avant qu’il ne soit activé.

@@ -118,7 +118,7 @@ Pour pouvoir se connecter à Zoom, les utilisateurs d’Azure AD doivent être a
     ![Ajouter des utilisateurs](./media/active-directory-saas-zoom-tutorial/IC784704.png "Ajouter des utilisateurs")
 
     1.  Comme **User Type**, sélectionnez **Basic**.
-    2.  Tapez l’￼adresse de messagerie du compte Azure AD valide que vous souhaitez approvisionner dans la zone de texte **Emails**.
+    2.  Tapez l’adresse de messagerie du compte Azure AD valide que vous souhaitez approvisionner dans la zone de texte **Emails**.
     3.  Cliquez sur **Add**.
 
 >[AZURE.NOTE]Vous pouvez utiliser tout autre outil ou n’importe quelle API de création de compte d’utilisateur fournis par Zoom pour approvisionner des comptes d’utilisateurs Azure AD.
