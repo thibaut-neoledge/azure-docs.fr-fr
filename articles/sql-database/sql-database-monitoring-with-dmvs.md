@@ -44,7 +44,10 @@ Dans une instance de SQL Server local, des vues de gestion dynamiques renvoient
 La requête suivante renvoie la taille de votre base de données en mégaoctets:
 
 ```
--- Calcule la taille de la base de données. SELECT SUM(reserved\_page\_count)*8.0/1024 FROM sys.dm\_db\_partition\_stats; GO 
+-- Calcule la taille de la base de données. 
+SELECT SUM(reserved\_page\_count)*8.0/1024
+FROM sys.dm\_db\_partition\_stats; 
+GO
 ```
 
 La requête suivante retourne la taille d’objets individuels (en mégaoctets) dans votre base de données :
@@ -134,4 +137,4 @@ ORDER BY highest_cpu_queries.total_worker_time DESC;
 
 [Présentation de la base de données SQL](sql-database-technical-overview.md)
 
-<!----HONumber=Sept15_HO3-->
+<!-----HONumber=Sept15_HO3-->
