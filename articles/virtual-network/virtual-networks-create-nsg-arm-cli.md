@@ -68,7 +68,10 @@ Pour créer un groupe de sécurité réseau nommé *NSG-FrontEnd* selon le scén
 		data:    DenyAllOutBound                *                  *            *               *                 *         Outbound   Deny    65500   
 		info:    network nsg create command OK
 
-	Paramètres : - **-g (ou --resource-group)**. Nom du groupe de ressources dans lequel sera créé le groupe de sécurité réseau. Pour notre scénario, *TestRG*. - **-l (ou --location)**. Région Azure où le groupe de sécurité réseau sera créé. Pour notre scénario, *westus*. - **-n (ou --name)**. Nom du nouveau groupe de sécurité réseau. Pour notre scénario, *NSG-FrontEnd*.
+	Paramètres :
+	- **-g (ou --resource-group)**. Nom du groupe de ressources dans lequel sera créé le groupe de sécurité réseau. Pour notre scénario, *TestRG*.
+	- **-l (ou --location)**. Région Azure où le groupe de sécurité réseau sera créé. Pour notre scénario, *westus*. 
+	- **-n (ou --name)**. Nom du nouveau groupe de sécurité réseau. Pour notre scénario, *NSG-FrontEnd*.
 
 4. Exécutez la commande **azure network nsg rule create** pour créer une règle qui autorise l’accès au port 3389 (RDP) à partir d’Internet.
 
@@ -102,7 +105,7 @@ Pour créer un groupe de sécurité réseau nommé *NSG-FrontEnd* selon le scén
 	- **-n (ou --name)**. Nom de la nouvelle règle. Pour notre scénario, *rdp-rule*.
 	- **-c (ou --access)**. Niveau d’accès de la règle (Deny ou Allow).
 	- **-p (ou --protocol)**. Protocole (TCP, UDP ou *) de la règle.
-- **-r (ou --direction)**. Direction de la connexion (Inbound ou Outbound).
+	- **-r (ou --direction)**. Direction de la connexion (Inbound ou Outbound).
 	- **-y (ou --priority)**. Priorité de la règle.
 	- **-f (ou --source-address-prefix)**. Préfixe de l’adresse source dans CIDR ou à l’aide de balises par défaut.
 	- **-o (ou --source-port-range)**. Port source ou plage de ports.
@@ -266,4 +269,4 @@ Pour créer un groupe de sécurité réseau nommé *NSG-BackEnd* selon le scéna
 		data:    
 		info:    network vnet subnet set command OK
 
-<!---HONumber=Sept15_HO4-->
+<!----HONumber=Sept15_HO4-->

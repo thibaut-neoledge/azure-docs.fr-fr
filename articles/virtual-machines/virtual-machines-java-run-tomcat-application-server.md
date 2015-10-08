@@ -93,7 +93,7 @@ Pour démarrer Tomcat depuis des machines externes, vous devez créer un point d
 3. Cliquez sur le nom de la machine virtuelle exécutant votre serveur d'applications Java.
 4. Cliquez sur **Endpoints**.
 5. Cliquez sur **Add**.
-6. Dans la boîte de dialogue **Ajouter un point de terminaison**, vérifiez que la case **Ajouter un point de terminaison autonome ** est cochée, puis cliquez sur **Suivant**.
+6. Dans la boîte de dialogue **Ajouter un point de terminaison**, vérifiez que la case **Ajouter un point de terminaison autonome** est cochée, puis cliquez sur **Suivant**.
 7. Dans la boîte de dialogue **Détails du nouveau point de terminaison** :
     1. Entrez un nom pour le point de terminaison, par exemple **HttpIn**.
     2. Indiquez **TCP** pour le protocole.
@@ -113,7 +113,7 @@ Pour démarrer Tomcat depuis des machines externes, vous devez créer un point d
 9. Dans l’écran **Profil**, vérifiez que les options **Domaine**, **Privé** et **Public** sont sélectionnées, puis cliquez sur **Suivant**. ![Profil de nouvelle règle de trafic entrant][NewRuleProfile]
 10. Dans l’écran **Name**, indiquez un nom pour la règle, par exemple **HttpIn** (il n’est pas nécessaire que ce nom corresponde à celui du point de terminaison), puis cliquez sur **Terminer**. ![Nom de nouvelle règle de trafic entrant][NewRuleName]
 
-À ce stade, vous pouvez afficher votre site web Tomcat dans un navigateur externe, en utilisant une URL au format ****http://*your\_DNS\_name*.cloudapp.net**, où ***votre\_nom\_DNS*** correspond au nom DNS que vous avez indiqué lors de la création de la machine virtuelle.
+À ce stade, vous pouvez afficher votre site web Tomcat dans un navigateur externe, en utilisant une URL au format **http://*your\_DNS\_name*.cloudapp.net**, où ***votre\_nom\_DNS*** correspond au nom DNS que vous avez indiqué lors de la création de la machine virtuelle.
 
 ## Considérations relatives au cycle de vie de l'application
 * Vous pouvez créer votre propre archive web d’application (WAR) et l’ajouter au dossier **webapps**. Par exemple, créez un projet Web dynamique JSP (Java Service Page) de base et exportez-le en tant que fichier WAR, copiez celui-ci dans le dossier **webapps** d'Apache Tomcat sur la machine virtuelle, puis exécutez-le dans un navigateur.
@@ -145,4 +145,4 @@ Pour en savoir plus sur les autres services (Azure Storage, bus des services, ba
 [NewRuleName]: ./media/virtual-machines-java-run-tomcat-application-server/NewRuleName.png
 [NewRuleProfile]: ./media/virtual-machines-java-run-tomcat-application-server/NewRuleProfile.png
 
-<!---HONumber=Sept15_HO4-->
+<!----HONumber=Sept15_HO4-->
