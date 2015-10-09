@@ -48,22 +48,6 @@ Centre de données secondaire | Serveur VMM unique | Répliquez des machines vi
 
 Reportez-vous à [ce document](site-recovery-workload.md) pour obtenir des conseils sur l’utilisation d’Azure Site Recovery pour différentes charges de travail.
 
-**Charge de travail** | <p>**Répliquer machines virtuelles Hyper-V**</p> <p>**(vers le site secondaire)**</p> | <p>**Répliquer machines virtuelles Hyper-V**</p> <p>**(vers Azure)**</p> | <p>**Répliquer machines virtuelles VMware**</p> <p>**(vers site secondaire)**</p> | <p>**Répliquer machines virtuelles VMware**</p><p>**(vers Azure)**</p> 
----|---|---|---|--- 
-Active Directory, DNS | O | O | O | O 
-Applications web (IIS, SQL) | O | O | O | O 
-SCOM | O | O | O | O 
-Sharepoint | O | O | O | O 
-<p>SAP</p><p>Répliquer site SAP vers Azure pour non cluster</p> | O (testé par Microsoft) | O (testé par Microsoft) | O (testé par Microsoft) | O (testé par Microsoft) 
-Exchange (non-DAG) | O | Bientôt disponible | O | O 
-Bureau à distance/VDI | O | O | O | N/D 
-<p>Linux</p> <p>(système d’exploitation et applications)</p> | O (testé par Microsoft) | O (testé par Microsoft) | O (testé par Microsoft) | O (testé par Microsoft) 
-Dynamics AX | O | O | O | O 
-Dynamics CRM | O | Bientôt disponible | O | bientôt disponible 
-Oracle | O (testé par Microsoft) | O (testé par Microsoft) | O (testé par Microsoft) | O (testé par Microsoft) 
-Serveur de fichiers Windows | O | O | O | O
-
-
 ## Fonctionnalités et conditions requises 
 
 Ce tableau récapitule les principales fonctionnalités du logiciel Site Recovery et indique de quelle manière elles sont traitées lors de la réplication vers Microsoft Azure, de la réplication vers un site secondaire au moyen de la réplication via le Réplica Hyper-V par défaut, et via SAN.
@@ -90,4 +74,4 @@ Mappage de stockage|Non applicable|Mappe les classifications de stockage sur les
 Une fois que vous avez fini de consulter cette présentation, [lisez les meilleures pratiques](site-recovery-best-practices.md) pour vous aider à prendre en main la planification du déploiement.
  
 
-<!---HONumber=Sept15_HO4-->
+<!----HONumber=Sept15_HO4-->
